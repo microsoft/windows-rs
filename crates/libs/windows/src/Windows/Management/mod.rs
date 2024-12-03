@@ -10,6 +10,64 @@ pub mod Setup;
 pub mod Update;
 #[cfg(feature = "Management_Workplace")]
 pub mod Workplace;
+windows_core::imp::define_interface!(IMdmAlert, IMdmAlert_Vtbl, 0xb0fbc327_28c1_4b52_a548_c5807caf70b6);
+impl windows_core::RuntimeType for IMdmAlert {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IMdmAlert_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Data: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Format: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MdmAlertDataType) -> windows_core::HRESULT,
+    pub SetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, MdmAlertDataType) -> windows_core::HRESULT,
+    pub Mark: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MdmAlertMark) -> windows_core::HRESULT,
+    pub SetMark: unsafe extern "system" fn(*mut core::ffi::c_void, MdmAlertMark) -> windows_core::HRESULT,
+    pub Source: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub Target: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IMdmSession, IMdmSession_Vtbl, 0xfe89314c_8f64_4797_a9d7_9d88f86ae166);
+impl windows_core::RuntimeType for IMdmSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IMdmSession_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Alerts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Alerts: usize,
+    pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MdmSessionState) -> windows_core::HRESULT,
+    pub AttachAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub StartAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub StartWithAlertsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    StartWithAlertsAsync: usize,
+}
+windows_core::imp::define_interface!(IMdmSessionManagerStatics, IMdmSessionManagerStatics_Vtbl, 0xcf4ad959_f745_4b79_9b5c_de0bf8efe44b);
+impl windows_core::RuntimeType for IMdmSessionManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IMdmSessionManagerStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SessionIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SessionIds: usize,
+    pub TryCreateSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DeleteSessionById: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetSessionById: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MdmAlert(windows_core::IUnknown);
@@ -105,6 +163,37 @@ unsafe impl windows_core::Interface for MdmAlert {
 }
 impl windows_core::RuntimeName for MdmAlert {
     const NAME: &'static str = "Windows.Management.MdmAlert";
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MdmAlertDataType(pub i32);
+impl MdmAlertDataType {
+    pub const String: Self = Self(0i32);
+    pub const Base64: Self = Self(1i32);
+    pub const Boolean: Self = Self(2i32);
+    pub const Integer: Self = Self(3i32);
+}
+impl windows_core::TypeKind for MdmAlertDataType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for MdmAlertDataType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertDataType;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MdmAlertMark(pub i32);
+impl MdmAlertMark {
+    pub const None: Self = Self(0i32);
+    pub const Fatal: Self = Self(1i32);
+    pub const Critical: Self = Self(2i32);
+    pub const Warning: Self = Self(3i32);
+    pub const Informational: Self = Self(4i32);
+}
+impl windows_core::TypeKind for MdmAlertMark {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for MdmAlertMark {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertMark;i4)");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -211,95 +300,6 @@ impl MdmSessionManager {
 }
 impl windows_core::RuntimeName for MdmSessionManager {
     const NAME: &'static str = "Windows.Management.MdmSessionManager";
-}
-windows_core::imp::define_interface!(IMdmAlert, IMdmAlert_Vtbl, 0xb0fbc327_28c1_4b52_a548_c5807caf70b6);
-impl windows_core::RuntimeType for IMdmAlert {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IMdmAlert_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Data: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Format: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MdmAlertDataType) -> windows_core::HRESULT,
-    pub SetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, MdmAlertDataType) -> windows_core::HRESULT,
-    pub Mark: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MdmAlertMark) -> windows_core::HRESULT,
-    pub SetMark: unsafe extern "system" fn(*mut core::ffi::c_void, MdmAlertMark) -> windows_core::HRESULT,
-    pub Source: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub Target: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IMdmSession, IMdmSession_Vtbl, 0xfe89314c_8f64_4797_a9d7_9d88f86ae166);
-impl windows_core::RuntimeType for IMdmSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IMdmSession_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Alerts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Alerts: usize,
-    pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MdmSessionState) -> windows_core::HRESULT,
-    pub AttachAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub StartAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub StartWithAlertsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    StartWithAlertsAsync: usize,
-}
-windows_core::imp::define_interface!(IMdmSessionManagerStatics, IMdmSessionManagerStatics_Vtbl, 0xcf4ad959_f745_4b79_9b5c_de0bf8efe44b);
-impl windows_core::RuntimeType for IMdmSessionManagerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IMdmSessionManagerStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SessionIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SessionIds: usize,
-    pub TryCreateSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DeleteSessionById: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetSessionById: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MdmAlertDataType(pub i32);
-impl MdmAlertDataType {
-    pub const String: Self = Self(0i32);
-    pub const Base64: Self = Self(1i32);
-    pub const Boolean: Self = Self(2i32);
-    pub const Integer: Self = Self(3i32);
-}
-impl windows_core::TypeKind for MdmAlertDataType {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for MdmAlertDataType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertDataType;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MdmAlertMark(pub i32);
-impl MdmAlertMark {
-    pub const None: Self = Self(0i32);
-    pub const Fatal: Self = Self(1i32);
-    pub const Critical: Self = Self(2i32);
-    pub const Warning: Self = Self(3i32);
-    pub const Informational: Self = Self(4i32);
-}
-impl windows_core::TypeKind for MdmAlertMark {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for MdmAlertMark {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertMark;i4)");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

@@ -557,91 +557,25 @@ where
     windows_targets::link!("user32.dll" "system" fn UnpackDDElParam(msg : u32, lparam : super::super::Foundation:: LPARAM, puilo : *mut usize, puihi : *mut usize) -> super::super::Foundation:: BOOL);
     UnpackDDElParam(core::mem::transmute(msg), lparam.param().abi(), core::mem::transmute(puilo), core::mem::transmute(puihi))
 }
-pub type PFNCALLBACK = Option<unsafe extern "system" fn(wtype: u32, wfmt: u32, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: usize, dwdata2: usize) -> HDDEDATA>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CONVINFO_CONVERSATION_STATE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CONVINFO_STATUS(pub u32);
-impl CONVINFO_STATUS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for CONVINFO_STATUS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for CONVINFO_STATUS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for CONVINFO_STATUS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for CONVINFO_STATUS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for CONVINFO_STATUS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DDE_CLIENT_TRANSACTION_TYPE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DDE_ENABLE_CALLBACK_CMD(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DDE_INITIALIZE_COMMAND(pub u32);
-impl DDE_INITIALIZE_COMMAND {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DDE_INITIALIZE_COMMAND {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DDE_INITIALIZE_COMMAND {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DDE_INITIALIZE_COMMAND {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DDE_INITIALIZE_COMMAND {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DDE_INITIALIZE_COMMAND {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DDE_NAME_SERVICE_CMD(pub u32);
+pub const APPCLASS_MASK: i32 = 15i32;
+pub const APPCLASS_MONITOR: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(1u32);
+pub const APPCLASS_STANDARD: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(0u32);
+pub const APPCMD_CLIENTONLY: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(16u32);
+pub const APPCMD_FILTERINITS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(32u32);
+pub const APPCMD_MASK: i32 = 4080i32;
+pub const CADV_LATEACK: u32 = 65535u32;
+pub const CBF_FAIL_ADVISES: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(16384u32);
+pub const CBF_FAIL_ALLSVRXACTIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(258048u32);
+pub const CBF_FAIL_CONNECTIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(8192u32);
+pub const CBF_FAIL_EXECUTES: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(32768u32);
+pub const CBF_FAIL_POKES: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(65536u32);
+pub const CBF_FAIL_REQUESTS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(131072u32);
+pub const CBF_FAIL_SELFCONNECTIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(4096u32);
+pub const CBF_SKIP_ALLNOTIFICATIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(3932160u32);
+pub const CBF_SKIP_CONNECT_CONFIRMS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(262144u32);
+pub const CBF_SKIP_DISCONNECTS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(2097152u32);
+pub const CBF_SKIP_REGISTRATIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(524288u32);
+pub const CBF_SKIP_UNREGISTRATIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(1048576u32);
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -695,6 +629,45 @@ impl Default for CONVINFO {
 impl windows_core::TypeKind for CONVINFO {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CONVINFO_CONVERSATION_STATE(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CONVINFO_STATUS(pub u32);
+impl CONVINFO_STATUS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for CONVINFO_STATUS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for CONVINFO_STATUS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for CONVINFO_STATUS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for CONVINFO_STATUS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for CONVINFO_STATUS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COPYDATASTRUCT {
@@ -710,6 +683,9 @@ impl Default for COPYDATASTRUCT {
 impl windows_core::TypeKind for COPYDATASTRUCT {
     type TypeKind = windows_core::CopyType;
 }
+pub const CP_WINANSI: i32 = 1004i32;
+pub const CP_WINNEUTRAL: i32 = 1200i32;
+pub const CP_WINUNICODE: i32 = 1200i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DDEACK {
@@ -813,6 +789,88 @@ impl windows_core::TypeKind for DDEUP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DDE_CLIENT_TRANSACTION_TYPE(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DDE_ENABLE_CALLBACK_CMD(pub u32);
+pub const DDE_FACK: u32 = 32768u32;
+pub const DDE_FACKREQ: u32 = 32768u32;
+pub const DDE_FAPPSTATUS: u32 = 255u32;
+pub const DDE_FBUSY: u32 = 16384u32;
+pub const DDE_FDEFERUPD: u32 = 16384u32;
+pub const DDE_FNOTPROCESSED: u32 = 0u32;
+pub const DDE_FRELEASE: u32 = 8192u32;
+pub const DDE_FREQUESTED: u32 = 4096u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DDE_INITIALIZE_COMMAND(pub u32);
+impl DDE_INITIALIZE_COMMAND {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DDE_INITIALIZE_COMMAND {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DDE_INITIALIZE_COMMAND {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DDE_INITIALIZE_COMMAND {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DDE_INITIALIZE_COMMAND {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DDE_INITIALIZE_COMMAND {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DDE_NAME_SERVICE_CMD(pub u32);
+pub const DMLERR_ADVACKTIMEOUT: u32 = 16384u32;
+pub const DMLERR_BUSY: u32 = 16385u32;
+pub const DMLERR_DATAACKTIMEOUT: u32 = 16386u32;
+pub const DMLERR_DLL_NOT_INITIALIZED: u32 = 16387u32;
+pub const DMLERR_DLL_USAGE: u32 = 16388u32;
+pub const DMLERR_EXECACKTIMEOUT: u32 = 16389u32;
+pub const DMLERR_FIRST: u32 = 16384u32;
+pub const DMLERR_INVALIDPARAMETER: u32 = 16390u32;
+pub const DMLERR_LAST: u32 = 16401u32;
+pub const DMLERR_LOW_MEMORY: u32 = 16391u32;
+pub const DMLERR_MEMORY_ERROR: u32 = 16392u32;
+pub const DMLERR_NOTPROCESSED: u32 = 16393u32;
+pub const DMLERR_NO_CONV_ESTABLISHED: u32 = 16394u32;
+pub const DMLERR_NO_ERROR: u32 = 0u32;
+pub const DMLERR_POKEACKTIMEOUT: u32 = 16395u32;
+pub const DMLERR_POSTMSG_FAILED: u32 = 16396u32;
+pub const DMLERR_REENTRANCY: u32 = 16397u32;
+pub const DMLERR_SERVER_DIED: u32 = 16398u32;
+pub const DMLERR_SYS_ERROR: u32 = 16399u32;
+pub const DMLERR_UNADVACKTIMEOUT: u32 = 16400u32;
+pub const DMLERR_UNFOUND_QUEUE_ID: u32 = 16401u32;
+pub const DNS_FILTEROFF: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(8u32);
+pub const DNS_FILTERON: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(4u32);
+pub const DNS_REGISTER: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(1u32);
+pub const DNS_UNREGISTER: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(2u32);
+pub const EC_DISABLE: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(8u32);
+pub const EC_ENABLEALL: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(0u32);
+pub const EC_ENABLEONE: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(128u32);
+pub const EC_QUERYWAITING: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(2u32);
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCONV(pub *mut core::ffi::c_void);
 impl windows_core::TypeKind for HCONV {
@@ -862,6 +920,7 @@ impl Default for HCONVLIST {
         unsafe { core::mem::zeroed() }
     }
 }
+pub const HDATA_APPOWNED: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDDEDATA(pub *mut core::ffi::c_void);
@@ -917,6 +976,7 @@ impl Default for HSZPAIR {
 impl windows_core::TypeKind for HSZPAIR {
     type TypeKind = windows_core::CopyType;
 }
+pub const MAX_MONITORS: u32 = 4u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -936,6 +996,18 @@ impl Default for METAFILEPICT {
 impl windows_core::TypeKind for METAFILEPICT {
     type TypeKind = windows_core::CopyType;
 }
+pub const MF_CALLBACKS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(134217728u32);
+pub const MF_CONV: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(1073741824u32);
+pub const MF_ERRORS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(268435456u32);
+pub const MF_HSZ_INFO: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(16777216u32);
+pub const MF_LINKS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(536870912u32);
+pub const MF_MASK: u32 = 4278190080u32;
+pub const MF_POSTMSGS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(67108864u32);
+pub const MF_SENDMSGS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(33554432u32);
+pub const MH_CLEANUP: u32 = 4u32;
+pub const MH_CREATE: u32 = 1u32;
+pub const MH_DELETE: u32 = 3u32;
+pub const MH_KEEP: u32 = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1082,80 +1154,8 @@ impl Default for MONMSGSTRUCT {
 impl windows_core::TypeKind for MONMSGSTRUCT {
     type TypeKind = windows_core::CopyType;
 }
-pub const APPCLASS_MASK: i32 = 15i32;
-pub const APPCLASS_MONITOR: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(1u32);
-pub const APPCLASS_STANDARD: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(0u32);
-pub const APPCMD_CLIENTONLY: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(16u32);
-pub const APPCMD_FILTERINITS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(32u32);
-pub const APPCMD_MASK: i32 = 4080i32;
-pub const CADV_LATEACK: u32 = 65535u32;
-pub const CBF_FAIL_ADVISES: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(16384u32);
-pub const CBF_FAIL_ALLSVRXACTIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(258048u32);
-pub const CBF_FAIL_CONNECTIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(8192u32);
-pub const CBF_FAIL_EXECUTES: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(32768u32);
-pub const CBF_FAIL_POKES: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(65536u32);
-pub const CBF_FAIL_REQUESTS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(131072u32);
-pub const CBF_FAIL_SELFCONNECTIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(4096u32);
-pub const CBF_SKIP_ALLNOTIFICATIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(3932160u32);
-pub const CBF_SKIP_CONNECT_CONFIRMS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(262144u32);
-pub const CBF_SKIP_DISCONNECTS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(2097152u32);
-pub const CBF_SKIP_REGISTRATIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(524288u32);
-pub const CBF_SKIP_UNREGISTRATIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(1048576u32);
-pub const CP_WINANSI: i32 = 1004i32;
-pub const CP_WINNEUTRAL: i32 = 1200i32;
-pub const CP_WINUNICODE: i32 = 1200i32;
-pub const DDE_FACK: u32 = 32768u32;
-pub const DDE_FACKREQ: u32 = 32768u32;
-pub const DDE_FAPPSTATUS: u32 = 255u32;
-pub const DDE_FBUSY: u32 = 16384u32;
-pub const DDE_FDEFERUPD: u32 = 16384u32;
-pub const DDE_FNOTPROCESSED: u32 = 0u32;
-pub const DDE_FRELEASE: u32 = 8192u32;
-pub const DDE_FREQUESTED: u32 = 4096u32;
-pub const DMLERR_ADVACKTIMEOUT: u32 = 16384u32;
-pub const DMLERR_BUSY: u32 = 16385u32;
-pub const DMLERR_DATAACKTIMEOUT: u32 = 16386u32;
-pub const DMLERR_DLL_NOT_INITIALIZED: u32 = 16387u32;
-pub const DMLERR_DLL_USAGE: u32 = 16388u32;
-pub const DMLERR_EXECACKTIMEOUT: u32 = 16389u32;
-pub const DMLERR_FIRST: u32 = 16384u32;
-pub const DMLERR_INVALIDPARAMETER: u32 = 16390u32;
-pub const DMLERR_LAST: u32 = 16401u32;
-pub const DMLERR_LOW_MEMORY: u32 = 16391u32;
-pub const DMLERR_MEMORY_ERROR: u32 = 16392u32;
-pub const DMLERR_NOTPROCESSED: u32 = 16393u32;
-pub const DMLERR_NO_CONV_ESTABLISHED: u32 = 16394u32;
-pub const DMLERR_NO_ERROR: u32 = 0u32;
-pub const DMLERR_POKEACKTIMEOUT: u32 = 16395u32;
-pub const DMLERR_POSTMSG_FAILED: u32 = 16396u32;
-pub const DMLERR_REENTRANCY: u32 = 16397u32;
-pub const DMLERR_SERVER_DIED: u32 = 16398u32;
-pub const DMLERR_SYS_ERROR: u32 = 16399u32;
-pub const DMLERR_UNADVACKTIMEOUT: u32 = 16400u32;
-pub const DMLERR_UNFOUND_QUEUE_ID: u32 = 16401u32;
-pub const DNS_FILTEROFF: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(8u32);
-pub const DNS_FILTERON: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(4u32);
-pub const DNS_REGISTER: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(1u32);
-pub const DNS_UNREGISTER: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(2u32);
-pub const EC_DISABLE: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(8u32);
-pub const EC_ENABLEALL: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(0u32);
-pub const EC_ENABLEONE: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(128u32);
-pub const EC_QUERYWAITING: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(2u32);
-pub const HDATA_APPOWNED: u32 = 1u32;
-pub const MAX_MONITORS: u32 = 4u32;
-pub const MF_CALLBACKS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(134217728u32);
-pub const MF_CONV: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(1073741824u32);
-pub const MF_ERRORS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(268435456u32);
-pub const MF_HSZ_INFO: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(16777216u32);
-pub const MF_LINKS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(536870912u32);
-pub const MF_MASK: u32 = 4278190080u32;
-pub const MF_POSTMSGS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(67108864u32);
-pub const MF_SENDMSGS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(33554432u32);
-pub const MH_CLEANUP: u32 = 4u32;
-pub const MH_CREATE: u32 = 1u32;
-pub const MH_DELETE: u32 = 3u32;
-pub const MH_KEEP: u32 = 2u32;
 pub const MSGF_DDEMGR: u32 = 32769u32;
+pub type PFNCALLBACK = Option<unsafe extern "system" fn(wtype: u32, wfmt: u32, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: usize, dwdata2: usize) -> HDDEDATA>;
 pub const QID_SYNC: u32 = 4294967295u32;
 pub const ST_ADVISE: CONVINFO_STATUS = CONVINFO_STATUS(2u32);
 pub const ST_BLOCKED: CONVINFO_STATUS = CONVINFO_STATUS(8u32);

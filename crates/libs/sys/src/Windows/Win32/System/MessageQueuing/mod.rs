@@ -48,141 +48,6 @@ windows_targets::link!("mqrt.dll" "system" fn MQSendMessage(hdestinationqueue : 
 windows_targets::link!("mqrt.dll" "system" fn MQSetQueueProperties(lpwcsformatname : windows_sys::core::PCWSTR, pqueueprops : *mut MQQUEUEPROPS) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Security")]
 windows_targets::link!("mqrt.dll" "system" fn MQSetQueueSecurity(lpwcsformatname : windows_sys::core::PCWSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_IO", feature = "Win32_System_Variant"))]
-pub type PMQRECEIVECALLBACK = Option<unsafe extern "system" fn(hrstatus: windows_sys::core::HRESULT, hsource: isize, dwtimeout: u32, dwaction: u32, pmessageprops: *mut MQMSGPROPS, lpoverlapped: *mut super::IO::OVERLAPPED, hcursor: super::super::Foundation::HANDLE)>;
-pub type FOREIGN_STATUS = i32;
-pub type MQACCESS = i32;
-pub type MQAUTHENTICATE = i32;
-pub type MQCALG = i32;
-pub type MQCERT_REGISTER = i32;
-pub type MQConnectionState = i32;
-pub type MQDEFAULT = i32;
-pub type MQERROR = i32;
-pub type MQJOURNAL = i32;
-pub type MQMAX = i32;
-pub type MQMSGACKNOWLEDGEMENT = i32;
-pub type MQMSGAUTHENTICATION = i32;
-pub type MQMSGAUTHLEVEL = i32;
-pub type MQMSGCLASS = i32;
-pub type MQMSGCURSOR = i32;
-pub type MQMSGDELIVERY = i32;
-pub type MQMSGIDSIZE = i32;
-pub type MQMSGJOURNAL = i32;
-pub type MQMSGMAX = i32;
-pub type MQMSGPRIVLEVEL = i32;
-pub type MQMSGSENDERIDTYPE = i32;
-pub type MQMSGTRACE = i32;
-pub type MQPRIORITY = i32;
-pub type MQPRIVLEVEL = i32;
-pub type MQQUEUEACCESSMASK = u32;
-pub type MQSHARE = i32;
-pub type MQTRANSACTION = i32;
-pub type MQTRANSACTIONAL = i32;
-pub type MQWARNING = i32;
-pub type QUEUE_STATE = i32;
-pub type QUEUE_TYPE = i32;
-pub type RELOPS = i32;
-pub type XACT_STATUS = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MQCOLUMNSET {
-    pub cCol: u32,
-    pub aCol: *mut u32,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct MQMGMTPROPS {
-    pub cProp: u32,
-    pub aPropID: *mut u32,
-    pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
-    pub aStatus: *mut windows_sys::core::HRESULT,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct MQMSGPROPS {
-    pub cProp: u32,
-    pub aPropID: *mut u32,
-    pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
-    pub aStatus: *mut windows_sys::core::HRESULT,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct MQPRIVATEPROPS {
-    pub cProp: u32,
-    pub aPropID: *mut u32,
-    pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
-    pub aStatus: *mut windows_sys::core::HRESULT,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct MQPROPERTYRESTRICTION {
-    pub rel: u32,
-    pub prop: u32,
-    pub prval: super::Com::StructuredStorage::PROPVARIANT,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct MQQMPROPS {
-    pub cProp: u32,
-    pub aPropID: *mut u32,
-    pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
-    pub aStatus: *mut windows_sys::core::HRESULT,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct MQQUEUEPROPS {
-    pub cProp: u32,
-    pub aPropID: *mut u32,
-    pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
-    pub aStatus: *mut windows_sys::core::HRESULT,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct MQRESTRICTION {
-    pub cRes: u32,
-    pub paPropRes: *mut MQPROPERTYRESTRICTION,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MQSORTKEY {
-    pub propColumn: u32,
-    pub dwOrder: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MQSORTSET {
-    pub cCol: u32,
-    pub aCol: *mut MQSORTKEY,
-}
-pub const MSMQApplication: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7d6e086_dccd_11d0_aa4b_0060970debae);
-pub const MSMQCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf72b9031_2f0c_43e8_924e_e6052cdc493f);
-pub const MSMQCoordinatedTransactionDispenser: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7d6e082_dccd_11d0_aa4b_0060970debae);
-pub const MSMQDestination: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeba96b18_2168_11d3_898c_00e02c074f6b);
-pub const MSMQEvent: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7d6e07a_dccd_11d0_aa4b_0060970debae);
-pub const MSMQManagement: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x39ce96fe_f4c5_4484_a143_4c2d5d324229);
-pub const MSMQMessage: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7d6e075_dccd_11d0_aa4b_0060970debae);
-pub const MSMQOutgoingQueueManagement: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0188401c_247a_4fed_99c6_bf14119d7055);
-pub const MSMQQuery: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7d6e073_dccd_11d0_aa4b_0060970debae);
-pub const MSMQQueue: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7d6e079_dccd_11d0_aa4b_0060970debae);
-pub const MSMQQueueInfo: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7d6e07c_dccd_11d0_aa4b_0060970debae);
-pub const MSMQQueueInfos: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7d6e07e_dccd_11d0_aa4b_0060970debae);
-pub const MSMQQueueManagement: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x33b6d07e_f27d_42fa_b2d7_bf82e11e9374);
-pub const MSMQTransaction: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7d6e080_dccd_11d0_aa4b_0060970debae);
-pub const MSMQTransactionDispenser: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7d6e084_dccd_11d0_aa4b_0060970debae);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SEQUENCE_INFO {
-    pub SeqID: i64,
-    pub SeqNo: u32,
-    pub PrevNo: u32,
-}
 pub const DEFAULT_M_ACKNOWLEDGE: MQDEFAULT = 0i32;
 pub const DEFAULT_M_APPSPECIFIC: MQDEFAULT = 0i32;
 pub const DEFAULT_M_AUTH_LEVEL: MQDEFAULT = 0i32;
@@ -199,6 +64,7 @@ pub const DEFAULT_Q_JOURNAL_QUOTA: MQDEFAULT = -1i32;
 pub const DEFAULT_Q_PRIV_LEVEL: MQDEFAULT = 1i32;
 pub const DEFAULT_Q_QUOTA: MQDEFAULT = -1i32;
 pub const DEFAULT_Q_TRANSACTION: MQDEFAULT = 0i32;
+pub type FOREIGN_STATUS = i32;
 pub const LONG_LIVED: u32 = 4294967294u32;
 pub const MACHINE_ACTION_CONNECT: windows_sys::core::PCWSTR = windows_sys::core::w!("CONNECT");
 pub const MACHINE_ACTION_DISCONNECT: windows_sys::core::PCWSTR = windows_sys::core::w!("DISCONNECT");
@@ -228,8 +94,18 @@ pub const MGMT_QUEUE_TYPE_PUBLIC: windows_sys::core::PCWSTR = windows_sys::core:
 pub const MGMT_QUEUE_UNKNOWN_TYPE: windows_sys::core::PCWSTR = windows_sys::core::w!("UNKNOWN");
 pub const MO_MACHINE_TOKEN: windows_sys::core::PCWSTR = windows_sys::core::w!("MACHINE");
 pub const MO_QUEUE_TOKEN: windows_sys::core::PCWSTR = windows_sys::core::w!("QUEUE");
+pub type MQACCESS = i32;
+pub type MQAUTHENTICATE = i32;
+pub type MQCALG = i32;
+pub type MQCERT_REGISTER = i32;
 pub const MQCERT_REGISTER_ALWAYS: MQCERT_REGISTER = 1i32;
 pub const MQCERT_REGISTER_IF_NOT_EXIST: MQCERT_REGISTER = 2i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MQCOLUMNSET {
+    pub cCol: u32,
+    pub aCol: *mut u32,
+}
 pub const MQCONN_BIND_SOCKET_FAILURE: MQConnectionState = -2147483645i32;
 pub const MQCONN_CONNECT_SOCKET_FAILURE: MQConnectionState = -2147483644i32;
 pub const MQCONN_CREATE_SOCKET_FAILURE: MQConnectionState = -2147483646i32;
@@ -247,6 +123,41 @@ pub const MQCONN_ROUTING_FAILURE: MQConnectionState = -2147483636i32;
 pub const MQCONN_SEND_FAILURE: MQConnectionState = -2147483642i32;
 pub const MQCONN_TCP_NOT_ENABLED: MQConnectionState = -2147483643i32;
 pub const MQCONN_UNKNOWN_FAILURE: MQConnectionState = -2147483648i32;
+pub type MQConnectionState = i32;
+pub type MQDEFAULT = i32;
+pub type MQERROR = i32;
+pub type MQJOURNAL = i32;
+pub type MQMAX = i32;
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct MQMGMTPROPS {
+    pub cProp: u32,
+    pub aPropID: *mut u32,
+    pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
+    pub aStatus: *mut windows_sys::core::HRESULT,
+}
+pub type MQMSGACKNOWLEDGEMENT = i32;
+pub type MQMSGAUTHENTICATION = i32;
+pub type MQMSGAUTHLEVEL = i32;
+pub type MQMSGCLASS = i32;
+pub type MQMSGCURSOR = i32;
+pub type MQMSGDELIVERY = i32;
+pub type MQMSGIDSIZE = i32;
+pub type MQMSGJOURNAL = i32;
+pub type MQMSGMAX = i32;
+pub type MQMSGPRIVLEVEL = i32;
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct MQMSGPROPS {
+    pub cProp: u32,
+    pub aPropID: *mut u32,
+    pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
+    pub aStatus: *mut windows_sys::core::HRESULT,
+}
+pub type MQMSGSENDERIDTYPE = i32;
+pub type MQMSGTRACE = i32;
 pub const MQMSG_ACKNOWLEDGMENT_FULL_REACH_QUEUE: MQMSGACKNOWLEDGEMENT = 5i32;
 pub const MQMSG_ACKNOWLEDGMENT_FULL_RECEIVE: MQMSGACKNOWLEDGEMENT = 14i32;
 pub const MQMSG_ACKNOWLEDGMENT_NACK_REACH_QUEUE: MQMSGACKNOWLEDGEMENT = 4i32;
@@ -328,6 +239,51 @@ pub const MQMSG_SENDERID_TYPE_SID: MQMSGSENDERIDTYPE = 1i32;
 pub const MQMSG_SEND_ROUTE_TO_REPORT_QUEUE: MQMSGTRACE = 1i32;
 pub const MQMSG_TRACE_NONE: MQMSGTRACE = 0i32;
 pub const MQMSG_XACTID_SIZE: MQMSGIDSIZE = 20i32;
+pub type MQPRIORITY = i32;
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct MQPRIVATEPROPS {
+    pub cProp: u32,
+    pub aPropID: *mut u32,
+    pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
+    pub aStatus: *mut windows_sys::core::HRESULT,
+}
+pub type MQPRIVLEVEL = i32;
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct MQPROPERTYRESTRICTION {
+    pub rel: u32,
+    pub prop: u32,
+    pub prval: super::Com::StructuredStorage::PROPVARIANT,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct MQQMPROPS {
+    pub cProp: u32,
+    pub aPropID: *mut u32,
+    pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
+    pub aStatus: *mut windows_sys::core::HRESULT,
+}
+pub type MQQUEUEACCESSMASK = u32;
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct MQQUEUEPROPS {
+    pub cProp: u32,
+    pub aPropID: *mut u32,
+    pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
+    pub aStatus: *mut windows_sys::core::HRESULT,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct MQRESTRICTION {
+    pub cRes: u32,
+    pub paPropRes: *mut MQPROPERTYRESTRICTION,
+}
 pub const MQSEC_CHANGE_QUEUE_PERMISSIONS: MQQUEUEACCESSMASK = 262144u32;
 pub const MQSEC_DELETE_JOURNAL_MESSAGE: MQQUEUEACCESSMASK = 8u32;
 pub const MQSEC_DELETE_MESSAGE: MQQUEUEACCESSMASK = 1u32;
@@ -344,6 +300,22 @@ pub const MQSEC_RECEIVE_MESSAGE: MQQUEUEACCESSMASK = 3u32;
 pub const MQSEC_SET_QUEUE_PROPERTIES: MQQUEUEACCESSMASK = 16u32;
 pub const MQSEC_TAKE_QUEUE_OWNERSHIP: MQQUEUEACCESSMASK = 524288u32;
 pub const MQSEC_WRITE_MESSAGE: MQQUEUEACCESSMASK = 4u32;
+pub type MQSHARE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MQSORTKEY {
+    pub propColumn: u32,
+    pub dwOrder: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MQSORTSET {
+    pub cCol: u32,
+    pub aCol: *mut MQSORTKEY,
+}
+pub type MQTRANSACTION = i32;
+pub type MQTRANSACTIONAL = i32;
+pub type MQWARNING = i32;
 pub const MQ_ACTION_PEEK_CURRENT: u32 = 2147483648u32;
 pub const MQ_ACTION_PEEK_NEXT: u32 = 2147483649u32;
 pub const MQ_ACTION_RECEIVE: u32 = 0u32;
@@ -552,8 +524,25 @@ pub const MQ_XACT_STATUS_NOT_XACT: XACT_STATUS = 1i32;
 pub const MQ_XACT_STATUS_UNKNOWN: XACT_STATUS = 2i32;
 pub const MQ_XACT_STATUS_XACT: XACT_STATUS = 0i32;
 pub const MQ_XA_TRANSACTION: MQTRANSACTION = 2i32;
+pub const MSMQApplication: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7d6e086_dccd_11d0_aa4b_0060970debae);
+pub const MSMQCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf72b9031_2f0c_43e8_924e_e6052cdc493f);
+pub const MSMQCoordinatedTransactionDispenser: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7d6e082_dccd_11d0_aa4b_0060970debae);
+pub const MSMQDestination: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeba96b18_2168_11d3_898c_00e02c074f6b);
+pub const MSMQEvent: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7d6e07a_dccd_11d0_aa4b_0060970debae);
+pub const MSMQManagement: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x39ce96fe_f4c5_4484_a143_4c2d5d324229);
+pub const MSMQMessage: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7d6e075_dccd_11d0_aa4b_0060970debae);
+pub const MSMQOutgoingQueueManagement: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0188401c_247a_4fed_99c6_bf14119d7055);
+pub const MSMQQuery: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7d6e073_dccd_11d0_aa4b_0060970debae);
+pub const MSMQQueue: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7d6e079_dccd_11d0_aa4b_0060970debae);
+pub const MSMQQueueInfo: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7d6e07c_dccd_11d0_aa4b_0060970debae);
+pub const MSMQQueueInfos: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7d6e07e_dccd_11d0_aa4b_0060970debae);
+pub const MSMQQueueManagement: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x33b6d07e_f27d_42fa_b2d7_bf82e11e9374);
+pub const MSMQTransaction: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7d6e080_dccd_11d0_aa4b_0060970debae);
+pub const MSMQTransactionDispenser: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7d6e084_dccd_11d0_aa4b_0060970debae);
 pub const MSMQ_CONNECTED: windows_sys::core::PCWSTR = windows_sys::core::w!("CONNECTED");
 pub const MSMQ_DISCONNECTED: windows_sys::core::PCWSTR = windows_sys::core::w!("DISCONNECTED");
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_IO", feature = "Win32_System_Variant"))]
+pub type PMQRECEIVECALLBACK = Option<unsafe extern "system" fn(hrstatus: windows_sys::core::HRESULT, hsource: isize, dwtimeout: u32, dwaction: u32, pmessageprops: *mut MQMSGPROPS, lpoverlapped: *mut super::IO::OVERLAPPED, hcursor: super::super::Foundation::HANDLE)>;
 pub const PREQ: u32 = 4u32;
 pub const PRGE: u32 = 3u32;
 pub const PRGT: u32 = 2u32;
@@ -705,6 +694,9 @@ pub const QUERY_SORTDESCEND: u32 = 1u32;
 pub const QUEUE_ACTION_EOD_RESEND: windows_sys::core::PCWSTR = windows_sys::core::w!("EOD_RESEND");
 pub const QUEUE_ACTION_PAUSE: windows_sys::core::PCWSTR = windows_sys::core::w!("PAUSE");
 pub const QUEUE_ACTION_RESUME: windows_sys::core::PCWSTR = windows_sys::core::w!("RESUME");
+pub type QUEUE_STATE = i32;
+pub type QUEUE_TYPE = i32;
+pub type RELOPS = i32;
 pub const REL_EQ: RELOPS = 1i32;
 pub const REL_GE: RELOPS = 6i32;
 pub const REL_GT: RELOPS = 4i32;
@@ -712,3 +704,11 @@ pub const REL_LE: RELOPS = 5i32;
 pub const REL_LT: RELOPS = 3i32;
 pub const REL_NEQ: RELOPS = 2i32;
 pub const REL_NOP: RELOPS = 0i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SEQUENCE_INFO {
+    pub SeqID: i64,
+    pub SeqNo: u32,
+    pub PrevNo: u32,
+}
+pub type XACT_STATUS = i32;

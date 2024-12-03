@@ -289,2577 +289,54 @@ impl windows_core::RuntimeName for CallStateChangeEventArgs {
 unsafe impl Send for CallStateChangeEventArgs {}
 unsafe impl Sync for CallStateChangeEventArgs {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct IncomingVoipPhoneCallOptions(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(IncomingVoipPhoneCallOptions, windows_core::IUnknown, windows_core::IInspectable);
-impl IncomingVoipPhoneCallOptions {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<IncomingVoipPhoneCallOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn Context(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Context)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetContext(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn ContactName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContactName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetContactName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContactName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn ContactNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContactNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetContactNumber(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContactNumber)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn ContactImage(&self) -> windows_core::Result<super::super::Foundation::Uri> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContactImage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SetContactImage<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::Uri>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContactImage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    pub fn ServiceName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ServiceName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetServiceName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetServiceName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn BrandingImage(&self) -> windows_core::Result<super::super::Foundation::Uri> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BrandingImage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SetBrandingImage<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::Uri>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBrandingImage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    pub fn CallDetails(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CallDetails)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetCallDetails(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetCallDetails)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn Ringtone(&self) -> windows_core::Result<super::super::Foundation::Uri> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Ringtone)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SetRingtone<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::Uri>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetRingtone)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    pub fn Media(&self) -> windows_core::Result<VoipPhoneCallMedia> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Media)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetMedia(&self, value: VoipPhoneCallMedia) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMedia)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn RingTimeout(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RingTimeout)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetRingTimeout(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetRingTimeout)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ContactRemoteId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContactRemoteId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetContactRemoteId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContactRemoteId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AssociatedDeviceIds(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AssociatedDeviceIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateInstance<P0>(associateddeviceids: P0) -> windows_core::Result<IncomingVoipPhoneCallOptions>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-    {
-        Self::IIncomingVoipPhoneCallOptionsFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), associateddeviceids.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IIncomingVoipPhoneCallOptionsFactory<R, F: FnOnce(&IIncomingVoipPhoneCallOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<IncomingVoipPhoneCallOptions, IIncomingVoipPhoneCallOptionsFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CellularDtmfMode(pub i32);
+impl CellularDtmfMode {
+    pub const Continuous: Self = Self(0i32);
+    pub const Burst: Self = Self(1i32);
 }
-impl windows_core::RuntimeType for IncomingVoipPhoneCallOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIncomingVoipPhoneCallOptions>();
+impl windows_core::TypeKind for CellularDtmfMode {
+    type TypeKind = windows_core::CopyType;
 }
-unsafe impl windows_core::Interface for IncomingVoipPhoneCallOptions {
-    type Vtable = <IIncomingVoipPhoneCallOptions as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IIncomingVoipPhoneCallOptions as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for IncomingVoipPhoneCallOptions {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.IncomingVoipPhoneCallOptions";
-}
-unsafe impl Send for IncomingVoipPhoneCallOptions {}
-unsafe impl Sync for IncomingVoipPhoneCallOptions {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct LockScreenCallEndCallDeferral(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(LockScreenCallEndCallDeferral, windows_core::IUnknown, windows_core::IInspectable);
-impl LockScreenCallEndCallDeferral {
-    pub fn Complete(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
-    }
-}
-impl windows_core::RuntimeType for LockScreenCallEndCallDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenCallEndCallDeferral>();
-}
-unsafe impl windows_core::Interface for LockScreenCallEndCallDeferral {
-    type Vtable = <ILockScreenCallEndCallDeferral as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ILockScreenCallEndCallDeferral as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for LockScreenCallEndCallDeferral {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.LockScreenCallEndCallDeferral";
-}
-unsafe impl Send for LockScreenCallEndCallDeferral {}
-unsafe impl Sync for LockScreenCallEndCallDeferral {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct LockScreenCallEndRequestedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(LockScreenCallEndRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl LockScreenCallEndRequestedEventArgs {
-    pub fn GetDeferral(&self) -> windows_core::Result<LockScreenCallEndCallDeferral> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Deadline(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Deadline)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for LockScreenCallEndRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenCallEndRequestedEventArgs>();
-}
-unsafe impl windows_core::Interface for LockScreenCallEndRequestedEventArgs {
-    type Vtable = <ILockScreenCallEndRequestedEventArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ILockScreenCallEndRequestedEventArgs as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for LockScreenCallEndRequestedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.LockScreenCallEndRequestedEventArgs";
-}
-unsafe impl Send for LockScreenCallEndRequestedEventArgs {}
-unsafe impl Sync for LockScreenCallEndRequestedEventArgs {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct LockScreenCallUI(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(LockScreenCallUI, windows_core::IUnknown, windows_core::IInspectable);
-impl LockScreenCallUI {
-    pub fn Dismiss(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Dismiss)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn EndRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<LockScreenCallUI, LockScreenCallEndRequestedEventArgs>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EndRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveEndRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveEndRequested)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<LockScreenCallUI, windows_core::IInspectable>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveClosed)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn CallTitle(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CallTitle)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetCallTitle(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetCallTitle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-}
-impl windows_core::RuntimeType for LockScreenCallUI {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenCallUI>();
-}
-unsafe impl windows_core::Interface for LockScreenCallUI {
-    type Vtable = <ILockScreenCallUI as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ILockScreenCallUI as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for LockScreenCallUI {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.LockScreenCallUI";
-}
-unsafe impl Send for LockScreenCallUI {}
-unsafe impl Sync for LockScreenCallUI {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MuteChangeEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MuteChangeEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl MuteChangeEventArgs {
-    pub fn Muted(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Muted)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for MuteChangeEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMuteChangeEventArgs>();
-}
-unsafe impl windows_core::Interface for MuteChangeEventArgs {
-    type Vtable = <IMuteChangeEventArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMuteChangeEventArgs as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MuteChangeEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.MuteChangeEventArgs";
-}
-unsafe impl Send for MuteChangeEventArgs {}
-unsafe impl Sync for MuteChangeEventArgs {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct OutgoingVoipPhoneCallOptions(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(OutgoingVoipPhoneCallOptions, windows_core::IUnknown, windows_core::IInspectable);
-impl OutgoingVoipPhoneCallOptions {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<OutgoingVoipPhoneCallOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn Context(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Context)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetContext(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn ContactName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContactName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetContactName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContactName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn ServiceName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ServiceName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetServiceName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetServiceName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn Media(&self) -> windows_core::Result<VoipPhoneCallMedia> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Media)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetMedia(&self, value: VoipPhoneCallMedia) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMedia)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AssociatedDeviceIds(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AssociatedDeviceIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateInstance<P0>(associateddeviceids: P0) -> windows_core::Result<OutgoingVoipPhoneCallOptions>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-    {
-        Self::IOutgoingVoipPhoneCallOptionsFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), associateddeviceids.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IOutgoingVoipPhoneCallOptionsFactory<R, F: FnOnce(&IOutgoingVoipPhoneCallOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<OutgoingVoipPhoneCallOptions, IOutgoingVoipPhoneCallOptionsFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for OutgoingVoipPhoneCallOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOutgoingVoipPhoneCallOptions>();
-}
-unsafe impl windows_core::Interface for OutgoingVoipPhoneCallOptions {
-    type Vtable = <IOutgoingVoipPhoneCallOptions as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IOutgoingVoipPhoneCallOptions as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for OutgoingVoipPhoneCallOptions {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.OutgoingVoipPhoneCallOptions";
-}
-unsafe impl Send for OutgoingVoipPhoneCallOptions {}
-unsafe impl Sync for OutgoingVoipPhoneCallOptions {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PhoneCall(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PhoneCall, windows_core::IUnknown, windows_core::IInspectable);
-impl PhoneCall {
-    pub fn StatusChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneCall, windows_core::IInspectable>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveStatusChanged)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn AudioDeviceChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneCall, windows_core::IInspectable>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AudioDeviceChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveAudioDeviceChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveAudioDeviceChanged)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn IsMutedChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneCall, windows_core::IInspectable>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsMutedChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveIsMutedChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveIsMutedChanged)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn CallId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CallId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn IsMuted(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsMuted)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Status(&self) -> windows_core::Result<PhoneCallStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn AudioDevice(&self) -> windows_core::Result<PhoneCallAudioDevice> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AudioDevice)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn GetPhoneCallInfo(&self) -> windows_core::Result<PhoneCallInfo> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPhoneCallInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetPhoneCallInfoAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallInfo>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPhoneCallInfoAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn End(&self) -> windows_core::Result<PhoneCallOperationStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).End)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn EndAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EndAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SendDtmfKey(&self, key: DtmfKey, dtmftoneaudioplayback: DtmfToneAudioPlayback) -> windows_core::Result<PhoneCallOperationStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SendDtmfKey)(windows_core::Interface::as_raw(this), key, dtmftoneaudioplayback, &mut result__).map(|| result__)
-        }
-    }
-    pub fn SendDtmfKeyAsync(&self, key: DtmfKey, dtmftoneaudioplayback: DtmfToneAudioPlayback) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SendDtmfKeyAsync)(windows_core::Interface::as_raw(this), key, dtmftoneaudioplayback, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn AcceptIncoming(&self) -> windows_core::Result<PhoneCallOperationStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AcceptIncoming)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn AcceptIncomingAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AcceptIncomingAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Hold(&self) -> windows_core::Result<PhoneCallOperationStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Hold)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn HoldAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HoldAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn ResumeFromHold(&self) -> windows_core::Result<PhoneCallOperationStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResumeFromHold)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn ResumeFromHoldAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResumeFromHoldAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Mute(&self) -> windows_core::Result<PhoneCallOperationStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Mute)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn MuteAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MuteAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Unmute(&self) -> windows_core::Result<PhoneCallOperationStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Unmute)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn UnmuteAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UnmuteAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn RejectIncoming(&self) -> windows_core::Result<PhoneCallOperationStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RejectIncoming)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn RejectIncomingAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RejectIncomingAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn ChangeAudioDevice(&self, endpoint: PhoneCallAudioDevice) -> windows_core::Result<PhoneCallOperationStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ChangeAudioDevice)(windows_core::Interface::as_raw(this), endpoint, &mut result__).map(|| result__)
-        }
-    }
-    pub fn ChangeAudioDeviceAsync(&self, endpoint: PhoneCallAudioDevice) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ChangeAudioDeviceAsync)(windows_core::Interface::as_raw(this), endpoint, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetFromId(callid: &windows_core::HSTRING) -> windows_core::Result<PhoneCall> {
-        Self::IPhoneCallStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(callid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IPhoneCallStatics<R, F: FnOnce(&IPhoneCallStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<PhoneCall, IPhoneCallStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for PhoneCall {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCall>();
-}
-unsafe impl windows_core::Interface for PhoneCall {
-    type Vtable = <IPhoneCall as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IPhoneCall as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for PhoneCall {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCall";
-}
-unsafe impl Send for PhoneCall {}
-unsafe impl Sync for PhoneCall {}
-pub struct PhoneCallBlocking;
-impl PhoneCallBlocking {
-    pub fn BlockUnknownNumbers() -> windows_core::Result<bool> {
-        Self::IPhoneCallBlockingStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BlockUnknownNumbers)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        })
-    }
-    pub fn SetBlockUnknownNumbers(value: bool) -> windows_core::Result<()> {
-        Self::IPhoneCallBlockingStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetBlockUnknownNumbers)(windows_core::Interface::as_raw(this), value).ok() })
-    }
-    pub fn BlockPrivateNumbers() -> windows_core::Result<bool> {
-        Self::IPhoneCallBlockingStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BlockPrivateNumbers)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        })
-    }
-    pub fn SetBlockPrivateNumbers(value: bool) -> windows_core::Result<()> {
-        Self::IPhoneCallBlockingStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetBlockPrivateNumbers)(windows_core::Interface::as_raw(this), value).ok() })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SetCallBlockingListAsync<P0>(phonenumberlist: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-    {
-        Self::IPhoneCallBlockingStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetCallBlockingListAsync)(windows_core::Interface::as_raw(this), phonenumberlist.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IPhoneCallBlockingStatics<R, F: FnOnce(&IPhoneCallBlockingStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<PhoneCallBlocking, IPhoneCallBlockingStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeName for PhoneCallBlocking {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallBlocking";
+impl windows_core::RuntimeType for CellularDtmfMode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.CellularDtmfMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PhoneCallHistoryEntry(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PhoneCallHistoryEntry, windows_core::IUnknown, windows_core::IInspectable);
-impl PhoneCallHistoryEntry {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<PhoneCallHistoryEntry, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Address(&self) -> windows_core::Result<PhoneCallHistoryEntryAddress> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Address)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SetAddress<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<PhoneCallHistoryEntryAddress>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAddress)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SetDuration<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    pub fn IsCallerIdBlocked(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsCallerIdBlocked)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetIsCallerIdBlocked(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIsCallerIdBlocked)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn IsEmergency(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsEmergency)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetIsEmergency(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIsEmergency)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn IsIncoming(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsIncoming)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetIsIncoming(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIsIncoming)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn IsMissed(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsMissed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetIsMissed(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIsMissed)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn IsRinging(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsRinging)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetIsRinging(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIsRinging)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn IsSeen(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsSeen)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetIsSeen(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIsSeen)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn IsSuppressed(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsSuppressed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetIsSuppressed(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIsSuppressed)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn IsVoicemail(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsVoicemail)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetIsVoicemail(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIsVoicemail)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Media(&self) -> windows_core::Result<PhoneCallHistoryEntryMedia> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Media)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetMedia(&self, value: PhoneCallHistoryEntryMedia) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMedia)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn OtherAppReadAccess(&self) -> windows_core::Result<PhoneCallHistoryEntryOtherAppReadAccess> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OtherAppReadAccess)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetOtherAppReadAccess(&self, value: PhoneCallHistoryEntryOtherAppReadAccess) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetOtherAppReadAccess)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn RemoteId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoteId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetRemoteId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetRemoteId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn SourceDisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SourceDisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SourceId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SourceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetSourceId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSourceId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn SourceIdKind(&self) -> windows_core::Result<PhoneCallHistorySourceIdKind> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SourceIdKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetSourceIdKind(&self, value: PhoneCallHistorySourceIdKind) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSourceIdKind)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn StartTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetStartTime(&self, value: super::super::Foundation::DateTime) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetStartTime)(windows_core::Interface::as_raw(this), value).ok() }
-    }
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DtmfKey(pub i32);
+impl DtmfKey {
+    pub const D0: Self = Self(0i32);
+    pub const D1: Self = Self(1i32);
+    pub const D2: Self = Self(2i32);
+    pub const D3: Self = Self(3i32);
+    pub const D4: Self = Self(4i32);
+    pub const D5: Self = Self(5i32);
+    pub const D6: Self = Self(6i32);
+    pub const D7: Self = Self(7i32);
+    pub const D8: Self = Self(8i32);
+    pub const D9: Self = Self(9i32);
+    pub const Star: Self = Self(10i32);
+    pub const Pound: Self = Self(11i32);
 }
-impl windows_core::RuntimeType for PhoneCallHistoryEntry {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryEntry>();
+impl windows_core::TypeKind for DtmfKey {
+    type TypeKind = windows_core::CopyType;
 }
-unsafe impl windows_core::Interface for PhoneCallHistoryEntry {
-    type Vtable = <IPhoneCallHistoryEntry as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IPhoneCallHistoryEntry as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for PhoneCallHistoryEntry {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntry";
-}
-unsafe impl Send for PhoneCallHistoryEntry {}
-unsafe impl Sync for PhoneCallHistoryEntry {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PhoneCallHistoryEntryAddress(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PhoneCallHistoryEntryAddress, windows_core::IUnknown, windows_core::IInspectable);
-impl PhoneCallHistoryEntryAddress {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<PhoneCallHistoryEntryAddress, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn ContactId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContactId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetContactId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContactId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn RawAddress(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RawAddress)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetRawAddress(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetRawAddress)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn RawAddressKind(&self) -> windows_core::Result<PhoneCallHistoryEntryRawAddressKind> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RawAddressKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetRawAddressKind(&self, value: PhoneCallHistoryEntryRawAddressKind) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetRawAddressKind)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Create(rawaddress: &windows_core::HSTRING, rawaddresskind: PhoneCallHistoryEntryRawAddressKind) -> windows_core::Result<PhoneCallHistoryEntryAddress> {
-        Self::IPhoneCallHistoryEntryAddressFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(rawaddress), rawaddresskind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IPhoneCallHistoryEntryAddressFactory<R, F: FnOnce(&IPhoneCallHistoryEntryAddressFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<PhoneCallHistoryEntryAddress, IPhoneCallHistoryEntryAddressFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for PhoneCallHistoryEntryAddress {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryEntryAddress>();
-}
-unsafe impl windows_core::Interface for PhoneCallHistoryEntryAddress {
-    type Vtable = <IPhoneCallHistoryEntryAddress as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IPhoneCallHistoryEntryAddress as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for PhoneCallHistoryEntryAddress {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryAddress";
-}
-unsafe impl Send for PhoneCallHistoryEntryAddress {}
-unsafe impl Sync for PhoneCallHistoryEntryAddress {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PhoneCallHistoryEntryQueryOptions(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PhoneCallHistoryEntryQueryOptions, windows_core::IUnknown, windows_core::IInspectable);
-impl PhoneCallHistoryEntryQueryOptions {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<PhoneCallHistoryEntryQueryOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn DesiredMedia(&self) -> windows_core::Result<PhoneCallHistoryEntryQueryDesiredMedia> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DesiredMedia)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetDesiredMedia(&self, value: PhoneCallHistoryEntryQueryDesiredMedia) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDesiredMedia)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SourceIds(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SourceIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for PhoneCallHistoryEntryQueryOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryEntryQueryOptions>();
-}
-unsafe impl windows_core::Interface for PhoneCallHistoryEntryQueryOptions {
-    type Vtable = <IPhoneCallHistoryEntryQueryOptions as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IPhoneCallHistoryEntryQueryOptions as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for PhoneCallHistoryEntryQueryOptions {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryOptions";
-}
-unsafe impl Send for PhoneCallHistoryEntryQueryOptions {}
-unsafe impl Sync for PhoneCallHistoryEntryQueryOptions {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PhoneCallHistoryEntryReader(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PhoneCallHistoryEntryReader, windows_core::IUnknown, windows_core::IInspectable);
-impl PhoneCallHistoryEntryReader {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ReadBatchAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PhoneCallHistoryEntry>>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadBatchAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for PhoneCallHistoryEntryReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryEntryReader>();
-}
-unsafe impl windows_core::Interface for PhoneCallHistoryEntryReader {
-    type Vtable = <IPhoneCallHistoryEntryReader as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IPhoneCallHistoryEntryReader as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for PhoneCallHistoryEntryReader {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryReader";
-}
-unsafe impl Send for PhoneCallHistoryEntryReader {}
-unsafe impl Sync for PhoneCallHistoryEntryReader {}
-pub struct PhoneCallHistoryManager;
-impl PhoneCallHistoryManager {
-    pub fn RequestStoreAsync(accesstype: PhoneCallHistoryStoreAccessType) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryStore>> {
-        Self::IPhoneCallHistoryManagerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestStoreAsync)(windows_core::Interface::as_raw(this), accesstype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "System")]
-    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<PhoneCallHistoryManagerForUser>
-    where
-        P0: windows_core::Param<super::super::System::User>,
-    {
-        Self::IPhoneCallHistoryManagerStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IPhoneCallHistoryManagerStatics<R, F: FnOnce(&IPhoneCallHistoryManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<PhoneCallHistoryManager, IPhoneCallHistoryManagerStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn IPhoneCallHistoryManagerStatics2<R, F: FnOnce(&IPhoneCallHistoryManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<PhoneCallHistoryManager, IPhoneCallHistoryManagerStatics2> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeName for PhoneCallHistoryManager {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryManager";
+impl windows_core::RuntimeType for DtmfKey {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.DtmfKey;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PhoneCallHistoryManagerForUser(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PhoneCallHistoryManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
-impl PhoneCallHistoryManagerForUser {
-    pub fn RequestStoreAsync(&self, accesstype: PhoneCallHistoryStoreAccessType) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryStore>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestStoreAsync)(windows_core::Interface::as_raw(this), accesstype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DtmfToneAudioPlayback(pub i32);
+impl DtmfToneAudioPlayback {
+    pub const Play: Self = Self(0i32);
+    pub const DoNotPlay: Self = Self(1i32);
 }
-impl windows_core::RuntimeType for PhoneCallHistoryManagerForUser {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryManagerForUser>();
+impl windows_core::TypeKind for DtmfToneAudioPlayback {
+    type TypeKind = windows_core::CopyType;
 }
-unsafe impl windows_core::Interface for PhoneCallHistoryManagerForUser {
-    type Vtable = <IPhoneCallHistoryManagerForUser as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IPhoneCallHistoryManagerForUser as windows_core::Interface>::IID;
+impl windows_core::RuntimeType for DtmfToneAudioPlayback {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.DtmfToneAudioPlayback;i4)");
 }
-impl windows_core::RuntimeName for PhoneCallHistoryManagerForUser {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryManagerForUser";
-}
-unsafe impl Send for PhoneCallHistoryManagerForUser {}
-unsafe impl Sync for PhoneCallHistoryManagerForUser {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PhoneCallHistoryStore(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PhoneCallHistoryStore, windows_core::IUnknown, windows_core::IInspectable);
-impl PhoneCallHistoryStore {
-    pub fn GetEntryAsync(&self, callhistoryentryid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryEntry>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetEntryAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(callhistoryentryid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetEntryReader(&self) -> windows_core::Result<PhoneCallHistoryEntryReader> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetEntryReader)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetEntryReaderWithOptions<P0>(&self, queryoptions: P0) -> windows_core::Result<PhoneCallHistoryEntryReader>
-    where
-        P0: windows_core::Param<PhoneCallHistoryEntryQueryOptions>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetEntryReaderWithOptions)(windows_core::Interface::as_raw(this), queryoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SaveEntryAsync<P0>(&self, callhistoryentry: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: windows_core::Param<PhoneCallHistoryEntry>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SaveEntryAsync)(windows_core::Interface::as_raw(this), callhistoryentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn DeleteEntryAsync<P0>(&self, callhistoryentry: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: windows_core::Param<PhoneCallHistoryEntry>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeleteEntryAsync)(windows_core::Interface::as_raw(this), callhistoryentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DeleteEntriesAsync<P0>(&self, callhistoryentries: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<PhoneCallHistoryEntry>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeleteEntriesAsync)(windows_core::Interface::as_raw(this), callhistoryentries.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn MarkEntryAsSeenAsync<P0>(&self, callhistoryentry: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: windows_core::Param<PhoneCallHistoryEntry>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MarkEntryAsSeenAsync)(windows_core::Interface::as_raw(this), callhistoryentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn MarkEntriesAsSeenAsync<P0>(&self, callhistoryentries: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<PhoneCallHistoryEntry>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MarkEntriesAsSeenAsync)(windows_core::Interface::as_raw(this), callhistoryentries.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetUnseenCountAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<u32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetUnseenCountAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn MarkAllAsSeenAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MarkAllAsSeenAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSourcesUnseenCountAsync<P0>(&self, sourceids: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetSourcesUnseenCountAsync)(windows_core::Interface::as_raw(this), sourceids.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn MarkSourcesAsSeenAsync<P0>(&self, sourceids: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MarkSourcesAsSeenAsync)(windows_core::Interface::as_raw(this), sourceids.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for PhoneCallHistoryStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryStore>();
-}
-unsafe impl windows_core::Interface for PhoneCallHistoryStore {
-    type Vtable = <IPhoneCallHistoryStore as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IPhoneCallHistoryStore as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for PhoneCallHistoryStore {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryStore";
-}
-unsafe impl Send for PhoneCallHistoryStore {}
-unsafe impl Sync for PhoneCallHistoryStore {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PhoneCallInfo(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PhoneCallInfo, windows_core::IUnknown, windows_core::IInspectable);
-impl PhoneCallInfo {
-    pub fn LineId(&self) -> windows_core::Result<windows_core::GUID> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LineId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn IsHoldSupported(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsHoldSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn StartTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn PhoneNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PhoneNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn CallDirection(&self) -> windows_core::Result<PhoneCallDirection> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CallDirection)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for PhoneCallInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallInfo>();
-}
-unsafe impl windows_core::Interface for PhoneCallInfo {
-    type Vtable = <IPhoneCallInfo as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IPhoneCallInfo as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for PhoneCallInfo {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallInfo";
-}
-unsafe impl Send for PhoneCallInfo {}
-unsafe impl Sync for PhoneCallInfo {}
-pub struct PhoneCallManager;
-impl PhoneCallManager {
-    pub fn ShowPhoneCallUI(phonenumber: &windows_core::HSTRING, displayname: &windows_core::HSTRING) -> windows_core::Result<()> {
-        Self::IPhoneCallManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ShowPhoneCallUI)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(phonenumber), core::mem::transmute_copy(displayname)).ok() })
-    }
-    pub fn CallStateChanged<P0>(handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
-    {
-        Self::IPhoneCallManagerStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CallStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn RemoveCallStateChanged(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        Self::IPhoneCallManagerStatics2(|this| unsafe { (windows_core::Interface::vtable(this).RemoveCallStateChanged)(windows_core::Interface::as_raw(this), token).ok() })
-    }
-    pub fn IsCallActive() -> windows_core::Result<bool> {
-        Self::IPhoneCallManagerStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsCallActive)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        })
-    }
-    pub fn IsCallIncoming() -> windows_core::Result<bool> {
-        Self::IPhoneCallManagerStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsCallIncoming)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        })
-    }
-    pub fn ShowPhoneCallSettingsUI() -> windows_core::Result<()> {
-        Self::IPhoneCallManagerStatics2(|this| unsafe { (windows_core::Interface::vtable(this).ShowPhoneCallSettingsUI)(windows_core::Interface::as_raw(this)).ok() })
-    }
-    pub fn RequestStoreAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallStore>> {
-        Self::IPhoneCallManagerStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestStoreAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IPhoneCallManagerStatics<R, F: FnOnce(&IPhoneCallManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<PhoneCallManager, IPhoneCallManagerStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn IPhoneCallManagerStatics2<R, F: FnOnce(&IPhoneCallManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<PhoneCallManager, IPhoneCallManagerStatics2> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeName for PhoneCallManager {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallManager";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PhoneCallStore(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PhoneCallStore, windows_core::IUnknown, windows_core::IInspectable);
-impl PhoneCallStore {
-    pub fn IsEmergencyPhoneNumberAsync(&self, number: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsEmergencyPhoneNumberAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(number), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetDefaultLineAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::GUID>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDefaultLineAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn RequestLineWatcher(&self) -> windows_core::Result<PhoneLineWatcher> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestLineWatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for PhoneCallStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallStore>();
-}
-unsafe impl windows_core::Interface for PhoneCallStore {
-    type Vtable = <IPhoneCallStore as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IPhoneCallStore as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for PhoneCallStore {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallStore";
-}
-unsafe impl Send for PhoneCallStore {}
-unsafe impl Sync for PhoneCallStore {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PhoneCallVideoCapabilities(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PhoneCallVideoCapabilities, windows_core::IUnknown, windows_core::IInspectable);
-impl PhoneCallVideoCapabilities {
-    pub fn IsVideoCallingCapable(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsVideoCallingCapable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for PhoneCallVideoCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallVideoCapabilities>();
-}
-unsafe impl windows_core::Interface for PhoneCallVideoCapabilities {
-    type Vtable = <IPhoneCallVideoCapabilities as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IPhoneCallVideoCapabilities as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for PhoneCallVideoCapabilities {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallVideoCapabilities";
-}
-unsafe impl Send for PhoneCallVideoCapabilities {}
-unsafe impl Sync for PhoneCallVideoCapabilities {}
-pub struct PhoneCallVideoCapabilitiesManager;
-impl PhoneCallVideoCapabilitiesManager {
-    pub fn GetCapabilitiesAsync(phonenumber: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallVideoCapabilities>> {
-        Self::IPhoneCallVideoCapabilitiesManagerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetCapabilitiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(phonenumber), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IPhoneCallVideoCapabilitiesManagerStatics<R, F: FnOnce(&IPhoneCallVideoCapabilitiesManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<PhoneCallVideoCapabilitiesManager, IPhoneCallVideoCapabilitiesManagerStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeName for PhoneCallVideoCapabilitiesManager {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallVideoCapabilitiesManager";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PhoneCallsResult(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PhoneCallsResult, windows_core::IUnknown, windows_core::IInspectable);
-impl PhoneCallsResult {
-    pub fn OperationStatus(&self) -> windows_core::Result<PhoneLineOperationStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OperationStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AllActivePhoneCalls(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<PhoneCall>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AllActivePhoneCalls)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for PhoneCallsResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallsResult>();
-}
-unsafe impl windows_core::Interface for PhoneCallsResult {
-    type Vtable = <IPhoneCallsResult as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IPhoneCallsResult as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for PhoneCallsResult {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallsResult";
-}
-unsafe impl Send for PhoneCallsResult {}
-unsafe impl Sync for PhoneCallsResult {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PhoneDialOptions(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PhoneDialOptions, windows_core::IUnknown, windows_core::IInspectable);
-impl PhoneDialOptions {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<PhoneDialOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn Number(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Number)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetNumber(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetNumber)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn Contact(&self) -> windows_core::Result<super::Contacts::Contact> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn SetContact<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::Contacts::Contact>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContact)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn ContactPhone(&self) -> windows_core::Result<super::Contacts::ContactPhone> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContactPhone)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn SetContactPhone<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::Contacts::ContactPhone>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContactPhone)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    pub fn Media(&self) -> windows_core::Result<PhoneCallMedia> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Media)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetMedia(&self, value: PhoneCallMedia) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMedia)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn AudioEndpoint(&self) -> windows_core::Result<PhoneAudioRoutingEndpoint> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AudioEndpoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetAudioEndpoint(&self, value: PhoneAudioRoutingEndpoint) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAudioEndpoint)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-}
-impl windows_core::RuntimeType for PhoneDialOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneDialOptions>();
-}
-unsafe impl windows_core::Interface for PhoneDialOptions {
-    type Vtable = <IPhoneDialOptions as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IPhoneDialOptions as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for PhoneDialOptions {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneDialOptions";
-}
-unsafe impl Send for PhoneDialOptions {}
-unsafe impl Sync for PhoneDialOptions {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PhoneLine(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PhoneLine, windows_core::IUnknown, windows_core::IInspectable);
-impl PhoneLine {
-    pub fn LineChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneLine, windows_core::IInspectable>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LineChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveLineChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveLineChanged)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn Id(&self) -> windows_core::Result<windows_core::GUID> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "UI")]
-    pub fn DisplayColor(&self) -> windows_core::Result<super::super::UI::Color> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn NetworkState(&self) -> windows_core::Result<PhoneNetworkState> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NetworkState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Voicemail(&self) -> windows_core::Result<PhoneVoicemail> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Voicemail)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn NetworkName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NetworkName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn CellularDetails(&self) -> windows_core::Result<PhoneLineCellularDetails> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CellularDetails)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Transport(&self) -> windows_core::Result<PhoneLineTransport> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Transport)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn CanDial(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CanDial)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SupportsTile(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SupportsTile)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn VideoCallingCapabilities(&self) -> windows_core::Result<PhoneCallVideoCapabilities> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).VideoCallingCapabilities)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn LineConfiguration(&self) -> windows_core::Result<PhoneLineConfiguration> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LineConfiguration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn IsImmediateDialNumberAsync(&self, number: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsImmediateDialNumberAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(number), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Dial(&self, number: &windows_core::HSTRING, displayname: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Dial)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(number), core::mem::transmute_copy(displayname)).ok() }
-    }
-    pub fn DialWithOptions<P0>(&self, options: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<PhoneDialOptions>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).DialWithOptions)(windows_core::Interface::as_raw(this), options.param().abi()).ok() }
-    }
-    pub fn EnableTextReply(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IPhoneLine2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).EnableTextReply)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn TransportDeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IPhoneLine2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TransportDeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn DialWithResult(&self, number: &windows_core::HSTRING, displayname: &windows_core::HSTRING) -> windows_core::Result<PhoneLineDialResult> {
-        let this = &windows_core::Interface::cast::<IPhoneLine3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DialWithResult)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(number), core::mem::transmute_copy(displayname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn DialWithResultAsync(&self, number: &windows_core::HSTRING, displayname: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneLineDialResult>> {
-        let this = &windows_core::Interface::cast::<IPhoneLine3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DialWithResultAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(number), core::mem::transmute_copy(displayname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetAllActivePhoneCalls(&self) -> windows_core::Result<PhoneCallsResult> {
-        let this = &windows_core::Interface::cast::<IPhoneLine3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetAllActivePhoneCalls)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetAllActivePhoneCallsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallsResult>> {
-        let this = &windows_core::Interface::cast::<IPhoneLine3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetAllActivePhoneCallsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn FromIdAsync(lineid: windows_core::GUID) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneLine>> {
-        Self::IPhoneLineStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), lineid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IPhoneLineStatics<R, F: FnOnce(&IPhoneLineStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<PhoneLine, IPhoneLineStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for PhoneLine {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLine>();
-}
-unsafe impl windows_core::Interface for PhoneLine {
-    type Vtable = <IPhoneLine as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IPhoneLine as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for PhoneLine {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLine";
-}
-unsafe impl Send for PhoneLine {}
-unsafe impl Sync for PhoneLine {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PhoneLineCellularDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PhoneLineCellularDetails, windows_core::IUnknown, windows_core::IInspectable);
-impl PhoneLineCellularDetails {
-    pub fn SimState(&self) -> windows_core::Result<PhoneSimState> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SimState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SimSlotIndex(&self) -> windows_core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SimSlotIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn IsModemOn(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsModemOn)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn RegistrationRejectCode(&self) -> windows_core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RegistrationRejectCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn GetNetworkOperatorDisplayText(&self, location: PhoneLineNetworkOperatorDisplayTextLocation) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetNetworkOperatorDisplayText)(windows_core::Interface::as_raw(this), location, &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for PhoneLineCellularDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineCellularDetails>();
-}
-unsafe impl windows_core::Interface for PhoneLineCellularDetails {
-    type Vtable = <IPhoneLineCellularDetails as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IPhoneLineCellularDetails as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for PhoneLineCellularDetails {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineCellularDetails";
-}
-unsafe impl Send for PhoneLineCellularDetails {}
-unsafe impl Sync for PhoneLineCellularDetails {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PhoneLineConfiguration(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PhoneLineConfiguration, windows_core::IUnknown, windows_core::IInspectable);
-impl PhoneLineConfiguration {
-    pub fn IsVideoCallingEnabled(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsVideoCallingEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ExtendedProperties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ExtendedProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for PhoneLineConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineConfiguration>();
-}
-unsafe impl windows_core::Interface for PhoneLineConfiguration {
-    type Vtable = <IPhoneLineConfiguration as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IPhoneLineConfiguration as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for PhoneLineConfiguration {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineConfiguration";
-}
-unsafe impl Send for PhoneLineConfiguration {}
-unsafe impl Sync for PhoneLineConfiguration {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PhoneLineDialResult(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PhoneLineDialResult, windows_core::IUnknown, windows_core::IInspectable);
-impl PhoneLineDialResult {
-    pub fn DialCallStatus(&self) -> windows_core::Result<PhoneCallOperationStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DialCallStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn DialedCall(&self) -> windows_core::Result<PhoneCall> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DialedCall)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for PhoneLineDialResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineDialResult>();
-}
-unsafe impl windows_core::Interface for PhoneLineDialResult {
-    type Vtable = <IPhoneLineDialResult as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IPhoneLineDialResult as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for PhoneLineDialResult {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineDialResult";
-}
-unsafe impl Send for PhoneLineDialResult {}
-unsafe impl Sync for PhoneLineDialResult {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PhoneLineTransportDevice(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PhoneLineTransportDevice, windows_core::IUnknown, windows_core::IInspectable);
-impl PhoneLineTransportDevice {
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Transport(&self) -> windows_core::Result<PhoneLineTransport> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Transport)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Devices_Enumeration")]
-    pub fn RequestAccessAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Devices::Enumeration::DeviceAccessStatus>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn RegisterApp(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RegisterApp)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    #[cfg(feature = "System")]
-    pub fn RegisterAppForUser<P0>(&self, user: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::System::User>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RegisterAppForUser)(windows_core::Interface::as_raw(this), user.param().abi()).ok() }
-    }
-    pub fn UnregisterApp(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).UnregisterApp)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    #[cfg(feature = "System")]
-    pub fn UnregisterAppForUser<P0>(&self, user: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::System::User>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).UnregisterAppForUser)(windows_core::Interface::as_raw(this), user.param().abi()).ok() }
-    }
-    pub fn IsRegistered(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsRegistered)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Connect(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Connect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn ConnectAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConnectAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn AudioRoutingStatus(&self) -> windows_core::Result<TransportDeviceAudioRoutingStatus> {
-        let this = &windows_core::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AudioRoutingStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn AudioRoutingStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneLineTransportDevice, windows_core::IInspectable>>,
-    {
-        let this = &windows_core::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AudioRoutingStatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveAudioRoutingStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveAudioRoutingStatusChanged)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn InBandRingingEnabled(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InBandRingingEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn InBandRingingEnabledChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneLineTransportDevice, windows_core::IInspectable>>,
-    {
-        let this = &windows_core::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InBandRingingEnabledChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveInBandRingingEnabledChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveInBandRingingEnabledChanged)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn FromId(id: &windows_core::HSTRING) -> windows_core::Result<PhoneLineTransportDevice> {
-        Self::IPhoneLineTransportDeviceStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
-        Self::IPhoneLineTransportDeviceStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn GetDeviceSelectorForPhoneLineTransport(transport: PhoneLineTransport) -> windows_core::Result<windows_core::HSTRING> {
-        Self::IPhoneLineTransportDeviceStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeviceSelectorForPhoneLineTransport)(windows_core::Interface::as_raw(this), transport, &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    fn IPhoneLineTransportDeviceStatics<R, F: FnOnce(&IPhoneLineTransportDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<PhoneLineTransportDevice, IPhoneLineTransportDeviceStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for PhoneLineTransportDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineTransportDevice>();
-}
-unsafe impl windows_core::Interface for PhoneLineTransportDevice {
-    type Vtable = <IPhoneLineTransportDevice as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IPhoneLineTransportDevice as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for PhoneLineTransportDevice {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineTransportDevice";
-}
-unsafe impl Send for PhoneLineTransportDevice {}
-unsafe impl Sync for PhoneLineTransportDevice {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PhoneLineWatcher(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PhoneLineWatcher, windows_core::IUnknown, windows_core::IInspectable);
-impl PhoneLineWatcher {
-    pub fn Start(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn Stop(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn LineAdded<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LineAdded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveLineAdded(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveLineAdded)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn LineRemoved<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LineRemoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveLineRemoved(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveLineRemoved)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn LineUpdated<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LineUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveLineUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveLineUpdated)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneLineWatcher, windows_core::IInspectable>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveEnumerationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveEnumerationCompleted)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneLineWatcher, windows_core::IInspectable>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveStopped(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveStopped)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn Status(&self) -> windows_core::Result<PhoneLineWatcherStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for PhoneLineWatcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineWatcher>();
-}
-unsafe impl windows_core::Interface for PhoneLineWatcher {
-    type Vtable = <IPhoneLineWatcher as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IPhoneLineWatcher as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for PhoneLineWatcher {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineWatcher";
-}
-unsafe impl Send for PhoneLineWatcher {}
-unsafe impl Sync for PhoneLineWatcher {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PhoneLineWatcherEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PhoneLineWatcherEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl PhoneLineWatcherEventArgs {
-    pub fn LineId(&self) -> windows_core::Result<windows_core::GUID> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LineId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for PhoneLineWatcherEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineWatcherEventArgs>();
-}
-unsafe impl windows_core::Interface for PhoneLineWatcherEventArgs {
-    type Vtable = <IPhoneLineWatcherEventArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IPhoneLineWatcherEventArgs as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for PhoneLineWatcherEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineWatcherEventArgs";
-}
-unsafe impl Send for PhoneLineWatcherEventArgs {}
-unsafe impl Sync for PhoneLineWatcherEventArgs {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PhoneVoicemail(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PhoneVoicemail, windows_core::IUnknown, windows_core::IInspectable);
-impl PhoneVoicemail {
-    pub fn Number(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Number)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn MessageCount(&self) -> windows_core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MessageCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Type(&self) -> windows_core::Result<PhoneVoicemailType> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn DialVoicemailAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DialVoicemailAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for PhoneVoicemail {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneVoicemail>();
-}
-unsafe impl windows_core::Interface for PhoneVoicemail {
-    type Vtable = <IPhoneVoicemail as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IPhoneVoicemail as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for PhoneVoicemail {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneVoicemail";
-}
-unsafe impl Send for PhoneVoicemail {}
-unsafe impl Sync for PhoneVoicemail {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VoipCallCoordinator(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VoipCallCoordinator, windows_core::IUnknown, windows_core::IInspectable);
-impl VoipCallCoordinator {
-    pub fn ReserveCallResourcesAsync(&self, taskentrypoint: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VoipPhoneCallResourceReservationStatus>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReserveCallResourcesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(taskentrypoint), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn MuteStateChanged<P0>(&self, mutechangehandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VoipCallCoordinator, MuteChangeEventArgs>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MuteStateChanged)(windows_core::Interface::as_raw(this), mutechangehandler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveMuteStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveMuteStateChanged)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn RequestNewIncomingCall<P3, P5, P7>(&self, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, contactnumber: &windows_core::HSTRING, contactimage: P3, servicename: &windows_core::HSTRING, brandingimage: P5, calldetails: &windows_core::HSTRING, ringtone: P7, media: VoipPhoneCallMedia, ringtimeout: super::super::Foundation::TimeSpan) -> windows_core::Result<VoipPhoneCall>
-    where
-        P3: windows_core::Param<super::super::Foundation::Uri>,
-        P5: windows_core::Param<super::super::Foundation::Uri>,
-        P7: windows_core::Param<super::super::Foundation::Uri>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestNewIncomingCall)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(contactnumber), contactimage.param().abi(), core::mem::transmute_copy(servicename), brandingimage.param().abi(), core::mem::transmute_copy(calldetails), ringtone.param().abi(), media, ringtimeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn RequestNewOutgoingCall(&self, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, servicename: &windows_core::HSTRING, media: VoipPhoneCallMedia) -> windows_core::Result<VoipPhoneCall> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestNewOutgoingCall)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(servicename), media, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn NotifyMuted(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).NotifyMuted)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn NotifyUnmuted(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).NotifyUnmuted)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn RequestOutgoingUpgradeToVideoCall(&self, callupgradeguid: windows_core::GUID, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, servicename: &windows_core::HSTRING) -> windows_core::Result<VoipPhoneCall> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestOutgoingUpgradeToVideoCall)(windows_core::Interface::as_raw(this), callupgradeguid, core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(servicename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn RequestIncomingUpgradeToVideoCall<P3, P5, P7>(&self, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, contactnumber: &windows_core::HSTRING, contactimage: P3, servicename: &windows_core::HSTRING, brandingimage: P5, calldetails: &windows_core::HSTRING, ringtone: P7, ringtimeout: super::super::Foundation::TimeSpan) -> windows_core::Result<VoipPhoneCall>
-    where
-        P3: windows_core::Param<super::super::Foundation::Uri>,
-        P5: windows_core::Param<super::super::Foundation::Uri>,
-        P7: windows_core::Param<super::super::Foundation::Uri>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestIncomingUpgradeToVideoCall)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(contactnumber), contactimage.param().abi(), core::mem::transmute_copy(servicename), brandingimage.param().abi(), core::mem::transmute_copy(calldetails), ringtone.param().abi(), ringtimeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn TerminateCellularCall(&self, callupgradeguid: windows_core::GUID) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).TerminateCellularCall)(windows_core::Interface::as_raw(this), callupgradeguid).ok() }
-    }
-    pub fn CancelUpgrade(&self, callupgradeguid: windows_core::GUID) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).CancelUpgrade)(windows_core::Interface::as_raw(this), callupgradeguid).ok() }
-    }
-    pub fn SetupNewAcceptedCall(&self, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, contactnumber: &windows_core::HSTRING, servicename: &windows_core::HSTRING, media: VoipPhoneCallMedia) -> windows_core::Result<VoipPhoneCall> {
-        let this = &windows_core::Interface::cast::<IVoipCallCoordinator2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetupNewAcceptedCall)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(contactnumber), core::mem::transmute_copy(servicename), media, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn RequestNewAppInitiatedCall(&self, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, contactnumber: &windows_core::HSTRING, servicename: &windows_core::HSTRING, media: VoipPhoneCallMedia) -> windows_core::Result<VoipPhoneCall> {
-        let this = &windows_core::Interface::cast::<IVoipCallCoordinator3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestNewAppInitiatedCall)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(contactnumber), core::mem::transmute_copy(servicename), media, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn RequestNewIncomingCallWithContactRemoteId<P3, P5, P7>(&self, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, contactnumber: &windows_core::HSTRING, contactimage: P3, servicename: &windows_core::HSTRING, brandingimage: P5, calldetails: &windows_core::HSTRING, ringtone: P7, media: VoipPhoneCallMedia, ringtimeout: super::super::Foundation::TimeSpan, contactremoteid: &windows_core::HSTRING) -> windows_core::Result<VoipPhoneCall>
-    where
-        P3: windows_core::Param<super::super::Foundation::Uri>,
-        P5: windows_core::Param<super::super::Foundation::Uri>,
-        P7: windows_core::Param<super::super::Foundation::Uri>,
-    {
-        let this = &windows_core::Interface::cast::<IVoipCallCoordinator3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestNewIncomingCallWithContactRemoteId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(contactnumber), contactimage.param().abi(), core::mem::transmute_copy(servicename), brandingimage.param().abi(), core::mem::transmute_copy(calldetails), ringtone.param().abi(), media, ringtimeout, core::mem::transmute_copy(contactremoteid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn ReserveOneProcessCallResourcesAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VoipPhoneCallResourceReservationStatus>> {
-        let this = &windows_core::Interface::cast::<IVoipCallCoordinator4>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReserveOneProcessCallResourcesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn RequestNewIncomingCallWithOptions<P0>(&self, calloptions: P0) -> windows_core::Result<VoipPhoneCall>
-    where
-        P0: windows_core::Param<IncomingVoipPhoneCallOptions>,
-    {
-        let this = &windows_core::Interface::cast::<IVoipCallCoordinator5>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestNewIncomingCallWithOptions)(windows_core::Interface::as_raw(this), calloptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn RequestNewOutgoingCallWithOptions<P0>(&self, calloptions: P0) -> windows_core::Result<VoipPhoneCall>
-    where
-        P0: windows_core::Param<OutgoingVoipPhoneCallOptions>,
-    {
-        let this = &windows_core::Interface::cast::<IVoipCallCoordinator5>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestNewOutgoingCallWithOptions)(windows_core::Interface::as_raw(this), calloptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SetupNewAcceptedCallWithOptions<P0>(&self, calloptions: P0) -> windows_core::Result<VoipPhoneCall>
-    where
-        P0: windows_core::Param<AcceptedVoipPhoneCallOptions>,
-    {
-        let this = &windows_core::Interface::cast::<IVoipCallCoordinator5>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetupNewAcceptedCallWithOptions)(windows_core::Interface::as_raw(this), calloptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn RequestNewAppInitiatedCallWithOptions<P0>(&self, calloptions: P0) -> windows_core::Result<VoipPhoneCall>
-    where
-        P0: windows_core::Param<AppInitiatedVoipPhoneCallOptions>,
-    {
-        let this = &windows_core::Interface::cast::<IVoipCallCoordinator5>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestNewAppInitiatedCallWithOptions)(windows_core::Interface::as_raw(this), calloptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetDefault() -> windows_core::Result<VoipCallCoordinator> {
-        Self::IVoipCallCoordinatorStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn IsCallControlDeviceKindSupportedForAssociation(kind: VoipCallControlDeviceKind) -> windows_core::Result<bool> {
-        Self::IVoipCallCoordinatorStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsCallControlDeviceKindSupportedForAssociation)(windows_core::Interface::as_raw(this), kind, &mut result__).map(|| result__)
-        })
-    }
-    pub fn GetDeviceSelectorForCallControl() -> windows_core::Result<windows_core::HSTRING> {
-        Self::IVoipCallCoordinatorStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeviceSelectorForCallControl)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    fn IVoipCallCoordinatorStatics<R, F: FnOnce(&IVoipCallCoordinatorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VoipCallCoordinator, IVoipCallCoordinatorStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn IVoipCallCoordinatorStatics2<R, F: FnOnce(&IVoipCallCoordinatorStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VoipCallCoordinator, IVoipCallCoordinatorStatics2> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for VoipCallCoordinator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVoipCallCoordinator>();
-}
-unsafe impl windows_core::Interface for VoipCallCoordinator {
-    type Vtable = <IVoipCallCoordinator as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVoipCallCoordinator as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VoipCallCoordinator {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.VoipCallCoordinator";
-}
-unsafe impl Send for VoipCallCoordinator {}
-unsafe impl Sync for VoipCallCoordinator {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VoipPhoneCall(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VoipPhoneCall, windows_core::IUnknown, windows_core::IInspectable);
-impl VoipPhoneCall {
-    pub fn EndRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EndRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveEndRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveEndRequested)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn HoldRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HoldRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveHoldRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveHoldRequested)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn ResumeRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResumeRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveResumeRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveResumeRequested)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn AnswerRequested<P0>(&self, accepthandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallAnswerEventArgs>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AnswerRequested)(windows_core::Interface::as_raw(this), accepthandler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveAnswerRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveAnswerRequested)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn RejectRequested<P0>(&self, rejecthandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallRejectEventArgs>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RejectRequested)(windows_core::Interface::as_raw(this), rejecthandler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveRejectRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveRejectRequested)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn NotifyCallHeld(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).NotifyCallHeld)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn NotifyCallActive(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).NotifyCallActive)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn NotifyCallEnded(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).NotifyCallEnded)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn ContactName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContactName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetContactName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContactName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn StartTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetStartTime(&self, value: super::super::Foundation::DateTime) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetStartTime)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn CallMedia(&self) -> windows_core::Result<VoipPhoneCallMedia> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CallMedia)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetCallMedia(&self, value: VoipPhoneCallMedia) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetCallMedia)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn NotifyCallReady(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).NotifyCallReady)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn TryShowAppUI(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVoipPhoneCall2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).TryShowAppUI)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn NotifyCallAccepted(&self, media: VoipPhoneCallMedia) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVoipPhoneCall3>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).NotifyCallAccepted)(windows_core::Interface::as_raw(this), media).ok() }
-    }
-    pub fn IsUsingAssociatedDevicesList(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IVoipPhoneCall4>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsUsingAssociatedDevicesList)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn NotifyCallActiveOnDevices<P0>(&self, associateddeviceids: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-    {
-        let this = &windows_core::Interface::cast::<IVoipPhoneCall4>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).NotifyCallActiveOnDevices)(windows_core::Interface::as_raw(this), associateddeviceids.param().abi()).ok() }
-    }
-    pub fn AddAssociatedCallControlDevice(&self, deviceid: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVoipPhoneCall4>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).AddAssociatedCallControlDevice)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid)).ok() }
-    }
-    pub fn RemoveAssociatedCallControlDevice(&self, deviceid: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVoipPhoneCall4>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveAssociatedCallControlDevice)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid)).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SetAssociatedCallControlDevices<P0>(&self, associateddeviceids: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-    {
-        let this = &windows_core::Interface::cast::<IVoipPhoneCall4>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAssociatedCallControlDevices)(windows_core::Interface::as_raw(this), associateddeviceids.param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAssociatedCallControlDevices(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
-        let this = &windows_core::Interface::cast::<IVoipPhoneCall4>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetAssociatedCallControlDevices)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for VoipPhoneCall {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVoipPhoneCall>();
-}
-unsafe impl windows_core::Interface for VoipPhoneCall {
-    type Vtable = <IVoipPhoneCall as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVoipPhoneCall as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VoipPhoneCall {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.VoipPhoneCall";
-}
-unsafe impl Send for VoipPhoneCall {}
-unsafe impl Sync for VoipPhoneCall {}
 windows_core::imp::define_interface!(IAcceptedVoipPhoneCallOptions, IAcceptedVoipPhoneCallOptions_Vtbl, 0xe519c726_b86f_5add_8ae2_0f46acd9232d);
 impl windows_core::RuntimeType for IAcceptedVoipPhoneCallOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -3755,54 +1232,413 @@ pub struct IVoipPhoneCall4_Vtbl {
     GetAssociatedCallControlDevices: usize,
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CellularDtmfMode(pub i32);
-impl CellularDtmfMode {
-    pub const Continuous: Self = Self(0i32);
-    pub const Burst: Self = Self(1i32);
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct IncomingVoipPhoneCallOptions(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(IncomingVoipPhoneCallOptions, windows_core::IUnknown, windows_core::IInspectable);
+impl IncomingVoipPhoneCallOptions {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<IncomingVoipPhoneCallOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn Context(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Context)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetContext(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn ContactName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ContactName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetContactName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetContactName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn ContactNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ContactNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetContactNumber(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetContactNumber)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn ContactImage(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ContactImage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetContactImage<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Uri>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetContactImage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    pub fn ServiceName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ServiceName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetServiceName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetServiceName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn BrandingImage(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).BrandingImage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetBrandingImage<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Uri>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetBrandingImage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    pub fn CallDetails(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CallDetails)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetCallDetails(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetCallDetails)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn Ringtone(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Ringtone)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetRingtone<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Uri>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetRingtone)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    pub fn Media(&self) -> windows_core::Result<VoipPhoneCallMedia> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Media)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetMedia(&self, value: VoipPhoneCallMedia) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetMedia)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn RingTimeout(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RingTimeout)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetRingTimeout(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetRingTimeout)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn ContactRemoteId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ContactRemoteId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetContactRemoteId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetContactRemoteId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn AssociatedDeviceIds(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AssociatedDeviceIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn CreateInstance<P0>(associateddeviceids: P0) -> windows_core::Result<IncomingVoipPhoneCallOptions>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+    {
+        Self::IIncomingVoipPhoneCallOptionsFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), associateddeviceids.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IIncomingVoipPhoneCallOptionsFactory<R, F: FnOnce(&IIncomingVoipPhoneCallOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<IncomingVoipPhoneCallOptions, IIncomingVoipPhoneCallOptionsFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
 }
-impl windows_core::TypeKind for CellularDtmfMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::RuntimeType for IncomingVoipPhoneCallOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIncomingVoipPhoneCallOptions>();
 }
-impl windows_core::RuntimeType for CellularDtmfMode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.CellularDtmfMode;i4)");
+unsafe impl windows_core::Interface for IncomingVoipPhoneCallOptions {
+    type Vtable = <IIncomingVoipPhoneCallOptions as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IIncomingVoipPhoneCallOptions as windows_core::Interface>::IID;
 }
+impl windows_core::RuntimeName for IncomingVoipPhoneCallOptions {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.IncomingVoipPhoneCallOptions";
+}
+unsafe impl Send for IncomingVoipPhoneCallOptions {}
+unsafe impl Sync for IncomingVoipPhoneCallOptions {}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DtmfKey(pub i32);
-impl DtmfKey {
-    pub const D0: Self = Self(0i32);
-    pub const D1: Self = Self(1i32);
-    pub const D2: Self = Self(2i32);
-    pub const D3: Self = Self(3i32);
-    pub const D4: Self = Self(4i32);
-    pub const D5: Self = Self(5i32);
-    pub const D6: Self = Self(6i32);
-    pub const D7: Self = Self(7i32);
-    pub const D8: Self = Self(8i32);
-    pub const D9: Self = Self(9i32);
-    pub const Star: Self = Self(10i32);
-    pub const Pound: Self = Self(11i32);
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct LockScreenCallEndCallDeferral(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(LockScreenCallEndCallDeferral, windows_core::IUnknown, windows_core::IInspectable);
+impl LockScreenCallEndCallDeferral {
+    pub fn Complete(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
+    }
 }
-impl windows_core::TypeKind for DtmfKey {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::RuntimeType for LockScreenCallEndCallDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenCallEndCallDeferral>();
 }
-impl windows_core::RuntimeType for DtmfKey {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.DtmfKey;i4)");
+unsafe impl windows_core::Interface for LockScreenCallEndCallDeferral {
+    type Vtable = <ILockScreenCallEndCallDeferral as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ILockScreenCallEndCallDeferral as windows_core::Interface>::IID;
 }
+impl windows_core::RuntimeName for LockScreenCallEndCallDeferral {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.LockScreenCallEndCallDeferral";
+}
+unsafe impl Send for LockScreenCallEndCallDeferral {}
+unsafe impl Sync for LockScreenCallEndCallDeferral {}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DtmfToneAudioPlayback(pub i32);
-impl DtmfToneAudioPlayback {
-    pub const Play: Self = Self(0i32);
-    pub const DoNotPlay: Self = Self(1i32);
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct LockScreenCallEndRequestedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(LockScreenCallEndRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl LockScreenCallEndRequestedEventArgs {
+    pub fn GetDeferral(&self) -> windows_core::Result<LockScreenCallEndCallDeferral> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Deadline(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Deadline)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
 }
-impl windows_core::TypeKind for DtmfToneAudioPlayback {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::RuntimeType for LockScreenCallEndRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenCallEndRequestedEventArgs>();
 }
-impl windows_core::RuntimeType for DtmfToneAudioPlayback {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.DtmfToneAudioPlayback;i4)");
+unsafe impl windows_core::Interface for LockScreenCallEndRequestedEventArgs {
+    type Vtable = <ILockScreenCallEndRequestedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ILockScreenCallEndRequestedEventArgs as windows_core::Interface>::IID;
 }
+impl windows_core::RuntimeName for LockScreenCallEndRequestedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.LockScreenCallEndRequestedEventArgs";
+}
+unsafe impl Send for LockScreenCallEndRequestedEventArgs {}
+unsafe impl Sync for LockScreenCallEndRequestedEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct LockScreenCallUI(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(LockScreenCallUI, windows_core::IUnknown, windows_core::IInspectable);
+impl LockScreenCallUI {
+    pub fn Dismiss(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Dismiss)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn EndRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<LockScreenCallUI, LockScreenCallEndRequestedEventArgs>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EndRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveEndRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveEndRequested)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<LockScreenCallUI, windows_core::IInspectable>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveClosed)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn CallTitle(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CallTitle)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetCallTitle(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetCallTitle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+}
+impl windows_core::RuntimeType for LockScreenCallUI {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenCallUI>();
+}
+unsafe impl windows_core::Interface for LockScreenCallUI {
+    type Vtable = <ILockScreenCallUI as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ILockScreenCallUI as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for LockScreenCallUI {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.LockScreenCallUI";
+}
+unsafe impl Send for LockScreenCallUI {}
+unsafe impl Sync for LockScreenCallUI {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MuteChangeEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MuteChangeEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl MuteChangeEventArgs {
+    pub fn Muted(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Muted)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for MuteChangeEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMuteChangeEventArgs>();
+}
+unsafe impl windows_core::Interface for MuteChangeEventArgs {
+    type Vtable = <IMuteChangeEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMuteChangeEventArgs as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MuteChangeEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.MuteChangeEventArgs";
+}
+unsafe impl Send for MuteChangeEventArgs {}
+unsafe impl Sync for MuteChangeEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct OutgoingVoipPhoneCallOptions(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(OutgoingVoipPhoneCallOptions, windows_core::IUnknown, windows_core::IInspectable);
+impl OutgoingVoipPhoneCallOptions {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<OutgoingVoipPhoneCallOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn Context(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Context)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetContext(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn ContactName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ContactName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetContactName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetContactName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn ServiceName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ServiceName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetServiceName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetServiceName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn Media(&self) -> windows_core::Result<VoipPhoneCallMedia> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Media)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetMedia(&self, value: VoipPhoneCallMedia) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetMedia)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn AssociatedDeviceIds(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AssociatedDeviceIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn CreateInstance<P0>(associateddeviceids: P0) -> windows_core::Result<OutgoingVoipPhoneCallOptions>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+    {
+        Self::IOutgoingVoipPhoneCallOptionsFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), associateddeviceids.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IOutgoingVoipPhoneCallOptionsFactory<R, F: FnOnce(&IOutgoingVoipPhoneCallOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<OutgoingVoipPhoneCallOptions, IOutgoingVoipPhoneCallOptionsFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for OutgoingVoipPhoneCallOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOutgoingVoipPhoneCallOptions>();
+}
+unsafe impl windows_core::Interface for OutgoingVoipPhoneCallOptions {
+    type Vtable = <IOutgoingVoipPhoneCallOptions as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IOutgoingVoipPhoneCallOptions as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for OutgoingVoipPhoneCallOptions {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.OutgoingVoipPhoneCallOptions";
+}
+unsafe impl Send for OutgoingVoipPhoneCallOptions {}
+unsafe impl Sync for OutgoingVoipPhoneCallOptions {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneAudioRoutingEndpoint(pub i32);
@@ -3818,6 +1654,244 @@ impl windows_core::RuntimeType for PhoneAudioRoutingEndpoint {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneAudioRoutingEndpoint;i4)");
 }
 #[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PhoneCall(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PhoneCall, windows_core::IUnknown, windows_core::IInspectable);
+impl PhoneCall {
+    pub fn StatusChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneCall, windows_core::IInspectable>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveStatusChanged)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn AudioDeviceChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneCall, windows_core::IInspectable>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AudioDeviceChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveAudioDeviceChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveAudioDeviceChanged)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn IsMutedChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneCall, windows_core::IInspectable>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsMutedChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveIsMutedChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveIsMutedChanged)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn CallId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CallId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn IsMuted(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsMuted)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Status(&self) -> windows_core::Result<PhoneCallStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn AudioDevice(&self) -> windows_core::Result<PhoneCallAudioDevice> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AudioDevice)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn GetPhoneCallInfo(&self) -> windows_core::Result<PhoneCallInfo> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetPhoneCallInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetPhoneCallInfoAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallInfo>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetPhoneCallInfoAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn End(&self) -> windows_core::Result<PhoneCallOperationStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).End)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn EndAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EndAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SendDtmfKey(&self, key: DtmfKey, dtmftoneaudioplayback: DtmfToneAudioPlayback) -> windows_core::Result<PhoneCallOperationStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SendDtmfKey)(windows_core::Interface::as_raw(this), key, dtmftoneaudioplayback, &mut result__).map(|| result__)
+        }
+    }
+    pub fn SendDtmfKeyAsync(&self, key: DtmfKey, dtmftoneaudioplayback: DtmfToneAudioPlayback) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SendDtmfKeyAsync)(windows_core::Interface::as_raw(this), key, dtmftoneaudioplayback, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn AcceptIncoming(&self) -> windows_core::Result<PhoneCallOperationStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AcceptIncoming)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn AcceptIncomingAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AcceptIncomingAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Hold(&self) -> windows_core::Result<PhoneCallOperationStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Hold)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn HoldAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HoldAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ResumeFromHold(&self) -> windows_core::Result<PhoneCallOperationStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ResumeFromHold)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ResumeFromHoldAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ResumeFromHoldAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Mute(&self) -> windows_core::Result<PhoneCallOperationStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Mute)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn MuteAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MuteAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Unmute(&self) -> windows_core::Result<PhoneCallOperationStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Unmute)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn UnmuteAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UnmuteAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn RejectIncoming(&self) -> windows_core::Result<PhoneCallOperationStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RejectIncoming)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn RejectIncomingAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RejectIncomingAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ChangeAudioDevice(&self, endpoint: PhoneCallAudioDevice) -> windows_core::Result<PhoneCallOperationStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ChangeAudioDevice)(windows_core::Interface::as_raw(this), endpoint, &mut result__).map(|| result__)
+        }
+    }
+    pub fn ChangeAudioDeviceAsync(&self, endpoint: PhoneCallAudioDevice) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ChangeAudioDeviceAsync)(windows_core::Interface::as_raw(this), endpoint, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetFromId(callid: &windows_core::HSTRING) -> windows_core::Result<PhoneCall> {
+        Self::IPhoneCallStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetFromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(callid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IPhoneCallStatics<R, F: FnOnce(&IPhoneCallStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<PhoneCall, IPhoneCallStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for PhoneCall {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCall>();
+}
+unsafe impl windows_core::Interface for PhoneCall {
+    type Vtable = <IPhoneCall as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPhoneCall as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PhoneCall {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCall";
+}
+unsafe impl Send for PhoneCall {}
+unsafe impl Sync for PhoneCall {}
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneCallAudioDevice(pub i32);
 impl PhoneCallAudioDevice {
@@ -3830,6 +1904,44 @@ impl windows_core::TypeKind for PhoneCallAudioDevice {
 }
 impl windows_core::RuntimeType for PhoneCallAudioDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallAudioDevice;i4)");
+}
+pub struct PhoneCallBlocking;
+impl PhoneCallBlocking {
+    pub fn BlockUnknownNumbers() -> windows_core::Result<bool> {
+        Self::IPhoneCallBlockingStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).BlockUnknownNumbers)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn SetBlockUnknownNumbers(value: bool) -> windows_core::Result<()> {
+        Self::IPhoneCallBlockingStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetBlockUnknownNumbers)(windows_core::Interface::as_raw(this), value).ok() })
+    }
+    pub fn BlockPrivateNumbers() -> windows_core::Result<bool> {
+        Self::IPhoneCallBlockingStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).BlockPrivateNumbers)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn SetBlockPrivateNumbers(value: bool) -> windows_core::Result<()> {
+        Self::IPhoneCallBlockingStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetBlockPrivateNumbers)(windows_core::Interface::as_raw(this), value).ok() })
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SetCallBlockingListAsync<P0>(phonenumberlist: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+    {
+        Self::IPhoneCallBlockingStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SetCallBlockingListAsync)(windows_core::Interface::as_raw(this), phonenumberlist.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IPhoneCallBlockingStatics<R, F: FnOnce(&IPhoneCallBlockingStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<PhoneCallBlocking, IPhoneCallBlockingStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeName for PhoneCallBlocking {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallBlocking";
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3845,6 +1957,306 @@ impl windows_core::TypeKind for PhoneCallDirection {
 impl windows_core::RuntimeType for PhoneCallDirection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallDirection;i4)");
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PhoneCallHistoryEntry(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PhoneCallHistoryEntry, windows_core::IUnknown, windows_core::IInspectable);
+impl PhoneCallHistoryEntry {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<PhoneCallHistoryEntry, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Address(&self) -> windows_core::Result<PhoneCallHistoryEntryAddress> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Address)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetAddress<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<PhoneCallHistoryEntryAddress>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetAddress)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetDuration<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    pub fn IsCallerIdBlocked(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsCallerIdBlocked)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetIsCallerIdBlocked(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetIsCallerIdBlocked)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn IsEmergency(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsEmergency)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetIsEmergency(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetIsEmergency)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn IsIncoming(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsIncoming)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetIsIncoming(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetIsIncoming)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn IsMissed(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsMissed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetIsMissed(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetIsMissed)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn IsRinging(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsRinging)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetIsRinging(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetIsRinging)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn IsSeen(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsSeen)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetIsSeen(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetIsSeen)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn IsSuppressed(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsSuppressed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetIsSuppressed(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetIsSuppressed)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn IsVoicemail(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsVoicemail)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetIsVoicemail(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetIsVoicemail)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Media(&self) -> windows_core::Result<PhoneCallHistoryEntryMedia> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Media)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetMedia(&self, value: PhoneCallHistoryEntryMedia) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetMedia)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn OtherAppReadAccess(&self) -> windows_core::Result<PhoneCallHistoryEntryOtherAppReadAccess> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OtherAppReadAccess)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetOtherAppReadAccess(&self, value: PhoneCallHistoryEntryOtherAppReadAccess) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetOtherAppReadAccess)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn RemoteId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RemoteId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetRemoteId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetRemoteId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn SourceDisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SourceDisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SourceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SourceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetSourceId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetSourceId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn SourceIdKind(&self) -> windows_core::Result<PhoneCallHistorySourceIdKind> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SourceIdKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetSourceIdKind(&self, value: PhoneCallHistorySourceIdKind) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetSourceIdKind)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn StartTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).StartTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetStartTime(&self, value: super::super::Foundation::DateTime) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetStartTime)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl windows_core::RuntimeType for PhoneCallHistoryEntry {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryEntry>();
+}
+unsafe impl windows_core::Interface for PhoneCallHistoryEntry {
+    type Vtable = <IPhoneCallHistoryEntry as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPhoneCallHistoryEntry as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PhoneCallHistoryEntry {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntry";
+}
+unsafe impl Send for PhoneCallHistoryEntry {}
+unsafe impl Sync for PhoneCallHistoryEntry {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PhoneCallHistoryEntryAddress(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PhoneCallHistoryEntryAddress, windows_core::IUnknown, windows_core::IInspectable);
+impl PhoneCallHistoryEntryAddress {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<PhoneCallHistoryEntryAddress, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn ContactId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ContactId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetContactId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetContactId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn RawAddress(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RawAddress)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetRawAddress(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetRawAddress)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn RawAddressKind(&self) -> windows_core::Result<PhoneCallHistoryEntryRawAddressKind> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RawAddressKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetRawAddressKind(&self, value: PhoneCallHistoryEntryRawAddressKind) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetRawAddressKind)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Create(rawaddress: &windows_core::HSTRING, rawaddresskind: PhoneCallHistoryEntryRawAddressKind) -> windows_core::Result<PhoneCallHistoryEntryAddress> {
+        Self::IPhoneCallHistoryEntryAddressFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(rawaddress), rawaddresskind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IPhoneCallHistoryEntryAddressFactory<R, F: FnOnce(&IPhoneCallHistoryEntryAddressFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<PhoneCallHistoryEntryAddress, IPhoneCallHistoryEntryAddressFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for PhoneCallHistoryEntryAddress {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryEntryAddress>();
+}
+unsafe impl windows_core::Interface for PhoneCallHistoryEntryAddress {
+    type Vtable = <IPhoneCallHistoryEntryAddress as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPhoneCallHistoryEntryAddress as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PhoneCallHistoryEntryAddress {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryAddress";
+}
+unsafe impl Send for PhoneCallHistoryEntryAddress {}
+unsafe impl Sync for PhoneCallHistoryEntryAddress {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneCallHistoryEntryMedia(pub i32);
@@ -3920,6 +2332,50 @@ impl core::ops::Not for PhoneCallHistoryEntryQueryDesiredMedia {
     }
 }
 #[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PhoneCallHistoryEntryQueryOptions(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PhoneCallHistoryEntryQueryOptions, windows_core::IUnknown, windows_core::IInspectable);
+impl PhoneCallHistoryEntryQueryOptions {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<PhoneCallHistoryEntryQueryOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn DesiredMedia(&self) -> windows_core::Result<PhoneCallHistoryEntryQueryDesiredMedia> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DesiredMedia)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetDesiredMedia(&self, value: PhoneCallHistoryEntryQueryDesiredMedia) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetDesiredMedia)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SourceIds(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SourceIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for PhoneCallHistoryEntryQueryOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryEntryQueryOptions>();
+}
+unsafe impl windows_core::Interface for PhoneCallHistoryEntryQueryOptions {
+    type Vtable = <IPhoneCallHistoryEntryQueryOptions as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPhoneCallHistoryEntryQueryOptions as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PhoneCallHistoryEntryQueryOptions {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryOptions";
+}
+unsafe impl Send for PhoneCallHistoryEntryQueryOptions {}
+unsafe impl Sync for PhoneCallHistoryEntryQueryOptions {}
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneCallHistoryEntryRawAddressKind(pub i32);
 impl PhoneCallHistoryEntryRawAddressKind {
@@ -3932,6 +2388,95 @@ impl windows_core::TypeKind for PhoneCallHistoryEntryRawAddressKind {
 impl windows_core::RuntimeType for PhoneCallHistoryEntryRawAddressKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryRawAddressKind;i4)");
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PhoneCallHistoryEntryReader(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PhoneCallHistoryEntryReader, windows_core::IUnknown, windows_core::IInspectable);
+impl PhoneCallHistoryEntryReader {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ReadBatchAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PhoneCallHistoryEntry>>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ReadBatchAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for PhoneCallHistoryEntryReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryEntryReader>();
+}
+unsafe impl windows_core::Interface for PhoneCallHistoryEntryReader {
+    type Vtable = <IPhoneCallHistoryEntryReader as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPhoneCallHistoryEntryReader as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PhoneCallHistoryEntryReader {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryReader";
+}
+unsafe impl Send for PhoneCallHistoryEntryReader {}
+unsafe impl Sync for PhoneCallHistoryEntryReader {}
+pub struct PhoneCallHistoryManager;
+impl PhoneCallHistoryManager {
+    pub fn RequestStoreAsync(accesstype: PhoneCallHistoryStoreAccessType) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryStore>> {
+        Self::IPhoneCallHistoryManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestStoreAsync)(windows_core::Interface::as_raw(this), accesstype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "System")]
+    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<PhoneCallHistoryManagerForUser>
+    where
+        P0: windows_core::Param<super::super::System::User>,
+    {
+        Self::IPhoneCallHistoryManagerStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IPhoneCallHistoryManagerStatics<R, F: FnOnce(&IPhoneCallHistoryManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<PhoneCallHistoryManager, IPhoneCallHistoryManagerStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IPhoneCallHistoryManagerStatics2<R, F: FnOnce(&IPhoneCallHistoryManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<PhoneCallHistoryManager, IPhoneCallHistoryManagerStatics2> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeName for PhoneCallHistoryManager {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryManager";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PhoneCallHistoryManagerForUser(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PhoneCallHistoryManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
+impl PhoneCallHistoryManagerForUser {
+    pub fn RequestStoreAsync(&self, accesstype: PhoneCallHistoryStoreAccessType) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryStore>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestStoreAsync)(windows_core::Interface::as_raw(this), accesstype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for PhoneCallHistoryManagerForUser {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryManagerForUser>();
+}
+unsafe impl windows_core::Interface for PhoneCallHistoryManagerForUser {
+    type Vtable = <IPhoneCallHistoryManagerForUser as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPhoneCallHistoryManagerForUser as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PhoneCallHistoryManagerForUser {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryManagerForUser";
+}
+unsafe impl Send for PhoneCallHistoryManagerForUser {}
+unsafe impl Sync for PhoneCallHistoryManagerForUser {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneCallHistorySourceIdKind(pub i32);
@@ -3946,6 +2491,136 @@ impl windows_core::RuntimeType for PhoneCallHistorySourceIdKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistorySourceIdKind;i4)");
 }
 #[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PhoneCallHistoryStore(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PhoneCallHistoryStore, windows_core::IUnknown, windows_core::IInspectable);
+impl PhoneCallHistoryStore {
+    pub fn GetEntryAsync(&self, callhistoryentryid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryEntry>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetEntryAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(callhistoryentryid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetEntryReader(&self) -> windows_core::Result<PhoneCallHistoryEntryReader> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetEntryReader)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetEntryReaderWithOptions<P0>(&self, queryoptions: P0) -> windows_core::Result<PhoneCallHistoryEntryReader>
+    where
+        P0: windows_core::Param<PhoneCallHistoryEntryQueryOptions>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetEntryReaderWithOptions)(windows_core::Interface::as_raw(this), queryoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SaveEntryAsync<P0>(&self, callhistoryentry: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<PhoneCallHistoryEntry>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SaveEntryAsync)(windows_core::Interface::as_raw(this), callhistoryentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn DeleteEntryAsync<P0>(&self, callhistoryentry: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<PhoneCallHistoryEntry>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeleteEntryAsync)(windows_core::Interface::as_raw(this), callhistoryentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn DeleteEntriesAsync<P0>(&self, callhistoryentries: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<PhoneCallHistoryEntry>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeleteEntriesAsync)(windows_core::Interface::as_raw(this), callhistoryentries.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn MarkEntryAsSeenAsync<P0>(&self, callhistoryentry: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<PhoneCallHistoryEntry>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MarkEntryAsSeenAsync)(windows_core::Interface::as_raw(this), callhistoryentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn MarkEntriesAsSeenAsync<P0>(&self, callhistoryentries: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<PhoneCallHistoryEntry>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MarkEntriesAsSeenAsync)(windows_core::Interface::as_raw(this), callhistoryentries.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetUnseenCountAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<u32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetUnseenCountAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn MarkAllAsSeenAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MarkAllAsSeenAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetSourcesUnseenCountAsync<P0>(&self, sourceids: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetSourcesUnseenCountAsync)(windows_core::Interface::as_raw(this), sourceids.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn MarkSourcesAsSeenAsync<P0>(&self, sourceids: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MarkSourcesAsSeenAsync)(windows_core::Interface::as_raw(this), sourceids.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for PhoneCallHistoryStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryStore>();
+}
+unsafe impl windows_core::Interface for PhoneCallHistoryStore {
+    type Vtable = <IPhoneCallHistoryStore as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPhoneCallHistoryStore as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PhoneCallHistoryStore {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryStore";
+}
+unsafe impl Send for PhoneCallHistoryStore {}
+unsafe impl Sync for PhoneCallHistoryStore {}
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneCallHistoryStoreAccessType(pub i32);
 impl PhoneCallHistoryStoreAccessType {
@@ -3958,6 +2633,116 @@ impl windows_core::TypeKind for PhoneCallHistoryStoreAccessType {
 }
 impl windows_core::RuntimeType for PhoneCallHistoryStoreAccessType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryStoreAccessType;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PhoneCallInfo(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PhoneCallInfo, windows_core::IUnknown, windows_core::IInspectable);
+impl PhoneCallInfo {
+    pub fn LineId(&self) -> windows_core::Result<windows_core::GUID> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LineId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn IsHoldSupported(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsHoldSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn StartTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).StartTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn PhoneNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PhoneNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn CallDirection(&self) -> windows_core::Result<PhoneCallDirection> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CallDirection)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for PhoneCallInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallInfo>();
+}
+unsafe impl windows_core::Interface for PhoneCallInfo {
+    type Vtable = <IPhoneCallInfo as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPhoneCallInfo as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PhoneCallInfo {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallInfo";
+}
+unsafe impl Send for PhoneCallInfo {}
+unsafe impl Sync for PhoneCallInfo {}
+pub struct PhoneCallManager;
+impl PhoneCallManager {
+    pub fn ShowPhoneCallUI(phonenumber: &windows_core::HSTRING, displayname: &windows_core::HSTRING) -> windows_core::Result<()> {
+        Self::IPhoneCallManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ShowPhoneCallUI)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(phonenumber), core::mem::transmute_copy(displayname)).ok() })
+    }
+    pub fn CallStateChanged<P0>(handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
+    {
+        Self::IPhoneCallManagerStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CallStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn RemoveCallStateChanged(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        Self::IPhoneCallManagerStatics2(|this| unsafe { (windows_core::Interface::vtable(this).RemoveCallStateChanged)(windows_core::Interface::as_raw(this), token).ok() })
+    }
+    pub fn IsCallActive() -> windows_core::Result<bool> {
+        Self::IPhoneCallManagerStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsCallActive)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn IsCallIncoming() -> windows_core::Result<bool> {
+        Self::IPhoneCallManagerStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsCallIncoming)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn ShowPhoneCallSettingsUI() -> windows_core::Result<()> {
+        Self::IPhoneCallManagerStatics2(|this| unsafe { (windows_core::Interface::vtable(this).ShowPhoneCallSettingsUI)(windows_core::Interface::as_raw(this)).ok() })
+    }
+    pub fn RequestStoreAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallStore>> {
+        Self::IPhoneCallManagerStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestStoreAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IPhoneCallManagerStatics<R, F: FnOnce(&IPhoneCallManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<PhoneCallManager, IPhoneCallManagerStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IPhoneCallManagerStatics2<R, F: FnOnce(&IPhoneCallManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<PhoneCallManager, IPhoneCallManagerStatics2> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeName for PhoneCallManager {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallManager";
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4007,6 +2792,522 @@ impl windows_core::RuntimeType for PhoneCallStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallStatus;i4)");
 }
 #[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PhoneCallStore(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PhoneCallStore, windows_core::IUnknown, windows_core::IInspectable);
+impl PhoneCallStore {
+    pub fn IsEmergencyPhoneNumberAsync(&self, number: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsEmergencyPhoneNumberAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(number), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetDefaultLineAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::GUID>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetDefaultLineAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn RequestLineWatcher(&self) -> windows_core::Result<PhoneLineWatcher> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestLineWatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for PhoneCallStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallStore>();
+}
+unsafe impl windows_core::Interface for PhoneCallStore {
+    type Vtable = <IPhoneCallStore as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPhoneCallStore as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PhoneCallStore {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallStore";
+}
+unsafe impl Send for PhoneCallStore {}
+unsafe impl Sync for PhoneCallStore {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PhoneCallVideoCapabilities(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PhoneCallVideoCapabilities, windows_core::IUnknown, windows_core::IInspectable);
+impl PhoneCallVideoCapabilities {
+    pub fn IsVideoCallingCapable(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsVideoCallingCapable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for PhoneCallVideoCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallVideoCapabilities>();
+}
+unsafe impl windows_core::Interface for PhoneCallVideoCapabilities {
+    type Vtable = <IPhoneCallVideoCapabilities as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPhoneCallVideoCapabilities as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PhoneCallVideoCapabilities {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallVideoCapabilities";
+}
+unsafe impl Send for PhoneCallVideoCapabilities {}
+unsafe impl Sync for PhoneCallVideoCapabilities {}
+pub struct PhoneCallVideoCapabilitiesManager;
+impl PhoneCallVideoCapabilitiesManager {
+    pub fn GetCapabilitiesAsync(phonenumber: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallVideoCapabilities>> {
+        Self::IPhoneCallVideoCapabilitiesManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetCapabilitiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(phonenumber), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IPhoneCallVideoCapabilitiesManagerStatics<R, F: FnOnce(&IPhoneCallVideoCapabilitiesManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<PhoneCallVideoCapabilitiesManager, IPhoneCallVideoCapabilitiesManagerStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeName for PhoneCallVideoCapabilitiesManager {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallVideoCapabilitiesManager";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PhoneCallsResult(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PhoneCallsResult, windows_core::IUnknown, windows_core::IInspectable);
+impl PhoneCallsResult {
+    pub fn OperationStatus(&self) -> windows_core::Result<PhoneLineOperationStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OperationStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn AllActivePhoneCalls(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<PhoneCall>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AllActivePhoneCalls)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for PhoneCallsResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallsResult>();
+}
+unsafe impl windows_core::Interface for PhoneCallsResult {
+    type Vtable = <IPhoneCallsResult as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPhoneCallsResult as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PhoneCallsResult {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallsResult";
+}
+unsafe impl Send for PhoneCallsResult {}
+unsafe impl Sync for PhoneCallsResult {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PhoneDialOptions(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PhoneDialOptions, windows_core::IUnknown, windows_core::IInspectable);
+impl PhoneDialOptions {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<PhoneDialOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn Number(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Number)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetNumber(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetNumber)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    #[cfg(feature = "ApplicationModel_Contacts")]
+    pub fn Contact(&self) -> windows_core::Result<super::Contacts::Contact> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "ApplicationModel_Contacts")]
+    pub fn SetContact<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::Contacts::Contact>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetContact)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(feature = "ApplicationModel_Contacts")]
+    pub fn ContactPhone(&self) -> windows_core::Result<super::Contacts::ContactPhone> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ContactPhone)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "ApplicationModel_Contacts")]
+    pub fn SetContactPhone<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::Contacts::ContactPhone>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetContactPhone)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    pub fn Media(&self) -> windows_core::Result<PhoneCallMedia> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Media)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetMedia(&self, value: PhoneCallMedia) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetMedia)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn AudioEndpoint(&self) -> windows_core::Result<PhoneAudioRoutingEndpoint> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AudioEndpoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetAudioEndpoint(&self, value: PhoneAudioRoutingEndpoint) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetAudioEndpoint)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl windows_core::RuntimeType for PhoneDialOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneDialOptions>();
+}
+unsafe impl windows_core::Interface for PhoneDialOptions {
+    type Vtable = <IPhoneDialOptions as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPhoneDialOptions as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PhoneDialOptions {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneDialOptions";
+}
+unsafe impl Send for PhoneDialOptions {}
+unsafe impl Sync for PhoneDialOptions {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PhoneLine(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PhoneLine, windows_core::IUnknown, windows_core::IInspectable);
+impl PhoneLine {
+    pub fn LineChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneLine, windows_core::IInspectable>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LineChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveLineChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveLineChanged)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn Id(&self) -> windows_core::Result<windows_core::GUID> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "UI")]
+    pub fn DisplayColor(&self) -> windows_core::Result<super::super::UI::Color> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn NetworkState(&self) -> windows_core::Result<PhoneNetworkState> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NetworkState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Voicemail(&self) -> windows_core::Result<PhoneVoicemail> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Voicemail)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn NetworkName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NetworkName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn CellularDetails(&self) -> windows_core::Result<PhoneLineCellularDetails> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CellularDetails)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Transport(&self) -> windows_core::Result<PhoneLineTransport> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Transport)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn CanDial(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CanDial)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SupportsTile(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SupportsTile)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn VideoCallingCapabilities(&self) -> windows_core::Result<PhoneCallVideoCapabilities> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).VideoCallingCapabilities)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn LineConfiguration(&self) -> windows_core::Result<PhoneLineConfiguration> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LineConfiguration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn IsImmediateDialNumberAsync(&self, number: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsImmediateDialNumberAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(number), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Dial(&self, number: &windows_core::HSTRING, displayname: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Dial)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(number), core::mem::transmute_copy(displayname)).ok() }
+    }
+    pub fn DialWithOptions<P0>(&self, options: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<PhoneDialOptions>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).DialWithOptions)(windows_core::Interface::as_raw(this), options.param().abi()).ok() }
+    }
+    pub fn EnableTextReply(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IPhoneLine2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).EnableTextReply)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn TransportDeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IPhoneLine2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TransportDeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn DialWithResult(&self, number: &windows_core::HSTRING, displayname: &windows_core::HSTRING) -> windows_core::Result<PhoneLineDialResult> {
+        let this = &windows_core::Interface::cast::<IPhoneLine3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DialWithResult)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(number), core::mem::transmute_copy(displayname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn DialWithResultAsync(&self, number: &windows_core::HSTRING, displayname: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneLineDialResult>> {
+        let this = &windows_core::Interface::cast::<IPhoneLine3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DialWithResultAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(number), core::mem::transmute_copy(displayname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetAllActivePhoneCalls(&self) -> windows_core::Result<PhoneCallsResult> {
+        let this = &windows_core::Interface::cast::<IPhoneLine3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetAllActivePhoneCalls)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetAllActivePhoneCallsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallsResult>> {
+        let this = &windows_core::Interface::cast::<IPhoneLine3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetAllActivePhoneCallsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn FromIdAsync(lineid: windows_core::GUID) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneLine>> {
+        Self::IPhoneLineStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), lineid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IPhoneLineStatics<R, F: FnOnce(&IPhoneLineStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<PhoneLine, IPhoneLineStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for PhoneLine {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLine>();
+}
+unsafe impl windows_core::Interface for PhoneLine {
+    type Vtable = <IPhoneLine as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPhoneLine as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PhoneLine {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLine";
+}
+unsafe impl Send for PhoneLine {}
+unsafe impl Sync for PhoneLine {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PhoneLineCellularDetails(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PhoneLineCellularDetails, windows_core::IUnknown, windows_core::IInspectable);
+impl PhoneLineCellularDetails {
+    pub fn SimState(&self) -> windows_core::Result<PhoneSimState> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SimState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SimSlotIndex(&self) -> windows_core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SimSlotIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn IsModemOn(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsModemOn)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn RegistrationRejectCode(&self) -> windows_core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RegistrationRejectCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn GetNetworkOperatorDisplayText(&self, location: PhoneLineNetworkOperatorDisplayTextLocation) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetNetworkOperatorDisplayText)(windows_core::Interface::as_raw(this), location, &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for PhoneLineCellularDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineCellularDetails>();
+}
+unsafe impl windows_core::Interface for PhoneLineCellularDetails {
+    type Vtable = <IPhoneLineCellularDetails as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPhoneLineCellularDetails as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PhoneLineCellularDetails {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineCellularDetails";
+}
+unsafe impl Send for PhoneLineCellularDetails {}
+unsafe impl Sync for PhoneLineCellularDetails {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PhoneLineConfiguration(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PhoneLineConfiguration, windows_core::IUnknown, windows_core::IInspectable);
+impl PhoneLineConfiguration {
+    pub fn IsVideoCallingEnabled(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsVideoCallingEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ExtendedProperties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ExtendedProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for PhoneLineConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineConfiguration>();
+}
+unsafe impl windows_core::Interface for PhoneLineConfiguration {
+    type Vtable = <IPhoneLineConfiguration as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPhoneLineConfiguration as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PhoneLineConfiguration {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineConfiguration";
+}
+unsafe impl Send for PhoneLineConfiguration {}
+unsafe impl Sync for PhoneLineConfiguration {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PhoneLineDialResult(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PhoneLineDialResult, windows_core::IUnknown, windows_core::IInspectable);
+impl PhoneLineDialResult {
+    pub fn DialCallStatus(&self) -> windows_core::Result<PhoneCallOperationStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DialCallStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn DialedCall(&self) -> windows_core::Result<PhoneCall> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DialedCall)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for PhoneLineDialResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineDialResult>();
+}
+unsafe impl windows_core::Interface for PhoneLineDialResult {
+    type Vtable = <IPhoneLineDialResult as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPhoneLineDialResult as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PhoneLineDialResult {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineDialResult";
+}
+unsafe impl Send for PhoneLineDialResult {}
+unsafe impl Sync for PhoneLineDialResult {}
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneLineNetworkOperatorDisplayTextLocation(pub i32);
 impl PhoneLineNetworkOperatorDisplayTextLocation {
@@ -4051,6 +3352,283 @@ impl windows_core::TypeKind for PhoneLineTransport {
 impl windows_core::RuntimeType for PhoneLineTransport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineTransport;i4)");
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PhoneLineTransportDevice(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PhoneLineTransportDevice, windows_core::IUnknown, windows_core::IInspectable);
+impl PhoneLineTransportDevice {
+    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Transport(&self) -> windows_core::Result<PhoneLineTransport> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Transport)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Devices_Enumeration")]
+    pub fn RequestAccessAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Devices::Enumeration::DeviceAccessStatus>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn RegisterApp(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RegisterApp)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    #[cfg(feature = "System")]
+    pub fn RegisterAppForUser<P0>(&self, user: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::System::User>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RegisterAppForUser)(windows_core::Interface::as_raw(this), user.param().abi()).ok() }
+    }
+    pub fn UnregisterApp(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).UnregisterApp)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    #[cfg(feature = "System")]
+    pub fn UnregisterAppForUser<P0>(&self, user: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::System::User>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).UnregisterAppForUser)(windows_core::Interface::as_raw(this), user.param().abi()).ok() }
+    }
+    pub fn IsRegistered(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsRegistered)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Connect(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Connect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ConnectAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ConnectAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn AudioRoutingStatus(&self) -> windows_core::Result<TransportDeviceAudioRoutingStatus> {
+        let this = &windows_core::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AudioRoutingStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn AudioRoutingStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneLineTransportDevice, windows_core::IInspectable>>,
+    {
+        let this = &windows_core::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AudioRoutingStatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveAudioRoutingStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveAudioRoutingStatusChanged)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn InBandRingingEnabled(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).InBandRingingEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn InBandRingingEnabledChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneLineTransportDevice, windows_core::IInspectable>>,
+    {
+        let this = &windows_core::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).InBandRingingEnabledChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveInBandRingingEnabledChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveInBandRingingEnabledChanged)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn FromId(id: &windows_core::HSTRING) -> windows_core::Result<PhoneLineTransportDevice> {
+        Self::IPhoneLineTransportDeviceStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
+        Self::IPhoneLineTransportDeviceStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn GetDeviceSelectorForPhoneLineTransport(transport: PhoneLineTransport) -> windows_core::Result<windows_core::HSTRING> {
+        Self::IPhoneLineTransportDeviceStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetDeviceSelectorForPhoneLineTransport)(windows_core::Interface::as_raw(this), transport, &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    fn IPhoneLineTransportDeviceStatics<R, F: FnOnce(&IPhoneLineTransportDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<PhoneLineTransportDevice, IPhoneLineTransportDeviceStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for PhoneLineTransportDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineTransportDevice>();
+}
+unsafe impl windows_core::Interface for PhoneLineTransportDevice {
+    type Vtable = <IPhoneLineTransportDevice as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPhoneLineTransportDevice as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PhoneLineTransportDevice {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineTransportDevice";
+}
+unsafe impl Send for PhoneLineTransportDevice {}
+unsafe impl Sync for PhoneLineTransportDevice {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PhoneLineWatcher(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PhoneLineWatcher, windows_core::IUnknown, windows_core::IInspectable);
+impl PhoneLineWatcher {
+    pub fn Start(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn Stop(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn LineAdded<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LineAdded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveLineAdded(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveLineAdded)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn LineRemoved<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LineRemoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveLineRemoved(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveLineRemoved)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn LineUpdated<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LineUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveLineUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveLineUpdated)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneLineWatcher, windows_core::IInspectable>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveEnumerationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveEnumerationCompleted)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneLineWatcher, windows_core::IInspectable>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveStopped(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveStopped)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn Status(&self) -> windows_core::Result<PhoneLineWatcherStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for PhoneLineWatcher {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineWatcher>();
+}
+unsafe impl windows_core::Interface for PhoneLineWatcher {
+    type Vtable = <IPhoneLineWatcher as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPhoneLineWatcher as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PhoneLineWatcher {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineWatcher";
+}
+unsafe impl Send for PhoneLineWatcher {}
+unsafe impl Sync for PhoneLineWatcher {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PhoneLineWatcherEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PhoneLineWatcherEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl PhoneLineWatcherEventArgs {
+    pub fn LineId(&self) -> windows_core::Result<windows_core::GUID> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LineId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for PhoneLineWatcherEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineWatcherEventArgs>();
+}
+unsafe impl windows_core::Interface for PhoneLineWatcherEventArgs {
+    type Vtable = <IPhoneLineWatcherEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPhoneLineWatcherEventArgs as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PhoneLineWatcherEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineWatcherEventArgs";
+}
+unsafe impl Send for PhoneLineWatcherEventArgs {}
+unsafe impl Sync for PhoneLineWatcherEventArgs {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneLineWatcherStatus(pub i32);
@@ -4105,6 +3683,52 @@ impl windows_core::RuntimeType for PhoneSimState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneSimState;i4)");
 }
 #[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PhoneVoicemail(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PhoneVoicemail, windows_core::IUnknown, windows_core::IInspectable);
+impl PhoneVoicemail {
+    pub fn Number(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Number)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn MessageCount(&self) -> windows_core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MessageCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Type(&self) -> windows_core::Result<PhoneVoicemailType> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn DialVoicemailAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DialVoicemailAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for PhoneVoicemail {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneVoicemail>();
+}
+unsafe impl windows_core::Interface for PhoneVoicemail {
+    type Vtable = <IPhoneVoicemail as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPhoneVoicemail as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PhoneVoicemail {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneVoicemail";
+}
+unsafe impl Send for PhoneVoicemail {}
+unsafe impl Sync for PhoneVoicemail {}
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneVoicemailType(pub i32);
 impl PhoneVoicemailType {
@@ -4145,6 +3769,382 @@ impl windows_core::TypeKind for VoipCallControlDeviceKind {
 impl windows_core::RuntimeType for VoipCallControlDeviceKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipCallControlDeviceKind;i4)");
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VoipCallCoordinator(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VoipCallCoordinator, windows_core::IUnknown, windows_core::IInspectable);
+impl VoipCallCoordinator {
+    pub fn ReserveCallResourcesAsync(&self, taskentrypoint: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VoipPhoneCallResourceReservationStatus>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ReserveCallResourcesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(taskentrypoint), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn MuteStateChanged<P0>(&self, mutechangehandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VoipCallCoordinator, MuteChangeEventArgs>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MuteStateChanged)(windows_core::Interface::as_raw(this), mutechangehandler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveMuteStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveMuteStateChanged)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn RequestNewIncomingCall<P3, P5, P7>(&self, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, contactnumber: &windows_core::HSTRING, contactimage: P3, servicename: &windows_core::HSTRING, brandingimage: P5, calldetails: &windows_core::HSTRING, ringtone: P7, media: VoipPhoneCallMedia, ringtimeout: super::super::Foundation::TimeSpan) -> windows_core::Result<VoipPhoneCall>
+    where
+        P3: windows_core::Param<super::super::Foundation::Uri>,
+        P5: windows_core::Param<super::super::Foundation::Uri>,
+        P7: windows_core::Param<super::super::Foundation::Uri>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestNewIncomingCall)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(contactnumber), contactimage.param().abi(), core::mem::transmute_copy(servicename), brandingimage.param().abi(), core::mem::transmute_copy(calldetails), ringtone.param().abi(), media, ringtimeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn RequestNewOutgoingCall(&self, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, servicename: &windows_core::HSTRING, media: VoipPhoneCallMedia) -> windows_core::Result<VoipPhoneCall> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestNewOutgoingCall)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(servicename), media, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn NotifyMuted(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).NotifyMuted)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn NotifyUnmuted(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).NotifyUnmuted)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn RequestOutgoingUpgradeToVideoCall(&self, callupgradeguid: windows_core::GUID, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, servicename: &windows_core::HSTRING) -> windows_core::Result<VoipPhoneCall> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestOutgoingUpgradeToVideoCall)(windows_core::Interface::as_raw(this), callupgradeguid, core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(servicename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn RequestIncomingUpgradeToVideoCall<P3, P5, P7>(&self, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, contactnumber: &windows_core::HSTRING, contactimage: P3, servicename: &windows_core::HSTRING, brandingimage: P5, calldetails: &windows_core::HSTRING, ringtone: P7, ringtimeout: super::super::Foundation::TimeSpan) -> windows_core::Result<VoipPhoneCall>
+    where
+        P3: windows_core::Param<super::super::Foundation::Uri>,
+        P5: windows_core::Param<super::super::Foundation::Uri>,
+        P7: windows_core::Param<super::super::Foundation::Uri>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestIncomingUpgradeToVideoCall)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(contactnumber), contactimage.param().abi(), core::mem::transmute_copy(servicename), brandingimage.param().abi(), core::mem::transmute_copy(calldetails), ringtone.param().abi(), ringtimeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn TerminateCellularCall(&self, callupgradeguid: windows_core::GUID) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).TerminateCellularCall)(windows_core::Interface::as_raw(this), callupgradeguid).ok() }
+    }
+    pub fn CancelUpgrade(&self, callupgradeguid: windows_core::GUID) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).CancelUpgrade)(windows_core::Interface::as_raw(this), callupgradeguid).ok() }
+    }
+    pub fn SetupNewAcceptedCall(&self, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, contactnumber: &windows_core::HSTRING, servicename: &windows_core::HSTRING, media: VoipPhoneCallMedia) -> windows_core::Result<VoipPhoneCall> {
+        let this = &windows_core::Interface::cast::<IVoipCallCoordinator2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SetupNewAcceptedCall)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(contactnumber), core::mem::transmute_copy(servicename), media, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn RequestNewAppInitiatedCall(&self, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, contactnumber: &windows_core::HSTRING, servicename: &windows_core::HSTRING, media: VoipPhoneCallMedia) -> windows_core::Result<VoipPhoneCall> {
+        let this = &windows_core::Interface::cast::<IVoipCallCoordinator3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestNewAppInitiatedCall)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(contactnumber), core::mem::transmute_copy(servicename), media, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn RequestNewIncomingCallWithContactRemoteId<P3, P5, P7>(&self, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, contactnumber: &windows_core::HSTRING, contactimage: P3, servicename: &windows_core::HSTRING, brandingimage: P5, calldetails: &windows_core::HSTRING, ringtone: P7, media: VoipPhoneCallMedia, ringtimeout: super::super::Foundation::TimeSpan, contactremoteid: &windows_core::HSTRING) -> windows_core::Result<VoipPhoneCall>
+    where
+        P3: windows_core::Param<super::super::Foundation::Uri>,
+        P5: windows_core::Param<super::super::Foundation::Uri>,
+        P7: windows_core::Param<super::super::Foundation::Uri>,
+    {
+        let this = &windows_core::Interface::cast::<IVoipCallCoordinator3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestNewIncomingCallWithContactRemoteId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(contactnumber), contactimage.param().abi(), core::mem::transmute_copy(servicename), brandingimage.param().abi(), core::mem::transmute_copy(calldetails), ringtone.param().abi(), media, ringtimeout, core::mem::transmute_copy(contactremoteid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ReserveOneProcessCallResourcesAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VoipPhoneCallResourceReservationStatus>> {
+        let this = &windows_core::Interface::cast::<IVoipCallCoordinator4>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ReserveOneProcessCallResourcesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn RequestNewIncomingCallWithOptions<P0>(&self, calloptions: P0) -> windows_core::Result<VoipPhoneCall>
+    where
+        P0: windows_core::Param<IncomingVoipPhoneCallOptions>,
+    {
+        let this = &windows_core::Interface::cast::<IVoipCallCoordinator5>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestNewIncomingCallWithOptions)(windows_core::Interface::as_raw(this), calloptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn RequestNewOutgoingCallWithOptions<P0>(&self, calloptions: P0) -> windows_core::Result<VoipPhoneCall>
+    where
+        P0: windows_core::Param<OutgoingVoipPhoneCallOptions>,
+    {
+        let this = &windows_core::Interface::cast::<IVoipCallCoordinator5>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestNewOutgoingCallWithOptions)(windows_core::Interface::as_raw(this), calloptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetupNewAcceptedCallWithOptions<P0>(&self, calloptions: P0) -> windows_core::Result<VoipPhoneCall>
+    where
+        P0: windows_core::Param<AcceptedVoipPhoneCallOptions>,
+    {
+        let this = &windows_core::Interface::cast::<IVoipCallCoordinator5>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SetupNewAcceptedCallWithOptions)(windows_core::Interface::as_raw(this), calloptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn RequestNewAppInitiatedCallWithOptions<P0>(&self, calloptions: P0) -> windows_core::Result<VoipPhoneCall>
+    where
+        P0: windows_core::Param<AppInitiatedVoipPhoneCallOptions>,
+    {
+        let this = &windows_core::Interface::cast::<IVoipCallCoordinator5>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestNewAppInitiatedCallWithOptions)(windows_core::Interface::as_raw(this), calloptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetDefault() -> windows_core::Result<VoipCallCoordinator> {
+        Self::IVoipCallCoordinatorStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn IsCallControlDeviceKindSupportedForAssociation(kind: VoipCallControlDeviceKind) -> windows_core::Result<bool> {
+        Self::IVoipCallCoordinatorStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsCallControlDeviceKindSupportedForAssociation)(windows_core::Interface::as_raw(this), kind, &mut result__).map(|| result__)
+        })
+    }
+    pub fn GetDeviceSelectorForCallControl() -> windows_core::Result<windows_core::HSTRING> {
+        Self::IVoipCallCoordinatorStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetDeviceSelectorForCallControl)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    fn IVoipCallCoordinatorStatics<R, F: FnOnce(&IVoipCallCoordinatorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VoipCallCoordinator, IVoipCallCoordinatorStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IVoipCallCoordinatorStatics2<R, F: FnOnce(&IVoipCallCoordinatorStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VoipCallCoordinator, IVoipCallCoordinatorStatics2> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for VoipCallCoordinator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVoipCallCoordinator>();
+}
+unsafe impl windows_core::Interface for VoipCallCoordinator {
+    type Vtable = <IVoipCallCoordinator as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVoipCallCoordinator as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VoipCallCoordinator {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.VoipCallCoordinator";
+}
+unsafe impl Send for VoipCallCoordinator {}
+unsafe impl Sync for VoipCallCoordinator {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VoipPhoneCall(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VoipPhoneCall, windows_core::IUnknown, windows_core::IInspectable);
+impl VoipPhoneCall {
+    pub fn EndRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EndRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveEndRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveEndRequested)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn HoldRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HoldRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveHoldRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveHoldRequested)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn ResumeRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ResumeRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveResumeRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveResumeRequested)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn AnswerRequested<P0>(&self, accepthandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallAnswerEventArgs>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AnswerRequested)(windows_core::Interface::as_raw(this), accepthandler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveAnswerRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveAnswerRequested)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn RejectRequested<P0>(&self, rejecthandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallRejectEventArgs>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RejectRequested)(windows_core::Interface::as_raw(this), rejecthandler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveRejectRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveRejectRequested)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn NotifyCallHeld(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).NotifyCallHeld)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn NotifyCallActive(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).NotifyCallActive)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn NotifyCallEnded(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).NotifyCallEnded)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn ContactName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ContactName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetContactName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetContactName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn StartTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).StartTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetStartTime(&self, value: super::super::Foundation::DateTime) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetStartTime)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn CallMedia(&self) -> windows_core::Result<VoipPhoneCallMedia> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CallMedia)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetCallMedia(&self, value: VoipPhoneCallMedia) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetCallMedia)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn NotifyCallReady(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).NotifyCallReady)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn TryShowAppUI(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).TryShowAppUI)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn NotifyCallAccepted(&self, media: VoipPhoneCallMedia) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall3>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).NotifyCallAccepted)(windows_core::Interface::as_raw(this), media).ok() }
+    }
+    pub fn IsUsingAssociatedDevicesList(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall4>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsUsingAssociatedDevicesList)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn NotifyCallActiveOnDevices<P0>(&self, associateddeviceids: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+    {
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall4>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).NotifyCallActiveOnDevices)(windows_core::Interface::as_raw(this), associateddeviceids.param().abi()).ok() }
+    }
+    pub fn AddAssociatedCallControlDevice(&self, deviceid: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall4>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).AddAssociatedCallControlDevice)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid)).ok() }
+    }
+    pub fn RemoveAssociatedCallControlDevice(&self, deviceid: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall4>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveAssociatedCallControlDevice)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid)).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SetAssociatedCallControlDevices<P0>(&self, associateddeviceids: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+    {
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall4>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetAssociatedCallControlDevices)(windows_core::Interface::as_raw(this), associateddeviceids.param().abi()).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetAssociatedCallControlDevices(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall4>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetAssociatedCallControlDevices)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for VoipPhoneCall {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVoipPhoneCall>();
+}
+unsafe impl windows_core::Interface for VoipPhoneCall {
+    type Vtable = <IVoipPhoneCall as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVoipPhoneCall as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VoipPhoneCall {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.VoipPhoneCall";
+}
+unsafe impl Send for VoipPhoneCall {}
+unsafe impl Sync for VoipPhoneCall {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VoipPhoneCallMedia(pub u32);

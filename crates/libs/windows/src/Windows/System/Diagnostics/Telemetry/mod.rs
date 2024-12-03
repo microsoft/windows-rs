@@ -1,3 +1,34 @@
+windows_core::imp::define_interface!(IPlatformTelemetryClientStatics, IPlatformTelemetryClientStatics_Vtbl, 0x9bf3f25d_d5c3_4eea_8dbe_9c8dbb0d9d8f);
+impl windows_core::RuntimeType for IPlatformTelemetryClientStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPlatformTelemetryClientStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RegisterWithSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPlatformTelemetryRegistrationResult, IPlatformTelemetryRegistrationResult_Vtbl, 0x4d8518ab_2292_49bd_a15a_3d71d2145112);
+impl windows_core::RuntimeType for IPlatformTelemetryRegistrationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPlatformTelemetryRegistrationResult_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PlatformTelemetryRegistrationStatus) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPlatformTelemetryRegistrationSettings, IPlatformTelemetryRegistrationSettings_Vtbl, 0x819a8582_ca19_415e_bb79_9c224bfa3a73);
+impl windows_core::RuntimeType for IPlatformTelemetryRegistrationSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPlatformTelemetryRegistrationSettings_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub StorageSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub SetStorageSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub UploadQuotaSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub SetUploadQuotaSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+}
 pub struct PlatformTelemetryClient;
 impl PlatformTelemetryClient {
     pub fn Register(id: &windows_core::HSTRING) -> windows_core::Result<PlatformTelemetryRegistrationResult> {
@@ -95,37 +126,6 @@ impl windows_core::RuntimeName for PlatformTelemetryRegistrationSettings {
 }
 unsafe impl Send for PlatformTelemetryRegistrationSettings {}
 unsafe impl Sync for PlatformTelemetryRegistrationSettings {}
-windows_core::imp::define_interface!(IPlatformTelemetryClientStatics, IPlatformTelemetryClientStatics_Vtbl, 0x9bf3f25d_d5c3_4eea_8dbe_9c8dbb0d9d8f);
-impl windows_core::RuntimeType for IPlatformTelemetryClientStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPlatformTelemetryClientStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RegisterWithSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPlatformTelemetryRegistrationResult, IPlatformTelemetryRegistrationResult_Vtbl, 0x4d8518ab_2292_49bd_a15a_3d71d2145112);
-impl windows_core::RuntimeType for IPlatformTelemetryRegistrationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPlatformTelemetryRegistrationResult_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PlatformTelemetryRegistrationStatus) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPlatformTelemetryRegistrationSettings, IPlatformTelemetryRegistrationSettings_Vtbl, 0x819a8582_ca19_415e_bb79_9c224bfa3a73);
-impl windows_core::RuntimeType for IPlatformTelemetryRegistrationSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPlatformTelemetryRegistrationSettings_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub StorageSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetStorageSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub UploadQuotaSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetUploadQuotaSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PlatformTelemetryRegistrationStatus(pub i32);

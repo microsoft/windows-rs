@@ -1,568 +1,11 @@
-pub type PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK = Option<unsafe extern "system" fn(sourcecontext: *const IO_IRP_EXT_TRACK_OFFSET_HEADER, targetcontext: *mut IO_IRP_EXT_TRACK_OFFSET_HEADER, relativeoffset: i64)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BIN_TYPES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CHANGER_DEVICE_PROBLEM_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CHANGER_ELEMENT_STATUS_FLAGS(pub u32);
-impl CHANGER_ELEMENT_STATUS_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for CHANGER_ELEMENT_STATUS_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for CHANGER_ELEMENT_STATUS_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for CHANGER_ELEMENT_STATUS_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for CHANGER_ELEMENT_STATUS_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for CHANGER_ELEMENT_STATUS_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CHANGER_FEATURES(pub u32);
-impl CHANGER_FEATURES {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for CHANGER_FEATURES {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for CHANGER_FEATURES {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for CHANGER_FEATURES {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for CHANGER_FEATURES {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for CHANGER_FEATURES {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CSVFS_DISK_CONNECTIVITY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CSV_CONTROL_OP(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DETECTION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DEVICE_INTERNAL_STATUS_DATA_SET(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISK_CACHE_RETENTION_PRIORITY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DUPLICATE_EXTENTS_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ELEMENT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FILESYSTEM_STATISTICS_TYPE(pub u16);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FILE_STORAGE_TIER_CLASS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FILE_STORAGE_TIER_FLAGS(pub u32);
-impl FILE_STORAGE_TIER_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for FILE_STORAGE_TIER_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for FILE_STORAGE_TIER_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for FILE_STORAGE_TIER_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for FILE_STORAGE_TIER_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for FILE_STORAGE_TIER_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FILE_STORAGE_TIER_MEDIA_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FS_BPIO_INFLAGS(pub i32);
-impl FS_BPIO_INFLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for FS_BPIO_INFLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for FS_BPIO_INFLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for FS_BPIO_INFLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for FS_BPIO_INFLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for FS_BPIO_INFLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FS_BPIO_OPERATIONS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FS_BPIO_OUTFLAGS(pub i32);
-impl FS_BPIO_OUTFLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for FS_BPIO_OUTFLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for FS_BPIO_OUTFLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for FS_BPIO_OUTFLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for FS_BPIO_OUTFLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for FS_BPIO_OUTFLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GET_CHANGER_PARAMETERS_FEATURES1(pub u32);
-impl GET_CHANGER_PARAMETERS_FEATURES1 {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for GET_CHANGER_PARAMETERS_FEATURES1 {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for GET_CHANGER_PARAMETERS_FEATURES1 {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for GET_CHANGER_PARAMETERS_FEATURES1 {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for GET_CHANGER_PARAMETERS_FEATURES1 {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for GET_CHANGER_PARAMETERS_FEATURES1 {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GPT_ATTRIBUTES(pub u64);
-impl GPT_ATTRIBUTES {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for GPT_ATTRIBUTES {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for GPT_ATTRIBUTES {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for GPT_ATTRIBUTES {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for GPT_ATTRIBUTES {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for GPT_ATTRIBUTES {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct LMR_QUERY_INFO_CLASS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MEDIA_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PARTITION_STYLE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct QUERY_FILE_LAYOUT_FILTER_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct REFS_SMR_VOLUME_GC_ACTION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct REFS_SMR_VOLUME_GC_METHOD(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct REFS_SMR_VOLUME_GC_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCM_BUS_FIRMWARE_ACTIVATION_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCM_BUS_PROPERTY_ID(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCM_BUS_QUERY_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCM_BUS_SET_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCM_PD_FIRMWARE_ACTIVATION_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCM_PD_HEALTH_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCM_PD_LAST_FW_ACTIVATION_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCM_PD_MEDIA_REINITIALIZATION_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCM_PD_OPERATIONAL_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCM_PD_OPERATIONAL_STATUS_REASON(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCM_PD_PROPERTY_ID(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCM_PD_QUERY_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCM_PD_SET_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCM_REGION_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SHRINK_VOLUME_REQUEST_TYPES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_ASSOCIATION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_ATTRIBUTE_MGMT_ACTION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_COMPONENT_HEALTH_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_COUNTER_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_CRYPTO_ALGORITHM_ID(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_CRYPTO_KEY_SIZE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_DEVICE_FORM_FACTOR(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_DEVICE_POWER_CAP_UNITS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_DIAGNOSTIC_LEVEL(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_DIAGNOSTIC_TARGET_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_DISK_HEALTH_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_DISK_OPERATIONAL_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_ENCRYPTION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_IDENTIFIER_CODE_SET(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_IDENTIFIER_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_ID_NAA_FORMAT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_MEDIA_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_OPERATIONAL_STATUS_REASON(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_PORT_CODE_SET(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_POWERUP_REASON_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_PROPERTY_ID(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_PROTOCOL_ATA_DATA_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_PROTOCOL_NVME_DATA_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_PROTOCOL_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_PROTOCOL_UFS_DATA_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_QUERY_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_RESERVE_ID(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_RPMB_COMMAND_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_RPMB_FRAME_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_SANITIZE_METHOD(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_SET_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_TIER_CLASS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_TIER_MEDIA_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_ZONED_DEVICE_TYPES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_ZONES_ATTRIBUTES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_ZONE_CONDITION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_ZONE_TYPES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TXFS_RMF_LAGS(pub u32);
-impl TXFS_RMF_LAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for TXFS_RMF_LAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for TXFS_RMF_LAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for TXFS_RMF_LAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for TXFS_RMF_LAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for TXFS_RMF_LAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct USN_DELETE_FLAGS(pub u32);
-impl USN_DELETE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for USN_DELETE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for USN_DELETE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for USN_DELETE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for USN_DELETE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for USN_DELETE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct USN_SOURCE_INFO_ID(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VIRTUAL_STORAGE_BEHAVIOR_CODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WRITE_CACHE_CHANGE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WRITE_CACHE_ENABLE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WRITE_CACHE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WRITE_THROUGH(pub i32);
+pub const ABL_5_WO: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(64i32);
+pub const ADR_1: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(90i32);
+pub const ADR_2: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(91i32);
+pub const AIT1_8mm: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(38i32);
+pub const AIT_8mm: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(89i32);
+pub const AME_8mm: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(37i32);
+pub const ASSERT_ALTERNATE: u32 = 9u32;
+pub const ASSERT_PRIMARY: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ASYNC_DUPLICATE_EXTENTS_STATUS {
@@ -581,6 +24,12 @@ impl Default for ASYNC_DUPLICATE_EXTENTS_STATUS {
 impl windows_core::TypeKind for ASYNC_DUPLICATE_EXTENTS_STATUS {
     type TypeKind = windows_core::CopyType;
 }
+pub const ATAPI_ID_CMD: u32 = 161u32;
+pub const AVATAR_F2: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(78i32);
+pub const AllElements: ELEMENT_TYPE = ELEMENT_TYPE(0i32);
+pub const AtaDataTypeIdentify: STORAGE_PROTOCOL_ATA_DATA_TYPE = STORAGE_PROTOCOL_ATA_DATA_TYPE(1i32);
+pub const AtaDataTypeLogPage: STORAGE_PROTOCOL_ATA_DATA_TYPE = STORAGE_PROTOCOL_ATA_DATA_TYPE(2i32);
+pub const AtaDataTypeUnknown: STORAGE_PROTOCOL_ATA_DATA_TYPE = STORAGE_PROTOCOL_ATA_DATA_TYPE(0i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BIN_COUNT {
@@ -623,6 +72,9 @@ impl Default for BIN_RESULTS {
 impl windows_core::TypeKind for BIN_RESULTS {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BIN_TYPES(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BOOT_AREA_INFO {
@@ -664,6 +116,26 @@ impl Default for BULK_SECURITY_TEST_DATA {
 impl windows_core::TypeKind for BULK_SECURITY_TEST_DATA {
     type TypeKind = windows_core::CopyType;
 }
+pub const CAP_ATAPI_ID_CMD: u32 = 2u32;
+pub const CAP_ATA_ID_CMD: u32 = 1u32;
+pub const CAP_SMART_CMD: u32 = 4u32;
+pub const CDB_SIZE: u32 = 16u32;
+pub const CD_R: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(52i32);
+pub const CD_ROM: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(51i32);
+pub const CD_RW: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(53i32);
+pub const CHANGER_BAR_CODE_SCANNER_INSTALLED: CHANGER_FEATURES = CHANGER_FEATURES(1u32);
+pub const CHANGER_CARTRIDGE_MAGAZINE: CHANGER_FEATURES = CHANGER_FEATURES(256u32);
+pub const CHANGER_CLEANER_ACCESS_NOT_VALID: CHANGER_FEATURES = CHANGER_FEATURES(262144u32);
+pub const CHANGER_CLEANER_AUTODISMOUNT: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483652u32);
+pub const CHANGER_CLEANER_OPS_NOT_SUPPORTED: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483712u32);
+pub const CHANGER_CLEANER_SLOT: CHANGER_FEATURES = CHANGER_FEATURES(64u32);
+pub const CHANGER_CLOSE_IEPORT: CHANGER_FEATURES = CHANGER_FEATURES(4u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CHANGER_DEVICE_PROBLEM_TYPE(pub i32);
+pub const CHANGER_DEVICE_REINITIALIZE_CAPABLE: CHANGER_FEATURES = CHANGER_FEATURES(134217728u32);
+pub const CHANGER_DRIVE_CLEANING_REQUIRED: CHANGER_FEATURES = CHANGER_FEATURES(65536u32);
+pub const CHANGER_DRIVE_EMPTY_ON_DOOR_ACCESS: CHANGER_FEATURES = CHANGER_FEATURES(536870912u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CHANGER_ELEMENT {
@@ -737,6 +209,43 @@ impl Default for CHANGER_ELEMENT_STATUS_EX {
 impl windows_core::TypeKind for CHANGER_ELEMENT_STATUS_EX {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CHANGER_ELEMENT_STATUS_FLAGS(pub u32);
+impl CHANGER_ELEMENT_STATUS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for CHANGER_ELEMENT_STATUS_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for CHANGER_ELEMENT_STATUS_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for CHANGER_ELEMENT_STATUS_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for CHANGER_ELEMENT_STATUS_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for CHANGER_ELEMENT_STATUS_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const CHANGER_EXCHANGE_MEDIA: CHANGER_FEATURES = CHANGER_FEATURES(32u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CHANGER_EXCHANGE_MEDIUM {
@@ -755,6 +264,44 @@ impl Default for CHANGER_EXCHANGE_MEDIUM {
 impl windows_core::TypeKind for CHANGER_EXCHANGE_MEDIUM {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CHANGER_FEATURES(pub u32);
+impl CHANGER_FEATURES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for CHANGER_FEATURES {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for CHANGER_FEATURES {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for CHANGER_FEATURES {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for CHANGER_FEATURES {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for CHANGER_FEATURES {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const CHANGER_IEPORT_USER_CONTROL_CLOSE: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483904u32);
+pub const CHANGER_IEPORT_USER_CONTROL_OPEN: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483776u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CHANGER_INITIALIZE_ELEMENT_STATUS {
@@ -769,6 +316,11 @@ impl Default for CHANGER_INITIALIZE_ELEMENT_STATUS {
 impl windows_core::TypeKind for CHANGER_INITIALIZE_ELEMENT_STATUS {
     type TypeKind = windows_core::CopyType;
 }
+pub const CHANGER_INIT_ELEM_STAT_WITH_RANGE: CHANGER_FEATURES = CHANGER_FEATURES(2u32);
+pub const CHANGER_KEYPAD_ENABLE_DISABLE: CHANGER_FEATURES = CHANGER_FEATURES(268435456u32);
+pub const CHANGER_LOCK_UNLOCK: CHANGER_FEATURES = CHANGER_FEATURES(128u32);
+pub const CHANGER_MEDIUM_FLIP: CHANGER_FEATURES = CHANGER_FEATURES(512u32);
+pub const CHANGER_MOVE_EXTENDS_IEPORT: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147484160u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CHANGER_MOVE_MEDIUM {
@@ -785,6 +337,13 @@ impl Default for CHANGER_MOVE_MEDIUM {
 impl windows_core::TypeKind for CHANGER_MOVE_MEDIUM {
     type TypeKind = windows_core::CopyType;
 }
+pub const CHANGER_MOVE_RETRACTS_IEPORT: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147484672u32);
+pub const CHANGER_OPEN_IEPORT: CHANGER_FEATURES = CHANGER_FEATURES(8u32);
+pub const CHANGER_POSITION_TO_ELEMENT: CHANGER_FEATURES = CHANGER_FEATURES(1024u32);
+pub const CHANGER_PREDISMOUNT_ALIGN_TO_DRIVE: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483650u32);
+pub const CHANGER_PREDISMOUNT_ALIGN_TO_SLOT: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483649u32);
+pub const CHANGER_PREDISMOUNT_EJECT_REQUIRED: CHANGER_FEATURES = CHANGER_FEATURES(131072u32);
+pub const CHANGER_PREMOUNT_EJECT_REQUIRED: CHANGER_FEATURES = CHANGER_FEATURES(524288u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CHANGER_PRODUCT_DATA {
@@ -816,6 +375,9 @@ impl Default for CHANGER_READ_ELEMENT_STATUS {
 impl windows_core::TypeKind for CHANGER_READ_ELEMENT_STATUS {
     type TypeKind = windows_core::CopyType;
 }
+pub const CHANGER_REPORT_IEPORT_STATE: CHANGER_FEATURES = CHANGER_FEATURES(2048u32);
+pub const CHANGER_RESERVED_BIT: u32 = 2147483648u32;
+pub const CHANGER_RTN_MEDIA_TO_ORIGINAL_ADDR: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483680u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CHANGER_SEND_VOLUME_TAG_INFORMATION {
@@ -831,6 +393,7 @@ impl Default for CHANGER_SEND_VOLUME_TAG_INFORMATION {
 impl windows_core::TypeKind for CHANGER_SEND_VOLUME_TAG_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+pub const CHANGER_SERIAL_NUMBER_VALID: CHANGER_FEATURES = CHANGER_FEATURES(67108864u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CHANGER_SET_ACCESS {
@@ -860,6 +423,28 @@ impl Default for CHANGER_SET_POSITION {
 impl windows_core::TypeKind for CHANGER_SET_POSITION {
     type TypeKind = windows_core::CopyType;
 }
+pub const CHANGER_SLOTS_USE_TRAYS: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483664u32);
+pub const CHANGER_STATUS_NON_VOLATILE: CHANGER_FEATURES = CHANGER_FEATURES(16u32);
+pub const CHANGER_STORAGE_DRIVE: CHANGER_FEATURES = CHANGER_FEATURES(4096u32);
+pub const CHANGER_STORAGE_IEPORT: CHANGER_FEATURES = CHANGER_FEATURES(8192u32);
+pub const CHANGER_STORAGE_SLOT: CHANGER_FEATURES = CHANGER_FEATURES(16384u32);
+pub const CHANGER_STORAGE_TRANSPORT: CHANGER_FEATURES = CHANGER_FEATURES(32768u32);
+pub const CHANGER_TO_DRIVE: u32 = 8u32;
+pub const CHANGER_TO_IEPORT: u32 = 4u32;
+pub const CHANGER_TO_SLOT: u32 = 2u32;
+pub const CHANGER_TO_TRANSPORT: u32 = 1u32;
+pub const CHANGER_TRUE_EXCHANGE_CAPABLE: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483656u32);
+pub const CHANGER_VOLUME_ASSERT: CHANGER_FEATURES = CHANGER_FEATURES(4194304u32);
+pub const CHANGER_VOLUME_IDENTIFICATION: CHANGER_FEATURES = CHANGER_FEATURES(1048576u32);
+pub const CHANGER_VOLUME_REPLACE: CHANGER_FEATURES = CHANGER_FEATURES(8388608u32);
+pub const CHANGER_VOLUME_SEARCH: CHANGER_FEATURES = CHANGER_FEATURES(2097152u32);
+pub const CHANGER_VOLUME_UNDEFINE: CHANGER_FEATURES = CHANGER_FEATURES(16777216u32);
+pub const CHECKSUM_TYPE_CRC32: u32 = 1u32;
+pub const CHECKSUM_TYPE_CRC64: u32 = 2u32;
+pub const CHECKSUM_TYPE_ECC: u32 = 3u32;
+pub const CHECKSUM_TYPE_FIRST_UNUSED_TYPE: u32 = 5u32;
+pub const CHECKSUM_TYPE_NONE: u32 = 0u32;
+pub const CHECKSUM_TYPE_SHA256: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLASS_MEDIA_CHANGE_CONTEXT {
@@ -874,6 +459,7 @@ impl Default for CLASS_MEDIA_CHANGE_CONTEXT {
 impl windows_core::TypeKind for CLASS_MEDIA_CHANGE_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
+pub const CLEANER_CARTRIDGE: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(50i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLUSTER_RANGE {
@@ -888,6 +474,16 @@ impl Default for CLUSTER_RANGE {
 impl windows_core::TypeKind for CLUSTER_RANGE {
     type TypeKind = windows_core::CopyType;
 }
+pub const CONTAINER_ROOT_INFO_FLAG_BIND_DO_NOT_MAP_NAME: u32 = 256u32;
+pub const CONTAINER_ROOT_INFO_FLAG_BIND_EXCEPTION_ROOT: u32 = 128u32;
+pub const CONTAINER_ROOT_INFO_FLAG_BIND_ROOT: u32 = 32u32;
+pub const CONTAINER_ROOT_INFO_FLAG_BIND_TARGET_ROOT: u32 = 64u32;
+pub const CONTAINER_ROOT_INFO_FLAG_LAYER_ROOT: u32 = 2u32;
+pub const CONTAINER_ROOT_INFO_FLAG_SCRATCH_ROOT: u32 = 1u32;
+pub const CONTAINER_ROOT_INFO_FLAG_UNION_LAYER_ROOT: u32 = 512u32;
+pub const CONTAINER_ROOT_INFO_FLAG_VIRTUALIZATION_EXCEPTION_ROOT: u32 = 16u32;
+pub const CONTAINER_ROOT_INFO_FLAG_VIRTUALIZATION_ROOT: u32 = 4u32;
+pub const CONTAINER_ROOT_INFO_FLAG_VIRTUALIZATION_TARGET_ROOT: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONTAINER_ROOT_INFO_INPUT {
@@ -915,6 +511,7 @@ impl Default for CONTAINER_ROOT_INFO_OUTPUT {
 impl windows_core::TypeKind for CONTAINER_ROOT_INFO_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
+pub const CONTAINER_ROOT_INFO_VALID_FLAGS: u32 = 1023u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONTAINER_VOLUME_STATE {
@@ -928,6 +525,10 @@ impl Default for CONTAINER_VOLUME_STATE {
 impl windows_core::TypeKind for CONTAINER_VOLUME_STATE {
     type TypeKind = windows_core::CopyType;
 }
+pub const CONTAINER_VOLUME_STATE_HOSTING_CONTAINER: u32 = 1u32;
+pub const COPYFILE_SIS_FLAGS: u32 = 3u32;
+pub const COPYFILE_SIS_LINK: u32 = 1u32;
+pub const COPYFILE_SIS_REPLACE: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CREATE_DISK {
@@ -997,6 +598,12 @@ impl Default for CREATE_USN_JOURNAL_DATA {
 impl windows_core::TypeKind for CREATE_USN_JOURNAL_DATA {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CSVFS_DISK_CONNECTIVITY(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CSV_CONTROL_OP(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CSV_CONTROL_PARAM {
@@ -1011,6 +618,7 @@ impl Default for CSV_CONTROL_PARAM {
 impl windows_core::TypeKind for CSV_CONTROL_PARAM {
     type TypeKind = windows_core::CopyType;
 }
+pub const CSV_INVALID_DEVICE_NUMBER: u32 = 4294967295u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CSV_IS_OWNED_BY_CSVFS {
@@ -1024,6 +632,7 @@ impl Default for CSV_IS_OWNED_BY_CSVFS {
 impl windows_core::TypeKind for CSV_IS_OWNED_BY_CSVFS {
     type TypeKind = windows_core::CopyType;
 }
+pub const CSV_MGMTLOCK_CHECK_VOLUME_REDIRECTED: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CSV_MGMT_LOCK {
@@ -1100,6 +709,9 @@ impl Default for CSV_QUERY_MDS_PATH {
 impl windows_core::TypeKind for CSV_QUERY_MDS_PATH {
     type TypeKind = windows_core::CopyType;
 }
+pub const CSV_QUERY_MDS_PATH_FLAG_CSV_DIRECT_IO_ENABLED: u32 = 2u32;
+pub const CSV_QUERY_MDS_PATH_FLAG_SMB_BYPASS_CSV_ENABLED: u32 = 4u32;
+pub const CSV_QUERY_MDS_PATH_FLAG_STORAGE_ON_THIS_NODE_IS_CONNECTED: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CSV_QUERY_MDS_PATH_V2 {
@@ -1123,6 +735,7 @@ impl Default for CSV_QUERY_MDS_PATH_V2 {
 impl windows_core::TypeKind for CSV_QUERY_MDS_PATH_V2 {
     type TypeKind = windows_core::CopyType;
 }
+pub const CSV_QUERY_MDS_PATH_V2_VERSION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CSV_QUERY_REDIRECT_STATE {
@@ -1196,6 +809,40 @@ impl Default for CSV_SET_VOLUME_ID {
 impl windows_core::TypeKind for CSV_SET_VOLUME_ID {
     type TypeKind = windows_core::CopyType;
 }
+pub const CYGNET_12_WO: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(69i32);
+pub const ChangerDoor: ELEMENT_TYPE = ELEMENT_TYPE(5i32);
+pub const ChangerDrive: ELEMENT_TYPE = ELEMENT_TYPE(4i32);
+pub const ChangerIEPort: ELEMENT_TYPE = ELEMENT_TYPE(3i32);
+pub const ChangerKeypad: ELEMENT_TYPE = ELEMENT_TYPE(6i32);
+pub const ChangerMaxElement: ELEMENT_TYPE = ELEMENT_TYPE(7i32);
+pub const ChangerSlot: ELEMENT_TYPE = ELEMENT_TYPE(2i32);
+pub const ChangerTransport: ELEMENT_TYPE = ELEMENT_TYPE(1i32);
+pub const CsvControlDisableCaching: CSV_CONTROL_OP = CSV_CONTROL_OP(19i32);
+pub const CsvControlEnableCaching: CSV_CONTROL_OP = CSV_CONTROL_OP(20i32);
+pub const CsvControlEnableUSNRangeModificationTracking: CSV_CONTROL_OP = CSV_CONTROL_OP(13i32);
+pub const CsvControlGetCsvFsMdsPathV2: CSV_CONTROL_OP = CSV_CONTROL_OP(18i32);
+pub const CsvControlMarkHandleLocalVolumeMount: CSV_CONTROL_OP = CSV_CONTROL_OP(14i32);
+pub const CsvControlQueryFileRevision: CSV_CONTROL_OP = CSV_CONTROL_OP(6i32);
+pub const CsvControlQueryFileRevisionFileId128: CSV_CONTROL_OP = CSV_CONTROL_OP(9i32);
+pub const CsvControlQueryMdsPath: CSV_CONTROL_OP = CSV_CONTROL_OP(8i32);
+pub const CsvControlQueryMdsPathNoPause: CSV_CONTROL_OP = CSV_CONTROL_OP(23i32);
+pub const CsvControlQueryRedirectState: CSV_CONTROL_OP = CSV_CONTROL_OP(4i32);
+pub const CsvControlQueryVolumeId: CSV_CONTROL_OP = CSV_CONTROL_OP(25i32);
+pub const CsvControlQueryVolumeRedirectState: CSV_CONTROL_OP = CSV_CONTROL_OP(10i32);
+pub const CsvControlSetVolumeId: CSV_CONTROL_OP = CSV_CONTROL_OP(24i32);
+pub const CsvControlStartForceDFO: CSV_CONTROL_OP = CSV_CONTROL_OP(21i32);
+pub const CsvControlStartRedirectFile: CSV_CONTROL_OP = CSV_CONTROL_OP(2i32);
+pub const CsvControlStopForceDFO: CSV_CONTROL_OP = CSV_CONTROL_OP(22i32);
+pub const CsvControlStopRedirectFile: CSV_CONTROL_OP = CSV_CONTROL_OP(3i32);
+pub const CsvControlUnmarkHandleLocalVolumeMount: CSV_CONTROL_OP = CSV_CONTROL_OP(15i32);
+pub const CsvFsDiskConnectivityAllNodes: CSVFS_DISK_CONNECTIVITY = CSVFS_DISK_CONNECTIVITY(3i32);
+pub const CsvFsDiskConnectivityMdsNodeOnly: CSVFS_DISK_CONNECTIVITY = CSVFS_DISK_CONNECTIVITY(1i32);
+pub const CsvFsDiskConnectivityNone: CSVFS_DISK_CONNECTIVITY = CSVFS_DISK_CONNECTIVITY(0i32);
+pub const CsvFsDiskConnectivitySubsetOfNodes: CSVFS_DISK_CONNECTIVITY = CSVFS_DISK_CONNECTIVITY(2i32);
+pub const DAX_ALLOC_ALIGNMENT_FLAG_FALLBACK_SPECIFIED: u32 = 2u32;
+pub const DAX_ALLOC_ALIGNMENT_FLAG_MANDATORY: u32 = 1u32;
+pub const DDS_4mm: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(32i32);
+pub const DDUMP_FLAG_DATA_READ_FROM_DEVICE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DECRYPTION_STATUS_BUFFER {
@@ -1223,6 +870,15 @@ impl Default for DELETE_USN_JOURNAL_DATA {
 impl windows_core::TypeKind for DELETE_USN_JOURNAL_DATA {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DETECTION_TYPE(pub i32);
+pub const DEVICEDUMP_CAP_PRIVATE_SECTION: u32 = 1u32;
+pub const DEVICEDUMP_CAP_RESTRICTED_SECTION: u32 = 2u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE(pub i32);
+pub const DEVICEDUMP_MAX_IDSTRING: u32 = 32u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DEVICEDUMP_PRIVATE_SUBSECTION {
@@ -1412,6 +1068,7 @@ impl Default for DEVICEDUMP_STRUCTURE_VERSION {
 impl windows_core::TypeKind for DEVICEDUMP_STRUCTURE_VERSION {
     type TypeKind = windows_core::CopyType;
 }
+pub const DEVICEDUMP_STRUCTURE_VERSION_V1: u32 = 1u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DEVICEDUMP_SUBSECTION_POINTER {
@@ -1466,6 +1123,7 @@ impl Default for DEVICE_DATA_SET_LBP_STATE_PARAMETERS {
 impl windows_core::TypeKind for DEVICE_DATA_SET_LBP_STATE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
+pub const DEVICE_DATA_SET_LBP_STATE_PARAMETERS_VERSION_V1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICE_DATA_SET_LB_PROVISIONING_STATE {
@@ -1625,6 +1283,15 @@ impl Default for DEVICE_DSM_DEFINITION {
 impl windows_core::TypeKind for DEVICE_DSM_DEFINITION {
     type TypeKind = windows_core::CopyType;
 }
+pub const DEVICE_DSM_FLAG_ALLOCATION_CONSOLIDATEABLE_ONLY: u32 = 1073741824u32;
+pub const DEVICE_DSM_FLAG_ENTIRE_DATA_SET_RANGE: u32 = 1u32;
+pub const DEVICE_DSM_FLAG_PHYSICAL_ADDRESSES_OMIT_TOTAL_RANGES: u32 = 268435456u32;
+pub const DEVICE_DSM_FLAG_REPAIR_INPUT_TOPOLOGY_ID_PRESENT: u32 = 1073741824u32;
+pub const DEVICE_DSM_FLAG_REPAIR_OUTPUT_PARITY_EXTENT: u32 = 536870912u32;
+pub const DEVICE_DSM_FLAG_SCRUB_OUTPUT_PARITY_EXTENT: u32 = 536870912u32;
+pub const DEVICE_DSM_FLAG_SCRUB_SKIP_IN_SYNC: u32 = 268435456u32;
+pub const DEVICE_DSM_FLAG_TRIM_BYPASS_RZAT: u32 = 1073741824u32;
+pub const DEVICE_DSM_FLAG_TRIM_NOT_FS_ALLOCATED: u32 = 2147483648u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICE_DSM_FREE_SPACE_OUTPUT {
@@ -1686,6 +1353,8 @@ impl Default for DEVICE_DSM_NOTIFICATION_PARAMETERS {
 impl windows_core::TypeKind for DEVICE_DSM_NOTIFICATION_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
+pub const DEVICE_DSM_NOTIFY_FLAG_BEGIN: u32 = 1u32;
+pub const DEVICE_DSM_NOTIFY_FLAG_END: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS {
@@ -1732,6 +1401,7 @@ impl Default for DEVICE_DSM_OFFLOAD_WRITE_PARAMETERS {
 impl windows_core::TypeKind for DEVICE_DSM_OFFLOAD_WRITE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
+pub const DEVICE_DSM_PARAMETERS_V1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {
@@ -1749,6 +1419,8 @@ impl Default for DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {
 impl windows_core::TypeKind for DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
+pub const DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT_V1: u32 = 1u32;
+pub const DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT_VERSION_V1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEVICE_DSM_RANGE_ERROR_INFO {
@@ -1766,6 +1438,8 @@ impl Default for DEVICE_DSM_RANGE_ERROR_INFO {
 impl windows_core::TypeKind for DEVICE_DSM_RANGE_ERROR_INFO {
     type TypeKind = windows_core::CopyType;
 }
+pub const DEVICE_DSM_RANGE_ERROR_INFO_VERSION_V1: u32 = 1u32;
+pub const DEVICE_DSM_RANGE_ERROR_OUTPUT_V1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICE_DSM_REPORT_ZONES_DATA {
@@ -1860,6 +1534,12 @@ impl Default for DEVICE_INTERNAL_STATUS_DATA {
 impl windows_core::TypeKind for DEVICE_INTERNAL_STATUS_DATA {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DEVICE_INTERNAL_STATUS_DATA_SET(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVICE_LB_PROVISIONING_DESCRIPTOR {
@@ -2161,6 +1841,7 @@ impl Default for DEVICE_STORAGE_ADDRESS_RANGE {
 impl windows_core::TypeKind for DEVICE_STORAGE_ADDRESS_RANGE {
     type TypeKind = windows_core::CopyType;
 }
+pub const DEVICE_STORAGE_NO_ERRORS: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEVICE_STORAGE_RANGE_ATTRIBUTES {
@@ -2233,6 +1914,18 @@ impl Default for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
 impl windows_core::TypeKind for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
+pub const DEVPKEY_Storage_Disk_Number: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 5 };
+pub const DEVPKEY_Storage_Gpt_Name: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 9 };
+pub const DEVPKEY_Storage_Gpt_Type: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 8 };
+pub const DEVPKEY_Storage_Mbr_Type: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 7 };
+pub const DEVPKEY_Storage_Partition_Number: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 6 };
+pub const DEVPKEY_Storage_Portable: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 2 };
+pub const DEVPKEY_Storage_Removable_Media: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 3 };
+pub const DEVPKEY_Storage_System_Critical: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 4 };
+pub const DISABLE_SMART: u32 = 217u32;
+pub const DISK_ATTRIBUTE_OFFLINE: u64 = 1u64;
+pub const DISK_ATTRIBUTE_READ_ONLY: u64 = 2u64;
+pub const DISK_BINNING: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DISK_CACHE_INFORMATION {
@@ -2296,6 +1989,9 @@ impl Default for DISK_CACHE_INFORMATION_0_0 {
 impl windows_core::TypeKind for DISK_CACHE_INFORMATION_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISK_CACHE_RETENTION_PRIORITY(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISK_CONTROLLER_NUMBER {
@@ -2488,6 +2184,9 @@ impl Default for DISK_LOGGING {
 impl windows_core::TypeKind for DISK_LOGGING {
     type TypeKind = windows_core::CopyType;
 }
+pub const DISK_LOGGING_DUMP: u32 = 2u32;
+pub const DISK_LOGGING_START: u32 = 0u32;
+pub const DISK_LOGGING_STOP: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DISK_PARTITION_INFO {
@@ -2587,6 +2286,8 @@ impl Default for DISK_RECORD {
 impl windows_core::TypeKind for DISK_RECORD {
     type TypeKind = windows_core::CopyType;
 }
+pub const DLT: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(39i32);
+pub const DMI: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(48i32);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DRIVERSTATUS {
@@ -2678,6 +2379,9 @@ impl Default for DRIVE_LAYOUT_INFORMATION_MBR {
 impl windows_core::TypeKind for DRIVE_LAYOUT_INFORMATION_MBR {
     type TypeKind = windows_core::CopyType;
 }
+pub const DST_L: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(82i32);
+pub const DST_M: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(81i32);
+pub const DST_S: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(80i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DUPLICATE_EXTENTS_DATA {
@@ -2752,6 +2456,101 @@ impl Default for DUPLICATE_EXTENTS_DATA_EX32 {
 impl windows_core::TypeKind for DUPLICATE_EXTENTS_DATA_EX32 {
     type TypeKind = windows_core::CopyType;
 }
+pub const DUPLICATE_EXTENTS_DATA_EX_ASYNC: u32 = 2u32;
+pub const DUPLICATE_EXTENTS_DATA_EX_SOURCE_ATOMIC: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DUPLICATE_EXTENTS_STATE(pub i32);
+pub const DVD_R: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(55i32);
+pub const DVD_RAM: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(88i32);
+pub const DVD_ROM: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(54i32);
+pub const DVD_RW: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(56i32);
+pub const DV_6mm: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(47i32);
+pub const DetectExInt13: DETECTION_TYPE = DETECTION_TYPE(2i32);
+pub const DetectInt13: DETECTION_TYPE = DETECTION_TYPE(1i32);
+pub const DetectNone: DETECTION_TYPE = DETECTION_TYPE(0i32);
+pub const DeviceCurrentInternalStatusData: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(2i32);
+pub const DeviceCurrentInternalStatusDataHeader: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(1i32);
+pub const DeviceDsmActionFlag_NonDestructive: u32 = 2147483648u32;
+pub const DeviceInternalStatusDataRequestTypeUndefined: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(0i32);
+pub const DeviceProblemCHMError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(2i32);
+pub const DeviceProblemCHMMoveError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(6i32);
+pub const DeviceProblemCHMZeroError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(7i32);
+pub const DeviceProblemCalibrationError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(4i32);
+pub const DeviceProblemCartridgeEjectError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(11i32);
+pub const DeviceProblemCartridgeInsertError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(8i32);
+pub const DeviceProblemDoorOpen: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(3i32);
+pub const DeviceProblemDriveError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(13i32);
+pub const DeviceProblemGripperError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(12i32);
+pub const DeviceProblemHardware: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(1i32);
+pub const DeviceProblemNone: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(0i32);
+pub const DeviceProblemPositionError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(9i32);
+pub const DeviceProblemSensorError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(10i32);
+pub const DeviceProblemTargetFailure: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(5i32);
+pub const DeviceSavedInternalStatusData: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(4i32);
+pub const DeviceSavedInternalStatusDataHeader: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(3i32);
+pub const DeviceStatusDataSet1: DEVICE_INTERNAL_STATUS_DATA_SET = DEVICE_INTERNAL_STATUS_DATA_SET(1i32);
+pub const DeviceStatusDataSet2: DEVICE_INTERNAL_STATUS_DATA_SET = DEVICE_INTERNAL_STATUS_DATA_SET(2i32);
+pub const DeviceStatusDataSet3: DEVICE_INTERNAL_STATUS_DATA_SET = DEVICE_INTERNAL_STATUS_DATA_SET(3i32);
+pub const DeviceStatusDataSet4: DEVICE_INTERNAL_STATUS_DATA_SET = DEVICE_INTERNAL_STATUS_DATA_SET(4i32);
+pub const DeviceStatusDataSetMax: DEVICE_INTERNAL_STATUS_DATA_SET = DEVICE_INTERNAL_STATUS_DATA_SET(5i32);
+pub const DeviceStatusDataSetUndefined: DEVICE_INTERNAL_STATUS_DATA_SET = DEVICE_INTERNAL_STATUS_DATA_SET(0i32);
+pub const DiskHealthHealthy: STORAGE_DISK_HEALTH_STATUS = STORAGE_DISK_HEALTH_STATUS(3i32);
+pub const DiskHealthMax: STORAGE_DISK_HEALTH_STATUS = STORAGE_DISK_HEALTH_STATUS(4i32);
+pub const DiskHealthUnhealthy: STORAGE_DISK_HEALTH_STATUS = STORAGE_DISK_HEALTH_STATUS(1i32);
+pub const DiskHealthUnknown: STORAGE_DISK_HEALTH_STATUS = STORAGE_DISK_HEALTH_STATUS(0i32);
+pub const DiskHealthWarning: STORAGE_DISK_HEALTH_STATUS = STORAGE_DISK_HEALTH_STATUS(2i32);
+pub const DiskOpReasonBackgroundOperation: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(12i32);
+pub const DiskOpReasonComponent: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(10i32);
+pub const DiskOpReasonConfiguration: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(7i32);
+pub const DiskOpReasonDataPersistenceLossImminent: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(18i32);
+pub const DiskOpReasonDeviceController: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(8i32);
+pub const DiskOpReasonDisabledByPlatform: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(16i32);
+pub const DiskOpReasonEnergySource: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(6i32);
+pub const DiskOpReasonHealthCheck: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(14i32);
+pub const DiskOpReasonInvalidFirmware: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(13i32);
+pub const DiskOpReasonIo: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(3i32);
+pub const DiskOpReasonLostData: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(5i32);
+pub const DiskOpReasonLostDataPersistence: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(15i32);
+pub const DiskOpReasonLostWritePersistence: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(17i32);
+pub const DiskOpReasonMax: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(20i32);
+pub const DiskOpReasonMedia: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(2i32);
+pub const DiskOpReasonMediaController: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(9i32);
+pub const DiskOpReasonNVDIMM_N: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(11i32);
+pub const DiskOpReasonScsiSenseCode: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(1i32);
+pub const DiskOpReasonThresholdExceeded: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(4i32);
+pub const DiskOpReasonUnknown: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(0i32);
+pub const DiskOpReasonWritePersistenceLossImminent: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(19i32);
+pub const DiskOpStatusHardwareError: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(5i32);
+pub const DiskOpStatusInService: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(4i32);
+pub const DiskOpStatusMissing: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(8i32);
+pub const DiskOpStatusNone: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(0i32);
+pub const DiskOpStatusNotUsable: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(6i32);
+pub const DiskOpStatusOk: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(2i32);
+pub const DiskOpStatusPredictingFailure: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(3i32);
+pub const DiskOpStatusTransientError: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(7i32);
+pub const DiskOpStatusUnknown: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(1i32);
+pub const EFS_TRACKED_OFFSET_HEADER_FLAG: u32 = 1u32;
+pub const ELEMENT_STATUS_ACCESS: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(8u32);
+pub const ELEMENT_STATUS_AVOLTAG: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(536870912u32);
+pub const ELEMENT_STATUS_EXCEPT: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(4u32);
+pub const ELEMENT_STATUS_EXENAB: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(16u32);
+pub const ELEMENT_STATUS_FULL: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(1u32);
+pub const ELEMENT_STATUS_ID_VALID: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(8192u32);
+pub const ELEMENT_STATUS_IMPEXP: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(2u32);
+pub const ELEMENT_STATUS_INENAB: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(32u32);
+pub const ELEMENT_STATUS_INVERT: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(4194304u32);
+pub const ELEMENT_STATUS_LUN_VALID: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(4096u32);
+pub const ELEMENT_STATUS_NOT_BUS: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(32768u32);
+pub const ELEMENT_STATUS_PRODUCT_DATA: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(64u32);
+pub const ELEMENT_STATUS_PVOLTAG: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(268435456u32);
+pub const ELEMENT_STATUS_SVALID: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(8388608u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ELEMENT_TYPE(pub i32);
+pub const ENABLE_DISABLE_AUTOSAVE: u32 = 210u32;
+pub const ENABLE_DISABLE_AUTO_OFFLINE: u32 = 219u32;
+pub const ENABLE_SMART: u32 = 216u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENCRYPTED_DATA_INFO {
@@ -2775,6 +2574,7 @@ impl Default for ENCRYPTED_DATA_INFO {
 impl windows_core::TypeKind for ENCRYPTED_DATA_INFO {
     type TypeKind = windows_core::CopyType;
 }
+pub const ENCRYPTED_DATA_INFO_SPARSE_FILE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENCRYPTION_BUFFER {
@@ -2789,6 +2589,7 @@ impl Default for ENCRYPTION_BUFFER {
 impl windows_core::TypeKind for ENCRYPTION_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
+pub const ENCRYPTION_FORMAT_DEFAULT: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENCRYPTION_KEY_CTRL_INPUT {
@@ -2808,6 +2609,15 @@ impl Default for ENCRYPTION_KEY_CTRL_INPUT {
 impl windows_core::TypeKind for ENCRYPTION_KEY_CTRL_INPUT {
     type TypeKind = windows_core::CopyType;
 }
+pub const ERROR_DRIVE_NOT_INSTALLED: u32 = 8u32;
+pub const ERROR_HISTORY_DIRECTORY_ENTRY_DEFAULT_COUNT: u32 = 8u32;
+pub const ERROR_INIT_STATUS_NEEDED: u32 = 17u32;
+pub const ERROR_LABEL_QUESTIONABLE: u32 = 2u32;
+pub const ERROR_LABEL_UNREADABLE: u32 = 1u32;
+pub const ERROR_SLOT_NOT_PRESENT: u32 = 4u32;
+pub const ERROR_TRAY_MALFUNCTION: u32 = 16u32;
+pub const ERROR_UNHANDLED_ERROR: u32 = 4294967295u32;
+pub const EXECUTE_OFFLINE_DIAGS: u32 = 212u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXFAT_STATISTICS {
@@ -2845,6 +2655,31 @@ impl Default for EXTENDED_ENCRYPTED_DATA_INFO {
 impl windows_core::TypeKind for EXTENDED_ENCRYPTED_DATA_INFO {
     type TypeKind = windows_core::CopyType;
 }
+pub const EXTEND_IEPORT: u32 = 2u32;
+pub const EqualPriority: DISK_CACHE_RETENTION_PRIORITY = DISK_CACHE_RETENTION_PRIORITY(0i32);
+pub const F3_120M_512: MEDIA_TYPE = MEDIA_TYPE(13i32);
+pub const F3_128Mb_512: MEDIA_TYPE = MEDIA_TYPE(20i32);
+pub const F3_1Pt23_1024: MEDIA_TYPE = MEDIA_TYPE(18i32);
+pub const F3_1Pt2_512: MEDIA_TYPE = MEDIA_TYPE(17i32);
+pub const F3_1Pt44_512: MEDIA_TYPE = MEDIA_TYPE(2i32);
+pub const F3_200Mb_512: MEDIA_TYPE = MEDIA_TYPE(23i32);
+pub const F3_20Pt8_512: MEDIA_TYPE = MEDIA_TYPE(4i32);
+pub const F3_230Mb_512: MEDIA_TYPE = MEDIA_TYPE(21i32);
+pub const F3_240M_512: MEDIA_TYPE = MEDIA_TYPE(24i32);
+pub const F3_2Pt88_512: MEDIA_TYPE = MEDIA_TYPE(3i32);
+pub const F3_32M_512: MEDIA_TYPE = MEDIA_TYPE(25i32);
+pub const F3_640_512: MEDIA_TYPE = MEDIA_TYPE(14i32);
+pub const F3_720_512: MEDIA_TYPE = MEDIA_TYPE(5i32);
+pub const F5_160_512: MEDIA_TYPE = MEDIA_TYPE(10i32);
+pub const F5_180_512: MEDIA_TYPE = MEDIA_TYPE(9i32);
+pub const F5_1Pt23_1024: MEDIA_TYPE = MEDIA_TYPE(19i32);
+pub const F5_1Pt2_512: MEDIA_TYPE = MEDIA_TYPE(1i32);
+pub const F5_320_1024: MEDIA_TYPE = MEDIA_TYPE(8i32);
+pub const F5_320_512: MEDIA_TYPE = MEDIA_TYPE(7i32);
+pub const F5_360_512: MEDIA_TYPE = MEDIA_TYPE(6i32);
+pub const F5_640_512: MEDIA_TYPE = MEDIA_TYPE(15i32);
+pub const F5_720_512: MEDIA_TYPE = MEDIA_TYPE(16i32);
+pub const F8_256_128: MEDIA_TYPE = MEDIA_TYPE(22i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FAT_STATISTICS {
@@ -2920,6 +2755,13 @@ impl Default for FILESYSTEM_STATISTICS_EX {
 impl windows_core::TypeKind for FILESYSTEM_STATISTICS_EX {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILESYSTEM_STATISTICS_TYPE(pub u16);
+pub const FILESYSTEM_STATISTICS_TYPE_EXFAT: FILESYSTEM_STATISTICS_TYPE = FILESYSTEM_STATISTICS_TYPE(3u16);
+pub const FILESYSTEM_STATISTICS_TYPE_FAT: FILESYSTEM_STATISTICS_TYPE = FILESYSTEM_STATISTICS_TYPE(2u16);
+pub const FILESYSTEM_STATISTICS_TYPE_NTFS: FILESYSTEM_STATISTICS_TYPE = FILESYSTEM_STATISTICS_TYPE(1u16);
+pub const FILESYSTEM_STATISTICS_TYPE_REFS: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_ALLOCATED_RANGE_BUFFER {
@@ -2934,6 +2776,8 @@ impl Default for FILE_ALLOCATED_RANGE_BUFFER {
 impl windows_core::TypeKind for FILE_ALLOCATED_RANGE_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
+pub const FILE_ANY_ACCESS: u32 = 0u32;
+pub const FILE_CLEAR_ENCRYPTION: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_DESIRED_STORAGE_CLASS_INFORMATION {
@@ -2948,6 +2792,90 @@ impl Default for FILE_DESIRED_STORAGE_CLASS_INFORMATION {
 impl windows_core::TypeKind for FILE_DESIRED_STORAGE_CLASS_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+pub const FILE_DEVICE_8042_PORT: u32 = 39u32;
+pub const FILE_DEVICE_ACPI: u32 = 50u32;
+pub const FILE_DEVICE_BATTERY: u32 = 41u32;
+pub const FILE_DEVICE_BEEP: u32 = 1u32;
+pub const FILE_DEVICE_BIOMETRIC: u32 = 68u32;
+pub const FILE_DEVICE_BLUETOOTH: u32 = 65u32;
+pub const FILE_DEVICE_BUS_EXTENDER: u32 = 42u32;
+pub const FILE_DEVICE_CD_ROM_FILE_SYSTEM: u32 = 3u32;
+pub const FILE_DEVICE_CHANGER: u32 = 48u32;
+pub const FILE_DEVICE_CONSOLE: u32 = 80u32;
+pub const FILE_DEVICE_CONTROLLER: u32 = 4u32;
+pub const FILE_DEVICE_CRYPT_PROVIDER: u32 = 63u32;
+pub const FILE_DEVICE_DATALINK: u32 = 5u32;
+pub const FILE_DEVICE_DEVAPI: u32 = 71u32;
+pub const FILE_DEVICE_DFS: u32 = 6u32;
+pub const FILE_DEVICE_DFS_FILE_SYSTEM: u32 = 53u32;
+pub const FILE_DEVICE_DFS_VOLUME: u32 = 54u32;
+pub const FILE_DEVICE_DISK_FILE_SYSTEM: u32 = 8u32;
+pub const FILE_DEVICE_EHSTOR: u32 = 70u32;
+pub const FILE_DEVICE_EVENT_COLLECTOR: u32 = 95u32;
+pub const FILE_DEVICE_FILE_SYSTEM: u32 = 9u32;
+pub const FILE_DEVICE_FIPS: u32 = 58u32;
+pub const FILE_DEVICE_FULLSCREEN_VIDEO: u32 = 52u32;
+pub const FILE_DEVICE_GPIO: u32 = 72u32;
+pub const FILE_DEVICE_HOLOGRAPHIC: u32 = 91u32;
+pub const FILE_DEVICE_INFINIBAND: u32 = 59u32;
+pub const FILE_DEVICE_INPORT_PORT: u32 = 10u32;
+pub const FILE_DEVICE_KEYBOARD: u32 = 11u32;
+pub const FILE_DEVICE_KS: u32 = 47u32;
+pub const FILE_DEVICE_KSEC: u32 = 57u32;
+pub const FILE_DEVICE_MAILSLOT: u32 = 12u32;
+pub const FILE_DEVICE_MASS_STORAGE: u32 = 45u32;
+pub const FILE_DEVICE_MIDI_IN: u32 = 13u32;
+pub const FILE_DEVICE_MIDI_OUT: u32 = 14u32;
+pub const FILE_DEVICE_MODEM: u32 = 43u32;
+pub const FILE_DEVICE_MOUSE: u32 = 15u32;
+pub const FILE_DEVICE_MT_COMPOSITE: u32 = 66u32;
+pub const FILE_DEVICE_MT_TRANSPORT: u32 = 67u32;
+pub const FILE_DEVICE_MULTI_UNC_PROVIDER: u32 = 16u32;
+pub const FILE_DEVICE_NAMED_PIPE: u32 = 17u32;
+pub const FILE_DEVICE_NETWORK: u32 = 18u32;
+pub const FILE_DEVICE_NETWORK_BROWSER: u32 = 19u32;
+pub const FILE_DEVICE_NETWORK_FILE_SYSTEM: u32 = 20u32;
+pub const FILE_DEVICE_NETWORK_REDIRECTOR: u32 = 40u32;
+pub const FILE_DEVICE_NFP: u32 = 81u32;
+pub const FILE_DEVICE_NULL: u32 = 21u32;
+pub const FILE_DEVICE_NVDIMM: u32 = 90u32;
+pub const FILE_DEVICE_PARALLEL_PORT: u32 = 22u32;
+pub const FILE_DEVICE_PERSISTENT_MEMORY: u32 = 89u32;
+pub const FILE_DEVICE_PHYSICAL_NETCARD: u32 = 23u32;
+pub const FILE_DEVICE_PMI: u32 = 69u32;
+pub const FILE_DEVICE_POINT_OF_SERVICE: u32 = 84u32;
+pub const FILE_DEVICE_PRINTER: u32 = 24u32;
+pub const FILE_DEVICE_PRM: u32 = 94u32;
+pub const FILE_DEVICE_SCANNER: u32 = 25u32;
+pub const FILE_DEVICE_SCREEN: u32 = 28u32;
+pub const FILE_DEVICE_SDFXHCI: u32 = 92u32;
+pub const FILE_DEVICE_SERENUM: u32 = 55u32;
+pub const FILE_DEVICE_SERIAL_MOUSE_PORT: u32 = 26u32;
+pub const FILE_DEVICE_SERIAL_PORT: u32 = 27u32;
+pub const FILE_DEVICE_SMB: u32 = 46u32;
+pub const FILE_DEVICE_SOUND: u32 = 29u32;
+pub const FILE_DEVICE_SOUNDWIRE: u32 = 97u32;
+pub const FILE_DEVICE_STORAGE_REPLICATION: u32 = 85u32;
+pub const FILE_DEVICE_STREAMS: u32 = 30u32;
+pub const FILE_DEVICE_SYSENV: u32 = 82u32;
+pub const FILE_DEVICE_TAPE_FILE_SYSTEM: u32 = 32u32;
+pub const FILE_DEVICE_TERMSRV: u32 = 56u32;
+pub const FILE_DEVICE_TRANSPORT: u32 = 33u32;
+pub const FILE_DEVICE_TRUST_ENV: u32 = 86u32;
+pub const FILE_DEVICE_UCM: u32 = 87u32;
+pub const FILE_DEVICE_UCMTCPCI: u32 = 88u32;
+pub const FILE_DEVICE_UCMUCSI: u32 = 93u32;
+pub const FILE_DEVICE_UNKNOWN: u32 = 34u32;
+pub const FILE_DEVICE_USB4: u32 = 96u32;
+pub const FILE_DEVICE_USBEX: u32 = 73u32;
+pub const FILE_DEVICE_VDM: u32 = 44u32;
+pub const FILE_DEVICE_VIDEO: u32 = 35u32;
+pub const FILE_DEVICE_VIRTUAL_BLOCK: u32 = 83u32;
+pub const FILE_DEVICE_VIRTUAL_DISK: u32 = 36u32;
+pub const FILE_DEVICE_VMBUS: u32 = 62u32;
+pub const FILE_DEVICE_WAVE_IN: u32 = 37u32;
+pub const FILE_DEVICE_WAVE_OUT: u32 = 38u32;
+pub const FILE_DEVICE_WPD: u32 = 64u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_FS_PERSISTENT_VOLUME_INFORMATION {
@@ -2964,6 +2892,49 @@ impl Default for FILE_FS_PERSISTENT_VOLUME_INFORMATION {
 impl windows_core::TypeKind for FILE_FS_PERSISTENT_VOLUME_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+pub const FILE_INITIATE_REPAIR_HINT1_ATTRIBUTE_NON_RESIDENT: u64 = 137438953472u64;
+pub const FILE_INITIATE_REPAIR_HINT1_ATTRIBUTE_NOT_FOUND: u64 = 4096u64;
+pub const FILE_INITIATE_REPAIR_HINT1_ATTRIBUTE_TOO_SMALL: u64 = 68719476736u64;
+pub const FILE_INITIATE_REPAIR_HINT1_CLUSTERS_ALREADY_IN_USE: u64 = 32768u64;
+pub const FILE_INITIATE_REPAIR_HINT1_DENY_DEFRAG: u64 = 274877906944u64;
+pub const FILE_INITIATE_REPAIR_HINT1_FILE_RECORD_IS_BASE_RECORD: u64 = 524288u64;
+pub const FILE_INITIATE_REPAIR_HINT1_FILE_RECORD_NOT_BASE_RECORD: u64 = 8u64;
+pub const FILE_INITIATE_REPAIR_HINT1_FILE_RECORD_NOT_EXIST: u64 = 4u64;
+pub const FILE_INITIATE_REPAIR_HINT1_FILE_RECORD_NOT_IN_USE: u64 = 1u64;
+pub const FILE_INITIATE_REPAIR_HINT1_FILE_RECORD_NOT_ORPHAN: u64 = 262144u64;
+pub const FILE_INITIATE_REPAIR_HINT1_FILE_RECORD_REUSED: u64 = 2u64;
+pub const FILE_INITIATE_REPAIR_HINT1_INDEX_ENTRY_MISMATCH: u64 = 1099511627776u64;
+pub const FILE_INITIATE_REPAIR_HINT1_INVALID_ARRAY_LENGTH_COUNT: u64 = 1048576u64;
+pub const FILE_INITIATE_REPAIR_HINT1_INVALID_LCN: u64 = 4294967296u64;
+pub const FILE_INITIATE_REPAIR_HINT1_INVALID_ORPHAN_RECOVERY_NAME: u64 = 2199023255552u64;
+pub const FILE_INITIATE_REPAIR_HINT1_INVALID_PARENT: u64 = 8388608u64;
+pub const FILE_INITIATE_REPAIR_HINT1_INVALID_RUN_LENGTH: u64 = 131072u64;
+pub const FILE_INITIATE_REPAIR_HINT1_INVALID_VCN: u64 = 8589934592u64;
+pub const FILE_INITIATE_REPAIR_HINT1_LCN_NOT_EXIST: u64 = 65536u64;
+pub const FILE_INITIATE_REPAIR_HINT1_MULTIPLE_FILE_NAME_ATTRIBUTES: u64 = 4398046511104u64;
+pub const FILE_INITIATE_REPAIR_HINT1_NAME_CONFLICT: u64 = 17179869184u64;
+pub const FILE_INITIATE_REPAIR_HINT1_NOTHING_WRONG: u64 = 2048u64;
+pub const FILE_INITIATE_REPAIR_HINT1_NOT_IMPLEMENTED: u64 = 32u64;
+pub const FILE_INITIATE_REPAIR_HINT1_ORPHAN: u64 = 34359738368u64;
+pub const FILE_INITIATE_REPAIR_HINT1_ORPHAN_GENERATED: u64 = 512u64;
+pub const FILE_INITIATE_REPAIR_HINT1_OUT_OF_GENERIC_NAMES: u64 = 1073741824u64;
+pub const FILE_INITIATE_REPAIR_HINT1_OUT_OF_RESOURCE: u64 = 2147483648u64;
+pub const FILE_INITIATE_REPAIR_HINT1_PARENT_FILE_RECORD_NOT_BASE_RECORD: u64 = 134217728u64;
+pub const FILE_INITIATE_REPAIR_HINT1_PARENT_FILE_RECORD_NOT_EXIST: u64 = 67108864u64;
+pub const FILE_INITIATE_REPAIR_HINT1_PARENT_FILE_RECORD_NOT_INDEX: u64 = 268435456u64;
+pub const FILE_INITIATE_REPAIR_HINT1_PARENT_FILE_RECORD_NOT_IN_USE: u64 = 16777216u64;
+pub const FILE_INITIATE_REPAIR_HINT1_PARENT_FILE_RECORD_REUSED: u64 = 33554432u64;
+pub const FILE_INITIATE_REPAIR_HINT1_POTENTIAL_CROSSLINK: u64 = 8192u64;
+pub const FILE_INITIATE_REPAIR_HINT1_PREVIOUS_PARENT_STILL_VALID: u64 = 549755813888u64;
+pub const FILE_INITIATE_REPAIR_HINT1_RECURSIVELY_CORRUPTED: u64 = 256u64;
+pub const FILE_INITIATE_REPAIR_HINT1_REPAIRED: u64 = 1024u64;
+pub const FILE_INITIATE_REPAIR_HINT1_REPAIR_DISABLED: u64 = 128u64;
+pub const FILE_INITIATE_REPAIR_HINT1_SID_MISMATCH: u64 = 4194304u64;
+pub const FILE_INITIATE_REPAIR_HINT1_SID_VALID: u64 = 2097152u64;
+pub const FILE_INITIATE_REPAIR_HINT1_STALE_INFORMATION: u64 = 16384u64;
+pub const FILE_INITIATE_REPAIR_HINT1_SYSTEM_FILE: u64 = 16u64;
+pub const FILE_INITIATE_REPAIR_HINT1_UNABLE_TO_REPAIR: u64 = 64u64;
+pub const FILE_INITIATE_REPAIR_HINT1_VALID_INDEX_ENTRY: u64 = 536870912u64;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_INITIATE_REPAIR_OUTPUT_BUFFER {
@@ -3053,6 +3024,8 @@ impl Default for FILE_LAYOUT_NAME_ENTRY {
 impl windows_core::TypeKind for FILE_LAYOUT_NAME_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
+pub const FILE_LAYOUT_NAME_ENTRY_DOS: u32 = 2u32;
+pub const FILE_LAYOUT_NAME_ENTRY_PRIMARY: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_LEVEL_TRIM {
@@ -3182,6 +3155,13 @@ impl Default for FILE_PREFETCH_EX {
 impl windows_core::TypeKind for FILE_PREFETCH_EX {
     type TypeKind = windows_core::CopyType;
 }
+pub const FILE_PREFETCH_TYPE_FOR_CREATE: u32 = 1u32;
+pub const FILE_PREFETCH_TYPE_FOR_CREATE_EX: u32 = 3u32;
+pub const FILE_PREFETCH_TYPE_FOR_DIRENUM: u32 = 2u32;
+pub const FILE_PREFETCH_TYPE_FOR_DIRENUM_EX: u32 = 4u32;
+pub const FILE_PREFETCH_TYPE_MAX: u32 = 4u32;
+pub const FILE_PROVIDER_COMPRESSION_MAXIMUM: u32 = 4u32;
+pub const FILE_PROVIDER_CURRENT_VERSION: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_PROVIDER_EXTERNAL_INFO_V0 {
@@ -3211,6 +3191,8 @@ impl Default for FILE_PROVIDER_EXTERNAL_INFO_V1 {
 impl windows_core::TypeKind for FILE_PROVIDER_EXTERNAL_INFO_V1 {
     type TypeKind = windows_core::CopyType;
 }
+pub const FILE_PROVIDER_FLAG_COMPRESS_ON_WRITE: u32 = 1u32;
+pub const FILE_PROVIDER_SINGLE_FILE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
@@ -3250,6 +3232,7 @@ impl Default for FILE_QUERY_SPARING_BUFFER {
 impl windows_core::TypeKind for FILE_QUERY_SPARING_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
+pub const FILE_READ_ACCESS: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_REFERENCE_RANGE {
@@ -3312,6 +3295,12 @@ impl Default for FILE_REGION_OUTPUT {
 impl windows_core::TypeKind for FILE_REGION_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
+pub const FILE_REGION_USAGE_HUGE_PAGE_ALIGNMENT: u32 = 16u32;
+pub const FILE_REGION_USAGE_LARGE_PAGE_ALIGNMENT: u32 = 8u32;
+pub const FILE_REGION_USAGE_OTHER_PAGE_ALIGNMENT: u32 = 4u32;
+pub const FILE_REGION_USAGE_QUERY_ALIGNMENT: u32 = 8u32;
+pub const FILE_REGION_USAGE_VALID_CACHED_DATA: u32 = 1u32;
+pub const FILE_REGION_USAGE_VALID_NONCACHED_DATA: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_SET_DEFECT_MGMT_BUFFER {
@@ -3325,6 +3314,7 @@ impl Default for FILE_SET_DEFECT_MGMT_BUFFER {
 impl windows_core::TypeKind for FILE_SET_DEFECT_MGMT_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
+pub const FILE_SET_ENCRYPTION: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_SET_SPARSE_BUFFER {
@@ -3338,6 +3328,7 @@ impl Default for FILE_SET_SPARSE_BUFFER {
 impl windows_core::TypeKind for FILE_SET_SPARSE_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
+pub const FILE_SPECIAL_ACCESS: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_STORAGE_TIER {
@@ -3357,6 +3348,55 @@ impl Default for FILE_STORAGE_TIER {
 impl windows_core::TypeKind for FILE_STORAGE_TIER {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_STORAGE_TIER_CLASS(pub i32);
+pub const FILE_STORAGE_TIER_DESCRIPTION_LENGTH: u32 = 512u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_STORAGE_TIER_FLAGS(pub u32);
+impl FILE_STORAGE_TIER_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for FILE_STORAGE_TIER_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for FILE_STORAGE_TIER_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for FILE_STORAGE_TIER_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for FILE_STORAGE_TIER_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for FILE_STORAGE_TIER_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const FILE_STORAGE_TIER_FLAG_NO_SEEK_PENALTY: FILE_STORAGE_TIER_FLAGS = FILE_STORAGE_TIER_FLAGS(131072u32);
+pub const FILE_STORAGE_TIER_FLAG_PARITY: u32 = 8388608u32;
+pub const FILE_STORAGE_TIER_FLAG_READ_CACHE: u32 = 4194304u32;
+pub const FILE_STORAGE_TIER_FLAG_SMR: u32 = 16777216u32;
+pub const FILE_STORAGE_TIER_FLAG_WRITE_BACK_CACHE: u32 = 2097152u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_STORAGE_TIER_MEDIA_TYPE(pub i32);
+pub const FILE_STORAGE_TIER_NAME_LENGTH: u32 = 256u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_STORAGE_TIER_REGION {
@@ -3385,6 +3425,11 @@ impl Default for FILE_SYSTEM_RECOGNITION_INFORMATION {
 impl windows_core::TypeKind for FILE_SYSTEM_RECOGNITION_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+pub const FILE_TYPE_NOTIFICATION_FLAG_USAGE_BEGIN: u32 = 1u32;
+pub const FILE_TYPE_NOTIFICATION_FLAG_USAGE_END: u32 = 2u32;
+pub const FILE_TYPE_NOTIFICATION_GUID_CRASHDUMP_FILE: windows_core::GUID = windows_core::GUID::from_u128(0x9d453eb7_d2a6_4dbd_a2e3_fbd0ed9109a9);
+pub const FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE: windows_core::GUID = windows_core::GUID::from_u128(0xb7624d64_b9a3_4cf8_8011_5b86c940e7b7);
+pub const FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE: windows_core::GUID = windows_core::GUID::from_u128(0x0d0a64a1_38fc_4db8_9fe7_3f4352cd7c5c);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_TYPE_NOTIFICATION_INPUT {
@@ -3400,6 +3445,7 @@ impl Default for FILE_TYPE_NOTIFICATION_INPUT {
 impl windows_core::TypeKind for FILE_TYPE_NOTIFICATION_INPUT {
     type TypeKind = windows_core::CopyType;
 }
+pub const FILE_WRITE_ACCESS: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_ZERO_DATA_INFORMATION {
@@ -3429,6 +3475,7 @@ impl Default for FILE_ZERO_DATA_INFORMATION_EX {
 impl windows_core::TypeKind for FILE_ZERO_DATA_INFORMATION_EX {
     type TypeKind = windows_core::CopyType;
 }
+pub const FILE_ZERO_DATA_INFORMATION_FLAG_PRESERVE_CACHED_DATA: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3462,6 +3509,7 @@ impl Default for FIND_BY_SID_OUTPUT {
 impl windows_core::TypeKind for FIND_BY_SID_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
+pub const FLAG_USN_TRACK_MODIFIED_RANGES_ENABLE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FORMAT_EX_PARAMETERS {
@@ -3499,6 +3547,65 @@ impl Default for FORMAT_PARAMETERS {
 impl windows_core::TypeKind for FORMAT_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
+pub const FSBPIO_INFL_None: FS_BPIO_INFLAGS = FS_BPIO_INFLAGS(0i32);
+pub const FSBPIO_INFL_SKIP_STORAGE_STACK_QUERY: FS_BPIO_INFLAGS = FS_BPIO_INFLAGS(1i32);
+pub const FSBPIO_OUTFL_COMPATIBLE_STORAGE_DRIVER: FS_BPIO_OUTFLAGS = FS_BPIO_OUTFLAGS(8i32);
+pub const FSBPIO_OUTFL_FILTER_ATTACH_BLOCKED: FS_BPIO_OUTFLAGS = FS_BPIO_OUTFLAGS(4i32);
+pub const FSBPIO_OUTFL_None: FS_BPIO_OUTFLAGS = FS_BPIO_OUTFLAGS(0i32);
+pub const FSBPIO_OUTFL_STREAM_BYPASS_PAUSED: FS_BPIO_OUTFLAGS = FS_BPIO_OUTFLAGS(2i32);
+pub const FSBPIO_OUTFL_VOLUME_STACK_BYPASS_PAUSED: FS_BPIO_OUTFLAGS = FS_BPIO_OUTFLAGS(1i32);
+pub const FSCTL_ADD_OVERLAY: u32 = 623408u32;
+pub const FSCTL_ADVANCE_FILE_ID: u32 = 590532u32;
+pub const FSCTL_ALLOW_EXTENDED_DASD_IO: u32 = 589955u32;
+pub const FSCTL_CLEAN_VOLUME_METADATA: u32 = 590716u32;
+pub const FSCTL_CLEAR_ALL_LCN_WEAK_REFERENCES: u32 = 590956u32;
+pub const FSCTL_CLEAR_LCN_WEAK_REFERENCE: u32 = 590948u32;
+pub const FSCTL_CORRUPTION_HANDLING: u32 = 590432u32;
+pub const FSCTL_CREATE_LCN_WEAK_REFERENCE: u32 = 590944u32;
+pub const FSCTL_CREATE_OR_GET_OBJECT_ID: u32 = 590016u32;
+pub const FSCTL_CREATE_USN_JOURNAL: u32 = 590055u32;
+pub const FSCTL_CSC_INTERNAL: u32 = 590255u32;
+pub const FSCTL_CSV_CONTROL: u32 = 590548u32;
+pub const FSCTL_CSV_GET_VOLUME_NAME_FOR_VOLUME_MOUNT_POINT: u32 = 590420u32;
+pub const FSCTL_CSV_GET_VOLUME_PATH_NAME: u32 = 590416u32;
+pub const FSCTL_CSV_GET_VOLUME_PATH_NAMES_FOR_VOLUME_NAME: u32 = 590424u32;
+pub const FSCTL_CSV_H_BREAKING_SYNC_TUNNEL_REQUEST: u32 = 590564u32;
+pub const FSCTL_CSV_INTERNAL: u32 = 590444u32;
+pub const FSCTL_CSV_MGMT_LOCK: u32 = 590524u32;
+pub const FSCTL_CSV_QUERY_DOWN_LEVEL_FILE_SYSTEM_CHARACTERISTICS: u32 = 590528u32;
+pub const FSCTL_CSV_QUERY_VETO_FILE_DIRECT_IO: u32 = 590540u32;
+pub const FSCTL_CSV_SYNC_TUNNEL_REQUEST: u32 = 590536u32;
+pub const FSCTL_CSV_TUNNEL_REQUEST: u32 = 590404u32;
+pub const FSCTL_DELETE_CORRUPTED_REFS_CONTAINER: u32 = 590836u32;
+pub const FSCTL_DELETE_EXTERNAL_BACKING: u32 = 590612u32;
+pub const FSCTL_DELETE_OBJECT_ID: u32 = 589984u32;
+pub const FSCTL_DELETE_REPARSE_POINT: u32 = 589996u32;
+pub const FSCTL_DELETE_USN_JOURNAL: u32 = 590072u32;
+pub const FSCTL_DFSR_SET_GHOST_HANDLE_STATE: u32 = 590264u32;
+pub const FSCTL_DISABLE_LOCAL_BUFFERING: u32 = 590520u32;
+pub const FSCTL_DISMOUNT_VOLUME: u32 = 589856u32;
+pub const FSCTL_DUPLICATE_CLUSTER: u32 = 590940u32;
+pub const FSCTL_DUPLICATE_EXTENTS_TO_FILE: u32 = 623428u32;
+pub const FSCTL_DUPLICATE_EXTENTS_TO_FILE_EX: u32 = 623592u32;
+pub const FSCTL_ENABLE_PER_IO_FLAGS: u32 = 590892u32;
+pub const FSCTL_ENABLE_UPGRADE: u32 = 622800u32;
+pub const FSCTL_ENCRYPTION_FSCTL_IO: u32 = 590043u32;
+pub const FSCTL_ENCRYPTION_KEY_CONTROL: u32 = 590852u32;
+pub const FSCTL_ENUM_EXTERNAL_BACKING: u32 = 590616u32;
+pub const FSCTL_ENUM_OVERLAY: u32 = 590623u32;
+pub const FSCTL_ENUM_USN_DATA: u32 = 590003u32;
+pub const FSCTL_EXTEND_VOLUME: u32 = 590064u32;
+pub const FSCTL_FILESYSTEM_GET_STATISTICS: u32 = 589920u32;
+pub const FSCTL_FILESYSTEM_GET_STATISTICS_EX: u32 = 590732u32;
+pub const FSCTL_FILE_LEVEL_TRIM: u32 = 623112u32;
+pub const FSCTL_FILE_PREFETCH: u32 = 590112u32;
+pub const FSCTL_FILE_TYPE_NOTIFICATION: u32 = 590340u32;
+pub const FSCTL_FIND_FILES_BY_SID: u32 = 589967u32;
+pub const FSCTL_GET_BOOT_AREA_INFO: u32 = 590384u32;
+pub const FSCTL_GET_COMPRESSION: u32 = 589884u32;
+pub const FSCTL_GET_EXTERNAL_BACKING: u32 = 590608u32;
+pub const FSCTL_GET_FILTER_FILE_IDENTIFIER: u32 = 590788u32;
+pub const FSCTL_GET_INTEGRITY_INFORMATION: u32 = 590460u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {
@@ -3516,6 +3623,44 @@ impl Default for FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {
 impl windows_core::TypeKind for FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
+pub const FSCTL_GET_NTFS_FILE_RECORD: u32 = 589928u32;
+pub const FSCTL_GET_NTFS_VOLUME_DATA: u32 = 589924u32;
+pub const FSCTL_GET_OBJECT_ID: u32 = 589980u32;
+pub const FSCTL_GET_REFS_VOLUME_DATA: u32 = 590552u32;
+pub const FSCTL_GET_REPAIR: u32 = 590236u32;
+pub const FSCTL_GET_REPARSE_POINT: u32 = 589992u32;
+pub const FSCTL_GET_RETRIEVAL_POINTERS: u32 = 589939u32;
+pub const FSCTL_GET_RETRIEVAL_POINTERS_AND_REFCOUNT: u32 = 590803u32;
+pub const FSCTL_GET_RETRIEVAL_POINTER_BASE: u32 = 590388u32;
+pub const FSCTL_GET_RETRIEVAL_POINTER_COUNT: u32 = 590891u32;
+pub const FSCTL_GET_VOLUME_BITMAP: u32 = 589935u32;
+pub const FSCTL_GET_WOF_VERSION: u32 = 590696u32;
+pub const FSCTL_GHOST_FILE_EXTENTS: u32 = 623532u32;
+pub const FSCTL_HCS_ASYNC_TUNNEL_REQUEST: u32 = 590704u32;
+pub const FSCTL_HCS_SYNC_NO_WRITE_TUNNEL_REQUEST: u32 = 590776u32;
+pub const FSCTL_HCS_SYNC_TUNNEL_REQUEST: u32 = 590700u32;
+pub const FSCTL_INITIATE_FILE_METADATA_OPTIMIZATION: u32 = 590684u32;
+pub const FSCTL_INITIATE_REPAIR: u32 = 590248u32;
+pub const FSCTL_INTEGRITY_FLAG_CHECKSUM_ENFORCEMENT_OFF: u32 = 1u32;
+pub const FSCTL_INVALIDATE_VOLUMES: u32 = 589908u32;
+pub const FSCTL_IS_CSV_FILE: u32 = 590408u32;
+pub const FSCTL_IS_FILE_ON_CSV_VOLUME: u32 = 590428u32;
+pub const FSCTL_IS_PATHNAME_VALID: u32 = 589868u32;
+pub const FSCTL_IS_VOLUME_DIRTY: u32 = 589944u32;
+pub const FSCTL_IS_VOLUME_MOUNTED: u32 = 589864u32;
+pub const FSCTL_IS_VOLUME_OWNED_BYCSVFS: u32 = 590456u32;
+pub const FSCTL_LMR_QUERY_INFO: u32 = 590968u32;
+pub const FSCTL_LOCK_VOLUME: u32 = 589848u32;
+pub const FSCTL_LOOKUP_STREAM_FROM_CLUSTER: u32 = 590332u32;
+pub const FSCTL_MAKE_MEDIA_COMPATIBLE: u32 = 622896u32;
+pub const FSCTL_MANAGE_BYPASS_IO: u32 = 590920u32;
+pub const FSCTL_MARK_AS_SYSTEM_HIVE: u32 = 589903u32;
+pub const FSCTL_MARK_HANDLE: u32 = 590076u32;
+pub const FSCTL_MARK_VOLUME_DIRTY: u32 = 589872u32;
+pub const FSCTL_MOVE_FILE: u32 = 589940u32;
+pub const FSCTL_NOTIFY_DATA_CHANGE: u32 = 590844u32;
+pub const FSCTL_NOTIFY_STORAGE_SPACE_ALLOCATION: u32 = 590748u32;
+pub const FSCTL_OFFLOAD_READ: u32 = 606820u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FSCTL_OFFLOAD_READ_INPUT {
@@ -3550,6 +3695,7 @@ impl Default for FSCTL_OFFLOAD_READ_OUTPUT {
 impl windows_core::TypeKind for FSCTL_OFFLOAD_READ_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
+pub const FSCTL_OFFLOAD_WRITE: u32 = 623208u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FSCTL_OFFLOAD_WRITE_INPUT {
@@ -3583,6 +3729,18 @@ impl Default for FSCTL_OFFLOAD_WRITE_OUTPUT {
 impl windows_core::TypeKind for FSCTL_OFFLOAD_WRITE_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
+pub const FSCTL_OPBATCH_ACK_CLOSE_PENDING: u32 = 589840u32;
+pub const FSCTL_OPLOCK_BREAK_ACKNOWLEDGE: u32 = 589836u32;
+pub const FSCTL_OPLOCK_BREAK_ACK_NO_2: u32 = 589904u32;
+pub const FSCTL_OPLOCK_BREAK_NOTIFY: u32 = 589844u32;
+pub const FSCTL_QUERY_ALLOCATED_RANGES: u32 = 606415u32;
+pub const FSCTL_QUERY_ASYNC_DUPLICATE_EXTENTS_STATUS: u32 = 590896u32;
+pub const FSCTL_QUERY_BAD_RANGES: u32 = 590828u32;
+pub const FSCTL_QUERY_DEPENDENT_VOLUME: u32 = 590320u32;
+pub const FSCTL_QUERY_DIRECT_ACCESS_EXTENTS: u32 = 590747u32;
+pub const FSCTL_QUERY_DIRECT_IMAGE_ORIGINAL_BASE: u32 = 590756u32;
+pub const FSCTL_QUERY_EXTENT_READ_CACHE_INFO: u32 = 590711u32;
+pub const FSCTL_QUERY_FAT_BPB: u32 = 589912u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FSCTL_QUERY_FAT_BPB_BUFFER {
@@ -3596,6 +3754,18 @@ impl Default for FSCTL_QUERY_FAT_BPB_BUFFER {
 impl windows_core::TypeKind for FSCTL_QUERY_FAT_BPB_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
+pub const FSCTL_QUERY_FILE_LAYOUT: u32 = 590455u32;
+pub const FSCTL_QUERY_FILE_METADATA_OPTIMIZATION: u32 = 590688u32;
+pub const FSCTL_QUERY_FILE_REGIONS: u32 = 590468u32;
+pub const FSCTL_QUERY_FILE_SYSTEM_RECOGNITION: u32 = 590412u32;
+pub const FSCTL_QUERY_GHOSTED_FILE_EXTENTS: u32 = 590768u32;
+pub const FSCTL_QUERY_LCN_WEAK_REFERENCE: u32 = 590952u32;
+pub const FSCTL_QUERY_ON_DISK_VOLUME_INFO: u32 = 590140u32;
+pub const FSCTL_QUERY_PAGEFILE_ENCRYPTION: u32 = 590312u32;
+pub const FSCTL_QUERY_PERSISTENT_VOLUME_STATE: u32 = 590396u32;
+pub const FSCTL_QUERY_REFS_SMR_VOLUME_INFO: u32 = 590812u32;
+pub const FSCTL_QUERY_REFS_VOLUME_COUNTER_INFO: u32 = 590715u32;
+pub const FSCTL_QUERY_REGION_INFO: u32 = 590576u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FSCTL_QUERY_REGION_INFO_INPUT {
@@ -3633,6 +3803,10 @@ impl Default for FSCTL_QUERY_REGION_INFO_OUTPUT {
 impl windows_core::TypeKind for FSCTL_QUERY_REGION_INFO_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
+pub const FSCTL_QUERY_RETRIEVAL_POINTERS: u32 = 589883u32;
+pub const FSCTL_QUERY_SHARED_VIRTUAL_DISK_SUPPORT: u32 = 590592u32;
+pub const FSCTL_QUERY_SPARING_INFO: u32 = 590136u32;
+pub const FSCTL_QUERY_STORAGE_CLASSES: u32 = 590572u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
@@ -3651,6 +3825,48 @@ impl Default for FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
 impl windows_core::TypeKind for FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
+pub const FSCTL_QUERY_USN_JOURNAL: u32 = 590068u32;
+pub const FSCTL_QUERY_VOLUME_CONTAINER_STATE: u32 = 590736u32;
+pub const FSCTL_QUERY_VOLUME_NUMA_INFO: u32 = 590804u32;
+pub const FSCTL_READ_FILE_USN_DATA: u32 = 590059u32;
+pub const FSCTL_READ_FROM_PLEX: u32 = 606494u32;
+pub const FSCTL_READ_RAW_ENCRYPTED: u32 = 590051u32;
+pub const FSCTL_READ_UNPRIVILEGED_USN_JOURNAL: u32 = 590763u32;
+pub const FSCTL_READ_USN_JOURNAL: u32 = 590011u32;
+pub const FSCTL_REARRANGE_FILE: u32 = 640032u32;
+pub const FSCTL_RECALL_FILE: u32 = 590103u32;
+pub const FSCTL_REFS_CHECKPOINT_VOLUME: u32 = 590972u32;
+pub const FSCTL_REFS_DEALLOCATE_RANGES: u32 = 590808u32;
+pub const FSCTL_REFS_DEALLOCATE_RANGES_EX: u32 = 590924u32;
+pub const FSCTL_REFS_QUERY_VOLUME_COMPRESSION_INFO: u32 = 590936u32;
+pub const FSCTL_REFS_QUERY_VOLUME_DEDUP_INFO: u32 = 590964u32;
+pub const FSCTL_REFS_QUERY_VOLUME_IO_METRICS_INFO: u32 = 590988u32;
+pub const FSCTL_REFS_QUERY_VOLUME_TOTAL_SHARED_LCNS: u32 = 590976u32;
+pub const FSCTL_REFS_SET_VOLUME_COMPRESSION_INFO: u32 = 590932u32;
+pub const FSCTL_REFS_SET_VOLUME_DEDUP_INFO: u32 = 590960u32;
+pub const FSCTL_REFS_SET_VOLUME_IO_METRICS_INFO: u32 = 590984u32;
+pub const FSCTL_REFS_STREAM_SNAPSHOT_MANAGEMENT: u32 = 590912u32;
+pub const FSCTL_REMOVE_OVERLAY: u32 = 623412u32;
+pub const FSCTL_REPAIR_COPIES: u32 = 639668u32;
+pub const FSCTL_REQUEST_BATCH_OPLOCK: u32 = 589832u32;
+pub const FSCTL_REQUEST_FILTER_OPLOCK: u32 = 589916u32;
+pub const FSCTL_REQUEST_OPLOCK: u32 = 590400u32;
+pub const FSCTL_REQUEST_OPLOCK_LEVEL_1: u32 = 589824u32;
+pub const FSCTL_REQUEST_OPLOCK_LEVEL_2: u32 = 589828u32;
+pub const FSCTL_RESET_VOLUME_ALLOCATION_HINTS: u32 = 590316u32;
+pub const FSCTL_RKF_INTERNAL: u32 = 590511u32;
+pub const FSCTL_SCRUB_DATA: u32 = 590512u32;
+pub const FSCTL_SCRUB_UNDISCOVERABLE_ID: u32 = 590840u32;
+pub const FSCTL_SD_GLOBAL_CHANGE: u32 = 590324u32;
+pub const FSCTL_SECURITY_ID_CHECK: u32 = 606391u32;
+pub const FSCTL_SET_BOOTLOADER_ACCESSED: u32 = 589903u32;
+pub const FSCTL_SET_CACHED_RUNS_STATE: u32 = 590928u32;
+pub const FSCTL_SET_COMPRESSION: u32 = 639040u32;
+pub const FSCTL_SET_DAX_ALLOC_ALIGNMENT_HINT: u32 = 590832u32;
+pub const FSCTL_SET_DEFECT_MANAGEMENT: u32 = 622900u32;
+pub const FSCTL_SET_ENCRYPTION: u32 = 590039u32;
+pub const FSCTL_SET_EXTERNAL_BACKING: u32 = 590604u32;
+pub const FSCTL_SET_INTEGRITY_INFORMATION: u32 = 639616u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FSCTL_SET_INTEGRITY_INFORMATION_BUFFER {
@@ -3684,6 +3900,105 @@ impl Default for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX {
 impl windows_core::TypeKind for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX {
     type TypeKind = windows_core::CopyType;
 }
+pub const FSCTL_SET_INTEGRITY_INFORMATION_EX: u32 = 590720u32;
+pub const FSCTL_SET_LAYER_ROOT: u32 = 590740u32;
+pub const FSCTL_SET_OBJECT_ID: u32 = 589976u32;
+pub const FSCTL_SET_OBJECT_ID_EXTENDED: u32 = 590012u32;
+pub const FSCTL_SET_PERSISTENT_VOLUME_STATE: u32 = 590392u32;
+pub const FSCTL_SET_PURGE_FAILURE_MODE: u32 = 590448u32;
+pub const FSCTL_SET_REFS_FILE_STRICTLY_SEQUENTIAL: u32 = 590820u32;
+pub const FSCTL_SET_REFS_SMR_VOLUME_GC_PARAMETERS: u32 = 590816u32;
+pub const FSCTL_SET_REPAIR: u32 = 590232u32;
+pub const FSCTL_SET_REPARSE_POINT: u32 = 589988u32;
+pub const FSCTL_SET_REPARSE_POINT_EX: u32 = 590860u32;
+pub const FSCTL_SET_SHORT_NAME_BEHAVIOR: u32 = 590260u32;
+pub const FSCTL_SET_SPARSE: u32 = 590020u32;
+pub const FSCTL_SET_VOLUME_COMPRESSION_STATE: u32 = 590144u32;
+pub const FSCTL_SET_ZERO_DATA: u32 = 622792u32;
+pub const FSCTL_SET_ZERO_ON_DEALLOCATION: u32 = 590228u32;
+pub const FSCTL_SHRINK_VOLUME: u32 = 590256u32;
+pub const FSCTL_SHUFFLE_FILE: u32 = 639808u32;
+pub const FSCTL_SIS_COPYFILE: u32 = 590080u32;
+pub const FSCTL_SIS_LINK_FILES: u32 = 639236u32;
+pub const FSCTL_SMB_SHARE_FLUSH_AND_PURGE: u32 = 590908u32;
+pub const FSCTL_SPARSE_OVERALLOCATE: u32 = 590668u32;
+pub const FSCTL_SSDI_STORAGE_REQUEST: u32 = 590752u32;
+pub const FSCTL_START_VIRTUALIZATION_INSTANCE: u32 = 590784u32;
+pub const FSCTL_START_VIRTUALIZATION_INSTANCE_EX: u32 = 590848u32;
+pub const FSCTL_STORAGE_QOS_CONTROL: u32 = 590672u32;
+pub const FSCTL_STREAMS_ASSOCIATE_ID: u32 = 590792u32;
+pub const FSCTL_STREAMS_QUERY_ID: u32 = 590796u32;
+pub const FSCTL_STREAMS_QUERY_PARAMETERS: u32 = 590788u32;
+pub const FSCTL_SUSPEND_OVERLAY: u32 = 590724u32;
+pub const FSCTL_SVHDX_ASYNC_TUNNEL_REQUEST: u32 = 590692u32;
+pub const FSCTL_SVHDX_SET_INITIATOR_INFORMATION: u32 = 590600u32;
+pub const FSCTL_SVHDX_SYNC_TUNNEL_REQUEST: u32 = 590596u32;
+pub const FSCTL_TXFS_CREATE_MINIVERSION: u32 = 622972u32;
+pub const FSCTL_TXFS_CREATE_SECONDARY_RM: u32 = 622952u32;
+pub const FSCTL_TXFS_GET_METADATA_INFO: u32 = 606572u32;
+pub const FSCTL_TXFS_GET_TRANSACTED_VERSION: u32 = 606576u32;
+pub const FSCTL_TXFS_LIST_TRANSACTIONS: u32 = 606692u32;
+pub const FSCTL_TXFS_LIST_TRANSACTION_LOCKED_FILES: u32 = 606688u32;
+pub const FSCTL_TXFS_MODIFY_RM: u32 = 622916u32;
+pub const FSCTL_TXFS_QUERY_RM_INFORMATION: u32 = 606536u32;
+pub const FSCTL_TXFS_READ_BACKUP_INFORMATION: u32 = 606560u32;
+pub const FSCTL_TXFS_READ_BACKUP_INFORMATION2: u32 = 590328u32;
+pub const FSCTL_TXFS_ROLLFORWARD_REDO: u32 = 622928u32;
+pub const FSCTL_TXFS_ROLLFORWARD_UNDO: u32 = 622932u32;
+pub const FSCTL_TXFS_SAVEPOINT_INFORMATION: u32 = 622968u32;
+pub const FSCTL_TXFS_SHUTDOWN_RM: u32 = 622940u32;
+pub const FSCTL_TXFS_START_RM: u32 = 622936u32;
+pub const FSCTL_TXFS_TRANSACTION_ACTIVE: u32 = 606604u32;
+pub const FSCTL_TXFS_WRITE_BACKUP_INFORMATION: u32 = 622948u32;
+pub const FSCTL_TXFS_WRITE_BACKUP_INFORMATION2: u32 = 590336u32;
+pub const FSCTL_UNLOCK_VOLUME: u32 = 589852u32;
+pub const FSCTL_UNMAP_SPACE: u32 = 590772u32;
+pub const FSCTL_UPDATE_OVERLAY: u32 = 623416u32;
+pub const FSCTL_UPGRADE_VOLUME: u32 = 590980u32;
+pub const FSCTL_USN_TRACK_MODIFIED_RANGES: u32 = 590580u32;
+pub const FSCTL_VIRTUAL_STORAGE_PASSTHROUGH: u32 = 590884u32;
+pub const FSCTL_VIRTUAL_STORAGE_QUERY_PROPERTY: u32 = 590728u32;
+pub const FSCTL_VIRTUAL_STORAGE_SET_BEHAVIOR: u32 = 590856u32;
+pub const FSCTL_WAIT_FOR_REPAIR: u32 = 590240u32;
+pub const FSCTL_WRITE_RAW_ENCRYPTED: u32 = 590047u32;
+pub const FSCTL_WRITE_USN_CLOSE_RECORD: u32 = 590063u32;
+pub const FSCTL_WRITE_USN_REASON: u32 = 590544u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FS_BPIO_INFLAGS(pub i32);
+impl FS_BPIO_INFLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for FS_BPIO_INFLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for FS_BPIO_INFLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for FS_BPIO_INFLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for FS_BPIO_INFLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for FS_BPIO_INFLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FS_BPIO_INFO {
@@ -3714,6 +4029,54 @@ impl Default for FS_BPIO_INPUT {
 }
 impl windows_core::TypeKind for FS_BPIO_INPUT {
     type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FS_BPIO_OPERATIONS(pub i32);
+pub const FS_BPIO_OP_DISABLE: FS_BPIO_OPERATIONS = FS_BPIO_OPERATIONS(2i32);
+pub const FS_BPIO_OP_ENABLE: FS_BPIO_OPERATIONS = FS_BPIO_OPERATIONS(1i32);
+pub const FS_BPIO_OP_GET_INFO: FS_BPIO_OPERATIONS = FS_BPIO_OPERATIONS(8i32);
+pub const FS_BPIO_OP_MAX_OPERATION: FS_BPIO_OPERATIONS = FS_BPIO_OPERATIONS(9i32);
+pub const FS_BPIO_OP_QUERY: FS_BPIO_OPERATIONS = FS_BPIO_OPERATIONS(3i32);
+pub const FS_BPIO_OP_STREAM_PAUSE: FS_BPIO_OPERATIONS = FS_BPIO_OPERATIONS(6i32);
+pub const FS_BPIO_OP_STREAM_RESUME: FS_BPIO_OPERATIONS = FS_BPIO_OPERATIONS(7i32);
+pub const FS_BPIO_OP_VOLUME_STACK_PAUSE: FS_BPIO_OPERATIONS = FS_BPIO_OPERATIONS(4i32);
+pub const FS_BPIO_OP_VOLUME_STACK_RESUME: FS_BPIO_OPERATIONS = FS_BPIO_OPERATIONS(5i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FS_BPIO_OUTFLAGS(pub i32);
+impl FS_BPIO_OUTFLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for FS_BPIO_OUTFLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for FS_BPIO_OUTFLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for FS_BPIO_OUTFLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for FS_BPIO_OUTFLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for FS_BPIO_OUTFLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3766,6 +4129,32 @@ impl Default for FS_BPIO_RESULTS {
 impl windows_core::TypeKind for FS_BPIO_RESULTS {
     type TypeKind = windows_core::CopyType;
 }
+pub const FW_ISSUEID_NO_ISSUE: u32 = 0u32;
+pub const FW_ISSUEID_UNKNOWN: u32 = 4294967295u32;
+pub const FileSnapStateInactive: DUPLICATE_EXTENTS_STATE = DUPLICATE_EXTENTS_STATE(0i32);
+pub const FileSnapStateSource: DUPLICATE_EXTENTS_STATE = DUPLICATE_EXTENTS_STATE(1i32);
+pub const FileSnapStateTarget: DUPLICATE_EXTENTS_STATE = DUPLICATE_EXTENTS_STATE(2i32);
+pub const FileStorageTierClassCapacity: FILE_STORAGE_TIER_CLASS = FILE_STORAGE_TIER_CLASS(1i32);
+pub const FileStorageTierClassMax: FILE_STORAGE_TIER_CLASS = FILE_STORAGE_TIER_CLASS(3i32);
+pub const FileStorageTierClassPerformance: FILE_STORAGE_TIER_CLASS = FILE_STORAGE_TIER_CLASS(2i32);
+pub const FileStorageTierClassUnspecified: FILE_STORAGE_TIER_CLASS = FILE_STORAGE_TIER_CLASS(0i32);
+pub const FileStorageTierMediaTypeDisk: FILE_STORAGE_TIER_MEDIA_TYPE = FILE_STORAGE_TIER_MEDIA_TYPE(1i32);
+pub const FileStorageTierMediaTypeMax: FILE_STORAGE_TIER_MEDIA_TYPE = FILE_STORAGE_TIER_MEDIA_TYPE(5i32);
+pub const FileStorageTierMediaTypeScm: FILE_STORAGE_TIER_MEDIA_TYPE = FILE_STORAGE_TIER_MEDIA_TYPE(4i32);
+pub const FileStorageTierMediaTypeSsd: FILE_STORAGE_TIER_MEDIA_TYPE = FILE_STORAGE_TIER_MEDIA_TYPE(2i32);
+pub const FileStorageTierMediaTypeUnspecified: FILE_STORAGE_TIER_MEDIA_TYPE = FILE_STORAGE_TIER_MEDIA_TYPE(0i32);
+pub const FixedMedia: MEDIA_TYPE = MEDIA_TYPE(12i32);
+pub const FormFactor1_8: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(3i32);
+pub const FormFactor1_8Less: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(4i32);
+pub const FormFactor2_5: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(2i32);
+pub const FormFactor3_5: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(1i32);
+pub const FormFactorDimm: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(10i32);
+pub const FormFactorEmbedded: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(5i32);
+pub const FormFactorM_2: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(8i32);
+pub const FormFactorMemoryCard: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(6i32);
+pub const FormFactorPCIeBoard: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(9i32);
+pub const FormFactorUnknown: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(0i32);
+pub const FormFactormSata: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(7i32);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct GETVERSIONINPARAMS {
@@ -3823,6 +4212,42 @@ impl Default for GET_CHANGER_PARAMETERS {
 }
 impl windows_core::TypeKind for GET_CHANGER_PARAMETERS {
     type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GET_CHANGER_PARAMETERS_FEATURES1(pub u32);
+impl GET_CHANGER_PARAMETERS_FEATURES1 {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for GET_CHANGER_PARAMETERS_FEATURES1 {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for GET_CHANGER_PARAMETERS_FEATURES1 {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for GET_CHANGER_PARAMETERS_FEATURES1 {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for GET_CHANGER_PARAMETERS_FEATURES1 {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for GET_CHANGER_PARAMETERS_FEATURES1 {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3914,6 +4339,54 @@ impl Default for GET_MEDIA_TYPES {
 impl windows_core::TypeKind for GET_MEDIA_TYPES {
     type TypeKind = windows_core::CopyType;
 }
+pub const GET_VOLUME_BITMAP_FLAG_MASK_METADATA: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GPT_ATTRIBUTES(pub u64);
+impl GPT_ATTRIBUTES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for GPT_ATTRIBUTES {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for GPT_ATTRIBUTES {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for GPT_ATTRIBUTES {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for GPT_ATTRIBUTES {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for GPT_ATTRIBUTES {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const GPT_ATTRIBUTE_LEGACY_BIOS_BOOTABLE: u64 = 4u64;
+pub const GPT_ATTRIBUTE_NO_BLOCK_IO_PROTOCOL: u64 = 2u64;
+pub const GPT_ATTRIBUTE_PLATFORM_REQUIRED: GPT_ATTRIBUTES = GPT_ATTRIBUTES(1u64);
+pub const GPT_BASIC_DATA_ATTRIBUTE_DAX: u64 = 288230376151711744u64;
+pub const GPT_BASIC_DATA_ATTRIBUTE_HIDDEN: GPT_ATTRIBUTES = GPT_ATTRIBUTES(4611686018427387904u64);
+pub const GPT_BASIC_DATA_ATTRIBUTE_NO_DRIVE_LETTER: GPT_ATTRIBUTES = GPT_ATTRIBUTES(9223372036854775808u64);
+pub const GPT_BASIC_DATA_ATTRIBUTE_OFFLINE: u64 = 576460752303423488u64;
+pub const GPT_BASIC_DATA_ATTRIBUTE_READ_ONLY: GPT_ATTRIBUTES = GPT_ATTRIBUTES(1152921504606846976u64);
+pub const GPT_BASIC_DATA_ATTRIBUTE_SERVICE: u64 = 144115188075855872u64;
+pub const GPT_BASIC_DATA_ATTRIBUTE_SHADOW_COPY: GPT_ATTRIBUTES = GPT_ATTRIBUTES(2305843009213693952u64);
+pub const GPT_SPACES_ATTRIBUTE_NO_METADATA: u64 = 9223372036854775808u64;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct GP_LOG_PAGE_DESCRIPTOR {
@@ -3928,6 +4401,29 @@ impl Default for GP_LOG_PAGE_DESCRIPTOR {
 impl windows_core::TypeKind for GP_LOG_PAGE_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
+pub const GUID_DEVICEDUMP_DRIVER_STORAGE_PORT: windows_core::GUID = windows_core::GUID::from_u128(0xda82441d_7142_4bc1_b844_0807c5a4b67f);
+pub const GUID_DEVICEDUMP_STORAGE_DEVICE: windows_core::GUID = windows_core::GUID::from_u128(0xd8e2592f_1aab_4d56_a746_1f7585df40f4);
+pub const GUID_DEVINTERFACE_CDCHANGER: windows_core::GUID = windows_core::GUID::from_u128(0x53f56312_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_CDROM: windows_core::GUID = windows_core::GUID::from_u128(0x53f56308_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_COMPORT: windows_core::GUID = windows_core::GUID::from_u128(0x86e0d1e0_8089_11d0_9ce4_08003e301f73);
+pub const GUID_DEVINTERFACE_DISK: windows_core::GUID = windows_core::GUID::from_u128(0x53f56307_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_FLOPPY: windows_core::GUID = windows_core::GUID::from_u128(0x53f56311_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_HIDDEN_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x7f108a28_9833_4b3b_b780_2c6b5fa5c062);
+pub const GUID_DEVINTERFACE_MEDIUMCHANGER: windows_core::GUID = windows_core::GUID::from_u128(0x53f56310_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_PARTITION: windows_core::GUID = windows_core::GUID::from_u128(0x53f5630a_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_SCM_PHYSICAL_DEVICE: windows_core::GUID = windows_core::GUID::from_u128(0x4283609d_4dc2_43be_bbb4_4f15dfce2c61);
+pub const GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e978_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVINTERFACE_SERVICE_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x6ead3d82_25ec_46bc_b7fd_c1f0df8f5037);
+pub const GUID_DEVINTERFACE_SES: windows_core::GUID = windows_core::GUID::from_u128(0x1790c9ec_47d5_4df3_b5af_9adf3cf23e48);
+pub const GUID_DEVINTERFACE_STORAGEPORT: windows_core::GUID = windows_core::GUID::from_u128(0x2accfe60_c130_11d2_b082_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_TAPE: windows_core::GUID = windows_core::GUID::from_u128(0x53f5630b_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_UNIFIED_ACCESS_RPMB: windows_core::GUID = windows_core::GUID::from_u128(0x27447c21_bcc3_4d07_a05b_a3395bb4eee7);
+pub const GUID_DEVINTERFACE_VMLUN: windows_core::GUID = windows_core::GUID::from_u128(0x6f416619_9f29_42a5_b20b_37e219ca02b0);
+pub const GUID_DEVINTERFACE_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x53f5630d_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_WRITEONCEDISK: windows_core::GUID = windows_core::GUID::from_u128(0x53f5630c_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_DEVINTERFACE_ZNSDISK: windows_core::GUID = windows_core::GUID::from_u128(0xb87941c5_ffdb_43c7_b6b1_20b632f0b109);
+pub const GUID_SCM_PD_HEALTH_NOTIFICATION: windows_core::GUID = windows_core::GUID::from_u128(0x9da2d386_72f5_4ee3_8155_eca0678e3b06);
+pub const GUID_SCM_PD_PASSTHROUGH_INVDIMM: windows_core::GUID = windows_core::GUID::from_u128(0x4309ac30_0d11_11e4_9191_0800200c9a66);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HISTOGRAM_BUCKET {
@@ -3942,6 +4438,19 @@ impl Default for HISTOGRAM_BUCKET {
 impl windows_core::TypeKind for HISTOGRAM_BUCKET {
     type TypeKind = windows_core::CopyType;
 }
+pub const HIST_NO_OF_BUCKETS: u32 = 24u32;
+pub const HITACHI_12_WO: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(68i32);
+pub const HealthStatusDisabled: STORAGE_COMPONENT_HEALTH_STATUS = STORAGE_COMPONENT_HEALTH_STATUS(4i32);
+pub const HealthStatusFailed: STORAGE_COMPONENT_HEALTH_STATUS = STORAGE_COMPONENT_HEALTH_STATUS(5i32);
+pub const HealthStatusNormal: STORAGE_COMPONENT_HEALTH_STATUS = STORAGE_COMPONENT_HEALTH_STATUS(1i32);
+pub const HealthStatusThrottled: STORAGE_COMPONENT_HEALTH_STATUS = STORAGE_COMPONENT_HEALTH_STATUS(2i32);
+pub const HealthStatusUnknown: STORAGE_COMPONENT_HEALTH_STATUS = STORAGE_COMPONENT_HEALTH_STATUS(0i32);
+pub const HealthStatusWarning: STORAGE_COMPONENT_HEALTH_STATUS = STORAGE_COMPONENT_HEALTH_STATUS(3i32);
+pub const IBM_3480: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(41i32);
+pub const IBM_3490E: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(42i32);
+pub const IBM_Magstar_3590: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(43i32);
+pub const IBM_Magstar_MP: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(44i32);
+pub const IDENTIFY_BUFFER_SIZE: u32 = 512u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IDEREGS {
@@ -3962,6 +4471,155 @@ impl Default for IDEREGS {
 impl windows_core::TypeKind for IDEREGS {
     type TypeKind = windows_core::CopyType;
 }
+pub const ID_CMD: u32 = 236u32;
+pub const IOCTL_CHANGER_BASE: u32 = 48u32;
+pub const IOCTL_CHANGER_EXCHANGE_MEDIUM: u32 = 3162144u32;
+pub const IOCTL_CHANGER_GET_ELEMENT_STATUS: u32 = 3194900u32;
+pub const IOCTL_CHANGER_GET_PARAMETERS: u32 = 3162112u32;
+pub const IOCTL_CHANGER_GET_PRODUCT_DATA: u32 = 3162120u32;
+pub const IOCTL_CHANGER_GET_STATUS: u32 = 3162116u32;
+pub const IOCTL_CHANGER_INITIALIZE_ELEMENT_STATUS: u32 = 3162136u32;
+pub const IOCTL_CHANGER_MOVE_MEDIUM: u32 = 3162148u32;
+pub const IOCTL_CHANGER_QUERY_VOLUME_TAGS: u32 = 3194924u32;
+pub const IOCTL_CHANGER_REINITIALIZE_TRANSPORT: u32 = 3162152u32;
+pub const IOCTL_CHANGER_SET_ACCESS: u32 = 3194896u32;
+pub const IOCTL_CHANGER_SET_POSITION: u32 = 3162140u32;
+pub const IOCTL_DISK_BASE: u32 = 7u32;
+pub const IOCTL_DISK_CHECK_VERIFY: u32 = 477184u32;
+pub const IOCTL_DISK_CONTROLLER_NUMBER: u32 = 458820u32;
+pub const IOCTL_DISK_CREATE_DISK: u32 = 507992u32;
+pub const IOCTL_DISK_DELETE_DRIVE_LAYOUT: u32 = 508160u32;
+pub const IOCTL_DISK_EJECT_MEDIA: u32 = 477192u32;
+pub const IOCTL_DISK_FIND_NEW_DEVICES: u32 = 477208u32;
+pub const IOCTL_DISK_FORMAT_DRIVE: u32 = 508876u32;
+pub const IOCTL_DISK_FORMAT_TRACKS: u32 = 507928u32;
+pub const IOCTL_DISK_FORMAT_TRACKS_EX: u32 = 507948u32;
+pub const IOCTL_DISK_GET_CACHE_INFORMATION: u32 = 475348u32;
+pub const IOCTL_DISK_GET_DISK_ATTRIBUTES: u32 = 458992u32;
+pub const IOCTL_DISK_GET_DRIVE_GEOMETRY: u32 = 458752u32;
+pub const IOCTL_DISK_GET_DRIVE_GEOMETRY_EX: u32 = 458912u32;
+pub const IOCTL_DISK_GET_DRIVE_LAYOUT: u32 = 475148u32;
+pub const IOCTL_DISK_GET_DRIVE_LAYOUT_EX: u32 = 458832u32;
+pub const IOCTL_DISK_GET_LENGTH_INFO: u32 = 475228u32;
+pub const IOCTL_DISK_GET_MEDIA_TYPES: u32 = 461824u32;
+pub const IOCTL_DISK_GET_PARTITION_INFO: u32 = 475140u32;
+pub const IOCTL_DISK_GET_PARTITION_INFO_EX: u32 = 458824u32;
+pub const IOCTL_DISK_GET_WRITE_CACHE_STATE: u32 = 475356u32;
+pub const IOCTL_DISK_GROW_PARTITION: u32 = 508112u32;
+pub const IOCTL_DISK_HISTOGRAM_DATA: u32 = 458804u32;
+pub const IOCTL_DISK_HISTOGRAM_RESET: u32 = 458808u32;
+pub const IOCTL_DISK_HISTOGRAM_STRUCTURE: u32 = 458800u32;
+pub const IOCTL_DISK_IS_WRITABLE: u32 = 458788u32;
+pub const IOCTL_DISK_LOAD_MEDIA: u32 = 477196u32;
+pub const IOCTL_DISK_LOGGING: u32 = 458792u32;
+pub const IOCTL_DISK_MEDIA_REMOVAL: u32 = 477188u32;
+pub const IOCTL_DISK_PERFORMANCE: u32 = 458784u32;
+pub const IOCTL_DISK_PERFORMANCE_OFF: u32 = 458848u32;
+pub const IOCTL_DISK_REASSIGN_BLOCKS: u32 = 507932u32;
+pub const IOCTL_DISK_REASSIGN_BLOCKS_EX: u32 = 508068u32;
+pub const IOCTL_DISK_RELEASE: u32 = 477204u32;
+pub const IOCTL_DISK_REQUEST_DATA: u32 = 458816u32;
+pub const IOCTL_DISK_REQUEST_STRUCTURE: u32 = 458812u32;
+pub const IOCTL_DISK_RESERVE: u32 = 477200u32;
+pub const IOCTL_DISK_RESET_SNAPSHOT_INFO: u32 = 508432u32;
+pub const IOCTL_DISK_SENSE_DEVICE: u32 = 459744u32;
+pub const IOCTL_DISK_SET_CACHE_INFORMATION: u32 = 508120u32;
+pub const IOCTL_DISK_SET_DISK_ATTRIBUTES: u32 = 508148u32;
+pub const IOCTL_DISK_SET_DRIVE_LAYOUT: u32 = 507920u32;
+pub const IOCTL_DISK_SET_DRIVE_LAYOUT_EX: u32 = 507988u32;
+pub const IOCTL_DISK_SET_PARTITION_INFO: u32 = 507912u32;
+pub const IOCTL_DISK_SET_PARTITION_INFO_EX: u32 = 507980u32;
+pub const IOCTL_DISK_UPDATE_DRIVE_SIZE: u32 = 508104u32;
+pub const IOCTL_DISK_UPDATE_PROPERTIES: u32 = 459072u32;
+pub const IOCTL_DISK_VERIFY: u32 = 458772u32;
+pub const IOCTL_SCMBUS_BASE: u32 = 89u32;
+pub const IOCTL_SCMBUS_DEVICE_FUNCTION_BASE: u32 = 0u32;
+pub const IOCTL_SCM_BUS_GET_LOGICAL_DEVICES: u32 = 5832704u32;
+pub const IOCTL_SCM_BUS_GET_PHYSICAL_DEVICES: u32 = 5832708u32;
+pub const IOCTL_SCM_BUS_GET_REGIONS: u32 = 5832712u32;
+pub const IOCTL_SCM_BUS_QUERY_PROPERTY: u32 = 5832716u32;
+pub const IOCTL_SCM_BUS_REFRESH_NAMESPACE: u32 = 5832728u32;
+pub const IOCTL_SCM_BUS_RUNTIME_FW_ACTIVATE: u32 = 5865488u32;
+pub const IOCTL_SCM_BUS_SET_PROPERTY: u32 = 5865492u32;
+pub const IOCTL_SCM_LD_GET_INTERLEAVE_SET: u32 = 5835776u32;
+pub const IOCTL_SCM_LOGICAL_DEVICE_FUNCTION_BASE: u32 = 768u32;
+pub const IOCTL_SCM_PD_FIRMWARE_ACTIVATE: u32 = 5871624u32;
+pub const IOCTL_SCM_PD_FIRMWARE_DOWNLOAD: u32 = 5871620u32;
+pub const IOCTL_SCM_PD_PASSTHROUGH: u32 = 5888012u32;
+pub const IOCTL_SCM_PD_QUERY_PROPERTY: u32 = 5838848u32;
+pub const IOCTL_SCM_PD_REINITIALIZE_MEDIA: u32 = 5871636u32;
+pub const IOCTL_SCM_PD_SET_PROPERTY: u32 = 5871640u32;
+pub const IOCTL_SCM_PD_UPDATE_MANAGEMENT_STATUS: u32 = 5838864u32;
+pub const IOCTL_SCM_PHYSICAL_DEVICE_FUNCTION_BASE: u32 = 1536u32;
+pub const IOCTL_SERENUM_EXPOSE_HARDWARE: u32 = 3604992u32;
+pub const IOCTL_SERENUM_GET_PORT_NAME: u32 = 3605004u32;
+pub const IOCTL_SERENUM_PORT_DESC: u32 = 3605000u32;
+pub const IOCTL_SERENUM_REMOVE_HARDWARE: u32 = 3604996u32;
+pub const IOCTL_SERIAL_LSRMST_INSERT: u32 = 1769596u32;
+pub const IOCTL_STORAGE_ALLOCATE_BC_STREAM: u32 = 3004420u32;
+pub const IOCTL_STORAGE_ATTRIBUTE_MANAGEMENT: u32 = 3005596u32;
+pub const IOCTL_STORAGE_BASE: u32 = 45u32;
+pub const IOCTL_STORAGE_BC_VERSION: u32 = 1u32;
+pub const IOCTL_STORAGE_BREAK_RESERVATION: u32 = 2969620u32;
+pub const IOCTL_STORAGE_CHECK_PRIORITY_HINT_SUPPORT: u32 = 2955392u32;
+pub const IOCTL_STORAGE_CHECK_VERIFY: u32 = 2967552u32;
+pub const IOCTL_STORAGE_CHECK_VERIFY2: u32 = 2951168u32;
+pub const IOCTL_STORAGE_DEVICE_POWER_CAP: u32 = 2956436u32;
+pub const IOCTL_STORAGE_DEVICE_TELEMETRY_NOTIFY: u32 = 3002820u32;
+pub const IOCTL_STORAGE_DEVICE_TELEMETRY_QUERY_CAPS: u32 = 3002824u32;
+pub const IOCTL_STORAGE_DIAGNOSTIC: u32 = 2956448u32;
+pub const IOCTL_STORAGE_EJECTION_CONTROL: u32 = 2951488u32;
+pub const IOCTL_STORAGE_EJECT_MEDIA: u32 = 2967560u32;
+pub const IOCTL_STORAGE_ENABLE_IDLE_POWER: u32 = 2956416u32;
+pub const IOCTL_STORAGE_EVENT_NOTIFICATION: u32 = 2956432u32;
+pub const IOCTL_STORAGE_FAILURE_PREDICTION_CONFIG: u32 = 2953476u32;
+pub const IOCTL_STORAGE_FIND_NEW_DEVICES: u32 = 2967576u32;
+pub const IOCTL_STORAGE_FIRMWARE_ACTIVATE: u32 = 3005448u32;
+pub const IOCTL_STORAGE_FIRMWARE_DOWNLOAD: u32 = 3005444u32;
+pub const IOCTL_STORAGE_FIRMWARE_GET_INFO: u32 = 2956288u32;
+pub const IOCTL_STORAGE_FREE_BC_STREAM: u32 = 3004424u32;
+pub const IOCTL_STORAGE_GET_BC_PROPERTIES: u32 = 2971648u32;
+pub const IOCTL_STORAGE_GET_COUNTERS: u32 = 2953480u32;
+pub const IOCTL_STORAGE_GET_DEVICE_INTERNAL_LOG: u32 = 2956484u32;
+pub const IOCTL_STORAGE_GET_DEVICE_NUMBER: u32 = 2953344u32;
+pub const IOCTL_STORAGE_GET_DEVICE_NUMBER_EX: u32 = 2953348u32;
+pub const IOCTL_STORAGE_GET_DEVICE_TELEMETRY: u32 = 3002816u32;
+pub const IOCTL_STORAGE_GET_DEVICE_TELEMETRY_RAW: u32 = 3002828u32;
+pub const IOCTL_STORAGE_GET_HOTPLUG_INFO: u32 = 2952212u32;
+pub const IOCTL_STORAGE_GET_IDLE_POWERUP_REASON: u32 = 2956420u32;
+pub const IOCTL_STORAGE_GET_LB_PROVISIONING_MAP_RESOURCES: u32 = 2970632u32;
+pub const IOCTL_STORAGE_GET_MEDIA_SERIAL_NUMBER: u32 = 2952208u32;
+pub const IOCTL_STORAGE_GET_MEDIA_TYPES: u32 = 2952192u32;
+pub const IOCTL_STORAGE_GET_MEDIA_TYPES_EX: u32 = 2952196u32;
+pub const IOCTL_STORAGE_GET_PHYSICAL_ELEMENT_STATUS: u32 = 2956452u32;
+pub const IOCTL_STORAGE_LOAD_MEDIA: u32 = 2967564u32;
+pub const IOCTL_STORAGE_LOAD_MEDIA2: u32 = 2951180u32;
+pub const IOCTL_STORAGE_MANAGE_BYPASS_IO: u32 = 2951360u32;
+pub const IOCTL_STORAGE_MANAGE_DATA_SET_ATTRIBUTES: u32 = 2987012u32;
+pub const IOCTL_STORAGE_MCN_CONTROL: u32 = 2951492u32;
+pub const IOCTL_STORAGE_MEDIA_REMOVAL: u32 = 2967556u32;
+pub const IOCTL_STORAGE_PERSISTENT_RESERVE_IN: u32 = 2969624u32;
+pub const IOCTL_STORAGE_PERSISTENT_RESERVE_OUT: u32 = 3002396u32;
+pub const IOCTL_STORAGE_POWER_ACTIVE: u32 = 2956424u32;
+pub const IOCTL_STORAGE_POWER_IDLE: u32 = 2956428u32;
+pub const IOCTL_STORAGE_PREDICT_FAILURE: u32 = 2953472u32;
+pub const IOCTL_STORAGE_PROTOCOL_COMMAND: u32 = 3003328u32;
+pub const IOCTL_STORAGE_QUERY_PROPERTY: u32 = 2954240u32;
+pub const IOCTL_STORAGE_READ_CAPACITY: u32 = 2969920u32;
+pub const IOCTL_STORAGE_REINITIALIZE_MEDIA: u32 = 2987584u32;
+pub const IOCTL_STORAGE_RELEASE: u32 = 2967572u32;
+pub const IOCTL_STORAGE_REMOVE_ELEMENT_AND_TRUNCATE: u32 = 2956480u32;
+pub const IOCTL_STORAGE_RESERVE: u32 = 2967568u32;
+pub const IOCTL_STORAGE_RESET_BUS: u32 = 2969600u32;
+pub const IOCTL_STORAGE_RESET_DEVICE: u32 = 2969604u32;
+pub const IOCTL_STORAGE_RPMB_COMMAND: u32 = 2956440u32;
+pub const IOCTL_STORAGE_SET_HOTPLUG_INFO: u32 = 3001368u32;
+pub const IOCTL_STORAGE_SET_PROPERTY: u32 = 2987004u32;
+pub const IOCTL_STORAGE_SET_TEMPERATURE_THRESHOLD: u32 = 3002880u32;
+pub const IOCTL_STORAGE_START_DATA_INTEGRITY_CHECK: u32 = 3004548u32;
+pub const IOCTL_STORAGE_STOP_DATA_INTEGRITY_CHECK: u32 = 3004552u32;
+pub const IOMEGA_JAZ: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(74i32);
+pub const IOMEGA_ZIP: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(73i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IO_IRP_EXT_TRACK_OFFSET_HEADER {
@@ -3977,6 +4635,13 @@ impl Default for IO_IRP_EXT_TRACK_OFFSET_HEADER {
 impl windows_core::TypeKind for IO_IRP_EXT_TRACK_OFFSET_HEADER {
     type TypeKind = windows_core::CopyType;
 }
+pub const KODAK_14_WO: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(70i32);
+pub const KeepPrefetchedData: DISK_CACHE_RETENTION_PRIORITY = DISK_CACHE_RETENTION_PRIORITY(1i32);
+pub const KeepReadData: DISK_CACHE_RETENTION_PRIORITY = DISK_CACHE_RETENTION_PRIORITY(2i32);
+pub const LMRQuerySessionInfo: LMR_QUERY_INFO_CLASS = LMR_QUERY_INFO_CLASS(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct LMR_QUERY_INFO_CLASS(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LMR_QUERY_INFO_PARAM {
@@ -4003,6 +4668,10 @@ impl Default for LMR_QUERY_SESSION_INFO {
 impl windows_core::TypeKind for LMR_QUERY_SESSION_INFO {
     type TypeKind = windows_core::CopyType;
 }
+pub const LOCK_ELEMENT: u32 = 0u32;
+pub const LOCK_UNLOCK_DOOR: u32 = 2u32;
+pub const LOCK_UNLOCK_IEPORT: u32 = 1u32;
+pub const LOCK_UNLOCK_KEYPAD: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
@@ -4020,6 +4689,14 @@ impl Default for LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
 impl windows_core::TypeKind for LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
+pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_ATTRIBUTE_DATA: u32 = 16777216u32;
+pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_ATTRIBUTE_INDEX: u32 = 33554432u32;
+pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_ATTRIBUTE_MASK: u32 = 4278190080u32;
+pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_ATTRIBUTE_SYSTEM: u32 = 50331648u32;
+pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_DENY_DEFRAG_SET: u32 = 2u32;
+pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_FS_SYSTEM_FILE: u32 = 4u32;
+pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_PAGE_FILE: u32 = 1u32;
+pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_TXF_SYSTEM_FILE: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LOOKUP_STREAM_FROM_CLUSTER_INPUT {
@@ -4050,6 +4727,13 @@ impl Default for LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
 impl windows_core::TypeKind for LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
+pub const LTO_Accelis: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(87i32);
+pub const LTO_Ultrium: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(86i32);
+pub const MARK_HANDLE_CLOUD_SYNC: u32 = 2048u32;
+pub const MARK_HANDLE_DISABLE_FILE_METADATA_OPTIMIZATION: u32 = 4096u32;
+pub const MARK_HANDLE_ENABLE_CPU_CACHE: u32 = 268435456u32;
+pub const MARK_HANDLE_ENABLE_USN_SOURCE_ON_PAGING_IO: u32 = 8192u32;
+pub const MARK_HANDLE_FILTER_METADATA: u32 = 512u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MARK_HANDLE_INFO {
@@ -4114,6 +4798,36 @@ impl Default for MARK_HANDLE_INFO32_0 {
 impl windows_core::TypeKind for MARK_HANDLE_INFO32_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const MARK_HANDLE_NOT_READ_COPY: u32 = 256u32;
+pub const MARK_HANDLE_NOT_REALTIME: u32 = 64u32;
+pub const MARK_HANDLE_NOT_TXF_SYSTEM_LOG: u32 = 8u32;
+pub const MARK_HANDLE_PROTECT_CLUSTERS: u32 = 1u32;
+pub const MARK_HANDLE_READ_COPY: u32 = 128u32;
+pub const MARK_HANDLE_REALTIME: u32 = 32u32;
+pub const MARK_HANDLE_RETURN_PURGE_FAILURE: u32 = 1024u32;
+pub const MARK_HANDLE_SKIP_COHERENCY_SYNC_DISALLOW_WRITES: u32 = 16384u32;
+pub const MARK_HANDLE_SUPPRESS_VOLUME_OPEN_FLUSH: u32 = 32768u32;
+pub const MARK_HANDLE_TXF_SYSTEM_LOG: u32 = 4u32;
+pub const MAXIMUM_ENCRYPTION_VALUE: u32 = 4u32;
+pub const MAX_FW_BUCKET_ID_LENGTH: u32 = 132u32;
+pub const MAX_INTERFACE_CODES: u32 = 8u32;
+pub const MAX_VOLUME_ID_SIZE: u32 = 36u32;
+pub const MAX_VOLUME_TEMPLATE_SIZE: u32 = 40u32;
+pub const MEDIA_CURRENTLY_MOUNTED: u32 = 2147483648u32;
+pub const MEDIA_ERASEABLE: u32 = 1u32;
+pub const MEDIA_READ_ONLY: u32 = 4u32;
+pub const MEDIA_READ_WRITE: u32 = 8u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MEDIA_TYPE(pub i32);
+pub const MEDIA_WRITE_ONCE: u32 = 2u32;
+pub const MEDIA_WRITE_PROTECTED: u32 = 256u32;
+pub const METHOD_BUFFERED: u32 = 0u32;
+pub const METHOD_DIRECT_FROM_HARDWARE: u32 = 2u32;
+pub const METHOD_DIRECT_TO_HARDWARE: u32 = 1u32;
+pub const METHOD_IN_DIRECT: u32 = 1u32;
+pub const METHOD_NEITHER: u32 = 3u32;
+pub const METHOD_OUT_DIRECT: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFT_ENUM_DATA_V0 {
@@ -4196,6 +4910,16 @@ impl Default for MOVE_FILE_RECORD_DATA {
 impl windows_core::TypeKind for MOVE_FILE_RECORD_DATA {
     type TypeKind = windows_core::CopyType;
 }
+pub const MO_3_RW: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(57i32);
+pub const MO_5_LIMDOW: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(60i32);
+pub const MO_5_RW: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(59i32);
+pub const MO_5_WO: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(58i32);
+pub const MO_NFR_525: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(71i32);
+pub const MP2_8mm: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(79i32);
+pub const MP_8mm: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(36i32);
+pub const MiniQic: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(33i32);
+pub const NCTP: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(40i32);
+pub const NIKON_12_RW: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(72i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTFS_EXTENDED_VOLUME_DATA {
@@ -4570,6 +5294,31 @@ impl Default for NTFS_VOLUME_DATA_BUFFER {
 impl windows_core::TypeKind for NTFS_VOLUME_DATA_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
+pub const NVMeDataTypeFeature: STORAGE_PROTOCOL_NVME_DATA_TYPE = STORAGE_PROTOCOL_NVME_DATA_TYPE(3i32);
+pub const NVMeDataTypeIdentify: STORAGE_PROTOCOL_NVME_DATA_TYPE = STORAGE_PROTOCOL_NVME_DATA_TYPE(1i32);
+pub const NVMeDataTypeLogPage: STORAGE_PROTOCOL_NVME_DATA_TYPE = STORAGE_PROTOCOL_NVME_DATA_TYPE(2i32);
+pub const NVMeDataTypeUnknown: STORAGE_PROTOCOL_NVME_DATA_TYPE = STORAGE_PROTOCOL_NVME_DATA_TYPE(0i32);
+pub const OBSOLETE_DISK_GET_WRITE_CACHE_STATE: u32 = 475356u32;
+pub const OBSOLETE_IOCTL_STORAGE_RESET_BUS: u32 = 3002368u32;
+pub const OBSOLETE_IOCTL_STORAGE_RESET_DEVICE: u32 = 3002372u32;
+pub const OFFLOAD_READ_FLAG_ALL_ZERO_BEYOND_CURRENT_RANGE: u32 = 1u32;
+pub const OPLOCK_LEVEL_CACHE_HANDLE: u32 = 2u32;
+pub const OPLOCK_LEVEL_CACHE_READ: u32 = 1u32;
+pub const OPLOCK_LEVEL_CACHE_WRITE: u32 = 4u32;
+pub const PARTIITON_OS_DATA: u32 = 41u32;
+pub const PARTITION_BSP: u32 = 43u32;
+pub const PARTITION_DM: u32 = 84u32;
+pub const PARTITION_DPP: u32 = 44u32;
+pub const PARTITION_ENTRY_UNUSED: u32 = 0u32;
+pub const PARTITION_EXTENDED: u32 = 5u32;
+pub const PARTITION_EZDRIVE: u32 = 85u32;
+pub const PARTITION_FAT32: u32 = 11u32;
+pub const PARTITION_FAT32_XINT13: u32 = 12u32;
+pub const PARTITION_FAT_12: u32 = 1u32;
+pub const PARTITION_FAT_16: u32 = 4u32;
+pub const PARTITION_GPT: u32 = 238u32;
+pub const PARTITION_HUGE: u32 = 6u32;
+pub const PARTITION_IFS: u32 = 7u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PARTITION_INFORMATION {
@@ -4656,6 +5405,28 @@ impl Default for PARTITION_INFORMATION_MBR {
 impl windows_core::TypeKind for PARTITION_INFORMATION_MBR {
     type TypeKind = windows_core::CopyType;
 }
+pub const PARTITION_LDM: u32 = 66u32;
+pub const PARTITION_MAIN_OS: u32 = 40u32;
+pub const PARTITION_MSFT_RECOVERY: u32 = 39u32;
+pub const PARTITION_NTFT: u32 = 128u32;
+pub const PARTITION_OS2BOOTMGR: u32 = 10u32;
+pub const PARTITION_PREP: u32 = 65u32;
+pub const PARTITION_PRE_INSTALLED: u32 = 42u32;
+pub const PARTITION_SPACES: u32 = 231u32;
+pub const PARTITION_SPACES_DATA: u32 = 215u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PARTITION_STYLE(pub i32);
+pub const PARTITION_STYLE_GPT: PARTITION_STYLE = PARTITION_STYLE(1i32);
+pub const PARTITION_STYLE_MBR: PARTITION_STYLE = PARTITION_STYLE(0i32);
+pub const PARTITION_STYLE_RAW: PARTITION_STYLE = PARTITION_STYLE(2i32);
+pub const PARTITION_SYSTEM: u32 = 239u32;
+pub const PARTITION_UNIX: u32 = 99u32;
+pub const PARTITION_WINDOWS_SYSTEM: u32 = 45u32;
+pub const PARTITION_XENIX_1: u32 = 2u32;
+pub const PARTITION_XENIX_2: u32 = 3u32;
+pub const PARTITION_XINT13: u32 = 14u32;
+pub const PARTITION_XINT13_EXTENDED: u32 = 15u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PATHNAME_BUFFER {
@@ -4670,6 +5441,9 @@ impl Default for PATHNAME_BUFFER {
 impl windows_core::TypeKind for PATHNAME_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
+pub const PC_5_RW: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(62i32);
+pub const PC_5_WO: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(61i32);
+pub const PD_5_RW: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(63i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PERF_BIN {
@@ -4743,6 +5517,22 @@ impl Default for PERSISTENT_RESERVE_COMMAND_0_1 {
 impl windows_core::TypeKind for PERSISTENT_RESERVE_COMMAND_0_1 {
     type TypeKind = windows_core::CopyType;
 }
+pub const PERSISTENT_VOLUME_STATE_BACKED_BY_WIM: u32 = 64u32;
+pub const PERSISTENT_VOLUME_STATE_CHKDSK_RAN_ONCE: u32 = 1024u32;
+pub const PERSISTENT_VOLUME_STATE_CONTAINS_BACKING_WIM: u32 = 32u32;
+pub const PERSISTENT_VOLUME_STATE_DAX_FORMATTED: u32 = 4096u32;
+pub const PERSISTENT_VOLUME_STATE_DEV_VOLUME: u32 = 8192u32;
+pub const PERSISTENT_VOLUME_STATE_GLOBAL_METADATA_NO_SEEK_PENALTY: u32 = 4u32;
+pub const PERSISTENT_VOLUME_STATE_LOCAL_METADATA_NO_SEEK_PENALTY: u32 = 8u32;
+pub const PERSISTENT_VOLUME_STATE_MODIFIED_BY_CHKDSK: u32 = 2048u32;
+pub const PERSISTENT_VOLUME_STATE_NO_HEAT_GATHERING: u32 = 16u32;
+pub const PERSISTENT_VOLUME_STATE_NO_WRITE_AUTO_TIERING: u32 = 128u32;
+pub const PERSISTENT_VOLUME_STATE_REALLOCATE_ALL_DATA_WRITES: u32 = 512u32;
+pub const PERSISTENT_VOLUME_STATE_SHORT_NAME_CREATION_DISABLED: u32 = 1u32;
+pub const PERSISTENT_VOLUME_STATE_TRUSTED_VOLUME: u32 = 16384u32;
+pub const PERSISTENT_VOLUME_STATE_TXF_DISABLED: u32 = 256u32;
+pub const PERSISTENT_VOLUME_STATE_VOLUME_SCRUB_DISABLED: u32 = 2u32;
+pub const PHILIPS_12_WO: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(67i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PHYSICAL_ELEMENT_STATUS {
@@ -4800,6 +5590,8 @@ impl Default for PHYSICAL_ELEMENT_STATUS_REQUEST {
 impl windows_core::TypeKind for PHYSICAL_ELEMENT_STATUS_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
+pub const PINNACLE_APEX_5_RW: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(65i32);
+pub type PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK = Option<unsafe extern "system" fn(sourcecontext: *const IO_IRP_EXT_TRACK_OFFSET_HEADER, targetcontext: *mut IO_IRP_EXT_TRACK_OFFSET_HEADER, relativeoffset: i64)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PLEX_READ_DATA_REQUEST {
@@ -4828,6 +5620,24 @@ impl Default for PREVENT_MEDIA_REMOVAL {
 impl windows_core::TypeKind for PREVENT_MEDIA_REMOVAL {
     type TypeKind = windows_core::CopyType;
 }
+pub const PRODUCT_ID_LENGTH: u32 = 16u32;
+pub const PROJFS_PROTOCOL_VERSION: u32 = 3u32;
+pub const PropertyExistsQuery: STORAGE_QUERY_TYPE = STORAGE_QUERY_TYPE(1i32);
+pub const PropertyExistsSet: STORAGE_SET_TYPE = STORAGE_SET_TYPE(1i32);
+pub const PropertyMaskQuery: STORAGE_QUERY_TYPE = STORAGE_QUERY_TYPE(2i32);
+pub const PropertyQueryMaxDefined: STORAGE_QUERY_TYPE = STORAGE_QUERY_TYPE(3i32);
+pub const PropertySetMaxDefined: STORAGE_SET_TYPE = STORAGE_SET_TYPE(2i32);
+pub const PropertyStandardQuery: STORAGE_QUERY_TYPE = STORAGE_QUERY_TYPE(0i32);
+pub const PropertyStandardSet: STORAGE_SET_TYPE = STORAGE_SET_TYPE(0i32);
+pub const ProtocolTypeAta: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(2i32);
+pub const ProtocolTypeMaxReserved: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(127i32);
+pub const ProtocolTypeNvme: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(3i32);
+pub const ProtocolTypeProprietary: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(126i32);
+pub const ProtocolTypeScsi: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(1i32);
+pub const ProtocolTypeSd: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(4i32);
+pub const ProtocolTypeUfs: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(5i32);
+pub const ProtocolTypeUnknown: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(0i32);
+pub const QIC: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(35i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct QUERY_BAD_RANGES_INPUT {
@@ -4889,6 +5699,30 @@ impl Default for QUERY_BAD_RANGES_OUTPUT_RANGE {
 impl windows_core::TypeKind for QUERY_BAD_RANGES_OUTPUT_RANGE {
     type TypeKind = windows_core::CopyType;
 }
+pub const QUERY_DEPENDENT_VOLUME_REQUEST_FLAG_GUEST_VOLUMES: u32 = 2u32;
+pub const QUERY_DEPENDENT_VOLUME_REQUEST_FLAG_HOST_VOLUMES: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QUERY_FILE_LAYOUT_FILTER_TYPE(pub i32);
+pub const QUERY_FILE_LAYOUT_FILTER_TYPE_CLUSTERS: QUERY_FILE_LAYOUT_FILTER_TYPE = QUERY_FILE_LAYOUT_FILTER_TYPE(1i32);
+pub const QUERY_FILE_LAYOUT_FILTER_TYPE_FILEID: QUERY_FILE_LAYOUT_FILTER_TYPE = QUERY_FILE_LAYOUT_FILTER_TYPE(2i32);
+pub const QUERY_FILE_LAYOUT_FILTER_TYPE_NONE: QUERY_FILE_LAYOUT_FILTER_TYPE = QUERY_FILE_LAYOUT_FILTER_TYPE(0i32);
+pub const QUERY_FILE_LAYOUT_FILTER_TYPE_STORAGE_RESERVE_ID: QUERY_FILE_LAYOUT_FILTER_TYPE = QUERY_FILE_LAYOUT_FILTER_TYPE(3i32);
+pub const QUERY_FILE_LAYOUT_INCLUDE_EXTENTS: u32 = 8u32;
+pub const QUERY_FILE_LAYOUT_INCLUDE_EXTRA_INFO: u32 = 16u32;
+pub const QUERY_FILE_LAYOUT_INCLUDE_FILES_WITH_DSC_ATTRIBUTE: u32 = 4096u32;
+pub const QUERY_FILE_LAYOUT_INCLUDE_FULL_PATH_IN_NAMES: u32 = 64u32;
+pub const QUERY_FILE_LAYOUT_INCLUDE_NAMES: u32 = 2u32;
+pub const QUERY_FILE_LAYOUT_INCLUDE_ONLY_FILES_WITH_SPECIFIC_ATTRIBUTES: u32 = 2048u32;
+pub const QUERY_FILE_LAYOUT_INCLUDE_STREAMS: u32 = 4u32;
+pub const QUERY_FILE_LAYOUT_INCLUDE_STREAMS_WITH_NO_CLUSTERS_ALLOCATED: u32 = 32u32;
+pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION: u32 = 128u32;
+pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_DATA_ATTRIBUTE: u32 = 8192u32;
+pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_DSC_ATTRIBUTE: u32 = 256u32;
+pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_EA_ATTRIBUTE: u32 = 32768u32;
+pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_EFS_ATTRIBUTE: u32 = 1024u32;
+pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_REPARSE_ATTRIBUTE: u32 = 16384u32;
+pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_TXF_ATTRIBUTE: u32 = 512u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct QUERY_FILE_LAYOUT_INPUT {
@@ -4935,6 +5769,7 @@ impl Default for QUERY_FILE_LAYOUT_INPUT_1 {
 impl windows_core::TypeKind for QUERY_FILE_LAYOUT_INPUT_1 {
     type TypeKind = windows_core::CopyType;
 }
+pub const QUERY_FILE_LAYOUT_NUM_FILTER_TYPES: QUERY_FILE_LAYOUT_FILTER_TYPE = QUERY_FILE_LAYOUT_FILTER_TYPE(4i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct QUERY_FILE_LAYOUT_OUTPUT {
@@ -4951,6 +5786,18 @@ impl Default for QUERY_FILE_LAYOUT_OUTPUT {
 impl windows_core::TypeKind for QUERY_FILE_LAYOUT_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
+pub const QUERY_FILE_LAYOUT_REPARSE_DATA_INVALID: u32 = 1u32;
+pub const QUERY_FILE_LAYOUT_REPARSE_TAG_INVALID: u32 = 2u32;
+pub const QUERY_FILE_LAYOUT_RESTART: u32 = 1u32;
+pub const QUERY_FILE_LAYOUT_SINGLE_INSTANCED: u32 = 1u32;
+pub const QUERY_STORAGE_CLASSES_FLAGS_MEASURE_READ: u32 = 1073741824u32;
+pub const QUERY_STORAGE_CLASSES_FLAGS_MEASURE_WRITE: u32 = 2147483648u32;
+pub const QUERY_STORAGE_CLASSES_FLAGS_NO_DEFRAG_VOLUME: u32 = 536870912u32;
+pub const READ_ATTRIBUTES: u32 = 208u32;
+pub const READ_ATTRIBUTE_BUFFER_SIZE: u32 = 512u32;
+pub const READ_COMPRESSION_INFO_VALID: u32 = 32u32;
+pub const READ_COPY_NUMBER_BYPASS_CACHE_FLAG: u32 = 256u32;
+pub const READ_COPY_NUMBER_KEY: u32 = 1380142592u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct READ_ELEMENT_ADDRESS_INFO {
@@ -4979,6 +5826,8 @@ impl Default for READ_FILE_USN_DATA {
 impl windows_core::TypeKind for READ_FILE_USN_DATA {
     type TypeKind = windows_core::CopyType;
 }
+pub const READ_THRESHOLDS: u32 = 209u32;
+pub const READ_THRESHOLD_BUFFER_SIZE: u32 = 512u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct READ_USN_JOURNAL_DATA_V0 {
@@ -5047,6 +5896,14 @@ impl Default for REASSIGN_BLOCKS_EX {
 impl windows_core::TypeKind for REASSIGN_BLOCKS_EX {
     type TypeKind = windows_core::CopyType;
 }
+pub const RECOVERED_READS_VALID: u32 = 4u32;
+pub const RECOVERED_WRITES_VALID: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REFS_SMR_VOLUME_GC_ACTION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REFS_SMR_VOLUME_GC_METHOD(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REFS_SMR_VOLUME_GC_PARAMETERS {
@@ -5066,6 +5923,10 @@ impl Default for REFS_SMR_VOLUME_GC_PARAMETERS {
 impl windows_core::TypeKind for REFS_SMR_VOLUME_GC_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
+pub const REFS_SMR_VOLUME_GC_PARAMETERS_VERSION_V1: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REFS_SMR_VOLUME_GC_STATE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REFS_SMR_VOLUME_INFO_OUTPUT {
@@ -5089,6 +5950,8 @@ impl Default for REFS_SMR_VOLUME_INFO_OUTPUT {
 impl windows_core::TypeKind for REFS_SMR_VOLUME_INFO_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
+pub const REFS_SMR_VOLUME_INFO_OUTPUT_VERSION_V0: u32 = 0u32;
+pub const REFS_SMR_VOLUME_INFO_OUTPUT_VERSION_V1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REFS_VOLUME_DATA_BUFFER {
@@ -5170,6 +6033,9 @@ impl Default for REPAIR_COPIES_OUTPUT {
 impl windows_core::TypeKind for REPAIR_COPIES_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
+pub const REPLACE_ALTERNATE: u32 = 11u32;
+pub const REPLACE_PRIMARY: u32 = 10u32;
+pub const REQUEST_OPLOCK_CURRENT_VERSION: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REQUEST_OPLOCK_INPUT_BUFFER {
@@ -5186,6 +6052,9 @@ impl Default for REQUEST_OPLOCK_INPUT_BUFFER {
 impl windows_core::TypeKind for REQUEST_OPLOCK_INPUT_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
+pub const REQUEST_OPLOCK_INPUT_FLAG_ACK: u32 = 2u32;
+pub const REQUEST_OPLOCK_INPUT_FLAG_COMPLETE_ACK_ON_CLOSE: u32 = 4u32;
+pub const REQUEST_OPLOCK_INPUT_FLAG_REQUEST: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REQUEST_OPLOCK_OUTPUT_BUFFER {
@@ -5205,6 +6074,9 @@ impl Default for REQUEST_OPLOCK_OUTPUT_BUFFER {
 impl windows_core::TypeKind for REQUEST_OPLOCK_OUTPUT_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
+pub const REQUEST_OPLOCK_OUTPUT_FLAG_ACK_REQUIRED: u32 = 1u32;
+pub const REQUEST_OPLOCK_OUTPUT_FLAG_MODES_PROVIDED: u32 = 2u32;
+pub const REQUEST_OPLOCK_OUTPUT_FLAG_WRITABLE_SECTION_PRESENT: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REQUEST_RAW_ENCRYPTED_DATA {
@@ -5219,6 +6091,7 @@ impl Default for REQUEST_RAW_ENCRYPTED_DATA {
 impl windows_core::TypeKind for REQUEST_RAW_ENCRYPTED_DATA {
     type TypeKind = windows_core::CopyType;
 }
+pub const RETRACT_IEPORT: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
@@ -5304,6 +6177,13 @@ impl Default for RETRIEVAL_POINTER_COUNT {
 impl windows_core::TypeKind for RETRIEVAL_POINTER_COUNT {
     type TypeKind = windows_core::CopyType;
 }
+pub const RETURN_SMART_STATUS: u32 = 218u32;
+pub const REVISION_LENGTH: u32 = 4u32;
+pub const RemovableMedia: MEDIA_TYPE = MEDIA_TYPE(11i32);
+pub const RequestLocation: BIN_TYPES = BIN_TYPES(1i32);
+pub const RequestSize: BIN_TYPES = BIN_TYPES(0i32);
+pub const SAIT: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(93i32);
+pub const SAVE_ATTRIBUTE_VALUES: u32 = 211u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO {
@@ -5362,6 +6242,12 @@ impl Default for SCM_BUS_DEDICATED_MEMORY_STATE {
 impl windows_core::TypeKind for SCM_BUS_DEDICATED_MEMORY_STATE {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCM_BUS_FIRMWARE_ACTIVATION_STATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCM_BUS_PROPERTY_ID(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_BUS_PROPERTY_QUERY {
@@ -5396,6 +6282,9 @@ impl Default for SCM_BUS_PROPERTY_SET {
 impl windows_core::TypeKind for SCM_BUS_PROPERTY_SET {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCM_BUS_QUERY_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
@@ -5430,6 +6319,9 @@ impl Default for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
 impl windows_core::TypeKind for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCM_BUS_SET_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_INTERLEAVED_PD_INFO {
@@ -5492,6 +6384,7 @@ impl Default for SCM_LOGICAL_DEVICE_INSTANCE {
 impl windows_core::TypeKind for SCM_LOGICAL_DEVICE_INSTANCE {
     type TypeKind = windows_core::CopyType;
 }
+pub const SCM_MAX_SYMLINK_LEN_IN_CHARS: u32 = 256u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_PD_DESCRIPTOR_HEADER {
@@ -5602,6 +6495,9 @@ impl Default for SCM_PD_FIRMWARE_ACTIVATE {
 impl windows_core::TypeKind for SCM_PD_FIRMWARE_ACTIVATE {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCM_PD_FIRMWARE_ACTIVATION_STATE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_PD_FIRMWARE_DOWNLOAD {
@@ -5640,6 +6536,8 @@ impl Default for SCM_PD_FIRMWARE_INFO {
 impl windows_core::TypeKind for SCM_PD_FIRMWARE_INFO {
     type TypeKind = windows_core::CopyType;
 }
+pub const SCM_PD_FIRMWARE_LAST_DOWNLOAD: u32 = 1u32;
+pub const SCM_PD_FIRMWARE_REVISION_LENGTH_BYTES: u32 = 32u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_PD_FIRMWARE_SLOT_INFO {
@@ -5687,6 +6585,12 @@ impl Default for SCM_PD_HEALTH_NOTIFICATION_DATA {
 impl windows_core::TypeKind for SCM_PD_HEALTH_NOTIFICATION_DATA {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCM_PD_HEALTH_STATUS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCM_PD_LAST_FW_ACTIVATION_STATUS(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_PD_LOCATION_STRING {
@@ -5721,6 +6625,16 @@ impl Default for SCM_PD_MANAGEMENT_STATUS {
 impl windows_core::TypeKind for SCM_PD_MANAGEMENT_STATUS {
     type TypeKind = windows_core::CopyType;
 }
+pub const SCM_PD_MAX_OPERATIONAL_STATUS: u32 = 16u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCM_PD_MEDIA_REINITIALIZATION_STATUS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCM_PD_OPERATIONAL_STATUS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCM_PD_OPERATIONAL_STATUS_REASON(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_PD_PASSTHROUGH_INPUT {
@@ -5786,6 +6700,10 @@ impl Default for SCM_PD_PASSTHROUGH_OUTPUT {
 impl windows_core::TypeKind for SCM_PD_PASSTHROUGH_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCM_PD_PROPERTY_ID(pub i32);
+pub const SCM_PD_PROPERTY_NAME_LENGTH_IN_CHARS: u32 = 128u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_PD_PROPERTY_QUERY {
@@ -5820,6 +6738,9 @@ impl Default for SCM_PD_PROPERTY_SET {
 impl windows_core::TypeKind for SCM_PD_PROPERTY_SET {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCM_PD_QUERY_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_PD_REINITIALIZE_MEDIA_INPUT {
@@ -5892,6 +6813,9 @@ impl Default for SCM_PD_RUNTIME_FW_ACTIVATION_INFO {
 impl windows_core::TypeKind for SCM_PD_RUNTIME_FW_ACTIVATION_INFO {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCM_PD_SET_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCM_PHYSICAL_DEVICES {
@@ -5964,6 +6888,9 @@ impl Default for SCM_REGIONS {
 impl windows_core::TypeKind for SCM_REGIONS {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCM_REGION_FLAG(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SD_CHANGE_MACHINE_SID_INPUT {
@@ -6106,6 +7033,9 @@ impl Default for SD_GLOBAL_CHANGE_OUTPUT_0 {
 impl windows_core::TypeKind for SD_GLOBAL_CHANGE_OUTPUT_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const SD_GLOBAL_CHANGE_TYPE_ENUM_SDS: u32 = 131072u32;
+pub const SD_GLOBAL_CHANGE_TYPE_MACHINE_SID: u32 = 1u32;
+pub const SD_GLOBAL_CHANGE_TYPE_QUERY_STATS: u32 = 65536u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SD_QUERY_STATS_INPUT {
@@ -6139,6 +7069,12 @@ impl Default for SD_QUERY_STATS_OUTPUT {
 impl windows_core::TypeKind for SD_QUERY_STATS_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
+pub const SEARCH_ALL: u32 = 0u32;
+pub const SEARCH_ALL_NO_SEQ: u32 = 4u32;
+pub const SEARCH_ALTERNATE: u32 = 2u32;
+pub const SEARCH_ALT_NO_SEQ: u32 = 6u32;
+pub const SEARCH_PRIMARY: u32 = 1u32;
+pub const SEARCH_PRI_NO_SEQ: u32 = 5u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct SENDCMDINPARAMS {
@@ -6172,6 +7108,20 @@ impl Default for SENDCMDOUTPARAMS {
 impl windows_core::TypeKind for SENDCMDOUTPARAMS {
     type TypeKind = windows_core::CopyType;
 }
+pub const SERIAL_IOC_FCR_DMA_MODE: u32 = 8u32;
+pub const SERIAL_IOC_FCR_FIFO_ENABLE: u32 = 1u32;
+pub const SERIAL_IOC_FCR_RCVR_RESET: u32 = 2u32;
+pub const SERIAL_IOC_FCR_RCVR_TRIGGER_LSB: u32 = 64u32;
+pub const SERIAL_IOC_FCR_RCVR_TRIGGER_MSB: u32 = 128u32;
+pub const SERIAL_IOC_FCR_RES1: u32 = 16u32;
+pub const SERIAL_IOC_FCR_RES2: u32 = 32u32;
+pub const SERIAL_IOC_FCR_XMIT_RESET: u32 = 4u32;
+pub const SERIAL_IOC_MCR_DTR: u32 = 1u32;
+pub const SERIAL_IOC_MCR_LOOP: u32 = 16u32;
+pub const SERIAL_IOC_MCR_OUT1: u32 = 4u32;
+pub const SERIAL_IOC_MCR_OUT2: u32 = 8u32;
+pub const SERIAL_IOC_MCR_RTS: u32 = 2u32;
+pub const SERIAL_NUMBER_LENGTH: u32 = 32u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT {
@@ -6247,6 +7197,8 @@ impl Default for SET_PARTITION_INFORMATION_EX_0 {
 impl windows_core::TypeKind for SET_PARTITION_INFORMATION_EX_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const SET_PURGE_FAILURE_MODE_DISABLED: u32 = 2u32;
+pub const SET_PURGE_FAILURE_MODE_ENABLED: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SET_PURGE_FAILURE_MODE_INPUT {
@@ -6260,6 +7212,10 @@ impl Default for SET_PURGE_FAILURE_MODE_INPUT {
 impl windows_core::TypeKind for SET_PURGE_FAILURE_MODE_INPUT {
     type TypeKind = windows_core::CopyType;
 }
+pub const SET_REPAIR_DISABLED_AND_BUGCHECK_ON_CORRUPT: u32 = 16u32;
+pub const SET_REPAIR_ENABLED: u32 = 1u32;
+pub const SET_REPAIR_VALID_MASK: u32 = 25u32;
+pub const SET_REPAIR_WARN_ABOUT_DATA_LOSS: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SHRINK_VOLUME_INFORMATION {
@@ -6275,6 +7231,9 @@ impl Default for SHRINK_VOLUME_INFORMATION {
 impl windows_core::TypeKind for SHRINK_VOLUME_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SHRINK_VOLUME_REQUEST_TYPES(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SI_COPYFILE {
@@ -6291,6 +7250,33 @@ impl Default for SI_COPYFILE {
 impl windows_core::TypeKind for SI_COPYFILE {
     type TypeKind = windows_core::CopyType;
 }
+pub const SMART_ABORT_OFFLINE_SELFTEST: u32 = 127u32;
+pub const SMART_CMD: u32 = 176u32;
+pub const SMART_CYL_HI: u32 = 194u32;
+pub const SMART_CYL_LOW: u32 = 79u32;
+pub const SMART_ERROR_NO_MEM: u32 = 7u32;
+pub const SMART_EXTENDED_SELFTEST_CAPTIVE: u32 = 130u32;
+pub const SMART_EXTENDED_SELFTEST_OFFLINE: u32 = 2u32;
+pub const SMART_GET_VERSION: u32 = 475264u32;
+pub const SMART_IDE_ERROR: u32 = 1u32;
+pub const SMART_INVALID_BUFFER: u32 = 4u32;
+pub const SMART_INVALID_COMMAND: u32 = 3u32;
+pub const SMART_INVALID_DRIVE: u32 = 5u32;
+pub const SMART_INVALID_FLAG: u32 = 2u32;
+pub const SMART_INVALID_IOCTL: u32 = 6u32;
+pub const SMART_INVALID_REGISTER: u32 = 8u32;
+pub const SMART_LOG_SECTOR_SIZE: u32 = 512u32;
+pub const SMART_NOT_SUPPORTED: u32 = 9u32;
+pub const SMART_NO_ERROR: u32 = 0u32;
+pub const SMART_NO_IDE_DEVICE: u32 = 10u32;
+pub const SMART_OFFLINE_ROUTINE_OFFLINE: u32 = 0u32;
+pub const SMART_RCV_DRIVE_DATA: u32 = 508040u32;
+pub const SMART_RCV_DRIVE_DATA_EX: u32 = 458892u32;
+pub const SMART_READ_LOG: u32 = 213u32;
+pub const SMART_SEND_DRIVE_COMMAND: u32 = 508036u32;
+pub const SMART_SHORT_SELFTEST_CAPTIVE: u32 = 129u32;
+pub const SMART_SHORT_SELFTEST_OFFLINE: u32 = 1u32;
+pub const SMART_WRITE_LOG: u32 = 214u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SMB_SHARE_FLUSH_AND_PURGE_INPUT {
@@ -6317,6 +7303,12 @@ impl Default for SMB_SHARE_FLUSH_AND_PURGE_OUTPUT {
 impl windows_core::TypeKind for SMB_SHARE_FLUSH_AND_PURGE_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
+pub const SONY_12_WO: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(66i32);
+pub const SONY_D2: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(49i32);
+pub const SONY_DTF: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(46i32);
+pub const SPACES_TRACKED_OFFSET_HEADER_FLAG: u32 = 2u32;
+pub const SRB_TYPE_SCSI_REQUEST_BLOCK: u32 = 0u32;
+pub const SRB_TYPE_STORAGE_REQUEST_BLOCK: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STARTING_LCN_INPUT_BUFFER {
@@ -6357,6 +7349,9 @@ impl Default for STARTING_VCN_INPUT_BUFFER {
 impl windows_core::TypeKind for STARTING_VCN_INPUT_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
+pub const STK_9840: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(85i32);
+pub const STK_9940: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(92i32);
+pub const STK_DATA_D3: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(45i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
@@ -6417,6 +7412,8 @@ impl Default for STORAGE_ADAPTER_SERIAL_NUMBER {
 impl windows_core::TypeKind for STORAGE_ADAPTER_SERIAL_NUMBER {
     type TypeKind = windows_core::CopyType;
 }
+pub const STORAGE_ADAPTER_SERIAL_NUMBER_V1_MAX_LENGTH: u32 = 128u32;
+pub const STORAGE_ADDRESS_TYPE_BTL8: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_ALLOCATE_BC_STREAM_INPUT {
@@ -6451,6 +7448,13 @@ impl Default for STORAGE_ALLOCATE_BC_STREAM_OUTPUT {
 impl windows_core::TypeKind for STORAGE_ALLOCATE_BC_STREAM_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_ASSOCIATION_TYPE(pub i32);
+pub const STORAGE_ATTRIBUTE_ASYNC_EVENT_NOTIFICATION: u32 = 16u32;
+pub const STORAGE_ATTRIBUTE_BLOCK_IO: u32 = 2u32;
+pub const STORAGE_ATTRIBUTE_BYTE_ADDRESSABLE_IO: u32 = 1u32;
+pub const STORAGE_ATTRIBUTE_DYNAMIC_PERSISTENCE: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_ATTRIBUTE_MGMT {
@@ -6467,6 +7471,11 @@ impl Default for STORAGE_ATTRIBUTE_MGMT {
 impl windows_core::TypeKind for STORAGE_ATTRIBUTE_MGMT {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_ATTRIBUTE_MGMT_ACTION(pub i32);
+pub const STORAGE_ATTRIBUTE_PERF_SIZE_INDEPENDENT: u32 = 32u32;
+pub const STORAGE_ATTRIBUTE_VOLATILE: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_BREAK_RESERVATION_REQUEST {
@@ -6497,6 +7506,12 @@ impl Default for STORAGE_BUS_RESET_REQUEST {
 impl windows_core::TypeKind for STORAGE_BUS_RESET_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_COMPONENT_HEALTH_STATUS(pub i32);
+pub const STORAGE_COMPONENT_ROLE_CACHE: u32 = 1u32;
+pub const STORAGE_COMPONENT_ROLE_DATA: u32 = 4u32;
+pub const STORAGE_COMPONENT_ROLE_TIERING: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_COUNTER {
@@ -6555,6 +7570,13 @@ impl Default for STORAGE_COUNTERS {
 impl windows_core::TypeKind for STORAGE_COUNTERS {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_COUNTER_TYPE(pub i32);
+pub const STORAGE_CRASH_TELEMETRY_REGKEY: windows_core::PCWSTR = windows_core::w!("\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CrashControl\\StorageTelemetry");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_CRYPTO_ALGORITHM_ID(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_CRYPTO_CAPABILITY {
@@ -6573,6 +7595,7 @@ impl Default for STORAGE_CRYPTO_CAPABILITY {
 impl windows_core::TypeKind for STORAGE_CRYPTO_CAPABILITY {
     type TypeKind = windows_core::CopyType;
 }
+pub const STORAGE_CRYPTO_CAPABILITY_VERSION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_CRYPTO_DESCRIPTOR {
@@ -6590,6 +7613,10 @@ impl Default for STORAGE_CRYPTO_DESCRIPTOR {
 impl windows_core::TypeKind for STORAGE_CRYPTO_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
+pub const STORAGE_CRYPTO_DESCRIPTOR_VERSION_1: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_CRYPTO_KEY_SIZE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_DESCRIPTOR_HEADER {
@@ -6663,6 +7690,12 @@ impl Default for STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
 impl windows_core::TypeKind for STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
+pub const STORAGE_DEVICE_FLAGS_PAGE_83_DEVICEGUID: u32 = 4u32;
+pub const STORAGE_DEVICE_FLAGS_RANDOM_DEVICEGUID_REASON_CONFLICT: u32 = 1u32;
+pub const STORAGE_DEVICE_FLAGS_RANDOM_DEVICEGUID_REASON_NOHWID: u32 = 2u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_DEVICE_FORM_FACTOR(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_DEVICE_ID_DESCRIPTOR {
@@ -6745,6 +7778,8 @@ impl Default for STORAGE_DEVICE_MANAGEMENT_STATUS {
 impl windows_core::TypeKind for STORAGE_DEVICE_MANAGEMENT_STATUS {
     type TypeKind = windows_core::CopyType;
 }
+pub const STORAGE_DEVICE_MAX_OPERATIONAL_STATUS: u32 = 16u32;
+pub const STORAGE_DEVICE_NUMA_NODE_UNKNOWN: u32 = 4294967295u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_DEVICE_NUMA_PROPERTY {
@@ -6826,6 +7861,10 @@ impl Default for STORAGE_DEVICE_POWER_CAP {
 impl windows_core::TypeKind for STORAGE_DEVICE_POWER_CAP {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_DEVICE_POWER_CAP_UNITS(pub i32);
+pub const STORAGE_DEVICE_POWER_CAP_VERSION_V1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
@@ -6877,6 +7916,7 @@ impl Default for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
 impl windows_core::TypeKind for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
     type TypeKind = windows_core::CopyType;
 }
+pub const STORAGE_DEVICE_TELEMETRY_REGKEY: windows_core::PCWSTR = windows_core::w!("\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Storage\\StorageTelemetry");
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_DEVICE_TIERING_DESCRIPTOR {
@@ -6928,6 +7968,10 @@ impl Default for STORAGE_DIAGNOSTIC_DATA {
 impl windows_core::TypeKind for STORAGE_DIAGNOSTIC_DATA {
     type TypeKind = windows_core::CopyType;
 }
+pub const STORAGE_DIAGNOSTIC_FLAG_ADAPTER_REQUEST: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_DIAGNOSTIC_LEVEL(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_DIAGNOSTIC_REQUEST {
@@ -6945,6 +7989,21 @@ impl Default for STORAGE_DIAGNOSTIC_REQUEST {
 impl windows_core::TypeKind for STORAGE_DIAGNOSTIC_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_DIAGNOSTIC_TARGET_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_DISK_HEALTH_STATUS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_DISK_OPERATIONAL_STATUS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_ENCRYPTION_TYPE(pub i32);
+pub const STORAGE_EVENT_DEVICE_OPERATION: u64 = 4u64;
+pub const STORAGE_EVENT_DEVICE_STATUS: u64 = 2u64;
+pub const STORAGE_EVENT_MEDIA_STATUS: u64 = 1u64;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_EVENT_NOTIFICATION {
@@ -6960,6 +8019,7 @@ impl Default for STORAGE_EVENT_NOTIFICATION {
 impl windows_core::TypeKind for STORAGE_EVENT_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
+pub const STORAGE_EVENT_NOTIFICATION_VERSION_V1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_FAILURE_PREDICTION_CONFIG {
@@ -6977,6 +8037,7 @@ impl Default for STORAGE_FAILURE_PREDICTION_CONFIG {
 impl windows_core::TypeKind for STORAGE_FAILURE_PREDICTION_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
+pub const STORAGE_FAILURE_PREDICTION_CONFIG_V1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_FRU_ID_DESCRIPTOR {
@@ -7172,6 +8233,13 @@ impl Default for STORAGE_HW_FIRMWARE_INFO_QUERY {
 impl windows_core::TypeKind for STORAGE_HW_FIRMWARE_INFO_QUERY {
     type TypeKind = windows_core::CopyType;
 }
+pub const STORAGE_HW_FIRMWARE_INVALID_SLOT: u32 = 255u32;
+pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_CONTROLLER: u32 = 1u32;
+pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_FIRST_SEGMENT: u32 = 4u32;
+pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_LAST_SEGMENT: u32 = 2u32;
+pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_REPLACE_EXISTING_IMAGE: u32 = 1073741824u32;
+pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_SWITCH_TO_EXISTING_FIRMWARE: u32 = 2147483648u32;
+pub const STORAGE_HW_FIRMWARE_REVISION_LENGTH: u32 = 16u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_HW_FIRMWARE_SLOT_INFO {
@@ -7208,6 +8276,12 @@ impl Default for STORAGE_IDENTIFIER {
 impl windows_core::TypeKind for STORAGE_IDENTIFIER {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_IDENTIFIER_CODE_SET(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_IDENTIFIER_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_IDLE_POWER {
@@ -7239,6 +8313,10 @@ impl Default for STORAGE_IDLE_POWERUP_REASON {
 impl windows_core::TypeKind for STORAGE_IDLE_POWERUP_REASON {
     type TypeKind = windows_core::CopyType;
 }
+pub const STORAGE_IDLE_POWERUP_REASON_VERSION_V1: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_ID_NAA_FORMAT(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_LB_PROVISIONING_MAP_RESOURCES {
@@ -7274,6 +8352,9 @@ impl Default for STORAGE_MEDIA_SERIAL_NUMBER_DATA {
 impl windows_core::TypeKind for STORAGE_MEDIA_SERIAL_NUMBER_DATA {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_MEDIA_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
@@ -7338,6 +8419,7 @@ impl Default for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
 impl windows_core::TypeKind for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const STORAGE_OFFLOAD_MAX_TOKEN_LENGTH: u32 = 512u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_OFFLOAD_READ_OUTPUT {
@@ -7355,6 +8437,7 @@ impl Default for STORAGE_OFFLOAD_READ_OUTPUT {
 impl windows_core::TypeKind for STORAGE_OFFLOAD_READ_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
+pub const STORAGE_OFFLOAD_READ_RANGE_TRUNCATED: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_OFFLOAD_TOKEN {
@@ -7398,6 +8481,9 @@ impl Default for STORAGE_OFFLOAD_TOKEN_0_0 {
 impl windows_core::TypeKind for STORAGE_OFFLOAD_TOKEN_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const STORAGE_OFFLOAD_TOKEN_ID_LENGTH: u32 = 504u32;
+pub const STORAGE_OFFLOAD_TOKEN_INVALID: u32 = 2u32;
+pub const STORAGE_OFFLOAD_TOKEN_TYPE_ZERO_DATA: u32 = 4294901761u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_OFFLOAD_WRITE_OUTPUT {
@@ -7413,6 +8499,7 @@ impl Default for STORAGE_OFFLOAD_WRITE_OUTPUT {
 impl windows_core::TypeKind for STORAGE_OFFLOAD_WRITE_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
+pub const STORAGE_OFFLOAD_WRITE_RANGE_TRUNCATED: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_OPERATIONAL_REASON {
@@ -7475,6 +8562,9 @@ impl Default for STORAGE_OPERATIONAL_REASON_0_0 {
 impl windows_core::TypeKind for STORAGE_OPERATIONAL_REASON_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_OPERATIONAL_STATUS_REASON(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_PHYSICAL_ADAPTER_DATA {
@@ -7559,6 +8649,12 @@ impl Default for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
 impl windows_core::TypeKind for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_PORT_CODE_SET(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_POWERUP_REASON_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_PREDICT_FAILURE {
@@ -7586,6 +8682,10 @@ impl Default for STORAGE_PRIORITY_HINT_SUPPORT {
 impl windows_core::TypeKind for STORAGE_PRIORITY_HINT_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
+pub const STORAGE_PRIORITY_HINT_SUPPORTED: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_PROPERTY_ID(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_PROPERTY_QUERY {
@@ -7616,6 +8716,9 @@ impl Default for STORAGE_PROPERTY_SET {
 impl windows_core::TypeKind for STORAGE_PROPERTY_SET {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_PROTOCOL_ATA_DATA_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_PROTOCOL_COMMAND {
@@ -7647,6 +8750,8 @@ impl Default for STORAGE_PROTOCOL_COMMAND {
 impl windows_core::TypeKind for STORAGE_PROTOCOL_COMMAND {
     type TypeKind = windows_core::CopyType;
 }
+pub const STORAGE_PROTOCOL_COMMAND_FLAG_ADAPTER_REQUEST: u32 = 2147483648u32;
+pub const STORAGE_PROTOCOL_COMMAND_LENGTH_NVME: u32 = 64u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_PROTOCOL_DATA_DESCRIPTOR {
@@ -7704,6 +8809,9 @@ impl Default for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0 {
 impl windows_core::TypeKind for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_PROTOCOL_NVME_DATA_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_PROTOCOL_SPECIFIC_DATA {
@@ -7750,6 +8858,25 @@ impl Default for STORAGE_PROTOCOL_SPECIFIC_DATA_EXT {
 impl windows_core::TypeKind for STORAGE_PROTOCOL_SPECIFIC_DATA_EXT {
     type TypeKind = windows_core::CopyType;
 }
+pub const STORAGE_PROTOCOL_SPECIFIC_NVME_ADMIN_COMMAND: u32 = 1u32;
+pub const STORAGE_PROTOCOL_SPECIFIC_NVME_NVM_COMMAND: u32 = 2u32;
+pub const STORAGE_PROTOCOL_STATUS_BUSY: u32 = 5u32;
+pub const STORAGE_PROTOCOL_STATUS_DATA_OVERRUN: u32 = 6u32;
+pub const STORAGE_PROTOCOL_STATUS_ERROR: u32 = 2u32;
+pub const STORAGE_PROTOCOL_STATUS_INSUFFICIENT_RESOURCES: u32 = 7u32;
+pub const STORAGE_PROTOCOL_STATUS_INVALID_REQUEST: u32 = 3u32;
+pub const STORAGE_PROTOCOL_STATUS_NOT_SUPPORTED: u32 = 255u32;
+pub const STORAGE_PROTOCOL_STATUS_NO_DEVICE: u32 = 4u32;
+pub const STORAGE_PROTOCOL_STATUS_PENDING: u32 = 0u32;
+pub const STORAGE_PROTOCOL_STATUS_SUCCESS: u32 = 1u32;
+pub const STORAGE_PROTOCOL_STATUS_THROTTLED_REQUEST: u32 = 8u32;
+pub const STORAGE_PROTOCOL_STRUCTURE_VERSION: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_PROTOCOL_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_PROTOCOL_UFS_DATA_TYPE(pub i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_Vhd")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7846,6 +8973,9 @@ impl Default for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE_0 {
 impl windows_core::TypeKind for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_QUERY_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_READ_CAPACITY {
@@ -7892,6 +9022,12 @@ impl Default for STORAGE_REINITIALIZE_MEDIA_0 {
 impl windows_core::TypeKind for STORAGE_REINITIALIZE_MEDIA_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_RESERVE_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_RPMB_COMMAND_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_RPMB_DATA_FRAME {
@@ -7930,6 +9066,17 @@ impl Default for STORAGE_RPMB_DESCRIPTOR {
 impl windows_core::TypeKind for STORAGE_RPMB_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
+pub const STORAGE_RPMB_DESCRIPTOR_VERSION_1: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_RPMB_FRAME_TYPE(pub i32);
+pub const STORAGE_RPMB_MINIMUM_RELIABLE_WRITE_SIZE: u32 = 512u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_SANITIZE_METHOD(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_SET_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union STORAGE_SPEC_VERSION {
@@ -7986,6 +9133,8 @@ impl Default for STORAGE_SPEC_VERSION_0_0_0 {
 impl windows_core::TypeKind for STORAGE_SPEC_VERSION_0_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const STORAGE_SUPPORTED_FEATURES_BYPASS_IO: u32 = 1u32;
+pub const STORAGE_SUPPORTED_FEATURES_MASK: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
@@ -8046,6 +9195,8 @@ impl Default for STORAGE_TEMPERATURE_THRESHOLD {
 impl windows_core::TypeKind for STORAGE_TEMPERATURE_THRESHOLD {
     type TypeKind = windows_core::CopyType;
 }
+pub const STORAGE_TEMPERATURE_THRESHOLD_FLAG_ADAPTER_REQUEST: u32 = 1u32;
+pub const STORAGE_TEMPERATURE_VALUE_NOT_REPORTED: u32 = 32768u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_TIER {
@@ -8065,6 +9216,19 @@ impl Default for STORAGE_TIER {
 impl windows_core::TypeKind for STORAGE_TIER {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_TIER_CLASS(pub i32);
+pub const STORAGE_TIER_DESCRIPTION_LENGTH: u32 = 512u32;
+pub const STORAGE_TIER_FLAG_NO_SEEK_PENALTY: u32 = 131072u32;
+pub const STORAGE_TIER_FLAG_PARITY: u32 = 8388608u32;
+pub const STORAGE_TIER_FLAG_READ_CACHE: u32 = 4194304u32;
+pub const STORAGE_TIER_FLAG_SMR: u32 = 16777216u32;
+pub const STORAGE_TIER_FLAG_WRITE_BACK_CACHE: u32 = 2097152u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_TIER_MEDIA_TYPE(pub i32);
+pub const STORAGE_TIER_NAME_LENGTH: u32 = 256u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_TIER_REGION {
@@ -8163,6 +9327,15 @@ impl Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
 impl windows_core::TypeKind for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_ZONED_DEVICE_TYPES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_ZONES_ATTRIBUTES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_ZONE_CONDITION(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STORAGE_ZONE_DESCRIPTOR {
@@ -8197,6 +9370,12 @@ impl Default for STORAGE_ZONE_GROUP {
 impl windows_core::TypeKind for STORAGE_ZONE_GROUP {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_ZONE_TYPES(pub i32);
+pub const STORATTRIBUTE_MANAGEMENT_STATE: u32 = 1u32;
+pub const STORATTRIBUTE_NONE: u32 = 0u32;
+pub const STREAMS_ASSOCIATE_ID_CLEAR: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STREAMS_ASSOCIATE_ID_INPUT_BUFFER {
@@ -8211,6 +9390,9 @@ impl Default for STREAMS_ASSOCIATE_ID_INPUT_BUFFER {
 impl windows_core::TypeKind for STREAMS_ASSOCIATE_ID_INPUT_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
+pub const STREAMS_ASSOCIATE_ID_SET: u32 = 2u32;
+pub const STREAMS_INVALID_ID: u32 = 0u32;
+pub const STREAMS_MAX_ID: u32 = 65535u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STREAMS_QUERY_ID_OUTPUT_BUFFER {
@@ -8240,6 +9422,7 @@ impl Default for STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER {
 impl windows_core::TypeKind for STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
+pub const STREAM_CLEAR_ENCRYPTION: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STREAM_EXTENT_ENTRY {
@@ -8267,6 +9450,8 @@ impl Default for STREAM_EXTENT_ENTRY_0 {
 impl windows_core::TypeKind for STREAM_EXTENT_ENTRY_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const STREAM_EXTENT_ENTRY_ALL_EXTENTS: u32 = 2u32;
+pub const STREAM_EXTENT_ENTRY_AS_RETRIEVAL_POINTERS: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STREAM_INFORMATION_ENTRY {
@@ -8383,2093 +9568,6 @@ impl Default for STREAM_LAYOUT_ENTRY {
 impl windows_core::TypeKind for STREAM_LAYOUT_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TAPE_GET_STATISTICS {
-    pub Operation: u32,
-}
-impl Default for TAPE_GET_STATISTICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TAPE_GET_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TAPE_STATISTICS {
-    pub Version: u32,
-    pub Flags: u32,
-    pub RecoveredWrites: i64,
-    pub UnrecoveredWrites: i64,
-    pub RecoveredReads: i64,
-    pub UnrecoveredReads: i64,
-    pub CompressionRatioReads: u8,
-    pub CompressionRatioWrites: u8,
-}
-impl Default for TAPE_STATISTICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TAPE_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TXFS_CREATE_MINIVERSION_INFO {
-    pub StructureVersion: u16,
-    pub StructureLength: u16,
-    pub BaseVersion: u32,
-    pub MiniVersion: u16,
-}
-impl Default for TXFS_CREATE_MINIVERSION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TXFS_CREATE_MINIVERSION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TXFS_GET_METADATA_INFO_OUT {
-    pub TxfFileId: TXFS_GET_METADATA_INFO_OUT_0,
-    pub LockingTransaction: windows_core::GUID,
-    pub LastLsn: u64,
-    pub TransactionState: u32,
-}
-impl Default for TXFS_GET_METADATA_INFO_OUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TXFS_GET_METADATA_INFO_OUT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TXFS_GET_METADATA_INFO_OUT_0 {
-    pub LowPart: i64,
-    pub HighPart: i64,
-}
-impl Default for TXFS_GET_METADATA_INFO_OUT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TXFS_GET_METADATA_INFO_OUT_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TXFS_GET_TRANSACTED_VERSION {
-    pub ThisBaseVersion: u32,
-    pub LatestVersion: u32,
-    pub ThisMiniVersion: u16,
-    pub FirstMiniVersion: u16,
-    pub LatestMiniVersion: u16,
-}
-impl Default for TXFS_GET_TRANSACTED_VERSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TXFS_GET_TRANSACTED_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TXFS_LIST_TRANSACTIONS {
-    pub NumberOfTransactions: u64,
-    pub BufferSizeRequired: u64,
-}
-impl Default for TXFS_LIST_TRANSACTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TXFS_LIST_TRANSACTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TXFS_LIST_TRANSACTIONS_ENTRY {
-    pub TransactionId: windows_core::GUID,
-    pub TransactionState: u32,
-    pub Reserved1: u32,
-    pub Reserved2: u32,
-    pub Reserved3: i64,
-}
-impl Default for TXFS_LIST_TRANSACTIONS_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TXFS_LIST_TRANSACTIONS_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TXFS_LIST_TRANSACTION_LOCKED_FILES {
-    pub KtmTransaction: windows_core::GUID,
-    pub NumberOfFiles: u64,
-    pub BufferSizeRequired: u64,
-    pub Offset: u64,
-}
-impl Default for TXFS_LIST_TRANSACTION_LOCKED_FILES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TXFS_LIST_TRANSACTION_LOCKED_FILES {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
-    pub Offset: u64,
-    pub NameFlags: u32,
-    pub FileId: i64,
-    pub Reserved1: u32,
-    pub Reserved2: u32,
-    pub Reserved3: i64,
-    pub FileName: [u16; 1],
-}
-impl Default for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TXFS_MODIFY_RM {
-    pub Flags: TXFS_RMF_LAGS,
-    pub LogContainerCountMax: u32,
-    pub LogContainerCountMin: u32,
-    pub LogContainerCount: u32,
-    pub LogGrowthIncrement: u32,
-    pub LogAutoShrinkPercentage: u32,
-    pub Reserved: u64,
-    pub LoggingMode: u16,
-}
-impl Default for TXFS_MODIFY_RM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TXFS_MODIFY_RM {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TXFS_QUERY_RM_INFORMATION {
-    pub BytesRequired: u32,
-    pub TailLsn: u64,
-    pub CurrentLsn: u64,
-    pub ArchiveTailLsn: u64,
-    pub LogContainerSize: u64,
-    pub HighestVirtualClock: i64,
-    pub LogContainerCount: u32,
-    pub LogContainerCountMax: u32,
-    pub LogContainerCountMin: u32,
-    pub LogGrowthIncrement: u32,
-    pub LogAutoShrinkPercentage: u32,
-    pub Flags: TXFS_RMF_LAGS,
-    pub LoggingMode: u16,
-    pub Reserved: u16,
-    pub RmState: u32,
-    pub LogCapacity: u64,
-    pub LogFree: u64,
-    pub TopsSize: u64,
-    pub TopsUsed: u64,
-    pub TransactionCount: u64,
-    pub OnePCCount: u64,
-    pub TwoPCCount: u64,
-    pub NumberLogFileFull: u64,
-    pub OldestTransactionAge: u64,
-    pub RMName: windows_core::GUID,
-    pub TmLogPathOffset: u32,
-}
-impl Default for TXFS_QUERY_RM_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TXFS_QUERY_RM_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TXFS_READ_BACKUP_INFORMATION_OUT {
-    pub Anonymous: TXFS_READ_BACKUP_INFORMATION_OUT_0,
-}
-impl Default for TXFS_READ_BACKUP_INFORMATION_OUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TXFS_READ_BACKUP_INFORMATION_OUT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union TXFS_READ_BACKUP_INFORMATION_OUT_0 {
-    pub BufferLength: u32,
-    pub Buffer: [u8; 1],
-}
-impl Default for TXFS_READ_BACKUP_INFORMATION_OUT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TXFS_READ_BACKUP_INFORMATION_OUT_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TXFS_ROLLFORWARD_REDO_INFORMATION {
-    pub LastVirtualClock: i64,
-    pub LastRedoLsn: u64,
-    pub HighestRecoveryLsn: u64,
-    pub Flags: u32,
-}
-impl Default for TXFS_ROLLFORWARD_REDO_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TXFS_ROLLFORWARD_REDO_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TXFS_SAVEPOINT_INFORMATION {
-    pub KtmTransaction: super::super::Foundation::HANDLE,
-    pub ActionCode: u32,
-    pub SavepointId: u32,
-}
-impl Default for TXFS_SAVEPOINT_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TXFS_SAVEPOINT_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TXFS_START_RM_INFORMATION {
-    pub Flags: u32,
-    pub LogContainerSize: u64,
-    pub LogContainerCountMin: u32,
-    pub LogContainerCountMax: u32,
-    pub LogGrowthIncrement: u32,
-    pub LogAutoShrinkPercentage: u32,
-    pub TmLogPathOffset: u32,
-    pub TmLogPathLength: u16,
-    pub LoggingMode: u16,
-    pub LogPathLength: u16,
-    pub Reserved: u16,
-    pub LogPath: [u16; 1],
-}
-impl Default for TXFS_START_RM_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TXFS_START_RM_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TXFS_TRANSACTION_ACTIVE_INFO {
-    pub TransactionsActiveAtSnapshot: super::super::Foundation::BOOLEAN,
-}
-impl Default for TXFS_TRANSACTION_ACTIVE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TXFS_TRANSACTION_ACTIVE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TXFS_WRITE_BACKUP_INFORMATION {
-    pub Buffer: [u8; 1],
-}
-impl Default for TXFS_WRITE_BACKUP_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TXFS_WRITE_BACKUP_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct USN_JOURNAL_DATA_V0 {
-    pub UsnJournalID: u64,
-    pub FirstUsn: i64,
-    pub NextUsn: i64,
-    pub LowestValidUsn: i64,
-    pub MaxUsn: i64,
-    pub MaximumSize: u64,
-    pub AllocationDelta: u64,
-}
-impl Default for USN_JOURNAL_DATA_V0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for USN_JOURNAL_DATA_V0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct USN_JOURNAL_DATA_V1 {
-    pub UsnJournalID: u64,
-    pub FirstUsn: i64,
-    pub NextUsn: i64,
-    pub LowestValidUsn: i64,
-    pub MaxUsn: i64,
-    pub MaximumSize: u64,
-    pub AllocationDelta: u64,
-    pub MinSupportedMajorVersion: u16,
-    pub MaxSupportedMajorVersion: u16,
-}
-impl Default for USN_JOURNAL_DATA_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for USN_JOURNAL_DATA_V1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct USN_JOURNAL_DATA_V2 {
-    pub UsnJournalID: u64,
-    pub FirstUsn: i64,
-    pub NextUsn: i64,
-    pub LowestValidUsn: i64,
-    pub MaxUsn: i64,
-    pub MaximumSize: u64,
-    pub AllocationDelta: u64,
-    pub MinSupportedMajorVersion: u16,
-    pub MaxSupportedMajorVersion: u16,
-    pub Flags: u32,
-    pub RangeTrackChunkSize: u64,
-    pub RangeTrackFileSizeThreshold: i64,
-}
-impl Default for USN_JOURNAL_DATA_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for USN_JOURNAL_DATA_V2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct USN_RANGE_TRACK_OUTPUT {
-    pub Usn: i64,
-}
-impl Default for USN_RANGE_TRACK_OUTPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for USN_RANGE_TRACK_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct USN_RECORD_COMMON_HEADER {
-    pub RecordLength: u32,
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-}
-impl Default for USN_RECORD_COMMON_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for USN_RECORD_COMMON_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct USN_RECORD_EXTENT {
-    pub Offset: i64,
-    pub Length: i64,
-}
-impl Default for USN_RECORD_EXTENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for USN_RECORD_EXTENT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy)]
-pub union USN_RECORD_UNION {
-    pub Header: USN_RECORD_COMMON_HEADER,
-    pub V2: USN_RECORD_V2,
-    pub V3: USN_RECORD_V3,
-    pub V4: USN_RECORD_V4,
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Default for USN_RECORD_UNION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for USN_RECORD_UNION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct USN_RECORD_V2 {
-    pub RecordLength: u32,
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-    pub FileReferenceNumber: u64,
-    pub ParentFileReferenceNumber: u64,
-    pub Usn: i64,
-    pub TimeStamp: i64,
-    pub Reason: u32,
-    pub SourceInfo: u32,
-    pub SecurityId: u32,
-    pub FileAttributes: u32,
-    pub FileNameLength: u16,
-    pub FileNameOffset: u16,
-    pub FileName: [u16; 1],
-}
-impl Default for USN_RECORD_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for USN_RECORD_V2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct USN_RECORD_V3 {
-    pub RecordLength: u32,
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-    pub FileReferenceNumber: super::super::Storage::FileSystem::FILE_ID_128,
-    pub ParentFileReferenceNumber: super::super::Storage::FileSystem::FILE_ID_128,
-    pub Usn: i64,
-    pub TimeStamp: i64,
-    pub Reason: u32,
-    pub SourceInfo: u32,
-    pub SecurityId: u32,
-    pub FileAttributes: u32,
-    pub FileNameLength: u16,
-    pub FileNameOffset: u16,
-    pub FileName: [u16; 1],
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Default for USN_RECORD_V3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for USN_RECORD_V3 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct USN_RECORD_V4 {
-    pub Header: USN_RECORD_COMMON_HEADER,
-    pub FileReferenceNumber: super::super::Storage::FileSystem::FILE_ID_128,
-    pub ParentFileReferenceNumber: super::super::Storage::FileSystem::FILE_ID_128,
-    pub Usn: i64,
-    pub Reason: u32,
-    pub SourceInfo: USN_SOURCE_INFO_ID,
-    pub RemainingExtents: u32,
-    pub NumberOfExtents: u16,
-    pub ExtentSize: u16,
-    pub Extents: [USN_RECORD_EXTENT; 1],
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Default for USN_RECORD_V4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for USN_RECORD_V4 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct USN_TRACK_MODIFIED_RANGES {
-    pub Flags: u32,
-    pub Unused: u32,
-    pub ChunkSize: u64,
-    pub FileSizeThreshold: i64,
-}
-impl Default for USN_TRACK_MODIFIED_RANGES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for USN_TRACK_MODIFIED_RANGES {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VERIFY_INFORMATION {
-    pub StartingOffset: i64,
-    pub Length: u32,
-}
-impl Default for VERIFY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VERIFY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VIRTUALIZATION_INSTANCE_INFO_INPUT {
-    pub NumberOfWorkerThreads: u32,
-    pub Flags: u32,
-}
-impl Default for VIRTUALIZATION_INSTANCE_INFO_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VIRTUALIZATION_INSTANCE_INFO_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VIRTUALIZATION_INSTANCE_INFO_INPUT_EX {
-    pub HeaderSize: u16,
-    pub Flags: u32,
-    pub NotificationInfoSize: u32,
-    pub NotificationInfoOffset: u16,
-    pub ProviderMajorVersion: u16,
-}
-impl Default for VIRTUALIZATION_INSTANCE_INFO_INPUT_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VIRTUALIZATION_INSTANCE_INFO_INPUT_EX {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VIRTUALIZATION_INSTANCE_INFO_OUTPUT {
-    pub VirtualizationInstanceID: windows_core::GUID,
-}
-impl Default for VIRTUALIZATION_INSTANCE_INFO_OUTPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VIRTUALIZATION_INSTANCE_INFO_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT {
-    pub Size: u32,
-    pub BehaviorCode: VIRTUAL_STORAGE_BEHAVIOR_CODE,
-}
-impl Default for VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VOLUME_BITMAP_BUFFER {
-    pub StartingLcn: i64,
-    pub BitmapSize: i64,
-    pub Buffer: [u8; 1],
-}
-impl Default for VOLUME_BITMAP_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VOLUME_BITMAP_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VOLUME_DISK_EXTENTS {
-    pub NumberOfDiskExtents: u32,
-    pub Extents: [DISK_EXTENT; 1],
-}
-impl Default for VOLUME_DISK_EXTENTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VOLUME_DISK_EXTENTS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
-    pub GptAttributes: u64,
-}
-impl Default for VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WIM_PROVIDER_ADD_OVERLAY_INPUT {
-    pub WimType: u32,
-    pub WimIndex: u32,
-    pub WimFileNameOffset: u32,
-    pub WimFileNameLength: u32,
-}
-impl Default for WIM_PROVIDER_ADD_OVERLAY_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WIM_PROVIDER_ADD_OVERLAY_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WIM_PROVIDER_EXTERNAL_INFO {
-    pub Version: u32,
-    pub Flags: u32,
-    pub DataSourceId: i64,
-    pub ResourceHash: [u8; 20],
-}
-impl Default for WIM_PROVIDER_EXTERNAL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WIM_PROVIDER_EXTERNAL_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WIM_PROVIDER_OVERLAY_ENTRY {
-    pub NextEntryOffset: u32,
-    pub DataSourceId: i64,
-    pub WimGuid: windows_core::GUID,
-    pub WimFileNameOffset: u32,
-    pub WimType: u32,
-    pub WimIndex: u32,
-    pub Flags: u32,
-}
-impl Default for WIM_PROVIDER_OVERLAY_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WIM_PROVIDER_OVERLAY_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WIM_PROVIDER_REMOVE_OVERLAY_INPUT {
-    pub DataSourceId: i64,
-}
-impl Default for WIM_PROVIDER_REMOVE_OVERLAY_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WIM_PROVIDER_REMOVE_OVERLAY_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {
-    pub DataSourceId: i64,
-}
-impl Default for WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
-    pub DataSourceId: i64,
-    pub WimFileNameOffset: u32,
-    pub WimFileNameLength: u32,
-}
-impl Default for WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WOF_EXTERNAL_FILE_ID {
-    pub FileId: super::super::Storage::FileSystem::FILE_ID_128,
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Default for WOF_EXTERNAL_FILE_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for WOF_EXTERNAL_FILE_ID {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WOF_EXTERNAL_INFO {
-    pub Version: u32,
-    pub Provider: u32,
-}
-impl Default for WOF_EXTERNAL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WOF_EXTERNAL_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WOF_VERSION_INFO {
-    pub WofVersion: u32,
-}
-impl Default for WOF_VERSION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WOF_VERSION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WRITE_USN_REASON_INPUT {
-    pub Flags: u32,
-    pub UsnReasonToWrite: u32,
-}
-impl Default for WRITE_USN_REASON_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WRITE_USN_REASON_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
-pub const ABL_5_WO: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(64i32);
-pub const ADR_1: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(90i32);
-pub const ADR_2: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(91i32);
-pub const AIT1_8mm: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(38i32);
-pub const AIT_8mm: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(89i32);
-pub const AME_8mm: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(37i32);
-pub const ASSERT_ALTERNATE: u32 = 9u32;
-pub const ASSERT_PRIMARY: u32 = 8u32;
-pub const ATAPI_ID_CMD: u32 = 161u32;
-pub const AVATAR_F2: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(78i32);
-pub const AllElements: ELEMENT_TYPE = ELEMENT_TYPE(0i32);
-pub const AtaDataTypeIdentify: STORAGE_PROTOCOL_ATA_DATA_TYPE = STORAGE_PROTOCOL_ATA_DATA_TYPE(1i32);
-pub const AtaDataTypeLogPage: STORAGE_PROTOCOL_ATA_DATA_TYPE = STORAGE_PROTOCOL_ATA_DATA_TYPE(2i32);
-pub const AtaDataTypeUnknown: STORAGE_PROTOCOL_ATA_DATA_TYPE = STORAGE_PROTOCOL_ATA_DATA_TYPE(0i32);
-pub const CAP_ATAPI_ID_CMD: u32 = 2u32;
-pub const CAP_ATA_ID_CMD: u32 = 1u32;
-pub const CAP_SMART_CMD: u32 = 4u32;
-pub const CDB_SIZE: u32 = 16u32;
-pub const CD_R: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(52i32);
-pub const CD_ROM: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(51i32);
-pub const CD_RW: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(53i32);
-pub const CHANGER_BAR_CODE_SCANNER_INSTALLED: CHANGER_FEATURES = CHANGER_FEATURES(1u32);
-pub const CHANGER_CARTRIDGE_MAGAZINE: CHANGER_FEATURES = CHANGER_FEATURES(256u32);
-pub const CHANGER_CLEANER_ACCESS_NOT_VALID: CHANGER_FEATURES = CHANGER_FEATURES(262144u32);
-pub const CHANGER_CLEANER_AUTODISMOUNT: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483652u32);
-pub const CHANGER_CLEANER_OPS_NOT_SUPPORTED: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483712u32);
-pub const CHANGER_CLEANER_SLOT: CHANGER_FEATURES = CHANGER_FEATURES(64u32);
-pub const CHANGER_CLOSE_IEPORT: CHANGER_FEATURES = CHANGER_FEATURES(4u32);
-pub const CHANGER_DEVICE_REINITIALIZE_CAPABLE: CHANGER_FEATURES = CHANGER_FEATURES(134217728u32);
-pub const CHANGER_DRIVE_CLEANING_REQUIRED: CHANGER_FEATURES = CHANGER_FEATURES(65536u32);
-pub const CHANGER_DRIVE_EMPTY_ON_DOOR_ACCESS: CHANGER_FEATURES = CHANGER_FEATURES(536870912u32);
-pub const CHANGER_EXCHANGE_MEDIA: CHANGER_FEATURES = CHANGER_FEATURES(32u32);
-pub const CHANGER_IEPORT_USER_CONTROL_CLOSE: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483904u32);
-pub const CHANGER_IEPORT_USER_CONTROL_OPEN: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483776u32);
-pub const CHANGER_INIT_ELEM_STAT_WITH_RANGE: CHANGER_FEATURES = CHANGER_FEATURES(2u32);
-pub const CHANGER_KEYPAD_ENABLE_DISABLE: CHANGER_FEATURES = CHANGER_FEATURES(268435456u32);
-pub const CHANGER_LOCK_UNLOCK: CHANGER_FEATURES = CHANGER_FEATURES(128u32);
-pub const CHANGER_MEDIUM_FLIP: CHANGER_FEATURES = CHANGER_FEATURES(512u32);
-pub const CHANGER_MOVE_EXTENDS_IEPORT: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147484160u32);
-pub const CHANGER_MOVE_RETRACTS_IEPORT: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147484672u32);
-pub const CHANGER_OPEN_IEPORT: CHANGER_FEATURES = CHANGER_FEATURES(8u32);
-pub const CHANGER_POSITION_TO_ELEMENT: CHANGER_FEATURES = CHANGER_FEATURES(1024u32);
-pub const CHANGER_PREDISMOUNT_ALIGN_TO_DRIVE: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483650u32);
-pub const CHANGER_PREDISMOUNT_ALIGN_TO_SLOT: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483649u32);
-pub const CHANGER_PREDISMOUNT_EJECT_REQUIRED: CHANGER_FEATURES = CHANGER_FEATURES(131072u32);
-pub const CHANGER_PREMOUNT_EJECT_REQUIRED: CHANGER_FEATURES = CHANGER_FEATURES(524288u32);
-pub const CHANGER_REPORT_IEPORT_STATE: CHANGER_FEATURES = CHANGER_FEATURES(2048u32);
-pub const CHANGER_RESERVED_BIT: u32 = 2147483648u32;
-pub const CHANGER_RTN_MEDIA_TO_ORIGINAL_ADDR: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483680u32);
-pub const CHANGER_SERIAL_NUMBER_VALID: CHANGER_FEATURES = CHANGER_FEATURES(67108864u32);
-pub const CHANGER_SLOTS_USE_TRAYS: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483664u32);
-pub const CHANGER_STATUS_NON_VOLATILE: CHANGER_FEATURES = CHANGER_FEATURES(16u32);
-pub const CHANGER_STORAGE_DRIVE: CHANGER_FEATURES = CHANGER_FEATURES(4096u32);
-pub const CHANGER_STORAGE_IEPORT: CHANGER_FEATURES = CHANGER_FEATURES(8192u32);
-pub const CHANGER_STORAGE_SLOT: CHANGER_FEATURES = CHANGER_FEATURES(16384u32);
-pub const CHANGER_STORAGE_TRANSPORT: CHANGER_FEATURES = CHANGER_FEATURES(32768u32);
-pub const CHANGER_TO_DRIVE: u32 = 8u32;
-pub const CHANGER_TO_IEPORT: u32 = 4u32;
-pub const CHANGER_TO_SLOT: u32 = 2u32;
-pub const CHANGER_TO_TRANSPORT: u32 = 1u32;
-pub const CHANGER_TRUE_EXCHANGE_CAPABLE: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483656u32);
-pub const CHANGER_VOLUME_ASSERT: CHANGER_FEATURES = CHANGER_FEATURES(4194304u32);
-pub const CHANGER_VOLUME_IDENTIFICATION: CHANGER_FEATURES = CHANGER_FEATURES(1048576u32);
-pub const CHANGER_VOLUME_REPLACE: CHANGER_FEATURES = CHANGER_FEATURES(8388608u32);
-pub const CHANGER_VOLUME_SEARCH: CHANGER_FEATURES = CHANGER_FEATURES(2097152u32);
-pub const CHANGER_VOLUME_UNDEFINE: CHANGER_FEATURES = CHANGER_FEATURES(16777216u32);
-pub const CHECKSUM_TYPE_CRC32: u32 = 1u32;
-pub const CHECKSUM_TYPE_CRC64: u32 = 2u32;
-pub const CHECKSUM_TYPE_ECC: u32 = 3u32;
-pub const CHECKSUM_TYPE_FIRST_UNUSED_TYPE: u32 = 5u32;
-pub const CHECKSUM_TYPE_NONE: u32 = 0u32;
-pub const CHECKSUM_TYPE_SHA256: u32 = 4u32;
-pub const CLEANER_CARTRIDGE: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(50i32);
-pub const CONTAINER_ROOT_INFO_FLAG_BIND_DO_NOT_MAP_NAME: u32 = 256u32;
-pub const CONTAINER_ROOT_INFO_FLAG_BIND_EXCEPTION_ROOT: u32 = 128u32;
-pub const CONTAINER_ROOT_INFO_FLAG_BIND_ROOT: u32 = 32u32;
-pub const CONTAINER_ROOT_INFO_FLAG_BIND_TARGET_ROOT: u32 = 64u32;
-pub const CONTAINER_ROOT_INFO_FLAG_LAYER_ROOT: u32 = 2u32;
-pub const CONTAINER_ROOT_INFO_FLAG_SCRATCH_ROOT: u32 = 1u32;
-pub const CONTAINER_ROOT_INFO_FLAG_UNION_LAYER_ROOT: u32 = 512u32;
-pub const CONTAINER_ROOT_INFO_FLAG_VIRTUALIZATION_EXCEPTION_ROOT: u32 = 16u32;
-pub const CONTAINER_ROOT_INFO_FLAG_VIRTUALIZATION_ROOT: u32 = 4u32;
-pub const CONTAINER_ROOT_INFO_FLAG_VIRTUALIZATION_TARGET_ROOT: u32 = 8u32;
-pub const CONTAINER_ROOT_INFO_VALID_FLAGS: u32 = 1023u32;
-pub const CONTAINER_VOLUME_STATE_HOSTING_CONTAINER: u32 = 1u32;
-pub const COPYFILE_SIS_FLAGS: u32 = 3u32;
-pub const COPYFILE_SIS_LINK: u32 = 1u32;
-pub const COPYFILE_SIS_REPLACE: u32 = 2u32;
-pub const CSV_INVALID_DEVICE_NUMBER: u32 = 4294967295u32;
-pub const CSV_MGMTLOCK_CHECK_VOLUME_REDIRECTED: u32 = 1u32;
-pub const CSV_QUERY_MDS_PATH_FLAG_CSV_DIRECT_IO_ENABLED: u32 = 2u32;
-pub const CSV_QUERY_MDS_PATH_FLAG_SMB_BYPASS_CSV_ENABLED: u32 = 4u32;
-pub const CSV_QUERY_MDS_PATH_FLAG_STORAGE_ON_THIS_NODE_IS_CONNECTED: u32 = 1u32;
-pub const CSV_QUERY_MDS_PATH_V2_VERSION_1: u32 = 1u32;
-pub const CYGNET_12_WO: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(69i32);
-pub const ChangerDoor: ELEMENT_TYPE = ELEMENT_TYPE(5i32);
-pub const ChangerDrive: ELEMENT_TYPE = ELEMENT_TYPE(4i32);
-pub const ChangerIEPort: ELEMENT_TYPE = ELEMENT_TYPE(3i32);
-pub const ChangerKeypad: ELEMENT_TYPE = ELEMENT_TYPE(6i32);
-pub const ChangerMaxElement: ELEMENT_TYPE = ELEMENT_TYPE(7i32);
-pub const ChangerSlot: ELEMENT_TYPE = ELEMENT_TYPE(2i32);
-pub const ChangerTransport: ELEMENT_TYPE = ELEMENT_TYPE(1i32);
-pub const CsvControlDisableCaching: CSV_CONTROL_OP = CSV_CONTROL_OP(19i32);
-pub const CsvControlEnableCaching: CSV_CONTROL_OP = CSV_CONTROL_OP(20i32);
-pub const CsvControlEnableUSNRangeModificationTracking: CSV_CONTROL_OP = CSV_CONTROL_OP(13i32);
-pub const CsvControlGetCsvFsMdsPathV2: CSV_CONTROL_OP = CSV_CONTROL_OP(18i32);
-pub const CsvControlMarkHandleLocalVolumeMount: CSV_CONTROL_OP = CSV_CONTROL_OP(14i32);
-pub const CsvControlQueryFileRevision: CSV_CONTROL_OP = CSV_CONTROL_OP(6i32);
-pub const CsvControlQueryFileRevisionFileId128: CSV_CONTROL_OP = CSV_CONTROL_OP(9i32);
-pub const CsvControlQueryMdsPath: CSV_CONTROL_OP = CSV_CONTROL_OP(8i32);
-pub const CsvControlQueryMdsPathNoPause: CSV_CONTROL_OP = CSV_CONTROL_OP(23i32);
-pub const CsvControlQueryRedirectState: CSV_CONTROL_OP = CSV_CONTROL_OP(4i32);
-pub const CsvControlQueryVolumeId: CSV_CONTROL_OP = CSV_CONTROL_OP(25i32);
-pub const CsvControlQueryVolumeRedirectState: CSV_CONTROL_OP = CSV_CONTROL_OP(10i32);
-pub const CsvControlSetVolumeId: CSV_CONTROL_OP = CSV_CONTROL_OP(24i32);
-pub const CsvControlStartForceDFO: CSV_CONTROL_OP = CSV_CONTROL_OP(21i32);
-pub const CsvControlStartRedirectFile: CSV_CONTROL_OP = CSV_CONTROL_OP(2i32);
-pub const CsvControlStopForceDFO: CSV_CONTROL_OP = CSV_CONTROL_OP(22i32);
-pub const CsvControlStopRedirectFile: CSV_CONTROL_OP = CSV_CONTROL_OP(3i32);
-pub const CsvControlUnmarkHandleLocalVolumeMount: CSV_CONTROL_OP = CSV_CONTROL_OP(15i32);
-pub const CsvFsDiskConnectivityAllNodes: CSVFS_DISK_CONNECTIVITY = CSVFS_DISK_CONNECTIVITY(3i32);
-pub const CsvFsDiskConnectivityMdsNodeOnly: CSVFS_DISK_CONNECTIVITY = CSVFS_DISK_CONNECTIVITY(1i32);
-pub const CsvFsDiskConnectivityNone: CSVFS_DISK_CONNECTIVITY = CSVFS_DISK_CONNECTIVITY(0i32);
-pub const CsvFsDiskConnectivitySubsetOfNodes: CSVFS_DISK_CONNECTIVITY = CSVFS_DISK_CONNECTIVITY(2i32);
-pub const DAX_ALLOC_ALIGNMENT_FLAG_FALLBACK_SPECIFIED: u32 = 2u32;
-pub const DAX_ALLOC_ALIGNMENT_FLAG_MANDATORY: u32 = 1u32;
-pub const DDS_4mm: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(32i32);
-pub const DDUMP_FLAG_DATA_READ_FROM_DEVICE: u32 = 1u32;
-pub const DEVICEDUMP_CAP_PRIVATE_SECTION: u32 = 1u32;
-pub const DEVICEDUMP_CAP_RESTRICTED_SECTION: u32 = 2u32;
-pub const DEVICEDUMP_MAX_IDSTRING: u32 = 32u32;
-pub const DEVICEDUMP_STRUCTURE_VERSION_V1: u32 = 1u32;
-pub const DEVICE_DATA_SET_LBP_STATE_PARAMETERS_VERSION_V1: u32 = 1u32;
-pub const DEVICE_DSM_FLAG_ALLOCATION_CONSOLIDATEABLE_ONLY: u32 = 1073741824u32;
-pub const DEVICE_DSM_FLAG_ENTIRE_DATA_SET_RANGE: u32 = 1u32;
-pub const DEVICE_DSM_FLAG_PHYSICAL_ADDRESSES_OMIT_TOTAL_RANGES: u32 = 268435456u32;
-pub const DEVICE_DSM_FLAG_REPAIR_INPUT_TOPOLOGY_ID_PRESENT: u32 = 1073741824u32;
-pub const DEVICE_DSM_FLAG_REPAIR_OUTPUT_PARITY_EXTENT: u32 = 536870912u32;
-pub const DEVICE_DSM_FLAG_SCRUB_OUTPUT_PARITY_EXTENT: u32 = 536870912u32;
-pub const DEVICE_DSM_FLAG_SCRUB_SKIP_IN_SYNC: u32 = 268435456u32;
-pub const DEVICE_DSM_FLAG_TRIM_BYPASS_RZAT: u32 = 1073741824u32;
-pub const DEVICE_DSM_FLAG_TRIM_NOT_FS_ALLOCATED: u32 = 2147483648u32;
-pub const DEVICE_DSM_NOTIFY_FLAG_BEGIN: u32 = 1u32;
-pub const DEVICE_DSM_NOTIFY_FLAG_END: u32 = 2u32;
-pub const DEVICE_DSM_PARAMETERS_V1: u32 = 1u32;
-pub const DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT_V1: u32 = 1u32;
-pub const DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT_VERSION_V1: u32 = 1u32;
-pub const DEVICE_DSM_RANGE_ERROR_INFO_VERSION_V1: u32 = 1u32;
-pub const DEVICE_DSM_RANGE_ERROR_OUTPUT_V1: u32 = 1u32;
-pub const DEVICE_STORAGE_NO_ERRORS: u32 = 1u32;
-pub const DEVPKEY_Storage_Disk_Number: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 5 };
-pub const DEVPKEY_Storage_Gpt_Name: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 9 };
-pub const DEVPKEY_Storage_Gpt_Type: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 8 };
-pub const DEVPKEY_Storage_Mbr_Type: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 7 };
-pub const DEVPKEY_Storage_Partition_Number: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 6 };
-pub const DEVPKEY_Storage_Portable: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 2 };
-pub const DEVPKEY_Storage_Removable_Media: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 3 };
-pub const DEVPKEY_Storage_System_Critical: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 4 };
-pub const DISABLE_SMART: u32 = 217u32;
-pub const DISK_ATTRIBUTE_OFFLINE: u64 = 1u64;
-pub const DISK_ATTRIBUTE_READ_ONLY: u64 = 2u64;
-pub const DISK_BINNING: u32 = 3u32;
-pub const DISK_LOGGING_DUMP: u32 = 2u32;
-pub const DISK_LOGGING_START: u32 = 0u32;
-pub const DISK_LOGGING_STOP: u32 = 1u32;
-pub const DLT: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(39i32);
-pub const DMI: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(48i32);
-pub const DST_L: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(82i32);
-pub const DST_M: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(81i32);
-pub const DST_S: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(80i32);
-pub const DUPLICATE_EXTENTS_DATA_EX_ASYNC: u32 = 2u32;
-pub const DUPLICATE_EXTENTS_DATA_EX_SOURCE_ATOMIC: u32 = 1u32;
-pub const DVD_R: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(55i32);
-pub const DVD_RAM: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(88i32);
-pub const DVD_ROM: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(54i32);
-pub const DVD_RW: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(56i32);
-pub const DV_6mm: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(47i32);
-pub const DetectExInt13: DETECTION_TYPE = DETECTION_TYPE(2i32);
-pub const DetectInt13: DETECTION_TYPE = DETECTION_TYPE(1i32);
-pub const DetectNone: DETECTION_TYPE = DETECTION_TYPE(0i32);
-pub const DeviceCurrentInternalStatusData: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(2i32);
-pub const DeviceCurrentInternalStatusDataHeader: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(1i32);
-pub const DeviceDsmActionFlag_NonDestructive: u32 = 2147483648u32;
-pub const DeviceInternalStatusDataRequestTypeUndefined: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(0i32);
-pub const DeviceProblemCHMError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(2i32);
-pub const DeviceProblemCHMMoveError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(6i32);
-pub const DeviceProblemCHMZeroError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(7i32);
-pub const DeviceProblemCalibrationError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(4i32);
-pub const DeviceProblemCartridgeEjectError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(11i32);
-pub const DeviceProblemCartridgeInsertError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(8i32);
-pub const DeviceProblemDoorOpen: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(3i32);
-pub const DeviceProblemDriveError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(13i32);
-pub const DeviceProblemGripperError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(12i32);
-pub const DeviceProblemHardware: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(1i32);
-pub const DeviceProblemNone: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(0i32);
-pub const DeviceProblemPositionError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(9i32);
-pub const DeviceProblemSensorError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(10i32);
-pub const DeviceProblemTargetFailure: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(5i32);
-pub const DeviceSavedInternalStatusData: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(4i32);
-pub const DeviceSavedInternalStatusDataHeader: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(3i32);
-pub const DeviceStatusDataSet1: DEVICE_INTERNAL_STATUS_DATA_SET = DEVICE_INTERNAL_STATUS_DATA_SET(1i32);
-pub const DeviceStatusDataSet2: DEVICE_INTERNAL_STATUS_DATA_SET = DEVICE_INTERNAL_STATUS_DATA_SET(2i32);
-pub const DeviceStatusDataSet3: DEVICE_INTERNAL_STATUS_DATA_SET = DEVICE_INTERNAL_STATUS_DATA_SET(3i32);
-pub const DeviceStatusDataSet4: DEVICE_INTERNAL_STATUS_DATA_SET = DEVICE_INTERNAL_STATUS_DATA_SET(4i32);
-pub const DeviceStatusDataSetMax: DEVICE_INTERNAL_STATUS_DATA_SET = DEVICE_INTERNAL_STATUS_DATA_SET(5i32);
-pub const DeviceStatusDataSetUndefined: DEVICE_INTERNAL_STATUS_DATA_SET = DEVICE_INTERNAL_STATUS_DATA_SET(0i32);
-pub const DiskHealthHealthy: STORAGE_DISK_HEALTH_STATUS = STORAGE_DISK_HEALTH_STATUS(3i32);
-pub const DiskHealthMax: STORAGE_DISK_HEALTH_STATUS = STORAGE_DISK_HEALTH_STATUS(4i32);
-pub const DiskHealthUnhealthy: STORAGE_DISK_HEALTH_STATUS = STORAGE_DISK_HEALTH_STATUS(1i32);
-pub const DiskHealthUnknown: STORAGE_DISK_HEALTH_STATUS = STORAGE_DISK_HEALTH_STATUS(0i32);
-pub const DiskHealthWarning: STORAGE_DISK_HEALTH_STATUS = STORAGE_DISK_HEALTH_STATUS(2i32);
-pub const DiskOpReasonBackgroundOperation: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(12i32);
-pub const DiskOpReasonComponent: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(10i32);
-pub const DiskOpReasonConfiguration: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(7i32);
-pub const DiskOpReasonDataPersistenceLossImminent: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(18i32);
-pub const DiskOpReasonDeviceController: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(8i32);
-pub const DiskOpReasonDisabledByPlatform: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(16i32);
-pub const DiskOpReasonEnergySource: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(6i32);
-pub const DiskOpReasonHealthCheck: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(14i32);
-pub const DiskOpReasonInvalidFirmware: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(13i32);
-pub const DiskOpReasonIo: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(3i32);
-pub const DiskOpReasonLostData: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(5i32);
-pub const DiskOpReasonLostDataPersistence: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(15i32);
-pub const DiskOpReasonLostWritePersistence: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(17i32);
-pub const DiskOpReasonMax: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(20i32);
-pub const DiskOpReasonMedia: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(2i32);
-pub const DiskOpReasonMediaController: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(9i32);
-pub const DiskOpReasonNVDIMM_N: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(11i32);
-pub const DiskOpReasonScsiSenseCode: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(1i32);
-pub const DiskOpReasonThresholdExceeded: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(4i32);
-pub const DiskOpReasonUnknown: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(0i32);
-pub const DiskOpReasonWritePersistenceLossImminent: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(19i32);
-pub const DiskOpStatusHardwareError: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(5i32);
-pub const DiskOpStatusInService: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(4i32);
-pub const DiskOpStatusMissing: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(8i32);
-pub const DiskOpStatusNone: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(0i32);
-pub const DiskOpStatusNotUsable: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(6i32);
-pub const DiskOpStatusOk: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(2i32);
-pub const DiskOpStatusPredictingFailure: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(3i32);
-pub const DiskOpStatusTransientError: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(7i32);
-pub const DiskOpStatusUnknown: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(1i32);
-pub const EFS_TRACKED_OFFSET_HEADER_FLAG: u32 = 1u32;
-pub const ELEMENT_STATUS_ACCESS: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(8u32);
-pub const ELEMENT_STATUS_AVOLTAG: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(536870912u32);
-pub const ELEMENT_STATUS_EXCEPT: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(4u32);
-pub const ELEMENT_STATUS_EXENAB: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(16u32);
-pub const ELEMENT_STATUS_FULL: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(1u32);
-pub const ELEMENT_STATUS_ID_VALID: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(8192u32);
-pub const ELEMENT_STATUS_IMPEXP: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(2u32);
-pub const ELEMENT_STATUS_INENAB: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(32u32);
-pub const ELEMENT_STATUS_INVERT: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(4194304u32);
-pub const ELEMENT_STATUS_LUN_VALID: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(4096u32);
-pub const ELEMENT_STATUS_NOT_BUS: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(32768u32);
-pub const ELEMENT_STATUS_PRODUCT_DATA: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(64u32);
-pub const ELEMENT_STATUS_PVOLTAG: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(268435456u32);
-pub const ELEMENT_STATUS_SVALID: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(8388608u32);
-pub const ENABLE_DISABLE_AUTOSAVE: u32 = 210u32;
-pub const ENABLE_DISABLE_AUTO_OFFLINE: u32 = 219u32;
-pub const ENABLE_SMART: u32 = 216u32;
-pub const ENCRYPTED_DATA_INFO_SPARSE_FILE: u32 = 1u32;
-pub const ENCRYPTION_FORMAT_DEFAULT: u32 = 1u32;
-pub const ERROR_DRIVE_NOT_INSTALLED: u32 = 8u32;
-pub const ERROR_HISTORY_DIRECTORY_ENTRY_DEFAULT_COUNT: u32 = 8u32;
-pub const ERROR_INIT_STATUS_NEEDED: u32 = 17u32;
-pub const ERROR_LABEL_QUESTIONABLE: u32 = 2u32;
-pub const ERROR_LABEL_UNREADABLE: u32 = 1u32;
-pub const ERROR_SLOT_NOT_PRESENT: u32 = 4u32;
-pub const ERROR_TRAY_MALFUNCTION: u32 = 16u32;
-pub const ERROR_UNHANDLED_ERROR: u32 = 4294967295u32;
-pub const EXECUTE_OFFLINE_DIAGS: u32 = 212u32;
-pub const EXTEND_IEPORT: u32 = 2u32;
-pub const EqualPriority: DISK_CACHE_RETENTION_PRIORITY = DISK_CACHE_RETENTION_PRIORITY(0i32);
-pub const F3_120M_512: MEDIA_TYPE = MEDIA_TYPE(13i32);
-pub const F3_128Mb_512: MEDIA_TYPE = MEDIA_TYPE(20i32);
-pub const F3_1Pt23_1024: MEDIA_TYPE = MEDIA_TYPE(18i32);
-pub const F3_1Pt2_512: MEDIA_TYPE = MEDIA_TYPE(17i32);
-pub const F3_1Pt44_512: MEDIA_TYPE = MEDIA_TYPE(2i32);
-pub const F3_200Mb_512: MEDIA_TYPE = MEDIA_TYPE(23i32);
-pub const F3_20Pt8_512: MEDIA_TYPE = MEDIA_TYPE(4i32);
-pub const F3_230Mb_512: MEDIA_TYPE = MEDIA_TYPE(21i32);
-pub const F3_240M_512: MEDIA_TYPE = MEDIA_TYPE(24i32);
-pub const F3_2Pt88_512: MEDIA_TYPE = MEDIA_TYPE(3i32);
-pub const F3_32M_512: MEDIA_TYPE = MEDIA_TYPE(25i32);
-pub const F3_640_512: MEDIA_TYPE = MEDIA_TYPE(14i32);
-pub const F3_720_512: MEDIA_TYPE = MEDIA_TYPE(5i32);
-pub const F5_160_512: MEDIA_TYPE = MEDIA_TYPE(10i32);
-pub const F5_180_512: MEDIA_TYPE = MEDIA_TYPE(9i32);
-pub const F5_1Pt23_1024: MEDIA_TYPE = MEDIA_TYPE(19i32);
-pub const F5_1Pt2_512: MEDIA_TYPE = MEDIA_TYPE(1i32);
-pub const F5_320_1024: MEDIA_TYPE = MEDIA_TYPE(8i32);
-pub const F5_320_512: MEDIA_TYPE = MEDIA_TYPE(7i32);
-pub const F5_360_512: MEDIA_TYPE = MEDIA_TYPE(6i32);
-pub const F5_640_512: MEDIA_TYPE = MEDIA_TYPE(15i32);
-pub const F5_720_512: MEDIA_TYPE = MEDIA_TYPE(16i32);
-pub const F8_256_128: MEDIA_TYPE = MEDIA_TYPE(22i32);
-pub const FILESYSTEM_STATISTICS_TYPE_EXFAT: FILESYSTEM_STATISTICS_TYPE = FILESYSTEM_STATISTICS_TYPE(3u16);
-pub const FILESYSTEM_STATISTICS_TYPE_FAT: FILESYSTEM_STATISTICS_TYPE = FILESYSTEM_STATISTICS_TYPE(2u16);
-pub const FILESYSTEM_STATISTICS_TYPE_NTFS: FILESYSTEM_STATISTICS_TYPE = FILESYSTEM_STATISTICS_TYPE(1u16);
-pub const FILESYSTEM_STATISTICS_TYPE_REFS: u32 = 4u32;
-pub const FILE_ANY_ACCESS: u32 = 0u32;
-pub const FILE_CLEAR_ENCRYPTION: u32 = 2u32;
-pub const FILE_DEVICE_8042_PORT: u32 = 39u32;
-pub const FILE_DEVICE_ACPI: u32 = 50u32;
-pub const FILE_DEVICE_BATTERY: u32 = 41u32;
-pub const FILE_DEVICE_BEEP: u32 = 1u32;
-pub const FILE_DEVICE_BIOMETRIC: u32 = 68u32;
-pub const FILE_DEVICE_BLUETOOTH: u32 = 65u32;
-pub const FILE_DEVICE_BUS_EXTENDER: u32 = 42u32;
-pub const FILE_DEVICE_CD_ROM_FILE_SYSTEM: u32 = 3u32;
-pub const FILE_DEVICE_CHANGER: u32 = 48u32;
-pub const FILE_DEVICE_CONSOLE: u32 = 80u32;
-pub const FILE_DEVICE_CONTROLLER: u32 = 4u32;
-pub const FILE_DEVICE_CRYPT_PROVIDER: u32 = 63u32;
-pub const FILE_DEVICE_DATALINK: u32 = 5u32;
-pub const FILE_DEVICE_DEVAPI: u32 = 71u32;
-pub const FILE_DEVICE_DFS: u32 = 6u32;
-pub const FILE_DEVICE_DFS_FILE_SYSTEM: u32 = 53u32;
-pub const FILE_DEVICE_DFS_VOLUME: u32 = 54u32;
-pub const FILE_DEVICE_DISK_FILE_SYSTEM: u32 = 8u32;
-pub const FILE_DEVICE_EHSTOR: u32 = 70u32;
-pub const FILE_DEVICE_EVENT_COLLECTOR: u32 = 95u32;
-pub const FILE_DEVICE_FILE_SYSTEM: u32 = 9u32;
-pub const FILE_DEVICE_FIPS: u32 = 58u32;
-pub const FILE_DEVICE_FULLSCREEN_VIDEO: u32 = 52u32;
-pub const FILE_DEVICE_GPIO: u32 = 72u32;
-pub const FILE_DEVICE_HOLOGRAPHIC: u32 = 91u32;
-pub const FILE_DEVICE_INFINIBAND: u32 = 59u32;
-pub const FILE_DEVICE_INPORT_PORT: u32 = 10u32;
-pub const FILE_DEVICE_KEYBOARD: u32 = 11u32;
-pub const FILE_DEVICE_KS: u32 = 47u32;
-pub const FILE_DEVICE_KSEC: u32 = 57u32;
-pub const FILE_DEVICE_MAILSLOT: u32 = 12u32;
-pub const FILE_DEVICE_MASS_STORAGE: u32 = 45u32;
-pub const FILE_DEVICE_MIDI_IN: u32 = 13u32;
-pub const FILE_DEVICE_MIDI_OUT: u32 = 14u32;
-pub const FILE_DEVICE_MODEM: u32 = 43u32;
-pub const FILE_DEVICE_MOUSE: u32 = 15u32;
-pub const FILE_DEVICE_MT_COMPOSITE: u32 = 66u32;
-pub const FILE_DEVICE_MT_TRANSPORT: u32 = 67u32;
-pub const FILE_DEVICE_MULTI_UNC_PROVIDER: u32 = 16u32;
-pub const FILE_DEVICE_NAMED_PIPE: u32 = 17u32;
-pub const FILE_DEVICE_NETWORK: u32 = 18u32;
-pub const FILE_DEVICE_NETWORK_BROWSER: u32 = 19u32;
-pub const FILE_DEVICE_NETWORK_FILE_SYSTEM: u32 = 20u32;
-pub const FILE_DEVICE_NETWORK_REDIRECTOR: u32 = 40u32;
-pub const FILE_DEVICE_NFP: u32 = 81u32;
-pub const FILE_DEVICE_NULL: u32 = 21u32;
-pub const FILE_DEVICE_NVDIMM: u32 = 90u32;
-pub const FILE_DEVICE_PARALLEL_PORT: u32 = 22u32;
-pub const FILE_DEVICE_PERSISTENT_MEMORY: u32 = 89u32;
-pub const FILE_DEVICE_PHYSICAL_NETCARD: u32 = 23u32;
-pub const FILE_DEVICE_PMI: u32 = 69u32;
-pub const FILE_DEVICE_POINT_OF_SERVICE: u32 = 84u32;
-pub const FILE_DEVICE_PRINTER: u32 = 24u32;
-pub const FILE_DEVICE_PRM: u32 = 94u32;
-pub const FILE_DEVICE_SCANNER: u32 = 25u32;
-pub const FILE_DEVICE_SCREEN: u32 = 28u32;
-pub const FILE_DEVICE_SDFXHCI: u32 = 92u32;
-pub const FILE_DEVICE_SERENUM: u32 = 55u32;
-pub const FILE_DEVICE_SERIAL_MOUSE_PORT: u32 = 26u32;
-pub const FILE_DEVICE_SERIAL_PORT: u32 = 27u32;
-pub const FILE_DEVICE_SMB: u32 = 46u32;
-pub const FILE_DEVICE_SOUND: u32 = 29u32;
-pub const FILE_DEVICE_SOUNDWIRE: u32 = 97u32;
-pub const FILE_DEVICE_STORAGE_REPLICATION: u32 = 85u32;
-pub const FILE_DEVICE_STREAMS: u32 = 30u32;
-pub const FILE_DEVICE_SYSENV: u32 = 82u32;
-pub const FILE_DEVICE_TAPE_FILE_SYSTEM: u32 = 32u32;
-pub const FILE_DEVICE_TERMSRV: u32 = 56u32;
-pub const FILE_DEVICE_TRANSPORT: u32 = 33u32;
-pub const FILE_DEVICE_TRUST_ENV: u32 = 86u32;
-pub const FILE_DEVICE_UCM: u32 = 87u32;
-pub const FILE_DEVICE_UCMTCPCI: u32 = 88u32;
-pub const FILE_DEVICE_UCMUCSI: u32 = 93u32;
-pub const FILE_DEVICE_UNKNOWN: u32 = 34u32;
-pub const FILE_DEVICE_USB4: u32 = 96u32;
-pub const FILE_DEVICE_USBEX: u32 = 73u32;
-pub const FILE_DEVICE_VDM: u32 = 44u32;
-pub const FILE_DEVICE_VIDEO: u32 = 35u32;
-pub const FILE_DEVICE_VIRTUAL_BLOCK: u32 = 83u32;
-pub const FILE_DEVICE_VIRTUAL_DISK: u32 = 36u32;
-pub const FILE_DEVICE_VMBUS: u32 = 62u32;
-pub const FILE_DEVICE_WAVE_IN: u32 = 37u32;
-pub const FILE_DEVICE_WAVE_OUT: u32 = 38u32;
-pub const FILE_DEVICE_WPD: u32 = 64u32;
-pub const FILE_INITIATE_REPAIR_HINT1_ATTRIBUTE_NON_RESIDENT: u64 = 137438953472u64;
-pub const FILE_INITIATE_REPAIR_HINT1_ATTRIBUTE_NOT_FOUND: u64 = 4096u64;
-pub const FILE_INITIATE_REPAIR_HINT1_ATTRIBUTE_TOO_SMALL: u64 = 68719476736u64;
-pub const FILE_INITIATE_REPAIR_HINT1_CLUSTERS_ALREADY_IN_USE: u64 = 32768u64;
-pub const FILE_INITIATE_REPAIR_HINT1_DENY_DEFRAG: u64 = 274877906944u64;
-pub const FILE_INITIATE_REPAIR_HINT1_FILE_RECORD_IS_BASE_RECORD: u64 = 524288u64;
-pub const FILE_INITIATE_REPAIR_HINT1_FILE_RECORD_NOT_BASE_RECORD: u64 = 8u64;
-pub const FILE_INITIATE_REPAIR_HINT1_FILE_RECORD_NOT_EXIST: u64 = 4u64;
-pub const FILE_INITIATE_REPAIR_HINT1_FILE_RECORD_NOT_IN_USE: u64 = 1u64;
-pub const FILE_INITIATE_REPAIR_HINT1_FILE_RECORD_NOT_ORPHAN: u64 = 262144u64;
-pub const FILE_INITIATE_REPAIR_HINT1_FILE_RECORD_REUSED: u64 = 2u64;
-pub const FILE_INITIATE_REPAIR_HINT1_INDEX_ENTRY_MISMATCH: u64 = 1099511627776u64;
-pub const FILE_INITIATE_REPAIR_HINT1_INVALID_ARRAY_LENGTH_COUNT: u64 = 1048576u64;
-pub const FILE_INITIATE_REPAIR_HINT1_INVALID_LCN: u64 = 4294967296u64;
-pub const FILE_INITIATE_REPAIR_HINT1_INVALID_ORPHAN_RECOVERY_NAME: u64 = 2199023255552u64;
-pub const FILE_INITIATE_REPAIR_HINT1_INVALID_PARENT: u64 = 8388608u64;
-pub const FILE_INITIATE_REPAIR_HINT1_INVALID_RUN_LENGTH: u64 = 131072u64;
-pub const FILE_INITIATE_REPAIR_HINT1_INVALID_VCN: u64 = 8589934592u64;
-pub const FILE_INITIATE_REPAIR_HINT1_LCN_NOT_EXIST: u64 = 65536u64;
-pub const FILE_INITIATE_REPAIR_HINT1_MULTIPLE_FILE_NAME_ATTRIBUTES: u64 = 4398046511104u64;
-pub const FILE_INITIATE_REPAIR_HINT1_NAME_CONFLICT: u64 = 17179869184u64;
-pub const FILE_INITIATE_REPAIR_HINT1_NOTHING_WRONG: u64 = 2048u64;
-pub const FILE_INITIATE_REPAIR_HINT1_NOT_IMPLEMENTED: u64 = 32u64;
-pub const FILE_INITIATE_REPAIR_HINT1_ORPHAN: u64 = 34359738368u64;
-pub const FILE_INITIATE_REPAIR_HINT1_ORPHAN_GENERATED: u64 = 512u64;
-pub const FILE_INITIATE_REPAIR_HINT1_OUT_OF_GENERIC_NAMES: u64 = 1073741824u64;
-pub const FILE_INITIATE_REPAIR_HINT1_OUT_OF_RESOURCE: u64 = 2147483648u64;
-pub const FILE_INITIATE_REPAIR_HINT1_PARENT_FILE_RECORD_NOT_BASE_RECORD: u64 = 134217728u64;
-pub const FILE_INITIATE_REPAIR_HINT1_PARENT_FILE_RECORD_NOT_EXIST: u64 = 67108864u64;
-pub const FILE_INITIATE_REPAIR_HINT1_PARENT_FILE_RECORD_NOT_INDEX: u64 = 268435456u64;
-pub const FILE_INITIATE_REPAIR_HINT1_PARENT_FILE_RECORD_NOT_IN_USE: u64 = 16777216u64;
-pub const FILE_INITIATE_REPAIR_HINT1_PARENT_FILE_RECORD_REUSED: u64 = 33554432u64;
-pub const FILE_INITIATE_REPAIR_HINT1_POTENTIAL_CROSSLINK: u64 = 8192u64;
-pub const FILE_INITIATE_REPAIR_HINT1_PREVIOUS_PARENT_STILL_VALID: u64 = 549755813888u64;
-pub const FILE_INITIATE_REPAIR_HINT1_RECURSIVELY_CORRUPTED: u64 = 256u64;
-pub const FILE_INITIATE_REPAIR_HINT1_REPAIRED: u64 = 1024u64;
-pub const FILE_INITIATE_REPAIR_HINT1_REPAIR_DISABLED: u64 = 128u64;
-pub const FILE_INITIATE_REPAIR_HINT1_SID_MISMATCH: u64 = 4194304u64;
-pub const FILE_INITIATE_REPAIR_HINT1_SID_VALID: u64 = 2097152u64;
-pub const FILE_INITIATE_REPAIR_HINT1_STALE_INFORMATION: u64 = 16384u64;
-pub const FILE_INITIATE_REPAIR_HINT1_SYSTEM_FILE: u64 = 16u64;
-pub const FILE_INITIATE_REPAIR_HINT1_UNABLE_TO_REPAIR: u64 = 64u64;
-pub const FILE_INITIATE_REPAIR_HINT1_VALID_INDEX_ENTRY: u64 = 536870912u64;
-pub const FILE_LAYOUT_NAME_ENTRY_DOS: u32 = 2u32;
-pub const FILE_LAYOUT_NAME_ENTRY_PRIMARY: u32 = 1u32;
-pub const FILE_PREFETCH_TYPE_FOR_CREATE: u32 = 1u32;
-pub const FILE_PREFETCH_TYPE_FOR_CREATE_EX: u32 = 3u32;
-pub const FILE_PREFETCH_TYPE_FOR_DIRENUM: u32 = 2u32;
-pub const FILE_PREFETCH_TYPE_FOR_DIRENUM_EX: u32 = 4u32;
-pub const FILE_PREFETCH_TYPE_MAX: u32 = 4u32;
-pub const FILE_PROVIDER_COMPRESSION_MAXIMUM: u32 = 4u32;
-pub const FILE_PROVIDER_CURRENT_VERSION: u32 = 1u32;
-pub const FILE_PROVIDER_FLAG_COMPRESS_ON_WRITE: u32 = 1u32;
-pub const FILE_PROVIDER_SINGLE_FILE: u32 = 1u32;
-pub const FILE_READ_ACCESS: u32 = 1u32;
-pub const FILE_REGION_USAGE_HUGE_PAGE_ALIGNMENT: u32 = 16u32;
-pub const FILE_REGION_USAGE_LARGE_PAGE_ALIGNMENT: u32 = 8u32;
-pub const FILE_REGION_USAGE_OTHER_PAGE_ALIGNMENT: u32 = 4u32;
-pub const FILE_REGION_USAGE_QUERY_ALIGNMENT: u32 = 8u32;
-pub const FILE_REGION_USAGE_VALID_CACHED_DATA: u32 = 1u32;
-pub const FILE_REGION_USAGE_VALID_NONCACHED_DATA: u32 = 2u32;
-pub const FILE_SET_ENCRYPTION: u32 = 1u32;
-pub const FILE_SPECIAL_ACCESS: u32 = 0u32;
-pub const FILE_STORAGE_TIER_DESCRIPTION_LENGTH: u32 = 512u32;
-pub const FILE_STORAGE_TIER_FLAG_NO_SEEK_PENALTY: FILE_STORAGE_TIER_FLAGS = FILE_STORAGE_TIER_FLAGS(131072u32);
-pub const FILE_STORAGE_TIER_FLAG_PARITY: u32 = 8388608u32;
-pub const FILE_STORAGE_TIER_FLAG_READ_CACHE: u32 = 4194304u32;
-pub const FILE_STORAGE_TIER_FLAG_SMR: u32 = 16777216u32;
-pub const FILE_STORAGE_TIER_FLAG_WRITE_BACK_CACHE: u32 = 2097152u32;
-pub const FILE_STORAGE_TIER_NAME_LENGTH: u32 = 256u32;
-pub const FILE_TYPE_NOTIFICATION_FLAG_USAGE_BEGIN: u32 = 1u32;
-pub const FILE_TYPE_NOTIFICATION_FLAG_USAGE_END: u32 = 2u32;
-pub const FILE_TYPE_NOTIFICATION_GUID_CRASHDUMP_FILE: windows_core::GUID = windows_core::GUID::from_u128(0x9d453eb7_d2a6_4dbd_a2e3_fbd0ed9109a9);
-pub const FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE: windows_core::GUID = windows_core::GUID::from_u128(0xb7624d64_b9a3_4cf8_8011_5b86c940e7b7);
-pub const FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE: windows_core::GUID = windows_core::GUID::from_u128(0x0d0a64a1_38fc_4db8_9fe7_3f4352cd7c5c);
-pub const FILE_WRITE_ACCESS: u32 = 2u32;
-pub const FILE_ZERO_DATA_INFORMATION_FLAG_PRESERVE_CACHED_DATA: u32 = 1u32;
-pub const FLAG_USN_TRACK_MODIFIED_RANGES_ENABLE: u32 = 1u32;
-pub const FSBPIO_INFL_None: FS_BPIO_INFLAGS = FS_BPIO_INFLAGS(0i32);
-pub const FSBPIO_INFL_SKIP_STORAGE_STACK_QUERY: FS_BPIO_INFLAGS = FS_BPIO_INFLAGS(1i32);
-pub const FSBPIO_OUTFL_COMPATIBLE_STORAGE_DRIVER: FS_BPIO_OUTFLAGS = FS_BPIO_OUTFLAGS(8i32);
-pub const FSBPIO_OUTFL_FILTER_ATTACH_BLOCKED: FS_BPIO_OUTFLAGS = FS_BPIO_OUTFLAGS(4i32);
-pub const FSBPIO_OUTFL_None: FS_BPIO_OUTFLAGS = FS_BPIO_OUTFLAGS(0i32);
-pub const FSBPIO_OUTFL_STREAM_BYPASS_PAUSED: FS_BPIO_OUTFLAGS = FS_BPIO_OUTFLAGS(2i32);
-pub const FSBPIO_OUTFL_VOLUME_STACK_BYPASS_PAUSED: FS_BPIO_OUTFLAGS = FS_BPIO_OUTFLAGS(1i32);
-pub const FSCTL_ADD_OVERLAY: u32 = 623408u32;
-pub const FSCTL_ADVANCE_FILE_ID: u32 = 590532u32;
-pub const FSCTL_ALLOW_EXTENDED_DASD_IO: u32 = 589955u32;
-pub const FSCTL_CLEAN_VOLUME_METADATA: u32 = 590716u32;
-pub const FSCTL_CLEAR_ALL_LCN_WEAK_REFERENCES: u32 = 590956u32;
-pub const FSCTL_CLEAR_LCN_WEAK_REFERENCE: u32 = 590948u32;
-pub const FSCTL_CORRUPTION_HANDLING: u32 = 590432u32;
-pub const FSCTL_CREATE_LCN_WEAK_REFERENCE: u32 = 590944u32;
-pub const FSCTL_CREATE_OR_GET_OBJECT_ID: u32 = 590016u32;
-pub const FSCTL_CREATE_USN_JOURNAL: u32 = 590055u32;
-pub const FSCTL_CSC_INTERNAL: u32 = 590255u32;
-pub const FSCTL_CSV_CONTROL: u32 = 590548u32;
-pub const FSCTL_CSV_GET_VOLUME_NAME_FOR_VOLUME_MOUNT_POINT: u32 = 590420u32;
-pub const FSCTL_CSV_GET_VOLUME_PATH_NAME: u32 = 590416u32;
-pub const FSCTL_CSV_GET_VOLUME_PATH_NAMES_FOR_VOLUME_NAME: u32 = 590424u32;
-pub const FSCTL_CSV_H_BREAKING_SYNC_TUNNEL_REQUEST: u32 = 590564u32;
-pub const FSCTL_CSV_INTERNAL: u32 = 590444u32;
-pub const FSCTL_CSV_MGMT_LOCK: u32 = 590524u32;
-pub const FSCTL_CSV_QUERY_DOWN_LEVEL_FILE_SYSTEM_CHARACTERISTICS: u32 = 590528u32;
-pub const FSCTL_CSV_QUERY_VETO_FILE_DIRECT_IO: u32 = 590540u32;
-pub const FSCTL_CSV_SYNC_TUNNEL_REQUEST: u32 = 590536u32;
-pub const FSCTL_CSV_TUNNEL_REQUEST: u32 = 590404u32;
-pub const FSCTL_DELETE_CORRUPTED_REFS_CONTAINER: u32 = 590836u32;
-pub const FSCTL_DELETE_EXTERNAL_BACKING: u32 = 590612u32;
-pub const FSCTL_DELETE_OBJECT_ID: u32 = 589984u32;
-pub const FSCTL_DELETE_REPARSE_POINT: u32 = 589996u32;
-pub const FSCTL_DELETE_USN_JOURNAL: u32 = 590072u32;
-pub const FSCTL_DFSR_SET_GHOST_HANDLE_STATE: u32 = 590264u32;
-pub const FSCTL_DISABLE_LOCAL_BUFFERING: u32 = 590520u32;
-pub const FSCTL_DISMOUNT_VOLUME: u32 = 589856u32;
-pub const FSCTL_DUPLICATE_CLUSTER: u32 = 590940u32;
-pub const FSCTL_DUPLICATE_EXTENTS_TO_FILE: u32 = 623428u32;
-pub const FSCTL_DUPLICATE_EXTENTS_TO_FILE_EX: u32 = 623592u32;
-pub const FSCTL_ENABLE_PER_IO_FLAGS: u32 = 590892u32;
-pub const FSCTL_ENABLE_UPGRADE: u32 = 622800u32;
-pub const FSCTL_ENCRYPTION_FSCTL_IO: u32 = 590043u32;
-pub const FSCTL_ENCRYPTION_KEY_CONTROL: u32 = 590852u32;
-pub const FSCTL_ENUM_EXTERNAL_BACKING: u32 = 590616u32;
-pub const FSCTL_ENUM_OVERLAY: u32 = 590623u32;
-pub const FSCTL_ENUM_USN_DATA: u32 = 590003u32;
-pub const FSCTL_EXTEND_VOLUME: u32 = 590064u32;
-pub const FSCTL_FILESYSTEM_GET_STATISTICS: u32 = 589920u32;
-pub const FSCTL_FILESYSTEM_GET_STATISTICS_EX: u32 = 590732u32;
-pub const FSCTL_FILE_LEVEL_TRIM: u32 = 623112u32;
-pub const FSCTL_FILE_PREFETCH: u32 = 590112u32;
-pub const FSCTL_FILE_TYPE_NOTIFICATION: u32 = 590340u32;
-pub const FSCTL_FIND_FILES_BY_SID: u32 = 589967u32;
-pub const FSCTL_GET_BOOT_AREA_INFO: u32 = 590384u32;
-pub const FSCTL_GET_COMPRESSION: u32 = 589884u32;
-pub const FSCTL_GET_EXTERNAL_BACKING: u32 = 590608u32;
-pub const FSCTL_GET_FILTER_FILE_IDENTIFIER: u32 = 590788u32;
-pub const FSCTL_GET_INTEGRITY_INFORMATION: u32 = 590460u32;
-pub const FSCTL_GET_NTFS_FILE_RECORD: u32 = 589928u32;
-pub const FSCTL_GET_NTFS_VOLUME_DATA: u32 = 589924u32;
-pub const FSCTL_GET_OBJECT_ID: u32 = 589980u32;
-pub const FSCTL_GET_REFS_VOLUME_DATA: u32 = 590552u32;
-pub const FSCTL_GET_REPAIR: u32 = 590236u32;
-pub const FSCTL_GET_REPARSE_POINT: u32 = 589992u32;
-pub const FSCTL_GET_RETRIEVAL_POINTERS: u32 = 589939u32;
-pub const FSCTL_GET_RETRIEVAL_POINTERS_AND_REFCOUNT: u32 = 590803u32;
-pub const FSCTL_GET_RETRIEVAL_POINTER_BASE: u32 = 590388u32;
-pub const FSCTL_GET_RETRIEVAL_POINTER_COUNT: u32 = 590891u32;
-pub const FSCTL_GET_VOLUME_BITMAP: u32 = 589935u32;
-pub const FSCTL_GET_WOF_VERSION: u32 = 590696u32;
-pub const FSCTL_GHOST_FILE_EXTENTS: u32 = 623532u32;
-pub const FSCTL_HCS_ASYNC_TUNNEL_REQUEST: u32 = 590704u32;
-pub const FSCTL_HCS_SYNC_NO_WRITE_TUNNEL_REQUEST: u32 = 590776u32;
-pub const FSCTL_HCS_SYNC_TUNNEL_REQUEST: u32 = 590700u32;
-pub const FSCTL_INITIATE_FILE_METADATA_OPTIMIZATION: u32 = 590684u32;
-pub const FSCTL_INITIATE_REPAIR: u32 = 590248u32;
-pub const FSCTL_INTEGRITY_FLAG_CHECKSUM_ENFORCEMENT_OFF: u32 = 1u32;
-pub const FSCTL_INVALIDATE_VOLUMES: u32 = 589908u32;
-pub const FSCTL_IS_CSV_FILE: u32 = 590408u32;
-pub const FSCTL_IS_FILE_ON_CSV_VOLUME: u32 = 590428u32;
-pub const FSCTL_IS_PATHNAME_VALID: u32 = 589868u32;
-pub const FSCTL_IS_VOLUME_DIRTY: u32 = 589944u32;
-pub const FSCTL_IS_VOLUME_MOUNTED: u32 = 589864u32;
-pub const FSCTL_IS_VOLUME_OWNED_BYCSVFS: u32 = 590456u32;
-pub const FSCTL_LMR_QUERY_INFO: u32 = 590968u32;
-pub const FSCTL_LOCK_VOLUME: u32 = 589848u32;
-pub const FSCTL_LOOKUP_STREAM_FROM_CLUSTER: u32 = 590332u32;
-pub const FSCTL_MAKE_MEDIA_COMPATIBLE: u32 = 622896u32;
-pub const FSCTL_MANAGE_BYPASS_IO: u32 = 590920u32;
-pub const FSCTL_MARK_AS_SYSTEM_HIVE: u32 = 589903u32;
-pub const FSCTL_MARK_HANDLE: u32 = 590076u32;
-pub const FSCTL_MARK_VOLUME_DIRTY: u32 = 589872u32;
-pub const FSCTL_MOVE_FILE: u32 = 589940u32;
-pub const FSCTL_NOTIFY_DATA_CHANGE: u32 = 590844u32;
-pub const FSCTL_NOTIFY_STORAGE_SPACE_ALLOCATION: u32 = 590748u32;
-pub const FSCTL_OFFLOAD_READ: u32 = 606820u32;
-pub const FSCTL_OFFLOAD_WRITE: u32 = 623208u32;
-pub const FSCTL_OPBATCH_ACK_CLOSE_PENDING: u32 = 589840u32;
-pub const FSCTL_OPLOCK_BREAK_ACKNOWLEDGE: u32 = 589836u32;
-pub const FSCTL_OPLOCK_BREAK_ACK_NO_2: u32 = 589904u32;
-pub const FSCTL_OPLOCK_BREAK_NOTIFY: u32 = 589844u32;
-pub const FSCTL_QUERY_ALLOCATED_RANGES: u32 = 606415u32;
-pub const FSCTL_QUERY_ASYNC_DUPLICATE_EXTENTS_STATUS: u32 = 590896u32;
-pub const FSCTL_QUERY_BAD_RANGES: u32 = 590828u32;
-pub const FSCTL_QUERY_DEPENDENT_VOLUME: u32 = 590320u32;
-pub const FSCTL_QUERY_DIRECT_ACCESS_EXTENTS: u32 = 590747u32;
-pub const FSCTL_QUERY_DIRECT_IMAGE_ORIGINAL_BASE: u32 = 590756u32;
-pub const FSCTL_QUERY_EXTENT_READ_CACHE_INFO: u32 = 590711u32;
-pub const FSCTL_QUERY_FAT_BPB: u32 = 589912u32;
-pub const FSCTL_QUERY_FILE_LAYOUT: u32 = 590455u32;
-pub const FSCTL_QUERY_FILE_METADATA_OPTIMIZATION: u32 = 590688u32;
-pub const FSCTL_QUERY_FILE_REGIONS: u32 = 590468u32;
-pub const FSCTL_QUERY_FILE_SYSTEM_RECOGNITION: u32 = 590412u32;
-pub const FSCTL_QUERY_GHOSTED_FILE_EXTENTS: u32 = 590768u32;
-pub const FSCTL_QUERY_LCN_WEAK_REFERENCE: u32 = 590952u32;
-pub const FSCTL_QUERY_ON_DISK_VOLUME_INFO: u32 = 590140u32;
-pub const FSCTL_QUERY_PAGEFILE_ENCRYPTION: u32 = 590312u32;
-pub const FSCTL_QUERY_PERSISTENT_VOLUME_STATE: u32 = 590396u32;
-pub const FSCTL_QUERY_REFS_SMR_VOLUME_INFO: u32 = 590812u32;
-pub const FSCTL_QUERY_REFS_VOLUME_COUNTER_INFO: u32 = 590715u32;
-pub const FSCTL_QUERY_REGION_INFO: u32 = 590576u32;
-pub const FSCTL_QUERY_RETRIEVAL_POINTERS: u32 = 589883u32;
-pub const FSCTL_QUERY_SHARED_VIRTUAL_DISK_SUPPORT: u32 = 590592u32;
-pub const FSCTL_QUERY_SPARING_INFO: u32 = 590136u32;
-pub const FSCTL_QUERY_STORAGE_CLASSES: u32 = 590572u32;
-pub const FSCTL_QUERY_USN_JOURNAL: u32 = 590068u32;
-pub const FSCTL_QUERY_VOLUME_CONTAINER_STATE: u32 = 590736u32;
-pub const FSCTL_QUERY_VOLUME_NUMA_INFO: u32 = 590804u32;
-pub const FSCTL_READ_FILE_USN_DATA: u32 = 590059u32;
-pub const FSCTL_READ_FROM_PLEX: u32 = 606494u32;
-pub const FSCTL_READ_RAW_ENCRYPTED: u32 = 590051u32;
-pub const FSCTL_READ_UNPRIVILEGED_USN_JOURNAL: u32 = 590763u32;
-pub const FSCTL_READ_USN_JOURNAL: u32 = 590011u32;
-pub const FSCTL_REARRANGE_FILE: u32 = 640032u32;
-pub const FSCTL_RECALL_FILE: u32 = 590103u32;
-pub const FSCTL_REFS_CHECKPOINT_VOLUME: u32 = 590972u32;
-pub const FSCTL_REFS_DEALLOCATE_RANGES: u32 = 590808u32;
-pub const FSCTL_REFS_DEALLOCATE_RANGES_EX: u32 = 590924u32;
-pub const FSCTL_REFS_QUERY_VOLUME_COMPRESSION_INFO: u32 = 590936u32;
-pub const FSCTL_REFS_QUERY_VOLUME_DEDUP_INFO: u32 = 590964u32;
-pub const FSCTL_REFS_QUERY_VOLUME_IO_METRICS_INFO: u32 = 590988u32;
-pub const FSCTL_REFS_QUERY_VOLUME_TOTAL_SHARED_LCNS: u32 = 590976u32;
-pub const FSCTL_REFS_SET_VOLUME_COMPRESSION_INFO: u32 = 590932u32;
-pub const FSCTL_REFS_SET_VOLUME_DEDUP_INFO: u32 = 590960u32;
-pub const FSCTL_REFS_SET_VOLUME_IO_METRICS_INFO: u32 = 590984u32;
-pub const FSCTL_REFS_STREAM_SNAPSHOT_MANAGEMENT: u32 = 590912u32;
-pub const FSCTL_REMOVE_OVERLAY: u32 = 623412u32;
-pub const FSCTL_REPAIR_COPIES: u32 = 639668u32;
-pub const FSCTL_REQUEST_BATCH_OPLOCK: u32 = 589832u32;
-pub const FSCTL_REQUEST_FILTER_OPLOCK: u32 = 589916u32;
-pub const FSCTL_REQUEST_OPLOCK: u32 = 590400u32;
-pub const FSCTL_REQUEST_OPLOCK_LEVEL_1: u32 = 589824u32;
-pub const FSCTL_REQUEST_OPLOCK_LEVEL_2: u32 = 589828u32;
-pub const FSCTL_RESET_VOLUME_ALLOCATION_HINTS: u32 = 590316u32;
-pub const FSCTL_RKF_INTERNAL: u32 = 590511u32;
-pub const FSCTL_SCRUB_DATA: u32 = 590512u32;
-pub const FSCTL_SCRUB_UNDISCOVERABLE_ID: u32 = 590840u32;
-pub const FSCTL_SD_GLOBAL_CHANGE: u32 = 590324u32;
-pub const FSCTL_SECURITY_ID_CHECK: u32 = 606391u32;
-pub const FSCTL_SET_BOOTLOADER_ACCESSED: u32 = 589903u32;
-pub const FSCTL_SET_CACHED_RUNS_STATE: u32 = 590928u32;
-pub const FSCTL_SET_COMPRESSION: u32 = 639040u32;
-pub const FSCTL_SET_DAX_ALLOC_ALIGNMENT_HINT: u32 = 590832u32;
-pub const FSCTL_SET_DEFECT_MANAGEMENT: u32 = 622900u32;
-pub const FSCTL_SET_ENCRYPTION: u32 = 590039u32;
-pub const FSCTL_SET_EXTERNAL_BACKING: u32 = 590604u32;
-pub const FSCTL_SET_INTEGRITY_INFORMATION: u32 = 639616u32;
-pub const FSCTL_SET_INTEGRITY_INFORMATION_EX: u32 = 590720u32;
-pub const FSCTL_SET_LAYER_ROOT: u32 = 590740u32;
-pub const FSCTL_SET_OBJECT_ID: u32 = 589976u32;
-pub const FSCTL_SET_OBJECT_ID_EXTENDED: u32 = 590012u32;
-pub const FSCTL_SET_PERSISTENT_VOLUME_STATE: u32 = 590392u32;
-pub const FSCTL_SET_PURGE_FAILURE_MODE: u32 = 590448u32;
-pub const FSCTL_SET_REFS_FILE_STRICTLY_SEQUENTIAL: u32 = 590820u32;
-pub const FSCTL_SET_REFS_SMR_VOLUME_GC_PARAMETERS: u32 = 590816u32;
-pub const FSCTL_SET_REPAIR: u32 = 590232u32;
-pub const FSCTL_SET_REPARSE_POINT: u32 = 589988u32;
-pub const FSCTL_SET_REPARSE_POINT_EX: u32 = 590860u32;
-pub const FSCTL_SET_SHORT_NAME_BEHAVIOR: u32 = 590260u32;
-pub const FSCTL_SET_SPARSE: u32 = 590020u32;
-pub const FSCTL_SET_VOLUME_COMPRESSION_STATE: u32 = 590144u32;
-pub const FSCTL_SET_ZERO_DATA: u32 = 622792u32;
-pub const FSCTL_SET_ZERO_ON_DEALLOCATION: u32 = 590228u32;
-pub const FSCTL_SHRINK_VOLUME: u32 = 590256u32;
-pub const FSCTL_SHUFFLE_FILE: u32 = 639808u32;
-pub const FSCTL_SIS_COPYFILE: u32 = 590080u32;
-pub const FSCTL_SIS_LINK_FILES: u32 = 639236u32;
-pub const FSCTL_SMB_SHARE_FLUSH_AND_PURGE: u32 = 590908u32;
-pub const FSCTL_SPARSE_OVERALLOCATE: u32 = 590668u32;
-pub const FSCTL_SSDI_STORAGE_REQUEST: u32 = 590752u32;
-pub const FSCTL_START_VIRTUALIZATION_INSTANCE: u32 = 590784u32;
-pub const FSCTL_START_VIRTUALIZATION_INSTANCE_EX: u32 = 590848u32;
-pub const FSCTL_STORAGE_QOS_CONTROL: u32 = 590672u32;
-pub const FSCTL_STREAMS_ASSOCIATE_ID: u32 = 590792u32;
-pub const FSCTL_STREAMS_QUERY_ID: u32 = 590796u32;
-pub const FSCTL_STREAMS_QUERY_PARAMETERS: u32 = 590788u32;
-pub const FSCTL_SUSPEND_OVERLAY: u32 = 590724u32;
-pub const FSCTL_SVHDX_ASYNC_TUNNEL_REQUEST: u32 = 590692u32;
-pub const FSCTL_SVHDX_SET_INITIATOR_INFORMATION: u32 = 590600u32;
-pub const FSCTL_SVHDX_SYNC_TUNNEL_REQUEST: u32 = 590596u32;
-pub const FSCTL_TXFS_CREATE_MINIVERSION: u32 = 622972u32;
-pub const FSCTL_TXFS_CREATE_SECONDARY_RM: u32 = 622952u32;
-pub const FSCTL_TXFS_GET_METADATA_INFO: u32 = 606572u32;
-pub const FSCTL_TXFS_GET_TRANSACTED_VERSION: u32 = 606576u32;
-pub const FSCTL_TXFS_LIST_TRANSACTIONS: u32 = 606692u32;
-pub const FSCTL_TXFS_LIST_TRANSACTION_LOCKED_FILES: u32 = 606688u32;
-pub const FSCTL_TXFS_MODIFY_RM: u32 = 622916u32;
-pub const FSCTL_TXFS_QUERY_RM_INFORMATION: u32 = 606536u32;
-pub const FSCTL_TXFS_READ_BACKUP_INFORMATION: u32 = 606560u32;
-pub const FSCTL_TXFS_READ_BACKUP_INFORMATION2: u32 = 590328u32;
-pub const FSCTL_TXFS_ROLLFORWARD_REDO: u32 = 622928u32;
-pub const FSCTL_TXFS_ROLLFORWARD_UNDO: u32 = 622932u32;
-pub const FSCTL_TXFS_SAVEPOINT_INFORMATION: u32 = 622968u32;
-pub const FSCTL_TXFS_SHUTDOWN_RM: u32 = 622940u32;
-pub const FSCTL_TXFS_START_RM: u32 = 622936u32;
-pub const FSCTL_TXFS_TRANSACTION_ACTIVE: u32 = 606604u32;
-pub const FSCTL_TXFS_WRITE_BACKUP_INFORMATION: u32 = 622948u32;
-pub const FSCTL_TXFS_WRITE_BACKUP_INFORMATION2: u32 = 590336u32;
-pub const FSCTL_UNLOCK_VOLUME: u32 = 589852u32;
-pub const FSCTL_UNMAP_SPACE: u32 = 590772u32;
-pub const FSCTL_UPDATE_OVERLAY: u32 = 623416u32;
-pub const FSCTL_UPGRADE_VOLUME: u32 = 590980u32;
-pub const FSCTL_USN_TRACK_MODIFIED_RANGES: u32 = 590580u32;
-pub const FSCTL_VIRTUAL_STORAGE_PASSTHROUGH: u32 = 590884u32;
-pub const FSCTL_VIRTUAL_STORAGE_QUERY_PROPERTY: u32 = 590728u32;
-pub const FSCTL_VIRTUAL_STORAGE_SET_BEHAVIOR: u32 = 590856u32;
-pub const FSCTL_WAIT_FOR_REPAIR: u32 = 590240u32;
-pub const FSCTL_WRITE_RAW_ENCRYPTED: u32 = 590047u32;
-pub const FSCTL_WRITE_USN_CLOSE_RECORD: u32 = 590063u32;
-pub const FSCTL_WRITE_USN_REASON: u32 = 590544u32;
-pub const FS_BPIO_OP_DISABLE: FS_BPIO_OPERATIONS = FS_BPIO_OPERATIONS(2i32);
-pub const FS_BPIO_OP_ENABLE: FS_BPIO_OPERATIONS = FS_BPIO_OPERATIONS(1i32);
-pub const FS_BPIO_OP_GET_INFO: FS_BPIO_OPERATIONS = FS_BPIO_OPERATIONS(8i32);
-pub const FS_BPIO_OP_MAX_OPERATION: FS_BPIO_OPERATIONS = FS_BPIO_OPERATIONS(9i32);
-pub const FS_BPIO_OP_QUERY: FS_BPIO_OPERATIONS = FS_BPIO_OPERATIONS(3i32);
-pub const FS_BPIO_OP_STREAM_PAUSE: FS_BPIO_OPERATIONS = FS_BPIO_OPERATIONS(6i32);
-pub const FS_BPIO_OP_STREAM_RESUME: FS_BPIO_OPERATIONS = FS_BPIO_OPERATIONS(7i32);
-pub const FS_BPIO_OP_VOLUME_STACK_PAUSE: FS_BPIO_OPERATIONS = FS_BPIO_OPERATIONS(4i32);
-pub const FS_BPIO_OP_VOLUME_STACK_RESUME: FS_BPIO_OPERATIONS = FS_BPIO_OPERATIONS(5i32);
-pub const FW_ISSUEID_NO_ISSUE: u32 = 0u32;
-pub const FW_ISSUEID_UNKNOWN: u32 = 4294967295u32;
-pub const FileSnapStateInactive: DUPLICATE_EXTENTS_STATE = DUPLICATE_EXTENTS_STATE(0i32);
-pub const FileSnapStateSource: DUPLICATE_EXTENTS_STATE = DUPLICATE_EXTENTS_STATE(1i32);
-pub const FileSnapStateTarget: DUPLICATE_EXTENTS_STATE = DUPLICATE_EXTENTS_STATE(2i32);
-pub const FileStorageTierClassCapacity: FILE_STORAGE_TIER_CLASS = FILE_STORAGE_TIER_CLASS(1i32);
-pub const FileStorageTierClassMax: FILE_STORAGE_TIER_CLASS = FILE_STORAGE_TIER_CLASS(3i32);
-pub const FileStorageTierClassPerformance: FILE_STORAGE_TIER_CLASS = FILE_STORAGE_TIER_CLASS(2i32);
-pub const FileStorageTierClassUnspecified: FILE_STORAGE_TIER_CLASS = FILE_STORAGE_TIER_CLASS(0i32);
-pub const FileStorageTierMediaTypeDisk: FILE_STORAGE_TIER_MEDIA_TYPE = FILE_STORAGE_TIER_MEDIA_TYPE(1i32);
-pub const FileStorageTierMediaTypeMax: FILE_STORAGE_TIER_MEDIA_TYPE = FILE_STORAGE_TIER_MEDIA_TYPE(5i32);
-pub const FileStorageTierMediaTypeScm: FILE_STORAGE_TIER_MEDIA_TYPE = FILE_STORAGE_TIER_MEDIA_TYPE(4i32);
-pub const FileStorageTierMediaTypeSsd: FILE_STORAGE_TIER_MEDIA_TYPE = FILE_STORAGE_TIER_MEDIA_TYPE(2i32);
-pub const FileStorageTierMediaTypeUnspecified: FILE_STORAGE_TIER_MEDIA_TYPE = FILE_STORAGE_TIER_MEDIA_TYPE(0i32);
-pub const FixedMedia: MEDIA_TYPE = MEDIA_TYPE(12i32);
-pub const FormFactor1_8: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(3i32);
-pub const FormFactor1_8Less: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(4i32);
-pub const FormFactor2_5: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(2i32);
-pub const FormFactor3_5: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(1i32);
-pub const FormFactorDimm: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(10i32);
-pub const FormFactorEmbedded: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(5i32);
-pub const FormFactorM_2: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(8i32);
-pub const FormFactorMemoryCard: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(6i32);
-pub const FormFactorPCIeBoard: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(9i32);
-pub const FormFactorUnknown: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(0i32);
-pub const FormFactormSata: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(7i32);
-pub const GET_VOLUME_BITMAP_FLAG_MASK_METADATA: u32 = 1u32;
-pub const GPT_ATTRIBUTE_LEGACY_BIOS_BOOTABLE: u64 = 4u64;
-pub const GPT_ATTRIBUTE_NO_BLOCK_IO_PROTOCOL: u64 = 2u64;
-pub const GPT_ATTRIBUTE_PLATFORM_REQUIRED: GPT_ATTRIBUTES = GPT_ATTRIBUTES(1u64);
-pub const GPT_BASIC_DATA_ATTRIBUTE_DAX: u64 = 288230376151711744u64;
-pub const GPT_BASIC_DATA_ATTRIBUTE_HIDDEN: GPT_ATTRIBUTES = GPT_ATTRIBUTES(4611686018427387904u64);
-pub const GPT_BASIC_DATA_ATTRIBUTE_NO_DRIVE_LETTER: GPT_ATTRIBUTES = GPT_ATTRIBUTES(9223372036854775808u64);
-pub const GPT_BASIC_DATA_ATTRIBUTE_OFFLINE: u64 = 576460752303423488u64;
-pub const GPT_BASIC_DATA_ATTRIBUTE_READ_ONLY: GPT_ATTRIBUTES = GPT_ATTRIBUTES(1152921504606846976u64);
-pub const GPT_BASIC_DATA_ATTRIBUTE_SERVICE: u64 = 144115188075855872u64;
-pub const GPT_BASIC_DATA_ATTRIBUTE_SHADOW_COPY: GPT_ATTRIBUTES = GPT_ATTRIBUTES(2305843009213693952u64);
-pub const GPT_SPACES_ATTRIBUTE_NO_METADATA: u64 = 9223372036854775808u64;
-pub const GUID_DEVICEDUMP_DRIVER_STORAGE_PORT: windows_core::GUID = windows_core::GUID::from_u128(0xda82441d_7142_4bc1_b844_0807c5a4b67f);
-pub const GUID_DEVICEDUMP_STORAGE_DEVICE: windows_core::GUID = windows_core::GUID::from_u128(0xd8e2592f_1aab_4d56_a746_1f7585df40f4);
-pub const GUID_DEVINTERFACE_CDCHANGER: windows_core::GUID = windows_core::GUID::from_u128(0x53f56312_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_CDROM: windows_core::GUID = windows_core::GUID::from_u128(0x53f56308_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_COMPORT: windows_core::GUID = windows_core::GUID::from_u128(0x86e0d1e0_8089_11d0_9ce4_08003e301f73);
-pub const GUID_DEVINTERFACE_DISK: windows_core::GUID = windows_core::GUID::from_u128(0x53f56307_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_FLOPPY: windows_core::GUID = windows_core::GUID::from_u128(0x53f56311_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_HIDDEN_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x7f108a28_9833_4b3b_b780_2c6b5fa5c062);
-pub const GUID_DEVINTERFACE_MEDIUMCHANGER: windows_core::GUID = windows_core::GUID::from_u128(0x53f56310_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_PARTITION: windows_core::GUID = windows_core::GUID::from_u128(0x53f5630a_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_SCM_PHYSICAL_DEVICE: windows_core::GUID = windows_core::GUID::from_u128(0x4283609d_4dc2_43be_bbb4_4f15dfce2c61);
-pub const GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e978_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVINTERFACE_SERVICE_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x6ead3d82_25ec_46bc_b7fd_c1f0df8f5037);
-pub const GUID_DEVINTERFACE_SES: windows_core::GUID = windows_core::GUID::from_u128(0x1790c9ec_47d5_4df3_b5af_9adf3cf23e48);
-pub const GUID_DEVINTERFACE_STORAGEPORT: windows_core::GUID = windows_core::GUID::from_u128(0x2accfe60_c130_11d2_b082_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_TAPE: windows_core::GUID = windows_core::GUID::from_u128(0x53f5630b_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_UNIFIED_ACCESS_RPMB: windows_core::GUID = windows_core::GUID::from_u128(0x27447c21_bcc3_4d07_a05b_a3395bb4eee7);
-pub const GUID_DEVINTERFACE_VMLUN: windows_core::GUID = windows_core::GUID::from_u128(0x6f416619_9f29_42a5_b20b_37e219ca02b0);
-pub const GUID_DEVINTERFACE_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x53f5630d_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_WRITEONCEDISK: windows_core::GUID = windows_core::GUID::from_u128(0x53f5630c_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_ZNSDISK: windows_core::GUID = windows_core::GUID::from_u128(0xb87941c5_ffdb_43c7_b6b1_20b632f0b109);
-pub const GUID_SCM_PD_HEALTH_NOTIFICATION: windows_core::GUID = windows_core::GUID::from_u128(0x9da2d386_72f5_4ee3_8155_eca0678e3b06);
-pub const GUID_SCM_PD_PASSTHROUGH_INVDIMM: windows_core::GUID = windows_core::GUID::from_u128(0x4309ac30_0d11_11e4_9191_0800200c9a66);
-pub const HIST_NO_OF_BUCKETS: u32 = 24u32;
-pub const HITACHI_12_WO: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(68i32);
-pub const HealthStatusDisabled: STORAGE_COMPONENT_HEALTH_STATUS = STORAGE_COMPONENT_HEALTH_STATUS(4i32);
-pub const HealthStatusFailed: STORAGE_COMPONENT_HEALTH_STATUS = STORAGE_COMPONENT_HEALTH_STATUS(5i32);
-pub const HealthStatusNormal: STORAGE_COMPONENT_HEALTH_STATUS = STORAGE_COMPONENT_HEALTH_STATUS(1i32);
-pub const HealthStatusThrottled: STORAGE_COMPONENT_HEALTH_STATUS = STORAGE_COMPONENT_HEALTH_STATUS(2i32);
-pub const HealthStatusUnknown: STORAGE_COMPONENT_HEALTH_STATUS = STORAGE_COMPONENT_HEALTH_STATUS(0i32);
-pub const HealthStatusWarning: STORAGE_COMPONENT_HEALTH_STATUS = STORAGE_COMPONENT_HEALTH_STATUS(3i32);
-pub const IBM_3480: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(41i32);
-pub const IBM_3490E: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(42i32);
-pub const IBM_Magstar_3590: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(43i32);
-pub const IBM_Magstar_MP: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(44i32);
-pub const IDENTIFY_BUFFER_SIZE: u32 = 512u32;
-pub const ID_CMD: u32 = 236u32;
-pub const IOCTL_CHANGER_BASE: u32 = 48u32;
-pub const IOCTL_CHANGER_EXCHANGE_MEDIUM: u32 = 3162144u32;
-pub const IOCTL_CHANGER_GET_ELEMENT_STATUS: u32 = 3194900u32;
-pub const IOCTL_CHANGER_GET_PARAMETERS: u32 = 3162112u32;
-pub const IOCTL_CHANGER_GET_PRODUCT_DATA: u32 = 3162120u32;
-pub const IOCTL_CHANGER_GET_STATUS: u32 = 3162116u32;
-pub const IOCTL_CHANGER_INITIALIZE_ELEMENT_STATUS: u32 = 3162136u32;
-pub const IOCTL_CHANGER_MOVE_MEDIUM: u32 = 3162148u32;
-pub const IOCTL_CHANGER_QUERY_VOLUME_TAGS: u32 = 3194924u32;
-pub const IOCTL_CHANGER_REINITIALIZE_TRANSPORT: u32 = 3162152u32;
-pub const IOCTL_CHANGER_SET_ACCESS: u32 = 3194896u32;
-pub const IOCTL_CHANGER_SET_POSITION: u32 = 3162140u32;
-pub const IOCTL_DISK_BASE: u32 = 7u32;
-pub const IOCTL_DISK_CHECK_VERIFY: u32 = 477184u32;
-pub const IOCTL_DISK_CONTROLLER_NUMBER: u32 = 458820u32;
-pub const IOCTL_DISK_CREATE_DISK: u32 = 507992u32;
-pub const IOCTL_DISK_DELETE_DRIVE_LAYOUT: u32 = 508160u32;
-pub const IOCTL_DISK_EJECT_MEDIA: u32 = 477192u32;
-pub const IOCTL_DISK_FIND_NEW_DEVICES: u32 = 477208u32;
-pub const IOCTL_DISK_FORMAT_DRIVE: u32 = 508876u32;
-pub const IOCTL_DISK_FORMAT_TRACKS: u32 = 507928u32;
-pub const IOCTL_DISK_FORMAT_TRACKS_EX: u32 = 507948u32;
-pub const IOCTL_DISK_GET_CACHE_INFORMATION: u32 = 475348u32;
-pub const IOCTL_DISK_GET_DISK_ATTRIBUTES: u32 = 458992u32;
-pub const IOCTL_DISK_GET_DRIVE_GEOMETRY: u32 = 458752u32;
-pub const IOCTL_DISK_GET_DRIVE_GEOMETRY_EX: u32 = 458912u32;
-pub const IOCTL_DISK_GET_DRIVE_LAYOUT: u32 = 475148u32;
-pub const IOCTL_DISK_GET_DRIVE_LAYOUT_EX: u32 = 458832u32;
-pub const IOCTL_DISK_GET_LENGTH_INFO: u32 = 475228u32;
-pub const IOCTL_DISK_GET_MEDIA_TYPES: u32 = 461824u32;
-pub const IOCTL_DISK_GET_PARTITION_INFO: u32 = 475140u32;
-pub const IOCTL_DISK_GET_PARTITION_INFO_EX: u32 = 458824u32;
-pub const IOCTL_DISK_GET_WRITE_CACHE_STATE: u32 = 475356u32;
-pub const IOCTL_DISK_GROW_PARTITION: u32 = 508112u32;
-pub const IOCTL_DISK_HISTOGRAM_DATA: u32 = 458804u32;
-pub const IOCTL_DISK_HISTOGRAM_RESET: u32 = 458808u32;
-pub const IOCTL_DISK_HISTOGRAM_STRUCTURE: u32 = 458800u32;
-pub const IOCTL_DISK_IS_WRITABLE: u32 = 458788u32;
-pub const IOCTL_DISK_LOAD_MEDIA: u32 = 477196u32;
-pub const IOCTL_DISK_LOGGING: u32 = 458792u32;
-pub const IOCTL_DISK_MEDIA_REMOVAL: u32 = 477188u32;
-pub const IOCTL_DISK_PERFORMANCE: u32 = 458784u32;
-pub const IOCTL_DISK_PERFORMANCE_OFF: u32 = 458848u32;
-pub const IOCTL_DISK_REASSIGN_BLOCKS: u32 = 507932u32;
-pub const IOCTL_DISK_REASSIGN_BLOCKS_EX: u32 = 508068u32;
-pub const IOCTL_DISK_RELEASE: u32 = 477204u32;
-pub const IOCTL_DISK_REQUEST_DATA: u32 = 458816u32;
-pub const IOCTL_DISK_REQUEST_STRUCTURE: u32 = 458812u32;
-pub const IOCTL_DISK_RESERVE: u32 = 477200u32;
-pub const IOCTL_DISK_RESET_SNAPSHOT_INFO: u32 = 508432u32;
-pub const IOCTL_DISK_SENSE_DEVICE: u32 = 459744u32;
-pub const IOCTL_DISK_SET_CACHE_INFORMATION: u32 = 508120u32;
-pub const IOCTL_DISK_SET_DISK_ATTRIBUTES: u32 = 508148u32;
-pub const IOCTL_DISK_SET_DRIVE_LAYOUT: u32 = 507920u32;
-pub const IOCTL_DISK_SET_DRIVE_LAYOUT_EX: u32 = 507988u32;
-pub const IOCTL_DISK_SET_PARTITION_INFO: u32 = 507912u32;
-pub const IOCTL_DISK_SET_PARTITION_INFO_EX: u32 = 507980u32;
-pub const IOCTL_DISK_UPDATE_DRIVE_SIZE: u32 = 508104u32;
-pub const IOCTL_DISK_UPDATE_PROPERTIES: u32 = 459072u32;
-pub const IOCTL_DISK_VERIFY: u32 = 458772u32;
-pub const IOCTL_SCMBUS_BASE: u32 = 89u32;
-pub const IOCTL_SCMBUS_DEVICE_FUNCTION_BASE: u32 = 0u32;
-pub const IOCTL_SCM_BUS_GET_LOGICAL_DEVICES: u32 = 5832704u32;
-pub const IOCTL_SCM_BUS_GET_PHYSICAL_DEVICES: u32 = 5832708u32;
-pub const IOCTL_SCM_BUS_GET_REGIONS: u32 = 5832712u32;
-pub const IOCTL_SCM_BUS_QUERY_PROPERTY: u32 = 5832716u32;
-pub const IOCTL_SCM_BUS_REFRESH_NAMESPACE: u32 = 5832728u32;
-pub const IOCTL_SCM_BUS_RUNTIME_FW_ACTIVATE: u32 = 5865488u32;
-pub const IOCTL_SCM_BUS_SET_PROPERTY: u32 = 5865492u32;
-pub const IOCTL_SCM_LD_GET_INTERLEAVE_SET: u32 = 5835776u32;
-pub const IOCTL_SCM_LOGICAL_DEVICE_FUNCTION_BASE: u32 = 768u32;
-pub const IOCTL_SCM_PD_FIRMWARE_ACTIVATE: u32 = 5871624u32;
-pub const IOCTL_SCM_PD_FIRMWARE_DOWNLOAD: u32 = 5871620u32;
-pub const IOCTL_SCM_PD_PASSTHROUGH: u32 = 5888012u32;
-pub const IOCTL_SCM_PD_QUERY_PROPERTY: u32 = 5838848u32;
-pub const IOCTL_SCM_PD_REINITIALIZE_MEDIA: u32 = 5871636u32;
-pub const IOCTL_SCM_PD_SET_PROPERTY: u32 = 5871640u32;
-pub const IOCTL_SCM_PD_UPDATE_MANAGEMENT_STATUS: u32 = 5838864u32;
-pub const IOCTL_SCM_PHYSICAL_DEVICE_FUNCTION_BASE: u32 = 1536u32;
-pub const IOCTL_SERENUM_EXPOSE_HARDWARE: u32 = 3604992u32;
-pub const IOCTL_SERENUM_GET_PORT_NAME: u32 = 3605004u32;
-pub const IOCTL_SERENUM_PORT_DESC: u32 = 3605000u32;
-pub const IOCTL_SERENUM_REMOVE_HARDWARE: u32 = 3604996u32;
-pub const IOCTL_SERIAL_LSRMST_INSERT: u32 = 1769596u32;
-pub const IOCTL_STORAGE_ALLOCATE_BC_STREAM: u32 = 3004420u32;
-pub const IOCTL_STORAGE_ATTRIBUTE_MANAGEMENT: u32 = 3005596u32;
-pub const IOCTL_STORAGE_BASE: u32 = 45u32;
-pub const IOCTL_STORAGE_BC_VERSION: u32 = 1u32;
-pub const IOCTL_STORAGE_BREAK_RESERVATION: u32 = 2969620u32;
-pub const IOCTL_STORAGE_CHECK_PRIORITY_HINT_SUPPORT: u32 = 2955392u32;
-pub const IOCTL_STORAGE_CHECK_VERIFY: u32 = 2967552u32;
-pub const IOCTL_STORAGE_CHECK_VERIFY2: u32 = 2951168u32;
-pub const IOCTL_STORAGE_DEVICE_POWER_CAP: u32 = 2956436u32;
-pub const IOCTL_STORAGE_DEVICE_TELEMETRY_NOTIFY: u32 = 3002820u32;
-pub const IOCTL_STORAGE_DEVICE_TELEMETRY_QUERY_CAPS: u32 = 3002824u32;
-pub const IOCTL_STORAGE_DIAGNOSTIC: u32 = 2956448u32;
-pub const IOCTL_STORAGE_EJECTION_CONTROL: u32 = 2951488u32;
-pub const IOCTL_STORAGE_EJECT_MEDIA: u32 = 2967560u32;
-pub const IOCTL_STORAGE_ENABLE_IDLE_POWER: u32 = 2956416u32;
-pub const IOCTL_STORAGE_EVENT_NOTIFICATION: u32 = 2956432u32;
-pub const IOCTL_STORAGE_FAILURE_PREDICTION_CONFIG: u32 = 2953476u32;
-pub const IOCTL_STORAGE_FIND_NEW_DEVICES: u32 = 2967576u32;
-pub const IOCTL_STORAGE_FIRMWARE_ACTIVATE: u32 = 3005448u32;
-pub const IOCTL_STORAGE_FIRMWARE_DOWNLOAD: u32 = 3005444u32;
-pub const IOCTL_STORAGE_FIRMWARE_GET_INFO: u32 = 2956288u32;
-pub const IOCTL_STORAGE_FREE_BC_STREAM: u32 = 3004424u32;
-pub const IOCTL_STORAGE_GET_BC_PROPERTIES: u32 = 2971648u32;
-pub const IOCTL_STORAGE_GET_COUNTERS: u32 = 2953480u32;
-pub const IOCTL_STORAGE_GET_DEVICE_INTERNAL_LOG: u32 = 2956484u32;
-pub const IOCTL_STORAGE_GET_DEVICE_NUMBER: u32 = 2953344u32;
-pub const IOCTL_STORAGE_GET_DEVICE_NUMBER_EX: u32 = 2953348u32;
-pub const IOCTL_STORAGE_GET_DEVICE_TELEMETRY: u32 = 3002816u32;
-pub const IOCTL_STORAGE_GET_DEVICE_TELEMETRY_RAW: u32 = 3002828u32;
-pub const IOCTL_STORAGE_GET_HOTPLUG_INFO: u32 = 2952212u32;
-pub const IOCTL_STORAGE_GET_IDLE_POWERUP_REASON: u32 = 2956420u32;
-pub const IOCTL_STORAGE_GET_LB_PROVISIONING_MAP_RESOURCES: u32 = 2970632u32;
-pub const IOCTL_STORAGE_GET_MEDIA_SERIAL_NUMBER: u32 = 2952208u32;
-pub const IOCTL_STORAGE_GET_MEDIA_TYPES: u32 = 2952192u32;
-pub const IOCTL_STORAGE_GET_MEDIA_TYPES_EX: u32 = 2952196u32;
-pub const IOCTL_STORAGE_GET_PHYSICAL_ELEMENT_STATUS: u32 = 2956452u32;
-pub const IOCTL_STORAGE_LOAD_MEDIA: u32 = 2967564u32;
-pub const IOCTL_STORAGE_LOAD_MEDIA2: u32 = 2951180u32;
-pub const IOCTL_STORAGE_MANAGE_BYPASS_IO: u32 = 2951360u32;
-pub const IOCTL_STORAGE_MANAGE_DATA_SET_ATTRIBUTES: u32 = 2987012u32;
-pub const IOCTL_STORAGE_MCN_CONTROL: u32 = 2951492u32;
-pub const IOCTL_STORAGE_MEDIA_REMOVAL: u32 = 2967556u32;
-pub const IOCTL_STORAGE_PERSISTENT_RESERVE_IN: u32 = 2969624u32;
-pub const IOCTL_STORAGE_PERSISTENT_RESERVE_OUT: u32 = 3002396u32;
-pub const IOCTL_STORAGE_POWER_ACTIVE: u32 = 2956424u32;
-pub const IOCTL_STORAGE_POWER_IDLE: u32 = 2956428u32;
-pub const IOCTL_STORAGE_PREDICT_FAILURE: u32 = 2953472u32;
-pub const IOCTL_STORAGE_PROTOCOL_COMMAND: u32 = 3003328u32;
-pub const IOCTL_STORAGE_QUERY_PROPERTY: u32 = 2954240u32;
-pub const IOCTL_STORAGE_READ_CAPACITY: u32 = 2969920u32;
-pub const IOCTL_STORAGE_REINITIALIZE_MEDIA: u32 = 2987584u32;
-pub const IOCTL_STORAGE_RELEASE: u32 = 2967572u32;
-pub const IOCTL_STORAGE_REMOVE_ELEMENT_AND_TRUNCATE: u32 = 2956480u32;
-pub const IOCTL_STORAGE_RESERVE: u32 = 2967568u32;
-pub const IOCTL_STORAGE_RESET_BUS: u32 = 2969600u32;
-pub const IOCTL_STORAGE_RESET_DEVICE: u32 = 2969604u32;
-pub const IOCTL_STORAGE_RPMB_COMMAND: u32 = 2956440u32;
-pub const IOCTL_STORAGE_SET_HOTPLUG_INFO: u32 = 3001368u32;
-pub const IOCTL_STORAGE_SET_PROPERTY: u32 = 2987004u32;
-pub const IOCTL_STORAGE_SET_TEMPERATURE_THRESHOLD: u32 = 3002880u32;
-pub const IOCTL_STORAGE_START_DATA_INTEGRITY_CHECK: u32 = 3004548u32;
-pub const IOCTL_STORAGE_STOP_DATA_INTEGRITY_CHECK: u32 = 3004552u32;
-pub const IOMEGA_JAZ: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(74i32);
-pub const IOMEGA_ZIP: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(73i32);
-pub const KODAK_14_WO: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(70i32);
-pub const KeepPrefetchedData: DISK_CACHE_RETENTION_PRIORITY = DISK_CACHE_RETENTION_PRIORITY(1i32);
-pub const KeepReadData: DISK_CACHE_RETENTION_PRIORITY = DISK_CACHE_RETENTION_PRIORITY(2i32);
-pub const LMRQuerySessionInfo: LMR_QUERY_INFO_CLASS = LMR_QUERY_INFO_CLASS(1i32);
-pub const LOCK_ELEMENT: u32 = 0u32;
-pub const LOCK_UNLOCK_DOOR: u32 = 2u32;
-pub const LOCK_UNLOCK_IEPORT: u32 = 1u32;
-pub const LOCK_UNLOCK_KEYPAD: u32 = 4u32;
-pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_ATTRIBUTE_DATA: u32 = 16777216u32;
-pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_ATTRIBUTE_INDEX: u32 = 33554432u32;
-pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_ATTRIBUTE_MASK: u32 = 4278190080u32;
-pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_ATTRIBUTE_SYSTEM: u32 = 50331648u32;
-pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_DENY_DEFRAG_SET: u32 = 2u32;
-pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_FS_SYSTEM_FILE: u32 = 4u32;
-pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_PAGE_FILE: u32 = 1u32;
-pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_TXF_SYSTEM_FILE: u32 = 8u32;
-pub const LTO_Accelis: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(87i32);
-pub const LTO_Ultrium: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(86i32);
-pub const MARK_HANDLE_CLOUD_SYNC: u32 = 2048u32;
-pub const MARK_HANDLE_DISABLE_FILE_METADATA_OPTIMIZATION: u32 = 4096u32;
-pub const MARK_HANDLE_ENABLE_CPU_CACHE: u32 = 268435456u32;
-pub const MARK_HANDLE_ENABLE_USN_SOURCE_ON_PAGING_IO: u32 = 8192u32;
-pub const MARK_HANDLE_FILTER_METADATA: u32 = 512u32;
-pub const MARK_HANDLE_NOT_READ_COPY: u32 = 256u32;
-pub const MARK_HANDLE_NOT_REALTIME: u32 = 64u32;
-pub const MARK_HANDLE_NOT_TXF_SYSTEM_LOG: u32 = 8u32;
-pub const MARK_HANDLE_PROTECT_CLUSTERS: u32 = 1u32;
-pub const MARK_HANDLE_READ_COPY: u32 = 128u32;
-pub const MARK_HANDLE_REALTIME: u32 = 32u32;
-pub const MARK_HANDLE_RETURN_PURGE_FAILURE: u32 = 1024u32;
-pub const MARK_HANDLE_SKIP_COHERENCY_SYNC_DISALLOW_WRITES: u32 = 16384u32;
-pub const MARK_HANDLE_SUPPRESS_VOLUME_OPEN_FLUSH: u32 = 32768u32;
-pub const MARK_HANDLE_TXF_SYSTEM_LOG: u32 = 4u32;
-pub const MAXIMUM_ENCRYPTION_VALUE: u32 = 4u32;
-pub const MAX_FW_BUCKET_ID_LENGTH: u32 = 132u32;
-pub const MAX_INTERFACE_CODES: u32 = 8u32;
-pub const MAX_VOLUME_ID_SIZE: u32 = 36u32;
-pub const MAX_VOLUME_TEMPLATE_SIZE: u32 = 40u32;
-pub const MEDIA_CURRENTLY_MOUNTED: u32 = 2147483648u32;
-pub const MEDIA_ERASEABLE: u32 = 1u32;
-pub const MEDIA_READ_ONLY: u32 = 4u32;
-pub const MEDIA_READ_WRITE: u32 = 8u32;
-pub const MEDIA_WRITE_ONCE: u32 = 2u32;
-pub const MEDIA_WRITE_PROTECTED: u32 = 256u32;
-pub const METHOD_BUFFERED: u32 = 0u32;
-pub const METHOD_DIRECT_FROM_HARDWARE: u32 = 2u32;
-pub const METHOD_DIRECT_TO_HARDWARE: u32 = 1u32;
-pub const METHOD_IN_DIRECT: u32 = 1u32;
-pub const METHOD_NEITHER: u32 = 3u32;
-pub const METHOD_OUT_DIRECT: u32 = 2u32;
-pub const MO_3_RW: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(57i32);
-pub const MO_5_LIMDOW: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(60i32);
-pub const MO_5_RW: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(59i32);
-pub const MO_5_WO: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(58i32);
-pub const MO_NFR_525: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(71i32);
-pub const MP2_8mm: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(79i32);
-pub const MP_8mm: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(36i32);
-pub const MiniQic: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(33i32);
-pub const NCTP: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(40i32);
-pub const NIKON_12_RW: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(72i32);
-pub const NVMeDataTypeFeature: STORAGE_PROTOCOL_NVME_DATA_TYPE = STORAGE_PROTOCOL_NVME_DATA_TYPE(3i32);
-pub const NVMeDataTypeIdentify: STORAGE_PROTOCOL_NVME_DATA_TYPE = STORAGE_PROTOCOL_NVME_DATA_TYPE(1i32);
-pub const NVMeDataTypeLogPage: STORAGE_PROTOCOL_NVME_DATA_TYPE = STORAGE_PROTOCOL_NVME_DATA_TYPE(2i32);
-pub const NVMeDataTypeUnknown: STORAGE_PROTOCOL_NVME_DATA_TYPE = STORAGE_PROTOCOL_NVME_DATA_TYPE(0i32);
-pub const OBSOLETE_DISK_GET_WRITE_CACHE_STATE: u32 = 475356u32;
-pub const OBSOLETE_IOCTL_STORAGE_RESET_BUS: u32 = 3002368u32;
-pub const OBSOLETE_IOCTL_STORAGE_RESET_DEVICE: u32 = 3002372u32;
-pub const OFFLOAD_READ_FLAG_ALL_ZERO_BEYOND_CURRENT_RANGE: u32 = 1u32;
-pub const OPLOCK_LEVEL_CACHE_HANDLE: u32 = 2u32;
-pub const OPLOCK_LEVEL_CACHE_READ: u32 = 1u32;
-pub const OPLOCK_LEVEL_CACHE_WRITE: u32 = 4u32;
-pub const PARTIITON_OS_DATA: u32 = 41u32;
-pub const PARTITION_BSP: u32 = 43u32;
-pub const PARTITION_DM: u32 = 84u32;
-pub const PARTITION_DPP: u32 = 44u32;
-pub const PARTITION_ENTRY_UNUSED: u32 = 0u32;
-pub const PARTITION_EXTENDED: u32 = 5u32;
-pub const PARTITION_EZDRIVE: u32 = 85u32;
-pub const PARTITION_FAT32: u32 = 11u32;
-pub const PARTITION_FAT32_XINT13: u32 = 12u32;
-pub const PARTITION_FAT_12: u32 = 1u32;
-pub const PARTITION_FAT_16: u32 = 4u32;
-pub const PARTITION_GPT: u32 = 238u32;
-pub const PARTITION_HUGE: u32 = 6u32;
-pub const PARTITION_IFS: u32 = 7u32;
-pub const PARTITION_LDM: u32 = 66u32;
-pub const PARTITION_MAIN_OS: u32 = 40u32;
-pub const PARTITION_MSFT_RECOVERY: u32 = 39u32;
-pub const PARTITION_NTFT: u32 = 128u32;
-pub const PARTITION_OS2BOOTMGR: u32 = 10u32;
-pub const PARTITION_PREP: u32 = 65u32;
-pub const PARTITION_PRE_INSTALLED: u32 = 42u32;
-pub const PARTITION_SPACES: u32 = 231u32;
-pub const PARTITION_SPACES_DATA: u32 = 215u32;
-pub const PARTITION_STYLE_GPT: PARTITION_STYLE = PARTITION_STYLE(1i32);
-pub const PARTITION_STYLE_MBR: PARTITION_STYLE = PARTITION_STYLE(0i32);
-pub const PARTITION_STYLE_RAW: PARTITION_STYLE = PARTITION_STYLE(2i32);
-pub const PARTITION_SYSTEM: u32 = 239u32;
-pub const PARTITION_UNIX: u32 = 99u32;
-pub const PARTITION_WINDOWS_SYSTEM: u32 = 45u32;
-pub const PARTITION_XENIX_1: u32 = 2u32;
-pub const PARTITION_XENIX_2: u32 = 3u32;
-pub const PARTITION_XINT13: u32 = 14u32;
-pub const PARTITION_XINT13_EXTENDED: u32 = 15u32;
-pub const PC_5_RW: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(62i32);
-pub const PC_5_WO: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(61i32);
-pub const PD_5_RW: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(63i32);
-pub const PERSISTENT_VOLUME_STATE_BACKED_BY_WIM: u32 = 64u32;
-pub const PERSISTENT_VOLUME_STATE_CHKDSK_RAN_ONCE: u32 = 1024u32;
-pub const PERSISTENT_VOLUME_STATE_CONTAINS_BACKING_WIM: u32 = 32u32;
-pub const PERSISTENT_VOLUME_STATE_DAX_FORMATTED: u32 = 4096u32;
-pub const PERSISTENT_VOLUME_STATE_DEV_VOLUME: u32 = 8192u32;
-pub const PERSISTENT_VOLUME_STATE_GLOBAL_METADATA_NO_SEEK_PENALTY: u32 = 4u32;
-pub const PERSISTENT_VOLUME_STATE_LOCAL_METADATA_NO_SEEK_PENALTY: u32 = 8u32;
-pub const PERSISTENT_VOLUME_STATE_MODIFIED_BY_CHKDSK: u32 = 2048u32;
-pub const PERSISTENT_VOLUME_STATE_NO_HEAT_GATHERING: u32 = 16u32;
-pub const PERSISTENT_VOLUME_STATE_NO_WRITE_AUTO_TIERING: u32 = 128u32;
-pub const PERSISTENT_VOLUME_STATE_REALLOCATE_ALL_DATA_WRITES: u32 = 512u32;
-pub const PERSISTENT_VOLUME_STATE_SHORT_NAME_CREATION_DISABLED: u32 = 1u32;
-pub const PERSISTENT_VOLUME_STATE_TRUSTED_VOLUME: u32 = 16384u32;
-pub const PERSISTENT_VOLUME_STATE_TXF_DISABLED: u32 = 256u32;
-pub const PERSISTENT_VOLUME_STATE_VOLUME_SCRUB_DISABLED: u32 = 2u32;
-pub const PHILIPS_12_WO: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(67i32);
-pub const PINNACLE_APEX_5_RW: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(65i32);
-pub const PRODUCT_ID_LENGTH: u32 = 16u32;
-pub const PROJFS_PROTOCOL_VERSION: u32 = 3u32;
-pub const PropertyExistsQuery: STORAGE_QUERY_TYPE = STORAGE_QUERY_TYPE(1i32);
-pub const PropertyExistsSet: STORAGE_SET_TYPE = STORAGE_SET_TYPE(1i32);
-pub const PropertyMaskQuery: STORAGE_QUERY_TYPE = STORAGE_QUERY_TYPE(2i32);
-pub const PropertyQueryMaxDefined: STORAGE_QUERY_TYPE = STORAGE_QUERY_TYPE(3i32);
-pub const PropertySetMaxDefined: STORAGE_SET_TYPE = STORAGE_SET_TYPE(2i32);
-pub const PropertyStandardQuery: STORAGE_QUERY_TYPE = STORAGE_QUERY_TYPE(0i32);
-pub const PropertyStandardSet: STORAGE_SET_TYPE = STORAGE_SET_TYPE(0i32);
-pub const ProtocolTypeAta: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(2i32);
-pub const ProtocolTypeMaxReserved: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(127i32);
-pub const ProtocolTypeNvme: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(3i32);
-pub const ProtocolTypeProprietary: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(126i32);
-pub const ProtocolTypeScsi: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(1i32);
-pub const ProtocolTypeSd: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(4i32);
-pub const ProtocolTypeUfs: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(5i32);
-pub const ProtocolTypeUnknown: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(0i32);
-pub const QIC: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(35i32);
-pub const QUERY_DEPENDENT_VOLUME_REQUEST_FLAG_GUEST_VOLUMES: u32 = 2u32;
-pub const QUERY_DEPENDENT_VOLUME_REQUEST_FLAG_HOST_VOLUMES: u32 = 1u32;
-pub const QUERY_FILE_LAYOUT_FILTER_TYPE_CLUSTERS: QUERY_FILE_LAYOUT_FILTER_TYPE = QUERY_FILE_LAYOUT_FILTER_TYPE(1i32);
-pub const QUERY_FILE_LAYOUT_FILTER_TYPE_FILEID: QUERY_FILE_LAYOUT_FILTER_TYPE = QUERY_FILE_LAYOUT_FILTER_TYPE(2i32);
-pub const QUERY_FILE_LAYOUT_FILTER_TYPE_NONE: QUERY_FILE_LAYOUT_FILTER_TYPE = QUERY_FILE_LAYOUT_FILTER_TYPE(0i32);
-pub const QUERY_FILE_LAYOUT_FILTER_TYPE_STORAGE_RESERVE_ID: QUERY_FILE_LAYOUT_FILTER_TYPE = QUERY_FILE_LAYOUT_FILTER_TYPE(3i32);
-pub const QUERY_FILE_LAYOUT_INCLUDE_EXTENTS: u32 = 8u32;
-pub const QUERY_FILE_LAYOUT_INCLUDE_EXTRA_INFO: u32 = 16u32;
-pub const QUERY_FILE_LAYOUT_INCLUDE_FILES_WITH_DSC_ATTRIBUTE: u32 = 4096u32;
-pub const QUERY_FILE_LAYOUT_INCLUDE_FULL_PATH_IN_NAMES: u32 = 64u32;
-pub const QUERY_FILE_LAYOUT_INCLUDE_NAMES: u32 = 2u32;
-pub const QUERY_FILE_LAYOUT_INCLUDE_ONLY_FILES_WITH_SPECIFIC_ATTRIBUTES: u32 = 2048u32;
-pub const QUERY_FILE_LAYOUT_INCLUDE_STREAMS: u32 = 4u32;
-pub const QUERY_FILE_LAYOUT_INCLUDE_STREAMS_WITH_NO_CLUSTERS_ALLOCATED: u32 = 32u32;
-pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION: u32 = 128u32;
-pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_DATA_ATTRIBUTE: u32 = 8192u32;
-pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_DSC_ATTRIBUTE: u32 = 256u32;
-pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_EA_ATTRIBUTE: u32 = 32768u32;
-pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_EFS_ATTRIBUTE: u32 = 1024u32;
-pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_REPARSE_ATTRIBUTE: u32 = 16384u32;
-pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_TXF_ATTRIBUTE: u32 = 512u32;
-pub const QUERY_FILE_LAYOUT_NUM_FILTER_TYPES: QUERY_FILE_LAYOUT_FILTER_TYPE = QUERY_FILE_LAYOUT_FILTER_TYPE(4i32);
-pub const QUERY_FILE_LAYOUT_REPARSE_DATA_INVALID: u32 = 1u32;
-pub const QUERY_FILE_LAYOUT_REPARSE_TAG_INVALID: u32 = 2u32;
-pub const QUERY_FILE_LAYOUT_RESTART: u32 = 1u32;
-pub const QUERY_FILE_LAYOUT_SINGLE_INSTANCED: u32 = 1u32;
-pub const QUERY_STORAGE_CLASSES_FLAGS_MEASURE_READ: u32 = 1073741824u32;
-pub const QUERY_STORAGE_CLASSES_FLAGS_MEASURE_WRITE: u32 = 2147483648u32;
-pub const QUERY_STORAGE_CLASSES_FLAGS_NO_DEFRAG_VOLUME: u32 = 536870912u32;
-pub const READ_ATTRIBUTES: u32 = 208u32;
-pub const READ_ATTRIBUTE_BUFFER_SIZE: u32 = 512u32;
-pub const READ_COMPRESSION_INFO_VALID: u32 = 32u32;
-pub const READ_COPY_NUMBER_BYPASS_CACHE_FLAG: u32 = 256u32;
-pub const READ_COPY_NUMBER_KEY: u32 = 1380142592u32;
-pub const READ_THRESHOLDS: u32 = 209u32;
-pub const READ_THRESHOLD_BUFFER_SIZE: u32 = 512u32;
-pub const RECOVERED_READS_VALID: u32 = 4u32;
-pub const RECOVERED_WRITES_VALID: u32 = 1u32;
-pub const REFS_SMR_VOLUME_GC_PARAMETERS_VERSION_V1: u32 = 1u32;
-pub const REFS_SMR_VOLUME_INFO_OUTPUT_VERSION_V0: u32 = 0u32;
-pub const REFS_SMR_VOLUME_INFO_OUTPUT_VERSION_V1: u32 = 1u32;
-pub const REPLACE_ALTERNATE: u32 = 11u32;
-pub const REPLACE_PRIMARY: u32 = 10u32;
-pub const REQUEST_OPLOCK_CURRENT_VERSION: u32 = 1u32;
-pub const REQUEST_OPLOCK_INPUT_FLAG_ACK: u32 = 2u32;
-pub const REQUEST_OPLOCK_INPUT_FLAG_COMPLETE_ACK_ON_CLOSE: u32 = 4u32;
-pub const REQUEST_OPLOCK_INPUT_FLAG_REQUEST: u32 = 1u32;
-pub const REQUEST_OPLOCK_OUTPUT_FLAG_ACK_REQUIRED: u32 = 1u32;
-pub const REQUEST_OPLOCK_OUTPUT_FLAG_MODES_PROVIDED: u32 = 2u32;
-pub const REQUEST_OPLOCK_OUTPUT_FLAG_WRITABLE_SECTION_PRESENT: u32 = 4u32;
-pub const RETRACT_IEPORT: u32 = 3u32;
-pub const RETURN_SMART_STATUS: u32 = 218u32;
-pub const REVISION_LENGTH: u32 = 4u32;
-pub const RemovableMedia: MEDIA_TYPE = MEDIA_TYPE(11i32);
-pub const RequestLocation: BIN_TYPES = BIN_TYPES(1i32);
-pub const RequestSize: BIN_TYPES = BIN_TYPES(0i32);
-pub const SAIT: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(93i32);
-pub const SAVE_ATTRIBUTE_VALUES: u32 = 211u32;
-pub const SCM_MAX_SYMLINK_LEN_IN_CHARS: u32 = 256u32;
-pub const SCM_PD_FIRMWARE_LAST_DOWNLOAD: u32 = 1u32;
-pub const SCM_PD_FIRMWARE_REVISION_LENGTH_BYTES: u32 = 32u32;
-pub const SCM_PD_MAX_OPERATIONAL_STATUS: u32 = 16u32;
-pub const SCM_PD_PROPERTY_NAME_LENGTH_IN_CHARS: u32 = 128u32;
-pub const SD_GLOBAL_CHANGE_TYPE_ENUM_SDS: u32 = 131072u32;
-pub const SD_GLOBAL_CHANGE_TYPE_MACHINE_SID: u32 = 1u32;
-pub const SD_GLOBAL_CHANGE_TYPE_QUERY_STATS: u32 = 65536u32;
-pub const SEARCH_ALL: u32 = 0u32;
-pub const SEARCH_ALL_NO_SEQ: u32 = 4u32;
-pub const SEARCH_ALTERNATE: u32 = 2u32;
-pub const SEARCH_ALT_NO_SEQ: u32 = 6u32;
-pub const SEARCH_PRIMARY: u32 = 1u32;
-pub const SEARCH_PRI_NO_SEQ: u32 = 5u32;
-pub const SERIAL_IOC_FCR_DMA_MODE: u32 = 8u32;
-pub const SERIAL_IOC_FCR_FIFO_ENABLE: u32 = 1u32;
-pub const SERIAL_IOC_FCR_RCVR_RESET: u32 = 2u32;
-pub const SERIAL_IOC_FCR_RCVR_TRIGGER_LSB: u32 = 64u32;
-pub const SERIAL_IOC_FCR_RCVR_TRIGGER_MSB: u32 = 128u32;
-pub const SERIAL_IOC_FCR_RES1: u32 = 16u32;
-pub const SERIAL_IOC_FCR_RES2: u32 = 32u32;
-pub const SERIAL_IOC_FCR_XMIT_RESET: u32 = 4u32;
-pub const SERIAL_IOC_MCR_DTR: u32 = 1u32;
-pub const SERIAL_IOC_MCR_LOOP: u32 = 16u32;
-pub const SERIAL_IOC_MCR_OUT1: u32 = 4u32;
-pub const SERIAL_IOC_MCR_OUT2: u32 = 8u32;
-pub const SERIAL_IOC_MCR_RTS: u32 = 2u32;
-pub const SERIAL_NUMBER_LENGTH: u32 = 32u32;
-pub const SET_PURGE_FAILURE_MODE_DISABLED: u32 = 2u32;
-pub const SET_PURGE_FAILURE_MODE_ENABLED: u32 = 1u32;
-pub const SET_REPAIR_DISABLED_AND_BUGCHECK_ON_CORRUPT: u32 = 16u32;
-pub const SET_REPAIR_ENABLED: u32 = 1u32;
-pub const SET_REPAIR_VALID_MASK: u32 = 25u32;
-pub const SET_REPAIR_WARN_ABOUT_DATA_LOSS: u32 = 8u32;
-pub const SMART_ABORT_OFFLINE_SELFTEST: u32 = 127u32;
-pub const SMART_CMD: u32 = 176u32;
-pub const SMART_CYL_HI: u32 = 194u32;
-pub const SMART_CYL_LOW: u32 = 79u32;
-pub const SMART_ERROR_NO_MEM: u32 = 7u32;
-pub const SMART_EXTENDED_SELFTEST_CAPTIVE: u32 = 130u32;
-pub const SMART_EXTENDED_SELFTEST_OFFLINE: u32 = 2u32;
-pub const SMART_GET_VERSION: u32 = 475264u32;
-pub const SMART_IDE_ERROR: u32 = 1u32;
-pub const SMART_INVALID_BUFFER: u32 = 4u32;
-pub const SMART_INVALID_COMMAND: u32 = 3u32;
-pub const SMART_INVALID_DRIVE: u32 = 5u32;
-pub const SMART_INVALID_FLAG: u32 = 2u32;
-pub const SMART_INVALID_IOCTL: u32 = 6u32;
-pub const SMART_INVALID_REGISTER: u32 = 8u32;
-pub const SMART_LOG_SECTOR_SIZE: u32 = 512u32;
-pub const SMART_NOT_SUPPORTED: u32 = 9u32;
-pub const SMART_NO_ERROR: u32 = 0u32;
-pub const SMART_NO_IDE_DEVICE: u32 = 10u32;
-pub const SMART_OFFLINE_ROUTINE_OFFLINE: u32 = 0u32;
-pub const SMART_RCV_DRIVE_DATA: u32 = 508040u32;
-pub const SMART_RCV_DRIVE_DATA_EX: u32 = 458892u32;
-pub const SMART_READ_LOG: u32 = 213u32;
-pub const SMART_SEND_DRIVE_COMMAND: u32 = 508036u32;
-pub const SMART_SHORT_SELFTEST_CAPTIVE: u32 = 129u32;
-pub const SMART_SHORT_SELFTEST_OFFLINE: u32 = 1u32;
-pub const SMART_WRITE_LOG: u32 = 214u32;
-pub const SONY_12_WO: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(66i32);
-pub const SONY_D2: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(49i32);
-pub const SONY_DTF: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(46i32);
-pub const SPACES_TRACKED_OFFSET_HEADER_FLAG: u32 = 2u32;
-pub const SRB_TYPE_SCSI_REQUEST_BLOCK: u32 = 0u32;
-pub const SRB_TYPE_STORAGE_REQUEST_BLOCK: u32 = 1u32;
-pub const STK_9840: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(85i32);
-pub const STK_9940: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(92i32);
-pub const STK_DATA_D3: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(45i32);
-pub const STORAGE_ADAPTER_SERIAL_NUMBER_V1_MAX_LENGTH: u32 = 128u32;
-pub const STORAGE_ADDRESS_TYPE_BTL8: u32 = 0u32;
-pub const STORAGE_ATTRIBUTE_ASYNC_EVENT_NOTIFICATION: u32 = 16u32;
-pub const STORAGE_ATTRIBUTE_BLOCK_IO: u32 = 2u32;
-pub const STORAGE_ATTRIBUTE_BYTE_ADDRESSABLE_IO: u32 = 1u32;
-pub const STORAGE_ATTRIBUTE_DYNAMIC_PERSISTENCE: u32 = 4u32;
-pub const STORAGE_ATTRIBUTE_PERF_SIZE_INDEPENDENT: u32 = 32u32;
-pub const STORAGE_ATTRIBUTE_VOLATILE: u32 = 8u32;
-pub const STORAGE_COMPONENT_ROLE_CACHE: u32 = 1u32;
-pub const STORAGE_COMPONENT_ROLE_DATA: u32 = 4u32;
-pub const STORAGE_COMPONENT_ROLE_TIERING: u32 = 2u32;
-pub const STORAGE_CRASH_TELEMETRY_REGKEY: windows_core::PCWSTR = windows_core::w!("\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CrashControl\\StorageTelemetry");
-pub const STORAGE_CRYPTO_CAPABILITY_VERSION_1: u32 = 1u32;
-pub const STORAGE_CRYPTO_DESCRIPTOR_VERSION_1: u32 = 1u32;
-pub const STORAGE_DEVICE_FLAGS_PAGE_83_DEVICEGUID: u32 = 4u32;
-pub const STORAGE_DEVICE_FLAGS_RANDOM_DEVICEGUID_REASON_CONFLICT: u32 = 1u32;
-pub const STORAGE_DEVICE_FLAGS_RANDOM_DEVICEGUID_REASON_NOHWID: u32 = 2u32;
-pub const STORAGE_DEVICE_MAX_OPERATIONAL_STATUS: u32 = 16u32;
-pub const STORAGE_DEVICE_NUMA_NODE_UNKNOWN: u32 = 4294967295u32;
-pub const STORAGE_DEVICE_POWER_CAP_VERSION_V1: u32 = 1u32;
-pub const STORAGE_DEVICE_TELEMETRY_REGKEY: windows_core::PCWSTR = windows_core::w!("\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Storage\\StorageTelemetry");
-pub const STORAGE_DIAGNOSTIC_FLAG_ADAPTER_REQUEST: u32 = 1u32;
-pub const STORAGE_EVENT_DEVICE_OPERATION: u64 = 4u64;
-pub const STORAGE_EVENT_DEVICE_STATUS: u64 = 2u64;
-pub const STORAGE_EVENT_MEDIA_STATUS: u64 = 1u64;
-pub const STORAGE_EVENT_NOTIFICATION_VERSION_V1: u32 = 1u32;
-pub const STORAGE_FAILURE_PREDICTION_CONFIG_V1: u32 = 1u32;
-pub const STORAGE_HW_FIRMWARE_INVALID_SLOT: u32 = 255u32;
-pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_CONTROLLER: u32 = 1u32;
-pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_FIRST_SEGMENT: u32 = 4u32;
-pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_LAST_SEGMENT: u32 = 2u32;
-pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_REPLACE_EXISTING_IMAGE: u32 = 1073741824u32;
-pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_SWITCH_TO_EXISTING_FIRMWARE: u32 = 2147483648u32;
-pub const STORAGE_HW_FIRMWARE_REVISION_LENGTH: u32 = 16u32;
-pub const STORAGE_IDLE_POWERUP_REASON_VERSION_V1: u32 = 1u32;
-pub const STORAGE_OFFLOAD_MAX_TOKEN_LENGTH: u32 = 512u32;
-pub const STORAGE_OFFLOAD_READ_RANGE_TRUNCATED: u32 = 1u32;
-pub const STORAGE_OFFLOAD_TOKEN_ID_LENGTH: u32 = 504u32;
-pub const STORAGE_OFFLOAD_TOKEN_INVALID: u32 = 2u32;
-pub const STORAGE_OFFLOAD_TOKEN_TYPE_ZERO_DATA: u32 = 4294901761u32;
-pub const STORAGE_OFFLOAD_WRITE_RANGE_TRUNCATED: u32 = 1u32;
-pub const STORAGE_PRIORITY_HINT_SUPPORTED: u32 = 1u32;
-pub const STORAGE_PROTOCOL_COMMAND_FLAG_ADAPTER_REQUEST: u32 = 2147483648u32;
-pub const STORAGE_PROTOCOL_COMMAND_LENGTH_NVME: u32 = 64u32;
-pub const STORAGE_PROTOCOL_SPECIFIC_NVME_ADMIN_COMMAND: u32 = 1u32;
-pub const STORAGE_PROTOCOL_SPECIFIC_NVME_NVM_COMMAND: u32 = 2u32;
-pub const STORAGE_PROTOCOL_STATUS_BUSY: u32 = 5u32;
-pub const STORAGE_PROTOCOL_STATUS_DATA_OVERRUN: u32 = 6u32;
-pub const STORAGE_PROTOCOL_STATUS_ERROR: u32 = 2u32;
-pub const STORAGE_PROTOCOL_STATUS_INSUFFICIENT_RESOURCES: u32 = 7u32;
-pub const STORAGE_PROTOCOL_STATUS_INVALID_REQUEST: u32 = 3u32;
-pub const STORAGE_PROTOCOL_STATUS_NOT_SUPPORTED: u32 = 255u32;
-pub const STORAGE_PROTOCOL_STATUS_NO_DEVICE: u32 = 4u32;
-pub const STORAGE_PROTOCOL_STATUS_PENDING: u32 = 0u32;
-pub const STORAGE_PROTOCOL_STATUS_SUCCESS: u32 = 1u32;
-pub const STORAGE_PROTOCOL_STATUS_THROTTLED_REQUEST: u32 = 8u32;
-pub const STORAGE_PROTOCOL_STRUCTURE_VERSION: u32 = 1u32;
-pub const STORAGE_RPMB_DESCRIPTOR_VERSION_1: u32 = 1u32;
-pub const STORAGE_RPMB_MINIMUM_RELIABLE_WRITE_SIZE: u32 = 512u32;
-pub const STORAGE_SUPPORTED_FEATURES_BYPASS_IO: u32 = 1u32;
-pub const STORAGE_SUPPORTED_FEATURES_MASK: u32 = 1u32;
-pub const STORAGE_TEMPERATURE_THRESHOLD_FLAG_ADAPTER_REQUEST: u32 = 1u32;
-pub const STORAGE_TEMPERATURE_VALUE_NOT_REPORTED: u32 = 32768u32;
-pub const STORAGE_TIER_DESCRIPTION_LENGTH: u32 = 512u32;
-pub const STORAGE_TIER_FLAG_NO_SEEK_PENALTY: u32 = 131072u32;
-pub const STORAGE_TIER_FLAG_PARITY: u32 = 8388608u32;
-pub const STORAGE_TIER_FLAG_READ_CACHE: u32 = 4194304u32;
-pub const STORAGE_TIER_FLAG_SMR: u32 = 16777216u32;
-pub const STORAGE_TIER_FLAG_WRITE_BACK_CACHE: u32 = 2097152u32;
-pub const STORAGE_TIER_NAME_LENGTH: u32 = 256u32;
-pub const STORATTRIBUTE_MANAGEMENT_STATE: u32 = 1u32;
-pub const STORATTRIBUTE_NONE: u32 = 0u32;
-pub const STREAMS_ASSOCIATE_ID_CLEAR: u32 = 1u32;
-pub const STREAMS_ASSOCIATE_ID_SET: u32 = 2u32;
-pub const STREAMS_INVALID_ID: u32 = 0u32;
-pub const STREAMS_MAX_ID: u32 = 65535u32;
-pub const STREAM_CLEAR_ENCRYPTION: u32 = 4u32;
-pub const STREAM_EXTENT_ENTRY_ALL_EXTENTS: u32 = 2u32;
-pub const STREAM_EXTENT_ENTRY_AS_RETRIEVAL_POINTERS: u32 = 1u32;
 pub const STREAM_LAYOUT_ENTRY_HAS_INFORMATION: u32 = 16u32;
 pub const STREAM_LAYOUT_ENTRY_IMMOVABLE: u32 = 1u32;
 pub const STREAM_LAYOUT_ENTRY_NO_CLUSTERS_ALLOCATED: u32 = 8u32;
@@ -10718,9 +9816,42 @@ pub const StorageTierMediaTypeMax: STORAGE_TIER_MEDIA_TYPE = STORAGE_TIER_MEDIA_
 pub const StorageTierMediaTypeScm: STORAGE_TIER_MEDIA_TYPE = STORAGE_TIER_MEDIA_TYPE(4i32);
 pub const StorageTierMediaTypeSsd: STORAGE_TIER_MEDIA_TYPE = STORAGE_TIER_MEDIA_TYPE(2i32);
 pub const StorageTierMediaTypeUnspecified: STORAGE_TIER_MEDIA_TYPE = STORAGE_TIER_MEDIA_TYPE(0i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TAPE_GET_STATISTICS {
+    pub Operation: u32,
+}
+impl Default for TAPE_GET_STATISTICS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TAPE_GET_STATISTICS {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TAPE_RESET_STATISTICS: i32 = 2i32;
 pub const TAPE_RETURN_ENV_INFO: i32 = 1i32;
 pub const TAPE_RETURN_STATISTICS: i32 = 0i32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TAPE_STATISTICS {
+    pub Version: u32,
+    pub Flags: u32,
+    pub RecoveredWrites: i64,
+    pub UnrecoveredWrites: i64,
+    pub RecoveredReads: i64,
+    pub UnrecoveredReads: i64,
+    pub CompressionRatioReads: u8,
+    pub CompressionRatioWrites: u8,
+}
+impl Default for TAPE_STATISTICS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TAPE_STATISTICS {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TCCollectionApplicationRequested: DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE = DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE(2i32);
 pub const TCCollectionBugCheck: DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE = DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE(1i32);
 pub const TCCollectionDeviceRequested: DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE = DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE(3i32);
@@ -10731,10 +9862,260 @@ pub const TC_PUBLIC_DEVICEDUMP_CONTENT_GPLOG: u32 = 2u32;
 pub const TC_PUBLIC_DEVICEDUMP_CONTENT_GPLOG_MAX: u32 = 16u32;
 pub const TC_PUBLIC_DEVICEDUMP_CONTENT_SMART: u32 = 1u32;
 pub const TELEMETRY_COMMAND_SIZE: u32 = 16u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TXFS_CREATE_MINIVERSION_INFO {
+    pub StructureVersion: u16,
+    pub StructureLength: u16,
+    pub BaseVersion: u32,
+    pub MiniVersion: u16,
+}
+impl Default for TXFS_CREATE_MINIVERSION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TXFS_CREATE_MINIVERSION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TXFS_GET_METADATA_INFO_OUT {
+    pub TxfFileId: TXFS_GET_METADATA_INFO_OUT_0,
+    pub LockingTransaction: windows_core::GUID,
+    pub LastLsn: u64,
+    pub TransactionState: u32,
+}
+impl Default for TXFS_GET_METADATA_INFO_OUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TXFS_GET_METADATA_INFO_OUT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TXFS_GET_METADATA_INFO_OUT_0 {
+    pub LowPart: i64,
+    pub HighPart: i64,
+}
+impl Default for TXFS_GET_METADATA_INFO_OUT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TXFS_GET_METADATA_INFO_OUT_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TXFS_GET_TRANSACTED_VERSION {
+    pub ThisBaseVersion: u32,
+    pub LatestVersion: u32,
+    pub ThisMiniVersion: u16,
+    pub FirstMiniVersion: u16,
+    pub LatestMiniVersion: u16,
+}
+impl Default for TXFS_GET_TRANSACTED_VERSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TXFS_GET_TRANSACTED_VERSION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TXFS_LIST_TRANSACTIONS {
+    pub NumberOfTransactions: u64,
+    pub BufferSizeRequired: u64,
+}
+impl Default for TXFS_LIST_TRANSACTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TXFS_LIST_TRANSACTIONS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TXFS_LIST_TRANSACTIONS_ENTRY {
+    pub TransactionId: windows_core::GUID,
+    pub TransactionState: u32,
+    pub Reserved1: u32,
+    pub Reserved2: u32,
+    pub Reserved3: i64,
+}
+impl Default for TXFS_LIST_TRANSACTIONS_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TXFS_LIST_TRANSACTIONS_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TXFS_LIST_TRANSACTION_LOCKED_FILES {
+    pub KtmTransaction: windows_core::GUID,
+    pub NumberOfFiles: u64,
+    pub BufferSizeRequired: u64,
+    pub Offset: u64,
+}
+impl Default for TXFS_LIST_TRANSACTION_LOCKED_FILES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TXFS_LIST_TRANSACTION_LOCKED_FILES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
+    pub Offset: u64,
+    pub NameFlags: u32,
+    pub FileId: i64,
+    pub Reserved1: u32,
+    pub Reserved2: u32,
+    pub Reserved3: i64,
+    pub FileName: [u16; 1],
+}
+impl Default for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY_FLAG_CREATED: u32 = 1u32;
 pub const TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY_FLAG_DELETED: u32 = 2u32;
 pub const TXFS_LOGGING_MODE_FULL: u32 = 2u32;
 pub const TXFS_LOGGING_MODE_SIMPLE: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TXFS_MODIFY_RM {
+    pub Flags: TXFS_RMF_LAGS,
+    pub LogContainerCountMax: u32,
+    pub LogContainerCountMin: u32,
+    pub LogContainerCount: u32,
+    pub LogGrowthIncrement: u32,
+    pub LogAutoShrinkPercentage: u32,
+    pub Reserved: u64,
+    pub LoggingMode: u16,
+}
+impl Default for TXFS_MODIFY_RM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TXFS_MODIFY_RM {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TXFS_QUERY_RM_INFORMATION {
+    pub BytesRequired: u32,
+    pub TailLsn: u64,
+    pub CurrentLsn: u64,
+    pub ArchiveTailLsn: u64,
+    pub LogContainerSize: u64,
+    pub HighestVirtualClock: i64,
+    pub LogContainerCount: u32,
+    pub LogContainerCountMax: u32,
+    pub LogContainerCountMin: u32,
+    pub LogGrowthIncrement: u32,
+    pub LogAutoShrinkPercentage: u32,
+    pub Flags: TXFS_RMF_LAGS,
+    pub LoggingMode: u16,
+    pub Reserved: u16,
+    pub RmState: u32,
+    pub LogCapacity: u64,
+    pub LogFree: u64,
+    pub TopsSize: u64,
+    pub TopsUsed: u64,
+    pub TransactionCount: u64,
+    pub OnePCCount: u64,
+    pub TwoPCCount: u64,
+    pub NumberLogFileFull: u64,
+    pub OldestTransactionAge: u64,
+    pub RMName: windows_core::GUID,
+    pub TmLogPathOffset: u32,
+}
+impl Default for TXFS_QUERY_RM_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TXFS_QUERY_RM_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TXFS_READ_BACKUP_INFORMATION_OUT {
+    pub Anonymous: TXFS_READ_BACKUP_INFORMATION_OUT_0,
+}
+impl Default for TXFS_READ_BACKUP_INFORMATION_OUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TXFS_READ_BACKUP_INFORMATION_OUT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union TXFS_READ_BACKUP_INFORMATION_OUT_0 {
+    pub BufferLength: u32,
+    pub Buffer: [u8; 1],
+}
+impl Default for TXFS_READ_BACKUP_INFORMATION_OUT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TXFS_READ_BACKUP_INFORMATION_OUT_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TXFS_RMF_LAGS(pub u32);
+impl TXFS_RMF_LAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for TXFS_RMF_LAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for TXFS_RMF_LAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for TXFS_RMF_LAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for TXFS_RMF_LAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for TXFS_RMF_LAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const TXFS_RM_FLAG_DO_NOT_RESET_RM_AT_NEXT_START: TXFS_RMF_LAGS = TXFS_RMF_LAGS(32768u32);
 pub const TXFS_RM_FLAG_ENFORCE_MINIMUM_SIZE: TXFS_RMF_LAGS = TXFS_RMF_LAGS(4096u32);
 pub const TXFS_RM_FLAG_GROW_LOG: TXFS_RMF_LAGS = TXFS_RMF_LAGS(1024u32);
@@ -10758,8 +10139,39 @@ pub const TXFS_RM_STATE_SHUTTING_DOWN: u32 = 3u32;
 pub const TXFS_RM_STATE_STARTING: u32 = 1u32;
 pub const TXFS_ROLLFORWARD_REDO_FLAG_USE_LAST_REDO_LSN: u32 = 1u32;
 pub const TXFS_ROLLFORWARD_REDO_FLAG_USE_LAST_VIRTUAL_CLOCK: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TXFS_ROLLFORWARD_REDO_INFORMATION {
+    pub LastVirtualClock: i64,
+    pub LastRedoLsn: u64,
+    pub HighestRecoveryLsn: u64,
+    pub Flags: u32,
+}
+impl Default for TXFS_ROLLFORWARD_REDO_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TXFS_ROLLFORWARD_REDO_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TXFS_SAVEPOINT_CLEAR: u32 = 4u32;
 pub const TXFS_SAVEPOINT_CLEAR_ALL: u32 = 16u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TXFS_SAVEPOINT_INFORMATION {
+    pub KtmTransaction: super::super::Foundation::HANDLE,
+    pub ActionCode: u32,
+    pub SavepointId: u32,
+}
+impl Default for TXFS_SAVEPOINT_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TXFS_SAVEPOINT_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TXFS_SAVEPOINT_ROLLBACK: u32 = 2u32;
 pub const TXFS_SAVEPOINT_SET: u32 = 1u32;
 pub const TXFS_START_RM_FLAG_LOGGING_MODE: u32 = 1024u32;
@@ -10775,22 +10187,185 @@ pub const TXFS_START_RM_FLAG_PREFER_AVAILABILITY: u32 = 8192u32;
 pub const TXFS_START_RM_FLAG_PREFER_CONSISTENCY: u32 = 4096u32;
 pub const TXFS_START_RM_FLAG_PRESERVE_CHANGES: u32 = 2048u32;
 pub const TXFS_START_RM_FLAG_RECOVER_BEST_EFFORT: u32 = 512u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TXFS_START_RM_INFORMATION {
+    pub Flags: u32,
+    pub LogContainerSize: u64,
+    pub LogContainerCountMin: u32,
+    pub LogContainerCountMax: u32,
+    pub LogGrowthIncrement: u32,
+    pub LogAutoShrinkPercentage: u32,
+    pub TmLogPathOffset: u32,
+    pub TmLogPathLength: u16,
+    pub LoggingMode: u16,
+    pub LogPathLength: u16,
+    pub Reserved: u16,
+    pub LogPath: [u16; 1],
+}
+impl Default for TXFS_START_RM_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TXFS_START_RM_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TXFS_TRANSACTED_VERSION_NONTRANSACTED: u32 = 4294967294u32;
 pub const TXFS_TRANSACTED_VERSION_UNCOMMITTED: u32 = 4294967295u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TXFS_TRANSACTION_ACTIVE_INFO {
+    pub TransactionsActiveAtSnapshot: super::super::Foundation::BOOLEAN,
+}
+impl Default for TXFS_TRANSACTION_ACTIVE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TXFS_TRANSACTION_ACTIVE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TXFS_TRANSACTION_STATE_ACTIVE: u32 = 1u32;
 pub const TXFS_TRANSACTION_STATE_NONE: u32 = 0u32;
 pub const TXFS_TRANSACTION_STATE_NOTACTIVE: u32 = 3u32;
 pub const TXFS_TRANSACTION_STATE_PREPARED: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TXFS_WRITE_BACKUP_INFORMATION {
+    pub Buffer: [u8; 1],
+}
+impl Default for TXFS_WRITE_BACKUP_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TXFS_WRITE_BACKUP_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 pub const Travan: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(34i32);
 pub const UNDEFINE_ALTERNATE: u32 = 13u32;
 pub const UNDEFINE_PRIMARY: u32 = 12u32;
 pub const UNLOCK_ELEMENT: u32 = 1u32;
 pub const UNRECOVERED_READS_VALID: u32 = 8u32;
 pub const UNRECOVERED_WRITES_VALID: u32 = 2u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct USN_DELETE_FLAGS(pub u32);
+impl USN_DELETE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for USN_DELETE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for USN_DELETE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for USN_DELETE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for USN_DELETE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for USN_DELETE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const USN_DELETE_FLAG_DELETE: USN_DELETE_FLAGS = USN_DELETE_FLAGS(1u32);
 pub const USN_DELETE_FLAG_NOTIFY: USN_DELETE_FLAGS = USN_DELETE_FLAGS(2u32);
 pub const USN_DELETE_VALID_FLAGS: u32 = 3u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct USN_JOURNAL_DATA_V0 {
+    pub UsnJournalID: u64,
+    pub FirstUsn: i64,
+    pub NextUsn: i64,
+    pub LowestValidUsn: i64,
+    pub MaxUsn: i64,
+    pub MaximumSize: u64,
+    pub AllocationDelta: u64,
+}
+impl Default for USN_JOURNAL_DATA_V0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for USN_JOURNAL_DATA_V0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct USN_JOURNAL_DATA_V1 {
+    pub UsnJournalID: u64,
+    pub FirstUsn: i64,
+    pub NextUsn: i64,
+    pub LowestValidUsn: i64,
+    pub MaxUsn: i64,
+    pub MaximumSize: u64,
+    pub AllocationDelta: u64,
+    pub MinSupportedMajorVersion: u16,
+    pub MaxSupportedMajorVersion: u16,
+}
+impl Default for USN_JOURNAL_DATA_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for USN_JOURNAL_DATA_V1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct USN_JOURNAL_DATA_V2 {
+    pub UsnJournalID: u64,
+    pub FirstUsn: i64,
+    pub NextUsn: i64,
+    pub LowestValidUsn: i64,
+    pub MaxUsn: i64,
+    pub MaximumSize: u64,
+    pub AllocationDelta: u64,
+    pub MinSupportedMajorVersion: u16,
+    pub MaxSupportedMajorVersion: u16,
+    pub Flags: u32,
+    pub RangeTrackChunkSize: u64,
+    pub RangeTrackFileSizeThreshold: i64,
+}
+impl Default for USN_JOURNAL_DATA_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for USN_JOURNAL_DATA_V2 {
+    type TypeKind = windows_core::CopyType;
+}
 pub const USN_PAGE_SIZE: u32 = 4096u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct USN_RANGE_TRACK_OUTPUT {
+    pub Usn: i64,
+}
+impl Default for USN_RANGE_TRACK_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for USN_RANGE_TRACK_OUTPUT {
+    type TypeKind = windows_core::CopyType;
+}
 pub const USN_REASON_BASIC_INFO_CHANGE: u32 = 32768u32;
 pub const USN_REASON_CLOSE: u32 = 2147483648u32;
 pub const USN_REASON_COMPRESSION_CHANGE: u32 = 131072u32;
@@ -10815,10 +10390,157 @@ pub const USN_REASON_REPARSE_POINT_CHANGE: u32 = 1048576u32;
 pub const USN_REASON_SECURITY_CHANGE: u32 = 2048u32;
 pub const USN_REASON_STREAM_CHANGE: u32 = 2097152u32;
 pub const USN_REASON_TRANSACTED_CHANGE: u32 = 4194304u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct USN_RECORD_COMMON_HEADER {
+    pub RecordLength: u32,
+    pub MajorVersion: u16,
+    pub MinorVersion: u16,
+}
+impl Default for USN_RECORD_COMMON_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for USN_RECORD_COMMON_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct USN_RECORD_EXTENT {
+    pub Offset: i64,
+    pub Length: i64,
+}
+impl Default for USN_RECORD_EXTENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for USN_RECORD_EXTENT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy)]
+pub union USN_RECORD_UNION {
+    pub Header: USN_RECORD_COMMON_HEADER,
+    pub V2: USN_RECORD_V2,
+    pub V3: USN_RECORD_V3,
+    pub V4: USN_RECORD_V4,
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl Default for USN_RECORD_UNION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for USN_RECORD_UNION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct USN_RECORD_V2 {
+    pub RecordLength: u32,
+    pub MajorVersion: u16,
+    pub MinorVersion: u16,
+    pub FileReferenceNumber: u64,
+    pub ParentFileReferenceNumber: u64,
+    pub Usn: i64,
+    pub TimeStamp: i64,
+    pub Reason: u32,
+    pub SourceInfo: u32,
+    pub SecurityId: u32,
+    pub FileAttributes: u32,
+    pub FileNameLength: u16,
+    pub FileNameOffset: u16,
+    pub FileName: [u16; 1],
+}
+impl Default for USN_RECORD_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for USN_RECORD_V2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct USN_RECORD_V3 {
+    pub RecordLength: u32,
+    pub MajorVersion: u16,
+    pub MinorVersion: u16,
+    pub FileReferenceNumber: super::super::Storage::FileSystem::FILE_ID_128,
+    pub ParentFileReferenceNumber: super::super::Storage::FileSystem::FILE_ID_128,
+    pub Usn: i64,
+    pub TimeStamp: i64,
+    pub Reason: u32,
+    pub SourceInfo: u32,
+    pub SecurityId: u32,
+    pub FileAttributes: u32,
+    pub FileNameLength: u16,
+    pub FileNameOffset: u16,
+    pub FileName: [u16; 1],
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl Default for USN_RECORD_V3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for USN_RECORD_V3 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct USN_RECORD_V4 {
+    pub Header: USN_RECORD_COMMON_HEADER,
+    pub FileReferenceNumber: super::super::Storage::FileSystem::FILE_ID_128,
+    pub ParentFileReferenceNumber: super::super::Storage::FileSystem::FILE_ID_128,
+    pub Usn: i64,
+    pub Reason: u32,
+    pub SourceInfo: USN_SOURCE_INFO_ID,
+    pub RemainingExtents: u32,
+    pub NumberOfExtents: u16,
+    pub ExtentSize: u16,
+    pub Extents: [USN_RECORD_EXTENT; 1],
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl Default for USN_RECORD_V4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for USN_RECORD_V4 {
+    type TypeKind = windows_core::CopyType;
+}
 pub const USN_SOURCE_AUXILIARY_DATA: USN_SOURCE_INFO_ID = USN_SOURCE_INFO_ID(2u32);
 pub const USN_SOURCE_CLIENT_REPLICATION_MANAGEMENT: USN_SOURCE_INFO_ID = USN_SOURCE_INFO_ID(8u32);
 pub const USN_SOURCE_DATA_MANAGEMENT: USN_SOURCE_INFO_ID = USN_SOURCE_INFO_ID(1u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct USN_SOURCE_INFO_ID(pub u32);
 pub const USN_SOURCE_REPLICATION_MANAGEMENT: USN_SOURCE_INFO_ID = USN_SOURCE_INFO_ID(4u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct USN_TRACK_MODIFIED_RANGES {
+    pub Flags: u32,
+    pub Unused: u32,
+    pub ChunkSize: u64,
+    pub FileSizeThreshold: i64,
+}
+impl Default for USN_TRACK_MODIFIED_RANGES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for USN_TRACK_MODIFIED_RANGES {
+    type TypeKind = windows_core::CopyType;
+}
 pub const UfsDataTypeMax: STORAGE_PROTOCOL_UFS_DATA_TYPE = STORAGE_PROTOCOL_UFS_DATA_TYPE(6i32);
 pub const UfsDataTypeQueryAttribute: STORAGE_PROTOCOL_UFS_DATA_TYPE = STORAGE_PROTOCOL_UFS_DATA_TYPE(2i32);
 pub const UfsDataTypeQueryDescriptor: STORAGE_PROTOCOL_UFS_DATA_TYPE = STORAGE_PROTOCOL_UFS_DATA_TYPE(1i32);
@@ -10829,6 +10551,123 @@ pub const UfsDataTypeUnknown: STORAGE_PROTOCOL_UFS_DATA_TYPE = STORAGE_PROTOCOL_
 pub const Unknown: MEDIA_TYPE = MEDIA_TYPE(0i32);
 pub const VALID_NTFT: u32 = 192u32;
 pub const VENDOR_ID_LENGTH: u32 = 8u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VERIFY_INFORMATION {
+    pub StartingOffset: i64,
+    pub Length: u32,
+}
+impl Default for VERIFY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VERIFY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VIRTUALIZATION_INSTANCE_INFO_INPUT {
+    pub NumberOfWorkerThreads: u32,
+    pub Flags: u32,
+}
+impl Default for VIRTUALIZATION_INSTANCE_INFO_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VIRTUALIZATION_INSTANCE_INFO_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VIRTUALIZATION_INSTANCE_INFO_INPUT_EX {
+    pub HeaderSize: u16,
+    pub Flags: u32,
+    pub NotificationInfoSize: u32,
+    pub NotificationInfoOffset: u16,
+    pub ProviderMajorVersion: u16,
+}
+impl Default for VIRTUALIZATION_INSTANCE_INFO_INPUT_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VIRTUALIZATION_INSTANCE_INFO_INPUT_EX {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VIRTUALIZATION_INSTANCE_INFO_OUTPUT {
+    pub VirtualizationInstanceID: windows_core::GUID,
+}
+impl Default for VIRTUALIZATION_INSTANCE_INFO_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VIRTUALIZATION_INSTANCE_INFO_OUTPUT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VIRTUAL_STORAGE_BEHAVIOR_CODE(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT {
+    pub Size: u32,
+    pub BehaviorCode: VIRTUAL_STORAGE_BEHAVIOR_CODE,
+}
+impl Default for VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VOLUME_BITMAP_BUFFER {
+    pub StartingLcn: i64,
+    pub BitmapSize: i64,
+    pub Buffer: [u8; 1],
+}
+impl Default for VOLUME_BITMAP_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VOLUME_BITMAP_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VOLUME_DISK_EXTENTS {
+    pub NumberOfDiskExtents: u32,
+    pub Extents: [DISK_EXTENT; 1],
+}
+impl Default for VOLUME_DISK_EXTENTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VOLUME_DISK_EXTENTS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
+    pub GptAttributes: u64,
+}
+impl Default for VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 pub const VOLUME_IS_DIRTY: u32 = 1u32;
 pub const VOLUME_SESSION_OPEN: u32 = 4u32;
 pub const VOLUME_UPGRADE_SCHEDULED: u32 = 2u32;
@@ -10840,13 +10679,174 @@ pub const VirtualStorageBehaviorCacheWriteThrough: VIRTUAL_STORAGE_BEHAVIOR_CODE
 pub const VirtualStorageBehaviorRestartIoProcessing: VIRTUAL_STORAGE_BEHAVIOR_CODE = VIRTUAL_STORAGE_BEHAVIOR_CODE(4i32);
 pub const VirtualStorageBehaviorStopIoProcessing: VIRTUAL_STORAGE_BEHAVIOR_CODE = VIRTUAL_STORAGE_BEHAVIOR_CODE(3i32);
 pub const VirtualStorageBehaviorUndefined: VIRTUAL_STORAGE_BEHAVIOR_CODE = VIRTUAL_STORAGE_BEHAVIOR_CODE(0i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WIM_PROVIDER_ADD_OVERLAY_INPUT {
+    pub WimType: u32,
+    pub WimIndex: u32,
+    pub WimFileNameOffset: u32,
+    pub WimFileNameLength: u32,
+}
+impl Default for WIM_PROVIDER_ADD_OVERLAY_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WIM_PROVIDER_ADD_OVERLAY_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
 pub const WIM_PROVIDER_CURRENT_VERSION: u32 = 1u32;
 pub const WIM_PROVIDER_EXTERNAL_FLAG_NOT_ACTIVE: u32 = 1u32;
 pub const WIM_PROVIDER_EXTERNAL_FLAG_SUSPENDED: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WIM_PROVIDER_EXTERNAL_INFO {
+    pub Version: u32,
+    pub Flags: u32,
+    pub DataSourceId: i64,
+    pub ResourceHash: [u8; 20],
+}
+impl Default for WIM_PROVIDER_EXTERNAL_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WIM_PROVIDER_EXTERNAL_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WIM_PROVIDER_OVERLAY_ENTRY {
+    pub NextEntryOffset: u32,
+    pub DataSourceId: i64,
+    pub WimGuid: windows_core::GUID,
+    pub WimFileNameOffset: u32,
+    pub WimType: u32,
+    pub WimIndex: u32,
+    pub Flags: u32,
+}
+impl Default for WIM_PROVIDER_OVERLAY_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WIM_PROVIDER_OVERLAY_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WIM_PROVIDER_REMOVE_OVERLAY_INPUT {
+    pub DataSourceId: i64,
+}
+impl Default for WIM_PROVIDER_REMOVE_OVERLAY_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WIM_PROVIDER_REMOVE_OVERLAY_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {
+    pub DataSourceId: i64,
+}
+impl Default for WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
+    pub DataSourceId: i64,
+    pub WimFileNameOffset: u32,
+    pub WimFileNameLength: u32,
+}
+impl Default for WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
 pub const WMI_DISK_GEOMETRY_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x25007f51_57c2_11d1_a528_00a0c9062910);
 pub const WOF_CURRENT_VERSION: u32 = 1u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WOF_EXTERNAL_FILE_ID {
+    pub FileId: super::super::Storage::FileSystem::FILE_ID_128,
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl Default for WOF_EXTERNAL_FILE_ID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for WOF_EXTERNAL_FILE_ID {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WOF_EXTERNAL_INFO {
+    pub Version: u32,
+    pub Provider: u32,
+}
+impl Default for WOF_EXTERNAL_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WOF_EXTERNAL_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 pub const WOF_PROVIDER_CLOUD: u32 = 3u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WOF_VERSION_INFO {
+    pub WofVersion: u32,
+}
+impl Default for WOF_VERSION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WOF_VERSION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WRITE_CACHE_CHANGE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WRITE_CACHE_ENABLE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WRITE_CACHE_TYPE(pub i32);
 pub const WRITE_COMPRESSION_INFO_VALID: u32 = 16u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WRITE_THROUGH(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WRITE_USN_REASON_INPUT {
+    pub Flags: u32,
+    pub UsnReasonToWrite: u32,
+}
+impl Default for WRITE_USN_REASON_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WRITE_USN_REASON_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
 pub const WriteCacheChangeUnknown: WRITE_CACHE_CHANGE = WRITE_CACHE_CHANGE(0i32);
 pub const WriteCacheChangeable: WRITE_CACHE_CHANGE = WRITE_CACHE_CHANGE(2i32);
 pub const WriteCacheDisabled: WRITE_CACHE_ENABLE = WRITE_CACHE_ENABLE(1i32);

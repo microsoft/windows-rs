@@ -18,44 +18,6 @@ windows_targets::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn Network
 #[cfg(feature = "Win32_Security")]
 windows_targets::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationSetupAppContainerBinaries(applicationcontainersid : super::super::Security:: PSID, packagefullname : windows_sys::core::PCWSTR, packagefolder : windows_sys::core::PCWSTR, displayname : windows_sys::core::PCWSTR, bbinariesfullycomputed : super::super::Foundation:: BOOL, binaries : *const windows_sys::core::PCWSTR, binariescount : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationUnregisterForAppContainerChanges(registrationobject : super::super::Foundation:: HANDLE) -> u32);
-#[cfg(feature = "Win32_Security")]
-pub type PAC_CHANGES_CALLBACK_FN = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, pchange: *const INET_FIREWALL_AC_CHANGE)>;
-pub type PFN_FWADDDYNAMICKEYWORDADDRESS0 = Option<unsafe extern "system" fn(dynamickeywordaddress: *const FW_DYNAMIC_KEYWORD_ADDRESS0) -> u32>;
-pub type PFN_FWDELETEDYNAMICKEYWORDADDRESS0 = Option<unsafe extern "system" fn(dynamickeywordaddressid: windows_sys::core::GUID) -> u32>;
-pub type PFN_FWENUMDYNAMICKEYWORDADDRESSBYID0 = Option<unsafe extern "system" fn(dynamickeywordaddressid: windows_sys::core::GUID, dynamickeywordaddressdata: *mut *mut FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
-pub type PFN_FWENUMDYNAMICKEYWORDADDRESSESBYTYPE0 = Option<unsafe extern "system" fn(flags: u32, dynamickeywordaddressdata: *mut *mut FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
-pub type PFN_FWFREEDYNAMICKEYWORDADDRESSDATA0 = Option<unsafe extern "system" fn(dynamickeywordaddressdata: *const FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
-pub type PFN_FWUPDATEDYNAMICKEYWORDADDRESS0 = Option<unsafe extern "system" fn(dynamickeywordaddressid: windows_sys::core::GUID, updatedaddresses: windows_sys::core::PCWSTR, append: super::super::Foundation::BOOL) -> u32>;
-pub type PNETISO_EDP_ID_CALLBACK_FN = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, wszenterpriseid: windows_sys::core::PCWSTR, dwerr: u32)>;
-pub type FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = i32;
-pub type FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS = i32;
-pub type FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = i32;
-pub type ICS_TARGETTYPE = i32;
-pub type INET_FIREWALL_AC_CHANGE_TYPE = i32;
-pub type INET_FIREWALL_AC_CREATION_TYPE = i32;
-pub type NETCONMGR_ENUM_FLAGS = i32;
-pub type NETCONUI_CONNECT_FLAGS = i32;
-pub type NETCON_CHARACTERISTIC_FLAGS = i32;
-pub type NETCON_MEDIATYPE = i32;
-pub type NETCON_STATUS = i32;
-pub type NETCON_TYPE = i32;
-pub type NETISO_ERROR_TYPE = i32;
-pub type NETISO_FLAG = i32;
-pub type NET_FW_ACTION = i32;
-pub type NET_FW_AUTHENTICATE_TYPE = i32;
-pub type NET_FW_EDGE_TRAVERSAL_TYPE = i32;
-pub type NET_FW_IP_PROTOCOL = i32;
-pub type NET_FW_IP_VERSION = i32;
-pub type NET_FW_MODIFY_STATE = i32;
-pub type NET_FW_POLICY_TYPE = i32;
-pub type NET_FW_PROFILE_TYPE = i32;
-pub type NET_FW_PROFILE_TYPE2 = i32;
-pub type NET_FW_RULE_CATEGORY = i32;
-pub type NET_FW_RULE_DIRECTION = i32;
-pub type NET_FW_SCOPE = i32;
-pub type NET_FW_SERVICE_TYPE = i32;
-pub type SHARINGCONNECTIONTYPE = i32;
-pub type SHARINGCONNECTION_ENUM_FLAGS = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FW_DYNAMIC_KEYWORD_ADDRESS0 {
@@ -72,12 +34,30 @@ pub struct FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
     pub schemaVersion: u16,
     pub originType: FW_DYNAMIC_KEYWORD_ORIGIN_TYPE,
 }
+pub type FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = i32;
+pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_ALL: FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = 3i32;
+pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_AUTO_RESOLVE: FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = 1i32;
+pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_NON_AUTO_RESOLVE: FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = 2i32;
+pub type FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS = i32;
+pub const FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS_AUTO_RESOLVE: FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS = 1i32;
+pub const FW_DYNAMIC_KEYWORD_ORIGIN_INVALID: FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = 0i32;
+pub const FW_DYNAMIC_KEYWORD_ORIGIN_LOCAL: FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = 1i32;
+pub const FW_DYNAMIC_KEYWORD_ORIGIN_MDM: FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = 2i32;
+pub type FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = i32;
+pub const ICSSC_DEFAULT: SHARINGCONNECTION_ENUM_FLAGS = 0i32;
+pub const ICSSC_ENABLED: SHARINGCONNECTION_ENUM_FLAGS = 1i32;
+pub const ICSSHARINGTYPE_PRIVATE: SHARINGCONNECTIONTYPE = 1i32;
+pub const ICSSHARINGTYPE_PUBLIC: SHARINGCONNECTIONTYPE = 0i32;
+pub const ICSTT_IPADDRESS: ICS_TARGETTYPE = 1i32;
+pub const ICSTT_NAME: ICS_TARGETTYPE = 0i32;
+pub type ICS_TARGETTYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct INET_FIREWALL_AC_BINARIES {
     pub count: u32,
     pub binaries: *mut windows_sys::core::PWSTR,
 }
+pub const INET_FIREWALL_AC_BINARY: INET_FIREWALL_AC_CREATION_TYPE = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -103,6 +83,15 @@ pub union INET_FIREWALL_AC_CHANGE_0 {
     pub capabilities: INET_FIREWALL_AC_CAPABILITIES,
     pub binaries: INET_FIREWALL_AC_BINARIES,
 }
+pub const INET_FIREWALL_AC_CHANGE_CREATE: INET_FIREWALL_AC_CHANGE_TYPE = 1i32;
+pub const INET_FIREWALL_AC_CHANGE_DELETE: INET_FIREWALL_AC_CHANGE_TYPE = 2i32;
+pub const INET_FIREWALL_AC_CHANGE_INVALID: INET_FIREWALL_AC_CHANGE_TYPE = 0i32;
+pub const INET_FIREWALL_AC_CHANGE_MAX: INET_FIREWALL_AC_CHANGE_TYPE = 3i32;
+pub type INET_FIREWALL_AC_CHANGE_TYPE = i32;
+pub type INET_FIREWALL_AC_CREATION_TYPE = i32;
+pub const INET_FIREWALL_AC_MAX: INET_FIREWALL_AC_CREATION_TYPE = 4i32;
+pub const INET_FIREWALL_AC_NONE: INET_FIREWALL_AC_CREATION_TYPE = 0i32;
+pub const INET_FIREWALL_AC_PACKAGE_ID_ONLY: INET_FIREWALL_AC_CREATION_TYPE = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -117,48 +106,6 @@ pub struct INET_FIREWALL_APP_CONTAINER {
     pub workingDirectory: windows_sys::core::PWSTR,
     pub packageFullName: windows_sys::core::PWSTR,
 }
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETCON_PROPERTIES {
-    pub guidId: windows_sys::core::GUID,
-    pub pszwName: windows_sys::core::PWSTR,
-    pub pszwDeviceName: windows_sys::core::PWSTR,
-    pub Status: NETCON_STATUS,
-    pub MediaType: NETCON_MEDIATYPE,
-    pub dwCharacter: u32,
-    pub clsidThisObject: windows_sys::core::GUID,
-    pub clsidUiObject: windows_sys::core::GUID,
-}
-pub const NetFwAuthorizedApplication: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xec9846b3_2762_4a6b_a214_6acb603462d2);
-pub const NetFwMgr: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x304ce942_6e39_40d8_943a_b913c40c9cd4);
-pub const NetFwOpenPort: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0ca545c6_37ad_4a6c_bf92_9f7610067ef5);
-pub const NetFwPolicy2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe2b3c97f_6ae1_41ac_817a_f6f92166d7dd);
-pub const NetFwProduct: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9d745ed8_c514_4d1d_bf42_751fed2d5ac7);
-pub const NetFwProducts: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcc19079b_8272_4d73_bb70_cdb533527b61);
-pub const NetFwRule: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2c5bc43e_3369_4c33_ab0c_be9469677af4);
-pub const NetSharingManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5c63c1ad_3956_4ff8_8486_40034758315b);
-pub const UPnPNAT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xae1e00aa_3fd5_403c_8a27_2bbdc30cd0e1);
-pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_ALL: FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = 3i32;
-pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_AUTO_RESOLVE: FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = 1i32;
-pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_NON_AUTO_RESOLVE: FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = 2i32;
-pub const FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS_AUTO_RESOLVE: FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS = 1i32;
-pub const FW_DYNAMIC_KEYWORD_ORIGIN_INVALID: FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = 0i32;
-pub const FW_DYNAMIC_KEYWORD_ORIGIN_LOCAL: FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = 1i32;
-pub const FW_DYNAMIC_KEYWORD_ORIGIN_MDM: FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = 2i32;
-pub const ICSSC_DEFAULT: SHARINGCONNECTION_ENUM_FLAGS = 0i32;
-pub const ICSSC_ENABLED: SHARINGCONNECTION_ENUM_FLAGS = 1i32;
-pub const ICSSHARINGTYPE_PRIVATE: SHARINGCONNECTIONTYPE = 1i32;
-pub const ICSSHARINGTYPE_PUBLIC: SHARINGCONNECTIONTYPE = 0i32;
-pub const ICSTT_IPADDRESS: ICS_TARGETTYPE = 1i32;
-pub const ICSTT_NAME: ICS_TARGETTYPE = 0i32;
-pub const INET_FIREWALL_AC_BINARY: INET_FIREWALL_AC_CREATION_TYPE = 2i32;
-pub const INET_FIREWALL_AC_CHANGE_CREATE: INET_FIREWALL_AC_CHANGE_TYPE = 1i32;
-pub const INET_FIREWALL_AC_CHANGE_DELETE: INET_FIREWALL_AC_CHANGE_TYPE = 2i32;
-pub const INET_FIREWALL_AC_CHANGE_INVALID: INET_FIREWALL_AC_CHANGE_TYPE = 0i32;
-pub const INET_FIREWALL_AC_CHANGE_MAX: INET_FIREWALL_AC_CHANGE_TYPE = 3i32;
-pub const INET_FIREWALL_AC_MAX: INET_FIREWALL_AC_CREATION_TYPE = 4i32;
-pub const INET_FIREWALL_AC_NONE: INET_FIREWALL_AC_CREATION_TYPE = 0i32;
-pub const INET_FIREWALL_AC_PACKAGE_ID_ONLY: INET_FIREWALL_AC_CREATION_TYPE = 1i32;
 pub const NCCF_ALLOW_DUPLICATION: NETCON_CHARACTERISTIC_FLAGS = 2i32;
 pub const NCCF_ALLOW_REMOVAL: NETCON_CHARACTERISTIC_FLAGS = 4i32;
 pub const NCCF_ALLOW_RENAME: NETCON_CHARACTERISTIC_FLAGS = 8i32;
@@ -218,16 +165,37 @@ pub const NCT_TUNNEL: NETCON_TYPE = 5i32;
 pub const NCUC_DEFAULT: NETCONUI_CONNECT_FLAGS = 0i32;
 pub const NCUC_ENABLE_DISABLE: NETCONUI_CONNECT_FLAGS = 2i32;
 pub const NCUC_NO_UI: NETCONUI_CONNECT_FLAGS = 1i32;
+pub type NETCONMGR_ENUM_FLAGS = i32;
+pub type NETCONUI_CONNECT_FLAGS = i32;
+pub type NETCON_CHARACTERISTIC_FLAGS = i32;
 pub const NETCON_MAX_NAME_LEN: u32 = 256u32;
+pub type NETCON_MEDIATYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETCON_PROPERTIES {
+    pub guidId: windows_sys::core::GUID,
+    pub pszwName: windows_sys::core::PWSTR,
+    pub pszwDeviceName: windows_sys::core::PWSTR,
+    pub Status: NETCON_STATUS,
+    pub MediaType: NETCON_MEDIATYPE,
+    pub dwCharacter: u32,
+    pub clsidThisObject: windows_sys::core::GUID,
+    pub clsidUiObject: windows_sys::core::GUID,
+}
+pub type NETCON_STATUS = i32;
+pub type NETCON_TYPE = i32;
+pub type NETISO_ERROR_TYPE = i32;
 pub const NETISO_ERROR_TYPE_INTERNET_CLIENT: NETISO_ERROR_TYPE = 2i32;
 pub const NETISO_ERROR_TYPE_INTERNET_CLIENT_SERVER: NETISO_ERROR_TYPE = 3i32;
 pub const NETISO_ERROR_TYPE_MAX: NETISO_ERROR_TYPE = 4i32;
 pub const NETISO_ERROR_TYPE_NONE: NETISO_ERROR_TYPE = 0i32;
 pub const NETISO_ERROR_TYPE_PRIVATE_NETWORK: NETISO_ERROR_TYPE = 1i32;
+pub type NETISO_FLAG = i32;
 pub const NETISO_FLAG_FORCE_COMPUTE_BINARIES: NETISO_FLAG = 1i32;
 pub const NETISO_FLAG_MAX: NETISO_FLAG = 2i32;
 pub const NETISO_GEID_FOR_NEUTRAL_AWARE: u32 = 2u32;
 pub const NETISO_GEID_FOR_WDAG: u32 = 1u32;
+pub type NET_FW_ACTION = i32;
 pub const NET_FW_ACTION_ALLOW: NET_FW_ACTION = 1i32;
 pub const NET_FW_ACTION_BLOCK: NET_FW_ACTION = 0i32;
 pub const NET_FW_ACTION_MAX: NET_FW_ACTION = 2i32;
@@ -235,24 +203,30 @@ pub const NET_FW_AUTHENTICATE_AND_ENCRYPT: NET_FW_AUTHENTICATE_TYPE = 4i32;
 pub const NET_FW_AUTHENTICATE_AND_NEGOTIATE_ENCRYPTION: NET_FW_AUTHENTICATE_TYPE = 3i32;
 pub const NET_FW_AUTHENTICATE_NONE: NET_FW_AUTHENTICATE_TYPE = 0i32;
 pub const NET_FW_AUTHENTICATE_NO_ENCAPSULATION: NET_FW_AUTHENTICATE_TYPE = 1i32;
+pub type NET_FW_AUTHENTICATE_TYPE = i32;
 pub const NET_FW_AUTHENTICATE_WITH_INTEGRITY: NET_FW_AUTHENTICATE_TYPE = 2i32;
+pub type NET_FW_EDGE_TRAVERSAL_TYPE = i32;
 pub const NET_FW_EDGE_TRAVERSAL_TYPE_ALLOW: NET_FW_EDGE_TRAVERSAL_TYPE = 1i32;
 pub const NET_FW_EDGE_TRAVERSAL_TYPE_DEFER_TO_APP: NET_FW_EDGE_TRAVERSAL_TYPE = 2i32;
 pub const NET_FW_EDGE_TRAVERSAL_TYPE_DEFER_TO_USER: NET_FW_EDGE_TRAVERSAL_TYPE = 3i32;
 pub const NET_FW_EDGE_TRAVERSAL_TYPE_DENY: NET_FW_EDGE_TRAVERSAL_TYPE = 0i32;
+pub type NET_FW_IP_PROTOCOL = i32;
 pub const NET_FW_IP_PROTOCOL_ANY: NET_FW_IP_PROTOCOL = 256i32;
 pub const NET_FW_IP_PROTOCOL_TCP: NET_FW_IP_PROTOCOL = 6i32;
 pub const NET_FW_IP_PROTOCOL_UDP: NET_FW_IP_PROTOCOL = 17i32;
+pub type NET_FW_IP_VERSION = i32;
 pub const NET_FW_IP_VERSION_ANY: NET_FW_IP_VERSION = 2i32;
 pub const NET_FW_IP_VERSION_MAX: NET_FW_IP_VERSION = 3i32;
 pub const NET_FW_IP_VERSION_V4: NET_FW_IP_VERSION = 0i32;
 pub const NET_FW_IP_VERSION_V6: NET_FW_IP_VERSION = 1i32;
+pub type NET_FW_MODIFY_STATE = i32;
 pub const NET_FW_MODIFY_STATE_GP_OVERRIDE: NET_FW_MODIFY_STATE = 1i32;
 pub const NET_FW_MODIFY_STATE_INBOUND_BLOCKED: NET_FW_MODIFY_STATE = 2i32;
 pub const NET_FW_MODIFY_STATE_OK: NET_FW_MODIFY_STATE = 0i32;
 pub const NET_FW_POLICY_EFFECTIVE: NET_FW_POLICY_TYPE = 2i32;
 pub const NET_FW_POLICY_GROUP: NET_FW_POLICY_TYPE = 0i32;
 pub const NET_FW_POLICY_LOCAL: NET_FW_POLICY_TYPE = 1i32;
+pub type NET_FW_POLICY_TYPE = i32;
 pub const NET_FW_POLICY_TYPE_MAX: NET_FW_POLICY_TYPE = 3i32;
 pub const NET_FW_PROFILE2_ALL: NET_FW_PROFILE_TYPE2 = 2147483647i32;
 pub const NET_FW_PROFILE2_DOMAIN: NET_FW_PROFILE_TYPE2 = 1i32;
@@ -261,15 +235,20 @@ pub const NET_FW_PROFILE2_PUBLIC: NET_FW_PROFILE_TYPE2 = 4i32;
 pub const NET_FW_PROFILE_CURRENT: NET_FW_PROFILE_TYPE = 2i32;
 pub const NET_FW_PROFILE_DOMAIN: NET_FW_PROFILE_TYPE = 0i32;
 pub const NET_FW_PROFILE_STANDARD: NET_FW_PROFILE_TYPE = 1i32;
+pub type NET_FW_PROFILE_TYPE = i32;
+pub type NET_FW_PROFILE_TYPE2 = i32;
 pub const NET_FW_PROFILE_TYPE_MAX: NET_FW_PROFILE_TYPE = 3i32;
+pub type NET_FW_RULE_CATEGORY = i32;
 pub const NET_FW_RULE_CATEGORY_BOOT: NET_FW_RULE_CATEGORY = 0i32;
 pub const NET_FW_RULE_CATEGORY_CONSEC: NET_FW_RULE_CATEGORY = 3i32;
 pub const NET_FW_RULE_CATEGORY_FIREWALL: NET_FW_RULE_CATEGORY = 2i32;
 pub const NET_FW_RULE_CATEGORY_MAX: NET_FW_RULE_CATEGORY = 4i32;
 pub const NET_FW_RULE_CATEGORY_STEALTH: NET_FW_RULE_CATEGORY = 1i32;
+pub type NET_FW_RULE_DIRECTION = i32;
 pub const NET_FW_RULE_DIR_IN: NET_FW_RULE_DIRECTION = 1i32;
 pub const NET_FW_RULE_DIR_MAX: NET_FW_RULE_DIRECTION = 3i32;
 pub const NET_FW_RULE_DIR_OUT: NET_FW_RULE_DIRECTION = 2i32;
+pub type NET_FW_SCOPE = i32;
 pub const NET_FW_SCOPE_ALL: NET_FW_SCOPE = 0i32;
 pub const NET_FW_SCOPE_CUSTOM: NET_FW_SCOPE = 2i32;
 pub const NET_FW_SCOPE_LOCAL_SUBNET: NET_FW_SCOPE = 1i32;
@@ -277,6 +256,27 @@ pub const NET_FW_SCOPE_MAX: NET_FW_SCOPE = 3i32;
 pub const NET_FW_SERVICE_FILE_AND_PRINT: NET_FW_SERVICE_TYPE = 0i32;
 pub const NET_FW_SERVICE_NONE: NET_FW_SERVICE_TYPE = 3i32;
 pub const NET_FW_SERVICE_REMOTE_DESKTOP: NET_FW_SERVICE_TYPE = 2i32;
+pub type NET_FW_SERVICE_TYPE = i32;
 pub const NET_FW_SERVICE_TYPE_MAX: NET_FW_SERVICE_TYPE = 4i32;
 pub const NET_FW_SERVICE_UPNP: NET_FW_SERVICE_TYPE = 1i32;
+pub const NetFwAuthorizedApplication: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xec9846b3_2762_4a6b_a214_6acb603462d2);
+pub const NetFwMgr: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x304ce942_6e39_40d8_943a_b913c40c9cd4);
+pub const NetFwOpenPort: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0ca545c6_37ad_4a6c_bf92_9f7610067ef5);
+pub const NetFwPolicy2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe2b3c97f_6ae1_41ac_817a_f6f92166d7dd);
+pub const NetFwProduct: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9d745ed8_c514_4d1d_bf42_751fed2d5ac7);
+pub const NetFwProducts: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcc19079b_8272_4d73_bb70_cdb533527b61);
+pub const NetFwRule: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2c5bc43e_3369_4c33_ab0c_be9469677af4);
+pub const NetSharingManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5c63c1ad_3956_4ff8_8486_40034758315b);
+#[cfg(feature = "Win32_Security")]
+pub type PAC_CHANGES_CALLBACK_FN = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, pchange: *const INET_FIREWALL_AC_CHANGE)>;
+pub type PFN_FWADDDYNAMICKEYWORDADDRESS0 = Option<unsafe extern "system" fn(dynamickeywordaddress: *const FW_DYNAMIC_KEYWORD_ADDRESS0) -> u32>;
+pub type PFN_FWDELETEDYNAMICKEYWORDADDRESS0 = Option<unsafe extern "system" fn(dynamickeywordaddressid: windows_sys::core::GUID) -> u32>;
+pub type PFN_FWENUMDYNAMICKEYWORDADDRESSBYID0 = Option<unsafe extern "system" fn(dynamickeywordaddressid: windows_sys::core::GUID, dynamickeywordaddressdata: *mut *mut FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
+pub type PFN_FWENUMDYNAMICKEYWORDADDRESSESBYTYPE0 = Option<unsafe extern "system" fn(flags: u32, dynamickeywordaddressdata: *mut *mut FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
+pub type PFN_FWFREEDYNAMICKEYWORDADDRESSDATA0 = Option<unsafe extern "system" fn(dynamickeywordaddressdata: *const FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
+pub type PFN_FWUPDATEDYNAMICKEYWORDADDRESS0 = Option<unsafe extern "system" fn(dynamickeywordaddressid: windows_sys::core::GUID, updatedaddresses: windows_sys::core::PCWSTR, append: super::super::Foundation::BOOL) -> u32>;
+pub type PNETISO_EDP_ID_CALLBACK_FN = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, wszenterpriseid: windows_sys::core::PCWSTR, dwerr: u32)>;
+pub type SHARINGCONNECTIONTYPE = i32;
+pub type SHARINGCONNECTION_ENUM_FLAGS = i32;
 pub const S_OBJECT_NO_LONGER_VALID: windows_sys::core::HRESULT = 0x2_u32 as _;
+pub const UPnPNAT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xae1e00aa_3fd5_403c_8a27_2bbdc30cd0e1);

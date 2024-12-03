@@ -238,6 +238,85 @@ pub unsafe fn SerializationBufferFree(buffer: Option<*const u8>) {
     windows_targets::link!("sensorsutilsv2.dll" "system" fn SerializationBufferFree(buffer : *const u8));
     SerializationBufferFree(core::mem::transmute(buffer.unwrap_or(core::ptr::null())))
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ACTIVITY_STATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ACTIVITY_STATE_COUNT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AXIS(pub i32);
+pub const AXIS_MAX: AXIS = AXIS(3i32);
+pub const AXIS_X: AXIS = AXIS(0i32);
+pub const AXIS_Y: AXIS = AXIS(1i32);
+pub const AXIS_Z: AXIS = AXIS(2i32);
+pub const ActivityStateCount: ACTIVITY_STATE_COUNT = ACTIVITY_STATE_COUNT(8i32);
+pub const ActivityState_Biking: ACTIVITY_STATE = ACTIVITY_STATE(64i32);
+pub const ActivityState_Fidgeting: ACTIVITY_STATE = ACTIVITY_STATE(4i32);
+pub const ActivityState_Force_Dword: ACTIVITY_STATE = ACTIVITY_STATE(-1i32);
+pub const ActivityState_Idle: ACTIVITY_STATE = ACTIVITY_STATE(128i32);
+pub const ActivityState_InVehicle: ACTIVITY_STATE = ACTIVITY_STATE(32i32);
+pub const ActivityState_Max: ACTIVITY_STATE = ACTIVITY_STATE(256i32);
+pub const ActivityState_Running: ACTIVITY_STATE = ACTIVITY_STATE(16i32);
+pub const ActivityState_Stationary: ACTIVITY_STATE = ACTIVITY_STATE(2i32);
+pub const ActivityState_Unknown: ACTIVITY_STATE = ACTIVITY_STATE(1i32);
+pub const ActivityState_Walking: ACTIVITY_STATE = ACTIVITY_STATE(8i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ELEVATION_CHANGE_MODE(pub i32);
+pub const ElevationChangeMode_Elevator: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(1i32);
+pub const ElevationChangeMode_Force_Dword: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(-1i32);
+pub const ElevationChangeMode_Max: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(3i32);
+pub const ElevationChangeMode_Stepping: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(2i32);
+pub const ElevationChangeMode_Unknown: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(0i32);
+pub const GNSS_CLEAR_ALL_ASSISTANCE_DATA: u32 = 1u32;
+pub const GUID_DEVINTERFACE_SENSOR: windows_core::GUID = windows_core::GUID::from_u128(0xba1bb692_9b7a_4833_9a1e_525ed134e7e2);
+pub const GUID_SensorCategory_All: windows_core::GUID = windows_core::GUID::from_u128(0xc317c286_c468_4288_9975_d4c4587c442c);
+pub const GUID_SensorCategory_Biometric: windows_core::GUID = windows_core::GUID::from_u128(0xca19690f_a2c7_477d_a99e_99ec6e2b5648);
+pub const GUID_SensorCategory_Electrical: windows_core::GUID = windows_core::GUID::from_u128(0xfb73fcd8_fc4a_483c_ac58_27b691c6beff);
+pub const GUID_SensorCategory_Environmental: windows_core::GUID = windows_core::GUID::from_u128(0x323439aa_7f66_492b_ba0c_73e9aa0a65d5);
+pub const GUID_SensorCategory_Light: windows_core::GUID = windows_core::GUID::from_u128(0x17a665c0_9063_4216_b202_5c7a255e18ce);
+pub const GUID_SensorCategory_Location: windows_core::GUID = windows_core::GUID::from_u128(0xbfa794e4_f964_4fdb_90f6_51056bfe4b44);
+pub const GUID_SensorCategory_Mechanical: windows_core::GUID = windows_core::GUID::from_u128(0x8d131d68_8ef7_4656_80b5_cccbd93791c5);
+pub const GUID_SensorCategory_Motion: windows_core::GUID = windows_core::GUID::from_u128(0xcd09daf1_3b2e_4c3d_b598_b5e5ff93fd46);
+pub const GUID_SensorCategory_Orientation: windows_core::GUID = windows_core::GUID::from_u128(0x9e6c04b6_96fe_4954_b726_68682a473f69);
+pub const GUID_SensorCategory_Other: windows_core::GUID = windows_core::GUID::from_u128(0x2c90e7a9_f4c9_4fa2_af37_56d471fe5a3d);
+pub const GUID_SensorCategory_PersonalActivity: windows_core::GUID = windows_core::GUID::from_u128(0xf1609081_1e12_412b_a14d_cbb0e95bd2e5);
+pub const GUID_SensorCategory_Scanner: windows_core::GUID = windows_core::GUID::from_u128(0xb000e77e_f5b5_420f_815d_0270a726f270);
+pub const GUID_SensorCategory_Unsupported: windows_core::GUID = windows_core::GUID::from_u128(0x2beae7fa_19b0_48c5_a1f6_b5480dc206b0);
+pub const GUID_SensorType_Accelerometer3D: windows_core::GUID = windows_core::GUID::from_u128(0xc2fb0f5f_e2d2_4c78_bcd0_352a9582819d);
+pub const GUID_SensorType_ActivityDetection: windows_core::GUID = windows_core::GUID::from_u128(0x9d9e0118_1807_4f2e_96e4_2ce57142e196);
+pub const GUID_SensorType_AmbientLight: windows_core::GUID = windows_core::GUID::from_u128(0x97f115c8_599a_4153_8894_d2d12899918a);
+pub const GUID_SensorType_Barometer: windows_core::GUID = windows_core::GUID::from_u128(0x0e903829_ff8a_4a93_97df_3dcbde402288);
+pub const GUID_SensorType_Custom: windows_core::GUID = windows_core::GUID::from_u128(0xe83af229_8640_4d18_a213_e22675ebb2c3);
+pub const GUID_SensorType_FloorElevation: windows_core::GUID = windows_core::GUID::from_u128(0xade4987f_7ac4_4dfa_9722_0a027181c747);
+pub const GUID_SensorType_GeomagneticOrientation: windows_core::GUID = windows_core::GUID::from_u128(0xe77195f8_2d1f_4823_971b_1c4467556c9d);
+pub const GUID_SensorType_GravityVector: windows_core::GUID = windows_core::GUID::from_u128(0x03b52c73_bb76_463f_9524_38de76eb700b);
+pub const GUID_SensorType_Gyrometer3D: windows_core::GUID = windows_core::GUID::from_u128(0x09485f5a_759e_42c2_bd4b_a349b75c8643);
+pub const GUID_SensorType_HingeAngle: windows_core::GUID = windows_core::GUID::from_u128(0x82358065_f4c4_4da1_b272_13c23332a207);
+pub const GUID_SensorType_Humidity: windows_core::GUID = windows_core::GUID::from_u128(0x5c72bf67_bd7e_4257_990b_98a3ba3b400a);
+pub const GUID_SensorType_LinearAccelerometer: windows_core::GUID = windows_core::GUID::from_u128(0x038b0283_97b4_41c8_bc24_5ff1aa48fec7);
+pub const GUID_SensorType_Magnetometer3D: windows_core::GUID = windows_core::GUID::from_u128(0x55e5effb_15c7_40df_8698_a84b7c863c53);
+pub const GUID_SensorType_Orientation: windows_core::GUID = windows_core::GUID::from_u128(0xcdb5d8f7_3cfd_41c8_8542_cce622cf5d6e);
+pub const GUID_SensorType_Pedometer: windows_core::GUID = windows_core::GUID::from_u128(0xb19f89af_e3eb_444b_8dea_202575a71599);
+pub const GUID_SensorType_Proximity: windows_core::GUID = windows_core::GUID::from_u128(0x5220dae9_3179_4430_9f90_06266d2a34de);
+pub const GUID_SensorType_RelativeOrientation: windows_core::GUID = windows_core::GUID::from_u128(0x40993b51_4706_44dc_98d5_c920c037ffab);
+pub const GUID_SensorType_SimpleDeviceOrientation: windows_core::GUID = windows_core::GUID::from_u128(0x86a19291_0482_402c_bf4c_addac52b1c39);
+pub const GUID_SensorType_Temperature: windows_core::GUID = windows_core::GUID::from_u128(0x04fd0ec4_d5da_45fa_95a9_5db38ee19306);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HUMAN_PRESENCE_DETECTION_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HUMAN_PRESENCE_DETECTION_TYPE_COUNT(pub i32);
+pub const HumanPresenceDetectionTypeCount: HUMAN_PRESENCE_DETECTION_TYPE_COUNT = HUMAN_PRESENCE_DETECTION_TYPE_COUNT(4i32);
+pub const HumanPresenceDetectionType_AudioBiometric: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(8i32);
+pub const HumanPresenceDetectionType_FacialBiometric: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(4i32);
+pub const HumanPresenceDetectionType_Force_Dword: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(-1i32);
+pub const HumanPresenceDetectionType_Undefined: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(0i32);
+pub const HumanPresenceDetectionType_VendorDefinedBiometric: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(2i32);
+pub const HumanPresenceDetectionType_VendorDefinedNonBiometric: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(1i32);
 windows_core::imp::define_interface!(ILocationPermissions, ILocationPermissions_Vtbl, 0xd5fb0a7f_e74e_44f5_8e02_4806863a274f);
 windows_core::imp::interface_hierarchy!(ILocationPermissions, windows_core::IUnknown);
 impl ILocationPermissions {
@@ -968,64 +1047,24 @@ impl ISensorManagerEvents_Vtbl {
 impl windows_core::RuntimeName for ISensorManagerEvents {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ACTIVITY_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ACTIVITY_STATE_COUNT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AXIS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ELEVATION_CHANGE_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HUMAN_PRESENCE_DETECTION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HUMAN_PRESENCE_DETECTION_TYPE_COUNT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOCATION_DESIRED_ACCURACY(pub i32);
+pub const LOCATION_DESIRED_ACCURACY_DEFAULT: LOCATION_DESIRED_ACCURACY = LOCATION_DESIRED_ACCURACY(0i32);
+pub const LOCATION_DESIRED_ACCURACY_HIGH: LOCATION_DESIRED_ACCURACY = LOCATION_DESIRED_ACCURACY(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOCATION_POSITION_SOURCE(pub i32);
+pub const LOCATION_POSITION_SOURCE_CELLULAR: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(0i32);
+pub const LOCATION_POSITION_SOURCE_IPADDRESS: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(3i32);
+pub const LOCATION_POSITION_SOURCE_SATELLITE: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(1i32);
+pub const LOCATION_POSITION_SOURCE_UNKNOWN: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(4i32);
+pub const LOCATION_POSITION_SOURCE_WIFI: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(2i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MAGNETOMETER_ACCURACY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MagnetometerAccuracy(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PEDOMETER_STEP_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PEDOMETER_STEP_TYPE_COUNT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROXIMITY_SENSOR_CAPABILITIES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROXIMITY_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SENSOR_CONNECTION_TYPES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SENSOR_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SIMPLE_DEVICE_ORIENTATION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SensorConnectionType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SensorState(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SimpleDeviceOrientation(pub i32);
+pub const MAGNETOMETER_ACCURACY_APPROXIMATE: MagnetometerAccuracy = MagnetometerAccuracy(2i32);
+pub const MAGNETOMETER_ACCURACY_HIGH: MagnetometerAccuracy = MagnetometerAccuracy(3i32);
+pub const MAGNETOMETER_ACCURACY_UNKNOWN: MagnetometerAccuracy = MagnetometerAccuracy(0i32);
+pub const MAGNETOMETER_ACCURACY_UNRELIABLE: MagnetometerAccuracy = MagnetometerAccuracy(1i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MATRIX3X3 {
@@ -1090,6 +1129,37 @@ impl Default for MATRIX3X3_0_1 {
 impl windows_core::TypeKind for MATRIX3X3_0_1 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MagnetometerAccuracy(pub i32);
+pub const MagnetometerAccuracy_Approximate: MAGNETOMETER_ACCURACY = MAGNETOMETER_ACCURACY(2i32);
+pub const MagnetometerAccuracy_High: MAGNETOMETER_ACCURACY = MAGNETOMETER_ACCURACY(3i32);
+pub const MagnetometerAccuracy_Unknown: MAGNETOMETER_ACCURACY = MAGNETOMETER_ACCURACY(0i32);
+pub const MagnetometerAccuracy_Unreliable: MAGNETOMETER_ACCURACY = MAGNETOMETER_ACCURACY(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PEDOMETER_STEP_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PEDOMETER_STEP_TYPE_COUNT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PROXIMITY_SENSOR_CAPABILITIES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PROXIMITY_TYPE(pub i32);
+pub const PedometerStepTypeCount: PEDOMETER_STEP_TYPE_COUNT = PEDOMETER_STEP_TYPE_COUNT(3i32);
+pub const PedometerStepType_Force_Dword: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(-1i32);
+pub const PedometerStepType_Max: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(8i32);
+pub const PedometerStepType_Running: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(4i32);
+pub const PedometerStepType_Unknown: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(1i32);
+pub const PedometerStepType_Walking: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(2i32);
+pub const ProximityType_Force_Dword: PROXIMITY_TYPE = PROXIMITY_TYPE(-1i32);
+pub const ProximityType_HumanProximity: PROXIMITY_TYPE = PROXIMITY_TYPE(1i32);
+pub const ProximityType_ObjectProximity: PROXIMITY_TYPE = PROXIMITY_TYPE(0i32);
+pub const Proximity_Sensor_Human_Engagement_Capable: PROXIMITY_SENSOR_CAPABILITIES = PROXIMITY_SENSOR_CAPABILITIES(2i32);
+pub const Proximity_Sensor_Human_Presence_Capable: PROXIMITY_SENSOR_CAPABILITIES = PROXIMITY_SENSOR_CAPABILITIES(1i32);
+pub const Proximity_Sensor_Supported_Capabilities: PROXIMITY_SENSOR_CAPABILITIES = PROXIMITY_SENSOR_CAPABILITIES(3i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct QUATERNION {
@@ -1106,6 +1176,18 @@ impl Default for QUATERNION {
 impl windows_core::TypeKind for QUATERNION {
     type TypeKind = windows_core::CopyType;
 }
+pub const SENSOR_CATEGORY_ALL: windows_core::GUID = windows_core::GUID::from_u128(0xc317c286_c468_4288_9975_d4c4587c442c);
+pub const SENSOR_CATEGORY_BIOMETRIC: windows_core::GUID = windows_core::GUID::from_u128(0xca19690f_a2c7_477d_a99e_99ec6e2b5648);
+pub const SENSOR_CATEGORY_ELECTRICAL: windows_core::GUID = windows_core::GUID::from_u128(0xfb73fcd8_fc4a_483c_ac58_27b691c6beff);
+pub const SENSOR_CATEGORY_ENVIRONMENTAL: windows_core::GUID = windows_core::GUID::from_u128(0x323439aa_7f66_492b_ba0c_73e9aa0a65d5);
+pub const SENSOR_CATEGORY_LIGHT: windows_core::GUID = windows_core::GUID::from_u128(0x17a665c0_9063_4216_b202_5c7a255e18ce);
+pub const SENSOR_CATEGORY_LOCATION: windows_core::GUID = windows_core::GUID::from_u128(0xbfa794e4_f964_4fdb_90f6_51056bfe4b44);
+pub const SENSOR_CATEGORY_MECHANICAL: windows_core::GUID = windows_core::GUID::from_u128(0x8d131d68_8ef7_4656_80b5_cccbd93791c5);
+pub const SENSOR_CATEGORY_MOTION: windows_core::GUID = windows_core::GUID::from_u128(0xcd09daf1_3b2e_4c3d_b598_b5e5ff93fd46);
+pub const SENSOR_CATEGORY_ORIENTATION: windows_core::GUID = windows_core::GUID::from_u128(0x9e6c04b6_96fe_4954_b726_68682a473f69);
+pub const SENSOR_CATEGORY_OTHER: windows_core::GUID = windows_core::GUID::from_u128(0x2c90e7a9_f4c9_4fa2_af37_56d471fe5a3d);
+pub const SENSOR_CATEGORY_SCANNER: windows_core::GUID = windows_core::GUID::from_u128(0xb000e77e_f5b5_420f_815d_0270a726f270);
+pub const SENSOR_CATEGORY_UNSUPPORTED: windows_core::GUID = windows_core::GUID::from_u128(0x2beae7fa_19b0_48c5_a1f6_b5480dc206b0);
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct SENSOR_COLLECTION_LIST {
@@ -1129,162 +1211,9 @@ impl Default for SENSOR_COLLECTION_LIST {
 impl windows_core::TypeKind for SENSOR_COLLECTION_LIST {
     type TypeKind = windows_core::CloneType;
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SENSOR_PROPERTY_LIST {
-    pub AllocatedSizeInBytes: u32,
-    pub Count: u32,
-    pub List: [super::super::Foundation::PROPERTYKEY; 1],
-}
-impl Default for SENSOR_PROPERTY_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SENSOR_PROPERTY_LIST {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-pub struct SENSOR_VALUE_PAIR {
-    pub Key: super::super::Foundation::PROPERTYKEY,
-    pub Value: super::super::System::Com::StructuredStorage::PROPVARIANT,
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Clone for SENSOR_VALUE_PAIR {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Default for SENSOR_VALUE_PAIR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for SENSOR_VALUE_PAIR {
-    type TypeKind = windows_core::CloneType;
-}
-pub const Sensor: windows_core::GUID = windows_core::GUID::from_u128(0xe97ced00_523a_4133_bf6f_d3a2dae7f6ba);
-pub const SensorCollection: windows_core::GUID = windows_core::GUID::from_u128(0x79c43adb_a429_469f_aa39_2f2b74b75937);
-pub const SensorDataReport: windows_core::GUID = windows_core::GUID::from_u128(0x4ea9d6ef_694b_4218_8816_ccda8da74bba);
-pub const SensorManager: windows_core::GUID = windows_core::GUID::from_u128(0x77a1c827_fcd2_4689_8915_9d613cc5fa3e);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VEC3D {
-    pub X: f32,
-    pub Y: f32,
-    pub Z: f32,
-}
-impl Default for VEC3D {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VEC3D {
-    type TypeKind = windows_core::CopyType;
-}
-pub const AXIS_MAX: AXIS = AXIS(3i32);
-pub const AXIS_X: AXIS = AXIS(0i32);
-pub const AXIS_Y: AXIS = AXIS(1i32);
-pub const AXIS_Z: AXIS = AXIS(2i32);
-pub const ActivityStateCount: ACTIVITY_STATE_COUNT = ACTIVITY_STATE_COUNT(8i32);
-pub const ActivityState_Biking: ACTIVITY_STATE = ACTIVITY_STATE(64i32);
-pub const ActivityState_Fidgeting: ACTIVITY_STATE = ACTIVITY_STATE(4i32);
-pub const ActivityState_Force_Dword: ACTIVITY_STATE = ACTIVITY_STATE(-1i32);
-pub const ActivityState_Idle: ACTIVITY_STATE = ACTIVITY_STATE(128i32);
-pub const ActivityState_InVehicle: ACTIVITY_STATE = ACTIVITY_STATE(32i32);
-pub const ActivityState_Max: ACTIVITY_STATE = ACTIVITY_STATE(256i32);
-pub const ActivityState_Running: ACTIVITY_STATE = ACTIVITY_STATE(16i32);
-pub const ActivityState_Stationary: ACTIVITY_STATE = ACTIVITY_STATE(2i32);
-pub const ActivityState_Unknown: ACTIVITY_STATE = ACTIVITY_STATE(1i32);
-pub const ActivityState_Walking: ACTIVITY_STATE = ACTIVITY_STATE(8i32);
-pub const ElevationChangeMode_Elevator: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(1i32);
-pub const ElevationChangeMode_Force_Dword: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(-1i32);
-pub const ElevationChangeMode_Max: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(3i32);
-pub const ElevationChangeMode_Stepping: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(2i32);
-pub const ElevationChangeMode_Unknown: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(0i32);
-pub const GNSS_CLEAR_ALL_ASSISTANCE_DATA: u32 = 1u32;
-pub const GUID_DEVINTERFACE_SENSOR: windows_core::GUID = windows_core::GUID::from_u128(0xba1bb692_9b7a_4833_9a1e_525ed134e7e2);
-pub const GUID_SensorCategory_All: windows_core::GUID = windows_core::GUID::from_u128(0xc317c286_c468_4288_9975_d4c4587c442c);
-pub const GUID_SensorCategory_Biometric: windows_core::GUID = windows_core::GUID::from_u128(0xca19690f_a2c7_477d_a99e_99ec6e2b5648);
-pub const GUID_SensorCategory_Electrical: windows_core::GUID = windows_core::GUID::from_u128(0xfb73fcd8_fc4a_483c_ac58_27b691c6beff);
-pub const GUID_SensorCategory_Environmental: windows_core::GUID = windows_core::GUID::from_u128(0x323439aa_7f66_492b_ba0c_73e9aa0a65d5);
-pub const GUID_SensorCategory_Light: windows_core::GUID = windows_core::GUID::from_u128(0x17a665c0_9063_4216_b202_5c7a255e18ce);
-pub const GUID_SensorCategory_Location: windows_core::GUID = windows_core::GUID::from_u128(0xbfa794e4_f964_4fdb_90f6_51056bfe4b44);
-pub const GUID_SensorCategory_Mechanical: windows_core::GUID = windows_core::GUID::from_u128(0x8d131d68_8ef7_4656_80b5_cccbd93791c5);
-pub const GUID_SensorCategory_Motion: windows_core::GUID = windows_core::GUID::from_u128(0xcd09daf1_3b2e_4c3d_b598_b5e5ff93fd46);
-pub const GUID_SensorCategory_Orientation: windows_core::GUID = windows_core::GUID::from_u128(0x9e6c04b6_96fe_4954_b726_68682a473f69);
-pub const GUID_SensorCategory_Other: windows_core::GUID = windows_core::GUID::from_u128(0x2c90e7a9_f4c9_4fa2_af37_56d471fe5a3d);
-pub const GUID_SensorCategory_PersonalActivity: windows_core::GUID = windows_core::GUID::from_u128(0xf1609081_1e12_412b_a14d_cbb0e95bd2e5);
-pub const GUID_SensorCategory_Scanner: windows_core::GUID = windows_core::GUID::from_u128(0xb000e77e_f5b5_420f_815d_0270a726f270);
-pub const GUID_SensorCategory_Unsupported: windows_core::GUID = windows_core::GUID::from_u128(0x2beae7fa_19b0_48c5_a1f6_b5480dc206b0);
-pub const GUID_SensorType_Accelerometer3D: windows_core::GUID = windows_core::GUID::from_u128(0xc2fb0f5f_e2d2_4c78_bcd0_352a9582819d);
-pub const GUID_SensorType_ActivityDetection: windows_core::GUID = windows_core::GUID::from_u128(0x9d9e0118_1807_4f2e_96e4_2ce57142e196);
-pub const GUID_SensorType_AmbientLight: windows_core::GUID = windows_core::GUID::from_u128(0x97f115c8_599a_4153_8894_d2d12899918a);
-pub const GUID_SensorType_Barometer: windows_core::GUID = windows_core::GUID::from_u128(0x0e903829_ff8a_4a93_97df_3dcbde402288);
-pub const GUID_SensorType_Custom: windows_core::GUID = windows_core::GUID::from_u128(0xe83af229_8640_4d18_a213_e22675ebb2c3);
-pub const GUID_SensorType_FloorElevation: windows_core::GUID = windows_core::GUID::from_u128(0xade4987f_7ac4_4dfa_9722_0a027181c747);
-pub const GUID_SensorType_GeomagneticOrientation: windows_core::GUID = windows_core::GUID::from_u128(0xe77195f8_2d1f_4823_971b_1c4467556c9d);
-pub const GUID_SensorType_GravityVector: windows_core::GUID = windows_core::GUID::from_u128(0x03b52c73_bb76_463f_9524_38de76eb700b);
-pub const GUID_SensorType_Gyrometer3D: windows_core::GUID = windows_core::GUID::from_u128(0x09485f5a_759e_42c2_bd4b_a349b75c8643);
-pub const GUID_SensorType_HingeAngle: windows_core::GUID = windows_core::GUID::from_u128(0x82358065_f4c4_4da1_b272_13c23332a207);
-pub const GUID_SensorType_Humidity: windows_core::GUID = windows_core::GUID::from_u128(0x5c72bf67_bd7e_4257_990b_98a3ba3b400a);
-pub const GUID_SensorType_LinearAccelerometer: windows_core::GUID = windows_core::GUID::from_u128(0x038b0283_97b4_41c8_bc24_5ff1aa48fec7);
-pub const GUID_SensorType_Magnetometer3D: windows_core::GUID = windows_core::GUID::from_u128(0x55e5effb_15c7_40df_8698_a84b7c863c53);
-pub const GUID_SensorType_Orientation: windows_core::GUID = windows_core::GUID::from_u128(0xcdb5d8f7_3cfd_41c8_8542_cce622cf5d6e);
-pub const GUID_SensorType_Pedometer: windows_core::GUID = windows_core::GUID::from_u128(0xb19f89af_e3eb_444b_8dea_202575a71599);
-pub const GUID_SensorType_Proximity: windows_core::GUID = windows_core::GUID::from_u128(0x5220dae9_3179_4430_9f90_06266d2a34de);
-pub const GUID_SensorType_RelativeOrientation: windows_core::GUID = windows_core::GUID::from_u128(0x40993b51_4706_44dc_98d5_c920c037ffab);
-pub const GUID_SensorType_SimpleDeviceOrientation: windows_core::GUID = windows_core::GUID::from_u128(0x86a19291_0482_402c_bf4c_addac52b1c39);
-pub const GUID_SensorType_Temperature: windows_core::GUID = windows_core::GUID::from_u128(0x04fd0ec4_d5da_45fa_95a9_5db38ee19306);
-pub const HumanPresenceDetectionTypeCount: HUMAN_PRESENCE_DETECTION_TYPE_COUNT = HUMAN_PRESENCE_DETECTION_TYPE_COUNT(4i32);
-pub const HumanPresenceDetectionType_AudioBiometric: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(8i32);
-pub const HumanPresenceDetectionType_FacialBiometric: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(4i32);
-pub const HumanPresenceDetectionType_Force_Dword: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(-1i32);
-pub const HumanPresenceDetectionType_Undefined: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(0i32);
-pub const HumanPresenceDetectionType_VendorDefinedBiometric: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(2i32);
-pub const HumanPresenceDetectionType_VendorDefinedNonBiometric: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(1i32);
-pub const LOCATION_DESIRED_ACCURACY_DEFAULT: LOCATION_DESIRED_ACCURACY = LOCATION_DESIRED_ACCURACY(0i32);
-pub const LOCATION_DESIRED_ACCURACY_HIGH: LOCATION_DESIRED_ACCURACY = LOCATION_DESIRED_ACCURACY(1i32);
-pub const LOCATION_POSITION_SOURCE_CELLULAR: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(0i32);
-pub const LOCATION_POSITION_SOURCE_IPADDRESS: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(3i32);
-pub const LOCATION_POSITION_SOURCE_SATELLITE: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(1i32);
-pub const LOCATION_POSITION_SOURCE_UNKNOWN: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(4i32);
-pub const LOCATION_POSITION_SOURCE_WIFI: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(2i32);
-pub const MAGNETOMETER_ACCURACY_APPROXIMATE: MagnetometerAccuracy = MagnetometerAccuracy(2i32);
-pub const MAGNETOMETER_ACCURACY_HIGH: MagnetometerAccuracy = MagnetometerAccuracy(3i32);
-pub const MAGNETOMETER_ACCURACY_UNKNOWN: MagnetometerAccuracy = MagnetometerAccuracy(0i32);
-pub const MAGNETOMETER_ACCURACY_UNRELIABLE: MagnetometerAccuracy = MagnetometerAccuracy(1i32);
-pub const MagnetometerAccuracy_Approximate: MAGNETOMETER_ACCURACY = MAGNETOMETER_ACCURACY(2i32);
-pub const MagnetometerAccuracy_High: MAGNETOMETER_ACCURACY = MAGNETOMETER_ACCURACY(3i32);
-pub const MagnetometerAccuracy_Unknown: MAGNETOMETER_ACCURACY = MAGNETOMETER_ACCURACY(0i32);
-pub const MagnetometerAccuracy_Unreliable: MAGNETOMETER_ACCURACY = MAGNETOMETER_ACCURACY(1i32);
-pub const PedometerStepTypeCount: PEDOMETER_STEP_TYPE_COUNT = PEDOMETER_STEP_TYPE_COUNT(3i32);
-pub const PedometerStepType_Force_Dword: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(-1i32);
-pub const PedometerStepType_Max: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(8i32);
-pub const PedometerStepType_Running: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(4i32);
-pub const PedometerStepType_Unknown: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(1i32);
-pub const PedometerStepType_Walking: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(2i32);
-pub const ProximityType_Force_Dword: PROXIMITY_TYPE = PROXIMITY_TYPE(-1i32);
-pub const ProximityType_HumanProximity: PROXIMITY_TYPE = PROXIMITY_TYPE(1i32);
-pub const ProximityType_ObjectProximity: PROXIMITY_TYPE = PROXIMITY_TYPE(0i32);
-pub const Proximity_Sensor_Human_Engagement_Capable: PROXIMITY_SENSOR_CAPABILITIES = PROXIMITY_SENSOR_CAPABILITIES(2i32);
-pub const Proximity_Sensor_Human_Presence_Capable: PROXIMITY_SENSOR_CAPABILITIES = PROXIMITY_SENSOR_CAPABILITIES(1i32);
-pub const Proximity_Sensor_Supported_Capabilities: PROXIMITY_SENSOR_CAPABILITIES = PROXIMITY_SENSOR_CAPABILITIES(3i32);
-pub const SENSOR_CATEGORY_ALL: windows_core::GUID = windows_core::GUID::from_u128(0xc317c286_c468_4288_9975_d4c4587c442c);
-pub const SENSOR_CATEGORY_BIOMETRIC: windows_core::GUID = windows_core::GUID::from_u128(0xca19690f_a2c7_477d_a99e_99ec6e2b5648);
-pub const SENSOR_CATEGORY_ELECTRICAL: windows_core::GUID = windows_core::GUID::from_u128(0xfb73fcd8_fc4a_483c_ac58_27b691c6beff);
-pub const SENSOR_CATEGORY_ENVIRONMENTAL: windows_core::GUID = windows_core::GUID::from_u128(0x323439aa_7f66_492b_ba0c_73e9aa0a65d5);
-pub const SENSOR_CATEGORY_LIGHT: windows_core::GUID = windows_core::GUID::from_u128(0x17a665c0_9063_4216_b202_5c7a255e18ce);
-pub const SENSOR_CATEGORY_LOCATION: windows_core::GUID = windows_core::GUID::from_u128(0xbfa794e4_f964_4fdb_90f6_51056bfe4b44);
-pub const SENSOR_CATEGORY_MECHANICAL: windows_core::GUID = windows_core::GUID::from_u128(0x8d131d68_8ef7_4656_80b5_cccbd93791c5);
-pub const SENSOR_CATEGORY_MOTION: windows_core::GUID = windows_core::GUID::from_u128(0xcd09daf1_3b2e_4c3d_b598_b5e5ff93fd46);
-pub const SENSOR_CATEGORY_ORIENTATION: windows_core::GUID = windows_core::GUID::from_u128(0x9e6c04b6_96fe_4954_b726_68682a473f69);
-pub const SENSOR_CATEGORY_OTHER: windows_core::GUID = windows_core::GUID::from_u128(0x2c90e7a9_f4c9_4fa2_af37_56d471fe5a3d);
-pub const SENSOR_CATEGORY_SCANNER: windows_core::GUID = windows_core::GUID::from_u128(0xb000e77e_f5b5_420f_815d_0270a726f270);
-pub const SENSOR_CATEGORY_UNSUPPORTED: windows_core::GUID = windows_core::GUID::from_u128(0x2beae7fa_19b0_48c5_a1f6_b5480dc206b0);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SENSOR_CONNECTION_TYPES(pub i32);
 pub const SENSOR_CONNECTION_TYPE_PC_ATTACHED: SensorConnectionType = SensorConnectionType(1i32);
 pub const SENSOR_CONNECTION_TYPE_PC_EXTERNAL: SensorConnectionType = SensorConnectionType(2i32);
 pub const SENSOR_CONNECTION_TYPE_PC_INTEGRATED: SensorConnectionType = SensorConnectionType(0i32);
@@ -1449,6 +1378,21 @@ pub const SENSOR_PROPERTY_DEVICE_PATH: super::super::Foundation::PROPERTYKEY = s
 pub const SENSOR_PROPERTY_FRIENDLY_NAME: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920), pid: 9 };
 pub const SENSOR_PROPERTY_HID_USAGE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920), pid: 22 };
 pub const SENSOR_PROPERTY_LIGHT_RESPONSE_CURVE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920), pid: 16 };
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SENSOR_PROPERTY_LIST {
+    pub AllocatedSizeInBytes: u32,
+    pub Count: u32,
+    pub List: [super::super::Foundation::PROPERTYKEY; 1],
+}
+impl Default for SENSOR_PROPERTY_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SENSOR_PROPERTY_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SENSOR_PROPERTY_LIST_HEADER_SIZE: u32 = 8u32;
 pub const SENSOR_PROPERTY_LOCATION_DESIRED_ACCURACY: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920), pid: 19 };
 pub const SENSOR_PROPERTY_MANUFACTURER: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920), pid: 6 };
@@ -1465,6 +1409,9 @@ pub const SENSOR_PROPERTY_STATE: super::super::Foundation::PROPERTYKEY = super::
 pub const SENSOR_PROPERTY_TEST_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe1e962f4_6e65_45f7_9c36_d487b7b1bd34);
 pub const SENSOR_PROPERTY_TURN_ON_OFF_NMEA: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xe1e962f4_6e65_45f7_9c36_d487b7b1bd34), pid: 3 };
 pub const SENSOR_PROPERTY_TYPE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920), pid: 2 };
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SENSOR_STATE(pub i32);
 pub const SENSOR_STATE_ACCESS_DENIED: SensorState = SensorState(4i32);
 pub const SENSOR_STATE_ERROR: SensorState = SensorState(5i32);
 pub const SENSOR_STATE_INITIALIZING: SensorState = SensorState(3i32);
@@ -1528,22 +1475,75 @@ pub const SENSOR_TYPE_STRAIN: windows_core::GUID = windows_core::GUID::from_u128
 pub const SENSOR_TYPE_TOUCH: windows_core::GUID = windows_core::GUID::from_u128(0x17db3018_06c4_4f7d_81af_9274b7599c27);
 pub const SENSOR_TYPE_UNKNOWN: windows_core::GUID = windows_core::GUID::from_u128(0x10ba83e3_ef4f_41ed_9885_a87d6435a8e1);
 pub const SENSOR_TYPE_VOLTAGE: windows_core::GUID = windows_core::GUID::from_u128(0xc5484637_4fb7_4953_98b8_a56d8aa1fb1e);
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+pub struct SENSOR_VALUE_PAIR {
+    pub Key: super::super::Foundation::PROPERTYKEY,
+    pub Value: super::super::System::Com::StructuredStorage::PROPVARIANT,
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Clone for SENSOR_VALUE_PAIR {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for SENSOR_VALUE_PAIR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for SENSOR_VALUE_PAIR {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SIMPLE_DEVICE_ORIENTATION(pub i32);
 pub const SIMPLE_DEVICE_ORIENTATION_NOT_ROTATED: SimpleDeviceOrientation = SimpleDeviceOrientation(0i32);
 pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_180: SimpleDeviceOrientation = SimpleDeviceOrientation(2i32);
 pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_270: SimpleDeviceOrientation = SimpleDeviceOrientation(3i32);
 pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_90: SimpleDeviceOrientation = SimpleDeviceOrientation(1i32);
 pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_FACE_DOWN: SimpleDeviceOrientation = SimpleDeviceOrientation(5i32);
 pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_FACE_UP: SimpleDeviceOrientation = SimpleDeviceOrientation(4i32);
+pub const Sensor: windows_core::GUID = windows_core::GUID::from_u128(0xe97ced00_523a_4133_bf6f_d3a2dae7f6ba);
+pub const SensorCollection: windows_core::GUID = windows_core::GUID::from_u128(0x79c43adb_a429_469f_aa39_2f2b74b75937);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SensorConnectionType(pub i32);
 pub const SensorConnectionType_Attached: SENSOR_CONNECTION_TYPES = SENSOR_CONNECTION_TYPES(1i32);
 pub const SensorConnectionType_External: SENSOR_CONNECTION_TYPES = SENSOR_CONNECTION_TYPES(2i32);
 pub const SensorConnectionType_Integrated: SENSOR_CONNECTION_TYPES = SENSOR_CONNECTION_TYPES(0i32);
+pub const SensorDataReport: windows_core::GUID = windows_core::GUID::from_u128(0x4ea9d6ef_694b_4218_8816_ccda8da74bba);
+pub const SensorManager: windows_core::GUID = windows_core::GUID::from_u128(0x77a1c827_fcd2_4689_8915_9d613cc5fa3e);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SensorState(pub i32);
 pub const SensorState_Active: SENSOR_STATE = SENSOR_STATE(2i32);
 pub const SensorState_Error: SENSOR_STATE = SENSOR_STATE(3i32);
 pub const SensorState_Idle: SENSOR_STATE = SENSOR_STATE(1i32);
 pub const SensorState_Initializing: SENSOR_STATE = SENSOR_STATE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SimpleDeviceOrientation(pub i32);
 pub const SimpleDeviceOrientation_Facedown: SIMPLE_DEVICE_ORIENTATION = SIMPLE_DEVICE_ORIENTATION(5i32);
 pub const SimpleDeviceOrientation_Faceup: SIMPLE_DEVICE_ORIENTATION = SIMPLE_DEVICE_ORIENTATION(4i32);
 pub const SimpleDeviceOrientation_NotRotated: SIMPLE_DEVICE_ORIENTATION = SIMPLE_DEVICE_ORIENTATION(0i32);
 pub const SimpleDeviceOrientation_Rotated180DegreesCounterclockwise: SIMPLE_DEVICE_ORIENTATION = SIMPLE_DEVICE_ORIENTATION(2i32);
 pub const SimpleDeviceOrientation_Rotated270DegreesCounterclockwise: SIMPLE_DEVICE_ORIENTATION = SIMPLE_DEVICE_ORIENTATION(3i32);
 pub const SimpleDeviceOrientation_Rotated90DegreesCounterclockwise: SIMPLE_DEVICE_ORIENTATION = SIMPLE_DEVICE_ORIENTATION(1i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VEC3D {
+    pub X: f32,
+    pub Y: f32,
+    pub Z: f32,
+}
+impl Default for VEC3D {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VEC3D {
+    type TypeKind = windows_core::CopyType;
+}

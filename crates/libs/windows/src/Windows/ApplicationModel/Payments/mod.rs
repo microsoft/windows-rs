@@ -1,5 +1,448 @@
 #[cfg(feature = "ApplicationModel_Payments_Provider")]
 pub mod Provider;
+windows_core::imp::define_interface!(IPaymentAddress, IPaymentAddress_Vtbl, 0x5f2264e9_6f3a_4166_a018_0a0b06bb32b5);
+impl windows_core::RuntimeType for IPaymentAddress {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentAddress_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Country: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetCountry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub AddressLines: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    AddressLines: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SetAddressLines: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SetAddressLines: usize,
+    pub Region: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub City: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetCity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DependentLocality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetDependentLocality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PostalCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetPostalCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SortingCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetSortingCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LanguageCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetLanguageCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Organization: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetOrganization: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Recipient: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetRecipient: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PhoneNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetPhoneNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Properties: usize,
+}
+windows_core::imp::define_interface!(IPaymentCanMakePaymentResult, IPaymentCanMakePaymentResult_Vtbl, 0x7696fe55_d5d3_4d3d_b345_45591759c510);
+impl windows_core::RuntimeType for IPaymentCanMakePaymentResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentCanMakePaymentResult_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PaymentCanMakePaymentResultStatus) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPaymentCanMakePaymentResultFactory, IPaymentCanMakePaymentResultFactory_Vtbl, 0xbbdcaa3e_7d49_4f69_aa53_2a0f8164b7c9);
+impl windows_core::RuntimeType for IPaymentCanMakePaymentResultFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentCanMakePaymentResultFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, PaymentCanMakePaymentResultStatus, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPaymentCurrencyAmount, IPaymentCurrencyAmount_Vtbl, 0xe3a3e9e0_b41f_4987_bdcb_071331f2daa4);
+impl windows_core::RuntimeType for IPaymentCurrencyAmount {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentCurrencyAmount_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Currency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetCurrency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CurrencySystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetCurrencySystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPaymentCurrencyAmountFactory, IPaymentCurrencyAmountFactory_Vtbl, 0x3257d338_140c_4575_8535_f773178c09a7);
+impl windows_core::RuntimeType for IPaymentCurrencyAmountFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentCurrencyAmountFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateWithCurrencySystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPaymentDetails, IPaymentDetails_Vtbl, 0x53bb2d7d_e0eb_4053_8eae_ce7c48e02945);
+impl windows_core::RuntimeType for IPaymentDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentDetails_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Total: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetTotal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub DisplayItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    DisplayItems: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SetDisplayItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SetDisplayItems: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub ShippingOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    ShippingOptions: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SetShippingOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SetShippingOptions: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Modifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Modifiers: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SetModifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SetModifiers: usize,
+}
+windows_core::imp::define_interface!(IPaymentDetailsFactory, IPaymentDetailsFactory_Vtbl, 0xcfe8afee_c0ea_4ca1_8bc7_6de67b1f3763);
+impl windows_core::RuntimeType for IPaymentDetailsFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentDetailsFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateWithDisplayItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateWithDisplayItems: usize,
+}
+windows_core::imp::define_interface!(IPaymentDetailsModifier, IPaymentDetailsModifier_Vtbl, 0xbe1c7d65_4323_41d7_b305_dfcb765f69de);
+impl windows_core::RuntimeType for IPaymentDetailsModifier {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentDetailsModifier_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub JsonData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SupportedMethodIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SupportedMethodIds: usize,
+    pub Total: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub AdditionalDisplayItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    AdditionalDisplayItems: usize,
+}
+windows_core::imp::define_interface!(IPaymentDetailsModifierFactory, IPaymentDetailsModifierFactory_Vtbl, 0x79005286_54de_429c_9e4f_5dce6e10ebce);
+impl windows_core::RuntimeType for IPaymentDetailsModifierFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentDetailsModifierFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Create: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateWithAdditionalDisplayItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateWithAdditionalDisplayItems: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateWithAdditionalDisplayItemsAndJsonData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateWithAdditionalDisplayItemsAndJsonData: usize,
+}
+windows_core::imp::define_interface!(IPaymentItem, IPaymentItem_Vtbl, 0x685ac88b_79b2_4b76_9e03_a876223dfe72);
+impl windows_core::RuntimeType for IPaymentItem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentItem_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Label: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetLabel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Amount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetAmount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Pending: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetPending: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPaymentItemFactory, IPaymentItemFactory_Vtbl, 0xc6ab7ad8_2503_4d1d_a778_02b2e5927b2c);
+impl windows_core::RuntimeType for IPaymentItemFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentItemFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPaymentMediator, IPaymentMediator_Vtbl, 0xfb0ee829_ec0c_449a_83da_7ae3073365a2);
+impl windows_core::RuntimeType for IPaymentMediator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentMediator_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetSupportedMethodIdsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetSupportedMethodIdsAsync: usize,
+    pub SubmitPaymentRequestAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SubmitPaymentRequestWithChangeHandlerAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPaymentMediator2, IPaymentMediator2_Vtbl, 0xceef98f1_e407_4128_8e73_d93d5f822786);
+impl windows_core::RuntimeType for IPaymentMediator2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentMediator2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CanMakePaymentAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPaymentMerchantInfo, IPaymentMerchantInfo_Vtbl, 0x63445050_0e94_4ed6_aacb_e6012bd327a7);
+impl windows_core::RuntimeType for IPaymentMerchantInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentMerchantInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub PackageFullName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPaymentMerchantInfoFactory, IPaymentMerchantInfoFactory_Vtbl, 0x9e89ced3_ccb7_4167_a8ec_e10ae96dbcd1);
+impl windows_core::RuntimeType for IPaymentMerchantInfoFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentMerchantInfoFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPaymentMethodData, IPaymentMethodData_Vtbl, 0xd1d3caf4_de98_4129_b1b7_c3ad86237bf4);
+impl windows_core::RuntimeType for IPaymentMethodData {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentMethodData_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SupportedMethodIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SupportedMethodIds: usize,
+    pub JsonData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPaymentMethodDataFactory, IPaymentMethodDataFactory_Vtbl, 0x8addd27f_9baa_4a82_8342_a8210992a36b);
+impl windows_core::RuntimeType for IPaymentMethodDataFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentMethodDataFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Create: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateWithJsonData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateWithJsonData: usize,
+}
+windows_core::imp::define_interface!(IPaymentOptions, IPaymentOptions_Vtbl, 0xaaa30854_1f2b_4365_8251_01b58915a5bc);
+impl windows_core::RuntimeType for IPaymentOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentOptions_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub RequestPayerEmail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PaymentOptionPresence) -> windows_core::HRESULT,
+    pub SetRequestPayerEmail: unsafe extern "system" fn(*mut core::ffi::c_void, PaymentOptionPresence) -> windows_core::HRESULT,
+    pub RequestPayerName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PaymentOptionPresence) -> windows_core::HRESULT,
+    pub SetRequestPayerName: unsafe extern "system" fn(*mut core::ffi::c_void, PaymentOptionPresence) -> windows_core::HRESULT,
+    pub RequestPayerPhoneNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PaymentOptionPresence) -> windows_core::HRESULT,
+    pub SetRequestPayerPhoneNumber: unsafe extern "system" fn(*mut core::ffi::c_void, PaymentOptionPresence) -> windows_core::HRESULT,
+    pub RequestShipping: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetRequestShipping: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub ShippingType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PaymentShippingType) -> windows_core::HRESULT,
+    pub SetShippingType: unsafe extern "system" fn(*mut core::ffi::c_void, PaymentShippingType) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPaymentRequest, IPaymentRequest_Vtbl, 0xb74942e1_ed7b_47eb_bc08_78cc5d6896b6);
+impl windows_core::RuntimeType for IPaymentRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentRequest_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub MerchantInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Details: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub MethodData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    MethodData: usize,
+    pub Options: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPaymentRequest2, IPaymentRequest2_Vtbl, 0xb63ccfb5_5998_493e_a04c_67048a50f141);
+impl windows_core::RuntimeType for IPaymentRequest2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentRequest2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPaymentRequestChangedArgs, IPaymentRequestChangedArgs_Vtbl, 0xc6145e44_cd8b_4be4_b555_27c99194c0c5);
+impl windows_core::RuntimeType for IPaymentRequestChangedArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentRequestChangedArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ChangeKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PaymentRequestChangeKind) -> windows_core::HRESULT,
+    pub ShippingAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SelectedShippingOption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Acknowledge: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPaymentRequestChangedResult, IPaymentRequestChangedResult_Vtbl, 0xdf699e5c_16c4_47ad_9401_8440ec0757db);
+impl windows_core::RuntimeType for IPaymentRequestChangedResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentRequestChangedResult_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ChangeAcceptedByMerchant: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetChangeAcceptedByMerchant: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub Message: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub UpdatedPaymentDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetUpdatedPaymentDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPaymentRequestChangedResultFactory, IPaymentRequestChangedResultFactory_Vtbl, 0x08740f56_1d33_4431_814b_67ea24bf21db);
+impl windows_core::RuntimeType for IPaymentRequestChangedResultFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentRequestChangedResultFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateWithPaymentDetails: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPaymentRequestFactory, IPaymentRequestFactory_Vtbl, 0x3e8a79dc_6b74_42d3_b103_f0de35fb1848);
+impl windows_core::RuntimeType for IPaymentRequestFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentRequestFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Create: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateWithMerchantInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateWithMerchantInfo: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateWithMerchantInfoAndOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateWithMerchantInfoAndOptions: usize,
+}
+windows_core::imp::define_interface!(IPaymentRequestFactory2, IPaymentRequestFactory2_Vtbl, 0xe6ce1325_a506_4372_b7ef_1a031d5662d1);
+impl windows_core::RuntimeType for IPaymentRequestFactory2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentRequestFactory2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateWithMerchantInfoOptionsAndId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateWithMerchantInfoOptionsAndId: usize,
+}
+windows_core::imp::define_interface!(IPaymentRequestSubmitResult, IPaymentRequestSubmitResult_Vtbl, 0x7b9c3912_30f2_4e90_b249_8ce7d78ffe56);
+impl windows_core::RuntimeType for IPaymentRequestSubmitResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentRequestSubmitResult_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PaymentRequestStatus) -> windows_core::HRESULT,
+    pub Response: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPaymentResponse, IPaymentResponse_Vtbl, 0xe1389457_8bd2_4888_9fa8_97985545108e);
+impl windows_core::RuntimeType for IPaymentResponse {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentResponse_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub PaymentToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ShippingOption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ShippingAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PayerEmail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PayerName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PayerPhoneNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CompleteAsync: unsafe extern "system" fn(*mut core::ffi::c_void, PaymentRequestCompletionStatus, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPaymentShippingOption, IPaymentShippingOption_Vtbl, 0x13372ada_9753_4574_8966_93145a76c7f9);
+impl windows_core::RuntimeType for IPaymentShippingOption {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentShippingOption_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Label: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetLabel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Amount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetAmount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Tag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub IsSelected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetIsSelected: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPaymentShippingOptionFactory, IPaymentShippingOptionFactory_Vtbl, 0x5de5f917_b2d7_446b_9d73_6123fbca3bc6);
+impl windows_core::RuntimeType for IPaymentShippingOptionFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentShippingOptionFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateWithSelected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateWithSelectedAndTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPaymentToken, IPaymentToken_Vtbl, 0xbbcac013_ccd0_41f2_b2a1_0a2e4b5dce25);
+impl windows_core::RuntimeType for IPaymentToken {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentToken_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub PaymentMethodId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub JsonDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPaymentTokenFactory, IPaymentTokenFactory_Vtbl, 0x988cd7aa_4753_4904_8373_dd7b08b995c1);
+impl windows_core::RuntimeType for IPaymentTokenFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPaymentTokenFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateWithJsonDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PaymentAddress(windows_core::IUnknown);
@@ -194,6 +637,24 @@ impl windows_core::RuntimeName for PaymentCanMakePaymentResult {
 }
 unsafe impl Send for PaymentCanMakePaymentResult {}
 unsafe impl Sync for PaymentCanMakePaymentResult {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PaymentCanMakePaymentResultStatus(pub i32);
+impl PaymentCanMakePaymentResultStatus {
+    pub const Unknown: Self = Self(0i32);
+    pub const Yes: Self = Self(1i32);
+    pub const No: Self = Self(2i32);
+    pub const NotAllowed: Self = Self(3i32);
+    pub const UserNotSignedIn: Self = Self(4i32);
+    pub const SpecifiedPaymentMethodIdsNotSupported: Self = Self(5i32);
+    pub const NoQualifyingCardOnFile: Self = Self(6i32);
+}
+impl windows_core::TypeKind for PaymentCanMakePaymentResultStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for PaymentCanMakePaymentResultStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentCanMakePaymentResultStatus;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PaymentCurrencyAmount(windows_core::IUnknown);
@@ -700,6 +1161,20 @@ impl windows_core::RuntimeName for PaymentMethodData {
 unsafe impl Send for PaymentMethodData {}
 unsafe impl Sync for PaymentMethodData {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PaymentOptionPresence(pub i32);
+impl PaymentOptionPresence {
+    pub const None: Self = Self(0i32);
+    pub const Optional: Self = Self(1i32);
+    pub const Required: Self = Self(2i32);
+}
+impl windows_core::TypeKind for PaymentOptionPresence {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for PaymentOptionPresence {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentOptionPresence;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PaymentOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentOptions, windows_core::IUnknown, windows_core::IInspectable);
@@ -891,6 +1366,19 @@ impl windows_core::RuntimeName for PaymentRequest {
 unsafe impl Send for PaymentRequest {}
 unsafe impl Sync for PaymentRequest {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PaymentRequestChangeKind(pub i32);
+impl PaymentRequestChangeKind {
+    pub const ShippingOption: Self = Self(0i32);
+    pub const ShippingAddress: Self = Self(1i32);
+}
+impl windows_core::TypeKind for PaymentRequestChangeKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for PaymentRequestChangeKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestChangeKind;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PaymentRequestChangedArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentRequestChangedArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -936,6 +1424,67 @@ impl windows_core::RuntimeName for PaymentRequestChangedArgs {
 }
 unsafe impl Send for PaymentRequestChangedArgs {}
 unsafe impl Sync for PaymentRequestChangedArgs {}
+windows_core::imp::define_interface!(PaymentRequestChangedHandler, PaymentRequestChangedHandler_Vtbl, 0x5078b9e1_f398_4f2c_a27e_94d371cf6c7d);
+impl windows_core::RuntimeType for PaymentRequestChangedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl PaymentRequestChangedHandler {
+    pub fn new<F: FnMut(Option<&PaymentRequest>, Option<&PaymentRequestChangedArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = PaymentRequestChangedHandlerBox { vtable: &PaymentRequestChangedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
+    pub fn Invoke<P0, P1>(&self, paymentrequest: P0, args: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<PaymentRequest>,
+        P1: windows_core::Param<PaymentRequestChangedArgs>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), paymentrequest.param().abi(), args.param().abi()).ok() }
+    }
+}
+#[repr(C)]
+pub struct PaymentRequestChangedHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, paymentrequest: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[repr(C)]
+struct PaymentRequestChangedHandlerBox<F: FnMut(Option<&PaymentRequest>, Option<&PaymentRequestChangedArgs>) -> windows_core::Result<()> + Send + 'static> {
+    vtable: *const PaymentRequestChangedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+impl<F: FnMut(Option<&PaymentRequest>, Option<&PaymentRequestChangedArgs>) -> windows_core::Result<()> + Send + 'static> PaymentRequestChangedHandlerBox<F> {
+    const VTABLE: PaymentRequestChangedHandler_Vtbl = PaymentRequestChangedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <PaymentRequestChangedHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+        if (*interface).is_null() {
+            windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, paymentrequest: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&paymentrequest), windows_core::from_raw_borrowed(&args)).into()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PaymentRequestChangedResult(windows_core::IUnknown);
@@ -1009,6 +1558,34 @@ impl windows_core::RuntimeName for PaymentRequestChangedResult {
 }
 unsafe impl Send for PaymentRequestChangedResult {}
 unsafe impl Sync for PaymentRequestChangedResult {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PaymentRequestCompletionStatus(pub i32);
+impl PaymentRequestCompletionStatus {
+    pub const Succeeded: Self = Self(0i32);
+    pub const Failed: Self = Self(1i32);
+    pub const Unknown: Self = Self(2i32);
+}
+impl windows_core::TypeKind for PaymentRequestCompletionStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for PaymentRequestCompletionStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestCompletionStatus;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PaymentRequestStatus(pub i32);
+impl PaymentRequestStatus {
+    pub const Succeeded: Self = Self(0i32);
+    pub const Failed: Self = Self(1i32);
+    pub const Canceled: Self = Self(2i32);
+}
+impl windows_core::TypeKind for PaymentRequestStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for PaymentRequestStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestStatus;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PaymentRequestSubmitResult(windows_core::IUnknown);
@@ -1205,6 +1782,20 @@ impl windows_core::RuntimeName for PaymentShippingOption {
 unsafe impl Send for PaymentShippingOption {}
 unsafe impl Sync for PaymentShippingOption {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PaymentShippingType(pub i32);
+impl PaymentShippingType {
+    pub const Shipping: Self = Self(0i32);
+    pub const Delivery: Self = Self(1i32);
+    pub const Pickup: Self = Self(2i32);
+}
+impl windows_core::TypeKind for PaymentShippingType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for PaymentShippingType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentShippingType;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PaymentToken(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentToken, windows_core::IUnknown, windows_core::IInspectable);
@@ -1252,594 +1843,3 @@ impl windows_core::RuntimeName for PaymentToken {
 }
 unsafe impl Send for PaymentToken {}
 unsafe impl Sync for PaymentToken {}
-windows_core::imp::define_interface!(IPaymentAddress, IPaymentAddress_Vtbl, 0x5f2264e9_6f3a_4166_a018_0a0b06bb32b5);
-impl windows_core::RuntimeType for IPaymentAddress {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentAddress_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Country: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCountry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub AddressLines: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AddressLines: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SetAddressLines: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetAddressLines: usize,
-    pub Region: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub City: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DependentLocality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetDependentLocality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PostalCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetPostalCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SortingCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetSortingCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub LanguageCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetLanguageCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Organization: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetOrganization: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Recipient: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetRecipient: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PhoneNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetPhoneNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
-}
-windows_core::imp::define_interface!(IPaymentCanMakePaymentResult, IPaymentCanMakePaymentResult_Vtbl, 0x7696fe55_d5d3_4d3d_b345_45591759c510);
-impl windows_core::RuntimeType for IPaymentCanMakePaymentResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentCanMakePaymentResult_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PaymentCanMakePaymentResultStatus) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPaymentCanMakePaymentResultFactory, IPaymentCanMakePaymentResultFactory_Vtbl, 0xbbdcaa3e_7d49_4f69_aa53_2a0f8164b7c9);
-impl windows_core::RuntimeType for IPaymentCanMakePaymentResultFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentCanMakePaymentResultFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, PaymentCanMakePaymentResultStatus, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPaymentCurrencyAmount, IPaymentCurrencyAmount_Vtbl, 0xe3a3e9e0_b41f_4987_bdcb_071331f2daa4);
-impl windows_core::RuntimeType for IPaymentCurrencyAmount {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentCurrencyAmount_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Currency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCurrency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CurrencySystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCurrencySystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPaymentCurrencyAmountFactory, IPaymentCurrencyAmountFactory_Vtbl, 0x3257d338_140c_4575_8535_f773178c09a7);
-impl windows_core::RuntimeType for IPaymentCurrencyAmountFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentCurrencyAmountFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateWithCurrencySystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPaymentDetails, IPaymentDetails_Vtbl, 0x53bb2d7d_e0eb_4053_8eae_ce7c48e02945);
-impl windows_core::RuntimeType for IPaymentDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentDetails_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Total: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetTotal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub DisplayItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DisplayItems: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SetDisplayItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetDisplayItems: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub ShippingOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ShippingOptions: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SetShippingOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetShippingOptions: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Modifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Modifiers: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SetModifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetModifiers: usize,
-}
-windows_core::imp::define_interface!(IPaymentDetailsFactory, IPaymentDetailsFactory_Vtbl, 0xcfe8afee_c0ea_4ca1_8bc7_6de67b1f3763);
-impl windows_core::RuntimeType for IPaymentDetailsFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentDetailsFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateWithDisplayItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateWithDisplayItems: usize,
-}
-windows_core::imp::define_interface!(IPaymentDetailsModifier, IPaymentDetailsModifier_Vtbl, 0xbe1c7d65_4323_41d7_b305_dfcb765f69de);
-impl windows_core::RuntimeType for IPaymentDetailsModifier {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentDetailsModifier_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub JsonData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SupportedMethodIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedMethodIds: usize,
-    pub Total: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub AdditionalDisplayItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AdditionalDisplayItems: usize,
-}
-windows_core::imp::define_interface!(IPaymentDetailsModifierFactory, IPaymentDetailsModifierFactory_Vtbl, 0x79005286_54de_429c_9e4f_5dce6e10ebce);
-impl windows_core::RuntimeType for IPaymentDetailsModifierFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentDetailsModifierFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Create: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateWithAdditionalDisplayItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateWithAdditionalDisplayItems: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateWithAdditionalDisplayItemsAndJsonData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateWithAdditionalDisplayItemsAndJsonData: usize,
-}
-windows_core::imp::define_interface!(IPaymentItem, IPaymentItem_Vtbl, 0x685ac88b_79b2_4b76_9e03_a876223dfe72);
-impl windows_core::RuntimeType for IPaymentItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentItem_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Label: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetLabel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Amount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetAmount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Pending: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetPending: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPaymentItemFactory, IPaymentItemFactory_Vtbl, 0xc6ab7ad8_2503_4d1d_a778_02b2e5927b2c);
-impl windows_core::RuntimeType for IPaymentItemFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentItemFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPaymentMediator, IPaymentMediator_Vtbl, 0xfb0ee829_ec0c_449a_83da_7ae3073365a2);
-impl windows_core::RuntimeType for IPaymentMediator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentMediator_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetSupportedMethodIdsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetSupportedMethodIdsAsync: usize,
-    pub SubmitPaymentRequestAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SubmitPaymentRequestWithChangeHandlerAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPaymentMediator2, IPaymentMediator2_Vtbl, 0xceef98f1_e407_4128_8e73_d93d5f822786);
-impl windows_core::RuntimeType for IPaymentMediator2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentMediator2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CanMakePaymentAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPaymentMerchantInfo, IPaymentMerchantInfo_Vtbl, 0x63445050_0e94_4ed6_aacb_e6012bd327a7);
-impl windows_core::RuntimeType for IPaymentMerchantInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentMerchantInfo_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub PackageFullName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPaymentMerchantInfoFactory, IPaymentMerchantInfoFactory_Vtbl, 0x9e89ced3_ccb7_4167_a8ec_e10ae96dbcd1);
-impl windows_core::RuntimeType for IPaymentMerchantInfoFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentMerchantInfoFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPaymentMethodData, IPaymentMethodData_Vtbl, 0xd1d3caf4_de98_4129_b1b7_c3ad86237bf4);
-impl windows_core::RuntimeType for IPaymentMethodData {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentMethodData_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SupportedMethodIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedMethodIds: usize,
-    pub JsonData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPaymentMethodDataFactory, IPaymentMethodDataFactory_Vtbl, 0x8addd27f_9baa_4a82_8342_a8210992a36b);
-impl windows_core::RuntimeType for IPaymentMethodDataFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentMethodDataFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Create: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateWithJsonData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateWithJsonData: usize,
-}
-windows_core::imp::define_interface!(IPaymentOptions, IPaymentOptions_Vtbl, 0xaaa30854_1f2b_4365_8251_01b58915a5bc);
-impl windows_core::RuntimeType for IPaymentOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentOptions_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub RequestPayerEmail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PaymentOptionPresence) -> windows_core::HRESULT,
-    pub SetRequestPayerEmail: unsafe extern "system" fn(*mut core::ffi::c_void, PaymentOptionPresence) -> windows_core::HRESULT,
-    pub RequestPayerName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PaymentOptionPresence) -> windows_core::HRESULT,
-    pub SetRequestPayerName: unsafe extern "system" fn(*mut core::ffi::c_void, PaymentOptionPresence) -> windows_core::HRESULT,
-    pub RequestPayerPhoneNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PaymentOptionPresence) -> windows_core::HRESULT,
-    pub SetRequestPayerPhoneNumber: unsafe extern "system" fn(*mut core::ffi::c_void, PaymentOptionPresence) -> windows_core::HRESULT,
-    pub RequestShipping: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetRequestShipping: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub ShippingType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PaymentShippingType) -> windows_core::HRESULT,
-    pub SetShippingType: unsafe extern "system" fn(*mut core::ffi::c_void, PaymentShippingType) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPaymentRequest, IPaymentRequest_Vtbl, 0xb74942e1_ed7b_47eb_bc08_78cc5d6896b6);
-impl windows_core::RuntimeType for IPaymentRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentRequest_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub MerchantInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Details: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub MethodData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    MethodData: usize,
-    pub Options: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPaymentRequest2, IPaymentRequest2_Vtbl, 0xb63ccfb5_5998_493e_a04c_67048a50f141);
-impl windows_core::RuntimeType for IPaymentRequest2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentRequest2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPaymentRequestChangedArgs, IPaymentRequestChangedArgs_Vtbl, 0xc6145e44_cd8b_4be4_b555_27c99194c0c5);
-impl windows_core::RuntimeType for IPaymentRequestChangedArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentRequestChangedArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ChangeKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PaymentRequestChangeKind) -> windows_core::HRESULT,
-    pub ShippingAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SelectedShippingOption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Acknowledge: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPaymentRequestChangedResult, IPaymentRequestChangedResult_Vtbl, 0xdf699e5c_16c4_47ad_9401_8440ec0757db);
-impl windows_core::RuntimeType for IPaymentRequestChangedResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentRequestChangedResult_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ChangeAcceptedByMerchant: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetChangeAcceptedByMerchant: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub Message: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub UpdatedPaymentDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetUpdatedPaymentDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPaymentRequestChangedResultFactory, IPaymentRequestChangedResultFactory_Vtbl, 0x08740f56_1d33_4431_814b_67ea24bf21db);
-impl windows_core::RuntimeType for IPaymentRequestChangedResultFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentRequestChangedResultFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateWithPaymentDetails: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPaymentRequestFactory, IPaymentRequestFactory_Vtbl, 0x3e8a79dc_6b74_42d3_b103_f0de35fb1848);
-impl windows_core::RuntimeType for IPaymentRequestFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentRequestFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Create: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateWithMerchantInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateWithMerchantInfo: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateWithMerchantInfoAndOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateWithMerchantInfoAndOptions: usize,
-}
-windows_core::imp::define_interface!(IPaymentRequestFactory2, IPaymentRequestFactory2_Vtbl, 0xe6ce1325_a506_4372_b7ef_1a031d5662d1);
-impl windows_core::RuntimeType for IPaymentRequestFactory2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentRequestFactory2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateWithMerchantInfoOptionsAndId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateWithMerchantInfoOptionsAndId: usize,
-}
-windows_core::imp::define_interface!(IPaymentRequestSubmitResult, IPaymentRequestSubmitResult_Vtbl, 0x7b9c3912_30f2_4e90_b249_8ce7d78ffe56);
-impl windows_core::RuntimeType for IPaymentRequestSubmitResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentRequestSubmitResult_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PaymentRequestStatus) -> windows_core::HRESULT,
-    pub Response: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPaymentResponse, IPaymentResponse_Vtbl, 0xe1389457_8bd2_4888_9fa8_97985545108e);
-impl windows_core::RuntimeType for IPaymentResponse {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentResponse_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub PaymentToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ShippingOption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ShippingAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PayerEmail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PayerName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PayerPhoneNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CompleteAsync: unsafe extern "system" fn(*mut core::ffi::c_void, PaymentRequestCompletionStatus, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPaymentShippingOption, IPaymentShippingOption_Vtbl, 0x13372ada_9753_4574_8966_93145a76c7f9);
-impl windows_core::RuntimeType for IPaymentShippingOption {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentShippingOption_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Label: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetLabel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Amount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetAmount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Tag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsSelected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetIsSelected: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPaymentShippingOptionFactory, IPaymentShippingOptionFactory_Vtbl, 0x5de5f917_b2d7_446b_9d73_6123fbca3bc6);
-impl windows_core::RuntimeType for IPaymentShippingOptionFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentShippingOptionFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateWithSelected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateWithSelectedAndTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPaymentToken, IPaymentToken_Vtbl, 0xbbcac013_ccd0_41f2_b2a1_0a2e4b5dce25);
-impl windows_core::RuntimeType for IPaymentToken {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentToken_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub PaymentMethodId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub JsonDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPaymentTokenFactory, IPaymentTokenFactory_Vtbl, 0x988cd7aa_4753_4904_8373_dd7b08b995c1);
-impl windows_core::RuntimeType for IPaymentTokenFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPaymentTokenFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateWithJsonDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(PaymentRequestChangedHandler, PaymentRequestChangedHandler_Vtbl, 0x5078b9e1_f398_4f2c_a27e_94d371cf6c7d);
-impl windows_core::RuntimeType for PaymentRequestChangedHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-impl PaymentRequestChangedHandler {
-    pub fn new<F: FnMut(Option<&PaymentRequest>, Option<&PaymentRequestChangedArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = PaymentRequestChangedHandlerBox { vtable: &PaymentRequestChangedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
-    }
-    pub fn Invoke<P0, P1>(&self, paymentrequest: P0, args: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<PaymentRequest>,
-        P1: windows_core::Param<PaymentRequestChangedArgs>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), paymentrequest.param().abi(), args.param().abi()).ok() }
-    }
-}
-#[repr(C)]
-pub struct PaymentRequestChangedHandler_Vtbl {
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, paymentrequest: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(C)]
-struct PaymentRequestChangedHandlerBox<F: FnMut(Option<&PaymentRequest>, Option<&PaymentRequestChangedArgs>) -> windows_core::Result<()> + Send + 'static> {
-    vtable: *const PaymentRequestChangedHandler_Vtbl,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
-impl<F: FnMut(Option<&PaymentRequest>, Option<&PaymentRequestChangedArgs>) -> windows_core::Result<()> + Send + 'static> PaymentRequestChangedHandlerBox<F> {
-    const VTABLE: PaymentRequestChangedHandler_Vtbl = PaymentRequestChangedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <PaymentRequestChangedHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, paymentrequest: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&paymentrequest), windows_core::from_raw_borrowed(&args)).into()
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PaymentCanMakePaymentResultStatus(pub i32);
-impl PaymentCanMakePaymentResultStatus {
-    pub const Unknown: Self = Self(0i32);
-    pub const Yes: Self = Self(1i32);
-    pub const No: Self = Self(2i32);
-    pub const NotAllowed: Self = Self(3i32);
-    pub const UserNotSignedIn: Self = Self(4i32);
-    pub const SpecifiedPaymentMethodIdsNotSupported: Self = Self(5i32);
-    pub const NoQualifyingCardOnFile: Self = Self(6i32);
-}
-impl windows_core::TypeKind for PaymentCanMakePaymentResultStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for PaymentCanMakePaymentResultStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentCanMakePaymentResultStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PaymentOptionPresence(pub i32);
-impl PaymentOptionPresence {
-    pub const None: Self = Self(0i32);
-    pub const Optional: Self = Self(1i32);
-    pub const Required: Self = Self(2i32);
-}
-impl windows_core::TypeKind for PaymentOptionPresence {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for PaymentOptionPresence {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentOptionPresence;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PaymentRequestChangeKind(pub i32);
-impl PaymentRequestChangeKind {
-    pub const ShippingOption: Self = Self(0i32);
-    pub const ShippingAddress: Self = Self(1i32);
-}
-impl windows_core::TypeKind for PaymentRequestChangeKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for PaymentRequestChangeKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestChangeKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PaymentRequestCompletionStatus(pub i32);
-impl PaymentRequestCompletionStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const Failed: Self = Self(1i32);
-    pub const Unknown: Self = Self(2i32);
-}
-impl windows_core::TypeKind for PaymentRequestCompletionStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for PaymentRequestCompletionStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestCompletionStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PaymentRequestStatus(pub i32);
-impl PaymentRequestStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const Failed: Self = Self(1i32);
-    pub const Canceled: Self = Self(2i32);
-}
-impl windows_core::TypeKind for PaymentRequestStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for PaymentRequestStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PaymentShippingType(pub i32);
-impl PaymentShippingType {
-    pub const Shipping: Self = Self(0i32);
-    pub const Delivery: Self = Self(1i32);
-    pub const Pickup: Self = Self(2i32);
-}
-impl windows_core::TypeKind for PaymentShippingType {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for PaymentShippingType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentShippingType;i4)");
-}

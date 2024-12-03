@@ -87,6 +87,389 @@ pub unsafe fn RoResolveNamespace(name: &windows_core::HSTRING, windowsmetadatadi
     )
     .ok()
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ASSEMBLYMETADATA {
+    pub usMajorVersion: u16,
+    pub usMinorVersion: u16,
+    pub usBuildNumber: u16,
+    pub usRevisionNumber: u16,
+    pub szLocale: windows_core::PWSTR,
+    pub cbLocale: u32,
+    pub rProcessor: *mut u32,
+    pub ulProcessor: u32,
+    pub rOS: *mut OSINFO,
+    pub ulOS: u32,
+}
+impl Default for ASSEMBLYMETADATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ASSEMBLYMETADATA {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ASSEMBLY_METADATA_TYPE: windows_core::PCSTR = windows_core::s!("System.Reflection.AssemblyMetadataAttribute");
+pub const ASSEMBLY_METADATA_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Reflection.AssemblyMetadataAttribute");
+pub const CLSID_CLR_v1_MetaData: windows_core::GUID = windows_core::GUID::from_u128(0x005023ca_72b1_11d3_9fc4_00c04f79a0a3);
+pub const CLSID_CLR_v2_MetaData: windows_core::GUID = windows_core::GUID::from_u128(0xefea471a_44fd_4862_9292_0c58d46e1f3a);
+pub const CLSID_Cor: windows_core::GUID = windows_core::GUID::from_u128(0xbee00010_ee77_11d0_a015_00c04fbbb884);
+pub const CLSID_CorMetaDataDispenser: windows_core::GUID = windows_core::GUID::from_u128(0xe5cb7a31_7512_11d2_89ce_0080c792e5d8);
+pub const CLSID_CorMetaDataDispenserReg: windows_core::GUID = windows_core::GUID::from_u128(0x435755ff_7397_11d2_9771_00a0c9b4d50c);
+pub const CLSID_CorMetaDataDispenserRuntime: windows_core::GUID = windows_core::GUID::from_u128(0x1ec2de53_75cc_11d2_9775_00a0c9b4d50c);
+pub const CLSID_CorMetaDataReg: windows_core::GUID = windows_core::GUID::from_u128(0x87f3a1f5_7397_11d2_9771_00a0c9b4d50c);
+pub const CMOD_CALLCONV_NAMESPACE: windows_core::PCSTR = windows_core::s!("System.Runtime.CompilerServices");
+pub const CMOD_CALLCONV_NAMESPACE_OLD: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices");
+pub const CMOD_CALLCONV_NAME_CDECL: windows_core::PCSTR = windows_core::s!("CallConvCdecl");
+pub const CMOD_CALLCONV_NAME_FASTCALL: windows_core::PCSTR = windows_core::s!("CallConvFastcall");
+pub const CMOD_CALLCONV_NAME_STDCALL: windows_core::PCSTR = windows_core::s!("CallConvStdcall");
+pub const CMOD_CALLCONV_NAME_THISCALL: windows_core::PCSTR = windows_core::s!("CallConvThiscall");
+pub const COINITCOR_DEFAULT: COINITICOR = COINITICOR(0i32);
+pub const COINITEE_DEFAULT: COINITIEE = COINITIEE(0i32);
+pub const COINITEE_DLL: COINITIEE = COINITIEE(1i32);
+pub const COINITEE_MAIN: COINITIEE = COINITIEE(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COINITICOR(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COINITIEE(pub i32);
+pub const COMPILATIONRELAXATIONS_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.CompilerServices.CompilationRelaxationsAttribute");
+pub const COMPILATIONRELAXATIONS_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.CompilerServices.CompilationRelaxationsAttribute");
+pub const COR_BASE_SECURITY_ATTRIBUTE_CLASS: windows_core::PCWSTR = windows_core::w!("System.Security.Permissions.SecurityAttribute");
+pub const COR_BASE_SECURITY_ATTRIBUTE_CLASS_ANSI: windows_core::PCSTR = windows_core::s!("System.Security.Permissions.SecurityAttribute");
+pub const COR_CCTOR_METHOD_NAME: windows_core::PCSTR = windows_core::s!(".cctor");
+pub const COR_CCTOR_METHOD_NAME_W: windows_core::PCWSTR = windows_core::w!(".cctor");
+pub const COR_COMPILERSERVICE_DISCARDABLEATTRIBUTE: windows_core::PCWSTR = windows_core::w!("System.Runtime.CompilerServices.DiscardableAttribute");
+pub const COR_COMPILERSERVICE_DISCARDABLEATTRIBUTE_ASNI: windows_core::PCSTR = windows_core::s!("System.Runtime.CompilerServices.DiscardableAttribute");
+pub const COR_CTOR_METHOD_NAME: windows_core::PCSTR = windows_core::s!(".ctor");
+pub const COR_CTOR_METHOD_NAME_W: windows_core::PCWSTR = windows_core::w!(".ctor");
+pub const COR_DELETED_NAME_A: windows_core::PCSTR = windows_core::s!("_Deleted");
+pub const COR_DELETED_NAME_W: windows_core::PCWSTR = windows_core::w!("_Deleted");
+pub const COR_ENUM_FIELD_NAME: windows_core::PCSTR = windows_core::s!("value__");
+pub const COR_ENUM_FIELD_NAME_W: windows_core::PCWSTR = windows_core::w!("value__");
+pub const COR_E_AMBIGUOUSMATCH: windows_core::HRESULT = windows_core::HRESULT(0x8000211D_u32 as _);
+pub const COR_E_ARGUMENT: i32 = -2147024809i32;
+pub const COR_E_BADIMAGEFORMAT: windows_core::HRESULT = windows_core::HRESULT(0x8007000B_u32 as _);
+pub const COR_E_DIVIDEBYZERO: windows_core::HRESULT = windows_core::HRESULT(0x80020012_u32 as _);
+pub const COR_E_INVALIDCAST: i32 = -2147467262i32;
+pub const COR_E_NULLREFERENCE: i32 = -2147467261i32;
+pub const COR_E_OUTOFMEMORY: i32 = -2147024882i32;
+pub const COR_E_TARGETPARAMCOUNT: windows_core::HRESULT = windows_core::HRESULT(0x8002000E_u32 as _);
+pub const COR_E_UNAUTHORIZEDACCESS: i32 = -2147024891i32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COR_FIELD_OFFSET {
+    pub ridOfField: u32,
+    pub ulOffset: u32,
+}
+impl Default for COR_FIELD_OFFSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COR_FIELD_OFFSET {
+    type TypeKind = windows_core::CopyType;
+}
+pub const COR_ILEXCEPTION_CLAUSE_DEPRECATED: CorExceptionFlag = CorExceptionFlag(0i32);
+pub const COR_ILEXCEPTION_CLAUSE_DUPLICATED: CorExceptionFlag = CorExceptionFlag(8i32);
+pub const COR_ILEXCEPTION_CLAUSE_FAULT: CorExceptionFlag = CorExceptionFlag(4i32);
+pub const COR_ILEXCEPTION_CLAUSE_FILTER: CorExceptionFlag = CorExceptionFlag(1i32);
+pub const COR_ILEXCEPTION_CLAUSE_FINALLY: CorExceptionFlag = CorExceptionFlag(2i32);
+pub const COR_ILEXCEPTION_CLAUSE_NONE: CorExceptionFlag = CorExceptionFlag(0i32);
+pub const COR_ILEXCEPTION_CLAUSE_OFFSETLEN: CorExceptionFlag = CorExceptionFlag(0i32);
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct COR_NATIVE_LINK {
+    pub m_linkType: u8,
+    pub m_flags: u8,
+    pub m_entryPoint: u32,
+}
+impl Default for COR_NATIVE_LINK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COR_NATIVE_LINK {
+    type TypeKind = windows_core::CopyType;
+}
+pub const COR_NATIVE_LINK_CUSTOM_VALUE: windows_core::PCWSTR = windows_core::w!("COMPLUS_NativeLink");
+pub const COR_NATIVE_LINK_CUSTOM_VALUE_ANSI: windows_core::PCSTR = windows_core::s!("COMPLUS_NativeLink");
+pub const COR_NATIVE_LINK_CUSTOM_VALUE_CC: u32 = 18u32;
+pub const COR_REQUIRES_SECOBJ_ATTRIBUTE: windows_core::PCWSTR = windows_core::w!("System.Security.DynamicSecurityMethodAttribute");
+pub const COR_REQUIRES_SECOBJ_ATTRIBUTE_ANSI: windows_core::PCSTR = windows_core::s!("System.Security.DynamicSecurityMethodAttribute");
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COR_SECATTR {
+    pub tkCtor: u32,
+    pub pCustomAttribute: *const core::ffi::c_void,
+    pub cbCustomAttribute: u32,
+}
+impl Default for COR_SECATTR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COR_SECATTR {
+    type TypeKind = windows_core::CopyType;
+}
+pub const COR_SUPPRESS_UNMANAGED_CODE_CHECK_ATTRIBUTE: windows_core::PCWSTR = windows_core::w!("System.Security.SuppressUnmanagedCodeSecurityAttribute");
+pub const COR_SUPPRESS_UNMANAGED_CODE_CHECK_ATTRIBUTE_ANSI: windows_core::PCSTR = windows_core::s!("System.Security.SuppressUnmanagedCodeSecurityAttribute");
+pub const COR_UNVER_CODE_ATTRIBUTE: windows_core::PCWSTR = windows_core::w!("System.Security.UnverifiableCodeAttribute");
+pub const COR_UNVER_CODE_ATTRIBUTE_ANSI: windows_core::PCSTR = windows_core::s!("System.Security.UnverifiableCodeAttribute");
+pub const COR_VTABLEGAP_NAME_A: windows_core::PCSTR = windows_core::s!("_VtblGap");
+pub const COR_VTABLEGAP_NAME_W: windows_core::PCWSTR = windows_core::w!("_VtblGap");
+pub const COUNINITEE_DEFAULT: COUNINITIEE = COUNINITIEE(0i32);
+pub const COUNINITEE_DLL: COUNINITIEE = COUNINITIEE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COUNINITIEE(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CVStruct {
+    pub Major: i16,
+    pub Minor: i16,
+    pub Sub: i16,
+    pub Build: i16,
+}
+impl Default for CVStruct {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CVStruct {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CeeSectionAttr(pub i64);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union CeeSectionRelocExtra {
+    pub highAdj: u16,
+}
+impl Default for CeeSectionRelocExtra {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CeeSectionRelocExtra {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CeeSectionRelocType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CompilationRelaxationsEnum(pub i32);
+pub const CompilationRelaxations_NoStringInterning: CompilationRelaxationsEnum = CompilationRelaxationsEnum(8i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorArgType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorAssemblyFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorAttributeTargets(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorCallingConvention(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorCheckDuplicatesFor(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorDeclSecurity(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorElementType(pub u8);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorErrorIfEmitOutOfOrder(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorEventAttr(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorExceptionFlag(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorFieldAttr(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorFileFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorFileMapping(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorGenericParamAttr(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorILMethodFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorILMethodSect(pub i32);
+pub const CorILMethod_CompressedIL: CorILMethodFlags = CorILMethodFlags(64i32);
+pub const CorILMethod_FatFormat: CorILMethodFlags = CorILMethodFlags(3i32);
+pub const CorILMethod_FormatMask: CorILMethodFlags = CorILMethodFlags(7i32);
+pub const CorILMethod_FormatShift: CorILMethodFlags = CorILMethodFlags(3i32);
+pub const CorILMethod_InitLocals: CorILMethodFlags = CorILMethodFlags(16i32);
+pub const CorILMethod_MoreSects: CorILMethodFlags = CorILMethodFlags(8i32);
+pub const CorILMethod_Sect_EHTable: CorILMethodSect = CorILMethodSect(1i32);
+pub const CorILMethod_Sect_FatFormat: CorILMethodSect = CorILMethodSect(64i32);
+pub const CorILMethod_Sect_KindMask: CorILMethodSect = CorILMethodSect(63i32);
+pub const CorILMethod_Sect_MoreSects: CorILMethodSect = CorILMethodSect(128i32);
+pub const CorILMethod_Sect_OptILTable: CorILMethodSect = CorILMethodSect(2i32);
+pub const CorILMethod_Sect_Reserved: CorILMethodSect = CorILMethodSect(0i32);
+pub const CorILMethod_SmallFormat: CorILMethodFlags = CorILMethodFlags(0i32);
+pub const CorILMethod_TinyFormat: CorILMethodFlags = CorILMethodFlags(2i32);
+pub const CorILMethod_TinyFormat1: CorILMethodFlags = CorILMethodFlags(6i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorImportOptions(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorLinkerOptions(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorLocalRefPreservation(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorManifestResourceFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorMethodAttr(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorMethodImpl(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorMethodSemanticsAttr(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorNativeLinkFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorNativeLinkType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorNativeType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorNotificationForTokenMovement(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorOpenFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorPEKind(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorParamAttr(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorPinvokeMap(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorPropertyAttr(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorRefToDefCheck(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorRegFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorSaveSize(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorSerializationType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorSetENC(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorThreadSafetyOptions(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorTokenType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorTypeAttr(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorUnmanagedCallingConvention(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CorValidatorModuleType(pub i32);
+pub const DEFAULTDEPENDENCY_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.CompilerServices.DefaultDependencyAttribute");
+pub const DEFAULTDEPENDENCY_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.CompilerServices.DefaultDependencyAttribute");
+pub const DEFAULTDOMAIN_LOADEROPTIMIZATION_TYPE: windows_core::PCSTR = windows_core::s!("System.LoaderOptimizationAttribute");
+pub const DEFAULTDOMAIN_LOADEROPTIMIZATION_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.LoaderOptimizationAttribute");
+pub const DEFAULTDOMAIN_MTA_TYPE: windows_core::PCSTR = windows_core::s!("System.MTAThreadAttribute");
+pub const DEFAULTDOMAIN_MTA_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.MTAThreadAttribute");
+pub const DEFAULTDOMAIN_STA_TYPE: windows_core::PCSTR = windows_core::s!("System.STAThreadAttribute");
+pub const DEFAULTDOMAIN_STA_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.STAThreadAttribute");
+pub const DEPENDENCY_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.CompilerServices.DependencyAttribute");
+pub const DEPENDENCY_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.CompilerServices.DependencyAttribute");
+pub const DESCR_GROUP_METHODDEF: i32 = 0i32;
+pub const DESCR_GROUP_METHODIMPL: i32 = 1i32;
+pub const DISABLED_PRIVATE_REFLECTION_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.CompilerServices.DisablePrivateReflectionAttribute");
+pub const DISABLED_PRIVATE_REFLECTION_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.CompilerServices.DisablePrivateReflectionAttribute");
+pub const DropMemberRefCAs: MergeFlags = MergeFlags(2i32);
+pub const ELEMENT_TYPE_ARRAY: CorElementType = CorElementType(20u8);
+pub const ELEMENT_TYPE_BOOLEAN: CorElementType = CorElementType(2u8);
+pub const ELEMENT_TYPE_BYREF: CorElementType = CorElementType(16u8);
+pub const ELEMENT_TYPE_CHAR: CorElementType = CorElementType(3u8);
+pub const ELEMENT_TYPE_CLASS: CorElementType = CorElementType(18u8);
+pub const ELEMENT_TYPE_CMOD_OPT: CorElementType = CorElementType(32u8);
+pub const ELEMENT_TYPE_CMOD_REQD: CorElementType = CorElementType(31u8);
+pub const ELEMENT_TYPE_END: CorElementType = CorElementType(0u8);
+pub const ELEMENT_TYPE_FNPTR: CorElementType = CorElementType(27u8);
+pub const ELEMENT_TYPE_GENERICINST: CorElementType = CorElementType(21u8);
+pub const ELEMENT_TYPE_I: CorElementType = CorElementType(24u8);
+pub const ELEMENT_TYPE_I1: CorElementType = CorElementType(4u8);
+pub const ELEMENT_TYPE_I2: CorElementType = CorElementType(6u8);
+pub const ELEMENT_TYPE_I4: CorElementType = CorElementType(8u8);
+pub const ELEMENT_TYPE_I8: CorElementType = CorElementType(10u8);
+pub const ELEMENT_TYPE_INTERNAL: CorElementType = CorElementType(33u8);
+pub const ELEMENT_TYPE_MAX: CorElementType = CorElementType(34u8);
+pub const ELEMENT_TYPE_MODIFIER: CorElementType = CorElementType(64u8);
+pub const ELEMENT_TYPE_MVAR: CorElementType = CorElementType(30u8);
+pub const ELEMENT_TYPE_OBJECT: CorElementType = CorElementType(28u8);
+pub const ELEMENT_TYPE_PINNED: CorElementType = CorElementType(69u8);
+pub const ELEMENT_TYPE_PTR: CorElementType = CorElementType(15u8);
+pub const ELEMENT_TYPE_R4: CorElementType = CorElementType(12u8);
+pub const ELEMENT_TYPE_R8: CorElementType = CorElementType(13u8);
+pub const ELEMENT_TYPE_SENTINEL: CorElementType = CorElementType(65u8);
+pub const ELEMENT_TYPE_STRING: CorElementType = CorElementType(14u8);
+pub const ELEMENT_TYPE_SZARRAY: CorElementType = CorElementType(29u8);
+pub const ELEMENT_TYPE_TYPEDBYREF: CorElementType = CorElementType(22u8);
+pub const ELEMENT_TYPE_U: CorElementType = CorElementType(25u8);
+pub const ELEMENT_TYPE_U1: CorElementType = CorElementType(5u8);
+pub const ELEMENT_TYPE_U2: CorElementType = CorElementType(7u8);
+pub const ELEMENT_TYPE_U4: CorElementType = CorElementType(9u8);
+pub const ELEMENT_TYPE_U8: CorElementType = CorElementType(11u8);
+pub const ELEMENT_TYPE_VALUETYPE: CorElementType = CorElementType(17u8);
+pub const ELEMENT_TYPE_VAR: CorElementType = CorElementType(19u8);
+pub const ELEMENT_TYPE_VOID: CorElementType = CorElementType(1u8);
+pub const FORWARD_INTEROP_STUB_METHOD_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ManagedToNativeComInteropStubAttribute");
+pub const FORWARD_INTEROP_STUB_METHOD_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ManagedToNativeComInteropStubAttribute");
+pub const FRAMEWORK_REGISTRY_KEY: windows_core::PCSTR = windows_core::s!("Software\\Microsoft\\.NETFramework");
+pub const FRAMEWORK_REGISTRY_KEY_W: windows_core::PCWSTR = windows_core::w!("Software\\Microsoft\\.NETFramework");
+pub const FRIEND_ACCESS_ALLOWED_ATTRIBUTE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.CompilerServices.FriendAccessAllowedAttribute");
+pub const FRIEND_ACCESS_ALLOWED_ATTRIBUTE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.CompilerServices.FriendAccessAllowedAttribute");
+pub const FRIEND_ASSEMBLY_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.CompilerServices.InternalsVisibleToAttribute");
+pub const FRIEND_ASSEMBLY_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.CompilerServices.InternalsVisibleToAttribute");
+pub const GUID_DispIdOverride: windows_core::GUID = windows_core::GUID::from_u128(0xcd2bc5c9_f452_4326_b714_f9c539d4da58);
+pub const GUID_ExportedFromComPlus: windows_core::GUID = windows_core::GUID::from_u128(0x90883f05_3d28_11d2_8f17_00a0c9a6186d);
+pub const GUID_ForceIEnumerable: windows_core::GUID = windows_core::GUID::from_u128(0xb64784eb_d8d4_4d9b_9acd_0e30806426f7);
+pub const GUID_Function2Getter: windows_core::GUID = windows_core::GUID::from_u128(0x54fc8f55_38de_4703_9c4e_250351302b1c);
+pub const GUID_ManagedName: windows_core::GUID = windows_core::GUID::from_u128(0x0f21f359_ab84_41e8_9a78_36d110e6d2f9);
+pub const GUID_PropGetCA: windows_core::GUID = windows_core::GUID::from_u128(0x2941ff83_88d8_4f73_b6a9_bdf8712d000d);
+pub const GUID_PropPutCA: windows_core::GUID = windows_core::GUID::from_u128(0x29533527_3683_4364_abc0_db1add822fa2);
 windows_core::imp::define_interface!(ICeeGen, ICeeGen_Vtbl, 0x7ed1bdff_8e36_11d2_9c56_00a0c9b7cc45);
 windows_core::imp::interface_hierarchy!(ICeeGen, windows_core::IUnknown);
 impl ICeeGen {
@@ -299,6 +682,268 @@ impl IHostFilter_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IHostFilter {}
+pub const IMAGE_CEE_CS_BYVALUE: CorArgType = CorArgType(10i32);
+pub const IMAGE_CEE_CS_CALLCONV_C: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(1i32);
+pub const IMAGE_CEE_CS_CALLCONV_DEFAULT: CorCallingConvention = CorCallingConvention(0i32);
+pub const IMAGE_CEE_CS_CALLCONV_EXPLICITTHIS: CorCallingConvention = CorCallingConvention(64i32);
+pub const IMAGE_CEE_CS_CALLCONV_FASTCALL: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(4i32);
+pub const IMAGE_CEE_CS_CALLCONV_FIELD: CorCallingConvention = CorCallingConvention(6i32);
+pub const IMAGE_CEE_CS_CALLCONV_GENERIC: CorCallingConvention = CorCallingConvention(16i32);
+pub const IMAGE_CEE_CS_CALLCONV_GENERICINST: CorCallingConvention = CorCallingConvention(10i32);
+pub const IMAGE_CEE_CS_CALLCONV_HASTHIS: CorCallingConvention = CorCallingConvention(32i32);
+pub const IMAGE_CEE_CS_CALLCONV_LOCAL_SIG: CorCallingConvention = CorCallingConvention(7i32);
+pub const IMAGE_CEE_CS_CALLCONV_MASK: CorCallingConvention = CorCallingConvention(15i32);
+pub const IMAGE_CEE_CS_CALLCONV_MAX: CorCallingConvention = CorCallingConvention(12i32);
+pub const IMAGE_CEE_CS_CALLCONV_NATIVEVARARG: CorCallingConvention = CorCallingConvention(11i32);
+pub const IMAGE_CEE_CS_CALLCONV_PROPERTY: CorCallingConvention = CorCallingConvention(8i32);
+pub const IMAGE_CEE_CS_CALLCONV_STDCALL: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(2i32);
+pub const IMAGE_CEE_CS_CALLCONV_THISCALL: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(3i32);
+pub const IMAGE_CEE_CS_CALLCONV_UNMGD: CorCallingConvention = CorCallingConvention(9i32);
+pub const IMAGE_CEE_CS_CALLCONV_VARARG: CorCallingConvention = CorCallingConvention(5i32);
+pub const IMAGE_CEE_CS_END: CorArgType = CorArgType(0i32);
+pub const IMAGE_CEE_CS_I4: CorArgType = CorArgType(2i32);
+pub const IMAGE_CEE_CS_I8: CorArgType = CorArgType(3i32);
+pub const IMAGE_CEE_CS_OBJECT: CorArgType = CorArgType(7i32);
+pub const IMAGE_CEE_CS_PTR: CorArgType = CorArgType(6i32);
+pub const IMAGE_CEE_CS_R4: CorArgType = CorArgType(4i32);
+pub const IMAGE_CEE_CS_R8: CorArgType = CorArgType(5i32);
+pub const IMAGE_CEE_CS_STRUCT32: CorArgType = CorArgType(9i32);
+pub const IMAGE_CEE_CS_STRUCT4: CorArgType = CorArgType(8i32);
+pub const IMAGE_CEE_CS_VOID: CorArgType = CorArgType(1i32);
+pub const IMAGE_CEE_UNMANAGED_CALLCONV_C: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(1i32);
+pub const IMAGE_CEE_UNMANAGED_CALLCONV_FASTCALL: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(4i32);
+pub const IMAGE_CEE_UNMANAGED_CALLCONV_STDCALL: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(2i32);
+pub const IMAGE_CEE_UNMANAGED_CALLCONV_THISCALL: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(3i32);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_COR_ILMETHOD {
+    pub Tiny: IMAGE_COR_ILMETHOD_TINY,
+    pub Fat: IMAGE_COR_ILMETHOD_FAT,
+}
+impl Default for IMAGE_COR_ILMETHOD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMAGE_COR_ILMETHOD {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMAGE_COR_ILMETHOD_FAT {
+    pub _bitfield: u32,
+    pub CodeSize: u32,
+    pub LocalVarSigTok: u32,
+}
+impl Default for IMAGE_COR_ILMETHOD_FAT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_FAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_COR_ILMETHOD_SECT_EH {
+    pub Small: IMAGE_COR_ILMETHOD_SECT_EH_SMALL,
+    pub Fat: IMAGE_COR_ILMETHOD_SECT_EH_FAT,
+}
+impl Default for IMAGE_COR_ILMETHOD_SECT_EH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_FAT {
+    pub Flags: CorExceptionFlag,
+    pub TryOffset: u32,
+    pub TryLength: u32,
+    pub HandlerOffset: u32,
+    pub HandlerLength: u32,
+    pub Anonymous: IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_FAT_0,
+}
+impl Default for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_FAT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_FAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_FAT_0 {
+    pub ClassToken: u32,
+    pub FilterOffset: u32,
+}
+impl Default for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_FAT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_FAT_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL {
+    pub _bitfield1: i32,
+    pub _bitfield2: u32,
+    pub Anonymous: IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL_0,
+}
+#[cfg(target_arch = "x86")]
+impl Default for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub union IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL_0 {
+    pub ClassToken: u32,
+    pub FilterOffset: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL {
+    pub _bitfield1: u32,
+    pub _bitfield2: u32,
+    pub Anonymous: IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL_0,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub union IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL_0 {
+    pub ClassToken: u32,
+    pub FilterOffset: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_COR_ILMETHOD_SECT_EH_FAT {
+    pub SectFat: IMAGE_COR_ILMETHOD_SECT_FAT,
+    pub Clauses: [IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_FAT; 1],
+}
+impl Default for IMAGE_COR_ILMETHOD_SECT_EH_FAT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH_FAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_COR_ILMETHOD_SECT_EH_SMALL {
+    pub SectSmall: IMAGE_COR_ILMETHOD_SECT_SMALL,
+    pub Reserved: u16,
+    pub Clauses: [IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL; 1],
+}
+impl Default for IMAGE_COR_ILMETHOD_SECT_EH_SMALL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH_SMALL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMAGE_COR_ILMETHOD_SECT_FAT {
+    pub _bitfield: u32,
+}
+impl Default for IMAGE_COR_ILMETHOD_SECT_FAT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_FAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMAGE_COR_ILMETHOD_SECT_SMALL {
+    pub Kind: u8,
+    pub DataSize: u8,
+}
+impl Default for IMAGE_COR_ILMETHOD_SECT_SMALL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_SMALL {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMAGE_COR_ILMETHOD_TINY {
+    pub Flags_CodeSize: u8,
+}
+impl Default for IMAGE_COR_ILMETHOD_TINY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_TINY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMAGE_COR_VTABLEFIXUP {
+    pub RVA: u32,
+    pub Count: u16,
+    pub Type: u16,
+}
+impl Default for IMAGE_COR_VTABLEFIXUP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMAGE_COR_VTABLEFIXUP {
+    type TypeKind = windows_core::CopyType;
+}
+pub const IMAGE_DIRECTORY_ENTRY_COMHEADER: ReplacesGeneralNumericDefines = ReplacesGeneralNumericDefines(14i32);
 windows_core::imp::define_interface!(IMapToken, IMapToken_Vtbl, 0x06a3ea8b_0225_11d1_bf72_00c04fc31e12);
 windows_core::imp::interface_hierarchy!(IMapToken, windows_core::IUnknown);
 impl IMapToken {
@@ -2898,6 +3543,88 @@ impl IMetaDataWinMDImport_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IMetaDataWinMDImport {}
+pub const INTEROP_AUTOPROXY_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.AutomationProxyAttribute");
+pub const INTEROP_AUTOPROXY_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.AutomationProxyAttribute");
+pub const INTEROP_BESTFITMAPPING_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.BestFitMappingAttribute");
+pub const INTEROP_BESTFITMAPPING_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.BestFitMappingAttribute");
+pub const INTEROP_CLASSINTERFACE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ClassInterfaceAttribute");
+pub const INTEROP_CLASSINTERFACE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ClassInterfaceAttribute");
+pub const INTEROP_COCLASS_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.CoClassAttribute");
+pub const INTEROP_COCLASS_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.CoClassAttribute");
+pub const INTEROP_COMALIASNAME_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ComAliasNameAttribute");
+pub const INTEROP_COMALIASNAME_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ComAliasNameAttribute");
+pub const INTEROP_COMCOMPATIBLEVERSION_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ComCompatibleVersionAttribute");
+pub const INTEROP_COMCOMPATIBLEVERSION_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ComCompatibleVersionAttribute");
+pub const INTEROP_COMCONVERSIONLOSS_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ComConversionLossAttribute");
+pub const INTEROP_COMCONVERSIONLOSS_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ComConversionLossAttribute");
+pub const INTEROP_COMDEFAULTINTERFACE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ComDefaultInterfaceAttribute");
+pub const INTEROP_COMDEFAULTINTERFACE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ComDefaultInterfaceAttribute");
+pub const INTEROP_COMEMULATE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ComEmulateAttribute");
+pub const INTEROP_COMEMULATE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ComEmulateAttribute");
+pub const INTEROP_COMEVENTINTERFACE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ComEventInterfaceAttribute");
+pub const INTEROP_COMEVENTINTERFACE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ComEventInterfaceAttribute");
+pub const INTEROP_COMIMPORT_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ComImportAttribute");
+pub const INTEROP_COMIMPORT_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ComImportAttribute");
+pub const INTEROP_COMREGISTERFUNCTION_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ComRegisterFunctionAttribute");
+pub const INTEROP_COMREGISTERFUNCTION_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ComRegisterFunctionAttribute");
+pub const INTEROP_COMSOURCEINTERFACES_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ComSourceInterfacesAttribute");
+pub const INTEROP_COMSOURCEINTERFACES_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ComSourceInterfacesAttribute");
+pub const INTEROP_COMSUBSTITUTABLEINTERFACE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ComSubstitutableInterfaceAttribute");
+pub const INTEROP_COMSUBSTITUTABLEINTERFACE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ComSubstitutableInterfaceAttribute");
+pub const INTEROP_COMUNREGISTERFUNCTION_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ComUnregisterFunctionAttribute");
+pub const INTEROP_COMUNREGISTERFUNCTION_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ComUnregisterFunctionAttribute");
+pub const INTEROP_COMVISIBLE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ComVisibleAttribute");
+pub const INTEROP_COMVISIBLE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ComVisibleAttribute");
+pub const INTEROP_DATETIMEVALUE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.CompilerServices.DateTimeConstantAttribute");
+pub const INTEROP_DATETIMEVALUE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.CompilerServices.DateTimeConstantAttribute");
+pub const INTEROP_DECIMALVALUE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.CompilerServices.DecimalConstantAttribute");
+pub const INTEROP_DECIMALVALUE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.CompilerServices.DecimalConstantAttribute");
+pub const INTEROP_DEFAULTMEMBER_TYPE: windows_core::PCSTR = windows_core::s!("System.Reflection.DefaultMemberAttribute");
+pub const INTEROP_DEFAULTMEMBER_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Reflection.DefaultMemberAttribute");
+pub const INTEROP_DISPID_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.DispIdAttribute");
+pub const INTEROP_DISPID_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.DispIdAttribute");
+pub const INTEROP_GUID_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.GuidAttribute");
+pub const INTEROP_GUID_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.GuidAttribute");
+pub const INTEROP_IDISPATCHIMPL_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.IDispatchImplAttribute");
+pub const INTEROP_IDISPATCHIMPL_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.IDispatchImplAttribute");
+pub const INTEROP_IDISPATCHVALUE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.CompilerServices.IDispatchConstantAttribute");
+pub const INTEROP_IDISPATCHVALUE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.CompilerServices.IDispatchConstantAttribute");
+pub const INTEROP_IMPORTEDFROMTYPELIB_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ImportedFromTypeLibAttribute");
+pub const INTEROP_IMPORTEDFROMTYPELIB_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ImportedFromTypeLibAttribute");
+pub const INTEROP_INTERFACETYPE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.InterfaceTypeAttribute");
+pub const INTEROP_INTERFACETYPE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.InterfaceTypeAttribute");
+pub const INTEROP_IN_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.InAttribute");
+pub const INTEROP_IN_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.InAttribute");
+pub const INTEROP_IUNKNOWNVALUE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.CompilerServices.IUnknownConstantAttribute");
+pub const INTEROP_IUNKNOWNVALUE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.CompilerServices.IUnknownConstantAttribute");
+pub const INTEROP_LCIDCONVERSION_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.LCIDConversionAttribute");
+pub const INTEROP_LCIDCONVERSION_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.LCIDConversionAttribute");
+pub const INTEROP_MARSHALAS_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.MarshalAsAttribute");
+pub const INTEROP_MARSHALAS_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.MarshalAsAttribute");
+pub const INTEROP_OUT_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.OutAttribute");
+pub const INTEROP_OUT_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.OutAttribute");
+pub const INTEROP_PARAMARRAY_TYPE: windows_core::PCSTR = windows_core::s!("System.ParamArrayAttribute");
+pub const INTEROP_PARAMARRAY_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.ParamArrayAttribute");
+pub const INTEROP_PRESERVESIG_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.PreserveSigAttribure");
+pub const INTEROP_PRESERVESIG_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.PreserveSigAttribure");
+pub const INTEROP_PRIMARYINTEROPASSEMBLY_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.PrimaryInteropAssemblyAttribute");
+pub const INTEROP_PRIMARYINTEROPASSEMBLY_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.PrimaryInteropAssemblyAttribute");
+pub const INTEROP_SERIALIZABLE_TYPE: windows_core::PCSTR = windows_core::s!("System.SerializableAttribute");
+pub const INTEROP_SERIALIZABLE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.SerializableAttribute");
+pub const INTEROP_SETWIN32CONTEXTINIDISPATCHATTRIBUTE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.SetWin32ContextInIDispatchAttribute");
+pub const INTEROP_SETWIN32CONTEXTINIDISPATCHATTRIBUTE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.SetWin32ContextInIDispatchAttribute");
+pub const INTEROP_TYPELIBFUNC_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.TypeLibFuncAttribute");
+pub const INTEROP_TYPELIBFUNC_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.TypeLibFuncAttribute");
+pub const INTEROP_TYPELIBIMPORTCLASS_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.TypeLibImportClassAttribute");
+pub const INTEROP_TYPELIBIMPORTCLASS_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.TypeLibImportClassAttribute");
+pub const INTEROP_TYPELIBTYPE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.TypeLibTypeAttribute");
+pub const INTEROP_TYPELIBTYPE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.TypeLibTypeAttribute");
+pub const INTEROP_TYPELIBVAR_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.TypeLibVarAttribute");
+pub const INTEROP_TYPELIBVAR_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.TypeLibVarAttribute");
+pub const INTEROP_TYPELIBVERSION_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.TypeLibVersionAttribute");
+pub const INTEROP_TYPELIBVERSION_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.TypeLibVersionAttribute");
+pub const INVALID_CONNECTION_ID: u32 = 0u32;
+pub const INVALID_TASK_ID: u32 = 0u32;
 windows_core::imp::define_interface!(IRoMetaDataLocator, IRoMetaDataLocator_Vtbl);
 impl IRoMetaDataLocator {
     pub unsafe fn Locate<P0, P1>(&self, nameelement: P0, metadatadestination: P1) -> windows_core::Result<()>
@@ -3098,791 +3825,12 @@ impl IRoSimpleMetaDataBuilder {
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COINITICOR(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COINITIEE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COUNINITIEE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CeeSectionAttr(pub i64);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CeeSectionRelocType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CompilationRelaxationsEnum(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorArgType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorAssemblyFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorAttributeTargets(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorCallingConvention(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorCheckDuplicatesFor(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorDeclSecurity(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorElementType(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorErrorIfEmitOutOfOrder(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorEventAttr(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorExceptionFlag(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorFieldAttr(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorFileFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorFileMapping(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorGenericParamAttr(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorILMethodFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorILMethodSect(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorImportOptions(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorLinkerOptions(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorLocalRefPreservation(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorManifestResourceFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorMethodAttr(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorMethodImpl(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorMethodSemanticsAttr(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorNativeLinkFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorNativeLinkType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorNativeType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorNotificationForTokenMovement(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorOpenFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorPEKind(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorParamAttr(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorPinvokeMap(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorPropertyAttr(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorRefToDefCheck(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorRegFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorSaveSize(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorSerializationType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorSetENC(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorThreadSafetyOptions(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorTokenType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorTypeAttr(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorUnmanagedCallingConvention(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CorValidatorModuleType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct LoadHintEnum(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MergeFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NGenHintEnum(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NativeTypeArrayFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ReplacesGeneralNumericDefines(pub i32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ASSEMBLYMETADATA {
-    pub usMajorVersion: u16,
-    pub usMinorVersion: u16,
-    pub usBuildNumber: u16,
-    pub usRevisionNumber: u16,
-    pub szLocale: windows_core::PWSTR,
-    pub cbLocale: u32,
-    pub rProcessor: *mut u32,
-    pub ulProcessor: u32,
-    pub rOS: *mut OSINFO,
-    pub ulOS: u32,
-}
-impl Default for ASSEMBLYMETADATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ASSEMBLYMETADATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct COR_FIELD_OFFSET {
-    pub ridOfField: u32,
-    pub ulOffset: u32,
-}
-impl Default for COR_FIELD_OFFSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for COR_FIELD_OFFSET {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct COR_NATIVE_LINK {
-    pub m_linkType: u8,
-    pub m_flags: u8,
-    pub m_entryPoint: u32,
-}
-impl Default for COR_NATIVE_LINK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for COR_NATIVE_LINK {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct COR_SECATTR {
-    pub tkCtor: u32,
-    pub pCustomAttribute: *const core::ffi::c_void,
-    pub cbCustomAttribute: u32,
-}
-impl Default for COR_SECATTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for COR_SECATTR {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CVStruct {
-    pub Major: i16,
-    pub Minor: i16,
-    pub Sub: i16,
-    pub Build: i16,
-}
-impl Default for CVStruct {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CVStruct {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union CeeSectionRelocExtra {
-    pub highAdj: u16,
-}
-impl Default for CeeSectionRelocExtra {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CeeSectionRelocExtra {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IMAGE_COR_ILMETHOD {
-    pub Tiny: IMAGE_COR_ILMETHOD_TINY,
-    pub Fat: IMAGE_COR_ILMETHOD_FAT,
-}
-impl Default for IMAGE_COR_ILMETHOD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct IMAGE_COR_ILMETHOD_FAT {
-    pub _bitfield: u32,
-    pub CodeSize: u32,
-    pub LocalVarSigTok: u32,
-}
-impl Default for IMAGE_COR_ILMETHOD_FAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_FAT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IMAGE_COR_ILMETHOD_SECT_EH {
-    pub Small: IMAGE_COR_ILMETHOD_SECT_EH_SMALL,
-    pub Fat: IMAGE_COR_ILMETHOD_SECT_EH_FAT,
-}
-impl Default for IMAGE_COR_ILMETHOD_SECT_EH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_FAT {
-    pub Flags: CorExceptionFlag,
-    pub TryOffset: u32,
-    pub TryLength: u32,
-    pub HandlerOffset: u32,
-    pub HandlerLength: u32,
-    pub Anonymous: IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_FAT_0,
-}
-impl Default for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_FAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_FAT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_FAT_0 {
-    pub ClassToken: u32,
-    pub FilterOffset: u32,
-}
-impl Default for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_FAT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_FAT_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL {
-    pub _bitfield1: u32,
-    pub _bitfield2: u32,
-    pub Anonymous: IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL_0,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub union IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL_0 {
-    pub ClassToken: u32,
-    pub FilterOffset: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL {
-    pub _bitfield1: i32,
-    pub _bitfield2: u32,
-    pub Anonymous: IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL_0,
-}
-#[cfg(target_arch = "x86")]
-impl Default for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub union IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL_0 {
-    pub ClassToken: u32,
-    pub FilterOffset: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_COR_ILMETHOD_SECT_EH_FAT {
-    pub SectFat: IMAGE_COR_ILMETHOD_SECT_FAT,
-    pub Clauses: [IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_FAT; 1],
-}
-impl Default for IMAGE_COR_ILMETHOD_SECT_EH_FAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH_FAT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_COR_ILMETHOD_SECT_EH_SMALL {
-    pub SectSmall: IMAGE_COR_ILMETHOD_SECT_SMALL,
-    pub Reserved: u16,
-    pub Clauses: [IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL; 1],
-}
-impl Default for IMAGE_COR_ILMETHOD_SECT_EH_SMALL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_EH_SMALL {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct IMAGE_COR_ILMETHOD_SECT_FAT {
-    pub _bitfield: u32,
-}
-impl Default for IMAGE_COR_ILMETHOD_SECT_FAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_FAT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct IMAGE_COR_ILMETHOD_SECT_SMALL {
-    pub Kind: u8,
-    pub DataSize: u8,
-}
-impl Default for IMAGE_COR_ILMETHOD_SECT_SMALL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_SECT_SMALL {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct IMAGE_COR_ILMETHOD_TINY {
-    pub Flags_CodeSize: u8,
-}
-impl Default for IMAGE_COR_ILMETHOD_TINY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IMAGE_COR_ILMETHOD_TINY {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct IMAGE_COR_VTABLEFIXUP {
-    pub RVA: u32,
-    pub Count: u16,
-    pub Type: u16,
-}
-impl Default for IMAGE_COR_VTABLEFIXUP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IMAGE_COR_VTABLEFIXUP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct OSINFO {
-    pub dwOSPlatformId: u32,
-    pub dwOSMajorVersion: u32,
-    pub dwOSMinorVersion: u32,
-}
-impl Default for OSINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for OSINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct ROPARAMIIDHANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for ROPARAMIIDHANDLE {
-    type TypeKind = windows_core::CopyType;
-}
-impl ROPARAMIIDHANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for ROPARAMIIDHANDLE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll" "system" fn RoFreeParameterizedTypeExtra(extra : *mut core::ffi::c_void));
-            RoFreeParameterizedTypeExtra(self.0);
-        }
-    }
-}
-impl Default for ROPARAMIIDHANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-pub const ASSEMBLY_METADATA_TYPE: windows_core::PCSTR = windows_core::s!("System.Reflection.AssemblyMetadataAttribute");
-pub const ASSEMBLY_METADATA_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Reflection.AssemblyMetadataAttribute");
-pub const CLSID_CLR_v1_MetaData: windows_core::GUID = windows_core::GUID::from_u128(0x005023ca_72b1_11d3_9fc4_00c04f79a0a3);
-pub const CLSID_CLR_v2_MetaData: windows_core::GUID = windows_core::GUID::from_u128(0xefea471a_44fd_4862_9292_0c58d46e1f3a);
-pub const CLSID_Cor: windows_core::GUID = windows_core::GUID::from_u128(0xbee00010_ee77_11d0_a015_00c04fbbb884);
-pub const CLSID_CorMetaDataDispenser: windows_core::GUID = windows_core::GUID::from_u128(0xe5cb7a31_7512_11d2_89ce_0080c792e5d8);
-pub const CLSID_CorMetaDataDispenserReg: windows_core::GUID = windows_core::GUID::from_u128(0x435755ff_7397_11d2_9771_00a0c9b4d50c);
-pub const CLSID_CorMetaDataDispenserRuntime: windows_core::GUID = windows_core::GUID::from_u128(0x1ec2de53_75cc_11d2_9775_00a0c9b4d50c);
-pub const CLSID_CorMetaDataReg: windows_core::GUID = windows_core::GUID::from_u128(0x87f3a1f5_7397_11d2_9771_00a0c9b4d50c);
-pub const CMOD_CALLCONV_NAMESPACE: windows_core::PCSTR = windows_core::s!("System.Runtime.CompilerServices");
-pub const CMOD_CALLCONV_NAMESPACE_OLD: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices");
-pub const CMOD_CALLCONV_NAME_CDECL: windows_core::PCSTR = windows_core::s!("CallConvCdecl");
-pub const CMOD_CALLCONV_NAME_FASTCALL: windows_core::PCSTR = windows_core::s!("CallConvFastcall");
-pub const CMOD_CALLCONV_NAME_STDCALL: windows_core::PCSTR = windows_core::s!("CallConvStdcall");
-pub const CMOD_CALLCONV_NAME_THISCALL: windows_core::PCSTR = windows_core::s!("CallConvThiscall");
-pub const COINITCOR_DEFAULT: COINITICOR = COINITICOR(0i32);
-pub const COINITEE_DEFAULT: COINITIEE = COINITIEE(0i32);
-pub const COINITEE_DLL: COINITIEE = COINITIEE(1i32);
-pub const COINITEE_MAIN: COINITIEE = COINITIEE(2i32);
-pub const COMPILATIONRELAXATIONS_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.CompilerServices.CompilationRelaxationsAttribute");
-pub const COMPILATIONRELAXATIONS_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.CompilerServices.CompilationRelaxationsAttribute");
-pub const COR_BASE_SECURITY_ATTRIBUTE_CLASS: windows_core::PCWSTR = windows_core::w!("System.Security.Permissions.SecurityAttribute");
-pub const COR_BASE_SECURITY_ATTRIBUTE_CLASS_ANSI: windows_core::PCSTR = windows_core::s!("System.Security.Permissions.SecurityAttribute");
-pub const COR_CCTOR_METHOD_NAME: windows_core::PCSTR = windows_core::s!(".cctor");
-pub const COR_CCTOR_METHOD_NAME_W: windows_core::PCWSTR = windows_core::w!(".cctor");
-pub const COR_COMPILERSERVICE_DISCARDABLEATTRIBUTE: windows_core::PCWSTR = windows_core::w!("System.Runtime.CompilerServices.DiscardableAttribute");
-pub const COR_COMPILERSERVICE_DISCARDABLEATTRIBUTE_ASNI: windows_core::PCSTR = windows_core::s!("System.Runtime.CompilerServices.DiscardableAttribute");
-pub const COR_CTOR_METHOD_NAME: windows_core::PCSTR = windows_core::s!(".ctor");
-pub const COR_CTOR_METHOD_NAME_W: windows_core::PCWSTR = windows_core::w!(".ctor");
-pub const COR_DELETED_NAME_A: windows_core::PCSTR = windows_core::s!("_Deleted");
-pub const COR_DELETED_NAME_W: windows_core::PCWSTR = windows_core::w!("_Deleted");
-pub const COR_ENUM_FIELD_NAME: windows_core::PCSTR = windows_core::s!("value__");
-pub const COR_ENUM_FIELD_NAME_W: windows_core::PCWSTR = windows_core::w!("value__");
-pub const COR_E_AMBIGUOUSMATCH: windows_core::HRESULT = windows_core::HRESULT(0x8000211D_u32 as _);
-pub const COR_E_ARGUMENT: i32 = -2147024809i32;
-pub const COR_E_BADIMAGEFORMAT: windows_core::HRESULT = windows_core::HRESULT(0x8007000B_u32 as _);
-pub const COR_E_DIVIDEBYZERO: windows_core::HRESULT = windows_core::HRESULT(0x80020012_u32 as _);
-pub const COR_E_INVALIDCAST: i32 = -2147467262i32;
-pub const COR_E_NULLREFERENCE: i32 = -2147467261i32;
-pub const COR_E_OUTOFMEMORY: i32 = -2147024882i32;
-pub const COR_E_TARGETPARAMCOUNT: windows_core::HRESULT = windows_core::HRESULT(0x8002000E_u32 as _);
-pub const COR_E_UNAUTHORIZEDACCESS: i32 = -2147024891i32;
-pub const COR_ILEXCEPTION_CLAUSE_DEPRECATED: CorExceptionFlag = CorExceptionFlag(0i32);
-pub const COR_ILEXCEPTION_CLAUSE_DUPLICATED: CorExceptionFlag = CorExceptionFlag(8i32);
-pub const COR_ILEXCEPTION_CLAUSE_FAULT: CorExceptionFlag = CorExceptionFlag(4i32);
-pub const COR_ILEXCEPTION_CLAUSE_FILTER: CorExceptionFlag = CorExceptionFlag(1i32);
-pub const COR_ILEXCEPTION_CLAUSE_FINALLY: CorExceptionFlag = CorExceptionFlag(2i32);
-pub const COR_ILEXCEPTION_CLAUSE_NONE: CorExceptionFlag = CorExceptionFlag(0i32);
-pub const COR_ILEXCEPTION_CLAUSE_OFFSETLEN: CorExceptionFlag = CorExceptionFlag(0i32);
-pub const COR_NATIVE_LINK_CUSTOM_VALUE: windows_core::PCWSTR = windows_core::w!("COMPLUS_NativeLink");
-pub const COR_NATIVE_LINK_CUSTOM_VALUE_ANSI: windows_core::PCSTR = windows_core::s!("COMPLUS_NativeLink");
-pub const COR_NATIVE_LINK_CUSTOM_VALUE_CC: u32 = 18u32;
-pub const COR_REQUIRES_SECOBJ_ATTRIBUTE: windows_core::PCWSTR = windows_core::w!("System.Security.DynamicSecurityMethodAttribute");
-pub const COR_REQUIRES_SECOBJ_ATTRIBUTE_ANSI: windows_core::PCSTR = windows_core::s!("System.Security.DynamicSecurityMethodAttribute");
-pub const COR_SUPPRESS_UNMANAGED_CODE_CHECK_ATTRIBUTE: windows_core::PCWSTR = windows_core::w!("System.Security.SuppressUnmanagedCodeSecurityAttribute");
-pub const COR_SUPPRESS_UNMANAGED_CODE_CHECK_ATTRIBUTE_ANSI: windows_core::PCSTR = windows_core::s!("System.Security.SuppressUnmanagedCodeSecurityAttribute");
-pub const COR_UNVER_CODE_ATTRIBUTE: windows_core::PCWSTR = windows_core::w!("System.Security.UnverifiableCodeAttribute");
-pub const COR_UNVER_CODE_ATTRIBUTE_ANSI: windows_core::PCSTR = windows_core::s!("System.Security.UnverifiableCodeAttribute");
-pub const COR_VTABLEGAP_NAME_A: windows_core::PCSTR = windows_core::s!("_VtblGap");
-pub const COR_VTABLEGAP_NAME_W: windows_core::PCWSTR = windows_core::w!("_VtblGap");
-pub const COUNINITEE_DEFAULT: COUNINITIEE = COUNINITIEE(0i32);
-pub const COUNINITEE_DLL: COUNINITIEE = COUNINITIEE(1i32);
-pub const CompilationRelaxations_NoStringInterning: CompilationRelaxationsEnum = CompilationRelaxationsEnum(8i32);
-pub const CorILMethod_CompressedIL: CorILMethodFlags = CorILMethodFlags(64i32);
-pub const CorILMethod_FatFormat: CorILMethodFlags = CorILMethodFlags(3i32);
-pub const CorILMethod_FormatMask: CorILMethodFlags = CorILMethodFlags(7i32);
-pub const CorILMethod_FormatShift: CorILMethodFlags = CorILMethodFlags(3i32);
-pub const CorILMethod_InitLocals: CorILMethodFlags = CorILMethodFlags(16i32);
-pub const CorILMethod_MoreSects: CorILMethodFlags = CorILMethodFlags(8i32);
-pub const CorILMethod_Sect_EHTable: CorILMethodSect = CorILMethodSect(1i32);
-pub const CorILMethod_Sect_FatFormat: CorILMethodSect = CorILMethodSect(64i32);
-pub const CorILMethod_Sect_KindMask: CorILMethodSect = CorILMethodSect(63i32);
-pub const CorILMethod_Sect_MoreSects: CorILMethodSect = CorILMethodSect(128i32);
-pub const CorILMethod_Sect_OptILTable: CorILMethodSect = CorILMethodSect(2i32);
-pub const CorILMethod_Sect_Reserved: CorILMethodSect = CorILMethodSect(0i32);
-pub const CorILMethod_SmallFormat: CorILMethodFlags = CorILMethodFlags(0i32);
-pub const CorILMethod_TinyFormat: CorILMethodFlags = CorILMethodFlags(2i32);
-pub const CorILMethod_TinyFormat1: CorILMethodFlags = CorILMethodFlags(6i32);
-pub const DEFAULTDEPENDENCY_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.CompilerServices.DefaultDependencyAttribute");
-pub const DEFAULTDEPENDENCY_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.CompilerServices.DefaultDependencyAttribute");
-pub const DEFAULTDOMAIN_LOADEROPTIMIZATION_TYPE: windows_core::PCSTR = windows_core::s!("System.LoaderOptimizationAttribute");
-pub const DEFAULTDOMAIN_LOADEROPTIMIZATION_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.LoaderOptimizationAttribute");
-pub const DEFAULTDOMAIN_MTA_TYPE: windows_core::PCSTR = windows_core::s!("System.MTAThreadAttribute");
-pub const DEFAULTDOMAIN_MTA_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.MTAThreadAttribute");
-pub const DEFAULTDOMAIN_STA_TYPE: windows_core::PCSTR = windows_core::s!("System.STAThreadAttribute");
-pub const DEFAULTDOMAIN_STA_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.STAThreadAttribute");
-pub const DEPENDENCY_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.CompilerServices.DependencyAttribute");
-pub const DEPENDENCY_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.CompilerServices.DependencyAttribute");
-pub const DESCR_GROUP_METHODDEF: i32 = 0i32;
-pub const DESCR_GROUP_METHODIMPL: i32 = 1i32;
-pub const DISABLED_PRIVATE_REFLECTION_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.CompilerServices.DisablePrivateReflectionAttribute");
-pub const DISABLED_PRIVATE_REFLECTION_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.CompilerServices.DisablePrivateReflectionAttribute");
-pub const DropMemberRefCAs: MergeFlags = MergeFlags(2i32);
-pub const ELEMENT_TYPE_ARRAY: CorElementType = CorElementType(20u8);
-pub const ELEMENT_TYPE_BOOLEAN: CorElementType = CorElementType(2u8);
-pub const ELEMENT_TYPE_BYREF: CorElementType = CorElementType(16u8);
-pub const ELEMENT_TYPE_CHAR: CorElementType = CorElementType(3u8);
-pub const ELEMENT_TYPE_CLASS: CorElementType = CorElementType(18u8);
-pub const ELEMENT_TYPE_CMOD_OPT: CorElementType = CorElementType(32u8);
-pub const ELEMENT_TYPE_CMOD_REQD: CorElementType = CorElementType(31u8);
-pub const ELEMENT_TYPE_END: CorElementType = CorElementType(0u8);
-pub const ELEMENT_TYPE_FNPTR: CorElementType = CorElementType(27u8);
-pub const ELEMENT_TYPE_GENERICINST: CorElementType = CorElementType(21u8);
-pub const ELEMENT_TYPE_I: CorElementType = CorElementType(24u8);
-pub const ELEMENT_TYPE_I1: CorElementType = CorElementType(4u8);
-pub const ELEMENT_TYPE_I2: CorElementType = CorElementType(6u8);
-pub const ELEMENT_TYPE_I4: CorElementType = CorElementType(8u8);
-pub const ELEMENT_TYPE_I8: CorElementType = CorElementType(10u8);
-pub const ELEMENT_TYPE_INTERNAL: CorElementType = CorElementType(33u8);
-pub const ELEMENT_TYPE_MAX: CorElementType = CorElementType(34u8);
-pub const ELEMENT_TYPE_MODIFIER: CorElementType = CorElementType(64u8);
-pub const ELEMENT_TYPE_MVAR: CorElementType = CorElementType(30u8);
-pub const ELEMENT_TYPE_OBJECT: CorElementType = CorElementType(28u8);
-pub const ELEMENT_TYPE_PINNED: CorElementType = CorElementType(69u8);
-pub const ELEMENT_TYPE_PTR: CorElementType = CorElementType(15u8);
-pub const ELEMENT_TYPE_R4: CorElementType = CorElementType(12u8);
-pub const ELEMENT_TYPE_R8: CorElementType = CorElementType(13u8);
-pub const ELEMENT_TYPE_SENTINEL: CorElementType = CorElementType(65u8);
-pub const ELEMENT_TYPE_STRING: CorElementType = CorElementType(14u8);
-pub const ELEMENT_TYPE_SZARRAY: CorElementType = CorElementType(29u8);
-pub const ELEMENT_TYPE_TYPEDBYREF: CorElementType = CorElementType(22u8);
-pub const ELEMENT_TYPE_U: CorElementType = CorElementType(25u8);
-pub const ELEMENT_TYPE_U1: CorElementType = CorElementType(5u8);
-pub const ELEMENT_TYPE_U2: CorElementType = CorElementType(7u8);
-pub const ELEMENT_TYPE_U4: CorElementType = CorElementType(9u8);
-pub const ELEMENT_TYPE_U8: CorElementType = CorElementType(11u8);
-pub const ELEMENT_TYPE_VALUETYPE: CorElementType = CorElementType(17u8);
-pub const ELEMENT_TYPE_VAR: CorElementType = CorElementType(19u8);
-pub const ELEMENT_TYPE_VOID: CorElementType = CorElementType(1u8);
-pub const FORWARD_INTEROP_STUB_METHOD_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ManagedToNativeComInteropStubAttribute");
-pub const FORWARD_INTEROP_STUB_METHOD_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ManagedToNativeComInteropStubAttribute");
-pub const FRAMEWORK_REGISTRY_KEY: windows_core::PCSTR = windows_core::s!("Software\\Microsoft\\.NETFramework");
-pub const FRAMEWORK_REGISTRY_KEY_W: windows_core::PCWSTR = windows_core::w!("Software\\Microsoft\\.NETFramework");
-pub const FRIEND_ACCESS_ALLOWED_ATTRIBUTE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.CompilerServices.FriendAccessAllowedAttribute");
-pub const FRIEND_ACCESS_ALLOWED_ATTRIBUTE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.CompilerServices.FriendAccessAllowedAttribute");
-pub const FRIEND_ASSEMBLY_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.CompilerServices.InternalsVisibleToAttribute");
-pub const FRIEND_ASSEMBLY_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.CompilerServices.InternalsVisibleToAttribute");
-pub const GUID_DispIdOverride: windows_core::GUID = windows_core::GUID::from_u128(0xcd2bc5c9_f452_4326_b714_f9c539d4da58);
-pub const GUID_ExportedFromComPlus: windows_core::GUID = windows_core::GUID::from_u128(0x90883f05_3d28_11d2_8f17_00a0c9a6186d);
-pub const GUID_ForceIEnumerable: windows_core::GUID = windows_core::GUID::from_u128(0xb64784eb_d8d4_4d9b_9acd_0e30806426f7);
-pub const GUID_Function2Getter: windows_core::GUID = windows_core::GUID::from_u128(0x54fc8f55_38de_4703_9c4e_250351302b1c);
-pub const GUID_ManagedName: windows_core::GUID = windows_core::GUID::from_u128(0x0f21f359_ab84_41e8_9a78_36d110e6d2f9);
-pub const GUID_PropGetCA: windows_core::GUID = windows_core::GUID::from_u128(0x2941ff83_88d8_4f73_b6a9_bdf8712d000d);
-pub const GUID_PropPutCA: windows_core::GUID = windows_core::GUID::from_u128(0x29533527_3683_4364_abc0_db1add822fa2);
-pub const IMAGE_CEE_CS_BYVALUE: CorArgType = CorArgType(10i32);
-pub const IMAGE_CEE_CS_CALLCONV_C: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(1i32);
-pub const IMAGE_CEE_CS_CALLCONV_DEFAULT: CorCallingConvention = CorCallingConvention(0i32);
-pub const IMAGE_CEE_CS_CALLCONV_EXPLICITTHIS: CorCallingConvention = CorCallingConvention(64i32);
-pub const IMAGE_CEE_CS_CALLCONV_FASTCALL: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(4i32);
-pub const IMAGE_CEE_CS_CALLCONV_FIELD: CorCallingConvention = CorCallingConvention(6i32);
-pub const IMAGE_CEE_CS_CALLCONV_GENERIC: CorCallingConvention = CorCallingConvention(16i32);
-pub const IMAGE_CEE_CS_CALLCONV_GENERICINST: CorCallingConvention = CorCallingConvention(10i32);
-pub const IMAGE_CEE_CS_CALLCONV_HASTHIS: CorCallingConvention = CorCallingConvention(32i32);
-pub const IMAGE_CEE_CS_CALLCONV_LOCAL_SIG: CorCallingConvention = CorCallingConvention(7i32);
-pub const IMAGE_CEE_CS_CALLCONV_MASK: CorCallingConvention = CorCallingConvention(15i32);
-pub const IMAGE_CEE_CS_CALLCONV_MAX: CorCallingConvention = CorCallingConvention(12i32);
-pub const IMAGE_CEE_CS_CALLCONV_NATIVEVARARG: CorCallingConvention = CorCallingConvention(11i32);
-pub const IMAGE_CEE_CS_CALLCONV_PROPERTY: CorCallingConvention = CorCallingConvention(8i32);
-pub const IMAGE_CEE_CS_CALLCONV_STDCALL: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(2i32);
-pub const IMAGE_CEE_CS_CALLCONV_THISCALL: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(3i32);
-pub const IMAGE_CEE_CS_CALLCONV_UNMGD: CorCallingConvention = CorCallingConvention(9i32);
-pub const IMAGE_CEE_CS_CALLCONV_VARARG: CorCallingConvention = CorCallingConvention(5i32);
-pub const IMAGE_CEE_CS_END: CorArgType = CorArgType(0i32);
-pub const IMAGE_CEE_CS_I4: CorArgType = CorArgType(2i32);
-pub const IMAGE_CEE_CS_I8: CorArgType = CorArgType(3i32);
-pub const IMAGE_CEE_CS_OBJECT: CorArgType = CorArgType(7i32);
-pub const IMAGE_CEE_CS_PTR: CorArgType = CorArgType(6i32);
-pub const IMAGE_CEE_CS_R4: CorArgType = CorArgType(4i32);
-pub const IMAGE_CEE_CS_R8: CorArgType = CorArgType(5i32);
-pub const IMAGE_CEE_CS_STRUCT32: CorArgType = CorArgType(9i32);
-pub const IMAGE_CEE_CS_STRUCT4: CorArgType = CorArgType(8i32);
-pub const IMAGE_CEE_CS_VOID: CorArgType = CorArgType(1i32);
-pub const IMAGE_CEE_UNMANAGED_CALLCONV_C: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(1i32);
-pub const IMAGE_CEE_UNMANAGED_CALLCONV_FASTCALL: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(4i32);
-pub const IMAGE_CEE_UNMANAGED_CALLCONV_STDCALL: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(2i32);
-pub const IMAGE_CEE_UNMANAGED_CALLCONV_THISCALL: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(3i32);
-pub const IMAGE_DIRECTORY_ENTRY_COMHEADER: ReplacesGeneralNumericDefines = ReplacesGeneralNumericDefines(14i32);
-pub const INTEROP_AUTOPROXY_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.AutomationProxyAttribute");
-pub const INTEROP_AUTOPROXY_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.AutomationProxyAttribute");
-pub const INTEROP_BESTFITMAPPING_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.BestFitMappingAttribute");
-pub const INTEROP_BESTFITMAPPING_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.BestFitMappingAttribute");
-pub const INTEROP_CLASSINTERFACE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ClassInterfaceAttribute");
-pub const INTEROP_CLASSINTERFACE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ClassInterfaceAttribute");
-pub const INTEROP_COCLASS_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.CoClassAttribute");
-pub const INTEROP_COCLASS_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.CoClassAttribute");
-pub const INTEROP_COMALIASNAME_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ComAliasNameAttribute");
-pub const INTEROP_COMALIASNAME_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ComAliasNameAttribute");
-pub const INTEROP_COMCOMPATIBLEVERSION_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ComCompatibleVersionAttribute");
-pub const INTEROP_COMCOMPATIBLEVERSION_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ComCompatibleVersionAttribute");
-pub const INTEROP_COMCONVERSIONLOSS_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ComConversionLossAttribute");
-pub const INTEROP_COMCONVERSIONLOSS_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ComConversionLossAttribute");
-pub const INTEROP_COMDEFAULTINTERFACE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ComDefaultInterfaceAttribute");
-pub const INTEROP_COMDEFAULTINTERFACE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ComDefaultInterfaceAttribute");
-pub const INTEROP_COMEMULATE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ComEmulateAttribute");
-pub const INTEROP_COMEMULATE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ComEmulateAttribute");
-pub const INTEROP_COMEVENTINTERFACE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ComEventInterfaceAttribute");
-pub const INTEROP_COMEVENTINTERFACE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ComEventInterfaceAttribute");
-pub const INTEROP_COMIMPORT_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ComImportAttribute");
-pub const INTEROP_COMIMPORT_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ComImportAttribute");
-pub const INTEROP_COMREGISTERFUNCTION_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ComRegisterFunctionAttribute");
-pub const INTEROP_COMREGISTERFUNCTION_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ComRegisterFunctionAttribute");
-pub const INTEROP_COMSOURCEINTERFACES_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ComSourceInterfacesAttribute");
-pub const INTEROP_COMSOURCEINTERFACES_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ComSourceInterfacesAttribute");
-pub const INTEROP_COMSUBSTITUTABLEINTERFACE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ComSubstitutableInterfaceAttribute");
-pub const INTEROP_COMSUBSTITUTABLEINTERFACE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ComSubstitutableInterfaceAttribute");
-pub const INTEROP_COMUNREGISTERFUNCTION_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ComUnregisterFunctionAttribute");
-pub const INTEROP_COMUNREGISTERFUNCTION_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ComUnregisterFunctionAttribute");
-pub const INTEROP_COMVISIBLE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ComVisibleAttribute");
-pub const INTEROP_COMVISIBLE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ComVisibleAttribute");
-pub const INTEROP_DATETIMEVALUE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.CompilerServices.DateTimeConstantAttribute");
-pub const INTEROP_DATETIMEVALUE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.CompilerServices.DateTimeConstantAttribute");
-pub const INTEROP_DECIMALVALUE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.CompilerServices.DecimalConstantAttribute");
-pub const INTEROP_DECIMALVALUE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.CompilerServices.DecimalConstantAttribute");
-pub const INTEROP_DEFAULTMEMBER_TYPE: windows_core::PCSTR = windows_core::s!("System.Reflection.DefaultMemberAttribute");
-pub const INTEROP_DEFAULTMEMBER_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Reflection.DefaultMemberAttribute");
-pub const INTEROP_DISPID_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.DispIdAttribute");
-pub const INTEROP_DISPID_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.DispIdAttribute");
-pub const INTEROP_GUID_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.GuidAttribute");
-pub const INTEROP_GUID_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.GuidAttribute");
-pub const INTEROP_IDISPATCHIMPL_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.IDispatchImplAttribute");
-pub const INTEROP_IDISPATCHIMPL_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.IDispatchImplAttribute");
-pub const INTEROP_IDISPATCHVALUE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.CompilerServices.IDispatchConstantAttribute");
-pub const INTEROP_IDISPATCHVALUE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.CompilerServices.IDispatchConstantAttribute");
-pub const INTEROP_IMPORTEDFROMTYPELIB_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.ImportedFromTypeLibAttribute");
-pub const INTEROP_IMPORTEDFROMTYPELIB_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.ImportedFromTypeLibAttribute");
-pub const INTEROP_INTERFACETYPE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.InterfaceTypeAttribute");
-pub const INTEROP_INTERFACETYPE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.InterfaceTypeAttribute");
-pub const INTEROP_IN_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.InAttribute");
-pub const INTEROP_IN_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.InAttribute");
-pub const INTEROP_IUNKNOWNVALUE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.CompilerServices.IUnknownConstantAttribute");
-pub const INTEROP_IUNKNOWNVALUE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.CompilerServices.IUnknownConstantAttribute");
-pub const INTEROP_LCIDCONVERSION_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.LCIDConversionAttribute");
-pub const INTEROP_LCIDCONVERSION_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.LCIDConversionAttribute");
-pub const INTEROP_MARSHALAS_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.MarshalAsAttribute");
-pub const INTEROP_MARSHALAS_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.MarshalAsAttribute");
-pub const INTEROP_OUT_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.OutAttribute");
-pub const INTEROP_OUT_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.OutAttribute");
-pub const INTEROP_PARAMARRAY_TYPE: windows_core::PCSTR = windows_core::s!("System.ParamArrayAttribute");
-pub const INTEROP_PARAMARRAY_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.ParamArrayAttribute");
-pub const INTEROP_PRESERVESIG_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.PreserveSigAttribure");
-pub const INTEROP_PRESERVESIG_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.PreserveSigAttribure");
-pub const INTEROP_PRIMARYINTEROPASSEMBLY_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.PrimaryInteropAssemblyAttribute");
-pub const INTEROP_PRIMARYINTEROPASSEMBLY_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.PrimaryInteropAssemblyAttribute");
-pub const INTEROP_SERIALIZABLE_TYPE: windows_core::PCSTR = windows_core::s!("System.SerializableAttribute");
-pub const INTEROP_SERIALIZABLE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.SerializableAttribute");
-pub const INTEROP_SETWIN32CONTEXTINIDISPATCHATTRIBUTE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.SetWin32ContextInIDispatchAttribute");
-pub const INTEROP_SETWIN32CONTEXTINIDISPATCHATTRIBUTE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.SetWin32ContextInIDispatchAttribute");
-pub const INTEROP_TYPELIBFUNC_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.TypeLibFuncAttribute");
-pub const INTEROP_TYPELIBFUNC_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.TypeLibFuncAttribute");
-pub const INTEROP_TYPELIBIMPORTCLASS_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.TypeLibImportClassAttribute");
-pub const INTEROP_TYPELIBIMPORTCLASS_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.TypeLibImportClassAttribute");
-pub const INTEROP_TYPELIBTYPE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.TypeLibTypeAttribute");
-pub const INTEROP_TYPELIBTYPE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.TypeLibTypeAttribute");
-pub const INTEROP_TYPELIBVAR_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.TypeLibVarAttribute");
-pub const INTEROP_TYPELIBVAR_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.TypeLibVarAttribute");
-pub const INTEROP_TYPELIBVERSION_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.InteropServices.TypeLibVersionAttribute");
-pub const INTEROP_TYPELIBVERSION_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.InteropServices.TypeLibVersionAttribute");
-pub const INVALID_CONNECTION_ID: u32 = 0u32;
-pub const INVALID_TASK_ID: u32 = 0u32;
 pub const LIBID_ComPlusRuntime: windows_core::GUID = windows_core::GUID::from_u128(0xbed7f4ea_1a96_11d2_8f08_00a0c9a6186d);
 pub const LoadAlways: LoadHintEnum = LoadHintEnum(1i32);
 pub const LoadDefault: LoadHintEnum = LoadHintEnum(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct LoadHintEnum(pub i32);
 pub const LoadNever: LoadHintEnum = LoadHintEnum(3i32);
 pub const LoadSometimes: LoadHintEnum = LoadHintEnum(2i32);
 pub const MAIN_CLR_MODULE_NAME_A: windows_core::PCSTR = windows_core::s!("coreclr");
@@ -3979,6 +3927,9 @@ pub const MDUpdateMask: CorSetENC = CorSetENC(7i32);
 pub const MSCOREE_SHIM_A: windows_core::PCSTR = windows_core::s!("mscoree.dll");
 pub const MSCOREE_SHIM_W: windows_core::PCWSTR = windows_core::w!("mscoree.dll");
 pub const MergeExportedTypes: MergeFlags = MergeFlags(8i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MergeFlags(pub i32);
 pub const MergeFlagsNone: MergeFlags = MergeFlags(0i32);
 pub const MergeManifest: MergeFlags = MergeFlags(1i32);
 pub const MetaDataCheckDuplicatesFor: windows_core::GUID = windows_core::GUID::from_u128(0x30fe7be8_d7d9_11d2_9f80_00c04f79a0a3);
@@ -4044,13 +3995,62 @@ pub const NATIVE_TYPE_VARIANTBOOL: CorNativeType = CorNativeType(37i32);
 pub const NATIVE_TYPE_VOID: CorNativeType = CorNativeType(1i32);
 pub const NGenDefault: NGenHintEnum = NGenHintEnum(0i32);
 pub const NGenEager: NGenHintEnum = NGenHintEnum(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NGenHintEnum(pub i32);
 pub const NGenLazy: NGenHintEnum = NGenHintEnum(2i32);
 pub const NGenNever: NGenHintEnum = NGenHintEnum(3i32);
 pub const NONVERSIONABLE_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.Versioning.NonVersionableAttribute");
 pub const NONVERSIONABLE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.Versioning.NonVersionableAttribute");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NativeTypeArrayFlags(pub i32);
 pub const NoDupCheck: MergeFlags = MergeFlags(4i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct OSINFO {
+    pub dwOSPlatformId: u32,
+    pub dwOSMajorVersion: u32,
+    pub dwOSMinorVersion: u32,
+}
+impl Default for OSINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for OSINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct ROPARAMIIDHANDLE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for ROPARAMIIDHANDLE {
+    type TypeKind = windows_core::CopyType;
+}
+impl ROPARAMIIDHANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for ROPARAMIIDHANDLE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll" "system" fn RoFreeParameterizedTypeExtra(extra : *mut core::ffi::c_void));
+            RoFreeParameterizedTypeExtra(self.0);
+        }
+    }
+}
+impl Default for ROPARAMIIDHANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const RUNTIMECOMPATIBILITY_TYPE: windows_core::PCSTR = windows_core::s!("System.Runtime.CompilerServices.RuntimeCompatibilityAttribute");
 pub const RUNTIMECOMPATIBILITY_TYPE_W: windows_core::PCWSTR = windows_core::w!("System.Runtime.CompilerServices.RuntimeCompatibilityAttribute");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ReplacesGeneralNumericDefines(pub i32);
 pub const SERIALIZATION_TYPE_BOOLEAN: CorSerializationType = CorSerializationType(2i32);
 pub const SERIALIZATION_TYPE_CHAR: CorSerializationType = CorSerializationType(3i32);
 pub const SERIALIZATION_TYPE_ENUM: CorSerializationType = CorSerializationType(85i32);

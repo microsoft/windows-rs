@@ -88,14 +88,6 @@ where
     windows_targets::link!("cabinet.dll" "system" fn SetDecompressorInformation(decompressorhandle : DECOMPRESSOR_HANDLE, compressinformationclass : COMPRESS_INFORMATION_CLASS, compressinformation : *const core::ffi::c_void, compressinformationsize : usize) -> super::super::Foundation:: BOOL);
     SetDecompressorInformation(decompressorhandle.param().abi(), core::mem::transmute(compressinformationclass), core::mem::transmute(compressinformation), core::mem::transmute(compressinformationsize)).ok()
 }
-pub type PFN_COMPRESS_ALLOCATE = Option<unsafe extern "system" fn(usercontext: *const core::ffi::c_void, size: usize) -> *mut core::ffi::c_void>;
-pub type PFN_COMPRESS_FREE = Option<unsafe extern "system" fn(usercontext: *const core::ffi::c_void, memory: *const core::ffi::c_void)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COMPRESS_ALGORITHM(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COMPRESS_INFORMATION_CLASS(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct COMPRESSOR_HANDLE(pub *mut core::ffi::c_void);
@@ -121,6 +113,16 @@ impl Default for COMPRESSOR_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COMPRESS_ALGORITHM(pub u32);
+pub const COMPRESS_ALGORITHM_INVALID: u32 = 0u32;
+pub const COMPRESS_ALGORITHM_LZMS: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(5u32);
+pub const COMPRESS_ALGORITHM_MAX: u32 = 6u32;
+pub const COMPRESS_ALGORITHM_MSZIP: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(2u32);
+pub const COMPRESS_ALGORITHM_NULL: u32 = 1u32;
+pub const COMPRESS_ALGORITHM_XPRESS: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(3u32);
+pub const COMPRESS_ALGORITHM_XPRESS_HUFF: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(4u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COMPRESS_ALLOCATION_ROUTINES {
@@ -136,6 +138,13 @@ impl Default for COMPRESS_ALLOCATION_ROUTINES {
 impl windows_core::TypeKind for COMPRESS_ALLOCATION_ROUTINES {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COMPRESS_INFORMATION_CLASS(pub i32);
+pub const COMPRESS_INFORMATION_CLASS_BLOCK_SIZE: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(1i32);
+pub const COMPRESS_INFORMATION_CLASS_INVALID: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(0i32);
+pub const COMPRESS_INFORMATION_CLASS_LEVEL: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(2i32);
+pub const COMPRESS_RAW: u32 = 536870912u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct DECOMPRESSOR_HANDLE(pub *mut core::ffi::c_void);
@@ -161,14 +170,5 @@ impl Default for DECOMPRESSOR_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const COMPRESS_ALGORITHM_INVALID: u32 = 0u32;
-pub const COMPRESS_ALGORITHM_LZMS: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(5u32);
-pub const COMPRESS_ALGORITHM_MAX: u32 = 6u32;
-pub const COMPRESS_ALGORITHM_MSZIP: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(2u32);
-pub const COMPRESS_ALGORITHM_NULL: u32 = 1u32;
-pub const COMPRESS_ALGORITHM_XPRESS: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(3u32);
-pub const COMPRESS_ALGORITHM_XPRESS_HUFF: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(4u32);
-pub const COMPRESS_INFORMATION_CLASS_BLOCK_SIZE: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(1i32);
-pub const COMPRESS_INFORMATION_CLASS_INVALID: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(0i32);
-pub const COMPRESS_INFORMATION_CLASS_LEVEL: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(2i32);
-pub const COMPRESS_RAW: u32 = 536870912u32;
+pub type PFN_COMPRESS_ALLOCATE = Option<unsafe extern "system" fn(usercontext: *const core::ffi::c_void, size: usize) -> *mut core::ffi::c_void>;
+pub type PFN_COMPRESS_FREE = Option<unsafe extern "system" fn(usercontext: *const core::ffi::c_void, memory: *const core::ffi::c_void)>;

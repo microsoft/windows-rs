@@ -1,3 +1,98 @@
+windows_core::imp::define_interface!(IPerformLocalActionRequestedEventArgs, IPerformLocalActionRequestedEventArgs_Vtbl, 0x59359f4f_0862_53a3_a3b3_c932fb718cdc);
+impl windows_core::RuntimeType for IPerformLocalActionRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPerformLocalActionRequestedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Action: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RemoteDesktopLocalAction) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IRemoteDesktopConnectionInfo, IRemoteDesktopConnectionInfo_Vtbl, 0x68bd69d6_6dea_543b_b737_f347919f5093);
+impl windows_core::RuntimeType for IRemoteDesktopConnectionInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRemoteDesktopConnectionInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SetConnectionStatus: unsafe extern "system" fn(*mut core::ffi::c_void, RemoteDesktopConnectionStatus) -> windows_core::HRESULT,
+    pub SwitchToLocalSession: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IRemoteDesktopConnectionInfo2, IRemoteDesktopConnectionInfo2_Vtbl, 0x871c0b26_23bf_5d3c_bc35_a85c405e25e6);
+impl windows_core::RuntimeType for IRemoteDesktopConnectionInfo2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRemoteDesktopConnectionInfo2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub PerformLocalActionFromRemote: unsafe extern "system" fn(*mut core::ffi::c_void, RemoteDesktopLocalAction) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IRemoteDesktopConnectionInfoStatics, IRemoteDesktopConnectionInfoStatics_Vtbl, 0x4a7dc5a1_3368_5a75_bb78_807df7ebc439);
+impl windows_core::RuntimeType for IRemoteDesktopConnectionInfoStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRemoteDesktopConnectionInfoStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "UI")]
+    pub GetForLaunchUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::UI::WindowId, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "UI"))]
+    GetForLaunchUri: usize,
+}
+windows_core::imp::define_interface!(IRemoteDesktopConnectionRemoteInfo, IRemoteDesktopConnectionRemoteInfo_Vtbl, 0x2a3dfa7e_a7ab_547e_9a6a_4c565bbb8d71);
+impl windows_core::RuntimeType for IRemoteDesktopConnectionRemoteInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRemoteDesktopConnectionRemoteInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ReportSwitched: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SwitchToLocalSessionRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveSwitchToLocalSessionRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PerformLocalActionRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePerformLocalActionRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IRemoteDesktopConnectionRemoteInfoStatics, IRemoteDesktopConnectionRemoteInfoStatics_Vtbl, 0xb590e64a_e4c9_53e8_b83d_a0db3676246a);
+impl windows_core::RuntimeType for IRemoteDesktopConnectionRemoteInfoStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRemoteDesktopConnectionRemoteInfoStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsSwitchSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub GetForLaunchUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IRemoteDesktopInfo, IRemoteDesktopInfo_Vtbl, 0xd185bb25_2f1e_5098_b9e0_f46d6358c5c4);
+impl windows_core::RuntimeType for IRemoteDesktopInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRemoteDesktopInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IRemoteDesktopInfoFactory, IRemoteDesktopInfoFactory_Vtbl, 0xad0e8d58_b56f_5a8b_b419_8002ee0c5ee9);
+impl windows_core::RuntimeType for IRemoteDesktopInfoFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRemoteDesktopInfoFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IRemoteDesktopRegistrarStatics, IRemoteDesktopRegistrarStatics_Vtbl, 0x687c2750_46d9_5de3_8dc3_84a9202cecfb);
+impl windows_core::RuntimeType for IRemoteDesktopRegistrarStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRemoteDesktopRegistrarStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub DesktopInfos: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    DesktopInfos: usize,
+    pub IsSwitchToLocalSessionEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PerformLocalActionRequestedEventArgs(windows_core::IUnknown);
@@ -142,6 +237,21 @@ impl windows_core::RuntimeName for RemoteDesktopConnectionRemoteInfo {
 unsafe impl Send for RemoteDesktopConnectionRemoteInfo {}
 unsafe impl Sync for RemoteDesktopConnectionRemoteInfo {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RemoteDesktopConnectionStatus(pub i32);
+impl RemoteDesktopConnectionStatus {
+    pub const Connecting: Self = Self(0i32);
+    pub const Connected: Self = Self(1i32);
+    pub const UserInputNeeded: Self = Self(2i32);
+    pub const Disconnected: Self = Self(3i32);
+}
+impl windows_core::TypeKind for RemoteDesktopConnectionStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for RemoteDesktopConnectionStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteDesktop.Provider.RemoteDesktopConnectionStatus;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RemoteDesktopInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RemoteDesktopInfo, windows_core::IUnknown, windows_core::IInspectable);
@@ -183,6 +293,22 @@ impl windows_core::RuntimeName for RemoteDesktopInfo {
 }
 unsafe impl Send for RemoteDesktopInfo {}
 unsafe impl Sync for RemoteDesktopInfo {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RemoteDesktopLocalAction(pub i32);
+impl RemoteDesktopLocalAction {
+    pub const ShowBluetoothSettings: Self = Self(0i32);
+    pub const ShowSystemSoundSettings: Self = Self(1i32);
+    pub const ShowSystemDisplaySettings: Self = Self(2i32);
+    pub const ShowSystemAccountSettings: Self = Self(3i32);
+    pub const ShowLocalSettings: Self = Self(4i32);
+}
+impl windows_core::TypeKind for RemoteDesktopLocalAction {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for RemoteDesktopLocalAction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteDesktop.Provider.RemoteDesktopLocalAction;i4)");
+}
 pub struct RemoteDesktopRegistrar;
 impl RemoteDesktopRegistrar {
     #[cfg(feature = "Foundation_Collections")]
@@ -205,130 +331,4 @@ impl RemoteDesktopRegistrar {
 }
 impl windows_core::RuntimeName for RemoteDesktopRegistrar {
     const NAME: &'static str = "Windows.System.RemoteDesktop.Provider.RemoteDesktopRegistrar";
-}
-windows_core::imp::define_interface!(IPerformLocalActionRequestedEventArgs, IPerformLocalActionRequestedEventArgs_Vtbl, 0x59359f4f_0862_53a3_a3b3_c932fb718cdc);
-impl windows_core::RuntimeType for IPerformLocalActionRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPerformLocalActionRequestedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Action: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RemoteDesktopLocalAction) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IRemoteDesktopConnectionInfo, IRemoteDesktopConnectionInfo_Vtbl, 0x68bd69d6_6dea_543b_b737_f347919f5093);
-impl windows_core::RuntimeType for IRemoteDesktopConnectionInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRemoteDesktopConnectionInfo_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SetConnectionStatus: unsafe extern "system" fn(*mut core::ffi::c_void, RemoteDesktopConnectionStatus) -> windows_core::HRESULT,
-    pub SwitchToLocalSession: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IRemoteDesktopConnectionInfo2, IRemoteDesktopConnectionInfo2_Vtbl, 0x871c0b26_23bf_5d3c_bc35_a85c405e25e6);
-impl windows_core::RuntimeType for IRemoteDesktopConnectionInfo2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRemoteDesktopConnectionInfo2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub PerformLocalActionFromRemote: unsafe extern "system" fn(*mut core::ffi::c_void, RemoteDesktopLocalAction) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IRemoteDesktopConnectionInfoStatics, IRemoteDesktopConnectionInfoStatics_Vtbl, 0x4a7dc5a1_3368_5a75_bb78_807df7ebc439);
-impl windows_core::RuntimeType for IRemoteDesktopConnectionInfoStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRemoteDesktopConnectionInfoStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "UI")]
-    pub GetForLaunchUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::UI::WindowId, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI"))]
-    GetForLaunchUri: usize,
-}
-windows_core::imp::define_interface!(IRemoteDesktopConnectionRemoteInfo, IRemoteDesktopConnectionRemoteInfo_Vtbl, 0x2a3dfa7e_a7ab_547e_9a6a_4c565bbb8d71);
-impl windows_core::RuntimeType for IRemoteDesktopConnectionRemoteInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRemoteDesktopConnectionRemoteInfo_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ReportSwitched: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SwitchToLocalSessionRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveSwitchToLocalSessionRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PerformLocalActionRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePerformLocalActionRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IRemoteDesktopConnectionRemoteInfoStatics, IRemoteDesktopConnectionRemoteInfoStatics_Vtbl, 0xb590e64a_e4c9_53e8_b83d_a0db3676246a);
-impl windows_core::RuntimeType for IRemoteDesktopConnectionRemoteInfoStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRemoteDesktopConnectionRemoteInfoStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub IsSwitchSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub GetForLaunchUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IRemoteDesktopInfo, IRemoteDesktopInfo_Vtbl, 0xd185bb25_2f1e_5098_b9e0_f46d6358c5c4);
-impl windows_core::RuntimeType for IRemoteDesktopInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRemoteDesktopInfo_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IRemoteDesktopInfoFactory, IRemoteDesktopInfoFactory_Vtbl, 0xad0e8d58_b56f_5a8b_b419_8002ee0c5ee9);
-impl windows_core::RuntimeType for IRemoteDesktopInfoFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRemoteDesktopInfoFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IRemoteDesktopRegistrarStatics, IRemoteDesktopRegistrarStatics_Vtbl, 0x687c2750_46d9_5de3_8dc3_84a9202cecfb);
-impl windows_core::RuntimeType for IRemoteDesktopRegistrarStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRemoteDesktopRegistrarStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub DesktopInfos: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DesktopInfos: usize,
-    pub IsSwitchToLocalSessionEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RemoteDesktopConnectionStatus(pub i32);
-impl RemoteDesktopConnectionStatus {
-    pub const Connecting: Self = Self(0i32);
-    pub const Connected: Self = Self(1i32);
-    pub const UserInputNeeded: Self = Self(2i32);
-    pub const Disconnected: Self = Self(3i32);
-}
-impl windows_core::TypeKind for RemoteDesktopConnectionStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for RemoteDesktopConnectionStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteDesktop.Provider.RemoteDesktopConnectionStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RemoteDesktopLocalAction(pub i32);
-impl RemoteDesktopLocalAction {
-    pub const ShowBluetoothSettings: Self = Self(0i32);
-    pub const ShowSystemSoundSettings: Self = Self(1i32);
-    pub const ShowSystemDisplaySettings: Self = Self(2i32);
-    pub const ShowSystemAccountSettings: Self = Self(3i32);
-    pub const ShowLocalSettings: Self = Self(4i32);
-}
-impl windows_core::TypeKind for RemoteDesktopLocalAction {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for RemoteDesktopLocalAction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteDesktop.Provider.RemoteDesktopLocalAction;i4)");
 }

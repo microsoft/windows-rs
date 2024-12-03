@@ -8,6 +8,42 @@
     clippy::all
 )]
 
+windows_core::imp::define_interface!(
+    IJsonValidator,
+    IJsonValidator_Vtbl,
+    0xe09cb12b_b13c_5139_8c99_6140bf80deb9
+);
+impl windows_core::RuntimeType for IJsonValidator {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IJsonValidator_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Validate: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IJsonValidatorFactory,
+    IJsonValidatorFactory_Vtbl,
+    0x1cf4464e_ae9e_55d5_9539_0af4d8fc35aa
+);
+impl windows_core::RuntimeType for IJsonValidatorFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IJsonValidatorFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct JsonValidator(windows_core::IUnknown);
@@ -64,39 +100,3 @@ impl windows_core::RuntimeName for JsonValidator {
 }
 unsafe impl Send for JsonValidator {}
 unsafe impl Sync for JsonValidator {}
-windows_core::imp::define_interface!(
-    IJsonValidator,
-    IJsonValidator_Vtbl,
-    0xe09cb12b_b13c_5139_8c99_6140bf80deb9
-);
-impl windows_core::RuntimeType for IJsonValidator {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IJsonValidator_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Validate: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(
-    IJsonValidatorFactory,
-    IJsonValidatorFactory_Vtbl,
-    0x1cf4464e_ae9e_55d5_9539_0af4d8fc35aa
-);
-impl windows_core::RuntimeType for IJsonValidatorFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IJsonValidatorFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-}

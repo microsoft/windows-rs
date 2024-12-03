@@ -1,3 +1,949 @@
+pub const ANALOG_AUXIN_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x742ef867_09e1_40a3_82d3_9669ba35325f);
+pub const ANALOG_FM_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x7728087b_2bb9_4e30_8078_449476e59dbb);
+pub const ANALOG_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0xb820d87e_e0e3_478f_8a38_4e13f7b3df42);
+pub const ATSCChannelTuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0x0369b4e6_45b6_11d3_b650_00c04f79498e);
+pub const ATSCComponentType: windows_core::GUID = windows_core::GUID::from_u128(0xa8dcf3d5_0780_4ef4_8a83_2cffaacb8ace);
+pub const ATSCLocator: windows_core::GUID = windows_core::GUID::from_u128(0x8872ff1b_98fa_4d7a_8d93_c9f1055f85bb);
+pub const ATSCTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0xa2e30750_6c3d_11d3_b653_00c04f79498e);
+pub const ATSC_EIT_TID: u32 = 203u32;
+pub const ATSC_ETM_LOCATION_IN_PTC_FOR_EVENT: u32 = 2u32;
+pub const ATSC_ETM_LOCATION_IN_PTC_FOR_PSIP: u32 = 1u32;
+pub const ATSC_ETM_LOCATION_NOT_PRESENT: u32 = 0u32;
+pub const ATSC_ETM_LOCATION_RESERVED: u32 = 3u32;
+pub const ATSC_ETT_TID: u32 = 204u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct ATSC_FILTER_OPTIONS {
+    pub fSpecifyEtmId: super::super::super::Foundation::BOOL,
+    pub EtmId: u32,
+}
+impl Default for ATSC_FILTER_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ATSC_FILTER_OPTIONS {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ATSC_MGT_PID: u32 = 8187u32;
+pub const ATSC_MGT_TID: u32 = 199u32;
+pub const ATSC_PIT_TID: u32 = 208u32;
+pub const ATSC_RRT_PID: u32 = 8187u32;
+pub const ATSC_RRT_TID: u32 = 202u32;
+pub const ATSC_STT_PID: u32 = 8187u32;
+pub const ATSC_STT_TID: u32 = 205u32;
+pub const ATSC_TERRESTRIAL_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x0dad2fdd_5fd7_11d3_8f50_00c04f7971e2);
+pub const ATSC_VCT_CABL_TID: u32 = 201u32;
+pub const ATSC_VCT_PID: u32 = 8187u32;
+pub const ATSC_VCT_TERR_TID: u32 = 200u32;
+pub const AgeBased: EnTvRat_System = EnTvRat_System(9i32);
+pub const AnalogAudioComponentType: windows_core::GUID = windows_core::GUID::from_u128(0x28ab0005_e845_4ffa_aa9b_f4665236141c);
+pub const AnalogLocator: windows_core::GUID = windows_core::GUID::from_u128(0x49638b91_48ab_48b7_a47a_7d0e75a08ede);
+pub const AnalogRadioTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0x8a674b4c_1f63_11d3_b64c_00c04f79498e);
+pub const AnalogTVTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0x8a674b4d_1f63_11d3_b64c_00c04f79498e);
+pub const AudioType_Commentary: u32 = 5u32;
+pub const AudioType_Dialogue: u32 = 4u32;
+pub const AudioType_Emergency: u32 = 6u32;
+pub const AudioType_Hearing_Impaired: u32 = 3u32;
+pub const AudioType_Music_And_Effects: u32 = 1u32;
+pub const AudioType_Reserved: i32 = -1i32;
+pub const AudioType_Standard: u32 = 0u32;
+pub const AudioType_Visually_Impaired: u32 = 2u32;
+pub const AudioType_Voiceover: u32 = 7u32;
+pub const AuxInTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0xf9769a06_7aca_4e39_9cfb_97bb35f0e77e);
+pub const BDANETWORKTYPE_ATSC: windows_core::GUID = windows_core::GUID::from_u128(0x71985f51_1ca1_11d3_9cc8_00c04f7971e0);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct BDA_DEBUG_DATA {
+    pub lResult: i32,
+    pub uuidDebugDataType: windows_core::GUID,
+    pub ulDataSize: u32,
+    pub argbDebugData: [u8; 1],
+}
+impl Default for BDA_DEBUG_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for BDA_DEBUG_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+pub const BDA_DEBUG_DATA_AVAILABLE: windows_core::GUID = windows_core::GUID::from_u128(0x69c24f54_9983_497e_b415_282be4c555fb);
+pub const BDA_DEBUG_DATA_TYPE_STRING: windows_core::GUID = windows_core::GUID::from_u128(0xa806e767_de5c_430c_80bf_a21ebe06c748);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BDA_DigitalSignalStandard(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct BDA_EVENT_DATA {
+    pub lResult: i32,
+    pub ulEventID: u32,
+    pub uuidEventType: windows_core::GUID,
+    pub ulEventDataLength: u32,
+    pub argbEventData: [u8; 1],
+}
+impl Default for BDA_EVENT_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for BDA_EVENT_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BDA_LockType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BDA_SignalType(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct BDA_TRANSPORT_INFO {
+    pub ulcbPhyiscalPacket: u32,
+    pub ulcbPhyiscalFrame: u32,
+    pub ulcbPhyiscalFrameAlignment: u32,
+    pub AvgTimePerFrame: i64,
+}
+impl Default for BDA_TRANSPORT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for BDA_TRANSPORT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const BSKYB_TERRESTRIAL_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x9e9e46c6_3aba_4f08_ad0e_cc5ac8148c2b);
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct BadSampleInfo {
+    pub hrReason: windows_core::HRESULT,
+}
+impl Default for BadSampleInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for BadSampleInfo {
+    type TypeKind = windows_core::CopyType;
+}
+pub const Bda_DigitalStandard_ATSC: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(8i32);
+pub const Bda_DigitalStandard_DVB_C: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(4i32);
+pub const Bda_DigitalStandard_DVB_S: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(2i32);
+pub const Bda_DigitalStandard_DVB_T: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(1i32);
+pub const Bda_DigitalStandard_ISDB_C: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(64i32);
+pub const Bda_DigitalStandard_ISDB_S: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(32i32);
+pub const Bda_DigitalStandard_ISDB_T: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(16i32);
+pub const Bda_DigitalStandard_None: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(0i32);
+pub const Bda_LockType_Complete: BDA_LockType = BDA_LockType(128i32);
+pub const Bda_LockType_DecoderDemod: BDA_LockType = BDA_LockType(2i32);
+pub const Bda_LockType_None: BDA_LockType = BDA_LockType(0i32);
+pub const Bda_LockType_PLL: BDA_LockType = BDA_LockType(1i32);
+pub const Bda_SignalType_Analog: BDA_SignalType = BDA_SignalType(1i32);
+pub const Bda_SignalType_Digital: BDA_SignalType = BDA_SignalType(2i32);
+pub const Bda_SignalType_Unknown: BDA_SignalType = BDA_SignalType(0i32);
+pub const BfAttrNone: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BfEnTvRat_Attributes_CAE_TV(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BfEnTvRat_Attributes_CAF_TV(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BfEnTvRat_Attributes_MPAA(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BfEnTvRat_Attributes_US_TV(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BfEnTvRat_GenericAttributes(pub i32);
+pub const BfIsAttr_1: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(2i32);
+pub const BfIsAttr_2: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(4i32);
+pub const BfIsAttr_3: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(8i32);
+pub const BfIsAttr_4: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(16i32);
+pub const BfIsAttr_5: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(32i32);
+pub const BfIsAttr_6: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(64i32);
+pub const BfIsAttr_7: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(128i32);
+pub const BfIsBlocked: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(1i32);
+pub const BfValidAttrSubmask: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(255i32);
+pub const BroadcastEventService: windows_core::GUID = windows_core::GUID::from_u128(0x0b3ffb92_0919_4934_9d5b_619c719d0202);
+pub const CAE_IsBlocked: BfEnTvRat_Attributes_CAE_TV = BfEnTvRat_Attributes_CAE_TV(1i32);
+pub const CAE_TV_14: EnTvRat_CAE_TV = EnTvRat_CAE_TV(5i32);
+pub const CAE_TV_18: EnTvRat_CAE_TV = EnTvRat_CAE_TV(6i32);
+pub const CAE_TV_C: EnTvRat_CAE_TV = EnTvRat_CAE_TV(1i32);
+pub const CAE_TV_C8: EnTvRat_CAE_TV = EnTvRat_CAE_TV(2i32);
+pub const CAE_TV_Exempt: EnTvRat_CAE_TV = EnTvRat_CAE_TV(0i32);
+pub const CAE_TV_G: EnTvRat_CAE_TV = EnTvRat_CAE_TV(3i32);
+pub const CAE_TV_PG: EnTvRat_CAE_TV = EnTvRat_CAE_TV(4i32);
+pub const CAE_TV_Reserved: EnTvRat_CAE_TV = EnTvRat_CAE_TV(7i32);
+pub const CAE_ValidAttrSubmask: BfEnTvRat_Attributes_CAE_TV = BfEnTvRat_Attributes_CAE_TV(1i32);
+pub const CAF_IsBlocked: BfEnTvRat_Attributes_CAF_TV = BfEnTvRat_Attributes_CAF_TV(1i32);
+pub const CAF_TV_13: EnTvRat_CAF_TV = EnTvRat_CAF_TV(3i32);
+pub const CAF_TV_16: EnTvRat_CAF_TV = EnTvRat_CAF_TV(4i32);
+pub const CAF_TV_18: EnTvRat_CAF_TV = EnTvRat_CAF_TV(5i32);
+pub const CAF_TV_8: EnTvRat_CAF_TV = EnTvRat_CAF_TV(2i32);
+pub const CAF_TV_Exempt: EnTvRat_CAF_TV = EnTvRat_CAF_TV(0i32);
+pub const CAF_TV_G: EnTvRat_CAF_TV = EnTvRat_CAF_TV(1i32);
+pub const CAF_TV_Reserved: EnTvRat_CAF_TV = EnTvRat_CAF_TV(7i32);
+pub const CAF_TV_Reserved6: EnTvRat_CAF_TV = EnTvRat_CAF_TV(6i32);
+pub const CAF_ValidAttrSubmask: BfEnTvRat_Attributes_CAF_TV = BfEnTvRat_Attributes_CAF_TV(1i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CAPTURE_STREAMTIME {
+    pub StreamTime: i64,
+}
+impl Default for CAPTURE_STREAMTIME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CAPTURE_STREAMTIME {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CLSID_CPCAFiltersCategory: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4fc_0049_4e2b_98fb_9537f6ce516d);
+pub const CLSID_DTFilterEncProperties: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c482_0049_4e2b_98fb_9537f6ce516d);
+pub const CLSID_DTFilterTagProperties: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c492_0049_4e2b_98fb_9537f6ce516d);
+pub const CLSID_ETFilterEncProperties: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c481_0049_4e2b_98fb_9537f6ce516d);
+pub const CLSID_ETFilterTagProperties: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c491_0049_4e2b_98fb_9537f6ce516d);
+pub const CLSID_Mpeg2TableFilter: windows_core::GUID = windows_core::GUID::from_u128(0x752845f1_758f_4c83_a043_4270c593308e);
+pub const CLSID_PTFilter: windows_core::GUID = windows_core::GUID::from_u128(0x9cd31617_b303_4f96_8330_2eb173ea4dc6);
+pub const CLSID_XDSCodecProperties: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c483_0049_4e2b_98fb_9537f6ce516d);
+pub const CLSID_XDSCodecTagProperties: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c493_0049_4e2b_98fb_9537f6ce516d);
+pub const COMPONENT_TAG_CAPTION_MAX: u32 = 55u32;
+pub const COMPONENT_TAG_CAPTION_MIN: u32 = 48u32;
+pub const COMPONENT_TAG_SUPERIMPOSE_MAX: u32 = 63u32;
+pub const COMPONENT_TAG_SUPERIMPOSE_MIN: u32 = 56u32;
+pub const CONTENT: RecordingType = RecordingType(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COPPEventBlockReason(pub i32);
+pub const COPP_Activate: COPPEventBlockReason = COPPEventBlockReason(8i32);
+pub const COPP_AeroGlassOff: COPPEventBlockReason = COPPEventBlockReason(5i32);
+pub const COPP_BadCertificate: COPPEventBlockReason = COPPEventBlockReason(3i32);
+pub const COPP_BadDriver: COPPEventBlockReason = COPPEventBlockReason(0i32);
+pub const COPP_DigitalAudioUnprotected: COPPEventBlockReason = COPPEventBlockReason(9i32);
+pub const COPP_ForbiddenVideo: COPPEventBlockReason = COPPEventBlockReason(7i32);
+pub const COPP_InvalidBusProtection: COPPEventBlockReason = COPPEventBlockReason(4i32);
+pub const COPP_NoCardHDCPSupport: COPPEventBlockReason = COPPEventBlockReason(1i32);
+pub const COPP_NoMonitorHDCPSupport: COPPEventBlockReason = COPPEventBlockReason(2i32);
+pub const COPP_RogueApp: COPPEventBlockReason = COPPEventBlockReason(6i32);
+pub const COPP_Unknown: COPPEventBlockReason = COPPEventBlockReason(-1i32);
+pub const CPEVENT_BITSHIFT_COPP: CPEventBitShift = CPEventBitShift(1i32);
+pub const CPEVENT_BITSHIFT_DOWNRES: CPEventBitShift = CPEventBitShift(5i32);
+pub const CPEVENT_BITSHIFT_LICENSE: CPEventBitShift = CPEventBitShift(2i32);
+pub const CPEVENT_BITSHIFT_NO_PLAYREADY: CPEventBitShift = CPEventBitShift(9i32);
+pub const CPEVENT_BITSHIFT_PENDING_CERTIFICATE: CPEventBitShift = CPEventBitShift(8i32);
+pub const CPEVENT_BITSHIFT_RATINGS: CPEventBitShift = CPEventBitShift(0i32);
+pub const CPEVENT_BITSHIFT_ROLLBACK: CPEventBitShift = CPEventBitShift(3i32);
+pub const CPEVENT_BITSHIFT_SAC: CPEventBitShift = CPEventBitShift(4i32);
+pub const CPEVENT_BITSHIFT_STUBLIB: CPEventBitShift = CPEventBitShift(6i32);
+pub const CPEVENT_BITSHIFT_UNTRUSTEDGRAPH: CPEventBitShift = CPEventBitShift(7i32);
+pub const CPEVENT_COPP: CPEvents = CPEvents(2i32);
+pub const CPEVENT_DOWNRES: CPEvents = CPEvents(6i32);
+pub const CPEVENT_LICENSE: CPEvents = CPEvents(3i32);
+pub const CPEVENT_NONE: CPEvents = CPEvents(0i32);
+pub const CPEVENT_PROTECTWINDOWED: CPEvents = CPEvents(9i32);
+pub const CPEVENT_RATINGS: CPEvents = CPEvents(1i32);
+pub const CPEVENT_ROLLBACK: CPEvents = CPEvents(4i32);
+pub const CPEVENT_SAC: CPEvents = CPEvents(5i32);
+pub const CPEVENT_STUBLIB: CPEvents = CPEvents(7i32);
+pub const CPEVENT_UNTRUSTEDGRAPH: CPEvents = CPEvents(8i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CPEventBitShift(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CPEvents(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CPRecordingStatus(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CRID_LOCATION(pub i32);
+pub const CRID_LOCATION_DVB_RESERVED1: CRID_LOCATION = CRID_LOCATION(2i32);
+pub const CRID_LOCATION_DVB_RESERVED2: CRID_LOCATION = CRID_LOCATION(3i32);
+pub const CRID_LOCATION_IN_CIT: CRID_LOCATION = CRID_LOCATION(1i32);
+pub const CRID_LOCATION_IN_DESCRIPTOR: CRID_LOCATION = CRID_LOCATION(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CROSSBAR_DEFAULT_FLAGS(pub i32);
+pub const CXDSData: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4f4_0049_4e2b_98fb_9537f6ce516d);
+pub const Canadian_English: EnTvRat_System = EnTvRat_System(2i32);
+pub const Canadian_French: EnTvRat_System = EnTvRat_System(3i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ChannelChangeInfo {
+    pub state: ChannelChangeSpanningEvent_State,
+    pub TimeStamp: u64,
+}
+impl Default for ChannelChangeInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ChannelChangeInfo {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ChannelChangeSpanningEvent_End: ChannelChangeSpanningEvent_State = ChannelChangeSpanningEvent_State(2i32);
+pub const ChannelChangeSpanningEvent_Start: ChannelChangeSpanningEvent_State = ChannelChangeSpanningEvent_State(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ChannelChangeSpanningEvent_State(pub i32);
+pub const ChannelIDTuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0x3a9428a7_31a4_45e9_9efb_e055bf7bb3db);
+pub const ChannelIDTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0xcc829a2f_3365_463f_af13_81dbb6f3a555);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ChannelInfo {
+    pub lFrequency: i32,
+    pub Anonymous: ChannelInfo_0,
+}
+impl Default for ChannelInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ChannelInfo {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union ChannelInfo_0 {
+    pub DVB: ChannelInfo_0_0,
+    pub DC: ChannelInfo_0_1,
+    pub ATSC: ChannelInfo_0_2,
+}
+impl Default for ChannelInfo_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ChannelInfo_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ChannelInfo_0_2 {
+    pub lProgNumber: i32,
+}
+impl Default for ChannelInfo_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ChannelInfo_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ChannelInfo_0_1 {
+    pub lProgNumber: i32,
+}
+impl Default for ChannelInfo_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ChannelInfo_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ChannelInfo_0_0 {
+    pub lONID: i32,
+    pub lTSID: i32,
+    pub lSID: i32,
+}
+impl Default for ChannelInfo_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ChannelInfo_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ChannelTuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0x0369b4e5_45b6_11d3_b650_00c04f79498e);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ChannelType(pub i32);
+pub const ChannelTypeAudio: ChannelType = ChannelType(4i32);
+pub const ChannelTypeCaptions: ChannelType = ChannelType(32i32);
+pub const ChannelTypeData: ChannelType = ChannelType(128i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ChannelTypeInfo {
+    pub channelType: ChannelType,
+    pub timeStamp: u64,
+}
+impl Default for ChannelTypeInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ChannelTypeInfo {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ChannelTypeNone: ChannelType = ChannelType(0i32);
+pub const ChannelTypeOther: ChannelType = ChannelType(1i32);
+pub const ChannelTypeSubtitles: ChannelType = ChannelType(16i32);
+pub const ChannelTypeSuperimpose: ChannelType = ChannelType(64i32);
+pub const ChannelTypeText: ChannelType = ChannelType(8i32);
+pub const ChannelTypeVideo: ChannelType = ChannelType(2i32);
+pub const Component: windows_core::GUID = windows_core::GUID::from_u128(0x59dc47a8_116c_11d3_9d8e_00c04f72d980);
+pub const ComponentType: windows_core::GUID = windows_core::GUID::from_u128(0x823535a0_0318_11d3_9d8e_00c04f72d980);
+pub const ComponentTypes: windows_core::GUID = windows_core::GUID::from_u128(0xa1a2b1c4_0e3a_11d3_9d8e_00c04f72d980);
+pub const Components: windows_core::GUID = windows_core::GUID::from_u128(0x809b6661_94c4_49e6_b6ec_3f0f862215aa);
+pub const CreatePropBagOnRegKey: windows_core::GUID = windows_core::GUID::from_u128(0x8a674b49_1f63_11d3_b64c_00c04f79498e);
+pub const DEF_MODE_PROFILE: CROSSBAR_DEFAULT_FLAGS = CROSSBAR_DEFAULT_FLAGS(1i32);
+pub const DEF_MODE_STREAMS: CROSSBAR_DEFAULT_FLAGS = CROSSBAR_DEFAULT_FLAGS(2i32);
+pub const DESC_LINKAGE_CA_REPLACEMENT: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(3i32);
+pub const DESC_LINKAGE_COMPLETE_NET_BOUQUET_SI: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(4i32);
+pub const DESC_LINKAGE_DATA: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(6i32);
+pub const DESC_LINKAGE_EPG: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(2i32);
+pub const DESC_LINKAGE_INFORMATION: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(1i32);
+pub const DESC_LINKAGE_REPLACEMENT: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(5i32);
+pub const DESC_LINKAGE_RESERVED0: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(0i32);
+pub const DESC_LINKAGE_RESERVED1: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(7i32);
+pub const DESC_LINKAGE_RESERVED2: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(255i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DESC_LINKAGE_TYPE(pub i32);
+pub const DESC_LINKAGE_USER: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(8i32);
+pub const DIGITAL_CABLE_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x143827ab_f77b_498d_81ca_5a007aec28bf);
+pub const DIRECT_TV_SATELLITE_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x93b66fb5_93d4_4323_921c_c1f52df61d3f);
+pub const DISPID_CHTUNER_ACTR_MINOR_CHANNEL: DISPID_TUNER = DISPID_TUNER(201i32);
+pub const DISPID_CHTUNER_ATVAC_CHANNEL: DISPID_TUNER = DISPID_TUNER(101i32);
+pub const DISPID_CHTUNER_ATVDC_CONTENT: DISPID_TUNER = DISPID_TUNER(102i32);
+pub const DISPID_CHTUNER_ATVDC_SYSTEM: DISPID_TUNER = DISPID_TUNER(101i32);
+pub const DISPID_CHTUNER_CIDTR_CHANNELID: DISPID_TUNER = DISPID_TUNER(101i32);
+pub const DISPID_CHTUNER_CTR_CHANNEL: DISPID_TUNER = DISPID_TUNER(101i32);
+pub const DISPID_CHTUNER_DCTR_MAJOR_CHANNEL: DISPID_TUNER = DISPID_TUNER(301i32);
+pub const DISPID_CHTUNER_DCTR_SRCID: DISPID_TUNER = DISPID_TUNER(302i32);
+pub const DISPID_DVBTUNER_DVBC_ATTRIBUTESVALID: DISPID_TUNER = DISPID_TUNER(101i32);
+pub const DISPID_DVBTUNER_DVBC_COMPONENTTYPE: DISPID_TUNER = DISPID_TUNER(104i32);
+pub const DISPID_DVBTUNER_DVBC_PID: DISPID_TUNER = DISPID_TUNER(102i32);
+pub const DISPID_DVBTUNER_DVBC_TAG: DISPID_TUNER = DISPID_TUNER(103i32);
+pub const DISPID_DVBTUNER_ONID: DISPID_TUNER = DISPID_TUNER(101i32);
+pub const DISPID_DVBTUNER_SID: DISPID_TUNER = DISPID_TUNER(103i32);
+pub const DISPID_DVBTUNER_TSID: DISPID_TUNER = DISPID_TUNER(102i32);
+pub const DISPID_MP2TUNERFACTORY_CREATETUNEREQUEST: DISPID_TUNER = DISPID_TUNER(1i32);
+pub const DISPID_MP2TUNER_PROGNO: DISPID_TUNER = DISPID_TUNER(102i32);
+pub const DISPID_MP2TUNER_TSID: DISPID_TUNER = DISPID_TUNER(101i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_TUNER(pub i32);
+pub const DISPID_TUNER_ATSCCT_FLAGS: DISPID_TUNER = DISPID_TUNER(300i32);
+pub const DISPID_TUNER_CT_CATEGORY: DISPID_TUNER = DISPID_TUNER(1i32);
+pub const DISPID_TUNER_CT_CLONE: DISPID_TUNER = DISPID_TUNER(9i32);
+pub const DISPID_TUNER_CT_MEDIAFORMATTYPE: DISPID_TUNER = DISPID_TUNER(6i32);
+pub const DISPID_TUNER_CT_MEDIAMAJORTYPE: DISPID_TUNER = DISPID_TUNER(2i32);
+pub const DISPID_TUNER_CT_MEDIASUBTYPE: DISPID_TUNER = DISPID_TUNER(4i32);
+pub const DISPID_TUNER_CT_MEDIATYPE: DISPID_TUNER = DISPID_TUNER(8i32);
+pub const DISPID_TUNER_CT__MEDIAFORMATTYPE: DISPID_TUNER = DISPID_TUNER(7i32);
+pub const DISPID_TUNER_CT__MEDIAMAJORTYPE: DISPID_TUNER = DISPID_TUNER(3i32);
+pub const DISPID_TUNER_CT__MEDIASUBTYPE: DISPID_TUNER = DISPID_TUNER(5i32);
+pub const DISPID_TUNER_C_ANALOG_AUDIO: DISPID_TUNER = DISPID_TUNER(201i32);
+pub const DISPID_TUNER_C_CLONE: DISPID_TUNER = DISPID_TUNER(5i32);
+pub const DISPID_TUNER_C_DESCRIPTION: DISPID_TUNER = DISPID_TUNER(4i32);
+pub const DISPID_TUNER_C_LANGID: DISPID_TUNER = DISPID_TUNER(3i32);
+pub const DISPID_TUNER_C_MP2_PCRPID: DISPID_TUNER = DISPID_TUNER(102i32);
+pub const DISPID_TUNER_C_MP2_PID: DISPID_TUNER = DISPID_TUNER(101i32);
+pub const DISPID_TUNER_C_MP2_PROGNO: DISPID_TUNER = DISPID_TUNER(103i32);
+pub const DISPID_TUNER_C_STATUS: DISPID_TUNER = DISPID_TUNER(2i32);
+pub const DISPID_TUNER_C_TYPE: DISPID_TUNER = DISPID_TUNER(1i32);
+pub const DISPID_TUNER_LCT_LANGID: DISPID_TUNER = DISPID_TUNER(100i32);
+pub const DISPID_TUNER_L_ANALOG_STANDARD: DISPID_TUNER = DISPID_TUNER(601i32);
+pub const DISPID_TUNER_L_ATSC_MP2_PROGNO: DISPID_TUNER = DISPID_TUNER(203i32);
+pub const DISPID_TUNER_L_ATSC_PHYS_CHANNEL: DISPID_TUNER = DISPID_TUNER(201i32);
+pub const DISPID_TUNER_L_ATSC_TSID: DISPID_TUNER = DISPID_TUNER(202i32);
+pub const DISPID_TUNER_L_CARRFREQ: DISPID_TUNER = DISPID_TUNER(1i32);
+pub const DISPID_TUNER_L_CLONE: DISPID_TUNER = DISPID_TUNER(8i32);
+pub const DISPID_TUNER_L_DTV_O_MAJOR_CHANNEL: DISPID_TUNER = DISPID_TUNER(701i32);
+pub const DISPID_TUNER_L_DVBS2_DISEQ_LNB_SOURCE: DISPID_TUNER = DISPID_TUNER(406i32);
+pub const DISPID_TUNER_L_DVBS2_PILOT: DISPID_TUNER = DISPID_TUNER(412i32);
+pub const DISPID_TUNER_L_DVBS2_ROLLOFF: DISPID_TUNER = DISPID_TUNER(411i32);
+pub const DISPID_TUNER_L_DVBS_AZIMUTH: DISPID_TUNER = DISPID_TUNER(404i32);
+pub const DISPID_TUNER_L_DVBS_ELEVATION: DISPID_TUNER = DISPID_TUNER(405i32);
+pub const DISPID_TUNER_L_DVBS_ORBITAL: DISPID_TUNER = DISPID_TUNER(403i32);
+pub const DISPID_TUNER_L_DVBS_POLARISATION: DISPID_TUNER = DISPID_TUNER(401i32);
+pub const DISPID_TUNER_L_DVBS_WEST: DISPID_TUNER = DISPID_TUNER(402i32);
+pub const DISPID_TUNER_L_DVBT2_PHYSICALLAYERPIPEID: DISPID_TUNER = DISPID_TUNER(351i32);
+pub const DISPID_TUNER_L_DVBT_BANDWIDTH: DISPID_TUNER = DISPID_TUNER(301i32);
+pub const DISPID_TUNER_L_DVBT_GUARDINTERVAL: DISPID_TUNER = DISPID_TUNER(304i32);
+pub const DISPID_TUNER_L_DVBT_HALPHA: DISPID_TUNER = DISPID_TUNER(305i32);
+pub const DISPID_TUNER_L_DVBT_INUSE: DISPID_TUNER = DISPID_TUNER(307i32);
+pub const DISPID_TUNER_L_DVBT_LPINNERFECMETHOD: DISPID_TUNER = DISPID_TUNER(302i32);
+pub const DISPID_TUNER_L_DVBT_LPINNERFECRATE: DISPID_TUNER = DISPID_TUNER(303i32);
+pub const DISPID_TUNER_L_DVBT_TRANSMISSIONMODE: DISPID_TUNER = DISPID_TUNER(306i32);
+pub const DISPID_TUNER_L_INNERFECMETHOD: DISPID_TUNER = DISPID_TUNER(2i32);
+pub const DISPID_TUNER_L_INNERFECRATE: DISPID_TUNER = DISPID_TUNER(3i32);
+pub const DISPID_TUNER_L_MOD: DISPID_TUNER = DISPID_TUNER(6i32);
+pub const DISPID_TUNER_L_OUTERFECMETHOD: DISPID_TUNER = DISPID_TUNER(4i32);
+pub const DISPID_TUNER_L_OUTERFECRATE: DISPID_TUNER = DISPID_TUNER(5i32);
+pub const DISPID_TUNER_L_SYMRATE: DISPID_TUNER = DISPID_TUNER(7i32);
+pub const DISPID_TUNER_MP2CT_TYPE: DISPID_TUNER = DISPID_TUNER(200i32);
+pub const DISPID_TUNER_TR_CLONE: DISPID_TUNER = DISPID_TUNER(3i32);
+pub const DISPID_TUNER_TR_COMPONENTS: DISPID_TUNER = DISPID_TUNER(2i32);
+pub const DISPID_TUNER_TR_LOCATOR: DISPID_TUNER = DISPID_TUNER(4i32);
+pub const DISPID_TUNER_TR_TUNINGSPACE: DISPID_TUNER = DISPID_TUNER(1i32);
+pub const DISPID_TUNER_TS_AR_COUNTRYCODE: DISPID_TUNER = DISPID_TUNER(104i32);
+pub const DISPID_TUNER_TS_AR_MAXFREQUENCY: DISPID_TUNER = DISPID_TUNER(102i32);
+pub const DISPID_TUNER_TS_AR_MINFREQUENCY: DISPID_TUNER = DISPID_TUNER(101i32);
+pub const DISPID_TUNER_TS_AR_STEP: DISPID_TUNER = DISPID_TUNER(103i32);
+pub const DISPID_TUNER_TS_ATSC_MAXMINORCHANNEL: DISPID_TUNER = DISPID_TUNER(202i32);
+pub const DISPID_TUNER_TS_ATSC_MAXPHYSCHANNEL: DISPID_TUNER = DISPID_TUNER(204i32);
+pub const DISPID_TUNER_TS_ATSC_MINMINORCHANNEL: DISPID_TUNER = DISPID_TUNER(201i32);
+pub const DISPID_TUNER_TS_ATSC_MINPHYSCHANNEL: DISPID_TUNER = DISPID_TUNER(203i32);
+pub const DISPID_TUNER_TS_ATV_COUNTRYCODE: DISPID_TUNER = DISPID_TUNER(104i32);
+pub const DISPID_TUNER_TS_ATV_INPUTTYPE: DISPID_TUNER = DISPID_TUNER(103i32);
+pub const DISPID_TUNER_TS_ATV_MAXCHANNEL: DISPID_TUNER = DISPID_TUNER(102i32);
+pub const DISPID_TUNER_TS_ATV_MINCHANNEL: DISPID_TUNER = DISPID_TUNER(101i32);
+pub const DISPID_TUNER_TS_AUX_COUNTRYCODE: DISPID_TUNER = DISPID_TUNER(101i32);
+pub const DISPID_TUNER_TS_CLONE: DISPID_TUNER = DISPID_TUNER(12i32);
+pub const DISPID_TUNER_TS_CLSID: DISPID_TUNER = DISPID_TUNER(3i32);
+pub const DISPID_TUNER_TS_CREATETUNEREQUEST: DISPID_TUNER = DISPID_TUNER(6i32);
+pub const DISPID_TUNER_TS_DC_MAXMAJORCHANNEL: DISPID_TUNER = DISPID_TUNER(302i32);
+pub const DISPID_TUNER_TS_DC_MAXSOURCEID: DISPID_TUNER = DISPID_TUNER(304i32);
+pub const DISPID_TUNER_TS_DC_MINMAJORCHANNEL: DISPID_TUNER = DISPID_TUNER(301i32);
+pub const DISPID_TUNER_TS_DC_MINSOURCEID: DISPID_TUNER = DISPID_TUNER(303i32);
+pub const DISPID_TUNER_TS_DEFAULTPREFERREDCOMPONENTTYPES: DISPID_TUNER = DISPID_TUNER(9i32);
+pub const DISPID_TUNER_TS_DEFLOCATOR: DISPID_TUNER = DISPID_TUNER(11i32);
+pub const DISPID_TUNER_TS_DVB2_NETWORK_ID: DISPID_TUNER = DISPID_TUNER(102i32);
+pub const DISPID_TUNER_TS_DVBS2_HI_OSC_FREQ_OVERRIDE: DISPID_TUNER = DISPID_TUNER(408i32);
+pub const DISPID_TUNER_TS_DVBS2_LNB_SWITCH_FREQ_OVERRIDE: DISPID_TUNER = DISPID_TUNER(409i32);
+pub const DISPID_TUNER_TS_DVBS2_LOW_OSC_FREQ_OVERRIDE: DISPID_TUNER = DISPID_TUNER(407i32);
+pub const DISPID_TUNER_TS_DVBS2_SPECTRAL_INVERSION_OVERRIDE: DISPID_TUNER = DISPID_TUNER(410i32);
+pub const DISPID_TUNER_TS_DVBS_HI_OSC_FREQ: DISPID_TUNER = DISPID_TUNER(1002i32);
+pub const DISPID_TUNER_TS_DVBS_INPUT_RANGE: DISPID_TUNER = DISPID_TUNER(1004i32);
+pub const DISPID_TUNER_TS_DVBS_LNB_SWITCH_FREQ: DISPID_TUNER = DISPID_TUNER(1003i32);
+pub const DISPID_TUNER_TS_DVBS_LOW_OSC_FREQ: DISPID_TUNER = DISPID_TUNER(1001i32);
+pub const DISPID_TUNER_TS_DVBS_SPECTRAL_INVERSION: DISPID_TUNER = DISPID_TUNER(1005i32);
+pub const DISPID_TUNER_TS_DVB_SYSTEMTYPE: DISPID_TUNER = DISPID_TUNER(101i32);
+pub const DISPID_TUNER_TS_ENUMCATEGORYGUIDS: DISPID_TUNER = DISPID_TUNER(7i32);
+pub const DISPID_TUNER_TS_ENUMDEVICEMONIKERS: DISPID_TUNER = DISPID_TUNER(8i32);
+pub const DISPID_TUNER_TS_FREQMAP: DISPID_TUNER = DISPID_TUNER(10i32);
+pub const DISPID_TUNER_TS_FRIENDLYNAME: DISPID_TUNER = DISPID_TUNER(2i32);
+pub const DISPID_TUNER_TS_NETWORKTYPE: DISPID_TUNER = DISPID_TUNER(4i32);
+pub const DISPID_TUNER_TS_UNIQUENAME: DISPID_TUNER = DISPID_TUNER(1i32);
+pub const DISPID_TUNER_TS__NETWORKTYPE: DISPID_TUNER = DISPID_TUNER(5i32);
+pub const DOWNRES_Always: DownResEventParam = DownResEventParam(0i32);
+pub const DOWNRES_InWindowOnly: DownResEventParam = DownResEventParam(1i32);
+pub const DOWNRES_Undefined: DownResEventParam = DownResEventParam(2i32);
+pub const DSATTRIB_BadSampleInfo: windows_core::GUID = windows_core::GUID::from_u128(0xe4846dda_5838_42b4_b897_6f7e5faa2f2f);
+pub const DSATTRIB_WMDRMProtectionInfo: windows_core::GUID = windows_core::GUID::from_u128(0x40749583_6b9d_4eec_b43c_67a1801e1a9b);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DSHOW_STREAM_DESC {
+    pub VersionNo: u32,
+    pub StreamId: u32,
+    pub Default: super::super::super::Foundation::BOOL,
+    pub Creation: super::super::super::Foundation::BOOL,
+    pub Reserved: u32,
+}
+impl Default for DSHOW_STREAM_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DSHOW_STREAM_DESC {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct DSMCC_ELEMENT {
+    pub pid: u16,
+    pub bComponentTag: u8,
+    pub dwCarouselId: u32,
+    pub dwTransactionId: u32,
+    pub pNext: *mut DSMCC_ELEMENT,
+}
+impl Default for DSMCC_ELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DSMCC_ELEMENT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct DSMCC_FILTER_OPTIONS {
+    pub fSpecifyProtocol: super::super::super::Foundation::BOOL,
+    pub Protocol: u8,
+    pub fSpecifyType: super::super::super::Foundation::BOOL,
+    pub Type: u8,
+    pub fSpecifyMessageId: super::super::super::Foundation::BOOL,
+    pub MessageId: u16,
+    pub fSpecifyTransactionId: super::super::super::Foundation::BOOL,
+    pub fUseTrxIdMessageIdMask: super::super::super::Foundation::BOOL,
+    pub TransactionId: u32,
+    pub fSpecifyModuleVersion: super::super::super::Foundation::BOOL,
+    pub ModuleVersion: u8,
+    pub fSpecifyBlockNumber: super::super::super::Foundation::BOOL,
+    pub BlockNumber: u16,
+    pub fGetModuleCall: super::super::super::Foundation::BOOL,
+    pub NumberOfBlocksInModule: u16,
+}
+impl Default for DSMCC_FILTER_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DSMCC_FILTER_OPTIONS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct DSMCC_SECTION {
+    pub TableId: u8,
+    pub Header: DSMCC_SECTION_0,
+    pub TableIdExtension: u16,
+    pub Version: DSMCC_SECTION_1,
+    pub SectionNumber: u8,
+    pub LastSectionNumber: u8,
+    pub ProtocolDiscriminator: u8,
+    pub DsmccType: u8,
+    pub MessageId: u16,
+    pub TransactionId: u32,
+    pub Reserved: u8,
+    pub AdaptationLength: u8,
+    pub MessageLength: u16,
+    pub RemainingData: [u8; 1],
+}
+impl Default for DSMCC_SECTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DSMCC_SECTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union DSMCC_SECTION_0 {
+    pub S: MPEG_HEADER_BITS_MIDL,
+    pub W: u16,
+}
+impl Default for DSMCC_SECTION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DSMCC_SECTION_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DSMCC_SECTION_1 {
+    pub S: MPEG_HEADER_VERSION_BITS_MIDL,
+    pub B: u8,
+}
+impl Default for DSMCC_SECTION_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DSMCC_SECTION_1 {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DTFilter: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4f2_0049_4e2b_98fb_9537f6ce516d);
+pub const DTV_CardStatus_Error: u32 = 2u32;
+pub const DTV_CardStatus_FirmwareDownload: u32 = 3u32;
+pub const DTV_CardStatus_Inserted: u32 = 0u32;
+pub const DTV_CardStatus_Removed: u32 = 1u32;
+pub const DTV_Entitlement_CanDecrypt: u32 = 0u32;
+pub const DTV_Entitlement_NotEntitled: u32 = 1u32;
+pub const DTV_Entitlement_TechnicalFailure: u32 = 2u32;
+pub const DTV_MMIMessage_Close: u32 = 1u32;
+pub const DTV_MMIMessage_Open: u32 = 0u32;
+pub const DVBCLocator: windows_core::GUID = windows_core::GUID::from_u128(0xc531d9fd_9685_4028_8b68_6e1232079f1e);
+pub const DVBSLocator: windows_core::GUID = windows_core::GUID::from_u128(0x1df7d126_4050_47f0_a7cf_4c4ca9241333);
+pub const DVBSTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0xb64016f3_c9a2_4066_96f0_bd9563314726);
+pub const DVBS_SCAN_TABLE_MAX_SIZE: u32 = 400u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DVBScramblingControlSpanningEvent {
+    pub ulPID: u32,
+    pub fScrambled: super::super::super::Foundation::BOOL,
+}
+impl Default for DVBScramblingControlSpanningEvent {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DVBScramblingControlSpanningEvent {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DVBTLocator: windows_core::GUID = windows_core::GUID::from_u128(0x9cd64701_bdf3_4d14_8e03_f12983d86664);
+pub const DVBTLocator2: windows_core::GUID = windows_core::GUID::from_u128(0xefe3fa02_45d7_4920_be96_53fa7f35b0e6);
+pub const DVBTuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0x15d6504a_5494_499c_886c_973c9e53b9f1);
+pub const DVBTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0xc6b14b32_76aa_4a86_a7ac_5c79aaf58da7);
+pub const DVB_BAT_PID: u32 = 17u32;
+pub const DVB_BAT_TID: u32 = 74u32;
+pub const DVB_CABLE_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0xdc0c0fe7_0485_4266_b93f_68fbf80ed834);
+pub const DVB_DIT_PID: u32 = 30u32;
+pub const DVB_DIT_TID: u32 = 126u32;
+pub const DVB_EIT_ACTUAL_TID: u32 = 78u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct DVB_EIT_FILTER_OPTIONS {
+    pub fSpecifySegment: super::super::super::Foundation::BOOL,
+    pub bSegment: u8,
+}
+impl Default for DVB_EIT_FILTER_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DVB_EIT_FILTER_OPTIONS {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DVB_EIT_OTHER_TID: u32 = 79u32;
+pub const DVB_EIT_PID: u32 = 18u32;
+pub const DVB_NIT_ACTUAL_TID: u32 = 64u32;
+pub const DVB_NIT_OTHER_TID: u32 = 65u32;
+pub const DVB_NIT_PID: u32 = 16u32;
+pub const DVB_RST_PID: u32 = 19u32;
+pub const DVB_RST_TID: u32 = 113u32;
+pub const DVB_SATELLITE_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0xfa4b375a_45b4_4d45_8440_263957b11623);
+pub const DVB_SDT_ACTUAL_TID: u32 = 66u32;
+pub const DVB_SDT_OTHER_TID: u32 = 70u32;
+pub const DVB_SDT_PID: u32 = 17u32;
+pub const DVB_SIT_PID: u32 = 31u32;
+pub const DVB_SIT_TID: u32 = 127u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DVB_STRCONV_MODE(pub i32);
+pub const DVB_ST_PID_16: u32 = 16u32;
+pub const DVB_ST_PID_17: u32 = 17u32;
+pub const DVB_ST_PID_18: u32 = 18u32;
+pub const DVB_ST_PID_19: u32 = 19u32;
+pub const DVB_ST_PID_20: u32 = 20u32;
+pub const DVB_ST_TID: u32 = 114u32;
+pub const DVB_TDT_PID: u32 = 20u32;
+pub const DVB_TDT_TID: u32 = 112u32;
+pub const DVB_TERRESTRIAL_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x216c62df_6d7f_4e9a_8571_05f14edb766a);
+pub const DVB_TOT_PID: u32 = 20u32;
+pub const DVB_TOT_TID: u32 = 115u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DVDFilterState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DVDMenuIDConstants(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DVDSPExt(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DVDTextStringType(pub i32);
+#[repr(C)]
+#[cfg(feature = "Win32_Media_MediaFoundation")]
+#[derive(Clone, Debug, PartialEq)]
+pub struct DVR_STREAM_DESC {
+    pub Version: u32,
+    pub StreamId: u32,
+    pub Default: super::super::super::Foundation::BOOL,
+    pub Creation: super::super::super::Foundation::BOOL,
+    pub Reserved: u32,
+    pub guidSubMediaType: windows_core::GUID,
+    pub guidFormatType: windows_core::GUID,
+    pub MediaType: super::super::MediaFoundation::AM_MEDIA_TYPE,
+}
+#[cfg(feature = "Win32_Media_MediaFoundation")]
+impl Default for DVR_STREAM_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Media_MediaFoundation")]
+impl windows_core::TypeKind for DVR_STREAM_DESC {
+    type TypeKind = windows_core::CloneType;
+}
+pub const DigitalCableLocator: windows_core::GUID = windows_core::GUID::from_u128(0x03c06416_d127_407a_ab4c_fdd279abbe5d);
+pub const DigitalCableTuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0x26ec0b63_aa90_458a_8df4_5659f2c8a18a);
+pub const DigitalCableTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0xd9bb4cee_b87a_47f1_ac92_b08d9c7813fc);
+pub const DigitalLocator: windows_core::GUID = windows_core::GUID::from_u128(0x6e50cc0d_c19b_4bf6_810b_5bd60761f5cc);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplaySizeList(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DownResEventParam(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DualMonoInfo {
+    pub LangID1: u16,
+    pub LangID2: u16,
+    pub lISOLangCode1: i32,
+    pub lISOLangCode2: i32,
+}
+impl Default for DualMonoInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DualMonoInfo {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DvbParentalRatingDescriptor {
+    pub ulNumParams: u32,
+    pub pParams: [DvbParentalRatingParam; 1],
+}
+impl Default for DvbParentalRatingDescriptor {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DvbParentalRatingDescriptor {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DvbParentalRatingParam {
+    pub szCountryCode: [i8; 4],
+    pub bRating: u8,
+}
+impl Default for DvbParentalRatingParam {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DvbParentalRatingParam {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ECHOSTAR_SATELLITE_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0xc4f6b31b_c6bf_4759_886f_a7386dca27a0);
+pub const ENCDEC_CPEVENT: EncDecEvents = EncDecEvents(0i32);
+pub const ENCDEC_RECORDING_STATUS: EncDecEvents = EncDecEvents(1i32);
+pub const ESEventFactory: windows_core::GUID = windows_core::GUID::from_u128(0x8e8a07da_71f8_40c1_a929_5e3a868ac2c6);
+pub const ESEventService: windows_core::GUID = windows_core::GUID::from_u128(0xc20447fc_ec60_475e_813f_d2b0a6decefe);
+pub const ETFilter: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4f1_0049_4e2b_98fb_9537f6ce516d);
+pub const EVENTID_ARIBcontentSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x3a954083_93d0_463e_90b2_0742c496edf0);
+pub const EVENTID_AudioDescriptorSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x107bd41c_a6da_4691_8369_11b2cdaa288e);
+pub const EVENTID_AudioTypeSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x501cbfbe_b849_42ce_9be9_3db869fb82b3);
+pub const EVENTID_BDAConditionalAccessTAG: windows_core::GUID = windows_core::GUID::from_u128(0xefc3a459_ae8b_4b4a_8fe9_79a0d097f3ea);
+pub const EVENTID_BDAEventingServicePendingEvent: windows_core::GUID = windows_core::GUID::from_u128(0x5ca51711_5ddc_41a6_9430_e41b8b3bbc5b);
+pub const EVENTID_BDA_CASBroadcastMMI: windows_core::GUID = windows_core::GUID::from_u128(0x676876f0_1132_404c_a7ca_e72069a9d54f);
+pub const EVENTID_BDA_CASCloseMMI: windows_core::GUID = windows_core::GUID::from_u128(0x5d0f550f_de2e_479d_8345_ec0e9557e8a2);
+pub const EVENTID_BDA_CASOpenMMI: windows_core::GUID = windows_core::GUID::from_u128(0x85dac915_e593_410d_8471_d6812105f28e);
+pub const EVENTID_BDA_CASReleaseTuner: windows_core::GUID = windows_core::GUID::from_u128(0x20c1a16b_441f_49a5_bb5c_e9a04495c6c1);
+pub const EVENTID_BDA_CASRequestTuner: windows_core::GUID = windows_core::GUID::from_u128(0xcf39a9d8_f5d3_4685_be57_ed81dba46b27);
+pub const EVENTID_BDA_DiseqCResponseAvailable: windows_core::GUID = windows_core::GUID::from_u128(0xefa628f8_1f2c_4b67_9ea5_acf6fa9a1f36);
+pub const EVENTID_BDA_EncoderSignalLock: windows_core::GUID = windows_core::GUID::from_u128(0x5ec90eb9_39fa_4cfc_b93f_00bb11077f5e);
+pub const EVENTID_BDA_FdcStatus: windows_core::GUID = windows_core::GUID::from_u128(0x05f25366_d0eb_43d2_bc3c_682b863df142);
+pub const EVENTID_BDA_FdcTableSection: windows_core::GUID = windows_core::GUID::from_u128(0x6a0cd757_4ce3_4e5b_9444_7187b87152c5);
+pub const EVENTID_BDA_GPNVValueUpdate: windows_core::GUID = windows_core::GUID::from_u128(0xff75c68c_f416_4e7e_bf17_6d55c5df1575);
+pub const EVENTID_BDA_GuideDataAvailable: windows_core::GUID = windows_core::GUID::from_u128(0x98db717a_478a_4cd4_92d0_95f66b89e5b1);
+pub const EVENTID_BDA_GuideDataError: windows_core::GUID = windows_core::GUID::from_u128(0xac33c448_6f73_4fd7_b341_594c360d8d74);
+pub const EVENTID_BDA_GuideServiceInformationUpdated: windows_core::GUID = windows_core::GUID::from_u128(0xa1c3ea2b_175f_4458_b735_507d22db23a6);
+pub const EVENTID_BDA_IsdbCASResponse: windows_core::GUID = windows_core::GUID::from_u128(0xd4cb1966_41bc_4ced_9a20_fdceac78f70d);
+pub const EVENTID_BDA_LbigsCloseConnectionHandle: windows_core::GUID = windows_core::GUID::from_u128(0xc2f08b99_65ef_4314_9671_e99d4cce0bae);
+pub const EVENTID_BDA_LbigsOpenConnection: windows_core::GUID = windows_core::GUID::from_u128(0x356207b2_6f31_4eb0_a271_b3fa6bb7680f);
+pub const EVENTID_BDA_LbigsSendData: windows_core::GUID = windows_core::GUID::from_u128(0x1123277b_f1c6_4154_8b0d_48e6157059aa);
+pub const EVENTID_BDA_RatingPinReset: windows_core::GUID = windows_core::GUID::from_u128(0xc6e048c0_c574_4c26_bcda_2f4d35eb5e85);
+pub const EVENTID_BDA_TransprtStreamSelectorInfo: windows_core::GUID = windows_core::GUID::from_u128(0xc40f9f85_09d0_489c_9e9c_0abbb56951b0);
+pub const EVENTID_BDA_TunerNoSignal: windows_core::GUID = windows_core::GUID::from_u128(0xe29b382b_1edd_4930_bc46_682fd72d2dfb);
+pub const EVENTID_BDA_TunerSignalLock: windows_core::GUID = windows_core::GUID::from_u128(0x1872e740_f573_429b_a00e_d9c1e408af09);
+pub const EVENTID_BDA_UpdateDrmStatus: windows_core::GUID = windows_core::GUID::from_u128(0x65a6f681_1462_473b_88ce_cb731427bdb5);
+pub const EVENTID_BDA_UpdateScanState: windows_core::GUID = windows_core::GUID::from_u128(0x55702b50_7b49_42b8_a82f_4afb691b0628);
+pub const EVENTID_CADenialCountChanged: windows_core::GUID = windows_core::GUID::from_u128(0x2a65c528_2249_4070_ac16_00390cdfb2dd);
+pub const EVENTID_CASFailureSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0xead831ae_5529_4d1f_afce_0d8cd1257d30);
+pub const EVENTID_CSDescriptorSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0xefe779d9_97f0_4786_800d_95cf505ddc66);
+pub const EVENTID_CandidatePostTuneData: windows_core::GUID = windows_core::GUID::from_u128(0x9f02d3d0_9f06_4369_9f1e_3ad6ca19807e);
+pub const EVENTID_CardStatusChanged: windows_core::GUID = windows_core::GUID::from_u128(0xa265faea_f874_4b38_9ff7_c53d02969996);
+pub const EVENTID_ChannelChangeSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x9067c5e5_4c5c_4205_86c8_7afe20fe1efa);
+pub const EVENTID_ChannelInfoSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x41f36d80_4132_4cc2_b121_01a43219d81b);
+pub const EVENTID_ChannelTypeSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x72ab1d51_87d2_489b_ba11_0e08dc210243);
+pub const EVENTID_CtxADescriptorSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x3ab4a2e6_4247_4b34_896c_30afa5d21c24);
+pub const EVENTID_DFNWithNoActualAVData: windows_core::GUID = windows_core::GUID::from_u128(0xf5689ffe_55f9_4bb3_96be_ae971c63bae0);
+pub const EVENTID_DRMParingStatusChanged: windows_core::GUID = windows_core::GUID::from_u128(0x000906f5_f0d1_41d6_a7df_4028697669f6);
+pub const EVENTID_DRMParingStepComplete: windows_core::GUID = windows_core::GUID::from_u128(0x5b2ebf78_b752_4420_b41e_a472dc95828e);
+pub const EVENTID_DTFilterCOPPBlock: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4ea_0049_4e2b_98fb_9537f6ce516d);
+pub const EVENTID_DTFilterCOPPUnblock: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4e8_0049_4e2b_98fb_9537f6ce516d);
+pub const EVENTID_DTFilterDataFormatFailure: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4ed_0049_4e2b_98fb_9537f6ce516d);
+pub const EVENTID_DTFilterDataFormatOK: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4ec_0049_4e2b_98fb_9537f6ce516d);
+pub const EVENTID_DTFilterRatingChange: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4e2_0049_4e2b_98fb_9537f6ce516d);
+pub const EVENTID_DTFilterRatingsBlock: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4e3_0049_4e2b_98fb_9537f6ce516d);
+pub const EVENTID_DTFilterRatingsUnblock: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4e4_0049_4e2b_98fb_9537f6ce516d);
+pub const EVENTID_DTFilterXDSPacket: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4e5_0049_4e2b_98fb_9537f6ce516d);
+pub const EVENTID_DVBScramblingControlSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x4bd4e1c4_90a1_4109_8236_27f00e7dcc5b);
+pub const EVENTID_DemultiplexerFilterDiscontinuity: windows_core::GUID = windows_core::GUID::from_u128(0x16155770_aed5_475c_bb98_95a33070df0c);
+pub const EVENTID_DualMonoSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0xa9a29b56_a84b_488c_89d5_0d4e7657c8ce);
+pub const EVENTID_DvbParentalRatingDescriptor: windows_core::GUID = windows_core::GUID::from_u128(0x2a67a58d_eca5_4eac_abcb_e734d3776d0a);
+pub const EVENTID_EASMessageReceived: windows_core::GUID = windows_core::GUID::from_u128(0xd10df9d5_c261_4b85_9e8a_517b3299cab2);
+pub const EVENTID_ETDTFilterLicenseFailure: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4ef_0049_4e2b_98fb_9537f6ce516d);
+pub const EVENTID_ETDTFilterLicenseOK: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4ee_0049_4e2b_98fb_9537f6ce516d);
+pub const EVENTID_ETFilterCopyNever: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4f0_0049_4e2b_98fb_9537f6ce516d);
+pub const EVENTID_ETFilterCopyOnce: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4eb_0049_4e2b_98fb_9537f6ce516d);
+pub const EVENTID_ETFilterEncryptionOff: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4e7_0049_4e2b_98fb_9537f6ce516d);
+pub const EVENTID_ETFilterEncryptionOn: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4e6_0049_4e2b_98fb_9537f6ce516d);
+pub const EVENTID_EmmMessageSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x6bf00268_4f7e_4294_aa87_e9e953e43f14);
+pub const EVENTID_EncDecFilterError: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4e9_0049_4e2b_98fb_9537f6ce516d);
+pub const EVENTID_EncDecFilterEvent: windows_core::GUID = windows_core::GUID::from_u128(0x4a1b465b_0fb9_4159_afbd_e33006a0f9f4);
+pub const EVENTID_EntitlementChanged: windows_core::GUID = windows_core::GUID::from_u128(0x9071ad5d_2359_4c95_8694_afa81d70bfd5);
+pub const EVENTID_FormatNotSupportedEvent: windows_core::GUID = windows_core::GUID::from_u128(0x24b2280a_b2aa_4777_bf65_63f35e7b024a);
+pub const EVENTID_LanguageSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0xe292666d_9c02_448d_aa8d_781a93fdc395);
+pub const EVENTID_MMIMessage: windows_core::GUID = windows_core::GUID::from_u128(0x052c29af_09a4_4b93_890f_bd6a348968a4);
+pub const EVENTID_NewSignalAcquired: windows_core::GUID = windows_core::GUID::from_u128(0xc87ec52d_cd18_404a_a076_c02a273d3de7);
+pub const EVENTID_PBDAParentalControlEvent: windows_core::GUID = windows_core::GUID::from_u128(0xf947aa85_fb52_48e8_b9c5_e1e1f411a51a);
+pub const EVENTID_PIDListSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x47fc8f65_e2bb_4634_9cef_fdbfe6261d5c);
+pub const EVENTID_PSITable: windows_core::GUID = windows_core::GUID::from_u128(0x1b9c3703_d447_4e16_97bb_01799fc031ed);
+pub const EVENTID_RRTSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0xf6cfc8f4_da93_4f2f_bff8_ba1ee6fca3a2);
+pub const EVENTID_SBE2RecControlStarted: windows_core::GUID = windows_core::GUID::from_u128(0x8966a89e_f83e_4c0e_bc3b_bfa7649e04cb);
+pub const EVENTID_SBE2RecControlStopped: windows_core::GUID = windows_core::GUID::from_u128(0x454b1ec8_0c9b_4caa_b1a1_1e7a2666f6c3);
+pub const EVENTID_STBChannelNumber: windows_core::GUID = windows_core::GUID::from_u128(0x17c4d730_d0f0_413a_8c99_500469de35ad);
+pub const EVENTID_ServiceTerminated: windows_core::GUID = windows_core::GUID::from_u128(0x0a1d591c_e0d2_4f8e_8960_2335bef45ccb);
+pub const EVENTID_SignalAndServiceStatusSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x8068c5cb_3c04_492b_b47d_0308820dce51);
+pub const EVENTID_SignalStatusChanged: windows_core::GUID = windows_core::GUID::from_u128(0x6d9cfaf2_702d_4b01_8dff_6892ad20d191);
+pub const EVENTID_StreamIDSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0xcaf1ab68_e153_4d41_a6b3_a7c998db75ee);
+pub const EVENTID_StreamTypeSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x82af2ebc_30a6_4264_a80b_ad2e1372ac60);
+pub const EVENTID_SubtitleSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x5dcec048_d0b9_4163_872c_4f32223be88a);
+pub const EVENTID_TeletextSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x9599d950_5f33_4617_af7c_1e54b510daa3);
+pub const EVENTID_TuneFailureEvent: windows_core::GUID = windows_core::GUID::from_u128(0xd97287b2_2dfd_436a_9485_99d7d4ab5a69);
+pub const EVENTID_TuneFailureSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x6f8aa455_5ee1_48ab_a27c_4c8d70b9aeba);
+pub const EVENTID_TuningChanged: windows_core::GUID = windows_core::GUID::from_u128(0x9d7e6235_4b7d_425d_a6d1_d717c33b9c4c);
+pub const EVENTID_TuningChanging: windows_core::GUID = windows_core::GUID::from_u128(0x83183c03_c09e_45c4_a719_807a94952bf9);
+pub const EVENTID_XDSCodecDuplicateXDSRating: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4df_0049_4e2b_98fb_9537f6ce516d);
+pub const EVENTID_XDSCodecNewXDSPacket: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4e1_0049_4e2b_98fb_9537f6ce516d);
+pub const EVENTID_XDSCodecNewXDSRating: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4e0_0049_4e2b_98fb_9537f6ce516d);
+pub const EVENTTYPE_CASDescrambleFailureEvent: windows_core::GUID = windows_core::GUID::from_u128(0xb2127d42_7be5_4f4b_9130_6679899f4f4b);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EnTag_Mode(pub i32);
+pub const EnTag_Once: EnTag_Mode = EnTag_Mode(1i32);
+pub const EnTag_Remove: EnTag_Mode = EnTag_Mode(0i32);
+pub const EnTag_Repeat: EnTag_Mode = EnTag_Mode(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EnTvRat_CAE_TV(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EnTvRat_CAF_TV(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EnTvRat_GenericLevel(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EnTvRat_MPAA(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EnTvRat_System(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EnTvRat_US_TV(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EncDecEvents(pub i32);
+pub const EvalRat: windows_core::GUID = windows_core::GUID::from_u128(0xc5c5c5f1_3abc_11d6_b25b_00c04fa0c026);
+pub const FORMATNOTSUPPORTED_CLEAR: FormatNotSupportedEvents = FormatNotSupportedEvents(0i32);
+pub const FORMATNOTSUPPORTED_NOTSUPPORTED: FormatNotSupportedEvents = FormatNotSupportedEvents(1i32);
+pub const FORMATTYPE_CPFilters_Processed: windows_core::GUID = windows_core::GUID::from_u128(0x6739b36f_1d5f_4ac2_8192_28bb0e73d16a);
+pub const FORMATTYPE_ETDTFilter_Tagged: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4d1_0049_4e2b_98fb_9537f6ce516d);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FormatNotSupportedEvents(pub i32);
+pub const FrameMode: PositionModeList = PositionModeList(0i32);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IATSCChannelTuneRequest, IATSCChannelTuneRequest_Vtbl, 0x0369b4e1_45b6_11d3_b650_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
@@ -29887,6 +30833,26 @@ impl ISCTE_EAS_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISCTE_EAS {}
+pub const ISDBSLocator: windows_core::GUID = windows_core::GUID::from_u128(0x6504afed_a629_455c_a7f1_04964dea5cc4);
+pub const ISDB_BIT_PID: u32 = 36u32;
+pub const ISDB_BIT_TID: u32 = 196u32;
+pub const ISDB_CABLE_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0xc974ddb5_41fe_4b25_9741_92f049f1d5d1);
+pub const ISDB_CDT_PID: u32 = 41u32;
+pub const ISDB_CDT_TID: u32 = 200u32;
+pub const ISDB_EMM_TID: u32 = 133u32;
+pub const ISDB_LDT_PID: u32 = 37u32;
+pub const ISDB_LDT_TID: u32 = 199u32;
+pub const ISDB_NBIT_MSG_TID: u32 = 197u32;
+pub const ISDB_NBIT_PID: u32 = 37u32;
+pub const ISDB_NBIT_REF_TID: u32 = 198u32;
+pub const ISDB_SATELLITE_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0xb0a4e6a0_6a1a_4b83_bb5b_903e1d90e6b6);
+pub const ISDB_SDTT_ALT_PID: u32 = 40u32;
+pub const ISDB_SDTT_PID: u32 = 35u32;
+pub const ISDB_SDTT_TID: u32 = 195u32;
+pub const ISDB_ST_TID: u32 = 114u32;
+pub const ISDB_S_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0xa1e78202_1459_41b1_9ca9_2a92587a42cc);
+pub const ISDB_TERRESTRIAL_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x95037f6f_3ac7_4452_b6c4_45a9ce9292a2);
+pub const ISDB_T_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0xfc3855a6_c901_4f2e_aba8_90815afc6c83);
 windows_core::imp::define_interface!(ISIInbandEPG, ISIInbandEPG_Vtbl, 0xf90ad9d0_b854_4b68_9cc1_b2cc96119d85);
 windows_core::imp::interface_hierarchy!(ISIInbandEPG, windows_core::IUnknown);
 impl ISIInbandEPG {
@@ -32901,846 +33867,6 @@ impl IXDSToRat_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IXDSToRat {}
-#[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(_IMSVidCtlEvents, _IMSVidCtlEvents_Vtbl, 0xb0edf164_910a_11d2_b632_00c04f79498e);
-#[cfg(feature = "Win32_System_Com")]
-impl core::ops::Deref for _IMSVidCtlEvents {
-    type Target = super::super::super::System::Com::IDispatch;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-windows_core::imp::interface_hierarchy!(_IMSVidCtlEvents, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-#[repr(C)]
-pub struct _IMSVidCtlEvents_Vtbl {
-    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait _IMSVidCtlEvents_Impl: super::super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl _IMSVidCtlEvents_Vtbl {
-    pub const fn new<Identity: _IMSVidCtlEvents_Impl, const OFFSET: isize>() -> Self {
-        Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<_IMSVidCtlEvents as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for _IMSVidCtlEvents {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BDA_DigitalSignalStandard(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BDA_LockType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BDA_SignalType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BfEnTvRat_Attributes_CAE_TV(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BfEnTvRat_Attributes_CAF_TV(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BfEnTvRat_Attributes_MPAA(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BfEnTvRat_Attributes_US_TV(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BfEnTvRat_GenericAttributes(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COPPEventBlockReason(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CPEventBitShift(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CPEvents(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CPRecordingStatus(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CRID_LOCATION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CROSSBAR_DEFAULT_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ChannelChangeSpanningEvent_State(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ChannelType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DESC_LINKAGE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_TUNER(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DVB_STRCONV_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DVDFilterState(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DVDMenuIDConstants(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DVDSPExt(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DVDTextStringType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplaySizeList(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DownResEventParam(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EnTag_Mode(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EnTvRat_CAE_TV(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EnTvRat_CAF_TV(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EnTvRat_GenericLevel(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EnTvRat_MPAA(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EnTvRat_System(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EnTvRat_US_TV(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EncDecEvents(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FormatNotSupportedEvents(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSEVENT_BDA_EVENT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSEVENT_BDA_TUNER(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMETHOD_BDA_CAS_SERVICE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMETHOD_BDA_CHANGE_SYNC(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMETHOD_BDA_DEBUG_SERVICE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMETHOD_BDA_DEVICE_CONFIGURATION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMETHOD_BDA_DRM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMETHOD_BDA_EVENTING_SERVICE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMETHOD_BDA_GDDS_SERVICE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMETHOD_BDA_GPNV_SERVICE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMETHOD_BDA_ISDB_CAS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMETHOD_BDA_MUX_SERVICE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMETHOD_BDA_SCAN_SERVICE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMETHOD_BDA_TS_SELECTOR(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMETHOD_BDA_TUNER_SERVICE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMETHOD_BDA_USERACTIVITY_SERVICE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMETHOD_BDA_WMDRM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSMETHOD_BDA_WMDRM_TUNER(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPERTY_BDA_AUTODEMODULATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPERTY_BDA_CA(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPERTY_BDA_CA_EVENT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPERTY_BDA_DIGITAL_DEMODULATOR(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPERTY_BDA_DISEQC_COMMAND(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPERTY_BDA_DISEQC_EVENT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPERTY_BDA_ETHERNET_FILTER(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPERTY_BDA_FREQUENCY_FILTER(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPERTY_BDA_IPv4_FILTER(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPERTY_BDA_IPv6_FILTER(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPERTY_BDA_LNB_INFO(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPERTY_BDA_NULL_TRANSFORM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPERTY_BDA_PIDFILTER(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPERTY_BDA_PIN_CONTROL(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPERTY_BDA_PIN_EVENT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPERTY_BDA_SIGNAL_STATS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPERTY_BDA_TOPOLOGY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPERTY_BDA_VOID_TRANSFORM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSPROPERTY_IDS_BDA_TABLE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct LicenseEventBlockReason(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MPEG_CONTEXT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MPEG_CURRENT_NEXT_BIT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MPEG_REQUEST_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MSVidCCService(pub i32);
-impl MSVidCCService {
-    pub const None: Self = Self(0i32);
-    pub const Caption1: Self = Self(1i32);
-    pub const Caption2: Self = Self(2i32);
-    pub const Text1: Self = Self(3i32);
-    pub const Text2: Self = Self(4i32);
-    pub const XDS: Self = Self(5i32);
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MSVidCtlButtonstate(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MSVidCtlStateList(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MSVidSegmentType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MSVidSinkStreams(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MSViddispidList(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PositionModeList(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ProtType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RECORDING_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RecordingType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RevokedComponent(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STREAMBUFFER_ATTR_DATATYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SegDispidList(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SegEventidList(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SignalAndServiceStatusSpanningEvent_State(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SourceSizeList(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VA_COLOR_PRIMARIES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VA_MATRIX_COEFFICIENTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VA_TRANSFER_CHARACTERISTICS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VA_VIDEO_FORMAT(pub i32);
-pub const ANALOG_AUXIN_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x742ef867_09e1_40a3_82d3_9669ba35325f);
-pub const ANALOG_FM_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x7728087b_2bb9_4e30_8078_449476e59dbb);
-pub const ANALOG_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0xb820d87e_e0e3_478f_8a38_4e13f7b3df42);
-pub const ATSCChannelTuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0x0369b4e6_45b6_11d3_b650_00c04f79498e);
-pub const ATSCComponentType: windows_core::GUID = windows_core::GUID::from_u128(0xa8dcf3d5_0780_4ef4_8a83_2cffaacb8ace);
-pub const ATSCLocator: windows_core::GUID = windows_core::GUID::from_u128(0x8872ff1b_98fa_4d7a_8d93_c9f1055f85bb);
-pub const ATSCTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0xa2e30750_6c3d_11d3_b653_00c04f79498e);
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct ATSC_FILTER_OPTIONS {
-    pub fSpecifyEtmId: super::super::super::Foundation::BOOL,
-    pub EtmId: u32,
-}
-impl Default for ATSC_FILTER_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ATSC_FILTER_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-pub const ATSC_TERRESTRIAL_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x0dad2fdd_5fd7_11d3_8f50_00c04f7971e2);
-pub const AnalogAudioComponentType: windows_core::GUID = windows_core::GUID::from_u128(0x28ab0005_e845_4ffa_aa9b_f4665236141c);
-pub const AnalogLocator: windows_core::GUID = windows_core::GUID::from_u128(0x49638b91_48ab_48b7_a47a_7d0e75a08ede);
-pub const AnalogRadioTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0x8a674b4c_1f63_11d3_b64c_00c04f79498e);
-pub const AnalogTVTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0x8a674b4d_1f63_11d3_b64c_00c04f79498e);
-pub const AuxInTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0xf9769a06_7aca_4e39_9cfb_97bb35f0e77e);
-pub const BDANETWORKTYPE_ATSC: windows_core::GUID = windows_core::GUID::from_u128(0x71985f51_1ca1_11d3_9cc8_00c04f7971e0);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct BDA_DEBUG_DATA {
-    pub lResult: i32,
-    pub uuidDebugDataType: windows_core::GUID,
-    pub ulDataSize: u32,
-    pub argbDebugData: [u8; 1],
-}
-impl Default for BDA_DEBUG_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for BDA_DEBUG_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-pub const BDA_DEBUG_DATA_AVAILABLE: windows_core::GUID = windows_core::GUID::from_u128(0x69c24f54_9983_497e_b415_282be4c555fb);
-pub const BDA_DEBUG_DATA_TYPE_STRING: windows_core::GUID = windows_core::GUID::from_u128(0xa806e767_de5c_430c_80bf_a21ebe06c748);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct BDA_EVENT_DATA {
-    pub lResult: i32,
-    pub ulEventID: u32,
-    pub uuidEventType: windows_core::GUID,
-    pub ulEventDataLength: u32,
-    pub argbEventData: [u8; 1],
-}
-impl Default for BDA_EVENT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for BDA_EVENT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct BDA_TRANSPORT_INFO {
-    pub ulcbPhyiscalPacket: u32,
-    pub ulcbPhyiscalFrame: u32,
-    pub ulcbPhyiscalFrameAlignment: u32,
-    pub AvgTimePerFrame: i64,
-}
-impl Default for BDA_TRANSPORT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for BDA_TRANSPORT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-pub const BSKYB_TERRESTRIAL_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x9e9e46c6_3aba_4f08_ad0e_cc5ac8148c2b);
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct BadSampleInfo {
-    pub hrReason: windows_core::HRESULT,
-}
-impl Default for BadSampleInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for BadSampleInfo {
-    type TypeKind = windows_core::CopyType;
-}
-pub const BroadcastEventService: windows_core::GUID = windows_core::GUID::from_u128(0x0b3ffb92_0919_4934_9d5b_619c719d0202);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CAPTURE_STREAMTIME {
-    pub StreamTime: i64,
-}
-impl Default for CAPTURE_STREAMTIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CAPTURE_STREAMTIME {
-    type TypeKind = windows_core::CopyType;
-}
-pub const CXDSData: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4f4_0049_4e2b_98fb_9537f6ce516d);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ChannelChangeInfo {
-    pub state: ChannelChangeSpanningEvent_State,
-    pub TimeStamp: u64,
-}
-impl Default for ChannelChangeInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ChannelChangeInfo {
-    type TypeKind = windows_core::CopyType;
-}
-pub const ChannelIDTuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0x3a9428a7_31a4_45e9_9efb_e055bf7bb3db);
-pub const ChannelIDTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0xcc829a2f_3365_463f_af13_81dbb6f3a555);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ChannelInfo {
-    pub lFrequency: i32,
-    pub Anonymous: ChannelInfo_0,
-}
-impl Default for ChannelInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ChannelInfo {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union ChannelInfo_0 {
-    pub DVB: ChannelInfo_0_0,
-    pub DC: ChannelInfo_0_1,
-    pub ATSC: ChannelInfo_0_2,
-}
-impl Default for ChannelInfo_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ChannelInfo_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ChannelInfo_0_2 {
-    pub lProgNumber: i32,
-}
-impl Default for ChannelInfo_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ChannelInfo_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ChannelInfo_0_1 {
-    pub lProgNumber: i32,
-}
-impl Default for ChannelInfo_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ChannelInfo_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ChannelInfo_0_0 {
-    pub lONID: i32,
-    pub lTSID: i32,
-    pub lSID: i32,
-}
-impl Default for ChannelInfo_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ChannelInfo_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-pub const ChannelTuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0x0369b4e5_45b6_11d3_b650_00c04f79498e);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ChannelTypeInfo {
-    pub channelType: ChannelType,
-    pub timeStamp: u64,
-}
-impl Default for ChannelTypeInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ChannelTypeInfo {
-    type TypeKind = windows_core::CopyType;
-}
-pub const Component: windows_core::GUID = windows_core::GUID::from_u128(0x59dc47a8_116c_11d3_9d8e_00c04f72d980);
-pub const ComponentType: windows_core::GUID = windows_core::GUID::from_u128(0x823535a0_0318_11d3_9d8e_00c04f72d980);
-pub const ComponentTypes: windows_core::GUID = windows_core::GUID::from_u128(0xa1a2b1c4_0e3a_11d3_9d8e_00c04f72d980);
-pub const Components: windows_core::GUID = windows_core::GUID::from_u128(0x809b6661_94c4_49e6_b6ec_3f0f862215aa);
-pub const CreatePropBagOnRegKey: windows_core::GUID = windows_core::GUID::from_u128(0x8a674b49_1f63_11d3_b64c_00c04f79498e);
-pub const DIGITAL_CABLE_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x143827ab_f77b_498d_81ca_5a007aec28bf);
-pub const DIRECT_TV_SATELLITE_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x93b66fb5_93d4_4323_921c_c1f52df61d3f);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DSHOW_STREAM_DESC {
-    pub VersionNo: u32,
-    pub StreamId: u32,
-    pub Default: super::super::super::Foundation::BOOL,
-    pub Creation: super::super::super::Foundation::BOOL,
-    pub Reserved: u32,
-}
-impl Default for DSHOW_STREAM_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DSHOW_STREAM_DESC {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct DSMCC_ELEMENT {
-    pub pid: u16,
-    pub bComponentTag: u8,
-    pub dwCarouselId: u32,
-    pub dwTransactionId: u32,
-    pub pNext: *mut DSMCC_ELEMENT,
-}
-impl Default for DSMCC_ELEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DSMCC_ELEMENT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct DSMCC_FILTER_OPTIONS {
-    pub fSpecifyProtocol: super::super::super::Foundation::BOOL,
-    pub Protocol: u8,
-    pub fSpecifyType: super::super::super::Foundation::BOOL,
-    pub Type: u8,
-    pub fSpecifyMessageId: super::super::super::Foundation::BOOL,
-    pub MessageId: u16,
-    pub fSpecifyTransactionId: super::super::super::Foundation::BOOL,
-    pub fUseTrxIdMessageIdMask: super::super::super::Foundation::BOOL,
-    pub TransactionId: u32,
-    pub fSpecifyModuleVersion: super::super::super::Foundation::BOOL,
-    pub ModuleVersion: u8,
-    pub fSpecifyBlockNumber: super::super::super::Foundation::BOOL,
-    pub BlockNumber: u16,
-    pub fGetModuleCall: super::super::super::Foundation::BOOL,
-    pub NumberOfBlocksInModule: u16,
-}
-impl Default for DSMCC_FILTER_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DSMCC_FILTER_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct DSMCC_SECTION {
-    pub TableId: u8,
-    pub Header: DSMCC_SECTION_0,
-    pub TableIdExtension: u16,
-    pub Version: DSMCC_SECTION_1,
-    pub SectionNumber: u8,
-    pub LastSectionNumber: u8,
-    pub ProtocolDiscriminator: u8,
-    pub DsmccType: u8,
-    pub MessageId: u16,
-    pub TransactionId: u32,
-    pub Reserved: u8,
-    pub AdaptationLength: u8,
-    pub MessageLength: u16,
-    pub RemainingData: [u8; 1],
-}
-impl Default for DSMCC_SECTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DSMCC_SECTION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union DSMCC_SECTION_0 {
-    pub S: MPEG_HEADER_BITS_MIDL,
-    pub W: u16,
-}
-impl Default for DSMCC_SECTION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DSMCC_SECTION_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union DSMCC_SECTION_1 {
-    pub S: MPEG_HEADER_VERSION_BITS_MIDL,
-    pub B: u8,
-}
-impl Default for DSMCC_SECTION_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DSMCC_SECTION_1 {
-    type TypeKind = windows_core::CopyType;
-}
-pub const DTFilter: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4f2_0049_4e2b_98fb_9537f6ce516d);
-pub const DVBCLocator: windows_core::GUID = windows_core::GUID::from_u128(0xc531d9fd_9685_4028_8b68_6e1232079f1e);
-pub const DVBSLocator: windows_core::GUID = windows_core::GUID::from_u128(0x1df7d126_4050_47f0_a7cf_4c4ca9241333);
-pub const DVBSTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0xb64016f3_c9a2_4066_96f0_bd9563314726);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DVBScramblingControlSpanningEvent {
-    pub ulPID: u32,
-    pub fScrambled: super::super::super::Foundation::BOOL,
-}
-impl Default for DVBScramblingControlSpanningEvent {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DVBScramblingControlSpanningEvent {
-    type TypeKind = windows_core::CopyType;
-}
-pub const DVBTLocator: windows_core::GUID = windows_core::GUID::from_u128(0x9cd64701_bdf3_4d14_8e03_f12983d86664);
-pub const DVBTLocator2: windows_core::GUID = windows_core::GUID::from_u128(0xefe3fa02_45d7_4920_be96_53fa7f35b0e6);
-pub const DVBTuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0x15d6504a_5494_499c_886c_973c9e53b9f1);
-pub const DVBTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0xc6b14b32_76aa_4a86_a7ac_5c79aaf58da7);
-pub const DVB_CABLE_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0xdc0c0fe7_0485_4266_b93f_68fbf80ed834);
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct DVB_EIT_FILTER_OPTIONS {
-    pub fSpecifySegment: super::super::super::Foundation::BOOL,
-    pub bSegment: u8,
-}
-impl Default for DVB_EIT_FILTER_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DVB_EIT_FILTER_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-pub const DVB_SATELLITE_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0xfa4b375a_45b4_4d45_8440_263957b11623);
-pub const DVB_TERRESTRIAL_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x216c62df_6d7f_4e9a_8571_05f14edb766a);
-#[repr(C)]
-#[cfg(feature = "Win32_Media_MediaFoundation")]
-#[derive(Clone, Debug, PartialEq)]
-pub struct DVR_STREAM_DESC {
-    pub Version: u32,
-    pub StreamId: u32,
-    pub Default: super::super::super::Foundation::BOOL,
-    pub Creation: super::super::super::Foundation::BOOL,
-    pub Reserved: u32,
-    pub guidSubMediaType: windows_core::GUID,
-    pub guidFormatType: windows_core::GUID,
-    pub MediaType: super::super::MediaFoundation::AM_MEDIA_TYPE,
-}
-#[cfg(feature = "Win32_Media_MediaFoundation")]
-impl Default for DVR_STREAM_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Media_MediaFoundation")]
-impl windows_core::TypeKind for DVR_STREAM_DESC {
-    type TypeKind = windows_core::CloneType;
-}
-pub const DigitalCableLocator: windows_core::GUID = windows_core::GUID::from_u128(0x03c06416_d127_407a_ab4c_fdd279abbe5d);
-pub const DigitalCableTuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0x26ec0b63_aa90_458a_8df4_5659f2c8a18a);
-pub const DigitalCableTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0xd9bb4cee_b87a_47f1_ac92_b08d9c7813fc);
-pub const DigitalLocator: windows_core::GUID = windows_core::GUID::from_u128(0x6e50cc0d_c19b_4bf6_810b_5bd60761f5cc);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DualMonoInfo {
-    pub LangID1: u16,
-    pub LangID2: u16,
-    pub lISOLangCode1: i32,
-    pub lISOLangCode2: i32,
-}
-impl Default for DualMonoInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DualMonoInfo {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DvbParentalRatingDescriptor {
-    pub ulNumParams: u32,
-    pub pParams: [DvbParentalRatingParam; 1],
-}
-impl Default for DvbParentalRatingDescriptor {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DvbParentalRatingDescriptor {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DvbParentalRatingParam {
-    pub szCountryCode: [i8; 4],
-    pub bRating: u8,
-}
-impl Default for DvbParentalRatingParam {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DvbParentalRatingParam {
-    type TypeKind = windows_core::CopyType;
-}
-pub const ECHOSTAR_SATELLITE_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0xc4f6b31b_c6bf_4759_886f_a7386dca27a0);
-pub const ESEventFactory: windows_core::GUID = windows_core::GUID::from_u128(0x8e8a07da_71f8_40c1_a929_5e3a868ac2c6);
-pub const ESEventService: windows_core::GUID = windows_core::GUID::from_u128(0xc20447fc_ec60_475e_813f_d2b0a6decefe);
-pub const ETFilter: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4f1_0049_4e2b_98fb_9537f6ce516d);
-pub const EVENTID_ARIBcontentSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x3a954083_93d0_463e_90b2_0742c496edf0);
-pub const EVENTID_AudioDescriptorSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x107bd41c_a6da_4691_8369_11b2cdaa288e);
-pub const EVENTID_AudioTypeSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x501cbfbe_b849_42ce_9be9_3db869fb82b3);
-pub const EVENTID_BDAConditionalAccessTAG: windows_core::GUID = windows_core::GUID::from_u128(0xefc3a459_ae8b_4b4a_8fe9_79a0d097f3ea);
-pub const EVENTID_BDAEventingServicePendingEvent: windows_core::GUID = windows_core::GUID::from_u128(0x5ca51711_5ddc_41a6_9430_e41b8b3bbc5b);
-pub const EVENTID_BDA_CASBroadcastMMI: windows_core::GUID = windows_core::GUID::from_u128(0x676876f0_1132_404c_a7ca_e72069a9d54f);
-pub const EVENTID_BDA_CASCloseMMI: windows_core::GUID = windows_core::GUID::from_u128(0x5d0f550f_de2e_479d_8345_ec0e9557e8a2);
-pub const EVENTID_BDA_CASOpenMMI: windows_core::GUID = windows_core::GUID::from_u128(0x85dac915_e593_410d_8471_d6812105f28e);
-pub const EVENTID_BDA_CASReleaseTuner: windows_core::GUID = windows_core::GUID::from_u128(0x20c1a16b_441f_49a5_bb5c_e9a04495c6c1);
-pub const EVENTID_BDA_CASRequestTuner: windows_core::GUID = windows_core::GUID::from_u128(0xcf39a9d8_f5d3_4685_be57_ed81dba46b27);
-pub const EVENTID_BDA_DiseqCResponseAvailable: windows_core::GUID = windows_core::GUID::from_u128(0xefa628f8_1f2c_4b67_9ea5_acf6fa9a1f36);
-pub const EVENTID_BDA_EncoderSignalLock: windows_core::GUID = windows_core::GUID::from_u128(0x5ec90eb9_39fa_4cfc_b93f_00bb11077f5e);
-pub const EVENTID_BDA_FdcStatus: windows_core::GUID = windows_core::GUID::from_u128(0x05f25366_d0eb_43d2_bc3c_682b863df142);
-pub const EVENTID_BDA_FdcTableSection: windows_core::GUID = windows_core::GUID::from_u128(0x6a0cd757_4ce3_4e5b_9444_7187b87152c5);
-pub const EVENTID_BDA_GPNVValueUpdate: windows_core::GUID = windows_core::GUID::from_u128(0xff75c68c_f416_4e7e_bf17_6d55c5df1575);
-pub const EVENTID_BDA_GuideDataAvailable: windows_core::GUID = windows_core::GUID::from_u128(0x98db717a_478a_4cd4_92d0_95f66b89e5b1);
-pub const EVENTID_BDA_GuideDataError: windows_core::GUID = windows_core::GUID::from_u128(0xac33c448_6f73_4fd7_b341_594c360d8d74);
-pub const EVENTID_BDA_GuideServiceInformationUpdated: windows_core::GUID = windows_core::GUID::from_u128(0xa1c3ea2b_175f_4458_b735_507d22db23a6);
-pub const EVENTID_BDA_IsdbCASResponse: windows_core::GUID = windows_core::GUID::from_u128(0xd4cb1966_41bc_4ced_9a20_fdceac78f70d);
-pub const EVENTID_BDA_LbigsCloseConnectionHandle: windows_core::GUID = windows_core::GUID::from_u128(0xc2f08b99_65ef_4314_9671_e99d4cce0bae);
-pub const EVENTID_BDA_LbigsOpenConnection: windows_core::GUID = windows_core::GUID::from_u128(0x356207b2_6f31_4eb0_a271_b3fa6bb7680f);
-pub const EVENTID_BDA_LbigsSendData: windows_core::GUID = windows_core::GUID::from_u128(0x1123277b_f1c6_4154_8b0d_48e6157059aa);
-pub const EVENTID_BDA_RatingPinReset: windows_core::GUID = windows_core::GUID::from_u128(0xc6e048c0_c574_4c26_bcda_2f4d35eb5e85);
-pub const EVENTID_BDA_TransprtStreamSelectorInfo: windows_core::GUID = windows_core::GUID::from_u128(0xc40f9f85_09d0_489c_9e9c_0abbb56951b0);
-pub const EVENTID_BDA_TunerNoSignal: windows_core::GUID = windows_core::GUID::from_u128(0xe29b382b_1edd_4930_bc46_682fd72d2dfb);
-pub const EVENTID_BDA_TunerSignalLock: windows_core::GUID = windows_core::GUID::from_u128(0x1872e740_f573_429b_a00e_d9c1e408af09);
-pub const EVENTID_BDA_UpdateDrmStatus: windows_core::GUID = windows_core::GUID::from_u128(0x65a6f681_1462_473b_88ce_cb731427bdb5);
-pub const EVENTID_BDA_UpdateScanState: windows_core::GUID = windows_core::GUID::from_u128(0x55702b50_7b49_42b8_a82f_4afb691b0628);
-pub const EVENTID_CADenialCountChanged: windows_core::GUID = windows_core::GUID::from_u128(0x2a65c528_2249_4070_ac16_00390cdfb2dd);
-pub const EVENTID_CASFailureSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0xead831ae_5529_4d1f_afce_0d8cd1257d30);
-pub const EVENTID_CSDescriptorSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0xefe779d9_97f0_4786_800d_95cf505ddc66);
-pub const EVENTID_CandidatePostTuneData: windows_core::GUID = windows_core::GUID::from_u128(0x9f02d3d0_9f06_4369_9f1e_3ad6ca19807e);
-pub const EVENTID_CardStatusChanged: windows_core::GUID = windows_core::GUID::from_u128(0xa265faea_f874_4b38_9ff7_c53d02969996);
-pub const EVENTID_ChannelChangeSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x9067c5e5_4c5c_4205_86c8_7afe20fe1efa);
-pub const EVENTID_ChannelInfoSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x41f36d80_4132_4cc2_b121_01a43219d81b);
-pub const EVENTID_ChannelTypeSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x72ab1d51_87d2_489b_ba11_0e08dc210243);
-pub const EVENTID_CtxADescriptorSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x3ab4a2e6_4247_4b34_896c_30afa5d21c24);
-pub const EVENTID_DFNWithNoActualAVData: windows_core::GUID = windows_core::GUID::from_u128(0xf5689ffe_55f9_4bb3_96be_ae971c63bae0);
-pub const EVENTID_DRMParingStatusChanged: windows_core::GUID = windows_core::GUID::from_u128(0x000906f5_f0d1_41d6_a7df_4028697669f6);
-pub const EVENTID_DRMParingStepComplete: windows_core::GUID = windows_core::GUID::from_u128(0x5b2ebf78_b752_4420_b41e_a472dc95828e);
-pub const EVENTID_DVBScramblingControlSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x4bd4e1c4_90a1_4109_8236_27f00e7dcc5b);
-pub const EVENTID_DualMonoSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0xa9a29b56_a84b_488c_89d5_0d4e7657c8ce);
-pub const EVENTID_DvbParentalRatingDescriptor: windows_core::GUID = windows_core::GUID::from_u128(0x2a67a58d_eca5_4eac_abcb_e734d3776d0a);
-pub const EVENTID_EASMessageReceived: windows_core::GUID = windows_core::GUID::from_u128(0xd10df9d5_c261_4b85_9e8a_517b3299cab2);
-pub const EVENTID_EmmMessageSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x6bf00268_4f7e_4294_aa87_e9e953e43f14);
-pub const EVENTID_EntitlementChanged: windows_core::GUID = windows_core::GUID::from_u128(0x9071ad5d_2359_4c95_8694_afa81d70bfd5);
-pub const EVENTID_LanguageSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0xe292666d_9c02_448d_aa8d_781a93fdc395);
-pub const EVENTID_MMIMessage: windows_core::GUID = windows_core::GUID::from_u128(0x052c29af_09a4_4b93_890f_bd6a348968a4);
-pub const EVENTID_NewSignalAcquired: windows_core::GUID = windows_core::GUID::from_u128(0xc87ec52d_cd18_404a_a076_c02a273d3de7);
-pub const EVENTID_PBDAParentalControlEvent: windows_core::GUID = windows_core::GUID::from_u128(0xf947aa85_fb52_48e8_b9c5_e1e1f411a51a);
-pub const EVENTID_PIDListSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x47fc8f65_e2bb_4634_9cef_fdbfe6261d5c);
-pub const EVENTID_PSITable: windows_core::GUID = windows_core::GUID::from_u128(0x1b9c3703_d447_4e16_97bb_01799fc031ed);
-pub const EVENTID_RRTSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0xf6cfc8f4_da93_4f2f_bff8_ba1ee6fca3a2);
-pub const EVENTID_STBChannelNumber: windows_core::GUID = windows_core::GUID::from_u128(0x17c4d730_d0f0_413a_8c99_500469de35ad);
-pub const EVENTID_ServiceTerminated: windows_core::GUID = windows_core::GUID::from_u128(0x0a1d591c_e0d2_4f8e_8960_2335bef45ccb);
-pub const EVENTID_SignalAndServiceStatusSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x8068c5cb_3c04_492b_b47d_0308820dce51);
-pub const EVENTID_SignalStatusChanged: windows_core::GUID = windows_core::GUID::from_u128(0x6d9cfaf2_702d_4b01_8dff_6892ad20d191);
-pub const EVENTID_StreamIDSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0xcaf1ab68_e153_4d41_a6b3_a7c998db75ee);
-pub const EVENTID_StreamTypeSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x82af2ebc_30a6_4264_a80b_ad2e1372ac60);
-pub const EVENTID_SubtitleSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x5dcec048_d0b9_4163_872c_4f32223be88a);
-pub const EVENTID_TeletextSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x9599d950_5f33_4617_af7c_1e54b510daa3);
-pub const EVENTID_TuneFailureEvent: windows_core::GUID = windows_core::GUID::from_u128(0xd97287b2_2dfd_436a_9485_99d7d4ab5a69);
-pub const EVENTID_TuneFailureSpanningEvent: windows_core::GUID = windows_core::GUID::from_u128(0x6f8aa455_5ee1_48ab_a27c_4c8d70b9aeba);
-pub const EVENTID_TuningChanged: windows_core::GUID = windows_core::GUID::from_u128(0x9d7e6235_4b7d_425d_a6d1_d717c33b9c4c);
-pub const EVENTID_TuningChanging: windows_core::GUID = windows_core::GUID::from_u128(0x83183c03_c09e_45c4_a719_807a94952bf9);
-pub const EVENTTYPE_CASDescrambleFailureEvent: windows_core::GUID = windows_core::GUID::from_u128(0xb2127d42_7be5_4f4b_9130_6679899f4f4b);
-pub const EvalRat: windows_core::GUID = windows_core::GUID::from_u128(0xc5c5c5f1_3abc_11d6_b25b_00c04fa0c026);
-pub const ISDBSLocator: windows_core::GUID = windows_core::GUID::from_u128(0x6504afed_a629_455c_a7f1_04964dea5cc4);
-pub const ISDB_CABLE_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0xc974ddb5_41fe_4b25_9741_92f049f1d5d1);
-pub const ISDB_SATELLITE_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0xb0a4e6a0_6a1a_4b83_bb5b_903e1d90e6b6);
-pub const ISDB_S_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0xa1e78202_1459_41b1_9ca9_2a92587a42cc);
-pub const ISDB_TERRESTRIAL_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x95037f6f_3ac7_4452_b6c4_45a9ce9292a2);
-pub const ISDB_T_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0xfc3855a6_c901_4f2e_aba8_90815afc6c83);
 pub const KSCATEGORY_BDA_IP_SINK: windows_core::GUID = windows_core::GUID::from_u128(0x71985f4a_1ca1_11d3_9cc8_00c04f7971e0);
 pub const KSCATEGORY_BDA_NETWORK_EPG: windows_core::GUID = windows_core::GUID::from_u128(0x71985f49_1ca1_11d3_9cc8_00c04f7971e0);
 pub const KSCATEGORY_BDA_NETWORK_PROVIDER: windows_core::GUID = windows_core::GUID::from_u128(0x71985f4b_1ca1_11d3_9cc8_00c04f7971e0);
@@ -33788,6 +33914,21 @@ pub const KSEVENTSETID_BdaDiseqCEvent: windows_core::GUID = windows_core::GUID::
 pub const KSEVENTSETID_BdaEvent: windows_core::GUID = windows_core::GUID::from_u128(0xae7e55b2_96d7_4e29_908f_62f95b2a1679);
 pub const KSEVENTSETID_BdaPinEvent: windows_core::GUID = windows_core::GUID::from_u128(0x104781cd_50bd_40d5_95fb_087e0e86a591);
 pub const KSEVENTSETID_BdaTunerEvent: windows_core::GUID = windows_core::GUID::from_u128(0xaab59e17_01c9_4ebf_93f2_fc3b79b46f91);
+pub const KSEVENT_BDA_CA_MODULE_STATUS_CHANGED: KSPROPERTY_BDA_CA_EVENT = KSPROPERTY_BDA_CA_EVENT(1i32);
+pub const KSEVENT_BDA_CA_MODULE_UI_REQUESTED: KSPROPERTY_BDA_CA_EVENT = KSPROPERTY_BDA_CA_EVENT(3i32);
+pub const KSEVENT_BDA_CA_SMART_CARD_STATUS_CHANGED: KSPROPERTY_BDA_CA_EVENT = KSPROPERTY_BDA_CA_EVENT(2i32);
+pub const KSEVENT_BDA_DISEQC_DATA_RECEIVED: KSPROPERTY_BDA_DISEQC_EVENT = KSPROPERTY_BDA_DISEQC_EVENT(0i32);
+pub const KSEVENT_BDA_EVENT_PENDINGEVENT: KSEVENT_BDA_EVENT_TYPE = KSEVENT_BDA_EVENT_TYPE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSEVENT_BDA_EVENT_TYPE(pub i32);
+pub const KSEVENT_BDA_PIN_CONNECTED: KSPROPERTY_BDA_PIN_EVENT = KSPROPERTY_BDA_PIN_EVENT(0i32);
+pub const KSEVENT_BDA_PIN_DISCONNECTED: KSPROPERTY_BDA_PIN_EVENT = KSPROPERTY_BDA_PIN_EVENT(1i32);
+pub const KSEVENT_BDA_PROGRAM_FLOW_STATUS_CHANGED: KSPROPERTY_BDA_CA_EVENT = KSPROPERTY_BDA_CA_EVENT(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSEVENT_BDA_TUNER(pub i32);
+pub const KSEVENT_BDA_TUNER_SCAN: KSEVENT_BDA_TUNER = KSEVENT_BDA_TUNER(0i32);
 pub const KSMETHODSETID_BdaChangeSync: windows_core::GUID = windows_core::GUID::from_u128(0xfd0a5af3_b41d_11d2_9c95_00c04f7971e0);
 pub const KSMETHODSETID_BdaConditionalAccessService: windows_core::GUID = windows_core::GUID::from_u128(0x10ced3b4_320b_41bf_9824_1b2e68e71eb9);
 pub const KSMETHODSETID_BdaDebug: windows_core::GUID = windows_core::GUID::from_u128(0x0d4a90ec_c69d_4ee2_8c5a_fb1f63a50da1);
@@ -33805,6 +33946,113 @@ pub const KSMETHODSETID_BdaTuner: windows_core::GUID = windows_core::GUID::from_
 pub const KSMETHODSETID_BdaUserActivity: windows_core::GUID = windows_core::GUID::from_u128(0xeda5c834_4531_483c_be0a_94e6c96ff396);
 pub const KSMETHODSETID_BdaWmdrmSession: windows_core::GUID = windows_core::GUID::from_u128(0x4be6fa3d_07cd_4139_8b80_8c18ba3aec88);
 pub const KSMETHODSETID_BdaWmdrmTuner: windows_core::GUID = windows_core::GUID::from_u128(0x86d979cf_a8a7_4f94_b5fb_14c0aca68fe6);
+pub const KSMETHOD_BDA_CAS_CHECKENTITLEMENTTOKEN: KSMETHOD_BDA_CAS_SERVICE = KSMETHOD_BDA_CAS_SERVICE(0i32);
+pub const KSMETHOD_BDA_CAS_CLOSEMMIDIALOG: KSMETHOD_BDA_CAS_SERVICE = KSMETHOD_BDA_CAS_SERVICE(3i32);
+pub const KSMETHOD_BDA_CAS_OPENBROADCASTMMI: KSMETHOD_BDA_CAS_SERVICE = KSMETHOD_BDA_CAS_SERVICE(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSMETHOD_BDA_CAS_SERVICE(pub i32);
+pub const KSMETHOD_BDA_CAS_SETCAPTURETOKEN: KSMETHOD_BDA_CAS_SERVICE = KSMETHOD_BDA_CAS_SERVICE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSMETHOD_BDA_CHANGE_SYNC(pub i32);
+pub const KSMETHOD_BDA_CHECK_CHANGES: KSMETHOD_BDA_CHANGE_SYNC = KSMETHOD_BDA_CHANGE_SYNC(1i32);
+pub const KSMETHOD_BDA_COMMIT_CHANGES: KSMETHOD_BDA_CHANGE_SYNC = KSMETHOD_BDA_CHANGE_SYNC(2i32);
+pub const KSMETHOD_BDA_CREATE_PIN_FACTORY: KSMETHOD_BDA_DEVICE_CONFIGURATION = KSMETHOD_BDA_DEVICE_CONFIGURATION(0i32);
+pub const KSMETHOD_BDA_CREATE_TOPOLOGY: KSMETHOD_BDA_DEVICE_CONFIGURATION = KSMETHOD_BDA_DEVICE_CONFIGURATION(2i32);
+pub const KSMETHOD_BDA_DEBUG_DATA: KSMETHOD_BDA_DEBUG_SERVICE = KSMETHOD_BDA_DEBUG_SERVICE(1i32);
+pub const KSMETHOD_BDA_DEBUG_LEVEL: KSMETHOD_BDA_DEBUG_SERVICE = KSMETHOD_BDA_DEBUG_SERVICE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSMETHOD_BDA_DEBUG_SERVICE(pub i32);
+pub const KSMETHOD_BDA_DELETE_PIN_FACTORY: KSMETHOD_BDA_DEVICE_CONFIGURATION = KSMETHOD_BDA_DEVICE_CONFIGURATION(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSMETHOD_BDA_DEVICE_CONFIGURATION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSMETHOD_BDA_DRM(pub i32);
+pub const KSMETHOD_BDA_DRM_CURRENT: KSMETHOD_BDA_DRM = KSMETHOD_BDA_DRM(0i32);
+pub const KSMETHOD_BDA_DRM_DRMSTATUS: KSMETHOD_BDA_DRM = KSMETHOD_BDA_DRM(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSMETHOD_BDA_EVENTING_SERVICE(pub i32);
+pub const KSMETHOD_BDA_EVENT_COMPLETE: KSMETHOD_BDA_EVENTING_SERVICE = KSMETHOD_BDA_EVENTING_SERVICE(1i32);
+pub const KSMETHOD_BDA_EVENT_DATA: KSMETHOD_BDA_EVENTING_SERVICE = KSMETHOD_BDA_EVENTING_SERVICE(0i32);
+pub const KSMETHOD_BDA_GDDS_DATA: KSMETHOD_BDA_GDDS_SERVICE = KSMETHOD_BDA_GDDS_SERVICE(1i32);
+pub const KSMETHOD_BDA_GDDS_DATATYPE: KSMETHOD_BDA_GDDS_SERVICE = KSMETHOD_BDA_GDDS_SERVICE(0i32);
+pub const KSMETHOD_BDA_GDDS_DATAUPDATE: KSMETHOD_BDA_GDDS_SERVICE = KSMETHOD_BDA_GDDS_SERVICE(5i32);
+pub const KSMETHOD_BDA_GDDS_GETSERVICES: KSMETHOD_BDA_GDDS_SERVICE = KSMETHOD_BDA_GDDS_SERVICE(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSMETHOD_BDA_GDDS_SERVICE(pub i32);
+pub const KSMETHOD_BDA_GDDS_SERVICEFROMTUNEXML: KSMETHOD_BDA_GDDS_SERVICE = KSMETHOD_BDA_GDDS_SERVICE(4i32);
+pub const KSMETHOD_BDA_GDDS_TUNEXMLFROMIDX: KSMETHOD_BDA_GDDS_SERVICE = KSMETHOD_BDA_GDDS_SERVICE(2i32);
+pub const KSMETHOD_BDA_GET_CHANGE_STATE: KSMETHOD_BDA_CHANGE_SYNC = KSMETHOD_BDA_CHANGE_SYNC(3i32);
+pub const KSMETHOD_BDA_GPNV_GETVALUE: KSMETHOD_BDA_GPNV_SERVICE = KSMETHOD_BDA_GPNV_SERVICE(0i32);
+pub const KSMETHOD_BDA_GPNV_GETVALUEUPDATENAME: KSMETHOD_BDA_GPNV_SERVICE = KSMETHOD_BDA_GPNV_SERVICE(3i32);
+pub const KSMETHOD_BDA_GPNV_NAMEFROMINDEX: KSMETHOD_BDA_GPNV_SERVICE = KSMETHOD_BDA_GPNV_SERVICE(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSMETHOD_BDA_GPNV_SERVICE(pub i32);
+pub const KSMETHOD_BDA_GPNV_SETVALUE: KSMETHOD_BDA_GPNV_SERVICE = KSMETHOD_BDA_GPNV_SERVICE(1i32);
+pub const KSMETHOD_BDA_ISDBCAS_RESPONSEDATA: KSMETHOD_BDA_ISDB_CAS = KSMETHOD_BDA_ISDB_CAS(1i32);
+pub const KSMETHOD_BDA_ISDBCAS_SETREQUEST: KSMETHOD_BDA_ISDB_CAS = KSMETHOD_BDA_ISDB_CAS(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSMETHOD_BDA_ISDB_CAS(pub i32);
+pub const KSMETHOD_BDA_MUX_GETPIDLIST: KSMETHOD_BDA_MUX_SERVICE = KSMETHOD_BDA_MUX_SERVICE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSMETHOD_BDA_MUX_SERVICE(pub i32);
+pub const KSMETHOD_BDA_MUX_SETPIDLIST: KSMETHOD_BDA_MUX_SERVICE = KSMETHOD_BDA_MUX_SERVICE(1i32);
+pub const KSMETHOD_BDA_SCANNING_STATE: KSMETHOD_BDA_SCAN_SERVICE = KSMETHOD_BDA_SCAN_SERVICE(1i32);
+pub const KSMETHOD_BDA_SCAN_CAPABILTIES: KSMETHOD_BDA_SCAN_SERVICE = KSMETHOD_BDA_SCAN_SERVICE(0i32);
+pub const KSMETHOD_BDA_SCAN_FILTER: KSMETHOD_BDA_SCAN_SERVICE = KSMETHOD_BDA_SCAN_SERVICE(2i32);
+pub const KSMETHOD_BDA_SCAN_RESUME: KSMETHOD_BDA_SCAN_SERVICE = KSMETHOD_BDA_SCAN_SERVICE(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSMETHOD_BDA_SCAN_SERVICE(pub i32);
+pub const KSMETHOD_BDA_SCAN_START: KSMETHOD_BDA_SCAN_SERVICE = KSMETHOD_BDA_SCAN_SERVICE(3i32);
+pub const KSMETHOD_BDA_SCAN_STOP: KSMETHOD_BDA_SCAN_SERVICE = KSMETHOD_BDA_SCAN_SERVICE(5i32);
+pub const KSMETHOD_BDA_START_CHANGES: KSMETHOD_BDA_CHANGE_SYNC = KSMETHOD_BDA_CHANGE_SYNC(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSMETHOD_BDA_TS_SELECTOR(pub i32);
+pub const KSMETHOD_BDA_TS_SELECTOR_GETTSINFORMATION: KSMETHOD_BDA_TS_SELECTOR = KSMETHOD_BDA_TS_SELECTOR(1i32);
+pub const KSMETHOD_BDA_TS_SELECTOR_SETTSID: KSMETHOD_BDA_TS_SELECTOR = KSMETHOD_BDA_TS_SELECTOR(0i32);
+pub const KSMETHOD_BDA_TUNER_GETTUNERSTATE: KSMETHOD_BDA_TUNER_SERVICE = KSMETHOD_BDA_TUNER_SERVICE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSMETHOD_BDA_TUNER_SERVICE(pub i32);
+pub const KSMETHOD_BDA_TUNER_SETTUNER: KSMETHOD_BDA_TUNER_SERVICE = KSMETHOD_BDA_TUNER_SERVICE(0i32);
+pub const KSMETHOD_BDA_TUNER_SIGNALNOISERATIO: KSMETHOD_BDA_TUNER_SERVICE = KSMETHOD_BDA_TUNER_SERVICE(2i32);
+pub const KSMETHOD_BDA_USERACTIVITY_DETECTED: KSMETHOD_BDA_USERACTIVITY_SERVICE = KSMETHOD_BDA_USERACTIVITY_SERVICE(2i32);
+pub const KSMETHOD_BDA_USERACTIVITY_INTERVAL: KSMETHOD_BDA_USERACTIVITY_SERVICE = KSMETHOD_BDA_USERACTIVITY_SERVICE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSMETHOD_BDA_USERACTIVITY_SERVICE(pub i32);
+pub const KSMETHOD_BDA_USERACTIVITY_USEREASON: KSMETHOD_BDA_USERACTIVITY_SERVICE = KSMETHOD_BDA_USERACTIVITY_SERVICE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSMETHOD_BDA_WMDRM(pub i32);
+pub const KSMETHOD_BDA_WMDRMTUNER_CANCELCAPTURETOKEN: KSMETHOD_BDA_WMDRM_TUNER = KSMETHOD_BDA_WMDRM_TUNER(0i32);
+pub const KSMETHOD_BDA_WMDRMTUNER_GETPIDPROTECTION: KSMETHOD_BDA_WMDRM_TUNER = KSMETHOD_BDA_WMDRM_TUNER(2i32);
+pub const KSMETHOD_BDA_WMDRMTUNER_PURCHASE_ENTITLEMENT: KSMETHOD_BDA_WMDRM_TUNER = KSMETHOD_BDA_WMDRM_TUNER(5i32);
+pub const KSMETHOD_BDA_WMDRMTUNER_SETPIDPROTECTION: KSMETHOD_BDA_WMDRM_TUNER = KSMETHOD_BDA_WMDRM_TUNER(1i32);
+pub const KSMETHOD_BDA_WMDRMTUNER_SETSYNCVALUE: KSMETHOD_BDA_WMDRM_TUNER = KSMETHOD_BDA_WMDRM_TUNER(3i32);
+pub const KSMETHOD_BDA_WMDRMTUNER_STARTCODEPROFILE: KSMETHOD_BDA_WMDRM_TUNER = KSMETHOD_BDA_WMDRM_TUNER(4i32);
+pub const KSMETHOD_BDA_WMDRM_CRL: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(2i32);
+pub const KSMETHOD_BDA_WMDRM_KEYINFO: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(7i32);
+pub const KSMETHOD_BDA_WMDRM_LICENSE: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(6i32);
+pub const KSMETHOD_BDA_WMDRM_MESSAGE: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(3i32);
+pub const KSMETHOD_BDA_WMDRM_REISSUELICENSE: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(4i32);
+pub const KSMETHOD_BDA_WMDRM_RENEWLICENSE: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(5i32);
+pub const KSMETHOD_BDA_WMDRM_REVINFO: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(1i32);
+pub const KSMETHOD_BDA_WMDRM_STATUS: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSMETHOD_BDA_WMDRM_TUNER(pub i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 #[derive(Clone, Copy)]
@@ -34388,6 +34636,101 @@ pub const KSNODE_BDA_QPSK_DEMODULATOR: windows_core::GUID = windows_core::GUID::
 pub const KSNODE_BDA_RF_TUNER: windows_core::GUID = windows_core::GUID::from_u128(0x71985f4c_1ca1_11d3_9cc8_00c04f7971e0);
 pub const KSNODE_BDA_TS_SELECTOR: windows_core::GUID = windows_core::GUID::from_u128(0x5eddf185_fed1_4f45_9685_bbb73c323cfc);
 pub const KSNODE_BDA_VIDEO_ENCODER: windows_core::GUID = windows_core::GUID::from_u128(0xd98429e3_65c9_4ac4_93aa_766782833b7a);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSPROPERTY_BDA_AUTODEMODULATE(pub i32);
+pub const KSPROPERTY_BDA_AUTODEMODULATE_START: KSPROPERTY_BDA_AUTODEMODULATE = KSPROPERTY_BDA_AUTODEMODULATE(0i32);
+pub const KSPROPERTY_BDA_AUTODEMODULATE_STOP: KSPROPERTY_BDA_AUTODEMODULATE = KSPROPERTY_BDA_AUTODEMODULATE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSPROPERTY_BDA_CA(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSPROPERTY_BDA_CA_EVENT(pub i32);
+pub const KSPROPERTY_BDA_CA_MODULE_STATUS: KSPROPERTY_BDA_CA = KSPROPERTY_BDA_CA(1i32);
+pub const KSPROPERTY_BDA_CA_MODULE_UI: KSPROPERTY_BDA_CA = KSPROPERTY_BDA_CA(3i32);
+pub const KSPROPERTY_BDA_CA_REMOVE_PROGRAM: KSPROPERTY_BDA_CA = KSPROPERTY_BDA_CA(5i32);
+pub const KSPROPERTY_BDA_CA_SET_PROGRAM_PIDS: KSPROPERTY_BDA_CA = KSPROPERTY_BDA_CA(4i32);
+pub const KSPROPERTY_BDA_CA_SMART_CARD_STATUS: KSPROPERTY_BDA_CA = KSPROPERTY_BDA_CA(2i32);
+pub const KSPROPERTY_BDA_CONTROLLING_PIN_ID: KSPROPERTY_BDA_TOPOLOGY = KSPROPERTY_BDA_TOPOLOGY(6i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSPROPERTY_BDA_DIGITAL_DEMODULATOR(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSPROPERTY_BDA_DISEQC_COMMAND(pub i32);
+pub const KSPROPERTY_BDA_DISEQC_ENABLE: KSPROPERTY_BDA_DISEQC_COMMAND = KSPROPERTY_BDA_DISEQC_COMMAND(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSPROPERTY_BDA_DISEQC_EVENT(pub i32);
+pub const KSPROPERTY_BDA_DISEQC_LNB_SOURCE: KSPROPERTY_BDA_DISEQC_COMMAND = KSPROPERTY_BDA_DISEQC_COMMAND(1i32);
+pub const KSPROPERTY_BDA_DISEQC_REPEATS: KSPROPERTY_BDA_DISEQC_COMMAND = KSPROPERTY_BDA_DISEQC_COMMAND(3i32);
+pub const KSPROPERTY_BDA_DISEQC_RESPONSE: KSPROPERTY_BDA_DISEQC_COMMAND = KSPROPERTY_BDA_DISEQC_COMMAND(5i32);
+pub const KSPROPERTY_BDA_DISEQC_SEND: KSPROPERTY_BDA_DISEQC_COMMAND = KSPROPERTY_BDA_DISEQC_COMMAND(4i32);
+pub const KSPROPERTY_BDA_DISEQC_USETONEBURST: KSPROPERTY_BDA_DISEQC_COMMAND = KSPROPERTY_BDA_DISEQC_COMMAND(2i32);
+pub const KSPROPERTY_BDA_ECM_MAP_STATUS: KSPROPERTY_BDA_CA = KSPROPERTY_BDA_CA(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSPROPERTY_BDA_ETHERNET_FILTER(pub i32);
+pub const KSPROPERTY_BDA_ETHERNET_FILTER_MULTICAST_LIST: KSPROPERTY_BDA_ETHERNET_FILTER = KSPROPERTY_BDA_ETHERNET_FILTER(1i32);
+pub const KSPROPERTY_BDA_ETHERNET_FILTER_MULTICAST_LIST_SIZE: KSPROPERTY_BDA_ETHERNET_FILTER = KSPROPERTY_BDA_ETHERNET_FILTER(0i32);
+pub const KSPROPERTY_BDA_ETHERNET_FILTER_MULTICAST_MODE: KSPROPERTY_BDA_ETHERNET_FILTER = KSPROPERTY_BDA_ETHERNET_FILTER(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSPROPERTY_BDA_FREQUENCY_FILTER(pub i32);
+pub const KSPROPERTY_BDA_GUARD_INTERVAL: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(7i32);
+pub const KSPROPERTY_BDA_INNER_FEC_RATE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(2i32);
+pub const KSPROPERTY_BDA_INNER_FEC_TYPE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSPROPERTY_BDA_IPv4_FILTER(pub i32);
+pub const KSPROPERTY_BDA_IPv4_FILTER_MULTICAST_LIST: KSPROPERTY_BDA_IPv4_FILTER = KSPROPERTY_BDA_IPv4_FILTER(1i32);
+pub const KSPROPERTY_BDA_IPv4_FILTER_MULTICAST_LIST_SIZE: KSPROPERTY_BDA_IPv4_FILTER = KSPROPERTY_BDA_IPv4_FILTER(0i32);
+pub const KSPROPERTY_BDA_IPv4_FILTER_MULTICAST_MODE: KSPROPERTY_BDA_IPv4_FILTER = KSPROPERTY_BDA_IPv4_FILTER(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSPROPERTY_BDA_IPv6_FILTER(pub i32);
+pub const KSPROPERTY_BDA_IPv6_FILTER_MULTICAST_LIST: KSPROPERTY_BDA_IPv6_FILTER = KSPROPERTY_BDA_IPv6_FILTER(1i32);
+pub const KSPROPERTY_BDA_IPv6_FILTER_MULTICAST_LIST_SIZE: KSPROPERTY_BDA_IPv6_FILTER = KSPROPERTY_BDA_IPv6_FILTER(0i32);
+pub const KSPROPERTY_BDA_IPv6_FILTER_MULTICAST_MODE: KSPROPERTY_BDA_IPv6_FILTER = KSPROPERTY_BDA_IPv6_FILTER(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSPROPERTY_BDA_LNB_INFO(pub i32);
+pub const KSPROPERTY_BDA_LNB_LOF_HIGH_BAND: KSPROPERTY_BDA_LNB_INFO = KSPROPERTY_BDA_LNB_INFO(1i32);
+pub const KSPROPERTY_BDA_LNB_LOF_LOW_BAND: KSPROPERTY_BDA_LNB_INFO = KSPROPERTY_BDA_LNB_INFO(0i32);
+pub const KSPROPERTY_BDA_LNB_SWITCH_FREQUENCY: KSPROPERTY_BDA_LNB_INFO = KSPROPERTY_BDA_LNB_INFO(2i32);
+pub const KSPROPERTY_BDA_MODULATION_TYPE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(0i32);
+pub const KSPROPERTY_BDA_NODE_DESCRIPTORS: KSPROPERTY_BDA_TOPOLOGY = KSPROPERTY_BDA_TOPOLOGY(7i32);
+pub const KSPROPERTY_BDA_NODE_EVENTS: KSPROPERTY_BDA_TOPOLOGY = KSPROPERTY_BDA_TOPOLOGY(5i32);
+pub const KSPROPERTY_BDA_NODE_METHODS: KSPROPERTY_BDA_TOPOLOGY = KSPROPERTY_BDA_TOPOLOGY(3i32);
+pub const KSPROPERTY_BDA_NODE_PROPERTIES: KSPROPERTY_BDA_TOPOLOGY = KSPROPERTY_BDA_TOPOLOGY(4i32);
+pub const KSPROPERTY_BDA_NODE_TYPES: KSPROPERTY_BDA_TOPOLOGY = KSPROPERTY_BDA_TOPOLOGY(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSPROPERTY_BDA_NULL_TRANSFORM(pub i32);
+pub const KSPROPERTY_BDA_NULL_TRANSFORM_START: KSPROPERTY_BDA_NULL_TRANSFORM = KSPROPERTY_BDA_NULL_TRANSFORM(0i32);
+pub const KSPROPERTY_BDA_NULL_TRANSFORM_STOP: KSPROPERTY_BDA_NULL_TRANSFORM = KSPROPERTY_BDA_NULL_TRANSFORM(1i32);
+pub const KSPROPERTY_BDA_OUTER_FEC_RATE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(4i32);
+pub const KSPROPERTY_BDA_OUTER_FEC_TYPE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSPROPERTY_BDA_PIDFILTER(pub i32);
+pub const KSPROPERTY_BDA_PIDFILTER_LIST_PIDS: KSPROPERTY_BDA_PIDFILTER = KSPROPERTY_BDA_PIDFILTER(2i32);
+pub const KSPROPERTY_BDA_PIDFILTER_MAP_PIDS: KSPROPERTY_BDA_PIDFILTER = KSPROPERTY_BDA_PIDFILTER(0i32);
+pub const KSPROPERTY_BDA_PIDFILTER_UNMAP_PIDS: KSPROPERTY_BDA_PIDFILTER = KSPROPERTY_BDA_PIDFILTER(1i32);
+pub const KSPROPERTY_BDA_PILOT: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(10i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSPROPERTY_BDA_PIN_CONTROL(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSPROPERTY_BDA_PIN_EVENT(pub i32);
+pub const KSPROPERTY_BDA_PIN_ID: KSPROPERTY_BDA_PIN_CONTROL = KSPROPERTY_BDA_PIN_CONTROL(0i32);
+pub const KSPROPERTY_BDA_PIN_TYPE: KSPROPERTY_BDA_PIN_CONTROL = KSPROPERTY_BDA_PIN_CONTROL(1i32);
+pub const KSPROPERTY_BDA_PIN_TYPES: KSPROPERTY_BDA_TOPOLOGY = KSPROPERTY_BDA_TOPOLOGY(1i32);
+pub const KSPROPERTY_BDA_PLP_NUMBER: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(12i32);
+pub const KSPROPERTY_BDA_RF_TUNER_BANDWIDTH: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(4i32);
+pub const KSPROPERTY_BDA_RF_TUNER_CAPS: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(6i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 #[derive(Clone, Copy)]
@@ -34413,6 +34756,11 @@ impl Default for KSPROPERTY_BDA_RF_TUNER_CAPS_S {
 impl windows_core::TypeKind for KSPROPERTY_BDA_RF_TUNER_CAPS_S {
     type TypeKind = windows_core::CopyType;
 }
+pub const KSPROPERTY_BDA_RF_TUNER_FREQUENCY: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(0i32);
+pub const KSPROPERTY_BDA_RF_TUNER_FREQUENCY_MULTIPLIER: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(5i32);
+pub const KSPROPERTY_BDA_RF_TUNER_POLARITY: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(1i32);
+pub const KSPROPERTY_BDA_RF_TUNER_RANGE: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(2i32);
+pub const KSPROPERTY_BDA_RF_TUNER_SCAN_STATUS: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(7i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 #[derive(Clone, Copy)]
@@ -34433,6 +34781,8 @@ impl Default for KSPROPERTY_BDA_RF_TUNER_SCAN_STATUS_S {
 impl windows_core::TypeKind for KSPROPERTY_BDA_RF_TUNER_SCAN_STATUS_S {
     type TypeKind = windows_core::CopyType;
 }
+pub const KSPROPERTY_BDA_RF_TUNER_STANDARD: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(8i32);
+pub const KSPROPERTY_BDA_RF_TUNER_STANDARD_MODE: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(9i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 #[derive(Clone, Copy)]
@@ -34468,6 +34818,35 @@ impl Default for KSPROPERTY_BDA_RF_TUNER_STANDARD_S {
 impl windows_core::TypeKind for KSPROPERTY_BDA_RF_TUNER_STANDARD_S {
     type TypeKind = windows_core::CopyType;
 }
+pub const KSPROPERTY_BDA_RF_TUNER_TRANSPONDER: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(3i32);
+pub const KSPROPERTY_BDA_ROLL_OFF: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(9i32);
+pub const KSPROPERTY_BDA_SAMPLE_TIME: KSPROPERTY_BDA_SIGNAL_STATS = KSPROPERTY_BDA_SIGNAL_STATS(4i32);
+pub const KSPROPERTY_BDA_SIGNALTIMEOUTS: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(11i32);
+pub const KSPROPERTY_BDA_SIGNAL_LOCKED: KSPROPERTY_BDA_SIGNAL_STATS = KSPROPERTY_BDA_SIGNAL_STATS(3i32);
+pub const KSPROPERTY_BDA_SIGNAL_LOCK_CAPS: KSPROPERTY_BDA_SIGNAL_STATS = KSPROPERTY_BDA_SIGNAL_STATS(5i32);
+pub const KSPROPERTY_BDA_SIGNAL_LOCK_TYPE: KSPROPERTY_BDA_SIGNAL_STATS = KSPROPERTY_BDA_SIGNAL_STATS(6i32);
+pub const KSPROPERTY_BDA_SIGNAL_PRESENT: KSPROPERTY_BDA_SIGNAL_STATS = KSPROPERTY_BDA_SIGNAL_STATS(2i32);
+pub const KSPROPERTY_BDA_SIGNAL_QUALITY: KSPROPERTY_BDA_SIGNAL_STATS = KSPROPERTY_BDA_SIGNAL_STATS(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSPROPERTY_BDA_SIGNAL_STATS(pub i32);
+pub const KSPROPERTY_BDA_SIGNAL_STRENGTH: KSPROPERTY_BDA_SIGNAL_STATS = KSPROPERTY_BDA_SIGNAL_STATS(0i32);
+pub const KSPROPERTY_BDA_SPECTRAL_INVERSION: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(6i32);
+pub const KSPROPERTY_BDA_SYMBOL_RATE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(5i32);
+pub const KSPROPERTY_BDA_TABLE_SECTION: KSPROPERTY_IDS_BDA_TABLE = KSPROPERTY_IDS_BDA_TABLE(0i32);
+pub const KSPROPERTY_BDA_TEMPLATE_CONNECTIONS: KSPROPERTY_BDA_TOPOLOGY = KSPROPERTY_BDA_TOPOLOGY(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSPROPERTY_BDA_TOPOLOGY(pub i32);
+pub const KSPROPERTY_BDA_TRANSMISSION_MODE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(8i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSPROPERTY_BDA_VOID_TRANSFORM(pub i32);
+pub const KSPROPERTY_BDA_VOID_TRANSFORM_START: KSPROPERTY_BDA_VOID_TRANSFORM = KSPROPERTY_BDA_VOID_TRANSFORM(0i32);
+pub const KSPROPERTY_BDA_VOID_TRANSFORM_STOP: KSPROPERTY_BDA_VOID_TRANSFORM = KSPROPERTY_BDA_VOID_TRANSFORM(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KSPROPERTY_IDS_BDA_TABLE(pub i32);
 pub const KSPROPSETID_BdaAutodemodulate: windows_core::GUID = windows_core::GUID::from_u128(0xddf15b12_bd25_11d2_9ca0_00c04f7971e0);
 pub const KSPROPSETID_BdaCA: windows_core::GUID = windows_core::GUID::from_u128(0xb0693766_5278_4ec6_b9e1_3ce40560ef5a);
 pub const KSPROPSETID_BdaDigitalDemodulator: windows_core::GUID = windows_core::GUID::from_u128(0xef30f379_985b_4d10_b640_a79d5e04e1e0);
@@ -34553,6 +34932,11 @@ impl Default for KS_DATARANGE_BDA_TRANSPORT {
 impl windows_core::TypeKind for KS_DATARANGE_BDA_TRANSPORT {
     type TypeKind = windows_core::CopyType;
 }
+pub const LIC_BadLicense: LicenseEventBlockReason = LicenseEventBlockReason(0i32);
+pub const LIC_Expired: LicenseEventBlockReason = LicenseEventBlockReason(2i32);
+pub const LIC_ExtenderBlocked: LicenseEventBlockReason = LicenseEventBlockReason(4i32);
+pub const LIC_NeedActivation: LicenseEventBlockReason = LicenseEventBlockReason(3i32);
+pub const LIC_NeedIndiv: LicenseEventBlockReason = LicenseEventBlockReason(1i32);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LONG_SECTION {
@@ -34615,7 +34999,26 @@ impl Default for LanguageInfo {
 impl windows_core::TypeKind for LanguageInfo {
     type TypeKind = windows_core::CopyType;
 }
+pub const LastReservedDeviceDispid: SegDispidList = SegDispidList(16383i32);
+pub const LastReservedDeviceEvent: SegEventidList = SegEventidList(16383i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct LicenseEventBlockReason(pub i32);
 pub const Locator: windows_core::GUID = windows_core::GUID::from_u128(0x0888c883_ac4f_4943_b516_2c38d9b34562);
+pub const MAX_COUNTRY_CODE_STRING: u32 = 3u32;
+pub const MEDIASUBTYPE_CPFilters_Processed: windows_core::GUID = windows_core::GUID::from_u128(0x46adbd28_6fd0_4796_93b2_155c51dc048d);
+pub const MEDIASUBTYPE_ETDTFilter_Tagged: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4d0_0049_4e2b_98fb_9537f6ce516d);
+pub const MPAA: EnTvRat_System = EnTvRat_System(0i32);
+pub const MPAA_G: EnTvRat_MPAA = EnTvRat_MPAA(1i32);
+pub const MPAA_IsBlocked: BfEnTvRat_Attributes_MPAA = BfEnTvRat_Attributes_MPAA(1i32);
+pub const MPAA_NC17: EnTvRat_MPAA = EnTvRat_MPAA(5i32);
+pub const MPAA_NotApplicable: EnTvRat_MPAA = EnTvRat_MPAA(0i32);
+pub const MPAA_NotRated: EnTvRat_MPAA = EnTvRat_MPAA(7i32);
+pub const MPAA_PG: EnTvRat_MPAA = EnTvRat_MPAA(2i32);
+pub const MPAA_PG13: EnTvRat_MPAA = EnTvRat_MPAA(3i32);
+pub const MPAA_R: EnTvRat_MPAA = EnTvRat_MPAA(4i32);
+pub const MPAA_ValidAttrSubmask: BfEnTvRat_Attributes_MPAA = BfEnTvRat_Attributes_MPAA(1i32);
+pub const MPAA_X: EnTvRat_MPAA = EnTvRat_MPAA(6i32);
 pub const MPEG2Component: windows_core::GUID = windows_core::GUID::from_u128(0x055cb2d7_2969_45cd_914b_76890722f112);
 pub const MPEG2ComponentType: windows_core::GUID = windows_core::GUID::from_u128(0x418008f3_cf67_4668_9628_10dc52be1d08);
 pub const MPEG2TuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0x0955ac62_bf2e_4cba_a2b9_a63f772d46cf);
@@ -34707,6 +35110,8 @@ impl Default for MPEG2_FILTER2_0_0 {
 impl windows_core::TypeKind for MPEG2_FILTER2_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const MPEG2_FILTER_VERSION_1_SIZE: u32 = 124u32;
+pub const MPEG2_FILTER_VERSION_2_SIZE: u32 = 133u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MPEG_BCS_DEMUX {
@@ -34720,6 +35125,8 @@ impl Default for MPEG_BCS_DEMUX {
 impl windows_core::TypeKind for MPEG_BCS_DEMUX {
     type TypeKind = windows_core::CopyType;
 }
+pub const MPEG_CAT_PID: u32 = 1u32;
+pub const MPEG_CAT_TID: u32 = 1u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MPEG_CONTEXT {
@@ -34748,6 +35155,14 @@ impl Default for MPEG_CONTEXT_0 {
 impl windows_core::TypeKind for MPEG_CONTEXT_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const MPEG_CONTEXT_BCS_DEMUX: MPEG_CONTEXT_TYPE = MPEG_CONTEXT_TYPE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MPEG_CONTEXT_TYPE(pub i32);
+pub const MPEG_CONTEXT_WINSOCK: MPEG_CONTEXT_TYPE = MPEG_CONTEXT_TYPE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MPEG_CURRENT_NEXT_BIT(pub i32);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MPEG_DATE {
@@ -34843,6 +35258,19 @@ impl Default for MPEG_PACKET_LIST {
 impl windows_core::TypeKind for MPEG_PACKET_LIST {
     type TypeKind = windows_core::CopyType;
 }
+pub const MPEG_PAT_PID: u32 = 0u32;
+pub const MPEG_PAT_TID: u32 = 0u32;
+pub const MPEG_PMT_TID: u32 = 2u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MPEG_REQUEST_TYPE(pub i32);
+pub const MPEG_RQST_GET_PES_STREAM: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(6i32);
+pub const MPEG_RQST_GET_SECTION: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(1i32);
+pub const MPEG_RQST_GET_SECTIONS_STREAM: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(5i32);
+pub const MPEG_RQST_GET_SECTION_ASYNC: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(2i32);
+pub const MPEG_RQST_GET_TABLE: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(3i32);
+pub const MPEG_RQST_GET_TABLE_ASYNC: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(4i32);
+pub const MPEG_RQST_GET_TS_STREAM: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(7i32);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MPEG_RQST_PACKET {
@@ -34857,6 +35285,10 @@ impl Default for MPEG_RQST_PACKET {
 impl windows_core::TypeKind for MPEG_RQST_PACKET {
     type TypeKind = windows_core::CopyType;
 }
+pub const MPEG_RQST_START_MPE_STREAM: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(8i32);
+pub const MPEG_RQST_UNKNOWN: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(0i32);
+pub const MPEG_SECTION_IS_CURRENT: MPEG_CURRENT_NEXT_BIT = MPEG_CURRENT_NEXT_BIT(1i32);
+pub const MPEG_SECTION_IS_NEXT: MPEG_CURRENT_NEXT_BIT = MPEG_CURRENT_NEXT_BIT(0i32);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MPEG_SERVICE_REQUEST {
@@ -34937,6 +35369,8 @@ impl Default for MPEG_TIME {
 impl windows_core::TypeKind for MPEG_TIME {
     type TypeKind = windows_core::CopyType;
 }
+pub const MPEG_TSDT_PID: u32 = 2u32;
+pub const MPEG_TSDT_TID: u32 = 3u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MPEG_WINSOCK {
@@ -34966,6 +35400,14 @@ impl windows_core::TypeKind for MPE_ELEMENT {
     type TypeKind = windows_core::CopyType;
 }
 pub const MSEventBinder: windows_core::GUID = windows_core::GUID::from_u128(0x577faa18_4518_445e_8f70_1473f8cf4ba4);
+pub const MSVIDCTL_ALT: MSVidCtlButtonstate = MSVidCtlButtonstate(4i32);
+pub const MSVIDCTL_CTRL: MSVidCtlButtonstate = MSVidCtlButtonstate(2i32);
+pub const MSVIDCTL_LEFT_BUTTON: MSVidCtlButtonstate = MSVidCtlButtonstate(1i32);
+pub const MSVIDCTL_MIDDLE_BUTTON: MSVidCtlButtonstate = MSVidCtlButtonstate(4i32);
+pub const MSVIDCTL_RIGHT_BUTTON: MSVidCtlButtonstate = MSVidCtlButtonstate(2i32);
+pub const MSVIDCTL_SHIFT: MSVidCtlButtonstate = MSVidCtlButtonstate(1i32);
+pub const MSVIDCTL_X_BUTTON1: MSVidCtlButtonstate = MSVidCtlButtonstate(8i32);
+pub const MSVIDCTL_X_BUTTON2: MSVidCtlButtonstate = MSVidCtlButtonstate(16i32);
 pub const MSVidAnalogCaptureToCCA: windows_core::GUID = windows_core::GUID::from_u128(0x942b7909_a28e_49a1_a207_34ebcbcb4b3b);
 pub const MSVidAnalogCaptureToDataServices: windows_core::GUID = windows_core::GUID::from_u128(0xc5702cd6_9b79_11d3_b654_00c04f79498e);
 pub const MSVidAnalogCaptureToOverlayMixer: windows_core::GUID = windows_core::GUID::from_u128(0xe18af75a_08af_11d3_b64a_00c04f79498e);
@@ -34978,11 +35420,28 @@ pub const MSVidAudioRendererDevices: windows_core::GUID = windows_core::GUID::fr
 pub const MSVidBDATunerDevice: windows_core::GUID = windows_core::GUID::from_u128(0xa2e3074e_6c3d_11d3_b653_00c04f79498e);
 pub const MSVidCCA: windows_core::GUID = windows_core::GUID::from_u128(0x86151827_e47b_45ee_8421_d10e6e690979);
 pub const MSVidCCAToStreamBufferSink: windows_core::GUID = windows_core::GUID::from_u128(0x3ef76d68_8661_4843_8b8f_c37163d8c9ce);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MSVidCCService(pub i32);
+impl MSVidCCService {
+    pub const None: Self = Self(0i32);
+    pub const Caption1: Self = Self(1i32);
+    pub const Caption2: Self = Self(2i32);
+    pub const Text1: Self = Self(3i32);
+    pub const Text2: Self = Self(4i32);
+    pub const XDS: Self = Self(5i32);
+}
 pub const MSVidCCToAR: windows_core::GUID = windows_core::GUID::from_u128(0xd76334ca_d89e_4baf_86ab_ddb59372afc2);
 pub const MSVidCCToVMR: windows_core::GUID = windows_core::GUID::from_u128(0xc4bf2784_ae00_41ba_9828_9c953bd3c54a);
 pub const MSVidClosedCaptioning: windows_core::GUID = windows_core::GUID::from_u128(0x7f9cb14d_48e4_43b6_9346_1aebc39c64d3);
 pub const MSVidClosedCaptioningSI: windows_core::GUID = windows_core::GUID::from_u128(0x92ed88bf_879e_448f_b6b6_a385bceb846d);
 pub const MSVidCtl: windows_core::GUID = windows_core::GUID::from_u128(0xb0edf163_910a_11d2_b632_00c04f79498e);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MSVidCtlButtonstate(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MSVidCtlStateList(pub i32);
 pub const MSVidDataServices: windows_core::GUID = windows_core::GUID::from_u128(0x334125c0_77e5_11d3_b653_00c04f79498e);
 pub const MSVidDataServicesToStreamBufferSink: windows_core::GUID = windows_core::GUID::from_u128(0x38f03426_e83b_4e68_b65b_dcae73304838);
 pub const MSVidDataServicesToXDS: windows_core::GUID = windows_core::GUID::from_u128(0x0429ec6e_1144_4bed_b88b_2fb9899a4a3d);
@@ -35013,6 +35472,18 @@ pub const MSVidRect: windows_core::GUID = windows_core::GUID::from_u128(0xcb4276
 pub const MSVidSBESourceToCC: windows_core::GUID = windows_core::GUID::from_u128(0x9193a8f9_0cba_400e_aa97_eb4709164576);
 pub const MSVidSBESourceToGenericSink: windows_core::GUID = windows_core::GUID::from_u128(0x991da7e5_953f_435b_be5e_b92a05edfc42);
 pub const MSVidSBESourceToITV: windows_core::GUID = windows_core::GUID::from_u128(0x2291478c_5ee3_4bef_ab5d_b5ff2cf58352);
+pub const MSVidSEG_DEST: MSVidSegmentType = MSVidSegmentType(2i32);
+pub const MSVidSEG_SOURCE: MSVidSegmentType = MSVidSegmentType(0i32);
+pub const MSVidSEG_XFORM: MSVidSegmentType = MSVidSegmentType(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MSVidSegmentType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MSVidSinkStreams(pub i32);
+pub const MSVidSink_Audio: MSVidSinkStreams = MSVidSinkStreams(2i32);
+pub const MSVidSink_Other: MSVidSinkStreams = MSVidSinkStreams(4i32);
+pub const MSVidSink_Video: MSVidSinkStreams = MSVidSinkStreams(1i32);
 pub const MSVidStreamBufferRecordingControl: windows_core::GUID = windows_core::GUID::from_u128(0xcaafdd83_cefc_4e3d_ba03_175f17a24f91);
 pub const MSVidStreamBufferSink: windows_core::GUID = windows_core::GUID::from_u128(0x9e77aac4_35e5_42a1_bdc2_8f3ff399847c);
 pub const MSVidStreamBufferSource: windows_core::GUID = windows_core::GUID::from_u128(0xad8e510d_217f_409b_8076_29c5e73b98e8);
@@ -35028,6 +35499,9 @@ pub const MSVidWebDVDAdm: windows_core::GUID = windows_core::GUID::from_u128(0xf
 pub const MSVidWebDVDToAudioRenderer: windows_core::GUID = windows_core::GUID::from_u128(0x8d04238e_9fd1_41c6_8de3_9e1ee309e935);
 pub const MSVidWebDVDToVideoRenderer: windows_core::GUID = windows_core::GUID::from_u128(0x267db0b3_55e3_4902_949b_df8f5cec0191);
 pub const MSVidXDS: windows_core::GUID = windows_core::GUID::from_u128(0x0149eedf_d08f_4142_8d73_d23903d21e90);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MSViddispidList(pub i32);
 pub const Mpeg2Data: windows_core::GUID = windows_core::GUID::from_u128(0xc666e115_bb62_4027_a113_82d643fe2d99);
 pub const Mpeg2DataLib: windows_core::GUID = windows_core::GUID::from_u128(0xdbaf6c1b_b6a4_4898_ae65_204f0d9509a1);
 pub const Mpeg2Stream: windows_core::GUID = windows_core::GUID::from_u128(0xf91d96c7_8509_4d0b_ab26_a0dd10904bb7);
@@ -35046,6 +35520,16 @@ impl Default for Mpeg2TableSampleHdr {
 impl windows_core::TypeKind for Mpeg2TableSampleHdr {
     type TypeKind = windows_core::CopyType;
 }
+pub const OCUR_PAIRING_PROTOCOL_VERSION: u32 = 2u32;
+pub const PARENTAL_CONTROL_ATTRIB_DIALOGUE: u32 = 515u32;
+pub const PARENTAL_CONTROL_ATTRIB_FANTASY: u32 = 516u32;
+pub const PARENTAL_CONTROL_ATTRIB_LANGUAGE: u32 = 513u32;
+pub const PARENTAL_CONTROL_ATTRIB_SEXUAL: u32 = 514u32;
+pub const PARENTAL_CONTROL_ATTRIB_VIOLENCE: u32 = 512u32;
+pub const PARENTAL_CONTROL_CONTENT_RATING: u32 = 256u32;
+pub const PARENTAL_CONTROL_TIME_RANGE: u32 = 1u32;
+pub const PARENTAL_CONTROL_VALUE_UNDEFINED: u32 = 0u32;
+pub const PBDA: EnTvRat_System = EnTvRat_System(8i32);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct PBDAParentalControl {
@@ -35061,6 +35545,7 @@ impl windows_core::TypeKind for PBDAParentalControl {
     type TypeKind = windows_core::CopyType;
 }
 pub const PBDA_ALWAYS_TUNE_IN_MUX: windows_core::GUID = windows_core::GUID::from_u128(0x1e1d7141_583f_4ac2_b019_1f430eda0f4c);
+pub const PBDA_PAIRING_PROTOCOL_VERSION: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PBDA_TAG_ATTRIBUTE {
@@ -35139,7 +35624,20 @@ pub const PINNAME_BDA_OPENCABLE_PSIP_PIN: windows_core::GUID = windows_core::GUI
 pub const PINNAME_BDA_TRANSPORT: windows_core::GUID = windows_core::GUID::from_u128(0x78216a81_cfa8_493e_9711_36a61c08bd9d);
 pub const PINNAME_IPSINK_INPUT: windows_core::GUID = windows_core::GUID::from_u128(0x3fdffa70_ac9a_11d2_8f17_00c04f7971e2);
 pub const PINNAME_MPE: windows_core::GUID = windows_core::GUID::from_u128(0xc1b06d73_1dbb_11d3_8f46_00c04f7971e2);
+pub const PROT_COPY_BF: ProtType = ProtType(7i32);
+pub const PROT_COPY_CN_RECORDING_STOP: ProtType = ProtType(8i32);
+pub const PROT_COPY_FREE: ProtType = ProtType(1i32);
+pub const PROT_COPY_FREE_CIT: ProtType = ProtType(6i32);
+pub const PROT_COPY_FREE_SECURE: ProtType = ProtType(9i32);
+pub const PROT_COPY_INVALID: ProtType = ProtType(50i32);
+pub const PROT_COPY_NEVER: ProtType = ProtType(3i32);
+pub const PROT_COPY_NEVER_REALLY: ProtType = ProtType(4i32);
+pub const PROT_COPY_NO_MORE: ProtType = ProtType(5i32);
+pub const PROT_COPY_ONCE: ProtType = ProtType(2i32);
 pub const PersistTuneXmlUtility: windows_core::GUID = windows_core::GUID::from_u128(0xe77026b0_b97f_4cbb_b7fb_f4f03ad69f11);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PositionModeList(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ProgramElement {
@@ -35154,6 +35652,9 @@ impl Default for ProgramElement {
 impl windows_core::TypeKind for ProgramElement {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ProtType(pub i32);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct RATING_ATTRIBUTE {
@@ -35199,6 +35700,28 @@ impl Default for RATING_SYSTEM {
 impl windows_core::TypeKind for RATING_SYSTEM {
     type TypeKind = windows_core::CopyType;
 }
+pub const RECORDING_STARTED: CPRecordingStatus = CPRecordingStatus(1i32);
+pub const RECORDING_STOPPED: CPRecordingStatus = CPRecordingStatus(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RECORDING_TYPE(pub i32);
+pub const RECORDING_TYPE_CONTENT: RECORDING_TYPE = RECORDING_TYPE(0i32);
+pub const RECORDING_TYPE_REFERENCE: RECORDING_TYPE = RECORDING_TYPE(1i32);
+pub const REFERENCE: RecordingType = RecordingType(1i32);
+pub const REQUIRED_PARENTAL_CONTROL_TIME_RANGE: u32 = 2u32;
+pub const REVOKED_APP_STUB: RevokedComponent = RevokedComponent(2i32);
+pub const REVOKED_COPP: RevokedComponent = RevokedComponent(0i32);
+pub const REVOKED_MAX_TYPES: RevokedComponent = RevokedComponent(4i32);
+pub const REVOKED_SAC: RevokedComponent = RevokedComponent(1i32);
+pub const REVOKED_SECURE_PIPELINE: RevokedComponent = RevokedComponent(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RecordingType(pub i32);
+pub const Reserved4: EnTvRat_System = EnTvRat_System(4i32);
+pub const Reserved7: EnTvRat_System = EnTvRat_System(7i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RevokedComponent(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SAMPLE_LIVE_STREAM_TIME {
@@ -35213,6 +35736,15 @@ impl Default for SAMPLE_LIVE_STREAM_TIME {
 impl windows_core::TypeKind for SAMPLE_LIVE_STREAM_TIME {
     type TypeKind = windows_core::CopyType;
 }
+pub const SAMPLE_SEQ_CONTENT_B_FRAME: u32 = 3u32;
+pub const SAMPLE_SEQ_CONTENT_I_FRAME: u32 = 1u32;
+pub const SAMPLE_SEQ_CONTENT_NONREF_FRAME: u32 = 3u32;
+pub const SAMPLE_SEQ_CONTENT_P_FRAME: u32 = 2u32;
+pub const SAMPLE_SEQ_CONTENT_REF_FRAME: u32 = 2u32;
+pub const SAMPLE_SEQ_CONTENT_STANDALONE_FRAME: u32 = 1u32;
+pub const SAMPLE_SEQ_CONTENT_UNKNOWN: u32 = 0u32;
+pub const SAMPLE_SEQ_FRAME_START: u32 = 3u32;
+pub const SAMPLE_SEQ_GOP_HEADER: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SAMPLE_SEQ_OFFSET {
@@ -35226,6 +35758,10 @@ impl Default for SAMPLE_SEQ_OFFSET {
 impl windows_core::TypeKind for SAMPLE_SEQ_OFFSET {
     type TypeKind = windows_core::CopyType;
 }
+pub const SAMPLE_SEQ_PICTURE_HEADER: u32 = 3u32;
+pub const SAMPLE_SEQ_SEEK_POINT: u32 = 2u32;
+pub const SAMPLE_SEQ_SEQUENCE_HEADER: u32 = 1u32;
+pub const SAMPLE_SEQ_SEQUENCE_START: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SBE2_STREAM_DESC {
@@ -35242,6 +35778,10 @@ impl Default for SBE2_STREAM_DESC {
 impl windows_core::TypeKind for SBE2_STREAM_DESC {
     type TypeKind = windows_core::CopyType;
 }
+pub const SBE2_STREAM_DESC_EVENT: windows_core::GUID = windows_core::GUID::from_u128(0x2313a4ed_bf2d_454f_ad8a_d95ba7f91fee);
+pub const SBE2_STREAM_DESC_VERSION: u32 = 1u32;
+pub const SBE2_V1_STREAMS_CREATION_EVENT: windows_core::GUID = windows_core::GUID::from_u128(0x000fcf09_97f5_46ac_9769_7a83b35384fb);
+pub const SBE2_V2_STREAMS_CREATION_EVENT: windows_core::GUID = windows_core::GUID::from_u128(0xa72530a3_0344_4cab_a2d0_fe937dbdcab3);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SBE_PIN_DATA {
@@ -35259,6 +35799,9 @@ impl Default for SBE_PIN_DATA {
 impl windows_core::TypeKind for SBE_PIN_DATA {
     type TypeKind = windows_core::CopyType;
 }
+pub const SCTE_EAS_IB_PID: u32 = 8187u32;
+pub const SCTE_EAS_OOB_PID: u32 = 8188u32;
+pub const SCTE_EAS_TID: u32 = 216u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct SECTION {
@@ -35288,6 +35831,16 @@ impl Default for SECTION_0 {
 impl windows_core::TypeKind for SECTION_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const SID_DRMSecureServiceChannel: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4c4_0049_4e2b_98fb_9537f6ce516d);
+pub const SID_MSVidCtl_CurrentAudioEndpoint: windows_core::GUID = windows_core::GUID::from_u128(0xcf9a88f4_abcf_4ed8_9b74_7db33445459e);
+pub const STATE_PAUSE: MSVidCtlStateList = MSVidCtlStateList(1i32);
+pub const STATE_PLAY: MSVidCtlStateList = MSVidCtlStateList(2i32);
+pub const STATE_STOP: MSVidCtlStateList = MSVidCtlStateList(0i32);
+pub const STATE_UNBUILT: MSVidCtlStateList = MSVidCtlStateList(-1i32);
+pub const STRCONV_MODE_DVB: DVB_STRCONV_MODE = DVB_STRCONV_MODE(0i32);
+pub const STRCONV_MODE_DVB_EMPHASIS: DVB_STRCONV_MODE = DVB_STRCONV_MODE(1i32);
+pub const STRCONV_MODE_DVB_WITHOUT_EMPHASIS: DVB_STRCONV_MODE = DVB_STRCONV_MODE(2i32);
+pub const STRCONV_MODE_ISDB: DVB_STRCONV_MODE = DVB_STRCONV_MODE(3i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STREAMBUFFER_ATTRIBUTE {
@@ -35304,7 +35857,48 @@ impl Default for STREAMBUFFER_ATTRIBUTE {
 impl windows_core::TypeKind for STREAMBUFFER_ATTRIBUTE {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STREAMBUFFER_ATTR_DATATYPE(pub i32);
+pub const STREAMBUFFER_EC_BASE: u32 = 806u32;
+pub const STREAMBUFFER_EC_CONTENT_BECOMING_STALE: i32 = 809i32;
+pub const STREAMBUFFER_EC_PRIMARY_AUDIO: i32 = 814i32;
+pub const STREAMBUFFER_EC_RATE_CHANGED: i32 = 813i32;
+pub const STREAMBUFFER_EC_RATE_CHANGING_FOR_SETPOSITIONS: i32 = 815i32;
+pub const STREAMBUFFER_EC_READ_FAILURE: i32 = 812i32;
+pub const STREAMBUFFER_EC_SETPOSITIONS_EVENTS_DONE: i32 = 816i32;
+pub const STREAMBUFFER_EC_STALE_DATA_READ: i32 = 807i32;
+pub const STREAMBUFFER_EC_STALE_FILE_DELETED: i32 = 808i32;
+pub const STREAMBUFFER_EC_TIMEHOLE: i32 = 806i32;
+pub const STREAMBUFFER_EC_WRITE_FAILURE: i32 = 810i32;
+pub const STREAMBUFFER_EC_WRITE_FAILURE_CLEAR: i32 = 811i32;
+pub const STREAMBUFFER_TYPE_BINARY: STREAMBUFFER_ATTR_DATATYPE = STREAMBUFFER_ATTR_DATATYPE(2i32);
+pub const STREAMBUFFER_TYPE_BOOL: STREAMBUFFER_ATTR_DATATYPE = STREAMBUFFER_ATTR_DATATYPE(3i32);
+pub const STREAMBUFFER_TYPE_DWORD: STREAMBUFFER_ATTR_DATATYPE = STREAMBUFFER_ATTR_DATATYPE(0i32);
+pub const STREAMBUFFER_TYPE_GUID: STREAMBUFFER_ATTR_DATATYPE = STREAMBUFFER_ATTR_DATATYPE(6i32);
+pub const STREAMBUFFER_TYPE_QWORD: STREAMBUFFER_ATTR_DATATYPE = STREAMBUFFER_ATTR_DATATYPE(4i32);
+pub const STREAMBUFFER_TYPE_STRING: STREAMBUFFER_ATTR_DATATYPE = STREAMBUFFER_ATTR_DATATYPE(1i32);
+pub const STREAMBUFFER_TYPE_WORD: STREAMBUFFER_ATTR_DATATYPE = STREAMBUFFER_ATTR_DATATYPE(5i32);
 pub const SectionList: windows_core::GUID = windows_core::GUID::from_u128(0x73da5d04_4347_45d3_a9dc_fae9ddbe558d);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SegDispidList(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SegEventidList(pub i32);
+pub const SignalAndServiceStatusSpanningEvent_AllAVScrambled: SignalAndServiceStatusSpanningEvent_State = SignalAndServiceStatusSpanningEvent_State(5i32);
+pub const SignalAndServiceStatusSpanningEvent_Clear: SignalAndServiceStatusSpanningEvent_State = SignalAndServiceStatusSpanningEvent_State(0i32);
+pub const SignalAndServiceStatusSpanningEvent_NoSubscription: SignalAndServiceStatusSpanningEvent_State = SignalAndServiceStatusSpanningEvent_State(4i32);
+pub const SignalAndServiceStatusSpanningEvent_NoTVSignal: SignalAndServiceStatusSpanningEvent_State = SignalAndServiceStatusSpanningEvent_State(1i32);
+pub const SignalAndServiceStatusSpanningEvent_None: SignalAndServiceStatusSpanningEvent_State = SignalAndServiceStatusSpanningEvent_State(-1i32);
+pub const SignalAndServiceStatusSpanningEvent_ServiceOffAir: SignalAndServiceStatusSpanningEvent_State = SignalAndServiceStatusSpanningEvent_State(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SignalAndServiceStatusSpanningEvent_State(pub i32);
+pub const SignalAndServiceStatusSpanningEvent_WeakTVSignal: SignalAndServiceStatusSpanningEvent_State = SignalAndServiceStatusSpanningEvent_State(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SourceSizeList(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SpanningEventDescriptor {
@@ -35346,6 +35940,8 @@ impl Default for SpanningEventEmmMessage {
 impl windows_core::TypeKind for SpanningEventEmmMessage {
     type TypeKind = windows_core::CopyType;
 }
+pub const System5: EnTvRat_System = EnTvRat_System(5i32);
+pub const System6: EnTvRat_System = EnTvRat_System(6i32);
 pub const SystemTuningSpaces: windows_core::GUID = windows_core::GUID::from_u128(0xd02aac50_027e_11d3_9d8e_00c04f72d980);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -35404,705 +36000,10 @@ impl Default for TRANSPORT_PROPERTIES_0_0 {
 impl windows_core::TypeKind for TRANSPORT_PROPERTIES_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const TenthsSecondsMode: PositionModeList = PositionModeList(1i32);
 pub const TuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0xb46e0d38_ab35_4a06_a137_70576b01b39f);
 pub const TunerMarshaler: windows_core::GUID = windows_core::GUID::from_u128(0x6438570b_0c08_4a25_9504_8012bb4d50cf);
 pub const TuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0x5ffdc5e6_b83a_4b55_b6e8_c69e765fe9db);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct UDCR_TAG {
-    pub bVersion: u8,
-    pub KID: [u8; 25],
-    pub ullBaseCounter: u64,
-    pub ullBaseCounterRange: u64,
-    pub fScrambled: super::super::super::Foundation::BOOL,
-    pub bStreamMark: u8,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-}
-impl Default for UDCR_TAG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for UDCR_TAG {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VA_OPTIONAL_VIDEO_PROPERTIES {
-    pub dwPictureHeight: u16,
-    pub dwPictureWidth: u16,
-    pub dwAspectRatioX: u16,
-    pub dwAspectRatioY: u16,
-    pub VAVideoFormat: VA_VIDEO_FORMAT,
-    pub VAColorPrimaries: VA_COLOR_PRIMARIES,
-    pub VATransferCharacteristics: VA_TRANSFER_CHARACTERISTICS,
-    pub VAMatrixCoefficients: VA_MATRIX_COEFFICIENTS,
-}
-impl Default for VA_OPTIONAL_VIDEO_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VA_OPTIONAL_VIDEO_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct WMDRMProtectionInfo {
-    pub wszKID: [u16; 25],
-    pub qwCounter: u64,
-    pub qwIndex: u64,
-    pub bOffset: u8,
-}
-impl Default for WMDRMProtectionInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WMDRMProtectionInfo {
-    type TypeKind = windows_core::CopyType;
-}
-pub const XDSCodec: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4f3_0049_4e2b_98fb_9537f6ce516d);
-pub const XDSToRat: windows_core::GUID = windows_core::GUID::from_u128(0xc5c5c5f0_3abc_11d6_b25b_00c04fa0c026);
-pub const ATSC_EIT_TID: u32 = 203u32;
-pub const ATSC_ETM_LOCATION_IN_PTC_FOR_EVENT: u32 = 2u32;
-pub const ATSC_ETM_LOCATION_IN_PTC_FOR_PSIP: u32 = 1u32;
-pub const ATSC_ETM_LOCATION_NOT_PRESENT: u32 = 0u32;
-pub const ATSC_ETM_LOCATION_RESERVED: u32 = 3u32;
-pub const ATSC_ETT_TID: u32 = 204u32;
-pub const ATSC_MGT_PID: u32 = 8187u32;
-pub const ATSC_MGT_TID: u32 = 199u32;
-pub const ATSC_PIT_TID: u32 = 208u32;
-pub const ATSC_RRT_PID: u32 = 8187u32;
-pub const ATSC_RRT_TID: u32 = 202u32;
-pub const ATSC_STT_PID: u32 = 8187u32;
-pub const ATSC_STT_TID: u32 = 205u32;
-pub const ATSC_VCT_CABL_TID: u32 = 201u32;
-pub const ATSC_VCT_PID: u32 = 8187u32;
-pub const ATSC_VCT_TERR_TID: u32 = 200u32;
-pub const AgeBased: EnTvRat_System = EnTvRat_System(9i32);
-pub const AudioType_Commentary: u32 = 5u32;
-pub const AudioType_Dialogue: u32 = 4u32;
-pub const AudioType_Emergency: u32 = 6u32;
-pub const AudioType_Hearing_Impaired: u32 = 3u32;
-pub const AudioType_Music_And_Effects: u32 = 1u32;
-pub const AudioType_Reserved: i32 = -1i32;
-pub const AudioType_Standard: u32 = 0u32;
-pub const AudioType_Visually_Impaired: u32 = 2u32;
-pub const AudioType_Voiceover: u32 = 7u32;
-pub const Bda_DigitalStandard_ATSC: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(8i32);
-pub const Bda_DigitalStandard_DVB_C: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(4i32);
-pub const Bda_DigitalStandard_DVB_S: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(2i32);
-pub const Bda_DigitalStandard_DVB_T: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(1i32);
-pub const Bda_DigitalStandard_ISDB_C: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(64i32);
-pub const Bda_DigitalStandard_ISDB_S: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(32i32);
-pub const Bda_DigitalStandard_ISDB_T: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(16i32);
-pub const Bda_DigitalStandard_None: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(0i32);
-pub const Bda_LockType_Complete: BDA_LockType = BDA_LockType(128i32);
-pub const Bda_LockType_DecoderDemod: BDA_LockType = BDA_LockType(2i32);
-pub const Bda_LockType_None: BDA_LockType = BDA_LockType(0i32);
-pub const Bda_LockType_PLL: BDA_LockType = BDA_LockType(1i32);
-pub const Bda_SignalType_Analog: BDA_SignalType = BDA_SignalType(1i32);
-pub const Bda_SignalType_Digital: BDA_SignalType = BDA_SignalType(2i32);
-pub const Bda_SignalType_Unknown: BDA_SignalType = BDA_SignalType(0i32);
-pub const BfAttrNone: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(0i32);
-pub const BfIsAttr_1: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(2i32);
-pub const BfIsAttr_2: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(4i32);
-pub const BfIsAttr_3: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(8i32);
-pub const BfIsAttr_4: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(16i32);
-pub const BfIsAttr_5: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(32i32);
-pub const BfIsAttr_6: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(64i32);
-pub const BfIsAttr_7: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(128i32);
-pub const BfIsBlocked: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(1i32);
-pub const BfValidAttrSubmask: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(255i32);
-pub const CAE_IsBlocked: BfEnTvRat_Attributes_CAE_TV = BfEnTvRat_Attributes_CAE_TV(1i32);
-pub const CAE_TV_14: EnTvRat_CAE_TV = EnTvRat_CAE_TV(5i32);
-pub const CAE_TV_18: EnTvRat_CAE_TV = EnTvRat_CAE_TV(6i32);
-pub const CAE_TV_C: EnTvRat_CAE_TV = EnTvRat_CAE_TV(1i32);
-pub const CAE_TV_C8: EnTvRat_CAE_TV = EnTvRat_CAE_TV(2i32);
-pub const CAE_TV_Exempt: EnTvRat_CAE_TV = EnTvRat_CAE_TV(0i32);
-pub const CAE_TV_G: EnTvRat_CAE_TV = EnTvRat_CAE_TV(3i32);
-pub const CAE_TV_PG: EnTvRat_CAE_TV = EnTvRat_CAE_TV(4i32);
-pub const CAE_TV_Reserved: EnTvRat_CAE_TV = EnTvRat_CAE_TV(7i32);
-pub const CAE_ValidAttrSubmask: BfEnTvRat_Attributes_CAE_TV = BfEnTvRat_Attributes_CAE_TV(1i32);
-pub const CAF_IsBlocked: BfEnTvRat_Attributes_CAF_TV = BfEnTvRat_Attributes_CAF_TV(1i32);
-pub const CAF_TV_13: EnTvRat_CAF_TV = EnTvRat_CAF_TV(3i32);
-pub const CAF_TV_16: EnTvRat_CAF_TV = EnTvRat_CAF_TV(4i32);
-pub const CAF_TV_18: EnTvRat_CAF_TV = EnTvRat_CAF_TV(5i32);
-pub const CAF_TV_8: EnTvRat_CAF_TV = EnTvRat_CAF_TV(2i32);
-pub const CAF_TV_Exempt: EnTvRat_CAF_TV = EnTvRat_CAF_TV(0i32);
-pub const CAF_TV_G: EnTvRat_CAF_TV = EnTvRat_CAF_TV(1i32);
-pub const CAF_TV_Reserved: EnTvRat_CAF_TV = EnTvRat_CAF_TV(7i32);
-pub const CAF_TV_Reserved6: EnTvRat_CAF_TV = EnTvRat_CAF_TV(6i32);
-pub const CAF_ValidAttrSubmask: BfEnTvRat_Attributes_CAF_TV = BfEnTvRat_Attributes_CAF_TV(1i32);
-pub const CLSID_CPCAFiltersCategory: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4fc_0049_4e2b_98fb_9537f6ce516d);
-pub const CLSID_DTFilterEncProperties: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c482_0049_4e2b_98fb_9537f6ce516d);
-pub const CLSID_DTFilterTagProperties: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c492_0049_4e2b_98fb_9537f6ce516d);
-pub const CLSID_ETFilterEncProperties: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c481_0049_4e2b_98fb_9537f6ce516d);
-pub const CLSID_ETFilterTagProperties: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c491_0049_4e2b_98fb_9537f6ce516d);
-pub const CLSID_Mpeg2TableFilter: windows_core::GUID = windows_core::GUID::from_u128(0x752845f1_758f_4c83_a043_4270c593308e);
-pub const CLSID_PTFilter: windows_core::GUID = windows_core::GUID::from_u128(0x9cd31617_b303_4f96_8330_2eb173ea4dc6);
-pub const CLSID_XDSCodecProperties: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c483_0049_4e2b_98fb_9537f6ce516d);
-pub const CLSID_XDSCodecTagProperties: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c493_0049_4e2b_98fb_9537f6ce516d);
-pub const COMPONENT_TAG_CAPTION_MAX: u32 = 55u32;
-pub const COMPONENT_TAG_CAPTION_MIN: u32 = 48u32;
-pub const COMPONENT_TAG_SUPERIMPOSE_MAX: u32 = 63u32;
-pub const COMPONENT_TAG_SUPERIMPOSE_MIN: u32 = 56u32;
-pub const CONTENT: RecordingType = RecordingType(0i32);
-pub const COPP_Activate: COPPEventBlockReason = COPPEventBlockReason(8i32);
-pub const COPP_AeroGlassOff: COPPEventBlockReason = COPPEventBlockReason(5i32);
-pub const COPP_BadCertificate: COPPEventBlockReason = COPPEventBlockReason(3i32);
-pub const COPP_BadDriver: COPPEventBlockReason = COPPEventBlockReason(0i32);
-pub const COPP_DigitalAudioUnprotected: COPPEventBlockReason = COPPEventBlockReason(9i32);
-pub const COPP_ForbiddenVideo: COPPEventBlockReason = COPPEventBlockReason(7i32);
-pub const COPP_InvalidBusProtection: COPPEventBlockReason = COPPEventBlockReason(4i32);
-pub const COPP_NoCardHDCPSupport: COPPEventBlockReason = COPPEventBlockReason(1i32);
-pub const COPP_NoMonitorHDCPSupport: COPPEventBlockReason = COPPEventBlockReason(2i32);
-pub const COPP_RogueApp: COPPEventBlockReason = COPPEventBlockReason(6i32);
-pub const COPP_Unknown: COPPEventBlockReason = COPPEventBlockReason(-1i32);
-pub const CPEVENT_BITSHIFT_COPP: CPEventBitShift = CPEventBitShift(1i32);
-pub const CPEVENT_BITSHIFT_DOWNRES: CPEventBitShift = CPEventBitShift(5i32);
-pub const CPEVENT_BITSHIFT_LICENSE: CPEventBitShift = CPEventBitShift(2i32);
-pub const CPEVENT_BITSHIFT_NO_PLAYREADY: CPEventBitShift = CPEventBitShift(9i32);
-pub const CPEVENT_BITSHIFT_PENDING_CERTIFICATE: CPEventBitShift = CPEventBitShift(8i32);
-pub const CPEVENT_BITSHIFT_RATINGS: CPEventBitShift = CPEventBitShift(0i32);
-pub const CPEVENT_BITSHIFT_ROLLBACK: CPEventBitShift = CPEventBitShift(3i32);
-pub const CPEVENT_BITSHIFT_SAC: CPEventBitShift = CPEventBitShift(4i32);
-pub const CPEVENT_BITSHIFT_STUBLIB: CPEventBitShift = CPEventBitShift(6i32);
-pub const CPEVENT_BITSHIFT_UNTRUSTEDGRAPH: CPEventBitShift = CPEventBitShift(7i32);
-pub const CPEVENT_COPP: CPEvents = CPEvents(2i32);
-pub const CPEVENT_DOWNRES: CPEvents = CPEvents(6i32);
-pub const CPEVENT_LICENSE: CPEvents = CPEvents(3i32);
-pub const CPEVENT_NONE: CPEvents = CPEvents(0i32);
-pub const CPEVENT_PROTECTWINDOWED: CPEvents = CPEvents(9i32);
-pub const CPEVENT_RATINGS: CPEvents = CPEvents(1i32);
-pub const CPEVENT_ROLLBACK: CPEvents = CPEvents(4i32);
-pub const CPEVENT_SAC: CPEvents = CPEvents(5i32);
-pub const CPEVENT_STUBLIB: CPEvents = CPEvents(7i32);
-pub const CPEVENT_UNTRUSTEDGRAPH: CPEvents = CPEvents(8i32);
-pub const CRID_LOCATION_DVB_RESERVED1: CRID_LOCATION = CRID_LOCATION(2i32);
-pub const CRID_LOCATION_DVB_RESERVED2: CRID_LOCATION = CRID_LOCATION(3i32);
-pub const CRID_LOCATION_IN_CIT: CRID_LOCATION = CRID_LOCATION(1i32);
-pub const CRID_LOCATION_IN_DESCRIPTOR: CRID_LOCATION = CRID_LOCATION(0i32);
-pub const Canadian_English: EnTvRat_System = EnTvRat_System(2i32);
-pub const Canadian_French: EnTvRat_System = EnTvRat_System(3i32);
-pub const ChannelChangeSpanningEvent_End: ChannelChangeSpanningEvent_State = ChannelChangeSpanningEvent_State(2i32);
-pub const ChannelChangeSpanningEvent_Start: ChannelChangeSpanningEvent_State = ChannelChangeSpanningEvent_State(0i32);
-pub const ChannelTypeAudio: ChannelType = ChannelType(4i32);
-pub const ChannelTypeCaptions: ChannelType = ChannelType(32i32);
-pub const ChannelTypeData: ChannelType = ChannelType(128i32);
-pub const ChannelTypeNone: ChannelType = ChannelType(0i32);
-pub const ChannelTypeOther: ChannelType = ChannelType(1i32);
-pub const ChannelTypeSubtitles: ChannelType = ChannelType(16i32);
-pub const ChannelTypeSuperimpose: ChannelType = ChannelType(64i32);
-pub const ChannelTypeText: ChannelType = ChannelType(8i32);
-pub const ChannelTypeVideo: ChannelType = ChannelType(2i32);
-pub const DEF_MODE_PROFILE: CROSSBAR_DEFAULT_FLAGS = CROSSBAR_DEFAULT_FLAGS(1i32);
-pub const DEF_MODE_STREAMS: CROSSBAR_DEFAULT_FLAGS = CROSSBAR_DEFAULT_FLAGS(2i32);
-pub const DESC_LINKAGE_CA_REPLACEMENT: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(3i32);
-pub const DESC_LINKAGE_COMPLETE_NET_BOUQUET_SI: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(4i32);
-pub const DESC_LINKAGE_DATA: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(6i32);
-pub const DESC_LINKAGE_EPG: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(2i32);
-pub const DESC_LINKAGE_INFORMATION: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(1i32);
-pub const DESC_LINKAGE_REPLACEMENT: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(5i32);
-pub const DESC_LINKAGE_RESERVED0: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(0i32);
-pub const DESC_LINKAGE_RESERVED1: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(7i32);
-pub const DESC_LINKAGE_RESERVED2: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(255i32);
-pub const DESC_LINKAGE_USER: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(8i32);
-pub const DISPID_CHTUNER_ACTR_MINOR_CHANNEL: DISPID_TUNER = DISPID_TUNER(201i32);
-pub const DISPID_CHTUNER_ATVAC_CHANNEL: DISPID_TUNER = DISPID_TUNER(101i32);
-pub const DISPID_CHTUNER_ATVDC_CONTENT: DISPID_TUNER = DISPID_TUNER(102i32);
-pub const DISPID_CHTUNER_ATVDC_SYSTEM: DISPID_TUNER = DISPID_TUNER(101i32);
-pub const DISPID_CHTUNER_CIDTR_CHANNELID: DISPID_TUNER = DISPID_TUNER(101i32);
-pub const DISPID_CHTUNER_CTR_CHANNEL: DISPID_TUNER = DISPID_TUNER(101i32);
-pub const DISPID_CHTUNER_DCTR_MAJOR_CHANNEL: DISPID_TUNER = DISPID_TUNER(301i32);
-pub const DISPID_CHTUNER_DCTR_SRCID: DISPID_TUNER = DISPID_TUNER(302i32);
-pub const DISPID_DVBTUNER_DVBC_ATTRIBUTESVALID: DISPID_TUNER = DISPID_TUNER(101i32);
-pub const DISPID_DVBTUNER_DVBC_COMPONENTTYPE: DISPID_TUNER = DISPID_TUNER(104i32);
-pub const DISPID_DVBTUNER_DVBC_PID: DISPID_TUNER = DISPID_TUNER(102i32);
-pub const DISPID_DVBTUNER_DVBC_TAG: DISPID_TUNER = DISPID_TUNER(103i32);
-pub const DISPID_DVBTUNER_ONID: DISPID_TUNER = DISPID_TUNER(101i32);
-pub const DISPID_DVBTUNER_SID: DISPID_TUNER = DISPID_TUNER(103i32);
-pub const DISPID_DVBTUNER_TSID: DISPID_TUNER = DISPID_TUNER(102i32);
-pub const DISPID_MP2TUNERFACTORY_CREATETUNEREQUEST: DISPID_TUNER = DISPID_TUNER(1i32);
-pub const DISPID_MP2TUNER_PROGNO: DISPID_TUNER = DISPID_TUNER(102i32);
-pub const DISPID_MP2TUNER_TSID: DISPID_TUNER = DISPID_TUNER(101i32);
-pub const DISPID_TUNER_ATSCCT_FLAGS: DISPID_TUNER = DISPID_TUNER(300i32);
-pub const DISPID_TUNER_CT_CATEGORY: DISPID_TUNER = DISPID_TUNER(1i32);
-pub const DISPID_TUNER_CT_CLONE: DISPID_TUNER = DISPID_TUNER(9i32);
-pub const DISPID_TUNER_CT_MEDIAFORMATTYPE: DISPID_TUNER = DISPID_TUNER(6i32);
-pub const DISPID_TUNER_CT_MEDIAMAJORTYPE: DISPID_TUNER = DISPID_TUNER(2i32);
-pub const DISPID_TUNER_CT_MEDIASUBTYPE: DISPID_TUNER = DISPID_TUNER(4i32);
-pub const DISPID_TUNER_CT_MEDIATYPE: DISPID_TUNER = DISPID_TUNER(8i32);
-pub const DISPID_TUNER_CT__MEDIAFORMATTYPE: DISPID_TUNER = DISPID_TUNER(7i32);
-pub const DISPID_TUNER_CT__MEDIAMAJORTYPE: DISPID_TUNER = DISPID_TUNER(3i32);
-pub const DISPID_TUNER_CT__MEDIASUBTYPE: DISPID_TUNER = DISPID_TUNER(5i32);
-pub const DISPID_TUNER_C_ANALOG_AUDIO: DISPID_TUNER = DISPID_TUNER(201i32);
-pub const DISPID_TUNER_C_CLONE: DISPID_TUNER = DISPID_TUNER(5i32);
-pub const DISPID_TUNER_C_DESCRIPTION: DISPID_TUNER = DISPID_TUNER(4i32);
-pub const DISPID_TUNER_C_LANGID: DISPID_TUNER = DISPID_TUNER(3i32);
-pub const DISPID_TUNER_C_MP2_PCRPID: DISPID_TUNER = DISPID_TUNER(102i32);
-pub const DISPID_TUNER_C_MP2_PID: DISPID_TUNER = DISPID_TUNER(101i32);
-pub const DISPID_TUNER_C_MP2_PROGNO: DISPID_TUNER = DISPID_TUNER(103i32);
-pub const DISPID_TUNER_C_STATUS: DISPID_TUNER = DISPID_TUNER(2i32);
-pub const DISPID_TUNER_C_TYPE: DISPID_TUNER = DISPID_TUNER(1i32);
-pub const DISPID_TUNER_LCT_LANGID: DISPID_TUNER = DISPID_TUNER(100i32);
-pub const DISPID_TUNER_L_ANALOG_STANDARD: DISPID_TUNER = DISPID_TUNER(601i32);
-pub const DISPID_TUNER_L_ATSC_MP2_PROGNO: DISPID_TUNER = DISPID_TUNER(203i32);
-pub const DISPID_TUNER_L_ATSC_PHYS_CHANNEL: DISPID_TUNER = DISPID_TUNER(201i32);
-pub const DISPID_TUNER_L_ATSC_TSID: DISPID_TUNER = DISPID_TUNER(202i32);
-pub const DISPID_TUNER_L_CARRFREQ: DISPID_TUNER = DISPID_TUNER(1i32);
-pub const DISPID_TUNER_L_CLONE: DISPID_TUNER = DISPID_TUNER(8i32);
-pub const DISPID_TUNER_L_DTV_O_MAJOR_CHANNEL: DISPID_TUNER = DISPID_TUNER(701i32);
-pub const DISPID_TUNER_L_DVBS2_DISEQ_LNB_SOURCE: DISPID_TUNER = DISPID_TUNER(406i32);
-pub const DISPID_TUNER_L_DVBS2_PILOT: DISPID_TUNER = DISPID_TUNER(412i32);
-pub const DISPID_TUNER_L_DVBS2_ROLLOFF: DISPID_TUNER = DISPID_TUNER(411i32);
-pub const DISPID_TUNER_L_DVBS_AZIMUTH: DISPID_TUNER = DISPID_TUNER(404i32);
-pub const DISPID_TUNER_L_DVBS_ELEVATION: DISPID_TUNER = DISPID_TUNER(405i32);
-pub const DISPID_TUNER_L_DVBS_ORBITAL: DISPID_TUNER = DISPID_TUNER(403i32);
-pub const DISPID_TUNER_L_DVBS_POLARISATION: DISPID_TUNER = DISPID_TUNER(401i32);
-pub const DISPID_TUNER_L_DVBS_WEST: DISPID_TUNER = DISPID_TUNER(402i32);
-pub const DISPID_TUNER_L_DVBT2_PHYSICALLAYERPIPEID: DISPID_TUNER = DISPID_TUNER(351i32);
-pub const DISPID_TUNER_L_DVBT_BANDWIDTH: DISPID_TUNER = DISPID_TUNER(301i32);
-pub const DISPID_TUNER_L_DVBT_GUARDINTERVAL: DISPID_TUNER = DISPID_TUNER(304i32);
-pub const DISPID_TUNER_L_DVBT_HALPHA: DISPID_TUNER = DISPID_TUNER(305i32);
-pub const DISPID_TUNER_L_DVBT_INUSE: DISPID_TUNER = DISPID_TUNER(307i32);
-pub const DISPID_TUNER_L_DVBT_LPINNERFECMETHOD: DISPID_TUNER = DISPID_TUNER(302i32);
-pub const DISPID_TUNER_L_DVBT_LPINNERFECRATE: DISPID_TUNER = DISPID_TUNER(303i32);
-pub const DISPID_TUNER_L_DVBT_TRANSMISSIONMODE: DISPID_TUNER = DISPID_TUNER(306i32);
-pub const DISPID_TUNER_L_INNERFECMETHOD: DISPID_TUNER = DISPID_TUNER(2i32);
-pub const DISPID_TUNER_L_INNERFECRATE: DISPID_TUNER = DISPID_TUNER(3i32);
-pub const DISPID_TUNER_L_MOD: DISPID_TUNER = DISPID_TUNER(6i32);
-pub const DISPID_TUNER_L_OUTERFECMETHOD: DISPID_TUNER = DISPID_TUNER(4i32);
-pub const DISPID_TUNER_L_OUTERFECRATE: DISPID_TUNER = DISPID_TUNER(5i32);
-pub const DISPID_TUNER_L_SYMRATE: DISPID_TUNER = DISPID_TUNER(7i32);
-pub const DISPID_TUNER_MP2CT_TYPE: DISPID_TUNER = DISPID_TUNER(200i32);
-pub const DISPID_TUNER_TR_CLONE: DISPID_TUNER = DISPID_TUNER(3i32);
-pub const DISPID_TUNER_TR_COMPONENTS: DISPID_TUNER = DISPID_TUNER(2i32);
-pub const DISPID_TUNER_TR_LOCATOR: DISPID_TUNER = DISPID_TUNER(4i32);
-pub const DISPID_TUNER_TR_TUNINGSPACE: DISPID_TUNER = DISPID_TUNER(1i32);
-pub const DISPID_TUNER_TS_AR_COUNTRYCODE: DISPID_TUNER = DISPID_TUNER(104i32);
-pub const DISPID_TUNER_TS_AR_MAXFREQUENCY: DISPID_TUNER = DISPID_TUNER(102i32);
-pub const DISPID_TUNER_TS_AR_MINFREQUENCY: DISPID_TUNER = DISPID_TUNER(101i32);
-pub const DISPID_TUNER_TS_AR_STEP: DISPID_TUNER = DISPID_TUNER(103i32);
-pub const DISPID_TUNER_TS_ATSC_MAXMINORCHANNEL: DISPID_TUNER = DISPID_TUNER(202i32);
-pub const DISPID_TUNER_TS_ATSC_MAXPHYSCHANNEL: DISPID_TUNER = DISPID_TUNER(204i32);
-pub const DISPID_TUNER_TS_ATSC_MINMINORCHANNEL: DISPID_TUNER = DISPID_TUNER(201i32);
-pub const DISPID_TUNER_TS_ATSC_MINPHYSCHANNEL: DISPID_TUNER = DISPID_TUNER(203i32);
-pub const DISPID_TUNER_TS_ATV_COUNTRYCODE: DISPID_TUNER = DISPID_TUNER(104i32);
-pub const DISPID_TUNER_TS_ATV_INPUTTYPE: DISPID_TUNER = DISPID_TUNER(103i32);
-pub const DISPID_TUNER_TS_ATV_MAXCHANNEL: DISPID_TUNER = DISPID_TUNER(102i32);
-pub const DISPID_TUNER_TS_ATV_MINCHANNEL: DISPID_TUNER = DISPID_TUNER(101i32);
-pub const DISPID_TUNER_TS_AUX_COUNTRYCODE: DISPID_TUNER = DISPID_TUNER(101i32);
-pub const DISPID_TUNER_TS_CLONE: DISPID_TUNER = DISPID_TUNER(12i32);
-pub const DISPID_TUNER_TS_CLSID: DISPID_TUNER = DISPID_TUNER(3i32);
-pub const DISPID_TUNER_TS_CREATETUNEREQUEST: DISPID_TUNER = DISPID_TUNER(6i32);
-pub const DISPID_TUNER_TS_DC_MAXMAJORCHANNEL: DISPID_TUNER = DISPID_TUNER(302i32);
-pub const DISPID_TUNER_TS_DC_MAXSOURCEID: DISPID_TUNER = DISPID_TUNER(304i32);
-pub const DISPID_TUNER_TS_DC_MINMAJORCHANNEL: DISPID_TUNER = DISPID_TUNER(301i32);
-pub const DISPID_TUNER_TS_DC_MINSOURCEID: DISPID_TUNER = DISPID_TUNER(303i32);
-pub const DISPID_TUNER_TS_DEFAULTPREFERREDCOMPONENTTYPES: DISPID_TUNER = DISPID_TUNER(9i32);
-pub const DISPID_TUNER_TS_DEFLOCATOR: DISPID_TUNER = DISPID_TUNER(11i32);
-pub const DISPID_TUNER_TS_DVB2_NETWORK_ID: DISPID_TUNER = DISPID_TUNER(102i32);
-pub const DISPID_TUNER_TS_DVBS2_HI_OSC_FREQ_OVERRIDE: DISPID_TUNER = DISPID_TUNER(408i32);
-pub const DISPID_TUNER_TS_DVBS2_LNB_SWITCH_FREQ_OVERRIDE: DISPID_TUNER = DISPID_TUNER(409i32);
-pub const DISPID_TUNER_TS_DVBS2_LOW_OSC_FREQ_OVERRIDE: DISPID_TUNER = DISPID_TUNER(407i32);
-pub const DISPID_TUNER_TS_DVBS2_SPECTRAL_INVERSION_OVERRIDE: DISPID_TUNER = DISPID_TUNER(410i32);
-pub const DISPID_TUNER_TS_DVBS_HI_OSC_FREQ: DISPID_TUNER = DISPID_TUNER(1002i32);
-pub const DISPID_TUNER_TS_DVBS_INPUT_RANGE: DISPID_TUNER = DISPID_TUNER(1004i32);
-pub const DISPID_TUNER_TS_DVBS_LNB_SWITCH_FREQ: DISPID_TUNER = DISPID_TUNER(1003i32);
-pub const DISPID_TUNER_TS_DVBS_LOW_OSC_FREQ: DISPID_TUNER = DISPID_TUNER(1001i32);
-pub const DISPID_TUNER_TS_DVBS_SPECTRAL_INVERSION: DISPID_TUNER = DISPID_TUNER(1005i32);
-pub const DISPID_TUNER_TS_DVB_SYSTEMTYPE: DISPID_TUNER = DISPID_TUNER(101i32);
-pub const DISPID_TUNER_TS_ENUMCATEGORYGUIDS: DISPID_TUNER = DISPID_TUNER(7i32);
-pub const DISPID_TUNER_TS_ENUMDEVICEMONIKERS: DISPID_TUNER = DISPID_TUNER(8i32);
-pub const DISPID_TUNER_TS_FREQMAP: DISPID_TUNER = DISPID_TUNER(10i32);
-pub const DISPID_TUNER_TS_FRIENDLYNAME: DISPID_TUNER = DISPID_TUNER(2i32);
-pub const DISPID_TUNER_TS_NETWORKTYPE: DISPID_TUNER = DISPID_TUNER(4i32);
-pub const DISPID_TUNER_TS_UNIQUENAME: DISPID_TUNER = DISPID_TUNER(1i32);
-pub const DISPID_TUNER_TS__NETWORKTYPE: DISPID_TUNER = DISPID_TUNER(5i32);
-pub const DOWNRES_Always: DownResEventParam = DownResEventParam(0i32);
-pub const DOWNRES_InWindowOnly: DownResEventParam = DownResEventParam(1i32);
-pub const DOWNRES_Undefined: DownResEventParam = DownResEventParam(2i32);
-pub const DSATTRIB_BadSampleInfo: windows_core::GUID = windows_core::GUID::from_u128(0xe4846dda_5838_42b4_b897_6f7e5faa2f2f);
-pub const DSATTRIB_WMDRMProtectionInfo: windows_core::GUID = windows_core::GUID::from_u128(0x40749583_6b9d_4eec_b43c_67a1801e1a9b);
-pub const DTV_CardStatus_Error: u32 = 2u32;
-pub const DTV_CardStatus_FirmwareDownload: u32 = 3u32;
-pub const DTV_CardStatus_Inserted: u32 = 0u32;
-pub const DTV_CardStatus_Removed: u32 = 1u32;
-pub const DTV_Entitlement_CanDecrypt: u32 = 0u32;
-pub const DTV_Entitlement_NotEntitled: u32 = 1u32;
-pub const DTV_Entitlement_TechnicalFailure: u32 = 2u32;
-pub const DTV_MMIMessage_Close: u32 = 1u32;
-pub const DTV_MMIMessage_Open: u32 = 0u32;
-pub const DVBS_SCAN_TABLE_MAX_SIZE: u32 = 400u32;
-pub const DVB_BAT_PID: u32 = 17u32;
-pub const DVB_BAT_TID: u32 = 74u32;
-pub const DVB_DIT_PID: u32 = 30u32;
-pub const DVB_DIT_TID: u32 = 126u32;
-pub const DVB_EIT_ACTUAL_TID: u32 = 78u32;
-pub const DVB_EIT_OTHER_TID: u32 = 79u32;
-pub const DVB_EIT_PID: u32 = 18u32;
-pub const DVB_NIT_ACTUAL_TID: u32 = 64u32;
-pub const DVB_NIT_OTHER_TID: u32 = 65u32;
-pub const DVB_NIT_PID: u32 = 16u32;
-pub const DVB_RST_PID: u32 = 19u32;
-pub const DVB_RST_TID: u32 = 113u32;
-pub const DVB_SDT_ACTUAL_TID: u32 = 66u32;
-pub const DVB_SDT_OTHER_TID: u32 = 70u32;
-pub const DVB_SDT_PID: u32 = 17u32;
-pub const DVB_SIT_PID: u32 = 31u32;
-pub const DVB_SIT_TID: u32 = 127u32;
-pub const DVB_ST_PID_16: u32 = 16u32;
-pub const DVB_ST_PID_17: u32 = 17u32;
-pub const DVB_ST_PID_18: u32 = 18u32;
-pub const DVB_ST_PID_19: u32 = 19u32;
-pub const DVB_ST_PID_20: u32 = 20u32;
-pub const DVB_ST_TID: u32 = 114u32;
-pub const DVB_TDT_PID: u32 = 20u32;
-pub const DVB_TDT_TID: u32 = 112u32;
-pub const DVB_TOT_PID: u32 = 20u32;
-pub const DVB_TOT_TID: u32 = 115u32;
-pub const ENCDEC_CPEVENT: EncDecEvents = EncDecEvents(0i32);
-pub const ENCDEC_RECORDING_STATUS: EncDecEvents = EncDecEvents(1i32);
-pub const EVENTID_DTFilterCOPPBlock: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4ea_0049_4e2b_98fb_9537f6ce516d);
-pub const EVENTID_DTFilterCOPPUnblock: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4e8_0049_4e2b_98fb_9537f6ce516d);
-pub const EVENTID_DTFilterDataFormatFailure: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4ed_0049_4e2b_98fb_9537f6ce516d);
-pub const EVENTID_DTFilterDataFormatOK: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4ec_0049_4e2b_98fb_9537f6ce516d);
-pub const EVENTID_DTFilterRatingChange: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4e2_0049_4e2b_98fb_9537f6ce516d);
-pub const EVENTID_DTFilterRatingsBlock: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4e3_0049_4e2b_98fb_9537f6ce516d);
-pub const EVENTID_DTFilterRatingsUnblock: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4e4_0049_4e2b_98fb_9537f6ce516d);
-pub const EVENTID_DTFilterXDSPacket: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4e5_0049_4e2b_98fb_9537f6ce516d);
-pub const EVENTID_DemultiplexerFilterDiscontinuity: windows_core::GUID = windows_core::GUID::from_u128(0x16155770_aed5_475c_bb98_95a33070df0c);
-pub const EVENTID_ETDTFilterLicenseFailure: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4ef_0049_4e2b_98fb_9537f6ce516d);
-pub const EVENTID_ETDTFilterLicenseOK: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4ee_0049_4e2b_98fb_9537f6ce516d);
-pub const EVENTID_ETFilterCopyNever: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4f0_0049_4e2b_98fb_9537f6ce516d);
-pub const EVENTID_ETFilterCopyOnce: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4eb_0049_4e2b_98fb_9537f6ce516d);
-pub const EVENTID_ETFilterEncryptionOff: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4e7_0049_4e2b_98fb_9537f6ce516d);
-pub const EVENTID_ETFilterEncryptionOn: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4e6_0049_4e2b_98fb_9537f6ce516d);
-pub const EVENTID_EncDecFilterError: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4e9_0049_4e2b_98fb_9537f6ce516d);
-pub const EVENTID_EncDecFilterEvent: windows_core::GUID = windows_core::GUID::from_u128(0x4a1b465b_0fb9_4159_afbd_e33006a0f9f4);
-pub const EVENTID_FormatNotSupportedEvent: windows_core::GUID = windows_core::GUID::from_u128(0x24b2280a_b2aa_4777_bf65_63f35e7b024a);
-pub const EVENTID_SBE2RecControlStarted: windows_core::GUID = windows_core::GUID::from_u128(0x8966a89e_f83e_4c0e_bc3b_bfa7649e04cb);
-pub const EVENTID_SBE2RecControlStopped: windows_core::GUID = windows_core::GUID::from_u128(0x454b1ec8_0c9b_4caa_b1a1_1e7a2666f6c3);
-pub const EVENTID_XDSCodecDuplicateXDSRating: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4df_0049_4e2b_98fb_9537f6ce516d);
-pub const EVENTID_XDSCodecNewXDSPacket: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4e1_0049_4e2b_98fb_9537f6ce516d);
-pub const EVENTID_XDSCodecNewXDSRating: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4e0_0049_4e2b_98fb_9537f6ce516d);
-pub const EnTag_Once: EnTag_Mode = EnTag_Mode(1i32);
-pub const EnTag_Remove: EnTag_Mode = EnTag_Mode(0i32);
-pub const EnTag_Repeat: EnTag_Mode = EnTag_Mode(2i32);
-pub const FORMATNOTSUPPORTED_CLEAR: FormatNotSupportedEvents = FormatNotSupportedEvents(0i32);
-pub const FORMATNOTSUPPORTED_NOTSUPPORTED: FormatNotSupportedEvents = FormatNotSupportedEvents(1i32);
-pub const FORMATTYPE_CPFilters_Processed: windows_core::GUID = windows_core::GUID::from_u128(0x6739b36f_1d5f_4ac2_8192_28bb0e73d16a);
-pub const FORMATTYPE_ETDTFilter_Tagged: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4d1_0049_4e2b_98fb_9537f6ce516d);
-pub const FrameMode: PositionModeList = PositionModeList(0i32);
-pub const ISDB_BIT_PID: u32 = 36u32;
-pub const ISDB_BIT_TID: u32 = 196u32;
-pub const ISDB_CDT_PID: u32 = 41u32;
-pub const ISDB_CDT_TID: u32 = 200u32;
-pub const ISDB_EMM_TID: u32 = 133u32;
-pub const ISDB_LDT_PID: u32 = 37u32;
-pub const ISDB_LDT_TID: u32 = 199u32;
-pub const ISDB_NBIT_MSG_TID: u32 = 197u32;
-pub const ISDB_NBIT_PID: u32 = 37u32;
-pub const ISDB_NBIT_REF_TID: u32 = 198u32;
-pub const ISDB_SDTT_ALT_PID: u32 = 40u32;
-pub const ISDB_SDTT_PID: u32 = 35u32;
-pub const ISDB_SDTT_TID: u32 = 195u32;
-pub const ISDB_ST_TID: u32 = 114u32;
-pub const KSEVENT_BDA_CA_MODULE_STATUS_CHANGED: KSPROPERTY_BDA_CA_EVENT = KSPROPERTY_BDA_CA_EVENT(1i32);
-pub const KSEVENT_BDA_CA_MODULE_UI_REQUESTED: KSPROPERTY_BDA_CA_EVENT = KSPROPERTY_BDA_CA_EVENT(3i32);
-pub const KSEVENT_BDA_CA_SMART_CARD_STATUS_CHANGED: KSPROPERTY_BDA_CA_EVENT = KSPROPERTY_BDA_CA_EVENT(2i32);
-pub const KSEVENT_BDA_DISEQC_DATA_RECEIVED: KSPROPERTY_BDA_DISEQC_EVENT = KSPROPERTY_BDA_DISEQC_EVENT(0i32);
-pub const KSEVENT_BDA_EVENT_PENDINGEVENT: KSEVENT_BDA_EVENT_TYPE = KSEVENT_BDA_EVENT_TYPE(0i32);
-pub const KSEVENT_BDA_PIN_CONNECTED: KSPROPERTY_BDA_PIN_EVENT = KSPROPERTY_BDA_PIN_EVENT(0i32);
-pub const KSEVENT_BDA_PIN_DISCONNECTED: KSPROPERTY_BDA_PIN_EVENT = KSPROPERTY_BDA_PIN_EVENT(1i32);
-pub const KSEVENT_BDA_PROGRAM_FLOW_STATUS_CHANGED: KSPROPERTY_BDA_CA_EVENT = KSPROPERTY_BDA_CA_EVENT(0i32);
-pub const KSEVENT_BDA_TUNER_SCAN: KSEVENT_BDA_TUNER = KSEVENT_BDA_TUNER(0i32);
-pub const KSMETHOD_BDA_CAS_CHECKENTITLEMENTTOKEN: KSMETHOD_BDA_CAS_SERVICE = KSMETHOD_BDA_CAS_SERVICE(0i32);
-pub const KSMETHOD_BDA_CAS_CLOSEMMIDIALOG: KSMETHOD_BDA_CAS_SERVICE = KSMETHOD_BDA_CAS_SERVICE(3i32);
-pub const KSMETHOD_BDA_CAS_OPENBROADCASTMMI: KSMETHOD_BDA_CAS_SERVICE = KSMETHOD_BDA_CAS_SERVICE(2i32);
-pub const KSMETHOD_BDA_CAS_SETCAPTURETOKEN: KSMETHOD_BDA_CAS_SERVICE = KSMETHOD_BDA_CAS_SERVICE(1i32);
-pub const KSMETHOD_BDA_CHECK_CHANGES: KSMETHOD_BDA_CHANGE_SYNC = KSMETHOD_BDA_CHANGE_SYNC(1i32);
-pub const KSMETHOD_BDA_COMMIT_CHANGES: KSMETHOD_BDA_CHANGE_SYNC = KSMETHOD_BDA_CHANGE_SYNC(2i32);
-pub const KSMETHOD_BDA_CREATE_PIN_FACTORY: KSMETHOD_BDA_DEVICE_CONFIGURATION = KSMETHOD_BDA_DEVICE_CONFIGURATION(0i32);
-pub const KSMETHOD_BDA_CREATE_TOPOLOGY: KSMETHOD_BDA_DEVICE_CONFIGURATION = KSMETHOD_BDA_DEVICE_CONFIGURATION(2i32);
-pub const KSMETHOD_BDA_DEBUG_DATA: KSMETHOD_BDA_DEBUG_SERVICE = KSMETHOD_BDA_DEBUG_SERVICE(1i32);
-pub const KSMETHOD_BDA_DEBUG_LEVEL: KSMETHOD_BDA_DEBUG_SERVICE = KSMETHOD_BDA_DEBUG_SERVICE(0i32);
-pub const KSMETHOD_BDA_DELETE_PIN_FACTORY: KSMETHOD_BDA_DEVICE_CONFIGURATION = KSMETHOD_BDA_DEVICE_CONFIGURATION(1i32);
-pub const KSMETHOD_BDA_DRM_CURRENT: KSMETHOD_BDA_DRM = KSMETHOD_BDA_DRM(0i32);
-pub const KSMETHOD_BDA_DRM_DRMSTATUS: KSMETHOD_BDA_DRM = KSMETHOD_BDA_DRM(1i32);
-pub const KSMETHOD_BDA_EVENT_COMPLETE: KSMETHOD_BDA_EVENTING_SERVICE = KSMETHOD_BDA_EVENTING_SERVICE(1i32);
-pub const KSMETHOD_BDA_EVENT_DATA: KSMETHOD_BDA_EVENTING_SERVICE = KSMETHOD_BDA_EVENTING_SERVICE(0i32);
-pub const KSMETHOD_BDA_GDDS_DATA: KSMETHOD_BDA_GDDS_SERVICE = KSMETHOD_BDA_GDDS_SERVICE(1i32);
-pub const KSMETHOD_BDA_GDDS_DATATYPE: KSMETHOD_BDA_GDDS_SERVICE = KSMETHOD_BDA_GDDS_SERVICE(0i32);
-pub const KSMETHOD_BDA_GDDS_DATAUPDATE: KSMETHOD_BDA_GDDS_SERVICE = KSMETHOD_BDA_GDDS_SERVICE(5i32);
-pub const KSMETHOD_BDA_GDDS_GETSERVICES: KSMETHOD_BDA_GDDS_SERVICE = KSMETHOD_BDA_GDDS_SERVICE(3i32);
-pub const KSMETHOD_BDA_GDDS_SERVICEFROMTUNEXML: KSMETHOD_BDA_GDDS_SERVICE = KSMETHOD_BDA_GDDS_SERVICE(4i32);
-pub const KSMETHOD_BDA_GDDS_TUNEXMLFROMIDX: KSMETHOD_BDA_GDDS_SERVICE = KSMETHOD_BDA_GDDS_SERVICE(2i32);
-pub const KSMETHOD_BDA_GET_CHANGE_STATE: KSMETHOD_BDA_CHANGE_SYNC = KSMETHOD_BDA_CHANGE_SYNC(3i32);
-pub const KSMETHOD_BDA_GPNV_GETVALUE: KSMETHOD_BDA_GPNV_SERVICE = KSMETHOD_BDA_GPNV_SERVICE(0i32);
-pub const KSMETHOD_BDA_GPNV_GETVALUEUPDATENAME: KSMETHOD_BDA_GPNV_SERVICE = KSMETHOD_BDA_GPNV_SERVICE(3i32);
-pub const KSMETHOD_BDA_GPNV_NAMEFROMINDEX: KSMETHOD_BDA_GPNV_SERVICE = KSMETHOD_BDA_GPNV_SERVICE(2i32);
-pub const KSMETHOD_BDA_GPNV_SETVALUE: KSMETHOD_BDA_GPNV_SERVICE = KSMETHOD_BDA_GPNV_SERVICE(1i32);
-pub const KSMETHOD_BDA_ISDBCAS_RESPONSEDATA: KSMETHOD_BDA_ISDB_CAS = KSMETHOD_BDA_ISDB_CAS(1i32);
-pub const KSMETHOD_BDA_ISDBCAS_SETREQUEST: KSMETHOD_BDA_ISDB_CAS = KSMETHOD_BDA_ISDB_CAS(0i32);
-pub const KSMETHOD_BDA_MUX_GETPIDLIST: KSMETHOD_BDA_MUX_SERVICE = KSMETHOD_BDA_MUX_SERVICE(0i32);
-pub const KSMETHOD_BDA_MUX_SETPIDLIST: KSMETHOD_BDA_MUX_SERVICE = KSMETHOD_BDA_MUX_SERVICE(1i32);
-pub const KSMETHOD_BDA_SCANNING_STATE: KSMETHOD_BDA_SCAN_SERVICE = KSMETHOD_BDA_SCAN_SERVICE(1i32);
-pub const KSMETHOD_BDA_SCAN_CAPABILTIES: KSMETHOD_BDA_SCAN_SERVICE = KSMETHOD_BDA_SCAN_SERVICE(0i32);
-pub const KSMETHOD_BDA_SCAN_FILTER: KSMETHOD_BDA_SCAN_SERVICE = KSMETHOD_BDA_SCAN_SERVICE(2i32);
-pub const KSMETHOD_BDA_SCAN_RESUME: KSMETHOD_BDA_SCAN_SERVICE = KSMETHOD_BDA_SCAN_SERVICE(4i32);
-pub const KSMETHOD_BDA_SCAN_START: KSMETHOD_BDA_SCAN_SERVICE = KSMETHOD_BDA_SCAN_SERVICE(3i32);
-pub const KSMETHOD_BDA_SCAN_STOP: KSMETHOD_BDA_SCAN_SERVICE = KSMETHOD_BDA_SCAN_SERVICE(5i32);
-pub const KSMETHOD_BDA_START_CHANGES: KSMETHOD_BDA_CHANGE_SYNC = KSMETHOD_BDA_CHANGE_SYNC(0i32);
-pub const KSMETHOD_BDA_TS_SELECTOR_GETTSINFORMATION: KSMETHOD_BDA_TS_SELECTOR = KSMETHOD_BDA_TS_SELECTOR(1i32);
-pub const KSMETHOD_BDA_TS_SELECTOR_SETTSID: KSMETHOD_BDA_TS_SELECTOR = KSMETHOD_BDA_TS_SELECTOR(0i32);
-pub const KSMETHOD_BDA_TUNER_GETTUNERSTATE: KSMETHOD_BDA_TUNER_SERVICE = KSMETHOD_BDA_TUNER_SERVICE(1i32);
-pub const KSMETHOD_BDA_TUNER_SETTUNER: KSMETHOD_BDA_TUNER_SERVICE = KSMETHOD_BDA_TUNER_SERVICE(0i32);
-pub const KSMETHOD_BDA_TUNER_SIGNALNOISERATIO: KSMETHOD_BDA_TUNER_SERVICE = KSMETHOD_BDA_TUNER_SERVICE(2i32);
-pub const KSMETHOD_BDA_USERACTIVITY_DETECTED: KSMETHOD_BDA_USERACTIVITY_SERVICE = KSMETHOD_BDA_USERACTIVITY_SERVICE(2i32);
-pub const KSMETHOD_BDA_USERACTIVITY_INTERVAL: KSMETHOD_BDA_USERACTIVITY_SERVICE = KSMETHOD_BDA_USERACTIVITY_SERVICE(1i32);
-pub const KSMETHOD_BDA_USERACTIVITY_USEREASON: KSMETHOD_BDA_USERACTIVITY_SERVICE = KSMETHOD_BDA_USERACTIVITY_SERVICE(0i32);
-pub const KSMETHOD_BDA_WMDRMTUNER_CANCELCAPTURETOKEN: KSMETHOD_BDA_WMDRM_TUNER = KSMETHOD_BDA_WMDRM_TUNER(0i32);
-pub const KSMETHOD_BDA_WMDRMTUNER_GETPIDPROTECTION: KSMETHOD_BDA_WMDRM_TUNER = KSMETHOD_BDA_WMDRM_TUNER(2i32);
-pub const KSMETHOD_BDA_WMDRMTUNER_PURCHASE_ENTITLEMENT: KSMETHOD_BDA_WMDRM_TUNER = KSMETHOD_BDA_WMDRM_TUNER(5i32);
-pub const KSMETHOD_BDA_WMDRMTUNER_SETPIDPROTECTION: KSMETHOD_BDA_WMDRM_TUNER = KSMETHOD_BDA_WMDRM_TUNER(1i32);
-pub const KSMETHOD_BDA_WMDRMTUNER_SETSYNCVALUE: KSMETHOD_BDA_WMDRM_TUNER = KSMETHOD_BDA_WMDRM_TUNER(3i32);
-pub const KSMETHOD_BDA_WMDRMTUNER_STARTCODEPROFILE: KSMETHOD_BDA_WMDRM_TUNER = KSMETHOD_BDA_WMDRM_TUNER(4i32);
-pub const KSMETHOD_BDA_WMDRM_CRL: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(2i32);
-pub const KSMETHOD_BDA_WMDRM_KEYINFO: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(7i32);
-pub const KSMETHOD_BDA_WMDRM_LICENSE: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(6i32);
-pub const KSMETHOD_BDA_WMDRM_MESSAGE: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(3i32);
-pub const KSMETHOD_BDA_WMDRM_REISSUELICENSE: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(4i32);
-pub const KSMETHOD_BDA_WMDRM_RENEWLICENSE: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(5i32);
-pub const KSMETHOD_BDA_WMDRM_REVINFO: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(1i32);
-pub const KSMETHOD_BDA_WMDRM_STATUS: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(0i32);
-pub const KSPROPERTY_BDA_AUTODEMODULATE_START: KSPROPERTY_BDA_AUTODEMODULATE = KSPROPERTY_BDA_AUTODEMODULATE(0i32);
-pub const KSPROPERTY_BDA_AUTODEMODULATE_STOP: KSPROPERTY_BDA_AUTODEMODULATE = KSPROPERTY_BDA_AUTODEMODULATE(1i32);
-pub const KSPROPERTY_BDA_CA_MODULE_STATUS: KSPROPERTY_BDA_CA = KSPROPERTY_BDA_CA(1i32);
-pub const KSPROPERTY_BDA_CA_MODULE_UI: KSPROPERTY_BDA_CA = KSPROPERTY_BDA_CA(3i32);
-pub const KSPROPERTY_BDA_CA_REMOVE_PROGRAM: KSPROPERTY_BDA_CA = KSPROPERTY_BDA_CA(5i32);
-pub const KSPROPERTY_BDA_CA_SET_PROGRAM_PIDS: KSPROPERTY_BDA_CA = KSPROPERTY_BDA_CA(4i32);
-pub const KSPROPERTY_BDA_CA_SMART_CARD_STATUS: KSPROPERTY_BDA_CA = KSPROPERTY_BDA_CA(2i32);
-pub const KSPROPERTY_BDA_CONTROLLING_PIN_ID: KSPROPERTY_BDA_TOPOLOGY = KSPROPERTY_BDA_TOPOLOGY(6i32);
-pub const KSPROPERTY_BDA_DISEQC_ENABLE: KSPROPERTY_BDA_DISEQC_COMMAND = KSPROPERTY_BDA_DISEQC_COMMAND(0i32);
-pub const KSPROPERTY_BDA_DISEQC_LNB_SOURCE: KSPROPERTY_BDA_DISEQC_COMMAND = KSPROPERTY_BDA_DISEQC_COMMAND(1i32);
-pub const KSPROPERTY_BDA_DISEQC_REPEATS: KSPROPERTY_BDA_DISEQC_COMMAND = KSPROPERTY_BDA_DISEQC_COMMAND(3i32);
-pub const KSPROPERTY_BDA_DISEQC_RESPONSE: KSPROPERTY_BDA_DISEQC_COMMAND = KSPROPERTY_BDA_DISEQC_COMMAND(5i32);
-pub const KSPROPERTY_BDA_DISEQC_SEND: KSPROPERTY_BDA_DISEQC_COMMAND = KSPROPERTY_BDA_DISEQC_COMMAND(4i32);
-pub const KSPROPERTY_BDA_DISEQC_USETONEBURST: KSPROPERTY_BDA_DISEQC_COMMAND = KSPROPERTY_BDA_DISEQC_COMMAND(2i32);
-pub const KSPROPERTY_BDA_ECM_MAP_STATUS: KSPROPERTY_BDA_CA = KSPROPERTY_BDA_CA(0i32);
-pub const KSPROPERTY_BDA_ETHERNET_FILTER_MULTICAST_LIST: KSPROPERTY_BDA_ETHERNET_FILTER = KSPROPERTY_BDA_ETHERNET_FILTER(1i32);
-pub const KSPROPERTY_BDA_ETHERNET_FILTER_MULTICAST_LIST_SIZE: KSPROPERTY_BDA_ETHERNET_FILTER = KSPROPERTY_BDA_ETHERNET_FILTER(0i32);
-pub const KSPROPERTY_BDA_ETHERNET_FILTER_MULTICAST_MODE: KSPROPERTY_BDA_ETHERNET_FILTER = KSPROPERTY_BDA_ETHERNET_FILTER(2i32);
-pub const KSPROPERTY_BDA_GUARD_INTERVAL: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(7i32);
-pub const KSPROPERTY_BDA_INNER_FEC_RATE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(2i32);
-pub const KSPROPERTY_BDA_INNER_FEC_TYPE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(1i32);
-pub const KSPROPERTY_BDA_IPv4_FILTER_MULTICAST_LIST: KSPROPERTY_BDA_IPv4_FILTER = KSPROPERTY_BDA_IPv4_FILTER(1i32);
-pub const KSPROPERTY_BDA_IPv4_FILTER_MULTICAST_LIST_SIZE: KSPROPERTY_BDA_IPv4_FILTER = KSPROPERTY_BDA_IPv4_FILTER(0i32);
-pub const KSPROPERTY_BDA_IPv4_FILTER_MULTICAST_MODE: KSPROPERTY_BDA_IPv4_FILTER = KSPROPERTY_BDA_IPv4_FILTER(2i32);
-pub const KSPROPERTY_BDA_IPv6_FILTER_MULTICAST_LIST: KSPROPERTY_BDA_IPv6_FILTER = KSPROPERTY_BDA_IPv6_FILTER(1i32);
-pub const KSPROPERTY_BDA_IPv6_FILTER_MULTICAST_LIST_SIZE: KSPROPERTY_BDA_IPv6_FILTER = KSPROPERTY_BDA_IPv6_FILTER(0i32);
-pub const KSPROPERTY_BDA_IPv6_FILTER_MULTICAST_MODE: KSPROPERTY_BDA_IPv6_FILTER = KSPROPERTY_BDA_IPv6_FILTER(2i32);
-pub const KSPROPERTY_BDA_LNB_LOF_HIGH_BAND: KSPROPERTY_BDA_LNB_INFO = KSPROPERTY_BDA_LNB_INFO(1i32);
-pub const KSPROPERTY_BDA_LNB_LOF_LOW_BAND: KSPROPERTY_BDA_LNB_INFO = KSPROPERTY_BDA_LNB_INFO(0i32);
-pub const KSPROPERTY_BDA_LNB_SWITCH_FREQUENCY: KSPROPERTY_BDA_LNB_INFO = KSPROPERTY_BDA_LNB_INFO(2i32);
-pub const KSPROPERTY_BDA_MODULATION_TYPE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(0i32);
-pub const KSPROPERTY_BDA_NODE_DESCRIPTORS: KSPROPERTY_BDA_TOPOLOGY = KSPROPERTY_BDA_TOPOLOGY(7i32);
-pub const KSPROPERTY_BDA_NODE_EVENTS: KSPROPERTY_BDA_TOPOLOGY = KSPROPERTY_BDA_TOPOLOGY(5i32);
-pub const KSPROPERTY_BDA_NODE_METHODS: KSPROPERTY_BDA_TOPOLOGY = KSPROPERTY_BDA_TOPOLOGY(3i32);
-pub const KSPROPERTY_BDA_NODE_PROPERTIES: KSPROPERTY_BDA_TOPOLOGY = KSPROPERTY_BDA_TOPOLOGY(4i32);
-pub const KSPROPERTY_BDA_NODE_TYPES: KSPROPERTY_BDA_TOPOLOGY = KSPROPERTY_BDA_TOPOLOGY(0i32);
-pub const KSPROPERTY_BDA_NULL_TRANSFORM_START: KSPROPERTY_BDA_NULL_TRANSFORM = KSPROPERTY_BDA_NULL_TRANSFORM(0i32);
-pub const KSPROPERTY_BDA_NULL_TRANSFORM_STOP: KSPROPERTY_BDA_NULL_TRANSFORM = KSPROPERTY_BDA_NULL_TRANSFORM(1i32);
-pub const KSPROPERTY_BDA_OUTER_FEC_RATE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(4i32);
-pub const KSPROPERTY_BDA_OUTER_FEC_TYPE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(3i32);
-pub const KSPROPERTY_BDA_PIDFILTER_LIST_PIDS: KSPROPERTY_BDA_PIDFILTER = KSPROPERTY_BDA_PIDFILTER(2i32);
-pub const KSPROPERTY_BDA_PIDFILTER_MAP_PIDS: KSPROPERTY_BDA_PIDFILTER = KSPROPERTY_BDA_PIDFILTER(0i32);
-pub const KSPROPERTY_BDA_PIDFILTER_UNMAP_PIDS: KSPROPERTY_BDA_PIDFILTER = KSPROPERTY_BDA_PIDFILTER(1i32);
-pub const KSPROPERTY_BDA_PILOT: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(10i32);
-pub const KSPROPERTY_BDA_PIN_ID: KSPROPERTY_BDA_PIN_CONTROL = KSPROPERTY_BDA_PIN_CONTROL(0i32);
-pub const KSPROPERTY_BDA_PIN_TYPE: KSPROPERTY_BDA_PIN_CONTROL = KSPROPERTY_BDA_PIN_CONTROL(1i32);
-pub const KSPROPERTY_BDA_PIN_TYPES: KSPROPERTY_BDA_TOPOLOGY = KSPROPERTY_BDA_TOPOLOGY(1i32);
-pub const KSPROPERTY_BDA_PLP_NUMBER: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(12i32);
-pub const KSPROPERTY_BDA_RF_TUNER_BANDWIDTH: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(4i32);
-pub const KSPROPERTY_BDA_RF_TUNER_CAPS: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(6i32);
-pub const KSPROPERTY_BDA_RF_TUNER_FREQUENCY: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(0i32);
-pub const KSPROPERTY_BDA_RF_TUNER_FREQUENCY_MULTIPLIER: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(5i32);
-pub const KSPROPERTY_BDA_RF_TUNER_POLARITY: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(1i32);
-pub const KSPROPERTY_BDA_RF_TUNER_RANGE: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(2i32);
-pub const KSPROPERTY_BDA_RF_TUNER_SCAN_STATUS: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(7i32);
-pub const KSPROPERTY_BDA_RF_TUNER_STANDARD: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(8i32);
-pub const KSPROPERTY_BDA_RF_TUNER_STANDARD_MODE: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(9i32);
-pub const KSPROPERTY_BDA_RF_TUNER_TRANSPONDER: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(3i32);
-pub const KSPROPERTY_BDA_ROLL_OFF: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(9i32);
-pub const KSPROPERTY_BDA_SAMPLE_TIME: KSPROPERTY_BDA_SIGNAL_STATS = KSPROPERTY_BDA_SIGNAL_STATS(4i32);
-pub const KSPROPERTY_BDA_SIGNALTIMEOUTS: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(11i32);
-pub const KSPROPERTY_BDA_SIGNAL_LOCKED: KSPROPERTY_BDA_SIGNAL_STATS = KSPROPERTY_BDA_SIGNAL_STATS(3i32);
-pub const KSPROPERTY_BDA_SIGNAL_LOCK_CAPS: KSPROPERTY_BDA_SIGNAL_STATS = KSPROPERTY_BDA_SIGNAL_STATS(5i32);
-pub const KSPROPERTY_BDA_SIGNAL_LOCK_TYPE: KSPROPERTY_BDA_SIGNAL_STATS = KSPROPERTY_BDA_SIGNAL_STATS(6i32);
-pub const KSPROPERTY_BDA_SIGNAL_PRESENT: KSPROPERTY_BDA_SIGNAL_STATS = KSPROPERTY_BDA_SIGNAL_STATS(2i32);
-pub const KSPROPERTY_BDA_SIGNAL_QUALITY: KSPROPERTY_BDA_SIGNAL_STATS = KSPROPERTY_BDA_SIGNAL_STATS(1i32);
-pub const KSPROPERTY_BDA_SIGNAL_STRENGTH: KSPROPERTY_BDA_SIGNAL_STATS = KSPROPERTY_BDA_SIGNAL_STATS(0i32);
-pub const KSPROPERTY_BDA_SPECTRAL_INVERSION: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(6i32);
-pub const KSPROPERTY_BDA_SYMBOL_RATE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(5i32);
-pub const KSPROPERTY_BDA_TABLE_SECTION: KSPROPERTY_IDS_BDA_TABLE = KSPROPERTY_IDS_BDA_TABLE(0i32);
-pub const KSPROPERTY_BDA_TEMPLATE_CONNECTIONS: KSPROPERTY_BDA_TOPOLOGY = KSPROPERTY_BDA_TOPOLOGY(2i32);
-pub const KSPROPERTY_BDA_TRANSMISSION_MODE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(8i32);
-pub const KSPROPERTY_BDA_VOID_TRANSFORM_START: KSPROPERTY_BDA_VOID_TRANSFORM = KSPROPERTY_BDA_VOID_TRANSFORM(0i32);
-pub const KSPROPERTY_BDA_VOID_TRANSFORM_STOP: KSPROPERTY_BDA_VOID_TRANSFORM = KSPROPERTY_BDA_VOID_TRANSFORM(1i32);
-pub const LIC_BadLicense: LicenseEventBlockReason = LicenseEventBlockReason(0i32);
-pub const LIC_Expired: LicenseEventBlockReason = LicenseEventBlockReason(2i32);
-pub const LIC_ExtenderBlocked: LicenseEventBlockReason = LicenseEventBlockReason(4i32);
-pub const LIC_NeedActivation: LicenseEventBlockReason = LicenseEventBlockReason(3i32);
-pub const LIC_NeedIndiv: LicenseEventBlockReason = LicenseEventBlockReason(1i32);
-pub const LastReservedDeviceDispid: SegDispidList = SegDispidList(16383i32);
-pub const LastReservedDeviceEvent: SegEventidList = SegEventidList(16383i32);
-pub const MAX_COUNTRY_CODE_STRING: u32 = 3u32;
-pub const MEDIASUBTYPE_CPFilters_Processed: windows_core::GUID = windows_core::GUID::from_u128(0x46adbd28_6fd0_4796_93b2_155c51dc048d);
-pub const MEDIASUBTYPE_ETDTFilter_Tagged: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4d0_0049_4e2b_98fb_9537f6ce516d);
-pub const MPAA: EnTvRat_System = EnTvRat_System(0i32);
-pub const MPAA_G: EnTvRat_MPAA = EnTvRat_MPAA(1i32);
-pub const MPAA_IsBlocked: BfEnTvRat_Attributes_MPAA = BfEnTvRat_Attributes_MPAA(1i32);
-pub const MPAA_NC17: EnTvRat_MPAA = EnTvRat_MPAA(5i32);
-pub const MPAA_NotApplicable: EnTvRat_MPAA = EnTvRat_MPAA(0i32);
-pub const MPAA_NotRated: EnTvRat_MPAA = EnTvRat_MPAA(7i32);
-pub const MPAA_PG: EnTvRat_MPAA = EnTvRat_MPAA(2i32);
-pub const MPAA_PG13: EnTvRat_MPAA = EnTvRat_MPAA(3i32);
-pub const MPAA_R: EnTvRat_MPAA = EnTvRat_MPAA(4i32);
-pub const MPAA_ValidAttrSubmask: BfEnTvRat_Attributes_MPAA = BfEnTvRat_Attributes_MPAA(1i32);
-pub const MPAA_X: EnTvRat_MPAA = EnTvRat_MPAA(6i32);
-pub const MPEG2_FILTER_VERSION_1_SIZE: u32 = 124u32;
-pub const MPEG2_FILTER_VERSION_2_SIZE: u32 = 133u32;
-pub const MPEG_CAT_PID: u32 = 1u32;
-pub const MPEG_CAT_TID: u32 = 1u32;
-pub const MPEG_CONTEXT_BCS_DEMUX: MPEG_CONTEXT_TYPE = MPEG_CONTEXT_TYPE(0i32);
-pub const MPEG_CONTEXT_WINSOCK: MPEG_CONTEXT_TYPE = MPEG_CONTEXT_TYPE(1i32);
-pub const MPEG_PAT_PID: u32 = 0u32;
-pub const MPEG_PAT_TID: u32 = 0u32;
-pub const MPEG_PMT_TID: u32 = 2u32;
-pub const MPEG_RQST_GET_PES_STREAM: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(6i32);
-pub const MPEG_RQST_GET_SECTION: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(1i32);
-pub const MPEG_RQST_GET_SECTIONS_STREAM: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(5i32);
-pub const MPEG_RQST_GET_SECTION_ASYNC: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(2i32);
-pub const MPEG_RQST_GET_TABLE: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(3i32);
-pub const MPEG_RQST_GET_TABLE_ASYNC: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(4i32);
-pub const MPEG_RQST_GET_TS_STREAM: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(7i32);
-pub const MPEG_RQST_START_MPE_STREAM: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(8i32);
-pub const MPEG_RQST_UNKNOWN: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(0i32);
-pub const MPEG_SECTION_IS_CURRENT: MPEG_CURRENT_NEXT_BIT = MPEG_CURRENT_NEXT_BIT(1i32);
-pub const MPEG_SECTION_IS_NEXT: MPEG_CURRENT_NEXT_BIT = MPEG_CURRENT_NEXT_BIT(0i32);
-pub const MPEG_TSDT_PID: u32 = 2u32;
-pub const MPEG_TSDT_TID: u32 = 3u32;
-pub const MSVIDCTL_ALT: MSVidCtlButtonstate = MSVidCtlButtonstate(4i32);
-pub const MSVIDCTL_CTRL: MSVidCtlButtonstate = MSVidCtlButtonstate(2i32);
-pub const MSVIDCTL_LEFT_BUTTON: MSVidCtlButtonstate = MSVidCtlButtonstate(1i32);
-pub const MSVIDCTL_MIDDLE_BUTTON: MSVidCtlButtonstate = MSVidCtlButtonstate(4i32);
-pub const MSVIDCTL_RIGHT_BUTTON: MSVidCtlButtonstate = MSVidCtlButtonstate(2i32);
-pub const MSVIDCTL_SHIFT: MSVidCtlButtonstate = MSVidCtlButtonstate(1i32);
-pub const MSVIDCTL_X_BUTTON1: MSVidCtlButtonstate = MSVidCtlButtonstate(8i32);
-pub const MSVIDCTL_X_BUTTON2: MSVidCtlButtonstate = MSVidCtlButtonstate(16i32);
-pub const MSVidSEG_DEST: MSVidSegmentType = MSVidSegmentType(2i32);
-pub const MSVidSEG_SOURCE: MSVidSegmentType = MSVidSegmentType(0i32);
-pub const MSVidSEG_XFORM: MSVidSegmentType = MSVidSegmentType(1i32);
-pub const MSVidSink_Audio: MSVidSinkStreams = MSVidSinkStreams(2i32);
-pub const MSVidSink_Other: MSVidSinkStreams = MSVidSinkStreams(4i32);
-pub const MSVidSink_Video: MSVidSinkStreams = MSVidSinkStreams(1i32);
-pub const OCUR_PAIRING_PROTOCOL_VERSION: u32 = 2u32;
-pub const PARENTAL_CONTROL_ATTRIB_DIALOGUE: u32 = 515u32;
-pub const PARENTAL_CONTROL_ATTRIB_FANTASY: u32 = 516u32;
-pub const PARENTAL_CONTROL_ATTRIB_LANGUAGE: u32 = 513u32;
-pub const PARENTAL_CONTROL_ATTRIB_SEXUAL: u32 = 514u32;
-pub const PARENTAL_CONTROL_ATTRIB_VIOLENCE: u32 = 512u32;
-pub const PARENTAL_CONTROL_CONTENT_RATING: u32 = 256u32;
-pub const PARENTAL_CONTROL_TIME_RANGE: u32 = 1u32;
-pub const PARENTAL_CONTROL_VALUE_UNDEFINED: u32 = 0u32;
-pub const PBDA: EnTvRat_System = EnTvRat_System(8i32);
-pub const PBDA_PAIRING_PROTOCOL_VERSION: u32 = 3u32;
-pub const PROT_COPY_BF: ProtType = ProtType(7i32);
-pub const PROT_COPY_CN_RECORDING_STOP: ProtType = ProtType(8i32);
-pub const PROT_COPY_FREE: ProtType = ProtType(1i32);
-pub const PROT_COPY_FREE_CIT: ProtType = ProtType(6i32);
-pub const PROT_COPY_FREE_SECURE: ProtType = ProtType(9i32);
-pub const PROT_COPY_INVALID: ProtType = ProtType(50i32);
-pub const PROT_COPY_NEVER: ProtType = ProtType(3i32);
-pub const PROT_COPY_NEVER_REALLY: ProtType = ProtType(4i32);
-pub const PROT_COPY_NO_MORE: ProtType = ProtType(5i32);
-pub const PROT_COPY_ONCE: ProtType = ProtType(2i32);
-pub const RECORDING_STARTED: CPRecordingStatus = CPRecordingStatus(1i32);
-pub const RECORDING_STOPPED: CPRecordingStatus = CPRecordingStatus(0i32);
-pub const RECORDING_TYPE_CONTENT: RECORDING_TYPE = RECORDING_TYPE(0i32);
-pub const RECORDING_TYPE_REFERENCE: RECORDING_TYPE = RECORDING_TYPE(1i32);
-pub const REFERENCE: RecordingType = RecordingType(1i32);
-pub const REQUIRED_PARENTAL_CONTROL_TIME_RANGE: u32 = 2u32;
-pub const REVOKED_APP_STUB: RevokedComponent = RevokedComponent(2i32);
-pub const REVOKED_COPP: RevokedComponent = RevokedComponent(0i32);
-pub const REVOKED_MAX_TYPES: RevokedComponent = RevokedComponent(4i32);
-pub const REVOKED_SAC: RevokedComponent = RevokedComponent(1i32);
-pub const REVOKED_SECURE_PIPELINE: RevokedComponent = RevokedComponent(3i32);
-pub const Reserved4: EnTvRat_System = EnTvRat_System(4i32);
-pub const Reserved7: EnTvRat_System = EnTvRat_System(7i32);
-pub const SAMPLE_SEQ_CONTENT_B_FRAME: u32 = 3u32;
-pub const SAMPLE_SEQ_CONTENT_I_FRAME: u32 = 1u32;
-pub const SAMPLE_SEQ_CONTENT_NONREF_FRAME: u32 = 3u32;
-pub const SAMPLE_SEQ_CONTENT_P_FRAME: u32 = 2u32;
-pub const SAMPLE_SEQ_CONTENT_REF_FRAME: u32 = 2u32;
-pub const SAMPLE_SEQ_CONTENT_STANDALONE_FRAME: u32 = 1u32;
-pub const SAMPLE_SEQ_CONTENT_UNKNOWN: u32 = 0u32;
-pub const SAMPLE_SEQ_FRAME_START: u32 = 3u32;
-pub const SAMPLE_SEQ_GOP_HEADER: u32 = 2u32;
-pub const SAMPLE_SEQ_PICTURE_HEADER: u32 = 3u32;
-pub const SAMPLE_SEQ_SEEK_POINT: u32 = 2u32;
-pub const SAMPLE_SEQ_SEQUENCE_HEADER: u32 = 1u32;
-pub const SAMPLE_SEQ_SEQUENCE_START: u32 = 1u32;
-pub const SBE2_STREAM_DESC_EVENT: windows_core::GUID = windows_core::GUID::from_u128(0x2313a4ed_bf2d_454f_ad8a_d95ba7f91fee);
-pub const SBE2_STREAM_DESC_VERSION: u32 = 1u32;
-pub const SBE2_V1_STREAMS_CREATION_EVENT: windows_core::GUID = windows_core::GUID::from_u128(0x000fcf09_97f5_46ac_9769_7a83b35384fb);
-pub const SBE2_V2_STREAMS_CREATION_EVENT: windows_core::GUID = windows_core::GUID::from_u128(0xa72530a3_0344_4cab_a2d0_fe937dbdcab3);
-pub const SCTE_EAS_IB_PID: u32 = 8187u32;
-pub const SCTE_EAS_OOB_PID: u32 = 8188u32;
-pub const SCTE_EAS_TID: u32 = 216u32;
-pub const SID_DRMSecureServiceChannel: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4c4_0049_4e2b_98fb_9537f6ce516d);
-pub const SID_MSVidCtl_CurrentAudioEndpoint: windows_core::GUID = windows_core::GUID::from_u128(0xcf9a88f4_abcf_4ed8_9b74_7db33445459e);
-pub const STATE_PAUSE: MSVidCtlStateList = MSVidCtlStateList(1i32);
-pub const STATE_PLAY: MSVidCtlStateList = MSVidCtlStateList(2i32);
-pub const STATE_STOP: MSVidCtlStateList = MSVidCtlStateList(0i32);
-pub const STATE_UNBUILT: MSVidCtlStateList = MSVidCtlStateList(-1i32);
-pub const STRCONV_MODE_DVB: DVB_STRCONV_MODE = DVB_STRCONV_MODE(0i32);
-pub const STRCONV_MODE_DVB_EMPHASIS: DVB_STRCONV_MODE = DVB_STRCONV_MODE(1i32);
-pub const STRCONV_MODE_DVB_WITHOUT_EMPHASIS: DVB_STRCONV_MODE = DVB_STRCONV_MODE(2i32);
-pub const STRCONV_MODE_ISDB: DVB_STRCONV_MODE = DVB_STRCONV_MODE(3i32);
-pub const STREAMBUFFER_EC_BASE: u32 = 806u32;
-pub const STREAMBUFFER_EC_CONTENT_BECOMING_STALE: i32 = 809i32;
-pub const STREAMBUFFER_EC_PRIMARY_AUDIO: i32 = 814i32;
-pub const STREAMBUFFER_EC_RATE_CHANGED: i32 = 813i32;
-pub const STREAMBUFFER_EC_RATE_CHANGING_FOR_SETPOSITIONS: i32 = 815i32;
-pub const STREAMBUFFER_EC_READ_FAILURE: i32 = 812i32;
-pub const STREAMBUFFER_EC_SETPOSITIONS_EVENTS_DONE: i32 = 816i32;
-pub const STREAMBUFFER_EC_STALE_DATA_READ: i32 = 807i32;
-pub const STREAMBUFFER_EC_STALE_FILE_DELETED: i32 = 808i32;
-pub const STREAMBUFFER_EC_TIMEHOLE: i32 = 806i32;
-pub const STREAMBUFFER_EC_WRITE_FAILURE: i32 = 810i32;
-pub const STREAMBUFFER_EC_WRITE_FAILURE_CLEAR: i32 = 811i32;
-pub const STREAMBUFFER_TYPE_BINARY: STREAMBUFFER_ATTR_DATATYPE = STREAMBUFFER_ATTR_DATATYPE(2i32);
-pub const STREAMBUFFER_TYPE_BOOL: STREAMBUFFER_ATTR_DATATYPE = STREAMBUFFER_ATTR_DATATYPE(3i32);
-pub const STREAMBUFFER_TYPE_DWORD: STREAMBUFFER_ATTR_DATATYPE = STREAMBUFFER_ATTR_DATATYPE(0i32);
-pub const STREAMBUFFER_TYPE_GUID: STREAMBUFFER_ATTR_DATATYPE = STREAMBUFFER_ATTR_DATATYPE(6i32);
-pub const STREAMBUFFER_TYPE_QWORD: STREAMBUFFER_ATTR_DATATYPE = STREAMBUFFER_ATTR_DATATYPE(4i32);
-pub const STREAMBUFFER_TYPE_STRING: STREAMBUFFER_ATTR_DATATYPE = STREAMBUFFER_ATTR_DATATYPE(1i32);
-pub const STREAMBUFFER_TYPE_WORD: STREAMBUFFER_ATTR_DATATYPE = STREAMBUFFER_ATTR_DATATYPE(5i32);
-pub const SignalAndServiceStatusSpanningEvent_AllAVScrambled: SignalAndServiceStatusSpanningEvent_State = SignalAndServiceStatusSpanningEvent_State(5i32);
-pub const SignalAndServiceStatusSpanningEvent_Clear: SignalAndServiceStatusSpanningEvent_State = SignalAndServiceStatusSpanningEvent_State(0i32);
-pub const SignalAndServiceStatusSpanningEvent_NoSubscription: SignalAndServiceStatusSpanningEvent_State = SignalAndServiceStatusSpanningEvent_State(4i32);
-pub const SignalAndServiceStatusSpanningEvent_NoTVSignal: SignalAndServiceStatusSpanningEvent_State = SignalAndServiceStatusSpanningEvent_State(1i32);
-pub const SignalAndServiceStatusSpanningEvent_None: SignalAndServiceStatusSpanningEvent_State = SignalAndServiceStatusSpanningEvent_State(-1i32);
-pub const SignalAndServiceStatusSpanningEvent_ServiceOffAir: SignalAndServiceStatusSpanningEvent_State = SignalAndServiceStatusSpanningEvent_State(2i32);
-pub const SignalAndServiceStatusSpanningEvent_WeakTVSignal: SignalAndServiceStatusSpanningEvent_State = SignalAndServiceStatusSpanningEvent_State(3i32);
-pub const System5: EnTvRat_System = EnTvRat_System(5i32);
-pub const System6: EnTvRat_System = EnTvRat_System(6i32);
-pub const TenthsSecondsMode: PositionModeList = PositionModeList(1i32);
 pub const TvRat_0: EnTvRat_GenericLevel = EnTvRat_GenericLevel(0i32);
 pub const TvRat_1: EnTvRat_GenericLevel = EnTvRat_GenericLevel(1i32);
 pub const TvRat_10: EnTvRat_GenericLevel = EnTvRat_GenericLevel(10i32);
@@ -36130,6 +36031,26 @@ pub const TvRat_SystemDontKnow: EnTvRat_System = EnTvRat_System(255i32);
 pub const TvRat_Unblock: EnTvRat_GenericLevel = EnTvRat_GenericLevel(-1i32);
 pub const TvRat_kLevels: EnTvRat_GenericLevel = EnTvRat_GenericLevel(22i32);
 pub const TvRat_kSystems: EnTvRat_System = EnTvRat_System(10i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct UDCR_TAG {
+    pub bVersion: u8,
+    pub KID: [u8; 25],
+    pub ullBaseCounter: u64,
+    pub ullBaseCounterRange: u64,
+    pub fScrambled: super::super::super::Foundation::BOOL,
+    pub bStreamMark: u8,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+}
+impl Default for UDCR_TAG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for UDCR_TAG {
+    type TypeKind = windows_core::CopyType;
+}
 pub const US_TV: EnTvRat_System = EnTvRat_System(1i32);
 pub const US_TV_14: EnTvRat_US_TV = EnTvRat_US_TV(5i32);
 pub const US_TV_G: EnTvRat_US_TV = EnTvRat_US_TV(3i32);
@@ -36145,6 +36066,12 @@ pub const US_TV_PG: EnTvRat_US_TV = EnTvRat_US_TV(4i32);
 pub const US_TV_ValidAttrSubmask: BfEnTvRat_Attributes_US_TV = BfEnTvRat_Attributes_US_TV(31i32);
 pub const US_TV_Y: EnTvRat_US_TV = EnTvRat_US_TV(1i32);
 pub const US_TV_Y7: EnTvRat_US_TV = EnTvRat_US_TV(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VA_COLOR_PRIMARIES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VA_MATRIX_COEFFICIENTS(pub i32);
 pub const VA_MATRIX_COEFF_FCC: VA_MATRIX_COEFFICIENTS = VA_MATRIX_COEFFICIENTS(4i32);
 pub const VA_MATRIX_COEFF_H264_RGB: VA_MATRIX_COEFFICIENTS = VA_MATRIX_COEFFICIENTS(0i32);
 pub const VA_MATRIX_COEFF_H264_YCgCo: VA_MATRIX_COEFFICIENTS = VA_MATRIX_COEFFICIENTS(8i32);
@@ -36153,6 +36080,26 @@ pub const VA_MATRIX_COEFF_ITU_R_BT_709: VA_MATRIX_COEFFICIENTS = VA_MATRIX_COEFF
 pub const VA_MATRIX_COEFF_SMPTE_170M: VA_MATRIX_COEFFICIENTS = VA_MATRIX_COEFFICIENTS(6i32);
 pub const VA_MATRIX_COEFF_SMPTE_240M: VA_MATRIX_COEFFICIENTS = VA_MATRIX_COEFFICIENTS(7i32);
 pub const VA_MATRIX_COEFF_UNSPECIFIED: VA_MATRIX_COEFFICIENTS = VA_MATRIX_COEFFICIENTS(2i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VA_OPTIONAL_VIDEO_PROPERTIES {
+    pub dwPictureHeight: u16,
+    pub dwPictureWidth: u16,
+    pub dwAspectRatioX: u16,
+    pub dwAspectRatioY: u16,
+    pub VAVideoFormat: VA_VIDEO_FORMAT,
+    pub VAColorPrimaries: VA_COLOR_PRIMARIES,
+    pub VATransferCharacteristics: VA_TRANSFER_CHARACTERISTICS,
+    pub VAMatrixCoefficients: VA_MATRIX_COEFFICIENTS,
+}
+impl Default for VA_OPTIONAL_VIDEO_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VA_OPTIONAL_VIDEO_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
 pub const VA_PRIMARIES_H264_GENERIC_FILM: VA_COLOR_PRIMARIES = VA_COLOR_PRIMARIES(8i32);
 pub const VA_PRIMARIES_ITU_R_BT_470_SYSTEM_B_G: VA_COLOR_PRIMARIES = VA_COLOR_PRIMARIES(5i32);
 pub const VA_PRIMARIES_ITU_R_BT_470_SYSTEM_M: VA_COLOR_PRIMARIES = VA_COLOR_PRIMARIES(4i32);
@@ -36160,6 +36107,9 @@ pub const VA_PRIMARIES_ITU_R_BT_709: VA_COLOR_PRIMARIES = VA_COLOR_PRIMARIES(1i3
 pub const VA_PRIMARIES_SMPTE_170M: VA_COLOR_PRIMARIES = VA_COLOR_PRIMARIES(6i32);
 pub const VA_PRIMARIES_SMPTE_240M: VA_COLOR_PRIMARIES = VA_COLOR_PRIMARIES(7i32);
 pub const VA_PRIMARIES_UNSPECIFIED: VA_COLOR_PRIMARIES = VA_COLOR_PRIMARIES(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VA_TRANSFER_CHARACTERISTICS(pub i32);
 pub const VA_TRANSFER_CHARACTERISTICS_H264_LOG_100_TO_1: VA_TRANSFER_CHARACTERISTICS = VA_TRANSFER_CHARACTERISTICS(9i32);
 pub const VA_TRANSFER_CHARACTERISTICS_H264_LOG_316_TO_1: VA_TRANSFER_CHARACTERISTICS = VA_TRANSFER_CHARACTERISTICS(10i32);
 pub const VA_TRANSFER_CHARACTERISTICS_ITU_R_BT_470_SYSTEM_B_G: VA_TRANSFER_CHARACTERISTICS = VA_TRANSFER_CHARACTERISTICS(5i32);
@@ -36170,11 +36120,61 @@ pub const VA_TRANSFER_CHARACTERISTICS_SMPTE_170M: VA_TRANSFER_CHARACTERISTICS = 
 pub const VA_TRANSFER_CHARACTERISTICS_SMPTE_240M: VA_TRANSFER_CHARACTERISTICS = VA_TRANSFER_CHARACTERISTICS(7i32);
 pub const VA_TRANSFER_CHARACTERISTICS_UNSPECIFIED: VA_TRANSFER_CHARACTERISTICS = VA_TRANSFER_CHARACTERISTICS(2i32);
 pub const VA_VIDEO_COMPONENT: VA_VIDEO_FORMAT = VA_VIDEO_FORMAT(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VA_VIDEO_FORMAT(pub i32);
 pub const VA_VIDEO_MAC: VA_VIDEO_FORMAT = VA_VIDEO_FORMAT(4i32);
 pub const VA_VIDEO_NTSC: VA_VIDEO_FORMAT = VA_VIDEO_FORMAT(2i32);
 pub const VA_VIDEO_PAL: VA_VIDEO_FORMAT = VA_VIDEO_FORMAT(1i32);
 pub const VA_VIDEO_SECAM: VA_VIDEO_FORMAT = VA_VIDEO_FORMAT(3i32);
 pub const VA_VIDEO_UNSPECIFIED: VA_VIDEO_FORMAT = VA_VIDEO_FORMAT(5i32);
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct WMDRMProtectionInfo {
+    pub wszKID: [u16; 25],
+    pub qwCounter: u64,
+    pub qwIndex: u64,
+    pub bOffset: u8,
+}
+impl Default for WMDRMProtectionInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WMDRMProtectionInfo {
+    type TypeKind = windows_core::CopyType;
+}
+pub const XDSCodec: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4f3_0049_4e2b_98fb_9537f6ce516d);
+pub const XDSToRat: windows_core::GUID = windows_core::GUID::from_u128(0xc5c5c5f0_3abc_11d6_b25b_00c04fa0c026);
+#[cfg(feature = "Win32_System_Com")]
+windows_core::imp::define_interface!(_IMSVidCtlEvents, _IMSVidCtlEvents_Vtbl, 0xb0edf164_910a_11d2_b632_00c04f79498e);
+#[cfg(feature = "Win32_System_Com")]
+impl core::ops::Deref for _IMSVidCtlEvents {
+    type Target = super::super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+windows_core::imp::interface_hierarchy!(_IMSVidCtlEvents, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+pub struct _IMSVidCtlEvents_Vtbl {
+    pub base__: super::super::super::System::Com::IDispatch_Vtbl,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub trait _IMSVidCtlEvents_Impl: super::super::super::System::Com::IDispatch_Impl {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl _IMSVidCtlEvents_Vtbl {
+    pub const fn new<Identity: _IMSVidCtlEvents_Impl, const OFFSET: isize>() -> Self {
+        Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<_IMSVidCtlEvents as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for _IMSVidCtlEvents {}
 pub const dispidAVAudioChannelConfigEvent: SegEventidList = SegEventidList(51i32);
 pub const dispidAVAudioChannelCountEvent: SegEventidList = SegEventidList(52i32);
 pub const dispidAVAudioSampleRateEvent: SegEventidList = SegEventidList(50i32);

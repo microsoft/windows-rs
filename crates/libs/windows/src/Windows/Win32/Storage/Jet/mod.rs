@@ -1934,20 +1934,7 @@ where
     windows_targets::link!("esent.dll" "system" fn JetUpdate2(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvbookmark : *mut core::ffi::c_void, cbbookmark : u32, pcbactual : *mut u32, grbit : u32) -> i32);
     JetUpdate2(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(pvbookmark.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cbbookmark), core::mem::transmute(pcbactual.unwrap_or(core::ptr::null_mut())), core::mem::transmute(grbit))
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-pub type JET_CALLBACK = Option<unsafe extern "system" fn(sesid: JET_SESID, dbid: u32, tableid: super::StructuredStorage::JET_TABLEID, cbtyp: u32, pvarg1: *mut core::ffi::c_void, pvarg2: *mut core::ffi::c_void, pvcontext: *const core::ffi::c_void, ulunused: super::StructuredStorage::JET_API_PTR) -> i32>;
-pub type JET_PFNDURABLECOMMITCALLBACK = Option<unsafe extern "system" fn(instance: JET_INSTANCE, pcommitidseen: *const JET_COMMIT_ID, grbit: u32) -> i32>;
-pub type JET_PFNREALLOC = Option<unsafe extern "system" fn(pvcontext: *const core::ffi::c_void, pv: *const core::ffi::c_void, cb: u32) -> *mut core::ffi::c_void>;
-pub type JET_PFNSTATUS = Option<unsafe extern "system" fn(sesid: JET_SESID, snp: u32, snt: u32, pv: *const core::ffi::c_void) -> i32>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct JET_ERRCAT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct JET_INDEXCHECKING(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct JET_RELOP(pub i32);
+pub const JET_BASE_NAME_LENGTH: u32 = 3u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct JET_BKINFO {
@@ -2052,6 +2039,8 @@ impl Default for JET_BKLOGTIME_1_0 {
 impl windows_core::TypeKind for JET_BKLOGTIME_1_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
+pub type JET_CALLBACK = Option<unsafe extern "system" fn(sesid: JET_SESID, dbid: u32, tableid: super::StructuredStorage::JET_TABLEID, cbtyp: u32, pvarg1: *mut core::ffi::c_void, pvarg2: *mut core::ffi::c_void, pvcontext: *const core::ffi::c_void, ulunused: super::StructuredStorage::JET_API_PTR) -> i32>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_COLUMNBASE_A {
@@ -2195,24 +2184,6 @@ impl Default for JET_COLUMNLIST {
 impl windows_core::TypeKind for JET_COLUMNLIST {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct JET_COMMIT_ID {
-    pub signLog: JET_SIGNATURE,
-    pub reserved: i32,
-    pub commitId: i64,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for JET_COMMIT_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for JET_COMMIT_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -2228,6 +2199,24 @@ impl Default for JET_COMMIT_ID {
     }
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for JET_COMMIT_ID {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct JET_COMMIT_ID {
+    pub signLog: JET_SIGNATURE,
+    pub reserved: i32,
+    pub commitId: i64,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for JET_COMMIT_ID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for JET_COMMIT_ID {
     type TypeKind = windows_core::CopyType;
 }
@@ -2343,6 +2332,9 @@ impl Default for JET_CONVERT_W_0_0 {
 impl windows_core::TypeKind for JET_CONVERT_W_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const JET_ColInfoGrbitMinimalInfo: u32 = 1073741824u32;
+pub const JET_ColInfoGrbitNonDerivedColumnsOnly: u32 = 2147483648u32;
+pub const JET_ColInfoGrbitSortByColumnid: u32 = 536870912u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct JET_DBINFOMISC {
@@ -2570,6 +2562,26 @@ impl Default for JET_DBINFOUPGRADE_0_0 {
 impl windows_core::TypeKind for JET_DBINFOUPGRADE_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const JET_DbInfoCollate: u32 = 5u32;
+pub const JET_DbInfoConnect: u32 = 1u32;
+pub const JET_DbInfoCountry: u32 = 2u32;
+pub const JET_DbInfoCp: u32 = 4u32;
+pub const JET_DbInfoDBInUse: u32 = 15u32;
+pub const JET_DbInfoFileType: u32 = 19u32;
+pub const JET_DbInfoFilename: u32 = 0u32;
+pub const JET_DbInfoFilesize: u32 = 10u32;
+pub const JET_DbInfoFilesizeOnDisk: u32 = 21u32;
+pub const JET_DbInfoIsam: u32 = 9u32;
+pub const JET_DbInfoLCID: u32 = 3u32;
+pub const JET_DbInfoLangid: u32 = 3u32;
+pub const JET_DbInfoMisc: u32 = 14u32;
+pub const JET_DbInfoOptions: u32 = 6u32;
+pub const JET_DbInfoPageSize: u32 = 17u32;
+pub const JET_DbInfoSpaceAvailable: u32 = 12u32;
+pub const JET_DbInfoSpaceOwned: u32 = 11u32;
+pub const JET_DbInfoTransactions: u32 = 7u32;
+pub const JET_DbInfoUpgrade: u32 = 13u32;
+pub const JET_DbInfoVersion: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct JET_ENUMCOLUMN {
@@ -2658,6 +2670,9 @@ impl Default for JET_ENUMCOLUMNVALUE {
 impl windows_core::TypeKind for JET_ENUMCOLUMNVALUE {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct JET_ERRCAT(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_ERRINFOBASIC_W {
@@ -2676,6 +2691,18 @@ impl Default for JET_ERRINFOBASIC_W {
 impl windows_core::TypeKind for JET_ERRINFOBASIC_W {
     type TypeKind = windows_core::CopyType;
 }
+pub const JET_EventLoggingDisable: u32 = 0u32;
+pub const JET_EventLoggingLevelHigh: u32 = 75u32;
+pub const JET_EventLoggingLevelLow: u32 = 25u32;
+pub const JET_EventLoggingLevelMax: u32 = 100u32;
+pub const JET_EventLoggingLevelMedium: u32 = 50u32;
+pub const JET_EventLoggingLevelMin: u32 = 1u32;
+pub const JET_ExceptionFailFast: u32 = 4u32;
+pub const JET_ExceptionMsgBox: u32 = 1u32;
+pub const JET_ExceptionNone: u32 = 2u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct JET_INDEXCHECKING(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct JET_INDEXCREATE2_A {
@@ -2965,23 +2992,6 @@ impl windows_core::TypeKind for JET_INDEXCREATE_W_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct JET_INDEXID {
-    pub cbStruct: u32,
-    pub rgbIndexId: [u8; 16],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for JET_INDEXID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for JET_INDEXID {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_INDEXID {
@@ -2995,6 +3005,23 @@ impl Default for JET_INDEXID {
     }
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for JET_INDEXID {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct JET_INDEXID {
+    pub cbStruct: u32,
+    pub rgbIndexId: [u8; 16],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for JET_INDEXID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for JET_INDEXID {
     type TypeKind = windows_core::CopyType;
 }
@@ -3145,6 +3172,12 @@ impl Default for JET_INSTANCE_INFO_W {
 impl windows_core::TypeKind for JET_INSTANCE_INFO_W {
     type TypeKind = windows_core::CopyType;
 }
+pub const JET_IOPriorityLow: u32 = 1u32;
+pub const JET_IOPriorityNormal: u32 = 0u32;
+pub const JET_IndexCheckingDeferToOpenTable: JET_INDEXCHECKING = JET_INDEXCHECKING(2i32);
+pub const JET_IndexCheckingMax: JET_INDEXCHECKING = JET_INDEXCHECKING(3i32);
+pub const JET_IndexCheckingOff: JET_INDEXCHECKING = JET_INDEXCHECKING(0i32);
+pub const JET_IndexCheckingOn: JET_INDEXCHECKING = JET_INDEXCHECKING(1i32);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct JET_LGPOS {
@@ -3277,29 +3310,10 @@ impl JET_LS {
         self.0 == 0
     }
 }
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct JET_OBJECTINFO {
-    pub cbStruct: u32,
-    pub objtyp: u32,
-    pub dtCreate: f64,
-    pub dtUpdate: f64,
-    pub grbit: u32,
-    pub flags: u32,
-    pub cRecord: u32,
-    pub cPage: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for JET_OBJECTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for JET_OBJECTINFO {
-    type TypeKind = windows_core::CopyType;
-}
+pub const JET_MAX_COMPUTERNAME_LENGTH: u32 = 15u32;
+pub const JET_MoveFirst: u32 = 2147483648u32;
+pub const JET_MoveLast: u32 = 2147483647u32;
+pub const JET_MovePrevious: i32 = -1i32;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -3320,6 +3334,29 @@ impl Default for JET_OBJECTINFO {
     }
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for JET_OBJECTINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct JET_OBJECTINFO {
+    pub cbStruct: u32,
+    pub objtyp: u32,
+    pub dtCreate: f64,
+    pub dtUpdate: f64,
+    pub grbit: u32,
+    pub flags: u32,
+    pub cRecord: u32,
+    pub cPage: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for JET_OBJECTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for JET_OBJECTINFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -3426,6 +3463,14 @@ impl JET_OSSNAPID {
         self.0 == 0
     }
 }
+pub const JET_OnlineDefragAll: u32 = 65535u32;
+pub const JET_OnlineDefragAllOBSOLETE: u32 = 1u32;
+pub const JET_OnlineDefragDatabases: u32 = 2u32;
+pub const JET_OnlineDefragDisable: u32 = 0u32;
+pub const JET_OnlineDefragSpaceTrees: u32 = 4u32;
+pub type JET_PFNDURABLECOMMITCALLBACK = Option<unsafe extern "system" fn(instance: JET_INSTANCE, pcommitidseen: *const JET_COMMIT_ID, grbit: u32) -> i32>;
+pub type JET_PFNREALLOC = Option<unsafe extern "system" fn(pvcontext: *const core::ffi::c_void, pv: *const core::ffi::c_void, cb: u32) -> *mut core::ffi::c_void>;
+pub type JET_PFNSTATUS = Option<unsafe extern "system" fn(sesid: JET_SESID, snp: u32, snt: u32, pv: *const core::ffi::c_void) -> i32>;
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3461,27 +3506,6 @@ impl Default for JET_RECPOS {
 impl windows_core::TypeKind for JET_RECPOS {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct JET_RECPOS2 {
-    pub cbStruct: u32,
-    pub centriesLTDeprecated: u32,
-    pub centriesInRangeDeprecated: u32,
-    pub centriesTotalDeprecated: u32,
-    pub centriesLT: u64,
-    pub centriesTotal: u64,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for JET_RECPOS2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for JET_RECPOS2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -3506,24 +3530,22 @@ impl windows_core::TypeKind for JET_RECPOS2 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub struct JET_RECSIZE {
-    pub cbData: u64,
-    pub cbLongValueData: u64,
-    pub cbOverhead: u64,
-    pub cbLongValueOverhead: u64,
-    pub cNonTaggedColumns: u64,
-    pub cTaggedColumns: u64,
-    pub cLongValues: u64,
-    pub cMultiValues: u64,
+pub struct JET_RECPOS2 {
+    pub cbStruct: u32,
+    pub centriesLTDeprecated: u32,
+    pub centriesInRangeDeprecated: u32,
+    pub centriesTotalDeprecated: u32,
+    pub centriesLT: u64,
+    pub centriesTotal: u64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for JET_RECSIZE {
+impl Default for JET_RECPOS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for JET_RECSIZE {
+impl windows_core::TypeKind for JET_RECPOS2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
@@ -3552,7 +3574,7 @@ impl windows_core::TypeKind for JET_RECSIZE {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub struct JET_RECSIZE2 {
+pub struct JET_RECSIZE {
     pub cbData: u64,
     pub cbLongValueData: u64,
     pub cbOverhead: u64,
@@ -3561,18 +3583,15 @@ pub struct JET_RECSIZE2 {
     pub cTaggedColumns: u64,
     pub cLongValues: u64,
     pub cMultiValues: u64,
-    pub cCompressedColumns: u64,
-    pub cbDataCompressed: u64,
-    pub cbLongValueDataCompressed: u64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for JET_RECSIZE2 {
+impl Default for JET_RECSIZE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for JET_RECSIZE2 {
+impl windows_core::TypeKind for JET_RECSIZE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
@@ -3601,6 +3620,35 @@ impl Default for JET_RECSIZE2 {
 impl windows_core::TypeKind for JET_RECSIZE2 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct JET_RECSIZE2 {
+    pub cbData: u64,
+    pub cbLongValueData: u64,
+    pub cbOverhead: u64,
+    pub cbLongValueOverhead: u64,
+    pub cNonTaggedColumns: u64,
+    pub cTaggedColumns: u64,
+    pub cLongValues: u64,
+    pub cMultiValues: u64,
+    pub cCompressedColumns: u64,
+    pub cbDataCompressed: u64,
+    pub cbLongValueDataCompressed: u64,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for JET_RECSIZE2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for JET_RECSIZE2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct JET_RELOP(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_RETINFO {
@@ -4104,31 +4152,6 @@ impl Default for JET_THREADSTATS {
 impl windows_core::TypeKind for JET_THREADSTATS {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct JET_THREADSTATS2 {
-    pub cbStruct: u32,
-    pub cPageReferenced: u32,
-    pub cPageRead: u32,
-    pub cPagePreread: u32,
-    pub cPageDirtied: u32,
-    pub cPageRedirtied: u32,
-    pub cLogRecord: u32,
-    pub cbLogRecord: u32,
-    pub cusecPageCacheMiss: u64,
-    pub cPageCacheMiss: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for JET_THREADSTATS2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for JET_THREADSTATS2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -4151,6 +4174,31 @@ impl Default for JET_THREADSTATS2 {
     }
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for JET_THREADSTATS2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct JET_THREADSTATS2 {
+    pub cbStruct: u32,
+    pub cPageReferenced: u32,
+    pub cPageRead: u32,
+    pub cPagePreread: u32,
+    pub cPageDirtied: u32,
+    pub cPageRedirtied: u32,
+    pub cLogRecord: u32,
+    pub cbLogRecord: u32,
+    pub cusecPageCacheMiss: u64,
+    pub cPageCacheMiss: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for JET_THREADSTATS2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for JET_THREADSTATS2 {
     type TypeKind = windows_core::CopyType;
 }
@@ -4231,54 +4279,6 @@ impl Default for JET_USERDEFINEDDEFAULT_W {
 impl windows_core::TypeKind for JET_USERDEFINEDDEFAULT_W {
     type TypeKind = windows_core::CopyType;
 }
-pub const JET_BASE_NAME_LENGTH: u32 = 3u32;
-pub const JET_ColInfoGrbitMinimalInfo: u32 = 1073741824u32;
-pub const JET_ColInfoGrbitNonDerivedColumnsOnly: u32 = 2147483648u32;
-pub const JET_ColInfoGrbitSortByColumnid: u32 = 536870912u32;
-pub const JET_DbInfoCollate: u32 = 5u32;
-pub const JET_DbInfoConnect: u32 = 1u32;
-pub const JET_DbInfoCountry: u32 = 2u32;
-pub const JET_DbInfoCp: u32 = 4u32;
-pub const JET_DbInfoDBInUse: u32 = 15u32;
-pub const JET_DbInfoFileType: u32 = 19u32;
-pub const JET_DbInfoFilename: u32 = 0u32;
-pub const JET_DbInfoFilesize: u32 = 10u32;
-pub const JET_DbInfoFilesizeOnDisk: u32 = 21u32;
-pub const JET_DbInfoIsam: u32 = 9u32;
-pub const JET_DbInfoLCID: u32 = 3u32;
-pub const JET_DbInfoLangid: u32 = 3u32;
-pub const JET_DbInfoMisc: u32 = 14u32;
-pub const JET_DbInfoOptions: u32 = 6u32;
-pub const JET_DbInfoPageSize: u32 = 17u32;
-pub const JET_DbInfoSpaceAvailable: u32 = 12u32;
-pub const JET_DbInfoSpaceOwned: u32 = 11u32;
-pub const JET_DbInfoTransactions: u32 = 7u32;
-pub const JET_DbInfoUpgrade: u32 = 13u32;
-pub const JET_DbInfoVersion: u32 = 8u32;
-pub const JET_EventLoggingDisable: u32 = 0u32;
-pub const JET_EventLoggingLevelHigh: u32 = 75u32;
-pub const JET_EventLoggingLevelLow: u32 = 25u32;
-pub const JET_EventLoggingLevelMax: u32 = 100u32;
-pub const JET_EventLoggingLevelMedium: u32 = 50u32;
-pub const JET_EventLoggingLevelMin: u32 = 1u32;
-pub const JET_ExceptionFailFast: u32 = 4u32;
-pub const JET_ExceptionMsgBox: u32 = 1u32;
-pub const JET_ExceptionNone: u32 = 2u32;
-pub const JET_IOPriorityLow: u32 = 1u32;
-pub const JET_IOPriorityNormal: u32 = 0u32;
-pub const JET_IndexCheckingDeferToOpenTable: JET_INDEXCHECKING = JET_INDEXCHECKING(2i32);
-pub const JET_IndexCheckingMax: JET_INDEXCHECKING = JET_INDEXCHECKING(3i32);
-pub const JET_IndexCheckingOff: JET_INDEXCHECKING = JET_INDEXCHECKING(0i32);
-pub const JET_IndexCheckingOn: JET_INDEXCHECKING = JET_INDEXCHECKING(1i32);
-pub const JET_MAX_COMPUTERNAME_LENGTH: u32 = 15u32;
-pub const JET_MoveFirst: u32 = 2147483648u32;
-pub const JET_MoveLast: u32 = 2147483647u32;
-pub const JET_MovePrevious: i32 = -1i32;
-pub const JET_OnlineDefragAll: u32 = 65535u32;
-pub const JET_OnlineDefragAllOBSOLETE: u32 = 1u32;
-pub const JET_OnlineDefragDatabases: u32 = 2u32;
-pub const JET_OnlineDefragDisable: u32 = 0u32;
-pub const JET_OnlineDefragSpaceTrees: u32 = 4u32;
 pub const JET_VERSION: u32 = 1280u32;
 pub const JET_bitAbortSnapshot: u32 = 1u32;
 pub const JET_bitAllDatabasesSnapshot: u32 = 1u32;

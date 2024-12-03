@@ -162,9 +162,16 @@ impl IWsbApplicationRestoreSupport_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWsbApplicationRestoreSupport {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WSB_OB_STATUS_ENTRY_PAIR_TYPE(pub i32);
+pub const WSBAPP_ASYNC_IN_PROGRESS: windows_core::HRESULT = windows_core::HRESULT(0x7A0004_u32 as _);
+pub const WSB_MAX_OB_STATUS_ENTRY: u32 = 5u32;
+pub const WSB_MAX_OB_STATUS_VALUE_TYPE_PAIR: u32 = 5u32;
+pub const WSB_OB_ET_DATETIME: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(3i32);
+pub const WSB_OB_ET_MAX: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(6i32);
+pub const WSB_OB_ET_NUMBER: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(2i32);
+pub const WSB_OB_ET_SIZE: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(5i32);
+pub const WSB_OB_ET_STRING: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(1i32);
+pub const WSB_OB_ET_TIME: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(4i32);
+pub const WSB_OB_ET_UNDEFINED: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(0i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSB_OB_REGISTRATION_INFO {
@@ -199,6 +206,9 @@ impl Default for WSB_OB_STATUS_ENTRY {
 impl windows_core::TypeKind for WSB_OB_STATUS_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WSB_OB_STATUS_ENTRY_PAIR_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {
@@ -228,13 +238,3 @@ impl Default for WSB_OB_STATUS_INFO {
 impl windows_core::TypeKind for WSB_OB_STATUS_INFO {
     type TypeKind = windows_core::CopyType;
 }
-pub const WSBAPP_ASYNC_IN_PROGRESS: windows_core::HRESULT = windows_core::HRESULT(0x7A0004_u32 as _);
-pub const WSB_MAX_OB_STATUS_ENTRY: u32 = 5u32;
-pub const WSB_MAX_OB_STATUS_VALUE_TYPE_PAIR: u32 = 5u32;
-pub const WSB_OB_ET_DATETIME: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(3i32);
-pub const WSB_OB_ET_MAX: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(6i32);
-pub const WSB_OB_ET_NUMBER: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(2i32);
-pub const WSB_OB_ET_SIZE: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(5i32);
-pub const WSB_OB_ET_STRING: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(1i32);
-pub const WSB_OB_ET_TIME: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(4i32);
-pub const WSB_OB_ET_UNDEFINED: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(0i32);

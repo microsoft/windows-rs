@@ -591,12 +591,46 @@ where
     windows_targets::link!("computecore.dll" "system" fn HcsWaitForProcessExit(computesystem : HCS_PROCESS, timeoutms : u32, result : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     HcsWaitForProcessExit(computesystem.param().abi(), core::mem::transmute(timeoutms), core::mem::transmute(result.unwrap_or(core::ptr::null_mut()))).ok()
 }
-pub type HCS_EVENT_CALLBACK = Option<unsafe extern "system" fn(event: *const HCS_EVENT, context: *const core::ffi::c_void)>;
-pub type HCS_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(notificationtype: u32, context: *const core::ffi::c_void, notificationstatus: windows_core::HRESULT, notificationdata: windows_core::PCWSTR)>;
-pub type HCS_OPERATION_COMPLETION = Option<unsafe extern "system" fn(operation: HCS_OPERATION, context: *const core::ffi::c_void)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HCS_CREATE_OPTIONS(pub i32);
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HCS_CREATE_OPTIONS_1 {
+    pub Version: HCS_CREATE_OPTIONS,
+    pub UserToken: super::super::Foundation::HANDLE,
+    pub SecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+    pub CallbackOptions: HCS_EVENT_OPTIONS,
+    pub CallbackContext: *mut core::ffi::c_void,
+    pub Callback: HCS_EVENT_CALLBACK,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for HCS_CREATE_OPTIONS_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for HCS_CREATE_OPTIONS_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HCS_EVENT {
+    pub Type: HCS_EVENT_TYPE,
+    pub EventData: windows_core::PCWSTR,
+    pub Operation: HCS_OPERATION,
+}
+impl Default for HCS_EVENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HCS_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
+pub type HCS_EVENT_CALLBACK = Option<unsafe extern "system" fn(event: *const HCS_EVENT, context: *const core::ffi::c_void)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HCS_EVENT_OPTIONS(pub i32);
@@ -639,9 +673,36 @@ pub struct HCS_EVENT_TYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HCS_NOTIFICATIONS(pub i32);
+pub type HCS_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(notificationtype: u32, context: *const core::ffi::c_void, notificationstatus: windows_core::HRESULT, notificationdata: windows_core::PCWSTR)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HCS_NOTIFICATION_FLAGS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HCS_OPERATION(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HCS_OPERATION {
+    type TypeKind = windows_core::CopyType;
+}
+impl HCS_OPERATION {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HCS_OPERATION {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("computecore.dll" "system" fn HcsCloseOperation(operation : *mut core::ffi::c_void));
+            HcsCloseOperation(self.0);
+        }
+    }
+}
+impl Default for HCS_OPERATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type HCS_OPERATION_COMPLETION = Option<unsafe extern "system" fn(operation: HCS_OPERATION, context: *const core::ffi::c_void)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HCS_OPERATION_OPTIONS(pub i32);
@@ -681,70 +742,6 @@ impl core::ops::Not for HCS_OPERATION_OPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HCS_OPERATION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HCS_RESOURCE_TYPE(pub i32);
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HCS_CREATE_OPTIONS_1 {
-    pub Version: HCS_CREATE_OPTIONS,
-    pub UserToken: super::super::Foundation::HANDLE,
-    pub SecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
-    pub CallbackOptions: HCS_EVENT_OPTIONS,
-    pub CallbackContext: *mut core::ffi::c_void,
-    pub Callback: HCS_EVENT_CALLBACK,
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for HCS_CREATE_OPTIONS_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for HCS_CREATE_OPTIONS_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HCS_EVENT {
-    pub Type: HCS_EVENT_TYPE,
-    pub EventData: windows_core::PCWSTR,
-    pub Operation: HCS_OPERATION,
-}
-impl Default for HCS_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HCS_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HCS_OPERATION(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HCS_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl HCS_OPERATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HCS_OPERATION {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("computecore.dll" "system" fn HcsCloseOperation(operation : *mut core::ffi::c_void));
-            HcsCloseOperation(self.0);
-        }
-    }
-}
-impl Default for HCS_OPERATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCS_PROCESS(pub *mut core::ffi::c_void);
@@ -787,6 +784,9 @@ impl Default for HCS_PROCESS_INFORMATION {
 impl windows_core::TypeKind for HCS_PROCESS_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HCS_RESOURCE_TYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCS_SYSTEM(pub *mut core::ffi::c_void);

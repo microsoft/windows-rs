@@ -1,3 +1,228 @@
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ACT_AUTHORIZATION_STATE {
+    pub ulState: u32,
+}
+impl Default for ACT_AUTHORIZATION_STATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ACT_AUTHORIZATION_STATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ACT_AUTHORIZATION_STATE_VALUE(pub i32);
+pub const ACT_AUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = ACT_AUTHORIZATION_STATE_VALUE(1i32);
+pub const ACT_AUTHORIZE_ON_RESUME: u32 = 1u32;
+pub const ACT_AUTHORIZE_ON_SESSION_UNLOCK: u32 = 2u32;
+pub const ACT_UNAUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = ACT_AUTHORIZATION_STATE_VALUE(0i32);
+pub const ACT_UNAUTHORIZE_ON_SESSION_LOCK: u32 = 2u32;
+pub const ACT_UNAUTHORIZE_ON_SUSPEND: u32 = 1u32;
+pub const APPUSERMODEL_STARTPINOPTION_DEFAULT: u32 = 0u32;
+pub const APPUSERMODEL_STARTPINOPTION_NOPINONINSTALL: u32 = 1u32;
+pub const APPUSERMODEL_STARTPINOPTION_USERPINNED: u32 = 2u32;
+pub const AUDIO_CHANNELCOUNT_MONO: u32 = 1u32;
+pub const AUDIO_CHANNELCOUNT_STEREO: u32 = 2u32;
+pub const BLUETOOTH_ADDRESS_TYPE_PUBLIC: u32 = 0u32;
+pub const BLUETOOTH_ADDRESS_TYPE_RANDOM: u32 = 1u32;
+pub const BLUETOOTH_CACHED_MODE_UNCACHED: u32 = 1u32;
+pub const BLUETOOTH_CACHE_MODE_CACHED: u32 = 0u32;
+pub const CERT_CAPABILITY_ASYMMETRIC_KEY_CRYPTOGRAPHY: u32 = 2u32;
+pub const CERT_CAPABILITY_CERTIFICATE_SUPPORT: u32 = 4u32;
+pub const CERT_CAPABILITY_HASH_ALG: u32 = 1u32;
+pub const CERT_CAPABILITY_OPTIONAL_FEATURES: u32 = 5u32;
+pub const CERT_CAPABILITY_SIGNATURE_ALG: u32 = 3u32;
+pub const CERT_MAX_CAPABILITY: u32 = 255u32;
+pub const CERT_RSASSA_PSS_SHA1_OID: windows_core::PCSTR = windows_core::s!("1.2.840.113549.1.1.10,1.3.14.3.2.26");
+pub const CERT_RSASSA_PSS_SHA256_OID: windows_core::PCSTR = windows_core::s!("1.2.840.113549.1.1.10,2.16.840.1.101.3.4.2.1");
+pub const CERT_RSASSA_PSS_SHA384_OID: windows_core::PCSTR = windows_core::s!("1.2.840.113549.1.1.10,2.16.840.1.101.3.4.2.2");
+pub const CERT_RSASSA_PSS_SHA512_OID: windows_core::PCSTR = windows_core::s!("1.2.840.113549.1.1.10,2.16.840.1.101.3.4.2.3");
+pub const CERT_RSA_1024_OID: windows_core::PCSTR = windows_core::s!("1.2.840.113549.1.1.1,1024");
+pub const CERT_RSA_2048_OID: windows_core::PCSTR = windows_core::s!("1.2.840.113549.1.1.1,2048");
+pub const CERT_RSA_3072_OID: windows_core::PCSTR = windows_core::s!("1.2.840.113549.1.1.1,3072");
+pub const CERT_TYPE_ASCh: u32 = 3u32;
+pub const CERT_TYPE_ASCm: u32 = 1u32;
+pub const CERT_TYPE_EMPTY: u32 = 0u32;
+pub const CERT_TYPE_HCh: u32 = 4u32;
+pub const CERT_TYPE_PCp: u32 = 2u32;
+pub const CERT_TYPE_SIGNER: u32 = 6u32;
+pub const CERT_VALIDATION_POLICY_BASIC: u32 = 2u32;
+pub const CERT_VALIDATION_POLICY_EXTENDED: u32 = 3u32;
+pub const CERT_VALIDATION_POLICY_NONE: u32 = 1u32;
+pub const CERT_VALIDATION_POLICY_RESERVED: u32 = 0u32;
+pub const CREATOROPENWITHUIOPTION_HIDDEN: u32 = 0u32;
+pub const CREATOROPENWITHUIOPTION_VISIBLE: u32 = 1u32;
+pub const ENHANCED_STORAGE_AUTHN_STATE_AUTHENTICATED: u32 = 3u32;
+pub const ENHANCED_STORAGE_AUTHN_STATE_AUTHENTICATION_DENIED: u32 = 2147483649u32;
+pub const ENHANCED_STORAGE_AUTHN_STATE_DEVICE_ERROR: u32 = 2147483650u32;
+pub const ENHANCED_STORAGE_AUTHN_STATE_NOT_AUTHENTICATED: u32 = 2u32;
+pub const ENHANCED_STORAGE_AUTHN_STATE_NO_AUTHENTICATION_REQUIRED: u32 = 1u32;
+pub const ENHANCED_STORAGE_AUTHN_STATE_UNKNOWN: u32 = 0u32;
+pub const ENHANCED_STORAGE_CAPABILITY_ASYMMETRIC_KEY_CRYPTOGRAPHY: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 4002 };
+pub const ENHANCED_STORAGE_CAPABILITY_CERTIFICATE_EXTENSION_PARSING: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 4005 };
+pub const ENHANCED_STORAGE_CAPABILITY_HASH_ALGS: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 4001 };
+pub const ENHANCED_STORAGE_CAPABILITY_RENDER_USER_DATA_UNUSABLE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 4004 };
+pub const ENHANCED_STORAGE_CAPABILITY_SIGNING_ALGS: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 4003 };
+pub const ENHANCED_STORAGE_COMMAND_CERT_ADMIN_CERTIFICATE_AUTHENTICATION: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 103 };
+pub const ENHANCED_STORAGE_COMMAND_CERT_CREATE_CERTIFICATE_REQUEST: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 108 };
+pub const ENHANCED_STORAGE_COMMAND_CERT_DEVICE_CERTIFICATE_AUTHENTICATION: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 102 };
+pub const ENHANCED_STORAGE_COMMAND_CERT_GET_ACT_FRIENDLY_NAME: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 113 };
+pub const ENHANCED_STORAGE_COMMAND_CERT_GET_CERTIFICATE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 106 };
+pub const ENHANCED_STORAGE_COMMAND_CERT_GET_CERTIFICATE_COUNT: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 105 };
+pub const ENHANCED_STORAGE_COMMAND_CERT_GET_SILO_CAPABILITIES: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 112 };
+pub const ENHANCED_STORAGE_COMMAND_CERT_GET_SILO_CAPABILITY: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 111 };
+pub const ENHANCED_STORAGE_COMMAND_CERT_GET_SILO_GUID: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 114 };
+pub const ENHANCED_STORAGE_COMMAND_CERT_HOST_CERTIFICATE_AUTHENTICATION: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 101 };
+pub const ENHANCED_STORAGE_COMMAND_CERT_INITIALIZE_TO_MANUFACTURER_STATE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 104 };
+pub const ENHANCED_STORAGE_COMMAND_CERT_SET_CERTIFICATE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 107 };
+pub const ENHANCED_STORAGE_COMMAND_CERT_UNAUTHENTICATION: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 110 };
+pub const ENHANCED_STORAGE_COMMAND_PASSWORD_AUTHORIZE_ACT_ACCESS: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 203 };
+pub const ENHANCED_STORAGE_COMMAND_PASSWORD_CHANGE_PASSWORD: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 209 };
+pub const ENHANCED_STORAGE_COMMAND_PASSWORD_CONFIG_ADMINISTRATOR: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 206 };
+pub const ENHANCED_STORAGE_COMMAND_PASSWORD_CREATE_USER: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 207 };
+pub const ENHANCED_STORAGE_COMMAND_PASSWORD_DELETE_USER: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 208 };
+pub const ENHANCED_STORAGE_COMMAND_PASSWORD_INITIALIZE_USER_PASSWORD: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 210 };
+pub const ENHANCED_STORAGE_COMMAND_PASSWORD_QUERY_INFORMATION: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 205 };
+pub const ENHANCED_STORAGE_COMMAND_PASSWORD_START_INITIALIZE_TO_MANUFACTURER_STATE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 211 };
+pub const ENHANCED_STORAGE_COMMAND_PASSWORD_UNAUTHORIZE_ACT_ACCESS: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 204 };
+pub const ENHANCED_STORAGE_COMMAND_SILO_ENUMERATE_SILOS: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 11 };
+pub const ENHANCED_STORAGE_COMMAND_SILO_GET_AUTHENTICATION_STATE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 7 };
+pub const ENHANCED_STORAGE_COMMAND_SILO_IS_AUTHENTICATION_SILO: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 6 };
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
+    pub CurrentAdminFailures: u8,
+    pub CurrentUserFailures: u8,
+    pub TotalUserAuthenticationCount: u32,
+    pub TotalAdminAuthenticationCount: u32,
+    pub FipsCompliant: super::super::Foundation::BOOL,
+    pub SecurityIDAvailable: super::super::Foundation::BOOL,
+    pub InitializeInProgress: super::super::Foundation::BOOL,
+    pub ITMSArmed: super::super::Foundation::BOOL,
+    pub ITMSArmable: super::super::Foundation::BOOL,
+    pub UserCreated: super::super::Foundation::BOOL,
+    pub ResetOnPORDefault: super::super::Foundation::BOOL,
+    pub ResetOnPORCurrent: super::super::Foundation::BOOL,
+    pub MaxAdminFailures: u8,
+    pub MaxUserFailures: u8,
+    pub TimeToCompleteInitialization: u32,
+    pub TimeRemainingToCompleteInitialization: u32,
+    pub MinTimeToAuthenticate: u32,
+    pub MaxAdminPasswordSize: u8,
+    pub MinAdminPasswordSize: u8,
+    pub MaxAdminHintSize: u8,
+    pub MaxUserPasswordSize: u8,
+    pub MinUserPasswordSize: u8,
+    pub MaxUserHintSize: u8,
+    pub MaxUserNameSize: u8,
+    pub MaxSiloNameSize: u8,
+    pub MaxChallengeSize: u16,
+}
+impl Default for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ENHANCED_STORAGE_PROPERTY_ADMIN_HINT: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2011 };
+pub const ENHANCED_STORAGE_PROPERTY_AUTHENTICATION_STATE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 1006 };
+pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3009 };
+pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_ACT_FRIENDLY_NAME: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3014 };
+pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_CAPABILITY_TYPE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3011 };
+pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_INDEX: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3003 };
+pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_LENGTH: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3008 };
+pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_REQUEST: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3010 };
+pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_SILO_CAPABILITIES: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3013 };
+pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_SILO_CAPABILITY: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3012 };
+pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_SILO_GUID: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3015 };
+pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_TYPE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3004 };
+pub const ENHANCED_STORAGE_PROPERTY_IS_AUTHENTICATION_SILO: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 1009 };
+pub const ENHANCED_STORAGE_PROPERTY_MAX_AUTH_FAILURES: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2001 };
+pub const ENHANCED_STORAGE_PROPERTY_MAX_CERTIFICATE_COUNT: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3001 };
+pub const ENHANCED_STORAGE_PROPERTY_NEW_PASSWORD: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2008 };
+pub const ENHANCED_STORAGE_PROPERTY_NEW_PASSWORD_INDICATOR: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2007 };
+pub const ENHANCED_STORAGE_PROPERTY_NEXT_CERTIFICATE_INDEX: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3006 };
+pub const ENHANCED_STORAGE_PROPERTY_NEXT_CERTIFICATE_OF_TYPE_INDEX: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3007 };
+pub const ENHANCED_STORAGE_PROPERTY_OLD_PASSWORD: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2005 };
+pub const ENHANCED_STORAGE_PROPERTY_PASSWORD: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2004 };
+pub const ENHANCED_STORAGE_PROPERTY_PASSWORD_INDICATOR: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2006 };
+pub const ENHANCED_STORAGE_PROPERTY_PASSWORD_SILO_INFO: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2014 };
+pub const ENHANCED_STORAGE_PROPERTY_QUERY_SILO_RESULTS: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2017 };
+pub const ENHANCED_STORAGE_PROPERTY_QUERY_SILO_TYPE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2016 };
+pub const ENHANCED_STORAGE_PROPERTY_SECURITY_IDENTIFIER: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2015 };
+pub const ENHANCED_STORAGE_PROPERTY_SIGNER_CERTIFICATE_INDEX: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3016 };
+pub const ENHANCED_STORAGE_PROPERTY_SILO_FRIENDLYNAME_SPECIFIED: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2013 };
+pub const ENHANCED_STORAGE_PROPERTY_SILO_NAME: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2012 };
+pub const ENHANCED_STORAGE_PROPERTY_STORED_CERTIFICATE_COUNT: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3002 };
+pub const ENHANCED_STORAGE_PROPERTY_TEMPORARY_UNAUTHENTICATION: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 1010 };
+pub const ENHANCED_STORAGE_PROPERTY_USER_HINT: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2009 };
+pub const ENHANCED_STORAGE_PROPERTY_USER_NAME: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2010 };
+pub const ENHANCED_STORAGE_PROPERTY_VALIDATION_POLICY: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3005 };
+pub const ES_AUTHN_ERROR_END: u32 = 1279u32;
+pub const ES_AUTHN_ERROR_START: u32 = 1024u32;
+pub const ES_E_AUTHORIZED_UNEXPECTED: u32 = 3221491978u32;
+pub const ES_E_BAD_SEQUENCE: u32 = 3221488135u32;
+pub const ES_E_CHALLENGE_MISMATCH: u32 = 3221491969u32;
+pub const ES_E_CHALLENGE_SIZE_MISMATCH: u32 = 3221491970u32;
+pub const ES_E_DEVICE_DIGEST_MISSING: u32 = 3221491976u32;
+pub const ES_E_FRIENDLY_NAME_TOO_LONG: u32 = 3221491971u32;
+pub const ES_E_GROUP_POLICY_FORBIDDEN_OPERATION: u32 = 3221488140u32;
+pub const ES_E_GROUP_POLICY_FORBIDDEN_USE: u32 = 3221488139u32;
+pub const ES_E_INCOMPLETE_COMMAND: u32 = 3221488134u32;
+pub const ES_E_INCONSISTENT_PARAM_LENGTH: u32 = 3221488143u32;
+pub const ES_E_INVALID_CAPABILITY: u32 = 3221488138u32;
+pub const ES_E_INVALID_FIELD_IDENTIFIER: u32 = 3221491968u32;
+pub const ES_E_INVALID_PARAM_COMBINATION: u32 = 3221488141u32;
+pub const ES_E_INVALID_PARAM_LENGTH: u32 = 3221488142u32;
+pub const ES_E_INVALID_RESPONSE: u32 = 3221488128u32;
+pub const ES_E_INVALID_SILO: u32 = 3221488137u32;
+pub const ES_E_NOT_AUTHORIZED_UNEXPECTED: u32 = 3221491977u32;
+pub const ES_E_NO_AUTHENTICATION_REQUIRED: u32 = 3221488640u32;
+pub const ES_E_NO_PROBE: u32 = 3221488136u32;
+pub const ES_E_OTHER_SECURITY_PROTOCOL_ACTIVE: u32 = 3221491975u32;
+pub const ES_E_PASSWORD_HINT_TOO_LONG: u32 = 3221491974u32;
+pub const ES_E_PASSWORD_TOO_LONG: u32 = 3221491973u32;
+pub const ES_E_PROVISIONED_UNEXPECTED: u32 = 3221491979u32;
+pub const ES_E_SILO_NAME_TOO_LONG: u32 = 3221491972u32;
+pub const ES_E_UNKNOWN_DIGEST_ALGORITHM: u32 = 3221491980u32;
+pub const ES_E_UNPROVISIONED_HARDWARE: u32 = 3221488132u32;
+pub const ES_E_UNSUPPORTED_HARDWARE: u32 = 3221488133u32;
+pub const ES_GENERAL_ERROR_END: u32 = 1023u32;
+pub const ES_GENERAL_ERROR_START: u32 = 512u32;
+pub const ES_PW_SILO_ERROR_END: u32 = 4607u32;
+pub const ES_PW_SILO_ERROR_START: u32 = 4352u32;
+pub const ES_RESERVED_COM_ERROR_END: u32 = 511u32;
+pub const ES_RESERVED_COM_ERROR_START: u32 = 0u32;
+pub const ES_RESERVED_SILO_ERROR_END: u32 = 4095u32;
+pub const ES_RESERVED_SILO_ERROR_START: u32 = 1280u32;
+pub const ES_RESERVED_SILO_SPECIFIC_ERROR_END: u32 = 49151u32;
+pub const ES_RESERVED_SILO_SPECIFIC_ERROR_START: u32 = 4608u32;
+pub const ES_VENDOR_ERROR_END: u32 = 65535u32;
+pub const ES_VENDOR_ERROR_START: u32 = 49152u32;
+pub const EnhancedStorageACT: windows_core::GUID = windows_core::GUID::from_u128(0xaf076a15_2ece_4ad4_bb21_29f040e176d8);
+pub const EnhancedStorageSilo: windows_core::GUID = windows_core::GUID::from_u128(0xcb25220c_76c7_4fee_842b_f3383cd022bc);
+pub const EnhancedStorageSiloAction: windows_core::GUID = windows_core::GUID::from_u128(0x886d29dd_b506_466b_9fbf_b44ff383fb3f);
+pub const EnumEnhancedStorageACT: windows_core::GUID = windows_core::GUID::from_u128(0xfe841493_835c_4fa3_b6cc_b4b2d4719848);
+pub const FACILITY_ENHANCED_STORAGE: u32 = 4u32;
+pub const FILEOFFLINEAVAILABILITYSTATUS_COMPLETE: u32 = 2u32;
+pub const FILEOFFLINEAVAILABILITYSTATUS_COMPLETE_PINNED: u32 = 3u32;
+pub const FILEOFFLINEAVAILABILITYSTATUS_EXCLUDED: u32 = 4u32;
+pub const FILEOFFLINEAVAILABILITYSTATUS_FOLDER_EMPTY: u32 = 5u32;
+pub const FILEOFFLINEAVAILABILITYSTATUS_NOTAVAILABLEOFFLINE: u32 = 0u32;
+pub const FILEOFFLINEAVAILABILITYSTATUS_PARTIAL: u32 = 1u32;
+pub const FLAGSTATUS_COMPLETED: i32 = 1i32;
+pub const FLAGSTATUS_FOLLOWUP: i32 = 2i32;
+pub const FLAGSTATUS_NOTFLAGGED: i32 = 0i32;
+pub const GUID_DEVINTERFACE_ENHANCED_STORAGE_SILO: windows_core::GUID = windows_core::GUID::from_u128(0x3897f6a4_fd35_4bc8_a0b7_5dbba36adafa);
+pub const HOMEGROUPING_FREQUENT: u32 = 1u32;
+pub const HOMEGROUPING_PINNED: u32 = 2u32;
+pub const HOMEGROUPING_RECENT: u32 = 3u32;
+pub const HOMEGROUPING_RECOMMENDATIONS: u32 = 4u32;
+pub const HOMEGROUPING_UNSPECIFIED: u32 = 0u32;
 windows_core::imp::define_interface!(IEnhancedStorageACT, IEnhancedStorageACT_Vtbl, 0x6e7781f4_e0f2_4239_b976_a01abab52930);
 windows_core::imp::interface_hierarchy!(IEnhancedStorageACT, windows_core::IUnknown);
 impl IEnhancedStorageACT {
@@ -447,250 +672,6 @@ impl IEnumEnhancedStorageACT_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IEnumEnhancedStorageACT {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ACT_AUTHORIZATION_STATE_VALUE(pub i32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ACT_AUTHORIZATION_STATE {
-    pub ulState: u32,
-}
-impl Default for ACT_AUTHORIZATION_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ACT_AUTHORIZATION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
-    pub CurrentAdminFailures: u8,
-    pub CurrentUserFailures: u8,
-    pub TotalUserAuthenticationCount: u32,
-    pub TotalAdminAuthenticationCount: u32,
-    pub FipsCompliant: super::super::Foundation::BOOL,
-    pub SecurityIDAvailable: super::super::Foundation::BOOL,
-    pub InitializeInProgress: super::super::Foundation::BOOL,
-    pub ITMSArmed: super::super::Foundation::BOOL,
-    pub ITMSArmable: super::super::Foundation::BOOL,
-    pub UserCreated: super::super::Foundation::BOOL,
-    pub ResetOnPORDefault: super::super::Foundation::BOOL,
-    pub ResetOnPORCurrent: super::super::Foundation::BOOL,
-    pub MaxAdminFailures: u8,
-    pub MaxUserFailures: u8,
-    pub TimeToCompleteInitialization: u32,
-    pub TimeRemainingToCompleteInitialization: u32,
-    pub MinTimeToAuthenticate: u32,
-    pub MaxAdminPasswordSize: u8,
-    pub MinAdminPasswordSize: u8,
-    pub MaxAdminHintSize: u8,
-    pub MaxUserPasswordSize: u8,
-    pub MinUserPasswordSize: u8,
-    pub MaxUserHintSize: u8,
-    pub MaxUserNameSize: u8,
-    pub MaxSiloNameSize: u8,
-    pub MaxChallengeSize: u16,
-}
-impl Default for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-pub const EnhancedStorageACT: windows_core::GUID = windows_core::GUID::from_u128(0xaf076a15_2ece_4ad4_bb21_29f040e176d8);
-pub const EnhancedStorageSilo: windows_core::GUID = windows_core::GUID::from_u128(0xcb25220c_76c7_4fee_842b_f3383cd022bc);
-pub const EnhancedStorageSiloAction: windows_core::GUID = windows_core::GUID::from_u128(0x886d29dd_b506_466b_9fbf_b44ff383fb3f);
-pub const EnumEnhancedStorageACT: windows_core::GUID = windows_core::GUID::from_u128(0xfe841493_835c_4fa3_b6cc_b4b2d4719848);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SILO_INFO {
-    pub ulSTID: u32,
-    pub SpecificationMajor: u8,
-    pub SpecificationMinor: u8,
-    pub ImplementationMajor: u8,
-    pub ImplementationMinor: u8,
-    pub r#type: u8,
-    pub capabilities: u8,
-}
-impl Default for SILO_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SILO_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-pub const ACT_AUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = ACT_AUTHORIZATION_STATE_VALUE(1i32);
-pub const ACT_AUTHORIZE_ON_RESUME: u32 = 1u32;
-pub const ACT_AUTHORIZE_ON_SESSION_UNLOCK: u32 = 2u32;
-pub const ACT_UNAUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = ACT_AUTHORIZATION_STATE_VALUE(0i32);
-pub const ACT_UNAUTHORIZE_ON_SESSION_LOCK: u32 = 2u32;
-pub const ACT_UNAUTHORIZE_ON_SUSPEND: u32 = 1u32;
-pub const APPUSERMODEL_STARTPINOPTION_DEFAULT: u32 = 0u32;
-pub const APPUSERMODEL_STARTPINOPTION_NOPINONINSTALL: u32 = 1u32;
-pub const APPUSERMODEL_STARTPINOPTION_USERPINNED: u32 = 2u32;
-pub const AUDIO_CHANNELCOUNT_MONO: u32 = 1u32;
-pub const AUDIO_CHANNELCOUNT_STEREO: u32 = 2u32;
-pub const BLUETOOTH_ADDRESS_TYPE_PUBLIC: u32 = 0u32;
-pub const BLUETOOTH_ADDRESS_TYPE_RANDOM: u32 = 1u32;
-pub const BLUETOOTH_CACHED_MODE_UNCACHED: u32 = 1u32;
-pub const BLUETOOTH_CACHE_MODE_CACHED: u32 = 0u32;
-pub const CERT_CAPABILITY_ASYMMETRIC_KEY_CRYPTOGRAPHY: u32 = 2u32;
-pub const CERT_CAPABILITY_CERTIFICATE_SUPPORT: u32 = 4u32;
-pub const CERT_CAPABILITY_HASH_ALG: u32 = 1u32;
-pub const CERT_CAPABILITY_OPTIONAL_FEATURES: u32 = 5u32;
-pub const CERT_CAPABILITY_SIGNATURE_ALG: u32 = 3u32;
-pub const CERT_MAX_CAPABILITY: u32 = 255u32;
-pub const CERT_RSASSA_PSS_SHA1_OID: windows_core::PCSTR = windows_core::s!("1.2.840.113549.1.1.10,1.3.14.3.2.26");
-pub const CERT_RSASSA_PSS_SHA256_OID: windows_core::PCSTR = windows_core::s!("1.2.840.113549.1.1.10,2.16.840.1.101.3.4.2.1");
-pub const CERT_RSASSA_PSS_SHA384_OID: windows_core::PCSTR = windows_core::s!("1.2.840.113549.1.1.10,2.16.840.1.101.3.4.2.2");
-pub const CERT_RSASSA_PSS_SHA512_OID: windows_core::PCSTR = windows_core::s!("1.2.840.113549.1.1.10,2.16.840.1.101.3.4.2.3");
-pub const CERT_RSA_1024_OID: windows_core::PCSTR = windows_core::s!("1.2.840.113549.1.1.1,1024");
-pub const CERT_RSA_2048_OID: windows_core::PCSTR = windows_core::s!("1.2.840.113549.1.1.1,2048");
-pub const CERT_RSA_3072_OID: windows_core::PCSTR = windows_core::s!("1.2.840.113549.1.1.1,3072");
-pub const CERT_TYPE_ASCh: u32 = 3u32;
-pub const CERT_TYPE_ASCm: u32 = 1u32;
-pub const CERT_TYPE_EMPTY: u32 = 0u32;
-pub const CERT_TYPE_HCh: u32 = 4u32;
-pub const CERT_TYPE_PCp: u32 = 2u32;
-pub const CERT_TYPE_SIGNER: u32 = 6u32;
-pub const CERT_VALIDATION_POLICY_BASIC: u32 = 2u32;
-pub const CERT_VALIDATION_POLICY_EXTENDED: u32 = 3u32;
-pub const CERT_VALIDATION_POLICY_NONE: u32 = 1u32;
-pub const CERT_VALIDATION_POLICY_RESERVED: u32 = 0u32;
-pub const CREATOROPENWITHUIOPTION_HIDDEN: u32 = 0u32;
-pub const CREATOROPENWITHUIOPTION_VISIBLE: u32 = 1u32;
-pub const ENHANCED_STORAGE_AUTHN_STATE_AUTHENTICATED: u32 = 3u32;
-pub const ENHANCED_STORAGE_AUTHN_STATE_AUTHENTICATION_DENIED: u32 = 2147483649u32;
-pub const ENHANCED_STORAGE_AUTHN_STATE_DEVICE_ERROR: u32 = 2147483650u32;
-pub const ENHANCED_STORAGE_AUTHN_STATE_NOT_AUTHENTICATED: u32 = 2u32;
-pub const ENHANCED_STORAGE_AUTHN_STATE_NO_AUTHENTICATION_REQUIRED: u32 = 1u32;
-pub const ENHANCED_STORAGE_AUTHN_STATE_UNKNOWN: u32 = 0u32;
-pub const ENHANCED_STORAGE_CAPABILITY_ASYMMETRIC_KEY_CRYPTOGRAPHY: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 4002 };
-pub const ENHANCED_STORAGE_CAPABILITY_CERTIFICATE_EXTENSION_PARSING: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 4005 };
-pub const ENHANCED_STORAGE_CAPABILITY_HASH_ALGS: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 4001 };
-pub const ENHANCED_STORAGE_CAPABILITY_RENDER_USER_DATA_UNUSABLE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 4004 };
-pub const ENHANCED_STORAGE_CAPABILITY_SIGNING_ALGS: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 4003 };
-pub const ENHANCED_STORAGE_COMMAND_CERT_ADMIN_CERTIFICATE_AUTHENTICATION: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 103 };
-pub const ENHANCED_STORAGE_COMMAND_CERT_CREATE_CERTIFICATE_REQUEST: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 108 };
-pub const ENHANCED_STORAGE_COMMAND_CERT_DEVICE_CERTIFICATE_AUTHENTICATION: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 102 };
-pub const ENHANCED_STORAGE_COMMAND_CERT_GET_ACT_FRIENDLY_NAME: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 113 };
-pub const ENHANCED_STORAGE_COMMAND_CERT_GET_CERTIFICATE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 106 };
-pub const ENHANCED_STORAGE_COMMAND_CERT_GET_CERTIFICATE_COUNT: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 105 };
-pub const ENHANCED_STORAGE_COMMAND_CERT_GET_SILO_CAPABILITIES: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 112 };
-pub const ENHANCED_STORAGE_COMMAND_CERT_GET_SILO_CAPABILITY: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 111 };
-pub const ENHANCED_STORAGE_COMMAND_CERT_GET_SILO_GUID: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 114 };
-pub const ENHANCED_STORAGE_COMMAND_CERT_HOST_CERTIFICATE_AUTHENTICATION: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 101 };
-pub const ENHANCED_STORAGE_COMMAND_CERT_INITIALIZE_TO_MANUFACTURER_STATE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 104 };
-pub const ENHANCED_STORAGE_COMMAND_CERT_SET_CERTIFICATE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 107 };
-pub const ENHANCED_STORAGE_COMMAND_CERT_UNAUTHENTICATION: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 110 };
-pub const ENHANCED_STORAGE_COMMAND_PASSWORD_AUTHORIZE_ACT_ACCESS: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 203 };
-pub const ENHANCED_STORAGE_COMMAND_PASSWORD_CHANGE_PASSWORD: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 209 };
-pub const ENHANCED_STORAGE_COMMAND_PASSWORD_CONFIG_ADMINISTRATOR: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 206 };
-pub const ENHANCED_STORAGE_COMMAND_PASSWORD_CREATE_USER: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 207 };
-pub const ENHANCED_STORAGE_COMMAND_PASSWORD_DELETE_USER: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 208 };
-pub const ENHANCED_STORAGE_COMMAND_PASSWORD_INITIALIZE_USER_PASSWORD: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 210 };
-pub const ENHANCED_STORAGE_COMMAND_PASSWORD_QUERY_INFORMATION: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 205 };
-pub const ENHANCED_STORAGE_COMMAND_PASSWORD_START_INITIALIZE_TO_MANUFACTURER_STATE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 211 };
-pub const ENHANCED_STORAGE_COMMAND_PASSWORD_UNAUTHORIZE_ACT_ACCESS: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 204 };
-pub const ENHANCED_STORAGE_COMMAND_SILO_ENUMERATE_SILOS: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 11 };
-pub const ENHANCED_STORAGE_COMMAND_SILO_GET_AUTHENTICATION_STATE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 7 };
-pub const ENHANCED_STORAGE_COMMAND_SILO_IS_AUTHENTICATION_SILO: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 6 };
-pub const ENHANCED_STORAGE_PROPERTY_ADMIN_HINT: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2011 };
-pub const ENHANCED_STORAGE_PROPERTY_AUTHENTICATION_STATE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 1006 };
-pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3009 };
-pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_ACT_FRIENDLY_NAME: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3014 };
-pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_CAPABILITY_TYPE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3011 };
-pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_INDEX: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3003 };
-pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_LENGTH: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3008 };
-pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_REQUEST: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3010 };
-pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_SILO_CAPABILITIES: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3013 };
-pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_SILO_CAPABILITY: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3012 };
-pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_SILO_GUID: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3015 };
-pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_TYPE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3004 };
-pub const ENHANCED_STORAGE_PROPERTY_IS_AUTHENTICATION_SILO: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 1009 };
-pub const ENHANCED_STORAGE_PROPERTY_MAX_AUTH_FAILURES: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2001 };
-pub const ENHANCED_STORAGE_PROPERTY_MAX_CERTIFICATE_COUNT: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3001 };
-pub const ENHANCED_STORAGE_PROPERTY_NEW_PASSWORD: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2008 };
-pub const ENHANCED_STORAGE_PROPERTY_NEW_PASSWORD_INDICATOR: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2007 };
-pub const ENHANCED_STORAGE_PROPERTY_NEXT_CERTIFICATE_INDEX: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3006 };
-pub const ENHANCED_STORAGE_PROPERTY_NEXT_CERTIFICATE_OF_TYPE_INDEX: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3007 };
-pub const ENHANCED_STORAGE_PROPERTY_OLD_PASSWORD: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2005 };
-pub const ENHANCED_STORAGE_PROPERTY_PASSWORD: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2004 };
-pub const ENHANCED_STORAGE_PROPERTY_PASSWORD_INDICATOR: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2006 };
-pub const ENHANCED_STORAGE_PROPERTY_PASSWORD_SILO_INFO: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2014 };
-pub const ENHANCED_STORAGE_PROPERTY_QUERY_SILO_RESULTS: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2017 };
-pub const ENHANCED_STORAGE_PROPERTY_QUERY_SILO_TYPE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2016 };
-pub const ENHANCED_STORAGE_PROPERTY_SECURITY_IDENTIFIER: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2015 };
-pub const ENHANCED_STORAGE_PROPERTY_SIGNER_CERTIFICATE_INDEX: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3016 };
-pub const ENHANCED_STORAGE_PROPERTY_SILO_FRIENDLYNAME_SPECIFIED: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2013 };
-pub const ENHANCED_STORAGE_PROPERTY_SILO_NAME: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2012 };
-pub const ENHANCED_STORAGE_PROPERTY_STORED_CERTIFICATE_COUNT: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3002 };
-pub const ENHANCED_STORAGE_PROPERTY_TEMPORARY_UNAUTHENTICATION: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 1010 };
-pub const ENHANCED_STORAGE_PROPERTY_USER_HINT: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2009 };
-pub const ENHANCED_STORAGE_PROPERTY_USER_NAME: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2010 };
-pub const ENHANCED_STORAGE_PROPERTY_VALIDATION_POLICY: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3005 };
-pub const ES_AUTHN_ERROR_END: u32 = 1279u32;
-pub const ES_AUTHN_ERROR_START: u32 = 1024u32;
-pub const ES_E_AUTHORIZED_UNEXPECTED: u32 = 3221491978u32;
-pub const ES_E_BAD_SEQUENCE: u32 = 3221488135u32;
-pub const ES_E_CHALLENGE_MISMATCH: u32 = 3221491969u32;
-pub const ES_E_CHALLENGE_SIZE_MISMATCH: u32 = 3221491970u32;
-pub const ES_E_DEVICE_DIGEST_MISSING: u32 = 3221491976u32;
-pub const ES_E_FRIENDLY_NAME_TOO_LONG: u32 = 3221491971u32;
-pub const ES_E_GROUP_POLICY_FORBIDDEN_OPERATION: u32 = 3221488140u32;
-pub const ES_E_GROUP_POLICY_FORBIDDEN_USE: u32 = 3221488139u32;
-pub const ES_E_INCOMPLETE_COMMAND: u32 = 3221488134u32;
-pub const ES_E_INCONSISTENT_PARAM_LENGTH: u32 = 3221488143u32;
-pub const ES_E_INVALID_CAPABILITY: u32 = 3221488138u32;
-pub const ES_E_INVALID_FIELD_IDENTIFIER: u32 = 3221491968u32;
-pub const ES_E_INVALID_PARAM_COMBINATION: u32 = 3221488141u32;
-pub const ES_E_INVALID_PARAM_LENGTH: u32 = 3221488142u32;
-pub const ES_E_INVALID_RESPONSE: u32 = 3221488128u32;
-pub const ES_E_INVALID_SILO: u32 = 3221488137u32;
-pub const ES_E_NOT_AUTHORIZED_UNEXPECTED: u32 = 3221491977u32;
-pub const ES_E_NO_AUTHENTICATION_REQUIRED: u32 = 3221488640u32;
-pub const ES_E_NO_PROBE: u32 = 3221488136u32;
-pub const ES_E_OTHER_SECURITY_PROTOCOL_ACTIVE: u32 = 3221491975u32;
-pub const ES_E_PASSWORD_HINT_TOO_LONG: u32 = 3221491974u32;
-pub const ES_E_PASSWORD_TOO_LONG: u32 = 3221491973u32;
-pub const ES_E_PROVISIONED_UNEXPECTED: u32 = 3221491979u32;
-pub const ES_E_SILO_NAME_TOO_LONG: u32 = 3221491972u32;
-pub const ES_E_UNKNOWN_DIGEST_ALGORITHM: u32 = 3221491980u32;
-pub const ES_E_UNPROVISIONED_HARDWARE: u32 = 3221488132u32;
-pub const ES_E_UNSUPPORTED_HARDWARE: u32 = 3221488133u32;
-pub const ES_GENERAL_ERROR_END: u32 = 1023u32;
-pub const ES_GENERAL_ERROR_START: u32 = 512u32;
-pub const ES_PW_SILO_ERROR_END: u32 = 4607u32;
-pub const ES_PW_SILO_ERROR_START: u32 = 4352u32;
-pub const ES_RESERVED_COM_ERROR_END: u32 = 511u32;
-pub const ES_RESERVED_COM_ERROR_START: u32 = 0u32;
-pub const ES_RESERVED_SILO_ERROR_END: u32 = 4095u32;
-pub const ES_RESERVED_SILO_ERROR_START: u32 = 1280u32;
-pub const ES_RESERVED_SILO_SPECIFIC_ERROR_END: u32 = 49151u32;
-pub const ES_RESERVED_SILO_SPECIFIC_ERROR_START: u32 = 4608u32;
-pub const ES_VENDOR_ERROR_END: u32 = 65535u32;
-pub const ES_VENDOR_ERROR_START: u32 = 49152u32;
-pub const FACILITY_ENHANCED_STORAGE: u32 = 4u32;
-pub const FILEOFFLINEAVAILABILITYSTATUS_COMPLETE: u32 = 2u32;
-pub const FILEOFFLINEAVAILABILITYSTATUS_COMPLETE_PINNED: u32 = 3u32;
-pub const FILEOFFLINEAVAILABILITYSTATUS_EXCLUDED: u32 = 4u32;
-pub const FILEOFFLINEAVAILABILITYSTATUS_FOLDER_EMPTY: u32 = 5u32;
-pub const FILEOFFLINEAVAILABILITYSTATUS_NOTAVAILABLEOFFLINE: u32 = 0u32;
-pub const FILEOFFLINEAVAILABILITYSTATUS_PARTIAL: u32 = 1u32;
-pub const FLAGSTATUS_COMPLETED: i32 = 1i32;
-pub const FLAGSTATUS_FOLLOWUP: i32 = 2i32;
-pub const FLAGSTATUS_NOTFLAGGED: i32 = 0i32;
-pub const GUID_DEVINTERFACE_ENHANCED_STORAGE_SILO: windows_core::GUID = windows_core::GUID::from_u128(0x3897f6a4_fd35_4bc8_a0b7_5dbba36adafa);
-pub const HOMEGROUPING_FREQUENT: u32 = 1u32;
-pub const HOMEGROUPING_PINNED: u32 = 2u32;
-pub const HOMEGROUPING_RECENT: u32 = 3u32;
-pub const HOMEGROUPING_RECOMMENDATIONS: u32 = 4u32;
-pub const HOMEGROUPING_UNSPECIFIED: u32 = 0u32;
 pub const IMPORTANCE_HIGH_MAX: i32 = 5i32;
 pub const IMPORTANCE_HIGH_MIN: i32 = 5i32;
 pub const IMPORTANCE_HIGH_SET: i32 = 5i32;
@@ -1906,6 +1887,25 @@ pub const SFGAOSTR_SYSTEM: windows_core::PCWSTR = windows_core::w!("system");
 pub const SHARINGSTATUS_NOTSHARED: u32 = 0u32;
 pub const SHARINGSTATUS_PRIVATE: u32 = 2u32;
 pub const SHARINGSTATUS_SHARED: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SILO_INFO {
+    pub ulSTID: u32,
+    pub SpecificationMajor: u8,
+    pub SpecificationMinor: u8,
+    pub ImplementationMajor: u8,
+    pub ImplementationMinor: u8,
+    pub r#type: u8,
+    pub capabilities: u8,
+}
+impl Default for SILO_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SILO_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 pub const STORAGEPROVIDERSTATE_ERROR: u32 = 7u32;
 pub const STORAGEPROVIDERSTATE_EXCLUDED: u32 = 9u32;
 pub const STORAGEPROVIDERSTATE_IN_SYNC: u32 = 2u32;

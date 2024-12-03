@@ -1,3 +1,4 @@
+pub const CLSID_SoftwareBitmapNativeFactory: windows_core::GUID = windows_core::GUID::from_u128(0x84e65691_8602_4a84_be46_708be9cd4b74);
 windows_core::imp::define_interface!(ISoftwareBitmapNative, ISoftwareBitmapNative_Vtbl, 0x94bc8415_04ea_4b2e_af13_4de95aa898eb);
 windows_core::imp::interface_hierarchy!(ISoftwareBitmapNative, windows_core::IUnknown, windows_core::IInspectable);
 impl ISoftwareBitmapNative {
@@ -94,4 +95,3 @@ impl ISoftwareBitmapNativeFactory_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Media_MediaFoundation"))]
 impl windows_core::RuntimeName for ISoftwareBitmapNativeFactory {}
-pub const CLSID_SoftwareBitmapNativeFactory: windows_core::GUID = windows_core::GUID::from_u128(0x84e65691_8602_4a84_be46_708be9cd4b74);

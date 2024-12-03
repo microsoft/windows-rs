@@ -108,6 +108,39 @@ impl windows_core::RuntimeName for DeviceAccessInformation {
 unsafe impl Send for DeviceAccessInformation {}
 unsafe impl Sync for DeviceAccessInformation {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DeviceAccessStatus(pub i32);
+impl DeviceAccessStatus {
+    pub const Unspecified: Self = Self(0i32);
+    pub const Allowed: Self = Self(1i32);
+    pub const DeniedByUser: Self = Self(2i32);
+    pub const DeniedBySystem: Self = Self(3i32);
+}
+impl windows_core::TypeKind for DeviceAccessStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DeviceAccessStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceAccessStatus;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DeviceClass(pub i32);
+impl DeviceClass {
+    pub const All: Self = Self(0i32);
+    pub const AudioCapture: Self = Self(1i32);
+    pub const AudioRender: Self = Self(2i32);
+    pub const PortableStorageDevice: Self = Self(3i32);
+    pub const VideoCapture: Self = Self(4i32);
+    pub const ImageScanner: Self = Self(5i32);
+    pub const Location: Self = Self(6i32);
+}
+impl windows_core::TypeKind for DeviceClass {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DeviceClass {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceClass;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeviceConnectionChangeTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceConnectionChangeTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
@@ -571,6 +604,27 @@ impl windows_core::RuntimeName for DeviceInformationCustomPairing {
 unsafe impl Send for DeviceInformationCustomPairing {}
 unsafe impl Sync for DeviceInformationCustomPairing {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DeviceInformationKind(pub i32);
+impl DeviceInformationKind {
+    pub const Unknown: Self = Self(0i32);
+    pub const DeviceInterface: Self = Self(1i32);
+    pub const DeviceContainer: Self = Self(2i32);
+    pub const Device: Self = Self(3i32);
+    pub const DeviceInterfaceClass: Self = Self(4i32);
+    pub const AssociationEndpoint: Self = Self(5i32);
+    pub const AssociationEndpointContainer: Self = Self(6i32);
+    pub const AssociationEndpointService: Self = Self(7i32);
+    pub const DevicePanel: Self = Self(8i32);
+    pub const AssociationEndpointProtocol: Self = Self(9i32);
+}
+impl windows_core::TypeKind for DeviceInformationKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DeviceInformationKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceInformationKind;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeviceInformationPairing(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceInformationPairing, windows_core::IUnknown, windows_core::IInspectable);
@@ -708,6 +762,89 @@ impl windows_core::RuntimeName for DeviceInformationUpdate {
 unsafe impl Send for DeviceInformationUpdate {}
 unsafe impl Sync for DeviceInformationUpdate {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DevicePairingAddPairingSetMemberStatus(pub i32);
+impl DevicePairingAddPairingSetMemberStatus {
+    pub const AddedToSet: Self = Self(0i32);
+    pub const CouldNotBeAddedToSet: Self = Self(1i32);
+    pub const SetDiscoveryNotAttemptedByProtocol: Self = Self(2i32);
+    pub const SetDiscoveryCompletedByProtocol: Self = Self(3i32);
+    pub const SetDiscoveryPartiallyCompletedByProtocol: Self = Self(4i32);
+    pub const Failed: Self = Self(5i32);
+}
+impl windows_core::TypeKind for DevicePairingAddPairingSetMemberStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DevicePairingAddPairingSetMemberStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePairingAddPairingSetMemberStatus;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DevicePairingKinds(pub u32);
+impl DevicePairingKinds {
+    pub const None: Self = Self(0u32);
+    pub const ConfirmOnly: Self = Self(1u32);
+    pub const DisplayPin: Self = Self(2u32);
+    pub const ProvidePin: Self = Self(4u32);
+    pub const ConfirmPinMatch: Self = Self(8u32);
+    pub const ProvidePasswordCredential: Self = Self(16u32);
+    pub const ProvideAddress: Self = Self(32u32);
+}
+impl windows_core::TypeKind for DevicePairingKinds {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DevicePairingKinds {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePairingKinds;u4)");
+}
+impl DevicePairingKinds {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DevicePairingKinds {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DevicePairingKinds {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DevicePairingKinds {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DevicePairingKinds {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DevicePairingKinds {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DevicePairingProtectionLevel(pub i32);
+impl DevicePairingProtectionLevel {
+    pub const Default: Self = Self(0i32);
+    pub const None: Self = Self(1i32);
+    pub const Encryption: Self = Self(2i32);
+    pub const EncryptionAndAuthentication: Self = Self(3i32);
+}
+impl windows_core::TypeKind for DevicePairingProtectionLevel {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DevicePairingProtectionLevel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePairingProtectionLevel;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DevicePairingRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DevicePairingRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -805,6 +942,37 @@ impl windows_core::RuntimeName for DevicePairingResult {
 }
 unsafe impl Send for DevicePairingResult {}
 unsafe impl Sync for DevicePairingResult {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DevicePairingResultStatus(pub i32);
+impl DevicePairingResultStatus {
+    pub const Paired: Self = Self(0i32);
+    pub const NotReadyToPair: Self = Self(1i32);
+    pub const NotPaired: Self = Self(2i32);
+    pub const AlreadyPaired: Self = Self(3i32);
+    pub const ConnectionRejected: Self = Self(4i32);
+    pub const TooManyConnections: Self = Self(5i32);
+    pub const HardwareFailure: Self = Self(6i32);
+    pub const AuthenticationTimeout: Self = Self(7i32);
+    pub const AuthenticationNotAllowed: Self = Self(8i32);
+    pub const AuthenticationFailure: Self = Self(9i32);
+    pub const NoSupportedProfiles: Self = Self(10i32);
+    pub const ProtectionLevelCouldNotBeMet: Self = Self(11i32);
+    pub const AccessDenied: Self = Self(12i32);
+    pub const InvalidCeremonyData: Self = Self(13i32);
+    pub const PairingCanceled: Self = Self(14i32);
+    pub const OperationAlreadyInProgress: Self = Self(15i32);
+    pub const RequiredHandlerNotRegistered: Self = Self(16i32);
+    pub const RejectedByHandler: Self = Self(17i32);
+    pub const RemoteDeviceHasAssociation: Self = Self(18i32);
+    pub const Failed: Self = Self(19i32);
+}
+impl windows_core::TypeKind for DevicePairingResultStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DevicePairingResultStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePairingResultStatus;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DevicePairingSetMembersRequestedEventArgs(windows_core::IUnknown);
@@ -1077,6 +1245,54 @@ impl windows_core::RuntimeName for DevicePickerAppearance {
 unsafe impl Send for DevicePickerAppearance {}
 unsafe impl Sync for DevicePickerAppearance {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DevicePickerDisplayStatusOptions(pub u32);
+impl DevicePickerDisplayStatusOptions {
+    pub const None: Self = Self(0u32);
+    pub const ShowProgress: Self = Self(1u32);
+    pub const ShowDisconnectButton: Self = Self(2u32);
+    pub const ShowRetryButton: Self = Self(4u32);
+}
+impl windows_core::TypeKind for DevicePickerDisplayStatusOptions {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DevicePickerDisplayStatusOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePickerDisplayStatusOptions;u4)");
+}
+impl DevicePickerDisplayStatusOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DevicePickerDisplayStatusOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DevicePickerDisplayStatusOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DevicePickerDisplayStatusOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DevicePickerDisplayStatusOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DevicePickerDisplayStatusOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DevicePickerFilter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DevicePickerFilter, windows_core::IUnknown, windows_core::IInspectable);
@@ -1286,6 +1502,22 @@ impl windows_core::RuntimeName for DeviceUnpairingResult {
 unsafe impl Send for DeviceUnpairingResult {}
 unsafe impl Sync for DeviceUnpairingResult {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DeviceUnpairingResultStatus(pub i32);
+impl DeviceUnpairingResultStatus {
+    pub const Unpaired: Self = Self(0i32);
+    pub const AlreadyUnpaired: Self = Self(1i32);
+    pub const OperationAlreadyInProgress: Self = Self(2i32);
+    pub const AccessDenied: Self = Self(3i32);
+    pub const Failed: Self = Self(4i32);
+}
+impl windows_core::TypeKind for DeviceUnpairingResultStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DeviceUnpairingResultStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceUnpairingResultStatus;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeviceWatcher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceWatcher, windows_core::IUnknown, windows_core::IInspectable);
@@ -1438,6 +1670,37 @@ impl windows_core::RuntimeName for DeviceWatcherEvent {
 }
 unsafe impl Send for DeviceWatcherEvent {}
 unsafe impl Sync for DeviceWatcherEvent {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DeviceWatcherEventKind(pub i32);
+impl DeviceWatcherEventKind {
+    pub const Add: Self = Self(0i32);
+    pub const Update: Self = Self(1i32);
+    pub const Remove: Self = Self(2i32);
+}
+impl windows_core::TypeKind for DeviceWatcherEventKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DeviceWatcherEventKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceWatcherEventKind;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DeviceWatcherStatus(pub i32);
+impl DeviceWatcherStatus {
+    pub const Created: Self = Self(0i32);
+    pub const Started: Self = Self(1i32);
+    pub const EnumerationCompleted: Self = Self(2i32);
+    pub const Stopping: Self = Self(3i32);
+    pub const Stopped: Self = Self(4i32);
+    pub const Aborted: Self = Self(5i32);
+}
+impl windows_core::TypeKind for DeviceWatcherStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DeviceWatcherStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceWatcherStatus;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeviceWatcherTriggerDetails(windows_core::IUnknown);
@@ -2087,269 +2350,6 @@ impl windows_core::RuntimeType for IEnclosureLocation2 {
 pub struct IEnclosureLocation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RotationAngleInDegreesClockwise: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DeviceAccessStatus(pub i32);
-impl DeviceAccessStatus {
-    pub const Unspecified: Self = Self(0i32);
-    pub const Allowed: Self = Self(1i32);
-    pub const DeniedByUser: Self = Self(2i32);
-    pub const DeniedBySystem: Self = Self(3i32);
-}
-impl windows_core::TypeKind for DeviceAccessStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DeviceAccessStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceAccessStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DeviceClass(pub i32);
-impl DeviceClass {
-    pub const All: Self = Self(0i32);
-    pub const AudioCapture: Self = Self(1i32);
-    pub const AudioRender: Self = Self(2i32);
-    pub const PortableStorageDevice: Self = Self(3i32);
-    pub const VideoCapture: Self = Self(4i32);
-    pub const ImageScanner: Self = Self(5i32);
-    pub const Location: Self = Self(6i32);
-}
-impl windows_core::TypeKind for DeviceClass {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DeviceClass {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceClass;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DeviceInformationKind(pub i32);
-impl DeviceInformationKind {
-    pub const Unknown: Self = Self(0i32);
-    pub const DeviceInterface: Self = Self(1i32);
-    pub const DeviceContainer: Self = Self(2i32);
-    pub const Device: Self = Self(3i32);
-    pub const DeviceInterfaceClass: Self = Self(4i32);
-    pub const AssociationEndpoint: Self = Self(5i32);
-    pub const AssociationEndpointContainer: Self = Self(6i32);
-    pub const AssociationEndpointService: Self = Self(7i32);
-    pub const DevicePanel: Self = Self(8i32);
-    pub const AssociationEndpointProtocol: Self = Self(9i32);
-}
-impl windows_core::TypeKind for DeviceInformationKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DeviceInformationKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceInformationKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DevicePairingAddPairingSetMemberStatus(pub i32);
-impl DevicePairingAddPairingSetMemberStatus {
-    pub const AddedToSet: Self = Self(0i32);
-    pub const CouldNotBeAddedToSet: Self = Self(1i32);
-    pub const SetDiscoveryNotAttemptedByProtocol: Self = Self(2i32);
-    pub const SetDiscoveryCompletedByProtocol: Self = Self(3i32);
-    pub const SetDiscoveryPartiallyCompletedByProtocol: Self = Self(4i32);
-    pub const Failed: Self = Self(5i32);
-}
-impl windows_core::TypeKind for DevicePairingAddPairingSetMemberStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DevicePairingAddPairingSetMemberStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePairingAddPairingSetMemberStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DevicePairingKinds(pub u32);
-impl DevicePairingKinds {
-    pub const None: Self = Self(0u32);
-    pub const ConfirmOnly: Self = Self(1u32);
-    pub const DisplayPin: Self = Self(2u32);
-    pub const ProvidePin: Self = Self(4u32);
-    pub const ConfirmPinMatch: Self = Self(8u32);
-    pub const ProvidePasswordCredential: Self = Self(16u32);
-    pub const ProvideAddress: Self = Self(32u32);
-}
-impl windows_core::TypeKind for DevicePairingKinds {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DevicePairingKinds {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePairingKinds;u4)");
-}
-impl DevicePairingKinds {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DevicePairingKinds {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DevicePairingKinds {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DevicePairingKinds {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DevicePairingKinds {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DevicePairingKinds {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DevicePairingProtectionLevel(pub i32);
-impl DevicePairingProtectionLevel {
-    pub const Default: Self = Self(0i32);
-    pub const None: Self = Self(1i32);
-    pub const Encryption: Self = Self(2i32);
-    pub const EncryptionAndAuthentication: Self = Self(3i32);
-}
-impl windows_core::TypeKind for DevicePairingProtectionLevel {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DevicePairingProtectionLevel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePairingProtectionLevel;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DevicePairingResultStatus(pub i32);
-impl DevicePairingResultStatus {
-    pub const Paired: Self = Self(0i32);
-    pub const NotReadyToPair: Self = Self(1i32);
-    pub const NotPaired: Self = Self(2i32);
-    pub const AlreadyPaired: Self = Self(3i32);
-    pub const ConnectionRejected: Self = Self(4i32);
-    pub const TooManyConnections: Self = Self(5i32);
-    pub const HardwareFailure: Self = Self(6i32);
-    pub const AuthenticationTimeout: Self = Self(7i32);
-    pub const AuthenticationNotAllowed: Self = Self(8i32);
-    pub const AuthenticationFailure: Self = Self(9i32);
-    pub const NoSupportedProfiles: Self = Self(10i32);
-    pub const ProtectionLevelCouldNotBeMet: Self = Self(11i32);
-    pub const AccessDenied: Self = Self(12i32);
-    pub const InvalidCeremonyData: Self = Self(13i32);
-    pub const PairingCanceled: Self = Self(14i32);
-    pub const OperationAlreadyInProgress: Self = Self(15i32);
-    pub const RequiredHandlerNotRegistered: Self = Self(16i32);
-    pub const RejectedByHandler: Self = Self(17i32);
-    pub const RemoteDeviceHasAssociation: Self = Self(18i32);
-    pub const Failed: Self = Self(19i32);
-}
-impl windows_core::TypeKind for DevicePairingResultStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DevicePairingResultStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePairingResultStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DevicePickerDisplayStatusOptions(pub u32);
-impl DevicePickerDisplayStatusOptions {
-    pub const None: Self = Self(0u32);
-    pub const ShowProgress: Self = Self(1u32);
-    pub const ShowDisconnectButton: Self = Self(2u32);
-    pub const ShowRetryButton: Self = Self(4u32);
-}
-impl windows_core::TypeKind for DevicePickerDisplayStatusOptions {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DevicePickerDisplayStatusOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePickerDisplayStatusOptions;u4)");
-}
-impl DevicePickerDisplayStatusOptions {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DevicePickerDisplayStatusOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DevicePickerDisplayStatusOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DevicePickerDisplayStatusOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DevicePickerDisplayStatusOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DevicePickerDisplayStatusOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DeviceUnpairingResultStatus(pub i32);
-impl DeviceUnpairingResultStatus {
-    pub const Unpaired: Self = Self(0i32);
-    pub const AlreadyUnpaired: Self = Self(1i32);
-    pub const OperationAlreadyInProgress: Self = Self(2i32);
-    pub const AccessDenied: Self = Self(3i32);
-    pub const Failed: Self = Self(4i32);
-}
-impl windows_core::TypeKind for DeviceUnpairingResultStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DeviceUnpairingResultStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceUnpairingResultStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DeviceWatcherEventKind(pub i32);
-impl DeviceWatcherEventKind {
-    pub const Add: Self = Self(0i32);
-    pub const Update: Self = Self(1i32);
-    pub const Remove: Self = Self(2i32);
-}
-impl windows_core::TypeKind for DeviceWatcherEventKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DeviceWatcherEventKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceWatcherEventKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DeviceWatcherStatus(pub i32);
-impl DeviceWatcherStatus {
-    pub const Created: Self = Self(0i32);
-    pub const Started: Self = Self(1i32);
-    pub const EnumerationCompleted: Self = Self(2i32);
-    pub const Stopping: Self = Self(3i32);
-    pub const Stopped: Self = Self(4i32);
-    pub const Aborted: Self = Self(5i32);
-}
-impl windows_core::TypeKind for DeviceWatcherStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DeviceWatcherStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceWatcherStatus;i4)");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

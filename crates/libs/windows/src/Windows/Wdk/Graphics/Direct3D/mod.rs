@@ -889,681 +889,6 @@ pub unsafe fn D3DKMTWaitForVerticalBlankEvent2(param0: *const D3DKMT_WAITFORVERT
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTWaitForVerticalBlankEvent2(param0 : *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTWaitForVerticalBlankEvent2(core::mem::transmute(param0))
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub type LPD3DHAL_CLEAR2CB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_CLEAR2DATA) -> u32>;
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub type LPD3DHAL_CLEARCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_CLEARDATA) -> u32>;
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub type LPD3DHAL_CONTEXTCREATECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_CONTEXTCREATEDATA) -> u32>;
-pub type LPD3DHAL_CONTEXTDESTROYALLCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_CONTEXTDESTROYALLDATA) -> u32>;
-pub type LPD3DHAL_CONTEXTDESTROYCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_CONTEXTDESTROYDATA) -> u32>;
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub type LPD3DHAL_DRAWONEINDEXEDPRIMITIVECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA) -> u32>;
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub type LPD3DHAL_DRAWONEPRIMITIVECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWONEPRIMITIVEDATA) -> u32>;
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub type LPD3DHAL_DRAWPRIMITIVES2CB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWPRIMITIVES2DATA) -> u32>;
-pub type LPD3DHAL_DRAWPRIMITIVESCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWPRIMITIVESDATA) -> u32>;
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub type LPD3DHAL_GETSTATECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_GETSTATEDATA) -> u32>;
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
-pub type LPD3DHAL_RENDERPRIMITIVECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_RENDERPRIMITIVEDATA) -> u32>;
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub type LPD3DHAL_RENDERSTATECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_RENDERSTATEDATA) -> u32>;
-pub type LPD3DHAL_SCENECAPTURECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_SCENECAPTUREDATA) -> u32>;
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub type LPD3DHAL_SETRENDERTARGETCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_SETRENDERTARGETDATA) -> u32>;
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub type LPD3DHAL_TEXTURECREATECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTURECREATEDATA) -> u32>;
-pub type LPD3DHAL_TEXTUREDESTROYCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTUREDESTROYDATA) -> u32>;
-pub type LPD3DHAL_TEXTUREGETSURFCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTUREGETSURFDATA) -> u32>;
-pub type LPD3DHAL_TEXTURESWAPCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTURESWAPDATA) -> u32>;
-pub type LPD3DHAL_VALIDATETEXTURESTAGESTATECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_VALIDATETEXTURESTAGESTATEDATA) -> u32>;
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub type LPD3DNTHAL_CLEAR2CB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CLEAR2DATA) -> u32>;
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub type LPD3DNTHAL_CONTEXTCREATECB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTCREATEDATA) -> u32>;
-pub type LPD3DNTHAL_CONTEXTDESTROYALLCB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTDESTROYALLDATA) -> u32>;
-pub type LPD3DNTHAL_CONTEXTDESTROYCB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTDESTROYDATA) -> u32>;
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub type LPD3DNTHAL_DRAWPRIMITIVES2CB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_DRAWPRIMITIVES2DATA) -> u32>;
-pub type LPD3DNTHAL_SCENECAPTURECB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_SCENECAPTUREDATA) -> u32>;
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub type LPD3DNTHAL_SETRENDERTARGETCB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_SETRENDERTARGETDATA) -> u32>;
-pub type LPD3DNTHAL_TEXTURECREATECB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTURECREATEDATA) -> u32>;
-pub type LPD3DNTHAL_TEXTUREDESTROYCB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTUREDESTROYDATA) -> u32>;
-pub type LPD3DNTHAL_TEXTUREGETSURFCB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTUREGETSURFDATA) -> u32>;
-pub type LPD3DNTHAL_TEXTURESWAPCB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTURESWAPDATA) -> u32>;
-pub type LPD3DNTHAL_VALIDATETEXTURESTAGESTATECB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA) -> u32>;
-pub type PDXGK_FSTATE_NOTIFICATION = Option<unsafe extern "system" fn(graphicsdevicehandle: *mut core::ffi::c_void, componentindex: u32, newfstate: u32, prenotification: super::super::super::Win32::Foundation::BOOLEAN, privatehandle: *mut core::ffi::c_void)>;
-pub type PDXGK_GRAPHICSPOWER_UNREGISTER = Option<unsafe extern "system" fn(devicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PDXGK_INITIAL_COMPONENT_STATE = Option<unsafe extern "system" fn(graphicsdevicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void, componentindex: u32, isblockingtype: super::super::super::Win32::Foundation::BOOLEAN, initialfstate: u32, componentguid: windows_core::GUID, powercomponentmappingflag: u32)>;
-#[cfg(feature = "Win32_System_Power")]
-pub type PDXGK_POWER_NOTIFICATION = Option<unsafe extern "system" fn(graphicsdevicehandle: *mut core::ffi::c_void, newgrfxpowerstate: super::super::super::Win32::System::Power::DEVICE_POWER_STATE, prenotification: super::super::super::Win32::Foundation::BOOLEAN, privatehandle: *mut core::ffi::c_void)>;
-pub type PDXGK_REMOVAL_NOTIFICATION = Option<unsafe extern "system" fn(graphicsdevicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void)>;
-pub type PDXGK_SET_SHARED_POWER_COMPONENT_STATE = Option<unsafe extern "system" fn(devicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void, componentindex: u32, active: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_ACQUIREKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_ACQUIREKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_ADJUSTFULLSCREENGAMMA = Option<unsafe extern "system" fn(param0: *const D3DKMT_ADJUSTFULLSCREENGAMMA) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_BUDGETCHANGENOTIFICATIONCALLBACK = Option<unsafe extern "system" fn(param0: *const D3DKMT_BUDGETCHANGENOTIFICATION)>;
-pub type PFND3DKMT_CANCELPRESENTS = Option<unsafe extern "system" fn(param0: *const D3DKMT_CANCEL_PRESENTS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFND3DKMT_CHANGESURFACEPOINTER = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHANGESURFACEPOINTER) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CHANGEVIDEOMEMORYRESERVATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHANGEVIDEOMEMORYRESERVATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CHECKEXCLUSIVEOWNERSHIP = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type PFND3DKMT_CHECKMONITORPOWERSTATE = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKMONITORPOWERSTATE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CHECKOCCLUSION = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKOCCLUSION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CHECKSHAREDRESOURCEACCESS = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKSHAREDRESOURCEACCESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CLOSEADAPTER = Option<unsafe extern "system" fn(param0: *const D3DKMT_CLOSEADAPTER) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CONFIGURESHAREDRESOURCE = Option<unsafe extern "system" fn(param0: *const D3DKMT_CONFIGURESHAREDRESOURCE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CONNECTDOORBELL = Option<unsafe extern "system" fn(param0: *const D3DKMT_CONNECT_DOORBELL) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATEALLOCATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEALLOCATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATEALLOCATION2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEALLOCATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATECONTEXT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATECONTEXT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATECONTEXTVIRTUAL = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATECONTEXTVIRTUAL) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFND3DKMT_CREATEDCFROMMEMORY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEDCFROMMEMORY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATEDEVICE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEDEVICE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATEDOORBELL = Option<unsafe extern "system" fn(param0: *const D3DKMT_CREATE_DOORBELL) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATEHWQUEUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATEKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATEKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATENATIVEFENCE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATENATIVEFENCE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATEOUTPUTDUPL = Option<unsafe extern "system" fn(param0: *const D3DKMT_CREATE_OUTPUTDUPL) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATEOVERLAY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATEPAGINGQUEUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEPAGINGQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATEPROTECTEDSESSION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEPROTECTEDSESSION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATESYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_CREATESYNCHRONIZATIONOBJECT2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_DESTROYALLOCATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYALLOCATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_DESTROYALLOCATION2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYALLOCATION2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_DESTROYCONTEXT = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYCONTEXT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFND3DKMT_DESTROYDCFROMMEMORY = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYDCFROMMEMORY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_DESTROYDEVICE = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYDEVICE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_DESTROYDOORBELL = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROY_DOORBELL) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_DESTROYHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_DESTROYKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_DESTROYOUTPUTDUPL = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROY_OUTPUTDUPL) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_DESTROYOVERLAY = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_DESTROYPAGINGQUEUE = Option<unsafe extern "system" fn(param0: *mut D3DDDI_DESTROYPAGINGQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_DESTROYPROTECTEDSESSION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_DESTROYPROTECTEDSESSION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_DESTROYSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_ENUMADAPTERS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ENUMADAPTERS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_ENUMADAPTERS2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ENUMADAPTERS2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_ENUMADAPTERS3 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ENUMADAPTERS3) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_ESCAPE = Option<unsafe extern "system" fn(param0: *const D3DKMT_ESCAPE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_EVICT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_EVICT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_FLIPOVERLAY = Option<unsafe extern "system" fn(param0: *const D3DKMT_FLIPOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_FLUSHHEAPTRANSITIONS = Option<unsafe extern "system" fn(param0: *const D3DKMT_FLUSHHEAPTRANSITIONS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_FREEGPUVIRTUALADDRESS = Option<unsafe extern "system" fn(param0: *const D3DKMT_FREEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETALLOCATIONPRIORITY = Option<unsafe extern "system" fn(param0: *const D3DKMT_GETALLOCATIONPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETCONTEXTSCHEDULINGPRIORITY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETCONTEXTSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETDEVICESTATE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETDEVICESTATE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETDISPLAYMODELIST = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETDISPLAYMODELIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETDWMVERTICALBLANKEVENT = Option<unsafe extern "system" fn(param0: *const D3DKMT_GETVERTICALBLANKEVENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETMULTIPLANEOVERLAYCAPS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETMULTISAMPLEMETHODLIST = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETMULTISAMPLEMETHODLIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETOVERLAYSTATE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETOVERLAYSTATE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETPOSTCOMPOSITIONCAPS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GET_POST_COMPOSITION_CAPS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETPRESENTHISTORY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETPRESENTHISTORY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETPROCESSDEVICEREMOVALSUPPORT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETPROCESSSCHEDULINGPRIORITYCLASS = Option<unsafe extern "system" fn(param0: super::super::super::Win32::Foundation::HANDLE, param1: *mut D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETRESOURCEPRESENTPRIVATEDRIVERDATA = Option<unsafe extern "system" fn(param0: *mut D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETRUNTIMEDATA = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETRUNTIMEDATA) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETSCANLINE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETSCANLINE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETSHAREDPRIMARYHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETSHAREDPRIMARYHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_GETSHAREDRESOURCEADAPTERLUID = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETSHAREDRESOURCEADAPTERLUID) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_INVALIDATEACTIVEVIDPN = Option<unsafe extern "system" fn(param0: *const D3DKMT_INVALIDATEACTIVEVIDPN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_INVALIDATECACHE = Option<unsafe extern "system" fn(param0: *const D3DKMT_INVALIDATECACHE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_LOCK = Option<unsafe extern "system" fn(param0: *mut D3DKMT_LOCK) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_LOCK2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_LOCK2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_MAKERESIDENT = Option<unsafe extern "system" fn(param0: *mut D3DDDI_MAKERESIDENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_MAPGPUVIRTUALADDRESS = Option<unsafe extern "system" fn(param0: *mut D3DDDI_MAPGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_MARKDEVICEASERROR = Option<unsafe extern "system" fn(param0: *const D3DKMT_MARKDEVICEASERROR) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_NOTIFYWORKSUBMISSION = Option<unsafe extern "system" fn(param0: *const D3DKMT_NOTIFY_WORK_SUBMISSION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OFFERALLOCATIONS = Option<unsafe extern "system" fn(param0: *const D3DKMT_OFFERALLOCATIONS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENADAPTERFROMDEVICENAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMDEVICENAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENADAPTERFROMGDIDISPLAYNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFND3DKMT_OPENADAPTERFROMHDC = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMHDC) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENADAPTERFROMLUID = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMLUID) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENKEYEDMUTEXFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENNATIVEFENCEFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENNATIVEFENCEFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
-pub type PFND3DKMT_OPENNTHANDLEFROMNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENRESOURCE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENRESOURCE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENRESOURCE2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENRESOURCE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENRESOURCEFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENRESOURCEFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
-pub type PFND3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OUTPUTDUPLGETFRAMEINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_GET_FRAMEINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OUTPUTDUPLGETMETADATA = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_METADATA) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OUTPUTDUPLGETPOINTERSHAPEDATA = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OUTPUTDUPLPRESENT = Option<unsafe extern "system" fn(param0: *const D3DKMT_OUTPUTDUPLPRESENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_OUTPUTDUPLRELEASEFRAME = Option<unsafe extern "system" fn(param0: *const D3DKMT_OUTPUTDUPL_RELEASE_FRAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_PINDIRECTFLIPRESOURCES = Option<unsafe extern "system" fn(param0: *const D3DKMT_PINDIRECTFLIPRESOURCES) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_POLLDISPLAYCHILDREN = Option<unsafe extern "system" fn(param0: *const D3DKMT_POLLDISPLAYCHILDREN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_PRESENT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_PRESENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_PRESENTMULTIPLANEOVERLAY = Option<unsafe extern "system" fn(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_PRESENTMULTIPLANEOVERLAY2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_PRESENTMULTIPLANEOVERLAY3 = Option<unsafe extern "system" fn(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY3) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYADAPTERINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYADAPTERINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYALLOCATIONRESIDENCY = Option<unsafe extern "system" fn(param0: *const D3DKMT_QUERYALLOCATIONRESIDENCY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYCLOCKCALIBRATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYCLOCKCALIBRATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYFSEBLOCK = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYFSEBLOCK) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYHYBRIDLISTVALUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_HYBRID_LIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYPROCESSOFFERINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYPROCESSOFFERINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYPROTECTEDSESSIONSTATUS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYPROTECTEDSESSIONSTATUS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYRESOURCEINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYRESOURCEINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYRESOURCEINFOFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYSTATISTICS = Option<unsafe extern "system" fn(param0: *const D3DKMT_QUERYSTATISTICS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYVIDEOMEMORYINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYVIDEOMEMORYINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_RECLAIMALLOCATIONS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RECLAIMALLOCATIONS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_RECLAIMALLOCATIONS2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RECLAIMALLOCATIONS2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_REGISTERBUDGETCHANGENOTIFICATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_REGISTERBUDGETCHANGENOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_REGISTERTRIMNOTIFICATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_REGISTERTRIMNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_RELEASEKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RELEASEKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_RELEASEKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RELEASEKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_RELEASEPROCESSVIDPNSOURCEOWNERS = Option<unsafe extern "system" fn(param0: super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_RENDER = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RENDER) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_RESERVEGPUVIRTUALADDRESS = Option<unsafe extern "system" fn(param0: *mut D3DDDI_RESERVEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETALLOCATIONPRIORITY = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETALLOCATIONPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETCONTEXTSCHEDULINGPRIORITY = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETDISPLAYMODE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_SETDISPLAYMODE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETFSEBLOCK = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETFSEBLOCK) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETGAMMARAMP = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETGAMMARAMP) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETHYBRIDLISTVVALUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_HYBRID_LIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETPROCESSSCHEDULINGPRIORITYCLASS = Option<unsafe extern "system" fn(param0: super::super::super::Win32::Foundation::HANDLE, param1: D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETQUEUEDLIMIT = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETQUEUEDLIMIT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETSTABLEPOWERSTATE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETSTABLEPOWERSTATE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETSTEREOENABLED = Option<unsafe extern "system" fn(param0: super::super::super::Win32::Foundation::BOOL) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETSYNCREFRESHCOUNTWAITTARGET = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETVIDPNSOURCEHWPROTECTION = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEHWPROTECTION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETVIDPNSOURCEOWNER = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETVIDPNSOURCEOWNER1 = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER1) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SETVIDPNSOURCEOWNER2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SHAREDPRIMARYLOCKNOTIFICATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
-pub type PFND3DKMT_SHAREOBJECTS = Option<unsafe extern "system" fn(cobjects: u32, hobjects: *const u32, pobjectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SUBMITCOMMAND = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITCOMMAND) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SUBMITCOMMANDTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITCOMMANDTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SUBMITPRESENTBLTTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITPRESENTBLTTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SUBMITPRESENTTOHWQUEUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_SUBMITPRESENTTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_TRIMNOTIFICATIONCALLBACK = Option<unsafe extern "system" fn(param0: *mut D3DKMT_TRIMNOTIFICATION)>;
-pub type PFND3DKMT_TRIMPROCESSCOMMITMENT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_TRIMPROCESSCOMMITMENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_UNLOCK = Option<unsafe extern "system" fn(param0: *const D3DKMT_UNLOCK) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_UNLOCK2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_UNLOCK2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_UNPINDIRECTFLIPRESOURCES = Option<unsafe extern "system" fn(param0: *const D3DKMT_UNPINDIRECTFLIPRESOURCES) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_UNREGISTERTRIMNOTIFICATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_UNREGISTERTRIMNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_UPDATEALLOCATIONPROPERTY = Option<unsafe extern "system" fn(param0: *mut D3DDDI_UPDATEALLOCPROPERTY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_UPDATEGPUVIRTUALADDRESS = Option<unsafe extern "system" fn(param0: *const D3DKMT_UPDATEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_UPDATEOVERLAY = Option<unsafe extern "system" fn(param0: *const D3DKMT_UPDATEOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_WAITFORIDLE = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORIDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECT2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_WAITFORVERTICALBLANKEVENT = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DKMT_WAITFORVERTICALBLANKEVENT2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFND3DNTPARSEUNKNOWNCOMMAND = Option<unsafe extern "system" fn(lpvcommands: *mut core::ffi::c_void, lplpvreturnedcommand: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
-pub type PFND3DPARSEUNKNOWNCOMMAND = Option<unsafe extern "system" fn(lpvcommands: *mut core::ffi::c_void, lplpvreturnedcommand: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DDDIFORMAT(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DDDIMULTISAMPLE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DDDI_COLOR_SPACE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DDDI_DOORBELLSTATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DDDI_DRIVERESCAPETYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DDDI_FLIPINTERVAL_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DDDI_GAMMARAMP_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DDDI_HDR_METADATA_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DDDI_OFFER_PRIORITY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DDDI_PAGINGQUEUE_PRIORITY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DDDI_POOL(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DDDI_QUERYREGISTRY_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DDDI_QUERYREGISTRY_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DDDI_RECLAIM_RESULT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DDDI_ROTATION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DDDI_SCANLINEORDERING(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DHAL_DP2OPERATION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_COLOR_BASIS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_GDISURFACETYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_GTFCOMPLIANCE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_MODE_PREFERENCE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_MODE_PRUNING_REASON(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_MONITOR_CONNECTIVITY_CHECKS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_MONITOR_DESCRIPTOR_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_MONITOR_ORIENTATION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_MONITOR_ORIENTATION_AWARENESS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_MONITOR_TIMING_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_PIXEL_VALUE_ACCESS_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_STANDARDALLOCATION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_TEXT_RENDERING_FORMAT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_VIDEO_SIGNAL_STANDARD(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_VIDPN_PRESENT_PATH_CONTENT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_VIDPN_PRESENT_PATH_SCALING(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMDT_VIDPN_SOURCE_MODE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_ALLOCATIONRESIDENCYSTATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_AUXILIARYPRESENTINFO_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_BRIGHTNESS_INFO_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_CANCEL_PRESENTS_OPERATION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_CLIENTHINT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_DEFRAG_ESCAPE_OPERATION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_DEVICEESCAPE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_DEVICEEXECUTION_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_DEVICESTATE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_DEVICE_ERROR_REASON(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_DMMESCAPETYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_DRIVERVERSION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_ESCAPETYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_ESCAPE_PFN_CONTROL_COMMAND(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_GPU_PREFERENCE_QUERY_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_GPU_PREFERENCE_QUERY_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_MEMORY_SEGMENT_GROUP(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_MIRACAST_DEVICE_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_MIRACAST_DRIVER_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_MULTIPLANE_OVERLAY_BLEND(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_MULTIPLANE_OVERLAY_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_OFFER_PRIORITY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_OUTPUTDUPL_METADATATYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_PNP_KEY_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_PRESENT_MODEL(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_PROCESS_VERIFIER_OPTION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_PROTECTED_SESSION_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_QUERYSTATISTICS_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_QUEUEDLIMIT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_SCHEDULINGPRIORITYCLASS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_STANDARDALLOCATIONTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_TDRDBGCTRLTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_VAD_ESCAPE_COMMAND(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_VERIFIER_OPTION_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_VIDMMESCAPETYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_VIDPNSOURCEOWNER_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DKMT_VIDSCHESCAPETYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DNTHAL_DP2OPERATION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3DVSD_TOKENTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGKDT_OPM_DVI_CHARACTERISTICS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGKMDT_CERTIFICATE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGKMDT_OPM_ACP_PROTECTION_LEVEL(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGKMDT_OPM_CGMSA(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGKMDT_OPM_CONNECTOR_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGKMDT_OPM_DPCP_PROTECTION_LEVEL(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGKMDT_OPM_HDCP_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGKMDT_OPM_HDCP_PROTECTION_LEVEL(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGKMDT_OPM_INTERLEAVE_FORMAT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGKMDT_OPM_PROTECTION_STANDARD(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGKMDT_OPM_PROTECTION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGKMDT_OPM_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGKMT_POWER_SHARED_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGKVGPU_ESCAPE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGK_BACKLIGHT_OPTIMIZATION_LEVEL(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGK_CHILD_DEVICE_HPD_AWARENESS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGK_DISPLAY_DESCRIPTOR_TYPE(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGK_DISPLAY_TECHNOLOGY(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGK_DISPLAY_USAGE(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGK_ENGINE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGK_GENERAL_ERROR_CODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGK_MIRACAST_CHUNK_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGK_PAGE_FAULT_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGK_PTE_PAGE_SIZE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXGK_RENDER_PIPELINE_STAGE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KMTQUERYADAPTERINFOTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KMTUMDVERSION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KMT_DISPLAY_UMD_VERSION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OUTPUTDUPL_CONTEXT_DEBUG_STATUS(pub i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1632,6 +957,7 @@ impl Default for D3DCAPS8 {
 impl windows_core::TypeKind for D3DCAPS8 {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DCLEAR_COMPUTERECTS: i32 = 8i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDIARG_CREATERESOURCE {
@@ -1843,6 +1169,115 @@ impl Default for D3DDDICB_SIGNALFLAGS_0_0 {
 impl windows_core::TypeKind for D3DDDICB_SIGNALFLAGS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DDDIFMT_A1: D3DDDIFORMAT = D3DDDIFORMAT(118u32);
+pub const D3DDDIFMT_A16B16G16R16: D3DDDIFORMAT = D3DDDIFORMAT(36u32);
+pub const D3DDDIFMT_A16B16G16R16F: D3DDDIFORMAT = D3DDDIFORMAT(113u32);
+pub const D3DDDIFMT_A1R5G5B5: D3DDDIFORMAT = D3DDDIFORMAT(25u32);
+pub const D3DDDIFMT_A2B10G10R10: D3DDDIFORMAT = D3DDDIFORMAT(31u32);
+pub const D3DDDIFMT_A2B10G10R10_XR_BIAS: D3DDDIFORMAT = D3DDDIFORMAT(119u32);
+pub const D3DDDIFMT_A2R10G10B10: D3DDDIFORMAT = D3DDDIFORMAT(35u32);
+pub const D3DDDIFMT_A2W10V10U10: D3DDDIFORMAT = D3DDDIFORMAT(67u32);
+pub const D3DDDIFMT_A32B32G32R32F: D3DDDIFORMAT = D3DDDIFORMAT(116u32);
+pub const D3DDDIFMT_A4L4: D3DDDIFORMAT = D3DDDIFORMAT(52u32);
+pub const D3DDDIFMT_A4R4G4B4: D3DDDIFORMAT = D3DDDIFORMAT(26u32);
+pub const D3DDDIFMT_A8: D3DDDIFORMAT = D3DDDIFORMAT(28u32);
+pub const D3DDDIFMT_A8B8G8R8: D3DDDIFORMAT = D3DDDIFORMAT(32u32);
+pub const D3DDDIFMT_A8L8: D3DDDIFORMAT = D3DDDIFORMAT(51u32);
+pub const D3DDDIFMT_A8P8: D3DDDIFORMAT = D3DDDIFORMAT(40u32);
+pub const D3DDDIFMT_A8R3G3B2: D3DDDIFORMAT = D3DDDIFORMAT(29u32);
+pub const D3DDDIFMT_A8R8G8B8: D3DDDIFORMAT = D3DDDIFORMAT(21u32);
+pub const D3DDDIFMT_BINARYBUFFER: D3DDDIFORMAT = D3DDDIFORMAT(199u32);
+pub const D3DDDIFMT_BITSTREAMDATA: D3DDDIFORMAT = D3DDDIFORMAT(156u32);
+pub const D3DDDIFMT_CxV8U8: D3DDDIFORMAT = D3DDDIFORMAT(117u32);
+pub const D3DDDIFMT_D15S1: D3DDDIFORMAT = D3DDDIFORMAT(73u32);
+pub const D3DDDIFMT_D16: D3DDDIFORMAT = D3DDDIFORMAT(80u32);
+pub const D3DDDIFMT_D16_LOCKABLE: D3DDDIFORMAT = D3DDDIFORMAT(70u32);
+pub const D3DDDIFMT_D24FS8: D3DDDIFORMAT = D3DDDIFORMAT(83u32);
+pub const D3DDDIFMT_D24S8: D3DDDIFORMAT = D3DDDIFORMAT(75u32);
+pub const D3DDDIFMT_D24X4S4: D3DDDIFORMAT = D3DDDIFORMAT(79u32);
+pub const D3DDDIFMT_D24X8: D3DDDIFORMAT = D3DDDIFORMAT(77u32);
+pub const D3DDDIFMT_D32: D3DDDIFORMAT = D3DDDIFORMAT(71u32);
+pub const D3DDDIFMT_D32F_LOCKABLE: D3DDDIFORMAT = D3DDDIFORMAT(82u32);
+pub const D3DDDIFMT_D32_LOCKABLE: D3DDDIFORMAT = D3DDDIFORMAT(84u32);
+pub const D3DDDIFMT_DEBLOCKINGDATA: D3DDDIFORMAT = D3DDDIFORMAT(153u32);
+pub const D3DDDIFMT_DXT1: D3DDDIFORMAT = D3DDDIFORMAT(827611204u32);
+pub const D3DDDIFMT_DXT2: D3DDDIFORMAT = D3DDDIFORMAT(844388420u32);
+pub const D3DDDIFMT_DXT3: D3DDDIFORMAT = D3DDDIFORMAT(861165636u32);
+pub const D3DDDIFMT_DXT4: D3DDDIFORMAT = D3DDDIFORMAT(877942852u32);
+pub const D3DDDIFMT_DXT5: D3DDDIFORMAT = D3DDDIFORMAT(894720068u32);
+pub const D3DDDIFMT_DXVACOMPBUFFER_BASE: D3DDDIFORMAT = D3DDDIFORMAT(150u32);
+pub const D3DDDIFMT_DXVACOMPBUFFER_MAX: D3DDDIFORMAT = D3DDDIFORMAT(181u32);
+pub const D3DDDIFMT_DXVA_RESERVED10: D3DDDIFORMAT = D3DDDIFORMAT(160u32);
+pub const D3DDDIFMT_DXVA_RESERVED11: D3DDDIFORMAT = D3DDDIFORMAT(161u32);
+pub const D3DDDIFMT_DXVA_RESERVED12: D3DDDIFORMAT = D3DDDIFORMAT(162u32);
+pub const D3DDDIFMT_DXVA_RESERVED13: D3DDDIFORMAT = D3DDDIFORMAT(163u32);
+pub const D3DDDIFMT_DXVA_RESERVED14: D3DDDIFORMAT = D3DDDIFORMAT(164u32);
+pub const D3DDDIFMT_DXVA_RESERVED15: D3DDDIFORMAT = D3DDDIFORMAT(165u32);
+pub const D3DDDIFMT_DXVA_RESERVED16: D3DDDIFORMAT = D3DDDIFORMAT(166u32);
+pub const D3DDDIFMT_DXVA_RESERVED17: D3DDDIFORMAT = D3DDDIFORMAT(167u32);
+pub const D3DDDIFMT_DXVA_RESERVED18: D3DDDIFORMAT = D3DDDIFORMAT(168u32);
+pub const D3DDDIFMT_DXVA_RESERVED19: D3DDDIFORMAT = D3DDDIFORMAT(169u32);
+pub const D3DDDIFMT_DXVA_RESERVED20: D3DDDIFORMAT = D3DDDIFORMAT(170u32);
+pub const D3DDDIFMT_DXVA_RESERVED21: D3DDDIFORMAT = D3DDDIFORMAT(171u32);
+pub const D3DDDIFMT_DXVA_RESERVED22: D3DDDIFORMAT = D3DDDIFORMAT(172u32);
+pub const D3DDDIFMT_DXVA_RESERVED23: D3DDDIFORMAT = D3DDDIFORMAT(173u32);
+pub const D3DDDIFMT_DXVA_RESERVED24: D3DDDIFORMAT = D3DDDIFORMAT(174u32);
+pub const D3DDDIFMT_DXVA_RESERVED25: D3DDDIFORMAT = D3DDDIFORMAT(175u32);
+pub const D3DDDIFMT_DXVA_RESERVED26: D3DDDIFORMAT = D3DDDIFORMAT(176u32);
+pub const D3DDDIFMT_DXVA_RESERVED27: D3DDDIFORMAT = D3DDDIFORMAT(177u32);
+pub const D3DDDIFMT_DXVA_RESERVED28: D3DDDIFORMAT = D3DDDIFORMAT(178u32);
+pub const D3DDDIFMT_DXVA_RESERVED29: D3DDDIFORMAT = D3DDDIFORMAT(179u32);
+pub const D3DDDIFMT_DXVA_RESERVED30: D3DDDIFORMAT = D3DDDIFORMAT(180u32);
+pub const D3DDDIFMT_DXVA_RESERVED31: D3DDDIFORMAT = D3DDDIFORMAT(181u32);
+pub const D3DDDIFMT_DXVA_RESERVED9: D3DDDIFORMAT = D3DDDIFORMAT(159u32);
+pub const D3DDDIFMT_FILMGRAINBUFFER: D3DDDIFORMAT = D3DDDIFORMAT(158u32);
+pub const D3DDDIFMT_G16R16: D3DDDIFORMAT = D3DDDIFORMAT(34u32);
+pub const D3DDDIFMT_G16R16F: D3DDDIFORMAT = D3DDDIFORMAT(112u32);
+pub const D3DDDIFMT_G32R32F: D3DDDIFORMAT = D3DDDIFORMAT(115u32);
+pub const D3DDDIFMT_G8R8: D3DDDIFORMAT = D3DDDIFORMAT(91u32);
+pub const D3DDDIFMT_G8R8_G8B8: D3DDDIFORMAT = D3DDDIFORMAT(1111970375u32);
+pub const D3DDDIFMT_INDEX16: D3DDDIFORMAT = D3DDDIFORMAT(101u32);
+pub const D3DDDIFMT_INDEX32: D3DDDIFORMAT = D3DDDIFORMAT(102u32);
+pub const D3DDDIFMT_INVERSEQUANTIZATIONDATA: D3DDDIFORMAT = D3DDDIFORMAT(154u32);
+pub const D3DDDIFMT_L16: D3DDDIFORMAT = D3DDDIFORMAT(81u32);
+pub const D3DDDIFMT_L6V5U5: D3DDDIFORMAT = D3DDDIFORMAT(61u32);
+pub const D3DDDIFMT_L8: D3DDDIFORMAT = D3DDDIFORMAT(50u32);
+pub const D3DDDIFMT_MACROBLOCKDATA: D3DDDIFORMAT = D3DDDIFORMAT(151u32);
+pub const D3DDDIFMT_MOTIONVECTORBUFFER: D3DDDIFORMAT = D3DDDIFORMAT(157u32);
+pub const D3DDDIFMT_MULTI2_ARGB8: D3DDDIFORMAT = D3DDDIFORMAT(827606349u32);
+pub const D3DDDIFMT_P8: D3DDDIFORMAT = D3DDDIFORMAT(41u32);
+pub const D3DDDIFMT_PICTUREPARAMSDATA: D3DDDIFORMAT = D3DDDIFORMAT(150u32);
+pub const D3DDDIFMT_Q16W16V16U16: D3DDDIFORMAT = D3DDDIFORMAT(110u32);
+pub const D3DDDIFMT_Q8W8V8U8: D3DDDIFORMAT = D3DDDIFORMAT(63u32);
+pub const D3DDDIFMT_R16F: D3DDDIFORMAT = D3DDDIFORMAT(111u32);
+pub const D3DDDIFMT_R32F: D3DDDIFORMAT = D3DDDIFORMAT(114u32);
+pub const D3DDDIFMT_R3G3B2: D3DDDIFORMAT = D3DDDIFORMAT(27u32);
+pub const D3DDDIFMT_R5G6B5: D3DDDIFORMAT = D3DDDIFORMAT(23u32);
+pub const D3DDDIFMT_R8: D3DDDIFORMAT = D3DDDIFORMAT(92u32);
+pub const D3DDDIFMT_R8G8B8: D3DDDIFORMAT = D3DDDIFORMAT(20u32);
+pub const D3DDDIFMT_R8G8_B8G8: D3DDDIFORMAT = D3DDDIFORMAT(1195525970u32);
+pub const D3DDDIFMT_RESIDUALDIFFERENCEDATA: D3DDDIFORMAT = D3DDDIFORMAT(152u32);
+pub const D3DDDIFMT_S1D15: D3DDDIFORMAT = D3DDDIFORMAT(72u32);
+pub const D3DDDIFMT_S8D24: D3DDDIFORMAT = D3DDDIFORMAT(74u32);
+pub const D3DDDIFMT_S8_LOCKABLE: D3DDDIFORMAT = D3DDDIFORMAT(85u32);
+pub const D3DDDIFMT_SLICECONTROLDATA: D3DDDIFORMAT = D3DDDIFORMAT(155u32);
+pub const D3DDDIFMT_UNKNOWN: D3DDDIFORMAT = D3DDDIFORMAT(0u32);
+pub const D3DDDIFMT_UYVY: D3DDDIFORMAT = D3DDDIFORMAT(1498831189u32);
+pub const D3DDDIFMT_V16U16: D3DDDIFORMAT = D3DDDIFORMAT(64u32);
+pub const D3DDDIFMT_V8U8: D3DDDIFORMAT = D3DDDIFORMAT(60u32);
+pub const D3DDDIFMT_VERTEXDATA: D3DDDIFORMAT = D3DDDIFORMAT(100u32);
+pub const D3DDDIFMT_W11V11U10: D3DDDIFORMAT = D3DDDIFORMAT(65u32);
+pub const D3DDDIFMT_X1R5G5B5: D3DDDIFORMAT = D3DDDIFORMAT(24u32);
+pub const D3DDDIFMT_X4R4G4B4: D3DDDIFORMAT = D3DDDIFORMAT(30u32);
+pub const D3DDDIFMT_X4S4D24: D3DDDIFORMAT = D3DDDIFORMAT(78u32);
+pub const D3DDDIFMT_X8B8G8R8: D3DDDIFORMAT = D3DDDIFORMAT(33u32);
+pub const D3DDDIFMT_X8D24: D3DDDIFORMAT = D3DDDIFORMAT(76u32);
+pub const D3DDDIFMT_X8L8V8U8: D3DDDIFORMAT = D3DDDIFORMAT(62u32);
+pub const D3DDDIFMT_X8R8G8B8: D3DDDIFORMAT = D3DDDIFORMAT(22u32);
+pub const D3DDDIFMT_YUY2: D3DDDIFORMAT = D3DDDIFORMAT(844715353u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DDDIFORMAT(pub u32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE {
@@ -1883,6 +1318,37 @@ impl Default for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0_0 {
 impl windows_core::TypeKind for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE(pub i32);
+pub const D3DDDIGPUVIRTUALADDRESS_RESERVE_NO_ACCESS: D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE = D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE(0i32);
+pub const D3DDDIGPUVIRTUALADDRESS_RESERVE_NO_COMMIT: D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE = D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE(2i32);
+pub const D3DDDIGPUVIRTUALADDRESS_RESERVE_ZERO: D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE = D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE(1i32);
+pub const D3DDDIMULTISAMPLE_10_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(10i32);
+pub const D3DDDIMULTISAMPLE_11_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(11i32);
+pub const D3DDDIMULTISAMPLE_12_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(12i32);
+pub const D3DDDIMULTISAMPLE_13_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(13i32);
+pub const D3DDDIMULTISAMPLE_14_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(14i32);
+pub const D3DDDIMULTISAMPLE_15_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(15i32);
+pub const D3DDDIMULTISAMPLE_16_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(16i32);
+pub const D3DDDIMULTISAMPLE_2_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(2i32);
+pub const D3DDDIMULTISAMPLE_3_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(3i32);
+pub const D3DDDIMULTISAMPLE_4_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(4i32);
+pub const D3DDDIMULTISAMPLE_5_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(5i32);
+pub const D3DDDIMULTISAMPLE_6_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(6i32);
+pub const D3DDDIMULTISAMPLE_7_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(7i32);
+pub const D3DDDIMULTISAMPLE_8_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(8i32);
+pub const D3DDDIMULTISAMPLE_9_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(9i32);
+pub const D3DDDIMULTISAMPLE_NONE: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(0i32);
+pub const D3DDDIMULTISAMPLE_NONMASKABLE: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DDDIMULTISAMPLE_TYPE(pub i32);
+pub const D3DDDIPOOL_LOCALVIDMEM: D3DDDI_POOL = D3DDDI_POOL(3i32);
+pub const D3DDDIPOOL_NONLOCALVIDMEM: D3DDDI_POOL = D3DDDI_POOL(4i32);
+pub const D3DDDIPOOL_STAGINGMEM: D3DDDI_POOL = D3DDDI_POOL(5i32);
+pub const D3DDDIPOOL_SYSTEMMEM: D3DDDI_POOL = D3DDDI_POOL(1i32);
+pub const D3DDDIPOOL_VIDEOMEMORY: D3DDDI_POOL = D3DDDI_POOL(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDDIRECT {
@@ -2061,6 +1527,41 @@ impl Default for D3DDDI_ALLOCATIONLIST_0_0 {
 impl windows_core::TypeKind for D3DDDI_ALLOCATIONLIST_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DDDI_ALLOCATIONPRIORITY_HIGH: u32 = 2684354560u32;
+pub const D3DDDI_ALLOCATIONPRIORITY_LOW: u32 = 1342177280u32;
+pub const D3DDDI_ALLOCATIONPRIORITY_MAXIMUM: u32 = 3355443200u32;
+pub const D3DDDI_ALLOCATIONPRIORITY_MINIMUM: u32 = 671088640u32;
+pub const D3DDDI_ALLOCATIONPRIORITY_NORMAL: u32 = 2013265920u32;
+pub const D3DDDI_COLOR_SPACE_CUSTOM: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(-1i32);
+pub const D3DDDI_COLOR_SPACE_RESERVED: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(4i32);
+pub const D3DDDI_COLOR_SPACE_RGB_FULL_G10_NONE_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(1i32);
+pub const D3DDDI_COLOR_SPACE_RGB_FULL_G2084_NONE_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(12i32);
+pub const D3DDDI_COLOR_SPACE_RGB_FULL_G22_NONE_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(17i32);
+pub const D3DDDI_COLOR_SPACE_RGB_FULL_G22_NONE_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(0i32);
+pub const D3DDDI_COLOR_SPACE_RGB_STUDIO_G2084_NONE_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(14i32);
+pub const D3DDDI_COLOR_SPACE_RGB_STUDIO_G22_NONE_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(3i32);
+pub const D3DDDI_COLOR_SPACE_RGB_STUDIO_G22_NONE_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(2i32);
+pub const D3DDDI_COLOR_SPACE_RGB_STUDIO_G24_NONE_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(21i32);
+pub const D3DDDI_COLOR_SPACE_RGB_STUDIO_G24_NONE_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(20i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DDDI_COLOR_SPACE_TYPE(pub i32);
+pub const D3DDDI_COLOR_SPACE_YCBCR_FULL_G22_LEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(11i32);
+pub const D3DDDI_COLOR_SPACE_YCBCR_FULL_G22_LEFT_P601: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(7i32);
+pub const D3DDDI_COLOR_SPACE_YCBCR_FULL_G22_LEFT_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(9i32);
+pub const D3DDDI_COLOR_SPACE_YCBCR_FULL_G22_NONE_P709_X601: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(5i32);
+pub const D3DDDI_COLOR_SPACE_YCBCR_FULL_GHLG_TOPLEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(19i32);
+pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G2084_LEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(13i32);
+pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G2084_TOPLEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(16i32);
+pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G22_LEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(10i32);
+pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G22_LEFT_P601: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(6i32);
+pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G22_LEFT_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(8i32);
+pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G22_TOPLEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(15i32);
+pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G24_LEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(23i32);
+pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G24_LEFT_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(22i32);
+pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G24_TOPLEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(24i32);
+pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_GHLG_TOPLEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(18i32);
+pub const D3DDDI_CPU_NOTIFICATION: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(4i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_CREATECONTEXTFLAGS {
@@ -2213,6 +1714,21 @@ impl Default for D3DDDI_DESTROYPAGINGQUEUE {
 impl windows_core::TypeKind for D3DDDI_DESTROYPAGINGQUEUE {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DDDI_DOORBELLSTATUS(pub i32);
+pub const D3DDDI_DOORBELLSTATUS_CONNECTED: D3DDDI_DOORBELLSTATUS = D3DDDI_DOORBELLSTATUS(0i32);
+pub const D3DDDI_DOORBELLSTATUS_CONNECTED_NOTIFY_KMD: D3DDDI_DOORBELLSTATUS = D3DDDI_DOORBELLSTATUS(1i32);
+pub const D3DDDI_DOORBELLSTATUS_DISCONNECTED_ABORT: D3DDDI_DOORBELLSTATUS = D3DDDI_DOORBELLSTATUS(3i32);
+pub const D3DDDI_DOORBELLSTATUS_DISCONNECTED_RETRY: D3DDDI_DOORBELLSTATUS = D3DDDI_DOORBELLSTATUS(2i32);
+pub const D3DDDI_DOORBELL_PRIVATEDATA_MAX_BYTES_WDDM3_1: u32 = 16u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DDDI_DRIVERESCAPETYPE(pub i32);
+pub const D3DDDI_DRIVERESCAPETYPE_CPUEVENTUSAGE: D3DDDI_DRIVERESCAPETYPE = D3DDDI_DRIVERESCAPETYPE(2i32);
+pub const D3DDDI_DRIVERESCAPETYPE_MAX: D3DDDI_DRIVERESCAPETYPE = D3DDDI_DRIVERESCAPETYPE(3i32);
+pub const D3DDDI_DRIVERESCAPETYPE_TRANSLATEALLOCATIONHANDLE: D3DDDI_DRIVERESCAPETYPE = D3DDDI_DRIVERESCAPETYPE(0i32);
+pub const D3DDDI_DRIVERESCAPETYPE_TRANSLATERESOURCEHANDLE: D3DDDI_DRIVERESCAPETYPE = D3DDDI_DRIVERESCAPETYPE(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDDI_DRIVERESCAPE_CPUEVENTUSAGE {
@@ -2352,6 +1868,25 @@ impl Default for D3DDDI_EVICT_FLAGS_0_0 {
 impl windows_core::TypeKind for D3DDDI_EVICT_FLAGS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DDDI_FENCE: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(3i32);
+pub const D3DDDI_FLIPINTERVAL_FOUR: D3DDDI_FLIPINTERVAL_TYPE = D3DDDI_FLIPINTERVAL_TYPE(4i32);
+pub const D3DDDI_FLIPINTERVAL_IMMEDIATE: D3DDDI_FLIPINTERVAL_TYPE = D3DDDI_FLIPINTERVAL_TYPE(0i32);
+pub const D3DDDI_FLIPINTERVAL_IMMEDIATE_ALLOW_TEARING: D3DDDI_FLIPINTERVAL_TYPE = D3DDDI_FLIPINTERVAL_TYPE(5i32);
+pub const D3DDDI_FLIPINTERVAL_ONE: D3DDDI_FLIPINTERVAL_TYPE = D3DDDI_FLIPINTERVAL_TYPE(1i32);
+pub const D3DDDI_FLIPINTERVAL_THREE: D3DDDI_FLIPINTERVAL_TYPE = D3DDDI_FLIPINTERVAL_TYPE(3i32);
+pub const D3DDDI_FLIPINTERVAL_TWO: D3DDDI_FLIPINTERVAL_TYPE = D3DDDI_FLIPINTERVAL_TYPE(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DDDI_FLIPINTERVAL_TYPE(pub i32);
+pub const D3DDDI_GAMMARAMP_DEFAULT: D3DDDI_GAMMARAMP_TYPE = D3DDDI_GAMMARAMP_TYPE(1i32);
+pub const D3DDDI_GAMMARAMP_DXGI_1: D3DDDI_GAMMARAMP_TYPE = D3DDDI_GAMMARAMP_TYPE(3i32);
+pub const D3DDDI_GAMMARAMP_MATRIX_3x4: D3DDDI_GAMMARAMP_TYPE = D3DDDI_GAMMARAMP_TYPE(4i32);
+pub const D3DDDI_GAMMARAMP_MATRIX_V2: D3DDDI_GAMMARAMP_TYPE = D3DDDI_GAMMARAMP_TYPE(5i32);
+pub const D3DDDI_GAMMARAMP_RGB256x3x16: D3DDDI_GAMMARAMP_TYPE = D3DDDI_GAMMARAMP_TYPE(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DDDI_GAMMARAMP_TYPE(pub i32);
+pub const D3DDDI_GAMMARAMP_UNINITIALIZED: D3DDDI_GAMMARAMP_TYPE = D3DDDI_GAMMARAMP_TYPE(0i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDDI_GAMMA_RAMP_DXGI_1 {
@@ -2430,6 +1965,12 @@ impl Default for D3DDDI_HDR_METADATA_HDR10PLUS {
 impl windows_core::TypeKind for D3DDDI_HDR_METADATA_HDR10PLUS {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DDDI_HDR_METADATA_TYPE(pub i32);
+pub const D3DDDI_HDR_METADATA_TYPE_HDR10: D3DDDI_HDR_METADATA_TYPE = D3DDDI_HDR_METADATA_TYPE(1i32);
+pub const D3DDDI_HDR_METADATA_TYPE_HDR10PLUS: D3DDDI_HDR_METADATA_TYPE = D3DDDI_HDR_METADATA_TYPE(2i32);
+pub const D3DDDI_HDR_METADATA_TYPE_NONE: D3DDDI_HDR_METADATA_TYPE = D3DDDI_HDR_METADATA_TYPE(0i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDDI_KERNELOVERLAYINFO {
@@ -2531,6 +2072,12 @@ impl Default for D3DDDI_MAPGPUVIRTUALADDRESS {
 impl windows_core::TypeKind for D3DDDI_MAPGPUVIRTUALADDRESS {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DDDI_MAX_BROADCAST_CONTEXT: u32 = 64u32;
+pub const D3DDDI_MAX_MPO_PRESENT_DIRTY_RECTS: u32 = 4095u32;
+pub const D3DDDI_MAX_OBJECT_SIGNALED: u32 = 32u32;
+pub const D3DDDI_MAX_OBJECT_WAITED_ON: u32 = 32u32;
+pub const D3DDDI_MAX_WRITTEN_PRIMARIES: u32 = 16u32;
+pub const D3DDDI_MONITORED_FENCE: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(5i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDDI_MULTISAMPLINGMETHOD {
@@ -2600,6 +2147,14 @@ impl Default for D3DDDI_OFFER_FLAGS_0_0 {
 impl windows_core::TypeKind for D3DDDI_OFFER_FLAGS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DDDI_OFFER_PRIORITY(pub i32);
+pub const D3DDDI_OFFER_PRIORITY_AUTO: D3DDDI_OFFER_PRIORITY = D3DDDI_OFFER_PRIORITY(4i32);
+pub const D3DDDI_OFFER_PRIORITY_HIGH: D3DDDI_OFFER_PRIORITY = D3DDDI_OFFER_PRIORITY(3i32);
+pub const D3DDDI_OFFER_PRIORITY_LOW: D3DDDI_OFFER_PRIORITY = D3DDDI_OFFER_PRIORITY(1i32);
+pub const D3DDDI_OFFER_PRIORITY_NONE: D3DDDI_OFFER_PRIORITY = D3DDDI_OFFER_PRIORITY(0i32);
+pub const D3DDDI_OFFER_PRIORITY_NORMAL: D3DDDI_OFFER_PRIORITY = D3DDDI_OFFER_PRIORITY(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDDI_OPENALLOCATIONINFO {
@@ -2632,6 +2187,22 @@ impl Default for D3DDDI_OPENALLOCATIONINFO2 {
 impl windows_core::TypeKind for D3DDDI_OPENALLOCATIONINFO2 {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G2084_P2020: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(12i32);
+pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_DVLL: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(33i32);
+pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_HDR10PLUS: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(32i32);
+pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G22_P2020: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(31i32);
+pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G22_P709: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(0i32);
+pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G22_P709_WCG: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(30i32);
+pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_RESERVED: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DDDI_PAGINGQUEUE_PRIORITY(pub i32);
+pub const D3DDDI_PAGINGQUEUE_PRIORITY_ABOVE_NORMAL: D3DDDI_PAGINGQUEUE_PRIORITY = D3DDDI_PAGINGQUEUE_PRIORITY(1i32);
+pub const D3DDDI_PAGINGQUEUE_PRIORITY_BELOW_NORMAL: D3DDDI_PAGINGQUEUE_PRIORITY = D3DDDI_PAGINGQUEUE_PRIORITY(-1i32);
+pub const D3DDDI_PAGINGQUEUE_PRIORITY_NORMAL: D3DDDI_PAGINGQUEUE_PRIORITY = D3DDDI_PAGINGQUEUE_PRIORITY(0i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_PATCHLOCATIONLIST {
@@ -2677,6 +2248,13 @@ impl Default for D3DDDI_PATCHLOCATIONLIST_0_0 {
 impl windows_core::TypeKind for D3DDDI_PATCHLOCATIONLIST_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DDDI_PERIODIC_MONITORED_FENCE: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(6i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DDDI_POOL(pub i32);
+pub const D3DDDI_QUERYREGISTRY_ADAPTERKEY: D3DDDI_QUERYREGISTRY_TYPE = D3DDDI_QUERYREGISTRY_TYPE(1i32);
+pub const D3DDDI_QUERYREGISTRY_DRIVERIMAGEPATH: D3DDDI_QUERYREGISTRY_TYPE = D3DDDI_QUERYREGISTRY_TYPE(3i32);
+pub const D3DDDI_QUERYREGISTRY_DRIVERSTOREPATH: D3DDDI_QUERYREGISTRY_TYPE = D3DDDI_QUERYREGISTRY_TYPE(2i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_QUERYREGISTRY_FLAGS {
@@ -2753,6 +2331,18 @@ impl Default for D3DDDI_QUERYREGISTRY_INFO_0 {
 impl windows_core::TypeKind for D3DDDI_QUERYREGISTRY_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DDDI_QUERYREGISTRY_MAX: D3DDDI_QUERYREGISTRY_TYPE = D3DDDI_QUERYREGISTRY_TYPE(4i32);
+pub const D3DDDI_QUERYREGISTRY_SERVICEKEY: D3DDDI_QUERYREGISTRY_TYPE = D3DDDI_QUERYREGISTRY_TYPE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DDDI_QUERYREGISTRY_STATUS(pub i32);
+pub const D3DDDI_QUERYREGISTRY_STATUS_BUFFER_OVERFLOW: D3DDDI_QUERYREGISTRY_STATUS = D3DDDI_QUERYREGISTRY_STATUS(1i32);
+pub const D3DDDI_QUERYREGISTRY_STATUS_FAIL: D3DDDI_QUERYREGISTRY_STATUS = D3DDDI_QUERYREGISTRY_STATUS(2i32);
+pub const D3DDDI_QUERYREGISTRY_STATUS_MAX: D3DDDI_QUERYREGISTRY_STATUS = D3DDDI_QUERYREGISTRY_STATUS(3i32);
+pub const D3DDDI_QUERYREGISTRY_STATUS_SUCCESS: D3DDDI_QUERYREGISTRY_STATUS = D3DDDI_QUERYREGISTRY_STATUS(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DDDI_QUERYREGISTRY_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDDI_RATIONAL {
@@ -2767,6 +2357,12 @@ impl Default for D3DDDI_RATIONAL {
 impl windows_core::TypeKind for D3DDDI_RATIONAL {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DDDI_RECLAIM_RESULT(pub i32);
+pub const D3DDDI_RECLAIM_RESULT_DISCARDED: D3DDDI_RECLAIM_RESULT = D3DDDI_RECLAIM_RESULT(1i32);
+pub const D3DDDI_RECLAIM_RESULT_NOT_COMMITTED: D3DDDI_RECLAIM_RESULT = D3DDDI_RECLAIM_RESULT(2i32);
+pub const D3DDDI_RECLAIM_RESULT_OK: D3DDDI_RECLAIM_RESULT = D3DDDI_RECLAIM_RESULT(0i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_RESERVEGPUVIRTUALADDRESS {
@@ -2924,6 +2520,19 @@ impl Default for D3DDDI_RESOURCEFLAGS2_0_0 {
 impl windows_core::TypeKind for D3DDDI_RESOURCEFLAGS2_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DDDI_ROTATION(pub i32);
+pub const D3DDDI_ROTATION_180: D3DDDI_ROTATION = D3DDDI_ROTATION(3i32);
+pub const D3DDDI_ROTATION_270: D3DDDI_ROTATION = D3DDDI_ROTATION(4i32);
+pub const D3DDDI_ROTATION_90: D3DDDI_ROTATION = D3DDDI_ROTATION(2i32);
+pub const D3DDDI_ROTATION_IDENTITY: D3DDDI_ROTATION = D3DDDI_ROTATION(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DDDI_SCANLINEORDERING(pub i32);
+pub const D3DDDI_SCANLINEORDERING_INTERLACED: D3DDDI_SCANLINEORDERING = D3DDDI_SCANLINEORDERING(2i32);
+pub const D3DDDI_SCANLINEORDERING_PROGRESSIVE: D3DDDI_SCANLINEORDERING = D3DDDI_SCANLINEORDERING(1i32);
+pub const D3DDDI_SCANLINEORDERING_UNKNOWN: D3DDDI_SCANLINEORDERING = D3DDDI_SCANLINEORDERING(0i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_SEGMENTPREFERENCE {
@@ -2964,6 +2573,7 @@ impl Default for D3DDDI_SEGMENTPREFERENCE_0_0 {
 impl windows_core::TypeKind for D3DDDI_SEGMENTPREFERENCE_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DDDI_SEMAPHORE: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDDI_SURFACEINFO {
@@ -3228,6 +2838,13 @@ impl Default for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0_0 {
 impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(pub i32);
+pub const D3DDDI_SYNCHRONIZATION_MUTEX: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(1i32);
+pub const D3DDDI_SYNCHRONIZATION_TYPE_LIMIT: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(7i32);
+pub const D3DDDI_SYNC_OBJECT_SIGNAL: u32 = 2u32;
+pub const D3DDDI_SYNC_OBJECT_WAIT: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_TRIMRESIDENCYSET_FLAGS {
@@ -3354,6 +2971,9 @@ impl Default for D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0_0 {
 impl windows_core::TypeKind for D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DDDI_UPDATEGPUVIRTUALADDRESS_COPY: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE(2i32);
+pub const D3DDDI_UPDATEGPUVIRTUALADDRESS_MAP: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE(0i32);
+pub const D3DDDI_UPDATEGPUVIRTUALADDRESS_MAP_PROTECT: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE(3i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION {
@@ -3450,6 +3070,18 @@ impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {
 impl windows_core::TypeKind for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE(pub i32);
+pub const D3DDDI_UPDATEGPUVIRTUALADDRESS_UNMAP: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING(pub i32);
+pub const D3DDDI_VSSLO_INTERLACED_LOWERFIELDFIRST: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING(3i32);
+pub const D3DDDI_VSSLO_INTERLACED_UPPERFIELDFIRST: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING(2i32);
+pub const D3DDDI_VSSLO_OTHER: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING(255i32);
+pub const D3DDDI_VSSLO_PROGRESSIVE: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING(1i32);
+pub const D3DDDI_VSSLO_UNINITIALIZED: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING(0i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS {
@@ -3490,6 +3122,9 @@ impl Default for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0_0 {
 impl windows_core::TypeKind for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DDEVCAPS_HWINDEXBUFFER: i32 = 67108864i32;
+pub const D3DDEVCAPS_HWVERTEXBUFFER: i32 = 33554432i32;
+pub const D3DDEVCAPS_SUBVOLUMELOCK: i32 = 134217728i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3603,6 +3238,107 @@ impl Default for D3DDEVICEDESC_V3 {
 impl windows_core::TypeKind for D3DDEVICEDESC_V3 {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DDEVINFOID_VCACHE: u32 = 4u32;
+pub const D3DDP2OP_ADDDIRTYBOX: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(67i32);
+pub const D3DDP2OP_ADDDIRTYRECT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(66i32);
+pub const D3DDP2OP_BLT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(81i32);
+pub const D3DDP2OP_BUFFERBLT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(64i32);
+pub const D3DDP2OP_CLEAR: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(42i32);
+pub const D3DDP2OP_CLIPPEDTRIANGLEFAN: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(58i32);
+pub const D3DDP2OP_COLORFILL: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(82i32);
+pub const D3DDP2OP_COMPOSERECTS: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(98i32);
+pub const D3DDP2OP_CREATELIGHT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(35i32);
+pub const D3DDP2OP_CREATEPIXELSHADER: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(54i32);
+pub const D3DDP2OP_CREATEQUERY: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(84i32);
+pub const D3DDP2OP_CREATEVERTEXSHADER: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(45i32);
+pub const D3DDP2OP_CREATEVERTEXSHADERDECL: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(71i32);
+pub const D3DDP2OP_CREATEVERTEXSHADERFUNC: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(74i32);
+pub const D3DDP2OP_DELETEPIXELSHADER: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(55i32);
+pub const D3DDP2OP_DELETEQUERY: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(90i32);
+pub const D3DDP2OP_DELETEVERTEXSHADER: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(46i32);
+pub const D3DDP2OP_DELETEVERTEXSHADERDECL: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(72i32);
+pub const D3DDP2OP_DELETEVERTEXSHADERFUNC: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(75i32);
+pub const D3DDP2OP_DRAWINDEXEDPRIMITIVE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(53i32);
+pub const D3DDP2OP_DRAWINDEXEDPRIMITIVE2: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(60i32);
+pub const D3DDP2OP_DRAWPRIMITIVE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(52i32);
+pub const D3DDP2OP_DRAWPRIMITIVE2: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(59i32);
+pub const D3DDP2OP_DRAWRECTPATCH: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(61i32);
+pub const D3DDP2OP_DRAWTRIPATCH: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(62i32);
+pub const D3DDP2OP_GENERATEMIPSUBLEVELS: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(89i32);
+pub const D3DDP2OP_INDEXEDLINELIST: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(2i32);
+pub const D3DDP2OP_INDEXEDLINELIST2: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(27i32);
+pub const D3DDP2OP_INDEXEDLINESTRIP: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(17i32);
+pub const D3DDP2OP_INDEXEDTRIANGLEFAN: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(22i32);
+pub const D3DDP2OP_INDEXEDTRIANGLELIST: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(3i32);
+pub const D3DDP2OP_INDEXEDTRIANGLELIST2: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(26i32);
+pub const D3DDP2OP_INDEXEDTRIANGLESTRIP: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(20i32);
+pub const D3DDP2OP_ISSUEQUERY: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(91i32);
+pub const D3DDP2OP_LINELIST: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(15i32);
+pub const D3DDP2OP_LINELIST_IMM: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(24i32);
+pub const D3DDP2OP_LINESTRIP: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(16i32);
+pub const D3DDP2OP_MULTIPLYTRANSFORM: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(65i32);
+pub const D3DDP2OP_POINTS: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(1i32);
+pub const D3DDP2OP_RENDERSTATE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(8i32);
+pub const D3DDP2OP_RESPONSECONTINUE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(87i32);
+pub const D3DDP2OP_RESPONSEQUERY: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(88i32);
+pub const D3DDP2OP_SETCLIPPLANE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(44i32);
+pub const D3DDP2OP_SETCONVOLUTIONKERNELMONO: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(97i32);
+pub const D3DDP2OP_SETDEPTHSTENCIL: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(86i32);
+pub const D3DDP2OP_SETINDICES: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(51i32);
+pub const D3DDP2OP_SETLIGHT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(34i32);
+pub const D3DDP2OP_SETMATERIAL: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(33i32);
+pub const D3DDP2OP_SETPALETTE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(30i32);
+pub const D3DDP2OP_SETPIXELSHADER: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(56i32);
+pub const D3DDP2OP_SETPIXELSHADERCONST: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(57i32);
+pub const D3DDP2OP_SETPIXELSHADERCONSTB: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(94i32);
+pub const D3DDP2OP_SETPIXELSHADERCONSTI: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(93i32);
+pub const D3DDP2OP_SETPRIORITY: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(40i32);
+pub const D3DDP2OP_SETRENDERTARGET: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(41i32);
+pub const D3DDP2OP_SETRENDERTARGET2: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(85i32);
+pub const D3DDP2OP_SETSCISSORRECT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(79i32);
+pub const D3DDP2OP_SETSTREAMSOURCE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(49i32);
+pub const D3DDP2OP_SETSTREAMSOURCE2: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(80i32);
+pub const D3DDP2OP_SETSTREAMSOURCEFREQ: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(95i32);
+pub const D3DDP2OP_SETSTREAMSOURCEUM: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(50i32);
+pub const D3DDP2OP_SETTEXLOD: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(43i32);
+pub const D3DDP2OP_SETTRANSFORM: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(36i32);
+pub const D3DDP2OP_SETVERTEXSHADER: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(47i32);
+pub const D3DDP2OP_SETVERTEXSHADERCONST: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(48i32);
+pub const D3DDP2OP_SETVERTEXSHADERCONSTB: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(83i32);
+pub const D3DDP2OP_SETVERTEXSHADERCONSTI: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(77i32);
+pub const D3DDP2OP_SETVERTEXSHADERDECL: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(73i32);
+pub const D3DDP2OP_SETVERTEXSHADERFUNC: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(76i32);
+pub const D3DDP2OP_STATESET: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(39i32);
+pub const D3DDP2OP_SURFACEBLT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(96i32);
+pub const D3DDP2OP_TEXBLT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(38i32);
+pub const D3DDP2OP_TEXTURESTAGESTATE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(25i32);
+pub const D3DDP2OP_TRIANGLEFAN: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(21i32);
+pub const D3DDP2OP_TRIANGLEFAN_IMM: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(23i32);
+pub const D3DDP2OP_TRIANGLELIST: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(18i32);
+pub const D3DDP2OP_TRIANGLESTRIP: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(19i32);
+pub const D3DDP2OP_UPDATEPALETTE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(31i32);
+pub const D3DDP2OP_VIEWPORTINFO: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(28i32);
+pub const D3DDP2OP_VOLUMEBLT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(63i32);
+pub const D3DDP2OP_WINFO: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(29i32);
+pub const D3DDP2OP_ZRANGE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(32i32);
+pub const D3DFVF_FOG: i32 = 8192i32;
+pub const D3DGDI2_MAGIC: u32 = 4294967295u32;
+pub const D3DGDI2_TYPE_DEFERRED_AGP_AWARE: u32 = 24u32;
+pub const D3DGDI2_TYPE_DEFER_AGP_FREES: u32 = 32u32;
+pub const D3DGDI2_TYPE_DXVERSION: u32 = 4u32;
+pub const D3DGDI2_TYPE_FREE_DEFERRED_AGP: u32 = 25u32;
+pub const D3DGDI2_TYPE_GETADAPTERGROUP: u32 = 19u32;
+pub const D3DGDI2_TYPE_GETD3DCAPS8: u32 = 1u32;
+pub const D3DGDI2_TYPE_GETD3DCAPS9: u32 = 16u32;
+pub const D3DGDI2_TYPE_GETD3DQUERY: u32 = 34u32;
+pub const D3DGDI2_TYPE_GETD3DQUERYCOUNT: u32 = 33u32;
+pub const D3DGDI2_TYPE_GETDDIVERSION: u32 = 35u32;
+pub const D3DGDI2_TYPE_GETEXTENDEDMODE: u32 = 18u32;
+pub const D3DGDI2_TYPE_GETEXTENDEDMODECOUNT: u32 = 17u32;
+pub const D3DGDI2_TYPE_GETFORMAT: u32 = 3u32;
+pub const D3DGDI2_TYPE_GETFORMATCOUNT: u32 = 2u32;
+pub const D3DGDI2_TYPE_GETMULTISAMPLEQUALITYLEVELS: u32 = 22u32;
+pub const D3DGPU_NULL: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DGPU_PHYSICAL_ADDRESS {
@@ -3618,6 +3354,26 @@ impl Default for D3DGPU_PHYSICAL_ADDRESS {
 impl windows_core::TypeKind for D3DGPU_PHYSICAL_ADDRESS {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DHAL2_CB32_CLEAR: i32 = 2i32;
+pub const D3DHAL2_CB32_DRAWONEINDEXEDPRIMITIVE: i32 = 8i32;
+pub const D3DHAL2_CB32_DRAWONEPRIMITIVE: i32 = 4i32;
+pub const D3DHAL2_CB32_DRAWPRIMITIVES: i32 = 16i32;
+pub const D3DHAL2_CB32_SETRENDERTARGET: i32 = 1i32;
+pub const D3DHAL3_CB32_CLEAR2: i32 = 1i32;
+pub const D3DHAL3_CB32_DRAWPRIMITIVES2: i32 = 8i32;
+pub const D3DHAL3_CB32_RESERVED: i32 = 2i32;
+pub const D3DHAL3_CB32_VALIDATETEXTURESTAGESTATE: i32 = 4i32;
+pub const D3DHALDP2_EXECUTEBUFFER: i32 = 2i32;
+pub const D3DHALDP2_REQCOMMANDBUFSIZE: i32 = 32i32;
+pub const D3DHALDP2_REQVERTEXBUFSIZE: i32 = 16i32;
+pub const D3DHALDP2_SWAPCOMMANDBUFFER: i32 = 8i32;
+pub const D3DHALDP2_SWAPVERTEXBUFFER: i32 = 4i32;
+pub const D3DHALDP2_USERMEMVERTICES: i32 = 1i32;
+pub const D3DHALDP2_VIDMEMCOMMANDBUF: i32 = 128i32;
+pub const D3DHALDP2_VIDMEMVERTEXBUF: i32 = 64i32;
+pub const D3DHALSTATE_GET_LIGHT: i32 = 2i32;
+pub const D3DHALSTATE_GET_RENDER: i32 = 4i32;
+pub const D3DHALSTATE_GET_TRANSFORM: i32 = 1i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3771,6 +3527,7 @@ impl Default for D3DHAL_CLIPPEDTRIANGLEFAN {
 impl windows_core::TypeKind for D3DHAL_CLIPPEDTRIANGLEFAN {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DHAL_COL_WEIGHTS: u32 = 2u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub struct D3DHAL_CONTEXTCREATEDATA {
@@ -3903,6 +3660,7 @@ impl Default for D3DHAL_CONTEXTDESTROYDATA {
 impl windows_core::TypeKind for D3DHAL_CONTEXTDESTROYDATA {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DHAL_CONTEXT_BAD: i64 = 512i64;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DHAL_D3DDX6EXTENDEDCAPS {
@@ -4512,6 +4270,9 @@ impl Default for D3DHAL_DP2MULTIPLYTRANSFORM {
 impl windows_core::TypeKind for D3DHAL_DP2MULTIPLYTRANSFORM {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DHAL_DP2OPERATION(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DHAL_DP2PIXELSHADER {
@@ -5253,6 +5014,10 @@ impl Default for D3DHAL_DRAWPRIMITIVESDATA {
 impl windows_core::TypeKind for D3DHAL_DRAWPRIMITIVESDATA {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DHAL_EXECUTE_ABORT: i32 = 528i32;
+pub const D3DHAL_EXECUTE_NORMAL: i32 = 0i32;
+pub const D3DHAL_EXECUTE_OVERRIDE: i32 = 1i32;
+pub const D3DHAL_EXECUTE_UNHANDLED: i32 = 529i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[derive(Clone, Copy)]
@@ -5293,6 +5058,14 @@ impl Default for D3DHAL_GLOBALDRIVERDATA {
 impl windows_core::TypeKind for D3DHAL_GLOBALDRIVERDATA {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DHAL_MAX_RSTATES: u32 = 256u32;
+pub const D3DHAL_MAX_RSTATES_DX6: u32 = 256u32;
+pub const D3DHAL_MAX_RSTATES_DX7: u32 = 256u32;
+pub const D3DHAL_MAX_RSTATES_DX8: u32 = 256u32;
+pub const D3DHAL_MAX_RSTATES_DX9: u32 = 256u32;
+pub const D3DHAL_MAX_TEXTURESTATES: u32 = 13u32;
+pub const D3DHAL_NUMCLIPVERTICES: u32 = 20u32;
+pub const D3DHAL_OUTOFCONTEXTS: i64 = 513i64;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 #[derive(Clone, Debug, PartialEq)]
@@ -5336,6 +5109,9 @@ impl Default for D3DHAL_RENDERSTATEDATA {
 impl windows_core::TypeKind for D3DHAL_RENDERSTATEDATA {
     type TypeKind = windows_core::CloneType;
 }
+pub const D3DHAL_ROW_WEIGHTS: u32 = 1u32;
+pub const D3DHAL_SAMPLER_MAXSAMP: u32 = 16u32;
+pub const D3DHAL_SAMPLER_MAXVERTEXSAMP: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DHAL_SCENECAPTUREDATA {
@@ -5351,6 +5127,11 @@ impl Default for D3DHAL_SCENECAPTUREDATA {
 impl windows_core::TypeKind for D3DHAL_SCENECAPTUREDATA {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DHAL_SCENE_CAPTURE_END: i32 = 1i32;
+pub const D3DHAL_SCENE_CAPTURE_START: i32 = 0i32;
+pub const D3DHAL_SETLIGHT_DATA: u32 = 2u32;
+pub const D3DHAL_SETLIGHT_DISABLE: u32 = 1u32;
+pub const D3DHAL_SETLIGHT_ENABLE: u32 = 0u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub struct D3DHAL_SETRENDERTARGETDATA {
@@ -5419,6 +5200,12 @@ impl Default for D3DHAL_SETRENDERTARGETDATA_1 {
 impl windows_core::TypeKind for D3DHAL_SETRENDERTARGETDATA_1 {
     type TypeKind = windows_core::CloneType;
 }
+pub const D3DHAL_STATESETBEGIN: u32 = 0u32;
+pub const D3DHAL_STATESETCAPTURE: u32 = 4u32;
+pub const D3DHAL_STATESETCREATE: u32 = 5u32;
+pub const D3DHAL_STATESETDELETE: u32 = 2u32;
+pub const D3DHAL_STATESETEND: u32 = 1u32;
+pub const D3DHAL_STATESETEXECUTE: u32 = 3u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 #[derive(Clone, Debug, PartialEq)]
@@ -5469,6 +5256,7 @@ impl Default for D3DHAL_TEXTUREGETSURFDATA {
 impl windows_core::TypeKind for D3DHAL_TEXTUREGETSURFDATA {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DHAL_TEXTURESTATEBUF_SIZE: u32 = 14u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DHAL_TEXTURESWAPDATA {
@@ -5485,6 +5273,9 @@ impl Default for D3DHAL_TEXTURESWAPDATA {
 impl windows_core::TypeKind for D3DHAL_TEXTURESWAPDATA {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DHAL_TSS_MAXSTAGES: u32 = 8u32;
+pub const D3DHAL_TSS_RENDERSTATEBASE: u32 = 256u32;
+pub const D3DHAL_TSS_STATESPERSTAGE: u32 = 64u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DHAL_VALIDATETEXTURESTAGESTATEDATA {
@@ -5502,6 +5293,7 @@ impl Default for D3DHAL_VALIDATETEXTURESTAGESTATEDATA {
 impl windows_core::TypeKind for D3DHAL_VALIDATETEXTURESTAGESTATEDATA {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DINFINITEINSTRUCTIONS: u32 = 4294967295u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMDT_2DREGION {
@@ -5531,6 +5323,18 @@ impl Default for D3DKMDT_3x4_COLORSPACE_TRANSFORM {
 impl windows_core::TypeKind for D3DKMDT_3x4_COLORSPACE_TRANSFORM {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMDT_BITS_PER_COMPONENT_06: u32 = 1u32;
+pub const D3DKMDT_BITS_PER_COMPONENT_08: u32 = 2u32;
+pub const D3DKMDT_BITS_PER_COMPONENT_10: u32 = 4u32;
+pub const D3DKMDT_BITS_PER_COMPONENT_12: u32 = 8u32;
+pub const D3DKMDT_BITS_PER_COMPONENT_14: u32 = 16u32;
+pub const D3DKMDT_BITS_PER_COMPONENT_16: u32 = 32u32;
+pub const D3DKMDT_CB_INTENSITY: D3DKMDT_COLOR_BASIS = D3DKMDT_COLOR_BASIS(1i32);
+pub const D3DKMDT_CB_SCRGB: D3DKMDT_COLOR_BASIS = D3DKMDT_COLOR_BASIS(3i32);
+pub const D3DKMDT_CB_SRGB: D3DKMDT_COLOR_BASIS = D3DKMDT_COLOR_BASIS(2i32);
+pub const D3DKMDT_CB_UNINITIALIZED: D3DKMDT_COLOR_BASIS = D3DKMDT_COLOR_BASIS(0i32);
+pub const D3DKMDT_CB_YCBCR: D3DKMDT_COLOR_BASIS = D3DKMDT_COLOR_BASIS(4i32);
+pub const D3DKMDT_CB_YPBPR: D3DKMDT_COLOR_BASIS = D3DKMDT_COLOR_BASIS(5i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2 {
@@ -5549,6 +5353,15 @@ impl Default for D3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2 {
 impl windows_core::TypeKind for D3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL(pub i32);
+pub const D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL_BYPASS: D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL = D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL(2i32);
+pub const D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL_ENABLE: D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL = D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL(1i32);
+pub const D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL_NO_CHANGE: D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL = D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_COLOR_BASIS(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMDT_COLOR_COEFF_DYNAMIC_RANGES {
@@ -5565,6 +5378,15 @@ impl Default for D3DKMDT_COLOR_COEFF_DYNAMIC_RANGES {
 impl windows_core::TypeKind for D3DKMDT_COLOR_COEFF_DYNAMIC_RANGES {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMDT_COMPUTE_PREEMPTION_DISPATCH_BOUNDARY: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(200i32);
+pub const D3DKMDT_COMPUTE_PREEMPTION_DMA_BUFFER_BOUNDARY: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(100i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(pub i32);
+pub const D3DKMDT_COMPUTE_PREEMPTION_NONE: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(0i32);
+pub const D3DKMDT_COMPUTE_PREEMPTION_SHADER_BOUNDARY: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(500i32);
+pub const D3DKMDT_COMPUTE_PREEMPTION_THREAD_BOUNDARY: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(400i32);
+pub const D3DKMDT_COMPUTE_PREEMPTION_THREAD_GROUP_BOUNDARY: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(300i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMDT_DISPLAYMODE_FLAGS {
@@ -5579,6 +5401,15 @@ impl Default for D3DKMDT_DISPLAYMODE_FLAGS {
 impl windows_core::TypeKind for D3DKMDT_DISPLAYMODE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(pub i32);
+pub const D3DKMDT_EPT_NOPIVOT: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(5i32);
+pub const D3DKMDT_EPT_ROTATION: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(4i32);
+pub const D3DKMDT_EPT_SCALING: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(3i32);
+pub const D3DKMDT_EPT_UNINITIALIZED: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(0i32);
+pub const D3DKMDT_EPT_VIDPNSOURCE: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(1i32);
+pub const D3DKMDT_EPT_VIDPNTARGET: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMDT_FREQUENCY_RANGE {
@@ -5685,6 +5516,27 @@ impl Default for D3DKMDT_GDISURFACEFLAGS_0_0 {
 impl windows_core::TypeKind for D3DKMDT_GDISURFACEFLAGS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_GDISURFACETYPE(pub i32);
+pub const D3DKMDT_GDISURFACE_EXISTINGSYSMEM: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(5i32);
+pub const D3DKMDT_GDISURFACE_INVALID: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(0i32);
+pub const D3DKMDT_GDISURFACE_LOOKUPTABLE: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(4i32);
+pub const D3DKMDT_GDISURFACE_STAGING: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(3i32);
+pub const D3DKMDT_GDISURFACE_STAGING_CPUVISIBLE: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(2i32);
+pub const D3DKMDT_GDISURFACE_TEXTURE: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(1i32);
+pub const D3DKMDT_GDISURFACE_TEXTURE_CPUVISIBLE: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(6i32);
+pub const D3DKMDT_GDISURFACE_TEXTURE_CPUVISIBLE_CROSSADAPTER: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(8i32);
+pub const D3DKMDT_GDISURFACE_TEXTURE_CROSSADAPTER: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(7i32);
+pub const D3DKMDT_GRAPHICS_PREEMPTION_DMA_BUFFER_BOUNDARY: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(100i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(pub i32);
+pub const D3DKMDT_GRAPHICS_PREEMPTION_NONE: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(0i32);
+pub const D3DKMDT_GRAPHICS_PREEMPTION_PIXEL_BOUNDARY: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(400i32);
+pub const D3DKMDT_GRAPHICS_PREEMPTION_PRIMITIVE_BOUNDARY: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(200i32);
+pub const D3DKMDT_GRAPHICS_PREEMPTION_SHADER_BOUNDARY: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(500i32);
+pub const D3DKMDT_GRAPHICS_PREEMPTION_TRIANGLE_BOUNDARY: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(300i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMDT_GRAPHICS_RENDERING_FORMAT {
@@ -5703,6 +5555,47 @@ impl Default for D3DKMDT_GRAPHICS_RENDERING_FORMAT {
 impl windows_core::TypeKind for D3DKMDT_GRAPHICS_RENDERING_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_GTFCOMPLIANCE(pub i32);
+pub const D3DKMDT_GTF_COMPLIANT: D3DKMDT_GTFCOMPLIANCE = D3DKMDT_GTFCOMPLIANCE(1i32);
+pub const D3DKMDT_GTF_NOTCOMPLIANT: D3DKMDT_GTFCOMPLIANCE = D3DKMDT_GTFCOMPLIANCE(2i32);
+pub const D3DKMDT_GTF_UNINITIALIZED: D3DKMDT_GTFCOMPLIANCE = D3DKMDT_GTFCOMPLIANCE(0i32);
+pub const D3DKMDT_MACROVISION_OEMCOPYPROTECTION_SIZE: u32 = 256u32;
+pub const D3DKMDT_MAX_OVERLAYS_BITCOUNT: u32 = 2u32;
+pub const D3DKMDT_MAX_VIDPN_SOURCES_BITCOUNT: u32 = 4u32;
+pub const D3DKMDT_MCC_ENFORCE: D3DKMDT_MONITOR_CONNECTIVITY_CHECKS = D3DKMDT_MONITOR_CONNECTIVITY_CHECKS(2i32);
+pub const D3DKMDT_MCC_IGNORE: D3DKMDT_MONITOR_CONNECTIVITY_CHECKS = D3DKMDT_MONITOR_CONNECTIVITY_CHECKS(1i32);
+pub const D3DKMDT_MCC_UNINITIALIZED: D3DKMDT_MONITOR_CONNECTIVITY_CHECKS = D3DKMDT_MONITOR_CONNECTIVITY_CHECKS(0i32);
+pub const D3DKMDT_MCO_DEFAULTMONITORPROFILE: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(1i32);
+pub const D3DKMDT_MCO_DRIVER: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(5i32);
+pub const D3DKMDT_MCO_MONITORDESCRIPTOR: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(2i32);
+pub const D3DKMDT_MCO_MONITORDESCRIPTOR_REGISTRYOVERRIDE: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(3i32);
+pub const D3DKMDT_MCO_SPECIFICCAP_REGISTRYOVERRIDE: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(4i32);
+pub const D3DKMDT_MCO_UNINITIALIZED: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(0i32);
+pub const D3DKMDT_MDT_OTHER: D3DKMDT_MONITOR_DESCRIPTOR_TYPE = D3DKMDT_MONITOR_DESCRIPTOR_TYPE(255i32);
+pub const D3DKMDT_MDT_UNINITIALIZED: D3DKMDT_MONITOR_DESCRIPTOR_TYPE = D3DKMDT_MONITOR_DESCRIPTOR_TYPE(0i32);
+pub const D3DKMDT_MDT_VESA_EDID_V1_BASEBLOCK: D3DKMDT_MONITOR_DESCRIPTOR_TYPE = D3DKMDT_MONITOR_DESCRIPTOR_TYPE(1i32);
+pub const D3DKMDT_MDT_VESA_EDID_V1_BLOCKMAP: D3DKMDT_MONITOR_DESCRIPTOR_TYPE = D3DKMDT_MONITOR_DESCRIPTOR_TYPE(2i32);
+pub const D3DKMDT_MFRC_ACTIVESIZE: D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT = D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT(1i32);
+pub const D3DKMDT_MFRC_MAXPIXELRATE: D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT = D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT(2i32);
+pub const D3DKMDT_MFRC_UNINITIALIZED: D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT = D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT(0i32);
+pub const D3DKMDT_MOA_INTERRUPTIBLE: D3DKMDT_MONITOR_ORIENTATION_AWARENESS = D3DKMDT_MONITOR_ORIENTATION_AWARENESS(3i32);
+pub const D3DKMDT_MOA_NONE: D3DKMDT_MONITOR_ORIENTATION_AWARENESS = D3DKMDT_MONITOR_ORIENTATION_AWARENESS(1i32);
+pub const D3DKMDT_MOA_POLLED: D3DKMDT_MONITOR_ORIENTATION_AWARENESS = D3DKMDT_MONITOR_ORIENTATION_AWARENESS(2i32);
+pub const D3DKMDT_MOA_UNINITIALIZED: D3DKMDT_MONITOR_ORIENTATION_AWARENESS = D3DKMDT_MONITOR_ORIENTATION_AWARENESS(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_MODE_PREFERENCE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_MODE_PRUNING_REASON(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_MONITOR_CONNECTIVITY_CHECKS(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMDT_MONITOR_DESCRIPTOR {
@@ -5720,6 +5613,9 @@ impl Default for D3DKMDT_MONITOR_DESCRIPTOR {
 impl windows_core::TypeKind for D3DKMDT_MONITOR_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_MONITOR_DESCRIPTOR_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMDT_MONITOR_FREQUENCY_RANGE {
@@ -5750,6 +5646,15 @@ impl Default for D3DKMDT_MONITOR_FREQUENCY_RANGE_0 {
 impl windows_core::TypeKind for D3DKMDT_MONITOR_FREQUENCY_RANGE_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_MONITOR_ORIENTATION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_MONITOR_ORIENTATION_AWARENESS(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMDT_MONITOR_SOURCE_MODE {
@@ -5768,6 +5673,35 @@ impl Default for D3DKMDT_MONITOR_SOURCE_MODE {
 impl windows_core::TypeKind for D3DKMDT_MONITOR_SOURCE_MODE {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_MONITOR_TIMING_TYPE(pub i32);
+pub const D3DKMDT_MO_0DEG: D3DKMDT_MONITOR_ORIENTATION = D3DKMDT_MONITOR_ORIENTATION(1i32);
+pub const D3DKMDT_MO_180DEG: D3DKMDT_MONITOR_ORIENTATION = D3DKMDT_MONITOR_ORIENTATION(3i32);
+pub const D3DKMDT_MO_270DEG: D3DKMDT_MONITOR_ORIENTATION = D3DKMDT_MONITOR_ORIENTATION(4i32);
+pub const D3DKMDT_MO_90DEG: D3DKMDT_MONITOR_ORIENTATION = D3DKMDT_MONITOR_ORIENTATION(2i32);
+pub const D3DKMDT_MO_UNINITIALIZED: D3DKMDT_MONITOR_ORIENTATION = D3DKMDT_MONITOR_ORIENTATION(0i32);
+pub const D3DKMDT_MPR_ALLCAPS: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(1i32);
+pub const D3DKMDT_MPR_CLONE_PATH_PRUNED: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(9i32);
+pub const D3DKMDT_MPR_DEFAULT_PROFILE_MONITOR_SOURCE_MODE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(6i32);
+pub const D3DKMDT_MPR_DESCRIPTOR_MONITOR_FREQUENCY_RANGE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(3i32);
+pub const D3DKMDT_MPR_DESCRIPTOR_MONITOR_SOURCE_MODE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(2i32);
+pub const D3DKMDT_MPR_DESCRIPTOR_OVERRIDE_MONITOR_FREQUENCY_RANGE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(5i32);
+pub const D3DKMDT_MPR_DESCRIPTOR_OVERRIDE_MONITOR_SOURCE_MODE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(4i32);
+pub const D3DKMDT_MPR_DRIVER_RECOMMENDED_MONITOR_SOURCE_MODE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(7i32);
+pub const D3DKMDT_MPR_MAXVALID: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(10i32);
+pub const D3DKMDT_MPR_MONITOR_FREQUENCY_RANGE_OVERRIDE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(8i32);
+pub const D3DKMDT_MPR_UNINITIALIZED: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(0i32);
+pub const D3DKMDT_MP_NOTPREFERRED: D3DKMDT_MODE_PREFERENCE = D3DKMDT_MODE_PREFERENCE(2i32);
+pub const D3DKMDT_MP_PREFERRED: D3DKMDT_MODE_PREFERENCE = D3DKMDT_MODE_PREFERENCE(1i32);
+pub const D3DKMDT_MP_UNINITIALIZED: D3DKMDT_MODE_PREFERENCE = D3DKMDT_MODE_PREFERENCE(0i32);
+pub const D3DKMDT_MTT_DEFAULTMONITORPROFILE: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(5i32);
+pub const D3DKMDT_MTT_DETAILED: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(4i32);
+pub const D3DKMDT_MTT_DRIVER: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(6i32);
+pub const D3DKMDT_MTT_ESTABLISHED: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(1i32);
+pub const D3DKMDT_MTT_EXTRASTANDARD: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(3i32);
+pub const D3DKMDT_MTT_STANDARD: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(2i32);
+pub const D3DKMDT_MTT_UNINITIALIZED: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(0i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMDT_PALETTEDATA {
@@ -5784,6 +5718,9 @@ impl Default for D3DKMDT_PALETTEDATA {
 impl windows_core::TypeKind for D3DKMDT_PALETTEDATA {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_PIXEL_VALUE_ACCESS_MODE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMDT_PREEMPTION_CAPS {
@@ -5798,6 +5735,15 @@ impl Default for D3DKMDT_PREEMPTION_CAPS {
 impl windows_core::TypeKind for D3DKMDT_PREEMPTION_CAPS {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMDT_PVAM_DIRECT: D3DKMDT_PIXEL_VALUE_ACCESS_MODE = D3DKMDT_PIXEL_VALUE_ACCESS_MODE(1i32);
+pub const D3DKMDT_PVAM_PRESETPALETTE: D3DKMDT_PIXEL_VALUE_ACCESS_MODE = D3DKMDT_PIXEL_VALUE_ACCESS_MODE(2i32);
+pub const D3DKMDT_PVAM_SETTABLEPALETTE: D3DKMDT_PIXEL_VALUE_ACCESS_MODE = D3DKMDT_PIXEL_VALUE_ACCESS_MODE(3i32);
+pub const D3DKMDT_PVAM_UNINITIALIZED: D3DKMDT_PIXEL_VALUE_ACCESS_MODE = D3DKMDT_PIXEL_VALUE_ACCESS_MODE(0i32);
+pub const D3DKMDT_RMT_GRAPHICS: D3DKMDT_VIDPN_SOURCE_MODE_TYPE = D3DKMDT_VIDPN_SOURCE_MODE_TYPE(1i32);
+pub const D3DKMDT_RMT_GRAPHICS_STEREO: D3DKMDT_VIDPN_SOURCE_MODE_TYPE = D3DKMDT_VIDPN_SOURCE_MODE_TYPE(3i32);
+pub const D3DKMDT_RMT_GRAPHICS_STEREO_ADVANCED_SCAN: D3DKMDT_VIDPN_SOURCE_MODE_TYPE = D3DKMDT_VIDPN_SOURCE_MODE_TYPE(4i32);
+pub const D3DKMDT_RMT_TEXT: D3DKMDT_VIDPN_SOURCE_MODE_TYPE = D3DKMDT_VIDPN_SOURCE_MODE_TYPE(2i32);
+pub const D3DKMDT_RMT_UNINITIALIZED: D3DKMDT_VIDPN_SOURCE_MODE_TYPE = D3DKMDT_VIDPN_SOURCE_MODE_TYPE(0i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMDT_SHADOWSURFACEDATA {
@@ -5846,6 +5792,21 @@ impl Default for D3DKMDT_STAGINGSURFACEDATA {
 impl windows_core::TypeKind for D3DKMDT_STAGINGSURFACEDATA {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMDT_STANDARDALLOCATION_GDISURFACE: D3DKMDT_STANDARDALLOCATION_TYPE = D3DKMDT_STANDARDALLOCATION_TYPE(4i32);
+pub const D3DKMDT_STANDARDALLOCATION_SHADOWSURFACE: D3DKMDT_STANDARDALLOCATION_TYPE = D3DKMDT_STANDARDALLOCATION_TYPE(2i32);
+pub const D3DKMDT_STANDARDALLOCATION_SHAREDPRIMARYSURFACE: D3DKMDT_STANDARDALLOCATION_TYPE = D3DKMDT_STANDARDALLOCATION_TYPE(1i32);
+pub const D3DKMDT_STANDARDALLOCATION_STAGINGSURFACE: D3DKMDT_STANDARDALLOCATION_TYPE = D3DKMDT_STANDARDALLOCATION_TYPE(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_STANDARDALLOCATION_TYPE(pub i32);
+pub const D3DKMDT_STANDARDALLOCATION_VGPU: D3DKMDT_STANDARDALLOCATION_TYPE = D3DKMDT_STANDARDALLOCATION_TYPE(5i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_TEXT_RENDERING_FORMAT(pub i32);
+pub const D3DKMDT_TRF_UNINITIALIZED: D3DKMDT_TEXT_RENDERING_FORMAT = D3DKMDT_TEXT_RENDERING_FORMAT(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMDT_VIDEO_PRESENT_SOURCE {
@@ -5923,6 +5884,9 @@ impl Default for D3DKMDT_VIDEO_SIGNAL_INFO_0_0 {
 impl windows_core::TypeKind for D3DKMDT_VIDEO_SIGNAL_INFO_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_VIDEO_SIGNAL_STANDARD(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMDT_VIDPN_HW_CAPABILITY {
@@ -5959,6 +5923,9 @@ impl Default for D3DKMDT_VIDPN_PRESENT_PATH {
 impl windows_core::TypeKind for D3DKMDT_VIDPN_PRESENT_PATH {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_VIDPN_PRESENT_PATH_CONTENT(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION {
@@ -5988,6 +5955,15 @@ impl Default for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT {
 impl windows_core::TypeKind for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT {
@@ -6001,6 +5977,9 @@ impl Default for D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT {
 impl windows_core::TypeKind for D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_VIDPN_PRESENT_PATH_SCALING(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT {
@@ -6059,6 +6038,9 @@ impl Default for D3DKMDT_VIDPN_SOURCE_MODE_0 {
 impl windows_core::TypeKind for D3DKMDT_VIDPN_SOURCE_MODE_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMDT_VIDPN_SOURCE_MODE_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMDT_VIDPN_TARGET_MODE {
@@ -6118,6 +6100,110 @@ impl Default for D3DKMDT_VIRTUALGPUSURFACEDATA {
 impl windows_core::TypeKind for D3DKMDT_VIRTUALGPUSURFACEDATA {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMDT_VOT_BNC: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(3i32);
+pub const D3DKMDT_VOT_COMPONENT_VIDEO: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(3i32);
+pub const D3DKMDT_VOT_COMPOSITE_VIDEO: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(2i32);
+pub const D3DKMDT_VOT_DISPLAYPORT_EMBEDDED: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(11i32);
+pub const D3DKMDT_VOT_DISPLAYPORT_EXTERNAL: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(10i32);
+pub const D3DKMDT_VOT_DVI: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(4i32);
+pub const D3DKMDT_VOT_D_JPN: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(8i32);
+pub const D3DKMDT_VOT_HD15: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(0i32);
+pub const D3DKMDT_VOT_HDMI: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(5i32);
+pub const D3DKMDT_VOT_INDIRECT_WIRED: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(16i32);
+pub const D3DKMDT_VOT_INTERNAL: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(-2147483648i32);
+pub const D3DKMDT_VOT_LVDS: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(6i32);
+pub const D3DKMDT_VOT_MIRACAST: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(15i32);
+pub const D3DKMDT_VOT_OTHER: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(-1i32);
+pub const D3DKMDT_VOT_RCA_3COMPONENT: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(3i32);
+pub const D3DKMDT_VOT_RF: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(2i32);
+pub const D3DKMDT_VOT_SDI: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(9i32);
+pub const D3DKMDT_VOT_SDTVDONGLE: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(14i32);
+pub const D3DKMDT_VOT_SVIDEO: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(1i32);
+pub const D3DKMDT_VOT_SVIDEO_4PIN: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(1i32);
+pub const D3DKMDT_VOT_SVIDEO_7PIN: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(1i32);
+pub const D3DKMDT_VOT_UDI_EMBEDDED: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(13i32);
+pub const D3DKMDT_VOT_UDI_EXTERNAL: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(12i32);
+pub const D3DKMDT_VOT_UNINITIALIZED: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(-2i32);
+pub const D3DKMDT_VPPC_GRAPHICS: D3DKMDT_VIDPN_PRESENT_PATH_CONTENT = D3DKMDT_VIDPN_PRESENT_PATH_CONTENT(1i32);
+pub const D3DKMDT_VPPC_NOTSPECIFIED: D3DKMDT_VIDPN_PRESENT_PATH_CONTENT = D3DKMDT_VIDPN_PRESENT_PATH_CONTENT(255i32);
+pub const D3DKMDT_VPPC_UNINITIALIZED: D3DKMDT_VIDPN_PRESENT_PATH_CONTENT = D3DKMDT_VIDPN_PRESENT_PATH_CONTENT(0i32);
+pub const D3DKMDT_VPPC_VIDEO: D3DKMDT_VIDPN_PRESENT_PATH_CONTENT = D3DKMDT_VIDPN_PRESENT_PATH_CONTENT(2i32);
+pub const D3DKMDT_VPPI_DENARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(10i32);
+pub const D3DKMDT_VPPI_NONARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(9i32);
+pub const D3DKMDT_VPPI_OCTONARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(8i32);
+pub const D3DKMDT_VPPI_PRIMARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(1i32);
+pub const D3DKMDT_VPPI_QUATERNARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(4i32);
+pub const D3DKMDT_VPPI_QUINARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(5i32);
+pub const D3DKMDT_VPPI_SECONDARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(2i32);
+pub const D3DKMDT_VPPI_SENARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(6i32);
+pub const D3DKMDT_VPPI_SEPTENARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(7i32);
+pub const D3DKMDT_VPPI_TERTIARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(3i32);
+pub const D3DKMDT_VPPI_UNINITIALIZED: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(0i32);
+pub const D3DKMDT_VPPMT_MACROVISION_APSTRIGGER: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE = D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE(2i32);
+pub const D3DKMDT_VPPMT_MACROVISION_FULLSUPPORT: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE = D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE(3i32);
+pub const D3DKMDT_VPPMT_NOPROTECTION: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE = D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE(1i32);
+pub const D3DKMDT_VPPMT_UNINITIALIZED: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE = D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE(0i32);
+pub const D3DKMDT_VPPR_IDENTITY: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(1i32);
+pub const D3DKMDT_VPPR_IDENTITY_OFFSET180: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(9i32);
+pub const D3DKMDT_VPPR_IDENTITY_OFFSET270: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(13i32);
+pub const D3DKMDT_VPPR_IDENTITY_OFFSET90: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(5i32);
+pub const D3DKMDT_VPPR_NOTSPECIFIED: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(255i32);
+pub const D3DKMDT_VPPR_ROTATE180: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(3i32);
+pub const D3DKMDT_VPPR_ROTATE180_OFFSET180: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(11i32);
+pub const D3DKMDT_VPPR_ROTATE180_OFFSET270: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(15i32);
+pub const D3DKMDT_VPPR_ROTATE180_OFFSET90: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(7i32);
+pub const D3DKMDT_VPPR_ROTATE270: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(4i32);
+pub const D3DKMDT_VPPR_ROTATE270_OFFSET180: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(12i32);
+pub const D3DKMDT_VPPR_ROTATE270_OFFSET270: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(16i32);
+pub const D3DKMDT_VPPR_ROTATE270_OFFSET90: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(8i32);
+pub const D3DKMDT_VPPR_ROTATE90: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(2i32);
+pub const D3DKMDT_VPPR_ROTATE90_OFFSET180: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(10i32);
+pub const D3DKMDT_VPPR_ROTATE90_OFFSET270: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(14i32);
+pub const D3DKMDT_VPPR_ROTATE90_OFFSET90: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(6i32);
+pub const D3DKMDT_VPPR_UNINITIALIZED: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(0i32);
+pub const D3DKMDT_VPPR_UNPINNED: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(254i32);
+pub const D3DKMDT_VPPS_ASPECTRATIOCENTEREDMAX: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(4i32);
+pub const D3DKMDT_VPPS_CENTERED: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(2i32);
+pub const D3DKMDT_VPPS_CUSTOM: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(5i32);
+pub const D3DKMDT_VPPS_IDENTITY: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(1i32);
+pub const D3DKMDT_VPPS_NOTSPECIFIED: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(255i32);
+pub const D3DKMDT_VPPS_RESERVED1: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(253i32);
+pub const D3DKMDT_VPPS_STRETCHED: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(3i32);
+pub const D3DKMDT_VPPS_UNINITIALIZED: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(0i32);
+pub const D3DKMDT_VPPS_UNPINNED: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(254i32);
+pub const D3DKMDT_VSS_APPLE: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(5i32);
+pub const D3DKMDT_VSS_EIA_861: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(25i32);
+pub const D3DKMDT_VSS_EIA_861A: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(26i32);
+pub const D3DKMDT_VSS_EIA_861B: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(27i32);
+pub const D3DKMDT_VSS_IBM: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(4i32);
+pub const D3DKMDT_VSS_NTSC_443: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(8i32);
+pub const D3DKMDT_VSS_NTSC_J: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(7i32);
+pub const D3DKMDT_VSS_NTSC_M: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(6i32);
+pub const D3DKMDT_VSS_OTHER: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(255i32);
+pub const D3DKMDT_VSS_PAL_B: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(9i32);
+pub const D3DKMDT_VSS_PAL_B1: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(10i32);
+pub const D3DKMDT_VSS_PAL_D: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(14i32);
+pub const D3DKMDT_VSS_PAL_G: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(11i32);
+pub const D3DKMDT_VSS_PAL_H: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(12i32);
+pub const D3DKMDT_VSS_PAL_I: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(13i32);
+pub const D3DKMDT_VSS_PAL_K: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(28i32);
+pub const D3DKMDT_VSS_PAL_K1: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(29i32);
+pub const D3DKMDT_VSS_PAL_L: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(30i32);
+pub const D3DKMDT_VSS_PAL_M: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(31i32);
+pub const D3DKMDT_VSS_PAL_N: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(15i32);
+pub const D3DKMDT_VSS_PAL_NC: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(16i32);
+pub const D3DKMDT_VSS_SECAM_B: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(17i32);
+pub const D3DKMDT_VSS_SECAM_D: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(18i32);
+pub const D3DKMDT_VSS_SECAM_G: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(19i32);
+pub const D3DKMDT_VSS_SECAM_H: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(20i32);
+pub const D3DKMDT_VSS_SECAM_K: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(21i32);
+pub const D3DKMDT_VSS_SECAM_K1: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(22i32);
+pub const D3DKMDT_VSS_SECAM_L: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(23i32);
+pub const D3DKMDT_VSS_SECAM_L1: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(24i32);
+pub const D3DKMDT_VSS_UNINITIALIZED: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(0i32);
+pub const D3DKMDT_VSS_VESA_CVT: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(3i32);
+pub const D3DKMDT_VSS_VESA_DMT: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(1i32);
+pub const D3DKMDT_VSS_VESA_GTF: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(2i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3DKMDT_WIRE_FORMAT_AND_PREFERENCE {
@@ -6193,6 +6279,11 @@ impl Default for D3DKMT_ACTIVATE_SPECIFIC_DIAG_ESCAPE {
 impl windows_core::TypeKind for D3DKMT_ACTIVATE_SPECIFIC_DIAG_ESCAPE {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE(pub i32);
+pub const D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE_EXTRA_CCD_DATABASE_INFO: D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE = D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE(0i32);
+pub const D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE_MODES_PRUNED: D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE = D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE(15i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_ADAPTERADDRESS {
@@ -6349,6 +6440,11 @@ impl Default for D3DKMT_ADAPTER_VERIFIER_OPTION_DATA {
 impl windows_core::TypeKind for D3DKMT_ADAPTER_VERIFIER_OPTION_DATA {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE(pub i32);
+pub const D3DKMT_ADAPTER_VERIFIER_OPTION_VIDMM_FLAGS: D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE = D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE(1000i32);
+pub const D3DKMT_ADAPTER_VERIFIER_OPTION_VIDMM_TRIM_INTERVAL: D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE = D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE(1001i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS {
@@ -6407,6 +6503,12 @@ impl Default for D3DKMT_ADJUSTFULLSCREENGAMMA {
 impl windows_core::TypeKind for D3DKMT_ADJUSTFULLSCREENGAMMA {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_ALLOCATIONRESIDENCYSTATUS(pub i32);
+pub const D3DKMT_ALLOCATIONRESIDENCYSTATUS_NOTRESIDENT: D3DKMT_ALLOCATIONRESIDENCYSTATUS = D3DKMT_ALLOCATIONRESIDENCYSTATUS(3i32);
+pub const D3DKMT_ALLOCATIONRESIDENCYSTATUS_RESIDENTINGPUMEMORY: D3DKMT_ALLOCATIONRESIDENCYSTATUS = D3DKMT_ALLOCATIONRESIDENCYSTATUS(1i32);
+pub const D3DKMT_ALLOCATIONRESIDENCYSTATUS_RESIDENTINSHAREDMEMORY: D3DKMT_ALLOCATIONRESIDENCYSTATUS = D3DKMT_ALLOCATIONRESIDENCYSTATUS(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_AUXILIARYPRESENTINFO {
@@ -6421,6 +6523,15 @@ impl Default for D3DKMT_AUXILIARYPRESENTINFO {
 impl windows_core::TypeKind for D3DKMT_AUXILIARYPRESENTINFO {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_AUXILIARYPRESENTINFO_TYPE(pub i32);
+pub const D3DKMT_AUXILIARYPRESENTINFO_TYPE_FLIPMANAGER: D3DKMT_AUXILIARYPRESENTINFO_TYPE = D3DKMT_AUXILIARYPRESENTINFO_TYPE(0i32);
+pub const D3DKMT_AllocationPriorityClassHigh: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(3i32);
+pub const D3DKMT_AllocationPriorityClassLow: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(1i32);
+pub const D3DKMT_AllocationPriorityClassMaximum: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(4i32);
+pub const D3DKMT_AllocationPriorityClassMinimum: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(0i32);
+pub const D3DKMT_AllocationPriorityClassNormal: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_BDDFALLBACK_CTL {
@@ -6501,6 +6612,20 @@ impl Default for D3DKMT_BRIGHTNESS_INFO_0 {
 impl windows_core::TypeKind for D3DKMT_BRIGHTNESS_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_BRIGHTNESS_INFO_BEGIN_MANUAL_MODE: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(8i32);
+pub const D3DKMT_BRIGHTNESS_INFO_END_MANUAL_MODE: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(9i32);
+pub const D3DKMT_BRIGHTNESS_INFO_GET: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(2i32);
+pub const D3DKMT_BRIGHTNESS_INFO_GET_CAPS: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(4i32);
+pub const D3DKMT_BRIGHTNESS_INFO_GET_NIT_RANGES: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(11i32);
+pub const D3DKMT_BRIGHTNESS_INFO_GET_POSSIBLE_LEVELS: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(1i32);
+pub const D3DKMT_BRIGHTNESS_INFO_GET_REDUCTION: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(7i32);
+pub const D3DKMT_BRIGHTNESS_INFO_SET: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(3i32);
+pub const D3DKMT_BRIGHTNESS_INFO_SET_OPTIMIZATION: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(6i32);
+pub const D3DKMT_BRIGHTNESS_INFO_SET_STATE: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(5i32);
+pub const D3DKMT_BRIGHTNESS_INFO_TOGGLE_LOGGING: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(10i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_BRIGHTNESS_INFO_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS {
@@ -6588,6 +6713,11 @@ impl Default for D3DKMT_CANCEL_PRESENTS_FLAGS_0_0 {
 impl windows_core::TypeKind for D3DKMT_CANCEL_PRESENTS_FLAGS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_CANCEL_PRESENTS_OPERATION(pub i32);
+pub const D3DKMT_CANCEL_PRESENTS_OPERATION_CANCEL_FROM: D3DKMT_CANCEL_PRESENTS_OPERATION = D3DKMT_CANCEL_PRESENTS_OPERATION(0i32);
+pub const D3DKMT_CANCEL_PRESENTS_OPERATION_REPROGRAM_INTERRUPT: D3DKMT_CANCEL_PRESENTS_OPERATION = D3DKMT_CANCEL_PRESENTS_OPERATION(1i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6826,6 +6956,31 @@ impl Default for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0_0 {
 impl windows_core::TypeKind for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_CLIENTHINT(pub i32);
+pub const D3DKMT_CLIENTHINT_11ON12: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(14i32);
+pub const D3DKMT_CLIENTHINT_9ON12: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(13i32);
+pub const D3DKMT_CLIENTHINT_CDD: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(2i32);
+pub const D3DKMT_CLIENTHINT_CLON12: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(17i32);
+pub const D3DKMT_CLIENTHINT_CUDA: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(5i32);
+pub const D3DKMT_CLIENTHINT_DML_PYTORCH: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(20i32);
+pub const D3DKMT_CLIENTHINT_DML_TENSORFLOW: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(18i32);
+pub const D3DKMT_CLIENTHINT_DX10: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(10i32);
+pub const D3DKMT_CLIENTHINT_DX11: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(11i32);
+pub const D3DKMT_CLIENTHINT_DX12: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(12i32);
+pub const D3DKMT_CLIENTHINT_DX7: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(7i32);
+pub const D3DKMT_CLIENTHINT_DX8: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(8i32);
+pub const D3DKMT_CLIENTHINT_DX9: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(9i32);
+pub const D3DKMT_CLIENTHINT_GLON12: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(16i32);
+pub const D3DKMT_CLIENTHINT_MAX: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(21i32);
+pub const D3DKMT_CLIENTHINT_MFT_ENCODE: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(15i32);
+pub const D3DKMT_CLIENTHINT_ONEAPI_LEVEL0: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(19i32);
+pub const D3DKMT_CLIENTHINT_OPENCL: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(3i32);
+pub const D3DKMT_CLIENTHINT_OPENGL: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(1i32);
+pub const D3DKMT_CLIENTHINT_RESERVED: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(6i32);
+pub const D3DKMT_CLIENTHINT_UNKNOWN: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(0i32);
+pub const D3DKMT_CLIENTHINT_VULKAN: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(4i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_CLOSEADAPTER {
@@ -7504,6 +7659,15 @@ impl Default for D3DKMT_CROSSADAPTERRESOURCE_SUPPORT {
 impl windows_core::TypeKind for D3DKMT_CROSSADAPTERRESOURCE_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER(pub i32);
+pub const D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER_COPY: D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER = D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER(1i32);
+pub const D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER_NONE: D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER = D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER(0i32);
+pub const D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER_SCANOUT: D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER = D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER(3i32);
+pub const D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER_TEXTURE: D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER = D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER(2i32);
+pub const D3DKMT_CROSS_ADAPTER_RESOURCE_HEIGHT_ALIGNMENT: u32 = 4u32;
+pub const D3DKMT_CROSS_ADAPTER_RESOURCE_PITCH_ALIGNMENT: u32 = 128u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_CURRENTDISPLAYMODE {
@@ -7518,6 +7682,8 @@ impl Default for D3DKMT_CURRENTDISPLAYMODE {
 impl windows_core::TypeKind for D3DKMT_CURRENTDISPLAYMODE {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_ClientPagingBuffer: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE(1i32);
+pub const D3DKMT_ClientRenderBuffer: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE(0i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_DEBUG_SNAPSHOT_ESCAPE {
@@ -7532,6 +7698,14 @@ impl Default for D3DKMT_DEBUG_SNAPSHOT_ESCAPE {
 impl windows_core::TypeKind for D3DKMT_DEBUG_SNAPSHOT_ESCAPE {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_DEFRAG_ESCAPE_DEFRAG_DOWNWARD: D3DKMT_DEFRAG_ESCAPE_OPERATION = D3DKMT_DEFRAG_ESCAPE_OPERATION(2i32);
+pub const D3DKMT_DEFRAG_ESCAPE_DEFRAG_PASS: D3DKMT_DEFRAG_ESCAPE_OPERATION = D3DKMT_DEFRAG_ESCAPE_OPERATION(3i32);
+pub const D3DKMT_DEFRAG_ESCAPE_DEFRAG_UPWARD: D3DKMT_DEFRAG_ESCAPE_OPERATION = D3DKMT_DEFRAG_ESCAPE_OPERATION(1i32);
+pub const D3DKMT_DEFRAG_ESCAPE_GET_FRAGMENTATION_STATS: D3DKMT_DEFRAG_ESCAPE_OPERATION = D3DKMT_DEFRAG_ESCAPE_OPERATION(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_DEFRAG_ESCAPE_OPERATION(pub i32);
+pub const D3DKMT_DEFRAG_ESCAPE_VERIFY_TRANSFER: D3DKMT_DEFRAG_ESCAPE_OPERATION = D3DKMT_DEFRAG_ESCAPE_OPERATION(4i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_DESTROYALLOCATION {
@@ -7715,6 +7889,21 @@ impl Default for D3DKMT_DESTROY_OUTPUTDUPL {
 impl windows_core::TypeKind for D3DKMT_DESTROY_OUTPUTDUPL {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_DEVICEESCAPE_RESTOREGAMMA: D3DKMT_DEVICEESCAPE_TYPE = D3DKMT_DEVICEESCAPE_TYPE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_DEVICEESCAPE_TYPE(pub i32);
+pub const D3DKMT_DEVICEESCAPE_VIDPNFROMALLOCATION: D3DKMT_DEVICEESCAPE_TYPE = D3DKMT_DEVICEESCAPE_TYPE(0i32);
+pub const D3DKMT_DEVICEEXECUTION_ACTIVE: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(1i32);
+pub const D3DKMT_DEVICEEXECUTION_ERROR_DMAFAULT: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(6i32);
+pub const D3DKMT_DEVICEEXECUTION_ERROR_DMAPAGEFAULT: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(7i32);
+pub const D3DKMT_DEVICEEXECUTION_ERROR_OUTOFMEMORY: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(5i32);
+pub const D3DKMT_DEVICEEXECUTION_HUNG: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(3i32);
+pub const D3DKMT_DEVICEEXECUTION_RESET: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_DEVICEEXECUTION_STATE(pub i32);
+pub const D3DKMT_DEVICEEXECUTION_STOPPED: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(4i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_DEVICEPAGEFAULT_STATE {
@@ -7815,6 +8004,20 @@ impl Default for D3DKMT_DEVICERESET_STATE_0_0 {
 impl windows_core::TypeKind for D3DKMT_DEVICERESET_STATE_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_DEVICESTATE_EXECUTION: D3DKMT_DEVICESTATE_TYPE = D3DKMT_DEVICESTATE_TYPE(1i32);
+pub const D3DKMT_DEVICESTATE_PAGE_FAULT: D3DKMT_DEVICESTATE_TYPE = D3DKMT_DEVICESTATE_TYPE(5i32);
+pub const D3DKMT_DEVICESTATE_PRESENT: D3DKMT_DEVICESTATE_TYPE = D3DKMT_DEVICESTATE_TYPE(2i32);
+pub const D3DKMT_DEVICESTATE_PRESENT_DWM: D3DKMT_DEVICESTATE_TYPE = D3DKMT_DEVICESTATE_TYPE(4i32);
+pub const D3DKMT_DEVICESTATE_PRESENT_QUEUE: D3DKMT_DEVICESTATE_TYPE = D3DKMT_DEVICESTATE_TYPE(6i32);
+pub const D3DKMT_DEVICESTATE_RESET: D3DKMT_DEVICESTATE_TYPE = D3DKMT_DEVICESTATE_TYPE(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_DEVICESTATE_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_DEVICE_ERROR_REASON(pub i32);
+pub const D3DKMT_DEVICE_ERROR_REASON_DRIVER_ERROR: D3DKMT_DEVICE_ERROR_REASON = D3DKMT_DEVICE_ERROR_REASON(-2147483642i32);
+pub const D3DKMT_DEVICE_ERROR_REASON_GENERIC: D3DKMT_DEVICE_ERROR_REASON = D3DKMT_DEVICE_ERROR_REASON(-2147483648i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_DEVICE_ESCAPE {
@@ -8004,6 +8207,24 @@ impl Default for D3DKMT_DLIST_DRIVER_NAME {
 impl windows_core::TypeKind for D3DKMT_DLIST_DRIVER_NAME {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_DMMESCAPETYPE(pub i32);
+pub const D3DKMT_DMMESCAPETYPE_ACTIVEVIDPN_COFUNCPATHMODALITY_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(11i32);
+pub const D3DKMT_DMMESCAPETYPE_ACTIVEVIDPN_SOURCEMODESET_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(10i32);
+pub const D3DKMT_DMMESCAPETYPE_GET_ACTIVEVIDPN_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(4i32);
+pub const D3DKMT_DMMESCAPETYPE_GET_LASTCLIENTCOMMITTEDVIDPN_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(12i32);
+pub const D3DKMT_DMMESCAPETYPE_GET_MONITORS_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(5i32);
+pub const D3DKMT_DMMESCAPETYPE_GET_SUMMARY_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(1i32);
+pub const D3DKMT_DMMESCAPETYPE_GET_VERSION_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(13i32);
+pub const D3DKMT_DMMESCAPETYPE_GET_VIDEO_PRESENT_SOURCES_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(2i32);
+pub const D3DKMT_DMMESCAPETYPE_GET_VIDEO_PRESENT_TARGETS_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(3i32);
+pub const D3DKMT_DMMESCAPETYPE_RECENTLY_COMMITTED_VIDPNS_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(6i32);
+pub const D3DKMT_DMMESCAPETYPE_RECENTLY_RECOMMENDED_VIDPNS_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(8i32);
+pub const D3DKMT_DMMESCAPETYPE_RECENT_MODECHANGE_REQUESTS_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(7i32);
+pub const D3DKMT_DMMESCAPETYPE_RECENT_MONITOR_PRESENCE_EVENTS_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(9i32);
+pub const D3DKMT_DMMESCAPETYPE_UNINITIALIZED: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(0i32);
+pub const D3DKMT_DMMESCAPETYPE_VIDPN_MGR_DIAGNOSTICS: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(14i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_DMM_ESCAPE {
@@ -8073,6 +8294,9 @@ impl Default for D3DKMT_DRIVERCAPS_EXT_0_0 {
 impl windows_core::TypeKind for D3DKMT_DRIVERCAPS_EXT_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_DRIVERVERSION(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_DRIVER_DESCRIPTION {
@@ -8086,6 +8310,9 @@ impl Default for D3DKMT_DRIVER_DESCRIPTION {
 impl windows_core::TypeKind for D3DKMT_DRIVER_DESCRIPTION {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_DeferredCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(1i32);
+pub const D3DKMT_DeviceCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(6i32);
+pub const D3DKMT_DmaPacketTypeMax: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE(4i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_ENUMADAPTERS {
@@ -8175,6 +8402,49 @@ impl Default for D3DKMT_ESCAPE {
 impl windows_core::TypeKind for D3DKMT_ESCAPE {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_ESCAPETYPE(pub i32);
+pub const D3DKMT_ESCAPE_ACTIVATE_SPECIFIC_DIAG: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(14i32);
+pub const D3DKMT_ESCAPE_ADAPTER_VERIFIER_OPTION: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(29i32);
+pub const D3DKMT_ESCAPE_BDD_FALLBACK: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(13i32);
+pub const D3DKMT_ESCAPE_BDD_PNP: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(12i32);
+pub const D3DKMT_ESCAPE_BRIGHTNESS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(17i32);
+pub const D3DKMT_ESCAPE_CCD_DATABASE: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(38i32);
+pub const D3DKMT_ESCAPE_DEBUG_SNAPSHOT: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(6i32);
+pub const D3DKMT_ESCAPE_DEVICE: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(4i32);
+pub const D3DKMT_ESCAPE_DIAGNOSTICS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(9i32);
+pub const D3DKMT_ESCAPE_DMM: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(5i32);
+pub const D3DKMT_ESCAPE_DOD_SET_DIRTYRECT_MODE: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(31i32);
+pub const D3DKMT_ESCAPE_DRIVERPRIVATE: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(0i32);
+pub const D3DKMT_ESCAPE_DRT_TEST: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(8i32);
+pub const D3DKMT_ESCAPE_EDID_CACHE: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(18i32);
+pub const D3DKMT_ESCAPE_FORCE_BDDFALLBACK_HEADLESS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(24i32);
+pub const D3DKMT_ESCAPE_GET_DISPLAY_CONFIGURATIONS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(36i32);
+pub const D3DKMT_ESCAPE_GET_EXTERNAL_DIAGNOSTICS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(34i32);
+pub const D3DKMT_ESCAPE_HISTORY_BUFFER_STATUS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(21i32);
+pub const D3DKMT_ESCAPE_IDD_REQUEST: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(30i32);
+pub const D3DKMT_ESCAPE_LOG_CODEPOINT_PACKET: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(32i32);
+pub const D3DKMT_ESCAPE_LOG_USERMODE_DAIG_PACKET: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(33i32);
+pub const D3DKMT_ESCAPE_MIRACAST_ADAPTER_DIAG_INFO: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(23i32);
+pub const D3DKMT_ESCAPE_MIRACAST_DISPLAY_REQUEST: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(20i32);
+pub const D3DKMT_ESCAPE_MODES_PRUNED_OUT: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(15i32);
+pub const D3DKMT_ESCAPE_OUTPUTDUPL_DIAGNOSTICS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(11i32);
+pub const D3DKMT_ESCAPE_OUTPUTDUPL_SNAPSHOT: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(10i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_ESCAPE_PFN_CONTROL_COMMAND(pub i32);
+pub const D3DKMT_ESCAPE_PFN_CONTROL_DEFAULT: D3DKMT_ESCAPE_PFN_CONTROL_COMMAND = D3DKMT_ESCAPE_PFN_CONTROL_COMMAND(0i32);
+pub const D3DKMT_ESCAPE_PFN_CONTROL_FORCE_CPU: D3DKMT_ESCAPE_PFN_CONTROL_COMMAND = D3DKMT_ESCAPE_PFN_CONTROL_COMMAND(1i32);
+pub const D3DKMT_ESCAPE_PFN_CONTROL_FORCE_GPU: D3DKMT_ESCAPE_PFN_CONTROL_COMMAND = D3DKMT_ESCAPE_PFN_CONTROL_COMMAND(2i32);
+pub const D3DKMT_ESCAPE_PROCESS_VERIFIER_OPTION: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(28i32);
+pub const D3DKMT_ESCAPE_QUERY_DMA_REMAPPING_STATUS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(39i32);
+pub const D3DKMT_ESCAPE_QUERY_IOMMU_STATUS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(37i32);
+pub const D3DKMT_ESCAPE_REQUEST_MACHINE_CRASH: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(25i32);
+pub const D3DKMT_ESCAPE_SOFTGPU_ENABLE_DISABLE_HMD: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(27i32);
+pub const D3DKMT_ESCAPE_TDRDBGCTRL: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(2i32);
+pub const D3DKMT_ESCAPE_VIDMM: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1i32);
+pub const D3DKMT_ESCAPE_VIDSCH: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(3i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {
@@ -8193,6 +8463,26 @@ impl Default for D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {
 impl windows_core::TypeKind for D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE(pub i32);
+pub const D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE_SET_BASE_DESKTOP_DURATION: D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE = D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE(0i32);
+pub const D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE_SET_PROCESS_BOOST_ELIGIBLE: D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE = D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE(2i32);
+pub const D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE_SET_VSYNC_MULTIPLIER: D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE = D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE(1i32);
+pub const D3DKMT_ESCAPE_WHQL_INFO: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(16i32);
+pub const D3DKMT_ESCAPE_WIN32K_BDD_FALLBACK: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1029i32);
+pub const D3DKMT_ESCAPE_WIN32K_COLOR_PROFILE_INFO: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1036i32);
+pub const D3DKMT_ESCAPE_WIN32K_DDA_TEST_CTL: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1030i32);
+pub const D3DKMT_ESCAPE_WIN32K_DISPBROKER_TEST: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1035i32);
+pub const D3DKMT_ESCAPE_WIN32K_DPI_INFO: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1026i32);
+pub const D3DKMT_ESCAPE_WIN32K_HIP_DEVICE_INFO: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1024i32);
+pub const D3DKMT_ESCAPE_WIN32K_PRESENTER_VIEW_INFO: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1027i32);
+pub const D3DKMT_ESCAPE_WIN32K_QUERY_CD_ROTATION_BLOCK: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1025i32);
+pub const D3DKMT_ESCAPE_WIN32K_SET_DIMMED_STATE: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1037i32);
+pub const D3DKMT_ESCAPE_WIN32K_SPECIALIZED_DISPLAY_TEST: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1038i32);
+pub const D3DKMT_ESCAPE_WIN32K_START: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1024i32);
+pub const D3DKMT_ESCAPE_WIN32K_SYSTEM_DPI: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1028i32);
+pub const D3DKMT_ESCAPE_WIN32K_USER_DETECTED_BLACK_SCREEN: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1031i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_EVICT {
@@ -8355,6 +8645,11 @@ impl Default for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0_0 {
 impl windows_core::TypeKind for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE(pub i32);
+pub const D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE_FLIP_COMPLETE: D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE = D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE(1i32);
+pub const D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE_FLIP_SUBMITTED: D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE = D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE(0i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN {
@@ -8572,6 +8867,7 @@ impl Default for D3DKMT_GDIMODEL_SYSMEM_PRESENTHISTORYTOKEN {
 impl windows_core::TypeKind for D3DKMT_GDIMODEL_SYSMEM_PRESENTHISTORYTOKEN {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_GDI_STYLE_HANDLE_DECORATION: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_GETALLOCATIONPRIORITY {
@@ -8717,6 +9013,7 @@ impl Default for D3DKMT_GETPRESENTHISTORY {
 impl windows_core::TypeKind for D3DKMT_GETPRESENTHISTORY {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_GETPRESENTHISTORY_MAXTOKENS: u32 = 2048u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {
@@ -8893,6 +9190,8 @@ impl Default for D3DKMT_GET_PTE {
 impl windows_core::TypeKind for D3DKMT_GET_PTE {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_GET_PTE_MAX: u32 = 64u32;
+pub const D3DKMT_GET_QUEUEDLIMIT_PRESENT: D3DKMT_QUEUEDLIMIT_TYPE = D3DKMT_QUEUEDLIMIT_TYPE(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_GET_SEGMENT_CAPS {
@@ -8964,6 +9263,21 @@ impl Default for D3DKMT_GPUVERSION {
 impl windows_core::TypeKind for D3DKMT_GPUVERSION {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_GPU_PREFERENCE_QUERY_STATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_GPU_PREFERENCE_QUERY_TYPE(pub i32);
+pub const D3DKMT_GPU_PREFERENCE_STATE_HIGH_PERFORMANCE: D3DKMT_GPU_PREFERENCE_QUERY_STATE = D3DKMT_GPU_PREFERENCE_QUERY_STATE(1i32);
+pub const D3DKMT_GPU_PREFERENCE_STATE_MINIMUM_POWER: D3DKMT_GPU_PREFERENCE_QUERY_STATE = D3DKMT_GPU_PREFERENCE_QUERY_STATE(2i32);
+pub const D3DKMT_GPU_PREFERENCE_STATE_NOT_FOUND: D3DKMT_GPU_PREFERENCE_QUERY_STATE = D3DKMT_GPU_PREFERENCE_QUERY_STATE(4i32);
+pub const D3DKMT_GPU_PREFERENCE_STATE_UNINITIALIZED: D3DKMT_GPU_PREFERENCE_QUERY_STATE = D3DKMT_GPU_PREFERENCE_QUERY_STATE(0i32);
+pub const D3DKMT_GPU_PREFERENCE_STATE_UNSPECIFIED: D3DKMT_GPU_PREFERENCE_QUERY_STATE = D3DKMT_GPU_PREFERENCE_QUERY_STATE(3i32);
+pub const D3DKMT_GPU_PREFERENCE_STATE_USER_SPECIFIED_GPU: D3DKMT_GPU_PREFERENCE_QUERY_STATE = D3DKMT_GPU_PREFERENCE_QUERY_STATE(5i32);
+pub const D3DKMT_GPU_PREFERENCE_TYPE_DX_DATABASE: D3DKMT_GPU_PREFERENCE_QUERY_TYPE = D3DKMT_GPU_PREFERENCE_QUERY_TYPE(1i32);
+pub const D3DKMT_GPU_PREFERENCE_TYPE_IHV_DLIST: D3DKMT_GPU_PREFERENCE_QUERY_TYPE = D3DKMT_GPU_PREFERENCE_QUERY_TYPE(0i32);
+pub const D3DKMT_GPU_PREFERENCE_TYPE_USER_PREFERENCE: D3DKMT_GPU_PREFERENCE_QUERY_TYPE = D3DKMT_GPU_PREFERENCE_QUERY_TYPE(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_HISTORY_BUFFER_STATUS {
@@ -9153,6 +9467,20 @@ impl Default for D3DKMT_MARKDEVICEASERROR {
 impl windows_core::TypeKind for D3DKMT_MARKDEVICEASERROR {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_MAX_BUNDLE_OBJECTS_PER_HANDLE: u32 = 16u32;
+pub const D3DKMT_MAX_DMM_ESCAPE_DATASIZE: i32 = 102400i32;
+pub const D3DKMT_MAX_MULTIPLANE_OVERLAY_ALLOCATIONS_PER_PLANE: u32 = 256u32;
+pub const D3DKMT_MAX_MULTIPLANE_OVERLAY_PLANES: u32 = 8u32;
+pub const D3DKMT_MAX_OBJECTS_PER_HANDLE: u32 = 3u32;
+pub const D3DKMT_MAX_PRESENT_HISTORY_RECTS: u32 = 16u32;
+pub const D3DKMT_MAX_PRESENT_HISTORY_SCATTERBLTS: u32 = 12u32;
+pub const D3DKMT_MAX_SEGMENT_COUNT: u32 = 32u32;
+pub const D3DKMT_MAX_WAITFORVERTICALBLANK_OBJECTS: u32 = 8u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_MEMORY_SEGMENT_GROUP(pub i32);
+pub const D3DKMT_MEMORY_SEGMENT_GROUP_LOCAL: D3DKMT_MEMORY_SEGMENT_GROUP = D3DKMT_MEMORY_SEGMENT_GROUP(0i32);
+pub const D3DKMT_MEMORY_SEGMENT_GROUP_NON_LOCAL: D3DKMT_MEMORY_SEGMENT_GROUP = D3DKMT_MEMORY_SEGMENT_GROUP(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_MIRACASTCOMPANIONDRIVERNAME {
@@ -9181,6 +9509,23 @@ impl Default for D3DKMT_MIRACAST_CHUNK_DATA {
 impl windows_core::TypeKind for D3DKMT_MIRACAST_CHUNK_DATA {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_MIRACAST_DEVICE_STATUS(pub i32);
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_CANCELLED: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483637i32);
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_DEVICE_ERROR: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483645i32);
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_DEVICE_NOT_FOUND: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483642i32);
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_DEVICE_NOT_STARTED: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483641i32);
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_GPU_RESOURCE_IN_USE: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483646i32);
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_INSUFFICIENT_BANDWIDTH: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483639i32);
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_INSUFFICIENT_MEMORY: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483638i32);
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_INVALID_PARAMETER: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483640i32);
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_PENDING: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(2i32);
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_REMOTE_SESSION: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483643i32);
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_SUCCESS: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(0i32);
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_SUCCESS_NO_MONITOR: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(1i32);
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_UNKOWN_ERROR: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483647i32);
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_UNKOWN_PAIRING: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483644i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {
@@ -9196,6 +9541,9 @@ impl Default for D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {
 impl windows_core::TypeKind for D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS {
@@ -9224,6 +9572,12 @@ impl Default for D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS {
 impl windows_core::TypeKind for D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_MIRACAST_DRIVER_IHV: D3DKMT_MIRACAST_DRIVER_TYPE = D3DKMT_MIRACAST_DRIVER_TYPE(1i32);
+pub const D3DKMT_MIRACAST_DRIVER_MS: D3DKMT_MIRACAST_DRIVER_TYPE = D3DKMT_MIRACAST_DRIVER_TYPE(2i32);
+pub const D3DKMT_MIRACAST_DRIVER_NOT_SUPPORTED: D3DKMT_MIRACAST_DRIVER_TYPE = D3DKMT_MIRACAST_DRIVER_TYPE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_MIRACAST_DRIVER_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_MOVE_RECT {
@@ -9264,6 +9618,7 @@ impl Default for D3DKMT_MPOKERNELCAPS_SUPPORT {
 impl windows_core::TypeKind for D3DKMT_MPOKERNELCAPS_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_MULIIPLANE_OVERLAY_VIDEO_FRAME_FORMAT_PROGRESSIVE: D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT(0i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_MULTIPLANEOVERLAY_DECODE_SUPPORT {
@@ -9469,6 +9824,11 @@ impl Default for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {
 impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_MULTIPLANE_OVERLAY_BLEND(pub i32);
+pub const D3DKMT_MULTIPLANE_OVERLAY_BLEND_ALPHABLEND: D3DKMT_MULTIPLANE_OVERLAY_BLEND = D3DKMT_MULTIPLANE_OVERLAY_BLEND(1i32);
+pub const D3DKMT_MULTIPLANE_OVERLAY_BLEND_OPAQUE: D3DKMT_MULTIPLANE_OVERLAY_BLEND = D3DKMT_MULTIPLANE_OVERLAY_BLEND(0i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_CAPS {
@@ -9509,6 +9869,12 @@ impl Default for D3DKMT_MULTIPLANE_OVERLAY_CAPS_0_0 {
 impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_CAPS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_MULTIPLANE_OVERLAY_FLAGS(pub i32);
+pub const D3DKMT_MULTIPLANE_OVERLAY_FLAG_HORIZONTAL_FLIP: D3DKMT_MULTIPLANE_OVERLAY_FLAGS = D3DKMT_MULTIPLANE_OVERLAY_FLAGS(2i32);
+pub const D3DKMT_MULTIPLANE_OVERLAY_FLAG_STATIC_CHECK: D3DKMT_MULTIPLANE_OVERLAY_FLAGS = D3DKMT_MULTIPLANE_OVERLAY_FLAGS(4i32);
+pub const D3DKMT_MULTIPLANE_OVERLAY_FLAG_VERTICAL_FLIP: D3DKMT_MULTIPLANE_OVERLAY_FLAGS = D3DKMT_MULTIPLANE_OVERLAY_FLAGS(1i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION {
@@ -9579,6 +9945,22 @@ impl Default for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE {
 impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(pub i32);
+pub const D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_HORIZONTAL: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(1i32);
+pub const D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_VERTICAL: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT(pub i32);
+pub const D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT_INTERLACED_BOTTOM_FIELD_FIRST: D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT(2i32);
+pub const D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT_INTERLACED_TOP_FIELD_FIRST: D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS(pub i32);
+pub const D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAG_BT709: D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS = D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS(2i32);
+pub const D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAG_NOMINAL_RANGE: D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS = D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS(1i32);
+pub const D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAG_xvYCC: D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS = D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS(4i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_MULTISAMPLEMETHOD {
@@ -9594,6 +9976,8 @@ impl Default for D3DKMT_MULTISAMPLEMETHOD {
 impl windows_core::TypeKind for D3DKMT_MULTISAMPLEMETHOD {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_MaxAllocationPriorityClass: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(5i32);
+pub const D3DKMT_MmIoFlipCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(3i32);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_NODEMETADATA {
@@ -9741,6 +10125,13 @@ impl Default for D3DKMT_OFFER_FLAGS_0_0 {
 impl windows_core::TypeKind for D3DKMT_OFFER_FLAGS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_OFFER_PRIORITY(pub i32);
+pub const D3DKMT_OFFER_PRIORITY_AUTO: D3DKMT_OFFER_PRIORITY = D3DKMT_OFFER_PRIORITY(4i32);
+pub const D3DKMT_OFFER_PRIORITY_HIGH: D3DKMT_OFFER_PRIORITY = D3DKMT_OFFER_PRIORITY(3i32);
+pub const D3DKMT_OFFER_PRIORITY_LOW: D3DKMT_OFFER_PRIORITY = D3DKMT_OFFER_PRIORITY(1i32);
+pub const D3DKMT_OFFER_PRIORITY_NORMAL: D3DKMT_OFFER_PRIORITY = D3DKMT_OFFER_PRIORITY(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_OPENADAPTERFROMDEVICENAME {
@@ -10090,6 +10481,12 @@ impl Default for D3DKMT_OUTDUPL_POINTER_SHAPE_INFO {
 impl windows_core::TypeKind for D3DKMT_OUTDUPL_POINTER_SHAPE_INFO {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE(pub i32);
+pub const D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE_COLOR: D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE = D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE(2i32);
+pub const D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE_MASKED_COLOR: D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE = D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE(4i32);
+pub const D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE_MONOCHROME: D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE = D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_OUTPUTDUPLCONTEXTSCOUNT {
@@ -10307,6 +10704,11 @@ impl Default for D3DKMT_OUTPUTDUPL_METADATA {
 impl windows_core::TypeKind for D3DKMT_OUTPUTDUPL_METADATA {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_OUTPUTDUPL_METADATATYPE(pub i32);
+pub const D3DKMT_OUTPUTDUPL_METADATATYPE_DIRTY_RECTS: D3DKMT_OUTPUTDUPL_METADATATYPE = D3DKMT_OUTPUTDUPL_METADATATYPE(0i32);
+pub const D3DKMT_OUTPUTDUPL_METADATATYPE_MOVE_RECTS: D3DKMT_OUTPUTDUPL_METADATATYPE = D3DKMT_OUTPUTDUPL_METADATATYPE(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_OUTPUTDUPL_POINTER_POSITION {
@@ -10506,6 +10908,21 @@ impl Default for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0_0 {
 impl windows_core::TypeKind for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_PM_FLIPMANAGER: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(9i32);
+pub const D3DKMT_PM_REDIRECTED_BLT: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(3i32);
+pub const D3DKMT_PM_REDIRECTED_COMPOSITION: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(7i32);
+pub const D3DKMT_PM_REDIRECTED_FLIP: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(2i32);
+pub const D3DKMT_PM_REDIRECTED_GDI: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(1i32);
+pub const D3DKMT_PM_REDIRECTED_GDI_SYSMEM: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(6i32);
+pub const D3DKMT_PM_REDIRECTED_VISTABLT: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(4i32);
+pub const D3DKMT_PM_SCREENCAPTUREFENCE: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(5i32);
+pub const D3DKMT_PM_SURFACECOMPLETE: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(8i32);
+pub const D3DKMT_PM_UNINITIALIZED: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(0i32);
+pub const D3DKMT_PNP_KEY_HARDWARE: D3DKMT_PNP_KEY_TYPE = D3DKMT_PNP_KEY_TYPE(1i32);
+pub const D3DKMT_PNP_KEY_SOFTWARE: D3DKMT_PNP_KEY_TYPE = D3DKMT_PNP_KEY_TYPE(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_PNP_KEY_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_POLLDISPLAYCHILDREN {
@@ -10662,6 +11079,9 @@ impl Default for D3DKMT_PRESENTHISTORYTOKEN_0 {
 impl windows_core::TypeKind for D3DKMT_PRESENTHISTORYTOKEN_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_PRESENT_MODEL(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY {
@@ -10963,6 +11383,11 @@ impl Default for D3DKMT_PROCESS_VERIFIER_OPTION_DATA {
 impl windows_core::TypeKind for D3DKMT_PROCESS_VERIFIER_OPTION_DATA {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_PROCESS_VERIFIER_OPTION_TYPE(pub i32);
+pub const D3DKMT_PROCESS_VERIFIER_OPTION_VIDMM_FLAGS: D3DKMT_PROCESS_VERIFIER_OPTION_TYPE = D3DKMT_PROCESS_VERIFIER_OPTION_TYPE(1000i32);
+pub const D3DKMT_PROCESS_VERIFIER_OPTION_VIDMM_RESTRICT_BUDGET: D3DKMT_PROCESS_VERIFIER_OPTION_TYPE = D3DKMT_PROCESS_VERIFIER_OPTION_TYPE(1001i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS {
@@ -11004,6 +11429,28 @@ impl Default for D3DKMT_PROCESS_VERIFIER_VIDMM_RESTRICT_BUDGET {
 impl windows_core::TypeKind for D3DKMT_PROCESS_VERIFIER_VIDMM_RESTRICT_BUDGET {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_PROTECTED_SESSION_STATUS(pub i32);
+pub const D3DKMT_PROTECTED_SESSION_STATUS_INVALID: D3DKMT_PROTECTED_SESSION_STATUS = D3DKMT_PROTECTED_SESSION_STATUS(1i32);
+pub const D3DKMT_PROTECTED_SESSION_STATUS_OK: D3DKMT_PROTECTED_SESSION_STATUS = D3DKMT_PROTECTED_SESSION_STATUS(0i32);
+pub const D3DKMT_PreemptionAttempt: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(0i32);
+pub const D3DKMT_PreemptionAttemptMissAlreadyPreempting: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(13i32);
+pub const D3DKMT_PreemptionAttemptMissAlreadyRunning: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(15i32);
+pub const D3DKMT_PreemptionAttemptMissFenceCommand: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(7i32);
+pub const D3DKMT_PreemptionAttemptMissGlobalBlock: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(14i32);
+pub const D3DKMT_PreemptionAttemptMissLessPriority: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(10i32);
+pub const D3DKMT_PreemptionAttemptMissNextFence: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(4i32);
+pub const D3DKMT_PreemptionAttemptMissNoCommand: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(2i32);
+pub const D3DKMT_PreemptionAttemptMissNotEnabled: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(3i32);
+pub const D3DKMT_PreemptionAttemptMissNotMakingProgress: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(9i32);
+pub const D3DKMT_PreemptionAttemptMissPagingCommand: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(5i32);
+pub const D3DKMT_PreemptionAttemptMissRemainingPreemptionQuantum: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(12i32);
+pub const D3DKMT_PreemptionAttemptMissRemainingQuantum: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(11i32);
+pub const D3DKMT_PreemptionAttemptMissRenderPendingFlip: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(8i32);
+pub const D3DKMT_PreemptionAttemptMissSplittedCommand: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(6i32);
+pub const D3DKMT_PreemptionAttemptStatisticsMax: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(16i32);
+pub const D3DKMT_PreemptionAttemptSuccess: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_QUERYADAPTERINFO {
@@ -11195,6 +11642,10 @@ impl Default for D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE {
 impl windows_core::TypeKind for D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(pub i32);
+pub const D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT_MAX: u32 = 16u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS {
@@ -11241,6 +11692,8 @@ impl Default for D3DKMT_QUERYSTATISTICS_0 {
 impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_QUERYSTATISTICS_ADAPTER: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(0i32);
+pub const D3DKMT_QUERYSTATISTICS_ADAPTER2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(11i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION {
@@ -11311,6 +11764,10 @@ impl Default for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0_0 {
 impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(pub i32);
+pub const D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS_MAX: u32 = 5u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_COMMITMENT_DATA {
@@ -11354,6 +11811,9 @@ impl Default for D3DKMT_QUERYSTATISTICS_DMA_BUFFER {
 impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_DMA_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_INFORMATION {
@@ -11370,6 +11830,7 @@ impl Default for D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_INFORMATION {
 impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_MAX: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_MEMORY {
@@ -11402,6 +11863,8 @@ impl Default for D3DKMT_QUERYSTATISTICS_MEMORY_USAGE {
 impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_MEMORY_USAGE {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_QUERYSTATISTICS_NODE: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(5i32);
+pub const D3DKMT_QUERYSTATISTICS_NODE2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(18i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_NODE_INFORMATION {
@@ -11432,6 +11895,7 @@ impl Default for D3DKMT_QUERYSTATISTICS_PACKET_INFORMATION {
 impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PACKET_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_QUERYSTATISTICS_PHYSICAL_ADAPTER: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(10i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PHYSICAL_ADAPTER_INFORMATION {
@@ -11477,6 +11941,9 @@ impl Default for D3DKMT_QUERYSTATISTICS_PREEMPTION_INFORMATION {
 impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PREEMPTION_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_QUERYSTATISTICS_PROCESS: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(1i32);
+pub const D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(2i32);
+pub const D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(13i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER_INFORMATION {
@@ -11514,6 +11981,7 @@ impl Default for D3DKMT_QUERYSTATISTICS_PROCESS_INFORMATION {
 impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PROCESS_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_BUCKET_COUNT: u32 = 9u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_COUNTERS {
@@ -11527,6 +11995,8 @@ impl Default for D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_COUNTERS {
 impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_COUNTERS {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_QUERYSTATISTICS_PROCESS_NODE: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(6i32);
+pub const D3DKMT_QUERYSTATISTICS_PROCESS_NODE2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(19i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION {
@@ -11544,6 +12014,10 @@ impl Default for D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION {
 impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(4i32);
+pub const D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(14i32);
+pub const D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(9i32);
+pub const D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(15i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP_INFORMATION {
@@ -11593,6 +12067,7 @@ impl Default for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_POLICY {
 impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_POLICY {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(8i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION {
@@ -11762,6 +12237,9 @@ impl Default for D3DKMT_QUERYSTATISTICS_QUERY_VIDPNSOURCE {
 impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUERY_VIDPNSOURCE {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_INFORMATION {
@@ -11776,6 +12254,7 @@ impl Default for D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_INFORMATION {
 impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_MAX: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3DKMT_QUERYSTATISTICS_RESULT {
@@ -11801,6 +12280,9 @@ impl Default for D3DKMT_QUERYSTATISTICS_RESULT {
 impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_RESULT {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_QUERYSTATISTICS_SEGMENT: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(3i32);
+pub const D3DKMT_QUERYSTATISTICS_SEGMENT2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(12i32);
+pub const D3DKMT_QUERYSTATISTICS_SEGMENT_GROUP_USAGE: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(17i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION {
@@ -11849,6 +12331,14 @@ impl Default for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_1 {
 impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_1 {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_QUERYSTATISTICS_SEGMENT_PREFERENCE_MAX: u32 = 5u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE(pub i32);
+pub const D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE_APERTURE: D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE = D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE(0i32);
+pub const D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE_MEMORY: D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE = D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE(1i32);
+pub const D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE_SYSMEM: D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE = D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE(2i32);
+pub const D3DKMT_QUERYSTATISTICS_SEGMENT_USAGE: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(16i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_SYSTEM_MEMORY {
@@ -11872,6 +12362,9 @@ impl Default for D3DKMT_QUERYSTATISTICS_SYSTEM_MEMORY {
 impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_SYSTEM_MEMORY {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_QUERYSTATISTICS_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_VIDEO_MEMORY {
@@ -11888,6 +12381,7 @@ impl Default for D3DKMT_QUERYSTATISTICS_VIDEO_MEMORY {
 impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_VIDEO_MEMORY {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_QUERYSTATISTICS_VIDPNSOURCE: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(7i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_VIDPNSOURCE_INFORMATION {
@@ -12206,6 +12700,10 @@ impl Default for D3DKMT_QUERY_SCANOUT_CAPS {
 impl windows_core::TypeKind for D3DKMT_QUERY_SCANOUT_CAPS {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_QUEUEDLIMIT_TYPE(pub i32);
+pub const D3DKMT_QueuePacketTypeMax: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(8i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_RECLAIMALLOCATIONS {
@@ -12393,6 +12891,7 @@ impl Default for D3DKMT_REQUEST_MACHINE_CRASH_ESCAPE {
 impl windows_core::TypeKind for D3DKMT_REQUEST_MACHINE_CRASH_ESCAPE {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_RenderCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(0i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_SCATTERBLT {
@@ -12424,6 +12923,15 @@ impl Default for D3DKMT_SCATTERBLTS {
 impl windows_core::TypeKind for D3DKMT_SCATTERBLTS {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_SCHEDULINGPRIORITYCLASS(pub i32);
+pub const D3DKMT_SCHEDULINGPRIORITYCLASS_ABOVE_NORMAL: D3DKMT_SCHEDULINGPRIORITYCLASS = D3DKMT_SCHEDULINGPRIORITYCLASS(3i32);
+pub const D3DKMT_SCHEDULINGPRIORITYCLASS_BELOW_NORMAL: D3DKMT_SCHEDULINGPRIORITYCLASS = D3DKMT_SCHEDULINGPRIORITYCLASS(1i32);
+pub const D3DKMT_SCHEDULINGPRIORITYCLASS_HIGH: D3DKMT_SCHEDULINGPRIORITYCLASS = D3DKMT_SCHEDULINGPRIORITYCLASS(4i32);
+pub const D3DKMT_SCHEDULINGPRIORITYCLASS_IDLE: D3DKMT_SCHEDULINGPRIORITYCLASS = D3DKMT_SCHEDULINGPRIORITYCLASS(0i32);
+pub const D3DKMT_SCHEDULINGPRIORITYCLASS_NORMAL: D3DKMT_SCHEDULINGPRIORITYCLASS = D3DKMT_SCHEDULINGPRIORITYCLASS(2i32);
+pub const D3DKMT_SCHEDULINGPRIORITYCLASS_REALTIME: D3DKMT_SCHEDULINGPRIORITYCLASS = D3DKMT_SCHEDULINGPRIORITYCLASS(5i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_SEGMENTGROUPSIZEINFO {
@@ -12519,6 +13027,7 @@ impl Default for D3DKMT_SETCONTEXTSCHEDULINGPRIORITY {
 impl windows_core::TypeKind for D3DKMT_SETCONTEXTSCHEDULINGPRIORITY {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY_ABSOLUTE: u32 = 1073741824u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_SETDISPLAYMODE {
@@ -12816,6 +13325,7 @@ impl Default for D3DKMT_SET_COLORSPACE_TRANSFORM_0 {
 impl windows_core::TypeKind for D3DKMT_SET_COLORSPACE_TRANSFORM_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_SET_QUEUEDLIMIT_PRESENT: D3DKMT_QUEUEDLIMIT_TYPE = D3DKMT_QUEUEDLIMIT_TYPE(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION {
@@ -13005,6 +13515,12 @@ impl Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0 {
 impl windows_core::TypeKind for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_STANDARDALLOCATIONTYPE(pub i32);
+pub const D3DKMT_STANDARDALLOCATIONTYPE_EXISTINGHEAP: D3DKMT_STANDARDALLOCATIONTYPE = D3DKMT_STANDARDALLOCATIONTYPE(1i32);
+pub const D3DKMT_STANDARDALLOCATIONTYPE_INTERNALBACKINGSTORE: D3DKMT_STANDARDALLOCATIONTYPE = D3DKMT_STANDARDALLOCATIONTYPE(2i32);
+pub const D3DKMT_STANDARDALLOCATIONTYPE_MAX: D3DKMT_STANDARDALLOCATIONTYPE = D3DKMT_STANDARDALLOCATIONTYPE(3i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_STANDARDALLOCATION_EXISTINGHEAP {
@@ -13018,6 +13534,8 @@ impl Default for D3DKMT_STANDARDALLOCATION_EXISTINGHEAP {
 impl windows_core::TypeKind for D3DKMT_STANDARDALLOCATION_EXISTINGHEAP {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_SUBKEY_DX9: windows_core::PCWSTR = windows_core::w!("DX9");
+pub const D3DKMT_SUBKEY_OPENGL: windows_core::PCWSTR = windows_core::w!("OpenGL");
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_SUBMITCOMMAND {
@@ -13151,6 +13669,23 @@ impl Default for D3DKMT_SURFACECOMPLETE_PRESENTHISTORYTOKEN {
 impl windows_core::TypeKind for D3DKMT_SURFACECOMPLETE_PRESENTHISTORYTOKEN {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_SignalCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(5i32);
+pub const D3DKMT_SoftwareCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(7i32);
+pub const D3DKMT_SystemCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(2i32);
+pub const D3DKMT_SystemPagingBuffer: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE(2i32);
+pub const D3DKMT_SystemPreemptionBuffer: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_TDRDBGCTRLTYPE(pub i32);
+pub const D3DKMT_TDRDBGCTRLTYPE_DISABLEBREAK: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(1i32);
+pub const D3DKMT_TDRDBGCTRLTYPE_ENABLEBREAK: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(2i32);
+pub const D3DKMT_TDRDBGCTRLTYPE_ENGINETDR: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(8i32);
+pub const D3DKMT_TDRDBGCTRLTYPE_FORCEDODTDR: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(6i32);
+pub const D3DKMT_TDRDBGCTRLTYPE_FORCEDODVSYNCTDR: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(7i32);
+pub const D3DKMT_TDRDBGCTRLTYPE_FORCETDR: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(0i32);
+pub const D3DKMT_TDRDBGCTRLTYPE_GPUTDR: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(5i32);
+pub const D3DKMT_TDRDBGCTRLTYPE_UNCONDITIONAL: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(3i32);
+pub const D3DKMT_TDRDBGCTRLTYPE_VSYNCTDR: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(4i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_TDRDBGCTRL_ESCAPE {
@@ -13431,6 +13966,15 @@ impl Default for D3DKMT_VAD_DESC {
 impl windows_core::TypeKind for D3DKMT_VAD_DESC {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_VAD_ESCAPE_COMMAND(pub i32);
+pub const D3DKMT_VAD_ESCAPE_GETNUMVADS: D3DKMT_VAD_ESCAPE_COMMAND = D3DKMT_VAD_ESCAPE_COMMAND(0i32);
+pub const D3DKMT_VAD_ESCAPE_GETVAD: D3DKMT_VAD_ESCAPE_COMMAND = D3DKMT_VAD_ESCAPE_COMMAND(1i32);
+pub const D3DKMT_VAD_ESCAPE_GETVADRANGE: D3DKMT_VAD_ESCAPE_COMMAND = D3DKMT_VAD_ESCAPE_COMMAND(2i32);
+pub const D3DKMT_VAD_ESCAPE_GET_GPUMMU_CAPS: D3DKMT_VAD_ESCAPE_COMMAND = D3DKMT_VAD_ESCAPE_COMMAND(4i32);
+pub const D3DKMT_VAD_ESCAPE_GET_PTE: D3DKMT_VAD_ESCAPE_COMMAND = D3DKMT_VAD_ESCAPE_COMMAND(3i32);
+pub const D3DKMT_VAD_ESCAPE_GET_SEGMENT_CAPS: D3DKMT_VAD_ESCAPE_COMMAND = D3DKMT_VAD_ESCAPE_COMMAND(5i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_VA_RANGE_DESC {
@@ -13453,6 +13997,11 @@ impl Default for D3DKMT_VA_RANGE_DESC {
 impl windows_core::TypeKind for D3DKMT_VA_RANGE_DESC {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_VERIFIER_OPTION_MODE(pub i32);
+pub const D3DKMT_VERIFIER_OPTION_QUERY: D3DKMT_VERIFIER_OPTION_MODE = D3DKMT_VERIFIER_OPTION_MODE(0i32);
+pub const D3DKMT_VERIFIER_OPTION_SET: D3DKMT_VERIFIER_OPTION_MODE = D3DKMT_VERIFIER_OPTION_MODE(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_VGPUINTERFACEID {
@@ -13466,6 +14015,28 @@ impl Default for D3DKMT_VGPUINTERFACEID {
 impl windows_core::TypeKind for D3DKMT_VGPUINTERFACEID {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_VIDMMESCAPETYPE(pub i32);
+pub const D3DKMT_VIDMMESCAPETYPE_APERTURE_CORRUPTION_CHECK: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(3i32);
+pub const D3DKMT_VIDMMESCAPETYPE_DEFRAG: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(15i32);
+pub const D3DKMT_VIDMMESCAPETYPE_DELAYEXECUTION: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(16i32);
+pub const D3DKMT_VIDMMESCAPETYPE_EVICT: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(5i32);
+pub const D3DKMT_VIDMMESCAPETYPE_EVICT_BY_CRITERIA: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(13i32);
+pub const D3DKMT_VIDMMESCAPETYPE_EVICT_BY_NT_HANDLE: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(6i32);
+pub const D3DKMT_VIDMMESCAPETYPE_GET_BUDGET: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(11i32);
+pub const D3DKMT_VIDMMESCAPETYPE_GET_VAD_INFO: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(7i32);
+pub const D3DKMT_VIDMMESCAPETYPE_RESUME_PROCESS: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(10i32);
+pub const D3DKMT_VIDMMESCAPETYPE_RUN_COHERENCY_TEST: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(1i32);
+pub const D3DKMT_VIDMMESCAPETYPE_RUN_UNMAP_TO_DUMMY_PAGE_TEST: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(2i32);
+pub const D3DKMT_VIDMMESCAPETYPE_SETFAULT: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(0i32);
+pub const D3DKMT_VIDMMESCAPETYPE_SET_BUDGET: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(8i32);
+pub const D3DKMT_VIDMMESCAPETYPE_SET_EVICTION_CONFIG: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(18i32);
+pub const D3DKMT_VIDMMESCAPETYPE_SET_TRIM_INTERVALS: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(12i32);
+pub const D3DKMT_VIDMMESCAPETYPE_SUSPEND_CPU_ACCESS_TEST: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(4i32);
+pub const D3DKMT_VIDMMESCAPETYPE_SUSPEND_PROCESS: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(9i32);
+pub const D3DKMT_VIDMMESCAPETYPE_VALIDATE_INTEGRITY: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(17i32);
+pub const D3DKMT_VIDMMESCAPETYPE_WAKE: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(14i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE {
@@ -13763,6 +14334,9 @@ impl Default for D3DKMT_VIDMM_ESCAPE_0_9 {
 impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_9 {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_VIDPNSOURCEOWNER_EMULATED: D3DKMT_VIDPNSOURCEOWNER_TYPE = D3DKMT_VIDPNSOURCEOWNER_TYPE(4i32);
+pub const D3DKMT_VIDPNSOURCEOWNER_EXCLUSIVE: D3DKMT_VIDPNSOURCEOWNER_TYPE = D3DKMT_VIDPNSOURCEOWNER_TYPE(2i32);
+pub const D3DKMT_VIDPNSOURCEOWNER_EXCLUSIVEGDI: D3DKMT_VIDPNSOURCEOWNER_TYPE = D3DKMT_VIDPNSOURCEOWNER_TYPE(3i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_VIDPNSOURCEOWNER_FLAGS {
@@ -13803,6 +14377,23 @@ impl Default for D3DKMT_VIDPNSOURCEOWNER_FLAGS_0_0 {
 impl windows_core::TypeKind for D3DKMT_VIDPNSOURCEOWNER_FLAGS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_VIDPNSOURCEOWNER_SHARED: D3DKMT_VIDPNSOURCEOWNER_TYPE = D3DKMT_VIDPNSOURCEOWNER_TYPE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_VIDPNSOURCEOWNER_TYPE(pub i32);
+pub const D3DKMT_VIDPNSOURCEOWNER_UNOWNED: D3DKMT_VIDPNSOURCEOWNER_TYPE = D3DKMT_VIDPNSOURCEOWNER_TYPE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DKMT_VIDSCHESCAPETYPE(pub i32);
+pub const D3DKMT_VIDSCHESCAPETYPE_CONFIGURE_TDR_LIMIT: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(5i32);
+pub const D3DKMT_VIDSCHESCAPETYPE_ENABLECONTEXTDELAY: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(4i32);
+pub const D3DKMT_VIDSCHESCAPETYPE_PFN_CONTROL: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(7i32);
+pub const D3DKMT_VIDSCHESCAPETYPE_PREEMPTIONCONTROL: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(0i32);
+pub const D3DKMT_VIDSCHESCAPETYPE_SUSPENDRESUME: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(3i32);
+pub const D3DKMT_VIDSCHESCAPETYPE_SUSPENDSCHEDULER: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(1i32);
+pub const D3DKMT_VIDSCHESCAPETYPE_TDRCONTROL: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(2i32);
+pub const D3DKMT_VIDSCHESCAPETYPE_VGPU_RESET: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(6i32);
+pub const D3DKMT_VIDSCHESCAPETYPE_VIRTUAL_REFRESH_RATE: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(8i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_VIDSCH_ESCAPE {
@@ -14379,6 +14970,7 @@ impl Default for D3DKMT_WSAUMDIMAGENAME {
 impl windows_core::TypeKind for D3DKMT_WSAUMDIMAGENAME {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DKMT_WaitCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(4i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DKMT_XBOX {
@@ -14406,6 +14998,7 @@ impl Default for D3DLINEPATTERN {
 impl windows_core::TypeKind for D3DLINEPATTERN {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DNTCLEAR_COMPUTERECTS: i32 = 8i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -14455,6 +15048,93 @@ impl Default for D3DNTDEVICEDESC_V3 {
 impl windows_core::TypeKind for D3DNTDEVICEDESC_V3 {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DNTDP2OP_ADDDIRTYBOX: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(67i32);
+pub const D3DNTDP2OP_ADDDIRTYRECT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(66i32);
+pub const D3DNTDP2OP_BLT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(81i32);
+pub const D3DNTDP2OP_BUFFERBLT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(64i32);
+pub const D3DNTDP2OP_CLEAR: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(42i32);
+pub const D3DNTDP2OP_CLIPPEDTRIANGLEFAN: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(58i32);
+pub const D3DNTDP2OP_COLORFILL: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(82i32);
+pub const D3DNTDP2OP_COMPOSERECTS: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(98i32);
+pub const D3DNTDP2OP_CREATELIGHT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(35i32);
+pub const D3DNTDP2OP_CREATEPIXELSHADER: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(54i32);
+pub const D3DNTDP2OP_CREATEQUERY: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(84i32);
+pub const D3DNTDP2OP_CREATEVERTEXSHADER: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(45i32);
+pub const D3DNTDP2OP_CREATEVERTEXSHADERDECL: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(71i32);
+pub const D3DNTDP2OP_CREATEVERTEXSHADERFUNC: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(74i32);
+pub const D3DNTDP2OP_DELETEPIXELSHADER: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(55i32);
+pub const D3DNTDP2OP_DELETEQUERY: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(90i32);
+pub const D3DNTDP2OP_DELETEVERTEXSHADER: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(46i32);
+pub const D3DNTDP2OP_DELETEVERTEXSHADERDECL: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(72i32);
+pub const D3DNTDP2OP_DELETEVERTEXSHADERFUNC: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(75i32);
+pub const D3DNTDP2OP_DRAWINDEXEDPRIMITIVE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(53i32);
+pub const D3DNTDP2OP_DRAWINDEXEDPRIMITIVE2: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(60i32);
+pub const D3DNTDP2OP_DRAWPRIMITIVE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(52i32);
+pub const D3DNTDP2OP_DRAWPRIMITIVE2: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(59i32);
+pub const D3DNTDP2OP_DRAWRECTPATCH: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(61i32);
+pub const D3DNTDP2OP_DRAWTRIPATCH: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(62i32);
+pub const D3DNTDP2OP_GENERATEMIPSUBLEVELS: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(89i32);
+pub const D3DNTDP2OP_INDEXEDLINELIST: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(2i32);
+pub const D3DNTDP2OP_INDEXEDLINELIST2: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(27i32);
+pub const D3DNTDP2OP_INDEXEDLINESTRIP: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(17i32);
+pub const D3DNTDP2OP_INDEXEDTRIANGLEFAN: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(22i32);
+pub const D3DNTDP2OP_INDEXEDTRIANGLELIST: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(3i32);
+pub const D3DNTDP2OP_INDEXEDTRIANGLELIST2: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(26i32);
+pub const D3DNTDP2OP_INDEXEDTRIANGLESTRIP: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(20i32);
+pub const D3DNTDP2OP_ISSUEQUERY: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(91i32);
+pub const D3DNTDP2OP_LINELIST: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(15i32);
+pub const D3DNTDP2OP_LINELIST_IMM: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(24i32);
+pub const D3DNTDP2OP_LINESTRIP: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(16i32);
+pub const D3DNTDP2OP_MULTIPLYTRANSFORM: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(65i32);
+pub const D3DNTDP2OP_POINTS: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(1i32);
+pub const D3DNTDP2OP_RENDERSTATE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(8i32);
+pub const D3DNTDP2OP_RESPONSECONTINUE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(87i32);
+pub const D3DNTDP2OP_RESPONSEQUERY: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(88i32);
+pub const D3DNTDP2OP_SETCLIPPLANE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(44i32);
+pub const D3DNTDP2OP_SETCONVOLUTIONKERNELMONO: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(97i32);
+pub const D3DNTDP2OP_SETDEPTHSTENCIL: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(86i32);
+pub const D3DNTDP2OP_SETINDICES: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(51i32);
+pub const D3DNTDP2OP_SETLIGHT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(34i32);
+pub const D3DNTDP2OP_SETMATERIAL: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(33i32);
+pub const D3DNTDP2OP_SETPALETTE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(30i32);
+pub const D3DNTDP2OP_SETPIXELSHADER: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(56i32);
+pub const D3DNTDP2OP_SETPIXELSHADERCONST: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(57i32);
+pub const D3DNTDP2OP_SETPIXELSHADERCONSTB: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(94i32);
+pub const D3DNTDP2OP_SETPIXELSHADERCONSTI: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(93i32);
+pub const D3DNTDP2OP_SETPRIORITY: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(40i32);
+pub const D3DNTDP2OP_SETRENDERTARGET: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(41i32);
+pub const D3DNTDP2OP_SETRENDERTARGET2: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(85i32);
+pub const D3DNTDP2OP_SETSCISSORRECT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(79i32);
+pub const D3DNTDP2OP_SETSTREAMSOURCE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(49i32);
+pub const D3DNTDP2OP_SETSTREAMSOURCE2: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(80i32);
+pub const D3DNTDP2OP_SETSTREAMSOURCEFREQ: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(95i32);
+pub const D3DNTDP2OP_SETSTREAMSOURCEUM: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(50i32);
+pub const D3DNTDP2OP_SETTEXLOD: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(43i32);
+pub const D3DNTDP2OP_SETTRANSFORM: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(36i32);
+pub const D3DNTDP2OP_SETVERTEXSHADER: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(47i32);
+pub const D3DNTDP2OP_SETVERTEXSHADERCONST: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(48i32);
+pub const D3DNTDP2OP_SETVERTEXSHADERCONSTB: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(83i32);
+pub const D3DNTDP2OP_SETVERTEXSHADERCONSTI: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(77i32);
+pub const D3DNTDP2OP_SETVERTEXSHADERDECL: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(73i32);
+pub const D3DNTDP2OP_SETVERTEXSHADERFUNC: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(76i32);
+pub const D3DNTDP2OP_STATESET: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(39i32);
+pub const D3DNTDP2OP_SURFACEBLT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(96i32);
+pub const D3DNTDP2OP_TEXBLT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(38i32);
+pub const D3DNTDP2OP_TEXTURESTAGESTATE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(25i32);
+pub const D3DNTDP2OP_TRIANGLEFAN: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(21i32);
+pub const D3DNTDP2OP_TRIANGLEFAN_IMM: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(23i32);
+pub const D3DNTDP2OP_TRIANGLELIST: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(18i32);
+pub const D3DNTDP2OP_TRIANGLESTRIP: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(19i32);
+pub const D3DNTDP2OP_UPDATEPALETTE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(31i32);
+pub const D3DNTDP2OP_VIEWPORTINFO: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(28i32);
+pub const D3DNTDP2OP_VOLUMEBLT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(63i32);
+pub const D3DNTDP2OP_WINFO: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(29i32);
+pub const D3DNTDP2OP_ZRANGE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(32i32);
+pub const D3DNTHAL2_CB32_SETRENDERTARGET: i32 = 1i32;
+pub const D3DNTHAL3_CB32_CLEAR2: i32 = 1i32;
+pub const D3DNTHAL3_CB32_DRAWPRIMITIVES2: i32 = 8i32;
+pub const D3DNTHAL3_CB32_RESERVED: i32 = 2i32;
+pub const D3DNTHAL3_CB32_VALIDATETEXTURESTAGESTATE: i32 = 4i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -14519,6 +15199,14 @@ impl Default for D3DNTHALDEVICEDESC_V2 {
 impl windows_core::TypeKind for D3DNTHALDEVICEDESC_V2 {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DNTHALDP2_EXECUTEBUFFER: i32 = 2i32;
+pub const D3DNTHALDP2_REQCOMMANDBUFSIZE: i32 = 32i32;
+pub const D3DNTHALDP2_REQVERTEXBUFSIZE: i32 = 16i32;
+pub const D3DNTHALDP2_SWAPCOMMANDBUFFER: i32 = 8i32;
+pub const D3DNTHALDP2_SWAPVERTEXBUFFER: i32 = 4i32;
+pub const D3DNTHALDP2_USERMEMVERTICES: i32 = 1i32;
+pub const D3DNTHALDP2_VIDMEMCOMMANDBUF: i32 = 128i32;
+pub const D3DNTHALDP2_VIDMEMVERTEXBUF: i32 = 64i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -14650,6 +15338,7 @@ impl Default for D3DNTHAL_CLIPPEDTRIANGLEFAN {
 impl windows_core::TypeKind for D3DNTHAL_CLIPPEDTRIANGLEFAN {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DNTHAL_COL_WEIGHTS: u32 = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 #[derive(Clone, Copy)]
@@ -14750,6 +15439,7 @@ impl Default for D3DNTHAL_CONTEXTDESTROYDATA {
 impl windows_core::TypeKind for D3DNTHAL_CONTEXTDESTROYDATA {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DNTHAL_CONTEXT_BAD: i64 = 512i64;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DNTHAL_D3DDX6EXTENDEDCAPS {
@@ -15359,6 +16049,9 @@ impl Default for D3DNTHAL_DP2MULTIPLYTRANSFORM {
 impl windows_core::TypeKind for D3DNTHAL_DP2MULTIPLYTRANSFORM {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DNTHAL_DP2OPERATION(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DNTHAL_DP2PIXELSHADER {
@@ -16021,6 +16714,9 @@ impl Default for D3DNTHAL_GLOBALDRIVERDATA {
 impl windows_core::TypeKind for D3DNTHAL_GLOBALDRIVERDATA {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DNTHAL_NUMCLIPVERTICES: u32 = 20u32;
+pub const D3DNTHAL_OUTOFCONTEXTS: i64 = 513i64;
+pub const D3DNTHAL_ROW_WEIGHTS: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DNTHAL_SCENECAPTUREDATA {
@@ -16036,6 +16732,8 @@ impl Default for D3DNTHAL_SCENECAPTUREDATA {
 impl windows_core::TypeKind for D3DNTHAL_SCENECAPTUREDATA {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DNTHAL_SCENE_CAPTURE_END: i32 = 1i32;
+pub const D3DNTHAL_SCENE_CAPTURE_START: i32 = 0i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -16055,6 +16753,7 @@ impl Default for D3DNTHAL_SETRENDERTARGETDATA {
 impl windows_core::TypeKind for D3DNTHAL_SETRENDERTARGETDATA {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DNTHAL_STATESETCREATE: u32 = 5u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DNTHAL_TEXTURECREATEDATA {
@@ -16118,6 +16817,9 @@ impl Default for D3DNTHAL_TEXTURESWAPDATA {
 impl windows_core::TypeKind for D3DNTHAL_TEXTURESWAPDATA {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DNTHAL_TSS_MAXSTAGES: u32 = 8u32;
+pub const D3DNTHAL_TSS_RENDERSTATEBASE: u32 = 256u32;
+pub const D3DNTHAL_TSS_STATESPERSTAGE: u32 = 64u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA {
@@ -16135,6 +16837,214 @@ impl Default for D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA {
 impl windows_core::TypeKind for D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA {
     type TypeKind = windows_core::CopyType;
 }
+pub const D3DPMISCCAPS_FOGINFVF: i32 = 8192i32;
+pub const D3DPMISCCAPS_LINEPATTERNREP: i32 = 4i32;
+pub const D3DPRASTERCAPS_PAT: i32 = 8i32;
+pub const D3DPRASTERCAPS_STRETCHBLTMULTISAMPLE: i32 = 8388608i32;
+pub const D3DPS_COLOROUT_MAX_V2_0: u32 = 4u32;
+pub const D3DPS_COLOROUT_MAX_V2_1: u32 = 4u32;
+pub const D3DPS_COLOROUT_MAX_V3_0: u32 = 4u32;
+pub const D3DPS_CONSTBOOLREG_MAX_SW_DX9: u32 = 2048u32;
+pub const D3DPS_CONSTBOOLREG_MAX_V2_1: u32 = 16u32;
+pub const D3DPS_CONSTBOOLREG_MAX_V3_0: u32 = 16u32;
+pub const D3DPS_CONSTINTREG_MAX_SW_DX9: u32 = 2048u32;
+pub const D3DPS_CONSTINTREG_MAX_V2_1: u32 = 16u32;
+pub const D3DPS_CONSTINTREG_MAX_V3_0: u32 = 16u32;
+pub const D3DPS_CONSTREG_MAX_DX8: u32 = 8u32;
+pub const D3DPS_CONSTREG_MAX_SW_DX9: u32 = 8192u32;
+pub const D3DPS_CONSTREG_MAX_V1_1: u32 = 8u32;
+pub const D3DPS_CONSTREG_MAX_V1_2: u32 = 8u32;
+pub const D3DPS_CONSTREG_MAX_V1_3: u32 = 8u32;
+pub const D3DPS_CONSTREG_MAX_V1_4: u32 = 8u32;
+pub const D3DPS_CONSTREG_MAX_V2_0: u32 = 32u32;
+pub const D3DPS_CONSTREG_MAX_V2_1: u32 = 32u32;
+pub const D3DPS_CONSTREG_MAX_V3_0: u32 = 224u32;
+pub const D3DPS_INPUTREG_MAX_DX8: u32 = 8u32;
+pub const D3DPS_INPUTREG_MAX_SW_DX9: u32 = 14u32;
+pub const D3DPS_INPUTREG_MAX_V1_1: u32 = 2u32;
+pub const D3DPS_INPUTREG_MAX_V1_2: u32 = 2u32;
+pub const D3DPS_INPUTREG_MAX_V1_3: u32 = 2u32;
+pub const D3DPS_INPUTREG_MAX_V1_4: u32 = 2u32;
+pub const D3DPS_INPUTREG_MAX_V2_0: u32 = 2u32;
+pub const D3DPS_INPUTREG_MAX_V2_1: u32 = 2u32;
+pub const D3DPS_INPUTREG_MAX_V3_0: u32 = 10u32;
+pub const D3DPS_MAXLOOPINITVALUE_V2_1: u32 = 255u32;
+pub const D3DPS_MAXLOOPINITVALUE_V3_0: u32 = 255u32;
+pub const D3DPS_MAXLOOPITERATIONCOUNT_V2_1: u32 = 255u32;
+pub const D3DPS_MAXLOOPITERATIONCOUNT_V3_0: u32 = 255u32;
+pub const D3DPS_MAXLOOPSTEP_V2_1: u32 = 128u32;
+pub const D3DPS_MAXLOOPSTEP_V3_0: u32 = 128u32;
+pub const D3DPS_PREDICATE_MAX_V2_1: u32 = 1u32;
+pub const D3DPS_PREDICATE_MAX_V3_0: u32 = 1u32;
+pub const D3DPS_TEMPREG_MAX_DX8: u32 = 8u32;
+pub const D3DPS_TEMPREG_MAX_V1_1: u32 = 2u32;
+pub const D3DPS_TEMPREG_MAX_V1_2: u32 = 2u32;
+pub const D3DPS_TEMPREG_MAX_V1_3: u32 = 2u32;
+pub const D3DPS_TEMPREG_MAX_V1_4: u32 = 6u32;
+pub const D3DPS_TEMPREG_MAX_V2_0: u32 = 12u32;
+pub const D3DPS_TEMPREG_MAX_V2_1: u32 = 32u32;
+pub const D3DPS_TEMPREG_MAX_V3_0: u32 = 32u32;
+pub const D3DPS_TEXTUREREG_MAX_DX8: u32 = 8u32;
+pub const D3DPS_TEXTUREREG_MAX_V1_1: u32 = 4u32;
+pub const D3DPS_TEXTUREREG_MAX_V1_2: u32 = 4u32;
+pub const D3DPS_TEXTUREREG_MAX_V1_3: u32 = 4u32;
+pub const D3DPS_TEXTUREREG_MAX_V1_4: u32 = 6u32;
+pub const D3DPS_TEXTUREREG_MAX_V2_0: u32 = 8u32;
+pub const D3DPS_TEXTUREREG_MAX_V2_1: u32 = 8u32;
+pub const D3DPS_TEXTUREREG_MAX_V3_0: u32 = 0u32;
+pub const D3DRENDERSTATE_EVICTMANAGEDTEXTURES: u32 = 61u32;
+pub const D3DRENDERSTATE_SCENECAPTURE: u32 = 62u32;
+pub const D3DRS_DELETERTPATCH: u32 = 169u32;
+pub const D3DRS_MAXPIXELSHADERINST: u32 = 197u32;
+pub const D3DRS_MAXVERTEXSHADERINST: u32 = 196u32;
+pub const D3DTEXF_FLATCUBIC: u32 = 4u32;
+pub const D3DTEXF_GAUSSIANCUBIC: u32 = 5u32;
+pub const D3DTRANSFORMSTATE_WORLD1_DX7: u32 = 4u32;
+pub const D3DTRANSFORMSTATE_WORLD2_DX7: u32 = 5u32;
+pub const D3DTRANSFORMSTATE_WORLD3_DX7: u32 = 6u32;
+pub const D3DTRANSFORMSTATE_WORLD_DX7: u32 = 1u32;
+pub const D3DTSS_TEXTUREMAP: u32 = 0u32;
+pub const D3DVSDE_BLENDINDICES: u32 = 2u32;
+pub const D3DVSDE_BLENDWEIGHT: u32 = 1u32;
+pub const D3DVSDE_DIFFUSE: u32 = 5u32;
+pub const D3DVSDE_NORMAL: u32 = 3u32;
+pub const D3DVSDE_NORMAL2: u32 = 16u32;
+pub const D3DVSDE_POSITION: u32 = 0u32;
+pub const D3DVSDE_POSITION2: u32 = 15u32;
+pub const D3DVSDE_PSIZE: u32 = 4u32;
+pub const D3DVSDE_SPECULAR: u32 = 6u32;
+pub const D3DVSDE_TEXCOORD0: u32 = 7u32;
+pub const D3DVSDE_TEXCOORD1: u32 = 8u32;
+pub const D3DVSDE_TEXCOORD2: u32 = 9u32;
+pub const D3DVSDE_TEXCOORD3: u32 = 10u32;
+pub const D3DVSDE_TEXCOORD4: u32 = 11u32;
+pub const D3DVSDE_TEXCOORD5: u32 = 12u32;
+pub const D3DVSDE_TEXCOORD6: u32 = 13u32;
+pub const D3DVSDE_TEXCOORD7: u32 = 14u32;
+pub const D3DVSDT_D3DCOLOR: u32 = 4u32;
+pub const D3DVSDT_FLOAT1: u32 = 0u32;
+pub const D3DVSDT_FLOAT2: u32 = 1u32;
+pub const D3DVSDT_FLOAT3: u32 = 2u32;
+pub const D3DVSDT_FLOAT4: u32 = 3u32;
+pub const D3DVSDT_SHORT2: u32 = 6u32;
+pub const D3DVSDT_SHORT4: u32 = 7u32;
+pub const D3DVSDT_UBYTE4: u32 = 5u32;
+pub const D3DVSD_CONSTADDRESSSHIFT: u32 = 0u32;
+pub const D3DVSD_CONSTCOUNTSHIFT: u32 = 25u32;
+pub const D3DVSD_CONSTRSSHIFT: u32 = 16u32;
+pub const D3DVSD_DATALOADTYPESHIFT: u32 = 28u32;
+pub const D3DVSD_DATATYPESHIFT: u32 = 16u32;
+pub const D3DVSD_EXTCOUNTSHIFT: u32 = 24u32;
+pub const D3DVSD_EXTINFOSHIFT: u32 = 0u32;
+pub const D3DVSD_SKIPCOUNTSHIFT: u32 = 16u32;
+pub const D3DVSD_STREAMNUMBERSHIFT: u32 = 0u32;
+pub const D3DVSD_STREAMTESSSHIFT: u32 = 28u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3DVSD_TOKENTYPE(pub i32);
+pub const D3DVSD_TOKENTYPESHIFT: u32 = 29u32;
+pub const D3DVSD_TOKEN_CONSTMEM: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(4i32);
+pub const D3DVSD_TOKEN_END: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(7i32);
+pub const D3DVSD_TOKEN_EXT: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(5i32);
+pub const D3DVSD_TOKEN_NOP: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(0i32);
+pub const D3DVSD_TOKEN_STREAM: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(1i32);
+pub const D3DVSD_TOKEN_STREAMDATA: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(2i32);
+pub const D3DVSD_TOKEN_TESSELLATOR: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(3i32);
+pub const D3DVSD_VERTEXREGINSHIFT: u32 = 20u32;
+pub const D3DVSD_VERTEXREGSHIFT: u32 = 0u32;
+pub const D3DVS_ADDRREG_MAX_V1_1: u32 = 1u32;
+pub const D3DVS_ADDRREG_MAX_V2_0: u32 = 1u32;
+pub const D3DVS_ADDRREG_MAX_V2_1: u32 = 1u32;
+pub const D3DVS_ADDRREG_MAX_V3_0: u32 = 1u32;
+pub const D3DVS_ATTROUTREG_MAX_V1_1: u32 = 2u32;
+pub const D3DVS_ATTROUTREG_MAX_V2_0: u32 = 2u32;
+pub const D3DVS_ATTROUTREG_MAX_V2_1: u32 = 2u32;
+pub const D3DVS_CONSTBOOLREG_MAX_SW_DX9: u32 = 2048u32;
+pub const D3DVS_CONSTBOOLREG_MAX_V2_0: u32 = 16u32;
+pub const D3DVS_CONSTBOOLREG_MAX_V2_1: u32 = 16u32;
+pub const D3DVS_CONSTBOOLREG_MAX_V3_0: u32 = 16u32;
+pub const D3DVS_CONSTINTREG_MAX_SW_DX9: u32 = 2048u32;
+pub const D3DVS_CONSTINTREG_MAX_V2_0: u32 = 16u32;
+pub const D3DVS_CONSTINTREG_MAX_V2_1: u32 = 16u32;
+pub const D3DVS_CONSTINTREG_MAX_V3_0: u32 = 16u32;
+pub const D3DVS_CONSTREG_MAX_V1_1: u32 = 96u32;
+pub const D3DVS_CONSTREG_MAX_V2_0: u32 = 8192u32;
+pub const D3DVS_CONSTREG_MAX_V2_1: u32 = 8192u32;
+pub const D3DVS_CONSTREG_MAX_V3_0: u32 = 8192u32;
+pub const D3DVS_INPUTREG_MAX_V1_1: u32 = 16u32;
+pub const D3DVS_INPUTREG_MAX_V2_0: u32 = 16u32;
+pub const D3DVS_INPUTREG_MAX_V2_1: u32 = 16u32;
+pub const D3DVS_INPUTREG_MAX_V3_0: u32 = 16u32;
+pub const D3DVS_LABEL_MAX_V3_0: u32 = 2048u32;
+pub const D3DVS_MAXINSTRUCTIONCOUNT_V1_1: u32 = 128u32;
+pub const D3DVS_MAXLOOPINITVALUE_V2_0: u32 = 255u32;
+pub const D3DVS_MAXLOOPINITVALUE_V2_1: u32 = 255u32;
+pub const D3DVS_MAXLOOPINITVALUE_V3_0: u32 = 255u32;
+pub const D3DVS_MAXLOOPITERATIONCOUNT_V2_0: u32 = 255u32;
+pub const D3DVS_MAXLOOPITERATIONCOUNT_V2_1: u32 = 255u32;
+pub const D3DVS_MAXLOOPITERATIONCOUNT_V3_0: u32 = 255u32;
+pub const D3DVS_MAXLOOPSTEP_V2_0: u32 = 128u32;
+pub const D3DVS_MAXLOOPSTEP_V2_1: u32 = 128u32;
+pub const D3DVS_MAXLOOPSTEP_V3_0: u32 = 128u32;
+pub const D3DVS_OUTPUTREG_MAX_SW_DX9: u32 = 16u32;
+pub const D3DVS_OUTPUTREG_MAX_V3_0: u32 = 12u32;
+pub const D3DVS_PREDICATE_MAX_V2_1: u32 = 1u32;
+pub const D3DVS_PREDICATE_MAX_V3_0: u32 = 1u32;
+pub const D3DVS_TCRDOUTREG_MAX_V1_1: u32 = 8u32;
+pub const D3DVS_TCRDOUTREG_MAX_V2_0: u32 = 8u32;
+pub const D3DVS_TCRDOUTREG_MAX_V2_1: u32 = 8u32;
+pub const D3DVS_TEMPREG_MAX_V1_1: u32 = 12u32;
+pub const D3DVS_TEMPREG_MAX_V2_0: u32 = 12u32;
+pub const D3DVS_TEMPREG_MAX_V2_1: u32 = 32u32;
+pub const D3DVS_TEMPREG_MAX_V3_0: u32 = 32u32;
+pub const D3DVTXPCAPS_NO_VSDT_UBYTE4: i32 = 128i32;
+pub const D3D_UMD_INTERFACE_VERSION: u32 = 65536u32;
+pub const D3D_UMD_INTERFACE_VERSION_VISTA: u32 = 12u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM1_3: u32 = 16386u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_0: u32 = 20482u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_0_M1: u32 = 20480u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_0_M1_3: u32 = 20481u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_0_M2_2: u32 = 20482u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_1: u32 = 24579u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_1_1: u32 = 24576u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_1_2: u32 = 24577u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_1_3: u32 = 24578u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_1_4: u32 = 24579u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_2: u32 = 28673u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_2_1: u32 = 28672u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_2_2: u32 = 28673u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_3: u32 = 32769u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_3_1: u32 = 32768u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_3_2: u32 = 32769u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_4: u32 = 36865u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_4_1: u32 = 36864u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_4_2: u32 = 36865u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_5: u32 = 40962u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_5_1: u32 = 40960u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_5_2: u32 = 40961u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_5_3: u32 = 40962u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_6: u32 = 45059u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_6_1: u32 = 45056u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_6_2: u32 = 45057u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_6_3: u32 = 45058u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_6_4: u32 = 45059u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_7: u32 = 49153u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_7_1: u32 = 49152u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_7_2: u32 = 49153u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_8: u32 = 53248u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_8_1: u32 = 53248u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_9: u32 = 57344u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM2_9_1: u32 = 57344u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM3_0: u32 = 61440u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM3_0_1: u32 = 61440u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM3_1: u32 = 65536u32;
+pub const D3D_UMD_INTERFACE_VERSION_WDDM3_1_1: u32 = 65536u32;
+pub const D3D_UMD_INTERFACE_VERSION_WIN7: u32 = 8195u32;
+pub const D3D_UMD_INTERFACE_VERSION_WIN8: u32 = 12292u32;
+pub const D3D_UMD_INTERFACE_VERSION_WIN8_CP: u32 = 12290u32;
+pub const D3D_UMD_INTERFACE_VERSION_WIN8_M3: u32 = 12289u32;
+pub const D3D_UMD_INTERFACE_VERSION_WIN8_RC: u32 = 12291u32;
+pub const DDBLT_EXTENDED_PRESENTATION_STRETCHFACTOR: i32 = 16i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DDNT_DEFERRED_AGP_AWARE_DATA {
@@ -16579,6 +17489,19 @@ impl Default for DD_MULTISAMPLEQUALITYLEVELSDATA {
 impl windows_core::TypeKind for DD_MULTISAMPLEQUALITYLEVELSDATA {
     type TypeKind = windows_core::CopyType;
 }
+pub const DIDDT1_AspectRatio_15x9: DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(3i32);
+pub const DIDDT1_AspectRatio_16x10: DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(5i32);
+pub const DIDDT1_AspectRatio_16x9: DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(4i32);
+pub const DIDDT1_AspectRatio_1x1: DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(0i32);
+pub const DIDDT1_AspectRatio_4x3: DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(2i32);
+pub const DIDDT1_AspectRatio_5x4: DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(1i32);
+pub const DIDDT1_Dependent: DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE = DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE(2i32);
+pub const DIDDT1_Interlaced: DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE = DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE(1i32);
+pub const DIDDT1_Monoscopic: DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE = DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE(0i32);
+pub const DIDDT1_Progressive: DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE = DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE(0i32);
+pub const DIDDT1_Stereo: DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE = DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE(1i32);
+pub const DIDDT1_Sync_Negative: DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY = DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY(1i32);
+pub const DIDDT1_Sync_Positive: DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY = DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY(0i32);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I {
@@ -16639,6 +17562,22 @@ impl Default for DISPLAYID_DETAILED_TIMING_TYPE_I_2 {
 impl windows_core::TypeKind for DISPLAYID_DETAILED_TIMING_TYPE_I_2 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE(pub i32);
+pub const DISPLAYID_DETAILED_TIMING_TYPE_I_SIZE: u32 = 20u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY(pub i32);
+pub const DP2BLT_LINEAR: i32 = 2i32;
+pub const DP2BLT_POINT: i32 = 1i32;
+pub const DX9_DDI_VERSION: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGKARG_SETPALETTE {
@@ -16655,6 +17594,38 @@ impl Default for DXGKARG_SETPALETTE {
 impl windows_core::TypeKind for DXGKARG_SETPALETTE {
     type TypeKind = windows_core::CopyType;
 }
+pub const DXGKDDI_INTERFACE_VERSION: u32 = 65540u32;
+pub const DXGKDDI_INTERFACE_VERSION_VISTA: u32 = 4178u32;
+pub const DXGKDDI_INTERFACE_VERSION_VISTA_SP1: u32 = 4179u32;
+pub const DXGKDDI_INTERFACE_VERSION_WDDM1_3: u32 = 16386u32;
+pub const DXGKDDI_INTERFACE_VERSION_WDDM1_3_PATH_INDEPENDENT_ROTATION: u32 = 16387u32;
+pub const DXGKDDI_INTERFACE_VERSION_WDDM2_0: u32 = 20515u32;
+pub const DXGKDDI_INTERFACE_VERSION_WDDM2_1: u32 = 24579u32;
+pub const DXGKDDI_INTERFACE_VERSION_WDDM2_1_5: u32 = 24592u32;
+pub const DXGKDDI_INTERFACE_VERSION_WDDM2_1_6: u32 = 24593u32;
+pub const DXGKDDI_INTERFACE_VERSION_WDDM2_2: u32 = 28682u32;
+pub const DXGKDDI_INTERFACE_VERSION_WDDM2_3: u32 = 32769u32;
+pub const DXGKDDI_INTERFACE_VERSION_WDDM2_4: u32 = 36870u32;
+pub const DXGKDDI_INTERFACE_VERSION_WDDM2_5: u32 = 40971u32;
+pub const DXGKDDI_INTERFACE_VERSION_WDDM2_6: u32 = 45060u32;
+pub const DXGKDDI_INTERFACE_VERSION_WDDM2_7: u32 = 49156u32;
+pub const DXGKDDI_INTERFACE_VERSION_WDDM2_8: u32 = 53249u32;
+pub const DXGKDDI_INTERFACE_VERSION_WDDM2_9: u32 = 57347u32;
+pub const DXGKDDI_INTERFACE_VERSION_WDDM3_0: u32 = 61443u32;
+pub const DXGKDDI_INTERFACE_VERSION_WDDM3_1: u32 = 65540u32;
+pub const DXGKDDI_INTERFACE_VERSION_WIN7: u32 = 8197u32;
+pub const DXGKDDI_INTERFACE_VERSION_WIN8: u32 = 12302u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGKDT_OPM_DVI_CHARACTERISTICS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGKMDT_CERTIFICATE_TYPE(pub i32);
+pub const DXGKMDT_COPP_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = DXGKMDT_CERTIFICATE_TYPE(1i32);
+pub const DXGKMDT_I2C_DEVICE_TRANSMITS_DATA_LENGTH: u32 = 1u32;
+pub const DXGKMDT_I2C_NO_FLAGS: u32 = 0u32;
+pub const DXGKMDT_INDIRECT_DISPLAY_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = DXGKMDT_CERTIFICATE_TYPE(3i32);
+pub const DXGKMDT_OPM_128_BIT_RANDOM_NUMBER_SIZE: u32 = 16u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_ACP_AND_CGMSA_SIGNALING {
@@ -16680,6 +17651,13 @@ impl Default for DXGKMDT_OPM_ACP_AND_CGMSA_SIGNALING {
 impl windows_core::TypeKind for DXGKMDT_OPM_ACP_AND_CGMSA_SIGNALING {
     type TypeKind = windows_core::CopyType;
 }
+pub const DXGKMDT_OPM_ACP_LEVEL_ONE: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = DXGKMDT_OPM_ACP_PROTECTION_LEVEL(1i32);
+pub const DXGKMDT_OPM_ACP_LEVEL_THREE: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = DXGKMDT_OPM_ACP_PROTECTION_LEVEL(3i32);
+pub const DXGKMDT_OPM_ACP_LEVEL_TWO: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = DXGKMDT_OPM_ACP_PROTECTION_LEVEL(2i32);
+pub const DXGKMDT_OPM_ACP_OFF: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = DXGKMDT_OPM_ACP_PROTECTION_LEVEL(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGKMDT_OPM_ACP_PROTECTION_LEVEL(pub i32);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_ACTUAL_OUTPUT_FORMAT {
@@ -16700,6 +17678,37 @@ impl Default for DXGKMDT_OPM_ACTUAL_OUTPUT_FORMAT {
 impl windows_core::TypeKind for DXGKMDT_OPM_ACTUAL_OUTPUT_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
+pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_14_BY_9_CENTER: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(1i32);
+pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_14_BY_9_TOP: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(2i32);
+pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_16_BY_9_CENTER: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(3i32);
+pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_16_BY_9_TOP: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(4i32);
+pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_GT_16_BY_9_CENTER: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(5i32);
+pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_16_BY_9_ANAMORPHIC: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(7i32);
+pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_4_BY_3: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(0i32);
+pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_4_BY_3_PROTECTED_CENTER: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(6i32);
+pub const DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_DAUGHTER_BOARD_CONNECTOR: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(262144i32);
+pub const DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_DAUGHTER_BOARD_CONNECTOR_INSIDE_OF_NUAE: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(327680i32);
+pub const DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_INSIDE_OF_CHIPSET: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(65536i32);
+pub const DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_NON_STANDARD: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(-2147483648i32);
+pub const DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_TRACKS_ON_MOTHER_BOARD_TO_CHIP: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(131072i32);
+pub const DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_TRACKS_ON_MOTHER_BOARD_TO_SOCKET: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(196608i32);
+pub const DXGKMDT_OPM_BUS_TYPE_AGP: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(pub i32);
+pub const DXGKMDT_OPM_BUS_TYPE_OTHER: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(0i32);
+pub const DXGKMDT_OPM_BUS_TYPE_PCI: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(1i32);
+pub const DXGKMDT_OPM_BUS_TYPE_PCIEXPRESS: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(3i32);
+pub const DXGKMDT_OPM_BUS_TYPE_PCIX: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(2i32);
+pub const DXGKMDT_OPM_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = DXGKMDT_CERTIFICATE_TYPE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGKMDT_OPM_CGMSA(pub i32);
+pub const DXGKMDT_OPM_CGMSA_COPY_FREELY: DXGKMDT_OPM_CGMSA = DXGKMDT_OPM_CGMSA(1i32);
+pub const DXGKMDT_OPM_CGMSA_COPY_NEVER: DXGKMDT_OPM_CGMSA = DXGKMDT_OPM_CGMSA(4i32);
+pub const DXGKMDT_OPM_CGMSA_COPY_NO_MORE: DXGKMDT_OPM_CGMSA = DXGKMDT_OPM_CGMSA(2i32);
+pub const DXGKMDT_OPM_CGMSA_COPY_ONE_GENERATION: DXGKMDT_OPM_CGMSA = DXGKMDT_OPM_CGMSA(3i32);
+pub const DXGKMDT_OPM_CGMSA_OFF: DXGKMDT_OPM_CGMSA = DXGKMDT_OPM_CGMSA(0i32);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_CONFIGURE_PARAMETERS {
@@ -16717,6 +17726,7 @@ impl Default for DXGKMDT_OPM_CONFIGURE_PARAMETERS {
 impl windows_core::TypeKind for DXGKMDT_OPM_CONFIGURE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
+pub const DXGKMDT_OPM_CONFIGURE_SETTING_DATA_SIZE: u32 = 4056u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
@@ -16736,6 +17746,29 @@ impl Default for DXGKMDT_OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
 impl windows_core::TypeKind for DXGKMDT_OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGKMDT_OPM_CONNECTOR_TYPE(pub i32);
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_COMPONENT_VIDEO: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(3i32);
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_COMPOSITE_VIDEO: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(2i32);
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_DISPLAYPORT_EMBEDDED: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(11i32);
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_DISPLAYPORT_EXTERNAL: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(10i32);
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_DVI: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(4i32);
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_D_JPN: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(8i32);
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_HD15: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(0i32);
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_HDMI: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(5i32);
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_LVDS: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(6i32);
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_MIRACAST: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(15i32);
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_OTHER: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(-1i32);
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_RESERVED: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(14i32);
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_SDI: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(9i32);
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_SVIDEO: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(1i32);
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_TRANSPORT_AGNOSTIC_DIGITAL_MODE_A: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(16i32);
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_TRANSPORT_AGNOSTIC_DIGITAL_MODE_B: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(17i32);
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_UDI_EMBEDDED: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(13i32);
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_UDI_EXTERNAL: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(12i32);
+pub const DXGKMDT_OPM_COPP_COMPATIBLE_BUS_TYPE_INTEGRATED: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(-2147483648i32);
+pub const DXGKMDT_OPM_COPP_COMPATIBLE_CONNECTOR_TYPE_INTERNAL: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(-2147483648i32);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
@@ -16768,6 +17801,13 @@ impl Default for DXGKMDT_OPM_CREATE_VIDEO_OUTPUT_FOR_TARGET_PARAMETERS {
 impl windows_core::TypeKind for DXGKMDT_OPM_CREATE_VIDEO_OUTPUT_FOR_TARGET_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
+pub const DXGKMDT_OPM_DPCP_OFF: DXGKMDT_OPM_DPCP_PROTECTION_LEVEL = DXGKMDT_OPM_DPCP_PROTECTION_LEVEL(0i32);
+pub const DXGKMDT_OPM_DPCP_ON: DXGKMDT_OPM_DPCP_PROTECTION_LEVEL = DXGKMDT_OPM_DPCP_PROTECTION_LEVEL(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGKMDT_OPM_DPCP_PROTECTION_LEVEL(pub i32);
+pub const DXGKMDT_OPM_DVI_CHARACTERISTIC_1_0: DXGKDT_OPM_DVI_CHARACTERISTICS = DXGKDT_OPM_DVI_CHARACTERISTICS(1i32);
+pub const DXGKMDT_OPM_DVI_CHARACTERISTIC_1_1_OR_ABOVE: DXGKDT_OPM_DVI_CHARACTERISTICS = DXGKDT_OPM_DVI_CHARACTERISTICS(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGKMDT_OPM_ENCRYPTED_PARAMETERS {
@@ -16781,6 +17821,17 @@ impl Default for DXGKMDT_OPM_ENCRYPTED_PARAMETERS {
 impl windows_core::TypeKind for DXGKMDT_OPM_ENCRYPTED_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
+pub const DXGKMDT_OPM_ENCRYPTED_PARAMETERS_SIZE: u32 = 256u32;
+pub const DXGKMDT_OPM_GET_ACP_AND_CGMSA_SIGNALING: windows_core::GUID = windows_core::GUID::from_u128(0x6629a591_3b79_4cf3_924a_11e8e7811671);
+pub const DXGKMDT_OPM_GET_ACTUAL_OUTPUT_FORMAT: windows_core::GUID = windows_core::GUID::from_u128(0xd7bf1ba3_ad13_4f8e_af98_0dcb3ca204cc);
+pub const DXGKMDT_OPM_GET_ACTUAL_PROTECTION_LEVEL: windows_core::GUID = windows_core::GUID::from_u128(0x1957210a_7766_452a_b99a_d27aed54f03a);
+pub const DXGKMDT_OPM_GET_ADAPTER_BUS_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0xc6f4d673_6174_4184_8e35_f6db5200bcba);
+pub const DXGKMDT_OPM_GET_CODEC_INFO: windows_core::GUID = windows_core::GUID::from_u128(0x4f374491_8f5f_4445_9dba_95588f6b58b4);
+pub const DXGKMDT_OPM_GET_CONNECTED_HDCP_DEVICE_INFORMATION: windows_core::GUID = windows_core::GUID::from_u128(0x0db59d74_a992_492e_a0bd_c23fda564e00);
+pub const DXGKMDT_OPM_GET_CONNECTOR_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x81d0bfd5_6afe_48c2_99c0_95a08f97c5da);
+pub const DXGKMDT_OPM_GET_CURRENT_HDCP_SRM_VERSION: windows_core::GUID = windows_core::GUID::from_u128(0x99c5ceff_5f1d_4879_81c1_c52443c9482b);
+pub const DXGKMDT_OPM_GET_DVI_CHARACTERISTICS: windows_core::GUID = windows_core::GUID::from_u128(0xa470b3bb_5dd7_4172_839c_3d3776e0ebf5);
+pub const DXGKMDT_OPM_GET_INFORMATION_PARAMETERS_SIZE: u32 = 4056u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_GET_INFO_PARAMETERS {
@@ -16799,6 +17850,15 @@ impl Default for DXGKMDT_OPM_GET_INFO_PARAMETERS {
 impl windows_core::TypeKind for DXGKMDT_OPM_GET_INFO_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
+pub const DXGKMDT_OPM_GET_OUTPUT_HARDWARE_PROTECTION_SUPPORT: windows_core::GUID = windows_core::GUID::from_u128(0x3b129589_2af8_4ef0_96a2_704a845a218e);
+pub const DXGKMDT_OPM_GET_OUTPUT_ID: windows_core::GUID = windows_core::GUID::from_u128(0x72cb6df3_244f_40ce_b09e_20506af6302f);
+pub const DXGKMDT_OPM_GET_SUPPORTED_PROTECTION_TYPES: windows_core::GUID = windows_core::GUID::from_u128(0x38f2a801_9a6c_48bb_9107_b6696e6f1797);
+pub const DXGKMDT_OPM_GET_VIRTUAL_PROTECTION_LEVEL: windows_core::GUID = windows_core::GUID::from_u128(0xb2075857_3eda_4d5d_88db_748f8c1a0549);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGKMDT_OPM_HDCP_FLAG(pub i32);
+pub const DXGKMDT_OPM_HDCP_FLAG_NONE: DXGKMDT_OPM_HDCP_FLAG = DXGKMDT_OPM_HDCP_FLAG(0i32);
+pub const DXGKMDT_OPM_HDCP_FLAG_REPEATER: DXGKMDT_OPM_HDCP_FLAG = DXGKMDT_OPM_HDCP_FLAG(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR {
@@ -16812,6 +17872,22 @@ impl Default for DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR {
 impl windows_core::TypeKind for DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR {
     type TypeKind = windows_core::CopyType;
 }
+pub const DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR_SIZE: u32 = 5u32;
+pub const DXGKMDT_OPM_HDCP_OFF: DXGKMDT_OPM_HDCP_PROTECTION_LEVEL = DXGKMDT_OPM_HDCP_PROTECTION_LEVEL(0i32);
+pub const DXGKMDT_OPM_HDCP_ON: DXGKMDT_OPM_HDCP_PROTECTION_LEVEL = DXGKMDT_OPM_HDCP_PROTECTION_LEVEL(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGKMDT_OPM_HDCP_PROTECTION_LEVEL(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGKMDT_OPM_INTERLEAVE_FORMAT(pub i32);
+pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_INTERLEAVED_EVEN_FIRST: DXGKMDT_OPM_INTERLEAVE_FORMAT = DXGKMDT_OPM_INTERLEAVE_FORMAT(3i32);
+pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_INTERLEAVED_ODD_FIRST: DXGKMDT_OPM_INTERLEAVE_FORMAT = DXGKMDT_OPM_INTERLEAVE_FORMAT(4i32);
+pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_OTHER: DXGKMDT_OPM_INTERLEAVE_FORMAT = DXGKMDT_OPM_INTERLEAVE_FORMAT(0i32);
+pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_PROGRESSIVE: DXGKMDT_OPM_INTERLEAVE_FORMAT = DXGKMDT_OPM_INTERLEAVE_FORMAT(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGKMDT_OPM_OMAC {
@@ -16825,6 +17901,12 @@ impl Default for DXGKMDT_OPM_OMAC {
 impl windows_core::TypeKind for DXGKMDT_OPM_OMAC {
     type TypeKind = windows_core::CopyType;
 }
+pub const DXGKMDT_OPM_OMAC_SIZE: u32 = 16u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION(pub i32);
+pub const DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION_NOT_SUPPORTED: DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION = DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION(0i32);
+pub const DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION_SUPPORTED: DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION = DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION(1i32);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_OUTPUT_ID {
@@ -16840,6 +17922,39 @@ impl Default for DXGKMDT_OPM_OUTPUT_ID {
 impl windows_core::TypeKind for DXGKMDT_OPM_OUTPUT_ID {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGKMDT_OPM_PROTECTION_STANDARD(pub i32);
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_ARIBTRB15_1125I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(16384i32);
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_ARIBTRB15_525I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(2048i32);
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_ARIBTRB15_525P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(4096i32);
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_ARIBTRB15_750P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(8192i32);
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEA_1125I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(128i32);
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEA_525P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(32i32);
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEA_750P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(64i32);
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEB_1125I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(1024i32);
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEB_525P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(256i32);
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEB_750P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(512i32);
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_EIA608B_525: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(8i32);
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_EN300294_625I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(16i32);
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_IEC61880_2_525I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(2i32);
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_IEC61880_525I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(1i32);
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_IEC62375_625P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(4i32);
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_NONE: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(0i32);
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_OTHER: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(-2147483648i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGKMDT_OPM_PROTECTION_TYPE(pub i32);
+pub const DXGKMDT_OPM_PROTECTION_TYPE_ACP: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(2i32);
+pub const DXGKMDT_OPM_PROTECTION_TYPE_CGMSA: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(4i32);
+pub const DXGKMDT_OPM_PROTECTION_TYPE_COPP_COMPATIBLE_HDCP: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(1i32);
+pub const DXGKMDT_OPM_PROTECTION_TYPE_DPCP: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(16i32);
+pub const DXGKMDT_OPM_PROTECTION_TYPE_HDCP: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(8i32);
+pub const DXGKMDT_OPM_PROTECTION_TYPE_MASK: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(-2147483585i32);
+pub const DXGKMDT_OPM_PROTECTION_TYPE_NONE: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(0i32);
+pub const DXGKMDT_OPM_PROTECTION_TYPE_OTHER: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(-2147483648i32);
+pub const DXGKMDT_OPM_PROTECTION_TYPE_SIZE: u32 = 4u32;
+pub const DXGKMDT_OPM_PROTECTION_TYPE_TYPE_ENFORCEMENT_HDCP: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(32i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGKMDT_OPM_RANDOM_NUMBER {
@@ -16853,6 +17968,7 @@ impl Default for DXGKMDT_OPM_RANDOM_NUMBER {
 impl windows_core::TypeKind for DXGKMDT_OPM_RANDOM_NUMBER {
     type TypeKind = windows_core::CopyType;
 }
+pub const DXGKMDT_OPM_REDISTRIBUTION_CONTROL_REQUIRED: DXGKMDT_OPM_CGMSA = DXGKMDT_OPM_CGMSA(8i32);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_REQUESTED_INFORMATION {
@@ -16868,6 +17984,8 @@ impl Default for DXGKMDT_OPM_REQUESTED_INFORMATION {
 impl windows_core::TypeKind for DXGKMDT_OPM_REQUESTED_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+pub const DXGKMDT_OPM_REQUESTED_INFORMATION_SIZE: u32 = 4076u32;
+pub const DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING: windows_core::GUID = windows_core::GUID::from_u128(0x09a631a5_d684_4c60_8e4d_d3bb0f0be3ee);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
@@ -16890,6 +18008,7 @@ impl Default for DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
 impl windows_core::TypeKind for DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
+pub const DXGKMDT_OPM_SET_HDCP_SRM: windows_core::GUID = windows_core::GUID::from_u128(0x8b5ef5d1_c30d_44ff_84a5_ea71dce78f13);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_SET_HDCP_SRM_PARAMETERS {
@@ -16903,6 +18022,8 @@ impl Default for DXGKMDT_OPM_SET_HDCP_SRM_PARAMETERS {
 impl windows_core::TypeKind for DXGKMDT_OPM_SET_HDCP_SRM_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
+pub const DXGKMDT_OPM_SET_PROTECTION_LEVEL: windows_core::GUID = windows_core::GUID::from_u128(0x9bb9327c_4eb5_4727_9f00_b42b0919c0da);
+pub const DXGKMDT_OPM_SET_PROTECTION_LEVEL_ACCORDING_TO_CSS_DVD: windows_core::GUID = windows_core::GUID::from_u128(0x39ce333e_4cc0_44ae_bfcc_da50b5f82e72);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_SET_PROTECTION_LEVEL_PARAMETERS {
@@ -16936,6 +18057,48 @@ impl Default for DXGKMDT_OPM_STANDARD_INFORMATION {
 impl windows_core::TypeKind for DXGKMDT_OPM_STANDARD_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGKMDT_OPM_STATUS(pub i32);
+pub const DXGKMDT_OPM_STATUS_LINK_LOST: DXGKMDT_OPM_STATUS = DXGKMDT_OPM_STATUS(1i32);
+pub const DXGKMDT_OPM_STATUS_NORMAL: DXGKMDT_OPM_STATUS = DXGKMDT_OPM_STATUS(0i32);
+pub const DXGKMDT_OPM_STATUS_RENEGOTIATION_REQUIRED: DXGKMDT_OPM_STATUS = DXGKMDT_OPM_STATUS(2i32);
+pub const DXGKMDT_OPM_STATUS_REVOKED_HDCP_DEVICE_ATTACHED: DXGKMDT_OPM_STATUS = DXGKMDT_OPM_STATUS(8i32);
+pub const DXGKMDT_OPM_STATUS_TAMPERING_DETECTED: DXGKMDT_OPM_STATUS = DXGKMDT_OPM_STATUS(4i32);
+pub const DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_OFF: DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(0i32);
+pub const DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_ON_WITH_NO_TYPE_RESTRICTION: DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(1i32);
+pub const DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_ON_WITH_TYPE1_RESTRICTION: DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS(pub i32);
+pub const DXGKMDT_OPM_VOS_COPP_SEMANTICS: DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS = DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS(0i32);
+pub const DXGKMDT_OPM_VOS_OPM_INDIRECT_DISPLAY: DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS = DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS(2i32);
+pub const DXGKMDT_OPM_VOS_OPM_SEMANTICS: DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS = DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS(1i32);
+pub const DXGKMDT_UAB_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = DXGKMDT_CERTIFICATE_TYPE(2i32);
+pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_FRAME0: DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE = DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE(1i32);
+pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_FRAME1: DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE = DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE(pub i32);
+pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_NONE: DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE = DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE(0i32);
+pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_CHECKERBOARD: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(7i32);
+pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_COLUMN_INTERLEAVED: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(6i32);
+pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_MONO: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(0i32);
+pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_MONO_OFFSET: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(4i32);
+pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_ROW_INTERLEAVED: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(5i32);
+pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_SEPARATE: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY(pub i32);
+pub const DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY_BILINEAR: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY = DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY(1i32);
+pub const DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY_HIGH: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY = DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGKMT_POWER_SHARED_TYPE(pub i32);
+pub const DXGKMT_POWER_SHARED_TYPE_AUDIO: DXGKMT_POWER_SHARED_TYPE = DXGKMT_POWER_SHARED_TYPE(0i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_HEAD {
@@ -17076,6 +18239,17 @@ impl Default for DXGKVGPU_ESCAPE_RESUME {
 impl windows_core::TypeKind for DXGKVGPU_ESCAPE_RESUME {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGKVGPU_ESCAPE_TYPE(pub i32);
+pub const DXGKVGPU_ESCAPE_TYPE_GET_VGPU_TYPE: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(4i32);
+pub const DXGKVGPU_ESCAPE_TYPE_INITIALIZE: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(2i32);
+pub const DXGKVGPU_ESCAPE_TYPE_PAUSE: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(6i32);
+pub const DXGKVGPU_ESCAPE_TYPE_POWERTRANSITIONCOMPLETE: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(5i32);
+pub const DXGKVGPU_ESCAPE_TYPE_READ_PCI_CONFIG: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(0i32);
+pub const DXGKVGPU_ESCAPE_TYPE_RELEASE: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(3i32);
+pub const DXGKVGPU_ESCAPE_TYPE_RESUME: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(7i32);
+pub const DXGKVGPU_ESCAPE_TYPE_WRITE_PCI_CONFIG: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {
@@ -17144,6 +18318,9 @@ impl Default for DXGK_BACKLIGHT_INFO {
 impl windows_core::TypeKind for DXGK_BACKLIGHT_INFO {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGK_BACKLIGHT_OPTIMIZATION_LEVEL(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_CAPS {
@@ -17214,6 +18391,7 @@ impl Default for DXGK_BRIGHTNESS_GET_OUT {
 impl windows_core::TypeKind for DXGK_BRIGHTNESS_GET_OUT {
     type TypeKind = windows_core::CopyType;
 }
+pub const DXGK_BRIGHTNESS_MAXIMUM_NIT_RANGE_COUNT: u32 = 16u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_NIT_RANGE {
@@ -17342,6 +18520,16 @@ impl Default for DXGK_BRIGHTNESS_STATE_0_0 {
 impl windows_core::TypeKind for DXGK_BRIGHTNESS_STATE_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGK_CHILD_DEVICE_HPD_AWARENESS(pub i32);
+pub const DXGK_DDT_DISPLAYID: DXGK_DISPLAY_DESCRIPTOR_TYPE = DXGK_DISPLAY_DESCRIPTOR_TYPE(2u8);
+pub const DXGK_DDT_EDID: DXGK_DISPLAY_DESCRIPTOR_TYPE = DXGK_DISPLAY_DESCRIPTOR_TYPE(1u8);
+pub const DXGK_DDT_INVALID: DXGK_DISPLAY_DESCRIPTOR_TYPE = DXGK_DISPLAY_DESCRIPTOR_TYPE(0u8);
+pub const DXGK_DIAG_PROCESS_NAME_LENGTH: u32 = 16u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGK_DISPLAY_DESCRIPTOR_TYPE(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGK_DISPLAY_INFORMATION {
@@ -17361,6 +18549,38 @@ impl Default for DXGK_DISPLAY_INFORMATION {
 impl windows_core::TypeKind for DXGK_DISPLAY_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGK_DISPLAY_TECHNOLOGY(pub u8);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGK_DISPLAY_USAGE(pub u8);
+pub const DXGK_DT_INVALID: DXGK_DISPLAY_TECHNOLOGY = DXGK_DISPLAY_TECHNOLOGY(0u8);
+pub const DXGK_DT_LCD: DXGK_DISPLAY_TECHNOLOGY = DXGK_DISPLAY_TECHNOLOGY(2u8);
+pub const DXGK_DT_MAX: DXGK_DISPLAY_TECHNOLOGY = DXGK_DISPLAY_TECHNOLOGY(5u8);
+pub const DXGK_DT_OLED: DXGK_DISPLAY_TECHNOLOGY = DXGK_DISPLAY_TECHNOLOGY(3u8);
+pub const DXGK_DT_OTHER: DXGK_DISPLAY_TECHNOLOGY = DXGK_DISPLAY_TECHNOLOGY(1u8);
+pub const DXGK_DT_PROJECTOR: DXGK_DISPLAY_TECHNOLOGY = DXGK_DISPLAY_TECHNOLOGY(4u8);
+pub const DXGK_DU_ACCESSORY: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(5u8);
+pub const DXGK_DU_AR: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(2u8);
+pub const DXGK_DU_GENERIC: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(1u8);
+pub const DXGK_DU_INVALID: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(0u8);
+pub const DXGK_DU_MAX: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(6u8);
+pub const DXGK_DU_MEDICAL_IMAGING: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(4u8);
+pub const DXGK_DU_VR: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(3u8);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGK_ENGINE_TYPE(pub i32);
+pub const DXGK_ENGINE_TYPE_3D: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(1i32);
+pub const DXGK_ENGINE_TYPE_COPY: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(6i32);
+pub const DXGK_ENGINE_TYPE_CRYPTO: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(8i32);
+pub const DXGK_ENGINE_TYPE_MAX: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(9i32);
+pub const DXGK_ENGINE_TYPE_OTHER: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(0i32);
+pub const DXGK_ENGINE_TYPE_OVERLAY: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(7i32);
+pub const DXGK_ENGINE_TYPE_SCENE_ASSEMBLY: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(5i32);
+pub const DXGK_ENGINE_TYPE_VIDEO_DECODE: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(2i32);
+pub const DXGK_ENGINE_TYPE_VIDEO_ENCODE: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(3i32);
+pub const DXGK_ENGINE_TYPE_VIDEO_PROCESSING: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(4i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGK_ESCAPE_GPUMMUCAPS {
@@ -17436,6 +18656,11 @@ impl Default for DXGK_FAULT_ERROR_CODE_0_1 {
 impl windows_core::TypeKind for DXGK_FAULT_ERROR_CODE_0_1 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGK_GENERAL_ERROR_CODE(pub i32);
+pub const DXGK_GENERAL_ERROR_INVALID_INSTRUCTION: DXGK_GENERAL_ERROR_CODE = DXGK_GENERAL_ERROR_CODE(1i32);
+pub const DXGK_GENERAL_ERROR_PAGE_FAULT: DXGK_GENERAL_ERROR_CODE = DXGK_GENERAL_ERROR_CODE(0i32);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGK_GPUCLOCKDATA {
@@ -17546,6 +18771,14 @@ impl Default for DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {
 impl windows_core::TypeKind for DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
+pub const DXGK_GRAPHICSPOWER_VERSION: u32 = 4098u32;
+pub const DXGK_GRAPHICSPOWER_VERSION_1_0: u32 = 4096u32;
+pub const DXGK_GRAPHICSPOWER_VERSION_1_1: u32 = 4097u32;
+pub const DXGK_GRAPHICSPOWER_VERSION_1_2: u32 = 4098u32;
+pub const DXGK_MAX_GPUVERSION_NAME_LENGTH: u32 = 32u32;
+pub const DXGK_MAX_METADATA_NAME_LENGTH: u32 = 32u32;
+pub const DXGK_MAX_PAGE_TABLE_LEVEL_COUNT: u32 = 6u32;
+pub const DXGK_MIN_PAGE_TABLE_LEVEL_COUNT: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DXGK_MIRACAST_CHUNK_ID {
@@ -17589,6 +18822,16 @@ impl Default for DXGK_MIRACAST_CHUNK_INFO {
 impl windows_core::TypeKind for DXGK_MIRACAST_CHUNK_INFO {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGK_MIRACAST_CHUNK_TYPE(pub i32);
+pub const DXGK_MIRACAST_CHUNK_TYPE_COLOR_CONVERT_COMPLETE: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(1i32);
+pub const DXGK_MIRACAST_CHUNK_TYPE_ENCODE_COMPLETE: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(2i32);
+pub const DXGK_MIRACAST_CHUNK_TYPE_ENCODE_DRIVER_DEFINED_1: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(-2147483648i32);
+pub const DXGK_MIRACAST_CHUNK_TYPE_ENCODE_DRIVER_DEFINED_2: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(-2147483647i32);
+pub const DXGK_MIRACAST_CHUNK_TYPE_FRAME_DROPPED: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(4i32);
+pub const DXGK_MIRACAST_CHUNK_TYPE_FRAME_START: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(3i32);
+pub const DXGK_MIRACAST_CHUNK_TYPE_UNKNOWN: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(0i32);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union DXGK_MONITORLINKINFO_CAPABILITIES {
@@ -17719,6 +18962,17 @@ impl Default for DXGK_NODE_PERFDATA {
 impl windows_core::TypeKind for DXGK_NODE_PERFDATA {
     type TypeKind = windows_core::CopyType;
 }
+pub const DXGK_PAGE_FAULT_ADAPTER_RESET_REQUIRED: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(4i32);
+pub const DXGK_PAGE_FAULT_ENGINE_RESET_REQUIRED: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(8i32);
+pub const DXGK_PAGE_FAULT_FATAL_HARDWARE_ERROR: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(16i32);
+pub const DXGK_PAGE_FAULT_FENCE_INVALID: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGK_PAGE_FAULT_FLAGS(pub i32);
+pub const DXGK_PAGE_FAULT_HW_CONTEXT_VALID: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(64i32);
+pub const DXGK_PAGE_FAULT_IOMMU: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(32i32);
+pub const DXGK_PAGE_FAULT_PROCESS_HANDLE_VALID: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(128i32);
+pub const DXGK_PAGE_FAULT_WRITE: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(1i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DXGK_PTE {
@@ -17774,6 +19028,22 @@ impl Default for DXGK_PTE_1 {
 impl windows_core::TypeKind for DXGK_PTE_1 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGK_PTE_PAGE_SIZE(pub i32);
+pub const DXGK_PTE_PAGE_TABLE_PAGE_4KB: DXGK_PTE_PAGE_SIZE = DXGK_PTE_PAGE_SIZE(0i32);
+pub const DXGK_PTE_PAGE_TABLE_PAGE_64KB: DXGK_PTE_PAGE_SIZE = DXGK_PTE_PAGE_SIZE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXGK_RENDER_PIPELINE_STAGE(pub i32);
+pub const DXGK_RENDER_PIPELINE_STAGE_GEOMETRY_SHADER: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(3i32);
+pub const DXGK_RENDER_PIPELINE_STAGE_INPUT_ASSEMBLER: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(1i32);
+pub const DXGK_RENDER_PIPELINE_STAGE_OUTPUT_MERGER: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(7i32);
+pub const DXGK_RENDER_PIPELINE_STAGE_PIXEL_SHADER: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(6i32);
+pub const DXGK_RENDER_PIPELINE_STAGE_RASTERIZER: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(5i32);
+pub const DXGK_RENDER_PIPELINE_STAGE_STREAM_OUTPUT: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(4i32);
+pub const DXGK_RENDER_PIPELINE_STAGE_UNKNOWN: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(0i32);
+pub const DXGK_RENDER_PIPELINE_STAGE_VERTEX_SHADER: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(2i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DXGK_TARGETMODE_DETAIL_TIMING {
@@ -17789,6 +19059,12 @@ impl Default for DXGK_TARGETMODE_DETAIL_TIMING {
 impl windows_core::TypeKind for DXGK_TARGETMODE_DETAIL_TIMING {
     type TypeKind = windows_core::CopyType;
 }
+pub const DxgkBacklightOptimizationDesktop: DXGK_BACKLIGHT_OPTIMIZATION_LEVEL = DXGK_BACKLIGHT_OPTIMIZATION_LEVEL(1i32);
+pub const DxgkBacklightOptimizationDimmed: DXGK_BACKLIGHT_OPTIMIZATION_LEVEL = DXGK_BACKLIGHT_OPTIMIZATION_LEVEL(3i32);
+pub const DxgkBacklightOptimizationDisable: DXGK_BACKLIGHT_OPTIMIZATION_LEVEL = DXGK_BACKLIGHT_OPTIMIZATION_LEVEL(0i32);
+pub const DxgkBacklightOptimizationDynamic: DXGK_BACKLIGHT_OPTIMIZATION_LEVEL = DXGK_BACKLIGHT_OPTIMIZATION_LEVEL(2i32);
+pub const DxgkBacklightOptimizationEDR: DXGK_BACKLIGHT_OPTIMIZATION_LEVEL = DXGK_BACKLIGHT_OPTIMIZATION_LEVEL(4i32);
+pub const FLIPEX_TIMEOUT_USER: u32 = 2000u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GPUP_DRIVER_ESCAPE_INPUT {
@@ -17802,1572 +19078,6 @@ impl Default for GPUP_DRIVER_ESCAPE_INPUT {
 impl windows_core::TypeKind for GPUP_DRIVER_ESCAPE_INPUT {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct OUTPUTDUPL_CONTEXT_DEBUG_INFO {
-    pub Status: OUTPUTDUPL_CONTEXT_DEBUG_STATUS,
-    pub ProcessID: super::super::super::Win32::Foundation::HANDLE,
-    pub AccumulatedPresents: u32,
-    pub LastPresentTime: i64,
-    pub LastMouseTime: i64,
-    pub ProcessName: [i8; 16],
-}
-impl Default for OUTPUTDUPL_CONTEXT_DEBUG_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for OUTPUTDUPL_CONTEXT_DEBUG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct _NT_D3DLINEPATTERN {
-    pub wRepeatFactor: u16,
-    pub wLinePattern: u16,
-}
-impl Default for _NT_D3DLINEPATTERN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for _NT_D3DLINEPATTERN {
-    type TypeKind = windows_core::CopyType;
-}
-pub const D3DCLEAR_COMPUTERECTS: i32 = 8i32;
-pub const D3DDDIFMT_A1: D3DDDIFORMAT = D3DDDIFORMAT(118u32);
-pub const D3DDDIFMT_A16B16G16R16: D3DDDIFORMAT = D3DDDIFORMAT(36u32);
-pub const D3DDDIFMT_A16B16G16R16F: D3DDDIFORMAT = D3DDDIFORMAT(113u32);
-pub const D3DDDIFMT_A1R5G5B5: D3DDDIFORMAT = D3DDDIFORMAT(25u32);
-pub const D3DDDIFMT_A2B10G10R10: D3DDDIFORMAT = D3DDDIFORMAT(31u32);
-pub const D3DDDIFMT_A2B10G10R10_XR_BIAS: D3DDDIFORMAT = D3DDDIFORMAT(119u32);
-pub const D3DDDIFMT_A2R10G10B10: D3DDDIFORMAT = D3DDDIFORMAT(35u32);
-pub const D3DDDIFMT_A2W10V10U10: D3DDDIFORMAT = D3DDDIFORMAT(67u32);
-pub const D3DDDIFMT_A32B32G32R32F: D3DDDIFORMAT = D3DDDIFORMAT(116u32);
-pub const D3DDDIFMT_A4L4: D3DDDIFORMAT = D3DDDIFORMAT(52u32);
-pub const D3DDDIFMT_A4R4G4B4: D3DDDIFORMAT = D3DDDIFORMAT(26u32);
-pub const D3DDDIFMT_A8: D3DDDIFORMAT = D3DDDIFORMAT(28u32);
-pub const D3DDDIFMT_A8B8G8R8: D3DDDIFORMAT = D3DDDIFORMAT(32u32);
-pub const D3DDDIFMT_A8L8: D3DDDIFORMAT = D3DDDIFORMAT(51u32);
-pub const D3DDDIFMT_A8P8: D3DDDIFORMAT = D3DDDIFORMAT(40u32);
-pub const D3DDDIFMT_A8R3G3B2: D3DDDIFORMAT = D3DDDIFORMAT(29u32);
-pub const D3DDDIFMT_A8R8G8B8: D3DDDIFORMAT = D3DDDIFORMAT(21u32);
-pub const D3DDDIFMT_BINARYBUFFER: D3DDDIFORMAT = D3DDDIFORMAT(199u32);
-pub const D3DDDIFMT_BITSTREAMDATA: D3DDDIFORMAT = D3DDDIFORMAT(156u32);
-pub const D3DDDIFMT_CxV8U8: D3DDDIFORMAT = D3DDDIFORMAT(117u32);
-pub const D3DDDIFMT_D15S1: D3DDDIFORMAT = D3DDDIFORMAT(73u32);
-pub const D3DDDIFMT_D16: D3DDDIFORMAT = D3DDDIFORMAT(80u32);
-pub const D3DDDIFMT_D16_LOCKABLE: D3DDDIFORMAT = D3DDDIFORMAT(70u32);
-pub const D3DDDIFMT_D24FS8: D3DDDIFORMAT = D3DDDIFORMAT(83u32);
-pub const D3DDDIFMT_D24S8: D3DDDIFORMAT = D3DDDIFORMAT(75u32);
-pub const D3DDDIFMT_D24X4S4: D3DDDIFORMAT = D3DDDIFORMAT(79u32);
-pub const D3DDDIFMT_D24X8: D3DDDIFORMAT = D3DDDIFORMAT(77u32);
-pub const D3DDDIFMT_D32: D3DDDIFORMAT = D3DDDIFORMAT(71u32);
-pub const D3DDDIFMT_D32F_LOCKABLE: D3DDDIFORMAT = D3DDDIFORMAT(82u32);
-pub const D3DDDIFMT_D32_LOCKABLE: D3DDDIFORMAT = D3DDDIFORMAT(84u32);
-pub const D3DDDIFMT_DEBLOCKINGDATA: D3DDDIFORMAT = D3DDDIFORMAT(153u32);
-pub const D3DDDIFMT_DXT1: D3DDDIFORMAT = D3DDDIFORMAT(827611204u32);
-pub const D3DDDIFMT_DXT2: D3DDDIFORMAT = D3DDDIFORMAT(844388420u32);
-pub const D3DDDIFMT_DXT3: D3DDDIFORMAT = D3DDDIFORMAT(861165636u32);
-pub const D3DDDIFMT_DXT4: D3DDDIFORMAT = D3DDDIFORMAT(877942852u32);
-pub const D3DDDIFMT_DXT5: D3DDDIFORMAT = D3DDDIFORMAT(894720068u32);
-pub const D3DDDIFMT_DXVACOMPBUFFER_BASE: D3DDDIFORMAT = D3DDDIFORMAT(150u32);
-pub const D3DDDIFMT_DXVACOMPBUFFER_MAX: D3DDDIFORMAT = D3DDDIFORMAT(181u32);
-pub const D3DDDIFMT_DXVA_RESERVED10: D3DDDIFORMAT = D3DDDIFORMAT(160u32);
-pub const D3DDDIFMT_DXVA_RESERVED11: D3DDDIFORMAT = D3DDDIFORMAT(161u32);
-pub const D3DDDIFMT_DXVA_RESERVED12: D3DDDIFORMAT = D3DDDIFORMAT(162u32);
-pub const D3DDDIFMT_DXVA_RESERVED13: D3DDDIFORMAT = D3DDDIFORMAT(163u32);
-pub const D3DDDIFMT_DXVA_RESERVED14: D3DDDIFORMAT = D3DDDIFORMAT(164u32);
-pub const D3DDDIFMT_DXVA_RESERVED15: D3DDDIFORMAT = D3DDDIFORMAT(165u32);
-pub const D3DDDIFMT_DXVA_RESERVED16: D3DDDIFORMAT = D3DDDIFORMAT(166u32);
-pub const D3DDDIFMT_DXVA_RESERVED17: D3DDDIFORMAT = D3DDDIFORMAT(167u32);
-pub const D3DDDIFMT_DXVA_RESERVED18: D3DDDIFORMAT = D3DDDIFORMAT(168u32);
-pub const D3DDDIFMT_DXVA_RESERVED19: D3DDDIFORMAT = D3DDDIFORMAT(169u32);
-pub const D3DDDIFMT_DXVA_RESERVED20: D3DDDIFORMAT = D3DDDIFORMAT(170u32);
-pub const D3DDDIFMT_DXVA_RESERVED21: D3DDDIFORMAT = D3DDDIFORMAT(171u32);
-pub const D3DDDIFMT_DXVA_RESERVED22: D3DDDIFORMAT = D3DDDIFORMAT(172u32);
-pub const D3DDDIFMT_DXVA_RESERVED23: D3DDDIFORMAT = D3DDDIFORMAT(173u32);
-pub const D3DDDIFMT_DXVA_RESERVED24: D3DDDIFORMAT = D3DDDIFORMAT(174u32);
-pub const D3DDDIFMT_DXVA_RESERVED25: D3DDDIFORMAT = D3DDDIFORMAT(175u32);
-pub const D3DDDIFMT_DXVA_RESERVED26: D3DDDIFORMAT = D3DDDIFORMAT(176u32);
-pub const D3DDDIFMT_DXVA_RESERVED27: D3DDDIFORMAT = D3DDDIFORMAT(177u32);
-pub const D3DDDIFMT_DXVA_RESERVED28: D3DDDIFORMAT = D3DDDIFORMAT(178u32);
-pub const D3DDDIFMT_DXVA_RESERVED29: D3DDDIFORMAT = D3DDDIFORMAT(179u32);
-pub const D3DDDIFMT_DXVA_RESERVED30: D3DDDIFORMAT = D3DDDIFORMAT(180u32);
-pub const D3DDDIFMT_DXVA_RESERVED31: D3DDDIFORMAT = D3DDDIFORMAT(181u32);
-pub const D3DDDIFMT_DXVA_RESERVED9: D3DDDIFORMAT = D3DDDIFORMAT(159u32);
-pub const D3DDDIFMT_FILMGRAINBUFFER: D3DDDIFORMAT = D3DDDIFORMAT(158u32);
-pub const D3DDDIFMT_G16R16: D3DDDIFORMAT = D3DDDIFORMAT(34u32);
-pub const D3DDDIFMT_G16R16F: D3DDDIFORMAT = D3DDDIFORMAT(112u32);
-pub const D3DDDIFMT_G32R32F: D3DDDIFORMAT = D3DDDIFORMAT(115u32);
-pub const D3DDDIFMT_G8R8: D3DDDIFORMAT = D3DDDIFORMAT(91u32);
-pub const D3DDDIFMT_G8R8_G8B8: D3DDDIFORMAT = D3DDDIFORMAT(1111970375u32);
-pub const D3DDDIFMT_INDEX16: D3DDDIFORMAT = D3DDDIFORMAT(101u32);
-pub const D3DDDIFMT_INDEX32: D3DDDIFORMAT = D3DDDIFORMAT(102u32);
-pub const D3DDDIFMT_INVERSEQUANTIZATIONDATA: D3DDDIFORMAT = D3DDDIFORMAT(154u32);
-pub const D3DDDIFMT_L16: D3DDDIFORMAT = D3DDDIFORMAT(81u32);
-pub const D3DDDIFMT_L6V5U5: D3DDDIFORMAT = D3DDDIFORMAT(61u32);
-pub const D3DDDIFMT_L8: D3DDDIFORMAT = D3DDDIFORMAT(50u32);
-pub const D3DDDIFMT_MACROBLOCKDATA: D3DDDIFORMAT = D3DDDIFORMAT(151u32);
-pub const D3DDDIFMT_MOTIONVECTORBUFFER: D3DDDIFORMAT = D3DDDIFORMAT(157u32);
-pub const D3DDDIFMT_MULTI2_ARGB8: D3DDDIFORMAT = D3DDDIFORMAT(827606349u32);
-pub const D3DDDIFMT_P8: D3DDDIFORMAT = D3DDDIFORMAT(41u32);
-pub const D3DDDIFMT_PICTUREPARAMSDATA: D3DDDIFORMAT = D3DDDIFORMAT(150u32);
-pub const D3DDDIFMT_Q16W16V16U16: D3DDDIFORMAT = D3DDDIFORMAT(110u32);
-pub const D3DDDIFMT_Q8W8V8U8: D3DDDIFORMAT = D3DDDIFORMAT(63u32);
-pub const D3DDDIFMT_R16F: D3DDDIFORMAT = D3DDDIFORMAT(111u32);
-pub const D3DDDIFMT_R32F: D3DDDIFORMAT = D3DDDIFORMAT(114u32);
-pub const D3DDDIFMT_R3G3B2: D3DDDIFORMAT = D3DDDIFORMAT(27u32);
-pub const D3DDDIFMT_R5G6B5: D3DDDIFORMAT = D3DDDIFORMAT(23u32);
-pub const D3DDDIFMT_R8: D3DDDIFORMAT = D3DDDIFORMAT(92u32);
-pub const D3DDDIFMT_R8G8B8: D3DDDIFORMAT = D3DDDIFORMAT(20u32);
-pub const D3DDDIFMT_R8G8_B8G8: D3DDDIFORMAT = D3DDDIFORMAT(1195525970u32);
-pub const D3DDDIFMT_RESIDUALDIFFERENCEDATA: D3DDDIFORMAT = D3DDDIFORMAT(152u32);
-pub const D3DDDIFMT_S1D15: D3DDDIFORMAT = D3DDDIFORMAT(72u32);
-pub const D3DDDIFMT_S8D24: D3DDDIFORMAT = D3DDDIFORMAT(74u32);
-pub const D3DDDIFMT_S8_LOCKABLE: D3DDDIFORMAT = D3DDDIFORMAT(85u32);
-pub const D3DDDIFMT_SLICECONTROLDATA: D3DDDIFORMAT = D3DDDIFORMAT(155u32);
-pub const D3DDDIFMT_UNKNOWN: D3DDDIFORMAT = D3DDDIFORMAT(0u32);
-pub const D3DDDIFMT_UYVY: D3DDDIFORMAT = D3DDDIFORMAT(1498831189u32);
-pub const D3DDDIFMT_V16U16: D3DDDIFORMAT = D3DDDIFORMAT(64u32);
-pub const D3DDDIFMT_V8U8: D3DDDIFORMAT = D3DDDIFORMAT(60u32);
-pub const D3DDDIFMT_VERTEXDATA: D3DDDIFORMAT = D3DDDIFORMAT(100u32);
-pub const D3DDDIFMT_W11V11U10: D3DDDIFORMAT = D3DDDIFORMAT(65u32);
-pub const D3DDDIFMT_X1R5G5B5: D3DDDIFORMAT = D3DDDIFORMAT(24u32);
-pub const D3DDDIFMT_X4R4G4B4: D3DDDIFORMAT = D3DDDIFORMAT(30u32);
-pub const D3DDDIFMT_X4S4D24: D3DDDIFORMAT = D3DDDIFORMAT(78u32);
-pub const D3DDDIFMT_X8B8G8R8: D3DDDIFORMAT = D3DDDIFORMAT(33u32);
-pub const D3DDDIFMT_X8D24: D3DDDIFORMAT = D3DDDIFORMAT(76u32);
-pub const D3DDDIFMT_X8L8V8U8: D3DDDIFORMAT = D3DDDIFORMAT(62u32);
-pub const D3DDDIFMT_X8R8G8B8: D3DDDIFORMAT = D3DDDIFORMAT(22u32);
-pub const D3DDDIFMT_YUY2: D3DDDIFORMAT = D3DDDIFORMAT(844715353u32);
-pub const D3DDDIGPUVIRTUALADDRESS_RESERVE_NO_ACCESS: D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE = D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE(0i32);
-pub const D3DDDIGPUVIRTUALADDRESS_RESERVE_NO_COMMIT: D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE = D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE(2i32);
-pub const D3DDDIGPUVIRTUALADDRESS_RESERVE_ZERO: D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE = D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE(1i32);
-pub const D3DDDIMULTISAMPLE_10_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(10i32);
-pub const D3DDDIMULTISAMPLE_11_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(11i32);
-pub const D3DDDIMULTISAMPLE_12_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(12i32);
-pub const D3DDDIMULTISAMPLE_13_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(13i32);
-pub const D3DDDIMULTISAMPLE_14_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(14i32);
-pub const D3DDDIMULTISAMPLE_15_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(15i32);
-pub const D3DDDIMULTISAMPLE_16_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(16i32);
-pub const D3DDDIMULTISAMPLE_2_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(2i32);
-pub const D3DDDIMULTISAMPLE_3_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(3i32);
-pub const D3DDDIMULTISAMPLE_4_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(4i32);
-pub const D3DDDIMULTISAMPLE_5_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(5i32);
-pub const D3DDDIMULTISAMPLE_6_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(6i32);
-pub const D3DDDIMULTISAMPLE_7_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(7i32);
-pub const D3DDDIMULTISAMPLE_8_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(8i32);
-pub const D3DDDIMULTISAMPLE_9_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(9i32);
-pub const D3DDDIMULTISAMPLE_NONE: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(0i32);
-pub const D3DDDIMULTISAMPLE_NONMASKABLE: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(1i32);
-pub const D3DDDIPOOL_LOCALVIDMEM: D3DDDI_POOL = D3DDDI_POOL(3i32);
-pub const D3DDDIPOOL_NONLOCALVIDMEM: D3DDDI_POOL = D3DDDI_POOL(4i32);
-pub const D3DDDIPOOL_STAGINGMEM: D3DDDI_POOL = D3DDDI_POOL(5i32);
-pub const D3DDDIPOOL_SYSTEMMEM: D3DDDI_POOL = D3DDDI_POOL(1i32);
-pub const D3DDDIPOOL_VIDEOMEMORY: D3DDDI_POOL = D3DDDI_POOL(2i32);
-pub const D3DDDI_ALLOCATIONPRIORITY_HIGH: u32 = 2684354560u32;
-pub const D3DDDI_ALLOCATIONPRIORITY_LOW: u32 = 1342177280u32;
-pub const D3DDDI_ALLOCATIONPRIORITY_MAXIMUM: u32 = 3355443200u32;
-pub const D3DDDI_ALLOCATIONPRIORITY_MINIMUM: u32 = 671088640u32;
-pub const D3DDDI_ALLOCATIONPRIORITY_NORMAL: u32 = 2013265920u32;
-pub const D3DDDI_COLOR_SPACE_CUSTOM: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(-1i32);
-pub const D3DDDI_COLOR_SPACE_RESERVED: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(4i32);
-pub const D3DDDI_COLOR_SPACE_RGB_FULL_G10_NONE_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(1i32);
-pub const D3DDDI_COLOR_SPACE_RGB_FULL_G2084_NONE_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(12i32);
-pub const D3DDDI_COLOR_SPACE_RGB_FULL_G22_NONE_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(17i32);
-pub const D3DDDI_COLOR_SPACE_RGB_FULL_G22_NONE_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(0i32);
-pub const D3DDDI_COLOR_SPACE_RGB_STUDIO_G2084_NONE_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(14i32);
-pub const D3DDDI_COLOR_SPACE_RGB_STUDIO_G22_NONE_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(3i32);
-pub const D3DDDI_COLOR_SPACE_RGB_STUDIO_G22_NONE_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(2i32);
-pub const D3DDDI_COLOR_SPACE_RGB_STUDIO_G24_NONE_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(21i32);
-pub const D3DDDI_COLOR_SPACE_RGB_STUDIO_G24_NONE_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(20i32);
-pub const D3DDDI_COLOR_SPACE_YCBCR_FULL_G22_LEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(11i32);
-pub const D3DDDI_COLOR_SPACE_YCBCR_FULL_G22_LEFT_P601: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(7i32);
-pub const D3DDDI_COLOR_SPACE_YCBCR_FULL_G22_LEFT_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(9i32);
-pub const D3DDDI_COLOR_SPACE_YCBCR_FULL_G22_NONE_P709_X601: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(5i32);
-pub const D3DDDI_COLOR_SPACE_YCBCR_FULL_GHLG_TOPLEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(19i32);
-pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G2084_LEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(13i32);
-pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G2084_TOPLEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(16i32);
-pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G22_LEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(10i32);
-pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G22_LEFT_P601: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(6i32);
-pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G22_LEFT_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(8i32);
-pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G22_TOPLEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(15i32);
-pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G24_LEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(23i32);
-pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G24_LEFT_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(22i32);
-pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G24_TOPLEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(24i32);
-pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_GHLG_TOPLEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(18i32);
-pub const D3DDDI_CPU_NOTIFICATION: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(4i32);
-pub const D3DDDI_DOORBELLSTATUS_CONNECTED: D3DDDI_DOORBELLSTATUS = D3DDDI_DOORBELLSTATUS(0i32);
-pub const D3DDDI_DOORBELLSTATUS_CONNECTED_NOTIFY_KMD: D3DDDI_DOORBELLSTATUS = D3DDDI_DOORBELLSTATUS(1i32);
-pub const D3DDDI_DOORBELLSTATUS_DISCONNECTED_ABORT: D3DDDI_DOORBELLSTATUS = D3DDDI_DOORBELLSTATUS(3i32);
-pub const D3DDDI_DOORBELLSTATUS_DISCONNECTED_RETRY: D3DDDI_DOORBELLSTATUS = D3DDDI_DOORBELLSTATUS(2i32);
-pub const D3DDDI_DOORBELL_PRIVATEDATA_MAX_BYTES_WDDM3_1: u32 = 16u32;
-pub const D3DDDI_DRIVERESCAPETYPE_CPUEVENTUSAGE: D3DDDI_DRIVERESCAPETYPE = D3DDDI_DRIVERESCAPETYPE(2i32);
-pub const D3DDDI_DRIVERESCAPETYPE_MAX: D3DDDI_DRIVERESCAPETYPE = D3DDDI_DRIVERESCAPETYPE(3i32);
-pub const D3DDDI_DRIVERESCAPETYPE_TRANSLATEALLOCATIONHANDLE: D3DDDI_DRIVERESCAPETYPE = D3DDDI_DRIVERESCAPETYPE(0i32);
-pub const D3DDDI_DRIVERESCAPETYPE_TRANSLATERESOURCEHANDLE: D3DDDI_DRIVERESCAPETYPE = D3DDDI_DRIVERESCAPETYPE(1i32);
-pub const D3DDDI_FENCE: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(3i32);
-pub const D3DDDI_FLIPINTERVAL_FOUR: D3DDDI_FLIPINTERVAL_TYPE = D3DDDI_FLIPINTERVAL_TYPE(4i32);
-pub const D3DDDI_FLIPINTERVAL_IMMEDIATE: D3DDDI_FLIPINTERVAL_TYPE = D3DDDI_FLIPINTERVAL_TYPE(0i32);
-pub const D3DDDI_FLIPINTERVAL_IMMEDIATE_ALLOW_TEARING: D3DDDI_FLIPINTERVAL_TYPE = D3DDDI_FLIPINTERVAL_TYPE(5i32);
-pub const D3DDDI_FLIPINTERVAL_ONE: D3DDDI_FLIPINTERVAL_TYPE = D3DDDI_FLIPINTERVAL_TYPE(1i32);
-pub const D3DDDI_FLIPINTERVAL_THREE: D3DDDI_FLIPINTERVAL_TYPE = D3DDDI_FLIPINTERVAL_TYPE(3i32);
-pub const D3DDDI_FLIPINTERVAL_TWO: D3DDDI_FLIPINTERVAL_TYPE = D3DDDI_FLIPINTERVAL_TYPE(2i32);
-pub const D3DDDI_GAMMARAMP_DEFAULT: D3DDDI_GAMMARAMP_TYPE = D3DDDI_GAMMARAMP_TYPE(1i32);
-pub const D3DDDI_GAMMARAMP_DXGI_1: D3DDDI_GAMMARAMP_TYPE = D3DDDI_GAMMARAMP_TYPE(3i32);
-pub const D3DDDI_GAMMARAMP_MATRIX_3x4: D3DDDI_GAMMARAMP_TYPE = D3DDDI_GAMMARAMP_TYPE(4i32);
-pub const D3DDDI_GAMMARAMP_MATRIX_V2: D3DDDI_GAMMARAMP_TYPE = D3DDDI_GAMMARAMP_TYPE(5i32);
-pub const D3DDDI_GAMMARAMP_RGB256x3x16: D3DDDI_GAMMARAMP_TYPE = D3DDDI_GAMMARAMP_TYPE(2i32);
-pub const D3DDDI_GAMMARAMP_UNINITIALIZED: D3DDDI_GAMMARAMP_TYPE = D3DDDI_GAMMARAMP_TYPE(0i32);
-pub const D3DDDI_HDR_METADATA_TYPE_HDR10: D3DDDI_HDR_METADATA_TYPE = D3DDDI_HDR_METADATA_TYPE(1i32);
-pub const D3DDDI_HDR_METADATA_TYPE_HDR10PLUS: D3DDDI_HDR_METADATA_TYPE = D3DDDI_HDR_METADATA_TYPE(2i32);
-pub const D3DDDI_HDR_METADATA_TYPE_NONE: D3DDDI_HDR_METADATA_TYPE = D3DDDI_HDR_METADATA_TYPE(0i32);
-pub const D3DDDI_MAX_BROADCAST_CONTEXT: u32 = 64u32;
-pub const D3DDDI_MAX_MPO_PRESENT_DIRTY_RECTS: u32 = 4095u32;
-pub const D3DDDI_MAX_OBJECT_SIGNALED: u32 = 32u32;
-pub const D3DDDI_MAX_OBJECT_WAITED_ON: u32 = 32u32;
-pub const D3DDDI_MAX_WRITTEN_PRIMARIES: u32 = 16u32;
-pub const D3DDDI_MONITORED_FENCE: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(5i32);
-pub const D3DDDI_OFFER_PRIORITY_AUTO: D3DDDI_OFFER_PRIORITY = D3DDDI_OFFER_PRIORITY(4i32);
-pub const D3DDDI_OFFER_PRIORITY_HIGH: D3DDDI_OFFER_PRIORITY = D3DDDI_OFFER_PRIORITY(3i32);
-pub const D3DDDI_OFFER_PRIORITY_LOW: D3DDDI_OFFER_PRIORITY = D3DDDI_OFFER_PRIORITY(1i32);
-pub const D3DDDI_OFFER_PRIORITY_NONE: D3DDDI_OFFER_PRIORITY = D3DDDI_OFFER_PRIORITY(0i32);
-pub const D3DDDI_OFFER_PRIORITY_NORMAL: D3DDDI_OFFER_PRIORITY = D3DDDI_OFFER_PRIORITY(2i32);
-pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G2084_P2020: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(12i32);
-pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_DVLL: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(33i32);
-pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_HDR10PLUS: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(32i32);
-pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G22_P2020: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(31i32);
-pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G22_P709: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(0i32);
-pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G22_P709_WCG: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(30i32);
-pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_RESERVED: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(4i32);
-pub const D3DDDI_PAGINGQUEUE_PRIORITY_ABOVE_NORMAL: D3DDDI_PAGINGQUEUE_PRIORITY = D3DDDI_PAGINGQUEUE_PRIORITY(1i32);
-pub const D3DDDI_PAGINGQUEUE_PRIORITY_BELOW_NORMAL: D3DDDI_PAGINGQUEUE_PRIORITY = D3DDDI_PAGINGQUEUE_PRIORITY(-1i32);
-pub const D3DDDI_PAGINGQUEUE_PRIORITY_NORMAL: D3DDDI_PAGINGQUEUE_PRIORITY = D3DDDI_PAGINGQUEUE_PRIORITY(0i32);
-pub const D3DDDI_PERIODIC_MONITORED_FENCE: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(6i32);
-pub const D3DDDI_QUERYREGISTRY_ADAPTERKEY: D3DDDI_QUERYREGISTRY_TYPE = D3DDDI_QUERYREGISTRY_TYPE(1i32);
-pub const D3DDDI_QUERYREGISTRY_DRIVERIMAGEPATH: D3DDDI_QUERYREGISTRY_TYPE = D3DDDI_QUERYREGISTRY_TYPE(3i32);
-pub const D3DDDI_QUERYREGISTRY_DRIVERSTOREPATH: D3DDDI_QUERYREGISTRY_TYPE = D3DDDI_QUERYREGISTRY_TYPE(2i32);
-pub const D3DDDI_QUERYREGISTRY_MAX: D3DDDI_QUERYREGISTRY_TYPE = D3DDDI_QUERYREGISTRY_TYPE(4i32);
-pub const D3DDDI_QUERYREGISTRY_SERVICEKEY: D3DDDI_QUERYREGISTRY_TYPE = D3DDDI_QUERYREGISTRY_TYPE(0i32);
-pub const D3DDDI_QUERYREGISTRY_STATUS_BUFFER_OVERFLOW: D3DDDI_QUERYREGISTRY_STATUS = D3DDDI_QUERYREGISTRY_STATUS(1i32);
-pub const D3DDDI_QUERYREGISTRY_STATUS_FAIL: D3DDDI_QUERYREGISTRY_STATUS = D3DDDI_QUERYREGISTRY_STATUS(2i32);
-pub const D3DDDI_QUERYREGISTRY_STATUS_MAX: D3DDDI_QUERYREGISTRY_STATUS = D3DDDI_QUERYREGISTRY_STATUS(3i32);
-pub const D3DDDI_QUERYREGISTRY_STATUS_SUCCESS: D3DDDI_QUERYREGISTRY_STATUS = D3DDDI_QUERYREGISTRY_STATUS(0i32);
-pub const D3DDDI_RECLAIM_RESULT_DISCARDED: D3DDDI_RECLAIM_RESULT = D3DDDI_RECLAIM_RESULT(1i32);
-pub const D3DDDI_RECLAIM_RESULT_NOT_COMMITTED: D3DDDI_RECLAIM_RESULT = D3DDDI_RECLAIM_RESULT(2i32);
-pub const D3DDDI_RECLAIM_RESULT_OK: D3DDDI_RECLAIM_RESULT = D3DDDI_RECLAIM_RESULT(0i32);
-pub const D3DDDI_ROTATION_180: D3DDDI_ROTATION = D3DDDI_ROTATION(3i32);
-pub const D3DDDI_ROTATION_270: D3DDDI_ROTATION = D3DDDI_ROTATION(4i32);
-pub const D3DDDI_ROTATION_90: D3DDDI_ROTATION = D3DDDI_ROTATION(2i32);
-pub const D3DDDI_ROTATION_IDENTITY: D3DDDI_ROTATION = D3DDDI_ROTATION(1i32);
-pub const D3DDDI_SCANLINEORDERING_INTERLACED: D3DDDI_SCANLINEORDERING = D3DDDI_SCANLINEORDERING(2i32);
-pub const D3DDDI_SCANLINEORDERING_PROGRESSIVE: D3DDDI_SCANLINEORDERING = D3DDDI_SCANLINEORDERING(1i32);
-pub const D3DDDI_SCANLINEORDERING_UNKNOWN: D3DDDI_SCANLINEORDERING = D3DDDI_SCANLINEORDERING(0i32);
-pub const D3DDDI_SEMAPHORE: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(2i32);
-pub const D3DDDI_SYNCHRONIZATION_MUTEX: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(1i32);
-pub const D3DDDI_SYNCHRONIZATION_TYPE_LIMIT: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(7i32);
-pub const D3DDDI_SYNC_OBJECT_SIGNAL: u32 = 2u32;
-pub const D3DDDI_SYNC_OBJECT_WAIT: u32 = 1u32;
-pub const D3DDDI_UPDATEGPUVIRTUALADDRESS_COPY: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE(2i32);
-pub const D3DDDI_UPDATEGPUVIRTUALADDRESS_MAP: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE(0i32);
-pub const D3DDDI_UPDATEGPUVIRTUALADDRESS_MAP_PROTECT: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE(3i32);
-pub const D3DDDI_UPDATEGPUVIRTUALADDRESS_UNMAP: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE(1i32);
-pub const D3DDDI_VSSLO_INTERLACED_LOWERFIELDFIRST: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING(3i32);
-pub const D3DDDI_VSSLO_INTERLACED_UPPERFIELDFIRST: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING(2i32);
-pub const D3DDDI_VSSLO_OTHER: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING(255i32);
-pub const D3DDDI_VSSLO_PROGRESSIVE: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING(1i32);
-pub const D3DDDI_VSSLO_UNINITIALIZED: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING(0i32);
-pub const D3DDEVCAPS_HWINDEXBUFFER: i32 = 67108864i32;
-pub const D3DDEVCAPS_HWVERTEXBUFFER: i32 = 33554432i32;
-pub const D3DDEVCAPS_SUBVOLUMELOCK: i32 = 134217728i32;
-pub const D3DDEVINFOID_VCACHE: u32 = 4u32;
-pub const D3DDP2OP_ADDDIRTYBOX: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(67i32);
-pub const D3DDP2OP_ADDDIRTYRECT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(66i32);
-pub const D3DDP2OP_BLT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(81i32);
-pub const D3DDP2OP_BUFFERBLT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(64i32);
-pub const D3DDP2OP_CLEAR: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(42i32);
-pub const D3DDP2OP_CLIPPEDTRIANGLEFAN: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(58i32);
-pub const D3DDP2OP_COLORFILL: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(82i32);
-pub const D3DDP2OP_COMPOSERECTS: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(98i32);
-pub const D3DDP2OP_CREATELIGHT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(35i32);
-pub const D3DDP2OP_CREATEPIXELSHADER: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(54i32);
-pub const D3DDP2OP_CREATEQUERY: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(84i32);
-pub const D3DDP2OP_CREATEVERTEXSHADER: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(45i32);
-pub const D3DDP2OP_CREATEVERTEXSHADERDECL: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(71i32);
-pub const D3DDP2OP_CREATEVERTEXSHADERFUNC: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(74i32);
-pub const D3DDP2OP_DELETEPIXELSHADER: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(55i32);
-pub const D3DDP2OP_DELETEQUERY: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(90i32);
-pub const D3DDP2OP_DELETEVERTEXSHADER: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(46i32);
-pub const D3DDP2OP_DELETEVERTEXSHADERDECL: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(72i32);
-pub const D3DDP2OP_DELETEVERTEXSHADERFUNC: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(75i32);
-pub const D3DDP2OP_DRAWINDEXEDPRIMITIVE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(53i32);
-pub const D3DDP2OP_DRAWINDEXEDPRIMITIVE2: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(60i32);
-pub const D3DDP2OP_DRAWPRIMITIVE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(52i32);
-pub const D3DDP2OP_DRAWPRIMITIVE2: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(59i32);
-pub const D3DDP2OP_DRAWRECTPATCH: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(61i32);
-pub const D3DDP2OP_DRAWTRIPATCH: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(62i32);
-pub const D3DDP2OP_GENERATEMIPSUBLEVELS: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(89i32);
-pub const D3DDP2OP_INDEXEDLINELIST: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(2i32);
-pub const D3DDP2OP_INDEXEDLINELIST2: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(27i32);
-pub const D3DDP2OP_INDEXEDLINESTRIP: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(17i32);
-pub const D3DDP2OP_INDEXEDTRIANGLEFAN: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(22i32);
-pub const D3DDP2OP_INDEXEDTRIANGLELIST: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(3i32);
-pub const D3DDP2OP_INDEXEDTRIANGLELIST2: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(26i32);
-pub const D3DDP2OP_INDEXEDTRIANGLESTRIP: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(20i32);
-pub const D3DDP2OP_ISSUEQUERY: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(91i32);
-pub const D3DDP2OP_LINELIST: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(15i32);
-pub const D3DDP2OP_LINELIST_IMM: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(24i32);
-pub const D3DDP2OP_LINESTRIP: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(16i32);
-pub const D3DDP2OP_MULTIPLYTRANSFORM: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(65i32);
-pub const D3DDP2OP_POINTS: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(1i32);
-pub const D3DDP2OP_RENDERSTATE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(8i32);
-pub const D3DDP2OP_RESPONSECONTINUE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(87i32);
-pub const D3DDP2OP_RESPONSEQUERY: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(88i32);
-pub const D3DDP2OP_SETCLIPPLANE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(44i32);
-pub const D3DDP2OP_SETCONVOLUTIONKERNELMONO: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(97i32);
-pub const D3DDP2OP_SETDEPTHSTENCIL: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(86i32);
-pub const D3DDP2OP_SETINDICES: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(51i32);
-pub const D3DDP2OP_SETLIGHT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(34i32);
-pub const D3DDP2OP_SETMATERIAL: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(33i32);
-pub const D3DDP2OP_SETPALETTE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(30i32);
-pub const D3DDP2OP_SETPIXELSHADER: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(56i32);
-pub const D3DDP2OP_SETPIXELSHADERCONST: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(57i32);
-pub const D3DDP2OP_SETPIXELSHADERCONSTB: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(94i32);
-pub const D3DDP2OP_SETPIXELSHADERCONSTI: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(93i32);
-pub const D3DDP2OP_SETPRIORITY: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(40i32);
-pub const D3DDP2OP_SETRENDERTARGET: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(41i32);
-pub const D3DDP2OP_SETRENDERTARGET2: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(85i32);
-pub const D3DDP2OP_SETSCISSORRECT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(79i32);
-pub const D3DDP2OP_SETSTREAMSOURCE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(49i32);
-pub const D3DDP2OP_SETSTREAMSOURCE2: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(80i32);
-pub const D3DDP2OP_SETSTREAMSOURCEFREQ: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(95i32);
-pub const D3DDP2OP_SETSTREAMSOURCEUM: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(50i32);
-pub const D3DDP2OP_SETTEXLOD: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(43i32);
-pub const D3DDP2OP_SETTRANSFORM: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(36i32);
-pub const D3DDP2OP_SETVERTEXSHADER: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(47i32);
-pub const D3DDP2OP_SETVERTEXSHADERCONST: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(48i32);
-pub const D3DDP2OP_SETVERTEXSHADERCONSTB: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(83i32);
-pub const D3DDP2OP_SETVERTEXSHADERCONSTI: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(77i32);
-pub const D3DDP2OP_SETVERTEXSHADERDECL: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(73i32);
-pub const D3DDP2OP_SETVERTEXSHADERFUNC: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(76i32);
-pub const D3DDP2OP_STATESET: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(39i32);
-pub const D3DDP2OP_SURFACEBLT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(96i32);
-pub const D3DDP2OP_TEXBLT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(38i32);
-pub const D3DDP2OP_TEXTURESTAGESTATE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(25i32);
-pub const D3DDP2OP_TRIANGLEFAN: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(21i32);
-pub const D3DDP2OP_TRIANGLEFAN_IMM: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(23i32);
-pub const D3DDP2OP_TRIANGLELIST: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(18i32);
-pub const D3DDP2OP_TRIANGLESTRIP: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(19i32);
-pub const D3DDP2OP_UPDATEPALETTE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(31i32);
-pub const D3DDP2OP_VIEWPORTINFO: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(28i32);
-pub const D3DDP2OP_VOLUMEBLT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(63i32);
-pub const D3DDP2OP_WINFO: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(29i32);
-pub const D3DDP2OP_ZRANGE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(32i32);
-pub const D3DFVF_FOG: i32 = 8192i32;
-pub const D3DGDI2_MAGIC: u32 = 4294967295u32;
-pub const D3DGDI2_TYPE_DEFERRED_AGP_AWARE: u32 = 24u32;
-pub const D3DGDI2_TYPE_DEFER_AGP_FREES: u32 = 32u32;
-pub const D3DGDI2_TYPE_DXVERSION: u32 = 4u32;
-pub const D3DGDI2_TYPE_FREE_DEFERRED_AGP: u32 = 25u32;
-pub const D3DGDI2_TYPE_GETADAPTERGROUP: u32 = 19u32;
-pub const D3DGDI2_TYPE_GETD3DCAPS8: u32 = 1u32;
-pub const D3DGDI2_TYPE_GETD3DCAPS9: u32 = 16u32;
-pub const D3DGDI2_TYPE_GETD3DQUERY: u32 = 34u32;
-pub const D3DGDI2_TYPE_GETD3DQUERYCOUNT: u32 = 33u32;
-pub const D3DGDI2_TYPE_GETDDIVERSION: u32 = 35u32;
-pub const D3DGDI2_TYPE_GETEXTENDEDMODE: u32 = 18u32;
-pub const D3DGDI2_TYPE_GETEXTENDEDMODECOUNT: u32 = 17u32;
-pub const D3DGDI2_TYPE_GETFORMAT: u32 = 3u32;
-pub const D3DGDI2_TYPE_GETFORMATCOUNT: u32 = 2u32;
-pub const D3DGDI2_TYPE_GETMULTISAMPLEQUALITYLEVELS: u32 = 22u32;
-pub const D3DGPU_NULL: u32 = 0u32;
-pub const D3DHAL2_CB32_CLEAR: i32 = 2i32;
-pub const D3DHAL2_CB32_DRAWONEINDEXEDPRIMITIVE: i32 = 8i32;
-pub const D3DHAL2_CB32_DRAWONEPRIMITIVE: i32 = 4i32;
-pub const D3DHAL2_CB32_DRAWPRIMITIVES: i32 = 16i32;
-pub const D3DHAL2_CB32_SETRENDERTARGET: i32 = 1i32;
-pub const D3DHAL3_CB32_CLEAR2: i32 = 1i32;
-pub const D3DHAL3_CB32_DRAWPRIMITIVES2: i32 = 8i32;
-pub const D3DHAL3_CB32_RESERVED: i32 = 2i32;
-pub const D3DHAL3_CB32_VALIDATETEXTURESTAGESTATE: i32 = 4i32;
-pub const D3DHALDP2_EXECUTEBUFFER: i32 = 2i32;
-pub const D3DHALDP2_REQCOMMANDBUFSIZE: i32 = 32i32;
-pub const D3DHALDP2_REQVERTEXBUFSIZE: i32 = 16i32;
-pub const D3DHALDP2_SWAPCOMMANDBUFFER: i32 = 8i32;
-pub const D3DHALDP2_SWAPVERTEXBUFFER: i32 = 4i32;
-pub const D3DHALDP2_USERMEMVERTICES: i32 = 1i32;
-pub const D3DHALDP2_VIDMEMCOMMANDBUF: i32 = 128i32;
-pub const D3DHALDP2_VIDMEMVERTEXBUF: i32 = 64i32;
-pub const D3DHALSTATE_GET_LIGHT: i32 = 2i32;
-pub const D3DHALSTATE_GET_RENDER: i32 = 4i32;
-pub const D3DHALSTATE_GET_TRANSFORM: i32 = 1i32;
-pub const D3DHAL_COL_WEIGHTS: u32 = 2u32;
-pub const D3DHAL_CONTEXT_BAD: i64 = 512i64;
-pub const D3DHAL_EXECUTE_ABORT: i32 = 528i32;
-pub const D3DHAL_EXECUTE_NORMAL: i32 = 0i32;
-pub const D3DHAL_EXECUTE_OVERRIDE: i32 = 1i32;
-pub const D3DHAL_EXECUTE_UNHANDLED: i32 = 529i32;
-pub const D3DHAL_MAX_RSTATES: u32 = 256u32;
-pub const D3DHAL_MAX_RSTATES_DX6: u32 = 256u32;
-pub const D3DHAL_MAX_RSTATES_DX7: u32 = 256u32;
-pub const D3DHAL_MAX_RSTATES_DX8: u32 = 256u32;
-pub const D3DHAL_MAX_RSTATES_DX9: u32 = 256u32;
-pub const D3DHAL_MAX_TEXTURESTATES: u32 = 13u32;
-pub const D3DHAL_NUMCLIPVERTICES: u32 = 20u32;
-pub const D3DHAL_OUTOFCONTEXTS: i64 = 513i64;
-pub const D3DHAL_ROW_WEIGHTS: u32 = 1u32;
-pub const D3DHAL_SAMPLER_MAXSAMP: u32 = 16u32;
-pub const D3DHAL_SAMPLER_MAXVERTEXSAMP: u32 = 4u32;
-pub const D3DHAL_SCENE_CAPTURE_END: i32 = 1i32;
-pub const D3DHAL_SCENE_CAPTURE_START: i32 = 0i32;
-pub const D3DHAL_SETLIGHT_DATA: u32 = 2u32;
-pub const D3DHAL_SETLIGHT_DISABLE: u32 = 1u32;
-pub const D3DHAL_SETLIGHT_ENABLE: u32 = 0u32;
-pub const D3DHAL_STATESETBEGIN: u32 = 0u32;
-pub const D3DHAL_STATESETCAPTURE: u32 = 4u32;
-pub const D3DHAL_STATESETCREATE: u32 = 5u32;
-pub const D3DHAL_STATESETDELETE: u32 = 2u32;
-pub const D3DHAL_STATESETEND: u32 = 1u32;
-pub const D3DHAL_STATESETEXECUTE: u32 = 3u32;
-pub const D3DHAL_TEXTURESTATEBUF_SIZE: u32 = 14u32;
-pub const D3DHAL_TSS_MAXSTAGES: u32 = 8u32;
-pub const D3DHAL_TSS_RENDERSTATEBASE: u32 = 256u32;
-pub const D3DHAL_TSS_STATESPERSTAGE: u32 = 64u32;
-pub const D3DINFINITEINSTRUCTIONS: u32 = 4294967295u32;
-pub const D3DKMDT_BITS_PER_COMPONENT_06: u32 = 1u32;
-pub const D3DKMDT_BITS_PER_COMPONENT_08: u32 = 2u32;
-pub const D3DKMDT_BITS_PER_COMPONENT_10: u32 = 4u32;
-pub const D3DKMDT_BITS_PER_COMPONENT_12: u32 = 8u32;
-pub const D3DKMDT_BITS_PER_COMPONENT_14: u32 = 16u32;
-pub const D3DKMDT_BITS_PER_COMPONENT_16: u32 = 32u32;
-pub const D3DKMDT_CB_INTENSITY: D3DKMDT_COLOR_BASIS = D3DKMDT_COLOR_BASIS(1i32);
-pub const D3DKMDT_CB_SCRGB: D3DKMDT_COLOR_BASIS = D3DKMDT_COLOR_BASIS(3i32);
-pub const D3DKMDT_CB_SRGB: D3DKMDT_COLOR_BASIS = D3DKMDT_COLOR_BASIS(2i32);
-pub const D3DKMDT_CB_UNINITIALIZED: D3DKMDT_COLOR_BASIS = D3DKMDT_COLOR_BASIS(0i32);
-pub const D3DKMDT_CB_YCBCR: D3DKMDT_COLOR_BASIS = D3DKMDT_COLOR_BASIS(4i32);
-pub const D3DKMDT_CB_YPBPR: D3DKMDT_COLOR_BASIS = D3DKMDT_COLOR_BASIS(5i32);
-pub const D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL_BYPASS: D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL = D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL(2i32);
-pub const D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL_ENABLE: D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL = D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL(1i32);
-pub const D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL_NO_CHANGE: D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL = D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL(0i32);
-pub const D3DKMDT_COMPUTE_PREEMPTION_DISPATCH_BOUNDARY: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(200i32);
-pub const D3DKMDT_COMPUTE_PREEMPTION_DMA_BUFFER_BOUNDARY: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(100i32);
-pub const D3DKMDT_COMPUTE_PREEMPTION_NONE: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(0i32);
-pub const D3DKMDT_COMPUTE_PREEMPTION_SHADER_BOUNDARY: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(500i32);
-pub const D3DKMDT_COMPUTE_PREEMPTION_THREAD_BOUNDARY: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(400i32);
-pub const D3DKMDT_COMPUTE_PREEMPTION_THREAD_GROUP_BOUNDARY: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(300i32);
-pub const D3DKMDT_EPT_NOPIVOT: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(5i32);
-pub const D3DKMDT_EPT_ROTATION: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(4i32);
-pub const D3DKMDT_EPT_SCALING: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(3i32);
-pub const D3DKMDT_EPT_UNINITIALIZED: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(0i32);
-pub const D3DKMDT_EPT_VIDPNSOURCE: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(1i32);
-pub const D3DKMDT_EPT_VIDPNTARGET: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(2i32);
-pub const D3DKMDT_GDISURFACE_EXISTINGSYSMEM: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(5i32);
-pub const D3DKMDT_GDISURFACE_INVALID: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(0i32);
-pub const D3DKMDT_GDISURFACE_LOOKUPTABLE: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(4i32);
-pub const D3DKMDT_GDISURFACE_STAGING: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(3i32);
-pub const D3DKMDT_GDISURFACE_STAGING_CPUVISIBLE: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(2i32);
-pub const D3DKMDT_GDISURFACE_TEXTURE: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(1i32);
-pub const D3DKMDT_GDISURFACE_TEXTURE_CPUVISIBLE: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(6i32);
-pub const D3DKMDT_GDISURFACE_TEXTURE_CPUVISIBLE_CROSSADAPTER: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(8i32);
-pub const D3DKMDT_GDISURFACE_TEXTURE_CROSSADAPTER: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(7i32);
-pub const D3DKMDT_GRAPHICS_PREEMPTION_DMA_BUFFER_BOUNDARY: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(100i32);
-pub const D3DKMDT_GRAPHICS_PREEMPTION_NONE: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(0i32);
-pub const D3DKMDT_GRAPHICS_PREEMPTION_PIXEL_BOUNDARY: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(400i32);
-pub const D3DKMDT_GRAPHICS_PREEMPTION_PRIMITIVE_BOUNDARY: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(200i32);
-pub const D3DKMDT_GRAPHICS_PREEMPTION_SHADER_BOUNDARY: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(500i32);
-pub const D3DKMDT_GRAPHICS_PREEMPTION_TRIANGLE_BOUNDARY: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(300i32);
-pub const D3DKMDT_GTF_COMPLIANT: D3DKMDT_GTFCOMPLIANCE = D3DKMDT_GTFCOMPLIANCE(1i32);
-pub const D3DKMDT_GTF_NOTCOMPLIANT: D3DKMDT_GTFCOMPLIANCE = D3DKMDT_GTFCOMPLIANCE(2i32);
-pub const D3DKMDT_GTF_UNINITIALIZED: D3DKMDT_GTFCOMPLIANCE = D3DKMDT_GTFCOMPLIANCE(0i32);
-pub const D3DKMDT_MACROVISION_OEMCOPYPROTECTION_SIZE: u32 = 256u32;
-pub const D3DKMDT_MAX_OVERLAYS_BITCOUNT: u32 = 2u32;
-pub const D3DKMDT_MAX_VIDPN_SOURCES_BITCOUNT: u32 = 4u32;
-pub const D3DKMDT_MCC_ENFORCE: D3DKMDT_MONITOR_CONNECTIVITY_CHECKS = D3DKMDT_MONITOR_CONNECTIVITY_CHECKS(2i32);
-pub const D3DKMDT_MCC_IGNORE: D3DKMDT_MONITOR_CONNECTIVITY_CHECKS = D3DKMDT_MONITOR_CONNECTIVITY_CHECKS(1i32);
-pub const D3DKMDT_MCC_UNINITIALIZED: D3DKMDT_MONITOR_CONNECTIVITY_CHECKS = D3DKMDT_MONITOR_CONNECTIVITY_CHECKS(0i32);
-pub const D3DKMDT_MCO_DEFAULTMONITORPROFILE: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(1i32);
-pub const D3DKMDT_MCO_DRIVER: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(5i32);
-pub const D3DKMDT_MCO_MONITORDESCRIPTOR: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(2i32);
-pub const D3DKMDT_MCO_MONITORDESCRIPTOR_REGISTRYOVERRIDE: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(3i32);
-pub const D3DKMDT_MCO_SPECIFICCAP_REGISTRYOVERRIDE: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(4i32);
-pub const D3DKMDT_MCO_UNINITIALIZED: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(0i32);
-pub const D3DKMDT_MDT_OTHER: D3DKMDT_MONITOR_DESCRIPTOR_TYPE = D3DKMDT_MONITOR_DESCRIPTOR_TYPE(255i32);
-pub const D3DKMDT_MDT_UNINITIALIZED: D3DKMDT_MONITOR_DESCRIPTOR_TYPE = D3DKMDT_MONITOR_DESCRIPTOR_TYPE(0i32);
-pub const D3DKMDT_MDT_VESA_EDID_V1_BASEBLOCK: D3DKMDT_MONITOR_DESCRIPTOR_TYPE = D3DKMDT_MONITOR_DESCRIPTOR_TYPE(1i32);
-pub const D3DKMDT_MDT_VESA_EDID_V1_BLOCKMAP: D3DKMDT_MONITOR_DESCRIPTOR_TYPE = D3DKMDT_MONITOR_DESCRIPTOR_TYPE(2i32);
-pub const D3DKMDT_MFRC_ACTIVESIZE: D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT = D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT(1i32);
-pub const D3DKMDT_MFRC_MAXPIXELRATE: D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT = D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT(2i32);
-pub const D3DKMDT_MFRC_UNINITIALIZED: D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT = D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT(0i32);
-pub const D3DKMDT_MOA_INTERRUPTIBLE: D3DKMDT_MONITOR_ORIENTATION_AWARENESS = D3DKMDT_MONITOR_ORIENTATION_AWARENESS(3i32);
-pub const D3DKMDT_MOA_NONE: D3DKMDT_MONITOR_ORIENTATION_AWARENESS = D3DKMDT_MONITOR_ORIENTATION_AWARENESS(1i32);
-pub const D3DKMDT_MOA_POLLED: D3DKMDT_MONITOR_ORIENTATION_AWARENESS = D3DKMDT_MONITOR_ORIENTATION_AWARENESS(2i32);
-pub const D3DKMDT_MOA_UNINITIALIZED: D3DKMDT_MONITOR_ORIENTATION_AWARENESS = D3DKMDT_MONITOR_ORIENTATION_AWARENESS(0i32);
-pub const D3DKMDT_MO_0DEG: D3DKMDT_MONITOR_ORIENTATION = D3DKMDT_MONITOR_ORIENTATION(1i32);
-pub const D3DKMDT_MO_180DEG: D3DKMDT_MONITOR_ORIENTATION = D3DKMDT_MONITOR_ORIENTATION(3i32);
-pub const D3DKMDT_MO_270DEG: D3DKMDT_MONITOR_ORIENTATION = D3DKMDT_MONITOR_ORIENTATION(4i32);
-pub const D3DKMDT_MO_90DEG: D3DKMDT_MONITOR_ORIENTATION = D3DKMDT_MONITOR_ORIENTATION(2i32);
-pub const D3DKMDT_MO_UNINITIALIZED: D3DKMDT_MONITOR_ORIENTATION = D3DKMDT_MONITOR_ORIENTATION(0i32);
-pub const D3DKMDT_MPR_ALLCAPS: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(1i32);
-pub const D3DKMDT_MPR_CLONE_PATH_PRUNED: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(9i32);
-pub const D3DKMDT_MPR_DEFAULT_PROFILE_MONITOR_SOURCE_MODE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(6i32);
-pub const D3DKMDT_MPR_DESCRIPTOR_MONITOR_FREQUENCY_RANGE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(3i32);
-pub const D3DKMDT_MPR_DESCRIPTOR_MONITOR_SOURCE_MODE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(2i32);
-pub const D3DKMDT_MPR_DESCRIPTOR_OVERRIDE_MONITOR_FREQUENCY_RANGE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(5i32);
-pub const D3DKMDT_MPR_DESCRIPTOR_OVERRIDE_MONITOR_SOURCE_MODE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(4i32);
-pub const D3DKMDT_MPR_DRIVER_RECOMMENDED_MONITOR_SOURCE_MODE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(7i32);
-pub const D3DKMDT_MPR_MAXVALID: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(10i32);
-pub const D3DKMDT_MPR_MONITOR_FREQUENCY_RANGE_OVERRIDE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(8i32);
-pub const D3DKMDT_MPR_UNINITIALIZED: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(0i32);
-pub const D3DKMDT_MP_NOTPREFERRED: D3DKMDT_MODE_PREFERENCE = D3DKMDT_MODE_PREFERENCE(2i32);
-pub const D3DKMDT_MP_PREFERRED: D3DKMDT_MODE_PREFERENCE = D3DKMDT_MODE_PREFERENCE(1i32);
-pub const D3DKMDT_MP_UNINITIALIZED: D3DKMDT_MODE_PREFERENCE = D3DKMDT_MODE_PREFERENCE(0i32);
-pub const D3DKMDT_MTT_DEFAULTMONITORPROFILE: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(5i32);
-pub const D3DKMDT_MTT_DETAILED: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(4i32);
-pub const D3DKMDT_MTT_DRIVER: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(6i32);
-pub const D3DKMDT_MTT_ESTABLISHED: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(1i32);
-pub const D3DKMDT_MTT_EXTRASTANDARD: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(3i32);
-pub const D3DKMDT_MTT_STANDARD: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(2i32);
-pub const D3DKMDT_MTT_UNINITIALIZED: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(0i32);
-pub const D3DKMDT_PVAM_DIRECT: D3DKMDT_PIXEL_VALUE_ACCESS_MODE = D3DKMDT_PIXEL_VALUE_ACCESS_MODE(1i32);
-pub const D3DKMDT_PVAM_PRESETPALETTE: D3DKMDT_PIXEL_VALUE_ACCESS_MODE = D3DKMDT_PIXEL_VALUE_ACCESS_MODE(2i32);
-pub const D3DKMDT_PVAM_SETTABLEPALETTE: D3DKMDT_PIXEL_VALUE_ACCESS_MODE = D3DKMDT_PIXEL_VALUE_ACCESS_MODE(3i32);
-pub const D3DKMDT_PVAM_UNINITIALIZED: D3DKMDT_PIXEL_VALUE_ACCESS_MODE = D3DKMDT_PIXEL_VALUE_ACCESS_MODE(0i32);
-pub const D3DKMDT_RMT_GRAPHICS: D3DKMDT_VIDPN_SOURCE_MODE_TYPE = D3DKMDT_VIDPN_SOURCE_MODE_TYPE(1i32);
-pub const D3DKMDT_RMT_GRAPHICS_STEREO: D3DKMDT_VIDPN_SOURCE_MODE_TYPE = D3DKMDT_VIDPN_SOURCE_MODE_TYPE(3i32);
-pub const D3DKMDT_RMT_GRAPHICS_STEREO_ADVANCED_SCAN: D3DKMDT_VIDPN_SOURCE_MODE_TYPE = D3DKMDT_VIDPN_SOURCE_MODE_TYPE(4i32);
-pub const D3DKMDT_RMT_TEXT: D3DKMDT_VIDPN_SOURCE_MODE_TYPE = D3DKMDT_VIDPN_SOURCE_MODE_TYPE(2i32);
-pub const D3DKMDT_RMT_UNINITIALIZED: D3DKMDT_VIDPN_SOURCE_MODE_TYPE = D3DKMDT_VIDPN_SOURCE_MODE_TYPE(0i32);
-pub const D3DKMDT_STANDARDALLOCATION_GDISURFACE: D3DKMDT_STANDARDALLOCATION_TYPE = D3DKMDT_STANDARDALLOCATION_TYPE(4i32);
-pub const D3DKMDT_STANDARDALLOCATION_SHADOWSURFACE: D3DKMDT_STANDARDALLOCATION_TYPE = D3DKMDT_STANDARDALLOCATION_TYPE(2i32);
-pub const D3DKMDT_STANDARDALLOCATION_SHAREDPRIMARYSURFACE: D3DKMDT_STANDARDALLOCATION_TYPE = D3DKMDT_STANDARDALLOCATION_TYPE(1i32);
-pub const D3DKMDT_STANDARDALLOCATION_STAGINGSURFACE: D3DKMDT_STANDARDALLOCATION_TYPE = D3DKMDT_STANDARDALLOCATION_TYPE(3i32);
-pub const D3DKMDT_STANDARDALLOCATION_VGPU: D3DKMDT_STANDARDALLOCATION_TYPE = D3DKMDT_STANDARDALLOCATION_TYPE(5i32);
-pub const D3DKMDT_TRF_UNINITIALIZED: D3DKMDT_TEXT_RENDERING_FORMAT = D3DKMDT_TEXT_RENDERING_FORMAT(0i32);
-pub const D3DKMDT_VOT_BNC: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(3i32);
-pub const D3DKMDT_VOT_COMPONENT_VIDEO: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(3i32);
-pub const D3DKMDT_VOT_COMPOSITE_VIDEO: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(2i32);
-pub const D3DKMDT_VOT_DISPLAYPORT_EMBEDDED: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(11i32);
-pub const D3DKMDT_VOT_DISPLAYPORT_EXTERNAL: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(10i32);
-pub const D3DKMDT_VOT_DVI: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(4i32);
-pub const D3DKMDT_VOT_D_JPN: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(8i32);
-pub const D3DKMDT_VOT_HD15: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(0i32);
-pub const D3DKMDT_VOT_HDMI: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(5i32);
-pub const D3DKMDT_VOT_INDIRECT_WIRED: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(16i32);
-pub const D3DKMDT_VOT_INTERNAL: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(-2147483648i32);
-pub const D3DKMDT_VOT_LVDS: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(6i32);
-pub const D3DKMDT_VOT_MIRACAST: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(15i32);
-pub const D3DKMDT_VOT_OTHER: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(-1i32);
-pub const D3DKMDT_VOT_RCA_3COMPONENT: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(3i32);
-pub const D3DKMDT_VOT_RF: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(2i32);
-pub const D3DKMDT_VOT_SDI: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(9i32);
-pub const D3DKMDT_VOT_SDTVDONGLE: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(14i32);
-pub const D3DKMDT_VOT_SVIDEO: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(1i32);
-pub const D3DKMDT_VOT_SVIDEO_4PIN: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(1i32);
-pub const D3DKMDT_VOT_SVIDEO_7PIN: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(1i32);
-pub const D3DKMDT_VOT_UDI_EMBEDDED: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(13i32);
-pub const D3DKMDT_VOT_UDI_EXTERNAL: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(12i32);
-pub const D3DKMDT_VOT_UNINITIALIZED: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(-2i32);
-pub const D3DKMDT_VPPC_GRAPHICS: D3DKMDT_VIDPN_PRESENT_PATH_CONTENT = D3DKMDT_VIDPN_PRESENT_PATH_CONTENT(1i32);
-pub const D3DKMDT_VPPC_NOTSPECIFIED: D3DKMDT_VIDPN_PRESENT_PATH_CONTENT = D3DKMDT_VIDPN_PRESENT_PATH_CONTENT(255i32);
-pub const D3DKMDT_VPPC_UNINITIALIZED: D3DKMDT_VIDPN_PRESENT_PATH_CONTENT = D3DKMDT_VIDPN_PRESENT_PATH_CONTENT(0i32);
-pub const D3DKMDT_VPPC_VIDEO: D3DKMDT_VIDPN_PRESENT_PATH_CONTENT = D3DKMDT_VIDPN_PRESENT_PATH_CONTENT(2i32);
-pub const D3DKMDT_VPPI_DENARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(10i32);
-pub const D3DKMDT_VPPI_NONARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(9i32);
-pub const D3DKMDT_VPPI_OCTONARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(8i32);
-pub const D3DKMDT_VPPI_PRIMARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(1i32);
-pub const D3DKMDT_VPPI_QUATERNARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(4i32);
-pub const D3DKMDT_VPPI_QUINARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(5i32);
-pub const D3DKMDT_VPPI_SECONDARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(2i32);
-pub const D3DKMDT_VPPI_SENARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(6i32);
-pub const D3DKMDT_VPPI_SEPTENARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(7i32);
-pub const D3DKMDT_VPPI_TERTIARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(3i32);
-pub const D3DKMDT_VPPI_UNINITIALIZED: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(0i32);
-pub const D3DKMDT_VPPMT_MACROVISION_APSTRIGGER: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE = D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE(2i32);
-pub const D3DKMDT_VPPMT_MACROVISION_FULLSUPPORT: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE = D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE(3i32);
-pub const D3DKMDT_VPPMT_NOPROTECTION: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE = D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE(1i32);
-pub const D3DKMDT_VPPMT_UNINITIALIZED: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE = D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE(0i32);
-pub const D3DKMDT_VPPR_IDENTITY: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(1i32);
-pub const D3DKMDT_VPPR_IDENTITY_OFFSET180: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(9i32);
-pub const D3DKMDT_VPPR_IDENTITY_OFFSET270: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(13i32);
-pub const D3DKMDT_VPPR_IDENTITY_OFFSET90: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(5i32);
-pub const D3DKMDT_VPPR_NOTSPECIFIED: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(255i32);
-pub const D3DKMDT_VPPR_ROTATE180: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(3i32);
-pub const D3DKMDT_VPPR_ROTATE180_OFFSET180: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(11i32);
-pub const D3DKMDT_VPPR_ROTATE180_OFFSET270: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(15i32);
-pub const D3DKMDT_VPPR_ROTATE180_OFFSET90: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(7i32);
-pub const D3DKMDT_VPPR_ROTATE270: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(4i32);
-pub const D3DKMDT_VPPR_ROTATE270_OFFSET180: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(12i32);
-pub const D3DKMDT_VPPR_ROTATE270_OFFSET270: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(16i32);
-pub const D3DKMDT_VPPR_ROTATE270_OFFSET90: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(8i32);
-pub const D3DKMDT_VPPR_ROTATE90: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(2i32);
-pub const D3DKMDT_VPPR_ROTATE90_OFFSET180: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(10i32);
-pub const D3DKMDT_VPPR_ROTATE90_OFFSET270: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(14i32);
-pub const D3DKMDT_VPPR_ROTATE90_OFFSET90: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(6i32);
-pub const D3DKMDT_VPPR_UNINITIALIZED: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(0i32);
-pub const D3DKMDT_VPPR_UNPINNED: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(254i32);
-pub const D3DKMDT_VPPS_ASPECTRATIOCENTEREDMAX: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(4i32);
-pub const D3DKMDT_VPPS_CENTERED: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(2i32);
-pub const D3DKMDT_VPPS_CUSTOM: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(5i32);
-pub const D3DKMDT_VPPS_IDENTITY: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(1i32);
-pub const D3DKMDT_VPPS_NOTSPECIFIED: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(255i32);
-pub const D3DKMDT_VPPS_RESERVED1: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(253i32);
-pub const D3DKMDT_VPPS_STRETCHED: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(3i32);
-pub const D3DKMDT_VPPS_UNINITIALIZED: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(0i32);
-pub const D3DKMDT_VPPS_UNPINNED: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(254i32);
-pub const D3DKMDT_VSS_APPLE: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(5i32);
-pub const D3DKMDT_VSS_EIA_861: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(25i32);
-pub const D3DKMDT_VSS_EIA_861A: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(26i32);
-pub const D3DKMDT_VSS_EIA_861B: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(27i32);
-pub const D3DKMDT_VSS_IBM: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(4i32);
-pub const D3DKMDT_VSS_NTSC_443: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(8i32);
-pub const D3DKMDT_VSS_NTSC_J: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(7i32);
-pub const D3DKMDT_VSS_NTSC_M: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(6i32);
-pub const D3DKMDT_VSS_OTHER: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(255i32);
-pub const D3DKMDT_VSS_PAL_B: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(9i32);
-pub const D3DKMDT_VSS_PAL_B1: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(10i32);
-pub const D3DKMDT_VSS_PAL_D: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(14i32);
-pub const D3DKMDT_VSS_PAL_G: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(11i32);
-pub const D3DKMDT_VSS_PAL_H: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(12i32);
-pub const D3DKMDT_VSS_PAL_I: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(13i32);
-pub const D3DKMDT_VSS_PAL_K: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(28i32);
-pub const D3DKMDT_VSS_PAL_K1: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(29i32);
-pub const D3DKMDT_VSS_PAL_L: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(30i32);
-pub const D3DKMDT_VSS_PAL_M: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(31i32);
-pub const D3DKMDT_VSS_PAL_N: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(15i32);
-pub const D3DKMDT_VSS_PAL_NC: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(16i32);
-pub const D3DKMDT_VSS_SECAM_B: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(17i32);
-pub const D3DKMDT_VSS_SECAM_D: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(18i32);
-pub const D3DKMDT_VSS_SECAM_G: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(19i32);
-pub const D3DKMDT_VSS_SECAM_H: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(20i32);
-pub const D3DKMDT_VSS_SECAM_K: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(21i32);
-pub const D3DKMDT_VSS_SECAM_K1: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(22i32);
-pub const D3DKMDT_VSS_SECAM_L: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(23i32);
-pub const D3DKMDT_VSS_SECAM_L1: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(24i32);
-pub const D3DKMDT_VSS_UNINITIALIZED: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(0i32);
-pub const D3DKMDT_VSS_VESA_CVT: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(3i32);
-pub const D3DKMDT_VSS_VESA_DMT: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(1i32);
-pub const D3DKMDT_VSS_VESA_GTF: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(2i32);
-pub const D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE_EXTRA_CCD_DATABASE_INFO: D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE = D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE(0i32);
-pub const D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE_MODES_PRUNED: D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE = D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE(15i32);
-pub const D3DKMT_ADAPTER_VERIFIER_OPTION_VIDMM_FLAGS: D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE = D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE(1000i32);
-pub const D3DKMT_ADAPTER_VERIFIER_OPTION_VIDMM_TRIM_INTERVAL: D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE = D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE(1001i32);
-pub const D3DKMT_ALLOCATIONRESIDENCYSTATUS_NOTRESIDENT: D3DKMT_ALLOCATIONRESIDENCYSTATUS = D3DKMT_ALLOCATIONRESIDENCYSTATUS(3i32);
-pub const D3DKMT_ALLOCATIONRESIDENCYSTATUS_RESIDENTINGPUMEMORY: D3DKMT_ALLOCATIONRESIDENCYSTATUS = D3DKMT_ALLOCATIONRESIDENCYSTATUS(1i32);
-pub const D3DKMT_ALLOCATIONRESIDENCYSTATUS_RESIDENTINSHAREDMEMORY: D3DKMT_ALLOCATIONRESIDENCYSTATUS = D3DKMT_ALLOCATIONRESIDENCYSTATUS(2i32);
-pub const D3DKMT_AUXILIARYPRESENTINFO_TYPE_FLIPMANAGER: D3DKMT_AUXILIARYPRESENTINFO_TYPE = D3DKMT_AUXILIARYPRESENTINFO_TYPE(0i32);
-pub const D3DKMT_AllocationPriorityClassHigh: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(3i32);
-pub const D3DKMT_AllocationPriorityClassLow: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(1i32);
-pub const D3DKMT_AllocationPriorityClassMaximum: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(4i32);
-pub const D3DKMT_AllocationPriorityClassMinimum: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(0i32);
-pub const D3DKMT_AllocationPriorityClassNormal: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(2i32);
-pub const D3DKMT_BRIGHTNESS_INFO_BEGIN_MANUAL_MODE: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(8i32);
-pub const D3DKMT_BRIGHTNESS_INFO_END_MANUAL_MODE: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(9i32);
-pub const D3DKMT_BRIGHTNESS_INFO_GET: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(2i32);
-pub const D3DKMT_BRIGHTNESS_INFO_GET_CAPS: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(4i32);
-pub const D3DKMT_BRIGHTNESS_INFO_GET_NIT_RANGES: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(11i32);
-pub const D3DKMT_BRIGHTNESS_INFO_GET_POSSIBLE_LEVELS: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(1i32);
-pub const D3DKMT_BRIGHTNESS_INFO_GET_REDUCTION: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(7i32);
-pub const D3DKMT_BRIGHTNESS_INFO_SET: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(3i32);
-pub const D3DKMT_BRIGHTNESS_INFO_SET_OPTIMIZATION: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(6i32);
-pub const D3DKMT_BRIGHTNESS_INFO_SET_STATE: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(5i32);
-pub const D3DKMT_BRIGHTNESS_INFO_TOGGLE_LOGGING: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(10i32);
-pub const D3DKMT_CANCEL_PRESENTS_OPERATION_CANCEL_FROM: D3DKMT_CANCEL_PRESENTS_OPERATION = D3DKMT_CANCEL_PRESENTS_OPERATION(0i32);
-pub const D3DKMT_CANCEL_PRESENTS_OPERATION_REPROGRAM_INTERRUPT: D3DKMT_CANCEL_PRESENTS_OPERATION = D3DKMT_CANCEL_PRESENTS_OPERATION(1i32);
-pub const D3DKMT_CLIENTHINT_11ON12: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(14i32);
-pub const D3DKMT_CLIENTHINT_9ON12: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(13i32);
-pub const D3DKMT_CLIENTHINT_CDD: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(2i32);
-pub const D3DKMT_CLIENTHINT_CLON12: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(17i32);
-pub const D3DKMT_CLIENTHINT_CUDA: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(5i32);
-pub const D3DKMT_CLIENTHINT_DML_PYTORCH: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(20i32);
-pub const D3DKMT_CLIENTHINT_DML_TENSORFLOW: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(18i32);
-pub const D3DKMT_CLIENTHINT_DX10: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(10i32);
-pub const D3DKMT_CLIENTHINT_DX11: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(11i32);
-pub const D3DKMT_CLIENTHINT_DX12: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(12i32);
-pub const D3DKMT_CLIENTHINT_DX7: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(7i32);
-pub const D3DKMT_CLIENTHINT_DX8: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(8i32);
-pub const D3DKMT_CLIENTHINT_DX9: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(9i32);
-pub const D3DKMT_CLIENTHINT_GLON12: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(16i32);
-pub const D3DKMT_CLIENTHINT_MAX: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(21i32);
-pub const D3DKMT_CLIENTHINT_MFT_ENCODE: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(15i32);
-pub const D3DKMT_CLIENTHINT_ONEAPI_LEVEL0: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(19i32);
-pub const D3DKMT_CLIENTHINT_OPENCL: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(3i32);
-pub const D3DKMT_CLIENTHINT_OPENGL: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(1i32);
-pub const D3DKMT_CLIENTHINT_RESERVED: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(6i32);
-pub const D3DKMT_CLIENTHINT_UNKNOWN: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(0i32);
-pub const D3DKMT_CLIENTHINT_VULKAN: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(4i32);
-pub const D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER_COPY: D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER = D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER(1i32);
-pub const D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER_NONE: D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER = D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER(0i32);
-pub const D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER_SCANOUT: D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER = D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER(3i32);
-pub const D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER_TEXTURE: D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER = D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER(2i32);
-pub const D3DKMT_CROSS_ADAPTER_RESOURCE_HEIGHT_ALIGNMENT: u32 = 4u32;
-pub const D3DKMT_CROSS_ADAPTER_RESOURCE_PITCH_ALIGNMENT: u32 = 128u32;
-pub const D3DKMT_ClientPagingBuffer: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE(1i32);
-pub const D3DKMT_ClientRenderBuffer: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE(0i32);
-pub const D3DKMT_DEFRAG_ESCAPE_DEFRAG_DOWNWARD: D3DKMT_DEFRAG_ESCAPE_OPERATION = D3DKMT_DEFRAG_ESCAPE_OPERATION(2i32);
-pub const D3DKMT_DEFRAG_ESCAPE_DEFRAG_PASS: D3DKMT_DEFRAG_ESCAPE_OPERATION = D3DKMT_DEFRAG_ESCAPE_OPERATION(3i32);
-pub const D3DKMT_DEFRAG_ESCAPE_DEFRAG_UPWARD: D3DKMT_DEFRAG_ESCAPE_OPERATION = D3DKMT_DEFRAG_ESCAPE_OPERATION(1i32);
-pub const D3DKMT_DEFRAG_ESCAPE_GET_FRAGMENTATION_STATS: D3DKMT_DEFRAG_ESCAPE_OPERATION = D3DKMT_DEFRAG_ESCAPE_OPERATION(0i32);
-pub const D3DKMT_DEFRAG_ESCAPE_VERIFY_TRANSFER: D3DKMT_DEFRAG_ESCAPE_OPERATION = D3DKMT_DEFRAG_ESCAPE_OPERATION(4i32);
-pub const D3DKMT_DEVICEESCAPE_RESTOREGAMMA: D3DKMT_DEVICEESCAPE_TYPE = D3DKMT_DEVICEESCAPE_TYPE(1i32);
-pub const D3DKMT_DEVICEESCAPE_VIDPNFROMALLOCATION: D3DKMT_DEVICEESCAPE_TYPE = D3DKMT_DEVICEESCAPE_TYPE(0i32);
-pub const D3DKMT_DEVICEEXECUTION_ACTIVE: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(1i32);
-pub const D3DKMT_DEVICEEXECUTION_ERROR_DMAFAULT: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(6i32);
-pub const D3DKMT_DEVICEEXECUTION_ERROR_DMAPAGEFAULT: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(7i32);
-pub const D3DKMT_DEVICEEXECUTION_ERROR_OUTOFMEMORY: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(5i32);
-pub const D3DKMT_DEVICEEXECUTION_HUNG: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(3i32);
-pub const D3DKMT_DEVICEEXECUTION_RESET: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(2i32);
-pub const D3DKMT_DEVICEEXECUTION_STOPPED: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(4i32);
-pub const D3DKMT_DEVICESTATE_EXECUTION: D3DKMT_DEVICESTATE_TYPE = D3DKMT_DEVICESTATE_TYPE(1i32);
-pub const D3DKMT_DEVICESTATE_PAGE_FAULT: D3DKMT_DEVICESTATE_TYPE = D3DKMT_DEVICESTATE_TYPE(5i32);
-pub const D3DKMT_DEVICESTATE_PRESENT: D3DKMT_DEVICESTATE_TYPE = D3DKMT_DEVICESTATE_TYPE(2i32);
-pub const D3DKMT_DEVICESTATE_PRESENT_DWM: D3DKMT_DEVICESTATE_TYPE = D3DKMT_DEVICESTATE_TYPE(4i32);
-pub const D3DKMT_DEVICESTATE_PRESENT_QUEUE: D3DKMT_DEVICESTATE_TYPE = D3DKMT_DEVICESTATE_TYPE(6i32);
-pub const D3DKMT_DEVICESTATE_RESET: D3DKMT_DEVICESTATE_TYPE = D3DKMT_DEVICESTATE_TYPE(3i32);
-pub const D3DKMT_DEVICE_ERROR_REASON_DRIVER_ERROR: D3DKMT_DEVICE_ERROR_REASON = D3DKMT_DEVICE_ERROR_REASON(-2147483642i32);
-pub const D3DKMT_DEVICE_ERROR_REASON_GENERIC: D3DKMT_DEVICE_ERROR_REASON = D3DKMT_DEVICE_ERROR_REASON(-2147483648i32);
-pub const D3DKMT_DMMESCAPETYPE_ACTIVEVIDPN_COFUNCPATHMODALITY_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(11i32);
-pub const D3DKMT_DMMESCAPETYPE_ACTIVEVIDPN_SOURCEMODESET_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(10i32);
-pub const D3DKMT_DMMESCAPETYPE_GET_ACTIVEVIDPN_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(4i32);
-pub const D3DKMT_DMMESCAPETYPE_GET_LASTCLIENTCOMMITTEDVIDPN_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(12i32);
-pub const D3DKMT_DMMESCAPETYPE_GET_MONITORS_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(5i32);
-pub const D3DKMT_DMMESCAPETYPE_GET_SUMMARY_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(1i32);
-pub const D3DKMT_DMMESCAPETYPE_GET_VERSION_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(13i32);
-pub const D3DKMT_DMMESCAPETYPE_GET_VIDEO_PRESENT_SOURCES_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(2i32);
-pub const D3DKMT_DMMESCAPETYPE_GET_VIDEO_PRESENT_TARGETS_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(3i32);
-pub const D3DKMT_DMMESCAPETYPE_RECENTLY_COMMITTED_VIDPNS_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(6i32);
-pub const D3DKMT_DMMESCAPETYPE_RECENTLY_RECOMMENDED_VIDPNS_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(8i32);
-pub const D3DKMT_DMMESCAPETYPE_RECENT_MODECHANGE_REQUESTS_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(7i32);
-pub const D3DKMT_DMMESCAPETYPE_RECENT_MONITOR_PRESENCE_EVENTS_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(9i32);
-pub const D3DKMT_DMMESCAPETYPE_UNINITIALIZED: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(0i32);
-pub const D3DKMT_DMMESCAPETYPE_VIDPN_MGR_DIAGNOSTICS: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(14i32);
-pub const D3DKMT_DeferredCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(1i32);
-pub const D3DKMT_DeviceCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(6i32);
-pub const D3DKMT_DmaPacketTypeMax: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE(4i32);
-pub const D3DKMT_ESCAPE_ACTIVATE_SPECIFIC_DIAG: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(14i32);
-pub const D3DKMT_ESCAPE_ADAPTER_VERIFIER_OPTION: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(29i32);
-pub const D3DKMT_ESCAPE_BDD_FALLBACK: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(13i32);
-pub const D3DKMT_ESCAPE_BDD_PNP: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(12i32);
-pub const D3DKMT_ESCAPE_BRIGHTNESS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(17i32);
-pub const D3DKMT_ESCAPE_CCD_DATABASE: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(38i32);
-pub const D3DKMT_ESCAPE_DEBUG_SNAPSHOT: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(6i32);
-pub const D3DKMT_ESCAPE_DEVICE: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(4i32);
-pub const D3DKMT_ESCAPE_DIAGNOSTICS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(9i32);
-pub const D3DKMT_ESCAPE_DMM: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(5i32);
-pub const D3DKMT_ESCAPE_DOD_SET_DIRTYRECT_MODE: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(31i32);
-pub const D3DKMT_ESCAPE_DRIVERPRIVATE: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(0i32);
-pub const D3DKMT_ESCAPE_DRT_TEST: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(8i32);
-pub const D3DKMT_ESCAPE_EDID_CACHE: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(18i32);
-pub const D3DKMT_ESCAPE_FORCE_BDDFALLBACK_HEADLESS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(24i32);
-pub const D3DKMT_ESCAPE_GET_DISPLAY_CONFIGURATIONS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(36i32);
-pub const D3DKMT_ESCAPE_GET_EXTERNAL_DIAGNOSTICS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(34i32);
-pub const D3DKMT_ESCAPE_HISTORY_BUFFER_STATUS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(21i32);
-pub const D3DKMT_ESCAPE_IDD_REQUEST: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(30i32);
-pub const D3DKMT_ESCAPE_LOG_CODEPOINT_PACKET: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(32i32);
-pub const D3DKMT_ESCAPE_LOG_USERMODE_DAIG_PACKET: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(33i32);
-pub const D3DKMT_ESCAPE_MIRACAST_ADAPTER_DIAG_INFO: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(23i32);
-pub const D3DKMT_ESCAPE_MIRACAST_DISPLAY_REQUEST: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(20i32);
-pub const D3DKMT_ESCAPE_MODES_PRUNED_OUT: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(15i32);
-pub const D3DKMT_ESCAPE_OUTPUTDUPL_DIAGNOSTICS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(11i32);
-pub const D3DKMT_ESCAPE_OUTPUTDUPL_SNAPSHOT: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(10i32);
-pub const D3DKMT_ESCAPE_PFN_CONTROL_DEFAULT: D3DKMT_ESCAPE_PFN_CONTROL_COMMAND = D3DKMT_ESCAPE_PFN_CONTROL_COMMAND(0i32);
-pub const D3DKMT_ESCAPE_PFN_CONTROL_FORCE_CPU: D3DKMT_ESCAPE_PFN_CONTROL_COMMAND = D3DKMT_ESCAPE_PFN_CONTROL_COMMAND(1i32);
-pub const D3DKMT_ESCAPE_PFN_CONTROL_FORCE_GPU: D3DKMT_ESCAPE_PFN_CONTROL_COMMAND = D3DKMT_ESCAPE_PFN_CONTROL_COMMAND(2i32);
-pub const D3DKMT_ESCAPE_PROCESS_VERIFIER_OPTION: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(28i32);
-pub const D3DKMT_ESCAPE_QUERY_DMA_REMAPPING_STATUS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(39i32);
-pub const D3DKMT_ESCAPE_QUERY_IOMMU_STATUS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(37i32);
-pub const D3DKMT_ESCAPE_REQUEST_MACHINE_CRASH: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(25i32);
-pub const D3DKMT_ESCAPE_SOFTGPU_ENABLE_DISABLE_HMD: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(27i32);
-pub const D3DKMT_ESCAPE_TDRDBGCTRL: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(2i32);
-pub const D3DKMT_ESCAPE_VIDMM: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1i32);
-pub const D3DKMT_ESCAPE_VIDSCH: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(3i32);
-pub const D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE_SET_BASE_DESKTOP_DURATION: D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE = D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE(0i32);
-pub const D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE_SET_PROCESS_BOOST_ELIGIBLE: D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE = D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE(2i32);
-pub const D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE_SET_VSYNC_MULTIPLIER: D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE = D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE(1i32);
-pub const D3DKMT_ESCAPE_WHQL_INFO: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(16i32);
-pub const D3DKMT_ESCAPE_WIN32K_BDD_FALLBACK: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1029i32);
-pub const D3DKMT_ESCAPE_WIN32K_COLOR_PROFILE_INFO: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1036i32);
-pub const D3DKMT_ESCAPE_WIN32K_DDA_TEST_CTL: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1030i32);
-pub const D3DKMT_ESCAPE_WIN32K_DISPBROKER_TEST: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1035i32);
-pub const D3DKMT_ESCAPE_WIN32K_DPI_INFO: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1026i32);
-pub const D3DKMT_ESCAPE_WIN32K_HIP_DEVICE_INFO: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1024i32);
-pub const D3DKMT_ESCAPE_WIN32K_PRESENTER_VIEW_INFO: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1027i32);
-pub const D3DKMT_ESCAPE_WIN32K_QUERY_CD_ROTATION_BLOCK: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1025i32);
-pub const D3DKMT_ESCAPE_WIN32K_SET_DIMMED_STATE: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1037i32);
-pub const D3DKMT_ESCAPE_WIN32K_SPECIALIZED_DISPLAY_TEST: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1038i32);
-pub const D3DKMT_ESCAPE_WIN32K_START: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1024i32);
-pub const D3DKMT_ESCAPE_WIN32K_SYSTEM_DPI: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1028i32);
-pub const D3DKMT_ESCAPE_WIN32K_USER_DETECTED_BLACK_SCREEN: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1031i32);
-pub const D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE_FLIP_COMPLETE: D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE = D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE(1i32);
-pub const D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE_FLIP_SUBMITTED: D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE = D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE(0i32);
-pub const D3DKMT_GDI_STYLE_HANDLE_DECORATION: u32 = 2u32;
-pub const D3DKMT_GETPRESENTHISTORY_MAXTOKENS: u32 = 2048u32;
-pub const D3DKMT_GET_PTE_MAX: u32 = 64u32;
-pub const D3DKMT_GET_QUEUEDLIMIT_PRESENT: D3DKMT_QUEUEDLIMIT_TYPE = D3DKMT_QUEUEDLIMIT_TYPE(2i32);
-pub const D3DKMT_GPU_PREFERENCE_STATE_HIGH_PERFORMANCE: D3DKMT_GPU_PREFERENCE_QUERY_STATE = D3DKMT_GPU_PREFERENCE_QUERY_STATE(1i32);
-pub const D3DKMT_GPU_PREFERENCE_STATE_MINIMUM_POWER: D3DKMT_GPU_PREFERENCE_QUERY_STATE = D3DKMT_GPU_PREFERENCE_QUERY_STATE(2i32);
-pub const D3DKMT_GPU_PREFERENCE_STATE_NOT_FOUND: D3DKMT_GPU_PREFERENCE_QUERY_STATE = D3DKMT_GPU_PREFERENCE_QUERY_STATE(4i32);
-pub const D3DKMT_GPU_PREFERENCE_STATE_UNINITIALIZED: D3DKMT_GPU_PREFERENCE_QUERY_STATE = D3DKMT_GPU_PREFERENCE_QUERY_STATE(0i32);
-pub const D3DKMT_GPU_PREFERENCE_STATE_UNSPECIFIED: D3DKMT_GPU_PREFERENCE_QUERY_STATE = D3DKMT_GPU_PREFERENCE_QUERY_STATE(3i32);
-pub const D3DKMT_GPU_PREFERENCE_STATE_USER_SPECIFIED_GPU: D3DKMT_GPU_PREFERENCE_QUERY_STATE = D3DKMT_GPU_PREFERENCE_QUERY_STATE(5i32);
-pub const D3DKMT_GPU_PREFERENCE_TYPE_DX_DATABASE: D3DKMT_GPU_PREFERENCE_QUERY_TYPE = D3DKMT_GPU_PREFERENCE_QUERY_TYPE(1i32);
-pub const D3DKMT_GPU_PREFERENCE_TYPE_IHV_DLIST: D3DKMT_GPU_PREFERENCE_QUERY_TYPE = D3DKMT_GPU_PREFERENCE_QUERY_TYPE(0i32);
-pub const D3DKMT_GPU_PREFERENCE_TYPE_USER_PREFERENCE: D3DKMT_GPU_PREFERENCE_QUERY_TYPE = D3DKMT_GPU_PREFERENCE_QUERY_TYPE(2i32);
-pub const D3DKMT_MAX_BUNDLE_OBJECTS_PER_HANDLE: u32 = 16u32;
-pub const D3DKMT_MAX_DMM_ESCAPE_DATASIZE: i32 = 102400i32;
-pub const D3DKMT_MAX_MULTIPLANE_OVERLAY_ALLOCATIONS_PER_PLANE: u32 = 256u32;
-pub const D3DKMT_MAX_MULTIPLANE_OVERLAY_PLANES: u32 = 8u32;
-pub const D3DKMT_MAX_OBJECTS_PER_HANDLE: u32 = 3u32;
-pub const D3DKMT_MAX_PRESENT_HISTORY_RECTS: u32 = 16u32;
-pub const D3DKMT_MAX_PRESENT_HISTORY_SCATTERBLTS: u32 = 12u32;
-pub const D3DKMT_MAX_SEGMENT_COUNT: u32 = 32u32;
-pub const D3DKMT_MAX_WAITFORVERTICALBLANK_OBJECTS: u32 = 8u32;
-pub const D3DKMT_MEMORY_SEGMENT_GROUP_LOCAL: D3DKMT_MEMORY_SEGMENT_GROUP = D3DKMT_MEMORY_SEGMENT_GROUP(0i32);
-pub const D3DKMT_MEMORY_SEGMENT_GROUP_NON_LOCAL: D3DKMT_MEMORY_SEGMENT_GROUP = D3DKMT_MEMORY_SEGMENT_GROUP(1i32);
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_CANCELLED: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483637i32);
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_DEVICE_ERROR: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483645i32);
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_DEVICE_NOT_FOUND: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483642i32);
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_DEVICE_NOT_STARTED: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483641i32);
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_GPU_RESOURCE_IN_USE: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483646i32);
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_INSUFFICIENT_BANDWIDTH: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483639i32);
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_INSUFFICIENT_MEMORY: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483638i32);
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_INVALID_PARAMETER: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483640i32);
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_PENDING: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(2i32);
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_REMOTE_SESSION: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483643i32);
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_SUCCESS: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(0i32);
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_SUCCESS_NO_MONITOR: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(1i32);
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_UNKOWN_ERROR: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483647i32);
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_UNKOWN_PAIRING: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483644i32);
-pub const D3DKMT_MIRACAST_DRIVER_IHV: D3DKMT_MIRACAST_DRIVER_TYPE = D3DKMT_MIRACAST_DRIVER_TYPE(1i32);
-pub const D3DKMT_MIRACAST_DRIVER_MS: D3DKMT_MIRACAST_DRIVER_TYPE = D3DKMT_MIRACAST_DRIVER_TYPE(2i32);
-pub const D3DKMT_MIRACAST_DRIVER_NOT_SUPPORTED: D3DKMT_MIRACAST_DRIVER_TYPE = D3DKMT_MIRACAST_DRIVER_TYPE(0i32);
-pub const D3DKMT_MULIIPLANE_OVERLAY_VIDEO_FRAME_FORMAT_PROGRESSIVE: D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT(0i32);
-pub const D3DKMT_MULTIPLANE_OVERLAY_BLEND_ALPHABLEND: D3DKMT_MULTIPLANE_OVERLAY_BLEND = D3DKMT_MULTIPLANE_OVERLAY_BLEND(1i32);
-pub const D3DKMT_MULTIPLANE_OVERLAY_BLEND_OPAQUE: D3DKMT_MULTIPLANE_OVERLAY_BLEND = D3DKMT_MULTIPLANE_OVERLAY_BLEND(0i32);
-pub const D3DKMT_MULTIPLANE_OVERLAY_FLAG_HORIZONTAL_FLIP: D3DKMT_MULTIPLANE_OVERLAY_FLAGS = D3DKMT_MULTIPLANE_OVERLAY_FLAGS(2i32);
-pub const D3DKMT_MULTIPLANE_OVERLAY_FLAG_STATIC_CHECK: D3DKMT_MULTIPLANE_OVERLAY_FLAGS = D3DKMT_MULTIPLANE_OVERLAY_FLAGS(4i32);
-pub const D3DKMT_MULTIPLANE_OVERLAY_FLAG_VERTICAL_FLIP: D3DKMT_MULTIPLANE_OVERLAY_FLAGS = D3DKMT_MULTIPLANE_OVERLAY_FLAGS(1i32);
-pub const D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_HORIZONTAL: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(1i32);
-pub const D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_VERTICAL: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(2i32);
-pub const D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT_INTERLACED_BOTTOM_FIELD_FIRST: D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT(2i32);
-pub const D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT_INTERLACED_TOP_FIELD_FIRST: D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT(1i32);
-pub const D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAG_BT709: D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS = D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS(2i32);
-pub const D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAG_NOMINAL_RANGE: D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS = D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS(1i32);
-pub const D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAG_xvYCC: D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS = D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS(4i32);
-pub const D3DKMT_MaxAllocationPriorityClass: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(5i32);
-pub const D3DKMT_MmIoFlipCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(3i32);
-pub const D3DKMT_OFFER_PRIORITY_AUTO: D3DKMT_OFFER_PRIORITY = D3DKMT_OFFER_PRIORITY(4i32);
-pub const D3DKMT_OFFER_PRIORITY_HIGH: D3DKMT_OFFER_PRIORITY = D3DKMT_OFFER_PRIORITY(3i32);
-pub const D3DKMT_OFFER_PRIORITY_LOW: D3DKMT_OFFER_PRIORITY = D3DKMT_OFFER_PRIORITY(1i32);
-pub const D3DKMT_OFFER_PRIORITY_NORMAL: D3DKMT_OFFER_PRIORITY = D3DKMT_OFFER_PRIORITY(2i32);
-pub const D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE_COLOR: D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE = D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE(2i32);
-pub const D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE_MASKED_COLOR: D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE = D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE(4i32);
-pub const D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE_MONOCHROME: D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE = D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE(1i32);
-pub const D3DKMT_OUTPUTDUPL_METADATATYPE_DIRTY_RECTS: D3DKMT_OUTPUTDUPL_METADATATYPE = D3DKMT_OUTPUTDUPL_METADATATYPE(0i32);
-pub const D3DKMT_OUTPUTDUPL_METADATATYPE_MOVE_RECTS: D3DKMT_OUTPUTDUPL_METADATATYPE = D3DKMT_OUTPUTDUPL_METADATATYPE(1i32);
-pub const D3DKMT_PM_FLIPMANAGER: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(9i32);
-pub const D3DKMT_PM_REDIRECTED_BLT: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(3i32);
-pub const D3DKMT_PM_REDIRECTED_COMPOSITION: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(7i32);
-pub const D3DKMT_PM_REDIRECTED_FLIP: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(2i32);
-pub const D3DKMT_PM_REDIRECTED_GDI: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(1i32);
-pub const D3DKMT_PM_REDIRECTED_GDI_SYSMEM: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(6i32);
-pub const D3DKMT_PM_REDIRECTED_VISTABLT: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(4i32);
-pub const D3DKMT_PM_SCREENCAPTUREFENCE: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(5i32);
-pub const D3DKMT_PM_SURFACECOMPLETE: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(8i32);
-pub const D3DKMT_PM_UNINITIALIZED: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(0i32);
-pub const D3DKMT_PNP_KEY_HARDWARE: D3DKMT_PNP_KEY_TYPE = D3DKMT_PNP_KEY_TYPE(1i32);
-pub const D3DKMT_PNP_KEY_SOFTWARE: D3DKMT_PNP_KEY_TYPE = D3DKMT_PNP_KEY_TYPE(2i32);
-pub const D3DKMT_PROCESS_VERIFIER_OPTION_VIDMM_FLAGS: D3DKMT_PROCESS_VERIFIER_OPTION_TYPE = D3DKMT_PROCESS_VERIFIER_OPTION_TYPE(1000i32);
-pub const D3DKMT_PROCESS_VERIFIER_OPTION_VIDMM_RESTRICT_BUDGET: D3DKMT_PROCESS_VERIFIER_OPTION_TYPE = D3DKMT_PROCESS_VERIFIER_OPTION_TYPE(1001i32);
-pub const D3DKMT_PROTECTED_SESSION_STATUS_INVALID: D3DKMT_PROTECTED_SESSION_STATUS = D3DKMT_PROTECTED_SESSION_STATUS(1i32);
-pub const D3DKMT_PROTECTED_SESSION_STATUS_OK: D3DKMT_PROTECTED_SESSION_STATUS = D3DKMT_PROTECTED_SESSION_STATUS(0i32);
-pub const D3DKMT_PreemptionAttempt: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(0i32);
-pub const D3DKMT_PreemptionAttemptMissAlreadyPreempting: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(13i32);
-pub const D3DKMT_PreemptionAttemptMissAlreadyRunning: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(15i32);
-pub const D3DKMT_PreemptionAttemptMissFenceCommand: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(7i32);
-pub const D3DKMT_PreemptionAttemptMissGlobalBlock: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(14i32);
-pub const D3DKMT_PreemptionAttemptMissLessPriority: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(10i32);
-pub const D3DKMT_PreemptionAttemptMissNextFence: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(4i32);
-pub const D3DKMT_PreemptionAttemptMissNoCommand: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(2i32);
-pub const D3DKMT_PreemptionAttemptMissNotEnabled: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(3i32);
-pub const D3DKMT_PreemptionAttemptMissNotMakingProgress: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(9i32);
-pub const D3DKMT_PreemptionAttemptMissPagingCommand: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(5i32);
-pub const D3DKMT_PreemptionAttemptMissRemainingPreemptionQuantum: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(12i32);
-pub const D3DKMT_PreemptionAttemptMissRemainingQuantum: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(11i32);
-pub const D3DKMT_PreemptionAttemptMissRenderPendingFlip: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(8i32);
-pub const D3DKMT_PreemptionAttemptMissSplittedCommand: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(6i32);
-pub const D3DKMT_PreemptionAttemptStatisticsMax: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(16i32);
-pub const D3DKMT_PreemptionAttemptSuccess: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(1i32);
-pub const D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT_MAX: u32 = 16u32;
-pub const D3DKMT_QUERYSTATISTICS_ADAPTER: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(0i32);
-pub const D3DKMT_QUERYSTATISTICS_ADAPTER2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(11i32);
-pub const D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS_MAX: u32 = 5u32;
-pub const D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_MAX: u32 = 4u32;
-pub const D3DKMT_QUERYSTATISTICS_NODE: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(5i32);
-pub const D3DKMT_QUERYSTATISTICS_NODE2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(18i32);
-pub const D3DKMT_QUERYSTATISTICS_PHYSICAL_ADAPTER: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(10i32);
-pub const D3DKMT_QUERYSTATISTICS_PROCESS: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(1i32);
-pub const D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(2i32);
-pub const D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(13i32);
-pub const D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_BUCKET_COUNT: u32 = 9u32;
-pub const D3DKMT_QUERYSTATISTICS_PROCESS_NODE: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(6i32);
-pub const D3DKMT_QUERYSTATISTICS_PROCESS_NODE2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(19i32);
-pub const D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(4i32);
-pub const D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(14i32);
-pub const D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(9i32);
-pub const D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(15i32);
-pub const D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(8i32);
-pub const D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_MAX: u32 = 8u32;
-pub const D3DKMT_QUERYSTATISTICS_SEGMENT: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(3i32);
-pub const D3DKMT_QUERYSTATISTICS_SEGMENT2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(12i32);
-pub const D3DKMT_QUERYSTATISTICS_SEGMENT_GROUP_USAGE: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(17i32);
-pub const D3DKMT_QUERYSTATISTICS_SEGMENT_PREFERENCE_MAX: u32 = 5u32;
-pub const D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE_APERTURE: D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE = D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE(0i32);
-pub const D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE_MEMORY: D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE = D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE(1i32);
-pub const D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE_SYSMEM: D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE = D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE(2i32);
-pub const D3DKMT_QUERYSTATISTICS_SEGMENT_USAGE: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(16i32);
-pub const D3DKMT_QUERYSTATISTICS_VIDPNSOURCE: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(7i32);
-pub const D3DKMT_QueuePacketTypeMax: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(8i32);
-pub const D3DKMT_RenderCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(0i32);
-pub const D3DKMT_SCHEDULINGPRIORITYCLASS_ABOVE_NORMAL: D3DKMT_SCHEDULINGPRIORITYCLASS = D3DKMT_SCHEDULINGPRIORITYCLASS(3i32);
-pub const D3DKMT_SCHEDULINGPRIORITYCLASS_BELOW_NORMAL: D3DKMT_SCHEDULINGPRIORITYCLASS = D3DKMT_SCHEDULINGPRIORITYCLASS(1i32);
-pub const D3DKMT_SCHEDULINGPRIORITYCLASS_HIGH: D3DKMT_SCHEDULINGPRIORITYCLASS = D3DKMT_SCHEDULINGPRIORITYCLASS(4i32);
-pub const D3DKMT_SCHEDULINGPRIORITYCLASS_IDLE: D3DKMT_SCHEDULINGPRIORITYCLASS = D3DKMT_SCHEDULINGPRIORITYCLASS(0i32);
-pub const D3DKMT_SCHEDULINGPRIORITYCLASS_NORMAL: D3DKMT_SCHEDULINGPRIORITYCLASS = D3DKMT_SCHEDULINGPRIORITYCLASS(2i32);
-pub const D3DKMT_SCHEDULINGPRIORITYCLASS_REALTIME: D3DKMT_SCHEDULINGPRIORITYCLASS = D3DKMT_SCHEDULINGPRIORITYCLASS(5i32);
-pub const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY_ABSOLUTE: u32 = 1073741824u32;
-pub const D3DKMT_SET_QUEUEDLIMIT_PRESENT: D3DKMT_QUEUEDLIMIT_TYPE = D3DKMT_QUEUEDLIMIT_TYPE(1i32);
-pub const D3DKMT_STANDARDALLOCATIONTYPE_EXISTINGHEAP: D3DKMT_STANDARDALLOCATIONTYPE = D3DKMT_STANDARDALLOCATIONTYPE(1i32);
-pub const D3DKMT_STANDARDALLOCATIONTYPE_INTERNALBACKINGSTORE: D3DKMT_STANDARDALLOCATIONTYPE = D3DKMT_STANDARDALLOCATIONTYPE(2i32);
-pub const D3DKMT_STANDARDALLOCATIONTYPE_MAX: D3DKMT_STANDARDALLOCATIONTYPE = D3DKMT_STANDARDALLOCATIONTYPE(3i32);
-pub const D3DKMT_SUBKEY_DX9: windows_core::PCWSTR = windows_core::w!("DX9");
-pub const D3DKMT_SUBKEY_OPENGL: windows_core::PCWSTR = windows_core::w!("OpenGL");
-pub const D3DKMT_SignalCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(5i32);
-pub const D3DKMT_SoftwareCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(7i32);
-pub const D3DKMT_SystemCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(2i32);
-pub const D3DKMT_SystemPagingBuffer: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE(2i32);
-pub const D3DKMT_SystemPreemptionBuffer: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE(3i32);
-pub const D3DKMT_TDRDBGCTRLTYPE_DISABLEBREAK: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(1i32);
-pub const D3DKMT_TDRDBGCTRLTYPE_ENABLEBREAK: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(2i32);
-pub const D3DKMT_TDRDBGCTRLTYPE_ENGINETDR: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(8i32);
-pub const D3DKMT_TDRDBGCTRLTYPE_FORCEDODTDR: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(6i32);
-pub const D3DKMT_TDRDBGCTRLTYPE_FORCEDODVSYNCTDR: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(7i32);
-pub const D3DKMT_TDRDBGCTRLTYPE_FORCETDR: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(0i32);
-pub const D3DKMT_TDRDBGCTRLTYPE_GPUTDR: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(5i32);
-pub const D3DKMT_TDRDBGCTRLTYPE_UNCONDITIONAL: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(3i32);
-pub const D3DKMT_TDRDBGCTRLTYPE_VSYNCTDR: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(4i32);
-pub const D3DKMT_VAD_ESCAPE_GETNUMVADS: D3DKMT_VAD_ESCAPE_COMMAND = D3DKMT_VAD_ESCAPE_COMMAND(0i32);
-pub const D3DKMT_VAD_ESCAPE_GETVAD: D3DKMT_VAD_ESCAPE_COMMAND = D3DKMT_VAD_ESCAPE_COMMAND(1i32);
-pub const D3DKMT_VAD_ESCAPE_GETVADRANGE: D3DKMT_VAD_ESCAPE_COMMAND = D3DKMT_VAD_ESCAPE_COMMAND(2i32);
-pub const D3DKMT_VAD_ESCAPE_GET_GPUMMU_CAPS: D3DKMT_VAD_ESCAPE_COMMAND = D3DKMT_VAD_ESCAPE_COMMAND(4i32);
-pub const D3DKMT_VAD_ESCAPE_GET_PTE: D3DKMT_VAD_ESCAPE_COMMAND = D3DKMT_VAD_ESCAPE_COMMAND(3i32);
-pub const D3DKMT_VAD_ESCAPE_GET_SEGMENT_CAPS: D3DKMT_VAD_ESCAPE_COMMAND = D3DKMT_VAD_ESCAPE_COMMAND(5i32);
-pub const D3DKMT_VERIFIER_OPTION_QUERY: D3DKMT_VERIFIER_OPTION_MODE = D3DKMT_VERIFIER_OPTION_MODE(0i32);
-pub const D3DKMT_VERIFIER_OPTION_SET: D3DKMT_VERIFIER_OPTION_MODE = D3DKMT_VERIFIER_OPTION_MODE(1i32);
-pub const D3DKMT_VIDMMESCAPETYPE_APERTURE_CORRUPTION_CHECK: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(3i32);
-pub const D3DKMT_VIDMMESCAPETYPE_DEFRAG: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(15i32);
-pub const D3DKMT_VIDMMESCAPETYPE_DELAYEXECUTION: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(16i32);
-pub const D3DKMT_VIDMMESCAPETYPE_EVICT: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(5i32);
-pub const D3DKMT_VIDMMESCAPETYPE_EVICT_BY_CRITERIA: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(13i32);
-pub const D3DKMT_VIDMMESCAPETYPE_EVICT_BY_NT_HANDLE: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(6i32);
-pub const D3DKMT_VIDMMESCAPETYPE_GET_BUDGET: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(11i32);
-pub const D3DKMT_VIDMMESCAPETYPE_GET_VAD_INFO: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(7i32);
-pub const D3DKMT_VIDMMESCAPETYPE_RESUME_PROCESS: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(10i32);
-pub const D3DKMT_VIDMMESCAPETYPE_RUN_COHERENCY_TEST: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(1i32);
-pub const D3DKMT_VIDMMESCAPETYPE_RUN_UNMAP_TO_DUMMY_PAGE_TEST: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(2i32);
-pub const D3DKMT_VIDMMESCAPETYPE_SETFAULT: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(0i32);
-pub const D3DKMT_VIDMMESCAPETYPE_SET_BUDGET: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(8i32);
-pub const D3DKMT_VIDMMESCAPETYPE_SET_EVICTION_CONFIG: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(18i32);
-pub const D3DKMT_VIDMMESCAPETYPE_SET_TRIM_INTERVALS: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(12i32);
-pub const D3DKMT_VIDMMESCAPETYPE_SUSPEND_CPU_ACCESS_TEST: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(4i32);
-pub const D3DKMT_VIDMMESCAPETYPE_SUSPEND_PROCESS: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(9i32);
-pub const D3DKMT_VIDMMESCAPETYPE_VALIDATE_INTEGRITY: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(17i32);
-pub const D3DKMT_VIDMMESCAPETYPE_WAKE: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(14i32);
-pub const D3DKMT_VIDPNSOURCEOWNER_EMULATED: D3DKMT_VIDPNSOURCEOWNER_TYPE = D3DKMT_VIDPNSOURCEOWNER_TYPE(4i32);
-pub const D3DKMT_VIDPNSOURCEOWNER_EXCLUSIVE: D3DKMT_VIDPNSOURCEOWNER_TYPE = D3DKMT_VIDPNSOURCEOWNER_TYPE(2i32);
-pub const D3DKMT_VIDPNSOURCEOWNER_EXCLUSIVEGDI: D3DKMT_VIDPNSOURCEOWNER_TYPE = D3DKMT_VIDPNSOURCEOWNER_TYPE(3i32);
-pub const D3DKMT_VIDPNSOURCEOWNER_SHARED: D3DKMT_VIDPNSOURCEOWNER_TYPE = D3DKMT_VIDPNSOURCEOWNER_TYPE(1i32);
-pub const D3DKMT_VIDPNSOURCEOWNER_UNOWNED: D3DKMT_VIDPNSOURCEOWNER_TYPE = D3DKMT_VIDPNSOURCEOWNER_TYPE(0i32);
-pub const D3DKMT_VIDSCHESCAPETYPE_CONFIGURE_TDR_LIMIT: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(5i32);
-pub const D3DKMT_VIDSCHESCAPETYPE_ENABLECONTEXTDELAY: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(4i32);
-pub const D3DKMT_VIDSCHESCAPETYPE_PFN_CONTROL: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(7i32);
-pub const D3DKMT_VIDSCHESCAPETYPE_PREEMPTIONCONTROL: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(0i32);
-pub const D3DKMT_VIDSCHESCAPETYPE_SUSPENDRESUME: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(3i32);
-pub const D3DKMT_VIDSCHESCAPETYPE_SUSPENDSCHEDULER: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(1i32);
-pub const D3DKMT_VIDSCHESCAPETYPE_TDRCONTROL: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(2i32);
-pub const D3DKMT_VIDSCHESCAPETYPE_VGPU_RESET: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(6i32);
-pub const D3DKMT_VIDSCHESCAPETYPE_VIRTUAL_REFRESH_RATE: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(8i32);
-pub const D3DKMT_WaitCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(4i32);
-pub const D3DNTCLEAR_COMPUTERECTS: i32 = 8i32;
-pub const D3DNTDP2OP_ADDDIRTYBOX: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(67i32);
-pub const D3DNTDP2OP_ADDDIRTYRECT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(66i32);
-pub const D3DNTDP2OP_BLT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(81i32);
-pub const D3DNTDP2OP_BUFFERBLT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(64i32);
-pub const D3DNTDP2OP_CLEAR: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(42i32);
-pub const D3DNTDP2OP_CLIPPEDTRIANGLEFAN: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(58i32);
-pub const D3DNTDP2OP_COLORFILL: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(82i32);
-pub const D3DNTDP2OP_COMPOSERECTS: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(98i32);
-pub const D3DNTDP2OP_CREATELIGHT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(35i32);
-pub const D3DNTDP2OP_CREATEPIXELSHADER: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(54i32);
-pub const D3DNTDP2OP_CREATEQUERY: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(84i32);
-pub const D3DNTDP2OP_CREATEVERTEXSHADER: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(45i32);
-pub const D3DNTDP2OP_CREATEVERTEXSHADERDECL: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(71i32);
-pub const D3DNTDP2OP_CREATEVERTEXSHADERFUNC: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(74i32);
-pub const D3DNTDP2OP_DELETEPIXELSHADER: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(55i32);
-pub const D3DNTDP2OP_DELETEQUERY: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(90i32);
-pub const D3DNTDP2OP_DELETEVERTEXSHADER: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(46i32);
-pub const D3DNTDP2OP_DELETEVERTEXSHADERDECL: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(72i32);
-pub const D3DNTDP2OP_DELETEVERTEXSHADERFUNC: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(75i32);
-pub const D3DNTDP2OP_DRAWINDEXEDPRIMITIVE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(53i32);
-pub const D3DNTDP2OP_DRAWINDEXEDPRIMITIVE2: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(60i32);
-pub const D3DNTDP2OP_DRAWPRIMITIVE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(52i32);
-pub const D3DNTDP2OP_DRAWPRIMITIVE2: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(59i32);
-pub const D3DNTDP2OP_DRAWRECTPATCH: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(61i32);
-pub const D3DNTDP2OP_DRAWTRIPATCH: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(62i32);
-pub const D3DNTDP2OP_GENERATEMIPSUBLEVELS: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(89i32);
-pub const D3DNTDP2OP_INDEXEDLINELIST: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(2i32);
-pub const D3DNTDP2OP_INDEXEDLINELIST2: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(27i32);
-pub const D3DNTDP2OP_INDEXEDLINESTRIP: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(17i32);
-pub const D3DNTDP2OP_INDEXEDTRIANGLEFAN: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(22i32);
-pub const D3DNTDP2OP_INDEXEDTRIANGLELIST: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(3i32);
-pub const D3DNTDP2OP_INDEXEDTRIANGLELIST2: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(26i32);
-pub const D3DNTDP2OP_INDEXEDTRIANGLESTRIP: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(20i32);
-pub const D3DNTDP2OP_ISSUEQUERY: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(91i32);
-pub const D3DNTDP2OP_LINELIST: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(15i32);
-pub const D3DNTDP2OP_LINELIST_IMM: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(24i32);
-pub const D3DNTDP2OP_LINESTRIP: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(16i32);
-pub const D3DNTDP2OP_MULTIPLYTRANSFORM: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(65i32);
-pub const D3DNTDP2OP_POINTS: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(1i32);
-pub const D3DNTDP2OP_RENDERSTATE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(8i32);
-pub const D3DNTDP2OP_RESPONSECONTINUE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(87i32);
-pub const D3DNTDP2OP_RESPONSEQUERY: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(88i32);
-pub const D3DNTDP2OP_SETCLIPPLANE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(44i32);
-pub const D3DNTDP2OP_SETCONVOLUTIONKERNELMONO: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(97i32);
-pub const D3DNTDP2OP_SETDEPTHSTENCIL: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(86i32);
-pub const D3DNTDP2OP_SETINDICES: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(51i32);
-pub const D3DNTDP2OP_SETLIGHT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(34i32);
-pub const D3DNTDP2OP_SETMATERIAL: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(33i32);
-pub const D3DNTDP2OP_SETPALETTE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(30i32);
-pub const D3DNTDP2OP_SETPIXELSHADER: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(56i32);
-pub const D3DNTDP2OP_SETPIXELSHADERCONST: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(57i32);
-pub const D3DNTDP2OP_SETPIXELSHADERCONSTB: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(94i32);
-pub const D3DNTDP2OP_SETPIXELSHADERCONSTI: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(93i32);
-pub const D3DNTDP2OP_SETPRIORITY: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(40i32);
-pub const D3DNTDP2OP_SETRENDERTARGET: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(41i32);
-pub const D3DNTDP2OP_SETRENDERTARGET2: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(85i32);
-pub const D3DNTDP2OP_SETSCISSORRECT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(79i32);
-pub const D3DNTDP2OP_SETSTREAMSOURCE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(49i32);
-pub const D3DNTDP2OP_SETSTREAMSOURCE2: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(80i32);
-pub const D3DNTDP2OP_SETSTREAMSOURCEFREQ: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(95i32);
-pub const D3DNTDP2OP_SETSTREAMSOURCEUM: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(50i32);
-pub const D3DNTDP2OP_SETTEXLOD: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(43i32);
-pub const D3DNTDP2OP_SETTRANSFORM: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(36i32);
-pub const D3DNTDP2OP_SETVERTEXSHADER: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(47i32);
-pub const D3DNTDP2OP_SETVERTEXSHADERCONST: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(48i32);
-pub const D3DNTDP2OP_SETVERTEXSHADERCONSTB: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(83i32);
-pub const D3DNTDP2OP_SETVERTEXSHADERCONSTI: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(77i32);
-pub const D3DNTDP2OP_SETVERTEXSHADERDECL: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(73i32);
-pub const D3DNTDP2OP_SETVERTEXSHADERFUNC: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(76i32);
-pub const D3DNTDP2OP_STATESET: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(39i32);
-pub const D3DNTDP2OP_SURFACEBLT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(96i32);
-pub const D3DNTDP2OP_TEXBLT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(38i32);
-pub const D3DNTDP2OP_TEXTURESTAGESTATE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(25i32);
-pub const D3DNTDP2OP_TRIANGLEFAN: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(21i32);
-pub const D3DNTDP2OP_TRIANGLEFAN_IMM: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(23i32);
-pub const D3DNTDP2OP_TRIANGLELIST: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(18i32);
-pub const D3DNTDP2OP_TRIANGLESTRIP: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(19i32);
-pub const D3DNTDP2OP_UPDATEPALETTE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(31i32);
-pub const D3DNTDP2OP_VIEWPORTINFO: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(28i32);
-pub const D3DNTDP2OP_VOLUMEBLT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(63i32);
-pub const D3DNTDP2OP_WINFO: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(29i32);
-pub const D3DNTDP2OP_ZRANGE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(32i32);
-pub const D3DNTHAL2_CB32_SETRENDERTARGET: i32 = 1i32;
-pub const D3DNTHAL3_CB32_CLEAR2: i32 = 1i32;
-pub const D3DNTHAL3_CB32_DRAWPRIMITIVES2: i32 = 8i32;
-pub const D3DNTHAL3_CB32_RESERVED: i32 = 2i32;
-pub const D3DNTHAL3_CB32_VALIDATETEXTURESTAGESTATE: i32 = 4i32;
-pub const D3DNTHALDP2_EXECUTEBUFFER: i32 = 2i32;
-pub const D3DNTHALDP2_REQCOMMANDBUFSIZE: i32 = 32i32;
-pub const D3DNTHALDP2_REQVERTEXBUFSIZE: i32 = 16i32;
-pub const D3DNTHALDP2_SWAPCOMMANDBUFFER: i32 = 8i32;
-pub const D3DNTHALDP2_SWAPVERTEXBUFFER: i32 = 4i32;
-pub const D3DNTHALDP2_USERMEMVERTICES: i32 = 1i32;
-pub const D3DNTHALDP2_VIDMEMCOMMANDBUF: i32 = 128i32;
-pub const D3DNTHALDP2_VIDMEMVERTEXBUF: i32 = 64i32;
-pub const D3DNTHAL_COL_WEIGHTS: u32 = 2u32;
-pub const D3DNTHAL_CONTEXT_BAD: i64 = 512i64;
-pub const D3DNTHAL_NUMCLIPVERTICES: u32 = 20u32;
-pub const D3DNTHAL_OUTOFCONTEXTS: i64 = 513i64;
-pub const D3DNTHAL_ROW_WEIGHTS: u32 = 1u32;
-pub const D3DNTHAL_SCENE_CAPTURE_END: i32 = 1i32;
-pub const D3DNTHAL_SCENE_CAPTURE_START: i32 = 0i32;
-pub const D3DNTHAL_STATESETCREATE: u32 = 5u32;
-pub const D3DNTHAL_TSS_MAXSTAGES: u32 = 8u32;
-pub const D3DNTHAL_TSS_RENDERSTATEBASE: u32 = 256u32;
-pub const D3DNTHAL_TSS_STATESPERSTAGE: u32 = 64u32;
-pub const D3DPMISCCAPS_FOGINFVF: i32 = 8192i32;
-pub const D3DPMISCCAPS_LINEPATTERNREP: i32 = 4i32;
-pub const D3DPRASTERCAPS_PAT: i32 = 8i32;
-pub const D3DPRASTERCAPS_STRETCHBLTMULTISAMPLE: i32 = 8388608i32;
-pub const D3DPS_COLOROUT_MAX_V2_0: u32 = 4u32;
-pub const D3DPS_COLOROUT_MAX_V2_1: u32 = 4u32;
-pub const D3DPS_COLOROUT_MAX_V3_0: u32 = 4u32;
-pub const D3DPS_CONSTBOOLREG_MAX_SW_DX9: u32 = 2048u32;
-pub const D3DPS_CONSTBOOLREG_MAX_V2_1: u32 = 16u32;
-pub const D3DPS_CONSTBOOLREG_MAX_V3_0: u32 = 16u32;
-pub const D3DPS_CONSTINTREG_MAX_SW_DX9: u32 = 2048u32;
-pub const D3DPS_CONSTINTREG_MAX_V2_1: u32 = 16u32;
-pub const D3DPS_CONSTINTREG_MAX_V3_0: u32 = 16u32;
-pub const D3DPS_CONSTREG_MAX_DX8: u32 = 8u32;
-pub const D3DPS_CONSTREG_MAX_SW_DX9: u32 = 8192u32;
-pub const D3DPS_CONSTREG_MAX_V1_1: u32 = 8u32;
-pub const D3DPS_CONSTREG_MAX_V1_2: u32 = 8u32;
-pub const D3DPS_CONSTREG_MAX_V1_3: u32 = 8u32;
-pub const D3DPS_CONSTREG_MAX_V1_4: u32 = 8u32;
-pub const D3DPS_CONSTREG_MAX_V2_0: u32 = 32u32;
-pub const D3DPS_CONSTREG_MAX_V2_1: u32 = 32u32;
-pub const D3DPS_CONSTREG_MAX_V3_0: u32 = 224u32;
-pub const D3DPS_INPUTREG_MAX_DX8: u32 = 8u32;
-pub const D3DPS_INPUTREG_MAX_SW_DX9: u32 = 14u32;
-pub const D3DPS_INPUTREG_MAX_V1_1: u32 = 2u32;
-pub const D3DPS_INPUTREG_MAX_V1_2: u32 = 2u32;
-pub const D3DPS_INPUTREG_MAX_V1_3: u32 = 2u32;
-pub const D3DPS_INPUTREG_MAX_V1_4: u32 = 2u32;
-pub const D3DPS_INPUTREG_MAX_V2_0: u32 = 2u32;
-pub const D3DPS_INPUTREG_MAX_V2_1: u32 = 2u32;
-pub const D3DPS_INPUTREG_MAX_V3_0: u32 = 10u32;
-pub const D3DPS_MAXLOOPINITVALUE_V2_1: u32 = 255u32;
-pub const D3DPS_MAXLOOPINITVALUE_V3_0: u32 = 255u32;
-pub const D3DPS_MAXLOOPITERATIONCOUNT_V2_1: u32 = 255u32;
-pub const D3DPS_MAXLOOPITERATIONCOUNT_V3_0: u32 = 255u32;
-pub const D3DPS_MAXLOOPSTEP_V2_1: u32 = 128u32;
-pub const D3DPS_MAXLOOPSTEP_V3_0: u32 = 128u32;
-pub const D3DPS_PREDICATE_MAX_V2_1: u32 = 1u32;
-pub const D3DPS_PREDICATE_MAX_V3_0: u32 = 1u32;
-pub const D3DPS_TEMPREG_MAX_DX8: u32 = 8u32;
-pub const D3DPS_TEMPREG_MAX_V1_1: u32 = 2u32;
-pub const D3DPS_TEMPREG_MAX_V1_2: u32 = 2u32;
-pub const D3DPS_TEMPREG_MAX_V1_3: u32 = 2u32;
-pub const D3DPS_TEMPREG_MAX_V1_4: u32 = 6u32;
-pub const D3DPS_TEMPREG_MAX_V2_0: u32 = 12u32;
-pub const D3DPS_TEMPREG_MAX_V2_1: u32 = 32u32;
-pub const D3DPS_TEMPREG_MAX_V3_0: u32 = 32u32;
-pub const D3DPS_TEXTUREREG_MAX_DX8: u32 = 8u32;
-pub const D3DPS_TEXTUREREG_MAX_V1_1: u32 = 4u32;
-pub const D3DPS_TEXTUREREG_MAX_V1_2: u32 = 4u32;
-pub const D3DPS_TEXTUREREG_MAX_V1_3: u32 = 4u32;
-pub const D3DPS_TEXTUREREG_MAX_V1_4: u32 = 6u32;
-pub const D3DPS_TEXTUREREG_MAX_V2_0: u32 = 8u32;
-pub const D3DPS_TEXTUREREG_MAX_V2_1: u32 = 8u32;
-pub const D3DPS_TEXTUREREG_MAX_V3_0: u32 = 0u32;
-pub const D3DRENDERSTATE_EVICTMANAGEDTEXTURES: u32 = 61u32;
-pub const D3DRENDERSTATE_SCENECAPTURE: u32 = 62u32;
-pub const D3DRS_DELETERTPATCH: u32 = 169u32;
-pub const D3DRS_MAXPIXELSHADERINST: u32 = 197u32;
-pub const D3DRS_MAXVERTEXSHADERINST: u32 = 196u32;
-pub const D3DTEXF_FLATCUBIC: u32 = 4u32;
-pub const D3DTEXF_GAUSSIANCUBIC: u32 = 5u32;
-pub const D3DTRANSFORMSTATE_WORLD1_DX7: u32 = 4u32;
-pub const D3DTRANSFORMSTATE_WORLD2_DX7: u32 = 5u32;
-pub const D3DTRANSFORMSTATE_WORLD3_DX7: u32 = 6u32;
-pub const D3DTRANSFORMSTATE_WORLD_DX7: u32 = 1u32;
-pub const D3DTSS_TEXTUREMAP: u32 = 0u32;
-pub const D3DVSDE_BLENDINDICES: u32 = 2u32;
-pub const D3DVSDE_BLENDWEIGHT: u32 = 1u32;
-pub const D3DVSDE_DIFFUSE: u32 = 5u32;
-pub const D3DVSDE_NORMAL: u32 = 3u32;
-pub const D3DVSDE_NORMAL2: u32 = 16u32;
-pub const D3DVSDE_POSITION: u32 = 0u32;
-pub const D3DVSDE_POSITION2: u32 = 15u32;
-pub const D3DVSDE_PSIZE: u32 = 4u32;
-pub const D3DVSDE_SPECULAR: u32 = 6u32;
-pub const D3DVSDE_TEXCOORD0: u32 = 7u32;
-pub const D3DVSDE_TEXCOORD1: u32 = 8u32;
-pub const D3DVSDE_TEXCOORD2: u32 = 9u32;
-pub const D3DVSDE_TEXCOORD3: u32 = 10u32;
-pub const D3DVSDE_TEXCOORD4: u32 = 11u32;
-pub const D3DVSDE_TEXCOORD5: u32 = 12u32;
-pub const D3DVSDE_TEXCOORD6: u32 = 13u32;
-pub const D3DVSDE_TEXCOORD7: u32 = 14u32;
-pub const D3DVSDT_D3DCOLOR: u32 = 4u32;
-pub const D3DVSDT_FLOAT1: u32 = 0u32;
-pub const D3DVSDT_FLOAT2: u32 = 1u32;
-pub const D3DVSDT_FLOAT3: u32 = 2u32;
-pub const D3DVSDT_FLOAT4: u32 = 3u32;
-pub const D3DVSDT_SHORT2: u32 = 6u32;
-pub const D3DVSDT_SHORT4: u32 = 7u32;
-pub const D3DVSDT_UBYTE4: u32 = 5u32;
-pub const D3DVSD_CONSTADDRESSSHIFT: u32 = 0u32;
-pub const D3DVSD_CONSTCOUNTSHIFT: u32 = 25u32;
-pub const D3DVSD_CONSTRSSHIFT: u32 = 16u32;
-pub const D3DVSD_DATALOADTYPESHIFT: u32 = 28u32;
-pub const D3DVSD_DATATYPESHIFT: u32 = 16u32;
-pub const D3DVSD_EXTCOUNTSHIFT: u32 = 24u32;
-pub const D3DVSD_EXTINFOSHIFT: u32 = 0u32;
-pub const D3DVSD_SKIPCOUNTSHIFT: u32 = 16u32;
-pub const D3DVSD_STREAMNUMBERSHIFT: u32 = 0u32;
-pub const D3DVSD_STREAMTESSSHIFT: u32 = 28u32;
-pub const D3DVSD_TOKENTYPESHIFT: u32 = 29u32;
-pub const D3DVSD_TOKEN_CONSTMEM: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(4i32);
-pub const D3DVSD_TOKEN_END: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(7i32);
-pub const D3DVSD_TOKEN_EXT: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(5i32);
-pub const D3DVSD_TOKEN_NOP: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(0i32);
-pub const D3DVSD_TOKEN_STREAM: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(1i32);
-pub const D3DVSD_TOKEN_STREAMDATA: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(2i32);
-pub const D3DVSD_TOKEN_TESSELLATOR: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(3i32);
-pub const D3DVSD_VERTEXREGINSHIFT: u32 = 20u32;
-pub const D3DVSD_VERTEXREGSHIFT: u32 = 0u32;
-pub const D3DVS_ADDRREG_MAX_V1_1: u32 = 1u32;
-pub const D3DVS_ADDRREG_MAX_V2_0: u32 = 1u32;
-pub const D3DVS_ADDRREG_MAX_V2_1: u32 = 1u32;
-pub const D3DVS_ADDRREG_MAX_V3_0: u32 = 1u32;
-pub const D3DVS_ATTROUTREG_MAX_V1_1: u32 = 2u32;
-pub const D3DVS_ATTROUTREG_MAX_V2_0: u32 = 2u32;
-pub const D3DVS_ATTROUTREG_MAX_V2_1: u32 = 2u32;
-pub const D3DVS_CONSTBOOLREG_MAX_SW_DX9: u32 = 2048u32;
-pub const D3DVS_CONSTBOOLREG_MAX_V2_0: u32 = 16u32;
-pub const D3DVS_CONSTBOOLREG_MAX_V2_1: u32 = 16u32;
-pub const D3DVS_CONSTBOOLREG_MAX_V3_0: u32 = 16u32;
-pub const D3DVS_CONSTINTREG_MAX_SW_DX9: u32 = 2048u32;
-pub const D3DVS_CONSTINTREG_MAX_V2_0: u32 = 16u32;
-pub const D3DVS_CONSTINTREG_MAX_V2_1: u32 = 16u32;
-pub const D3DVS_CONSTINTREG_MAX_V3_0: u32 = 16u32;
-pub const D3DVS_CONSTREG_MAX_V1_1: u32 = 96u32;
-pub const D3DVS_CONSTREG_MAX_V2_0: u32 = 8192u32;
-pub const D3DVS_CONSTREG_MAX_V2_1: u32 = 8192u32;
-pub const D3DVS_CONSTREG_MAX_V3_0: u32 = 8192u32;
-pub const D3DVS_INPUTREG_MAX_V1_1: u32 = 16u32;
-pub const D3DVS_INPUTREG_MAX_V2_0: u32 = 16u32;
-pub const D3DVS_INPUTREG_MAX_V2_1: u32 = 16u32;
-pub const D3DVS_INPUTREG_MAX_V3_0: u32 = 16u32;
-pub const D3DVS_LABEL_MAX_V3_0: u32 = 2048u32;
-pub const D3DVS_MAXINSTRUCTIONCOUNT_V1_1: u32 = 128u32;
-pub const D3DVS_MAXLOOPINITVALUE_V2_0: u32 = 255u32;
-pub const D3DVS_MAXLOOPINITVALUE_V2_1: u32 = 255u32;
-pub const D3DVS_MAXLOOPINITVALUE_V3_0: u32 = 255u32;
-pub const D3DVS_MAXLOOPITERATIONCOUNT_V2_0: u32 = 255u32;
-pub const D3DVS_MAXLOOPITERATIONCOUNT_V2_1: u32 = 255u32;
-pub const D3DVS_MAXLOOPITERATIONCOUNT_V3_0: u32 = 255u32;
-pub const D3DVS_MAXLOOPSTEP_V2_0: u32 = 128u32;
-pub const D3DVS_MAXLOOPSTEP_V2_1: u32 = 128u32;
-pub const D3DVS_MAXLOOPSTEP_V3_0: u32 = 128u32;
-pub const D3DVS_OUTPUTREG_MAX_SW_DX9: u32 = 16u32;
-pub const D3DVS_OUTPUTREG_MAX_V3_0: u32 = 12u32;
-pub const D3DVS_PREDICATE_MAX_V2_1: u32 = 1u32;
-pub const D3DVS_PREDICATE_MAX_V3_0: u32 = 1u32;
-pub const D3DVS_TCRDOUTREG_MAX_V1_1: u32 = 8u32;
-pub const D3DVS_TCRDOUTREG_MAX_V2_0: u32 = 8u32;
-pub const D3DVS_TCRDOUTREG_MAX_V2_1: u32 = 8u32;
-pub const D3DVS_TEMPREG_MAX_V1_1: u32 = 12u32;
-pub const D3DVS_TEMPREG_MAX_V2_0: u32 = 12u32;
-pub const D3DVS_TEMPREG_MAX_V2_1: u32 = 32u32;
-pub const D3DVS_TEMPREG_MAX_V3_0: u32 = 32u32;
-pub const D3DVTXPCAPS_NO_VSDT_UBYTE4: i32 = 128i32;
-pub const D3D_UMD_INTERFACE_VERSION: u32 = 65536u32;
-pub const D3D_UMD_INTERFACE_VERSION_VISTA: u32 = 12u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM1_3: u32 = 16386u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_0: u32 = 20482u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_0_M1: u32 = 20480u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_0_M1_3: u32 = 20481u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_0_M2_2: u32 = 20482u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_1: u32 = 24579u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_1_1: u32 = 24576u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_1_2: u32 = 24577u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_1_3: u32 = 24578u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_1_4: u32 = 24579u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_2: u32 = 28673u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_2_1: u32 = 28672u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_2_2: u32 = 28673u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_3: u32 = 32769u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_3_1: u32 = 32768u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_3_2: u32 = 32769u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_4: u32 = 36865u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_4_1: u32 = 36864u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_4_2: u32 = 36865u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_5: u32 = 40962u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_5_1: u32 = 40960u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_5_2: u32 = 40961u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_5_3: u32 = 40962u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_6: u32 = 45059u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_6_1: u32 = 45056u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_6_2: u32 = 45057u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_6_3: u32 = 45058u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_6_4: u32 = 45059u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_7: u32 = 49153u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_7_1: u32 = 49152u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_7_2: u32 = 49153u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_8: u32 = 53248u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_8_1: u32 = 53248u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_9: u32 = 57344u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM2_9_1: u32 = 57344u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM3_0: u32 = 61440u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM3_0_1: u32 = 61440u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM3_1: u32 = 65536u32;
-pub const D3D_UMD_INTERFACE_VERSION_WDDM3_1_1: u32 = 65536u32;
-pub const D3D_UMD_INTERFACE_VERSION_WIN7: u32 = 8195u32;
-pub const D3D_UMD_INTERFACE_VERSION_WIN8: u32 = 12292u32;
-pub const D3D_UMD_INTERFACE_VERSION_WIN8_CP: u32 = 12290u32;
-pub const D3D_UMD_INTERFACE_VERSION_WIN8_M3: u32 = 12289u32;
-pub const D3D_UMD_INTERFACE_VERSION_WIN8_RC: u32 = 12291u32;
-pub const DDBLT_EXTENDED_PRESENTATION_STRETCHFACTOR: i32 = 16i32;
-pub const DIDDT1_AspectRatio_15x9: DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(3i32);
-pub const DIDDT1_AspectRatio_16x10: DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(5i32);
-pub const DIDDT1_AspectRatio_16x9: DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(4i32);
-pub const DIDDT1_AspectRatio_1x1: DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(0i32);
-pub const DIDDT1_AspectRatio_4x3: DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(2i32);
-pub const DIDDT1_AspectRatio_5x4: DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(1i32);
-pub const DIDDT1_Dependent: DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE = DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE(2i32);
-pub const DIDDT1_Interlaced: DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE = DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE(1i32);
-pub const DIDDT1_Monoscopic: DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE = DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE(0i32);
-pub const DIDDT1_Progressive: DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE = DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE(0i32);
-pub const DIDDT1_Stereo: DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE = DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE(1i32);
-pub const DIDDT1_Sync_Negative: DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY = DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY(1i32);
-pub const DIDDT1_Sync_Positive: DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY = DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY(0i32);
-pub const DISPLAYID_DETAILED_TIMING_TYPE_I_SIZE: u32 = 20u32;
-pub const DP2BLT_LINEAR: i32 = 2i32;
-pub const DP2BLT_POINT: i32 = 1i32;
-pub const DX9_DDI_VERSION: u32 = 4u32;
-pub const DXGKDDI_INTERFACE_VERSION: u32 = 65540u32;
-pub const DXGKDDI_INTERFACE_VERSION_VISTA: u32 = 4178u32;
-pub const DXGKDDI_INTERFACE_VERSION_VISTA_SP1: u32 = 4179u32;
-pub const DXGKDDI_INTERFACE_VERSION_WDDM1_3: u32 = 16386u32;
-pub const DXGKDDI_INTERFACE_VERSION_WDDM1_3_PATH_INDEPENDENT_ROTATION: u32 = 16387u32;
-pub const DXGKDDI_INTERFACE_VERSION_WDDM2_0: u32 = 20515u32;
-pub const DXGKDDI_INTERFACE_VERSION_WDDM2_1: u32 = 24579u32;
-pub const DXGKDDI_INTERFACE_VERSION_WDDM2_1_5: u32 = 24592u32;
-pub const DXGKDDI_INTERFACE_VERSION_WDDM2_1_6: u32 = 24593u32;
-pub const DXGKDDI_INTERFACE_VERSION_WDDM2_2: u32 = 28682u32;
-pub const DXGKDDI_INTERFACE_VERSION_WDDM2_3: u32 = 32769u32;
-pub const DXGKDDI_INTERFACE_VERSION_WDDM2_4: u32 = 36870u32;
-pub const DXGKDDI_INTERFACE_VERSION_WDDM2_5: u32 = 40971u32;
-pub const DXGKDDI_INTERFACE_VERSION_WDDM2_6: u32 = 45060u32;
-pub const DXGKDDI_INTERFACE_VERSION_WDDM2_7: u32 = 49156u32;
-pub const DXGKDDI_INTERFACE_VERSION_WDDM2_8: u32 = 53249u32;
-pub const DXGKDDI_INTERFACE_VERSION_WDDM2_9: u32 = 57347u32;
-pub const DXGKDDI_INTERFACE_VERSION_WDDM3_0: u32 = 61443u32;
-pub const DXGKDDI_INTERFACE_VERSION_WDDM3_1: u32 = 65540u32;
-pub const DXGKDDI_INTERFACE_VERSION_WIN7: u32 = 8197u32;
-pub const DXGKDDI_INTERFACE_VERSION_WIN8: u32 = 12302u32;
-pub const DXGKMDT_COPP_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = DXGKMDT_CERTIFICATE_TYPE(1i32);
-pub const DXGKMDT_I2C_DEVICE_TRANSMITS_DATA_LENGTH: u32 = 1u32;
-pub const DXGKMDT_I2C_NO_FLAGS: u32 = 0u32;
-pub const DXGKMDT_INDIRECT_DISPLAY_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = DXGKMDT_CERTIFICATE_TYPE(3i32);
-pub const DXGKMDT_OPM_128_BIT_RANDOM_NUMBER_SIZE: u32 = 16u32;
-pub const DXGKMDT_OPM_ACP_LEVEL_ONE: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = DXGKMDT_OPM_ACP_PROTECTION_LEVEL(1i32);
-pub const DXGKMDT_OPM_ACP_LEVEL_THREE: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = DXGKMDT_OPM_ACP_PROTECTION_LEVEL(3i32);
-pub const DXGKMDT_OPM_ACP_LEVEL_TWO: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = DXGKMDT_OPM_ACP_PROTECTION_LEVEL(2i32);
-pub const DXGKMDT_OPM_ACP_OFF: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = DXGKMDT_OPM_ACP_PROTECTION_LEVEL(0i32);
-pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_14_BY_9_CENTER: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(1i32);
-pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_14_BY_9_TOP: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(2i32);
-pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_16_BY_9_CENTER: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(3i32);
-pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_16_BY_9_TOP: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(4i32);
-pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_GT_16_BY_9_CENTER: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(5i32);
-pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_16_BY_9_ANAMORPHIC: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(7i32);
-pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_4_BY_3: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(0i32);
-pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_4_BY_3_PROTECTED_CENTER: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(6i32);
-pub const DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_DAUGHTER_BOARD_CONNECTOR: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(262144i32);
-pub const DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_DAUGHTER_BOARD_CONNECTOR_INSIDE_OF_NUAE: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(327680i32);
-pub const DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_INSIDE_OF_CHIPSET: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(65536i32);
-pub const DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_NON_STANDARD: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(-2147483648i32);
-pub const DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_TRACKS_ON_MOTHER_BOARD_TO_CHIP: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(131072i32);
-pub const DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_TRACKS_ON_MOTHER_BOARD_TO_SOCKET: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(196608i32);
-pub const DXGKMDT_OPM_BUS_TYPE_AGP: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(4i32);
-pub const DXGKMDT_OPM_BUS_TYPE_OTHER: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(0i32);
-pub const DXGKMDT_OPM_BUS_TYPE_PCI: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(1i32);
-pub const DXGKMDT_OPM_BUS_TYPE_PCIEXPRESS: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(3i32);
-pub const DXGKMDT_OPM_BUS_TYPE_PCIX: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(2i32);
-pub const DXGKMDT_OPM_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = DXGKMDT_CERTIFICATE_TYPE(0i32);
-pub const DXGKMDT_OPM_CGMSA_COPY_FREELY: DXGKMDT_OPM_CGMSA = DXGKMDT_OPM_CGMSA(1i32);
-pub const DXGKMDT_OPM_CGMSA_COPY_NEVER: DXGKMDT_OPM_CGMSA = DXGKMDT_OPM_CGMSA(4i32);
-pub const DXGKMDT_OPM_CGMSA_COPY_NO_MORE: DXGKMDT_OPM_CGMSA = DXGKMDT_OPM_CGMSA(2i32);
-pub const DXGKMDT_OPM_CGMSA_COPY_ONE_GENERATION: DXGKMDT_OPM_CGMSA = DXGKMDT_OPM_CGMSA(3i32);
-pub const DXGKMDT_OPM_CGMSA_OFF: DXGKMDT_OPM_CGMSA = DXGKMDT_OPM_CGMSA(0i32);
-pub const DXGKMDT_OPM_CONFIGURE_SETTING_DATA_SIZE: u32 = 4056u32;
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_COMPONENT_VIDEO: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(3i32);
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_COMPOSITE_VIDEO: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(2i32);
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_DISPLAYPORT_EMBEDDED: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(11i32);
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_DISPLAYPORT_EXTERNAL: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(10i32);
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_DVI: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(4i32);
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_D_JPN: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(8i32);
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_HD15: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(0i32);
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_HDMI: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(5i32);
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_LVDS: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(6i32);
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_MIRACAST: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(15i32);
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_OTHER: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(-1i32);
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_RESERVED: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(14i32);
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_SDI: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(9i32);
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_SVIDEO: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(1i32);
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_TRANSPORT_AGNOSTIC_DIGITAL_MODE_A: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(16i32);
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_TRANSPORT_AGNOSTIC_DIGITAL_MODE_B: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(17i32);
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_UDI_EMBEDDED: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(13i32);
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_UDI_EXTERNAL: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(12i32);
-pub const DXGKMDT_OPM_COPP_COMPATIBLE_BUS_TYPE_INTEGRATED: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(-2147483648i32);
-pub const DXGKMDT_OPM_COPP_COMPATIBLE_CONNECTOR_TYPE_INTERNAL: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(-2147483648i32);
-pub const DXGKMDT_OPM_DPCP_OFF: DXGKMDT_OPM_DPCP_PROTECTION_LEVEL = DXGKMDT_OPM_DPCP_PROTECTION_LEVEL(0i32);
-pub const DXGKMDT_OPM_DPCP_ON: DXGKMDT_OPM_DPCP_PROTECTION_LEVEL = DXGKMDT_OPM_DPCP_PROTECTION_LEVEL(1i32);
-pub const DXGKMDT_OPM_DVI_CHARACTERISTIC_1_0: DXGKDT_OPM_DVI_CHARACTERISTICS = DXGKDT_OPM_DVI_CHARACTERISTICS(1i32);
-pub const DXGKMDT_OPM_DVI_CHARACTERISTIC_1_1_OR_ABOVE: DXGKDT_OPM_DVI_CHARACTERISTICS = DXGKDT_OPM_DVI_CHARACTERISTICS(2i32);
-pub const DXGKMDT_OPM_ENCRYPTED_PARAMETERS_SIZE: u32 = 256u32;
-pub const DXGKMDT_OPM_GET_ACP_AND_CGMSA_SIGNALING: windows_core::GUID = windows_core::GUID::from_u128(0x6629a591_3b79_4cf3_924a_11e8e7811671);
-pub const DXGKMDT_OPM_GET_ACTUAL_OUTPUT_FORMAT: windows_core::GUID = windows_core::GUID::from_u128(0xd7bf1ba3_ad13_4f8e_af98_0dcb3ca204cc);
-pub const DXGKMDT_OPM_GET_ACTUAL_PROTECTION_LEVEL: windows_core::GUID = windows_core::GUID::from_u128(0x1957210a_7766_452a_b99a_d27aed54f03a);
-pub const DXGKMDT_OPM_GET_ADAPTER_BUS_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0xc6f4d673_6174_4184_8e35_f6db5200bcba);
-pub const DXGKMDT_OPM_GET_CODEC_INFO: windows_core::GUID = windows_core::GUID::from_u128(0x4f374491_8f5f_4445_9dba_95588f6b58b4);
-pub const DXGKMDT_OPM_GET_CONNECTED_HDCP_DEVICE_INFORMATION: windows_core::GUID = windows_core::GUID::from_u128(0x0db59d74_a992_492e_a0bd_c23fda564e00);
-pub const DXGKMDT_OPM_GET_CONNECTOR_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x81d0bfd5_6afe_48c2_99c0_95a08f97c5da);
-pub const DXGKMDT_OPM_GET_CURRENT_HDCP_SRM_VERSION: windows_core::GUID = windows_core::GUID::from_u128(0x99c5ceff_5f1d_4879_81c1_c52443c9482b);
-pub const DXGKMDT_OPM_GET_DVI_CHARACTERISTICS: windows_core::GUID = windows_core::GUID::from_u128(0xa470b3bb_5dd7_4172_839c_3d3776e0ebf5);
-pub const DXGKMDT_OPM_GET_INFORMATION_PARAMETERS_SIZE: u32 = 4056u32;
-pub const DXGKMDT_OPM_GET_OUTPUT_HARDWARE_PROTECTION_SUPPORT: windows_core::GUID = windows_core::GUID::from_u128(0x3b129589_2af8_4ef0_96a2_704a845a218e);
-pub const DXGKMDT_OPM_GET_OUTPUT_ID: windows_core::GUID = windows_core::GUID::from_u128(0x72cb6df3_244f_40ce_b09e_20506af6302f);
-pub const DXGKMDT_OPM_GET_SUPPORTED_PROTECTION_TYPES: windows_core::GUID = windows_core::GUID::from_u128(0x38f2a801_9a6c_48bb_9107_b6696e6f1797);
-pub const DXGKMDT_OPM_GET_VIRTUAL_PROTECTION_LEVEL: windows_core::GUID = windows_core::GUID::from_u128(0xb2075857_3eda_4d5d_88db_748f8c1a0549);
-pub const DXGKMDT_OPM_HDCP_FLAG_NONE: DXGKMDT_OPM_HDCP_FLAG = DXGKMDT_OPM_HDCP_FLAG(0i32);
-pub const DXGKMDT_OPM_HDCP_FLAG_REPEATER: DXGKMDT_OPM_HDCP_FLAG = DXGKMDT_OPM_HDCP_FLAG(1i32);
-pub const DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR_SIZE: u32 = 5u32;
-pub const DXGKMDT_OPM_HDCP_OFF: DXGKMDT_OPM_HDCP_PROTECTION_LEVEL = DXGKMDT_OPM_HDCP_PROTECTION_LEVEL(0i32);
-pub const DXGKMDT_OPM_HDCP_ON: DXGKMDT_OPM_HDCP_PROTECTION_LEVEL = DXGKMDT_OPM_HDCP_PROTECTION_LEVEL(1i32);
-pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_INTERLEAVED_EVEN_FIRST: DXGKMDT_OPM_INTERLEAVE_FORMAT = DXGKMDT_OPM_INTERLEAVE_FORMAT(3i32);
-pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_INTERLEAVED_ODD_FIRST: DXGKMDT_OPM_INTERLEAVE_FORMAT = DXGKMDT_OPM_INTERLEAVE_FORMAT(4i32);
-pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_OTHER: DXGKMDT_OPM_INTERLEAVE_FORMAT = DXGKMDT_OPM_INTERLEAVE_FORMAT(0i32);
-pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_PROGRESSIVE: DXGKMDT_OPM_INTERLEAVE_FORMAT = DXGKMDT_OPM_INTERLEAVE_FORMAT(2i32);
-pub const DXGKMDT_OPM_OMAC_SIZE: u32 = 16u32;
-pub const DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION_NOT_SUPPORTED: DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION = DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION(0i32);
-pub const DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION_SUPPORTED: DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION = DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION(1i32);
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_ARIBTRB15_1125I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(16384i32);
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_ARIBTRB15_525I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(2048i32);
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_ARIBTRB15_525P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(4096i32);
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_ARIBTRB15_750P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(8192i32);
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEA_1125I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(128i32);
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEA_525P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(32i32);
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEA_750P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(64i32);
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEB_1125I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(1024i32);
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEB_525P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(256i32);
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEB_750P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(512i32);
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_EIA608B_525: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(8i32);
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_EN300294_625I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(16i32);
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_IEC61880_2_525I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(2i32);
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_IEC61880_525I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(1i32);
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_IEC62375_625P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(4i32);
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_NONE: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(0i32);
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_OTHER: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(-2147483648i32);
-pub const DXGKMDT_OPM_PROTECTION_TYPE_ACP: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(2i32);
-pub const DXGKMDT_OPM_PROTECTION_TYPE_CGMSA: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(4i32);
-pub const DXGKMDT_OPM_PROTECTION_TYPE_COPP_COMPATIBLE_HDCP: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(1i32);
-pub const DXGKMDT_OPM_PROTECTION_TYPE_DPCP: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(16i32);
-pub const DXGKMDT_OPM_PROTECTION_TYPE_HDCP: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(8i32);
-pub const DXGKMDT_OPM_PROTECTION_TYPE_MASK: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(-2147483585i32);
-pub const DXGKMDT_OPM_PROTECTION_TYPE_NONE: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(0i32);
-pub const DXGKMDT_OPM_PROTECTION_TYPE_OTHER: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(-2147483648i32);
-pub const DXGKMDT_OPM_PROTECTION_TYPE_SIZE: u32 = 4u32;
-pub const DXGKMDT_OPM_PROTECTION_TYPE_TYPE_ENFORCEMENT_HDCP: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(32i32);
-pub const DXGKMDT_OPM_REDISTRIBUTION_CONTROL_REQUIRED: DXGKMDT_OPM_CGMSA = DXGKMDT_OPM_CGMSA(8i32);
-pub const DXGKMDT_OPM_REQUESTED_INFORMATION_SIZE: u32 = 4076u32;
-pub const DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING: windows_core::GUID = windows_core::GUID::from_u128(0x09a631a5_d684_4c60_8e4d_d3bb0f0be3ee);
-pub const DXGKMDT_OPM_SET_HDCP_SRM: windows_core::GUID = windows_core::GUID::from_u128(0x8b5ef5d1_c30d_44ff_84a5_ea71dce78f13);
-pub const DXGKMDT_OPM_SET_PROTECTION_LEVEL: windows_core::GUID = windows_core::GUID::from_u128(0x9bb9327c_4eb5_4727_9f00_b42b0919c0da);
-pub const DXGKMDT_OPM_SET_PROTECTION_LEVEL_ACCORDING_TO_CSS_DVD: windows_core::GUID = windows_core::GUID::from_u128(0x39ce333e_4cc0_44ae_bfcc_da50b5f82e72);
-pub const DXGKMDT_OPM_STATUS_LINK_LOST: DXGKMDT_OPM_STATUS = DXGKMDT_OPM_STATUS(1i32);
-pub const DXGKMDT_OPM_STATUS_NORMAL: DXGKMDT_OPM_STATUS = DXGKMDT_OPM_STATUS(0i32);
-pub const DXGKMDT_OPM_STATUS_RENEGOTIATION_REQUIRED: DXGKMDT_OPM_STATUS = DXGKMDT_OPM_STATUS(2i32);
-pub const DXGKMDT_OPM_STATUS_REVOKED_HDCP_DEVICE_ATTACHED: DXGKMDT_OPM_STATUS = DXGKMDT_OPM_STATUS(8i32);
-pub const DXGKMDT_OPM_STATUS_TAMPERING_DETECTED: DXGKMDT_OPM_STATUS = DXGKMDT_OPM_STATUS(4i32);
-pub const DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_OFF: DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(0i32);
-pub const DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_ON_WITH_NO_TYPE_RESTRICTION: DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(1i32);
-pub const DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_ON_WITH_TYPE1_RESTRICTION: DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(2i32);
-pub const DXGKMDT_OPM_VOS_COPP_SEMANTICS: DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS = DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS(0i32);
-pub const DXGKMDT_OPM_VOS_OPM_INDIRECT_DISPLAY: DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS = DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS(2i32);
-pub const DXGKMDT_OPM_VOS_OPM_SEMANTICS: DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS = DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS(1i32);
-pub const DXGKMDT_UAB_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = DXGKMDT_CERTIFICATE_TYPE(2i32);
-pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_FRAME0: DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE = DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE(1i32);
-pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_FRAME1: DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE = DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE(2i32);
-pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_NONE: DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE = DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE(0i32);
-pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_CHECKERBOARD: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(7i32);
-pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_COLUMN_INTERLEAVED: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(6i32);
-pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_MONO: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(0i32);
-pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_MONO_OFFSET: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(4i32);
-pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_ROW_INTERLEAVED: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(5i32);
-pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_SEPARATE: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(3i32);
-pub const DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY_BILINEAR: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY = DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY(1i32);
-pub const DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY_HIGH: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY = DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY(2i32);
-pub const DXGKMT_POWER_SHARED_TYPE_AUDIO: DXGKMT_POWER_SHARED_TYPE = DXGKMT_POWER_SHARED_TYPE(0i32);
-pub const DXGKVGPU_ESCAPE_TYPE_GET_VGPU_TYPE: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(4i32);
-pub const DXGKVGPU_ESCAPE_TYPE_INITIALIZE: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(2i32);
-pub const DXGKVGPU_ESCAPE_TYPE_PAUSE: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(6i32);
-pub const DXGKVGPU_ESCAPE_TYPE_POWERTRANSITIONCOMPLETE: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(5i32);
-pub const DXGKVGPU_ESCAPE_TYPE_READ_PCI_CONFIG: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(0i32);
-pub const DXGKVGPU_ESCAPE_TYPE_RELEASE: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(3i32);
-pub const DXGKVGPU_ESCAPE_TYPE_RESUME: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(7i32);
-pub const DXGKVGPU_ESCAPE_TYPE_WRITE_PCI_CONFIG: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(1i32);
-pub const DXGK_BRIGHTNESS_MAXIMUM_NIT_RANGE_COUNT: u32 = 16u32;
-pub const DXGK_DDT_DISPLAYID: DXGK_DISPLAY_DESCRIPTOR_TYPE = DXGK_DISPLAY_DESCRIPTOR_TYPE(2u8);
-pub const DXGK_DDT_EDID: DXGK_DISPLAY_DESCRIPTOR_TYPE = DXGK_DISPLAY_DESCRIPTOR_TYPE(1u8);
-pub const DXGK_DDT_INVALID: DXGK_DISPLAY_DESCRIPTOR_TYPE = DXGK_DISPLAY_DESCRIPTOR_TYPE(0u8);
-pub const DXGK_DIAG_PROCESS_NAME_LENGTH: u32 = 16u32;
-pub const DXGK_DT_INVALID: DXGK_DISPLAY_TECHNOLOGY = DXGK_DISPLAY_TECHNOLOGY(0u8);
-pub const DXGK_DT_LCD: DXGK_DISPLAY_TECHNOLOGY = DXGK_DISPLAY_TECHNOLOGY(2u8);
-pub const DXGK_DT_MAX: DXGK_DISPLAY_TECHNOLOGY = DXGK_DISPLAY_TECHNOLOGY(5u8);
-pub const DXGK_DT_OLED: DXGK_DISPLAY_TECHNOLOGY = DXGK_DISPLAY_TECHNOLOGY(3u8);
-pub const DXGK_DT_OTHER: DXGK_DISPLAY_TECHNOLOGY = DXGK_DISPLAY_TECHNOLOGY(1u8);
-pub const DXGK_DT_PROJECTOR: DXGK_DISPLAY_TECHNOLOGY = DXGK_DISPLAY_TECHNOLOGY(4u8);
-pub const DXGK_DU_ACCESSORY: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(5u8);
-pub const DXGK_DU_AR: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(2u8);
-pub const DXGK_DU_GENERIC: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(1u8);
-pub const DXGK_DU_INVALID: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(0u8);
-pub const DXGK_DU_MAX: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(6u8);
-pub const DXGK_DU_MEDICAL_IMAGING: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(4u8);
-pub const DXGK_DU_VR: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(3u8);
-pub const DXGK_ENGINE_TYPE_3D: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(1i32);
-pub const DXGK_ENGINE_TYPE_COPY: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(6i32);
-pub const DXGK_ENGINE_TYPE_CRYPTO: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(8i32);
-pub const DXGK_ENGINE_TYPE_MAX: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(9i32);
-pub const DXGK_ENGINE_TYPE_OTHER: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(0i32);
-pub const DXGK_ENGINE_TYPE_OVERLAY: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(7i32);
-pub const DXGK_ENGINE_TYPE_SCENE_ASSEMBLY: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(5i32);
-pub const DXGK_ENGINE_TYPE_VIDEO_DECODE: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(2i32);
-pub const DXGK_ENGINE_TYPE_VIDEO_ENCODE: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(3i32);
-pub const DXGK_ENGINE_TYPE_VIDEO_PROCESSING: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(4i32);
-pub const DXGK_GENERAL_ERROR_INVALID_INSTRUCTION: DXGK_GENERAL_ERROR_CODE = DXGK_GENERAL_ERROR_CODE(1i32);
-pub const DXGK_GENERAL_ERROR_PAGE_FAULT: DXGK_GENERAL_ERROR_CODE = DXGK_GENERAL_ERROR_CODE(0i32);
-pub const DXGK_GRAPHICSPOWER_VERSION: u32 = 4098u32;
-pub const DXGK_GRAPHICSPOWER_VERSION_1_0: u32 = 4096u32;
-pub const DXGK_GRAPHICSPOWER_VERSION_1_1: u32 = 4097u32;
-pub const DXGK_GRAPHICSPOWER_VERSION_1_2: u32 = 4098u32;
-pub const DXGK_MAX_GPUVERSION_NAME_LENGTH: u32 = 32u32;
-pub const DXGK_MAX_METADATA_NAME_LENGTH: u32 = 32u32;
-pub const DXGK_MAX_PAGE_TABLE_LEVEL_COUNT: u32 = 6u32;
-pub const DXGK_MIN_PAGE_TABLE_LEVEL_COUNT: u32 = 2u32;
-pub const DXGK_MIRACAST_CHUNK_TYPE_COLOR_CONVERT_COMPLETE: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(1i32);
-pub const DXGK_MIRACAST_CHUNK_TYPE_ENCODE_COMPLETE: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(2i32);
-pub const DXGK_MIRACAST_CHUNK_TYPE_ENCODE_DRIVER_DEFINED_1: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(-2147483648i32);
-pub const DXGK_MIRACAST_CHUNK_TYPE_ENCODE_DRIVER_DEFINED_2: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(-2147483647i32);
-pub const DXGK_MIRACAST_CHUNK_TYPE_FRAME_DROPPED: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(4i32);
-pub const DXGK_MIRACAST_CHUNK_TYPE_FRAME_START: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(3i32);
-pub const DXGK_MIRACAST_CHUNK_TYPE_UNKNOWN: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(0i32);
-pub const DXGK_PAGE_FAULT_ADAPTER_RESET_REQUIRED: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(4i32);
-pub const DXGK_PAGE_FAULT_ENGINE_RESET_REQUIRED: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(8i32);
-pub const DXGK_PAGE_FAULT_FATAL_HARDWARE_ERROR: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(16i32);
-pub const DXGK_PAGE_FAULT_FENCE_INVALID: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(2i32);
-pub const DXGK_PAGE_FAULT_HW_CONTEXT_VALID: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(64i32);
-pub const DXGK_PAGE_FAULT_IOMMU: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(32i32);
-pub const DXGK_PAGE_FAULT_PROCESS_HANDLE_VALID: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(128i32);
-pub const DXGK_PAGE_FAULT_WRITE: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(1i32);
-pub const DXGK_PTE_PAGE_TABLE_PAGE_4KB: DXGK_PTE_PAGE_SIZE = DXGK_PTE_PAGE_SIZE(0i32);
-pub const DXGK_PTE_PAGE_TABLE_PAGE_64KB: DXGK_PTE_PAGE_SIZE = DXGK_PTE_PAGE_SIZE(1i32);
-pub const DXGK_RENDER_PIPELINE_STAGE_GEOMETRY_SHADER: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(3i32);
-pub const DXGK_RENDER_PIPELINE_STAGE_INPUT_ASSEMBLER: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(1i32);
-pub const DXGK_RENDER_PIPELINE_STAGE_OUTPUT_MERGER: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(7i32);
-pub const DXGK_RENDER_PIPELINE_STAGE_PIXEL_SHADER: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(6i32);
-pub const DXGK_RENDER_PIPELINE_STAGE_RASTERIZER: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(5i32);
-pub const DXGK_RENDER_PIPELINE_STAGE_STREAM_OUTPUT: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(4i32);
-pub const DXGK_RENDER_PIPELINE_STAGE_UNKNOWN: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(0i32);
-pub const DXGK_RENDER_PIPELINE_STAGE_VERTEX_SHADER: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(2i32);
-pub const DxgkBacklightOptimizationDesktop: DXGK_BACKLIGHT_OPTIMIZATION_LEVEL = DXGK_BACKLIGHT_OPTIMIZATION_LEVEL(1i32);
-pub const DxgkBacklightOptimizationDimmed: DXGK_BACKLIGHT_OPTIMIZATION_LEVEL = DXGK_BACKLIGHT_OPTIMIZATION_LEVEL(3i32);
-pub const DxgkBacklightOptimizationDisable: DXGK_BACKLIGHT_OPTIMIZATION_LEVEL = DXGK_BACKLIGHT_OPTIMIZATION_LEVEL(0i32);
-pub const DxgkBacklightOptimizationDynamic: DXGK_BACKLIGHT_OPTIMIZATION_LEVEL = DXGK_BACKLIGHT_OPTIMIZATION_LEVEL(2i32);
-pub const DxgkBacklightOptimizationEDR: DXGK_BACKLIGHT_OPTIMIZATION_LEVEL = DXGK_BACKLIGHT_OPTIMIZATION_LEVEL(4i32);
-pub const FLIPEX_TIMEOUT_USER: u32 = 2000u32;
 pub const GUID_DEVINTERFACE_GRAPHICSPOWER: windows_core::GUID = windows_core::GUID::from_u128(0xea5c6870_e93c_4588_bef1_fec42fc9429a);
 pub const HpdAwarenessAlwaysConnected: DXGK_CHILD_DEVICE_HPD_AWARENESS = DXGK_CHILD_DEVICE_HPD_AWARENESS(1i32);
 pub const HpdAwarenessInterruptible: DXGK_CHILD_DEVICE_HPD_AWARENESS = DXGK_CHILD_DEVICE_HPD_AWARENESS(4i32);
@@ -19455,7 +19165,13 @@ pub const KMTQAITYPE_WDDM_3_0_CAPS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINF
 pub const KMTQAITYPE_WDDM_3_1_CAPS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(80i32);
 pub const KMTQAITYPE_WSAUMDIMAGENAME: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(78i32);
 pub const KMTQAITYPE_XBOX: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(27i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KMTQUERYADAPTERINFOTYPE(pub i32);
 pub const KMTQUITYPE_GPUVERSION: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(64i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KMTUMDVERSION(pub i32);
 pub const KMTUMDVERSION_DX10: KMTUMDVERSION = KMTUMDVERSION(1i32);
 pub const KMTUMDVERSION_DX11: KMTUMDVERSION = KMTUMDVERSION(2i32);
 pub const KMTUMDVERSION_DX12: KMTUMDVERSION = KMTUMDVERSION(3i32);
@@ -19463,6 +19179,9 @@ pub const KMTUMDVERSION_DX12_WSA32: KMTUMDVERSION = KMTUMDVERSION(4i32);
 pub const KMTUMDVERSION_DX12_WSA64: KMTUMDVERSION = KMTUMDVERSION(5i32);
 pub const KMTUMDVERSION_DX9: KMTUMDVERSION = KMTUMDVERSION(0i32);
 pub const KMT_DISPLAY_UMDVERSION_1: KMT_DISPLAY_UMD_VERSION = KMT_DISPLAY_UMD_VERSION(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KMT_DISPLAY_UMD_VERSION(pub i32);
 pub const KMT_DRIVERVERSION_WDDM_1_0: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(1000i32);
 pub const KMT_DRIVERVERSION_WDDM_1_1: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(1105i32);
 pub const KMT_DRIVERVERSION_WDDM_1_1_PRERELEASE: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(1102i32);
@@ -19480,6 +19199,52 @@ pub const KMT_DRIVERVERSION_WDDM_2_8: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSIO
 pub const KMT_DRIVERVERSION_WDDM_2_9: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(2900i32);
 pub const KMT_DRIVERVERSION_WDDM_3_0: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(3000i32);
 pub const KMT_DRIVERVERSION_WDDM_3_1: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(3100i32);
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub type LPD3DHAL_CLEAR2CB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_CLEAR2DATA) -> u32>;
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub type LPD3DHAL_CLEARCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_CLEARDATA) -> u32>;
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+pub type LPD3DHAL_CONTEXTCREATECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_CONTEXTCREATEDATA) -> u32>;
+pub type LPD3DHAL_CONTEXTDESTROYALLCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_CONTEXTDESTROYALLDATA) -> u32>;
+pub type LPD3DHAL_CONTEXTDESTROYCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_CONTEXTDESTROYDATA) -> u32>;
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub type LPD3DHAL_DRAWONEINDEXEDPRIMITIVECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA) -> u32>;
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub type LPD3DHAL_DRAWONEPRIMITIVECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWONEPRIMITIVEDATA) -> u32>;
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+pub type LPD3DHAL_DRAWPRIMITIVES2CB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWPRIMITIVES2DATA) -> u32>;
+pub type LPD3DHAL_DRAWPRIMITIVESCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWPRIMITIVESDATA) -> u32>;
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub type LPD3DHAL_GETSTATECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_GETSTATEDATA) -> u32>;
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+pub type LPD3DHAL_RENDERPRIMITIVECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_RENDERPRIMITIVEDATA) -> u32>;
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+pub type LPD3DHAL_RENDERSTATECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_RENDERSTATEDATA) -> u32>;
+pub type LPD3DHAL_SCENECAPTURECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_SCENECAPTUREDATA) -> u32>;
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+pub type LPD3DHAL_SETRENDERTARGETCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_SETRENDERTARGETDATA) -> u32>;
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+pub type LPD3DHAL_TEXTURECREATECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTURECREATEDATA) -> u32>;
+pub type LPD3DHAL_TEXTUREDESTROYCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTUREDESTROYDATA) -> u32>;
+pub type LPD3DHAL_TEXTUREGETSURFCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTUREGETSURFDATA) -> u32>;
+pub type LPD3DHAL_TEXTURESWAPCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTURESWAPDATA) -> u32>;
+pub type LPD3DHAL_VALIDATETEXTURESTAGESTATECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_VALIDATETEXTURESTAGESTATEDATA) -> u32>;
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub type LPD3DNTHAL_CLEAR2CB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CLEAR2DATA) -> u32>;
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+pub type LPD3DNTHAL_CONTEXTCREATECB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTCREATEDATA) -> u32>;
+pub type LPD3DNTHAL_CONTEXTDESTROYALLCB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTDESTROYALLDATA) -> u32>;
+pub type LPD3DNTHAL_CONTEXTDESTROYCB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTDESTROYDATA) -> u32>;
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+pub type LPD3DNTHAL_DRAWPRIMITIVES2CB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_DRAWPRIMITIVES2DATA) -> u32>;
+pub type LPD3DNTHAL_SCENECAPTURECB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_SCENECAPTUREDATA) -> u32>;
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+pub type LPD3DNTHAL_SETRENDERTARGETCB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_SETRENDERTARGETDATA) -> u32>;
+pub type LPD3DNTHAL_TEXTURECREATECB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTURECREATEDATA) -> u32>;
+pub type LPD3DNTHAL_TEXTUREDESTROYCB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTUREDESTROYDATA) -> u32>;
+pub type LPD3DNTHAL_TEXTUREGETSURFCB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTUREGETSURFDATA) -> u32>;
+pub type LPD3DNTHAL_TEXTURESWAPCB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTURESWAPDATA) -> u32>;
+pub type LPD3DNTHAL_VALIDATETEXTURESTAGESTATECB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA) -> u32>;
 pub const MAX_ENUM_ADAPTERS: u32 = 16u32;
 pub const MiracastStartPending: D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE = D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE(1i32);
 pub const MiracastStarted: D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE = D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE(2i32);
@@ -19487,10 +19252,231 @@ pub const MiracastStopPending: D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE = D3DKMT_MIR
 pub const MiracastStopped: D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE = D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE(0i32);
 pub const NUM_KMTUMDVERSIONS: KMTUMDVERSION = KMTUMDVERSION(6i32);
 pub const NUM_KMT_DISPLAY_UMDVERSIONS: KMT_DISPLAY_UMD_VERSION = KMT_DISPLAY_UMD_VERSION(1i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct OUTPUTDUPL_CONTEXT_DEBUG_INFO {
+    pub Status: OUTPUTDUPL_CONTEXT_DEBUG_STATUS,
+    pub ProcessID: super::super::super::Win32::Foundation::HANDLE,
+    pub AccumulatedPresents: u32,
+    pub LastPresentTime: i64,
+    pub LastMouseTime: i64,
+    pub ProcessName: [i8; 16],
+}
+impl Default for OUTPUTDUPL_CONTEXT_DEBUG_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for OUTPUTDUPL_CONTEXT_DEBUG_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OUTPUTDUPL_CONTEXT_DEBUG_STATUS(pub i32);
 pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_ACTIVE: OUTPUTDUPL_CONTEXT_DEBUG_STATUS = OUTPUTDUPL_CONTEXT_DEBUG_STATUS(1i32);
 pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_INACTIVE: OUTPUTDUPL_CONTEXT_DEBUG_STATUS = OUTPUTDUPL_CONTEXT_DEBUG_STATUS(0i32);
 pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_PENDING_DESTROY: OUTPUTDUPL_CONTEXT_DEBUG_STATUS = OUTPUTDUPL_CONTEXT_DEBUG_STATUS(2i32);
 pub const OUTPUTDUPL_CREATE_MAX_KEYEDMUTXES: u32 = 3u32;
+pub type PDXGK_FSTATE_NOTIFICATION = Option<unsafe extern "system" fn(graphicsdevicehandle: *mut core::ffi::c_void, componentindex: u32, newfstate: u32, prenotification: super::super::super::Win32::Foundation::BOOLEAN, privatehandle: *mut core::ffi::c_void)>;
+pub type PDXGK_GRAPHICSPOWER_UNREGISTER = Option<unsafe extern "system" fn(devicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PDXGK_INITIAL_COMPONENT_STATE = Option<unsafe extern "system" fn(graphicsdevicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void, componentindex: u32, isblockingtype: super::super::super::Win32::Foundation::BOOLEAN, initialfstate: u32, componentguid: windows_core::GUID, powercomponentmappingflag: u32)>;
+#[cfg(feature = "Win32_System_Power")]
+pub type PDXGK_POWER_NOTIFICATION = Option<unsafe extern "system" fn(graphicsdevicehandle: *mut core::ffi::c_void, newgrfxpowerstate: super::super::super::Win32::System::Power::DEVICE_POWER_STATE, prenotification: super::super::super::Win32::Foundation::BOOLEAN, privatehandle: *mut core::ffi::c_void)>;
+pub type PDXGK_REMOVAL_NOTIFICATION = Option<unsafe extern "system" fn(graphicsdevicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void)>;
+pub type PDXGK_SET_SHARED_POWER_COMPONENT_STATE = Option<unsafe extern "system" fn(devicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void, componentindex: u32, active: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_ACQUIREKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_ACQUIREKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_ADJUSTFULLSCREENGAMMA = Option<unsafe extern "system" fn(param0: *const D3DKMT_ADJUSTFULLSCREENGAMMA) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_BUDGETCHANGENOTIFICATIONCALLBACK = Option<unsafe extern "system" fn(param0: *const D3DKMT_BUDGETCHANGENOTIFICATION)>;
+pub type PFND3DKMT_CANCELPRESENTS = Option<unsafe extern "system" fn(param0: *const D3DKMT_CANCEL_PRESENTS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type PFND3DKMT_CHANGESURFACEPOINTER = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHANGESURFACEPOINTER) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CHANGEVIDEOMEMORYRESERVATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHANGEVIDEOMEMORYRESERVATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CHECKEXCLUSIVEOWNERSHIP = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
+pub type PFND3DKMT_CHECKMONITORPOWERSTATE = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKMONITORPOWERSTATE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CHECKOCCLUSION = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKOCCLUSION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CHECKSHAREDRESOURCEACCESS = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKSHAREDRESOURCEACCESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CLOSEADAPTER = Option<unsafe extern "system" fn(param0: *const D3DKMT_CLOSEADAPTER) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CONFIGURESHAREDRESOURCE = Option<unsafe extern "system" fn(param0: *const D3DKMT_CONFIGURESHAREDRESOURCE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CONNECTDOORBELL = Option<unsafe extern "system" fn(param0: *const D3DKMT_CONNECT_DOORBELL) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATEALLOCATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEALLOCATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATEALLOCATION2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEALLOCATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATECONTEXT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATECONTEXT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATECONTEXTVIRTUAL = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATECONTEXTVIRTUAL) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type PFND3DKMT_CREATEDCFROMMEMORY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEDCFROMMEMORY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATEDEVICE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEDEVICE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATEDOORBELL = Option<unsafe extern "system" fn(param0: *const D3DKMT_CREATE_DOORBELL) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATEHWQUEUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATEKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATEKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATENATIVEFENCE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATENATIVEFENCE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATEOUTPUTDUPL = Option<unsafe extern "system" fn(param0: *const D3DKMT_CREATE_OUTPUTDUPL) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATEOVERLAY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATEPAGINGQUEUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEPAGINGQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATEPROTECTEDSESSION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEPROTECTEDSESSION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATESYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_CREATESYNCHRONIZATIONOBJECT2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_DESTROYALLOCATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYALLOCATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_DESTROYALLOCATION2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYALLOCATION2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_DESTROYCONTEXT = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYCONTEXT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type PFND3DKMT_DESTROYDCFROMMEMORY = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYDCFROMMEMORY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_DESTROYDEVICE = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYDEVICE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_DESTROYDOORBELL = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROY_DOORBELL) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_DESTROYHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_DESTROYKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_DESTROYOUTPUTDUPL = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROY_OUTPUTDUPL) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_DESTROYOVERLAY = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_DESTROYPAGINGQUEUE = Option<unsafe extern "system" fn(param0: *mut D3DDDI_DESTROYPAGINGQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_DESTROYPROTECTEDSESSION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_DESTROYPROTECTEDSESSION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_DESTROYSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_ENUMADAPTERS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ENUMADAPTERS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_ENUMADAPTERS2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ENUMADAPTERS2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_ENUMADAPTERS3 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ENUMADAPTERS3) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_ESCAPE = Option<unsafe extern "system" fn(param0: *const D3DKMT_ESCAPE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_EVICT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_EVICT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_FLIPOVERLAY = Option<unsafe extern "system" fn(param0: *const D3DKMT_FLIPOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_FLUSHHEAPTRANSITIONS = Option<unsafe extern "system" fn(param0: *const D3DKMT_FLUSHHEAPTRANSITIONS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_FREEGPUVIRTUALADDRESS = Option<unsafe extern "system" fn(param0: *const D3DKMT_FREEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETALLOCATIONPRIORITY = Option<unsafe extern "system" fn(param0: *const D3DKMT_GETALLOCATIONPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETCONTEXTSCHEDULINGPRIORITY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETCONTEXTSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETDEVICESTATE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETDEVICESTATE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETDISPLAYMODELIST = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETDISPLAYMODELIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETDWMVERTICALBLANKEVENT = Option<unsafe extern "system" fn(param0: *const D3DKMT_GETVERTICALBLANKEVENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETMULTIPLANEOVERLAYCAPS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETMULTISAMPLEMETHODLIST = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETMULTISAMPLEMETHODLIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETOVERLAYSTATE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETOVERLAYSTATE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETPOSTCOMPOSITIONCAPS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GET_POST_COMPOSITION_CAPS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETPRESENTHISTORY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETPRESENTHISTORY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETPROCESSDEVICEREMOVALSUPPORT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETPROCESSSCHEDULINGPRIORITYCLASS = Option<unsafe extern "system" fn(param0: super::super::super::Win32::Foundation::HANDLE, param1: *mut D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETRESOURCEPRESENTPRIVATEDRIVERDATA = Option<unsafe extern "system" fn(param0: *mut D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETRUNTIMEDATA = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETRUNTIMEDATA) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETSCANLINE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETSCANLINE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETSHAREDPRIMARYHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETSHAREDPRIMARYHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_GETSHAREDRESOURCEADAPTERLUID = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETSHAREDRESOURCEADAPTERLUID) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_INVALIDATEACTIVEVIDPN = Option<unsafe extern "system" fn(param0: *const D3DKMT_INVALIDATEACTIVEVIDPN) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_INVALIDATECACHE = Option<unsafe extern "system" fn(param0: *const D3DKMT_INVALIDATECACHE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_LOCK = Option<unsafe extern "system" fn(param0: *mut D3DKMT_LOCK) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_LOCK2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_LOCK2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_MAKERESIDENT = Option<unsafe extern "system" fn(param0: *mut D3DDDI_MAKERESIDENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_MAPGPUVIRTUALADDRESS = Option<unsafe extern "system" fn(param0: *mut D3DDDI_MAPGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_MARKDEVICEASERROR = Option<unsafe extern "system" fn(param0: *const D3DKMT_MARKDEVICEASERROR) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_NOTIFYWORKSUBMISSION = Option<unsafe extern "system" fn(param0: *const D3DKMT_NOTIFY_WORK_SUBMISSION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OFFERALLOCATIONS = Option<unsafe extern "system" fn(param0: *const D3DKMT_OFFERALLOCATIONS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENADAPTERFROMDEVICENAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMDEVICENAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENADAPTERFROMGDIDISPLAYNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type PFND3DKMT_OPENADAPTERFROMHDC = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMHDC) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENADAPTERFROMLUID = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMLUID) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENKEYEDMUTEXFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENNATIVEFENCEFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENNATIVEFENCEFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
+pub type PFND3DKMT_OPENNTHANDLEFROMNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENRESOURCE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENRESOURCE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENRESOURCE2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENRESOURCE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENRESOURCEFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENRESOURCEFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
+pub type PFND3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OUTPUTDUPLGETFRAMEINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_GET_FRAMEINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OUTPUTDUPLGETMETADATA = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_METADATA) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OUTPUTDUPLGETPOINTERSHAPEDATA = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OUTPUTDUPLPRESENT = Option<unsafe extern "system" fn(param0: *const D3DKMT_OUTPUTDUPLPRESENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_OUTPUTDUPLRELEASEFRAME = Option<unsafe extern "system" fn(param0: *const D3DKMT_OUTPUTDUPL_RELEASE_FRAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_PINDIRECTFLIPRESOURCES = Option<unsafe extern "system" fn(param0: *const D3DKMT_PINDIRECTFLIPRESOURCES) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_POLLDISPLAYCHILDREN = Option<unsafe extern "system" fn(param0: *const D3DKMT_POLLDISPLAYCHILDREN) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_PRESENT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_PRESENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_PRESENTMULTIPLANEOVERLAY = Option<unsafe extern "system" fn(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_PRESENTMULTIPLANEOVERLAY2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_PRESENTMULTIPLANEOVERLAY3 = Option<unsafe extern "system" fn(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY3) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYADAPTERINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYADAPTERINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYALLOCATIONRESIDENCY = Option<unsafe extern "system" fn(param0: *const D3DKMT_QUERYALLOCATIONRESIDENCY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYCLOCKCALIBRATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYCLOCKCALIBRATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYFSEBLOCK = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYFSEBLOCK) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYHYBRIDLISTVALUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_HYBRID_LIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYPROCESSOFFERINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYPROCESSOFFERINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYPROTECTEDSESSIONSTATUS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYPROTECTEDSESSIONSTATUS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYRESOURCEINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYRESOURCEINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYRESOURCEINFOFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYSTATISTICS = Option<unsafe extern "system" fn(param0: *const D3DKMT_QUERYSTATISTICS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYVIDEOMEMORYINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYVIDEOMEMORYINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_RECLAIMALLOCATIONS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RECLAIMALLOCATIONS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_RECLAIMALLOCATIONS2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RECLAIMALLOCATIONS2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_REGISTERBUDGETCHANGENOTIFICATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_REGISTERBUDGETCHANGENOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_REGISTERTRIMNOTIFICATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_REGISTERTRIMNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_RELEASEKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RELEASEKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_RELEASEKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RELEASEKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_RELEASEPROCESSVIDPNSOURCEOWNERS = Option<unsafe extern "system" fn(param0: super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_RENDER = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RENDER) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_RESERVEGPUVIRTUALADDRESS = Option<unsafe extern "system" fn(param0: *mut D3DDDI_RESERVEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETALLOCATIONPRIORITY = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETALLOCATIONPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETCONTEXTSCHEDULINGPRIORITY = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETDISPLAYMODE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_SETDISPLAYMODE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETFSEBLOCK = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETFSEBLOCK) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETGAMMARAMP = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETGAMMARAMP) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETHYBRIDLISTVVALUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_HYBRID_LIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETPROCESSSCHEDULINGPRIORITYCLASS = Option<unsafe extern "system" fn(param0: super::super::super::Win32::Foundation::HANDLE, param1: D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETQUEUEDLIMIT = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETQUEUEDLIMIT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETSTABLEPOWERSTATE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETSTABLEPOWERSTATE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETSTEREOENABLED = Option<unsafe extern "system" fn(param0: super::super::super::Win32::Foundation::BOOL) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETSYNCREFRESHCOUNTWAITTARGET = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETVIDPNSOURCEHWPROTECTION = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEHWPROTECTION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETVIDPNSOURCEOWNER = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETVIDPNSOURCEOWNER1 = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER1) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SETVIDPNSOURCEOWNER2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SHAREDPRIMARYLOCKNOTIFICATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
+pub type PFND3DKMT_SHAREOBJECTS = Option<unsafe extern "system" fn(cobjects: u32, hobjects: *const u32, pobjectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SUBMITCOMMAND = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITCOMMAND) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SUBMITCOMMANDTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITCOMMANDTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SUBMITPRESENTBLTTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITPRESENTBLTTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SUBMITPRESENTTOHWQUEUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_SUBMITPRESENTTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_TRIMNOTIFICATIONCALLBACK = Option<unsafe extern "system" fn(param0: *mut D3DKMT_TRIMNOTIFICATION)>;
+pub type PFND3DKMT_TRIMPROCESSCOMMITMENT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_TRIMPROCESSCOMMITMENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_UNLOCK = Option<unsafe extern "system" fn(param0: *const D3DKMT_UNLOCK) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_UNLOCK2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_UNLOCK2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_UNPINDIRECTFLIPRESOURCES = Option<unsafe extern "system" fn(param0: *const D3DKMT_UNPINDIRECTFLIPRESOURCES) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_UNREGISTERTRIMNOTIFICATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_UNREGISTERTRIMNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_UPDATEALLOCATIONPROPERTY = Option<unsafe extern "system" fn(param0: *mut D3DDDI_UPDATEALLOCPROPERTY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_UPDATEGPUVIRTUALADDRESS = Option<unsafe extern "system" fn(param0: *const D3DKMT_UPDATEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_UPDATEOVERLAY = Option<unsafe extern "system" fn(param0: *const D3DKMT_UPDATEOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_WAITFORIDLE = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORIDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECT2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_WAITFORVERTICALBLANKEVENT = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_WAITFORVERTICALBLANKEVENT2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DNTPARSEUNKNOWNCOMMAND = Option<unsafe extern "system" fn(lpvcommands: *mut core::ffi::c_void, lplpvreturnedcommand: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub type PFND3DPARSEUNKNOWNCOMMAND = Option<unsafe extern "system" fn(lpvcommands: *mut core::ffi::c_void, lplpvreturnedcommand: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
 pub const RTPATCHFLAG_HASINFO: i32 = 2i32;
 pub const RTPATCHFLAG_HASSEGS: i32 = 1i32;
 pub const SHARED_ALLOCATION_WRITE: u32 = 1u32;
@@ -19514,6 +19500,20 @@ pub const _NT_D3DGDI2_TYPE_GETEXTENDEDMODECOUNT: u32 = 17u32;
 pub const _NT_D3DGDI2_TYPE_GETFORMAT: u32 = 3u32;
 pub const _NT_D3DGDI2_TYPE_GETFORMATCOUNT: u32 = 2u32;
 pub const _NT_D3DGDI2_TYPE_GETMULTISAMPLEQUALITYLEVELS: u32 = 22u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct _NT_D3DLINEPATTERN {
+    pub wRepeatFactor: u16,
+    pub wLinePattern: u16,
+}
+impl Default for _NT_D3DLINEPATTERN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for _NT_D3DLINEPATTERN {
+    type TypeKind = windows_core::CopyType;
+}
 pub const _NT_D3DPMISCCAPS_FOGINFVF: i32 = 8192i32;
 pub const _NT_D3DPS_COLOROUT_MAX_V2_0: u32 = 4u32;
 pub const _NT_D3DPS_COLOROUT_MAX_V2_1: u32 = 4u32;

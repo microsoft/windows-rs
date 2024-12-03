@@ -41,10 +41,15 @@ windows_targets::link!("computenetwork.dll" "system" fn HcnReserveGuestNetworkSe
 windows_targets::link!("computenetwork.dll" "system" fn HcnReserveGuestNetworkServicePortRange(guestnetworkservice : *const core::ffi::c_void, portcount : u16, portrangereservation : *mut HCN_PORT_RANGE_RESERVATION, portreservationhandle : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
 windows_targets::link!("computenetwork.dll" "system" fn HcnUnregisterGuestNetworkServiceCallback(callbackhandle : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("computenetwork.dll" "system" fn HcnUnregisterServiceCallback(callbackhandle : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
-pub type HCN_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(notificationtype: u32, context: *const core::ffi::c_void, notificationstatus: windows_sys::core::HRESULT, notificationdata: windows_sys::core::PCWSTR)>;
 pub type HCN_NOTIFICATIONS = i32;
+pub type HCN_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(notificationtype: u32, context: *const core::ffi::c_void, notificationstatus: windows_sys::core::HRESULT, notificationdata: windows_sys::core::PCWSTR)>;
 pub type HCN_PORT_ACCESS = i32;
+pub const HCN_PORT_ACCESS_EXCLUSIVE: HCN_PORT_ACCESS = 1i32;
+pub const HCN_PORT_ACCESS_SHARED: HCN_PORT_ACCESS = 2i32;
 pub type HCN_PORT_PROTOCOL = i32;
+pub const HCN_PORT_PROTOCOL_BOTH: HCN_PORT_PROTOCOL = 3i32;
+pub const HCN_PORT_PROTOCOL_TCP: HCN_PORT_PROTOCOL = 1i32;
+pub const HCN_PORT_PROTOCOL_UDP: HCN_PORT_PROTOCOL = 2i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HCN_PORT_RANGE_ENTRY {
@@ -64,11 +69,6 @@ pub struct HCN_PORT_RANGE_RESERVATION {
     pub startingPort: u16,
     pub endingPort: u16,
 }
-pub const HCN_PORT_ACCESS_EXCLUSIVE: HCN_PORT_ACCESS = 1i32;
-pub const HCN_PORT_ACCESS_SHARED: HCN_PORT_ACCESS = 2i32;
-pub const HCN_PORT_PROTOCOL_BOTH: HCN_PORT_PROTOCOL = 3i32;
-pub const HCN_PORT_PROTOCOL_TCP: HCN_PORT_PROTOCOL = 1i32;
-pub const HCN_PORT_PROTOCOL_UDP: HCN_PORT_PROTOCOL = 2i32;
 pub const HcnNotificationFlagsReserved: HCN_NOTIFICATIONS = -268435456i32;
 pub const HcnNotificationGuestNetworkServiceCreate: HCN_NOTIFICATIONS = 7i32;
 pub const HcnNotificationGuestNetworkServiceDelete: HCN_NOTIFICATIONS = 8i32;

@@ -26,6 +26,7 @@ pub struct DYNAMIC_TIME_ZONE_INFORMATION {
     pub TimeZoneKeyName: [u16; 128],
     pub DynamicDaylightTimeDisabled: super::super::Foundation::BOOLEAN,
 }
+pub const TIME_ZONE_ID_INVALID: u32 = 4294967295u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TIME_ZONE_INFORMATION {
@@ -37,7 +38,6 @@ pub struct TIME_ZONE_INFORMATION {
     pub DaylightDate: super::super::Foundation::SYSTEMTIME,
     pub DaylightBias: i32,
 }
-pub const TIME_ZONE_ID_INVALID: u32 = 4294967295u32;
 pub const TSF_Authenticated: u32 = 2u32;
 pub const TSF_Hardware: u32 = 1u32;
 pub const TSF_IPv6: u32 = 4u32;

@@ -96,6 +96,20 @@ impl windows_core::RuntimeName for AdvancedColorInfo {
 unsafe impl Send for AdvancedColorInfo {}
 unsafe impl Sync for AdvancedColorInfo {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AdvancedColorKind(pub i32);
+impl AdvancedColorKind {
+    pub const StandardDynamicRange: Self = Self(0i32);
+    pub const WideColorGamut: Self = Self(1i32);
+    pub const HighDynamicRange: Self = Self(2i32);
+}
+impl windows_core::TypeKind for AdvancedColorKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AdvancedColorKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.AdvancedColorKind;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BrightnessOverride(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BrightnessOverride, windows_core::IUnknown, windows_core::IInspectable);
@@ -313,6 +327,93 @@ impl windows_core::RuntimeName for ColorOverrideSettings {
 }
 unsafe impl Send for ColorOverrideSettings {}
 unsafe impl Sync for ColorOverrideSettings {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplayBrightnessOverrideOptions(pub u32);
+impl DisplayBrightnessOverrideOptions {
+    pub const None: Self = Self(0u32);
+    pub const UseDimmedPolicyWhenBatteryIsLow: Self = Self(1u32);
+}
+impl windows_core::TypeKind for DisplayBrightnessOverrideOptions {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DisplayBrightnessOverrideOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessOverrideOptions;u4)");
+}
+impl DisplayBrightnessOverrideOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DisplayBrightnessOverrideOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DisplayBrightnessOverrideOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DisplayBrightnessOverrideOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DisplayBrightnessOverrideOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DisplayBrightnessOverrideOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplayBrightnessOverrideScenario(pub i32);
+impl DisplayBrightnessOverrideScenario {
+    pub const IdleBrightness: Self = Self(0i32);
+    pub const BarcodeReadingBrightness: Self = Self(1i32);
+    pub const FullBrightness: Self = Self(2i32);
+}
+impl windows_core::TypeKind for DisplayBrightnessOverrideScenario {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DisplayBrightnessOverrideScenario {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessOverrideScenario;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplayBrightnessScenario(pub i32);
+impl DisplayBrightnessScenario {
+    pub const DefaultBrightness: Self = Self(0i32);
+    pub const IdleBrightness: Self = Self(1i32);
+    pub const BarcodeReadingBrightness: Self = Self(2i32);
+    pub const FullBrightness: Self = Self(3i32);
+}
+impl windows_core::TypeKind for DisplayBrightnessScenario {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DisplayBrightnessScenario {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessScenario;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplayColorOverrideScenario(pub i32);
+impl DisplayColorOverrideScenario {
+    pub const Accurate: Self = Self(0i32);
+}
+impl windows_core::TypeKind for DisplayColorOverrideScenario {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DisplayColorOverrideScenario {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayColorOverrideScenario;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DisplayEnhancementOverride(windows_core::IUnknown);
@@ -716,6 +817,55 @@ impl windows_core::RuntimeName for DisplayInformation {
 }
 unsafe impl Send for DisplayInformation {}
 unsafe impl Sync for DisplayInformation {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplayOrientations(pub u32);
+impl DisplayOrientations {
+    pub const None: Self = Self(0u32);
+    pub const Landscape: Self = Self(1u32);
+    pub const Portrait: Self = Self(2u32);
+    pub const LandscapeFlipped: Self = Self(4u32);
+    pub const PortraitFlipped: Self = Self(8u32);
+}
+impl windows_core::TypeKind for DisplayOrientations {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DisplayOrientations {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayOrientations;u4)");
+}
+impl DisplayOrientations {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DisplayOrientations {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DisplayOrientations {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DisplayOrientations {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DisplayOrientations {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DisplayOrientations {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[cfg(feature = "deprecated")]
 pub struct DisplayProperties;
 #[cfg(feature = "deprecated")]
@@ -852,6 +1002,72 @@ impl DisplayProperties {
 impl windows_core::RuntimeName for DisplayProperties {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayProperties";
 }
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(DisplayPropertiesEventHandler, DisplayPropertiesEventHandler_Vtbl, 0xdbdd8b01_f1a1_46d1_9ee3_543bcc995980);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for DisplayPropertiesEventHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+impl DisplayPropertiesEventHandler {
+    pub fn new<F: FnMut(Option<&windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = DisplayPropertiesEventHandlerBox { vtable: &DisplayPropertiesEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
+    pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi()).ok() }
+    }
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct DisplayPropertiesEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+struct DisplayPropertiesEventHandlerBox<F: FnMut(Option<&windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static> {
+    vtable: *const DisplayPropertiesEventHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+#[cfg(feature = "deprecated")]
+impl<F: FnMut(Option<&windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static> DisplayPropertiesEventHandlerBox<F> {
+    const VTABLE: DisplayPropertiesEventHandler_Vtbl = DisplayPropertiesEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <DisplayPropertiesEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+        if (*interface).is_null() {
+            windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender)).into()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DisplayServices(windows_core::IUnknown);
@@ -880,6 +1096,19 @@ impl windows_core::RuntimeName for DisplayServices {
 }
 unsafe impl Send for DisplayServices {}
 unsafe impl Sync for DisplayServices {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HdrMetadataFormat(pub i32);
+impl HdrMetadataFormat {
+    pub const Hdr10: Self = Self(0i32);
+    pub const Hdr10Plus: Self = Self(1i32);
+}
+impl windows_core::TypeKind for HdrMetadataFormat {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HdrMetadataFormat {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.HdrMetadataFormat;i4)");
+}
 windows_core::imp::define_interface!(IAdvancedColorInfo, IAdvancedColorInfo_Vtbl, 0x8797dcfb_b229_4081_ae9a_2cc85e34ad6a);
 impl windows_core::RuntimeType for IAdvancedColorInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1205,234 +1434,18 @@ pub struct IDisplayServicesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FindAll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut super::DisplayId) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(DisplayPropertiesEventHandler, DisplayPropertiesEventHandler_Vtbl, 0xdbdd8b01_f1a1_46d1_9ee3_543bcc995980);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for DisplayPropertiesEventHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-impl DisplayPropertiesEventHandler {
-    pub fn new<F: FnMut(Option<&windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = DisplayPropertiesEventHandlerBox { vtable: &DisplayPropertiesEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
-    }
-    pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IInspectable>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi()).ok() }
-    }
-}
-#[cfg(feature = "deprecated")]
 #[repr(C)]
-pub struct DisplayPropertiesEventHandler_Vtbl {
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct NitRange {
+    pub MinNits: f32,
+    pub MaxNits: f32,
+    pub StepSizeNits: f32,
 }
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-struct DisplayPropertiesEventHandlerBox<F: FnMut(Option<&windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static> {
-    vtable: *const DisplayPropertiesEventHandler_Vtbl,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
-#[cfg(feature = "deprecated")]
-impl<F: FnMut(Option<&windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static> DisplayPropertiesEventHandlerBox<F> {
-    const VTABLE: DisplayPropertiesEventHandler_Vtbl = DisplayPropertiesEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <DisplayPropertiesEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&sender)).into()
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AdvancedColorKind(pub i32);
-impl AdvancedColorKind {
-    pub const StandardDynamicRange: Self = Self(0i32);
-    pub const WideColorGamut: Self = Self(1i32);
-    pub const HighDynamicRange: Self = Self(2i32);
-}
-impl windows_core::TypeKind for AdvancedColorKind {
+impl windows_core::TypeKind for NitRange {
     type TypeKind = windows_core::CopyType;
 }
-impl windows_core::RuntimeType for AdvancedColorKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.AdvancedColorKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplayBrightnessOverrideOptions(pub u32);
-impl DisplayBrightnessOverrideOptions {
-    pub const None: Self = Self(0u32);
-    pub const UseDimmedPolicyWhenBatteryIsLow: Self = Self(1u32);
-}
-impl windows_core::TypeKind for DisplayBrightnessOverrideOptions {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DisplayBrightnessOverrideOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessOverrideOptions;u4)");
-}
-impl DisplayBrightnessOverrideOptions {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DisplayBrightnessOverrideOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DisplayBrightnessOverrideOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DisplayBrightnessOverrideOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DisplayBrightnessOverrideOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DisplayBrightnessOverrideOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplayBrightnessOverrideScenario(pub i32);
-impl DisplayBrightnessOverrideScenario {
-    pub const IdleBrightness: Self = Self(0i32);
-    pub const BarcodeReadingBrightness: Self = Self(1i32);
-    pub const FullBrightness: Self = Self(2i32);
-}
-impl windows_core::TypeKind for DisplayBrightnessOverrideScenario {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DisplayBrightnessOverrideScenario {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessOverrideScenario;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplayBrightnessScenario(pub i32);
-impl DisplayBrightnessScenario {
-    pub const DefaultBrightness: Self = Self(0i32);
-    pub const IdleBrightness: Self = Self(1i32);
-    pub const BarcodeReadingBrightness: Self = Self(2i32);
-    pub const FullBrightness: Self = Self(3i32);
-}
-impl windows_core::TypeKind for DisplayBrightnessScenario {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DisplayBrightnessScenario {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessScenario;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplayColorOverrideScenario(pub i32);
-impl DisplayColorOverrideScenario {
-    pub const Accurate: Self = Self(0i32);
-}
-impl windows_core::TypeKind for DisplayColorOverrideScenario {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DisplayColorOverrideScenario {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayColorOverrideScenario;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplayOrientations(pub u32);
-impl DisplayOrientations {
-    pub const None: Self = Self(0u32);
-    pub const Landscape: Self = Self(1u32);
-    pub const Portrait: Self = Self(2u32);
-    pub const LandscapeFlipped: Self = Self(4u32);
-    pub const PortraitFlipped: Self = Self(8u32);
-}
-impl windows_core::TypeKind for DisplayOrientations {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DisplayOrientations {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayOrientations;u4)");
-}
-impl DisplayOrientations {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DisplayOrientations {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DisplayOrientations {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DisplayOrientations {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DisplayOrientations {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DisplayOrientations {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HdrMetadataFormat(pub i32);
-impl HdrMetadataFormat {
-    pub const Hdr10: Self = Self(0i32);
-    pub const Hdr10Plus: Self = Self(1i32);
-}
-impl windows_core::TypeKind for HdrMetadataFormat {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HdrMetadataFormat {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.HdrMetadataFormat;i4)");
+impl windows_core::RuntimeType for NitRange {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Display.NitRange;f4;f4;f4)");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1461,17 +1474,4 @@ impl windows_core::TypeKind for ResolutionScale {
 }
 impl windows_core::RuntimeType for ResolutionScale {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.ResolutionScale;i4)");
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct NitRange {
-    pub MinNits: f32,
-    pub MaxNits: f32,
-    pub StepSizeNits: f32,
-}
-impl windows_core::TypeKind for NitRange {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for NitRange {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Display.NitRange;f4;f4;f4)");
 }

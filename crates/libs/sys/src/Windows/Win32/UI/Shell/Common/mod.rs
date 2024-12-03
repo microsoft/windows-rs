@@ -1,45 +1,17 @@
-pub type DEVICE_SCALE_FACTOR = i32;
-pub type PERCEIVED = i32;
-pub type SHCOLSTATE = i32;
-pub type STRRET_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct COMDLG_FILTERSPEC {
     pub pszName: windows_sys::core::PCWSTR,
     pub pszSpec: windows_sys::core::PCWSTR,
 }
+pub type DEVICE_SCALE_FACTOR = i32;
+pub const DEVICE_SCALE_FACTOR_INVALID: DEVICE_SCALE_FACTOR = 0i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct ITEMIDLIST {
     pub mkid: SHITEMID,
 }
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct SHELLDETAILS {
-    pub fmt: i32,
-    pub cxChar: i32,
-    pub str: STRRET,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct SHITEMID {
-    pub cb: u16,
-    pub abID: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct STRRET {
-    pub uType: u32,
-    pub Anonymous: STRRET_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union STRRET_0 {
-    pub pOleStr: windows_sys::core::PWSTR,
-    pub uOffset: u32,
-    pub cStr: [u8; 260],
-}
-pub const DEVICE_SCALE_FACTOR_INVALID: DEVICE_SCALE_FACTOR = 0i32;
+pub type PERCEIVED = i32;
 pub const PERCEIVEDFLAG_GDIPLUS: u32 = 16u32;
 pub const PERCEIVEDFLAG_HARDCODED: u32 = 2u32;
 pub const PERCEIVEDFLAG_NATIVESUPPORT: u32 = 4u32;
@@ -79,6 +51,7 @@ pub const SCALE_350_PERCENT: DEVICE_SCALE_FACTOR = 350i32;
 pub const SCALE_400_PERCENT: DEVICE_SCALE_FACTOR = 400i32;
 pub const SCALE_450_PERCENT: DEVICE_SCALE_FACTOR = 450i32;
 pub const SCALE_500_PERCENT: DEVICE_SCALE_FACTOR = 500i32;
+pub type SHCOLSTATE = i32;
 pub const SHCOLSTATE_BATCHREAD: SHCOLSTATE = 131072i32;
 pub const SHCOLSTATE_DEFAULT: SHCOLSTATE = 0i32;
 pub const SHCOLSTATE_DISPLAYMASK: SHCOLSTATE = 61440i32;
@@ -99,6 +72,33 @@ pub const SHCOLSTATE_TYPE_DATE: SHCOLSTATE = 3i32;
 pub const SHCOLSTATE_TYPE_INT: SHCOLSTATE = 2i32;
 pub const SHCOLSTATE_TYPE_STR: SHCOLSTATE = 1i32;
 pub const SHCOLSTATE_VIEWONLY: SHCOLSTATE = 65536i32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SHELLDETAILS {
+    pub fmt: i32,
+    pub cxChar: i32,
+    pub str: STRRET,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SHITEMID {
+    pub cb: u16,
+    pub abID: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct STRRET {
+    pub uType: u32,
+    pub Anonymous: STRRET_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union STRRET_0 {
+    pub pOleStr: windows_sys::core::PWSTR,
+    pub uOffset: u32,
+    pub cStr: [u8; 260],
+}
 pub const STRRET_CSTR: STRRET_TYPE = 2i32;
 pub const STRRET_OFFSET: STRRET_TYPE = 1i32;
+pub type STRRET_TYPE = i32;
 pub const STRRET_WSTR: STRRET_TYPE = 0i32;

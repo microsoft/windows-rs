@@ -1,5 +1,442 @@
 #[cfg(feature = "Devices_Printers_Extensions")]
 pub mod Extensions;
+windows_core::imp::define_interface!(IIppAttributeError, IIppAttributeError_Vtbl, 0x750feda1_9eef_5c39_93e4_46149bbcef27);
+impl windows_core::RuntimeType for IIppAttributeError {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IIppAttributeError_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IppAttributeErrorReason) -> windows_core::HRESULT,
+    pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetUnsupportedValues: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetUnsupportedValues: usize,
+}
+windows_core::imp::define_interface!(IIppAttributeValue, IIppAttributeValue_Vtbl, 0x99407fed_e2bb_59a3_988b_28a974052a26);
+impl windows_core::RuntimeType for IIppAttributeValue {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IIppAttributeValue_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IppAttributeValueKind) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetIntegerArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetIntegerArray: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetBooleanArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetBooleanArray: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetEnumArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetEnumArray: usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    pub GetOctetStringArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    GetOctetStringArray: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetDateTimeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetDateTimeArray: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetResolutionArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetResolutionArray: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetRangeOfIntegerArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetRangeOfIntegerArray: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetCollectionArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetCollectionArray: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetTextWithLanguageArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetTextWithLanguageArray: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetNameWithLanguageArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetNameWithLanguageArray: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetTextWithoutLanguageArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetTextWithoutLanguageArray: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetNameWithoutLanguageArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetNameWithoutLanguageArray: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetKeywordArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetKeywordArray: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetUriArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetUriArray: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetUriSchemaArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetUriSchemaArray: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetCharsetArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetCharsetArray: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetNaturalLanguageArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetNaturalLanguageArray: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetMimeMediaTypeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetMimeMediaTypeArray: usize,
+}
+windows_core::imp::define_interface!(IIppAttributeValueStatics, IIppAttributeValueStatics_Vtbl, 0x10d43942_dd94_5998_b235_afafb6fa7935);
+impl windows_core::RuntimeType for IIppAttributeValueStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IIppAttributeValueStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateUnsupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateUnknown: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateNoValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateInteger: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateIntegerArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateIntegerArray: usize,
+    pub CreateBoolean: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateBooleanArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateBooleanArray: usize,
+    pub CreateEnum: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateEnumArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateEnumArray: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub CreateOctetString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    CreateOctetString: usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    pub CreateOctetStringArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    CreateOctetStringArray: usize,
+    pub CreateDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateDateTimeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateDateTimeArray: usize,
+    pub CreateResolution: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateResolutionArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateResolutionArray: usize,
+    pub CreateRangeOfInteger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateRangeOfIntegerArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateRangeOfIntegerArray: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateCollection: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateCollectionArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateCollectionArray: usize,
+    pub CreateTextWithLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateTextWithLanguageArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateTextWithLanguageArray: usize,
+    pub CreateNameWithLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateNameWithLanguageArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateNameWithLanguageArray: usize,
+    pub CreateTextWithoutLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateTextWithoutLanguageArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateTextWithoutLanguageArray: usize,
+    pub CreateNameWithoutLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateNameWithoutLanguageArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateNameWithoutLanguageArray: usize,
+    pub CreateKeyword: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateKeywordArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateKeywordArray: usize,
+    pub CreateUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateUriArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateUriArray: usize,
+    pub CreateUriSchema: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateUriSchemaArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateUriSchemaArray: usize,
+    pub CreateCharset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateCharsetArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateCharsetArray: usize,
+    pub CreateNaturalLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateNaturalLanguageArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateNaturalLanguageArray: usize,
+    pub CreateMimeMedia: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateMimeMediaArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateMimeMediaArray: usize,
+}
+windows_core::imp::define_interface!(IIppIntegerRange, IIppIntegerRange_Vtbl, 0x92907346_c3ea_5ed6_bdb1_3752c62c6f7f);
+impl windows_core::RuntimeType for IIppIntegerRange {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IIppIntegerRange_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub End: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IIppIntegerRangeFactory, IIppIntegerRangeFactory_Vtbl, 0x75d4ecae_f87e_54ad_b5d0_465204db7553);
+impl windows_core::RuntimeType for IIppIntegerRangeFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IIppIntegerRangeFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IIppPrintDevice, IIppPrintDevice_Vtbl, 0xd748ac56_76f3_5dc6_afd4_c2a8686b9359);
+impl windows_core::RuntimeType for IIppPrintDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IIppPrintDevice_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub PrinterName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PrinterUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    pub GetPrinterAttributesAsBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    GetPrinterAttributesAsBuffer: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetPrinterAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetPrinterAttributes: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub SetPrinterAttributesFromBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    SetPrinterAttributesFromBuffer: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SetPrinterAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SetPrinterAttributes: usize,
+}
+windows_core::imp::define_interface!(IIppPrintDevice2, IIppPrintDevice2_Vtbl, 0xf7c844c9_9d21_5c63_ac20_3676915be2d7);
+impl windows_core::RuntimeType for IIppPrintDevice2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IIppPrintDevice2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetMaxSupportedPdfSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub GetMaxSupportedPdfVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub IsPdlPassthroughSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub GetPdlPassthroughProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IIppPrintDevice3, IIppPrintDevice3_Vtbl, 0xb6258f6d_a46d_5e37_80ce_5f69d5544712);
+impl windows_core::RuntimeType for IIppPrintDevice3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IIppPrintDevice3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsIppFaxOutPrinter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IIppPrintDevice4, IIppPrintDevice4_Vtbl, 0x8c48247e_e869_59fb_bc6d_daea0614f93e);
+impl windows_core::RuntimeType for IIppPrintDevice4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IIppPrintDevice4_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub DeviceKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IppPrintDeviceKind) -> windows_core::HRESULT,
+    pub CanModifyUserDefaultPrintTicket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(feature = "Graphics_Printing_PrintTicket")]
+    pub UserDefaultPrintTicket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_Printing_PrintTicket"))]
+    UserDefaultPrintTicket: usize,
+    #[cfg(feature = "Graphics_Printing_PrintTicket")]
+    pub SetUserDefaultPrintTicket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_Printing_PrintTicket"))]
+    SetUserDefaultPrintTicket: usize,
+    pub RefreshPrintDeviceCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetMaxSupportedPdlVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IIppPrintDeviceStatics, IIppPrintDeviceStatics_Vtbl, 0x7dc19f08_7f20_52ab_94a7_894b83b2a17e);
+impl windows_core::RuntimeType for IIppPrintDeviceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IIppPrintDeviceStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FromId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FromPrinterName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub IsIppPrinter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IIppResolution, IIppResolution_Vtbl, 0xcb493f86_6bf3_56f5_86ce_263d08aead63);
+impl windows_core::RuntimeType for IIppResolution {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IIppResolution_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Width: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub Height: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub Unit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IppResolutionUnit) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IIppResolutionFactory, IIppResolutionFactory_Vtbl, 0xe481c2ae_251a_5326_b173_95543ed99a35);
+impl windows_core::RuntimeType for IIppResolutionFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IIppResolutionFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, IppResolutionUnit, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IIppSetAttributesResult, IIppSetAttributesResult_Vtbl, 0x7d1c7f55_aa9d_58a3_90e9_17bdc5281f07);
+impl windows_core::RuntimeType for IIppSetAttributesResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IIppSetAttributesResult_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Succeeded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub AttributeErrors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    AttributeErrors: usize,
+}
+windows_core::imp::define_interface!(IIppTextWithLanguage, IIppTextWithLanguage_Vtbl, 0x326447a6_5149_5936_90e8_0c736036bf77);
+impl windows_core::RuntimeType for IIppTextWithLanguage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IIppTextWithLanguage_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IIppTextWithLanguageFactory, IIppTextWithLanguageFactory_Vtbl, 0xca4a1e8d_2968_5775_997c_8a46f1a574ed);
+impl windows_core::RuntimeType for IIppTextWithLanguageFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IIppTextWithLanguageFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPageConfigurationSettings, IPageConfigurationSettings_Vtbl, 0xb6fc1e02_5331_54ff_95a0_1fcb76bb97a9);
+impl windows_core::RuntimeType for IPageConfigurationSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPageConfigurationSettings_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub OrientationSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PageConfigurationSource) -> windows_core::HRESULT,
+    pub SetOrientationSource: unsafe extern "system" fn(*mut core::ffi::c_void, PageConfigurationSource) -> windows_core::HRESULT,
+    pub SizeSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PageConfigurationSource) -> windows_core::HRESULT,
+    pub SetSizeSource: unsafe extern "system" fn(*mut core::ffi::c_void, PageConfigurationSource) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPdlPassthroughProvider, IPdlPassthroughProvider_Vtbl, 0x23c71dd2_6117_553f_9378_180af5849a49);
+impl windows_core::RuntimeType for IPdlPassthroughProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPdlPassthroughProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SupportedPdlContentTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SupportedPdlContentTypes: usize,
+    #[cfg(feature = "Graphics_Printing")]
+    pub StartPrintJobWithTaskOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_Printing"))]
+    StartPrintJobWithTaskOptions: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub StartPrintJobWithPrintTicket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    StartPrintJobWithPrintTicket: usize,
+}
+windows_core::imp::define_interface!(IPdlPassthroughTarget, IPdlPassthroughTarget_Vtbl, 0x9840be79_67f8_5385_a5b9_e8c96e0fca76);
+impl windows_core::RuntimeType for IPdlPassthroughTarget {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPdlPassthroughTarget_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub PrintJobId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub GetOutputStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    GetOutputStream: usize,
+    pub Submit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPrint3DDevice, IPrint3DDevice_Vtbl, 0x041c3d19_9713_42a2_9813_7dc3337428d3);
+impl windows_core::RuntimeType for IPrint3DDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPrint3DDevice_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub PrintSchema: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPrint3DDeviceStatics, IPrint3DDeviceStatics_Vtbl, 0xfde3620a_67cd_41b7_a344_5150a1fd75b5);
+impl windows_core::RuntimeType for IPrint3DDeviceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPrint3DDeviceStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPrintSchema, IPrintSchema_Vtbl, 0xc2b98316_26b8_4bfb_8138_9f962c22a35b);
+impl windows_core::RuntimeType for IPrintSchema {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPrintSchema_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Storage_Streams")]
+    pub GetDefaultPrintTicketAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    GetDefaultPrintTicketAsync: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub GetCapabilitiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    GetCapabilitiesAsync: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub MergeAndValidateWithDefaultPrintTicketAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    MergeAndValidateWithDefaultPrintTicketAsync: usize,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IppAttributeError(windows_core::IUnknown);
@@ -40,6 +477,22 @@ impl windows_core::RuntimeName for IppAttributeError {
 }
 unsafe impl Send for IppAttributeError {}
 unsafe impl Sync for IppAttributeError {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IppAttributeErrorReason(pub i32);
+impl IppAttributeErrorReason {
+    pub const RequestEntityTooLarge: Self = Self(0i32);
+    pub const AttributeNotSupported: Self = Self(1i32);
+    pub const AttributeValuesNotSupported: Self = Self(2i32);
+    pub const AttributeNotSettable: Self = Self(3i32);
+    pub const ConflictingAttributes: Self = Self(4i32);
+}
+impl windows_core::TypeKind for IppAttributeErrorReason {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for IppAttributeErrorReason {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeErrorReason;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IppAttributeValue(windows_core::IUnknown);
@@ -543,6 +996,38 @@ impl windows_core::RuntimeName for IppAttributeValue {
 unsafe impl Send for IppAttributeValue {}
 unsafe impl Sync for IppAttributeValue {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IppAttributeValueKind(pub i32);
+impl IppAttributeValueKind {
+    pub const Unsupported: Self = Self(0i32);
+    pub const Unknown: Self = Self(1i32);
+    pub const NoValue: Self = Self(2i32);
+    pub const Integer: Self = Self(3i32);
+    pub const Boolean: Self = Self(4i32);
+    pub const Enum: Self = Self(5i32);
+    pub const OctetString: Self = Self(6i32);
+    pub const DateTime: Self = Self(7i32);
+    pub const Resolution: Self = Self(8i32);
+    pub const RangeOfInteger: Self = Self(9i32);
+    pub const Collection: Self = Self(10i32);
+    pub const TextWithLanguage: Self = Self(11i32);
+    pub const NameWithLanguage: Self = Self(12i32);
+    pub const TextWithoutLanguage: Self = Self(13i32);
+    pub const NameWithoutLanguage: Self = Self(14i32);
+    pub const Keyword: Self = Self(15i32);
+    pub const Uri: Self = Self(16i32);
+    pub const UriSchema: Self = Self(17i32);
+    pub const Charset: Self = Self(18i32);
+    pub const NaturalLanguage: Self = Self(19i32);
+    pub const MimeMediaType: Self = Self(20i32);
+}
+impl windows_core::TypeKind for IppAttributeValueKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for IppAttributeValueKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeValueKind;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IppIntegerRange(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IppIntegerRange, windows_core::IUnknown, windows_core::IInspectable);
@@ -765,6 +1250,20 @@ impl windows_core::RuntimeName for IppPrintDevice {
 unsafe impl Send for IppPrintDevice {}
 unsafe impl Sync for IppPrintDevice {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IppPrintDeviceKind(pub i32);
+impl IppPrintDeviceKind {
+    pub const Printer: Self = Self(0i32);
+    pub const FaxOut: Self = Self(1i32);
+    pub const VirtualPrinter: Self = Self(2i32);
+}
+impl windows_core::TypeKind for IppPrintDeviceKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for IppPrintDeviceKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppPrintDeviceKind;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IppResolution(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IppResolution, windows_core::IUnknown, windows_core::IInspectable);
@@ -813,6 +1312,19 @@ impl windows_core::RuntimeName for IppResolution {
 }
 unsafe impl Send for IppResolution {}
 unsafe impl Sync for IppResolution {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IppResolutionUnit(pub i32);
+impl IppResolutionUnit {
+    pub const DotsPerInch: Self = Self(0i32);
+    pub const DotsPerCentimeter: Self = Self(1i32);
+}
+impl windows_core::TypeKind for IppResolutionUnit {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for IppResolutionUnit {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppResolutionUnit;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IppSetAttributesResult(windows_core::IUnknown);
@@ -935,6 +1447,19 @@ impl windows_core::RuntimeName for PageConfigurationSettings {
 }
 unsafe impl Send for PageConfigurationSettings {}
 unsafe impl Sync for PageConfigurationSettings {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PageConfigurationSource(pub i32);
+impl PageConfigurationSource {
+    pub const PrintJobConfiguration: Self = Self(0i32);
+    pub const PdlContent: Self = Self(1i32);
+}
+impl windows_core::TypeKind for PageConfigurationSource {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for PageConfigurationSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.PageConfigurationSource;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PdlPassthroughProvider(windows_core::IUnknown);
@@ -1116,528 +1641,3 @@ impl windows_core::RuntimeName for PrintSchema {
 }
 unsafe impl Send for PrintSchema {}
 unsafe impl Sync for PrintSchema {}
-windows_core::imp::define_interface!(IIppAttributeError, IIppAttributeError_Vtbl, 0x750feda1_9eef_5c39_93e4_46149bbcef27);
-impl windows_core::RuntimeType for IIppAttributeError {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IIppAttributeError_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IppAttributeErrorReason) -> windows_core::HRESULT,
-    pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetUnsupportedValues: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetUnsupportedValues: usize,
-}
-windows_core::imp::define_interface!(IIppAttributeValue, IIppAttributeValue_Vtbl, 0x99407fed_e2bb_59a3_988b_28a974052a26);
-impl windows_core::RuntimeType for IIppAttributeValue {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IIppAttributeValue_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IppAttributeValueKind) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetIntegerArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetIntegerArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetBooleanArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetBooleanArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetEnumArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetEnumArray: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub GetOctetStringArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
-    GetOctetStringArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetDateTimeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetDateTimeArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetResolutionArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetResolutionArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetRangeOfIntegerArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetRangeOfIntegerArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetCollectionArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetCollectionArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetTextWithLanguageArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetTextWithLanguageArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetNameWithLanguageArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetNameWithLanguageArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetTextWithoutLanguageArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetTextWithoutLanguageArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetNameWithoutLanguageArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetNameWithoutLanguageArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetKeywordArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetKeywordArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetUriArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetUriArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetUriSchemaArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetUriSchemaArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetCharsetArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetCharsetArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetNaturalLanguageArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetNaturalLanguageArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetMimeMediaTypeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetMimeMediaTypeArray: usize,
-}
-windows_core::imp::define_interface!(IIppAttributeValueStatics, IIppAttributeValueStatics_Vtbl, 0x10d43942_dd94_5998_b235_afafb6fa7935);
-impl windows_core::RuntimeType for IIppAttributeValueStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IIppAttributeValueStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateUnsupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateUnknown: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateNoValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateInteger: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateIntegerArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateIntegerArray: usize,
-    pub CreateBoolean: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateBooleanArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateBooleanArray: usize,
-    pub CreateEnum: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateEnumArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateEnumArray: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub CreateOctetString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    CreateOctetString: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub CreateOctetStringArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
-    CreateOctetStringArray: usize,
-    pub CreateDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateDateTimeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateDateTimeArray: usize,
-    pub CreateResolution: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateResolutionArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateResolutionArray: usize,
-    pub CreateRangeOfInteger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateRangeOfIntegerArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateRangeOfIntegerArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateCollection: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateCollectionArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateCollectionArray: usize,
-    pub CreateTextWithLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateTextWithLanguageArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateTextWithLanguageArray: usize,
-    pub CreateNameWithLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateNameWithLanguageArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateNameWithLanguageArray: usize,
-    pub CreateTextWithoutLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateTextWithoutLanguageArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateTextWithoutLanguageArray: usize,
-    pub CreateNameWithoutLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateNameWithoutLanguageArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateNameWithoutLanguageArray: usize,
-    pub CreateKeyword: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateKeywordArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateKeywordArray: usize,
-    pub CreateUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateUriArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateUriArray: usize,
-    pub CreateUriSchema: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateUriSchemaArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateUriSchemaArray: usize,
-    pub CreateCharset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateCharsetArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateCharsetArray: usize,
-    pub CreateNaturalLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateNaturalLanguageArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateNaturalLanguageArray: usize,
-    pub CreateMimeMedia: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateMimeMediaArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateMimeMediaArray: usize,
-}
-windows_core::imp::define_interface!(IIppIntegerRange, IIppIntegerRange_Vtbl, 0x92907346_c3ea_5ed6_bdb1_3752c62c6f7f);
-impl windows_core::RuntimeType for IIppIntegerRange {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IIppIntegerRange_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub End: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IIppIntegerRangeFactory, IIppIntegerRangeFactory_Vtbl, 0x75d4ecae_f87e_54ad_b5d0_465204db7553);
-impl windows_core::RuntimeType for IIppIntegerRangeFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IIppIntegerRangeFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IIppPrintDevice, IIppPrintDevice_Vtbl, 0xd748ac56_76f3_5dc6_afd4_c2a8686b9359);
-impl windows_core::RuntimeType for IIppPrintDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IIppPrintDevice_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub PrinterName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PrinterUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub GetPrinterAttributesAsBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
-    GetPrinterAttributesAsBuffer: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetPrinterAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetPrinterAttributes: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub SetPrinterAttributesFromBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    SetPrinterAttributesFromBuffer: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SetPrinterAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetPrinterAttributes: usize,
-}
-windows_core::imp::define_interface!(IIppPrintDevice2, IIppPrintDevice2_Vtbl, 0xf7c844c9_9d21_5c63_ac20_3676915be2d7);
-impl windows_core::RuntimeType for IIppPrintDevice2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IIppPrintDevice2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetMaxSupportedPdfSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub GetMaxSupportedPdfVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsPdlPassthroughSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub GetPdlPassthroughProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IIppPrintDevice3, IIppPrintDevice3_Vtbl, 0xb6258f6d_a46d_5e37_80ce_5f69d5544712);
-impl windows_core::RuntimeType for IIppPrintDevice3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IIppPrintDevice3_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub IsIppFaxOutPrinter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IIppPrintDevice4, IIppPrintDevice4_Vtbl, 0x8c48247e_e869_59fb_bc6d_daea0614f93e);
-impl windows_core::RuntimeType for IIppPrintDevice4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IIppPrintDevice4_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub DeviceKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IppPrintDeviceKind) -> windows_core::HRESULT,
-    pub CanModifyUserDefaultPrintTicket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub UserDefaultPrintTicket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Graphics_Printing_PrintTicket"))]
-    UserDefaultPrintTicket: usize,
-    #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub SetUserDefaultPrintTicket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Graphics_Printing_PrintTicket"))]
-    SetUserDefaultPrintTicket: usize,
-    pub RefreshPrintDeviceCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetMaxSupportedPdlVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IIppPrintDeviceStatics, IIppPrintDeviceStatics_Vtbl, 0x7dc19f08_7f20_52ab_94a7_894b83b2a17e);
-impl windows_core::RuntimeType for IIppPrintDeviceStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IIppPrintDeviceStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FromId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FromPrinterName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsIppPrinter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IIppResolution, IIppResolution_Vtbl, 0xcb493f86_6bf3_56f5_86ce_263d08aead63);
-impl windows_core::RuntimeType for IIppResolution {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IIppResolution_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Width: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub Height: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub Unit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IppResolutionUnit) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IIppResolutionFactory, IIppResolutionFactory_Vtbl, 0xe481c2ae_251a_5326_b173_95543ed99a35);
-impl windows_core::RuntimeType for IIppResolutionFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IIppResolutionFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, IppResolutionUnit, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IIppSetAttributesResult, IIppSetAttributesResult_Vtbl, 0x7d1c7f55_aa9d_58a3_90e9_17bdc5281f07);
-impl windows_core::RuntimeType for IIppSetAttributesResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IIppSetAttributesResult_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Succeeded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub AttributeErrors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AttributeErrors: usize,
-}
-windows_core::imp::define_interface!(IIppTextWithLanguage, IIppTextWithLanguage_Vtbl, 0x326447a6_5149_5936_90e8_0c736036bf77);
-impl windows_core::RuntimeType for IIppTextWithLanguage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IIppTextWithLanguage_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IIppTextWithLanguageFactory, IIppTextWithLanguageFactory_Vtbl, 0xca4a1e8d_2968_5775_997c_8a46f1a574ed);
-impl windows_core::RuntimeType for IIppTextWithLanguageFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IIppTextWithLanguageFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPageConfigurationSettings, IPageConfigurationSettings_Vtbl, 0xb6fc1e02_5331_54ff_95a0_1fcb76bb97a9);
-impl windows_core::RuntimeType for IPageConfigurationSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPageConfigurationSettings_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub OrientationSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PageConfigurationSource) -> windows_core::HRESULT,
-    pub SetOrientationSource: unsafe extern "system" fn(*mut core::ffi::c_void, PageConfigurationSource) -> windows_core::HRESULT,
-    pub SizeSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PageConfigurationSource) -> windows_core::HRESULT,
-    pub SetSizeSource: unsafe extern "system" fn(*mut core::ffi::c_void, PageConfigurationSource) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPdlPassthroughProvider, IPdlPassthroughProvider_Vtbl, 0x23c71dd2_6117_553f_9378_180af5849a49);
-impl windows_core::RuntimeType for IPdlPassthroughProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPdlPassthroughProvider_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SupportedPdlContentTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedPdlContentTypes: usize,
-    #[cfg(feature = "Graphics_Printing")]
-    pub StartPrintJobWithTaskOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Graphics_Printing"))]
-    StartPrintJobWithTaskOptions: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub StartPrintJobWithPrintTicket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    StartPrintJobWithPrintTicket: usize,
-}
-windows_core::imp::define_interface!(IPdlPassthroughTarget, IPdlPassthroughTarget_Vtbl, 0x9840be79_67f8_5385_a5b9_e8c96e0fca76);
-impl windows_core::RuntimeType for IPdlPassthroughTarget {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPdlPassthroughTarget_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub PrintJobId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub GetOutputStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    GetOutputStream: usize,
-    pub Submit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPrint3DDevice, IPrint3DDevice_Vtbl, 0x041c3d19_9713_42a2_9813_7dc3337428d3);
-impl windows_core::RuntimeType for IPrint3DDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPrint3DDevice_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub PrintSchema: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPrint3DDeviceStatics, IPrint3DDeviceStatics_Vtbl, 0xfde3620a_67cd_41b7_a344_5150a1fd75b5);
-impl windows_core::RuntimeType for IPrint3DDeviceStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPrint3DDeviceStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPrintSchema, IPrintSchema_Vtbl, 0xc2b98316_26b8_4bfb_8138_9f962c22a35b);
-impl windows_core::RuntimeType for IPrintSchema {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPrintSchema_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage_Streams")]
-    pub GetDefaultPrintTicketAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    GetDefaultPrintTicketAsync: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub GetCapabilitiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    GetCapabilitiesAsync: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub MergeAndValidateWithDefaultPrintTicketAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    MergeAndValidateWithDefaultPrintTicketAsync: usize,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IppAttributeErrorReason(pub i32);
-impl IppAttributeErrorReason {
-    pub const RequestEntityTooLarge: Self = Self(0i32);
-    pub const AttributeNotSupported: Self = Self(1i32);
-    pub const AttributeValuesNotSupported: Self = Self(2i32);
-    pub const AttributeNotSettable: Self = Self(3i32);
-    pub const ConflictingAttributes: Self = Self(4i32);
-}
-impl windows_core::TypeKind for IppAttributeErrorReason {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for IppAttributeErrorReason {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeErrorReason;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IppAttributeValueKind(pub i32);
-impl IppAttributeValueKind {
-    pub const Unsupported: Self = Self(0i32);
-    pub const Unknown: Self = Self(1i32);
-    pub const NoValue: Self = Self(2i32);
-    pub const Integer: Self = Self(3i32);
-    pub const Boolean: Self = Self(4i32);
-    pub const Enum: Self = Self(5i32);
-    pub const OctetString: Self = Self(6i32);
-    pub const DateTime: Self = Self(7i32);
-    pub const Resolution: Self = Self(8i32);
-    pub const RangeOfInteger: Self = Self(9i32);
-    pub const Collection: Self = Self(10i32);
-    pub const TextWithLanguage: Self = Self(11i32);
-    pub const NameWithLanguage: Self = Self(12i32);
-    pub const TextWithoutLanguage: Self = Self(13i32);
-    pub const NameWithoutLanguage: Self = Self(14i32);
-    pub const Keyword: Self = Self(15i32);
-    pub const Uri: Self = Self(16i32);
-    pub const UriSchema: Self = Self(17i32);
-    pub const Charset: Self = Self(18i32);
-    pub const NaturalLanguage: Self = Self(19i32);
-    pub const MimeMediaType: Self = Self(20i32);
-}
-impl windows_core::TypeKind for IppAttributeValueKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for IppAttributeValueKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeValueKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IppPrintDeviceKind(pub i32);
-impl IppPrintDeviceKind {
-    pub const Printer: Self = Self(0i32);
-    pub const FaxOut: Self = Self(1i32);
-    pub const VirtualPrinter: Self = Self(2i32);
-}
-impl windows_core::TypeKind for IppPrintDeviceKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for IppPrintDeviceKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppPrintDeviceKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IppResolutionUnit(pub i32);
-impl IppResolutionUnit {
-    pub const DotsPerInch: Self = Self(0i32);
-    pub const DotsPerCentimeter: Self = Self(1i32);
-}
-impl windows_core::TypeKind for IppResolutionUnit {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for IppResolutionUnit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppResolutionUnit;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PageConfigurationSource(pub i32);
-impl PageConfigurationSource {
-    pub const PrintJobConfiguration: Self = Self(0i32);
-    pub const PdlContent: Self = Self(1i32);
-}
-impl windows_core::TypeKind for PageConfigurationSource {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for PageConfigurationSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.PageConfigurationSource;i4)");
-}

@@ -1135,93 +1135,6 @@ windows_targets::link!("ntdll.dll" "system" fn ZwSetSecurityObject(handle : supe
 windows_targets::link!("ntdll.dll" "system" fn ZwSetVolumeInformationFile(filehandle : super::super::super::Win32::Foundation:: HANDLE, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, fsinformation : *const core::ffi::c_void, length : u32, fsinformationclass : FS_INFORMATION_CLASS) -> super::super::super::Win32::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_System_IO")]
 windows_targets::link!("ntdll.dll" "system" fn ZwUnlockFile(filehandle : super::super::super::Win32::Foundation:: HANDLE, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, byteoffset : *const i64, length : *const i64, key : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-#[cfg(feature = "Win32_System_Memory")]
-pub type ALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: super::super::super::Win32::Foundation::HANDLE, processhandle: super::super::super::Win32::Foundation::HANDLE, baseaddress: *mut *mut core::ffi::c_void, regionsize: *mut usize, allocationtype: u32, pageprotection: u32, extendedparameters: *mut super::super::super::Win32::System::Memory::MEM_EXTENDED_PARAMETER, extendedparametercount: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type FREE_VIRTUAL_MEMORY_EX_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: super::super::super::Win32::Foundation::HANDLE, processhandle: super::super::super::Win32::Foundation::HANDLE, baseaddress: *mut *mut core::ffi::c_void, regionsize: *mut usize, freetype: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PACQUIRE_FOR_LAZY_WRITE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, wait: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type PACQUIRE_FOR_LAZY_WRITE_EX = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, inflags: u32, outflags: *mut u32) -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type PACQUIRE_FOR_READ_AHEAD = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, wait: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type PALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PASYNC_READ_COMPLETION_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type PCC_POST_DEFERRED_WRITE = Option<unsafe extern "system" fn(context1: *const core::ffi::c_void, context2: *const core::ffi::c_void)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
-pub type PCHECK_FOR_TRAVERSE_ACCESS = Option<unsafe extern "system" fn(notifycontext: *const core::ffi::c_void, targetcontext: *const core::ffi::c_void, subjectcontext: *const super::super::Foundation::SECURITY_SUBJECT_CONTEXT) -> super::super::super::Win32::Foundation::BOOLEAN>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PCOMPLETE_LOCK_IRP_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, irp: *const super::super::Foundation::IRP) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PDIRTY_PAGE_ROUTINE = Option<unsafe extern "system" fn(fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, oldestlsn: *const i64, newestlsn: *const i64, context1: *const core::ffi::c_void, context2: *const core::ffi::c_void)>;
-pub type PFILTER_REPORT_CHANGE = Option<unsafe extern "system" fn(notifycontext: *const core::ffi::c_void, filtercontext: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type PFLUSH_TO_LSN = Option<unsafe extern "system" fn(loghandle: *const core::ffi::c_void, lsn: i64)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-pub type PFN_FSRTLTEARDOWNPERSTREAMCONTEXTS = Option<unsafe extern "system" fn(advancedheader: *const FSRTL_ADVANCED_FCB_HEADER)>;
-pub type PFREE_VIRTUAL_MEMORY_EX_CALLBACK = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFSRTL_EXTRA_CREATE_PARAMETER_CLEANUP_CALLBACK = Option<unsafe extern "system" fn(ecpcontext: *mut core::ffi::c_void, ecptype: *const windows_sys::core::GUID)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-pub type PFSRTL_STACK_OVERFLOW_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, event: *const super::super::Foundation::KEVENT)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PFS_FILTER_CALLBACK = Option<unsafe extern "system" fn(data: *const FS_FILTER_CALLBACK_DATA, completioncontext: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PFS_FILTER_COMPLETION_CALLBACK = Option<unsafe extern "system" fn(data: *const FS_FILTER_CALLBACK_DATA, operationstatus: super::super::super::Win32::Foundation::NTSTATUS, completioncontext: *const core::ffi::c_void)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type POPLOCK_FS_PREPOST_IRP = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, irp: *const super::super::Foundation::IRP)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type POPLOCK_NOTIFY_ROUTINE = Option<unsafe extern "system" fn(notifyparams: *const OPLOCK_NOTIFY_PARAMS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type POPLOCK_WAIT_COMPLETE_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, irp: *const super::super::Foundation::IRP)>;
-pub type PQUERY_LOG_USAGE = Option<unsafe extern "system" fn(loghandle: *const core::ffi::c_void, percentagefull: *mut u16)>;
-pub type PQUERY_VIRTUAL_MEMORY_CALLBACK = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PRELEASE_FROM_LAZY_WRITE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
-pub type PRELEASE_FROM_READ_AHEAD = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
-pub type PRTL_ALLOCATE_STRING_ROUTINE = Option<unsafe extern "system" fn() -> *mut core::ffi::c_void>;
-pub type PRTL_FREE_STRING_ROUTINE = Option<unsafe extern "system" fn()>;
-pub type PRTL_HEAP_COMMIT_ROUTINE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PRTL_REALLOCATE_STRING_ROUTINE = Option<unsafe extern "system" fn() -> *mut core::ffi::c_void>;
-pub type PSE_LOGON_SESSION_TERMINATED_ROUTINE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PSE_LOGON_SESSION_TERMINATED_ROUTINE_EX = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PUNLOCK_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, filelockinfo: *const FILE_LOCK_INFO)>;
-pub type QUERY_VIRTUAL_MEMORY_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: super::super::super::Win32::Foundation::HANDLE, processhandle: super::super::super::Win32::Foundation::HANDLE, baseaddress: *const core::ffi::c_void, memoryinformationclass: HEAP_MEMORY_INFO_CLASS, memoryinformation: *mut core::ffi::c_void, memoryinformationlength: usize, returnlength: *mut usize) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type RTL_ALLOCATE_STRING_ROUTINE = Option<unsafe extern "system" fn(numberofbytes: usize) -> *mut core::ffi::c_void>;
-pub type RTL_FREE_STRING_ROUTINE = Option<unsafe extern "system" fn(buffer: *const core::ffi::c_void)>;
-pub type RTL_HEAP_COMMIT_ROUTINE = Option<unsafe extern "system" fn(base: *const core::ffi::c_void, commitaddress: *mut *mut core::ffi::c_void, commitsize: *mut usize) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type RTL_REALLOCATE_STRING_ROUTINE = Option<unsafe extern "system" fn(numberofbytes: usize, buffer: *const core::ffi::c_void) -> *mut core::ffi::c_void>;
-pub type SE_LOGON_SESSION_TERMINATED_ROUTINE = Option<unsafe extern "system" fn(logonid: *const super::super::super::Win32::Foundation::LUID) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type SE_LOGON_SESSION_TERMINATED_ROUTINE_EX = Option<unsafe extern "system" fn(logonid: *const super::super::super::Win32::Foundation::LUID, pserversilo: super::super::Foundation::PESILO, context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type SspiAsyncNotifyCallback = Option<unsafe extern "system" fn(handle: *const super::super::Foundation::SspiAsyncContext, callbackdata: *const core::ffi::c_void)>;
-pub type CSV_DOWN_LEVEL_FILE_TYPE = i32;
-pub type FAST_IO_POSSIBLE = i32;
-pub type FILE_DISPOSITION_INFORMATION_EX_FLAGS = u32;
-pub type FILE_INFORMATION_CLASS = i32;
-pub type FILE_KNOWN_FOLDER_TYPE = i32;
-pub type FSRTL_CHANGE_BACKING_TYPE = i32;
-pub type FSRTL_COMPARISON_RESULT = i32;
-pub type FS_FILTER_SECTION_SYNC_TYPE = i32;
-pub type FS_FILTER_STREAM_FO_NOTIFICATION_TYPE = i32;
-pub type FS_INFORMATION_CLASS = i32;
-pub type HEAP_MEMORY_INFO_CLASS = i32;
-pub type LINK_TRACKING_INFORMATION_TYPE = i32;
-pub type MEMORY_INFORMATION_CLASS = i32;
-pub type MMFLUSH_TYPE = i32;
-pub type MSV1_0_AVID = i32;
-pub type NETWORK_OPEN_INTEGRITY_QUALIFIER = i32;
-pub type NETWORK_OPEN_LOCATION_QUALIFIER = i32;
-pub type NTCREATEFILE_CREATE_DISPOSITION = u32;
-pub type NTCREATEFILE_CREATE_OPTIONS = u32;
-pub type OPLOCK_NOTIFY_REASON = i32;
-pub type REFS_COMPRESSION_FORMATS = i32;
-pub type REFS_DEALLOCATE_RANGES_ALLOCATOR = i32;
-pub type REFS_SET_VOLUME_COMPRESSION_INFO_FLAGS = i32;
-pub type REFS_STREAM_SNAPSHOT_OPERATION = i32;
-pub type RTL_MEMORY_TYPE = i32;
-pub type SE_AUDIT_OPERATION = i32;
-pub type SRV_INSTANCE_TYPE = i32;
-pub type SharedVirtualDiskHandleState = i32;
-pub type SharedVirtualDiskSupportType = i32;
-pub type VIRTUAL_MEMORY_INFORMATION_CLASS = i32;
-pub type _LCN_WEAK_REFERENCE_STATE = i32;
-pub type _REFS_STREAM_EXTENT_PROPERTIES = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACE_HEADER {
@@ -1229,6 +1142,8 @@ pub struct ACE_HEADER {
     pub AceFlags: u8,
     pub AceSize: u16,
 }
+#[cfg(feature = "Win32_System_Memory")]
+pub type ALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: super::super::super::Win32::Foundation::HANDLE, processhandle: super::super::super::Win32::Foundation::HANDLE, baseaddress: *mut *mut core::ffi::c_void, regionsize: *mut usize, allocationtype: u32, pageprotection: u32, extendedparameters: *mut super::super::super::Win32::System::Memory::MEM_EXTENDED_PARAMETER, extendedparametercount: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ATOMIC_CREATE_ECP_CONTEXT {
@@ -1252,6 +1167,50 @@ pub struct ATOMIC_CREATE_ECP_CONTEXT {
     pub InCaseSensitiveFlags: u32,
     pub OutCaseSensitiveFlags: u32,
 }
+pub const ATOMIC_CREATE_ECP_IN_FLAG_BEST_EFFORT: u32 = 256u32;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_EOF_SPECIFIED: u32 = 4u32;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_FILE_ATTRIBUTES_SPECIFIED: u32 = 32u32;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_GEN_FLAGS_SPECIFIED: u32 = 32768u32;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_MARK_USN_SOURCE_INFO: u32 = 2048u32;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_OPERATION_MASK: u32 = 255u32;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_OP_FLAGS_SPECIFIED: u32 = 128u32;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_REPARSE_POINT_SPECIFIED: u32 = 2u32;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_SPARSE_SPECIFIED: u32 = 1u32;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_SUPPRESS_DIR_CHANGE_NOTIFY: u32 = 1024u32;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_SUPPRESS_FILE_ATTRIBUTE_INHERITANCE: u32 = 64u32;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_SUPPRESS_PARENT_TIMESTAMPS_UPDATE: u32 = 512u32;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_TIMESTAMPS_SPECIFIED: u32 = 16u32;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_VDL_SPECIFIED: u32 = 8u32;
+pub const ATOMIC_CREATE_ECP_IN_FLAG_WRITE_USN_CLOSE_RECORD: u32 = 4096u32;
+pub const ATOMIC_CREATE_ECP_IN_OP_FLAG_CASE_SENSITIVE_FLAGS_SPECIFIED: u32 = 1u32;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_EOF_SET: u32 = 4u32;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_FILE_ATTRIBUTES_RETURNED: u32 = 512u32;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_FILE_ATTRIBUTES_SET: u32 = 32u32;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_FILE_ATTRIBUTE_INHERITANCE_SUPPRESSED: u32 = 64u32;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_OPERATION_MASK: u32 = 255u32;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_OP_FLAGS_HONORED: u32 = 128u32;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_REPARSE_POINT_SET: u32 = 2u32;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_SPARSE_SET: u32 = 1u32;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_TIMESTAMPS_RETURNED: u32 = 256u32;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_TIMESTAMPS_SET: u32 = 16u32;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_USN_CLOSE_RECORD_WRITTEN: u32 = 2048u32;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_USN_RETURNED: u32 = 4096u32;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_USN_SOURCE_INFO_MARKED: u32 = 1024u32;
+pub const ATOMIC_CREATE_ECP_OUT_FLAG_VDL_SET: u32 = 8u32;
+pub const ATOMIC_CREATE_ECP_OUT_OP_FLAG_CASE_SENSITIVE_FLAGS_SET: u32 = 1u32;
+pub const AuditAccessCheck: SE_AUDIT_OPERATION = 2i32;
+pub const AuditCloseNonObject: SE_AUDIT_OPERATION = 9i32;
+pub const AuditCloseObject: SE_AUDIT_OPERATION = 5i32;
+pub const AuditDeleteObject: SE_AUDIT_OPERATION = 6i32;
+pub const AuditHandleCreation: SE_AUDIT_OPERATION = 12i32;
+pub const AuditObjectReference: SE_AUDIT_OPERATION = 11i32;
+pub const AuditOpenNonObject: SE_AUDIT_OPERATION = 10i32;
+pub const AuditOpenObject: SE_AUDIT_OPERATION = 3i32;
+pub const AuditOpenObjectForDelete: SE_AUDIT_OPERATION = 7i32;
+pub const AuditOpenObjectForDeleteWithTransaction: SE_AUDIT_OPERATION = 8i32;
+pub const AuditOpenObjectWithTransaction: SE_AUDIT_OPERATION = 4i32;
+pub const AuditPrivilegeObject: SE_AUDIT_OPERATION = 0i32;
+pub const AuditPrivilegeService: SE_AUDIT_OPERATION = 1i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BASE_MCB {
@@ -1287,6 +1246,7 @@ pub struct CACHE_MANAGER_CALLBACKS_EX {
     pub Size: u16,
     pub Functions: CACHE_MANAGER_CALLBACK_FUNCTIONS,
 }
+pub const CACHE_MANAGER_CALLBACKS_EX_V1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CACHE_MANAGER_CALLBACK_FUNCTIONS {
@@ -1302,6 +1262,11 @@ pub struct CACHE_UNINITIALIZE_EVENT {
     pub Next: *mut CACHE_UNINITIALIZE_EVENT,
     pub Event: super::super::Foundation::KEVENT,
 }
+pub const CACHE_USE_DIRECT_ACCESS_MAPPING: u32 = 1u32;
+pub const CACHE_VALID_FLAGS: u32 = 1u32;
+pub const CC_ACQUIRE_DONT_WAIT: u32 = 1u32;
+pub const CC_ACQUIRE_SUPPORTS_ASYNC_LAZYWRITE: u32 = 1u32;
+pub const CC_AGGRESSIVE_UNMAP_BEHIND: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy)]
@@ -1312,6 +1277,12 @@ pub struct CC_ASYNC_READ_CONTEXT {
     pub RequestorMode: i8,
     pub NestingLevel: u32,
 }
+pub const CC_DISABLE_DIRTY_PAGE_TRACKING: u32 = 8u32;
+pub const CC_DISABLE_READ_AHEAD: u32 = 2u32;
+pub const CC_DISABLE_UNMAP_BEHIND: u32 = 32u32;
+pub const CC_DISABLE_WRITE_BEHIND: u32 = 4u32;
+pub const CC_ENABLE_CPU_CACHE: u32 = 268435456u32;
+pub const CC_ENABLE_DISK_IO_ACCOUNTING: u32 = 16u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CC_ERROR_CALLBACK_CONTEXT {
@@ -1325,6 +1296,9 @@ pub struct CC_FILE_SIZES {
     pub FileSize: i64,
     pub ValidDataLength: i64,
 }
+pub const CC_FLUSH_AND_PURGE_GATHER_DIRTY_BITS: u32 = 2u32;
+pub const CC_FLUSH_AND_PURGE_NO_PURGE: u32 = 1u32;
+pub const CC_FLUSH_AND_PURGE_WRITEABLE_VIEWS_NOTSEEN: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct COMPRESSED_DATA_INFO {
@@ -1336,6 +1310,10 @@ pub struct COMPRESSED_DATA_INFO {
     pub NumberOfChunks: u16,
     pub CompressedChunkSizes: [u32; 1],
 }
+pub const COMPRESSION_ENGINE_MASK: u32 = 65280u32;
+pub const COMPRESSION_ENGINE_MAX: u32 = 512u32;
+pub const COMPRESSION_FORMAT_MASK: u32 = 255u32;
+pub const COMPRESSION_FORMAT_MAX: u32 = 5u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CONTAINER_ROOT_INFO_INPUT {
@@ -1384,12 +1362,18 @@ pub struct CREATE_REDIRECTION_ECP_CONTEXT {
     pub FileId: super::super::super::Win32::Storage::FileSystem::FILE_ID_128,
     pub VolumeGuid: windows_sys::core::GUID,
 }
+pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_LAYER: u32 = 1u32;
+pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_REGISTERED_LAYER: u32 = 4u32;
+pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_REMOTE_LAYER: u32 = 8u32;
+pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_SCRATCH: u32 = 2u32;
+pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_USER_MODE: u32 = 16u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CREATE_USN_JOURNAL_DATA {
     pub MaximumSize: u64,
     pub AllocationDelta: u64,
 }
+pub type CSV_DOWN_LEVEL_FILE_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CSV_DOWN_LEVEL_OPEN_ECP_CONTEXT {
@@ -1419,6 +1403,44 @@ pub struct CSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT {
     pub PauseTimeoutInSeconds: u32,
     pub Flags: u32,
 }
+pub const CSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: u32 = 1u32;
+pub const ChangeDataControlArea: FSRTL_CHANGE_BACKING_TYPE = 0i32;
+pub const ChangeImageControlArea: FSRTL_CHANGE_BACKING_TYPE = 1i32;
+pub const ChangeSharedCacheMap: FSRTL_CHANGE_BACKING_TYPE = 2i32;
+pub const CsvCsvFsInternalFileObject: CSV_DOWN_LEVEL_FILE_TYPE = 1i32;
+pub const CsvDownLevelFileObject: CSV_DOWN_LEVEL_FILE_TYPE = 0i32;
+pub const DD_MUP_DEVICE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Device\\Mup");
+pub const DEVICE_RESET_KEEP_STACK: u32 = 4u32;
+pub const DEVICE_RESET_RESERVED_0: u32 = 1u32;
+pub const DEVICE_RESET_RESERVED_1: u32 = 2u32;
+pub const DO_BOOT_CRITICAL: u32 = 536870912u32;
+pub const DO_BUFFERED_IO: u32 = 4u32;
+pub const DO_BUS_ENUMERATED_DEVICE: u32 = 4096u32;
+pub const DO_DAX_VOLUME: u32 = 268435456u32;
+pub const DO_DEVICE_HAS_NAME: u32 = 64u32;
+pub const DO_DEVICE_INITIALIZING: u32 = 128u32;
+pub const DO_DEVICE_IRP_REQUIRES_EXTENSION: u32 = 134217728u32;
+pub const DO_DEVICE_TO_BE_RESET: u32 = 67108864u32;
+pub const DO_DIRECT_IO: u32 = 16u32;
+pub const DO_DISALLOW_EXECUTE: u32 = 8388608u32;
+pub const DO_EXCLUSIVE: u32 = 8u32;
+pub const DO_FORCE_NEITHER_IO: u32 = 524288u32;
+pub const DO_LONG_TERM_REQUESTS: u32 = 512u32;
+pub const DO_LOW_PRIORITY_FILESYSTEM: u32 = 65536u32;
+pub const DO_MAP_IO_BUFFER: u32 = 32u32;
+pub const DO_NEVER_LAST_DEVICE: u32 = 1024u32;
+pub const DO_NOT_PURGE_DIRTY_PAGES: u32 = 4u32;
+pub const DO_NOT_RETRY_PURGE: u32 = 2u32;
+pub const DO_POWER_INRUSH: u32 = 16384u32;
+pub const DO_POWER_PAGABLE: u32 = 8192u32;
+pub const DO_SHUTDOWN_REGISTERED: u32 = 2048u32;
+pub const DO_SUPPORTS_PERSISTENT_ACLS: u32 = 131072u32;
+pub const DO_SUPPORTS_TRANSACTIONS: u32 = 262144u32;
+pub const DO_SYSTEM_BOOT_PARTITION: u32 = 256u32;
+pub const DO_SYSTEM_CRITICAL_PARTITION: u32 = 4194304u32;
+pub const DO_SYSTEM_SYSTEM_PARTITION: u32 = 2097152u32;
+pub const DO_VERIFY_VOLUME: u32 = 2u32;
+pub const DO_VOLUME_DEVICE_OBJECT: u32 = 1048576u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DUAL_OPLOCK_KEY_ECP_CONTEXT {
@@ -1435,6 +1457,11 @@ pub struct DUPLICATE_CLUSTER_DATA {
     pub DuplicationLimit: u32,
     pub Reserved: u32,
 }
+pub const DfsLinkTrackingInformation: LINK_TRACKING_INFORMATION_TYPE = 1i32;
+pub const EA_NAME_NETWORK_OPEN_ECP_INTEGRITY: windows_sys::core::PCSTR = windows_sys::core::s!("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-INTEGRITY");
+pub const EA_NAME_NETWORK_OPEN_ECP_INTEGRITY_U: windows_sys::core::PCWSTR = windows_sys::core::w!("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-INTEGRITY");
+pub const EA_NAME_NETWORK_OPEN_ECP_PRIVACY: windows_sys::core::PCSTR = windows_sys::core::s!("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-PRIVACY");
+pub const EA_NAME_NETWORK_OPEN_ECP_PRIVACY_U: windows_sys::core::PCWSTR = windows_sys::core::w!("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-PRIVACY");
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ECP_OPEN_PARAMETERS {
@@ -1442,6 +1469,14 @@ pub struct ECP_OPEN_PARAMETERS {
     pub Reserved: u16,
     pub Flags: u32,
 }
+pub const ECP_OPEN_PARAMETERS_FLAG_FAIL_ON_CASE_SENSITIVE_DIR: u32 = 16u32;
+pub const ECP_OPEN_PARAMETERS_FLAG_IGNORE_DIR_CASE_SENSITIVITY: u32 = 8u32;
+pub const ECP_OPEN_PARAMETERS_FLAG_OPEN_FOR_DELETE: u32 = 4u32;
+pub const ECP_OPEN_PARAMETERS_FLAG_OPEN_FOR_READ: u32 = 1u32;
+pub const ECP_OPEN_PARAMETERS_FLAG_OPEN_FOR_WRITE: u32 = 2u32;
+pub const ECP_TYPE_CLFS_CREATE_CONTAINER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8650c9fe_0cec_8bf6_bd1e_835956541090);
+pub const ECP_TYPE_IO_STOP_ON_SYMLINK_FILTER_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x940e5d56_1646_4d3c_87b6_577ec36a1466);
+pub const ECP_TYPE_OPEN_REPARSE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x323eb6a8_affd_4d95_8230_863bce09d37a);
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
@@ -1449,6 +1484,7 @@ pub struct EOF_WAIT_BLOCK {
     pub EofWaitLinks: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub Event: super::super::Foundation::KEVENT,
 }
+pub const EVENT_INCREMENT: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EXTENT_READ_CACHE_INFO_BUFFER {
@@ -1456,11 +1492,19 @@ pub struct EXTENT_READ_CACHE_INFO_BUFFER {
     pub PopulatedCache: i64,
     pub InErrorCache: i64,
 }
+pub const EqualTo: FSRTL_COMPARISON_RESULT = 0i32;
+pub type FAST_IO_POSSIBLE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_ACCESS_INFORMATION {
     pub AccessFlags: u32,
 }
+pub const FILE_ACTION_ADDED_STREAM: u32 = 6u32;
+pub const FILE_ACTION_ID_NOT_TUNNELLED: u32 = 10u32;
+pub const FILE_ACTION_MODIFIED_STREAM: u32 = 8u32;
+pub const FILE_ACTION_REMOVED_BY_DELETE: u32 = 9u32;
+pub const FILE_ACTION_REMOVED_STREAM: u32 = 7u32;
+pub const FILE_ACTION_TUNNELLED_ID_COLLISION: u32 = 11u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_ALIGNMENT_INFORMATION {
@@ -1516,6 +1560,14 @@ pub struct FILE_BOTH_DIR_INFORMATION {
 pub struct FILE_CASE_SENSITIVE_INFORMATION {
     pub Flags: u32,
 }
+pub const FILE_CLEANUP_FILE_DELETED: u32 = 4u32;
+pub const FILE_CLEANUP_FILE_REMAINS: u32 = 2u32;
+pub const FILE_CLEANUP_LINK_DELETED: u32 = 8u32;
+pub const FILE_CLEANUP_POSIX_STYLE_DELETE: u32 = 32u32;
+pub const FILE_CLEANUP_STREAM_DELETED: u32 = 16u32;
+pub const FILE_CLEANUP_UNKNOWN: u32 = 0u32;
+pub const FILE_CLEANUP_WRONG_DEVICE: u32 = 1u32;
+pub const FILE_COMPLETE_IF_OPLOCKED: NTCREATEFILE_CREATE_OPTIONS = 256u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_COMPLETION_INFORMATION {
@@ -1532,6 +1584,11 @@ pub struct FILE_COMPRESSION_INFORMATION {
     pub ClusterShift: u8,
     pub Reserved: [u8; 3],
 }
+pub const FILE_CONTAINS_EXTENDED_CREATE_INFORMATION: NTCREATEFILE_CREATE_OPTIONS = 268435456u32;
+pub const FILE_CREATE: NTCREATEFILE_CREATE_DISPOSITION = 2u32;
+pub const FILE_CREATE_TREE_CONNECTION: NTCREATEFILE_CREATE_OPTIONS = 128u32;
+pub const FILE_DELETE_ON_CLOSE: NTCREATEFILE_CREATE_OPTIONS = 4096u32;
+pub const FILE_DIRECTORY_FILE: NTCREATEFILE_CREATE_OPTIONS = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_DIRECTORY_INFORMATION {
@@ -1547,6 +1604,11 @@ pub struct FILE_DIRECTORY_INFORMATION {
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
 }
+pub const FILE_DISALLOW_EXCLUSIVE: NTCREATEFILE_CREATE_OPTIONS = 131072u32;
+pub const FILE_DISPOSITION_DELETE: FILE_DISPOSITION_INFORMATION_EX_FLAGS = 1u32;
+pub const FILE_DISPOSITION_DO_NOT_DELETE: FILE_DISPOSITION_INFORMATION_EX_FLAGS = 0u32;
+pub const FILE_DISPOSITION_FORCE_IMAGE_SECTION_CHECK: FILE_DISPOSITION_INFORMATION_EX_FLAGS = 4u32;
+pub const FILE_DISPOSITION_IGNORE_READONLY_ATTRIBUTE: FILE_DISPOSITION_INFORMATION_EX_FLAGS = 16u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_DISPOSITION_INFORMATION {
@@ -1557,11 +1619,24 @@ pub struct FILE_DISPOSITION_INFORMATION {
 pub struct FILE_DISPOSITION_INFORMATION_EX {
     pub Flags: FILE_DISPOSITION_INFORMATION_EX_FLAGS,
 }
+pub type FILE_DISPOSITION_INFORMATION_EX_FLAGS = u32;
+pub const FILE_DISPOSITION_ON_CLOSE: FILE_DISPOSITION_INFORMATION_EX_FLAGS = 8u32;
+pub const FILE_DISPOSITION_POSIX_SEMANTICS: FILE_DISPOSITION_INFORMATION_EX_FLAGS = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_EA_INFORMATION {
     pub EaSize: u32,
 }
+pub const FILE_EA_TYPE_ASCII: u32 = 65533u32;
+pub const FILE_EA_TYPE_ASN1: u32 = 65501u32;
+pub const FILE_EA_TYPE_BINARY: u32 = 65534u32;
+pub const FILE_EA_TYPE_BITMAP: u32 = 65531u32;
+pub const FILE_EA_TYPE_EA: u32 = 65518u32;
+pub const FILE_EA_TYPE_FAMILY_IDS: u32 = 65281u32;
+pub const FILE_EA_TYPE_ICON: u32 = 65529u32;
+pub const FILE_EA_TYPE_METAFILE: u32 = 65530u32;
+pub const FILE_EA_TYPE_MVMT: u32 = 65503u32;
+pub const FILE_EA_TYPE_MVST: u32 = 65502u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_END_OF_FILE_INFORMATION_EX {
@@ -1750,6 +1825,9 @@ pub struct FILE_ID_GLOBAL_TX_DIR_INFORMATION {
     pub TxInfoFlags: u32,
     pub FileName: [u16; 1],
 }
+pub const FILE_ID_GLOBAL_TX_DIR_INFO_FLAG_VISIBLE_OUTSIDE_TX: u32 = 4u32;
+pub const FILE_ID_GLOBAL_TX_DIR_INFO_FLAG_VISIBLE_TO_TX: u32 = 2u32;
+pub const FILE_ID_GLOBAL_TX_DIR_INFO_FLAG_WRITELOCKED: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy)]
@@ -1757,6 +1835,7 @@ pub struct FILE_ID_INFORMATION {
     pub VolumeSerialNumber: u64,
     pub FileId: super::super::super::Win32::Storage::FileSystem::FILE_ID_128,
 }
+pub type FILE_INFORMATION_CLASS = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_INFORMATION_DEFINITION {
@@ -1775,6 +1854,7 @@ pub struct FILE_INTERNAL_INFORMATION {
 pub struct FILE_KNOWN_FOLDER_INFORMATION {
     pub Type: FILE_KNOWN_FOLDER_TYPE,
 }
+pub type FILE_KNOWN_FOLDER_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy)]
@@ -1807,6 +1887,10 @@ pub struct FILE_LINK_ENTRY_INFORMATION {
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
 }
+pub const FILE_LINK_FORCE_RESIZE_SOURCE_SR: u32 = 256u32;
+pub const FILE_LINK_FORCE_RESIZE_SR: u32 = 384u32;
+pub const FILE_LINK_FORCE_RESIZE_TARGET_SR: u32 = 128u32;
+pub const FILE_LINK_IGNORE_READONLY_ATTRIBUTE: u32 = 64u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_LINK_INFORMATION {
@@ -1821,6 +1905,12 @@ pub union FILE_LINK_INFORMATION_0 {
     pub ReplaceIfExists: super::super::super::Win32::Foundation::BOOLEAN,
     pub Flags: u32,
 }
+pub const FILE_LINK_NO_DECREASE_AVAILABLE_SPACE: u32 = 32u32;
+pub const FILE_LINK_NO_INCREASE_AVAILABLE_SPACE: u32 = 16u32;
+pub const FILE_LINK_POSIX_SEMANTICS: u32 = 2u32;
+pub const FILE_LINK_PRESERVE_AVAILABLE_SPACE: u32 = 48u32;
+pub const FILE_LINK_REPLACE_IF_EXISTS: u32 = 1u32;
+pub const FILE_LINK_SUPPRESS_STORAGE_RESERVE_INHERITANCE: u32 = 8u32;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
@@ -1887,6 +1977,7 @@ pub struct FILE_NAME_INFORMATION {
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
 }
+pub const FILE_NEED_EA: u32 = 128u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_NETWORK_OPEN_INFORMATION {
@@ -1904,6 +1995,16 @@ pub struct FILE_NETWORK_PHYSICAL_NAME_INFORMATION {
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
 }
+pub const FILE_NON_DIRECTORY_FILE: NTCREATEFILE_CREATE_OPTIONS = 64u32;
+pub const FILE_NOTIFY_CHANGE_EA: u32 = 128u32;
+pub const FILE_NOTIFY_CHANGE_NAME: u32 = 3u32;
+pub const FILE_NOTIFY_CHANGE_STREAM_NAME: u32 = 512u32;
+pub const FILE_NOTIFY_CHANGE_STREAM_SIZE: u32 = 1024u32;
+pub const FILE_NOTIFY_CHANGE_STREAM_WRITE: u32 = 2048u32;
+pub const FILE_NOTIFY_VALID_MASK: u32 = 4095u32;
+pub const FILE_NO_COMPRESSION: NTCREATEFILE_CREATE_OPTIONS = 32768u32;
+pub const FILE_NO_EA_KNOWLEDGE: NTCREATEFILE_CREATE_OPTIONS = 512u32;
+pub const FILE_NO_INTERMEDIATE_BUFFERING: NTCREATEFILE_CREATE_OPTIONS = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_OBJECTID_INFORMATION {
@@ -1924,12 +2025,29 @@ pub struct FILE_OBJECTID_INFORMATION_0_0 {
     pub BirthObjectId: [u8; 16],
     pub DomainId: [u8; 16],
 }
+pub const FILE_OPBATCH_BREAK_UNDERWAY: u32 = 9u32;
+pub const FILE_OPEN: NTCREATEFILE_CREATE_DISPOSITION = 1u32;
+pub const FILE_OPEN_BY_FILE_ID: NTCREATEFILE_CREATE_OPTIONS = 8192u32;
+pub const FILE_OPEN_FOR_BACKUP_INTENT: NTCREATEFILE_CREATE_OPTIONS = 16384u32;
+pub const FILE_OPEN_FOR_FREE_SPACE_QUERY: NTCREATEFILE_CREATE_OPTIONS = 8388608u32;
+pub const FILE_OPEN_IF: NTCREATEFILE_CREATE_DISPOSITION = 3u32;
+pub const FILE_OPEN_NO_RECALL: NTCREATEFILE_CREATE_OPTIONS = 4194304u32;
+pub const FILE_OPEN_REPARSE_POINT: NTCREATEFILE_CREATE_OPTIONS = 2097152u32;
+pub const FILE_OPEN_REQUIRING_OPLOCK: NTCREATEFILE_CREATE_OPTIONS = 65536u32;
+pub const FILE_OPLOCK_BROKEN_TO_LEVEL_2: u32 = 7u32;
+pub const FILE_OPLOCK_BROKEN_TO_NONE: u32 = 8u32;
+pub const FILE_OVERWRITE: NTCREATEFILE_CREATE_DISPOSITION = 4u32;
+pub const FILE_OVERWRITE_IF: NTCREATEFILE_CREATE_DISPOSITION = 5u32;
+pub const FILE_PIPE_ACCEPT_REMOTE_CLIENTS: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_PIPE_ASSIGN_EVENT_BUFFER {
     pub EventHandle: super::super::super::Win32::Foundation::HANDLE,
     pub KeyValue: u32,
 }
+pub const FILE_PIPE_BYTE_STREAM_MODE: u32 = 0u32;
+pub const FILE_PIPE_BYTE_STREAM_TYPE: u32 = 0u32;
+pub const FILE_PIPE_CLIENT_END: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_PIPE_CLIENT_PROCESS_BUFFER {
@@ -1950,6 +2068,10 @@ pub struct FILE_PIPE_CLIENT_PROCESS_BUFFER_V2 {
     pub ClientSession: u64,
     pub ClientProcess: *mut core::ffi::c_void,
 }
+pub const FILE_PIPE_CLOSING_STATE: u32 = 4u32;
+pub const FILE_PIPE_COMPLETE_OPERATION: u32 = 1u32;
+pub const FILE_PIPE_COMPUTER_NAME_LENGTH: u32 = 15u32;
+pub const FILE_PIPE_CONNECTED_STATE: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_PIPE_CREATE_SYMLINK_INPUT {
@@ -1965,6 +2087,7 @@ pub struct FILE_PIPE_DELETE_SYMLINK_INPUT {
     pub NameOffset: u16,
     pub NameLength: u16,
 }
+pub const FILE_PIPE_DISCONNECTED_STATE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_PIPE_EVENT_BUFFER {
@@ -1974,12 +2097,15 @@ pub struct FILE_PIPE_EVENT_BUFFER {
     pub KeyValue: u32,
     pub NumberRequests: u32,
 }
+pub const FILE_PIPE_FULL_DUPLEX: u32 = 2u32;
+pub const FILE_PIPE_INBOUND: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_PIPE_INFORMATION {
     pub ReadMode: u32,
     pub CompletionMode: u32,
 }
+pub const FILE_PIPE_LISTENING_STATE: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_PIPE_LOCAL_INFORMATION {
@@ -1994,6 +2120,9 @@ pub struct FILE_PIPE_LOCAL_INFORMATION {
     pub NamedPipeState: u32,
     pub NamedPipeEnd: u32,
 }
+pub const FILE_PIPE_MESSAGE_MODE: u32 = 1u32;
+pub const FILE_PIPE_MESSAGE_TYPE: u32 = 1u32;
+pub const FILE_PIPE_OUTBOUND: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_PIPE_PEEK_BUFFER {
@@ -2003,17 +2132,24 @@ pub struct FILE_PIPE_PEEK_BUFFER {
     pub MessageLength: u32,
     pub Data: [i8; 1],
 }
+pub const FILE_PIPE_QUEUE_OPERATION: u32 = 0u32;
+pub const FILE_PIPE_READ_DATA: u32 = 0u32;
+pub const FILE_PIPE_REJECT_REMOTE_CLIENTS: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_PIPE_REMOTE_INFORMATION {
     pub CollectDataTime: i64,
     pub MaximumCollectionCount: u32,
 }
+pub const FILE_PIPE_SERVER_END: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_PIPE_SILO_ARRIVAL_INPUT {
     pub JobHandle: super::super::super::Win32::Foundation::HANDLE,
 }
+pub const FILE_PIPE_SYMLINK_FLAG_GLOBAL: u32 = 1u32;
+pub const FILE_PIPE_SYMLINK_FLAG_RELATIVE: u32 = 2u32;
+pub const FILE_PIPE_TYPE_VALID_MASK: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_PIPE_WAIT_FOR_BUFFER {
@@ -2022,6 +2158,7 @@ pub struct FILE_PIPE_WAIT_FOR_BUFFER {
     pub TimeoutSpecified: super::super::super::Win32::Foundation::BOOLEAN,
     pub Name: [u16; 1],
 }
+pub const FILE_PIPE_WRITE_SPACE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_POSITION_INFORMATION {
@@ -2039,6 +2176,7 @@ pub struct FILE_QUOTA_INFORMATION {
     pub QuotaLimit: i64,
     pub Sid: super::super::super::Win32::Security::SID,
 }
+pub const FILE_RANDOM_ACCESS: NTCREATEFILE_CREATE_OPTIONS = 2048u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_REMOTE_PROTOCOL_INFORMATION {
@@ -2084,6 +2222,10 @@ pub struct FILE_REMOTE_PROTOCOL_INFORMATION_1_0_1 {
     pub Reserved0: [u8; 3],
     pub Reserved1: u32,
 }
+pub const FILE_RENAME_FORCE_RESIZE_SOURCE_SR: u32 = 256u32;
+pub const FILE_RENAME_FORCE_RESIZE_SR: u32 = 384u32;
+pub const FILE_RENAME_FORCE_RESIZE_TARGET_SR: u32 = 128u32;
+pub const FILE_RENAME_IGNORE_READONLY_ATTRIBUTE: u32 = 64u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_RENAME_INFORMATION {
@@ -2098,12 +2240,22 @@ pub union FILE_RENAME_INFORMATION_0 {
     pub ReplaceIfExists: super::super::super::Win32::Foundation::BOOLEAN,
     pub Flags: u32,
 }
+pub const FILE_RENAME_NO_DECREASE_AVAILABLE_SPACE: u32 = 32u32;
+pub const FILE_RENAME_NO_INCREASE_AVAILABLE_SPACE: u32 = 16u32;
+pub const FILE_RENAME_POSIX_SEMANTICS: u32 = 2u32;
+pub const FILE_RENAME_PRESERVE_AVAILABLE_SPACE: u32 = 48u32;
+pub const FILE_RENAME_REPLACE_IF_EXISTS: u32 = 1u32;
+pub const FILE_RENAME_SUPPRESS_PIN_STATE_INHERITANCE: u32 = 4u32;
+pub const FILE_RENAME_SUPPRESS_STORAGE_RESERVE_INHERITANCE: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_REPARSE_POINT_INFORMATION {
     pub FileReference: i64,
     pub Tag: u32,
 }
+pub const FILE_RESERVE_OPFILTER: NTCREATEFILE_CREATE_OPTIONS = 1048576u32;
+pub const FILE_SEQUENTIAL_ONLY: NTCREATEFILE_CREATE_OPTIONS = 4u32;
+pub const FILE_SESSION_AWARE: NTCREATEFILE_CREATE_OPTIONS = 262144u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_STANDARD_INFORMATION {
@@ -2172,6 +2324,9 @@ pub struct FILE_STREAM_INFORMATION {
     pub StreamAllocationSize: i64,
     pub StreamName: [u16; 1],
 }
+pub const FILE_SUPERSEDE: NTCREATEFILE_CREATE_DISPOSITION = 0u32;
+pub const FILE_SYNCHRONOUS_IO_ALERT: NTCREATEFILE_CREATE_OPTIONS = 16u32;
+pub const FILE_SYNCHRONOUS_IO_NONALERT: NTCREATEFILE_CREATE_OPTIONS = 32u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_TIMESTAMPS {
@@ -2187,12 +2342,31 @@ pub struct FILE_TRACKING_INFORMATION {
     pub ObjectInformationLength: u32,
     pub ObjectInformation: [i8; 1],
 }
+pub const FILE_VC_CONTENT_INDEX_DISABLED: u32 = 8u32;
+pub const FILE_VC_LOG_QUOTA_LIMIT: u32 = 32u32;
+pub const FILE_VC_LOG_QUOTA_THRESHOLD: u32 = 16u32;
+pub const FILE_VC_LOG_VOLUME_LIMIT: u32 = 128u32;
+pub const FILE_VC_LOG_VOLUME_THRESHOLD: u32 = 64u32;
+pub const FILE_VC_QUOTAS_INCOMPLETE: u32 = 256u32;
+pub const FILE_VC_QUOTAS_REBUILDING: u32 = 512u32;
+pub const FILE_VC_QUOTA_ENFORCE: u32 = 2u32;
+pub const FILE_VC_QUOTA_MASK: u32 = 3u32;
+pub const FILE_VC_QUOTA_NONE: u32 = 0u32;
+pub const FILE_VC_QUOTA_TRACK: u32 = 1u32;
+pub const FILE_VC_VALID_MASK: u32 = 1023u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_VOLUME_NAME_INFORMATION {
     pub DeviceNameLength: u32,
     pub DeviceName: [u16; 1],
 }
+pub const FILE_WRITE_THROUGH: NTCREATEFILE_CREATE_OPTIONS = 2u32;
+pub const FLAGS_DELAY_REASONS_BITMAP_SCANNED: u32 = 2u32;
+pub const FLAGS_DELAY_REASONS_LOG_FILE_FULL: u32 = 1u32;
+pub const FLAGS_END_OF_FILE_INFO_EX_EXTEND_PAGING: u32 = 1u32;
+pub const FLAGS_END_OF_FILE_INFO_EX_NO_EXTRA_PAGING_EXTEND: u32 = 2u32;
+pub const FLAGS_END_OF_FILE_INFO_EX_TIME_CONSTRAINED: u32 = 4u32;
+pub type FREE_VIRTUAL_MEMORY_EX_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: super::super::super::Win32::Foundation::HANDLE, processhandle: super::super::super::Win32::Foundation::HANDLE, baseaddress: *mut *mut core::ffi::c_void, regionsize: *mut usize, freetype: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FSCTL_GHOST_FILE_EXTENTS_INPUT_BUFFER {
@@ -2202,6 +2376,35 @@ pub struct FSCTL_GHOST_FILE_EXTENTS_INPUT_BUFFER {
     pub RecallMetadataBufferSize: u32,
     pub RecallMetadataBuffer: [u8; 1],
 }
+pub const FSCTL_LMR_GET_LINK_TRACKING_INFORMATION: u32 = 1310952u32;
+pub const FSCTL_LMR_SET_LINK_TRACKING_INFORMATION: u32 = 1310956u32;
+pub const FSCTL_MAILSLOT_PEEK: u32 = 802819u32;
+pub const FSCTL_PIPE_ASSIGN_EVENT: u32 = 1114112u32;
+pub const FSCTL_PIPE_CREATE_SYMLINK: u32 = 1114188u32;
+pub const FSCTL_PIPE_DELETE_SYMLINK: u32 = 1114192u32;
+pub const FSCTL_PIPE_DISABLE_IMPERSONATE: u32 = 1114180u32;
+pub const FSCTL_PIPE_DISCONNECT: u32 = 1114116u32;
+pub const FSCTL_PIPE_FLUSH: u32 = 1146944u32;
+pub const FSCTL_PIPE_GET_CONNECTION_ATTRIBUTE: u32 = 1114160u32;
+pub const FSCTL_PIPE_GET_HANDLE_ATTRIBUTE: u32 = 1114168u32;
+pub const FSCTL_PIPE_GET_PIPE_ATTRIBUTE: u32 = 1114152u32;
+pub const FSCTL_PIPE_IMPERSONATE: u32 = 1114140u32;
+pub const FSCTL_PIPE_INTERNAL_READ: u32 = 1138676u32;
+pub const FSCTL_PIPE_INTERNAL_READ_OVFLOW: u32 = 1138688u32;
+pub const FSCTL_PIPE_INTERNAL_TRANSCEIVE: u32 = 1171455u32;
+pub const FSCTL_PIPE_INTERNAL_WRITE: u32 = 1155064u32;
+pub const FSCTL_PIPE_LISTEN: u32 = 1114120u32;
+pub const FSCTL_PIPE_PEEK: u32 = 1130508u32;
+pub const FSCTL_PIPE_QUERY_CLIENT_PROCESS: u32 = 1114148u32;
+pub const FSCTL_PIPE_QUERY_CLIENT_PROCESS_V2: u32 = 1114196u32;
+pub const FSCTL_PIPE_QUERY_EVENT: u32 = 1114128u32;
+pub const FSCTL_PIPE_SET_CLIENT_PROCESS: u32 = 1114144u32;
+pub const FSCTL_PIPE_SET_CONNECTION_ATTRIBUTE: u32 = 1114164u32;
+pub const FSCTL_PIPE_SET_HANDLE_ATTRIBUTE: u32 = 1114172u32;
+pub const FSCTL_PIPE_SET_PIPE_ATTRIBUTE: u32 = 1114156u32;
+pub const FSCTL_PIPE_SILO_ARRIVAL: u32 = 1146952u32;
+pub const FSCTL_PIPE_TRANSCEIVE: u32 = 1163287u32;
+pub const FSCTL_PIPE_WAIT: u32 = 1114136u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FSCTL_QUERY_GHOSTED_FILE_EXTENTS_INPUT_RANGE {
@@ -2230,6 +2433,8 @@ pub struct FSCTL_UNMAP_SPACE_INPUT_BUFFER {
 pub struct FSCTL_UNMAP_SPACE_OUTPUT {
     pub BytesUnmapped: i64,
 }
+pub const FSRTL_ADD_TC_CASE_SENSITIVE: u32 = 1u32;
+pub const FSRTL_ADD_TC_KEY_BY_SHORT_NAME: u32 = 2u32;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
@@ -2250,6 +2455,9 @@ pub union FSRTL_ADVANCED_FCB_HEADER_0 {
     pub Oplock: *mut core::ffi::c_void,
     pub ReservedForRemote: *mut core::ffi::c_void,
 }
+pub const FSRTL_ALLOCATE_ECPLIST_FLAG_CHARGE_QUOTA: u32 = 1u32;
+pub const FSRTL_ALLOCATE_ECP_FLAG_CHARGE_QUOTA: u32 = 1u32;
+pub const FSRTL_ALLOCATE_ECP_FLAG_NONPAGED_POOL: u32 = 2u32;
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy)]
@@ -2259,6 +2467,10 @@ pub struct FSRTL_AUXILIARY_BUFFER {
     pub Flags: u32,
     pub Mdl: *mut super::super::Foundation::MDL,
 }
+pub const FSRTL_AUXILIARY_FLAG_DEALLOCATE: u32 = 1u32;
+pub const FSRTL_CC_FLUSH_ERROR_FLAG_NO_HARD_ERROR: u32 = 1u32;
+pub const FSRTL_CC_FLUSH_ERROR_FLAG_NO_LOG_ENTRY: u32 = 2u32;
+pub type FSRTL_CHANGE_BACKING_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
@@ -2275,6 +2487,31 @@ pub struct FSRTL_COMMON_FCB_HEADER {
     pub FileSize: i64,
     pub ValidDataLength: i64,
 }
+pub type FSRTL_COMPARISON_RESULT = i32;
+pub const FSRTL_DRIVER_BACKING_FLAG_USE_PAGE_FILE: u32 = 1u32;
+pub const FSRTL_ECP_LOOKASIDE_FLAG_NONPAGED_POOL: u32 = 2u32;
+pub const FSRTL_FAT_LEGAL: u32 = 1u32;
+pub const FSRTL_FCB_HEADER_V0: u32 = 0u32;
+pub const FSRTL_FCB_HEADER_V1: u32 = 1u32;
+pub const FSRTL_FCB_HEADER_V2: u32 = 2u32;
+pub const FSRTL_FCB_HEADER_V3: u32 = 3u32;
+pub const FSRTL_FCB_HEADER_V4: u32 = 4u32;
+pub const FSRTL_FIND_TC_CASE_SENSITIVE: u32 = 1u32;
+pub const FSRTL_FLAG2_BYPASSIO_STREAM_PAUSED: u32 = 32u32;
+pub const FSRTL_FLAG2_DO_MODIFIED_WRITE: u32 = 1u32;
+pub const FSRTL_FLAG2_IS_PAGING_FILE: u32 = 8u32;
+pub const FSRTL_FLAG2_PURGE_WHEN_MAPPED: u32 = 4u32;
+pub const FSRTL_FLAG2_SUPPORTS_FILTER_CONTEXTS: u32 = 2u32;
+pub const FSRTL_FLAG2_WRITABLE_USER_MAPPED_FILE: u32 = 16u32;
+pub const FSRTL_FLAG_ACQUIRE_MAIN_RSRC_EX: u32 = 8u32;
+pub const FSRTL_FLAG_ACQUIRE_MAIN_RSRC_SH: u32 = 16u32;
+pub const FSRTL_FLAG_ADVANCED_HEADER: u32 = 64u32;
+pub const FSRTL_FLAG_EOF_ADVANCE_ACTIVE: u32 = 128u32;
+pub const FSRTL_FLAG_FILE_LENGTH_CHANGED: u32 = 2u32;
+pub const FSRTL_FLAG_FILE_MODIFIED: u32 = 1u32;
+pub const FSRTL_FLAG_LIMIT_MODIFIED_PAGES: u32 = 4u32;
+pub const FSRTL_FLAG_USER_MAPPED_FILE: u32 = 32u32;
+pub const FSRTL_HPFS_LEGAL: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FSRTL_MUP_PROVIDER_INFO_LEVEL_1 {
@@ -2286,6 +2523,8 @@ pub struct FSRTL_MUP_PROVIDER_INFO_LEVEL_2 {
     pub ProviderId: u32,
     pub ProviderName: super::super::super::Win32::Foundation::UNICODE_STRING,
 }
+pub const FSRTL_NTFS_LEGAL: u32 = 4u32;
+pub const FSRTL_OLE_LEGAL: u32 = 16u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
@@ -2312,6 +2551,13 @@ pub struct FSRTL_PER_STREAM_CONTEXT {
     pub InstanceId: *mut core::ffi::c_void,
     pub FreeCallback: super::super::Foundation::PFREE_FUNCTION,
 }
+pub const FSRTL_UNC_HARDENING_CAPABILITIES_INTEGRITY: u32 = 2u32;
+pub const FSRTL_UNC_HARDENING_CAPABILITIES_MUTUAL_AUTH: u32 = 1u32;
+pub const FSRTL_UNC_HARDENING_CAPABILITIES_PRIVACY: u32 = 4u32;
+pub const FSRTL_UNC_PROVIDER_FLAGS_CONTAINER_AWARE: u32 = 8u32;
+pub const FSRTL_UNC_PROVIDER_FLAGS_CSC_ENABLED: u32 = 2u32;
+pub const FSRTL_UNC_PROVIDER_FLAGS_DOMAIN_SVC_AWARE: u32 = 4u32;
+pub const FSRTL_UNC_PROVIDER_FLAGS_MAILSLOTS_SUPPORTED: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FSRTL_UNC_PROVIDER_REGISTRATION {
@@ -2342,6 +2588,26 @@ pub union FSRTL_UNC_PROVIDER_REGISTRATION_1 {
 pub struct FSRTL_UNC_PROVIDER_REGISTRATION_1_0 {
     pub _bitfield: u32,
 }
+pub const FSRTL_UNC_REGISTRATION_CURRENT_VERSION: u32 = 513u32;
+pub const FSRTL_UNC_REGISTRATION_VERSION_0200: u32 = 512u32;
+pub const FSRTL_UNC_REGISTRATION_VERSION_0201: u32 = 513u32;
+pub const FSRTL_VIRTDISK_FULLY_ALLOCATED: u32 = 1u32;
+pub const FSRTL_VIRTDISK_NO_DRIVE_LETTER: u32 = 2u32;
+pub const FSRTL_VOLUME_BACKGROUND_FORMAT: u32 = 14u32;
+pub const FSRTL_VOLUME_CHANGE_SIZE: u32 = 13u32;
+pub const FSRTL_VOLUME_DISMOUNT: u32 = 1u32;
+pub const FSRTL_VOLUME_DISMOUNT_FAILED: u32 = 2u32;
+pub const FSRTL_VOLUME_FORCED_CLOSED: u32 = 10u32;
+pub const FSRTL_VOLUME_INFO_MAKE_COMPAT: u32 = 11u32;
+pub const FSRTL_VOLUME_LOCK: u32 = 3u32;
+pub const FSRTL_VOLUME_LOCK_FAILED: u32 = 4u32;
+pub const FSRTL_VOLUME_MOUNT: u32 = 6u32;
+pub const FSRTL_VOLUME_NEEDS_CHKDSK: u32 = 7u32;
+pub const FSRTL_VOLUME_PREPARING_EJECT: u32 = 12u32;
+pub const FSRTL_VOLUME_UNLOCK: u32 = 5u32;
+pub const FSRTL_VOLUME_WEARING_OUT: u32 = 9u32;
+pub const FSRTL_VOLUME_WORM_NEAR_FULL: u32 = 8u32;
+pub const FSRTL_WILD_CHARACTER: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FS_BPIO_INFO {
@@ -2358,6 +2624,9 @@ pub struct FS_BPIO_INPUT {
     pub Reserved1: u64,
     pub Reserved2: u64,
 }
+pub const FS_FILTER_ACQUIRE_FOR_CC_FLUSH: u16 = 65531u16;
+pub const FS_FILTER_ACQUIRE_FOR_MOD_WRITE: u16 = 65533u16;
+pub const FS_FILTER_ACQUIRE_FOR_SECTION_SYNCHRONIZATION: u16 = 65535u16;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
@@ -2443,6 +2712,13 @@ pub struct FS_FILTER_PARAMETERS_3 {
 pub struct FS_FILTER_PARAMETERS_1 {
     pub ResourceToRelease: *mut super::super::Foundation::ERESOURCE,
 }
+pub const FS_FILTER_QUERY_OPEN: u16 = 65529u16;
+pub const FS_FILTER_RELEASE_FOR_CC_FLUSH: u16 = 65530u16;
+pub const FS_FILTER_RELEASE_FOR_MOD_WRITE: u16 = 65532u16;
+pub const FS_FILTER_RELEASE_FOR_SECTION_SYNCHRONIZATION: u16 = 65534u16;
+pub const FS_FILTER_SECTION_SYNC_IMAGE_EXTENTS_ARE_NOT_RVA: u32 = 8u32;
+pub const FS_FILTER_SECTION_SYNC_IN_FLAG_DONT_UPDATE_LAST_ACCESS: u32 = 1u32;
+pub const FS_FILTER_SECTION_SYNC_IN_FLAG_DONT_UPDATE_LAST_WRITE: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FS_FILTER_SECTION_SYNC_OUTPUT {
@@ -2451,1519 +2727,12 @@ pub struct FS_FILTER_SECTION_SYNC_OUTPUT {
     pub Flags: u32,
     pub DesiredReadAlignment: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GENERATE_NAME_CONTEXT {
-    pub Checksum: u16,
-    pub ChecksumInserted: super::super::super::Win32::Foundation::BOOLEAN,
-    pub NameLength: u8,
-    pub NameBuffer: [u16; 8],
-    pub ExtensionLength: u32,
-    pub ExtensionBuffer: [u16; 4],
-    pub LastIndexValue: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GHOSTED_FILE_EXTENT {
-    pub FileOffset: i64,
-    pub ByteCount: i64,
-    pub RecallOwnerGuid: windows_sys::core::GUID,
-    pub NextEntryOffset: u32,
-    pub RecallMetadataBufferSize: u32,
-    pub RecallMetadataBuffer: [u8; 1],
-}
-#[repr(C)]
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy)]
-pub struct IO_CREATE_STREAM_FILE_OPTIONS {
-    pub Size: u16,
-    pub Flags: u16,
-    pub TargetDeviceObject: *mut super::super::Foundation::DEVICE_OBJECT,
-}
-#[repr(C)]
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy)]
-pub struct IO_DEVICE_HINT_ECP_CONTEXT {
-    pub TargetDevice: *mut super::super::Foundation::DEVICE_OBJECT,
-    pub RemainingName: super::super::super::Win32::Foundation::UNICODE_STRING,
-}
-#[repr(C)]
-#[cfg(feature = "Wdk_Foundation")]
-#[derive(Clone, Copy)]
-pub struct IO_PRIORITY_INFO {
-    pub Size: u32,
-    pub ThreadPriority: u32,
-    pub PagePriority: u32,
-    pub IoPriority: super::super::Foundation::IO_PRIORITY_HINT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IO_STOP_ON_SYMLINK_FILTER_ECP_v0 {
-    pub Out: IO_STOP_ON_SYMLINK_FILTER_ECP_v0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IO_STOP_ON_SYMLINK_FILTER_ECP_v0_0 {
-    pub ReparseCount: u32,
-    pub RemainingPathLength: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
-pub struct KAPC_STATE {
-    pub ApcListHead: [super::super::super::Win32::System::Kernel::LIST_ENTRY; 2],
-    pub Process: *mut isize,
-    pub Anonymous1: KAPC_STATE_0,
-    pub KernelApcPending: super::super::super::Win32::Foundation::BOOLEAN,
-    pub Anonymous2: KAPC_STATE_1,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
-pub union KAPC_STATE_0 {
-    pub InProgressFlags: u8,
-    pub Anonymous: KAPC_STATE_0_0,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
-pub struct KAPC_STATE_0_0 {
-    pub _bitfield: u8,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
-pub union KAPC_STATE_1 {
-    pub UserApcPendingAll: super::super::super::Win32::Foundation::BOOLEAN,
-    pub Anonymous: KAPC_STATE_1_0,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
-pub struct KAPC_STATE_1_0 {
-    pub _bitfield: u8,
-}
-#[repr(C)]
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Clone, Copy)]
-pub struct LARGE_MCB {
-    pub GuardedMutex: *mut super::super::Foundation::FAST_MUTEX,
-    pub BaseMcb: BASE_MCB,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LCN_WEAK_REFERENCE_BUFFER {
-    pub Lcn: i64,
-    pub LengthInClusters: i64,
-    pub ReferenceCount: u32,
-    pub State: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LCN_WEAK_REFERENCE_CREATE_INPUT_BUFFER {
-    pub Offset: i64,
-    pub Length: i64,
-    pub Flags: u32,
-    pub Reserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LINK_TRACKING_INFORMATION {
-    pub Type: LINK_TRACKING_INFORMATION_TYPE,
-    pub VolumeId: [u8; 16],
-}
-#[repr(C)]
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Clone, Copy)]
-pub struct MCB {
-    pub DummyFieldThatSizesThisStructureCorrectly: LARGE_MCB,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MEMORY_RANGE_ENTRY {
-    pub VirtualAddress: *mut core::ffi::c_void,
-    pub NumberOfBytes: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MFT_ENUM_DATA {
-    pub StartFileReferenceNumber: u64,
-    pub LowUsn: i64,
-    pub HighUsn: i64,
-    pub MinMajorVersion: u16,
-    pub MaxMajorVersion: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union MM_PREFETCH_FLAGS {
-    pub Flags: MM_PREFETCH_FLAGS_0,
-    pub AllFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MM_PREFETCH_FLAGS_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security_Authentication_Identity")]
-#[derive(Clone, Copy)]
-pub struct MSV1_0_ENUMUSERS_REQUEST {
-    pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security_Authentication_Identity")]
-#[derive(Clone, Copy)]
-pub struct MSV1_0_ENUMUSERS_RESPONSE {
-    pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
-    pub NumberOfLoggedOnUsers: u32,
-    pub LogonIds: *mut super::super::super::Win32::Foundation::LUID,
-    pub EnumHandles: *mut u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security_Authentication_Identity")]
-#[derive(Clone, Copy)]
-pub struct MSV1_0_GETCHALLENRESP_REQUEST {
-    pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
-    pub ParameterControl: u32,
-    pub LogonId: super::super::super::Win32::Foundation::LUID,
-    pub Password: super::super::super::Win32::Foundation::UNICODE_STRING,
-    pub ChallengeToClient: [u8; 8],
-    pub UserName: super::super::super::Win32::Foundation::UNICODE_STRING,
-    pub LogonDomainName: super::super::super::Win32::Foundation::UNICODE_STRING,
-    pub ServerName: super::super::super::Win32::Foundation::UNICODE_STRING,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security_Authentication_Identity")]
-#[derive(Clone, Copy)]
-pub struct MSV1_0_GETCHALLENRESP_REQUEST_V1 {
-    pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
-    pub ParameterControl: u32,
-    pub LogonId: super::super::super::Win32::Foundation::LUID,
-    pub Password: super::super::super::Win32::Foundation::UNICODE_STRING,
-    pub ChallengeToClient: [u8; 8],
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_System_Kernel"))]
-#[derive(Clone, Copy)]
-pub struct MSV1_0_GETCHALLENRESP_RESPONSE {
-    pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
-    pub CaseSensitiveChallengeResponse: super::super::super::Win32::System::Kernel::STRING,
-    pub CaseInsensitiveChallengeResponse: super::super::super::Win32::System::Kernel::STRING,
-    pub UserName: super::super::super::Win32::Foundation::UNICODE_STRING,
-    pub LogonDomainName: super::super::super::Win32::Foundation::UNICODE_STRING,
-    pub UserSessionKey: [u8; 16],
-    pub LanmanSessionKey: [u8; 8],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security_Authentication_Identity")]
-#[derive(Clone, Copy)]
-pub struct MSV1_0_GETUSERINFO_REQUEST {
-    pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
-    pub LogonId: super::super::super::Win32::Foundation::LUID,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security_Authentication_Identity")]
-#[derive(Clone, Copy)]
-pub struct MSV1_0_GETUSERINFO_RESPONSE {
-    pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
-    pub UserSid: super::super::super::Win32::Security::PSID,
-    pub UserName: super::super::super::Win32::Foundation::UNICODE_STRING,
-    pub LogonDomainName: super::super::super::Win32::Foundation::UNICODE_STRING,
-    pub LogonServer: super::super::super::Win32::Foundation::UNICODE_STRING,
-    pub LogonType: super::super::super::Win32::Security::Authentication::Identity::SECURITY_LOGON_TYPE,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security_Authentication_Identity")]
-#[derive(Clone, Copy)]
-pub struct MSV1_0_LM20_CHALLENGE_REQUEST {
-    pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security_Authentication_Identity")]
-#[derive(Clone, Copy)]
-pub struct MSV1_0_LM20_CHALLENGE_RESPONSE {
-    pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
-    pub ChallengeToClient: [u8; 8],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETWORK_APP_INSTANCE_ECP_CONTEXT {
-    pub Size: u16,
-    pub Reserved: u16,
-    pub AppInstanceID: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETWORK_APP_INSTANCE_VERSION_ECP_CONTEXT {
-    pub Size: u16,
-    pub Reserved: u16,
-    pub VersionHigh: u64,
-    pub VersionLow: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETWORK_OPEN_ECP_CONTEXT {
-    pub Size: u16,
-    pub Reserved: u16,
-    pub Anonymous: NETWORK_OPEN_ECP_CONTEXT_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETWORK_OPEN_ECP_CONTEXT_0 {
-    pub r#in: NETWORK_OPEN_ECP_CONTEXT_0_0,
-    pub out: NETWORK_OPEN_ECP_CONTEXT_0_1,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETWORK_OPEN_ECP_CONTEXT_0_0 {
-    pub Location: NETWORK_OPEN_LOCATION_QUALIFIER,
-    pub Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
-    pub Flags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETWORK_OPEN_ECP_CONTEXT_0_1 {
-    pub Location: NETWORK_OPEN_LOCATION_QUALIFIER,
-    pub Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
-    pub Flags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETWORK_OPEN_ECP_CONTEXT_V0 {
-    pub Size: u16,
-    pub Reserved: u16,
-    pub Anonymous: NETWORK_OPEN_ECP_CONTEXT_V0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETWORK_OPEN_ECP_CONTEXT_V0_0 {
-    pub r#in: NETWORK_OPEN_ECP_CONTEXT_V0_0_0,
-    pub out: NETWORK_OPEN_ECP_CONTEXT_V0_0_1,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETWORK_OPEN_ECP_CONTEXT_V0_0_0 {
-    pub Location: NETWORK_OPEN_LOCATION_QUALIFIER,
-    pub Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETWORK_OPEN_ECP_CONTEXT_V0_0_1 {
-    pub Location: NETWORK_OPEN_LOCATION_QUALIFIER,
-    pub Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct NFS_OPEN_ECP_CONTEXT {
-    pub ExportAlias: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
-    pub ClientSocketAddress: *mut super::super::super::Win32::Networking::WinSock::SOCKADDR_STORAGE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NLSTABLEINFO {
-    pub OemTableInfo: CPTABLEINFO,
-    pub AnsiTableInfo: CPTABLEINFO,
-    pub UpperCaseTable: *mut u16,
-    pub LowerCaseTable: *mut u16,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
-pub struct OPEN_REPARSE_LIST {
-    pub OpenReparseList: super::super::super::Win32::System::Kernel::LIST_ENTRY,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
-pub struct OPEN_REPARSE_LIST_ENTRY {
-    pub OpenReparseListEntry: super::super::super::Win32::System::Kernel::LIST_ENTRY,
-    pub ReparseTag: u32,
-    pub Flags: u32,
-    pub ReparseGuid: windows_sys::core::GUID,
-    pub Size: u16,
-    pub RemainingLength: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OPLOCK_KEY_CONTEXT {
-    pub Version: u16,
-    pub Flags: u16,
-    pub ParentOplockKey: windows_sys::core::GUID,
-    pub TargetOplockKey: windows_sys::core::GUID,
-    pub Reserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OPLOCK_KEY_ECP_CONTEXT {
-    pub OplockKey: windows_sys::core::GUID,
-    pub Reserved: u32,
-}
-#[repr(C)]
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy)]
-pub struct OPLOCK_NOTIFY_PARAMS {
-    pub NotifyReason: OPLOCK_NOTIFY_REASON,
-    pub NotifyContext: *mut core::ffi::c_void,
-    pub Irp: *mut super::super::Foundation::IRP,
-    pub Status: super::super::super::Win32::Foundation::NTSTATUS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PHYSICAL_EXTENTS_DESCRIPTOR {
-    pub NumberOfRuns: u32,
-    pub NumberOfValidRuns: u32,
-    pub Run: [PHYSICAL_MEMORY_RUN; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PHYSICAL_MEMORY_DESCRIPTOR {
-    pub NumberOfRuns: u32,
-    pub NumberOfPages: u32,
-    pub Run: [PHYSICAL_MEMORY_RUN; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PHYSICAL_MEMORY_RUN {
-    pub BasePage: u32,
-    pub PageCount: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PREFETCH_OPEN_ECP_CONTEXT {
-    pub Context: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Clone, Copy)]
-pub struct PREFIX_TABLE {
-    pub NodeTypeCode: i16,
-    pub NameLength: i16,
-    pub NextPrefixTree: *mut PREFIX_TABLE_ENTRY,
-}
-#[repr(C)]
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Clone, Copy)]
-pub struct PREFIX_TABLE_ENTRY {
-    pub NodeTypeCode: i16,
-    pub NameLength: i16,
-    pub NextPrefixTree: *mut PREFIX_TABLE_ENTRY,
-    pub Links: super::super::Foundation::RTL_SPLAY_LINKS,
-    pub Prefix: *mut super::super::super::Win32::System::Kernel::STRING,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PUBLIC_BCB {
-    pub NodeTypeCode: i16,
-    pub NodeByteSize: i16,
-    pub MappedLength: u32,
-    pub MappedFileOffset: i64,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Ioctl")]
-#[derive(Clone, Copy)]
-pub struct QUERY_BAD_RANGES_INPUT {
-    pub Flags: u32,
-    pub NumRanges: u32,
-    pub Ranges: [super::super::super::Win32::System::Ioctl::QUERY_BAD_RANGES_INPUT_RANGE; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QUERY_DIRECT_ACCESS_EXTENTS {
-    pub FileOffset: i64,
-    pub Length: i64,
-    pub Flags: u32,
-    pub Reserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QUERY_ON_CREATE_EA_INFORMATION {
-    pub EaBufferSize: u32,
-    pub EaBuffer: *mut FILE_FULL_EA_INFORMATION,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QUERY_ON_CREATE_ECP_CONTEXT {
-    pub RequestedClasses: u32,
-    pub ClassesProcessed: u32,
-    pub ClassesWithErrors: u32,
-    pub ClassesWithNoData: u32,
-    pub StatInformation: QUERY_ON_CREATE_FILE_STAT_INFORMATION,
-    pub LxInformation: QUERY_ON_CREATE_FILE_LX_INFORMATION,
-    pub EaInformation: QUERY_ON_CREATE_EA_INFORMATION,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QUERY_ON_CREATE_FILE_LX_INFORMATION {
-    pub EffectiveAccess: u32,
-    pub LxFlags: u32,
-    pub LxUid: u32,
-    pub LxGid: u32,
-    pub LxMode: u32,
-    pub LxDeviceIdMajor: u32,
-    pub LxDeviceIdMinor: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QUERY_ON_CREATE_FILE_STAT_INFORMATION {
-    pub FileId: i64,
-    pub CreationTime: i64,
-    pub LastAccessTime: i64,
-    pub LastWriteTime: i64,
-    pub ChangeTime: i64,
-    pub AllocationSize: i64,
-    pub EndOfFile: i64,
-    pub FileAttributes: u32,
-    pub ReparseTag: u32,
-    pub NumberOfLinks: u32,
-}
-#[repr(C)]
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security"))]
-#[derive(Clone, Copy)]
-pub struct QUERY_PATH_REQUEST {
-    pub PathNameLength: u32,
-    pub SecurityContext: *mut super::super::Foundation::IO_SECURITY_CONTEXT,
-    pub FilePathName: [u16; 1],
-}
-#[repr(C)]
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security"))]
-#[derive(Clone, Copy)]
-pub struct QUERY_PATH_REQUEST_EX {
-    pub pSecurityContext: *mut super::super::Foundation::IO_SECURITY_CONTEXT,
-    pub EaLength: u32,
-    pub pEaBuffer: *mut core::ffi::c_void,
-    pub PathName: super::super::super::Win32::Foundation::UNICODE_STRING,
-    pub DomainServiceName: super::super::super::Win32::Foundation::UNICODE_STRING,
-    pub EcpList: *mut super::super::Foundation::ECP_LIST,
-    pub Silo: super::super::Foundation::PESILO,
-    pub Reserved: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct QUERY_PATH_RESPONSE {
-    pub LengthAccepted: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct READ_AHEAD_PARAMETERS {
-    pub NodeByteSize: i16,
-    pub Granularity: u32,
-    pub PipelinedRequestSize: u32,
-    pub ReadAheadGrowthPercentage: u32,
-}
-#[repr(C)]
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy)]
-pub struct READ_LIST {
-    pub FileObject: *mut super::super::Foundation::FILE_OBJECT,
-    pub NumberOfEntries: u32,
-    pub IsImage: u32,
-    pub List: [super::super::super::Win32::Storage::FileSystem::FILE_SEGMENT_ELEMENT; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct READ_USN_JOURNAL_DATA {
-    pub StartUsn: i64,
-    pub ReasonMask: u32,
-    pub ReturnOnlyOnClose: u32,
-    pub Timeout: u64,
-    pub BytesToWaitFor: u64,
-    pub UsnJournalID: u64,
-    pub MinMajorVersion: u16,
-    pub MaxMajorVersion: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct REFS_DEALLOCATE_RANGES_INPUT_BUFFER {
-    pub RangeCount: u32,
-    pub Ranges: [REFS_DEALLOCATE_RANGES_RANGE; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct REFS_DEALLOCATE_RANGES_INPUT_BUFFER_EX {
-    pub RangeCount: u32,
-    pub Allocator: REFS_DEALLOCATE_RANGES_ALLOCATOR,
-    pub StreamReserveUpdateCount: i64,
-    pub OffsetToRanges: u32,
-    pub OffsetToLeakCounts: u32,
-    pub Reserved: [u64; 2],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct REFS_DEALLOCATE_RANGES_RANGE {
-    pub StartOfRange: u64,
-    pub CountOfRange: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct REFS_QUERY_VOLUME_COMPRESSION_INFO_OUTPUT_BUFFER {
-    pub DefaultCompressionFormat: REFS_COMPRESSION_FORMATS,
-    pub DefaultCompressionLevel: i16,
-    pub DefaultCompressionChunkSizeBytes: u32,
-    pub VolumeClusterSizeBytes: u32,
-    pub TotalVolumeClusters: u64,
-    pub TotalAllocatedClusters: u64,
-    pub TotalCompressibleClustersAllocated: u64,
-    pub TotalCompressibleClustersInUse: u64,
-    pub TotalCompressedClusters: u64,
-    pub Reserved: [u64; 6],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct REFS_QUERY_VOLUME_DEDUP_INFO_OUTPUT_BUFFER {
-    pub Enabled: super::super::super::Win32::Foundation::BOOLEAN,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct REFS_REMOVE_HARDLINK_BACKPOINTER {
-    pub ParentDirectory: u64,
-    pub Reserved: u64,
-    pub FileName: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct REFS_SET_VOLUME_COMPRESSION_INFO_INPUT_BUFFER {
-    pub CompressionFormat: REFS_COMPRESSION_FORMATS,
-    pub CompressionLevel: i16,
-    pub CompressionChunkSizeBytes: u32,
-    pub Flags: REFS_SET_VOLUME_COMPRESSION_INFO_FLAGS,
-    pub Reserved: [u64; 8],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct REFS_SET_VOLUME_DEDUP_INFO_INPUT_BUFFER {
-    pub Enable: super::super::super::Win32::Foundation::BOOLEAN,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct REFS_STREAM_EXTENT {
-    pub Vcn: i64,
-    pub Lcn: i64,
-    pub Length: i64,
-    pub Properties: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER {
-    pub EntryCount: u32,
-    pub BufferSizeRequiredForQuery: u32,
-    pub Reserved: [u32; 2],
-    pub Entries: [REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER_ENTRY; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER_ENTRY {
-    pub NextEntryOffset: u32,
-    pub SnapshotNameLength: u16,
-    pub SnapshotCreationTime: u64,
-    pub StreamSize: u64,
-    pub StreamAllocationSize: u64,
-    pub Reserved: [u64; 2],
-    pub SnapshotName: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct REFS_STREAM_SNAPSHOT_MANAGEMENT_INPUT_BUFFER {
-    pub Operation: REFS_STREAM_SNAPSHOT_OPERATION,
-    pub SnapshotNameLength: u16,
-    pub OperationInputBufferLength: u16,
-    pub Reserved: [u64; 2],
-    pub NameAndInputBuffer: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct REFS_STREAM_SNAPSHOT_QUERY_DELTAS_INPUT_BUFFER {
-    pub StartingVcn: i64,
-    pub Flags: u32,
-    pub Reserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct REFS_STREAM_SNAPSHOT_QUERY_DELTAS_OUTPUT_BUFFER {
-    pub ExtentCount: u32,
-    pub Reserved: [u32; 2],
-    pub Extents: [REFS_STREAM_EXTENT; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct REFS_VOLUME_COUNTER_INFO_INPUT_BUFFER {
-    pub ResetCounters: super::super::super::Win32::Foundation::BOOLEAN,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct REFS_VOLUME_DATA_BUFFER {
-    pub ByteCount: u32,
-    pub MajorVersion: u32,
-    pub MinorVersion: u32,
-    pub BytesPerPhysicalSector: u32,
-    pub VolumeSerialNumber: i64,
-    pub NumberSectors: i64,
-    pub TotalClusters: i64,
-    pub FreeClusters: i64,
-    pub TotalReserved: i64,
-    pub BytesPerSector: u32,
-    pub BytesPerCluster: u32,
-    pub MaximumSizeOfResidentFile: i64,
-    pub FastTierDataFillRatio: u16,
-    pub SlowTierDataFillRatio: u16,
-    pub DestagesFastTierToSlowTierRate: u32,
-    pub Reserved: [i64; 9],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct REMOTE_LINK_TRACKING_INFORMATION {
-    pub TargetFileObject: *mut core::ffi::c_void,
-    pub TargetLinkTrackingInformationLength: u32,
-    pub TargetLinkTrackingInformationBuffer: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct REPARSE_DATA_BUFFER {
-    pub ReparseTag: u32,
-    pub ReparseDataLength: u16,
-    pub Reserved: u16,
-    pub Anonymous: REPARSE_DATA_BUFFER_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union REPARSE_DATA_BUFFER_0 {
-    pub SymbolicLinkReparseBuffer: REPARSE_DATA_BUFFER_0_0,
-    pub MountPointReparseBuffer: REPARSE_DATA_BUFFER_0_1,
-    pub GenericReparseBuffer: REPARSE_DATA_BUFFER_0_2,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct REPARSE_DATA_BUFFER_0_2 {
-    pub DataBuffer: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct REPARSE_DATA_BUFFER_0_1 {
-    pub SubstituteNameOffset: u16,
-    pub SubstituteNameLength: u16,
-    pub PrintNameOffset: u16,
-    pub PrintNameLength: u16,
-    pub PathBuffer: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct REPARSE_DATA_BUFFER_0_0 {
-    pub SubstituteNameOffset: u16,
-    pub SubstituteNameLength: u16,
-    pub PrintNameOffset: u16,
-    pub PrintNameLength: u16,
-    pub Flags: u32,
-    pub PathBuffer: [u16; 1],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy)]
-pub struct REPARSE_DATA_BUFFER_EX {
-    pub Flags: u32,
-    pub ExistingReparseTag: u32,
-    pub ExistingReparseGuid: windows_sys::core::GUID,
-    pub Reserved: u64,
-    pub Anonymous: REPARSE_DATA_BUFFER_EX_0,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy)]
-pub union REPARSE_DATA_BUFFER_EX_0 {
-    pub ReparseDataBuffer: REPARSE_DATA_BUFFER,
-    pub ReparseGuidDataBuffer: super::super::super::Win32::Storage::FileSystem::REPARSE_GUID_DATA_BUFFER,
-}
-#[repr(C, packed(4))]
-#[derive(Clone, Copy)]
-pub struct REPARSE_INDEX_KEY {
-    pub FileReparseTag: u32,
-    pub FileId: i64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
-    pub ExtentCount: u32,
-    pub StartingVcn: i64,
-    pub Extents: [RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
-    pub NextVcn: i64,
-    pub Lcn: i64,
-    pub ReferenceCount: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RKF_BYPASS_ECP_CONTEXT {
-    pub Reserved: i32,
-    pub Version: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RTL_HEAP_MEMORY_LIMIT_DATA {
-    pub CommitLimitBytes: usize,
-    pub CommitLimitFailureCode: usize,
-    pub MaxAllocationSizeBytes: usize,
-    pub AllocationLimitFailureCode: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RTL_HEAP_MEMORY_LIMIT_INFO {
-    pub Version: u32,
-    pub Data: RTL_HEAP_MEMORY_LIMIT_DATA,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RTL_HEAP_PARAMETERS {
-    pub Length: u32,
-    pub SegmentReserve: usize,
-    pub SegmentCommit: usize,
-    pub DeCommitFreeBlockThreshold: usize,
-    pub DeCommitTotalFreeThreshold: usize,
-    pub MaximumAllocationSize: usize,
-    pub VirtualMemoryThreshold: usize,
-    pub InitialCommit: usize,
-    pub InitialReserve: usize,
-    pub CommitRoutine: PRTL_HEAP_COMMIT_ROUTINE,
-    pub Reserved: [usize; 2],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RTL_NLS_STATE {
-    pub DefaultAcpTableInfo: CPTABLEINFO,
-    pub DefaultOemTableInfo: CPTABLEINFO,
-    pub ActiveCodePageData: *mut u16,
-    pub OemCodePageData: *mut u16,
-    pub LeadByteInfo: *mut u16,
-    pub OemLeadByteInfo: *mut u16,
-    pub CaseMappingData: *mut u16,
-    pub UnicodeUpcaseTable844: *mut u16,
-    pub UnicodeLowercaseTable844: *mut u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RTL_SEGMENT_HEAP_MEMORY_SOURCE {
-    pub Flags: u32,
-    pub MemoryTypeMask: u32,
-    pub NumaNode: u32,
-    pub Anonymous: RTL_SEGMENT_HEAP_MEMORY_SOURCE_0,
-    pub Reserved: [usize; 2],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union RTL_SEGMENT_HEAP_MEMORY_SOURCE_0 {
-    pub PartitionHandle: super::super::super::Win32::Foundation::HANDLE,
-    pub Callbacks: *mut RTL_SEGMENT_HEAP_VA_CALLBACKS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RTL_SEGMENT_HEAP_PARAMETERS {
-    pub Version: u16,
-    pub Size: u16,
-    pub Flags: u32,
-    pub MemorySource: RTL_SEGMENT_HEAP_MEMORY_SOURCE,
-    pub Reserved: [usize; 4],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RTL_SEGMENT_HEAP_VA_CALLBACKS {
-    pub CallbackContext: super::super::super::Win32::Foundation::HANDLE,
-    pub AllocateVirtualMemory: PALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK,
-    pub FreeVirtualMemory: PFREE_VIRTUAL_MEMORY_EX_CALLBACK,
-    pub QueryVirtualMemory: PQUERY_VIRTUAL_MEMORY_CALLBACK,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
-pub struct SECURITY_CLIENT_CONTEXT {
-    pub SecurityQos: super::super::super::Win32::Security::SECURITY_QUALITY_OF_SERVICE,
-    pub ClientToken: *mut core::ffi::c_void,
-    pub DirectlyAccessClientToken: super::super::super::Win32::Foundation::BOOLEAN,
-    pub DirectAccessEffectiveOnly: super::super::super::Win32::Foundation::BOOLEAN,
-    pub ServerIsRemote: super::super::super::Win32::Foundation::BOOLEAN,
-    pub ClientTokenControl: super::super::super::Win32::Security::TOKEN_CONTROL,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security_Authentication_Identity")]
-#[derive(Clone, Copy)]
-pub struct SEC_APPLICATION_PROTOCOLS {
-    pub ProtocolListsSize: u32,
-    pub ProtocolLists: [super::super::super::Win32::Security::Authentication::Identity::SEC_APPLICATION_PROTOCOL_LIST; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SEC_DTLS_MTU {
-    pub PathMTU: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SEC_FLAGS {
-    pub Flags: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SEC_NEGOTIATION_INFO {
-    pub Size: u32,
-    pub NameLength: u32,
-    pub Name: *mut u16,
-    pub Reserved: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SEC_PRESHAREDKEY {
-    pub KeySize: u16,
-    pub Key: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SEC_SRTP_MASTER_KEY_IDENTIFIER {
-    pub MasterKeyIdentifierSize: u8,
-    pub MasterKeyIdentifier: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SET_CACHED_RUNS_STATE_INPUT_BUFFER {
-    pub Enable: super::super::super::Win32::Foundation::BOOLEAN,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
-pub struct SE_AUDIT_INFO {
-    pub Size: u32,
-    pub AuditType: super::super::super::Win32::Security::AUDIT_EVENT_TYPE,
-    pub AuditOperation: SE_AUDIT_OPERATION,
-    pub AuditFlags: u32,
-    pub SubsystemName: super::super::super::Win32::Foundation::UNICODE_STRING,
-    pub ObjectTypeName: super::super::super::Win32::Foundation::UNICODE_STRING,
-    pub ObjectName: super::super::super::Win32::Foundation::UNICODE_STRING,
-    pub HandleId: *mut core::ffi::c_void,
-    pub TransactionId: *mut windows_sys::core::GUID,
-    pub OperationId: *mut super::super::super::Win32::Foundation::LUID,
-    pub ObjectCreation: super::super::super::Win32::Foundation::BOOLEAN,
-    pub GenerateOnClose: super::super::super::Win32::Foundation::BOOLEAN,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
-pub struct SE_EXPORTS {
-    pub SeCreateTokenPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeAssignPrimaryTokenPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeLockMemoryPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeIncreaseQuotaPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeUnsolicitedInputPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeTcbPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeSecurityPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeTakeOwnershipPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeLoadDriverPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeCreatePagefilePrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeIncreaseBasePriorityPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeSystemProfilePrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeSystemtimePrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeProfileSingleProcessPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeCreatePermanentPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeBackupPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeRestorePrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeShutdownPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeDebugPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeAuditPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeSystemEnvironmentPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeChangeNotifyPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeRemoteShutdownPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeNullSid: super::super::super::Win32::Security::PSID,
-    pub SeWorldSid: super::super::super::Win32::Security::PSID,
-    pub SeLocalSid: super::super::super::Win32::Security::PSID,
-    pub SeCreatorOwnerSid: super::super::super::Win32::Security::PSID,
-    pub SeCreatorGroupSid: super::super::super::Win32::Security::PSID,
-    pub SeNtAuthoritySid: super::super::super::Win32::Security::PSID,
-    pub SeDialupSid: super::super::super::Win32::Security::PSID,
-    pub SeNetworkSid: super::super::super::Win32::Security::PSID,
-    pub SeBatchSid: super::super::super::Win32::Security::PSID,
-    pub SeInteractiveSid: super::super::super::Win32::Security::PSID,
-    pub SeLocalSystemSid: super::super::super::Win32::Security::PSID,
-    pub SeAliasAdminsSid: super::super::super::Win32::Security::PSID,
-    pub SeAliasUsersSid: super::super::super::Win32::Security::PSID,
-    pub SeAliasGuestsSid: super::super::super::Win32::Security::PSID,
-    pub SeAliasPowerUsersSid: super::super::super::Win32::Security::PSID,
-    pub SeAliasAccountOpsSid: super::super::super::Win32::Security::PSID,
-    pub SeAliasSystemOpsSid: super::super::super::Win32::Security::PSID,
-    pub SeAliasPrintOpsSid: super::super::super::Win32::Security::PSID,
-    pub SeAliasBackupOpsSid: super::super::super::Win32::Security::PSID,
-    pub SeAuthenticatedUsersSid: super::super::super::Win32::Security::PSID,
-    pub SeRestrictedSid: super::super::super::Win32::Security::PSID,
-    pub SeAnonymousLogonSid: super::super::super::Win32::Security::PSID,
-    pub SeUndockPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeSyncAgentPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeEnableDelegationPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeLocalServiceSid: super::super::super::Win32::Security::PSID,
-    pub SeNetworkServiceSid: super::super::super::Win32::Security::PSID,
-    pub SeManageVolumePrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeImpersonatePrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeCreateGlobalPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeTrustedCredManAccessPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeRelabelPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeIncreaseWorkingSetPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeTimeZonePrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeCreateSymbolicLinkPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeIUserSid: super::super::super::Win32::Security::PSID,
-    pub SeUntrustedMandatorySid: super::super::super::Win32::Security::PSID,
-    pub SeLowMandatorySid: super::super::super::Win32::Security::PSID,
-    pub SeMediumMandatorySid: super::super::super::Win32::Security::PSID,
-    pub SeHighMandatorySid: super::super::super::Win32::Security::PSID,
-    pub SeSystemMandatorySid: super::super::super::Win32::Security::PSID,
-    pub SeOwnerRightsSid: super::super::super::Win32::Security::PSID,
-    pub SeAllAppPackagesSid: super::super::super::Win32::Security::PSID,
-    pub SeUserModeDriversSid: super::super::super::Win32::Security::PSID,
-    pub SeProcTrustWinTcbSid: super::super::super::Win32::Security::PSID,
-    pub SeTrustedInstallerSid: super::super::super::Win32::Security::PSID,
-    pub SeDelegateSessionUserImpersonatePrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeAppSiloSid: super::super::super::Win32::Security::PSID,
-    pub SeAppSiloVolumeRootMinimalCapabilitySid: super::super::super::Win32::Security::PSID,
-    pub SeAppSiloProfilesRootMinimalCapabilitySid: super::super::super::Win32::Security::PSID,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct SRV_OPEN_ECP_CONTEXT {
-    pub ShareName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
-    pub SocketAddress: *mut super::super::super::Win32::Networking::WinSock::SOCKADDR_STORAGE,
-    pub OplockBlockState: super::super::super::Win32::Foundation::BOOLEAN,
-    pub OplockAppState: super::super::super::Win32::Foundation::BOOLEAN,
-    pub OplockFinalState: super::super::super::Win32::Foundation::BOOLEAN,
-    pub Version: u16,
-    pub InstanceType: SRV_INSTANCE_TYPE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_PROCESS_TRUST_LABEL_ACE {
-    pub Header: ACE_HEADER,
-    pub Mask: u32,
-    pub SidStart: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SecBuffer {
-    pub cbBuffer: u32,
-    pub BufferType: u32,
-    pub pvBuffer: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SecBufferDesc {
-    pub ulVersion: u32,
-    pub cBuffers: u32,
-    pub pBuffers: *mut SecBuffer,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SecHandle {
-    pub dwLower: usize,
-    pub dwUpper: usize,
-}
-#[repr(C)]
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Clone, Copy)]
-pub struct TUNNEL {
-    pub Mutex: super::super::Foundation::FAST_MUTEX,
-    pub Cache: *mut super::super::Foundation::RTL_SPLAY_LINKS,
-    pub TimerQueue: super::super::super::Win32::System::Kernel::LIST_ENTRY,
-    pub NumEntries: u16,
-}
-#[repr(C)]
-#[cfg(feature = "Wdk_Foundation")]
-#[derive(Clone, Copy)]
-pub struct UNICODE_PREFIX_TABLE {
-    pub NodeTypeCode: i16,
-    pub NameLength: i16,
-    pub NextPrefixTree: *mut UNICODE_PREFIX_TABLE_ENTRY,
-    pub LastNextEntry: *mut UNICODE_PREFIX_TABLE_ENTRY,
-}
-#[repr(C)]
-#[cfg(feature = "Wdk_Foundation")]
-#[derive(Clone, Copy)]
-pub struct UNICODE_PREFIX_TABLE_ENTRY {
-    pub NodeTypeCode: i16,
-    pub NameLength: i16,
-    pub NextPrefixTree: *mut UNICODE_PREFIX_TABLE_ENTRY,
-    pub CaseMatch: *mut UNICODE_PREFIX_TABLE_ENTRY,
-    pub Links: super::super::Foundation::RTL_SPLAY_LINKS,
-    pub Prefix: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct USN_JOURNAL_DATA {
-    pub UsnJournalID: u64,
-    pub FirstUsn: i64,
-    pub NextUsn: i64,
-    pub LowestValidUsn: i64,
-    pub MaxUsn: i64,
-    pub MaximumSize: u64,
-    pub AllocationDelta: u64,
-    pub MinSupportedMajorVersion: u16,
-    pub MaxSupportedMajorVersion: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct USN_RECORD {
-    pub RecordLength: u32,
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-    pub FileReferenceNumber: u64,
-    pub ParentFileReferenceNumber: u64,
-    pub Usn: i64,
-    pub TimeStamp: i64,
-    pub Reason: u32,
-    pub SourceInfo: u32,
-    pub SecurityId: u32,
-    pub FileAttributes: u32,
-    pub FileNameLength: u16,
-    pub FileNameOffset: u16,
-    pub FileName: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VCN_RANGE_INPUT_BUFFER {
-    pub StartingVcn: i64,
-    pub ClusterCount: i64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VOLUME_REFS_INFO_BUFFER {
-    pub CacheSizeInBytes: i64,
-    pub AllocatedCacheInBytes: i64,
-    pub PopulatedCacheInBytes: i64,
-    pub InErrorCacheInBytes: i64,
-    pub MemoryUsedForCacheMetadata: i64,
-    pub CacheLineSize: u32,
-    pub CacheTransactionsOutstanding: i32,
-    pub CacheLinesFree: i32,
-    pub CacheLinesInError: i32,
-    pub CacheHitsInBytes: i64,
-    pub CacheMissesInBytes: i64,
-    pub CachePopulationUpdatesInBytes: i64,
-    pub CacheWriteThroughUpdatesInBytes: i64,
-    pub CacheInvalidationsInBytes: i64,
-    pub CacheOverReadsInBytes: i64,
-    pub MetadataWrittenBytes: i64,
-    pub CacheHitCounter: i32,
-    pub CacheMissCounter: i32,
-    pub CacheLineAllocationCounter: i32,
-    pub CacheInvalidationsCounter: i32,
-    pub CachePopulationUpdatesCounter: i32,
-    pub CacheWriteThroughUpdatesCounter: i32,
-    pub MaxCacheTransactionsOutstanding: i32,
-    pub DataWritesReallocationCount: i32,
-    pub DataInPlaceWriteCount: i32,
-    pub MetadataAllocationsFastTierCount: i32,
-    pub MetadataAllocationsSlowTierCount: i32,
-    pub DataAllocationsFastTierCount: i32,
-    pub DataAllocationsSlowTierCount: i32,
-    pub DestagesSlowTierToFastTier: i32,
-    pub DestagesFastTierToSlowTier: i32,
-    pub SlowTierDataFillRatio: i32,
-    pub FastTierDataFillRatio: i32,
-    pub SlowTierMetadataFillRatio: i32,
-    pub FastTierMetadataFillRatio: i32,
-    pub SlowToFastDestageReadLatency: i32,
-    pub SlowToFastDestageReadLatencyBase: i32,
-    pub SlowToFastDestageWriteLatency: i32,
-    pub SlowToFastDestageWriteLatencyBase: i32,
-    pub FastToSlowDestageReadLatency: i32,
-    pub FastToSlowDestageReadLatencyBase: i32,
-    pub FastToSlowDestageWriteLatency: i32,
-    pub FastToSlowDestageWriteLatencyBase: i32,
-    pub SlowTierContainerFillRatio: i32,
-    pub SlowTierContainerFillRatioBase: i32,
-    pub FastTierContainerFillRatio: i32,
-    pub FastTierContainerFillRatioBase: i32,
-    pub TreeUpdateLatency: i32,
-    pub TreeUpdateLatencyBase: i32,
-    pub CheckpointLatency: i32,
-    pub CheckpointLatencyBase: i32,
-    pub TreeUpdateCount: i32,
-    pub CheckpointCount: i32,
-    pub LogWriteCount: i32,
-    pub LogFillRatio: i32,
-    pub ReadCacheInvalidationsForOverwrite: i32,
-    pub ReadCacheInvalidationsForReuse: i32,
-    pub ReadCacheInvalidationsGeneral: i32,
-    pub ReadCacheChecksOnMount: i32,
-    pub ReadCacheIssuesOnMount: i32,
-    pub TrimLatency: i32,
-    pub TrimLatencyBase: i32,
-    pub DataCompactionCount: i32,
-    pub CompactionReadLatency: i32,
-    pub CompactionReadLatencyBase: i32,
-    pub CompactionWriteLatency: i32,
-    pub CompactionWriteLatencyBase: i32,
-    pub DataInPlaceWriteClusterCount: i64,
-    pub CompactionFailedDueToIneligibleContainer: i32,
-    pub CompactionFailedDueToMaxFragmentation: i32,
-    pub CompactedContainerFillRatio: i32,
-    pub CompactedContainerFillRatioBase: i32,
-    pub ContainerMoveRetryCount: i32,
-    pub ContainerMoveFailedDueToIneligibleContainer: i32,
-    pub CompactionFailureCount: i32,
-    pub ContainerMoveFailureCount: i32,
-    pub NumberOfDirtyMetadataPages: i64,
-    pub NumberOfDirtyTableListEntries: i32,
-    pub NumberOfDeleteQueueEntries: i32,
-}
-pub const ATOMIC_CREATE_ECP_IN_FLAG_BEST_EFFORT: u32 = 256u32;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_EOF_SPECIFIED: u32 = 4u32;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_FILE_ATTRIBUTES_SPECIFIED: u32 = 32u32;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_GEN_FLAGS_SPECIFIED: u32 = 32768u32;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_MARK_USN_SOURCE_INFO: u32 = 2048u32;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_OPERATION_MASK: u32 = 255u32;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_OP_FLAGS_SPECIFIED: u32 = 128u32;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_REPARSE_POINT_SPECIFIED: u32 = 2u32;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_SPARSE_SPECIFIED: u32 = 1u32;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_SUPPRESS_DIR_CHANGE_NOTIFY: u32 = 1024u32;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_SUPPRESS_FILE_ATTRIBUTE_INHERITANCE: u32 = 64u32;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_SUPPRESS_PARENT_TIMESTAMPS_UPDATE: u32 = 512u32;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_TIMESTAMPS_SPECIFIED: u32 = 16u32;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_VDL_SPECIFIED: u32 = 8u32;
-pub const ATOMIC_CREATE_ECP_IN_FLAG_WRITE_USN_CLOSE_RECORD: u32 = 4096u32;
-pub const ATOMIC_CREATE_ECP_IN_OP_FLAG_CASE_SENSITIVE_FLAGS_SPECIFIED: u32 = 1u32;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_EOF_SET: u32 = 4u32;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_FILE_ATTRIBUTES_RETURNED: u32 = 512u32;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_FILE_ATTRIBUTES_SET: u32 = 32u32;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_FILE_ATTRIBUTE_INHERITANCE_SUPPRESSED: u32 = 64u32;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_OPERATION_MASK: u32 = 255u32;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_OP_FLAGS_HONORED: u32 = 128u32;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_REPARSE_POINT_SET: u32 = 2u32;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_SPARSE_SET: u32 = 1u32;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_TIMESTAMPS_RETURNED: u32 = 256u32;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_TIMESTAMPS_SET: u32 = 16u32;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_USN_CLOSE_RECORD_WRITTEN: u32 = 2048u32;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_USN_RETURNED: u32 = 4096u32;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_USN_SOURCE_INFO_MARKED: u32 = 1024u32;
-pub const ATOMIC_CREATE_ECP_OUT_FLAG_VDL_SET: u32 = 8u32;
-pub const ATOMIC_CREATE_ECP_OUT_OP_FLAG_CASE_SENSITIVE_FLAGS_SET: u32 = 1u32;
-pub const AuditAccessCheck: SE_AUDIT_OPERATION = 2i32;
-pub const AuditCloseNonObject: SE_AUDIT_OPERATION = 9i32;
-pub const AuditCloseObject: SE_AUDIT_OPERATION = 5i32;
-pub const AuditDeleteObject: SE_AUDIT_OPERATION = 6i32;
-pub const AuditHandleCreation: SE_AUDIT_OPERATION = 12i32;
-pub const AuditObjectReference: SE_AUDIT_OPERATION = 11i32;
-pub const AuditOpenNonObject: SE_AUDIT_OPERATION = 10i32;
-pub const AuditOpenObject: SE_AUDIT_OPERATION = 3i32;
-pub const AuditOpenObjectForDelete: SE_AUDIT_OPERATION = 7i32;
-pub const AuditOpenObjectForDeleteWithTransaction: SE_AUDIT_OPERATION = 8i32;
-pub const AuditOpenObjectWithTransaction: SE_AUDIT_OPERATION = 4i32;
-pub const AuditPrivilegeObject: SE_AUDIT_OPERATION = 0i32;
-pub const AuditPrivilegeService: SE_AUDIT_OPERATION = 1i32;
-pub const CACHE_MANAGER_CALLBACKS_EX_V1: u32 = 1u32;
-pub const CACHE_USE_DIRECT_ACCESS_MAPPING: u32 = 1u32;
-pub const CACHE_VALID_FLAGS: u32 = 1u32;
-pub const CC_ACQUIRE_DONT_WAIT: u32 = 1u32;
-pub const CC_ACQUIRE_SUPPORTS_ASYNC_LAZYWRITE: u32 = 1u32;
-pub const CC_AGGRESSIVE_UNMAP_BEHIND: u32 = 1u32;
-pub const CC_DISABLE_DIRTY_PAGE_TRACKING: u32 = 8u32;
-pub const CC_DISABLE_READ_AHEAD: u32 = 2u32;
-pub const CC_DISABLE_UNMAP_BEHIND: u32 = 32u32;
-pub const CC_DISABLE_WRITE_BEHIND: u32 = 4u32;
-pub const CC_ENABLE_CPU_CACHE: u32 = 268435456u32;
-pub const CC_ENABLE_DISK_IO_ACCOUNTING: u32 = 16u32;
-pub const CC_FLUSH_AND_PURGE_GATHER_DIRTY_BITS: u32 = 2u32;
-pub const CC_FLUSH_AND_PURGE_NO_PURGE: u32 = 1u32;
-pub const CC_FLUSH_AND_PURGE_WRITEABLE_VIEWS_NOTSEEN: u32 = 4u32;
-pub const COMPRESSION_ENGINE_MASK: u32 = 65280u32;
-pub const COMPRESSION_ENGINE_MAX: u32 = 512u32;
-pub const COMPRESSION_FORMAT_MASK: u32 = 255u32;
-pub const COMPRESSION_FORMAT_MAX: u32 = 5u32;
-pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_LAYER: u32 = 1u32;
-pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_REGISTERED_LAYER: u32 = 4u32;
-pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_REMOTE_LAYER: u32 = 8u32;
-pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_SCRATCH: u32 = 2u32;
-pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_USER_MODE: u32 = 16u32;
-pub const CSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: u32 = 1u32;
-pub const ChangeDataControlArea: FSRTL_CHANGE_BACKING_TYPE = 0i32;
-pub const ChangeImageControlArea: FSRTL_CHANGE_BACKING_TYPE = 1i32;
-pub const ChangeSharedCacheMap: FSRTL_CHANGE_BACKING_TYPE = 2i32;
-pub const CsvCsvFsInternalFileObject: CSV_DOWN_LEVEL_FILE_TYPE = 1i32;
-pub const CsvDownLevelFileObject: CSV_DOWN_LEVEL_FILE_TYPE = 0i32;
-pub const DD_MUP_DEVICE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Device\\Mup");
-pub const DEVICE_RESET_KEEP_STACK: u32 = 4u32;
-pub const DEVICE_RESET_RESERVED_0: u32 = 1u32;
-pub const DEVICE_RESET_RESERVED_1: u32 = 2u32;
-pub const DO_BOOT_CRITICAL: u32 = 536870912u32;
-pub const DO_BUFFERED_IO: u32 = 4u32;
-pub const DO_BUS_ENUMERATED_DEVICE: u32 = 4096u32;
-pub const DO_DAX_VOLUME: u32 = 268435456u32;
-pub const DO_DEVICE_HAS_NAME: u32 = 64u32;
-pub const DO_DEVICE_INITIALIZING: u32 = 128u32;
-pub const DO_DEVICE_IRP_REQUIRES_EXTENSION: u32 = 134217728u32;
-pub const DO_DEVICE_TO_BE_RESET: u32 = 67108864u32;
-pub const DO_DIRECT_IO: u32 = 16u32;
-pub const DO_DISALLOW_EXECUTE: u32 = 8388608u32;
-pub const DO_EXCLUSIVE: u32 = 8u32;
-pub const DO_FORCE_NEITHER_IO: u32 = 524288u32;
-pub const DO_LONG_TERM_REQUESTS: u32 = 512u32;
-pub const DO_LOW_PRIORITY_FILESYSTEM: u32 = 65536u32;
-pub const DO_MAP_IO_BUFFER: u32 = 32u32;
-pub const DO_NEVER_LAST_DEVICE: u32 = 1024u32;
-pub const DO_NOT_PURGE_DIRTY_PAGES: u32 = 4u32;
-pub const DO_NOT_RETRY_PURGE: u32 = 2u32;
-pub const DO_POWER_INRUSH: u32 = 16384u32;
-pub const DO_POWER_PAGABLE: u32 = 8192u32;
-pub const DO_SHUTDOWN_REGISTERED: u32 = 2048u32;
-pub const DO_SUPPORTS_PERSISTENT_ACLS: u32 = 131072u32;
-pub const DO_SUPPORTS_TRANSACTIONS: u32 = 262144u32;
-pub const DO_SYSTEM_BOOT_PARTITION: u32 = 256u32;
-pub const DO_SYSTEM_CRITICAL_PARTITION: u32 = 4194304u32;
-pub const DO_SYSTEM_SYSTEM_PARTITION: u32 = 2097152u32;
-pub const DO_VERIFY_VOLUME: u32 = 2u32;
-pub const DO_VOLUME_DEVICE_OBJECT: u32 = 1048576u32;
-pub const DfsLinkTrackingInformation: LINK_TRACKING_INFORMATION_TYPE = 1i32;
-pub const EA_NAME_NETWORK_OPEN_ECP_INTEGRITY: windows_sys::core::PCSTR = windows_sys::core::s!("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-INTEGRITY");
-pub const EA_NAME_NETWORK_OPEN_ECP_INTEGRITY_U: windows_sys::core::PCWSTR = windows_sys::core::w!("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-INTEGRITY");
-pub const EA_NAME_NETWORK_OPEN_ECP_PRIVACY: windows_sys::core::PCSTR = windows_sys::core::s!("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-PRIVACY");
-pub const EA_NAME_NETWORK_OPEN_ECP_PRIVACY_U: windows_sys::core::PCWSTR = windows_sys::core::w!("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-PRIVACY");
-pub const ECP_OPEN_PARAMETERS_FLAG_FAIL_ON_CASE_SENSITIVE_DIR: u32 = 16u32;
-pub const ECP_OPEN_PARAMETERS_FLAG_IGNORE_DIR_CASE_SENSITIVITY: u32 = 8u32;
-pub const ECP_OPEN_PARAMETERS_FLAG_OPEN_FOR_DELETE: u32 = 4u32;
-pub const ECP_OPEN_PARAMETERS_FLAG_OPEN_FOR_READ: u32 = 1u32;
-pub const ECP_OPEN_PARAMETERS_FLAG_OPEN_FOR_WRITE: u32 = 2u32;
-pub const ECP_TYPE_CLFS_CREATE_CONTAINER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8650c9fe_0cec_8bf6_bd1e_835956541090);
-pub const ECP_TYPE_IO_STOP_ON_SYMLINK_FILTER_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x940e5d56_1646_4d3c_87b6_577ec36a1466);
-pub const ECP_TYPE_OPEN_REPARSE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x323eb6a8_affd_4d95_8230_863bce09d37a);
-pub const EVENT_INCREMENT: u32 = 1u32;
-pub const EqualTo: FSRTL_COMPARISON_RESULT = 0i32;
-pub const FILE_ACTION_ADDED_STREAM: u32 = 6u32;
-pub const FILE_ACTION_ID_NOT_TUNNELLED: u32 = 10u32;
-pub const FILE_ACTION_MODIFIED_STREAM: u32 = 8u32;
-pub const FILE_ACTION_REMOVED_BY_DELETE: u32 = 9u32;
-pub const FILE_ACTION_REMOVED_STREAM: u32 = 7u32;
-pub const FILE_ACTION_TUNNELLED_ID_COLLISION: u32 = 11u32;
-pub const FILE_CLEANUP_FILE_DELETED: u32 = 4u32;
-pub const FILE_CLEANUP_FILE_REMAINS: u32 = 2u32;
-pub const FILE_CLEANUP_LINK_DELETED: u32 = 8u32;
-pub const FILE_CLEANUP_POSIX_STYLE_DELETE: u32 = 32u32;
-pub const FILE_CLEANUP_STREAM_DELETED: u32 = 16u32;
-pub const FILE_CLEANUP_UNKNOWN: u32 = 0u32;
-pub const FILE_CLEANUP_WRONG_DEVICE: u32 = 1u32;
-pub const FILE_COMPLETE_IF_OPLOCKED: NTCREATEFILE_CREATE_OPTIONS = 256u32;
-pub const FILE_CONTAINS_EXTENDED_CREATE_INFORMATION: NTCREATEFILE_CREATE_OPTIONS = 268435456u32;
-pub const FILE_CREATE: NTCREATEFILE_CREATE_DISPOSITION = 2u32;
-pub const FILE_CREATE_TREE_CONNECTION: NTCREATEFILE_CREATE_OPTIONS = 128u32;
-pub const FILE_DELETE_ON_CLOSE: NTCREATEFILE_CREATE_OPTIONS = 4096u32;
-pub const FILE_DIRECTORY_FILE: NTCREATEFILE_CREATE_OPTIONS = 1u32;
-pub const FILE_DISALLOW_EXCLUSIVE: NTCREATEFILE_CREATE_OPTIONS = 131072u32;
-pub const FILE_DISPOSITION_DELETE: FILE_DISPOSITION_INFORMATION_EX_FLAGS = 1u32;
-pub const FILE_DISPOSITION_DO_NOT_DELETE: FILE_DISPOSITION_INFORMATION_EX_FLAGS = 0u32;
-pub const FILE_DISPOSITION_FORCE_IMAGE_SECTION_CHECK: FILE_DISPOSITION_INFORMATION_EX_FLAGS = 4u32;
-pub const FILE_DISPOSITION_IGNORE_READONLY_ATTRIBUTE: FILE_DISPOSITION_INFORMATION_EX_FLAGS = 16u32;
-pub const FILE_DISPOSITION_ON_CLOSE: FILE_DISPOSITION_INFORMATION_EX_FLAGS = 8u32;
-pub const FILE_DISPOSITION_POSIX_SEMANTICS: FILE_DISPOSITION_INFORMATION_EX_FLAGS = 2u32;
-pub const FILE_EA_TYPE_ASCII: u32 = 65533u32;
-pub const FILE_EA_TYPE_ASN1: u32 = 65501u32;
-pub const FILE_EA_TYPE_BINARY: u32 = 65534u32;
-pub const FILE_EA_TYPE_BITMAP: u32 = 65531u32;
-pub const FILE_EA_TYPE_EA: u32 = 65518u32;
-pub const FILE_EA_TYPE_FAMILY_IDS: u32 = 65281u32;
-pub const FILE_EA_TYPE_ICON: u32 = 65529u32;
-pub const FILE_EA_TYPE_METAFILE: u32 = 65530u32;
-pub const FILE_EA_TYPE_MVMT: u32 = 65503u32;
-pub const FILE_EA_TYPE_MVST: u32 = 65502u32;
-pub const FILE_ID_GLOBAL_TX_DIR_INFO_FLAG_VISIBLE_OUTSIDE_TX: u32 = 4u32;
-pub const FILE_ID_GLOBAL_TX_DIR_INFO_FLAG_VISIBLE_TO_TX: u32 = 2u32;
-pub const FILE_ID_GLOBAL_TX_DIR_INFO_FLAG_WRITELOCKED: u32 = 1u32;
-pub const FILE_LINK_FORCE_RESIZE_SOURCE_SR: u32 = 256u32;
-pub const FILE_LINK_FORCE_RESIZE_SR: u32 = 384u32;
-pub const FILE_LINK_FORCE_RESIZE_TARGET_SR: u32 = 128u32;
-pub const FILE_LINK_IGNORE_READONLY_ATTRIBUTE: u32 = 64u32;
-pub const FILE_LINK_NO_DECREASE_AVAILABLE_SPACE: u32 = 32u32;
-pub const FILE_LINK_NO_INCREASE_AVAILABLE_SPACE: u32 = 16u32;
-pub const FILE_LINK_POSIX_SEMANTICS: u32 = 2u32;
-pub const FILE_LINK_PRESERVE_AVAILABLE_SPACE: u32 = 48u32;
-pub const FILE_LINK_REPLACE_IF_EXISTS: u32 = 1u32;
-pub const FILE_LINK_SUPPRESS_STORAGE_RESERVE_INHERITANCE: u32 = 8u32;
-pub const FILE_NEED_EA: u32 = 128u32;
-pub const FILE_NON_DIRECTORY_FILE: NTCREATEFILE_CREATE_OPTIONS = 64u32;
-pub const FILE_NOTIFY_CHANGE_EA: u32 = 128u32;
-pub const FILE_NOTIFY_CHANGE_NAME: u32 = 3u32;
-pub const FILE_NOTIFY_CHANGE_STREAM_NAME: u32 = 512u32;
-pub const FILE_NOTIFY_CHANGE_STREAM_SIZE: u32 = 1024u32;
-pub const FILE_NOTIFY_CHANGE_STREAM_WRITE: u32 = 2048u32;
-pub const FILE_NOTIFY_VALID_MASK: u32 = 4095u32;
-pub const FILE_NO_COMPRESSION: NTCREATEFILE_CREATE_OPTIONS = 32768u32;
-pub const FILE_NO_EA_KNOWLEDGE: NTCREATEFILE_CREATE_OPTIONS = 512u32;
-pub const FILE_NO_INTERMEDIATE_BUFFERING: NTCREATEFILE_CREATE_OPTIONS = 8u32;
-pub const FILE_OPBATCH_BREAK_UNDERWAY: u32 = 9u32;
-pub const FILE_OPEN: NTCREATEFILE_CREATE_DISPOSITION = 1u32;
-pub const FILE_OPEN_BY_FILE_ID: NTCREATEFILE_CREATE_OPTIONS = 8192u32;
-pub const FILE_OPEN_FOR_BACKUP_INTENT: NTCREATEFILE_CREATE_OPTIONS = 16384u32;
-pub const FILE_OPEN_FOR_FREE_SPACE_QUERY: NTCREATEFILE_CREATE_OPTIONS = 8388608u32;
-pub const FILE_OPEN_IF: NTCREATEFILE_CREATE_DISPOSITION = 3u32;
-pub const FILE_OPEN_NO_RECALL: NTCREATEFILE_CREATE_OPTIONS = 4194304u32;
-pub const FILE_OPEN_REPARSE_POINT: NTCREATEFILE_CREATE_OPTIONS = 2097152u32;
-pub const FILE_OPEN_REQUIRING_OPLOCK: NTCREATEFILE_CREATE_OPTIONS = 65536u32;
-pub const FILE_OPLOCK_BROKEN_TO_LEVEL_2: u32 = 7u32;
-pub const FILE_OPLOCK_BROKEN_TO_NONE: u32 = 8u32;
-pub const FILE_OVERWRITE: NTCREATEFILE_CREATE_DISPOSITION = 4u32;
-pub const FILE_OVERWRITE_IF: NTCREATEFILE_CREATE_DISPOSITION = 5u32;
-pub const FILE_PIPE_ACCEPT_REMOTE_CLIENTS: u32 = 0u32;
-pub const FILE_PIPE_BYTE_STREAM_MODE: u32 = 0u32;
-pub const FILE_PIPE_BYTE_STREAM_TYPE: u32 = 0u32;
-pub const FILE_PIPE_CLIENT_END: u32 = 0u32;
-pub const FILE_PIPE_CLOSING_STATE: u32 = 4u32;
-pub const FILE_PIPE_COMPLETE_OPERATION: u32 = 1u32;
-pub const FILE_PIPE_COMPUTER_NAME_LENGTH: u32 = 15u32;
-pub const FILE_PIPE_CONNECTED_STATE: u32 = 3u32;
-pub const FILE_PIPE_DISCONNECTED_STATE: u32 = 1u32;
-pub const FILE_PIPE_FULL_DUPLEX: u32 = 2u32;
-pub const FILE_PIPE_INBOUND: u32 = 0u32;
-pub const FILE_PIPE_LISTENING_STATE: u32 = 2u32;
-pub const FILE_PIPE_MESSAGE_MODE: u32 = 1u32;
-pub const FILE_PIPE_MESSAGE_TYPE: u32 = 1u32;
-pub const FILE_PIPE_OUTBOUND: u32 = 1u32;
-pub const FILE_PIPE_QUEUE_OPERATION: u32 = 0u32;
-pub const FILE_PIPE_READ_DATA: u32 = 0u32;
-pub const FILE_PIPE_REJECT_REMOTE_CLIENTS: u32 = 2u32;
-pub const FILE_PIPE_SERVER_END: u32 = 1u32;
-pub const FILE_PIPE_SYMLINK_FLAG_GLOBAL: u32 = 1u32;
-pub const FILE_PIPE_SYMLINK_FLAG_RELATIVE: u32 = 2u32;
-pub const FILE_PIPE_TYPE_VALID_MASK: u32 = 3u32;
-pub const FILE_PIPE_WRITE_SPACE: u32 = 1u32;
-pub const FILE_RANDOM_ACCESS: NTCREATEFILE_CREATE_OPTIONS = 2048u32;
-pub const FILE_RENAME_FORCE_RESIZE_SOURCE_SR: u32 = 256u32;
-pub const FILE_RENAME_FORCE_RESIZE_SR: u32 = 384u32;
-pub const FILE_RENAME_FORCE_RESIZE_TARGET_SR: u32 = 128u32;
-pub const FILE_RENAME_IGNORE_READONLY_ATTRIBUTE: u32 = 64u32;
-pub const FILE_RENAME_NO_DECREASE_AVAILABLE_SPACE: u32 = 32u32;
-pub const FILE_RENAME_NO_INCREASE_AVAILABLE_SPACE: u32 = 16u32;
-pub const FILE_RENAME_POSIX_SEMANTICS: u32 = 2u32;
-pub const FILE_RENAME_PRESERVE_AVAILABLE_SPACE: u32 = 48u32;
-pub const FILE_RENAME_REPLACE_IF_EXISTS: u32 = 1u32;
-pub const FILE_RENAME_SUPPRESS_PIN_STATE_INHERITANCE: u32 = 4u32;
-pub const FILE_RENAME_SUPPRESS_STORAGE_RESERVE_INHERITANCE: u32 = 8u32;
-pub const FILE_RESERVE_OPFILTER: NTCREATEFILE_CREATE_OPTIONS = 1048576u32;
-pub const FILE_SEQUENTIAL_ONLY: NTCREATEFILE_CREATE_OPTIONS = 4u32;
-pub const FILE_SESSION_AWARE: NTCREATEFILE_CREATE_OPTIONS = 262144u32;
-pub const FILE_SUPERSEDE: NTCREATEFILE_CREATE_DISPOSITION = 0u32;
-pub const FILE_SYNCHRONOUS_IO_ALERT: NTCREATEFILE_CREATE_OPTIONS = 16u32;
-pub const FILE_SYNCHRONOUS_IO_NONALERT: NTCREATEFILE_CREATE_OPTIONS = 32u32;
-pub const FILE_VC_CONTENT_INDEX_DISABLED: u32 = 8u32;
-pub const FILE_VC_LOG_QUOTA_LIMIT: u32 = 32u32;
-pub const FILE_VC_LOG_QUOTA_THRESHOLD: u32 = 16u32;
-pub const FILE_VC_LOG_VOLUME_LIMIT: u32 = 128u32;
-pub const FILE_VC_LOG_VOLUME_THRESHOLD: u32 = 64u32;
-pub const FILE_VC_QUOTAS_INCOMPLETE: u32 = 256u32;
-pub const FILE_VC_QUOTAS_REBUILDING: u32 = 512u32;
-pub const FILE_VC_QUOTA_ENFORCE: u32 = 2u32;
-pub const FILE_VC_QUOTA_MASK: u32 = 3u32;
-pub const FILE_VC_QUOTA_NONE: u32 = 0u32;
-pub const FILE_VC_QUOTA_TRACK: u32 = 1u32;
-pub const FILE_VC_VALID_MASK: u32 = 1023u32;
-pub const FILE_WRITE_THROUGH: NTCREATEFILE_CREATE_OPTIONS = 2u32;
-pub const FLAGS_DELAY_REASONS_BITMAP_SCANNED: u32 = 2u32;
-pub const FLAGS_DELAY_REASONS_LOG_FILE_FULL: u32 = 1u32;
-pub const FLAGS_END_OF_FILE_INFO_EX_EXTEND_PAGING: u32 = 1u32;
-pub const FLAGS_END_OF_FILE_INFO_EX_NO_EXTRA_PAGING_EXTEND: u32 = 2u32;
-pub const FLAGS_END_OF_FILE_INFO_EX_TIME_CONSTRAINED: u32 = 4u32;
-pub const FSCTL_LMR_GET_LINK_TRACKING_INFORMATION: u32 = 1310952u32;
-pub const FSCTL_LMR_SET_LINK_TRACKING_INFORMATION: u32 = 1310956u32;
-pub const FSCTL_MAILSLOT_PEEK: u32 = 802819u32;
-pub const FSCTL_PIPE_ASSIGN_EVENT: u32 = 1114112u32;
-pub const FSCTL_PIPE_CREATE_SYMLINK: u32 = 1114188u32;
-pub const FSCTL_PIPE_DELETE_SYMLINK: u32 = 1114192u32;
-pub const FSCTL_PIPE_DISABLE_IMPERSONATE: u32 = 1114180u32;
-pub const FSCTL_PIPE_DISCONNECT: u32 = 1114116u32;
-pub const FSCTL_PIPE_FLUSH: u32 = 1146944u32;
-pub const FSCTL_PIPE_GET_CONNECTION_ATTRIBUTE: u32 = 1114160u32;
-pub const FSCTL_PIPE_GET_HANDLE_ATTRIBUTE: u32 = 1114168u32;
-pub const FSCTL_PIPE_GET_PIPE_ATTRIBUTE: u32 = 1114152u32;
-pub const FSCTL_PIPE_IMPERSONATE: u32 = 1114140u32;
-pub const FSCTL_PIPE_INTERNAL_READ: u32 = 1138676u32;
-pub const FSCTL_PIPE_INTERNAL_READ_OVFLOW: u32 = 1138688u32;
-pub const FSCTL_PIPE_INTERNAL_TRANSCEIVE: u32 = 1171455u32;
-pub const FSCTL_PIPE_INTERNAL_WRITE: u32 = 1155064u32;
-pub const FSCTL_PIPE_LISTEN: u32 = 1114120u32;
-pub const FSCTL_PIPE_PEEK: u32 = 1130508u32;
-pub const FSCTL_PIPE_QUERY_CLIENT_PROCESS: u32 = 1114148u32;
-pub const FSCTL_PIPE_QUERY_CLIENT_PROCESS_V2: u32 = 1114196u32;
-pub const FSCTL_PIPE_QUERY_EVENT: u32 = 1114128u32;
-pub const FSCTL_PIPE_SET_CLIENT_PROCESS: u32 = 1114144u32;
-pub const FSCTL_PIPE_SET_CONNECTION_ATTRIBUTE: u32 = 1114164u32;
-pub const FSCTL_PIPE_SET_HANDLE_ATTRIBUTE: u32 = 1114172u32;
-pub const FSCTL_PIPE_SET_PIPE_ATTRIBUTE: u32 = 1114156u32;
-pub const FSCTL_PIPE_SILO_ARRIVAL: u32 = 1146952u32;
-pub const FSCTL_PIPE_TRANSCEIVE: u32 = 1163287u32;
-pub const FSCTL_PIPE_WAIT: u32 = 1114136u32;
-pub const FSRTL_ADD_TC_CASE_SENSITIVE: u32 = 1u32;
-pub const FSRTL_ADD_TC_KEY_BY_SHORT_NAME: u32 = 2u32;
-pub const FSRTL_ALLOCATE_ECPLIST_FLAG_CHARGE_QUOTA: u32 = 1u32;
-pub const FSRTL_ALLOCATE_ECP_FLAG_CHARGE_QUOTA: u32 = 1u32;
-pub const FSRTL_ALLOCATE_ECP_FLAG_NONPAGED_POOL: u32 = 2u32;
-pub const FSRTL_AUXILIARY_FLAG_DEALLOCATE: u32 = 1u32;
-pub const FSRTL_CC_FLUSH_ERROR_FLAG_NO_HARD_ERROR: u32 = 1u32;
-pub const FSRTL_CC_FLUSH_ERROR_FLAG_NO_LOG_ENTRY: u32 = 2u32;
-pub const FSRTL_DRIVER_BACKING_FLAG_USE_PAGE_FILE: u32 = 1u32;
-pub const FSRTL_ECP_LOOKASIDE_FLAG_NONPAGED_POOL: u32 = 2u32;
-pub const FSRTL_FAT_LEGAL: u32 = 1u32;
-pub const FSRTL_FCB_HEADER_V0: u32 = 0u32;
-pub const FSRTL_FCB_HEADER_V1: u32 = 1u32;
-pub const FSRTL_FCB_HEADER_V2: u32 = 2u32;
-pub const FSRTL_FCB_HEADER_V3: u32 = 3u32;
-pub const FSRTL_FCB_HEADER_V4: u32 = 4u32;
-pub const FSRTL_FIND_TC_CASE_SENSITIVE: u32 = 1u32;
-pub const FSRTL_FLAG2_BYPASSIO_STREAM_PAUSED: u32 = 32u32;
-pub const FSRTL_FLAG2_DO_MODIFIED_WRITE: u32 = 1u32;
-pub const FSRTL_FLAG2_IS_PAGING_FILE: u32 = 8u32;
-pub const FSRTL_FLAG2_PURGE_WHEN_MAPPED: u32 = 4u32;
-pub const FSRTL_FLAG2_SUPPORTS_FILTER_CONTEXTS: u32 = 2u32;
-pub const FSRTL_FLAG2_WRITABLE_USER_MAPPED_FILE: u32 = 16u32;
-pub const FSRTL_FLAG_ACQUIRE_MAIN_RSRC_EX: u32 = 8u32;
-pub const FSRTL_FLAG_ACQUIRE_MAIN_RSRC_SH: u32 = 16u32;
-pub const FSRTL_FLAG_ADVANCED_HEADER: u32 = 64u32;
-pub const FSRTL_FLAG_EOF_ADVANCE_ACTIVE: u32 = 128u32;
-pub const FSRTL_FLAG_FILE_LENGTH_CHANGED: u32 = 2u32;
-pub const FSRTL_FLAG_FILE_MODIFIED: u32 = 1u32;
-pub const FSRTL_FLAG_LIMIT_MODIFIED_PAGES: u32 = 4u32;
-pub const FSRTL_FLAG_USER_MAPPED_FILE: u32 = 32u32;
-pub const FSRTL_HPFS_LEGAL: u32 = 2u32;
-pub const FSRTL_NTFS_LEGAL: u32 = 4u32;
-pub const FSRTL_OLE_LEGAL: u32 = 16u32;
-pub const FSRTL_UNC_HARDENING_CAPABILITIES_INTEGRITY: u32 = 2u32;
-pub const FSRTL_UNC_HARDENING_CAPABILITIES_MUTUAL_AUTH: u32 = 1u32;
-pub const FSRTL_UNC_HARDENING_CAPABILITIES_PRIVACY: u32 = 4u32;
-pub const FSRTL_UNC_PROVIDER_FLAGS_CONTAINER_AWARE: u32 = 8u32;
-pub const FSRTL_UNC_PROVIDER_FLAGS_CSC_ENABLED: u32 = 2u32;
-pub const FSRTL_UNC_PROVIDER_FLAGS_DOMAIN_SVC_AWARE: u32 = 4u32;
-pub const FSRTL_UNC_PROVIDER_FLAGS_MAILSLOTS_SUPPORTED: u32 = 1u32;
-pub const FSRTL_UNC_REGISTRATION_CURRENT_VERSION: u32 = 513u32;
-pub const FSRTL_UNC_REGISTRATION_VERSION_0200: u32 = 512u32;
-pub const FSRTL_UNC_REGISTRATION_VERSION_0201: u32 = 513u32;
-pub const FSRTL_VIRTDISK_FULLY_ALLOCATED: u32 = 1u32;
-pub const FSRTL_VIRTDISK_NO_DRIVE_LETTER: u32 = 2u32;
-pub const FSRTL_VOLUME_BACKGROUND_FORMAT: u32 = 14u32;
-pub const FSRTL_VOLUME_CHANGE_SIZE: u32 = 13u32;
-pub const FSRTL_VOLUME_DISMOUNT: u32 = 1u32;
-pub const FSRTL_VOLUME_DISMOUNT_FAILED: u32 = 2u32;
-pub const FSRTL_VOLUME_FORCED_CLOSED: u32 = 10u32;
-pub const FSRTL_VOLUME_INFO_MAKE_COMPAT: u32 = 11u32;
-pub const FSRTL_VOLUME_LOCK: u32 = 3u32;
-pub const FSRTL_VOLUME_LOCK_FAILED: u32 = 4u32;
-pub const FSRTL_VOLUME_MOUNT: u32 = 6u32;
-pub const FSRTL_VOLUME_NEEDS_CHKDSK: u32 = 7u32;
-pub const FSRTL_VOLUME_PREPARING_EJECT: u32 = 12u32;
-pub const FSRTL_VOLUME_UNLOCK: u32 = 5u32;
-pub const FSRTL_VOLUME_WEARING_OUT: u32 = 9u32;
-pub const FSRTL_VOLUME_WORM_NEAR_FULL: u32 = 8u32;
-pub const FSRTL_WILD_CHARACTER: u32 = 8u32;
-pub const FS_FILTER_ACQUIRE_FOR_CC_FLUSH: u16 = 65531u16;
-pub const FS_FILTER_ACQUIRE_FOR_MOD_WRITE: u16 = 65533u16;
-pub const FS_FILTER_ACQUIRE_FOR_SECTION_SYNCHRONIZATION: u16 = 65535u16;
-pub const FS_FILTER_QUERY_OPEN: u16 = 65529u16;
-pub const FS_FILTER_RELEASE_FOR_CC_FLUSH: u16 = 65530u16;
-pub const FS_FILTER_RELEASE_FOR_MOD_WRITE: u16 = 65532u16;
-pub const FS_FILTER_RELEASE_FOR_SECTION_SYNCHRONIZATION: u16 = 65534u16;
-pub const FS_FILTER_SECTION_SYNC_IMAGE_EXTENTS_ARE_NOT_RVA: u32 = 8u32;
-pub const FS_FILTER_SECTION_SYNC_IN_FLAG_DONT_UPDATE_LAST_ACCESS: u32 = 1u32;
-pub const FS_FILTER_SECTION_SYNC_IN_FLAG_DONT_UPDATE_LAST_WRITE: u32 = 2u32;
 pub const FS_FILTER_SECTION_SYNC_SUPPORTS_ASYNC_PARALLEL_IO: u32 = 1u32;
 pub const FS_FILTER_SECTION_SYNC_SUPPORTS_DIRECT_MAP_DATA: u32 = 2u32;
 pub const FS_FILTER_SECTION_SYNC_SUPPORTS_DIRECT_MAP_IMAGE: u32 = 4u32;
+pub type FS_FILTER_SECTION_SYNC_TYPE = i32;
+pub type FS_FILTER_STREAM_FO_NOTIFICATION_TYPE = i32;
+pub type FS_INFORMATION_CLASS = i32;
 pub const FastIoIsNotPossible: FAST_IO_POSSIBLE = 0i32;
 pub const FastIoIsPossible: FAST_IO_POSSIBLE = 1i32;
 pub const FastIoIsQuestionable: FAST_IO_POSSIBLE = 2i32;
@@ -4069,6 +2838,27 @@ pub const GCR_USE_OEM_SET: u32 = 512u32;
 pub const GCR_USE_OWF_PASSWORD: u32 = 2048u32;
 pub const GCR_VSM_PROTECTED_PASSWORD: u32 = 16384u32;
 pub const GENERATE_CLIENT_CHALLENGE: u32 = 16u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GENERATE_NAME_CONTEXT {
+    pub Checksum: u16,
+    pub ChecksumInserted: super::super::super::Win32::Foundation::BOOLEAN,
+    pub NameLength: u8,
+    pub NameBuffer: [u16; 8],
+    pub ExtensionLength: u32,
+    pub ExtensionBuffer: [u16; 4],
+    pub LastIndexValue: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GHOSTED_FILE_EXTENT {
+    pub FileOffset: i64,
+    pub ByteCount: i64,
+    pub RecallOwnerGuid: windows_sys::core::GUID,
+    pub NextEntryOffset: u32,
+    pub RecallMetadataBufferSize: u32,
+    pub RecallMetadataBuffer: [u8; 1],
+}
 pub const GUID_ECP_ATOMIC_CREATE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4720bd83_52ac_4104_a130_d1ec6a8cc8e5);
 pub const GUID_ECP_CLOUDFILES_ATTRIBUTION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2932ff52_8378_4fc1_8edb_6bdc8f602709);
 pub const GUID_ECP_CREATE_REDIRECTION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x188d6bd6_a126_4fa8_bdf2_1ccdf896f3e0);
@@ -4110,6 +2900,7 @@ pub const HEAP_GENERATE_EXCEPTIONS: u32 = 4u32;
 pub const HEAP_GLOBAL_TAG: u32 = 2048u32;
 pub const HEAP_GROWABLE: u32 = 2u32;
 pub const HEAP_MAXIMUM_TAG: u32 = 4095u32;
+pub type HEAP_MEMORY_INFO_CLASS = i32;
 pub const HEAP_NO_SERIALIZE: u32 = 1u32;
 pub const HEAP_PSEUDO_TAG_FLAG: u32 = 32768u32;
 pub const HEAP_REALLOC_IN_PLACE_ONLY: u32 = 16u32;
@@ -4129,7 +2920,22 @@ pub const IOCTL_REDIR_QUERY_PATH_EX: u32 = 1311123u32;
 pub const IOCTL_VOLSNAP_FLUSH_AND_HOLD_WRITES: u32 = 5488640u32;
 pub const IO_CD_ROM_INCREMENT: u32 = 1u32;
 pub const IO_CREATE_STREAM_FILE_LITE: u32 = 2u32;
+#[repr(C)]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
+pub struct IO_CREATE_STREAM_FILE_OPTIONS {
+    pub Size: u16,
+    pub Flags: u16,
+    pub TargetDeviceObject: *mut super::super::Foundation::DEVICE_OBJECT,
+}
 pub const IO_CREATE_STREAM_FILE_RAISE_ON_ERROR: u32 = 1u32;
+#[repr(C)]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
+pub struct IO_DEVICE_HINT_ECP_CONTEXT {
+    pub TargetDevice: *mut super::super::Foundation::DEVICE_OBJECT,
+    pub RemainingName: super::super::super::Win32::Foundation::UNICODE_STRING,
+}
 pub const IO_DISK_INCREMENT: u32 = 1u32;
 pub const IO_FILE_OBJECT_NON_PAGED_POOL_CHARGE: u32 = 64u32;
 pub const IO_FILE_OBJECT_PAGED_POOL_CHARGE: u32 = 1024u32;
@@ -4141,6 +2947,15 @@ pub const IO_NETWORK_INCREMENT: u32 = 2u32;
 pub const IO_NO_INCREMENT: u32 = 0u32;
 pub const IO_OPEN_PAGING_FILE: u32 = 2u32;
 pub const IO_OPEN_TARGET_DIRECTORY: u32 = 4u32;
+#[repr(C)]
+#[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
+pub struct IO_PRIORITY_INFO {
+    pub Size: u32,
+    pub ThreadPriority: u32,
+    pub PagePriority: u32,
+    pub IoPriority: super::super::Foundation::IO_PRIORITY_HINT,
+}
 pub const IO_REPARSE_TAG_ACRONIS_HSM_0: i32 = 96i32;
 pub const IO_REPARSE_TAG_ACRONIS_HSM_1: i32 = 97i32;
 pub const IO_REPARSE_TAG_ACRONIS_HSM_2: i32 = 98i32;
@@ -4247,6 +3062,53 @@ pub const IO_REPARSE_TAG_WATERFORD: i32 = 50i32;
 pub const IO_REPARSE_TAG_WISDATA_HSM: i32 = 35i32;
 pub const IO_REPARSE_TAG_ZLTI_HSM: i32 = 56i32;
 pub const IO_STOP_ON_SYMLINK: u32 = 8u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IO_STOP_ON_SYMLINK_FILTER_ECP_v0 {
+    pub Out: IO_STOP_ON_SYMLINK_FILTER_ECP_v0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IO_STOP_ON_SYMLINK_FILTER_ECP_v0_0 {
+    pub ReparseCount: u32,
+    pub RemainingPathLength: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
+pub struct KAPC_STATE {
+    pub ApcListHead: [super::super::super::Win32::System::Kernel::LIST_ENTRY; 2],
+    pub Process: *mut isize,
+    pub Anonymous1: KAPC_STATE_0,
+    pub KernelApcPending: super::super::super::Win32::Foundation::BOOLEAN,
+    pub Anonymous2: KAPC_STATE_1,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
+pub union KAPC_STATE_0 {
+    pub InProgressFlags: u8,
+    pub Anonymous: KAPC_STATE_0_0,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
+pub struct KAPC_STATE_0_0 {
+    pub _bitfield: u8,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
+pub union KAPC_STATE_1 {
+    pub UserApcPendingAll: super::super::super::Win32::Foundation::BOOLEAN,
+    pub Anonymous: KAPC_STATE_1_0,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
+pub struct KAPC_STATE_1_0 {
+    pub _bitfield: u8,
+}
 pub const KnownFolderDesktop: FILE_KNOWN_FOLDER_TYPE = 1i32;
 pub const KnownFolderDocuments: FILE_KNOWN_FOLDER_TYPE = 2i32;
 pub const KnownFolderDownloads: FILE_KNOWN_FOLDER_TYPE = 3i32;
@@ -4256,8 +3118,38 @@ pub const KnownFolderNone: FILE_KNOWN_FOLDER_TYPE = 0i32;
 pub const KnownFolderOther: FILE_KNOWN_FOLDER_TYPE = 7i32;
 pub const KnownFolderPictures: FILE_KNOWN_FOLDER_TYPE = 5i32;
 pub const KnownFolderVideos: FILE_KNOWN_FOLDER_TYPE = 6i32;
+#[repr(C)]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
+pub struct LARGE_MCB {
+    pub GuardedMutex: *mut super::super::Foundation::FAST_MUTEX,
+    pub BaseMcb: BASE_MCB,
+}
 pub const LCN_CHECKSUM_VALID: _LCN_WEAK_REFERENCE_STATE = 2i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LCN_WEAK_REFERENCE_BUFFER {
+    pub Lcn: i64,
+    pub LengthInClusters: i64,
+    pub ReferenceCount: u32,
+    pub State: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LCN_WEAK_REFERENCE_CREATE_INPUT_BUFFER {
+    pub Offset: i64,
+    pub Length: i64,
+    pub Flags: u32,
+    pub Reserved: u32,
+}
 pub const LCN_WEAK_REFERENCE_VALID: _LCN_WEAK_REFERENCE_STATE = 1i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LINK_TRACKING_INFORMATION {
+    pub Type: LINK_TRACKING_INFORMATION_TYPE,
+    pub VolumeId: [u8; 16],
+}
+pub type LINK_TRACKING_INFORMATION_TYPE = i32;
 pub const LX_FILE_CASE_SENSITIVE_DIR: u32 = 16u32;
 pub const LX_FILE_METADATA_DEVICE_ID_EA_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("$LXDEV");
 pub const LX_FILE_METADATA_GID_EA_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("$LXGID");
@@ -4274,13 +3166,129 @@ pub const MAP_NO_READ: u32 = 16u32;
 pub const MAP_WAIT: u32 = 1u32;
 pub const MAXIMUM_LEADBYTES: u32 = 12u32;
 pub const MAX_UNICODE_STACK_BUFFER_LENGTH: u32 = 256u32;
+#[repr(C)]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
+pub struct MCB {
+    pub DummyFieldThatSizesThisStructureCorrectly: LARGE_MCB,
+}
 pub const MCB_FLAG_RAISE_ON_ALLOCATION_FAILURE: u32 = 1u32;
+pub type MEMORY_INFORMATION_CLASS = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MEMORY_RANGE_ENTRY {
+    pub VirtualAddress: *mut core::ffi::c_void,
+    pub NumberOfBytes: usize,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MFT_ENUM_DATA {
+    pub StartFileReferenceNumber: u64,
+    pub LowUsn: i64,
+    pub HighUsn: i64,
+    pub MinMajorVersion: u16,
+    pub MaxMajorVersion: u16,
+}
+pub type MMFLUSH_TYPE = i32;
 pub const MM_FORCE_CLOSED_DATA: u32 = 1u32;
 pub const MM_FORCE_CLOSED_IMAGE: u32 = 2u32;
 pub const MM_FORCE_CLOSED_LATER_OK: u32 = 4u32;
 pub const MM_IS_FILE_SECTION_ACTIVE_DATA: u32 = 2u32;
 pub const MM_IS_FILE_SECTION_ACTIVE_IMAGE: u32 = 1u32;
 pub const MM_IS_FILE_SECTION_ACTIVE_USER: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union MM_PREFETCH_FLAGS {
+    pub Flags: MM_PREFETCH_FLAGS_0,
+    pub AllFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MM_PREFETCH_FLAGS_0 {
+    pub _bitfield: u32,
+}
+pub type MSV1_0_AVID = i32;
+#[repr(C)]
+#[cfg(feature = "Win32_Security_Authentication_Identity")]
+#[derive(Clone, Copy)]
+pub struct MSV1_0_ENUMUSERS_REQUEST {
+    pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security_Authentication_Identity")]
+#[derive(Clone, Copy)]
+pub struct MSV1_0_ENUMUSERS_RESPONSE {
+    pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
+    pub NumberOfLoggedOnUsers: u32,
+    pub LogonIds: *mut super::super::super::Win32::Foundation::LUID,
+    pub EnumHandles: *mut u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security_Authentication_Identity")]
+#[derive(Clone, Copy)]
+pub struct MSV1_0_GETCHALLENRESP_REQUEST {
+    pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
+    pub ParameterControl: u32,
+    pub LogonId: super::super::super::Win32::Foundation::LUID,
+    pub Password: super::super::super::Win32::Foundation::UNICODE_STRING,
+    pub ChallengeToClient: [u8; 8],
+    pub UserName: super::super::super::Win32::Foundation::UNICODE_STRING,
+    pub LogonDomainName: super::super::super::Win32::Foundation::UNICODE_STRING,
+    pub ServerName: super::super::super::Win32::Foundation::UNICODE_STRING,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security_Authentication_Identity")]
+#[derive(Clone, Copy)]
+pub struct MSV1_0_GETCHALLENRESP_REQUEST_V1 {
+    pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
+    pub ParameterControl: u32,
+    pub LogonId: super::super::super::Win32::Foundation::LUID,
+    pub Password: super::super::super::Win32::Foundation::UNICODE_STRING,
+    pub ChallengeToClient: [u8; 8],
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
+pub struct MSV1_0_GETCHALLENRESP_RESPONSE {
+    pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
+    pub CaseSensitiveChallengeResponse: super::super::super::Win32::System::Kernel::STRING,
+    pub CaseInsensitiveChallengeResponse: super::super::super::Win32::System::Kernel::STRING,
+    pub UserName: super::super::super::Win32::Foundation::UNICODE_STRING,
+    pub LogonDomainName: super::super::super::Win32::Foundation::UNICODE_STRING,
+    pub UserSessionKey: [u8; 16],
+    pub LanmanSessionKey: [u8; 8],
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security_Authentication_Identity")]
+#[derive(Clone, Copy)]
+pub struct MSV1_0_GETUSERINFO_REQUEST {
+    pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
+    pub LogonId: super::super::super::Win32::Foundation::LUID,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security_Authentication_Identity")]
+#[derive(Clone, Copy)]
+pub struct MSV1_0_GETUSERINFO_RESPONSE {
+    pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
+    pub UserSid: super::super::super::Win32::Security::PSID,
+    pub UserName: super::super::super::Win32::Foundation::UNICODE_STRING,
+    pub LogonDomainName: super::super::super::Win32::Foundation::UNICODE_STRING,
+    pub LogonServer: super::super::super::Win32::Foundation::UNICODE_STRING,
+    pub LogonType: super::super::super::Win32::Security::Authentication::Identity::SECURITY_LOGON_TYPE,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security_Authentication_Identity")]
+#[derive(Clone, Copy)]
+pub struct MSV1_0_LM20_CHALLENGE_REQUEST {
+    pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security_Authentication_Identity")]
+#[derive(Clone, Copy)]
+pub struct MSV1_0_LM20_CHALLENGE_RESPONSE {
+    pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
+    pub ChallengeToClient: [u8; 8],
+}
 pub const MemoryBasicInformation: MEMORY_INFORMATION_CLASS = 0i32;
 pub const MemoryType64KPage: RTL_MEMORY_TYPE = 2i32;
 pub const MemoryTypeCustom: RTL_MEMORY_TYPE = 5i32;
@@ -4302,6 +3310,73 @@ pub const MsvAvNbDomainName: MSV1_0_AVID = 2i32;
 pub const MsvAvRestrictions: MSV1_0_AVID = 8i32;
 pub const MsvAvTargetName: MSV1_0_AVID = 9i32;
 pub const MsvAvTimestamp: MSV1_0_AVID = 7i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETWORK_APP_INSTANCE_ECP_CONTEXT {
+    pub Size: u16,
+    pub Reserved: u16,
+    pub AppInstanceID: windows_sys::core::GUID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETWORK_APP_INSTANCE_VERSION_ECP_CONTEXT {
+    pub Size: u16,
+    pub Reserved: u16,
+    pub VersionHigh: u64,
+    pub VersionLow: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETWORK_OPEN_ECP_CONTEXT {
+    pub Size: u16,
+    pub Reserved: u16,
+    pub Anonymous: NETWORK_OPEN_ECP_CONTEXT_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETWORK_OPEN_ECP_CONTEXT_0 {
+    pub r#in: NETWORK_OPEN_ECP_CONTEXT_0_0,
+    pub out: NETWORK_OPEN_ECP_CONTEXT_0_1,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETWORK_OPEN_ECP_CONTEXT_0_0 {
+    pub Location: NETWORK_OPEN_LOCATION_QUALIFIER,
+    pub Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
+    pub Flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETWORK_OPEN_ECP_CONTEXT_0_1 {
+    pub Location: NETWORK_OPEN_LOCATION_QUALIFIER,
+    pub Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
+    pub Flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETWORK_OPEN_ECP_CONTEXT_V0 {
+    pub Size: u16,
+    pub Reserved: u16,
+    pub Anonymous: NETWORK_OPEN_ECP_CONTEXT_V0_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETWORK_OPEN_ECP_CONTEXT_V0_0 {
+    pub r#in: NETWORK_OPEN_ECP_CONTEXT_V0_0_0,
+    pub out: NETWORK_OPEN_ECP_CONTEXT_V0_0_1,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETWORK_OPEN_ECP_CONTEXT_V0_0_0 {
+    pub Location: NETWORK_OPEN_LOCATION_QUALIFIER,
+    pub Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETWORK_OPEN_ECP_CONTEXT_V0_0_1 {
+    pub Location: NETWORK_OPEN_LOCATION_QUALIFIER,
+    pub Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
+}
 pub const NETWORK_OPEN_ECP_IN_FLAG_DISABLE_HANDLE_COLLAPSING: u32 = 1u32;
 pub const NETWORK_OPEN_ECP_IN_FLAG_DISABLE_HANDLE_DURABILITY: u32 = 2u32;
 pub const NETWORK_OPEN_ECP_IN_FLAG_DISABLE_OPLOCKS: u32 = 4u32;
@@ -4309,7 +3384,26 @@ pub const NETWORK_OPEN_ECP_IN_FLAG_FORCE_BUFFERED_SYNCHRONOUS_IO_HACK: u32 = 214
 pub const NETWORK_OPEN_ECP_IN_FLAG_FORCE_MAX_EOF_HACK: u32 = 1073741824u32;
 pub const NETWORK_OPEN_ECP_IN_FLAG_REQ_MUTUAL_AUTH: u32 = 8u32;
 pub const NETWORK_OPEN_ECP_OUT_FLAG_RET_MUTUAL_AUTH: u32 = 8u32;
+pub type NETWORK_OPEN_INTEGRITY_QUALIFIER = i32;
+pub type NETWORK_OPEN_LOCATION_QUALIFIER = i32;
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct NFS_OPEN_ECP_CONTEXT {
+    pub ExportAlias: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
+    pub ClientSocketAddress: *mut super::super::super::Win32::Networking::WinSock::SOCKADDR_STORAGE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NLSTABLEINFO {
+    pub OemTableInfo: CPTABLEINFO,
+    pub AnsiTableInfo: CPTABLEINFO,
+    pub UpperCaseTable: *mut u16,
+    pub LowerCaseTable: *mut u16,
+}
 pub const NO_8DOT3_NAME_PRESENT: u32 = 1u32;
+pub type NTCREATEFILE_CREATE_DISPOSITION = u32;
+pub type NTCREATEFILE_CREATE_OPTIONS = u32;
 pub const NetworkOpenIntegrityAny: NETWORK_OPEN_INTEGRITY_QUALIFIER = 0i32;
 pub const NetworkOpenIntegrityEncrypted: NETWORK_OPEN_INTEGRITY_QUALIFIER = 3i32;
 pub const NetworkOpenIntegrityMaximum: NETWORK_OPEN_INTEGRITY_QUALIFIER = 4i32;
@@ -4321,6 +3415,23 @@ pub const NetworkOpenLocationRemote: NETWORK_OPEN_LOCATION_QUALIFIER = 1i32;
 pub const NotifyTypeCreate: FS_FILTER_STREAM_FO_NOTIFICATION_TYPE = 0i32;
 pub const NotifyTypeRetired: FS_FILTER_STREAM_FO_NOTIFICATION_TYPE = 1i32;
 pub const NtfsLinkTrackingInformation: LINK_TRACKING_INFORMATION_TYPE = 0i32;
+#[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
+pub struct OPEN_REPARSE_LIST {
+    pub OpenReparseList: super::super::super::Win32::System::Kernel::LIST_ENTRY,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
+pub struct OPEN_REPARSE_LIST_ENTRY {
+    pub OpenReparseListEntry: super::super::super::Win32::System::Kernel::LIST_ENTRY,
+    pub ReparseTag: u32,
+    pub Flags: u32,
+    pub ReparseGuid: windows_sys::core::GUID,
+    pub Size: u16,
+    pub RemainingLength: u16,
+}
 pub const OPEN_REPARSE_POINT_OVERRIDE_CREATE_OPTION: u32 = 64u32;
 pub const OPEN_REPARSE_POINT_REPARSE_ALWAYS: u32 = 126u32;
 pub const OPEN_REPARSE_POINT_REPARSE_IF_CHILD_EXISTS: u32 = 2u32;
@@ -4346,10 +3457,79 @@ pub const OPLOCK_FLAG_OPLOCK_KEY_CHECK_ONLY: u32 = 2u32;
 pub const OPLOCK_FLAG_PARENT_OBJECT: u32 = 16u32;
 pub const OPLOCK_FLAG_REMOVING_FILE_OR_LINK: u32 = 64u32;
 pub const OPLOCK_FSCTRL_FLAG_ALL_KEYS_MATCH: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OPLOCK_KEY_CONTEXT {
+    pub Version: u16,
+    pub Flags: u16,
+    pub ParentOplockKey: windows_sys::core::GUID,
+    pub TargetOplockKey: windows_sys::core::GUID,
+    pub Reserved: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OPLOCK_KEY_ECP_CONTEXT {
+    pub OplockKey: windows_sys::core::GUID,
+    pub Reserved: u32,
+}
 pub const OPLOCK_NOTIFY_BREAK_WAIT_INTERIM_TIMEOUT: OPLOCK_NOTIFY_REASON = 0i32;
 pub const OPLOCK_NOTIFY_BREAK_WAIT_TERMINATED: OPLOCK_NOTIFY_REASON = 1i32;
+#[repr(C)]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
+pub struct OPLOCK_NOTIFY_PARAMS {
+    pub NotifyReason: OPLOCK_NOTIFY_REASON,
+    pub NotifyContext: *mut core::ffi::c_void,
+    pub Irp: *mut super::super::Foundation::IRP,
+    pub Status: super::super::super::Win32::Foundation::NTSTATUS,
+}
+pub type OPLOCK_NOTIFY_REASON = i32;
 pub const OPLOCK_UPPER_FLAG_CHECK_NO_BREAK: u32 = 65536u32;
 pub const OPLOCK_UPPER_FLAG_NOTIFY_REFRESH_READ: u32 = 131072u32;
+pub type PACQUIRE_FOR_LAZY_WRITE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, wait: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::BOOLEAN>;
+pub type PACQUIRE_FOR_LAZY_WRITE_EX = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, inflags: u32, outflags: *mut u32) -> super::super::super::Win32::Foundation::BOOLEAN>;
+pub type PACQUIRE_FOR_READ_AHEAD = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, wait: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::BOOLEAN>;
+pub type PALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PASYNC_READ_COMPLETION_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::BOOLEAN>;
+pub type PCC_POST_DEFERRED_WRITE = Option<unsafe extern "system" fn(context1: *const core::ffi::c_void, context2: *const core::ffi::c_void)>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
+pub type PCHECK_FOR_TRAVERSE_ACCESS = Option<unsafe extern "system" fn(notifycontext: *const core::ffi::c_void, targetcontext: *const core::ffi::c_void, subjectcontext: *const super::super::Foundation::SECURITY_SUBJECT_CONTEXT) -> super::super::super::Win32::Foundation::BOOLEAN>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PCOMPLETE_LOCK_IRP_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, irp: *const super::super::Foundation::IRP) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PDIRTY_PAGE_ROUTINE = Option<unsafe extern "system" fn(fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, oldestlsn: *const i64, newestlsn: *const i64, context1: *const core::ffi::c_void, context2: *const core::ffi::c_void)>;
+pub type PFILTER_REPORT_CHANGE = Option<unsafe extern "system" fn(notifycontext: *const core::ffi::c_void, filtercontext: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::BOOLEAN>;
+pub type PFLUSH_TO_LSN = Option<unsafe extern "system" fn(loghandle: *const core::ffi::c_void, lsn: i64)>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+pub type PFN_FSRTLTEARDOWNPERSTREAMCONTEXTS = Option<unsafe extern "system" fn(advancedheader: *const FSRTL_ADVANCED_FCB_HEADER)>;
+pub type PFREE_VIRTUAL_MEMORY_EX_CALLBACK = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFSRTL_EXTRA_CREATE_PARAMETER_CLEANUP_CALLBACK = Option<unsafe extern "system" fn(ecpcontext: *mut core::ffi::c_void, ecptype: *const windows_sys::core::GUID)>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+pub type PFSRTL_STACK_OVERFLOW_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, event: *const super::super::Foundation::KEVENT)>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PFS_FILTER_CALLBACK = Option<unsafe extern "system" fn(data: *const FS_FILTER_CALLBACK_DATA, completioncontext: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PFS_FILTER_COMPLETION_CALLBACK = Option<unsafe extern "system" fn(data: *const FS_FILTER_CALLBACK_DATA, operationstatus: super::super::super::Win32::Foundation::NTSTATUS, completioncontext: *const core::ffi::c_void)>;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PHYSICAL_EXTENTS_DESCRIPTOR {
+    pub NumberOfRuns: u32,
+    pub NumberOfValidRuns: u32,
+    pub Run: [PHYSICAL_MEMORY_RUN; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PHYSICAL_MEMORY_DESCRIPTOR {
+    pub NumberOfRuns: u32,
+    pub NumberOfPages: u32,
+    pub Run: [PHYSICAL_MEMORY_RUN; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PHYSICAL_MEMORY_RUN {
+    pub BasePage: u32,
+    pub PageCount: u32,
+}
 pub const PIN_CALLER_TRACKS_DIRTY_DATA: u32 = 32u32;
 pub const PIN_EXCLUSIVE: u32 = 2u32;
 pub const PIN_HIGH_PRIORITY: u32 = 64u32;
@@ -4358,30 +3538,266 @@ pub const PIN_NO_READ: u32 = 4u32;
 pub const PIN_VERIFY_REQUIRED: u32 = 128u32;
 pub const PIN_WAIT: u32 = 1u32;
 pub const POLICY_AUDIT_SUBCATEGORY_COUNT: u32 = 59u32;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type POPLOCK_FS_PREPOST_IRP = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, irp: *const super::super::Foundation::IRP)>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type POPLOCK_NOTIFY_ROUTINE = Option<unsafe extern "system" fn(notifyparams: *const OPLOCK_NOTIFY_PARAMS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type POPLOCK_WAIT_COMPLETE_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, irp: *const super::super::Foundation::IRP)>;
 pub const PO_CB_AC_STATUS: u32 = 1u32;
 pub const PO_CB_BUTTON_COLLISION: u32 = 2u32;
 pub const PO_CB_LID_SWITCH_STATE: u32 = 4u32;
 pub const PO_CB_PROCESSOR_POWER_POLICY: u32 = 5u32;
 pub const PO_CB_SYSTEM_POWER_POLICY: u32 = 0u32;
 pub const PO_CB_SYSTEM_STATE_LOCK: u32 = 3u32;
+pub type PQUERY_LOG_USAGE = Option<unsafe extern "system" fn(loghandle: *const core::ffi::c_void, percentagefull: *mut u16)>;
+pub type PQUERY_VIRTUAL_MEMORY_CALLBACK = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PREFETCH_OPEN_ECP_CONTEXT {
+    pub Context: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
+pub struct PREFIX_TABLE {
+    pub NodeTypeCode: i16,
+    pub NameLength: i16,
+    pub NextPrefixTree: *mut PREFIX_TABLE_ENTRY,
+}
+#[repr(C)]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
+pub struct PREFIX_TABLE_ENTRY {
+    pub NodeTypeCode: i16,
+    pub NameLength: i16,
+    pub NextPrefixTree: *mut PREFIX_TABLE_ENTRY,
+    pub Links: super::super::Foundation::RTL_SPLAY_LINKS,
+    pub Prefix: *mut super::super::super::Win32::System::Kernel::STRING,
+}
+pub type PRELEASE_FROM_LAZY_WRITE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
+pub type PRELEASE_FROM_READ_AHEAD = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
+pub type PRTL_ALLOCATE_STRING_ROUTINE = Option<unsafe extern "system" fn() -> *mut core::ffi::c_void>;
+pub type PRTL_FREE_STRING_ROUTINE = Option<unsafe extern "system" fn()>;
+pub type PRTL_HEAP_COMMIT_ROUTINE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PRTL_REALLOCATE_STRING_ROUTINE = Option<unsafe extern "system" fn() -> *mut core::ffi::c_void>;
+pub type PSE_LOGON_SESSION_TERMINATED_ROUTINE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PSE_LOGON_SESSION_TERMINATED_ROUTINE_EX = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub const PSMP_MAXIMUM_SYSAPP_CLAIM_VALUES: u32 = 4u32;
 pub const PSMP_MINIMUM_SYSAPP_CLAIM_VALUES: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PUBLIC_BCB {
+    pub NodeTypeCode: i16,
+    pub NodeByteSize: i16,
+    pub MappedLength: u32,
+    pub MappedFileOffset: i64,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PUNLOCK_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, filelockinfo: *const FILE_LOCK_INFO)>;
 pub const PURGE_WITH_ACTIVE_VIEWS: u32 = 8u32;
+#[repr(C)]
+#[cfg(feature = "Win32_System_Ioctl")]
+#[derive(Clone, Copy)]
+pub struct QUERY_BAD_RANGES_INPUT {
+    pub Flags: u32,
+    pub NumRanges: u32,
+    pub Ranges: [super::super::super::Win32::System::Ioctl::QUERY_BAD_RANGES_INPUT_RANGE; 1],
+}
 pub const QUERY_DIRECT_ACCESS_DATA_EXTENTS: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QUERY_DIRECT_ACCESS_EXTENTS {
+    pub FileOffset: i64,
+    pub Length: i64,
+    pub Flags: u32,
+    pub Reserved: u32,
+}
 pub const QUERY_DIRECT_ACCESS_IMAGE_EXTENTS: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QUERY_ON_CREATE_EA_INFORMATION {
+    pub EaBufferSize: u32,
+    pub EaBuffer: *mut FILE_FULL_EA_INFORMATION,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QUERY_ON_CREATE_ECP_CONTEXT {
+    pub RequestedClasses: u32,
+    pub ClassesProcessed: u32,
+    pub ClassesWithErrors: u32,
+    pub ClassesWithNoData: u32,
+    pub StatInformation: QUERY_ON_CREATE_FILE_STAT_INFORMATION,
+    pub LxInformation: QUERY_ON_CREATE_FILE_LX_INFORMATION,
+    pub EaInformation: QUERY_ON_CREATE_EA_INFORMATION,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QUERY_ON_CREATE_FILE_LX_INFORMATION {
+    pub EffectiveAccess: u32,
+    pub LxFlags: u32,
+    pub LxUid: u32,
+    pub LxGid: u32,
+    pub LxMode: u32,
+    pub LxDeviceIdMajor: u32,
+    pub LxDeviceIdMinor: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QUERY_ON_CREATE_FILE_STAT_INFORMATION {
+    pub FileId: i64,
+    pub CreationTime: i64,
+    pub LastAccessTime: i64,
+    pub LastWriteTime: i64,
+    pub ChangeTime: i64,
+    pub AllocationSize: i64,
+    pub EndOfFile: i64,
+    pub FileAttributes: u32,
+    pub ReparseTag: u32,
+    pub NumberOfLinks: u32,
+}
+#[repr(C)]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security"))]
+#[derive(Clone, Copy)]
+pub struct QUERY_PATH_REQUEST {
+    pub PathNameLength: u32,
+    pub SecurityContext: *mut super::super::Foundation::IO_SECURITY_CONTEXT,
+    pub FilePathName: [u16; 1],
+}
+#[repr(C)]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security"))]
+#[derive(Clone, Copy)]
+pub struct QUERY_PATH_REQUEST_EX {
+    pub pSecurityContext: *mut super::super::Foundation::IO_SECURITY_CONTEXT,
+    pub EaLength: u32,
+    pub pEaBuffer: *mut core::ffi::c_void,
+    pub PathName: super::super::super::Win32::Foundation::UNICODE_STRING,
+    pub DomainServiceName: super::super::super::Win32::Foundation::UNICODE_STRING,
+    pub EcpList: *mut super::super::Foundation::ECP_LIST,
+    pub Silo: super::super::Foundation::PESILO,
+    pub Reserved: usize,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct QUERY_PATH_RESPONSE {
+    pub LengthAccepted: u32,
+}
+pub type QUERY_VIRTUAL_MEMORY_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: super::super::super::Win32::Foundation::HANDLE, processhandle: super::super::super::Win32::Foundation::HANDLE, baseaddress: *const core::ffi::c_void, memoryinformationclass: HEAP_MEMORY_INFO_CLASS, memoryinformation: *mut core::ffi::c_void, memoryinformationlength: usize, returnlength: *mut usize) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub const QoCFileEaInformation: u32 = 4u32;
 pub const QoCFileLxInformation: u32 = 2u32;
 pub const QoCFileStatInformation: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct READ_AHEAD_PARAMETERS {
+    pub NodeByteSize: i16,
+    pub Granularity: u32,
+    pub PipelinedRequestSize: u32,
+    pub ReadAheadGrowthPercentage: u32,
+}
+#[repr(C)]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
+pub struct READ_LIST {
+    pub FileObject: *mut super::super::Foundation::FILE_OBJECT,
+    pub NumberOfEntries: u32,
+    pub IsImage: u32,
+    pub List: [super::super::super::Win32::Storage::FileSystem::FILE_SEGMENT_ELEMENT; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct READ_USN_JOURNAL_DATA {
+    pub StartUsn: i64,
+    pub ReasonMask: u32,
+    pub ReturnOnlyOnClose: u32,
+    pub Timeout: u64,
+    pub BytesToWaitFor: u64,
+    pub UsnJournalID: u64,
+    pub MinMajorVersion: u16,
+    pub MaxMajorVersion: u16,
+}
+pub type REFS_COMPRESSION_FORMATS = i32;
 pub const REFS_COMPRESSION_FORMAT_LZ4: REFS_COMPRESSION_FORMATS = 1i32;
 pub const REFS_COMPRESSION_FORMAT_MAX: REFS_COMPRESSION_FORMATS = 3i32;
 pub const REFS_COMPRESSION_FORMAT_UNCOMPRESSED: REFS_COMPRESSION_FORMATS = 0i32;
 pub const REFS_COMPRESSION_FORMAT_ZSTD: REFS_COMPRESSION_FORMATS = 2i32;
+pub type REFS_DEALLOCATE_RANGES_ALLOCATOR = i32;
 pub const REFS_DEALLOCATE_RANGES_ALLOCATOR_CAA: REFS_DEALLOCATE_RANGES_ALLOCATOR = 2i32;
 pub const REFS_DEALLOCATE_RANGES_ALLOCATOR_MAA: REFS_DEALLOCATE_RANGES_ALLOCATOR = 3i32;
 pub const REFS_DEALLOCATE_RANGES_ALLOCATOR_NONE: REFS_DEALLOCATE_RANGES_ALLOCATOR = 0i32;
 pub const REFS_DEALLOCATE_RANGES_ALLOCATOR_SAA: REFS_DEALLOCATE_RANGES_ALLOCATOR = 1i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct REFS_DEALLOCATE_RANGES_INPUT_BUFFER {
+    pub RangeCount: u32,
+    pub Ranges: [REFS_DEALLOCATE_RANGES_RANGE; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct REFS_DEALLOCATE_RANGES_INPUT_BUFFER_EX {
+    pub RangeCount: u32,
+    pub Allocator: REFS_DEALLOCATE_RANGES_ALLOCATOR,
+    pub StreamReserveUpdateCount: i64,
+    pub OffsetToRanges: u32,
+    pub OffsetToLeakCounts: u32,
+    pub Reserved: [u64; 2],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct REFS_DEALLOCATE_RANGES_RANGE {
+    pub StartOfRange: u64,
+    pub CountOfRange: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct REFS_QUERY_VOLUME_COMPRESSION_INFO_OUTPUT_BUFFER {
+    pub DefaultCompressionFormat: REFS_COMPRESSION_FORMATS,
+    pub DefaultCompressionLevel: i16,
+    pub DefaultCompressionChunkSizeBytes: u32,
+    pub VolumeClusterSizeBytes: u32,
+    pub TotalVolumeClusters: u64,
+    pub TotalAllocatedClusters: u64,
+    pub TotalCompressibleClustersAllocated: u64,
+    pub TotalCompressibleClustersInUse: u64,
+    pub TotalCompressedClusters: u64,
+    pub Reserved: [u64; 6],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct REFS_QUERY_VOLUME_DEDUP_INFO_OUTPUT_BUFFER {
+    pub Enabled: super::super::super::Win32::Foundation::BOOLEAN,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct REFS_REMOVE_HARDLINK_BACKPOINTER {
+    pub ParentDirectory: u64,
+    pub Reserved: u64,
+    pub FileName: [u16; 1],
+}
+pub type REFS_SET_VOLUME_COMPRESSION_INFO_FLAGS = i32;
 pub const REFS_SET_VOLUME_COMPRESSION_INFO_FLAG_COMPRESS_SYNC: REFS_SET_VOLUME_COMPRESSION_INFO_FLAGS = 1i32;
 pub const REFS_SET_VOLUME_COMPRESSION_INFO_FLAG_MAX: REFS_SET_VOLUME_COMPRESSION_INFO_FLAGS = 1i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct REFS_SET_VOLUME_COMPRESSION_INFO_INPUT_BUFFER {
+    pub CompressionFormat: REFS_COMPRESSION_FORMATS,
+    pub CompressionLevel: i16,
+    pub CompressionChunkSizeBytes: u32,
+    pub Flags: REFS_SET_VOLUME_COMPRESSION_INFO_FLAGS,
+    pub Reserved: [u64; 8],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct REFS_SET_VOLUME_DEDUP_INFO_INPUT_BUFFER {
+    pub Enable: super::super::super::Win32::Foundation::BOOLEAN,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct REFS_STREAM_EXTENT {
+    pub Vcn: i64,
+    pub Lcn: i64,
+    pub Length: i64,
+    pub Properties: u16,
+}
 pub const REFS_STREAM_EXTENT_PROPERTY_CRC32: _REFS_STREAM_EXTENT_PROPERTIES = 128i32;
 pub const REFS_STREAM_EXTENT_PROPERTY_CRC64: _REFS_STREAM_EXTENT_PROPERTIES = 256i32;
 pub const REFS_STREAM_EXTENT_PROPERTY_GHOSTED: _REFS_STREAM_EXTENT_PROPERTIES = 512i32;
@@ -4389,6 +3805,35 @@ pub const REFS_STREAM_EXTENT_PROPERTY_READONLY: _REFS_STREAM_EXTENT_PROPERTIES =
 pub const REFS_STREAM_EXTENT_PROPERTY_SPARSE: _REFS_STREAM_EXTENT_PROPERTIES = 8i32;
 pub const REFS_STREAM_EXTENT_PROPERTY_STREAM_RESERVED: _REFS_STREAM_EXTENT_PROPERTIES = 32i32;
 pub const REFS_STREAM_EXTENT_PROPERTY_VALID: _REFS_STREAM_EXTENT_PROPERTIES = 16i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER {
+    pub EntryCount: u32,
+    pub BufferSizeRequiredForQuery: u32,
+    pub Reserved: [u32; 2],
+    pub Entries: [REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER_ENTRY; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER_ENTRY {
+    pub NextEntryOffset: u32,
+    pub SnapshotNameLength: u16,
+    pub SnapshotCreationTime: u64,
+    pub StreamSize: u64,
+    pub StreamAllocationSize: u64,
+    pub Reserved: [u64; 2],
+    pub SnapshotName: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct REFS_STREAM_SNAPSHOT_MANAGEMENT_INPUT_BUFFER {
+    pub Operation: REFS_STREAM_SNAPSHOT_OPERATION,
+    pub SnapshotNameLength: u16,
+    pub OperationInputBufferLength: u16,
+    pub Reserved: [u64; 2],
+    pub NameAndInputBuffer: [u16; 1],
+}
+pub type REFS_STREAM_SNAPSHOT_OPERATION = i32;
 pub const REFS_STREAM_SNAPSHOT_OPERATION_CLEAR_SHADOW_BTREE: REFS_STREAM_SNAPSHOT_OPERATION = 6i32;
 pub const REFS_STREAM_SNAPSHOT_OPERATION_CREATE: REFS_STREAM_SNAPSHOT_OPERATION = 1i32;
 pub const REFS_STREAM_SNAPSHOT_OPERATION_INVALID: REFS_STREAM_SNAPSHOT_OPERATION = 0i32;
@@ -4397,6 +3842,52 @@ pub const REFS_STREAM_SNAPSHOT_OPERATION_MAX: REFS_STREAM_SNAPSHOT_OPERATION = 6
 pub const REFS_STREAM_SNAPSHOT_OPERATION_QUERY_DELTAS: REFS_STREAM_SNAPSHOT_OPERATION = 3i32;
 pub const REFS_STREAM_SNAPSHOT_OPERATION_REVERT: REFS_STREAM_SNAPSHOT_OPERATION = 4i32;
 pub const REFS_STREAM_SNAPSHOT_OPERATION_SET_SHADOW_BTREE: REFS_STREAM_SNAPSHOT_OPERATION = 5i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct REFS_STREAM_SNAPSHOT_QUERY_DELTAS_INPUT_BUFFER {
+    pub StartingVcn: i64,
+    pub Flags: u32,
+    pub Reserved: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct REFS_STREAM_SNAPSHOT_QUERY_DELTAS_OUTPUT_BUFFER {
+    pub ExtentCount: u32,
+    pub Reserved: [u32; 2],
+    pub Extents: [REFS_STREAM_EXTENT; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct REFS_VOLUME_COUNTER_INFO_INPUT_BUFFER {
+    pub ResetCounters: super::super::super::Win32::Foundation::BOOLEAN,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct REFS_VOLUME_DATA_BUFFER {
+    pub ByteCount: u32,
+    pub MajorVersion: u32,
+    pub MinorVersion: u32,
+    pub BytesPerPhysicalSector: u32,
+    pub VolumeSerialNumber: i64,
+    pub NumberSectors: i64,
+    pub TotalClusters: i64,
+    pub FreeClusters: i64,
+    pub TotalReserved: i64,
+    pub BytesPerSector: u32,
+    pub BytesPerCluster: u32,
+    pub MaximumSizeOfResidentFile: i64,
+    pub FastTierDataFillRatio: u16,
+    pub SlowTierDataFillRatio: u16,
+    pub DestagesFastTierToSlowTierRate: u32,
+    pub Reserved: [i64; 9],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct REMOTE_LINK_TRACKING_INFORMATION {
+    pub TargetFileObject: *mut core::ffi::c_void,
+    pub TargetLinkTrackingInformationLength: u32,
+    pub TargetLinkTrackingInformationBuffer: [u8; 1],
+}
 pub const REMOTE_PROTOCOL_FLAG_INTEGRITY: u32 = 16u32;
 pub const REMOTE_PROTOCOL_FLAG_LOOPBACK: u32 = 1u32;
 pub const REMOTE_PROTOCOL_FLAG_MUTUAL_AUTH: u32 = 32u32;
@@ -4404,11 +3895,93 @@ pub const REMOTE_PROTOCOL_FLAG_OFFLINE: u32 = 2u32;
 pub const REMOTE_PROTOCOL_FLAG_PERSISTENT_HANDLE: u32 = 4u32;
 pub const REMOTE_PROTOCOL_FLAG_PRIVACY: u32 = 8u32;
 pub const REMOVED_8DOT3_NAME: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct REPARSE_DATA_BUFFER {
+    pub ReparseTag: u32,
+    pub ReparseDataLength: u16,
+    pub Reserved: u16,
+    pub Anonymous: REPARSE_DATA_BUFFER_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union REPARSE_DATA_BUFFER_0 {
+    pub SymbolicLinkReparseBuffer: REPARSE_DATA_BUFFER_0_0,
+    pub MountPointReparseBuffer: REPARSE_DATA_BUFFER_0_1,
+    pub GenericReparseBuffer: REPARSE_DATA_BUFFER_0_2,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct REPARSE_DATA_BUFFER_0_2 {
+    pub DataBuffer: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct REPARSE_DATA_BUFFER_0_1 {
+    pub SubstituteNameOffset: u16,
+    pub SubstituteNameLength: u16,
+    pub PrintNameOffset: u16,
+    pub PrintNameLength: u16,
+    pub PathBuffer: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct REPARSE_DATA_BUFFER_0_0 {
+    pub SubstituteNameOffset: u16,
+    pub SubstituteNameLength: u16,
+    pub PrintNameOffset: u16,
+    pub PrintNameLength: u16,
+    pub Flags: u32,
+    pub PathBuffer: [u16; 1],
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy)]
+pub struct REPARSE_DATA_BUFFER_EX {
+    pub Flags: u32,
+    pub ExistingReparseTag: u32,
+    pub ExistingReparseGuid: windows_sys::core::GUID,
+    pub Reserved: u64,
+    pub Anonymous: REPARSE_DATA_BUFFER_EX_0,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy)]
+pub union REPARSE_DATA_BUFFER_EX_0 {
+    pub ReparseDataBuffer: REPARSE_DATA_BUFFER,
+    pub ReparseGuidDataBuffer: super::super::super::Win32::Storage::FileSystem::REPARSE_GUID_DATA_BUFFER,
+}
 pub const REPARSE_DATA_EX_FLAG_GIVEN_TAG_OR_NONE: u32 = 1u32;
+#[repr(C, packed(4))]
+#[derive(Clone, Copy)]
+pub struct REPARSE_INDEX_KEY {
+    pub FileReparseTag: u32,
+    pub FileId: i64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
+    pub ExtentCount: u32,
+    pub StartingVcn: i64,
+    pub Extents: [RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
+    pub NextVcn: i64,
+    pub Lcn: i64,
+    pub ReferenceCount: u32,
+}
 pub const RETURN_NON_NT_USER_SESSION_KEY: u32 = 8u32;
 pub const RETURN_PRIMARY_LOGON_DOMAINNAME: u32 = 4u32;
 pub const RETURN_PRIMARY_USERNAME: u32 = 2u32;
 pub const RETURN_RESERVED_PARAMETER: u32 = 128u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RKF_BYPASS_ECP_CONTEXT {
+    pub Reserved: i32,
+    pub Version: i32,
+}
 pub const RPI_SMB2_SERVERCAP_DFS: u32 = 1u32;
 pub const RPI_SMB2_SERVERCAP_DIRECTORY_LEASING: u32 = 32u32;
 pub const RPI_SMB2_SERVERCAP_ENCRYPTION_AWARE: u32 = 64u32;
@@ -4428,20 +4001,264 @@ pub const RPI_SMB2_SHARECAP_TIMEWARP: u32 = 2u32;
 pub const RPI_SMB2_SHARETYPE_DISK: u32 = 0u32;
 pub const RPI_SMB2_SHARETYPE_PIPE: u32 = 1u32;
 pub const RPI_SMB2_SHARETYPE_PRINT: u32 = 2u32;
+pub type RTL_ALLOCATE_STRING_ROUTINE = Option<unsafe extern "system" fn(numberofbytes: usize) -> *mut core::ffi::c_void>;
 pub const RTL_DUPLICATE_UNICODE_STRING_ALLOCATE_NULL_STRING: u32 = 2u32;
 pub const RTL_DUPLICATE_UNICODE_STRING_NULL_TERMINATE: u32 = 1u32;
+pub type RTL_FREE_STRING_ROUTINE = Option<unsafe extern "system" fn(buffer: *const core::ffi::c_void)>;
+pub type RTL_HEAP_COMMIT_ROUTINE = Option<unsafe extern "system" fn(base: *const core::ffi::c_void, commitaddress: *mut *mut core::ffi::c_void, commitsize: *mut usize) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub const RTL_HEAP_MEMORY_LIMIT_CURRENT_VERSION: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RTL_HEAP_MEMORY_LIMIT_DATA {
+    pub CommitLimitBytes: usize,
+    pub CommitLimitFailureCode: usize,
+    pub MaxAllocationSizeBytes: usize,
+    pub AllocationLimitFailureCode: usize,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RTL_HEAP_MEMORY_LIMIT_INFO {
+    pub Version: u32,
+    pub Data: RTL_HEAP_MEMORY_LIMIT_DATA,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RTL_HEAP_PARAMETERS {
+    pub Length: u32,
+    pub SegmentReserve: usize,
+    pub SegmentCommit: usize,
+    pub DeCommitFreeBlockThreshold: usize,
+    pub DeCommitTotalFreeThreshold: usize,
+    pub MaximumAllocationSize: usize,
+    pub VirtualMemoryThreshold: usize,
+    pub InitialCommit: usize,
+    pub InitialReserve: usize,
+    pub CommitRoutine: PRTL_HEAP_COMMIT_ROUTINE,
+    pub Reserved: [usize; 2],
+}
+pub type RTL_MEMORY_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RTL_NLS_STATE {
+    pub DefaultAcpTableInfo: CPTABLEINFO,
+    pub DefaultOemTableInfo: CPTABLEINFO,
+    pub ActiveCodePageData: *mut u16,
+    pub OemCodePageData: *mut u16,
+    pub LeadByteInfo: *mut u16,
+    pub OemLeadByteInfo: *mut u16,
+    pub CaseMappingData: *mut u16,
+    pub UnicodeUpcaseTable844: *mut u16,
+    pub UnicodeLowercaseTable844: *mut u16,
+}
+pub type RTL_REALLOCATE_STRING_ROUTINE = Option<unsafe extern "system" fn(numberofbytes: usize, buffer: *const core::ffi::c_void) -> *mut core::ffi::c_void>;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RTL_SEGMENT_HEAP_MEMORY_SOURCE {
+    pub Flags: u32,
+    pub MemoryTypeMask: u32,
+    pub NumaNode: u32,
+    pub Anonymous: RTL_SEGMENT_HEAP_MEMORY_SOURCE_0,
+    pub Reserved: [usize; 2],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union RTL_SEGMENT_HEAP_MEMORY_SOURCE_0 {
+    pub PartitionHandle: super::super::super::Win32::Foundation::HANDLE,
+    pub Callbacks: *mut RTL_SEGMENT_HEAP_VA_CALLBACKS,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RTL_SEGMENT_HEAP_PARAMETERS {
+    pub Version: u16,
+    pub Size: u16,
+    pub Flags: u32,
+    pub MemorySource: RTL_SEGMENT_HEAP_MEMORY_SOURCE,
+    pub Reserved: [usize; 4],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RTL_SEGMENT_HEAP_VA_CALLBACKS {
+    pub CallbackContext: super::super::super::Win32::Foundation::HANDLE,
+    pub AllocateVirtualMemory: PALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK,
+    pub FreeVirtualMemory: PFREE_VIRTUAL_MEMORY_EX_CALLBACK,
+    pub QueryVirtualMemory: PQUERY_VIRTUAL_MEMORY_CALLBACK,
+}
 pub const RTL_SYSTEM_VOLUME_INFORMATION_FOLDER: windows_sys::core::PCWSTR = windows_sys::core::w!("System Volume Information");
 pub const SECURITY_ANONYMOUS_LOGON_RID: i32 = 7i32;
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
+pub struct SECURITY_CLIENT_CONTEXT {
+    pub SecurityQos: super::super::super::Win32::Security::SECURITY_QUALITY_OF_SERVICE,
+    pub ClientToken: *mut core::ffi::c_void,
+    pub DirectlyAccessClientToken: super::super::super::Win32::Foundation::BOOLEAN,
+    pub DirectAccessEffectiveOnly: super::super::super::Win32::Foundation::BOOLEAN,
+    pub ServerIsRemote: super::super::super::Win32::Foundation::BOOLEAN,
+    pub ClientTokenControl: super::super::super::Win32::Security::TOKEN_CONTROL,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security_Authentication_Identity")]
+#[derive(Clone, Copy)]
+pub struct SEC_APPLICATION_PROTOCOLS {
+    pub ProtocolListsSize: u32,
+    pub ProtocolLists: [super::super::super::Win32::Security::Authentication::Identity::SEC_APPLICATION_PROTOCOL_LIST; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SEC_DTLS_MTU {
+    pub PathMTU: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SEC_FLAGS {
+    pub Flags: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SEC_NEGOTIATION_INFO {
+    pub Size: u32,
+    pub NameLength: u32,
+    pub Name: *mut u16,
+    pub Reserved: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SEC_PRESHAREDKEY {
+    pub KeySize: u16,
+    pub Key: [u8; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SEC_SRTP_MASTER_KEY_IDENTIFIER {
+    pub MasterKeyIdentifierSize: u8,
+    pub MasterKeyIdentifier: [u8; 1],
+}
 pub const SEGMENT_HEAP_FLG_USE_PAGE_HEAP: u32 = 1u32;
 pub const SEGMENT_HEAP_PARAMETERS_VERSION: u32 = 3u32;
 pub const SEGMENT_HEAP_PARAMS_VALID_FLAGS: u32 = 1u32;
 pub const SEMAPHORE_INCREMENT: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SET_CACHED_RUNS_STATE_INPUT_BUFFER {
+    pub Enable: super::super::super::Win32::Foundation::BOOLEAN,
+}
 pub const SET_PURGE_FAILURE_MODE_DISABLED: u32 = 2u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
+pub struct SE_AUDIT_INFO {
+    pub Size: u32,
+    pub AuditType: super::super::super::Win32::Security::AUDIT_EVENT_TYPE,
+    pub AuditOperation: SE_AUDIT_OPERATION,
+    pub AuditFlags: u32,
+    pub SubsystemName: super::super::super::Win32::Foundation::UNICODE_STRING,
+    pub ObjectTypeName: super::super::super::Win32::Foundation::UNICODE_STRING,
+    pub ObjectName: super::super::super::Win32::Foundation::UNICODE_STRING,
+    pub HandleId: *mut core::ffi::c_void,
+    pub TransactionId: *mut windows_sys::core::GUID,
+    pub OperationId: *mut super::super::super::Win32::Foundation::LUID,
+    pub ObjectCreation: super::super::super::Win32::Foundation::BOOLEAN,
+    pub GenerateOnClose: super::super::super::Win32::Foundation::BOOLEAN,
+}
+pub type SE_AUDIT_OPERATION = i32;
 pub const SE_BACKUP_PRIVILEGES_CHECKED: u32 = 256u32;
 pub const SE_DACL_UNTRUSTED: u32 = 64u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
+pub struct SE_EXPORTS {
+    pub SeCreateTokenPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeAssignPrimaryTokenPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeLockMemoryPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeIncreaseQuotaPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeUnsolicitedInputPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeTcbPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeSecurityPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeTakeOwnershipPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeLoadDriverPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeCreatePagefilePrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeIncreaseBasePriorityPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeSystemProfilePrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeSystemtimePrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeProfileSingleProcessPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeCreatePermanentPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeBackupPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeRestorePrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeShutdownPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeDebugPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeAuditPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeSystemEnvironmentPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeChangeNotifyPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeRemoteShutdownPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeNullSid: super::super::super::Win32::Security::PSID,
+    pub SeWorldSid: super::super::super::Win32::Security::PSID,
+    pub SeLocalSid: super::super::super::Win32::Security::PSID,
+    pub SeCreatorOwnerSid: super::super::super::Win32::Security::PSID,
+    pub SeCreatorGroupSid: super::super::super::Win32::Security::PSID,
+    pub SeNtAuthoritySid: super::super::super::Win32::Security::PSID,
+    pub SeDialupSid: super::super::super::Win32::Security::PSID,
+    pub SeNetworkSid: super::super::super::Win32::Security::PSID,
+    pub SeBatchSid: super::super::super::Win32::Security::PSID,
+    pub SeInteractiveSid: super::super::super::Win32::Security::PSID,
+    pub SeLocalSystemSid: super::super::super::Win32::Security::PSID,
+    pub SeAliasAdminsSid: super::super::super::Win32::Security::PSID,
+    pub SeAliasUsersSid: super::super::super::Win32::Security::PSID,
+    pub SeAliasGuestsSid: super::super::super::Win32::Security::PSID,
+    pub SeAliasPowerUsersSid: super::super::super::Win32::Security::PSID,
+    pub SeAliasAccountOpsSid: super::super::super::Win32::Security::PSID,
+    pub SeAliasSystemOpsSid: super::super::super::Win32::Security::PSID,
+    pub SeAliasPrintOpsSid: super::super::super::Win32::Security::PSID,
+    pub SeAliasBackupOpsSid: super::super::super::Win32::Security::PSID,
+    pub SeAuthenticatedUsersSid: super::super::super::Win32::Security::PSID,
+    pub SeRestrictedSid: super::super::super::Win32::Security::PSID,
+    pub SeAnonymousLogonSid: super::super::super::Win32::Security::PSID,
+    pub SeUndockPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeSyncAgentPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeEnableDelegationPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeLocalServiceSid: super::super::super::Win32::Security::PSID,
+    pub SeNetworkServiceSid: super::super::super::Win32::Security::PSID,
+    pub SeManageVolumePrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeImpersonatePrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeCreateGlobalPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeTrustedCredManAccessPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeRelabelPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeIncreaseWorkingSetPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeTimeZonePrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeCreateSymbolicLinkPrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeIUserSid: super::super::super::Win32::Security::PSID,
+    pub SeUntrustedMandatorySid: super::super::super::Win32::Security::PSID,
+    pub SeLowMandatorySid: super::super::super::Win32::Security::PSID,
+    pub SeMediumMandatorySid: super::super::super::Win32::Security::PSID,
+    pub SeHighMandatorySid: super::super::super::Win32::Security::PSID,
+    pub SeSystemMandatorySid: super::super::super::Win32::Security::PSID,
+    pub SeOwnerRightsSid: super::super::super::Win32::Security::PSID,
+    pub SeAllAppPackagesSid: super::super::super::Win32::Security::PSID,
+    pub SeUserModeDriversSid: super::super::super::Win32::Security::PSID,
+    pub SeProcTrustWinTcbSid: super::super::super::Win32::Security::PSID,
+    pub SeTrustedInstallerSid: super::super::super::Win32::Security::PSID,
+    pub SeDelegateSessionUserImpersonatePrivilege: super::super::super::Win32::Foundation::LUID,
+    pub SeAppSiloSid: super::super::super::Win32::Security::PSID,
+    pub SeAppSiloVolumeRootMinimalCapabilitySid: super::super::super::Win32::Security::PSID,
+    pub SeAppSiloProfilesRootMinimalCapabilitySid: super::super::super::Win32::Security::PSID,
+}
+pub type SE_LOGON_SESSION_TERMINATED_ROUTINE = Option<unsafe extern "system" fn(logonid: *const super::super::super::Win32::Foundation::LUID) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type SE_LOGON_SESSION_TERMINATED_ROUTINE_EX = Option<unsafe extern "system" fn(logonid: *const super::super::super::Win32::Foundation::LUID, pserversilo: super::super::Foundation::PESILO, context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub const SE_SERVER_SECURITY: u32 = 128u32;
 pub const SPECIAL_ENCRYPTED_OPEN: u32 = 262144u32;
+pub type SRV_INSTANCE_TYPE = i32;
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct SRV_OPEN_ECP_CONTEXT {
+    pub ShareName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
+    pub SocketAddress: *mut super::super::super::Win32::Networking::WinSock::SOCKADDR_STORAGE,
+    pub OplockBlockState: super::super::super::Win32::Foundation::BOOLEAN,
+    pub OplockAppState: super::super::super::Win32::Foundation::BOOLEAN,
+    pub OplockFinalState: super::super::super::Win32::Foundation::BOOLEAN,
+    pub Version: u16,
+    pub InstanceType: SRV_INSTANCE_TYPE,
+}
 pub const SRV_OPEN_ECP_CONTEXT_VERSION_2: u32 = 2u32;
 pub const SUPPORTED_FS_FEATURES_BYPASS_IO: u32 = 8u32;
 pub const SUPPORTED_FS_FEATURES_OFFLOAD_READ: u32 = 1u32;
@@ -4452,11 +4269,40 @@ pub const SYMLINK_FILE: u32 = 1073741824u32;
 pub const SYMLINK_FLAG_RELATIVE: u32 = 1u32;
 pub const SYMLINK_RESERVED_MASK: u32 = 4026531840u32;
 pub const SYSTEM_PAGE_PRIORITY_BITS: u32 = 3u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_PROCESS_TRUST_LABEL_ACE {
+    pub Header: ACE_HEADER,
+    pub Mask: u32,
+    pub SidStart: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SecBuffer {
+    pub cbBuffer: u32,
+    pub BufferType: u32,
+    pub pvBuffer: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SecBufferDesc {
+    pub ulVersion: u32,
+    pub cBuffers: u32,
+    pub pBuffers: *mut SecBuffer,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SecHandle {
+    pub dwLower: usize,
+    pub dwUpper: usize,
+}
 pub const SharedVirtualDiskCDPSnapshotsSupported: SharedVirtualDiskSupportType = 7i32;
+pub type SharedVirtualDiskHandleState = i32;
 pub const SharedVirtualDiskHandleStateFileShared: SharedVirtualDiskHandleState = 1i32;
 pub const SharedVirtualDiskHandleStateHandleShared: SharedVirtualDiskHandleState = 3i32;
 pub const SharedVirtualDiskHandleStateNone: SharedVirtualDiskHandleState = 0i32;
 pub const SharedVirtualDiskSnapshotsSupported: SharedVirtualDiskSupportType = 3i32;
+pub type SharedVirtualDiskSupportType = i32;
 pub const SharedVirtualDisksSupported: SharedVirtualDiskSupportType = 1i32;
 pub const SharedVirtualDisksUnsupported: SharedVirtualDiskSupportType = 0i32;
 pub const SrvInstanceTypeCsv: SRV_INSTANCE_TYPE = 2i32;
@@ -4465,6 +4311,8 @@ pub const SrvInstanceTypeSBL: SRV_INSTANCE_TYPE = 3i32;
 pub const SrvInstanceTypeSR: SRV_INSTANCE_TYPE = 4i32;
 pub const SrvInstanceTypeUndefined: SRV_INSTANCE_TYPE = 0i32;
 pub const SrvInstanceTypeVSMB: SRV_INSTANCE_TYPE = 5i32;
+#[cfg(feature = "Wdk_Foundation")]
+pub type SspiAsyncNotifyCallback = Option<unsafe extern "system" fn(handle: *const super::super::Foundation::SspiAsyncContext, callbackdata: *const core::ffi::c_void)>;
 pub const SyncTypeCreateSection: FS_FILTER_SECTION_SYNC_TYPE = 1i32;
 pub const SyncTypeOther: FS_FILTER_SECTION_SYNC_TYPE = 0i32;
 pub const TOKEN_AUDIT_NO_CHILD_PROCESS: u32 = 2097152u32;
@@ -4491,15 +4339,167 @@ pub const TOKEN_UIACCESS: u32 = 4096u32;
 pub const TOKEN_VIRTUALIZE_ALLOWED: u32 = 512u32;
 pub const TOKEN_VIRTUALIZE_ENABLED: u32 = 1024u32;
 pub const TOKEN_WRITE_RESTRICTED: u32 = 8u32;
+#[repr(C)]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
+pub struct TUNNEL {
+    pub Mutex: super::super::Foundation::FAST_MUTEX,
+    pub Cache: *mut super::super::Foundation::RTL_SPLAY_LINKS,
+    pub TimerQueue: super::super::super::Win32::System::Kernel::LIST_ENTRY,
+    pub NumEntries: u16,
+}
+#[repr(C)]
+#[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
+pub struct UNICODE_PREFIX_TABLE {
+    pub NodeTypeCode: i16,
+    pub NameLength: i16,
+    pub NextPrefixTree: *mut UNICODE_PREFIX_TABLE_ENTRY,
+    pub LastNextEntry: *mut UNICODE_PREFIX_TABLE_ENTRY,
+}
+#[repr(C)]
+#[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
+pub struct UNICODE_PREFIX_TABLE_ENTRY {
+    pub NodeTypeCode: i16,
+    pub NameLength: i16,
+    pub NextPrefixTree: *mut UNICODE_PREFIX_TABLE_ENTRY,
+    pub CaseMatch: *mut UNICODE_PREFIX_TABLE_ENTRY,
+    pub Links: super::super::Foundation::RTL_SPLAY_LINKS,
+    pub Prefix: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
+}
 pub const UNINITIALIZE_CACHE_MAPS: u32 = 1u32;
 pub const USE_PRIMARY_PASSWORD: u32 = 1u32;
 pub const USN_DELETE_FLAG_DELETE: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct USN_JOURNAL_DATA {
+    pub UsnJournalID: u64,
+    pub FirstUsn: i64,
+    pub NextUsn: i64,
+    pub LowestValidUsn: i64,
+    pub MaxUsn: i64,
+    pub MaximumSize: u64,
+    pub AllocationDelta: u64,
+    pub MinSupportedMajorVersion: u16,
+    pub MaxSupportedMajorVersion: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct USN_RECORD {
+    pub RecordLength: u32,
+    pub MajorVersion: u16,
+    pub MinorVersion: u16,
+    pub FileReferenceNumber: u64,
+    pub ParentFileReferenceNumber: u64,
+    pub Usn: i64,
+    pub TimeStamp: i64,
+    pub Reason: u32,
+    pub SourceInfo: u32,
+    pub SecurityId: u32,
+    pub FileAttributes: u32,
+    pub FileNameLength: u16,
+    pub FileNameOffset: u16,
+    pub FileName: [u16; 1],
+}
 pub const VACB_MAPPING_GRANULARITY: u32 = 262144u32;
 pub const VACB_OFFSET_SHIFT: u32 = 18u32;
 pub const VALID_INHERIT_FLAGS: u32 = 31u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VCN_RANGE_INPUT_BUFFER {
+    pub StartingVcn: i64,
+    pub ClusterCount: i64,
+}
+pub type VIRTUAL_MEMORY_INFORMATION_CLASS = i32;
 pub const VOLSNAPCONTROLTYPE: u32 = 83u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VOLUME_REFS_INFO_BUFFER {
+    pub CacheSizeInBytes: i64,
+    pub AllocatedCacheInBytes: i64,
+    pub PopulatedCacheInBytes: i64,
+    pub InErrorCacheInBytes: i64,
+    pub MemoryUsedForCacheMetadata: i64,
+    pub CacheLineSize: u32,
+    pub CacheTransactionsOutstanding: i32,
+    pub CacheLinesFree: i32,
+    pub CacheLinesInError: i32,
+    pub CacheHitsInBytes: i64,
+    pub CacheMissesInBytes: i64,
+    pub CachePopulationUpdatesInBytes: i64,
+    pub CacheWriteThroughUpdatesInBytes: i64,
+    pub CacheInvalidationsInBytes: i64,
+    pub CacheOverReadsInBytes: i64,
+    pub MetadataWrittenBytes: i64,
+    pub CacheHitCounter: i32,
+    pub CacheMissCounter: i32,
+    pub CacheLineAllocationCounter: i32,
+    pub CacheInvalidationsCounter: i32,
+    pub CachePopulationUpdatesCounter: i32,
+    pub CacheWriteThroughUpdatesCounter: i32,
+    pub MaxCacheTransactionsOutstanding: i32,
+    pub DataWritesReallocationCount: i32,
+    pub DataInPlaceWriteCount: i32,
+    pub MetadataAllocationsFastTierCount: i32,
+    pub MetadataAllocationsSlowTierCount: i32,
+    pub DataAllocationsFastTierCount: i32,
+    pub DataAllocationsSlowTierCount: i32,
+    pub DestagesSlowTierToFastTier: i32,
+    pub DestagesFastTierToSlowTier: i32,
+    pub SlowTierDataFillRatio: i32,
+    pub FastTierDataFillRatio: i32,
+    pub SlowTierMetadataFillRatio: i32,
+    pub FastTierMetadataFillRatio: i32,
+    pub SlowToFastDestageReadLatency: i32,
+    pub SlowToFastDestageReadLatencyBase: i32,
+    pub SlowToFastDestageWriteLatency: i32,
+    pub SlowToFastDestageWriteLatencyBase: i32,
+    pub FastToSlowDestageReadLatency: i32,
+    pub FastToSlowDestageReadLatencyBase: i32,
+    pub FastToSlowDestageWriteLatency: i32,
+    pub FastToSlowDestageWriteLatencyBase: i32,
+    pub SlowTierContainerFillRatio: i32,
+    pub SlowTierContainerFillRatioBase: i32,
+    pub FastTierContainerFillRatio: i32,
+    pub FastTierContainerFillRatioBase: i32,
+    pub TreeUpdateLatency: i32,
+    pub TreeUpdateLatencyBase: i32,
+    pub CheckpointLatency: i32,
+    pub CheckpointLatencyBase: i32,
+    pub TreeUpdateCount: i32,
+    pub CheckpointCount: i32,
+    pub LogWriteCount: i32,
+    pub LogFillRatio: i32,
+    pub ReadCacheInvalidationsForOverwrite: i32,
+    pub ReadCacheInvalidationsForReuse: i32,
+    pub ReadCacheInvalidationsGeneral: i32,
+    pub ReadCacheChecksOnMount: i32,
+    pub ReadCacheIssuesOnMount: i32,
+    pub TrimLatency: i32,
+    pub TrimLatencyBase: i32,
+    pub DataCompactionCount: i32,
+    pub CompactionReadLatency: i32,
+    pub CompactionReadLatencyBase: i32,
+    pub CompactionWriteLatency: i32,
+    pub CompactionWriteLatencyBase: i32,
+    pub DataInPlaceWriteClusterCount: i64,
+    pub CompactionFailedDueToIneligibleContainer: i32,
+    pub CompactionFailedDueToMaxFragmentation: i32,
+    pub CompactedContainerFillRatio: i32,
+    pub CompactedContainerFillRatioBase: i32,
+    pub ContainerMoveRetryCount: i32,
+    pub ContainerMoveFailedDueToIneligibleContainer: i32,
+    pub CompactionFailureCount: i32,
+    pub ContainerMoveFailureCount: i32,
+    pub NumberOfDirtyMetadataPages: i64,
+    pub NumberOfDirtyTableListEntries: i32,
+    pub NumberOfDeleteQueueEntries: i32,
+}
 pub const VmPrefetchInformation: VIRTUAL_MEMORY_INFORMATION_CLASS = 0i32;
 pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_LAYER: u32 = 1u32;
 pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_REGISTERED_LAYER: u32 = 4u32;
 pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_REMOTE_LAYER: u32 = 8u32;
 pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_SCRATCH: u32 = 2u32;
+pub type _LCN_WEAK_REFERENCE_STATE = i32;
+pub type _REFS_STREAM_EXTENT_PROPERTIES = i32;

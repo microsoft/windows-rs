@@ -12,15 +12,11 @@ where
     windows_targets::link!("wnvapi.dll" "system" fn WnvRequestNotification(wnvhandle : super::super::Foundation:: HANDLE, notificationparam : *mut WNV_NOTIFICATION_PARAM, overlapped : *mut super::super::System::IO:: OVERLAPPED, bytestransferred : *mut u32) -> u32);
     WnvRequestNotification(wnvhandle.param().abi(), core::mem::transmute(notificationparam), core::mem::transmute(overlapped), core::mem::transmute(bytestransferred))
 }
+pub const WNV_API_MAJOR_VERSION_1: u32 = 1u32;
+pub const WNV_API_MINOR_VERSION_0: u32 = 0u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WNV_CA_NOTIFICATION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WNV_NOTIFICATION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WNV_OBJECT_TYPE(pub i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -93,6 +89,9 @@ impl Default for WNV_NOTIFICATION_PARAM {
 impl windows_core::TypeKind for WNV_NOTIFICATION_PARAM {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WNV_NOTIFICATION_TYPE(pub i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -142,6 +141,9 @@ impl Default for WNV_OBJECT_HEADER {
 impl windows_core::TypeKind for WNV_OBJECT_HEADER {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WNV_OBJECT_TYPE(pub i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -202,8 +204,6 @@ impl Default for WNV_REDIRECT_PARAM {
 impl windows_core::TypeKind for WNV_REDIRECT_PARAM {
     type TypeKind = windows_core::CopyType;
 }
-pub const WNV_API_MAJOR_VERSION_1: u32 = 1u32;
-pub const WNV_API_MINOR_VERSION_0: u32 = 0u32;
 pub const WnvCustomerAddressAdded: WNV_CA_NOTIFICATION_TYPE = WNV_CA_NOTIFICATION_TYPE(0i32);
 pub const WnvCustomerAddressDeleted: WNV_CA_NOTIFICATION_TYPE = WNV_CA_NOTIFICATION_TYPE(1i32);
 pub const WnvCustomerAddressMax: WNV_CA_NOTIFICATION_TYPE = WNV_CA_NOTIFICATION_TYPE(3i32);

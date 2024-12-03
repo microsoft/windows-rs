@@ -1,3 +1,6 @@
+pub const DEVICE_AUTHORIZATION_ALLOWED: WindowsMediaLibrarySharingDeviceAuthorizationStatus = WindowsMediaLibrarySharingDeviceAuthorizationStatus(1i32);
+pub const DEVICE_AUTHORIZATION_DENIED: WindowsMediaLibrarySharingDeviceAuthorizationStatus = WindowsMediaLibrarySharingDeviceAuthorizationStatus(2i32);
+pub const DEVICE_AUTHORIZATION_UNKNOWN: WindowsMediaLibrarySharingDeviceAuthorizationStatus = WindowsMediaLibrarySharingDeviceAuthorizationStatus(0i32);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWindowsMediaLibrarySharingDevice, IWindowsMediaLibrarySharingDevice_Vtbl, 0x3dccc293_4fd9_4191_a25b_8e57c5d27bd4);
 #[cfg(feature = "Win32_System_Com")]
@@ -648,6 +651,3 @@ impl windows_core::RuntimeName for IWindowsMediaLibrarySharingServices {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WindowsMediaLibrarySharingDeviceAuthorizationStatus(pub i32);
 pub const WindowsMediaLibrarySharingServices: windows_core::GUID = windows_core::GUID::from_u128(0xad581b00_7b64_4e59_a38d_d2c5bf51ddb3);
-pub const DEVICE_AUTHORIZATION_ALLOWED: WindowsMediaLibrarySharingDeviceAuthorizationStatus = WindowsMediaLibrarySharingDeviceAuthorizationStatus(1i32);
-pub const DEVICE_AUTHORIZATION_DENIED: WindowsMediaLibrarySharingDeviceAuthorizationStatus = WindowsMediaLibrarySharingDeviceAuthorizationStatus(2i32);
-pub const DEVICE_AUTHORIZATION_UNKNOWN: WindowsMediaLibrarySharingDeviceAuthorizationStatus = WindowsMediaLibrarySharingDeviceAuthorizationStatus(0i32);

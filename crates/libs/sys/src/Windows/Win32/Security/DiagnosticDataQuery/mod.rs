@@ -33,7 +33,8 @@ windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetSessionAccess
 windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqGetTranscriptConfiguration(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, currentconfig : *mut DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION) -> windows_sys::core::HRESULT);
 windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqIsDiagnosticRecordSampledIn(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, providergroup : *const windows_sys::core::GUID, providerid : *const windows_sys::core::GUID, providername : windows_sys::core::PCWSTR, eventid : *const u32, eventname : windows_sys::core::PCWSTR, eventversion : *const u32, eventkeywords : *const u64, issampledin : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
 windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqSetTranscriptConfiguration(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, desiredconfig : *const DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION) -> windows_sys::core::HRESULT);
-pub type DdqAccessLevel = i32;
+pub const AllUserData: DdqAccessLevel = 2i32;
+pub const CurrentUserData: DdqAccessLevel = 1i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
@@ -145,12 +146,11 @@ pub struct DIAGNOSTIC_REPORT_SIGNATURE {
     pub eventName: [u16; 65],
     pub parameters: [DIAGNOSTIC_REPORT_PARAMETER; 10],
 }
+pub type DdqAccessLevel = i32;
 pub type HDIAGNOSTIC_DATA_QUERY_SESSION = *mut core::ffi::c_void;
 pub type HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION = *mut core::ffi::c_void;
 pub type HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION = *mut core::ffi::c_void;
 pub type HDIAGNOSTIC_EVENT_TAG_DESCRIPTION = *mut core::ffi::c_void;
 pub type HDIAGNOSTIC_RECORD = *mut core::ffi::c_void;
 pub type HDIAGNOSTIC_REPORT = *mut core::ffi::c_void;
-pub const AllUserData: DdqAccessLevel = 2i32;
-pub const CurrentUserData: DdqAccessLevel = 1i32;
 pub const NoData: DdqAccessLevel = 0i32;

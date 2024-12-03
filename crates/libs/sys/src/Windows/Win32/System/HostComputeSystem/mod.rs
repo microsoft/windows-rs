@@ -66,17 +66,7 @@ windows_targets::link!("computecore.dll" "system" fn HcsWaitForComputeSystemExit
 windows_targets::link!("computecore.dll" "system" fn HcsWaitForOperationResult(operation : HCS_OPERATION, timeoutms : u32, resultdocument : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("computecore.dll" "system" fn HcsWaitForOperationResultAndProcessInfo(operation : HCS_OPERATION, timeoutms : u32, processinformation : *mut HCS_PROCESS_INFORMATION, resultdocument : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("computecore.dll" "system" fn HcsWaitForProcessExit(computesystem : HCS_PROCESS, timeoutms : u32, result : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
-pub type HCS_EVENT_CALLBACK = Option<unsafe extern "system" fn(event: *const HCS_EVENT, context: *const core::ffi::c_void)>;
-pub type HCS_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(notificationtype: u32, context: *const core::ffi::c_void, notificationstatus: windows_sys::core::HRESULT, notificationdata: windows_sys::core::PCWSTR)>;
-pub type HCS_OPERATION_COMPLETION = Option<unsafe extern "system" fn(operation: HCS_OPERATION, context: *const core::ffi::c_void)>;
 pub type HCS_CREATE_OPTIONS = i32;
-pub type HCS_EVENT_OPTIONS = i32;
-pub type HCS_EVENT_TYPE = i32;
-pub type HCS_NOTIFICATIONS = i32;
-pub type HCS_NOTIFICATION_FLAGS = i32;
-pub type HCS_OPERATION_OPTIONS = i32;
-pub type HCS_OPERATION_TYPE = i32;
-pub type HCS_RESOURCE_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -95,7 +85,16 @@ pub struct HCS_EVENT {
     pub EventData: windows_sys::core::PCWSTR,
     pub Operation: HCS_OPERATION,
 }
+pub type HCS_EVENT_CALLBACK = Option<unsafe extern "system" fn(event: *const HCS_EVENT, context: *const core::ffi::c_void)>;
+pub type HCS_EVENT_OPTIONS = i32;
+pub type HCS_EVENT_TYPE = i32;
+pub type HCS_NOTIFICATIONS = i32;
+pub type HCS_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(notificationtype: u32, context: *const core::ffi::c_void, notificationstatus: windows_sys::core::HRESULT, notificationdata: windows_sys::core::PCWSTR)>;
+pub type HCS_NOTIFICATION_FLAGS = i32;
 pub type HCS_OPERATION = *mut core::ffi::c_void;
+pub type HCS_OPERATION_COMPLETION = Option<unsafe extern "system" fn(operation: HCS_OPERATION, context: *const core::ffi::c_void)>;
+pub type HCS_OPERATION_OPTIONS = i32;
+pub type HCS_OPERATION_TYPE = i32;
 pub type HCS_PROCESS = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -106,6 +105,7 @@ pub struct HCS_PROCESS_INFORMATION {
     pub StdOutput: super::super::Foundation::HANDLE,
     pub StdError: super::super::Foundation::HANDLE,
 }
+pub type HCS_RESOURCE_TYPE = i32;
 pub type HCS_SYSTEM = *mut core::ffi::c_void;
 pub const HcsCreateOptions_1: HCS_CREATE_OPTIONS = 65536i32;
 pub const HcsEventGroupOperationInfo: HCS_EVENT_TYPE = -1073741823i32;

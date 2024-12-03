@@ -38,6 +38,24 @@ impl windows_core::RuntimeName for DiagnosticActionResult {
 unsafe impl Send for DiagnosticActionResult {}
 unsafe impl Sync for DiagnosticActionResult {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DiagnosticActionState(pub i32);
+impl DiagnosticActionState {
+    pub const Initializing: Self = Self(0i32);
+    pub const Downloading: Self = Self(1i32);
+    pub const VerifyingTrust: Self = Self(2i32);
+    pub const Detecting: Self = Self(3i32);
+    pub const Resolving: Self = Self(4i32);
+    pub const VerifyingResolution: Self = Self(5i32);
+    pub const Executing: Self = Self(6i32);
+}
+impl windows_core::TypeKind for DiagnosticActionState {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DiagnosticActionState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.DiagnosticActionState;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DiagnosticInvoker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DiagnosticInvoker, windows_core::IUnknown, windows_core::IInspectable);
@@ -98,6 +116,241 @@ impl windows_core::RuntimeName for DiagnosticInvoker {
 }
 unsafe impl Send for DiagnosticInvoker {}
 unsafe impl Sync for DiagnosticInvoker {}
+windows_core::imp::define_interface!(IDiagnosticActionResult, IDiagnosticActionResult_Vtbl, 0xc265a296_e73b_4097_b28f_3442f03dd831);
+impl windows_core::RuntimeType for IDiagnosticActionResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IDiagnosticActionResult_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Results: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Results: usize,
+}
+windows_core::imp::define_interface!(IDiagnosticInvoker, IDiagnosticInvoker_Vtbl, 0x187b270a_02e3_4f86_84fc_fdd892b5940f);
+impl windows_core::RuntimeType for IDiagnosticInvoker {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IDiagnosticInvoker_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(all(feature = "Data_Json", feature = "Foundation_Collections"))]
+    pub RunDiagnosticActionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Data_Json", feature = "Foundation_Collections")))]
+    RunDiagnosticActionAsync: usize,
+}
+windows_core::imp::define_interface!(IDiagnosticInvoker2, IDiagnosticInvoker2_Vtbl, 0xe3bf945c_155a_4b52_a8ec_070c44f95000);
+impl windows_core::RuntimeType for IDiagnosticInvoker2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IDiagnosticInvoker2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub RunDiagnosticActionFromStringAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IDiagnosticInvokerStatics, IDiagnosticInvokerStatics_Vtbl, 0x5cfad8de_f15c_4554_a813_c113c3881b09);
+impl windows_core::RuntimeType for IDiagnosticInvokerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IDiagnosticInvokerStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetForUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IProcessCpuUsage, IProcessCpuUsage_Vtbl, 0x0bbb2472_c8bf_423a_a810_b559ae4354e2);
+impl windows_core::RuntimeType for IProcessCpuUsage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IProcessCpuUsage_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IProcessCpuUsageReport, IProcessCpuUsageReport_Vtbl, 0x8a6d9cac_3987_4e2f_a119_6b5fa214f1b4);
+impl windows_core::RuntimeType for IProcessCpuUsageReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IProcessCpuUsageReport_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub KernelTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub UserTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IProcessDiagnosticInfo, IProcessDiagnosticInfo_Vtbl, 0xe830b04b_300e_4ee6_a0ab_5b5f5231b434);
+impl windows_core::RuntimeType for IProcessDiagnosticInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IProcessDiagnosticInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ProcessId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub ExecutableFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Parent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ProcessStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub DiskUsage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub MemoryUsage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CpuUsage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IProcessDiagnosticInfo2, IProcessDiagnosticInfo2_Vtbl, 0x9558cb1a_3d0b_49ec_ab70_4f7a112805de);
+impl windows_core::RuntimeType for IProcessDiagnosticInfo2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IProcessDiagnosticInfo2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetAppDiagnosticInfos: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetAppDiagnosticInfos: usize,
+    pub IsPackaged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IProcessDiagnosticInfoStatics, IProcessDiagnosticInfoStatics_Vtbl, 0x2f41b260_b49f_428c_aa0e_84744f49ca95);
+impl windows_core::RuntimeType for IProcessDiagnosticInfoStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IProcessDiagnosticInfoStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetForProcesses: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetForProcesses: usize,
+    pub GetForCurrentProcess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IProcessDiagnosticInfoStatics2, IProcessDiagnosticInfoStatics2_Vtbl, 0x4a869897_9899_4a44_a29b_091663be09b6);
+impl windows_core::RuntimeType for IProcessDiagnosticInfoStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IProcessDiagnosticInfoStatics2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub TryGetForProcessId: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IProcessDiskUsage, IProcessDiskUsage_Vtbl, 0x5ad78bfd_7e51_4e53_bfaa_5a6ee1aabbf8);
+impl windows_core::RuntimeType for IProcessDiskUsage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IProcessDiskUsage_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IProcessDiskUsageReport, IProcessDiskUsageReport_Vtbl, 0x401627fd_535d_4c1f_81b8_da54e1be635e);
+impl windows_core::RuntimeType for IProcessDiskUsageReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IProcessDiskUsageReport_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ReadOperationCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub WriteOperationCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub OtherOperationCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub BytesReadCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub BytesWrittenCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub OtherBytesCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IProcessMemoryUsage, IProcessMemoryUsage_Vtbl, 0xf50b229b_827c_42b7_b07c_0e32627e6b3e);
+impl windows_core::RuntimeType for IProcessMemoryUsage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IProcessMemoryUsage_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IProcessMemoryUsageReport, IProcessMemoryUsageReport_Vtbl, 0xc2c77cba_1951_4685_8532_7e749ecf8eeb);
+impl windows_core::RuntimeType for IProcessMemoryUsageReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IProcessMemoryUsageReport_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub NonPagedPoolSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub PageFaultCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub PageFileSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub PagedPoolSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub PeakNonPagedPoolSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub PeakPageFileSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub PeakPagedPoolSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub PeakVirtualMemorySizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub PeakWorkingSetSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub PrivatePageCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub VirtualMemorySizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub WorkingSetSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISystemCpuUsage, ISystemCpuUsage_Vtbl, 0x6037b3ac_02d6_4234_8362_7fe3adc81f5f);
+impl windows_core::RuntimeType for ISystemCpuUsage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISystemCpuUsage_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISystemCpuUsageReport, ISystemCpuUsageReport_Vtbl, 0x2c26d0b2_9483_4f62_ab57_82b29d9719b8);
+impl windows_core::RuntimeType for ISystemCpuUsageReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISystemCpuUsageReport_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub KernelTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub UserTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub IdleTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISystemDiagnosticInfo, ISystemDiagnosticInfo_Vtbl, 0xa290fe05_dff3_407f_9a1b_0b2b317ca800);
+impl windows_core::RuntimeType for ISystemDiagnosticInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISystemDiagnosticInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub MemoryUsage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CpuUsage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISystemDiagnosticInfoStatics, ISystemDiagnosticInfoStatics_Vtbl, 0xd404ac21_fc7d_45f0_9a3f_39203aed9f7e);
+impl windows_core::RuntimeType for ISystemDiagnosticInfoStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISystemDiagnosticInfoStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetForCurrentSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISystemDiagnosticInfoStatics2, ISystemDiagnosticInfoStatics2_Vtbl, 0x79ded189_6af9_4da9_a422_15f73255b3eb);
+impl windows_core::RuntimeType for ISystemDiagnosticInfoStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISystemDiagnosticInfoStatics2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsArchitectureSupported: unsafe extern "system" fn(*mut core::ffi::c_void, super::ProcessorArchitecture, *mut bool) -> windows_core::HRESULT,
+    pub PreferredArchitecture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ProcessorArchitecture) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISystemMemoryUsage, ISystemMemoryUsage_Vtbl, 0x17ffc595_1702_49cf_aa27_2f0a32591404);
+impl windows_core::RuntimeType for ISystemMemoryUsage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISystemMemoryUsage_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISystemMemoryUsageReport, ISystemMemoryUsageReport_Vtbl, 0x38663c87_2a9f_403a_bd19_2cf3e8169500);
+impl windows_core::RuntimeType for ISystemMemoryUsageReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISystemMemoryUsageReport_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub TotalPhysicalSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub AvailableSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub CommittedSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ProcessCpuUsage(windows_core::IUnknown);
@@ -662,256 +915,3 @@ impl windows_core::RuntimeName for SystemMemoryUsageReport {
 }
 unsafe impl Send for SystemMemoryUsageReport {}
 unsafe impl Sync for SystemMemoryUsageReport {}
-windows_core::imp::define_interface!(IDiagnosticActionResult, IDiagnosticActionResult_Vtbl, 0xc265a296_e73b_4097_b28f_3442f03dd831);
-impl windows_core::RuntimeType for IDiagnosticActionResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IDiagnosticActionResult_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Results: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Results: usize,
-}
-windows_core::imp::define_interface!(IDiagnosticInvoker, IDiagnosticInvoker_Vtbl, 0x187b270a_02e3_4f86_84fc_fdd892b5940f);
-impl windows_core::RuntimeType for IDiagnosticInvoker {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IDiagnosticInvoker_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Data_Json", feature = "Foundation_Collections"))]
-    pub RunDiagnosticActionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Data_Json", feature = "Foundation_Collections")))]
-    RunDiagnosticActionAsync: usize,
-}
-windows_core::imp::define_interface!(IDiagnosticInvoker2, IDiagnosticInvoker2_Vtbl, 0xe3bf945c_155a_4b52_a8ec_070c44f95000);
-impl windows_core::RuntimeType for IDiagnosticInvoker2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IDiagnosticInvoker2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub RunDiagnosticActionFromStringAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IDiagnosticInvokerStatics, IDiagnosticInvokerStatics_Vtbl, 0x5cfad8de_f15c_4554_a813_c113c3881b09);
-impl windows_core::RuntimeType for IDiagnosticInvokerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IDiagnosticInvokerStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetForUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IProcessCpuUsage, IProcessCpuUsage_Vtbl, 0x0bbb2472_c8bf_423a_a810_b559ae4354e2);
-impl windows_core::RuntimeType for IProcessCpuUsage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IProcessCpuUsage_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IProcessCpuUsageReport, IProcessCpuUsageReport_Vtbl, 0x8a6d9cac_3987_4e2f_a119_6b5fa214f1b4);
-impl windows_core::RuntimeType for IProcessCpuUsageReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IProcessCpuUsageReport_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub KernelTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub UserTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IProcessDiagnosticInfo, IProcessDiagnosticInfo_Vtbl, 0xe830b04b_300e_4ee6_a0ab_5b5f5231b434);
-impl windows_core::RuntimeType for IProcessDiagnosticInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IProcessDiagnosticInfo_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ProcessId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub ExecutableFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Parent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ProcessStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    pub DiskUsage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub MemoryUsage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CpuUsage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IProcessDiagnosticInfo2, IProcessDiagnosticInfo2_Vtbl, 0x9558cb1a_3d0b_49ec_ab70_4f7a112805de);
-impl windows_core::RuntimeType for IProcessDiagnosticInfo2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IProcessDiagnosticInfo2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetAppDiagnosticInfos: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAppDiagnosticInfos: usize,
-    pub IsPackaged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IProcessDiagnosticInfoStatics, IProcessDiagnosticInfoStatics_Vtbl, 0x2f41b260_b49f_428c_aa0e_84744f49ca95);
-impl windows_core::RuntimeType for IProcessDiagnosticInfoStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IProcessDiagnosticInfoStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetForProcesses: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetForProcesses: usize,
-    pub GetForCurrentProcess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IProcessDiagnosticInfoStatics2, IProcessDiagnosticInfoStatics2_Vtbl, 0x4a869897_9899_4a44_a29b_091663be09b6);
-impl windows_core::RuntimeType for IProcessDiagnosticInfoStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IProcessDiagnosticInfoStatics2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub TryGetForProcessId: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IProcessDiskUsage, IProcessDiskUsage_Vtbl, 0x5ad78bfd_7e51_4e53_bfaa_5a6ee1aabbf8);
-impl windows_core::RuntimeType for IProcessDiskUsage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IProcessDiskUsage_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IProcessDiskUsageReport, IProcessDiskUsageReport_Vtbl, 0x401627fd_535d_4c1f_81b8_da54e1be635e);
-impl windows_core::RuntimeType for IProcessDiskUsageReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IProcessDiskUsageReport_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ReadOperationCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    pub WriteOperationCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    pub OtherOperationCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    pub BytesReadCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    pub BytesWrittenCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    pub OtherBytesCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IProcessMemoryUsage, IProcessMemoryUsage_Vtbl, 0xf50b229b_827c_42b7_b07c_0e32627e6b3e);
-impl windows_core::RuntimeType for IProcessMemoryUsage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IProcessMemoryUsage_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IProcessMemoryUsageReport, IProcessMemoryUsageReport_Vtbl, 0xc2c77cba_1951_4685_8532_7e749ecf8eeb);
-impl windows_core::RuntimeType for IProcessMemoryUsageReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IProcessMemoryUsageReport_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub NonPagedPoolSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub PageFaultCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub PageFileSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub PagedPoolSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub PeakNonPagedPoolSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub PeakPageFileSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub PeakPagedPoolSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub PeakVirtualMemorySizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub PeakWorkingSetSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub PrivatePageCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub VirtualMemorySizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub WorkingSetSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISystemCpuUsage, ISystemCpuUsage_Vtbl, 0x6037b3ac_02d6_4234_8362_7fe3adc81f5f);
-impl windows_core::RuntimeType for ISystemCpuUsage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISystemCpuUsage_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISystemCpuUsageReport, ISystemCpuUsageReport_Vtbl, 0x2c26d0b2_9483_4f62_ab57_82b29d9719b8);
-impl windows_core::RuntimeType for ISystemCpuUsageReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISystemCpuUsageReport_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub KernelTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub UserTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub IdleTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISystemDiagnosticInfo, ISystemDiagnosticInfo_Vtbl, 0xa290fe05_dff3_407f_9a1b_0b2b317ca800);
-impl windows_core::RuntimeType for ISystemDiagnosticInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISystemDiagnosticInfo_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub MemoryUsage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CpuUsage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISystemDiagnosticInfoStatics, ISystemDiagnosticInfoStatics_Vtbl, 0xd404ac21_fc7d_45f0_9a3f_39203aed9f7e);
-impl windows_core::RuntimeType for ISystemDiagnosticInfoStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISystemDiagnosticInfoStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetForCurrentSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISystemDiagnosticInfoStatics2, ISystemDiagnosticInfoStatics2_Vtbl, 0x79ded189_6af9_4da9_a422_15f73255b3eb);
-impl windows_core::RuntimeType for ISystemDiagnosticInfoStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISystemDiagnosticInfoStatics2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub IsArchitectureSupported: unsafe extern "system" fn(*mut core::ffi::c_void, super::ProcessorArchitecture, *mut bool) -> windows_core::HRESULT,
-    pub PreferredArchitecture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ProcessorArchitecture) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISystemMemoryUsage, ISystemMemoryUsage_Vtbl, 0x17ffc595_1702_49cf_aa27_2f0a32591404);
-impl windows_core::RuntimeType for ISystemMemoryUsage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISystemMemoryUsage_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISystemMemoryUsageReport, ISystemMemoryUsageReport_Vtbl, 0x38663c87_2a9f_403a_bd19_2cf3e8169500);
-impl windows_core::RuntimeType for ISystemMemoryUsageReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISystemMemoryUsageReport_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub TotalPhysicalSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub AvailableSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub CommittedSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DiagnosticActionState(pub i32);
-impl DiagnosticActionState {
-    pub const Initializing: Self = Self(0i32);
-    pub const Downloading: Self = Self(1i32);
-    pub const VerifyingTrust: Self = Self(2i32);
-    pub const Detecting: Self = Self(3i32);
-    pub const Resolving: Self = Self(4i32);
-    pub const VerifyingResolution: Self = Self(5i32);
-    pub const Executing: Self = Self(6i32);
-}
-impl windows_core::TypeKind for DiagnosticActionState {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DiagnosticActionState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.DiagnosticActionState;i4)");
-}

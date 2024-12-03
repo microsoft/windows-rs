@@ -1,3 +1,5 @@
+pub const CCF_SCESVC_ATTACHMENT: windows_core::PCWSTR = windows_core::w!("CCF_SCESVC_ATTACHMENT");
+pub const CCF_SCESVC_ATTACHMENT_DATA: windows_core::PCWSTR = windows_core::w!("CCF_SCESVC_ATTACHMENT_DATA");
 windows_core::imp::define_interface!(ISceSvcAttachmentData, ISceSvcAttachmentData_Vtbl, 0x17c35fde_200d_11d1_affb_00c04fb984f9);
 windows_core::imp::interface_hierarchy!(ISceSvcAttachmentData, windows_core::IUnknown);
 impl ISceSvcAttachmentData {
@@ -119,12 +121,26 @@ pub type PFSCE_QUERY_INFO = Option<unsafe extern "system" fn(scehandle: *mut cor
 pub type PFSCE_SET_INFO = Option<unsafe extern "system" fn(scehandle: *mut core::ffi::c_void, scetype: SCESVC_INFO_TYPE, lpprefix: *mut i8, bexact: super::super::Foundation::BOOL, pvinfo: *mut core::ffi::c_void) -> u32>;
 pub type PF_ConfigAnalyzeService = Option<unsafe extern "system" fn(pscecbinfo: *mut SCESVC_CALLBACK_INFO) -> u32>;
 pub type PF_UpdateService = Option<unsafe extern "system" fn(pscecbinfo: *mut SCESVC_CALLBACK_INFO, serviceinfo: *mut SCESVC_CONFIGURATION_INFO) -> u32>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCESVC_INFO_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCE_LOG_ERR_LEVEL(pub i32);
+pub const SCESTATUS_ACCESS_DENIED: i32 = 9i32;
+pub const SCESTATUS_ALREADY_RUNNING: i32 = 13i32;
+pub const SCESTATUS_BAD_FORMAT: i32 = 7i32;
+pub const SCESTATUS_BUFFER_TOO_SMALL: i32 = 5i32;
+pub const SCESTATUS_CANT_DELETE: i32 = 10i32;
+pub const SCESTATUS_EXCEPTION_IN_SERVER: i32 = 16i32;
+pub const SCESTATUS_INVALID_DATA: i32 = 3i32;
+pub const SCESTATUS_INVALID_PARAMETER: i32 = 1i32;
+pub const SCESTATUS_MOD_NOT_FOUND: i32 = 15i32;
+pub const SCESTATUS_NOT_ENOUGH_RESOURCE: i32 = 8i32;
+pub const SCESTATUS_NO_MAPPING: i32 = 18i32;
+pub const SCESTATUS_NO_TEMPLATE_GIVEN: i32 = 17i32;
+pub const SCESTATUS_OBJECT_EXIST: i32 = 4i32;
+pub const SCESTATUS_OTHER_ERROR: i32 = 12i32;
+pub const SCESTATUS_PREFIX_OVERFLOW: i32 = 11i32;
+pub const SCESTATUS_PROFILE_NOT_FOUND: i32 = 6i32;
+pub const SCESTATUS_RECORD_NOT_FOUND: i32 = 2i32;
+pub const SCESTATUS_SERVICE_NOT_SUPPORT: i32 = 14i32;
+pub const SCESTATUS_SUCCESS: i32 = 0i32;
+pub const SCESTATUS_TRUST_FAIL: i32 = 19i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCESVC_ANALYSIS_INFO {
@@ -200,29 +216,13 @@ impl Default for SCESVC_CONFIGURATION_LINE {
 impl windows_core::TypeKind for SCESVC_CONFIGURATION_LINE {
     type TypeKind = windows_core::CopyType;
 }
-pub const CCF_SCESVC_ATTACHMENT: windows_core::PCWSTR = windows_core::w!("CCF_SCESVC_ATTACHMENT");
-pub const CCF_SCESVC_ATTACHMENT_DATA: windows_core::PCWSTR = windows_core::w!("CCF_SCESVC_ATTACHMENT_DATA");
-pub const SCESTATUS_ACCESS_DENIED: i32 = 9i32;
-pub const SCESTATUS_ALREADY_RUNNING: i32 = 13i32;
-pub const SCESTATUS_BAD_FORMAT: i32 = 7i32;
-pub const SCESTATUS_BUFFER_TOO_SMALL: i32 = 5i32;
-pub const SCESTATUS_CANT_DELETE: i32 = 10i32;
-pub const SCESTATUS_EXCEPTION_IN_SERVER: i32 = 16i32;
-pub const SCESTATUS_INVALID_DATA: i32 = 3i32;
-pub const SCESTATUS_INVALID_PARAMETER: i32 = 1i32;
-pub const SCESTATUS_MOD_NOT_FOUND: i32 = 15i32;
-pub const SCESTATUS_NOT_ENOUGH_RESOURCE: i32 = 8i32;
-pub const SCESTATUS_NO_MAPPING: i32 = 18i32;
-pub const SCESTATUS_NO_TEMPLATE_GIVEN: i32 = 17i32;
-pub const SCESTATUS_OBJECT_EXIST: i32 = 4i32;
-pub const SCESTATUS_OTHER_ERROR: i32 = 12i32;
-pub const SCESTATUS_PREFIX_OVERFLOW: i32 = 11i32;
-pub const SCESTATUS_PROFILE_NOT_FOUND: i32 = 6i32;
-pub const SCESTATUS_RECORD_NOT_FOUND: i32 = 2i32;
-pub const SCESTATUS_SERVICE_NOT_SUPPORT: i32 = 14i32;
-pub const SCESTATUS_SUCCESS: i32 = 0i32;
-pub const SCESTATUS_TRUST_FAIL: i32 = 19i32;
 pub const SCESVC_ENUMERATION_MAX: i32 = 100i32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCESVC_INFO_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCE_LOG_ERR_LEVEL(pub i32);
 pub const SCE_LOG_LEVEL_ALWAYS: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(0i32);
 pub const SCE_LOG_LEVEL_DEBUG: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(3i32);
 pub const SCE_LOG_LEVEL_DETAIL: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(2i32);

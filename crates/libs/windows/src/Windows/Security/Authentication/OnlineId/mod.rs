@@ -1,4 +1,135 @@
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CredentialPromptType(pub i32);
+impl CredentialPromptType {
+    pub const PromptIfNeeded: Self = Self(0i32);
+    pub const RetypeCredentials: Self = Self(1i32);
+    pub const DoNotPrompt: Self = Self(2i32);
+}
+impl windows_core::TypeKind for CredentialPromptType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for CredentialPromptType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.OnlineId.CredentialPromptType;i4)");
+}
+windows_core::imp::define_interface!(IOnlineIdAuthenticator, IOnlineIdAuthenticator_Vtbl, 0xa003f58a_29ab_4817_b884_d7516dad18b9);
+impl windows_core::RuntimeType for IOnlineIdAuthenticator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IOnlineIdAuthenticator_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub AuthenticateUserAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub AuthenticateUserAsyncAdvanced: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, CredentialPromptType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    AuthenticateUserAsyncAdvanced: usize,
+    pub SignOutUserAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetApplicationId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
+    pub ApplicationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
+    pub CanSignOut: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub AuthenticatedSafeCustomerId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IOnlineIdServiceTicket, IOnlineIdServiceTicket_Vtbl, 0xc95c547f_d781_4a94_acb8_c59874238c26);
+impl windows_core::RuntimeType for IOnlineIdServiceTicket {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IOnlineIdServiceTicket_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IOnlineIdServiceTicketRequest, IOnlineIdServiceTicketRequest_Vtbl, 0x297445d3_fb63_4135_8909_4e354c061466);
+impl windows_core::RuntimeType for IOnlineIdServiceTicketRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IOnlineIdServiceTicketRequest_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Service: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Policy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IOnlineIdServiceTicketRequestFactory, IOnlineIdServiceTicketRequestFactory_Vtbl, 0xbebb0a08_9e73_4077_9614_08614c0bc245);
+impl windows_core::RuntimeType for IOnlineIdServiceTicketRequestFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IOnlineIdServiceTicketRequestFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateOnlineIdServiceTicketRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateOnlineIdServiceTicketRequestAdvanced: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IOnlineIdSystemAuthenticatorForUser, IOnlineIdSystemAuthenticatorForUser_Vtbl, 0x5798befb_1de4_4186_a2e6_b563f86aaf44);
+impl windows_core::RuntimeType for IOnlineIdSystemAuthenticatorForUser {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IOnlineIdSystemAuthenticatorForUser_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetTicketAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetApplicationId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
+    pub ApplicationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
+    #[cfg(feature = "System")]
+    pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "System"))]
+    User: usize,
+}
+windows_core::imp::define_interface!(IOnlineIdSystemAuthenticatorStatics, IOnlineIdSystemAuthenticatorStatics_Vtbl, 0x85047792_f634_41e3_96a4_5164e902c740);
+impl windows_core::RuntimeType for IOnlineIdSystemAuthenticatorStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IOnlineIdSystemAuthenticatorStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Default: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "System")]
+    pub GetForUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "System"))]
+    GetForUser: usize,
+}
+windows_core::imp::define_interface!(IOnlineIdSystemIdentity, IOnlineIdSystemIdentity_Vtbl, 0x743cd20d_b6ca_434d_8124_53ea12685307);
+impl windows_core::RuntimeType for IOnlineIdSystemIdentity {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IOnlineIdSystemIdentity_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Ticket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IOnlineIdSystemTicketResult, IOnlineIdSystemTicketResult_Vtbl, 0xdb0a5ff8_b098_4acd_9d13_9e640652b5b6);
+impl windows_core::RuntimeType for IOnlineIdSystemTicketResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IOnlineIdSystemTicketResult_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Identity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OnlineIdSystemTicketStatus) -> windows_core::HRESULT,
+    pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IUserIdentity, IUserIdentity_Vtbl, 0x2146d9cd_0742_4be3_8a1c_7c7ae679aa88);
+impl windows_core::RuntimeType for IUserIdentity {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IUserIdentity_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Tickets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Tickets: usize,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SafeCustomerId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SignInName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FirstName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LastName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub IsBetaAccount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsConfirmedPC: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct OnlineIdAuthenticator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OnlineIdAuthenticator, windows_core::IUnknown, windows_core::IInspectable);
@@ -307,6 +438,20 @@ impl windows_core::RuntimeName for OnlineIdSystemTicketResult {
 }
 unsafe impl Send for OnlineIdSystemTicketResult {}
 unsafe impl Sync for OnlineIdSystemTicketResult {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OnlineIdSystemTicketStatus(pub i32);
+impl OnlineIdSystemTicketStatus {
+    pub const Success: Self = Self(0i32);
+    pub const Error: Self = Self(1i32);
+    pub const ServiceConnectionError: Self = Self(2i32);
+}
+impl windows_core::TypeKind for OnlineIdSystemTicketStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for OnlineIdSystemTicketStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketStatus;i4)");
+}
 pub type SignOutUserOperation = super::super::super::Foundation::IAsyncAction;
 pub type UserAuthenticationOperation = super::super::super::Foundation::IAsyncOperation<UserIdentity>;
 #[repr(transparent)]
@@ -384,148 +529,3 @@ impl windows_core::RuntimeName for UserIdentity {
 }
 unsafe impl Send for UserIdentity {}
 unsafe impl Sync for UserIdentity {}
-windows_core::imp::define_interface!(IOnlineIdAuthenticator, IOnlineIdAuthenticator_Vtbl, 0xa003f58a_29ab_4817_b884_d7516dad18b9);
-impl windows_core::RuntimeType for IOnlineIdAuthenticator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IOnlineIdAuthenticator_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub AuthenticateUserAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub AuthenticateUserAsyncAdvanced: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, CredentialPromptType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AuthenticateUserAsyncAdvanced: usize,
-    pub SignOutUserAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetApplicationId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
-    pub ApplicationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    pub CanSignOut: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub AuthenticatedSafeCustomerId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IOnlineIdServiceTicket, IOnlineIdServiceTicket_Vtbl, 0xc95c547f_d781_4a94_acb8_c59874238c26);
-impl windows_core::RuntimeType for IOnlineIdServiceTicket {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IOnlineIdServiceTicket_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IOnlineIdServiceTicketRequest, IOnlineIdServiceTicketRequest_Vtbl, 0x297445d3_fb63_4135_8909_4e354c061466);
-impl windows_core::RuntimeType for IOnlineIdServiceTicketRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IOnlineIdServiceTicketRequest_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Service: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Policy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IOnlineIdServiceTicketRequestFactory, IOnlineIdServiceTicketRequestFactory_Vtbl, 0xbebb0a08_9e73_4077_9614_08614c0bc245);
-impl windows_core::RuntimeType for IOnlineIdServiceTicketRequestFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IOnlineIdServiceTicketRequestFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateOnlineIdServiceTicketRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateOnlineIdServiceTicketRequestAdvanced: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IOnlineIdSystemAuthenticatorForUser, IOnlineIdSystemAuthenticatorForUser_Vtbl, 0x5798befb_1de4_4186_a2e6_b563f86aaf44);
-impl windows_core::RuntimeType for IOnlineIdSystemAuthenticatorForUser {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IOnlineIdSystemAuthenticatorForUser_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetTicketAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetApplicationId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
-    pub ApplicationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "System")]
-    pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "System"))]
-    User: usize,
-}
-windows_core::imp::define_interface!(IOnlineIdSystemAuthenticatorStatics, IOnlineIdSystemAuthenticatorStatics_Vtbl, 0x85047792_f634_41e3_96a4_5164e902c740);
-impl windows_core::RuntimeType for IOnlineIdSystemAuthenticatorStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IOnlineIdSystemAuthenticatorStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Default: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "System")]
-    pub GetForUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "System"))]
-    GetForUser: usize,
-}
-windows_core::imp::define_interface!(IOnlineIdSystemIdentity, IOnlineIdSystemIdentity_Vtbl, 0x743cd20d_b6ca_434d_8124_53ea12685307);
-impl windows_core::RuntimeType for IOnlineIdSystemIdentity {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IOnlineIdSystemIdentity_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Ticket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IOnlineIdSystemTicketResult, IOnlineIdSystemTicketResult_Vtbl, 0xdb0a5ff8_b098_4acd_9d13_9e640652b5b6);
-impl windows_core::RuntimeType for IOnlineIdSystemTicketResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IOnlineIdSystemTicketResult_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Identity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OnlineIdSystemTicketStatus) -> windows_core::HRESULT,
-    pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IUserIdentity, IUserIdentity_Vtbl, 0x2146d9cd_0742_4be3_8a1c_7c7ae679aa88);
-impl windows_core::RuntimeType for IUserIdentity {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IUserIdentity_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Tickets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Tickets: usize,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SafeCustomerId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SignInName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FirstName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub LastName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsBetaAccount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsConfirmedPC: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CredentialPromptType(pub i32);
-impl CredentialPromptType {
-    pub const PromptIfNeeded: Self = Self(0i32);
-    pub const RetypeCredentials: Self = Self(1i32);
-    pub const DoNotPrompt: Self = Self(2i32);
-}
-impl windows_core::TypeKind for CredentialPromptType {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for CredentialPromptType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.OnlineId.CredentialPromptType;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OnlineIdSystemTicketStatus(pub i32);
-impl OnlineIdSystemTicketStatus {
-    pub const Success: Self = Self(0i32);
-    pub const Error: Self = Self(1i32);
-    pub const ServiceConnectionError: Self = Self(2i32);
-}
-impl windows_core::TypeKind for OnlineIdSystemTicketStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for OnlineIdSystemTicketStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketStatus;i4)");
-}

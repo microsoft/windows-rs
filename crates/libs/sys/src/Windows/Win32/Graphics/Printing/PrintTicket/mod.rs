@@ -17,11 +17,11 @@ windows_targets::link!("prntvpt.dll" "system" fn PTQuerySchemaVersionSupport(psz
 windows_targets::link!("prntvpt.dll" "system" fn PTReleaseMemory(pbuffer : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub type EDefaultDevmodeType = i32;
 pub type EPrintTicketScope = i32;
-pub type HPTPROVIDER = *mut core::ffi::c_void;
 pub const E_DELTA_PRINTTICKET_FORMAT: u32 = 2147745797u32;
 pub const E_PRINTCAPABILITIES_FORMAT: u32 = 2147745796u32;
 pub const E_PRINTDEVICECAPABILITIES_FORMAT: u32 = 2147745798u32;
 pub const E_PRINTTICKET_FORMAT: u32 = 2147745795u32;
+pub type HPTPROVIDER = *mut core::ffi::c_void;
 pub const PRINTTICKET_ISTREAM_APIS: u32 = 1u32;
 pub const S_PT_CONFLICT_RESOLVED: u32 = 262146u32;
 pub const S_PT_NO_CONFLICT: u32 = 262145u32;

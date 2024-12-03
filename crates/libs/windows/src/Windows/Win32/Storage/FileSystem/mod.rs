@@ -3337,6 +3337,2528 @@ where
     windows_targets::link!("kernel32.dll" "system" fn WriteTapemark(hdevice : super::super::Foundation:: HANDLE, dwtapemarktype : TAPEMARK_TYPE, dwtapemarkcount : u32, bimmediate : super::super::Foundation:: BOOL) -> u32);
     WriteTapemark(hdevice.param().abi(), core::mem::transmute(dwtapemarktype), core::mem::transmute(dwtapemarkcount), bimmediate.param().abi())
 }
+pub const ACCESS_ALL: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(32768u32);
+pub const ACCESS_ATRIB: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(32u32);
+pub const ACCESS_CREATE: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(4u32);
+pub const ACCESS_DELETE: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(16u32);
+pub const ACCESS_EXEC: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(8u32);
+pub const ACCESS_PERM: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(64u32);
+pub const ACCESS_READ: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(1u32);
+pub const ACCESS_WRITE: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(2u32);
+pub const BACKUP_ALTERNATE_DATA: WIN_STREAM_ID = WIN_STREAM_ID(4u32);
+pub const BACKUP_DATA: WIN_STREAM_ID = WIN_STREAM_ID(1u32);
+pub const BACKUP_EA_DATA: WIN_STREAM_ID = WIN_STREAM_ID(2u32);
+pub const BACKUP_LINK: WIN_STREAM_ID = WIN_STREAM_ID(5u32);
+pub const BACKUP_OBJECT_ID: WIN_STREAM_ID = WIN_STREAM_ID(7u32);
+pub const BACKUP_PROPERTY_DATA: WIN_STREAM_ID = WIN_STREAM_ID(6u32);
+pub const BACKUP_REPARSE_DATA: WIN_STREAM_ID = WIN_STREAM_ID(8u32);
+pub const BACKUP_SECURITY_DATA: WIN_STREAM_ID = WIN_STREAM_ID(3u32);
+pub const BACKUP_SPARSE_BLOCK: WIN_STREAM_ID = WIN_STREAM_ID(9u32);
+pub const BACKUP_TXFS_DATA: WIN_STREAM_ID = WIN_STREAM_ID(10u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct BY_HANDLE_FILE_INFORMATION {
+    pub dwFileAttributes: u32,
+    pub ftCreationTime: super::super::Foundation::FILETIME,
+    pub ftLastAccessTime: super::super::Foundation::FILETIME,
+    pub ftLastWriteTime: super::super::Foundation::FILETIME,
+    pub dwVolumeSerialNumber: u32,
+    pub nFileSizeHigh: u32,
+    pub nFileSizeLow: u32,
+    pub nNumberOfLinks: u32,
+    pub nFileIndexHigh: u32,
+    pub nFileIndexLow: u32,
+}
+impl Default for BY_HANDLE_FILE_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for BY_HANDLE_FILE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+pub const BusType1394: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(4i32);
+pub const BusTypeAta: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(3i32);
+pub const BusTypeAtapi: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(2i32);
+pub const BusTypeFibre: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(6i32);
+pub const BusTypeFileBackedVirtual: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(15i32);
+pub const BusTypeMax: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(20i32);
+pub const BusTypeMaxReserved: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(127i32);
+pub const BusTypeMmc: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(13i32);
+pub const BusTypeNvme: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(17i32);
+pub const BusTypeRAID: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(8i32);
+pub const BusTypeSCM: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(18i32);
+pub const BusTypeSas: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(10i32);
+pub const BusTypeSata: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(11i32);
+pub const BusTypeScsi: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(1i32);
+pub const BusTypeSd: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(12i32);
+pub const BusTypeSpaces: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(16i32);
+pub const BusTypeSsa: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(5i32);
+pub const BusTypeUfs: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(19i32);
+pub const BusTypeUnknown: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(0i32);
+pub const BusTypeUsb: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(7i32);
+pub const BusTypeVirtual: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(14i32);
+pub const BusTypeiScsi: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(9i32);
+#[cfg(feature = "Win32_Security")]
+pub type CACHE_ACCESS_CHECK = Option<unsafe extern "system" fn(psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, hclienttoken: super::super::Foundation::HANDLE, dwdesiredaccess: u32, genericmapping: *mut super::super::Security::GENERIC_MAPPING, privilegeset: *mut super::super::Security::PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
+pub type CACHE_DESTROY_CALLBACK = Option<unsafe extern "system" fn(cb: u32, lpb: *mut u8)>;
+pub type CACHE_KEY_COMPARE = Option<unsafe extern "system" fn(cbkey1: u32, lpbkey1: *mut u8, cbkey2: u32, lpbkey2: *mut u8) -> i32>;
+pub type CACHE_KEY_HASH = Option<unsafe extern "system" fn(lpbkey: *mut u8, cbkey: u32) -> u32>;
+pub type CACHE_READ_CALLBACK = Option<unsafe extern "system" fn(cb: u32, lpb: *mut u8, lpvcontext: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub const CALLBACK_CHUNK_FINISHED: LPPROGRESS_ROUTINE_CALLBACK_REASON = LPPROGRESS_ROUTINE_CALLBACK_REASON(0u32);
+pub const CALLBACK_STREAM_SWITCH: LPPROGRESS_ROUTINE_CALLBACK_REASON = LPPROGRESS_ROUTINE_CALLBACK_REASON(1u32);
+pub type CLAIMMEDIALABEL = Option<unsafe extern "system" fn(pbuffer: *const u8, nbuffersize: u32, plabelinfo: *mut MediaLabelInfo) -> u32>;
+pub type CLAIMMEDIALABELEX = Option<unsafe extern "system" fn(pbuffer: *const u8, nbuffersize: u32, plabelinfo: *mut MediaLabelInfo, labelguid: *mut windows_core::GUID) -> u32>;
+pub const CLFS_BASELOG_EXTENSION: windows_core::PCWSTR = windows_core::w!(".blf");
+pub type CLFS_BLOCK_ALLOCATION = Option<unsafe extern "system" fn(cbbufferlength: u32, pvusercontext: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
+pub type CLFS_BLOCK_DEALLOCATION = Option<unsafe extern "system" fn(pvbuffer: *mut core::ffi::c_void, pvusercontext: *mut core::ffi::c_void)>;
+pub const CLFS_CONTAINER_RELATIVE_PREFIX: windows_core::PCWSTR = windows_core::w!("%BLF%\\");
+pub const CLFS_CONTAINER_STREAM_PREFIX: windows_core::PCWSTR = windows_core::w!("%BLF%:");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CLFS_CONTEXT_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CLFS_FLAG(pub u32);
+impl CLFS_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for CLFS_FLAG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for CLFS_FLAG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for CLFS_FLAG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for CLFS_FLAG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for CLFS_FLAG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const CLFS_FLAG_FILTER_INTERMEDIATE_LEVEL: u32 = 16u32;
+pub const CLFS_FLAG_FILTER_TOP_LEVEL: u32 = 32u32;
+pub const CLFS_FLAG_FORCE_APPEND: CLFS_FLAG = CLFS_FLAG(1u32);
+pub const CLFS_FLAG_FORCE_FLUSH: CLFS_FLAG = CLFS_FLAG(2u32);
+pub const CLFS_FLAG_HIDDEN_SYSTEM_LOG: u32 = 512u32;
+pub const CLFS_FLAG_IGNORE_SHARE_ACCESS: u32 = 64u32;
+pub const CLFS_FLAG_MINIFILTER_LEVEL: u32 = 256u32;
+pub const CLFS_FLAG_NON_REENTRANT_FILTER: u32 = 16u32;
+pub const CLFS_FLAG_NO_FLAGS: CLFS_FLAG = CLFS_FLAG(0u32);
+pub const CLFS_FLAG_READ_IN_PROGRESS: u32 = 128u32;
+pub const CLFS_FLAG_REENTRANT_FILE_SYSTEM: u32 = 8u32;
+pub const CLFS_FLAG_REENTRANT_FILTER: u32 = 32u32;
+pub const CLFS_FLAG_USE_RESERVATION: CLFS_FLAG = CLFS_FLAG(4u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CLFS_IOSTATS_CLASS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CLFS_LOG_ARCHIVE_MODE(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_LOG_NAME_INFORMATION {
+    pub NameLengthInBytes: u16,
+    pub Name: [u16; 1],
+}
+impl Default for CLFS_LOG_NAME_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_LOG_NAME_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CLFS_MARSHALLING_FLAG_DISABLE_BUFF_INIT: u32 = 1u32;
+pub const CLFS_MARSHALLING_FLAG_NONE: u32 = 0u32;
+pub const CLFS_MAX_CONTAINER_INFO: u32 = 256u32;
+pub const CLFS_MGMT_CLIENT_REGISTRATION_VERSION: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_MGMT_NOTIFICATION {
+    pub Notification: CLFS_MGMT_NOTIFICATION_TYPE,
+    pub Lsn: CLS_LSN,
+    pub LogIsPinned: u16,
+}
+impl Default for CLFS_MGMT_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_MGMT_NOTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CLFS_MGMT_NOTIFICATION_TYPE(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLFS_MGMT_POLICY {
+    pub Version: u32,
+    pub LengthInBytes: u32,
+    pub PolicyFlags: u32,
+    pub PolicyType: CLFS_MGMT_POLICY_TYPE,
+    pub PolicyParameters: CLFS_MGMT_POLICY_0,
+}
+impl Default for CLFS_MGMT_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_MGMT_POLICY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union CLFS_MGMT_POLICY_0 {
+    pub MaximumSize: CLFS_MGMT_POLICY_0_0,
+    pub MinimumSize: CLFS_MGMT_POLICY_0_1,
+    pub NewContainerSize: CLFS_MGMT_POLICY_0_2,
+    pub GrowthRate: CLFS_MGMT_POLICY_0_3,
+    pub LogTail: CLFS_MGMT_POLICY_0_4,
+    pub AutoShrink: CLFS_MGMT_POLICY_0_5,
+    pub AutoGrow: CLFS_MGMT_POLICY_0_6,
+    pub NewContainerPrefix: CLFS_MGMT_POLICY_0_7,
+    pub NewContainerSuffix: CLFS_MGMT_POLICY_0_8,
+    pub NewContainerExtension: CLFS_MGMT_POLICY_0_9,
+}
+impl Default for CLFS_MGMT_POLICY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_MGMT_POLICY_0_6 {
+    pub Enabled: u32,
+}
+impl Default for CLFS_MGMT_POLICY_0_6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_6 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_MGMT_POLICY_0_5 {
+    pub Percentage: u32,
+}
+impl Default for CLFS_MGMT_POLICY_0_5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_5 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_MGMT_POLICY_0_3 {
+    pub AbsoluteGrowthInContainers: u32,
+    pub RelativeGrowthPercentage: u32,
+}
+impl Default for CLFS_MGMT_POLICY_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_3 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_MGMT_POLICY_0_4 {
+    pub MinimumAvailablePercentage: u32,
+    pub MinimumAvailableContainers: u32,
+}
+impl Default for CLFS_MGMT_POLICY_0_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_4 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_MGMT_POLICY_0_0 {
+    pub Containers: u32,
+}
+impl Default for CLFS_MGMT_POLICY_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_MGMT_POLICY_0_1 {
+    pub Containers: u32,
+}
+impl Default for CLFS_MGMT_POLICY_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_MGMT_POLICY_0_9 {
+    pub ExtensionLengthInBytes: u16,
+    pub ExtensionString: [u16; 1],
+}
+impl Default for CLFS_MGMT_POLICY_0_9 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_9 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_MGMT_POLICY_0_7 {
+    pub PrefixLengthInBytes: u16,
+    pub PrefixString: [u16; 1],
+}
+impl Default for CLFS_MGMT_POLICY_0_7 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_7 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_MGMT_POLICY_0_2 {
+    pub SizeInBytes: u32,
+}
+impl Default for CLFS_MGMT_POLICY_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_MGMT_POLICY_0_8 {
+    pub NextContainerSuffix: u64,
+}
+impl Default for CLFS_MGMT_POLICY_0_8 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_8 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CLFS_MGMT_POLICY_TYPE(pub i32);
+pub const CLFS_MGMT_POLICY_VERSION: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_NODE_ID {
+    pub cType: u32,
+    pub cbNode: u32,
+}
+impl Default for CLFS_NODE_ID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_NODE_ID {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_PHYSICAL_LSN_INFORMATION {
+    pub StreamIdentifier: u8,
+    pub VirtualLsn: CLS_LSN,
+    pub PhysicalLsn: CLS_LSN,
+}
+impl Default for CLFS_PHYSICAL_LSN_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_PHYSICAL_LSN_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CLFS_SCAN_BACKWARD: u8 = 4u8;
+pub const CLFS_SCAN_BUFFERED: u8 = 32u8;
+pub const CLFS_SCAN_CLOSE: u8 = 8u8;
+pub const CLFS_SCAN_FORWARD: u8 = 2u8;
+pub const CLFS_SCAN_INIT: u8 = 1u8;
+pub const CLFS_SCAN_INITIALIZED: u8 = 16u8;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLFS_STREAM_ID_INFORMATION {
+    pub StreamIdentifier: u8,
+}
+impl Default for CLFS_STREAM_ID_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLFS_STREAM_ID_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CLSID_DiskQuotaControl: windows_core::GUID = windows_core::GUID::from_u128(0x7988b571_ec89_11cf_9c00_00aa00a14f56);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLS_ARCHIVE_DESCRIPTOR {
+    pub coffLow: u64,
+    pub coffHigh: u64,
+    pub infoContainer: CLS_CONTAINER_INFORMATION,
+}
+impl Default for CLS_ARCHIVE_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLS_ARCHIVE_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLS_CONTAINER_INFORMATION {
+    pub FileAttributes: u32,
+    pub CreationTime: u64,
+    pub LastAccessTime: u64,
+    pub LastWriteTime: u64,
+    pub ContainerSize: i64,
+    pub FileNameActualLength: u32,
+    pub FileNameLength: u32,
+    pub FileName: [u16; 256],
+    pub State: u32,
+    pub PhysicalContainerId: u32,
+    pub LogicalContainerId: u32,
+}
+impl Default for CLS_CONTAINER_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLS_CONTAINER_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CLS_CONTEXT_MODE(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLS_INFORMATION {
+    pub TotalAvailable: i64,
+    pub CurrentAvailable: i64,
+    pub TotalReservation: i64,
+    pub BaseFileSize: u64,
+    pub ContainerSize: u64,
+    pub TotalContainers: u32,
+    pub FreeContainers: u32,
+    pub TotalClients: u32,
+    pub Attributes: u32,
+    pub FlushThreshold: u32,
+    pub SectorSize: u32,
+    pub MinArchiveTailLsn: CLS_LSN,
+    pub BaseLsn: CLS_LSN,
+    pub LastFlushedLsn: CLS_LSN,
+    pub LastLsn: CLS_LSN,
+    pub RestartLsn: CLS_LSN,
+    pub Identity: windows_core::GUID,
+}
+impl Default for CLS_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLS_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CLS_IOSTATS_CLASS(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLS_IO_STATISTICS {
+    pub hdrIoStats: CLS_IO_STATISTICS_HEADER,
+    pub cFlush: u64,
+    pub cbFlush: u64,
+    pub cMetaFlush: u64,
+    pub cbMetaFlush: u64,
+}
+impl Default for CLS_IO_STATISTICS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLS_IO_STATISTICS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLS_IO_STATISTICS_HEADER {
+    pub ubMajorVersion: u8,
+    pub ubMinorVersion: u8,
+    pub eStatsClass: CLFS_IOSTATS_CLASS,
+    pub cbLength: u16,
+    pub coffData: u32,
+}
+impl Default for CLS_IO_STATISTICS_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLS_IO_STATISTICS_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CLS_LOG_INFORMATION_CLASS(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLS_LSN {
+    pub Internal: u64,
+}
+impl Default for CLS_LSN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLS_LSN {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLS_SCAN_CONTEXT {
+    pub cidNode: CLFS_NODE_ID,
+    pub hLog: super::super::Foundation::HANDLE,
+    pub cIndex: u32,
+    pub cContainers: u32,
+    pub cContainersReturned: u32,
+    pub eScanMode: u8,
+    pub pinfoContainer: *mut CLS_CONTAINER_INFORMATION,
+}
+impl Default for CLS_SCAN_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLS_SCAN_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLS_WRITE_ENTRY {
+    pub Buffer: *mut core::ffi::c_void,
+    pub ByteLength: u32,
+}
+impl Default for CLS_WRITE_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLS_WRITE_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COMPRESSION_FORMAT(pub u16);
+pub const COMPRESSION_FORMAT_DEFAULT: COMPRESSION_FORMAT = COMPRESSION_FORMAT(1u16);
+pub const COMPRESSION_FORMAT_LZNT1: COMPRESSION_FORMAT = COMPRESSION_FORMAT(2u16);
+pub const COMPRESSION_FORMAT_NONE: COMPRESSION_FORMAT = COMPRESSION_FORMAT(0u16);
+pub const COMPRESSION_FORMAT_XP10: COMPRESSION_FORMAT = COMPRESSION_FORMAT(5u16);
+pub const COMPRESSION_FORMAT_XPRESS: COMPRESSION_FORMAT = COMPRESSION_FORMAT(3u16);
+pub const COMPRESSION_FORMAT_XPRESS_HUFF: COMPRESSION_FORMAT = COMPRESSION_FORMAT(4u16);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CONNECTION_INFO_0 {
+    pub coni0_id: u32,
+}
+impl Default for CONNECTION_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CONNECTION_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CONNECTION_INFO_1 {
+    pub coni1_id: u32,
+    pub coni1_type: SHARE_TYPE,
+    pub coni1_num_opens: u32,
+    pub coni1_num_users: u32,
+    pub coni1_time: u32,
+    pub coni1_username: windows_core::PWSTR,
+    pub coni1_netname: windows_core::PWSTR,
+}
+impl Default for CONNECTION_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CONNECTION_INFO_1 {
+    type TypeKind = windows_core::CopyType;
+}
+pub const COPYFILE2_CALLBACK_CHUNK_FINISHED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(2i32);
+pub const COPYFILE2_CALLBACK_CHUNK_STARTED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(1i32);
+pub const COPYFILE2_CALLBACK_ERROR: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(6i32);
+pub const COPYFILE2_CALLBACK_MAX: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(7i32);
+pub const COPYFILE2_CALLBACK_NONE: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(0i32);
+pub const COPYFILE2_CALLBACK_POLL_CONTINUE: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(5i32);
+pub const COPYFILE2_CALLBACK_STREAM_FINISHED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(4i32);
+pub const COPYFILE2_CALLBACK_STREAM_STARTED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COPYFILE2_COPY_PHASE(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COPYFILE2_EXTENDED_PARAMETERS {
+    pub dwSize: u32,
+    pub dwCopyFlags: COPYFILE_FLAGS,
+    pub pfCancel: *mut super::super::Foundation::BOOL,
+    pub pProgressRoutine: PCOPYFILE2_PROGRESS_ROUTINE,
+    pub pvCallbackContext: *mut core::ffi::c_void,
+}
+impl Default for COPYFILE2_EXTENDED_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COPYFILE2_EXTENDED_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COPYFILE2_EXTENDED_PARAMETERS_V2 {
+    pub dwSize: u32,
+    pub dwCopyFlags: COPYFILE_FLAGS,
+    pub pfCancel: *mut super::super::Foundation::BOOL,
+    pub pProgressRoutine: PCOPYFILE2_PROGRESS_ROUTINE,
+    pub pvCallbackContext: *mut core::ffi::c_void,
+    pub dwCopyFlagsV2: COPYFILE2_V2_FLAGS,
+    pub ioDesiredSize: u32,
+    pub ioDesiredRate: u32,
+    pub reserved: [*mut core::ffi::c_void; 8],
+}
+impl Default for COPYFILE2_EXTENDED_PARAMETERS_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COPYFILE2_EXTENDED_PARAMETERS_V2 {
+    type TypeKind = windows_core::CopyType;
+}
+pub const COPYFILE2_IO_CYCLE_SIZE_MAX: u32 = 1073741824u32;
+pub const COPYFILE2_IO_CYCLE_SIZE_MIN: u32 = 4096u32;
+pub const COPYFILE2_IO_RATE_MIN: u32 = 512u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct COPYFILE2_MESSAGE {
+    pub Type: COPYFILE2_MESSAGE_TYPE,
+    pub dwPadding: u32,
+    pub Info: COPYFILE2_MESSAGE_0,
+}
+impl Default for COPYFILE2_MESSAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COPYFILE2_MESSAGE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union COPYFILE2_MESSAGE_0 {
+    pub ChunkStarted: COPYFILE2_MESSAGE_0_0,
+    pub ChunkFinished: COPYFILE2_MESSAGE_0_1,
+    pub StreamStarted: COPYFILE2_MESSAGE_0_2,
+    pub StreamFinished: COPYFILE2_MESSAGE_0_3,
+    pub PollContinue: COPYFILE2_MESSAGE_0_4,
+    pub Error: COPYFILE2_MESSAGE_0_5,
+}
+impl Default for COPYFILE2_MESSAGE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COPYFILE2_MESSAGE_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COPYFILE2_MESSAGE_0_1 {
+    pub dwStreamNumber: u32,
+    pub dwFlags: u32,
+    pub hSourceFile: super::super::Foundation::HANDLE,
+    pub hDestinationFile: super::super::Foundation::HANDLE,
+    pub uliChunkNumber: u64,
+    pub uliChunkSize: u64,
+    pub uliStreamSize: u64,
+    pub uliStreamBytesTransferred: u64,
+    pub uliTotalFileSize: u64,
+    pub uliTotalBytesTransferred: u64,
+}
+impl Default for COPYFILE2_MESSAGE_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COPYFILE2_MESSAGE_0_0 {
+    pub dwStreamNumber: u32,
+    pub dwReserved: u32,
+    pub hSourceFile: super::super::Foundation::HANDLE,
+    pub hDestinationFile: super::super::Foundation::HANDLE,
+    pub uliChunkNumber: u64,
+    pub uliChunkSize: u64,
+    pub uliStreamSize: u64,
+    pub uliTotalFileSize: u64,
+}
+impl Default for COPYFILE2_MESSAGE_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COPYFILE2_MESSAGE_0_5 {
+    pub CopyPhase: COPYFILE2_COPY_PHASE,
+    pub dwStreamNumber: u32,
+    pub hrFailure: windows_core::HRESULT,
+    pub dwReserved: u32,
+    pub uliChunkNumber: u64,
+    pub uliStreamSize: u64,
+    pub uliStreamBytesTransferred: u64,
+    pub uliTotalFileSize: u64,
+    pub uliTotalBytesTransferred: u64,
+}
+impl Default for COPYFILE2_MESSAGE_0_5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_5 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COPYFILE2_MESSAGE_0_4 {
+    pub dwReserved: u32,
+}
+impl Default for COPYFILE2_MESSAGE_0_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_4 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COPYFILE2_MESSAGE_0_3 {
+    pub dwStreamNumber: u32,
+    pub dwReserved: u32,
+    pub hSourceFile: super::super::Foundation::HANDLE,
+    pub hDestinationFile: super::super::Foundation::HANDLE,
+    pub uliStreamSize: u64,
+    pub uliStreamBytesTransferred: u64,
+    pub uliTotalFileSize: u64,
+    pub uliTotalBytesTransferred: u64,
+}
+impl Default for COPYFILE2_MESSAGE_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_3 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COPYFILE2_MESSAGE_0_2 {
+    pub dwStreamNumber: u32,
+    pub dwReserved: u32,
+    pub hSourceFile: super::super::Foundation::HANDLE,
+    pub hDestinationFile: super::super::Foundation::HANDLE,
+    pub uliStreamSize: u64,
+    pub uliTotalFileSize: u64,
+}
+impl Default for COPYFILE2_MESSAGE_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COPYFILE2_MESSAGE_ACTION(pub i32);
+pub const COPYFILE2_MESSAGE_COPY_OFFLOAD: i32 = 1i32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COPYFILE2_MESSAGE_TYPE(pub i32);
+pub const COPYFILE2_PHASE_MAX: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(7i32);
+pub const COPYFILE2_PHASE_NAMEGRAFT_COPY: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(6i32);
+pub const COPYFILE2_PHASE_NONE: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(0i32);
+pub const COPYFILE2_PHASE_PREPARE_DEST: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(2i32);
+pub const COPYFILE2_PHASE_PREPARE_SOURCE: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(1i32);
+pub const COPYFILE2_PHASE_READ_SOURCE: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(3i32);
+pub const COPYFILE2_PHASE_SERVER_COPY: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(5i32);
+pub const COPYFILE2_PHASE_WRITE_DESTINATION: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(4i32);
+pub const COPYFILE2_PROGRESS_CANCEL: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(1i32);
+pub const COPYFILE2_PROGRESS_CONTINUE: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(0i32);
+pub const COPYFILE2_PROGRESS_PAUSE: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(4i32);
+pub const COPYFILE2_PROGRESS_QUIET: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(3i32);
+pub const COPYFILE2_PROGRESS_STOP: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COPYFILE2_V2_FLAGS(pub u32);
+impl COPYFILE2_V2_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for COPYFILE2_V2_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for COPYFILE2_V2_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for COPYFILE2_V2_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for COPYFILE2_V2_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for COPYFILE2_V2_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COPYFILE_FLAGS(pub u32);
+impl COPYFILE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for COPYFILE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for COPYFILE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for COPYFILE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for COPYFILE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for COPYFILE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COPYPROGRESSROUTINE_PROGRESS(pub u32);
+impl COPYPROGRESSROUTINE_PROGRESS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for COPYPROGRESSROUTINE_PROGRESS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for COPYPROGRESSROUTINE_PROGRESS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for COPYPROGRESSROUTINE_PROGRESS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for COPYPROGRESSROUTINE_PROGRESS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for COPYPROGRESSROUTINE_PROGRESS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const COPY_FILE2_V2_DONT_COPY_JUNCTIONS: COPYFILE2_V2_FLAGS = COPYFILE2_V2_FLAGS(1u32);
+pub const COPY_FILE2_V2_VALID_FLAGS: COPYFILE2_V2_FLAGS = COPYFILE2_V2_FLAGS(1u32);
+pub const COPY_FILE_ALLOW_DECRYPTED_DESTINATION: COPYFILE_FLAGS = COPYFILE_FLAGS(8u32);
+pub const COPY_FILE_COPY_SYMLINK: COPYFILE_FLAGS = COPYFILE_FLAGS(2048u32);
+pub const COPY_FILE_DIRECTORY: COPYFILE_FLAGS = COPYFILE_FLAGS(128u32);
+pub const COPY_FILE_DISABLE_PRE_ALLOCATION: COPYFILE_FLAGS = COPYFILE_FLAGS(67108864u32);
+pub const COPY_FILE_DONT_REQUEST_DEST_WRITE_DAC: COPYFILE_FLAGS = COPYFILE_FLAGS(33554432u32);
+pub const COPY_FILE_ENABLE_LOW_FREE_SPACE_MODE: COPYFILE_FLAGS = COPYFILE_FLAGS(134217728u32);
+pub const COPY_FILE_ENABLE_SPARSE_COPY: COPYFILE_FLAGS = COPYFILE_FLAGS(536870912u32);
+pub const COPY_FILE_FAIL_IF_EXISTS: COPYFILE_FLAGS = COPYFILE_FLAGS(1u32);
+pub const COPY_FILE_IGNORE_EDP_BLOCK: COPYFILE_FLAGS = COPYFILE_FLAGS(4194304u32);
+pub const COPY_FILE_IGNORE_SOURCE_ENCRYPTION: COPYFILE_FLAGS = COPYFILE_FLAGS(8388608u32);
+pub const COPY_FILE_NO_BUFFERING: COPYFILE_FLAGS = COPYFILE_FLAGS(4096u32);
+pub const COPY_FILE_NO_OFFLOAD: COPYFILE_FLAGS = COPYFILE_FLAGS(262144u32);
+pub const COPY_FILE_OPEN_AND_COPY_REPARSE_POINT: COPYFILE_FLAGS = COPYFILE_FLAGS(2097152u32);
+pub const COPY_FILE_OPEN_SOURCE_FOR_WRITE: COPYFILE_FLAGS = COPYFILE_FLAGS(4u32);
+pub const COPY_FILE_REQUEST_COMPRESSED_TRAFFIC: COPYFILE_FLAGS = COPYFILE_FLAGS(268435456u32);
+pub const COPY_FILE_REQUEST_SECURITY_PRIVILEGES: COPYFILE_FLAGS = COPYFILE_FLAGS(8192u32);
+pub const COPY_FILE_RESTARTABLE: COPYFILE_FLAGS = COPYFILE_FLAGS(2u32);
+pub const COPY_FILE_RESUME_FROM_PAUSE: COPYFILE_FLAGS = COPYFILE_FLAGS(16384u32);
+pub const COPY_FILE_SKIP_ALTERNATE_STREAMS: COPYFILE_FLAGS = COPYFILE_FLAGS(32768u32);
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CREATEFILE2_EXTENDED_PARAMETERS {
+    pub dwSize: u32,
+    pub dwFileAttributes: u32,
+    pub dwFileFlags: u32,
+    pub dwSecurityQosFlags: u32,
+    pub lpSecurityAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
+    pub hTemplateFile: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for CREATEFILE2_EXTENDED_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for CREATEFILE2_EXTENDED_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CREATE_ALWAYS: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(2u32);
+pub const CREATE_NEW: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(1u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CREATE_TAPE_PARTITION_METHOD(pub u32);
+pub const CRM_PROTOCOL_DYNAMIC_MARSHAL_INFO: u32 = 2u32;
+pub const CRM_PROTOCOL_EXPLICIT_MARSHAL_ONLY: u32 = 1u32;
+pub const CRM_PROTOCOL_MAXIMUM_OPTION: u32 = 3u32;
+pub const CSC_CACHE_AUTO_REINT: u32 = 16u32;
+pub const CSC_CACHE_MANUAL_REINT: u32 = 0u32;
+pub const CSC_CACHE_NONE: u32 = 48u32;
+pub const CSC_CACHE_VDO: u32 = 32u32;
+pub const CSC_MASK: u32 = 48u32;
+pub const CSC_MASK_EXT: u32 = 8240u32;
+pub const CSV_BLOCK_AND_FILE_CACHE_CALLBACK_VERSION: u32 = 2u32;
+pub const CSV_BLOCK_CACHE_CALLBACK_VERSION: u32 = 1u32;
+pub const ClfsClientRecord: u8 = 3u8;
+pub const ClfsContainerActive: u32 = 4u32;
+pub const ClfsContainerActivePendingDelete: u32 = 8u32;
+pub const ClfsContainerInactive: u32 = 2u32;
+pub const ClfsContainerInitializing: u32 = 1u32;
+pub const ClfsContainerPendingArchive: u32 = 16u32;
+pub const ClfsContainerPendingArchiveAndDelete: u32 = 32u32;
+pub const ClfsContextForward: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(3i32);
+pub const ClfsContextNone: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(0i32);
+pub const ClfsContextPrevious: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(2i32);
+pub const ClfsContextUndoNext: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(1i32);
+pub const ClfsDataRecord: u8 = 1u8;
+pub const ClfsIoStatsDefault: CLFS_IOSTATS_CLASS = CLFS_IOSTATS_CLASS(0i32);
+pub const ClfsIoStatsMax: CLFS_IOSTATS_CLASS = CLFS_IOSTATS_CLASS(65535i32);
+pub const ClfsLogArchiveDisabled: CLFS_LOG_ARCHIVE_MODE = CLFS_LOG_ARCHIVE_MODE(2i32);
+pub const ClfsLogArchiveEnabled: CLFS_LOG_ARCHIVE_MODE = CLFS_LOG_ARCHIVE_MODE(1i32);
+pub const ClfsLogBasicInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(0i32);
+pub const ClfsLogBasicInformationPhysical: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(1i32);
+pub const ClfsLogPhysicalLsnInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(5i32);
+pub const ClfsLogPhysicalNameInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(2i32);
+pub const ClfsLogStreamIdentifierInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(3i32);
+pub const ClfsLogSystemMarkingInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(4i32);
+pub const ClfsMgmtAdvanceTailNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(0i32);
+pub const ClfsMgmtLogFullHandlerNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(1i32);
+pub const ClfsMgmtLogUnpinnedNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(2i32);
+pub const ClfsMgmtLogWriteNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(3i32);
+pub const ClfsMgmtPolicyAutoGrow: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(6i32);
+pub const ClfsMgmtPolicyAutoShrink: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(5i32);
+pub const ClfsMgmtPolicyGrowthRate: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(3i32);
+pub const ClfsMgmtPolicyInvalid: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(10i32);
+pub const ClfsMgmtPolicyLogTail: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(4i32);
+pub const ClfsMgmtPolicyMaximumSize: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(0i32);
+pub const ClfsMgmtPolicyMinimumSize: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(1i32);
+pub const ClfsMgmtPolicyNewContainerExtension: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(9i32);
+pub const ClfsMgmtPolicyNewContainerPrefix: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(7i32);
+pub const ClfsMgmtPolicyNewContainerSize: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(2i32);
+pub const ClfsMgmtPolicyNewContainerSuffix: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(8i32);
+pub const ClfsNullRecord: u8 = 0u8;
+pub const ClfsRestartRecord: u8 = 2u8;
+pub const ClsContainerActive: u32 = 4u32;
+pub const ClsContainerActivePendingDelete: u32 = 8u32;
+pub const ClsContainerInactive: u32 = 2u32;
+pub const ClsContainerInitializing: u32 = 1u32;
+pub const ClsContainerPendingArchive: u32 = 16u32;
+pub const ClsContainerPendingArchiveAndDelete: u32 = 32u32;
+pub const ClsContextForward: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(3i32);
+pub const ClsContextNone: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(0i32);
+pub const ClsContextPrevious: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(2i32);
+pub const ClsContextUndoNext: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(1i32);
+pub const ClsIoStatsDefault: CLS_IOSTATS_CLASS = CLS_IOSTATS_CLASS(0i32);
+pub const ClsIoStatsMax: CLS_IOSTATS_CLASS = CLS_IOSTATS_CLASS(65535i32);
+pub const DDD_EXACT_MATCH_ON_REMOVE: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(4u32);
+pub const DDD_LUID_BROADCAST_DRIVE: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(16u32);
+pub const DDD_NO_BROADCAST_SYSTEM: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(8u32);
+pub const DDD_RAW_TARGET_PATH: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(1u32);
+pub const DDD_REMOVE_DEFINITION: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(2u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DEFINE_DOS_DEVICE_FLAGS(pub u32);
+impl DEFINE_DOS_DEVICE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DEFINE_DOS_DEVICE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DEFINE_DOS_DEVICE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DEFINE_DOS_DEVICE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DEFINE_DOS_DEVICE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DEFINE_DOS_DEVICE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const DELETE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(65536u32);
+pub const DISKQUOTA_FILESTATE_INCOMPLETE: u32 = 256u32;
+pub const DISKQUOTA_FILESTATE_MASK: u32 = 768u32;
+pub const DISKQUOTA_FILESTATE_REBUILDING: u32 = 512u32;
+pub const DISKQUOTA_LOGFLAG_USER_LIMIT: u32 = 2u32;
+pub const DISKQUOTA_LOGFLAG_USER_THRESHOLD: u32 = 1u32;
+pub const DISKQUOTA_STATE_DISABLED: u32 = 0u32;
+pub const DISKQUOTA_STATE_ENFORCE: u32 = 2u32;
+pub const DISKQUOTA_STATE_MASK: u32 = 3u32;
+pub const DISKQUOTA_STATE_TRACK: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISKQUOTA_USERNAME_RESOLVE(pub u32);
+pub const DISKQUOTA_USERNAME_RESOLVE_ASYNC: DISKQUOTA_USERNAME_RESOLVE = DISKQUOTA_USERNAME_RESOLVE(2u32);
+pub const DISKQUOTA_USERNAME_RESOLVE_NONE: DISKQUOTA_USERNAME_RESOLVE = DISKQUOTA_USERNAME_RESOLVE(0u32);
+pub const DISKQUOTA_USERNAME_RESOLVE_SYNC: DISKQUOTA_USERNAME_RESOLVE = DISKQUOTA_USERNAME_RESOLVE(1u32);
+pub const DISKQUOTA_USER_ACCOUNT_DELETED: u32 = 2u32;
+pub const DISKQUOTA_USER_ACCOUNT_INVALID: u32 = 3u32;
+pub const DISKQUOTA_USER_ACCOUNT_RESOLVED: u32 = 0u32;
+pub const DISKQUOTA_USER_ACCOUNT_UNAVAILABLE: u32 = 1u32;
+pub const DISKQUOTA_USER_ACCOUNT_UNKNOWN: u32 = 4u32;
+pub const DISKQUOTA_USER_ACCOUNT_UNRESOLVED: u32 = 5u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DISKQUOTA_USER_INFORMATION {
+    pub QuotaUsed: i64,
+    pub QuotaThreshold: i64,
+    pub QuotaLimit: i64,
+}
+impl Default for DISKQUOTA_USER_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DISKQUOTA_USER_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DISK_SPACE_INFORMATION {
+    pub ActualTotalAllocationUnits: u64,
+    pub ActualAvailableAllocationUnits: u64,
+    pub ActualPoolUnavailableAllocationUnits: u64,
+    pub CallerTotalAllocationUnits: u64,
+    pub CallerAvailableAllocationUnits: u64,
+    pub CallerPoolUnavailableAllocationUnits: u64,
+    pub UsedAllocationUnits: u64,
+    pub TotalReservedAllocationUnits: u64,
+    pub VolumeStorageReserveAllocationUnits: u64,
+    pub AvailableCommittedAllocationUnits: u64,
+    pub PoolAvailableAllocationUnits: u64,
+    pub SectorsPerAllocationUnit: u32,
+    pub BytesPerSector: u32,
+}
+impl Default for DISK_SPACE_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DISK_SPACE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+pub const EA_CONTAINER_NAME: windows_core::PCSTR = windows_core::s!("ContainerName");
+pub const EA_CONTAINER_SIZE: windows_core::PCSTR = windows_core::s!("ContainerSize");
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EFS_CERTIFICATE_BLOB {
+    pub dwCertEncodingType: u32,
+    pub cbData: u32,
+    pub pbData: *mut u8,
+}
+impl Default for EFS_CERTIFICATE_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for EFS_CERTIFICATE_BLOB {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EFS_COMPATIBILITY_INFO {
+    pub EfsVersion: u32,
+}
+impl Default for EFS_COMPATIBILITY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for EFS_COMPATIBILITY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const EFS_COMPATIBILITY_VERSION_NCRYPT_PROTECTOR: u32 = 5u32;
+pub const EFS_COMPATIBILITY_VERSION_PFILE_PROTECTOR: u32 = 6u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EFS_DECRYPTION_STATUS_INFO {
+    pub dwDecryptionError: u32,
+    pub dwHashOffset: u32,
+    pub cbHash: u32,
+}
+impl Default for EFS_DECRYPTION_STATUS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for EFS_DECRYPTION_STATUS_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const EFS_EFS_SUBVER_EFS_CERT: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EFS_ENCRYPTION_STATUS_INFO {
+    pub bHasCurrentKey: super::super::Foundation::BOOL,
+    pub dwEncryptionError: u32,
+}
+impl Default for EFS_ENCRYPTION_STATUS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for EFS_ENCRYPTION_STATUS_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EFS_HASH_BLOB {
+    pub cbData: u32,
+    pub pbData: *mut u8,
+}
+impl Default for EFS_HASH_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for EFS_HASH_BLOB {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EFS_KEY_INFO {
+    pub dwVersion: u32,
+    pub Entropy: u32,
+    pub Algorithm: super::super::Security::Cryptography::ALG_ID,
+    pub KeyLength: u32,
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl Default for EFS_KEY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl windows_core::TypeKind for EFS_KEY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const EFS_METADATA_ADD_USER: u32 = 1u32;
+pub const EFS_METADATA_GENERAL_OP: u32 = 8u32;
+pub const EFS_METADATA_REMOVE_USER: u32 = 2u32;
+pub const EFS_METADATA_REPLACE_USER: u32 = 4u32;
+pub const EFS_PFILE_SUBVER_APPX: u32 = 3u32;
+pub const EFS_PFILE_SUBVER_RMS: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EFS_PIN_BLOB {
+    pub cbPadding: u32,
+    pub cbData: u32,
+    pub pbData: *mut u8,
+}
+impl Default for EFS_PIN_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for EFS_PIN_BLOB {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EFS_RPC_BLOB {
+    pub cbData: u32,
+    pub pbData: *mut u8,
+}
+impl Default for EFS_RPC_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for EFS_RPC_BLOB {
+    type TypeKind = windows_core::CopyType;
+}
+pub const EFS_SUBVER_UNKNOWN: u32 = 0u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EFS_VERSION_INFO {
+    pub EfsVersion: u32,
+    pub SubVersion: u32,
+}
+impl Default for EFS_VERSION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for EFS_VERSION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENCRYPTED_FILE_METADATA_SIGNATURE {
+    pub dwEfsAccessType: u32,
+    pub pCertificatesAdded: *mut ENCRYPTION_CERTIFICATE_HASH_LIST,
+    pub pEncryptionCertificate: *mut ENCRYPTION_CERTIFICATE,
+    pub pEfsStreamSignature: *mut EFS_RPC_BLOB,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for ENCRYPTED_FILE_METADATA_SIGNATURE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for ENCRYPTED_FILE_METADATA_SIGNATURE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENCRYPTION_CERTIFICATE {
+    pub cbTotalLength: u32,
+    pub pUserSid: *mut super::super::Security::SID,
+    pub pCertBlob: *mut EFS_CERTIFICATE_BLOB,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for ENCRYPTION_CERTIFICATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for ENCRYPTION_CERTIFICATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENCRYPTION_CERTIFICATE_HASH {
+    pub cbTotalLength: u32,
+    pub pUserSid: *mut super::super::Security::SID,
+    pub pHash: *mut EFS_HASH_BLOB,
+    pub lpDisplayInformation: windows_core::PWSTR,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for ENCRYPTION_CERTIFICATE_HASH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for ENCRYPTION_CERTIFICATE_HASH {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENCRYPTION_CERTIFICATE_HASH_LIST {
+    pub nCert_Hash: u32,
+    pub pUsers: *mut *mut ENCRYPTION_CERTIFICATE_HASH,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for ENCRYPTION_CERTIFICATE_HASH_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for ENCRYPTION_CERTIFICATE_HASH_LIST {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENCRYPTION_CERTIFICATE_LIST {
+    pub nUsers: u32,
+    pub pUsers: *mut *mut ENCRYPTION_CERTIFICATE,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for ENCRYPTION_CERTIFICATE_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for ENCRYPTION_CERTIFICATE_LIST {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENCRYPTION_PROTECTOR {
+    pub cbTotalLength: u32,
+    pub pUserSid: *mut super::super::Security::SID,
+    pub lpProtectorDescriptor: windows_core::PWSTR,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for ENCRYPTION_PROTECTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for ENCRYPTION_PROTECTOR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENCRYPTION_PROTECTOR_LIST {
+    pub nProtectors: u32,
+    pub pProtectors: *mut *mut ENCRYPTION_PROTECTOR,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for ENCRYPTION_PROTECTOR_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for ENCRYPTION_PROTECTOR_LIST {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ENLISTMENT_MAXIMUM_OPTION: u32 = 1u32;
+pub const ENLISTMENT_OBJECT_PATH: windows_core::PCWSTR = windows_core::w!("\\Enlistment\\");
+pub const ENLISTMENT_SUPERIOR: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ERASE_TAPE_TYPE(pub u32);
+pub const ExtendedFileIdType: FILE_ID_TYPE = FILE_ID_TYPE(2i32);
+pub type FCACHE_CREATE_CALLBACK = Option<unsafe extern "system" fn(lpstrname: windows_core::PCSTR, lpvdata: *mut core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32) -> super::super::Foundation::HANDLE>;
+pub type FCACHE_RICHCREATE_CALLBACK = Option<unsafe extern "system" fn(lpstrname: windows_core::PCSTR, lpvdata: *mut core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32, pfdidwescanit: *mut super::super::Foundation::BOOL, pfisstuffed: *mut super::super::Foundation::BOOL, pfstoredwithdots: *mut super::super::Foundation::BOOL, pfstoredwithterminatingdot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE>;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FH_OVERLAPPED {
+    pub Internal: usize,
+    pub InternalHigh: usize,
+    pub Offset: u32,
+    pub OffsetHigh: u32,
+    pub hEvent: super::super::Foundation::HANDLE,
+    pub pfnCompletion: PFN_IO_COMPLETION,
+    pub Reserved1: usize,
+    pub Reserved2: usize,
+    pub Reserved3: usize,
+    pub Reserved4: usize,
+}
+impl Default for FH_OVERLAPPED {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FH_OVERLAPPED {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_ACCESS_RIGHTS(pub u32);
+impl FILE_ACCESS_RIGHTS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for FILE_ACCESS_RIGHTS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for FILE_ACCESS_RIGHTS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for FILE_ACCESS_RIGHTS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for FILE_ACCESS_RIGHTS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for FILE_ACCESS_RIGHTS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_ACTION(pub u32);
+pub const FILE_ACTION_ADDED: FILE_ACTION = FILE_ACTION(1u32);
+pub const FILE_ACTION_MODIFIED: FILE_ACTION = FILE_ACTION(3u32);
+pub const FILE_ACTION_REMOVED: FILE_ACTION = FILE_ACTION(2u32);
+pub const FILE_ACTION_RENAMED_NEW_NAME: FILE_ACTION = FILE_ACTION(5u32);
+pub const FILE_ACTION_RENAMED_OLD_NAME: FILE_ACTION = FILE_ACTION(4u32);
+pub const FILE_ADD_FILE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(2u32);
+pub const FILE_ADD_SUBDIRECTORY: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(4u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_ALIGNMENT_INFO {
+    pub AlignmentRequirement: u32,
+}
+impl Default for FILE_ALIGNMENT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_ALIGNMENT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_ALLOCATION_INFO {
+    pub AllocationSize: i64,
+}
+impl Default for FILE_ALLOCATION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_ALLOCATION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const FILE_ALL_ACCESS: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(2032127u32);
+pub const FILE_APPEND_DATA: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(4u32);
+pub const FILE_ATTRIBUTE_ARCHIVE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(32u32);
+pub const FILE_ATTRIBUTE_COMPRESSED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2048u32);
+pub const FILE_ATTRIBUTE_DEVICE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(64u32);
+pub const FILE_ATTRIBUTE_DIRECTORY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(16u32);
+pub const FILE_ATTRIBUTE_EA: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(262144u32);
+pub const FILE_ATTRIBUTE_ENCRYPTED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(16384u32);
+pub const FILE_ATTRIBUTE_HIDDEN: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2u32);
+pub const FILE_ATTRIBUTE_INTEGRITY_STREAM: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(32768u32);
+pub const FILE_ATTRIBUTE_NORMAL: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(128u32);
+pub const FILE_ATTRIBUTE_NOT_CONTENT_INDEXED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(8192u32);
+pub const FILE_ATTRIBUTE_NO_SCRUB_DATA: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(131072u32);
+pub const FILE_ATTRIBUTE_OFFLINE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(4096u32);
+pub const FILE_ATTRIBUTE_PINNED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(524288u32);
+pub const FILE_ATTRIBUTE_READONLY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1u32);
+pub const FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(4194304u32);
+pub const FILE_ATTRIBUTE_RECALL_ON_OPEN: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(262144u32);
+pub const FILE_ATTRIBUTE_REPARSE_POINT: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1024u32);
+pub const FILE_ATTRIBUTE_SPARSE_FILE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(512u32);
+pub const FILE_ATTRIBUTE_SYSTEM: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(4u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_ATTRIBUTE_TAG_INFO {
+    pub FileAttributes: u32,
+    pub ReparseTag: u32,
+}
+impl Default for FILE_ATTRIBUTE_TAG_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_ATTRIBUTE_TAG_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const FILE_ATTRIBUTE_TEMPORARY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(256u32);
+pub const FILE_ATTRIBUTE_UNPINNED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1048576u32);
+pub const FILE_ATTRIBUTE_VIRTUAL: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(65536u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_BASIC_INFO {
+    pub CreationTime: i64,
+    pub LastAccessTime: i64,
+    pub LastWriteTime: i64,
+    pub ChangeTime: i64,
+    pub FileAttributes: u32,
+}
+impl Default for FILE_BASIC_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_BASIC_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const FILE_BEGIN: SET_FILE_POINTER_MOVE_METHOD = SET_FILE_POINTER_MOVE_METHOD(0u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_CASE_SENSITIVE_INFO {
+    pub Flags: u32,
+}
+impl Default for FILE_CASE_SENSITIVE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_CASE_SENSITIVE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_COMPRESSION_INFO {
+    pub CompressedFileSize: i64,
+    pub CompressionFormat: COMPRESSION_FORMAT,
+    pub CompressionUnitShift: u8,
+    pub ChunkShift: u8,
+    pub ClusterShift: u8,
+    pub Reserved: [u8; 3],
+}
+impl Default for FILE_COMPRESSION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_COMPRESSION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const FILE_CREATE_PIPE_INSTANCE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(4u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_CREATION_DISPOSITION(pub u32);
+pub const FILE_CURRENT: SET_FILE_POINTER_MOVE_METHOD = SET_FILE_POINTER_MOVE_METHOD(1u32);
+pub const FILE_DELETE_CHILD: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(64u32);
+pub const FILE_DEVICE_CD_ROM: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(2u32);
+pub const FILE_DEVICE_DISK: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(7u32);
+pub const FILE_DEVICE_DVD: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(51u32);
+pub const FILE_DEVICE_TAPE: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(31u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_DEVICE_TYPE(pub u32);
+pub const FILE_DISPOSITION_FLAG_DELETE: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(1u32);
+pub const FILE_DISPOSITION_FLAG_DO_NOT_DELETE: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(0u32);
+pub const FILE_DISPOSITION_FLAG_FORCE_IMAGE_SECTION_CHECK: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(4u32);
+pub const FILE_DISPOSITION_FLAG_IGNORE_READONLY_ATTRIBUTE: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(16u32);
+pub const FILE_DISPOSITION_FLAG_ON_CLOSE: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(8u32);
+pub const FILE_DISPOSITION_FLAG_POSIX_SEMANTICS: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(2u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_DISPOSITION_INFO {
+    pub DeleteFile: super::super::Foundation::BOOLEAN,
+}
+impl Default for FILE_DISPOSITION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_DISPOSITION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_DISPOSITION_INFO_EX {
+    pub Flags: FILE_DISPOSITION_INFO_EX_FLAGS,
+}
+impl Default for FILE_DISPOSITION_INFO_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_DISPOSITION_INFO_EX {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_DISPOSITION_INFO_EX_FLAGS(pub u32);
+pub const FILE_END: SET_FILE_POINTER_MOVE_METHOD = SET_FILE_POINTER_MOVE_METHOD(2u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_END_OF_FILE_INFO {
+    pub EndOfFile: i64,
+}
+impl Default for FILE_END_OF_FILE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_END_OF_FILE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const FILE_EXECUTE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(32u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_EXTENT {
+    pub VolumeOffset: u64,
+    pub ExtentLength: u64,
+}
+impl Default for FILE_EXTENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_EXTENT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_FLAGS_AND_ATTRIBUTES(pub u32);
+impl FILE_FLAGS_AND_ATTRIBUTES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for FILE_FLAGS_AND_ATTRIBUTES {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for FILE_FLAGS_AND_ATTRIBUTES {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for FILE_FLAGS_AND_ATTRIBUTES {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for FILE_FLAGS_AND_ATTRIBUTES {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for FILE_FLAGS_AND_ATTRIBUTES {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const FILE_FLAG_BACKUP_SEMANTICS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(33554432u32);
+pub const FILE_FLAG_DELETE_ON_CLOSE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(67108864u32);
+pub const FILE_FLAG_FIRST_PIPE_INSTANCE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(524288u32);
+pub const FILE_FLAG_NO_BUFFERING: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(536870912u32);
+pub const FILE_FLAG_OPEN_NO_RECALL: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1048576u32);
+pub const FILE_FLAG_OPEN_REPARSE_POINT: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2097152u32);
+pub const FILE_FLAG_OVERLAPPED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1073741824u32);
+pub const FILE_FLAG_POSIX_SEMANTICS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(16777216u32);
+pub const FILE_FLAG_RANDOM_ACCESS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(268435456u32);
+pub const FILE_FLAG_SEQUENTIAL_SCAN: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(134217728u32);
+pub const FILE_FLAG_SESSION_AWARE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(8388608u32);
+pub const FILE_FLAG_WRITE_THROUGH: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2147483648u32);
+pub const FILE_FLUSH_DATA: FILE_FLUSH_MODE = FILE_FLUSH_MODE(1i32);
+pub const FILE_FLUSH_DEFAULT: FILE_FLUSH_MODE = FILE_FLUSH_MODE(0i32);
+pub const FILE_FLUSH_MIN_METADATA: FILE_FLUSH_MODE = FILE_FLUSH_MODE(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_FLUSH_MODE(pub i32);
+pub const FILE_FLUSH_NO_SYNC: FILE_FLUSH_MODE = FILE_FLUSH_MODE(3i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_FULL_DIR_INFO {
+    pub NextEntryOffset: u32,
+    pub FileIndex: u32,
+    pub CreationTime: i64,
+    pub LastAccessTime: i64,
+    pub LastWriteTime: i64,
+    pub ChangeTime: i64,
+    pub EndOfFile: i64,
+    pub AllocationSize: i64,
+    pub FileAttributes: u32,
+    pub FileNameLength: u32,
+    pub EaSize: u32,
+    pub FileName: [u16; 1],
+}
+impl Default for FILE_FULL_DIR_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_FULL_DIR_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const FILE_GENERIC_EXECUTE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(1179808u32);
+pub const FILE_GENERIC_READ: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(1179785u32);
+pub const FILE_GENERIC_WRITE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(1179926u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_ID_128 {
+    pub Identifier: [u8; 16],
+}
+impl Default for FILE_ID_128 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_ID_128 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_ID_BOTH_DIR_INFO {
+    pub NextEntryOffset: u32,
+    pub FileIndex: u32,
+    pub CreationTime: i64,
+    pub LastAccessTime: i64,
+    pub LastWriteTime: i64,
+    pub ChangeTime: i64,
+    pub EndOfFile: i64,
+    pub AllocationSize: i64,
+    pub FileAttributes: u32,
+    pub FileNameLength: u32,
+    pub EaSize: u32,
+    pub ShortNameLength: i8,
+    pub ShortName: [u16; 12],
+    pub FileId: i64,
+    pub FileName: [u16; 1],
+}
+impl Default for FILE_ID_BOTH_DIR_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_ID_BOTH_DIR_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FILE_ID_DESCRIPTOR {
+    pub dwSize: u32,
+    pub Type: FILE_ID_TYPE,
+    pub Anonymous: FILE_ID_DESCRIPTOR_0,
+}
+impl Default for FILE_ID_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_ID_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union FILE_ID_DESCRIPTOR_0 {
+    pub FileId: i64,
+    pub ObjectId: windows_core::GUID,
+    pub ExtendedFileId: FILE_ID_128,
+}
+impl Default for FILE_ID_DESCRIPTOR_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_ID_DESCRIPTOR_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_ID_EXTD_DIR_INFO {
+    pub NextEntryOffset: u32,
+    pub FileIndex: u32,
+    pub CreationTime: i64,
+    pub LastAccessTime: i64,
+    pub LastWriteTime: i64,
+    pub ChangeTime: i64,
+    pub EndOfFile: i64,
+    pub AllocationSize: i64,
+    pub FileAttributes: u32,
+    pub FileNameLength: u32,
+    pub EaSize: u32,
+    pub ReparsePointTag: u32,
+    pub FileId: FILE_ID_128,
+    pub FileName: [u16; 1],
+}
+impl Default for FILE_ID_EXTD_DIR_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_ID_EXTD_DIR_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_ID_INFO {
+    pub VolumeSerialNumber: u64,
+    pub FileId: FILE_ID_128,
+}
+impl Default for FILE_ID_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_ID_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_ID_TYPE(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_INFO_2 {
+    pub fi2_id: u32,
+}
+impl Default for FILE_INFO_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_INFO_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_INFO_3 {
+    pub fi3_id: u32,
+    pub fi3_permissions: FILE_INFO_FLAGS_PERMISSIONS,
+    pub fi3_num_locks: u32,
+    pub fi3_pathname: windows_core::PWSTR,
+    pub fi3_username: windows_core::PWSTR,
+}
+impl Default for FILE_INFO_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_INFO_3 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_INFO_BY_HANDLE_CLASS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_INFO_FLAGS_PERMISSIONS(pub u32);
+impl FILE_INFO_FLAGS_PERMISSIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for FILE_INFO_FLAGS_PERMISSIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for FILE_INFO_FLAGS_PERMISSIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for FILE_INFO_FLAGS_PERMISSIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for FILE_INFO_FLAGS_PERMISSIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for FILE_INFO_FLAGS_PERMISSIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_IO_PRIORITY_HINT_INFO {
+    pub PriorityHint: PRIORITY_HINT,
+}
+impl Default for FILE_IO_PRIORITY_HINT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_IO_PRIORITY_HINT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const FILE_LIST_DIRECTORY: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(1u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_NAME_INFO {
+    pub FileNameLength: u32,
+    pub FileName: [u16; 1],
+}
+impl Default for FILE_NAME_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_NAME_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const FILE_NAME_NORMALIZED: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(0u32);
+pub const FILE_NAME_OPENED: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(8u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_NOTIFY_CHANGE(pub u32);
+impl FILE_NOTIFY_CHANGE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for FILE_NOTIFY_CHANGE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for FILE_NOTIFY_CHANGE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for FILE_NOTIFY_CHANGE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for FILE_NOTIFY_CHANGE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for FILE_NOTIFY_CHANGE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const FILE_NOTIFY_CHANGE_ATTRIBUTES: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(4u32);
+pub const FILE_NOTIFY_CHANGE_CREATION: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(64u32);
+pub const FILE_NOTIFY_CHANGE_DIR_NAME: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(2u32);
+pub const FILE_NOTIFY_CHANGE_FILE_NAME: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(1u32);
+pub const FILE_NOTIFY_CHANGE_LAST_ACCESS: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(32u32);
+pub const FILE_NOTIFY_CHANGE_LAST_WRITE: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(16u32);
+pub const FILE_NOTIFY_CHANGE_SECURITY: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(256u32);
+pub const FILE_NOTIFY_CHANGE_SIZE: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(8u32);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FILE_NOTIFY_EXTENDED_INFORMATION {
+    pub NextEntryOffset: u32,
+    pub Action: FILE_ACTION,
+    pub CreationTime: i64,
+    pub LastModificationTime: i64,
+    pub LastChangeTime: i64,
+    pub LastAccessTime: i64,
+    pub AllocatedLength: i64,
+    pub FileSize: i64,
+    pub FileAttributes: u32,
+    pub Anonymous: FILE_NOTIFY_EXTENDED_INFORMATION_0,
+    pub FileId: i64,
+    pub ParentFileId: i64,
+    pub FileNameLength: u32,
+    pub FileName: [u16; 1],
+}
+impl Default for FILE_NOTIFY_EXTENDED_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_NOTIFY_EXTENDED_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union FILE_NOTIFY_EXTENDED_INFORMATION_0 {
+    pub ReparsePointTag: u32,
+    pub EaSize: u32,
+}
+impl Default for FILE_NOTIFY_EXTENDED_INFORMATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_NOTIFY_EXTENDED_INFORMATION_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_NOTIFY_INFORMATION {
+    pub NextEntryOffset: u32,
+    pub Action: FILE_ACTION,
+    pub FileNameLength: u32,
+    pub FileName: [u16; 1],
+}
+impl Default for FILE_NOTIFY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_NOTIFY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+pub const FILE_PROVIDER_COMPRESSION_LZX: u32 = 1u32;
+pub const FILE_PROVIDER_COMPRESSION_XPRESS16K: u32 = 3u32;
+pub const FILE_PROVIDER_COMPRESSION_XPRESS4K: u32 = 0u32;
+pub const FILE_PROVIDER_COMPRESSION_XPRESS8K: u32 = 2u32;
+pub const FILE_READ_ATTRIBUTES: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(128u32);
+pub const FILE_READ_DATA: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(1u32);
+pub const FILE_READ_EA: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(8u32);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FILE_REMOTE_PROTOCOL_INFO {
+    pub StructureVersion: u16,
+    pub StructureSize: u16,
+    pub Protocol: u32,
+    pub ProtocolMajorVersion: u16,
+    pub ProtocolMinorVersion: u16,
+    pub ProtocolRevision: u16,
+    pub Reserved: u16,
+    pub Flags: u32,
+    pub GenericReserved: FILE_REMOTE_PROTOCOL_INFO_0,
+    pub ProtocolSpecific: FILE_REMOTE_PROTOCOL_INFO_1,
+}
+impl Default for FILE_REMOTE_PROTOCOL_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_REMOTE_PROTOCOL_INFO_0 {
+    pub Reserved: [u32; 8],
+}
+impl Default for FILE_REMOTE_PROTOCOL_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union FILE_REMOTE_PROTOCOL_INFO_1 {
+    pub Smb2: FILE_REMOTE_PROTOCOL_INFO_1_0,
+    pub Reserved: [u32; 16],
+}
+impl Default for FILE_REMOTE_PROTOCOL_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_REMOTE_PROTOCOL_INFO_1_0 {
+    pub Server: FILE_REMOTE_PROTOCOL_INFO_1_0_0,
+    pub Share: FILE_REMOTE_PROTOCOL_INFO_1_0_1,
+}
+impl Default for FILE_REMOTE_PROTOCOL_INFO_1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_1_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
+    pub Capabilities: u32,
+}
+impl Default for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
+    pub Capabilities: u32,
+    pub ShareFlags: u32,
+}
+impl Default for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FILE_RENAME_INFO {
+    pub Anonymous: FILE_RENAME_INFO_0,
+    pub RootDirectory: super::super::Foundation::HANDLE,
+    pub FileNameLength: u32,
+    pub FileName: [u16; 1],
+}
+impl Default for FILE_RENAME_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_RENAME_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union FILE_RENAME_INFO_0 {
+    pub ReplaceIfExists: super::super::Foundation::BOOLEAN,
+    pub Flags: u32,
+}
+impl Default for FILE_RENAME_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_RENAME_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union FILE_SEGMENT_ELEMENT {
+    pub Buffer: *mut core::ffi::c_void,
+    pub Alignment: u64,
+}
+impl Default for FILE_SEGMENT_ELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_SEGMENT_ELEMENT {
+    type TypeKind = windows_core::CopyType;
+}
+pub const FILE_SHARE_DELETE: FILE_SHARE_MODE = FILE_SHARE_MODE(4u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_SHARE_MODE(pub u32);
+impl FILE_SHARE_MODE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for FILE_SHARE_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for FILE_SHARE_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for FILE_SHARE_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for FILE_SHARE_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for FILE_SHARE_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const FILE_SHARE_NONE: FILE_SHARE_MODE = FILE_SHARE_MODE(0u32);
+pub const FILE_SHARE_READ: FILE_SHARE_MODE = FILE_SHARE_MODE(1u32);
+pub const FILE_SHARE_WRITE: FILE_SHARE_MODE = FILE_SHARE_MODE(2u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_STANDARD_INFO {
+    pub AllocationSize: i64,
+    pub EndOfFile: i64,
+    pub NumberOfLinks: u32,
+    pub DeletePending: super::super::Foundation::BOOLEAN,
+    pub Directory: super::super::Foundation::BOOLEAN,
+}
+impl Default for FILE_STANDARD_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_STANDARD_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_STORAGE_INFO {
+    pub LogicalBytesPerSector: u32,
+    pub PhysicalBytesPerSectorForAtomicity: u32,
+    pub PhysicalBytesPerSectorForPerformance: u32,
+    pub FileSystemEffectivePhysicalBytesPerSectorForAtomicity: u32,
+    pub Flags: u32,
+    pub ByteOffsetForSectorAlignment: u32,
+    pub ByteOffsetForPartitionAlignment: u32,
+}
+impl Default for FILE_STORAGE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_STORAGE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_STREAM_INFO {
+    pub NextEntryOffset: u32,
+    pub StreamNameLength: u32,
+    pub StreamSize: i64,
+    pub StreamAllocationSize: i64,
+    pub StreamName: [u16; 1],
+}
+impl Default for FILE_STREAM_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILE_STREAM_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const FILE_TRAVERSE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(32u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_TYPE(pub u32);
+pub const FILE_TYPE_CHAR: FILE_TYPE = FILE_TYPE(2u32);
+pub const FILE_TYPE_DISK: FILE_TYPE = FILE_TYPE(1u32);
+pub const FILE_TYPE_PIPE: FILE_TYPE = FILE_TYPE(3u32);
+pub const FILE_TYPE_REMOTE: FILE_TYPE = FILE_TYPE(32768u32);
+pub const FILE_TYPE_UNKNOWN: FILE_TYPE = FILE_TYPE(0u32);
+pub const FILE_VER_GET_LOCALISED: GET_FILE_VERSION_INFO_FLAGS = GET_FILE_VERSION_INFO_FLAGS(1u32);
+pub const FILE_VER_GET_NEUTRAL: GET_FILE_VERSION_INFO_FLAGS = GET_FILE_VERSION_INFO_FLAGS(2u32);
+pub const FILE_VER_GET_PREFETCHED: GET_FILE_VERSION_INFO_FLAGS = GET_FILE_VERSION_INFO_FLAGS(4u32);
+pub const FILE_WRITE_ATTRIBUTES: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(256u32);
+pub const FILE_WRITE_DATA: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(2u32);
+pub const FILE_WRITE_EA: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(16u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILE_WRITE_FLAGS(pub i32);
+impl FILE_WRITE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for FILE_WRITE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for FILE_WRITE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for FILE_WRITE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for FILE_WRITE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for FILE_WRITE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const FILE_WRITE_FLAGS_NONE: FILE_WRITE_FLAGS = FILE_WRITE_FLAGS(0i32);
+pub const FILE_WRITE_FLAGS_WRITE_THROUGH: FILE_WRITE_FLAGS = FILE_WRITE_FLAGS(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FINDEX_INFO_LEVELS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FINDEX_SEARCH_OPS(pub i32);
+pub const FIND_FIRST_EX_CASE_SENSITIVE: FIND_FIRST_EX_FLAGS = FIND_FIRST_EX_FLAGS(1u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FIND_FIRST_EX_FLAGS(pub u32);
+impl FIND_FIRST_EX_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for FIND_FIRST_EX_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for FIND_FIRST_EX_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for FIND_FIRST_EX_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for FIND_FIRST_EX_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for FIND_FIRST_EX_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const FIND_FIRST_EX_LARGE_FETCH: FIND_FIRST_EX_FLAGS = FIND_FIRST_EX_FLAGS(2u32);
+pub const FIND_FIRST_EX_ON_DISK_ENTRIES_ONLY: FIND_FIRST_EX_FLAGS = FIND_FIRST_EX_FLAGS(4u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FIO_CONTEXT {
+    pub m_dwTempHack: u32,
+    pub m_dwSignature: u32,
+    pub m_hFile: super::super::Foundation::HANDLE,
+    pub m_dwLinesOffset: u32,
+    pub m_dwHeaderLength: u32,
+}
+impl Default for FIO_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FIO_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+pub const FileAlignmentInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(17i32);
+pub const FileAllocationInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(5i32);
+pub const FileAttributeTagInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(9i32);
+pub const FileBasicInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(0i32);
+pub const FileCaseSensitiveInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(23i32);
+pub const FileCompressionInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(8i32);
+pub const FileDispositionInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(4i32);
+pub const FileDispositionInfoEx: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(21i32);
+pub const FileEndOfFileInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(6i32);
+pub const FileFullDirectoryInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(14i32);
+pub const FileFullDirectoryRestartInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(15i32);
+pub const FileIdBothDirectoryInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(10i32);
+pub const FileIdBothDirectoryRestartInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(11i32);
+pub const FileIdExtdDirectoryInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(19i32);
+pub const FileIdExtdDirectoryRestartInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(20i32);
+pub const FileIdInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(18i32);
+pub const FileIdType: FILE_ID_TYPE = FILE_ID_TYPE(0i32);
+pub const FileIoPriorityHintInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(12i32);
+pub const FileNameInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(2i32);
+pub const FileNormalizedNameInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(24i32);
+pub const FileRemoteProtocolInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(13i32);
+pub const FileRenameInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(3i32);
+pub const FileRenameInfoEx: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(22i32);
+pub const FileStandardInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(1i32);
+pub const FileStorageInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(16i32);
+pub const FileStreamInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(7i32);
+pub const FindExInfoBasic: FINDEX_INFO_LEVELS = FINDEX_INFO_LEVELS(1i32);
+pub const FindExInfoMaxInfoLevel: FINDEX_INFO_LEVELS = FINDEX_INFO_LEVELS(2i32);
+pub const FindExInfoStandard: FINDEX_INFO_LEVELS = FINDEX_INFO_LEVELS(0i32);
+pub const FindExSearchLimitToDevices: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(2i32);
+pub const FindExSearchLimitToDirectories: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(1i32);
+pub const FindExSearchMaxSearchOp: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(3i32);
+pub const FindExSearchNameMatch: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(0i32);
+pub const FindStreamInfoMaxInfoLevel: STREAM_INFO_LEVELS = STREAM_INFO_LEVELS(1i32);
+pub const FindStreamInfoStandard: STREAM_INFO_LEVELS = STREAM_INFO_LEVELS(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GETFINALPATHNAMEBYHANDLE_FLAGS(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GET_FILEEX_INFO_LEVELS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GET_FILE_VERSION_INFO_FLAGS(pub u32);
+impl GET_FILE_VERSION_INFO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for GET_FILE_VERSION_INFO_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for GET_FILE_VERSION_INFO_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for GET_FILE_VERSION_INFO_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for GET_FILE_VERSION_INFO_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for GET_FILE_VERSION_INFO_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const GET_TAPE_DRIVE_INFORMATION: GET_TAPE_DRIVE_PARAMETERS_OPERATION = GET_TAPE_DRIVE_PARAMETERS_OPERATION(1u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GET_TAPE_DRIVE_PARAMETERS_OPERATION(pub u32);
+pub const GET_TAPE_MEDIA_INFORMATION: GET_TAPE_DRIVE_PARAMETERS_OPERATION = GET_TAPE_DRIVE_PARAMETERS_OPERATION(0u32);
+pub const GetFileExInfoStandard: GET_FILEEX_INFO_LEVELS = GET_FILEEX_INFO_LEVELS(0i32);
+pub const GetFileExMaxInfoLevel: GET_FILEEX_INFO_LEVELS = GET_FILEEX_INFO_LEVELS(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HIORING(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HIORING {
+    type TypeKind = windows_core::CopyType;
+}
+impl HIORING {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HIORING {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn CloseIoRing(ioring : *mut core::ffi::c_void) -> i32);
+            CloseIoRing(self.0);
+        }
+    }
+}
+impl Default for HIORING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDiskQuotaControl, IDiskQuotaControl_Vtbl, 0x7988b572_ec89_11cf_9c00_00aa00a14f56);
 #[cfg(feature = "Win32_System_Com")]
@@ -4014,2842 +6536,38 @@ impl IEnumDiskQuotaUsers_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IEnumDiskQuotaUsers {}
-#[cfg(feature = "Win32_Security")]
-pub type CACHE_ACCESS_CHECK = Option<unsafe extern "system" fn(psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, hclienttoken: super::super::Foundation::HANDLE, dwdesiredaccess: u32, genericmapping: *mut super::super::Security::GENERIC_MAPPING, privilegeset: *mut super::super::Security::PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
-pub type CACHE_DESTROY_CALLBACK = Option<unsafe extern "system" fn(cb: u32, lpb: *mut u8)>;
-pub type CACHE_KEY_COMPARE = Option<unsafe extern "system" fn(cbkey1: u32, lpbkey1: *mut u8, cbkey2: u32, lpbkey2: *mut u8) -> i32>;
-pub type CACHE_KEY_HASH = Option<unsafe extern "system" fn(lpbkey: *mut u8, cbkey: u32) -> u32>;
-pub type CACHE_READ_CALLBACK = Option<unsafe extern "system" fn(cb: u32, lpb: *mut u8, lpvcontext: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type CLAIMMEDIALABEL = Option<unsafe extern "system" fn(pbuffer: *const u8, nbuffersize: u32, plabelinfo: *mut MediaLabelInfo) -> u32>;
-pub type CLAIMMEDIALABELEX = Option<unsafe extern "system" fn(pbuffer: *const u8, nbuffersize: u32, plabelinfo: *mut MediaLabelInfo, labelguid: *mut windows_core::GUID) -> u32>;
-pub type CLFS_BLOCK_ALLOCATION = Option<unsafe extern "system" fn(cbbufferlength: u32, pvusercontext: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
-pub type CLFS_BLOCK_DEALLOCATION = Option<unsafe extern "system" fn(pvbuffer: *mut core::ffi::c_void, pvusercontext: *mut core::ffi::c_void)>;
-pub type FCACHE_CREATE_CALLBACK = Option<unsafe extern "system" fn(lpstrname: windows_core::PCSTR, lpvdata: *mut core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32) -> super::super::Foundation::HANDLE>;
-pub type FCACHE_RICHCREATE_CALLBACK = Option<unsafe extern "system" fn(lpstrname: windows_core::PCSTR, lpvdata: *mut core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32, pfdidwescanit: *mut super::super::Foundation::BOOL, pfisstuffed: *mut super::super::Foundation::BOOL, pfstoredwithdots: *mut super::super::Foundation::BOOL, pfstoredwithterminatingdot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE>;
-pub type LPPROGRESS_ROUTINE = Option<unsafe extern "system" fn(totalfilesize: i64, totalbytestransferred: i64, streamsize: i64, streambytestransferred: i64, dwstreamnumber: u32, dwcallbackreason: LPPROGRESS_ROUTINE_CALLBACK_REASON, hsourcefile: super::super::Foundation::HANDLE, hdestinationfile: super::super::Foundation::HANDLE, lpdata: *const core::ffi::c_void) -> COPYPROGRESSROUTINE_PROGRESS>;
-pub type MAXMEDIALABEL = Option<unsafe extern "system" fn(pmaxsize: *mut u32) -> u32>;
-pub type PCLFS_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(pvoverlapped: *mut core::ffi::c_void, ulreserved: u32)>;
-pub type PCOPYFILE2_PROGRESS_ROUTINE = Option<unsafe extern "system" fn(pmessage: *const COPYFILE2_MESSAGE, pvcallbackcontext: *const core::ffi::c_void) -> COPYFILE2_MESSAGE_ACTION>;
-pub type PFE_EXPORT_FUNC = Option<unsafe extern "system" fn(pbdata: *const u8, pvcallbackcontext: *const core::ffi::c_void, ullength: u32) -> u32>;
-pub type PFE_IMPORT_FUNC = Option<unsafe extern "system" fn(pbdata: *mut u8, pvcallbackcontext: *const core::ffi::c_void, ullength: *mut u32) -> u32>;
-pub type PFN_IO_COMPLETION = Option<unsafe extern "system" fn(pcontext: *mut FIO_CONTEXT, lpo: *mut FH_OVERLAPPED, cb: u32, dwcompletionstatus: u32)>;
-pub type PLOG_FULL_HANDLER_CALLBACK = Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, dwerror: u32, flogispinned: super::super::Foundation::BOOL, pvclientcontext: *mut core::ffi::c_void)>;
-pub type PLOG_TAIL_ADVANCE_CALLBACK = Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, lsntarget: CLS_LSN, pvclientcontext: *mut core::ffi::c_void)>;
-pub type PLOG_UNPINNED_CALLBACK = Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, pvclientcontext: *mut core::ffi::c_void)>;
-pub type WofEnumEntryProc = Option<unsafe extern "system" fn(entryinfo: *const core::ffi::c_void, userdata: *const core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type WofEnumFilesProc = Option<unsafe extern "system" fn(filepath: windows_core::PCWSTR, externalfileinfo: *const core::ffi::c_void, userdata: *const core::ffi::c_void) -> super::super::Foundation::BOOL>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CLFS_CONTEXT_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CLFS_FLAG(pub u32);
-impl CLFS_FLAG {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for CLFS_FLAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for CLFS_FLAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for CLFS_FLAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for CLFS_FLAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for CLFS_FLAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CLFS_IOSTATS_CLASS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CLFS_LOG_ARCHIVE_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CLFS_MGMT_NOTIFICATION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CLFS_MGMT_POLICY_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CLS_CONTEXT_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CLS_IOSTATS_CLASS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CLS_LOG_INFORMATION_CLASS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COMPRESSION_FORMAT(pub u16);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COPYFILE2_COPY_PHASE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COPYFILE2_MESSAGE_ACTION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COPYFILE2_MESSAGE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COPYFILE2_V2_FLAGS(pub u32);
-impl COPYFILE2_V2_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for COPYFILE2_V2_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for COPYFILE2_V2_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for COPYFILE2_V2_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for COPYFILE2_V2_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for COPYFILE2_V2_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COPYFILE_FLAGS(pub u32);
-impl COPYFILE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for COPYFILE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for COPYFILE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for COPYFILE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for COPYFILE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for COPYFILE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COPYPROGRESSROUTINE_PROGRESS(pub u32);
-impl COPYPROGRESSROUTINE_PROGRESS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for COPYPROGRESSROUTINE_PROGRESS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for COPYPROGRESSROUTINE_PROGRESS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for COPYPROGRESSROUTINE_PROGRESS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for COPYPROGRESSROUTINE_PROGRESS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for COPYPROGRESSROUTINE_PROGRESS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CREATE_TAPE_PARTITION_METHOD(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DEFINE_DOS_DEVICE_FLAGS(pub u32);
-impl DEFINE_DOS_DEVICE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DEFINE_DOS_DEVICE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DEFINE_DOS_DEVICE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DEFINE_DOS_DEVICE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DEFINE_DOS_DEVICE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DEFINE_DOS_DEVICE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISKQUOTA_USERNAME_RESOLVE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ERASE_TAPE_TYPE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FILE_ACCESS_RIGHTS(pub u32);
-impl FILE_ACCESS_RIGHTS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for FILE_ACCESS_RIGHTS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for FILE_ACCESS_RIGHTS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for FILE_ACCESS_RIGHTS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for FILE_ACCESS_RIGHTS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for FILE_ACCESS_RIGHTS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FILE_ACTION(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FILE_CREATION_DISPOSITION(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FILE_DEVICE_TYPE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FILE_DISPOSITION_INFO_EX_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FILE_FLAGS_AND_ATTRIBUTES(pub u32);
-impl FILE_FLAGS_AND_ATTRIBUTES {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for FILE_FLAGS_AND_ATTRIBUTES {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for FILE_FLAGS_AND_ATTRIBUTES {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for FILE_FLAGS_AND_ATTRIBUTES {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for FILE_FLAGS_AND_ATTRIBUTES {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for FILE_FLAGS_AND_ATTRIBUTES {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FILE_FLUSH_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FILE_ID_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FILE_INFO_BY_HANDLE_CLASS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FILE_INFO_FLAGS_PERMISSIONS(pub u32);
-impl FILE_INFO_FLAGS_PERMISSIONS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for FILE_INFO_FLAGS_PERMISSIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for FILE_INFO_FLAGS_PERMISSIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for FILE_INFO_FLAGS_PERMISSIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for FILE_INFO_FLAGS_PERMISSIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for FILE_INFO_FLAGS_PERMISSIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FILE_NOTIFY_CHANGE(pub u32);
-impl FILE_NOTIFY_CHANGE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for FILE_NOTIFY_CHANGE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for FILE_NOTIFY_CHANGE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for FILE_NOTIFY_CHANGE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for FILE_NOTIFY_CHANGE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for FILE_NOTIFY_CHANGE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FILE_SHARE_MODE(pub u32);
-impl FILE_SHARE_MODE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for FILE_SHARE_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for FILE_SHARE_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for FILE_SHARE_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for FILE_SHARE_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for FILE_SHARE_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FILE_TYPE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FILE_WRITE_FLAGS(pub i32);
-impl FILE_WRITE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for FILE_WRITE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for FILE_WRITE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for FILE_WRITE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for FILE_WRITE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for FILE_WRITE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FINDEX_INFO_LEVELS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FINDEX_SEARCH_OPS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FIND_FIRST_EX_FLAGS(pub u32);
-impl FIND_FIRST_EX_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for FIND_FIRST_EX_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for FIND_FIRST_EX_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for FIND_FIRST_EX_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for FIND_FIRST_EX_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for FIND_FIRST_EX_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GETFINALPATHNAMEBYHANDLE_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GET_FILEEX_INFO_LEVELS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GET_FILE_VERSION_INFO_FLAGS(pub u32);
-impl GET_FILE_VERSION_INFO_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for GET_FILE_VERSION_INFO_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for GET_FILE_VERSION_INFO_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for GET_FILE_VERSION_INFO_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for GET_FILE_VERSION_INFO_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for GET_FILE_VERSION_INFO_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GET_TAPE_DRIVE_PARAMETERS_OPERATION(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IORING_CREATE_ADVISORY_FLAGS(pub i32);
-impl IORING_CREATE_ADVISORY_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for IORING_CREATE_ADVISORY_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for IORING_CREATE_ADVISORY_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for IORING_CREATE_ADVISORY_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for IORING_CREATE_ADVISORY_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for IORING_CREATE_ADVISORY_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IORING_CREATE_REQUIRED_FLAGS(pub i32);
-impl IORING_CREATE_REQUIRED_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for IORING_CREATE_REQUIRED_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for IORING_CREATE_REQUIRED_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for IORING_CREATE_REQUIRED_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for IORING_CREATE_REQUIRED_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for IORING_CREATE_REQUIRED_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IORING_FEATURE_FLAGS(pub i32);
-impl IORING_FEATURE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for IORING_FEATURE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for IORING_FEATURE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for IORING_FEATURE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for IORING_FEATURE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for IORING_FEATURE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IORING_OP_CODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IORING_REF_KIND(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IORING_SQE_FLAGS(pub i32);
-impl IORING_SQE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for IORING_SQE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for IORING_SQE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for IORING_SQE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for IORING_SQE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for IORING_SQE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IORING_VERSION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct LOCK_FILE_FLAGS(pub u32);
-impl LOCK_FILE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for LOCK_FILE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for LOCK_FILE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for LOCK_FILE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for LOCK_FILE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for LOCK_FILE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct LPPROGRESS_ROUTINE_CALLBACK_REASON(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct LZOPENFILE_STYLE(pub u16);
-impl LZOPENFILE_STYLE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for LZOPENFILE_STYLE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for LZOPENFILE_STYLE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for LZOPENFILE_STYLE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for LZOPENFILE_STYLE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for LZOPENFILE_STYLE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MOVE_FILE_FLAGS(pub u32);
-impl MOVE_FILE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for MOVE_FILE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for MOVE_FILE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for MOVE_FILE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for MOVE_FILE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for MOVE_FILE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NTMS_OMID_TYPE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsAccessMask(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsAllocateOptions(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsAllocationPolicy(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsAsyncOperations(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsAsyncStatus(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsBarCodeState(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsCreateNtmsMediaOptions(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsCreateOptions(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsDeallocationPolicy(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsDismountOptions(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsDoorState(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsDriveState(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsDriveType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsEjectOperation(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsEnumerateOption(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsInjectOperation(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsInventoryMethod(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsLibRequestFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsLibraryFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsLibraryType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsLmOperation(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsLmState(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsMediaPoolPolicy(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsMediaState(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsMountOptions(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsMountPriority(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsNotificationOperations(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsObjectsTypes(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsOpRequestFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsOperationalState(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsOpreqCommand(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsOpreqState(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsPartitionState(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsPoolType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsPortContent(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsPortPosition(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsReadWriteCharacteristics(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsSessionOptions(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsSlotState(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsUIOperations(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NtmsUITypes(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PREPARE_TAPE_OPERATION(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PRIORITY_HINT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct REPLACE_FILE_FLAGS(pub u32);
-impl REPLACE_FILE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for REPLACE_FILE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for REPLACE_FILE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for REPLACE_FILE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for REPLACE_FILE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for REPLACE_FILE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SERVER_CERTIFICATE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SESSION_INFO_USER_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SET_FILE_POINTER_MOVE_METHOD(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SHARE_INFO_PERMISSIONS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SHARE_TYPE(pub u32);
-impl SHARE_TYPE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for SHARE_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for SHARE_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for SHARE_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for SHARE_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for SHARE_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STORAGE_BUS_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STREAM_INFO_LEVELS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SYMBOLIC_LINK_FLAGS(pub u32);
-impl SYMBOLIC_LINK_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for SYMBOLIC_LINK_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for SYMBOLIC_LINK_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for SYMBOLIC_LINK_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for SYMBOLIC_LINK_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for SYMBOLIC_LINK_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TAPEMARK_TYPE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TAPE_INFORMATION_TYPE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TAPE_POSITION_METHOD(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TAPE_POSITION_TYPE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TRANSACTION_OUTCOME(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TXFS_MINIVERSION(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TXF_LOG_RECORD_TYPE(pub u16);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VER_FIND_FILE_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VER_FIND_FILE_STATUS(pub u32);
-impl VER_FIND_FILE_STATUS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for VER_FIND_FILE_STATUS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for VER_FIND_FILE_STATUS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for VER_FIND_FILE_STATUS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for VER_FIND_FILE_STATUS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for VER_FIND_FILE_STATUS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VER_INSTALL_FILE_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VER_INSTALL_FILE_STATUS(pub u32);
-impl VER_INSTALL_FILE_STATUS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for VER_INSTALL_FILE_STATUS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for VER_INSTALL_FILE_STATUS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for VER_INSTALL_FILE_STATUS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for VER_INSTALL_FILE_STATUS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for VER_INSTALL_FILE_STATUS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VS_FIXEDFILEINFO_FILE_FLAGS(pub u32);
-impl VS_FIXEDFILEINFO_FILE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for VS_FIXEDFILEINFO_FILE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for VS_FIXEDFILEINFO_FILE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for VS_FIXEDFILEINFO_FILE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for VS_FIXEDFILEINFO_FILE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for VS_FIXEDFILEINFO_FILE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VS_FIXEDFILEINFO_FILE_OS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VS_FIXEDFILEINFO_FILE_SUBTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VS_FIXEDFILEINFO_FILE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WIN_STREAM_ID(pub u32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct BY_HANDLE_FILE_INFORMATION {
-    pub dwFileAttributes: u32,
-    pub ftCreationTime: super::super::Foundation::FILETIME,
-    pub ftLastAccessTime: super::super::Foundation::FILETIME,
-    pub ftLastWriteTime: super::super::Foundation::FILETIME,
-    pub dwVolumeSerialNumber: u32,
-    pub nFileSizeHigh: u32,
-    pub nFileSizeLow: u32,
-    pub nNumberOfLinks: u32,
-    pub nFileIndexHigh: u32,
-    pub nFileIndexLow: u32,
-}
-impl Default for BY_HANDLE_FILE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for BY_HANDLE_FILE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CLFS_LOG_NAME_INFORMATION {
-    pub NameLengthInBytes: u16,
-    pub Name: [u16; 1],
-}
-impl Default for CLFS_LOG_NAME_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLFS_LOG_NAME_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CLFS_MGMT_NOTIFICATION {
-    pub Notification: CLFS_MGMT_NOTIFICATION_TYPE,
-    pub Lsn: CLS_LSN,
-    pub LogIsPinned: u16,
-}
-impl Default for CLFS_MGMT_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLFS_MGMT_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLFS_MGMT_POLICY {
-    pub Version: u32,
-    pub LengthInBytes: u32,
-    pub PolicyFlags: u32,
-    pub PolicyType: CLFS_MGMT_POLICY_TYPE,
-    pub PolicyParameters: CLFS_MGMT_POLICY_0,
-}
-impl Default for CLFS_MGMT_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLFS_MGMT_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union CLFS_MGMT_POLICY_0 {
-    pub MaximumSize: CLFS_MGMT_POLICY_0_0,
-    pub MinimumSize: CLFS_MGMT_POLICY_0_1,
-    pub NewContainerSize: CLFS_MGMT_POLICY_0_2,
-    pub GrowthRate: CLFS_MGMT_POLICY_0_3,
-    pub LogTail: CLFS_MGMT_POLICY_0_4,
-    pub AutoShrink: CLFS_MGMT_POLICY_0_5,
-    pub AutoGrow: CLFS_MGMT_POLICY_0_6,
-    pub NewContainerPrefix: CLFS_MGMT_POLICY_0_7,
-    pub NewContainerSuffix: CLFS_MGMT_POLICY_0_8,
-    pub NewContainerExtension: CLFS_MGMT_POLICY_0_9,
-}
-impl Default for CLFS_MGMT_POLICY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_6 {
-    pub Enabled: u32,
-}
-impl Default for CLFS_MGMT_POLICY_0_6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_6 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_5 {
-    pub Percentage: u32,
-}
-impl Default for CLFS_MGMT_POLICY_0_5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_5 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_3 {
-    pub AbsoluteGrowthInContainers: u32,
-    pub RelativeGrowthPercentage: u32,
-}
-impl Default for CLFS_MGMT_POLICY_0_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_4 {
-    pub MinimumAvailablePercentage: u32,
-    pub MinimumAvailableContainers: u32,
-}
-impl Default for CLFS_MGMT_POLICY_0_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_4 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_0 {
-    pub Containers: u32,
-}
-impl Default for CLFS_MGMT_POLICY_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_1 {
-    pub Containers: u32,
-}
-impl Default for CLFS_MGMT_POLICY_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_9 {
-    pub ExtensionLengthInBytes: u16,
-    pub ExtensionString: [u16; 1],
-}
-impl Default for CLFS_MGMT_POLICY_0_9 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_9 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_7 {
-    pub PrefixLengthInBytes: u16,
-    pub PrefixString: [u16; 1],
-}
-impl Default for CLFS_MGMT_POLICY_0_7 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_7 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_2 {
-    pub SizeInBytes: u32,
-}
-impl Default for CLFS_MGMT_POLICY_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_8 {
-    pub NextContainerSuffix: u64,
-}
-impl Default for CLFS_MGMT_POLICY_0_8 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_8 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CLFS_NODE_ID {
-    pub cType: u32,
-    pub cbNode: u32,
-}
-impl Default for CLFS_NODE_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLFS_NODE_ID {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CLFS_PHYSICAL_LSN_INFORMATION {
-    pub StreamIdentifier: u8,
-    pub VirtualLsn: CLS_LSN,
-    pub PhysicalLsn: CLS_LSN,
-}
-impl Default for CLFS_PHYSICAL_LSN_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLFS_PHYSICAL_LSN_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CLFS_STREAM_ID_INFORMATION {
-    pub StreamIdentifier: u8,
-}
-impl Default for CLFS_STREAM_ID_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLFS_STREAM_ID_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CLS_ARCHIVE_DESCRIPTOR {
-    pub coffLow: u64,
-    pub coffHigh: u64,
-    pub infoContainer: CLS_CONTAINER_INFORMATION,
-}
-impl Default for CLS_ARCHIVE_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLS_ARCHIVE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CLS_CONTAINER_INFORMATION {
-    pub FileAttributes: u32,
-    pub CreationTime: u64,
-    pub LastAccessTime: u64,
-    pub LastWriteTime: u64,
-    pub ContainerSize: i64,
-    pub FileNameActualLength: u32,
-    pub FileNameLength: u32,
-    pub FileName: [u16; 256],
-    pub State: u32,
-    pub PhysicalContainerId: u32,
-    pub LogicalContainerId: u32,
-}
-impl Default for CLS_CONTAINER_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLS_CONTAINER_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CLS_INFORMATION {
-    pub TotalAvailable: i64,
-    pub CurrentAvailable: i64,
-    pub TotalReservation: i64,
-    pub BaseFileSize: u64,
-    pub ContainerSize: u64,
-    pub TotalContainers: u32,
-    pub FreeContainers: u32,
-    pub TotalClients: u32,
-    pub Attributes: u32,
-    pub FlushThreshold: u32,
-    pub SectorSize: u32,
-    pub MinArchiveTailLsn: CLS_LSN,
-    pub BaseLsn: CLS_LSN,
-    pub LastFlushedLsn: CLS_LSN,
-    pub LastLsn: CLS_LSN,
-    pub RestartLsn: CLS_LSN,
-    pub Identity: windows_core::GUID,
-}
-impl Default for CLS_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLS_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CLS_IO_STATISTICS {
-    pub hdrIoStats: CLS_IO_STATISTICS_HEADER,
-    pub cFlush: u64,
-    pub cbFlush: u64,
-    pub cMetaFlush: u64,
-    pub cbMetaFlush: u64,
-}
-impl Default for CLS_IO_STATISTICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLS_IO_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CLS_IO_STATISTICS_HEADER {
-    pub ubMajorVersion: u8,
-    pub ubMinorVersion: u8,
-    pub eStatsClass: CLFS_IOSTATS_CLASS,
-    pub cbLength: u16,
-    pub coffData: u32,
-}
-impl Default for CLS_IO_STATISTICS_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLS_IO_STATISTICS_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CLS_LSN {
-    pub Internal: u64,
-}
-impl Default for CLS_LSN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLS_LSN {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CLS_SCAN_CONTEXT {
-    pub cidNode: CLFS_NODE_ID,
-    pub hLog: super::super::Foundation::HANDLE,
-    pub cIndex: u32,
-    pub cContainers: u32,
-    pub cContainersReturned: u32,
-    pub eScanMode: u8,
-    pub pinfoContainer: *mut CLS_CONTAINER_INFORMATION,
-}
-impl Default for CLS_SCAN_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLS_SCAN_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CLS_WRITE_ENTRY {
-    pub Buffer: *mut core::ffi::c_void,
-    pub ByteLength: u32,
-}
-impl Default for CLS_WRITE_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLS_WRITE_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CONNECTION_INFO_0 {
-    pub coni0_id: u32,
-}
-impl Default for CONNECTION_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CONNECTION_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CONNECTION_INFO_1 {
-    pub coni1_id: u32,
-    pub coni1_type: SHARE_TYPE,
-    pub coni1_num_opens: u32,
-    pub coni1_num_users: u32,
-    pub coni1_time: u32,
-    pub coni1_username: windows_core::PWSTR,
-    pub coni1_netname: windows_core::PWSTR,
-}
-impl Default for CONNECTION_INFO_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CONNECTION_INFO_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct COPYFILE2_EXTENDED_PARAMETERS {
-    pub dwSize: u32,
-    pub dwCopyFlags: COPYFILE_FLAGS,
-    pub pfCancel: *mut super::super::Foundation::BOOL,
-    pub pProgressRoutine: PCOPYFILE2_PROGRESS_ROUTINE,
-    pub pvCallbackContext: *mut core::ffi::c_void,
-}
-impl Default for COPYFILE2_EXTENDED_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for COPYFILE2_EXTENDED_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct COPYFILE2_EXTENDED_PARAMETERS_V2 {
-    pub dwSize: u32,
-    pub dwCopyFlags: COPYFILE_FLAGS,
-    pub pfCancel: *mut super::super::Foundation::BOOL,
-    pub pProgressRoutine: PCOPYFILE2_PROGRESS_ROUTINE,
-    pub pvCallbackContext: *mut core::ffi::c_void,
-    pub dwCopyFlagsV2: COPYFILE2_V2_FLAGS,
-    pub ioDesiredSize: u32,
-    pub ioDesiredRate: u32,
-    pub reserved: [*mut core::ffi::c_void; 8],
-}
-impl Default for COPYFILE2_EXTENDED_PARAMETERS_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for COPYFILE2_EXTENDED_PARAMETERS_V2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct COPYFILE2_MESSAGE {
-    pub Type: COPYFILE2_MESSAGE_TYPE,
-    pub dwPadding: u32,
-    pub Info: COPYFILE2_MESSAGE_0,
-}
-impl Default for COPYFILE2_MESSAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for COPYFILE2_MESSAGE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union COPYFILE2_MESSAGE_0 {
-    pub ChunkStarted: COPYFILE2_MESSAGE_0_0,
-    pub ChunkFinished: COPYFILE2_MESSAGE_0_1,
-    pub StreamStarted: COPYFILE2_MESSAGE_0_2,
-    pub StreamFinished: COPYFILE2_MESSAGE_0_3,
-    pub PollContinue: COPYFILE2_MESSAGE_0_4,
-    pub Error: COPYFILE2_MESSAGE_0_5,
-}
-impl Default for COPYFILE2_MESSAGE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for COPYFILE2_MESSAGE_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct COPYFILE2_MESSAGE_0_1 {
-    pub dwStreamNumber: u32,
-    pub dwFlags: u32,
-    pub hSourceFile: super::super::Foundation::HANDLE,
-    pub hDestinationFile: super::super::Foundation::HANDLE,
-    pub uliChunkNumber: u64,
-    pub uliChunkSize: u64,
-    pub uliStreamSize: u64,
-    pub uliStreamBytesTransferred: u64,
-    pub uliTotalFileSize: u64,
-    pub uliTotalBytesTransferred: u64,
-}
-impl Default for COPYFILE2_MESSAGE_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct COPYFILE2_MESSAGE_0_0 {
-    pub dwStreamNumber: u32,
-    pub dwReserved: u32,
-    pub hSourceFile: super::super::Foundation::HANDLE,
-    pub hDestinationFile: super::super::Foundation::HANDLE,
-    pub uliChunkNumber: u64,
-    pub uliChunkSize: u64,
-    pub uliStreamSize: u64,
-    pub uliTotalFileSize: u64,
-}
-impl Default for COPYFILE2_MESSAGE_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct COPYFILE2_MESSAGE_0_5 {
-    pub CopyPhase: COPYFILE2_COPY_PHASE,
-    pub dwStreamNumber: u32,
-    pub hrFailure: windows_core::HRESULT,
-    pub dwReserved: u32,
-    pub uliChunkNumber: u64,
-    pub uliStreamSize: u64,
-    pub uliStreamBytesTransferred: u64,
-    pub uliTotalFileSize: u64,
-    pub uliTotalBytesTransferred: u64,
-}
-impl Default for COPYFILE2_MESSAGE_0_5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_5 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct COPYFILE2_MESSAGE_0_4 {
-    pub dwReserved: u32,
-}
-impl Default for COPYFILE2_MESSAGE_0_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_4 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct COPYFILE2_MESSAGE_0_3 {
-    pub dwStreamNumber: u32,
-    pub dwReserved: u32,
-    pub hSourceFile: super::super::Foundation::HANDLE,
-    pub hDestinationFile: super::super::Foundation::HANDLE,
-    pub uliStreamSize: u64,
-    pub uliStreamBytesTransferred: u64,
-    pub uliTotalFileSize: u64,
-    pub uliTotalBytesTransferred: u64,
-}
-impl Default for COPYFILE2_MESSAGE_0_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct COPYFILE2_MESSAGE_0_2 {
-    pub dwStreamNumber: u32,
-    pub dwReserved: u32,
-    pub hSourceFile: super::super::Foundation::HANDLE,
-    pub hDestinationFile: super::super::Foundation::HANDLE,
-    pub uliStreamSize: u64,
-    pub uliTotalFileSize: u64,
-}
-impl Default for COPYFILE2_MESSAGE_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CREATEFILE2_EXTENDED_PARAMETERS {
-    pub dwSize: u32,
-    pub dwFileAttributes: u32,
-    pub dwFileFlags: u32,
-    pub dwSecurityQosFlags: u32,
-    pub lpSecurityAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
-    pub hTemplateFile: super::super::Foundation::HANDLE,
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for CREATEFILE2_EXTENDED_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for CREATEFILE2_EXTENDED_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DISKQUOTA_USER_INFORMATION {
-    pub QuotaUsed: i64,
-    pub QuotaThreshold: i64,
-    pub QuotaLimit: i64,
-}
-impl Default for DISKQUOTA_USER_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DISKQUOTA_USER_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DISK_SPACE_INFORMATION {
-    pub ActualTotalAllocationUnits: u64,
-    pub ActualAvailableAllocationUnits: u64,
-    pub ActualPoolUnavailableAllocationUnits: u64,
-    pub CallerTotalAllocationUnits: u64,
-    pub CallerAvailableAllocationUnits: u64,
-    pub CallerPoolUnavailableAllocationUnits: u64,
-    pub UsedAllocationUnits: u64,
-    pub TotalReservedAllocationUnits: u64,
-    pub VolumeStorageReserveAllocationUnits: u64,
-    pub AvailableCommittedAllocationUnits: u64,
-    pub PoolAvailableAllocationUnits: u64,
-    pub SectorsPerAllocationUnit: u32,
-    pub BytesPerSector: u32,
-}
-impl Default for DISK_SPACE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DISK_SPACE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct EFS_CERTIFICATE_BLOB {
-    pub dwCertEncodingType: u32,
-    pub cbData: u32,
-    pub pbData: *mut u8,
-}
-impl Default for EFS_CERTIFICATE_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for EFS_CERTIFICATE_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct EFS_COMPATIBILITY_INFO {
-    pub EfsVersion: u32,
-}
-impl Default for EFS_COMPATIBILITY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for EFS_COMPATIBILITY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct EFS_DECRYPTION_STATUS_INFO {
-    pub dwDecryptionError: u32,
-    pub dwHashOffset: u32,
-    pub cbHash: u32,
-}
-impl Default for EFS_DECRYPTION_STATUS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for EFS_DECRYPTION_STATUS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct EFS_ENCRYPTION_STATUS_INFO {
-    pub bHasCurrentKey: super::super::Foundation::BOOL,
-    pub dwEncryptionError: u32,
-}
-impl Default for EFS_ENCRYPTION_STATUS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for EFS_ENCRYPTION_STATUS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct EFS_HASH_BLOB {
-    pub cbData: u32,
-    pub pbData: *mut u8,
-}
-impl Default for EFS_HASH_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for EFS_HASH_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct EFS_KEY_INFO {
-    pub dwVersion: u32,
-    pub Entropy: u32,
-    pub Algorithm: super::super::Security::Cryptography::ALG_ID,
-    pub KeyLength: u32,
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Default for EFS_KEY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for EFS_KEY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct EFS_PIN_BLOB {
-    pub cbPadding: u32,
-    pub cbData: u32,
-    pub pbData: *mut u8,
-}
-impl Default for EFS_PIN_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for EFS_PIN_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct EFS_RPC_BLOB {
-    pub cbData: u32,
-    pub pbData: *mut u8,
-}
-impl Default for EFS_RPC_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for EFS_RPC_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct EFS_VERSION_INFO {
-    pub EfsVersion: u32,
-    pub SubVersion: u32,
-}
-impl Default for EFS_VERSION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for EFS_VERSION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ENCRYPTED_FILE_METADATA_SIGNATURE {
-    pub dwEfsAccessType: u32,
-    pub pCertificatesAdded: *mut ENCRYPTION_CERTIFICATE_HASH_LIST,
-    pub pEncryptionCertificate: *mut ENCRYPTION_CERTIFICATE,
-    pub pEfsStreamSignature: *mut EFS_RPC_BLOB,
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for ENCRYPTED_FILE_METADATA_SIGNATURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for ENCRYPTED_FILE_METADATA_SIGNATURE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ENCRYPTION_CERTIFICATE {
-    pub cbTotalLength: u32,
-    pub pUserSid: *mut super::super::Security::SID,
-    pub pCertBlob: *mut EFS_CERTIFICATE_BLOB,
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for ENCRYPTION_CERTIFICATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for ENCRYPTION_CERTIFICATE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ENCRYPTION_CERTIFICATE_HASH {
-    pub cbTotalLength: u32,
-    pub pUserSid: *mut super::super::Security::SID,
-    pub pHash: *mut EFS_HASH_BLOB,
-    pub lpDisplayInformation: windows_core::PWSTR,
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for ENCRYPTION_CERTIFICATE_HASH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for ENCRYPTION_CERTIFICATE_HASH {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ENCRYPTION_CERTIFICATE_HASH_LIST {
-    pub nCert_Hash: u32,
-    pub pUsers: *mut *mut ENCRYPTION_CERTIFICATE_HASH,
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for ENCRYPTION_CERTIFICATE_HASH_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for ENCRYPTION_CERTIFICATE_HASH_LIST {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ENCRYPTION_CERTIFICATE_LIST {
-    pub nUsers: u32,
-    pub pUsers: *mut *mut ENCRYPTION_CERTIFICATE,
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for ENCRYPTION_CERTIFICATE_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for ENCRYPTION_CERTIFICATE_LIST {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ENCRYPTION_PROTECTOR {
-    pub cbTotalLength: u32,
-    pub pUserSid: *mut super::super::Security::SID,
-    pub lpProtectorDescriptor: windows_core::PWSTR,
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for ENCRYPTION_PROTECTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for ENCRYPTION_PROTECTOR {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ENCRYPTION_PROTECTOR_LIST {
-    pub nProtectors: u32,
-    pub pProtectors: *mut *mut ENCRYPTION_PROTECTOR,
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for ENCRYPTION_PROTECTOR_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for ENCRYPTION_PROTECTOR_LIST {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FH_OVERLAPPED {
-    pub Internal: usize,
-    pub InternalHigh: usize,
-    pub Offset: u32,
-    pub OffsetHigh: u32,
-    pub hEvent: super::super::Foundation::HANDLE,
-    pub pfnCompletion: PFN_IO_COMPLETION,
-    pub Reserved1: usize,
-    pub Reserved2: usize,
-    pub Reserved3: usize,
-    pub Reserved4: usize,
-}
-impl Default for FH_OVERLAPPED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FH_OVERLAPPED {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_ALIGNMENT_INFO {
-    pub AlignmentRequirement: u32,
-}
-impl Default for FILE_ALIGNMENT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_ALIGNMENT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_ALLOCATION_INFO {
-    pub AllocationSize: i64,
-}
-impl Default for FILE_ALLOCATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_ALLOCATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_ATTRIBUTE_TAG_INFO {
-    pub FileAttributes: u32,
-    pub ReparseTag: u32,
-}
-impl Default for FILE_ATTRIBUTE_TAG_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_ATTRIBUTE_TAG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_BASIC_INFO {
-    pub CreationTime: i64,
-    pub LastAccessTime: i64,
-    pub LastWriteTime: i64,
-    pub ChangeTime: i64,
-    pub FileAttributes: u32,
-}
-impl Default for FILE_BASIC_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_BASIC_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_CASE_SENSITIVE_INFO {
-    pub Flags: u32,
-}
-impl Default for FILE_CASE_SENSITIVE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_CASE_SENSITIVE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_COMPRESSION_INFO {
-    pub CompressedFileSize: i64,
-    pub CompressionFormat: COMPRESSION_FORMAT,
-    pub CompressionUnitShift: u8,
-    pub ChunkShift: u8,
-    pub ClusterShift: u8,
-    pub Reserved: [u8; 3],
-}
-impl Default for FILE_COMPRESSION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_COMPRESSION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_DISPOSITION_INFO {
-    pub DeleteFile: super::super::Foundation::BOOLEAN,
-}
-impl Default for FILE_DISPOSITION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_DISPOSITION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_DISPOSITION_INFO_EX {
-    pub Flags: FILE_DISPOSITION_INFO_EX_FLAGS,
-}
-impl Default for FILE_DISPOSITION_INFO_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_DISPOSITION_INFO_EX {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_END_OF_FILE_INFO {
-    pub EndOfFile: i64,
-}
-impl Default for FILE_END_OF_FILE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_END_OF_FILE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_EXTENT {
-    pub VolumeOffset: u64,
-    pub ExtentLength: u64,
-}
-impl Default for FILE_EXTENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_EXTENT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_FULL_DIR_INFO {
-    pub NextEntryOffset: u32,
-    pub FileIndex: u32,
-    pub CreationTime: i64,
-    pub LastAccessTime: i64,
-    pub LastWriteTime: i64,
-    pub ChangeTime: i64,
-    pub EndOfFile: i64,
-    pub AllocationSize: i64,
-    pub FileAttributes: u32,
-    pub FileNameLength: u32,
-    pub EaSize: u32,
-    pub FileName: [u16; 1],
-}
-impl Default for FILE_FULL_DIR_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_FULL_DIR_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_ID_128 {
-    pub Identifier: [u8; 16],
-}
-impl Default for FILE_ID_128 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_ID_128 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_ID_BOTH_DIR_INFO {
-    pub NextEntryOffset: u32,
-    pub FileIndex: u32,
-    pub CreationTime: i64,
-    pub LastAccessTime: i64,
-    pub LastWriteTime: i64,
-    pub ChangeTime: i64,
-    pub EndOfFile: i64,
-    pub AllocationSize: i64,
-    pub FileAttributes: u32,
-    pub FileNameLength: u32,
-    pub EaSize: u32,
-    pub ShortNameLength: i8,
-    pub ShortName: [u16; 12],
-    pub FileId: i64,
-    pub FileName: [u16; 1],
-}
-impl Default for FILE_ID_BOTH_DIR_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_ID_BOTH_DIR_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FILE_ID_DESCRIPTOR {
-    pub dwSize: u32,
-    pub Type: FILE_ID_TYPE,
-    pub Anonymous: FILE_ID_DESCRIPTOR_0,
-}
-impl Default for FILE_ID_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_ID_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union FILE_ID_DESCRIPTOR_0 {
-    pub FileId: i64,
-    pub ObjectId: windows_core::GUID,
-    pub ExtendedFileId: FILE_ID_128,
-}
-impl Default for FILE_ID_DESCRIPTOR_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_ID_DESCRIPTOR_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_ID_EXTD_DIR_INFO {
-    pub NextEntryOffset: u32,
-    pub FileIndex: u32,
-    pub CreationTime: i64,
-    pub LastAccessTime: i64,
-    pub LastWriteTime: i64,
-    pub ChangeTime: i64,
-    pub EndOfFile: i64,
-    pub AllocationSize: i64,
-    pub FileAttributes: u32,
-    pub FileNameLength: u32,
-    pub EaSize: u32,
-    pub ReparsePointTag: u32,
-    pub FileId: FILE_ID_128,
-    pub FileName: [u16; 1],
-}
-impl Default for FILE_ID_EXTD_DIR_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_ID_EXTD_DIR_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_ID_INFO {
-    pub VolumeSerialNumber: u64,
-    pub FileId: FILE_ID_128,
-}
-impl Default for FILE_ID_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_ID_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_INFO_2 {
-    pub fi2_id: u32,
-}
-impl Default for FILE_INFO_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_INFO_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_INFO_3 {
-    pub fi3_id: u32,
-    pub fi3_permissions: FILE_INFO_FLAGS_PERMISSIONS,
-    pub fi3_num_locks: u32,
-    pub fi3_pathname: windows_core::PWSTR,
-    pub fi3_username: windows_core::PWSTR,
-}
-impl Default for FILE_INFO_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_INFO_3 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_IO_PRIORITY_HINT_INFO {
-    pub PriorityHint: PRIORITY_HINT,
-}
-impl Default for FILE_IO_PRIORITY_HINT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_IO_PRIORITY_HINT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_NAME_INFO {
-    pub FileNameLength: u32,
-    pub FileName: [u16; 1],
-}
-impl Default for FILE_NAME_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_NAME_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FILE_NOTIFY_EXTENDED_INFORMATION {
-    pub NextEntryOffset: u32,
-    pub Action: FILE_ACTION,
-    pub CreationTime: i64,
-    pub LastModificationTime: i64,
-    pub LastChangeTime: i64,
-    pub LastAccessTime: i64,
-    pub AllocatedLength: i64,
-    pub FileSize: i64,
-    pub FileAttributes: u32,
-    pub Anonymous: FILE_NOTIFY_EXTENDED_INFORMATION_0,
-    pub FileId: i64,
-    pub ParentFileId: i64,
-    pub FileNameLength: u32,
-    pub FileName: [u16; 1],
-}
-impl Default for FILE_NOTIFY_EXTENDED_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_NOTIFY_EXTENDED_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union FILE_NOTIFY_EXTENDED_INFORMATION_0 {
-    pub ReparsePointTag: u32,
-    pub EaSize: u32,
-}
-impl Default for FILE_NOTIFY_EXTENDED_INFORMATION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_NOTIFY_EXTENDED_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_NOTIFY_INFORMATION {
-    pub NextEntryOffset: u32,
-    pub Action: FILE_ACTION,
-    pub FileNameLength: u32,
-    pub FileName: [u16; 1],
-}
-impl Default for FILE_NOTIFY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_NOTIFY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FILE_REMOTE_PROTOCOL_INFO {
-    pub StructureVersion: u16,
-    pub StructureSize: u16,
-    pub Protocol: u32,
-    pub ProtocolMajorVersion: u16,
-    pub ProtocolMinorVersion: u16,
-    pub ProtocolRevision: u16,
-    pub Reserved: u16,
-    pub Flags: u32,
-    pub GenericReserved: FILE_REMOTE_PROTOCOL_INFO_0,
-    pub ProtocolSpecific: FILE_REMOTE_PROTOCOL_INFO_1,
-}
-impl Default for FILE_REMOTE_PROTOCOL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_REMOTE_PROTOCOL_INFO_0 {
-    pub Reserved: [u32; 8],
-}
-impl Default for FILE_REMOTE_PROTOCOL_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union FILE_REMOTE_PROTOCOL_INFO_1 {
-    pub Smb2: FILE_REMOTE_PROTOCOL_INFO_1_0,
-    pub Reserved: [u32; 16],
-}
-impl Default for FILE_REMOTE_PROTOCOL_INFO_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_REMOTE_PROTOCOL_INFO_1_0 {
-    pub Server: FILE_REMOTE_PROTOCOL_INFO_1_0_0,
-    pub Share: FILE_REMOTE_PROTOCOL_INFO_1_0_1,
-}
-impl Default for FILE_REMOTE_PROTOCOL_INFO_1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_1_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
-    pub Capabilities: u32,
-}
-impl Default for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
-    pub Capabilities: u32,
-    pub ShareFlags: u32,
-}
-impl Default for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FILE_RENAME_INFO {
-    pub Anonymous: FILE_RENAME_INFO_0,
-    pub RootDirectory: super::super::Foundation::HANDLE,
-    pub FileNameLength: u32,
-    pub FileName: [u16; 1],
-}
-impl Default for FILE_RENAME_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_RENAME_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union FILE_RENAME_INFO_0 {
-    pub ReplaceIfExists: super::super::Foundation::BOOLEAN,
-    pub Flags: u32,
-}
-impl Default for FILE_RENAME_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_RENAME_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union FILE_SEGMENT_ELEMENT {
-    pub Buffer: *mut core::ffi::c_void,
-    pub Alignment: u64,
-}
-impl Default for FILE_SEGMENT_ELEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_SEGMENT_ELEMENT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_STANDARD_INFO {
-    pub AllocationSize: i64,
-    pub EndOfFile: i64,
-    pub NumberOfLinks: u32,
-    pub DeletePending: super::super::Foundation::BOOLEAN,
-    pub Directory: super::super::Foundation::BOOLEAN,
-}
-impl Default for FILE_STANDARD_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_STANDARD_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_STORAGE_INFO {
-    pub LogicalBytesPerSector: u32,
-    pub PhysicalBytesPerSectorForAtomicity: u32,
-    pub PhysicalBytesPerSectorForPerformance: u32,
-    pub FileSystemEffectivePhysicalBytesPerSectorForAtomicity: u32,
-    pub Flags: u32,
-    pub ByteOffsetForSectorAlignment: u32,
-    pub ByteOffsetForPartitionAlignment: u32,
-}
-impl Default for FILE_STORAGE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_STORAGE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_STREAM_INFO {
-    pub NextEntryOffset: u32,
-    pub StreamNameLength: u32,
-    pub StreamSize: i64,
-    pub StreamAllocationSize: i64,
-    pub StreamName: [u16; 1],
-}
-impl Default for FILE_STREAM_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILE_STREAM_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FIO_CONTEXT {
-    pub m_dwTempHack: u32,
-    pub m_dwSignature: u32,
-    pub m_hFile: super::super::Foundation::HANDLE,
-    pub m_dwLinesOffset: u32,
-    pub m_dwHeaderLength: u32,
-}
-impl Default for FIO_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FIO_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HIORING(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HIORING {
-    type TypeKind = windows_core::CopyType;
-}
-impl HIORING {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HIORING {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn CloseIoRing(ioring : *mut core::ffi::c_void) -> i32);
-            CloseIoRing(self.0);
-        }
-    }
-}
-impl Default for HIORING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub const INVALID_FILE_ATTRIBUTES: u32 = 4294967295u32;
+pub const INVALID_FILE_SIZE: u32 = 4294967295u32;
+pub const INVALID_SET_FILE_POINTER: u32 = 4294967295u32;
+pub const IOCTL_VOLUME_ALLOCATE_BC_STREAM: u32 = 5685312u32;
+pub const IOCTL_VOLUME_BASE: u32 = 86u32;
+pub const IOCTL_VOLUME_BC_VERSION: u32 = 1u32;
+pub const IOCTL_VOLUME_FREE_BC_STREAM: u32 = 5685316u32;
+pub const IOCTL_VOLUME_GET_BC_PROPERTIES: u32 = 5652540u32;
+pub const IOCTL_VOLUME_GET_CSVBLOCKCACHE_CALLBACK: u32 = 5685352u32;
+pub const IOCTL_VOLUME_GET_GPT_ATTRIBUTES: u32 = 5636152u32;
+pub const IOCTL_VOLUME_GET_VOLUME_DISK_EXTENTS: u32 = 5636096u32;
+pub const IOCTL_VOLUME_IS_CLUSTERED: u32 = 5636144u32;
+pub const IOCTL_VOLUME_IS_CSV: u32 = 5636192u32;
+pub const IOCTL_VOLUME_IS_DYNAMIC: u32 = 5636168u32;
+pub const IOCTL_VOLUME_IS_IO_CAPABLE: u32 = 5636116u32;
+pub const IOCTL_VOLUME_IS_OFFLINE: u32 = 5636112u32;
+pub const IOCTL_VOLUME_IS_PARTITION: u32 = 5636136u32;
+pub const IOCTL_VOLUME_LOGICAL_TO_PHYSICAL: u32 = 5636128u32;
+pub const IOCTL_VOLUME_OFFLINE: u32 = 5685260u32;
+pub const IOCTL_VOLUME_ONLINE: u32 = 5685256u32;
+pub const IOCTL_VOLUME_PHYSICAL_TO_LOGICAL: u32 = 5636132u32;
+pub const IOCTL_VOLUME_POST_ONLINE: u32 = 5685348u32;
+pub const IOCTL_VOLUME_PREPARE_FOR_CRITICAL_IO: u32 = 5685324u32;
+pub const IOCTL_VOLUME_PREPARE_FOR_SHRINK: u32 = 5685340u32;
+pub const IOCTL_VOLUME_QUERY_ALLOCATION_HINT: u32 = 5652562u32;
+pub const IOCTL_VOLUME_QUERY_FAILOVER_SET: u32 = 5636120u32;
+pub const IOCTL_VOLUME_QUERY_MINIMUM_SHRINK_SIZE: u32 = 5652568u32;
+pub const IOCTL_VOLUME_QUERY_VOLUME_NUMBER: u32 = 5636124u32;
+pub const IOCTL_VOLUME_READ_PLEX: u32 = 5652526u32;
+pub const IOCTL_VOLUME_SET_GPT_ATTRIBUTES: u32 = 5636148u32;
+pub const IOCTL_VOLUME_SUPPORTS_ONLINE_OFFLINE: u32 = 5636100u32;
+pub const IOCTL_VOLUME_UPDATE_PROPERTIES: u32 = 5636180u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IORING_BUFFER_INFO {
@@ -6923,6 +6641,43 @@ impl Default for IORING_CQE {
 impl windows_core::TypeKind for IORING_CQE {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IORING_CREATE_ADVISORY_FLAGS(pub i32);
+impl IORING_CREATE_ADVISORY_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for IORING_CREATE_ADVISORY_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for IORING_CREATE_ADVISORY_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for IORING_CREATE_ADVISORY_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for IORING_CREATE_ADVISORY_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for IORING_CREATE_ADVISORY_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const IORING_CREATE_ADVISORY_FLAGS_NONE: IORING_CREATE_ADVISORY_FLAGS = IORING_CREATE_ADVISORY_FLAGS(0i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IORING_CREATE_FLAGS {
@@ -6937,6 +6692,82 @@ impl Default for IORING_CREATE_FLAGS {
 impl windows_core::TypeKind for IORING_CREATE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IORING_CREATE_REQUIRED_FLAGS(pub i32);
+impl IORING_CREATE_REQUIRED_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for IORING_CREATE_REQUIRED_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for IORING_CREATE_REQUIRED_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for IORING_CREATE_REQUIRED_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for IORING_CREATE_REQUIRED_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for IORING_CREATE_REQUIRED_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const IORING_CREATE_REQUIRED_FLAGS_NONE: IORING_CREATE_REQUIRED_FLAGS = IORING_CREATE_REQUIRED_FLAGS(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IORING_FEATURE_FLAGS(pub i32);
+impl IORING_FEATURE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for IORING_FEATURE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for IORING_FEATURE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for IORING_FEATURE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for IORING_FEATURE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for IORING_FEATURE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const IORING_FEATURE_FLAGS_NONE: IORING_FEATURE_FLAGS = IORING_FEATURE_FLAGS(0i32);
+pub const IORING_FEATURE_SET_COMPLETION_EVENT: IORING_FEATURE_FLAGS = IORING_FEATURE_FLAGS(2i32);
+pub const IORING_FEATURE_UM_EMULATION: IORING_FEATURE_FLAGS = IORING_FEATURE_FLAGS(1i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IORING_HANDLE_REF {
@@ -6981,6 +6812,21 @@ impl Default for IORING_INFO {
 impl windows_core::TypeKind for IORING_INFO {
     type TypeKind = windows_core::CopyType;
 }
+pub const IORING_OP_CANCEL: IORING_OP_CODE = IORING_OP_CODE(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IORING_OP_CODE(pub i32);
+pub const IORING_OP_FLUSH: IORING_OP_CODE = IORING_OP_CODE(6i32);
+pub const IORING_OP_NOP: IORING_OP_CODE = IORING_OP_CODE(0i32);
+pub const IORING_OP_READ: IORING_OP_CODE = IORING_OP_CODE(1i32);
+pub const IORING_OP_REGISTER_BUFFERS: IORING_OP_CODE = IORING_OP_CODE(3i32);
+pub const IORING_OP_REGISTER_FILES: IORING_OP_CODE = IORING_OP_CODE(2i32);
+pub const IORING_OP_WRITE: IORING_OP_CODE = IORING_OP_CODE(5i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IORING_REF_KIND(pub i32);
+pub const IORING_REF_RAW: IORING_REF_KIND = IORING_REF_KIND(0i32);
+pub const IORING_REF_REGISTERED: IORING_REF_KIND = IORING_REF_KIND(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IORING_REGISTERED_BUFFER {
@@ -6995,6 +6841,54 @@ impl Default for IORING_REGISTERED_BUFFER {
 impl windows_core::TypeKind for IORING_REGISTERED_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IORING_SQE_FLAGS(pub i32);
+impl IORING_SQE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for IORING_SQE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for IORING_SQE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for IORING_SQE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for IORING_SQE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for IORING_SQE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IORING_VERSION(pub i32);
+pub const IORING_VERSION_1: IORING_VERSION = IORING_VERSION(1i32);
+pub const IORING_VERSION_2: IORING_VERSION = IORING_VERSION(2i32);
+pub const IORING_VERSION_3: IORING_VERSION = IORING_VERSION(300i32);
+pub const IORING_VERSION_INVALID: IORING_VERSION = IORING_VERSION(0i32);
+pub const IOSQE_FLAGS_DRAIN_PRECEDING_OPS: IORING_SQE_FLAGS = IORING_SQE_FLAGS(1i32);
+pub const IOSQE_FLAGS_NONE: IORING_SQE_FLAGS = IORING_SQE_FLAGS(0i32);
+pub const IoPriorityHintLow: PRIORITY_HINT = PRIORITY_HINT(1i32);
+pub const IoPriorityHintNormal: PRIORITY_HINT = PRIORITY_HINT(2i32);
+pub const IoPriorityHintVeryLow: PRIORITY_HINT = PRIORITY_HINT(0i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KCRM_MARSHAL_HEADER {
@@ -7046,6 +6940,46 @@ impl Default for KCRM_TRANSACTION_BLOB {
 impl windows_core::TypeKind for KCRM_TRANSACTION_BLOB {
     type TypeKind = windows_core::CopyType;
 }
+pub const KTM_MARSHAL_BLOB_VERSION_MAJOR: u32 = 1u32;
+pub const KTM_MARSHAL_BLOB_VERSION_MINOR: u32 = 1u32;
+pub const LOCKFILE_EXCLUSIVE_LOCK: LOCK_FILE_FLAGS = LOCK_FILE_FLAGS(2u32);
+pub const LOCKFILE_FAIL_IMMEDIATELY: LOCK_FILE_FLAGS = LOCK_FILE_FLAGS(1u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct LOCK_FILE_FLAGS(pub u32);
+impl LOCK_FILE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for LOCK_FILE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for LOCK_FILE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for LOCK_FILE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for LOCK_FILE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for LOCK_FILE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LOG_MANAGEMENT_CALLBACKS {
@@ -7062,6 +6996,106 @@ impl Default for LOG_MANAGEMENT_CALLBACKS {
 impl windows_core::TypeKind for LOG_MANAGEMENT_CALLBACKS {
     type TypeKind = windows_core::CopyType;
 }
+pub const LOG_POLICY_OVERWRITE: u32 = 1u32;
+pub const LOG_POLICY_PERSIST: u32 = 2u32;
+pub type LPPROGRESS_ROUTINE = Option<unsafe extern "system" fn(totalfilesize: i64, totalbytestransferred: i64, streamsize: i64, streambytestransferred: i64, dwstreamnumber: u32, dwcallbackreason: LPPROGRESS_ROUTINE_CALLBACK_REASON, hsourcefile: super::super::Foundation::HANDLE, hdestinationfile: super::super::Foundation::HANDLE, lpdata: *const core::ffi::c_void) -> COPYPROGRESSROUTINE_PROGRESS>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct LPPROGRESS_ROUTINE_CALLBACK_REASON(pub u32);
+pub const LZERROR_BADINHANDLE: i32 = -1i32;
+pub const LZERROR_BADOUTHANDLE: i32 = -2i32;
+pub const LZERROR_BADVALUE: i32 = -7i32;
+pub const LZERROR_GLOBALLOC: i32 = -5i32;
+pub const LZERROR_GLOBLOCK: i32 = -6i32;
+pub const LZERROR_READ: i32 = -3i32;
+pub const LZERROR_UNKNOWNALG: i32 = -8i32;
+pub const LZERROR_WRITE: i32 = -4i32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct LZOPENFILE_STYLE(pub u16);
+impl LZOPENFILE_STYLE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for LZOPENFILE_STYLE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for LZOPENFILE_STYLE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for LZOPENFILE_STYLE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for LZOPENFILE_STYLE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for LZOPENFILE_STYLE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const MAXIMUM_REPARSE_DATA_BUFFER_SIZE: u32 = 16384u32;
+pub type MAXMEDIALABEL = Option<unsafe extern "system" fn(pmaxsize: *mut u32) -> u32>;
+pub const MAX_RESOURCEMANAGER_DESCRIPTION_LENGTH: u32 = 64u32;
+pub const MAX_SID_SIZE: u32 = 256u32;
+pub const MAX_TRANSACTION_DESCRIPTION_LENGTH: u32 = 64u32;
+pub const MOVEFILE_COPY_ALLOWED: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(2u32);
+pub const MOVEFILE_CREATE_HARDLINK: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(16u32);
+pub const MOVEFILE_DELAY_UNTIL_REBOOT: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(4u32);
+pub const MOVEFILE_FAIL_IF_NOT_TRACKABLE: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(32u32);
+pub const MOVEFILE_REPLACE_EXISTING: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(1u32);
+pub const MOVEFILE_WRITE_THROUGH: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(8u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MOVE_FILE_FLAGS(pub u32);
+impl MOVE_FILE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for MOVE_FILE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for MOVE_FILE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for MOVE_FILE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for MOVE_FILE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for MOVE_FILE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const MaximumFileIdType: FILE_ID_TYPE = FILE_ID_TYPE(3i32);
+pub const MaximumFileInfoByHandleClass: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(25i32);
+pub const MaximumIoPriorityHintType: PRIORITY_HINT = PRIORITY_HINT(3i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MediaLabelInfo {
@@ -7091,6 +7125,13 @@ impl Default for NAME_CACHE_CONTEXT {
 impl windows_core::TypeKind for NAME_CACHE_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
+pub const NTMSMLI_MAXAPPDESCR: u32 = 256u32;
+pub const NTMSMLI_MAXIDSIZE: u32 = 256u32;
+pub const NTMSMLI_MAXTYPE: u32 = 64u32;
+pub const NTMS_ALLOCATE_ERROR_IF_UNAVAILABLE: NtmsAllocateOptions = NtmsAllocateOptions(4i32);
+pub const NTMS_ALLOCATE_FROMSCRATCH: NtmsAllocationPolicy = NtmsAllocationPolicy(1i32);
+pub const NTMS_ALLOCATE_NEW: NtmsAllocateOptions = NtmsAllocateOptions(1i32);
+pub const NTMS_ALLOCATE_NEXT: NtmsAllocateOptions = NtmsAllocateOptions(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_ALLOCATION_INFORMATION {
@@ -7106,6 +7147,13 @@ impl Default for NTMS_ALLOCATION_INFORMATION {
 impl windows_core::TypeKind for NTMS_ALLOCATION_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+pub const NTMS_APPLICATIONNAME_LENGTH: u32 = 64u32;
+pub const NTMS_ASYNCOP_MOUNT: NtmsAsyncOperations = NtmsAsyncOperations(1i32);
+pub const NTMS_ASYNCSTATE_COMPLETE: NtmsAsyncStatus = NtmsAsyncStatus(4i32);
+pub const NTMS_ASYNCSTATE_INPROCESS: NtmsAsyncStatus = NtmsAsyncStatus(3i32);
+pub const NTMS_ASYNCSTATE_QUEUED: NtmsAsyncStatus = NtmsAsyncStatus(0i32);
+pub const NTMS_ASYNCSTATE_WAIT_OPERATOR: NtmsAsyncStatus = NtmsAsyncStatus(2i32);
+pub const NTMS_ASYNCSTATE_WAIT_RESOURCE: NtmsAsyncStatus = NtmsAsyncStatus(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_ASYNC_IO {
@@ -7125,6 +7173,10 @@ impl Default for NTMS_ASYNC_IO {
 impl windows_core::TypeKind for NTMS_ASYNC_IO {
     type TypeKind = windows_core::CopyType;
 }
+pub const NTMS_BARCODESTATE_OK: NtmsBarCodeState = NtmsBarCodeState(1i32);
+pub const NTMS_BARCODESTATE_UNREADABLE: NtmsBarCodeState = NtmsBarCodeState(2i32);
+pub const NTMS_BARCODE_LENGTH: u32 = 64u32;
+pub const NTMS_CHANGER: NtmsObjectsTypes = NtmsObjectsTypes(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_CHANGERINFORMATIONA {
@@ -7199,6 +7251,8 @@ impl Default for NTMS_CHANGERTYPEINFORMATIONW {
 impl windows_core::TypeKind for NTMS_CHANGERTYPEINFORMATIONW {
     type TypeKind = windows_core::CopyType;
 }
+pub const NTMS_CHANGER_TYPE: NtmsObjectsTypes = NtmsObjectsTypes(3i32);
+pub const NTMS_COMPUTER: NtmsObjectsTypes = NtmsObjectsTypes(4i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_COMPUTERINFORMATION {
@@ -7216,6 +7270,18 @@ impl Default for NTMS_COMPUTERINFORMATION {
 impl windows_core::TypeKind for NTMS_COMPUTERINFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+pub const NTMS_COMPUTERNAME_LENGTH: u32 = 64u32;
+pub const NTMS_CONTROL_ACCESS: NtmsAccessMask = NtmsAccessMask(4i32);
+pub const NTMS_CREATE_NEW: NtmsCreateOptions = NtmsCreateOptions(2i32);
+pub const NTMS_DEALLOCATE_TOSCRATCH: NtmsDeallocationPolicy = NtmsDeallocationPolicy(1i32);
+pub const NTMS_DESCRIPTION_LENGTH: u32 = 127u32;
+pub const NTMS_DEVICENAME_LENGTH: u32 = 64u32;
+pub const NTMS_DISMOUNT_DEFERRED: NtmsDismountOptions = NtmsDismountOptions(1i32);
+pub const NTMS_DISMOUNT_IMMEDIATE: NtmsDismountOptions = NtmsDismountOptions(2i32);
+pub const NTMS_DOORSTATE_CLOSED: NtmsDoorState = NtmsDoorState(1i32);
+pub const NTMS_DOORSTATE_OPEN: NtmsDoorState = NtmsDoorState(2i32);
+pub const NTMS_DOORSTATE_UNKNOWN: NtmsDoorState = NtmsDoorState(0i32);
+pub const NTMS_DRIVE: NtmsObjectsTypes = NtmsObjectsTypes(5i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_DRIVEINFORMATIONA {
@@ -7272,6 +7338,12 @@ impl Default for NTMS_DRIVEINFORMATIONW {
 impl windows_core::TypeKind for NTMS_DRIVEINFORMATIONW {
     type TypeKind = windows_core::CopyType;
 }
+pub const NTMS_DRIVESTATE_BEING_CLEANED: NtmsDriveState = NtmsDriveState(6i32);
+pub const NTMS_DRIVESTATE_DISMOUNTABLE: NtmsDriveState = NtmsDriveState(7i32);
+pub const NTMS_DRIVESTATE_DISMOUNTED: NtmsDriveState = NtmsDriveState(0i32);
+pub const NTMS_DRIVESTATE_LOADED: NtmsDriveState = NtmsDriveState(2i32);
+pub const NTMS_DRIVESTATE_MOUNTED: NtmsDriveState = NtmsDriveState(1i32);
+pub const NTMS_DRIVESTATE_UNLOADED: NtmsDriveState = NtmsDriveState(5i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_DRIVETYPEINFORMATIONA {
@@ -7304,6 +7376,18 @@ impl Default for NTMS_DRIVETYPEINFORMATIONW {
 impl windows_core::TypeKind for NTMS_DRIVETYPEINFORMATIONW {
     type TypeKind = windows_core::CopyType;
 }
+pub const NTMS_DRIVE_TYPE: NtmsObjectsTypes = NtmsObjectsTypes(6i32);
+pub const NTMS_EJECT_ASK_USER: NtmsEjectOperation = NtmsEjectOperation(5i32);
+pub const NTMS_EJECT_FORCE: NtmsEjectOperation = NtmsEjectOperation(3i32);
+pub const NTMS_EJECT_IMMEDIATE: NtmsEjectOperation = NtmsEjectOperation(4i32);
+pub const NTMS_EJECT_QUEUE: NtmsEjectOperation = NtmsEjectOperation(2i32);
+pub const NTMS_EJECT_START: NtmsEjectOperation = NtmsEjectOperation(0i32);
+pub const NTMS_EJECT_STOP: NtmsEjectOperation = NtmsEjectOperation(1i32);
+pub const NTMS_ENUM_DEFAULT: NtmsEnumerateOption = NtmsEnumerateOption(0i32);
+pub const NTMS_ENUM_ROOTPOOL: NtmsEnumerateOption = NtmsEnumerateOption(1i32);
+pub const NTMS_ERROR_ON_DUPLICATE: NtmsCreateNtmsMediaOptions = NtmsCreateNtmsMediaOptions(1i32);
+pub const NTMS_EVENT_COMPLETE: NtmsNotificationOperations = NtmsNotificationOperations(5i32);
+pub const NTMS_EVENT_SIGNAL: NtmsNotificationOperations = NtmsNotificationOperations(4i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_FILESYSTEM_INFO {
@@ -7402,6 +7486,7 @@ impl Default for NTMS_I1_LIBREQUESTINFORMATIONW {
 impl windows_core::TypeKind for NTMS_I1_LIBREQUESTINFORMATIONW {
     type TypeKind = windows_core::CopyType;
 }
+pub const NTMS_I1_MESSAGE_LENGTH: u32 = 127u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NTMS_I1_OBJECTINFORMATIONA {
@@ -7636,6 +7721,7 @@ impl Default for NTMS_I1_PMIDINFORMATIONW {
 impl windows_core::TypeKind for NTMS_I1_PMIDINFORMATIONW {
     type TypeKind = windows_core::CopyType;
 }
+pub const NTMS_IEDOOR: NtmsObjectsTypes = NtmsObjectsTypes(7i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_IEDOORINFORMATION {
@@ -7652,6 +7738,7 @@ impl Default for NTMS_IEDOORINFORMATION {
 impl windows_core::TypeKind for NTMS_IEDOORINFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+pub const NTMS_IEPORT: NtmsObjectsTypes = NtmsObjectsTypes(8i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_IEPORTINFORMATION {
@@ -7669,6 +7756,24 @@ impl Default for NTMS_IEPORTINFORMATION {
 impl windows_core::TypeKind for NTMS_IEPORTINFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+pub const NTMS_INITIALIZING: NtmsOperationalState = NtmsOperationalState(10i32);
+pub const NTMS_INJECT_RETRACT: NtmsInjectOperation = NtmsInjectOperation(2i32);
+pub const NTMS_INJECT_START: NtmsInjectOperation = NtmsInjectOperation(0i32);
+pub const NTMS_INJECT_STARTMANY: NtmsInjectOperation = NtmsInjectOperation(3i32);
+pub const NTMS_INJECT_STOP: NtmsInjectOperation = NtmsInjectOperation(1i32);
+pub const NTMS_INVENTORY_DEFAULT: NtmsInventoryMethod = NtmsInventoryMethod(3i32);
+pub const NTMS_INVENTORY_FAST: NtmsInventoryMethod = NtmsInventoryMethod(1i32);
+pub const NTMS_INVENTORY_MAX: NtmsInventoryMethod = NtmsInventoryMethod(6i32);
+pub const NTMS_INVENTORY_NONE: NtmsInventoryMethod = NtmsInventoryMethod(0i32);
+pub const NTMS_INVENTORY_OMID: NtmsInventoryMethod = NtmsInventoryMethod(2i32);
+pub const NTMS_INVENTORY_SLOT: NtmsInventoryMethod = NtmsInventoryMethod(4i32);
+pub const NTMS_INVENTORY_STOP: NtmsInventoryMethod = NtmsInventoryMethod(5i32);
+pub const NTMS_LIBRARY: NtmsObjectsTypes = NtmsObjectsTypes(9i32);
+pub const NTMS_LIBRARYFLAG_AUTODETECTCHANGE: NtmsLibraryFlags = NtmsLibraryFlags(4i32);
+pub const NTMS_LIBRARYFLAG_CLEANERPRESENT: NtmsLibraryFlags = NtmsLibraryFlags(2i32);
+pub const NTMS_LIBRARYFLAG_FIXEDOFFLINE: NtmsLibraryFlags = NtmsLibraryFlags(1i32);
+pub const NTMS_LIBRARYFLAG_IGNORECLEANERUSESREMAINING: NtmsLibraryFlags = NtmsLibraryFlags(8i32);
+pub const NTMS_LIBRARYFLAG_RECOGNIZECLEANERBARCODE: NtmsLibraryFlags = NtmsLibraryFlags(16i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_LIBRARYINFORMATION {
@@ -7704,6 +7809,13 @@ impl Default for NTMS_LIBRARYINFORMATION {
 impl windows_core::TypeKind for NTMS_LIBRARYINFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+pub const NTMS_LIBRARYTYPE_OFFLINE: NtmsLibraryType = NtmsLibraryType(1i32);
+pub const NTMS_LIBRARYTYPE_ONLINE: NtmsLibraryType = NtmsLibraryType(2i32);
+pub const NTMS_LIBRARYTYPE_STANDALONE: NtmsLibraryType = NtmsLibraryType(3i32);
+pub const NTMS_LIBRARYTYPE_UNKNOWN: NtmsLibraryType = NtmsLibraryType(0i32);
+pub const NTMS_LIBREQFLAGS_NOAUTOPURGE: NtmsLibRequestFlags = NtmsLibRequestFlags(1i32);
+pub const NTMS_LIBREQFLAGS_NOFAILEDPURGE: NtmsLibRequestFlags = NtmsLibRequestFlags(2i32);
+pub const NTMS_LIBREQUEST: NtmsObjectsTypes = NtmsObjectsTypes(10i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_LIBREQUESTINFORMATIONA {
@@ -7774,6 +7886,44 @@ impl Default for NTMS_LMIDINFORMATION {
 impl windows_core::TypeKind for NTMS_LMIDINFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+pub const NTMS_LM_CANCELLED: NtmsLmState = NtmsLmState(7i32);
+pub const NTMS_LM_CLASSIFY: NtmsLmOperation = NtmsLmOperation(19i32);
+pub const NTMS_LM_CLEANDRIVE: NtmsLmOperation = NtmsLmOperation(15i32);
+pub const NTMS_LM_DEFERRED: NtmsLmState = NtmsLmState(6i32);
+pub const NTMS_LM_DEFFERED: NtmsLmState = NtmsLmState(6i32);
+pub const NTMS_LM_DISABLECHANGER: NtmsLmOperation = NtmsLmOperation(1i32);
+pub const NTMS_LM_DISABLEDRIVE: NtmsLmOperation = NtmsLmOperation(3i32);
+pub const NTMS_LM_DISABLELIBRARY: NtmsLmOperation = NtmsLmOperation(1i32);
+pub const NTMS_LM_DISABLEMEDIA: NtmsLmOperation = NtmsLmOperation(5i32);
+pub const NTMS_LM_DISMOUNT: NtmsLmOperation = NtmsLmOperation(16i32);
+pub const NTMS_LM_DOORACCESS: NtmsLmOperation = NtmsLmOperation(9i32);
+pub const NTMS_LM_EJECT: NtmsLmOperation = NtmsLmOperation(10i32);
+pub const NTMS_LM_EJECTCLEANER: NtmsLmOperation = NtmsLmOperation(11i32);
+pub const NTMS_LM_ENABLECHANGER: NtmsLmOperation = NtmsLmOperation(2i32);
+pub const NTMS_LM_ENABLEDRIVE: NtmsLmOperation = NtmsLmOperation(4i32);
+pub const NTMS_LM_ENABLELIBRARY: NtmsLmOperation = NtmsLmOperation(2i32);
+pub const NTMS_LM_ENABLEMEDIA: NtmsLmOperation = NtmsLmOperation(6i32);
+pub const NTMS_LM_FAILED: NtmsLmState = NtmsLmState(3i32);
+pub const NTMS_LM_INJECT: NtmsLmOperation = NtmsLmOperation(12i32);
+pub const NTMS_LM_INJECTCLEANER: NtmsLmOperation = NtmsLmOperation(13i32);
+pub const NTMS_LM_INPROCESS: NtmsLmState = NtmsLmState(1i32);
+pub const NTMS_LM_INVALID: NtmsLmState = NtmsLmState(4i32);
+pub const NTMS_LM_INVENTORY: NtmsLmOperation = NtmsLmOperation(8i32);
+pub const NTMS_LM_MAXWORKITEM: NtmsLmOperation = NtmsLmOperation(22i32);
+pub const NTMS_LM_MOUNT: NtmsLmOperation = NtmsLmOperation(17i32);
+pub const NTMS_LM_PASSED: NtmsLmState = NtmsLmState(2i32);
+pub const NTMS_LM_PROCESSOMID: NtmsLmOperation = NtmsLmOperation(14i32);
+pub const NTMS_LM_QUEUED: NtmsLmState = NtmsLmState(0i32);
+pub const NTMS_LM_RELEASECLEANER: NtmsLmOperation = NtmsLmOperation(21i32);
+pub const NTMS_LM_REMOVE: NtmsLmOperation = NtmsLmOperation(0i32);
+pub const NTMS_LM_RESERVECLEANER: NtmsLmOperation = NtmsLmOperation(20i32);
+pub const NTMS_LM_STOPPED: NtmsLmState = NtmsLmState(8i32);
+pub const NTMS_LM_UPDATEOMID: NtmsLmOperation = NtmsLmOperation(7i32);
+pub const NTMS_LM_WAITING: NtmsLmState = NtmsLmState(5i32);
+pub const NTMS_LM_WRITESCRATCH: NtmsLmOperation = NtmsLmOperation(18i32);
+pub const NTMS_LOGICAL_MEDIA: NtmsObjectsTypes = NtmsObjectsTypes(11i32);
+pub const NTMS_MAXATTR_LENGTH: u32 = 65536u32;
+pub const NTMS_MAXATTR_NAMELEN: u32 = 32u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_MEDIAPOOLINFORMATION {
@@ -7795,6 +7945,17 @@ impl Default for NTMS_MEDIAPOOLINFORMATION {
 impl windows_core::TypeKind for NTMS_MEDIAPOOLINFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+pub const NTMS_MEDIARW_READONLY: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(3i32);
+pub const NTMS_MEDIARW_REWRITABLE: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(1i32);
+pub const NTMS_MEDIARW_UNKNOWN: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(0i32);
+pub const NTMS_MEDIARW_WRITEONCE: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(2i32);
+pub const NTMS_MEDIASTATE_IDLE: NtmsMediaState = NtmsMediaState(0i32);
+pub const NTMS_MEDIASTATE_INUSE: NtmsMediaState = NtmsMediaState(1i32);
+pub const NTMS_MEDIASTATE_LOADED: NtmsMediaState = NtmsMediaState(3i32);
+pub const NTMS_MEDIASTATE_MOUNTED: NtmsMediaState = NtmsMediaState(2i32);
+pub const NTMS_MEDIASTATE_OPERROR: NtmsMediaState = NtmsMediaState(5i32);
+pub const NTMS_MEDIASTATE_OPREQ: NtmsMediaState = NtmsMediaState(6i32);
+pub const NTMS_MEDIASTATE_UNLOADED: NtmsMediaState = NtmsMediaState(4i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_MEDIATYPEINFORMATION {
@@ -7811,6 +7972,14 @@ impl Default for NTMS_MEDIATYPEINFORMATION {
 impl windows_core::TypeKind for NTMS_MEDIATYPEINFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+pub const NTMS_MEDIA_POOL: NtmsObjectsTypes = NtmsObjectsTypes(12i32);
+pub const NTMS_MEDIA_TYPE: NtmsObjectsTypes = NtmsObjectsTypes(13i32);
+pub const NTMS_MESSAGE_LENGTH: u32 = 256u32;
+pub const NTMS_MODIFY_ACCESS: NtmsAccessMask = NtmsAccessMask(2i32);
+pub const NTMS_MOUNT_ERROR_IF_OFFLINE: NtmsMountOptions = NtmsMountOptions(8i32);
+pub const NTMS_MOUNT_ERROR_IF_UNAVAILABLE: NtmsMountOptions = NtmsMountOptions(4i32);
+pub const NTMS_MOUNT_ERROR_NOT_AVAILABLE: NtmsMountOptions = NtmsMountOptions(4i32);
+pub const NTMS_MOUNT_ERROR_OFFLINE: NtmsMountOptions = NtmsMountOptions(8i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_MOUNT_INFORMATION {
@@ -7825,6 +7994,11 @@ impl Default for NTMS_MOUNT_INFORMATION {
 impl windows_core::TypeKind for NTMS_MOUNT_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+pub const NTMS_MOUNT_NOWAIT: NtmsMountOptions = NtmsMountOptions(32i32);
+pub const NTMS_MOUNT_READ: NtmsMountOptions = NtmsMountOptions(1i32);
+pub const NTMS_MOUNT_SPECIFIC_DRIVE: NtmsMountOptions = NtmsMountOptions(16i32);
+pub const NTMS_MOUNT_WRITE: NtmsMountOptions = NtmsMountOptions(2i32);
+pub const NTMS_NEEDS_SERVICE: NtmsOperationalState = NtmsOperationalState(20i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_NOTIFICATIONINFORMATION {
@@ -7839,6 +8013,9 @@ impl Default for NTMS_NOTIFICATIONINFORMATION {
 impl windows_core::TypeKind for NTMS_NOTIFICATIONINFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+pub const NTMS_NOT_PRESENT: NtmsOperationalState = NtmsOperationalState(21i32);
+pub const NTMS_NUMBER_OF_OBJECT_TYPES: NtmsObjectsTypes = NtmsObjectsTypes(19i32);
+pub const NTMS_OBJECT: NtmsObjectsTypes = NtmsObjectsTypes(1i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NTMS_OBJECTINFORMATIONA {
@@ -7939,6 +8116,25 @@ impl Default for NTMS_OBJECTINFORMATIONW_0 {
 impl windows_core::TypeKind for NTMS_OBJECTINFORMATIONW_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const NTMS_OBJECTNAME_LENGTH: u32 = 64u32;
+pub const NTMS_OBJ_DELETE: NtmsNotificationOperations = NtmsNotificationOperations(3i32);
+pub const NTMS_OBJ_INSERT: NtmsNotificationOperations = NtmsNotificationOperations(2i32);
+pub const NTMS_OBJ_UPDATE: NtmsNotificationOperations = NtmsNotificationOperations(1i32);
+pub const NTMS_OMIDLABELID_LENGTH: u32 = 255u32;
+pub const NTMS_OMIDLABELINFO_LENGTH: u32 = 256u32;
+pub const NTMS_OMIDLABELTYPE_LENGTH: u32 = 64u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NTMS_OMID_TYPE(pub u32);
+pub const NTMS_OMID_TYPE_FILESYSTEM_INFO: NTMS_OMID_TYPE = NTMS_OMID_TYPE(2u32);
+pub const NTMS_OMID_TYPE_RAW_LABEL: NTMS_OMID_TYPE = NTMS_OMID_TYPE(1u32);
+pub const NTMS_OPEN_ALWAYS: NtmsCreateOptions = NtmsCreateOptions(3i32);
+pub const NTMS_OPEN_EXISTING: NtmsCreateOptions = NtmsCreateOptions(1i32);
+pub const NTMS_OPREQFLAGS_NOALERTS: NtmsOpRequestFlags = NtmsOpRequestFlags(16i32);
+pub const NTMS_OPREQFLAGS_NOAUTOPURGE: NtmsOpRequestFlags = NtmsOpRequestFlags(1i32);
+pub const NTMS_OPREQFLAGS_NOFAILEDPURGE: NtmsOpRequestFlags = NtmsOpRequestFlags(2i32);
+pub const NTMS_OPREQFLAGS_NOTRAYICON: NtmsOpRequestFlags = NtmsOpRequestFlags(32i32);
+pub const NTMS_OPREQUEST: NtmsObjectsTypes = NtmsObjectsTypes(17i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_OPREQUESTINFORMATIONA {
@@ -7985,6 +8181,19 @@ impl Default for NTMS_OPREQUESTINFORMATIONW {
 impl windows_core::TypeKind for NTMS_OPREQUESTINFORMATIONW {
     type TypeKind = windows_core::CopyType;
 }
+pub const NTMS_OPREQ_CLEANER: NtmsOpreqCommand = NtmsOpreqCommand(2i32);
+pub const NTMS_OPREQ_DEVICESERVICE: NtmsOpreqCommand = NtmsOpreqCommand(3i32);
+pub const NTMS_OPREQ_MESSAGE: NtmsOpreqCommand = NtmsOpreqCommand(5i32);
+pub const NTMS_OPREQ_MOVEMEDIA: NtmsOpreqCommand = NtmsOpreqCommand(4i32);
+pub const NTMS_OPREQ_NEWMEDIA: NtmsOpreqCommand = NtmsOpreqCommand(1i32);
+pub const NTMS_OPREQ_UNKNOWN: NtmsOpreqCommand = NtmsOpreqCommand(0i32);
+pub const NTMS_OPSTATE_ACTIVE: NtmsOpreqState = NtmsOpreqState(2i32);
+pub const NTMS_OPSTATE_COMPLETE: NtmsOpreqState = NtmsOpreqState(5i32);
+pub const NTMS_OPSTATE_INPROGRESS: NtmsOpreqState = NtmsOpreqState(3i32);
+pub const NTMS_OPSTATE_REFUSED: NtmsOpreqState = NtmsOpreqState(4i32);
+pub const NTMS_OPSTATE_SUBMITTED: NtmsOpreqState = NtmsOpreqState(1i32);
+pub const NTMS_OPSTATE_UNKNOWN: NtmsOpreqState = NtmsOpreqState(0i32);
+pub const NTMS_PARTITION: NtmsObjectsTypes = NtmsObjectsTypes(14i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_PARTITIONINFORMATIONA {
@@ -8031,6 +8240,17 @@ impl Default for NTMS_PARTITIONINFORMATIONW {
 impl windows_core::TypeKind for NTMS_PARTITIONINFORMATIONW {
     type TypeKind = windows_core::CopyType;
 }
+pub const NTMS_PARTSTATE_ALLOCATED: NtmsPartitionState = NtmsPartitionState(5i32);
+pub const NTMS_PARTSTATE_AVAILABLE: NtmsPartitionState = NtmsPartitionState(4i32);
+pub const NTMS_PARTSTATE_COMPLETE: NtmsPartitionState = NtmsPartitionState(6i32);
+pub const NTMS_PARTSTATE_DECOMMISSIONED: NtmsPartitionState = NtmsPartitionState(3i32);
+pub const NTMS_PARTSTATE_FOREIGN: NtmsPartitionState = NtmsPartitionState(7i32);
+pub const NTMS_PARTSTATE_IMPORT: NtmsPartitionState = NtmsPartitionState(8i32);
+pub const NTMS_PARTSTATE_INCOMPATIBLE: NtmsPartitionState = NtmsPartitionState(2i32);
+pub const NTMS_PARTSTATE_RESERVED: NtmsPartitionState = NtmsPartitionState(9i32);
+pub const NTMS_PARTSTATE_UNKNOWN: NtmsPartitionState = NtmsPartitionState(0i32);
+pub const NTMS_PARTSTATE_UNPREPARED: NtmsPartitionState = NtmsPartitionState(1i32);
+pub const NTMS_PHYSICAL_MEDIA: NtmsObjectsTypes = NtmsObjectsTypes(15i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_PMIDINFORMATIONA {
@@ -8083,6 +8303,38 @@ impl Default for NTMS_PMIDINFORMATIONW {
 impl windows_core::TypeKind for NTMS_PMIDINFORMATIONW {
     type TypeKind = windows_core::CopyType;
 }
+pub const NTMS_POOLHIERARCHY_LENGTH: u32 = 512u32;
+pub const NTMS_POOLPOLICY_KEEPOFFLINEIMPORT: NtmsMediaPoolPolicy = NtmsMediaPoolPolicy(2i32);
+pub const NTMS_POOLPOLICY_PURGEOFFLINESCRATCH: NtmsMediaPoolPolicy = NtmsMediaPoolPolicy(1i32);
+pub const NTMS_POOLTYPE_APPLICATION: NtmsPoolType = NtmsPoolType(1000i32);
+pub const NTMS_POOLTYPE_FOREIGN: NtmsPoolType = NtmsPoolType(2i32);
+pub const NTMS_POOLTYPE_IMPORT: NtmsPoolType = NtmsPoolType(3i32);
+pub const NTMS_POOLTYPE_SCRATCH: NtmsPoolType = NtmsPoolType(1i32);
+pub const NTMS_POOLTYPE_UNKNOWN: NtmsPoolType = NtmsPoolType(0i32);
+pub const NTMS_PORTCONTENT_EMPTY: NtmsPortContent = NtmsPortContent(2i32);
+pub const NTMS_PORTCONTENT_FULL: NtmsPortContent = NtmsPortContent(1i32);
+pub const NTMS_PORTCONTENT_UNKNOWN: NtmsPortContent = NtmsPortContent(0i32);
+pub const NTMS_PORTPOSITION_EXTENDED: NtmsPortPosition = NtmsPortPosition(1i32);
+pub const NTMS_PORTPOSITION_RETRACTED: NtmsPortPosition = NtmsPortPosition(2i32);
+pub const NTMS_PORTPOSITION_UNKNOWN: NtmsPortPosition = NtmsPortPosition(0i32);
+pub const NTMS_PRIORITY_DEFAULT: NtmsMountPriority = NtmsMountPriority(0i32);
+pub const NTMS_PRIORITY_HIGH: NtmsMountPriority = NtmsMountPriority(7i32);
+pub const NTMS_PRIORITY_HIGHEST: NtmsMountPriority = NtmsMountPriority(15i32);
+pub const NTMS_PRIORITY_LOW: NtmsMountPriority = NtmsMountPriority(-7i32);
+pub const NTMS_PRIORITY_LOWEST: NtmsMountPriority = NtmsMountPriority(-15i32);
+pub const NTMS_PRIORITY_NORMAL: NtmsMountPriority = NtmsMountPriority(0i32);
+pub const NTMS_PRODUCTNAME_LENGTH: u32 = 128u32;
+pub const NTMS_READY: NtmsOperationalState = NtmsOperationalState(0i32);
+pub const NTMS_REVISION_LENGTH: u32 = 32u32;
+pub const NTMS_SEQUENCE_LENGTH: u32 = 32u32;
+pub const NTMS_SERIALNUMBER_LENGTH: u32 = 32u32;
+pub const NTMS_SESSION_QUERYEXPEDITE: NtmsSessionOptions = NtmsSessionOptions(1i32);
+pub const NTMS_SLOTSTATE_EMPTY: NtmsSlotState = NtmsSlotState(2i32);
+pub const NTMS_SLOTSTATE_FULL: NtmsSlotState = NtmsSlotState(1i32);
+pub const NTMS_SLOTSTATE_NEEDSINVENTORY: NtmsSlotState = NtmsSlotState(4i32);
+pub const NTMS_SLOTSTATE_NOTPRESENT: NtmsSlotState = NtmsSlotState(3i32);
+pub const NTMS_SLOTSTATE_UNKNOWN: NtmsSlotState = NtmsSlotState(0i32);
+pub const NTMS_STORAGESLOT: NtmsObjectsTypes = NtmsObjectsTypes(16i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_STORAGESLOTINFORMATION {
@@ -8098,6 +8350,144 @@ impl Default for NTMS_STORAGESLOTINFORMATION {
 impl windows_core::TypeKind for NTMS_STORAGESLOTINFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+pub const NTMS_UIDEST_ADD: NtmsUIOperations = NtmsUIOperations(1i32);
+pub const NTMS_UIDEST_DELETE: NtmsUIOperations = NtmsUIOperations(2i32);
+pub const NTMS_UIDEST_DELETEALL: NtmsUIOperations = NtmsUIOperations(3i32);
+pub const NTMS_UIOPERATION_MAX: NtmsUIOperations = NtmsUIOperations(4i32);
+pub const NTMS_UITYPE_ERR: NtmsUITypes = NtmsUITypes(3i32);
+pub const NTMS_UITYPE_INFO: NtmsUITypes = NtmsUITypes(1i32);
+pub const NTMS_UITYPE_INVALID: NtmsUITypes = NtmsUITypes(0i32);
+pub const NTMS_UITYPE_MAX: NtmsUITypes = NtmsUITypes(4i32);
+pub const NTMS_UITYPE_REQ: NtmsUITypes = NtmsUITypes(2i32);
+pub const NTMS_UI_DESTINATION: NtmsObjectsTypes = NtmsObjectsTypes(18i32);
+pub const NTMS_UNKNOWN: NtmsObjectsTypes = NtmsObjectsTypes(0i32);
+pub const NTMS_UNKNOWN_DRIVE: NtmsDriveType = NtmsDriveType(0i32);
+pub const NTMS_USERNAME_LENGTH: u32 = 64u32;
+pub const NTMS_USE_ACCESS: NtmsAccessMask = NtmsAccessMask(1i32);
+pub const NTMS_VENDORNAME_LENGTH: u32 = 128u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsAccessMask(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsAllocateOptions(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsAllocationPolicy(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsAsyncOperations(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsAsyncStatus(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsBarCodeState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsCreateNtmsMediaOptions(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsCreateOptions(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsDeallocationPolicy(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsDismountOptions(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsDoorState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsDriveState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsDriveType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsEjectOperation(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsEnumerateOption(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsInjectOperation(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsInventoryMethod(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsLibRequestFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsLibraryFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsLibraryType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsLmOperation(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsLmState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsMediaPoolPolicy(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsMediaState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsMountOptions(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsMountPriority(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsNotificationOperations(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsObjectsTypes(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsOpRequestFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsOperationalState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsOpreqCommand(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsOpreqState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsPartitionState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsPoolType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsPortContent(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsPortPosition(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsReadWriteCharacteristics(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsSessionOptions(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsSlotState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsUIOperations(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NtmsUITypes(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OFSTRUCT {
@@ -8116,6 +8506,81 @@ impl Default for OFSTRUCT {
 impl windows_core::TypeKind for OFSTRUCT {
     type TypeKind = windows_core::CopyType;
 }
+pub const OF_CANCEL: LZOPENFILE_STYLE = LZOPENFILE_STYLE(2048u16);
+pub const OF_CREATE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(4096u16);
+pub const OF_DELETE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(512u16);
+pub const OF_EXIST: LZOPENFILE_STYLE = LZOPENFILE_STYLE(16384u16);
+pub const OF_PARSE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(256u16);
+pub const OF_PROMPT: LZOPENFILE_STYLE = LZOPENFILE_STYLE(8192u16);
+pub const OF_READ: LZOPENFILE_STYLE = LZOPENFILE_STYLE(0u16);
+pub const OF_READWRITE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(2u16);
+pub const OF_REOPEN: LZOPENFILE_STYLE = LZOPENFILE_STYLE(32768u16);
+pub const OF_SHARE_COMPAT: LZOPENFILE_STYLE = LZOPENFILE_STYLE(0u16);
+pub const OF_SHARE_DENY_NONE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(64u16);
+pub const OF_SHARE_DENY_READ: LZOPENFILE_STYLE = LZOPENFILE_STYLE(48u16);
+pub const OF_SHARE_DENY_WRITE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(32u16);
+pub const OF_SHARE_EXCLUSIVE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(16u16);
+pub const OF_VERIFY: LZOPENFILE_STYLE = LZOPENFILE_STYLE(1024u16);
+pub const OF_WRITE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(1u16);
+pub const OPEN_ALWAYS: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(4u32);
+pub const OPEN_EXISTING: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(3u32);
+pub const ObjectIdType: FILE_ID_TYPE = FILE_ID_TYPE(1i32);
+pub const PARTITION_BASIC_DATA_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xebd0a0a2_b9e5_4433_87c0_68b6b72699c7);
+pub const PARTITION_BSP_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x57434f53_4df9_45b9_8e9e_2370f006457c);
+pub const PARTITION_CLUSTER_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xdb97dba9_0840_4bae_97f0_ffb9a327c7e1);
+pub const PARTITION_DPP_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x57434f53_94cb_43f0_a533_d73c10cfa57d);
+pub const PARTITION_ENTRY_UNUSED_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+pub const PARTITION_LDM_DATA_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xaf9b60a0_1431_4f62_bc68_3311714a69ad);
+pub const PARTITION_LDM_METADATA_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x5808c8aa_7e8f_42e0_85d2_e1e90434cfb3);
+pub const PARTITION_LEGACY_BL_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x424ca0e2_7cb2_4fb9_8143_c52a99398bc6);
+pub const PARTITION_LEGACY_BL_GUID_BACKUP: windows_core::GUID = windows_core::GUID::from_u128(0x424c3e6c_d79f_49cb_935d_36d71467a288);
+pub const PARTITION_MAIN_OS_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x57434f53_8f45_405e_8a23_186d8a4330d3);
+pub const PARTITION_MSFT_RECOVERY_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xde94bba4_06d1_4d40_a16a_bfd50179d6ac);
+pub const PARTITION_MSFT_RESERVED_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe3c9e316_0b5c_4db8_817d_f92df00215ae);
+pub const PARTITION_MSFT_SNAPSHOT_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xcaddebf1_4400_4de8_b103_12117dcf3ccf);
+pub const PARTITION_OS_DATA_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x57434f53_23f2_44d5_a830_67bbdaa609f9);
+pub const PARTITION_PATCH_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x8967a686_96aa_6aa8_9589_a84256541090);
+pub const PARTITION_PRE_INSTALLED_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x57434f53_7fe0_4196_9b42_427b51643484);
+pub const PARTITION_SBL_CACHE_HDD_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x03aaa829_ebfc_4e7e_aac9_c4d76c63b24b);
+pub const PARTITION_SBL_CACHE_SSD_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xeeff8352_dd2a_44db_ae83_bee1cf7481dc);
+pub const PARTITION_SBL_CACHE_SSD_RESERVED_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xdcc0c7c1_55ad_4f17_9d43_4bc776e0117e);
+pub const PARTITION_SERVICING_FILES_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x57434f53_432e_4014_ae4c_8deaa9c0006a);
+pub const PARTITION_SERVICING_METADATA_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x57434f53_c691_4a05_bb4e_703dafd229ce);
+pub const PARTITION_SERVICING_RESERVE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x57434f53_4b81_460b_a319_ffb6fe136d14);
+pub const PARTITION_SERVICING_STAGING_ROOT_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x57434f53_e84d_4e84_aaf3_ecbbbd04b9df);
+pub const PARTITION_SPACES_DATA_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe7addcb4_dc34_4539_9a76_ebbd07be6f7e);
+pub const PARTITION_SPACES_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe75caf8f_f680_4cee_afa3_b001e56efc2d);
+pub const PARTITION_SYSTEM_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xc12a7328_f81f_11d2_ba4b_00a0c93ec93b);
+pub const PARTITION_WINDOWS_SYSTEM_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x57434f53_e3e3_4631_a5c5_26d2243873aa);
+pub type PCLFS_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(pvoverlapped: *mut core::ffi::c_void, ulreserved: u32)>;
+pub type PCOPYFILE2_PROGRESS_ROUTINE = Option<unsafe extern "system" fn(pmessage: *const COPYFILE2_MESSAGE, pvcallbackcontext: *const core::ffi::c_void) -> COPYFILE2_MESSAGE_ACTION>;
+pub const PERM_FILE_CREATE: FILE_INFO_FLAGS_PERMISSIONS = FILE_INFO_FLAGS_PERMISSIONS(4u32);
+pub const PERM_FILE_READ: FILE_INFO_FLAGS_PERMISSIONS = FILE_INFO_FLAGS_PERMISSIONS(1u32);
+pub const PERM_FILE_WRITE: FILE_INFO_FLAGS_PERMISSIONS = FILE_INFO_FLAGS_PERMISSIONS(2u32);
+pub type PFE_EXPORT_FUNC = Option<unsafe extern "system" fn(pbdata: *const u8, pvcallbackcontext: *const core::ffi::c_void, ullength: u32) -> u32>;
+pub type PFE_IMPORT_FUNC = Option<unsafe extern "system" fn(pbdata: *mut u8, pvcallbackcontext: *const core::ffi::c_void, ullength: *mut u32) -> u32>;
+pub type PFN_IO_COMPLETION = Option<unsafe extern "system" fn(pcontext: *mut FIO_CONTEXT, lpo: *mut FH_OVERLAPPED, cb: u32, dwcompletionstatus: u32)>;
+pub const PIPE_ACCESS_DUPLEX: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(3u32);
+pub const PIPE_ACCESS_INBOUND: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1u32);
+pub const PIPE_ACCESS_OUTBOUND: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2u32);
+pub type PLOG_FULL_HANDLER_CALLBACK = Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, dwerror: u32, flogispinned: super::super::Foundation::BOOL, pvclientcontext: *mut core::ffi::c_void)>;
+pub type PLOG_TAIL_ADVANCE_CALLBACK = Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, lsntarget: CLS_LSN, pvclientcontext: *mut core::ffi::c_void)>;
+pub type PLOG_UNPINNED_CALLBACK = Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, pvclientcontext: *mut core::ffi::c_void)>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PREPARE_TAPE_OPERATION(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PRIORITY_HINT(pub i32);
+pub const PROGRESS_CANCEL: COPYPROGRESSROUTINE_PROGRESS = COPYPROGRESSROUTINE_PROGRESS(1u32);
+pub const PROGRESS_CONTINUE: COPYPROGRESSROUTINE_PROGRESS = COPYPROGRESSROUTINE_PROGRESS(0u32);
+pub const PROGRESS_QUIET: COPYPROGRESSROUTINE_PROGRESS = COPYPROGRESSROUTINE_PROGRESS(3u32);
+pub const PROGRESS_STOP: COPYPROGRESSROUTINE_PROGRESS = COPYPROGRESSROUTINE_PROGRESS(2u32);
+pub const QUIC: SERVER_CERTIFICATE_TYPE = SERVER_CERTIFICATE_TYPE(0i32);
+pub const READ_CONTROL: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(131072u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REPARSE_GUID_DATA_BUFFER {
@@ -8146,6 +8611,61 @@ impl Default for REPARSE_GUID_DATA_BUFFER_0 {
 impl windows_core::TypeKind for REPARSE_GUID_DATA_BUFFER_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const REPLACEFILE_IGNORE_ACL_ERRORS: REPLACE_FILE_FLAGS = REPLACE_FILE_FLAGS(4u32);
+pub const REPLACEFILE_IGNORE_MERGE_ERRORS: REPLACE_FILE_FLAGS = REPLACE_FILE_FLAGS(2u32);
+pub const REPLACEFILE_WRITE_THROUGH: REPLACE_FILE_FLAGS = REPLACE_FILE_FLAGS(1u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REPLACE_FILE_FLAGS(pub u32);
+impl REPLACE_FILE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for REPLACE_FILE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for REPLACE_FILE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for REPLACE_FILE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for REPLACE_FILE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for REPLACE_FILE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const RESOURCE_MANAGER_COMMUNICATION: u32 = 2u32;
+pub const RESOURCE_MANAGER_MAXIMUM_OPTION: u32 = 3u32;
+pub const RESOURCE_MANAGER_OBJECT_PATH: windows_core::PCWSTR = windows_core::w!("\\ResourceManager\\");
+pub const RESOURCE_MANAGER_VOLATILE: u32 = 1u32;
+pub const ReadDirectoryNotifyExtendedInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(2i32);
+pub const ReadDirectoryNotifyFullInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(3i32);
+pub const ReadDirectoryNotifyInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(1i32);
+pub const ReadDirectoryNotifyMaximumInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(4i32);
+pub const SECURITY_ANONYMOUS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(0u32);
+pub const SECURITY_CONTEXT_TRACKING: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(262144u32);
+pub const SECURITY_DELEGATION: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(196608u32);
+pub const SECURITY_EFFECTIVE_ONLY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(524288u32);
+pub const SECURITY_IDENTIFICATION: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(65536u32);
+pub const SECURITY_IMPERSONATION: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(131072u32);
+pub const SECURITY_SQOS_PRESENT: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1048576u32);
+pub const SECURITY_VALID_SQOS_FLAGS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2031616u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVER_ALIAS_INFO_0 {
@@ -8187,6 +8707,11 @@ impl Default for SERVER_CERTIFICATE_INFO_0 {
 impl windows_core::TypeKind for SERVER_CERTIFICATE_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SERVER_CERTIFICATE_TYPE(pub i32);
+pub const SESI1_NUM_ELEMENTS: u32 = 8u32;
+pub const SESI2_NUM_ELEMENTS: u32 = 9u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SESSION_INFO_0 {
@@ -8273,6 +8798,18 @@ impl Default for SESSION_INFO_502 {
 impl windows_core::TypeKind for SESSION_INFO_502 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SESSION_INFO_USER_FLAGS(pub u32);
+pub const SESS_GUEST: SESSION_INFO_USER_FLAGS = SESSION_INFO_USER_FLAGS(1u32);
+pub const SESS_NOENCRYPTION: SESSION_INFO_USER_FLAGS = SESSION_INFO_USER_FLAGS(2u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SET_FILE_POINTER_MOVE_METHOD(pub u32);
+pub const SET_TAPE_DRIVE_INFORMATION: TAPE_INFORMATION_TYPE = TAPE_INFORMATION_TYPE(1u32);
+pub const SET_TAPE_MEDIA_INFORMATION: TAPE_INFORMATION_TYPE = TAPE_INFORMATION_TYPE(0u32);
+pub const SHARE_CURRENT_USES_PARMNUM: u32 = 7u32;
+pub const SHARE_FILE_SD_PARMNUM: u32 = 501u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SHARE_INFO_0 {
@@ -8457,6 +8994,81 @@ impl Default for SHARE_INFO_503 {
 impl windows_core::TypeKind for SHARE_INFO_503 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SHARE_INFO_PERMISSIONS(pub u32);
+pub const SHARE_MAX_USES_PARMNUM: u32 = 6u32;
+pub const SHARE_NETNAME_PARMNUM: u32 = 1u32;
+pub const SHARE_PASSWD_PARMNUM: u32 = 9u32;
+pub const SHARE_PATH_PARMNUM: u32 = 8u32;
+pub const SHARE_PERMISSIONS_PARMNUM: u32 = 5u32;
+pub const SHARE_QOS_POLICY_PARMNUM: u32 = 504u32;
+pub const SHARE_REMARK_PARMNUM: u32 = 4u32;
+pub const SHARE_SERVER_PARMNUM: u32 = 503u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SHARE_TYPE(pub u32);
+impl SHARE_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for SHARE_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for SHARE_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for SHARE_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for SHARE_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for SHARE_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const SHARE_TYPE_PARMNUM: u32 = 3u32;
+pub const SHI1005_FLAGS_ACCESS_BASED_DIRECTORY_ENUM: u32 = 2048u32;
+pub const SHI1005_FLAGS_ALLOW_NAMESPACE_CACHING: u32 = 1024u32;
+pub const SHI1005_FLAGS_CLUSTER_MANAGED: u32 = 524288u32;
+pub const SHI1005_FLAGS_COMPRESS_DATA: u32 = 1048576u32;
+pub const SHI1005_FLAGS_DFS: u32 = 1u32;
+pub const SHI1005_FLAGS_DFS_ROOT: u32 = 2u32;
+pub const SHI1005_FLAGS_DISABLE_CLIENT_BUFFERING: u32 = 131072u32;
+pub const SHI1005_FLAGS_DISABLE_DIRECTORY_HANDLE_LEASING: u32 = 4194304u32;
+pub const SHI1005_FLAGS_ENABLE_CA: u32 = 16384u32;
+pub const SHI1005_FLAGS_ENABLE_HASH: u32 = 8192u32;
+pub const SHI1005_FLAGS_ENCRYPT_DATA: u32 = 32768u32;
+pub const SHI1005_FLAGS_FORCE_LEVELII_OPLOCK: u32 = 4096u32;
+pub const SHI1005_FLAGS_FORCE_SHARED_DELETE: u32 = 512u32;
+pub const SHI1005_FLAGS_IDENTITY_REMOTING: u32 = 262144u32;
+pub const SHI1005_FLAGS_ISOLATED_TRANSPORT: u32 = 2097152u32;
+pub const SHI1005_FLAGS_RESERVED: u32 = 65536u32;
+pub const SHI1005_FLAGS_RESTRICT_EXCLUSIVE_OPENS: u32 = 256u32;
+pub const SHI1_NUM_ELEMENTS: u32 = 4u32;
+pub const SHI2_NUM_ELEMENTS: u32 = 10u32;
+pub const SHI_USES_UNLIMITED: u32 = 4294967295u32;
+pub const SPECIFIC_RIGHTS_ALL: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(65535u32);
+pub const STANDARD_RIGHTS_ALL: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(2031616u32);
+pub const STANDARD_RIGHTS_EXECUTE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(131072u32);
+pub const STANDARD_RIGHTS_READ: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(131072u32);
+pub const STANDARD_RIGHTS_REQUIRED: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(983040u32);
+pub const STANDARD_RIGHTS_WRITE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(131072u32);
+pub const STATSOPT_CLR: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STAT_SERVER_0 {
@@ -8538,6 +9150,69 @@ impl Default for STAT_WORKSTATION_0 {
 impl windows_core::TypeKind for STAT_WORKSTATION_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STORAGE_BUS_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STREAM_INFO_LEVELS(pub i32);
+pub const STYPE_DEVICE: SHARE_TYPE = SHARE_TYPE(2u32);
+pub const STYPE_DISKTREE: SHARE_TYPE = SHARE_TYPE(0u32);
+pub const STYPE_IPC: SHARE_TYPE = SHARE_TYPE(3u32);
+pub const STYPE_MASK: SHARE_TYPE = SHARE_TYPE(255u32);
+pub const STYPE_PRINTQ: SHARE_TYPE = SHARE_TYPE(1u32);
+pub const STYPE_RESERVED1: u32 = 16777216u32;
+pub const STYPE_RESERVED2: u32 = 33554432u32;
+pub const STYPE_RESERVED3: u32 = 67108864u32;
+pub const STYPE_RESERVED4: u32 = 134217728u32;
+pub const STYPE_RESERVED5: u32 = 1048576u32;
+pub const STYPE_RESERVED_ALL: u32 = 1073741568u32;
+pub const STYPE_SPECIAL: SHARE_TYPE = SHARE_TYPE(2147483648u32);
+pub const STYPE_TEMPORARY: SHARE_TYPE = SHARE_TYPE(1073741824u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYMBOLIC_LINK_FLAGS(pub u32);
+impl SYMBOLIC_LINK_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for SYMBOLIC_LINK_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for SYMBOLIC_LINK_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for SYMBOLIC_LINK_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for SYMBOLIC_LINK_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for SYMBOLIC_LINK_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const SYMBOLIC_LINK_FLAG_ALLOW_UNPRIVILEGED_CREATE: SYMBOLIC_LINK_FLAGS = SYMBOLIC_LINK_FLAGS(2u32);
+pub const SYMBOLIC_LINK_FLAG_DIRECTORY: SYMBOLIC_LINK_FLAGS = SYMBOLIC_LINK_FLAGS(1u32);
+pub const SYNCHRONIZE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(1048576u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TAPEMARK_TYPE(pub u32);
+pub const TAPE_ABSOLUTE_BLOCK: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(1u32);
+pub const TAPE_ABSOLUTE_POSITION: TAPE_POSITION_TYPE = TAPE_POSITION_TYPE(0u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TAPE_ERASE {
@@ -8552,6 +9227,11 @@ impl Default for TAPE_ERASE {
 impl windows_core::TypeKind for TAPE_ERASE {
     type TypeKind = windows_core::CopyType;
 }
+pub const TAPE_ERASE_LONG: ERASE_TAPE_TYPE = ERASE_TAPE_TYPE(1u32);
+pub const TAPE_ERASE_SHORT: ERASE_TAPE_TYPE = ERASE_TAPE_TYPE(0u32);
+pub const TAPE_FILEMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(1u32);
+pub const TAPE_FIXED_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = CREATE_TAPE_PARTITION_METHOD(0u32);
+pub const TAPE_FORMAT: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(5u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TAPE_GET_POSITION {
@@ -8567,6 +9247,21 @@ impl Default for TAPE_GET_POSITION {
 impl windows_core::TypeKind for TAPE_GET_POSITION {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TAPE_INFORMATION_TYPE(pub u32);
+pub const TAPE_INITIATOR_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = CREATE_TAPE_PARTITION_METHOD(2u32);
+pub const TAPE_LOAD: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(0u32);
+pub const TAPE_LOCK: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(3u32);
+pub const TAPE_LOGICAL_BLOCK: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(2u32);
+pub const TAPE_LOGICAL_POSITION: TAPE_POSITION_TYPE = TAPE_POSITION_TYPE(1u32);
+pub const TAPE_LONG_FILEMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(3u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TAPE_POSITION_METHOD(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TAPE_POSITION_TYPE(pub u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TAPE_PREPARE {
@@ -8581,6 +9276,9 @@ impl Default for TAPE_PREPARE {
 impl windows_core::TypeKind for TAPE_PREPARE {
     type TypeKind = windows_core::CopyType;
 }
+pub const TAPE_REWIND: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(0u32);
+pub const TAPE_SELECT_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = CREATE_TAPE_PARTITION_METHOD(1u32);
+pub const TAPE_SETMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(0u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TAPE_SET_POSITION {
@@ -8597,6 +9295,16 @@ impl Default for TAPE_SET_POSITION {
 impl windows_core::TypeKind for TAPE_SET_POSITION {
     type TypeKind = windows_core::CopyType;
 }
+pub const TAPE_SHORT_FILEMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(2u32);
+pub const TAPE_SPACE_END_OF_DATA: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(4u32);
+pub const TAPE_SPACE_FILEMARKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(6u32);
+pub const TAPE_SPACE_RELATIVE_BLOCKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(5u32);
+pub const TAPE_SPACE_SEQUENTIAL_FMKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(7u32);
+pub const TAPE_SPACE_SEQUENTIAL_SMKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(9u32);
+pub const TAPE_SPACE_SETMARKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(8u32);
+pub const TAPE_TENSION: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(2u32);
+pub const TAPE_UNLOAD: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(1u32);
+pub const TAPE_UNLOCK: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(4u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TAPE_WRITE_MARKS {
@@ -8612,6 +9320,17 @@ impl Default for TAPE_WRITE_MARKS {
 impl windows_core::TypeKind for TAPE_WRITE_MARKS {
     type TypeKind = windows_core::CopyType;
 }
+pub const TRANSACTIONMANAGER_OBJECT_PATH: windows_core::PCWSTR = windows_core::w!("\\TransactionManager\\");
+pub const TRANSACTION_DO_NOT_PROMOTE: u32 = 1u32;
+pub const TRANSACTION_MANAGER_COMMIT_DEFAULT: u32 = 0u32;
+pub const TRANSACTION_MANAGER_COMMIT_LOWEST: u32 = 8u32;
+pub const TRANSACTION_MANAGER_COMMIT_SYSTEM_HIVES: u32 = 4u32;
+pub const TRANSACTION_MANAGER_COMMIT_SYSTEM_VOLUME: u32 = 2u32;
+pub const TRANSACTION_MANAGER_CORRUPT_FOR_PROGRESS: u32 = 32u32;
+pub const TRANSACTION_MANAGER_CORRUPT_FOR_RECOVERY: u32 = 16u32;
+pub const TRANSACTION_MANAGER_MAXIMUM_OPTION: u32 = 63u32;
+pub const TRANSACTION_MANAGER_VOLATILE: u32 = 1u32;
+pub const TRANSACTION_MAXIMUM_OPTION: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRANSACTION_NOTIFICATION {
@@ -8699,6 +9418,45 @@ impl Default for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
 impl windows_core::TypeKind for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
     type TypeKind = windows_core::CopyType;
 }
+pub const TRANSACTION_NOTIFICATION_TM_ONLINE_FLAG_IS_CLUSTERED: u32 = 1u32;
+pub const TRANSACTION_NOTIFY_COMMIT: u32 = 4u32;
+pub const TRANSACTION_NOTIFY_COMMIT_COMPLETE: u32 = 64u32;
+pub const TRANSACTION_NOTIFY_COMMIT_FINALIZE: u32 = 1073741824u32;
+pub const TRANSACTION_NOTIFY_COMMIT_REQUEST: u32 = 67108864u32;
+pub const TRANSACTION_NOTIFY_DELEGATE_COMMIT: u32 = 1024u32;
+pub const TRANSACTION_NOTIFY_ENLIST_MASK: u32 = 262144u32;
+pub const TRANSACTION_NOTIFY_ENLIST_PREPREPARE: u32 = 4096u32;
+pub const TRANSACTION_NOTIFY_INDOUBT: u32 = 16384u32;
+pub const TRANSACTION_NOTIFY_LAST_RECOVER: u32 = 8192u32;
+pub const TRANSACTION_NOTIFY_MARSHAL: u32 = 131072u32;
+pub const TRANSACTION_NOTIFY_MASK: u32 = 1073741823u32;
+pub const TRANSACTION_NOTIFY_PREPARE: u32 = 2u32;
+pub const TRANSACTION_NOTIFY_PREPARE_COMPLETE: u32 = 32u32;
+pub const TRANSACTION_NOTIFY_PREPREPARE: u32 = 1u32;
+pub const TRANSACTION_NOTIFY_PREPREPARE_COMPLETE: u32 = 16u32;
+pub const TRANSACTION_NOTIFY_PROMOTE: u32 = 134217728u32;
+pub const TRANSACTION_NOTIFY_PROMOTE_NEW: u32 = 268435456u32;
+pub const TRANSACTION_NOTIFY_PROPAGATE_PULL: u32 = 32768u32;
+pub const TRANSACTION_NOTIFY_PROPAGATE_PUSH: u32 = 65536u32;
+pub const TRANSACTION_NOTIFY_RECOVER: u32 = 256u32;
+pub const TRANSACTION_NOTIFY_RECOVER_QUERY: u32 = 2048u32;
+pub const TRANSACTION_NOTIFY_REQUEST_OUTCOME: u32 = 536870912u32;
+pub const TRANSACTION_NOTIFY_RM_DISCONNECTED: u32 = 16777216u32;
+pub const TRANSACTION_NOTIFY_ROLLBACK: u32 = 8u32;
+pub const TRANSACTION_NOTIFY_ROLLBACK_COMPLETE: u32 = 128u32;
+pub const TRANSACTION_NOTIFY_SINGLE_PHASE_COMMIT: u32 = 512u32;
+pub const TRANSACTION_NOTIFY_TM_ONLINE: u32 = 33554432u32;
+pub const TRANSACTION_OBJECT_PATH: windows_core::PCWSTR = windows_core::w!("\\Transaction\\");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TRANSACTION_OUTCOME(pub i32);
+pub const TRUNCATE_EXISTING: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(5u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TXFS_MINIVERSION(pub u32);
+pub const TXFS_MINIVERSION_COMMITTED_VIEW: TXFS_MINIVERSION = TXFS_MINIVERSION(0u32);
+pub const TXFS_MINIVERSION_DEFAULT_VIEW: TXFS_MINIVERSION = TXFS_MINIVERSION(65534u32);
+pub const TXFS_MINIVERSION_DIRTY_VIEW: TXFS_MINIVERSION = TXFS_MINIVERSION(65535u32);
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct TXF_ID {
@@ -8760,6 +9518,10 @@ impl Default for TXF_LOG_RECORD_BASE {
 impl windows_core::TypeKind for TXF_LOG_RECORD_BASE {
     type TypeKind = windows_core::CopyType;
 }
+pub const TXF_LOG_RECORD_GENERIC_TYPE_ABORT: u32 = 2u32;
+pub const TXF_LOG_RECORD_GENERIC_TYPE_COMMIT: u32 = 1u32;
+pub const TXF_LOG_RECORD_GENERIC_TYPE_DATA: u32 = 8u32;
+pub const TXF_LOG_RECORD_GENERIC_TYPE_PREPARE: u32 = 4u32;
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct TXF_LOG_RECORD_TRUNCATE {
@@ -8781,6 +9543,12 @@ impl Default for TXF_LOG_RECORD_TRUNCATE {
 impl windows_core::TypeKind for TXF_LOG_RECORD_TRUNCATE {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TXF_LOG_RECORD_TYPE(pub u16);
+pub const TXF_LOG_RECORD_TYPE_AFFECTED_FILE: TXF_LOG_RECORD_TYPE = TXF_LOG_RECORD_TYPE(4u16);
+pub const TXF_LOG_RECORD_TYPE_TRUNCATE: TXF_LOG_RECORD_TYPE = TXF_LOG_RECORD_TYPE(2u16);
+pub const TXF_LOG_RECORD_TYPE_WRITE: TXF_LOG_RECORD_TYPE = TXF_LOG_RECORD_TYPE(1u16);
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct TXF_LOG_RECORD_WRITE {
@@ -8804,6 +9572,137 @@ impl Default for TXF_LOG_RECORD_WRITE {
 impl windows_core::TypeKind for TXF_LOG_RECORD_WRITE {
     type TypeKind = windows_core::CopyType;
 }
+pub const TransactionOutcomeAborted: TRANSACTION_OUTCOME = TRANSACTION_OUTCOME(3i32);
+pub const TransactionOutcomeCommitted: TRANSACTION_OUTCOME = TRANSACTION_OUTCOME(2i32);
+pub const TransactionOutcomeUndetermined: TRANSACTION_OUTCOME = TRANSACTION_OUTCOME(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VER_FIND_FILE_FLAGS(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VER_FIND_FILE_STATUS(pub u32);
+impl VER_FIND_FILE_STATUS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for VER_FIND_FILE_STATUS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for VER_FIND_FILE_STATUS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for VER_FIND_FILE_STATUS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for VER_FIND_FILE_STATUS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for VER_FIND_FILE_STATUS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VER_INSTALL_FILE_FLAGS(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VER_INSTALL_FILE_STATUS(pub u32);
+impl VER_INSTALL_FILE_STATUS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for VER_INSTALL_FILE_STATUS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for VER_INSTALL_FILE_STATUS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for VER_INSTALL_FILE_STATUS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for VER_INSTALL_FILE_STATUS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for VER_INSTALL_FILE_STATUS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const VFFF_ISSHAREDFILE: VER_FIND_FILE_FLAGS = VER_FIND_FILE_FLAGS(1u32);
+pub const VFF_BUFFTOOSMALL: VER_FIND_FILE_STATUS = VER_FIND_FILE_STATUS(4u32);
+pub const VFF_CURNEDEST: VER_FIND_FILE_STATUS = VER_FIND_FILE_STATUS(1u32);
+pub const VFF_FILEINUSE: VER_FIND_FILE_STATUS = VER_FIND_FILE_STATUS(2u32);
+pub const VFT2_DRV_COMM: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(10i32);
+pub const VFT2_DRV_DISPLAY: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(4i32);
+pub const VFT2_DRV_INPUTMETHOD: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(11i32);
+pub const VFT2_DRV_INSTALLABLE: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(8i32);
+pub const VFT2_DRV_KEYBOARD: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(2i32);
+pub const VFT2_DRV_LANGUAGE: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(3i32);
+pub const VFT2_DRV_MOUSE: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(5i32);
+pub const VFT2_DRV_NETWORK: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(6i32);
+pub const VFT2_DRV_PRINTER: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(1i32);
+pub const VFT2_DRV_SOUND: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(9i32);
+pub const VFT2_DRV_SYSTEM: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(7i32);
+pub const VFT2_DRV_VERSIONED_PRINTER: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(12i32);
+pub const VFT2_FONT_RASTER: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(1i32);
+pub const VFT2_FONT_TRUETYPE: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(3i32);
+pub const VFT2_FONT_VECTOR: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(2i32);
+pub const VFT2_UNKNOWN: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(0i32);
+pub const VFT_APP: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(1i32);
+pub const VFT_DLL: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(2i32);
+pub const VFT_DRV: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(3i32);
+pub const VFT_FONT: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(4i32);
+pub const VFT_STATIC_LIB: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(7i32);
+pub const VFT_UNKNOWN: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(0i32);
+pub const VFT_VXD: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(5i32);
+pub const VIFF_DONTDELETEOLD: VER_INSTALL_FILE_FLAGS = VER_INSTALL_FILE_FLAGS(2u32);
+pub const VIFF_FORCEINSTALL: VER_INSTALL_FILE_FLAGS = VER_INSTALL_FILE_FLAGS(1u32);
+pub const VIF_ACCESSVIOLATION: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(512u32);
+pub const VIF_BUFFTOOSMALL: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(262144u32);
+pub const VIF_CANNOTCREATE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(2048u32);
+pub const VIF_CANNOTDELETE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(4096u32);
+pub const VIF_CANNOTDELETECUR: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(16384u32);
+pub const VIF_CANNOTLOADCABINET: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(1048576u32);
+pub const VIF_CANNOTLOADLZ32: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(524288u32);
+pub const VIF_CANNOTREADDST: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(131072u32);
+pub const VIF_CANNOTREADSRC: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(65536u32);
+pub const VIF_CANNOTRENAME: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(8192u32);
+pub const VIF_DIFFCODEPG: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(16u32);
+pub const VIF_DIFFLANG: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(8u32);
+pub const VIF_DIFFTYPE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(32u32);
+pub const VIF_FILEINUSE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(128u32);
+pub const VIF_MISMATCH: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(2u32);
+pub const VIF_OUTOFMEMORY: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(32768u32);
+pub const VIF_OUTOFSPACE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(256u32);
+pub const VIF_SHARINGVIOLATION: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(1024u32);
+pub const VIF_SRCOLD: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(4u32);
+pub const VIF_TEMPFILE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(1u32);
+pub const VIF_WRITEPROT: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(64u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_ALLOCATE_BC_STREAM_INPUT {
@@ -8946,6 +9845,10 @@ impl Default for VOLUME_LOGICAL_OFFSET {
 impl windows_core::TypeKind for VOLUME_LOGICAL_OFFSET {
     type TypeKind = windows_core::CopyType;
 }
+pub const VOLUME_NAME_DOS: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(0u32);
+pub const VOLUME_NAME_GUID: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(1u32);
+pub const VOLUME_NAME_NONE: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(4u32);
+pub const VOLUME_NAME_NT: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(2u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_NUMBER {
@@ -9033,6 +9936,31 @@ impl Default for VOLUME_SHRINK_INFO {
 impl windows_core::TypeKind for VOLUME_SHRINK_INFO {
     type TypeKind = windows_core::CopyType;
 }
+pub const VOS_DOS: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(65536u32);
+pub const VOS_DOS_WINDOWS16: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(65537u32);
+pub const VOS_DOS_WINDOWS32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(65540u32);
+pub const VOS_NT: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(262144u32);
+pub const VOS_NT_WINDOWS32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(262148u32);
+pub const VOS_OS216: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(131072u32);
+pub const VOS_OS216_PM16: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(131074u32);
+pub const VOS_OS232: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(196608u32);
+pub const VOS_OS232_PM32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(196611u32);
+pub const VOS_UNKNOWN: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(0u32);
+pub const VOS_WINCE: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(327680u32);
+pub const VOS__BASE: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(0u32);
+pub const VOS__PM16: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(2u32);
+pub const VOS__PM32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(3u32);
+pub const VOS__WINDOWS16: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(1u32);
+pub const VOS__WINDOWS32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(4u32);
+pub const VS_FFI_FILEFLAGSMASK: i32 = 63i32;
+pub const VS_FFI_SIGNATURE: i32 = -17890115i32;
+pub const VS_FFI_STRUCVERSION: i32 = 65536i32;
+pub const VS_FF_DEBUG: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(1u32);
+pub const VS_FF_INFOINFERRED: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(16u32);
+pub const VS_FF_PATCHED: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(4u32);
+pub const VS_FF_PRERELEASE: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(2u32);
+pub const VS_FF_PRIVATEBUILD: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(8u32);
+pub const VS_FF_SPECIALBUILD: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(32u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VS_FIXEDFILEINFO {
@@ -9058,6 +9986,57 @@ impl Default for VS_FIXEDFILEINFO {
 impl windows_core::TypeKind for VS_FIXEDFILEINFO {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VS_FIXEDFILEINFO_FILE_FLAGS(pub u32);
+impl VS_FIXEDFILEINFO_FILE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for VS_FIXEDFILEINFO_FILE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for VS_FIXEDFILEINFO_FILE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for VS_FIXEDFILEINFO_FILE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for VS_FIXEDFILEINFO_FILE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for VS_FIXEDFILEINFO_FILE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VS_FIXEDFILEINFO_FILE_OS(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VS_FIXEDFILEINFO_FILE_SUBTYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VS_FIXEDFILEINFO_FILE_TYPE(pub i32);
+pub const VS_USER_DEFINED: u32 = 100u32;
+pub const VS_VERSION_INFO: u32 = 1u32;
+pub const WIM_BOOT_NOT_OS_WIM: u32 = 0u32;
+pub const WIM_BOOT_OS_WIM: u32 = 1u32;
+pub const WIM_ENTRY_FLAG_NOT_ACTIVE: u32 = 1u32;
+pub const WIM_ENTRY_FLAG_SUSPENDED: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIM_ENTRY_INFO {
@@ -9092,6 +10071,9 @@ impl Default for WIM_EXTERNAL_FILE_INFO {
 impl windows_core::TypeKind for WIM_EXTERNAL_FILE_INFO {
     type TypeKind = windows_core::CopyType;
 }
+pub const WIM_EXTERNAL_FILE_INFO_FLAG_NOT_ACTIVE: u32 = 1u32;
+pub const WIM_EXTERNAL_FILE_INFO_FLAG_SUSPENDED: u32 = 2u32;
+pub const WIM_PROVIDER_HASH_SIZE: u32 = 20u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIN32_FILE_ATTRIBUTE_DATA {
@@ -9185,6 +10167,10 @@ impl Default for WIN32_STREAM_ID {
 impl windows_core::TypeKind for WIN32_STREAM_ID {
     type TypeKind = windows_core::CopyType;
 }
+pub const WINEFS_SETUSERKEY_SET_CAPABILITIES: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WIN_STREAM_ID(pub u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WOF_FILE_COMPRESSION_INFO_V0 {
@@ -9212,996 +10198,10 @@ impl Default for WOF_FILE_COMPRESSION_INFO_V1 {
 impl windows_core::TypeKind for WOF_FILE_COMPRESSION_INFO_V1 {
     type TypeKind = windows_core::CopyType;
 }
-pub const ACCESS_ALL: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(32768u32);
-pub const ACCESS_ATRIB: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(32u32);
-pub const ACCESS_CREATE: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(4u32);
-pub const ACCESS_DELETE: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(16u32);
-pub const ACCESS_EXEC: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(8u32);
-pub const ACCESS_PERM: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(64u32);
-pub const ACCESS_READ: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(1u32);
-pub const ACCESS_WRITE: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(2u32);
-pub const BACKUP_ALTERNATE_DATA: WIN_STREAM_ID = WIN_STREAM_ID(4u32);
-pub const BACKUP_DATA: WIN_STREAM_ID = WIN_STREAM_ID(1u32);
-pub const BACKUP_EA_DATA: WIN_STREAM_ID = WIN_STREAM_ID(2u32);
-pub const BACKUP_LINK: WIN_STREAM_ID = WIN_STREAM_ID(5u32);
-pub const BACKUP_OBJECT_ID: WIN_STREAM_ID = WIN_STREAM_ID(7u32);
-pub const BACKUP_PROPERTY_DATA: WIN_STREAM_ID = WIN_STREAM_ID(6u32);
-pub const BACKUP_REPARSE_DATA: WIN_STREAM_ID = WIN_STREAM_ID(8u32);
-pub const BACKUP_SECURITY_DATA: WIN_STREAM_ID = WIN_STREAM_ID(3u32);
-pub const BACKUP_SPARSE_BLOCK: WIN_STREAM_ID = WIN_STREAM_ID(9u32);
-pub const BACKUP_TXFS_DATA: WIN_STREAM_ID = WIN_STREAM_ID(10u32);
-pub const BusType1394: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(4i32);
-pub const BusTypeAta: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(3i32);
-pub const BusTypeAtapi: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(2i32);
-pub const BusTypeFibre: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(6i32);
-pub const BusTypeFileBackedVirtual: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(15i32);
-pub const BusTypeMax: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(20i32);
-pub const BusTypeMaxReserved: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(127i32);
-pub const BusTypeMmc: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(13i32);
-pub const BusTypeNvme: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(17i32);
-pub const BusTypeRAID: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(8i32);
-pub const BusTypeSCM: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(18i32);
-pub const BusTypeSas: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(10i32);
-pub const BusTypeSata: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(11i32);
-pub const BusTypeScsi: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(1i32);
-pub const BusTypeSd: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(12i32);
-pub const BusTypeSpaces: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(16i32);
-pub const BusTypeSsa: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(5i32);
-pub const BusTypeUfs: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(19i32);
-pub const BusTypeUnknown: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(0i32);
-pub const BusTypeUsb: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(7i32);
-pub const BusTypeVirtual: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(14i32);
-pub const BusTypeiScsi: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(9i32);
-pub const CALLBACK_CHUNK_FINISHED: LPPROGRESS_ROUTINE_CALLBACK_REASON = LPPROGRESS_ROUTINE_CALLBACK_REASON(0u32);
-pub const CALLBACK_STREAM_SWITCH: LPPROGRESS_ROUTINE_CALLBACK_REASON = LPPROGRESS_ROUTINE_CALLBACK_REASON(1u32);
-pub const CLFS_BASELOG_EXTENSION: windows_core::PCWSTR = windows_core::w!(".blf");
-pub const CLFS_CONTAINER_RELATIVE_PREFIX: windows_core::PCWSTR = windows_core::w!("%BLF%\\");
-pub const CLFS_CONTAINER_STREAM_PREFIX: windows_core::PCWSTR = windows_core::w!("%BLF%:");
-pub const CLFS_FLAG_FILTER_INTERMEDIATE_LEVEL: u32 = 16u32;
-pub const CLFS_FLAG_FILTER_TOP_LEVEL: u32 = 32u32;
-pub const CLFS_FLAG_FORCE_APPEND: CLFS_FLAG = CLFS_FLAG(1u32);
-pub const CLFS_FLAG_FORCE_FLUSH: CLFS_FLAG = CLFS_FLAG(2u32);
-pub const CLFS_FLAG_HIDDEN_SYSTEM_LOG: u32 = 512u32;
-pub const CLFS_FLAG_IGNORE_SHARE_ACCESS: u32 = 64u32;
-pub const CLFS_FLAG_MINIFILTER_LEVEL: u32 = 256u32;
-pub const CLFS_FLAG_NON_REENTRANT_FILTER: u32 = 16u32;
-pub const CLFS_FLAG_NO_FLAGS: CLFS_FLAG = CLFS_FLAG(0u32);
-pub const CLFS_FLAG_READ_IN_PROGRESS: u32 = 128u32;
-pub const CLFS_FLAG_REENTRANT_FILE_SYSTEM: u32 = 8u32;
-pub const CLFS_FLAG_REENTRANT_FILTER: u32 = 32u32;
-pub const CLFS_FLAG_USE_RESERVATION: CLFS_FLAG = CLFS_FLAG(4u32);
-pub const CLFS_MARSHALLING_FLAG_DISABLE_BUFF_INIT: u32 = 1u32;
-pub const CLFS_MARSHALLING_FLAG_NONE: u32 = 0u32;
-pub const CLFS_MAX_CONTAINER_INFO: u32 = 256u32;
-pub const CLFS_MGMT_CLIENT_REGISTRATION_VERSION: u32 = 1u32;
-pub const CLFS_MGMT_POLICY_VERSION: u32 = 1u32;
-pub const CLFS_SCAN_BACKWARD: u8 = 4u8;
-pub const CLFS_SCAN_BUFFERED: u8 = 32u8;
-pub const CLFS_SCAN_CLOSE: u8 = 8u8;
-pub const CLFS_SCAN_FORWARD: u8 = 2u8;
-pub const CLFS_SCAN_INIT: u8 = 1u8;
-pub const CLFS_SCAN_INITIALIZED: u8 = 16u8;
-pub const CLSID_DiskQuotaControl: windows_core::GUID = windows_core::GUID::from_u128(0x7988b571_ec89_11cf_9c00_00aa00a14f56);
-pub const COMPRESSION_FORMAT_DEFAULT: COMPRESSION_FORMAT = COMPRESSION_FORMAT(1u16);
-pub const COMPRESSION_FORMAT_LZNT1: COMPRESSION_FORMAT = COMPRESSION_FORMAT(2u16);
-pub const COMPRESSION_FORMAT_NONE: COMPRESSION_FORMAT = COMPRESSION_FORMAT(0u16);
-pub const COMPRESSION_FORMAT_XP10: COMPRESSION_FORMAT = COMPRESSION_FORMAT(5u16);
-pub const COMPRESSION_FORMAT_XPRESS: COMPRESSION_FORMAT = COMPRESSION_FORMAT(3u16);
-pub const COMPRESSION_FORMAT_XPRESS_HUFF: COMPRESSION_FORMAT = COMPRESSION_FORMAT(4u16);
-pub const COPYFILE2_CALLBACK_CHUNK_FINISHED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(2i32);
-pub const COPYFILE2_CALLBACK_CHUNK_STARTED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(1i32);
-pub const COPYFILE2_CALLBACK_ERROR: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(6i32);
-pub const COPYFILE2_CALLBACK_MAX: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(7i32);
-pub const COPYFILE2_CALLBACK_NONE: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(0i32);
-pub const COPYFILE2_CALLBACK_POLL_CONTINUE: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(5i32);
-pub const COPYFILE2_CALLBACK_STREAM_FINISHED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(4i32);
-pub const COPYFILE2_CALLBACK_STREAM_STARTED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(3i32);
-pub const COPYFILE2_IO_CYCLE_SIZE_MAX: u32 = 1073741824u32;
-pub const COPYFILE2_IO_CYCLE_SIZE_MIN: u32 = 4096u32;
-pub const COPYFILE2_IO_RATE_MIN: u32 = 512u32;
-pub const COPYFILE2_MESSAGE_COPY_OFFLOAD: i32 = 1i32;
-pub const COPYFILE2_PHASE_MAX: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(7i32);
-pub const COPYFILE2_PHASE_NAMEGRAFT_COPY: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(6i32);
-pub const COPYFILE2_PHASE_NONE: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(0i32);
-pub const COPYFILE2_PHASE_PREPARE_DEST: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(2i32);
-pub const COPYFILE2_PHASE_PREPARE_SOURCE: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(1i32);
-pub const COPYFILE2_PHASE_READ_SOURCE: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(3i32);
-pub const COPYFILE2_PHASE_SERVER_COPY: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(5i32);
-pub const COPYFILE2_PHASE_WRITE_DESTINATION: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(4i32);
-pub const COPYFILE2_PROGRESS_CANCEL: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(1i32);
-pub const COPYFILE2_PROGRESS_CONTINUE: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(0i32);
-pub const COPYFILE2_PROGRESS_PAUSE: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(4i32);
-pub const COPYFILE2_PROGRESS_QUIET: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(3i32);
-pub const COPYFILE2_PROGRESS_STOP: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(2i32);
-pub const COPY_FILE2_V2_DONT_COPY_JUNCTIONS: COPYFILE2_V2_FLAGS = COPYFILE2_V2_FLAGS(1u32);
-pub const COPY_FILE2_V2_VALID_FLAGS: COPYFILE2_V2_FLAGS = COPYFILE2_V2_FLAGS(1u32);
-pub const COPY_FILE_ALLOW_DECRYPTED_DESTINATION: COPYFILE_FLAGS = COPYFILE_FLAGS(8u32);
-pub const COPY_FILE_COPY_SYMLINK: COPYFILE_FLAGS = COPYFILE_FLAGS(2048u32);
-pub const COPY_FILE_DIRECTORY: COPYFILE_FLAGS = COPYFILE_FLAGS(128u32);
-pub const COPY_FILE_DISABLE_PRE_ALLOCATION: COPYFILE_FLAGS = COPYFILE_FLAGS(67108864u32);
-pub const COPY_FILE_DONT_REQUEST_DEST_WRITE_DAC: COPYFILE_FLAGS = COPYFILE_FLAGS(33554432u32);
-pub const COPY_FILE_ENABLE_LOW_FREE_SPACE_MODE: COPYFILE_FLAGS = COPYFILE_FLAGS(134217728u32);
-pub const COPY_FILE_ENABLE_SPARSE_COPY: COPYFILE_FLAGS = COPYFILE_FLAGS(536870912u32);
-pub const COPY_FILE_FAIL_IF_EXISTS: COPYFILE_FLAGS = COPYFILE_FLAGS(1u32);
-pub const COPY_FILE_IGNORE_EDP_BLOCK: COPYFILE_FLAGS = COPYFILE_FLAGS(4194304u32);
-pub const COPY_FILE_IGNORE_SOURCE_ENCRYPTION: COPYFILE_FLAGS = COPYFILE_FLAGS(8388608u32);
-pub const COPY_FILE_NO_BUFFERING: COPYFILE_FLAGS = COPYFILE_FLAGS(4096u32);
-pub const COPY_FILE_NO_OFFLOAD: COPYFILE_FLAGS = COPYFILE_FLAGS(262144u32);
-pub const COPY_FILE_OPEN_AND_COPY_REPARSE_POINT: COPYFILE_FLAGS = COPYFILE_FLAGS(2097152u32);
-pub const COPY_FILE_OPEN_SOURCE_FOR_WRITE: COPYFILE_FLAGS = COPYFILE_FLAGS(4u32);
-pub const COPY_FILE_REQUEST_COMPRESSED_TRAFFIC: COPYFILE_FLAGS = COPYFILE_FLAGS(268435456u32);
-pub const COPY_FILE_REQUEST_SECURITY_PRIVILEGES: COPYFILE_FLAGS = COPYFILE_FLAGS(8192u32);
-pub const COPY_FILE_RESTARTABLE: COPYFILE_FLAGS = COPYFILE_FLAGS(2u32);
-pub const COPY_FILE_RESUME_FROM_PAUSE: COPYFILE_FLAGS = COPYFILE_FLAGS(16384u32);
-pub const COPY_FILE_SKIP_ALTERNATE_STREAMS: COPYFILE_FLAGS = COPYFILE_FLAGS(32768u32);
-pub const CREATE_ALWAYS: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(2u32);
-pub const CREATE_NEW: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(1u32);
-pub const CRM_PROTOCOL_DYNAMIC_MARSHAL_INFO: u32 = 2u32;
-pub const CRM_PROTOCOL_EXPLICIT_MARSHAL_ONLY: u32 = 1u32;
-pub const CRM_PROTOCOL_MAXIMUM_OPTION: u32 = 3u32;
-pub const CSC_CACHE_AUTO_REINT: u32 = 16u32;
-pub const CSC_CACHE_MANUAL_REINT: u32 = 0u32;
-pub const CSC_CACHE_NONE: u32 = 48u32;
-pub const CSC_CACHE_VDO: u32 = 32u32;
-pub const CSC_MASK: u32 = 48u32;
-pub const CSC_MASK_EXT: u32 = 8240u32;
-pub const CSV_BLOCK_AND_FILE_CACHE_CALLBACK_VERSION: u32 = 2u32;
-pub const CSV_BLOCK_CACHE_CALLBACK_VERSION: u32 = 1u32;
-pub const ClfsClientRecord: u8 = 3u8;
-pub const ClfsContainerActive: u32 = 4u32;
-pub const ClfsContainerActivePendingDelete: u32 = 8u32;
-pub const ClfsContainerInactive: u32 = 2u32;
-pub const ClfsContainerInitializing: u32 = 1u32;
-pub const ClfsContainerPendingArchive: u32 = 16u32;
-pub const ClfsContainerPendingArchiveAndDelete: u32 = 32u32;
-pub const ClfsContextForward: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(3i32);
-pub const ClfsContextNone: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(0i32);
-pub const ClfsContextPrevious: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(2i32);
-pub const ClfsContextUndoNext: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(1i32);
-pub const ClfsDataRecord: u8 = 1u8;
-pub const ClfsIoStatsDefault: CLFS_IOSTATS_CLASS = CLFS_IOSTATS_CLASS(0i32);
-pub const ClfsIoStatsMax: CLFS_IOSTATS_CLASS = CLFS_IOSTATS_CLASS(65535i32);
-pub const ClfsLogArchiveDisabled: CLFS_LOG_ARCHIVE_MODE = CLFS_LOG_ARCHIVE_MODE(2i32);
-pub const ClfsLogArchiveEnabled: CLFS_LOG_ARCHIVE_MODE = CLFS_LOG_ARCHIVE_MODE(1i32);
-pub const ClfsLogBasicInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(0i32);
-pub const ClfsLogBasicInformationPhysical: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(1i32);
-pub const ClfsLogPhysicalLsnInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(5i32);
-pub const ClfsLogPhysicalNameInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(2i32);
-pub const ClfsLogStreamIdentifierInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(3i32);
-pub const ClfsLogSystemMarkingInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(4i32);
-pub const ClfsMgmtAdvanceTailNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(0i32);
-pub const ClfsMgmtLogFullHandlerNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(1i32);
-pub const ClfsMgmtLogUnpinnedNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(2i32);
-pub const ClfsMgmtLogWriteNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(3i32);
-pub const ClfsMgmtPolicyAutoGrow: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(6i32);
-pub const ClfsMgmtPolicyAutoShrink: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(5i32);
-pub const ClfsMgmtPolicyGrowthRate: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(3i32);
-pub const ClfsMgmtPolicyInvalid: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(10i32);
-pub const ClfsMgmtPolicyLogTail: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(4i32);
-pub const ClfsMgmtPolicyMaximumSize: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(0i32);
-pub const ClfsMgmtPolicyMinimumSize: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(1i32);
-pub const ClfsMgmtPolicyNewContainerExtension: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(9i32);
-pub const ClfsMgmtPolicyNewContainerPrefix: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(7i32);
-pub const ClfsMgmtPolicyNewContainerSize: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(2i32);
-pub const ClfsMgmtPolicyNewContainerSuffix: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(8i32);
-pub const ClfsNullRecord: u8 = 0u8;
-pub const ClfsRestartRecord: u8 = 2u8;
-pub const ClsContainerActive: u32 = 4u32;
-pub const ClsContainerActivePendingDelete: u32 = 8u32;
-pub const ClsContainerInactive: u32 = 2u32;
-pub const ClsContainerInitializing: u32 = 1u32;
-pub const ClsContainerPendingArchive: u32 = 16u32;
-pub const ClsContainerPendingArchiveAndDelete: u32 = 32u32;
-pub const ClsContextForward: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(3i32);
-pub const ClsContextNone: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(0i32);
-pub const ClsContextPrevious: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(2i32);
-pub const ClsContextUndoNext: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(1i32);
-pub const ClsIoStatsDefault: CLS_IOSTATS_CLASS = CLS_IOSTATS_CLASS(0i32);
-pub const ClsIoStatsMax: CLS_IOSTATS_CLASS = CLS_IOSTATS_CLASS(65535i32);
-pub const DDD_EXACT_MATCH_ON_REMOVE: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(4u32);
-pub const DDD_LUID_BROADCAST_DRIVE: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(16u32);
-pub const DDD_NO_BROADCAST_SYSTEM: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(8u32);
-pub const DDD_RAW_TARGET_PATH: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(1u32);
-pub const DDD_REMOVE_DEFINITION: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(2u32);
-pub const DELETE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(65536u32);
-pub const DISKQUOTA_FILESTATE_INCOMPLETE: u32 = 256u32;
-pub const DISKQUOTA_FILESTATE_MASK: u32 = 768u32;
-pub const DISKQUOTA_FILESTATE_REBUILDING: u32 = 512u32;
-pub const DISKQUOTA_LOGFLAG_USER_LIMIT: u32 = 2u32;
-pub const DISKQUOTA_LOGFLAG_USER_THRESHOLD: u32 = 1u32;
-pub const DISKQUOTA_STATE_DISABLED: u32 = 0u32;
-pub const DISKQUOTA_STATE_ENFORCE: u32 = 2u32;
-pub const DISKQUOTA_STATE_MASK: u32 = 3u32;
-pub const DISKQUOTA_STATE_TRACK: u32 = 1u32;
-pub const DISKQUOTA_USERNAME_RESOLVE_ASYNC: DISKQUOTA_USERNAME_RESOLVE = DISKQUOTA_USERNAME_RESOLVE(2u32);
-pub const DISKQUOTA_USERNAME_RESOLVE_NONE: DISKQUOTA_USERNAME_RESOLVE = DISKQUOTA_USERNAME_RESOLVE(0u32);
-pub const DISKQUOTA_USERNAME_RESOLVE_SYNC: DISKQUOTA_USERNAME_RESOLVE = DISKQUOTA_USERNAME_RESOLVE(1u32);
-pub const DISKQUOTA_USER_ACCOUNT_DELETED: u32 = 2u32;
-pub const DISKQUOTA_USER_ACCOUNT_INVALID: u32 = 3u32;
-pub const DISKQUOTA_USER_ACCOUNT_RESOLVED: u32 = 0u32;
-pub const DISKQUOTA_USER_ACCOUNT_UNAVAILABLE: u32 = 1u32;
-pub const DISKQUOTA_USER_ACCOUNT_UNKNOWN: u32 = 4u32;
-pub const DISKQUOTA_USER_ACCOUNT_UNRESOLVED: u32 = 5u32;
-pub const EA_CONTAINER_NAME: windows_core::PCSTR = windows_core::s!("ContainerName");
-pub const EA_CONTAINER_SIZE: windows_core::PCSTR = windows_core::s!("ContainerSize");
-pub const EFS_COMPATIBILITY_VERSION_NCRYPT_PROTECTOR: u32 = 5u32;
-pub const EFS_COMPATIBILITY_VERSION_PFILE_PROTECTOR: u32 = 6u32;
-pub const EFS_EFS_SUBVER_EFS_CERT: u32 = 1u32;
-pub const EFS_METADATA_ADD_USER: u32 = 1u32;
-pub const EFS_METADATA_GENERAL_OP: u32 = 8u32;
-pub const EFS_METADATA_REMOVE_USER: u32 = 2u32;
-pub const EFS_METADATA_REPLACE_USER: u32 = 4u32;
-pub const EFS_PFILE_SUBVER_APPX: u32 = 3u32;
-pub const EFS_PFILE_SUBVER_RMS: u32 = 2u32;
-pub const EFS_SUBVER_UNKNOWN: u32 = 0u32;
-pub const ENLISTMENT_MAXIMUM_OPTION: u32 = 1u32;
-pub const ENLISTMENT_OBJECT_PATH: windows_core::PCWSTR = windows_core::w!("\\Enlistment\\");
-pub const ENLISTMENT_SUPERIOR: u32 = 1u32;
-pub const ExtendedFileIdType: FILE_ID_TYPE = FILE_ID_TYPE(2i32);
-pub const FILE_ACTION_ADDED: FILE_ACTION = FILE_ACTION(1u32);
-pub const FILE_ACTION_MODIFIED: FILE_ACTION = FILE_ACTION(3u32);
-pub const FILE_ACTION_REMOVED: FILE_ACTION = FILE_ACTION(2u32);
-pub const FILE_ACTION_RENAMED_NEW_NAME: FILE_ACTION = FILE_ACTION(5u32);
-pub const FILE_ACTION_RENAMED_OLD_NAME: FILE_ACTION = FILE_ACTION(4u32);
-pub const FILE_ADD_FILE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(2u32);
-pub const FILE_ADD_SUBDIRECTORY: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(4u32);
-pub const FILE_ALL_ACCESS: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(2032127u32);
-pub const FILE_APPEND_DATA: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(4u32);
-pub const FILE_ATTRIBUTE_ARCHIVE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(32u32);
-pub const FILE_ATTRIBUTE_COMPRESSED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2048u32);
-pub const FILE_ATTRIBUTE_DEVICE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(64u32);
-pub const FILE_ATTRIBUTE_DIRECTORY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(16u32);
-pub const FILE_ATTRIBUTE_EA: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(262144u32);
-pub const FILE_ATTRIBUTE_ENCRYPTED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(16384u32);
-pub const FILE_ATTRIBUTE_HIDDEN: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2u32);
-pub const FILE_ATTRIBUTE_INTEGRITY_STREAM: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(32768u32);
-pub const FILE_ATTRIBUTE_NORMAL: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(128u32);
-pub const FILE_ATTRIBUTE_NOT_CONTENT_INDEXED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(8192u32);
-pub const FILE_ATTRIBUTE_NO_SCRUB_DATA: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(131072u32);
-pub const FILE_ATTRIBUTE_OFFLINE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(4096u32);
-pub const FILE_ATTRIBUTE_PINNED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(524288u32);
-pub const FILE_ATTRIBUTE_READONLY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1u32);
-pub const FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(4194304u32);
-pub const FILE_ATTRIBUTE_RECALL_ON_OPEN: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(262144u32);
-pub const FILE_ATTRIBUTE_REPARSE_POINT: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1024u32);
-pub const FILE_ATTRIBUTE_SPARSE_FILE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(512u32);
-pub const FILE_ATTRIBUTE_SYSTEM: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(4u32);
-pub const FILE_ATTRIBUTE_TEMPORARY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(256u32);
-pub const FILE_ATTRIBUTE_UNPINNED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1048576u32);
-pub const FILE_ATTRIBUTE_VIRTUAL: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(65536u32);
-pub const FILE_BEGIN: SET_FILE_POINTER_MOVE_METHOD = SET_FILE_POINTER_MOVE_METHOD(0u32);
-pub const FILE_CREATE_PIPE_INSTANCE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(4u32);
-pub const FILE_CURRENT: SET_FILE_POINTER_MOVE_METHOD = SET_FILE_POINTER_MOVE_METHOD(1u32);
-pub const FILE_DELETE_CHILD: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(64u32);
-pub const FILE_DEVICE_CD_ROM: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(2u32);
-pub const FILE_DEVICE_DISK: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(7u32);
-pub const FILE_DEVICE_DVD: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(51u32);
-pub const FILE_DEVICE_TAPE: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(31u32);
-pub const FILE_DISPOSITION_FLAG_DELETE: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(1u32);
-pub const FILE_DISPOSITION_FLAG_DO_NOT_DELETE: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(0u32);
-pub const FILE_DISPOSITION_FLAG_FORCE_IMAGE_SECTION_CHECK: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(4u32);
-pub const FILE_DISPOSITION_FLAG_IGNORE_READONLY_ATTRIBUTE: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(16u32);
-pub const FILE_DISPOSITION_FLAG_ON_CLOSE: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(8u32);
-pub const FILE_DISPOSITION_FLAG_POSIX_SEMANTICS: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(2u32);
-pub const FILE_END: SET_FILE_POINTER_MOVE_METHOD = SET_FILE_POINTER_MOVE_METHOD(2u32);
-pub const FILE_EXECUTE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(32u32);
-pub const FILE_FLAG_BACKUP_SEMANTICS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(33554432u32);
-pub const FILE_FLAG_DELETE_ON_CLOSE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(67108864u32);
-pub const FILE_FLAG_FIRST_PIPE_INSTANCE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(524288u32);
-pub const FILE_FLAG_NO_BUFFERING: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(536870912u32);
-pub const FILE_FLAG_OPEN_NO_RECALL: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1048576u32);
-pub const FILE_FLAG_OPEN_REPARSE_POINT: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2097152u32);
-pub const FILE_FLAG_OVERLAPPED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1073741824u32);
-pub const FILE_FLAG_POSIX_SEMANTICS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(16777216u32);
-pub const FILE_FLAG_RANDOM_ACCESS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(268435456u32);
-pub const FILE_FLAG_SEQUENTIAL_SCAN: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(134217728u32);
-pub const FILE_FLAG_SESSION_AWARE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(8388608u32);
-pub const FILE_FLAG_WRITE_THROUGH: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2147483648u32);
-pub const FILE_FLUSH_DATA: FILE_FLUSH_MODE = FILE_FLUSH_MODE(1i32);
-pub const FILE_FLUSH_DEFAULT: FILE_FLUSH_MODE = FILE_FLUSH_MODE(0i32);
-pub const FILE_FLUSH_MIN_METADATA: FILE_FLUSH_MODE = FILE_FLUSH_MODE(2i32);
-pub const FILE_FLUSH_NO_SYNC: FILE_FLUSH_MODE = FILE_FLUSH_MODE(3i32);
-pub const FILE_GENERIC_EXECUTE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(1179808u32);
-pub const FILE_GENERIC_READ: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(1179785u32);
-pub const FILE_GENERIC_WRITE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(1179926u32);
-pub const FILE_LIST_DIRECTORY: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(1u32);
-pub const FILE_NAME_NORMALIZED: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(0u32);
-pub const FILE_NAME_OPENED: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(8u32);
-pub const FILE_NOTIFY_CHANGE_ATTRIBUTES: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(4u32);
-pub const FILE_NOTIFY_CHANGE_CREATION: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(64u32);
-pub const FILE_NOTIFY_CHANGE_DIR_NAME: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(2u32);
-pub const FILE_NOTIFY_CHANGE_FILE_NAME: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(1u32);
-pub const FILE_NOTIFY_CHANGE_LAST_ACCESS: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(32u32);
-pub const FILE_NOTIFY_CHANGE_LAST_WRITE: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(16u32);
-pub const FILE_NOTIFY_CHANGE_SECURITY: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(256u32);
-pub const FILE_NOTIFY_CHANGE_SIZE: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(8u32);
-pub const FILE_PROVIDER_COMPRESSION_LZX: u32 = 1u32;
-pub const FILE_PROVIDER_COMPRESSION_XPRESS16K: u32 = 3u32;
-pub const FILE_PROVIDER_COMPRESSION_XPRESS4K: u32 = 0u32;
-pub const FILE_PROVIDER_COMPRESSION_XPRESS8K: u32 = 2u32;
-pub const FILE_READ_ATTRIBUTES: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(128u32);
-pub const FILE_READ_DATA: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(1u32);
-pub const FILE_READ_EA: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(8u32);
-pub const FILE_SHARE_DELETE: FILE_SHARE_MODE = FILE_SHARE_MODE(4u32);
-pub const FILE_SHARE_NONE: FILE_SHARE_MODE = FILE_SHARE_MODE(0u32);
-pub const FILE_SHARE_READ: FILE_SHARE_MODE = FILE_SHARE_MODE(1u32);
-pub const FILE_SHARE_WRITE: FILE_SHARE_MODE = FILE_SHARE_MODE(2u32);
-pub const FILE_TRAVERSE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(32u32);
-pub const FILE_TYPE_CHAR: FILE_TYPE = FILE_TYPE(2u32);
-pub const FILE_TYPE_DISK: FILE_TYPE = FILE_TYPE(1u32);
-pub const FILE_TYPE_PIPE: FILE_TYPE = FILE_TYPE(3u32);
-pub const FILE_TYPE_REMOTE: FILE_TYPE = FILE_TYPE(32768u32);
-pub const FILE_TYPE_UNKNOWN: FILE_TYPE = FILE_TYPE(0u32);
-pub const FILE_VER_GET_LOCALISED: GET_FILE_VERSION_INFO_FLAGS = GET_FILE_VERSION_INFO_FLAGS(1u32);
-pub const FILE_VER_GET_NEUTRAL: GET_FILE_VERSION_INFO_FLAGS = GET_FILE_VERSION_INFO_FLAGS(2u32);
-pub const FILE_VER_GET_PREFETCHED: GET_FILE_VERSION_INFO_FLAGS = GET_FILE_VERSION_INFO_FLAGS(4u32);
-pub const FILE_WRITE_ATTRIBUTES: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(256u32);
-pub const FILE_WRITE_DATA: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(2u32);
-pub const FILE_WRITE_EA: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(16u32);
-pub const FILE_WRITE_FLAGS_NONE: FILE_WRITE_FLAGS = FILE_WRITE_FLAGS(0i32);
-pub const FILE_WRITE_FLAGS_WRITE_THROUGH: FILE_WRITE_FLAGS = FILE_WRITE_FLAGS(1i32);
-pub const FIND_FIRST_EX_CASE_SENSITIVE: FIND_FIRST_EX_FLAGS = FIND_FIRST_EX_FLAGS(1u32);
-pub const FIND_FIRST_EX_LARGE_FETCH: FIND_FIRST_EX_FLAGS = FIND_FIRST_EX_FLAGS(2u32);
-pub const FIND_FIRST_EX_ON_DISK_ENTRIES_ONLY: FIND_FIRST_EX_FLAGS = FIND_FIRST_EX_FLAGS(4u32);
-pub const FileAlignmentInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(17i32);
-pub const FileAllocationInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(5i32);
-pub const FileAttributeTagInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(9i32);
-pub const FileBasicInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(0i32);
-pub const FileCaseSensitiveInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(23i32);
-pub const FileCompressionInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(8i32);
-pub const FileDispositionInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(4i32);
-pub const FileDispositionInfoEx: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(21i32);
-pub const FileEndOfFileInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(6i32);
-pub const FileFullDirectoryInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(14i32);
-pub const FileFullDirectoryRestartInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(15i32);
-pub const FileIdBothDirectoryInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(10i32);
-pub const FileIdBothDirectoryRestartInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(11i32);
-pub const FileIdExtdDirectoryInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(19i32);
-pub const FileIdExtdDirectoryRestartInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(20i32);
-pub const FileIdInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(18i32);
-pub const FileIdType: FILE_ID_TYPE = FILE_ID_TYPE(0i32);
-pub const FileIoPriorityHintInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(12i32);
-pub const FileNameInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(2i32);
-pub const FileNormalizedNameInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(24i32);
-pub const FileRemoteProtocolInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(13i32);
-pub const FileRenameInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(3i32);
-pub const FileRenameInfoEx: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(22i32);
-pub const FileStandardInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(1i32);
-pub const FileStorageInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(16i32);
-pub const FileStreamInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(7i32);
-pub const FindExInfoBasic: FINDEX_INFO_LEVELS = FINDEX_INFO_LEVELS(1i32);
-pub const FindExInfoMaxInfoLevel: FINDEX_INFO_LEVELS = FINDEX_INFO_LEVELS(2i32);
-pub const FindExInfoStandard: FINDEX_INFO_LEVELS = FINDEX_INFO_LEVELS(0i32);
-pub const FindExSearchLimitToDevices: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(2i32);
-pub const FindExSearchLimitToDirectories: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(1i32);
-pub const FindExSearchMaxSearchOp: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(3i32);
-pub const FindExSearchNameMatch: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(0i32);
-pub const FindStreamInfoMaxInfoLevel: STREAM_INFO_LEVELS = STREAM_INFO_LEVELS(1i32);
-pub const FindStreamInfoStandard: STREAM_INFO_LEVELS = STREAM_INFO_LEVELS(0i32);
-pub const GET_TAPE_DRIVE_INFORMATION: GET_TAPE_DRIVE_PARAMETERS_OPERATION = GET_TAPE_DRIVE_PARAMETERS_OPERATION(1u32);
-pub const GET_TAPE_MEDIA_INFORMATION: GET_TAPE_DRIVE_PARAMETERS_OPERATION = GET_TAPE_DRIVE_PARAMETERS_OPERATION(0u32);
-pub const GetFileExInfoStandard: GET_FILEEX_INFO_LEVELS = GET_FILEEX_INFO_LEVELS(0i32);
-pub const GetFileExMaxInfoLevel: GET_FILEEX_INFO_LEVELS = GET_FILEEX_INFO_LEVELS(1i32);
-pub const INVALID_FILE_ATTRIBUTES: u32 = 4294967295u32;
-pub const INVALID_FILE_SIZE: u32 = 4294967295u32;
-pub const INVALID_SET_FILE_POINTER: u32 = 4294967295u32;
-pub const IOCTL_VOLUME_ALLOCATE_BC_STREAM: u32 = 5685312u32;
-pub const IOCTL_VOLUME_BASE: u32 = 86u32;
-pub const IOCTL_VOLUME_BC_VERSION: u32 = 1u32;
-pub const IOCTL_VOLUME_FREE_BC_STREAM: u32 = 5685316u32;
-pub const IOCTL_VOLUME_GET_BC_PROPERTIES: u32 = 5652540u32;
-pub const IOCTL_VOLUME_GET_CSVBLOCKCACHE_CALLBACK: u32 = 5685352u32;
-pub const IOCTL_VOLUME_GET_GPT_ATTRIBUTES: u32 = 5636152u32;
-pub const IOCTL_VOLUME_GET_VOLUME_DISK_EXTENTS: u32 = 5636096u32;
-pub const IOCTL_VOLUME_IS_CLUSTERED: u32 = 5636144u32;
-pub const IOCTL_VOLUME_IS_CSV: u32 = 5636192u32;
-pub const IOCTL_VOLUME_IS_DYNAMIC: u32 = 5636168u32;
-pub const IOCTL_VOLUME_IS_IO_CAPABLE: u32 = 5636116u32;
-pub const IOCTL_VOLUME_IS_OFFLINE: u32 = 5636112u32;
-pub const IOCTL_VOLUME_IS_PARTITION: u32 = 5636136u32;
-pub const IOCTL_VOLUME_LOGICAL_TO_PHYSICAL: u32 = 5636128u32;
-pub const IOCTL_VOLUME_OFFLINE: u32 = 5685260u32;
-pub const IOCTL_VOLUME_ONLINE: u32 = 5685256u32;
-pub const IOCTL_VOLUME_PHYSICAL_TO_LOGICAL: u32 = 5636132u32;
-pub const IOCTL_VOLUME_POST_ONLINE: u32 = 5685348u32;
-pub const IOCTL_VOLUME_PREPARE_FOR_CRITICAL_IO: u32 = 5685324u32;
-pub const IOCTL_VOLUME_PREPARE_FOR_SHRINK: u32 = 5685340u32;
-pub const IOCTL_VOLUME_QUERY_ALLOCATION_HINT: u32 = 5652562u32;
-pub const IOCTL_VOLUME_QUERY_FAILOVER_SET: u32 = 5636120u32;
-pub const IOCTL_VOLUME_QUERY_MINIMUM_SHRINK_SIZE: u32 = 5652568u32;
-pub const IOCTL_VOLUME_QUERY_VOLUME_NUMBER: u32 = 5636124u32;
-pub const IOCTL_VOLUME_READ_PLEX: u32 = 5652526u32;
-pub const IOCTL_VOLUME_SET_GPT_ATTRIBUTES: u32 = 5636148u32;
-pub const IOCTL_VOLUME_SUPPORTS_ONLINE_OFFLINE: u32 = 5636100u32;
-pub const IOCTL_VOLUME_UPDATE_PROPERTIES: u32 = 5636180u32;
-pub const IORING_CREATE_ADVISORY_FLAGS_NONE: IORING_CREATE_ADVISORY_FLAGS = IORING_CREATE_ADVISORY_FLAGS(0i32);
-pub const IORING_CREATE_REQUIRED_FLAGS_NONE: IORING_CREATE_REQUIRED_FLAGS = IORING_CREATE_REQUIRED_FLAGS(0i32);
-pub const IORING_FEATURE_FLAGS_NONE: IORING_FEATURE_FLAGS = IORING_FEATURE_FLAGS(0i32);
-pub const IORING_FEATURE_SET_COMPLETION_EVENT: IORING_FEATURE_FLAGS = IORING_FEATURE_FLAGS(2i32);
-pub const IORING_FEATURE_UM_EMULATION: IORING_FEATURE_FLAGS = IORING_FEATURE_FLAGS(1i32);
-pub const IORING_OP_CANCEL: IORING_OP_CODE = IORING_OP_CODE(4i32);
-pub const IORING_OP_FLUSH: IORING_OP_CODE = IORING_OP_CODE(6i32);
-pub const IORING_OP_NOP: IORING_OP_CODE = IORING_OP_CODE(0i32);
-pub const IORING_OP_READ: IORING_OP_CODE = IORING_OP_CODE(1i32);
-pub const IORING_OP_REGISTER_BUFFERS: IORING_OP_CODE = IORING_OP_CODE(3i32);
-pub const IORING_OP_REGISTER_FILES: IORING_OP_CODE = IORING_OP_CODE(2i32);
-pub const IORING_OP_WRITE: IORING_OP_CODE = IORING_OP_CODE(5i32);
-pub const IORING_REF_RAW: IORING_REF_KIND = IORING_REF_KIND(0i32);
-pub const IORING_REF_REGISTERED: IORING_REF_KIND = IORING_REF_KIND(1i32);
-pub const IORING_VERSION_1: IORING_VERSION = IORING_VERSION(1i32);
-pub const IORING_VERSION_2: IORING_VERSION = IORING_VERSION(2i32);
-pub const IORING_VERSION_3: IORING_VERSION = IORING_VERSION(300i32);
-pub const IORING_VERSION_INVALID: IORING_VERSION = IORING_VERSION(0i32);
-pub const IOSQE_FLAGS_DRAIN_PRECEDING_OPS: IORING_SQE_FLAGS = IORING_SQE_FLAGS(1i32);
-pub const IOSQE_FLAGS_NONE: IORING_SQE_FLAGS = IORING_SQE_FLAGS(0i32);
-pub const IoPriorityHintLow: PRIORITY_HINT = PRIORITY_HINT(1i32);
-pub const IoPriorityHintNormal: PRIORITY_HINT = PRIORITY_HINT(2i32);
-pub const IoPriorityHintVeryLow: PRIORITY_HINT = PRIORITY_HINT(0i32);
-pub const KTM_MARSHAL_BLOB_VERSION_MAJOR: u32 = 1u32;
-pub const KTM_MARSHAL_BLOB_VERSION_MINOR: u32 = 1u32;
-pub const LOCKFILE_EXCLUSIVE_LOCK: LOCK_FILE_FLAGS = LOCK_FILE_FLAGS(2u32);
-pub const LOCKFILE_FAIL_IMMEDIATELY: LOCK_FILE_FLAGS = LOCK_FILE_FLAGS(1u32);
-pub const LOG_POLICY_OVERWRITE: u32 = 1u32;
-pub const LOG_POLICY_PERSIST: u32 = 2u32;
-pub const LZERROR_BADINHANDLE: i32 = -1i32;
-pub const LZERROR_BADOUTHANDLE: i32 = -2i32;
-pub const LZERROR_BADVALUE: i32 = -7i32;
-pub const LZERROR_GLOBALLOC: i32 = -5i32;
-pub const LZERROR_GLOBLOCK: i32 = -6i32;
-pub const LZERROR_READ: i32 = -3i32;
-pub const LZERROR_UNKNOWNALG: i32 = -8i32;
-pub const LZERROR_WRITE: i32 = -4i32;
-pub const MAXIMUM_REPARSE_DATA_BUFFER_SIZE: u32 = 16384u32;
-pub const MAX_RESOURCEMANAGER_DESCRIPTION_LENGTH: u32 = 64u32;
-pub const MAX_SID_SIZE: u32 = 256u32;
-pub const MAX_TRANSACTION_DESCRIPTION_LENGTH: u32 = 64u32;
-pub const MOVEFILE_COPY_ALLOWED: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(2u32);
-pub const MOVEFILE_CREATE_HARDLINK: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(16u32);
-pub const MOVEFILE_DELAY_UNTIL_REBOOT: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(4u32);
-pub const MOVEFILE_FAIL_IF_NOT_TRACKABLE: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(32u32);
-pub const MOVEFILE_REPLACE_EXISTING: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(1u32);
-pub const MOVEFILE_WRITE_THROUGH: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(8u32);
-pub const MaximumFileIdType: FILE_ID_TYPE = FILE_ID_TYPE(3i32);
-pub const MaximumFileInfoByHandleClass: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(25i32);
-pub const MaximumIoPriorityHintType: PRIORITY_HINT = PRIORITY_HINT(3i32);
-pub const NTMSMLI_MAXAPPDESCR: u32 = 256u32;
-pub const NTMSMLI_MAXIDSIZE: u32 = 256u32;
-pub const NTMSMLI_MAXTYPE: u32 = 64u32;
-pub const NTMS_ALLOCATE_ERROR_IF_UNAVAILABLE: NtmsAllocateOptions = NtmsAllocateOptions(4i32);
-pub const NTMS_ALLOCATE_FROMSCRATCH: NtmsAllocationPolicy = NtmsAllocationPolicy(1i32);
-pub const NTMS_ALLOCATE_NEW: NtmsAllocateOptions = NtmsAllocateOptions(1i32);
-pub const NTMS_ALLOCATE_NEXT: NtmsAllocateOptions = NtmsAllocateOptions(2i32);
-pub const NTMS_APPLICATIONNAME_LENGTH: u32 = 64u32;
-pub const NTMS_ASYNCOP_MOUNT: NtmsAsyncOperations = NtmsAsyncOperations(1i32);
-pub const NTMS_ASYNCSTATE_COMPLETE: NtmsAsyncStatus = NtmsAsyncStatus(4i32);
-pub const NTMS_ASYNCSTATE_INPROCESS: NtmsAsyncStatus = NtmsAsyncStatus(3i32);
-pub const NTMS_ASYNCSTATE_QUEUED: NtmsAsyncStatus = NtmsAsyncStatus(0i32);
-pub const NTMS_ASYNCSTATE_WAIT_OPERATOR: NtmsAsyncStatus = NtmsAsyncStatus(2i32);
-pub const NTMS_ASYNCSTATE_WAIT_RESOURCE: NtmsAsyncStatus = NtmsAsyncStatus(1i32);
-pub const NTMS_BARCODESTATE_OK: NtmsBarCodeState = NtmsBarCodeState(1i32);
-pub const NTMS_BARCODESTATE_UNREADABLE: NtmsBarCodeState = NtmsBarCodeState(2i32);
-pub const NTMS_BARCODE_LENGTH: u32 = 64u32;
-pub const NTMS_CHANGER: NtmsObjectsTypes = NtmsObjectsTypes(2i32);
-pub const NTMS_CHANGER_TYPE: NtmsObjectsTypes = NtmsObjectsTypes(3i32);
-pub const NTMS_COMPUTER: NtmsObjectsTypes = NtmsObjectsTypes(4i32);
-pub const NTMS_COMPUTERNAME_LENGTH: u32 = 64u32;
-pub const NTMS_CONTROL_ACCESS: NtmsAccessMask = NtmsAccessMask(4i32);
-pub const NTMS_CREATE_NEW: NtmsCreateOptions = NtmsCreateOptions(2i32);
-pub const NTMS_DEALLOCATE_TOSCRATCH: NtmsDeallocationPolicy = NtmsDeallocationPolicy(1i32);
-pub const NTMS_DESCRIPTION_LENGTH: u32 = 127u32;
-pub const NTMS_DEVICENAME_LENGTH: u32 = 64u32;
-pub const NTMS_DISMOUNT_DEFERRED: NtmsDismountOptions = NtmsDismountOptions(1i32);
-pub const NTMS_DISMOUNT_IMMEDIATE: NtmsDismountOptions = NtmsDismountOptions(2i32);
-pub const NTMS_DOORSTATE_CLOSED: NtmsDoorState = NtmsDoorState(1i32);
-pub const NTMS_DOORSTATE_OPEN: NtmsDoorState = NtmsDoorState(2i32);
-pub const NTMS_DOORSTATE_UNKNOWN: NtmsDoorState = NtmsDoorState(0i32);
-pub const NTMS_DRIVE: NtmsObjectsTypes = NtmsObjectsTypes(5i32);
-pub const NTMS_DRIVESTATE_BEING_CLEANED: NtmsDriveState = NtmsDriveState(6i32);
-pub const NTMS_DRIVESTATE_DISMOUNTABLE: NtmsDriveState = NtmsDriveState(7i32);
-pub const NTMS_DRIVESTATE_DISMOUNTED: NtmsDriveState = NtmsDriveState(0i32);
-pub const NTMS_DRIVESTATE_LOADED: NtmsDriveState = NtmsDriveState(2i32);
-pub const NTMS_DRIVESTATE_MOUNTED: NtmsDriveState = NtmsDriveState(1i32);
-pub const NTMS_DRIVESTATE_UNLOADED: NtmsDriveState = NtmsDriveState(5i32);
-pub const NTMS_DRIVE_TYPE: NtmsObjectsTypes = NtmsObjectsTypes(6i32);
-pub const NTMS_EJECT_ASK_USER: NtmsEjectOperation = NtmsEjectOperation(5i32);
-pub const NTMS_EJECT_FORCE: NtmsEjectOperation = NtmsEjectOperation(3i32);
-pub const NTMS_EJECT_IMMEDIATE: NtmsEjectOperation = NtmsEjectOperation(4i32);
-pub const NTMS_EJECT_QUEUE: NtmsEjectOperation = NtmsEjectOperation(2i32);
-pub const NTMS_EJECT_START: NtmsEjectOperation = NtmsEjectOperation(0i32);
-pub const NTMS_EJECT_STOP: NtmsEjectOperation = NtmsEjectOperation(1i32);
-pub const NTMS_ENUM_DEFAULT: NtmsEnumerateOption = NtmsEnumerateOption(0i32);
-pub const NTMS_ENUM_ROOTPOOL: NtmsEnumerateOption = NtmsEnumerateOption(1i32);
-pub const NTMS_ERROR_ON_DUPLICATE: NtmsCreateNtmsMediaOptions = NtmsCreateNtmsMediaOptions(1i32);
-pub const NTMS_EVENT_COMPLETE: NtmsNotificationOperations = NtmsNotificationOperations(5i32);
-pub const NTMS_EVENT_SIGNAL: NtmsNotificationOperations = NtmsNotificationOperations(4i32);
-pub const NTMS_I1_MESSAGE_LENGTH: u32 = 127u32;
-pub const NTMS_IEDOOR: NtmsObjectsTypes = NtmsObjectsTypes(7i32);
-pub const NTMS_IEPORT: NtmsObjectsTypes = NtmsObjectsTypes(8i32);
-pub const NTMS_INITIALIZING: NtmsOperationalState = NtmsOperationalState(10i32);
-pub const NTMS_INJECT_RETRACT: NtmsInjectOperation = NtmsInjectOperation(2i32);
-pub const NTMS_INJECT_START: NtmsInjectOperation = NtmsInjectOperation(0i32);
-pub const NTMS_INJECT_STARTMANY: NtmsInjectOperation = NtmsInjectOperation(3i32);
-pub const NTMS_INJECT_STOP: NtmsInjectOperation = NtmsInjectOperation(1i32);
-pub const NTMS_INVENTORY_DEFAULT: NtmsInventoryMethod = NtmsInventoryMethod(3i32);
-pub const NTMS_INVENTORY_FAST: NtmsInventoryMethod = NtmsInventoryMethod(1i32);
-pub const NTMS_INVENTORY_MAX: NtmsInventoryMethod = NtmsInventoryMethod(6i32);
-pub const NTMS_INVENTORY_NONE: NtmsInventoryMethod = NtmsInventoryMethod(0i32);
-pub const NTMS_INVENTORY_OMID: NtmsInventoryMethod = NtmsInventoryMethod(2i32);
-pub const NTMS_INVENTORY_SLOT: NtmsInventoryMethod = NtmsInventoryMethod(4i32);
-pub const NTMS_INVENTORY_STOP: NtmsInventoryMethod = NtmsInventoryMethod(5i32);
-pub const NTMS_LIBRARY: NtmsObjectsTypes = NtmsObjectsTypes(9i32);
-pub const NTMS_LIBRARYFLAG_AUTODETECTCHANGE: NtmsLibraryFlags = NtmsLibraryFlags(4i32);
-pub const NTMS_LIBRARYFLAG_CLEANERPRESENT: NtmsLibraryFlags = NtmsLibraryFlags(2i32);
-pub const NTMS_LIBRARYFLAG_FIXEDOFFLINE: NtmsLibraryFlags = NtmsLibraryFlags(1i32);
-pub const NTMS_LIBRARYFLAG_IGNORECLEANERUSESREMAINING: NtmsLibraryFlags = NtmsLibraryFlags(8i32);
-pub const NTMS_LIBRARYFLAG_RECOGNIZECLEANERBARCODE: NtmsLibraryFlags = NtmsLibraryFlags(16i32);
-pub const NTMS_LIBRARYTYPE_OFFLINE: NtmsLibraryType = NtmsLibraryType(1i32);
-pub const NTMS_LIBRARYTYPE_ONLINE: NtmsLibraryType = NtmsLibraryType(2i32);
-pub const NTMS_LIBRARYTYPE_STANDALONE: NtmsLibraryType = NtmsLibraryType(3i32);
-pub const NTMS_LIBRARYTYPE_UNKNOWN: NtmsLibraryType = NtmsLibraryType(0i32);
-pub const NTMS_LIBREQFLAGS_NOAUTOPURGE: NtmsLibRequestFlags = NtmsLibRequestFlags(1i32);
-pub const NTMS_LIBREQFLAGS_NOFAILEDPURGE: NtmsLibRequestFlags = NtmsLibRequestFlags(2i32);
-pub const NTMS_LIBREQUEST: NtmsObjectsTypes = NtmsObjectsTypes(10i32);
-pub const NTMS_LM_CANCELLED: NtmsLmState = NtmsLmState(7i32);
-pub const NTMS_LM_CLASSIFY: NtmsLmOperation = NtmsLmOperation(19i32);
-pub const NTMS_LM_CLEANDRIVE: NtmsLmOperation = NtmsLmOperation(15i32);
-pub const NTMS_LM_DEFERRED: NtmsLmState = NtmsLmState(6i32);
-pub const NTMS_LM_DEFFERED: NtmsLmState = NtmsLmState(6i32);
-pub const NTMS_LM_DISABLECHANGER: NtmsLmOperation = NtmsLmOperation(1i32);
-pub const NTMS_LM_DISABLEDRIVE: NtmsLmOperation = NtmsLmOperation(3i32);
-pub const NTMS_LM_DISABLELIBRARY: NtmsLmOperation = NtmsLmOperation(1i32);
-pub const NTMS_LM_DISABLEMEDIA: NtmsLmOperation = NtmsLmOperation(5i32);
-pub const NTMS_LM_DISMOUNT: NtmsLmOperation = NtmsLmOperation(16i32);
-pub const NTMS_LM_DOORACCESS: NtmsLmOperation = NtmsLmOperation(9i32);
-pub const NTMS_LM_EJECT: NtmsLmOperation = NtmsLmOperation(10i32);
-pub const NTMS_LM_EJECTCLEANER: NtmsLmOperation = NtmsLmOperation(11i32);
-pub const NTMS_LM_ENABLECHANGER: NtmsLmOperation = NtmsLmOperation(2i32);
-pub const NTMS_LM_ENABLEDRIVE: NtmsLmOperation = NtmsLmOperation(4i32);
-pub const NTMS_LM_ENABLELIBRARY: NtmsLmOperation = NtmsLmOperation(2i32);
-pub const NTMS_LM_ENABLEMEDIA: NtmsLmOperation = NtmsLmOperation(6i32);
-pub const NTMS_LM_FAILED: NtmsLmState = NtmsLmState(3i32);
-pub const NTMS_LM_INJECT: NtmsLmOperation = NtmsLmOperation(12i32);
-pub const NTMS_LM_INJECTCLEANER: NtmsLmOperation = NtmsLmOperation(13i32);
-pub const NTMS_LM_INPROCESS: NtmsLmState = NtmsLmState(1i32);
-pub const NTMS_LM_INVALID: NtmsLmState = NtmsLmState(4i32);
-pub const NTMS_LM_INVENTORY: NtmsLmOperation = NtmsLmOperation(8i32);
-pub const NTMS_LM_MAXWORKITEM: NtmsLmOperation = NtmsLmOperation(22i32);
-pub const NTMS_LM_MOUNT: NtmsLmOperation = NtmsLmOperation(17i32);
-pub const NTMS_LM_PASSED: NtmsLmState = NtmsLmState(2i32);
-pub const NTMS_LM_PROCESSOMID: NtmsLmOperation = NtmsLmOperation(14i32);
-pub const NTMS_LM_QUEUED: NtmsLmState = NtmsLmState(0i32);
-pub const NTMS_LM_RELEASECLEANER: NtmsLmOperation = NtmsLmOperation(21i32);
-pub const NTMS_LM_REMOVE: NtmsLmOperation = NtmsLmOperation(0i32);
-pub const NTMS_LM_RESERVECLEANER: NtmsLmOperation = NtmsLmOperation(20i32);
-pub const NTMS_LM_STOPPED: NtmsLmState = NtmsLmState(8i32);
-pub const NTMS_LM_UPDATEOMID: NtmsLmOperation = NtmsLmOperation(7i32);
-pub const NTMS_LM_WAITING: NtmsLmState = NtmsLmState(5i32);
-pub const NTMS_LM_WRITESCRATCH: NtmsLmOperation = NtmsLmOperation(18i32);
-pub const NTMS_LOGICAL_MEDIA: NtmsObjectsTypes = NtmsObjectsTypes(11i32);
-pub const NTMS_MAXATTR_LENGTH: u32 = 65536u32;
-pub const NTMS_MAXATTR_NAMELEN: u32 = 32u32;
-pub const NTMS_MEDIARW_READONLY: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(3i32);
-pub const NTMS_MEDIARW_REWRITABLE: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(1i32);
-pub const NTMS_MEDIARW_UNKNOWN: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(0i32);
-pub const NTMS_MEDIARW_WRITEONCE: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(2i32);
-pub const NTMS_MEDIASTATE_IDLE: NtmsMediaState = NtmsMediaState(0i32);
-pub const NTMS_MEDIASTATE_INUSE: NtmsMediaState = NtmsMediaState(1i32);
-pub const NTMS_MEDIASTATE_LOADED: NtmsMediaState = NtmsMediaState(3i32);
-pub const NTMS_MEDIASTATE_MOUNTED: NtmsMediaState = NtmsMediaState(2i32);
-pub const NTMS_MEDIASTATE_OPERROR: NtmsMediaState = NtmsMediaState(5i32);
-pub const NTMS_MEDIASTATE_OPREQ: NtmsMediaState = NtmsMediaState(6i32);
-pub const NTMS_MEDIASTATE_UNLOADED: NtmsMediaState = NtmsMediaState(4i32);
-pub const NTMS_MEDIA_POOL: NtmsObjectsTypes = NtmsObjectsTypes(12i32);
-pub const NTMS_MEDIA_TYPE: NtmsObjectsTypes = NtmsObjectsTypes(13i32);
-pub const NTMS_MESSAGE_LENGTH: u32 = 256u32;
-pub const NTMS_MODIFY_ACCESS: NtmsAccessMask = NtmsAccessMask(2i32);
-pub const NTMS_MOUNT_ERROR_IF_OFFLINE: NtmsMountOptions = NtmsMountOptions(8i32);
-pub const NTMS_MOUNT_ERROR_IF_UNAVAILABLE: NtmsMountOptions = NtmsMountOptions(4i32);
-pub const NTMS_MOUNT_ERROR_NOT_AVAILABLE: NtmsMountOptions = NtmsMountOptions(4i32);
-pub const NTMS_MOUNT_ERROR_OFFLINE: NtmsMountOptions = NtmsMountOptions(8i32);
-pub const NTMS_MOUNT_NOWAIT: NtmsMountOptions = NtmsMountOptions(32i32);
-pub const NTMS_MOUNT_READ: NtmsMountOptions = NtmsMountOptions(1i32);
-pub const NTMS_MOUNT_SPECIFIC_DRIVE: NtmsMountOptions = NtmsMountOptions(16i32);
-pub const NTMS_MOUNT_WRITE: NtmsMountOptions = NtmsMountOptions(2i32);
-pub const NTMS_NEEDS_SERVICE: NtmsOperationalState = NtmsOperationalState(20i32);
-pub const NTMS_NOT_PRESENT: NtmsOperationalState = NtmsOperationalState(21i32);
-pub const NTMS_NUMBER_OF_OBJECT_TYPES: NtmsObjectsTypes = NtmsObjectsTypes(19i32);
-pub const NTMS_OBJECT: NtmsObjectsTypes = NtmsObjectsTypes(1i32);
-pub const NTMS_OBJECTNAME_LENGTH: u32 = 64u32;
-pub const NTMS_OBJ_DELETE: NtmsNotificationOperations = NtmsNotificationOperations(3i32);
-pub const NTMS_OBJ_INSERT: NtmsNotificationOperations = NtmsNotificationOperations(2i32);
-pub const NTMS_OBJ_UPDATE: NtmsNotificationOperations = NtmsNotificationOperations(1i32);
-pub const NTMS_OMIDLABELID_LENGTH: u32 = 255u32;
-pub const NTMS_OMIDLABELINFO_LENGTH: u32 = 256u32;
-pub const NTMS_OMIDLABELTYPE_LENGTH: u32 = 64u32;
-pub const NTMS_OMID_TYPE_FILESYSTEM_INFO: NTMS_OMID_TYPE = NTMS_OMID_TYPE(2u32);
-pub const NTMS_OMID_TYPE_RAW_LABEL: NTMS_OMID_TYPE = NTMS_OMID_TYPE(1u32);
-pub const NTMS_OPEN_ALWAYS: NtmsCreateOptions = NtmsCreateOptions(3i32);
-pub const NTMS_OPEN_EXISTING: NtmsCreateOptions = NtmsCreateOptions(1i32);
-pub const NTMS_OPREQFLAGS_NOALERTS: NtmsOpRequestFlags = NtmsOpRequestFlags(16i32);
-pub const NTMS_OPREQFLAGS_NOAUTOPURGE: NtmsOpRequestFlags = NtmsOpRequestFlags(1i32);
-pub const NTMS_OPREQFLAGS_NOFAILEDPURGE: NtmsOpRequestFlags = NtmsOpRequestFlags(2i32);
-pub const NTMS_OPREQFLAGS_NOTRAYICON: NtmsOpRequestFlags = NtmsOpRequestFlags(32i32);
-pub const NTMS_OPREQUEST: NtmsObjectsTypes = NtmsObjectsTypes(17i32);
-pub const NTMS_OPREQ_CLEANER: NtmsOpreqCommand = NtmsOpreqCommand(2i32);
-pub const NTMS_OPREQ_DEVICESERVICE: NtmsOpreqCommand = NtmsOpreqCommand(3i32);
-pub const NTMS_OPREQ_MESSAGE: NtmsOpreqCommand = NtmsOpreqCommand(5i32);
-pub const NTMS_OPREQ_MOVEMEDIA: NtmsOpreqCommand = NtmsOpreqCommand(4i32);
-pub const NTMS_OPREQ_NEWMEDIA: NtmsOpreqCommand = NtmsOpreqCommand(1i32);
-pub const NTMS_OPREQ_UNKNOWN: NtmsOpreqCommand = NtmsOpreqCommand(0i32);
-pub const NTMS_OPSTATE_ACTIVE: NtmsOpreqState = NtmsOpreqState(2i32);
-pub const NTMS_OPSTATE_COMPLETE: NtmsOpreqState = NtmsOpreqState(5i32);
-pub const NTMS_OPSTATE_INPROGRESS: NtmsOpreqState = NtmsOpreqState(3i32);
-pub const NTMS_OPSTATE_REFUSED: NtmsOpreqState = NtmsOpreqState(4i32);
-pub const NTMS_OPSTATE_SUBMITTED: NtmsOpreqState = NtmsOpreqState(1i32);
-pub const NTMS_OPSTATE_UNKNOWN: NtmsOpreqState = NtmsOpreqState(0i32);
-pub const NTMS_PARTITION: NtmsObjectsTypes = NtmsObjectsTypes(14i32);
-pub const NTMS_PARTSTATE_ALLOCATED: NtmsPartitionState = NtmsPartitionState(5i32);
-pub const NTMS_PARTSTATE_AVAILABLE: NtmsPartitionState = NtmsPartitionState(4i32);
-pub const NTMS_PARTSTATE_COMPLETE: NtmsPartitionState = NtmsPartitionState(6i32);
-pub const NTMS_PARTSTATE_DECOMMISSIONED: NtmsPartitionState = NtmsPartitionState(3i32);
-pub const NTMS_PARTSTATE_FOREIGN: NtmsPartitionState = NtmsPartitionState(7i32);
-pub const NTMS_PARTSTATE_IMPORT: NtmsPartitionState = NtmsPartitionState(8i32);
-pub const NTMS_PARTSTATE_INCOMPATIBLE: NtmsPartitionState = NtmsPartitionState(2i32);
-pub const NTMS_PARTSTATE_RESERVED: NtmsPartitionState = NtmsPartitionState(9i32);
-pub const NTMS_PARTSTATE_UNKNOWN: NtmsPartitionState = NtmsPartitionState(0i32);
-pub const NTMS_PARTSTATE_UNPREPARED: NtmsPartitionState = NtmsPartitionState(1i32);
-pub const NTMS_PHYSICAL_MEDIA: NtmsObjectsTypes = NtmsObjectsTypes(15i32);
-pub const NTMS_POOLHIERARCHY_LENGTH: u32 = 512u32;
-pub const NTMS_POOLPOLICY_KEEPOFFLINEIMPORT: NtmsMediaPoolPolicy = NtmsMediaPoolPolicy(2i32);
-pub const NTMS_POOLPOLICY_PURGEOFFLINESCRATCH: NtmsMediaPoolPolicy = NtmsMediaPoolPolicy(1i32);
-pub const NTMS_POOLTYPE_APPLICATION: NtmsPoolType = NtmsPoolType(1000i32);
-pub const NTMS_POOLTYPE_FOREIGN: NtmsPoolType = NtmsPoolType(2i32);
-pub const NTMS_POOLTYPE_IMPORT: NtmsPoolType = NtmsPoolType(3i32);
-pub const NTMS_POOLTYPE_SCRATCH: NtmsPoolType = NtmsPoolType(1i32);
-pub const NTMS_POOLTYPE_UNKNOWN: NtmsPoolType = NtmsPoolType(0i32);
-pub const NTMS_PORTCONTENT_EMPTY: NtmsPortContent = NtmsPortContent(2i32);
-pub const NTMS_PORTCONTENT_FULL: NtmsPortContent = NtmsPortContent(1i32);
-pub const NTMS_PORTCONTENT_UNKNOWN: NtmsPortContent = NtmsPortContent(0i32);
-pub const NTMS_PORTPOSITION_EXTENDED: NtmsPortPosition = NtmsPortPosition(1i32);
-pub const NTMS_PORTPOSITION_RETRACTED: NtmsPortPosition = NtmsPortPosition(2i32);
-pub const NTMS_PORTPOSITION_UNKNOWN: NtmsPortPosition = NtmsPortPosition(0i32);
-pub const NTMS_PRIORITY_DEFAULT: NtmsMountPriority = NtmsMountPriority(0i32);
-pub const NTMS_PRIORITY_HIGH: NtmsMountPriority = NtmsMountPriority(7i32);
-pub const NTMS_PRIORITY_HIGHEST: NtmsMountPriority = NtmsMountPriority(15i32);
-pub const NTMS_PRIORITY_LOW: NtmsMountPriority = NtmsMountPriority(-7i32);
-pub const NTMS_PRIORITY_LOWEST: NtmsMountPriority = NtmsMountPriority(-15i32);
-pub const NTMS_PRIORITY_NORMAL: NtmsMountPriority = NtmsMountPriority(0i32);
-pub const NTMS_PRODUCTNAME_LENGTH: u32 = 128u32;
-pub const NTMS_READY: NtmsOperationalState = NtmsOperationalState(0i32);
-pub const NTMS_REVISION_LENGTH: u32 = 32u32;
-pub const NTMS_SEQUENCE_LENGTH: u32 = 32u32;
-pub const NTMS_SERIALNUMBER_LENGTH: u32 = 32u32;
-pub const NTMS_SESSION_QUERYEXPEDITE: NtmsSessionOptions = NtmsSessionOptions(1i32);
-pub const NTMS_SLOTSTATE_EMPTY: NtmsSlotState = NtmsSlotState(2i32);
-pub const NTMS_SLOTSTATE_FULL: NtmsSlotState = NtmsSlotState(1i32);
-pub const NTMS_SLOTSTATE_NEEDSINVENTORY: NtmsSlotState = NtmsSlotState(4i32);
-pub const NTMS_SLOTSTATE_NOTPRESENT: NtmsSlotState = NtmsSlotState(3i32);
-pub const NTMS_SLOTSTATE_UNKNOWN: NtmsSlotState = NtmsSlotState(0i32);
-pub const NTMS_STORAGESLOT: NtmsObjectsTypes = NtmsObjectsTypes(16i32);
-pub const NTMS_UIDEST_ADD: NtmsUIOperations = NtmsUIOperations(1i32);
-pub const NTMS_UIDEST_DELETE: NtmsUIOperations = NtmsUIOperations(2i32);
-pub const NTMS_UIDEST_DELETEALL: NtmsUIOperations = NtmsUIOperations(3i32);
-pub const NTMS_UIOPERATION_MAX: NtmsUIOperations = NtmsUIOperations(4i32);
-pub const NTMS_UITYPE_ERR: NtmsUITypes = NtmsUITypes(3i32);
-pub const NTMS_UITYPE_INFO: NtmsUITypes = NtmsUITypes(1i32);
-pub const NTMS_UITYPE_INVALID: NtmsUITypes = NtmsUITypes(0i32);
-pub const NTMS_UITYPE_MAX: NtmsUITypes = NtmsUITypes(4i32);
-pub const NTMS_UITYPE_REQ: NtmsUITypes = NtmsUITypes(2i32);
-pub const NTMS_UI_DESTINATION: NtmsObjectsTypes = NtmsObjectsTypes(18i32);
-pub const NTMS_UNKNOWN: NtmsObjectsTypes = NtmsObjectsTypes(0i32);
-pub const NTMS_UNKNOWN_DRIVE: NtmsDriveType = NtmsDriveType(0i32);
-pub const NTMS_USERNAME_LENGTH: u32 = 64u32;
-pub const NTMS_USE_ACCESS: NtmsAccessMask = NtmsAccessMask(1i32);
-pub const NTMS_VENDORNAME_LENGTH: u32 = 128u32;
-pub const OF_CANCEL: LZOPENFILE_STYLE = LZOPENFILE_STYLE(2048u16);
-pub const OF_CREATE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(4096u16);
-pub const OF_DELETE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(512u16);
-pub const OF_EXIST: LZOPENFILE_STYLE = LZOPENFILE_STYLE(16384u16);
-pub const OF_PARSE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(256u16);
-pub const OF_PROMPT: LZOPENFILE_STYLE = LZOPENFILE_STYLE(8192u16);
-pub const OF_READ: LZOPENFILE_STYLE = LZOPENFILE_STYLE(0u16);
-pub const OF_READWRITE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(2u16);
-pub const OF_REOPEN: LZOPENFILE_STYLE = LZOPENFILE_STYLE(32768u16);
-pub const OF_SHARE_COMPAT: LZOPENFILE_STYLE = LZOPENFILE_STYLE(0u16);
-pub const OF_SHARE_DENY_NONE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(64u16);
-pub const OF_SHARE_DENY_READ: LZOPENFILE_STYLE = LZOPENFILE_STYLE(48u16);
-pub const OF_SHARE_DENY_WRITE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(32u16);
-pub const OF_SHARE_EXCLUSIVE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(16u16);
-pub const OF_VERIFY: LZOPENFILE_STYLE = LZOPENFILE_STYLE(1024u16);
-pub const OF_WRITE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(1u16);
-pub const OPEN_ALWAYS: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(4u32);
-pub const OPEN_EXISTING: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(3u32);
-pub const ObjectIdType: FILE_ID_TYPE = FILE_ID_TYPE(1i32);
-pub const PARTITION_BASIC_DATA_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xebd0a0a2_b9e5_4433_87c0_68b6b72699c7);
-pub const PARTITION_BSP_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x57434f53_4df9_45b9_8e9e_2370f006457c);
-pub const PARTITION_CLUSTER_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xdb97dba9_0840_4bae_97f0_ffb9a327c7e1);
-pub const PARTITION_DPP_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x57434f53_94cb_43f0_a533_d73c10cfa57d);
-pub const PARTITION_ENTRY_UNUSED_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
-pub const PARTITION_LDM_DATA_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xaf9b60a0_1431_4f62_bc68_3311714a69ad);
-pub const PARTITION_LDM_METADATA_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x5808c8aa_7e8f_42e0_85d2_e1e90434cfb3);
-pub const PARTITION_LEGACY_BL_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x424ca0e2_7cb2_4fb9_8143_c52a99398bc6);
-pub const PARTITION_LEGACY_BL_GUID_BACKUP: windows_core::GUID = windows_core::GUID::from_u128(0x424c3e6c_d79f_49cb_935d_36d71467a288);
-pub const PARTITION_MAIN_OS_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x57434f53_8f45_405e_8a23_186d8a4330d3);
-pub const PARTITION_MSFT_RECOVERY_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xde94bba4_06d1_4d40_a16a_bfd50179d6ac);
-pub const PARTITION_MSFT_RESERVED_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe3c9e316_0b5c_4db8_817d_f92df00215ae);
-pub const PARTITION_MSFT_SNAPSHOT_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xcaddebf1_4400_4de8_b103_12117dcf3ccf);
-pub const PARTITION_OS_DATA_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x57434f53_23f2_44d5_a830_67bbdaa609f9);
-pub const PARTITION_PATCH_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x8967a686_96aa_6aa8_9589_a84256541090);
-pub const PARTITION_PRE_INSTALLED_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x57434f53_7fe0_4196_9b42_427b51643484);
-pub const PARTITION_SBL_CACHE_HDD_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x03aaa829_ebfc_4e7e_aac9_c4d76c63b24b);
-pub const PARTITION_SBL_CACHE_SSD_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xeeff8352_dd2a_44db_ae83_bee1cf7481dc);
-pub const PARTITION_SBL_CACHE_SSD_RESERVED_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xdcc0c7c1_55ad_4f17_9d43_4bc776e0117e);
-pub const PARTITION_SERVICING_FILES_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x57434f53_432e_4014_ae4c_8deaa9c0006a);
-pub const PARTITION_SERVICING_METADATA_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x57434f53_c691_4a05_bb4e_703dafd229ce);
-pub const PARTITION_SERVICING_RESERVE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x57434f53_4b81_460b_a319_ffb6fe136d14);
-pub const PARTITION_SERVICING_STAGING_ROOT_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x57434f53_e84d_4e84_aaf3_ecbbbd04b9df);
-pub const PARTITION_SPACES_DATA_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe7addcb4_dc34_4539_9a76_ebbd07be6f7e);
-pub const PARTITION_SPACES_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe75caf8f_f680_4cee_afa3_b001e56efc2d);
-pub const PARTITION_SYSTEM_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xc12a7328_f81f_11d2_ba4b_00a0c93ec93b);
-pub const PARTITION_WINDOWS_SYSTEM_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x57434f53_e3e3_4631_a5c5_26d2243873aa);
-pub const PERM_FILE_CREATE: FILE_INFO_FLAGS_PERMISSIONS = FILE_INFO_FLAGS_PERMISSIONS(4u32);
-pub const PERM_FILE_READ: FILE_INFO_FLAGS_PERMISSIONS = FILE_INFO_FLAGS_PERMISSIONS(1u32);
-pub const PERM_FILE_WRITE: FILE_INFO_FLAGS_PERMISSIONS = FILE_INFO_FLAGS_PERMISSIONS(2u32);
-pub const PIPE_ACCESS_DUPLEX: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(3u32);
-pub const PIPE_ACCESS_INBOUND: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1u32);
-pub const PIPE_ACCESS_OUTBOUND: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2u32);
-pub const PROGRESS_CANCEL: COPYPROGRESSROUTINE_PROGRESS = COPYPROGRESSROUTINE_PROGRESS(1u32);
-pub const PROGRESS_CONTINUE: COPYPROGRESSROUTINE_PROGRESS = COPYPROGRESSROUTINE_PROGRESS(0u32);
-pub const PROGRESS_QUIET: COPYPROGRESSROUTINE_PROGRESS = COPYPROGRESSROUTINE_PROGRESS(3u32);
-pub const PROGRESS_STOP: COPYPROGRESSROUTINE_PROGRESS = COPYPROGRESSROUTINE_PROGRESS(2u32);
-pub const QUIC: SERVER_CERTIFICATE_TYPE = SERVER_CERTIFICATE_TYPE(0i32);
-pub const READ_CONTROL: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(131072u32);
-pub const REPLACEFILE_IGNORE_ACL_ERRORS: REPLACE_FILE_FLAGS = REPLACE_FILE_FLAGS(4u32);
-pub const REPLACEFILE_IGNORE_MERGE_ERRORS: REPLACE_FILE_FLAGS = REPLACE_FILE_FLAGS(2u32);
-pub const REPLACEFILE_WRITE_THROUGH: REPLACE_FILE_FLAGS = REPLACE_FILE_FLAGS(1u32);
-pub const RESOURCE_MANAGER_COMMUNICATION: u32 = 2u32;
-pub const RESOURCE_MANAGER_MAXIMUM_OPTION: u32 = 3u32;
-pub const RESOURCE_MANAGER_OBJECT_PATH: windows_core::PCWSTR = windows_core::w!("\\ResourceManager\\");
-pub const RESOURCE_MANAGER_VOLATILE: u32 = 1u32;
-pub const ReadDirectoryNotifyExtendedInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(2i32);
-pub const ReadDirectoryNotifyFullInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(3i32);
-pub const ReadDirectoryNotifyInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(1i32);
-pub const ReadDirectoryNotifyMaximumInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(4i32);
-pub const SECURITY_ANONYMOUS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(0u32);
-pub const SECURITY_CONTEXT_TRACKING: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(262144u32);
-pub const SECURITY_DELEGATION: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(196608u32);
-pub const SECURITY_EFFECTIVE_ONLY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(524288u32);
-pub const SECURITY_IDENTIFICATION: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(65536u32);
-pub const SECURITY_IMPERSONATION: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(131072u32);
-pub const SECURITY_SQOS_PRESENT: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1048576u32);
-pub const SECURITY_VALID_SQOS_FLAGS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2031616u32);
-pub const SESI1_NUM_ELEMENTS: u32 = 8u32;
-pub const SESI2_NUM_ELEMENTS: u32 = 9u32;
-pub const SESS_GUEST: SESSION_INFO_USER_FLAGS = SESSION_INFO_USER_FLAGS(1u32);
-pub const SESS_NOENCRYPTION: SESSION_INFO_USER_FLAGS = SESSION_INFO_USER_FLAGS(2u32);
-pub const SET_TAPE_DRIVE_INFORMATION: TAPE_INFORMATION_TYPE = TAPE_INFORMATION_TYPE(1u32);
-pub const SET_TAPE_MEDIA_INFORMATION: TAPE_INFORMATION_TYPE = TAPE_INFORMATION_TYPE(0u32);
-pub const SHARE_CURRENT_USES_PARMNUM: u32 = 7u32;
-pub const SHARE_FILE_SD_PARMNUM: u32 = 501u32;
-pub const SHARE_MAX_USES_PARMNUM: u32 = 6u32;
-pub const SHARE_NETNAME_PARMNUM: u32 = 1u32;
-pub const SHARE_PASSWD_PARMNUM: u32 = 9u32;
-pub const SHARE_PATH_PARMNUM: u32 = 8u32;
-pub const SHARE_PERMISSIONS_PARMNUM: u32 = 5u32;
-pub const SHARE_QOS_POLICY_PARMNUM: u32 = 504u32;
-pub const SHARE_REMARK_PARMNUM: u32 = 4u32;
-pub const SHARE_SERVER_PARMNUM: u32 = 503u32;
-pub const SHARE_TYPE_PARMNUM: u32 = 3u32;
-pub const SHI1005_FLAGS_ACCESS_BASED_DIRECTORY_ENUM: u32 = 2048u32;
-pub const SHI1005_FLAGS_ALLOW_NAMESPACE_CACHING: u32 = 1024u32;
-pub const SHI1005_FLAGS_CLUSTER_MANAGED: u32 = 524288u32;
-pub const SHI1005_FLAGS_COMPRESS_DATA: u32 = 1048576u32;
-pub const SHI1005_FLAGS_DFS: u32 = 1u32;
-pub const SHI1005_FLAGS_DFS_ROOT: u32 = 2u32;
-pub const SHI1005_FLAGS_DISABLE_CLIENT_BUFFERING: u32 = 131072u32;
-pub const SHI1005_FLAGS_DISABLE_DIRECTORY_HANDLE_LEASING: u32 = 4194304u32;
-pub const SHI1005_FLAGS_ENABLE_CA: u32 = 16384u32;
-pub const SHI1005_FLAGS_ENABLE_HASH: u32 = 8192u32;
-pub const SHI1005_FLAGS_ENCRYPT_DATA: u32 = 32768u32;
-pub const SHI1005_FLAGS_FORCE_LEVELII_OPLOCK: u32 = 4096u32;
-pub const SHI1005_FLAGS_FORCE_SHARED_DELETE: u32 = 512u32;
-pub const SHI1005_FLAGS_IDENTITY_REMOTING: u32 = 262144u32;
-pub const SHI1005_FLAGS_ISOLATED_TRANSPORT: u32 = 2097152u32;
-pub const SHI1005_FLAGS_RESERVED: u32 = 65536u32;
-pub const SHI1005_FLAGS_RESTRICT_EXCLUSIVE_OPENS: u32 = 256u32;
-pub const SHI1_NUM_ELEMENTS: u32 = 4u32;
-pub const SHI2_NUM_ELEMENTS: u32 = 10u32;
-pub const SHI_USES_UNLIMITED: u32 = 4294967295u32;
-pub const SPECIFIC_RIGHTS_ALL: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(65535u32);
-pub const STANDARD_RIGHTS_ALL: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(2031616u32);
-pub const STANDARD_RIGHTS_EXECUTE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(131072u32);
-pub const STANDARD_RIGHTS_READ: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(131072u32);
-pub const STANDARD_RIGHTS_REQUIRED: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(983040u32);
-pub const STANDARD_RIGHTS_WRITE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(131072u32);
-pub const STATSOPT_CLR: u32 = 1u32;
-pub const STYPE_DEVICE: SHARE_TYPE = SHARE_TYPE(2u32);
-pub const STYPE_DISKTREE: SHARE_TYPE = SHARE_TYPE(0u32);
-pub const STYPE_IPC: SHARE_TYPE = SHARE_TYPE(3u32);
-pub const STYPE_MASK: SHARE_TYPE = SHARE_TYPE(255u32);
-pub const STYPE_PRINTQ: SHARE_TYPE = SHARE_TYPE(1u32);
-pub const STYPE_RESERVED1: u32 = 16777216u32;
-pub const STYPE_RESERVED2: u32 = 33554432u32;
-pub const STYPE_RESERVED3: u32 = 67108864u32;
-pub const STYPE_RESERVED4: u32 = 134217728u32;
-pub const STYPE_RESERVED5: u32 = 1048576u32;
-pub const STYPE_RESERVED_ALL: u32 = 1073741568u32;
-pub const STYPE_SPECIAL: SHARE_TYPE = SHARE_TYPE(2147483648u32);
-pub const STYPE_TEMPORARY: SHARE_TYPE = SHARE_TYPE(1073741824u32);
-pub const SYMBOLIC_LINK_FLAG_ALLOW_UNPRIVILEGED_CREATE: SYMBOLIC_LINK_FLAGS = SYMBOLIC_LINK_FLAGS(2u32);
-pub const SYMBOLIC_LINK_FLAG_DIRECTORY: SYMBOLIC_LINK_FLAGS = SYMBOLIC_LINK_FLAGS(1u32);
-pub const SYNCHRONIZE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(1048576u32);
-pub const TAPE_ABSOLUTE_BLOCK: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(1u32);
-pub const TAPE_ABSOLUTE_POSITION: TAPE_POSITION_TYPE = TAPE_POSITION_TYPE(0u32);
-pub const TAPE_ERASE_LONG: ERASE_TAPE_TYPE = ERASE_TAPE_TYPE(1u32);
-pub const TAPE_ERASE_SHORT: ERASE_TAPE_TYPE = ERASE_TAPE_TYPE(0u32);
-pub const TAPE_FILEMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(1u32);
-pub const TAPE_FIXED_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = CREATE_TAPE_PARTITION_METHOD(0u32);
-pub const TAPE_FORMAT: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(5u32);
-pub const TAPE_INITIATOR_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = CREATE_TAPE_PARTITION_METHOD(2u32);
-pub const TAPE_LOAD: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(0u32);
-pub const TAPE_LOCK: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(3u32);
-pub const TAPE_LOGICAL_BLOCK: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(2u32);
-pub const TAPE_LOGICAL_POSITION: TAPE_POSITION_TYPE = TAPE_POSITION_TYPE(1u32);
-pub const TAPE_LONG_FILEMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(3u32);
-pub const TAPE_REWIND: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(0u32);
-pub const TAPE_SELECT_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = CREATE_TAPE_PARTITION_METHOD(1u32);
-pub const TAPE_SETMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(0u32);
-pub const TAPE_SHORT_FILEMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(2u32);
-pub const TAPE_SPACE_END_OF_DATA: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(4u32);
-pub const TAPE_SPACE_FILEMARKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(6u32);
-pub const TAPE_SPACE_RELATIVE_BLOCKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(5u32);
-pub const TAPE_SPACE_SEQUENTIAL_FMKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(7u32);
-pub const TAPE_SPACE_SEQUENTIAL_SMKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(9u32);
-pub const TAPE_SPACE_SETMARKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(8u32);
-pub const TAPE_TENSION: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(2u32);
-pub const TAPE_UNLOAD: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(1u32);
-pub const TAPE_UNLOCK: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(4u32);
-pub const TRANSACTIONMANAGER_OBJECT_PATH: windows_core::PCWSTR = windows_core::w!("\\TransactionManager\\");
-pub const TRANSACTION_DO_NOT_PROMOTE: u32 = 1u32;
-pub const TRANSACTION_MANAGER_COMMIT_DEFAULT: u32 = 0u32;
-pub const TRANSACTION_MANAGER_COMMIT_LOWEST: u32 = 8u32;
-pub const TRANSACTION_MANAGER_COMMIT_SYSTEM_HIVES: u32 = 4u32;
-pub const TRANSACTION_MANAGER_COMMIT_SYSTEM_VOLUME: u32 = 2u32;
-pub const TRANSACTION_MANAGER_CORRUPT_FOR_PROGRESS: u32 = 32u32;
-pub const TRANSACTION_MANAGER_CORRUPT_FOR_RECOVERY: u32 = 16u32;
-pub const TRANSACTION_MANAGER_MAXIMUM_OPTION: u32 = 63u32;
-pub const TRANSACTION_MANAGER_VOLATILE: u32 = 1u32;
-pub const TRANSACTION_MAXIMUM_OPTION: u32 = 1u32;
-pub const TRANSACTION_NOTIFICATION_TM_ONLINE_FLAG_IS_CLUSTERED: u32 = 1u32;
-pub const TRANSACTION_NOTIFY_COMMIT: u32 = 4u32;
-pub const TRANSACTION_NOTIFY_COMMIT_COMPLETE: u32 = 64u32;
-pub const TRANSACTION_NOTIFY_COMMIT_FINALIZE: u32 = 1073741824u32;
-pub const TRANSACTION_NOTIFY_COMMIT_REQUEST: u32 = 67108864u32;
-pub const TRANSACTION_NOTIFY_DELEGATE_COMMIT: u32 = 1024u32;
-pub const TRANSACTION_NOTIFY_ENLIST_MASK: u32 = 262144u32;
-pub const TRANSACTION_NOTIFY_ENLIST_PREPREPARE: u32 = 4096u32;
-pub const TRANSACTION_NOTIFY_INDOUBT: u32 = 16384u32;
-pub const TRANSACTION_NOTIFY_LAST_RECOVER: u32 = 8192u32;
-pub const TRANSACTION_NOTIFY_MARSHAL: u32 = 131072u32;
-pub const TRANSACTION_NOTIFY_MASK: u32 = 1073741823u32;
-pub const TRANSACTION_NOTIFY_PREPARE: u32 = 2u32;
-pub const TRANSACTION_NOTIFY_PREPARE_COMPLETE: u32 = 32u32;
-pub const TRANSACTION_NOTIFY_PREPREPARE: u32 = 1u32;
-pub const TRANSACTION_NOTIFY_PREPREPARE_COMPLETE: u32 = 16u32;
-pub const TRANSACTION_NOTIFY_PROMOTE: u32 = 134217728u32;
-pub const TRANSACTION_NOTIFY_PROMOTE_NEW: u32 = 268435456u32;
-pub const TRANSACTION_NOTIFY_PROPAGATE_PULL: u32 = 32768u32;
-pub const TRANSACTION_NOTIFY_PROPAGATE_PUSH: u32 = 65536u32;
-pub const TRANSACTION_NOTIFY_RECOVER: u32 = 256u32;
-pub const TRANSACTION_NOTIFY_RECOVER_QUERY: u32 = 2048u32;
-pub const TRANSACTION_NOTIFY_REQUEST_OUTCOME: u32 = 536870912u32;
-pub const TRANSACTION_NOTIFY_RM_DISCONNECTED: u32 = 16777216u32;
-pub const TRANSACTION_NOTIFY_ROLLBACK: u32 = 8u32;
-pub const TRANSACTION_NOTIFY_ROLLBACK_COMPLETE: u32 = 128u32;
-pub const TRANSACTION_NOTIFY_SINGLE_PHASE_COMMIT: u32 = 512u32;
-pub const TRANSACTION_NOTIFY_TM_ONLINE: u32 = 33554432u32;
-pub const TRANSACTION_OBJECT_PATH: windows_core::PCWSTR = windows_core::w!("\\Transaction\\");
-pub const TRUNCATE_EXISTING: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(5u32);
-pub const TXFS_MINIVERSION_COMMITTED_VIEW: TXFS_MINIVERSION = TXFS_MINIVERSION(0u32);
-pub const TXFS_MINIVERSION_DEFAULT_VIEW: TXFS_MINIVERSION = TXFS_MINIVERSION(65534u32);
-pub const TXFS_MINIVERSION_DIRTY_VIEW: TXFS_MINIVERSION = TXFS_MINIVERSION(65535u32);
-pub const TXF_LOG_RECORD_GENERIC_TYPE_ABORT: u32 = 2u32;
-pub const TXF_LOG_RECORD_GENERIC_TYPE_COMMIT: u32 = 1u32;
-pub const TXF_LOG_RECORD_GENERIC_TYPE_DATA: u32 = 8u32;
-pub const TXF_LOG_RECORD_GENERIC_TYPE_PREPARE: u32 = 4u32;
-pub const TXF_LOG_RECORD_TYPE_AFFECTED_FILE: TXF_LOG_RECORD_TYPE = TXF_LOG_RECORD_TYPE(4u16);
-pub const TXF_LOG_RECORD_TYPE_TRUNCATE: TXF_LOG_RECORD_TYPE = TXF_LOG_RECORD_TYPE(2u16);
-pub const TXF_LOG_RECORD_TYPE_WRITE: TXF_LOG_RECORD_TYPE = TXF_LOG_RECORD_TYPE(1u16);
-pub const TransactionOutcomeAborted: TRANSACTION_OUTCOME = TRANSACTION_OUTCOME(3i32);
-pub const TransactionOutcomeCommitted: TRANSACTION_OUTCOME = TRANSACTION_OUTCOME(2i32);
-pub const TransactionOutcomeUndetermined: TRANSACTION_OUTCOME = TRANSACTION_OUTCOME(1i32);
-pub const VFFF_ISSHAREDFILE: VER_FIND_FILE_FLAGS = VER_FIND_FILE_FLAGS(1u32);
-pub const VFF_BUFFTOOSMALL: VER_FIND_FILE_STATUS = VER_FIND_FILE_STATUS(4u32);
-pub const VFF_CURNEDEST: VER_FIND_FILE_STATUS = VER_FIND_FILE_STATUS(1u32);
-pub const VFF_FILEINUSE: VER_FIND_FILE_STATUS = VER_FIND_FILE_STATUS(2u32);
-pub const VFT2_DRV_COMM: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(10i32);
-pub const VFT2_DRV_DISPLAY: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(4i32);
-pub const VFT2_DRV_INPUTMETHOD: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(11i32);
-pub const VFT2_DRV_INSTALLABLE: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(8i32);
-pub const VFT2_DRV_KEYBOARD: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(2i32);
-pub const VFT2_DRV_LANGUAGE: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(3i32);
-pub const VFT2_DRV_MOUSE: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(5i32);
-pub const VFT2_DRV_NETWORK: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(6i32);
-pub const VFT2_DRV_PRINTER: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(1i32);
-pub const VFT2_DRV_SOUND: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(9i32);
-pub const VFT2_DRV_SYSTEM: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(7i32);
-pub const VFT2_DRV_VERSIONED_PRINTER: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(12i32);
-pub const VFT2_FONT_RASTER: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(1i32);
-pub const VFT2_FONT_TRUETYPE: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(3i32);
-pub const VFT2_FONT_VECTOR: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(2i32);
-pub const VFT2_UNKNOWN: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(0i32);
-pub const VFT_APP: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(1i32);
-pub const VFT_DLL: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(2i32);
-pub const VFT_DRV: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(3i32);
-pub const VFT_FONT: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(4i32);
-pub const VFT_STATIC_LIB: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(7i32);
-pub const VFT_UNKNOWN: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(0i32);
-pub const VFT_VXD: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(5i32);
-pub const VIFF_DONTDELETEOLD: VER_INSTALL_FILE_FLAGS = VER_INSTALL_FILE_FLAGS(2u32);
-pub const VIFF_FORCEINSTALL: VER_INSTALL_FILE_FLAGS = VER_INSTALL_FILE_FLAGS(1u32);
-pub const VIF_ACCESSVIOLATION: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(512u32);
-pub const VIF_BUFFTOOSMALL: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(262144u32);
-pub const VIF_CANNOTCREATE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(2048u32);
-pub const VIF_CANNOTDELETE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(4096u32);
-pub const VIF_CANNOTDELETECUR: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(16384u32);
-pub const VIF_CANNOTLOADCABINET: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(1048576u32);
-pub const VIF_CANNOTLOADLZ32: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(524288u32);
-pub const VIF_CANNOTREADDST: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(131072u32);
-pub const VIF_CANNOTREADSRC: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(65536u32);
-pub const VIF_CANNOTRENAME: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(8192u32);
-pub const VIF_DIFFCODEPG: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(16u32);
-pub const VIF_DIFFLANG: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(8u32);
-pub const VIF_DIFFTYPE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(32u32);
-pub const VIF_FILEINUSE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(128u32);
-pub const VIF_MISMATCH: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(2u32);
-pub const VIF_OUTOFMEMORY: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(32768u32);
-pub const VIF_OUTOFSPACE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(256u32);
-pub const VIF_SHARINGVIOLATION: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(1024u32);
-pub const VIF_SRCOLD: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(4u32);
-pub const VIF_TEMPFILE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(1u32);
-pub const VIF_WRITEPROT: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(64u32);
-pub const VOLUME_NAME_DOS: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(0u32);
-pub const VOLUME_NAME_GUID: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(1u32);
-pub const VOLUME_NAME_NONE: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(4u32);
-pub const VOLUME_NAME_NT: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(2u32);
-pub const VOS_DOS: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(65536u32);
-pub const VOS_DOS_WINDOWS16: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(65537u32);
-pub const VOS_DOS_WINDOWS32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(65540u32);
-pub const VOS_NT: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(262144u32);
-pub const VOS_NT_WINDOWS32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(262148u32);
-pub const VOS_OS216: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(131072u32);
-pub const VOS_OS216_PM16: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(131074u32);
-pub const VOS_OS232: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(196608u32);
-pub const VOS_OS232_PM32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(196611u32);
-pub const VOS_UNKNOWN: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(0u32);
-pub const VOS_WINCE: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(327680u32);
-pub const VOS__BASE: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(0u32);
-pub const VOS__PM16: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(2u32);
-pub const VOS__PM32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(3u32);
-pub const VOS__WINDOWS16: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(1u32);
-pub const VOS__WINDOWS32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(4u32);
-pub const VS_FFI_FILEFLAGSMASK: i32 = 63i32;
-pub const VS_FFI_SIGNATURE: i32 = -17890115i32;
-pub const VS_FFI_STRUCVERSION: i32 = 65536i32;
-pub const VS_FF_DEBUG: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(1u32);
-pub const VS_FF_INFOINFERRED: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(16u32);
-pub const VS_FF_PATCHED: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(4u32);
-pub const VS_FF_PRERELEASE: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(2u32);
-pub const VS_FF_PRIVATEBUILD: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(8u32);
-pub const VS_FF_SPECIALBUILD: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(32u32);
-pub const VS_USER_DEFINED: u32 = 100u32;
-pub const VS_VERSION_INFO: u32 = 1u32;
-pub const WIM_BOOT_NOT_OS_WIM: u32 = 0u32;
-pub const WIM_BOOT_OS_WIM: u32 = 1u32;
-pub const WIM_ENTRY_FLAG_NOT_ACTIVE: u32 = 1u32;
-pub const WIM_ENTRY_FLAG_SUSPENDED: u32 = 2u32;
-pub const WIM_EXTERNAL_FILE_INFO_FLAG_NOT_ACTIVE: u32 = 1u32;
-pub const WIM_EXTERNAL_FILE_INFO_FLAG_SUSPENDED: u32 = 2u32;
-pub const WIM_PROVIDER_HASH_SIZE: u32 = 20u32;
-pub const WINEFS_SETUSERKEY_SET_CAPABILITIES: u32 = 1u32;
 pub const WOF_PROVIDER_FILE: u32 = 2u32;
 pub const WOF_PROVIDER_WIM: u32 = 1u32;
 pub const WRITE_DAC: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(262144u32);
 pub const WRITE_OWNER: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(524288u32);
+pub type WofEnumEntryProc = Option<unsafe extern "system" fn(entryinfo: *const core::ffi::c_void, userdata: *const core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type WofEnumFilesProc = Option<unsafe extern "system" fn(filepath: windows_core::PCWSTR, externalfileinfo: *const core::ffi::c_void, userdata: *const core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub const _FT_TYPES_DEFINITION_: u32 = 1u32;

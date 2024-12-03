@@ -6,22 +6,6 @@ pub mod Http;
 pub mod Syndication;
 #[cfg(feature = "Web_UI")]
 pub mod UI;
-pub struct WebError;
-impl WebError {
-    pub fn GetStatus(hresult: i32) -> windows_core::Result<WebErrorStatus> {
-        Self::IWebErrorStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetStatus)(windows_core::Interface::as_raw(this), hresult, &mut result__).map(|| result__)
-        })
-    }
-    fn IWebErrorStatics<R, F: FnOnce(&IWebErrorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<WebError, IWebErrorStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeName for WebError {
-    const NAME: &'static str = "Windows.Web.WebError";
-}
 windows_core::imp::define_interface!(IUriToStreamResolver, IUriToStreamResolver_Vtbl, 0xb0aba86a_9aeb_4d3a_9590_003e3ca7e290);
 impl windows_core::RuntimeType for IUriToStreamResolver {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -84,6 +68,22 @@ impl windows_core::RuntimeType for IWebErrorStatics {
 pub struct IWebErrorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut WebErrorStatus) -> windows_core::HRESULT,
+}
+pub struct WebError;
+impl WebError {
+    pub fn GetStatus(hresult: i32) -> windows_core::Result<WebErrorStatus> {
+        Self::IWebErrorStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetStatus)(windows_core::Interface::as_raw(this), hresult, &mut result__).map(|| result__)
+        })
+    }
+    fn IWebErrorStatics<R, F: FnOnce(&IWebErrorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WebError, IWebErrorStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeName for WebError {
+    const NAME: &'static str = "Windows.Web.WebError";
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

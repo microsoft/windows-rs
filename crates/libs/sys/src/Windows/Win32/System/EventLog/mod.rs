@@ -64,33 +64,6 @@ windows_targets::link!("advapi32.dll" "system" fn RegisterEventSourceW(lpuncserv
 windows_targets::link!("advapi32.dll" "system" fn ReportEventA(heventlog : super::super::Foundation:: HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Security:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const windows_sys::core::PCSTR, lprawdata : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Security")]
 windows_targets::link!("advapi32.dll" "system" fn ReportEventW(heventlog : super::super::Foundation:: HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Security:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const windows_sys::core::PCWSTR, lprawdata : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-pub type EVT_SUBSCRIBE_CALLBACK = Option<unsafe extern "system" fn(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: *const core::ffi::c_void, event: EVT_HANDLE) -> u32>;
-pub type EVT_CHANNEL_CLOCK_TYPE = i32;
-pub type EVT_CHANNEL_CONFIG_PROPERTY_ID = i32;
-pub type EVT_CHANNEL_ISOLATION_TYPE = i32;
-pub type EVT_CHANNEL_REFERENCE_FLAGS = u32;
-pub type EVT_CHANNEL_SID_TYPE = i32;
-pub type EVT_CHANNEL_TYPE = i32;
-pub type EVT_EVENT_METADATA_PROPERTY_ID = i32;
-pub type EVT_EVENT_PROPERTY_ID = i32;
-pub type EVT_EXPORTLOG_FLAGS = u32;
-pub type EVT_FORMAT_MESSAGE_FLAGS = u32;
-pub type EVT_LOGIN_CLASS = i32;
-pub type EVT_LOG_PROPERTY_ID = i32;
-pub type EVT_OPEN_LOG_FLAGS = u32;
-pub type EVT_PUBLISHER_METADATA_PROPERTY_ID = i32;
-pub type EVT_QUERY_FLAGS = u32;
-pub type EVT_QUERY_PROPERTY_ID = i32;
-pub type EVT_RENDER_CONTEXT_FLAGS = u32;
-pub type EVT_RENDER_FLAGS = u32;
-pub type EVT_RPC_LOGIN_FLAGS = u32;
-pub type EVT_SEEK_FLAGS = u32;
-pub type EVT_SUBSCRIBE_FLAGS = u32;
-pub type EVT_SUBSCRIBE_NOTIFY_ACTION = i32;
-pub type EVT_SYSTEM_PROPERTY_ID = i32;
-pub type EVT_VARIANT_TYPE = i32;
-pub type READ_EVENT_LOG_READ_FLAGS = u32;
-pub type REPORT_EVENT_TYPE = u16;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EVENTLOGRECORD {
@@ -111,11 +84,19 @@ pub struct EVENTLOGRECORD {
     pub DataLength: u32,
     pub DataOffset: u32,
 }
+pub const EVENTLOG_AUDIT_FAILURE: REPORT_EVENT_TYPE = 16u16;
+pub const EVENTLOG_AUDIT_SUCCESS: REPORT_EVENT_TYPE = 8u16;
+pub const EVENTLOG_ERROR_TYPE: REPORT_EVENT_TYPE = 1u16;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EVENTLOG_FULL_INFORMATION {
     pub dwFull: u32,
 }
+pub const EVENTLOG_INFORMATION_TYPE: REPORT_EVENT_TYPE = 4u16;
+pub const EVENTLOG_SEEK_READ: READ_EVENT_LOG_READ_FLAGS = 2u32;
+pub const EVENTLOG_SEQUENTIAL_READ: READ_EVENT_LOG_READ_FLAGS = 1u32;
+pub const EVENTLOG_SUCCESS: REPORT_EVENT_TYPE = 0u16;
+pub const EVENTLOG_WARNING_TYPE: REPORT_EVENT_TYPE = 2u16;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EVENTSFORLOGFILE {
@@ -124,7 +105,28 @@ pub struct EVENTSFORLOGFILE {
     pub ulNumRecords: u32,
     pub pEventLogRecords: [EVENTLOGRECORD; 1],
 }
+pub const EVT_ALL_ACCESS: u32 = 7u32;
+pub type EVT_CHANNEL_CLOCK_TYPE = i32;
+pub type EVT_CHANNEL_CONFIG_PROPERTY_ID = i32;
+pub type EVT_CHANNEL_ISOLATION_TYPE = i32;
+pub type EVT_CHANNEL_REFERENCE_FLAGS = u32;
+pub type EVT_CHANNEL_SID_TYPE = i32;
+pub type EVT_CHANNEL_TYPE = i32;
+pub const EVT_CLEAR_ACCESS: u32 = 4u32;
+pub type EVT_EVENT_METADATA_PROPERTY_ID = i32;
+pub type EVT_EVENT_PROPERTY_ID = i32;
+pub type EVT_EXPORTLOG_FLAGS = u32;
+pub type EVT_FORMAT_MESSAGE_FLAGS = u32;
 pub type EVT_HANDLE = isize;
+pub type EVT_LOGIN_CLASS = i32;
+pub type EVT_LOG_PROPERTY_ID = i32;
+pub type EVT_OPEN_LOG_FLAGS = u32;
+pub type EVT_PUBLISHER_METADATA_PROPERTY_ID = i32;
+pub type EVT_QUERY_FLAGS = u32;
+pub type EVT_QUERY_PROPERTY_ID = i32;
+pub const EVT_READ_ACCESS: u32 = 1u32;
+pub type EVT_RENDER_CONTEXT_FLAGS = u32;
+pub type EVT_RENDER_FLAGS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EVT_RPC_LOGIN {
@@ -134,6 +136,12 @@ pub struct EVT_RPC_LOGIN {
     pub Password: windows_sys::core::PWSTR,
     pub Flags: u32,
 }
+pub type EVT_RPC_LOGIN_FLAGS = u32;
+pub type EVT_SEEK_FLAGS = u32;
+pub type EVT_SUBSCRIBE_CALLBACK = Option<unsafe extern "system" fn(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: *const core::ffi::c_void, event: EVT_HANDLE) -> u32>;
+pub type EVT_SUBSCRIBE_FLAGS = u32;
+pub type EVT_SUBSCRIBE_NOTIFY_ACTION = i32;
+pub type EVT_SYSTEM_PROPERTY_ID = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -187,17 +195,7 @@ pub union EVT_VARIANT_0 {
     pub XmlVal: windows_sys::core::PCWSTR,
     pub XmlValArr: *const windows_sys::core::PCWSTR,
 }
-pub const EVENTLOG_AUDIT_FAILURE: REPORT_EVENT_TYPE = 16u16;
-pub const EVENTLOG_AUDIT_SUCCESS: REPORT_EVENT_TYPE = 8u16;
-pub const EVENTLOG_ERROR_TYPE: REPORT_EVENT_TYPE = 1u16;
-pub const EVENTLOG_INFORMATION_TYPE: REPORT_EVENT_TYPE = 4u16;
-pub const EVENTLOG_SEEK_READ: READ_EVENT_LOG_READ_FLAGS = 2u32;
-pub const EVENTLOG_SEQUENTIAL_READ: READ_EVENT_LOG_READ_FLAGS = 1u32;
-pub const EVENTLOG_SUCCESS: REPORT_EVENT_TYPE = 0u16;
-pub const EVENTLOG_WARNING_TYPE: REPORT_EVENT_TYPE = 2u16;
-pub const EVT_ALL_ACCESS: u32 = 7u32;
-pub const EVT_CLEAR_ACCESS: u32 = 4u32;
-pub const EVT_READ_ACCESS: u32 = 1u32;
+pub type EVT_VARIANT_TYPE = i32;
 pub const EVT_VARIANT_TYPE_ARRAY: u32 = 128u32;
 pub const EVT_VARIANT_TYPE_MASK: u32 = 127u32;
 pub const EVT_WRITE_ACCESS: u32 = 2u32;
@@ -377,3 +375,5 @@ pub const EvtVarTypeSysTime: EVT_VARIANT_TYPE = 18i32;
 pub const EvtVarTypeUInt16: EVT_VARIANT_TYPE = 6i32;
 pub const EvtVarTypeUInt32: EVT_VARIANT_TYPE = 8i32;
 pub const EvtVarTypeUInt64: EVT_VARIANT_TYPE = 10i32;
+pub type READ_EVENT_LOG_READ_FLAGS = u32;
+pub type REPORT_EVENT_TYPE = u16;

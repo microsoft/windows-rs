@@ -1,3 +1,70 @@
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct APPLICATION_EVENT_DATA {
+    pub cbApplicationEventData: u32,
+    pub ApplicationId: windows_core::GUID,
+    pub EndpointId: windows_core::GUID,
+    pub dwEventId: u32,
+    pub cbEventData: u32,
+    pub bEventData: [u8; 1],
+}
+impl Default for APPLICATION_EVENT_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for APPLICATION_EVENT_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CONTENT_ID_GLANCE: u32 = 0u32;
+pub const CONTENT_ID_HOME: u32 = 1u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct CONTENT_MISSING_EVENT_DATA {
+    pub cbContentMissingEventData: u32,
+    pub ApplicationId: windows_core::GUID,
+    pub EndpointId: windows_core::GUID,
+    pub ContentId: u32,
+}
+impl Default for CONTENT_MISSING_EVENT_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CONTENT_MISSING_EVENT_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct DEVICE_USER_CHANGE_EVENT_DATA {
+    pub cbDeviceUserChangeEventData: u32,
+    pub wszUser: u16,
+}
+impl Default for DEVICE_USER_CHANGE_EVENT_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DEVICE_USER_CHANGE_EVENT_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct EVENT_DATA_HEADER {
+    pub cbEventDataHeader: u32,
+    pub guidEventType: windows_core::GUID,
+    pub dwVersion: u32,
+    pub cbEventDataSid: u32,
+}
+impl Default for EVENT_DATA_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for EVENT_DATA_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
+pub const GUID_DEVINTERFACE_SIDESHOW: windows_core::GUID = windows_core::GUID::from_u128(0x152e5811_feb9_4b00_90f4_d32947ae1681);
 windows_core::imp::define_interface!(ISideShowBulkCapabilities, ISideShowBulkCapabilities_Vtbl, 0x3a2b7fbc_3ad5_48bd_bbf1_0e6cfbd10807);
 impl core::ops::Deref for ISideShowBulkCapabilities {
     type Target = ISideShowCapabilities;
@@ -791,82 +858,6 @@ impl ISideShowSession_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISideShowSession {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCF_BUTTON_IDS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCF_EVENT_IDS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SIDESHOW_COLOR_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SIDESHOW_SCREEN_TYPE(pub i32);
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct APPLICATION_EVENT_DATA {
-    pub cbApplicationEventData: u32,
-    pub ApplicationId: windows_core::GUID,
-    pub EndpointId: windows_core::GUID,
-    pub dwEventId: u32,
-    pub cbEventData: u32,
-    pub bEventData: [u8; 1],
-}
-impl Default for APPLICATION_EVENT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for APPLICATION_EVENT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct CONTENT_MISSING_EVENT_DATA {
-    pub cbContentMissingEventData: u32,
-    pub ApplicationId: windows_core::GUID,
-    pub EndpointId: windows_core::GUID,
-    pub ContentId: u32,
-}
-impl Default for CONTENT_MISSING_EVENT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CONTENT_MISSING_EVENT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct DEVICE_USER_CHANGE_EVENT_DATA {
-    pub cbDeviceUserChangeEventData: u32,
-    pub wszUser: u16,
-}
-impl Default for DEVICE_USER_CHANGE_EVENT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DEVICE_USER_CHANGE_EVENT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct EVENT_DATA_HEADER {
-    pub cbEventDataHeader: u32,
-    pub guidEventType: windows_core::GUID,
-    pub dwVersion: u32,
-    pub cbEventDataSid: u32,
-}
-impl Default for EVENT_DATA_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for EVENT_DATA_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct NEW_EVENT_DATA_AVAILABLE {
@@ -881,6 +872,21 @@ impl Default for NEW_EVENT_DATA_AVAILABLE {
 impl windows_core::TypeKind for NEW_EVENT_DATA_AVAILABLE {
     type TypeKind = windows_core::CopyType;
 }
+pub const SCF_BUTTON_BACK: SCF_BUTTON_IDS = SCF_BUTTON_IDS(65280i32);
+pub const SCF_BUTTON_DOWN: SCF_BUTTON_IDS = SCF_BUTTON_IDS(4i32);
+pub const SCF_BUTTON_FASTFORWARD: SCF_BUTTON_IDS = SCF_BUTTON_IDS(9i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCF_BUTTON_IDS(pub i32);
+pub const SCF_BUTTON_LEFT: SCF_BUTTON_IDS = SCF_BUTTON_IDS(5i32);
+pub const SCF_BUTTON_MENU: SCF_BUTTON_IDS = SCF_BUTTON_IDS(1i32);
+pub const SCF_BUTTON_PAUSE: SCF_BUTTON_IDS = SCF_BUTTON_IDS(8i32);
+pub const SCF_BUTTON_PLAY: SCF_BUTTON_IDS = SCF_BUTTON_IDS(7i32);
+pub const SCF_BUTTON_REWIND: SCF_BUTTON_IDS = SCF_BUTTON_IDS(10i32);
+pub const SCF_BUTTON_RIGHT: SCF_BUTTON_IDS = SCF_BUTTON_IDS(6i32);
+pub const SCF_BUTTON_SELECT: SCF_BUTTON_IDS = SCF_BUTTON_IDS(2i32);
+pub const SCF_BUTTON_STOP: SCF_BUTTON_IDS = SCF_BUTTON_IDS(11i32);
+pub const SCF_BUTTON_UP: SCF_BUTTON_IDS = SCF_BUTTON_IDS(3i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCF_CONTEXTMENU_EVENT {
@@ -898,6 +904,7 @@ impl Default for SCF_CONTEXTMENU_EVENT {
 impl windows_core::TypeKind for SCF_CONTEXTMENU_EVENT {
     type TypeKind = windows_core::CopyType;
 }
+pub const SCF_EVENT_CONTEXTMENU: SCF_EVENT_IDS = SCF_EVENT_IDS(3i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCF_EVENT_HEADER {
@@ -912,6 +919,11 @@ impl Default for SCF_EVENT_HEADER {
 impl windows_core::TypeKind for SCF_EVENT_HEADER {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCF_EVENT_IDS(pub i32);
+pub const SCF_EVENT_MENUACTION: SCF_EVENT_IDS = SCF_EVENT_IDS(2i32);
+pub const SCF_EVENT_NAVIGATION: SCF_EVENT_IDS = SCF_EVENT_IDS(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCF_MENUACTION_EVENT {
@@ -943,28 +955,6 @@ impl Default for SCF_NAVIGATION_EVENT {
 impl windows_core::TypeKind for SCF_NAVIGATION_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-pub const SideShowKeyCollection: windows_core::GUID = windows_core::GUID::from_u128(0xdfbbdbf8_18de_49b8_83dc_ebc727c62d94);
-pub const SideShowNotification: windows_core::GUID = windows_core::GUID::from_u128(0x0ce3e86f_d5cd_4525_a766_1abab1a752f5);
-pub const SideShowPropVariantCollection: windows_core::GUID = windows_core::GUID::from_u128(0xe640f415_539e_4923_96cd_5f093bc250cd);
-pub const SideShowSession: windows_core::GUID = windows_core::GUID::from_u128(0xe20543b9_f785_4ea2_981e_c4ffa76bbc7c);
-pub const CONTENT_ID_GLANCE: u32 = 0u32;
-pub const CONTENT_ID_HOME: u32 = 1u32;
-pub const GUID_DEVINTERFACE_SIDESHOW: windows_core::GUID = windows_core::GUID::from_u128(0x152e5811_feb9_4b00_90f4_d32947ae1681);
-pub const SCF_BUTTON_BACK: SCF_BUTTON_IDS = SCF_BUTTON_IDS(65280i32);
-pub const SCF_BUTTON_DOWN: SCF_BUTTON_IDS = SCF_BUTTON_IDS(4i32);
-pub const SCF_BUTTON_FASTFORWARD: SCF_BUTTON_IDS = SCF_BUTTON_IDS(9i32);
-pub const SCF_BUTTON_LEFT: SCF_BUTTON_IDS = SCF_BUTTON_IDS(5i32);
-pub const SCF_BUTTON_MENU: SCF_BUTTON_IDS = SCF_BUTTON_IDS(1i32);
-pub const SCF_BUTTON_PAUSE: SCF_BUTTON_IDS = SCF_BUTTON_IDS(8i32);
-pub const SCF_BUTTON_PLAY: SCF_BUTTON_IDS = SCF_BUTTON_IDS(7i32);
-pub const SCF_BUTTON_REWIND: SCF_BUTTON_IDS = SCF_BUTTON_IDS(10i32);
-pub const SCF_BUTTON_RIGHT: SCF_BUTTON_IDS = SCF_BUTTON_IDS(6i32);
-pub const SCF_BUTTON_SELECT: SCF_BUTTON_IDS = SCF_BUTTON_IDS(2i32);
-pub const SCF_BUTTON_STOP: SCF_BUTTON_IDS = SCF_BUTTON_IDS(11i32);
-pub const SCF_BUTTON_UP: SCF_BUTTON_IDS = SCF_BUTTON_IDS(3i32);
-pub const SCF_EVENT_CONTEXTMENU: SCF_EVENT_IDS = SCF_EVENT_IDS(3i32);
-pub const SCF_EVENT_MENUACTION: SCF_EVENT_IDS = SCF_EVENT_IDS(2i32);
-pub const SCF_EVENT_NAVIGATION: SCF_EVENT_IDS = SCF_EVENT_IDS(1i32);
 pub const SIDESHOW_APPLICATION_EVENT: windows_core::GUID = windows_core::GUID::from_u128(0x4cb572fa_1d3b_49b3_a17a_2e6bff052854);
 pub const SIDESHOW_CAPABILITY_CLIENT_AREA_HEIGHT: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 16 };
 pub const SIDESHOW_CAPABILITY_CLIENT_AREA_WIDTH: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 15 };
@@ -980,6 +970,9 @@ pub const SIDESHOW_CAPABILITY_SCREEN_WIDTH: super::super::Foundation::PROPERTYKE
 pub const SIDESHOW_CAPABILITY_SUPPORTED_IMAGE_FORMATS: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 14 };
 pub const SIDESHOW_CAPABILITY_SUPPORTED_LANGUAGES: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 8 };
 pub const SIDESHOW_CAPABILITY_SUPPORTED_THEMES: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 10 };
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SIDESHOW_COLOR_TYPE(pub i32);
 pub const SIDESHOW_COLOR_TYPE_BLACK_AND_WHITE: SIDESHOW_COLOR_TYPE = SIDESHOW_COLOR_TYPE(2i32);
 pub const SIDESHOW_COLOR_TYPE_COLOR: SIDESHOW_COLOR_TYPE = SIDESHOW_COLOR_TYPE(0i32);
 pub const SIDESHOW_COLOR_TYPE_GREYSCALE: SIDESHOW_COLOR_TYPE = SIDESHOW_COLOR_TYPE(1i32);
@@ -989,7 +982,14 @@ pub const SIDESHOW_ENDPOINT_SIMPLE_CONTENT_FORMAT: windows_core::GUID = windows_
 pub const SIDESHOW_EVENTID_APPLICATION_ENTER: u32 = 4294901760u32;
 pub const SIDESHOW_EVENTID_APPLICATION_EXIT: u32 = 4294901761u32;
 pub const SIDESHOW_NEW_EVENT_DATA_AVAILABLE: windows_core::GUID = windows_core::GUID::from_u128(0x57813854_2fc1_411c_a59f_f24927608804);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SIDESHOW_SCREEN_TYPE(pub i32);
 pub const SIDESHOW_SCREEN_TYPE_BITMAP: SIDESHOW_SCREEN_TYPE = SIDESHOW_SCREEN_TYPE(0i32);
 pub const SIDESHOW_SCREEN_TYPE_TEXT: SIDESHOW_SCREEN_TYPE = SIDESHOW_SCREEN_TYPE(1i32);
 pub const SIDESHOW_USER_CHANGE_REQUEST_EVENT: windows_core::GUID = windows_core::GUID::from_u128(0x5009673c_3f7d_4c7e_9971_eaa2e91f1575);
+pub const SideShowKeyCollection: windows_core::GUID = windows_core::GUID::from_u128(0xdfbbdbf8_18de_49b8_83dc_ebc727c62d94);
+pub const SideShowNotification: windows_core::GUID = windows_core::GUID::from_u128(0x0ce3e86f_d5cd_4525_a766_1abab1a752f5);
+pub const SideShowPropVariantCollection: windows_core::GUID = windows_core::GUID::from_u128(0xe640f415_539e_4923_96cd_5f093bc250cd);
+pub const SideShowSession: windows_core::GUID = windows_core::GUID::from_u128(0xe20543b9_f785_4ea2_981e_c4ffa76bbc7c);
 pub const VERSION_1_WINDOWS_7: u32 = 0u32;

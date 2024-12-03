@@ -26,6 +26,20 @@ pub mod ViewManagement;
 pub mod WebUI;
 #[cfg(feature = "UI_WindowManagement")]
 pub mod WindowManagement;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct Color {
+    pub A: u8,
+    pub R: u8,
+    pub G: u8,
+    pub B: u8,
+}
+impl windows_core::TypeKind for Color {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for Color {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Color;u1;u1;u1;u1)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ColorHelper(windows_core::IUnknown);
@@ -932,48 +946,6 @@ impl windows_core::RuntimeName for Colors {
 }
 unsafe impl Send for Colors {}
 unsafe impl Sync for Colors {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct UIContentRoot(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(UIContentRoot, windows_core::IUnknown, windows_core::IInspectable);
-impl UIContentRoot {
-    pub fn UIContext(&self) -> windows_core::Result<UIContext> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UIContext)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for UIContentRoot {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUIContentRoot>();
-}
-unsafe impl windows_core::Interface for UIContentRoot {
-    type Vtable = <IUIContentRoot as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IUIContentRoot as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for UIContentRoot {
-    const NAME: &'static str = "Windows.UI.UIContentRoot";
-}
-unsafe impl Send for UIContentRoot {}
-unsafe impl Sync for UIContentRoot {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct UIContext(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(UIContext, windows_core::IUnknown, windows_core::IInspectable);
-impl UIContext {}
-impl windows_core::RuntimeType for UIContext {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUIContext>();
-}
-unsafe impl windows_core::Interface for UIContext {
-    type Vtable = <IUIContext as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IUIContext as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for UIContext {
-    const NAME: &'static str = "Windows.UI.UIContext";
-}
-unsafe impl Send for UIContext {}
-unsafe impl Sync for UIContext {}
 windows_core::imp::define_interface!(IColorHelper, IColorHelper_Vtbl, 0x193cfbe7_65c7_4540_ad08_6283ba76879a);
 impl windows_core::RuntimeType for IColorHelper {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1174,20 +1146,48 @@ impl windows_core::RuntimeType for IUIContext {
 pub struct IUIContext_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct Color {
-    pub A: u8,
-    pub R: u8,
-    pub G: u8,
-    pub B: u8,
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct UIContentRoot(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(UIContentRoot, windows_core::IUnknown, windows_core::IInspectable);
+impl UIContentRoot {
+    pub fn UIContext(&self) -> windows_core::Result<UIContext> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UIContext)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
-impl windows_core::TypeKind for Color {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::RuntimeType for UIContentRoot {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUIContentRoot>();
 }
-impl windows_core::RuntimeType for Color {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Color;u1;u1;u1;u1)");
+unsafe impl windows_core::Interface for UIContentRoot {
+    type Vtable = <IUIContentRoot as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IUIContentRoot as windows_core::Interface>::IID;
 }
+impl windows_core::RuntimeName for UIContentRoot {
+    const NAME: &'static str = "Windows.UI.UIContentRoot";
+}
+unsafe impl Send for UIContentRoot {}
+unsafe impl Sync for UIContentRoot {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct UIContext(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(UIContext, windows_core::IUnknown, windows_core::IInspectable);
+impl UIContext {}
+impl windows_core::RuntimeType for UIContext {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUIContext>();
+}
+unsafe impl windows_core::Interface for UIContext {
+    type Vtable = <IUIContext as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IUIContext as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for UIContext {
+    const NAME: &'static str = "Windows.UI.UIContext";
+}
+unsafe impl Send for UIContext {}
+unsafe impl Sync for UIContext {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WindowId {

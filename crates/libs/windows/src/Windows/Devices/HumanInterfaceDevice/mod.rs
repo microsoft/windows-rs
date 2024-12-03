@@ -170,6 +170,25 @@ impl windows_core::RuntimeName for HidCollection {
 unsafe impl Send for HidCollection {}
 unsafe impl Sync for HidCollection {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HidCollectionType(pub i32);
+impl HidCollectionType {
+    pub const Physical: Self = Self(0i32);
+    pub const Application: Self = Self(1i32);
+    pub const Logical: Self = Self(2i32);
+    pub const Report: Self = Self(3i32);
+    pub const NamedArray: Self = Self(4i32);
+    pub const UsageSwitch: Self = Self(5i32);
+    pub const UsageModifier: Self = Self(6i32);
+    pub const Other: Self = Self(7i32);
+}
+impl windows_core::TypeKind for HidCollectionType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HidCollectionType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.HumanInterfaceDevice.HidCollectionType;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HidDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HidDevice, windows_core::IUnknown, windows_core::IInspectable);
@@ -820,6 +839,20 @@ impl windows_core::RuntimeName for HidOutputReport {
 }
 unsafe impl Send for HidOutputReport {}
 unsafe impl Sync for HidOutputReport {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HidReportType(pub i32);
+impl HidReportType {
+    pub const Input: Self = Self(0i32);
+    pub const Output: Self = Self(1i32);
+    pub const Feature: Self = Self(2i32);
+}
+impl windows_core::TypeKind for HidReportType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HidReportType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.HumanInterfaceDevice.HidReportType;i4)");
+}
 windows_core::imp::define_interface!(IHidBooleanControl, IHidBooleanControl_Vtbl, 0x524df48a_3695_408c_bba2_e2eb5abfbc20);
 impl windows_core::RuntimeType for IHidBooleanControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1038,37 +1071,4 @@ pub struct IHidOutputReport_Vtbl {
     pub GetBooleanControlByDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetNumericControl: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetNumericControlByDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HidCollectionType(pub i32);
-impl HidCollectionType {
-    pub const Physical: Self = Self(0i32);
-    pub const Application: Self = Self(1i32);
-    pub const Logical: Self = Self(2i32);
-    pub const Report: Self = Self(3i32);
-    pub const NamedArray: Self = Self(4i32);
-    pub const UsageSwitch: Self = Self(5i32);
-    pub const UsageModifier: Self = Self(6i32);
-    pub const Other: Self = Self(7i32);
-}
-impl windows_core::TypeKind for HidCollectionType {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HidCollectionType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.HumanInterfaceDevice.HidCollectionType;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HidReportType(pub i32);
-impl HidReportType {
-    pub const Input: Self = Self(0i32);
-    pub const Output: Self = Self(1i32);
-    pub const Feature: Self = Self(2i32);
-}
-impl windows_core::TypeKind for HidReportType {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HidReportType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.HumanInterfaceDevice.HidReportType;i4)");
 }

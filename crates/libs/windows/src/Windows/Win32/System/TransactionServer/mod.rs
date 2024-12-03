@@ -1,3 +1,7 @@
+pub const Catalog: windows_core::GUID = windows_core::GUID::from_u128(0x6eb22881_8a19_11d0_81b6_00a0c9231c29);
+pub const CatalogCollection: windows_core::GUID = windows_core::GUID::from_u128(0x6eb22883_8a19_11d0_81b6_00a0c9231c29);
+pub const CatalogObject: windows_core::GUID = windows_core::GUID::from_u128(0x6eb22882_8a19_11d0_81b6_00a0c9231c29);
+pub const ComponentUtil: windows_core::GUID = windows_core::GUID::from_u128(0x6eb22884_8a19_11d0_81b6_00a0c9231c29);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ICatalog, ICatalog_Vtbl, 0x6eb22870_8a19_11d0_81b6_00a0c9231c29);
 #[cfg(feature = "Win32_System_Com")]
@@ -350,10 +354,6 @@ pub struct MTSPackageExportOptions(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MTSPackageInstallOptions(pub i32);
-pub const Catalog: windows_core::GUID = windows_core::GUID::from_u128(0x6eb22881_8a19_11d0_81b6_00a0c9231c29);
-pub const CatalogCollection: windows_core::GUID = windows_core::GUID::from_u128(0x6eb22883_8a19_11d0_81b6_00a0c9231c29);
-pub const CatalogObject: windows_core::GUID = windows_core::GUID::from_u128(0x6eb22882_8a19_11d0_81b6_00a0c9231c29);
-pub const ComponentUtil: windows_core::GUID = windows_core::GUID::from_u128(0x6eb22884_8a19_11d0_81b6_00a0c9231c29);
 pub const PackageUtil: windows_core::GUID = windows_core::GUID::from_u128(0x6eb22885_8a19_11d0_81b6_00a0c9231c29);
 pub const RemoteComponentUtil: windows_core::GUID = windows_core::GUID::from_u128(0x6eb22886_8a19_11d0_81b6_00a0c9231c29);
 pub const RoleAssociationUtil: windows_core::GUID = windows_core::GUID::from_u128(0x6eb22887_8a19_11d0_81b6_00a0c9231c29);

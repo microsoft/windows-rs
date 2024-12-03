@@ -89,31 +89,10 @@ windows_targets::link!("advapi32.dll" "system" fn TreeResetNamedSecurityInfoA(po
 windows_targets::link!("advapi32.dll" "system" fn TreeResetNamedSecurityInfoW(pobjectname : windows_sys::core::PCWSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, powner : super:: PSID, pgroup : super:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL, keepexplicit : super::super::Foundation:: BOOL, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *const core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("advapi32.dll" "system" fn TreeSetNamedSecurityInfoA(pobjectname : windows_sys::core::PCSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, powner : super:: PSID, pgroup : super:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL, dwaction : TREE_SEC_INFO, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *const core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("advapi32.dll" "system" fn TreeSetNamedSecurityInfoW(pobjectname : windows_sys::core::PCWSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, powner : super:: PSID, pgroup : super:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL, dwaction : TREE_SEC_INFO, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *const core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
-pub type FN_PROGRESS = Option<unsafe extern "system" fn(pobjectname: windows_sys::core::PCWSTR, status: u32, pinvokesetting: *mut PROG_INVOKE_SETTING, args: *const core::ffi::c_void, securityset: super::super::Foundation::BOOL)>;
-pub type PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, args: *const core::ffi::c_void, psidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, psidcount: *mut u32, prestrictedsidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, prestrictedsidcount: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_AUTHZ_DYNAMIC_ACCESS_CHECK = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pace: *const super::ACE_HEADER, pargs: *const core::ffi::c_void, pbaceapplicable: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
-pub type PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY = Option<unsafe extern "system" fn(pcentralaccesspolicy: *const core::ffi::c_void)>;
-pub type PFN_AUTHZ_FREE_DYNAMIC_GROUPS = Option<unsafe extern "system" fn(psidattrarray: *const super::SID_AND_ATTRIBUTES)>;
-pub type PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, capid: super::PSID, pargs: *const core::ffi::c_void, pcentralaccesspolicyapplicable: *mut super::super::Foundation::BOOL, ppcentralaccesspolicy: *mut *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub const ACCCTRL_DEFAULT_PROVIDER: windows_sys::core::PCWSTR = windows_sys::core::w!("Windows NT Access Provider");
+pub const ACCCTRL_DEFAULT_PROVIDERA: windows_sys::core::PCSTR = windows_sys::core::s!("Windows NT Access Provider");
+pub const ACCCTRL_DEFAULT_PROVIDERW: windows_sys::core::PCWSTR = windows_sys::core::w!("Windows NT Access Provider");
 pub type ACCESS_MODE = i32;
-pub type ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = u32;
-pub type AUDIT_PARAM_TYPE = i32;
-pub type AUTHZ_ACCESS_CHECK_FLAGS = u32;
-pub type AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = i32;
-pub type AUTHZ_CONTEXT_INFORMATION_CLASS = i32;
-pub type AUTHZ_GENERATE_RESULTS = u32;
-pub type AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = u32;
-pub type AUTHZ_RESOURCE_MANAGER_FLAGS = u32;
-pub type AUTHZ_SECURITY_ATTRIBUTE_FLAGS = u32;
-pub type AUTHZ_SECURITY_ATTRIBUTE_OPERATION = i32;
-pub type AUTHZ_SID_OPERATION = i32;
-pub type AZ_PROP_CONSTANTS = i32;
-pub type MULTIPLE_TRUSTEE_OPERATION = i32;
-pub type PROG_INVOKE_SETTING = i32;
-pub type SE_OBJECT_TYPE = i32;
-pub type TREE_SEC_INFO = u32;
-pub type TRUSTEE_FORM = i32;
-pub type TRUSTEE_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACTRL_ACCESSA {
@@ -126,6 +105,8 @@ pub struct ACTRL_ACCESSW {
     pub cEntries: u32,
     pub pPropertyAccessList: *mut ACTRL_PROPERTY_ENTRYW,
 }
+pub const ACTRL_ACCESS_ALLOWED: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = 1u32;
+pub const ACTRL_ACCESS_DENIED: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACTRL_ACCESS_ENTRYA {
@@ -146,6 +127,7 @@ pub struct ACTRL_ACCESS_ENTRYW {
     pub Inheritance: super::ACE_FLAGS,
     pub lpInheritProperty: windows_sys::core::PWSTR,
 }
+pub type ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACTRL_ACCESS_ENTRY_LISTA {
@@ -170,6 +152,13 @@ pub struct ACTRL_ACCESS_INFOW {
     pub fAccessPermission: u32,
     pub lpAccessPermissionName: windows_sys::core::PWSTR,
 }
+pub const ACTRL_ACCESS_NO_OPTIONS: u32 = 0u32;
+pub const ACTRL_ACCESS_PROTECTED: u32 = 1u32;
+pub const ACTRL_ACCESS_SUPPORTS_OBJECT_ENTRIES: u32 = 1u32;
+pub const ACTRL_AUDIT_FAILURE: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = 8u32;
+pub const ACTRL_AUDIT_SUCCESS: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = 4u32;
+pub const ACTRL_CHANGE_ACCESS: u32 = 536870912u32;
+pub const ACTRL_CHANGE_OWNER: u32 = 1073741824u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACTRL_CONTROL_INFOA {
@@ -182,6 +171,37 @@ pub struct ACTRL_CONTROL_INFOW {
     pub lpControlId: windows_sys::core::PWSTR,
     pub lpControlName: windows_sys::core::PWSTR,
 }
+pub const ACTRL_DELETE: u32 = 134217728u32;
+pub const ACTRL_DIR_CREATE_CHILD: u32 = 4u32;
+pub const ACTRL_DIR_CREATE_OBJECT: u32 = 2u32;
+pub const ACTRL_DIR_DELETE_CHILD: u32 = 64u32;
+pub const ACTRL_DIR_LIST: u32 = 1u32;
+pub const ACTRL_DIR_TRAVERSE: u32 = 32u32;
+pub const ACTRL_FILE_APPEND: u32 = 4u32;
+pub const ACTRL_FILE_CREATE_PIPE: u32 = 512u32;
+pub const ACTRL_FILE_EXECUTE: u32 = 32u32;
+pub const ACTRL_FILE_READ: u32 = 1u32;
+pub const ACTRL_FILE_READ_ATTRIB: u32 = 128u32;
+pub const ACTRL_FILE_READ_PROP: u32 = 8u32;
+pub const ACTRL_FILE_WRITE: u32 = 2u32;
+pub const ACTRL_FILE_WRITE_ATTRIB: u32 = 256u32;
+pub const ACTRL_FILE_WRITE_PROP: u32 = 16u32;
+pub const ACTRL_KERNEL_ALERT: u32 = 1024u32;
+pub const ACTRL_KERNEL_CONTROL: u32 = 512u32;
+pub const ACTRL_KERNEL_DIMPERSONATE: u32 = 32768u32;
+pub const ACTRL_KERNEL_DUP_HANDLE: u32 = 32u32;
+pub const ACTRL_KERNEL_GET_CONTEXT: u32 = 2048u32;
+pub const ACTRL_KERNEL_GET_INFO: u32 = 256u32;
+pub const ACTRL_KERNEL_IMPERSONATE: u32 = 16384u32;
+pub const ACTRL_KERNEL_PROCESS: u32 = 64u32;
+pub const ACTRL_KERNEL_SET_CONTEXT: u32 = 4096u32;
+pub const ACTRL_KERNEL_SET_INFO: u32 = 128u32;
+pub const ACTRL_KERNEL_TERMINATE: u32 = 1u32;
+pub const ACTRL_KERNEL_THREAD: u32 = 2u32;
+pub const ACTRL_KERNEL_TOKEN: u32 = 8192u32;
+pub const ACTRL_KERNEL_VM: u32 = 4u32;
+pub const ACTRL_KERNEL_VM_READ: u32 = 8u32;
+pub const ACTRL_KERNEL_VM_WRITE: u32 = 16u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACTRL_OVERLAPPED {
@@ -195,6 +215,31 @@ pub union ACTRL_OVERLAPPED_0 {
     pub Provider: *mut core::ffi::c_void,
     pub Reserved1: u32,
 }
+pub const ACTRL_PERM_1: u32 = 1u32;
+pub const ACTRL_PERM_10: u32 = 512u32;
+pub const ACTRL_PERM_11: u32 = 1024u32;
+pub const ACTRL_PERM_12: u32 = 2048u32;
+pub const ACTRL_PERM_13: u32 = 4096u32;
+pub const ACTRL_PERM_14: u32 = 8192u32;
+pub const ACTRL_PERM_15: u32 = 16384u32;
+pub const ACTRL_PERM_16: u32 = 32768u32;
+pub const ACTRL_PERM_17: u32 = 65536u32;
+pub const ACTRL_PERM_18: u32 = 131072u32;
+pub const ACTRL_PERM_19: u32 = 262144u32;
+pub const ACTRL_PERM_2: u32 = 2u32;
+pub const ACTRL_PERM_20: u32 = 524288u32;
+pub const ACTRL_PERM_3: u32 = 4u32;
+pub const ACTRL_PERM_4: u32 = 8u32;
+pub const ACTRL_PERM_5: u32 = 16u32;
+pub const ACTRL_PERM_6: u32 = 32u32;
+pub const ACTRL_PERM_7: u32 = 64u32;
+pub const ACTRL_PERM_8: u32 = 128u32;
+pub const ACTRL_PERM_9: u32 = 256u32;
+pub const ACTRL_PRINT_JADMIN: u32 = 16u32;
+pub const ACTRL_PRINT_PADMIN: u32 = 4u32;
+pub const ACTRL_PRINT_PUSE: u32 = 8u32;
+pub const ACTRL_PRINT_SADMIN: u32 = 1u32;
+pub const ACTRL_PRINT_SLIST: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACTRL_PROPERTY_ENTRYA {
@@ -209,6 +254,53 @@ pub struct ACTRL_PROPERTY_ENTRYW {
     pub pAccessEntryList: *mut ACTRL_ACCESS_ENTRY_LISTW,
     pub fListFlags: u32,
 }
+pub const ACTRL_READ_CONTROL: u32 = 268435456u32;
+pub const ACTRL_REG_CREATE_CHILD: u32 = 4u32;
+pub const ACTRL_REG_LINK: u32 = 32u32;
+pub const ACTRL_REG_LIST: u32 = 8u32;
+pub const ACTRL_REG_NOTIFY: u32 = 16u32;
+pub const ACTRL_REG_QUERY: u32 = 1u32;
+pub const ACTRL_REG_SET: u32 = 2u32;
+pub const ACTRL_RESERVED: u32 = 0u32;
+pub const ACTRL_STD_RIGHTS_ALL: u32 = 4160749568u32;
+pub const ACTRL_SVC_GET_INFO: u32 = 1u32;
+pub const ACTRL_SVC_INTERROGATE: u32 = 128u32;
+pub const ACTRL_SVC_LIST: u32 = 8u32;
+pub const ACTRL_SVC_PAUSE: u32 = 64u32;
+pub const ACTRL_SVC_SET_INFO: u32 = 2u32;
+pub const ACTRL_SVC_START: u32 = 16u32;
+pub const ACTRL_SVC_STATUS: u32 = 4u32;
+pub const ACTRL_SVC_STOP: u32 = 32u32;
+pub const ACTRL_SVC_UCONTROL: u32 = 256u32;
+pub const ACTRL_SYNCHRONIZE: u32 = 2147483648u32;
+pub const ACTRL_SYSTEM_ACCESS: u32 = 67108864u32;
+pub const ACTRL_WIN_CLIPBRD: u32 = 1u32;
+pub const ACTRL_WIN_CREATE: u32 = 4u32;
+pub const ACTRL_WIN_EXIT: u32 = 256u32;
+pub const ACTRL_WIN_GLOBAL_ATOMS: u32 = 2u32;
+pub const ACTRL_WIN_LIST: u32 = 16u32;
+pub const ACTRL_WIN_LIST_DESK: u32 = 8u32;
+pub const ACTRL_WIN_READ_ATTRIBS: u32 = 32u32;
+pub const ACTRL_WIN_SCREEN: u32 = 128u32;
+pub const ACTRL_WIN_WRITE_ATTRIBS: u32 = 64u32;
+pub const APF_AuditFailure: u32 = 0u32;
+pub const APF_AuditSuccess: u32 = 1u32;
+pub const APF_ValidFlags: u32 = 1u32;
+pub const APT_Guid: AUDIT_PARAM_TYPE = 9i32;
+pub const APT_Int64: AUDIT_PARAM_TYPE = 11i32;
+pub const APT_IpAddress: AUDIT_PARAM_TYPE = 12i32;
+pub const APT_LogonId: AUDIT_PARAM_TYPE = 6i32;
+pub const APT_LogonIdWithSid: AUDIT_PARAM_TYPE = 13i32;
+pub const APT_Luid: AUDIT_PARAM_TYPE = 8i32;
+pub const APT_None: AUDIT_PARAM_TYPE = 1i32;
+pub const APT_ObjectTypeList: AUDIT_PARAM_TYPE = 7i32;
+pub const APT_Pointer: AUDIT_PARAM_TYPE = 4i32;
+pub const APT_Sid: AUDIT_PARAM_TYPE = 5i32;
+pub const APT_String: AUDIT_PARAM_TYPE = 2i32;
+pub const APT_Time: AUDIT_PARAM_TYPE = 10i32;
+pub const APT_Ulong: AUDIT_PARAM_TYPE = 3i32;
+pub const AP_ParamTypeBits: u32 = 8u32;
+pub const AP_ParamTypeMask: i32 = 255i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AUDIT_IP_ADDRESS {
@@ -264,6 +356,12 @@ pub struct AUDIT_PARAMS {
     pub Count: u16,
     pub Parameters: *mut AUDIT_PARAM,
 }
+pub type AUDIT_PARAM_TYPE = i32;
+pub const AUDIT_TYPE_LEGACY: u32 = 1u32;
+pub const AUDIT_TYPE_WMI: u32 = 2u32;
+pub const AUTHZP_WPD_EVENT: u32 = 16u32;
+pub type AUTHZ_ACCESS_CHECK_FLAGS = u32;
+pub const AUTHZ_ACCESS_CHECK_NO_DEEP_COPY_SD: AUTHZ_ACCESS_CHECK_FLAGS = 1u32;
 pub type AUTHZ_ACCESS_CHECK_RESULTS_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -282,7 +380,9 @@ pub struct AUTHZ_ACCESS_REQUEST {
     pub ObjectTypeListLength: u32,
     pub OptionalArguments: *mut core::ffi::c_void,
 }
+pub const AUTHZ_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1u32;
 pub type AUTHZ_AUDIT_EVENT_HANDLE = *mut core::ffi::c_void;
+pub type AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = i32;
 pub type AUTHZ_AUDIT_EVENT_TYPE_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -306,8 +406,16 @@ pub struct AUTHZ_AUDIT_EVENT_TYPE_OLD {
 pub union AUTHZ_AUDIT_EVENT_TYPE_UNION {
     pub Legacy: AUTHZ_AUDIT_EVENT_TYPE_LEGACY,
 }
+pub const AUTHZ_AUDIT_INSTANCE_INFORMATION: u32 = 2u32;
 pub type AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE = *mut core::ffi::c_void;
 pub type AUTHZ_CLIENT_CONTEXT_HANDLE = *mut core::ffi::c_void;
+pub const AUTHZ_COMPUTE_PRIVILEGES: u32 = 8u32;
+pub type AUTHZ_CONTEXT_INFORMATION_CLASS = i32;
+pub const AUTHZ_FLAG_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1u32;
+pub const AUTHZ_GENERATE_FAILURE_AUDIT: AUTHZ_GENERATE_RESULTS = 2u32;
+pub type AUTHZ_GENERATE_RESULTS = u32;
+pub const AUTHZ_GENERATE_SUCCESS_AUDIT: AUTHZ_GENERATE_RESULTS = 1u32;
+pub type AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AUTHZ_INIT_INFO {
@@ -319,13 +427,23 @@ pub struct AUTHZ_INIT_INFO {
     pub pfnGetCentralAccessPolicy: PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY,
     pub pfnFreeCentralAccessPolicy: PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY,
 }
+pub const AUTHZ_INIT_INFO_VERSION_V1: u32 = 1u32;
+pub const AUTHZ_MIGRATED_LEGACY_PUBLISHER: u32 = 2u32;
+pub const AUTHZ_NO_ALLOC_STRINGS: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = 4u32;
+pub const AUTHZ_NO_FAILURE_AUDIT: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = 2u32;
+pub const AUTHZ_NO_SUCCESS_AUDIT: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
     pub szObjectTypeName: windows_sys::core::PWSTR,
     pub dwOffset: u32,
 }
+pub const AUTHZ_REQUIRE_S4U_LOGON: u32 = 4u32;
+pub type AUTHZ_RESOURCE_MANAGER_FLAGS = u32;
 pub type AUTHZ_RESOURCE_MANAGER_HANDLE = *mut core::ffi::c_void;
+pub const AUTHZ_RM_FLAG_INITIALIZE_UNDER_IMPERSONATION: AUTHZ_RESOURCE_MANAGER_FLAGS = 2u32;
+pub const AUTHZ_RM_FLAG_NO_AUDIT: AUTHZ_RESOURCE_MANAGER_FLAGS = 1u32;
+pub const AUTHZ_RM_FLAG_NO_CENTRAL_ACCESS_POLICIES: AUTHZ_RESOURCE_MANAGER_FLAGS = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AUTHZ_RPC_INIT_INFO_CLIENT {
@@ -337,6 +455,7 @@ pub struct AUTHZ_RPC_INIT_INFO_CLIENT {
     pub Options: windows_sys::core::PWSTR,
     pub ServerSpn: windows_sys::core::PWSTR,
 }
+pub const AUTHZ_RPC_INIT_INFO_CLIENT_VERSION_V1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
@@ -350,18 +469,36 @@ pub struct AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
 pub union AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
     pub pAttributeV1: *mut AUTHZ_SECURITY_ATTRIBUTE_V1,
 }
+pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION: u32 = 1u32;
+pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: u32 = 1u32;
+pub type AUTHZ_SECURITY_ATTRIBUTE_FLAGS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
     pub Version: u64,
     pub pName: windows_sys::core::PWSTR,
 }
+pub const AUTHZ_SECURITY_ATTRIBUTE_NON_INHERITABLE: AUTHZ_SECURITY_ATTRIBUTE_FLAGS = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     pub pValue: *mut core::ffi::c_void,
     pub ValueLength: u32,
 }
+pub type AUTHZ_SECURITY_ATTRIBUTE_OPERATION = i32;
+pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_ADD: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = 2i32;
+pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_DELETE: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = 3i32;
+pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_NONE: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = 0i32;
+pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = 4i32;
+pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE_ALL: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = 1i32;
+pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_BOOLEAN: u32 = 6u32;
+pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_FQBN: u32 = 4u32;
+pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_INT64: u32 = 1u32;
+pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_INVALID: u32 = 0u32;
+pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_OCTET_STRING: u32 = 16u32;
+pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_SID: u32 = 5u32;
+pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_STRING: u32 = 3u32;
+pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_UINT64: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_V1 {
@@ -381,7 +518,15 @@ pub union AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
     pub pFqbn: *mut AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE,
     pub pOctetString: *mut AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE,
 }
+pub const AUTHZ_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: AUTHZ_SECURITY_ATTRIBUTE_FLAGS = 2u32;
 pub type AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE = *mut core::ffi::c_void;
+pub type AUTHZ_SID_OPERATION = i32;
+pub const AUTHZ_SID_OPERATION_ADD: AUTHZ_SID_OPERATION = 2i32;
+pub const AUTHZ_SID_OPERATION_DELETE: AUTHZ_SID_OPERATION = 3i32;
+pub const AUTHZ_SID_OPERATION_NONE: AUTHZ_SID_OPERATION = 0i32;
+pub const AUTHZ_SID_OPERATION_REPLACE: AUTHZ_SID_OPERATION = 4i32;
+pub const AUTHZ_SID_OPERATION_REPLACE_ALL: AUTHZ_SID_OPERATION = 1i32;
+pub const AUTHZ_SKIP_TOKEN_GROUPS: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AUTHZ_SOURCE_SCHEMA_REGISTRATION {
@@ -401,260 +546,6 @@ pub union AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
     pub pReserved: *mut core::ffi::c_void,
     pub pProviderGuid: *mut windows_sys::core::GUID,
 }
-pub const AzAuthorizationStore: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb2bcff59_a757_4b0b_a1bc_ea69981da69e);
-pub const AzBizRuleContext: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5c2dc96f_8d51_434b_b33c_379bccae77c3);
-pub const AzPrincipalLocator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x483afb5d_70df_4e16_abdc_a1de4d015a3e);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EXPLICIT_ACCESS_A {
-    pub grfAccessPermissions: u32,
-    pub grfAccessMode: ACCESS_MODE,
-    pub grfInheritance: super::ACE_FLAGS,
-    pub Trustee: TRUSTEE_A,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EXPLICIT_ACCESS_W {
-    pub grfAccessPermissions: u32,
-    pub grfAccessMode: ACCESS_MODE,
-    pub grfInheritance: super::ACE_FLAGS,
-    pub Trustee: TRUSTEE_W,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FN_OBJECT_MGR_FUNCTS {
-    pub Placeholder: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct INHERITED_FROMA {
-    pub GenerationGap: i32,
-    pub AncestorName: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct INHERITED_FROMW {
-    pub GenerationGap: i32,
-    pub AncestorName: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OBJECTS_AND_NAME_A {
-    pub ObjectsPresent: super::SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
-    pub ObjectType: SE_OBJECT_TYPE,
-    pub ObjectTypeName: windows_sys::core::PSTR,
-    pub InheritedObjectTypeName: windows_sys::core::PSTR,
-    pub ptstrName: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OBJECTS_AND_NAME_W {
-    pub ObjectsPresent: super::SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
-    pub ObjectType: SE_OBJECT_TYPE,
-    pub ObjectTypeName: windows_sys::core::PWSTR,
-    pub InheritedObjectTypeName: windows_sys::core::PWSTR,
-    pub ptstrName: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct OBJECTS_AND_SID {
-    pub ObjectsPresent: super::SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
-    pub ObjectTypeGuid: windows_sys::core::GUID,
-    pub InheritedObjectTypeGuid: windows_sys::core::GUID,
-    pub pSid: *mut super::SID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRUSTEE_A {
-    pub pMultipleTrustee: *mut TRUSTEE_A,
-    pub MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION,
-    pub TrusteeForm: TRUSTEE_FORM,
-    pub TrusteeType: TRUSTEE_TYPE,
-    pub ptstrName: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRUSTEE_ACCESSA {
-    pub lpProperty: windows_sys::core::PSTR,
-    pub Access: u32,
-    pub fAccessFlags: u32,
-    pub fReturnedAccess: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRUSTEE_ACCESSW {
-    pub lpProperty: windows_sys::core::PWSTR,
-    pub Access: u32,
-    pub fAccessFlags: u32,
-    pub fReturnedAccess: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRUSTEE_W {
-    pub pMultipleTrustee: *mut TRUSTEE_W,
-    pub MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION,
-    pub TrusteeForm: TRUSTEE_FORM,
-    pub TrusteeType: TRUSTEE_TYPE,
-    pub ptstrName: windows_sys::core::PWSTR,
-}
-pub const ACCCTRL_DEFAULT_PROVIDER: windows_sys::core::PCWSTR = windows_sys::core::w!("Windows NT Access Provider");
-pub const ACCCTRL_DEFAULT_PROVIDERA: windows_sys::core::PCSTR = windows_sys::core::s!("Windows NT Access Provider");
-pub const ACCCTRL_DEFAULT_PROVIDERW: windows_sys::core::PCWSTR = windows_sys::core::w!("Windows NT Access Provider");
-pub const ACTRL_ACCESS_ALLOWED: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = 1u32;
-pub const ACTRL_ACCESS_DENIED: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = 2u32;
-pub const ACTRL_ACCESS_NO_OPTIONS: u32 = 0u32;
-pub const ACTRL_ACCESS_PROTECTED: u32 = 1u32;
-pub const ACTRL_ACCESS_SUPPORTS_OBJECT_ENTRIES: u32 = 1u32;
-pub const ACTRL_AUDIT_FAILURE: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = 8u32;
-pub const ACTRL_AUDIT_SUCCESS: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = 4u32;
-pub const ACTRL_CHANGE_ACCESS: u32 = 536870912u32;
-pub const ACTRL_CHANGE_OWNER: u32 = 1073741824u32;
-pub const ACTRL_DELETE: u32 = 134217728u32;
-pub const ACTRL_DIR_CREATE_CHILD: u32 = 4u32;
-pub const ACTRL_DIR_CREATE_OBJECT: u32 = 2u32;
-pub const ACTRL_DIR_DELETE_CHILD: u32 = 64u32;
-pub const ACTRL_DIR_LIST: u32 = 1u32;
-pub const ACTRL_DIR_TRAVERSE: u32 = 32u32;
-pub const ACTRL_FILE_APPEND: u32 = 4u32;
-pub const ACTRL_FILE_CREATE_PIPE: u32 = 512u32;
-pub const ACTRL_FILE_EXECUTE: u32 = 32u32;
-pub const ACTRL_FILE_READ: u32 = 1u32;
-pub const ACTRL_FILE_READ_ATTRIB: u32 = 128u32;
-pub const ACTRL_FILE_READ_PROP: u32 = 8u32;
-pub const ACTRL_FILE_WRITE: u32 = 2u32;
-pub const ACTRL_FILE_WRITE_ATTRIB: u32 = 256u32;
-pub const ACTRL_FILE_WRITE_PROP: u32 = 16u32;
-pub const ACTRL_KERNEL_ALERT: u32 = 1024u32;
-pub const ACTRL_KERNEL_CONTROL: u32 = 512u32;
-pub const ACTRL_KERNEL_DIMPERSONATE: u32 = 32768u32;
-pub const ACTRL_KERNEL_DUP_HANDLE: u32 = 32u32;
-pub const ACTRL_KERNEL_GET_CONTEXT: u32 = 2048u32;
-pub const ACTRL_KERNEL_GET_INFO: u32 = 256u32;
-pub const ACTRL_KERNEL_IMPERSONATE: u32 = 16384u32;
-pub const ACTRL_KERNEL_PROCESS: u32 = 64u32;
-pub const ACTRL_KERNEL_SET_CONTEXT: u32 = 4096u32;
-pub const ACTRL_KERNEL_SET_INFO: u32 = 128u32;
-pub const ACTRL_KERNEL_TERMINATE: u32 = 1u32;
-pub const ACTRL_KERNEL_THREAD: u32 = 2u32;
-pub const ACTRL_KERNEL_TOKEN: u32 = 8192u32;
-pub const ACTRL_KERNEL_VM: u32 = 4u32;
-pub const ACTRL_KERNEL_VM_READ: u32 = 8u32;
-pub const ACTRL_KERNEL_VM_WRITE: u32 = 16u32;
-pub const ACTRL_PERM_1: u32 = 1u32;
-pub const ACTRL_PERM_10: u32 = 512u32;
-pub const ACTRL_PERM_11: u32 = 1024u32;
-pub const ACTRL_PERM_12: u32 = 2048u32;
-pub const ACTRL_PERM_13: u32 = 4096u32;
-pub const ACTRL_PERM_14: u32 = 8192u32;
-pub const ACTRL_PERM_15: u32 = 16384u32;
-pub const ACTRL_PERM_16: u32 = 32768u32;
-pub const ACTRL_PERM_17: u32 = 65536u32;
-pub const ACTRL_PERM_18: u32 = 131072u32;
-pub const ACTRL_PERM_19: u32 = 262144u32;
-pub const ACTRL_PERM_2: u32 = 2u32;
-pub const ACTRL_PERM_20: u32 = 524288u32;
-pub const ACTRL_PERM_3: u32 = 4u32;
-pub const ACTRL_PERM_4: u32 = 8u32;
-pub const ACTRL_PERM_5: u32 = 16u32;
-pub const ACTRL_PERM_6: u32 = 32u32;
-pub const ACTRL_PERM_7: u32 = 64u32;
-pub const ACTRL_PERM_8: u32 = 128u32;
-pub const ACTRL_PERM_9: u32 = 256u32;
-pub const ACTRL_PRINT_JADMIN: u32 = 16u32;
-pub const ACTRL_PRINT_PADMIN: u32 = 4u32;
-pub const ACTRL_PRINT_PUSE: u32 = 8u32;
-pub const ACTRL_PRINT_SADMIN: u32 = 1u32;
-pub const ACTRL_PRINT_SLIST: u32 = 2u32;
-pub const ACTRL_READ_CONTROL: u32 = 268435456u32;
-pub const ACTRL_REG_CREATE_CHILD: u32 = 4u32;
-pub const ACTRL_REG_LINK: u32 = 32u32;
-pub const ACTRL_REG_LIST: u32 = 8u32;
-pub const ACTRL_REG_NOTIFY: u32 = 16u32;
-pub const ACTRL_REG_QUERY: u32 = 1u32;
-pub const ACTRL_REG_SET: u32 = 2u32;
-pub const ACTRL_RESERVED: u32 = 0u32;
-pub const ACTRL_STD_RIGHTS_ALL: u32 = 4160749568u32;
-pub const ACTRL_SVC_GET_INFO: u32 = 1u32;
-pub const ACTRL_SVC_INTERROGATE: u32 = 128u32;
-pub const ACTRL_SVC_LIST: u32 = 8u32;
-pub const ACTRL_SVC_PAUSE: u32 = 64u32;
-pub const ACTRL_SVC_SET_INFO: u32 = 2u32;
-pub const ACTRL_SVC_START: u32 = 16u32;
-pub const ACTRL_SVC_STATUS: u32 = 4u32;
-pub const ACTRL_SVC_STOP: u32 = 32u32;
-pub const ACTRL_SVC_UCONTROL: u32 = 256u32;
-pub const ACTRL_SYNCHRONIZE: u32 = 2147483648u32;
-pub const ACTRL_SYSTEM_ACCESS: u32 = 67108864u32;
-pub const ACTRL_WIN_CLIPBRD: u32 = 1u32;
-pub const ACTRL_WIN_CREATE: u32 = 4u32;
-pub const ACTRL_WIN_EXIT: u32 = 256u32;
-pub const ACTRL_WIN_GLOBAL_ATOMS: u32 = 2u32;
-pub const ACTRL_WIN_LIST: u32 = 16u32;
-pub const ACTRL_WIN_LIST_DESK: u32 = 8u32;
-pub const ACTRL_WIN_READ_ATTRIBS: u32 = 32u32;
-pub const ACTRL_WIN_SCREEN: u32 = 128u32;
-pub const ACTRL_WIN_WRITE_ATTRIBS: u32 = 64u32;
-pub const APF_AuditFailure: u32 = 0u32;
-pub const APF_AuditSuccess: u32 = 1u32;
-pub const APF_ValidFlags: u32 = 1u32;
-pub const APT_Guid: AUDIT_PARAM_TYPE = 9i32;
-pub const APT_Int64: AUDIT_PARAM_TYPE = 11i32;
-pub const APT_IpAddress: AUDIT_PARAM_TYPE = 12i32;
-pub const APT_LogonId: AUDIT_PARAM_TYPE = 6i32;
-pub const APT_LogonIdWithSid: AUDIT_PARAM_TYPE = 13i32;
-pub const APT_Luid: AUDIT_PARAM_TYPE = 8i32;
-pub const APT_None: AUDIT_PARAM_TYPE = 1i32;
-pub const APT_ObjectTypeList: AUDIT_PARAM_TYPE = 7i32;
-pub const APT_Pointer: AUDIT_PARAM_TYPE = 4i32;
-pub const APT_Sid: AUDIT_PARAM_TYPE = 5i32;
-pub const APT_String: AUDIT_PARAM_TYPE = 2i32;
-pub const APT_Time: AUDIT_PARAM_TYPE = 10i32;
-pub const APT_Ulong: AUDIT_PARAM_TYPE = 3i32;
-pub const AP_ParamTypeBits: u32 = 8u32;
-pub const AP_ParamTypeMask: i32 = 255i32;
-pub const AUDIT_TYPE_LEGACY: u32 = 1u32;
-pub const AUDIT_TYPE_WMI: u32 = 2u32;
-pub const AUTHZP_WPD_EVENT: u32 = 16u32;
-pub const AUTHZ_ACCESS_CHECK_NO_DEEP_COPY_SD: AUTHZ_ACCESS_CHECK_FLAGS = 1u32;
-pub const AUTHZ_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1u32;
-pub const AUTHZ_AUDIT_INSTANCE_INFORMATION: u32 = 2u32;
-pub const AUTHZ_COMPUTE_PRIVILEGES: u32 = 8u32;
-pub const AUTHZ_FLAG_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1u32;
-pub const AUTHZ_GENERATE_FAILURE_AUDIT: AUTHZ_GENERATE_RESULTS = 2u32;
-pub const AUTHZ_GENERATE_SUCCESS_AUDIT: AUTHZ_GENERATE_RESULTS = 1u32;
-pub const AUTHZ_INIT_INFO_VERSION_V1: u32 = 1u32;
-pub const AUTHZ_MIGRATED_LEGACY_PUBLISHER: u32 = 2u32;
-pub const AUTHZ_NO_ALLOC_STRINGS: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = 4u32;
-pub const AUTHZ_NO_FAILURE_AUDIT: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = 2u32;
-pub const AUTHZ_NO_SUCCESS_AUDIT: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = 1u32;
-pub const AUTHZ_REQUIRE_S4U_LOGON: u32 = 4u32;
-pub const AUTHZ_RM_FLAG_INITIALIZE_UNDER_IMPERSONATION: AUTHZ_RESOURCE_MANAGER_FLAGS = 2u32;
-pub const AUTHZ_RM_FLAG_NO_AUDIT: AUTHZ_RESOURCE_MANAGER_FLAGS = 1u32;
-pub const AUTHZ_RM_FLAG_NO_CENTRAL_ACCESS_POLICIES: AUTHZ_RESOURCE_MANAGER_FLAGS = 4u32;
-pub const AUTHZ_RPC_INIT_INFO_CLIENT_VERSION_V1: u32 = 1u32;
-pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION: u32 = 1u32;
-pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: u32 = 1u32;
-pub const AUTHZ_SECURITY_ATTRIBUTE_NON_INHERITABLE: AUTHZ_SECURITY_ATTRIBUTE_FLAGS = 1u32;
-pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_ADD: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = 2i32;
-pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_DELETE: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = 3i32;
-pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_NONE: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = 0i32;
-pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = 4i32;
-pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE_ALL: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = 1i32;
-pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_BOOLEAN: u32 = 6u32;
-pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_FQBN: u32 = 4u32;
-pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_INT64: u32 = 1u32;
-pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_INVALID: u32 = 0u32;
-pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_OCTET_STRING: u32 = 16u32;
-pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_SID: u32 = 5u32;
-pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_STRING: u32 = 3u32;
-pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_UINT64: u32 = 2u32;
-pub const AUTHZ_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: AUTHZ_SECURITY_ATTRIBUTE_FLAGS = 2u32;
-pub const AUTHZ_SID_OPERATION_ADD: AUTHZ_SID_OPERATION = 2i32;
-pub const AUTHZ_SID_OPERATION_DELETE: AUTHZ_SID_OPERATION = 3i32;
-pub const AUTHZ_SID_OPERATION_NONE: AUTHZ_SID_OPERATION = 0i32;
-pub const AUTHZ_SID_OPERATION_REPLACE: AUTHZ_SID_OPERATION = 4i32;
-pub const AUTHZ_SID_OPERATION_REPLACE_ALL: AUTHZ_SID_OPERATION = 1i32;
-pub const AUTHZ_SKIP_TOKEN_GROUPS: u32 = 2u32;
 pub const AUTHZ_WPD_CATEGORY_FLAG: u32 = 16u32;
 pub const AZ_AZSTORE_DEFAULT_DOMAIN_TIMEOUT: AZ_PROP_CONSTANTS = 15000i32;
 pub const AZ_AZSTORE_DEFAULT_MAX_SCRIPT_ENGINES: AZ_PROP_CONSTANTS = 120i32;
@@ -717,6 +608,7 @@ pub const AZ_PROP_CLIENT_CONTEXT_USER_DNS_SAM_COMPAT: AZ_PROP_CONSTANTS = 707i32
 pub const AZ_PROP_CLIENT_CONTEXT_USER_GUID: AZ_PROP_CONSTANTS = 703i32;
 pub const AZ_PROP_CLIENT_CONTEXT_USER_SAM_COMPAT: AZ_PROP_CONSTANTS = 701i32;
 pub const AZ_PROP_CLIENT_CONTEXT_USER_UPN: AZ_PROP_CONSTANTS = 705i32;
+pub type AZ_PROP_CONSTANTS = i32;
 pub const AZ_PROP_DELEGATED_POLICY_USERS: AZ_PROP_CONSTANTS = 904i32;
 pub const AZ_PROP_DELEGATED_POLICY_USERS_NAME: AZ_PROP_CONSTANTS = 907i32;
 pub const AZ_PROP_DESCRIPTION: AZ_PROP_CONSTANTS = 2i32;
@@ -775,14 +667,84 @@ pub const AuthzContextInfoServerContext: AUTHZ_CONTEXT_INFORMATION_CLASS = 6i32;
 pub const AuthzContextInfoSource: AUTHZ_CONTEXT_INFORMATION_CLASS = 8i32;
 pub const AuthzContextInfoUserClaims: AUTHZ_CONTEXT_INFORMATION_CLASS = 13i32;
 pub const AuthzContextInfoUserSid: AUTHZ_CONTEXT_INFORMATION_CLASS = 1i32;
+pub const AzAuthorizationStore: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb2bcff59_a757_4b0b_a1bc_ea69981da69e);
+pub const AzBizRuleContext: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5c2dc96f_8d51_434b_b33c_379bccae77c3);
+pub const AzPrincipalLocator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x483afb5d_70df_4e16_abdc_a1de4d015a3e);
 pub const DENY_ACCESS: ACCESS_MODE = 3i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EXPLICIT_ACCESS_A {
+    pub grfAccessPermissions: u32,
+    pub grfAccessMode: ACCESS_MODE,
+    pub grfInheritance: super::ACE_FLAGS,
+    pub Trustee: TRUSTEE_A,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EXPLICIT_ACCESS_W {
+    pub grfAccessPermissions: u32,
+    pub grfAccessMode: ACCESS_MODE,
+    pub grfInheritance: super::ACE_FLAGS,
+    pub Trustee: TRUSTEE_W,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FN_OBJECT_MGR_FUNCTS {
+    pub Placeholder: u32,
+}
+pub type FN_PROGRESS = Option<unsafe extern "system" fn(pobjectname: windows_sys::core::PCWSTR, status: u32, pinvokesetting: *mut PROG_INVOKE_SETTING, args: *const core::ffi::c_void, securityset: super::super::Foundation::BOOL)>;
 pub const GRANT_ACCESS: ACCESS_MODE = 1i32;
 pub const INHERITED_ACCESS_ENTRY: u32 = 16u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct INHERITED_FROMA {
+    pub GenerationGap: i32,
+    pub AncestorName: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct INHERITED_FROMW {
+    pub GenerationGap: i32,
+    pub AncestorName: windows_sys::core::PWSTR,
+}
 pub const INHERITED_GRANDPARENT: u32 = 536870912u32;
 pub const INHERITED_PARENT: u32 = 268435456u32;
+pub type MULTIPLE_TRUSTEE_OPERATION = i32;
 pub const NOT_USED_ACCESS: ACCESS_MODE = 0i32;
 pub const NO_MULTIPLE_TRUSTEE: MULTIPLE_TRUSTEE_OPERATION = 0i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OBJECTS_AND_NAME_A {
+    pub ObjectsPresent: super::SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
+    pub ObjectType: SE_OBJECT_TYPE,
+    pub ObjectTypeName: windows_sys::core::PSTR,
+    pub InheritedObjectTypeName: windows_sys::core::PSTR,
+    pub ptstrName: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OBJECTS_AND_NAME_W {
+    pub ObjectsPresent: super::SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
+    pub ObjectType: SE_OBJECT_TYPE,
+    pub ObjectTypeName: windows_sys::core::PWSTR,
+    pub InheritedObjectTypeName: windows_sys::core::PWSTR,
+    pub ptstrName: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct OBJECTS_AND_SID {
+    pub ObjectsPresent: super::SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
+    pub ObjectTypeGuid: windows_sys::core::GUID,
+    pub InheritedObjectTypeGuid: windows_sys::core::GUID,
+    pub pSid: *mut super::SID,
+}
 pub const OLESCRIPT_E_SYNTAX: windows_sys::core::HRESULT = 0x80020101_u32 as _;
+pub type PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, args: *const core::ffi::c_void, psidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, psidcount: *mut u32, prestrictedsidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, prestrictedsidcount: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFN_AUTHZ_DYNAMIC_ACCESS_CHECK = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pace: *const super::ACE_HEADER, pargs: *const core::ffi::c_void, pbaceapplicable: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
+pub type PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY = Option<unsafe extern "system" fn(pcentralaccesspolicy: *const core::ffi::c_void)>;
+pub type PFN_AUTHZ_FREE_DYNAMIC_GROUPS = Option<unsafe extern "system" fn(psidattrarray: *const super::SID_AND_ATTRIBUTES)>;
+pub type PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, capid: super::PSID, pargs: *const core::ffi::c_void, pcentralaccesspolicyapplicable: *mut super::super::Foundation::BOOL, ppcentralaccesspolicy: *mut *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type PROG_INVOKE_SETTING = i32;
 pub const ProgressCancelOperation: PROG_INVOKE_SETTING = 4i32;
 pub const ProgressInvokeEveryObject: PROG_INVOKE_SETTING = 2i32;
 pub const ProgressInvokeNever: PROG_INVOKE_SETTING = 1i32;
@@ -949,6 +911,7 @@ pub const SE_DS_OBJECT_ALL: SE_OBJECT_TYPE = 9i32;
 pub const SE_FILE_OBJECT: SE_OBJECT_TYPE = 1i32;
 pub const SE_KERNEL_OBJECT: SE_OBJECT_TYPE = 6i32;
 pub const SE_LMSHARE: SE_OBJECT_TYPE = 5i32;
+pub type SE_OBJECT_TYPE = i32;
 pub const SE_PRINTER: SE_OBJECT_TYPE = 3i32;
 pub const SE_PROVIDER_DEFINED_OBJECT: SE_OBJECT_TYPE = 10i32;
 pub const SE_REGISTRY_KEY: SE_OBJECT_TYPE = 4i32;
@@ -958,15 +921,42 @@ pub const SE_SERVICE: SE_OBJECT_TYPE = 2i32;
 pub const SE_UNKNOWN_OBJECT_TYPE: SE_OBJECT_TYPE = 0i32;
 pub const SE_WINDOW_OBJECT: SE_OBJECT_TYPE = 7i32;
 pub const SE_WMIGUID_OBJECT: SE_OBJECT_TYPE = 11i32;
+pub type TREE_SEC_INFO = u32;
 pub const TREE_SEC_INFO_RESET: TREE_SEC_INFO = 2u32;
 pub const TREE_SEC_INFO_RESET_KEEP_EXPLICIT: TREE_SEC_INFO = 3u32;
 pub const TREE_SEC_INFO_SET: TREE_SEC_INFO = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRUSTEE_A {
+    pub pMultipleTrustee: *mut TRUSTEE_A,
+    pub MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION,
+    pub TrusteeForm: TRUSTEE_FORM,
+    pub TrusteeType: TRUSTEE_TYPE,
+    pub ptstrName: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRUSTEE_ACCESSA {
+    pub lpProperty: windows_sys::core::PSTR,
+    pub Access: u32,
+    pub fAccessFlags: u32,
+    pub fReturnedAccess: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRUSTEE_ACCESSW {
+    pub lpProperty: windows_sys::core::PWSTR,
+    pub Access: u32,
+    pub fAccessFlags: u32,
+    pub fReturnedAccess: u32,
+}
 pub const TRUSTEE_ACCESS_ALL: i32 = -1i32;
 pub const TRUSTEE_ACCESS_ALLOWED: i32 = 1i32;
 pub const TRUSTEE_ACCESS_EXPLICIT: i32 = 1i32;
 pub const TRUSTEE_ACCESS_READ: i32 = 2i32;
 pub const TRUSTEE_ACCESS_WRITE: i32 = 4i32;
 pub const TRUSTEE_BAD_FORM: TRUSTEE_FORM = 2i32;
+pub type TRUSTEE_FORM = i32;
 pub const TRUSTEE_IS_ALIAS: TRUSTEE_TYPE = 4i32;
 pub const TRUSTEE_IS_COMPUTER: TRUSTEE_TYPE = 8i32;
 pub const TRUSTEE_IS_DELETED: TRUSTEE_TYPE = 6i32;
@@ -981,4 +971,14 @@ pub const TRUSTEE_IS_SID: TRUSTEE_FORM = 0i32;
 pub const TRUSTEE_IS_UNKNOWN: TRUSTEE_TYPE = 0i32;
 pub const TRUSTEE_IS_USER: TRUSTEE_TYPE = 1i32;
 pub const TRUSTEE_IS_WELL_KNOWN_GROUP: TRUSTEE_TYPE = 5i32;
+pub type TRUSTEE_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRUSTEE_W {
+    pub pMultipleTrustee: *mut TRUSTEE_W,
+    pub MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION,
+    pub TrusteeForm: TRUSTEE_FORM,
+    pub TrusteeType: TRUSTEE_TYPE,
+    pub ptstrName: windows_sys::core::PWSTR,
+}
 pub const _AUTHZ_SS_MAXSIZE: u32 = 128u32;

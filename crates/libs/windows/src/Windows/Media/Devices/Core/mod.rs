@@ -581,6 +581,20 @@ impl windows_core::RuntimeName for FrameFlashControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameFlashControl";
 }
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FrameFlashMode(pub i32);
+impl FrameFlashMode {
+    pub const Disable: Self = Self(0i32);
+    pub const Enable: Self = Self(1i32);
+    pub const Global: Self = Self(2i32);
+}
+impl windows_core::TypeKind for FrameFlashMode {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for FrameFlashMode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.Core.FrameFlashMode;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FrameFocusCapabilities(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FrameFocusCapabilities, windows_core::IUnknown, windows_core::IInspectable);
@@ -738,81 +752,6 @@ unsafe impl windows_core::Interface for FrameIsoSpeedControl {
 }
 impl windows_core::RuntimeName for FrameIsoSpeedControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameIsoSpeedControl";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VariablePhotoSequenceController(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VariablePhotoSequenceController, windows_core::IUnknown, windows_core::IInspectable);
-impl VariablePhotoSequenceController {
-    pub fn Supported(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Supported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn MaxPhotosPerSecond(&self) -> windows_core::Result<f32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MaxPhotosPerSecond)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn PhotosPerSecondLimit(&self) -> windows_core::Result<f32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PhotosPerSecondLimit)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetPhotosPerSecondLimit(&self, value: f32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPhotosPerSecondLimit)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    #[cfg(feature = "Media_MediaProperties")]
-    pub fn GetHighestConcurrentFrameRate<P0>(&self, captureproperties: P0) -> windows_core::Result<super::super::MediaProperties::MediaRatio>
-    where
-        P0: windows_core::Param<super::super::MediaProperties::IMediaEncodingProperties>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetHighestConcurrentFrameRate)(windows_core::Interface::as_raw(this), captureproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Media_MediaProperties")]
-    pub fn GetCurrentFrameRate(&self) -> windows_core::Result<super::super::MediaProperties::MediaRatio> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetCurrentFrameRate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn FrameCapabilities(&self) -> windows_core::Result<FrameControlCapabilities> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FrameCapabilities)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DesiredFrameControllers(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<FrameController>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DesiredFrameControllers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for VariablePhotoSequenceController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVariablePhotoSequenceController>();
-}
-unsafe impl windows_core::Interface for VariablePhotoSequenceController {
-    type Vtable = <IVariablePhotoSequenceController as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVariablePhotoSequenceController as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VariablePhotoSequenceController {
-    const NAME: &'static str = "Windows.Media.Devices.Core.VariablePhotoSequenceController";
 }
 windows_core::imp::define_interface!(ICameraIntrinsics, ICameraIntrinsics_Vtbl, 0x0aa6ed32_6589_49da_afde_594270ca0aac);
 impl windows_core::RuntimeType for ICameraIntrinsics {
@@ -1098,16 +1037,77 @@ pub struct IVariablePhotoSequenceController_Vtbl {
     DesiredFrameControllers: usize,
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FrameFlashMode(pub i32);
-impl FrameFlashMode {
-    pub const Disable: Self = Self(0i32);
-    pub const Enable: Self = Self(1i32);
-    pub const Global: Self = Self(2i32);
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VariablePhotoSequenceController(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VariablePhotoSequenceController, windows_core::IUnknown, windows_core::IInspectable);
+impl VariablePhotoSequenceController {
+    pub fn Supported(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Supported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn MaxPhotosPerSecond(&self) -> windows_core::Result<f32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MaxPhotosPerSecond)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn PhotosPerSecondLimit(&self) -> windows_core::Result<f32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PhotosPerSecondLimit)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetPhotosPerSecondLimit(&self, value: f32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetPhotosPerSecondLimit)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    #[cfg(feature = "Media_MediaProperties")]
+    pub fn GetHighestConcurrentFrameRate<P0>(&self, captureproperties: P0) -> windows_core::Result<super::super::MediaProperties::MediaRatio>
+    where
+        P0: windows_core::Param<super::super::MediaProperties::IMediaEncodingProperties>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetHighestConcurrentFrameRate)(windows_core::Interface::as_raw(this), captureproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Media_MediaProperties")]
+    pub fn GetCurrentFrameRate(&self) -> windows_core::Result<super::super::MediaProperties::MediaRatio> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetCurrentFrameRate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn FrameCapabilities(&self) -> windows_core::Result<FrameControlCapabilities> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FrameCapabilities)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn DesiredFrameControllers(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<FrameController>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DesiredFrameControllers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
-impl windows_core::TypeKind for FrameFlashMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::RuntimeType for VariablePhotoSequenceController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVariablePhotoSequenceController>();
 }
-impl windows_core::RuntimeType for FrameFlashMode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.Core.FrameFlashMode;i4)");
+unsafe impl windows_core::Interface for VariablePhotoSequenceController {
+    type Vtable = <IVariablePhotoSequenceController as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVariablePhotoSequenceController as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VariablePhotoSequenceController {
+    const NAME: &'static str = "Windows.Media.Devices.Core.VariablePhotoSequenceController";
 }

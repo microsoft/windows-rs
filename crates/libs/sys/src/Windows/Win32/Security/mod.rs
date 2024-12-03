@@ -159,32 +159,6 @@ windows_targets::link!("advapi32.dll" "system" fn SetSecurityDescriptorRMControl
 windows_targets::link!("advapi32.dll" "system" fn SetSecurityDescriptorSacl(psecuritydescriptor : PSECURITY_DESCRIPTOR, bsaclpresent : super::Foundation:: BOOL, psacl : *const ACL, bsacldefaulted : super::Foundation:: BOOL) -> super::Foundation:: BOOL);
 windows_targets::link!("advapi32.dll" "system" fn SetTokenInformation(tokenhandle : super::Foundation:: HANDLE, tokeninformationclass : TOKEN_INFORMATION_CLASS, tokeninformation : *const core::ffi::c_void, tokeninformationlength : u32) -> super::Foundation:: BOOL);
 windows_targets::link!("user32.dll" "system" fn SetUserObjectSecurity(hobj : super::Foundation:: HANDLE, psirequested : *const OBJECT_SECURITY_INFORMATION, psid : PSECURITY_DESCRIPTOR) -> super::Foundation:: BOOL);
-pub type PLSA_AP_CALL_PACKAGE_UNTRUSTED = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::Foundation::NTSTATUS>;
-pub type SEC_THREAD_START = Option<unsafe extern "system" fn(lpthreadparameter: *mut core::ffi::c_void) -> u32>;
-pub type ACE_FLAGS = u32;
-pub type ACE_REVISION = u32;
-pub type ACL_INFORMATION_CLASS = i32;
-pub type AUDIT_EVENT_TYPE = i32;
-pub type CLAIM_SECURITY_ATTRIBUTE_FLAGS = u32;
-pub type CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = u16;
-pub type CREATE_RESTRICTED_TOKEN_FLAGS = u32;
-pub type ENUM_PERIOD = i32;
-pub type LOGON32_LOGON = u32;
-pub type LOGON32_PROVIDER = u32;
-pub type MANDATORY_LEVEL = i32;
-pub type OBJECT_SECURITY_INFORMATION = u32;
-pub type SECURITY_AUTO_INHERIT_FLAGS = u32;
-pub type SECURITY_DESCRIPTOR_CONTROL = u16;
-pub type SECURITY_IMPERSONATION_LEVEL = i32;
-pub type SID_NAME_USE = i32;
-pub type SYSTEM_AUDIT_OBJECT_ACE_FLAGS = u32;
-pub type TOKEN_ACCESS_MASK = u32;
-pub type TOKEN_ELEVATION_TYPE = i32;
-pub type TOKEN_INFORMATION_CLASS = i32;
-pub type TOKEN_MANDATORY_POLICY_ID = u32;
-pub type TOKEN_PRIVILEGES_ATTRIBUTES = u32;
-pub type TOKEN_TYPE = i32;
-pub type WELL_KNOWN_SID_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACCESS_ALLOWED_ACE {
@@ -258,6 +232,7 @@ pub struct ACCESS_DENIED_OBJECT_ACE {
 pub struct ACCESS_REASONS {
     pub Data: [u32; 32],
 }
+pub type ACE_FLAGS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACE_HEADER {
@@ -265,6 +240,9 @@ pub struct ACE_HEADER {
     pub AceFlags: u8,
     pub AceSize: u16,
 }
+pub const ACE_INHERITED_OBJECT_TYPE_PRESENT: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = 2u32;
+pub const ACE_OBJECT_TYPE_PRESENT: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = 1u32;
+pub type ACE_REVISION = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACL {
@@ -274,6 +252,9 @@ pub struct ACL {
     pub AceCount: u16,
     pub Sbz2: u16,
 }
+pub type ACL_INFORMATION_CLASS = i32;
+pub const ACL_REVISION: ACE_REVISION = 2u32;
+pub const ACL_REVISION_DS: ACE_REVISION = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACL_REVISION_INFORMATION {
@@ -286,6 +267,13 @@ pub struct ACL_SIZE_INFORMATION {
     pub AclBytesInUse: u32,
     pub AclBytesFree: u32,
 }
+pub const ATTRIBUTE_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 32u32;
+pub type AUDIT_EVENT_TYPE = i32;
+pub const AclRevisionInformation: ACL_INFORMATION_CLASS = 1i32;
+pub const AclSizeInformation: ACL_INFORMATION_CLASS = 2i32;
+pub const AuditEventDirectoryServiceAccess: AUDIT_EVENT_TYPE = 1i32;
+pub const AuditEventObjectAccess: AUDIT_EVENT_TYPE = 0i32;
+pub const BACKUP_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 65536u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
@@ -299,12 +287,17 @@ pub struct CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
 pub union CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
     pub pAttributeV1: *mut CLAIM_SECURITY_ATTRIBUTE_V1,
 }
+pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 16u32;
+pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED_BY_DEFAULT: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 8u32;
+pub type CLAIM_SECURITY_ATTRIBUTE_FLAGS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
     pub Version: u64,
     pub Name: windows_sys::core::PWSTR,
 }
+pub const CLAIM_SECURITY_ATTRIBUTE_MANDATORY: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 32u32;
+pub const CLAIM_SECURITY_ATTRIBUTE_NON_INHERITABLE: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
@@ -330,6 +323,14 @@ pub union CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
     pub pFqbn: [u32; 1],
     pub pOctetString: [u32; 1],
 }
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_BOOLEAN: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 6u16;
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_FQBN: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 4u16;
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_INT64: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 1u16;
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_OCTET_STRING: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 16u16;
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_SID: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 5u16;
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_STRING: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 3u16;
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_UINT64: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 2u16;
+pub const CLAIM_SECURITY_ATTRIBUTE_USE_FOR_DENY_ONLY: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_V1 {
@@ -349,6 +350,23 @@ pub union CLAIM_SECURITY_ATTRIBUTE_V1_0 {
     pub pFqbn: *mut CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE,
     pub pOctetString: *mut CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE,
 }
+pub const CLAIM_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 2u32;
+pub type CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = u16;
+pub const CONTAINER_INHERIT_ACE: ACE_FLAGS = 2u32;
+pub type CREATE_RESTRICTED_TOKEN_FLAGS = u32;
+pub const CVT_SECONDS: u32 = 1u32;
+pub const DACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 4u32;
+pub const DISABLE_MAX_PRIVILEGE: CREATE_RESTRICTED_TOKEN_FLAGS = 1u32;
+pub type ENUM_PERIOD = i32;
+pub const ENUM_PERIOD_DAYS: ENUM_PERIOD = 3i32;
+pub const ENUM_PERIOD_HOURS: ENUM_PERIOD = 2i32;
+pub const ENUM_PERIOD_INVALID: ENUM_PERIOD = -1i32;
+pub const ENUM_PERIOD_MINUTES: ENUM_PERIOD = 1i32;
+pub const ENUM_PERIOD_MONTHS: ENUM_PERIOD = 5i32;
+pub const ENUM_PERIOD_SECONDS: ENUM_PERIOD = 0i32;
+pub const ENUM_PERIOD_WEEKS: ENUM_PERIOD = 4i32;
+pub const ENUM_PERIOD_YEARS: ENUM_PERIOD = 6i32;
+pub const FAILED_ACCESS_ACE_FLAG: ACE_FLAGS = 128u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GENERIC_MAPPING {
@@ -357,6 +375,12 @@ pub struct GENERIC_MAPPING {
     pub GenericExecute: u32,
     pub GenericAll: u32,
 }
+pub const GROUP_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 2u32;
+pub const INHERITED_ACE: ACE_FLAGS = 16u32;
+pub const INHERIT_NO_PROPAGATE: ACE_FLAGS = 4u32;
+pub const INHERIT_ONLY: ACE_FLAGS = 8u32;
+pub const INHERIT_ONLY_ACE: ACE_FLAGS = 8u32;
+pub const LABEL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 16u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LLFILETIME {
@@ -368,14 +392,40 @@ pub union LLFILETIME_0 {
     pub ll: i64,
     pub ft: super::Foundation::FILETIME,
 }
+pub type LOGON32_LOGON = u32;
+pub const LOGON32_LOGON_BATCH: LOGON32_LOGON = 4u32;
+pub const LOGON32_LOGON_INTERACTIVE: LOGON32_LOGON = 2u32;
+pub const LOGON32_LOGON_NETWORK: LOGON32_LOGON = 3u32;
+pub const LOGON32_LOGON_NETWORK_CLEARTEXT: LOGON32_LOGON = 8u32;
+pub const LOGON32_LOGON_NEW_CREDENTIALS: LOGON32_LOGON = 9u32;
+pub const LOGON32_LOGON_SERVICE: LOGON32_LOGON = 5u32;
+pub const LOGON32_LOGON_UNLOCK: LOGON32_LOGON = 7u32;
+pub type LOGON32_PROVIDER = u32;
+pub const LOGON32_PROVIDER_DEFAULT: LOGON32_PROVIDER = 0u32;
+pub const LOGON32_PROVIDER_WINNT40: LOGON32_PROVIDER = 2u32;
+pub const LOGON32_PROVIDER_WINNT50: LOGON32_PROVIDER = 3u32;
+pub const LUA_TOKEN: CREATE_RESTRICTED_TOKEN_FLAGS = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LUID_AND_ATTRIBUTES {
     pub Luid: super::Foundation::LUID,
     pub Attributes: TOKEN_PRIVILEGES_ATTRIBUTES,
 }
+pub type MANDATORY_LEVEL = i32;
+pub const MandatoryLevelCount: MANDATORY_LEVEL = 6i32;
+pub const MandatoryLevelHigh: MANDATORY_LEVEL = 3i32;
+pub const MandatoryLevelLow: MANDATORY_LEVEL = 1i32;
+pub const MandatoryLevelMedium: MANDATORY_LEVEL = 2i32;
+pub const MandatoryLevelSecureProcess: MANDATORY_LEVEL = 5i32;
+pub const MandatoryLevelSystem: MANDATORY_LEVEL = 4i32;
+pub const MandatoryLevelUntrusted: MANDATORY_LEVEL = 0i32;
+pub const MaxTokenInfoClass: TOKEN_INFORMATION_CLASS = 49i32;
 pub type NCRYPT_DESCRIPTOR_HANDLE = *mut core::ffi::c_void;
 pub type NCRYPT_STREAM_HANDLE = *mut core::ffi::c_void;
+pub const NO_INHERITANCE: ACE_FLAGS = 0u32;
+pub const NO_PROPAGATE_INHERIT_ACE: ACE_FLAGS = 4u32;
+pub const OBJECT_INHERIT_ACE: ACE_FLAGS = 1u32;
+pub type OBJECT_SECURITY_INFORMATION = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OBJECT_TYPE_LIST {
@@ -383,6 +433,8 @@ pub struct OBJECT_TYPE_LIST {
     pub Sbz: u16,
     pub ObjectType: *mut windows_sys::core::GUID,
 }
+pub const OWNER_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 1u32;
+pub type PLSA_AP_CALL_PACKAGE_UNTRUSTED = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::Foundation::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRIVILEGE_SET {
@@ -390,6 +442,8 @@ pub struct PRIVILEGE_SET {
     pub Control: u32,
     pub Privilege: [LUID_AND_ATTRIBUTES; 1],
 }
+pub const PROTECTED_DACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 2147483648u32;
+pub const PROTECTED_SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 1073741824u32;
 pub type PSECURITY_DESCRIPTOR = *mut core::ffi::c_void;
 pub type PSID = *mut core::ffi::c_void;
 #[repr(C)]
@@ -402,7 +456,11 @@ pub struct QUOTA_LIMITS {
     pub PagefileLimit: usize,
     pub TimeLimit: i64,
 }
+pub const SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 8u32;
 pub type SAFER_LEVEL_HANDLE = *mut core::ffi::c_void;
+pub const SANDBOX_INERT: CREATE_RESTRICTED_TOKEN_FLAGS = 2u32;
+pub const SCOPE_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 64u32;
+pub const SECURITY_APP_PACKAGE_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 15] };
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SECURITY_ATTRIBUTES {
@@ -410,6 +468,8 @@ pub struct SECURITY_ATTRIBUTES {
     pub lpSecurityDescriptor: *mut core::ffi::c_void,
     pub bInheritHandle: super::Foundation::BOOL,
 }
+pub const SECURITY_AUTHENTICATION_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 18] };
+pub type SECURITY_AUTO_INHERIT_FLAGS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SECURITY_CAPABILITIES {
@@ -418,6 +478,7 @@ pub struct SECURITY_CAPABILITIES {
     pub CapabilityCount: u32,
     pub Reserved: u32,
 }
+pub const SECURITY_CREATOR_SID_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 3] };
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SECURITY_DESCRIPTOR {
@@ -429,6 +490,7 @@ pub struct SECURITY_DESCRIPTOR {
     pub Sacl: *mut ACL,
     pub Dacl: *mut ACL,
 }
+pub type SECURITY_DESCRIPTOR_CONTROL = u16;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SECURITY_DESCRIPTOR_RELATIVE {
@@ -440,6 +502,15 @@ pub struct SECURITY_DESCRIPTOR_RELATIVE {
     pub Sacl: u32,
     pub Dacl: u32,
 }
+pub const SECURITY_DYNAMIC_TRACKING: super::Foundation::BOOLEAN = 1u8;
+pub type SECURITY_IMPERSONATION_LEVEL = i32;
+pub const SECURITY_LOCAL_SID_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 2] };
+pub const SECURITY_MANDATORY_LABEL_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 16] };
+pub const SECURITY_MAX_SID_SIZE: u32 = 68u32;
+pub const SECURITY_NON_UNIQUE_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 4] };
+pub const SECURITY_NT_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 5] };
+pub const SECURITY_NULL_SID_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 0] };
+pub const SECURITY_PROCESS_TRUST_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 19] };
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SECURITY_QUALITY_OF_SERVICE {
@@ -448,6 +519,22 @@ pub struct SECURITY_QUALITY_OF_SERVICE {
     pub ContextTrackingMode: u8,
     pub EffectiveOnly: super::Foundation::BOOLEAN,
 }
+pub const SECURITY_RESOURCE_MANAGER_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 9] };
+pub const SECURITY_SCOPED_POLICY_ID_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 17] };
+pub const SECURITY_STATIC_TRACKING: super::Foundation::BOOLEAN = 0u8;
+pub const SECURITY_WORLD_SID_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 1] };
+pub type SEC_THREAD_START = Option<unsafe extern "system" fn(lpthreadparameter: *mut core::ffi::c_void) -> u32>;
+pub const SEF_AVOID_OWNER_CHECK: SECURITY_AUTO_INHERIT_FLAGS = 16u32;
+pub const SEF_AVOID_OWNER_RESTRICTION: SECURITY_AUTO_INHERIT_FLAGS = 4096u32;
+pub const SEF_AVOID_PRIVILEGE_CHECK: SECURITY_AUTO_INHERIT_FLAGS = 8u32;
+pub const SEF_DACL_AUTO_INHERIT: SECURITY_AUTO_INHERIT_FLAGS = 1u32;
+pub const SEF_DEFAULT_DESCRIPTOR_FOR_OBJECT: SECURITY_AUTO_INHERIT_FLAGS = 4u32;
+pub const SEF_DEFAULT_GROUP_FROM_PARENT: SECURITY_AUTO_INHERIT_FLAGS = 64u32;
+pub const SEF_DEFAULT_OWNER_FROM_PARENT: SECURITY_AUTO_INHERIT_FLAGS = 32u32;
+pub const SEF_MACL_NO_EXECUTE_UP: SECURITY_AUTO_INHERIT_FLAGS = 1024u32;
+pub const SEF_MACL_NO_READ_UP: SECURITY_AUTO_INHERIT_FLAGS = 512u32;
+pub const SEF_MACL_NO_WRITE_UP: SECURITY_AUTO_INHERIT_FLAGS = 256u32;
+pub const SEF_SACL_AUTO_INHERIT: SECURITY_AUTO_INHERIT_FLAGS = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SE_ACCESS_REPLY {
@@ -470,6 +557,25 @@ pub struct SE_ACCESS_REQUEST {
     pub ObjectTypeListCount: u32,
     pub ObjectTypeList: *mut OBJECT_TYPE_LIST,
 }
+pub const SE_ASSIGNPRIMARYTOKEN_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeAssignPrimaryTokenPrivilege");
+pub const SE_AUDIT_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeAuditPrivilege");
+pub const SE_BACKUP_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeBackupPrivilege");
+pub const SE_CHANGE_NOTIFY_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeChangeNotifyPrivilege");
+pub const SE_CREATE_GLOBAL_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeCreateGlobalPrivilege");
+pub const SE_CREATE_PAGEFILE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeCreatePagefilePrivilege");
+pub const SE_CREATE_PERMANENT_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeCreatePermanentPrivilege");
+pub const SE_CREATE_SYMBOLIC_LINK_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeCreateSymbolicLinkPrivilege");
+pub const SE_CREATE_TOKEN_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeCreateTokenPrivilege");
+pub const SE_DACL_AUTO_INHERITED: SECURITY_DESCRIPTOR_CONTROL = 1024u16;
+pub const SE_DACL_AUTO_INHERIT_REQ: SECURITY_DESCRIPTOR_CONTROL = 256u16;
+pub const SE_DACL_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = 8u16;
+pub const SE_DACL_PRESENT: SECURITY_DESCRIPTOR_CONTROL = 4u16;
+pub const SE_DACL_PROTECTED: SECURITY_DESCRIPTOR_CONTROL = 4096u16;
+pub const SE_DEBUG_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeDebugPrivilege");
+pub const SE_DELEGATE_SESSION_USER_IMPERSONATE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeDelegateSessionUserImpersonatePrivilege");
+pub const SE_ENABLE_DELEGATION_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeEnableDelegationPrivilege");
+pub const SE_GROUP_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = 2u16;
+pub const SE_IMPERSONATE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeImpersonatePrivilege");
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SE_IMPERSONATION_STATE {
@@ -478,6 +584,28 @@ pub struct SE_IMPERSONATION_STATE {
     pub EffectiveOnly: super::Foundation::BOOLEAN,
     pub Level: SECURITY_IMPERSONATION_LEVEL,
 }
+pub const SE_INCREASE_QUOTA_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeIncreaseQuotaPrivilege");
+pub const SE_INC_BASE_PRIORITY_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeIncreaseBasePriorityPrivilege");
+pub const SE_INC_WORKING_SET_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeIncreaseWorkingSetPrivilege");
+pub const SE_LOAD_DRIVER_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeLoadDriverPrivilege");
+pub const SE_LOCK_MEMORY_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeLockMemoryPrivilege");
+pub const SE_MACHINE_ACCOUNT_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeMachineAccountPrivilege");
+pub const SE_MANAGE_VOLUME_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeManageVolumePrivilege");
+pub const SE_OWNER_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = 1u16;
+pub const SE_PRIVILEGE_ENABLED: TOKEN_PRIVILEGES_ATTRIBUTES = 2u32;
+pub const SE_PRIVILEGE_ENABLED_BY_DEFAULT: TOKEN_PRIVILEGES_ATTRIBUTES = 1u32;
+pub const SE_PRIVILEGE_REMOVED: TOKEN_PRIVILEGES_ATTRIBUTES = 4u32;
+pub const SE_PRIVILEGE_USED_FOR_ACCESS: TOKEN_PRIVILEGES_ATTRIBUTES = 2147483648u32;
+pub const SE_PROF_SINGLE_PROCESS_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeProfileSingleProcessPrivilege");
+pub const SE_RELABEL_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeRelabelPrivilege");
+pub const SE_REMOTE_SHUTDOWN_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeRemoteShutdownPrivilege");
+pub const SE_RESTORE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeRestorePrivilege");
+pub const SE_RM_CONTROL_VALID: SECURITY_DESCRIPTOR_CONTROL = 16384u16;
+pub const SE_SACL_AUTO_INHERITED: SECURITY_DESCRIPTOR_CONTROL = 2048u16;
+pub const SE_SACL_AUTO_INHERIT_REQ: SECURITY_DESCRIPTOR_CONTROL = 512u16;
+pub const SE_SACL_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = 32u16;
+pub const SE_SACL_PRESENT: SECURITY_DESCRIPTOR_CONTROL = 16u16;
+pub const SE_SACL_PROTECTED: SECURITY_DESCRIPTOR_CONTROL = 8192u16;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SE_SECURITY_DESCRIPTOR {
@@ -485,12 +613,25 @@ pub struct SE_SECURITY_DESCRIPTOR {
     pub Flags: u32,
     pub SecurityDescriptor: PSECURITY_DESCRIPTOR,
 }
+pub const SE_SECURITY_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeSecurityPrivilege");
+pub const SE_SELF_RELATIVE: SECURITY_DESCRIPTOR_CONTROL = 32768u16;
+pub const SE_SHUTDOWN_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeShutdownPrivilege");
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SE_SID {
     pub Sid: SID,
     pub Buffer: [u8; 68],
 }
+pub const SE_SYNC_AGENT_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeSyncAgentPrivilege");
+pub const SE_SYSTEMTIME_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeSystemtimePrivilege");
+pub const SE_SYSTEM_ENVIRONMENT_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeSystemEnvironmentPrivilege");
+pub const SE_SYSTEM_PROFILE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeSystemProfilePrivilege");
+pub const SE_TAKE_OWNERSHIP_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeTakeOwnershipPrivilege");
+pub const SE_TCB_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeTcbPrivilege");
+pub const SE_TIME_ZONE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeTimeZonePrivilege");
+pub const SE_TRUSTED_CREDMAN_ACCESS_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeTrustedCredManAccessPrivilege");
+pub const SE_UNDOCK_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeUndockPrivilege");
+pub const SE_UNSOLICITED_INPUT_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeUnsolicitedInputPrivilege");
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SID {
@@ -517,6 +658,14 @@ pub struct SID_AND_ATTRIBUTES_HASH {
 pub struct SID_IDENTIFIER_AUTHORITY {
     pub Value: [u8; 6],
 }
+pub type SID_NAME_USE = i32;
+pub const SIGNING_LEVEL_FILE_CACHE_FLAG_NOT_VALIDATED: u32 = 1u32;
+pub const SIGNING_LEVEL_FILE_CACHE_FLAG_VALIDATE_ONLY: u32 = 4u32;
+pub const SIGNING_LEVEL_MICROSOFT: u32 = 8u32;
+pub const SUB_CONTAINERS_AND_OBJECTS_INHERIT: ACE_FLAGS = 3u32;
+pub const SUB_CONTAINERS_ONLY_INHERIT: ACE_FLAGS = 2u32;
+pub const SUB_OBJECTS_ONLY_INHERIT: ACE_FLAGS = 1u32;
+pub const SUCCESSFUL_ACCESS_ACE_FLAG: ACE_FLAGS = 64u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SYSTEM_ACCESS_FILTER_ACE {
@@ -592,6 +741,7 @@ pub struct SYSTEM_AUDIT_OBJECT_ACE {
     pub InheritedObjectType: windows_sys::core::GUID,
     pub SidStart: u32,
 }
+pub type SYSTEM_AUDIT_OBJECT_ACE_FLAGS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SYSTEM_MANDATORY_LABEL_ACE {
@@ -620,6 +770,21 @@ pub struct SYSTEM_SCOPED_POLICY_ID_ACE {
     pub Mask: u32,
     pub SidStart: u32,
 }
+pub const SecurityAnonymous: SECURITY_IMPERSONATION_LEVEL = 0i32;
+pub const SecurityDelegation: SECURITY_IMPERSONATION_LEVEL = 3i32;
+pub const SecurityIdentification: SECURITY_IMPERSONATION_LEVEL = 1i32;
+pub const SecurityImpersonation: SECURITY_IMPERSONATION_LEVEL = 2i32;
+pub const SidTypeAlias: SID_NAME_USE = 4i32;
+pub const SidTypeComputer: SID_NAME_USE = 9i32;
+pub const SidTypeDeletedAccount: SID_NAME_USE = 6i32;
+pub const SidTypeDomain: SID_NAME_USE = 3i32;
+pub const SidTypeGroup: SID_NAME_USE = 2i32;
+pub const SidTypeInvalid: SID_NAME_USE = 7i32;
+pub const SidTypeLabel: SID_NAME_USE = 10i32;
+pub const SidTypeLogonSession: SID_NAME_USE = 11i32;
+pub const SidTypeUnknown: SID_NAME_USE = 8i32;
+pub const SidTypeUser: SID_NAME_USE = 1i32;
+pub const SidTypeWellKnownGroup: SID_NAME_USE = 5i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TOKEN_ACCESS_INFORMATION {
@@ -637,11 +802,21 @@ pub struct TOKEN_ACCESS_INFORMATION {
     pub TrustLevelSid: PSID,
     pub SecurityAttributes: *mut core::ffi::c_void,
 }
+pub type TOKEN_ACCESS_MASK = u32;
+pub const TOKEN_ACCESS_PSEUDO_HANDLE: TOKEN_ACCESS_MASK = 24u32;
+pub const TOKEN_ACCESS_PSEUDO_HANDLE_WIN8: TOKEN_ACCESS_MASK = 24u32;
+pub const TOKEN_ACCESS_SYSTEM_SECURITY: TOKEN_ACCESS_MASK = 16777216u32;
+pub const TOKEN_ADJUST_DEFAULT: TOKEN_ACCESS_MASK = 128u32;
+pub const TOKEN_ADJUST_GROUPS: TOKEN_ACCESS_MASK = 64u32;
+pub const TOKEN_ADJUST_PRIVILEGES: TOKEN_ACCESS_MASK = 32u32;
+pub const TOKEN_ADJUST_SESSIONID: TOKEN_ACCESS_MASK = 256u32;
+pub const TOKEN_ALL_ACCESS: TOKEN_ACCESS_MASK = 983551u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TOKEN_APPCONTAINER_INFORMATION {
     pub TokenAppContainer: PSID,
 }
+pub const TOKEN_ASSIGN_PRIMARY: TOKEN_ACCESS_MASK = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TOKEN_AUDIT_POLICY {
@@ -660,16 +835,20 @@ pub struct TOKEN_CONTROL {
 pub struct TOKEN_DEFAULT_DACL {
     pub DefaultDacl: *mut ACL,
 }
+pub const TOKEN_DELETE: TOKEN_ACCESS_MASK = 65536u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TOKEN_DEVICE_CLAIMS {
     pub DeviceClaims: *mut core::ffi::c_void,
 }
+pub const TOKEN_DUPLICATE: TOKEN_ACCESS_MASK = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TOKEN_ELEVATION {
     pub TokenIsElevated: u32,
 }
+pub type TOKEN_ELEVATION_TYPE = i32;
+pub const TOKEN_EXECUTE: TOKEN_ACCESS_MASK = 131072u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TOKEN_GROUPS {
@@ -690,6 +869,8 @@ pub struct TOKEN_GROUPS_AND_PRIVILEGES {
     pub Privileges: *mut LUID_AND_ATTRIBUTES,
     pub AuthenticationId: super::Foundation::LUID,
 }
+pub const TOKEN_IMPERSONATE: TOKEN_ACCESS_MASK = 4u32;
+pub type TOKEN_INFORMATION_CLASS = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TOKEN_LINKED_TOKEN {
@@ -705,6 +886,11 @@ pub struct TOKEN_MANDATORY_LABEL {
 pub struct TOKEN_MANDATORY_POLICY {
     pub Policy: TOKEN_MANDATORY_POLICY_ID,
 }
+pub type TOKEN_MANDATORY_POLICY_ID = u32;
+pub const TOKEN_MANDATORY_POLICY_NEW_PROCESS_MIN: TOKEN_MANDATORY_POLICY_ID = 2u32;
+pub const TOKEN_MANDATORY_POLICY_NO_WRITE_UP: TOKEN_MANDATORY_POLICY_ID = 1u32;
+pub const TOKEN_MANDATORY_POLICY_OFF: TOKEN_MANDATORY_POLICY_ID = 0u32;
+pub const TOKEN_MANDATORY_POLICY_VALID_MASK: TOKEN_MANDATORY_POLICY_ID = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TOKEN_ORIGIN {
@@ -726,6 +912,11 @@ pub struct TOKEN_PRIVILEGES {
     pub PrivilegeCount: u32,
     pub Privileges: [LUID_AND_ATTRIBUTES; 1],
 }
+pub type TOKEN_PRIVILEGES_ATTRIBUTES = u32;
+pub const TOKEN_QUERY: TOKEN_ACCESS_MASK = 8u32;
+pub const TOKEN_QUERY_SOURCE: TOKEN_ACCESS_MASK = 16u32;
+pub const TOKEN_READ: TOKEN_ACCESS_MASK = 131080u32;
+pub const TOKEN_READ_CONTROL: TOKEN_ACCESS_MASK = 131072u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TOKEN_SOURCE {
@@ -746,6 +937,8 @@ pub struct TOKEN_STATISTICS {
     pub PrivilegeCount: u32,
     pub ModifiedId: super::Foundation::LUID,
 }
+pub const TOKEN_TRUST_CONSTRAINT_MASK: TOKEN_ACCESS_MASK = 131096u32;
+pub type TOKEN_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TOKEN_USER {
@@ -756,200 +949,6 @@ pub struct TOKEN_USER {
 pub struct TOKEN_USER_CLAIMS {
     pub UserClaims: *mut core::ffi::c_void,
 }
-pub const ACE_INHERITED_OBJECT_TYPE_PRESENT: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = 2u32;
-pub const ACE_OBJECT_TYPE_PRESENT: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = 1u32;
-pub const ACL_REVISION: ACE_REVISION = 2u32;
-pub const ACL_REVISION_DS: ACE_REVISION = 4u32;
-pub const ATTRIBUTE_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 32u32;
-pub const AclRevisionInformation: ACL_INFORMATION_CLASS = 1i32;
-pub const AclSizeInformation: ACL_INFORMATION_CLASS = 2i32;
-pub const AuditEventDirectoryServiceAccess: AUDIT_EVENT_TYPE = 1i32;
-pub const AuditEventObjectAccess: AUDIT_EVENT_TYPE = 0i32;
-pub const BACKUP_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 65536u32;
-pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 16u32;
-pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED_BY_DEFAULT: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 8u32;
-pub const CLAIM_SECURITY_ATTRIBUTE_MANDATORY: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 32u32;
-pub const CLAIM_SECURITY_ATTRIBUTE_NON_INHERITABLE: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 1u32;
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_BOOLEAN: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 6u16;
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_FQBN: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 4u16;
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_INT64: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 1u16;
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_OCTET_STRING: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 16u16;
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_SID: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 5u16;
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_STRING: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 3u16;
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_UINT64: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 2u16;
-pub const CLAIM_SECURITY_ATTRIBUTE_USE_FOR_DENY_ONLY: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 4u32;
-pub const CLAIM_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 2u32;
-pub const CONTAINER_INHERIT_ACE: ACE_FLAGS = 2u32;
-pub const CVT_SECONDS: u32 = 1u32;
-pub const DACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 4u32;
-pub const DISABLE_MAX_PRIVILEGE: CREATE_RESTRICTED_TOKEN_FLAGS = 1u32;
-pub const ENUM_PERIOD_DAYS: ENUM_PERIOD = 3i32;
-pub const ENUM_PERIOD_HOURS: ENUM_PERIOD = 2i32;
-pub const ENUM_PERIOD_INVALID: ENUM_PERIOD = -1i32;
-pub const ENUM_PERIOD_MINUTES: ENUM_PERIOD = 1i32;
-pub const ENUM_PERIOD_MONTHS: ENUM_PERIOD = 5i32;
-pub const ENUM_PERIOD_SECONDS: ENUM_PERIOD = 0i32;
-pub const ENUM_PERIOD_WEEKS: ENUM_PERIOD = 4i32;
-pub const ENUM_PERIOD_YEARS: ENUM_PERIOD = 6i32;
-pub const FAILED_ACCESS_ACE_FLAG: ACE_FLAGS = 128u32;
-pub const GROUP_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 2u32;
-pub const INHERITED_ACE: ACE_FLAGS = 16u32;
-pub const INHERIT_NO_PROPAGATE: ACE_FLAGS = 4u32;
-pub const INHERIT_ONLY: ACE_FLAGS = 8u32;
-pub const INHERIT_ONLY_ACE: ACE_FLAGS = 8u32;
-pub const LABEL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 16u32;
-pub const LOGON32_LOGON_BATCH: LOGON32_LOGON = 4u32;
-pub const LOGON32_LOGON_INTERACTIVE: LOGON32_LOGON = 2u32;
-pub const LOGON32_LOGON_NETWORK: LOGON32_LOGON = 3u32;
-pub const LOGON32_LOGON_NETWORK_CLEARTEXT: LOGON32_LOGON = 8u32;
-pub const LOGON32_LOGON_NEW_CREDENTIALS: LOGON32_LOGON = 9u32;
-pub const LOGON32_LOGON_SERVICE: LOGON32_LOGON = 5u32;
-pub const LOGON32_LOGON_UNLOCK: LOGON32_LOGON = 7u32;
-pub const LOGON32_PROVIDER_DEFAULT: LOGON32_PROVIDER = 0u32;
-pub const LOGON32_PROVIDER_WINNT40: LOGON32_PROVIDER = 2u32;
-pub const LOGON32_PROVIDER_WINNT50: LOGON32_PROVIDER = 3u32;
-pub const LUA_TOKEN: CREATE_RESTRICTED_TOKEN_FLAGS = 4u32;
-pub const MandatoryLevelCount: MANDATORY_LEVEL = 6i32;
-pub const MandatoryLevelHigh: MANDATORY_LEVEL = 3i32;
-pub const MandatoryLevelLow: MANDATORY_LEVEL = 1i32;
-pub const MandatoryLevelMedium: MANDATORY_LEVEL = 2i32;
-pub const MandatoryLevelSecureProcess: MANDATORY_LEVEL = 5i32;
-pub const MandatoryLevelSystem: MANDATORY_LEVEL = 4i32;
-pub const MandatoryLevelUntrusted: MANDATORY_LEVEL = 0i32;
-pub const MaxTokenInfoClass: TOKEN_INFORMATION_CLASS = 49i32;
-pub const NO_INHERITANCE: ACE_FLAGS = 0u32;
-pub const NO_PROPAGATE_INHERIT_ACE: ACE_FLAGS = 4u32;
-pub const OBJECT_INHERIT_ACE: ACE_FLAGS = 1u32;
-pub const OWNER_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 1u32;
-pub const PROTECTED_DACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 2147483648u32;
-pub const PROTECTED_SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 1073741824u32;
-pub const SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 8u32;
-pub const SANDBOX_INERT: CREATE_RESTRICTED_TOKEN_FLAGS = 2u32;
-pub const SCOPE_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 64u32;
-pub const SECURITY_APP_PACKAGE_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 15] };
-pub const SECURITY_AUTHENTICATION_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 18] };
-pub const SECURITY_CREATOR_SID_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 3] };
-pub const SECURITY_DYNAMIC_TRACKING: super::Foundation::BOOLEAN = 1u8;
-pub const SECURITY_LOCAL_SID_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 2] };
-pub const SECURITY_MANDATORY_LABEL_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 16] };
-pub const SECURITY_MAX_SID_SIZE: u32 = 68u32;
-pub const SECURITY_NON_UNIQUE_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 4] };
-pub const SECURITY_NT_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 5] };
-pub const SECURITY_NULL_SID_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 0] };
-pub const SECURITY_PROCESS_TRUST_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 19] };
-pub const SECURITY_RESOURCE_MANAGER_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 9] };
-pub const SECURITY_SCOPED_POLICY_ID_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 17] };
-pub const SECURITY_STATIC_TRACKING: super::Foundation::BOOLEAN = 0u8;
-pub const SECURITY_WORLD_SID_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 1] };
-pub const SEF_AVOID_OWNER_CHECK: SECURITY_AUTO_INHERIT_FLAGS = 16u32;
-pub const SEF_AVOID_OWNER_RESTRICTION: SECURITY_AUTO_INHERIT_FLAGS = 4096u32;
-pub const SEF_AVOID_PRIVILEGE_CHECK: SECURITY_AUTO_INHERIT_FLAGS = 8u32;
-pub const SEF_DACL_AUTO_INHERIT: SECURITY_AUTO_INHERIT_FLAGS = 1u32;
-pub const SEF_DEFAULT_DESCRIPTOR_FOR_OBJECT: SECURITY_AUTO_INHERIT_FLAGS = 4u32;
-pub const SEF_DEFAULT_GROUP_FROM_PARENT: SECURITY_AUTO_INHERIT_FLAGS = 64u32;
-pub const SEF_DEFAULT_OWNER_FROM_PARENT: SECURITY_AUTO_INHERIT_FLAGS = 32u32;
-pub const SEF_MACL_NO_EXECUTE_UP: SECURITY_AUTO_INHERIT_FLAGS = 1024u32;
-pub const SEF_MACL_NO_READ_UP: SECURITY_AUTO_INHERIT_FLAGS = 512u32;
-pub const SEF_MACL_NO_WRITE_UP: SECURITY_AUTO_INHERIT_FLAGS = 256u32;
-pub const SEF_SACL_AUTO_INHERIT: SECURITY_AUTO_INHERIT_FLAGS = 2u32;
-pub const SE_ASSIGNPRIMARYTOKEN_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeAssignPrimaryTokenPrivilege");
-pub const SE_AUDIT_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeAuditPrivilege");
-pub const SE_BACKUP_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeBackupPrivilege");
-pub const SE_CHANGE_NOTIFY_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeChangeNotifyPrivilege");
-pub const SE_CREATE_GLOBAL_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeCreateGlobalPrivilege");
-pub const SE_CREATE_PAGEFILE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeCreatePagefilePrivilege");
-pub const SE_CREATE_PERMANENT_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeCreatePermanentPrivilege");
-pub const SE_CREATE_SYMBOLIC_LINK_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeCreateSymbolicLinkPrivilege");
-pub const SE_CREATE_TOKEN_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeCreateTokenPrivilege");
-pub const SE_DACL_AUTO_INHERITED: SECURITY_DESCRIPTOR_CONTROL = 1024u16;
-pub const SE_DACL_AUTO_INHERIT_REQ: SECURITY_DESCRIPTOR_CONTROL = 256u16;
-pub const SE_DACL_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = 8u16;
-pub const SE_DACL_PRESENT: SECURITY_DESCRIPTOR_CONTROL = 4u16;
-pub const SE_DACL_PROTECTED: SECURITY_DESCRIPTOR_CONTROL = 4096u16;
-pub const SE_DEBUG_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeDebugPrivilege");
-pub const SE_DELEGATE_SESSION_USER_IMPERSONATE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeDelegateSessionUserImpersonatePrivilege");
-pub const SE_ENABLE_DELEGATION_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeEnableDelegationPrivilege");
-pub const SE_GROUP_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = 2u16;
-pub const SE_IMPERSONATE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeImpersonatePrivilege");
-pub const SE_INCREASE_QUOTA_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeIncreaseQuotaPrivilege");
-pub const SE_INC_BASE_PRIORITY_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeIncreaseBasePriorityPrivilege");
-pub const SE_INC_WORKING_SET_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeIncreaseWorkingSetPrivilege");
-pub const SE_LOAD_DRIVER_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeLoadDriverPrivilege");
-pub const SE_LOCK_MEMORY_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeLockMemoryPrivilege");
-pub const SE_MACHINE_ACCOUNT_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeMachineAccountPrivilege");
-pub const SE_MANAGE_VOLUME_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeManageVolumePrivilege");
-pub const SE_OWNER_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = 1u16;
-pub const SE_PRIVILEGE_ENABLED: TOKEN_PRIVILEGES_ATTRIBUTES = 2u32;
-pub const SE_PRIVILEGE_ENABLED_BY_DEFAULT: TOKEN_PRIVILEGES_ATTRIBUTES = 1u32;
-pub const SE_PRIVILEGE_REMOVED: TOKEN_PRIVILEGES_ATTRIBUTES = 4u32;
-pub const SE_PRIVILEGE_USED_FOR_ACCESS: TOKEN_PRIVILEGES_ATTRIBUTES = 2147483648u32;
-pub const SE_PROF_SINGLE_PROCESS_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeProfileSingleProcessPrivilege");
-pub const SE_RELABEL_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeRelabelPrivilege");
-pub const SE_REMOTE_SHUTDOWN_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeRemoteShutdownPrivilege");
-pub const SE_RESTORE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeRestorePrivilege");
-pub const SE_RM_CONTROL_VALID: SECURITY_DESCRIPTOR_CONTROL = 16384u16;
-pub const SE_SACL_AUTO_INHERITED: SECURITY_DESCRIPTOR_CONTROL = 2048u16;
-pub const SE_SACL_AUTO_INHERIT_REQ: SECURITY_DESCRIPTOR_CONTROL = 512u16;
-pub const SE_SACL_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = 32u16;
-pub const SE_SACL_PRESENT: SECURITY_DESCRIPTOR_CONTROL = 16u16;
-pub const SE_SACL_PROTECTED: SECURITY_DESCRIPTOR_CONTROL = 8192u16;
-pub const SE_SECURITY_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeSecurityPrivilege");
-pub const SE_SELF_RELATIVE: SECURITY_DESCRIPTOR_CONTROL = 32768u16;
-pub const SE_SHUTDOWN_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeShutdownPrivilege");
-pub const SE_SYNC_AGENT_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeSyncAgentPrivilege");
-pub const SE_SYSTEMTIME_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeSystemtimePrivilege");
-pub const SE_SYSTEM_ENVIRONMENT_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeSystemEnvironmentPrivilege");
-pub const SE_SYSTEM_PROFILE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeSystemProfilePrivilege");
-pub const SE_TAKE_OWNERSHIP_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeTakeOwnershipPrivilege");
-pub const SE_TCB_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeTcbPrivilege");
-pub const SE_TIME_ZONE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeTimeZonePrivilege");
-pub const SE_TRUSTED_CREDMAN_ACCESS_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeTrustedCredManAccessPrivilege");
-pub const SE_UNDOCK_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeUndockPrivilege");
-pub const SE_UNSOLICITED_INPUT_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SeUnsolicitedInputPrivilege");
-pub const SIGNING_LEVEL_FILE_CACHE_FLAG_NOT_VALIDATED: u32 = 1u32;
-pub const SIGNING_LEVEL_FILE_CACHE_FLAG_VALIDATE_ONLY: u32 = 4u32;
-pub const SIGNING_LEVEL_MICROSOFT: u32 = 8u32;
-pub const SUB_CONTAINERS_AND_OBJECTS_INHERIT: ACE_FLAGS = 3u32;
-pub const SUB_CONTAINERS_ONLY_INHERIT: ACE_FLAGS = 2u32;
-pub const SUB_OBJECTS_ONLY_INHERIT: ACE_FLAGS = 1u32;
-pub const SUCCESSFUL_ACCESS_ACE_FLAG: ACE_FLAGS = 64u32;
-pub const SecurityAnonymous: SECURITY_IMPERSONATION_LEVEL = 0i32;
-pub const SecurityDelegation: SECURITY_IMPERSONATION_LEVEL = 3i32;
-pub const SecurityIdentification: SECURITY_IMPERSONATION_LEVEL = 1i32;
-pub const SecurityImpersonation: SECURITY_IMPERSONATION_LEVEL = 2i32;
-pub const SidTypeAlias: SID_NAME_USE = 4i32;
-pub const SidTypeComputer: SID_NAME_USE = 9i32;
-pub const SidTypeDeletedAccount: SID_NAME_USE = 6i32;
-pub const SidTypeDomain: SID_NAME_USE = 3i32;
-pub const SidTypeGroup: SID_NAME_USE = 2i32;
-pub const SidTypeInvalid: SID_NAME_USE = 7i32;
-pub const SidTypeLabel: SID_NAME_USE = 10i32;
-pub const SidTypeLogonSession: SID_NAME_USE = 11i32;
-pub const SidTypeUnknown: SID_NAME_USE = 8i32;
-pub const SidTypeUser: SID_NAME_USE = 1i32;
-pub const SidTypeWellKnownGroup: SID_NAME_USE = 5i32;
-pub const TOKEN_ACCESS_PSEUDO_HANDLE: TOKEN_ACCESS_MASK = 24u32;
-pub const TOKEN_ACCESS_PSEUDO_HANDLE_WIN8: TOKEN_ACCESS_MASK = 24u32;
-pub const TOKEN_ACCESS_SYSTEM_SECURITY: TOKEN_ACCESS_MASK = 16777216u32;
-pub const TOKEN_ADJUST_DEFAULT: TOKEN_ACCESS_MASK = 128u32;
-pub const TOKEN_ADJUST_GROUPS: TOKEN_ACCESS_MASK = 64u32;
-pub const TOKEN_ADJUST_PRIVILEGES: TOKEN_ACCESS_MASK = 32u32;
-pub const TOKEN_ADJUST_SESSIONID: TOKEN_ACCESS_MASK = 256u32;
-pub const TOKEN_ALL_ACCESS: TOKEN_ACCESS_MASK = 983551u32;
-pub const TOKEN_ASSIGN_PRIMARY: TOKEN_ACCESS_MASK = 1u32;
-pub const TOKEN_DELETE: TOKEN_ACCESS_MASK = 65536u32;
-pub const TOKEN_DUPLICATE: TOKEN_ACCESS_MASK = 2u32;
-pub const TOKEN_EXECUTE: TOKEN_ACCESS_MASK = 131072u32;
-pub const TOKEN_IMPERSONATE: TOKEN_ACCESS_MASK = 4u32;
-pub const TOKEN_MANDATORY_POLICY_NEW_PROCESS_MIN: TOKEN_MANDATORY_POLICY_ID = 2u32;
-pub const TOKEN_MANDATORY_POLICY_NO_WRITE_UP: TOKEN_MANDATORY_POLICY_ID = 1u32;
-pub const TOKEN_MANDATORY_POLICY_OFF: TOKEN_MANDATORY_POLICY_ID = 0u32;
-pub const TOKEN_MANDATORY_POLICY_VALID_MASK: TOKEN_MANDATORY_POLICY_ID = 3u32;
-pub const TOKEN_QUERY: TOKEN_ACCESS_MASK = 8u32;
-pub const TOKEN_QUERY_SOURCE: TOKEN_ACCESS_MASK = 16u32;
-pub const TOKEN_READ: TOKEN_ACCESS_MASK = 131080u32;
-pub const TOKEN_READ_CONTROL: TOKEN_ACCESS_MASK = 131072u32;
-pub const TOKEN_TRUST_CONSTRAINT_MASK: TOKEN_ACCESS_MASK = 131096u32;
 pub const TOKEN_WRITE: TOKEN_ACCESS_MASK = 131296u32;
 pub const TOKEN_WRITE_DAC: TOKEN_ACCESS_MASK = 262144u32;
 pub const TOKEN_WRITE_OWNER: TOKEN_ACCESS_MASK = 524288u32;
@@ -1008,6 +1007,7 @@ pub const TokenVirtualizationAllowed: TOKEN_INFORMATION_CLASS = 23i32;
 pub const TokenVirtualizationEnabled: TOKEN_INFORMATION_CLASS = 24i32;
 pub const UNPROTECTED_DACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 536870912u32;
 pub const UNPROTECTED_SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 268435456u32;
+pub type WELL_KNOWN_SID_TYPE = i32;
 pub const WRITE_RESTRICTED: CREATE_RESTRICTED_TOKEN_FLAGS = 8u32;
 pub const WinAccountAdministratorSid: WELL_KNOWN_SID_TYPE = 38i32;
 pub const WinAccountCertAdminsSid: WELL_KNOWN_SID_TYPE = 46i32;

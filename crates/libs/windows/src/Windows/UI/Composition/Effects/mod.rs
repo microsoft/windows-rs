@@ -1,3 +1,37 @@
+windows_core::imp::define_interface!(ISceneLightingEffect, ISceneLightingEffect_Vtbl, 0x91bb5e52_95d1_4f8b_9a5a_6408b24b8c6a);
+impl windows_core::RuntimeType for ISceneLightingEffect {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneLightingEffect_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub AmbientAmount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub SetAmbientAmount: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub DiffuseAmount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub SetDiffuseAmount: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    #[cfg(feature = "Graphics_Effects")]
+    pub NormalMapSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_Effects"))]
+    NormalMapSource: usize,
+    #[cfg(feature = "Graphics_Effects")]
+    pub SetNormalMapSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_Effects"))]
+    SetNormalMapSource: usize,
+    pub SpecularAmount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub SetSpecularAmount: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub SpecularShine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub SetSpecularShine: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISceneLightingEffect2, ISceneLightingEffect2_Vtbl, 0x9e270e81_72f0_4c5c_95f8_8a6e0024f409);
+impl windows_core::RuntimeType for ISceneLightingEffect2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneLightingEffect2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ReflectanceModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SceneLightingEffectReflectanceModel) -> windows_core::HRESULT,
+    pub SetReflectanceModel: unsafe extern "system" fn(*mut core::ffi::c_void, SceneLightingEffectReflectanceModel) -> windows_core::HRESULT,
+}
 #[cfg(feature = "Graphics_Effects")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -113,40 +147,6 @@ impl windows_core::RuntimeName for SceneLightingEffect {
 unsafe impl Send for SceneLightingEffect {}
 #[cfg(feature = "Graphics_Effects")]
 unsafe impl Sync for SceneLightingEffect {}
-windows_core::imp::define_interface!(ISceneLightingEffect, ISceneLightingEffect_Vtbl, 0x91bb5e52_95d1_4f8b_9a5a_6408b24b8c6a);
-impl windows_core::RuntimeType for ISceneLightingEffect {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneLightingEffect_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub AmbientAmount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetAmbientAmount: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub DiffuseAmount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetDiffuseAmount: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    #[cfg(feature = "Graphics_Effects")]
-    pub NormalMapSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Graphics_Effects"))]
-    NormalMapSource: usize,
-    #[cfg(feature = "Graphics_Effects")]
-    pub SetNormalMapSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Graphics_Effects"))]
-    SetNormalMapSource: usize,
-    pub SpecularAmount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetSpecularAmount: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub SpecularShine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetSpecularShine: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISceneLightingEffect2, ISceneLightingEffect2_Vtbl, 0x9e270e81_72f0_4c5c_95f8_8a6e0024f409);
-impl windows_core::RuntimeType for ISceneLightingEffect2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneLightingEffect2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ReflectanceModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SceneLightingEffectReflectanceModel) -> windows_core::HRESULT,
-    pub SetReflectanceModel: unsafe extern "system" fn(*mut core::ffi::c_void, SceneLightingEffectReflectanceModel) -> windows_core::HRESULT,
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SceneLightingEffectReflectanceModel(pub i32);

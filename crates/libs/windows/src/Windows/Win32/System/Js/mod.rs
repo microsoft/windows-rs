@@ -53,22 +53,22 @@ pub unsafe fn JsCreateArray(length: u32, result: *mut *mut core::ffi::c_void) ->
     windows_targets::link!("chakra.dll" "system" fn JsCreateArray(length : u32, result : *mut *mut core::ffi::c_void) -> JsErrorCode);
     JsCreateArray(core::mem::transmute(length), core::mem::transmute(result))
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
-#[inline]
-pub unsafe fn JsCreateContext<P1>(runtime: *const core::ffi::c_void, debugapplication: P1, newcontext: *mut *mut core::ffi::c_void) -> JsErrorCode
-where
-    P1: windows_core::Param<super::Diagnostics::Debug::ActiveScript::IDebugApplication64>,
-{
-    windows_targets::link!("chakra.dll" "system" fn JsCreateContext(runtime : *const core::ffi::c_void, debugapplication : * mut core::ffi::c_void, newcontext : *mut *mut core::ffi::c_void) -> JsErrorCode);
-    JsCreateContext(core::mem::transmute(runtime), debugapplication.param().abi(), core::mem::transmute(newcontext))
-}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
 #[inline]
 pub unsafe fn JsCreateContext<P1>(runtime: *const core::ffi::c_void, debugapplication: P1, newcontext: *mut *mut core::ffi::c_void) -> JsErrorCode
 where
     P1: windows_core::Param<super::Diagnostics::Debug::ActiveScript::IDebugApplication32>,
+{
+    windows_targets::link!("chakra.dll" "system" fn JsCreateContext(runtime : *const core::ffi::c_void, debugapplication : * mut core::ffi::c_void, newcontext : *mut *mut core::ffi::c_void) -> JsErrorCode);
+    JsCreateContext(core::mem::transmute(runtime), debugapplication.param().abi(), core::mem::transmute(newcontext))
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
+#[inline]
+pub unsafe fn JsCreateContext<P1>(runtime: *const core::ffi::c_void, debugapplication: P1, newcontext: *mut *mut core::ffi::c_void) -> JsErrorCode
+where
+    P1: windows_core::Param<super::Diagnostics::Debug::ActiveScript::IDebugApplication64>,
 {
     windows_targets::link!("chakra.dll" "system" fn JsCreateContext(runtime : *const core::ffi::c_void, debugapplication : * mut core::ffi::c_void, newcontext : *mut *mut core::ffi::c_void) -> JsErrorCode);
     JsCreateContext(core::mem::transmute(runtime), debugapplication.param().abi(), core::mem::transmute(newcontext))
@@ -426,22 +426,22 @@ pub unsafe fn JsSetRuntimeMemoryLimit(runtime: *const core::ffi::c_void, memoryl
     windows_targets::link!("chakra.dll" "system" fn JsSetRuntimeMemoryLimit(runtime : *const core::ffi::c_void, memorylimit : usize) -> JsErrorCode);
     JsSetRuntimeMemoryLimit(core::mem::transmute(runtime), core::mem::transmute(memorylimit))
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
-#[inline]
-pub unsafe fn JsStartDebugging<P0>(debugapplication: P0) -> JsErrorCode
-where
-    P0: windows_core::Param<super::Diagnostics::Debug::ActiveScript::IDebugApplication64>,
-{
-    windows_targets::link!("chakra.dll" "system" fn JsStartDebugging(debugapplication : * mut core::ffi::c_void) -> JsErrorCode);
-    JsStartDebugging(debugapplication.param().abi())
-}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
 #[inline]
 pub unsafe fn JsStartDebugging<P0>(debugapplication: P0) -> JsErrorCode
 where
     P0: windows_core::Param<super::Diagnostics::Debug::ActiveScript::IDebugApplication32>,
+{
+    windows_targets::link!("chakra.dll" "system" fn JsStartDebugging(debugapplication : * mut core::ffi::c_void) -> JsErrorCode);
+    JsStartDebugging(debugapplication.param().abi())
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
+#[inline]
+pub unsafe fn JsStartDebugging<P0>(debugapplication: P0) -> JsErrorCode
+where
+    P0: windows_core::Param<super::Diagnostics::Debug::ActiveScript::IDebugApplication64>,
 {
     windows_targets::link!("chakra.dll" "system" fn JsStartDebugging(debugapplication : * mut core::ffi::c_void) -> JsErrorCode);
     JsStartDebugging(debugapplication.param().abi())
@@ -482,29 +482,10 @@ pub unsafe fn JsVariantToValue(variant: *const super::Variant::VARIANT, value: *
     windows_targets::link!("chakra.dll" "system" fn JsVariantToValue(variant : *const super::Variant:: VARIANT, value : *mut *mut core::ffi::c_void) -> JsErrorCode);
     JsVariantToValue(core::mem::transmute(variant), core::mem::transmute(value))
 }
-pub type JsBackgroundWorkItemCallback = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void)>;
-pub type JsBeforeCollectCallback = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void)>;
-pub type JsFinalizeCallback = Option<unsafe extern "system" fn(data: *const core::ffi::c_void)>;
-pub type JsMemoryAllocationCallback = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void, allocationevent: JsMemoryEventType, allocationsize: usize) -> bool>;
-pub type JsNativeFunction = Option<unsafe extern "system" fn(callee: *const core::ffi::c_void, isconstructcall: bool, arguments: *const *const core::ffi::c_void, argumentcount: u16, callbackstate: *const core::ffi::c_void) -> *mut core::ffi::c_void>;
-pub type JsThreadServiceCallback = Option<unsafe extern "system" fn(callback: JsBackgroundWorkItemCallback, callbackstate: *const core::ffi::c_void) -> bool>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct JsErrorCode(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct JsMemoryEventType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct JsRuntimeAttributes(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct JsRuntimeVersion(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct JsValueType(pub i32);
 pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615u64;
 pub const JsArray: JsValueType = JsValueType(8i32);
+pub type JsBackgroundWorkItemCallback = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void)>;
+pub type JsBeforeCollectCallback = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void)>;
 pub const JsBoolean: JsValueType = JsValueType(4i32);
 pub const JsError: JsValueType = JsValueType(7i32);
 pub const JsErrorAlreadyDebuggingContext: JsErrorCode = JsErrorCode(65552u32);
@@ -517,6 +498,9 @@ pub const JsErrorCategoryEngine: JsErrorCode = JsErrorCode(131072u32);
 pub const JsErrorCategoryFatal: JsErrorCode = JsErrorCode(262144u32);
 pub const JsErrorCategoryScript: JsErrorCode = JsErrorCode(196608u32);
 pub const JsErrorCategoryUsage: JsErrorCode = JsErrorCode(65536u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct JsErrorCode(pub u32);
 pub const JsErrorFatal: JsErrorCode = JsErrorCode(262145u32);
 pub const JsErrorHeapEnumInProgress: JsErrorCode = JsErrorCode(65547u32);
 pub const JsErrorIdleNotEnabled: JsErrorCode = JsErrorCode(65554u32);
@@ -535,10 +519,16 @@ pub const JsErrorScriptEvalDisabled: JsErrorCode = JsErrorCode(196612u32);
 pub const JsErrorScriptException: JsErrorCode = JsErrorCode(196609u32);
 pub const JsErrorScriptTerminated: JsErrorCode = JsErrorCode(196611u32);
 pub const JsErrorWrongThread: JsErrorCode = JsErrorCode(65542u32);
+pub type JsFinalizeCallback = Option<unsafe extern "system" fn(data: *const core::ffi::c_void)>;
 pub const JsFunction: JsValueType = JsValueType(6i32);
 pub const JsMemoryAllocate: JsMemoryEventType = JsMemoryEventType(0i32);
+pub type JsMemoryAllocationCallback = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void, allocationevent: JsMemoryEventType, allocationsize: usize) -> bool>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct JsMemoryEventType(pub i32);
 pub const JsMemoryFailure: JsMemoryEventType = JsMemoryEventType(2i32);
 pub const JsMemoryFree: JsMemoryEventType = JsMemoryEventType(1i32);
+pub type JsNativeFunction = Option<unsafe extern "system" fn(callee: *const core::ffi::c_void, isconstructcall: bool, arguments: *const *const core::ffi::c_void, argumentcount: u16, callbackstate: *const core::ffi::c_void) -> *mut core::ffi::c_void>;
 pub const JsNoError: JsErrorCode = JsErrorCode(0u32);
 pub const JsNull: JsValueType = JsValueType(1i32);
 pub const JsNumber: JsValueType = JsValueType(2i32);
@@ -549,8 +539,18 @@ pub const JsRuntimeAttributeDisableEval: JsRuntimeAttributes = JsRuntimeAttribut
 pub const JsRuntimeAttributeDisableNativeCodeGeneration: JsRuntimeAttributes = JsRuntimeAttributes(8i32);
 pub const JsRuntimeAttributeEnableIdleProcessing: JsRuntimeAttributes = JsRuntimeAttributes(4i32);
 pub const JsRuntimeAttributeNone: JsRuntimeAttributes = JsRuntimeAttributes(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct JsRuntimeAttributes(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct JsRuntimeVersion(pub i32);
 pub const JsRuntimeVersion10: JsRuntimeVersion = JsRuntimeVersion(0i32);
 pub const JsRuntimeVersion11: JsRuntimeVersion = JsRuntimeVersion(1i32);
 pub const JsRuntimeVersionEdge: JsRuntimeVersion = JsRuntimeVersion(-1i32);
 pub const JsString: JsValueType = JsValueType(3i32);
+pub type JsThreadServiceCallback = Option<unsafe extern "system" fn(callback: JsBackgroundWorkItemCallback, callbackstate: *const core::ffi::c_void) -> bool>;
 pub const JsUndefined: JsValueType = JsValueType(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct JsValueType(pub i32);

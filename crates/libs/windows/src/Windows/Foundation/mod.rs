@@ -6,6 +6,499 @@ pub mod Diagnostics;
 pub mod Metadata;
 #[cfg(feature = "Foundation_Numerics")]
 pub mod Numerics;
+windows_core::imp::define_interface!(AsyncActionCompletedHandler, AsyncActionCompletedHandler_Vtbl, 0xa4ed5c81_76c9_40bd_8be6_b1d90fb20ae7);
+impl windows_core::RuntimeType for AsyncActionCompletedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl AsyncActionCompletedHandler {
+    pub fn new<F: FnMut(Option<&IAsyncAction>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = AsyncActionCompletedHandlerBox { vtable: &AsyncActionCompletedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
+    pub fn Invoke<P0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<IAsyncAction>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), asyncinfo.param().abi(), asyncstatus).ok() }
+    }
+}
+#[repr(C)]
+pub struct AsyncActionCompletedHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, asyncstatus: AsyncStatus) -> windows_core::HRESULT,
+}
+#[repr(C)]
+struct AsyncActionCompletedHandlerBox<F: FnMut(Option<&IAsyncAction>, AsyncStatus) -> windows_core::Result<()> + Send + 'static> {
+    vtable: *const AsyncActionCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+impl<F: FnMut(Option<&IAsyncAction>, AsyncStatus) -> windows_core::Result<()> + Send + 'static> AsyncActionCompletedHandlerBox<F> {
+    const VTABLE: AsyncActionCompletedHandler_Vtbl = AsyncActionCompletedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <AsyncActionCompletedHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+        if (*interface).is_null() {
+            windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, asyncstatus: AsyncStatus) -> windows_core::HRESULT {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&asyncinfo), asyncstatus).into()
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct AsyncActionProgressHandler<TProgress>(windows_core::IUnknown, core::marker::PhantomData<TProgress>)
+where
+    TProgress: windows_core::RuntimeType + 'static;
+unsafe impl<TProgress: windows_core::RuntimeType + 'static> windows_core::Interface for AsyncActionProgressHandler<TProgress> {
+    type Vtable = AsyncActionProgressHandler_Vtbl<TProgress>;
+    const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+}
+impl<TProgress: windows_core::RuntimeType + 'static> windows_core::RuntimeType for AsyncActionProgressHandler<TProgress> {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({6d844858-0cff-4590-ae89-95a5a5c8b4b8}").push_slice(b";").push_other(TProgress::SIGNATURE).push_slice(b")");
+}
+impl<TProgress: windows_core::RuntimeType + 'static> AsyncActionProgressHandler<TProgress> {
+    pub fn new<F: FnMut(Option<&IAsyncActionWithProgress<TProgress>>, &<TProgress as windows_core::Type<TProgress>>::Default) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = AsyncActionProgressHandlerBox { vtable: &AsyncActionProgressHandlerBox::<TProgress, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
+    pub fn Invoke<P0, P1>(&self, asyncinfo: P0, progressinfo: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<IAsyncActionWithProgress<TProgress>>,
+        P1: windows_core::Param<TProgress>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), asyncinfo.param().abi(), progressinfo.param().abi()).ok() }
+    }
+}
+#[repr(C)]
+pub struct AsyncActionProgressHandler_Vtbl<TProgress>
+where
+    TProgress: windows_core::RuntimeType + 'static,
+{
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, progressinfo: windows_core::AbiType<TProgress>) -> windows_core::HRESULT,
+    TProgress: core::marker::PhantomData<TProgress>,
+}
+#[repr(C)]
+struct AsyncActionProgressHandlerBox<TProgress, F: FnMut(Option<&IAsyncActionWithProgress<TProgress>>, &<TProgress as windows_core::Type<TProgress>>::Default) -> windows_core::Result<()> + Send + 'static>
+where
+    TProgress: windows_core::RuntimeType + 'static,
+{
+    vtable: *const AsyncActionProgressHandler_Vtbl<TProgress>,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+impl<TProgress: windows_core::RuntimeType + 'static, F: FnMut(Option<&IAsyncActionWithProgress<TProgress>>, &<TProgress as windows_core::Type<TProgress>>::Default) -> windows_core::Result<()> + Send + 'static> AsyncActionProgressHandlerBox<TProgress, F> {
+    const VTABLE: AsyncActionProgressHandler_Vtbl<TProgress> = AsyncActionProgressHandler_Vtbl::<TProgress> {
+        base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+        TProgress: core::marker::PhantomData::<TProgress>,
+    };
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <AsyncActionProgressHandler<TProgress> as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+        if (*interface).is_null() {
+            windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, progressinfo: windows_core::AbiType<TProgress>) -> windows_core::HRESULT {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&asyncinfo), core::mem::transmute(&progressinfo)).into()
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct AsyncActionWithProgressCompletedHandler<TProgress>(windows_core::IUnknown, core::marker::PhantomData<TProgress>)
+where
+    TProgress: windows_core::RuntimeType + 'static;
+unsafe impl<TProgress: windows_core::RuntimeType + 'static> windows_core::Interface for AsyncActionWithProgressCompletedHandler<TProgress> {
+    type Vtable = AsyncActionWithProgressCompletedHandler_Vtbl<TProgress>;
+    const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+}
+impl<TProgress: windows_core::RuntimeType + 'static> windows_core::RuntimeType for AsyncActionWithProgressCompletedHandler<TProgress> {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({9c029f91-cc84-44fd-ac26-0a6c4e555281}").push_slice(b";").push_other(TProgress::SIGNATURE).push_slice(b")");
+}
+impl<TProgress: windows_core::RuntimeType + 'static> AsyncActionWithProgressCompletedHandler<TProgress> {
+    pub fn new<F: FnMut(Option<&IAsyncActionWithProgress<TProgress>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = AsyncActionWithProgressCompletedHandlerBox { vtable: &AsyncActionWithProgressCompletedHandlerBox::<TProgress, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
+    pub fn Invoke<P0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<IAsyncActionWithProgress<TProgress>>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), asyncinfo.param().abi(), asyncstatus).ok() }
+    }
+}
+#[repr(C)]
+pub struct AsyncActionWithProgressCompletedHandler_Vtbl<TProgress>
+where
+    TProgress: windows_core::RuntimeType + 'static,
+{
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, asyncstatus: AsyncStatus) -> windows_core::HRESULT,
+    TProgress: core::marker::PhantomData<TProgress>,
+}
+#[repr(C)]
+struct AsyncActionWithProgressCompletedHandlerBox<TProgress, F: FnMut(Option<&IAsyncActionWithProgress<TProgress>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>
+where
+    TProgress: windows_core::RuntimeType + 'static,
+{
+    vtable: *const AsyncActionWithProgressCompletedHandler_Vtbl<TProgress>,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+impl<TProgress: windows_core::RuntimeType + 'static, F: FnMut(Option<&IAsyncActionWithProgress<TProgress>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static> AsyncActionWithProgressCompletedHandlerBox<TProgress, F> {
+    const VTABLE: AsyncActionWithProgressCompletedHandler_Vtbl<TProgress> = AsyncActionWithProgressCompletedHandler_Vtbl::<TProgress> {
+        base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+        TProgress: core::marker::PhantomData::<TProgress>,
+    };
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <AsyncActionWithProgressCompletedHandler<TProgress> as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+        if (*interface).is_null() {
+            windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, asyncstatus: AsyncStatus) -> windows_core::HRESULT {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&asyncinfo), asyncstatus).into()
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct AsyncOperationCompletedHandler<TResult>(windows_core::IUnknown, core::marker::PhantomData<TResult>)
+where
+    TResult: windows_core::RuntimeType + 'static;
+unsafe impl<TResult: windows_core::RuntimeType + 'static> windows_core::Interface for AsyncOperationCompletedHandler<TResult> {
+    type Vtable = AsyncOperationCompletedHandler_Vtbl<TResult>;
+    const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+}
+impl<TResult: windows_core::RuntimeType + 'static> windows_core::RuntimeType for AsyncOperationCompletedHandler<TResult> {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({fcdcf02c-e5d8-4478-915a-4d90b74b83a5}").push_slice(b";").push_other(TResult::SIGNATURE).push_slice(b")");
+}
+impl<TResult: windows_core::RuntimeType + 'static> AsyncOperationCompletedHandler<TResult> {
+    pub fn new<F: FnMut(Option<&IAsyncOperation<TResult>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = AsyncOperationCompletedHandlerBox { vtable: &AsyncOperationCompletedHandlerBox::<TResult, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
+    pub fn Invoke<P0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<IAsyncOperation<TResult>>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), asyncinfo.param().abi(), asyncstatus).ok() }
+    }
+}
+#[repr(C)]
+pub struct AsyncOperationCompletedHandler_Vtbl<TResult>
+where
+    TResult: windows_core::RuntimeType + 'static,
+{
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, asyncstatus: AsyncStatus) -> windows_core::HRESULT,
+    TResult: core::marker::PhantomData<TResult>,
+}
+#[repr(C)]
+struct AsyncOperationCompletedHandlerBox<TResult, F: FnMut(Option<&IAsyncOperation<TResult>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>
+where
+    TResult: windows_core::RuntimeType + 'static,
+{
+    vtable: *const AsyncOperationCompletedHandler_Vtbl<TResult>,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+impl<TResult: windows_core::RuntimeType + 'static, F: FnMut(Option<&IAsyncOperation<TResult>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static> AsyncOperationCompletedHandlerBox<TResult, F> {
+    const VTABLE: AsyncOperationCompletedHandler_Vtbl<TResult> = AsyncOperationCompletedHandler_Vtbl::<TResult> {
+        base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+        TResult: core::marker::PhantomData::<TResult>,
+    };
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <AsyncOperationCompletedHandler<TResult> as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+        if (*interface).is_null() {
+            windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, asyncstatus: AsyncStatus) -> windows_core::HRESULT {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&asyncinfo), asyncstatus).into()
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct AsyncOperationProgressHandler<TResult, TProgress>(windows_core::IUnknown, core::marker::PhantomData<TResult>, core::marker::PhantomData<TProgress>)
+where
+    TResult: windows_core::RuntimeType + 'static,
+    TProgress: windows_core::RuntimeType + 'static;
+unsafe impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> windows_core::Interface for AsyncOperationProgressHandler<TResult, TProgress> {
+    type Vtable = AsyncOperationProgressHandler_Vtbl<TResult, TProgress>;
+    const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+}
+impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> windows_core::RuntimeType for AsyncOperationProgressHandler<TResult, TProgress> {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({55690902-0aab-421a-8778-f8ce5026d758}").push_slice(b";").push_other(TResult::SIGNATURE).push_slice(b";").push_other(TProgress::SIGNATURE).push_slice(b")");
+}
+impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> AsyncOperationProgressHandler<TResult, TProgress> {
+    pub fn new<F: FnMut(Option<&IAsyncOperationWithProgress<TResult, TProgress>>, &<TProgress as windows_core::Type<TProgress>>::Default) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = AsyncOperationProgressHandlerBox { vtable: &AsyncOperationProgressHandlerBox::<TResult, TProgress, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
+    pub fn Invoke<P0, P1>(&self, asyncinfo: P0, progressinfo: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<IAsyncOperationWithProgress<TResult, TProgress>>,
+        P1: windows_core::Param<TProgress>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), asyncinfo.param().abi(), progressinfo.param().abi()).ok() }
+    }
+}
+#[repr(C)]
+pub struct AsyncOperationProgressHandler_Vtbl<TResult, TProgress>
+where
+    TResult: windows_core::RuntimeType + 'static,
+    TProgress: windows_core::RuntimeType + 'static,
+{
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, progressinfo: windows_core::AbiType<TProgress>) -> windows_core::HRESULT,
+    TResult: core::marker::PhantomData<TResult>,
+    TProgress: core::marker::PhantomData<TProgress>,
+}
+#[repr(C)]
+struct AsyncOperationProgressHandlerBox<TResult, TProgress, F: FnMut(Option<&IAsyncOperationWithProgress<TResult, TProgress>>, &<TProgress as windows_core::Type<TProgress>>::Default) -> windows_core::Result<()> + Send + 'static>
+where
+    TResult: windows_core::RuntimeType + 'static,
+    TProgress: windows_core::RuntimeType + 'static,
+{
+    vtable: *const AsyncOperationProgressHandler_Vtbl<TResult, TProgress>,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static, F: FnMut(Option<&IAsyncOperationWithProgress<TResult, TProgress>>, &<TProgress as windows_core::Type<TProgress>>::Default) -> windows_core::Result<()> + Send + 'static> AsyncOperationProgressHandlerBox<TResult, TProgress, F> {
+    const VTABLE: AsyncOperationProgressHandler_Vtbl<TResult, TProgress> = AsyncOperationProgressHandler_Vtbl::<TResult, TProgress> {
+        base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+        TResult: core::marker::PhantomData::<TResult>,
+        TProgress: core::marker::PhantomData::<TProgress>,
+    };
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <AsyncOperationProgressHandler<TResult, TProgress> as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+        if (*interface).is_null() {
+            windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, progressinfo: windows_core::AbiType<TProgress>) -> windows_core::HRESULT {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&asyncinfo), core::mem::transmute(&progressinfo)).into()
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct AsyncOperationWithProgressCompletedHandler<TResult, TProgress>(windows_core::IUnknown, core::marker::PhantomData<TResult>, core::marker::PhantomData<TProgress>)
+where
+    TResult: windows_core::RuntimeType + 'static,
+    TProgress: windows_core::RuntimeType + 'static;
+unsafe impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> windows_core::Interface for AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {
+    type Vtable = AsyncOperationWithProgressCompletedHandler_Vtbl<TResult, TProgress>;
+    const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+}
+impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> windows_core::RuntimeType for AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({e85df41d-6aa7-46e3-a8e2-f009d840c627}").push_slice(b";").push_other(TResult::SIGNATURE).push_slice(b";").push_other(TProgress::SIGNATURE).push_slice(b")");
+}
+impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {
+    pub fn new<F: FnMut(Option<&IAsyncOperationWithProgress<TResult, TProgress>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = AsyncOperationWithProgressCompletedHandlerBox { vtable: &AsyncOperationWithProgressCompletedHandlerBox::<TResult, TProgress, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
+    pub fn Invoke<P0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<IAsyncOperationWithProgress<TResult, TProgress>>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), asyncinfo.param().abi(), asyncstatus).ok() }
+    }
+}
+#[repr(C)]
+pub struct AsyncOperationWithProgressCompletedHandler_Vtbl<TResult, TProgress>
+where
+    TResult: windows_core::RuntimeType + 'static,
+    TProgress: windows_core::RuntimeType + 'static,
+{
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, asyncstatus: AsyncStatus) -> windows_core::HRESULT,
+    TResult: core::marker::PhantomData<TResult>,
+    TProgress: core::marker::PhantomData<TProgress>,
+}
+#[repr(C)]
+struct AsyncOperationWithProgressCompletedHandlerBox<TResult, TProgress, F: FnMut(Option<&IAsyncOperationWithProgress<TResult, TProgress>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>
+where
+    TResult: windows_core::RuntimeType + 'static,
+    TProgress: windows_core::RuntimeType + 'static,
+{
+    vtable: *const AsyncOperationWithProgressCompletedHandler_Vtbl<TResult, TProgress>,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static, F: FnMut(Option<&IAsyncOperationWithProgress<TResult, TProgress>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static> AsyncOperationWithProgressCompletedHandlerBox<TResult, TProgress, F> {
+    const VTABLE: AsyncOperationWithProgressCompletedHandler_Vtbl<TResult, TProgress> = AsyncOperationWithProgressCompletedHandler_Vtbl::<TResult, TProgress> {
+        base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+        TResult: core::marker::PhantomData::<TResult>,
+        TProgress: core::marker::PhantomData::<TProgress>,
+    };
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <AsyncOperationWithProgressCompletedHandler<TResult, TProgress> as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+        if (*interface).is_null() {
+            windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, asyncstatus: AsyncStatus) -> windows_core::HRESULT {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&asyncinfo), asyncstatus).into()
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AsyncStatus(pub i32);
+impl AsyncStatus {
+    pub const Canceled: Self = Self(2i32);
+    pub const Completed: Self = Self(1i32);
+    pub const Error: Self = Self(3i32);
+    pub const Started: Self = Self(0i32);
+}
+impl windows_core::TypeKind for AsyncStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AsyncStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.AsyncStatus;i4)");
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DateTime {
+    pub UniversalTime: i64,
+}
+impl windows_core::TypeKind for DateTime {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DateTime {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.DateTime;i8)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Deferral(windows_core::IUnknown);
@@ -46,6 +539,154 @@ impl windows_core::RuntimeName for Deferral {
 }
 unsafe impl Send for Deferral {}
 unsafe impl Sync for Deferral {}
+windows_core::imp::define_interface!(DeferralCompletedHandler, DeferralCompletedHandler_Vtbl, 0xed32a372_f3c8_4faa_9cfb_470148da3888);
+impl windows_core::RuntimeType for DeferralCompletedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl DeferralCompletedHandler {
+    pub fn new<F: FnMut() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = DeferralCompletedHandlerBox { vtable: &DeferralCompletedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
+    pub fn Invoke(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this)).ok() }
+    }
+}
+#[repr(C)]
+pub struct DeferralCompletedHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[repr(C)]
+struct DeferralCompletedHandlerBox<F: FnMut() -> windows_core::Result<()> + Send + 'static> {
+    vtable: *const DeferralCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+impl<F: FnMut() -> windows_core::Result<()> + Send + 'static> DeferralCompletedHandlerBox<F> {
+    const VTABLE: DeferralCompletedHandler_Vtbl = DeferralCompletedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <DeferralCompletedHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+        if (*interface).is_null() {
+            windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)().into()
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct EventHandler<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
+where
+    T: windows_core::RuntimeType + 'static;
+unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for EventHandler<T> {
+    type Vtable = EventHandler_Vtbl<T>;
+    const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+}
+impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for EventHandler<T> {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({9de1c535-6ae1-11e0-84e1-18a905bcc53f}").push_slice(b";").push_other(T::SIGNATURE).push_slice(b")");
+}
+impl<T: windows_core::RuntimeType + 'static> EventHandler<T> {
+    pub fn new<F: FnMut(Option<&windows_core::IInspectable>, &<T as windows_core::Type<T>>::Default) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = EventHandlerBox { vtable: &EventHandlerBox::<T, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
+    pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+        P1: windows_core::Param<T>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), args.param().abi()).ok() }
+    }
+}
+#[repr(C)]
+pub struct EventHandler_Vtbl<T>
+where
+    T: windows_core::RuntimeType + 'static,
+{
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: windows_core::AbiType<T>) -> windows_core::HRESULT,
+    T: core::marker::PhantomData<T>,
+}
+#[repr(C)]
+struct EventHandlerBox<T, F: FnMut(Option<&windows_core::IInspectable>, &<T as windows_core::Type<T>>::Default) -> windows_core::Result<()> + Send + 'static>
+where
+    T: windows_core::RuntimeType + 'static,
+{
+    vtable: *const EventHandler_Vtbl<T>,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+impl<T: windows_core::RuntimeType + 'static, F: FnMut(Option<&windows_core::IInspectable>, &<T as windows_core::Type<T>>::Default) -> windows_core::Result<()> + Send + 'static> EventHandlerBox<T, F> {
+    const VTABLE: EventHandler_Vtbl<T> = EventHandler_Vtbl::<T> {
+        base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+        T: core::marker::PhantomData::<T>,
+    };
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <EventHandler<T> as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+        if (*interface).is_null() {
+            windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: windows_core::AbiType<T>) -> windows_core::HRESULT {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender), core::mem::transmute(&args)).into()
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct EventRegistrationToken {
+    pub Value: i64,
+}
+impl windows_core::TypeKind for EventRegistrationToken {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for EventRegistrationToken {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.EventRegistrationToken;i8)");
+}
 pub struct GuidHelper;
 impl GuidHelper {
     pub fn CreateNewGuid() -> windows_core::Result<windows_core::GUID> {
@@ -74,619 +715,6 @@ impl GuidHelper {
 impl windows_core::RuntimeName for GuidHelper {
     const NAME: &'static str = "Windows.Foundation.GuidHelper";
 }
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MemoryBuffer(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MemoryBuffer, windows_core::IUnknown, windows_core::IInspectable, IMemoryBuffer);
-windows_core::imp::required_hierarchy!(MemoryBuffer, IClosable);
-impl MemoryBuffer {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn CreateReference(&self) -> windows_core::Result<IMemoryBufferReference> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateReference)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Create(capacity: u32) -> windows_core::Result<MemoryBuffer> {
-        Self::IMemoryBufferFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), capacity, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IMemoryBufferFactory<R, F: FnOnce(&IMemoryBufferFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<MemoryBuffer, IMemoryBufferFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for MemoryBuffer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMemoryBuffer>();
-}
-unsafe impl windows_core::Interface for MemoryBuffer {
-    type Vtable = <IMemoryBuffer as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMemoryBuffer as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MemoryBuffer {
-    const NAME: &'static str = "Windows.Foundation.MemoryBuffer";
-}
-unsafe impl Send for MemoryBuffer {}
-unsafe impl Sync for MemoryBuffer {}
-pub struct PropertyValue;
-impl PropertyValue {
-    pub fn CreateEmpty() -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateEmpty)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateUInt8(value: u8) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateUInt8)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateInt16(value: i16) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInt16)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateUInt16(value: u16) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateUInt16)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateInt32(value: i32) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInt32)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateUInt32(value: u32) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateUInt32)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateInt64(value: i64) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInt64)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateUInt64(value: u64) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateUInt64)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateSingle(value: f32) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateSingle)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateDouble(value: f64) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateDouble)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateChar16(value: u16) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateChar16)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateBoolean(value: bool) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateBoolean)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateString(value: &windows_core::HSTRING) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateString)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateInspectable<P0>(value: P0) -> windows_core::Result<windows_core::IInspectable>
-    where
-        P0: windows_core::Param<windows_core::IInspectable>,
-    {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInspectable)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateGuid(value: windows_core::GUID) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateGuid)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateDateTime(value: DateTime) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateDateTime)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateTimeSpan(value: TimeSpan) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateTimeSpan)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreatePoint(value: Point) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreatePoint)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateSize(value: Size) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateSize)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateRect(value: Rect) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateRect)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateUInt8Array(value: &[u8]) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateUInt8Array)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateInt16Array(value: &[i16]) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInt16Array)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateUInt16Array(value: &[u16]) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateUInt16Array)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateInt32Array(value: &[i32]) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInt32Array)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateUInt32Array(value: &[u32]) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateUInt32Array)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateInt64Array(value: &[i64]) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInt64Array)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateUInt64Array(value: &[u64]) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateUInt64Array)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateSingleArray(value: &[f32]) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateSingleArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateDoubleArray(value: &[f64]) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateDoubleArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateChar16Array(value: &[u16]) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateChar16Array)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateBooleanArray(value: &[bool]) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateBooleanArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateStringArray(value: &[windows_core::HSTRING]) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateStringArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), core::mem::transmute(value.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateInspectableArray(value: &[Option<windows_core::IInspectable>]) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInspectableArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), core::mem::transmute(value.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateGuidArray(value: &[windows_core::GUID]) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateGuidArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateDateTimeArray(value: &[DateTime]) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateDateTimeArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateTimeSpanArray(value: &[TimeSpan]) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateTimeSpanArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreatePointArray(value: &[Point]) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreatePointArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateSizeArray(value: &[Size]) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateSizeArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateRectArray(value: &[Rect]) -> windows_core::Result<windows_core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateRectArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IPropertyValueStatics<R, F: FnOnce(&IPropertyValueStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<PropertyValue, IPropertyValueStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeName for PropertyValue {
-    const NAME: &'static str = "Windows.Foundation.PropertyValue";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct Uri(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(Uri, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(Uri, IStringable);
-impl Uri {
-    pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IStringable>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ToString)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn UnescapeComponent(tounescape: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
-        Self::IUriEscapeStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UnescapeComponent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tounescape), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn EscapeComponent(toescape: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
-        Self::IUriEscapeStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EscapeComponent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(toescape), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn AbsoluteUri(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AbsoluteUri)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn DisplayUri(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayUri)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Domain(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Domain)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Extension(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Extension)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Fragment(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Fragment)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Host(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Host)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Password(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Password)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Path(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Path)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Query(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Query)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn QueryParsed(&self) -> windows_core::Result<WwwFormUrlDecoder> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).QueryParsed)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn RawUri(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RawUri)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SchemeName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SchemeName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn UserName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UserName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Port(&self) -> windows_core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Port)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Suspicious(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Suspicious)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Equals<P0>(&self, puri: P0) -> windows_core::Result<bool>
-    where
-        P0: windows_core::Param<Uri>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Equals)(windows_core::Interface::as_raw(this), puri.param().abi(), &mut result__).map(|| result__)
-        }
-    }
-    pub fn CombineUri(&self, relativeuri: &windows_core::HSTRING) -> windows_core::Result<Uri> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CombineUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(relativeuri), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn CreateUri(uri: &windows_core::HSTRING) -> windows_core::Result<Uri> {
-        Self::IUriRuntimeClassFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(uri), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateWithRelativeUri(baseuri: &windows_core::HSTRING, relativeuri: &windows_core::HSTRING) -> windows_core::Result<Uri> {
-        Self::IUriRuntimeClassFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithRelativeUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(baseuri), core::mem::transmute_copy(relativeuri), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn AbsoluteCanonicalUri(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IUriRuntimeClassWithAbsoluteCanonicalUri>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AbsoluteCanonicalUri)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn DisplayIri(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IUriRuntimeClassWithAbsoluteCanonicalUri>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayIri)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    fn IUriEscapeStatics<R, F: FnOnce(&IUriEscapeStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<Uri, IUriEscapeStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn IUriRuntimeClassFactory<R, F: FnOnce(&IUriRuntimeClassFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<Uri, IUriRuntimeClassFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for Uri {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUriRuntimeClass>();
-}
-unsafe impl windows_core::Interface for Uri {
-    type Vtable = <IUriRuntimeClass as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IUriRuntimeClass as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for Uri {
-    const NAME: &'static str = "Windows.Foundation.Uri";
-}
-unsafe impl Send for Uri {}
-unsafe impl Sync for Uri {}
-#[cfg(feature = "Foundation_Collections")]
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct WwwFormUrlDecoder(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(WwwFormUrlDecoder, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(WwwFormUrlDecoder, Collections::IIterable<IWwwFormUrlDecoderEntry>, Collections::IVectorView<IWwwFormUrlDecoderEntry>);
-#[cfg(feature = "Foundation_Collections")]
-impl WwwFormUrlDecoder {
-    pub fn First(&self) -> windows_core::Result<Collections::IIterator<IWwwFormUrlDecoderEntry>> {
-        let this = &windows_core::Interface::cast::<Collections::IIterable<IWwwFormUrlDecoderEntry>>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetAt(&self, index: u32) -> windows_core::Result<IWwwFormUrlDecoderEntry> {
-        let this = &windows_core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
-    where
-        P0: windows_core::Param<IWwwFormUrlDecoderEntry>,
-    {
-        let this = &windows_core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
-        }
-    }
-    pub fn GetMany(&self, startindex: u32, items: &mut [Option<IWwwFormUrlDecoderEntry>]) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
-        }
-    }
-    pub fn GetFirstValueByName(&self, name: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFirstValueByName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn CreateWwwFormUrlDecoder(query: &windows_core::HSTRING) -> windows_core::Result<WwwFormUrlDecoder> {
-        Self::IWwwFormUrlDecoderRuntimeClassFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWwwFormUrlDecoder)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(query), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IWwwFormUrlDecoderRuntimeClassFactory<R, F: FnOnce(&IWwwFormUrlDecoderRuntimeClassFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<WwwFormUrlDecoder, IWwwFormUrlDecoderRuntimeClassFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for WwwFormUrlDecoder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWwwFormUrlDecoderRuntimeClass>();
-}
-#[cfg(feature = "Foundation_Collections")]
-unsafe impl windows_core::Interface for WwwFormUrlDecoder {
-    type Vtable = <IWwwFormUrlDecoderRuntimeClass as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IWwwFormUrlDecoderRuntimeClass as windows_core::Interface>::IID;
-}
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeName for WwwFormUrlDecoder {
-    const NAME: &'static str = "Windows.Foundation.WwwFormUrlDecoder";
-}
-#[cfg(feature = "Foundation_Collections")]
-unsafe impl Send for WwwFormUrlDecoder {}
-#[cfg(feature = "Foundation_Collections")]
-unsafe impl Sync for WwwFormUrlDecoder {}
-#[cfg(feature = "Foundation_Collections")]
-impl IntoIterator for WwwFormUrlDecoder {
-    type Item = IWwwFormUrlDecoderEntry;
-    type IntoIter = Collections::IIterator<Self::Item>;
-    fn into_iter(self) -> Self::IntoIter {
-        IntoIterator::into_iter(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl IntoIterator for &WwwFormUrlDecoder {
-    type Item = IWwwFormUrlDecoderEntry;
-    type IntoIter = Collections::IIterator<Self::Item>;
-    fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct WwwFormUrlDecoderEntry(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(WwwFormUrlDecoderEntry, windows_core::IUnknown, windows_core::IInspectable, IWwwFormUrlDecoderEntry);
-impl WwwFormUrlDecoderEntry {
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Value(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for WwwFormUrlDecoderEntry {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWwwFormUrlDecoderEntry>();
-}
-unsafe impl windows_core::Interface for WwwFormUrlDecoderEntry {
-    type Vtable = <IWwwFormUrlDecoderEntry as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IWwwFormUrlDecoderEntry as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for WwwFormUrlDecoderEntry {
-    const NAME: &'static str = "Windows.Foundation.WwwFormUrlDecoderEntry";
-}
-unsafe impl Send for WwwFormUrlDecoderEntry {}
-unsafe impl Sync for WwwFormUrlDecoderEntry {}
 windows_core::imp::define_interface!(IAsyncAction, IAsyncAction_Vtbl, 0x5a648006_843a_4da9_865b_9d26e5dfad7b);
 impl windows_core::RuntimeType for IAsyncAction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -3060,609 +3088,393 @@ pub struct IWwwFormUrlDecoderRuntimeClassFactory_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateWwwFormUrlDecoder: usize,
 }
-windows_core::imp::define_interface!(AsyncActionCompletedHandler, AsyncActionCompletedHandler_Vtbl, 0xa4ed5c81_76c9_40bd_8be6_b1d90fb20ae7);
-impl windows_core::RuntimeType for AsyncActionCompletedHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-impl AsyncActionCompletedHandler {
-    pub fn new<F: FnMut(Option<&IAsyncAction>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = AsyncActionCompletedHandlerBox { vtable: &AsyncActionCompletedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
-    }
-    pub fn Invoke<P0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IAsyncAction>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), asyncinfo.param().abi(), asyncstatus).ok() }
-    }
-}
-#[repr(C)]
-pub struct AsyncActionCompletedHandler_Vtbl {
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, asyncstatus: AsyncStatus) -> windows_core::HRESULT,
-}
-#[repr(C)]
-struct AsyncActionCompletedHandlerBox<F: FnMut(Option<&IAsyncAction>, AsyncStatus) -> windows_core::Result<()> + Send + 'static> {
-    vtable: *const AsyncActionCompletedHandler_Vtbl,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
-impl<F: FnMut(Option<&IAsyncAction>, AsyncStatus) -> windows_core::Result<()> + Send + 'static> AsyncActionCompletedHandlerBox<F> {
-    const VTABLE: AsyncActionCompletedHandler_Vtbl = AsyncActionCompletedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <AsyncActionCompletedHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, asyncstatus: AsyncStatus) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&asyncinfo), asyncstatus).into()
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub struct AsyncActionProgressHandler<TProgress>(windows_core::IUnknown, core::marker::PhantomData<TProgress>)
-where
-    TProgress: windows_core::RuntimeType + 'static;
-unsafe impl<TProgress: windows_core::RuntimeType + 'static> windows_core::Interface for AsyncActionProgressHandler<TProgress> {
-    type Vtable = AsyncActionProgressHandler_Vtbl<TProgress>;
-    const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
-}
-impl<TProgress: windows_core::RuntimeType + 'static> windows_core::RuntimeType for AsyncActionProgressHandler<TProgress> {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({6d844858-0cff-4590-ae89-95a5a5c8b4b8}").push_slice(b";").push_other(TProgress::SIGNATURE).push_slice(b")");
-}
-impl<TProgress: windows_core::RuntimeType + 'static> AsyncActionProgressHandler<TProgress> {
-    pub fn new<F: FnMut(Option<&IAsyncActionWithProgress<TProgress>>, &<TProgress as windows_core::Type<TProgress>>::Default) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = AsyncActionProgressHandlerBox { vtable: &AsyncActionProgressHandlerBox::<TProgress, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+pub struct MemoryBuffer(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MemoryBuffer, windows_core::IUnknown, windows_core::IInspectable, IMemoryBuffer);
+windows_core::imp::required_hierarchy!(MemoryBuffer, IClosable);
+impl MemoryBuffer {
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Invoke<P0, P1>(&self, asyncinfo: P0, progressinfo: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IAsyncActionWithProgress<TProgress>>,
-        P1: windows_core::Param<TProgress>,
-    {
+    pub fn CreateReference(&self) -> windows_core::Result<IMemoryBufferReference> {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), asyncinfo.param().abi(), progressinfo.param().abi()).ok() }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateReference)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Create(capacity: u32) -> windows_core::Result<MemoryBuffer> {
+        Self::IMemoryBufferFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), capacity, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IMemoryBufferFactory<R, F: FnOnce(&IMemoryBufferFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<MemoryBuffer, IMemoryBufferFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for MemoryBuffer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMemoryBuffer>();
+}
+unsafe impl windows_core::Interface for MemoryBuffer {
+    type Vtable = <IMemoryBuffer as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMemoryBuffer as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MemoryBuffer {
+    const NAME: &'static str = "Windows.Foundation.MemoryBuffer";
+}
+unsafe impl Send for MemoryBuffer {}
+unsafe impl Sync for MemoryBuffer {}
 #[repr(C)]
-pub struct AsyncActionProgressHandler_Vtbl<TProgress>
-where
-    TProgress: windows_core::RuntimeType + 'static,
-{
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, progressinfo: windows_core::AbiType<TProgress>) -> windows_core::HRESULT,
-    TProgress: core::marker::PhantomData<TProgress>,
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct Point {
+    pub X: f32,
+    pub Y: f32,
 }
-#[repr(C)]
-struct AsyncActionProgressHandlerBox<TProgress, F: FnMut(Option<&IAsyncActionWithProgress<TProgress>>, &<TProgress as windows_core::Type<TProgress>>::Default) -> windows_core::Result<()> + Send + 'static>
-where
-    TProgress: windows_core::RuntimeType + 'static,
-{
-    vtable: *const AsyncActionProgressHandler_Vtbl<TProgress>,
-    invoke: F,
-    count: windows_core::imp::RefCount,
+impl windows_core::TypeKind for Point {
+    type TypeKind = windows_core::CopyType;
 }
-impl<TProgress: windows_core::RuntimeType + 'static, F: FnMut(Option<&IAsyncActionWithProgress<TProgress>>, &<TProgress as windows_core::Type<TProgress>>::Default) -> windows_core::Result<()> + Send + 'static> AsyncActionProgressHandlerBox<TProgress, F> {
-    const VTABLE: AsyncActionProgressHandler_Vtbl<TProgress> = AsyncActionProgressHandler_Vtbl::<TProgress> {
-        base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
-        Invoke: Self::Invoke,
-        TProgress: core::marker::PhantomData::<TProgress>,
-    };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <AsyncActionProgressHandler<TProgress> as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, progressinfo: windows_core::AbiType<TProgress>) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&asyncinfo), core::mem::transmute(&progressinfo)).into()
-    }
+impl windows_core::RuntimeType for Point {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Point;f4;f4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct AsyncActionWithProgressCompletedHandler<TProgress>(windows_core::IUnknown, core::marker::PhantomData<TProgress>)
-where
-    TProgress: windows_core::RuntimeType + 'static;
-unsafe impl<TProgress: windows_core::RuntimeType + 'static> windows_core::Interface for AsyncActionWithProgressCompletedHandler<TProgress> {
-    type Vtable = AsyncActionWithProgressCompletedHandler_Vtbl<TProgress>;
-    const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PropertyType(pub i32);
+impl PropertyType {
+    pub const Empty: Self = Self(0i32);
+    pub const UInt8: Self = Self(1i32);
+    pub const Int16: Self = Self(2i32);
+    pub const UInt16: Self = Self(3i32);
+    pub const Int32: Self = Self(4i32);
+    pub const UInt32: Self = Self(5i32);
+    pub const Int64: Self = Self(6i32);
+    pub const UInt64: Self = Self(7i32);
+    pub const Single: Self = Self(8i32);
+    pub const Double: Self = Self(9i32);
+    pub const Char16: Self = Self(10i32);
+    pub const Boolean: Self = Self(11i32);
+    pub const String: Self = Self(12i32);
+    pub const Inspectable: Self = Self(13i32);
+    pub const DateTime: Self = Self(14i32);
+    pub const TimeSpan: Self = Self(15i32);
+    pub const Guid: Self = Self(16i32);
+    pub const Point: Self = Self(17i32);
+    pub const Size: Self = Self(18i32);
+    pub const Rect: Self = Self(19i32);
+    pub const OtherType: Self = Self(20i32);
+    pub const UInt8Array: Self = Self(1025i32);
+    pub const Int16Array: Self = Self(1026i32);
+    pub const UInt16Array: Self = Self(1027i32);
+    pub const Int32Array: Self = Self(1028i32);
+    pub const UInt32Array: Self = Self(1029i32);
+    pub const Int64Array: Self = Self(1030i32);
+    pub const UInt64Array: Self = Self(1031i32);
+    pub const SingleArray: Self = Self(1032i32);
+    pub const DoubleArray: Self = Self(1033i32);
+    pub const Char16Array: Self = Self(1034i32);
+    pub const BooleanArray: Self = Self(1035i32);
+    pub const StringArray: Self = Self(1036i32);
+    pub const InspectableArray: Self = Self(1037i32);
+    pub const DateTimeArray: Self = Self(1038i32);
+    pub const TimeSpanArray: Self = Self(1039i32);
+    pub const GuidArray: Self = Self(1040i32);
+    pub const PointArray: Self = Self(1041i32);
+    pub const SizeArray: Self = Self(1042i32);
+    pub const RectArray: Self = Self(1043i32);
+    pub const OtherTypeArray: Self = Self(1044i32);
 }
-impl<TProgress: windows_core::RuntimeType + 'static> windows_core::RuntimeType for AsyncActionWithProgressCompletedHandler<TProgress> {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({9c029f91-cc84-44fd-ac26-0a6c4e555281}").push_slice(b";").push_other(TProgress::SIGNATURE).push_slice(b")");
+impl windows_core::TypeKind for PropertyType {
+    type TypeKind = windows_core::CopyType;
 }
-impl<TProgress: windows_core::RuntimeType + 'static> AsyncActionWithProgressCompletedHandler<TProgress> {
-    pub fn new<F: FnMut(Option<&IAsyncActionWithProgress<TProgress>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = AsyncActionWithProgressCompletedHandlerBox { vtable: &AsyncActionWithProgressCompletedHandlerBox::<TProgress, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
-    }
-    pub fn Invoke<P0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IAsyncActionWithProgress<TProgress>>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), asyncinfo.param().abi(), asyncstatus).ok() }
-    }
+impl windows_core::RuntimeType for PropertyType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.PropertyType;i4)");
 }
-#[repr(C)]
-pub struct AsyncActionWithProgressCompletedHandler_Vtbl<TProgress>
-where
-    TProgress: windows_core::RuntimeType + 'static,
-{
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, asyncstatus: AsyncStatus) -> windows_core::HRESULT,
-    TProgress: core::marker::PhantomData<TProgress>,
-}
-#[repr(C)]
-struct AsyncActionWithProgressCompletedHandlerBox<TProgress, F: FnMut(Option<&IAsyncActionWithProgress<TProgress>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>
-where
-    TProgress: windows_core::RuntimeType + 'static,
-{
-    vtable: *const AsyncActionWithProgressCompletedHandler_Vtbl<TProgress>,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
-impl<TProgress: windows_core::RuntimeType + 'static, F: FnMut(Option<&IAsyncActionWithProgress<TProgress>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static> AsyncActionWithProgressCompletedHandlerBox<TProgress, F> {
-    const VTABLE: AsyncActionWithProgressCompletedHandler_Vtbl<TProgress> = AsyncActionWithProgressCompletedHandler_Vtbl::<TProgress> {
-        base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
-        Invoke: Self::Invoke,
-        TProgress: core::marker::PhantomData::<TProgress>,
-    };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <AsyncActionWithProgressCompletedHandler<TProgress> as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
-        }
+pub struct PropertyValue;
+impl PropertyValue {
+    pub fn CreateEmpty() -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateEmpty)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
     }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
+    pub fn CreateUInt8(value: u8) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateUInt8)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
     }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = Box::from_raw(this);
-        }
-        remaining
+    pub fn CreateInt16(value: i16) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInt16)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
     }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, asyncstatus: AsyncStatus) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&asyncinfo), asyncstatus).into()
+    pub fn CreateUInt16(value: u16) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateUInt16)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
     }
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct AsyncOperationCompletedHandler<TResult>(windows_core::IUnknown, core::marker::PhantomData<TResult>)
-where
-    TResult: windows_core::RuntimeType + 'static;
-unsafe impl<TResult: windows_core::RuntimeType + 'static> windows_core::Interface for AsyncOperationCompletedHandler<TResult> {
-    type Vtable = AsyncOperationCompletedHandler_Vtbl<TResult>;
-    const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
-}
-impl<TResult: windows_core::RuntimeType + 'static> windows_core::RuntimeType for AsyncOperationCompletedHandler<TResult> {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({fcdcf02c-e5d8-4478-915a-4d90b74b83a5}").push_slice(b";").push_other(TResult::SIGNATURE).push_slice(b")");
-}
-impl<TResult: windows_core::RuntimeType + 'static> AsyncOperationCompletedHandler<TResult> {
-    pub fn new<F: FnMut(Option<&IAsyncOperation<TResult>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = AsyncOperationCompletedHandlerBox { vtable: &AsyncOperationCompletedHandlerBox::<TResult, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+    pub fn CreateInt32(value: i32) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInt32)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
     }
-    pub fn Invoke<P0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IAsyncOperation<TResult>>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), asyncinfo.param().abi(), asyncstatus).ok() }
+    pub fn CreateUInt32(value: u32) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateUInt32)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
     }
-}
-#[repr(C)]
-pub struct AsyncOperationCompletedHandler_Vtbl<TResult>
-where
-    TResult: windows_core::RuntimeType + 'static,
-{
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, asyncstatus: AsyncStatus) -> windows_core::HRESULT,
-    TResult: core::marker::PhantomData<TResult>,
-}
-#[repr(C)]
-struct AsyncOperationCompletedHandlerBox<TResult, F: FnMut(Option<&IAsyncOperation<TResult>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>
-where
-    TResult: windows_core::RuntimeType + 'static,
-{
-    vtable: *const AsyncOperationCompletedHandler_Vtbl<TResult>,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
-impl<TResult: windows_core::RuntimeType + 'static, F: FnMut(Option<&IAsyncOperation<TResult>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static> AsyncOperationCompletedHandlerBox<TResult, F> {
-    const VTABLE: AsyncOperationCompletedHandler_Vtbl<TResult> = AsyncOperationCompletedHandler_Vtbl::<TResult> {
-        base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
-        Invoke: Self::Invoke,
-        TResult: core::marker::PhantomData::<TResult>,
-    };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <AsyncOperationCompletedHandler<TResult> as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
-        }
+    pub fn CreateInt64(value: i64) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInt64)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
     }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
+    pub fn CreateUInt64(value: u64) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateUInt64)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
     }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = Box::from_raw(this);
-        }
-        remaining
+    pub fn CreateSingle(value: f32) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateSingle)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
     }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, asyncstatus: AsyncStatus) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&asyncinfo), asyncstatus).into()
+    pub fn CreateDouble(value: f64) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateDouble)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
     }
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct AsyncOperationProgressHandler<TResult, TProgress>(windows_core::IUnknown, core::marker::PhantomData<TResult>, core::marker::PhantomData<TProgress>)
-where
-    TResult: windows_core::RuntimeType + 'static,
-    TProgress: windows_core::RuntimeType + 'static;
-unsafe impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> windows_core::Interface for AsyncOperationProgressHandler<TResult, TProgress> {
-    type Vtable = AsyncOperationProgressHandler_Vtbl<TResult, TProgress>;
-    const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
-}
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> windows_core::RuntimeType for AsyncOperationProgressHandler<TResult, TProgress> {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({55690902-0aab-421a-8778-f8ce5026d758}").push_slice(b";").push_other(TResult::SIGNATURE).push_slice(b";").push_other(TProgress::SIGNATURE).push_slice(b")");
-}
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> AsyncOperationProgressHandler<TResult, TProgress> {
-    pub fn new<F: FnMut(Option<&IAsyncOperationWithProgress<TResult, TProgress>>, &<TProgress as windows_core::Type<TProgress>>::Default) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = AsyncOperationProgressHandlerBox { vtable: &AsyncOperationProgressHandlerBox::<TResult, TProgress, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+    pub fn CreateChar16(value: u16) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateChar16)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
     }
-    pub fn Invoke<P0, P1>(&self, asyncinfo: P0, progressinfo: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IAsyncOperationWithProgress<TResult, TProgress>>,
-        P1: windows_core::Param<TProgress>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), asyncinfo.param().abi(), progressinfo.param().abi()).ok() }
+    pub fn CreateBoolean(value: bool) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateBoolean)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
     }
-}
-#[repr(C)]
-pub struct AsyncOperationProgressHandler_Vtbl<TResult, TProgress>
-where
-    TResult: windows_core::RuntimeType + 'static,
-    TProgress: windows_core::RuntimeType + 'static,
-{
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, progressinfo: windows_core::AbiType<TProgress>) -> windows_core::HRESULT,
-    TResult: core::marker::PhantomData<TResult>,
-    TProgress: core::marker::PhantomData<TProgress>,
-}
-#[repr(C)]
-struct AsyncOperationProgressHandlerBox<TResult, TProgress, F: FnMut(Option<&IAsyncOperationWithProgress<TResult, TProgress>>, &<TProgress as windows_core::Type<TProgress>>::Default) -> windows_core::Result<()> + Send + 'static>
-where
-    TResult: windows_core::RuntimeType + 'static,
-    TProgress: windows_core::RuntimeType + 'static,
-{
-    vtable: *const AsyncOperationProgressHandler_Vtbl<TResult, TProgress>,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static, F: FnMut(Option<&IAsyncOperationWithProgress<TResult, TProgress>>, &<TProgress as windows_core::Type<TProgress>>::Default) -> windows_core::Result<()> + Send + 'static> AsyncOperationProgressHandlerBox<TResult, TProgress, F> {
-    const VTABLE: AsyncOperationProgressHandler_Vtbl<TResult, TProgress> = AsyncOperationProgressHandler_Vtbl::<TResult, TProgress> {
-        base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
-        Invoke: Self::Invoke,
-        TResult: core::marker::PhantomData::<TResult>,
-        TProgress: core::marker::PhantomData::<TProgress>,
-    };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <AsyncOperationProgressHandler<TResult, TProgress> as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
-        }
+    pub fn CreateString(value: &windows_core::HSTRING) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateString)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
     }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, progressinfo: windows_core::AbiType<TProgress>) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&asyncinfo), core::mem::transmute(&progressinfo)).into()
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct AsyncOperationWithProgressCompletedHandler<TResult, TProgress>(windows_core::IUnknown, core::marker::PhantomData<TResult>, core::marker::PhantomData<TProgress>)
-where
-    TResult: windows_core::RuntimeType + 'static,
-    TProgress: windows_core::RuntimeType + 'static;
-unsafe impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> windows_core::Interface for AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {
-    type Vtable = AsyncOperationWithProgressCompletedHandler_Vtbl<TResult, TProgress>;
-    const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
-}
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> windows_core::RuntimeType for AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({e85df41d-6aa7-46e3-a8e2-f009d840c627}").push_slice(b";").push_other(TResult::SIGNATURE).push_slice(b";").push_other(TProgress::SIGNATURE).push_slice(b")");
-}
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {
-    pub fn new<F: FnMut(Option<&IAsyncOperationWithProgress<TResult, TProgress>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = AsyncOperationWithProgressCompletedHandlerBox { vtable: &AsyncOperationWithProgressCompletedHandlerBox::<TResult, TProgress, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
-    }
-    pub fn Invoke<P0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IAsyncOperationWithProgress<TResult, TProgress>>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), asyncinfo.param().abi(), asyncstatus).ok() }
-    }
-}
-#[repr(C)]
-pub struct AsyncOperationWithProgressCompletedHandler_Vtbl<TResult, TProgress>
-where
-    TResult: windows_core::RuntimeType + 'static,
-    TProgress: windows_core::RuntimeType + 'static,
-{
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, asyncstatus: AsyncStatus) -> windows_core::HRESULT,
-    TResult: core::marker::PhantomData<TResult>,
-    TProgress: core::marker::PhantomData<TProgress>,
-}
-#[repr(C)]
-struct AsyncOperationWithProgressCompletedHandlerBox<TResult, TProgress, F: FnMut(Option<&IAsyncOperationWithProgress<TResult, TProgress>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static>
-where
-    TResult: windows_core::RuntimeType + 'static,
-    TProgress: windows_core::RuntimeType + 'static,
-{
-    vtable: *const AsyncOperationWithProgressCompletedHandler_Vtbl<TResult, TProgress>,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static, F: FnMut(Option<&IAsyncOperationWithProgress<TResult, TProgress>>, AsyncStatus) -> windows_core::Result<()> + Send + 'static> AsyncOperationWithProgressCompletedHandlerBox<TResult, TProgress, F> {
-    const VTABLE: AsyncOperationWithProgressCompletedHandler_Vtbl<TResult, TProgress> = AsyncOperationWithProgressCompletedHandler_Vtbl::<TResult, TProgress> {
-        base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
-        Invoke: Self::Invoke,
-        TResult: core::marker::PhantomData::<TResult>,
-        TProgress: core::marker::PhantomData::<TProgress>,
-    };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <AsyncOperationWithProgressCompletedHandler<TResult, TProgress> as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, asyncstatus: AsyncStatus) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&asyncinfo), asyncstatus).into()
-    }
-}
-windows_core::imp::define_interface!(DeferralCompletedHandler, DeferralCompletedHandler_Vtbl, 0xed32a372_f3c8_4faa_9cfb_470148da3888);
-impl windows_core::RuntimeType for DeferralCompletedHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-impl DeferralCompletedHandler {
-    pub fn new<F: FnMut() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = DeferralCompletedHandlerBox { vtable: &DeferralCompletedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
-    }
-    pub fn Invoke(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this)).ok() }
-    }
-}
-#[repr(C)]
-pub struct DeferralCompletedHandler_Vtbl {
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(C)]
-struct DeferralCompletedHandlerBox<F: FnMut() -> windows_core::Result<()> + Send + 'static> {
-    vtable: *const DeferralCompletedHandler_Vtbl,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
-impl<F: FnMut() -> windows_core::Result<()> + Send + 'static> DeferralCompletedHandlerBox<F> {
-    const VTABLE: DeferralCompletedHandler_Vtbl = DeferralCompletedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <DeferralCompletedHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)().into()
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct EventHandler<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
-where
-    T: windows_core::RuntimeType + 'static;
-unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for EventHandler<T> {
-    type Vtable = EventHandler_Vtbl<T>;
-    const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
-}
-impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for EventHandler<T> {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({9de1c535-6ae1-11e0-84e1-18a905bcc53f}").push_slice(b";").push_other(T::SIGNATURE).push_slice(b")");
-}
-impl<T: windows_core::RuntimeType + 'static> EventHandler<T> {
-    pub fn new<F: FnMut(Option<&windows_core::IInspectable>, &<T as windows_core::Type<T>>::Default) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = EventHandlerBox { vtable: &EventHandlerBox::<T, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
-    }
-    pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
+    pub fn CreateInspectable<P0>(value: P0) -> windows_core::Result<windows_core::IInspectable>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
-        P1: windows_core::Param<T>,
     {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), args.param().abi()).ok() }
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInspectable)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
     }
+    pub fn CreateGuid(value: windows_core::GUID) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateGuid)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateDateTime(value: DateTime) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateDateTime)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateTimeSpan(value: TimeSpan) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateTimeSpan)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreatePoint(value: Point) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreatePoint)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateSize(value: Size) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateSize)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateRect(value: Rect) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateRect)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateUInt8Array(value: &[u8]) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateUInt8Array)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateInt16Array(value: &[i16]) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInt16Array)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateUInt16Array(value: &[u16]) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateUInt16Array)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateInt32Array(value: &[i32]) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInt32Array)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateUInt32Array(value: &[u32]) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateUInt32Array)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateInt64Array(value: &[i64]) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInt64Array)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateUInt64Array(value: &[u64]) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateUInt64Array)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateSingleArray(value: &[f32]) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateSingleArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateDoubleArray(value: &[f64]) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateDoubleArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateChar16Array(value: &[u16]) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateChar16Array)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateBooleanArray(value: &[bool]) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateBooleanArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateStringArray(value: &[windows_core::HSTRING]) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateStringArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), core::mem::transmute(value.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateInspectableArray(value: &[Option<windows_core::IInspectable>]) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInspectableArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), core::mem::transmute(value.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateGuidArray(value: &[windows_core::GUID]) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateGuidArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateDateTimeArray(value: &[DateTime]) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateDateTimeArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateTimeSpanArray(value: &[TimeSpan]) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateTimeSpanArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreatePointArray(value: &[Point]) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreatePointArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateSizeArray(value: &[Size]) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateSizeArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateRectArray(value: &[Rect]) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateRectArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IPropertyValueStatics<R, F: FnOnce(&IPropertyValueStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<PropertyValue, IPropertyValueStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeName for PropertyValue {
+    const NAME: &'static str = "Windows.Foundation.PropertyValue";
 }
 #[repr(C)]
-pub struct EventHandler_Vtbl<T>
-where
-    T: windows_core::RuntimeType + 'static,
-{
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: windows_core::AbiType<T>) -> windows_core::HRESULT,
-    T: core::marker::PhantomData<T>,
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct Rect {
+    pub X: f32,
+    pub Y: f32,
+    pub Width: f32,
+    pub Height: f32,
+}
+impl windows_core::TypeKind for Rect {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for Rect {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Rect;f4;f4;f4;f4)");
 }
 #[repr(C)]
-struct EventHandlerBox<T, F: FnMut(Option<&windows_core::IInspectable>, &<T as windows_core::Type<T>>::Default) -> windows_core::Result<()> + Send + 'static>
-where
-    T: windows_core::RuntimeType + 'static,
-{
-    vtable: *const EventHandler_Vtbl<T>,
-    invoke: F,
-    count: windows_core::imp::RefCount,
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct Size {
+    pub Width: f32,
+    pub Height: f32,
 }
-impl<T: windows_core::RuntimeType + 'static, F: FnMut(Option<&windows_core::IInspectable>, &<T as windows_core::Type<T>>::Default) -> windows_core::Result<()> + Send + 'static> EventHandlerBox<T, F> {
-    const VTABLE: EventHandler_Vtbl<T> = EventHandler_Vtbl::<T> {
-        base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
-        Invoke: Self::Invoke,
-        T: core::marker::PhantomData::<T>,
-    };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <EventHandler<T> as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: windows_core::AbiType<T>) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&sender), core::mem::transmute(&args)).into()
-    }
+impl windows_core::TypeKind for Size {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for Size {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Size;f4;f4)");
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct TimeSpan {
+    pub Duration: i64,
+}
+impl windows_core::TypeKind for TimeSpan {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for TimeSpan {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.TimeSpan;i8)");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -3750,140 +3562,328 @@ impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::Runtim
     }
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AsyncStatus(pub i32);
-impl AsyncStatus {
-    pub const Canceled: Self = Self(2i32);
-    pub const Completed: Self = Self(1i32);
-    pub const Error: Self = Self(3i32);
-    pub const Started: Self = Self(0i32);
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct Uri(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(Uri, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(Uri, IStringable);
+impl Uri {
+    pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IStringable>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ToString)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn UnescapeComponent(tounescape: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+        Self::IUriEscapeStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UnescapeComponent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tounescape), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn EscapeComponent(toescape: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+        Self::IUriEscapeStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EscapeComponent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(toescape), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn AbsoluteUri(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AbsoluteUri)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn DisplayUri(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayUri)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Domain(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Domain)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Extension(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Extension)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Fragment(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Fragment)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Host(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Host)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Password(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Password)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Path(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Path)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Query(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Query)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn QueryParsed(&self) -> windows_core::Result<WwwFormUrlDecoder> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).QueryParsed)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn RawUri(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RawUri)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SchemeName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SchemeName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn UserName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UserName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Port(&self) -> windows_core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Port)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Suspicious(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Suspicious)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Equals<P0>(&self, puri: P0) -> windows_core::Result<bool>
+    where
+        P0: windows_core::Param<Uri>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Equals)(windows_core::Interface::as_raw(this), puri.param().abi(), &mut result__).map(|| result__)
+        }
+    }
+    pub fn CombineUri(&self, relativeuri: &windows_core::HSTRING) -> windows_core::Result<Uri> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CombineUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(relativeuri), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CreateUri(uri: &windows_core::HSTRING) -> windows_core::Result<Uri> {
+        Self::IUriRuntimeClassFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(uri), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateWithRelativeUri(baseuri: &windows_core::HSTRING, relativeuri: &windows_core::HSTRING) -> windows_core::Result<Uri> {
+        Self::IUriRuntimeClassFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateWithRelativeUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(baseuri), core::mem::transmute_copy(relativeuri), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn AbsoluteCanonicalUri(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IUriRuntimeClassWithAbsoluteCanonicalUri>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AbsoluteCanonicalUri)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn DisplayIri(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IUriRuntimeClassWithAbsoluteCanonicalUri>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayIri)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    fn IUriEscapeStatics<R, F: FnOnce(&IUriEscapeStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<Uri, IUriEscapeStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IUriRuntimeClassFactory<R, F: FnOnce(&IUriRuntimeClassFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<Uri, IUriRuntimeClassFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
 }
-impl windows_core::TypeKind for AsyncStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::RuntimeType for Uri {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUriRuntimeClass>();
 }
-impl windows_core::RuntimeType for AsyncStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.AsyncStatus;i4)");
+unsafe impl windows_core::Interface for Uri {
+    type Vtable = <IUriRuntimeClass as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IUriRuntimeClass as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for Uri {
+    const NAME: &'static str = "Windows.Foundation.Uri";
+}
+unsafe impl Send for Uri {}
+unsafe impl Sync for Uri {}
+#[cfg(feature = "Foundation_Collections")]
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WwwFormUrlDecoder(windows_core::IUnknown);
+#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::interface_hierarchy!(WwwFormUrlDecoder, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(WwwFormUrlDecoder, Collections::IIterable<IWwwFormUrlDecoderEntry>, Collections::IVectorView<IWwwFormUrlDecoderEntry>);
+#[cfg(feature = "Foundation_Collections")]
+impl WwwFormUrlDecoder {
+    pub fn First(&self) -> windows_core::Result<Collections::IIterator<IWwwFormUrlDecoderEntry>> {
+        let this = &windows_core::Interface::cast::<Collections::IIterable<IWwwFormUrlDecoderEntry>>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetAt(&self, index: u32) -> windows_core::Result<IWwwFormUrlDecoderEntry> {
+        let this = &windows_core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Size(&self) -> windows_core::Result<u32> {
+        let this = &windows_core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
+    where
+        P0: windows_core::Param<IWwwFormUrlDecoderEntry>,
+    {
+        let this = &windows_core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
+        }
+    }
+    pub fn GetMany(&self, startindex: u32, items: &mut [Option<IWwwFormUrlDecoderEntry>]) -> windows_core::Result<u32> {
+        let this = &windows_core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
+        }
+    }
+    pub fn GetFirstValueByName(&self, name: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetFirstValueByName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn CreateWwwFormUrlDecoder(query: &windows_core::HSTRING) -> windows_core::Result<WwwFormUrlDecoder> {
+        Self::IWwwFormUrlDecoderRuntimeClassFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateWwwFormUrlDecoder)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(query), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWwwFormUrlDecoderRuntimeClassFactory<R, F: FnOnce(&IWwwFormUrlDecoderRuntimeClassFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WwwFormUrlDecoder, IWwwFormUrlDecoderRuntimeClassFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for WwwFormUrlDecoder {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWwwFormUrlDecoderRuntimeClass>();
+}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl windows_core::Interface for WwwFormUrlDecoder {
+    type Vtable = <IWwwFormUrlDecoderRuntimeClass as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWwwFormUrlDecoderRuntimeClass as windows_core::Interface>::IID;
+}
+#[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeName for WwwFormUrlDecoder {
+    const NAME: &'static str = "Windows.Foundation.WwwFormUrlDecoder";
+}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for WwwFormUrlDecoder {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for WwwFormUrlDecoder {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for WwwFormUrlDecoder {
+    type Item = IWwwFormUrlDecoderEntry;
+    type IntoIter = Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &WwwFormUrlDecoder {
+    type Item = IWwwFormUrlDecoderEntry;
+    type IntoIter = Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PropertyType(pub i32);
-impl PropertyType {
-    pub const Empty: Self = Self(0i32);
-    pub const UInt8: Self = Self(1i32);
-    pub const Int16: Self = Self(2i32);
-    pub const UInt16: Self = Self(3i32);
-    pub const Int32: Self = Self(4i32);
-    pub const UInt32: Self = Self(5i32);
-    pub const Int64: Self = Self(6i32);
-    pub const UInt64: Self = Self(7i32);
-    pub const Single: Self = Self(8i32);
-    pub const Double: Self = Self(9i32);
-    pub const Char16: Self = Self(10i32);
-    pub const Boolean: Self = Self(11i32);
-    pub const String: Self = Self(12i32);
-    pub const Inspectable: Self = Self(13i32);
-    pub const DateTime: Self = Self(14i32);
-    pub const TimeSpan: Self = Self(15i32);
-    pub const Guid: Self = Self(16i32);
-    pub const Point: Self = Self(17i32);
-    pub const Size: Self = Self(18i32);
-    pub const Rect: Self = Self(19i32);
-    pub const OtherType: Self = Self(20i32);
-    pub const UInt8Array: Self = Self(1025i32);
-    pub const Int16Array: Self = Self(1026i32);
-    pub const UInt16Array: Self = Self(1027i32);
-    pub const Int32Array: Self = Self(1028i32);
-    pub const UInt32Array: Self = Self(1029i32);
-    pub const Int64Array: Self = Self(1030i32);
-    pub const UInt64Array: Self = Self(1031i32);
-    pub const SingleArray: Self = Self(1032i32);
-    pub const DoubleArray: Self = Self(1033i32);
-    pub const Char16Array: Self = Self(1034i32);
-    pub const BooleanArray: Self = Self(1035i32);
-    pub const StringArray: Self = Self(1036i32);
-    pub const InspectableArray: Self = Self(1037i32);
-    pub const DateTimeArray: Self = Self(1038i32);
-    pub const TimeSpanArray: Self = Self(1039i32);
-    pub const GuidArray: Self = Self(1040i32);
-    pub const PointArray: Self = Self(1041i32);
-    pub const SizeArray: Self = Self(1042i32);
-    pub const RectArray: Self = Self(1043i32);
-    pub const OtherTypeArray: Self = Self(1044i32);
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WwwFormUrlDecoderEntry(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WwwFormUrlDecoderEntry, windows_core::IUnknown, windows_core::IInspectable, IWwwFormUrlDecoderEntry);
+impl WwwFormUrlDecoderEntry {
+    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Value(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
 }
-impl windows_core::TypeKind for PropertyType {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::RuntimeType for WwwFormUrlDecoderEntry {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWwwFormUrlDecoderEntry>();
 }
-impl windows_core::RuntimeType for PropertyType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.PropertyType;i4)");
+unsafe impl windows_core::Interface for WwwFormUrlDecoderEntry {
+    type Vtable = <IWwwFormUrlDecoderEntry as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWwwFormUrlDecoderEntry as windows_core::Interface>::IID;
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct DateTime {
-    pub UniversalTime: i64,
+impl windows_core::RuntimeName for WwwFormUrlDecoderEntry {
+    const NAME: &'static str = "Windows.Foundation.WwwFormUrlDecoderEntry";
 }
-impl windows_core::TypeKind for DateTime {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DateTime {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.DateTime;i8)");
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct EventRegistrationToken {
-    pub Value: i64,
-}
-impl windows_core::TypeKind for EventRegistrationToken {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for EventRegistrationToken {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.EventRegistrationToken;i8)");
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct Point {
-    pub X: f32,
-    pub Y: f32,
-}
-impl windows_core::TypeKind for Point {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for Point {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Point;f4;f4)");
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct Rect {
-    pub X: f32,
-    pub Y: f32,
-    pub Width: f32,
-    pub Height: f32,
-}
-impl windows_core::TypeKind for Rect {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for Rect {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Rect;f4;f4;f4;f4)");
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct Size {
-    pub Width: f32,
-    pub Height: f32,
-}
-impl windows_core::TypeKind for Size {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for Size {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Size;f4;f4)");
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct TimeSpan {
-    pub Duration: i64,
-}
-impl windows_core::TypeKind for TimeSpan {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for TimeSpan {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.TimeSpan;i8)");
-}
+unsafe impl Send for WwwFormUrlDecoderEntry {}
+unsafe impl Sync for WwwFormUrlDecoderEntry {}

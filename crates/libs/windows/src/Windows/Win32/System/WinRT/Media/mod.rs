@@ -1,3 +1,5 @@
+pub const CLSID_AudioFrameNativeFactory: windows_core::GUID = windows_core::GUID::from_u128(0x16a0a3b9_9f65_4102_9367_2cda3a4f372a);
+pub const CLSID_VideoFrameNativeFactory: windows_core::GUID = windows_core::GUID::from_u128(0xd194386a_04e3_4814_8100_b2b0ae6d78c7);
 windows_core::imp::define_interface!(IAudioFrameNative, IAudioFrameNative_Vtbl, 0x20be1e2e_930f_4746_9335_3c332f255093);
 windows_core::imp::interface_hierarchy!(IAudioFrameNative, windows_core::IUnknown, windows_core::IInspectable);
 impl IAudioFrameNative {
@@ -168,5 +170,3 @@ impl IVideoFrameNativeFactory_Vtbl {
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 impl windows_core::RuntimeName for IVideoFrameNativeFactory {}
-pub const CLSID_AudioFrameNativeFactory: windows_core::GUID = windows_core::GUID::from_u128(0x16a0a3b9_9f65_4102_9367_2cda3a4f372a);
-pub const CLSID_VideoFrameNativeFactory: windows_core::GUID = windows_core::GUID::from_u128(0xd194386a_04e3_4814_8100_b2b0ae6d78c7);

@@ -1,4 +1,65 @@
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DataClasses(pub u32);
+impl DataClasses {
+    pub const None: Self = Self(0u32);
+    pub const Gprs: Self = Self(1u32);
+    pub const Edge: Self = Self(2u32);
+    pub const Umts: Self = Self(4u32);
+    pub const Hsdpa: Self = Self(8u32);
+    pub const Hsupa: Self = Self(16u32);
+    pub const LteAdvanced: Self = Self(32u32);
+    pub const NewRadioNonStandalone: Self = Self(64u32);
+    pub const NewRadioStandalone: Self = Self(128u32);
+    pub const Cdma1xRtt: Self = Self(65536u32);
+    pub const Cdma1xEvdo: Self = Self(131072u32);
+    pub const Cdma1xEvdoRevA: Self = Self(262144u32);
+    pub const Cdma1xEvdv: Self = Self(524288u32);
+    pub const Cdma3xRtt: Self = Self(1048576u32);
+    pub const Cdma1xEvdoRevB: Self = Self(2097152u32);
+    pub const CdmaUmb: Self = Self(4194304u32);
+    pub const Custom: Self = Self(2147483648u32);
+}
+impl windows_core::TypeKind for DataClasses {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DataClasses {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.DataClasses;u4)");
+}
+impl DataClasses {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DataClasses {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DataClasses {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DataClasses {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DataClasses {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DataClasses {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ESim(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ESim, windows_core::IUnknown, windows_core::IInspectable);
@@ -162,6 +223,20 @@ impl windows_core::RuntimeName for ESimAddedEventArgs {
 unsafe impl Send for ESimAddedEventArgs {}
 unsafe impl Sync for ESimAddedEventArgs {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ESimAuthenticationPreference(pub i32);
+impl ESimAuthenticationPreference {
+    pub const OnEntry: Self = Self(0i32);
+    pub const OnAction: Self = Self(1i32);
+    pub const Never: Self = Self(2i32);
+}
+impl windows_core::TypeKind for ESimAuthenticationPreference {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ESimAuthenticationPreference {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimAuthenticationPreference;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ESimDiscoverEvent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ESimDiscoverEvent, windows_core::IUnknown, windows_core::IInspectable);
@@ -240,6 +315,20 @@ impl windows_core::RuntimeName for ESimDiscoverResult {
 }
 unsafe impl Send for ESimDiscoverResult {}
 unsafe impl Sync for ESimDiscoverResult {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ESimDiscoverResultKind(pub i32);
+impl ESimDiscoverResultKind {
+    pub const None: Self = Self(0i32);
+    pub const Events: Self = Self(1i32);
+    pub const ProfileMetadata: Self = Self(2i32);
+}
+impl windows_core::TypeKind for ESimDiscoverResultKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ESimDiscoverResultKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimDiscoverResultKind;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ESimDownloadProfileMetadataResult(windows_core::IUnknown);
@@ -331,6 +420,46 @@ impl windows_core::RuntimeName for ESimOperationResult {
 }
 unsafe impl Send for ESimOperationResult {}
 unsafe impl Sync for ESimOperationResult {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ESimOperationStatus(pub i32);
+impl ESimOperationStatus {
+    pub const Success: Self = Self(0i32);
+    pub const NotAuthorized: Self = Self(1i32);
+    pub const NotFound: Self = Self(2i32);
+    pub const PolicyViolation: Self = Self(3i32);
+    pub const InsufficientSpaceOnCard: Self = Self(4i32);
+    pub const ServerFailure: Self = Self(5i32);
+    pub const ServerNotReachable: Self = Self(6i32);
+    pub const TimeoutWaitingForUserConsent: Self = Self(7i32);
+    pub const IncorrectConfirmationCode: Self = Self(8i32);
+    pub const ConfirmationCodeMaxRetriesExceeded: Self = Self(9i32);
+    pub const CardRemoved: Self = Self(10i32);
+    pub const CardBusy: Self = Self(11i32);
+    pub const Other: Self = Self(12i32);
+    pub const CardGeneralFailure: Self = Self(13i32);
+    pub const ConfirmationCodeMissing: Self = Self(14i32);
+    pub const InvalidMatchingId: Self = Self(15i32);
+    pub const NoEligibleProfileForThisDevice: Self = Self(16i32);
+    pub const OperationAborted: Self = Self(17i32);
+    pub const EidMismatch: Self = Self(18i32);
+    pub const ProfileNotAvailableForNewBinding: Self = Self(19i32);
+    pub const ProfileNotReleasedByOperator: Self = Self(20i32);
+    pub const OperationProhibitedByProfileClass: Self = Self(21i32);
+    pub const ProfileNotPresent: Self = Self(22i32);
+    pub const NoCorrespondingRequest: Self = Self(23i32);
+    pub const TimeoutWaitingForResponse: Self = Self(24i32);
+    pub const IccidAlreadyExists: Self = Self(25i32);
+    pub const ProfileProcessingError: Self = Self(26i32);
+    pub const ServerNotTrusted: Self = Self(27i32);
+    pub const ProfileDownloadMaxRetriesExceeded: Self = Self(28i32);
+}
+impl windows_core::TypeKind for ESimOperationStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ESimOperationStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimOperationStatus;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ESimPolicy(windows_core::IUnknown);
@@ -453,6 +582,32 @@ impl windows_core::RuntimeName for ESimProfile {
 unsafe impl Send for ESimProfile {}
 unsafe impl Sync for ESimProfile {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ESimProfileClass(pub i32);
+impl ESimProfileClass {
+    pub const Operational: Self = Self(0i32);
+    pub const Test: Self = Self(1i32);
+    pub const Provisioning: Self = Self(2i32);
+}
+impl windows_core::TypeKind for ESimProfileClass {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ESimProfileClass {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileClass;i4)");
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct ESimProfileInstallProgress {
+    pub TotalSizeInBytes: i32,
+    pub InstalledSizeInBytes: i32,
+}
+impl windows_core::TypeKind for ESimProfileInstallProgress {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ESimProfileInstallProgress {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.NetworkOperators.ESimProfileInstallProgress;i4;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ESimProfileMetadata(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ESimProfileMetadata, windows_core::IUnknown, windows_core::IInspectable);
@@ -563,6 +718,25 @@ impl windows_core::RuntimeName for ESimProfileMetadata {
 unsafe impl Send for ESimProfileMetadata {}
 unsafe impl Sync for ESimProfileMetadata {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ESimProfileMetadataState(pub i32);
+impl ESimProfileMetadataState {
+    pub const Unknown: Self = Self(0i32);
+    pub const WaitingForInstall: Self = Self(1i32);
+    pub const Downloading: Self = Self(2i32);
+    pub const Installing: Self = Self(3i32);
+    pub const Expired: Self = Self(4i32);
+    pub const RejectingDownload: Self = Self(5i32);
+    pub const NoLongerAvailable: Self = Self(6i32);
+    pub const DeniedByPolicy: Self = Self(7i32);
+}
+impl windows_core::TypeKind for ESimProfileMetadataState {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ESimProfileMetadataState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileMetadataState;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ESimProfilePolicy(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ESimProfilePolicy, windows_core::IUnknown, windows_core::IInspectable);
@@ -601,6 +775,21 @@ impl windows_core::RuntimeName for ESimProfilePolicy {
 }
 unsafe impl Send for ESimProfilePolicy {}
 unsafe impl Sync for ESimProfilePolicy {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ESimProfileState(pub i32);
+impl ESimProfileState {
+    pub const Unknown: Self = Self(0i32);
+    pub const Disabled: Self = Self(1i32);
+    pub const Enabled: Self = Self(2i32);
+    pub const Deleted: Self = Self(3i32);
+}
+impl windows_core::TypeKind for ESimProfileState {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ESimProfileState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileState;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ESimRemovedEventArgs(windows_core::IUnknown);
@@ -658,6 +847,21 @@ impl windows_core::RuntimeName for ESimServiceInfo {
 }
 unsafe impl Send for ESimServiceInfo {}
 unsafe impl Sync for ESimServiceInfo {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ESimState(pub i32);
+impl ESimState {
+    pub const Unknown: Self = Self(0i32);
+    pub const Idle: Self = Self(1i32);
+    pub const Removed: Self = Self(2i32);
+    pub const Busy: Self = Self(3i32);
+}
+impl windows_core::TypeKind for ESimState {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ESimState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimState;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ESimUpdatedEventArgs(windows_core::IUnknown);
@@ -786,6 +990,22 @@ impl windows_core::RuntimeName for ESimWatcher {
 }
 unsafe impl Send for ESimWatcher {}
 unsafe impl Sync for ESimWatcher {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ESimWatcherStatus(pub i32);
+impl ESimWatcherStatus {
+    pub const Created: Self = Self(0i32);
+    pub const Started: Self = Self(1i32);
+    pub const EnumerationCompleted: Self = Self(2i32);
+    pub const Stopping: Self = Self(3i32);
+    pub const Stopped: Self = Self(4i32);
+}
+impl windows_core::TypeKind for ESimWatcherStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ESimWatcherStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimWatcherStatus;i4)");
+}
 pub struct FdnAccessManager;
 impl FdnAccessManager {
     pub fn RequestUnlockAsync(contactlistid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
@@ -912,6 +1132,24 @@ impl windows_core::RuntimeName for HotspotAuthenticationEventDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.HotspotAuthenticationEventDetails";
 }
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HotspotAuthenticationResponseCode(pub i32);
+impl HotspotAuthenticationResponseCode {
+    pub const NoError: Self = Self(0i32);
+    pub const LoginSucceeded: Self = Self(50i32);
+    pub const LoginFailed: Self = Self(100i32);
+    pub const RadiusServerError: Self = Self(102i32);
+    pub const NetworkAdministratorError: Self = Self(105i32);
+    pub const LoginAborted: Self = Self(151i32);
+    pub const AccessGatewayInternalError: Self = Self(255i32);
+}
+impl windows_core::TypeKind for HotspotAuthenticationResponseCode {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HotspotAuthenticationResponseCode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.HotspotAuthenticationResponseCode;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HotspotCredentialsAuthenticationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HotspotCredentialsAuthenticationResult, windows_core::IUnknown, windows_core::IInspectable);
@@ -955,3635 +1193,6 @@ unsafe impl windows_core::Interface for HotspotCredentialsAuthenticationResult {
 }
 impl windows_core::RuntimeName for HotspotCredentialsAuthenticationResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.HotspotCredentialsAuthenticationResult";
-}
-pub struct KnownCSimFilePaths;
-impl KnownCSimFilePaths {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn EFSpn() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
-        Self::IKnownCSimFilePathsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EFSpn)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Gid1() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
-        Self::IKnownCSimFilePathsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Gid1)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Gid2() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
-        Self::IKnownCSimFilePathsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Gid2)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IKnownCSimFilePathsStatics<R, F: FnOnce(&IKnownCSimFilePathsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<KnownCSimFilePaths, IKnownCSimFilePathsStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeName for KnownCSimFilePaths {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.KnownCSimFilePaths";
-}
-pub struct KnownRuimFilePaths;
-impl KnownRuimFilePaths {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn EFSpn() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
-        Self::IKnownRuimFilePathsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EFSpn)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Gid1() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
-        Self::IKnownRuimFilePathsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Gid1)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Gid2() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
-        Self::IKnownRuimFilePathsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Gid2)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IKnownRuimFilePathsStatics<R, F: FnOnce(&IKnownRuimFilePathsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<KnownRuimFilePaths, IKnownRuimFilePathsStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeName for KnownRuimFilePaths {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.KnownRuimFilePaths";
-}
-pub struct KnownSimFilePaths;
-impl KnownSimFilePaths {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn EFOns() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
-        Self::IKnownSimFilePathsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EFOns)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn EFSpn() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
-        Self::IKnownSimFilePathsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EFSpn)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Gid1() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
-        Self::IKnownSimFilePathsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Gid1)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Gid2() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
-        Self::IKnownSimFilePathsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Gid2)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IKnownSimFilePathsStatics<R, F: FnOnce(&IKnownSimFilePathsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<KnownSimFilePaths, IKnownSimFilePathsStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeName for KnownSimFilePaths {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.KnownSimFilePaths";
-}
-pub struct KnownUSimFilePaths;
-impl KnownUSimFilePaths {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn EFSpn() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
-        Self::IKnownUSimFilePathsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EFSpn)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn EFOpl() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
-        Self::IKnownUSimFilePathsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EFOpl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn EFPnn() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
-        Self::IKnownUSimFilePathsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EFPnn)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Gid1() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
-        Self::IKnownUSimFilePathsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Gid1)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Gid2() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
-        Self::IKnownUSimFilePathsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Gid2)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IKnownUSimFilePathsStatics<R, F: FnOnce(&IKnownUSimFilePathsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<KnownUSimFilePaths, IKnownUSimFilePathsStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeName for KnownUSimFilePaths {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.KnownUSimFilePaths";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandAccount(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandAccount, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandAccount {
-    pub fn NetworkAccountId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NetworkAccountId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn ServiceProviderGuid(&self) -> windows_core::Result<windows_core::GUID> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ServiceProviderGuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn ServiceProviderName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ServiceProviderName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn CurrentNetwork(&self) -> windows_core::Result<MobileBroadbandNetwork> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CurrentNetwork)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn CurrentDeviceInformation(&self) -> windows_core::Result<MobileBroadbandDeviceInformation> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CurrentDeviceInformation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Networking_Connectivity"))]
-    pub fn GetConnectionProfiles(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::Connectivity::ConnectionProfile>> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandAccount2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetConnectionProfiles)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn AccountExperienceUrl(&self) -> windows_core::Result<super::super::Foundation::Uri> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandAccount3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AccountExperienceUrl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AvailableNetworkAccountIds() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
-        Self::IMobileBroadbandAccountStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AvailableNetworkAccountIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateFromNetworkAccountId(networkaccountid: &windows_core::HSTRING) -> windows_core::Result<MobileBroadbandAccount> {
-        Self::IMobileBroadbandAccountStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromNetworkAccountId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IMobileBroadbandAccountStatics<R, F: FnOnce(&IMobileBroadbandAccountStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<MobileBroadbandAccount, IMobileBroadbandAccountStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandAccount {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandAccount>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandAccount {
-    type Vtable = <IMobileBroadbandAccount as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandAccount as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandAccount {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccount";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandAccountEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandAccountEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandAccountEventArgs {
-    pub fn NetworkAccountId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NetworkAccountId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandAccountEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandAccountEventArgs>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandAccountEventArgs {
-    type Vtable = <IMobileBroadbandAccountEventArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandAccountEventArgs as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandAccountEventArgs {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccountEventArgs";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandAccountUpdatedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandAccountUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandAccountUpdatedEventArgs {
-    pub fn NetworkAccountId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NetworkAccountId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn HasDeviceInformationChanged(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HasDeviceInformationChanged)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn HasNetworkChanged(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HasNetworkChanged)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandAccountUpdatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandAccountUpdatedEventArgs>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandAccountUpdatedEventArgs {
-    type Vtable = <IMobileBroadbandAccountUpdatedEventArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandAccountUpdatedEventArgs as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandAccountUpdatedEventArgs {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccountUpdatedEventArgs";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandAccountWatcher(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandAccountWatcher, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandAccountWatcher {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<MobileBroadbandAccountWatcher, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn AccountAdded<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountEventArgs>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AccountAdded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveAccountAdded(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveAccountAdded)(windows_core::Interface::as_raw(this), cookie).ok() }
-    }
-    pub fn AccountUpdated<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountUpdatedEventArgs>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AccountUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveAccountUpdated(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveAccountUpdated)(windows_core::Interface::as_raw(this), cookie).ok() }
-    }
-    pub fn AccountRemoved<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountEventArgs>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AccountRemoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveAccountRemoved(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveAccountRemoved)(windows_core::Interface::as_raw(this), cookie).ok() }
-    }
-    pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, windows_core::IInspectable>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveEnumerationCompleted(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveEnumerationCompleted)(windows_core::Interface::as_raw(this), cookie).ok() }
-    }
-    pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, windows_core::IInspectable>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveStopped(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveStopped)(windows_core::Interface::as_raw(this), cookie).ok() }
-    }
-    pub fn Status(&self) -> windows_core::Result<MobileBroadbandAccountWatcherStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Start(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn Stop(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandAccountWatcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandAccountWatcher>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandAccountWatcher {
-    type Vtable = <IMobileBroadbandAccountWatcher as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandAccountWatcher as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandAccountWatcher {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccountWatcher";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandAntennaSar(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandAntennaSar, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandAntennaSar {
-    pub fn AntennaIndex(&self) -> windows_core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AntennaIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SarBackoffIndex(&self) -> windows_core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SarBackoffIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn CreateWithIndex(antennaindex: i32, sarbackoffindex: i32) -> windows_core::Result<MobileBroadbandAntennaSar> {
-        Self::IMobileBroadbandAntennaSarFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithIndex)(windows_core::Interface::as_raw(this), antennaindex, sarbackoffindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IMobileBroadbandAntennaSarFactory<R, F: FnOnce(&IMobileBroadbandAntennaSarFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<MobileBroadbandAntennaSar, IMobileBroadbandAntennaSarFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandAntennaSar {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandAntennaSar>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandAntennaSar {
-    type Vtable = <IMobileBroadbandAntennaSar as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandAntennaSar as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandAntennaSar {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAntennaSar";
-}
-unsafe impl Send for MobileBroadbandAntennaSar {}
-unsafe impl Sync for MobileBroadbandAntennaSar {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandCellCdma(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandCellCdma, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandCellCdma {
-    pub fn BaseStationId(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BaseStationId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn BaseStationPNCode(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BaseStationPNCode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn BaseStationLatitude(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BaseStationLatitude)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn BaseStationLongitude(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BaseStationLongitude)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn BaseStationLastBroadcastGpsTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BaseStationLastBroadcastGpsTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn NetworkId(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NetworkId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn PilotSignalStrengthInDB(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PilotSignalStrengthInDB)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SystemId(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandCellCdma {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellCdma>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandCellCdma {
-    type Vtable = <IMobileBroadbandCellCdma as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandCellCdma as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandCellCdma {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellCdma";
-}
-unsafe impl Send for MobileBroadbandCellCdma {}
-unsafe impl Sync for MobileBroadbandCellCdma {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandCellGsm(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandCellGsm, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandCellGsm {
-    pub fn BaseStationId(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BaseStationId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn CellId(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CellId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn ChannelNumber(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ChannelNumber)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn LocationAreaCode(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LocationAreaCode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn ProviderId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProviderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn ReceivedSignalStrengthInDBm(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReceivedSignalStrengthInDBm)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn TimingAdvanceInBitPeriods(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TimingAdvanceInBitPeriods)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandCellGsm {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellGsm>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandCellGsm {
-    type Vtable = <IMobileBroadbandCellGsm as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandCellGsm as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandCellGsm {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellGsm";
-}
-unsafe impl Send for MobileBroadbandCellGsm {}
-unsafe impl Sync for MobileBroadbandCellGsm {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandCellLte(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandCellLte, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandCellLte {
-    pub fn CellId(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CellId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn ChannelNumber(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ChannelNumber)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn PhysicalCellId(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PhysicalCellId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn ProviderId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProviderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn ReferenceSignalReceivedPowerInDBm(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReferenceSignalReceivedPowerInDBm)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn ReferenceSignalReceivedQualityInDBm(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReferenceSignalReceivedQualityInDBm)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn TimingAdvanceInBitPeriods(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TimingAdvanceInBitPeriods)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn TrackingAreaCode(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrackingAreaCode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandCellLte {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellLte>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandCellLte {
-    type Vtable = <IMobileBroadbandCellLte as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandCellLte as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandCellLte {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellLte";
-}
-unsafe impl Send for MobileBroadbandCellLte {}
-unsafe impl Sync for MobileBroadbandCellLte {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandCellNR(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandCellNR, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandCellNR {
-    pub fn CellId(&self) -> windows_core::Result<super::super::Foundation::IReference<i64>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CellId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn ChannelNumber(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ChannelNumber)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn PhysicalCellId(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PhysicalCellId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn ProviderId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProviderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn ReferenceSignalReceivedPowerInDBm(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReferenceSignalReceivedPowerInDBm)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn ReferenceSignalReceivedQualityInDBm(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReferenceSignalReceivedQualityInDBm)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn TimingAdvanceInNanoseconds(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TimingAdvanceInNanoseconds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn TrackingAreaCode(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrackingAreaCode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SignalToNoiseRatioInDB(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SignalToNoiseRatioInDB)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandCellNR {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellNR>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandCellNR {
-    type Vtable = <IMobileBroadbandCellNR as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandCellNR as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandCellNR {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellNR";
-}
-unsafe impl Send for MobileBroadbandCellNR {}
-unsafe impl Sync for MobileBroadbandCellNR {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandCellTdscdma(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandCellTdscdma, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandCellTdscdma {
-    pub fn CellId(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CellId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn CellParameterId(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CellParameterId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn ChannelNumber(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ChannelNumber)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn LocationAreaCode(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LocationAreaCode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn PathLossInDB(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PathLossInDB)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn ProviderId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProviderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn ReceivedSignalCodePowerInDBm(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReceivedSignalCodePowerInDBm)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn TimingAdvanceInBitPeriods(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TimingAdvanceInBitPeriods)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandCellTdscdma {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellTdscdma>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandCellTdscdma {
-    type Vtable = <IMobileBroadbandCellTdscdma as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandCellTdscdma as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandCellTdscdma {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellTdscdma";
-}
-unsafe impl Send for MobileBroadbandCellTdscdma {}
-unsafe impl Sync for MobileBroadbandCellTdscdma {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandCellUmts(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandCellUmts, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandCellUmts {
-    pub fn CellId(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CellId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn ChannelNumber(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ChannelNumber)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn LocationAreaCode(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LocationAreaCode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn PathLossInDB(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PathLossInDB)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn PrimaryScramblingCode(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrimaryScramblingCode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn ProviderId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProviderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn ReceivedSignalCodePowerInDBm(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReceivedSignalCodePowerInDBm)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SignalToNoiseRatioInDB(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SignalToNoiseRatioInDB)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandCellUmts {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellUmts>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandCellUmts {
-    type Vtable = <IMobileBroadbandCellUmts as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandCellUmts as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandCellUmts {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellUmts";
-}
-unsafe impl Send for MobileBroadbandCellUmts {}
-unsafe impl Sync for MobileBroadbandCellUmts {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandCellsInfo(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandCellsInfo, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandCellsInfo {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn NeighboringCellsCdma(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellCdma>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NeighboringCellsCdma)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn NeighboringCellsGsm(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellGsm>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NeighboringCellsGsm)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn NeighboringCellsLte(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellLte>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NeighboringCellsLte)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn NeighboringCellsTdscdma(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellTdscdma>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NeighboringCellsTdscdma)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn NeighboringCellsUmts(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellUmts>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NeighboringCellsUmts)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ServingCellsCdma(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellCdma>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ServingCellsCdma)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ServingCellsGsm(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellGsm>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ServingCellsGsm)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ServingCellsLte(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellLte>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ServingCellsLte)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ServingCellsTdscdma(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellTdscdma>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ServingCellsTdscdma)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ServingCellsUmts(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellUmts>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ServingCellsUmts)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn NeighboringCellsNR(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellNR>> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandCellsInfo2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NeighboringCellsNR)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ServingCellsNR(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellNR>> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandCellsInfo2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ServingCellsNR)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandCellsInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellsInfo>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandCellsInfo {
-    type Vtable = <IMobileBroadbandCellsInfo as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandCellsInfo as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandCellsInfo {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellsInfo";
-}
-unsafe impl Send for MobileBroadbandCellsInfo {}
-unsafe impl Sync for MobileBroadbandCellsInfo {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandCurrentSlotIndexChangedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandCurrentSlotIndexChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandCurrentSlotIndexChangedEventArgs {
-    pub fn CurrentSlotIndex(&self) -> windows_core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CurrentSlotIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandCurrentSlotIndexChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCurrentSlotIndexChangedEventArgs>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandCurrentSlotIndexChangedEventArgs {
-    type Vtable = <IMobileBroadbandCurrentSlotIndexChangedEventArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandCurrentSlotIndexChangedEventArgs as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandCurrentSlotIndexChangedEventArgs {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCurrentSlotIndexChangedEventArgs";
-}
-unsafe impl Send for MobileBroadbandCurrentSlotIndexChangedEventArgs {}
-unsafe impl Sync for MobileBroadbandCurrentSlotIndexChangedEventArgs {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandDeviceInformation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceInformation, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandDeviceInformation {
-    pub fn NetworkDeviceStatus(&self) -> windows_core::Result<NetworkDeviceStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NetworkDeviceStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Manufacturer(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Manufacturer)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Model(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Model)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn FirmwareInformation(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FirmwareInformation)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "Devices_Sms")]
-    pub fn CellularClass(&self) -> windows_core::Result<super::super::Devices::Sms::CellularClass> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CellularClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn DataClasses(&self) -> windows_core::Result<DataClasses> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DataClasses)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn CustomDataClass(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CustomDataClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn MobileEquipmentId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MobileEquipmentId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn TelephoneNumbers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TelephoneNumbers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SubscriberId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SubscriberId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SimIccId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SimIccId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn DeviceType(&self) -> windows_core::Result<MobileBroadbandDeviceType> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeviceType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn CurrentRadioState(&self) -> windows_core::Result<MobileBroadbandRadioState> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CurrentRadioState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn PinManager(&self) -> windows_core::Result<MobileBroadbandPinManager> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandDeviceInformation2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PinManager)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Revision(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandDeviceInformation2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Revision)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SerialNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandDeviceInformation2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SerialNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SimSpn(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandDeviceInformation3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SimSpn)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SimPnn(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandDeviceInformation3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SimPnn)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SimGid1(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandDeviceInformation3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SimGid1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SlotManager(&self) -> windows_core::Result<MobileBroadbandSlotManager> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandDeviceInformation4>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SlotManager)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandDeviceInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceInformation>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandDeviceInformation {
-    type Vtable = <IMobileBroadbandDeviceInformation as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandDeviceInformation as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandDeviceInformation {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceInformation";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandDeviceService(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceService, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandDeviceService {
-    pub fn DeviceServiceId(&self) -> windows_core::Result<windows_core::GUID> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeviceServiceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedCommands(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SupportedCommands)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn OpenDataSession(&self) -> windows_core::Result<MobileBroadbandDeviceServiceDataSession> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OpenDataSession)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn OpenCommandSession(&self) -> windows_core::Result<MobileBroadbandDeviceServiceCommandSession> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OpenCommandSession)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandDeviceService {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceService>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandDeviceService {
-    type Vtable = <IMobileBroadbandDeviceService as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandDeviceService as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandDeviceService {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceService";
-}
-unsafe impl Send for MobileBroadbandDeviceService {}
-unsafe impl Sync for MobileBroadbandDeviceService {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandDeviceServiceCommandEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceCommandEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandDeviceServiceCommandEventArgs {
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn DeviceServiceId(&self) -> windows_core::Result<windows_core::GUID> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeviceServiceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn EventId(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EventId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn ReceivedData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReceivedData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandDeviceServiceCommandEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceCommandEventArgs>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceCommandEventArgs {
-    type Vtable = <IMobileBroadbandDeviceServiceCommandEventArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceCommandEventArgs as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandDeviceServiceCommandEventArgs {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceCommandEventArgs";
-}
-unsafe impl Send for MobileBroadbandDeviceServiceCommandEventArgs {}
-unsafe impl Sync for MobileBroadbandDeviceServiceCommandEventArgs {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandDeviceServiceCommandResult(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceCommandResult, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandDeviceServiceCommandResult {
-    pub fn StatusCode(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StatusCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn ResponseData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResponseData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandDeviceServiceCommandResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceCommandResult>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceCommandResult {
-    type Vtable = <IMobileBroadbandDeviceServiceCommandResult as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceCommandResult as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandDeviceServiceCommandResult {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceCommandResult";
-}
-unsafe impl Send for MobileBroadbandDeviceServiceCommandResult {}
-unsafe impl Sync for MobileBroadbandDeviceServiceCommandResult {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandDeviceServiceCommandSession(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceCommandSession, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandDeviceServiceCommandSession {
-    #[cfg(feature = "Storage_Streams")]
-    pub fn SendQueryCommandAsync<P1>(&self, commandid: u32, data: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>>
-    where
-        P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SendQueryCommandAsync)(windows_core::Interface::as_raw(this), commandid, data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn SendSetCommandAsync<P1>(&self, commandid: u32, data: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>>
-    where
-        P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SendSetCommandAsync)(windows_core::Interface::as_raw(this), commandid, data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn CloseSession(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).CloseSession)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn CommandReceived<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandDeviceServiceCommandSession, MobileBroadbandDeviceServiceCommandEventArgs>>,
-    {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandDeviceServiceCommandSession2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CommandReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveCommandReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandDeviceServiceCommandSession2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveCommandReceived)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandDeviceServiceCommandSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceCommandSession>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceCommandSession {
-    type Vtable = <IMobileBroadbandDeviceServiceCommandSession as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceCommandSession as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandDeviceServiceCommandSession {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceCommandSession";
-}
-unsafe impl Send for MobileBroadbandDeviceServiceCommandSession {}
-unsafe impl Sync for MobileBroadbandDeviceServiceCommandSession {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandDeviceServiceDataReceivedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceDataReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandDeviceServiceDataReceivedEventArgs {
-    #[cfg(feature = "Storage_Streams")]
-    pub fn ReceivedData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReceivedData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandDeviceServiceDataReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceDataReceivedEventArgs>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceDataReceivedEventArgs {
-    type Vtable = <IMobileBroadbandDeviceServiceDataReceivedEventArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceDataReceivedEventArgs as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandDeviceServiceDataReceivedEventArgs {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceDataReceivedEventArgs";
-}
-unsafe impl Send for MobileBroadbandDeviceServiceDataReceivedEventArgs {}
-unsafe impl Sync for MobileBroadbandDeviceServiceDataReceivedEventArgs {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandDeviceServiceDataSession(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceDataSession, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandDeviceServiceDataSession {
-    #[cfg(feature = "Storage_Streams")]
-    pub fn WriteDataAsync<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteDataAsync)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn CloseSession(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).CloseSession)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn DataReceived<P0>(&self, eventhandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandDeviceServiceDataSession, MobileBroadbandDeviceServiceDataReceivedEventArgs>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DataReceived)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveDataReceived(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveDataReceived)(windows_core::Interface::as_raw(this), eventcookie).ok() }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandDeviceServiceDataSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceDataSession>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceDataSession {
-    type Vtable = <IMobileBroadbandDeviceServiceDataSession as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceDataSession as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandDeviceServiceDataSession {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceDataSession";
-}
-unsafe impl Send for MobileBroadbandDeviceServiceDataSession {}
-unsafe impl Sync for MobileBroadbandDeviceServiceDataSession {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandDeviceServiceInformation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceInformation, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandDeviceServiceInformation {
-    pub fn DeviceServiceId(&self) -> windows_core::Result<windows_core::GUID> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeviceServiceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn IsDataReadSupported(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsDataReadSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn IsDataWriteSupported(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsDataWriteSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandDeviceServiceInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceInformation>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceInformation {
-    type Vtable = <IMobileBroadbandDeviceServiceInformation as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceInformation as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandDeviceServiceInformation {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceInformation";
-}
-unsafe impl Send for MobileBroadbandDeviceServiceInformation {}
-unsafe impl Sync for MobileBroadbandDeviceServiceInformation {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandDeviceServiceTriggerDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandDeviceServiceTriggerDetails {
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn DeviceServiceId(&self) -> windows_core::Result<windows_core::GUID> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeviceServiceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn ReceivedData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReceivedData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn EventId(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandDeviceServiceTriggerDetails2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EventId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandDeviceServiceTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceTriggerDetails>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceTriggerDetails {
-    type Vtable = <IMobileBroadbandDeviceServiceTriggerDetails as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceTriggerDetails as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandDeviceServiceTriggerDetails {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceTriggerDetails";
-}
-unsafe impl Send for MobileBroadbandDeviceServiceTriggerDetails {}
-unsafe impl Sync for MobileBroadbandDeviceServiceTriggerDetails {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandModem(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandModem, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandModem {
-    pub fn CurrentAccount(&self) -> windows_core::Result<MobileBroadbandAccount> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CurrentAccount)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn DeviceInformation(&self) -> windows_core::Result<MobileBroadbandDeviceInformation> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeviceInformation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn MaxDeviceServiceCommandSizeInBytes(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MaxDeviceServiceCommandSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn MaxDeviceServiceDataSizeInBytes(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MaxDeviceServiceDataSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DeviceServices(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandDeviceServiceInformation>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeviceServices)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetDeviceService(&self, deviceserviceid: windows_core::GUID) -> windows_core::Result<MobileBroadbandDeviceService> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeviceService)(windows_core::Interface::as_raw(this), deviceserviceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn IsResetSupported(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsResetSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn ResetAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResetAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetCurrentConfigurationAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandModemConfiguration>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetCurrentConfigurationAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn CurrentNetwork(&self) -> windows_core::Result<MobileBroadbandNetwork> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CurrentNetwork)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetIsPassthroughEnabledAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandModem2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetIsPassthroughEnabledAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SetIsPassthroughEnabledAsync(&self, value: bool) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandModem2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetIsPassthroughEnabledAsync)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn TryGetPcoAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPco>> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandModem3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetPcoAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn IsInEmergencyCallMode(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandModem3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsInEmergencyCallMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn IsInEmergencyCallModeChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandModem, windows_core::IInspectable>>,
-    {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandModem3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsInEmergencyCallModeChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveIsInEmergencyCallModeChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandModem3>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveIsInEmergencyCallModeChanged)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn SetIsPassthroughEnabledWithSlotIndexAsync(&self, value: bool, slotindex: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandModem4>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetIsPassthroughEnabledWithSlotIndexAsync)(windows_core::Interface::as_raw(this), value, slotindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetIsPassthroughEnabledWithSlotIndexAsync(&self, slotindex: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandModem4>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetIsPassthroughEnabledWithSlotIndexAsync)(windows_core::Interface::as_raw(this), slotindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SetIsPassthroughEnabledWithSlotIndex(&self, value: bool, slotindex: i32) -> windows_core::Result<MobileBroadbandModemStatus> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandModem4>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetIsPassthroughEnabledWithSlotIndex)(windows_core::Interface::as_raw(this), value, slotindex, &mut result__).map(|| result__)
-        }
-    }
-    pub fn GetIsPassthroughEnabledWithSlotIndex(&self, slotindex: i32) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandModem4>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetIsPassthroughEnabledWithSlotIndex)(windows_core::Interface::as_raw(this), slotindex, &mut result__).map(|| result__)
-        }
-    }
-    pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
-        Self::IMobileBroadbandModemStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn FromId(deviceid: &windows_core::HSTRING) -> windows_core::Result<MobileBroadbandModem> {
-        Self::IMobileBroadbandModemStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn GetDefault() -> windows_core::Result<MobileBroadbandModem> {
-        Self::IMobileBroadbandModemStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IMobileBroadbandModemStatics<R, F: FnOnce(&IMobileBroadbandModemStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<MobileBroadbandModem, IMobileBroadbandModemStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandModem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandModem>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandModem {
-    type Vtable = <IMobileBroadbandModem as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandModem as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandModem {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandModem";
-}
-unsafe impl Send for MobileBroadbandModem {}
-unsafe impl Sync for MobileBroadbandModem {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandModemConfiguration(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandModemConfiguration, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandModemConfiguration {
-    pub fn Uicc(&self) -> windows_core::Result<MobileBroadbandUicc> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Uicc)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn HomeProviderId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HomeProviderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn HomeProviderName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HomeProviderName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SarManager(&self) -> windows_core::Result<MobileBroadbandSarManager> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandModemConfiguration2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SarManager)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandModemConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandModemConfiguration>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandModemConfiguration {
-    type Vtable = <IMobileBroadbandModemConfiguration as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandModemConfiguration as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandModemConfiguration {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandModemConfiguration";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandModemIsolation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandModemIsolation, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandModemIsolation {
-    pub fn AddAllowedHost<P0>(&self, host: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::HostName>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddAllowedHost)(windows_core::Interface::as_raw(this), host.param().abi()).ok() }
-    }
-    pub fn AddAllowedHostRange<P0, P1>(&self, first: P0, last: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::HostName>,
-        P1: windows_core::Param<super::HostName>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddAllowedHostRange)(windows_core::Interface::as_raw(this), first.param().abi(), last.param().abi()).ok() }
-    }
-    pub fn ApplyConfigurationAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ApplyConfigurationAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn ClearConfigurationAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ClearConfigurationAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Create(modemdeviceid: &windows_core::HSTRING, rulegroupid: &windows_core::HSTRING) -> windows_core::Result<MobileBroadbandModemIsolation> {
-        Self::IMobileBroadbandModemIsolationFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(modemdeviceid), core::mem::transmute_copy(rulegroupid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IMobileBroadbandModemIsolationFactory<R, F: FnOnce(&IMobileBroadbandModemIsolationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<MobileBroadbandModemIsolation, IMobileBroadbandModemIsolationFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandModemIsolation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandModemIsolation>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandModemIsolation {
-    type Vtable = <IMobileBroadbandModemIsolation as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandModemIsolation as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandModemIsolation {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandModemIsolation";
-}
-unsafe impl Send for MobileBroadbandModemIsolation {}
-unsafe impl Sync for MobileBroadbandModemIsolation {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandNetwork(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandNetwork, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandNetwork {
-    #[cfg(feature = "Networking_Connectivity")]
-    pub fn NetworkAdapter(&self) -> windows_core::Result<super::Connectivity::NetworkAdapter> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NetworkAdapter)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn NetworkRegistrationState(&self) -> windows_core::Result<NetworkRegistrationState> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NetworkRegistrationState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn RegistrationNetworkError(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RegistrationNetworkError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn PacketAttachNetworkError(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PacketAttachNetworkError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn ActivationNetworkError(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivationNetworkError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn AccessPointName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AccessPointName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RegisteredDataClass(&self) -> windows_core::Result<DataClasses> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RegisteredDataClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn RegisteredProviderId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RegisteredProviderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RegisteredProviderName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RegisteredProviderName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn ShowConnectionUI(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ShowConnectionUI)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn GetVoiceCallSupportAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandNetwork2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetVoiceCallSupportAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RegistrationUiccApps(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandUiccApp>> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandNetwork2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RegistrationUiccApps)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetCellsInfoAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandCellsInfo>> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandNetwork3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetCellsInfoAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandNetwork {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandNetwork>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandNetwork {
-    type Vtable = <IMobileBroadbandNetwork as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandNetwork as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandNetwork {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandNetwork";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandNetworkRegistrationStateChange(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandNetworkRegistrationStateChange, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandNetworkRegistrationStateChange {
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Network(&self) -> windows_core::Result<MobileBroadbandNetwork> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Network)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandNetworkRegistrationStateChange {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandNetworkRegistrationStateChange>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandNetworkRegistrationStateChange {
-    type Vtable = <IMobileBroadbandNetworkRegistrationStateChange as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandNetworkRegistrationStateChange as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandNetworkRegistrationStateChange {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChange";
-}
-unsafe impl Send for MobileBroadbandNetworkRegistrationStateChange {}
-unsafe impl Sync for MobileBroadbandNetworkRegistrationStateChange {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandNetworkRegistrationStateChangeTriggerDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandNetworkRegistrationStateChangeTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn NetworkRegistrationStateChanges(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandNetworkRegistrationStateChange>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NetworkRegistrationStateChanges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
-    type Vtable = <IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChangeTriggerDetails";
-}
-unsafe impl Send for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {}
-unsafe impl Sync for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandPco(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandPco, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandPco {
-    #[cfg(feature = "Storage_Streams")]
-    pub fn Data(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Data)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn IsComplete(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsComplete)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandPco {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPco>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandPco {
-    type Vtable = <IMobileBroadbandPco as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandPco as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandPco {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPco";
-}
-unsafe impl Send for MobileBroadbandPco {}
-unsafe impl Sync for MobileBroadbandPco {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandPcoDataChangeTriggerDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandPcoDataChangeTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandPcoDataChangeTriggerDetails {
-    pub fn UpdatedData(&self) -> windows_core::Result<MobileBroadbandPco> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdatedData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandPcoDataChangeTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPcoDataChangeTriggerDetails>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandPcoDataChangeTriggerDetails {
-    type Vtable = <IMobileBroadbandPcoDataChangeTriggerDetails as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandPcoDataChangeTriggerDetails as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandPcoDataChangeTriggerDetails {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPcoDataChangeTriggerDetails";
-}
-unsafe impl Send for MobileBroadbandPcoDataChangeTriggerDetails {}
-unsafe impl Sync for MobileBroadbandPcoDataChangeTriggerDetails {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandPin(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandPin, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandPin {
-    pub fn Type(&self) -> windows_core::Result<MobileBroadbandPinType> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn LockState(&self) -> windows_core::Result<MobileBroadbandPinLockState> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LockState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Format(&self) -> windows_core::Result<MobileBroadbandPinFormat> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Format)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Enabled(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Enabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn MaxLength(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MaxLength)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn MinLength(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MinLength)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn AttemptsRemaining(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AttemptsRemaining)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn EnableAsync(&self, currentpin: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EnableAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(currentpin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn DisableAsync(&self, currentpin: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisableAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(currentpin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn EnterAsync(&self, currentpin: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EnterAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(currentpin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn ChangeAsync(&self, currentpin: &windows_core::HSTRING, newpin: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ChangeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(currentpin), core::mem::transmute_copy(newpin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn UnblockAsync(&self, pinunblockkey: &windows_core::HSTRING, newpin: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UnblockAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(pinunblockkey), core::mem::transmute_copy(newpin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandPin {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPin>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandPin {
-    type Vtable = <IMobileBroadbandPin as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandPin as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandPin {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPin";
-}
-unsafe impl Send for MobileBroadbandPin {}
-unsafe impl Sync for MobileBroadbandPin {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandPinLockStateChange(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandPinLockStateChange, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandPinLockStateChange {
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn PinType(&self) -> windows_core::Result<MobileBroadbandPinType> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PinType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn PinLockState(&self) -> windows_core::Result<MobileBroadbandPinLockState> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PinLockState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandPinLockStateChange {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPinLockStateChange>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandPinLockStateChange {
-    type Vtable = <IMobileBroadbandPinLockStateChange as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandPinLockStateChange as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandPinLockStateChange {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChange";
-}
-unsafe impl Send for MobileBroadbandPinLockStateChange {}
-unsafe impl Sync for MobileBroadbandPinLockStateChange {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandPinLockStateChangeTriggerDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandPinLockStateChangeTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandPinLockStateChangeTriggerDetails {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn PinLockStateChanges(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandPinLockStateChange>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PinLockStateChanges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandPinLockStateChangeTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPinLockStateChangeTriggerDetails>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandPinLockStateChangeTriggerDetails {
-    type Vtable = <IMobileBroadbandPinLockStateChangeTriggerDetails as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandPinLockStateChangeTriggerDetails as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandPinLockStateChangeTriggerDetails {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChangeTriggerDetails";
-}
-unsafe impl Send for MobileBroadbandPinLockStateChangeTriggerDetails {}
-unsafe impl Sync for MobileBroadbandPinLockStateChangeTriggerDetails {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandPinManager(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandPinManager, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandPinManager {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedPins(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandPinType>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SupportedPins)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetPin(&self, pintype: MobileBroadbandPinType) -> windows_core::Result<MobileBroadbandPin> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPin)(windows_core::Interface::as_raw(this), pintype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandPinManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPinManager>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandPinManager {
-    type Vtable = <IMobileBroadbandPinManager as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandPinManager as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandPinManager {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinManager";
-}
-unsafe impl Send for MobileBroadbandPinManager {}
-unsafe impl Sync for MobileBroadbandPinManager {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandPinOperationResult(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandPinOperationResult, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandPinOperationResult {
-    pub fn IsSuccessful(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsSuccessful)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn AttemptsRemaining(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AttemptsRemaining)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandPinOperationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPinOperationResult>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandPinOperationResult {
-    type Vtable = <IMobileBroadbandPinOperationResult as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandPinOperationResult as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandPinOperationResult {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinOperationResult";
-}
-unsafe impl Send for MobileBroadbandPinOperationResult {}
-unsafe impl Sync for MobileBroadbandPinOperationResult {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandRadioStateChange(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandRadioStateChange, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandRadioStateChange {
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RadioState(&self) -> windows_core::Result<MobileBroadbandRadioState> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RadioState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandRadioStateChange {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandRadioStateChange>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandRadioStateChange {
-    type Vtable = <IMobileBroadbandRadioStateChange as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandRadioStateChange as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandRadioStateChange {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChange";
-}
-unsafe impl Send for MobileBroadbandRadioStateChange {}
-unsafe impl Sync for MobileBroadbandRadioStateChange {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandRadioStateChangeTriggerDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandRadioStateChangeTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandRadioStateChangeTriggerDetails {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RadioStateChanges(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandRadioStateChange>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RadioStateChanges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandRadioStateChangeTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandRadioStateChangeTriggerDetails>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandRadioStateChangeTriggerDetails {
-    type Vtable = <IMobileBroadbandRadioStateChangeTriggerDetails as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandRadioStateChangeTriggerDetails as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandRadioStateChangeTriggerDetails {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChangeTriggerDetails";
-}
-unsafe impl Send for MobileBroadbandRadioStateChangeTriggerDetails {}
-unsafe impl Sync for MobileBroadbandRadioStateChangeTriggerDetails {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandSarManager(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandSarManager, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandSarManager {
-    pub fn IsBackoffEnabled(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsBackoffEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn IsWiFiHardwareIntegrated(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsWiFiHardwareIntegrated)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn IsSarControlledByHardware(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsSarControlledByHardware)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Antennas(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandAntennaSar>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Antennas)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn HysteresisTimerPeriod(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HysteresisTimerPeriod)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn TransmissionStateChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandSarManager, MobileBroadbandTransmissionStateChangedEventArgs>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TransmissionStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveTransmissionStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveTransmissionStateChanged)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn EnableBackoffAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EnableBackoffAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn DisableBackoffAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisableBackoffAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SetConfigurationAsync<P0>(&self, antennas: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<MobileBroadbandAntennaSar>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetConfigurationAsync)(windows_core::Interface::as_raw(this), antennas.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn RevertSarToHardwareControlAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RevertSarToHardwareControlAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SetTransmissionStateChangedHysteresisAsync(&self, timerperiod: super::super::Foundation::TimeSpan) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetTransmissionStateChangedHysteresisAsync)(windows_core::Interface::as_raw(this), timerperiod, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetIsTransmittingAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetIsTransmittingAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn StartTransmissionStateMonitoring(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).StartTransmissionStateMonitoring)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn StopTransmissionStateMonitoring(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).StopTransmissionStateMonitoring)(windows_core::Interface::as_raw(this)).ok() }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandSarManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandSarManager>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandSarManager {
-    type Vtable = <IMobileBroadbandSarManager as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandSarManager as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandSarManager {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSarManager";
-}
-unsafe impl Send for MobileBroadbandSarManager {}
-unsafe impl Sync for MobileBroadbandSarManager {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandSlotInfo(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandSlotInfo, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandSlotInfo {
-    pub fn Index(&self) -> windows_core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Index)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn State(&self) -> windows_core::Result<MobileBroadbandSlotState> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn IccId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IMobileBroadbandSlotInfo2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IccId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandSlotInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandSlotInfo>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandSlotInfo {
-    type Vtable = <IMobileBroadbandSlotInfo as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandSlotInfo as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandSlotInfo {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSlotInfo";
-}
-unsafe impl Send for MobileBroadbandSlotInfo {}
-unsafe impl Sync for MobileBroadbandSlotInfo {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandSlotInfoChangedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandSlotInfoChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandSlotInfoChangedEventArgs {
-    pub fn SlotInfo(&self) -> windows_core::Result<MobileBroadbandSlotInfo> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SlotInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandSlotInfoChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandSlotInfoChangedEventArgs>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandSlotInfoChangedEventArgs {
-    type Vtable = <IMobileBroadbandSlotInfoChangedEventArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandSlotInfoChangedEventArgs as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandSlotInfoChangedEventArgs {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSlotInfoChangedEventArgs";
-}
-unsafe impl Send for MobileBroadbandSlotInfoChangedEventArgs {}
-unsafe impl Sync for MobileBroadbandSlotInfoChangedEventArgs {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandSlotManager(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandSlotManager, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandSlotManager {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SlotInfos(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandSlotInfo>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SlotInfos)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn CurrentSlotIndex(&self) -> windows_core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CurrentSlotIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetCurrentSlot(&self, slotindex: i32) -> windows_core::Result<MobileBroadbandModemStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetCurrentSlot)(windows_core::Interface::as_raw(this), slotindex, &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetCurrentSlotAsync(&self, slotindex: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetCurrentSlotAsync)(windows_core::Interface::as_raw(this), slotindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SlotInfoChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandSlotManager, MobileBroadbandSlotInfoChangedEventArgs>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SlotInfoChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveSlotInfoChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveSlotInfoChanged)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn CurrentSlotIndexChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandSlotManager, MobileBroadbandCurrentSlotIndexChangedEventArgs>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CurrentSlotIndexChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveCurrentSlotIndexChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveCurrentSlotIndexChanged)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandSlotManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandSlotManager>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandSlotManager {
-    type Vtable = <IMobileBroadbandSlotManager as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandSlotManager as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandSlotManager {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSlotManager";
-}
-unsafe impl Send for MobileBroadbandSlotManager {}
-unsafe impl Sync for MobileBroadbandSlotManager {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandTransmissionStateChangedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandTransmissionStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandTransmissionStateChangedEventArgs {
-    pub fn IsTransmitting(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsTransmitting)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandTransmissionStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandTransmissionStateChangedEventArgs>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandTransmissionStateChangedEventArgs {
-    type Vtable = <IMobileBroadbandTransmissionStateChangedEventArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandTransmissionStateChangedEventArgs as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandTransmissionStateChangedEventArgs {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandTransmissionStateChangedEventArgs";
-}
-unsafe impl Send for MobileBroadbandTransmissionStateChangedEventArgs {}
-unsafe impl Sync for MobileBroadbandTransmissionStateChangedEventArgs {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandUicc(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandUicc, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandUicc {
-    pub fn SimIccId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SimIccId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn GetUiccAppsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppsResult>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetUiccAppsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandUicc {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandUicc>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandUicc {
-    type Vtable = <IMobileBroadbandUicc as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandUicc as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandUicc {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUicc";
-}
-unsafe impl Send for MobileBroadbandUicc {}
-unsafe impl Sync for MobileBroadbandUicc {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandUiccApp(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandUiccApp, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandUiccApp {
-    #[cfg(feature = "Storage_Streams")]
-    pub fn Id(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Kind(&self) -> windows_core::Result<UiccAppKind> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetRecordDetailsAsync<P0>(&self, uiccfilepath: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppRecordDetailsResult>>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<u32>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetRecordDetailsAsync)(windows_core::Interface::as_raw(this), uiccfilepath.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ReadRecordAsync<P0>(&self, uiccfilepath: P0, recordindex: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppReadRecordResult>>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<u32>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadRecordAsync)(windows_core::Interface::as_raw(this), uiccfilepath.param().abi(), recordindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandUiccApp {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandUiccApp>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandUiccApp {
-    type Vtable = <IMobileBroadbandUiccApp as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandUiccApp as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandUiccApp {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccApp";
-}
-unsafe impl Send for MobileBroadbandUiccApp {}
-unsafe impl Sync for MobileBroadbandUiccApp {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandUiccAppReadRecordResult(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandUiccAppReadRecordResult, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandUiccAppReadRecordResult {
-    pub fn Status(&self) -> windows_core::Result<MobileBroadbandUiccAppOperationStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn Data(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Data)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandUiccAppReadRecordResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandUiccAppReadRecordResult>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandUiccAppReadRecordResult {
-    type Vtable = <IMobileBroadbandUiccAppReadRecordResult as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandUiccAppReadRecordResult as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandUiccAppReadRecordResult {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccAppReadRecordResult";
-}
-unsafe impl Send for MobileBroadbandUiccAppReadRecordResult {}
-unsafe impl Sync for MobileBroadbandUiccAppReadRecordResult {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandUiccAppRecordDetailsResult(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandUiccAppRecordDetailsResult, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandUiccAppRecordDetailsResult {
-    pub fn Status(&self) -> windows_core::Result<MobileBroadbandUiccAppOperationStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Kind(&self) -> windows_core::Result<UiccAppRecordKind> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn RecordCount(&self) -> windows_core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RecordCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn RecordSize(&self) -> windows_core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RecordSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn ReadAccessCondition(&self) -> windows_core::Result<UiccAccessCondition> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadAccessCondition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn WriteAccessCondition(&self) -> windows_core::Result<UiccAccessCondition> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteAccessCondition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandUiccAppRecordDetailsResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandUiccAppRecordDetailsResult>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandUiccAppRecordDetailsResult {
-    type Vtable = <IMobileBroadbandUiccAppRecordDetailsResult as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandUiccAppRecordDetailsResult as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandUiccAppRecordDetailsResult {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccAppRecordDetailsResult";
-}
-unsafe impl Send for MobileBroadbandUiccAppRecordDetailsResult {}
-unsafe impl Sync for MobileBroadbandUiccAppRecordDetailsResult {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandUiccAppsResult(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandUiccAppsResult, windows_core::IUnknown, windows_core::IInspectable);
-impl MobileBroadbandUiccAppsResult {
-    pub fn Status(&self) -> windows_core::Result<MobileBroadbandUiccAppOperationStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn UiccApps(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandUiccApp>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UiccApps)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandUiccAppsResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandUiccAppsResult>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandUiccAppsResult {
-    type Vtable = <IMobileBroadbandUiccAppsResult as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMobileBroadbandUiccAppsResult as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandUiccAppsResult {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccAppsResult";
-}
-unsafe impl Send for MobileBroadbandUiccAppsResult {}
-unsafe impl Sync for MobileBroadbandUiccAppsResult {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct NetworkOperatorDataUsageTriggerDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(NetworkOperatorDataUsageTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
-impl NetworkOperatorDataUsageTriggerDetails {
-    pub fn NotificationKind(&self) -> windows_core::Result<NetworkOperatorDataUsageNotificationKind> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NotificationKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for NetworkOperatorDataUsageTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorDataUsageTriggerDetails>();
-}
-unsafe impl windows_core::Interface for NetworkOperatorDataUsageTriggerDetails {
-    type Vtable = <INetworkOperatorDataUsageTriggerDetails as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <INetworkOperatorDataUsageTriggerDetails as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for NetworkOperatorDataUsageTriggerDetails {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorDataUsageTriggerDetails";
-}
-unsafe impl Send for NetworkOperatorDataUsageTriggerDetails {}
-unsafe impl Sync for NetworkOperatorDataUsageTriggerDetails {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct NetworkOperatorNotificationEventDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(NetworkOperatorNotificationEventDetails, windows_core::IUnknown, windows_core::IInspectable);
-impl NetworkOperatorNotificationEventDetails {
-    pub fn NotificationType(&self) -> windows_core::Result<NetworkOperatorEventMessageType> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NotificationType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn NetworkAccountId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NetworkAccountId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn EncodingType(&self) -> windows_core::Result<u8> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EncodingType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Message(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Message)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RuleId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RuleId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "Devices_Sms")]
-    pub fn SmsMessage(&self) -> windows_core::Result<super::super::Devices::Sms::ISmsMessage> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SmsMessage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn AuthorizeTethering(&self, allow: bool, entitlementfailurereason: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringEntitlementCheck>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).AuthorizeTethering)(windows_core::Interface::as_raw(this), allow, core::mem::transmute_copy(entitlementfailurereason)).ok() }
-    }
-}
-impl windows_core::RuntimeType for NetworkOperatorNotificationEventDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorNotificationEventDetails>();
-}
-unsafe impl windows_core::Interface for NetworkOperatorNotificationEventDetails {
-    type Vtable = <INetworkOperatorNotificationEventDetails as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <INetworkOperatorNotificationEventDetails as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for NetworkOperatorNotificationEventDetails {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorNotificationEventDetails";
-}
-unsafe impl Send for NetworkOperatorNotificationEventDetails {}
-unsafe impl Sync for NetworkOperatorNotificationEventDetails {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct NetworkOperatorTetheringAccessPointConfiguration(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(NetworkOperatorTetheringAccessPointConfiguration, windows_core::IUnknown, windows_core::IInspectable);
-impl NetworkOperatorTetheringAccessPointConfiguration {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<NetworkOperatorTetheringAccessPointConfiguration, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn Ssid(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Ssid)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetSsid(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSsid)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn Passphrase(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Passphrase)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetPassphrase(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPassphrase)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn IsBandSupported(&self, band: TetheringWiFiBand) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsBandSupported)(windows_core::Interface::as_raw(this), band, &mut result__).map(|| result__)
-        }
-    }
-    pub fn IsBandSupportedAsync(&self, band: TetheringWiFiBand) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsBandSupportedAsync)(windows_core::Interface::as_raw(this), band, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Band(&self) -> windows_core::Result<TetheringWiFiBand> {
-        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Band)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetBand(&self, value: TetheringWiFiBand) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetBand)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn IsAuthenticationKindSupported(&self, authenticationkind: TetheringWiFiAuthenticationKind) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsAuthenticationKindSupported)(windows_core::Interface::as_raw(this), authenticationkind, &mut result__).map(|| result__)
-        }
-    }
-    pub fn IsAuthenticationKindSupportedAsync(&self, authenticationkind: TetheringWiFiAuthenticationKind) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsAuthenticationKindSupportedAsync)(windows_core::Interface::as_raw(this), authenticationkind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn AuthenticationKind(&self) -> windows_core::Result<TetheringWiFiAuthenticationKind> {
-        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AuthenticationKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetAuthenticationKind(&self, value: TetheringWiFiAuthenticationKind) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration3>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAuthenticationKind)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-}
-impl windows_core::RuntimeType for NetworkOperatorTetheringAccessPointConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorTetheringAccessPointConfiguration>();
-}
-unsafe impl windows_core::Interface for NetworkOperatorTetheringAccessPointConfiguration {
-    type Vtable = <INetworkOperatorTetheringAccessPointConfiguration as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <INetworkOperatorTetheringAccessPointConfiguration as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for NetworkOperatorTetheringAccessPointConfiguration {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringAccessPointConfiguration";
-}
-unsafe impl Send for NetworkOperatorTetheringAccessPointConfiguration {}
-unsafe impl Sync for NetworkOperatorTetheringAccessPointConfiguration {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct NetworkOperatorTetheringClient(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(NetworkOperatorTetheringClient, windows_core::IUnknown, windows_core::IInspectable);
-impl NetworkOperatorTetheringClient {
-    pub fn MacAddress(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MacAddress)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn HostNames(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::HostName>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HostNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for NetworkOperatorTetheringClient {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorTetheringClient>();
-}
-unsafe impl windows_core::Interface for NetworkOperatorTetheringClient {
-    type Vtable = <INetworkOperatorTetheringClient as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <INetworkOperatorTetheringClient as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for NetworkOperatorTetheringClient {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringClient";
-}
-unsafe impl Send for NetworkOperatorTetheringClient {}
-unsafe impl Sync for NetworkOperatorTetheringClient {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct NetworkOperatorTetheringManager(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(NetworkOperatorTetheringManager, windows_core::IUnknown, windows_core::IInspectable);
-impl NetworkOperatorTetheringManager {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetTetheringClients(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<NetworkOperatorTetheringClient>> {
-        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringClientManager>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetTetheringClients)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn MaxClientCount(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MaxClientCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn ClientCount(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ClientCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn TetheringOperationalState(&self) -> windows_core::Result<TetheringOperationalState> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TetheringOperationalState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn GetCurrentAccessPointConfiguration(&self) -> windows_core::Result<NetworkOperatorTetheringAccessPointConfiguration> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetCurrentAccessPointConfiguration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn ConfigureAccessPointAsync<P0>(&self, configuration: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: windows_core::Param<NetworkOperatorTetheringAccessPointConfiguration>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConfigureAccessPointAsync)(windows_core::Interface::as_raw(this), configuration.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn StartTetheringAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartTetheringAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn StopTetheringAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StopTetheringAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn StartTetheringAsync2<P0>(&self, configuration: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>>
-    where
-        P0: windows_core::Param<NetworkOperatorTetheringSessionAccessPointConfiguration>,
-    {
-        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringManager2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartTetheringAsync)(windows_core::Interface::as_raw(this), configuration.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetTetheringCapability(networkaccountid: &windows_core::HSTRING) -> windows_core::Result<TetheringCapability> {
-        Self::INetworkOperatorTetheringManagerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetTetheringCapability)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkaccountid), &mut result__).map(|| result__)
-        })
-    }
-    pub fn CreateFromNetworkAccountId(networkaccountid: &windows_core::HSTRING) -> windows_core::Result<NetworkOperatorTetheringManager> {
-        Self::INetworkOperatorTetheringManagerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromNetworkAccountId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Networking_Connectivity")]
-    pub fn GetTetheringCapabilityFromConnectionProfile<P0>(profile: P0) -> windows_core::Result<TetheringCapability>
-    where
-        P0: windows_core::Param<super::Connectivity::ConnectionProfile>,
-    {
-        Self::INetworkOperatorTetheringManagerStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetTetheringCapabilityFromConnectionProfile)(windows_core::Interface::as_raw(this), profile.param().abi(), &mut result__).map(|| result__)
-        })
-    }
-    #[cfg(feature = "Networking_Connectivity")]
-    pub fn CreateFromConnectionProfile<P0>(profile: P0) -> windows_core::Result<NetworkOperatorTetheringManager>
-    where
-        P0: windows_core::Param<super::Connectivity::ConnectionProfile>,
-    {
-        Self::INetworkOperatorTetheringManagerStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromConnectionProfile)(windows_core::Interface::as_raw(this), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Networking_Connectivity")]
-    pub fn CreateFromConnectionProfileWithTargetAdapter<P0, P1>(profile: P0, adapter: P1) -> windows_core::Result<NetworkOperatorTetheringManager>
-    where
-        P0: windows_core::Param<super::Connectivity::ConnectionProfile>,
-        P1: windows_core::Param<super::Connectivity::NetworkAdapter>,
-    {
-        Self::INetworkOperatorTetheringManagerStatics3(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromConnectionProfileWithTargetAdapter)(windows_core::Interface::as_raw(this), profile.param().abi(), adapter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn IsNoConnectionsTimeoutEnabled() -> windows_core::Result<bool> {
-        Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsNoConnectionsTimeoutEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        })
-    }
-    pub fn EnableNoConnectionsTimeout() -> windows_core::Result<()> {
-        Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe { (windows_core::Interface::vtable(this).EnableNoConnectionsTimeout)(windows_core::Interface::as_raw(this)).ok() })
-    }
-    pub fn EnableNoConnectionsTimeoutAsync() -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EnableNoConnectionsTimeoutAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn DisableNoConnectionsTimeout() -> windows_core::Result<()> {
-        Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe { (windows_core::Interface::vtable(this).DisableNoConnectionsTimeout)(windows_core::Interface::as_raw(this)).ok() })
-    }
-    pub fn DisableNoConnectionsTimeoutAsync() -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisableNoConnectionsTimeoutAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn INetworkOperatorTetheringManagerStatics<R, F: FnOnce(&INetworkOperatorTetheringManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn INetworkOperatorTetheringManagerStatics2<R, F: FnOnce(&INetworkOperatorTetheringManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics2> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn INetworkOperatorTetheringManagerStatics3<R, F: FnOnce(&INetworkOperatorTetheringManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics3> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn INetworkOperatorTetheringManagerStatics4<R, F: FnOnce(&INetworkOperatorTetheringManagerStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics4> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for NetworkOperatorTetheringManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorTetheringManager>();
-}
-unsafe impl windows_core::Interface for NetworkOperatorTetheringManager {
-    type Vtable = <INetworkOperatorTetheringManager as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <INetworkOperatorTetheringManager as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for NetworkOperatorTetheringManager {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringManager";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct NetworkOperatorTetheringOperationResult(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(NetworkOperatorTetheringOperationResult, windows_core::IUnknown, windows_core::IInspectable);
-impl NetworkOperatorTetheringOperationResult {
-    pub fn Status(&self) -> windows_core::Result<TetheringOperationStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn AdditionalErrorMessage(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AdditionalErrorMessage)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for NetworkOperatorTetheringOperationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorTetheringOperationResult>();
-}
-unsafe impl windows_core::Interface for NetworkOperatorTetheringOperationResult {
-    type Vtable = <INetworkOperatorTetheringOperationResult as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <INetworkOperatorTetheringOperationResult as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for NetworkOperatorTetheringOperationResult {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringOperationResult";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct NetworkOperatorTetheringSessionAccessPointConfiguration(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(NetworkOperatorTetheringSessionAccessPointConfiguration, windows_core::IUnknown, windows_core::IInspectable);
-impl NetworkOperatorTetheringSessionAccessPointConfiguration {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<NetworkOperatorTetheringSessionAccessPointConfiguration, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn Ssid(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Ssid)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetSsid(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSsid)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn Passphrase(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Passphrase)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetPassphrase(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPassphrase)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn IsBandSupported(&self, band: TetheringWiFiBand) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsBandSupported)(windows_core::Interface::as_raw(this), band, &mut result__).map(|| result__)
-        }
-    }
-    pub fn IsBandSupportedAsync(&self, band: TetheringWiFiBand) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsBandSupportedAsync)(windows_core::Interface::as_raw(this), band, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Band(&self) -> windows_core::Result<TetheringWiFiBand> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Band)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetBand(&self, value: TetheringWiFiBand) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBand)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn IsAuthenticationKindSupported(&self, authenticationkind: TetheringWiFiAuthenticationKind) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsAuthenticationKindSupported)(windows_core::Interface::as_raw(this), authenticationkind, &mut result__).map(|| result__)
-        }
-    }
-    pub fn IsAuthenticationKindSupportedAsync(&self, authenticationkind: TetheringWiFiAuthenticationKind) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsAuthenticationKindSupportedAsync)(windows_core::Interface::as_raw(this), authenticationkind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn AuthenticationKind(&self) -> windows_core::Result<TetheringWiFiAuthenticationKind> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AuthenticationKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetAuthenticationKind(&self, value: TetheringWiFiAuthenticationKind) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAuthenticationKind)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn PerformancePriority(&self) -> windows_core::Result<TetheringWiFiPerformancePriority> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PerformancePriority)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetPerformancePriority(&self, value: TetheringWiFiPerformancePriority) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPerformancePriority)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-}
-impl windows_core::RuntimeType for NetworkOperatorTetheringSessionAccessPointConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorTetheringSessionAccessPointConfiguration>();
-}
-unsafe impl windows_core::Interface for NetworkOperatorTetheringSessionAccessPointConfiguration {
-    type Vtable = <INetworkOperatorTetheringSessionAccessPointConfiguration as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <INetworkOperatorTetheringSessionAccessPointConfiguration as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for NetworkOperatorTetheringSessionAccessPointConfiguration {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringSessionAccessPointConfiguration";
-}
-unsafe impl Send for NetworkOperatorTetheringSessionAccessPointConfiguration {}
-unsafe impl Sync for NetworkOperatorTetheringSessionAccessPointConfiguration {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct ProvisionFromXmlDocumentResults(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ProvisionFromXmlDocumentResults, windows_core::IUnknown, windows_core::IInspectable);
-impl ProvisionFromXmlDocumentResults {
-    pub fn AllElementsProvisioned(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AllElementsProvisioned)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn ProvisionResultsXml(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProvisionResultsXml)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for ProvisionFromXmlDocumentResults {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProvisionFromXmlDocumentResults>();
-}
-unsafe impl windows_core::Interface for ProvisionFromXmlDocumentResults {
-    type Vtable = <IProvisionFromXmlDocumentResults as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IProvisionFromXmlDocumentResults as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for ProvisionFromXmlDocumentResults {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.ProvisionFromXmlDocumentResults";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct ProvisionedProfile(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ProvisionedProfile, windows_core::IUnknown, windows_core::IInspectable);
-impl ProvisionedProfile {
-    #[cfg(feature = "Networking_Connectivity")]
-    pub fn UpdateCost(&self, value: super::Connectivity::NetworkCostType) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).UpdateCost)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn UpdateUsage(&self, value: ProfileUsage) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).UpdateUsage)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-}
-impl windows_core::RuntimeType for ProvisionedProfile {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProvisionedProfile>();
-}
-unsafe impl windows_core::Interface for ProvisionedProfile {
-    type Vtable = <IProvisionedProfile as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IProvisionedProfile as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for ProvisionedProfile {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.ProvisionedProfile";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct ProvisioningAgent(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ProvisioningAgent, windows_core::IUnknown, windows_core::IInspectable);
-impl ProvisioningAgent {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<ProvisioningAgent, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn ProvisionFromXmlDocumentAsync(&self, provisioningxmldocument: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ProvisionFromXmlDocumentResults>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProvisionFromXmlDocumentAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(provisioningxmldocument), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetProvisionedProfile(&self, mediatype: ProfileMediaType, profilename: &windows_core::HSTRING) -> windows_core::Result<ProvisionedProfile> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetProvisionedProfile)(windows_core::Interface::as_raw(this), mediatype, core::mem::transmute_copy(profilename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn CreateFromNetworkAccountId(networkaccountid: &windows_core::HSTRING) -> windows_core::Result<ProvisioningAgent> {
-        Self::IProvisioningAgentStaticMethods(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromNetworkAccountId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IProvisioningAgentStaticMethods<R, F: FnOnce(&IProvisioningAgentStaticMethods) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<ProvisioningAgent, IProvisioningAgentStaticMethods> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for ProvisioningAgent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProvisioningAgent>();
-}
-unsafe impl windows_core::Interface for ProvisioningAgent {
-    type Vtable = <IProvisioningAgent as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IProvisioningAgent as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for ProvisioningAgent {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.ProvisioningAgent";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct TetheringEntitlementCheckTriggerDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(TetheringEntitlementCheckTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
-impl TetheringEntitlementCheckTriggerDetails {
-    pub fn NetworkAccountId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NetworkAccountId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn AllowTethering(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AllowTethering)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn DenyTethering(&self, entitlementfailurereason: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).DenyTethering)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(entitlementfailurereason)).ok() }
-    }
-}
-impl windows_core::RuntimeType for TetheringEntitlementCheckTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITetheringEntitlementCheckTriggerDetails>();
-}
-unsafe impl windows_core::Interface for TetheringEntitlementCheckTriggerDetails {
-    type Vtable = <ITetheringEntitlementCheckTriggerDetails as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ITetheringEntitlementCheckTriggerDetails as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for TetheringEntitlementCheckTriggerDetails {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.TetheringEntitlementCheckTriggerDetails";
-}
-unsafe impl Send for TetheringEntitlementCheckTriggerDetails {}
-unsafe impl Sync for TetheringEntitlementCheckTriggerDetails {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct UssdMessage(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(UssdMessage, windows_core::IUnknown, windows_core::IInspectable);
-impl UssdMessage {
-    pub fn DataCodingScheme(&self) -> windows_core::Result<u8> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DataCodingScheme)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetDataCodingScheme(&self, value: u8) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDataCodingScheme)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn GetPayload(&self) -> windows_core::Result<windows_core::Array<u8>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(this).GetPayload)(windows_core::Interface::as_raw(this), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
-        }
-    }
-    pub fn SetPayload(&self, value: &[u8]) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPayload)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr()).ok() }
-    }
-    pub fn PayloadAsText(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PayloadAsText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetPayloadAsText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPayloadAsText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn CreateMessage(messagetext: &windows_core::HSTRING) -> windows_core::Result<UssdMessage> {
-        Self::IUssdMessageFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(messagetext), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IUssdMessageFactory<R, F: FnOnce(&IUssdMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<UssdMessage, IUssdMessageFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for UssdMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUssdMessage>();
-}
-unsafe impl windows_core::Interface for UssdMessage {
-    type Vtable = <IUssdMessage as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IUssdMessage as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for UssdMessage {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdMessage";
-}
-unsafe impl Send for UssdMessage {}
-unsafe impl Sync for UssdMessage {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct UssdReply(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(UssdReply, windows_core::IUnknown, windows_core::IInspectable);
-impl UssdReply {
-    pub fn ResultCode(&self) -> windows_core::Result<UssdResultCode> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResultCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Message(&self) -> windows_core::Result<UssdMessage> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Message)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for UssdReply {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUssdReply>();
-}
-unsafe impl windows_core::Interface for UssdReply {
-    type Vtable = <IUssdReply as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IUssdReply as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for UssdReply {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdReply";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct UssdSession(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(UssdSession, windows_core::IUnknown, windows_core::IInspectable);
-impl UssdSession {
-    pub fn SendMessageAndGetReplyAsync<P0>(&self, message: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<UssdReply>>
-    where
-        P0: windows_core::Param<UssdMessage>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SendMessageAndGetReplyAsync)(windows_core::Interface::as_raw(this), message.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn CreateFromNetworkAccountId(networkaccountid: &windows_core::HSTRING) -> windows_core::Result<UssdSession> {
-        Self::IUssdSessionStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromNetworkAccountId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateFromNetworkInterfaceId(networkinterfaceid: &windows_core::HSTRING) -> windows_core::Result<UssdSession> {
-        Self::IUssdSessionStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromNetworkInterfaceId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkinterfaceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IUssdSessionStatics<R, F: FnOnce(&IUssdSessionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<UssdSession, IUssdSessionStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for UssdSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUssdSession>();
-}
-unsafe impl windows_core::Interface for UssdSession {
-    type Vtable = <IUssdSession as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IUssdSession as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for UssdSession {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdSession";
 }
 windows_core::imp::define_interface!(IESim, IESim_Vtbl, 0x6f6e6e26_f123_437d_8ced_dc1d2bc0c3a9);
 impl windows_core::RuntimeType for IESim {
@@ -6189,231 +2798,401 @@ pub struct IUssdSessionStatics_Vtbl {
     pub CreateFromNetworkAccountId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFromNetworkInterfaceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DataClasses(pub u32);
-impl DataClasses {
-    pub const None: Self = Self(0u32);
-    pub const Gprs: Self = Self(1u32);
-    pub const Edge: Self = Self(2u32);
-    pub const Umts: Self = Self(4u32);
-    pub const Hsdpa: Self = Self(8u32);
-    pub const Hsupa: Self = Self(16u32);
-    pub const LteAdvanced: Self = Self(32u32);
-    pub const NewRadioNonStandalone: Self = Self(64u32);
-    pub const NewRadioStandalone: Self = Self(128u32);
-    pub const Cdma1xRtt: Self = Self(65536u32);
-    pub const Cdma1xEvdo: Self = Self(131072u32);
-    pub const Cdma1xEvdoRevA: Self = Self(262144u32);
-    pub const Cdma1xEvdv: Self = Self(524288u32);
-    pub const Cdma3xRtt: Self = Self(1048576u32);
-    pub const Cdma1xEvdoRevB: Self = Self(2097152u32);
-    pub const CdmaUmb: Self = Self(4194304u32);
-    pub const Custom: Self = Self(2147483648u32);
-}
-impl windows_core::TypeKind for DataClasses {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DataClasses {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.DataClasses;u4)");
-}
-impl DataClasses {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
+pub struct KnownCSimFilePaths;
+impl KnownCSimFilePaths {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn EFSpn() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+        Self::IKnownCSimFilePathsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EFSpn)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Gid1() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+        Self::IKnownCSimFilePathsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Gid1)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Gid2() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+        Self::IKnownCSimFilePathsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Gid2)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IKnownCSimFilePathsStatics<R, F: FnOnce(&IKnownCSimFilePathsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<KnownCSimFilePaths, IKnownCSimFilePathsStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
-impl core::ops::BitOr for DataClasses {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
+impl windows_core::RuntimeName for KnownCSimFilePaths {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.KnownCSimFilePaths";
+}
+pub struct KnownRuimFilePaths;
+impl KnownRuimFilePaths {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn EFSpn() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+        Self::IKnownRuimFilePathsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EFSpn)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Gid1() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+        Self::IKnownRuimFilePathsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Gid1)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Gid2() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+        Self::IKnownRuimFilePathsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Gid2)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IKnownRuimFilePathsStatics<R, F: FnOnce(&IKnownRuimFilePathsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<KnownRuimFilePaths, IKnownRuimFilePathsStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
-impl core::ops::BitAnd for DataClasses {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
+impl windows_core::RuntimeName for KnownRuimFilePaths {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.KnownRuimFilePaths";
+}
+pub struct KnownSimFilePaths;
+impl KnownSimFilePaths {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn EFOns() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+        Self::IKnownSimFilePathsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EFOns)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn EFSpn() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+        Self::IKnownSimFilePathsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EFSpn)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Gid1() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+        Self::IKnownSimFilePathsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Gid1)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Gid2() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+        Self::IKnownSimFilePathsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Gid2)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IKnownSimFilePathsStatics<R, F: FnOnce(&IKnownSimFilePathsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<KnownSimFilePaths, IKnownSimFilePathsStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
-impl core::ops::BitOrAssign for DataClasses {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+impl windows_core::RuntimeName for KnownSimFilePaths {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.KnownSimFilePaths";
+}
+pub struct KnownUSimFilePaths;
+impl KnownUSimFilePaths {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn EFSpn() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+        Self::IKnownUSimFilePathsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EFSpn)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn EFOpl() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+        Self::IKnownUSimFilePathsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EFOpl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn EFPnn() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+        Self::IKnownUSimFilePathsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EFPnn)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Gid1() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+        Self::IKnownUSimFilePathsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Gid1)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Gid2() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+        Self::IKnownUSimFilePathsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Gid2)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IKnownUSimFilePathsStatics<R, F: FnOnce(&IKnownUSimFilePathsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<KnownUSimFilePaths, IKnownUSimFilePathsStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
-impl core::ops::BitAndAssign for DataClasses {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+impl windows_core::RuntimeName for KnownUSimFilePaths {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.KnownUSimFilePaths";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandAccount(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandAccount, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandAccount {
+    pub fn NetworkAccountId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NetworkAccountId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn ServiceProviderGuid(&self) -> windows_core::Result<windows_core::GUID> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ServiceProviderGuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn ServiceProviderName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ServiceProviderName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn CurrentNetwork(&self) -> windows_core::Result<MobileBroadbandNetwork> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CurrentNetwork)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CurrentDeviceInformation(&self) -> windows_core::Result<MobileBroadbandDeviceInformation> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CurrentDeviceInformation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "Networking_Connectivity"))]
+    pub fn GetConnectionProfiles(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::Connectivity::ConnectionProfile>> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandAccount2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetConnectionProfiles)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn AccountExperienceUrl(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandAccount3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AccountExperienceUrl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn AvailableNetworkAccountIds() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+        Self::IMobileBroadbandAccountStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AvailableNetworkAccountIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateFromNetworkAccountId(networkaccountid: &windows_core::HSTRING) -> windows_core::Result<MobileBroadbandAccount> {
+        Self::IMobileBroadbandAccountStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateFromNetworkAccountId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IMobileBroadbandAccountStatics<R, F: FnOnce(&IMobileBroadbandAccountStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<MobileBroadbandAccount, IMobileBroadbandAccountStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
-impl core::ops::Not for DataClasses {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
+impl windows_core::RuntimeType for MobileBroadbandAccount {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandAccount>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandAccount {
+    type Vtable = <IMobileBroadbandAccount as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandAccount as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandAccount {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccount";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandAccountEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandAccountEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandAccountEventArgs {
+    pub fn NetworkAccountId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NetworkAccountId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ESimAuthenticationPreference(pub i32);
-impl ESimAuthenticationPreference {
-    pub const OnEntry: Self = Self(0i32);
-    pub const OnAction: Self = Self(1i32);
-    pub const Never: Self = Self(2i32);
+impl windows_core::RuntimeType for MobileBroadbandAccountEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandAccountEventArgs>();
 }
-impl windows_core::TypeKind for ESimAuthenticationPreference {
-    type TypeKind = windows_core::CopyType;
+unsafe impl windows_core::Interface for MobileBroadbandAccountEventArgs {
+    type Vtable = <IMobileBroadbandAccountEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandAccountEventArgs as windows_core::Interface>::IID;
 }
-impl windows_core::RuntimeType for ESimAuthenticationPreference {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimAuthenticationPreference;i4)");
+impl windows_core::RuntimeName for MobileBroadbandAccountEventArgs {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccountEventArgs";
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ESimDiscoverResultKind(pub i32);
-impl ESimDiscoverResultKind {
-    pub const None: Self = Self(0i32);
-    pub const Events: Self = Self(1i32);
-    pub const ProfileMetadata: Self = Self(2i32);
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandAccountUpdatedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandAccountUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandAccountUpdatedEventArgs {
+    pub fn NetworkAccountId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NetworkAccountId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn HasDeviceInformationChanged(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HasDeviceInformationChanged)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn HasNetworkChanged(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HasNetworkChanged)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
 }
-impl windows_core::TypeKind for ESimDiscoverResultKind {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::RuntimeType for MobileBroadbandAccountUpdatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandAccountUpdatedEventArgs>();
 }
-impl windows_core::RuntimeType for ESimDiscoverResultKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimDiscoverResultKind;i4)");
+unsafe impl windows_core::Interface for MobileBroadbandAccountUpdatedEventArgs {
+    type Vtable = <IMobileBroadbandAccountUpdatedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandAccountUpdatedEventArgs as windows_core::Interface>::IID;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ESimOperationStatus(pub i32);
-impl ESimOperationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const NotAuthorized: Self = Self(1i32);
-    pub const NotFound: Self = Self(2i32);
-    pub const PolicyViolation: Self = Self(3i32);
-    pub const InsufficientSpaceOnCard: Self = Self(4i32);
-    pub const ServerFailure: Self = Self(5i32);
-    pub const ServerNotReachable: Self = Self(6i32);
-    pub const TimeoutWaitingForUserConsent: Self = Self(7i32);
-    pub const IncorrectConfirmationCode: Self = Self(8i32);
-    pub const ConfirmationCodeMaxRetriesExceeded: Self = Self(9i32);
-    pub const CardRemoved: Self = Self(10i32);
-    pub const CardBusy: Self = Self(11i32);
-    pub const Other: Self = Self(12i32);
-    pub const CardGeneralFailure: Self = Self(13i32);
-    pub const ConfirmationCodeMissing: Self = Self(14i32);
-    pub const InvalidMatchingId: Self = Self(15i32);
-    pub const NoEligibleProfileForThisDevice: Self = Self(16i32);
-    pub const OperationAborted: Self = Self(17i32);
-    pub const EidMismatch: Self = Self(18i32);
-    pub const ProfileNotAvailableForNewBinding: Self = Self(19i32);
-    pub const ProfileNotReleasedByOperator: Self = Self(20i32);
-    pub const OperationProhibitedByProfileClass: Self = Self(21i32);
-    pub const ProfileNotPresent: Self = Self(22i32);
-    pub const NoCorrespondingRequest: Self = Self(23i32);
-    pub const TimeoutWaitingForResponse: Self = Self(24i32);
-    pub const IccidAlreadyExists: Self = Self(25i32);
-    pub const ProfileProcessingError: Self = Self(26i32);
-    pub const ServerNotTrusted: Self = Self(27i32);
-    pub const ProfileDownloadMaxRetriesExceeded: Self = Self(28i32);
-}
-impl windows_core::TypeKind for ESimOperationStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ESimOperationStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimOperationStatus;i4)");
+impl windows_core::RuntimeName for MobileBroadbandAccountUpdatedEventArgs {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccountUpdatedEventArgs";
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ESimProfileClass(pub i32);
-impl ESimProfileClass {
-    pub const Operational: Self = Self(0i32);
-    pub const Test: Self = Self(1i32);
-    pub const Provisioning: Self = Self(2i32);
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandAccountWatcher(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandAccountWatcher, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandAccountWatcher {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<MobileBroadbandAccountWatcher, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn AccountAdded<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountEventArgs>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AccountAdded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveAccountAdded(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveAccountAdded)(windows_core::Interface::as_raw(this), cookie).ok() }
+    }
+    pub fn AccountUpdated<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountUpdatedEventArgs>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AccountUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveAccountUpdated(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveAccountUpdated)(windows_core::Interface::as_raw(this), cookie).ok() }
+    }
+    pub fn AccountRemoved<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountEventArgs>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AccountRemoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveAccountRemoved(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveAccountRemoved)(windows_core::Interface::as_raw(this), cookie).ok() }
+    }
+    pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, windows_core::IInspectable>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveEnumerationCompleted(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveEnumerationCompleted)(windows_core::Interface::as_raw(this), cookie).ok() }
+    }
+    pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, windows_core::IInspectable>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveStopped(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveStopped)(windows_core::Interface::as_raw(this), cookie).ok() }
+    }
+    pub fn Status(&self) -> windows_core::Result<MobileBroadbandAccountWatcherStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Start(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn Stop(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
+    }
 }
-impl windows_core::TypeKind for ESimProfileClass {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::RuntimeType for MobileBroadbandAccountWatcher {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandAccountWatcher>();
 }
-impl windows_core::RuntimeType for ESimProfileClass {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileClass;i4)");
+unsafe impl windows_core::Interface for MobileBroadbandAccountWatcher {
+    type Vtable = <IMobileBroadbandAccountWatcher as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandAccountWatcher as windows_core::Interface>::IID;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ESimProfileMetadataState(pub i32);
-impl ESimProfileMetadataState {
-    pub const Unknown: Self = Self(0i32);
-    pub const WaitingForInstall: Self = Self(1i32);
-    pub const Downloading: Self = Self(2i32);
-    pub const Installing: Self = Self(3i32);
-    pub const Expired: Self = Self(4i32);
-    pub const RejectingDownload: Self = Self(5i32);
-    pub const NoLongerAvailable: Self = Self(6i32);
-    pub const DeniedByPolicy: Self = Self(7i32);
-}
-impl windows_core::TypeKind for ESimProfileMetadataState {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ESimProfileMetadataState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileMetadataState;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ESimProfileState(pub i32);
-impl ESimProfileState {
-    pub const Unknown: Self = Self(0i32);
-    pub const Disabled: Self = Self(1i32);
-    pub const Enabled: Self = Self(2i32);
-    pub const Deleted: Self = Self(3i32);
-}
-impl windows_core::TypeKind for ESimProfileState {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ESimProfileState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileState;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ESimState(pub i32);
-impl ESimState {
-    pub const Unknown: Self = Self(0i32);
-    pub const Idle: Self = Self(1i32);
-    pub const Removed: Self = Self(2i32);
-    pub const Busy: Self = Self(3i32);
-}
-impl windows_core::TypeKind for ESimState {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ESimState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimState;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ESimWatcherStatus(pub i32);
-impl ESimWatcherStatus {
-    pub const Created: Self = Self(0i32);
-    pub const Started: Self = Self(1i32);
-    pub const EnumerationCompleted: Self = Self(2i32);
-    pub const Stopping: Self = Self(3i32);
-    pub const Stopped: Self = Self(4i32);
-}
-impl windows_core::TypeKind for ESimWatcherStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ESimWatcherStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimWatcherStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HotspotAuthenticationResponseCode(pub i32);
-impl HotspotAuthenticationResponseCode {
-    pub const NoError: Self = Self(0i32);
-    pub const LoginSucceeded: Self = Self(50i32);
-    pub const LoginFailed: Self = Self(100i32);
-    pub const RadiusServerError: Self = Self(102i32);
-    pub const NetworkAdministratorError: Self = Self(105i32);
-    pub const LoginAborted: Self = Self(151i32);
-    pub const AccessGatewayInternalError: Self = Self(255i32);
-}
-impl windows_core::TypeKind for HotspotAuthenticationResponseCode {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HotspotAuthenticationResponseCode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.HotspotAuthenticationResponseCode;i4)");
+impl windows_core::RuntimeName for MobileBroadbandAccountWatcher {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccountWatcher";
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6432,6 +3211,1140 @@ impl windows_core::RuntimeType for MobileBroadbandAccountWatcherStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandAccountWatcherStatus;i4)");
 }
 #[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandAntennaSar(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandAntennaSar, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandAntennaSar {
+    pub fn AntennaIndex(&self) -> windows_core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AntennaIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SarBackoffIndex(&self) -> windows_core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SarBackoffIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn CreateWithIndex(antennaindex: i32, sarbackoffindex: i32) -> windows_core::Result<MobileBroadbandAntennaSar> {
+        Self::IMobileBroadbandAntennaSarFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateWithIndex)(windows_core::Interface::as_raw(this), antennaindex, sarbackoffindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IMobileBroadbandAntennaSarFactory<R, F: FnOnce(&IMobileBroadbandAntennaSarFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<MobileBroadbandAntennaSar, IMobileBroadbandAntennaSarFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandAntennaSar {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandAntennaSar>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandAntennaSar {
+    type Vtable = <IMobileBroadbandAntennaSar as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandAntennaSar as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandAntennaSar {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAntennaSar";
+}
+unsafe impl Send for MobileBroadbandAntennaSar {}
+unsafe impl Sync for MobileBroadbandAntennaSar {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandCellCdma(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandCellCdma, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandCellCdma {
+    pub fn BaseStationId(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).BaseStationId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn BaseStationPNCode(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).BaseStationPNCode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn BaseStationLatitude(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).BaseStationLatitude)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn BaseStationLongitude(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).BaseStationLongitude)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn BaseStationLastBroadcastGpsTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).BaseStationLastBroadcastGpsTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn NetworkId(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NetworkId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn PilotSignalStrengthInDB(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PilotSignalStrengthInDB)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SystemId(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SystemId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandCellCdma {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellCdma>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandCellCdma {
+    type Vtable = <IMobileBroadbandCellCdma as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandCellCdma as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandCellCdma {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellCdma";
+}
+unsafe impl Send for MobileBroadbandCellCdma {}
+unsafe impl Sync for MobileBroadbandCellCdma {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandCellGsm(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandCellGsm, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandCellGsm {
+    pub fn BaseStationId(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).BaseStationId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CellId(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CellId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ChannelNumber(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ChannelNumber)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn LocationAreaCode(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LocationAreaCode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ProviderId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ProviderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn ReceivedSignalStrengthInDBm(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ReceivedSignalStrengthInDBm)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn TimingAdvanceInBitPeriods(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TimingAdvanceInBitPeriods)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandCellGsm {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellGsm>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandCellGsm {
+    type Vtable = <IMobileBroadbandCellGsm as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandCellGsm as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandCellGsm {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellGsm";
+}
+unsafe impl Send for MobileBroadbandCellGsm {}
+unsafe impl Sync for MobileBroadbandCellGsm {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandCellLte(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandCellLte, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandCellLte {
+    pub fn CellId(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CellId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ChannelNumber(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ChannelNumber)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn PhysicalCellId(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PhysicalCellId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ProviderId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ProviderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn ReferenceSignalReceivedPowerInDBm(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ReferenceSignalReceivedPowerInDBm)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ReferenceSignalReceivedQualityInDBm(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ReferenceSignalReceivedQualityInDBm)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn TimingAdvanceInBitPeriods(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TimingAdvanceInBitPeriods)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn TrackingAreaCode(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TrackingAreaCode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandCellLte {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellLte>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandCellLte {
+    type Vtable = <IMobileBroadbandCellLte as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandCellLte as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandCellLte {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellLte";
+}
+unsafe impl Send for MobileBroadbandCellLte {}
+unsafe impl Sync for MobileBroadbandCellLte {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandCellNR(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandCellNR, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandCellNR {
+    pub fn CellId(&self) -> windows_core::Result<super::super::Foundation::IReference<i64>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CellId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ChannelNumber(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ChannelNumber)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn PhysicalCellId(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PhysicalCellId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ProviderId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ProviderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn ReferenceSignalReceivedPowerInDBm(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ReferenceSignalReceivedPowerInDBm)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ReferenceSignalReceivedQualityInDBm(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ReferenceSignalReceivedQualityInDBm)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn TimingAdvanceInNanoseconds(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TimingAdvanceInNanoseconds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn TrackingAreaCode(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TrackingAreaCode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SignalToNoiseRatioInDB(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SignalToNoiseRatioInDB)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandCellNR {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellNR>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandCellNR {
+    type Vtable = <IMobileBroadbandCellNR as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandCellNR as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandCellNR {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellNR";
+}
+unsafe impl Send for MobileBroadbandCellNR {}
+unsafe impl Sync for MobileBroadbandCellNR {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandCellTdscdma(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandCellTdscdma, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandCellTdscdma {
+    pub fn CellId(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CellId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CellParameterId(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CellParameterId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ChannelNumber(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ChannelNumber)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn LocationAreaCode(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LocationAreaCode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn PathLossInDB(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PathLossInDB)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ProviderId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ProviderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn ReceivedSignalCodePowerInDBm(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ReceivedSignalCodePowerInDBm)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn TimingAdvanceInBitPeriods(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TimingAdvanceInBitPeriods)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandCellTdscdma {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellTdscdma>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandCellTdscdma {
+    type Vtable = <IMobileBroadbandCellTdscdma as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandCellTdscdma as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandCellTdscdma {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellTdscdma";
+}
+unsafe impl Send for MobileBroadbandCellTdscdma {}
+unsafe impl Sync for MobileBroadbandCellTdscdma {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandCellUmts(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandCellUmts, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandCellUmts {
+    pub fn CellId(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CellId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ChannelNumber(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ChannelNumber)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn LocationAreaCode(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LocationAreaCode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn PathLossInDB(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PathLossInDB)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn PrimaryScramblingCode(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PrimaryScramblingCode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ProviderId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ProviderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn ReceivedSignalCodePowerInDBm(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ReceivedSignalCodePowerInDBm)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SignalToNoiseRatioInDB(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SignalToNoiseRatioInDB)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandCellUmts {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellUmts>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandCellUmts {
+    type Vtable = <IMobileBroadbandCellUmts as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandCellUmts as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandCellUmts {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellUmts";
+}
+unsafe impl Send for MobileBroadbandCellUmts {}
+unsafe impl Sync for MobileBroadbandCellUmts {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandCellsInfo(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandCellsInfo, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandCellsInfo {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn NeighboringCellsCdma(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellCdma>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NeighboringCellsCdma)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn NeighboringCellsGsm(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellGsm>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NeighboringCellsGsm)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn NeighboringCellsLte(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellLte>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NeighboringCellsLte)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn NeighboringCellsTdscdma(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellTdscdma>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NeighboringCellsTdscdma)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn NeighboringCellsUmts(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellUmts>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NeighboringCellsUmts)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ServingCellsCdma(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellCdma>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ServingCellsCdma)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ServingCellsGsm(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellGsm>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ServingCellsGsm)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ServingCellsLte(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellLte>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ServingCellsLte)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ServingCellsTdscdma(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellTdscdma>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ServingCellsTdscdma)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ServingCellsUmts(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellUmts>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ServingCellsUmts)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn NeighboringCellsNR(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellNR>> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandCellsInfo2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NeighboringCellsNR)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ServingCellsNR(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellNR>> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandCellsInfo2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ServingCellsNR)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandCellsInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellsInfo>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandCellsInfo {
+    type Vtable = <IMobileBroadbandCellsInfo as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandCellsInfo as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandCellsInfo {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellsInfo";
+}
+unsafe impl Send for MobileBroadbandCellsInfo {}
+unsafe impl Sync for MobileBroadbandCellsInfo {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandCurrentSlotIndexChangedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandCurrentSlotIndexChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandCurrentSlotIndexChangedEventArgs {
+    pub fn CurrentSlotIndex(&self) -> windows_core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CurrentSlotIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandCurrentSlotIndexChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCurrentSlotIndexChangedEventArgs>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandCurrentSlotIndexChangedEventArgs {
+    type Vtable = <IMobileBroadbandCurrentSlotIndexChangedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandCurrentSlotIndexChangedEventArgs as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandCurrentSlotIndexChangedEventArgs {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCurrentSlotIndexChangedEventArgs";
+}
+unsafe impl Send for MobileBroadbandCurrentSlotIndexChangedEventArgs {}
+unsafe impl Sync for MobileBroadbandCurrentSlotIndexChangedEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandDeviceInformation(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceInformation, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandDeviceInformation {
+    pub fn NetworkDeviceStatus(&self) -> windows_core::Result<NetworkDeviceStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NetworkDeviceStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Manufacturer(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Manufacturer)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Model(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Model)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn FirmwareInformation(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FirmwareInformation)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "Devices_Sms")]
+    pub fn CellularClass(&self) -> windows_core::Result<super::super::Devices::Sms::CellularClass> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CellularClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn DataClasses(&self) -> windows_core::Result<DataClasses> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DataClasses)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn CustomDataClass(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CustomDataClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn MobileEquipmentId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MobileEquipmentId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn TelephoneNumbers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TelephoneNumbers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SubscriberId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SubscriberId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SimIccId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SimIccId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn DeviceType(&self) -> windows_core::Result<MobileBroadbandDeviceType> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeviceType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn CurrentRadioState(&self) -> windows_core::Result<MobileBroadbandRadioState> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CurrentRadioState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn PinManager(&self) -> windows_core::Result<MobileBroadbandPinManager> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandDeviceInformation2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PinManager)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Revision(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandDeviceInformation2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Revision)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SerialNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandDeviceInformation2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SerialNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SimSpn(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandDeviceInformation3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SimSpn)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SimPnn(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandDeviceInformation3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SimPnn)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SimGid1(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandDeviceInformation3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SimGid1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SlotManager(&self) -> windows_core::Result<MobileBroadbandSlotManager> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandDeviceInformation4>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SlotManager)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandDeviceInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceInformation>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandDeviceInformation {
+    type Vtable = <IMobileBroadbandDeviceInformation as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandDeviceInformation as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandDeviceInformation {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceInformation";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandDeviceService(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceService, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandDeviceService {
+    pub fn DeviceServiceId(&self) -> windows_core::Result<windows_core::GUID> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeviceServiceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SupportedCommands(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SupportedCommands)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn OpenDataSession(&self) -> windows_core::Result<MobileBroadbandDeviceServiceDataSession> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OpenDataSession)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn OpenCommandSession(&self) -> windows_core::Result<MobileBroadbandDeviceServiceCommandSession> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OpenCommandSession)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandDeviceService {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceService>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandDeviceService {
+    type Vtable = <IMobileBroadbandDeviceService as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandDeviceService as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandDeviceService {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceService";
+}
+unsafe impl Send for MobileBroadbandDeviceService {}
+unsafe impl Sync for MobileBroadbandDeviceService {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandDeviceServiceCommandEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceCommandEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandDeviceServiceCommandEventArgs {
+    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn DeviceServiceId(&self) -> windows_core::Result<windows_core::GUID> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeviceServiceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn EventId(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EventId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn ReceivedData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ReceivedData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandDeviceServiceCommandEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceCommandEventArgs>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceCommandEventArgs {
+    type Vtable = <IMobileBroadbandDeviceServiceCommandEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceCommandEventArgs as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandDeviceServiceCommandEventArgs {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceCommandEventArgs";
+}
+unsafe impl Send for MobileBroadbandDeviceServiceCommandEventArgs {}
+unsafe impl Sync for MobileBroadbandDeviceServiceCommandEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandDeviceServiceCommandResult(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceCommandResult, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandDeviceServiceCommandResult {
+    pub fn StatusCode(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).StatusCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn ResponseData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ResponseData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandDeviceServiceCommandResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceCommandResult>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceCommandResult {
+    type Vtable = <IMobileBroadbandDeviceServiceCommandResult as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceCommandResult as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandDeviceServiceCommandResult {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceCommandResult";
+}
+unsafe impl Send for MobileBroadbandDeviceServiceCommandResult {}
+unsafe impl Sync for MobileBroadbandDeviceServiceCommandResult {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandDeviceServiceCommandSession(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceCommandSession, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandDeviceServiceCommandSession {
+    #[cfg(feature = "Storage_Streams")]
+    pub fn SendQueryCommandAsync<P1>(&self, commandid: u32, data: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>>
+    where
+        P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SendQueryCommandAsync)(windows_core::Interface::as_raw(this), commandid, data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn SendSetCommandAsync<P1>(&self, commandid: u32, data: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>>
+    where
+        P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SendSetCommandAsync)(windows_core::Interface::as_raw(this), commandid, data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CloseSession(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).CloseSession)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn CommandReceived<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandDeviceServiceCommandSession, MobileBroadbandDeviceServiceCommandEventArgs>>,
+    {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandDeviceServiceCommandSession2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CommandReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveCommandReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandDeviceServiceCommandSession2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveCommandReceived)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandDeviceServiceCommandSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceCommandSession>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceCommandSession {
+    type Vtable = <IMobileBroadbandDeviceServiceCommandSession as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceCommandSession as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandDeviceServiceCommandSession {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceCommandSession";
+}
+unsafe impl Send for MobileBroadbandDeviceServiceCommandSession {}
+unsafe impl Sync for MobileBroadbandDeviceServiceCommandSession {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandDeviceServiceDataReceivedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceDataReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandDeviceServiceDataReceivedEventArgs {
+    #[cfg(feature = "Storage_Streams")]
+    pub fn ReceivedData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ReceivedData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandDeviceServiceDataReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceDataReceivedEventArgs>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceDataReceivedEventArgs {
+    type Vtable = <IMobileBroadbandDeviceServiceDataReceivedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceDataReceivedEventArgs as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandDeviceServiceDataReceivedEventArgs {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceDataReceivedEventArgs";
+}
+unsafe impl Send for MobileBroadbandDeviceServiceDataReceivedEventArgs {}
+unsafe impl Sync for MobileBroadbandDeviceServiceDataReceivedEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandDeviceServiceDataSession(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceDataSession, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandDeviceServiceDataSession {
+    #[cfg(feature = "Storage_Streams")]
+    pub fn WriteDataAsync<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).WriteDataAsync)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CloseSession(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).CloseSession)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn DataReceived<P0>(&self, eventhandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandDeviceServiceDataSession, MobileBroadbandDeviceServiceDataReceivedEventArgs>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DataReceived)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveDataReceived(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveDataReceived)(windows_core::Interface::as_raw(this), eventcookie).ok() }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandDeviceServiceDataSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceDataSession>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceDataSession {
+    type Vtable = <IMobileBroadbandDeviceServiceDataSession as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceDataSession as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandDeviceServiceDataSession {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceDataSession";
+}
+unsafe impl Send for MobileBroadbandDeviceServiceDataSession {}
+unsafe impl Sync for MobileBroadbandDeviceServiceDataSession {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandDeviceServiceInformation(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceInformation, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandDeviceServiceInformation {
+    pub fn DeviceServiceId(&self) -> windows_core::Result<windows_core::GUID> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeviceServiceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn IsDataReadSupported(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsDataReadSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn IsDataWriteSupported(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsDataWriteSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandDeviceServiceInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceInformation>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceInformation {
+    type Vtable = <IMobileBroadbandDeviceServiceInformation as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceInformation as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandDeviceServiceInformation {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceInformation";
+}
+unsafe impl Send for MobileBroadbandDeviceServiceInformation {}
+unsafe impl Sync for MobileBroadbandDeviceServiceInformation {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandDeviceServiceTriggerDetails(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandDeviceServiceTriggerDetails {
+    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn DeviceServiceId(&self) -> windows_core::Result<windows_core::GUID> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeviceServiceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn ReceivedData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ReceivedData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn EventId(&self) -> windows_core::Result<u32> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandDeviceServiceTriggerDetails2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EventId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandDeviceServiceTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceTriggerDetails>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceTriggerDetails {
+    type Vtable = <IMobileBroadbandDeviceServiceTriggerDetails as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceTriggerDetails as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandDeviceServiceTriggerDetails {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceTriggerDetails";
+}
+unsafe impl Send for MobileBroadbandDeviceServiceTriggerDetails {}
+unsafe impl Sync for MobileBroadbandDeviceServiceTriggerDetails {}
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MobileBroadbandDeviceType(pub i32);
 impl MobileBroadbandDeviceType {
@@ -6447,6 +4360,288 @@ impl windows_core::RuntimeType for MobileBroadbandDeviceType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandDeviceType;i4)");
 }
 #[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandModem(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandModem, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandModem {
+    pub fn CurrentAccount(&self) -> windows_core::Result<MobileBroadbandAccount> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CurrentAccount)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn DeviceInformation(&self) -> windows_core::Result<MobileBroadbandDeviceInformation> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeviceInformation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn MaxDeviceServiceCommandSizeInBytes(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MaxDeviceServiceCommandSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn MaxDeviceServiceDataSizeInBytes(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MaxDeviceServiceDataSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn DeviceServices(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandDeviceServiceInformation>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeviceServices)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetDeviceService(&self, deviceserviceid: windows_core::GUID) -> windows_core::Result<MobileBroadbandDeviceService> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetDeviceService)(windows_core::Interface::as_raw(this), deviceserviceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn IsResetSupported(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsResetSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ResetAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ResetAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetCurrentConfigurationAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandModemConfiguration>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetCurrentConfigurationAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CurrentNetwork(&self) -> windows_core::Result<MobileBroadbandNetwork> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CurrentNetwork)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetIsPassthroughEnabledAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandModem2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetIsPassthroughEnabledAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetIsPassthroughEnabledAsync(&self, value: bool) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandModem2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SetIsPassthroughEnabledAsync)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn TryGetPcoAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPco>> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandModem3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TryGetPcoAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn IsInEmergencyCallMode(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandModem3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsInEmergencyCallMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn IsInEmergencyCallModeChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandModem, windows_core::IInspectable>>,
+    {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandModem3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsInEmergencyCallModeChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveIsInEmergencyCallModeChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandModem3>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveIsInEmergencyCallModeChanged)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn SetIsPassthroughEnabledWithSlotIndexAsync(&self, value: bool, slotindex: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandModem4>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SetIsPassthroughEnabledWithSlotIndexAsync)(windows_core::Interface::as_raw(this), value, slotindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetIsPassthroughEnabledWithSlotIndexAsync(&self, slotindex: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandModem4>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetIsPassthroughEnabledWithSlotIndexAsync)(windows_core::Interface::as_raw(this), slotindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetIsPassthroughEnabledWithSlotIndex(&self, value: bool, slotindex: i32) -> windows_core::Result<MobileBroadbandModemStatus> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandModem4>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SetIsPassthroughEnabledWithSlotIndex)(windows_core::Interface::as_raw(this), value, slotindex, &mut result__).map(|| result__)
+        }
+    }
+    pub fn GetIsPassthroughEnabledWithSlotIndex(&self, slotindex: i32) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandModem4>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetIsPassthroughEnabledWithSlotIndex)(windows_core::Interface::as_raw(this), slotindex, &mut result__).map(|| result__)
+        }
+    }
+    pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
+        Self::IMobileBroadbandModemStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn FromId(deviceid: &windows_core::HSTRING) -> windows_core::Result<MobileBroadbandModem> {
+        Self::IMobileBroadbandModemStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn GetDefault() -> windows_core::Result<MobileBroadbandModem> {
+        Self::IMobileBroadbandModemStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IMobileBroadbandModemStatics<R, F: FnOnce(&IMobileBroadbandModemStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<MobileBroadbandModem, IMobileBroadbandModemStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandModem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandModem>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandModem {
+    type Vtable = <IMobileBroadbandModem as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandModem as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandModem {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandModem";
+}
+unsafe impl Send for MobileBroadbandModem {}
+unsafe impl Sync for MobileBroadbandModem {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandModemConfiguration(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandModemConfiguration, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandModemConfiguration {
+    pub fn Uicc(&self) -> windows_core::Result<MobileBroadbandUicc> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Uicc)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn HomeProviderId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HomeProviderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn HomeProviderName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HomeProviderName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SarManager(&self) -> windows_core::Result<MobileBroadbandSarManager> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandModemConfiguration2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SarManager)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandModemConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandModemConfiguration>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandModemConfiguration {
+    type Vtable = <IMobileBroadbandModemConfiguration as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandModemConfiguration as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandModemConfiguration {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandModemConfiguration";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandModemIsolation(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandModemIsolation, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandModemIsolation {
+    pub fn AddAllowedHost<P0>(&self, host: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::HostName>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddAllowedHost)(windows_core::Interface::as_raw(this), host.param().abi()).ok() }
+    }
+    pub fn AddAllowedHostRange<P0, P1>(&self, first: P0, last: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::HostName>,
+        P1: windows_core::Param<super::HostName>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddAllowedHostRange)(windows_core::Interface::as_raw(this), first.param().abi(), last.param().abi()).ok() }
+    }
+    pub fn ApplyConfigurationAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ApplyConfigurationAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ClearConfigurationAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ClearConfigurationAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Create(modemdeviceid: &windows_core::HSTRING, rulegroupid: &windows_core::HSTRING) -> windows_core::Result<MobileBroadbandModemIsolation> {
+        Self::IMobileBroadbandModemIsolationFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(modemdeviceid), core::mem::transmute_copy(rulegroupid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IMobileBroadbandModemIsolationFactory<R, F: FnOnce(&IMobileBroadbandModemIsolationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<MobileBroadbandModemIsolation, IMobileBroadbandModemIsolationFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandModemIsolation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandModemIsolation>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandModemIsolation {
+    type Vtable = <IMobileBroadbandModemIsolation as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandModemIsolation as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandModemIsolation {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandModemIsolation";
+}
+unsafe impl Send for MobileBroadbandModemIsolation {}
+unsafe impl Sync for MobileBroadbandModemIsolation {}
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MobileBroadbandModemStatus(pub i32);
 impl MobileBroadbandModemStatus {
@@ -6461,6 +4656,337 @@ impl windows_core::TypeKind for MobileBroadbandModemStatus {
 impl windows_core::RuntimeType for MobileBroadbandModemStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandModemStatus;i4)");
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandNetwork(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandNetwork, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandNetwork {
+    #[cfg(feature = "Networking_Connectivity")]
+    pub fn NetworkAdapter(&self) -> windows_core::Result<super::Connectivity::NetworkAdapter> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NetworkAdapter)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn NetworkRegistrationState(&self) -> windows_core::Result<NetworkRegistrationState> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NetworkRegistrationState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn RegistrationNetworkError(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RegistrationNetworkError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn PacketAttachNetworkError(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PacketAttachNetworkError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ActivationNetworkError(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivationNetworkError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn AccessPointName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AccessPointName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RegisteredDataClass(&self) -> windows_core::Result<DataClasses> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RegisteredDataClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn RegisteredProviderId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RegisteredProviderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RegisteredProviderName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RegisteredProviderName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn ShowConnectionUI(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).ShowConnectionUI)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn GetVoiceCallSupportAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandNetwork2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetVoiceCallSupportAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn RegistrationUiccApps(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandUiccApp>> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandNetwork2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RegistrationUiccApps)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetCellsInfoAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandCellsInfo>> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandNetwork3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetCellsInfoAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandNetwork {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandNetwork>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandNetwork {
+    type Vtable = <IMobileBroadbandNetwork as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandNetwork as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandNetwork {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandNetwork";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandNetworkRegistrationStateChange(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandNetworkRegistrationStateChange, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandNetworkRegistrationStateChange {
+    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Network(&self) -> windows_core::Result<MobileBroadbandNetwork> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Network)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandNetworkRegistrationStateChange {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandNetworkRegistrationStateChange>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandNetworkRegistrationStateChange {
+    type Vtable = <IMobileBroadbandNetworkRegistrationStateChange as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandNetworkRegistrationStateChange as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandNetworkRegistrationStateChange {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChange";
+}
+unsafe impl Send for MobileBroadbandNetworkRegistrationStateChange {}
+unsafe impl Sync for MobileBroadbandNetworkRegistrationStateChange {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandNetworkRegistrationStateChangeTriggerDetails(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandNetworkRegistrationStateChangeTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn NetworkRegistrationStateChanges(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandNetworkRegistrationStateChange>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NetworkRegistrationStateChanges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
+    type Vtable = <IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChangeTriggerDetails";
+}
+unsafe impl Send for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {}
+unsafe impl Sync for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandPco(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandPco, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandPco {
+    #[cfg(feature = "Storage_Streams")]
+    pub fn Data(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Data)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn IsComplete(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsComplete)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandPco {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPco>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandPco {
+    type Vtable = <IMobileBroadbandPco as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandPco as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandPco {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPco";
+}
+unsafe impl Send for MobileBroadbandPco {}
+unsafe impl Sync for MobileBroadbandPco {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandPcoDataChangeTriggerDetails(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandPcoDataChangeTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandPcoDataChangeTriggerDetails {
+    pub fn UpdatedData(&self) -> windows_core::Result<MobileBroadbandPco> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UpdatedData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandPcoDataChangeTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPcoDataChangeTriggerDetails>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandPcoDataChangeTriggerDetails {
+    type Vtable = <IMobileBroadbandPcoDataChangeTriggerDetails as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandPcoDataChangeTriggerDetails as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandPcoDataChangeTriggerDetails {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPcoDataChangeTriggerDetails";
+}
+unsafe impl Send for MobileBroadbandPcoDataChangeTriggerDetails {}
+unsafe impl Sync for MobileBroadbandPcoDataChangeTriggerDetails {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandPin(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandPin, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandPin {
+    pub fn Type(&self) -> windows_core::Result<MobileBroadbandPinType> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn LockState(&self) -> windows_core::Result<MobileBroadbandPinLockState> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LockState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Format(&self) -> windows_core::Result<MobileBroadbandPinFormat> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Format)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Enabled(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Enabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn MaxLength(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MaxLength)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn MinLength(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MinLength)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn AttemptsRemaining(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AttemptsRemaining)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn EnableAsync(&self, currentpin: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EnableAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(currentpin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn DisableAsync(&self, currentpin: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisableAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(currentpin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn EnterAsync(&self, currentpin: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EnterAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(currentpin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ChangeAsync(&self, currentpin: &windows_core::HSTRING, newpin: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ChangeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(currentpin), core::mem::transmute_copy(newpin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn UnblockAsync(&self, pinunblockkey: &windows_core::HSTRING, newpin: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UnblockAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(pinunblockkey), core::mem::transmute_copy(newpin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandPin {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPin>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandPin {
+    type Vtable = <IMobileBroadbandPin as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandPin as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandPin {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPin";
+}
+unsafe impl Send for MobileBroadbandPin {}
+unsafe impl Sync for MobileBroadbandPin {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MobileBroadbandPinFormat(pub i32);
@@ -6490,6 +5016,136 @@ impl windows_core::TypeKind for MobileBroadbandPinLockState {
 impl windows_core::RuntimeType for MobileBroadbandPinLockState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandPinLockState;i4)");
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandPinLockStateChange(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandPinLockStateChange, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandPinLockStateChange {
+    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn PinType(&self) -> windows_core::Result<MobileBroadbandPinType> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PinType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn PinLockState(&self) -> windows_core::Result<MobileBroadbandPinLockState> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PinLockState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandPinLockStateChange {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPinLockStateChange>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandPinLockStateChange {
+    type Vtable = <IMobileBroadbandPinLockStateChange as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandPinLockStateChange as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandPinLockStateChange {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChange";
+}
+unsafe impl Send for MobileBroadbandPinLockStateChange {}
+unsafe impl Sync for MobileBroadbandPinLockStateChange {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandPinLockStateChangeTriggerDetails(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandPinLockStateChangeTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandPinLockStateChangeTriggerDetails {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn PinLockStateChanges(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandPinLockStateChange>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PinLockStateChanges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandPinLockStateChangeTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPinLockStateChangeTriggerDetails>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandPinLockStateChangeTriggerDetails {
+    type Vtable = <IMobileBroadbandPinLockStateChangeTriggerDetails as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandPinLockStateChangeTriggerDetails as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandPinLockStateChangeTriggerDetails {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChangeTriggerDetails";
+}
+unsafe impl Send for MobileBroadbandPinLockStateChangeTriggerDetails {}
+unsafe impl Sync for MobileBroadbandPinLockStateChangeTriggerDetails {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandPinManager(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandPinManager, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandPinManager {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SupportedPins(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandPinType>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SupportedPins)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetPin(&self, pintype: MobileBroadbandPinType) -> windows_core::Result<MobileBroadbandPin> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetPin)(windows_core::Interface::as_raw(this), pintype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandPinManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPinManager>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandPinManager {
+    type Vtable = <IMobileBroadbandPinManager as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandPinManager as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandPinManager {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinManager";
+}
+unsafe impl Send for MobileBroadbandPinManager {}
+unsafe impl Sync for MobileBroadbandPinManager {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandPinOperationResult(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandPinOperationResult, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandPinOperationResult {
+    pub fn IsSuccessful(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsSuccessful)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn AttemptsRemaining(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AttemptsRemaining)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandPinOperationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPinOperationResult>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandPinOperationResult {
+    type Vtable = <IMobileBroadbandPinOperationResult as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandPinOperationResult as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandPinOperationResult {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinOperationResult";
+}
+unsafe impl Send for MobileBroadbandPinOperationResult {}
+unsafe impl Sync for MobileBroadbandPinOperationResult {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MobileBroadbandPinType(pub i32);
@@ -6526,6 +5182,325 @@ impl windows_core::RuntimeType for MobileBroadbandRadioState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandRadioState;i4)");
 }
 #[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandRadioStateChange(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandRadioStateChange, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandRadioStateChange {
+    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RadioState(&self) -> windows_core::Result<MobileBroadbandRadioState> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RadioState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandRadioStateChange {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandRadioStateChange>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandRadioStateChange {
+    type Vtable = <IMobileBroadbandRadioStateChange as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandRadioStateChange as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandRadioStateChange {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChange";
+}
+unsafe impl Send for MobileBroadbandRadioStateChange {}
+unsafe impl Sync for MobileBroadbandRadioStateChange {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandRadioStateChangeTriggerDetails(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandRadioStateChangeTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandRadioStateChangeTriggerDetails {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn RadioStateChanges(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandRadioStateChange>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RadioStateChanges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandRadioStateChangeTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandRadioStateChangeTriggerDetails>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandRadioStateChangeTriggerDetails {
+    type Vtable = <IMobileBroadbandRadioStateChangeTriggerDetails as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandRadioStateChangeTriggerDetails as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandRadioStateChangeTriggerDetails {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChangeTriggerDetails";
+}
+unsafe impl Send for MobileBroadbandRadioStateChangeTriggerDetails {}
+unsafe impl Sync for MobileBroadbandRadioStateChangeTriggerDetails {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandSarManager(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandSarManager, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandSarManager {
+    pub fn IsBackoffEnabled(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsBackoffEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn IsWiFiHardwareIntegrated(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsWiFiHardwareIntegrated)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn IsSarControlledByHardware(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsSarControlledByHardware)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Antennas(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandAntennaSar>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Antennas)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn HysteresisTimerPeriod(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HysteresisTimerPeriod)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn TransmissionStateChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandSarManager, MobileBroadbandTransmissionStateChangedEventArgs>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TransmissionStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveTransmissionStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveTransmissionStateChanged)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn EnableBackoffAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EnableBackoffAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn DisableBackoffAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisableBackoffAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SetConfigurationAsync<P0>(&self, antennas: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<MobileBroadbandAntennaSar>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SetConfigurationAsync)(windows_core::Interface::as_raw(this), antennas.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn RevertSarToHardwareControlAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RevertSarToHardwareControlAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetTransmissionStateChangedHysteresisAsync(&self, timerperiod: super::super::Foundation::TimeSpan) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SetTransmissionStateChangedHysteresisAsync)(windows_core::Interface::as_raw(this), timerperiod, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetIsTransmittingAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetIsTransmittingAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn StartTransmissionStateMonitoring(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).StartTransmissionStateMonitoring)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn StopTransmissionStateMonitoring(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).StopTransmissionStateMonitoring)(windows_core::Interface::as_raw(this)).ok() }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandSarManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandSarManager>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandSarManager {
+    type Vtable = <IMobileBroadbandSarManager as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandSarManager as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandSarManager {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSarManager";
+}
+unsafe impl Send for MobileBroadbandSarManager {}
+unsafe impl Sync for MobileBroadbandSarManager {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandSlotInfo(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandSlotInfo, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandSlotInfo {
+    pub fn Index(&self) -> windows_core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Index)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn State(&self) -> windows_core::Result<MobileBroadbandSlotState> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn IccId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandSlotInfo2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IccId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandSlotInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandSlotInfo>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandSlotInfo {
+    type Vtable = <IMobileBroadbandSlotInfo as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandSlotInfo as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandSlotInfo {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSlotInfo";
+}
+unsafe impl Send for MobileBroadbandSlotInfo {}
+unsafe impl Sync for MobileBroadbandSlotInfo {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandSlotInfoChangedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandSlotInfoChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandSlotInfoChangedEventArgs {
+    pub fn SlotInfo(&self) -> windows_core::Result<MobileBroadbandSlotInfo> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SlotInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandSlotInfoChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandSlotInfoChangedEventArgs>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandSlotInfoChangedEventArgs {
+    type Vtable = <IMobileBroadbandSlotInfoChangedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandSlotInfoChangedEventArgs as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandSlotInfoChangedEventArgs {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSlotInfoChangedEventArgs";
+}
+unsafe impl Send for MobileBroadbandSlotInfoChangedEventArgs {}
+unsafe impl Sync for MobileBroadbandSlotInfoChangedEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandSlotManager(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandSlotManager, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandSlotManager {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SlotInfos(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandSlotInfo>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SlotInfos)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CurrentSlotIndex(&self) -> windows_core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CurrentSlotIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetCurrentSlot(&self, slotindex: i32) -> windows_core::Result<MobileBroadbandModemStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SetCurrentSlot)(windows_core::Interface::as_raw(this), slotindex, &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetCurrentSlotAsync(&self, slotindex: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SetCurrentSlotAsync)(windows_core::Interface::as_raw(this), slotindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SlotInfoChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandSlotManager, MobileBroadbandSlotInfoChangedEventArgs>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SlotInfoChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveSlotInfoChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveSlotInfoChanged)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn CurrentSlotIndexChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandSlotManager, MobileBroadbandCurrentSlotIndexChangedEventArgs>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CurrentSlotIndexChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveCurrentSlotIndexChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveCurrentSlotIndexChanged)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandSlotManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandSlotManager>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandSlotManager {
+    type Vtable = <IMobileBroadbandSlotManager as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandSlotManager as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandSlotManager {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSlotManager";
+}
+unsafe impl Send for MobileBroadbandSlotManager {}
+unsafe impl Sync for MobileBroadbandSlotManager {}
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MobileBroadbandSlotState(pub i32);
 impl MobileBroadbandSlotState {
@@ -6547,6 +5522,118 @@ impl windows_core::RuntimeType for MobileBroadbandSlotState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandSlotState;i4)");
 }
 #[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandTransmissionStateChangedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandTransmissionStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandTransmissionStateChangedEventArgs {
+    pub fn IsTransmitting(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsTransmitting)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandTransmissionStateChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandTransmissionStateChangedEventArgs>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandTransmissionStateChangedEventArgs {
+    type Vtable = <IMobileBroadbandTransmissionStateChangedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandTransmissionStateChangedEventArgs as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandTransmissionStateChangedEventArgs {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandTransmissionStateChangedEventArgs";
+}
+unsafe impl Send for MobileBroadbandTransmissionStateChangedEventArgs {}
+unsafe impl Sync for MobileBroadbandTransmissionStateChangedEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandUicc(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandUicc, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandUicc {
+    pub fn SimIccId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SimIccId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn GetUiccAppsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppsResult>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetUiccAppsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandUicc {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandUicc>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandUicc {
+    type Vtable = <IMobileBroadbandUicc as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandUicc as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandUicc {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUicc";
+}
+unsafe impl Send for MobileBroadbandUicc {}
+unsafe impl Sync for MobileBroadbandUicc {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandUiccApp(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandUiccApp, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandUiccApp {
+    #[cfg(feature = "Storage_Streams")]
+    pub fn Id(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Kind(&self) -> windows_core::Result<UiccAppKind> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetRecordDetailsAsync<P0>(&self, uiccfilepath: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppRecordDetailsResult>>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<u32>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetRecordDetailsAsync)(windows_core::Interface::as_raw(this), uiccfilepath.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ReadRecordAsync<P0>(&self, uiccfilepath: P0, recordindex: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppReadRecordResult>>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<u32>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ReadRecordAsync)(windows_core::Interface::as_raw(this), uiccfilepath.param().abi(), recordindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandUiccApp {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandUiccApp>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandUiccApp {
+    type Vtable = <IMobileBroadbandUiccApp as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandUiccApp as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandUiccApp {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccApp";
+}
+unsafe impl Send for MobileBroadbandUiccApp {}
+unsafe impl Sync for MobileBroadbandUiccApp {}
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MobileBroadbandUiccAppOperationStatus(pub i32);
 impl MobileBroadbandUiccAppOperationStatus {
@@ -6561,6 +5648,132 @@ impl windows_core::TypeKind for MobileBroadbandUiccAppOperationStatus {
 impl windows_core::RuntimeType for MobileBroadbandUiccAppOperationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandUiccAppOperationStatus;i4)");
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandUiccAppReadRecordResult(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandUiccAppReadRecordResult, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandUiccAppReadRecordResult {
+    pub fn Status(&self) -> windows_core::Result<MobileBroadbandUiccAppOperationStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn Data(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Data)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandUiccAppReadRecordResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandUiccAppReadRecordResult>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandUiccAppReadRecordResult {
+    type Vtable = <IMobileBroadbandUiccAppReadRecordResult as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandUiccAppReadRecordResult as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandUiccAppReadRecordResult {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccAppReadRecordResult";
+}
+unsafe impl Send for MobileBroadbandUiccAppReadRecordResult {}
+unsafe impl Sync for MobileBroadbandUiccAppReadRecordResult {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandUiccAppRecordDetailsResult(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandUiccAppRecordDetailsResult, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandUiccAppRecordDetailsResult {
+    pub fn Status(&self) -> windows_core::Result<MobileBroadbandUiccAppOperationStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Kind(&self) -> windows_core::Result<UiccAppRecordKind> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn RecordCount(&self) -> windows_core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RecordCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn RecordSize(&self) -> windows_core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RecordSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ReadAccessCondition(&self) -> windows_core::Result<UiccAccessCondition> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ReadAccessCondition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn WriteAccessCondition(&self) -> windows_core::Result<UiccAccessCondition> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).WriteAccessCondition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandUiccAppRecordDetailsResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandUiccAppRecordDetailsResult>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandUiccAppRecordDetailsResult {
+    type Vtable = <IMobileBroadbandUiccAppRecordDetailsResult as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandUiccAppRecordDetailsResult as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandUiccAppRecordDetailsResult {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccAppRecordDetailsResult";
+}
+unsafe impl Send for MobileBroadbandUiccAppRecordDetailsResult {}
+unsafe impl Sync for MobileBroadbandUiccAppRecordDetailsResult {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandUiccAppsResult(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandUiccAppsResult, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandUiccAppsResult {
+    pub fn Status(&self) -> windows_core::Result<MobileBroadbandUiccAppOperationStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn UiccApps(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandUiccApp>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UiccApps)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandUiccAppsResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandUiccAppsResult>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandUiccAppsResult {
+    type Vtable = <IMobileBroadbandUiccAppsResult as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMobileBroadbandUiccAppsResult as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandUiccAppsResult {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccAppsResult";
+}
+unsafe impl Send for MobileBroadbandUiccAppsResult {}
+unsafe impl Sync for MobileBroadbandUiccAppsResult {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NetworkDeviceStatus(pub i32);
@@ -6593,6 +5806,31 @@ impl windows_core::RuntimeType for NetworkOperatorDataUsageNotificationKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkOperatorDataUsageNotificationKind;i4)");
 }
 #[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct NetworkOperatorDataUsageTriggerDetails(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(NetworkOperatorDataUsageTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
+impl NetworkOperatorDataUsageTriggerDetails {
+    pub fn NotificationKind(&self) -> windows_core::Result<NetworkOperatorDataUsageNotificationKind> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NotificationKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for NetworkOperatorDataUsageTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorDataUsageTriggerDetails>();
+}
+unsafe impl windows_core::Interface for NetworkOperatorDataUsageTriggerDetails {
+    type Vtable = <INetworkOperatorDataUsageTriggerDetails as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <INetworkOperatorDataUsageTriggerDetails as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for NetworkOperatorDataUsageTriggerDetails {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorDataUsageTriggerDetails";
+}
+unsafe impl Send for NetworkOperatorDataUsageTriggerDetails {}
+unsafe impl Sync for NetworkOperatorDataUsageTriggerDetails {}
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NetworkOperatorEventMessageType(pub i32);
 impl NetworkOperatorEventMessageType {
@@ -6616,6 +5854,508 @@ impl windows_core::TypeKind for NetworkOperatorEventMessageType {
 impl windows_core::RuntimeType for NetworkOperatorEventMessageType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkOperatorEventMessageType;i4)");
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct NetworkOperatorNotificationEventDetails(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(NetworkOperatorNotificationEventDetails, windows_core::IUnknown, windows_core::IInspectable);
+impl NetworkOperatorNotificationEventDetails {
+    pub fn NotificationType(&self) -> windows_core::Result<NetworkOperatorEventMessageType> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NotificationType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn NetworkAccountId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NetworkAccountId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn EncodingType(&self) -> windows_core::Result<u8> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EncodingType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Message(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Message)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RuleId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RuleId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "Devices_Sms")]
+    pub fn SmsMessage(&self) -> windows_core::Result<super::super::Devices::Sms::ISmsMessage> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SmsMessage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn AuthorizeTethering(&self, allow: bool, entitlementfailurereason: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringEntitlementCheck>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).AuthorizeTethering)(windows_core::Interface::as_raw(this), allow, core::mem::transmute_copy(entitlementfailurereason)).ok() }
+    }
+}
+impl windows_core::RuntimeType for NetworkOperatorNotificationEventDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorNotificationEventDetails>();
+}
+unsafe impl windows_core::Interface for NetworkOperatorNotificationEventDetails {
+    type Vtable = <INetworkOperatorNotificationEventDetails as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <INetworkOperatorNotificationEventDetails as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for NetworkOperatorNotificationEventDetails {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorNotificationEventDetails";
+}
+unsafe impl Send for NetworkOperatorNotificationEventDetails {}
+unsafe impl Sync for NetworkOperatorNotificationEventDetails {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct NetworkOperatorTetheringAccessPointConfiguration(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(NetworkOperatorTetheringAccessPointConfiguration, windows_core::IUnknown, windows_core::IInspectable);
+impl NetworkOperatorTetheringAccessPointConfiguration {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<NetworkOperatorTetheringAccessPointConfiguration, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn Ssid(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Ssid)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetSsid(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetSsid)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn Passphrase(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Passphrase)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetPassphrase(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetPassphrase)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn IsBandSupported(&self, band: TetheringWiFiBand) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsBandSupported)(windows_core::Interface::as_raw(this), band, &mut result__).map(|| result__)
+        }
+    }
+    pub fn IsBandSupportedAsync(&self, band: TetheringWiFiBand) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsBandSupportedAsync)(windows_core::Interface::as_raw(this), band, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Band(&self) -> windows_core::Result<TetheringWiFiBand> {
+        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Band)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetBand(&self, value: TetheringWiFiBand) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetBand)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn IsAuthenticationKindSupported(&self, authenticationkind: TetheringWiFiAuthenticationKind) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsAuthenticationKindSupported)(windows_core::Interface::as_raw(this), authenticationkind, &mut result__).map(|| result__)
+        }
+    }
+    pub fn IsAuthenticationKindSupportedAsync(&self, authenticationkind: TetheringWiFiAuthenticationKind) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsAuthenticationKindSupportedAsync)(windows_core::Interface::as_raw(this), authenticationkind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn AuthenticationKind(&self) -> windows_core::Result<TetheringWiFiAuthenticationKind> {
+        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AuthenticationKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetAuthenticationKind(&self, value: TetheringWiFiAuthenticationKind) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration3>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetAuthenticationKind)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl windows_core::RuntimeType for NetworkOperatorTetheringAccessPointConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorTetheringAccessPointConfiguration>();
+}
+unsafe impl windows_core::Interface for NetworkOperatorTetheringAccessPointConfiguration {
+    type Vtable = <INetworkOperatorTetheringAccessPointConfiguration as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <INetworkOperatorTetheringAccessPointConfiguration as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for NetworkOperatorTetheringAccessPointConfiguration {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringAccessPointConfiguration";
+}
+unsafe impl Send for NetworkOperatorTetheringAccessPointConfiguration {}
+unsafe impl Sync for NetworkOperatorTetheringAccessPointConfiguration {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct NetworkOperatorTetheringClient(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(NetworkOperatorTetheringClient, windows_core::IUnknown, windows_core::IInspectable);
+impl NetworkOperatorTetheringClient {
+    pub fn MacAddress(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MacAddress)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn HostNames(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::HostName>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HostNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for NetworkOperatorTetheringClient {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorTetheringClient>();
+}
+unsafe impl windows_core::Interface for NetworkOperatorTetheringClient {
+    type Vtable = <INetworkOperatorTetheringClient as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <INetworkOperatorTetheringClient as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for NetworkOperatorTetheringClient {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringClient";
+}
+unsafe impl Send for NetworkOperatorTetheringClient {}
+unsafe impl Sync for NetworkOperatorTetheringClient {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct NetworkOperatorTetheringManager(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(NetworkOperatorTetheringManager, windows_core::IUnknown, windows_core::IInspectable);
+impl NetworkOperatorTetheringManager {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetTetheringClients(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<NetworkOperatorTetheringClient>> {
+        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringClientManager>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetTetheringClients)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn MaxClientCount(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MaxClientCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ClientCount(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ClientCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn TetheringOperationalState(&self) -> windows_core::Result<TetheringOperationalState> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TetheringOperationalState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn GetCurrentAccessPointConfiguration(&self) -> windows_core::Result<NetworkOperatorTetheringAccessPointConfiguration> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetCurrentAccessPointConfiguration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ConfigureAccessPointAsync<P0>(&self, configuration: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<NetworkOperatorTetheringAccessPointConfiguration>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ConfigureAccessPointAsync)(windows_core::Interface::as_raw(this), configuration.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn StartTetheringAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).StartTetheringAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn StopTetheringAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).StopTetheringAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn StartTetheringAsync2<P0>(&self, configuration: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>>
+    where
+        P0: windows_core::Param<NetworkOperatorTetheringSessionAccessPointConfiguration>,
+    {
+        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringManager2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).StartTetheringAsync)(windows_core::Interface::as_raw(this), configuration.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetTetheringCapability(networkaccountid: &windows_core::HSTRING) -> windows_core::Result<TetheringCapability> {
+        Self::INetworkOperatorTetheringManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetTetheringCapability)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkaccountid), &mut result__).map(|| result__)
+        })
+    }
+    pub fn CreateFromNetworkAccountId(networkaccountid: &windows_core::HSTRING) -> windows_core::Result<NetworkOperatorTetheringManager> {
+        Self::INetworkOperatorTetheringManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateFromNetworkAccountId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Networking_Connectivity")]
+    pub fn GetTetheringCapabilityFromConnectionProfile<P0>(profile: P0) -> windows_core::Result<TetheringCapability>
+    where
+        P0: windows_core::Param<super::Connectivity::ConnectionProfile>,
+    {
+        Self::INetworkOperatorTetheringManagerStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetTetheringCapabilityFromConnectionProfile)(windows_core::Interface::as_raw(this), profile.param().abi(), &mut result__).map(|| result__)
+        })
+    }
+    #[cfg(feature = "Networking_Connectivity")]
+    pub fn CreateFromConnectionProfile<P0>(profile: P0) -> windows_core::Result<NetworkOperatorTetheringManager>
+    where
+        P0: windows_core::Param<super::Connectivity::ConnectionProfile>,
+    {
+        Self::INetworkOperatorTetheringManagerStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateFromConnectionProfile)(windows_core::Interface::as_raw(this), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Networking_Connectivity")]
+    pub fn CreateFromConnectionProfileWithTargetAdapter<P0, P1>(profile: P0, adapter: P1) -> windows_core::Result<NetworkOperatorTetheringManager>
+    where
+        P0: windows_core::Param<super::Connectivity::ConnectionProfile>,
+        P1: windows_core::Param<super::Connectivity::NetworkAdapter>,
+    {
+        Self::INetworkOperatorTetheringManagerStatics3(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateFromConnectionProfileWithTargetAdapter)(windows_core::Interface::as_raw(this), profile.param().abi(), adapter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn IsNoConnectionsTimeoutEnabled() -> windows_core::Result<bool> {
+        Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsNoConnectionsTimeoutEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn EnableNoConnectionsTimeout() -> windows_core::Result<()> {
+        Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe { (windows_core::Interface::vtable(this).EnableNoConnectionsTimeout)(windows_core::Interface::as_raw(this)).ok() })
+    }
+    pub fn EnableNoConnectionsTimeoutAsync() -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+        Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EnableNoConnectionsTimeoutAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn DisableNoConnectionsTimeout() -> windows_core::Result<()> {
+        Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe { (windows_core::Interface::vtable(this).DisableNoConnectionsTimeout)(windows_core::Interface::as_raw(this)).ok() })
+    }
+    pub fn DisableNoConnectionsTimeoutAsync() -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+        Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisableNoConnectionsTimeoutAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn INetworkOperatorTetheringManagerStatics<R, F: FnOnce(&INetworkOperatorTetheringManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn INetworkOperatorTetheringManagerStatics2<R, F: FnOnce(&INetworkOperatorTetheringManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics2> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn INetworkOperatorTetheringManagerStatics3<R, F: FnOnce(&INetworkOperatorTetheringManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics3> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn INetworkOperatorTetheringManagerStatics4<R, F: FnOnce(&INetworkOperatorTetheringManagerStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics4> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for NetworkOperatorTetheringManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorTetheringManager>();
+}
+unsafe impl windows_core::Interface for NetworkOperatorTetheringManager {
+    type Vtable = <INetworkOperatorTetheringManager as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <INetworkOperatorTetheringManager as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for NetworkOperatorTetheringManager {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringManager";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct NetworkOperatorTetheringOperationResult(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(NetworkOperatorTetheringOperationResult, windows_core::IUnknown, windows_core::IInspectable);
+impl NetworkOperatorTetheringOperationResult {
+    pub fn Status(&self) -> windows_core::Result<TetheringOperationStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn AdditionalErrorMessage(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AdditionalErrorMessage)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for NetworkOperatorTetheringOperationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorTetheringOperationResult>();
+}
+unsafe impl windows_core::Interface for NetworkOperatorTetheringOperationResult {
+    type Vtable = <INetworkOperatorTetheringOperationResult as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <INetworkOperatorTetheringOperationResult as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for NetworkOperatorTetheringOperationResult {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringOperationResult";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct NetworkOperatorTetheringSessionAccessPointConfiguration(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(NetworkOperatorTetheringSessionAccessPointConfiguration, windows_core::IUnknown, windows_core::IInspectable);
+impl NetworkOperatorTetheringSessionAccessPointConfiguration {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<NetworkOperatorTetheringSessionAccessPointConfiguration, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn Ssid(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Ssid)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetSsid(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetSsid)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn Passphrase(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Passphrase)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetPassphrase(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetPassphrase)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn IsBandSupported(&self, band: TetheringWiFiBand) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsBandSupported)(windows_core::Interface::as_raw(this), band, &mut result__).map(|| result__)
+        }
+    }
+    pub fn IsBandSupportedAsync(&self, band: TetheringWiFiBand) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsBandSupportedAsync)(windows_core::Interface::as_raw(this), band, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Band(&self) -> windows_core::Result<TetheringWiFiBand> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Band)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetBand(&self, value: TetheringWiFiBand) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetBand)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn IsAuthenticationKindSupported(&self, authenticationkind: TetheringWiFiAuthenticationKind) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsAuthenticationKindSupported)(windows_core::Interface::as_raw(this), authenticationkind, &mut result__).map(|| result__)
+        }
+    }
+    pub fn IsAuthenticationKindSupportedAsync(&self, authenticationkind: TetheringWiFiAuthenticationKind) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsAuthenticationKindSupportedAsync)(windows_core::Interface::as_raw(this), authenticationkind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn AuthenticationKind(&self) -> windows_core::Result<TetheringWiFiAuthenticationKind> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AuthenticationKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetAuthenticationKind(&self, value: TetheringWiFiAuthenticationKind) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetAuthenticationKind)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn PerformancePriority(&self) -> windows_core::Result<TetheringWiFiPerformancePriority> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PerformancePriority)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetPerformancePriority(&self, value: TetheringWiFiPerformancePriority) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetPerformancePriority)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl windows_core::RuntimeType for NetworkOperatorTetheringSessionAccessPointConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorTetheringSessionAccessPointConfiguration>();
+}
+unsafe impl windows_core::Interface for NetworkOperatorTetheringSessionAccessPointConfiguration {
+    type Vtable = <INetworkOperatorTetheringSessionAccessPointConfiguration as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <INetworkOperatorTetheringSessionAccessPointConfiguration as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for NetworkOperatorTetheringSessionAccessPointConfiguration {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringSessionAccessPointConfiguration";
+}
+unsafe impl Send for NetworkOperatorTetheringSessionAccessPointConfiguration {}
+unsafe impl Sync for NetworkOperatorTetheringSessionAccessPointConfiguration {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NetworkRegistrationState(pub i32);
@@ -6647,6 +6387,120 @@ impl windows_core::TypeKind for ProfileMediaType {
 impl windows_core::RuntimeType for ProfileMediaType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ProfileMediaType;i4)");
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct ProfileUsage {
+    pub UsageInMegabytes: u32,
+    pub LastSyncTime: super::super::Foundation::DateTime,
+}
+impl windows_core::TypeKind for ProfileUsage {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ProfileUsage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.NetworkOperators.ProfileUsage;u4;struct(Windows.Foundation.DateTime;i8))");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ProvisionFromXmlDocumentResults(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(ProvisionFromXmlDocumentResults, windows_core::IUnknown, windows_core::IInspectable);
+impl ProvisionFromXmlDocumentResults {
+    pub fn AllElementsProvisioned(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AllElementsProvisioned)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ProvisionResultsXml(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ProvisionResultsXml)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for ProvisionFromXmlDocumentResults {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProvisionFromXmlDocumentResults>();
+}
+unsafe impl windows_core::Interface for ProvisionFromXmlDocumentResults {
+    type Vtable = <IProvisionFromXmlDocumentResults as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IProvisionFromXmlDocumentResults as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for ProvisionFromXmlDocumentResults {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.ProvisionFromXmlDocumentResults";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ProvisionedProfile(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(ProvisionedProfile, windows_core::IUnknown, windows_core::IInspectable);
+impl ProvisionedProfile {
+    #[cfg(feature = "Networking_Connectivity")]
+    pub fn UpdateCost(&self, value: super::Connectivity::NetworkCostType) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).UpdateCost)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn UpdateUsage(&self, value: ProfileUsage) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).UpdateUsage)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl windows_core::RuntimeType for ProvisionedProfile {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProvisionedProfile>();
+}
+unsafe impl windows_core::Interface for ProvisionedProfile {
+    type Vtable = <IProvisionedProfile as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IProvisionedProfile as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for ProvisionedProfile {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.ProvisionedProfile";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ProvisioningAgent(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(ProvisioningAgent, windows_core::IUnknown, windows_core::IInspectable);
+impl ProvisioningAgent {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<ProvisioningAgent, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn ProvisionFromXmlDocumentAsync(&self, provisioningxmldocument: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ProvisionFromXmlDocumentResults>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ProvisionFromXmlDocumentAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(provisioningxmldocument), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetProvisionedProfile(&self, mediatype: ProfileMediaType, profilename: &windows_core::HSTRING) -> windows_core::Result<ProvisionedProfile> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetProvisionedProfile)(windows_core::Interface::as_raw(this), mediatype, core::mem::transmute_copy(profilename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CreateFromNetworkAccountId(networkaccountid: &windows_core::HSTRING) -> windows_core::Result<ProvisioningAgent> {
+        Self::IProvisioningAgentStaticMethods(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateFromNetworkAccountId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IProvisioningAgentStaticMethods<R, F: FnOnce(&IProvisioningAgentStaticMethods) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<ProvisioningAgent, IProvisioningAgentStaticMethods> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for ProvisioningAgent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProvisioningAgent>();
+}
+unsafe impl windows_core::Interface for ProvisioningAgent {
+    type Vtable = <IProvisioningAgent as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IProvisioningAgent as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for ProvisioningAgent {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.ProvisioningAgent";
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TetheringCapability(pub i32);
@@ -6666,6 +6520,39 @@ impl windows_core::TypeKind for TetheringCapability {
 impl windows_core::RuntimeType for TetheringCapability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringCapability;i4)");
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct TetheringEntitlementCheckTriggerDetails(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(TetheringEntitlementCheckTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
+impl TetheringEntitlementCheckTriggerDetails {
+    pub fn NetworkAccountId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NetworkAccountId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn AllowTethering(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AllowTethering)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn DenyTethering(&self, entitlementfailurereason: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).DenyTethering)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(entitlementfailurereason)).ok() }
+    }
+}
+impl windows_core::RuntimeType for TetheringEntitlementCheckTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITetheringEntitlementCheckTriggerDetails>();
+}
+unsafe impl windows_core::Interface for TetheringEntitlementCheckTriggerDetails {
+    type Vtable = <ITetheringEntitlementCheckTriggerDetails as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ITetheringEntitlementCheckTriggerDetails as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for TetheringEntitlementCheckTriggerDetails {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.TetheringEntitlementCheckTriggerDetails";
+}
+unsafe impl Send for TetheringEntitlementCheckTriggerDetails {}
+unsafe impl Sync for TetheringEntitlementCheckTriggerDetails {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TetheringOperationStatus(pub i32);
@@ -6798,6 +6685,97 @@ impl windows_core::RuntimeType for UiccAppRecordKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.UiccAppRecordKind;i4)");
 }
 #[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct UssdMessage(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(UssdMessage, windows_core::IUnknown, windows_core::IInspectable);
+impl UssdMessage {
+    pub fn DataCodingScheme(&self) -> windows_core::Result<u8> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DataCodingScheme)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetDataCodingScheme(&self, value: u8) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetDataCodingScheme)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn GetPayload(&self) -> windows_core::Result<windows_core::Array<u8>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::MaybeUninit::zeroed();
+            (windows_core::Interface::vtable(this).GetPayload)(windows_core::Interface::as_raw(this), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+        }
+    }
+    pub fn SetPayload(&self, value: &[u8]) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetPayload)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr()).ok() }
+    }
+    pub fn PayloadAsText(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PayloadAsText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetPayloadAsText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetPayloadAsText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn CreateMessage(messagetext: &windows_core::HSTRING) -> windows_core::Result<UssdMessage> {
+        Self::IUssdMessageFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(messagetext), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IUssdMessageFactory<R, F: FnOnce(&IUssdMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<UssdMessage, IUssdMessageFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for UssdMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUssdMessage>();
+}
+unsafe impl windows_core::Interface for UssdMessage {
+    type Vtable = <IUssdMessage as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IUssdMessage as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for UssdMessage {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdMessage";
+}
+unsafe impl Send for UssdMessage {}
+unsafe impl Sync for UssdMessage {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct UssdReply(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(UssdReply, windows_core::IUnknown, windows_core::IInspectable);
+impl UssdReply {
+    pub fn ResultCode(&self) -> windows_core::Result<UssdResultCode> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ResultCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Message(&self) -> windows_core::Result<UssdMessage> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Message)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for UssdReply {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUssdReply>();
+}
+unsafe impl windows_core::Interface for UssdReply {
+    type Vtable = <IUssdReply as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IUssdReply as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for UssdReply {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdReply";
+}
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UssdResultCode(pub i32);
 impl UssdResultCode {
@@ -6814,27 +6792,49 @@ impl windows_core::TypeKind for UssdResultCode {
 impl windows_core::RuntimeType for UssdResultCode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.UssdResultCode;i4)");
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct ESimProfileInstallProgress {
-    pub TotalSizeInBytes: i32,
-    pub InstalledSizeInBytes: i32,
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct UssdSession(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(UssdSession, windows_core::IUnknown, windows_core::IInspectable);
+impl UssdSession {
+    pub fn SendMessageAndGetReplyAsync<P0>(&self, message: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<UssdReply>>
+    where
+        P0: windows_core::Param<UssdMessage>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SendMessageAndGetReplyAsync)(windows_core::Interface::as_raw(this), message.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn CreateFromNetworkAccountId(networkaccountid: &windows_core::HSTRING) -> windows_core::Result<UssdSession> {
+        Self::IUssdSessionStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateFromNetworkAccountId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateFromNetworkInterfaceId(networkinterfaceid: &windows_core::HSTRING) -> windows_core::Result<UssdSession> {
+        Self::IUssdSessionStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateFromNetworkInterfaceId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkinterfaceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IUssdSessionStatics<R, F: FnOnce(&IUssdSessionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<UssdSession, IUssdSessionStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
 }
-impl windows_core::TypeKind for ESimProfileInstallProgress {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::RuntimeType for UssdSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUssdSession>();
 }
-impl windows_core::RuntimeType for ESimProfileInstallProgress {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.NetworkOperators.ESimProfileInstallProgress;i4;i4)");
+unsafe impl windows_core::Interface for UssdSession {
+    type Vtable = <IUssdSession as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IUssdSession as windows_core::Interface>::IID;
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct ProfileUsage {
-    pub UsageInMegabytes: u32,
-    pub LastSyncTime: super::super::Foundation::DateTime,
-}
-impl windows_core::TypeKind for ProfileUsage {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ProfileUsage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.NetworkOperators.ProfileUsage;u4;struct(Windows.Foundation.DateTime;i8))");
+impl windows_core::RuntimeName for UssdSession {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdSession";
 }

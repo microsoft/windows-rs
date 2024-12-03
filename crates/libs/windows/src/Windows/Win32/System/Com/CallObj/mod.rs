@@ -15,6 +15,91 @@ where
     windows_targets::link!("ole32.dll" "system" fn CoGetInterceptorFromTypeInfo(iidintercepted : *const windows_core::GUID, punkouter : * mut core::ffi::c_void, typeinfo : * mut core::ffi::c_void, iid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     CoGetInterceptorFromTypeInfo(core::mem::transmute(iidintercepted), punkouter.param().abi(), typeinfo.param().abi(), core::mem::transmute(iid), core::mem::transmute(ppv)).ok()
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CALLFRAMEINFO {
+    pub iMethod: u32,
+    pub fHasInValues: super::super::super::Foundation::BOOL,
+    pub fHasInOutValues: super::super::super::Foundation::BOOL,
+    pub fHasOutValues: super::super::super::Foundation::BOOL,
+    pub fDerivesFromIDispatch: super::super::super::Foundation::BOOL,
+    pub cInInterfacesMax: i32,
+    pub cInOutInterfacesMax: i32,
+    pub cOutInterfacesMax: i32,
+    pub cTopLevelInInterfaces: i32,
+    pub iid: windows_core::GUID,
+    pub cMethod: u32,
+    pub cParams: u32,
+}
+impl Default for CALLFRAMEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CALLFRAMEINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CALLFRAMEPARAMINFO {
+    pub fIn: super::super::super::Foundation::BOOLEAN,
+    pub fOut: super::super::super::Foundation::BOOLEAN,
+    pub stackOffset: u32,
+    pub cbParam: u32,
+}
+impl Default for CALLFRAMEPARAMINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CALLFRAMEPARAMINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CALLFRAME_COPY(pub i32);
+pub const CALLFRAME_COPY_INDEPENDENT: CALLFRAME_COPY = CALLFRAME_COPY(2i32);
+pub const CALLFRAME_COPY_NESTED: CALLFRAME_COPY = CALLFRAME_COPY(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CALLFRAME_FREE(pub i32);
+pub const CALLFRAME_FREE_ALL: CALLFRAME_FREE = CALLFRAME_FREE(31i32);
+pub const CALLFRAME_FREE_IN: CALLFRAME_FREE = CALLFRAME_FREE(1i32);
+pub const CALLFRAME_FREE_INOUT: CALLFRAME_FREE = CALLFRAME_FREE(2i32);
+pub const CALLFRAME_FREE_NONE: CALLFRAME_FREE = CALLFRAME_FREE(0i32);
+pub const CALLFRAME_FREE_OUT: CALLFRAME_FREE = CALLFRAME_FREE(4i32);
+pub const CALLFRAME_FREE_TOP_INOUT: CALLFRAME_FREE = CALLFRAME_FREE(8i32);
+pub const CALLFRAME_FREE_TOP_OUT: CALLFRAME_FREE = CALLFRAME_FREE(16i32);
+#[repr(C)]
+#[derive(Clone, Debug, PartialEq)]
+pub struct CALLFRAME_MARSHALCONTEXT {
+    pub fIn: super::super::super::Foundation::BOOLEAN,
+    pub dwDestContext: u32,
+    pub pvDestContext: *mut core::ffi::c_void,
+    pub punkReserved: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub guidTransferSyntax: windows_core::GUID,
+}
+impl Default for CALLFRAME_MARSHALCONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CALLFRAME_MARSHALCONTEXT {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CALLFRAME_NULL(pub i32);
+pub const CALLFRAME_NULL_ALL: CALLFRAME_NULL = CALLFRAME_NULL(6i32);
+pub const CALLFRAME_NULL_INOUT: CALLFRAME_NULL = CALLFRAME_NULL(2i32);
+pub const CALLFRAME_NULL_NONE: CALLFRAME_NULL = CALLFRAME_NULL(0i32);
+pub const CALLFRAME_NULL_OUT: CALLFRAME_NULL = CALLFRAME_NULL(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CALLFRAME_WALK(pub i32);
+pub const CALLFRAME_WALK_IN: CALLFRAME_WALK = CALLFRAME_WALK(1i32);
+pub const CALLFRAME_WALK_INOUT: CALLFRAME_WALK = CALLFRAME_WALK(2i32);
+pub const CALLFRAME_WALK_OUT: CALLFRAME_WALK = CALLFRAME_WALK(4i32);
 windows_core::imp::define_interface!(ICallFrame, ICallFrame_Vtbl, 0xd573b4b0_894e_11d2_b8b6_00c04fb9618a);
 windows_core::imp::interface_hierarchy!(ICallFrame, windows_core::IUnknown);
 impl ICallFrame {
@@ -563,88 +648,3 @@ impl IInterfaceRelated_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IInterfaceRelated {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CALLFRAME_COPY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CALLFRAME_FREE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CALLFRAME_NULL(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CALLFRAME_WALK(pub i32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CALLFRAMEINFO {
-    pub iMethod: u32,
-    pub fHasInValues: super::super::super::Foundation::BOOL,
-    pub fHasInOutValues: super::super::super::Foundation::BOOL,
-    pub fHasOutValues: super::super::super::Foundation::BOOL,
-    pub fDerivesFromIDispatch: super::super::super::Foundation::BOOL,
-    pub cInInterfacesMax: i32,
-    pub cInOutInterfacesMax: i32,
-    pub cOutInterfacesMax: i32,
-    pub cTopLevelInInterfaces: i32,
-    pub iid: windows_core::GUID,
-    pub cMethod: u32,
-    pub cParams: u32,
-}
-impl Default for CALLFRAMEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CALLFRAMEINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CALLFRAMEPARAMINFO {
-    pub fIn: super::super::super::Foundation::BOOLEAN,
-    pub fOut: super::super::super::Foundation::BOOLEAN,
-    pub stackOffset: u32,
-    pub cbParam: u32,
-}
-impl Default for CALLFRAMEPARAMINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CALLFRAMEPARAMINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
-pub struct CALLFRAME_MARSHALCONTEXT {
-    pub fIn: super::super::super::Foundation::BOOLEAN,
-    pub dwDestContext: u32,
-    pub pvDestContext: *mut core::ffi::c_void,
-    pub punkReserved: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-    pub guidTransferSyntax: windows_core::GUID,
-}
-impl Default for CALLFRAME_MARSHALCONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CALLFRAME_MARSHALCONTEXT {
-    type TypeKind = windows_core::CloneType;
-}
-pub const CALLFRAME_COPY_INDEPENDENT: CALLFRAME_COPY = CALLFRAME_COPY(2i32);
-pub const CALLFRAME_COPY_NESTED: CALLFRAME_COPY = CALLFRAME_COPY(1i32);
-pub const CALLFRAME_FREE_ALL: CALLFRAME_FREE = CALLFRAME_FREE(31i32);
-pub const CALLFRAME_FREE_IN: CALLFRAME_FREE = CALLFRAME_FREE(1i32);
-pub const CALLFRAME_FREE_INOUT: CALLFRAME_FREE = CALLFRAME_FREE(2i32);
-pub const CALLFRAME_FREE_NONE: CALLFRAME_FREE = CALLFRAME_FREE(0i32);
-pub const CALLFRAME_FREE_OUT: CALLFRAME_FREE = CALLFRAME_FREE(4i32);
-pub const CALLFRAME_FREE_TOP_INOUT: CALLFRAME_FREE = CALLFRAME_FREE(8i32);
-pub const CALLFRAME_FREE_TOP_OUT: CALLFRAME_FREE = CALLFRAME_FREE(16i32);
-pub const CALLFRAME_NULL_ALL: CALLFRAME_NULL = CALLFRAME_NULL(6i32);
-pub const CALLFRAME_NULL_INOUT: CALLFRAME_NULL = CALLFRAME_NULL(2i32);
-pub const CALLFRAME_NULL_NONE: CALLFRAME_NULL = CALLFRAME_NULL(0i32);
-pub const CALLFRAME_NULL_OUT: CALLFRAME_NULL = CALLFRAME_NULL(4i32);
-pub const CALLFRAME_WALK_IN: CALLFRAME_WALK = CALLFRAME_WALK(1i32);
-pub const CALLFRAME_WALK_INOUT: CALLFRAME_WALK = CALLFRAME_WALK(2i32);
-pub const CALLFRAME_WALK_OUT: CALLFRAME_WALK = CALLFRAME_WALK(4i32);

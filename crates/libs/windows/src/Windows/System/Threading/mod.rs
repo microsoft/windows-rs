@@ -1,5 +1,39 @@
 #[cfg(feature = "System_Threading_Core")]
 pub mod Core;
+windows_core::imp::define_interface!(IThreadPoolStatics, IThreadPoolStatics_Vtbl, 0xb6bf67dd_84bd_44f8_ac1c_93ebcb9dba91);
+impl windows_core::RuntimeType for IThreadPoolStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IThreadPoolStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub RunAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RunWithPriorityAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WorkItemPriority, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RunWithPriorityAndOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WorkItemPriority, WorkItemOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IThreadPoolTimer, IThreadPoolTimer_Vtbl, 0x594ebe78_55ea_4a88_a50d_3402ae1f9cf2);
+impl windows_core::RuntimeType for IThreadPoolTimer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IThreadPoolTimer_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Period: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub Delay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IThreadPoolTimerStatics, IThreadPoolTimerStatics_Vtbl, 0x1a8a9d02_e482_461b_b8c7_8efad1cce590);
+impl windows_core::RuntimeType for IThreadPoolTimerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IThreadPoolTimerStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreatePeriodicTimer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateTimer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreatePeriodicTimerWithCompletion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateTimerWithCompletion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 pub struct ThreadPool;
 impl ThreadPool {
     pub fn RunAsync<P0>(handler: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
@@ -115,40 +149,6 @@ impl windows_core::RuntimeName for ThreadPoolTimer {
 }
 unsafe impl Send for ThreadPoolTimer {}
 unsafe impl Sync for ThreadPoolTimer {}
-windows_core::imp::define_interface!(IThreadPoolStatics, IThreadPoolStatics_Vtbl, 0xb6bf67dd_84bd_44f8_ac1c_93ebcb9dba91);
-impl windows_core::RuntimeType for IThreadPoolStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IThreadPoolStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub RunAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RunWithPriorityAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WorkItemPriority, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RunWithPriorityAndOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WorkItemPriority, WorkItemOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IThreadPoolTimer, IThreadPoolTimer_Vtbl, 0x594ebe78_55ea_4a88_a50d_3402ae1f9cf2);
-impl windows_core::RuntimeType for IThreadPoolTimer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IThreadPoolTimer_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Period: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub Delay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IThreadPoolTimerStatics, IThreadPoolTimerStatics_Vtbl, 0x1a8a9d02_e482_461b_b8c7_8efad1cce590);
-impl windows_core::RuntimeType for IThreadPoolTimerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IThreadPoolTimerStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreatePeriodicTimer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateTimer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreatePeriodicTimerWithCompletion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateTimerWithCompletion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 windows_core::imp::define_interface!(TimerDestroyedHandler, TimerDestroyedHandler_Vtbl, 0x34ed19fa_8384_4eb9_8209_fb5094eeec35);
 impl windows_core::RuntimeType for TimerDestroyedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

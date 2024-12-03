@@ -1,3 +1,6 @@
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ACCOUNT_STATE(pub i32);
 windows_core::imp::define_interface!(AsyncIAssociatedIdentityProvider, AsyncIAssociatedIdentityProvider_Vtbl, 0x2834d6ed_297e_4e72_8a51_961e86f05152);
 windows_core::imp::interface_hierarchy!(AsyncIAssociatedIdentityProvider, windows_core::IUnknown);
 impl AsyncIAssociatedIdentityProvider {
@@ -875,6 +878,10 @@ impl AsyncIIdentityStoreEx_Vtbl {
     }
 }
 impl windows_core::RuntimeName for AsyncIIdentityStoreEx {}
+pub const CIdentityProfileHandler: windows_core::GUID = windows_core::GUID::from_u128(0xecf5bf46_e3b6_449a_b56b_43f58f867814);
+pub const CONNECTING: ACCOUNT_STATE = ACCOUNT_STATE(1i32);
+pub const CONNECT_COMPLETED: ACCOUNT_STATE = ACCOUNT_STATE(2i32);
+pub const CoClassIdentityStore: windows_core::GUID = windows_core::GUID::from_u128(0x30d49246_d217_465f_b00b_ac9ddd652eb7);
 windows_core::imp::define_interface!(IAssociatedIdentityProvider, IAssociatedIdentityProvider_Vtbl, 0x2af066b3_4cbb_4cba_a798_204b6af68cc0);
 windows_core::imp::interface_hierarchy!(IAssociatedIdentityProvider, windows_core::IUnknown);
 impl IAssociatedIdentityProvider {
@@ -1046,6 +1053,33 @@ impl IConnectedIdentityProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IConnectedIdentityProvider {}
+pub const IDENTITIES_ALL: IDENTITY_TYPE = IDENTITY_TYPE(0i32);
+pub const IDENTITIES_ME_ONLY: IDENTITY_TYPE = IDENTITY_TYPE(1i32);
+pub const IDENTITY_ASSOCIATED: IdentityUpdateEvent = IdentityUpdateEvent(1i32);
+pub const IDENTITY_CONNECTED: IdentityUpdateEvent = IdentityUpdateEvent(64i32);
+pub const IDENTITY_CREATED: IdentityUpdateEvent = IdentityUpdateEvent(4i32);
+pub const IDENTITY_DELETED: IdentityUpdateEvent = IdentityUpdateEvent(16i32);
+pub const IDENTITY_DISASSOCIATED: IdentityUpdateEvent = IdentityUpdateEvent(2i32);
+pub const IDENTITY_DISCONNECTED: IdentityUpdateEvent = IdentityUpdateEvent(128i32);
+pub const IDENTITY_IMPORTED: IdentityUpdateEvent = IdentityUpdateEvent(8i32);
+pub const IDENTITY_KEYWORD_ASSOCIATED: windows_core::PCWSTR = windows_core::w!("associated");
+pub const IDENTITY_KEYWORD_CONNECTED: windows_core::PCWSTR = windows_core::w!("connected");
+pub const IDENTITY_KEYWORD_HOMEGROUP: windows_core::PCWSTR = windows_core::w!("homegroup");
+pub const IDENTITY_KEYWORD_LOCAL: windows_core::PCWSTR = windows_core::w!("local");
+pub const IDENTITY_PROPCHANGED: IdentityUpdateEvent = IdentityUpdateEvent(32i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IDENTITY_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IDENTITY_URL(pub i32);
+pub const IDENTITY_URL_ACCOUNT_SETTINGS: IDENTITY_URL = IDENTITY_URL(4i32);
+pub const IDENTITY_URL_CHANGE_PASSWORD_WIZARD: IDENTITY_URL = IDENTITY_URL(2i32);
+pub const IDENTITY_URL_CONNECT_WIZARD: IDENTITY_URL = IDENTITY_URL(6i32);
+pub const IDENTITY_URL_CREATE_ACCOUNT_WIZARD: IDENTITY_URL = IDENTITY_URL(0i32);
+pub const IDENTITY_URL_IFEXISTS_WIZARD: IDENTITY_URL = IDENTITY_URL(3i32);
+pub const IDENTITY_URL_RESTORE_WIZARD: IDENTITY_URL = IDENTITY_URL(5i32);
+pub const IDENTITY_URL_SIGN_IN_WIZARD: IDENTITY_URL = IDENTITY_URL(1i32);
 windows_core::imp::define_interface!(IIdentityAdvise, IIdentityAdvise_Vtbl, 0x4e982fed_d14b_440c_b8d6_bb386453d386);
 windows_core::imp::interface_hierarchy!(IIdentityAdvise, windows_core::IUnknown);
 impl IIdentityAdvise {
@@ -1454,15 +1488,6 @@ impl IIdentityStoreEx_Vtbl {
 impl windows_core::RuntimeName for IIdentityStoreEx {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ACCOUNT_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IDENTITY_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IDENTITY_URL(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IdentityUpdateEvent(pub i32);
 impl IdentityUpdateEvent {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1497,31 +1522,6 @@ impl core::ops::Not for IdentityUpdateEvent {
         Self(self.0.not())
     }
 }
-pub const CIdentityProfileHandler: windows_core::GUID = windows_core::GUID::from_u128(0xecf5bf46_e3b6_449a_b56b_43f58f867814);
-pub const CoClassIdentityStore: windows_core::GUID = windows_core::GUID::from_u128(0x30d49246_d217_465f_b00b_ac9ddd652eb7);
-pub const CONNECTING: ACCOUNT_STATE = ACCOUNT_STATE(1i32);
-pub const CONNECT_COMPLETED: ACCOUNT_STATE = ACCOUNT_STATE(2i32);
-pub const IDENTITIES_ALL: IDENTITY_TYPE = IDENTITY_TYPE(0i32);
-pub const IDENTITIES_ME_ONLY: IDENTITY_TYPE = IDENTITY_TYPE(1i32);
-pub const IDENTITY_ASSOCIATED: IdentityUpdateEvent = IdentityUpdateEvent(1i32);
-pub const IDENTITY_CONNECTED: IdentityUpdateEvent = IdentityUpdateEvent(64i32);
-pub const IDENTITY_CREATED: IdentityUpdateEvent = IdentityUpdateEvent(4i32);
-pub const IDENTITY_DELETED: IdentityUpdateEvent = IdentityUpdateEvent(16i32);
-pub const IDENTITY_DISASSOCIATED: IdentityUpdateEvent = IdentityUpdateEvent(2i32);
-pub const IDENTITY_DISCONNECTED: IdentityUpdateEvent = IdentityUpdateEvent(128i32);
-pub const IDENTITY_IMPORTED: IdentityUpdateEvent = IdentityUpdateEvent(8i32);
-pub const IDENTITY_KEYWORD_ASSOCIATED: windows_core::PCWSTR = windows_core::w!("associated");
-pub const IDENTITY_KEYWORD_CONNECTED: windows_core::PCWSTR = windows_core::w!("connected");
-pub const IDENTITY_KEYWORD_HOMEGROUP: windows_core::PCWSTR = windows_core::w!("homegroup");
-pub const IDENTITY_KEYWORD_LOCAL: windows_core::PCWSTR = windows_core::w!("local");
-pub const IDENTITY_PROPCHANGED: IdentityUpdateEvent = IdentityUpdateEvent(32i32);
-pub const IDENTITY_URL_ACCOUNT_SETTINGS: IDENTITY_URL = IDENTITY_URL(4i32);
-pub const IDENTITY_URL_CHANGE_PASSWORD_WIZARD: IDENTITY_URL = IDENTITY_URL(2i32);
-pub const IDENTITY_URL_CONNECT_WIZARD: IDENTITY_URL = IDENTITY_URL(6i32);
-pub const IDENTITY_URL_CREATE_ACCOUNT_WIZARD: IDENTITY_URL = IDENTITY_URL(0i32);
-pub const IDENTITY_URL_IFEXISTS_WIZARD: IDENTITY_URL = IDENTITY_URL(3i32);
-pub const IDENTITY_URL_RESTORE_WIZARD: IDENTITY_URL = IDENTITY_URL(5i32);
-pub const IDENTITY_URL_SIGN_IN_WIZARD: IDENTITY_URL = IDENTITY_URL(1i32);
 pub const NOT_CONNECTED: ACCOUNT_STATE = ACCOUNT_STATE(0i32);
 pub const OID_OAssociatedIdentityProviderObject: windows_core::GUID = windows_core::GUID::from_u128(0x98c5a3dd_db68_4f1a_8d2b_9079cdfeaf61);
 pub const STR_COMPLETE_ACCOUNT: windows_core::PCWSTR = windows_core::w!("CompleteAccount");

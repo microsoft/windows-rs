@@ -1,3 +1,31 @@
+windows_core::imp::define_interface!(IUserNotificationListener, IUserNotificationListener_Vtbl, 0x62553e41_8a06_4cef_8215_6033a5be4b03);
+impl windows_core::RuntimeType for IUserNotificationListener {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IUserNotificationListener_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub RequestAccessAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetAccessStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UserNotificationListenerAccessStatus) -> windows_core::HRESULT,
+    pub NotificationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveNotificationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetNotificationsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::NotificationKinds, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetNotificationsAsync: usize,
+    pub GetNotification: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ClearNotifications: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RemoveNotification: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IUserNotificationListenerStatics, IUserNotificationListenerStatics_Vtbl, 0xff6123cf_4386_4aa3_b73d_b804e5b63b23);
+impl windows_core::RuntimeType for IUserNotificationListenerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IUserNotificationListenerStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserNotificationListener(windows_core::IUnknown);
@@ -77,34 +105,6 @@ impl windows_core::RuntimeName for UserNotificationListener {
 }
 unsafe impl Send for UserNotificationListener {}
 unsafe impl Sync for UserNotificationListener {}
-windows_core::imp::define_interface!(IUserNotificationListener, IUserNotificationListener_Vtbl, 0x62553e41_8a06_4cef_8215_6033a5be4b03);
-impl windows_core::RuntimeType for IUserNotificationListener {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IUserNotificationListener_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub RequestAccessAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetAccessStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UserNotificationListenerAccessStatus) -> windows_core::HRESULT,
-    pub NotificationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveNotificationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetNotificationsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::NotificationKinds, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetNotificationsAsync: usize,
-    pub GetNotification: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ClearNotifications: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RemoveNotification: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IUserNotificationListenerStatics, IUserNotificationListenerStatics_Vtbl, 0xff6123cf_4386_4aa3_b73d_b804e5b63b23);
-impl windows_core::RuntimeType for IUserNotificationListenerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IUserNotificationListenerStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserNotificationListenerAccessStatus(pub i32);

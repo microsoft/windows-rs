@@ -288,82 +288,6 @@ unsafe impl windows_core::Interface for EasComplianceResults {
 impl windows_core::RuntimeName for EasComplianceResults {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.EasComplianceResults";
 }
-windows_core::imp::define_interface!(IEasClientDeviceInformation, IEasClientDeviceInformation_Vtbl, 0x54dfd981_1968_4ca3_b958_e595d16505eb);
-impl windows_core::RuntimeType for IEasClientDeviceInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IEasClientDeviceInformation_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    pub OperatingSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SystemManufacturer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SystemProductName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SystemSku: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IEasClientDeviceInformation2, IEasClientDeviceInformation2_Vtbl, 0xffb35923_bb26_4d6a_81bc_165aee0ad754);
-impl windows_core::RuntimeType for IEasClientDeviceInformation2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IEasClientDeviceInformation2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SystemHardwareVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SystemFirmwareVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IEasClientSecurityPolicy, IEasClientSecurityPolicy_Vtbl, 0x45b72362_dfba_4a9b_aced_6fe2adcb6420);
-impl windows_core::RuntimeType for IEasClientSecurityPolicy {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IEasClientSecurityPolicy_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub RequireEncryption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetRequireEncryption: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub MinPasswordLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
-    pub SetMinPasswordLength: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
-    pub DisallowConvenienceLogon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetDisallowConvenienceLogon: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub MinPasswordComplexCharacters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
-    pub SetMinPasswordComplexCharacters: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
-    pub PasswordExpiration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetPasswordExpiration: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub PasswordHistory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetPasswordHistory: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub MaxPasswordFailedAttempts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
-    pub SetMaxPasswordFailedAttempts: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
-    pub MaxInactivityTimeLock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetMaxInactivityTimeLock: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub CheckCompliance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ApplyAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IEasComplianceResults, IEasComplianceResults_Vtbl, 0x463c299c_7f19_4c66_b403_cb45dd57a2b3);
-impl windows_core::RuntimeType for IEasComplianceResults {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IEasComplianceResults_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Compliant: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub RequireEncryptionResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasRequireEncryptionResult) -> windows_core::HRESULT,
-    pub MinPasswordLengthResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasMinPasswordLengthResult) -> windows_core::HRESULT,
-    pub DisallowConvenienceLogonResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasDisallowConvenienceLogonResult) -> windows_core::HRESULT,
-    pub MinPasswordComplexCharactersResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasMinPasswordComplexCharactersResult) -> windows_core::HRESULT,
-    pub PasswordExpirationResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasPasswordExpirationResult) -> windows_core::HRESULT,
-    pub PasswordHistoryResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasPasswordHistoryResult) -> windows_core::HRESULT,
-    pub MaxPasswordFailedAttemptsResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasMaxPasswordFailedAttemptsResult) -> windows_core::HRESULT,
-    pub MaxInactivityTimeLockResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasMaxInactivityTimeLockResult) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IEasComplianceResults2, IEasComplianceResults2_Vtbl, 0x2fbe60c9_1aa8_47f5_88bb_cb3ef0bffb15);
-impl windows_core::RuntimeType for IEasComplianceResults2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IEasComplianceResults2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub EncryptionProviderType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasEncryptionProviderType) -> windows_core::HRESULT,
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EasDisallowConvenienceLogonResult(pub i32);
@@ -542,4 +466,80 @@ impl windows_core::TypeKind for EasRequireEncryptionResult {
 }
 impl windows_core::RuntimeType for EasRequireEncryptionResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasRequireEncryptionResult;i4)");
+}
+windows_core::imp::define_interface!(IEasClientDeviceInformation, IEasClientDeviceInformation_Vtbl, 0x54dfd981_1968_4ca3_b958_e595d16505eb);
+impl windows_core::RuntimeType for IEasClientDeviceInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IEasClientDeviceInformation_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
+    pub OperatingSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SystemManufacturer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SystemProductName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SystemSku: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IEasClientDeviceInformation2, IEasClientDeviceInformation2_Vtbl, 0xffb35923_bb26_4d6a_81bc_165aee0ad754);
+impl windows_core::RuntimeType for IEasClientDeviceInformation2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IEasClientDeviceInformation2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SystemHardwareVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SystemFirmwareVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IEasClientSecurityPolicy, IEasClientSecurityPolicy_Vtbl, 0x45b72362_dfba_4a9b_aced_6fe2adcb6420);
+impl windows_core::RuntimeType for IEasClientSecurityPolicy {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IEasClientSecurityPolicy_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub RequireEncryption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetRequireEncryption: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub MinPasswordLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
+    pub SetMinPasswordLength: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
+    pub DisallowConvenienceLogon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetDisallowConvenienceLogon: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub MinPasswordComplexCharacters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
+    pub SetMinPasswordComplexCharacters: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
+    pub PasswordExpiration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SetPasswordExpiration: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub PasswordHistory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub SetPasswordHistory: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub MaxPasswordFailedAttempts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
+    pub SetMaxPasswordFailedAttempts: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
+    pub MaxInactivityTimeLock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SetMaxInactivityTimeLock: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub CheckCompliance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ApplyAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IEasComplianceResults, IEasComplianceResults_Vtbl, 0x463c299c_7f19_4c66_b403_cb45dd57a2b3);
+impl windows_core::RuntimeType for IEasComplianceResults {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IEasComplianceResults_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Compliant: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub RequireEncryptionResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasRequireEncryptionResult) -> windows_core::HRESULT,
+    pub MinPasswordLengthResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasMinPasswordLengthResult) -> windows_core::HRESULT,
+    pub DisallowConvenienceLogonResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasDisallowConvenienceLogonResult) -> windows_core::HRESULT,
+    pub MinPasswordComplexCharactersResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasMinPasswordComplexCharactersResult) -> windows_core::HRESULT,
+    pub PasswordExpirationResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasPasswordExpirationResult) -> windows_core::HRESULT,
+    pub PasswordHistoryResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasPasswordHistoryResult) -> windows_core::HRESULT,
+    pub MaxPasswordFailedAttemptsResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasMaxPasswordFailedAttemptsResult) -> windows_core::HRESULT,
+    pub MaxInactivityTimeLockResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasMaxInactivityTimeLockResult) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IEasComplianceResults2, IEasComplianceResults2_Vtbl, 0x2fbe60c9_1aa8_47f5_88bb_cb3ef0bffb15);
+impl windows_core::RuntimeType for IEasComplianceResults2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IEasComplianceResults2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub EncryptionProviderType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasEncryptionProviderType) -> windows_core::HRESULT,
 }

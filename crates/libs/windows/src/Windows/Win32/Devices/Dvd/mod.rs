@@ -1,12 +1,3 @@
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISC_CONTROL_BLOCK_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DVD_KEY_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DVD_STRUCTURE_FORMAT(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AACS_BINDING_NONCE {
@@ -188,6 +179,9 @@ impl Default for BD_PAC_HEADER {
 impl windows_core::TypeKind for BD_PAC_HEADER {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISC_CONTROL_BLOCK_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_ASF {
@@ -230,6 +224,12 @@ impl Default for DVD_BD_SPARE_AREA_INFORMATION {
 impl windows_core::TypeKind for DVD_BD_SPARE_AREA_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+pub const DVD_CGMS_COPY_ONCE: u32 = 16u32;
+pub const DVD_CGMS_COPY_PERMITTED: u32 = 0u32;
+pub const DVD_CGMS_COPY_PROTECT_MASK: u32 = 24u32;
+pub const DVD_CGMS_NO_COPY: u32 = 24u32;
+pub const DVD_CGMS_RESERVED_MASK: u32 = 120u32;
+pub const DVD_COPYRIGHTED: u32 = 64u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DVD_COPYRIGHT_DESCRIPTOR {
@@ -328,6 +328,7 @@ impl Default for DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_0 {
 impl windows_core::TypeKind for DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const DVD_COPYRIGHT_MASK: u32 = 64u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DVD_COPY_PROTECT_KEY {
@@ -626,6 +627,9 @@ impl Default for DVD_FULL_LAYER_DESCRIPTOR {
 impl windows_core::TypeKind for DVD_FULL_LAYER_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DVD_KEY_TYPE(pub i32);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DVD_LAYER_DESCRIPTOR {
@@ -686,6 +690,7 @@ impl Default for DVD_MANUFACTURER_DESCRIPTOR {
 impl windows_core::TypeKind for DVD_MANUFACTURER_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
+pub const DVD_NOT_COPYRIGHTED: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_PRERECORDED_INFORMATION {
@@ -826,6 +831,9 @@ impl Default for DVD_RPC_KEY {
 impl windows_core::TypeKind for DVD_RPC_KEY {
     type TypeKind = windows_core::CopyType;
 }
+pub const DVD_SECTOR_NOT_PROTECTED: u32 = 0u32;
+pub const DVD_SECTOR_PROTECTED: u32 = 32u32;
+pub const DVD_SECTOR_PROTECT_MASK: u32 = 32u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_SET_RPC_KEY {
@@ -840,6 +848,9 @@ impl Default for DVD_SET_RPC_KEY {
 impl windows_core::TypeKind for DVD_SET_RPC_KEY {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DVD_STRUCTURE_FORMAT(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_STRUCTURE_LIST_ENTRY {
@@ -889,46 +900,6 @@ impl Default for DVD_WRITE_PROTECTION_STATUS {
 impl windows_core::TypeKind for DVD_WRITE_PROTECTION_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HD_DVD_R_MEDIUM_STATUS {
-    pub _bitfield: u8,
-    pub NumberOfRemainingRMDsInRDZ: u8,
-    pub NumberOfRemainingRMDsInCurrentRMZ: [u8; 2],
-}
-impl Default for HD_DVD_R_MEDIUM_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HD_DVD_R_MEDIUM_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct STORAGE_SET_READ_AHEAD {
-    pub TriggerAddress: i64,
-    pub TargetAddress: i64,
-}
-impl Default for STORAGE_SET_READ_AHEAD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for STORAGE_SET_READ_AHEAD {
-    type TypeKind = windows_core::CopyType;
-}
-pub const DVD_CGMS_COPY_ONCE: u32 = 16u32;
-pub const DVD_CGMS_COPY_PERMITTED: u32 = 0u32;
-pub const DVD_CGMS_COPY_PROTECT_MASK: u32 = 24u32;
-pub const DVD_CGMS_NO_COPY: u32 = 24u32;
-pub const DVD_CGMS_RESERVED_MASK: u32 = 120u32;
-pub const DVD_COPYRIGHTED: u32 = 64u32;
-pub const DVD_COPYRIGHT_MASK: u32 = 64u32;
-pub const DVD_NOT_COPYRIGHTED: u32 = 0u32;
-pub const DVD_SECTOR_NOT_PROTECTED: u32 = 0u32;
-pub const DVD_SECTOR_PROTECTED: u32 = 32u32;
-pub const DVD_SECTOR_PROTECT_MASK: u32 = 32u32;
 pub const DiscControlBlockList: DISC_CONTROL_BLOCK_TYPE = DISC_CONTROL_BLOCK_TYPE(-1i32);
 pub const DvdAsf: DVD_KEY_TYPE = DVD_KEY_TYPE(5i32);
 pub const DvdBCADescriptor: DVD_STRUCTURE_FORMAT = DVD_STRUCTURE_FORMAT(3i32);
@@ -946,6 +917,21 @@ pub const DvdPhysicalDescriptor: DVD_STRUCTURE_FORMAT = DVD_STRUCTURE_FORMAT(0i3
 pub const DvdSetRpcKey: DVD_KEY_TYPE = DVD_KEY_TYPE(6i32);
 pub const DvdTitleKey: DVD_KEY_TYPE = DVD_KEY_TYPE(4i32);
 pub const FormattingDiscControlBlock: DISC_CONTROL_BLOCK_TYPE = DISC_CONTROL_BLOCK_TYPE(1178878720i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HD_DVD_R_MEDIUM_STATUS {
+    pub _bitfield: u8,
+    pub NumberOfRemainingRMDsInRDZ: u8,
+    pub NumberOfRemainingRMDsInCurrentRMZ: [u8; 2],
+}
+impl Default for HD_DVD_R_MEDIUM_STATUS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HD_DVD_R_MEDIUM_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 pub const IOCTL_AACS_END_SESSION: u32 = 3363020u32;
 pub const IOCTL_AACS_GENERATE_BINDING_NONCE: u32 = 3395824u32;
 pub const IOCTL_AACS_GET_CERTIFICATE: u32 = 3363028u32;
@@ -969,5 +955,19 @@ pub const IOCTL_DVD_SEND_KEY2: u32 = 3395608u32;
 pub const IOCTL_DVD_SET_READ_AHEAD: u32 = 3362832u32;
 pub const IOCTL_DVD_START_SESSION: u32 = 3362816u32;
 pub const IOCTL_STORAGE_SET_READ_AHEAD: u32 = 2966528u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct STORAGE_SET_READ_AHEAD {
+    pub TriggerAddress: i64,
+    pub TargetAddress: i64,
+}
+impl Default for STORAGE_SET_READ_AHEAD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for STORAGE_SET_READ_AHEAD {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SessionInfoDiscControlBlock: DISC_CONTROL_BLOCK_TYPE = DISC_CONTROL_BLOCK_TYPE(1396982528i32);
 pub const WriteInhibitDiscControlBlock: DISC_CONTROL_BLOCK_TYPE = DISC_CONTROL_BLOCK_TYPE(1464091392i32);

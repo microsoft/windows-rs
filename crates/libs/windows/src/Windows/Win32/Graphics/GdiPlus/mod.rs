@@ -3422,290 +3422,18 @@ pub unsafe fn GdiplusStartup(token: *mut usize, input: *const GdiplusStartupInpu
     windows_targets::link!("gdiplus.dll" "system" fn GdiplusStartup(token : *mut usize, input : *const GdiplusStartupInput, output : *mut GdiplusStartupOutput) -> Status);
     GdiplusStartup(core::mem::transmute(token), core::mem::transmute(input), core::mem::transmute(output))
 }
-windows_core::imp::define_interface!(GdiplusAbort, GdiplusAbort_Vtbl);
-impl GdiplusAbort {
-    pub unsafe fn Abort(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self)).ok()
-    }
-}
-#[repr(C)]
-pub struct GdiplusAbort_Vtbl {
-    pub Abort: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-pub trait GdiplusAbort_Impl {
-    fn Abort(&self) -> windows_core::Result<()>;
-}
-impl GdiplusAbort_Vtbl {
-    pub const fn new<Identity: GdiplusAbort_Impl>() -> Self {
-        unsafe extern "system" fn Abort<Identity: GdiplusAbort_Impl>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
-            let this = &*((*this).this as *const Identity);
-            GdiplusAbort_Impl::Abort(this).into()
-        }
-        Self { Abort: Abort::<Identity> }
-    }
-}
-#[cfg(feature = "std")]
-struct GdiplusAbort_ImplVtbl<T: GdiplusAbort_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
-impl<T: GdiplusAbort_Impl> GdiplusAbort_ImplVtbl<T> {
-    const VTABLE: GdiplusAbort_Vtbl = GdiplusAbort_Vtbl::new::<T>();
-}
-#[cfg(feature = "std")]
-impl GdiplusAbort {
-    pub fn new<'a, T: GdiplusAbort_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
-        let this = windows_core::ScopedHeap { vtable: &GdiplusAbort_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
-        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
-    }
-}
-windows_core::imp::define_interface!(IImageBytes, IImageBytes_Vtbl, 0x025d1823_6c7d_447b_bbdb_a3cbc3dfa2fc);
-windows_core::imp::interface_hierarchy!(IImageBytes, windows_core::IUnknown);
-impl IImageBytes {
-    pub unsafe fn CountBytes(&self, pcb: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CountBytes)(windows_core::Interface::as_raw(self), core::mem::transmute(pcb)).ok()
-    }
-    pub unsafe fn LockBytes(&self, cb: u32, uloffset: u32, ppvbytes: *const *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).LockBytes)(windows_core::Interface::as_raw(self), core::mem::transmute(cb), core::mem::transmute(uloffset), core::mem::transmute(ppvbytes)).ok()
-    }
-    pub unsafe fn UnlockBytes(&self, pvbytes: *const core::ffi::c_void, cb: u32, uloffset: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).UnlockBytes)(windows_core::Interface::as_raw(self), core::mem::transmute(pvbytes), core::mem::transmute(cb), core::mem::transmute(uloffset)).ok()
-    }
-}
-#[repr(C)]
-pub struct IImageBytes_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub CountBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub LockBytes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const *const core::ffi::c_void) -> windows_core::HRESULT,
-    pub UnlockBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
-}
-pub trait IImageBytes_Impl: windows_core::IUnknownImpl {
-    fn CountBytes(&self, pcb: *mut u32) -> windows_core::Result<()>;
-    fn LockBytes(&self, cb: u32, uloffset: u32, ppvbytes: *const *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn UnlockBytes(&self, pvbytes: *const core::ffi::c_void, cb: u32, uloffset: u32) -> windows_core::Result<()>;
-}
-impl IImageBytes_Vtbl {
-    pub const fn new<Identity: IImageBytes_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CountBytes<Identity: IImageBytes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcb: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IImageBytes_Impl::CountBytes(this, core::mem::transmute_copy(&pcb)).into()
-        }
-        unsafe extern "system" fn LockBytes<Identity: IImageBytes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cb: u32, uloffset: u32, ppvbytes: *const *const core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IImageBytes_Impl::LockBytes(this, core::mem::transmute_copy(&cb), core::mem::transmute_copy(&uloffset), core::mem::transmute_copy(&ppvbytes)).into()
-        }
-        unsafe extern "system" fn UnlockBytes<Identity: IImageBytes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbytes: *const core::ffi::c_void, cb: u32, uloffset: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IImageBytes_Impl::UnlockBytes(this, core::mem::transmute_copy(&pvbytes), core::mem::transmute_copy(&cb), core::mem::transmute_copy(&uloffset)).into()
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            CountBytes: CountBytes::<Identity, OFFSET>,
-            LockBytes: LockBytes::<Identity, OFFSET>,
-            UnlockBytes: UnlockBytes::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IImageBytes as windows_core::Interface>::IID
-    }
-}
-impl windows_core::RuntimeName for IImageBytes {}
-pub type DebugEventProc = Option<unsafe extern "system" fn(level: DebugEventLevel, message: windows_core::PCSTR)>;
-pub type DrawImageAbort = Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
-pub type EnumerateMetafileProc = Option<unsafe extern "system" fn(param0: EmfPlusRecordType, param1: u32, param2: u32, param3: *const u8, param4: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type GetThumbnailImageAbort = Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
-pub type ImageAbort = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type NotificationHookProc = Option<unsafe extern "system" fn(token: *mut usize) -> Status>;
-pub type NotificationUnhookProc = Option<unsafe extern "system" fn(token: usize)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BrushType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ColorAdjustType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ColorChannelFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ColorMatrixFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ColorMode(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CombineMode(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CompositingMode(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CompositingQuality(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ConvertToEmfPlusFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CoordinateSpace(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CurveAdjustments(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CurveChannel(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CustomLineCapType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DashCap(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DashStyle(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DebugEventLevel(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DitherType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DriverStringOptions(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EmfPlusRecordType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EmfToWmfBitsFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EmfType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EncoderParameterValueType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EncoderValue(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FillMode(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FlushIntention(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FontStyle(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GdiplusStartupParams(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GenericFontFamily(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GpTestControlEnum(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HatchStyle(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HistogramFormat(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HotkeyPrefix(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ImageCodecFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ImageFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ImageLockMode(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ImageType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct InterpolationMode(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ItemDataPosition(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct LineCap(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct LineJoin(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct LinearGradientMode(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MatrixOrder(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MetafileFrameUnit(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MetafileType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ObjectType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PaletteFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PaletteType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PathPointType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PenAlignment(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PenType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PixelOffsetMode(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct QualityMode(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RotateFlipType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SmoothingMode(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct Status(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct StringAlignment(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct StringDigitSubstitute(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct StringFormatFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct StringTrimming(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TextRenderingHint(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct Unit(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WarpMode(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WrapMode(pub i32);
+pub const ALPHA_SHIFT: u32 = 24u32;
+pub const Aborted: Status = Status(9i32);
+pub const AccessDenied: Status = Status(12i32);
+pub const AdjustBlackSaturation: CurveAdjustments = CurveAdjustments(7i32);
+pub const AdjustContrast: CurveAdjustments = CurveAdjustments(2i32);
+pub const AdjustDensity: CurveAdjustments = CurveAdjustments(1i32);
+pub const AdjustExposure: CurveAdjustments = CurveAdjustments(0i32);
+pub const AdjustHighlight: CurveAdjustments = CurveAdjustments(3i32);
+pub const AdjustMidtone: CurveAdjustments = CurveAdjustments(5i32);
+pub const AdjustShadow: CurveAdjustments = CurveAdjustments(4i32);
+pub const AdjustWhiteSaturation: CurveAdjustments = CurveAdjustments(6i32);
+pub const BLUE_SHIFT: u32 = 0u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct Bitmap(pub isize);
@@ -3743,6 +3471,7 @@ impl Default for Blur {
 impl windows_core::TypeKind for Blur {
     type TypeKind = windows_core::CopyType;
 }
+pub const BlurEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0x633c80a4_1843_482b_9ef2_be2834c5fdd4);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BlurParams {
@@ -3770,6 +3499,7 @@ impl Default for BrightnessContrast {
 impl windows_core::TypeKind for BrightnessContrast {
     type TypeKind = windows_core::CopyType;
 }
+pub const BrightnessContrastEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0xd3a1dbe1_8ec4_4c17_9f4c_ea97ad1c343d);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BrightnessContrastParams {
@@ -3784,6 +3514,14 @@ impl Default for BrightnessContrastParams {
 impl windows_core::TypeKind for BrightnessContrastParams {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BrushType(pub i32);
+pub const BrushTypeHatchFill: BrushType = BrushType(1i32);
+pub const BrushTypeLinearGradient: BrushType = BrushType(4i32);
+pub const BrushTypePathGradient: BrushType = BrushType(3i32);
+pub const BrushTypeSolidColor: BrushType = BrushType(0i32);
+pub const BrushTypeTextureFill: BrushType = BrushType(2i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct CGpEffect(pub isize);
@@ -3810,6 +3548,7 @@ impl Default for CharacterRange {
 impl windows_core::TypeKind for CharacterRange {
     type TypeKind = windows_core::CopyType;
 }
+pub const CodecIImageBytes: windows_core::GUID = windows_core::GUID::from_u128(0x025d1823_6c7d_447b_bbdb_a3cbc3dfa2fc);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Color {
@@ -3974,6 +3713,16 @@ impl Default for Color {
 impl windows_core::TypeKind for Color {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ColorAdjustType(pub i32);
+pub const ColorAdjustTypeAny: ColorAdjustType = ColorAdjustType(6i32);
+pub const ColorAdjustTypeBitmap: ColorAdjustType = ColorAdjustType(1i32);
+pub const ColorAdjustTypeBrush: ColorAdjustType = ColorAdjustType(2i32);
+pub const ColorAdjustTypeCount: ColorAdjustType = ColorAdjustType(5i32);
+pub const ColorAdjustTypeDefault: ColorAdjustType = ColorAdjustType(0i32);
+pub const ColorAdjustTypePen: ColorAdjustType = ColorAdjustType(3i32);
+pub const ColorAdjustTypeText: ColorAdjustType = ColorAdjustType(4i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ColorBalance {
@@ -3987,6 +3736,7 @@ impl Default for ColorBalance {
 impl windows_core::TypeKind for ColorBalance {
     type TypeKind = windows_core::CopyType;
 }
+pub const ColorBalanceEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0x537e597d_251e_48da_9664_29ca496b70f8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ColorBalanceParams {
@@ -4002,6 +3752,14 @@ impl Default for ColorBalanceParams {
 impl windows_core::TypeKind for ColorBalanceParams {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ColorChannelFlags(pub i32);
+pub const ColorChannelFlagsC: ColorChannelFlags = ColorChannelFlags(0i32);
+pub const ColorChannelFlagsK: ColorChannelFlags = ColorChannelFlags(3i32);
+pub const ColorChannelFlagsLast: ColorChannelFlags = ColorChannelFlags(4i32);
+pub const ColorChannelFlagsM: ColorChannelFlags = ColorChannelFlags(1i32);
+pub const ColorChannelFlagsY: ColorChannelFlags = ColorChannelFlags(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ColorCurve {
@@ -4015,6 +3773,7 @@ impl Default for ColorCurve {
 impl windows_core::TypeKind for ColorCurve {
     type TypeKind = windows_core::CopyType;
 }
+pub const ColorCurveEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0xdd6a0022_58e4_4a67_9d9b_d48eb881a53d);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ColorCurveParams {
@@ -4043,6 +3802,7 @@ impl Default for ColorLUT {
 impl windows_core::TypeKind for ColorLUT {
     type TypeKind = windows_core::CopyType;
 }
+pub const ColorLUTEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0xa7ce72a9_0f7f_40d7_b3cc_d0c02d5c3212);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ColorLUTParams {
@@ -4099,6 +3859,18 @@ impl Default for ColorMatrixEffect {
 impl windows_core::TypeKind for ColorMatrixEffect {
     type TypeKind = windows_core::CopyType;
 }
+pub const ColorMatrixEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0x718f2615_7933_40e3_a511_5f68fe14dd74);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ColorMatrixFlags(pub i32);
+pub const ColorMatrixFlagsAltGray: ColorMatrixFlags = ColorMatrixFlags(2i32);
+pub const ColorMatrixFlagsDefault: ColorMatrixFlags = ColorMatrixFlags(0i32);
+pub const ColorMatrixFlagsSkipGrays: ColorMatrixFlags = ColorMatrixFlags(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ColorMode(pub i32);
+pub const ColorModeARGB32: ColorMode = ColorMode(0i32);
+pub const ColorModeARGB64: ColorMode = ColorMode(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ColorPalette {
@@ -4115,11 +3887,105 @@ impl windows_core::TypeKind for ColorPalette {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CombineMode(pub i32);
+pub const CombineModeComplement: CombineMode = CombineMode(5i32);
+pub const CombineModeExclude: CombineMode = CombineMode(4i32);
+pub const CombineModeIntersect: CombineMode = CombineMode(1i32);
+pub const CombineModeReplace: CombineMode = CombineMode(0i32);
+pub const CombineModeUnion: CombineMode = CombineMode(2i32);
+pub const CombineModeXor: CombineMode = CombineMode(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CompositingMode(pub i32);
+pub const CompositingModeSourceCopy: CompositingMode = CompositingMode(1i32);
+pub const CompositingModeSourceOver: CompositingMode = CompositingMode(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CompositingQuality(pub i32);
+pub const CompositingQualityAssumeLinear: CompositingQuality = CompositingQuality(4i32);
+pub const CompositingQualityDefault: CompositingQuality = CompositingQuality(0i32);
+pub const CompositingQualityGammaCorrected: CompositingQuality = CompositingQuality(3i32);
+pub const CompositingQualityHighQuality: CompositingQuality = CompositingQuality(2i32);
+pub const CompositingQualityHighSpeed: CompositingQuality = CompositingQuality(1i32);
+pub const CompositingQualityInvalid: CompositingQuality = CompositingQuality(-1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ConvertToEmfPlusFlags(pub i32);
+pub const ConvertToEmfPlusFlagsDefault: ConvertToEmfPlusFlags = ConvertToEmfPlusFlags(0i32);
+pub const ConvertToEmfPlusFlagsInvalidRecord: ConvertToEmfPlusFlags = ConvertToEmfPlusFlags(4i32);
+pub const ConvertToEmfPlusFlagsRopUsed: ConvertToEmfPlusFlags = ConvertToEmfPlusFlags(1i32);
+pub const ConvertToEmfPlusFlagsText: ConvertToEmfPlusFlags = ConvertToEmfPlusFlags(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CoordinateSpace(pub i32);
+pub const CoordinateSpaceDevice: CoordinateSpace = CoordinateSpace(2i32);
+pub const CoordinateSpacePage: CoordinateSpace = CoordinateSpace(1i32);
+pub const CoordinateSpaceWorld: CoordinateSpace = CoordinateSpace(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CurveAdjustments(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CurveChannel(pub i32);
+pub const CurveChannelAll: CurveChannel = CurveChannel(0i32);
+pub const CurveChannelBlue: CurveChannel = CurveChannel(3i32);
+pub const CurveChannelGreen: CurveChannel = CurveChannel(2i32);
+pub const CurveChannelRed: CurveChannel = CurveChannel(1i32);
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct CustomLineCap(pub isize);
 impl windows_core::TypeKind for CustomLineCap {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CustomLineCapType(pub i32);
+pub const CustomLineCapTypeAdjustableArrow: CustomLineCapType = CustomLineCapType(1i32);
+pub const CustomLineCapTypeDefault: CustomLineCapType = CustomLineCapType(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DashCap(pub i32);
+pub const DashCapFlat: DashCap = DashCap(0i32);
+pub const DashCapRound: DashCap = DashCap(2i32);
+pub const DashCapTriangle: DashCap = DashCap(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DashStyle(pub i32);
+pub const DashStyleCustom: DashStyle = DashStyle(5i32);
+pub const DashStyleDash: DashStyle = DashStyle(1i32);
+pub const DashStyleDashDot: DashStyle = DashStyle(3i32);
+pub const DashStyleDashDotDot: DashStyle = DashStyle(4i32);
+pub const DashStyleDot: DashStyle = DashStyle(2i32);
+pub const DashStyleSolid: DashStyle = DashStyle(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DebugEventLevel(pub i32);
+pub const DebugEventLevelFatal: DebugEventLevel = DebugEventLevel(0i32);
+pub const DebugEventLevelWarning: DebugEventLevel = DebugEventLevel(1i32);
+pub type DebugEventProc = Option<unsafe extern "system" fn(level: DebugEventLevel, message: windows_core::PCSTR)>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DitherType(pub i32);
+pub const DitherTypeDualSpiral4x4: DitherType = DitherType(7i32);
+pub const DitherTypeDualSpiral8x8: DitherType = DitherType(8i32);
+pub const DitherTypeErrorDiffusion: DitherType = DitherType(9i32);
+pub const DitherTypeMax: DitherType = DitherType(10i32);
+pub const DitherTypeNone: DitherType = DitherType(0i32);
+pub const DitherTypeOrdered16x16: DitherType = DitherType(4i32);
+pub const DitherTypeOrdered4x4: DitherType = DitherType(2i32);
+pub const DitherTypeOrdered8x8: DitherType = DitherType(3i32);
+pub const DitherTypeSolid: DitherType = DitherType(1i32);
+pub const DitherTypeSpiral4x4: DitherType = DitherType(5i32);
+pub const DitherTypeSpiral8x8: DitherType = DitherType(6i32);
+pub type DrawImageAbort = Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DriverStringOptions(pub i32);
+pub const DriverStringOptionsCmapLookup: DriverStringOptions = DriverStringOptions(1i32);
+pub const DriverStringOptionsLimitSubpixel: DriverStringOptions = DriverStringOptions(8i32);
+pub const DriverStringOptionsRealizedAdvance: DriverStringOptions = DriverStringOptions(4i32);
+pub const DriverStringOptionsVertical: DriverStringOptions = DriverStringOptions(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENHMETAHEADER3 {
@@ -4164,6 +4030,214 @@ impl Default for Effect {
 impl windows_core::TypeKind for Effect {
     type TypeKind = windows_core::CopyType;
 }
+pub const EmfPlusRecordTotal: EmfPlusRecordType = EmfPlusRecordType(16443i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EmfPlusRecordType(pub i32);
+pub const EmfPlusRecordTypeBeginContainer: EmfPlusRecordType = EmfPlusRecordType(16423i32);
+pub const EmfPlusRecordTypeBeginContainerNoParams: EmfPlusRecordType = EmfPlusRecordType(16424i32);
+pub const EmfPlusRecordTypeClear: EmfPlusRecordType = EmfPlusRecordType(16393i32);
+pub const EmfPlusRecordTypeComment: EmfPlusRecordType = EmfPlusRecordType(16387i32);
+pub const EmfPlusRecordTypeDrawArc: EmfPlusRecordType = EmfPlusRecordType(16402i32);
+pub const EmfPlusRecordTypeDrawBeziers: EmfPlusRecordType = EmfPlusRecordType(16409i32);
+pub const EmfPlusRecordTypeDrawClosedCurve: EmfPlusRecordType = EmfPlusRecordType(16407i32);
+pub const EmfPlusRecordTypeDrawCurve: EmfPlusRecordType = EmfPlusRecordType(16408i32);
+pub const EmfPlusRecordTypeDrawDriverString: EmfPlusRecordType = EmfPlusRecordType(16438i32);
+pub const EmfPlusRecordTypeDrawEllipse: EmfPlusRecordType = EmfPlusRecordType(16399i32);
+pub const EmfPlusRecordTypeDrawImage: EmfPlusRecordType = EmfPlusRecordType(16410i32);
+pub const EmfPlusRecordTypeDrawImagePoints: EmfPlusRecordType = EmfPlusRecordType(16411i32);
+pub const EmfPlusRecordTypeDrawLines: EmfPlusRecordType = EmfPlusRecordType(16397i32);
+pub const EmfPlusRecordTypeDrawPath: EmfPlusRecordType = EmfPlusRecordType(16405i32);
+pub const EmfPlusRecordTypeDrawPie: EmfPlusRecordType = EmfPlusRecordType(16401i32);
+pub const EmfPlusRecordTypeDrawRects: EmfPlusRecordType = EmfPlusRecordType(16395i32);
+pub const EmfPlusRecordTypeDrawString: EmfPlusRecordType = EmfPlusRecordType(16412i32);
+pub const EmfPlusRecordTypeEndContainer: EmfPlusRecordType = EmfPlusRecordType(16425i32);
+pub const EmfPlusRecordTypeEndOfFile: EmfPlusRecordType = EmfPlusRecordType(16386i32);
+pub const EmfPlusRecordTypeFillClosedCurve: EmfPlusRecordType = EmfPlusRecordType(16406i32);
+pub const EmfPlusRecordTypeFillEllipse: EmfPlusRecordType = EmfPlusRecordType(16398i32);
+pub const EmfPlusRecordTypeFillPath: EmfPlusRecordType = EmfPlusRecordType(16404i32);
+pub const EmfPlusRecordTypeFillPie: EmfPlusRecordType = EmfPlusRecordType(16400i32);
+pub const EmfPlusRecordTypeFillPolygon: EmfPlusRecordType = EmfPlusRecordType(16396i32);
+pub const EmfPlusRecordTypeFillRects: EmfPlusRecordType = EmfPlusRecordType(16394i32);
+pub const EmfPlusRecordTypeFillRegion: EmfPlusRecordType = EmfPlusRecordType(16403i32);
+pub const EmfPlusRecordTypeGetDC: EmfPlusRecordType = EmfPlusRecordType(16388i32);
+pub const EmfPlusRecordTypeHeader: EmfPlusRecordType = EmfPlusRecordType(16385i32);
+pub const EmfPlusRecordTypeInvalid: EmfPlusRecordType = EmfPlusRecordType(16384i32);
+pub const EmfPlusRecordTypeMax: EmfPlusRecordType = EmfPlusRecordType(16442i32);
+pub const EmfPlusRecordTypeMin: EmfPlusRecordType = EmfPlusRecordType(16385i32);
+pub const EmfPlusRecordTypeMultiFormatEnd: EmfPlusRecordType = EmfPlusRecordType(16391i32);
+pub const EmfPlusRecordTypeMultiFormatSection: EmfPlusRecordType = EmfPlusRecordType(16390i32);
+pub const EmfPlusRecordTypeMultiFormatStart: EmfPlusRecordType = EmfPlusRecordType(16389i32);
+pub const EmfPlusRecordTypeMultiplyWorldTransform: EmfPlusRecordType = EmfPlusRecordType(16428i32);
+pub const EmfPlusRecordTypeObject: EmfPlusRecordType = EmfPlusRecordType(16392i32);
+pub const EmfPlusRecordTypeOffsetClip: EmfPlusRecordType = EmfPlusRecordType(16437i32);
+pub const EmfPlusRecordTypeResetClip: EmfPlusRecordType = EmfPlusRecordType(16433i32);
+pub const EmfPlusRecordTypeResetWorldTransform: EmfPlusRecordType = EmfPlusRecordType(16427i32);
+pub const EmfPlusRecordTypeRestore: EmfPlusRecordType = EmfPlusRecordType(16422i32);
+pub const EmfPlusRecordTypeRotateWorldTransform: EmfPlusRecordType = EmfPlusRecordType(16431i32);
+pub const EmfPlusRecordTypeSave: EmfPlusRecordType = EmfPlusRecordType(16421i32);
+pub const EmfPlusRecordTypeScaleWorldTransform: EmfPlusRecordType = EmfPlusRecordType(16430i32);
+pub const EmfPlusRecordTypeSerializableObject: EmfPlusRecordType = EmfPlusRecordType(16440i32);
+pub const EmfPlusRecordTypeSetAntiAliasMode: EmfPlusRecordType = EmfPlusRecordType(16414i32);
+pub const EmfPlusRecordTypeSetClipPath: EmfPlusRecordType = EmfPlusRecordType(16435i32);
+pub const EmfPlusRecordTypeSetClipRect: EmfPlusRecordType = EmfPlusRecordType(16434i32);
+pub const EmfPlusRecordTypeSetClipRegion: EmfPlusRecordType = EmfPlusRecordType(16436i32);
+pub const EmfPlusRecordTypeSetCompositingMode: EmfPlusRecordType = EmfPlusRecordType(16419i32);
+pub const EmfPlusRecordTypeSetCompositingQuality: EmfPlusRecordType = EmfPlusRecordType(16420i32);
+pub const EmfPlusRecordTypeSetInterpolationMode: EmfPlusRecordType = EmfPlusRecordType(16417i32);
+pub const EmfPlusRecordTypeSetPageTransform: EmfPlusRecordType = EmfPlusRecordType(16432i32);
+pub const EmfPlusRecordTypeSetPixelOffsetMode: EmfPlusRecordType = EmfPlusRecordType(16418i32);
+pub const EmfPlusRecordTypeSetRenderingOrigin: EmfPlusRecordType = EmfPlusRecordType(16413i32);
+pub const EmfPlusRecordTypeSetTSClip: EmfPlusRecordType = EmfPlusRecordType(16442i32);
+pub const EmfPlusRecordTypeSetTSGraphics: EmfPlusRecordType = EmfPlusRecordType(16441i32);
+pub const EmfPlusRecordTypeSetTextContrast: EmfPlusRecordType = EmfPlusRecordType(16416i32);
+pub const EmfPlusRecordTypeSetTextRenderingHint: EmfPlusRecordType = EmfPlusRecordType(16415i32);
+pub const EmfPlusRecordTypeSetWorldTransform: EmfPlusRecordType = EmfPlusRecordType(16426i32);
+pub const EmfPlusRecordTypeStrokeFillPath: EmfPlusRecordType = EmfPlusRecordType(16439i32);
+pub const EmfPlusRecordTypeTranslateWorldTransform: EmfPlusRecordType = EmfPlusRecordType(16429i32);
+pub const EmfRecordTypeAbortPath: EmfPlusRecordType = EmfPlusRecordType(68i32);
+pub const EmfRecordTypeAlphaBlend: EmfPlusRecordType = EmfPlusRecordType(114i32);
+pub const EmfRecordTypeAngleArc: EmfPlusRecordType = EmfPlusRecordType(41i32);
+pub const EmfRecordTypeArc: EmfPlusRecordType = EmfPlusRecordType(45i32);
+pub const EmfRecordTypeArcTo: EmfPlusRecordType = EmfPlusRecordType(55i32);
+pub const EmfRecordTypeBeginPath: EmfPlusRecordType = EmfPlusRecordType(59i32);
+pub const EmfRecordTypeBitBlt: EmfPlusRecordType = EmfPlusRecordType(76i32);
+pub const EmfRecordTypeChord: EmfPlusRecordType = EmfPlusRecordType(46i32);
+pub const EmfRecordTypeCloseFigure: EmfPlusRecordType = EmfPlusRecordType(61i32);
+pub const EmfRecordTypeColorCorrectPalette: EmfPlusRecordType = EmfPlusRecordType(111i32);
+pub const EmfRecordTypeColorMatchToTargetW: EmfPlusRecordType = EmfPlusRecordType(121i32);
+pub const EmfRecordTypeCreateBrushIndirect: EmfPlusRecordType = EmfPlusRecordType(39i32);
+pub const EmfRecordTypeCreateColorSpace: EmfPlusRecordType = EmfPlusRecordType(99i32);
+pub const EmfRecordTypeCreateColorSpaceW: EmfPlusRecordType = EmfPlusRecordType(122i32);
+pub const EmfRecordTypeCreateDIBPatternBrushPt: EmfPlusRecordType = EmfPlusRecordType(94i32);
+pub const EmfRecordTypeCreateMonoBrush: EmfPlusRecordType = EmfPlusRecordType(93i32);
+pub const EmfRecordTypeCreatePalette: EmfPlusRecordType = EmfPlusRecordType(49i32);
+pub const EmfRecordTypeCreatePen: EmfPlusRecordType = EmfPlusRecordType(38i32);
+pub const EmfRecordTypeDeleteColorSpace: EmfPlusRecordType = EmfPlusRecordType(101i32);
+pub const EmfRecordTypeDeleteObject: EmfPlusRecordType = EmfPlusRecordType(40i32);
+pub const EmfRecordTypeDrawEscape: EmfPlusRecordType = EmfPlusRecordType(105i32);
+pub const EmfRecordTypeEOF: EmfPlusRecordType = EmfPlusRecordType(14i32);
+pub const EmfRecordTypeEllipse: EmfPlusRecordType = EmfPlusRecordType(42i32);
+pub const EmfRecordTypeEndPath: EmfPlusRecordType = EmfPlusRecordType(60i32);
+pub const EmfRecordTypeExcludeClipRect: EmfPlusRecordType = EmfPlusRecordType(29i32);
+pub const EmfRecordTypeExtCreateFontIndirect: EmfPlusRecordType = EmfPlusRecordType(82i32);
+pub const EmfRecordTypeExtCreatePen: EmfPlusRecordType = EmfPlusRecordType(95i32);
+pub const EmfRecordTypeExtEscape: EmfPlusRecordType = EmfPlusRecordType(106i32);
+pub const EmfRecordTypeExtFloodFill: EmfPlusRecordType = EmfPlusRecordType(53i32);
+pub const EmfRecordTypeExtSelectClipRgn: EmfPlusRecordType = EmfPlusRecordType(75i32);
+pub const EmfRecordTypeExtTextOutA: EmfPlusRecordType = EmfPlusRecordType(83i32);
+pub const EmfRecordTypeExtTextOutW: EmfPlusRecordType = EmfPlusRecordType(84i32);
+pub const EmfRecordTypeFillPath: EmfPlusRecordType = EmfPlusRecordType(62i32);
+pub const EmfRecordTypeFillRgn: EmfPlusRecordType = EmfPlusRecordType(71i32);
+pub const EmfRecordTypeFlattenPath: EmfPlusRecordType = EmfPlusRecordType(65i32);
+pub const EmfRecordTypeForceUFIMapping: EmfPlusRecordType = EmfPlusRecordType(109i32);
+pub const EmfRecordTypeFrameRgn: EmfPlusRecordType = EmfPlusRecordType(72i32);
+pub const EmfRecordTypeGLSBoundedRecord: EmfPlusRecordType = EmfPlusRecordType(103i32);
+pub const EmfRecordTypeGLSRecord: EmfPlusRecordType = EmfPlusRecordType(102i32);
+pub const EmfRecordTypeGdiComment: EmfPlusRecordType = EmfPlusRecordType(70i32);
+pub const EmfRecordTypeGradientFill: EmfPlusRecordType = EmfPlusRecordType(118i32);
+pub const EmfRecordTypeHeader: EmfPlusRecordType = EmfPlusRecordType(1i32);
+pub const EmfRecordTypeIntersectClipRect: EmfPlusRecordType = EmfPlusRecordType(30i32);
+pub const EmfRecordTypeInvertRgn: EmfPlusRecordType = EmfPlusRecordType(73i32);
+pub const EmfRecordTypeLineTo: EmfPlusRecordType = EmfPlusRecordType(54i32);
+pub const EmfRecordTypeMaskBlt: EmfPlusRecordType = EmfPlusRecordType(78i32);
+pub const EmfRecordTypeMax: EmfPlusRecordType = EmfPlusRecordType(122i32);
+pub const EmfRecordTypeMin: EmfPlusRecordType = EmfPlusRecordType(1i32);
+pub const EmfRecordTypeModifyWorldTransform: EmfPlusRecordType = EmfPlusRecordType(36i32);
+pub const EmfRecordTypeMoveToEx: EmfPlusRecordType = EmfPlusRecordType(27i32);
+pub const EmfRecordTypeNamedEscape: EmfPlusRecordType = EmfPlusRecordType(110i32);
+pub const EmfRecordTypeOffsetClipRgn: EmfPlusRecordType = EmfPlusRecordType(26i32);
+pub const EmfRecordTypePaintRgn: EmfPlusRecordType = EmfPlusRecordType(74i32);
+pub const EmfRecordTypePie: EmfPlusRecordType = EmfPlusRecordType(47i32);
+pub const EmfRecordTypePixelFormat: EmfPlusRecordType = EmfPlusRecordType(104i32);
+pub const EmfRecordTypePlgBlt: EmfPlusRecordType = EmfPlusRecordType(79i32);
+pub const EmfRecordTypePolyBezier: EmfPlusRecordType = EmfPlusRecordType(2i32);
+pub const EmfRecordTypePolyBezier16: EmfPlusRecordType = EmfPlusRecordType(85i32);
+pub const EmfRecordTypePolyBezierTo: EmfPlusRecordType = EmfPlusRecordType(5i32);
+pub const EmfRecordTypePolyBezierTo16: EmfPlusRecordType = EmfPlusRecordType(88i32);
+pub const EmfRecordTypePolyDraw: EmfPlusRecordType = EmfPlusRecordType(56i32);
+pub const EmfRecordTypePolyDraw16: EmfPlusRecordType = EmfPlusRecordType(92i32);
+pub const EmfRecordTypePolyLineTo: EmfPlusRecordType = EmfPlusRecordType(6i32);
+pub const EmfRecordTypePolyPolygon: EmfPlusRecordType = EmfPlusRecordType(8i32);
+pub const EmfRecordTypePolyPolygon16: EmfPlusRecordType = EmfPlusRecordType(91i32);
+pub const EmfRecordTypePolyPolyline: EmfPlusRecordType = EmfPlusRecordType(7i32);
+pub const EmfRecordTypePolyPolyline16: EmfPlusRecordType = EmfPlusRecordType(90i32);
+pub const EmfRecordTypePolyTextOutA: EmfPlusRecordType = EmfPlusRecordType(96i32);
+pub const EmfRecordTypePolyTextOutW: EmfPlusRecordType = EmfPlusRecordType(97i32);
+pub const EmfRecordTypePolygon: EmfPlusRecordType = EmfPlusRecordType(3i32);
+pub const EmfRecordTypePolygon16: EmfPlusRecordType = EmfPlusRecordType(86i32);
+pub const EmfRecordTypePolyline: EmfPlusRecordType = EmfPlusRecordType(4i32);
+pub const EmfRecordTypePolyline16: EmfPlusRecordType = EmfPlusRecordType(87i32);
+pub const EmfRecordTypePolylineTo16: EmfPlusRecordType = EmfPlusRecordType(89i32);
+pub const EmfRecordTypeRealizePalette: EmfPlusRecordType = EmfPlusRecordType(52i32);
+pub const EmfRecordTypeRectangle: EmfPlusRecordType = EmfPlusRecordType(43i32);
+pub const EmfRecordTypeReserved_069: EmfPlusRecordType = EmfPlusRecordType(69i32);
+pub const EmfRecordTypeReserved_117: EmfPlusRecordType = EmfPlusRecordType(117i32);
+pub const EmfRecordTypeResizePalette: EmfPlusRecordType = EmfPlusRecordType(51i32);
+pub const EmfRecordTypeRestoreDC: EmfPlusRecordType = EmfPlusRecordType(34i32);
+pub const EmfRecordTypeRoundRect: EmfPlusRecordType = EmfPlusRecordType(44i32);
+pub const EmfRecordTypeSaveDC: EmfPlusRecordType = EmfPlusRecordType(33i32);
+pub const EmfRecordTypeScaleViewportExtEx: EmfPlusRecordType = EmfPlusRecordType(31i32);
+pub const EmfRecordTypeScaleWindowExtEx: EmfPlusRecordType = EmfPlusRecordType(32i32);
+pub const EmfRecordTypeSelectClipPath: EmfPlusRecordType = EmfPlusRecordType(67i32);
+pub const EmfRecordTypeSelectObject: EmfPlusRecordType = EmfPlusRecordType(37i32);
+pub const EmfRecordTypeSelectPalette: EmfPlusRecordType = EmfPlusRecordType(48i32);
+pub const EmfRecordTypeSetArcDirection: EmfPlusRecordType = EmfPlusRecordType(57i32);
+pub const EmfRecordTypeSetBkColor: EmfPlusRecordType = EmfPlusRecordType(25i32);
+pub const EmfRecordTypeSetBkMode: EmfPlusRecordType = EmfPlusRecordType(18i32);
+pub const EmfRecordTypeSetBrushOrgEx: EmfPlusRecordType = EmfPlusRecordType(13i32);
+pub const EmfRecordTypeSetColorAdjustment: EmfPlusRecordType = EmfPlusRecordType(23i32);
+pub const EmfRecordTypeSetColorSpace: EmfPlusRecordType = EmfPlusRecordType(100i32);
+pub const EmfRecordTypeSetDIBitsToDevice: EmfPlusRecordType = EmfPlusRecordType(80i32);
+pub const EmfRecordTypeSetICMMode: EmfPlusRecordType = EmfPlusRecordType(98i32);
+pub const EmfRecordTypeSetICMProfileA: EmfPlusRecordType = EmfPlusRecordType(112i32);
+pub const EmfRecordTypeSetICMProfileW: EmfPlusRecordType = EmfPlusRecordType(113i32);
+pub const EmfRecordTypeSetLayout: EmfPlusRecordType = EmfPlusRecordType(115i32);
+pub const EmfRecordTypeSetLinkedUFIs: EmfPlusRecordType = EmfPlusRecordType(119i32);
+pub const EmfRecordTypeSetMapMode: EmfPlusRecordType = EmfPlusRecordType(17i32);
+pub const EmfRecordTypeSetMapperFlags: EmfPlusRecordType = EmfPlusRecordType(16i32);
+pub const EmfRecordTypeSetMetaRgn: EmfPlusRecordType = EmfPlusRecordType(28i32);
+pub const EmfRecordTypeSetMiterLimit: EmfPlusRecordType = EmfPlusRecordType(58i32);
+pub const EmfRecordTypeSetPaletteEntries: EmfPlusRecordType = EmfPlusRecordType(50i32);
+pub const EmfRecordTypeSetPixelV: EmfPlusRecordType = EmfPlusRecordType(15i32);
+pub const EmfRecordTypeSetPolyFillMode: EmfPlusRecordType = EmfPlusRecordType(19i32);
+pub const EmfRecordTypeSetROP2: EmfPlusRecordType = EmfPlusRecordType(20i32);
+pub const EmfRecordTypeSetStretchBltMode: EmfPlusRecordType = EmfPlusRecordType(21i32);
+pub const EmfRecordTypeSetTextAlign: EmfPlusRecordType = EmfPlusRecordType(22i32);
+pub const EmfRecordTypeSetTextColor: EmfPlusRecordType = EmfPlusRecordType(24i32);
+pub const EmfRecordTypeSetTextJustification: EmfPlusRecordType = EmfPlusRecordType(120i32);
+pub const EmfRecordTypeSetViewportExtEx: EmfPlusRecordType = EmfPlusRecordType(11i32);
+pub const EmfRecordTypeSetViewportOrgEx: EmfPlusRecordType = EmfPlusRecordType(12i32);
+pub const EmfRecordTypeSetWindowExtEx: EmfPlusRecordType = EmfPlusRecordType(9i32);
+pub const EmfRecordTypeSetWindowOrgEx: EmfPlusRecordType = EmfPlusRecordType(10i32);
+pub const EmfRecordTypeSetWorldTransform: EmfPlusRecordType = EmfPlusRecordType(35i32);
+pub const EmfRecordTypeSmallTextOut: EmfPlusRecordType = EmfPlusRecordType(108i32);
+pub const EmfRecordTypeStartDoc: EmfPlusRecordType = EmfPlusRecordType(107i32);
+pub const EmfRecordTypeStretchBlt: EmfPlusRecordType = EmfPlusRecordType(77i32);
+pub const EmfRecordTypeStretchDIBits: EmfPlusRecordType = EmfPlusRecordType(81i32);
+pub const EmfRecordTypeStrokeAndFillPath: EmfPlusRecordType = EmfPlusRecordType(63i32);
+pub const EmfRecordTypeStrokePath: EmfPlusRecordType = EmfPlusRecordType(64i32);
+pub const EmfRecordTypeTransparentBlt: EmfPlusRecordType = EmfPlusRecordType(116i32);
+pub const EmfRecordTypeWidenPath: EmfPlusRecordType = EmfPlusRecordType(66i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EmfToWmfBitsFlags(pub i32);
+pub const EmfToWmfBitsFlagsDefault: EmfToWmfBitsFlags = EmfToWmfBitsFlags(0i32);
+pub const EmfToWmfBitsFlagsEmbedEmf: EmfToWmfBitsFlags = EmfToWmfBitsFlags(1i32);
+pub const EmfToWmfBitsFlagsIncludePlaceable: EmfToWmfBitsFlags = EmfToWmfBitsFlags(2i32);
+pub const EmfToWmfBitsFlagsNoXORClip: EmfToWmfBitsFlags = EmfToWmfBitsFlags(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EmfType(pub i32);
+pub const EmfTypeEmfOnly: EmfType = EmfType(3i32);
+pub const EmfTypeEmfPlusDual: EmfType = EmfType(5i32);
+pub const EmfTypeEmfPlusOnly: EmfType = EmfType(4i32);
+pub const EncoderChrominanceTable: windows_core::GUID = windows_core::GUID::from_u128(0xf2e455dc_09b3_4316_8260_676ada32481c);
+pub const EncoderColorDepth: windows_core::GUID = windows_core::GUID::from_u128(0x66087055_ad66_4c7c_9a18_38a2310b8337);
+pub const EncoderColorSpace: windows_core::GUID = windows_core::GUID::from_u128(0xae7a62a0_ee2c_49d8_9d07_1ba8a927596e);
+pub const EncoderCompression: windows_core::GUID = windows_core::GUID::from_u128(0xe09d739d_ccd4_44ee_8eba_3fbf8be4fc58);
+pub const EncoderImageItems: windows_core::GUID = windows_core::GUID::from_u128(0x63875e13_1f1d_45ab_9195_a29b6066a650);
+pub const EncoderLuminanceTable: windows_core::GUID = windows_core::GUID::from_u128(0xedb33bce_0266_4a77_b904_27216099e717);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EncoderParameter {
@@ -4180,6 +4254,18 @@ impl Default for EncoderParameter {
 impl windows_core::TypeKind for EncoderParameter {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EncoderParameterValueType(pub i32);
+pub const EncoderParameterValueTypeASCII: EncoderParameterValueType = EncoderParameterValueType(2i32);
+pub const EncoderParameterValueTypeByte: EncoderParameterValueType = EncoderParameterValueType(1i32);
+pub const EncoderParameterValueTypeLong: EncoderParameterValueType = EncoderParameterValueType(4i32);
+pub const EncoderParameterValueTypeLongRange: EncoderParameterValueType = EncoderParameterValueType(6i32);
+pub const EncoderParameterValueTypePointer: EncoderParameterValueType = EncoderParameterValueType(9i32);
+pub const EncoderParameterValueTypeRational: EncoderParameterValueType = EncoderParameterValueType(5i32);
+pub const EncoderParameterValueTypeRationalRange: EncoderParameterValueType = EncoderParameterValueType(8i32);
+pub const EncoderParameterValueTypeShort: EncoderParameterValueType = EncoderParameterValueType(3i32);
+pub const EncoderParameterValueTypeUndefined: EncoderParameterValueType = EncoderParameterValueType(7i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EncoderParameters {
@@ -4194,6 +4280,55 @@ impl Default for EncoderParameters {
 impl windows_core::TypeKind for EncoderParameters {
     type TypeKind = windows_core::CopyType;
 }
+pub const EncoderQuality: windows_core::GUID = windows_core::GUID::from_u128(0x1d5be4b5_fa4a_452d_9cdd_5db35105e7eb);
+pub const EncoderRenderMethod: windows_core::GUID = windows_core::GUID::from_u128(0x6d42c53a_229a_4825_8bb7_5c99e2b9a8b8);
+pub const EncoderSaveAsCMYK: windows_core::GUID = windows_core::GUID::from_u128(0xa219bbc9_0a9d_4005_a3ee_3a421b8bb06c);
+pub const EncoderSaveFlag: windows_core::GUID = windows_core::GUID::from_u128(0x292266fc_ac40_47bf_8cfc_a85b89a655de);
+pub const EncoderScanMethod: windows_core::GUID = windows_core::GUID::from_u128(0x3a4e2661_3109_4e56_8536_42c156e7dcfa);
+pub const EncoderTransformation: windows_core::GUID = windows_core::GUID::from_u128(0x8d0eb2d1_a58e_4ea8_aa14_108074b7b6f9);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EncoderValue(pub i32);
+pub const EncoderValueColorTypeCMYK: EncoderValue = EncoderValue(0i32);
+pub const EncoderValueColorTypeGray: EncoderValue = EncoderValue(24i32);
+pub const EncoderValueColorTypeRGB: EncoderValue = EncoderValue(25i32);
+pub const EncoderValueColorTypeYCCK: EncoderValue = EncoderValue(1i32);
+pub const EncoderValueCompressionCCITT3: EncoderValue = EncoderValue(3i32);
+pub const EncoderValueCompressionCCITT4: EncoderValue = EncoderValue(4i32);
+pub const EncoderValueCompressionLZW: EncoderValue = EncoderValue(2i32);
+pub const EncoderValueCompressionNone: EncoderValue = EncoderValue(6i32);
+pub const EncoderValueCompressionRle: EncoderValue = EncoderValue(5i32);
+pub const EncoderValueFlush: EncoderValue = EncoderValue(20i32);
+pub const EncoderValueFrameDimensionPage: EncoderValue = EncoderValue(23i32);
+pub const EncoderValueFrameDimensionResolution: EncoderValue = EncoderValue(22i32);
+pub const EncoderValueFrameDimensionTime: EncoderValue = EncoderValue(21i32);
+pub const EncoderValueLastFrame: EncoderValue = EncoderValue(19i32);
+pub const EncoderValueMultiFrame: EncoderValue = EncoderValue(18i32);
+pub const EncoderValueRenderNonProgressive: EncoderValue = EncoderValue(12i32);
+pub const EncoderValueRenderProgressive: EncoderValue = EncoderValue(11i32);
+pub const EncoderValueScanMethodInterlaced: EncoderValue = EncoderValue(7i32);
+pub const EncoderValueScanMethodNonInterlaced: EncoderValue = EncoderValue(8i32);
+pub const EncoderValueTransformFlipHorizontal: EncoderValue = EncoderValue(16i32);
+pub const EncoderValueTransformFlipVertical: EncoderValue = EncoderValue(17i32);
+pub const EncoderValueTransformRotate180: EncoderValue = EncoderValue(14i32);
+pub const EncoderValueTransformRotate270: EncoderValue = EncoderValue(15i32);
+pub const EncoderValueTransformRotate90: EncoderValue = EncoderValue(13i32);
+pub const EncoderValueVersionGif87: EncoderValue = EncoderValue(9i32);
+pub const EncoderValueVersionGif89: EncoderValue = EncoderValue(10i32);
+pub const EncoderVersion: windows_core::GUID = windows_core::GUID::from_u128(0x24d18c76_814a_41a4_bf53_1c219cccf797);
+pub type EnumerateMetafileProc = Option<unsafe extern "system" fn(param0: EmfPlusRecordType, param1: u32, param2: u32, param3: *const u8, param4: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub const FileNotFound: Status = Status(10i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FillMode(pub i32);
+pub const FillModeAlternate: FillMode = FillMode(0i32);
+pub const FillModeWinding: FillMode = FillMode(1i32);
+pub const FlatnessDefault: f32 = 0.25f32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FlushIntention(pub i32);
+pub const FlushIntentionFlush: FlushIntention = FlushIntention(0i32);
+pub const FlushIntentionSync: FlushIntention = FlushIntention(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct Font(pub isize);
@@ -4212,6 +4347,65 @@ pub struct FontFamily(pub isize);
 impl windows_core::TypeKind for FontFamily {
     type TypeKind = windows_core::CopyType;
 }
+pub const FontFamilyNotFound: Status = Status(14i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FontStyle(pub i32);
+pub const FontStyleBold: FontStyle = FontStyle(1i32);
+pub const FontStyleBoldItalic: FontStyle = FontStyle(3i32);
+pub const FontStyleItalic: FontStyle = FontStyle(2i32);
+pub const FontStyleNotFound: Status = Status(15i32);
+pub const FontStyleRegular: FontStyle = FontStyle(0i32);
+pub const FontStyleStrikeout: FontStyle = FontStyle(8i32);
+pub const FontStyleUnderline: FontStyle = FontStyle(4i32);
+pub const FormatIDImageInformation: windows_core::GUID = windows_core::GUID::from_u128(0xe5836cbe_5eef_4f1d_acde_ae4c43b608ce);
+pub const FormatIDJpegAppHeaders: windows_core::GUID = windows_core::GUID::from_u128(0x1c4afdcd_6177_43cf_abc7_5f51af39ee85);
+pub const FrameDimensionPage: windows_core::GUID = windows_core::GUID::from_u128(0x7462dc86_6180_4c7e_8e3f_ee7333a7a483);
+pub const FrameDimensionResolution: windows_core::GUID = windows_core::GUID::from_u128(0x84236f7b_3bd3_428f_8dab_4ea1439ca315);
+pub const FrameDimensionTime: windows_core::GUID = windows_core::GUID::from_u128(0x6aedbd6d_3fb5_418a_83a6_7f45229dc872);
+pub const GDIP_EMFPLUSFLAGS_DISPLAY: u32 = 1u32;
+pub const GDIP_EMFPLUS_RECORD_BASE: u32 = 16384u32;
+pub const GDIP_WMF_RECORD_BASE: u32 = 65536u32;
+pub const GREEN_SHIFT: u32 = 8u32;
+windows_core::imp::define_interface!(GdiplusAbort, GdiplusAbort_Vtbl);
+impl GdiplusAbort {
+    pub unsafe fn Abort(&self) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self)).ok()
+    }
+}
+#[repr(C)]
+pub struct GdiplusAbort_Vtbl {
+    pub Abort: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait GdiplusAbort_Impl {
+    fn Abort(&self) -> windows_core::Result<()>;
+}
+impl GdiplusAbort_Vtbl {
+    pub const fn new<Identity: GdiplusAbort_Impl>() -> Self {
+        unsafe extern "system" fn Abort<Identity: GdiplusAbort_Impl>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+            let this = &*((*this).this as *const Identity);
+            GdiplusAbort_Impl::Abort(this).into()
+        }
+        Self { Abort: Abort::<Identity> }
+    }
+}
+#[cfg(feature = "std")]
+struct GdiplusAbort_ImplVtbl<T: GdiplusAbort_Impl>(core::marker::PhantomData<T>);
+#[cfg(feature = "std")]
+impl<T: GdiplusAbort_Impl> GdiplusAbort_ImplVtbl<T> {
+    const VTABLE: GdiplusAbort_Vtbl = GdiplusAbort_Vtbl::new::<T>();
+}
+#[cfg(feature = "std")]
+impl GdiplusAbort {
+    pub fn new<'a, T: GdiplusAbort_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
+        let this = windows_core::ScopedHeap { vtable: &GdiplusAbort_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
+    }
+}
+pub const GdiplusNotInitialized: Status = Status(18i32);
+pub const GdiplusStartupDefault: GdiplusStartupParams = GdiplusStartupParams(0i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GdiplusStartupInput {
@@ -4242,6 +4436,7 @@ impl Default for GdiplusStartupInputEx {
 impl windows_core::TypeKind for GdiplusStartupInputEx {
     type TypeKind = windows_core::CopyType;
 }
+pub const GdiplusStartupNoSetRound: GdiplusStartupParams = GdiplusStartupParams(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GdiplusStartupOutput {
@@ -4256,6 +4451,19 @@ impl Default for GdiplusStartupOutput {
 impl windows_core::TypeKind for GdiplusStartupOutput {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GdiplusStartupParams(pub i32);
+pub const GdiplusStartupSetPSValue: GdiplusStartupParams = GdiplusStartupParams(2i32);
+pub const GdiplusStartupTransparencyMask: GdiplusStartupParams = GdiplusStartupParams(-16777216i32);
+pub const GenericError: Status = Status(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GenericFontFamily(pub i32);
+pub const GenericFontFamilyMonospace: GenericFontFamily = GenericFontFamily(2i32);
+pub const GenericFontFamilySansSerif: GenericFontFamily = GenericFontFamily(1i32);
+pub const GenericFontFamilySerif: GenericFontFamily = GenericFontFamily(0i32);
+pub type GetThumbnailImageAbort = Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GpAdjustableArrowCap(pub u8);
@@ -4509,6 +4717,9 @@ impl Default for GpStringFormat {
 impl windows_core::TypeKind for GpStringFormat {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GpTestControlEnum(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GpTexture(pub u8);
@@ -4520,780 +4731,9 @@ impl Default for GpTexture {
 impl windows_core::TypeKind for GpTexture {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HueSaturationLightness {
-    pub Base: Effect,
-}
-impl Default for HueSaturationLightness {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HueSaturationLightness {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HueSaturationLightnessParams {
-    pub hueLevel: i32,
-    pub saturationLevel: i32,
-    pub lightnessLevel: i32,
-}
-impl Default for HueSaturationLightnessParams {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HueSaturationLightnessParams {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct Image(pub isize);
-impl windows_core::TypeKind for Image {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ImageCodecInfo {
-    pub Clsid: windows_core::GUID,
-    pub FormatID: windows_core::GUID,
-    pub CodecName: windows_core::PCWSTR,
-    pub DllName: windows_core::PCWSTR,
-    pub FormatDescription: windows_core::PCWSTR,
-    pub FilenameExtension: windows_core::PCWSTR,
-    pub MimeType: windows_core::PCWSTR,
-    pub Flags: u32,
-    pub Version: u32,
-    pub SigCount: u32,
-    pub SigSize: u32,
-    pub SigPattern: *const u8,
-    pub SigMask: *const u8,
-}
-impl Default for ImageCodecInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ImageCodecInfo {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ImageItemData {
-    pub Size: u32,
-    pub Position: u32,
-    pub Desc: *mut core::ffi::c_void,
-    pub DescSize: u32,
-    pub Data: *mut core::ffi::c_void,
-    pub DataSize: u32,
-    pub Cookie: u32,
-}
-impl Default for ImageItemData {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ImageItemData {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct InstalledFontCollection(pub isize);
-impl windows_core::TypeKind for InstalledFontCollection {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct Levels {
-    pub Base: Effect,
-}
-impl Default for Levels {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for Levels {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LevelsParams {
-    pub highlight: i32,
-    pub midtone: i32,
-    pub shadow: i32,
-}
-impl Default for LevelsParams {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LevelsParams {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct Matrix(pub isize);
-impl windows_core::TypeKind for Matrix {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct Metafile(pub isize);
-impl windows_core::TypeKind for Metafile {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct MetafileHeader {
-    pub Type: MetafileType,
-    pub Size: u32,
-    pub Version: u32,
-    pub EmfPlusFlags: u32,
-    pub DpiX: f32,
-    pub DpiY: f32,
-    pub X: i32,
-    pub Y: i32,
-    pub Width: i32,
-    pub Height: i32,
-    pub Anonymous: MetafileHeader_0,
-    pub EmfPlusHeaderSize: i32,
-    pub LogicalDpiX: i32,
-    pub LogicalDpiY: i32,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for MetafileHeader {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for MetafileHeader {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub union MetafileHeader_0 {
-    pub WmfHeader: super::Gdi::METAHEADER,
-    pub EmfHeader: ENHMETAHEADER3,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for MetafileHeader_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for MetafileHeader_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PWMFRect16 {
-    pub Left: i16,
-    pub Top: i16,
-    pub Right: i16,
-    pub Bottom: i16,
-}
-impl Default for PWMFRect16 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PWMFRect16 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PathData(pub isize);
-impl windows_core::TypeKind for PathData {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct Point {
-    pub X: i32,
-    pub Y: i32,
-}
-impl Default for Point {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for Point {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PointF {
-    pub X: f32,
-    pub Y: f32,
-}
-impl Default for PointF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PointF {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PrivateFontCollection(pub isize);
-impl windows_core::TypeKind for PrivateFontCollection {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PropertyItem {
-    pub id: u32,
-    pub length: u32,
-    pub r#type: u16,
-    pub value: *mut core::ffi::c_void,
-}
-impl Default for PropertyItem {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PropertyItem {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct Rect {
-    pub X: i32,
-    pub Y: i32,
-    pub Width: i32,
-    pub Height: i32,
-}
-impl Default for Rect {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for Rect {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct RectF {
-    pub X: f32,
-    pub Y: f32,
-    pub Width: f32,
-    pub Height: f32,
-}
-impl Default for RectF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for RectF {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct RedEyeCorrection {
-    pub Base: Effect,
-}
-impl Default for RedEyeCorrection {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for RedEyeCorrection {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct RedEyeCorrectionParams {
-    pub numberOfAreas: u32,
-    pub areas: *mut super::super::Foundation::RECT,
-}
-impl Default for RedEyeCorrectionParams {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for RedEyeCorrectionParams {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct Region(pub isize);
-impl windows_core::TypeKind for Region {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct Sharpen {
-    pub Base: Effect,
-}
-impl Default for Sharpen {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for Sharpen {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SharpenParams {
-    pub radius: f32,
-    pub amount: f32,
-}
-impl Default for SharpenParams {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SharpenParams {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct Size {
-    pub Width: i32,
-    pub Height: i32,
-}
-impl Default for Size {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for Size {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SizeF {
-    pub Width: f32,
-    pub Height: f32,
-}
-impl Default for SizeF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SizeF {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct Tint {
-    pub Base: Effect,
-}
-impl Default for Tint {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for Tint {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TintParams {
-    pub hue: i32,
-    pub amount: i32,
-}
-impl Default for TintParams {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TintParams {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct WmfPlaceableFileHeader {
-    pub Key: u32,
-    pub Hmf: i16,
-    pub BoundingBox: PWMFRect16,
-    pub Inch: i16,
-    pub Reserved: u32,
-    pub Checksum: i16,
-}
-impl Default for WmfPlaceableFileHeader {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WmfPlaceableFileHeader {
-    type TypeKind = windows_core::CopyType;
-}
-pub const ALPHA_SHIFT: u32 = 24u32;
-pub const Aborted: Status = Status(9i32);
-pub const AccessDenied: Status = Status(12i32);
-pub const AdjustBlackSaturation: CurveAdjustments = CurveAdjustments(7i32);
-pub const AdjustContrast: CurveAdjustments = CurveAdjustments(2i32);
-pub const AdjustDensity: CurveAdjustments = CurveAdjustments(1i32);
-pub const AdjustExposure: CurveAdjustments = CurveAdjustments(0i32);
-pub const AdjustHighlight: CurveAdjustments = CurveAdjustments(3i32);
-pub const AdjustMidtone: CurveAdjustments = CurveAdjustments(5i32);
-pub const AdjustShadow: CurveAdjustments = CurveAdjustments(4i32);
-pub const AdjustWhiteSaturation: CurveAdjustments = CurveAdjustments(6i32);
-pub const BLUE_SHIFT: u32 = 0u32;
-pub const BlurEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0x633c80a4_1843_482b_9ef2_be2834c5fdd4);
-pub const BrightnessContrastEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0xd3a1dbe1_8ec4_4c17_9f4c_ea97ad1c343d);
-pub const BrushTypeHatchFill: BrushType = BrushType(1i32);
-pub const BrushTypeLinearGradient: BrushType = BrushType(4i32);
-pub const BrushTypePathGradient: BrushType = BrushType(3i32);
-pub const BrushTypeSolidColor: BrushType = BrushType(0i32);
-pub const BrushTypeTextureFill: BrushType = BrushType(2i32);
-pub const CodecIImageBytes: windows_core::GUID = windows_core::GUID::from_u128(0x025d1823_6c7d_447b_bbdb_a3cbc3dfa2fc);
-pub const ColorAdjustTypeAny: ColorAdjustType = ColorAdjustType(6i32);
-pub const ColorAdjustTypeBitmap: ColorAdjustType = ColorAdjustType(1i32);
-pub const ColorAdjustTypeBrush: ColorAdjustType = ColorAdjustType(2i32);
-pub const ColorAdjustTypeCount: ColorAdjustType = ColorAdjustType(5i32);
-pub const ColorAdjustTypeDefault: ColorAdjustType = ColorAdjustType(0i32);
-pub const ColorAdjustTypePen: ColorAdjustType = ColorAdjustType(3i32);
-pub const ColorAdjustTypeText: ColorAdjustType = ColorAdjustType(4i32);
-pub const ColorBalanceEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0x537e597d_251e_48da_9664_29ca496b70f8);
-pub const ColorChannelFlagsC: ColorChannelFlags = ColorChannelFlags(0i32);
-pub const ColorChannelFlagsK: ColorChannelFlags = ColorChannelFlags(3i32);
-pub const ColorChannelFlagsLast: ColorChannelFlags = ColorChannelFlags(4i32);
-pub const ColorChannelFlagsM: ColorChannelFlags = ColorChannelFlags(1i32);
-pub const ColorChannelFlagsY: ColorChannelFlags = ColorChannelFlags(2i32);
-pub const ColorCurveEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0xdd6a0022_58e4_4a67_9d9b_d48eb881a53d);
-pub const ColorLUTEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0xa7ce72a9_0f7f_40d7_b3cc_d0c02d5c3212);
-pub const ColorMatrixEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0x718f2615_7933_40e3_a511_5f68fe14dd74);
-pub const ColorMatrixFlagsAltGray: ColorMatrixFlags = ColorMatrixFlags(2i32);
-pub const ColorMatrixFlagsDefault: ColorMatrixFlags = ColorMatrixFlags(0i32);
-pub const ColorMatrixFlagsSkipGrays: ColorMatrixFlags = ColorMatrixFlags(1i32);
-pub const ColorModeARGB32: ColorMode = ColorMode(0i32);
-pub const ColorModeARGB64: ColorMode = ColorMode(1i32);
-pub const CombineModeComplement: CombineMode = CombineMode(5i32);
-pub const CombineModeExclude: CombineMode = CombineMode(4i32);
-pub const CombineModeIntersect: CombineMode = CombineMode(1i32);
-pub const CombineModeReplace: CombineMode = CombineMode(0i32);
-pub const CombineModeUnion: CombineMode = CombineMode(2i32);
-pub const CombineModeXor: CombineMode = CombineMode(3i32);
-pub const CompositingModeSourceCopy: CompositingMode = CompositingMode(1i32);
-pub const CompositingModeSourceOver: CompositingMode = CompositingMode(0i32);
-pub const CompositingQualityAssumeLinear: CompositingQuality = CompositingQuality(4i32);
-pub const CompositingQualityDefault: CompositingQuality = CompositingQuality(0i32);
-pub const CompositingQualityGammaCorrected: CompositingQuality = CompositingQuality(3i32);
-pub const CompositingQualityHighQuality: CompositingQuality = CompositingQuality(2i32);
-pub const CompositingQualityHighSpeed: CompositingQuality = CompositingQuality(1i32);
-pub const CompositingQualityInvalid: CompositingQuality = CompositingQuality(-1i32);
-pub const ConvertToEmfPlusFlagsDefault: ConvertToEmfPlusFlags = ConvertToEmfPlusFlags(0i32);
-pub const ConvertToEmfPlusFlagsInvalidRecord: ConvertToEmfPlusFlags = ConvertToEmfPlusFlags(4i32);
-pub const ConvertToEmfPlusFlagsRopUsed: ConvertToEmfPlusFlags = ConvertToEmfPlusFlags(1i32);
-pub const ConvertToEmfPlusFlagsText: ConvertToEmfPlusFlags = ConvertToEmfPlusFlags(2i32);
-pub const CoordinateSpaceDevice: CoordinateSpace = CoordinateSpace(2i32);
-pub const CoordinateSpacePage: CoordinateSpace = CoordinateSpace(1i32);
-pub const CoordinateSpaceWorld: CoordinateSpace = CoordinateSpace(0i32);
-pub const CurveChannelAll: CurveChannel = CurveChannel(0i32);
-pub const CurveChannelBlue: CurveChannel = CurveChannel(3i32);
-pub const CurveChannelGreen: CurveChannel = CurveChannel(2i32);
-pub const CurveChannelRed: CurveChannel = CurveChannel(1i32);
-pub const CustomLineCapTypeAdjustableArrow: CustomLineCapType = CustomLineCapType(1i32);
-pub const CustomLineCapTypeDefault: CustomLineCapType = CustomLineCapType(0i32);
-pub const DashCapFlat: DashCap = DashCap(0i32);
-pub const DashCapRound: DashCap = DashCap(2i32);
-pub const DashCapTriangle: DashCap = DashCap(3i32);
-pub const DashStyleCustom: DashStyle = DashStyle(5i32);
-pub const DashStyleDash: DashStyle = DashStyle(1i32);
-pub const DashStyleDashDot: DashStyle = DashStyle(3i32);
-pub const DashStyleDashDotDot: DashStyle = DashStyle(4i32);
-pub const DashStyleDot: DashStyle = DashStyle(2i32);
-pub const DashStyleSolid: DashStyle = DashStyle(0i32);
-pub const DebugEventLevelFatal: DebugEventLevel = DebugEventLevel(0i32);
-pub const DebugEventLevelWarning: DebugEventLevel = DebugEventLevel(1i32);
-pub const DitherTypeDualSpiral4x4: DitherType = DitherType(7i32);
-pub const DitherTypeDualSpiral8x8: DitherType = DitherType(8i32);
-pub const DitherTypeErrorDiffusion: DitherType = DitherType(9i32);
-pub const DitherTypeMax: DitherType = DitherType(10i32);
-pub const DitherTypeNone: DitherType = DitherType(0i32);
-pub const DitherTypeOrdered16x16: DitherType = DitherType(4i32);
-pub const DitherTypeOrdered4x4: DitherType = DitherType(2i32);
-pub const DitherTypeOrdered8x8: DitherType = DitherType(3i32);
-pub const DitherTypeSolid: DitherType = DitherType(1i32);
-pub const DitherTypeSpiral4x4: DitherType = DitherType(5i32);
-pub const DitherTypeSpiral8x8: DitherType = DitherType(6i32);
-pub const DriverStringOptionsCmapLookup: DriverStringOptions = DriverStringOptions(1i32);
-pub const DriverStringOptionsLimitSubpixel: DriverStringOptions = DriverStringOptions(8i32);
-pub const DriverStringOptionsRealizedAdvance: DriverStringOptions = DriverStringOptions(4i32);
-pub const DriverStringOptionsVertical: DriverStringOptions = DriverStringOptions(2i32);
-pub const EmfPlusRecordTotal: EmfPlusRecordType = EmfPlusRecordType(16443i32);
-pub const EmfPlusRecordTypeBeginContainer: EmfPlusRecordType = EmfPlusRecordType(16423i32);
-pub const EmfPlusRecordTypeBeginContainerNoParams: EmfPlusRecordType = EmfPlusRecordType(16424i32);
-pub const EmfPlusRecordTypeClear: EmfPlusRecordType = EmfPlusRecordType(16393i32);
-pub const EmfPlusRecordTypeComment: EmfPlusRecordType = EmfPlusRecordType(16387i32);
-pub const EmfPlusRecordTypeDrawArc: EmfPlusRecordType = EmfPlusRecordType(16402i32);
-pub const EmfPlusRecordTypeDrawBeziers: EmfPlusRecordType = EmfPlusRecordType(16409i32);
-pub const EmfPlusRecordTypeDrawClosedCurve: EmfPlusRecordType = EmfPlusRecordType(16407i32);
-pub const EmfPlusRecordTypeDrawCurve: EmfPlusRecordType = EmfPlusRecordType(16408i32);
-pub const EmfPlusRecordTypeDrawDriverString: EmfPlusRecordType = EmfPlusRecordType(16438i32);
-pub const EmfPlusRecordTypeDrawEllipse: EmfPlusRecordType = EmfPlusRecordType(16399i32);
-pub const EmfPlusRecordTypeDrawImage: EmfPlusRecordType = EmfPlusRecordType(16410i32);
-pub const EmfPlusRecordTypeDrawImagePoints: EmfPlusRecordType = EmfPlusRecordType(16411i32);
-pub const EmfPlusRecordTypeDrawLines: EmfPlusRecordType = EmfPlusRecordType(16397i32);
-pub const EmfPlusRecordTypeDrawPath: EmfPlusRecordType = EmfPlusRecordType(16405i32);
-pub const EmfPlusRecordTypeDrawPie: EmfPlusRecordType = EmfPlusRecordType(16401i32);
-pub const EmfPlusRecordTypeDrawRects: EmfPlusRecordType = EmfPlusRecordType(16395i32);
-pub const EmfPlusRecordTypeDrawString: EmfPlusRecordType = EmfPlusRecordType(16412i32);
-pub const EmfPlusRecordTypeEndContainer: EmfPlusRecordType = EmfPlusRecordType(16425i32);
-pub const EmfPlusRecordTypeEndOfFile: EmfPlusRecordType = EmfPlusRecordType(16386i32);
-pub const EmfPlusRecordTypeFillClosedCurve: EmfPlusRecordType = EmfPlusRecordType(16406i32);
-pub const EmfPlusRecordTypeFillEllipse: EmfPlusRecordType = EmfPlusRecordType(16398i32);
-pub const EmfPlusRecordTypeFillPath: EmfPlusRecordType = EmfPlusRecordType(16404i32);
-pub const EmfPlusRecordTypeFillPie: EmfPlusRecordType = EmfPlusRecordType(16400i32);
-pub const EmfPlusRecordTypeFillPolygon: EmfPlusRecordType = EmfPlusRecordType(16396i32);
-pub const EmfPlusRecordTypeFillRects: EmfPlusRecordType = EmfPlusRecordType(16394i32);
-pub const EmfPlusRecordTypeFillRegion: EmfPlusRecordType = EmfPlusRecordType(16403i32);
-pub const EmfPlusRecordTypeGetDC: EmfPlusRecordType = EmfPlusRecordType(16388i32);
-pub const EmfPlusRecordTypeHeader: EmfPlusRecordType = EmfPlusRecordType(16385i32);
-pub const EmfPlusRecordTypeInvalid: EmfPlusRecordType = EmfPlusRecordType(16384i32);
-pub const EmfPlusRecordTypeMax: EmfPlusRecordType = EmfPlusRecordType(16442i32);
-pub const EmfPlusRecordTypeMin: EmfPlusRecordType = EmfPlusRecordType(16385i32);
-pub const EmfPlusRecordTypeMultiFormatEnd: EmfPlusRecordType = EmfPlusRecordType(16391i32);
-pub const EmfPlusRecordTypeMultiFormatSection: EmfPlusRecordType = EmfPlusRecordType(16390i32);
-pub const EmfPlusRecordTypeMultiFormatStart: EmfPlusRecordType = EmfPlusRecordType(16389i32);
-pub const EmfPlusRecordTypeMultiplyWorldTransform: EmfPlusRecordType = EmfPlusRecordType(16428i32);
-pub const EmfPlusRecordTypeObject: EmfPlusRecordType = EmfPlusRecordType(16392i32);
-pub const EmfPlusRecordTypeOffsetClip: EmfPlusRecordType = EmfPlusRecordType(16437i32);
-pub const EmfPlusRecordTypeResetClip: EmfPlusRecordType = EmfPlusRecordType(16433i32);
-pub const EmfPlusRecordTypeResetWorldTransform: EmfPlusRecordType = EmfPlusRecordType(16427i32);
-pub const EmfPlusRecordTypeRestore: EmfPlusRecordType = EmfPlusRecordType(16422i32);
-pub const EmfPlusRecordTypeRotateWorldTransform: EmfPlusRecordType = EmfPlusRecordType(16431i32);
-pub const EmfPlusRecordTypeSave: EmfPlusRecordType = EmfPlusRecordType(16421i32);
-pub const EmfPlusRecordTypeScaleWorldTransform: EmfPlusRecordType = EmfPlusRecordType(16430i32);
-pub const EmfPlusRecordTypeSerializableObject: EmfPlusRecordType = EmfPlusRecordType(16440i32);
-pub const EmfPlusRecordTypeSetAntiAliasMode: EmfPlusRecordType = EmfPlusRecordType(16414i32);
-pub const EmfPlusRecordTypeSetClipPath: EmfPlusRecordType = EmfPlusRecordType(16435i32);
-pub const EmfPlusRecordTypeSetClipRect: EmfPlusRecordType = EmfPlusRecordType(16434i32);
-pub const EmfPlusRecordTypeSetClipRegion: EmfPlusRecordType = EmfPlusRecordType(16436i32);
-pub const EmfPlusRecordTypeSetCompositingMode: EmfPlusRecordType = EmfPlusRecordType(16419i32);
-pub const EmfPlusRecordTypeSetCompositingQuality: EmfPlusRecordType = EmfPlusRecordType(16420i32);
-pub const EmfPlusRecordTypeSetInterpolationMode: EmfPlusRecordType = EmfPlusRecordType(16417i32);
-pub const EmfPlusRecordTypeSetPageTransform: EmfPlusRecordType = EmfPlusRecordType(16432i32);
-pub const EmfPlusRecordTypeSetPixelOffsetMode: EmfPlusRecordType = EmfPlusRecordType(16418i32);
-pub const EmfPlusRecordTypeSetRenderingOrigin: EmfPlusRecordType = EmfPlusRecordType(16413i32);
-pub const EmfPlusRecordTypeSetTSClip: EmfPlusRecordType = EmfPlusRecordType(16442i32);
-pub const EmfPlusRecordTypeSetTSGraphics: EmfPlusRecordType = EmfPlusRecordType(16441i32);
-pub const EmfPlusRecordTypeSetTextContrast: EmfPlusRecordType = EmfPlusRecordType(16416i32);
-pub const EmfPlusRecordTypeSetTextRenderingHint: EmfPlusRecordType = EmfPlusRecordType(16415i32);
-pub const EmfPlusRecordTypeSetWorldTransform: EmfPlusRecordType = EmfPlusRecordType(16426i32);
-pub const EmfPlusRecordTypeStrokeFillPath: EmfPlusRecordType = EmfPlusRecordType(16439i32);
-pub const EmfPlusRecordTypeTranslateWorldTransform: EmfPlusRecordType = EmfPlusRecordType(16429i32);
-pub const EmfRecordTypeAbortPath: EmfPlusRecordType = EmfPlusRecordType(68i32);
-pub const EmfRecordTypeAlphaBlend: EmfPlusRecordType = EmfPlusRecordType(114i32);
-pub const EmfRecordTypeAngleArc: EmfPlusRecordType = EmfPlusRecordType(41i32);
-pub const EmfRecordTypeArc: EmfPlusRecordType = EmfPlusRecordType(45i32);
-pub const EmfRecordTypeArcTo: EmfPlusRecordType = EmfPlusRecordType(55i32);
-pub const EmfRecordTypeBeginPath: EmfPlusRecordType = EmfPlusRecordType(59i32);
-pub const EmfRecordTypeBitBlt: EmfPlusRecordType = EmfPlusRecordType(76i32);
-pub const EmfRecordTypeChord: EmfPlusRecordType = EmfPlusRecordType(46i32);
-pub const EmfRecordTypeCloseFigure: EmfPlusRecordType = EmfPlusRecordType(61i32);
-pub const EmfRecordTypeColorCorrectPalette: EmfPlusRecordType = EmfPlusRecordType(111i32);
-pub const EmfRecordTypeColorMatchToTargetW: EmfPlusRecordType = EmfPlusRecordType(121i32);
-pub const EmfRecordTypeCreateBrushIndirect: EmfPlusRecordType = EmfPlusRecordType(39i32);
-pub const EmfRecordTypeCreateColorSpace: EmfPlusRecordType = EmfPlusRecordType(99i32);
-pub const EmfRecordTypeCreateColorSpaceW: EmfPlusRecordType = EmfPlusRecordType(122i32);
-pub const EmfRecordTypeCreateDIBPatternBrushPt: EmfPlusRecordType = EmfPlusRecordType(94i32);
-pub const EmfRecordTypeCreateMonoBrush: EmfPlusRecordType = EmfPlusRecordType(93i32);
-pub const EmfRecordTypeCreatePalette: EmfPlusRecordType = EmfPlusRecordType(49i32);
-pub const EmfRecordTypeCreatePen: EmfPlusRecordType = EmfPlusRecordType(38i32);
-pub const EmfRecordTypeDeleteColorSpace: EmfPlusRecordType = EmfPlusRecordType(101i32);
-pub const EmfRecordTypeDeleteObject: EmfPlusRecordType = EmfPlusRecordType(40i32);
-pub const EmfRecordTypeDrawEscape: EmfPlusRecordType = EmfPlusRecordType(105i32);
-pub const EmfRecordTypeEOF: EmfPlusRecordType = EmfPlusRecordType(14i32);
-pub const EmfRecordTypeEllipse: EmfPlusRecordType = EmfPlusRecordType(42i32);
-pub const EmfRecordTypeEndPath: EmfPlusRecordType = EmfPlusRecordType(60i32);
-pub const EmfRecordTypeExcludeClipRect: EmfPlusRecordType = EmfPlusRecordType(29i32);
-pub const EmfRecordTypeExtCreateFontIndirect: EmfPlusRecordType = EmfPlusRecordType(82i32);
-pub const EmfRecordTypeExtCreatePen: EmfPlusRecordType = EmfPlusRecordType(95i32);
-pub const EmfRecordTypeExtEscape: EmfPlusRecordType = EmfPlusRecordType(106i32);
-pub const EmfRecordTypeExtFloodFill: EmfPlusRecordType = EmfPlusRecordType(53i32);
-pub const EmfRecordTypeExtSelectClipRgn: EmfPlusRecordType = EmfPlusRecordType(75i32);
-pub const EmfRecordTypeExtTextOutA: EmfPlusRecordType = EmfPlusRecordType(83i32);
-pub const EmfRecordTypeExtTextOutW: EmfPlusRecordType = EmfPlusRecordType(84i32);
-pub const EmfRecordTypeFillPath: EmfPlusRecordType = EmfPlusRecordType(62i32);
-pub const EmfRecordTypeFillRgn: EmfPlusRecordType = EmfPlusRecordType(71i32);
-pub const EmfRecordTypeFlattenPath: EmfPlusRecordType = EmfPlusRecordType(65i32);
-pub const EmfRecordTypeForceUFIMapping: EmfPlusRecordType = EmfPlusRecordType(109i32);
-pub const EmfRecordTypeFrameRgn: EmfPlusRecordType = EmfPlusRecordType(72i32);
-pub const EmfRecordTypeGLSBoundedRecord: EmfPlusRecordType = EmfPlusRecordType(103i32);
-pub const EmfRecordTypeGLSRecord: EmfPlusRecordType = EmfPlusRecordType(102i32);
-pub const EmfRecordTypeGdiComment: EmfPlusRecordType = EmfPlusRecordType(70i32);
-pub const EmfRecordTypeGradientFill: EmfPlusRecordType = EmfPlusRecordType(118i32);
-pub const EmfRecordTypeHeader: EmfPlusRecordType = EmfPlusRecordType(1i32);
-pub const EmfRecordTypeIntersectClipRect: EmfPlusRecordType = EmfPlusRecordType(30i32);
-pub const EmfRecordTypeInvertRgn: EmfPlusRecordType = EmfPlusRecordType(73i32);
-pub const EmfRecordTypeLineTo: EmfPlusRecordType = EmfPlusRecordType(54i32);
-pub const EmfRecordTypeMaskBlt: EmfPlusRecordType = EmfPlusRecordType(78i32);
-pub const EmfRecordTypeMax: EmfPlusRecordType = EmfPlusRecordType(122i32);
-pub const EmfRecordTypeMin: EmfPlusRecordType = EmfPlusRecordType(1i32);
-pub const EmfRecordTypeModifyWorldTransform: EmfPlusRecordType = EmfPlusRecordType(36i32);
-pub const EmfRecordTypeMoveToEx: EmfPlusRecordType = EmfPlusRecordType(27i32);
-pub const EmfRecordTypeNamedEscape: EmfPlusRecordType = EmfPlusRecordType(110i32);
-pub const EmfRecordTypeOffsetClipRgn: EmfPlusRecordType = EmfPlusRecordType(26i32);
-pub const EmfRecordTypePaintRgn: EmfPlusRecordType = EmfPlusRecordType(74i32);
-pub const EmfRecordTypePie: EmfPlusRecordType = EmfPlusRecordType(47i32);
-pub const EmfRecordTypePixelFormat: EmfPlusRecordType = EmfPlusRecordType(104i32);
-pub const EmfRecordTypePlgBlt: EmfPlusRecordType = EmfPlusRecordType(79i32);
-pub const EmfRecordTypePolyBezier: EmfPlusRecordType = EmfPlusRecordType(2i32);
-pub const EmfRecordTypePolyBezier16: EmfPlusRecordType = EmfPlusRecordType(85i32);
-pub const EmfRecordTypePolyBezierTo: EmfPlusRecordType = EmfPlusRecordType(5i32);
-pub const EmfRecordTypePolyBezierTo16: EmfPlusRecordType = EmfPlusRecordType(88i32);
-pub const EmfRecordTypePolyDraw: EmfPlusRecordType = EmfPlusRecordType(56i32);
-pub const EmfRecordTypePolyDraw16: EmfPlusRecordType = EmfPlusRecordType(92i32);
-pub const EmfRecordTypePolyLineTo: EmfPlusRecordType = EmfPlusRecordType(6i32);
-pub const EmfRecordTypePolyPolygon: EmfPlusRecordType = EmfPlusRecordType(8i32);
-pub const EmfRecordTypePolyPolygon16: EmfPlusRecordType = EmfPlusRecordType(91i32);
-pub const EmfRecordTypePolyPolyline: EmfPlusRecordType = EmfPlusRecordType(7i32);
-pub const EmfRecordTypePolyPolyline16: EmfPlusRecordType = EmfPlusRecordType(90i32);
-pub const EmfRecordTypePolyTextOutA: EmfPlusRecordType = EmfPlusRecordType(96i32);
-pub const EmfRecordTypePolyTextOutW: EmfPlusRecordType = EmfPlusRecordType(97i32);
-pub const EmfRecordTypePolygon: EmfPlusRecordType = EmfPlusRecordType(3i32);
-pub const EmfRecordTypePolygon16: EmfPlusRecordType = EmfPlusRecordType(86i32);
-pub const EmfRecordTypePolyline: EmfPlusRecordType = EmfPlusRecordType(4i32);
-pub const EmfRecordTypePolyline16: EmfPlusRecordType = EmfPlusRecordType(87i32);
-pub const EmfRecordTypePolylineTo16: EmfPlusRecordType = EmfPlusRecordType(89i32);
-pub const EmfRecordTypeRealizePalette: EmfPlusRecordType = EmfPlusRecordType(52i32);
-pub const EmfRecordTypeRectangle: EmfPlusRecordType = EmfPlusRecordType(43i32);
-pub const EmfRecordTypeReserved_069: EmfPlusRecordType = EmfPlusRecordType(69i32);
-pub const EmfRecordTypeReserved_117: EmfPlusRecordType = EmfPlusRecordType(117i32);
-pub const EmfRecordTypeResizePalette: EmfPlusRecordType = EmfPlusRecordType(51i32);
-pub const EmfRecordTypeRestoreDC: EmfPlusRecordType = EmfPlusRecordType(34i32);
-pub const EmfRecordTypeRoundRect: EmfPlusRecordType = EmfPlusRecordType(44i32);
-pub const EmfRecordTypeSaveDC: EmfPlusRecordType = EmfPlusRecordType(33i32);
-pub const EmfRecordTypeScaleViewportExtEx: EmfPlusRecordType = EmfPlusRecordType(31i32);
-pub const EmfRecordTypeScaleWindowExtEx: EmfPlusRecordType = EmfPlusRecordType(32i32);
-pub const EmfRecordTypeSelectClipPath: EmfPlusRecordType = EmfPlusRecordType(67i32);
-pub const EmfRecordTypeSelectObject: EmfPlusRecordType = EmfPlusRecordType(37i32);
-pub const EmfRecordTypeSelectPalette: EmfPlusRecordType = EmfPlusRecordType(48i32);
-pub const EmfRecordTypeSetArcDirection: EmfPlusRecordType = EmfPlusRecordType(57i32);
-pub const EmfRecordTypeSetBkColor: EmfPlusRecordType = EmfPlusRecordType(25i32);
-pub const EmfRecordTypeSetBkMode: EmfPlusRecordType = EmfPlusRecordType(18i32);
-pub const EmfRecordTypeSetBrushOrgEx: EmfPlusRecordType = EmfPlusRecordType(13i32);
-pub const EmfRecordTypeSetColorAdjustment: EmfPlusRecordType = EmfPlusRecordType(23i32);
-pub const EmfRecordTypeSetColorSpace: EmfPlusRecordType = EmfPlusRecordType(100i32);
-pub const EmfRecordTypeSetDIBitsToDevice: EmfPlusRecordType = EmfPlusRecordType(80i32);
-pub const EmfRecordTypeSetICMMode: EmfPlusRecordType = EmfPlusRecordType(98i32);
-pub const EmfRecordTypeSetICMProfileA: EmfPlusRecordType = EmfPlusRecordType(112i32);
-pub const EmfRecordTypeSetICMProfileW: EmfPlusRecordType = EmfPlusRecordType(113i32);
-pub const EmfRecordTypeSetLayout: EmfPlusRecordType = EmfPlusRecordType(115i32);
-pub const EmfRecordTypeSetLinkedUFIs: EmfPlusRecordType = EmfPlusRecordType(119i32);
-pub const EmfRecordTypeSetMapMode: EmfPlusRecordType = EmfPlusRecordType(17i32);
-pub const EmfRecordTypeSetMapperFlags: EmfPlusRecordType = EmfPlusRecordType(16i32);
-pub const EmfRecordTypeSetMetaRgn: EmfPlusRecordType = EmfPlusRecordType(28i32);
-pub const EmfRecordTypeSetMiterLimit: EmfPlusRecordType = EmfPlusRecordType(58i32);
-pub const EmfRecordTypeSetPaletteEntries: EmfPlusRecordType = EmfPlusRecordType(50i32);
-pub const EmfRecordTypeSetPixelV: EmfPlusRecordType = EmfPlusRecordType(15i32);
-pub const EmfRecordTypeSetPolyFillMode: EmfPlusRecordType = EmfPlusRecordType(19i32);
-pub const EmfRecordTypeSetROP2: EmfPlusRecordType = EmfPlusRecordType(20i32);
-pub const EmfRecordTypeSetStretchBltMode: EmfPlusRecordType = EmfPlusRecordType(21i32);
-pub const EmfRecordTypeSetTextAlign: EmfPlusRecordType = EmfPlusRecordType(22i32);
-pub const EmfRecordTypeSetTextColor: EmfPlusRecordType = EmfPlusRecordType(24i32);
-pub const EmfRecordTypeSetTextJustification: EmfPlusRecordType = EmfPlusRecordType(120i32);
-pub const EmfRecordTypeSetViewportExtEx: EmfPlusRecordType = EmfPlusRecordType(11i32);
-pub const EmfRecordTypeSetViewportOrgEx: EmfPlusRecordType = EmfPlusRecordType(12i32);
-pub const EmfRecordTypeSetWindowExtEx: EmfPlusRecordType = EmfPlusRecordType(9i32);
-pub const EmfRecordTypeSetWindowOrgEx: EmfPlusRecordType = EmfPlusRecordType(10i32);
-pub const EmfRecordTypeSetWorldTransform: EmfPlusRecordType = EmfPlusRecordType(35i32);
-pub const EmfRecordTypeSmallTextOut: EmfPlusRecordType = EmfPlusRecordType(108i32);
-pub const EmfRecordTypeStartDoc: EmfPlusRecordType = EmfPlusRecordType(107i32);
-pub const EmfRecordTypeStretchBlt: EmfPlusRecordType = EmfPlusRecordType(77i32);
-pub const EmfRecordTypeStretchDIBits: EmfPlusRecordType = EmfPlusRecordType(81i32);
-pub const EmfRecordTypeStrokeAndFillPath: EmfPlusRecordType = EmfPlusRecordType(63i32);
-pub const EmfRecordTypeStrokePath: EmfPlusRecordType = EmfPlusRecordType(64i32);
-pub const EmfRecordTypeTransparentBlt: EmfPlusRecordType = EmfPlusRecordType(116i32);
-pub const EmfRecordTypeWidenPath: EmfPlusRecordType = EmfPlusRecordType(66i32);
-pub const EmfToWmfBitsFlagsDefault: EmfToWmfBitsFlags = EmfToWmfBitsFlags(0i32);
-pub const EmfToWmfBitsFlagsEmbedEmf: EmfToWmfBitsFlags = EmfToWmfBitsFlags(1i32);
-pub const EmfToWmfBitsFlagsIncludePlaceable: EmfToWmfBitsFlags = EmfToWmfBitsFlags(2i32);
-pub const EmfToWmfBitsFlagsNoXORClip: EmfToWmfBitsFlags = EmfToWmfBitsFlags(4i32);
-pub const EmfTypeEmfOnly: EmfType = EmfType(3i32);
-pub const EmfTypeEmfPlusDual: EmfType = EmfType(5i32);
-pub const EmfTypeEmfPlusOnly: EmfType = EmfType(4i32);
-pub const EncoderChrominanceTable: windows_core::GUID = windows_core::GUID::from_u128(0xf2e455dc_09b3_4316_8260_676ada32481c);
-pub const EncoderColorDepth: windows_core::GUID = windows_core::GUID::from_u128(0x66087055_ad66_4c7c_9a18_38a2310b8337);
-pub const EncoderColorSpace: windows_core::GUID = windows_core::GUID::from_u128(0xae7a62a0_ee2c_49d8_9d07_1ba8a927596e);
-pub const EncoderCompression: windows_core::GUID = windows_core::GUID::from_u128(0xe09d739d_ccd4_44ee_8eba_3fbf8be4fc58);
-pub const EncoderImageItems: windows_core::GUID = windows_core::GUID::from_u128(0x63875e13_1f1d_45ab_9195_a29b6066a650);
-pub const EncoderLuminanceTable: windows_core::GUID = windows_core::GUID::from_u128(0xedb33bce_0266_4a77_b904_27216099e717);
-pub const EncoderParameterValueTypeASCII: EncoderParameterValueType = EncoderParameterValueType(2i32);
-pub const EncoderParameterValueTypeByte: EncoderParameterValueType = EncoderParameterValueType(1i32);
-pub const EncoderParameterValueTypeLong: EncoderParameterValueType = EncoderParameterValueType(4i32);
-pub const EncoderParameterValueTypeLongRange: EncoderParameterValueType = EncoderParameterValueType(6i32);
-pub const EncoderParameterValueTypePointer: EncoderParameterValueType = EncoderParameterValueType(9i32);
-pub const EncoderParameterValueTypeRational: EncoderParameterValueType = EncoderParameterValueType(5i32);
-pub const EncoderParameterValueTypeRationalRange: EncoderParameterValueType = EncoderParameterValueType(8i32);
-pub const EncoderParameterValueTypeShort: EncoderParameterValueType = EncoderParameterValueType(3i32);
-pub const EncoderParameterValueTypeUndefined: EncoderParameterValueType = EncoderParameterValueType(7i32);
-pub const EncoderQuality: windows_core::GUID = windows_core::GUID::from_u128(0x1d5be4b5_fa4a_452d_9cdd_5db35105e7eb);
-pub const EncoderRenderMethod: windows_core::GUID = windows_core::GUID::from_u128(0x6d42c53a_229a_4825_8bb7_5c99e2b9a8b8);
-pub const EncoderSaveAsCMYK: windows_core::GUID = windows_core::GUID::from_u128(0xa219bbc9_0a9d_4005_a3ee_3a421b8bb06c);
-pub const EncoderSaveFlag: windows_core::GUID = windows_core::GUID::from_u128(0x292266fc_ac40_47bf_8cfc_a85b89a655de);
-pub const EncoderScanMethod: windows_core::GUID = windows_core::GUID::from_u128(0x3a4e2661_3109_4e56_8536_42c156e7dcfa);
-pub const EncoderTransformation: windows_core::GUID = windows_core::GUID::from_u128(0x8d0eb2d1_a58e_4ea8_aa14_108074b7b6f9);
-pub const EncoderValueColorTypeCMYK: EncoderValue = EncoderValue(0i32);
-pub const EncoderValueColorTypeGray: EncoderValue = EncoderValue(24i32);
-pub const EncoderValueColorTypeRGB: EncoderValue = EncoderValue(25i32);
-pub const EncoderValueColorTypeYCCK: EncoderValue = EncoderValue(1i32);
-pub const EncoderValueCompressionCCITT3: EncoderValue = EncoderValue(3i32);
-pub const EncoderValueCompressionCCITT4: EncoderValue = EncoderValue(4i32);
-pub const EncoderValueCompressionLZW: EncoderValue = EncoderValue(2i32);
-pub const EncoderValueCompressionNone: EncoderValue = EncoderValue(6i32);
-pub const EncoderValueCompressionRle: EncoderValue = EncoderValue(5i32);
-pub const EncoderValueFlush: EncoderValue = EncoderValue(20i32);
-pub const EncoderValueFrameDimensionPage: EncoderValue = EncoderValue(23i32);
-pub const EncoderValueFrameDimensionResolution: EncoderValue = EncoderValue(22i32);
-pub const EncoderValueFrameDimensionTime: EncoderValue = EncoderValue(21i32);
-pub const EncoderValueLastFrame: EncoderValue = EncoderValue(19i32);
-pub const EncoderValueMultiFrame: EncoderValue = EncoderValue(18i32);
-pub const EncoderValueRenderNonProgressive: EncoderValue = EncoderValue(12i32);
-pub const EncoderValueRenderProgressive: EncoderValue = EncoderValue(11i32);
-pub const EncoderValueScanMethodInterlaced: EncoderValue = EncoderValue(7i32);
-pub const EncoderValueScanMethodNonInterlaced: EncoderValue = EncoderValue(8i32);
-pub const EncoderValueTransformFlipHorizontal: EncoderValue = EncoderValue(16i32);
-pub const EncoderValueTransformFlipVertical: EncoderValue = EncoderValue(17i32);
-pub const EncoderValueTransformRotate180: EncoderValue = EncoderValue(14i32);
-pub const EncoderValueTransformRotate270: EncoderValue = EncoderValue(15i32);
-pub const EncoderValueTransformRotate90: EncoderValue = EncoderValue(13i32);
-pub const EncoderValueVersionGif87: EncoderValue = EncoderValue(9i32);
-pub const EncoderValueVersionGif89: EncoderValue = EncoderValue(10i32);
-pub const EncoderVersion: windows_core::GUID = windows_core::GUID::from_u128(0x24d18c76_814a_41a4_bf53_1c219cccf797);
-pub const FileNotFound: Status = Status(10i32);
-pub const FillModeAlternate: FillMode = FillMode(0i32);
-pub const FillModeWinding: FillMode = FillMode(1i32);
-pub const FlatnessDefault: f32 = 0.25f32;
-pub const FlushIntentionFlush: FlushIntention = FlushIntention(0i32);
-pub const FlushIntentionSync: FlushIntention = FlushIntention(1i32);
-pub const FontFamilyNotFound: Status = Status(14i32);
-pub const FontStyleBold: FontStyle = FontStyle(1i32);
-pub const FontStyleBoldItalic: FontStyle = FontStyle(3i32);
-pub const FontStyleItalic: FontStyle = FontStyle(2i32);
-pub const FontStyleNotFound: Status = Status(15i32);
-pub const FontStyleRegular: FontStyle = FontStyle(0i32);
-pub const FontStyleStrikeout: FontStyle = FontStyle(8i32);
-pub const FontStyleUnderline: FontStyle = FontStyle(4i32);
-pub const FormatIDImageInformation: windows_core::GUID = windows_core::GUID::from_u128(0xe5836cbe_5eef_4f1d_acde_ae4c43b608ce);
-pub const FormatIDJpegAppHeaders: windows_core::GUID = windows_core::GUID::from_u128(0x1c4afdcd_6177_43cf_abc7_5f51af39ee85);
-pub const FrameDimensionPage: windows_core::GUID = windows_core::GUID::from_u128(0x7462dc86_6180_4c7e_8e3f_ee7333a7a483);
-pub const FrameDimensionResolution: windows_core::GUID = windows_core::GUID::from_u128(0x84236f7b_3bd3_428f_8dab_4ea1439ca315);
-pub const FrameDimensionTime: windows_core::GUID = windows_core::GUID::from_u128(0x6aedbd6d_3fb5_418a_83a6_7f45229dc872);
-pub const GDIP_EMFPLUSFLAGS_DISPLAY: u32 = 1u32;
-pub const GDIP_EMFPLUS_RECORD_BASE: u32 = 16384u32;
-pub const GDIP_WMF_RECORD_BASE: u32 = 65536u32;
-pub const GREEN_SHIFT: u32 = 8u32;
-pub const GdiplusNotInitialized: Status = Status(18i32);
-pub const GdiplusStartupDefault: GdiplusStartupParams = GdiplusStartupParams(0i32);
-pub const GdiplusStartupNoSetRound: GdiplusStartupParams = GdiplusStartupParams(1i32);
-pub const GdiplusStartupSetPSValue: GdiplusStartupParams = GdiplusStartupParams(2i32);
-pub const GdiplusStartupTransparencyMask: GdiplusStartupParams = GdiplusStartupParams(-16777216i32);
-pub const GenericError: Status = Status(1i32);
-pub const GenericFontFamilyMonospace: GenericFontFamily = GenericFontFamily(2i32);
-pub const GenericFontFamilySansSerif: GenericFontFamily = GenericFontFamily(1i32);
-pub const GenericFontFamilySerif: GenericFontFamily = GenericFontFamily(0i32);
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HatchStyle(pub i32);
 pub const HatchStyle05Percent: HatchStyle = HatchStyle(6i32);
 pub const HatchStyle10Percent: HatchStyle = HatchStyle(7i32);
 pub const HatchStyle20Percent: HatchStyle = HatchStyle(8i32);
@@ -5351,6 +4791,9 @@ pub const HatchStyleWeave: HatchStyle = HatchStyle(40i32);
 pub const HatchStyleWideDownwardDiagonal: HatchStyle = HatchStyle(22i32);
 pub const HatchStyleWideUpwardDiagonal: HatchStyle = HatchStyle(23i32);
 pub const HatchStyleZigZag: HatchStyle = HatchStyle(36i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HistogramFormat(pub i32);
 pub const HistogramFormatA: HistogramFormat = HistogramFormat(7i32);
 pub const HistogramFormatARGB: HistogramFormat = HistogramFormat(0i32);
 pub const HistogramFormatB: HistogramFormat = HistogramFormat(4i32);
@@ -5359,10 +4802,102 @@ pub const HistogramFormatGray: HistogramFormat = HistogramFormat(3i32);
 pub const HistogramFormatPARGB: HistogramFormat = HistogramFormat(1i32);
 pub const HistogramFormatR: HistogramFormat = HistogramFormat(6i32);
 pub const HistogramFormatRGB: HistogramFormat = HistogramFormat(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HotkeyPrefix(pub i32);
 pub const HotkeyPrefixHide: HotkeyPrefix = HotkeyPrefix(2i32);
 pub const HotkeyPrefixNone: HotkeyPrefix = HotkeyPrefix(0i32);
 pub const HotkeyPrefixShow: HotkeyPrefix = HotkeyPrefix(1i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HueSaturationLightness {
+    pub Base: Effect,
+}
+impl Default for HueSaturationLightness {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HueSaturationLightness {
+    type TypeKind = windows_core::CopyType;
+}
 pub const HueSaturationLightnessEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0x8b2dd6c3_eb07_4d87_a5f0_7108e26a9c5f);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HueSaturationLightnessParams {
+    pub hueLevel: i32,
+    pub saturationLevel: i32,
+    pub lightnessLevel: i32,
+}
+impl Default for HueSaturationLightnessParams {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HueSaturationLightnessParams {
+    type TypeKind = windows_core::CopyType;
+}
+windows_core::imp::define_interface!(IImageBytes, IImageBytes_Vtbl, 0x025d1823_6c7d_447b_bbdb_a3cbc3dfa2fc);
+windows_core::imp::interface_hierarchy!(IImageBytes, windows_core::IUnknown);
+impl IImageBytes {
+    pub unsafe fn CountBytes(&self, pcb: *mut u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).CountBytes)(windows_core::Interface::as_raw(self), core::mem::transmute(pcb)).ok()
+    }
+    pub unsafe fn LockBytes(&self, cb: u32, uloffset: u32, ppvbytes: *const *const core::ffi::c_void) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).LockBytes)(windows_core::Interface::as_raw(self), core::mem::transmute(cb), core::mem::transmute(uloffset), core::mem::transmute(ppvbytes)).ok()
+    }
+    pub unsafe fn UnlockBytes(&self, pvbytes: *const core::ffi::c_void, cb: u32, uloffset: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).UnlockBytes)(windows_core::Interface::as_raw(self), core::mem::transmute(pvbytes), core::mem::transmute(cb), core::mem::transmute(uloffset)).ok()
+    }
+}
+#[repr(C)]
+pub struct IImageBytes_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub CountBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub LockBytes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const *const core::ffi::c_void) -> windows_core::HRESULT,
+    pub UnlockBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
+}
+pub trait IImageBytes_Impl: windows_core::IUnknownImpl {
+    fn CountBytes(&self, pcb: *mut u32) -> windows_core::Result<()>;
+    fn LockBytes(&self, cb: u32, uloffset: u32, ppvbytes: *const *const core::ffi::c_void) -> windows_core::Result<()>;
+    fn UnlockBytes(&self, pvbytes: *const core::ffi::c_void, cb: u32, uloffset: u32) -> windows_core::Result<()>;
+}
+impl IImageBytes_Vtbl {
+    pub const fn new<Identity: IImageBytes_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn CountBytes<Identity: IImageBytes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcb: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IImageBytes_Impl::CountBytes(this, core::mem::transmute_copy(&pcb)).into()
+        }
+        unsafe extern "system" fn LockBytes<Identity: IImageBytes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cb: u32, uloffset: u32, ppvbytes: *const *const core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IImageBytes_Impl::LockBytes(this, core::mem::transmute_copy(&cb), core::mem::transmute_copy(&uloffset), core::mem::transmute_copy(&ppvbytes)).into()
+        }
+        unsafe extern "system" fn UnlockBytes<Identity: IImageBytes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbytes: *const core::ffi::c_void, cb: u32, uloffset: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IImageBytes_Impl::UnlockBytes(this, core::mem::transmute_copy(&pvbytes), core::mem::transmute_copy(&cb), core::mem::transmute_copy(&uloffset)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            CountBytes: CountBytes::<Identity, OFFSET>,
+            LockBytes: LockBytes::<Identity, OFFSET>,
+            UnlockBytes: UnlockBytes::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IImageBytes as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for IImageBytes {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct Image(pub isize);
+impl windows_core::TypeKind for Image {
+    type TypeKind = windows_core::CopyType;
+}
+pub type ImageAbort = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ImageCodecFlags(pub i32);
 pub const ImageCodecFlagsBlockingDecode: ImageCodecFlags = ImageCodecFlags(32i32);
 pub const ImageCodecFlagsBuiltin: ImageCodecFlags = ImageCodecFlags(65536i32);
 pub const ImageCodecFlagsDecoder: ImageCodecFlags = ImageCodecFlags(2i32);
@@ -5372,6 +4907,34 @@ pub const ImageCodecFlagsSupportBitmap: ImageCodecFlags = ImageCodecFlags(4i32);
 pub const ImageCodecFlagsSupportVector: ImageCodecFlags = ImageCodecFlags(8i32);
 pub const ImageCodecFlagsSystem: ImageCodecFlags = ImageCodecFlags(131072i32);
 pub const ImageCodecFlagsUser: ImageCodecFlags = ImageCodecFlags(262144i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ImageCodecInfo {
+    pub Clsid: windows_core::GUID,
+    pub FormatID: windows_core::GUID,
+    pub CodecName: windows_core::PCWSTR,
+    pub DllName: windows_core::PCWSTR,
+    pub FormatDescription: windows_core::PCWSTR,
+    pub FilenameExtension: windows_core::PCWSTR,
+    pub MimeType: windows_core::PCWSTR,
+    pub Flags: u32,
+    pub Version: u32,
+    pub SigCount: u32,
+    pub SigSize: u32,
+    pub SigPattern: *const u8,
+    pub SigMask: *const u8,
+}
+impl Default for ImageCodecInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ImageCodecInfo {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ImageFlags(pub i32);
 pub const ImageFlagsCaching: ImageFlags = ImageFlags(131072i32);
 pub const ImageFlagsColorSpaceCMYK: ImageFlags = ImageFlags(32i32);
 pub const ImageFlagsColorSpaceGRAY: ImageFlags = ImageFlags(64i32);
@@ -5399,13 +4962,47 @@ pub const ImageFormatTIFF: windows_core::GUID = windows_core::GUID::from_u128(0x
 pub const ImageFormatUndefined: windows_core::GUID = windows_core::GUID::from_u128(0xb96b3ca9_0728_11d3_9d7b_0000f81ef32e);
 pub const ImageFormatWEBP: windows_core::GUID = windows_core::GUID::from_u128(0xb96b3cb7_0728_11d3_9d7b_0000f81ef32e);
 pub const ImageFormatWMF: windows_core::GUID = windows_core::GUID::from_u128(0xb96b3cad_0728_11d3_9d7b_0000f81ef32e);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ImageItemData {
+    pub Size: u32,
+    pub Position: u32,
+    pub Desc: *mut core::ffi::c_void,
+    pub DescSize: u32,
+    pub Data: *mut core::ffi::c_void,
+    pub DataSize: u32,
+    pub Cookie: u32,
+}
+impl Default for ImageItemData {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ImageItemData {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ImageLockMode(pub i32);
 pub const ImageLockModeRead: ImageLockMode = ImageLockMode(1i32);
 pub const ImageLockModeUserInputBuf: ImageLockMode = ImageLockMode(4i32);
 pub const ImageLockModeWrite: ImageLockMode = ImageLockMode(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ImageType(pub i32);
 pub const ImageTypeBitmap: ImageType = ImageType(1i32);
 pub const ImageTypeMetafile: ImageType = ImageType(2i32);
 pub const ImageTypeUnknown: ImageType = ImageType(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct InstalledFontCollection(pub isize);
+impl windows_core::TypeKind for InstalledFontCollection {
+    type TypeKind = windows_core::CopyType;
+}
 pub const InsufficientBuffer: Status = Status(5i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct InterpolationMode(pub i32);
 pub const InterpolationModeBicubic: InterpolationMode = InterpolationMode(4i32);
 pub const InterpolationModeBilinear: InterpolationMode = InterpolationMode(3i32);
 pub const InterpolationModeDefault: InterpolationMode = InterpolationMode(0i32);
@@ -5416,10 +5013,44 @@ pub const InterpolationModeInvalid: InterpolationMode = InterpolationMode(-1i32)
 pub const InterpolationModeLowQuality: InterpolationMode = InterpolationMode(1i32);
 pub const InterpolationModeNearestNeighbor: InterpolationMode = InterpolationMode(5i32);
 pub const InvalidParameter: Status = Status(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ItemDataPosition(pub i32);
 pub const ItemDataPositionAfterBits: ItemDataPosition = ItemDataPosition(2i32);
 pub const ItemDataPositionAfterHeader: ItemDataPosition = ItemDataPosition(0i32);
 pub const ItemDataPositionAfterPalette: ItemDataPosition = ItemDataPosition(1i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct Levels {
+    pub Base: Effect,
+}
+impl Default for Levels {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for Levels {
+    type TypeKind = windows_core::CopyType;
+}
 pub const LevelsEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0x99c354ec_2a31_4f3a_8c34_17a803b33a25);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LevelsParams {
+    pub highlight: i32,
+    pub midtone: i32,
+    pub shadow: i32,
+}
+impl Default for LevelsParams {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LevelsParams {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct LineCap(pub i32);
 pub const LineCapAnchorMask: LineCap = LineCap(240i32);
 pub const LineCapArrowAnchor: LineCap = LineCap(20i32);
 pub const LineCapCustom: LineCap = LineCap(255i32);
@@ -5431,22 +5062,95 @@ pub const LineCapRoundAnchor: LineCap = LineCap(18i32);
 pub const LineCapSquare: LineCap = LineCap(1i32);
 pub const LineCapSquareAnchor: LineCap = LineCap(17i32);
 pub const LineCapTriangle: LineCap = LineCap(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct LineJoin(pub i32);
 pub const LineJoinBevel: LineJoin = LineJoin(1i32);
 pub const LineJoinMiter: LineJoin = LineJoin(0i32);
 pub const LineJoinMiterClipped: LineJoin = LineJoin(3i32);
 pub const LineJoinRound: LineJoin = LineJoin(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct LinearGradientMode(pub i32);
 pub const LinearGradientModeBackwardDiagonal: LinearGradientMode = LinearGradientMode(3i32);
 pub const LinearGradientModeForwardDiagonal: LinearGradientMode = LinearGradientMode(2i32);
 pub const LinearGradientModeHorizontal: LinearGradientMode = LinearGradientMode(0i32);
 pub const LinearGradientModeVertical: LinearGradientMode = LinearGradientMode(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct Matrix(pub isize);
+impl windows_core::TypeKind for Matrix {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MatrixOrder(pub i32);
 pub const MatrixOrderAppend: MatrixOrder = MatrixOrder(1i32);
 pub const MatrixOrderPrepend: MatrixOrder = MatrixOrder(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct Metafile(pub isize);
+impl windows_core::TypeKind for Metafile {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MetafileFrameUnit(pub i32);
 pub const MetafileFrameUnitDocument: MetafileFrameUnit = MetafileFrameUnit(5i32);
 pub const MetafileFrameUnitGdi: MetafileFrameUnit = MetafileFrameUnit(7i32);
 pub const MetafileFrameUnitInch: MetafileFrameUnit = MetafileFrameUnit(4i32);
 pub const MetafileFrameUnitMillimeter: MetafileFrameUnit = MetafileFrameUnit(6i32);
 pub const MetafileFrameUnitPixel: MetafileFrameUnit = MetafileFrameUnit(2i32);
 pub const MetafileFrameUnitPoint: MetafileFrameUnit = MetafileFrameUnit(3i32);
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct MetafileHeader {
+    pub Type: MetafileType,
+    pub Size: u32,
+    pub Version: u32,
+    pub EmfPlusFlags: u32,
+    pub DpiX: f32,
+    pub DpiY: f32,
+    pub X: i32,
+    pub Y: i32,
+    pub Width: i32,
+    pub Height: i32,
+    pub Anonymous: MetafileHeader_0,
+    pub EmfPlusHeaderSize: i32,
+    pub LogicalDpiX: i32,
+    pub LogicalDpiY: i32,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for MetafileHeader {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for MetafileHeader {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub union MetafileHeader_0 {
+    pub WmfHeader: super::Gdi::METAHEADER,
+    pub EmfHeader: ENHMETAHEADER3,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for MetafileHeader_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for MetafileHeader_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MetafileType(pub i32);
 pub const MetafileTypeEmf: MetafileType = MetafileType(3i32);
 pub const MetafileTypeEmfPlusDual: MetafileType = MetafileType(5i32);
 pub const MetafileTypeEmfPlusOnly: MetafileType = MetafileType(4i32);
@@ -5455,7 +5159,12 @@ pub const MetafileTypeWmf: MetafileType = MetafileType(1i32);
 pub const MetafileTypeWmfPlaceable: MetafileType = MetafileType(2i32);
 pub const NotImplemented: Status = Status(6i32);
 pub const NotTrueTypeFont: Status = Status(16i32);
+pub type NotificationHookProc = Option<unsafe extern "system" fn(token: *mut usize) -> Status>;
+pub type NotificationUnhookProc = Option<unsafe extern "system" fn(token: usize)>;
 pub const ObjectBusy: Status = Status(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ObjectType(pub i32);
 pub const ObjectTypeBrush: ObjectType = ObjectType(1i32);
 pub const ObjectTypeCustomLineCap: ObjectType = ObjectType(9i32);
 pub const ObjectTypeFont: ObjectType = ObjectType(6i32);
@@ -5471,9 +5180,31 @@ pub const ObjectTypeRegion: ObjectType = ObjectType(4i32);
 pub const ObjectTypeStringFormat: ObjectType = ObjectType(7i32);
 pub const Ok: Status = Status(0i32);
 pub const OutOfMemory: Status = Status(3i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PWMFRect16 {
+    pub Left: i16,
+    pub Top: i16,
+    pub Right: i16,
+    pub Bottom: i16,
+}
+impl Default for PWMFRect16 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PWMFRect16 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PaletteFlags(pub i32);
 pub const PaletteFlagsGrayScale: PaletteFlags = PaletteFlags(2i32);
 pub const PaletteFlagsHalftone: PaletteFlags = PaletteFlags(4i32);
 pub const PaletteFlagsHasAlpha: PaletteFlags = PaletteFlags(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PaletteType(pub i32);
 pub const PaletteTypeCustom: PaletteType = PaletteType(0i32);
 pub const PaletteTypeFixedBW: PaletteType = PaletteType(2i32);
 pub const PaletteTypeFixedHalftone125: PaletteType = PaletteType(6i32);
@@ -5484,6 +5215,15 @@ pub const PaletteTypeFixedHalftone27: PaletteType = PaletteType(4i32);
 pub const PaletteTypeFixedHalftone64: PaletteType = PaletteType(5i32);
 pub const PaletteTypeFixedHalftone8: PaletteType = PaletteType(3i32);
 pub const PaletteTypeOptimal: PaletteType = PaletteType(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct PathData(pub isize);
+impl windows_core::TypeKind for PathData {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PathPointType(pub i32);
 pub const PathPointTypeBezier: PathPointType = PathPointType(3i32);
 pub const PathPointTypeBezier3: PathPointType = PathPointType(3i32);
 pub const PathPointTypeCloseSubpath: PathPointType = PathPointType(128i32);
@@ -5492,8 +5232,14 @@ pub const PathPointTypeLine: PathPointType = PathPointType(1i32);
 pub const PathPointTypePathMarker: PathPointType = PathPointType(32i32);
 pub const PathPointTypePathTypeMask: PathPointType = PathPointType(7i32);
 pub const PathPointTypeStart: PathPointType = PathPointType(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PenAlignment(pub i32);
 pub const PenAlignmentCenter: PenAlignment = PenAlignment(0i32);
 pub const PenAlignmentInset: PenAlignment = PenAlignment(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PenType(pub i32);
 pub const PenTypeHatchFill: PenType = PenType(1i32);
 pub const PenTypeLinearGradient: PenType = PenType(4i32);
 pub const PenTypePathGradient: PenType = PenType(3i32);
@@ -5509,13 +5255,66 @@ pub const PixelFormatIndexed: u32 = 65536u32;
 pub const PixelFormatMax: u32 = 16u32;
 pub const PixelFormatPAlpha: u32 = 524288u32;
 pub const PixelFormatUndefined: u32 = 0u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PixelOffsetMode(pub i32);
 pub const PixelOffsetModeDefault: PixelOffsetMode = PixelOffsetMode(0i32);
 pub const PixelOffsetModeHalf: PixelOffsetMode = PixelOffsetMode(4i32);
 pub const PixelOffsetModeHighQuality: PixelOffsetMode = PixelOffsetMode(2i32);
 pub const PixelOffsetModeHighSpeed: PixelOffsetMode = PixelOffsetMode(1i32);
 pub const PixelOffsetModeInvalid: PixelOffsetMode = PixelOffsetMode(-1i32);
 pub const PixelOffsetModeNone: PixelOffsetMode = PixelOffsetMode(3i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct Point {
+    pub X: i32,
+    pub Y: i32,
+}
+impl Default for Point {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for Point {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PointF {
+    pub X: f32,
+    pub Y: f32,
+}
+impl Default for PointF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PointF {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct PrivateFontCollection(pub isize);
+impl windows_core::TypeKind for PrivateFontCollection {
+    type TypeKind = windows_core::CopyType;
+}
 pub const ProfileNotFound: Status = Status(21i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PropertyItem {
+    pub id: u32,
+    pub length: u32,
+    pub r#type: u16,
+    pub value: *mut core::ffi::c_void,
+}
+impl Default for PropertyItem {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PropertyItem {
+    type TypeKind = windows_core::CopyType;
+}
 pub const PropertyNotFound: Status = Status(19i32);
 pub const PropertyNotSupported: Status = Status(20i32);
 pub const PropertyTagArtist: u32 = 315u32;
@@ -5761,12 +5560,80 @@ pub const PropertyTagYCbCrPositioning: u32 = 531u32;
 pub const PropertyTagYCbCrSubsampling: u32 = 530u32;
 pub const PropertyTagYPosition: u32 = 287u32;
 pub const PropertyTagYResolution: u32 = 283u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QualityMode(pub i32);
 pub const QualityModeDefault: QualityMode = QualityMode(0i32);
 pub const QualityModeHigh: QualityMode = QualityMode(2i32);
 pub const QualityModeInvalid: QualityMode = QualityMode(-1i32);
 pub const QualityModeLow: QualityMode = QualityMode(1i32);
 pub const RED_SHIFT: u32 = 16u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct Rect {
+    pub X: i32,
+    pub Y: i32,
+    pub Width: i32,
+    pub Height: i32,
+}
+impl Default for Rect {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for Rect {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RectF {
+    pub X: f32,
+    pub Y: f32,
+    pub Width: f32,
+    pub Height: f32,
+}
+impl Default for RectF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RectF {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RedEyeCorrection {
+    pub Base: Effect,
+}
+impl Default for RedEyeCorrection {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RedEyeCorrection {
+    type TypeKind = windows_core::CopyType;
+}
 pub const RedEyeCorrectionEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0x74d29d05_69a4_4266_9549_3cc52836b632);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RedEyeCorrectionParams {
+    pub numberOfAreas: u32,
+    pub areas: *mut super::super::Foundation::RECT,
+}
+impl Default for RedEyeCorrectionParams {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RedEyeCorrectionParams {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct Region(pub isize);
+impl windows_core::TypeKind for Region {
+    type TypeKind = windows_core::CopyType;
+}
 pub const Rotate180FlipNone: RotateFlipType = RotateFlipType(2i32);
 pub const Rotate180FlipX: RotateFlipType = RotateFlipType(6i32);
 pub const Rotate180FlipXY: RotateFlipType = RotateFlipType(0i32);
@@ -5779,11 +5646,72 @@ pub const Rotate90FlipNone: RotateFlipType = RotateFlipType(1i32);
 pub const Rotate90FlipX: RotateFlipType = RotateFlipType(5i32);
 pub const Rotate90FlipXY: RotateFlipType = RotateFlipType(3i32);
 pub const Rotate90FlipY: RotateFlipType = RotateFlipType(7i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RotateFlipType(pub i32);
 pub const RotateNoneFlipNone: RotateFlipType = RotateFlipType(0i32);
 pub const RotateNoneFlipX: RotateFlipType = RotateFlipType(4i32);
 pub const RotateNoneFlipXY: RotateFlipType = RotateFlipType(2i32);
 pub const RotateNoneFlipY: RotateFlipType = RotateFlipType(6i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct Sharpen {
+    pub Base: Effect,
+}
+impl Default for Sharpen {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for Sharpen {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SharpenEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0x63cbf3ee_c526_402c_8f71_62c540bf5142);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SharpenParams {
+    pub radius: f32,
+    pub amount: f32,
+}
+impl Default for SharpenParams {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SharpenParams {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct Size {
+    pub Width: i32,
+    pub Height: i32,
+}
+impl Default for Size {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for Size {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SizeF {
+    pub Width: f32,
+    pub Height: f32,
+}
+impl Default for SizeF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SizeF {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SmoothingMode(pub i32);
 pub const SmoothingModeAntiAlias: SmoothingMode = SmoothingMode(4i32);
 pub const SmoothingModeAntiAlias8x4: SmoothingMode = SmoothingMode(4i32);
 pub const SmoothingModeAntiAlias8x8: SmoothingMode = SmoothingMode(5i32);
@@ -5792,13 +5720,25 @@ pub const SmoothingModeHighQuality: SmoothingMode = SmoothingMode(2i32);
 pub const SmoothingModeHighSpeed: SmoothingMode = SmoothingMode(1i32);
 pub const SmoothingModeInvalid: SmoothingMode = SmoothingMode(-1i32);
 pub const SmoothingModeNone: SmoothingMode = SmoothingMode(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct Status(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct StringAlignment(pub i32);
 pub const StringAlignmentCenter: StringAlignment = StringAlignment(1i32);
 pub const StringAlignmentFar: StringAlignment = StringAlignment(2i32);
 pub const StringAlignmentNear: StringAlignment = StringAlignment(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct StringDigitSubstitute(pub i32);
 pub const StringDigitSubstituteNational: StringDigitSubstitute = StringDigitSubstitute(2i32);
 pub const StringDigitSubstituteNone: StringDigitSubstitute = StringDigitSubstitute(1i32);
 pub const StringDigitSubstituteTraditional: StringDigitSubstitute = StringDigitSubstitute(3i32);
 pub const StringDigitSubstituteUser: StringDigitSubstitute = StringDigitSubstitute(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct StringFormatFlags(pub i32);
 pub const StringFormatFlagsBypassGDI: StringFormatFlags = StringFormatFlags(-2147483648i32);
 pub const StringFormatFlagsDirectionRightToLeft: StringFormatFlags = StringFormatFlags(1i32);
 pub const StringFormatFlagsDirectionVertical: StringFormatFlags = StringFormatFlags(2i32);
@@ -5809,6 +5749,9 @@ pub const StringFormatFlagsNoClip: StringFormatFlags = StringFormatFlags(16384i3
 pub const StringFormatFlagsNoFitBlackBox: StringFormatFlags = StringFormatFlags(4i32);
 pub const StringFormatFlagsNoFontFallback: StringFormatFlags = StringFormatFlags(1024i32);
 pub const StringFormatFlagsNoWrap: StringFormatFlags = StringFormatFlags(4096i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct StringTrimming(pub i32);
 pub const StringTrimmingCharacter: StringTrimming = StringTrimming(1i32);
 pub const StringTrimmingEllipsisCharacter: StringTrimming = StringTrimming(3i32);
 pub const StringTrimmingEllipsisPath: StringTrimming = StringTrimming(5i32);
@@ -5818,13 +5761,46 @@ pub const StringTrimmingWord: StringTrimming = StringTrimming(2i32);
 pub const TestControlForceBilinear: GpTestControlEnum = GpTestControlEnum(0i32);
 pub const TestControlGetBuildNumber: GpTestControlEnum = GpTestControlEnum(2i32);
 pub const TestControlNoICM: GpTestControlEnum = GpTestControlEnum(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TextRenderingHint(pub i32);
 pub const TextRenderingHintAntiAlias: TextRenderingHint = TextRenderingHint(4i32);
 pub const TextRenderingHintAntiAliasGridFit: TextRenderingHint = TextRenderingHint(3i32);
 pub const TextRenderingHintClearTypeGridFit: TextRenderingHint = TextRenderingHint(5i32);
 pub const TextRenderingHintSingleBitPerPixel: TextRenderingHint = TextRenderingHint(2i32);
 pub const TextRenderingHintSingleBitPerPixelGridFit: TextRenderingHint = TextRenderingHint(1i32);
 pub const TextRenderingHintSystemDefault: TextRenderingHint = TextRenderingHint(0i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct Tint {
+    pub Base: Effect,
+}
+impl Default for Tint {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for Tint {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TintEffectGuid: windows_core::GUID = windows_core::GUID::from_u128(0x1077af00_2848_4441_9489_44ad4c2d7a2c);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TintParams {
+    pub hue: i32,
+    pub amount: i32,
+}
+impl Default for TintParams {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TintParams {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct Unit(pub i32);
 pub const UnitDisplay: Unit = Unit(1i32);
 pub const UnitDocument: Unit = Unit(5i32);
 pub const UnitInch: Unit = Unit(4i32);
@@ -5835,9 +5811,30 @@ pub const UnitWorld: Unit = Unit(0i32);
 pub const UnknownImageFormat: Status = Status(13i32);
 pub const UnsupportedGdiplusVersion: Status = Status(17i32);
 pub const ValueOverflow: Status = Status(11i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WarpMode(pub i32);
 pub const WarpModeBilinear: WarpMode = WarpMode(1i32);
 pub const WarpModePerspective: WarpMode = WarpMode(0i32);
 pub const Win32Error: Status = Status(7i32);
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct WmfPlaceableFileHeader {
+    pub Key: u32,
+    pub Hmf: i16,
+    pub BoundingBox: PWMFRect16,
+    pub Inch: i16,
+    pub Reserved: u32,
+    pub Checksum: i16,
+}
+impl Default for WmfPlaceableFileHeader {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WmfPlaceableFileHeader {
+    type TypeKind = windows_core::CopyType;
+}
 pub const WmfRecordTypeAbortDoc: EmfPlusRecordType = EmfPlusRecordType(65618i32);
 pub const WmfRecordTypeAnimatePalette: EmfPlusRecordType = EmfPlusRecordType(66614i32);
 pub const WmfRecordTypeArc: EmfPlusRecordType = EmfPlusRecordType(67607i32);
@@ -5917,6 +5914,9 @@ pub const WmfRecordTypeStartPage: EmfPlusRecordType = EmfPlusRecordType(65615i32
 pub const WmfRecordTypeStretchBlt: EmfPlusRecordType = EmfPlusRecordType(68387i32);
 pub const WmfRecordTypeStretchDIB: EmfPlusRecordType = EmfPlusRecordType(69443i32);
 pub const WmfRecordTypeTextOut: EmfPlusRecordType = EmfPlusRecordType(66849i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WrapMode(pub i32);
 pub const WrapModeClamp: WrapMode = WrapMode(4i32);
 pub const WrapModeTile: WrapMode = WrapMode(0i32);
 pub const WrapModeTileFlipX: WrapMode = WrapMode(1i32);

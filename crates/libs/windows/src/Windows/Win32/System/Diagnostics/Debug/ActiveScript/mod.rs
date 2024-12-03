@@ -1,3 +1,18 @@
+pub const ACTIVPROF_E_PROFILER_ABSENT: windows_core::HRESULT = windows_core::HRESULT(0x80040201_u32 as _);
+pub const ACTIVPROF_E_PROFILER_PRESENT: windows_core::HRESULT = windows_core::HRESULT(0x80040200_u32 as _);
+pub const ACTIVPROF_E_UNABLE_TO_APPLY_ACTION: windows_core::HRESULT = windows_core::HRESULT(0x80040202_u32 as _);
+pub const APPBREAKFLAG_DEBUGGER_BLOCK: u32 = 1u32;
+pub const APPBREAKFLAG_DEBUGGER_HALT: u32 = 2u32;
+pub const APPBREAKFLAG_IN_BREAKPOINT: u32 = 2147483648u32;
+pub const APPBREAKFLAG_NESTED: u32 = 131072u32;
+pub const APPBREAKFLAG_STEP: u32 = 65536u32;
+pub const APPBREAKFLAG_STEPTYPE_BYTECODE: u32 = 1048576u32;
+pub const APPBREAKFLAG_STEPTYPE_MACHINE: u32 = 2097152u32;
+pub const APPBREAKFLAG_STEPTYPE_MASK: u32 = 15728640u32;
+pub const APPBREAKFLAG_STEPTYPE_SOURCE: u32 = 0u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct APPLICATION_NODE_EVENT_FILTER(pub i32);
 windows_core::imp::define_interface!(AsyncIDebugApplicationNodeEvents, AsyncIDebugApplicationNodeEvents_Vtbl, 0xa2e3aa3b_aa8d_4ebf_84cd_648b737b8c13);
 windows_core::imp::interface_hierarchy!(AsyncIDebugApplicationNodeEvents, windows_core::IUnknown);
 impl AsyncIDebugApplicationNodeEvents {
@@ -108,6 +123,127 @@ impl AsyncIDebugApplicationNodeEvents_Vtbl {
     }
 }
 impl windows_core::RuntimeName for AsyncIDebugApplicationNodeEvents {}
+pub const BREAKPOINT_DELETED: BREAKPOINT_STATE = BREAKPOINT_STATE(0i32);
+pub const BREAKPOINT_DISABLED: BREAKPOINT_STATE = BREAKPOINT_STATE(1i32);
+pub const BREAKPOINT_ENABLED: BREAKPOINT_STATE = BREAKPOINT_STATE(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BREAKPOINT_STATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BREAKREASON(pub i32);
+pub const BREAKREASON_BREAKPOINT: BREAKREASON = BREAKREASON(1i32);
+pub const BREAKREASON_DEBUGGER_BLOCK: BREAKREASON = BREAKREASON(2i32);
+pub const BREAKREASON_DEBUGGER_HALT: BREAKREASON = BREAKREASON(5i32);
+pub const BREAKREASON_ERROR: BREAKREASON = BREAKREASON(6i32);
+pub const BREAKREASON_HOST_INITIATED: BREAKREASON = BREAKREASON(3i32);
+pub const BREAKREASON_JIT: BREAKREASON = BREAKREASON(7i32);
+pub const BREAKREASON_LANGUAGE_INITIATED: BREAKREASON = BREAKREASON(4i32);
+pub const BREAKREASON_MUTATION_BREAKPOINT: BREAKREASON = BREAKREASON(8i32);
+pub const BREAKREASON_STEP: BREAKREASON = BREAKREASON(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BREAKRESUMEACTION(pub i32);
+pub const BREAKRESUMEACTION_ABORT: BREAKRESUMEACTION = BREAKRESUMEACTION(0i32);
+pub const BREAKRESUMEACTION_CONTINUE: BREAKRESUMEACTION = BREAKRESUMEACTION(1i32);
+pub const BREAKRESUMEACTION_IGNORE: BREAKRESUMEACTION = BREAKRESUMEACTION(5i32);
+pub const BREAKRESUMEACTION_STEP_DOCUMENT: BREAKRESUMEACTION = BREAKRESUMEACTION(6i32);
+pub const BREAKRESUMEACTION_STEP_INTO: BREAKRESUMEACTION = BREAKRESUMEACTION(2i32);
+pub const BREAKRESUMEACTION_STEP_OUT: BREAKRESUMEACTION = BREAKRESUMEACTION(4i32);
+pub const BREAKRESUMEACTION_STEP_OVER: BREAKRESUMEACTION = BREAKRESUMEACTION(3i32);
+pub const CATID_ActiveScript: windows_core::GUID = windows_core::GUID::from_u128(0xf0b7a1a1_9847_11cf_8f20_00805f2cd064);
+pub const CATID_ActiveScriptAuthor: windows_core::GUID = windows_core::GUID::from_u128(0x0aee2a92_bcbb_11d0_8c72_00c04fc2b085);
+pub const CATID_ActiveScriptEncode: windows_core::GUID = windows_core::GUID::from_u128(0xf0b7a1a3_9847_11cf_8f20_00805f2cd064);
+pub const CATID_ActiveScriptParse: windows_core::GUID = windows_core::GUID::from_u128(0xf0b7a1a2_9847_11cf_8f20_00805f2cd064);
+pub const CDebugDocumentHelper: windows_core::GUID = windows_core::GUID::from_u128(0x83b8bca6_687c_11d0_a405_00aa0060275c);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DEBUG_EVENT_INFO_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DEBUG_STACKFRAME_TYPE(pub i32);
+pub const DEBUG_TEXT_ALLOWBREAKPOINTS: u32 = 8u32;
+pub const DEBUG_TEXT_ALLOWERRORREPORT: u32 = 16u32;
+pub const DEBUG_TEXT_EVALUATETOCODECONTEXT: u32 = 32u32;
+pub const DEBUG_TEXT_ISEXPRESSION: u32 = 1u32;
+pub const DEBUG_TEXT_ISNONUSERCODE: u32 = 64u32;
+pub const DEBUG_TEXT_NOSIDEEFFECTS: u32 = 4u32;
+pub const DEBUG_TEXT_RETURNVALUE: u32 = 2u32;
+pub const DEIT_ASMJS_FAILED: DEBUG_EVENT_INFO_TYPE = DEBUG_EVENT_INFO_TYPE(3i32);
+pub const DEIT_ASMJS_IN_DEBUGGING: DEBUG_EVENT_INFO_TYPE = DEBUG_EVENT_INFO_TYPE(1i32);
+pub const DEIT_ASMJS_SUCCEEDED: DEBUG_EVENT_INFO_TYPE = DEBUG_EVENT_INFO_TYPE(2i32);
+pub const DEIT_GENERAL: DEBUG_EVENT_INFO_TYPE = DEBUG_EVENT_INFO_TYPE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DOCUMENTNAMETYPE(pub i32);
+pub const DOCUMENTNAMETYPE_APPNODE: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(0i32);
+pub const DOCUMENTNAMETYPE_FILE_TAIL: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(2i32);
+pub const DOCUMENTNAMETYPE_SOURCE_MAP_URL: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(5i32);
+pub const DOCUMENTNAMETYPE_TITLE: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(1i32);
+pub const DOCUMENTNAMETYPE_UNIQUE_TITLE: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(4i32);
+pub const DOCUMENTNAMETYPE_URL: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(3i32);
+pub const DST_INTERNAL_FRAME: DEBUG_STACKFRAME_TYPE = DEBUG_STACKFRAME_TYPE(1i32);
+pub const DST_INVOCATION_FRAME: DEBUG_STACKFRAME_TYPE = DEBUG_STACKFRAME_TYPE(2i32);
+pub const DST_SCRIPT_FRAME: DEBUG_STACKFRAME_TYPE = DEBUG_STACKFRAME_TYPE(0i32);
+pub const DebugHelper: windows_core::GUID = windows_core::GUID::from_u128(0x0bfcc060_8c1d_11d0_accd_00aa0060275c);
+#[repr(C)]
+#[derive(Clone, Debug, PartialEq)]
+pub struct DebugStackFrameDescriptor {
+    pub pdsf: core::mem::ManuallyDrop<Option<IDebugStackFrame>>,
+    pub dwMin: u32,
+    pub dwLim: u32,
+    pub fFinal: super::super::super::super::Foundation::BOOL,
+    pub punkFinal: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+}
+impl Default for DebugStackFrameDescriptor {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DebugStackFrameDescriptor {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C)]
+#[derive(Clone, Debug, PartialEq)]
+pub struct DebugStackFrameDescriptor64 {
+    pub pdsf: core::mem::ManuallyDrop<Option<IDebugStackFrame>>,
+    pub dwMin: u64,
+    pub dwLim: u64,
+    pub fFinal: super::super::super::super::Foundation::BOOL,
+    pub punkFinal: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+}
+impl Default for DebugStackFrameDescriptor64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DebugStackFrameDescriptor64 {
+    type TypeKind = windows_core::CloneType;
+}
+pub const DefaultDebugSessionProvider: windows_core::GUID = windows_core::GUID::from_u128(0x834128a2_51f4_11d0_8f20_00805f2cd064);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ERRORRESUMEACTION(pub i32);
+pub const ERRORRESUMEACTION_AbortCallAndReturnErrorToCaller: ERRORRESUMEACTION = ERRORRESUMEACTION(1i32);
+pub const ERRORRESUMEACTION_ReexecuteErrorStatement: ERRORRESUMEACTION = ERRORRESUMEACTION(0i32);
+pub const ERRORRESUMEACTION_SkipErrorStatement: ERRORRESUMEACTION = ERRORRESUMEACTION(2i32);
+pub const ETK_FIRST_CHANCE: SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND = SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND(0i32);
+pub const ETK_UNHANDLED: SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND = SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND(2i32);
+pub const ETK_USER_UNHANDLED: SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND = SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND(1i32);
+pub const E_JsDEBUG_INVALID_MEMORY_ADDRESS: windows_core::HRESULT = windows_core::HRESULT(0x8DC70005_u32 as _);
+pub const E_JsDEBUG_MISMATCHED_RUNTIME: windows_core::HRESULT = windows_core::HRESULT(0x8DC70001_u32 as _);
+pub const E_JsDEBUG_OUTSIDE_OF_VM: windows_core::HRESULT = windows_core::HRESULT(0x8DC70004_u32 as _);
+pub const E_JsDEBUG_RUNTIME_NOT_IN_DEBUG_MODE: windows_core::HRESULT = windows_core::HRESULT(0x8DC70007_u32 as _);
+pub const E_JsDEBUG_SOURCE_LOCATION_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x8DC70006_u32 as _);
+pub const E_JsDEBUG_UNKNOWN_THREAD: windows_core::HRESULT = windows_core::HRESULT(0x8DC70002_u32 as _);
+pub const FACILITY_JsDEBUG: u32 = 3527u32;
+pub const FILTER_EXCLUDE_ANONYMOUS_CODE: APPLICATION_NODE_EVENT_FILTER = APPLICATION_NODE_EVENT_FILTER(1i32);
+pub const FILTER_EXCLUDE_EVAL_CODE: APPLICATION_NODE_EVENT_FILTER = APPLICATION_NODE_EVENT_FILTER(2i32);
+pub const FILTER_EXCLUDE_NOTHING: APPLICATION_NODE_EVENT_FILTER = APPLICATION_NODE_EVENT_FILTER(0i32);
+pub const GETATTRFLAG_HUMANTEXT: u32 = 32768u32;
+pub const GETATTRFLAG_THIS: u32 = 256u32;
+pub const GETATTRTYPE_DEPSCAN: u32 = 1u32;
+pub const GETATTRTYPE_NORMAL: u32 = 0u32;
 windows_core::imp::define_interface!(IActiveScript, IActiveScript_Vtbl, 0xbb1a2ae1_a4f9_11cf_8f20_00805f2cd064);
 windows_core::imp::interface_hierarchy!(IActiveScript, windows_core::IUnknown);
 impl IActiveScript {
@@ -9153,36 +9289,56 @@ impl IWebAppDiagnosticsSetup_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWebAppDiagnosticsSetup {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct APPLICATION_NODE_EVENT_FILTER(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BREAKPOINT_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BREAKREASON(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BREAKRESUMEACTION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DEBUG_EVENT_INFO_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DEBUG_STACKFRAME_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DOCUMENTNAMETYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ERRORRESUMEACTION(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct JS_NATIVE_FRAME {
+    pub InstructionOffset: u64,
+    pub ReturnOffset: u64,
+    pub FrameOffset: u64,
+    pub StackOffset: u64,
+}
+impl Default for JS_NATIVE_FRAME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for JS_NATIVE_FRAME {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JS_PROPERTY_ATTRIBUTES(pub i32);
+pub const JS_PROPERTY_ATTRIBUTE_NONE: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(0i32);
+pub const JS_PROPERTY_FAKE: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(2i32);
+pub const JS_PROPERTY_FRAME_INCATCHBLOCK: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(64i32);
+pub const JS_PROPERTY_FRAME_INFINALLYBLOCK: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(128i32);
+pub const JS_PROPERTY_FRAME_INTRYBLOCK: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(32i32);
+pub const JS_PROPERTY_HAS_CHILDREN: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JS_PROPERTY_MEMBERS(pub i32);
+pub const JS_PROPERTY_MEMBERS_ALL: JS_PROPERTY_MEMBERS = JS_PROPERTY_MEMBERS(0i32);
+pub const JS_PROPERTY_MEMBERS_ARGUMENTS: JS_PROPERTY_MEMBERS = JS_PROPERTY_MEMBERS(1i32);
+pub const JS_PROPERTY_METHOD: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(4i32);
+pub const JS_PROPERTY_NATIVE_WINRT_POINTER: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(16i32);
+pub const JS_PROPERTY_READONLY: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(8i32);
+#[repr(C)]
+#[derive(Clone, Debug, PartialEq)]
+pub struct JsDebugPropertyInfo {
+    pub name: core::mem::ManuallyDrop<windows_core::BSTR>,
+    pub r#type: core::mem::ManuallyDrop<windows_core::BSTR>,
+    pub value: core::mem::ManuallyDrop<windows_core::BSTR>,
+    pub fullName: core::mem::ManuallyDrop<windows_core::BSTR>,
+    pub attr: JS_PROPERTY_ATTRIBUTES,
+}
+impl Default for JsDebugPropertyInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for JsDebugPropertyInfo {
+    type TypeKind = windows_core::CloneType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JsDebugReadMemoryFlags(pub i32);
@@ -9190,6 +9346,11 @@ impl JsDebugReadMemoryFlags {
     pub const None: Self = Self(0i32);
     pub const JsDebugAllowPartialRead: Self = Self(1i32);
 }
+pub const MachineDebugManager_DEBUG: windows_core::GUID = windows_core::GUID::from_u128(0x49769cec_3a55_4bb0_b697_88fede77e8ea);
+pub const MachineDebugManager_RETAIL: windows_core::GUID = windows_core::GUID::from_u128(0x0c0a3666_30c9_11d0_8f20_00805f2cd064);
+pub const OID_JSSIP: windows_core::GUID = windows_core::GUID::from_u128(0x06c9e010_38ce_11d4_a2a3_00104bd35090);
+pub const OID_VBSSIP: windows_core::GUID = windows_core::GUID::from_u128(0x1629f04e_2799_4db5_8fe5_ace10f17ebab);
+pub const OID_WSFSIP: windows_core::GUID = windows_core::GUID::from_u128(0x1a610570_38ce_11d4_a2a3_00104bd35090);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROFILER_EVENT_MASK(pub i32);
@@ -9226,6 +9387,11 @@ impl core::ops::Not for PROFILER_EVENT_MASK {
         Self(self.0.not())
     }
 }
+pub const PROFILER_EVENT_MASK_TRACE_ALL: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(3i32);
+pub const PROFILER_EVENT_MASK_TRACE_ALL_WITH_DOM: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(7i32);
+pub const PROFILER_EVENT_MASK_TRACE_DOM_FUNCTION_CALL: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(4i32);
+pub const PROFILER_EVENT_MASK_TRACE_NATIVE_FUNCTION_CALL: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(2i32);
+pub const PROFILER_EVENT_MASK_TRACE_SCRIPT_FUNCTION_CALL: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROFILER_HEAP_ENUM_FLAGS(pub i32);
@@ -9261,6 +9427,42 @@ impl core::ops::Not for PROFILER_HEAP_ENUM_FLAGS {
     fn not(self) -> Self {
         Self(self.0.not())
     }
+}
+pub const PROFILER_HEAP_ENUM_FLAGS_NONE: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(0i32);
+pub const PROFILER_HEAP_ENUM_FLAGS_RELATIONSHIP_SUBSTRINGS: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(3i32);
+pub const PROFILER_HEAP_ENUM_FLAGS_STORE_RELATIONSHIP_FLAGS: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(1i32);
+pub const PROFILER_HEAP_ENUM_FLAGS_SUBSTRINGS: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(2i32);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROFILER_HEAP_OBJECT {
+    pub size: u32,
+    pub Anonymous: PROFILER_HEAP_OBJECT_0,
+    pub typeNameId: u32,
+    pub flags: u32,
+    pub unused: u16,
+    pub optionalInfoCount: u16,
+}
+impl Default for PROFILER_HEAP_OBJECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PROFILER_HEAP_OBJECT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PROFILER_HEAP_OBJECT_0 {
+    pub objectId: usize,
+    pub externalObjectAddress: *mut core::ffi::c_void,
+}
+impl Default for PROFILER_HEAP_OBJECT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9298,221 +9500,20 @@ impl core::ops::Not for PROFILER_HEAP_OBJECT_FLAGS {
         Self(self.0.not())
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(pub i32);
-impl PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROFILER_HEAP_SUMMARY_VERSION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROFILER_RELATIONSHIP_INFO(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROFILER_SCRIPT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCRIPTGCTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCRIPTLANGUAGEVERSION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCRIPTSTATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCRIPTTHREADSTATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCRIPTTRACEINFO(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCRIPTUICHANDLING(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCRIPTUICITEM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCRIPT_DEBUGGER_OPTIONS(pub i32);
-impl SCRIPT_DEBUGGER_OPTIONS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for SCRIPT_DEBUGGER_OPTIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for SCRIPT_DEBUGGER_OPTIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for SCRIPT_DEBUGGER_OPTIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for SCRIPT_DEBUGGER_OPTIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for SCRIPT_DEBUGGER_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCRIPT_INVOCATION_CONTEXT_TYPE(pub i32);
-pub const CDebugDocumentHelper: windows_core::GUID = windows_core::GUID::from_u128(0x83b8bca6_687c_11d0_a405_00aa0060275c);
-pub const DebugHelper: windows_core::GUID = windows_core::GUID::from_u128(0x0bfcc060_8c1d_11d0_accd_00aa0060275c);
-#[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
-pub struct DebugStackFrameDescriptor {
-    pub pdsf: core::mem::ManuallyDrop<Option<IDebugStackFrame>>,
-    pub dwMin: u32,
-    pub dwLim: u32,
-    pub fFinal: super::super::super::super::Foundation::BOOL,
-    pub punkFinal: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-}
-impl Default for DebugStackFrameDescriptor {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DebugStackFrameDescriptor {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
-pub struct DebugStackFrameDescriptor64 {
-    pub pdsf: core::mem::ManuallyDrop<Option<IDebugStackFrame>>,
-    pub dwMin: u64,
-    pub dwLim: u64,
-    pub fFinal: super::super::super::super::Foundation::BOOL,
-    pub punkFinal: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-}
-impl Default for DebugStackFrameDescriptor64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DebugStackFrameDescriptor64 {
-    type TypeKind = windows_core::CloneType;
-}
-pub const DefaultDebugSessionProvider: windows_core::GUID = windows_core::GUID::from_u128(0x834128a2_51f4_11d0_8f20_00805f2cd064);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct JS_NATIVE_FRAME {
-    pub InstructionOffset: u64,
-    pub ReturnOffset: u64,
-    pub FrameOffset: u64,
-    pub StackOffset: u64,
-}
-impl Default for JS_NATIVE_FRAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for JS_NATIVE_FRAME {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
-pub struct JsDebugPropertyInfo {
-    pub name: core::mem::ManuallyDrop<windows_core::BSTR>,
-    pub r#type: core::mem::ManuallyDrop<windows_core::BSTR>,
-    pub value: core::mem::ManuallyDrop<windows_core::BSTR>,
-    pub fullName: core::mem::ManuallyDrop<windows_core::BSTR>,
-    pub attr: JS_PROPERTY_ATTRIBUTES,
-}
-impl Default for JsDebugPropertyInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for JsDebugPropertyInfo {
-    type TypeKind = windows_core::CloneType;
-}
-pub const MachineDebugManager_DEBUG: windows_core::GUID = windows_core::GUID::from_u128(0x49769cec_3a55_4bb0_b697_88fede77e8ea);
-pub const MachineDebugManager_RETAIL: windows_core::GUID = windows_core::GUID::from_u128(0x0c0a3666_30c9_11d0_8f20_00805f2cd064);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROFILER_HEAP_OBJECT {
-    pub size: u32,
-    pub Anonymous: PROFILER_HEAP_OBJECT_0,
-    pub typeNameId: u32,
-    pub flags: u32,
-    pub unused: u16,
-    pub optionalInfoCount: u16,
-}
-impl Default for PROFILER_HEAP_OBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PROFILER_HEAP_OBJECT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PROFILER_HEAP_OBJECT_0 {
-    pub objectId: usize,
-    pub externalObjectAddress: *mut core::ffi::c_void,
-}
-impl Default for PROFILER_HEAP_OBJECT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_0 {
-    type TypeKind = windows_core::CopyType;
-}
+pub const PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(8i32);
+pub const PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL_DISPATCH: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(32i32);
+pub const PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL_UNKNOWN: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(16i32);
+pub const PROFILER_HEAP_OBJECT_FLAGS_IS_ROOT: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(2i32);
+pub const PROFILER_HEAP_OBJECT_FLAGS_NEW_OBJECT: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(1i32);
+pub const PROFILER_HEAP_OBJECT_FLAGS_NEW_STATE_UNAVAILABLE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(256i32);
+pub const PROFILER_HEAP_OBJECT_FLAGS_SITE_CLOSED: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(4i32);
+pub const PROFILER_HEAP_OBJECT_FLAGS_SIZE_APPROXIMATE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(64i32);
+pub const PROFILER_HEAP_OBJECT_FLAGS_SIZE_UNAVAILABLE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(128i32);
+pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_DELEGATE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(2048i32);
+pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_INSTANCE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(512i32);
+pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_NAMESPACE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(4096i32);
+pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_RUNTIMECLASS: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(1024i32);
+pub const PROFILER_HEAP_OBJECT_NAME_ID_UNAVAILABLE: u32 = 4294967295u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROFILER_HEAP_OBJECT_OPTIONAL_INFO {
@@ -9552,6 +9553,23 @@ impl Default for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {
 impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_ELEMENT_ATTRIBUTES_SIZE: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(7i32);
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_ELEMENT_TEXT_CHILDREN_SIZE: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(8i32);
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_FUNCTION_NAME: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(2i32);
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_INDEX_PROPERTIES: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(6i32);
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_INTERNAL_PROPERTY: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(4i32);
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_MAP_COLLECTION_LIST: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(12i32);
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_MAX_VALUE: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(13i32);
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_NAME_PROPERTIES: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(5i32);
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_PROTOTYPE: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(1i32);
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_RELATIONSHIPS: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(9i32);
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_SCOPE_LIST: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(3i32);
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_SET_COLLECTION_LIST: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(13i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(pub i32);
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_WEAKMAP_COLLECTION_LIST: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(11i32);
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_WINRTEVENTS: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(10i32);
 #[repr(C)]
 pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP {
     pub relationshipId: u32,
@@ -9593,6 +9611,47 @@ impl Default for PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
 impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
     type TypeKind = windows_core::CloneType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(pub i32);
+impl PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_CONST_VARIABLE: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(524288i32);
+pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_IS_GET_ACCESSOR: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(65536i32);
+pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_IS_SET_ACCESSOR: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(131072i32);
+pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_LET_VARIABLE: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(262144i32);
+pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_NONE: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(0i32);
 #[repr(C)]
 pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
     pub count: u32,
@@ -9639,6 +9698,16 @@ impl Default for PROFILER_HEAP_SUMMARY {
 impl windows_core::TypeKind for PROFILER_HEAP_SUMMARY {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PROFILER_HEAP_SUMMARY_VERSION(pub i32);
+pub const PROFILER_HEAP_SUMMARY_VERSION_1: PROFILER_HEAP_SUMMARY_VERSION = PROFILER_HEAP_SUMMARY_VERSION(1i32);
+pub const PROFILER_PROPERTY_TYPE_BSTR: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(5i32);
+pub const PROFILER_PROPERTY_TYPE_EXTERNAL_OBJECT: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(4i32);
+pub const PROFILER_PROPERTY_TYPE_HEAP_OBJECT: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(3i32);
+pub const PROFILER_PROPERTY_TYPE_NUMBER: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(1i32);
+pub const PROFILER_PROPERTY_TYPE_STRING: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(2i32);
+pub const PROFILER_PROPERTY_TYPE_SUBSTRING: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(6i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROFILER_PROPERTY_TYPE_SUBSTRING_INFO {
@@ -9653,163 +9722,20 @@ impl Default for PROFILER_PROPERTY_TYPE_SUBSTRING_INFO {
 impl windows_core::TypeKind for PROFILER_PROPERTY_TYPE_SUBSTRING_INFO {
     type TypeKind = windows_core::CopyType;
 }
-pub const ProcessDebugManager: windows_core::GUID = windows_core::GUID::from_u128(0x78a51822_51f4_11d0_8f20_00805f2cd064);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TEXT_DOCUMENT_ARRAY {
-    pub dwCount: u32,
-    pub Members: *mut Option<IDebugDocumentText>,
-}
-impl Default for TEXT_DOCUMENT_ARRAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TEXT_DOCUMENT_ARRAY {
-    type TypeKind = windows_core::CopyType;
-}
-pub const ACTIVPROF_E_PROFILER_ABSENT: windows_core::HRESULT = windows_core::HRESULT(0x80040201_u32 as _);
-pub const ACTIVPROF_E_PROFILER_PRESENT: windows_core::HRESULT = windows_core::HRESULT(0x80040200_u32 as _);
-pub const ACTIVPROF_E_UNABLE_TO_APPLY_ACTION: windows_core::HRESULT = windows_core::HRESULT(0x80040202_u32 as _);
-pub const APPBREAKFLAG_DEBUGGER_BLOCK: u32 = 1u32;
-pub const APPBREAKFLAG_DEBUGGER_HALT: u32 = 2u32;
-pub const APPBREAKFLAG_IN_BREAKPOINT: u32 = 2147483648u32;
-pub const APPBREAKFLAG_NESTED: u32 = 131072u32;
-pub const APPBREAKFLAG_STEP: u32 = 65536u32;
-pub const APPBREAKFLAG_STEPTYPE_BYTECODE: u32 = 1048576u32;
-pub const APPBREAKFLAG_STEPTYPE_MACHINE: u32 = 2097152u32;
-pub const APPBREAKFLAG_STEPTYPE_MASK: u32 = 15728640u32;
-pub const APPBREAKFLAG_STEPTYPE_SOURCE: u32 = 0u32;
-pub const BREAKPOINT_DELETED: BREAKPOINT_STATE = BREAKPOINT_STATE(0i32);
-pub const BREAKPOINT_DISABLED: BREAKPOINT_STATE = BREAKPOINT_STATE(1i32);
-pub const BREAKPOINT_ENABLED: BREAKPOINT_STATE = BREAKPOINT_STATE(2i32);
-pub const BREAKREASON_BREAKPOINT: BREAKREASON = BREAKREASON(1i32);
-pub const BREAKREASON_DEBUGGER_BLOCK: BREAKREASON = BREAKREASON(2i32);
-pub const BREAKREASON_DEBUGGER_HALT: BREAKREASON = BREAKREASON(5i32);
-pub const BREAKREASON_ERROR: BREAKREASON = BREAKREASON(6i32);
-pub const BREAKREASON_HOST_INITIATED: BREAKREASON = BREAKREASON(3i32);
-pub const BREAKREASON_JIT: BREAKREASON = BREAKREASON(7i32);
-pub const BREAKREASON_LANGUAGE_INITIATED: BREAKREASON = BREAKREASON(4i32);
-pub const BREAKREASON_MUTATION_BREAKPOINT: BREAKREASON = BREAKREASON(8i32);
-pub const BREAKREASON_STEP: BREAKREASON = BREAKREASON(0i32);
-pub const BREAKRESUMEACTION_ABORT: BREAKRESUMEACTION = BREAKRESUMEACTION(0i32);
-pub const BREAKRESUMEACTION_CONTINUE: BREAKRESUMEACTION = BREAKRESUMEACTION(1i32);
-pub const BREAKRESUMEACTION_IGNORE: BREAKRESUMEACTION = BREAKRESUMEACTION(5i32);
-pub const BREAKRESUMEACTION_STEP_DOCUMENT: BREAKRESUMEACTION = BREAKRESUMEACTION(6i32);
-pub const BREAKRESUMEACTION_STEP_INTO: BREAKRESUMEACTION = BREAKRESUMEACTION(2i32);
-pub const BREAKRESUMEACTION_STEP_OUT: BREAKRESUMEACTION = BREAKRESUMEACTION(4i32);
-pub const BREAKRESUMEACTION_STEP_OVER: BREAKRESUMEACTION = BREAKRESUMEACTION(3i32);
-pub const CATID_ActiveScript: windows_core::GUID = windows_core::GUID::from_u128(0xf0b7a1a1_9847_11cf_8f20_00805f2cd064);
-pub const CATID_ActiveScriptAuthor: windows_core::GUID = windows_core::GUID::from_u128(0x0aee2a92_bcbb_11d0_8c72_00c04fc2b085);
-pub const CATID_ActiveScriptEncode: windows_core::GUID = windows_core::GUID::from_u128(0xf0b7a1a3_9847_11cf_8f20_00805f2cd064);
-pub const CATID_ActiveScriptParse: windows_core::GUID = windows_core::GUID::from_u128(0xf0b7a1a2_9847_11cf_8f20_00805f2cd064);
-pub const DEBUG_TEXT_ALLOWBREAKPOINTS: u32 = 8u32;
-pub const DEBUG_TEXT_ALLOWERRORREPORT: u32 = 16u32;
-pub const DEBUG_TEXT_EVALUATETOCODECONTEXT: u32 = 32u32;
-pub const DEBUG_TEXT_ISEXPRESSION: u32 = 1u32;
-pub const DEBUG_TEXT_ISNONUSERCODE: u32 = 64u32;
-pub const DEBUG_TEXT_NOSIDEEFFECTS: u32 = 4u32;
-pub const DEBUG_TEXT_RETURNVALUE: u32 = 2u32;
-pub const DEIT_ASMJS_FAILED: DEBUG_EVENT_INFO_TYPE = DEBUG_EVENT_INFO_TYPE(3i32);
-pub const DEIT_ASMJS_IN_DEBUGGING: DEBUG_EVENT_INFO_TYPE = DEBUG_EVENT_INFO_TYPE(1i32);
-pub const DEIT_ASMJS_SUCCEEDED: DEBUG_EVENT_INFO_TYPE = DEBUG_EVENT_INFO_TYPE(2i32);
-pub const DEIT_GENERAL: DEBUG_EVENT_INFO_TYPE = DEBUG_EVENT_INFO_TYPE(0i32);
-pub const DOCUMENTNAMETYPE_APPNODE: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(0i32);
-pub const DOCUMENTNAMETYPE_FILE_TAIL: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(2i32);
-pub const DOCUMENTNAMETYPE_SOURCE_MAP_URL: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(5i32);
-pub const DOCUMENTNAMETYPE_TITLE: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(1i32);
-pub const DOCUMENTNAMETYPE_UNIQUE_TITLE: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(4i32);
-pub const DOCUMENTNAMETYPE_URL: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(3i32);
-pub const DST_INTERNAL_FRAME: DEBUG_STACKFRAME_TYPE = DEBUG_STACKFRAME_TYPE(1i32);
-pub const DST_INVOCATION_FRAME: DEBUG_STACKFRAME_TYPE = DEBUG_STACKFRAME_TYPE(2i32);
-pub const DST_SCRIPT_FRAME: DEBUG_STACKFRAME_TYPE = DEBUG_STACKFRAME_TYPE(0i32);
-pub const ERRORRESUMEACTION_AbortCallAndReturnErrorToCaller: ERRORRESUMEACTION = ERRORRESUMEACTION(1i32);
-pub const ERRORRESUMEACTION_ReexecuteErrorStatement: ERRORRESUMEACTION = ERRORRESUMEACTION(0i32);
-pub const ERRORRESUMEACTION_SkipErrorStatement: ERRORRESUMEACTION = ERRORRESUMEACTION(2i32);
-pub const ETK_FIRST_CHANCE: SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND = SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND(0i32);
-pub const ETK_UNHANDLED: SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND = SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND(2i32);
-pub const ETK_USER_UNHANDLED: SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND = SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND(1i32);
-pub const E_JsDEBUG_INVALID_MEMORY_ADDRESS: windows_core::HRESULT = windows_core::HRESULT(0x8DC70005_u32 as _);
-pub const E_JsDEBUG_MISMATCHED_RUNTIME: windows_core::HRESULT = windows_core::HRESULT(0x8DC70001_u32 as _);
-pub const E_JsDEBUG_OUTSIDE_OF_VM: windows_core::HRESULT = windows_core::HRESULT(0x8DC70004_u32 as _);
-pub const E_JsDEBUG_RUNTIME_NOT_IN_DEBUG_MODE: windows_core::HRESULT = windows_core::HRESULT(0x8DC70007_u32 as _);
-pub const E_JsDEBUG_SOURCE_LOCATION_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x8DC70006_u32 as _);
-pub const E_JsDEBUG_UNKNOWN_THREAD: windows_core::HRESULT = windows_core::HRESULT(0x8DC70002_u32 as _);
-pub const FACILITY_JsDEBUG: u32 = 3527u32;
-pub const FILTER_EXCLUDE_ANONYMOUS_CODE: APPLICATION_NODE_EVENT_FILTER = APPLICATION_NODE_EVENT_FILTER(1i32);
-pub const FILTER_EXCLUDE_EVAL_CODE: APPLICATION_NODE_EVENT_FILTER = APPLICATION_NODE_EVENT_FILTER(2i32);
-pub const FILTER_EXCLUDE_NOTHING: APPLICATION_NODE_EVENT_FILTER = APPLICATION_NODE_EVENT_FILTER(0i32);
-pub const GETATTRFLAG_HUMANTEXT: u32 = 32768u32;
-pub const GETATTRFLAG_THIS: u32 = 256u32;
-pub const GETATTRTYPE_DEPSCAN: u32 = 1u32;
-pub const GETATTRTYPE_NORMAL: u32 = 0u32;
-pub const JS_PROPERTY_ATTRIBUTE_NONE: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(0i32);
-pub const JS_PROPERTY_FAKE: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(2i32);
-pub const JS_PROPERTY_FRAME_INCATCHBLOCK: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(64i32);
-pub const JS_PROPERTY_FRAME_INFINALLYBLOCK: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(128i32);
-pub const JS_PROPERTY_FRAME_INTRYBLOCK: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(32i32);
-pub const JS_PROPERTY_HAS_CHILDREN: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(1i32);
-pub const JS_PROPERTY_MEMBERS_ALL: JS_PROPERTY_MEMBERS = JS_PROPERTY_MEMBERS(0i32);
-pub const JS_PROPERTY_MEMBERS_ARGUMENTS: JS_PROPERTY_MEMBERS = JS_PROPERTY_MEMBERS(1i32);
-pub const JS_PROPERTY_METHOD: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(4i32);
-pub const JS_PROPERTY_NATIVE_WINRT_POINTER: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(16i32);
-pub const JS_PROPERTY_READONLY: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(8i32);
-pub const OID_JSSIP: windows_core::GUID = windows_core::GUID::from_u128(0x06c9e010_38ce_11d4_a2a3_00104bd35090);
-pub const OID_VBSSIP: windows_core::GUID = windows_core::GUID::from_u128(0x1629f04e_2799_4db5_8fe5_ace10f17ebab);
-pub const OID_WSFSIP: windows_core::GUID = windows_core::GUID::from_u128(0x1a610570_38ce_11d4_a2a3_00104bd35090);
-pub const PROFILER_EVENT_MASK_TRACE_ALL: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(3i32);
-pub const PROFILER_EVENT_MASK_TRACE_ALL_WITH_DOM: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(7i32);
-pub const PROFILER_EVENT_MASK_TRACE_DOM_FUNCTION_CALL: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(4i32);
-pub const PROFILER_EVENT_MASK_TRACE_NATIVE_FUNCTION_CALL: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(2i32);
-pub const PROFILER_EVENT_MASK_TRACE_SCRIPT_FUNCTION_CALL: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(1i32);
-pub const PROFILER_HEAP_ENUM_FLAGS_NONE: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(0i32);
-pub const PROFILER_HEAP_ENUM_FLAGS_RELATIONSHIP_SUBSTRINGS: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(3i32);
-pub const PROFILER_HEAP_ENUM_FLAGS_STORE_RELATIONSHIP_FLAGS: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(1i32);
-pub const PROFILER_HEAP_ENUM_FLAGS_SUBSTRINGS: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(2i32);
-pub const PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(8i32);
-pub const PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL_DISPATCH: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(32i32);
-pub const PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL_UNKNOWN: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(16i32);
-pub const PROFILER_HEAP_OBJECT_FLAGS_IS_ROOT: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(2i32);
-pub const PROFILER_HEAP_OBJECT_FLAGS_NEW_OBJECT: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(1i32);
-pub const PROFILER_HEAP_OBJECT_FLAGS_NEW_STATE_UNAVAILABLE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(256i32);
-pub const PROFILER_HEAP_OBJECT_FLAGS_SITE_CLOSED: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(4i32);
-pub const PROFILER_HEAP_OBJECT_FLAGS_SIZE_APPROXIMATE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(64i32);
-pub const PROFILER_HEAP_OBJECT_FLAGS_SIZE_UNAVAILABLE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(128i32);
-pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_DELEGATE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(2048i32);
-pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_INSTANCE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(512i32);
-pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_NAMESPACE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(4096i32);
-pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_RUNTIMECLASS: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(1024i32);
-pub const PROFILER_HEAP_OBJECT_NAME_ID_UNAVAILABLE: u32 = 4294967295u32;
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_ELEMENT_ATTRIBUTES_SIZE: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(7i32);
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_ELEMENT_TEXT_CHILDREN_SIZE: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(8i32);
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_FUNCTION_NAME: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(2i32);
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_INDEX_PROPERTIES: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(6i32);
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_INTERNAL_PROPERTY: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(4i32);
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_MAP_COLLECTION_LIST: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(12i32);
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_MAX_VALUE: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(13i32);
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_NAME_PROPERTIES: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(5i32);
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_PROTOTYPE: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(1i32);
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_RELATIONSHIPS: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(9i32);
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_SCOPE_LIST: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(3i32);
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_SET_COLLECTION_LIST: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(13i32);
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_WEAKMAP_COLLECTION_LIST: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(11i32);
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_WINRTEVENTS: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(10i32);
-pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_CONST_VARIABLE: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(524288i32);
-pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_IS_GET_ACCESSOR: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(65536i32);
-pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_IS_SET_ACCESSOR: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(131072i32);
-pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_LET_VARIABLE: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(262144i32);
-pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_NONE: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(0i32);
-pub const PROFILER_HEAP_SUMMARY_VERSION_1: PROFILER_HEAP_SUMMARY_VERSION = PROFILER_HEAP_SUMMARY_VERSION(1i32);
-pub const PROFILER_PROPERTY_TYPE_BSTR: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(5i32);
-pub const PROFILER_PROPERTY_TYPE_EXTERNAL_OBJECT: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(4i32);
-pub const PROFILER_PROPERTY_TYPE_HEAP_OBJECT: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(3i32);
-pub const PROFILER_PROPERTY_TYPE_NUMBER: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(1i32);
-pub const PROFILER_PROPERTY_TYPE_STRING: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(2i32);
-pub const PROFILER_PROPERTY_TYPE_SUBSTRING: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(6i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PROFILER_RELATIONSHIP_INFO(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PROFILER_SCRIPT_TYPE(pub i32);
 pub const PROFILER_SCRIPT_TYPE_DOM: PROFILER_SCRIPT_TYPE = PROFILER_SCRIPT_TYPE(3i32);
 pub const PROFILER_SCRIPT_TYPE_DYNAMIC: PROFILER_SCRIPT_TYPE = PROFILER_SCRIPT_TYPE(1i32);
 pub const PROFILER_SCRIPT_TYPE_NATIVE: PROFILER_SCRIPT_TYPE = PROFILER_SCRIPT_TYPE(2i32);
 pub const PROFILER_SCRIPT_TYPE_USER: PROFILER_SCRIPT_TYPE = PROFILER_SCRIPT_TYPE(0i32);
+pub const ProcessDebugManager: windows_core::GUID = windows_core::GUID::from_u128(0x78a51822_51f4_11d0_8f20_00805f2cd064);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCRIPTGCTYPE(pub i32);
 pub const SCRIPTGCTYPE_EXHAUSTIVE: SCRIPTGCTYPE = SCRIPTGCTYPE(1i32);
 pub const SCRIPTGCTYPE_NORMAL: SCRIPTGCTYPE = SCRIPTGCTYPE(0i32);
 pub const SCRIPTINFO_ITYPEINFO: u32 = 2u32;
@@ -9822,6 +9748,9 @@ pub const SCRIPTITEM_ISPERSISTENT: u32 = 64u32;
 pub const SCRIPTITEM_ISSOURCE: u32 = 4u32;
 pub const SCRIPTITEM_ISVISIBLE: u32 = 2u32;
 pub const SCRIPTITEM_NOCODE: u32 = 1024u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCRIPTLANGUAGEVERSION(pub i32);
 pub const SCRIPTLANGUAGEVERSION_5_7: SCRIPTLANGUAGEVERSION = SCRIPTLANGUAGEVERSION(1i32);
 pub const SCRIPTLANGUAGEVERSION_5_8: SCRIPTLANGUAGEVERSION = SCRIPTLANGUAGEVERSION(2i32);
 pub const SCRIPTLANGUAGEVERSION_DEFAULT: SCRIPTLANGUAGEVERSION = SCRIPTLANGUAGEVERSION(0i32);
@@ -9850,6 +9779,9 @@ pub const SCRIPTPROP_MINORVERSION: u32 = 2u32;
 pub const SCRIPTPROP_NAME: u32 = 0u32;
 pub const SCRIPTPROP_SCRIPTSAREFULLYTRUSTED: u32 = 4100u32;
 pub const SCRIPTPROP_STRINGCOMPAREINSTANCE: u32 = 12289u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCRIPTSTATE(pub i32);
 pub const SCRIPTSTATE_CLOSED: SCRIPTSTATE = SCRIPTSTATE(4i32);
 pub const SCRIPTSTATE_CONNECTED: SCRIPTSTATE = SCRIPTSTATE(2i32);
 pub const SCRIPTSTATE_DISCONNECTED: SCRIPTSTATE = SCRIPTSTATE(3i32);
@@ -9867,8 +9799,14 @@ pub const SCRIPTTEXT_ISNONUSERCODE: u32 = 512u32;
 pub const SCRIPTTEXT_ISPERSISTENT: u32 = 64u32;
 pub const SCRIPTTEXT_ISVISIBLE: u32 = 2u32;
 pub const SCRIPTTEXT_ISXDOMAIN: u32 = 256u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCRIPTTHREADSTATE(pub i32);
 pub const SCRIPTTHREADSTATE_NOTINSCRIPT: SCRIPTTHREADSTATE = SCRIPTTHREADSTATE(0i32);
 pub const SCRIPTTHREADSTATE_RUNNING: SCRIPTTHREADSTATE = SCRIPTTHREADSTATE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCRIPTTRACEINFO(pub i32);
 pub const SCRIPTTRACEINFO_COMCALLEND: SCRIPTTRACEINFO = SCRIPTTRACEINFO(3i32);
 pub const SCRIPTTRACEINFO_COMCALLSTART: SCRIPTTRACEINFO = SCRIPTTRACEINFO(2i32);
 pub const SCRIPTTRACEINFO_CREATEOBJEND: SCRIPTTRACEINFO = SCRIPTTRACEINFO(5i32);
@@ -9879,9 +9817,15 @@ pub const SCRIPTTRACEINFO_SCRIPTEND: SCRIPTTRACEINFO = SCRIPTTRACEINFO(1i32);
 pub const SCRIPTTRACEINFO_SCRIPTSTART: SCRIPTTRACEINFO = SCRIPTTRACEINFO(0i32);
 pub const SCRIPTTYPELIB_ISCONTROL: u32 = 16u32;
 pub const SCRIPTTYPELIB_ISPERSISTENT: u32 = 64u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCRIPTUICHANDLING(pub i32);
 pub const SCRIPTUICHANDLING_ALLOW: SCRIPTUICHANDLING = SCRIPTUICHANDLING(0i32);
 pub const SCRIPTUICHANDLING_NOUIDEFAULT: SCRIPTUICHANDLING = SCRIPTUICHANDLING(2i32);
 pub const SCRIPTUICHANDLING_NOUIERROR: SCRIPTUICHANDLING = SCRIPTUICHANDLING(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCRIPTUICITEM(pub i32);
 pub const SCRIPTUICITEM_INPUTBOX: SCRIPTUICITEM = SCRIPTUICITEM(1i32);
 pub const SCRIPTUICITEM_MSGBOX: SCRIPTUICITEM = SCRIPTUICITEM(2i32);
 pub const SCRIPT_CMPL_COMMIT: u32 = 4u32;
@@ -9893,12 +9837,54 @@ pub const SCRIPT_CMPL_MEMBER_TRIGGER: u32 = 2u32;
 pub const SCRIPT_CMPL_NOLIST: u32 = 0u32;
 pub const SCRIPT_CMPL_PARAMTIP: u32 = 4u32;
 pub const SCRIPT_CMPL_PARAM_TRIGGER: u32 = 3u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCRIPT_DEBUGGER_OPTIONS(pub i32);
+impl SCRIPT_DEBUGGER_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for SCRIPT_DEBUGGER_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for SCRIPT_DEBUGGER_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for SCRIPT_DEBUGGER_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for SCRIPT_DEBUGGER_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for SCRIPT_DEBUGGER_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const SCRIPT_ENCODE_DEFAULT_LANGUAGE: u32 = 1u32;
 pub const SCRIPT_ENCODE_NO_ASP_LANGUAGE: u32 = 2u32;
 pub const SCRIPT_ENCODE_SECTION: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND(pub i32);
 pub const SCRIPT_E_PROPAGATE: i32 = -2147352318i32;
 pub const SCRIPT_E_RECORDED: i32 = -2040119292i32;
 pub const SCRIPT_E_REPORTED: i32 = -2147352319i32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCRIPT_INVOCATION_CONTEXT_TYPE(pub i32);
 pub const SDO_ENABLE_FIRST_CHANCE_EXCEPTIONS: SCRIPT_DEBUGGER_OPTIONS = SCRIPT_DEBUGGER_OPTIONS(1i32);
 pub const SDO_ENABLE_LIBRARY_STACK_FRAME: SCRIPT_DEBUGGER_OPTIONS = SCRIPT_DEBUGGER_OPTIONS(8i32);
 pub const SDO_ENABLE_NONUSER_CODE_SUPPORT: SCRIPT_DEBUGGER_OPTIONS = SCRIPT_DEBUGGER_OPTIONS(4i32);
@@ -9924,6 +9910,20 @@ pub const SOURCETEXT_ATTR_NUMBER: u32 = 16u32;
 pub const SOURCETEXT_ATTR_OPERATOR: u32 = 8u32;
 pub const SOURCETEXT_ATTR_STRING: u32 = 32u32;
 pub const SOURCETEXT_ATTR_THIS: u32 = 1024u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TEXT_DOCUMENT_ARRAY {
+    pub dwCount: u32,
+    pub Members: *mut Option<IDebugDocumentText>,
+}
+impl Default for TEXT_DOCUMENT_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TEXT_DOCUMENT_ARRAY {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TEXT_DOC_ATTR_READONLY: u32 = 1u32;
 pub const TEXT_DOC_ATTR_TYPE_PRIMARY: u32 = 2u32;
 pub const TEXT_DOC_ATTR_TYPE_SCRIPT: u32 = 8u32;

@@ -1,3 +1,91 @@
+windows_core::imp::define_interface!(INotePlacementChangedPreviewEventArgs, INotePlacementChangedPreviewEventArgs_Vtbl, 0x491d57b7_f780_4e7f_a939_9a4caf965214);
+impl windows_core::RuntimeType for INotePlacementChangedPreviewEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct INotePlacementChangedPreviewEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ViewId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(INoteVisibilityChangedPreviewEventArgs, INoteVisibilityChangedPreviewEventArgs_Vtbl, 0x0e34649e_3815_4ff6_83b3_a14d17120e24);
+impl windows_core::RuntimeType for INoteVisibilityChangedPreviewEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct INoteVisibilityChangedPreviewEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ViewId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub IsVisible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(INotesWindowManagerPreview, INotesWindowManagerPreview_Vtbl, 0xdc2ac23e_4850_4f13_9cc7_ff487efdfcde);
+impl windows_core::RuntimeType for INotesWindowManagerPreview {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct INotesWindowManagerPreview_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsScreenLocked: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub ShowNote: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub ShowNoteRelativeTo: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub ShowNoteWithPlacement: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    ShowNoteWithPlacement: usize,
+    pub HideNote: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub GetNotePlacement: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    GetNotePlacement: usize,
+    pub TrySetNoteSize: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::super::super::Foundation::Size, *mut bool) -> windows_core::HRESULT,
+    pub SetFocusToNextView: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub SetNotesThumbnailAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    SetNotesThumbnailAsync: usize,
+    pub SystemLockStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveSystemLockStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub NotePlacementChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveNotePlacementChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub NoteVisibilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveNoteVisibilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(INotesWindowManagerPreview2, INotesWindowManagerPreview2_Vtbl, 0xedfe864a_1f54_4b09_9823_ff477f6fa3bc);
+impl windows_core::RuntimeType for INotesWindowManagerPreview2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct INotesWindowManagerPreview2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ShowNoteRelativeToWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub ShowNoteWithPlacementWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    ShowNoteWithPlacementWithOptions: usize,
+    pub SetFocusToPreviousView: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Graphics_Imaging")]
+    pub SetThumbnailImageForTaskSwitcherAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_Imaging"))]
+    SetThumbnailImageForTaskSwitcherAsync: usize,
+}
+windows_core::imp::define_interface!(INotesWindowManagerPreviewShowNoteOptions, INotesWindowManagerPreviewShowNoteOptions_Vtbl, 0x886b09d6_a6ae_4007_a56d_1ca70c84c0d2);
+impl windows_core::RuntimeType for INotesWindowManagerPreviewShowNoteOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct INotesWindowManagerPreviewShowNoteOptions_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ShowWithFocus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetShowWithFocus: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(INotesWindowManagerPreviewStatics, INotesWindowManagerPreviewStatics_Vtbl, 0x6668cc88_0a8e_4127_a38e_995445868a78);
+impl windows_core::RuntimeType for INotesWindowManagerPreviewStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct INotesWindowManagerPreviewStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetForCurrentApp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NotePlacementChangedPreviewEventArgs(windows_core::IUnknown);
@@ -249,91 +337,3 @@ impl windows_core::RuntimeName for NotesWindowManagerPreviewShowNoteOptions {
 }
 unsafe impl Send for NotesWindowManagerPreviewShowNoteOptions {}
 unsafe impl Sync for NotesWindowManagerPreviewShowNoteOptions {}
-windows_core::imp::define_interface!(INotePlacementChangedPreviewEventArgs, INotePlacementChangedPreviewEventArgs_Vtbl, 0x491d57b7_f780_4e7f_a939_9a4caf965214);
-impl windows_core::RuntimeType for INotePlacementChangedPreviewEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct INotePlacementChangedPreviewEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ViewId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(INoteVisibilityChangedPreviewEventArgs, INoteVisibilityChangedPreviewEventArgs_Vtbl, 0x0e34649e_3815_4ff6_83b3_a14d17120e24);
-impl windows_core::RuntimeType for INoteVisibilityChangedPreviewEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct INoteVisibilityChangedPreviewEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ViewId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub IsVisible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(INotesWindowManagerPreview, INotesWindowManagerPreview_Vtbl, 0xdc2ac23e_4850_4f13_9cc7_ff487efdfcde);
-impl windows_core::RuntimeType for INotesWindowManagerPreview {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct INotesWindowManagerPreview_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub IsScreenLocked: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub ShowNote: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub ShowNoteRelativeTo: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub ShowNoteWithPlacement: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    ShowNoteWithPlacement: usize,
-    pub HideNote: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub GetNotePlacement: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    GetNotePlacement: usize,
-    pub TrySetNoteSize: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::super::super::Foundation::Size, *mut bool) -> windows_core::HRESULT,
-    pub SetFocusToNextView: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub SetNotesThumbnailAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    SetNotesThumbnailAsync: usize,
-    pub SystemLockStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveSystemLockStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub NotePlacementChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveNotePlacementChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub NoteVisibilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveNoteVisibilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(INotesWindowManagerPreview2, INotesWindowManagerPreview2_Vtbl, 0xedfe864a_1f54_4b09_9823_ff477f6fa3bc);
-impl windows_core::RuntimeType for INotesWindowManagerPreview2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct INotesWindowManagerPreview2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ShowNoteRelativeToWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub ShowNoteWithPlacementWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    ShowNoteWithPlacementWithOptions: usize,
-    pub SetFocusToPreviousView: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Graphics_Imaging")]
-    pub SetThumbnailImageForTaskSwitcherAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Graphics_Imaging"))]
-    SetThumbnailImageForTaskSwitcherAsync: usize,
-}
-windows_core::imp::define_interface!(INotesWindowManagerPreviewShowNoteOptions, INotesWindowManagerPreviewShowNoteOptions_Vtbl, 0x886b09d6_a6ae_4007_a56d_1ca70c84c0d2);
-impl windows_core::RuntimeType for INotesWindowManagerPreviewShowNoteOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct INotesWindowManagerPreviewShowNoteOptions_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ShowWithFocus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetShowWithFocus: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(INotesWindowManagerPreviewStatics, INotesWindowManagerPreviewStatics_Vtbl, 0x6668cc88_0a8e_4127_a38e_995445868a78);
-impl windows_core::RuntimeType for INotesWindowManagerPreviewStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct INotesWindowManagerPreviewStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetForCurrentApp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}

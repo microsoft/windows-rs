@@ -1,3 +1,4 @@
+pub const AllEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(3i32);
 windows_core::imp::define_interface!(IItemEnumerator, IItemEnumerator_Vtbl, 0x9f7d7bb7_20b3_11da_81a5_0030f1642e3c);
 windows_core::imp::interface_hierarchy!(IItemEnumerator, windows_core::IUnknown);
 impl IItemEnumerator {
@@ -1624,35 +1625,13 @@ impl ITargetInfo_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ITargetInfo {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WcmDataType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WcmNamespaceAccess(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WcmNamespaceEnumerationFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WcmRestrictionFacets(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WcmSettingType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WcmTargetMode(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WcmUserStatus(pub i32);
-pub const SettingsEngine: windows_core::GUID = windows_core::GUID::from_u128(0x9f7d7bb5_20b3_11da_81a5_0030f1642e3c);
-pub const AllEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(3i32);
 pub const LIMITED_VALIDATION_MODE: u32 = 1u32;
 pub const LINK_STORE_TO_ENGINE_INSTANCE: u32 = 1u32;
 pub const OfflineMode: WcmTargetMode = WcmTargetMode(1i32);
 pub const OnlineMode: WcmTargetMode = WcmTargetMode(2i32);
 pub const ReadOnlyAccess: WcmNamespaceAccess = WcmNamespaceAccess(1i32);
 pub const ReadWriteAccess: WcmNamespaceAccess = WcmNamespaceAccess(2i32);
+pub const SettingsEngine: windows_core::GUID = windows_core::GUID::from_u128(0x9f7d7bb5_20b3_11da_81a5_0030f1642e3c);
 pub const SharedEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(1i32);
 pub const UnknownStatus: WcmUserStatus = WcmUserStatus(0i32);
 pub const UserEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(2i32);
@@ -1720,6 +1699,27 @@ pub const WCM_S_INTERNALERROR: windows_core::HRESULT = windows_core::HRESULT(0x2
 pub const WCM_S_INVALIDATTRIBUTECOMBINATION: windows_core::HRESULT = windows_core::HRESULT(0x221004_u32 as _);
 pub const WCM_S_LEGACYSETTINGWARNING: windows_core::HRESULT = windows_core::HRESULT(0x221002_u32 as _);
 pub const WCM_S_NAMESPACENOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x221006_u32 as _);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WcmDataType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WcmNamespaceAccess(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WcmNamespaceEnumerationFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WcmRestrictionFacets(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WcmSettingType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WcmTargetMode(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WcmUserStatus(pub i32);
 pub const dataTypeBoolean: WcmDataType = WcmDataType(11i32);
 pub const dataTypeByte: WcmDataType = WcmDataType(1i32);
 pub const dataTypeFlagArray: WcmDataType = WcmDataType(32768i32);

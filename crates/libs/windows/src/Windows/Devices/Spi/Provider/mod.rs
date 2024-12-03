@@ -1,86 +1,3 @@
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct ProviderSpiConnectionSettings(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ProviderSpiConnectionSettings, windows_core::IUnknown, windows_core::IInspectable);
-impl ProviderSpiConnectionSettings {
-    pub fn ChipSelectLine(&self) -> windows_core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ChipSelectLine)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetChipSelectLine(&self, value: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetChipSelectLine)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Mode(&self) -> windows_core::Result<ProviderSpiMode> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Mode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetMode(&self, value: ProviderSpiMode) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMode)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn DataBitLength(&self) -> windows_core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DataBitLength)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetDataBitLength(&self, value: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDataBitLength)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ClockFrequency(&self) -> windows_core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ClockFrequency)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetClockFrequency(&self, value: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetClockFrequency)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn SharingMode(&self) -> windows_core::Result<ProviderSpiSharingMode> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SharingMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetSharingMode(&self, value: ProviderSpiSharingMode) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSharingMode)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Create(chipselectline: i32) -> windows_core::Result<ProviderSpiConnectionSettings> {
-        Self::IProviderSpiConnectionSettingsFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), chipselectline, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IProviderSpiConnectionSettingsFactory<R, F: FnOnce(&IProviderSpiConnectionSettingsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<ProviderSpiConnectionSettings, IProviderSpiConnectionSettingsFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for ProviderSpiConnectionSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProviderSpiConnectionSettings>();
-}
-unsafe impl windows_core::Interface for ProviderSpiConnectionSettings {
-    type Vtable = <IProviderSpiConnectionSettings as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IProviderSpiConnectionSettings as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for ProviderSpiConnectionSettings {
-    const NAME: &'static str = "Windows.Devices.Spi.Provider.ProviderSpiConnectionSettings";
-}
-unsafe impl Send for ProviderSpiConnectionSettings {}
-unsafe impl Sync for ProviderSpiConnectionSettings {}
 windows_core::imp::define_interface!(IProviderSpiConnectionSettings, IProviderSpiConnectionSettings_Vtbl, 0xf6034550_a542_4ec0_9601_a4dd68f8697b);
 impl windows_core::RuntimeType for IProviderSpiConnectionSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -326,6 +243,89 @@ pub struct ISpiProvider_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetControllersAsync: usize,
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ProviderSpiConnectionSettings(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(ProviderSpiConnectionSettings, windows_core::IUnknown, windows_core::IInspectable);
+impl ProviderSpiConnectionSettings {
+    pub fn ChipSelectLine(&self) -> windows_core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ChipSelectLine)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetChipSelectLine(&self, value: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetChipSelectLine)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Mode(&self) -> windows_core::Result<ProviderSpiMode> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Mode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetMode(&self, value: ProviderSpiMode) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetMode)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn DataBitLength(&self) -> windows_core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DataBitLength)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetDataBitLength(&self, value: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetDataBitLength)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn ClockFrequency(&self) -> windows_core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ClockFrequency)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetClockFrequency(&self, value: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetClockFrequency)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn SharingMode(&self) -> windows_core::Result<ProviderSpiSharingMode> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SharingMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetSharingMode(&self, value: ProviderSpiSharingMode) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetSharingMode)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Create(chipselectline: i32) -> windows_core::Result<ProviderSpiConnectionSettings> {
+        Self::IProviderSpiConnectionSettingsFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), chipselectline, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IProviderSpiConnectionSettingsFactory<R, F: FnOnce(&IProviderSpiConnectionSettingsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<ProviderSpiConnectionSettings, IProviderSpiConnectionSettingsFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for ProviderSpiConnectionSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProviderSpiConnectionSettings>();
+}
+unsafe impl windows_core::Interface for ProviderSpiConnectionSettings {
+    type Vtable = <IProviderSpiConnectionSettings as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IProviderSpiConnectionSettings as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for ProviderSpiConnectionSettings {
+    const NAME: &'static str = "Windows.Devices.Spi.Provider.ProviderSpiConnectionSettings";
+}
+unsafe impl Send for ProviderSpiConnectionSettings {}
+unsafe impl Sync for ProviderSpiConnectionSettings {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ProviderSpiMode(pub i32);

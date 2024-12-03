@@ -179,58 +179,47 @@ windows_targets::link!("activeds.dll" "system" fn ReallocADsMem(poldmem : *mut c
 windows_targets::link!("activeds.dll" "system" fn ReallocADsStr(ppstr : *mut windows_sys::core::PWSTR, pstr : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_targets::link!("activeds.dll" "system" fn SecurityDescriptorToBinarySD(vvarsecdes : super::super::System::Variant:: VARIANT, ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR, pdwsdlength : *mut u32, pszservername : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, password : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type LPCQADDFORMSPROC = Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pform: *mut CQFORM) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type LPCQADDPAGESPROC = Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, clsidform: *const windows_sys::core::GUID, ppage: *mut CQPAGE) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type LPCQPAGEPROC = Option<unsafe extern "system" fn(ppage: *mut CQPAGE, hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_sys::core::HRESULT>;
-pub type LPDSENUMATTRIBUTES = Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pszattributename: windows_sys::core::PCWSTR, pszdisplayname: windows_sys::core::PCWSTR, dwflags: u32) -> windows_sys::core::HRESULT>;
+pub const ACTRL_DS_CONTROL_ACCESS: u32 = 256u32;
+pub const ACTRL_DS_CREATE_CHILD: u32 = 1u32;
+pub const ACTRL_DS_DELETE_CHILD: u32 = 2u32;
+pub const ACTRL_DS_DELETE_TREE: u32 = 64u32;
+pub const ACTRL_DS_LIST: u32 = 4u32;
+pub const ACTRL_DS_LIST_OBJECT: u32 = 128u32;
+pub const ACTRL_DS_OPEN: u32 = 0u32;
+pub const ACTRL_DS_READ_PROP: u32 = 16u32;
+pub const ACTRL_DS_SELF: u32 = 8u32;
+pub const ACTRL_DS_WRITE_PROP: u32 = 32u32;
+pub const ADAM_REPL_AUTHENTICATION_MODE_MUTUAL_AUTH_REQUIRED: u32 = 2u32;
+pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE: u32 = 1u32;
+pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE_PASS_THROUGH: u32 = 0u32;
+pub const ADAM_SCP_FSMO_NAMING_STRING: windows_sys::core::PCSTR = windows_sys::core::s!("naming");
+pub const ADAM_SCP_FSMO_NAMING_STRING_W: windows_sys::core::PCWSTR = windows_sys::core::w!("naming");
+pub const ADAM_SCP_FSMO_SCHEMA_STRING: windows_sys::core::PCSTR = windows_sys::core::s!("schema");
+pub const ADAM_SCP_FSMO_SCHEMA_STRING_W: windows_sys::core::PCWSTR = windows_sys::core::w!("schema");
+pub const ADAM_SCP_FSMO_STRING: windows_sys::core::PCSTR = windows_sys::core::s!("fsmo:");
+pub const ADAM_SCP_FSMO_STRING_W: windows_sys::core::PCWSTR = windows_sys::core::w!("fsmo:");
+pub const ADAM_SCP_INSTANCE_NAME_STRING: windows_sys::core::PCSTR = windows_sys::core::s!("instance:");
+pub const ADAM_SCP_INSTANCE_NAME_STRING_W: windows_sys::core::PCWSTR = windows_sys::core::w!("instance:");
+pub const ADAM_SCP_PARTITION_STRING: windows_sys::core::PCSTR = windows_sys::core::s!("partition:");
+pub const ADAM_SCP_PARTITION_STRING_W: windows_sys::core::PCWSTR = windows_sys::core::w!("partition:");
+pub const ADAM_SCP_SITE_NAME_STRING: windows_sys::core::PCSTR = windows_sys::core::s!("site:");
+pub const ADAM_SCP_SITE_NAME_STRING_W: windows_sys::core::PCWSTR = windows_sys::core::w!("site:");
+pub const ADSIPROP_ADSIFLAG: ADS_PREFERENCES_ENUM = 12i32;
+pub const ADSIPROP_ASYNCHRONOUS: ADS_PREFERENCES_ENUM = 0i32;
+pub const ADSIPROP_ATTRIBTYPES_ONLY: ADS_PREFERENCES_ENUM = 4i32;
+pub const ADSIPROP_CACHE_RESULTS: ADS_PREFERENCES_ENUM = 11i32;
+pub const ADSIPROP_CHASE_REFERRALS: ADS_PREFERENCES_ENUM = 9i32;
+pub const ADSIPROP_DEREF_ALIASES: ADS_PREFERENCES_ENUM = 1i32;
+pub const ADSIPROP_PAGED_TIME_LIMIT: ADS_PREFERENCES_ENUM = 8i32;
+pub const ADSIPROP_PAGESIZE: ADS_PREFERENCES_ENUM = 7i32;
+pub const ADSIPROP_SEARCH_SCOPE: ADS_PREFERENCES_ENUM = 5i32;
+pub const ADSIPROP_SIZE_LIMIT: ADS_PREFERENCES_ENUM = 2i32;
+pub const ADSIPROP_SORT_ON: ADS_PREFERENCES_ENUM = 10i32;
+pub const ADSIPROP_TIMEOUT: ADS_PREFERENCES_ENUM = 6i32;
+pub const ADSIPROP_TIME_LIMIT: ADS_PREFERENCES_ENUM = 3i32;
 pub type ADSI_DIALECT_ENUM = i32;
-pub type ADSTYPE = i32;
-pub type ADS_ACEFLAG_ENUM = i32;
-pub type ADS_ACETYPE_ENUM = i32;
-pub type ADS_AUTHENTICATION_ENUM = u32;
-pub type ADS_CHASE_REFERRALS_ENUM = i32;
-pub type ADS_DEREFENUM = i32;
-pub type ADS_DISPLAY_ENUM = i32;
-pub type ADS_ESCAPE_MODE_ENUM = i32;
-pub type ADS_FLAGTYPE_ENUM = i32;
-pub type ADS_FORMAT_ENUM = i32;
-pub type ADS_GROUP_TYPE_ENUM = i32;
-pub type ADS_NAME_INITTYPE_ENUM = i32;
-pub type ADS_NAME_TYPE_ENUM = i32;
-pub type ADS_OPTION_ENUM = i32;
-pub type ADS_PASSWORD_ENCODING_ENUM = i32;
-pub type ADS_PATHTYPE_ENUM = i32;
-pub type ADS_PREFERENCES_ENUM = i32;
-pub type ADS_PROPERTY_OPERATION_ENUM = i32;
-pub type ADS_RIGHTS_ENUM = i32;
-pub type ADS_SCOPEENUM = i32;
-pub type ADS_SD_CONTROL_ENUM = i32;
-pub type ADS_SD_FORMAT_ENUM = i32;
-pub type ADS_SD_REVISION_ENUM = i32;
-pub type ADS_SEARCHPREF_ENUM = i32;
-pub type ADS_SECURITY_INFO_ENUM = i32;
-pub type ADS_SETTYPE_ENUM = i32;
-pub type ADS_STATUSENUM = i32;
-pub type ADS_SYSTEMFLAG_ENUM = i32;
-pub type ADS_USER_FLAG_ENUM = i32;
-pub type DSROLE_MACHINE_ROLE = i32;
-pub type DSROLE_OPERATION_STATE = i32;
-pub type DSROLE_PRIMARY_DOMAIN_INFO_LEVEL = i32;
-pub type DSROLE_SERVER_STATE = i32;
-pub type DS_KCC_TASKID = i32;
-pub type DS_MANGLE_FOR = i32;
-pub type DS_NAME_ERROR = i32;
-pub type DS_NAME_FLAGS = i32;
-pub type DS_NAME_FORMAT = i32;
-pub type DS_REPL_INFO_TYPE = i32;
-pub type DS_REPL_OP_TYPE = i32;
-pub type DS_REPSYNCALL_ERROR = i32;
-pub type DS_REPSYNCALL_EVENT = i32;
-pub type DS_SPN_NAME_TYPE = i32;
-pub type DS_SPN_WRITE_OP = i32;
+pub const ADSI_DIALECT_LDAP: ADSI_DIALECT_ENUM = 0i32;
+pub const ADSI_DIALECT_SQL: ADSI_DIALECT_ENUM = 1i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADSPROPERROR {
@@ -251,6 +240,36 @@ pub struct ADSPROPINITPARAMS {
     pub pwzCN: windows_sys::core::PWSTR,
     pub pWritableAttrs: *mut ADS_ATTR_INFO,
 }
+pub type ADSTYPE = i32;
+pub const ADSTYPE_BACKLINK: ADSTYPE = 18i32;
+pub const ADSTYPE_BOOLEAN: ADSTYPE = 6i32;
+pub const ADSTYPE_CASEIGNORE_LIST: ADSTYPE = 13i32;
+pub const ADSTYPE_CASE_EXACT_STRING: ADSTYPE = 2i32;
+pub const ADSTYPE_CASE_IGNORE_STRING: ADSTYPE = 3i32;
+pub const ADSTYPE_DN_STRING: ADSTYPE = 1i32;
+pub const ADSTYPE_DN_WITH_BINARY: ADSTYPE = 27i32;
+pub const ADSTYPE_DN_WITH_STRING: ADSTYPE = 28i32;
+pub const ADSTYPE_EMAIL: ADSTYPE = 24i32;
+pub const ADSTYPE_FAXNUMBER: ADSTYPE = 23i32;
+pub const ADSTYPE_HOLD: ADSTYPE = 20i32;
+pub const ADSTYPE_INTEGER: ADSTYPE = 7i32;
+pub const ADSTYPE_INVALID: ADSTYPE = 0i32;
+pub const ADSTYPE_LARGE_INTEGER: ADSTYPE = 10i32;
+pub const ADSTYPE_NETADDRESS: ADSTYPE = 21i32;
+pub const ADSTYPE_NT_SECURITY_DESCRIPTOR: ADSTYPE = 25i32;
+pub const ADSTYPE_NUMERIC_STRING: ADSTYPE = 5i32;
+pub const ADSTYPE_OBJECT_CLASS: ADSTYPE = 12i32;
+pub const ADSTYPE_OCTET_LIST: ADSTYPE = 14i32;
+pub const ADSTYPE_OCTET_STRING: ADSTYPE = 8i32;
+pub const ADSTYPE_PATH: ADSTYPE = 15i32;
+pub const ADSTYPE_POSTALADDRESS: ADSTYPE = 16i32;
+pub const ADSTYPE_PRINTABLE_STRING: ADSTYPE = 4i32;
+pub const ADSTYPE_PROV_SPECIFIC: ADSTYPE = 11i32;
+pub const ADSTYPE_REPLICAPOINTER: ADSTYPE = 22i32;
+pub const ADSTYPE_TIMESTAMP: ADSTYPE = 17i32;
+pub const ADSTYPE_TYPEDNAME: ADSTYPE = 19i32;
+pub const ADSTYPE_UNKNOWN: ADSTYPE = 26i32;
+pub const ADSTYPE_UTC_TIME: ADSTYPE = 9i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADSVALUE {
@@ -288,6 +307,32 @@ pub union ADSVALUE_0 {
     pub pDNWithBinary: *mut ADS_DN_WITH_BINARY,
     pub pDNWithString: *mut ADS_DN_WITH_STRING,
 }
+pub type ADS_ACEFLAG_ENUM = i32;
+pub const ADS_ACEFLAG_FAILED_ACCESS: ADS_ACEFLAG_ENUM = 128i32;
+pub const ADS_ACEFLAG_INHERITED_ACE: ADS_ACEFLAG_ENUM = 16i32;
+pub const ADS_ACEFLAG_INHERIT_ACE: ADS_ACEFLAG_ENUM = 2i32;
+pub const ADS_ACEFLAG_INHERIT_ONLY_ACE: ADS_ACEFLAG_ENUM = 8i32;
+pub const ADS_ACEFLAG_NO_PROPAGATE_INHERIT_ACE: ADS_ACEFLAG_ENUM = 4i32;
+pub const ADS_ACEFLAG_SUCCESSFUL_ACCESS: ADS_ACEFLAG_ENUM = 64i32;
+pub const ADS_ACEFLAG_VALID_INHERIT_FLAGS: ADS_ACEFLAG_ENUM = 31i32;
+pub const ADS_ACETYPE_ACCESS_ALLOWED: ADS_ACETYPE_ENUM = 0i32;
+pub const ADS_ACETYPE_ACCESS_ALLOWED_CALLBACK: ADS_ACETYPE_ENUM = 9i32;
+pub const ADS_ACETYPE_ACCESS_ALLOWED_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = 11i32;
+pub const ADS_ACETYPE_ACCESS_ALLOWED_OBJECT: ADS_ACETYPE_ENUM = 5i32;
+pub const ADS_ACETYPE_ACCESS_DENIED: ADS_ACETYPE_ENUM = 1i32;
+pub const ADS_ACETYPE_ACCESS_DENIED_CALLBACK: ADS_ACETYPE_ENUM = 10i32;
+pub const ADS_ACETYPE_ACCESS_DENIED_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = 12i32;
+pub const ADS_ACETYPE_ACCESS_DENIED_OBJECT: ADS_ACETYPE_ENUM = 6i32;
+pub type ADS_ACETYPE_ENUM = i32;
+pub const ADS_ACETYPE_SYSTEM_ALARM_CALLBACK: ADS_ACETYPE_ENUM = 14i32;
+pub const ADS_ACETYPE_SYSTEM_ALARM_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = 16i32;
+pub const ADS_ACETYPE_SYSTEM_ALARM_OBJECT: ADS_ACETYPE_ENUM = 8i32;
+pub const ADS_ACETYPE_SYSTEM_AUDIT: ADS_ACETYPE_ENUM = 2i32;
+pub const ADS_ACETYPE_SYSTEM_AUDIT_CALLBACK: ADS_ACETYPE_ENUM = 13i32;
+pub const ADS_ACETYPE_SYSTEM_AUDIT_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = 15i32;
+pub const ADS_ACETYPE_SYSTEM_AUDIT_OBJECT: ADS_ACETYPE_ENUM = 7i32;
+pub const ADS_ATTR_APPEND: u32 = 3u32;
+pub const ADS_ATTR_CLEAR: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADS_ATTR_DEF {
@@ -297,6 +342,7 @@ pub struct ADS_ATTR_DEF {
     pub dwMaxRange: u32,
     pub fMultiValued: super::super::Foundation::BOOL,
 }
+pub const ADS_ATTR_DELETE: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADS_ATTR_INFO {
@@ -306,6 +352,9 @@ pub struct ADS_ATTR_INFO {
     pub pADsValues: *mut ADSVALUE,
     pub dwNumValues: u32,
 }
+pub const ADS_ATTR_UPDATE: u32 = 2u32;
+pub type ADS_AUTHENTICATION_ENUM = u32;
+pub const ADS_AUTH_RESERVED: ADS_AUTHENTICATION_ENUM = 2147483648u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADS_BACKLINK {
@@ -318,6 +367,11 @@ pub struct ADS_CASEIGNORE_LIST {
     pub Next: *mut ADS_CASEIGNORE_LIST,
     pub String: windows_sys::core::PWSTR,
 }
+pub const ADS_CHASE_REFERRALS_ALWAYS: ADS_CHASE_REFERRALS_ENUM = 96i32;
+pub type ADS_CHASE_REFERRALS_ENUM = i32;
+pub const ADS_CHASE_REFERRALS_EXTERNAL: ADS_CHASE_REFERRALS_ENUM = 64i32;
+pub const ADS_CHASE_REFERRALS_NEVER: ADS_CHASE_REFERRALS_ENUM = 0i32;
+pub const ADS_CHASE_REFERRALS_SUBORDINATE: ADS_CHASE_REFERRALS_ENUM = 32i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADS_CLASS_DEF {
@@ -332,6 +386,14 @@ pub struct ADS_CLASS_DEF {
     pub ppszSuperClasses: *mut *mut windows_sys::core::PWSTR,
     pub fIsContainer: super::super::Foundation::BOOL,
 }
+pub type ADS_DEREFENUM = i32;
+pub const ADS_DEREF_ALWAYS: ADS_DEREFENUM = 3i32;
+pub const ADS_DEREF_FINDING: ADS_DEREFENUM = 2i32;
+pub const ADS_DEREF_NEVER: ADS_DEREFENUM = 0i32;
+pub const ADS_DEREF_SEARCHING: ADS_DEREFENUM = 1i32;
+pub type ADS_DISPLAY_ENUM = i32;
+pub const ADS_DISPLAY_FULL: ADS_DISPLAY_ENUM = 1i32;
+pub const ADS_DISPLAY_VALUE_ONLY: ADS_DISPLAY_ENUM = 2i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADS_DN_WITH_BINARY {
@@ -351,6 +413,16 @@ pub struct ADS_EMAIL {
     pub Address: windows_sys::core::PWSTR,
     pub Type: u32,
 }
+pub const ADS_ESCAPEDMODE_DEFAULT: ADS_ESCAPE_MODE_ENUM = 1i32;
+pub const ADS_ESCAPEDMODE_OFF: ADS_ESCAPE_MODE_ENUM = 3i32;
+pub const ADS_ESCAPEDMODE_OFF_EX: ADS_ESCAPE_MODE_ENUM = 4i32;
+pub const ADS_ESCAPEDMODE_ON: ADS_ESCAPE_MODE_ENUM = 2i32;
+pub type ADS_ESCAPE_MODE_ENUM = i32;
+pub const ADS_EXT_INITCREDENTIALS: u32 = 1u32;
+pub const ADS_EXT_INITIALIZE_COMPLETE: u32 = 2u32;
+pub const ADS_EXT_MAXEXTDISPID: u32 = 16777215u32;
+pub const ADS_EXT_MINEXTDISPID: u32 = 1u32;
+pub const ADS_FAST_BIND: ADS_AUTHENTICATION_ENUM = 32u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADS_FAXNUMBER {
@@ -358,12 +430,50 @@ pub struct ADS_FAXNUMBER {
     pub NumberOfBits: u32,
     pub Parameters: *mut u8,
 }
+pub type ADS_FLAGTYPE_ENUM = i32;
+pub const ADS_FLAG_INHERITED_OBJECT_TYPE_PRESENT: ADS_FLAGTYPE_ENUM = 2i32;
+pub const ADS_FLAG_OBJECT_TYPE_PRESENT: ADS_FLAGTYPE_ENUM = 1i32;
+pub type ADS_FORMAT_ENUM = i32;
+pub const ADS_FORMAT_LEAF: ADS_FORMAT_ENUM = 11i32;
+pub const ADS_FORMAT_PROVIDER: ADS_FORMAT_ENUM = 10i32;
+pub const ADS_FORMAT_SERVER: ADS_FORMAT_ENUM = 9i32;
+pub const ADS_FORMAT_WINDOWS: ADS_FORMAT_ENUM = 1i32;
+pub const ADS_FORMAT_WINDOWS_DN: ADS_FORMAT_ENUM = 3i32;
+pub const ADS_FORMAT_WINDOWS_NO_SERVER: ADS_FORMAT_ENUM = 2i32;
+pub const ADS_FORMAT_WINDOWS_PARENT: ADS_FORMAT_ENUM = 4i32;
+pub const ADS_FORMAT_X500: ADS_FORMAT_ENUM = 5i32;
+pub const ADS_FORMAT_X500_DN: ADS_FORMAT_ENUM = 7i32;
+pub const ADS_FORMAT_X500_NO_SERVER: ADS_FORMAT_ENUM = 6i32;
+pub const ADS_FORMAT_X500_PARENT: ADS_FORMAT_ENUM = 8i32;
+pub const ADS_GROUP_TYPE_DOMAIN_LOCAL_GROUP: ADS_GROUP_TYPE_ENUM = 4i32;
+pub type ADS_GROUP_TYPE_ENUM = i32;
+pub const ADS_GROUP_TYPE_GLOBAL_GROUP: ADS_GROUP_TYPE_ENUM = 2i32;
+pub const ADS_GROUP_TYPE_LOCAL_GROUP: ADS_GROUP_TYPE_ENUM = 4i32;
+pub const ADS_GROUP_TYPE_SECURITY_ENABLED: ADS_GROUP_TYPE_ENUM = -2147483648i32;
+pub const ADS_GROUP_TYPE_UNIVERSAL_GROUP: ADS_GROUP_TYPE_ENUM = 8i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADS_HOLD {
     pub ObjectName: windows_sys::core::PWSTR,
     pub Amount: u32,
 }
+pub const ADS_NAME_INITTYPE_DOMAIN: ADS_NAME_INITTYPE_ENUM = 1i32;
+pub type ADS_NAME_INITTYPE_ENUM = i32;
+pub const ADS_NAME_INITTYPE_GC: ADS_NAME_INITTYPE_ENUM = 3i32;
+pub const ADS_NAME_INITTYPE_SERVER: ADS_NAME_INITTYPE_ENUM = 2i32;
+pub const ADS_NAME_TYPE_1779: ADS_NAME_TYPE_ENUM = 1i32;
+pub const ADS_NAME_TYPE_CANONICAL: ADS_NAME_TYPE_ENUM = 2i32;
+pub const ADS_NAME_TYPE_CANONICAL_EX: ADS_NAME_TYPE_ENUM = 10i32;
+pub const ADS_NAME_TYPE_DISPLAY: ADS_NAME_TYPE_ENUM = 4i32;
+pub const ADS_NAME_TYPE_DOMAIN_SIMPLE: ADS_NAME_TYPE_ENUM = 5i32;
+pub const ADS_NAME_TYPE_ENTERPRISE_SIMPLE: ADS_NAME_TYPE_ENUM = 6i32;
+pub type ADS_NAME_TYPE_ENUM = i32;
+pub const ADS_NAME_TYPE_GUID: ADS_NAME_TYPE_ENUM = 7i32;
+pub const ADS_NAME_TYPE_NT4: ADS_NAME_TYPE_ENUM = 3i32;
+pub const ADS_NAME_TYPE_SERVICE_PRINCIPAL_NAME: ADS_NAME_TYPE_ENUM = 11i32;
+pub const ADS_NAME_TYPE_SID_OR_SID_HISTORY_NAME: ADS_NAME_TYPE_ENUM = 12i32;
+pub const ADS_NAME_TYPE_UNKNOWN: ADS_NAME_TYPE_ENUM = 8i32;
+pub const ADS_NAME_TYPE_USER_PRINCIPAL_NAME: ADS_NAME_TYPE_ENUM = 9i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADS_NETADDRESS {
@@ -371,6 +481,8 @@ pub struct ADS_NETADDRESS {
     pub AddressLength: u32,
     pub Address: *mut u8,
 }
+pub const ADS_NO_AUTHENTICATION: ADS_AUTHENTICATION_ENUM = 16u32;
+pub const ADS_NO_REFERRAL_CHASING: ADS_AUTHENTICATION_ENUM = 1024u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADS_NT_SECURITY_DESCRIPTOR {
@@ -399,6 +511,20 @@ pub struct ADS_OCTET_STRING {
     pub dwLength: u32,
     pub lpValue: *mut u8,
 }
+pub const ADS_OPTION_ACCUMULATIVE_MODIFICATION: ADS_OPTION_ENUM = 8i32;
+pub type ADS_OPTION_ENUM = i32;
+pub const ADS_OPTION_MUTUAL_AUTH_STATUS: ADS_OPTION_ENUM = 4i32;
+pub const ADS_OPTION_PAGE_SIZE: ADS_OPTION_ENUM = 2i32;
+pub const ADS_OPTION_PASSWORD_METHOD: ADS_OPTION_ENUM = 7i32;
+pub const ADS_OPTION_PASSWORD_PORTNUMBER: ADS_OPTION_ENUM = 6i32;
+pub const ADS_OPTION_QUOTA: ADS_OPTION_ENUM = 5i32;
+pub const ADS_OPTION_REFERRALS: ADS_OPTION_ENUM = 1i32;
+pub const ADS_OPTION_SECURITY_MASK: ADS_OPTION_ENUM = 3i32;
+pub const ADS_OPTION_SERVERNAME: ADS_OPTION_ENUM = 0i32;
+pub const ADS_OPTION_SKIP_SID_LOOKUP: ADS_OPTION_ENUM = 9i32;
+pub const ADS_PASSWORD_ENCODE_CLEAR: ADS_PASSWORD_ENCODING_ENUM = 1i32;
+pub const ADS_PASSWORD_ENCODE_REQUIRE_SSL: ADS_PASSWORD_ENCODING_ENUM = 0i32;
+pub type ADS_PASSWORD_ENCODING_ENUM = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADS_PATH {
@@ -406,17 +532,29 @@ pub struct ADS_PATH {
     pub VolumeName: windows_sys::core::PWSTR,
     pub Path: windows_sys::core::PWSTR,
 }
+pub type ADS_PATHTYPE_ENUM = i32;
+pub const ADS_PATH_FILE: ADS_PATHTYPE_ENUM = 1i32;
+pub const ADS_PATH_FILESHARE: ADS_PATHTYPE_ENUM = 2i32;
+pub const ADS_PATH_REGISTRY: ADS_PATHTYPE_ENUM = 3i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADS_POSTALADDRESS {
     pub PostalAddress: [windows_sys::core::PWSTR; 6],
 }
+pub type ADS_PREFERENCES_ENUM = i32;
+pub const ADS_PROMPT_CREDENTIALS: ADS_AUTHENTICATION_ENUM = 8u32;
+pub const ADS_PROPERTY_APPEND: ADS_PROPERTY_OPERATION_ENUM = 3i32;
+pub const ADS_PROPERTY_CLEAR: ADS_PROPERTY_OPERATION_ENUM = 1i32;
+pub const ADS_PROPERTY_DELETE: ADS_PROPERTY_OPERATION_ENUM = 4i32;
+pub type ADS_PROPERTY_OPERATION_ENUM = i32;
+pub const ADS_PROPERTY_UPDATE: ADS_PROPERTY_OPERATION_ENUM = 2i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADS_PROV_SPECIFIC {
     pub dwLength: u32,
     pub lpValue: *mut u8,
 }
+pub const ADS_READONLY_SERVER: ADS_AUTHENTICATION_ENUM = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADS_REPLICAPOINTER {
@@ -426,6 +564,60 @@ pub struct ADS_REPLICAPOINTER {
     pub Count: u32,
     pub ReplicaAddressHints: *mut ADS_NETADDRESS,
 }
+pub type ADS_RIGHTS_ENUM = i32;
+pub const ADS_RIGHT_ACCESS_SYSTEM_SECURITY: ADS_RIGHTS_ENUM = 16777216i32;
+pub const ADS_RIGHT_ACTRL_DS_LIST: ADS_RIGHTS_ENUM = 4i32;
+pub const ADS_RIGHT_DELETE: ADS_RIGHTS_ENUM = 65536i32;
+pub const ADS_RIGHT_DS_CONTROL_ACCESS: ADS_RIGHTS_ENUM = 256i32;
+pub const ADS_RIGHT_DS_CREATE_CHILD: ADS_RIGHTS_ENUM = 1i32;
+pub const ADS_RIGHT_DS_DELETE_CHILD: ADS_RIGHTS_ENUM = 2i32;
+pub const ADS_RIGHT_DS_DELETE_TREE: ADS_RIGHTS_ENUM = 64i32;
+pub const ADS_RIGHT_DS_LIST_OBJECT: ADS_RIGHTS_ENUM = 128i32;
+pub const ADS_RIGHT_DS_READ_PROP: ADS_RIGHTS_ENUM = 16i32;
+pub const ADS_RIGHT_DS_SELF: ADS_RIGHTS_ENUM = 8i32;
+pub const ADS_RIGHT_DS_WRITE_PROP: ADS_RIGHTS_ENUM = 32i32;
+pub const ADS_RIGHT_GENERIC_ALL: ADS_RIGHTS_ENUM = 268435456i32;
+pub const ADS_RIGHT_GENERIC_EXECUTE: ADS_RIGHTS_ENUM = 536870912i32;
+pub const ADS_RIGHT_GENERIC_READ: ADS_RIGHTS_ENUM = -2147483648i32;
+pub const ADS_RIGHT_GENERIC_WRITE: ADS_RIGHTS_ENUM = 1073741824i32;
+pub const ADS_RIGHT_READ_CONTROL: ADS_RIGHTS_ENUM = 131072i32;
+pub const ADS_RIGHT_SYNCHRONIZE: ADS_RIGHTS_ENUM = 1048576i32;
+pub const ADS_RIGHT_WRITE_DAC: ADS_RIGHTS_ENUM = 262144i32;
+pub const ADS_RIGHT_WRITE_OWNER: ADS_RIGHTS_ENUM = 524288i32;
+pub type ADS_SCOPEENUM = i32;
+pub const ADS_SCOPE_BASE: ADS_SCOPEENUM = 0i32;
+pub const ADS_SCOPE_ONELEVEL: ADS_SCOPEENUM = 1i32;
+pub const ADS_SCOPE_SUBTREE: ADS_SCOPEENUM = 2i32;
+pub type ADS_SD_CONTROL_ENUM = i32;
+pub const ADS_SD_CONTROL_SE_DACL_AUTO_INHERITED: ADS_SD_CONTROL_ENUM = 1024i32;
+pub const ADS_SD_CONTROL_SE_DACL_AUTO_INHERIT_REQ: ADS_SD_CONTROL_ENUM = 256i32;
+pub const ADS_SD_CONTROL_SE_DACL_DEFAULTED: ADS_SD_CONTROL_ENUM = 8i32;
+pub const ADS_SD_CONTROL_SE_DACL_PRESENT: ADS_SD_CONTROL_ENUM = 4i32;
+pub const ADS_SD_CONTROL_SE_DACL_PROTECTED: ADS_SD_CONTROL_ENUM = 4096i32;
+pub const ADS_SD_CONTROL_SE_GROUP_DEFAULTED: ADS_SD_CONTROL_ENUM = 2i32;
+pub const ADS_SD_CONTROL_SE_OWNER_DEFAULTED: ADS_SD_CONTROL_ENUM = 1i32;
+pub const ADS_SD_CONTROL_SE_SACL_AUTO_INHERITED: ADS_SD_CONTROL_ENUM = 2048i32;
+pub const ADS_SD_CONTROL_SE_SACL_AUTO_INHERIT_REQ: ADS_SD_CONTROL_ENUM = 512i32;
+pub const ADS_SD_CONTROL_SE_SACL_DEFAULTED: ADS_SD_CONTROL_ENUM = 32i32;
+pub const ADS_SD_CONTROL_SE_SACL_PRESENT: ADS_SD_CONTROL_ENUM = 16i32;
+pub const ADS_SD_CONTROL_SE_SACL_PROTECTED: ADS_SD_CONTROL_ENUM = 8192i32;
+pub const ADS_SD_CONTROL_SE_SELF_RELATIVE: ADS_SD_CONTROL_ENUM = 32768i32;
+pub type ADS_SD_FORMAT_ENUM = i32;
+pub const ADS_SD_FORMAT_HEXSTRING: ADS_SD_FORMAT_ENUM = 3i32;
+pub const ADS_SD_FORMAT_IID: ADS_SD_FORMAT_ENUM = 1i32;
+pub const ADS_SD_FORMAT_RAW: ADS_SD_FORMAT_ENUM = 2i32;
+pub const ADS_SD_REVISION_DS: ADS_SD_REVISION_ENUM = 4i32;
+pub type ADS_SD_REVISION_ENUM = i32;
+pub const ADS_SEARCHPREF_ASYNCHRONOUS: ADS_SEARCHPREF_ENUM = 0i32;
+pub const ADS_SEARCHPREF_ATTRIBTYPES_ONLY: ADS_SEARCHPREF_ENUM = 4i32;
+pub const ADS_SEARCHPREF_ATTRIBUTE_QUERY: ADS_SEARCHPREF_ENUM = 15i32;
+pub const ADS_SEARCHPREF_CACHE_RESULTS: ADS_SEARCHPREF_ENUM = 11i32;
+pub const ADS_SEARCHPREF_CHASE_REFERRALS: ADS_SEARCHPREF_ENUM = 9i32;
+pub const ADS_SEARCHPREF_DEREF_ALIASES: ADS_SEARCHPREF_ENUM = 1i32;
+pub const ADS_SEARCHPREF_DIRSYNC: ADS_SEARCHPREF_ENUM = 12i32;
+pub const ADS_SEARCHPREF_DIRSYNC_FLAG: ADS_SEARCHPREF_ENUM = 17i32;
+pub type ADS_SEARCHPREF_ENUM = i32;
+pub const ADS_SEARCHPREF_EXTENDED_DN: ADS_SEARCHPREF_ENUM = 18i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADS_SEARCHPREF_INFO {
@@ -433,6 +625,16 @@ pub struct ADS_SEARCHPREF_INFO {
     pub vValue: ADSVALUE,
     pub dwStatus: ADS_STATUSENUM,
 }
+pub const ADS_SEARCHPREF_PAGED_TIME_LIMIT: ADS_SEARCHPREF_ENUM = 8i32;
+pub const ADS_SEARCHPREF_PAGESIZE: ADS_SEARCHPREF_ENUM = 7i32;
+pub const ADS_SEARCHPREF_SEARCH_SCOPE: ADS_SEARCHPREF_ENUM = 5i32;
+pub const ADS_SEARCHPREF_SECURITY_MASK: ADS_SEARCHPREF_ENUM = 16i32;
+pub const ADS_SEARCHPREF_SIZE_LIMIT: ADS_SEARCHPREF_ENUM = 2i32;
+pub const ADS_SEARCHPREF_SORT_ON: ADS_SEARCHPREF_ENUM = 10i32;
+pub const ADS_SEARCHPREF_TIMEOUT: ADS_SEARCHPREF_ENUM = 6i32;
+pub const ADS_SEARCHPREF_TIME_LIMIT: ADS_SEARCHPREF_ENUM = 3i32;
+pub const ADS_SEARCHPREF_TOMBSTONE: ADS_SEARCHPREF_ENUM = 13i32;
+pub const ADS_SEARCHPREF_VLV: ADS_SEARCHPREF_ENUM = 14i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADS_SEARCH_COLUMN {
@@ -443,6 +645,18 @@ pub struct ADS_SEARCH_COLUMN {
     pub hReserved: super::super::Foundation::HANDLE,
 }
 pub type ADS_SEARCH_HANDLE = isize;
+pub const ADS_SECURE_AUTHENTICATION: ADS_AUTHENTICATION_ENUM = 1u32;
+pub const ADS_SECURITY_INFO_DACL: ADS_SECURITY_INFO_ENUM = 4i32;
+pub type ADS_SECURITY_INFO_ENUM = i32;
+pub const ADS_SECURITY_INFO_GROUP: ADS_SECURITY_INFO_ENUM = 2i32;
+pub const ADS_SECURITY_INFO_OWNER: ADS_SECURITY_INFO_ENUM = 1i32;
+pub const ADS_SECURITY_INFO_SACL: ADS_SECURITY_INFO_ENUM = 8i32;
+pub const ADS_SERVER_BIND: ADS_AUTHENTICATION_ENUM = 512u32;
+pub const ADS_SETTYPE_DN: ADS_SETTYPE_ENUM = 4i32;
+pub type ADS_SETTYPE_ENUM = i32;
+pub const ADS_SETTYPE_FULL: ADS_SETTYPE_ENUM = 1i32;
+pub const ADS_SETTYPE_PROVIDER: ADS_SETTYPE_ENUM = 2i32;
+pub const ADS_SETTYPE_SERVER: ADS_SETTYPE_ENUM = 3i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADS_SORTKEY {
@@ -450,6 +664,21 @@ pub struct ADS_SORTKEY {
     pub pszReserved: windows_sys::core::PWSTR,
     pub fReverseorder: super::super::Foundation::BOOLEAN,
 }
+pub type ADS_STATUSENUM = i32;
+pub const ADS_STATUS_INVALID_SEARCHPREF: ADS_STATUSENUM = 1i32;
+pub const ADS_STATUS_INVALID_SEARCHPREFVALUE: ADS_STATUSENUM = 2i32;
+pub const ADS_STATUS_S_OK: ADS_STATUSENUM = 0i32;
+pub const ADS_SYSTEMFLAG_ATTR_IS_CONSTRUCTED: ADS_SYSTEMFLAG_ENUM = 4i32;
+pub const ADS_SYSTEMFLAG_ATTR_NOT_REPLICATED: ADS_SYSTEMFLAG_ENUM = 1i32;
+pub const ADS_SYSTEMFLAG_CONFIG_ALLOW_LIMITED_MOVE: ADS_SYSTEMFLAG_ENUM = 268435456i32;
+pub const ADS_SYSTEMFLAG_CONFIG_ALLOW_MOVE: ADS_SYSTEMFLAG_ENUM = 536870912i32;
+pub const ADS_SYSTEMFLAG_CONFIG_ALLOW_RENAME: ADS_SYSTEMFLAG_ENUM = 1073741824i32;
+pub const ADS_SYSTEMFLAG_CR_NTDS_DOMAIN: ADS_SYSTEMFLAG_ENUM = 2i32;
+pub const ADS_SYSTEMFLAG_CR_NTDS_NC: ADS_SYSTEMFLAG_ENUM = 1i32;
+pub const ADS_SYSTEMFLAG_DISALLOW_DELETE: ADS_SYSTEMFLAG_ENUM = -2147483648i32;
+pub const ADS_SYSTEMFLAG_DOMAIN_DISALLOW_MOVE: ADS_SYSTEMFLAG_ENUM = 67108864i32;
+pub const ADS_SYSTEMFLAG_DOMAIN_DISALLOW_RENAME: ADS_SYSTEMFLAG_ENUM = 134217728i32;
+pub type ADS_SYSTEMFLAG_ENUM = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADS_TIMESTAMP {
@@ -463,6 +692,33 @@ pub struct ADS_TYPEDNAME {
     pub Level: u32,
     pub Interval: u32,
 }
+pub const ADS_UF_ACCOUNTDISABLE: ADS_USER_FLAG_ENUM = 2i32;
+pub const ADS_UF_DONT_EXPIRE_PASSWD: ADS_USER_FLAG_ENUM = 65536i32;
+pub const ADS_UF_DONT_REQUIRE_PREAUTH: ADS_USER_FLAG_ENUM = 4194304i32;
+pub const ADS_UF_ENCRYPTED_TEXT_PASSWORD_ALLOWED: ADS_USER_FLAG_ENUM = 128i32;
+pub const ADS_UF_HOMEDIR_REQUIRED: ADS_USER_FLAG_ENUM = 8i32;
+pub const ADS_UF_INTERDOMAIN_TRUST_ACCOUNT: ADS_USER_FLAG_ENUM = 2048i32;
+pub const ADS_UF_LOCKOUT: ADS_USER_FLAG_ENUM = 16i32;
+pub const ADS_UF_MNS_LOGON_ACCOUNT: ADS_USER_FLAG_ENUM = 131072i32;
+pub const ADS_UF_NORMAL_ACCOUNT: ADS_USER_FLAG_ENUM = 512i32;
+pub const ADS_UF_NOT_DELEGATED: ADS_USER_FLAG_ENUM = 1048576i32;
+pub const ADS_UF_PASSWD_CANT_CHANGE: ADS_USER_FLAG_ENUM = 64i32;
+pub const ADS_UF_PASSWD_NOTREQD: ADS_USER_FLAG_ENUM = 32i32;
+pub const ADS_UF_PASSWORD_EXPIRED: ADS_USER_FLAG_ENUM = 8388608i32;
+pub const ADS_UF_SCRIPT: ADS_USER_FLAG_ENUM = 1i32;
+pub const ADS_UF_SERVER_TRUST_ACCOUNT: ADS_USER_FLAG_ENUM = 8192i32;
+pub const ADS_UF_SMARTCARD_REQUIRED: ADS_USER_FLAG_ENUM = 262144i32;
+pub const ADS_UF_TEMP_DUPLICATE_ACCOUNT: ADS_USER_FLAG_ENUM = 256i32;
+pub const ADS_UF_TRUSTED_FOR_DELEGATION: ADS_USER_FLAG_ENUM = 524288i32;
+pub const ADS_UF_TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION: ADS_USER_FLAG_ENUM = 16777216i32;
+pub const ADS_UF_USE_DES_KEY_ONLY: ADS_USER_FLAG_ENUM = 2097152i32;
+pub const ADS_UF_WORKSTATION_TRUST_ACCOUNT: ADS_USER_FLAG_ENUM = 4096i32;
+pub type ADS_USER_FLAG_ENUM = i32;
+pub const ADS_USE_DELEGATION: ADS_AUTHENTICATION_ENUM = 256u32;
+pub const ADS_USE_ENCRYPTION: ADS_AUTHENTICATION_ENUM = 2u32;
+pub const ADS_USE_SEALING: ADS_AUTHENTICATION_ENUM = 128u32;
+pub const ADS_USE_SIGNING: ADS_AUTHENTICATION_ENUM = 64u32;
+pub const ADS_USE_SSL: ADS_AUTHENTICATION_ENUM = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADS_VLV {
@@ -479,6 +735,34 @@ pub const ADsSecurityUtility: windows_sys::core::GUID = windows_sys::core::GUID:
 pub const AccessControlEntry: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb75ac000_9bdd_11d0_852c_00c04fd8d503);
 pub const AccessControlList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb85ea052_9bdd_11d0_852c_00c04fd8d503);
 pub const BackLink: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfcbf906f_4080_11d1_a3ac_00c04fb950dc);
+pub const CFSTR_DSDISPLAYSPECOPTIONS: windows_sys::core::PCWSTR = windows_sys::core::w!("DsDisplaySpecOptions");
+pub const CFSTR_DSOBJECTNAMES: windows_sys::core::PCWSTR = windows_sys::core::w!("DsObjectNames");
+pub const CFSTR_DSOP_DS_SELECTION_LIST: windows_sys::core::PCWSTR = windows_sys::core::w!("CFSTR_DSOP_DS_SELECTION_LIST");
+pub const CFSTR_DSPROPERTYPAGEINFO: windows_sys::core::PCWSTR = windows_sys::core::w!("DsPropPageInfo");
+pub const CFSTR_DSQUERYPARAMS: windows_sys::core::PCWSTR = windows_sys::core::w!("DsQueryParameters");
+pub const CFSTR_DSQUERYSCOPE: windows_sys::core::PCWSTR = windows_sys::core::w!("DsQueryScope");
+pub const CFSTR_DS_DISPLAY_SPEC_OPTIONS: windows_sys::core::PCWSTR = windows_sys::core::w!("DsDisplaySpecOptions");
+pub const CLSID_CommonQuery: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x83bc5ec0_6f2a_11d0_a1c4_00aa00c16e65);
+pub const CLSID_DsAdminCreateObj: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe301a009_f901_11d2_82b9_00c04f68928b);
+pub const CLSID_DsDisplaySpecifier: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1ab4a8c0_6a0b_11d2_ad49_00c04fa31a86);
+pub const CLSID_DsDomainTreeBrowser: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1698790a_e2b4_11d0_b0b1_00c04fd8dca6);
+pub const CLSID_DsFindAdvanced: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x83ee3fe3_57d9_11d0_b932_00a024ab2dbb);
+pub const CLSID_DsFindComputer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x16006700_87ad_11d0_9140_00aa00c16e65);
+pub const CLSID_DsFindContainer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc1b3cbf2_886a_11d0_9140_00aa00c16e65);
+pub const CLSID_DsFindDomainController: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x538c7b7e_d25e_11d0_9742_00a0c906af45);
+pub const CLSID_DsFindFrsMembers: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x94ce4b18_b3d3_11d1_b9b4_00c04fd8d5b0);
+pub const CLSID_DsFindObjects: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x83ee3fe1_57d9_11d0_b932_00a024ab2dbb);
+pub const CLSID_DsFindPeople: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x83ee3fe2_57d9_11d0_b932_00a024ab2dbb);
+pub const CLSID_DsFindPrinter: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb577f070_7ee2_11d0_913f_00aa00c16e65);
+pub const CLSID_DsFindVolume: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc1b3cbf1_886a_11d0_9140_00aa00c16e65);
+pub const CLSID_DsFindWriteableDomainController: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7cbef079_aa84_444b_bc70_68e41283eabc);
+pub const CLSID_DsFolderProperties: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9e51e0d0_6e0f_11d2_9601_00c04fa31a86);
+pub const CLSID_DsObjectPicker: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x17d6ccd8_3b7b_11d2_b9e0_00c04fd8dbf7);
+pub const CLSID_DsPropertyPages: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0d45d530_764b_11d0_a1ca_00aa00c16e65);
+pub const CLSID_DsQuery: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8a23e65e_31c2_11d0_891c_00a024ab2dbb);
+pub const CLSID_MicrosoftDS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfe1290f0_cfbd_11cf_a330_00aa00c16e65);
+pub const CQFF_ISOPTIONAL: u32 = 2u32;
+pub const CQFF_NOGLOBALPAGES: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
@@ -502,7 +786,21 @@ pub struct CQPAGE {
     pub pDlgProc: super::super::UI::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
 }
+pub const CQPM_CLEARFORM: u32 = 6u32;
+pub const CQPM_ENABLE: u32 = 3u32;
+pub const CQPM_GETPARAMETERS: u32 = 5u32;
+pub const CQPM_HANDLERSPECIFIC: u32 = 268435456u32;
+pub const CQPM_HELP: u32 = 8u32;
+pub const CQPM_INITIALIZE: u32 = 1u32;
+pub const CQPM_PERSIST: u32 = 7u32;
+pub const CQPM_RELEASE: u32 = 2u32;
+pub const CQPM_SETDEFAULTPARAMETERS: u32 = 9u32;
 pub const CaseIgnoreList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x15f88a55_4680_11d1_a3b4_00c04fb950dc);
+pub const DBDTF_RETURNEXTERNAL: u32 = 4u32;
+pub const DBDTF_RETURNFQDN: u32 = 1u32;
+pub const DBDTF_RETURNINBOUND: u32 = 8u32;
+pub const DBDTF_RETURNINOUTBOUND: u32 = 16u32;
+pub const DBDTF_RETURNMIXEDDOMAINS: u32 = 2u32;
 pub const DNWithBinary: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7e99c0a3_f935_11d2_ba96_00c04fb6d0d1);
 pub const DNWithString: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x334857cc_f934_11d2_ba96_00c04fb6d0d1);
 #[repr(C)]
@@ -551,6 +849,10 @@ pub struct DOMAIN_TREE {
     pub dwCount: u32,
     pub aDomains: [DOMAINDESC; 1],
 }
+pub const DSA_NEWOBJ_CTX_CLEANUP: u32 = 4u32;
+pub const DSA_NEWOBJ_CTX_COMMIT: u32 = 2u32;
+pub const DSA_NEWOBJ_CTX_POSTCOMMIT: u32 = 3u32;
+pub const DSA_NEWOBJ_CTX_PRECOMMIT: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
@@ -560,6 +862,17 @@ pub struct DSA_NEWOBJ_DISPINFO {
     pub lpszWizTitle: windows_sys::core::PWSTR,
     pub lpszContDisplayName: windows_sys::core::PWSTR,
 }
+pub const DSA_NOTIFY_DEL: u32 = 1u32;
+pub const DSA_NOTIFY_FLAG_ADDITIONAL_DATA: u32 = 2u32;
+pub const DSA_NOTIFY_FLAG_FORCE_ADDITIONAL_DATA: u32 = 1u32;
+pub const DSA_NOTIFY_MOV: u32 = 4u32;
+pub const DSA_NOTIFY_PROP: u32 = 8u32;
+pub const DSA_NOTIFY_REN: u32 = 2u32;
+pub const DSBF_DISPLAYNAME: u32 = 4u32;
+pub const DSBF_ICONLOCATION: u32 = 2u32;
+pub const DSBF_STATE: u32 = 1u32;
+pub const DSBID_BANNER: u32 = 256u32;
+pub const DSBID_CONTAINERLIST: u32 = 257u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DSBITEMA {
@@ -586,6 +899,26 @@ pub struct DSBITEMW {
     pub szIconLocation: [u16; 260],
     pub iIconResID: i32,
 }
+pub const DSBI_CHECKBOXES: u32 = 256u32;
+pub const DSBI_DONTSIGNSEAL: u32 = 33554432u32;
+pub const DSBI_ENTIREDIRECTORY: u32 = 589824u32;
+pub const DSBI_EXPANDONOPEN: u32 = 262144u32;
+pub const DSBI_HASCREDENTIALS: u32 = 2097152u32;
+pub const DSBI_IGNORETREATASLEAF: u32 = 4194304u32;
+pub const DSBI_INCLUDEHIDDEN: u32 = 131072u32;
+pub const DSBI_NOBUTTONS: u32 = 1u32;
+pub const DSBI_NOLINES: u32 = 2u32;
+pub const DSBI_NOLINESATROOT: u32 = 4u32;
+pub const DSBI_NOROOT: u32 = 65536u32;
+pub const DSBI_RETURNOBJECTCLASS: u32 = 16777216u32;
+pub const DSBI_RETURN_FORMAT: u32 = 1048576u32;
+pub const DSBI_SIMPLEAUTHENTICATE: u32 = 8388608u32;
+pub const DSBM_CHANGEIMAGESTATE: u32 = 102u32;
+pub const DSBM_CONTEXTMENU: u32 = 104u32;
+pub const DSBM_HELP: u32 = 103u32;
+pub const DSBM_QUERYINSERT: u32 = 100u32;
+pub const DSBM_QUERYINSERTA: u32 = 101u32;
+pub const DSBM_QUERYINSERTW: u32 = 100u32;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell")]
 #[derive(Clone, Copy)]
@@ -626,6 +959,12 @@ pub struct DSBROWSEINFOW {
     pub pszObjectClass: windows_sys::core::PWSTR,
     pub cchObjectClass: u32,
 }
+pub const DSBS_CHECKED: u32 = 1u32;
+pub const DSBS_HIDDEN: u32 = 2u32;
+pub const DSBS_ROOT: u32 = 4u32;
+pub const DSB_MAX_DISPLAYNAME_CHARS: u32 = 64u32;
+pub const DSCCIF_HASWIZARDDIALOG: u32 = 1u32;
+pub const DSCCIF_HASWIZARDPRIMARYPAGE: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DSCLASSCREATIONINFO {
@@ -656,6 +995,18 @@ pub struct DSDISPLAYSPECOPTIONS {
     pub offsetServer: u32,
     pub offsetServerConfigPath: u32,
 }
+pub const DSDSOF_DONTSIGNSEAL: u32 = 4u32;
+pub const DSDSOF_DSAVAILABLE: u32 = 1073741824u32;
+pub const DSDSOF_HASUSERANDSERVERINFO: u32 = 1u32;
+pub const DSDSOF_SIMPLEAUTHENTICATE: u32 = 2u32;
+pub const DSECAF_NOTLISTED: u32 = 1u32;
+pub const DSGIF_DEFAULTISCONTAINER: u32 = 32u32;
+pub const DSGIF_GETDEFAULTICON: u32 = 16u32;
+pub const DSGIF_ISDISABLED: u32 = 2u32;
+pub const DSGIF_ISMASK: u32 = 15u32;
+pub const DSGIF_ISNORMAL: u32 = 0u32;
+pub const DSGIF_ISOPEN: u32 = 1u32;
+pub const DSICCF_IGNORETREATASLEAF: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DSOBJECT {
@@ -671,12 +1022,59 @@ pub struct DSOBJECTNAMES {
     pub cItems: u32,
     pub aObjects: [DSOBJECT; 1],
 }
+pub const DSOBJECT_ISCONTAINER: u32 = 1u32;
+pub const DSOBJECT_READONLYPAGES: u32 = 2147483648u32;
+pub const DSOP_DOWNLEVEL_FILTER_ALL_APP_PACKAGES: u32 = 2281701376u32;
+pub const DSOP_DOWNLEVEL_FILTER_ALL_WELLKNOWN_SIDS: u32 = 2147614720u32;
+pub const DSOP_DOWNLEVEL_FILTER_ANONYMOUS: u32 = 2147483712u32;
+pub const DSOP_DOWNLEVEL_FILTER_AUTHENTICATED_USER: u32 = 2147483680u32;
+pub const DSOP_DOWNLEVEL_FILTER_BATCH: u32 = 2147483776u32;
+pub const DSOP_DOWNLEVEL_FILTER_COMPUTERS: u32 = 2147483656u32;
+pub const DSOP_DOWNLEVEL_FILTER_CREATOR_GROUP: u32 = 2147484160u32;
+pub const DSOP_DOWNLEVEL_FILTER_CREATOR_OWNER: u32 = 2147483904u32;
+pub const DSOP_DOWNLEVEL_FILTER_DIALUP: u32 = 2147484672u32;
+pub const DSOP_DOWNLEVEL_FILTER_EXCLUDE_BUILTIN_GROUPS: u32 = 2147516416u32;
+pub const DSOP_DOWNLEVEL_FILTER_GLOBAL_GROUPS: u32 = 2147483652u32;
+pub const DSOP_DOWNLEVEL_FILTER_IIS_APP_POOL: u32 = 2214592512u32;
+pub const DSOP_DOWNLEVEL_FILTER_INTERACTIVE: u32 = 2147485696u32;
+pub const DSOP_DOWNLEVEL_FILTER_INTERNET_USER: u32 = 2149580800u32;
+pub const DSOP_DOWNLEVEL_FILTER_LOCAL_ACCOUNTS: u32 = 2415919104u32;
+pub const DSOP_DOWNLEVEL_FILTER_LOCAL_GROUPS: u32 = 2147483650u32;
+pub const DSOP_DOWNLEVEL_FILTER_LOCAL_LOGON: u32 = 2164260864u32;
+pub const DSOP_DOWNLEVEL_FILTER_LOCAL_SERVICE: u32 = 2147745792u32;
+pub const DSOP_DOWNLEVEL_FILTER_NETWORK: u32 = 2147487744u32;
+pub const DSOP_DOWNLEVEL_FILTER_NETWORK_SERVICE: u32 = 2148007936u32;
+pub const DSOP_DOWNLEVEL_FILTER_OWNER_RIGHTS: u32 = 2151677952u32;
+pub const DSOP_DOWNLEVEL_FILTER_REMOTE_LOGON: u32 = 2148532224u32;
+pub const DSOP_DOWNLEVEL_FILTER_SERVICE: u32 = 2147491840u32;
+pub const DSOP_DOWNLEVEL_FILTER_SERVICES: u32 = 2155872256u32;
+pub const DSOP_DOWNLEVEL_FILTER_SYSTEM: u32 = 2147500032u32;
+pub const DSOP_DOWNLEVEL_FILTER_TERMINAL_SERVER: u32 = 2147549184u32;
+pub const DSOP_DOWNLEVEL_FILTER_THIS_ORG_CERT: u32 = 2181038080u32;
+pub const DSOP_DOWNLEVEL_FILTER_USERS: u32 = 2147483649u32;
+pub const DSOP_DOWNLEVEL_FILTER_WORLD: u32 = 2147483664u32;
+pub const DSOP_FILTER_BUILTIN_GROUPS: u32 = 4u32;
+pub const DSOP_FILTER_COMPUTERS: u32 = 2048u32;
+pub const DSOP_FILTER_CONTACTS: u32 = 1024u32;
+pub const DSOP_FILTER_DOMAIN_LOCAL_GROUPS_DL: u32 = 256u32;
+pub const DSOP_FILTER_DOMAIN_LOCAL_GROUPS_SE: u32 = 512u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DSOP_FILTER_FLAGS {
     pub Uplevel: DSOP_UPLEVEL_FILTER_FLAGS,
     pub flDownlevel: u32,
 }
+pub const DSOP_FILTER_GLOBAL_GROUPS_DL: u32 = 64u32;
+pub const DSOP_FILTER_GLOBAL_GROUPS_SE: u32 = 128u32;
+pub const DSOP_FILTER_INCLUDE_ADVANCED_VIEW: u32 = 1u32;
+pub const DSOP_FILTER_PASSWORDSETTINGS_OBJECTS: u32 = 8192u32;
+pub const DSOP_FILTER_SERVICE_ACCOUNTS: u32 = 4096u32;
+pub const DSOP_FILTER_UNIVERSAL_GROUPS_DL: u32 = 16u32;
+pub const DSOP_FILTER_UNIVERSAL_GROUPS_SE: u32 = 32u32;
+pub const DSOP_FILTER_USERS: u32 = 2u32;
+pub const DSOP_FILTER_WELL_KNOWN_PRINCIPALS: u32 = 8u32;
+pub const DSOP_FLAG_MULTISELECT: u32 = 1u32;
+pub const DSOP_FLAG_SKIP_TARGET_COMPUTER_DC_CHECK: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DSOP_INIT_INFO {
@@ -688,6 +1086,18 @@ pub struct DSOP_INIT_INFO {
     pub cAttributesToFetch: u32,
     pub apwzAttributeNames: *const windows_sys::core::PCWSTR,
 }
+pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_COMPUTERS: u32 = 256u32;
+pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_CONTACTS: u32 = 512u32;
+pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_GROUPS: u32 = 128u32;
+pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_PASSWORDSETTINGS_OBJECTS: u32 = 2048u32;
+pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_SERVICE_ACCOUNTS: u32 = 1024u32;
+pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_USERS: u32 = 64u32;
+pub const DSOP_SCOPE_FLAG_STARTING_SCOPE: u32 = 1u32;
+pub const DSOP_SCOPE_FLAG_WANT_DOWNLEVEL_BUILTIN_PATH: u32 = 32u32;
+pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_GC: u32 = 8u32;
+pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_LDAP: u32 = 4u32;
+pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_WINNT: u32 = 2u32;
+pub const DSOP_SCOPE_FLAG_WANT_SID_PATH: u32 = 16u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DSOP_SCOPE_INIT_INFO {
@@ -699,6 +1109,16 @@ pub struct DSOP_SCOPE_INIT_INFO {
     pub pwzADsPath: windows_sys::core::PCWSTR,
     pub hr: windows_sys::core::HRESULT,
 }
+pub const DSOP_SCOPE_TYPE_DOWNLEVEL_JOINED_DOMAIN: u32 = 4u32;
+pub const DSOP_SCOPE_TYPE_ENTERPRISE_DOMAIN: u32 = 8u32;
+pub const DSOP_SCOPE_TYPE_EXTERNAL_DOWNLEVEL_DOMAIN: u32 = 64u32;
+pub const DSOP_SCOPE_TYPE_EXTERNAL_UPLEVEL_DOMAIN: u32 = 32u32;
+pub const DSOP_SCOPE_TYPE_GLOBAL_CATALOG: u32 = 16u32;
+pub const DSOP_SCOPE_TYPE_TARGET_COMPUTER: u32 = 1u32;
+pub const DSOP_SCOPE_TYPE_UPLEVEL_JOINED_DOMAIN: u32 = 2u32;
+pub const DSOP_SCOPE_TYPE_USER_ENTERED_DOWNLEVEL_SCOPE: u32 = 512u32;
+pub const DSOP_SCOPE_TYPE_USER_ENTERED_UPLEVEL_SCOPE: u32 = 256u32;
+pub const DSOP_SCOPE_TYPE_WORKGROUP: u32 = 128u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DSOP_UPLEVEL_FILTER_FLAGS {
@@ -711,6 +1131,22 @@ pub struct DSOP_UPLEVEL_FILTER_FLAGS {
 pub struct DSPROPERTYPAGEINFO {
     pub offsetString: u32,
 }
+pub const DSPROP_ATTRCHANGED_MSG: windows_sys::core::PCWSTR = windows_sys::core::w!("DsPropAttrChanged");
+pub const DSPROVIDER_ADVANCED: u32 = 16u32;
+pub const DSPROVIDER_AD_LDS: u32 = 32u32;
+pub const DSPROVIDER_UNUSED_0: u32 = 1u32;
+pub const DSPROVIDER_UNUSED_1: u32 = 2u32;
+pub const DSPROVIDER_UNUSED_2: u32 = 4u32;
+pub const DSPROVIDER_UNUSED_3: u32 = 8u32;
+pub const DSQPF_ENABLEADMINFEATURES: u32 = 8u32;
+pub const DSQPF_ENABLEADVANCEDFEATURES: u32 = 16u32;
+pub const DSQPF_HASCREDENTIALS: u32 = 32u32;
+pub const DSQPF_NOCHOOSECOLUMNS: u32 = 64u32;
+pub const DSQPF_NOSAVE: u32 = 1u32;
+pub const DSQPF_SAVELOCATION: u32 = 2u32;
+pub const DSQPF_SHOWHIDDENOBJECTS: u32 = 4u32;
+pub const DSQPM_GETCLASSLIST: u32 = 268435456u32;
+pub const DSQPM_HELPTOPICS: u32 = 268435457u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DSQUERYCLASSLIST {
@@ -740,11 +1176,14 @@ pub struct DSQUERYPARAMS {
     pub dwReserved: u32,
     pub aColumns: [DSCOLUMN; 1],
 }
+pub type DSROLE_MACHINE_ROLE = i32;
+pub type DSROLE_OPERATION_STATE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DSROLE_OPERATION_STATE_INFO {
     pub OperationState: DSROLE_OPERATION_STATE,
 }
+pub const DSROLE_PRIMARY_DOMAIN_GUID_PRESENT: u32 = 16777216u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
@@ -755,12 +1194,50 @@ pub struct DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
     pub DomainForestName: windows_sys::core::PWSTR,
     pub DomainGuid: windows_sys::core::GUID,
 }
+pub type DSROLE_PRIMARY_DOMAIN_INFO_LEVEL = i32;
+pub const DSROLE_PRIMARY_DS_MIXED_MODE: u32 = 2u32;
+pub const DSROLE_PRIMARY_DS_READONLY: u32 = 8u32;
+pub const DSROLE_PRIMARY_DS_RUNNING: u32 = 1u32;
+pub type DSROLE_SERVER_STATE = i32;
+pub const DSROLE_UPGRADE_IN_PROGRESS: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DSROLE_UPGRADE_STATUS_INFO {
     pub OperationState: u32,
     pub PreviousServerState: DSROLE_SERVER_STATE,
 }
+pub const DSSSF_DONTSIGNSEAL: u32 = 2u32;
+pub const DSSSF_DSAVAILABLE: u32 = 2147483648u32;
+pub const DSSSF_SIMPLEAUTHENTICATE: u32 = 1u32;
+pub const DS_AVOID_SELF: u32 = 16384u32;
+pub const DS_BACKGROUND_ONLY: u32 = 256u32;
+pub const DS_BEHAVIOR_LONGHORN: u32 = 3u32;
+pub const DS_BEHAVIOR_WIN2000: u32 = 0u32;
+pub const DS_BEHAVIOR_WIN2003: u32 = 2u32;
+pub const DS_BEHAVIOR_WIN2003_WITH_MIXED_DOMAINS: u32 = 1u32;
+pub const DS_BEHAVIOR_WIN2008: u32 = 3u32;
+pub const DS_BEHAVIOR_WIN2008R2: u32 = 4u32;
+pub const DS_BEHAVIOR_WIN2012: u32 = 5u32;
+pub const DS_BEHAVIOR_WIN2012R2: u32 = 6u32;
+pub const DS_BEHAVIOR_WIN2016: u32 = 7u32;
+pub const DS_BEHAVIOR_WIN7: u32 = 4u32;
+pub const DS_BEHAVIOR_WIN8: u32 = 5u32;
+pub const DS_BEHAVIOR_WINBLUE: u32 = 6u32;
+pub const DS_BEHAVIOR_WINTHRESHOLD: u32 = 7u32;
+pub const DS_CANONICAL_NAME: DS_NAME_FORMAT = 7i32;
+pub const DS_CANONICAL_NAME_EX: DS_NAME_FORMAT = 9i32;
+pub const DS_CLOSEST_FLAG: u32 = 128u32;
+pub const DS_DIRECTORY_SERVICE_10_REQUIRED: u32 = 8388608u32;
+pub const DS_DIRECTORY_SERVICE_6_REQUIRED: u32 = 524288u32;
+pub const DS_DIRECTORY_SERVICE_8_REQUIRED: u32 = 2097152u32;
+pub const DS_DIRECTORY_SERVICE_9_REQUIRED: u32 = 4194304u32;
+pub const DS_DIRECTORY_SERVICE_PREFERRED: u32 = 32u32;
+pub const DS_DIRECTORY_SERVICE_REQUIRED: u32 = 16u32;
+pub const DS_DISPLAY_NAME: DS_NAME_FORMAT = 3i32;
+pub const DS_DNS_CONTROLLER_FLAG: u32 = 536870912u32;
+pub const DS_DNS_DOMAIN_FLAG: u32 = 1073741824u32;
+pub const DS_DNS_DOMAIN_NAME: DS_NAME_FORMAT = 12i32;
+pub const DS_DNS_FOREST_FLAG: u32 = 2147483648u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_1A {
@@ -857,6 +1334,12 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_3W {
     pub ServerObjectGuid: windows_sys::core::GUID,
     pub NtdsDsaObjectGuid: windows_sys::core::GUID,
 }
+pub const DS_DOMAIN_DIRECT_INBOUND: u32 = 32u32;
+pub const DS_DOMAIN_DIRECT_OUTBOUND: u32 = 2u32;
+pub const DS_DOMAIN_IN_FOREST: u32 = 1u32;
+pub const DS_DOMAIN_NATIVE_MODE: u32 = 16u32;
+pub const DS_DOMAIN_PRIMARY: u32 = 8u32;
+pub const DS_DOMAIN_TREE_ROOT: u32 = 4u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -883,6 +1366,59 @@ pub struct DS_DOMAIN_TRUSTSW {
     pub DomainSid: super::super::Security::PSID,
     pub DomainGuid: windows_sys::core::GUID,
 }
+pub const DS_DS_10_FLAG: u32 = 65536u32;
+pub const DS_DS_8_FLAG: u32 = 16384u32;
+pub const DS_DS_9_FLAG: u32 = 32768u32;
+pub const DS_DS_FLAG: u32 = 16u32;
+pub const DS_EXIST_ADVISORY_MODE: u32 = 1u32;
+pub const DS_FORCE_REDISCOVERY: u32 = 1u32;
+pub const DS_FQDN_1779_NAME: DS_NAME_FORMAT = 1i32;
+pub const DS_FULL_SECRET_DOMAIN_6_FLAG: u32 = 4096u32;
+pub const DS_GC_FLAG: u32 = 4u32;
+pub const DS_GC_SERVER_REQUIRED: u32 = 64u32;
+pub const DS_GFTI_UPDATE_TDO: u32 = 1u32;
+pub const DS_GFTI_VALID_FLAGS: u32 = 1u32;
+pub const DS_GOOD_TIMESERV_FLAG: u32 = 512u32;
+pub const DS_GOOD_TIMESERV_PREFERRED: u32 = 8192u32;
+pub const DS_INSTANCETYPE_IS_NC_HEAD: u32 = 1u32;
+pub const DS_INSTANCETYPE_NC_COMING: u32 = 16u32;
+pub const DS_INSTANCETYPE_NC_GOING: u32 = 32u32;
+pub const DS_INSTANCETYPE_NC_IS_WRITEABLE: u32 = 4u32;
+pub const DS_IP_REQUIRED: u32 = 512u32;
+pub const DS_IS_DNS_NAME: u32 = 131072u32;
+pub const DS_IS_FLAT_NAME: u32 = 65536u32;
+pub const DS_KCC_FLAG_ASYNC_OP: u32 = 1u32;
+pub const DS_KCC_FLAG_DAMPED: u32 = 2u32;
+pub type DS_KCC_TASKID = i32;
+pub const DS_KCC_TASKID_UPDATE_TOPOLOGY: DS_KCC_TASKID = 0i32;
+pub const DS_KDC_FLAG: u32 = 32u32;
+pub const DS_KDC_REQUIRED: u32 = 1024u32;
+pub const DS_KEY_LIST_FLAG: u32 = 131072u32;
+pub const DS_KEY_LIST_SUPPORT_REQUIRED: u32 = 16777216u32;
+pub const DS_LDAP_FLAG: u32 = 8u32;
+pub const DS_LIST_ACCOUNT_OBJECT_FOR_SERVER: u32 = 2u32;
+pub const DS_LIST_DNS_HOST_NAME_FOR_SERVER: u32 = 1u32;
+pub const DS_LIST_DSA_OBJECT_FOR_SERVER: u32 = 0u32;
+pub type DS_MANGLE_FOR = i32;
+pub const DS_MANGLE_OBJECT_RDN_FOR_DELETION: DS_MANGLE_FOR = 1i32;
+pub const DS_MANGLE_OBJECT_RDN_FOR_NAME_CONFLICT: DS_MANGLE_FOR = 2i32;
+pub const DS_MANGLE_UNKNOWN: DS_MANGLE_FOR = 0i32;
+pub type DS_NAME_ERROR = i32;
+pub const DS_NAME_ERROR_DOMAIN_ONLY: DS_NAME_ERROR = 5i32;
+pub const DS_NAME_ERROR_NOT_FOUND: DS_NAME_ERROR = 2i32;
+pub const DS_NAME_ERROR_NOT_UNIQUE: DS_NAME_ERROR = 3i32;
+pub const DS_NAME_ERROR_NO_MAPPING: DS_NAME_ERROR = 4i32;
+pub const DS_NAME_ERROR_NO_SYNTACTICAL_MAPPING: DS_NAME_ERROR = 6i32;
+pub const DS_NAME_ERROR_RESOLVING: DS_NAME_ERROR = 1i32;
+pub const DS_NAME_ERROR_TRUST_REFERRAL: DS_NAME_ERROR = 7i32;
+pub type DS_NAME_FLAGS = i32;
+pub const DS_NAME_FLAG_EVAL_AT_DC: DS_NAME_FLAGS = 2i32;
+pub const DS_NAME_FLAG_GCVERIFY: DS_NAME_FLAGS = 4i32;
+pub const DS_NAME_FLAG_SYNTACTICAL_ONLY: DS_NAME_FLAGS = 1i32;
+pub const DS_NAME_FLAG_TRUST_REFERRAL: DS_NAME_FLAGS = 8i32;
+pub type DS_NAME_FORMAT = i32;
+pub const DS_NAME_NO_ERROR: DS_NAME_ERROR = 0i32;
+pub const DS_NAME_NO_FLAGS: DS_NAME_FLAGS = 0i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DS_NAME_RESULTA {
@@ -909,6 +1445,37 @@ pub struct DS_NAME_RESULT_ITEMW {
     pub pDomain: windows_sys::core::PWSTR,
     pub pName: windows_sys::core::PWSTR,
 }
+pub const DS_NDNC_FLAG: u32 = 1024u32;
+pub const DS_NOTIFY_AFTER_SITE_RECORDS: u32 = 2u32;
+pub const DS_NT4_ACCOUNT_NAME: DS_NAME_FORMAT = 2i32;
+pub const DS_ONLY_DO_SITE_NAME: u32 = 1u32;
+pub const DS_ONLY_LDAP_NEEDED: u32 = 32768u32;
+pub const DS_PDC_FLAG: u32 = 1u32;
+pub const DS_PDC_REQUIRED: u32 = 128u32;
+pub const DS_PING_FLAGS: u32 = 1048575u32;
+pub const DS_PROP_ADMIN_PREFIX: windows_sys::core::PCWSTR = windows_sys::core::w!("admin");
+pub const DS_PROP_SHELL_PREFIX: windows_sys::core::PCWSTR = windows_sys::core::w!("shell");
+pub const DS_REPADD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
+pub const DS_REPADD_ASYNCHRONOUS_REPLICA: u32 = 32u32;
+pub const DS_REPADD_CRITICAL: u32 = 2048u32;
+pub const DS_REPADD_DISABLE_NOTIFICATION: u32 = 64u32;
+pub const DS_REPADD_DISABLE_PERIODIC: u32 = 128u32;
+pub const DS_REPADD_INITIAL: u32 = 4u32;
+pub const DS_REPADD_INTERSITE_MESSAGING: u32 = 16u32;
+pub const DS_REPADD_NEVER_NOTIFY: u32 = 512u32;
+pub const DS_REPADD_NONGC_RO_REPLICA: u32 = 16777216u32;
+pub const DS_REPADD_PERIODIC: u32 = 8u32;
+pub const DS_REPADD_SELECT_SECRETS: u32 = 4096u32;
+pub const DS_REPADD_TWO_WAY: u32 = 1024u32;
+pub const DS_REPADD_USE_COMPRESSION: u32 = 256u32;
+pub const DS_REPADD_WRITEABLE: u32 = 2u32;
+pub const DS_REPDEL_ASYNCHRONOUS_OPERATION: u32 = 1u32;
+pub const DS_REPDEL_IGNORE_ERRORS: u32 = 8u32;
+pub const DS_REPDEL_INTERSITE_MESSAGING: u32 = 4u32;
+pub const DS_REPDEL_LOCAL_ONLY: u32 = 16u32;
+pub const DS_REPDEL_NO_SOURCE: u32 = 32u32;
+pub const DS_REPDEL_REF_OK: u32 = 64u32;
+pub const DS_REPDEL_WRITEABLE: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_ATTR_META_DATA {
@@ -1012,6 +1579,21 @@ pub struct DS_REPL_CURSOR_BLOB {
     pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
     pub oszSourceDsaDN: u32,
 }
+pub const DS_REPL_INFO_CURSORS_2_FOR_NC: DS_REPL_INFO_TYPE = 7i32;
+pub const DS_REPL_INFO_CURSORS_3_FOR_NC: DS_REPL_INFO_TYPE = 8i32;
+pub const DS_REPL_INFO_CURSORS_FOR_NC: DS_REPL_INFO_TYPE = 1i32;
+pub const DS_REPL_INFO_FLAG_IMPROVE_LINKED_ATTRS: u32 = 1u32;
+pub const DS_REPL_INFO_KCC_DSA_CONNECT_FAILURES: DS_REPL_INFO_TYPE = 3i32;
+pub const DS_REPL_INFO_KCC_DSA_LINK_FAILURES: DS_REPL_INFO_TYPE = 4i32;
+pub const DS_REPL_INFO_METADATA_2_FOR_ATTR_VALUE: DS_REPL_INFO_TYPE = 10i32;
+pub const DS_REPL_INFO_METADATA_2_FOR_OBJ: DS_REPL_INFO_TYPE = 9i32;
+pub const DS_REPL_INFO_METADATA_EXT_FOR_ATTR_VALUE: DS_REPL_INFO_TYPE = 11i32;
+pub const DS_REPL_INFO_METADATA_FOR_ATTR_VALUE: DS_REPL_INFO_TYPE = 6i32;
+pub const DS_REPL_INFO_METADATA_FOR_OBJ: DS_REPL_INFO_TYPE = 2i32;
+pub const DS_REPL_INFO_NEIGHBORS: DS_REPL_INFO_TYPE = 0i32;
+pub const DS_REPL_INFO_PENDING_OPS: DS_REPL_INFO_TYPE = 5i32;
+pub type DS_REPL_INFO_TYPE = i32;
+pub const DS_REPL_INFO_TYPE_MAX: DS_REPL_INFO_TYPE = 12i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_KCC_DSA_FAILURESW {
@@ -1037,6 +1619,24 @@ pub struct DS_REPL_KCC_DSA_FAILUREW_BLOB {
     pub cNumFailures: u32,
     pub dwLastResult: u32,
 }
+pub const DS_REPL_NBR_COMPRESS_CHANGES: u32 = 268435456u32;
+pub const DS_REPL_NBR_DISABLE_SCHEDULED_SYNC: u32 = 134217728u32;
+pub const DS_REPL_NBR_DO_SCHEDULED_SYNCS: u32 = 64u32;
+pub const DS_REPL_NBR_FULL_SYNC_IN_PROGRESS: u32 = 65536u32;
+pub const DS_REPL_NBR_FULL_SYNC_NEXT_PACKET: u32 = 131072u32;
+pub const DS_REPL_NBR_GCSPN: u32 = 1048576u32;
+pub const DS_REPL_NBR_IGNORE_CHANGE_NOTIFICATIONS: u32 = 67108864u32;
+pub const DS_REPL_NBR_NEVER_SYNCED: u32 = 2097152u32;
+pub const DS_REPL_NBR_NONGC_RO_REPLICA: u32 = 1024u32;
+pub const DS_REPL_NBR_NO_CHANGE_NOTIFICATIONS: u32 = 536870912u32;
+pub const DS_REPL_NBR_PARTIAL_ATTRIBUTE_SET: u32 = 1073741824u32;
+pub const DS_REPL_NBR_PREEMPTED: u32 = 16777216u32;
+pub const DS_REPL_NBR_RETURN_OBJECT_PARENTS: u32 = 2048u32;
+pub const DS_REPL_NBR_SELECT_SECRETS: u32 = 4096u32;
+pub const DS_REPL_NBR_SYNC_ON_STARTUP: u32 = 32u32;
+pub const DS_REPL_NBR_TWO_WAY_SYNC: u32 = 512u32;
+pub const DS_REPL_NBR_USE_ASYNC_INTERSITE_TRANSPORT: u32 = 128u32;
+pub const DS_REPL_NBR_WRITEABLE: u32 = 16u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_NEIGHBORSW {
@@ -1126,6 +1726,12 @@ pub struct DS_REPL_OPW_BLOB {
     pub uuidNamingContextObjGuid: windows_sys::core::GUID,
     pub uuidDsaObjGuid: windows_sys::core::GUID,
 }
+pub type DS_REPL_OP_TYPE = i32;
+pub const DS_REPL_OP_TYPE_ADD: DS_REPL_OP_TYPE = 1i32;
+pub const DS_REPL_OP_TYPE_DELETE: DS_REPL_OP_TYPE = 2i32;
+pub const DS_REPL_OP_TYPE_MODIFY: DS_REPL_OP_TYPE = 3i32;
+pub const DS_REPL_OP_TYPE_SYNC: DS_REPL_OP_TYPE = 0i32;
+pub const DS_REPL_OP_TYPE_UPDATE_REFS: DS_REPL_OP_TYPE = 4i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_PENDING_OPSW {
@@ -1229,6 +1835,17 @@ pub struct DS_REPL_VALUE_META_DATA_EXT {
     pub dwPriorLinkState: u32,
     pub dwCurrentLinkState: u32,
 }
+pub const DS_REPMOD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
+pub const DS_REPMOD_UPDATE_ADDRESS: u32 = 2u32;
+pub const DS_REPMOD_UPDATE_FLAGS: u32 = 1u32;
+pub const DS_REPMOD_UPDATE_INSTANCE: u32 = 2u32;
+pub const DS_REPMOD_UPDATE_RESULT: u32 = 8u32;
+pub const DS_REPMOD_UPDATE_SCHEDULE: u32 = 4u32;
+pub const DS_REPMOD_UPDATE_TRANSPORT: u32 = 16u32;
+pub const DS_REPMOD_WRITEABLE: u32 = 2u32;
+pub const DS_REPSYNCALL_ABORT_IF_SERVER_UNAVAILABLE: u32 = 1u32;
+pub const DS_REPSYNCALL_CROSS_SITE_BOUNDARIES: u32 = 64u32;
+pub const DS_REPSYNCALL_DO_NOT_SYNC: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DS_REPSYNCALL_ERRINFOA {
@@ -1245,6 +1862,17 @@ pub struct DS_REPSYNCALL_ERRINFOW {
     pub dwWin32Err: u32,
     pub pszSrcId: windows_sys::core::PWSTR,
 }
+pub type DS_REPSYNCALL_ERROR = i32;
+pub type DS_REPSYNCALL_EVENT = i32;
+pub const DS_REPSYNCALL_EVENT_ERROR: DS_REPSYNCALL_EVENT = 0i32;
+pub const DS_REPSYNCALL_EVENT_FINISHED: DS_REPSYNCALL_EVENT = 3i32;
+pub const DS_REPSYNCALL_EVENT_SYNC_COMPLETED: DS_REPSYNCALL_EVENT = 2i32;
+pub const DS_REPSYNCALL_EVENT_SYNC_STARTED: DS_REPSYNCALL_EVENT = 1i32;
+pub const DS_REPSYNCALL_ID_SERVERS_BY_DN: u32 = 4u32;
+pub const DS_REPSYNCALL_NO_OPTIONS: u32 = 0u32;
+pub const DS_REPSYNCALL_PUSH_CHANGES_OUTWARD: u32 = 32u32;
+pub const DS_REPSYNCALL_SERVER_UNREACHABLE: DS_REPSYNCALL_ERROR = 2i32;
+pub const DS_REPSYNCALL_SKIP_INITIAL_CHECK: u32 = 16u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DS_REPSYNCALL_SYNCA {
@@ -1263,6 +1891,7 @@ pub struct DS_REPSYNCALL_SYNCW {
     pub pguidSrc: *mut windows_sys::core::GUID,
     pub pguidDst: *mut windows_sys::core::GUID,
 }
+pub const DS_REPSYNCALL_SYNC_ADJACENT_SERVERS_ONLY: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DS_REPSYNCALL_UPDATEA {
@@ -1277,733 +1906,6 @@ pub struct DS_REPSYNCALL_UPDATEW {
     pub pErrInfo: *mut DS_REPSYNCALL_ERRINFOW,
     pub pSync: *mut DS_REPSYNCALL_SYNCW,
 }
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DS_SCHEMA_GUID_MAPA {
-    pub guid: windows_sys::core::GUID,
-    pub guidType: u32,
-    pub pName: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DS_SCHEMA_GUID_MAPW {
-    pub guid: windows_sys::core::GUID,
-    pub guidType: u32,
-    pub pName: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct DS_SELECTION {
-    pub pwzName: windows_sys::core::PWSTR,
-    pub pwzADsPath: windows_sys::core::PWSTR,
-    pub pwzClass: windows_sys::core::PWSTR,
-    pub pwzUPN: windows_sys::core::PWSTR,
-    pub pvarFetchedAttributes: *mut super::super::System::Variant::VARIANT,
-    pub flScopeType: u32,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct DS_SELECTION_LIST {
-    pub cItems: u32,
-    pub cFetchedAttributes: u32,
-    pub aDsSelection: [DS_SELECTION; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DS_SITE_COST_INFO {
-    pub errorCode: u32,
-    pub cost: u32,
-}
-pub const Email: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8f92a857_478e_11d1_a3b4_00c04fb950dc);
-pub const FaxNumber: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa5062215_4681_11d1_a3b4_00c04fb950dc);
-pub const Hold: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb3ad3e13_4080_11d1_a3ac_00c04fb950dc);
-pub const LargeInteger: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x927971f5_0939_11d1_8be1_00c04fd8d503);
-pub const NameTranslate: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x274fae1f_3626_11d1_a3a4_00c04fb950dc);
-pub const NetAddress: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb0b71247_4080_11d1_a3ac_00c04fb950dc);
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-#[derive(Clone, Copy)]
-pub struct OPENQUERYWINDOW {
-    pub cbStruct: u32,
-    pub dwFlags: u32,
-    pub clsidHandler: windows_sys::core::GUID,
-    pub pHandlerParameters: *mut core::ffi::c_void,
-    pub clsidDefaultForm: windows_sys::core::GUID,
-    pub pPersistQuery: *mut core::ffi::c_void,
-    pub Anonymous: OPENQUERYWINDOW_0,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-#[derive(Clone, Copy)]
-pub union OPENQUERYWINDOW_0 {
-    pub pFormParameters: *mut core::ffi::c_void,
-    pub ppbFormParameters: *mut core::ffi::c_void,
-}
-pub const OctetList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1241400f_4680_11d1_a3b4_00c04fb950dc);
-pub const Path: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb2538919_4080_11d1_a3ac_00c04fb950dc);
-pub const Pathname: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x080d0d78_f421_11d0_a36e_00c04fb950dc);
-pub const PostalAddress: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0a75afcd_4680_11d1_a3b4_00c04fb950dc);
-pub const PropertyEntry: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x72d3edc2_a4c4_11d0_8533_00c04fd8d503);
-pub const PropertyValue: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7b9e38b0_a97c_11d0_8534_00c04fd8d503);
-pub const ReplicaPointer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf5d1badf_4080_11d1_a3ac_00c04fb950dc);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SCHEDULE {
-    pub Size: u32,
-    pub Bandwidth: u32,
-    pub NumberOfSchedules: u32,
-    pub Schedules: [SCHEDULE_HEADER; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SCHEDULE_HEADER {
-    pub Type: u32,
-    pub Offset: u32,
-}
-pub const SecurityDescriptor: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb958f73c_9bdd_11d0_852c_00c04fd8d503);
-pub const Timestamp: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb2bed2eb_4080_11d1_a3ac_00c04fb950dc);
-pub const TypedName: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb33143cb_4080_11d1_a3ac_00c04fb950dc);
-pub const WinNTSystemInfo: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x66182ec4_afd1_11d2_9cb9_0000f87a369e);
-pub const ACTRL_DS_CONTROL_ACCESS: u32 = 256u32;
-pub const ACTRL_DS_CREATE_CHILD: u32 = 1u32;
-pub const ACTRL_DS_DELETE_CHILD: u32 = 2u32;
-pub const ACTRL_DS_DELETE_TREE: u32 = 64u32;
-pub const ACTRL_DS_LIST: u32 = 4u32;
-pub const ACTRL_DS_LIST_OBJECT: u32 = 128u32;
-pub const ACTRL_DS_OPEN: u32 = 0u32;
-pub const ACTRL_DS_READ_PROP: u32 = 16u32;
-pub const ACTRL_DS_SELF: u32 = 8u32;
-pub const ACTRL_DS_WRITE_PROP: u32 = 32u32;
-pub const ADAM_REPL_AUTHENTICATION_MODE_MUTUAL_AUTH_REQUIRED: u32 = 2u32;
-pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE: u32 = 1u32;
-pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE_PASS_THROUGH: u32 = 0u32;
-pub const ADAM_SCP_FSMO_NAMING_STRING: windows_sys::core::PCSTR = windows_sys::core::s!("naming");
-pub const ADAM_SCP_FSMO_NAMING_STRING_W: windows_sys::core::PCWSTR = windows_sys::core::w!("naming");
-pub const ADAM_SCP_FSMO_SCHEMA_STRING: windows_sys::core::PCSTR = windows_sys::core::s!("schema");
-pub const ADAM_SCP_FSMO_SCHEMA_STRING_W: windows_sys::core::PCWSTR = windows_sys::core::w!("schema");
-pub const ADAM_SCP_FSMO_STRING: windows_sys::core::PCSTR = windows_sys::core::s!("fsmo:");
-pub const ADAM_SCP_FSMO_STRING_W: windows_sys::core::PCWSTR = windows_sys::core::w!("fsmo:");
-pub const ADAM_SCP_INSTANCE_NAME_STRING: windows_sys::core::PCSTR = windows_sys::core::s!("instance:");
-pub const ADAM_SCP_INSTANCE_NAME_STRING_W: windows_sys::core::PCWSTR = windows_sys::core::w!("instance:");
-pub const ADAM_SCP_PARTITION_STRING: windows_sys::core::PCSTR = windows_sys::core::s!("partition:");
-pub const ADAM_SCP_PARTITION_STRING_W: windows_sys::core::PCWSTR = windows_sys::core::w!("partition:");
-pub const ADAM_SCP_SITE_NAME_STRING: windows_sys::core::PCSTR = windows_sys::core::s!("site:");
-pub const ADAM_SCP_SITE_NAME_STRING_W: windows_sys::core::PCWSTR = windows_sys::core::w!("site:");
-pub const ADSIPROP_ADSIFLAG: ADS_PREFERENCES_ENUM = 12i32;
-pub const ADSIPROP_ASYNCHRONOUS: ADS_PREFERENCES_ENUM = 0i32;
-pub const ADSIPROP_ATTRIBTYPES_ONLY: ADS_PREFERENCES_ENUM = 4i32;
-pub const ADSIPROP_CACHE_RESULTS: ADS_PREFERENCES_ENUM = 11i32;
-pub const ADSIPROP_CHASE_REFERRALS: ADS_PREFERENCES_ENUM = 9i32;
-pub const ADSIPROP_DEREF_ALIASES: ADS_PREFERENCES_ENUM = 1i32;
-pub const ADSIPROP_PAGED_TIME_LIMIT: ADS_PREFERENCES_ENUM = 8i32;
-pub const ADSIPROP_PAGESIZE: ADS_PREFERENCES_ENUM = 7i32;
-pub const ADSIPROP_SEARCH_SCOPE: ADS_PREFERENCES_ENUM = 5i32;
-pub const ADSIPROP_SIZE_LIMIT: ADS_PREFERENCES_ENUM = 2i32;
-pub const ADSIPROP_SORT_ON: ADS_PREFERENCES_ENUM = 10i32;
-pub const ADSIPROP_TIMEOUT: ADS_PREFERENCES_ENUM = 6i32;
-pub const ADSIPROP_TIME_LIMIT: ADS_PREFERENCES_ENUM = 3i32;
-pub const ADSI_DIALECT_LDAP: ADSI_DIALECT_ENUM = 0i32;
-pub const ADSI_DIALECT_SQL: ADSI_DIALECT_ENUM = 1i32;
-pub const ADSTYPE_BACKLINK: ADSTYPE = 18i32;
-pub const ADSTYPE_BOOLEAN: ADSTYPE = 6i32;
-pub const ADSTYPE_CASEIGNORE_LIST: ADSTYPE = 13i32;
-pub const ADSTYPE_CASE_EXACT_STRING: ADSTYPE = 2i32;
-pub const ADSTYPE_CASE_IGNORE_STRING: ADSTYPE = 3i32;
-pub const ADSTYPE_DN_STRING: ADSTYPE = 1i32;
-pub const ADSTYPE_DN_WITH_BINARY: ADSTYPE = 27i32;
-pub const ADSTYPE_DN_WITH_STRING: ADSTYPE = 28i32;
-pub const ADSTYPE_EMAIL: ADSTYPE = 24i32;
-pub const ADSTYPE_FAXNUMBER: ADSTYPE = 23i32;
-pub const ADSTYPE_HOLD: ADSTYPE = 20i32;
-pub const ADSTYPE_INTEGER: ADSTYPE = 7i32;
-pub const ADSTYPE_INVALID: ADSTYPE = 0i32;
-pub const ADSTYPE_LARGE_INTEGER: ADSTYPE = 10i32;
-pub const ADSTYPE_NETADDRESS: ADSTYPE = 21i32;
-pub const ADSTYPE_NT_SECURITY_DESCRIPTOR: ADSTYPE = 25i32;
-pub const ADSTYPE_NUMERIC_STRING: ADSTYPE = 5i32;
-pub const ADSTYPE_OBJECT_CLASS: ADSTYPE = 12i32;
-pub const ADSTYPE_OCTET_LIST: ADSTYPE = 14i32;
-pub const ADSTYPE_OCTET_STRING: ADSTYPE = 8i32;
-pub const ADSTYPE_PATH: ADSTYPE = 15i32;
-pub const ADSTYPE_POSTALADDRESS: ADSTYPE = 16i32;
-pub const ADSTYPE_PRINTABLE_STRING: ADSTYPE = 4i32;
-pub const ADSTYPE_PROV_SPECIFIC: ADSTYPE = 11i32;
-pub const ADSTYPE_REPLICAPOINTER: ADSTYPE = 22i32;
-pub const ADSTYPE_TIMESTAMP: ADSTYPE = 17i32;
-pub const ADSTYPE_TYPEDNAME: ADSTYPE = 19i32;
-pub const ADSTYPE_UNKNOWN: ADSTYPE = 26i32;
-pub const ADSTYPE_UTC_TIME: ADSTYPE = 9i32;
-pub const ADS_ACEFLAG_FAILED_ACCESS: ADS_ACEFLAG_ENUM = 128i32;
-pub const ADS_ACEFLAG_INHERITED_ACE: ADS_ACEFLAG_ENUM = 16i32;
-pub const ADS_ACEFLAG_INHERIT_ACE: ADS_ACEFLAG_ENUM = 2i32;
-pub const ADS_ACEFLAG_INHERIT_ONLY_ACE: ADS_ACEFLAG_ENUM = 8i32;
-pub const ADS_ACEFLAG_NO_PROPAGATE_INHERIT_ACE: ADS_ACEFLAG_ENUM = 4i32;
-pub const ADS_ACEFLAG_SUCCESSFUL_ACCESS: ADS_ACEFLAG_ENUM = 64i32;
-pub const ADS_ACEFLAG_VALID_INHERIT_FLAGS: ADS_ACEFLAG_ENUM = 31i32;
-pub const ADS_ACETYPE_ACCESS_ALLOWED: ADS_ACETYPE_ENUM = 0i32;
-pub const ADS_ACETYPE_ACCESS_ALLOWED_CALLBACK: ADS_ACETYPE_ENUM = 9i32;
-pub const ADS_ACETYPE_ACCESS_ALLOWED_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = 11i32;
-pub const ADS_ACETYPE_ACCESS_ALLOWED_OBJECT: ADS_ACETYPE_ENUM = 5i32;
-pub const ADS_ACETYPE_ACCESS_DENIED: ADS_ACETYPE_ENUM = 1i32;
-pub const ADS_ACETYPE_ACCESS_DENIED_CALLBACK: ADS_ACETYPE_ENUM = 10i32;
-pub const ADS_ACETYPE_ACCESS_DENIED_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = 12i32;
-pub const ADS_ACETYPE_ACCESS_DENIED_OBJECT: ADS_ACETYPE_ENUM = 6i32;
-pub const ADS_ACETYPE_SYSTEM_ALARM_CALLBACK: ADS_ACETYPE_ENUM = 14i32;
-pub const ADS_ACETYPE_SYSTEM_ALARM_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = 16i32;
-pub const ADS_ACETYPE_SYSTEM_ALARM_OBJECT: ADS_ACETYPE_ENUM = 8i32;
-pub const ADS_ACETYPE_SYSTEM_AUDIT: ADS_ACETYPE_ENUM = 2i32;
-pub const ADS_ACETYPE_SYSTEM_AUDIT_CALLBACK: ADS_ACETYPE_ENUM = 13i32;
-pub const ADS_ACETYPE_SYSTEM_AUDIT_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = 15i32;
-pub const ADS_ACETYPE_SYSTEM_AUDIT_OBJECT: ADS_ACETYPE_ENUM = 7i32;
-pub const ADS_ATTR_APPEND: u32 = 3u32;
-pub const ADS_ATTR_CLEAR: u32 = 1u32;
-pub const ADS_ATTR_DELETE: u32 = 4u32;
-pub const ADS_ATTR_UPDATE: u32 = 2u32;
-pub const ADS_AUTH_RESERVED: ADS_AUTHENTICATION_ENUM = 2147483648u32;
-pub const ADS_CHASE_REFERRALS_ALWAYS: ADS_CHASE_REFERRALS_ENUM = 96i32;
-pub const ADS_CHASE_REFERRALS_EXTERNAL: ADS_CHASE_REFERRALS_ENUM = 64i32;
-pub const ADS_CHASE_REFERRALS_NEVER: ADS_CHASE_REFERRALS_ENUM = 0i32;
-pub const ADS_CHASE_REFERRALS_SUBORDINATE: ADS_CHASE_REFERRALS_ENUM = 32i32;
-pub const ADS_DEREF_ALWAYS: ADS_DEREFENUM = 3i32;
-pub const ADS_DEREF_FINDING: ADS_DEREFENUM = 2i32;
-pub const ADS_DEREF_NEVER: ADS_DEREFENUM = 0i32;
-pub const ADS_DEREF_SEARCHING: ADS_DEREFENUM = 1i32;
-pub const ADS_DISPLAY_FULL: ADS_DISPLAY_ENUM = 1i32;
-pub const ADS_DISPLAY_VALUE_ONLY: ADS_DISPLAY_ENUM = 2i32;
-pub const ADS_ESCAPEDMODE_DEFAULT: ADS_ESCAPE_MODE_ENUM = 1i32;
-pub const ADS_ESCAPEDMODE_OFF: ADS_ESCAPE_MODE_ENUM = 3i32;
-pub const ADS_ESCAPEDMODE_OFF_EX: ADS_ESCAPE_MODE_ENUM = 4i32;
-pub const ADS_ESCAPEDMODE_ON: ADS_ESCAPE_MODE_ENUM = 2i32;
-pub const ADS_EXT_INITCREDENTIALS: u32 = 1u32;
-pub const ADS_EXT_INITIALIZE_COMPLETE: u32 = 2u32;
-pub const ADS_EXT_MAXEXTDISPID: u32 = 16777215u32;
-pub const ADS_EXT_MINEXTDISPID: u32 = 1u32;
-pub const ADS_FAST_BIND: ADS_AUTHENTICATION_ENUM = 32u32;
-pub const ADS_FLAG_INHERITED_OBJECT_TYPE_PRESENT: ADS_FLAGTYPE_ENUM = 2i32;
-pub const ADS_FLAG_OBJECT_TYPE_PRESENT: ADS_FLAGTYPE_ENUM = 1i32;
-pub const ADS_FORMAT_LEAF: ADS_FORMAT_ENUM = 11i32;
-pub const ADS_FORMAT_PROVIDER: ADS_FORMAT_ENUM = 10i32;
-pub const ADS_FORMAT_SERVER: ADS_FORMAT_ENUM = 9i32;
-pub const ADS_FORMAT_WINDOWS: ADS_FORMAT_ENUM = 1i32;
-pub const ADS_FORMAT_WINDOWS_DN: ADS_FORMAT_ENUM = 3i32;
-pub const ADS_FORMAT_WINDOWS_NO_SERVER: ADS_FORMAT_ENUM = 2i32;
-pub const ADS_FORMAT_WINDOWS_PARENT: ADS_FORMAT_ENUM = 4i32;
-pub const ADS_FORMAT_X500: ADS_FORMAT_ENUM = 5i32;
-pub const ADS_FORMAT_X500_DN: ADS_FORMAT_ENUM = 7i32;
-pub const ADS_FORMAT_X500_NO_SERVER: ADS_FORMAT_ENUM = 6i32;
-pub const ADS_FORMAT_X500_PARENT: ADS_FORMAT_ENUM = 8i32;
-pub const ADS_GROUP_TYPE_DOMAIN_LOCAL_GROUP: ADS_GROUP_TYPE_ENUM = 4i32;
-pub const ADS_GROUP_TYPE_GLOBAL_GROUP: ADS_GROUP_TYPE_ENUM = 2i32;
-pub const ADS_GROUP_TYPE_LOCAL_GROUP: ADS_GROUP_TYPE_ENUM = 4i32;
-pub const ADS_GROUP_TYPE_SECURITY_ENABLED: ADS_GROUP_TYPE_ENUM = -2147483648i32;
-pub const ADS_GROUP_TYPE_UNIVERSAL_GROUP: ADS_GROUP_TYPE_ENUM = 8i32;
-pub const ADS_NAME_INITTYPE_DOMAIN: ADS_NAME_INITTYPE_ENUM = 1i32;
-pub const ADS_NAME_INITTYPE_GC: ADS_NAME_INITTYPE_ENUM = 3i32;
-pub const ADS_NAME_INITTYPE_SERVER: ADS_NAME_INITTYPE_ENUM = 2i32;
-pub const ADS_NAME_TYPE_1779: ADS_NAME_TYPE_ENUM = 1i32;
-pub const ADS_NAME_TYPE_CANONICAL: ADS_NAME_TYPE_ENUM = 2i32;
-pub const ADS_NAME_TYPE_CANONICAL_EX: ADS_NAME_TYPE_ENUM = 10i32;
-pub const ADS_NAME_TYPE_DISPLAY: ADS_NAME_TYPE_ENUM = 4i32;
-pub const ADS_NAME_TYPE_DOMAIN_SIMPLE: ADS_NAME_TYPE_ENUM = 5i32;
-pub const ADS_NAME_TYPE_ENTERPRISE_SIMPLE: ADS_NAME_TYPE_ENUM = 6i32;
-pub const ADS_NAME_TYPE_GUID: ADS_NAME_TYPE_ENUM = 7i32;
-pub const ADS_NAME_TYPE_NT4: ADS_NAME_TYPE_ENUM = 3i32;
-pub const ADS_NAME_TYPE_SERVICE_PRINCIPAL_NAME: ADS_NAME_TYPE_ENUM = 11i32;
-pub const ADS_NAME_TYPE_SID_OR_SID_HISTORY_NAME: ADS_NAME_TYPE_ENUM = 12i32;
-pub const ADS_NAME_TYPE_UNKNOWN: ADS_NAME_TYPE_ENUM = 8i32;
-pub const ADS_NAME_TYPE_USER_PRINCIPAL_NAME: ADS_NAME_TYPE_ENUM = 9i32;
-pub const ADS_NO_AUTHENTICATION: ADS_AUTHENTICATION_ENUM = 16u32;
-pub const ADS_NO_REFERRAL_CHASING: ADS_AUTHENTICATION_ENUM = 1024u32;
-pub const ADS_OPTION_ACCUMULATIVE_MODIFICATION: ADS_OPTION_ENUM = 8i32;
-pub const ADS_OPTION_MUTUAL_AUTH_STATUS: ADS_OPTION_ENUM = 4i32;
-pub const ADS_OPTION_PAGE_SIZE: ADS_OPTION_ENUM = 2i32;
-pub const ADS_OPTION_PASSWORD_METHOD: ADS_OPTION_ENUM = 7i32;
-pub const ADS_OPTION_PASSWORD_PORTNUMBER: ADS_OPTION_ENUM = 6i32;
-pub const ADS_OPTION_QUOTA: ADS_OPTION_ENUM = 5i32;
-pub const ADS_OPTION_REFERRALS: ADS_OPTION_ENUM = 1i32;
-pub const ADS_OPTION_SECURITY_MASK: ADS_OPTION_ENUM = 3i32;
-pub const ADS_OPTION_SERVERNAME: ADS_OPTION_ENUM = 0i32;
-pub const ADS_OPTION_SKIP_SID_LOOKUP: ADS_OPTION_ENUM = 9i32;
-pub const ADS_PASSWORD_ENCODE_CLEAR: ADS_PASSWORD_ENCODING_ENUM = 1i32;
-pub const ADS_PASSWORD_ENCODE_REQUIRE_SSL: ADS_PASSWORD_ENCODING_ENUM = 0i32;
-pub const ADS_PATH_FILE: ADS_PATHTYPE_ENUM = 1i32;
-pub const ADS_PATH_FILESHARE: ADS_PATHTYPE_ENUM = 2i32;
-pub const ADS_PATH_REGISTRY: ADS_PATHTYPE_ENUM = 3i32;
-pub const ADS_PROMPT_CREDENTIALS: ADS_AUTHENTICATION_ENUM = 8u32;
-pub const ADS_PROPERTY_APPEND: ADS_PROPERTY_OPERATION_ENUM = 3i32;
-pub const ADS_PROPERTY_CLEAR: ADS_PROPERTY_OPERATION_ENUM = 1i32;
-pub const ADS_PROPERTY_DELETE: ADS_PROPERTY_OPERATION_ENUM = 4i32;
-pub const ADS_PROPERTY_UPDATE: ADS_PROPERTY_OPERATION_ENUM = 2i32;
-pub const ADS_READONLY_SERVER: ADS_AUTHENTICATION_ENUM = 4u32;
-pub const ADS_RIGHT_ACCESS_SYSTEM_SECURITY: ADS_RIGHTS_ENUM = 16777216i32;
-pub const ADS_RIGHT_ACTRL_DS_LIST: ADS_RIGHTS_ENUM = 4i32;
-pub const ADS_RIGHT_DELETE: ADS_RIGHTS_ENUM = 65536i32;
-pub const ADS_RIGHT_DS_CONTROL_ACCESS: ADS_RIGHTS_ENUM = 256i32;
-pub const ADS_RIGHT_DS_CREATE_CHILD: ADS_RIGHTS_ENUM = 1i32;
-pub const ADS_RIGHT_DS_DELETE_CHILD: ADS_RIGHTS_ENUM = 2i32;
-pub const ADS_RIGHT_DS_DELETE_TREE: ADS_RIGHTS_ENUM = 64i32;
-pub const ADS_RIGHT_DS_LIST_OBJECT: ADS_RIGHTS_ENUM = 128i32;
-pub const ADS_RIGHT_DS_READ_PROP: ADS_RIGHTS_ENUM = 16i32;
-pub const ADS_RIGHT_DS_SELF: ADS_RIGHTS_ENUM = 8i32;
-pub const ADS_RIGHT_DS_WRITE_PROP: ADS_RIGHTS_ENUM = 32i32;
-pub const ADS_RIGHT_GENERIC_ALL: ADS_RIGHTS_ENUM = 268435456i32;
-pub const ADS_RIGHT_GENERIC_EXECUTE: ADS_RIGHTS_ENUM = 536870912i32;
-pub const ADS_RIGHT_GENERIC_READ: ADS_RIGHTS_ENUM = -2147483648i32;
-pub const ADS_RIGHT_GENERIC_WRITE: ADS_RIGHTS_ENUM = 1073741824i32;
-pub const ADS_RIGHT_READ_CONTROL: ADS_RIGHTS_ENUM = 131072i32;
-pub const ADS_RIGHT_SYNCHRONIZE: ADS_RIGHTS_ENUM = 1048576i32;
-pub const ADS_RIGHT_WRITE_DAC: ADS_RIGHTS_ENUM = 262144i32;
-pub const ADS_RIGHT_WRITE_OWNER: ADS_RIGHTS_ENUM = 524288i32;
-pub const ADS_SCOPE_BASE: ADS_SCOPEENUM = 0i32;
-pub const ADS_SCOPE_ONELEVEL: ADS_SCOPEENUM = 1i32;
-pub const ADS_SCOPE_SUBTREE: ADS_SCOPEENUM = 2i32;
-pub const ADS_SD_CONTROL_SE_DACL_AUTO_INHERITED: ADS_SD_CONTROL_ENUM = 1024i32;
-pub const ADS_SD_CONTROL_SE_DACL_AUTO_INHERIT_REQ: ADS_SD_CONTROL_ENUM = 256i32;
-pub const ADS_SD_CONTROL_SE_DACL_DEFAULTED: ADS_SD_CONTROL_ENUM = 8i32;
-pub const ADS_SD_CONTROL_SE_DACL_PRESENT: ADS_SD_CONTROL_ENUM = 4i32;
-pub const ADS_SD_CONTROL_SE_DACL_PROTECTED: ADS_SD_CONTROL_ENUM = 4096i32;
-pub const ADS_SD_CONTROL_SE_GROUP_DEFAULTED: ADS_SD_CONTROL_ENUM = 2i32;
-pub const ADS_SD_CONTROL_SE_OWNER_DEFAULTED: ADS_SD_CONTROL_ENUM = 1i32;
-pub const ADS_SD_CONTROL_SE_SACL_AUTO_INHERITED: ADS_SD_CONTROL_ENUM = 2048i32;
-pub const ADS_SD_CONTROL_SE_SACL_AUTO_INHERIT_REQ: ADS_SD_CONTROL_ENUM = 512i32;
-pub const ADS_SD_CONTROL_SE_SACL_DEFAULTED: ADS_SD_CONTROL_ENUM = 32i32;
-pub const ADS_SD_CONTROL_SE_SACL_PRESENT: ADS_SD_CONTROL_ENUM = 16i32;
-pub const ADS_SD_CONTROL_SE_SACL_PROTECTED: ADS_SD_CONTROL_ENUM = 8192i32;
-pub const ADS_SD_CONTROL_SE_SELF_RELATIVE: ADS_SD_CONTROL_ENUM = 32768i32;
-pub const ADS_SD_FORMAT_HEXSTRING: ADS_SD_FORMAT_ENUM = 3i32;
-pub const ADS_SD_FORMAT_IID: ADS_SD_FORMAT_ENUM = 1i32;
-pub const ADS_SD_FORMAT_RAW: ADS_SD_FORMAT_ENUM = 2i32;
-pub const ADS_SD_REVISION_DS: ADS_SD_REVISION_ENUM = 4i32;
-pub const ADS_SEARCHPREF_ASYNCHRONOUS: ADS_SEARCHPREF_ENUM = 0i32;
-pub const ADS_SEARCHPREF_ATTRIBTYPES_ONLY: ADS_SEARCHPREF_ENUM = 4i32;
-pub const ADS_SEARCHPREF_ATTRIBUTE_QUERY: ADS_SEARCHPREF_ENUM = 15i32;
-pub const ADS_SEARCHPREF_CACHE_RESULTS: ADS_SEARCHPREF_ENUM = 11i32;
-pub const ADS_SEARCHPREF_CHASE_REFERRALS: ADS_SEARCHPREF_ENUM = 9i32;
-pub const ADS_SEARCHPREF_DEREF_ALIASES: ADS_SEARCHPREF_ENUM = 1i32;
-pub const ADS_SEARCHPREF_DIRSYNC: ADS_SEARCHPREF_ENUM = 12i32;
-pub const ADS_SEARCHPREF_DIRSYNC_FLAG: ADS_SEARCHPREF_ENUM = 17i32;
-pub const ADS_SEARCHPREF_EXTENDED_DN: ADS_SEARCHPREF_ENUM = 18i32;
-pub const ADS_SEARCHPREF_PAGED_TIME_LIMIT: ADS_SEARCHPREF_ENUM = 8i32;
-pub const ADS_SEARCHPREF_PAGESIZE: ADS_SEARCHPREF_ENUM = 7i32;
-pub const ADS_SEARCHPREF_SEARCH_SCOPE: ADS_SEARCHPREF_ENUM = 5i32;
-pub const ADS_SEARCHPREF_SECURITY_MASK: ADS_SEARCHPREF_ENUM = 16i32;
-pub const ADS_SEARCHPREF_SIZE_LIMIT: ADS_SEARCHPREF_ENUM = 2i32;
-pub const ADS_SEARCHPREF_SORT_ON: ADS_SEARCHPREF_ENUM = 10i32;
-pub const ADS_SEARCHPREF_TIMEOUT: ADS_SEARCHPREF_ENUM = 6i32;
-pub const ADS_SEARCHPREF_TIME_LIMIT: ADS_SEARCHPREF_ENUM = 3i32;
-pub const ADS_SEARCHPREF_TOMBSTONE: ADS_SEARCHPREF_ENUM = 13i32;
-pub const ADS_SEARCHPREF_VLV: ADS_SEARCHPREF_ENUM = 14i32;
-pub const ADS_SECURE_AUTHENTICATION: ADS_AUTHENTICATION_ENUM = 1u32;
-pub const ADS_SECURITY_INFO_DACL: ADS_SECURITY_INFO_ENUM = 4i32;
-pub const ADS_SECURITY_INFO_GROUP: ADS_SECURITY_INFO_ENUM = 2i32;
-pub const ADS_SECURITY_INFO_OWNER: ADS_SECURITY_INFO_ENUM = 1i32;
-pub const ADS_SECURITY_INFO_SACL: ADS_SECURITY_INFO_ENUM = 8i32;
-pub const ADS_SERVER_BIND: ADS_AUTHENTICATION_ENUM = 512u32;
-pub const ADS_SETTYPE_DN: ADS_SETTYPE_ENUM = 4i32;
-pub const ADS_SETTYPE_FULL: ADS_SETTYPE_ENUM = 1i32;
-pub const ADS_SETTYPE_PROVIDER: ADS_SETTYPE_ENUM = 2i32;
-pub const ADS_SETTYPE_SERVER: ADS_SETTYPE_ENUM = 3i32;
-pub const ADS_STATUS_INVALID_SEARCHPREF: ADS_STATUSENUM = 1i32;
-pub const ADS_STATUS_INVALID_SEARCHPREFVALUE: ADS_STATUSENUM = 2i32;
-pub const ADS_STATUS_S_OK: ADS_STATUSENUM = 0i32;
-pub const ADS_SYSTEMFLAG_ATTR_IS_CONSTRUCTED: ADS_SYSTEMFLAG_ENUM = 4i32;
-pub const ADS_SYSTEMFLAG_ATTR_NOT_REPLICATED: ADS_SYSTEMFLAG_ENUM = 1i32;
-pub const ADS_SYSTEMFLAG_CONFIG_ALLOW_LIMITED_MOVE: ADS_SYSTEMFLAG_ENUM = 268435456i32;
-pub const ADS_SYSTEMFLAG_CONFIG_ALLOW_MOVE: ADS_SYSTEMFLAG_ENUM = 536870912i32;
-pub const ADS_SYSTEMFLAG_CONFIG_ALLOW_RENAME: ADS_SYSTEMFLAG_ENUM = 1073741824i32;
-pub const ADS_SYSTEMFLAG_CR_NTDS_DOMAIN: ADS_SYSTEMFLAG_ENUM = 2i32;
-pub const ADS_SYSTEMFLAG_CR_NTDS_NC: ADS_SYSTEMFLAG_ENUM = 1i32;
-pub const ADS_SYSTEMFLAG_DISALLOW_DELETE: ADS_SYSTEMFLAG_ENUM = -2147483648i32;
-pub const ADS_SYSTEMFLAG_DOMAIN_DISALLOW_MOVE: ADS_SYSTEMFLAG_ENUM = 67108864i32;
-pub const ADS_SYSTEMFLAG_DOMAIN_DISALLOW_RENAME: ADS_SYSTEMFLAG_ENUM = 134217728i32;
-pub const ADS_UF_ACCOUNTDISABLE: ADS_USER_FLAG_ENUM = 2i32;
-pub const ADS_UF_DONT_EXPIRE_PASSWD: ADS_USER_FLAG_ENUM = 65536i32;
-pub const ADS_UF_DONT_REQUIRE_PREAUTH: ADS_USER_FLAG_ENUM = 4194304i32;
-pub const ADS_UF_ENCRYPTED_TEXT_PASSWORD_ALLOWED: ADS_USER_FLAG_ENUM = 128i32;
-pub const ADS_UF_HOMEDIR_REQUIRED: ADS_USER_FLAG_ENUM = 8i32;
-pub const ADS_UF_INTERDOMAIN_TRUST_ACCOUNT: ADS_USER_FLAG_ENUM = 2048i32;
-pub const ADS_UF_LOCKOUT: ADS_USER_FLAG_ENUM = 16i32;
-pub const ADS_UF_MNS_LOGON_ACCOUNT: ADS_USER_FLAG_ENUM = 131072i32;
-pub const ADS_UF_NORMAL_ACCOUNT: ADS_USER_FLAG_ENUM = 512i32;
-pub const ADS_UF_NOT_DELEGATED: ADS_USER_FLAG_ENUM = 1048576i32;
-pub const ADS_UF_PASSWD_CANT_CHANGE: ADS_USER_FLAG_ENUM = 64i32;
-pub const ADS_UF_PASSWD_NOTREQD: ADS_USER_FLAG_ENUM = 32i32;
-pub const ADS_UF_PASSWORD_EXPIRED: ADS_USER_FLAG_ENUM = 8388608i32;
-pub const ADS_UF_SCRIPT: ADS_USER_FLAG_ENUM = 1i32;
-pub const ADS_UF_SERVER_TRUST_ACCOUNT: ADS_USER_FLAG_ENUM = 8192i32;
-pub const ADS_UF_SMARTCARD_REQUIRED: ADS_USER_FLAG_ENUM = 262144i32;
-pub const ADS_UF_TEMP_DUPLICATE_ACCOUNT: ADS_USER_FLAG_ENUM = 256i32;
-pub const ADS_UF_TRUSTED_FOR_DELEGATION: ADS_USER_FLAG_ENUM = 524288i32;
-pub const ADS_UF_TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION: ADS_USER_FLAG_ENUM = 16777216i32;
-pub const ADS_UF_USE_DES_KEY_ONLY: ADS_USER_FLAG_ENUM = 2097152i32;
-pub const ADS_UF_WORKSTATION_TRUST_ACCOUNT: ADS_USER_FLAG_ENUM = 4096i32;
-pub const ADS_USE_DELEGATION: ADS_AUTHENTICATION_ENUM = 256u32;
-pub const ADS_USE_ENCRYPTION: ADS_AUTHENTICATION_ENUM = 2u32;
-pub const ADS_USE_SEALING: ADS_AUTHENTICATION_ENUM = 128u32;
-pub const ADS_USE_SIGNING: ADS_AUTHENTICATION_ENUM = 64u32;
-pub const ADS_USE_SSL: ADS_AUTHENTICATION_ENUM = 2u32;
-pub const CFSTR_DSDISPLAYSPECOPTIONS: windows_sys::core::PCWSTR = windows_sys::core::w!("DsDisplaySpecOptions");
-pub const CFSTR_DSOBJECTNAMES: windows_sys::core::PCWSTR = windows_sys::core::w!("DsObjectNames");
-pub const CFSTR_DSOP_DS_SELECTION_LIST: windows_sys::core::PCWSTR = windows_sys::core::w!("CFSTR_DSOP_DS_SELECTION_LIST");
-pub const CFSTR_DSPROPERTYPAGEINFO: windows_sys::core::PCWSTR = windows_sys::core::w!("DsPropPageInfo");
-pub const CFSTR_DSQUERYPARAMS: windows_sys::core::PCWSTR = windows_sys::core::w!("DsQueryParameters");
-pub const CFSTR_DSQUERYSCOPE: windows_sys::core::PCWSTR = windows_sys::core::w!("DsQueryScope");
-pub const CFSTR_DS_DISPLAY_SPEC_OPTIONS: windows_sys::core::PCWSTR = windows_sys::core::w!("DsDisplaySpecOptions");
-pub const CLSID_CommonQuery: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x83bc5ec0_6f2a_11d0_a1c4_00aa00c16e65);
-pub const CLSID_DsAdminCreateObj: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe301a009_f901_11d2_82b9_00c04f68928b);
-pub const CLSID_DsDisplaySpecifier: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1ab4a8c0_6a0b_11d2_ad49_00c04fa31a86);
-pub const CLSID_DsDomainTreeBrowser: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1698790a_e2b4_11d0_b0b1_00c04fd8dca6);
-pub const CLSID_DsFindAdvanced: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x83ee3fe3_57d9_11d0_b932_00a024ab2dbb);
-pub const CLSID_DsFindComputer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x16006700_87ad_11d0_9140_00aa00c16e65);
-pub const CLSID_DsFindContainer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc1b3cbf2_886a_11d0_9140_00aa00c16e65);
-pub const CLSID_DsFindDomainController: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x538c7b7e_d25e_11d0_9742_00a0c906af45);
-pub const CLSID_DsFindFrsMembers: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x94ce4b18_b3d3_11d1_b9b4_00c04fd8d5b0);
-pub const CLSID_DsFindObjects: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x83ee3fe1_57d9_11d0_b932_00a024ab2dbb);
-pub const CLSID_DsFindPeople: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x83ee3fe2_57d9_11d0_b932_00a024ab2dbb);
-pub const CLSID_DsFindPrinter: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb577f070_7ee2_11d0_913f_00aa00c16e65);
-pub const CLSID_DsFindVolume: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc1b3cbf1_886a_11d0_9140_00aa00c16e65);
-pub const CLSID_DsFindWriteableDomainController: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7cbef079_aa84_444b_bc70_68e41283eabc);
-pub const CLSID_DsFolderProperties: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9e51e0d0_6e0f_11d2_9601_00c04fa31a86);
-pub const CLSID_DsObjectPicker: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x17d6ccd8_3b7b_11d2_b9e0_00c04fd8dbf7);
-pub const CLSID_DsPropertyPages: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0d45d530_764b_11d0_a1ca_00aa00c16e65);
-pub const CLSID_DsQuery: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8a23e65e_31c2_11d0_891c_00a024ab2dbb);
-pub const CLSID_MicrosoftDS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfe1290f0_cfbd_11cf_a330_00aa00c16e65);
-pub const CQFF_ISOPTIONAL: u32 = 2u32;
-pub const CQFF_NOGLOBALPAGES: u32 = 1u32;
-pub const CQPM_CLEARFORM: u32 = 6u32;
-pub const CQPM_ENABLE: u32 = 3u32;
-pub const CQPM_GETPARAMETERS: u32 = 5u32;
-pub const CQPM_HANDLERSPECIFIC: u32 = 268435456u32;
-pub const CQPM_HELP: u32 = 8u32;
-pub const CQPM_INITIALIZE: u32 = 1u32;
-pub const CQPM_PERSIST: u32 = 7u32;
-pub const CQPM_RELEASE: u32 = 2u32;
-pub const CQPM_SETDEFAULTPARAMETERS: u32 = 9u32;
-pub const DBDTF_RETURNEXTERNAL: u32 = 4u32;
-pub const DBDTF_RETURNFQDN: u32 = 1u32;
-pub const DBDTF_RETURNINBOUND: u32 = 8u32;
-pub const DBDTF_RETURNINOUTBOUND: u32 = 16u32;
-pub const DBDTF_RETURNMIXEDDOMAINS: u32 = 2u32;
-pub const DSA_NEWOBJ_CTX_CLEANUP: u32 = 4u32;
-pub const DSA_NEWOBJ_CTX_COMMIT: u32 = 2u32;
-pub const DSA_NEWOBJ_CTX_POSTCOMMIT: u32 = 3u32;
-pub const DSA_NEWOBJ_CTX_PRECOMMIT: u32 = 1u32;
-pub const DSA_NOTIFY_DEL: u32 = 1u32;
-pub const DSA_NOTIFY_FLAG_ADDITIONAL_DATA: u32 = 2u32;
-pub const DSA_NOTIFY_FLAG_FORCE_ADDITIONAL_DATA: u32 = 1u32;
-pub const DSA_NOTIFY_MOV: u32 = 4u32;
-pub const DSA_NOTIFY_PROP: u32 = 8u32;
-pub const DSA_NOTIFY_REN: u32 = 2u32;
-pub const DSBF_DISPLAYNAME: u32 = 4u32;
-pub const DSBF_ICONLOCATION: u32 = 2u32;
-pub const DSBF_STATE: u32 = 1u32;
-pub const DSBID_BANNER: u32 = 256u32;
-pub const DSBID_CONTAINERLIST: u32 = 257u32;
-pub const DSBI_CHECKBOXES: u32 = 256u32;
-pub const DSBI_DONTSIGNSEAL: u32 = 33554432u32;
-pub const DSBI_ENTIREDIRECTORY: u32 = 589824u32;
-pub const DSBI_EXPANDONOPEN: u32 = 262144u32;
-pub const DSBI_HASCREDENTIALS: u32 = 2097152u32;
-pub const DSBI_IGNORETREATASLEAF: u32 = 4194304u32;
-pub const DSBI_INCLUDEHIDDEN: u32 = 131072u32;
-pub const DSBI_NOBUTTONS: u32 = 1u32;
-pub const DSBI_NOLINES: u32 = 2u32;
-pub const DSBI_NOLINESATROOT: u32 = 4u32;
-pub const DSBI_NOROOT: u32 = 65536u32;
-pub const DSBI_RETURNOBJECTCLASS: u32 = 16777216u32;
-pub const DSBI_RETURN_FORMAT: u32 = 1048576u32;
-pub const DSBI_SIMPLEAUTHENTICATE: u32 = 8388608u32;
-pub const DSBM_CHANGEIMAGESTATE: u32 = 102u32;
-pub const DSBM_CONTEXTMENU: u32 = 104u32;
-pub const DSBM_HELP: u32 = 103u32;
-pub const DSBM_QUERYINSERT: u32 = 100u32;
-pub const DSBM_QUERYINSERTA: u32 = 101u32;
-pub const DSBM_QUERYINSERTW: u32 = 100u32;
-pub const DSBS_CHECKED: u32 = 1u32;
-pub const DSBS_HIDDEN: u32 = 2u32;
-pub const DSBS_ROOT: u32 = 4u32;
-pub const DSB_MAX_DISPLAYNAME_CHARS: u32 = 64u32;
-pub const DSCCIF_HASWIZARDDIALOG: u32 = 1u32;
-pub const DSCCIF_HASWIZARDPRIMARYPAGE: u32 = 2u32;
-pub const DSDSOF_DONTSIGNSEAL: u32 = 4u32;
-pub const DSDSOF_DSAVAILABLE: u32 = 1073741824u32;
-pub const DSDSOF_HASUSERANDSERVERINFO: u32 = 1u32;
-pub const DSDSOF_SIMPLEAUTHENTICATE: u32 = 2u32;
-pub const DSECAF_NOTLISTED: u32 = 1u32;
-pub const DSGIF_DEFAULTISCONTAINER: u32 = 32u32;
-pub const DSGIF_GETDEFAULTICON: u32 = 16u32;
-pub const DSGIF_ISDISABLED: u32 = 2u32;
-pub const DSGIF_ISMASK: u32 = 15u32;
-pub const DSGIF_ISNORMAL: u32 = 0u32;
-pub const DSGIF_ISOPEN: u32 = 1u32;
-pub const DSICCF_IGNORETREATASLEAF: u32 = 1u32;
-pub const DSOBJECT_ISCONTAINER: u32 = 1u32;
-pub const DSOBJECT_READONLYPAGES: u32 = 2147483648u32;
-pub const DSOP_DOWNLEVEL_FILTER_ALL_APP_PACKAGES: u32 = 2281701376u32;
-pub const DSOP_DOWNLEVEL_FILTER_ALL_WELLKNOWN_SIDS: u32 = 2147614720u32;
-pub const DSOP_DOWNLEVEL_FILTER_ANONYMOUS: u32 = 2147483712u32;
-pub const DSOP_DOWNLEVEL_FILTER_AUTHENTICATED_USER: u32 = 2147483680u32;
-pub const DSOP_DOWNLEVEL_FILTER_BATCH: u32 = 2147483776u32;
-pub const DSOP_DOWNLEVEL_FILTER_COMPUTERS: u32 = 2147483656u32;
-pub const DSOP_DOWNLEVEL_FILTER_CREATOR_GROUP: u32 = 2147484160u32;
-pub const DSOP_DOWNLEVEL_FILTER_CREATOR_OWNER: u32 = 2147483904u32;
-pub const DSOP_DOWNLEVEL_FILTER_DIALUP: u32 = 2147484672u32;
-pub const DSOP_DOWNLEVEL_FILTER_EXCLUDE_BUILTIN_GROUPS: u32 = 2147516416u32;
-pub const DSOP_DOWNLEVEL_FILTER_GLOBAL_GROUPS: u32 = 2147483652u32;
-pub const DSOP_DOWNLEVEL_FILTER_IIS_APP_POOL: u32 = 2214592512u32;
-pub const DSOP_DOWNLEVEL_FILTER_INTERACTIVE: u32 = 2147485696u32;
-pub const DSOP_DOWNLEVEL_FILTER_INTERNET_USER: u32 = 2149580800u32;
-pub const DSOP_DOWNLEVEL_FILTER_LOCAL_ACCOUNTS: u32 = 2415919104u32;
-pub const DSOP_DOWNLEVEL_FILTER_LOCAL_GROUPS: u32 = 2147483650u32;
-pub const DSOP_DOWNLEVEL_FILTER_LOCAL_LOGON: u32 = 2164260864u32;
-pub const DSOP_DOWNLEVEL_FILTER_LOCAL_SERVICE: u32 = 2147745792u32;
-pub const DSOP_DOWNLEVEL_FILTER_NETWORK: u32 = 2147487744u32;
-pub const DSOP_DOWNLEVEL_FILTER_NETWORK_SERVICE: u32 = 2148007936u32;
-pub const DSOP_DOWNLEVEL_FILTER_OWNER_RIGHTS: u32 = 2151677952u32;
-pub const DSOP_DOWNLEVEL_FILTER_REMOTE_LOGON: u32 = 2148532224u32;
-pub const DSOP_DOWNLEVEL_FILTER_SERVICE: u32 = 2147491840u32;
-pub const DSOP_DOWNLEVEL_FILTER_SERVICES: u32 = 2155872256u32;
-pub const DSOP_DOWNLEVEL_FILTER_SYSTEM: u32 = 2147500032u32;
-pub const DSOP_DOWNLEVEL_FILTER_TERMINAL_SERVER: u32 = 2147549184u32;
-pub const DSOP_DOWNLEVEL_FILTER_THIS_ORG_CERT: u32 = 2181038080u32;
-pub const DSOP_DOWNLEVEL_FILTER_USERS: u32 = 2147483649u32;
-pub const DSOP_DOWNLEVEL_FILTER_WORLD: u32 = 2147483664u32;
-pub const DSOP_FILTER_BUILTIN_GROUPS: u32 = 4u32;
-pub const DSOP_FILTER_COMPUTERS: u32 = 2048u32;
-pub const DSOP_FILTER_CONTACTS: u32 = 1024u32;
-pub const DSOP_FILTER_DOMAIN_LOCAL_GROUPS_DL: u32 = 256u32;
-pub const DSOP_FILTER_DOMAIN_LOCAL_GROUPS_SE: u32 = 512u32;
-pub const DSOP_FILTER_GLOBAL_GROUPS_DL: u32 = 64u32;
-pub const DSOP_FILTER_GLOBAL_GROUPS_SE: u32 = 128u32;
-pub const DSOP_FILTER_INCLUDE_ADVANCED_VIEW: u32 = 1u32;
-pub const DSOP_FILTER_PASSWORDSETTINGS_OBJECTS: u32 = 8192u32;
-pub const DSOP_FILTER_SERVICE_ACCOUNTS: u32 = 4096u32;
-pub const DSOP_FILTER_UNIVERSAL_GROUPS_DL: u32 = 16u32;
-pub const DSOP_FILTER_UNIVERSAL_GROUPS_SE: u32 = 32u32;
-pub const DSOP_FILTER_USERS: u32 = 2u32;
-pub const DSOP_FILTER_WELL_KNOWN_PRINCIPALS: u32 = 8u32;
-pub const DSOP_FLAG_MULTISELECT: u32 = 1u32;
-pub const DSOP_FLAG_SKIP_TARGET_COMPUTER_DC_CHECK: u32 = 2u32;
-pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_COMPUTERS: u32 = 256u32;
-pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_CONTACTS: u32 = 512u32;
-pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_GROUPS: u32 = 128u32;
-pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_PASSWORDSETTINGS_OBJECTS: u32 = 2048u32;
-pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_SERVICE_ACCOUNTS: u32 = 1024u32;
-pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_USERS: u32 = 64u32;
-pub const DSOP_SCOPE_FLAG_STARTING_SCOPE: u32 = 1u32;
-pub const DSOP_SCOPE_FLAG_WANT_DOWNLEVEL_BUILTIN_PATH: u32 = 32u32;
-pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_GC: u32 = 8u32;
-pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_LDAP: u32 = 4u32;
-pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_WINNT: u32 = 2u32;
-pub const DSOP_SCOPE_FLAG_WANT_SID_PATH: u32 = 16u32;
-pub const DSOP_SCOPE_TYPE_DOWNLEVEL_JOINED_DOMAIN: u32 = 4u32;
-pub const DSOP_SCOPE_TYPE_ENTERPRISE_DOMAIN: u32 = 8u32;
-pub const DSOP_SCOPE_TYPE_EXTERNAL_DOWNLEVEL_DOMAIN: u32 = 64u32;
-pub const DSOP_SCOPE_TYPE_EXTERNAL_UPLEVEL_DOMAIN: u32 = 32u32;
-pub const DSOP_SCOPE_TYPE_GLOBAL_CATALOG: u32 = 16u32;
-pub const DSOP_SCOPE_TYPE_TARGET_COMPUTER: u32 = 1u32;
-pub const DSOP_SCOPE_TYPE_UPLEVEL_JOINED_DOMAIN: u32 = 2u32;
-pub const DSOP_SCOPE_TYPE_USER_ENTERED_DOWNLEVEL_SCOPE: u32 = 512u32;
-pub const DSOP_SCOPE_TYPE_USER_ENTERED_UPLEVEL_SCOPE: u32 = 256u32;
-pub const DSOP_SCOPE_TYPE_WORKGROUP: u32 = 128u32;
-pub const DSPROP_ATTRCHANGED_MSG: windows_sys::core::PCWSTR = windows_sys::core::w!("DsPropAttrChanged");
-pub const DSPROVIDER_ADVANCED: u32 = 16u32;
-pub const DSPROVIDER_AD_LDS: u32 = 32u32;
-pub const DSPROVIDER_UNUSED_0: u32 = 1u32;
-pub const DSPROVIDER_UNUSED_1: u32 = 2u32;
-pub const DSPROVIDER_UNUSED_2: u32 = 4u32;
-pub const DSPROVIDER_UNUSED_3: u32 = 8u32;
-pub const DSQPF_ENABLEADMINFEATURES: u32 = 8u32;
-pub const DSQPF_ENABLEADVANCEDFEATURES: u32 = 16u32;
-pub const DSQPF_HASCREDENTIALS: u32 = 32u32;
-pub const DSQPF_NOCHOOSECOLUMNS: u32 = 64u32;
-pub const DSQPF_NOSAVE: u32 = 1u32;
-pub const DSQPF_SAVELOCATION: u32 = 2u32;
-pub const DSQPF_SHOWHIDDENOBJECTS: u32 = 4u32;
-pub const DSQPM_GETCLASSLIST: u32 = 268435456u32;
-pub const DSQPM_HELPTOPICS: u32 = 268435457u32;
-pub const DSROLE_PRIMARY_DOMAIN_GUID_PRESENT: u32 = 16777216u32;
-pub const DSROLE_PRIMARY_DS_MIXED_MODE: u32 = 2u32;
-pub const DSROLE_PRIMARY_DS_READONLY: u32 = 8u32;
-pub const DSROLE_PRIMARY_DS_RUNNING: u32 = 1u32;
-pub const DSROLE_UPGRADE_IN_PROGRESS: u32 = 4u32;
-pub const DSSSF_DONTSIGNSEAL: u32 = 2u32;
-pub const DSSSF_DSAVAILABLE: u32 = 2147483648u32;
-pub const DSSSF_SIMPLEAUTHENTICATE: u32 = 1u32;
-pub const DS_AVOID_SELF: u32 = 16384u32;
-pub const DS_BACKGROUND_ONLY: u32 = 256u32;
-pub const DS_BEHAVIOR_LONGHORN: u32 = 3u32;
-pub const DS_BEHAVIOR_WIN2000: u32 = 0u32;
-pub const DS_BEHAVIOR_WIN2003: u32 = 2u32;
-pub const DS_BEHAVIOR_WIN2003_WITH_MIXED_DOMAINS: u32 = 1u32;
-pub const DS_BEHAVIOR_WIN2008: u32 = 3u32;
-pub const DS_BEHAVIOR_WIN2008R2: u32 = 4u32;
-pub const DS_BEHAVIOR_WIN2012: u32 = 5u32;
-pub const DS_BEHAVIOR_WIN2012R2: u32 = 6u32;
-pub const DS_BEHAVIOR_WIN2016: u32 = 7u32;
-pub const DS_BEHAVIOR_WIN7: u32 = 4u32;
-pub const DS_BEHAVIOR_WIN8: u32 = 5u32;
-pub const DS_BEHAVIOR_WINBLUE: u32 = 6u32;
-pub const DS_BEHAVIOR_WINTHRESHOLD: u32 = 7u32;
-pub const DS_CANONICAL_NAME: DS_NAME_FORMAT = 7i32;
-pub const DS_CANONICAL_NAME_EX: DS_NAME_FORMAT = 9i32;
-pub const DS_CLOSEST_FLAG: u32 = 128u32;
-pub const DS_DIRECTORY_SERVICE_10_REQUIRED: u32 = 8388608u32;
-pub const DS_DIRECTORY_SERVICE_6_REQUIRED: u32 = 524288u32;
-pub const DS_DIRECTORY_SERVICE_8_REQUIRED: u32 = 2097152u32;
-pub const DS_DIRECTORY_SERVICE_9_REQUIRED: u32 = 4194304u32;
-pub const DS_DIRECTORY_SERVICE_PREFERRED: u32 = 32u32;
-pub const DS_DIRECTORY_SERVICE_REQUIRED: u32 = 16u32;
-pub const DS_DISPLAY_NAME: DS_NAME_FORMAT = 3i32;
-pub const DS_DNS_CONTROLLER_FLAG: u32 = 536870912u32;
-pub const DS_DNS_DOMAIN_FLAG: u32 = 1073741824u32;
-pub const DS_DNS_DOMAIN_NAME: DS_NAME_FORMAT = 12i32;
-pub const DS_DNS_FOREST_FLAG: u32 = 2147483648u32;
-pub const DS_DOMAIN_DIRECT_INBOUND: u32 = 32u32;
-pub const DS_DOMAIN_DIRECT_OUTBOUND: u32 = 2u32;
-pub const DS_DOMAIN_IN_FOREST: u32 = 1u32;
-pub const DS_DOMAIN_NATIVE_MODE: u32 = 16u32;
-pub const DS_DOMAIN_PRIMARY: u32 = 8u32;
-pub const DS_DOMAIN_TREE_ROOT: u32 = 4u32;
-pub const DS_DS_10_FLAG: u32 = 65536u32;
-pub const DS_DS_8_FLAG: u32 = 16384u32;
-pub const DS_DS_9_FLAG: u32 = 32768u32;
-pub const DS_DS_FLAG: u32 = 16u32;
-pub const DS_EXIST_ADVISORY_MODE: u32 = 1u32;
-pub const DS_FORCE_REDISCOVERY: u32 = 1u32;
-pub const DS_FQDN_1779_NAME: DS_NAME_FORMAT = 1i32;
-pub const DS_FULL_SECRET_DOMAIN_6_FLAG: u32 = 4096u32;
-pub const DS_GC_FLAG: u32 = 4u32;
-pub const DS_GC_SERVER_REQUIRED: u32 = 64u32;
-pub const DS_GFTI_UPDATE_TDO: u32 = 1u32;
-pub const DS_GFTI_VALID_FLAGS: u32 = 1u32;
-pub const DS_GOOD_TIMESERV_FLAG: u32 = 512u32;
-pub const DS_GOOD_TIMESERV_PREFERRED: u32 = 8192u32;
-pub const DS_INSTANCETYPE_IS_NC_HEAD: u32 = 1u32;
-pub const DS_INSTANCETYPE_NC_COMING: u32 = 16u32;
-pub const DS_INSTANCETYPE_NC_GOING: u32 = 32u32;
-pub const DS_INSTANCETYPE_NC_IS_WRITEABLE: u32 = 4u32;
-pub const DS_IP_REQUIRED: u32 = 512u32;
-pub const DS_IS_DNS_NAME: u32 = 131072u32;
-pub const DS_IS_FLAT_NAME: u32 = 65536u32;
-pub const DS_KCC_FLAG_ASYNC_OP: u32 = 1u32;
-pub const DS_KCC_FLAG_DAMPED: u32 = 2u32;
-pub const DS_KCC_TASKID_UPDATE_TOPOLOGY: DS_KCC_TASKID = 0i32;
-pub const DS_KDC_FLAG: u32 = 32u32;
-pub const DS_KDC_REQUIRED: u32 = 1024u32;
-pub const DS_KEY_LIST_FLAG: u32 = 131072u32;
-pub const DS_KEY_LIST_SUPPORT_REQUIRED: u32 = 16777216u32;
-pub const DS_LDAP_FLAG: u32 = 8u32;
-pub const DS_LIST_ACCOUNT_OBJECT_FOR_SERVER: u32 = 2u32;
-pub const DS_LIST_DNS_HOST_NAME_FOR_SERVER: u32 = 1u32;
-pub const DS_LIST_DSA_OBJECT_FOR_SERVER: u32 = 0u32;
-pub const DS_MANGLE_OBJECT_RDN_FOR_DELETION: DS_MANGLE_FOR = 1i32;
-pub const DS_MANGLE_OBJECT_RDN_FOR_NAME_CONFLICT: DS_MANGLE_FOR = 2i32;
-pub const DS_MANGLE_UNKNOWN: DS_MANGLE_FOR = 0i32;
-pub const DS_NAME_ERROR_DOMAIN_ONLY: DS_NAME_ERROR = 5i32;
-pub const DS_NAME_ERROR_NOT_FOUND: DS_NAME_ERROR = 2i32;
-pub const DS_NAME_ERROR_NOT_UNIQUE: DS_NAME_ERROR = 3i32;
-pub const DS_NAME_ERROR_NO_MAPPING: DS_NAME_ERROR = 4i32;
-pub const DS_NAME_ERROR_NO_SYNTACTICAL_MAPPING: DS_NAME_ERROR = 6i32;
-pub const DS_NAME_ERROR_RESOLVING: DS_NAME_ERROR = 1i32;
-pub const DS_NAME_ERROR_TRUST_REFERRAL: DS_NAME_ERROR = 7i32;
-pub const DS_NAME_FLAG_EVAL_AT_DC: DS_NAME_FLAGS = 2i32;
-pub const DS_NAME_FLAG_GCVERIFY: DS_NAME_FLAGS = 4i32;
-pub const DS_NAME_FLAG_SYNTACTICAL_ONLY: DS_NAME_FLAGS = 1i32;
-pub const DS_NAME_FLAG_TRUST_REFERRAL: DS_NAME_FLAGS = 8i32;
-pub const DS_NAME_NO_ERROR: DS_NAME_ERROR = 0i32;
-pub const DS_NAME_NO_FLAGS: DS_NAME_FLAGS = 0i32;
-pub const DS_NDNC_FLAG: u32 = 1024u32;
-pub const DS_NOTIFY_AFTER_SITE_RECORDS: u32 = 2u32;
-pub const DS_NT4_ACCOUNT_NAME: DS_NAME_FORMAT = 2i32;
-pub const DS_ONLY_DO_SITE_NAME: u32 = 1u32;
-pub const DS_ONLY_LDAP_NEEDED: u32 = 32768u32;
-pub const DS_PDC_FLAG: u32 = 1u32;
-pub const DS_PDC_REQUIRED: u32 = 128u32;
-pub const DS_PING_FLAGS: u32 = 1048575u32;
-pub const DS_PROP_ADMIN_PREFIX: windows_sys::core::PCWSTR = windows_sys::core::w!("admin");
-pub const DS_PROP_SHELL_PREFIX: windows_sys::core::PCWSTR = windows_sys::core::w!("shell");
-pub const DS_REPADD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
-pub const DS_REPADD_ASYNCHRONOUS_REPLICA: u32 = 32u32;
-pub const DS_REPADD_CRITICAL: u32 = 2048u32;
-pub const DS_REPADD_DISABLE_NOTIFICATION: u32 = 64u32;
-pub const DS_REPADD_DISABLE_PERIODIC: u32 = 128u32;
-pub const DS_REPADD_INITIAL: u32 = 4u32;
-pub const DS_REPADD_INTERSITE_MESSAGING: u32 = 16u32;
-pub const DS_REPADD_NEVER_NOTIFY: u32 = 512u32;
-pub const DS_REPADD_NONGC_RO_REPLICA: u32 = 16777216u32;
-pub const DS_REPADD_PERIODIC: u32 = 8u32;
-pub const DS_REPADD_SELECT_SECRETS: u32 = 4096u32;
-pub const DS_REPADD_TWO_WAY: u32 = 1024u32;
-pub const DS_REPADD_USE_COMPRESSION: u32 = 256u32;
-pub const DS_REPADD_WRITEABLE: u32 = 2u32;
-pub const DS_REPDEL_ASYNCHRONOUS_OPERATION: u32 = 1u32;
-pub const DS_REPDEL_IGNORE_ERRORS: u32 = 8u32;
-pub const DS_REPDEL_INTERSITE_MESSAGING: u32 = 4u32;
-pub const DS_REPDEL_LOCAL_ONLY: u32 = 16u32;
-pub const DS_REPDEL_NO_SOURCE: u32 = 32u32;
-pub const DS_REPDEL_REF_OK: u32 = 64u32;
-pub const DS_REPDEL_WRITEABLE: u32 = 2u32;
-pub const DS_REPL_INFO_CURSORS_2_FOR_NC: DS_REPL_INFO_TYPE = 7i32;
-pub const DS_REPL_INFO_CURSORS_3_FOR_NC: DS_REPL_INFO_TYPE = 8i32;
-pub const DS_REPL_INFO_CURSORS_FOR_NC: DS_REPL_INFO_TYPE = 1i32;
-pub const DS_REPL_INFO_FLAG_IMPROVE_LINKED_ATTRS: u32 = 1u32;
-pub const DS_REPL_INFO_KCC_DSA_CONNECT_FAILURES: DS_REPL_INFO_TYPE = 3i32;
-pub const DS_REPL_INFO_KCC_DSA_LINK_FAILURES: DS_REPL_INFO_TYPE = 4i32;
-pub const DS_REPL_INFO_METADATA_2_FOR_ATTR_VALUE: DS_REPL_INFO_TYPE = 10i32;
-pub const DS_REPL_INFO_METADATA_2_FOR_OBJ: DS_REPL_INFO_TYPE = 9i32;
-pub const DS_REPL_INFO_METADATA_EXT_FOR_ATTR_VALUE: DS_REPL_INFO_TYPE = 11i32;
-pub const DS_REPL_INFO_METADATA_FOR_ATTR_VALUE: DS_REPL_INFO_TYPE = 6i32;
-pub const DS_REPL_INFO_METADATA_FOR_OBJ: DS_REPL_INFO_TYPE = 2i32;
-pub const DS_REPL_INFO_NEIGHBORS: DS_REPL_INFO_TYPE = 0i32;
-pub const DS_REPL_INFO_PENDING_OPS: DS_REPL_INFO_TYPE = 5i32;
-pub const DS_REPL_INFO_TYPE_MAX: DS_REPL_INFO_TYPE = 12i32;
-pub const DS_REPL_NBR_COMPRESS_CHANGES: u32 = 268435456u32;
-pub const DS_REPL_NBR_DISABLE_SCHEDULED_SYNC: u32 = 134217728u32;
-pub const DS_REPL_NBR_DO_SCHEDULED_SYNCS: u32 = 64u32;
-pub const DS_REPL_NBR_FULL_SYNC_IN_PROGRESS: u32 = 65536u32;
-pub const DS_REPL_NBR_FULL_SYNC_NEXT_PACKET: u32 = 131072u32;
-pub const DS_REPL_NBR_GCSPN: u32 = 1048576u32;
-pub const DS_REPL_NBR_IGNORE_CHANGE_NOTIFICATIONS: u32 = 67108864u32;
-pub const DS_REPL_NBR_NEVER_SYNCED: u32 = 2097152u32;
-pub const DS_REPL_NBR_NONGC_RO_REPLICA: u32 = 1024u32;
-pub const DS_REPL_NBR_NO_CHANGE_NOTIFICATIONS: u32 = 536870912u32;
-pub const DS_REPL_NBR_PARTIAL_ATTRIBUTE_SET: u32 = 1073741824u32;
-pub const DS_REPL_NBR_PREEMPTED: u32 = 16777216u32;
-pub const DS_REPL_NBR_RETURN_OBJECT_PARENTS: u32 = 2048u32;
-pub const DS_REPL_NBR_SELECT_SECRETS: u32 = 4096u32;
-pub const DS_REPL_NBR_SYNC_ON_STARTUP: u32 = 32u32;
-pub const DS_REPL_NBR_TWO_WAY_SYNC: u32 = 512u32;
-pub const DS_REPL_NBR_USE_ASYNC_INTERSITE_TRANSPORT: u32 = 128u32;
-pub const DS_REPL_NBR_WRITEABLE: u32 = 16u32;
-pub const DS_REPL_OP_TYPE_ADD: DS_REPL_OP_TYPE = 1i32;
-pub const DS_REPL_OP_TYPE_DELETE: DS_REPL_OP_TYPE = 2i32;
-pub const DS_REPL_OP_TYPE_MODIFY: DS_REPL_OP_TYPE = 3i32;
-pub const DS_REPL_OP_TYPE_SYNC: DS_REPL_OP_TYPE = 0i32;
-pub const DS_REPL_OP_TYPE_UPDATE_REFS: DS_REPL_OP_TYPE = 4i32;
-pub const DS_REPMOD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
-pub const DS_REPMOD_UPDATE_ADDRESS: u32 = 2u32;
-pub const DS_REPMOD_UPDATE_FLAGS: u32 = 1u32;
-pub const DS_REPMOD_UPDATE_INSTANCE: u32 = 2u32;
-pub const DS_REPMOD_UPDATE_RESULT: u32 = 8u32;
-pub const DS_REPMOD_UPDATE_SCHEDULE: u32 = 4u32;
-pub const DS_REPMOD_UPDATE_TRANSPORT: u32 = 16u32;
-pub const DS_REPMOD_WRITEABLE: u32 = 2u32;
-pub const DS_REPSYNCALL_ABORT_IF_SERVER_UNAVAILABLE: u32 = 1u32;
-pub const DS_REPSYNCALL_CROSS_SITE_BOUNDARIES: u32 = 64u32;
-pub const DS_REPSYNCALL_DO_NOT_SYNC: u32 = 8u32;
-pub const DS_REPSYNCALL_EVENT_ERROR: DS_REPSYNCALL_EVENT = 0i32;
-pub const DS_REPSYNCALL_EVENT_FINISHED: DS_REPSYNCALL_EVENT = 3i32;
-pub const DS_REPSYNCALL_EVENT_SYNC_COMPLETED: DS_REPSYNCALL_EVENT = 2i32;
-pub const DS_REPSYNCALL_EVENT_SYNC_STARTED: DS_REPSYNCALL_EVENT = 1i32;
-pub const DS_REPSYNCALL_ID_SERVERS_BY_DN: u32 = 4u32;
-pub const DS_REPSYNCALL_NO_OPTIONS: u32 = 0u32;
-pub const DS_REPSYNCALL_PUSH_CHANGES_OUTWARD: u32 = 32u32;
-pub const DS_REPSYNCALL_SERVER_UNREACHABLE: DS_REPSYNCALL_ERROR = 2i32;
-pub const DS_REPSYNCALL_SKIP_INITIAL_CHECK: u32 = 16u32;
-pub const DS_REPSYNCALL_SYNC_ADJACENT_SERVERS_ONLY: u32 = 2u32;
 pub const DS_REPSYNCALL_WIN32_ERROR_CONTACTING_SERVER: DS_REPSYNCALL_ERROR = 0i32;
 pub const DS_REPSYNCALL_WIN32_ERROR_REPLICATING: DS_REPSYNCALL_ERROR = 1i32;
 pub const DS_REPSYNC_ABANDONED: u32 = 32768u32;
@@ -2047,19 +1949,60 @@ pub const DS_SCHEMA_GUID_ATTR: u32 = 1u32;
 pub const DS_SCHEMA_GUID_ATTR_SET: u32 = 2u32;
 pub const DS_SCHEMA_GUID_CLASS: u32 = 3u32;
 pub const DS_SCHEMA_GUID_CONTROL_RIGHT: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DS_SCHEMA_GUID_MAPA {
+    pub guid: windows_sys::core::GUID,
+    pub guidType: u32,
+    pub pName: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DS_SCHEMA_GUID_MAPW {
+    pub guid: windows_sys::core::GUID,
+    pub guidType: u32,
+    pub pName: windows_sys::core::PWSTR,
+}
 pub const DS_SCHEMA_GUID_NOT_FOUND: u32 = 0u32;
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct DS_SELECTION {
+    pub pwzName: windows_sys::core::PWSTR,
+    pub pwzADsPath: windows_sys::core::PWSTR,
+    pub pwzClass: windows_sys::core::PWSTR,
+    pub pwzUPN: windows_sys::core::PWSTR,
+    pub pvarFetchedAttributes: *mut super::super::System::Variant::VARIANT,
+    pub flScopeType: u32,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct DS_SELECTION_LIST {
+    pub cItems: u32,
+    pub cFetchedAttributes: u32,
+    pub aDsSelection: [DS_SELECTION; 1],
+}
 pub const DS_SELECT_SECRET_DOMAIN_6_FLAG: u32 = 2048u32;
 pub const DS_SERVICE_PRINCIPAL_NAME: DS_NAME_FORMAT = 10i32;
 pub const DS_SID_OR_SID_HISTORY_NAME: DS_NAME_FORMAT = 11i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DS_SITE_COST_INFO {
+    pub errorCode: u32,
+    pub cost: u32,
+}
 pub const DS_SPN_ADD_SPN_OP: DS_SPN_WRITE_OP = 0i32;
 pub const DS_SPN_DELETE_SPN_OP: DS_SPN_WRITE_OP = 2i32;
 pub const DS_SPN_DNS_HOST: DS_SPN_NAME_TYPE = 0i32;
 pub const DS_SPN_DN_HOST: DS_SPN_NAME_TYPE = 1i32;
 pub const DS_SPN_DOMAIN: DS_SPN_NAME_TYPE = 3i32;
+pub type DS_SPN_NAME_TYPE = i32;
 pub const DS_SPN_NB_DOMAIN: DS_SPN_NAME_TYPE = 4i32;
 pub const DS_SPN_NB_HOST: DS_SPN_NAME_TYPE = 2i32;
 pub const DS_SPN_REPLACE_SPN_OP: DS_SPN_WRITE_OP = 1i32;
 pub const DS_SPN_SERVICE: DS_SPN_NAME_TYPE = 5i32;
+pub type DS_SPN_WRITE_OP = i32;
 pub const DS_SYNCED_EVENT_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("NTDSInitialSyncsCompleted");
 pub const DS_SYNCED_EVENT_NAME_W: windows_sys::core::PCWSTR = windows_sys::core::w!("NTDSInitialSyncsCompleted");
 pub const DS_TIMESERV_FLAG: u32 = 64u32;
@@ -2087,6 +2030,7 @@ pub const DsRole_RoleMemberWorkstation: DSROLE_MACHINE_ROLE = 1i32;
 pub const DsRole_RolePrimaryDomainController: DSROLE_MACHINE_ROLE = 5i32;
 pub const DsRole_RoleStandaloneServer: DSROLE_MACHINE_ROLE = 2i32;
 pub const DsRole_RoleStandaloneWorkstation: DSROLE_MACHINE_ROLE = 0i32;
+pub const Email: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8f92a857_478e_11d1_a3b4_00c04fb950dc);
 pub const FACILITY_BACKUP: u32 = 2047u32;
 pub const FACILITY_NTDSB: u32 = 2048u32;
 pub const FACILITY_SYSTEM: u32 = 0u32;
@@ -2096,6 +2040,7 @@ pub const FLAG_FOREST_OPTIONAL_FEATURE: u32 = 1u32;
 pub const FLAG_SERVER_OPTIONAL_FEATURE: u32 = 8u32;
 pub const FRSCONN_MAX_PRIORITY: u32 = 8u32;
 pub const FRSCONN_PRIORITY_MASK: u32 = 1879048192u32;
+pub const FaxNumber: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa5062215_4681_11d1_a3b4_00c04fb950dc);
 pub const GUID_COMPUTRS_CONTAINER_A: windows_sys::core::PCSTR = windows_sys::core::s!("aa312825768811d1aded00c04fd8d5cd");
 pub const GUID_COMPUTRS_CONTAINER_W: windows_sys::core::PCWSTR = windows_sys::core::w!("aa312825768811d1aded00c04fd8d5cd");
 pub const GUID_DELETED_OBJECTS_CONTAINER_A: windows_sys::core::PCSTR = windows_sys::core::s!("18e2ea80684f11d2b9aa00c04f79f805");
@@ -2124,6 +2069,15 @@ pub const GUID_SYSTEMS_CONTAINER_A: windows_sys::core::PCSTR = windows_sys::core
 pub const GUID_SYSTEMS_CONTAINER_W: windows_sys::core::PCWSTR = windows_sys::core::w!("ab1d30f3768811d1aded00c04fd8d5cd");
 pub const GUID_USERS_CONTAINER_A: windows_sys::core::PCSTR = windows_sys::core::s!("a9d1ca15768811d1aded00c04fd8d5cd");
 pub const GUID_USERS_CONTAINER_W: windows_sys::core::PCWSTR = windows_sys::core::w!("a9d1ca15768811d1aded00c04fd8d5cd");
+pub const Hold: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb3ad3e13_4080_11d1_a3ac_00c04fb950dc);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type LPCQADDFORMSPROC = Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pform: *mut CQFORM) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type LPCQADDPAGESPROC = Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, clsidform: *const windows_sys::core::GUID, ppage: *mut CQPAGE) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type LPCQPAGEPROC = Option<unsafe extern "system" fn(ppage: *mut CQPAGE, hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_sys::core::HRESULT>;
+pub type LPDSENUMATTRIBUTES = Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pszattributename: windows_sys::core::PCWSTR, pszdisplayname: windows_sys::core::PCWSTR, dwflags: u32) -> windows_sys::core::HRESULT>;
+pub const LargeInteger: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x927971f5_0939_11d1_8be1_00c04fd8d503);
 pub const NTDSAPI_BIND_ALLOW_DELEGATION: u32 = 1u32;
 pub const NTDSAPI_BIND_FIND_BINDING: u32 = 2u32;
 pub const NTDSAPI_BIND_FORCE_KERBEROS: u32 = 4u32;
@@ -2175,6 +2129,27 @@ pub const NTDSSITELINK_OPT_TWOWAY_SYNC: u32 = 2u32;
 pub const NTDSSITELINK_OPT_USE_NOTIFY: u32 = 1u32;
 pub const NTDSTRANSPORT_OPT_BRIDGES_REQUIRED: u32 = 2u32;
 pub const NTDSTRANSPORT_OPT_IGNORE_SCHEDULES: u32 = 1u32;
+pub const NameTranslate: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x274fae1f_3626_11d1_a3a4_00c04fb950dc);
+pub const NetAddress: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb0b71247_4080_11d1_a3ac_00c04fb950dc);
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[derive(Clone, Copy)]
+pub struct OPENQUERYWINDOW {
+    pub cbStruct: u32,
+    pub dwFlags: u32,
+    pub clsidHandler: windows_sys::core::GUID,
+    pub pHandlerParameters: *mut core::ffi::c_void,
+    pub clsidDefaultForm: windows_sys::core::GUID,
+    pub pPersistQuery: *mut core::ffi::c_void,
+    pub Anonymous: OPENQUERYWINDOW_0,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[derive(Clone, Copy)]
+pub union OPENQUERYWINDOW_0 {
+    pub pFormParameters: *mut core::ffi::c_void,
+    pub ppbFormParameters: *mut core::ffi::c_void,
+}
 pub const OQWF_DEFAULTFORM: u32 = 2u32;
 pub const OQWF_HIDEMENUS: u32 = 1024u32;
 pub const OQWF_HIDESEARCHUI: u32 = 2048u32;
@@ -2187,11 +2162,35 @@ pub const OQWF_REMOVESCOPES: u32 = 16u32;
 pub const OQWF_SAVEQUERYONOK: u32 = 512u32;
 pub const OQWF_SHOWOPTIONAL: u32 = 128u32;
 pub const OQWF_SINGLESELECT: u32 = 4u32;
+pub const OctetList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1241400f_4680_11d1_a3b4_00c04fb950dc);
+pub const Path: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb2538919_4080_11d1_a3ac_00c04fb950dc);
+pub const Pathname: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x080d0d78_f421_11d0_a36e_00c04fb950dc);
+pub const PostalAddress: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0a75afcd_4680_11d1_a3b4_00c04fb950dc);
+pub const PropertyEntry: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x72d3edc2_a4c4_11d0_8533_00c04fd8d503);
+pub const PropertyValue: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7b9e38b0_a97c_11d0_8534_00c04fd8d503);
 pub const QUERYFORM_CHANGESFORMLIST: u64 = 1u64;
 pub const QUERYFORM_CHANGESOPTFORMLIST: u64 = 2u64;
+pub const ReplicaPointer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf5d1badf_4080_11d1_a3ac_00c04fb950dc);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SCHEDULE {
+    pub Size: u32,
+    pub Bandwidth: u32,
+    pub NumberOfSchedules: u32,
+    pub Schedules: [SCHEDULE_HEADER; 1],
+}
 pub const SCHEDULE_BANDWIDTH: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SCHEDULE_HEADER {
+    pub Type: u32,
+    pub Offset: u32,
+}
 pub const SCHEDULE_INTERVAL: u32 = 0u32;
 pub const SCHEDULE_PRIORITY: u32 = 2u32;
+pub const SecurityDescriptor: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb958f73c_9bdd_11d0_852c_00c04fd8d503);
+pub const Timestamp: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb2bed2eb_4080_11d1_a3ac_00c04fb950dc);
+pub const TypedName: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb33143cb_4080_11d1_a3ac_00c04fb950dc);
 pub const WM_ADSPROP_NOTIFY_APPLY: u32 = 2128u32;
 pub const WM_ADSPROP_NOTIFY_CHANGE: u32 = 2127u32;
 pub const WM_ADSPROP_NOTIFY_ERROR: u32 = 2134u32;
@@ -2200,6 +2199,7 @@ pub const WM_ADSPROP_NOTIFY_FOREGROUND: u32 = 2130u32;
 pub const WM_ADSPROP_NOTIFY_PAGEHWND: u32 = 2126u32;
 pub const WM_ADSPROP_NOTIFY_PAGEINIT: u32 = 2125u32;
 pub const WM_ADSPROP_NOTIFY_SETFOCUS: u32 = 2129u32;
+pub const WinNTSystemInfo: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x66182ec4_afd1_11d2_9cb9_0000f87a369e);
 pub const hrAccessDenied: windows_sys::core::HRESULT = 0xC8000773_u32 as _;
 pub const hrAfterInitialization: windows_sys::core::HRESULT = 0xC800073A_u32 as _;
 pub const hrAlreadyInitialized: windows_sys::core::HRESULT = 0xC8000406_u32 as _;

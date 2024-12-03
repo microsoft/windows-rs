@@ -1,3 +1,69 @@
+windows_core::imp::define_interface!(IQuickLink, IQuickLink_Vtbl, 0x603e4308_f0be_4adc_acc9_8b27ab9cf556);
+impl windows_core::RuntimeType for IQuickLink {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IQuickLink_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub Thumbnail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    Thumbnail: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub SetThumbnail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    SetThumbnail: usize,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SupportedDataFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SupportedDataFormats: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SupportedFileTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SupportedFileTypes: usize,
+}
+windows_core::imp::define_interface!(IShareOperation, IShareOperation_Vtbl, 0x2246bab8_d0f8_41c1_a82a_4137db6504fb);
+impl windows_core::RuntimeType for IShareOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IShareOperation_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Data: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub QuickLinkId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RemoveThisQuickLink: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ReportStarted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ReportDataRetrieved: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ReportSubmittedBackgroundTask: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ReportCompletedWithQuickLink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ReportCompleted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ReportError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IShareOperation2, IShareOperation2_Vtbl, 0x0ffb97c1_9778_4a09_8e5b_cb5e482d0555);
+impl windows_core::RuntimeType for IShareOperation2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IShareOperation2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub DismissUI: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IShareOperation3, IShareOperation3_Vtbl, 0x5ef6b382_b7a7_4571_a2a6_994a034988b2);
+impl windows_core::RuntimeType for IShareOperation3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IShareOperation3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections"))]
+    pub Contacts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections")))]
+    Contacts: usize,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct QuickLink(windows_core::IUnknown);
@@ -147,70 +213,4 @@ unsafe impl windows_core::Interface for ShareOperation {
 }
 impl windows_core::RuntimeName for ShareOperation {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation";
-}
-windows_core::imp::define_interface!(IQuickLink, IQuickLink_Vtbl, 0x603e4308_f0be_4adc_acc9_8b27ab9cf556);
-impl windows_core::RuntimeType for IQuickLink {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IQuickLink_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub Thumbnail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    Thumbnail: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub SetThumbnail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    SetThumbnail: usize,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SupportedDataFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedDataFormats: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SupportedFileTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedFileTypes: usize,
-}
-windows_core::imp::define_interface!(IShareOperation, IShareOperation_Vtbl, 0x2246bab8_d0f8_41c1_a82a_4137db6504fb);
-impl windows_core::RuntimeType for IShareOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IShareOperation_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Data: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub QuickLinkId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RemoveThisQuickLink: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReportStarted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReportDataRetrieved: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReportSubmittedBackgroundTask: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReportCompletedWithQuickLink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReportCompleted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReportError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IShareOperation2, IShareOperation2_Vtbl, 0x0ffb97c1_9778_4a09_8e5b_cb5e482d0555);
-impl windows_core::RuntimeType for IShareOperation2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IShareOperation2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub DismissUI: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IShareOperation3, IShareOperation3_Vtbl, 0x5ef6b382_b7a7_4571_a2a6_994a034988b2);
-impl windows_core::RuntimeType for IShareOperation3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IShareOperation3_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections"))]
-    pub Contacts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections")))]
-    Contacts: usize,
 }

@@ -1,10 +1,5 @@
-pub type ExtendedIsolationState = i32;
-pub type FailureCategory = i32;
-pub type FixupState = i32;
-pub type IsolationState = i32;
-pub type NapNotifyType = i32;
-pub type NapTracingLevel = i32;
-pub type RemoteConfigurationType = i32;
+pub const ComponentTypeEnforcementClientRp: u32 = 2u32;
+pub const ComponentTypeEnforcementClientSoH: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CorrelationId {
@@ -17,6 +12,8 @@ pub struct CountedString {
     pub length: u16,
     pub string: windows_sys::core::PWSTR,
 }
+pub type ExtendedIsolationState = i32;
+pub type FailureCategory = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FailureCategoryMapping {
@@ -30,6 +27,7 @@ pub struct FixupInfo {
     pub resultCodes: ResultCodes,
     pub fixupMsgId: u32,
 }
+pub type FixupState = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct Ipv4Address {
@@ -55,6 +53,7 @@ pub struct IsolationInfoEx {
     pub probEndTime: super::super::Foundation::FILETIME,
     pub failureUrl: CountedString,
 }
+pub type IsolationState = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NapComponentRegistrationInfo {
@@ -68,6 +67,8 @@ pub struct NapComponentRegistrationInfo {
     pub registrationDate: super::super::Foundation::FILETIME,
     pub componentType: u32,
 }
+pub type NapNotifyType = i32;
+pub type NapTracingLevel = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NetworkSoH {
@@ -80,6 +81,7 @@ pub struct PrivateData {
     pub size: u16,
     pub data: *mut u8,
 }
+pub type RemoteConfigurationType = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ResultCodes {
@@ -107,8 +109,6 @@ pub struct SystemHealthAgentState {
     pub failureCategory: FailureCategory,
     pub fixupInfo: FixupInfo,
 }
-pub const ComponentTypeEnforcementClientRp: u32 = 2u32;
-pub const ComponentTypeEnforcementClientSoH: u32 = 1u32;
 pub const extendedIsolationStateInfected: ExtendedIsolationState = 2i32;
 pub const extendedIsolationStateNoData: ExtendedIsolationState = 0i32;
 pub const extendedIsolationStateTransition: ExtendedIsolationState = 1i32;

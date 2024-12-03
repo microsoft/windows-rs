@@ -8,33 +8,11 @@ windows_targets::link!("cabinet.dll" "cdecl" fn FDICreate(pfnalloc : PFNALLOC, p
 windows_targets::link!("cabinet.dll" "cdecl" fn FDIDestroy(hfdi : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
 windows_targets::link!("cabinet.dll" "cdecl" fn FDIIsCabinet(hfdi : *const core::ffi::c_void, hf : isize, pfdici : *mut FDICABINETINFO) -> super::super::Foundation:: BOOL);
 windows_targets::link!("cabinet.dll" "cdecl" fn FDITruncateCabinet(hfdi : *const core::ffi::c_void, pszcabinetname : windows_sys::core::PCSTR, ifoldertodelete : u16) -> super::super::Foundation:: BOOL);
-pub type PFNALLOC = Option<unsafe extern "system" fn(cb: u32) -> *mut core::ffi::c_void>;
-pub type PFNCLOSE = Option<unsafe extern "system" fn(hf: isize) -> i32>;
-pub type PFNFCIALLOC = Option<unsafe extern "system" fn(cb: u32) -> *mut core::ffi::c_void>;
-pub type PFNFCICLOSE = Option<unsafe extern "system" fn(hf: isize, err: *mut i32, pv: *mut core::ffi::c_void) -> i32>;
-pub type PFNFCIDELETE = Option<unsafe extern "system" fn(pszfile: windows_sys::core::PCSTR, err: *mut i32, pv: *mut core::ffi::c_void) -> i32>;
-pub type PFNFCIFILEPLACED = Option<unsafe extern "system" fn(pccab: *mut CCAB, pszfile: windows_sys::core::PCSTR, cbfile: i32, fcontinuation: super::super::Foundation::BOOL, pv: *mut core::ffi::c_void) -> i32>;
-pub type PFNFCIFREE = Option<unsafe extern "system" fn(memory: *mut core::ffi::c_void)>;
-pub type PFNFCIGETNEXTCABINET = Option<unsafe extern "system" fn(pccab: *mut CCAB, cbprevcab: u32, pv: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type PFNFCIGETOPENINFO = Option<unsafe extern "system" fn(pszname: windows_sys::core::PCSTR, pdate: *mut u16, ptime: *mut u16, pattribs: *mut u16, err: *mut i32, pv: *mut core::ffi::c_void) -> isize>;
-pub type PFNFCIGETTEMPFILE = Option<unsafe extern "system" fn(psztempname: windows_sys::core::PSTR, cbtempname: i32, pv: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type PFNFCIOPEN = Option<unsafe extern "system" fn(pszfile: windows_sys::core::PCSTR, oflag: i32, pmode: i32, err: *mut i32, pv: *mut core::ffi::c_void) -> isize>;
-pub type PFNFCIREAD = Option<unsafe extern "system" fn(hf: isize, memory: *mut core::ffi::c_void, cb: u32, err: *mut i32, pv: *mut core::ffi::c_void) -> u32>;
-pub type PFNFCISEEK = Option<unsafe extern "system" fn(hf: isize, dist: i32, seektype: i32, err: *mut i32, pv: *mut core::ffi::c_void) -> i32>;
-pub type PFNFCISTATUS = Option<unsafe extern "system" fn(typestatus: u32, cb1: u32, cb2: u32, pv: *mut core::ffi::c_void) -> i32>;
-pub type PFNFCIWRITE = Option<unsafe extern "system" fn(hf: isize, memory: *mut core::ffi::c_void, cb: u32, err: *mut i32, pv: *mut core::ffi::c_void) -> u32>;
-pub type PFNFDIDECRYPT = Option<unsafe extern "system" fn(pfdid: *mut FDIDECRYPT) -> i32>;
-pub type PFNFDINOTIFY = Option<unsafe extern "system" fn(fdint: FDINOTIFICATIONTYPE, pfdin: *mut FDINOTIFICATION) -> isize>;
-pub type PFNFREE = Option<unsafe extern "system" fn(pv: *const core::ffi::c_void)>;
-pub type PFNOPEN = Option<unsafe extern "system" fn(pszfile: windows_sys::core::PCSTR, oflag: i32, pmode: i32) -> isize>;
-pub type PFNREAD = Option<unsafe extern "system" fn(hf: isize, pv: *mut core::ffi::c_void, cb: u32) -> u32>;
-pub type PFNSEEK = Option<unsafe extern "system" fn(hf: isize, dist: i32, seektype: i32) -> i32>;
-pub type PFNWRITE = Option<unsafe extern "system" fn(hf: isize, pv: *const core::ffi::c_void, cb: u32) -> u32>;
-pub type FCIERROR = i32;
-pub type FDICREATE_CPU_TYPE = i32;
-pub type FDIDECRYPTTYPE = i32;
-pub type FDIERROR = i32;
-pub type FDINOTIFICATIONTYPE = i32;
+pub const CB_MAX_CABINET_NAME: u32 = 256u32;
+pub const CB_MAX_CAB_PATH: u32 = 256u32;
+pub const CB_MAX_DISK: i32 = 2147483647i32;
+pub const CB_MAX_DISK_NAME: u32 = 256u32;
+pub const CB_MAX_FILENAME: u32 = 256u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CCAB {
@@ -58,6 +36,17 @@ pub struct ERF {
     pub erfType: i32,
     pub fError: super::super::Foundation::BOOL,
 }
+pub type FCIERROR = i32;
+pub const FCIERR_ALLOC_FAIL: FCIERROR = 3i32;
+pub const FCIERR_BAD_COMPR_TYPE: FCIERROR = 5i32;
+pub const FCIERR_CAB_FILE: FCIERROR = 6i32;
+pub const FCIERR_CAB_FORMAT_LIMIT: FCIERROR = 9i32;
+pub const FCIERR_MCI_FAIL: FCIERROR = 8i32;
+pub const FCIERR_NONE: FCIERROR = 0i32;
+pub const FCIERR_OPEN_SRC: FCIERROR = 1i32;
+pub const FCIERR_READ_SRC: FCIERROR = 2i32;
+pub const FCIERR_TEMP_FILE: FCIERROR = 4i32;
+pub const FCIERR_USER_ABORT: FCIERROR = 7i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FDICABINETINFO {
@@ -70,6 +59,7 @@ pub struct FDICABINETINFO {
     pub hasprev: super::super::Foundation::BOOL,
     pub hasnext: super::super::Foundation::BOOL,
 }
+pub type FDICREATE_CPU_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FDIDECRYPT {
@@ -109,6 +99,21 @@ pub struct FDIDECRYPT_0_1 {
     pub cbFolderReserve: u16,
     pub iFolder: u16,
 }
+pub type FDIDECRYPTTYPE = i32;
+pub type FDIERROR = i32;
+pub const FDIERROR_ALLOC_FAIL: FDIERROR = 5i32;
+pub const FDIERROR_BAD_COMPR_TYPE: FDIERROR = 6i32;
+pub const FDIERROR_CABINET_NOT_FOUND: FDIERROR = 1i32;
+pub const FDIERROR_CORRUPT_CABINET: FDIERROR = 4i32;
+pub const FDIERROR_EOF: FDIERROR = 12i32;
+pub const FDIERROR_MDI_FAIL: FDIERROR = 7i32;
+pub const FDIERROR_NONE: FDIERROR = 0i32;
+pub const FDIERROR_NOT_A_CABINET: FDIERROR = 2i32;
+pub const FDIERROR_RESERVE_MISMATCH: FDIERROR = 9i32;
+pub const FDIERROR_TARGET_FILE: FDIERROR = 8i32;
+pub const FDIERROR_UNKNOWN_CABINET_VERSION: FDIERROR = 3i32;
+pub const FDIERROR_USER_ABORT: FDIERROR = 11i32;
+pub const FDIERROR_WRONG_CABINET: FDIERROR = 10i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FDINOTIFICATION {
@@ -126,13 +131,7 @@ pub struct FDINOTIFICATION {
     pub iFolder: u16,
     pub fdie: FDIERROR,
 }
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct FDISPILLFILE {
-    pub ach: [i8; 2],
-    pub cbFile: i32,
-}
+pub type FDINOTIFICATIONTYPE = i32;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -140,37 +139,38 @@ pub struct FDISPILLFILE {
     pub ach: [i8; 2],
     pub cbFile: i32,
 }
-pub const CB_MAX_CABINET_NAME: u32 = 256u32;
-pub const CB_MAX_CAB_PATH: u32 = 256u32;
-pub const CB_MAX_DISK: i32 = 2147483647i32;
-pub const CB_MAX_DISK_NAME: u32 = 256u32;
-pub const CB_MAX_FILENAME: u32 = 256u32;
-pub const FCIERR_ALLOC_FAIL: FCIERROR = 3i32;
-pub const FCIERR_BAD_COMPR_TYPE: FCIERROR = 5i32;
-pub const FCIERR_CAB_FILE: FCIERROR = 6i32;
-pub const FCIERR_CAB_FORMAT_LIMIT: FCIERROR = 9i32;
-pub const FCIERR_MCI_FAIL: FCIERROR = 8i32;
-pub const FCIERR_NONE: FCIERROR = 0i32;
-pub const FCIERR_OPEN_SRC: FCIERROR = 1i32;
-pub const FCIERR_READ_SRC: FCIERROR = 2i32;
-pub const FCIERR_TEMP_FILE: FCIERROR = 4i32;
-pub const FCIERR_USER_ABORT: FCIERROR = 7i32;
-pub const FDIERROR_ALLOC_FAIL: FDIERROR = 5i32;
-pub const FDIERROR_BAD_COMPR_TYPE: FDIERROR = 6i32;
-pub const FDIERROR_CABINET_NOT_FOUND: FDIERROR = 1i32;
-pub const FDIERROR_CORRUPT_CABINET: FDIERROR = 4i32;
-pub const FDIERROR_EOF: FDIERROR = 12i32;
-pub const FDIERROR_MDI_FAIL: FDIERROR = 7i32;
-pub const FDIERROR_NONE: FDIERROR = 0i32;
-pub const FDIERROR_NOT_A_CABINET: FDIERROR = 2i32;
-pub const FDIERROR_RESERVE_MISMATCH: FDIERROR = 9i32;
-pub const FDIERROR_TARGET_FILE: FDIERROR = 8i32;
-pub const FDIERROR_UNKNOWN_CABINET_VERSION: FDIERROR = 3i32;
-pub const FDIERROR_USER_ABORT: FDIERROR = 11i32;
-pub const FDIERROR_WRONG_CABINET: FDIERROR = 10i32;
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct FDISPILLFILE {
+    pub ach: [i8; 2],
+    pub cbFile: i32,
+}
 pub const INCLUDED_FCI: u32 = 1u32;
 pub const INCLUDED_FDI: u32 = 1u32;
 pub const INCLUDED_TYPES_FCI_FDI: u32 = 1u32;
+pub type PFNALLOC = Option<unsafe extern "system" fn(cb: u32) -> *mut core::ffi::c_void>;
+pub type PFNCLOSE = Option<unsafe extern "system" fn(hf: isize) -> i32>;
+pub type PFNFCIALLOC = Option<unsafe extern "system" fn(cb: u32) -> *mut core::ffi::c_void>;
+pub type PFNFCICLOSE = Option<unsafe extern "system" fn(hf: isize, err: *mut i32, pv: *mut core::ffi::c_void) -> i32>;
+pub type PFNFCIDELETE = Option<unsafe extern "system" fn(pszfile: windows_sys::core::PCSTR, err: *mut i32, pv: *mut core::ffi::c_void) -> i32>;
+pub type PFNFCIFILEPLACED = Option<unsafe extern "system" fn(pccab: *mut CCAB, pszfile: windows_sys::core::PCSTR, cbfile: i32, fcontinuation: super::super::Foundation::BOOL, pv: *mut core::ffi::c_void) -> i32>;
+pub type PFNFCIFREE = Option<unsafe extern "system" fn(memory: *mut core::ffi::c_void)>;
+pub type PFNFCIGETNEXTCABINET = Option<unsafe extern "system" fn(pccab: *mut CCAB, cbprevcab: u32, pv: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type PFNFCIGETOPENINFO = Option<unsafe extern "system" fn(pszname: windows_sys::core::PCSTR, pdate: *mut u16, ptime: *mut u16, pattribs: *mut u16, err: *mut i32, pv: *mut core::ffi::c_void) -> isize>;
+pub type PFNFCIGETTEMPFILE = Option<unsafe extern "system" fn(psztempname: windows_sys::core::PSTR, cbtempname: i32, pv: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type PFNFCIOPEN = Option<unsafe extern "system" fn(pszfile: windows_sys::core::PCSTR, oflag: i32, pmode: i32, err: *mut i32, pv: *mut core::ffi::c_void) -> isize>;
+pub type PFNFCIREAD = Option<unsafe extern "system" fn(hf: isize, memory: *mut core::ffi::c_void, cb: u32, err: *mut i32, pv: *mut core::ffi::c_void) -> u32>;
+pub type PFNFCISEEK = Option<unsafe extern "system" fn(hf: isize, dist: i32, seektype: i32, err: *mut i32, pv: *mut core::ffi::c_void) -> i32>;
+pub type PFNFCISTATUS = Option<unsafe extern "system" fn(typestatus: u32, cb1: u32, cb2: u32, pv: *mut core::ffi::c_void) -> i32>;
+pub type PFNFCIWRITE = Option<unsafe extern "system" fn(hf: isize, memory: *mut core::ffi::c_void, cb: u32, err: *mut i32, pv: *mut core::ffi::c_void) -> u32>;
+pub type PFNFDIDECRYPT = Option<unsafe extern "system" fn(pfdid: *mut FDIDECRYPT) -> i32>;
+pub type PFNFDINOTIFY = Option<unsafe extern "system" fn(fdint: FDINOTIFICATIONTYPE, pfdin: *mut FDINOTIFICATION) -> isize>;
+pub type PFNFREE = Option<unsafe extern "system" fn(pv: *const core::ffi::c_void)>;
+pub type PFNOPEN = Option<unsafe extern "system" fn(pszfile: windows_sys::core::PCSTR, oflag: i32, pmode: i32) -> isize>;
+pub type PFNREAD = Option<unsafe extern "system" fn(hf: isize, pv: *mut core::ffi::c_void, cb: u32) -> u32>;
+pub type PFNSEEK = Option<unsafe extern "system" fn(hf: isize, dist: i32, seektype: i32) -> i32>;
+pub type PFNWRITE = Option<unsafe extern "system" fn(hf: isize, pv: *const core::ffi::c_void, cb: u32) -> u32>;
 pub const _A_EXEC: u32 = 64u32;
 pub const _A_NAME_IS_UTF: u32 = 128u32;
 pub const cpu80286: FDICREATE_CPU_TYPE = 0i32;

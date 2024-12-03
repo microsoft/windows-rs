@@ -100,6 +100,57 @@ impl windows_core::RuntimeName for DisplayAdapter {
 unsafe impl Send for DisplayAdapter {}
 unsafe impl Sync for DisplayAdapter {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplayBitsPerChannel(pub u32);
+impl DisplayBitsPerChannel {
+    pub const None: Self = Self(0u32);
+    pub const Bpc6: Self = Self(1u32);
+    pub const Bpc8: Self = Self(2u32);
+    pub const Bpc10: Self = Self(4u32);
+    pub const Bpc12: Self = Self(8u32);
+    pub const Bpc14: Self = Self(16u32);
+    pub const Bpc16: Self = Self(32u32);
+}
+impl windows_core::TypeKind for DisplayBitsPerChannel {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DisplayBitsPerChannel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayBitsPerChannel;u4)");
+}
+impl DisplayBitsPerChannel {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DisplayBitsPerChannel {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DisplayBitsPerChannel {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DisplayBitsPerChannel {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DisplayBitsPerChannel {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DisplayBitsPerChannel {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DisplayDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayDevice, windows_core::IUnknown, windows_core::IInspectable);
@@ -201,6 +252,18 @@ impl windows_core::RuntimeName for DisplayDevice {
 }
 unsafe impl Send for DisplayDevice {}
 unsafe impl Sync for DisplayDevice {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplayDeviceCapability(pub i32);
+impl DisplayDeviceCapability {
+    pub const FlipOverride: Self = Self(0i32);
+}
+impl windows_core::TypeKind for DisplayDeviceCapability {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DisplayDeviceCapability {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayDeviceCapability;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DisplayFence(windows_core::IUnknown);
@@ -526,6 +589,53 @@ impl windows_core::RuntimeName for DisplayManagerEnabledEventArgs {
 unsafe impl Send for DisplayManagerEnabledEventArgs {}
 unsafe impl Sync for DisplayManagerEnabledEventArgs {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplayManagerOptions(pub u32);
+impl DisplayManagerOptions {
+    pub const None: Self = Self(0u32);
+    pub const EnforceSourceOwnership: Self = Self(1u32);
+    pub const VirtualRefreshRateAware: Self = Self(2u32);
+}
+impl windows_core::TypeKind for DisplayManagerOptions {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DisplayManagerOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayManagerOptions;u4)");
+}
+impl DisplayManagerOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DisplayManagerOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DisplayManagerOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DisplayManagerOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DisplayManagerOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DisplayManagerOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DisplayManagerPathsFailedOrInvalidatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayManagerPathsFailedOrInvalidatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -561,6 +671,22 @@ impl windows_core::RuntimeName for DisplayManagerPathsFailedOrInvalidatedEventAr
 }
 unsafe impl Send for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
 unsafe impl Sync for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplayManagerResult(pub i32);
+impl DisplayManagerResult {
+    pub const Success: Self = Self(0i32);
+    pub const UnknownFailure: Self = Self(1i32);
+    pub const TargetAccessDenied: Self = Self(2i32);
+    pub const TargetStale: Self = Self(3i32);
+    pub const RemoteSessionNotSupported: Self = Self(4i32);
+}
+impl windows_core::TypeKind for DisplayManagerResult {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DisplayManagerResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayManagerResult;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DisplayManagerResultWithState(windows_core::IUnknown);
@@ -697,6 +823,52 @@ impl windows_core::RuntimeName for DisplayModeInfo {
 }
 unsafe impl Send for DisplayModeInfo {}
 unsafe impl Sync for DisplayModeInfo {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplayModeQueryOptions(pub u32);
+impl DisplayModeQueryOptions {
+    pub const None: Self = Self(0u32);
+    pub const OnlyPreferredResolution: Self = Self(1u32);
+}
+impl windows_core::TypeKind for DisplayModeQueryOptions {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DisplayModeQueryOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayModeQueryOptions;u4)");
+}
+impl DisplayModeQueryOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DisplayModeQueryOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DisplayModeQueryOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DisplayModeQueryOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DisplayModeQueryOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DisplayModeQueryOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DisplayMuxDevice(windows_core::IUnknown);
@@ -1011,6 +1183,69 @@ impl windows_core::RuntimeName for DisplayPath {
 unsafe impl Send for DisplayPath {}
 unsafe impl Sync for DisplayPath {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplayPathScaling(pub i32);
+impl DisplayPathScaling {
+    pub const Identity: Self = Self(0i32);
+    pub const Centered: Self = Self(1i32);
+    pub const Stretched: Self = Self(2i32);
+    pub const AspectRatioStretched: Self = Self(3i32);
+    pub const Custom: Self = Self(4i32);
+    pub const DriverPreferred: Self = Self(5i32);
+}
+impl windows_core::TypeKind for DisplayPathScaling {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DisplayPathScaling {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPathScaling;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplayPathStatus(pub i32);
+impl DisplayPathStatus {
+    pub const Unknown: Self = Self(0i32);
+    pub const Succeeded: Self = Self(1i32);
+    pub const Pending: Self = Self(2i32);
+    pub const Failed: Self = Self(3i32);
+    pub const FailedAsync: Self = Self(4i32);
+    pub const InvalidatedAsync: Self = Self(5i32);
+}
+impl windows_core::TypeKind for DisplayPathStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DisplayPathStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPathStatus;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplayPresentStatus(pub i32);
+impl DisplayPresentStatus {
+    pub const Success: Self = Self(0i32);
+    pub const SourceStatusPreventedPresent: Self = Self(1i32);
+    pub const ScanoutInvalid: Self = Self(2i32);
+    pub const SourceInvalid: Self = Self(3i32);
+    pub const DeviceInvalid: Self = Self(4i32);
+    pub const UnknownFailure: Self = Self(5i32);
+}
+impl windows_core::TypeKind for DisplayPresentStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DisplayPresentStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPresentStatus;i4)");
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DisplayPresentationRate {
+    pub VerticalSyncRate: super::super::super::Foundation::Numerics::Rational,
+    pub VerticalSyncsPerPresentation: i32,
+}
+impl windows_core::TypeKind for DisplayPresentationRate {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DisplayPresentationRate {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Display.Core.DisplayPresentationRate;struct(Windows.Foundation.Numerics.Rational;u4;u4);i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DisplayPrimaryDescription(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayPrimaryDescription, windows_core::IUnknown, windows_core::IInspectable);
@@ -1107,6 +1342,21 @@ impl windows_core::RuntimeName for DisplayPrimaryDescription {
 unsafe impl Send for DisplayPrimaryDescription {}
 unsafe impl Sync for DisplayPrimaryDescription {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplayRotation(pub i32);
+impl DisplayRotation {
+    pub const None: Self = Self(0i32);
+    pub const Clockwise90Degrees: Self = Self(1i32);
+    pub const Clockwise180Degrees: Self = Self(2i32);
+    pub const Clockwise270Degrees: Self = Self(3i32);
+}
+impl windows_core::TypeKind for DisplayRotation {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DisplayRotation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayRotation;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DisplayScanout(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayScanout, windows_core::IUnknown, windows_core::IInspectable);
@@ -1123,6 +1373,52 @@ impl windows_core::RuntimeName for DisplayScanout {
 }
 unsafe impl Send for DisplayScanout {}
 unsafe impl Sync for DisplayScanout {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplayScanoutOptions(pub u32);
+impl DisplayScanoutOptions {
+    pub const None: Self = Self(0u32);
+    pub const AllowTearing: Self = Self(2u32);
+}
+impl windows_core::TypeKind for DisplayScanoutOptions {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DisplayScanoutOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayScanoutOptions;u4)");
+}
+impl DisplayScanoutOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DisplayScanoutOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DisplayScanoutOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DisplayScanoutOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DisplayScanoutOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DisplayScanoutOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DisplaySource(windows_core::IUnknown);
@@ -1185,6 +1481,22 @@ impl windows_core::RuntimeName for DisplaySource {
 }
 unsafe impl Send for DisplaySource {}
 unsafe impl Sync for DisplaySource {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplaySourceStatus(pub i32);
+impl DisplaySourceStatus {
+    pub const Active: Self = Self(0i32);
+    pub const PoweredOff: Self = Self(1i32);
+    pub const Invalid: Self = Self(2i32);
+    pub const OwnedByAnotherDevice: Self = Self(3i32);
+    pub const Unowned: Self = Self(4i32);
+}
+impl windows_core::TypeKind for DisplaySourceStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DisplaySourceStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplaySourceStatus;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DisplayState(windows_core::IUnknown);
@@ -1322,6 +1634,101 @@ impl windows_core::RuntimeName for DisplayState {
 unsafe impl Send for DisplayState {}
 unsafe impl Sync for DisplayState {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplayStateApplyOptions(pub u32);
+impl DisplayStateApplyOptions {
+    pub const None: Self = Self(0u32);
+    pub const FailIfStateChanged: Self = Self(1u32);
+    pub const ForceReapply: Self = Self(2u32);
+    pub const ForceModeEnumeration: Self = Self(4u32);
+}
+impl windows_core::TypeKind for DisplayStateApplyOptions {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DisplayStateApplyOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateApplyOptions;u4)");
+}
+impl DisplayStateApplyOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DisplayStateApplyOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DisplayStateApplyOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DisplayStateApplyOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DisplayStateApplyOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DisplayStateApplyOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplayStateFunctionalizeOptions(pub u32);
+impl DisplayStateFunctionalizeOptions {
+    pub const None: Self = Self(0u32);
+    pub const FailIfStateChanged: Self = Self(1u32);
+    pub const ValidateTopologyOnly: Self = Self(2u32);
+}
+impl windows_core::TypeKind for DisplayStateFunctionalizeOptions {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DisplayStateFunctionalizeOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateFunctionalizeOptions;u4)");
+}
+impl DisplayStateFunctionalizeOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DisplayStateFunctionalizeOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DisplayStateFunctionalizeOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DisplayStateFunctionalizeOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DisplayStateFunctionalizeOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DisplayStateFunctionalizeOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DisplayStateOperationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayStateOperationResult, windows_core::IUnknown, windows_core::IInspectable);
@@ -1353,6 +1760,25 @@ impl windows_core::RuntimeName for DisplayStateOperationResult {
 }
 unsafe impl Send for DisplayStateOperationResult {}
 unsafe impl Sync for DisplayStateOperationResult {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplayStateOperationStatus(pub i32);
+impl DisplayStateOperationStatus {
+    pub const Success: Self = Self(0i32);
+    pub const PartialFailure: Self = Self(1i32);
+    pub const UnknownFailure: Self = Self(2i32);
+    pub const TargetOwnershipLost: Self = Self(3i32);
+    pub const SystemStateChanged: Self = Self(4i32);
+    pub const TooManyPathsForAdapter: Self = Self(5i32);
+    pub const ModesNotSupported: Self = Self(6i32);
+    pub const RemoteSessionNotSupported: Self = Self(7i32);
+}
+impl windows_core::TypeKind for DisplayStateOperationStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DisplayStateOperationStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateOperationStatus;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DisplaySurface(windows_core::IUnknown);
@@ -1494,6 +1920,21 @@ impl windows_core::RuntimeName for DisplayTarget {
 unsafe impl Send for DisplayTarget {}
 unsafe impl Sync for DisplayTarget {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplayTargetPersistence(pub i32);
+impl DisplayTargetPersistence {
+    pub const None: Self = Self(0i32);
+    pub const BootPersisted: Self = Self(1i32);
+    pub const TemporaryPersisted: Self = Self(2i32);
+    pub const PathPersisted: Self = Self(3i32);
+}
+impl windows_core::TypeKind for DisplayTargetPersistence {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DisplayTargetPersistence {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayTargetPersistence;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DisplayTask(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayTask, windows_core::IUnknown, windows_core::IInspectable);
@@ -1613,6 +2054,19 @@ impl windows_core::RuntimeName for DisplayTaskResult {
 }
 unsafe impl Send for DisplayTaskResult {}
 unsafe impl Sync for DisplayTaskResult {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplayTaskSignalKind(pub i32);
+impl DisplayTaskSignalKind {
+    pub const OnPresentFlipAway: Self = Self(0i32);
+    pub const OnPresentFlipTo: Self = Self(1i32);
+}
+impl windows_core::TypeKind for DisplayTaskSignalKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DisplayTaskSignalKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayTaskSignalKind;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DisplayView(windows_core::IUnknown);
@@ -1755,6 +2209,64 @@ impl windows_core::RuntimeName for DisplayWireFormat {
 }
 unsafe impl Send for DisplayWireFormat {}
 unsafe impl Sync for DisplayWireFormat {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplayWireFormatColorSpace(pub i32);
+impl DisplayWireFormatColorSpace {
+    pub const BT709: Self = Self(0i32);
+    pub const BT2020: Self = Self(1i32);
+    pub const ProfileDefinedWideColorGamut: Self = Self(2i32);
+}
+impl windows_core::TypeKind for DisplayWireFormatColorSpace {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DisplayWireFormatColorSpace {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatColorSpace;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplayWireFormatEotf(pub i32);
+impl DisplayWireFormatEotf {
+    pub const Sdr: Self = Self(0i32);
+    pub const HdrSmpte2084: Self = Self(1i32);
+}
+impl windows_core::TypeKind for DisplayWireFormatEotf {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DisplayWireFormatEotf {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatEotf;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplayWireFormatHdrMetadata(pub i32);
+impl DisplayWireFormatHdrMetadata {
+    pub const None: Self = Self(0i32);
+    pub const Hdr10: Self = Self(1i32);
+    pub const Hdr10Plus: Self = Self(2i32);
+    pub const DolbyVisionLowLatency: Self = Self(3i32);
+}
+impl windows_core::TypeKind for DisplayWireFormatHdrMetadata {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DisplayWireFormatHdrMetadata {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatHdrMetadata;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplayWireFormatPixelEncoding(pub i32);
+impl DisplayWireFormatPixelEncoding {
+    pub const Rgb444: Self = Self(0i32);
+    pub const Ycc444: Self = Self(1i32);
+    pub const Ycc422: Self = Self(2i32);
+    pub const Ycc420: Self = Self(3i32);
+    pub const Intensity: Self = Self(4i32);
+}
+impl windows_core::TypeKind for DisplayWireFormatPixelEncoding {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DisplayWireFormatPixelEncoding {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatPixelEncoding;i4)");
+}
 windows_core::imp::define_interface!(IDisplayAdapter, IDisplayAdapter_Vtbl, 0xa56f5287_f000_5f2e_b5ac_3783a2b69af5);
 impl windows_core::RuntimeType for IDisplayAdapter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -2395,516 +2907,4 @@ pub struct IDisplayWireFormatStatics_Vtbl {
     pub CreateWithProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DisplayWireFormatPixelEncoding, i32, DisplayWireFormatColorSpace, DisplayWireFormatEotf, DisplayWireFormatHdrMetadata, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateWithProperties: usize,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplayBitsPerChannel(pub u32);
-impl DisplayBitsPerChannel {
-    pub const None: Self = Self(0u32);
-    pub const Bpc6: Self = Self(1u32);
-    pub const Bpc8: Self = Self(2u32);
-    pub const Bpc10: Self = Self(4u32);
-    pub const Bpc12: Self = Self(8u32);
-    pub const Bpc14: Self = Self(16u32);
-    pub const Bpc16: Self = Self(32u32);
-}
-impl windows_core::TypeKind for DisplayBitsPerChannel {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DisplayBitsPerChannel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayBitsPerChannel;u4)");
-}
-impl DisplayBitsPerChannel {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DisplayBitsPerChannel {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DisplayBitsPerChannel {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DisplayBitsPerChannel {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DisplayBitsPerChannel {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DisplayBitsPerChannel {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplayDeviceCapability(pub i32);
-impl DisplayDeviceCapability {
-    pub const FlipOverride: Self = Self(0i32);
-}
-impl windows_core::TypeKind for DisplayDeviceCapability {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DisplayDeviceCapability {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayDeviceCapability;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplayManagerOptions(pub u32);
-impl DisplayManagerOptions {
-    pub const None: Self = Self(0u32);
-    pub const EnforceSourceOwnership: Self = Self(1u32);
-    pub const VirtualRefreshRateAware: Self = Self(2u32);
-}
-impl windows_core::TypeKind for DisplayManagerOptions {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DisplayManagerOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayManagerOptions;u4)");
-}
-impl DisplayManagerOptions {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DisplayManagerOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DisplayManagerOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DisplayManagerOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DisplayManagerOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DisplayManagerOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplayManagerResult(pub i32);
-impl DisplayManagerResult {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const TargetAccessDenied: Self = Self(2i32);
-    pub const TargetStale: Self = Self(3i32);
-    pub const RemoteSessionNotSupported: Self = Self(4i32);
-}
-impl windows_core::TypeKind for DisplayManagerResult {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DisplayManagerResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayManagerResult;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplayModeQueryOptions(pub u32);
-impl DisplayModeQueryOptions {
-    pub const None: Self = Self(0u32);
-    pub const OnlyPreferredResolution: Self = Self(1u32);
-}
-impl windows_core::TypeKind for DisplayModeQueryOptions {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DisplayModeQueryOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayModeQueryOptions;u4)");
-}
-impl DisplayModeQueryOptions {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DisplayModeQueryOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DisplayModeQueryOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DisplayModeQueryOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DisplayModeQueryOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DisplayModeQueryOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplayPathScaling(pub i32);
-impl DisplayPathScaling {
-    pub const Identity: Self = Self(0i32);
-    pub const Centered: Self = Self(1i32);
-    pub const Stretched: Self = Self(2i32);
-    pub const AspectRatioStretched: Self = Self(3i32);
-    pub const Custom: Self = Self(4i32);
-    pub const DriverPreferred: Self = Self(5i32);
-}
-impl windows_core::TypeKind for DisplayPathScaling {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DisplayPathScaling {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPathScaling;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplayPathStatus(pub i32);
-impl DisplayPathStatus {
-    pub const Unknown: Self = Self(0i32);
-    pub const Succeeded: Self = Self(1i32);
-    pub const Pending: Self = Self(2i32);
-    pub const Failed: Self = Self(3i32);
-    pub const FailedAsync: Self = Self(4i32);
-    pub const InvalidatedAsync: Self = Self(5i32);
-}
-impl windows_core::TypeKind for DisplayPathStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DisplayPathStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPathStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplayPresentStatus(pub i32);
-impl DisplayPresentStatus {
-    pub const Success: Self = Self(0i32);
-    pub const SourceStatusPreventedPresent: Self = Self(1i32);
-    pub const ScanoutInvalid: Self = Self(2i32);
-    pub const SourceInvalid: Self = Self(3i32);
-    pub const DeviceInvalid: Self = Self(4i32);
-    pub const UnknownFailure: Self = Self(5i32);
-}
-impl windows_core::TypeKind for DisplayPresentStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DisplayPresentStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPresentStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplayRotation(pub i32);
-impl DisplayRotation {
-    pub const None: Self = Self(0i32);
-    pub const Clockwise90Degrees: Self = Self(1i32);
-    pub const Clockwise180Degrees: Self = Self(2i32);
-    pub const Clockwise270Degrees: Self = Self(3i32);
-}
-impl windows_core::TypeKind for DisplayRotation {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DisplayRotation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayRotation;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplayScanoutOptions(pub u32);
-impl DisplayScanoutOptions {
-    pub const None: Self = Self(0u32);
-    pub const AllowTearing: Self = Self(2u32);
-}
-impl windows_core::TypeKind for DisplayScanoutOptions {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DisplayScanoutOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayScanoutOptions;u4)");
-}
-impl DisplayScanoutOptions {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DisplayScanoutOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DisplayScanoutOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DisplayScanoutOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DisplayScanoutOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DisplayScanoutOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplaySourceStatus(pub i32);
-impl DisplaySourceStatus {
-    pub const Active: Self = Self(0i32);
-    pub const PoweredOff: Self = Self(1i32);
-    pub const Invalid: Self = Self(2i32);
-    pub const OwnedByAnotherDevice: Self = Self(3i32);
-    pub const Unowned: Self = Self(4i32);
-}
-impl windows_core::TypeKind for DisplaySourceStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DisplaySourceStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplaySourceStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplayStateApplyOptions(pub u32);
-impl DisplayStateApplyOptions {
-    pub const None: Self = Self(0u32);
-    pub const FailIfStateChanged: Self = Self(1u32);
-    pub const ForceReapply: Self = Self(2u32);
-    pub const ForceModeEnumeration: Self = Self(4u32);
-}
-impl windows_core::TypeKind for DisplayStateApplyOptions {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DisplayStateApplyOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateApplyOptions;u4)");
-}
-impl DisplayStateApplyOptions {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DisplayStateApplyOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DisplayStateApplyOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DisplayStateApplyOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DisplayStateApplyOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DisplayStateApplyOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplayStateFunctionalizeOptions(pub u32);
-impl DisplayStateFunctionalizeOptions {
-    pub const None: Self = Self(0u32);
-    pub const FailIfStateChanged: Self = Self(1u32);
-    pub const ValidateTopologyOnly: Self = Self(2u32);
-}
-impl windows_core::TypeKind for DisplayStateFunctionalizeOptions {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DisplayStateFunctionalizeOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateFunctionalizeOptions;u4)");
-}
-impl DisplayStateFunctionalizeOptions {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DisplayStateFunctionalizeOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DisplayStateFunctionalizeOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DisplayStateFunctionalizeOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DisplayStateFunctionalizeOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DisplayStateFunctionalizeOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplayStateOperationStatus(pub i32);
-impl DisplayStateOperationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const PartialFailure: Self = Self(1i32);
-    pub const UnknownFailure: Self = Self(2i32);
-    pub const TargetOwnershipLost: Self = Self(3i32);
-    pub const SystemStateChanged: Self = Self(4i32);
-    pub const TooManyPathsForAdapter: Self = Self(5i32);
-    pub const ModesNotSupported: Self = Self(6i32);
-    pub const RemoteSessionNotSupported: Self = Self(7i32);
-}
-impl windows_core::TypeKind for DisplayStateOperationStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DisplayStateOperationStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateOperationStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplayTargetPersistence(pub i32);
-impl DisplayTargetPersistence {
-    pub const None: Self = Self(0i32);
-    pub const BootPersisted: Self = Self(1i32);
-    pub const TemporaryPersisted: Self = Self(2i32);
-    pub const PathPersisted: Self = Self(3i32);
-}
-impl windows_core::TypeKind for DisplayTargetPersistence {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DisplayTargetPersistence {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayTargetPersistence;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplayTaskSignalKind(pub i32);
-impl DisplayTaskSignalKind {
-    pub const OnPresentFlipAway: Self = Self(0i32);
-    pub const OnPresentFlipTo: Self = Self(1i32);
-}
-impl windows_core::TypeKind for DisplayTaskSignalKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DisplayTaskSignalKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayTaskSignalKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplayWireFormatColorSpace(pub i32);
-impl DisplayWireFormatColorSpace {
-    pub const BT709: Self = Self(0i32);
-    pub const BT2020: Self = Self(1i32);
-    pub const ProfileDefinedWideColorGamut: Self = Self(2i32);
-}
-impl windows_core::TypeKind for DisplayWireFormatColorSpace {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DisplayWireFormatColorSpace {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatColorSpace;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplayWireFormatEotf(pub i32);
-impl DisplayWireFormatEotf {
-    pub const Sdr: Self = Self(0i32);
-    pub const HdrSmpte2084: Self = Self(1i32);
-}
-impl windows_core::TypeKind for DisplayWireFormatEotf {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DisplayWireFormatEotf {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatEotf;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplayWireFormatHdrMetadata(pub i32);
-impl DisplayWireFormatHdrMetadata {
-    pub const None: Self = Self(0i32);
-    pub const Hdr10: Self = Self(1i32);
-    pub const Hdr10Plus: Self = Self(2i32);
-    pub const DolbyVisionLowLatency: Self = Self(3i32);
-}
-impl windows_core::TypeKind for DisplayWireFormatHdrMetadata {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DisplayWireFormatHdrMetadata {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatHdrMetadata;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplayWireFormatPixelEncoding(pub i32);
-impl DisplayWireFormatPixelEncoding {
-    pub const Rgb444: Self = Self(0i32);
-    pub const Ycc444: Self = Self(1i32);
-    pub const Ycc422: Self = Self(2i32);
-    pub const Ycc420: Self = Self(3i32);
-    pub const Intensity: Self = Self(4i32);
-}
-impl windows_core::TypeKind for DisplayWireFormatPixelEncoding {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DisplayWireFormatPixelEncoding {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatPixelEncoding;i4)");
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct DisplayPresentationRate {
-    pub VerticalSyncRate: super::super::super::Foundation::Numerics::Rational,
-    pub VerticalSyncsPerPresentation: i32,
-}
-impl windows_core::TypeKind for DisplayPresentationRate {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DisplayPresentationRate {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Display.Core.DisplayPresentationRate;struct(Windows.Foundation.Numerics.Rational;u4;u4);i4)");
 }

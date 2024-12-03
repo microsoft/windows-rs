@@ -52,6 +52,10 @@ windows_targets::link!("winbio.dll" "system" fn WinBioUnregisterEventMonitor(ses
 windows_targets::link!("winbio.dll" "system" fn WinBioVerify(sessionhandle : u32, identity : *const WINBIO_IDENTITY, subfactor : u8, unitid : *mut u32, r#match : *mut u8, rejectdetail : *mut u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("winbio.dll" "system" fn WinBioVerifyWithCallback(sessionhandle : u32, identity : *const WINBIO_IDENTITY, subfactor : u8, verifycallback : PWINBIO_VERIFY_CALLBACK, verifycallbackcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("winbio.dll" "system" fn WinBioWait(sessionhandle : u32) -> windows_sys::core::HRESULT);
+pub const FACILITY_NONE: u32 = 0u32;
+pub const FACILITY_WINBIO: u32 = 9u32;
+pub const GUID_DEVINTERFACE_BIOMETRIC_READER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe2b5183a_99ea_4cc3_ad6b_80ca8d715b80);
+pub const IOCTL_BIOMETRIC_VENDOR: u32 = 4464640u32;
 #[cfg(feature = "Win32_System_IO")]
 pub type PIBIO_ENGINE_ACCEPT_PRIVATE_SENSOR_TYPE_INFO_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, typeinfobufferaddress: *const u8, typeinfobuffersize: usize) -> windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_System_IO")]
@@ -305,15 +309,6 @@ pub type PWINBIO_QUERY_SENSOR_INTERFACE_FN = Option<unsafe extern "system" fn(se
 #[cfg(feature = "Win32_System_IO")]
 pub type PWINBIO_QUERY_STORAGE_INTERFACE_FN = Option<unsafe extern "system" fn(storageinterface: *mut *mut WINBIO_STORAGE_INTERFACE) -> windows_sys::core::HRESULT>;
 pub type PWINBIO_VERIFY_CALLBACK = Option<unsafe extern "system" fn(verifycallbackcontext: *const core::ffi::c_void, operationstatus: windows_sys::core::HRESULT, unitid: u32, r#match: super::super::Foundation::BOOLEAN, rejectdetail: u32)>;
-pub type WINBIO_ANTI_SPOOF_POLICY_ACTION = i32;
-pub type WINBIO_ASYNC_NOTIFICATION_METHOD = i32;
-pub type WINBIO_COMPONENT = u32;
-pub type WINBIO_CREDENTIAL_FORMAT = i32;
-pub type WINBIO_CREDENTIAL_STATE = i32;
-pub type WINBIO_CREDENTIAL_TYPE = i32;
-pub type WINBIO_POLICY_SOURCE = i32;
-pub type WINBIO_POOL = u32;
-pub type WINBIO_SETTING_SOURCE = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ACCOUNT_POLICY {
@@ -326,12 +321,36 @@ pub struct WINBIO_ADAPTER_INTERFACE_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
 }
+pub const WINBIO_ANSI_381_IMG_BIT_PACKED: u16 = 1u16;
+pub const WINBIO_ANSI_381_IMG_COMPRESSED_JPEG: u16 = 3u16;
+pub const WINBIO_ANSI_381_IMG_COMPRESSED_JPEG2000: u16 = 4u16;
+pub const WINBIO_ANSI_381_IMG_COMPRESSED_PNG: u16 = 5u16;
+pub const WINBIO_ANSI_381_IMG_COMPRESSED_WSQ: u16 = 2u16;
+pub const WINBIO_ANSI_381_IMG_UNCOMPRESSED: u16 = 0u16;
+pub const WINBIO_ANSI_381_IMP_TYPE_LATENT: u16 = 7u16;
+pub const WINBIO_ANSI_381_IMP_TYPE_LIVE_SCAN_CONTACTLESS: u16 = 9u16;
+pub const WINBIO_ANSI_381_IMP_TYPE_LIVE_SCAN_PLAIN: u16 = 0u16;
+pub const WINBIO_ANSI_381_IMP_TYPE_LIVE_SCAN_ROLLED: u16 = 1u16;
+pub const WINBIO_ANSI_381_IMP_TYPE_NONLIVE_SCAN_PLAIN: u16 = 2u16;
+pub const WINBIO_ANSI_381_IMP_TYPE_NONLIVE_SCAN_ROLLED: u16 = 3u16;
+pub const WINBIO_ANSI_381_IMP_TYPE_SWIPE: u16 = 8u16;
+pub const WINBIO_ANSI_381_PIXELS_PER_CM: u16 = 2u16;
+pub const WINBIO_ANSI_381_PIXELS_PER_INCH: u16 = 1u16;
+pub const WINBIO_ANTI_SPOOF_DISABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = 0i32;
+pub const WINBIO_ANTI_SPOOF_ENABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = 1i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ANTI_SPOOF_POLICY {
     pub Action: WINBIO_ANTI_SPOOF_POLICY_ACTION,
     pub Source: WINBIO_POLICY_SOURCE,
 }
+pub type WINBIO_ANTI_SPOOF_POLICY_ACTION = i32;
+pub const WINBIO_ANTI_SPOOF_REMOVE: WINBIO_ANTI_SPOOF_POLICY_ACTION = 2i32;
+pub type WINBIO_ASYNC_NOTIFICATION_METHOD = i32;
+pub const WINBIO_ASYNC_NOTIFY_CALLBACK: WINBIO_ASYNC_NOTIFICATION_METHOD = 1i32;
+pub const WINBIO_ASYNC_NOTIFY_MAXIMUM_VALUE: WINBIO_ASYNC_NOTIFICATION_METHOD = 3i32;
+pub const WINBIO_ASYNC_NOTIFY_MESSAGE: WINBIO_ASYNC_NOTIFICATION_METHOD = 2i32;
+pub const WINBIO_ASYNC_NOTIFY_NONE: WINBIO_ASYNC_NOTIFICATION_METHOD = 0i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT {
@@ -551,6 +570,8 @@ pub struct WINBIO_BIR {
     pub VendorDataBlock: WINBIO_BIR_DATA,
     pub SignatureBlock: WINBIO_BIR_DATA,
 }
+pub const WINBIO_BIR_ALGIN_SIZE: u32 = 8u32;
+pub const WINBIO_BIR_ALIGN_SIZE: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_BIR_DATA {
@@ -619,12 +640,30 @@ pub struct WINBIO_CAPTURE_PARAMETERS {
     pub VendorFormat: windows_sys::core::GUID,
     pub Flags: u8,
 }
+pub type WINBIO_COMPONENT = u32;
+pub const WINBIO_COMPONENT_ENGINE: WINBIO_COMPONENT = 2u32;
+pub const WINBIO_COMPONENT_SENSOR: WINBIO_COMPONENT = 1u32;
+pub const WINBIO_COMPONENT_STORAGE: WINBIO_COMPONENT = 3u32;
+pub const WINBIO_CREDENTIAL_ALL: WINBIO_CREDENTIAL_TYPE = -1i32;
+pub type WINBIO_CREDENTIAL_FORMAT = i32;
+pub const WINBIO_CREDENTIAL_NOT_SET: WINBIO_CREDENTIAL_STATE = 1i32;
+pub const WINBIO_CREDENTIAL_PASSWORD: WINBIO_CREDENTIAL_TYPE = 1i32;
+pub const WINBIO_CREDENTIAL_SET: WINBIO_CREDENTIAL_STATE = 2i32;
+pub type WINBIO_CREDENTIAL_STATE = i32;
+pub type WINBIO_CREDENTIAL_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_DATA {
     pub Size: u32,
     pub Data: [u8; 1],
 }
+pub const WINBIO_DATA_FLAG_INTEGRITY: u16 = 1u16;
+pub const WINBIO_DATA_FLAG_INTERMEDIATE: u16 = 64u16;
+pub const WINBIO_DATA_FLAG_OPTION_MASK_PRESENT: u16 = 8u16;
+pub const WINBIO_DATA_FLAG_PRIVACY: u16 = 2u16;
+pub const WINBIO_DATA_FLAG_PROCESSED: u16 = 128u16;
+pub const WINBIO_DATA_FLAG_RAW: u16 = 32u16;
+pub const WINBIO_DATA_FLAG_SIGNED: u16 = 4u16;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_DIAGNOSTICS {
@@ -953,6 +992,90 @@ pub struct WINBIO_EXTENDED_UNIT_STATUS {
     pub Availability: u32,
     pub ReasonCode: u32,
 }
+pub const WINBIO_E_ADAPTER_INTEGRITY_FAILURE: windows_sys::core::HRESULT = 0x8009803D_u32 as _;
+pub const WINBIO_E_AUTO_LOGON_DISABLED: windows_sys::core::HRESULT = 0x80098043_u32 as _;
+pub const WINBIO_E_BAD_CAPTURE: windows_sys::core::HRESULT = 0x80098008_u32 as _;
+pub const WINBIO_E_CALIBRATION_BUFFER_INVALID: windows_sys::core::HRESULT = 0x80098051_u32 as _;
+pub const WINBIO_E_CALIBRATION_BUFFER_TOO_LARGE: windows_sys::core::HRESULT = 0x80098050_u32 as _;
+pub const WINBIO_E_CALIBRATION_BUFFER_TOO_SMALL: windows_sys::core::HRESULT = 0x8009804F_u32 as _;
+pub const WINBIO_E_CANCELED: windows_sys::core::HRESULT = 0x80098004_u32 as _;
+pub const WINBIO_E_CAPTURE_ABORTED: windows_sys::core::HRESULT = 0x80098006_u32 as _;
+pub const WINBIO_E_CONFIGURATION_FAILURE: windows_sys::core::HRESULT = 0x80098033_u32 as _;
+pub const WINBIO_E_CRED_PROV_DISABLED: windows_sys::core::HRESULT = 0x80098030_u32 as _;
+pub const WINBIO_E_CRED_PROV_NO_CREDENTIAL: windows_sys::core::HRESULT = 0x80098031_u32 as _;
+pub const WINBIO_E_CRED_PROV_SECURITY_LOCKOUT: windows_sys::core::HRESULT = 0x80098047_u32 as _;
+pub const WINBIO_E_DATABASE_ALREADY_EXISTS: windows_sys::core::HRESULT = 0x80098016_u32 as _;
+pub const WINBIO_E_DATABASE_BAD_INDEX_VECTOR: windows_sys::core::HRESULT = 0x80098022_u32 as _;
+pub const WINBIO_E_DATABASE_CANT_CLOSE: windows_sys::core::HRESULT = 0x80098013_u32 as _;
+pub const WINBIO_E_DATABASE_CANT_CREATE: windows_sys::core::HRESULT = 0x80098011_u32 as _;
+pub const WINBIO_E_DATABASE_CANT_ERASE: windows_sys::core::HRESULT = 0x80098014_u32 as _;
+pub const WINBIO_E_DATABASE_CANT_FIND: windows_sys::core::HRESULT = 0x80098015_u32 as _;
+pub const WINBIO_E_DATABASE_CANT_OPEN: windows_sys::core::HRESULT = 0x80098012_u32 as _;
+pub const WINBIO_E_DATABASE_CORRUPTED: windows_sys::core::HRESULT = 0x8009801A_u32 as _;
+pub const WINBIO_E_DATABASE_EOF: windows_sys::core::HRESULT = 0x80098021_u32 as _;
+pub const WINBIO_E_DATABASE_FULL: windows_sys::core::HRESULT = 0x80098018_u32 as _;
+pub const WINBIO_E_DATABASE_LOCKED: windows_sys::core::HRESULT = 0x80098019_u32 as _;
+pub const WINBIO_E_DATABASE_NO_MORE_RECORDS: windows_sys::core::HRESULT = 0x80098020_u32 as _;
+pub const WINBIO_E_DATABASE_NO_RESULTS: windows_sys::core::HRESULT = 0x8009801F_u32 as _;
+pub const WINBIO_E_DATABASE_NO_SUCH_RECORD: windows_sys::core::HRESULT = 0x8009801B_u32 as _;
+pub const WINBIO_E_DATABASE_READ_ERROR: windows_sys::core::HRESULT = 0x8009801D_u32 as _;
+pub const WINBIO_E_DATABASE_WRITE_ERROR: windows_sys::core::HRESULT = 0x8009801E_u32 as _;
+pub const WINBIO_E_DATA_COLLECTION_IN_PROGRESS: windows_sys::core::HRESULT = 0x8009800B_u32 as _;
+pub const WINBIO_E_DATA_PROTECTION_FAILURE: windows_sys::core::HRESULT = 0x80098046_u32 as _;
+pub const WINBIO_E_DEADLOCK_DETECTED: windows_sys::core::HRESULT = 0x80098040_u32 as _;
+pub const WINBIO_E_DEVICE_BUSY: windows_sys::core::HRESULT = 0x80098010_u32 as _;
+pub const WINBIO_E_DEVICE_FAILURE: windows_sys::core::HRESULT = 0x80098036_u32 as _;
+pub const WINBIO_E_DISABLED: windows_sys::core::HRESULT = 0x80098032_u32 as _;
+pub const WINBIO_E_DUPLICATE_ENROLLMENT: windows_sys::core::HRESULT = 0x8009801C_u32 as _;
+pub const WINBIO_E_DUPLICATE_TEMPLATE: windows_sys::core::HRESULT = 0x8009802B_u32 as _;
+pub const WINBIO_E_ENROLLMENT_CANCELED_BY_SUSPEND: windows_sys::core::HRESULT = 0x8009805B_u32 as _;
+pub const WINBIO_E_ENROLLMENT_IN_PROGRESS: windows_sys::core::HRESULT = 0x80098007_u32 as _;
+pub const WINBIO_E_EVENT_MONITOR_ACTIVE: windows_sys::core::HRESULT = 0x80098039_u32 as _;
+pub const WINBIO_E_FAST_USER_SWITCH_DISABLED: windows_sys::core::HRESULT = 0x80098037_u32 as _;
+pub const WINBIO_E_INCORRECT_BSP: windows_sys::core::HRESULT = 0x80098024_u32 as _;
+pub const WINBIO_E_INCORRECT_SENSOR_POOL: windows_sys::core::HRESULT = 0x80098025_u32 as _;
+pub const WINBIO_E_INCORRECT_SESSION_TYPE: windows_sys::core::HRESULT = 0x8009803E_u32 as _;
+pub const WINBIO_E_INSECURE_SENSOR: windows_sys::core::HRESULT = 0x80098057_u32 as _;
+pub const WINBIO_E_INVALID_BUFFER: windows_sys::core::HRESULT = 0x80098059_u32 as _;
+pub const WINBIO_E_INVALID_BUFFER_ID: windows_sys::core::HRESULT = 0x80098058_u32 as _;
+pub const WINBIO_E_INVALID_CALIBRATION_FORMAT_ARRAY: windows_sys::core::HRESULT = 0x8009804C_u32 as _;
+pub const WINBIO_E_INVALID_CONTROL_CODE: windows_sys::core::HRESULT = 0x80098009_u32 as _;
+pub const WINBIO_E_INVALID_DEVICE_STATE: windows_sys::core::HRESULT = 0x8009800F_u32 as _;
+pub const WINBIO_E_INVALID_KEY_IDENTIFIER: windows_sys::core::HRESULT = 0x80098052_u32 as _;
+pub const WINBIO_E_INVALID_OPERATION: windows_sys::core::HRESULT = 0x8009802C_u32 as _;
+pub const WINBIO_E_INVALID_PROPERTY_ID: windows_sys::core::HRESULT = 0x8009803B_u32 as _;
+pub const WINBIO_E_INVALID_PROPERTY_TYPE: windows_sys::core::HRESULT = 0x8009803A_u32 as _;
+pub const WINBIO_E_INVALID_SENSOR_MODE: windows_sys::core::HRESULT = 0x80098027_u32 as _;
+pub const WINBIO_E_INVALID_SUBFACTOR: windows_sys::core::HRESULT = 0x8009804B_u32 as _;
+pub const WINBIO_E_INVALID_TICKET: windows_sys::core::HRESULT = 0x80098044_u32 as _;
+pub const WINBIO_E_INVALID_UNIT: windows_sys::core::HRESULT = 0x80098002_u32 as _;
+pub const WINBIO_E_KEY_CREATION_FAILED: windows_sys::core::HRESULT = 0x80098053_u32 as _;
+pub const WINBIO_E_KEY_IDENTIFIER_BUFFER_TOO_SMALL: windows_sys::core::HRESULT = 0x80098054_u32 as _;
+pub const WINBIO_E_LOCK_VIOLATION: windows_sys::core::HRESULT = 0x8009802A_u32 as _;
+pub const WINBIO_E_MAX_ERROR_COUNT_EXCEEDED: windows_sys::core::HRESULT = 0x80098042_u32 as _;
+pub const WINBIO_E_NOT_ACTIVE_CONSOLE: windows_sys::core::HRESULT = 0x80098038_u32 as _;
+pub const WINBIO_E_NO_CAPTURE_DATA: windows_sys::core::HRESULT = 0x80098026_u32 as _;
+pub const WINBIO_E_NO_MATCH: windows_sys::core::HRESULT = 0x80098005_u32 as _;
+pub const WINBIO_E_NO_PREBOOT_IDENTITY: windows_sys::core::HRESULT = 0x80098041_u32 as _;
+pub const WINBIO_E_NO_SUPPORTED_CALIBRATION_FORMAT: windows_sys::core::HRESULT = 0x8009804D_u32 as _;
+pub const WINBIO_E_POLICY_PROTECTION_UNAVAILABLE: windows_sys::core::HRESULT = 0x80098056_u32 as _;
+pub const WINBIO_E_PRESENCE_MONITOR_ACTIVE: windows_sys::core::HRESULT = 0x8009804A_u32 as _;
+pub const WINBIO_E_PROPERTY_UNAVAILABLE: windows_sys::core::HRESULT = 0x80098055_u32 as _;
+pub const WINBIO_E_SAS_ENABLED: windows_sys::core::HRESULT = 0x80098035_u32 as _;
+pub const WINBIO_E_SELECTION_REQUIRED: windows_sys::core::HRESULT = 0x80098049_u32 as _;
+pub const WINBIO_E_SENSOR_UNAVAILABLE: windows_sys::core::HRESULT = 0x80098034_u32 as _;
+pub const WINBIO_E_SESSION_BUSY: windows_sys::core::HRESULT = 0x8009802D_u32 as _;
+pub const WINBIO_E_SESSION_HANDLE_CLOSED: windows_sys::core::HRESULT = 0x8009803F_u32 as _;
+pub const WINBIO_E_TICKET_QUOTA_EXCEEDED: windows_sys::core::HRESULT = 0x80098045_u32 as _;
+pub const WINBIO_E_TRUSTLET_INTEGRITY_FAIL: windows_sys::core::HRESULT = 0x8009805A_u32 as _;
+pub const WINBIO_E_UNKNOWN_ID: windows_sys::core::HRESULT = 0x80098003_u32 as _;
+pub const WINBIO_E_UNSUPPORTED_DATA_FORMAT: windows_sys::core::HRESULT = 0x8009800C_u32 as _;
+pub const WINBIO_E_UNSUPPORTED_DATA_TYPE: windows_sys::core::HRESULT = 0x8009800D_u32 as _;
+pub const WINBIO_E_UNSUPPORTED_FACTOR: windows_sys::core::HRESULT = 0x80098001_u32 as _;
+pub const WINBIO_E_UNSUPPORTED_POOL_TYPE: windows_sys::core::HRESULT = 0x80098048_u32 as _;
+pub const WINBIO_E_UNSUPPORTED_PROPERTY: windows_sys::core::HRESULT = 0x8009803C_u32 as _;
+pub const WINBIO_E_UNSUPPORTED_PURPOSE: windows_sys::core::HRESULT = 0x8009800E_u32 as _;
+pub const WINBIO_E_UNSUPPORTED_SENSOR_CALIBRATION_FORMAT: windows_sys::core::HRESULT = 0x8009804E_u32 as _;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_FP_BU_STATE {
@@ -1048,6 +1171,9 @@ pub struct WINBIO_IDENTITY_0_0 {
     pub Size: u32,
     pub Data: [u8; 68],
 }
+pub const WINBIO_I_EXTENDED_STATUS_INFORMATION: windows_sys::core::HRESULT = 0x90002_u32 as _;
+pub const WINBIO_I_MORE_DATA: windows_sys::core::HRESULT = 0x90001_u32 as _;
+pub const WINBIO_MAX_STRING_LEN: u32 = 256u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_NOTIFY_WAKE {
@@ -1055,6 +1181,9 @@ pub struct WINBIO_NOTIFY_WAKE {
     pub WinBioHresult: windows_sys::core::HRESULT,
     pub Reason: u32,
 }
+pub const WINBIO_PASSWORD_GENERIC: WINBIO_CREDENTIAL_FORMAT = 1i32;
+pub const WINBIO_PASSWORD_PACKED: WINBIO_CREDENTIAL_FORMAT = 2i32;
+pub const WINBIO_PASSWORD_PROTECTED: WINBIO_CREDENTIAL_FORMAT = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
 #[derive(Clone, Copy)]
@@ -1070,6 +1199,14 @@ pub struct WINBIO_PIPELINE {
     pub StorageContext: *mut WINIBIO_STORAGE_CONTEXT,
     pub FrameworkInterface: *mut WINBIO_FRAMEWORK_INTERFACE,
 }
+pub const WINBIO_POLICY_ADMIN: WINBIO_POLICY_SOURCE = 3i32;
+pub const WINBIO_POLICY_DEFAULT: WINBIO_POLICY_SOURCE = 1i32;
+pub const WINBIO_POLICY_LOCAL: WINBIO_POLICY_SOURCE = 2i32;
+pub type WINBIO_POLICY_SOURCE = i32;
+pub const WINBIO_POLICY_UNKNOWN: WINBIO_POLICY_SOURCE = 0i32;
+pub type WINBIO_POOL = u32;
+pub const WINBIO_POOL_PRIVATE: WINBIO_POOL = 2u32;
+pub const WINBIO_POOL_SYSTEM: WINBIO_POOL = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_PRESENCE {
@@ -1140,6 +1277,15 @@ pub struct WINBIO_REGISTERED_FORMAT {
     pub Owner: u16,
     pub Type: u16,
 }
+pub const WINBIO_SCP_CURVE_FIELD_SIZE_V1: u32 = 32u32;
+pub const WINBIO_SCP_DIGEST_SIZE_V1: u32 = 32u32;
+pub const WINBIO_SCP_ENCRYPTION_BLOCK_SIZE_V1: u32 = 16u32;
+pub const WINBIO_SCP_ENCRYPTION_KEY_SIZE_V1: u32 = 32u32;
+pub const WINBIO_SCP_PRIVATE_KEY_SIZE_V1: u32 = 32u32;
+pub const WINBIO_SCP_PUBLIC_KEY_SIZE_V1: u32 = 65u32;
+pub const WINBIO_SCP_RANDOM_SIZE_V1: u32 = 32u32;
+pub const WINBIO_SCP_SIGNATURE_SIZE_V1: u32 = 64u32;
+pub const WINBIO_SCP_VERSION_1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_SECURE_BUFFER_HEADER_V1 {
@@ -1221,6 +1367,11 @@ pub struct WINBIO_SENSOR_INTERFACE {
     pub StartNotifyWake: PIBIO_SENSOR_START_NOTIFY_WAKE_FN,
     pub FinishNotifyWake: PIBIO_SENSOR_FINISH_NOTIFY_WAKE_FN,
 }
+pub type WINBIO_SETTING_SOURCE = u32;
+pub const WINBIO_SETTING_SOURCE_DEFAULT: WINBIO_SETTING_SOURCE = 1u32;
+pub const WINBIO_SETTING_SOURCE_INVALID: WINBIO_SETTING_SOURCE = 0u32;
+pub const WINBIO_SETTING_SOURCE_LOCAL: WINBIO_SETTING_SOURCE = 3u32;
+pub const WINBIO_SETTING_SOURCE_POLICY: WINBIO_SETTING_SOURCE = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_SET_INDICATOR {
@@ -1323,159 +1474,8 @@ pub struct WINBIO_VERSION {
     pub MajorVersion: u32,
     pub MinorVersion: u32,
 }
+pub const WINBIO_WBDI_MAJOR_VERSION: u32 = 1u32;
+pub const WINBIO_WBDI_MINOR_VERSION: u32 = 0u32;
 pub type WINIBIO_ENGINE_CONTEXT = isize;
 pub type WINIBIO_SENSOR_CONTEXT = isize;
 pub type WINIBIO_STORAGE_CONTEXT = isize;
-pub const FACILITY_NONE: u32 = 0u32;
-pub const FACILITY_WINBIO: u32 = 9u32;
-pub const GUID_DEVINTERFACE_BIOMETRIC_READER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe2b5183a_99ea_4cc3_ad6b_80ca8d715b80);
-pub const IOCTL_BIOMETRIC_VENDOR: u32 = 4464640u32;
-pub const WINBIO_ANSI_381_IMG_BIT_PACKED: u16 = 1u16;
-pub const WINBIO_ANSI_381_IMG_COMPRESSED_JPEG: u16 = 3u16;
-pub const WINBIO_ANSI_381_IMG_COMPRESSED_JPEG2000: u16 = 4u16;
-pub const WINBIO_ANSI_381_IMG_COMPRESSED_PNG: u16 = 5u16;
-pub const WINBIO_ANSI_381_IMG_COMPRESSED_WSQ: u16 = 2u16;
-pub const WINBIO_ANSI_381_IMG_UNCOMPRESSED: u16 = 0u16;
-pub const WINBIO_ANSI_381_IMP_TYPE_LATENT: u16 = 7u16;
-pub const WINBIO_ANSI_381_IMP_TYPE_LIVE_SCAN_CONTACTLESS: u16 = 9u16;
-pub const WINBIO_ANSI_381_IMP_TYPE_LIVE_SCAN_PLAIN: u16 = 0u16;
-pub const WINBIO_ANSI_381_IMP_TYPE_LIVE_SCAN_ROLLED: u16 = 1u16;
-pub const WINBIO_ANSI_381_IMP_TYPE_NONLIVE_SCAN_PLAIN: u16 = 2u16;
-pub const WINBIO_ANSI_381_IMP_TYPE_NONLIVE_SCAN_ROLLED: u16 = 3u16;
-pub const WINBIO_ANSI_381_IMP_TYPE_SWIPE: u16 = 8u16;
-pub const WINBIO_ANSI_381_PIXELS_PER_CM: u16 = 2u16;
-pub const WINBIO_ANSI_381_PIXELS_PER_INCH: u16 = 1u16;
-pub const WINBIO_ANTI_SPOOF_DISABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = 0i32;
-pub const WINBIO_ANTI_SPOOF_ENABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = 1i32;
-pub const WINBIO_ANTI_SPOOF_REMOVE: WINBIO_ANTI_SPOOF_POLICY_ACTION = 2i32;
-pub const WINBIO_ASYNC_NOTIFY_CALLBACK: WINBIO_ASYNC_NOTIFICATION_METHOD = 1i32;
-pub const WINBIO_ASYNC_NOTIFY_MAXIMUM_VALUE: WINBIO_ASYNC_NOTIFICATION_METHOD = 3i32;
-pub const WINBIO_ASYNC_NOTIFY_MESSAGE: WINBIO_ASYNC_NOTIFICATION_METHOD = 2i32;
-pub const WINBIO_ASYNC_NOTIFY_NONE: WINBIO_ASYNC_NOTIFICATION_METHOD = 0i32;
-pub const WINBIO_BIR_ALGIN_SIZE: u32 = 8u32;
-pub const WINBIO_BIR_ALIGN_SIZE: u32 = 8u32;
-pub const WINBIO_COMPONENT_ENGINE: WINBIO_COMPONENT = 2u32;
-pub const WINBIO_COMPONENT_SENSOR: WINBIO_COMPONENT = 1u32;
-pub const WINBIO_COMPONENT_STORAGE: WINBIO_COMPONENT = 3u32;
-pub const WINBIO_CREDENTIAL_ALL: WINBIO_CREDENTIAL_TYPE = -1i32;
-pub const WINBIO_CREDENTIAL_NOT_SET: WINBIO_CREDENTIAL_STATE = 1i32;
-pub const WINBIO_CREDENTIAL_PASSWORD: WINBIO_CREDENTIAL_TYPE = 1i32;
-pub const WINBIO_CREDENTIAL_SET: WINBIO_CREDENTIAL_STATE = 2i32;
-pub const WINBIO_DATA_FLAG_INTEGRITY: u16 = 1u16;
-pub const WINBIO_DATA_FLAG_INTERMEDIATE: u16 = 64u16;
-pub const WINBIO_DATA_FLAG_OPTION_MASK_PRESENT: u16 = 8u16;
-pub const WINBIO_DATA_FLAG_PRIVACY: u16 = 2u16;
-pub const WINBIO_DATA_FLAG_PROCESSED: u16 = 128u16;
-pub const WINBIO_DATA_FLAG_RAW: u16 = 32u16;
-pub const WINBIO_DATA_FLAG_SIGNED: u16 = 4u16;
-pub const WINBIO_E_ADAPTER_INTEGRITY_FAILURE: windows_sys::core::HRESULT = 0x8009803D_u32 as _;
-pub const WINBIO_E_AUTO_LOGON_DISABLED: windows_sys::core::HRESULT = 0x80098043_u32 as _;
-pub const WINBIO_E_BAD_CAPTURE: windows_sys::core::HRESULT = 0x80098008_u32 as _;
-pub const WINBIO_E_CALIBRATION_BUFFER_INVALID: windows_sys::core::HRESULT = 0x80098051_u32 as _;
-pub const WINBIO_E_CALIBRATION_BUFFER_TOO_LARGE: windows_sys::core::HRESULT = 0x80098050_u32 as _;
-pub const WINBIO_E_CALIBRATION_BUFFER_TOO_SMALL: windows_sys::core::HRESULT = 0x8009804F_u32 as _;
-pub const WINBIO_E_CANCELED: windows_sys::core::HRESULT = 0x80098004_u32 as _;
-pub const WINBIO_E_CAPTURE_ABORTED: windows_sys::core::HRESULT = 0x80098006_u32 as _;
-pub const WINBIO_E_CONFIGURATION_FAILURE: windows_sys::core::HRESULT = 0x80098033_u32 as _;
-pub const WINBIO_E_CRED_PROV_DISABLED: windows_sys::core::HRESULT = 0x80098030_u32 as _;
-pub const WINBIO_E_CRED_PROV_NO_CREDENTIAL: windows_sys::core::HRESULT = 0x80098031_u32 as _;
-pub const WINBIO_E_CRED_PROV_SECURITY_LOCKOUT: windows_sys::core::HRESULT = 0x80098047_u32 as _;
-pub const WINBIO_E_DATABASE_ALREADY_EXISTS: windows_sys::core::HRESULT = 0x80098016_u32 as _;
-pub const WINBIO_E_DATABASE_BAD_INDEX_VECTOR: windows_sys::core::HRESULT = 0x80098022_u32 as _;
-pub const WINBIO_E_DATABASE_CANT_CLOSE: windows_sys::core::HRESULT = 0x80098013_u32 as _;
-pub const WINBIO_E_DATABASE_CANT_CREATE: windows_sys::core::HRESULT = 0x80098011_u32 as _;
-pub const WINBIO_E_DATABASE_CANT_ERASE: windows_sys::core::HRESULT = 0x80098014_u32 as _;
-pub const WINBIO_E_DATABASE_CANT_FIND: windows_sys::core::HRESULT = 0x80098015_u32 as _;
-pub const WINBIO_E_DATABASE_CANT_OPEN: windows_sys::core::HRESULT = 0x80098012_u32 as _;
-pub const WINBIO_E_DATABASE_CORRUPTED: windows_sys::core::HRESULT = 0x8009801A_u32 as _;
-pub const WINBIO_E_DATABASE_EOF: windows_sys::core::HRESULT = 0x80098021_u32 as _;
-pub const WINBIO_E_DATABASE_FULL: windows_sys::core::HRESULT = 0x80098018_u32 as _;
-pub const WINBIO_E_DATABASE_LOCKED: windows_sys::core::HRESULT = 0x80098019_u32 as _;
-pub const WINBIO_E_DATABASE_NO_MORE_RECORDS: windows_sys::core::HRESULT = 0x80098020_u32 as _;
-pub const WINBIO_E_DATABASE_NO_RESULTS: windows_sys::core::HRESULT = 0x8009801F_u32 as _;
-pub const WINBIO_E_DATABASE_NO_SUCH_RECORD: windows_sys::core::HRESULT = 0x8009801B_u32 as _;
-pub const WINBIO_E_DATABASE_READ_ERROR: windows_sys::core::HRESULT = 0x8009801D_u32 as _;
-pub const WINBIO_E_DATABASE_WRITE_ERROR: windows_sys::core::HRESULT = 0x8009801E_u32 as _;
-pub const WINBIO_E_DATA_COLLECTION_IN_PROGRESS: windows_sys::core::HRESULT = 0x8009800B_u32 as _;
-pub const WINBIO_E_DATA_PROTECTION_FAILURE: windows_sys::core::HRESULT = 0x80098046_u32 as _;
-pub const WINBIO_E_DEADLOCK_DETECTED: windows_sys::core::HRESULT = 0x80098040_u32 as _;
-pub const WINBIO_E_DEVICE_BUSY: windows_sys::core::HRESULT = 0x80098010_u32 as _;
-pub const WINBIO_E_DEVICE_FAILURE: windows_sys::core::HRESULT = 0x80098036_u32 as _;
-pub const WINBIO_E_DISABLED: windows_sys::core::HRESULT = 0x80098032_u32 as _;
-pub const WINBIO_E_DUPLICATE_ENROLLMENT: windows_sys::core::HRESULT = 0x8009801C_u32 as _;
-pub const WINBIO_E_DUPLICATE_TEMPLATE: windows_sys::core::HRESULT = 0x8009802B_u32 as _;
-pub const WINBIO_E_ENROLLMENT_CANCELED_BY_SUSPEND: windows_sys::core::HRESULT = 0x8009805B_u32 as _;
-pub const WINBIO_E_ENROLLMENT_IN_PROGRESS: windows_sys::core::HRESULT = 0x80098007_u32 as _;
-pub const WINBIO_E_EVENT_MONITOR_ACTIVE: windows_sys::core::HRESULT = 0x80098039_u32 as _;
-pub const WINBIO_E_FAST_USER_SWITCH_DISABLED: windows_sys::core::HRESULT = 0x80098037_u32 as _;
-pub const WINBIO_E_INCORRECT_BSP: windows_sys::core::HRESULT = 0x80098024_u32 as _;
-pub const WINBIO_E_INCORRECT_SENSOR_POOL: windows_sys::core::HRESULT = 0x80098025_u32 as _;
-pub const WINBIO_E_INCORRECT_SESSION_TYPE: windows_sys::core::HRESULT = 0x8009803E_u32 as _;
-pub const WINBIO_E_INSECURE_SENSOR: windows_sys::core::HRESULT = 0x80098057_u32 as _;
-pub const WINBIO_E_INVALID_BUFFER: windows_sys::core::HRESULT = 0x80098059_u32 as _;
-pub const WINBIO_E_INVALID_BUFFER_ID: windows_sys::core::HRESULT = 0x80098058_u32 as _;
-pub const WINBIO_E_INVALID_CALIBRATION_FORMAT_ARRAY: windows_sys::core::HRESULT = 0x8009804C_u32 as _;
-pub const WINBIO_E_INVALID_CONTROL_CODE: windows_sys::core::HRESULT = 0x80098009_u32 as _;
-pub const WINBIO_E_INVALID_DEVICE_STATE: windows_sys::core::HRESULT = 0x8009800F_u32 as _;
-pub const WINBIO_E_INVALID_KEY_IDENTIFIER: windows_sys::core::HRESULT = 0x80098052_u32 as _;
-pub const WINBIO_E_INVALID_OPERATION: windows_sys::core::HRESULT = 0x8009802C_u32 as _;
-pub const WINBIO_E_INVALID_PROPERTY_ID: windows_sys::core::HRESULT = 0x8009803B_u32 as _;
-pub const WINBIO_E_INVALID_PROPERTY_TYPE: windows_sys::core::HRESULT = 0x8009803A_u32 as _;
-pub const WINBIO_E_INVALID_SENSOR_MODE: windows_sys::core::HRESULT = 0x80098027_u32 as _;
-pub const WINBIO_E_INVALID_SUBFACTOR: windows_sys::core::HRESULT = 0x8009804B_u32 as _;
-pub const WINBIO_E_INVALID_TICKET: windows_sys::core::HRESULT = 0x80098044_u32 as _;
-pub const WINBIO_E_INVALID_UNIT: windows_sys::core::HRESULT = 0x80098002_u32 as _;
-pub const WINBIO_E_KEY_CREATION_FAILED: windows_sys::core::HRESULT = 0x80098053_u32 as _;
-pub const WINBIO_E_KEY_IDENTIFIER_BUFFER_TOO_SMALL: windows_sys::core::HRESULT = 0x80098054_u32 as _;
-pub const WINBIO_E_LOCK_VIOLATION: windows_sys::core::HRESULT = 0x8009802A_u32 as _;
-pub const WINBIO_E_MAX_ERROR_COUNT_EXCEEDED: windows_sys::core::HRESULT = 0x80098042_u32 as _;
-pub const WINBIO_E_NOT_ACTIVE_CONSOLE: windows_sys::core::HRESULT = 0x80098038_u32 as _;
-pub const WINBIO_E_NO_CAPTURE_DATA: windows_sys::core::HRESULT = 0x80098026_u32 as _;
-pub const WINBIO_E_NO_MATCH: windows_sys::core::HRESULT = 0x80098005_u32 as _;
-pub const WINBIO_E_NO_PREBOOT_IDENTITY: windows_sys::core::HRESULT = 0x80098041_u32 as _;
-pub const WINBIO_E_NO_SUPPORTED_CALIBRATION_FORMAT: windows_sys::core::HRESULT = 0x8009804D_u32 as _;
-pub const WINBIO_E_POLICY_PROTECTION_UNAVAILABLE: windows_sys::core::HRESULT = 0x80098056_u32 as _;
-pub const WINBIO_E_PRESENCE_MONITOR_ACTIVE: windows_sys::core::HRESULT = 0x8009804A_u32 as _;
-pub const WINBIO_E_PROPERTY_UNAVAILABLE: windows_sys::core::HRESULT = 0x80098055_u32 as _;
-pub const WINBIO_E_SAS_ENABLED: windows_sys::core::HRESULT = 0x80098035_u32 as _;
-pub const WINBIO_E_SELECTION_REQUIRED: windows_sys::core::HRESULT = 0x80098049_u32 as _;
-pub const WINBIO_E_SENSOR_UNAVAILABLE: windows_sys::core::HRESULT = 0x80098034_u32 as _;
-pub const WINBIO_E_SESSION_BUSY: windows_sys::core::HRESULT = 0x8009802D_u32 as _;
-pub const WINBIO_E_SESSION_HANDLE_CLOSED: windows_sys::core::HRESULT = 0x8009803F_u32 as _;
-pub const WINBIO_E_TICKET_QUOTA_EXCEEDED: windows_sys::core::HRESULT = 0x80098045_u32 as _;
-pub const WINBIO_E_TRUSTLET_INTEGRITY_FAIL: windows_sys::core::HRESULT = 0x8009805A_u32 as _;
-pub const WINBIO_E_UNKNOWN_ID: windows_sys::core::HRESULT = 0x80098003_u32 as _;
-pub const WINBIO_E_UNSUPPORTED_DATA_FORMAT: windows_sys::core::HRESULT = 0x8009800C_u32 as _;
-pub const WINBIO_E_UNSUPPORTED_DATA_TYPE: windows_sys::core::HRESULT = 0x8009800D_u32 as _;
-pub const WINBIO_E_UNSUPPORTED_FACTOR: windows_sys::core::HRESULT = 0x80098001_u32 as _;
-pub const WINBIO_E_UNSUPPORTED_POOL_TYPE: windows_sys::core::HRESULT = 0x80098048_u32 as _;
-pub const WINBIO_E_UNSUPPORTED_PROPERTY: windows_sys::core::HRESULT = 0x8009803C_u32 as _;
-pub const WINBIO_E_UNSUPPORTED_PURPOSE: windows_sys::core::HRESULT = 0x8009800E_u32 as _;
-pub const WINBIO_E_UNSUPPORTED_SENSOR_CALIBRATION_FORMAT: windows_sys::core::HRESULT = 0x8009804E_u32 as _;
-pub const WINBIO_I_EXTENDED_STATUS_INFORMATION: windows_sys::core::HRESULT = 0x90002_u32 as _;
-pub const WINBIO_I_MORE_DATA: windows_sys::core::HRESULT = 0x90001_u32 as _;
-pub const WINBIO_MAX_STRING_LEN: u32 = 256u32;
-pub const WINBIO_PASSWORD_GENERIC: WINBIO_CREDENTIAL_FORMAT = 1i32;
-pub const WINBIO_PASSWORD_PACKED: WINBIO_CREDENTIAL_FORMAT = 2i32;
-pub const WINBIO_PASSWORD_PROTECTED: WINBIO_CREDENTIAL_FORMAT = 3i32;
-pub const WINBIO_POLICY_ADMIN: WINBIO_POLICY_SOURCE = 3i32;
-pub const WINBIO_POLICY_DEFAULT: WINBIO_POLICY_SOURCE = 1i32;
-pub const WINBIO_POLICY_LOCAL: WINBIO_POLICY_SOURCE = 2i32;
-pub const WINBIO_POLICY_UNKNOWN: WINBIO_POLICY_SOURCE = 0i32;
-pub const WINBIO_POOL_PRIVATE: WINBIO_POOL = 2u32;
-pub const WINBIO_POOL_SYSTEM: WINBIO_POOL = 1u32;
-pub const WINBIO_SCP_CURVE_FIELD_SIZE_V1: u32 = 32u32;
-pub const WINBIO_SCP_DIGEST_SIZE_V1: u32 = 32u32;
-pub const WINBIO_SCP_ENCRYPTION_BLOCK_SIZE_V1: u32 = 16u32;
-pub const WINBIO_SCP_ENCRYPTION_KEY_SIZE_V1: u32 = 32u32;
-pub const WINBIO_SCP_PRIVATE_KEY_SIZE_V1: u32 = 32u32;
-pub const WINBIO_SCP_PUBLIC_KEY_SIZE_V1: u32 = 65u32;
-pub const WINBIO_SCP_RANDOM_SIZE_V1: u32 = 32u32;
-pub const WINBIO_SCP_SIGNATURE_SIZE_V1: u32 = 64u32;
-pub const WINBIO_SCP_VERSION_1: u32 = 1u32;
-pub const WINBIO_SETTING_SOURCE_DEFAULT: WINBIO_SETTING_SOURCE = 1u32;
-pub const WINBIO_SETTING_SOURCE_INVALID: WINBIO_SETTING_SOURCE = 0u32;
-pub const WINBIO_SETTING_SOURCE_LOCAL: WINBIO_SETTING_SOURCE = 3u32;
-pub const WINBIO_SETTING_SOURCE_POLICY: WINBIO_SETTING_SOURCE = 2u32;
-pub const WINBIO_WBDI_MAJOR_VERSION: u32 = 1u32;
-pub const WINBIO_WBDI_MINOR_VERSION: u32 = 0u32;

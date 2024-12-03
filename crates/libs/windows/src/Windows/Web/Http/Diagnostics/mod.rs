@@ -337,6 +337,30 @@ impl windows_core::RuntimeName for HttpDiagnosticProviderResponseReceivedEventAr
 unsafe impl Send for HttpDiagnosticProviderResponseReceivedEventArgs {}
 unsafe impl Sync for HttpDiagnosticProviderResponseReceivedEventArgs {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HttpDiagnosticRequestInitiator(pub i32);
+impl HttpDiagnosticRequestInitiator {
+    pub const ParsedElement: Self = Self(0i32);
+    pub const Script: Self = Self(1i32);
+    pub const Image: Self = Self(2i32);
+    pub const Link: Self = Self(3i32);
+    pub const Style: Self = Self(4i32);
+    pub const XmlHttpRequest: Self = Self(5i32);
+    pub const Media: Self = Self(6i32);
+    pub const HtmlDownload: Self = Self(7i32);
+    pub const Prefetch: Self = Self(8i32);
+    pub const Other: Self = Self(9i32);
+    pub const CrossOriginPreFlight: Self = Self(10i32);
+    pub const Fetch: Self = Self(11i32);
+    pub const Beacon: Self = Self(12i32);
+}
+impl windows_core::TypeKind for HttpDiagnosticRequestInitiator {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HttpDiagnosticRequestInitiator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Diagnostics.HttpDiagnosticRequestInitiator;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpDiagnosticSourceLocation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpDiagnosticSourceLocation, windows_core::IUnknown, windows_core::IInspectable);
@@ -477,28 +501,4 @@ pub struct IHttpDiagnosticSourceLocation_Vtbl {
     pub SourceUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LineNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     pub ColumnNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HttpDiagnosticRequestInitiator(pub i32);
-impl HttpDiagnosticRequestInitiator {
-    pub const ParsedElement: Self = Self(0i32);
-    pub const Script: Self = Self(1i32);
-    pub const Image: Self = Self(2i32);
-    pub const Link: Self = Self(3i32);
-    pub const Style: Self = Self(4i32);
-    pub const XmlHttpRequest: Self = Self(5i32);
-    pub const Media: Self = Self(6i32);
-    pub const HtmlDownload: Self = Self(7i32);
-    pub const Prefetch: Self = Self(8i32);
-    pub const Other: Self = Self(9i32);
-    pub const CrossOriginPreFlight: Self = Self(10i32);
-    pub const Fetch: Self = Self(11i32);
-    pub const Beacon: Self = Self(12i32);
-}
-impl windows_core::TypeKind for HttpDiagnosticRequestInitiator {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HttpDiagnosticRequestInitiator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Diagnostics.HttpDiagnosticRequestInitiator;i4)");
 }

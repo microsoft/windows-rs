@@ -1,3 +1,17 @@
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AccountPictureKind(pub i32);
+impl AccountPictureKind {
+    pub const SmallImage: Self = Self(0i32);
+    pub const LargeImage: Self = Self(1i32);
+    pub const Video: Self = Self(2i32);
+}
+impl windows_core::TypeKind for AccountPictureKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AccountPictureKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.AccountPictureKind;i4)");
+}
 pub struct AdvertisingManager;
 impl AdvertisingManager {
     pub fn AdvertisingId() -> windows_core::Result<windows_core::HSTRING> {
@@ -410,258 +424,6 @@ impl windows_core::RuntimeName for GlobalizationPreferencesForUser {
 }
 unsafe impl Send for GlobalizationPreferencesForUser {}
 unsafe impl Sync for GlobalizationPreferencesForUser {}
-pub struct LockScreen;
-impl LockScreen {
-    pub fn RequestSetImageFeedAsync<P0>(syndicationfeeduri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SetImageFeedResult>>
-    where
-        P0: windows_core::Param<super::super::Foundation::Uri>,
-    {
-        Self::ILockScreenImageFeedStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestSetImageFeedAsync)(windows_core::Interface::as_raw(this), syndicationfeeduri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn TryRemoveImageFeed() -> windows_core::Result<bool> {
-        Self::ILockScreenImageFeedStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryRemoveImageFeed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        })
-    }
-    pub fn OriginalImageFile() -> windows_core::Result<super::super::Foundation::Uri> {
-        Self::ILockScreenStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OriginalImageFile)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn GetImageStream() -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStream> {
-        Self::ILockScreenStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetImageStream)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn SetImageFileAsync<P0>(value: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: windows_core::Param<super::super::Storage::IStorageFile>,
-    {
-        Self::ILockScreenStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetImageFileAsync)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn SetImageStreamAsync<P0>(value: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
-    {
-        Self::ILockScreenStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetImageStreamAsync)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn ILockScreenImageFeedStatics<R, F: FnOnce(&ILockScreenImageFeedStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<LockScreen, ILockScreenImageFeedStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn ILockScreenStatics<R, F: FnOnce(&ILockScreenStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<LockScreen, ILockScreenStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeName for LockScreen {
-    const NAME: &'static str = "Windows.System.UserProfile.LockScreen";
-}
-#[cfg(feature = "deprecated")]
-pub struct UserInformation;
-#[cfg(feature = "deprecated")]
-impl UserInformation {
-    #[cfg(feature = "deprecated")]
-    pub fn AccountPictureChangeEnabled() -> windows_core::Result<bool> {
-        Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AccountPictureChangeEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        })
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn NameAccessAllowed() -> windows_core::Result<bool> {
-        Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NameAccessAllowed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        })
-    }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn GetAccountPicture(kind: AccountPictureKind) -> windows_core::Result<super::super::Storage::IStorageFile> {
-        Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetAccountPicture)(windows_core::Interface::as_raw(this), kind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn SetAccountPictureAsync<P0>(image: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
-    where
-        P0: windows_core::Param<super::super::Storage::IStorageFile>,
-    {
-        Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetAccountPictureAsync)(windows_core::Interface::as_raw(this), image.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn SetAccountPicturesAsync<P0, P1, P2>(smallimage: P0, largeimage: P1, video: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
-    where
-        P0: windows_core::Param<super::super::Storage::IStorageFile>,
-        P1: windows_core::Param<super::super::Storage::IStorageFile>,
-        P2: windows_core::Param<super::super::Storage::IStorageFile>,
-    {
-        Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetAccountPicturesAsync)(windows_core::Interface::as_raw(this), smallimage.param().abi(), largeimage.param().abi(), video.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn SetAccountPictureFromStreamAsync<P0>(image: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
-    where
-        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
-    {
-        Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetAccountPictureFromStreamAsync)(windows_core::Interface::as_raw(this), image.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn SetAccountPicturesFromStreamsAsync<P0, P1, P2>(smallimage: P0, largeimage: P1, video: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
-    where
-        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
-        P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
-        P2: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
-    {
-        Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetAccountPicturesFromStreamsAsync)(windows_core::Interface::as_raw(this), smallimage.param().abi(), largeimage.param().abi(), video.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn AccountPictureChanged<P0>(changehandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
-    {
-        Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AccountPictureChanged)(windows_core::Interface::as_raw(this), changehandler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn RemoveAccountPictureChanged(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        Self::IUserInformationStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveAccountPictureChanged)(windows_core::Interface::as_raw(this), token).ok() })
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn GetDisplayNameAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
-        Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDisplayNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn GetFirstNameAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
-        Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFirstNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn GetLastNameAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
-        Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetLastNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn GetPrincipalNameAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
-        Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPrincipalNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn GetSessionInitiationProtocolUriAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>> {
-        Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetSessionInitiationProtocolUriAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn GetDomainNameAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
-        Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDomainNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IUserInformationStatics<R, F: FnOnce(&IUserInformationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<UserInformation, IUserInformationStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeName for UserInformation {
-    const NAME: &'static str = "Windows.System.UserProfile.UserInformation";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct UserProfilePersonalizationSettings(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(UserProfilePersonalizationSettings, windows_core::IUnknown, windows_core::IInspectable);
-impl UserProfilePersonalizationSettings {
-    #[cfg(feature = "Storage_Streams")]
-    pub fn TrySetLockScreenImageAsync<P0>(&self, imagefile: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: windows_core::Param<super::super::Storage::StorageFile>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetLockScreenImageAsync)(windows_core::Interface::as_raw(this), imagefile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn TrySetWallpaperImageAsync<P0>(&self, imagefile: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: windows_core::Param<super::super::Storage::StorageFile>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetWallpaperImageAsync)(windows_core::Interface::as_raw(this), imagefile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Current() -> windows_core::Result<UserProfilePersonalizationSettings> {
-        Self::IUserProfilePersonalizationSettingsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn IsSupported() -> windows_core::Result<bool> {
-        Self::IUserProfilePersonalizationSettingsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        })
-    }
-    fn IUserProfilePersonalizationSettingsStatics<R, F: FnOnce(&IUserProfilePersonalizationSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<UserProfilePersonalizationSettings, IUserProfilePersonalizationSettingsStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for UserProfilePersonalizationSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserProfilePersonalizationSettings>();
-}
-unsafe impl windows_core::Interface for UserProfilePersonalizationSettings {
-    type Vtable = <IUserProfilePersonalizationSettings as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IUserProfilePersonalizationSettings as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for UserProfilePersonalizationSettings {
-    const NAME: &'static str = "Windows.System.UserProfile.UserProfilePersonalizationSettings";
-}
-unsafe impl Send for UserProfilePersonalizationSettings {}
-unsafe impl Sync for UserProfilePersonalizationSettings {}
 windows_core::imp::define_interface!(IAdvertisingManagerForUser, IAdvertisingManagerForUser_Vtbl, 0x928bf3d0_cf7c_4ab0_a7dc_6dc5bcd44252);
 impl windows_core::RuntimeType for IAdvertisingManagerForUser {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -963,19 +725,67 @@ pub struct IUserProfilePersonalizationSettingsStatics_Vtbl {
     pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AccountPictureKind(pub i32);
-impl AccountPictureKind {
-    pub const SmallImage: Self = Self(0i32);
-    pub const LargeImage: Self = Self(1i32);
-    pub const Video: Self = Self(2i32);
+pub struct LockScreen;
+impl LockScreen {
+    pub fn RequestSetImageFeedAsync<P0>(syndicationfeeduri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SetImageFeedResult>>
+    where
+        P0: windows_core::Param<super::super::Foundation::Uri>,
+    {
+        Self::ILockScreenImageFeedStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestSetImageFeedAsync)(windows_core::Interface::as_raw(this), syndicationfeeduri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn TryRemoveImageFeed() -> windows_core::Result<bool> {
+        Self::ILockScreenImageFeedStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TryRemoveImageFeed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn OriginalImageFile() -> windows_core::Result<super::super::Foundation::Uri> {
+        Self::ILockScreenStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OriginalImageFile)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn GetImageStream() -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStream> {
+        Self::ILockScreenStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetImageStream)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn SetImageFileAsync<P0>(value: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<super::super::Storage::IStorageFile>,
+    {
+        Self::ILockScreenStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SetImageFileAsync)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn SetImageStreamAsync<P0>(value: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
+    {
+        Self::ILockScreenStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SetImageStreamAsync)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn ILockScreenImageFeedStatics<R, F: FnOnce(&ILockScreenImageFeedStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<LockScreen, ILockScreenImageFeedStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn ILockScreenStatics<R, F: FnOnce(&ILockScreenStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<LockScreen, ILockScreenStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
 }
-impl windows_core::TypeKind for AccountPictureKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AccountPictureKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.AccountPictureKind;i4)");
+impl windows_core::RuntimeName for LockScreen {
+    const NAME: &'static str = "Windows.System.UserProfile.LockScreen";
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1008,3 +818,193 @@ impl windows_core::TypeKind for SetImageFeedResult {
 impl windows_core::RuntimeType for SetImageFeedResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.SetImageFeedResult;i4)");
 }
+#[cfg(feature = "deprecated")]
+pub struct UserInformation;
+#[cfg(feature = "deprecated")]
+impl UserInformation {
+    #[cfg(feature = "deprecated")]
+    pub fn AccountPictureChangeEnabled() -> windows_core::Result<bool> {
+        Self::IUserInformationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AccountPictureChangeEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn NameAccessAllowed() -> windows_core::Result<bool> {
+        Self::IUserInformationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NameAccessAllowed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    pub fn GetAccountPicture(kind: AccountPictureKind) -> windows_core::Result<super::super::Storage::IStorageFile> {
+        Self::IUserInformationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetAccountPicture)(windows_core::Interface::as_raw(this), kind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    pub fn SetAccountPictureAsync<P0>(image: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
+    where
+        P0: windows_core::Param<super::super::Storage::IStorageFile>,
+    {
+        Self::IUserInformationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SetAccountPictureAsync)(windows_core::Interface::as_raw(this), image.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    pub fn SetAccountPicturesAsync<P0, P1, P2>(smallimage: P0, largeimage: P1, video: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
+    where
+        P0: windows_core::Param<super::super::Storage::IStorageFile>,
+        P1: windows_core::Param<super::super::Storage::IStorageFile>,
+        P2: windows_core::Param<super::super::Storage::IStorageFile>,
+    {
+        Self::IUserInformationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SetAccountPicturesAsync)(windows_core::Interface::as_raw(this), smallimage.param().abi(), largeimage.param().abi(), video.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    pub fn SetAccountPictureFromStreamAsync<P0>(image: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
+    where
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
+    {
+        Self::IUserInformationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SetAccountPictureFromStreamAsync)(windows_core::Interface::as_raw(this), image.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    pub fn SetAccountPicturesFromStreamsAsync<P0, P1, P2>(smallimage: P0, largeimage: P1, video: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
+    where
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
+        P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
+        P2: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
+    {
+        Self::IUserInformationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SetAccountPicturesFromStreamsAsync)(windows_core::Interface::as_raw(this), smallimage.param().abi(), largeimage.param().abi(), video.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn AccountPictureChanged<P0>(changehandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
+    {
+        Self::IUserInformationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AccountPictureChanged)(windows_core::Interface::as_raw(this), changehandler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn RemoveAccountPictureChanged(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        Self::IUserInformationStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveAccountPictureChanged)(windows_core::Interface::as_raw(this), token).ok() })
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn GetDisplayNameAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
+        Self::IUserInformationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetDisplayNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn GetFirstNameAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
+        Self::IUserInformationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetFirstNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn GetLastNameAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
+        Self::IUserInformationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetLastNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn GetPrincipalNameAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
+        Self::IUserInformationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetPrincipalNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn GetSessionInitiationProtocolUriAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>> {
+        Self::IUserInformationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetSessionInitiationProtocolUriAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn GetDomainNameAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
+        Self::IUserInformationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetDomainNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IUserInformationStatics<R, F: FnOnce(&IUserInformationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<UserInformation, IUserInformationStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeName for UserInformation {
+    const NAME: &'static str = "Windows.System.UserProfile.UserInformation";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct UserProfilePersonalizationSettings(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(UserProfilePersonalizationSettings, windows_core::IUnknown, windows_core::IInspectable);
+impl UserProfilePersonalizationSettings {
+    #[cfg(feature = "Storage_Streams")]
+    pub fn TrySetLockScreenImageAsync<P0>(&self, imagefile: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: windows_core::Param<super::super::Storage::StorageFile>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TrySetLockScreenImageAsync)(windows_core::Interface::as_raw(this), imagefile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn TrySetWallpaperImageAsync<P0>(&self, imagefile: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: windows_core::Param<super::super::Storage::StorageFile>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TrySetWallpaperImageAsync)(windows_core::Interface::as_raw(this), imagefile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Current() -> windows_core::Result<UserProfilePersonalizationSettings> {
+        Self::IUserProfilePersonalizationSettingsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn IsSupported() -> windows_core::Result<bool> {
+        Self::IUserProfilePersonalizationSettingsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    fn IUserProfilePersonalizationSettingsStatics<R, F: FnOnce(&IUserProfilePersonalizationSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<UserProfilePersonalizationSettings, IUserProfilePersonalizationSettingsStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for UserProfilePersonalizationSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserProfilePersonalizationSettings>();
+}
+unsafe impl windows_core::Interface for UserProfilePersonalizationSettings {
+    type Vtable = <IUserProfilePersonalizationSettings as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IUserProfilePersonalizationSettings as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for UserProfilePersonalizationSettings {
+    const NAME: &'static str = "Windows.System.UserProfile.UserProfilePersonalizationSettings";
+}
+unsafe impl Send for UserProfilePersonalizationSettings {}
+unsafe impl Sync for UserProfilePersonalizationSettings {}

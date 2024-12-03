@@ -194,95 +194,16 @@ impl IWCNDevice_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWCNDevice {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WCN_ATTRIBUTE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WCN_PASSWORD_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WCN_SESSION_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WCN_VALUE_TYPE_ASSOCIATION_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WCN_VALUE_TYPE_AUTHENTICATION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WCN_VALUE_TYPE_BOOLEAN(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WCN_VALUE_TYPE_CONFIGURATION_ERROR(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WCN_VALUE_TYPE_CONFIG_METHODS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WCN_VALUE_TYPE_CONNECTION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WCN_VALUE_TYPE_DEVICE_PASSWORD_ID(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WCN_VALUE_TYPE_ENCRYPTION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WCN_VALUE_TYPE_MESSAGE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WCN_VALUE_TYPE_REQUEST_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WCN_VALUE_TYPE_RESPONSE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WCN_VALUE_TYPE_RF_BANDS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WCN_VALUE_TYPE_VERSION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE(pub i32);
-pub const WCNDeviceObject: windows_core::GUID = windows_core::GUID::from_u128(0xc100bea7_d33a_4a4b_bf23_bbef4663d017);
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
-    pub Category: u16,
-    pub SubCategoryOUI: u32,
-    pub SubCategory: u16,
-}
-impl Default for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WCN_VENDOR_EXTENSION_SPEC {
-    pub VendorId: u32,
-    pub SubType: u32,
-    pub Index: u32,
-    pub Flags: u32,
-}
-impl Default for WCN_VENDOR_EXTENSION_SPEC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WCN_VENDOR_EXTENSION_SPEC {
-    type TypeKind = windows_core::CopyType;
-}
 pub const PKEY_WCN_DeviceType_Category: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x88190b8b_4684_11da_a26a_0002b3988e81), pid: 16 };
 pub const PKEY_WCN_DeviceType_SubCategory: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x88190b8b_4684_11da_a26a_0002b3988e81), pid: 18 };
 pub const PKEY_WCN_DeviceType_SubCategoryOUI: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x88190b8b_4684_11da_a26a_0002b3988e81), pid: 17 };
 pub const PKEY_WCN_SSID: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x88190b8b_4684_11da_a26a_0002b3988e81), pid: 32 };
 pub const SID_WcnProvider: windows_core::GUID = windows_core::GUID::from_u128(0xc100beca_d33a_4a4b_bf23_bbef4663d017);
+pub const WCNDeviceObject: windows_core::GUID = windows_core::GUID::from_u128(0xc100bea7_d33a_4a4b_bf23_bbef4663d017);
 pub const WCN_API_MAX_BUFFER_SIZE: u32 = 2096u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WCN_ATTRIBUTE_TYPE(pub i32);
 pub const WCN_E_AUTHENTICATION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80043C02_u32 as _);
 pub const WCN_E_CONNECTION_REJECTED: windows_core::HRESULT = windows_core::HRESULT(0x80043C03_u32 as _);
 pub const WCN_E_PEER_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80043C01_u32 as _);
@@ -294,12 +215,18 @@ pub const WCN_FLAG_ENCRYPTED_VE: u32 = 4u32;
 pub const WCN_MICROSOFT_VENDOR_ID: u32 = 311u32;
 pub const WCN_NO_SUBTYPE: u32 = 4294967294u32;
 pub const WCN_NUM_ATTRIBUTE_TYPES: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(100i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WCN_PASSWORD_TYPE(pub i32);
 pub const WCN_PASSWORD_TYPE_OOB_SPECIFIED: WCN_PASSWORD_TYPE = WCN_PASSWORD_TYPE(3i32);
 pub const WCN_PASSWORD_TYPE_PIN: WCN_PASSWORD_TYPE = WCN_PASSWORD_TYPE(1i32);
 pub const WCN_PASSWORD_TYPE_PIN_REGISTRAR_SPECIFIED: WCN_PASSWORD_TYPE = WCN_PASSWORD_TYPE(2i32);
 pub const WCN_PASSWORD_TYPE_PUSH_BUTTON: WCN_PASSWORD_TYPE = WCN_PASSWORD_TYPE(0i32);
 pub const WCN_PASSWORD_TYPE_WFDS: WCN_PASSWORD_TYPE = WCN_PASSWORD_TYPE(4i32);
 pub const WCN_QUERY_CONSTRAINT_USE_SOFTAP: windows_core::PCWSTR = windows_core::w!("WCN.Discovery.SoftAP");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WCN_SESSION_STATUS(pub i32);
 pub const WCN_SESSION_STATUS_FAILURE_GENERIC: WCN_SESSION_STATUS = WCN_SESSION_STATUS(1i32);
 pub const WCN_SESSION_STATUS_FAILURE_TIMEOUT: WCN_SESSION_STATUS = WCN_SESSION_STATUS(2i32);
 pub const WCN_SESSION_STATUS_SUCCESS: WCN_SESSION_STATUS = WCN_SESSION_STATUS(0i32);
@@ -566,5 +493,78 @@ pub const WCN_VALUE_SS_CONFIGURED: WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE = 
 pub const WCN_VALUE_SS_NOT_CONFIGURED: WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE = WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE(1i32);
 pub const WCN_VALUE_SS_RESERVED00: WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE = WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE(0i32);
 pub const WCN_VALUE_TRUE: WCN_VALUE_TYPE_BOOLEAN = WCN_VALUE_TYPE_BOOLEAN(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WCN_VALUE_TYPE_ASSOCIATION_STATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WCN_VALUE_TYPE_AUTHENTICATION_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WCN_VALUE_TYPE_BOOLEAN(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WCN_VALUE_TYPE_CONFIGURATION_ERROR(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WCN_VALUE_TYPE_CONFIG_METHODS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WCN_VALUE_TYPE_CONNECTION_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WCN_VALUE_TYPE_DEVICE_PASSWORD_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WCN_VALUE_TYPE_ENCRYPTION_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WCN_VALUE_TYPE_MESSAGE_TYPE(pub i32);
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
+    pub Category: u16,
+    pub SubCategoryOUI: u32,
+    pub SubCategory: u16,
+}
+impl Default for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WCN_VALUE_TYPE_REQUEST_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WCN_VALUE_TYPE_RESPONSE_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WCN_VALUE_TYPE_RF_BANDS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WCN_VALUE_TYPE_VERSION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE(pub i32);
 pub const WCN_VALUE_VERSION_1_0: WCN_VALUE_TYPE_VERSION = WCN_VALUE_TYPE_VERSION(16i32);
 pub const WCN_VALUE_VERSION_2_0: WCN_VALUE_TYPE_VERSION = WCN_VALUE_TYPE_VERSION(32i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WCN_VENDOR_EXTENSION_SPEC {
+    pub VendorId: u32,
+    pub SubType: u32,
+    pub Index: u32,
+    pub Flags: u32,
+}
+impl Default for WCN_VENDOR_EXTENSION_SPEC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WCN_VENDOR_EXTENSION_SPEC {
+    type TypeKind = windows_core::CopyType;
+}

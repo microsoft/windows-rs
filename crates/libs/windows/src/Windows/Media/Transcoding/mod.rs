@@ -1,3 +1,63 @@
+windows_core::imp::define_interface!(IMediaTranscoder, IMediaTranscoder_Vtbl, 0x190c99d2_a0aa_4d34_86bc_eed1b12c2f5b);
+impl windows_core::RuntimeType for IMediaTranscoder {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IMediaTranscoder_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SetTrimStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub TrimStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SetTrimStopTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub TrimStopTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SetAlwaysReencode: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub AlwaysReencode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetHardwareAccelerationEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub HardwareAccelerationEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub AddAudioEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub AddAudioEffectWithSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    AddAudioEffectWithSettings: usize,
+    pub AddVideoEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub AddVideoEffectWithSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    AddVideoEffectWithSettings: usize,
+    pub ClearEffects: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
+    pub PrepareFileTranscodeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Media_MediaProperties", feature = "Storage_Streams")))]
+    PrepareFileTranscodeAsync: usize,
+    #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
+    pub PrepareStreamTranscodeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Media_MediaProperties", feature = "Storage_Streams")))]
+    PrepareStreamTranscodeAsync: usize,
+}
+windows_core::imp::define_interface!(IMediaTranscoder2, IMediaTranscoder2_Vtbl, 0x40531d74_35e0_4f04_8574_ca8bc4e5a082);
+impl windows_core::RuntimeType for IMediaTranscoder2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IMediaTranscoder2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(all(feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
+    pub PrepareMediaStreamSourceTranscodeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams")))]
+    PrepareMediaStreamSourceTranscodeAsync: usize,
+    pub SetVideoProcessingAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, MediaVideoProcessingAlgorithm) -> windows_core::HRESULT,
+    pub VideoProcessingAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaVideoProcessingAlgorithm) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPrepareTranscodeResult, IPrepareTranscodeResult_Vtbl, 0x05f25dce_994f_4a34_9d68_97ccce1730d6);
+impl windows_core::RuntimeType for IPrepareTranscodeResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPrepareTranscodeResult_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CanTranscode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub FailureReason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TranscodeFailureReason) -> windows_core::HRESULT,
+    pub TranscodeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaTranscoder(windows_core::IUnknown);
@@ -146,6 +206,19 @@ impl windows_core::RuntimeName for MediaTranscoder {
 unsafe impl Send for MediaTranscoder {}
 unsafe impl Sync for MediaTranscoder {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MediaVideoProcessingAlgorithm(pub i32);
+impl MediaVideoProcessingAlgorithm {
+    pub const Default: Self = Self(0i32);
+    pub const MrfCrf444: Self = Self(1i32);
+}
+impl windows_core::TypeKind for MediaVideoProcessingAlgorithm {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for MediaVideoProcessingAlgorithm {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Transcoding.MediaVideoProcessingAlgorithm;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrepareTranscodeResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrepareTranscodeResult, windows_core::IUnknown, windows_core::IInspectable);
@@ -184,79 +257,6 @@ impl windows_core::RuntimeName for PrepareTranscodeResult {
 }
 unsafe impl Send for PrepareTranscodeResult {}
 unsafe impl Sync for PrepareTranscodeResult {}
-windows_core::imp::define_interface!(IMediaTranscoder, IMediaTranscoder_Vtbl, 0x190c99d2_a0aa_4d34_86bc_eed1b12c2f5b);
-impl windows_core::RuntimeType for IMediaTranscoder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IMediaTranscoder_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SetTrimStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub TrimStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetTrimStopTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub TrimStopTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetAlwaysReencode: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub AlwaysReencode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetHardwareAccelerationEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub HardwareAccelerationEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub AddAudioEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub AddAudioEffectWithSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AddAudioEffectWithSettings: usize,
-    pub AddVideoEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub AddVideoEffectWithSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AddVideoEffectWithSettings: usize,
-    pub ClearEffects: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
-    pub PrepareFileTranscodeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Media_MediaProperties", feature = "Storage_Streams")))]
-    PrepareFileTranscodeAsync: usize,
-    #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
-    pub PrepareStreamTranscodeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Media_MediaProperties", feature = "Storage_Streams")))]
-    PrepareStreamTranscodeAsync: usize,
-}
-windows_core::imp::define_interface!(IMediaTranscoder2, IMediaTranscoder2_Vtbl, 0x40531d74_35e0_4f04_8574_ca8bc4e5a082);
-impl windows_core::RuntimeType for IMediaTranscoder2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IMediaTranscoder2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
-    pub PrepareMediaStreamSourceTranscodeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams")))]
-    PrepareMediaStreamSourceTranscodeAsync: usize,
-    pub SetVideoProcessingAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, MediaVideoProcessingAlgorithm) -> windows_core::HRESULT,
-    pub VideoProcessingAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaVideoProcessingAlgorithm) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPrepareTranscodeResult, IPrepareTranscodeResult_Vtbl, 0x05f25dce_994f_4a34_9d68_97ccce1730d6);
-impl windows_core::RuntimeType for IPrepareTranscodeResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPrepareTranscodeResult_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CanTranscode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub FailureReason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TranscodeFailureReason) -> windows_core::HRESULT,
-    pub TranscodeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MediaVideoProcessingAlgorithm(pub i32);
-impl MediaVideoProcessingAlgorithm {
-    pub const Default: Self = Self(0i32);
-    pub const MrfCrf444: Self = Self(1i32);
-}
-impl windows_core::TypeKind for MediaVideoProcessingAlgorithm {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for MediaVideoProcessingAlgorithm {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Transcoding.MediaVideoProcessingAlgorithm;i4)");
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TranscodeFailureReason(pub i32);

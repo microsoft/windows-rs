@@ -26,351 +26,7 @@ windows_targets::link!("inkobjcore.dll" "system" fn SetFlags(hrc : HRECOCONTEXT,
 windows_targets::link!("inkobjcore.dll" "system" fn SetGuide(hrc : HRECOCONTEXT, pguide : *const RECO_GUIDE, iindex : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("inkobjcore.dll" "system" fn SetTextContext(hrc : HRECOCONTEXT, cwcbefore : u32, pwcbefore : windows_sys::core::PCWSTR, cwcafter : u32, pwcafter : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("inkobjcore.dll" "system" fn SetWordList(hrc : HRECOCONTEXT, hwl : HRECOWORDLIST) -> windows_sys::core::HRESULT);
-pub type PfnRecoCallback = Option<unsafe extern "system" fn(param0: u32, param1: *mut u8, param2: HRECOCONTEXT) -> windows_sys::core::HRESULT>;
 pub type ALT_BREAKS = i32;
-pub type AppearanceConstants = i32;
-pub type BorderStyleConstants = i32;
-pub type CONFIDENCE_LEVEL = i32;
-pub type CorrectionMode = i32;
-pub type CorrectionPosition = i32;
-pub type DISPID_Ink = i32;
-pub type DISPID_InkCollector = i32;
-pub type DISPID_InkCollectorEvent = i32;
-pub type DISPID_InkCursor = i32;
-pub type DISPID_InkCursorButton = i32;
-pub type DISPID_InkCursorButtons = i32;
-pub type DISPID_InkCursors = i32;
-pub type DISPID_InkCustomStrokes = i32;
-pub type DISPID_InkDivider = i32;
-pub type DISPID_InkDivisionResult = i32;
-pub type DISPID_InkDivisionUnit = i32;
-pub type DISPID_InkDivisionUnits = i32;
-pub type DISPID_InkDrawingAttributes = i32;
-pub type DISPID_InkEdit = i32;
-pub type DISPID_InkEditEvents = i32;
-pub type DISPID_InkEvent = i32;
-pub type DISPID_InkExtendedProperties = i32;
-pub type DISPID_InkExtendedProperty = i32;
-pub type DISPID_InkGesture = i32;
-pub type DISPID_InkRecoAlternate = i32;
-pub type DISPID_InkRecoContext = i32;
-pub type DISPID_InkRecoContext2 = i32;
-pub type DISPID_InkRecognitionAlternates = i32;
-pub type DISPID_InkRecognitionEvent = i32;
-pub type DISPID_InkRecognitionResult = i32;
-pub type DISPID_InkRecognizer = i32;
-pub type DISPID_InkRecognizer2 = i32;
-pub type DISPID_InkRecognizerGuide = i32;
-pub type DISPID_InkRecognizers = i32;
-pub type DISPID_InkRectangle = i32;
-pub type DISPID_InkRenderer = i32;
-pub type DISPID_InkStrokeDisp = i32;
-pub type DISPID_InkStrokes = i32;
-pub type DISPID_InkTablet = i32;
-pub type DISPID_InkTablet2 = i32;
-pub type DISPID_InkTablet3 = i32;
-pub type DISPID_InkTablets = i32;
-pub type DISPID_InkTransform = i32;
-pub type DISPID_InkWordList = i32;
-pub type DISPID_InkWordList2 = i32;
-pub type DISPID_MathInputControlEvents = i32;
-pub type DISPID_PenInputPanel = i32;
-pub type DISPID_PenInputPanelEvents = i32;
-pub type DISPID_StrokeEvent = i32;
-pub type EventMask = i32;
-pub type FLICKACTION_COMMANDCODE = i32;
-pub type FLICKDIRECTION = i32;
-pub type FLICKMODE = i32;
-pub type GET_DANDIDATE_FLAGS = i32;
-pub type INK_METRIC_FLAGS = i32;
-pub type InPlaceDirection = i32;
-pub type InPlaceState = i32;
-pub type InkApplicationGesture = i32;
-pub type InkBoundingBoxMode = i32;
-pub type InkClipboardFormats = i32;
-pub type InkClipboardModes = i32;
-pub type InkCollectionMode = i32;
-pub type InkCollectorEventInterest = i32;
-pub type InkCursorButtonState = i32;
-pub type InkDisplayMode = i32;
-pub type InkDivisionType = i32;
-pub type InkEditStatus = i32;
-pub type InkExtractFlags = i32;
-pub type InkInsertMode = i32;
-pub type InkMode = i32;
-pub type InkMouseButton = i32;
-pub type InkMousePointer = i32;
-pub type InkOverlayAttachMode = i32;
-pub type InkOverlayEditingMode = i32;
-pub type InkOverlayEraserMode = i32;
-pub type InkPenTip = i32;
-pub type InkPersistenceCompressionMode = i32;
-pub type InkPersistenceFormat = i32;
-pub type InkPictureSizeMode = i32;
-pub type InkRasterOperation = i32;
-pub type InkRecognitionAlternatesSelection = i32;
-pub type InkRecognitionConfidence = i32;
-pub type InkRecognitionModes = i32;
-pub type InkRecognitionStatus = i32;
-pub type InkRecognizerCapabilities = i32;
-pub type InkRecognizerCharacterAutoCompletionMode = i32;
-pub type InkSelectionConstants = i32;
-pub type InkShiftKeyModifierFlags = i32;
-pub type InkSystemGesture = i32;
-pub type InteractionMode = i32;
-pub type KEYMODIFIER = i32;
-pub type LINE_METRICS = i32;
-pub type MICUIELEMENT = i32;
-pub type MICUIELEMENTSTATE = i32;
-pub type MouseButton = i32;
-pub type PROPERTY_UNITS = i32;
-pub type PanelInputArea = i32;
-pub type PanelType = i32;
-pub type RECO_TYPE = i32;
-pub type RealTimeStylusDataInterest = i32;
-pub type RealTimeStylusLockType = i32;
-pub type SCROLLDIRECTION = i32;
-pub type ScrollBarsConstants = i32;
-pub type SelAlignmentConstants = i32;
-pub type SelectionHitResult = i32;
-pub type StylusQueue = i32;
-pub type TabletDeviceKind = i32;
-pub type TabletHardwareCapabilities = i32;
-pub type TabletPropertyMetricUnit = i32;
-pub type VisualState = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CHARACTER_RANGE {
-    pub wcLow: u16,
-    pub cChars: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DYNAMIC_RENDERER_CACHED_DATA {
-    pub strokeId: i32,
-    pub dynamicRenderer: *mut core::ffi::c_void,
-}
-pub const DynamicRenderer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecd32aea_746f_4dcb_bf68_082757faff18);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FLICK_DATA {
-    pub _bitfield: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FLICK_POINT {
-    pub _bitfield: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GESTURE_DATA {
-    pub gestureId: i32,
-    pub recoConfidence: i32,
-    pub strokeCount: i32,
-}
-pub const GestureRecognizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xea30c654_c62c_441f_ac00_95f9a196782c);
-pub type HRECOALT = *mut core::ffi::c_void;
-pub type HRECOCONTEXT = *mut core::ffi::c_void;
-pub type HRECOGNIZER = *mut core::ffi::c_void;
-pub type HRECOLATTICE = *mut core::ffi::c_void;
-pub type HRECOWORDLIST = *mut core::ffi::c_void;
-pub const HandwrittenTextInsertion: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9f074ee2_e6e9_4d8a_a047_eb5b5c3c55da);
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
-#[derive(Clone, Copy)]
-pub struct IEC_GESTUREINFO {
-    pub nmhdr: super::Controls::NMHDR,
-    pub Cursor: *mut core::ffi::c_void,
-    pub Strokes: *mut core::ffi::c_void,
-    pub Gestures: super::super::System::Variant::VARIANT,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
-#[derive(Clone, Copy)]
-pub struct IEC_RECOGNITIONRESULTINFO {
-    pub nmhdr: super::Controls::NMHDR,
-    pub RecognitionResult: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
-#[derive(Clone, Copy)]
-pub struct IEC_STROKEINFO {
-    pub nmhdr: super::Controls::NMHDR,
-    pub Cursor: *mut core::ffi::c_void,
-    pub Stroke: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct INKMETRIC {
-    pub iHeight: i32,
-    pub iFontAscent: i32,
-    pub iFontDescent: i32,
-    pub dwFlags: u32,
-    pub color: super::super::Foundation::COLORREF,
-}
-pub const Ink: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x13de4a42_8d21_4c8e_bf9c_8f69cb068fca);
-pub const InkCollector: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x43fb1553_ad74_4ee8_88e4_3e6daac915db);
-pub const InkDisp: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x937c1a34_151d_4610_9ca6_a8cc9bdb5d83);
-pub const InkDivider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8854f6a0_4683_4ae7_9191_752fe64612c3);
-pub const InkDrawingAttributes: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd8bf32a2_05a5_44c3_b3aa_5e80ac7d2576);
-pub const InkEdit: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe5ca59f5_57c4_4dd8_9bd6_1deeedd27af4);
-pub const InkOverlay: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x65d00646_cde3_4a88_9163_6769f0f1a97d);
-pub const InkPicture: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x04a1e553_fe36_4fde_865e_344194e69424);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct InkRecoGuide {
-    pub rectWritingBox: super::super::Foundation::RECT,
-    pub rectDrawnBox: super::super::Foundation::RECT,
-    pub cRows: i32,
-    pub cColumns: i32,
-    pub midline: i32,
-}
-pub const InkRecognizerContext: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xaac46a37_9229_4fc0_8cce_4497569bf4d1);
-pub const InkRecognizerGuide: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8770d941_a63a_4671_a375_2855a18eba73);
-pub const InkRecognizers: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9fd4e808_f6e6_4e65_98d3_aa39054c1255);
-pub const InkRectangle: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x43b07326_aae0_4b62_a83d_5fd768b7353c);
-pub const InkRenderer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9c1cc6e4_d7eb_4eeb_9091_15a7c8791ed9);
-pub const InkStrokes: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x48f491bc_240e_4860_b079_a1e94d3d2c86);
-pub const InkTablets: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6e4fcb12_510a_4d40_9304_1da10ae9147c);
-pub const InkTransform: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe3d5d93c_1663_4a78_a1a7_22375dfebaee);
-pub const InkWordList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9de85094_f71f_44f1_8471_15a2fa76fcf3);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LATTICE_METRICS {
-    pub lsBaseline: LINE_SEGMENT,
-    pub iMidlineOffset: i16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LINE_SEGMENT {
-    pub PtA: super::super::Foundation::POINT,
-    pub PtB: super::super::Foundation::POINT,
-}
-pub const MathInputControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc561816c_14d8_4090_830c_98d994b21c7b);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PACKET_DESCRIPTION {
-    pub cbPacketSize: u32,
-    pub cPacketProperties: u32,
-    pub pPacketProperties: *mut PACKET_PROPERTY,
-    pub cButtons: u32,
-    pub pguidButtons: *mut windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PACKET_PROPERTY {
-    pub guid: windows_sys::core::GUID,
-    pub PropertyMetrics: PROPERTY_METRICS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROPERTY_METRICS {
-    pub nLogicalMin: i32,
-    pub nLogicalMax: i32,
-    pub Units: PROPERTY_UNITS,
-    pub fResolution: f32,
-}
-pub const PenInputPanel: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf744e496_1b5a_489e_81dc_fbd7ac6298a8);
-pub const PenInputPanel_Internal: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x802b1fb9_056b_4720_b0cc_80d23b71171e);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RECO_ATTRS {
-    pub dwRecoCapabilityFlags: u32,
-    pub awcVendorName: [u16; 32],
-    pub awcFriendlyName: [u16; 64],
-    pub awLanguageId: [u16; 64],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RECO_GUIDE {
-    pub xOrigin: i32,
-    pub yOrigin: i32,
-    pub cxBox: i32,
-    pub cyBox: i32,
-    pub cxBase: i32,
-    pub cyBase: i32,
-    pub cHorzBox: i32,
-    pub cVertBox: i32,
-    pub cyMid: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RECO_LATTICE {
-    pub ulColumnCount: u32,
-    pub pLatticeColumns: *mut RECO_LATTICE_COLUMN,
-    pub ulPropertyCount: u32,
-    pub pGuidProperties: *mut windows_sys::core::GUID,
-    pub ulBestResultColumnCount: u32,
-    pub pulBestResultColumns: *mut u32,
-    pub pulBestResultIndexes: *mut u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RECO_LATTICE_COLUMN {
-    pub key: u32,
-    pub cpProp: RECO_LATTICE_PROPERTIES,
-    pub cStrokes: u32,
-    pub pStrokes: *mut u32,
-    pub cLatticeElements: u32,
-    pub pLatticeElements: *mut RECO_LATTICE_ELEMENT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RECO_LATTICE_ELEMENT {
-    pub score: i32,
-    pub r#type: u16,
-    pub pData: *mut u8,
-    pub ulNextColumn: u32,
-    pub ulStrokeNumber: u32,
-    pub epProp: RECO_LATTICE_PROPERTIES,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RECO_LATTICE_PROPERTIES {
-    pub cProperties: u32,
-    pub apProps: *mut *mut RECO_LATTICE_PROPERTY,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RECO_LATTICE_PROPERTY {
-    pub guidProperty: windows_sys::core::GUID,
-    pub cbPropertyValue: u16,
-    pub pPropertyValue: *mut u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RECO_RANGE {
-    pub iwcBegin: u32,
-    pub cCount: u32,
-}
-pub const RealTimeStylus: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe26b366d_f998_43ce_836f_cb6d904432b0);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct STROKE_RANGE {
-    pub iStrokeBegin: u32,
-    pub iStrokeEnd: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_EVENT_DATA {
-    pub bModifier: u8,
-    pub wKey: u16,
-    pub xPos: i32,
-    pub yPos: i32,
-    pub bCursorMode: u8,
-    pub dwButtonState: u32,
-}
-pub const SketchInk: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf0291081_e87c_4e07_97da_a0a03761e586);
-pub const StrokeBuilder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe810cee7_6e51_4cb0_aa3a_0b985b70daf7);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct StylusInfo {
-    pub tcid: u32,
-    pub cid: u32,
-    pub bIsInvertedCursor: super::super::Foundation::BOOL,
-}
-pub const TextInputPanel: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf9b189d7_228b_4f2b_8650_b97f59e02c8c);
-pub const TipAutoCompleteClient: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x807c1e6c_1d00_453f_b920_b61bb7cdd997);
 pub const ALT_BREAKS_FULL: ALT_BREAKS = 2i32;
 pub const ALT_BREAKS_SAME: ALT_BREAKS = 0i32;
 pub const ALT_BREAKS_UNIQUE: ALT_BREAKS = 1i32;
@@ -384,20 +40,31 @@ pub const ASYNC_RECO_SETFLAGS_FAILED: u32 = 64u32;
 pub const ASYNC_RECO_SETGUIDE_FAILED: u32 = 32u32;
 pub const ASYNC_RECO_SETTEXTCONTEXT_FAILED: u32 = 256u32;
 pub const ASYNC_RECO_SETWORDLIST_FAILED: u32 = 512u32;
+pub type AppearanceConstants = i32;
 pub const AsyncStylusQueue: StylusQueue = 3i32;
 pub const AsyncStylusQueueImmediate: StylusQueue = 2i32;
 pub const BEST_COMPLETE: u32 = 2u32;
+pub type BorderStyleConstants = i32;
 pub const CAC_FULL: u32 = 0u32;
 pub const CAC_PREFIX: u32 = 1u32;
 pub const CAC_RANDOM: u32 = 2u32;
 pub const CFL_INTERMEDIATE: CONFIDENCE_LEVEL = 1i32;
 pub const CFL_POOR: CONFIDENCE_LEVEL = 2i32;
 pub const CFL_STRONG: CONFIDENCE_LEVEL = 0i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CHARACTER_RANGE {
+    pub wcLow: u16,
+    pub cChars: u16,
+}
+pub type CONFIDENCE_LEVEL = i32;
 pub const Closed: VisualState = 4i32;
+pub type CorrectionMode = i32;
 pub const CorrectionMode_NotVisible: CorrectionMode = 0i32;
 pub const CorrectionMode_PostInsertionCollapsed: CorrectionMode = 2i32;
 pub const CorrectionMode_PostInsertionExpanded: CorrectionMode = 3i32;
 pub const CorrectionMode_PreInsertion: CorrectionMode = 1i32;
+pub type CorrectionPosition = i32;
 pub const CorrectionPosition_Auto: CorrectionPosition = 0i32;
 pub const CorrectionPosition_Bottom: CorrectionPosition = 1i32;
 pub const CorrectionPosition_Top: CorrectionPosition = 2i32;
@@ -721,8 +388,28 @@ pub const DISPID_IeeMouseUp: DISPID_InkEditEvents = 5i32;
 pub const DISPID_IeeRecognitionResult: DISPID_InkEditEvents = 24i32;
 pub const DISPID_IeeSelChange: DISPID_InkEditEvents = 2i32;
 pub const DISPID_IeeStroke: DISPID_InkEditEvents = 22i32;
+pub type DISPID_Ink = i32;
+pub type DISPID_InkCollector = i32;
+pub type DISPID_InkCollectorEvent = i32;
+pub type DISPID_InkCursor = i32;
+pub type DISPID_InkCursorButton = i32;
+pub type DISPID_InkCursorButtons = i32;
+pub type DISPID_InkCursors = i32;
+pub type DISPID_InkCustomStrokes = i32;
+pub type DISPID_InkDivider = i32;
+pub type DISPID_InkDivisionResult = i32;
+pub type DISPID_InkDivisionUnit = i32;
+pub type DISPID_InkDivisionUnits = i32;
+pub type DISPID_InkDrawingAttributes = i32;
+pub type DISPID_InkEdit = i32;
+pub type DISPID_InkEditEvents = i32;
+pub type DISPID_InkEvent = i32;
+pub type DISPID_InkExtendedProperties = i32;
+pub type DISPID_InkExtendedProperty = i32;
+pub type DISPID_InkGesture = i32;
 pub const DISPID_InkInsertMode: DISPID_InkEdit = 25i32;
 pub const DISPID_InkMode: DISPID_InkEdit = 24i32;
+pub type DISPID_InkRecoAlternate = i32;
 pub const DISPID_InkRecoAlternate_AlternatesWithConstantPropertyValues: DISPID_InkRecoAlternate = 15i32;
 pub const DISPID_InkRecoAlternate_Ascender: DISPID_InkRecoAlternate = 5i32;
 pub const DISPID_InkRecoAlternate_Baseline: DISPID_InkRecoAlternate = 3i32;
@@ -738,10 +425,15 @@ pub const DISPID_InkRecoAlternate_LineNumber: DISPID_InkRecoAlternate = 2i32;
 pub const DISPID_InkRecoAlternate_Midline: DISPID_InkRecoAlternate = 4i32;
 pub const DISPID_InkRecoAlternate_String: DISPID_InkRecoAlternate = 1i32;
 pub const DISPID_InkRecoAlternate_Strokes: DISPID_InkRecoAlternate = 8i32;
+pub type DISPID_InkRecoContext = i32;
+pub type DISPID_InkRecoContext2 = i32;
+pub type DISPID_InkRecognitionAlternates = i32;
 pub const DISPID_InkRecognitionAlternates_Count: DISPID_InkRecognitionAlternates = 1i32;
 pub const DISPID_InkRecognitionAlternates_Item: DISPID_InkRecognitionAlternates = 0i32;
 pub const DISPID_InkRecognitionAlternates_NewEnum: DISPID_InkRecognitionAlternates = -4i32;
 pub const DISPID_InkRecognitionAlternates_Strokes: DISPID_InkRecognitionAlternates = 2i32;
+pub type DISPID_InkRecognitionEvent = i32;
+pub type DISPID_InkRecognitionResult = i32;
 pub const DISPID_InkRecognitionResult_AlternatesFromSelection: DISPID_InkRecognitionResult = 5i32;
 pub const DISPID_InkRecognitionResult_ModifyTopAlternate: DISPID_InkRecognitionResult = 6i32;
 pub const DISPID_InkRecognitionResult_SetResultOnStrokes: DISPID_InkRecognitionResult = 7i32;
@@ -749,6 +441,21 @@ pub const DISPID_InkRecognitionResult_Strokes: DISPID_InkRecognitionResult = 3i3
 pub const DISPID_InkRecognitionResult_TopAlternate: DISPID_InkRecognitionResult = 2i32;
 pub const DISPID_InkRecognitionResult_TopConfidence: DISPID_InkRecognitionResult = 4i32;
 pub const DISPID_InkRecognitionResult_TopString: DISPID_InkRecognitionResult = 1i32;
+pub type DISPID_InkRecognizer = i32;
+pub type DISPID_InkRecognizer2 = i32;
+pub type DISPID_InkRecognizerGuide = i32;
+pub type DISPID_InkRecognizers = i32;
+pub type DISPID_InkRectangle = i32;
+pub type DISPID_InkRenderer = i32;
+pub type DISPID_InkStrokeDisp = i32;
+pub type DISPID_InkStrokes = i32;
+pub type DISPID_InkTablet = i32;
+pub type DISPID_InkTablet2 = i32;
+pub type DISPID_InkTablet3 = i32;
+pub type DISPID_InkTablets = i32;
+pub type DISPID_InkTransform = i32;
+pub type DISPID_InkWordList = i32;
+pub type DISPID_InkWordList2 = i32;
 pub const DISPID_InkWordList2_AddWords: DISPID_InkWordList2 = 3i32;
 pub const DISPID_InkWordList_AddWord: DISPID_InkWordList = 0i32;
 pub const DISPID_InkWordList_Merge: DISPID_InkWordList = 2i32;
@@ -758,6 +465,7 @@ pub const DISPID_MICClear: DISPID_MathInputControlEvents = 3i32;
 pub const DISPID_MICClose: DISPID_MathInputControlEvents = 1i32;
 pub const DISPID_MICInsert: DISPID_MathInputControlEvents = 0i32;
 pub const DISPID_MICPaint: DISPID_MathInputControlEvents = 2i32;
+pub type DISPID_MathInputControlEvents = i32;
 pub const DISPID_MaxLength: DISPID_InkEdit = 6i32;
 pub const DISPID_MultiLine: DISPID_InkEdit = 7i32;
 pub const DISPID_PIPAttachedEditWindow: DISPID_PenInputPanel = 0i32;
@@ -781,6 +489,8 @@ pub const DISPID_PIPTop: DISPID_PenInputPanel = 5i32;
 pub const DISPID_PIPVerticalOffset: DISPID_PenInputPanel = 13i32;
 pub const DISPID_PIPVisible: DISPID_PenInputPanel = 4i32;
 pub const DISPID_PIPWidth: DISPID_PenInputPanel = 7i32;
+pub type DISPID_PenInputPanel = i32;
+pub type DISPID_PenInputPanelEvents = i32;
 pub const DISPID_RTSelLength: DISPID_InkEdit = 10i32;
 pub const DISPID_RTSelStart: DISPID_InkEdit = 9i32;
 pub const DISPID_RTSelText: DISPID_InkEdit = 11i32;
@@ -814,11 +524,19 @@ pub const DISPID_SelRTF: DISPID_InkEdit = 19i32;
 pub const DISPID_SelUnderline: DISPID_InkEdit = 20i32;
 pub const DISPID_SetGestStatus: DISPID_InkEdit = 34i32;
 pub const DISPID_Status: DISPID_InkEdit = 22i32;
+pub type DISPID_StrokeEvent = i32;
 pub const DISPID_Text: DISPID_InkEdit = 0i32;
 pub const DISPID_TextRTF: DISPID_InkEdit = 1i32;
 pub const DISPID_UseMouseForInput: DISPID_InkEdit = 23i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DYNAMIC_RENDERER_CACHED_DATA {
+    pub strokeId: i32,
+    pub dynamicRenderer: *mut core::ffi::c_void,
+}
 pub const DockedBottom: VisualState = 3i32;
 pub const DockedTop: VisualState = 2i32;
+pub const DynamicRenderer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecd32aea_746f_4dcb_bf68_082757faff18);
 pub const EM_GETDRAWATTR: u32 = 1541u32;
 pub const EM_GETFACTOID: u32 = 1549u32;
 pub const EM_GETGESTURESTATUS: u32 = 1545u32;
@@ -845,6 +563,7 @@ pub const EM_SETRECOTIMEOUT: u32 = 1544u32;
 pub const EM_SETSELINK: u32 = 1552u32;
 pub const EM_SETSELINKDISPLAYMODE: u32 = 1561u32;
 pub const EM_SETUSEMOUSEFORINPUT: u32 = 1560u32;
+pub type EventMask = i32;
 pub const EventMask_All: EventMask = 4095i32;
 pub const EventMask_CorrectionModeChanged: EventMask = 128i32;
 pub const EventMask_CorrectionModeChanging: EventMask = 64i32;
@@ -891,11 +610,13 @@ pub const FACTOID_TIME: windows_sys::core::PCWSTR = windows_sys::core::w!("TIME"
 pub const FACTOID_UPPERCHAR: windows_sys::core::PCWSTR = windows_sys::core::w!("UPPERCHAR");
 pub const FACTOID_WEB: windows_sys::core::PCWSTR = windows_sys::core::w!("WEB");
 pub const FACTOID_WORDLIST: windows_sys::core::PCWSTR = windows_sys::core::w!("WORDLIST");
+pub type FLICKACTION_COMMANDCODE = i32;
 pub const FLICKACTION_COMMANDCODE_APPCOMMAND: FLICKACTION_COMMANDCODE = 2i32;
 pub const FLICKACTION_COMMANDCODE_CUSTOMKEY: FLICKACTION_COMMANDCODE = 3i32;
 pub const FLICKACTION_COMMANDCODE_KEYMODIFIER: FLICKACTION_COMMANDCODE = 4i32;
 pub const FLICKACTION_COMMANDCODE_NULL: FLICKACTION_COMMANDCODE = 0i32;
 pub const FLICKACTION_COMMANDCODE_SCROLL: FLICKACTION_COMMANDCODE = 1i32;
+pub type FLICKDIRECTION = i32;
 pub const FLICKDIRECTION_DOWN: FLICKDIRECTION = 6i32;
 pub const FLICKDIRECTION_DOWNLEFT: FLICKDIRECTION = 5i32;
 pub const FLICKDIRECTION_DOWNRIGHT: FLICKDIRECTION = 7i32;
@@ -906,12 +627,23 @@ pub const FLICKDIRECTION_RIGHT: FLICKDIRECTION = 0i32;
 pub const FLICKDIRECTION_UP: FLICKDIRECTION = 2i32;
 pub const FLICKDIRECTION_UPLEFT: FLICKDIRECTION = 3i32;
 pub const FLICKDIRECTION_UPRIGHT: FLICKDIRECTION = 1i32;
+pub type FLICKMODE = i32;
 pub const FLICKMODE_DEFAULT: FLICKMODE = 1i32;
 pub const FLICKMODE_LEARNING: FLICKMODE = 2i32;
 pub const FLICKMODE_MAX: FLICKMODE = 2i32;
 pub const FLICKMODE_MIN: FLICKMODE = 0i32;
 pub const FLICKMODE_OFF: FLICKMODE = 0i32;
 pub const FLICKMODE_ON: FLICKMODE = 1i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FLICK_DATA {
+    pub _bitfield: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FLICK_POINT {
+    pub _bitfield: i32,
+}
 pub const FLICK_WM_HANDLED_MASK: u32 = 1u32;
 pub const Floating: VisualState = 1i32;
 pub const GESTURE_ARROW_DOWN: u32 = 61497u32;
@@ -943,6 +675,13 @@ pub const GESTURE_CIRCLE_TAP: u32 = 61474u32;
 pub const GESTURE_CLOSEUP: u32 = 61455u32;
 pub const GESTURE_CROSS: u32 = 61447u32;
 pub const GESTURE_CURLICUE: u32 = 61456u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GESTURE_DATA {
+    pub gestureId: i32,
+    pub recoConfidence: i32,
+    pub strokeCount: i32,
+}
 pub const GESTURE_DIAGONAL_LEFTDOWN: u32 = 61534u32;
 pub const GESTURE_DIAGONAL_LEFTUP: u32 = 61532u32;
 pub const GESTURE_DIAGONAL_RIGHTDOWN: u32 = 61535u32;
@@ -1048,6 +787,7 @@ pub const GESTURE_UP_LEFT: u32 = 61544u32;
 pub const GESTURE_UP_LEFT_LONG: u32 = 61540u32;
 pub const GESTURE_UP_RIGHT: u32 = 61545u32;
 pub const GESTURE_UP_RIGHT_LONG: u32 = 61541u32;
+pub type GET_DANDIDATE_FLAGS = i32;
 pub const GUID_DYNAMIC_RENDERER_CACHED_DATA: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbf531b92_25bf_4a95_89ad_0e476b34b4f5);
 pub const GUID_GESTURE_DATA: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x41e4ec0f_26aa_455a_9aa5_2cd36cf63fb9);
 pub const GUID_PACKETPROPERTY_GUID_ALTITUDE_ORIENTATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x82dec5c7_f6ba_4906_894f_66d68dfc456c);
@@ -1071,6 +811,13 @@ pub const GUID_PACKETPROPERTY_GUID_Y: windows_sys::core::GUID = windows_sys::cor
 pub const GUID_PACKETPROPERTY_GUID_YAW_ROTATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a849980_7c3a_45b7_aa82_90a262950e89);
 pub const GUID_PACKETPROPERTY_GUID_Y_TILT_ORIENTATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0e932389_1d77_43af_ac00_5b950d6d4b2d);
 pub const GUID_PACKETPROPERTY_GUID_Z: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x735adb30_0ebb_4788_a0e4_0f316490055d);
+pub const GestureRecognizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xea30c654_c62c_441f_ac00_95f9a196782c);
+pub type HRECOALT = *mut core::ffi::c_void;
+pub type HRECOCONTEXT = *mut core::ffi::c_void;
+pub type HRECOGNIZER = *mut core::ffi::c_void;
+pub type HRECOLATTICE = *mut core::ffi::c_void;
+pub type HRECOWORDLIST = *mut core::ffi::c_void;
+pub const HandwrittenTextInsertion: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9f074ee2_e6e9_4d8a_a047_eb5b5c3c55da);
 pub const IAG_AllGestures: InkApplicationGesture = 0i32;
 pub const IAG_ArrowDown: InkApplicationGesture = 61497i32;
 pub const IAG_ArrowLeft: InkApplicationGesture = 61498i32;
@@ -1169,6 +916,30 @@ pub const IECN_GESTURE: u32 = 2050u32;
 pub const IECN_RECOGNITIONRESULT: u32 = 2051u32;
 pub const IECN_STROKE: u32 = 2049u32;
 pub const IECN__BASE: u32 = 2048u32;
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
+#[derive(Clone, Copy)]
+pub struct IEC_GESTUREINFO {
+    pub nmhdr: super::Controls::NMHDR,
+    pub Cursor: *mut core::ffi::c_void,
+    pub Strokes: *mut core::ffi::c_void,
+    pub Gestures: super::super::System::Variant::VARIANT,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
+#[derive(Clone, Copy)]
+pub struct IEC_RECOGNITIONRESULTINFO {
+    pub nmhdr: super::Controls::NMHDR,
+    pub RecognitionResult: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
+#[derive(Clone, Copy)]
+pub struct IEC_STROKEINFO {
+    pub nmhdr: super::Controls::NMHDR,
+    pub Cursor: *mut core::ffi::c_void,
+    pub Stroke: *mut core::ffi::c_void,
+}
 pub const IEC__BASE: u32 = 1536u32;
 pub const IEF_CopyFromOriginal: InkExtractFlags = 0i32;
 pub const IEF_Default: InkExtractFlags = 1i32;
@@ -1208,6 +979,15 @@ pub const IMP_SizeWE: InkMousePointer = 7i32;
 pub const IMP_UpArrow: InkMousePointer = 8i32;
 pub const INKEDIT_CLASS: windows_sys::core::PCWSTR = windows_sys::core::w!("INKEDIT");
 pub const INKEDIT_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("INKEDIT");
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct INKMETRIC {
+    pub iHeight: i32,
+    pub iFontAscent: i32,
+    pub iFontDescent: i32,
+    pub dwFlags: u32,
+    pub color: super::super::Foundation::COLORREF,
+}
 pub const INKRECOGNITIONPROPERTY_BOXNUMBER: windows_sys::core::PCWSTR = windows_sys::core::w!("{2C243E3A-F733-4EB6-B1F8-B5DC5C2C4CDA}");
 pub const INKRECOGNITIONPROPERTY_CONFIDENCELEVEL: windows_sys::core::PCWSTR = windows_sys::core::w!("{7DFE11A7-FB5D-4958-8765-154ADF0D833F}");
 pub const INKRECOGNITIONPROPERTY_HOTPOINT: windows_sys::core::PCWSTR = windows_sys::core::w!("{CA6F40DC-5292-452a-91FB-2181C0BEC0DE}");
@@ -1216,6 +996,7 @@ pub const INKRECOGNITIONPROPERTY_LINENUMBER: windows_sys::core::PCWSTR = windows
 pub const INKRECOGNITIONPROPERTY_MAXIMUMSTROKECOUNT: windows_sys::core::PCWSTR = windows_sys::core::w!("{BF0EEC4E-4B7D-47a9-8CFA-234DD24BD22A}");
 pub const INKRECOGNITIONPROPERTY_POINTSPERINCH: windows_sys::core::PCWSTR = windows_sys::core::w!("{7ED16B76-889C-468e-8276-0021B770187E}");
 pub const INKRECOGNITIONPROPERTY_SEGMENTATION: windows_sys::core::PCWSTR = windows_sys::core::w!("{B3C0FE6C-FB51-4164-BA2F-844AF8F983DA}");
+pub type INK_METRIC_FLAGS = i32;
 pub const INK_SERIALIZED_FORMAT: windows_sys::core::PCWSTR = windows_sys::core::w!("Ink Serialized Format");
 pub const IOAM_Behind: InkOverlayAttachMode = 0i32;
 pub const IOAM_InFront: InkOverlayAttachMode = 1i32;
@@ -1320,27 +1101,102 @@ pub const ISG_RightDrag: InkSystemGesture = 20i32;
 pub const ISG_RightTap: InkSystemGesture = 18i32;
 pub const ISG_Tap: InkSystemGesture = 16i32;
 pub const InPlace: VisualState = 0i32;
+pub type InPlaceDirection = i32;
 pub const InPlaceDirection_Auto: InPlaceDirection = 0i32;
 pub const InPlaceDirection_Bottom: InPlaceDirection = 1i32;
 pub const InPlaceDirection_Top: InPlaceDirection = 2i32;
+pub type InPlaceState = i32;
 pub const InPlaceState_Auto: InPlaceState = 0i32;
 pub const InPlaceState_Expanded: InPlaceState = 2i32;
 pub const InPlaceState_HoverTarget: InPlaceState = 1i32;
+pub const Ink: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x13de4a42_8d21_4c8e_bf9c_8f69cb068fca);
+pub type InkApplicationGesture = i32;
+pub type InkBoundingBoxMode = i32;
+pub type InkClipboardFormats = i32;
+pub type InkClipboardModes = i32;
+pub type InkCollectionMode = i32;
+pub const InkCollector: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x43fb1553_ad74_4ee8_88e4_3e6daac915db);
 pub const InkCollectorClipInkToMargin: i32 = 0i32;
 pub const InkCollectorDefaultMargin: i32 = -2147483648i32;
+pub type InkCollectorEventInterest = i32;
+pub type InkCursorButtonState = i32;
+pub const InkDisp: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x937c1a34_151d_4610_9ca6_a8cc9bdb5d83);
+pub type InkDisplayMode = i32;
+pub const InkDivider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8854f6a0_4683_4ae7_9191_752fe64612c3);
+pub type InkDivisionType = i32;
+pub const InkDrawingAttributes: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd8bf32a2_05a5_44c3_b3aa_5e80ac7d2576);
+pub const InkEdit: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe5ca59f5_57c4_4dd8_9bd6_1deeedd27af4);
+pub type InkEditStatus = i32;
+pub type InkExtractFlags = i32;
+pub type InkInsertMode = i32;
 pub const InkMaxTransparencyValue: i32 = 255i32;
 pub const InkMinTransparencyValue: i32 = 0i32;
+pub type InkMode = i32;
+pub type InkMouseButton = i32;
+pub type InkMousePointer = i32;
+pub const InkOverlay: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x65d00646_cde3_4a88_9163_6769f0f1a97d);
+pub type InkOverlayAttachMode = i32;
+pub type InkOverlayEditingMode = i32;
+pub type InkOverlayEraserMode = i32;
+pub type InkPenTip = i32;
+pub type InkPersistenceCompressionMode = i32;
+pub type InkPersistenceFormat = i32;
+pub const InkPicture: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x04a1e553_fe36_4fde_865e_344194e69424);
+pub type InkPictureSizeMode = i32;
+pub type InkRasterOperation = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct InkRecoGuide {
+    pub rectWritingBox: super::super::Foundation::RECT,
+    pub rectDrawnBox: super::super::Foundation::RECT,
+    pub cRows: i32,
+    pub cColumns: i32,
+    pub midline: i32,
+}
+pub type InkRecognitionAlternatesSelection = i32;
+pub type InkRecognitionConfidence = i32;
+pub type InkRecognitionModes = i32;
+pub type InkRecognitionStatus = i32;
+pub type InkRecognizerCapabilities = i32;
+pub type InkRecognizerCharacterAutoCompletionMode = i32;
+pub const InkRecognizerContext: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xaac46a37_9229_4fc0_8cce_4497569bf4d1);
+pub const InkRecognizerGuide: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8770d941_a63a_4671_a375_2855a18eba73);
+pub const InkRecognizers: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9fd4e808_f6e6_4e65_98d3_aa39054c1255);
+pub const InkRectangle: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x43b07326_aae0_4b62_a83d_5fd768b7353c);
+pub const InkRenderer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9c1cc6e4_d7eb_4eeb_9091_15a7c8791ed9);
+pub type InkSelectionConstants = i32;
+pub type InkShiftKeyModifierFlags = i32;
+pub const InkStrokes: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x48f491bc_240e_4860_b079_a1e94d3d2c86);
+pub type InkSystemGesture = i32;
+pub const InkTablets: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6e4fcb12_510a_4d40_9304_1da10ae9147c);
+pub const InkTransform: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe3d5d93c_1663_4a78_a1a7_22375dfebaee);
+pub const InkWordList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9de85094_f71f_44f1_8471_15a2fa76fcf3);
+pub type InteractionMode = i32;
 pub const InteractionMode_DockedBottom: InteractionMode = 3i32;
 pub const InteractionMode_DockedTop: InteractionMode = 2i32;
 pub const InteractionMode_Floating: InteractionMode = 1i32;
 pub const InteractionMode_InPlace: InteractionMode = 0i32;
+pub type KEYMODIFIER = i32;
 pub const KEYMODIFIER_ALTGR: KEYMODIFIER = 16i32;
 pub const KEYMODIFIER_CONTROL: KEYMODIFIER = 1i32;
 pub const KEYMODIFIER_EXT: KEYMODIFIER = 32i32;
 pub const KEYMODIFIER_MENU: KEYMODIFIER = 2i32;
 pub const KEYMODIFIER_SHIFT: KEYMODIFIER = 4i32;
 pub const KEYMODIFIER_WIN: KEYMODIFIER = 8i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LATTICE_METRICS {
+    pub lsBaseline: LINE_SEGMENT,
+    pub iMidlineOffset: i16,
+}
 pub const LEFT_BUTTON: MouseButton = 1i32;
+pub type LINE_METRICS = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LINE_SEGMENT {
+    pub PtA: super::super::Foundation::POINT,
+    pub PtB: super::super::Foundation::POINT,
+}
 pub const LM_ASCENDER: LINE_METRICS = 2i32;
 pub const LM_BASELINE: LINE_METRICS = 0i32;
 pub const LM_DESCENDER: LINE_METRICS = 3i32;
@@ -1355,6 +1211,8 @@ pub const MICROSOFT_TIP_COMBOBOXLIST_PROPERTY: windows_sys::core::PCWSTR = windo
 pub const MICROSOFT_TIP_NO_INSERT_BUTTON_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("Microsoft TIP No Insert Option");
 pub const MICROSOFT_TIP_OPENING_MSG: windows_sys::core::PCWSTR = windows_sys::core::w!("TabletInputPanelOpening");
 pub const MICROSOFT_URL_EXPERIENCE_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("Microsoft TIP URL Experience");
+pub type MICUIELEMENT = i32;
+pub type MICUIELEMENTSTATE = i32;
 pub const MICUIELEMENTSTATE_DISABLED: MICUIELEMENTSTATE = 4i32;
 pub const MICUIELEMENTSTATE_HOT: MICUIELEMENTSTATE = 2i32;
 pub const MICUIELEMENTSTATE_NORMAL: MICUIELEMENTSTATE = 1i32;
@@ -1370,8 +1228,34 @@ pub const MICUIELEMENT_BUTTON_WRITE: MICUIELEMENT = 1i32;
 pub const MICUIELEMENT_INKPANEL_BACKGROUND: MICUIELEMENT = 256i32;
 pub const MICUIELEMENT_RESULTPANEL_BACKGROUND: MICUIELEMENT = 512i32;
 pub const MIDDLE_BUTTON: MouseButton = 4i32;
+pub const MathInputControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc561816c_14d8_4090_830c_98d994b21c7b);
+pub type MouseButton = i32;
 pub const NO_BUTTON: MouseButton = 0i32;
 pub const NUM_FLICK_DIRECTIONS: u32 = 8u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PACKET_DESCRIPTION {
+    pub cbPacketSize: u32,
+    pub cPacketProperties: u32,
+    pub pPacketProperties: *mut PACKET_PROPERTY,
+    pub cButtons: u32,
+    pub pguidButtons: *mut windows_sys::core::GUID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PACKET_PROPERTY {
+    pub guid: windows_sys::core::GUID,
+    pub PropertyMetrics: PROPERTY_METRICS,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROPERTY_METRICS {
+    pub nLogicalMin: i32,
+    pub nLogicalMax: i32,
+    pub Units: PROPERTY_UNITS,
+    pub fResolution: f32,
+}
+pub type PROPERTY_UNITS = i32;
 pub const PROPERTY_UNITS_AMPERE: PROPERTY_UNITS = 15i32;
 pub const PROPERTY_UNITS_CANDELA: PROPERTY_UNITS = 16i32;
 pub const PROPERTY_UNITS_CENTIMETERS: PROPERTY_UNITS = 2i32;
@@ -1393,10 +1277,15 @@ pub const PT_Default: PanelType = 0i32;
 pub const PT_Handwriting: PanelType = 2i32;
 pub const PT_Inactive: PanelType = 1i32;
 pub const PT_Keyboard: PanelType = 3i32;
+pub type PanelInputArea = i32;
 pub const PanelInputArea_Auto: PanelInputArea = 0i32;
 pub const PanelInputArea_CharacterPad: PanelInputArea = 3i32;
 pub const PanelInputArea_Keyboard: PanelInputArea = 1i32;
 pub const PanelInputArea_WritingPad: PanelInputArea = 2i32;
+pub type PanelType = i32;
+pub const PenInputPanel: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf744e496_1b5a_489e_81dc_fbd7ac6298a8);
+pub const PenInputPanel_Internal: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x802b1fb9_056b_4720_b0cc_80d23b71171e);
+pub type PfnRecoCallback = Option<unsafe extern "system" fn(param0: u32, param1: *mut u8, param2: HRECOCONTEXT) -> windows_sys::core::HRESULT>;
 pub const RECOCONF_HIGHCONFIDENCE: u32 = 1u32;
 pub const RECOCONF_LOWCONFIDENCE: i32 = -1i32;
 pub const RECOCONF_MEDIUMCONFIDENCE: u32 = 0u32;
@@ -1408,6 +1297,78 @@ pub const RECOFLAG_LINEMODE: u32 = 16u32;
 pub const RECOFLAG_PREFIXOK: u32 = 8u32;
 pub const RECOFLAG_SINGLESEG: u32 = 4u32;
 pub const RECOFLAG_WORDMODE: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RECO_ATTRS {
+    pub dwRecoCapabilityFlags: u32,
+    pub awcVendorName: [u16; 32],
+    pub awcFriendlyName: [u16; 64],
+    pub awLanguageId: [u16; 64],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RECO_GUIDE {
+    pub xOrigin: i32,
+    pub yOrigin: i32,
+    pub cxBox: i32,
+    pub cyBox: i32,
+    pub cxBase: i32,
+    pub cyBase: i32,
+    pub cHorzBox: i32,
+    pub cVertBox: i32,
+    pub cyMid: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RECO_LATTICE {
+    pub ulColumnCount: u32,
+    pub pLatticeColumns: *mut RECO_LATTICE_COLUMN,
+    pub ulPropertyCount: u32,
+    pub pGuidProperties: *mut windows_sys::core::GUID,
+    pub ulBestResultColumnCount: u32,
+    pub pulBestResultColumns: *mut u32,
+    pub pulBestResultIndexes: *mut u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RECO_LATTICE_COLUMN {
+    pub key: u32,
+    pub cpProp: RECO_LATTICE_PROPERTIES,
+    pub cStrokes: u32,
+    pub pStrokes: *mut u32,
+    pub cLatticeElements: u32,
+    pub pLatticeElements: *mut RECO_LATTICE_ELEMENT,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RECO_LATTICE_ELEMENT {
+    pub score: i32,
+    pub r#type: u16,
+    pub pData: *mut u8,
+    pub ulNextColumn: u32,
+    pub ulStrokeNumber: u32,
+    pub epProp: RECO_LATTICE_PROPERTIES,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RECO_LATTICE_PROPERTIES {
+    pub cProperties: u32,
+    pub apProps: *mut *mut RECO_LATTICE_PROPERTY,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RECO_LATTICE_PROPERTY {
+    pub guidProperty: windows_sys::core::GUID,
+    pub cbPropertyValue: u16,
+    pub pPropertyValue: *mut u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RECO_RANGE {
+    pub iwcBegin: u32,
+    pub cCount: u32,
+}
+pub type RECO_TYPE = i32;
 pub const RECO_TYPE_WCHAR: RECO_TYPE = 1i32;
 pub const RECO_TYPE_WSTRING: RECO_TYPE = 0i32;
 pub const RF_ADVISEINKCHANGE: i32 = 4096i32;
@@ -1454,7 +1415,11 @@ pub const RTSLT_ExcludeCallback: RealTimeStylusLockType = 8i32;
 pub const RTSLT_ObjLock: RealTimeStylusLockType = 1i32;
 pub const RTSLT_SyncEventLock: RealTimeStylusLockType = 2i32;
 pub const RTSLT_SyncObjLock: RealTimeStylusLockType = 11i32;
+pub const RealTimeStylus: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe26b366d_f998_43ce_836f_cb6d904432b0);
+pub type RealTimeStylusDataInterest = i32;
+pub type RealTimeStylusLockType = i32;
 pub const SAFE_PARTIAL: u32 = 1u32;
+pub type SCROLLDIRECTION = i32;
 pub const SCROLLDIRECTION_DOWN: SCROLLDIRECTION = 1i32;
 pub const SCROLLDIRECTION_UP: SCROLLDIRECTION = 0i32;
 pub const SHR_E: SelectionHitResult = 5i32;
@@ -1467,6 +1432,12 @@ pub const SHR_SE: SelectionHitResult = 2i32;
 pub const SHR_SW: SelectionHitResult = 4i32;
 pub const SHR_Selection: SelectionHitResult = 9i32;
 pub const SHR_W: SelectionHitResult = 6i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct STROKE_RANGE {
+    pub iStrokeBegin: u32,
+    pub iStrokeEnd: u32,
+}
 pub const STR_GUID_ALTITUDEORIENTATION: windows_sys::core::PCWSTR = windows_sys::core::w!("{82DEC5C7-F6BA-4906-894F-66D68DFC456C}");
 pub const STR_GUID_AZIMUTHORIENTATION: windows_sys::core::PCWSTR = windows_sys::core::w!("{029123B4-8828-410B-B250-A0536595E5DC}");
 pub const STR_GUID_BUTTONPRESSURE: windows_sys::core::PCWSTR = windows_sys::core::w!("{8B7FEFC4-96AA-4BFE-AC26-8A5F0BE07BF5}");
@@ -1488,6 +1459,29 @@ pub const STR_GUID_Y: windows_sys::core::PCWSTR = windows_sys::core::w!("{B53F9F
 pub const STR_GUID_YAWROTATION: windows_sys::core::PCWSTR = windows_sys::core::w!("{6A849980-7C3A-45B7-AA82-90A262950E89}");
 pub const STR_GUID_YTILTORIENTATION: windows_sys::core::PCWSTR = windows_sys::core::w!("{0E932389-1D77-43AF-AC00-5B950D6D4B2D}");
 pub const STR_GUID_Z: windows_sys::core::PCWSTR = windows_sys::core::w!("{735ADB30-0EBB-4788-A0E4-0F316490055D}");
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SYSTEM_EVENT_DATA {
+    pub bModifier: u8,
+    pub wKey: u16,
+    pub xPos: i32,
+    pub yPos: i32,
+    pub bCursorMode: u8,
+    pub dwButtonState: u32,
+}
+pub type ScrollBarsConstants = i32;
+pub type SelAlignmentConstants = i32;
+pub type SelectionHitResult = i32;
+pub const SketchInk: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf0291081_e87c_4e07_97da_a0a03761e586);
+pub const StrokeBuilder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe810cee7_6e51_4cb0_aa3a_0b985b70daf7);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct StylusInfo {
+    pub tcid: u32,
+    pub cid: u32,
+    pub bIsInvertedCursor: super::super::Foundation::BOOL,
+}
+pub type StylusQueue = i32;
 pub const SyncStylusQueue: StylusQueue = 1i32;
 pub const TABLET_DISABLE_FLICKFALLBACKKEYS: u32 = 1048576u32;
 pub const TABLET_DISABLE_FLICKS: u32 = 65536u32;
@@ -1518,6 +1512,12 @@ pub const TPMU_Inches: TabletPropertyMetricUnit = 1i32;
 pub const TPMU_Pounds: TabletPropertyMetricUnit = 6i32;
 pub const TPMU_Radians: TabletPropertyMetricUnit = 4i32;
 pub const TPMU_Seconds: TabletPropertyMetricUnit = 5i32;
+pub type TabletDeviceKind = i32;
+pub type TabletHardwareCapabilities = i32;
+pub type TabletPropertyMetricUnit = i32;
+pub const TextInputPanel: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf9b189d7_228b_4f2b_8650_b97f59e02c8c);
+pub const TipAutoCompleteClient: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x807c1e6c_1d00_453f_b920_b61bb7cdd997);
+pub type VisualState = i32;
 pub const WM_TABLET_ADDED: u32 = 712u32;
 pub const WM_TABLET_DEFBASE: u32 = 704u32;
 pub const WM_TABLET_DELETED: u32 = 713u32;

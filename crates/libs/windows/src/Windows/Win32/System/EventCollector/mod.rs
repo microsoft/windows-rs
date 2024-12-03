@@ -87,6 +87,10 @@ pub unsafe fn EcSetSubscriptionProperty(subscription: isize, propertyid: EC_SUBS
     windows_targets::link!("wecapi.dll" "system" fn EcSetSubscriptionProperty(subscription : isize, propertyid : EC_SUBSCRIPTION_PROPERTY_ID, flags : u32, propertyvalue : *mut EC_VARIANT) -> super::super::Foundation:: BOOL);
     EcSetSubscriptionProperty(core::mem::transmute(subscription), core::mem::transmute(propertyid), core::mem::transmute(flags), core::mem::transmute(propertyvalue))
 }
+pub const EC_CREATE_NEW: u32 = 1u32;
+pub const EC_OPEN_ALWAYS: u32 = 0u32;
+pub const EC_OPEN_EXISTING: u32 = 2u32;
+pub const EC_READ_ACCESS: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EC_SUBSCRIPTION_CONFIGURATION_MODE(pub i32);
@@ -111,9 +115,6 @@ pub struct EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EC_SUBSCRIPTION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EC_VARIANT_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EC_VARIANT {
@@ -150,10 +151,9 @@ impl Default for EC_VARIANT_0 {
 impl windows_core::TypeKind for EC_VARIANT_0 {
     type TypeKind = windows_core::CopyType;
 }
-pub const EC_CREATE_NEW: u32 = 1u32;
-pub const EC_OPEN_ALWAYS: u32 = 0u32;
-pub const EC_OPEN_EXISTING: u32 = 2u32;
-pub const EC_READ_ACCESS: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EC_VARIANT_TYPE(pub i32);
 pub const EC_VARIANT_TYPE_ARRAY: u32 = 128u32;
 pub const EC_VARIANT_TYPE_MASK: u32 = 127u32;
 pub const EC_WRITE_ACCESS: u32 = 2u32;

@@ -6,6 +6,22 @@
     clippy::all
 )]
 
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AsyncStatus(pub i32);
+impl AsyncStatus {
+    pub const Canceled: Self = Self(2i32);
+    pub const Completed: Self = Self(1i32);
+    pub const Error: Self = Self(3i32);
+    pub const Started: Self = Self(0i32);
+}
+impl windows_core::TypeKind for AsyncStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AsyncStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.AsyncStatus;i4)");
+}
 windows_core::imp::define_interface!(
     IAsyncAction,
     IAsyncAction_Vtbl,
@@ -266,20 +282,4 @@ pub struct IAsyncInfo_Vtbl {
     ) -> windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AsyncStatus(pub i32);
-impl AsyncStatus {
-    pub const Canceled: Self = Self(2i32);
-    pub const Completed: Self = Self(1i32);
-    pub const Error: Self = Self(3i32);
-    pub const Started: Self = Self(0i32);
-}
-impl windows_core::TypeKind for AsyncStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AsyncStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.AsyncStatus;i4)");
 }

@@ -783,306 +783,6 @@ where
     windows_targets::link!("advapi32.dll" "system" fn RegUnLoadKeyW(hkey : HKEY, lpsubkey : windows_core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
     RegUnLoadKeyW(hkey.param().abi(), lpsubkey.param().abi())
 }
-pub type PQUERYHANDLER = Option<unsafe extern "system" fn(keycontext: *mut core::ffi::c_void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut core::ffi::c_void, total_outlen: *mut u32, input_blen: u32) -> u32>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct REG_CREATE_KEY_DISPOSITION(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct REG_NOTIFY_FILTER(pub u32);
-impl REG_NOTIFY_FILTER {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for REG_NOTIFY_FILTER {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for REG_NOTIFY_FILTER {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for REG_NOTIFY_FILTER {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for REG_NOTIFY_FILTER {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for REG_NOTIFY_FILTER {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct REG_OPEN_CREATE_OPTIONS(pub u32);
-impl REG_OPEN_CREATE_OPTIONS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for REG_OPEN_CREATE_OPTIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for REG_OPEN_CREATE_OPTIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for REG_OPEN_CREATE_OPTIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for REG_OPEN_CREATE_OPTIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for REG_OPEN_CREATE_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct REG_RESTORE_KEY_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct REG_ROUTINE_FLAGS(pub u32);
-impl REG_ROUTINE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for REG_ROUTINE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for REG_ROUTINE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for REG_ROUTINE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for REG_ROUTINE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for REG_ROUTINE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct REG_SAM_FLAGS(pub u32);
-impl REG_SAM_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for REG_SAM_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for REG_SAM_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for REG_SAM_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for REG_SAM_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for REG_SAM_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct REG_SAVE_FORMAT(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct REG_VALUE_TYPE(pub u32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DSKTLSYSTEMTIME {
-    pub wYear: u16,
-    pub wMonth: u16,
-    pub wDayOfWeek: u16,
-    pub wDay: u16,
-    pub wHour: u16,
-    pub wMinute: u16,
-    pub wSecond: u16,
-    pub wMilliseconds: u16,
-    pub wResult: u16,
-}
-impl Default for DSKTLSYSTEMTIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DSKTLSYSTEMTIME {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HKEY(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HKEY {
-    type TypeKind = windows_core::CopyType;
-}
-impl HKEY {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HKEY {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("advapi32.dll" "system" fn RegCloseKey(hkey : *mut core::ffi::c_void) -> u32);
-            RegCloseKey(self.0);
-        }
-    }
-}
-impl Default for HKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PVALUEA {
-    pub pv_valuename: windows_core::PSTR,
-    pub pv_valuelen: i32,
-    pub pv_value_context: *mut core::ffi::c_void,
-    pub pv_type: u32,
-}
-impl Default for PVALUEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PVALUEA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PVALUEW {
-    pub pv_valuename: windows_core::PWSTR,
-    pub pv_valuelen: i32,
-    pub pv_value_context: *mut core::ffi::c_void,
-    pub pv_type: u32,
-}
-impl Default for PVALUEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PVALUEW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct REG_PROVIDER {
-    pub pi_R0_1val: PQUERYHANDLER,
-    pub pi_R0_allvals: PQUERYHANDLER,
-    pub pi_R3_1val: PQUERYHANDLER,
-    pub pi_R3_allvals: PQUERYHANDLER,
-    pub pi_flags: u32,
-    pub pi_key_context: *mut core::ffi::c_void,
-}
-impl Default for REG_PROVIDER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for REG_PROVIDER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VALENTA {
-    pub ve_valuename: windows_core::PSTR,
-    pub ve_valuelen: u32,
-    pub ve_valueptr: usize,
-    pub ve_type: REG_VALUE_TYPE,
-}
-impl Default for VALENTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VALENTA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VALENTW {
-    pub ve_valuename: windows_core::PWSTR,
-    pub ve_valuelen: u32,
-    pub ve_valueptr: usize,
-    pub ve_type: REG_VALUE_TYPE,
-}
-impl Default for VALENTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VALENTW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct val_context {
-    pub valuelen: i32,
-    pub value_context: *mut core::ffi::c_void,
-    pub val_buff_ptr: *mut core::ffi::c_void,
-}
-impl Default for val_context {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for val_context {
-    type TypeKind = windows_core::CopyType;
-}
 pub const AGP_FLAG_NO_1X_RATE: i32 = 1i32;
 pub const AGP_FLAG_NO_2X_RATE: i32 = 2i32;
 pub const AGP_FLAG_NO_4X_RATE: i32 = 4i32;
@@ -1116,6 +816,27 @@ pub const DOSOPTGF_DEFCLEAN: i32 = 1i32;
 pub const DRIVERSIGN_BLOCKING: u32 = 2u32;
 pub const DRIVERSIGN_NONE: u32 = 0u32;
 pub const DRIVERSIGN_WARNING: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DSKTLSYSTEMTIME {
+    pub wYear: u16,
+    pub wMonth: u16,
+    pub wDayOfWeek: u16,
+    pub wDay: u16,
+    pub wHour: u16,
+    pub wMinute: u16,
+    pub wSecond: u16,
+    pub wMilliseconds: u16,
+    pub wResult: u16,
+}
+impl Default for DSKTLSYSTEMTIME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DSKTLSYSTEMTIME {
+    type TypeKind = windows_core::CopyType;
+}
 pub const DTRESULTFIX: u32 = 1u32;
 pub const DTRESULTOK: u32 = 0u32;
 pub const DTRESULTPART: u32 = 3u32;
@@ -1123,6 +844,31 @@ pub const DTRESULTPROB: u32 = 2u32;
 pub const EISAFLAG_NO_IO_MERGE: u32 = 1u32;
 pub const EISAFLAG_SLOT_IO_FIRST: u32 = 2u32;
 pub const EISA_NO_MAX_FUNCTION: u32 = 255u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HKEY(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HKEY {
+    type TypeKind = windows_core::CopyType;
+}
+impl HKEY {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HKEY {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("advapi32.dll" "system" fn RegCloseKey(hkey : *mut core::ffi::c_void) -> u32);
+            RegCloseKey(self.0);
+        }
+    }
+}
+impl Default for HKEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const HKEY_CLASSES_ROOT: HKEY = HKEY(-2147483648i32 as _);
 pub const HKEY_CURRENT_CONFIG: HKEY = HKEY(-2147483643i32 as _);
 pub const HKEY_CURRENT_USER: HKEY = HKEY(-2147483647i32 as _);
@@ -1198,7 +944,40 @@ pub const PIR_STATUS_TABLE_NONE: u32 = 3u32;
 pub const PIR_STATUS_TABLE_REALMODE: u32 = 2u32;
 pub const PIR_STATUS_TABLE_REGISTRY: u32 = 0u32;
 pub const PIR_STATUS_TABLE_SUCCESS: u32 = 6u32;
+pub type PQUERYHANDLER = Option<unsafe extern "system" fn(keycontext: *mut core::ffi::c_void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut core::ffi::c_void, total_outlen: *mut u32, input_blen: u32) -> u32>;
 pub const PROVIDER_KEEPS_VALUE_LENGTH: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PVALUEA {
+    pub pv_valuename: windows_core::PSTR,
+    pub pv_valuelen: i32,
+    pub pv_value_context: *mut core::ffi::c_void,
+    pub pv_type: u32,
+}
+impl Default for PVALUEA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PVALUEA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PVALUEW {
+    pub pv_valuename: windows_core::PWSTR,
+    pub pv_valuelen: i32,
+    pub pv_value_context: *mut core::ffi::c_void,
+    pub pv_type: u32,
+}
+impl Default for PVALUEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PVALUEW {
+    type TypeKind = windows_core::CopyType;
+}
 pub const REGDF_CONFLICTDMA: u32 = 524288u32;
 pub const REGDF_CONFLICTIO: u32 = 65536u32;
 pub const REGDF_CONFLICTIRQ: u32 = 262144u32;
@@ -1966,6 +1745,9 @@ pub const REGSTR_VAL_WRKGRP_FORCEMAPPING: windows_core::PCWSTR = windows_core::w
 pub const REGSTR_VAL_WRKGRP_REQUIRED: windows_core::PCWSTR = windows_core::w!("WrkgrpRequired");
 pub const REG_BINARY: REG_VALUE_TYPE = REG_VALUE_TYPE(3u32);
 pub const REG_CREATED_NEW_KEY: REG_CREATE_KEY_DISPOSITION = REG_CREATE_KEY_DISPOSITION(1u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REG_CREATE_KEY_DISPOSITION(pub u32);
 pub const REG_DWORD: REG_VALUE_TYPE = REG_VALUE_TYPE(4u32);
 pub const REG_DWORD_BIG_ENDIAN: REG_VALUE_TYPE = REG_VALUE_TYPE(5u32);
 pub const REG_DWORD_LITTLE_ENDIAN: REG_VALUE_TYPE = REG_VALUE_TYPE(4u32);
@@ -1982,9 +1764,81 @@ pub const REG_NOTIFY_CHANGE_ATTRIBUTES: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(2u
 pub const REG_NOTIFY_CHANGE_LAST_SET: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(4u32);
 pub const REG_NOTIFY_CHANGE_NAME: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(1u32);
 pub const REG_NOTIFY_CHANGE_SECURITY: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(8u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REG_NOTIFY_FILTER(pub u32);
+impl REG_NOTIFY_FILTER {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for REG_NOTIFY_FILTER {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for REG_NOTIFY_FILTER {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for REG_NOTIFY_FILTER {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for REG_NOTIFY_FILTER {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for REG_NOTIFY_FILTER {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const REG_NOTIFY_THREAD_AGNOSTIC: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(268435456u32);
 pub const REG_NO_COMPRESSION: REG_SAVE_FORMAT = REG_SAVE_FORMAT(4u32);
 pub const REG_OPENED_EXISTING_KEY: REG_CREATE_KEY_DISPOSITION = REG_CREATE_KEY_DISPOSITION(2u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REG_OPEN_CREATE_OPTIONS(pub u32);
+impl REG_OPEN_CREATE_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for REG_OPEN_CREATE_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for REG_OPEN_CREATE_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for REG_OPEN_CREATE_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for REG_OPEN_CREATE_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for REG_OPEN_CREATE_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const REG_OPTION_BACKUP_RESTORE: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(4u32);
 pub const REG_OPTION_CREATE_LINK: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(2u32);
 pub const REG_OPTION_DONT_VIRTUALIZE: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(16u32);
@@ -1993,14 +1847,113 @@ pub const REG_OPTION_OPEN_LINK: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTION
 pub const REG_OPTION_RESERVED: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(0u32);
 pub const REG_OPTION_VOLATILE: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(1u32);
 pub const REG_PROCESS_APPKEY: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct REG_PROVIDER {
+    pub pi_R0_1val: PQUERYHANDLER,
+    pub pi_R0_allvals: PQUERYHANDLER,
+    pub pi_R3_1val: PQUERYHANDLER,
+    pub pi_R3_allvals: PQUERYHANDLER,
+    pub pi_flags: u32,
+    pub pi_key_context: *mut core::ffi::c_void,
+}
+impl Default for REG_PROVIDER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for REG_PROVIDER {
+    type TypeKind = windows_core::CopyType;
+}
 pub const REG_QWORD: REG_VALUE_TYPE = REG_VALUE_TYPE(11u32);
 pub const REG_QWORD_LITTLE_ENDIAN: REG_VALUE_TYPE = REG_VALUE_TYPE(11u32);
 pub const REG_RESOURCE_LIST: REG_VALUE_TYPE = REG_VALUE_TYPE(8u32);
 pub const REG_RESOURCE_REQUIREMENTS_LIST: REG_VALUE_TYPE = REG_VALUE_TYPE(10u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REG_RESTORE_KEY_FLAGS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REG_ROUTINE_FLAGS(pub u32);
+impl REG_ROUTINE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for REG_ROUTINE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for REG_ROUTINE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for REG_ROUTINE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for REG_ROUTINE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for REG_ROUTINE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REG_SAM_FLAGS(pub u32);
+impl REG_SAM_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for REG_SAM_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for REG_SAM_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for REG_SAM_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for REG_SAM_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for REG_SAM_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REG_SAVE_FORMAT(pub u32);
 pub const REG_SECURE_CONNECTION: u32 = 1u32;
 pub const REG_STANDARD_FORMAT: REG_SAVE_FORMAT = REG_SAVE_FORMAT(1u32);
 pub const REG_SZ: REG_VALUE_TYPE = REG_VALUE_TYPE(1u32);
 pub const REG_USE_CURRENT_SECURITY_CONTEXT: u32 = 2u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REG_VALUE_TYPE(pub u32);
 pub const REG_WHOLE_HIVE_VOLATILE: REG_RESTORE_KEY_FLAGS = REG_RESTORE_KEY_FLAGS(1i32);
 pub const RRF_NOEXPAND: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(268435456u32);
 pub const RRF_RT_ANY: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(65535u32);
@@ -2026,9 +1979,56 @@ pub const SUF_NETHDBOOT: i32 = 64i32;
 pub const SUF_NETRPLBOOT: i32 = 128i32;
 pub const SUF_NETSETUP: i32 = 32i32;
 pub const SUF_SBSCOPYOK: i32 = 256i32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VALENTA {
+    pub ve_valuename: windows_core::PSTR,
+    pub ve_valuelen: u32,
+    pub ve_valueptr: usize,
+    pub ve_type: REG_VALUE_TYPE,
+}
+impl Default for VALENTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VALENTA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VALENTW {
+    pub ve_valuename: windows_core::PWSTR,
+    pub ve_valuelen: u32,
+    pub ve_valueptr: usize,
+    pub ve_type: REG_VALUE_TYPE,
+}
+impl Default for VALENTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VALENTW {
+    type TypeKind = windows_core::CopyType;
+}
 pub const VPDF_DISABLEPWRMGMT: u32 = 1u32;
 pub const VPDF_DISABLEPWRSTATUSPOLL: u32 = 8u32;
 pub const VPDF_DISABLERINGRESUME: u32 = 16u32;
 pub const VPDF_FORCEAPM10MODE: u32 = 2u32;
 pub const VPDF_SHOWMULTIBATT: u32 = 32u32;
 pub const VPDF_SKIPINTELSLCHECK: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct val_context {
+    pub valuelen: i32,
+    pub value_context: *mut core::ffi::c_void,
+    pub val_buff_ptr: *mut core::ffi::c_void,
+}
+impl Default for val_context {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for val_context {
+    type TypeKind = windows_core::CopyType;
+}

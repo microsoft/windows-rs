@@ -28,29 +28,14 @@ windows_targets::link!("api-ms-win-gaming-tcui-l1-1-2.dll" "system" fn ShowTitle
 windows_targets::link!("api-ms-win-gaming-tcui-l1-1-4.dll" "system" fn ShowUserSettingsUI(completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("api-ms-win-gaming-tcui-l1-1-4.dll" "system" fn ShowUserSettingsUIForUser(user : * mut core::ffi::c_void, completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("api-ms-win-gaming-tcui-l1-1-0.dll" "system" fn TryCancelPendingGameUI() -> super::Foundation:: BOOL);
-pub type GameUICompletionRoutine = Option<unsafe extern "system" fn(returncode: windows_sys::core::HRESULT, context: *const core::ffi::c_void)>;
-pub type PlayerPickerUICompletionRoutine = Option<unsafe extern "system" fn(returncode: windows_sys::core::HRESULT, context: *const core::ffi::c_void, selectedxuids: *const windows_sys::core::HSTRING, selectedxuidscount: usize)>;
-pub type GAMESTATS_OPEN_RESULT = i32;
-pub type GAMESTATS_OPEN_TYPE = i32;
-pub type GAME_INSTALL_SCOPE = i32;
-pub type GAMING_DEVICE_DEVICE_ID = i32;
-pub type GAMING_DEVICE_VENDOR_ID = i32;
-pub type KnownGamingPrivileges = i32;
-pub type XBL_IDP_AUTH_TOKEN_STATUS = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GAMING_DEVICE_MODEL_INFORMATION {
-    pub vendorId: GAMING_DEVICE_VENDOR_ID,
-    pub deviceId: GAMING_DEVICE_DEVICE_ID,
-}
-pub const GameExplorer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9a5ea990_3034_4d6f_9128_01f3c61022bc);
-pub const GameStatistics: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdbc85a2c_c0dc_4961_b6e2_d28b62c11ad4);
-pub const XblIdpAuthManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xce23534b_56d8_4978_86a2_7ee570640468);
-pub const XblIdpAuthTokenResult: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9f493441_744a_410c_ae2b_9a22f7c7731f);
 pub const GAMESTATS_OPEN_CREATED: GAMESTATS_OPEN_RESULT = 0i32;
 pub const GAMESTATS_OPEN_OPENED: GAMESTATS_OPEN_RESULT = 1i32;
 pub const GAMESTATS_OPEN_OPENONLY: GAMESTATS_OPEN_TYPE = 1i32;
 pub const GAMESTATS_OPEN_OPENORCREATE: GAMESTATS_OPEN_TYPE = 0i32;
+pub type GAMESTATS_OPEN_RESULT = i32;
+pub type GAMESTATS_OPEN_TYPE = i32;
+pub type GAME_INSTALL_SCOPE = i32;
+pub type GAMING_DEVICE_DEVICE_ID = i32;
 pub const GAMING_DEVICE_DEVICE_ID_NONE: GAMING_DEVICE_DEVICE_ID = 0i32;
 pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE: GAMING_DEVICE_DEVICE_ID = 1988865574i32;
 pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_S: GAMING_DEVICE_DEVICE_ID = 712204761i32;
@@ -59,13 +44,26 @@ pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_X_DEVKIT: GAMING_DEVICE_DEVICE_ID = 2
 pub const GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_S: GAMING_DEVICE_DEVICE_ID = 489159355i32;
 pub const GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_X: GAMING_DEVICE_DEVICE_ID = 796540415i32;
 pub const GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_X_DEVKIT: GAMING_DEVICE_DEVICE_ID = -561359263i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GAMING_DEVICE_MODEL_INFORMATION {
+    pub vendorId: GAMING_DEVICE_VENDOR_ID,
+    pub deviceId: GAMING_DEVICE_DEVICE_ID,
+}
+pub type GAMING_DEVICE_VENDOR_ID = i32;
 pub const GAMING_DEVICE_VENDOR_ID_MICROSOFT: GAMING_DEVICE_VENDOR_ID = -1024700366i32;
 pub const GAMING_DEVICE_VENDOR_ID_NONE: GAMING_DEVICE_VENDOR_ID = 0i32;
 pub const GIS_ALL_USERS: GAME_INSTALL_SCOPE = 3i32;
 pub const GIS_CURRENT_USER: GAME_INSTALL_SCOPE = 2i32;
 pub const GIS_NOT_INSTALLED: GAME_INSTALL_SCOPE = 1i32;
+pub const GameExplorer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9a5ea990_3034_4d6f_9128_01f3c61022bc);
+pub const GameStatistics: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdbc85a2c_c0dc_4961_b6e2_d28b62c11ad4);
+pub type GameUICompletionRoutine = Option<unsafe extern "system" fn(returncode: windows_sys::core::HRESULT, context: *const core::ffi::c_void)>;
 pub const ID_GDF_THUMBNAIL_STR: windows_sys::core::PCWSTR = windows_sys::core::w!("__GDF_THUMBNAIL");
 pub const ID_GDF_XML_STR: windows_sys::core::PCWSTR = windows_sys::core::w!("__GDF_XML");
+pub type KnownGamingPrivileges = i32;
+pub type PlayerPickerUICompletionRoutine = Option<unsafe extern "system" fn(returncode: windows_sys::core::HRESULT, context: *const core::ffi::c_void, selectedxuids: *const windows_sys::core::HSTRING, selectedxuidscount: usize)>;
+pub type XBL_IDP_AUTH_TOKEN_STATUS = i32;
 pub const XBL_IDP_AUTH_TOKEN_STATUS_LOAD_MSA_ACCOUNT_FAILED: XBL_IDP_AUTH_TOKEN_STATUS = 3i32;
 pub const XBL_IDP_AUTH_TOKEN_STATUS_MSA_INTERRUPT: XBL_IDP_AUTH_TOKEN_STATUS = 5i32;
 pub const XBL_IDP_AUTH_TOKEN_STATUS_NO_ACCOUNT_SET: XBL_IDP_AUTH_TOKEN_STATUS = 2i32;
@@ -97,3 +95,5 @@ pub const XPRIVILEGE_SUBSCRIPTION_CONTENT: KnownGamingPrivileges = 219i32;
 pub const XPRIVILEGE_USER_CREATED_CONTENT: KnownGamingPrivileges = 247i32;
 pub const XPRIVILEGE_VIDEO_COMMUNICATIONS: KnownGamingPrivileges = 235i32;
 pub const XPRIVILEGE_VIEW_FRIENDS_LIST: KnownGamingPrivileges = 197i32;
+pub const XblIdpAuthManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xce23534b_56d8_4978_86a2_7ee570640468);
+pub const XblIdpAuthTokenResult: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9f493441_744a_410c_ae2b_9a22f7c7731f);

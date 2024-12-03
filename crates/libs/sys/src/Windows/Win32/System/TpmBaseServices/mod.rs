@@ -13,7 +13,17 @@ windows_targets::link!("tbs.dll" "system" fn Tbsip_Cancel_Commands(hcontext : *c
 windows_targets::link!("tbs.dll" "system" fn Tbsip_Context_Close(hcontext : *const core::ffi::c_void) -> u32);
 windows_targets::link!("tbs.dll" "system" fn Tbsip_Submit_Command(hcontext : *const core::ffi::c_void, locality : TBS_COMMAND_LOCALITY, priority : TBS_COMMAND_PRIORITY, pabcommand : *const u8, cbcommand : u32, pabresult : *mut u8, pcbresult : *mut u32) -> u32);
 pub type TBS_COMMAND_LOCALITY = u32;
+pub const TBS_COMMAND_LOCALITY_FOUR: TBS_COMMAND_LOCALITY = 4u32;
+pub const TBS_COMMAND_LOCALITY_ONE: TBS_COMMAND_LOCALITY = 1u32;
+pub const TBS_COMMAND_LOCALITY_THREE: TBS_COMMAND_LOCALITY = 3u32;
+pub const TBS_COMMAND_LOCALITY_TWO: TBS_COMMAND_LOCALITY = 2u32;
+pub const TBS_COMMAND_LOCALITY_ZERO: TBS_COMMAND_LOCALITY = 0u32;
 pub type TBS_COMMAND_PRIORITY = u32;
+pub const TBS_COMMAND_PRIORITY_HIGH: TBS_COMMAND_PRIORITY = 300u32;
+pub const TBS_COMMAND_PRIORITY_LOW: TBS_COMMAND_PRIORITY = 100u32;
+pub const TBS_COMMAND_PRIORITY_MAX: TBS_COMMAND_PRIORITY = 2147483648u32;
+pub const TBS_COMMAND_PRIORITY_NORMAL: TBS_COMMAND_PRIORITY = 200u32;
+pub const TBS_COMMAND_PRIORITY_SYSTEM: TBS_COMMAND_PRIORITY = 400u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TBS_CONTEXT_PARAMS {
@@ -36,30 +46,6 @@ pub union TBS_CONTEXT_PARAMS2_0 {
 pub struct TBS_CONTEXT_PARAMS2_0_0 {
     pub _bitfield: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TPM_DEVICE_INFO {
-    pub structVersion: u32,
-    pub tpmVersion: u32,
-    pub tpmInterfaceType: u32,
-    pub tpmImpRevision: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TPM_WNF_PROVISIONING {
-    pub status: u32,
-    pub message: [u8; 28],
-}
-pub const TBS_COMMAND_LOCALITY_FOUR: TBS_COMMAND_LOCALITY = 4u32;
-pub const TBS_COMMAND_LOCALITY_ONE: TBS_COMMAND_LOCALITY = 1u32;
-pub const TBS_COMMAND_LOCALITY_THREE: TBS_COMMAND_LOCALITY = 3u32;
-pub const TBS_COMMAND_LOCALITY_TWO: TBS_COMMAND_LOCALITY = 2u32;
-pub const TBS_COMMAND_LOCALITY_ZERO: TBS_COMMAND_LOCALITY = 0u32;
-pub const TBS_COMMAND_PRIORITY_HIGH: TBS_COMMAND_PRIORITY = 300u32;
-pub const TBS_COMMAND_PRIORITY_LOW: TBS_COMMAND_PRIORITY = 100u32;
-pub const TBS_COMMAND_PRIORITY_MAX: TBS_COMMAND_PRIORITY = 2147483648u32;
-pub const TBS_COMMAND_PRIORITY_NORMAL: TBS_COMMAND_PRIORITY = 200u32;
-pub const TBS_COMMAND_PRIORITY_SYSTEM: TBS_COMMAND_PRIORITY = 400u32;
 pub const TBS_CONTEXT_VERSION_ONE: u32 = 1u32;
 pub const TBS_CONTEXT_VERSION_TWO: u32 = 2u32;
 pub const TBS_OWNERAUTH_TYPE_ADMIN: u32 = 2u32;
@@ -75,6 +61,14 @@ pub const TBS_TCGLOG_DRTM_RESUME: u32 = 5u32;
 pub const TBS_TCGLOG_SRTM_BOOT: u32 = 2u32;
 pub const TBS_TCGLOG_SRTM_CURRENT: u32 = 0u32;
 pub const TBS_TCGLOG_SRTM_RESUME: u32 = 3u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TPM_DEVICE_INFO {
+    pub structVersion: u32,
+    pub tpmVersion: u32,
+    pub tpmInterfaceType: u32,
+    pub tpmImpRevision: u32,
+}
 pub const TPM_IFTYPE_1: u32 = 1u32;
 pub const TPM_IFTYPE_EMULATOR: u32 = 4u32;
 pub const TPM_IFTYPE_HW: u32 = 3u32;
@@ -87,3 +81,9 @@ pub const TPM_VERSION_UNKNOWN: u32 = 0u32;
 pub const TPM_WNF_INFO_CLEAR_SUCCESSFUL: u32 = 1u32;
 pub const TPM_WNF_INFO_NO_REBOOT_REQUIRED: u32 = 1u32;
 pub const TPM_WNF_INFO_OWNERSHIP_SUCCESSFUL: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TPM_WNF_PROVISIONING {
+    pub status: u32,
+    pub message: [u8; 28],
+}

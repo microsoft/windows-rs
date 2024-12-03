@@ -1,24 +1,5 @@
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ExtendedIsolationState(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FailureCategory(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FixupState(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IsolationState(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NapNotifyType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NapTracingLevel(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RemoteConfigurationType(pub i32);
+pub const ComponentTypeEnforcementClientRp: u32 = 2u32;
+pub const ComponentTypeEnforcementClientSoH: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CorrelationId {
@@ -47,6 +28,12 @@ impl Default for CountedString {
 impl windows_core::TypeKind for CountedString {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ExtendedIsolationState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FailureCategory(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FailureCategoryMapping {
@@ -76,6 +63,9 @@ impl Default for FixupInfo {
 impl windows_core::TypeKind for FixupInfo {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FixupState(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Ipv4Address {
@@ -133,6 +123,9 @@ impl Default for IsolationInfoEx {
 impl windows_core::TypeKind for IsolationInfoEx {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IsolationState(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NapComponentRegistrationInfo {
@@ -154,6 +147,12 @@ impl Default for NapComponentRegistrationInfo {
 impl windows_core::TypeKind for NapComponentRegistrationInfo {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NapNotifyType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NapTracingLevel(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NetworkSoH {
@@ -182,6 +181,9 @@ impl Default for PrivateData {
 impl windows_core::TypeKind for PrivateData {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RemoteConfigurationType(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ResultCodes {
@@ -241,8 +243,6 @@ impl Default for SystemHealthAgentState {
 impl windows_core::TypeKind for SystemHealthAgentState {
     type TypeKind = windows_core::CopyType;
 }
-pub const ComponentTypeEnforcementClientRp: u32 = 2u32;
-pub const ComponentTypeEnforcementClientSoH: u32 = 1u32;
 pub const extendedIsolationStateInfected: ExtendedIsolationState = ExtendedIsolationState(2i32);
 pub const extendedIsolationStateNoData: ExtendedIsolationState = ExtendedIsolationState(0i32);
 pub const extendedIsolationStateTransition: ExtendedIsolationState = ExtendedIsolationState(1i32);

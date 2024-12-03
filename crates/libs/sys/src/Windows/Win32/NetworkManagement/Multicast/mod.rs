@@ -11,6 +11,10 @@ pub union IPNG_ADDRESS {
     pub IpAddrV4: u32,
     pub IpAddrV6: [u8; 16],
 }
+pub const MCAST_API_CURRENT_VERSION: i32 = 1i32;
+pub const MCAST_API_VERSION_0: i32 = 0i32;
+pub const MCAST_API_VERSION_1: i32 = 1i32;
+pub const MCAST_CLIENT_ID_LEN: u32 = 17u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MCAST_CLIENT_UID {
@@ -53,7 +57,3 @@ pub struct MCAST_SCOPE_ENTRY {
     pub TTL: u32,
     pub ScopeDesc: super::super::Foundation::UNICODE_STRING,
 }
-pub const MCAST_API_CURRENT_VERSION: i32 = 1i32;
-pub const MCAST_API_VERSION_0: i32 = 0i32;
-pub const MCAST_API_VERSION_1: i32 = 1i32;
-pub const MCAST_CLIENT_ID_LEN: u32 = 17u32;

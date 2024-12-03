@@ -23,6 +23,83 @@ impl windows_core::RuntimeName for ErrorReceivedEventArgs {
 }
 unsafe impl Send for ErrorReceivedEventArgs {}
 unsafe impl Sync for ErrorReceivedEventArgs {}
+windows_core::imp::define_interface!(IErrorReceivedEventArgs, IErrorReceivedEventArgs_Vtbl, 0xfcc6bf59_1283_4d8a_bfdf_566b33ddb28f);
+impl windows_core::RuntimeType for IErrorReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IErrorReceivedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SerialError) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPinChangedEventArgs, IPinChangedEventArgs_Vtbl, 0xa2bf1db0_fc9c_4607_93d0_fa5e8343ee22);
+impl windows_core::RuntimeType for IPinChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPinChangedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub PinChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SerialPinChange) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISerialDevice, ISerialDevice_Vtbl, 0xe187ccc6_2210_414f_b65a_f5553a03372a);
+impl windows_core::RuntimeType for ISerialDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISerialDevice_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub BaudRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub SetBaudRate: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub BreakSignalState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetBreakSignalState: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub BytesReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub CarrierDetectState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub ClearToSendState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub DataBits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
+    pub SetDataBits: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
+    pub DataSetReadyState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub Handshake: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SerialHandshake) -> windows_core::HRESULT,
+    pub SetHandshake: unsafe extern "system" fn(*mut core::ffi::c_void, SerialHandshake) -> windows_core::HRESULT,
+    pub IsDataTerminalReadyEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetIsDataTerminalReadyEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub IsRequestToSendEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetIsRequestToSendEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub Parity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SerialParity) -> windows_core::HRESULT,
+    pub SetParity: unsafe extern "system" fn(*mut core::ffi::c_void, SerialParity) -> windows_core::HRESULT,
+    pub PortName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ReadTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SetReadTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub StopBits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SerialStopBitCount) -> windows_core::HRESULT,
+    pub SetStopBits: unsafe extern "system" fn(*mut core::ffi::c_void, SerialStopBitCount) -> windows_core::HRESULT,
+    pub UsbVendorId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
+    pub UsbProductId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
+    pub WriteTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SetWriteTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub InputStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    InputStream: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub OutputStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    OutputStream: usize,
+    pub ErrorReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveErrorReceived: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PinChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePinChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISerialDeviceStatics, ISerialDeviceStatics_Vtbl, 0x058c4a70_0836_4993_ae1a_b61ae3be056b);
+impl windows_core::RuntimeType for ISerialDeviceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISerialDeviceStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetDeviceSelectorFromPortName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetDeviceSelectorFromUsbVidPid: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PinChangedEventArgs(windows_core::IUnknown);
@@ -302,83 +379,6 @@ impl windows_core::RuntimeName for SerialDevice {
 }
 unsafe impl Send for SerialDevice {}
 unsafe impl Sync for SerialDevice {}
-windows_core::imp::define_interface!(IErrorReceivedEventArgs, IErrorReceivedEventArgs_Vtbl, 0xfcc6bf59_1283_4d8a_bfdf_566b33ddb28f);
-impl windows_core::RuntimeType for IErrorReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IErrorReceivedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SerialError) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPinChangedEventArgs, IPinChangedEventArgs_Vtbl, 0xa2bf1db0_fc9c_4607_93d0_fa5e8343ee22);
-impl windows_core::RuntimeType for IPinChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPinChangedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub PinChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SerialPinChange) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISerialDevice, ISerialDevice_Vtbl, 0xe187ccc6_2210_414f_b65a_f5553a03372a);
-impl windows_core::RuntimeType for ISerialDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISerialDevice_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub BaudRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetBaudRate: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub BreakSignalState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetBreakSignalState: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub BytesReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub CarrierDetectState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub ClearToSendState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub DataBits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    pub SetDataBits: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
-    pub DataSetReadyState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub Handshake: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SerialHandshake) -> windows_core::HRESULT,
-    pub SetHandshake: unsafe extern "system" fn(*mut core::ffi::c_void, SerialHandshake) -> windows_core::HRESULT,
-    pub IsDataTerminalReadyEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetIsDataTerminalReadyEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub IsRequestToSendEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetIsRequestToSendEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub Parity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SerialParity) -> windows_core::HRESULT,
-    pub SetParity: unsafe extern "system" fn(*mut core::ffi::c_void, SerialParity) -> windows_core::HRESULT,
-    pub PortName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReadTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetReadTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub StopBits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SerialStopBitCount) -> windows_core::HRESULT,
-    pub SetStopBits: unsafe extern "system" fn(*mut core::ffi::c_void, SerialStopBitCount) -> windows_core::HRESULT,
-    pub UsbVendorId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    pub UsbProductId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    pub WriteTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetWriteTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub InputStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    InputStream: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub OutputStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    OutputStream: usize,
-    pub ErrorReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveErrorReceived: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PinChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePinChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISerialDeviceStatics, ISerialDeviceStatics_Vtbl, 0x058c4a70_0836_4993_ae1a_b61ae3be056b);
-impl windows_core::RuntimeType for ISerialDeviceStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISerialDeviceStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeviceSelectorFromPortName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeviceSelectorFromUsbVidPid: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SerialError(pub i32);

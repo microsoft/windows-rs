@@ -59,40 +59,18 @@ windows_targets::link!("httpapi.dll" "system" fn HttpWaitForDemandStart(requestq
 windows_targets::link!("httpapi.dll" "system" fn HttpWaitForDisconnect(requestqueuehandle : super::super::Foundation:: HANDLE, connectionid : u64, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> u32);
 #[cfg(feature = "Win32_System_IO")]
 windows_targets::link!("httpapi.dll" "system" fn HttpWaitForDisconnectEx(requestqueuehandle : super::super::Foundation:: HANDLE, connectionid : u64, reserved : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> u32);
-pub type HTTP_503_RESPONSE_VERBOSITY = i32;
-pub type HTTP_AUTHENTICATION_HARDENING_LEVELS = i32;
-pub type HTTP_AUTH_STATUS = i32;
-pub type HTTP_CACHE_POLICY_TYPE = i32;
-pub type HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = i32;
-pub type HTTP_DATA_CHUNK_TYPE = i32;
-pub type HTTP_DELEGATE_REQUEST_PROPERTY_ID = i32;
-pub type HTTP_ENABLED_STATE = i32;
-pub type HTTP_FEATURE_ID = i32;
-pub type HTTP_HEADER_ID = i32;
-pub type HTTP_INITIALIZE = u32;
-pub type HTTP_LOGGING_ROLLOVER_TYPE = i32;
-pub type HTTP_LOGGING_TYPE = i32;
-pub type HTTP_LOG_DATA_TYPE = i32;
-pub type HTTP_PERFORMANCE_PARAM_TYPE = i32;
-pub type HTTP_PROTECTION_LEVEL_TYPE = i32;
-pub type HTTP_QOS_SETTING_TYPE = i32;
-pub type HTTP_RECEIVE_HTTP_REQUEST_FLAGS = u32;
-pub type HTTP_REQUEST_AUTH_TYPE = i32;
-pub type HTTP_REQUEST_INFO_TYPE = i32;
-pub type HTTP_REQUEST_PROPERTY = i32;
-pub type HTTP_REQUEST_SIZING_TYPE = i32;
-pub type HTTP_REQUEST_TIMING_TYPE = i32;
-pub type HTTP_RESPONSE_INFO_TYPE = i32;
-pub type HTTP_SCHEME = i32;
-pub type HTTP_SERVER_PROPERTY = i32;
-pub type HTTP_SERVICE_BINDING_TYPE = i32;
-pub type HTTP_SERVICE_CONFIG_CACHE_KEY = i32;
-pub type HTTP_SERVICE_CONFIG_ID = i32;
-pub type HTTP_SERVICE_CONFIG_QUERY_TYPE = i32;
-pub type HTTP_SERVICE_CONFIG_SETTING_KEY = i32;
-pub type HTTP_SERVICE_CONFIG_TIMEOUT_KEY = i32;
-pub type HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = i32;
-pub type HTTP_VERB = i32;
+pub const CacheRangeChunkSize: HTTP_SERVICE_CONFIG_CACHE_KEY = 1i32;
+pub const CreateRequestQueueExternalIdProperty: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = 1i32;
+pub const CreateRequestQueueMax: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = 2i32;
+pub const DelegateRequestDelegateUrlProperty: HTTP_DELEGATE_REQUEST_PROPERTY_ID = 1i32;
+pub const DelegateRequestReservedProperty: HTTP_DELEGATE_REQUEST_PROPERTY_ID = 0i32;
+pub const ExParamTypeErrorHeaders: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 4i32;
+pub const ExParamTypeHttp2SettingsLimits: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 1i32;
+pub const ExParamTypeHttp2Window: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 0i32;
+pub const ExParamTypeHttpPerformance: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 2i32;
+pub const ExParamTypeMax: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 6i32;
+pub const ExParamTypeTlsRestrictions: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 3i32;
+pub const ExParamTypeTlsSessionTicketKeys: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 5i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP2_SETTINGS_LIMITS_PARAM {
@@ -110,6 +88,16 @@ pub struct HTTPAPI_VERSION {
     pub HttpApiMajorVersion: u16,
     pub HttpApiMinorVersion: u16,
 }
+pub type HTTP_503_RESPONSE_VERBOSITY = i32;
+pub type HTTP_AUTHENTICATION_HARDENING_LEVELS = i32;
+pub const HTTP_AUTH_ENABLE_BASIC: u32 = 1u32;
+pub const HTTP_AUTH_ENABLE_DIGEST: u32 = 2u32;
+pub const HTTP_AUTH_ENABLE_KERBEROS: u32 = 16u32;
+pub const HTTP_AUTH_ENABLE_NEGOTIATE: u32 = 8u32;
+pub const HTTP_AUTH_ENABLE_NTLM: u32 = 4u32;
+pub const HTTP_AUTH_EX_FLAG_CAPTURE_CREDENTIAL: u32 = 2u32;
+pub const HTTP_AUTH_EX_FLAG_ENABLE_KERBEROS_CREDENTIAL_CACHING: u32 = 1u32;
+pub type HTTP_AUTH_STATUS = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_BANDWIDTH_LIMIT_INFO {
@@ -134,6 +122,9 @@ pub struct HTTP_CACHE_POLICY {
     pub Policy: HTTP_CACHE_POLICY_TYPE,
     pub SecondsToLive: u32,
 }
+pub type HTTP_CACHE_POLICY_TYPE = i32;
+pub const HTTP_CHANNEL_BIND_CLIENT_SERVICE: u32 = 16u32;
+pub const HTTP_CHANNEL_BIND_DOTLESS_SERVICE: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_CHANNEL_BIND_INFO {
@@ -142,6 +133,10 @@ pub struct HTTP_CHANNEL_BIND_INFO {
     pub ServiceNames: *mut *mut HTTP_SERVICE_BINDING_BASE,
     pub NumberOfServiceNames: u32,
 }
+pub const HTTP_CHANNEL_BIND_NO_SERVICE_NAME_CHECK: u32 = 2u32;
+pub const HTTP_CHANNEL_BIND_PROXY: u32 = 1u32;
+pub const HTTP_CHANNEL_BIND_PROXY_COHOSTING: u32 = 32u32;
+pub const HTTP_CHANNEL_BIND_SECURE_CHANNEL_TOKEN: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_CONNECTION_LIMIT_INFO {
@@ -160,6 +155,10 @@ pub struct HTTP_COOKED_URL {
     pub pAbsPath: windows_sys::core::PCWSTR,
     pub pQueryString: windows_sys::core::PCWSTR,
 }
+pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_CONTROLLER: u32 = 2u32;
+pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_DELEGATION: u32 = 8u32;
+pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_OPEN_EXISTING: u32 = 1u32;
+pub type HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
@@ -212,6 +211,8 @@ pub struct HTTP_DATA_CHUNK_0_4 {
     pub TrailerCount: u16,
     pub pTrailers: *mut HTTP_UNKNOWN_HEADER,
 }
+pub type HTTP_DATA_CHUNK_TYPE = i32;
+pub type HTTP_DELEGATE_REQUEST_PROPERTY_ID = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
@@ -219,6 +220,8 @@ pub struct HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
     pub PropertyInfoLength: u32,
     pub PropertyInfo: *mut core::ffi::c_void,
 }
+pub const HTTP_DEMAND_CBT: u32 = 4u32;
+pub type HTTP_ENABLED_STATE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_ERROR_HEADERS_PARAM {
@@ -226,6 +229,7 @@ pub struct HTTP_ERROR_HEADERS_PARAM {
     pub HeaderCount: u16,
     pub Headers: *mut HTTP_UNKNOWN_HEADER,
 }
+pub type HTTP_FEATURE_ID = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_FLOWRATE_INFO {
@@ -234,6 +238,11 @@ pub struct HTTP_FLOWRATE_INFO {
     pub MaxPeakBandwidth: u32,
     pub BurstSize: u32,
 }
+pub const HTTP_FLUSH_RESPONSE_FLAG_RECURSIVE: u32 = 1u32;
+pub type HTTP_HEADER_ID = i32;
+pub type HTTP_INITIALIZE = u32;
+pub const HTTP_INITIALIZE_CONFIG: HTTP_INITIALIZE = 2u32;
+pub const HTTP_INITIALIZE_SERVER: HTTP_INITIALIZE = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_KNOWN_HEADER {
@@ -246,6 +255,10 @@ pub struct HTTP_LISTEN_ENDPOINT_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub EnableSharing: super::super::Foundation::BOOLEAN,
 }
+pub const HTTP_LOGGING_FLAG_LOCAL_TIME_ROLLOVER: u32 = 1u32;
+pub const HTTP_LOGGING_FLAG_LOG_ERRORS_ONLY: u32 = 4u32;
+pub const HTTP_LOGGING_FLAG_LOG_SUCCESS_ONLY: u32 = 8u32;
+pub const HTTP_LOGGING_FLAG_USE_UTF8_CONVERSION: u32 = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -265,11 +278,14 @@ pub struct HTTP_LOGGING_INFO {
     pub RolloverSize: u32,
     pub pSecurityDescriptor: super::super::Security::PSECURITY_DESCRIPTOR,
 }
+pub type HTTP_LOGGING_ROLLOVER_TYPE = i32;
+pub type HTTP_LOGGING_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_LOG_DATA {
     pub Type: HTTP_LOG_DATA_TYPE,
 }
+pub type HTTP_LOG_DATA_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_LOG_FIELDS_DATA {
@@ -304,6 +320,40 @@ pub struct HTTP_LOG_FIELDS_DATA {
     pub MethodNum: HTTP_VERB,
     pub SubStatus: u16,
 }
+pub const HTTP_LOG_FIELD_BYTES_RECV: u32 = 8192u32;
+pub const HTTP_LOG_FIELD_BYTES_SENT: u32 = 4096u32;
+pub const HTTP_LOG_FIELD_CLIENT_IP: u32 = 4u32;
+pub const HTTP_LOG_FIELD_CLIENT_PORT: u32 = 4194304u32;
+pub const HTTP_LOG_FIELD_COMPUTER_NAME: u32 = 32u32;
+pub const HTTP_LOG_FIELD_COOKIE: u32 = 131072u32;
+pub const HTTP_LOG_FIELD_CORRELATION_ID: u32 = 1073741824u32;
+pub const HTTP_LOG_FIELD_DATE: u32 = 1u32;
+pub const HTTP_LOG_FIELD_FAULT_CODE: u32 = 2147483648u32;
+pub const HTTP_LOG_FIELD_HOST: u32 = 1048576u32;
+pub const HTTP_LOG_FIELD_METHOD: u32 = 128u32;
+pub const HTTP_LOG_FIELD_QUEUE_NAME: u32 = 67108864u32;
+pub const HTTP_LOG_FIELD_REASON: u32 = 33554432u32;
+pub const HTTP_LOG_FIELD_REFERER: u32 = 262144u32;
+pub const HTTP_LOG_FIELD_SERVER_IP: u32 = 64u32;
+pub const HTTP_LOG_FIELD_SERVER_PORT: u32 = 32768u32;
+pub const HTTP_LOG_FIELD_SITE_ID: u32 = 16777216u32;
+pub const HTTP_LOG_FIELD_SITE_NAME: u32 = 16u32;
+pub const HTTP_LOG_FIELD_STATUS: u32 = 1024u32;
+pub const HTTP_LOG_FIELD_STREAM_ID: u32 = 134217728u32;
+pub const HTTP_LOG_FIELD_STREAM_ID_EX: u32 = 268435456u32;
+pub const HTTP_LOG_FIELD_SUB_STATUS: u32 = 2097152u32;
+pub const HTTP_LOG_FIELD_TIME: u32 = 2u32;
+pub const HTTP_LOG_FIELD_TIME_TAKEN: u32 = 16384u32;
+pub const HTTP_LOG_FIELD_TRANSPORT_TYPE: u32 = 536870912u32;
+pub const HTTP_LOG_FIELD_URI: u32 = 8388608u32;
+pub const HTTP_LOG_FIELD_URI_QUERY: u32 = 512u32;
+pub const HTTP_LOG_FIELD_URI_STEM: u32 = 256u32;
+pub const HTTP_LOG_FIELD_USER_AGENT: u32 = 65536u32;
+pub const HTTP_LOG_FIELD_USER_NAME: u32 = 8u32;
+pub const HTTP_LOG_FIELD_VERSION: u32 = 524288u32;
+pub const HTTP_LOG_FIELD_WIN32_STATUS: u32 = 2048u32;
+pub const HTTP_MAX_SERVER_QUEUE_LENGTH: u32 = 2147483647u32;
+pub const HTTP_MIN_SERVER_QUEUE_LENGTH: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_MULTIPLE_KNOWN_HEADERS {
@@ -319,6 +369,7 @@ pub struct HTTP_PERFORMANCE_PARAM {
     pub BufferSize: u32,
     pub Buffer: *mut core::ffi::c_void,
 }
+pub type HTTP_PERFORMANCE_PARAM_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_PROPERTY_FLAGS {
@@ -330,12 +381,14 @@ pub struct HTTP_PROTECTION_LEVEL_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub Level: HTTP_PROTECTION_LEVEL_TYPE,
 }
+pub type HTTP_PROTECTION_LEVEL_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_QOS_SETTING_INFO {
     pub QosType: HTTP_QOS_SETTING_TYPE,
     pub QosSetting: *mut core::ffi::c_void,
 }
+pub type HTTP_QOS_SETTING_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
@@ -403,6 +456,13 @@ pub struct HTTP_QUIC_STREAM_REQUEST_STATS {
     pub RequestHeadersCompressedSize: u64,
     pub ResponseHeadersCompressedSize: u64,
 }
+pub const HTTP_RECEIVE_FULL_CHAIN: u32 = 2u32;
+pub type HTTP_RECEIVE_HTTP_REQUEST_FLAGS = u32;
+pub const HTTP_RECEIVE_REQUEST_ENTITY_BODY_FLAG_FILL_BUFFER: u32 = 1u32;
+pub const HTTP_RECEIVE_REQUEST_FLAG_COPY_BODY: HTTP_RECEIVE_HTTP_REQUEST_FLAGS = 1u32;
+pub const HTTP_RECEIVE_REQUEST_FLAG_FLUSH_BODY: HTTP_RECEIVE_HTTP_REQUEST_FLAGS = 2u32;
+pub const HTTP_RECEIVE_SECURE_CHANNEL_TOKEN: u32 = 1u32;
+pub const HTTP_REQUEST_AUTH_FLAG_TOKEN_FOR_CACHED_CRED: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_AUTH_INFO {
@@ -420,6 +480,7 @@ pub struct HTTP_REQUEST_AUTH_INFO {
     pub PackageNameLength: u16,
     pub pPackageName: windows_sys::core::PWSTR,
 }
+pub type HTTP_REQUEST_AUTH_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_CHANNEL_BIND_STATUS {
@@ -428,6 +489,10 @@ pub struct HTTP_REQUEST_CHANNEL_BIND_STATUS {
     pub ChannelTokenSize: u32,
     pub Flags: u32,
 }
+pub const HTTP_REQUEST_FLAG_HTTP2: u32 = 4u32;
+pub const HTTP_REQUEST_FLAG_HTTP3: u32 = 8u32;
+pub const HTTP_REQUEST_FLAG_IP_ROUTED: u32 = 2u32;
+pub const HTTP_REQUEST_FLAG_MORE_ENTITY_BODY_EXISTS: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_HEADERS {
@@ -444,12 +509,17 @@ pub struct HTTP_REQUEST_INFO {
     pub InfoLength: u32,
     pub pInfo: *mut core::ffi::c_void,
 }
+pub type HTTP_REQUEST_INFO_TYPE = i32;
+pub type HTTP_REQUEST_PROPERTY = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_PROPERTY_SNI {
     pub Hostname: [u16; 256],
     pub Flags: u32,
 }
+pub const HTTP_REQUEST_PROPERTY_SNI_FLAG_NO_SNI: u32 = 2u32;
+pub const HTTP_REQUEST_PROPERTY_SNI_FLAG_SNI_USED: u32 = 1u32;
+pub const HTTP_REQUEST_PROPERTY_SNI_HOST_MAX_LENGTH: u32 = 255u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_PROPERTY_STREAM_ERROR {
@@ -463,12 +533,18 @@ pub struct HTTP_REQUEST_SIZING_INFO {
     pub RequestSizingCount: u32,
     pub RequestSizing: [u64; 5],
 }
+pub const HTTP_REQUEST_SIZING_INFO_FLAG_FIRST_REQUEST: u32 = 8u32;
+pub const HTTP_REQUEST_SIZING_INFO_FLAG_TCP_FAST_OPEN: u32 = 1u32;
+pub const HTTP_REQUEST_SIZING_INFO_FLAG_TLS_FALSE_START: u32 = 4u32;
+pub const HTTP_REQUEST_SIZING_INFO_FLAG_TLS_SESSION_RESUMPTION: u32 = 2u32;
+pub type HTTP_REQUEST_SIZING_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_TIMING_INFO {
     pub RequestTimingCount: u32,
     pub RequestTiming: [u64; 30],
 }
+pub type HTTP_REQUEST_TIMING_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_TOKEN_BINDING_INFO {
@@ -509,6 +585,8 @@ pub struct HTTP_REQUEST_V2 {
     pub RequestInfoCount: u16,
     pub pRequestInfo: *mut HTTP_REQUEST_INFO,
 }
+pub const HTTP_RESPONSE_FLAG_MORE_ENTITY_BODY_EXISTS: u32 = 2u32;
+pub const HTTP_RESPONSE_FLAG_MULTIPLE_ENCODINGS_AVAILABLE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_RESPONSE_HEADERS {
@@ -525,6 +603,8 @@ pub struct HTTP_RESPONSE_INFO {
     pub Length: u32,
     pub pInfo: *mut core::ffi::c_void,
 }
+pub const HTTP_RESPONSE_INFO_FLAGS_PRESERVE_ORDER: u32 = 1u32;
+pub type HTTP_RESPONSE_INFO_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_RESPONSE_V1 {
@@ -544,6 +624,14 @@ pub struct HTTP_RESPONSE_V2 {
     pub ResponseInfoCount: u16,
     pub pResponseInfo: *mut HTTP_RESPONSE_INFO,
 }
+pub type HTTP_SCHEME = i32;
+pub const HTTP_SEND_RESPONSE_FLAG_BUFFER_DATA: u32 = 4u32;
+pub const HTTP_SEND_RESPONSE_FLAG_DISCONNECT: u32 = 1u32;
+pub const HTTP_SEND_RESPONSE_FLAG_ENABLE_NAGLING: u32 = 8u32;
+pub const HTTP_SEND_RESPONSE_FLAG_GOAWAY: u32 = 256u32;
+pub const HTTP_SEND_RESPONSE_FLAG_MORE_DATA: u32 = 2u32;
+pub const HTTP_SEND_RESPONSE_FLAG_OPAQUE: u32 = 64u32;
+pub const HTTP_SEND_RESPONSE_FLAG_PROCESS_RANGES: u32 = 32u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
@@ -570,6 +658,7 @@ pub struct HTTP_SERVER_AUTHENTICATION_INFO {
     pub DigestParams: HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS,
     pub BasicParams: HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS,
 }
+pub type HTTP_SERVER_PROPERTY = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_BINDING_A {
@@ -582,6 +671,7 @@ pub struct HTTP_SERVICE_BINDING_A {
 pub struct HTTP_SERVICE_BINDING_BASE {
     pub Type: HTTP_SERVICE_BINDING_TYPE,
 }
+pub type HTTP_SERVICE_BINDING_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_BINDING_W {
@@ -589,12 +679,14 @@ pub struct HTTP_SERVICE_BINDING_W {
     pub Buffer: windows_sys::core::PWSTR,
     pub BufferSize: u32,
 }
+pub type HTTP_SERVICE_CONFIG_CACHE_KEY = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_CACHE_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_CACHE_KEY,
     pub ParamDesc: u32,
 }
+pub type HTTP_SERVICE_CONFIG_ID = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -609,6 +701,8 @@ pub struct HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
     pub AddrCount: u32,
     pub AddrList: [super::WinSock::SOCKADDR_STORAGE; 1],
 }
+pub type HTTP_SERVICE_CONFIG_QUERY_TYPE = i32;
+pub type HTTP_SERVICE_CONFIG_SETTING_KEY = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SETTING_SET {
@@ -652,6 +746,21 @@ pub struct HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
 }
+pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_HTTP2: u32 = 16u32;
+pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_LEGACY_TLS: u32 = 1024u32;
+pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_OCSP_STAPLING: u32 = 128u32;
+pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_QUIC: u32 = 32u32;
+pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_SESSION_ID: u32 = 16384u32;
+pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_TLS12: u32 = 4096u32;
+pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_TLS13: u32 = 64u32;
+pub const HTTP_SERVICE_CONFIG_SSL_FLAG_ENABLE_CLIENT_CORRELATION: u32 = 8192u32;
+pub const HTTP_SERVICE_CONFIG_SSL_FLAG_ENABLE_SESSION_TICKET: u32 = 2048u32;
+pub const HTTP_SERVICE_CONFIG_SSL_FLAG_ENABLE_TOKEN_BINDING: u32 = 256u32;
+pub const HTTP_SERVICE_CONFIG_SSL_FLAG_LOG_EXTENDED_EVENTS: u32 = 512u32;
+pub const HTTP_SERVICE_CONFIG_SSL_FLAG_NEGOTIATE_CLIENT_CERT: u32 = 2u32;
+pub const HTTP_SERVICE_CONFIG_SSL_FLAG_NO_RAW_FILTER: u32 = 4u32;
+pub const HTTP_SERVICE_CONFIG_SSL_FLAG_REJECT: u32 = 8u32;
+pub const HTTP_SERVICE_CONFIG_SSL_FLAG_USE_DS_MAPPER: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -764,6 +873,7 @@ pub struct HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
 }
+pub type HTTP_SERVICE_CONFIG_TIMEOUT_KEY = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_TIMEOUT_SET {
@@ -825,6 +935,7 @@ pub struct HTTP_SSL_PROTOCOL_INFO {
     pub KeyExchangeType: u32,
     pub KeyExchangeStrength: u32,
 }
+pub type HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_STATE_INFO {
@@ -869,12 +980,15 @@ pub struct HTTP_UNKNOWN_HEADER {
     pub pName: windows_sys::core::PCSTR,
     pub pRawValue: windows_sys::core::PCSTR,
 }
+pub const HTTP_URL_FLAG_REMOVE_ALL: u32 = 1u32;
+pub type HTTP_VERB = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
 }
+pub const HTTP_VERSION: windows_sys::core::PCWSTR = windows_sys::core::w!("HTTP/1.0");
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_WSK_API_TIMINGS {
@@ -891,120 +1005,6 @@ pub struct HTTP_WSK_API_TIMINGS {
     pub ControlSocketCount: u64,
     pub ControlSocketSum: u64,
 }
-pub const CacheRangeChunkSize: HTTP_SERVICE_CONFIG_CACHE_KEY = 1i32;
-pub const CreateRequestQueueExternalIdProperty: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = 1i32;
-pub const CreateRequestQueueMax: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = 2i32;
-pub const DelegateRequestDelegateUrlProperty: HTTP_DELEGATE_REQUEST_PROPERTY_ID = 1i32;
-pub const DelegateRequestReservedProperty: HTTP_DELEGATE_REQUEST_PROPERTY_ID = 0i32;
-pub const ExParamTypeErrorHeaders: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 4i32;
-pub const ExParamTypeHttp2SettingsLimits: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 1i32;
-pub const ExParamTypeHttp2Window: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 0i32;
-pub const ExParamTypeHttpPerformance: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 2i32;
-pub const ExParamTypeMax: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 6i32;
-pub const ExParamTypeTlsRestrictions: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 3i32;
-pub const ExParamTypeTlsSessionTicketKeys: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 5i32;
-pub const HTTP_AUTH_ENABLE_BASIC: u32 = 1u32;
-pub const HTTP_AUTH_ENABLE_DIGEST: u32 = 2u32;
-pub const HTTP_AUTH_ENABLE_KERBEROS: u32 = 16u32;
-pub const HTTP_AUTH_ENABLE_NEGOTIATE: u32 = 8u32;
-pub const HTTP_AUTH_ENABLE_NTLM: u32 = 4u32;
-pub const HTTP_AUTH_EX_FLAG_CAPTURE_CREDENTIAL: u32 = 2u32;
-pub const HTTP_AUTH_EX_FLAG_ENABLE_KERBEROS_CREDENTIAL_CACHING: u32 = 1u32;
-pub const HTTP_CHANNEL_BIND_CLIENT_SERVICE: u32 = 16u32;
-pub const HTTP_CHANNEL_BIND_DOTLESS_SERVICE: u32 = 4u32;
-pub const HTTP_CHANNEL_BIND_NO_SERVICE_NAME_CHECK: u32 = 2u32;
-pub const HTTP_CHANNEL_BIND_PROXY: u32 = 1u32;
-pub const HTTP_CHANNEL_BIND_PROXY_COHOSTING: u32 = 32u32;
-pub const HTTP_CHANNEL_BIND_SECURE_CHANNEL_TOKEN: u32 = 8u32;
-pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_CONTROLLER: u32 = 2u32;
-pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_DELEGATION: u32 = 8u32;
-pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_OPEN_EXISTING: u32 = 1u32;
-pub const HTTP_DEMAND_CBT: u32 = 4u32;
-pub const HTTP_FLUSH_RESPONSE_FLAG_RECURSIVE: u32 = 1u32;
-pub const HTTP_INITIALIZE_CONFIG: HTTP_INITIALIZE = 2u32;
-pub const HTTP_INITIALIZE_SERVER: HTTP_INITIALIZE = 1u32;
-pub const HTTP_LOGGING_FLAG_LOCAL_TIME_ROLLOVER: u32 = 1u32;
-pub const HTTP_LOGGING_FLAG_LOG_ERRORS_ONLY: u32 = 4u32;
-pub const HTTP_LOGGING_FLAG_LOG_SUCCESS_ONLY: u32 = 8u32;
-pub const HTTP_LOGGING_FLAG_USE_UTF8_CONVERSION: u32 = 2u32;
-pub const HTTP_LOG_FIELD_BYTES_RECV: u32 = 8192u32;
-pub const HTTP_LOG_FIELD_BYTES_SENT: u32 = 4096u32;
-pub const HTTP_LOG_FIELD_CLIENT_IP: u32 = 4u32;
-pub const HTTP_LOG_FIELD_CLIENT_PORT: u32 = 4194304u32;
-pub const HTTP_LOG_FIELD_COMPUTER_NAME: u32 = 32u32;
-pub const HTTP_LOG_FIELD_COOKIE: u32 = 131072u32;
-pub const HTTP_LOG_FIELD_CORRELATION_ID: u32 = 1073741824u32;
-pub const HTTP_LOG_FIELD_DATE: u32 = 1u32;
-pub const HTTP_LOG_FIELD_FAULT_CODE: u32 = 2147483648u32;
-pub const HTTP_LOG_FIELD_HOST: u32 = 1048576u32;
-pub const HTTP_LOG_FIELD_METHOD: u32 = 128u32;
-pub const HTTP_LOG_FIELD_QUEUE_NAME: u32 = 67108864u32;
-pub const HTTP_LOG_FIELD_REASON: u32 = 33554432u32;
-pub const HTTP_LOG_FIELD_REFERER: u32 = 262144u32;
-pub const HTTP_LOG_FIELD_SERVER_IP: u32 = 64u32;
-pub const HTTP_LOG_FIELD_SERVER_PORT: u32 = 32768u32;
-pub const HTTP_LOG_FIELD_SITE_ID: u32 = 16777216u32;
-pub const HTTP_LOG_FIELD_SITE_NAME: u32 = 16u32;
-pub const HTTP_LOG_FIELD_STATUS: u32 = 1024u32;
-pub const HTTP_LOG_FIELD_STREAM_ID: u32 = 134217728u32;
-pub const HTTP_LOG_FIELD_STREAM_ID_EX: u32 = 268435456u32;
-pub const HTTP_LOG_FIELD_SUB_STATUS: u32 = 2097152u32;
-pub const HTTP_LOG_FIELD_TIME: u32 = 2u32;
-pub const HTTP_LOG_FIELD_TIME_TAKEN: u32 = 16384u32;
-pub const HTTP_LOG_FIELD_TRANSPORT_TYPE: u32 = 536870912u32;
-pub const HTTP_LOG_FIELD_URI: u32 = 8388608u32;
-pub const HTTP_LOG_FIELD_URI_QUERY: u32 = 512u32;
-pub const HTTP_LOG_FIELD_URI_STEM: u32 = 256u32;
-pub const HTTP_LOG_FIELD_USER_AGENT: u32 = 65536u32;
-pub const HTTP_LOG_FIELD_USER_NAME: u32 = 8u32;
-pub const HTTP_LOG_FIELD_VERSION: u32 = 524288u32;
-pub const HTTP_LOG_FIELD_WIN32_STATUS: u32 = 2048u32;
-pub const HTTP_MAX_SERVER_QUEUE_LENGTH: u32 = 2147483647u32;
-pub const HTTP_MIN_SERVER_QUEUE_LENGTH: u32 = 1u32;
-pub const HTTP_RECEIVE_FULL_CHAIN: u32 = 2u32;
-pub const HTTP_RECEIVE_REQUEST_ENTITY_BODY_FLAG_FILL_BUFFER: u32 = 1u32;
-pub const HTTP_RECEIVE_REQUEST_FLAG_COPY_BODY: HTTP_RECEIVE_HTTP_REQUEST_FLAGS = 1u32;
-pub const HTTP_RECEIVE_REQUEST_FLAG_FLUSH_BODY: HTTP_RECEIVE_HTTP_REQUEST_FLAGS = 2u32;
-pub const HTTP_RECEIVE_SECURE_CHANNEL_TOKEN: u32 = 1u32;
-pub const HTTP_REQUEST_AUTH_FLAG_TOKEN_FOR_CACHED_CRED: u32 = 1u32;
-pub const HTTP_REQUEST_FLAG_HTTP2: u32 = 4u32;
-pub const HTTP_REQUEST_FLAG_HTTP3: u32 = 8u32;
-pub const HTTP_REQUEST_FLAG_IP_ROUTED: u32 = 2u32;
-pub const HTTP_REQUEST_FLAG_MORE_ENTITY_BODY_EXISTS: u32 = 1u32;
-pub const HTTP_REQUEST_PROPERTY_SNI_FLAG_NO_SNI: u32 = 2u32;
-pub const HTTP_REQUEST_PROPERTY_SNI_FLAG_SNI_USED: u32 = 1u32;
-pub const HTTP_REQUEST_PROPERTY_SNI_HOST_MAX_LENGTH: u32 = 255u32;
-pub const HTTP_REQUEST_SIZING_INFO_FLAG_FIRST_REQUEST: u32 = 8u32;
-pub const HTTP_REQUEST_SIZING_INFO_FLAG_TCP_FAST_OPEN: u32 = 1u32;
-pub const HTTP_REQUEST_SIZING_INFO_FLAG_TLS_FALSE_START: u32 = 4u32;
-pub const HTTP_REQUEST_SIZING_INFO_FLAG_TLS_SESSION_RESUMPTION: u32 = 2u32;
-pub const HTTP_RESPONSE_FLAG_MORE_ENTITY_BODY_EXISTS: u32 = 2u32;
-pub const HTTP_RESPONSE_FLAG_MULTIPLE_ENCODINGS_AVAILABLE: u32 = 1u32;
-pub const HTTP_RESPONSE_INFO_FLAGS_PRESERVE_ORDER: u32 = 1u32;
-pub const HTTP_SEND_RESPONSE_FLAG_BUFFER_DATA: u32 = 4u32;
-pub const HTTP_SEND_RESPONSE_FLAG_DISCONNECT: u32 = 1u32;
-pub const HTTP_SEND_RESPONSE_FLAG_ENABLE_NAGLING: u32 = 8u32;
-pub const HTTP_SEND_RESPONSE_FLAG_GOAWAY: u32 = 256u32;
-pub const HTTP_SEND_RESPONSE_FLAG_MORE_DATA: u32 = 2u32;
-pub const HTTP_SEND_RESPONSE_FLAG_OPAQUE: u32 = 64u32;
-pub const HTTP_SEND_RESPONSE_FLAG_PROCESS_RANGES: u32 = 32u32;
-pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_HTTP2: u32 = 16u32;
-pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_LEGACY_TLS: u32 = 1024u32;
-pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_OCSP_STAPLING: u32 = 128u32;
-pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_QUIC: u32 = 32u32;
-pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_SESSION_ID: u32 = 16384u32;
-pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_TLS12: u32 = 4096u32;
-pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_TLS13: u32 = 64u32;
-pub const HTTP_SERVICE_CONFIG_SSL_FLAG_ENABLE_CLIENT_CORRELATION: u32 = 8192u32;
-pub const HTTP_SERVICE_CONFIG_SSL_FLAG_ENABLE_SESSION_TICKET: u32 = 2048u32;
-pub const HTTP_SERVICE_CONFIG_SSL_FLAG_ENABLE_TOKEN_BINDING: u32 = 256u32;
-pub const HTTP_SERVICE_CONFIG_SSL_FLAG_LOG_EXTENDED_EVENTS: u32 = 512u32;
-pub const HTTP_SERVICE_CONFIG_SSL_FLAG_NEGOTIATE_CLIENT_CERT: u32 = 2u32;
-pub const HTTP_SERVICE_CONFIG_SSL_FLAG_NO_RAW_FILTER: u32 = 4u32;
-pub const HTTP_SERVICE_CONFIG_SSL_FLAG_REJECT: u32 = 8u32;
-pub const HTTP_SERVICE_CONFIG_SSL_FLAG_USE_DS_MAPPER: u32 = 1u32;
-pub const HTTP_URL_FLAG_REMOVE_ALL: u32 = 1u32;
-pub const HTTP_VERSION: windows_sys::core::PCWSTR = windows_sys::core::w!("HTTP/1.0");
 pub const HeaderWaitTimeout: HTTP_SERVICE_CONFIG_TIMEOUT_KEY = 1i32;
 pub const Http503ResponseVerbosityBasic: HTTP_503_RESPONSE_VERBOSITY = 0i32;
 pub const Http503ResponseVerbosityFull: HTTP_503_RESPONSE_VERBOSITY = 2i32;

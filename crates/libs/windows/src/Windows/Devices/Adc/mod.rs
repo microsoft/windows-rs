@@ -45,6 +45,19 @@ impl windows_core::RuntimeName for AdcChannel {
 unsafe impl Send for AdcChannel {}
 unsafe impl Sync for AdcChannel {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AdcChannelMode(pub i32);
+impl AdcChannelMode {
+    pub const SingleEnded: Self = Self(0i32);
+    pub const Differential: Self = Self(1i32);
+}
+impl windows_core::TypeKind for AdcChannelMode {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AdcChannelMode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Adc.AdcChannelMode;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AdcController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdcController, windows_core::IUnknown, windows_core::IInspectable);
@@ -186,17 +199,4 @@ impl windows_core::RuntimeType for IAdcControllerStatics2 {
 pub struct IAdcControllerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefaultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AdcChannelMode(pub i32);
-impl AdcChannelMode {
-    pub const SingleEnded: Self = Self(0i32);
-    pub const Differential: Self = Self(1i32);
-}
-impl windows_core::TypeKind for AdcChannelMode {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AdcChannelMode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Adc.AdcChannelMode;i4)");
 }

@@ -1,3 +1,82 @@
+pub const DEVICEDISPLAY_DISCOVERYMETHOD_AD_PRINTER: windows_core::PCWSTR = windows_core::w!("Published Printer");
+pub const DEVICEDISPLAY_DISCOVERYMETHOD_ASP_INFRA: windows_core::PCWSTR = windows_core::w!("AspInfra");
+pub const DEVICEDISPLAY_DISCOVERYMETHOD_BLUETOOTH: windows_core::PCWSTR = windows_core::w!("Bluetooth");
+pub const DEVICEDISPLAY_DISCOVERYMETHOD_BLUETOOTH_LE: windows_core::PCWSTR = windows_core::w!("Bluetooth Low Energy");
+pub const DEVICEDISPLAY_DISCOVERYMETHOD_NETBIOS: windows_core::PCWSTR = windows_core::w!("NetBIOS");
+pub const DEVICEDISPLAY_DISCOVERYMETHOD_PNP: windows_core::PCWSTR = windows_core::w!("PnP");
+pub const DEVICEDISPLAY_DISCOVERYMETHOD_UPNP: windows_core::PCWSTR = windows_core::w!("UPnP");
+pub const DEVICEDISPLAY_DISCOVERYMETHOD_WFD: windows_core::PCWSTR = windows_core::w!("WiFiDirect");
+pub const DEVICEDISPLAY_DISCOVERYMETHOD_WSD: windows_core::PCWSTR = windows_core::w!("WSD");
+pub const DEVICEDISPLAY_DISCOVERYMETHOD_WUSB: windows_core::PCWSTR = windows_core::w!("WUSB");
+pub const E_FDPAIRING_AUTHFAILURE: windows_core::HRESULT = windows_core::HRESULT(0x8FD00003_u32 as _);
+pub const E_FDPAIRING_AUTHNOTALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x8FD00006_u32 as _);
+pub const E_FDPAIRING_CONNECTTIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x8FD00004_u32 as _);
+pub const E_FDPAIRING_HWFAILURE: windows_core::HRESULT = windows_core::HRESULT(0x8FD00002_u32 as _);
+pub const E_FDPAIRING_IPBUSDISABLED: windows_core::HRESULT = windows_core::HRESULT(0x8FD00007_u32 as _);
+pub const E_FDPAIRING_NOCONNECTION: windows_core::HRESULT = windows_core::HRESULT(0x8FD00001_u32 as _);
+pub const E_FDPAIRING_NOPROFILES: windows_core::HRESULT = windows_core::HRESULT(0x8FD00008_u32 as _);
+pub const E_FDPAIRING_TOOMANYCONNECTIONS: windows_core::HRESULT = windows_core::HRESULT(0x8FD00005_u32 as _);
+pub const FCTN_CATEGORY_BT: windows_core::PCWSTR = windows_core::w!("Provider\\Microsoft.Devices.Bluetooth");
+pub const FCTN_CATEGORY_DEVICEDISPLAYOBJECTS: windows_core::PCWSTR = windows_core::w!("Provider\\Microsoft.Base.DeviceDisplayObjects");
+pub const FCTN_CATEGORY_DEVICEFUNCTIONENUMERATORS: windows_core::PCWSTR = windows_core::w!("Layered\\Microsoft.Devices.FunctionEnumerators");
+pub const FCTN_CATEGORY_DEVICEPAIRING: windows_core::PCWSTR = windows_core::w!("Layered\\Microsoft.Base.DevicePairing");
+pub const FCTN_CATEGORY_DEVICES: windows_core::PCWSTR = windows_core::w!("Layered\\Microsoft.Base.Devices");
+pub const FCTN_CATEGORY_DEVQUERYOBJECTS: windows_core::PCWSTR = windows_core::w!("Provider\\Microsoft.Base.DevQueryObjects");
+pub const FCTN_CATEGORY_NETBIOS: windows_core::PCWSTR = windows_core::w!("Provider\\Microsoft.Networking.Netbios");
+pub const FCTN_CATEGORY_NETWORKDEVICES: windows_core::PCWSTR = windows_core::w!("Layered\\Microsoft.Networking.Devices");
+pub const FCTN_CATEGORY_PNP: windows_core::PCWSTR = windows_core::w!("Provider\\Microsoft.Base.PnP");
+pub const FCTN_CATEGORY_PNPXASSOCIATION: windows_core::PCWSTR = windows_core::w!("Provider\\Microsoft.PnPX.Association");
+pub const FCTN_CATEGORY_PUBLICATION: windows_core::PCWSTR = windows_core::w!("Provider\\Microsoft.Base.Publication");
+pub const FCTN_CATEGORY_REGISTRY: windows_core::PCWSTR = windows_core::w!("Provider\\Microsoft.Base.Registry");
+pub const FCTN_CATEGORY_SSDP: windows_core::PCWSTR = windows_core::w!("Provider\\Microsoft.Networking.SSDP");
+pub const FCTN_CATEGORY_WCN: windows_core::PCWSTR = windows_core::w!("Provider\\Microsoft.Networking.WCN");
+pub const FCTN_CATEGORY_WSDISCOVERY: windows_core::PCWSTR = windows_core::w!("Provider\\Microsoft.Networking.WSD");
+pub const FCTN_CATEGORY_WUSB: windows_core::PCWSTR = windows_core::w!("Provider\\Microsoft.Devices.WirelessUSB");
+pub const FCTN_SUBCAT_DEVICES_WSDPRINTERS: windows_core::PCWSTR = windows_core::w!("WSDPrinters");
+pub const FCTN_SUBCAT_NETWORKDEVICES_SSDP: windows_core::PCWSTR = windows_core::w!("SSDP");
+pub const FCTN_SUBCAT_NETWORKDEVICES_WSD: windows_core::PCWSTR = windows_core::w!("WSD");
+pub const FCTN_SUBCAT_REG_DIRECTED: windows_core::PCWSTR = windows_core::w!("Directed");
+pub const FCTN_SUBCAT_REG_PUBLICATION: windows_core::PCWSTR = windows_core::w!("Publication");
+pub const FD_CONSTRAINTVALUE_ALL: windows_core::PCWSTR = windows_core::w!("All");
+pub const FD_CONSTRAINTVALUE_COMCLSCONTEXT_INPROC_SERVER: windows_core::PCWSTR = windows_core::w!("1");
+pub const FD_CONSTRAINTVALUE_COMCLSCONTEXT_LOCAL_SERVER: windows_core::PCWSTR = windows_core::w!("4");
+pub const FD_CONSTRAINTVALUE_FALSE: windows_core::PCWSTR = windows_core::w!("FALSE");
+pub const FD_CONSTRAINTVALUE_PAIRED: windows_core::PCWSTR = windows_core::w!("Paired");
+pub const FD_CONSTRAINTVALUE_RECURSESUBCATEGORY_TRUE: windows_core::PCWSTR = windows_core::w!("TRUE");
+pub const FD_CONSTRAINTVALUE_ROUTINGSCOPE_ALL: windows_core::PCWSTR = windows_core::w!("All");
+pub const FD_CONSTRAINTVALUE_ROUTINGSCOPE_DIRECT: windows_core::PCWSTR = windows_core::w!("Direct");
+pub const FD_CONSTRAINTVALUE_TRUE: windows_core::PCWSTR = windows_core::w!("TRUE");
+pub const FD_CONSTRAINTVALUE_UNPAIRED: windows_core::PCWSTR = windows_core::w!("UnPaired");
+pub const FD_CONSTRAINTVALUE_VISIBILITY_ALL: windows_core::PCWSTR = windows_core::w!("1");
+pub const FD_CONSTRAINTVALUE_VISIBILITY_DEFAULT: windows_core::PCWSTR = windows_core::w!("0");
+pub const FD_EVENTID: u32 = 1000u32;
+pub const FD_EVENTID_ASYNCTHREADEXIT: u32 = 1001u32;
+pub const FD_EVENTID_IPADDRESSCHANGE: u32 = 1003u32;
+pub const FD_EVENTID_PRIVATE: u32 = 100u32;
+pub const FD_EVENTID_QUERYREFRESH: u32 = 1004u32;
+pub const FD_EVENTID_SEARCHCOMPLETE: u32 = 1000u32;
+pub const FD_EVENTID_SEARCHSTART: u32 = 1002u32;
+pub const FD_LONGHORN: u32 = 1u32;
+pub const FD_QUERYCONSTRAINT_COMCLSCONTEXT: windows_core::PCWSTR = windows_core::w!("COMClsContext");
+pub const FD_QUERYCONSTRAINT_INQUIRY_TIMEOUT: windows_core::PCWSTR = windows_core::w!("InquiryModeTimeout");
+pub const FD_QUERYCONSTRAINT_PAIRING_STATE: windows_core::PCWSTR = windows_core::w!("PairingState");
+pub const FD_QUERYCONSTRAINT_PROVIDERINSTANCEID: windows_core::PCWSTR = windows_core::w!("ProviderInstanceID");
+pub const FD_QUERYCONSTRAINT_RECURSESUBCATEGORY: windows_core::PCWSTR = windows_core::w!("RecurseSubcategory");
+pub const FD_QUERYCONSTRAINT_ROUTINGSCOPE: windows_core::PCWSTR = windows_core::w!("RoutingScope");
+pub const FD_QUERYCONSTRAINT_SUBCATEGORY: windows_core::PCWSTR = windows_core::w!("Subcategory");
+pub const FD_QUERYCONSTRAINT_VISIBILITY: windows_core::PCWSTR = windows_core::w!("Visibility");
+pub const FD_SUBKEY: windows_core::PCWSTR = windows_core::w!("SOFTWARE\\Microsoft\\Function Discovery\\");
+pub const FD_Visibility_Default: u32 = 0u32;
+pub const FD_Visibility_Hidden: u32 = 1u32;
+pub const FMTID_Device: windows_core::GUID = windows_core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57);
+pub const FMTID_DeviceInterface: windows_core::GUID = windows_core::GUID::from_u128(0x53808008_07bb_4661_bc3c_b5953e708560);
+pub const FMTID_FD: windows_core::GUID = windows_core::GUID::from_u128(0x904b03a2_471d_423c_a584_f3483238a146);
+pub const FMTID_PNPX: windows_core::GUID = windows_core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd);
+pub const FMTID_PNPXDynamicProperty: windows_core::GUID = windows_core::GUID::from_u128(0x4fc5077e_b686_44be_93e3_86cafe368ccd);
+pub const FMTID_Pairing: windows_core::GUID = windows_core::GUID::from_u128(0x8807cae6_7db6_4f10_8ee4_435eaa1392bc);
+pub const FMTID_WSD: windows_core::GUID = windows_core::GUID::from_u128(0x92506491_ff95_4724_a05a_5b81885a7c92);
+pub const FunctionDiscovery: windows_core::GUID = windows_core::GUID::from_u128(0xc72be2ec_8e90_452c_b29a_ab8ff1c071fc);
+pub const FunctionInstanceCollection: windows_core::GUID = windows_core::GUID::from_u128(0xba818ce5_b55f_443f_ad39_2fe89be6191f);
 windows_core::imp::define_interface!(IFunctionDiscovery, IFunctionDiscovery_Vtbl, 0x4df99b70_e148_4432_b004_4c9eeb535a5e);
 windows_core::imp::interface_hierarchy!(IFunctionDiscovery, windows_core::IUnknown);
 impl IFunctionDiscovery {
@@ -1590,101 +1669,6 @@ impl IProviderQueryConstraintCollection_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IProviderQueryConstraintCollection {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PropertyConstraint(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct QueryCategoryType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct QueryUpdateAction(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SystemVisibilityFlags(pub i32);
-pub const FunctionDiscovery: windows_core::GUID = windows_core::GUID::from_u128(0xc72be2ec_8e90_452c_b29a_ab8ff1c071fc);
-pub const FunctionInstanceCollection: windows_core::GUID = windows_core::GUID::from_u128(0xba818ce5_b55f_443f_ad39_2fe89be6191f);
-pub const PNPXAssociation: windows_core::GUID = windows_core::GUID::from_u128(0xcee8ccc9_4f6b_4469_a235_5a22869eef03);
-pub const PNPXPairingHandler: windows_core::GUID = windows_core::GUID::from_u128(0xb8a27942_ade7_4085_aa6e_4fadc7ada1ef);
-pub const PropertyStore: windows_core::GUID = windows_core::GUID::from_u128(0xe4796550_df61_448b_9193_13fc1341b163);
-pub const PropertyStoreCollection: windows_core::GUID = windows_core::GUID::from_u128(0xedd36029_d753_4862_aa5b_5bccad2a4d29);
-pub const DEVICEDISPLAY_DISCOVERYMETHOD_AD_PRINTER: windows_core::PCWSTR = windows_core::w!("Published Printer");
-pub const DEVICEDISPLAY_DISCOVERYMETHOD_ASP_INFRA: windows_core::PCWSTR = windows_core::w!("AspInfra");
-pub const DEVICEDISPLAY_DISCOVERYMETHOD_BLUETOOTH: windows_core::PCWSTR = windows_core::w!("Bluetooth");
-pub const DEVICEDISPLAY_DISCOVERYMETHOD_BLUETOOTH_LE: windows_core::PCWSTR = windows_core::w!("Bluetooth Low Energy");
-pub const DEVICEDISPLAY_DISCOVERYMETHOD_NETBIOS: windows_core::PCWSTR = windows_core::w!("NetBIOS");
-pub const DEVICEDISPLAY_DISCOVERYMETHOD_PNP: windows_core::PCWSTR = windows_core::w!("PnP");
-pub const DEVICEDISPLAY_DISCOVERYMETHOD_UPNP: windows_core::PCWSTR = windows_core::w!("UPnP");
-pub const DEVICEDISPLAY_DISCOVERYMETHOD_WFD: windows_core::PCWSTR = windows_core::w!("WiFiDirect");
-pub const DEVICEDISPLAY_DISCOVERYMETHOD_WSD: windows_core::PCWSTR = windows_core::w!("WSD");
-pub const DEVICEDISPLAY_DISCOVERYMETHOD_WUSB: windows_core::PCWSTR = windows_core::w!("WUSB");
-pub const E_FDPAIRING_AUTHFAILURE: windows_core::HRESULT = windows_core::HRESULT(0x8FD00003_u32 as _);
-pub const E_FDPAIRING_AUTHNOTALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x8FD00006_u32 as _);
-pub const E_FDPAIRING_CONNECTTIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x8FD00004_u32 as _);
-pub const E_FDPAIRING_HWFAILURE: windows_core::HRESULT = windows_core::HRESULT(0x8FD00002_u32 as _);
-pub const E_FDPAIRING_IPBUSDISABLED: windows_core::HRESULT = windows_core::HRESULT(0x8FD00007_u32 as _);
-pub const E_FDPAIRING_NOCONNECTION: windows_core::HRESULT = windows_core::HRESULT(0x8FD00001_u32 as _);
-pub const E_FDPAIRING_NOPROFILES: windows_core::HRESULT = windows_core::HRESULT(0x8FD00008_u32 as _);
-pub const E_FDPAIRING_TOOMANYCONNECTIONS: windows_core::HRESULT = windows_core::HRESULT(0x8FD00005_u32 as _);
-pub const FCTN_CATEGORY_BT: windows_core::PCWSTR = windows_core::w!("Provider\\Microsoft.Devices.Bluetooth");
-pub const FCTN_CATEGORY_DEVICEDISPLAYOBJECTS: windows_core::PCWSTR = windows_core::w!("Provider\\Microsoft.Base.DeviceDisplayObjects");
-pub const FCTN_CATEGORY_DEVICEFUNCTIONENUMERATORS: windows_core::PCWSTR = windows_core::w!("Layered\\Microsoft.Devices.FunctionEnumerators");
-pub const FCTN_CATEGORY_DEVICEPAIRING: windows_core::PCWSTR = windows_core::w!("Layered\\Microsoft.Base.DevicePairing");
-pub const FCTN_CATEGORY_DEVICES: windows_core::PCWSTR = windows_core::w!("Layered\\Microsoft.Base.Devices");
-pub const FCTN_CATEGORY_DEVQUERYOBJECTS: windows_core::PCWSTR = windows_core::w!("Provider\\Microsoft.Base.DevQueryObjects");
-pub const FCTN_CATEGORY_NETBIOS: windows_core::PCWSTR = windows_core::w!("Provider\\Microsoft.Networking.Netbios");
-pub const FCTN_CATEGORY_NETWORKDEVICES: windows_core::PCWSTR = windows_core::w!("Layered\\Microsoft.Networking.Devices");
-pub const FCTN_CATEGORY_PNP: windows_core::PCWSTR = windows_core::w!("Provider\\Microsoft.Base.PnP");
-pub const FCTN_CATEGORY_PNPXASSOCIATION: windows_core::PCWSTR = windows_core::w!("Provider\\Microsoft.PnPX.Association");
-pub const FCTN_CATEGORY_PUBLICATION: windows_core::PCWSTR = windows_core::w!("Provider\\Microsoft.Base.Publication");
-pub const FCTN_CATEGORY_REGISTRY: windows_core::PCWSTR = windows_core::w!("Provider\\Microsoft.Base.Registry");
-pub const FCTN_CATEGORY_SSDP: windows_core::PCWSTR = windows_core::w!("Provider\\Microsoft.Networking.SSDP");
-pub const FCTN_CATEGORY_WCN: windows_core::PCWSTR = windows_core::w!("Provider\\Microsoft.Networking.WCN");
-pub const FCTN_CATEGORY_WSDISCOVERY: windows_core::PCWSTR = windows_core::w!("Provider\\Microsoft.Networking.WSD");
-pub const FCTN_CATEGORY_WUSB: windows_core::PCWSTR = windows_core::w!("Provider\\Microsoft.Devices.WirelessUSB");
-pub const FCTN_SUBCAT_DEVICES_WSDPRINTERS: windows_core::PCWSTR = windows_core::w!("WSDPrinters");
-pub const FCTN_SUBCAT_NETWORKDEVICES_SSDP: windows_core::PCWSTR = windows_core::w!("SSDP");
-pub const FCTN_SUBCAT_NETWORKDEVICES_WSD: windows_core::PCWSTR = windows_core::w!("WSD");
-pub const FCTN_SUBCAT_REG_DIRECTED: windows_core::PCWSTR = windows_core::w!("Directed");
-pub const FCTN_SUBCAT_REG_PUBLICATION: windows_core::PCWSTR = windows_core::w!("Publication");
-pub const FD_CONSTRAINTVALUE_ALL: windows_core::PCWSTR = windows_core::w!("All");
-pub const FD_CONSTRAINTVALUE_COMCLSCONTEXT_INPROC_SERVER: windows_core::PCWSTR = windows_core::w!("1");
-pub const FD_CONSTRAINTVALUE_COMCLSCONTEXT_LOCAL_SERVER: windows_core::PCWSTR = windows_core::w!("4");
-pub const FD_CONSTRAINTVALUE_FALSE: windows_core::PCWSTR = windows_core::w!("FALSE");
-pub const FD_CONSTRAINTVALUE_PAIRED: windows_core::PCWSTR = windows_core::w!("Paired");
-pub const FD_CONSTRAINTVALUE_RECURSESUBCATEGORY_TRUE: windows_core::PCWSTR = windows_core::w!("TRUE");
-pub const FD_CONSTRAINTVALUE_ROUTINGSCOPE_ALL: windows_core::PCWSTR = windows_core::w!("All");
-pub const FD_CONSTRAINTVALUE_ROUTINGSCOPE_DIRECT: windows_core::PCWSTR = windows_core::w!("Direct");
-pub const FD_CONSTRAINTVALUE_TRUE: windows_core::PCWSTR = windows_core::w!("TRUE");
-pub const FD_CONSTRAINTVALUE_UNPAIRED: windows_core::PCWSTR = windows_core::w!("UnPaired");
-pub const FD_CONSTRAINTVALUE_VISIBILITY_ALL: windows_core::PCWSTR = windows_core::w!("1");
-pub const FD_CONSTRAINTVALUE_VISIBILITY_DEFAULT: windows_core::PCWSTR = windows_core::w!("0");
-pub const FD_EVENTID: u32 = 1000u32;
-pub const FD_EVENTID_ASYNCTHREADEXIT: u32 = 1001u32;
-pub const FD_EVENTID_IPADDRESSCHANGE: u32 = 1003u32;
-pub const FD_EVENTID_PRIVATE: u32 = 100u32;
-pub const FD_EVENTID_QUERYREFRESH: u32 = 1004u32;
-pub const FD_EVENTID_SEARCHCOMPLETE: u32 = 1000u32;
-pub const FD_EVENTID_SEARCHSTART: u32 = 1002u32;
-pub const FD_LONGHORN: u32 = 1u32;
-pub const FD_QUERYCONSTRAINT_COMCLSCONTEXT: windows_core::PCWSTR = windows_core::w!("COMClsContext");
-pub const FD_QUERYCONSTRAINT_INQUIRY_TIMEOUT: windows_core::PCWSTR = windows_core::w!("InquiryModeTimeout");
-pub const FD_QUERYCONSTRAINT_PAIRING_STATE: windows_core::PCWSTR = windows_core::w!("PairingState");
-pub const FD_QUERYCONSTRAINT_PROVIDERINSTANCEID: windows_core::PCWSTR = windows_core::w!("ProviderInstanceID");
-pub const FD_QUERYCONSTRAINT_RECURSESUBCATEGORY: windows_core::PCWSTR = windows_core::w!("RecurseSubcategory");
-pub const FD_QUERYCONSTRAINT_ROUTINGSCOPE: windows_core::PCWSTR = windows_core::w!("RoutingScope");
-pub const FD_QUERYCONSTRAINT_SUBCATEGORY: windows_core::PCWSTR = windows_core::w!("Subcategory");
-pub const FD_QUERYCONSTRAINT_VISIBILITY: windows_core::PCWSTR = windows_core::w!("Visibility");
-pub const FD_SUBKEY: windows_core::PCWSTR = windows_core::w!("SOFTWARE\\Microsoft\\Function Discovery\\");
-pub const FD_Visibility_Default: u32 = 0u32;
-pub const FD_Visibility_Hidden: u32 = 1u32;
-pub const FMTID_Device: windows_core::GUID = windows_core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57);
-pub const FMTID_DeviceInterface: windows_core::GUID = windows_core::GUID::from_u128(0x53808008_07bb_4661_bc3c_b5953e708560);
-pub const FMTID_FD: windows_core::GUID = windows_core::GUID::from_u128(0x904b03a2_471d_423c_a584_f3483238a146);
-pub const FMTID_PNPX: windows_core::GUID = windows_core::GUID::from_u128(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd);
-pub const FMTID_PNPXDynamicProperty: windows_core::GUID = windows_core::GUID::from_u128(0x4fc5077e_b686_44be_93e3_86cafe368ccd);
-pub const FMTID_Pairing: windows_core::GUID = windows_core::GUID::from_u128(0x8807cae6_7db6_4f10_8ee4_435eaa1392bc);
-pub const FMTID_WSD: windows_core::GUID = windows_core::GUID::from_u128(0x92506491_ff95_4724_a05a_5b81885a7c92);
 pub const MAX_FDCONSTRAINTNAME_LENGTH: u32 = 100u32;
 pub const MAX_FDCONSTRAINTVALUE_LENGTH: u32 = 1000u32;
 pub const ONLINE_PROVIDER_DEVICES_QUERYCONSTRAINT_OWNERNAME: windows_core::PCWSTR = windows_core::w!("OwnerName");
@@ -1926,6 +1910,8 @@ pub const PKEY_WNET_RemoteName: super::super::Foundation::PROPERTYKEY = super::s
 pub const PKEY_WNET_Scope: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xdebda43a_37b3_4383_91e7_4498da2995ab), pid: 1 };
 pub const PKEY_WNET_Type: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xdebda43a_37b3_4383_91e7_4498da2995ab), pid: 2 };
 pub const PKEY_WNET_Usage: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xdebda43a_37b3_4383_91e7_4498da2995ab), pid: 4 };
+pub const PNPXAssociation: windows_core::GUID = windows_core::GUID::from_u128(0xcee8ccc9_4f6b_4469_a235_5a22869eef03);
+pub const PNPXPairingHandler: windows_core::GUID = windows_core::GUID::from_u128(0xb8a27942_ade7_4085_aa6e_4fadc7ada1ef);
 pub const PNPX_DEVICECATEGORY_CAMERA: windows_core::PCWSTR = windows_core::w!("Cameras");
 pub const PNPX_DEVICECATEGORY_COMPUTER: windows_core::PCWSTR = windows_core::w!("Computers");
 pub const PNPX_DEVICECATEGORY_DISPLAYS: windows_core::PCWSTR = windows_core::w!("Displays");
@@ -1965,6 +1951,11 @@ pub const PROVIDERWSD_QUERYCONSTRAINT_SECURITY_REQUIREMENTS: windows_core::PCWST
 pub const PROVIDERWSD_QUERYCONSTRAINT_SSL_CERTHASH_FOR_SERVER_AUTH: windows_core::PCWSTR = windows_core::w!("SSLServerAuthCertHash");
 pub const PROVIDERWSD_QUERYCONSTRAINT_SSL_CERT_FOR_CLIENT_AUTH: windows_core::PCWSTR = windows_core::w!("SSLClientAuthCert");
 pub const PROVIDERWSD_QUERYCONSTRAINT_TYPE: windows_core::PCWSTR = windows_core::w!("Type");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PropertyConstraint(pub i32);
+pub const PropertyStore: windows_core::GUID = windows_core::GUID::from_u128(0xe4796550_df61_448b_9193_13fc1341b163);
+pub const PropertyStoreCollection: windows_core::GUID = windows_core::GUID::from_u128(0xedd36029_d753_4862_aa5b_5bccad2a4d29);
 pub const QCT_LAYERED: QueryCategoryType = QueryCategoryType(1i32);
 pub const QCT_PROVIDER: QueryCategoryType = QueryCategoryType(0i32);
 pub const QC_CONTAINS: PropertyConstraint = PropertyConstraint(9i32);
@@ -1980,6 +1971,12 @@ pub const QC_STARTSWITH: PropertyConstraint = PropertyConstraint(6i32);
 pub const QUA_ADD: QueryUpdateAction = QueryUpdateAction(0i32);
 pub const QUA_CHANGE: QueryUpdateAction = QueryUpdateAction(2i32);
 pub const QUA_REMOVE: QueryUpdateAction = QueryUpdateAction(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QueryCategoryType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QueryUpdateAction(pub i32);
 pub const SID_DeviceDisplayStatusManager: windows_core::GUID = windows_core::GUID::from_u128(0xf59aa553_8309_46ca_9736_1ac3c62d6031);
 pub const SID_EnumDeviceFunction: windows_core::GUID = windows_core::GUID::from_u128(0x13e0e9e2_c3fa_4e3c_906e_64502fa4dc95);
 pub const SID_EnumInterface: windows_core::GUID = windows_core::GUID::from_u128(0x40eab0b9_4d7f_4b53_a334_1581dd9041f4);
@@ -1998,6 +1995,9 @@ pub const SSDP_CONSTRAINTVALUE_TYPE_ROOT: windows_core::PCWSTR = windows_core::w
 pub const SSDP_CONSTRAINTVALUE_TYPE_SVC_PREFIX: windows_core::PCWSTR = windows_core::w!("urn:schemas-upnp-org:service:");
 pub const SVF_SYSTEM: SystemVisibilityFlags = SystemVisibilityFlags(0i32);
 pub const SVF_USER: SystemVisibilityFlags = SystemVisibilityFlags(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SystemVisibilityFlags(pub i32);
 pub const WNET_CONSTRAINTVALUE_PROPERTIES_ALL: windows_core::PCWSTR = windows_core::w!("All");
 pub const WNET_CONSTRAINTVALUE_PROPERTIES_LIMITED: windows_core::PCWSTR = windows_core::w!("Limited");
 pub const WNET_CONSTRAINTVALUE_RESOURCETYPE_DISK: windows_core::PCWSTR = windows_core::w!("Disk");

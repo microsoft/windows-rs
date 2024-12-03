@@ -1,3 +1,39 @@
+windows_core::imp::define_interface!(IXsltProcessor, IXsltProcessor_Vtbl, 0x7b64703f_550c_48c6_a90f_93a5b964518f);
+impl windows_core::RuntimeType for IXsltProcessor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IXsltProcessor_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Data_Xml_Dom")]
+    pub TransformToString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Data_Xml_Dom"))]
+    TransformToString: usize,
+}
+windows_core::imp::define_interface!(IXsltProcessor2, IXsltProcessor2_Vtbl, 0x8da45c56_97a5_44cb_a8be_27d86280c70a);
+impl windows_core::RuntimeType for IXsltProcessor2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IXsltProcessor2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Data_Xml_Dom")]
+    pub TransformToDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Data_Xml_Dom"))]
+    TransformToDocument: usize,
+}
+windows_core::imp::define_interface!(IXsltProcessorFactory, IXsltProcessorFactory_Vtbl, 0x274146c0_9a51_4663_bf30_0ef742146f20);
+impl windows_core::RuntimeType for IXsltProcessorFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IXsltProcessorFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Data_Xml_Dom")]
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Data_Xml_Dom"))]
+    CreateInstance: usize,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XsltProcessor(windows_core::IUnknown);
@@ -52,39 +88,3 @@ impl windows_core::RuntimeName for XsltProcessor {
 }
 unsafe impl Send for XsltProcessor {}
 unsafe impl Sync for XsltProcessor {}
-windows_core::imp::define_interface!(IXsltProcessor, IXsltProcessor_Vtbl, 0x7b64703f_550c_48c6_a90f_93a5b964518f);
-impl windows_core::RuntimeType for IXsltProcessor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IXsltProcessor_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Data_Xml_Dom")]
-    pub TransformToString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Data_Xml_Dom"))]
-    TransformToString: usize,
-}
-windows_core::imp::define_interface!(IXsltProcessor2, IXsltProcessor2_Vtbl, 0x8da45c56_97a5_44cb_a8be_27d86280c70a);
-impl windows_core::RuntimeType for IXsltProcessor2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IXsltProcessor2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Data_Xml_Dom")]
-    pub TransformToDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Data_Xml_Dom"))]
-    TransformToDocument: usize,
-}
-windows_core::imp::define_interface!(IXsltProcessorFactory, IXsltProcessorFactory_Vtbl, 0x274146c0_9a51_4663_bf30_0ef742146f20);
-impl windows_core::RuntimeType for IXsltProcessorFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IXsltProcessorFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Data_Xml_Dom")]
-    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Data_Xml_Dom"))]
-    CreateInstance: usize,
-}

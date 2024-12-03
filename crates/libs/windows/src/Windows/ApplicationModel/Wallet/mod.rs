@@ -1,954 +1,6 @@
 #[cfg(feature = "ApplicationModel_Wallet_System")]
 pub mod System;
 #[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct WalletBarcode(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-windows_core::imp::interface_hierarchy!(WalletBarcode, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-impl WalletBarcode {
-    #[cfg(feature = "deprecated")]
-    pub fn Symbology(&self) -> windows_core::Result<WalletBarcodeSymbology> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Symbology)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn Value(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn GetImageAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamReference>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetImageAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn CreateWalletBarcode(symbology: WalletBarcodeSymbology, value: &windows_core::HSTRING) -> windows_core::Result<WalletBarcode> {
-        Self::IWalletBarcodeFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWalletBarcode)(windows_core::Interface::as_raw(this), symbology, core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn CreateCustomWalletBarcode<P0>(streamtobarcodeimage: P0) -> windows_core::Result<WalletBarcode>
-    where
-        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
-    {
-        Self::IWalletBarcodeFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCustomWalletBarcode)(windows_core::Interface::as_raw(this), streamtobarcodeimage.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IWalletBarcodeFactory<R, F: FnOnce(&IWalletBarcodeFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<WalletBarcode, IWalletBarcodeFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for WalletBarcode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWalletBarcode>();
-}
-#[cfg(feature = "deprecated")]
-unsafe impl windows_core::Interface for WalletBarcode {
-    type Vtable = <IWalletBarcode as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IWalletBarcode as windows_core::Interface>::IID;
-}
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeName for WalletBarcode {
-    const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletBarcode";
-}
-#[cfg(feature = "deprecated")]
-unsafe impl Send for WalletBarcode {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for WalletBarcode {}
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct WalletItem(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-windows_core::imp::interface_hierarchy!(WalletItem, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-impl WalletItem {
-    #[cfg(feature = "deprecated")]
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn IsAcknowledged(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsAcknowledged)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn SetIsAcknowledged(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIsAcknowledged)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn IssuerDisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IssuerDisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn SetIssuerDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIssuerDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn LastUpdated(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LastUpdated)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn SetLastUpdated<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLastUpdated)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn Kind(&self) -> windows_core::Result<WalletItemKind> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn Barcode(&self) -> windows_core::Result<WalletBarcode> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Barcode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn SetBarcode<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<WalletBarcode>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBarcode)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn ExpirationDate(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ExpirationDate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn SetExpirationDate<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetExpirationDate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn Logo159x159(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Logo159x159)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn SetLogo159x159<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLogo159x159)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn Logo336x336(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Logo336x336)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn SetLogo336x336<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLogo336x336)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn Logo99x99(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Logo99x99)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn SetLogo99x99<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLogo99x99)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn DisplayMessage(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayMessage)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn SetDisplayMessage(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDisplayMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn IsDisplayMessageLaunchable(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsDisplayMessageLaunchable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn SetIsDisplayMessageLaunchable(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIsDisplayMessageLaunchable)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn LogoText(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LogoText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn SetLogoText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLogoText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    #[cfg(all(feature = "UI", feature = "deprecated"))]
-    pub fn HeaderColor(&self) -> windows_core::Result<super::super::UI::Color> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HeaderColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(all(feature = "UI", feature = "deprecated"))]
-    pub fn SetHeaderColor(&self, value: super::super::UI::Color) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetHeaderColor)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    #[cfg(all(feature = "UI", feature = "deprecated"))]
-    pub fn BodyColor(&self) -> windows_core::Result<super::super::UI::Color> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BodyColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(all(feature = "UI", feature = "deprecated"))]
-    pub fn SetBodyColor(&self, value: super::super::UI::Color) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBodyColor)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    #[cfg(all(feature = "UI", feature = "deprecated"))]
-    pub fn HeaderFontColor(&self) -> windows_core::Result<super::super::UI::Color> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HeaderFontColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(all(feature = "UI", feature = "deprecated"))]
-    pub fn SetHeaderFontColor(&self, value: super::super::UI::Color) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetHeaderFontColor)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    #[cfg(all(feature = "UI", feature = "deprecated"))]
-    pub fn BodyFontColor(&self) -> windows_core::Result<super::super::UI::Color> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BodyFontColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(all(feature = "UI", feature = "deprecated"))]
-    pub fn SetBodyFontColor(&self, value: super::super::UI::Color) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBodyFontColor)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn HeaderBackgroundImage(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HeaderBackgroundImage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn SetHeaderBackgroundImage<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetHeaderBackgroundImage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn BodyBackgroundImage(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BodyBackgroundImage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn SetBodyBackgroundImage<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBodyBackgroundImage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn LogoImage(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LogoImage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn SetLogoImage<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLogoImage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn PromotionalImage(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PromotionalImage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn SetPromotionalImage<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPromotionalImage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn RelevantDate(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RelevantDate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn SetRelevantDate<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetRelevantDate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn RelevantDateDisplayMessage(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RelevantDateDisplayMessage)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn SetRelevantDateDisplayMessage(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetRelevantDateDisplayMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn TransactionHistory(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, WalletTransaction>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TransactionHistory)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn RelevantLocations(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, WalletRelevantLocation>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RelevantLocations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn IsMoreTransactionHistoryLaunchable(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsMoreTransactionHistoryLaunchable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn SetIsMoreTransactionHistoryLaunchable(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIsMoreTransactionHistoryLaunchable)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn DisplayProperties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, WalletItemCustomProperty>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn Verbs(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, WalletVerb>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Verbs)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn CreateWalletItem(kind: WalletItemKind, displayname: &windows_core::HSTRING) -> windows_core::Result<WalletItem> {
-        Self::IWalletItemFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWalletItem)(windows_core::Interface::as_raw(this), kind, core::mem::transmute_copy(displayname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IWalletItemFactory<R, F: FnOnce(&IWalletItemFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<WalletItem, IWalletItemFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for WalletItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWalletItem>();
-}
-#[cfg(feature = "deprecated")]
-unsafe impl windows_core::Interface for WalletItem {
-    type Vtable = <IWalletItem as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IWalletItem as windows_core::Interface>::IID;
-}
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeName for WalletItem {
-    const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItem";
-}
-#[cfg(feature = "deprecated")]
-unsafe impl Send for WalletItem {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for WalletItem {}
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct WalletItemCustomProperty(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-windows_core::imp::interface_hierarchy!(WalletItemCustomProperty, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-impl WalletItemCustomProperty {
-    #[cfg(feature = "deprecated")]
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn SetName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn Value(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn SetValue(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn AutoDetectLinks(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AutoDetectLinks)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn SetAutoDetectLinks(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAutoDetectLinks)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn DetailViewPosition(&self) -> windows_core::Result<WalletDetailViewPosition> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DetailViewPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn SetDetailViewPosition(&self, value: WalletDetailViewPosition) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDetailViewPosition)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn SummaryViewPosition(&self) -> windows_core::Result<WalletSummaryViewPosition> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SummaryViewPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn SetSummaryViewPosition(&self, value: WalletSummaryViewPosition) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSummaryViewPosition)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn CreateWalletItemCustomProperty(name: &windows_core::HSTRING, value: &windows_core::HSTRING) -> windows_core::Result<WalletItemCustomProperty> {
-        Self::IWalletItemCustomPropertyFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWalletItemCustomProperty)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IWalletItemCustomPropertyFactory<R, F: FnOnce(&IWalletItemCustomPropertyFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<WalletItemCustomProperty, IWalletItemCustomPropertyFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for WalletItemCustomProperty {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWalletItemCustomProperty>();
-}
-#[cfg(feature = "deprecated")]
-unsafe impl windows_core::Interface for WalletItemCustomProperty {
-    type Vtable = <IWalletItemCustomProperty as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IWalletItemCustomProperty as windows_core::Interface>::IID;
-}
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeName for WalletItemCustomProperty {
-    const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItemCustomProperty";
-}
-#[cfg(feature = "deprecated")]
-unsafe impl Send for WalletItemCustomProperty {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for WalletItemCustomProperty {}
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct WalletItemStore(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-windows_core::imp::interface_hierarchy!(WalletItemStore, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-impl WalletItemStore {
-    #[cfg(feature = "deprecated")]
-    pub fn AddAsync<P1>(&self, id: &windows_core::HSTRING, item: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P1: windows_core::Param<WalletItem>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AddAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), item.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn ClearAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ClearAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn GetWalletItemAsync(&self, id: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<WalletItem>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetWalletItemAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn GetItemsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WalletItem>>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetItemsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn GetItemsWithKindAsync(&self, kind: WalletItemKind) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WalletItem>>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetItemsWithKindAsync)(windows_core::Interface::as_raw(this), kind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn ImportItemAsync<P0>(&self, stream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<WalletItem>>
-    where
-        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImportItemAsync)(windows_core::Interface::as_raw(this), stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn DeleteAsync(&self, id: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeleteAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn ShowAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShowAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn ShowItemAsync(&self, id: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShowItemAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn UpdateAsync<P0>(&self, item: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: windows_core::Param<WalletItem>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateAsync)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for WalletItemStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWalletItemStore>();
-}
-#[cfg(feature = "deprecated")]
-unsafe impl windows_core::Interface for WalletItemStore {
-    type Vtable = <IWalletItemStore as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IWalletItemStore as windows_core::Interface>::IID;
-}
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeName for WalletItemStore {
-    const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItemStore";
-}
-#[cfg(feature = "deprecated")]
-unsafe impl Send for WalletItemStore {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for WalletItemStore {}
-#[cfg(feature = "deprecated")]
-pub struct WalletManager;
-#[cfg(feature = "deprecated")]
-impl WalletManager {
-    #[cfg(feature = "deprecated")]
-    pub fn RequestStoreAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<WalletItemStore>> {
-        Self::IWalletManagerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestStoreAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IWalletManagerStatics<R, F: FnOnce(&IWalletManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<WalletManager, IWalletManagerStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeName for WalletManager {
-    const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletManager";
-}
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct WalletRelevantLocation(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-windows_core::imp::interface_hierarchy!(WalletRelevantLocation, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-impl WalletRelevantLocation {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<WalletRelevantLocation, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[cfg(all(feature = "Devices_Geolocation", feature = "deprecated"))]
-    pub fn Position(&self) -> windows_core::Result<super::super::Devices::Geolocation::BasicGeoposition> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(all(feature = "Devices_Geolocation", feature = "deprecated"))]
-    pub fn SetPosition(&self, value: super::super::Devices::Geolocation::BasicGeoposition) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPosition)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn DisplayMessage(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayMessage)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn SetDisplayMessage(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDisplayMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for WalletRelevantLocation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWalletRelevantLocation>();
-}
-#[cfg(feature = "deprecated")]
-unsafe impl windows_core::Interface for WalletRelevantLocation {
-    type Vtable = <IWalletRelevantLocation as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IWalletRelevantLocation as windows_core::Interface>::IID;
-}
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeName for WalletRelevantLocation {
-    const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletRelevantLocation";
-}
-#[cfg(feature = "deprecated")]
-unsafe impl Send for WalletRelevantLocation {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for WalletRelevantLocation {}
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct WalletTransaction(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-windows_core::imp::interface_hierarchy!(WalletTransaction, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-impl WalletTransaction {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<WalletTransaction, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn SetDescription(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDescription)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn DisplayAmount(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayAmount)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn SetDisplayAmount(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDisplayAmount)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn IgnoreTimeOfDay(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IgnoreTimeOfDay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn SetIgnoreTimeOfDay(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIgnoreTimeOfDay)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn DisplayLocation(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayLocation)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn SetDisplayLocation(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDisplayLocation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn TransactionDate(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TransactionDate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn SetTransactionDate<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTransactionDate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn IsLaunchable(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsLaunchable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn SetIsLaunchable(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIsLaunchable)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for WalletTransaction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWalletTransaction>();
-}
-#[cfg(feature = "deprecated")]
-unsafe impl windows_core::Interface for WalletTransaction {
-    type Vtable = <IWalletTransaction as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IWalletTransaction as windows_core::Interface>::IID;
-}
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeName for WalletTransaction {
-    const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletTransaction";
-}
-#[cfg(feature = "deprecated")]
-unsafe impl Send for WalletTransaction {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for WalletTransaction {}
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct WalletVerb(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-windows_core::imp::interface_hierarchy!(WalletVerb, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-impl WalletVerb {
-    #[cfg(feature = "deprecated")]
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn SetName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn CreateWalletVerb(name: &windows_core::HSTRING) -> windows_core::Result<WalletVerb> {
-        Self::IWalletVerbFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWalletVerb)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IWalletVerbFactory<R, F: FnOnce(&IWalletVerbFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<WalletVerb, IWalletVerbFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for WalletVerb {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWalletVerb>();
-}
-#[cfg(feature = "deprecated")]
-unsafe impl windows_core::Interface for WalletVerb {
-    type Vtable = <IWalletVerb as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IWalletVerb as windows_core::Interface>::IID;
-}
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeName for WalletVerb {
-    const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletVerb";
-}
-#[cfg(feature = "deprecated")]
-unsafe impl Send for WalletVerb {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for WalletVerb {}
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IWalletBarcode, IWalletBarcode_Vtbl, 0x4f857b29_de80_4ea4_a1cd_81cd084dac27);
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for IWalletBarcode {
@@ -1511,6 +563,77 @@ impl windows_core::TypeKind for WalletActionKind {
 impl windows_core::RuntimeType for WalletActionKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletActionKind;i4)");
 }
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WalletBarcode(windows_core::IUnknown);
+#[cfg(feature = "deprecated")]
+windows_core::imp::interface_hierarchy!(WalletBarcode, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+impl WalletBarcode {
+    #[cfg(feature = "deprecated")]
+    pub fn Symbology(&self) -> windows_core::Result<WalletBarcodeSymbology> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Symbology)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn Value(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    pub fn GetImageAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamReference>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetImageAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn CreateWalletBarcode(symbology: WalletBarcodeSymbology, value: &windows_core::HSTRING) -> windows_core::Result<WalletBarcode> {
+        Self::IWalletBarcodeFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateWalletBarcode)(windows_core::Interface::as_raw(this), symbology, core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    pub fn CreateCustomWalletBarcode<P0>(streamtobarcodeimage: P0) -> windows_core::Result<WalletBarcode>
+    where
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
+    {
+        Self::IWalletBarcodeFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateCustomWalletBarcode)(windows_core::Interface::as_raw(this), streamtobarcodeimage.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWalletBarcodeFactory<R, F: FnOnce(&IWalletBarcodeFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WalletBarcode, IWalletBarcodeFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for WalletBarcode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWalletBarcode>();
+}
+#[cfg(feature = "deprecated")]
+unsafe impl windows_core::Interface for WalletBarcode {
+    type Vtable = <IWalletBarcode as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWalletBarcode as windows_core::Interface>::IID;
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeName for WalletBarcode {
+    const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletBarcode";
+}
+#[cfg(feature = "deprecated")]
+unsafe impl Send for WalletBarcode {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for WalletBarcode {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WalletBarcodeSymbology(pub i32);
@@ -1560,6 +683,525 @@ impl windows_core::TypeKind for WalletDetailViewPosition {
 impl windows_core::RuntimeType for WalletDetailViewPosition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletDetailViewPosition;i4)");
 }
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WalletItem(windows_core::IUnknown);
+#[cfg(feature = "deprecated")]
+windows_core::imp::interface_hierarchy!(WalletItem, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+impl WalletItem {
+    #[cfg(feature = "deprecated")]
+    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn IsAcknowledged(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsAcknowledged)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn SetIsAcknowledged(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetIsAcknowledged)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn IssuerDisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IssuerDisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn SetIssuerDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetIssuerDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn LastUpdated(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LastUpdated)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn SetLastUpdated<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetLastUpdated)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn Kind(&self) -> windows_core::Result<WalletItemKind> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn Barcode(&self) -> windows_core::Result<WalletBarcode> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Barcode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn SetBarcode<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<WalletBarcode>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetBarcode)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn ExpirationDate(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ExpirationDate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn SetExpirationDate<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetExpirationDate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    pub fn Logo159x159(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Logo159x159)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    pub fn SetLogo159x159<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetLogo159x159)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    pub fn Logo336x336(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Logo336x336)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    pub fn SetLogo336x336<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetLogo336x336)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    pub fn Logo99x99(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Logo99x99)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    pub fn SetLogo99x99<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetLogo99x99)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn DisplayMessage(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayMessage)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn SetDisplayMessage(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetDisplayMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn IsDisplayMessageLaunchable(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsDisplayMessageLaunchable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn SetIsDisplayMessageLaunchable(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetIsDisplayMessageLaunchable)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn LogoText(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LogoText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn SetLogoText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetLogoText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    #[cfg(all(feature = "UI", feature = "deprecated"))]
+    pub fn HeaderColor(&self) -> windows_core::Result<super::super::UI::Color> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HeaderColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(all(feature = "UI", feature = "deprecated"))]
+    pub fn SetHeaderColor(&self, value: super::super::UI::Color) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetHeaderColor)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    #[cfg(all(feature = "UI", feature = "deprecated"))]
+    pub fn BodyColor(&self) -> windows_core::Result<super::super::UI::Color> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).BodyColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(all(feature = "UI", feature = "deprecated"))]
+    pub fn SetBodyColor(&self, value: super::super::UI::Color) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetBodyColor)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    #[cfg(all(feature = "UI", feature = "deprecated"))]
+    pub fn HeaderFontColor(&self) -> windows_core::Result<super::super::UI::Color> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HeaderFontColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(all(feature = "UI", feature = "deprecated"))]
+    pub fn SetHeaderFontColor(&self, value: super::super::UI::Color) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetHeaderFontColor)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    #[cfg(all(feature = "UI", feature = "deprecated"))]
+    pub fn BodyFontColor(&self) -> windows_core::Result<super::super::UI::Color> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).BodyFontColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(all(feature = "UI", feature = "deprecated"))]
+    pub fn SetBodyFontColor(&self, value: super::super::UI::Color) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetBodyFontColor)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    pub fn HeaderBackgroundImage(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HeaderBackgroundImage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    pub fn SetHeaderBackgroundImage<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetHeaderBackgroundImage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    pub fn BodyBackgroundImage(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).BodyBackgroundImage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    pub fn SetBodyBackgroundImage<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetBodyBackgroundImage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    pub fn LogoImage(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LogoImage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    pub fn SetLogoImage<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetLogoImage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    pub fn PromotionalImage(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PromotionalImage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    pub fn SetPromotionalImage<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetPromotionalImage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn RelevantDate(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RelevantDate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn SetRelevantDate<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetRelevantDate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn RelevantDateDisplayMessage(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RelevantDateDisplayMessage)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn SetRelevantDateDisplayMessage(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetRelevantDateDisplayMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    pub fn TransactionHistory(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, WalletTransaction>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TransactionHistory)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    pub fn RelevantLocations(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, WalletRelevantLocation>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RelevantLocations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn IsMoreTransactionHistoryLaunchable(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsMoreTransactionHistoryLaunchable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn SetIsMoreTransactionHistoryLaunchable(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetIsMoreTransactionHistoryLaunchable)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    pub fn DisplayProperties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, WalletItemCustomProperty>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    pub fn Verbs(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, WalletVerb>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Verbs)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn CreateWalletItem(kind: WalletItemKind, displayname: &windows_core::HSTRING) -> windows_core::Result<WalletItem> {
+        Self::IWalletItemFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateWalletItem)(windows_core::Interface::as_raw(this), kind, core::mem::transmute_copy(displayname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWalletItemFactory<R, F: FnOnce(&IWalletItemFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WalletItem, IWalletItemFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for WalletItem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWalletItem>();
+}
+#[cfg(feature = "deprecated")]
+unsafe impl windows_core::Interface for WalletItem {
+    type Vtable = <IWalletItem as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWalletItem as windows_core::Interface>::IID;
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeName for WalletItem {
+    const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItem";
+}
+#[cfg(feature = "deprecated")]
+unsafe impl Send for WalletItem {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for WalletItem {}
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WalletItemCustomProperty(windows_core::IUnknown);
+#[cfg(feature = "deprecated")]
+windows_core::imp::interface_hierarchy!(WalletItemCustomProperty, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+impl WalletItemCustomProperty {
+    #[cfg(feature = "deprecated")]
+    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn SetName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn Value(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn SetValue(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn AutoDetectLinks(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AutoDetectLinks)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn SetAutoDetectLinks(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetAutoDetectLinks)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn DetailViewPosition(&self) -> windows_core::Result<WalletDetailViewPosition> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DetailViewPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn SetDetailViewPosition(&self, value: WalletDetailViewPosition) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetDetailViewPosition)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn SummaryViewPosition(&self) -> windows_core::Result<WalletSummaryViewPosition> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SummaryViewPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn SetSummaryViewPosition(&self, value: WalletSummaryViewPosition) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetSummaryViewPosition)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn CreateWalletItemCustomProperty(name: &windows_core::HSTRING, value: &windows_core::HSTRING) -> windows_core::Result<WalletItemCustomProperty> {
+        Self::IWalletItemCustomPropertyFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateWalletItemCustomProperty)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWalletItemCustomPropertyFactory<R, F: FnOnce(&IWalletItemCustomPropertyFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WalletItemCustomProperty, IWalletItemCustomPropertyFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for WalletItemCustomProperty {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWalletItemCustomProperty>();
+}
+#[cfg(feature = "deprecated")]
+unsafe impl windows_core::Interface for WalletItemCustomProperty {
+    type Vtable = <IWalletItemCustomProperty as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWalletItemCustomProperty as windows_core::Interface>::IID;
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeName for WalletItemCustomProperty {
+    const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItemCustomProperty";
+}
+#[cfg(feature = "deprecated")]
+unsafe impl Send for WalletItemCustomProperty {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for WalletItemCustomProperty {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WalletItemKind(pub i32);
@@ -1578,6 +1220,200 @@ impl windows_core::TypeKind for WalletItemKind {
 impl windows_core::RuntimeType for WalletItemKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletItemKind;i4)");
 }
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WalletItemStore(windows_core::IUnknown);
+#[cfg(feature = "deprecated")]
+windows_core::imp::interface_hierarchy!(WalletItemStore, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+impl WalletItemStore {
+    #[cfg(feature = "deprecated")]
+    pub fn AddAsync<P1>(&self, id: &windows_core::HSTRING, item: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P1: windows_core::Param<WalletItem>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AddAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), item.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn ClearAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ClearAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn GetWalletItemAsync(&self, id: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<WalletItem>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetWalletItemAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    pub fn GetItemsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WalletItem>>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetItemsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    pub fn GetItemsWithKindAsync(&self, kind: WalletItemKind) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WalletItem>>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetItemsWithKindAsync)(windows_core::Interface::as_raw(this), kind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    pub fn ImportItemAsync<P0>(&self, stream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<WalletItem>>
+    where
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ImportItemAsync)(windows_core::Interface::as_raw(this), stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn DeleteAsync(&self, id: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeleteAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn ShowAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ShowAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn ShowItemAsync(&self, id: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ShowItemAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn UpdateAsync<P0>(&self, item: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<WalletItem>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UpdateAsync)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for WalletItemStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWalletItemStore>();
+}
+#[cfg(feature = "deprecated")]
+unsafe impl windows_core::Interface for WalletItemStore {
+    type Vtable = <IWalletItemStore as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWalletItemStore as windows_core::Interface>::IID;
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeName for WalletItemStore {
+    const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItemStore";
+}
+#[cfg(feature = "deprecated")]
+unsafe impl Send for WalletItemStore {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for WalletItemStore {}
+#[cfg(feature = "deprecated")]
+pub struct WalletManager;
+#[cfg(feature = "deprecated")]
+impl WalletManager {
+    #[cfg(feature = "deprecated")]
+    pub fn RequestStoreAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<WalletItemStore>> {
+        Self::IWalletManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestStoreAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWalletManagerStatics<R, F: FnOnce(&IWalletManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WalletManager, IWalletManagerStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeName for WalletManager {
+    const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletManager";
+}
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WalletRelevantLocation(windows_core::IUnknown);
+#[cfg(feature = "deprecated")]
+windows_core::imp::interface_hierarchy!(WalletRelevantLocation, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+impl WalletRelevantLocation {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WalletRelevantLocation, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[cfg(all(feature = "Devices_Geolocation", feature = "deprecated"))]
+    pub fn Position(&self) -> windows_core::Result<super::super::Devices::Geolocation::BasicGeoposition> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(all(feature = "Devices_Geolocation", feature = "deprecated"))]
+    pub fn SetPosition(&self, value: super::super::Devices::Geolocation::BasicGeoposition) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetPosition)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn DisplayMessage(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayMessage)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn SetDisplayMessage(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetDisplayMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for WalletRelevantLocation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWalletRelevantLocation>();
+}
+#[cfg(feature = "deprecated")]
+unsafe impl windows_core::Interface for WalletRelevantLocation {
+    type Vtable = <IWalletRelevantLocation as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWalletRelevantLocation as windows_core::Interface>::IID;
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeName for WalletRelevantLocation {
+    const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletRelevantLocation";
+}
+#[cfg(feature = "deprecated")]
+unsafe impl Send for WalletRelevantLocation {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for WalletRelevantLocation {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WalletSummaryViewPosition(pub i32);
@@ -1592,3 +1428,167 @@ impl windows_core::TypeKind for WalletSummaryViewPosition {
 impl windows_core::RuntimeType for WalletSummaryViewPosition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletSummaryViewPosition;i4)");
 }
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WalletTransaction(windows_core::IUnknown);
+#[cfg(feature = "deprecated")]
+windows_core::imp::interface_hierarchy!(WalletTransaction, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+impl WalletTransaction {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WalletTransaction, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn SetDescription(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetDescription)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn DisplayAmount(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayAmount)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn SetDisplayAmount(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetDisplayAmount)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn IgnoreTimeOfDay(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IgnoreTimeOfDay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn SetIgnoreTimeOfDay(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetIgnoreTimeOfDay)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn DisplayLocation(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayLocation)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn SetDisplayLocation(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetDisplayLocation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn TransactionDate(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TransactionDate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn SetTransactionDate<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetTransactionDate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn IsLaunchable(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsLaunchable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn SetIsLaunchable(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetIsLaunchable)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for WalletTransaction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWalletTransaction>();
+}
+#[cfg(feature = "deprecated")]
+unsafe impl windows_core::Interface for WalletTransaction {
+    type Vtable = <IWalletTransaction as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWalletTransaction as windows_core::Interface>::IID;
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeName for WalletTransaction {
+    const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletTransaction";
+}
+#[cfg(feature = "deprecated")]
+unsafe impl Send for WalletTransaction {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for WalletTransaction {}
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WalletVerb(windows_core::IUnknown);
+#[cfg(feature = "deprecated")]
+windows_core::imp::interface_hierarchy!(WalletVerb, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+impl WalletVerb {
+    #[cfg(feature = "deprecated")]
+    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn SetName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn CreateWalletVerb(name: &windows_core::HSTRING) -> windows_core::Result<WalletVerb> {
+        Self::IWalletVerbFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateWalletVerb)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWalletVerbFactory<R, F: FnOnce(&IWalletVerbFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WalletVerb, IWalletVerbFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for WalletVerb {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWalletVerb>();
+}
+#[cfg(feature = "deprecated")]
+unsafe impl windows_core::Interface for WalletVerb {
+    type Vtable = <IWalletVerb as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWalletVerb as windows_core::Interface>::IID;
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeName for WalletVerb {
+    const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletVerb";
+}
+#[cfg(feature = "deprecated")]
+unsafe impl Send for WalletVerb {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for WalletVerb {}

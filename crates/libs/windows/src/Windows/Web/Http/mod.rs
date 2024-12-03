@@ -391,6 +391,19 @@ impl windows_core::RuntimeName for HttpClient {
 unsafe impl Send for HttpClient {}
 unsafe impl Sync for HttpClient {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HttpCompletionOption(pub i32);
+impl HttpCompletionOption {
+    pub const ResponseContentRead: Self = Self(0i32);
+    pub const ResponseHeadersRead: Self = Self(1i32);
+}
+impl windows_core::TypeKind for HttpCompletionOption {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HttpCompletionOption {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpCompletionOption;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpCookie(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpCookie, windows_core::IUnknown, windows_core::IInspectable);
@@ -1322,6 +1335,43 @@ impl IntoIterator for &HttpMultipartFormDataContent {
         self.First().unwrap()
     }
 }
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct HttpProgress {
+    pub Stage: HttpProgressStage,
+    pub BytesSent: u64,
+    pub TotalBytesToSend: Option<super::super::Foundation::IReference<u64>>,
+    pub BytesReceived: u64,
+    pub TotalBytesToReceive: Option<super::super::Foundation::IReference<u64>>,
+    pub Retries: u32,
+}
+impl windows_core::TypeKind for HttpProgress {
+    type TypeKind = windows_core::CloneType;
+}
+impl windows_core::RuntimeType for HttpProgress {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Web.Http.HttpProgress;enum(Windows.Web.Http.HttpProgressStage;i4);u8;pinterface({61c17706-2d65-11e0-9ae8-d48564015472};u8);u8;pinterface({61c17706-2d65-11e0-9ae8-d48564015472};u8);u4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HttpProgressStage(pub i32);
+impl HttpProgressStage {
+    pub const None: Self = Self(0i32);
+    pub const DetectingProxy: Self = Self(10i32);
+    pub const ResolvingName: Self = Self(20i32);
+    pub const ConnectingToServer: Self = Self(30i32);
+    pub const NegotiatingSsl: Self = Self(40i32);
+    pub const SendingHeaders: Self = Self(50i32);
+    pub const SendingContent: Self = Self(60i32);
+    pub const WaitingForResponse: Self = Self(70i32);
+    pub const ReceivingHeaders: Self = Self(80i32);
+    pub const ReceivingContent: Self = Self(90i32);
+}
+impl windows_core::TypeKind for HttpProgressStage {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HttpProgressStage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpProgressStage;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpRequestMessage(windows_core::IUnknown);
@@ -1649,6 +1699,89 @@ impl windows_core::RuntimeName for HttpResponseMessage {
 unsafe impl Send for HttpResponseMessage {}
 unsafe impl Sync for HttpResponseMessage {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HttpResponseMessageSource(pub i32);
+impl HttpResponseMessageSource {
+    pub const None: Self = Self(0i32);
+    pub const Cache: Self = Self(1i32);
+    pub const Network: Self = Self(2i32);
+}
+impl windows_core::TypeKind for HttpResponseMessageSource {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HttpResponseMessageSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpResponseMessageSource;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HttpStatusCode(pub i32);
+impl HttpStatusCode {
+    pub const None: Self = Self(0i32);
+    pub const Continue: Self = Self(100i32);
+    pub const SwitchingProtocols: Self = Self(101i32);
+    pub const Processing: Self = Self(102i32);
+    pub const Ok: Self = Self(200i32);
+    pub const Created: Self = Self(201i32);
+    pub const Accepted: Self = Self(202i32);
+    pub const NonAuthoritativeInformation: Self = Self(203i32);
+    pub const NoContent: Self = Self(204i32);
+    pub const ResetContent: Self = Self(205i32);
+    pub const PartialContent: Self = Self(206i32);
+    pub const MultiStatus: Self = Self(207i32);
+    pub const AlreadyReported: Self = Self(208i32);
+    pub const IMUsed: Self = Self(226i32);
+    pub const MultipleChoices: Self = Self(300i32);
+    pub const MovedPermanently: Self = Self(301i32);
+    pub const Found: Self = Self(302i32);
+    pub const SeeOther: Self = Self(303i32);
+    pub const NotModified: Self = Self(304i32);
+    pub const UseProxy: Self = Self(305i32);
+    pub const TemporaryRedirect: Self = Self(307i32);
+    pub const PermanentRedirect: Self = Self(308i32);
+    pub const BadRequest: Self = Self(400i32);
+    pub const Unauthorized: Self = Self(401i32);
+    pub const PaymentRequired: Self = Self(402i32);
+    pub const Forbidden: Self = Self(403i32);
+    pub const NotFound: Self = Self(404i32);
+    pub const MethodNotAllowed: Self = Self(405i32);
+    pub const NotAcceptable: Self = Self(406i32);
+    pub const ProxyAuthenticationRequired: Self = Self(407i32);
+    pub const RequestTimeout: Self = Self(408i32);
+    pub const Conflict: Self = Self(409i32);
+    pub const Gone: Self = Self(410i32);
+    pub const LengthRequired: Self = Self(411i32);
+    pub const PreconditionFailed: Self = Self(412i32);
+    pub const RequestEntityTooLarge: Self = Self(413i32);
+    pub const RequestUriTooLong: Self = Self(414i32);
+    pub const UnsupportedMediaType: Self = Self(415i32);
+    pub const RequestedRangeNotSatisfiable: Self = Self(416i32);
+    pub const ExpectationFailed: Self = Self(417i32);
+    pub const UnprocessableEntity: Self = Self(422i32);
+    pub const Locked: Self = Self(423i32);
+    pub const FailedDependency: Self = Self(424i32);
+    pub const UpgradeRequired: Self = Self(426i32);
+    pub const PreconditionRequired: Self = Self(428i32);
+    pub const TooManyRequests: Self = Self(429i32);
+    pub const RequestHeaderFieldsTooLarge: Self = Self(431i32);
+    pub const InternalServerError: Self = Self(500i32);
+    pub const NotImplemented: Self = Self(501i32);
+    pub const BadGateway: Self = Self(502i32);
+    pub const ServiceUnavailable: Self = Self(503i32);
+    pub const GatewayTimeout: Self = Self(504i32);
+    pub const HttpVersionNotSupported: Self = Self(505i32);
+    pub const VariantAlsoNegotiates: Self = Self(506i32);
+    pub const InsufficientStorage: Self = Self(507i32);
+    pub const LoopDetected: Self = Self(508i32);
+    pub const NotExtended: Self = Self(510i32);
+    pub const NetworkAuthenticationRequired: Self = Self(511i32);
+}
+impl windows_core::TypeKind for HttpStatusCode {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HttpStatusCode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpStatusCode;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpStreamContent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpStreamContent, windows_core::IUnknown, windows_core::IInspectable, IHttpContent);
@@ -1916,6 +2049,21 @@ impl windows_core::RuntimeName for HttpTransportInformation {
 }
 unsafe impl Send for HttpTransportInformation {}
 unsafe impl Sync for HttpTransportInformation {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HttpVersion(pub i32);
+impl HttpVersion {
+    pub const None: Self = Self(0i32);
+    pub const Http10: Self = Self(1i32);
+    pub const Http11: Self = Self(2i32);
+    pub const Http20: Self = Self(3i32);
+}
+impl windows_core::TypeKind for HttpVersion {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HttpVersion {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpVersion;i4)");
+}
 windows_core::imp::define_interface!(IHttpBufferContentFactory, IHttpBufferContentFactory_Vtbl, 0xbc20c193_c41f_4ff7_9123_6435736eadc2);
 impl windows_core::RuntimeType for IHttpBufferContentFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -2521,152 +2669,4 @@ pub struct IHttpTransportInformation_Vtbl {
     pub ServerIntermediateCertificates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
     ServerIntermediateCertificates: usize,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HttpCompletionOption(pub i32);
-impl HttpCompletionOption {
-    pub const ResponseContentRead: Self = Self(0i32);
-    pub const ResponseHeadersRead: Self = Self(1i32);
-}
-impl windows_core::TypeKind for HttpCompletionOption {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HttpCompletionOption {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpCompletionOption;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HttpProgressStage(pub i32);
-impl HttpProgressStage {
-    pub const None: Self = Self(0i32);
-    pub const DetectingProxy: Self = Self(10i32);
-    pub const ResolvingName: Self = Self(20i32);
-    pub const ConnectingToServer: Self = Self(30i32);
-    pub const NegotiatingSsl: Self = Self(40i32);
-    pub const SendingHeaders: Self = Self(50i32);
-    pub const SendingContent: Self = Self(60i32);
-    pub const WaitingForResponse: Self = Self(70i32);
-    pub const ReceivingHeaders: Self = Self(80i32);
-    pub const ReceivingContent: Self = Self(90i32);
-}
-impl windows_core::TypeKind for HttpProgressStage {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HttpProgressStage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpProgressStage;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HttpResponseMessageSource(pub i32);
-impl HttpResponseMessageSource {
-    pub const None: Self = Self(0i32);
-    pub const Cache: Self = Self(1i32);
-    pub const Network: Self = Self(2i32);
-}
-impl windows_core::TypeKind for HttpResponseMessageSource {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HttpResponseMessageSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpResponseMessageSource;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HttpStatusCode(pub i32);
-impl HttpStatusCode {
-    pub const None: Self = Self(0i32);
-    pub const Continue: Self = Self(100i32);
-    pub const SwitchingProtocols: Self = Self(101i32);
-    pub const Processing: Self = Self(102i32);
-    pub const Ok: Self = Self(200i32);
-    pub const Created: Self = Self(201i32);
-    pub const Accepted: Self = Self(202i32);
-    pub const NonAuthoritativeInformation: Self = Self(203i32);
-    pub const NoContent: Self = Self(204i32);
-    pub const ResetContent: Self = Self(205i32);
-    pub const PartialContent: Self = Self(206i32);
-    pub const MultiStatus: Self = Self(207i32);
-    pub const AlreadyReported: Self = Self(208i32);
-    pub const IMUsed: Self = Self(226i32);
-    pub const MultipleChoices: Self = Self(300i32);
-    pub const MovedPermanently: Self = Self(301i32);
-    pub const Found: Self = Self(302i32);
-    pub const SeeOther: Self = Self(303i32);
-    pub const NotModified: Self = Self(304i32);
-    pub const UseProxy: Self = Self(305i32);
-    pub const TemporaryRedirect: Self = Self(307i32);
-    pub const PermanentRedirect: Self = Self(308i32);
-    pub const BadRequest: Self = Self(400i32);
-    pub const Unauthorized: Self = Self(401i32);
-    pub const PaymentRequired: Self = Self(402i32);
-    pub const Forbidden: Self = Self(403i32);
-    pub const NotFound: Self = Self(404i32);
-    pub const MethodNotAllowed: Self = Self(405i32);
-    pub const NotAcceptable: Self = Self(406i32);
-    pub const ProxyAuthenticationRequired: Self = Self(407i32);
-    pub const RequestTimeout: Self = Self(408i32);
-    pub const Conflict: Self = Self(409i32);
-    pub const Gone: Self = Self(410i32);
-    pub const LengthRequired: Self = Self(411i32);
-    pub const PreconditionFailed: Self = Self(412i32);
-    pub const RequestEntityTooLarge: Self = Self(413i32);
-    pub const RequestUriTooLong: Self = Self(414i32);
-    pub const UnsupportedMediaType: Self = Self(415i32);
-    pub const RequestedRangeNotSatisfiable: Self = Self(416i32);
-    pub const ExpectationFailed: Self = Self(417i32);
-    pub const UnprocessableEntity: Self = Self(422i32);
-    pub const Locked: Self = Self(423i32);
-    pub const FailedDependency: Self = Self(424i32);
-    pub const UpgradeRequired: Self = Self(426i32);
-    pub const PreconditionRequired: Self = Self(428i32);
-    pub const TooManyRequests: Self = Self(429i32);
-    pub const RequestHeaderFieldsTooLarge: Self = Self(431i32);
-    pub const InternalServerError: Self = Self(500i32);
-    pub const NotImplemented: Self = Self(501i32);
-    pub const BadGateway: Self = Self(502i32);
-    pub const ServiceUnavailable: Self = Self(503i32);
-    pub const GatewayTimeout: Self = Self(504i32);
-    pub const HttpVersionNotSupported: Self = Self(505i32);
-    pub const VariantAlsoNegotiates: Self = Self(506i32);
-    pub const InsufficientStorage: Self = Self(507i32);
-    pub const LoopDetected: Self = Self(508i32);
-    pub const NotExtended: Self = Self(510i32);
-    pub const NetworkAuthenticationRequired: Self = Self(511i32);
-}
-impl windows_core::TypeKind for HttpStatusCode {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HttpStatusCode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpStatusCode;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HttpVersion(pub i32);
-impl HttpVersion {
-    pub const None: Self = Self(0i32);
-    pub const Http10: Self = Self(1i32);
-    pub const Http11: Self = Self(2i32);
-    pub const Http20: Self = Self(3i32);
-}
-impl windows_core::TypeKind for HttpVersion {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HttpVersion {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpVersion;i4)");
-}
-#[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct HttpProgress {
-    pub Stage: HttpProgressStage,
-    pub BytesSent: u64,
-    pub TotalBytesToSend: Option<super::super::Foundation::IReference<u64>>,
-    pub BytesReceived: u64,
-    pub TotalBytesToReceive: Option<super::super::Foundation::IReference<u64>>,
-    pub Retries: u32,
-}
-impl windows_core::TypeKind for HttpProgress {
-    type TypeKind = windows_core::CloneType;
-}
-impl windows_core::RuntimeType for HttpProgress {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Web.Http.HttpProgress;enum(Windows.Web.Http.HttpProgressStage;i4);u8;pinterface({61c17706-2d65-11e0-9ae8-d48564015472};u8);u8;pinterface({61c17706-2d65-11e0-9ae8-d48564015472};u8);u4)");
 }

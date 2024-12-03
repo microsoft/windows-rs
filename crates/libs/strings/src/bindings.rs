@@ -12,8 +12,8 @@ windows_targets::link!("kernel32.dll" "system" fn HeapFree(hheap : HANDLE, dwfla
 windows_targets::link!("oleaut32.dll" "system" fn SysAllocStringLen(strin : PCWSTR, ui : u32) -> BSTR);
 windows_targets::link!("oleaut32.dll" "system" fn SysFreeString(bstrstring : BSTR));
 windows_targets::link!("oleaut32.dll" "system" fn SysStringLen(pbstr : BSTR) -> u32);
-pub type HEAP_FLAGS = u32;
 pub type BOOL = i32;
-pub type HANDLE = *mut core::ffi::c_void;
-pub type PCWSTR = *const u16;
 pub type BSTR = *const u16;
+pub type HANDLE = *mut core::ffi::c_void;
+pub type HEAP_FLAGS = u32;
+pub type PCWSTR = *const u16;

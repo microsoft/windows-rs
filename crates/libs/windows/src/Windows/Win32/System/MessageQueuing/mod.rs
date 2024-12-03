@@ -264,6 +264,25 @@ where
     windows_targets::link!("mqrt.dll" "system" fn MQSetQueueSecurity(lpwcsformatname : windows_core::PCWSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> windows_core::HRESULT);
     MQSetQueueSecurity(lpwcsformatname.param().abi(), core::mem::transmute(securityinformation), psecuritydescriptor.param().abi()).ok()
 }
+pub const DEFAULT_M_ACKNOWLEDGE: MQDEFAULT = MQDEFAULT(0i32);
+pub const DEFAULT_M_APPSPECIFIC: MQDEFAULT = MQDEFAULT(0i32);
+pub const DEFAULT_M_AUTH_LEVEL: MQDEFAULT = MQDEFAULT(0i32);
+pub const DEFAULT_M_DELIVERY: MQDEFAULT = MQDEFAULT(0i32);
+pub const DEFAULT_M_JOURNAL: MQDEFAULT = MQDEFAULT(0i32);
+pub const DEFAULT_M_LOOKUPID: MQDEFAULT = MQDEFAULT(0i32);
+pub const DEFAULT_M_PRIORITY: MQDEFAULT = MQDEFAULT(3i32);
+pub const DEFAULT_M_PRIV_LEVEL: MQDEFAULT = MQDEFAULT(0i32);
+pub const DEFAULT_M_SENDERID_TYPE: MQDEFAULT = MQDEFAULT(1i32);
+pub const DEFAULT_Q_AUTHENTICATE: MQDEFAULT = MQDEFAULT(0i32);
+pub const DEFAULT_Q_BASEPRIORITY: MQDEFAULT = MQDEFAULT(0i32);
+pub const DEFAULT_Q_JOURNAL: MQDEFAULT = MQDEFAULT(0i32);
+pub const DEFAULT_Q_JOURNAL_QUOTA: MQDEFAULT = MQDEFAULT(-1i32);
+pub const DEFAULT_Q_PRIV_LEVEL: MQDEFAULT = MQDEFAULT(1i32);
+pub const DEFAULT_Q_QUOTA: MQDEFAULT = MQDEFAULT(-1i32);
+pub const DEFAULT_Q_TRANSACTION: MQDEFAULT = MQDEFAULT(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FOREIGN_STATUS(pub i32);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQApplication, IMSMQApplication_Vtbl, 0xd7d6e085_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
@@ -11775,40 +11794,35 @@ impl IMSMQTransactionDispenser3_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQTransactionDispenser3 {}
-#[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(_DMSMQEventEvents, _DMSMQEventEvents_Vtbl, 0xd7d6e078_dccd_11d0_aa4b_0060970debae);
-#[cfg(feature = "Win32_System_Com")]
-impl core::ops::Deref for _DMSMQEventEvents {
-    type Target = super::Com::IDispatch;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-windows_core::imp::interface_hierarchy!(_DMSMQEventEvents, windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-#[repr(C)]
-pub struct _DMSMQEventEvents_Vtbl {
-    pub base__: super::Com::IDispatch_Vtbl,
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait _DMSMQEventEvents_Impl: super::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl _DMSMQEventEvents_Vtbl {
-    pub const fn new<Identity: _DMSMQEventEvents_Impl, const OFFSET: isize>() -> Self {
-        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<_DMSMQEventEvents as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for _DMSMQEventEvents {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_IO", feature = "Win32_System_Variant"))]
-pub type PMQRECEIVECALLBACK = Option<unsafe extern "system" fn(hrstatus: windows_core::HRESULT, hsource: isize, dwtimeout: u32, dwaction: u32, pmessageprops: *mut MQMSGPROPS, lpoverlapped: *mut super::IO::OVERLAPPED, hcursor: super::super::Foundation::HANDLE)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FOREIGN_STATUS(pub i32);
+pub const LONG_LIVED: u32 = 4294967294u32;
+pub const MACHINE_ACTION_CONNECT: windows_core::PCWSTR = windows_core::w!("CONNECT");
+pub const MACHINE_ACTION_DISCONNECT: windows_core::PCWSTR = windows_core::w!("DISCONNECT");
+pub const MACHINE_ACTION_TIDY: windows_core::PCWSTR = windows_core::w!("TIDY");
+pub const MGMT_QUEUE_CORRECT_TYPE: windows_core::PCWSTR = windows_core::w!("YES");
+pub const MGMT_QUEUE_FOREIGN_TYPE: windows_core::PCWSTR = windows_core::w!("YES");
+pub const MGMT_QUEUE_INCORRECT_TYPE: windows_core::PCWSTR = windows_core::w!("NO");
+pub const MGMT_QUEUE_LOCAL_LOCATION: windows_core::PCWSTR = windows_core::w!("LOCAL");
+pub const MGMT_QUEUE_NOT_FOREIGN_TYPE: windows_core::PCWSTR = windows_core::w!("NO");
+pub const MGMT_QUEUE_NOT_TRANSACTIONAL_TYPE: windows_core::PCWSTR = windows_core::w!("NO");
+pub const MGMT_QUEUE_REMOTE_LOCATION: windows_core::PCWSTR = windows_core::w!("REMOTE");
+pub const MGMT_QUEUE_STATE_CONNECTED: windows_core::PCWSTR = windows_core::w!("CONNECTED");
+pub const MGMT_QUEUE_STATE_DISCONNECTED: windows_core::PCWSTR = windows_core::w!("DISCONNECTED");
+pub const MGMT_QUEUE_STATE_DISCONNECTING: windows_core::PCWSTR = windows_core::w!("DISCONNECTING");
+pub const MGMT_QUEUE_STATE_LOCAL: windows_core::PCWSTR = windows_core::w!("LOCAL CONNECTION");
+pub const MGMT_QUEUE_STATE_LOCKED: windows_core::PCWSTR = windows_core::w!("LOCKED");
+pub const MGMT_QUEUE_STATE_NEED_VALIDATE: windows_core::PCWSTR = windows_core::w!("NEED VALIDATION");
+pub const MGMT_QUEUE_STATE_NONACTIVE: windows_core::PCWSTR = windows_core::w!("INACTIVE");
+pub const MGMT_QUEUE_STATE_ONHOLD: windows_core::PCWSTR = windows_core::w!("ONHOLD");
+pub const MGMT_QUEUE_STATE_WAITING: windows_core::PCWSTR = windows_core::w!("WAITING");
+pub const MGMT_QUEUE_TRANSACTIONAL_TYPE: windows_core::PCWSTR = windows_core::w!("YES");
+pub const MGMT_QUEUE_TYPE_CONNECTOR: windows_core::PCWSTR = windows_core::w!("CONNECTOR");
+pub const MGMT_QUEUE_TYPE_MACHINE: windows_core::PCWSTR = windows_core::w!("MACHINE");
+pub const MGMT_QUEUE_TYPE_MULTICAST: windows_core::PCWSTR = windows_core::w!("MULTICAST");
+pub const MGMT_QUEUE_TYPE_PRIVATE: windows_core::PCWSTR = windows_core::w!("PRIVATE");
+pub const MGMT_QUEUE_TYPE_PUBLIC: windows_core::PCWSTR = windows_core::w!("PUBLIC");
+pub const MGMT_QUEUE_UNKNOWN_TYPE: windows_core::PCWSTR = windows_core::w!("UNKNOWN");
+pub const MO_MACHINE_TOKEN: windows_core::PCWSTR = windows_core::w!("MACHINE");
+pub const MO_QUEUE_TOKEN: windows_core::PCWSTR = windows_core::w!("QUEUE");
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQACCESS(pub i32);
@@ -11821,6 +11835,39 @@ pub struct MQCALG(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQCERT_REGISTER(pub i32);
+pub const MQCERT_REGISTER_ALWAYS: MQCERT_REGISTER = MQCERT_REGISTER(1i32);
+pub const MQCERT_REGISTER_IF_NOT_EXIST: MQCERT_REGISTER = MQCERT_REGISTER(2i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MQCOLUMNSET {
+    pub cCol: u32,
+    pub aCol: *mut u32,
+}
+impl Default for MQCOLUMNSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MQCOLUMNSET {
+    type TypeKind = windows_core::CopyType;
+}
+pub const MQCONN_BIND_SOCKET_FAILURE: MQConnectionState = MQConnectionState(-2147483645i32);
+pub const MQCONN_CONNECT_SOCKET_FAILURE: MQConnectionState = MQConnectionState(-2147483644i32);
+pub const MQCONN_CREATE_SOCKET_FAILURE: MQConnectionState = MQConnectionState(-2147483646i32);
+pub const MQCONN_ESTABLISH_PACKET_RECEIVED: MQConnectionState = MQConnectionState(1i32);
+pub const MQCONN_INVALID_SERVER_CERT: MQConnectionState = MQConnectionState(-2147483639i32);
+pub const MQCONN_LIMIT_REACHED: MQConnectionState = MQConnectionState(-2147483638i32);
+pub const MQCONN_NAME_RESOLUTION_FAILURE: MQConnectionState = MQConnectionState(-2147483640i32);
+pub const MQCONN_NOFAILURE: MQConnectionState = MQConnectionState(0i32);
+pub const MQCONN_NOT_READY: MQConnectionState = MQConnectionState(-2147483641i32);
+pub const MQCONN_OUT_OF_MEMORY: MQConnectionState = MQConnectionState(-2147483635i32);
+pub const MQCONN_PING_FAILURE: MQConnectionState = MQConnectionState(-2147483647i32);
+pub const MQCONN_READY: MQConnectionState = MQConnectionState(2i32);
+pub const MQCONN_REFUSED_BY_OTHER_SIDE: MQConnectionState = MQConnectionState(-2147483637i32);
+pub const MQCONN_ROUTING_FAILURE: MQConnectionState = MQConnectionState(-2147483636i32);
+pub const MQCONN_SEND_FAILURE: MQConnectionState = MQConnectionState(-2147483642i32);
+pub const MQCONN_TCP_NOT_ENABLED: MQConnectionState = MQConnectionState(-2147483643i32);
+pub const MQCONN_UNKNOWN_FAILURE: MQConnectionState = MQConnectionState(-2147483648i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQConnectionState(pub i32);
@@ -11836,6 +11883,25 @@ pub struct MQJOURNAL(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQMAX(pub i32);
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MQMGMTPROPS {
+    pub cProp: u32,
+    pub aPropID: *mut u32,
+    pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
+    pub aStatus: *mut windows_core::HRESULT,
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for MQMGMTPROPS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for MQMGMTPROPS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQMSGACKNOWLEDGEMENT(pub i32);
@@ -11866,111 +11932,6 @@ pub struct MQMSGMAX(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQMSGPRIVLEVEL(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MQMSGSENDERIDTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MQMSGTRACE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MQPRIORITY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MQPRIVLEVEL(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MQQUEUEACCESSMASK(pub u32);
-impl MQQUEUEACCESSMASK {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for MQQUEUEACCESSMASK {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for MQQUEUEACCESSMASK {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for MQQUEUEACCESSMASK {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for MQQUEUEACCESSMASK {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for MQQUEUEACCESSMASK {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MQSHARE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MQTRANSACTION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MQTRANSACTIONAL(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MQWARNING(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct QUEUE_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct QUEUE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RELOPS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct XACT_STATUS(pub i32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MQCOLUMNSET {
-    pub cCol: u32,
-    pub aCol: *mut u32,
-}
-impl Default for MQCOLUMNSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MQCOLUMNSET {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MQMGMTPROPS {
-    pub cProp: u32,
-    pub aPropID: *mut u32,
-    pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
-    pub aStatus: *mut windows_core::HRESULT,
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Default for MQMGMTPROPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for MQMGMTPROPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -11990,225 +11951,12 @@ impl Default for MQMSGPROPS {
 impl windows_core::TypeKind for MQMSGPROPS {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MQPRIVATEPROPS {
-    pub cProp: u32,
-    pub aPropID: *mut u32,
-    pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
-    pub aStatus: *mut windows_core::HRESULT,
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Default for MQPRIVATEPROPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for MQPRIVATEPROPS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-pub struct MQPROPERTYRESTRICTION {
-    pub rel: u32,
-    pub prop: u32,
-    pub prval: super::Com::StructuredStorage::PROPVARIANT,
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Clone for MQPROPERTYRESTRICTION {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Default for MQPROPERTYRESTRICTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for MQPROPERTYRESTRICTION {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MQQMPROPS {
-    pub cProp: u32,
-    pub aPropID: *mut u32,
-    pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
-    pub aStatus: *mut windows_core::HRESULT,
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Default for MQQMPROPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for MQQMPROPS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MQQUEUEPROPS {
-    pub cProp: u32,
-    pub aPropID: *mut u32,
-    pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
-    pub aStatus: *mut windows_core::HRESULT,
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Default for MQQUEUEPROPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for MQQUEUEPROPS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MQRESTRICTION {
-    pub cRes: u32,
-    pub paPropRes: *mut MQPROPERTYRESTRICTION,
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Default for MQRESTRICTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for MQRESTRICTION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MQSORTKEY {
-    pub propColumn: u32,
-    pub dwOrder: u32,
-}
-impl Default for MQSORTKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MQSORTKEY {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MQSORTSET {
-    pub cCol: u32,
-    pub aCol: *mut MQSORTKEY,
-}
-impl Default for MQSORTSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MQSORTSET {
-    type TypeKind = windows_core::CopyType;
-}
-pub const MSMQApplication: windows_core::GUID = windows_core::GUID::from_u128(0xd7d6e086_dccd_11d0_aa4b_0060970debae);
-pub const MSMQCollection: windows_core::GUID = windows_core::GUID::from_u128(0xf72b9031_2f0c_43e8_924e_e6052cdc493f);
-pub const MSMQCoordinatedTransactionDispenser: windows_core::GUID = windows_core::GUID::from_u128(0xd7d6e082_dccd_11d0_aa4b_0060970debae);
-pub const MSMQDestination: windows_core::GUID = windows_core::GUID::from_u128(0xeba96b18_2168_11d3_898c_00e02c074f6b);
-pub const MSMQEvent: windows_core::GUID = windows_core::GUID::from_u128(0xd7d6e07a_dccd_11d0_aa4b_0060970debae);
-pub const MSMQManagement: windows_core::GUID = windows_core::GUID::from_u128(0x39ce96fe_f4c5_4484_a143_4c2d5d324229);
-pub const MSMQMessage: windows_core::GUID = windows_core::GUID::from_u128(0xd7d6e075_dccd_11d0_aa4b_0060970debae);
-pub const MSMQOutgoingQueueManagement: windows_core::GUID = windows_core::GUID::from_u128(0x0188401c_247a_4fed_99c6_bf14119d7055);
-pub const MSMQQuery: windows_core::GUID = windows_core::GUID::from_u128(0xd7d6e073_dccd_11d0_aa4b_0060970debae);
-pub const MSMQQueue: windows_core::GUID = windows_core::GUID::from_u128(0xd7d6e079_dccd_11d0_aa4b_0060970debae);
-pub const MSMQQueueInfo: windows_core::GUID = windows_core::GUID::from_u128(0xd7d6e07c_dccd_11d0_aa4b_0060970debae);
-pub const MSMQQueueInfos: windows_core::GUID = windows_core::GUID::from_u128(0xd7d6e07e_dccd_11d0_aa4b_0060970debae);
-pub const MSMQQueueManagement: windows_core::GUID = windows_core::GUID::from_u128(0x33b6d07e_f27d_42fa_b2d7_bf82e11e9374);
-pub const MSMQTransaction: windows_core::GUID = windows_core::GUID::from_u128(0xd7d6e080_dccd_11d0_aa4b_0060970debae);
-pub const MSMQTransactionDispenser: windows_core::GUID = windows_core::GUID::from_u128(0xd7d6e084_dccd_11d0_aa4b_0060970debae);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SEQUENCE_INFO {
-    pub SeqID: i64,
-    pub SeqNo: u32,
-    pub PrevNo: u32,
-}
-impl Default for SEQUENCE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SEQUENCE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-pub const DEFAULT_M_ACKNOWLEDGE: MQDEFAULT = MQDEFAULT(0i32);
-pub const DEFAULT_M_APPSPECIFIC: MQDEFAULT = MQDEFAULT(0i32);
-pub const DEFAULT_M_AUTH_LEVEL: MQDEFAULT = MQDEFAULT(0i32);
-pub const DEFAULT_M_DELIVERY: MQDEFAULT = MQDEFAULT(0i32);
-pub const DEFAULT_M_JOURNAL: MQDEFAULT = MQDEFAULT(0i32);
-pub const DEFAULT_M_LOOKUPID: MQDEFAULT = MQDEFAULT(0i32);
-pub const DEFAULT_M_PRIORITY: MQDEFAULT = MQDEFAULT(3i32);
-pub const DEFAULT_M_PRIV_LEVEL: MQDEFAULT = MQDEFAULT(0i32);
-pub const DEFAULT_M_SENDERID_TYPE: MQDEFAULT = MQDEFAULT(1i32);
-pub const DEFAULT_Q_AUTHENTICATE: MQDEFAULT = MQDEFAULT(0i32);
-pub const DEFAULT_Q_BASEPRIORITY: MQDEFAULT = MQDEFAULT(0i32);
-pub const DEFAULT_Q_JOURNAL: MQDEFAULT = MQDEFAULT(0i32);
-pub const DEFAULT_Q_JOURNAL_QUOTA: MQDEFAULT = MQDEFAULT(-1i32);
-pub const DEFAULT_Q_PRIV_LEVEL: MQDEFAULT = MQDEFAULT(1i32);
-pub const DEFAULT_Q_QUOTA: MQDEFAULT = MQDEFAULT(-1i32);
-pub const DEFAULT_Q_TRANSACTION: MQDEFAULT = MQDEFAULT(0i32);
-pub const LONG_LIVED: u32 = 4294967294u32;
-pub const MACHINE_ACTION_CONNECT: windows_core::PCWSTR = windows_core::w!("CONNECT");
-pub const MACHINE_ACTION_DISCONNECT: windows_core::PCWSTR = windows_core::w!("DISCONNECT");
-pub const MACHINE_ACTION_TIDY: windows_core::PCWSTR = windows_core::w!("TIDY");
-pub const MGMT_QUEUE_CORRECT_TYPE: windows_core::PCWSTR = windows_core::w!("YES");
-pub const MGMT_QUEUE_FOREIGN_TYPE: windows_core::PCWSTR = windows_core::w!("YES");
-pub const MGMT_QUEUE_INCORRECT_TYPE: windows_core::PCWSTR = windows_core::w!("NO");
-pub const MGMT_QUEUE_LOCAL_LOCATION: windows_core::PCWSTR = windows_core::w!("LOCAL");
-pub const MGMT_QUEUE_NOT_FOREIGN_TYPE: windows_core::PCWSTR = windows_core::w!("NO");
-pub const MGMT_QUEUE_NOT_TRANSACTIONAL_TYPE: windows_core::PCWSTR = windows_core::w!("NO");
-pub const MGMT_QUEUE_REMOTE_LOCATION: windows_core::PCWSTR = windows_core::w!("REMOTE");
-pub const MGMT_QUEUE_STATE_CONNECTED: windows_core::PCWSTR = windows_core::w!("CONNECTED");
-pub const MGMT_QUEUE_STATE_DISCONNECTED: windows_core::PCWSTR = windows_core::w!("DISCONNECTED");
-pub const MGMT_QUEUE_STATE_DISCONNECTING: windows_core::PCWSTR = windows_core::w!("DISCONNECTING");
-pub const MGMT_QUEUE_STATE_LOCAL: windows_core::PCWSTR = windows_core::w!("LOCAL CONNECTION");
-pub const MGMT_QUEUE_STATE_LOCKED: windows_core::PCWSTR = windows_core::w!("LOCKED");
-pub const MGMT_QUEUE_STATE_NEED_VALIDATE: windows_core::PCWSTR = windows_core::w!("NEED VALIDATION");
-pub const MGMT_QUEUE_STATE_NONACTIVE: windows_core::PCWSTR = windows_core::w!("INACTIVE");
-pub const MGMT_QUEUE_STATE_ONHOLD: windows_core::PCWSTR = windows_core::w!("ONHOLD");
-pub const MGMT_QUEUE_STATE_WAITING: windows_core::PCWSTR = windows_core::w!("WAITING");
-pub const MGMT_QUEUE_TRANSACTIONAL_TYPE: windows_core::PCWSTR = windows_core::w!("YES");
-pub const MGMT_QUEUE_TYPE_CONNECTOR: windows_core::PCWSTR = windows_core::w!("CONNECTOR");
-pub const MGMT_QUEUE_TYPE_MACHINE: windows_core::PCWSTR = windows_core::w!("MACHINE");
-pub const MGMT_QUEUE_TYPE_MULTICAST: windows_core::PCWSTR = windows_core::w!("MULTICAST");
-pub const MGMT_QUEUE_TYPE_PRIVATE: windows_core::PCWSTR = windows_core::w!("PRIVATE");
-pub const MGMT_QUEUE_TYPE_PUBLIC: windows_core::PCWSTR = windows_core::w!("PUBLIC");
-pub const MGMT_QUEUE_UNKNOWN_TYPE: windows_core::PCWSTR = windows_core::w!("UNKNOWN");
-pub const MO_MACHINE_TOKEN: windows_core::PCWSTR = windows_core::w!("MACHINE");
-pub const MO_QUEUE_TOKEN: windows_core::PCWSTR = windows_core::w!("QUEUE");
-pub const MQCERT_REGISTER_ALWAYS: MQCERT_REGISTER = MQCERT_REGISTER(1i32);
-pub const MQCERT_REGISTER_IF_NOT_EXIST: MQCERT_REGISTER = MQCERT_REGISTER(2i32);
-pub const MQCONN_BIND_SOCKET_FAILURE: MQConnectionState = MQConnectionState(-2147483645i32);
-pub const MQCONN_CONNECT_SOCKET_FAILURE: MQConnectionState = MQConnectionState(-2147483644i32);
-pub const MQCONN_CREATE_SOCKET_FAILURE: MQConnectionState = MQConnectionState(-2147483646i32);
-pub const MQCONN_ESTABLISH_PACKET_RECEIVED: MQConnectionState = MQConnectionState(1i32);
-pub const MQCONN_INVALID_SERVER_CERT: MQConnectionState = MQConnectionState(-2147483639i32);
-pub const MQCONN_LIMIT_REACHED: MQConnectionState = MQConnectionState(-2147483638i32);
-pub const MQCONN_NAME_RESOLUTION_FAILURE: MQConnectionState = MQConnectionState(-2147483640i32);
-pub const MQCONN_NOFAILURE: MQConnectionState = MQConnectionState(0i32);
-pub const MQCONN_NOT_READY: MQConnectionState = MQConnectionState(-2147483641i32);
-pub const MQCONN_OUT_OF_MEMORY: MQConnectionState = MQConnectionState(-2147483635i32);
-pub const MQCONN_PING_FAILURE: MQConnectionState = MQConnectionState(-2147483647i32);
-pub const MQCONN_READY: MQConnectionState = MQConnectionState(2i32);
-pub const MQCONN_REFUSED_BY_OTHER_SIDE: MQConnectionState = MQConnectionState(-2147483637i32);
-pub const MQCONN_ROUTING_FAILURE: MQConnectionState = MQConnectionState(-2147483636i32);
-pub const MQCONN_SEND_FAILURE: MQConnectionState = MQConnectionState(-2147483642i32);
-pub const MQCONN_TCP_NOT_ENABLED: MQConnectionState = MQConnectionState(-2147483643i32);
-pub const MQCONN_UNKNOWN_FAILURE: MQConnectionState = MQConnectionState(-2147483648i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MQMSGSENDERIDTYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MQMSGTRACE(pub i32);
 pub const MQMSG_ACKNOWLEDGMENT_FULL_REACH_QUEUE: MQMSGACKNOWLEDGEMENT = MQMSGACKNOWLEDGEMENT(5i32);
 pub const MQMSG_ACKNOWLEDGMENT_FULL_RECEIVE: MQMSGACKNOWLEDGEMENT = MQMSGACKNOWLEDGEMENT(14i32);
 pub const MQMSG_ACKNOWLEDGMENT_NACK_REACH_QUEUE: MQMSGACKNOWLEDGEMENT = MQMSGACKNOWLEDGEMENT(4i32);
@@ -12290,6 +12038,145 @@ pub const MQMSG_SENDERID_TYPE_SID: MQMSGSENDERIDTYPE = MQMSGSENDERIDTYPE(1i32);
 pub const MQMSG_SEND_ROUTE_TO_REPORT_QUEUE: MQMSGTRACE = MQMSGTRACE(1i32);
 pub const MQMSG_TRACE_NONE: MQMSGTRACE = MQMSGTRACE(0i32);
 pub const MQMSG_XACTID_SIZE: MQMSGIDSIZE = MQMSGIDSIZE(20i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MQPRIORITY(pub i32);
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MQPRIVATEPROPS {
+    pub cProp: u32,
+    pub aPropID: *mut u32,
+    pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
+    pub aStatus: *mut windows_core::HRESULT,
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for MQPRIVATEPROPS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for MQPRIVATEPROPS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MQPRIVLEVEL(pub i32);
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+pub struct MQPROPERTYRESTRICTION {
+    pub rel: u32,
+    pub prop: u32,
+    pub prval: super::Com::StructuredStorage::PROPVARIANT,
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Clone for MQPROPERTYRESTRICTION {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for MQPROPERTYRESTRICTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for MQPROPERTYRESTRICTION {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MQQMPROPS {
+    pub cProp: u32,
+    pub aPropID: *mut u32,
+    pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
+    pub aStatus: *mut windows_core::HRESULT,
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for MQQMPROPS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for MQQMPROPS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MQQUEUEACCESSMASK(pub u32);
+impl MQQUEUEACCESSMASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for MQQUEUEACCESSMASK {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for MQQUEUEACCESSMASK {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for MQQUEUEACCESSMASK {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for MQQUEUEACCESSMASK {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for MQQUEUEACCESSMASK {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MQQUEUEPROPS {
+    pub cProp: u32,
+    pub aPropID: *mut u32,
+    pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
+    pub aStatus: *mut windows_core::HRESULT,
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for MQQUEUEPROPS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for MQQUEUEPROPS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MQRESTRICTION {
+    pub cRes: u32,
+    pub paPropRes: *mut MQPROPERTYRESTRICTION,
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for MQRESTRICTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for MQRESTRICTION {
+    type TypeKind = windows_core::CopyType;
+}
 pub const MQSEC_CHANGE_QUEUE_PERMISSIONS: MQQUEUEACCESSMASK = MQQUEUEACCESSMASK(262144u32);
 pub const MQSEC_DELETE_JOURNAL_MESSAGE: MQQUEUEACCESSMASK = MQQUEUEACCESSMASK(8u32);
 pub const MQSEC_DELETE_MESSAGE: MQQUEUEACCESSMASK = MQQUEUEACCESSMASK(1u32);
@@ -12306,6 +12193,46 @@ pub const MQSEC_RECEIVE_MESSAGE: MQQUEUEACCESSMASK = MQQUEUEACCESSMASK(3u32);
 pub const MQSEC_SET_QUEUE_PROPERTIES: MQQUEUEACCESSMASK = MQQUEUEACCESSMASK(16u32);
 pub const MQSEC_TAKE_QUEUE_OWNERSHIP: MQQUEUEACCESSMASK = MQQUEUEACCESSMASK(524288u32);
 pub const MQSEC_WRITE_MESSAGE: MQQUEUEACCESSMASK = MQQUEUEACCESSMASK(4u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MQSHARE(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MQSORTKEY {
+    pub propColumn: u32,
+    pub dwOrder: u32,
+}
+impl Default for MQSORTKEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MQSORTKEY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MQSORTSET {
+    pub cCol: u32,
+    pub aCol: *mut MQSORTKEY,
+}
+impl Default for MQSORTSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MQSORTSET {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MQTRANSACTION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MQTRANSACTIONAL(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MQWARNING(pub i32);
 pub const MQ_ACTION_PEEK_CURRENT: u32 = 2147483648u32;
 pub const MQ_ACTION_PEEK_NEXT: u32 = 2147483649u32;
 pub const MQ_ACTION_RECEIVE: u32 = 0u32;
@@ -12514,8 +12441,25 @@ pub const MQ_XACT_STATUS_NOT_XACT: XACT_STATUS = XACT_STATUS(1i32);
 pub const MQ_XACT_STATUS_UNKNOWN: XACT_STATUS = XACT_STATUS(2i32);
 pub const MQ_XACT_STATUS_XACT: XACT_STATUS = XACT_STATUS(0i32);
 pub const MQ_XA_TRANSACTION: MQTRANSACTION = MQTRANSACTION(2i32);
+pub const MSMQApplication: windows_core::GUID = windows_core::GUID::from_u128(0xd7d6e086_dccd_11d0_aa4b_0060970debae);
+pub const MSMQCollection: windows_core::GUID = windows_core::GUID::from_u128(0xf72b9031_2f0c_43e8_924e_e6052cdc493f);
+pub const MSMQCoordinatedTransactionDispenser: windows_core::GUID = windows_core::GUID::from_u128(0xd7d6e082_dccd_11d0_aa4b_0060970debae);
+pub const MSMQDestination: windows_core::GUID = windows_core::GUID::from_u128(0xeba96b18_2168_11d3_898c_00e02c074f6b);
+pub const MSMQEvent: windows_core::GUID = windows_core::GUID::from_u128(0xd7d6e07a_dccd_11d0_aa4b_0060970debae);
+pub const MSMQManagement: windows_core::GUID = windows_core::GUID::from_u128(0x39ce96fe_f4c5_4484_a143_4c2d5d324229);
+pub const MSMQMessage: windows_core::GUID = windows_core::GUID::from_u128(0xd7d6e075_dccd_11d0_aa4b_0060970debae);
+pub const MSMQOutgoingQueueManagement: windows_core::GUID = windows_core::GUID::from_u128(0x0188401c_247a_4fed_99c6_bf14119d7055);
+pub const MSMQQuery: windows_core::GUID = windows_core::GUID::from_u128(0xd7d6e073_dccd_11d0_aa4b_0060970debae);
+pub const MSMQQueue: windows_core::GUID = windows_core::GUID::from_u128(0xd7d6e079_dccd_11d0_aa4b_0060970debae);
+pub const MSMQQueueInfo: windows_core::GUID = windows_core::GUID::from_u128(0xd7d6e07c_dccd_11d0_aa4b_0060970debae);
+pub const MSMQQueueInfos: windows_core::GUID = windows_core::GUID::from_u128(0xd7d6e07e_dccd_11d0_aa4b_0060970debae);
+pub const MSMQQueueManagement: windows_core::GUID = windows_core::GUID::from_u128(0x33b6d07e_f27d_42fa_b2d7_bf82e11e9374);
+pub const MSMQTransaction: windows_core::GUID = windows_core::GUID::from_u128(0xd7d6e080_dccd_11d0_aa4b_0060970debae);
+pub const MSMQTransactionDispenser: windows_core::GUID = windows_core::GUID::from_u128(0xd7d6e084_dccd_11d0_aa4b_0060970debae);
 pub const MSMQ_CONNECTED: windows_core::PCWSTR = windows_core::w!("CONNECTED");
 pub const MSMQ_DISCONNECTED: windows_core::PCWSTR = windows_core::w!("DISCONNECTED");
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_IO", feature = "Win32_System_Variant"))]
+pub type PMQRECEIVECALLBACK = Option<unsafe extern "system" fn(hrstatus: windows_core::HRESULT, hsource: isize, dwtimeout: u32, dwaction: u32, pmessageprops: *mut MQMSGPROPS, lpoverlapped: *mut super::IO::OVERLAPPED, hcursor: super::super::Foundation::HANDLE)>;
 pub const PREQ: u32 = 4u32;
 pub const PRGE: u32 = 3u32;
 pub const PRGT: u32 = 2u32;
@@ -12667,6 +12611,15 @@ pub const QUERY_SORTDESCEND: u32 = 1u32;
 pub const QUEUE_ACTION_EOD_RESEND: windows_core::PCWSTR = windows_core::w!("EOD_RESEND");
 pub const QUEUE_ACTION_PAUSE: windows_core::PCWSTR = windows_core::w!("PAUSE");
 pub const QUEUE_ACTION_RESUME: windows_core::PCWSTR = windows_core::w!("RESUME");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QUEUE_STATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QUEUE_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RELOPS(pub i32);
 pub const REL_EQ: RELOPS = RELOPS(1i32);
 pub const REL_GE: RELOPS = RELOPS(6i32);
 pub const REL_GT: RELOPS = RELOPS(4i32);
@@ -12674,3 +12627,50 @@ pub const REL_LE: RELOPS = RELOPS(5i32);
 pub const REL_LT: RELOPS = RELOPS(3i32);
 pub const REL_NEQ: RELOPS = RELOPS(2i32);
 pub const REL_NOP: RELOPS = RELOPS(0i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SEQUENCE_INFO {
+    pub SeqID: i64,
+    pub SeqNo: u32,
+    pub PrevNo: u32,
+}
+impl Default for SEQUENCE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SEQUENCE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct XACT_STATUS(pub i32);
+#[cfg(feature = "Win32_System_Com")]
+windows_core::imp::define_interface!(_DMSMQEventEvents, _DMSMQEventEvents_Vtbl, 0xd7d6e078_dccd_11d0_aa4b_0060970debae);
+#[cfg(feature = "Win32_System_Com")]
+impl core::ops::Deref for _DMSMQEventEvents {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+windows_core::imp::interface_hierarchy!(_DMSMQEventEvents, windows_core::IUnknown, super::Com::IDispatch);
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+pub struct _DMSMQEventEvents_Vtbl {
+    pub base__: super::Com::IDispatch_Vtbl,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub trait _DMSMQEventEvents_Impl: super::Com::IDispatch_Impl {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl _DMSMQEventEvents_Vtbl {
+    pub const fn new<Identity: _DMSMQEventEvents_Impl, const OFFSET: isize>() -> Self {
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<_DMSMQEventEvents as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for _DMSMQEventEvents {}

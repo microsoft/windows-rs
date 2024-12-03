@@ -34,7 +34,8 @@ pub type PWLX_SWITCH_DESKTOP_TO_USER = Option<unsafe extern "system" fn(hwlx: su
 pub type PWLX_SWITCH_DESKTOP_TO_WINLOGON = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE) -> i32>;
 pub type PWLX_USE_CTRL_ALT_DEL = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE)>;
 pub type PWLX_WIN31_MIGRATE = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE)>;
-pub type WLX_SHUTDOWN_TYPE = u32;
+pub const STATUSMSG_OPTION_NOANIMATION: u32 = 1u32;
+pub const STATUSMSG_OPTION_SETFOREGROUND: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
@@ -54,6 +55,7 @@ pub struct WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
     pub fPromptForPassword: super::super::Foundation::BOOL,
     pub fDisconnectOnLogonFailure: super::super::Foundation::BOOL,
 }
+pub const WLX_CONSOLESWITCHCREDENTIAL_TYPE_V1_0: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
@@ -85,6 +87,11 @@ pub struct WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
     pub PrivateDataLen: u32,
     pub PrivateData: *mut u8,
 }
+pub const WLX_CREATE_INSTANCE_ONLY: u32 = 1u32;
+pub const WLX_CREATE_USER: u32 = 2u32;
+pub const WLX_CREDENTIAL_TYPE_V1_0: u32 = 1u32;
+pub const WLX_CREDENTIAL_TYPE_V2_0: u32 = 2u32;
+pub const WLX_CURRENT_VERSION: u32 = 65540u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_StationsAndDesktops")]
 #[derive(Clone, Copy)]
@@ -94,6 +101,9 @@ pub struct WLX_DESKTOP {
     pub hDesktop: super::super::System::StationsAndDesktops::HDESK,
     pub pszDesktopName: windows_sys::core::PWSTR,
 }
+pub const WLX_DESKTOP_HANDLE: u32 = 2u32;
+pub const WLX_DESKTOP_NAME: u32 = 1u32;
+pub const WLX_DIRECTORY_LENGTH: u32 = 256u32;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
@@ -219,6 +229,11 @@ pub struct WLX_DISPATCH_VERSION_1_4 {
     pub WlxQueryConsoleSwitchCredentials: PWLX_QUERY_CONSOLESWITCH_CREDENTIALS,
     pub WlxQueryTsLogonCredentials: PWLX_QUERY_TS_LOGON_CREDENTIALS,
 }
+pub const WLX_DLG_INPUT_TIMEOUT: u32 = 102u32;
+pub const WLX_DLG_SAS: u32 = 101u32;
+pub const WLX_DLG_SCREEN_SAVER_TIMEOUT: u32 = 103u32;
+pub const WLX_DLG_USER_LOGOFF: u32 = 104u32;
+pub const WLX_LOGON_OPT_NO_PROFILE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WLX_MPR_NOTIFY_INFO {
@@ -240,6 +255,17 @@ pub struct WLX_NOTIFICATION_INFO {
     pub hDesktop: super::super::System::StationsAndDesktops::HDESK,
     pub pStatusCallback: PFNMSGECALLBACK,
 }
+pub const WLX_OPTION_CONTEXT_POINTER: u32 = 2u32;
+pub const WLX_OPTION_DISPATCH_TABLE_SIZE: u32 = 65539u32;
+pub const WLX_OPTION_FORCE_LOGOFF_TIME: u32 = 4u32;
+pub const WLX_OPTION_IGNORE_AUTO_LOGON: u32 = 8u32;
+pub const WLX_OPTION_NO_SWITCH_ON_SAS: u32 = 9u32;
+pub const WLX_OPTION_SMART_CARD_INFO: u32 = 65538u32;
+pub const WLX_OPTION_SMART_CARD_PRESENT: u32 = 65537u32;
+pub const WLX_OPTION_USE_CTRL_ALT_DEL: u32 = 1u32;
+pub const WLX_OPTION_USE_SMART_CARD: u32 = 3u32;
+pub const WLX_PROFILE_TYPE_V1_0: u32 = 1u32;
+pub const WLX_PROFILE_TYPE_V2_0: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WLX_PROFILE_V1_0 {
@@ -256,48 +282,6 @@ pub struct WLX_PROFILE_V2_0 {
     pub pszServerName: windows_sys::core::PWSTR,
     pub pszEnvironment: windows_sys::core::PWSTR,
 }
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WLX_SC_NOTIFICATION_INFO {
-    pub pszCard: windows_sys::core::PWSTR,
-    pub pszReader: windows_sys::core::PWSTR,
-    pub pszContainer: windows_sys::core::PWSTR,
-    pub pszCryptoProvider: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WLX_TERMINAL_SERVICES_DATA {
-    pub ProfilePath: [u16; 257],
-    pub HomeDir: [u16; 257],
-    pub HomeDirDrive: [u16; 4],
-}
-pub const STATUSMSG_OPTION_NOANIMATION: u32 = 1u32;
-pub const STATUSMSG_OPTION_SETFOREGROUND: u32 = 2u32;
-pub const WLX_CONSOLESWITCHCREDENTIAL_TYPE_V1_0: u32 = 1u32;
-pub const WLX_CREATE_INSTANCE_ONLY: u32 = 1u32;
-pub const WLX_CREATE_USER: u32 = 2u32;
-pub const WLX_CREDENTIAL_TYPE_V1_0: u32 = 1u32;
-pub const WLX_CREDENTIAL_TYPE_V2_0: u32 = 2u32;
-pub const WLX_CURRENT_VERSION: u32 = 65540u32;
-pub const WLX_DESKTOP_HANDLE: u32 = 2u32;
-pub const WLX_DESKTOP_NAME: u32 = 1u32;
-pub const WLX_DIRECTORY_LENGTH: u32 = 256u32;
-pub const WLX_DLG_INPUT_TIMEOUT: u32 = 102u32;
-pub const WLX_DLG_SAS: u32 = 101u32;
-pub const WLX_DLG_SCREEN_SAVER_TIMEOUT: u32 = 103u32;
-pub const WLX_DLG_USER_LOGOFF: u32 = 104u32;
-pub const WLX_LOGON_OPT_NO_PROFILE: u32 = 1u32;
-pub const WLX_OPTION_CONTEXT_POINTER: u32 = 2u32;
-pub const WLX_OPTION_DISPATCH_TABLE_SIZE: u32 = 65539u32;
-pub const WLX_OPTION_FORCE_LOGOFF_TIME: u32 = 4u32;
-pub const WLX_OPTION_IGNORE_AUTO_LOGON: u32 = 8u32;
-pub const WLX_OPTION_NO_SWITCH_ON_SAS: u32 = 9u32;
-pub const WLX_OPTION_SMART_CARD_INFO: u32 = 65538u32;
-pub const WLX_OPTION_SMART_CARD_PRESENT: u32 = 65537u32;
-pub const WLX_OPTION_USE_CTRL_ALT_DEL: u32 = 1u32;
-pub const WLX_OPTION_USE_SMART_CARD: u32 = 3u32;
-pub const WLX_PROFILE_TYPE_V1_0: u32 = 1u32;
-pub const WLX_PROFILE_TYPE_V2_0: u32 = 2u32;
 pub const WLX_SAS_ACTION_DELAYED_FORCE_LOGOFF: u32 = 16u32;
 pub const WLX_SAS_ACTION_FORCE_LOGOFF: u32 = 9u32;
 pub const WLX_SAS_ACTION_LOCK_WKSTA: u32 = 3u32;
@@ -327,6 +311,22 @@ pub const WLX_SAS_TYPE_SC_REMOVE: u32 = 6u32;
 pub const WLX_SAS_TYPE_SWITCHUSER: u32 = 10u32;
 pub const WLX_SAS_TYPE_TIMEOUT: u32 = 0u32;
 pub const WLX_SAS_TYPE_USER_LOGOFF: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WLX_SC_NOTIFICATION_INFO {
+    pub pszCard: windows_sys::core::PWSTR,
+    pub pszReader: windows_sys::core::PWSTR,
+    pub pszContainer: windows_sys::core::PWSTR,
+    pub pszCryptoProvider: windows_sys::core::PWSTR,
+}
+pub type WLX_SHUTDOWN_TYPE = u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WLX_TERMINAL_SERVICES_DATA {
+    pub ProfilePath: [u16; 257],
+    pub HomeDir: [u16; 257],
+    pub HomeDirDrive: [u16; 4],
+}
 pub const WLX_VERSION_1_0: u32 = 65536u32;
 pub const WLX_VERSION_1_1: u32 = 65537u32;
 pub const WLX_VERSION_1_2: u32 = 65538u32;

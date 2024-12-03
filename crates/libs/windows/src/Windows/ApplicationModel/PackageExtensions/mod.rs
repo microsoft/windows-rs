@@ -1,3 +1,126 @@
+windows_core::imp::define_interface!(IPackageExtension, IPackageExtension_Vtbl, 0xda70c957_7ead_5c3b_9cf0_cc43faf474b4);
+impl windows_core::RuntimeType for IPackageExtension {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPackageExtension_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Package: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetExtensionProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetExtensionProperties: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetExtensionPropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetExtensionPropertiesAsync: usize,
+    pub GetPublicPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Search")]
+    pub GetPublicFolder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Search"))]
+    GetPublicFolder: usize,
+    #[cfg(feature = "Storage_Search")]
+    pub GetPublicFolderAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Search"))]
+    GetPublicFolderAsync: usize,
+}
+windows_core::imp::define_interface!(IPackageExtensionCatalog, IPackageExtensionCatalog_Vtbl, 0x0879dfe6_ac30_58b2_97f9_480b07e75bfa);
+impl windows_core::RuntimeType for IPackageExtensionCatalog {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPackageExtensionCatalog_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub FindAll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    FindAll: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub FindAllAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    FindAllAsync: usize,
+    pub RequestRemovePackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PackageInstalled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePackageInstalled: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PackageUpdating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePackageUpdating: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PackageUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePackageUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PackageUninstalling: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePackageUninstalling: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PackageStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePackageStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPackageExtensionCatalogStatics, IPackageExtensionCatalogStatics_Vtbl, 0x9588ece4_3183_5684_9e5f_27759733ddfe);
+impl windows_core::RuntimeType for IPackageExtensionCatalogStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPackageExtensionCatalogStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPackageExtensionPackageInstalledEventArgs, IPackageExtensionPackageInstalledEventArgs_Vtbl, 0x3c9b0067_083c_5fe3_bdfb_9feb156b4118);
+impl windows_core::RuntimeType for IPackageExtensionPackageInstalledEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPackageExtensionPackageInstalledEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub PackageExtensionName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Package: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Extensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Extensions: usize,
+}
+windows_core::imp::define_interface!(IPackageExtensionPackageStatusChangedEventArgs, IPackageExtensionPackageStatusChangedEventArgs_Vtbl, 0xb8fee20a_680d_5942_876c_5de12df1083c);
+impl windows_core::RuntimeType for IPackageExtensionPackageStatusChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPackageExtensionPackageStatusChangedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub PackageExtensionName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Package: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPackageExtensionPackageUninstallingEventArgs, IPackageExtensionPackageUninstallingEventArgs_Vtbl, 0x3b8e9cb7_c539_554d_bb33_a84c0bfa3f50);
+impl windows_core::RuntimeType for IPackageExtensionPackageUninstallingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPackageExtensionPackageUninstallingEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub PackageExtensionName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Package: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPackageExtensionPackageUpdatedEventArgs, IPackageExtensionPackageUpdatedEventArgs_Vtbl, 0xfdc31add_16a7_509d_8bc4_fde22e856d2d);
+impl windows_core::RuntimeType for IPackageExtensionPackageUpdatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPackageExtensionPackageUpdatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub PackageExtensionName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Package: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Extensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Extensions: usize,
+}
+windows_core::imp::define_interface!(IPackageExtensionPackageUpdatingEventArgs, IPackageExtensionPackageUpdatingEventArgs_Vtbl, 0x27ae2ce1_a1d3_532e_8e7e_8b43782fce09);
+impl windows_core::RuntimeType for IPackageExtensionPackageUpdatingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPackageExtensionPackageUpdatingEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub PackageExtensionName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Package: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PackageExtension(windows_core::IUnknown);
@@ -380,126 +503,3 @@ impl windows_core::RuntimeName for PackageExtensionPackageUpdatingEventArgs {
 }
 unsafe impl Send for PackageExtensionPackageUpdatingEventArgs {}
 unsafe impl Sync for PackageExtensionPackageUpdatingEventArgs {}
-windows_core::imp::define_interface!(IPackageExtension, IPackageExtension_Vtbl, 0xda70c957_7ead_5c3b_9cf0_cc43faf474b4);
-impl windows_core::RuntimeType for IPackageExtension {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPackageExtension_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Package: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetExtensionProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetExtensionProperties: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetExtensionPropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetExtensionPropertiesAsync: usize,
-    pub GetPublicPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Search")]
-    pub GetPublicFolder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Search"))]
-    GetPublicFolder: usize,
-    #[cfg(feature = "Storage_Search")]
-    pub GetPublicFolderAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Search"))]
-    GetPublicFolderAsync: usize,
-}
-windows_core::imp::define_interface!(IPackageExtensionCatalog, IPackageExtensionCatalog_Vtbl, 0x0879dfe6_ac30_58b2_97f9_480b07e75bfa);
-impl windows_core::RuntimeType for IPackageExtensionCatalog {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPackageExtensionCatalog_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub FindAll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAll: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub FindAllAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAllAsync: usize,
-    pub RequestRemovePackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PackageInstalled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePackageInstalled: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PackageUpdating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePackageUpdating: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PackageUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePackageUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PackageUninstalling: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePackageUninstalling: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PackageStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePackageStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPackageExtensionCatalogStatics, IPackageExtensionCatalogStatics_Vtbl, 0x9588ece4_3183_5684_9e5f_27759733ddfe);
-impl windows_core::RuntimeType for IPackageExtensionCatalogStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPackageExtensionCatalogStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPackageExtensionPackageInstalledEventArgs, IPackageExtensionPackageInstalledEventArgs_Vtbl, 0x3c9b0067_083c_5fe3_bdfb_9feb156b4118);
-impl windows_core::RuntimeType for IPackageExtensionPackageInstalledEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPackageExtensionPackageInstalledEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub PackageExtensionName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Package: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Extensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Extensions: usize,
-}
-windows_core::imp::define_interface!(IPackageExtensionPackageStatusChangedEventArgs, IPackageExtensionPackageStatusChangedEventArgs_Vtbl, 0xb8fee20a_680d_5942_876c_5de12df1083c);
-impl windows_core::RuntimeType for IPackageExtensionPackageStatusChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPackageExtensionPackageStatusChangedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub PackageExtensionName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Package: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPackageExtensionPackageUninstallingEventArgs, IPackageExtensionPackageUninstallingEventArgs_Vtbl, 0x3b8e9cb7_c539_554d_bb33_a84c0bfa3f50);
-impl windows_core::RuntimeType for IPackageExtensionPackageUninstallingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPackageExtensionPackageUninstallingEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub PackageExtensionName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Package: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPackageExtensionPackageUpdatedEventArgs, IPackageExtensionPackageUpdatedEventArgs_Vtbl, 0xfdc31add_16a7_509d_8bc4_fde22e856d2d);
-impl windows_core::RuntimeType for IPackageExtensionPackageUpdatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPackageExtensionPackageUpdatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub PackageExtensionName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Package: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Extensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Extensions: usize,
-}
-windows_core::imp::define_interface!(IPackageExtensionPackageUpdatingEventArgs, IPackageExtensionPackageUpdatingEventArgs_Vtbl, 0x27ae2ce1_a1d3_532e_8e7e_8b43782fce09);
-impl windows_core::RuntimeType for IPackageExtensionPackageUpdatingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPackageExtensionPackageUpdatingEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub PackageExtensionName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Package: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}

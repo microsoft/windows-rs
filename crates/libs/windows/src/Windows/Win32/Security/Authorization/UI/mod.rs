@@ -26,6 +26,28 @@ where
     windows_targets::link!("aclui.dll" "system" fn EditSecurityAdvanced(hwndowner : super::super::super::Foundation:: HWND, psi : * mut core::ffi::c_void, usipage : SI_PAGE_TYPE) -> windows_core::HRESULT);
     EditSecurityAdvanced(hwndowner.param().abi(), psi.param().abi(), core::mem::transmute(usipage)).ok()
 }
+pub const CFSTR_ACLUI_SID_INFO_LIST: windows_core::PCWSTR = windows_core::w!("CFSTR_ACLUI_SID_INFO_LIST");
+pub const DOBJ_COND_NTACLS: i32 = 8i32;
+pub const DOBJ_RES_CONT: i32 = 1i32;
+pub const DOBJ_RES_ROOT: i32 = 2i32;
+pub const DOBJ_RIBBON_LAUNCH: i32 = 16i32;
+pub const DOBJ_VOL_NTACLS: i32 = 4i32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EFFPERM_RESULT_LIST {
+    pub fEvaluated: super::super::super::Foundation::BOOLEAN,
+    pub cObjectTypeListLength: u32,
+    pub pObjectTypeList: *mut super::super::OBJECT_TYPE_LIST,
+    pub pGrantedAccessList: *mut u32,
+}
+impl Default for EFFPERM_RESULT_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for EFFPERM_RESULT_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 windows_core::imp::define_interface!(IEffectivePermission, IEffectivePermission_Vtbl, 0x3853dc76_9f35_407c_88a1_d19344365fbc);
 windows_core::imp::interface_hierarchy!(IEffectivePermission, windows_core::IUnknown);
 impl IEffectivePermission {
@@ -482,64 +504,6 @@ impl core::ops::Not for SECURITY_INFO_PAGE_FLAGS {
         Self(self.0.not())
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SI_OBJECT_INFO_FLAGS(pub u32);
-impl SI_OBJECT_INFO_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for SI_OBJECT_INFO_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for SI_OBJECT_INFO_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for SI_OBJECT_INFO_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for SI_OBJECT_INFO_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for SI_OBJECT_INFO_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SI_PAGE_ACTIVATED(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SI_PAGE_TYPE(pub i32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct EFFPERM_RESULT_LIST {
-    pub fEvaluated: super::super::super::Foundation::BOOLEAN,
-    pub cObjectTypeListLength: u32,
-    pub pObjectTypeList: *mut super::super::OBJECT_TYPE_LIST,
-    pub pGrantedAccessList: *mut u32,
-}
-impl Default for EFFPERM_RESULT_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for EFFPERM_RESULT_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECURITY_OBJECT {
@@ -559,6 +523,10 @@ impl Default for SECURITY_OBJECT {
 impl windows_core::TypeKind for SECURITY_OBJECT {
     type TypeKind = windows_core::CopyType;
 }
+pub const SECURITY_OBJECT_ID_CENTRAL_ACCESS_RULE: u32 = 4u32;
+pub const SECURITY_OBJECT_ID_CENTRAL_POLICY: u32 = 3u32;
+pub const SECURITY_OBJECT_ID_OBJECT_SD: u32 = 1u32;
+pub const SECURITY_OBJECT_ID_SHARE: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SID_INFO {
@@ -605,6 +573,21 @@ impl Default for SI_ACCESS {
 impl windows_core::TypeKind for SI_ACCESS {
     type TypeKind = windows_core::CopyType;
 }
+pub const SI_ACCESS_CONTAINER: i32 = 262144i32;
+pub const SI_ACCESS_GENERAL: i32 = 131072i32;
+pub const SI_ACCESS_PROPERTY: i32 = 524288i32;
+pub const SI_ACCESS_SPECIFIC: i32 = 65536i32;
+pub const SI_ADVANCED: SECURITY_INFO_PAGE_FLAGS = SECURITY_INFO_PAGE_FLAGS(16u32);
+pub const SI_AUDITS_ELEVATION_REQUIRED: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(33554432u32);
+pub const SI_CONTAINER: i32 = 4i32;
+pub const SI_DISABLE_DENY_ACE: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(2147483648u32);
+pub const SI_EDIT_AUDITS: SECURITY_INFO_PAGE_FLAGS = SECURITY_INFO_PAGE_FLAGS(2u32);
+pub const SI_EDIT_EFFECTIVE: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(131072u32);
+pub const SI_EDIT_OWNER: i32 = 1i32;
+pub const SI_EDIT_PERMS: i32 = 0i32;
+pub const SI_EDIT_PROPERTIES: SECURITY_INFO_PAGE_FLAGS = SECURITY_INFO_PAGE_FLAGS(128u32);
+pub const SI_ENABLE_CENTRAL_POLICY: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(1073741824u32);
+pub const SI_ENABLE_EDIT_ATTRIBUTE_CONDITION: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(536870912u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SI_INHERIT_TYPE {
@@ -620,6 +603,11 @@ impl Default for SI_INHERIT_TYPE {
 impl windows_core::TypeKind for SI_INHERIT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+pub const SI_MAY_WRITE: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(268435456u32);
+pub const SI_NO_ACL_PROTECT: i32 = 512i32;
+pub const SI_NO_ADDITIONAL_PERMISSION: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(2097152u32);
+pub const SI_NO_TREE_APPLY: i32 = 1024i32;
+pub const SI_OBJECT_GUID: i32 = 65536i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SI_OBJECT_INFO {
@@ -638,39 +626,48 @@ impl Default for SI_OBJECT_INFO {
 impl windows_core::TypeKind for SI_OBJECT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-pub const CFSTR_ACLUI_SID_INFO_LIST: windows_core::PCWSTR = windows_core::w!("CFSTR_ACLUI_SID_INFO_LIST");
-pub const DOBJ_COND_NTACLS: i32 = 8i32;
-pub const DOBJ_RES_CONT: i32 = 1i32;
-pub const DOBJ_RES_ROOT: i32 = 2i32;
-pub const DOBJ_RIBBON_LAUNCH: i32 = 16i32;
-pub const DOBJ_VOL_NTACLS: i32 = 4i32;
-pub const SECURITY_OBJECT_ID_CENTRAL_ACCESS_RULE: u32 = 4u32;
-pub const SECURITY_OBJECT_ID_CENTRAL_POLICY: u32 = 3u32;
-pub const SECURITY_OBJECT_ID_OBJECT_SD: u32 = 1u32;
-pub const SECURITY_OBJECT_ID_SHARE: u32 = 2u32;
-pub const SI_ACCESS_CONTAINER: i32 = 262144i32;
-pub const SI_ACCESS_GENERAL: i32 = 131072i32;
-pub const SI_ACCESS_PROPERTY: i32 = 524288i32;
-pub const SI_ACCESS_SPECIFIC: i32 = 65536i32;
-pub const SI_ADVANCED: SECURITY_INFO_PAGE_FLAGS = SECURITY_INFO_PAGE_FLAGS(16u32);
-pub const SI_AUDITS_ELEVATION_REQUIRED: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(33554432u32);
-pub const SI_CONTAINER: i32 = 4i32;
-pub const SI_DISABLE_DENY_ACE: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(2147483648u32);
-pub const SI_EDIT_AUDITS: SECURITY_INFO_PAGE_FLAGS = SECURITY_INFO_PAGE_FLAGS(2u32);
-pub const SI_EDIT_EFFECTIVE: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(131072u32);
-pub const SI_EDIT_OWNER: i32 = 1i32;
-pub const SI_EDIT_PERMS: i32 = 0i32;
-pub const SI_EDIT_PROPERTIES: SECURITY_INFO_PAGE_FLAGS = SECURITY_INFO_PAGE_FLAGS(128u32);
-pub const SI_ENABLE_CENTRAL_POLICY: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(1073741824u32);
-pub const SI_ENABLE_EDIT_ATTRIBUTE_CONDITION: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(536870912u32);
-pub const SI_MAY_WRITE: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(268435456u32);
-pub const SI_NO_ACL_PROTECT: i32 = 512i32;
-pub const SI_NO_ADDITIONAL_PERMISSION: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(2097152u32);
-pub const SI_NO_TREE_APPLY: i32 = 1024i32;
-pub const SI_OBJECT_GUID: i32 = 65536i32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SI_OBJECT_INFO_FLAGS(pub u32);
+impl SI_OBJECT_INFO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for SI_OBJECT_INFO_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for SI_OBJECT_INFO_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for SI_OBJECT_INFO_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for SI_OBJECT_INFO_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for SI_OBJECT_INFO_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const SI_OWNER_ELEVATION_REQUIRED: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(67108864u32);
 pub const SI_OWNER_READONLY: i32 = 64i32;
 pub const SI_OWNER_RECURSE: i32 = 256i32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SI_PAGE_ACTIVATED(pub i32);
 pub const SI_PAGE_ADVPERM: SI_PAGE_TYPE = SI_PAGE_TYPE(1i32);
 pub const SI_PAGE_AUDIT: SI_PAGE_TYPE = SI_PAGE_TYPE(2i32);
 pub const SI_PAGE_EFFECTIVE: SI_PAGE_TYPE = SI_PAGE_TYPE(4i32);
@@ -679,6 +676,9 @@ pub const SI_PAGE_PERM: SI_PAGE_TYPE = SI_PAGE_TYPE(0i32);
 pub const SI_PAGE_SHARE: SI_PAGE_TYPE = SI_PAGE_TYPE(6i32);
 pub const SI_PAGE_TAKEOWNERSHIP: SI_PAGE_TYPE = SI_PAGE_TYPE(5i32);
 pub const SI_PAGE_TITLE: i32 = 2048i32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SI_PAGE_TYPE(pub i32);
 pub const SI_PERMS_ELEVATION_REQUIRED: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(16777216u32);
 pub const SI_READONLY: i32 = 8i32;
 pub const SI_RESET: i32 = 32i32;

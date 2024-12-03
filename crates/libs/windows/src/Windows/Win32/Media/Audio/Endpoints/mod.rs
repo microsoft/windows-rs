@@ -1,3 +1,27 @@
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
+    pub u32Size: u32,
+    pub u32TSSessionId: u32,
+    pub targetEndpointConnectorType: EndpointConnectorType,
+    pub wfxDeviceFormat: super::WAVEFORMATEX,
+}
+impl Default for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DEVINTERFACE_AUDIOENDPOINTPLUGIN: windows_core::GUID = windows_core::GUID::from_u128(0x9f2f7b66_65ac_4fa6_8ae4_123c78b89313);
+pub const DEVPKEY_AudioEndpointPlugin2_FactoryCLSID: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 4 };
+pub const DEVPKEY_AudioEndpointPlugin_DataFlow: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 2 };
+pub const DEVPKEY_AudioEndpointPlugin_FactoryCLSID: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 1 };
+pub const DEVPKEY_AudioEndpointPlugin_PnPInterface: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 3 };
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EndpointConnectorType(pub i32);
 windows_core::imp::define_interface!(IAudioEndpointFormatControl, IAudioEndpointFormatControl_Vtbl, 0x784cfd40_9f89_456e_a1a6_873b006a664e);
 windows_core::imp::interface_hierarchy!(IAudioEndpointFormatControl, windows_core::IUnknown);
 impl IAudioEndpointFormatControl {
@@ -801,30 +825,6 @@ impl IHardwareAudioEngineBase_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IHardwareAudioEngineBase {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EndpointConnectorType(pub i32);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
-    pub u32Size: u32,
-    pub u32TSSessionId: u32,
-    pub targetEndpointConnectorType: EndpointConnectorType,
-    pub wfxDeviceFormat: super::WAVEFORMATEX,
-}
-impl Default for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-pub const DEVINTERFACE_AUDIOENDPOINTPLUGIN: windows_core::GUID = windows_core::GUID::from_u128(0x9f2f7b66_65ac_4fa6_8ae4_123c78b89313);
-pub const DEVPKEY_AudioEndpointPlugin2_FactoryCLSID: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 4 };
-pub const DEVPKEY_AudioEndpointPlugin_DataFlow: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 2 };
-pub const DEVPKEY_AudioEndpointPlugin_FactoryCLSID: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 1 };
-pub const DEVPKEY_AudioEndpointPlugin_PnPInterface: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 3 };
 pub const eConnectorCount: EndpointConnectorType = EndpointConnectorType(4i32);
 pub const eHostProcessConnector: EndpointConnectorType = EndpointConnectorType(0i32);
 pub const eKeywordDetectorConnector: EndpointConnectorType = EndpointConnectorType(3i32);

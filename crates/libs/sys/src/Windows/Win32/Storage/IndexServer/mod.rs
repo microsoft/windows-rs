@@ -6,100 +6,6 @@ windows_targets::link!("query.dll" "system" fn LoadIFilter(pwcspath : windows_sy
 windows_targets::link!("query.dll" "system" fn LoadIFilterEx(pwcspath : windows_sys::core::PCWSTR, dwflags : u32, riid : *const windows_sys::core::GUID, ppiunk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub type CHUNKSTATE = i32;
 pub type CHUNK_BREAKTYPE = i32;
-pub type DBKINDENUM = i32;
-pub type IFILTER_FLAGS = i32;
-pub type IFILTER_INIT = i32;
-pub type WORDREP_BREAK_TYPE = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CI_STATE {
-    pub cbStruct: u32,
-    pub cWordList: u32,
-    pub cPersistentIndex: u32,
-    pub cQueries: u32,
-    pub cDocuments: u32,
-    pub cFreshTest: u32,
-    pub dwMergeProgress: u32,
-    pub eState: u32,
-    pub cFilteredDocuments: u32,
-    pub cTotalDocuments: u32,
-    pub cPendingScans: u32,
-    pub dwIndexSize: u32,
-    pub cUniqueKeys: u32,
-    pub cSecQDocuments: u32,
-    pub dwPropCacheSize: u32,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct DBID {
-    pub uGuid: DBID_0,
-    pub eKind: u32,
-    pub uName: DBID_1,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub union DBID_0 {
-    pub guid: windows_sys::core::GUID,
-    pub pguid: *mut windows_sys::core::GUID,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub union DBID_1 {
-    pub pwszName: windows_sys::core::PWSTR,
-    pub ulPropid: u32,
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct DBID {
-    pub uGuid: DBID_0,
-    pub eKind: u32,
-    pub uName: DBID_1,
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub union DBID_0 {
-    pub guid: windows_sys::core::GUID,
-    pub pguid: *mut windows_sys::core::GUID,
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub union DBID_1 {
-    pub pwszName: windows_sys::core::PWSTR,
-    pub ulPropid: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FILTERREGION {
-    pub idChunk: u32,
-    pub cwcStart: u32,
-    pub cwcExtent: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-#[derive(Clone, Copy)]
-pub struct FULLPROPSPEC {
-    pub guidPropSet: windows_sys::core::GUID,
-    pub psProperty: super::super::System::Com::StructuredStorage::PROPSPEC,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-#[derive(Clone, Copy)]
-pub struct STAT_CHUNK {
-    pub idChunk: u32,
-    pub breakType: CHUNK_BREAKTYPE,
-    pub flags: CHUNKSTATE,
-    pub locale: u32,
-    pub attribute: FULLPROPSPEC,
-    pub idChunkSource: u32,
-    pub cwcStartSource: u32,
-    pub cwcLenSource: u32,
-}
 pub const CHUNK_EOC: CHUNK_BREAKTYPE = 4i32;
 pub const CHUNK_EOP: CHUNK_BREAKTYPE = 3i32;
 pub const CHUNK_EOS: CHUNK_BREAKTYPE = 2i32;
@@ -119,6 +25,25 @@ pub const CINULLCATALOG: windows_sys::core::PCWSTR = windows_sys::core::w!("::_n
 pub const CI_PROVIDER_ALL: u32 = 4294967295u32;
 pub const CI_PROVIDER_INDEXING_SERVICE: u32 = 2u32;
 pub const CI_PROVIDER_MSSEARCH: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CI_STATE {
+    pub cbStruct: u32,
+    pub cWordList: u32,
+    pub cPersistentIndex: u32,
+    pub cQueries: u32,
+    pub cDocuments: u32,
+    pub cFreshTest: u32,
+    pub dwMergeProgress: u32,
+    pub eState: u32,
+    pub cFilteredDocuments: u32,
+    pub cTotalDocuments: u32,
+    pub cPendingScans: u32,
+    pub dwIndexSize: u32,
+    pub cUniqueKeys: u32,
+    pub cSecQDocuments: u32,
+    pub dwPropCacheSize: u32,
+}
 pub const CI_STATE_ANNEALING_MERGE: u32 = 8u32;
 pub const CI_STATE_BATTERY_POLICY: u32 = 262144u32;
 pub const CI_STATE_BATTERY_POWER: u32 = 2048u32;
@@ -142,6 +67,51 @@ pub const CI_VERSION_WDS30: u32 = 258u32;
 pub const CI_VERSION_WDS40: u32 = 265u32;
 pub const CI_VERSION_WIN70: u32 = 1792u32;
 pub const CLSID_INDEX_SERVER_DSO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf9ae8980_7e52_11d0_8964_00c04fd611d7);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct DBID {
+    pub uGuid: DBID_0,
+    pub eKind: u32,
+    pub uName: DBID_1,
+}
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub union DBID_0 {
+    pub guid: windows_sys::core::GUID,
+    pub pguid: *mut windows_sys::core::GUID,
+}
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub union DBID_1 {
+    pub pwszName: windows_sys::core::PWSTR,
+    pub ulPropid: u32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct DBID {
+    pub uGuid: DBID_0,
+    pub eKind: u32,
+    pub uName: DBID_1,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub union DBID_0 {
+    pub guid: windows_sys::core::GUID,
+    pub pguid: *mut windows_sys::core::GUID,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub union DBID_1 {
+    pub pwszName: windows_sys::core::PWSTR,
+    pub ulPropid: u32,
+}
+pub type DBKINDENUM = i32;
 pub const DBKIND_GUID: DBKINDENUM = 6i32;
 pub const DBKIND_GUID_NAME: DBKINDENUM = 0i32;
 pub const DBKIND_GUID_PROPID: DBKINDENUM = 1i32;
@@ -183,6 +153,13 @@ pub const DBPROP_USEEXTENDEDDBTYPES: u32 = 4u32;
 pub const DBSETFUNC_ALL: u32 = 1u32;
 pub const DBSETFUNC_DISTINCT: u32 = 2u32;
 pub const DBSETFUNC_NONE: u32 = 0u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FILTERREGION {
+    pub idChunk: u32,
+    pub cwcStart: u32,
+    pub cwcExtent: u32,
+}
 pub const FILTER_E_ACCESS: windows_sys::core::HRESULT = 0x80041703_u32 as _;
 pub const FILTER_E_EMBEDDING_UNAVAILABLE: windows_sys::core::HRESULT = 0x80041707_u32 as _;
 pub const FILTER_E_END_OF_CHUNKS: windows_sys::core::HRESULT = 0x80041700_u32 as _;
@@ -196,10 +173,19 @@ pub const FILTER_E_UNKNOWNFORMAT: windows_sys::core::HRESULT = 0x8004170C_u32 as
 pub const FILTER_S_LAST_TEXT: windows_sys::core::HRESULT = 0x41709_u32 as _;
 pub const FILTER_S_LAST_VALUES: windows_sys::core::HRESULT = 0x4170A_u32 as _;
 pub const FILTER_W_MONIKER_CLIPPED: windows_sys::core::HRESULT = 0x41704_u32 as _;
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[derive(Clone, Copy)]
+pub struct FULLPROPSPEC {
+    pub guidPropSet: windows_sys::core::GUID,
+    pub psProperty: super::super::System::Com::StructuredStorage::PROPSPEC,
+}
 pub const GENERATE_METHOD_EXACT: u32 = 0u32;
 pub const GENERATE_METHOD_INFLECT: u32 = 2u32;
 pub const GENERATE_METHOD_PREFIX: u32 = 1u32;
+pub type IFILTER_FLAGS = i32;
 pub const IFILTER_FLAGS_OLE_PROPERTIES: IFILTER_FLAGS = 1i32;
+pub type IFILTER_INIT = i32;
 pub const IFILTER_INIT_APPLY_CRAWL_ATTRIBUTES: IFILTER_INIT = 256i32;
 pub const IFILTER_INIT_APPLY_INDEX_ATTRIBUTES: IFILTER_INIT = 16i32;
 pub const IFILTER_INIT_APPLY_OTHER_ATTRIBUTES: IFILTER_INIT = 32i32;
@@ -256,6 +242,19 @@ pub const SCOPE_TYPE_MASK: u32 = 4294967040u32;
 pub const SCOPE_TYPE_VPATH: u32 = 512u32;
 pub const SCOPE_TYPE_WINPATH: u32 = 256u32;
 pub const STAT_BUSY: u32 = 0u32;
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[derive(Clone, Copy)]
+pub struct STAT_CHUNK {
+    pub idChunk: u32,
+    pub breakType: CHUNK_BREAKTYPE,
+    pub flags: CHUNKSTATE,
+    pub locale: u32,
+    pub attribute: FULLPROPSPEC,
+    pub idChunkSource: u32,
+    pub cwcStartSource: u32,
+    pub cwcLenSource: u32,
+}
 pub const STAT_COALESCE_COMP_ALL_NOISE: u32 = 8192u32;
 pub const STAT_CONTENT_OUT_OF_DATE: u32 = 32u32;
 pub const STAT_CONTENT_QUERY_INCOMPLETE: u32 = 128u32;
@@ -279,3 +278,4 @@ pub const WORDREP_BREAK_EOC: WORDREP_BREAK_TYPE = 3i32;
 pub const WORDREP_BREAK_EOP: WORDREP_BREAK_TYPE = 2i32;
 pub const WORDREP_BREAK_EOS: WORDREP_BREAK_TYPE = 1i32;
 pub const WORDREP_BREAK_EOW: WORDREP_BREAK_TYPE = 0i32;
+pub type WORDREP_BREAK_TYPE = i32;

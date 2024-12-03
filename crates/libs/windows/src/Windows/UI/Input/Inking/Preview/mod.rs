@@ -1,3 +1,27 @@
+windows_core::imp::define_interface!(IPalmRejectionDelayZonePreview, IPalmRejectionDelayZonePreview_Vtbl, 0x62b496cb_539d_5343_a65f_41f5300ec70c);
+impl windows_core::RuntimeType for IPalmRejectionDelayZonePreview {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPalmRejectionDelayZonePreview_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(IPalmRejectionDelayZonePreviewStatics, IPalmRejectionDelayZonePreviewStatics_Vtbl, 0xcdef5ee0_93d0_53a9_8f0e_9a379f8f7530);
+impl windows_core::RuntimeType for IPalmRejectionDelayZonePreviewStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPalmRejectionDelayZonePreviewStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "UI_Composition")]
+    pub CreateForVisual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::super::Foundation::Rect, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "UI_Composition"))]
+    CreateForVisual: usize,
+    #[cfg(feature = "UI_Composition")]
+    pub CreateForVisualWithViewportClip: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::super::Foundation::Rect, *mut core::ffi::c_void, super::super::super::super::Foundation::Rect, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "UI_Composition"))]
+    CreateForVisualWithViewportClip: usize,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PalmRejectionDelayZonePreview(windows_core::IUnknown);
@@ -46,27 +70,3 @@ impl windows_core::RuntimeName for PalmRejectionDelayZonePreview {
 }
 unsafe impl Send for PalmRejectionDelayZonePreview {}
 unsafe impl Sync for PalmRejectionDelayZonePreview {}
-windows_core::imp::define_interface!(IPalmRejectionDelayZonePreview, IPalmRejectionDelayZonePreview_Vtbl, 0x62b496cb_539d_5343_a65f_41f5300ec70c);
-impl windows_core::RuntimeType for IPalmRejectionDelayZonePreview {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPalmRejectionDelayZonePreview_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
-windows_core::imp::define_interface!(IPalmRejectionDelayZonePreviewStatics, IPalmRejectionDelayZonePreviewStatics_Vtbl, 0xcdef5ee0_93d0_53a9_8f0e_9a379f8f7530);
-impl windows_core::RuntimeType for IPalmRejectionDelayZonePreviewStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPalmRejectionDelayZonePreviewStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "UI_Composition")]
-    pub CreateForVisual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::super::Foundation::Rect, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI_Composition"))]
-    CreateForVisual: usize,
-    #[cfg(feature = "UI_Composition")]
-    pub CreateForVisualWithViewportClip: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::super::Foundation::Rect, *mut core::ffi::c_void, super::super::super::super::Foundation::Rect, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI_Composition"))]
-    CreateForVisualWithViewportClip: usize,
-}

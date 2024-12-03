@@ -1,3 +1,24 @@
+windows_core::imp::define_interface!(IInkWorkspaceHostedAppManager, IInkWorkspaceHostedAppManager_Vtbl, 0xfe0a7990_5e59_4bb7_8a63_7d218cd96300);
+impl windows_core::RuntimeType for IInkWorkspaceHostedAppManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IInkWorkspaceHostedAppManager_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Graphics_Imaging")]
+    pub SetThumbnailAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_Imaging"))]
+    SetThumbnailAsync: usize,
+}
+windows_core::imp::define_interface!(IInkWorkspaceHostedAppManagerStatics, IInkWorkspaceHostedAppManagerStatics_Vtbl, 0xcbfd8cc5_a162_4bc4_84ee_e8716d5233c5);
+impl windows_core::RuntimeType for IInkWorkspaceHostedAppManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IInkWorkspaceHostedAppManagerStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetForCurrentApp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InkWorkspaceHostedAppManager(windows_core::IUnknown);
@@ -37,24 +58,3 @@ impl windows_core::RuntimeName for InkWorkspaceHostedAppManager {
 }
 unsafe impl Send for InkWorkspaceHostedAppManager {}
 unsafe impl Sync for InkWorkspaceHostedAppManager {}
-windows_core::imp::define_interface!(IInkWorkspaceHostedAppManager, IInkWorkspaceHostedAppManager_Vtbl, 0xfe0a7990_5e59_4bb7_8a63_7d218cd96300);
-impl windows_core::RuntimeType for IInkWorkspaceHostedAppManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IInkWorkspaceHostedAppManager_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Graphics_Imaging")]
-    pub SetThumbnailAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Graphics_Imaging"))]
-    SetThumbnailAsync: usize,
-}
-windows_core::imp::define_interface!(IInkWorkspaceHostedAppManagerStatics, IInkWorkspaceHostedAppManagerStatics_Vtbl, 0xcbfd8cc5_a162_4bc4_84ee_e8716d5233c5);
-impl windows_core::RuntimeType for IInkWorkspaceHostedAppManagerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IInkWorkspaceHostedAppManagerStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetForCurrentApp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}

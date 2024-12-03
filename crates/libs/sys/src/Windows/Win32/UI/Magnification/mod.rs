@@ -19,9 +19,6 @@ windows_targets::link!("magnification.dll" "system" fn MagSetWindowSource(hwnd :
 windows_targets::link!("magnification.dll" "system" fn MagSetWindowTransform(hwnd : super::super::Foundation:: HWND, ptransform : *mut MAGTRANSFORM) -> super::super::Foundation:: BOOL);
 windows_targets::link!("magnification.dll" "system" fn MagShowSystemCursor(fshowcursor : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 windows_targets::link!("magnification.dll" "system" fn MagUninitialize() -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type MagImageScalingCallback = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, srcdata: *mut core::ffi::c_void, srcheader: MAGIMAGEHEADER, destdata: *mut core::ffi::c_void, destheader: MAGIMAGEHEADER, unclipped: super::super::Foundation::RECT, clipped: super::super::Foundation::RECT, dirty: super::super::Graphics::Gdi::HRGN) -> super::super::Foundation::BOOL>;
-pub type MW_FILTERMODE = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MAGCOLOREFFECT {
@@ -45,8 +42,11 @@ pub struct MAGTRANSFORM {
 pub const MS_CLIPAROUNDCURSOR: i32 = 2i32;
 pub const MS_INVERTCOLORS: i32 = 4i32;
 pub const MS_SHOWMAGNIFIEDCURSOR: i32 = 1i32;
+pub type MW_FILTERMODE = u32;
 pub const MW_FILTERMODE_EXCLUDE: MW_FILTERMODE = 0u32;
 pub const MW_FILTERMODE_INCLUDE: MW_FILTERMODE = 1u32;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type MagImageScalingCallback = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, srcdata: *mut core::ffi::c_void, srcheader: MAGIMAGEHEADER, destdata: *mut core::ffi::c_void, destheader: MAGIMAGEHEADER, unclipped: super::super::Foundation::RECT, clipped: super::super::Foundation::RECT, dirty: super::super::Graphics::Gdi::HRGN) -> super::super::Foundation::BOOL>;
 pub const WC_MAGNIFIER: windows_sys::core::PCWSTR = windows_sys::core::w!("Magnifier");
 pub const WC_MAGNIFIERA: windows_sys::core::PCSTR = windows_sys::core::s!("Magnifier");
 pub const WC_MAGNIFIERW: windows_sys::core::PCWSTR = windows_sys::core::w!("Magnifier");

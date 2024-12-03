@@ -1,3 +1,92 @@
+windows_core::imp::define_interface!(IRemoteTextConnection, IRemoteTextConnection_Vtbl, 0x4e7bb02a_183e_5e66_b5e4_3e6e5c570cf1);
+impl windows_core::RuntimeType for IRemoteTextConnection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRemoteTextConnection_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetIsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub RegisterThread: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub UnregisterThread: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub ReportDataReceived: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IRemoteTextConnection2, IRemoteTextConnection2_Vtbl, 0x05f99345_84c8_56c5_934f_73ea00f8c2d5);
+impl windows_core::RuntimeType for IRemoteTextConnection2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRemoteTextConnection2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ReportPredictedKeyEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u16, RemoteKeyEventAttributes) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IRemoteTextConnectionFactory, IRemoteTextConnectionFactory_Vtbl, 0x88e075c2_0cae_596c_850f_78d345cd728b);
+impl windows_core::RuntimeType for IRemoteTextConnectionFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRemoteTextConnectionFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IRemoteTextConnectionFactory2, IRemoteTextConnectionFactory2_Vtbl, 0x9425c7d9_ed9b_5d00_99cc_b0b8dc9e4c60);
+impl windows_core::RuntimeType for IRemoteTextConnectionFactory2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRemoteTextConnectionFactory2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void, RemoteTextConnectionOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RemoteKeyEventAttributes(pub u32);
+impl RemoteKeyEventAttributes {
+    pub const None: Self = Self(0u32);
+    pub const KeyUp: Self = Self(1u32);
+    pub const Repeat: Self = Self(2u32);
+    pub const Extended: Self = Self(4u32);
+    pub const Extended1: Self = Self(8u32);
+}
+impl windows_core::TypeKind for RemoteKeyEventAttributes {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for RemoteKeyEventAttributes {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteDesktop.Input.RemoteKeyEventAttributes;u4)");
+}
+impl RemoteKeyEventAttributes {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for RemoteKeyEventAttributes {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for RemoteKeyEventAttributes {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for RemoteKeyEventAttributes {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for RemoteKeyEventAttributes {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for RemoteKeyEventAttributes {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RemoteTextConnection(windows_core::IUnknown);
@@ -74,46 +163,6 @@ impl windows_core::RuntimeName for RemoteTextConnection {
 }
 unsafe impl Send for RemoteTextConnection {}
 unsafe impl Sync for RemoteTextConnection {}
-windows_core::imp::define_interface!(IRemoteTextConnection, IRemoteTextConnection_Vtbl, 0x4e7bb02a_183e_5e66_b5e4_3e6e5c570cf1);
-impl windows_core::RuntimeType for IRemoteTextConnection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRemoteTextConnection_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetIsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub RegisterThread: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub UnregisterThread: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub ReportDataReceived: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IRemoteTextConnection2, IRemoteTextConnection2_Vtbl, 0x05f99345_84c8_56c5_934f_73ea00f8c2d5);
-impl windows_core::RuntimeType for IRemoteTextConnection2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRemoteTextConnection2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ReportPredictedKeyEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u16, RemoteKeyEventAttributes) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IRemoteTextConnectionFactory, IRemoteTextConnectionFactory_Vtbl, 0x88e075c2_0cae_596c_850f_78d345cd728b);
-impl windows_core::RuntimeType for IRemoteTextConnectionFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRemoteTextConnectionFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IRemoteTextConnectionFactory2, IRemoteTextConnectionFactory2_Vtbl, 0x9425c7d9_ed9b_5d00_99cc_b0b8dc9e4c60);
-impl windows_core::RuntimeType for IRemoteTextConnectionFactory2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRemoteTextConnectionFactory2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void, RemoteTextConnectionOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 windows_core::imp::define_interface!(RemoteTextConnectionDataHandler, RemoteTextConnectionDataHandler_Vtbl, 0x099ffbc8_8bcb_41b5_b056_57e77021bf1b);
 impl windows_core::RuntimeType for RemoteTextConnectionDataHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -178,55 +227,6 @@ impl<F: FnMut(&[u8]) -> windows_core::Result<bool> + Send + 'static> RemoteTextC
             }
             Err(err) => err.into(),
         }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RemoteKeyEventAttributes(pub u32);
-impl RemoteKeyEventAttributes {
-    pub const None: Self = Self(0u32);
-    pub const KeyUp: Self = Self(1u32);
-    pub const Repeat: Self = Self(2u32);
-    pub const Extended: Self = Self(4u32);
-    pub const Extended1: Self = Self(8u32);
-}
-impl windows_core::TypeKind for RemoteKeyEventAttributes {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for RemoteKeyEventAttributes {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteDesktop.Input.RemoteKeyEventAttributes;u4)");
-}
-impl RemoteKeyEventAttributes {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for RemoteKeyEventAttributes {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for RemoteKeyEventAttributes {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for RemoteKeyEventAttributes {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for RemoteKeyEventAttributes {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for RemoteKeyEventAttributes {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(transparent)]

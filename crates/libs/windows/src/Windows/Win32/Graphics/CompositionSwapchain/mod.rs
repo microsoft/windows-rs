@@ -8,6 +8,35 @@ where
     let mut result__ = core::ptr::null_mut();
     CreatePresentationFactory(d3ddevice.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CompositionFrameDisplayInstance {
+    pub displayAdapterLUID: super::super::Foundation::LUID,
+    pub displayVidPnSourceId: u32,
+    pub displayUniqueId: u32,
+    pub renderAdapterLUID: super::super::Foundation::LUID,
+    pub instanceKind: CompositionFrameInstanceKind,
+    pub finalTransform: PresentationTransform,
+    pub requiredCrossAdapterCopy: u8,
+    pub colorSpace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl Default for CompositionFrameDisplayInstance {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl windows_core::TypeKind for CompositionFrameDisplayInstance {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CompositionFrameInstanceKind(pub i32);
+pub const CompositionFrameInstanceKind_ComposedOnScreen: CompositionFrameInstanceKind = CompositionFrameInstanceKind(0i32);
+pub const CompositionFrameInstanceKind_ComposedToIntermediate: CompositionFrameInstanceKind = CompositionFrameInstanceKind(2i32);
+pub const CompositionFrameInstanceKind_ScanoutOnScreen: CompositionFrameInstanceKind = CompositionFrameInstanceKind(1i32);
 windows_core::imp::define_interface!(ICompositionFramePresentStatistics, ICompositionFramePresentStatistics_Vtbl, 0xab41d127_c101_4c0a_911d_f9f2e9d08e64);
 impl core::ops::Deref for ICompositionFramePresentStatistics {
     type Target = IPresentStatistics;
@@ -706,36 +735,16 @@ impl IPresentationSurface_Vtbl {
 impl windows_core::RuntimeName for IPresentationSurface {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CompositionFrameInstanceKind(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PresentStatisticsKind(pub i32);
+pub const PresentStatisticsKind_CompositionFrame: PresentStatisticsKind = PresentStatisticsKind(2i32);
+pub const PresentStatisticsKind_IndependentFlipFrame: PresentStatisticsKind = PresentStatisticsKind(3i32);
+pub const PresentStatisticsKind_PresentStatus: PresentStatisticsKind = PresentStatisticsKind(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PresentStatus(pub i32);
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CompositionFrameDisplayInstance {
-    pub displayAdapterLUID: super::super::Foundation::LUID,
-    pub displayVidPnSourceId: u32,
-    pub displayUniqueId: u32,
-    pub renderAdapterLUID: super::super::Foundation::LUID,
-    pub instanceKind: CompositionFrameInstanceKind,
-    pub finalTransform: PresentationTransform,
-    pub requiredCrossAdapterCopy: u8,
-    pub colorSpace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for CompositionFrameDisplayInstance {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl windows_core::TypeKind for CompositionFrameDisplayInstance {
-    type TypeKind = windows_core::CopyType;
-}
+pub const PresentStatus_Canceled: PresentStatus = PresentStatus(2i32);
+pub const PresentStatus_Queued: PresentStatus = PresentStatus(0i32);
+pub const PresentStatus_Skipped: PresentStatus = PresentStatus(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PresentationTransform {
@@ -767,12 +776,3 @@ impl Default for SystemInterruptTime {
 impl windows_core::TypeKind for SystemInterruptTime {
     type TypeKind = windows_core::CopyType;
 }
-pub const CompositionFrameInstanceKind_ComposedOnScreen: CompositionFrameInstanceKind = CompositionFrameInstanceKind(0i32);
-pub const CompositionFrameInstanceKind_ComposedToIntermediate: CompositionFrameInstanceKind = CompositionFrameInstanceKind(2i32);
-pub const CompositionFrameInstanceKind_ScanoutOnScreen: CompositionFrameInstanceKind = CompositionFrameInstanceKind(1i32);
-pub const PresentStatisticsKind_CompositionFrame: PresentStatisticsKind = PresentStatisticsKind(2i32);
-pub const PresentStatisticsKind_IndependentFlipFrame: PresentStatisticsKind = PresentStatisticsKind(3i32);
-pub const PresentStatisticsKind_PresentStatus: PresentStatisticsKind = PresentStatisticsKind(1i32);
-pub const PresentStatus_Canceled: PresentStatus = PresentStatus(2i32);
-pub const PresentStatus_Queued: PresentStatus = PresentStatus(0i32);
-pub const PresentStatus_Skipped: PresentStatus = PresentStatus(1i32);

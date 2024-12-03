@@ -386,11 +386,6 @@ where
     windows_targets::link!("psapi.dll" "system" fn QueryWorkingSetEx(hprocess : super::super::Foundation:: HANDLE, pv : *mut core::ffi::c_void, cb : u32) -> super::super::Foundation:: BOOL);
     QueryWorkingSetEx(hprocess.param().abi(), core::mem::transmute(pv), core::mem::transmute(cb)).ok()
 }
-pub type PENUM_PAGE_FILE_CALLBACKA = Option<unsafe extern "system" fn(pcontext: *mut core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: windows_core::PCSTR) -> super::super::Foundation::BOOL>;
-pub type PENUM_PAGE_FILE_CALLBACKW = Option<unsafe extern "system" fn(pcontext: *mut core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: windows_core::PCWSTR) -> super::super::Foundation::BOOL>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ENUM_PROCESS_MODULES_EX_FLAGS(pub u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENUM_PAGE_FILE_INFORMATION {
@@ -408,6 +403,13 @@ impl Default for ENUM_PAGE_FILE_INFORMATION {
 impl windows_core::TypeKind for ENUM_PAGE_FILE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ENUM_PROCESS_MODULES_EX_FLAGS(pub u32);
+pub const LIST_MODULES_32BIT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(1u32);
+pub const LIST_MODULES_64BIT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(2u32);
+pub const LIST_MODULES_ALL: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(3u32);
+pub const LIST_MODULES_DEFAULT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(0u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MODULEINFO {
@@ -423,6 +425,8 @@ impl Default for MODULEINFO {
 impl windows_core::TypeKind for MODULEINFO {
     type TypeKind = windows_core::CopyType;
 }
+pub type PENUM_PAGE_FILE_CALLBACKA = Option<unsafe extern "system" fn(pcontext: *mut core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: windows_core::PCSTR) -> super::super::Foundation::BOOL>;
+pub type PENUM_PAGE_FILE_CALLBACKW = Option<unsafe extern "system" fn(pcontext: *mut core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: windows_core::PCWSTR) -> super::super::Foundation::BOOL>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PERFORMANCE_INFORMATION {
@@ -519,6 +523,7 @@ impl Default for PROCESS_MEMORY_COUNTERS_EX2 {
 impl windows_core::TypeKind for PROCESS_MEMORY_COUNTERS_EX2 {
     type TypeKind = windows_core::CopyType;
 }
+pub const PSAPI_VERSION: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PSAPI_WORKING_SET_BLOCK {
@@ -657,8 +662,3 @@ impl Default for PSAPI_WS_WATCH_INFORMATION_EX {
 impl windows_core::TypeKind for PSAPI_WS_WATCH_INFORMATION_EX {
     type TypeKind = windows_core::CopyType;
 }
-pub const LIST_MODULES_32BIT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(1u32);
-pub const LIST_MODULES_64BIT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(2u32);
-pub const LIST_MODULES_ALL: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(3u32);
-pub const LIST_MODULES_DEFAULT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(0u32);
-pub const PSAPI_VERSION: u32 = 2u32;

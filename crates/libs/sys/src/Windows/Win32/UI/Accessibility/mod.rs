@@ -154,85 +154,6 @@ windows_targets::link!("oleacc.dll" "system" fn WindowFromAccessibleObject(param
 windows_targets::link!("uiautomationcore.dll" "system" fn WindowPattern_Close(hobj : HUIAPATTERNOBJECT) -> windows_sys::core::HRESULT);
 windows_targets::link!("uiautomationcore.dll" "system" fn WindowPattern_SetWindowVisualState(hobj : HUIAPATTERNOBJECT, state : WindowVisualState) -> windows_sys::core::HRESULT);
 windows_targets::link!("uiautomationcore.dll" "system" fn WindowPattern_WaitForInputIdle(hobj : HUIAPATTERNOBJECT, milliseconds : i32, presult : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub type LPFNACCESSIBLECHILDREN = Option<unsafe extern "system" fn(pacccontainer: *mut core::ffi::c_void, ichildstart: i32, cchildren: i32, rgvarchildren: *mut super::super::System::Variant::VARIANT, pcobtained: *mut i32) -> windows_sys::core::HRESULT>;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub type LPFNACCESSIBLEOBJECTFROMPOINT = Option<unsafe extern "system" fn(ptscreen: super::super::Foundation::POINT, ppacc: *mut *mut core::ffi::c_void, pvarchild: *mut super::super::System::Variant::VARIANT) -> windows_sys::core::HRESULT>;
-pub type LPFNACCESSIBLEOBJECTFROMWINDOW = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, dwid: u32, riid: *const windows_sys::core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-pub type LPFNCREATESTDACCESSIBLEOBJECT = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, idobject: i32, riid: *const windows_sys::core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-pub type LPFNLRESULTFROMOBJECT = Option<unsafe extern "system" fn(riid: *const windows_sys::core::GUID, wparam: super::super::Foundation::WPARAM, punk: *mut core::ffi::c_void) -> super::super::Foundation::LRESULT>;
-pub type LPFNOBJECTFROMLRESULT = Option<unsafe extern "system" fn(lresult: super::super::Foundation::LRESULT, riid: *const windows_sys::core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_Com")]
-pub type UiaEventCallback = Option<unsafe extern "system" fn(pargs: *mut UiaEventArgs, prequesteddata: *mut super::super::System::Com::SAFEARRAY, ptreestructure: windows_sys::core::BSTR)>;
-#[cfg(feature = "Win32_System_Com")]
-pub type UiaProviderCallback = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, providertype: ProviderType) -> *mut super::super::System::Com::SAFEARRAY>;
-pub type WINEVENTPROC = Option<unsafe extern "system" fn(hwineventhook: HWINEVENTHOOK, event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ideventthread: u32, dwmseventtime: u32)>;
-pub type ACC_UTILITY_STATE_FLAGS = u32;
-pub type ActiveEnd = i32;
-pub type AnimationStyle = i32;
-pub type AnnoScope = i32;
-pub type AsyncContentLoadedState = i32;
-pub type AutomationElementMode = i32;
-pub type AutomationIdentifierType = i32;
-pub type BulletStyle = i32;
-pub type CapStyle = i32;
-pub type CaretBidiMode = i32;
-pub type CaretPosition = i32;
-pub type CoalesceEventsOptions = i32;
-pub type ConditionType = i32;
-pub type ConnectionRecoveryBehaviorOptions = i32;
-pub type DockPosition = i32;
-pub type EventArgsType = i32;
-pub type ExpandCollapseState = i32;
-pub type FillType = i32;
-pub type FlowDirections = i32;
-pub type HIGHCONTRASTW_FLAGS = u32;
-pub type HorizontalTextAlignment = i32;
-pub type LiveSetting = i32;
-pub type NavigateDirection = i32;
-pub type NormalizeState = i32;
-pub type NotificationKind = i32;
-pub type NotificationProcessing = i32;
-pub type OrientationType = i32;
-pub type OutlineStyles = i32;
-pub type PropertyConditionFlags = i32;
-pub type ProviderOptions = i32;
-pub type ProviderType = i32;
-pub type RowOrColumnMajor = i32;
-pub type SERIALKEYS_FLAGS = u32;
-pub type SOUNDSENTRY_FLAGS = u32;
-pub type SOUNDSENTRY_TEXT_EFFECT = u32;
-pub type SOUNDSENTRY_WINDOWS_EFFECT = u32;
-pub type SOUND_SENTRY_GRAPHICS_EFFECT = u32;
-pub type STICKYKEYS_FLAGS = u32;
-pub type SayAsInterpretAs = i32;
-pub type ScrollAmount = i32;
-pub type StructureChangeType = i32;
-pub type SupportedTextSelection = i32;
-pub type SynchronizedInputType = i32;
-pub type TextDecorationLineStyle = i32;
-pub type TextEditChangeType = i32;
-pub type TextPatternRangeEndpoint = i32;
-pub type TextUnit = i32;
-pub type ToggleState = i32;
-pub type TreeScope = i32;
-pub type TreeTraversalOptions = i32;
-pub type UIA_ANNOTATIONTYPE = i32;
-pub type UIA_CHANGE_ID = i32;
-pub type UIA_CONTROLTYPE_ID = i32;
-pub type UIA_EVENT_ID = i32;
-pub type UIA_HEADINGLEVEL_ID = i32;
-pub type UIA_LANDMARKTYPE_ID = i32;
-pub type UIA_METADATA_ID = i32;
-pub type UIA_PATTERN_ID = i32;
-pub type UIA_PROPERTY_ID = i32;
-pub type UIA_STYLE_ID = i32;
-pub type UIA_TEXTATTRIBUTE_ID = i32;
-pub type UIAutomationType = i32;
-pub type VisualEffects = i32;
-pub type WindowInteractionState = i32;
-pub type WindowVisualState = i32;
-pub type ZoomUnit = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACCESSTIMEOUT {
@@ -240,300 +161,7 @@ pub struct ACCESSTIMEOUT {
     pub dwFlags: u32,
     pub iTimeOutMSec: u32,
 }
-pub const CAccPropServices: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb5f8350b_0548_48b1_a6ee_88bd00b4a5e7);
-pub const CUIAutomation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xff48dba4_60ef_4201_aa87_54103eef594e);
-pub const CUIAutomation8: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe22ad333_b25f_460c_83d0_0581107395c9);
-pub const CUIAutomationRegistrar: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6e29fabf_9977_42d1_8d0e_ca7e61ad87e6);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ExtendedProperty {
-    pub PropertyName: windows_sys::core::BSTR,
-    pub PropertyValue: windows_sys::core::BSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FILTERKEYS {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub iWaitMSec: u32,
-    pub iDelayMSec: u32,
-    pub iRepeatMSec: u32,
-    pub iBounceMSec: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HIGHCONTRASTA {
-    pub cbSize: u32,
-    pub dwFlags: HIGHCONTRASTW_FLAGS,
-    pub lpszDefaultScheme: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HIGHCONTRASTW {
-    pub cbSize: u32,
-    pub dwFlags: HIGHCONTRASTW_FLAGS,
-    pub lpszDefaultScheme: windows_sys::core::PWSTR,
-}
-pub type HUIAEVENT = *mut core::ffi::c_void;
-pub type HUIANODE = *mut core::ffi::c_void;
-pub type HUIAPATTERNOBJECT = *mut core::ffi::c_void;
-pub type HUIATEXTRANGE = *mut core::ffi::c_void;
-pub type HWINEVENTHOOK = *mut core::ffi::c_void;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MOUSEKEYS {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub iMaxSpeed: u32,
-    pub iTimeToMaxSpeed: u32,
-    pub iCtrlSpeed: u32,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MSAAMENUINFO {
-    pub dwMSAASignature: u32,
-    pub cchWText: u32,
-    pub pszWText: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SERIALKEYSA {
-    pub cbSize: u32,
-    pub dwFlags: SERIALKEYS_FLAGS,
-    pub lpszActivePort: windows_sys::core::PSTR,
-    pub lpszPort: windows_sys::core::PSTR,
-    pub iBaudRate: u32,
-    pub iPortState: u32,
-    pub iActive: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SERIALKEYSW {
-    pub cbSize: u32,
-    pub dwFlags: SERIALKEYS_FLAGS,
-    pub lpszActivePort: windows_sys::core::PWSTR,
-    pub lpszPort: windows_sys::core::PWSTR,
-    pub iBaudRate: u32,
-    pub iPortState: u32,
-    pub iActive: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SOUNDSENTRYA {
-    pub cbSize: u32,
-    pub dwFlags: SOUNDSENTRY_FLAGS,
-    pub iFSTextEffect: SOUNDSENTRY_TEXT_EFFECT,
-    pub iFSTextEffectMSec: u32,
-    pub iFSTextEffectColorBits: u32,
-    pub iFSGrafEffect: SOUND_SENTRY_GRAPHICS_EFFECT,
-    pub iFSGrafEffectMSec: u32,
-    pub iFSGrafEffectColor: u32,
-    pub iWindowsEffect: SOUNDSENTRY_WINDOWS_EFFECT,
-    pub iWindowsEffectMSec: u32,
-    pub lpszWindowsEffectDLL: windows_sys::core::PSTR,
-    pub iWindowsEffectOrdinal: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SOUNDSENTRYW {
-    pub cbSize: u32,
-    pub dwFlags: SOUNDSENTRY_FLAGS,
-    pub iFSTextEffect: SOUNDSENTRY_TEXT_EFFECT,
-    pub iFSTextEffectMSec: u32,
-    pub iFSTextEffectColorBits: u32,
-    pub iFSGrafEffect: SOUND_SENTRY_GRAPHICS_EFFECT,
-    pub iFSGrafEffectMSec: u32,
-    pub iFSGrafEffectColor: u32,
-    pub iWindowsEffect: SOUNDSENTRY_WINDOWS_EFFECT,
-    pub iWindowsEffectMSec: u32,
-    pub lpszWindowsEffectDLL: windows_sys::core::PWSTR,
-    pub iWindowsEffectOrdinal: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct STICKYKEYS {
-    pub cbSize: u32,
-    pub dwFlags: STICKYKEYS_FLAGS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TOGGLEKEYS {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UIAutomationEventInfo {
-    pub guid: windows_sys::core::GUID,
-    pub pProgrammaticName: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UIAutomationMethodInfo {
-    pub pProgrammaticName: windows_sys::core::PCWSTR,
-    pub doSetFocus: super::super::Foundation::BOOL,
-    pub cInParameters: u32,
-    pub cOutParameters: u32,
-    pub pParameterTypes: *mut UIAutomationType,
-    pub pParameterNames: *const windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UIAutomationParameter {
-    pub r#type: UIAutomationType,
-    pub pData: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UIAutomationPatternInfo {
-    pub guid: windows_sys::core::GUID,
-    pub pProgrammaticName: windows_sys::core::PCWSTR,
-    pub providerInterfaceId: windows_sys::core::GUID,
-    pub clientInterfaceId: windows_sys::core::GUID,
-    pub cProperties: u32,
-    pub pProperties: *mut UIAutomationPropertyInfo,
-    pub cMethods: u32,
-    pub pMethods: *mut UIAutomationMethodInfo,
-    pub cEvents: u32,
-    pub pEvents: *mut UIAutomationEventInfo,
-    pub pPatternHandler: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UIAutomationPropertyInfo {
-    pub guid: windows_sys::core::GUID,
-    pub pProgrammaticName: windows_sys::core::PCWSTR,
-    pub r#type: UIAutomationType,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UiaAndOrCondition {
-    pub ConditionType: ConditionType,
-    pub ppConditions: *mut *mut UiaCondition,
-    pub cConditions: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UiaAsyncContentLoadedEventArgs {
-    pub Type: EventArgsType,
-    pub EventId: i32,
-    pub AsyncContentLoadedState: AsyncContentLoadedState,
-    pub PercentComplete: f64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UiaCacheRequest {
-    pub pViewCondition: *mut UiaCondition,
-    pub Scope: TreeScope,
-    pub pProperties: *mut i32,
-    pub cProperties: i32,
-    pub pPatterns: *mut i32,
-    pub cPatterns: i32,
-    pub automationElementMode: AutomationElementMode,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct UiaChangeInfo {
-    pub uiaId: i32,
-    pub payload: super::super::System::Variant::VARIANT,
-    pub extraInfo: super::super::System::Variant::VARIANT,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct UiaChangesEventArgs {
-    pub Type: EventArgsType,
-    pub EventId: i32,
-    pub EventIdCount: i32,
-    pub pUiaChanges: *mut UiaChangeInfo,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UiaCondition {
-    pub ConditionType: ConditionType,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UiaEventArgs {
-    pub Type: EventArgsType,
-    pub EventId: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UiaFindParams {
-    pub MaxDepth: i32,
-    pub FindFirst: super::super::Foundation::BOOL,
-    pub ExcludeRoot: super::super::Foundation::BOOL,
-    pub pFindCondition: *mut UiaCondition,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UiaNotCondition {
-    pub ConditionType: ConditionType,
-    pub pCondition: *mut UiaCondition,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UiaPoint {
-    pub x: f64,
-    pub y: f64,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct UiaPropertyChangedEventArgs {
-    pub Type: EventArgsType,
-    pub EventId: UIA_EVENT_ID,
-    pub PropertyId: i32,
-    pub OldValue: super::super::System::Variant::VARIANT,
-    pub NewValue: super::super::System::Variant::VARIANT,
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct UiaPropertyCondition {
-    pub ConditionType: ConditionType,
-    pub PropertyId: UIA_PROPERTY_ID,
-    pub Value: super::super::System::Variant::VARIANT,
-    pub Flags: PropertyConditionFlags,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UiaRect {
-    pub left: f64,
-    pub top: f64,
-    pub width: f64,
-    pub height: f64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UiaStructureChangedEventArgs {
-    pub Type: EventArgsType,
-    pub EventId: i32,
-    pub StructureChangeType: StructureChangeType,
-    pub pRuntimeId: *mut i32,
-    pub cRuntimeIdLen: i32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct UiaTextEditTextChangedEventArgs {
-    pub Type: EventArgsType,
-    pub EventId: i32,
-    pub TextEditChangeType: TextEditChangeType,
-    pub pTextChange: *mut super::super::System::Com::SAFEARRAY,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UiaWindowClosedEventArgs {
-    pub Type: EventArgsType,
-    pub EventId: i32,
-    pub pRuntimeId: *mut i32,
-    pub cRuntimeIdLen: i32,
-}
+pub type ACC_UTILITY_STATE_FLAGS = u32;
 pub const ANNO_CONTAINER: AnnoScope = 1i32;
 pub const ANNO_THIS: AnnoScope = 0i32;
 pub const ANRUS_ON_SCREEN_KEYBOARD_ACTIVE: ACC_UTILITY_STATE_FLAGS = 1u32;
@@ -543,10 +171,12 @@ pub const ANRUS_PRIORITY_AUDIO_DYNAMIC_DUCK: u32 = 16u32;
 pub const ANRUS_TOUCH_MODIFICATION_ACTIVE: ACC_UTILITY_STATE_FLAGS = 2u32;
 pub const AcceleratorKey_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x514865df_2557_4cb9_aeed_6ced084ce52c);
 pub const AccessKey_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x06827b12_a7f9_4a15_917c_ffa5ad3eb0a7);
+pub type ActiveEnd = i32;
 pub const ActiveEnd_End: ActiveEnd = 2i32;
 pub const ActiveEnd_None: ActiveEnd = 0i32;
 pub const ActiveEnd_Start: ActiveEnd = 1i32;
 pub const ActiveTextPositionChanged_Event_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa5c09e9c_c77d_4f25_b491_e5bb7017cbd4);
+pub type AnimationStyle = i32;
 pub const AnimationStyle_BlinkingBackground: AnimationStyle = 2i32;
 pub const AnimationStyle_LasVegasLights: AnimationStyle = 1i32;
 pub const AnimationStyle_MarchingBlackAnts: AnimationStyle = 4i32;
@@ -555,6 +185,7 @@ pub const AnimationStyle_None: AnimationStyle = 0i32;
 pub const AnimationStyle_Other: AnimationStyle = -1i32;
 pub const AnimationStyle_Shimmer: AnimationStyle = 6i32;
 pub const AnimationStyle_SparkleText: AnimationStyle = 3i32;
+pub type AnnoScope = i32;
 pub const AnnotationObjects_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x310910c8_7c6e_4f20_becd_4aaf6d191156);
 pub const AnnotationType_AdvancedProofingIssue: UIA_ANNOTATIONTYPE = 60020i32;
 pub const AnnotationType_Author: UIA_ANNOTATIONTYPE = 60019i32;
@@ -617,14 +248,17 @@ pub const AppBar_Control_GUID: windows_sys::core::GUID = windows_sys::core::GUID
 pub const AriaProperties_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4213678c_e025_4922_beb5_e43ba08e6221);
 pub const AriaRole_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdd207b95_be4a_4e0d_b727_63ace94b6916);
 pub const Assertive: LiveSetting = 2i32;
+pub type AsyncContentLoadedState = i32;
 pub const AsyncContentLoadedState_Beginning: AsyncContentLoadedState = 0i32;
 pub const AsyncContentLoadedState_Completed: AsyncContentLoadedState = 2i32;
 pub const AsyncContentLoadedState_Progress: AsyncContentLoadedState = 1i32;
 pub const AsyncContentLoaded_Event_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5fdee11c_d2fa_4fb9_904e_5cbee894d5ef);
+pub type AutomationElementMode = i32;
 pub const AutomationElementMode_Full: AutomationElementMode = 1i32;
 pub const AutomationElementMode_None: AutomationElementMode = 0i32;
 pub const AutomationFocusChanged_Event_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb68a1f17_f60d_41a7_a3cc_b05292155fe0);
 pub const AutomationId_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc82c0500_b60e_4310_a267_303c531f8ee5);
+pub type AutomationIdentifierType = i32;
 pub const AutomationIdentifierType_Annotation: AutomationIdentifierType = 6i32;
 pub const AutomationIdentifierType_Changes: AutomationIdentifierType = 7i32;
 pub const AutomationIdentifierType_ControlType: AutomationIdentifierType = 3i32;
@@ -636,6 +270,7 @@ pub const AutomationIdentifierType_Style: AutomationIdentifierType = 8i32;
 pub const AutomationIdentifierType_TextAttribute: AutomationIdentifierType = 4i32;
 pub const AutomationPropertyChanged_Event_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2527fba1_8d7a_4630_a4cc_e66315942f52);
 pub const BoundingRectangle_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7bbfe8b2_3bfc_48dd_b729_c794b846e9a1);
+pub type BulletStyle = i32;
 pub const BulletStyle_DashBullet: BulletStyle = 5i32;
 pub const BulletStyle_FilledRoundBullet: BulletStyle = 2i32;
 pub const BulletStyle_FilledSquareBullet: BulletStyle = 4i32;
@@ -644,8 +279,13 @@ pub const BulletStyle_HollowSquareBullet: BulletStyle = 3i32;
 pub const BulletStyle_None: BulletStyle = 0i32;
 pub const BulletStyle_Other: BulletStyle = -1i32;
 pub const Button_Control_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5a78e369_c6a1_4f33_a9d7_79f20d0c788e);
+pub const CAccPropServices: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb5f8350b_0548_48b1_a6ee_88bd00b4a5e7);
 pub const CLSID_AccPropServices: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb5f8350b_0548_48b1_a6ee_88bd00b4a5e7);
+pub const CUIAutomation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xff48dba4_60ef_4201_aa87_54103eef594e);
+pub const CUIAutomation8: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe22ad333_b25f_460c_83d0_0581107395c9);
+pub const CUIAutomationRegistrar: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6e29fabf_9977_42d1_8d0e_ca7e61ad87e6);
 pub const Calendar_Control_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8913eb88_00e5_46bc_8e4e_14a786e165a1);
+pub type CapStyle = i32;
 pub const CapStyle_AllCap: CapStyle = 2i32;
 pub const CapStyle_AllPetiteCaps: CapStyle = 3i32;
 pub const CapStyle_None: CapStyle = 0i32;
@@ -654,8 +294,10 @@ pub const CapStyle_PetiteCaps: CapStyle = 4i32;
 pub const CapStyle_SmallCap: CapStyle = 1i32;
 pub const CapStyle_Titling: CapStyle = 6i32;
 pub const CapStyle_Unicase: CapStyle = 5i32;
+pub type CaretBidiMode = i32;
 pub const CaretBidiMode_LTR: CaretBidiMode = 0i32;
 pub const CaretBidiMode_RTL: CaretBidiMode = 1i32;
+pub type CaretPosition = i32;
 pub const CaretPosition_BeginningOfLine: CaretPosition = 2i32;
 pub const CaretPosition_EndOfLine: CaretPosition = 1i32;
 pub const CaretPosition_Unknown: CaretPosition = 0i32;
@@ -665,15 +307,18 @@ pub const Changes_Summary_GUID: windows_sys::core::GUID = windows_sys::core::GUI
 pub const CheckBox_Control_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfb50f922_a3db_49c0_8bc3_06dad55778e2);
 pub const ClassName_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x157b7215_894f_4b65_84e2_aac0da08b16b);
 pub const ClickablePoint_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0196903b_b203_4818_a9f3_f08e675f2341);
+pub type CoalesceEventsOptions = i32;
 pub const CoalesceEventsOptions_Disabled: CoalesceEventsOptions = 0i32;
 pub const CoalesceEventsOptions_Enabled: CoalesceEventsOptions = 1i32;
 pub const ComboBox_Control_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x54cb426c_2f33_4fff_aaa1_aef60dac5deb);
+pub type ConditionType = i32;
 pub const ConditionType_And: ConditionType = 3i32;
 pub const ConditionType_False: ConditionType = 1i32;
 pub const ConditionType_Not: ConditionType = 5i32;
 pub const ConditionType_Or: ConditionType = 4i32;
 pub const ConditionType_Property: ConditionType = 2i32;
 pub const ConditionType_True: ConditionType = 0i32;
+pub type ConnectionRecoveryBehaviorOptions = i32;
 pub const ConnectionRecoveryBehaviorOptions_Disabled: ConnectionRecoveryBehaviorOptions = 0i32;
 pub const ConnectionRecoveryBehaviorOptions_Enabled: ConnectionRecoveryBehaviorOptions = 1i32;
 pub const ControlType_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xca774fea_28ac_4bc2_94ca_acec6d6c10a3);
@@ -703,6 +348,7 @@ pub const DISPID_ACC_VALUE: i32 = -5004i32;
 pub const DataGrid_Control_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x84b783af_d103_4b0a_8415_e73942410f4b);
 pub const DataItem_Control_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa0177842_d94f_42a5_814b_6068addc8da5);
 pub const DescribedBy_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7c5865b8_9992_40fd_8db0_6bf1d317f998);
+pub type DockPosition = i32;
 pub const DockPosition_Bottom: DockPosition = 2i32;
 pub const DockPosition_Fill: DockPosition = 4i32;
 pub const DockPosition_Left: DockPosition = 1i32;
@@ -727,6 +373,7 @@ pub const DropTarget_DropTargetEffects_Property_GUID: windows_sys::core::GUID = 
 pub const DropTarget_Dropped_Event_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x622cead8_1edb_4a3d_abbc_be2211ff68b5);
 pub const DropTarget_Pattern_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0bcbec56_bd34_4b7b_9fd5_2659905ea3dc);
 pub const Edit_Control_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6504a5c8_2c86_4f87_ae7b_1abddc810cf9);
+pub type EventArgsType = i32;
 pub const EventArgsType_ActiveTextPositionChanged: EventArgsType = 8i32;
 pub const EventArgsType_AsyncContentLoaded: EventArgsType = 3i32;
 pub const EventArgsType_Changes: EventArgsType = 6i32;
@@ -737,19 +384,38 @@ pub const EventArgsType_StructureChanged: EventArgsType = 2i32;
 pub const EventArgsType_StructuredMarkup: EventArgsType = 9i32;
 pub const EventArgsType_TextEditTextChanged: EventArgsType = 5i32;
 pub const EventArgsType_WindowClosed: EventArgsType = 4i32;
+pub type ExpandCollapseState = i32;
 pub const ExpandCollapseState_Collapsed: ExpandCollapseState = 0i32;
 pub const ExpandCollapseState_Expanded: ExpandCollapseState = 1i32;
 pub const ExpandCollapseState_LeafNode: ExpandCollapseState = 3i32;
 pub const ExpandCollapseState_PartiallyExpanded: ExpandCollapseState = 2i32;
 pub const ExpandCollapse_ExpandCollapseState_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x275a4c48_85a7_4f69_aba0_af157610002b);
 pub const ExpandCollapse_Pattern_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xae05efa2_f9d1_428a_834c_53a5c52f9b8b);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ExtendedProperty {
+    pub PropertyName: windows_sys::core::BSTR,
+    pub PropertyValue: windows_sys::core::BSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FILTERKEYS {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub iWaitMSec: u32,
+    pub iDelayMSec: u32,
+    pub iRepeatMSec: u32,
+    pub iBounceMSec: u32,
+}
 pub const FillColor_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6e0ec4d0_e2a8_4a56_9de7_953389933b39);
+pub type FillType = i32;
 pub const FillType_Color: FillType = 1i32;
 pub const FillType_Gradient: FillType = 2i32;
 pub const FillType_None: FillType = 0i32;
 pub const FillType_Pattern: FillType = 4i32;
 pub const FillType_Picture: FillType = 3i32;
 pub const FillType_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc6fc74e4_8cb9_429c_a9e1_9bc4ac372b62);
+pub type FlowDirections = i32;
 pub const FlowDirections_BottomToTop: FlowDirections = 2i32;
 pub const FlowDirections_Default: FlowDirections = 0i32;
 pub const FlowDirections_RightToLeft: FlowDirections = 1i32;
@@ -776,6 +442,26 @@ pub const HCF_HOTKEYAVAILABLE: HIGHCONTRASTW_FLAGS = 64u32;
 pub const HCF_HOTKEYSOUND: HIGHCONTRASTW_FLAGS = 16u32;
 pub const HCF_INDICATOR: HIGHCONTRASTW_FLAGS = 32u32;
 pub const HCF_OPTION_NOTHEMECHANGE: HIGHCONTRASTW_FLAGS = 4096u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HIGHCONTRASTA {
+    pub cbSize: u32,
+    pub dwFlags: HIGHCONTRASTW_FLAGS,
+    pub lpszDefaultScheme: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HIGHCONTRASTW {
+    pub cbSize: u32,
+    pub dwFlags: HIGHCONTRASTW_FLAGS,
+    pub lpszDefaultScheme: windows_sys::core::PWSTR,
+}
+pub type HIGHCONTRASTW_FLAGS = u32;
+pub type HUIAEVENT = *mut core::ffi::c_void;
+pub type HUIANODE = *mut core::ffi::c_void;
+pub type HUIAPATTERNOBJECT = *mut core::ffi::c_void;
+pub type HUIATEXTRANGE = *mut core::ffi::c_void;
+pub type HWINEVENTHOOK = *mut core::ffi::c_void;
 pub const HasKeyboardFocus_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcf8afd39_3f46_4800_9656_b2bf12529905);
 pub const HeaderItem_Control_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe6bc12cb_7c8e_49cf_b168_4a93a32bebb0);
 pub const Header_Control_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5b90cbce_78fb_4614_82b6_554d74718e67);
@@ -791,6 +477,7 @@ pub const HeadingLevel9: UIA_HEADINGLEVEL_ID = 80059i32;
 pub const HeadingLevel_None: UIA_HEADINGLEVEL_ID = 80050i32;
 pub const HeadingLevel_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x29084272_aaaf_4a30_8796_3c12f62b6bbb);
 pub const HelpText_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x08555685_0977_45c7_a7a6_abaf5684121a);
+pub type HorizontalTextAlignment = i32;
 pub const HorizontalTextAlignment_Centered: HorizontalTextAlignment = 1i32;
 pub const HorizontalTextAlignment_Justified: HorizontalTextAlignment = 3i32;
 pub const HorizontalTextAlignment_Left: HorizontalTextAlignment = 0i32;
@@ -855,6 +542,14 @@ pub const ItemContainer_Pattern_GUID: windows_sys::core::GUID = windows_sys::cor
 pub const ItemStatus_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x51de0321_3973_43e7_8913_0b08e813c37f);
 pub const ItemType_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcdda434d_6222_413b_a68a_325dd1d40f39);
 pub const LIBID_Accessibility: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1ea4dbf0_3c3b_11cf_810c_00aa00389b71);
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub type LPFNACCESSIBLECHILDREN = Option<unsafe extern "system" fn(pacccontainer: *mut core::ffi::c_void, ichildstart: i32, cchildren: i32, rgvarchildren: *mut super::super::System::Variant::VARIANT, pcobtained: *mut i32) -> windows_sys::core::HRESULT>;
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub type LPFNACCESSIBLEOBJECTFROMPOINT = Option<unsafe extern "system" fn(ptscreen: super::super::Foundation::POINT, ppacc: *mut *mut core::ffi::c_void, pvarchild: *mut super::super::System::Variant::VARIANT) -> windows_sys::core::HRESULT>;
+pub type LPFNACCESSIBLEOBJECTFROMWINDOW = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, dwid: u32, riid: *const windows_sys::core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type LPFNCREATESTDACCESSIBLEOBJECT = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, idobject: i32, riid: *const windows_sys::core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type LPFNLRESULTFROMOBJECT = Option<unsafe extern "system" fn(riid: *const windows_sys::core::GUID, wparam: super::super::Foundation::WPARAM, punk: *mut core::ffi::c_void) -> super::super::Foundation::LRESULT>;
+pub type LPFNOBJECTFROMLRESULT = Option<unsafe extern "system" fn(lresult: super::super::Foundation::LRESULT, riid: *const windows_sys::core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 pub const LabeledBy_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe5b8924b_fc8a_4a35_8031_cf78ac43e55e);
 pub const LandmarkType_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x454045f2_6f61_49f7_a4f8_b5f0cf82da1e);
 pub const LayoutInvalidated_Event_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xed7d6544_a6bd_4595_9bae_3d28946cc715);
@@ -873,9 +568,28 @@ pub const Level_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID
 pub const ListItem_Control_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7b3717f2_44d1_4a58_98a8_f12a9b8f78e2);
 pub const List_Control_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9b149ee1_7cca_4cfc_9af1_cac7bddd3031);
 pub const LiveRegionChanged_Event_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x102d5e90_e6a9_41b6_b1c5_a9b1929d9510);
+pub type LiveSetting = i32;
 pub const LiveSetting_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc12bcd8e_2a8e_4950_8ae7_3625111d58eb);
 pub const LocalizedControlType_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8763404f_a1bd_452a_89c4_3f01d3833806);
 pub const LocalizedLandmarkType_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7ac81980_eafb_4fb2_bf91_f485bef5e8e1);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MOUSEKEYS {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub iMaxSpeed: u32,
+    pub iTimeToMaxSpeed: u32,
+    pub iCtrlSpeed: u32,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MSAAMENUINFO {
+    pub dwMSAASignature: u32,
+    pub cchWText: u32,
+    pub pszWText: windows_sys::core::PWSTR,
+}
 pub const MSAA_MENU_SIG: i32 = -1441927155i32;
 pub const MenuBar_Control_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcc384250_0e7b_4ae8_95ae_a08f261b52ee);
 pub const MenuClosed_Event_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3cf1266e_1582_4041_acd7_88a35a965297);
@@ -898,20 +612,24 @@ pub const NAVDIR_PREVIOUS: u32 = 6u32;
 pub const NAVDIR_RIGHT: u32 = 4u32;
 pub const NAVDIR_UP: u32 = 1u32;
 pub const Name_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc3a6921b_4a99_44f1_bca6_61187052c431);
+pub type NavigateDirection = i32;
 pub const NavigateDirection_FirstChild: NavigateDirection = 3i32;
 pub const NavigateDirection_LastChild: NavigateDirection = 4i32;
 pub const NavigateDirection_NextSibling: NavigateDirection = 1i32;
 pub const NavigateDirection_Parent: NavigateDirection = 0i32;
 pub const NavigateDirection_PreviousSibling: NavigateDirection = 2i32;
 pub const NewNativeWindowHandle_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5196b33b_380a_4982_95e1_91f3ef60e024);
+pub type NormalizeState = i32;
 pub const NormalizeState_Custom: NormalizeState = 2i32;
 pub const NormalizeState_None: NormalizeState = 0i32;
 pub const NormalizeState_View: NormalizeState = 1i32;
+pub type NotificationKind = i32;
 pub const NotificationKind_ActionAborted: NotificationKind = 3i32;
 pub const NotificationKind_ActionCompleted: NotificationKind = 2i32;
 pub const NotificationKind_ItemAdded: NotificationKind = 0i32;
 pub const NotificationKind_ItemRemoved: NotificationKind = 1i32;
 pub const NotificationKind_Other: NotificationKind = 4i32;
+pub type NotificationProcessing = i32;
 pub const NotificationProcessing_All: NotificationProcessing = 2i32;
 pub const NotificationProcessing_CurrentThenMostRecent: NotificationProcessing = 4i32;
 pub const NotificationProcessing_ImportantAll: NotificationProcessing = 0i32;
@@ -921,11 +639,13 @@ pub const Notification_Event_GUID: windows_sys::core::GUID = windows_sys::core::
 pub const ObjectModel_Pattern_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3e04acfe_08fc_47ec_96bc_353fa3b34aa7);
 pub const Off: LiveSetting = 0i32;
 pub const OptimizeForVisualContent_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a852250_c75a_4e5d_b858_e381b0f78861);
+pub type OrientationType = i32;
 pub const OrientationType_Horizontal: OrientationType = 1i32;
 pub const OrientationType_None: OrientationType = 0i32;
 pub const OrientationType_Vertical: OrientationType = 2i32;
 pub const Orientation_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa01eee62_3884_4415_887e_678ec21e39ba);
 pub const OutlineColor_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc395d6c0_4b55_4762_a073_fd303a634f52);
+pub type OutlineStyles = i32;
 pub const OutlineStyles_Embossed: OutlineStyles = 8i32;
 pub const OutlineStyles_Engraved: OutlineStyles = 4i32;
 pub const OutlineStyles_None: OutlineStyles = 0i32;
@@ -962,10 +682,12 @@ pub const Polite: LiveSetting = 1i32;
 pub const PositionInSet_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x33d1dc54_641e_4d76_a6b1_13f341c1f896);
 pub const ProcessId_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x40499998_9c31_4245_a403_87320e59eaf6);
 pub const ProgressBar_Control_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x228c9f86_c36c_47bb_9fb6_a5834bfc53a4);
+pub type PropertyConditionFlags = i32;
 pub const PropertyConditionFlags_IgnoreCase: PropertyConditionFlags = 1i32;
 pub const PropertyConditionFlags_MatchSubstring: PropertyConditionFlags = 2i32;
 pub const PropertyConditionFlags_None: PropertyConditionFlags = 0i32;
 pub const ProviderDescription_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdca5708a_c16b_4cd9_b889_beb16a804904);
+pub type ProviderOptions = i32;
 pub const ProviderOptions_ClientSideProvider: ProviderOptions = 1i32;
 pub const ProviderOptions_HasNativeIAccessible: ProviderOptions = 128i32;
 pub const ProviderOptions_NonClientAreaProvider: ProviderOptions = 4i32;
@@ -975,6 +697,7 @@ pub const ProviderOptions_RefuseNonClientSupport: ProviderOptions = 64i32;
 pub const ProviderOptions_ServerSideProvider: ProviderOptions = 2i32;
 pub const ProviderOptions_UseClientCoordinates: ProviderOptions = 256i32;
 pub const ProviderOptions_UseComThreading: ProviderOptions = 32i32;
+pub type ProviderType = i32;
 pub const ProviderType_BaseHwnd: ProviderType = 0i32;
 pub const ProviderType_NonClientArea: ProviderType = 2i32;
 pub const ProviderType_Proxy: ProviderType = 1i32;
@@ -1051,6 +774,7 @@ pub const RangeValue_Pattern_GUID: windows_sys::core::GUID = windows_sys::core::
 pub const RangeValue_SmallChange_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x81c2c457_3941_4107_9975_139760f7c072);
 pub const RangeValue_Value_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x131f5d98_c50c_489d_abe5_ae220898c5f7);
 pub const Rotation_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x767cdc7d_aec0_4110_ad32_30edd403492e);
+pub type RowOrColumnMajor = i32;
 pub const RowOrColumnMajor_ColumnMajor: RowOrColumnMajor = 1i32;
 pub const RowOrColumnMajor_Indeterminate: RowOrColumnMajor = 2i32;
 pub const RowOrColumnMajor_RowMajor: RowOrColumnMajor = 0i32;
@@ -1062,6 +786,29 @@ pub const SELFLAG_REMOVESELECTION: u32 = 16u32;
 pub const SELFLAG_TAKEFOCUS: u32 = 1u32;
 pub const SELFLAG_TAKESELECTION: u32 = 2u32;
 pub const SELFLAG_VALID: u32 = 31u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SERIALKEYSA {
+    pub cbSize: u32,
+    pub dwFlags: SERIALKEYS_FLAGS,
+    pub lpszActivePort: windows_sys::core::PSTR,
+    pub lpszPort: windows_sys::core::PSTR,
+    pub iBaudRate: u32,
+    pub iPortState: u32,
+    pub iActive: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SERIALKEYSW {
+    pub cbSize: u32,
+    pub dwFlags: SERIALKEYS_FLAGS,
+    pub lpszActivePort: windows_sys::core::PWSTR,
+    pub lpszPort: windows_sys::core::PWSTR,
+    pub iBaudRate: u32,
+    pub iPortState: u32,
+    pub iActive: u32,
+}
+pub type SERIALKEYS_FLAGS = u32;
 pub const SERKF_AVAILABLE: SERIALKEYS_FLAGS = 2u32;
 pub const SERKF_INDICATOR: SERIALKEYS_FLAGS = 4u32;
 pub const SERKF_SERIALKEYSON: SERIALKEYS_FLAGS = 1u32;
@@ -1092,6 +839,42 @@ pub const SKF_RWINLOCKED: STICKYKEYS_FLAGS = 8388608u32;
 pub const SKF_STICKYKEYSON: STICKYKEYS_FLAGS = 1u32;
 pub const SKF_TRISTATE: STICKYKEYS_FLAGS = 128u32;
 pub const SKF_TWOKEYSOFF: STICKYKEYS_FLAGS = 256u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SOUNDSENTRYA {
+    pub cbSize: u32,
+    pub dwFlags: SOUNDSENTRY_FLAGS,
+    pub iFSTextEffect: SOUNDSENTRY_TEXT_EFFECT,
+    pub iFSTextEffectMSec: u32,
+    pub iFSTextEffectColorBits: u32,
+    pub iFSGrafEffect: SOUND_SENTRY_GRAPHICS_EFFECT,
+    pub iFSGrafEffectMSec: u32,
+    pub iFSGrafEffectColor: u32,
+    pub iWindowsEffect: SOUNDSENTRY_WINDOWS_EFFECT,
+    pub iWindowsEffectMSec: u32,
+    pub lpszWindowsEffectDLL: windows_sys::core::PSTR,
+    pub iWindowsEffectOrdinal: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SOUNDSENTRYW {
+    pub cbSize: u32,
+    pub dwFlags: SOUNDSENTRY_FLAGS,
+    pub iFSTextEffect: SOUNDSENTRY_TEXT_EFFECT,
+    pub iFSTextEffectMSec: u32,
+    pub iFSTextEffectColorBits: u32,
+    pub iFSGrafEffect: SOUND_SENTRY_GRAPHICS_EFFECT,
+    pub iFSGrafEffectMSec: u32,
+    pub iFSGrafEffectColor: u32,
+    pub iWindowsEffect: SOUNDSENTRY_WINDOWS_EFFECT,
+    pub iWindowsEffectMSec: u32,
+    pub lpszWindowsEffectDLL: windows_sys::core::PWSTR,
+    pub iWindowsEffectOrdinal: u32,
+}
+pub type SOUNDSENTRY_FLAGS = u32;
+pub type SOUNDSENTRY_TEXT_EFFECT = u32;
+pub type SOUNDSENTRY_WINDOWS_EFFECT = u32;
+pub type SOUND_SENTRY_GRAPHICS_EFFECT = u32;
 pub const SSF_AVAILABLE: SOUNDSENTRY_FLAGS = 2u32;
 pub const SSF_INDICATOR: SOUNDSENTRY_FLAGS = 4u32;
 pub const SSF_SOUNDSENTRYON: SOUNDSENTRY_FLAGS = 1u32;
@@ -1108,6 +891,14 @@ pub const SSWF_TITLE: SOUNDSENTRY_WINDOWS_EFFECT = 1u32;
 pub const SSWF_WINDOW: SOUNDSENTRY_WINDOWS_EFFECT = 2u32;
 pub const STATE_SYSTEM_HASPOPUP: u32 = 1073741824u32;
 pub const STATE_SYSTEM_NORMAL: u32 = 0u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct STICKYKEYS {
+    pub cbSize: u32,
+    pub dwFlags: STICKYKEYS_FLAGS,
+}
+pub type STICKYKEYS_FLAGS = u32;
+pub type SayAsInterpretAs = i32;
 pub const SayAsInterpretAs_Address: SayAsInterpretAs = 11i32;
 pub const SayAsInterpretAs_Alphanumeric: SayAsInterpretAs = 12i32;
 pub const SayAsInterpretAs_Cardinal: SayAsInterpretAs = 2i32;
@@ -1135,6 +926,7 @@ pub const SayAsInterpretAs_Time_HoursMinutes24: SayAsInterpretAs = 26i32;
 pub const SayAsInterpretAs_Time_HoursMinutesSeconds12: SayAsInterpretAs = 23i32;
 pub const SayAsInterpretAs_Time_HoursMinutesSeconds24: SayAsInterpretAs = 25i32;
 pub const SayAsInterpretAs_Url: SayAsInterpretAs = 10i32;
+pub type ScrollAmount = i32;
 pub const ScrollAmount_LargeDecrement: ScrollAmount = 0i32;
 pub const ScrollAmount_LargeIncrement: ScrollAmount = 3i32;
 pub const ScrollAmount_NoAmount: ScrollAmount = 2i32;
@@ -1178,6 +970,7 @@ pub const SpreadsheetItem_Formula_Property_GUID: windows_sys::core::GUID = windo
 pub const SpreadsheetItem_Pattern_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x32cf83ff_f1a8_4a8c_8658_d47ba74e20ba);
 pub const Spreadsheet_Pattern_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a5b24c9_9d1e_4b85_9e44_c02e3169b10b);
 pub const StatusBar_Control_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd45e7d1b_5873_475f_95a4_0433e1f1b00a);
+pub type StructureChangeType = i32;
 pub const StructureChangeType_ChildAdded: StructureChangeType = 0i32;
 pub const StructureChangeType_ChildRemoved: StructureChangeType = 1i32;
 pub const StructureChangeType_ChildrenBulkAdded: StructureChangeType = 3i32;
@@ -1231,9 +1024,11 @@ pub const Styles_Pattern_GUID: windows_sys::core::GUID = windows_sys::core::GUID
 pub const Styles_Shape_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc71a23f8_778c_400d_8458_3b543e526984);
 pub const Styles_StyleId_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xda82852f_3817_4233_82af_02279e72cc77);
 pub const Styles_StyleName_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1c12b035_05d1_4f55_9e8e_1489f3ff550d);
+pub type SupportedTextSelection = i32;
 pub const SupportedTextSelection_Multiple: SupportedTextSelection = 2i32;
 pub const SupportedTextSelection_None: SupportedTextSelection = 0i32;
 pub const SupportedTextSelection_Single: SupportedTextSelection = 1i32;
+pub type SynchronizedInputType = i32;
 pub const SynchronizedInputType_KeyDown: SynchronizedInputType = 2i32;
 pub const SynchronizedInputType_KeyUp: SynchronizedInputType = 1i32;
 pub const SynchronizedInputType_LeftMouseDown: SynchronizedInputType = 8i32;
@@ -1242,6 +1037,12 @@ pub const SynchronizedInputType_RightMouseDown: SynchronizedInputType = 32i32;
 pub const SynchronizedInputType_RightMouseUp: SynchronizedInputType = 16i32;
 pub const SynchronizedInput_Pattern_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x05c288a6_c47b_488b_b653_33977a551b8b);
 pub const SystemAlert_Event_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd271545d_7a3a_47a7_8474_81d29a2451c9);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TOGGLEKEYS {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+}
 pub const TabItem_Control_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2c6a634f_921b_4e6e_b26e_08fcb0798f4c);
 pub const Tab_Control_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x38cd1f2d_337a_4bd2_a5e3_adb469e30bd3);
 pub const TableItem_ColumnHeaderItems_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x967a56a3_74b6_431e_8de6_99c411031c58);
@@ -1253,6 +1054,7 @@ pub const Table_Pattern_GUID: windows_sys::core::GUID = windows_sys::core::GUID:
 pub const Table_RowHeaders_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd9e35b87_6eb8_4562_aac6_a8a9075236a8);
 pub const Table_RowOrColumnMajor_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x83be75c3_29fe_4a30_85e1_2a6277fd106e);
 pub const TextChild_Pattern_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7533cab7_3bfe_41ef_9e85_e2638cbe169e);
+pub type TextDecorationLineStyle = i32;
 pub const TextDecorationLineStyle_Dash: TextDecorationLineStyle = 5i32;
 pub const TextDecorationLineStyle_DashDot: TextDecorationLineStyle = 6i32;
 pub const TextDecorationLineStyle_DashDotDot: TextDecorationLineStyle = 7i32;
@@ -1272,6 +1074,7 @@ pub const TextDecorationLineStyle_ThickSingle: TextDecorationLineStyle = 9i32;
 pub const TextDecorationLineStyle_ThickWavy: TextDecorationLineStyle = 12i32;
 pub const TextDecorationLineStyle_Wavy: TextDecorationLineStyle = 8i32;
 pub const TextDecorationLineStyle_WordsOnly: TextDecorationLineStyle = 2i32;
+pub type TextEditChangeType = i32;
 pub const TextEditChangeType_AutoComplete: TextEditChangeType = 4i32;
 pub const TextEditChangeType_AutoCorrect: TextEditChangeType = 1i32;
 pub const TextEditChangeType_Composition: TextEditChangeType = 2i32;
@@ -1280,8 +1083,10 @@ pub const TextEditChangeType_None: TextEditChangeType = 0i32;
 pub const TextEdit_ConversionTargetChanged_Event_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3388c183_ed4f_4c8b_9baa_364d51d8847f);
 pub const TextEdit_Pattern_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x69f3ff89_5af9_4c75_9340_f2de292e4591);
 pub const TextEdit_TextChanged_Event_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x120b0308_ec22_4eb8_9c98_9867cda1b165);
+pub type TextPatternRangeEndpoint = i32;
 pub const TextPatternRangeEndpoint_End: TextPatternRangeEndpoint = 1i32;
 pub const TextPatternRangeEndpoint_Start: TextPatternRangeEndpoint = 0i32;
+pub type TextUnit = i32;
 pub const TextUnit_Character: TextUnit = 0i32;
 pub const TextUnit_Document: TextUnit = 6i32;
 pub const TextUnit_Format: TextUnit = 1i32;
@@ -1342,6 +1147,7 @@ pub const Text_UnderlineColor_Attribute_GUID: windows_sys::core::GUID = windows_
 pub const Text_UnderlineStyle_Attribute_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5f3b21c0_ede4_44bd_9c36_3853038cbfeb);
 pub const Thumb_Control_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x701ca877_e310_4dd6_b644_797e4faea213);
 pub const TitleBar_Control_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x98aa55bf_3bb0_4b65_836e_2ea30dbc171f);
+pub type ToggleState = i32;
 pub const ToggleState_Indeterminate: ToggleState = 2i32;
 pub const ToggleState_Off: ToggleState = 0i32;
 pub const ToggleState_On: ToggleState = 1i32;
@@ -1361,6 +1167,7 @@ pub const Transform_CanResize_Property_GUID: windows_sys::core::GUID = windows_s
 pub const Transform_CanRotate_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x10079b48_3849_476f_ac96_44a95c8440d9);
 pub const Transform_Pattern_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x24b46fdb_587e_49f1_9c4a_d8e98b664b7b);
 pub const TreeItem_Control_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x62c9feb9_8ffc_4878_a3a4_96b030315c18);
+pub type TreeScope = i32;
 pub const TreeScope_Ancestors: TreeScope = 16i32;
 pub const TreeScope_Children: TreeScope = 2i32;
 pub const TreeScope_Descendants: TreeScope = 4i32;
@@ -1368,10 +1175,12 @@ pub const TreeScope_Element: TreeScope = 1i32;
 pub const TreeScope_None: TreeScope = 0i32;
 pub const TreeScope_Parent: TreeScope = 8i32;
 pub const TreeScope_Subtree: TreeScope = 7i32;
+pub type TreeTraversalOptions = i32;
 pub const TreeTraversalOptions_Default: TreeTraversalOptions = 0i32;
 pub const TreeTraversalOptions_LastToFirstOrder: TreeTraversalOptions = 2i32;
 pub const TreeTraversalOptions_PostOrder: TreeTraversalOptions = 1i32;
 pub const Tree_Control_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7561349c_d241_43f4_9908_b5f091bee611);
+pub type UIA_ANNOTATIONTYPE = i32;
 pub const UIA_AcceleratorKeyPropertyId: UIA_PROPERTY_ID = 30006i32;
 pub const UIA_AccessKeyPropertyId: UIA_PROPERTY_ID = 30007i32;
 pub const UIA_ActiveTextPositionChangedEventId: UIA_EVENT_ID = 20036i32;
@@ -1399,6 +1208,8 @@ pub const UIA_BeforeParagraphSpacingAttributeId: UIA_TEXTATTRIBUTE_ID = 40041i32
 pub const UIA_BoundingRectanglePropertyId: UIA_PROPERTY_ID = 30001i32;
 pub const UIA_BulletStyleAttributeId: UIA_TEXTATTRIBUTE_ID = 40002i32;
 pub const UIA_ButtonControlTypeId: UIA_CONTROLTYPE_ID = 50000i32;
+pub type UIA_CHANGE_ID = i32;
+pub type UIA_CONTROLTYPE_ID = i32;
 pub const UIA_CalendarControlTypeId: UIA_CONTROLTYPE_ID = 50001i32;
 pub const UIA_CapStyleAttributeId: UIA_TEXTATTRIBUTE_ID = 40003i32;
 pub const UIA_CaretBidiModeAttributeId: UIA_TEXTATTRIBUTE_ID = 40039i32;
@@ -1436,6 +1247,7 @@ pub const UIA_DropTargetPatternId: UIA_PATTERN_ID = 10031i32;
 pub const UIA_DropTarget_DragEnterEventId: UIA_EVENT_ID = 20029i32;
 pub const UIA_DropTarget_DragLeaveEventId: UIA_EVENT_ID = 20030i32;
 pub const UIA_DropTarget_DroppedEventId: UIA_EVENT_ID = 20031i32;
+pub type UIA_EVENT_ID = i32;
 pub const UIA_E_ELEMENTNOTAVAILABLE: u32 = 2147746305u32;
 pub const UIA_E_ELEMENTNOTENABLED: u32 = 2147746304u32;
 pub const UIA_E_INVALIDOPERATION: u32 = 2148734217u32;
@@ -1467,6 +1279,7 @@ pub const UIA_GridItemRowSpanPropertyId: UIA_PROPERTY_ID = 30066i32;
 pub const UIA_GridPatternId: UIA_PATTERN_ID = 10006i32;
 pub const UIA_GridRowCountPropertyId: UIA_PROPERTY_ID = 30062i32;
 pub const UIA_GroupControlTypeId: UIA_CONTROLTYPE_ID = 50026i32;
+pub type UIA_HEADINGLEVEL_ID = i32;
 pub const UIA_HasKeyboardFocusPropertyId: UIA_PROPERTY_ID = 30008i32;
 pub const UIA_HeaderControlTypeId: UIA_CONTROLTYPE_ID = 50034i32;
 pub const UIA_HeaderItemControlTypeId: UIA_CONTROLTYPE_ID = 50035i32;
@@ -1540,6 +1353,7 @@ pub const UIA_IsWindowPatternAvailablePropertyId: UIA_PROPERTY_ID = 30044i32;
 pub const UIA_ItemContainerPatternId: UIA_PATTERN_ID = 10019i32;
 pub const UIA_ItemStatusPropertyId: UIA_PROPERTY_ID = 30026i32;
 pub const UIA_ItemTypePropertyId: UIA_PROPERTY_ID = 30021i32;
+pub type UIA_LANDMARKTYPE_ID = i32;
 pub const UIA_LabeledByPropertyId: UIA_PROPERTY_ID = 30018i32;
 pub const UIA_LandmarkTypePropertyId: UIA_PROPERTY_ID = 30157i32;
 pub const UIA_LayoutInvalidatedEventId: UIA_EVENT_ID = 20008i32;
@@ -1563,6 +1377,7 @@ pub const UIA_LiveRegionChangedEventId: UIA_EVENT_ID = 20024i32;
 pub const UIA_LiveSettingPropertyId: UIA_PROPERTY_ID = 30135i32;
 pub const UIA_LocalizedControlTypePropertyId: UIA_PROPERTY_ID = 30004i32;
 pub const UIA_LocalizedLandmarkTypePropertyId: UIA_PROPERTY_ID = 30158i32;
+pub type UIA_METADATA_ID = i32;
 pub const UIA_MainLandmarkTypeId: UIA_LANDMARKTYPE_ID = 80002i32;
 pub const UIA_MarginBottomAttributeId: UIA_TEXTATTRIBUTE_ID = 40018i32;
 pub const UIA_MarginLeadingAttributeId: UIA_TEXTATTRIBUTE_ID = 40019i32;
@@ -1590,8 +1405,10 @@ pub const UIA_OutlineStylesAttributeId: UIA_TEXTATTRIBUTE_ID = 40022i32;
 pub const UIA_OutlineThicknessPropertyId: UIA_PROPERTY_ID = 30164i32;
 pub const UIA_OverlineColorAttributeId: UIA_TEXTATTRIBUTE_ID = 40023i32;
 pub const UIA_OverlineStyleAttributeId: UIA_TEXTATTRIBUTE_ID = 40024i32;
+pub type UIA_PATTERN_ID = i32;
 pub const UIA_PFIA_DEFAULT: u32 = 0u32;
 pub const UIA_PFIA_UNWRAP_BRIDGE: u32 = 1u32;
+pub type UIA_PROPERTY_ID = i32;
 pub const UIA_PaneControlTypeId: UIA_CONTROLTYPE_ID = 50033i32;
 pub const UIA_PositionInSetPropertyId: UIA_PROPERTY_ID = 30152i32;
 pub const UIA_ProcessIdPropertyId: UIA_PROPERTY_ID = 30002i32;
@@ -1607,6 +1424,7 @@ pub const UIA_RangeValueSmallChangePropertyId: UIA_PROPERTY_ID = 30052i32;
 pub const UIA_RangeValueValuePropertyId: UIA_PROPERTY_ID = 30047i32;
 pub const UIA_RotationPropertyId: UIA_PROPERTY_ID = 30166i32;
 pub const UIA_RuntimeIdPropertyId: UIA_PROPERTY_ID = 30000i32;
+pub type UIA_STYLE_ID = i32;
 pub const UIA_SayAsInterpretAsAttributeId: UIA_TEXTATTRIBUTE_ID = 40043i32;
 pub const UIA_SayAsInterpretAsMetadataId: UIA_METADATA_ID = 100000i32;
 pub const UIA_ScrollBarControlTypeId: UIA_CONTROLTYPE_ID = 50014i32;
@@ -1666,6 +1484,7 @@ pub const UIA_StylesStyleNamePropertyId: UIA_PROPERTY_ID = 30121i32;
 pub const UIA_SummaryChangeId: UIA_CHANGE_ID = 90000i32;
 pub const UIA_SynchronizedInputPatternId: UIA_PATTERN_ID = 10021i32;
 pub const UIA_SystemAlertEventId: UIA_EVENT_ID = 20023i32;
+pub type UIA_TEXTATTRIBUTE_ID = i32;
 pub const UIA_TabControlTypeId: UIA_CONTROLTYPE_ID = 50018i32;
 pub const UIA_TabItemControlTypeId: UIA_CONTROLTYPE_ID = 50019i32;
 pub const UIA_TableColumnHeadersPropertyId: UIA_PROPERTY_ID = 30082i32;
@@ -1723,6 +1542,51 @@ pub const UIA_WindowWindowInteractionStatePropertyId: UIA_PROPERTY_ID = 30076i32
 pub const UIA_WindowWindowVisualStatePropertyId: UIA_PROPERTY_ID = 30075i32;
 pub const UIA_Window_WindowClosedEventId: UIA_EVENT_ID = 20017i32;
 pub const UIA_Window_WindowOpenedEventId: UIA_EVENT_ID = 20016i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UIAutomationEventInfo {
+    pub guid: windows_sys::core::GUID,
+    pub pProgrammaticName: windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UIAutomationMethodInfo {
+    pub pProgrammaticName: windows_sys::core::PCWSTR,
+    pub doSetFocus: super::super::Foundation::BOOL,
+    pub cInParameters: u32,
+    pub cOutParameters: u32,
+    pub pParameterTypes: *mut UIAutomationType,
+    pub pParameterNames: *const windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UIAutomationParameter {
+    pub r#type: UIAutomationType,
+    pub pData: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UIAutomationPatternInfo {
+    pub guid: windows_sys::core::GUID,
+    pub pProgrammaticName: windows_sys::core::PCWSTR,
+    pub providerInterfaceId: windows_sys::core::GUID,
+    pub clientInterfaceId: windows_sys::core::GUID,
+    pub cProperties: u32,
+    pub pProperties: *mut UIAutomationPropertyInfo,
+    pub cMethods: u32,
+    pub pMethods: *mut UIAutomationMethodInfo,
+    pub cEvents: u32,
+    pub pEvents: *mut UIAutomationEventInfo,
+    pub pPatternHandler: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UIAutomationPropertyInfo {
+    pub guid: windows_sys::core::GUID,
+    pub pProgrammaticName: windows_sys::core::PCWSTR,
+    pub r#type: UIAutomationType,
+}
+pub type UIAutomationType = i32;
 pub const UIAutomationType_Array: UIAutomationType = 65536i32;
 pub const UIAutomationType_Bool: UIAutomationType = 2i32;
 pub const UIAutomationType_BoolArray: UIAutomationType = 65538i32;
@@ -1753,12 +1617,144 @@ pub const UIAutomationType_Rect: UIAutomationType = 6i32;
 pub const UIAutomationType_RectArray: UIAutomationType = 65542i32;
 pub const UIAutomationType_String: UIAutomationType = 3i32;
 pub const UIAutomationType_StringArray: UIAutomationType = 65539i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UiaAndOrCondition {
+    pub ConditionType: ConditionType,
+    pub ppConditions: *mut *mut UiaCondition,
+    pub cConditions: i32,
+}
 pub const UiaAppendRuntimeId: u32 = 3u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UiaAsyncContentLoadedEventArgs {
+    pub Type: EventArgsType,
+    pub EventId: i32,
+    pub AsyncContentLoadedState: AsyncContentLoadedState,
+    pub PercentComplete: f64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UiaCacheRequest {
+    pub pViewCondition: *mut UiaCondition,
+    pub Scope: TreeScope,
+    pub pProperties: *mut i32,
+    pub cProperties: i32,
+    pub pPatterns: *mut i32,
+    pub cPatterns: i32,
+    pub automationElementMode: AutomationElementMode,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct UiaChangeInfo {
+    pub uiaId: i32,
+    pub payload: super::super::System::Variant::VARIANT,
+    pub extraInfo: super::super::System::Variant::VARIANT,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct UiaChangesEventArgs {
+    pub Type: EventArgsType,
+    pub EventId: i32,
+    pub EventIdCount: i32,
+    pub pUiaChanges: *mut UiaChangeInfo,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UiaCondition {
+    pub ConditionType: ConditionType,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UiaEventArgs {
+    pub Type: EventArgsType,
+    pub EventId: i32,
+}
+#[cfg(feature = "Win32_System_Com")]
+pub type UiaEventCallback = Option<unsafe extern "system" fn(pargs: *mut UiaEventArgs, prequesteddata: *mut super::super::System::Com::SAFEARRAY, ptreestructure: windows_sys::core::BSTR)>;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UiaFindParams {
+    pub MaxDepth: i32,
+    pub FindFirst: super::super::Foundation::BOOL,
+    pub ExcludeRoot: super::super::Foundation::BOOL,
+    pub pFindCondition: *mut UiaCondition,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UiaNotCondition {
+    pub ConditionType: ConditionType,
+    pub pCondition: *mut UiaCondition,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UiaPoint {
+    pub x: f64,
+    pub y: f64,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct UiaPropertyChangedEventArgs {
+    pub Type: EventArgsType,
+    pub EventId: UIA_EVENT_ID,
+    pub PropertyId: i32,
+    pub OldValue: super::super::System::Variant::VARIANT,
+    pub NewValue: super::super::System::Variant::VARIANT,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct UiaPropertyCondition {
+    pub ConditionType: ConditionType,
+    pub PropertyId: UIA_PROPERTY_ID,
+    pub Value: super::super::System::Variant::VARIANT,
+    pub Flags: PropertyConditionFlags,
+}
+#[cfg(feature = "Win32_System_Com")]
+pub type UiaProviderCallback = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, providertype: ProviderType) -> *mut super::super::System::Com::SAFEARRAY>;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UiaRect {
+    pub left: f64,
+    pub top: f64,
+    pub width: f64,
+    pub height: f64,
+}
 pub const UiaRootObjectId: i32 = -25i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UiaStructureChangedEventArgs {
+    pub Type: EventArgsType,
+    pub EventId: i32,
+    pub StructureChangeType: StructureChangeType,
+    pub pRuntimeId: *mut i32,
+    pub cRuntimeIdLen: i32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct UiaTextEditTextChangedEventArgs {
+    pub Type: EventArgsType,
+    pub EventId: i32,
+    pub TextEditChangeType: TextEditChangeType,
+    pub pTextChange: *mut super::super::System::Com::SAFEARRAY,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UiaWindowClosedEventArgs {
+    pub Type: EventArgsType,
+    pub EventId: i32,
+    pub pRuntimeId: *mut i32,
+    pub cRuntimeIdLen: i32,
+}
 pub const Value_IsReadOnly_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeb090f30_e24c_4799_a705_0d247bc037f8);
 pub const Value_Pattern_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x17faad9e_c877_475b_b933_77332779b637);
 pub const Value_Value_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe95f5e64_269f_4a85_ba99_4092c3ea2986);
 pub const VirtualizedItem_Pattern_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf510173e_2e71_45e9_a6e5_62f6ed8289d5);
+pub type VisualEffects = i32;
 pub const VisualEffects_Bevel: VisualEffects = 16i32;
 pub const VisualEffects_Glow: VisualEffects = 4i32;
 pub const VisualEffects_None: VisualEffects = 0i32;
@@ -1766,11 +1762,14 @@ pub const VisualEffects_Property_GUID: windows_sys::core::GUID = windows_sys::co
 pub const VisualEffects_Reflection: VisualEffects = 2i32;
 pub const VisualEffects_Shadow: VisualEffects = 1i32;
 pub const VisualEffects_SoftEdges: VisualEffects = 8i32;
+pub type WINEVENTPROC = Option<unsafe extern "system" fn(hwineventhook: HWINEVENTHOOK, event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ideventthread: u32, dwmseventtime: u32)>;
+pub type WindowInteractionState = i32;
 pub const WindowInteractionState_BlockedByModalWindow: WindowInteractionState = 3i32;
 pub const WindowInteractionState_Closing: WindowInteractionState = 1i32;
 pub const WindowInteractionState_NotResponding: WindowInteractionState = 4i32;
 pub const WindowInteractionState_ReadyForUserInteraction: WindowInteractionState = 2i32;
 pub const WindowInteractionState_Running: WindowInteractionState = 0i32;
+pub type WindowVisualState = i32;
 pub const WindowVisualState_Maximized: WindowVisualState = 1i32;
 pub const WindowVisualState_Minimized: WindowVisualState = 2i32;
 pub const WindowVisualState_Normal: WindowVisualState = 0i32;
@@ -1784,6 +1783,7 @@ pub const Window_WindowClosed_Event_GUID: windows_sys::core::GUID = windows_sys:
 pub const Window_WindowInteractionState_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4fed26a4_0455_4fa2_b21c_c4da2db1ff9c);
 pub const Window_WindowOpened_Event_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd3e81d06_de45_4f2f_9633_de9e02fb65af);
 pub const Window_WindowVisualState_Property_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4ab7905f_e860_453e_a30a_f6431e5daad5);
+pub type ZoomUnit = i32;
 pub const ZoomUnit_LargeDecrement: ZoomUnit = 1i32;
 pub const ZoomUnit_LargeIncrement: ZoomUnit = 3i32;
 pub const ZoomUnit_NoAmount: ZoomUnit = 0i32;

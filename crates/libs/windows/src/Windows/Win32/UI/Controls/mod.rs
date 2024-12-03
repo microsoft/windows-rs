@@ -1794,6 +1794,2352 @@ where
     windows_targets::link!("uxtheme.dll" "system" fn UpdatePanningFeedback(hwnd : super::super::Foundation:: HWND, ltotaloverpanoffsetx : i32, ltotaloverpanoffsety : i32, fininertia : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     UpdatePanningFeedback(hwnd.param().abi(), core::mem::transmute(ltotaloverpanoffsetx), core::mem::transmute(ltotaloverpanoffsety), fininertia.param().abi())
 }
+pub const ABS_DOWNDISABLED: ARROWBTNSTATES = ARROWBTNSTATES(8i32);
+pub const ABS_DOWNHOT: ARROWBTNSTATES = ARROWBTNSTATES(6i32);
+pub const ABS_DOWNHOVER: ARROWBTNSTATES = ARROWBTNSTATES(18i32);
+pub const ABS_DOWNNORMAL: ARROWBTNSTATES = ARROWBTNSTATES(5i32);
+pub const ABS_DOWNPRESSED: ARROWBTNSTATES = ARROWBTNSTATES(7i32);
+pub const ABS_LEFTDISABLED: ARROWBTNSTATES = ARROWBTNSTATES(12i32);
+pub const ABS_LEFTHOT: ARROWBTNSTATES = ARROWBTNSTATES(10i32);
+pub const ABS_LEFTHOVER: ARROWBTNSTATES = ARROWBTNSTATES(19i32);
+pub const ABS_LEFTNORMAL: ARROWBTNSTATES = ARROWBTNSTATES(9i32);
+pub const ABS_LEFTPRESSED: ARROWBTNSTATES = ARROWBTNSTATES(11i32);
+pub const ABS_RIGHTDISABLED: ARROWBTNSTATES = ARROWBTNSTATES(16i32);
+pub const ABS_RIGHTHOT: ARROWBTNSTATES = ARROWBTNSTATES(14i32);
+pub const ABS_RIGHTHOVER: ARROWBTNSTATES = ARROWBTNSTATES(20i32);
+pub const ABS_RIGHTNORMAL: ARROWBTNSTATES = ARROWBTNSTATES(13i32);
+pub const ABS_RIGHTPRESSED: ARROWBTNSTATES = ARROWBTNSTATES(15i32);
+pub const ABS_UPDISABLED: ARROWBTNSTATES = ARROWBTNSTATES(4i32);
+pub const ABS_UPHOT: ARROWBTNSTATES = ARROWBTNSTATES(2i32);
+pub const ABS_UPHOVER: ARROWBTNSTATES = ARROWBTNSTATES(17i32);
+pub const ABS_UPNORMAL: ARROWBTNSTATES = ARROWBTNSTATES(1i32);
+pub const ABS_UPPRESSED: ARROWBTNSTATES = ARROWBTNSTATES(3i32);
+pub const ACM_ISPLAYING: u32 = 1128u32;
+pub const ACM_OPEN: u32 = 1127u32;
+pub const ACM_OPENA: u32 = 1124u32;
+pub const ACM_OPENW: u32 = 1127u32;
+pub const ACM_PLAY: u32 = 1125u32;
+pub const ACM_STOP: u32 = 1126u32;
+pub const ACN_START: u32 = 1u32;
+pub const ACN_STOP: u32 = 2u32;
+pub const ACS_AUTOPLAY: u32 = 4u32;
+pub const ACS_CENTER: u32 = 1u32;
+pub const ACS_TIMER: u32 = 8u32;
+pub const ACS_TRANSPARENT: u32 = 2u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AEROWIZARDPARTS(pub i32);
+pub const ALLOW_CONTROLS: SET_THEME_APP_PROPERTIES_FLAGS = SET_THEME_APP_PROPERTIES_FLAGS(2u32);
+pub const ALLOW_NONCLIENT: SET_THEME_APP_PROPERTIES_FLAGS = SET_THEME_APP_PROPERTIES_FLAGS(1u32);
+pub const ALLOW_WEBCONTENT: SET_THEME_APP_PROPERTIES_FLAGS = SET_THEME_APP_PROPERTIES_FLAGS(4u32);
+pub const ANIMATE_CLASS: windows_core::PCWSTR = windows_core::w!("SysAnimate32");
+pub const ANIMATE_CLASSA: windows_core::PCSTR = windows_core::s!("SysAnimate32");
+pub const ANIMATE_CLASSW: windows_core::PCWSTR = windows_core::w!("SysAnimate32");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ARROWBTNSTATES(pub i32);
+pub const AW_BUTTON: AEROWIZARDPARTS = AEROWIZARDPARTS(5i32);
+pub const AW_COMMANDAREA: AEROWIZARDPARTS = AEROWIZARDPARTS(4i32);
+pub const AW_CONTENTAREA: AEROWIZARDPARTS = AEROWIZARDPARTS(3i32);
+pub const AW_HEADERAREA: AEROWIZARDPARTS = AEROWIZARDPARTS(2i32);
+pub const AW_S_CONTENTAREA_NOMARGIN: CONTENTAREASTATES = CONTENTAREASTATES(1i32);
+pub const AW_S_HEADERAREA_NOMARGIN: HEADERAREASTATES = HEADERAREASTATES(1i32);
+pub const AW_S_TITLEBAR_ACTIVE: TITLEBARSTATES = TITLEBARSTATES(1i32);
+pub const AW_S_TITLEBAR_INACTIVE: TITLEBARSTATES = TITLEBARSTATES(2i32);
+pub const AW_TITLEBAR: AEROWIZARDPARTS = AEROWIZARDPARTS(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BACKGROUNDSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BACKGROUNDWITHBORDERSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BALLOONSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BALLOONSTEMSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BARBACKGROUNDSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BARITEMSTATES(pub i32);
+pub const BCM_FIRST: u32 = 5632u32;
+pub const BCM_GETIDEALSIZE: u32 = 5633u32;
+pub const BCM_GETIMAGELIST: u32 = 5635u32;
+pub const BCM_GETNOTE: u32 = 5642u32;
+pub const BCM_GETNOTELENGTH: u32 = 5643u32;
+pub const BCM_GETSPLITINFO: u32 = 5640u32;
+pub const BCM_GETTEXTMARGIN: u32 = 5637u32;
+pub const BCM_SETDROPDOWNSTATE: u32 = 5638u32;
+pub const BCM_SETIMAGELIST: u32 = 5634u32;
+pub const BCM_SETNOTE: u32 = 5641u32;
+pub const BCM_SETSHIELD: u32 = 5644u32;
+pub const BCM_SETSPLITINFO: u32 = 5639u32;
+pub const BCM_SETTEXTMARGIN: u32 = 5636u32;
+pub const BCN_DROPDOWN: u32 = 4294966048u32;
+pub const BCN_FIRST: u32 = 4294966046u32;
+pub const BCN_HOTITEMCHANGE: u32 = 4294966047u32;
+pub const BCN_LAST: u32 = 4294965946u32;
+pub const BCSIF_GLYPH: u32 = 1u32;
+pub const BCSIF_IMAGE: u32 = 2u32;
+pub const BCSIF_SIZE: u32 = 8u32;
+pub const BCSIF_STYLE: u32 = 4u32;
+pub const BCSS_ALIGNLEFT: u32 = 4u32;
+pub const BCSS_IMAGE: u32 = 8u32;
+pub const BCSS_NOSPLIT: u32 = 1u32;
+pub const BCSS_STRETCH: u32 = 2u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BGTYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BODYSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BORDERSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BORDERTYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BORDER_HSCROLLSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BORDER_HVSCROLLSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BORDER_NOSCROLLSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BORDER_VSCROLLSTATES(pub i32);
+pub const BPAS_CUBIC: BP_ANIMATIONSTYLE = BP_ANIMATIONSTYLE(2i32);
+pub const BPAS_LINEAR: BP_ANIMATIONSTYLE = BP_ANIMATIONSTYLE(1i32);
+pub const BPAS_NONE: BP_ANIMATIONSTYLE = BP_ANIMATIONSTYLE(0i32);
+pub const BPAS_SINE: BP_ANIMATIONSTYLE = BP_ANIMATIONSTYLE(3i32);
+pub const BPBF_COMPATIBLEBITMAP: BP_BUFFERFORMAT = BP_BUFFERFORMAT(0i32);
+pub const BPBF_DIB: BP_BUFFERFORMAT = BP_BUFFERFORMAT(1i32);
+pub const BPBF_TOPDOWNDIB: BP_BUFFERFORMAT = BP_BUFFERFORMAT(2i32);
+pub const BPBF_TOPDOWNMONODIB: BP_BUFFERFORMAT = BP_BUFFERFORMAT(3i32);
+pub const BPPF_ERASE: BP_PAINTPARAMS_FLAGS = BP_PAINTPARAMS_FLAGS(1u32);
+pub const BPPF_NOCLIP: BP_PAINTPARAMS_FLAGS = BP_PAINTPARAMS_FLAGS(2u32);
+pub const BPPF_NONCLIENT: BP_PAINTPARAMS_FLAGS = BP_PAINTPARAMS_FLAGS(4u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct BP_ANIMATIONPARAMS {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub style: BP_ANIMATIONSTYLE,
+    pub dwDuration: u32,
+}
+impl Default for BP_ANIMATIONPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for BP_ANIMATIONPARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BP_ANIMATIONSTYLE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BP_BUFFERFORMAT(pub i32);
+pub const BP_CHECKBOX: BUTTONPARTS = BUTTONPARTS(3i32);
+pub const BP_CHECKBOX_HCDISABLED: BUTTONPARTS = BUTTONPARTS(9i32);
+pub const BP_COMMANDLINK: BUTTONPARTS = BUTTONPARTS(6i32);
+pub const BP_COMMANDLINKGLYPH: BUTTONPARTS = BUTTONPARTS(7i32);
+pub const BP_GROUPBOX: BUTTONPARTS = BUTTONPARTS(4i32);
+pub const BP_GROUPBOX_HCDISABLED: BUTTONPARTS = BUTTONPARTS(10i32);
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct BP_PAINTPARAMS {
+    pub cbSize: u32,
+    pub dwFlags: BP_PAINTPARAMS_FLAGS,
+    pub prcExclude: *const super::super::Foundation::RECT,
+    pub pBlendFunction: *const super::super::Graphics::Gdi::BLENDFUNCTION,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for BP_PAINTPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for BP_PAINTPARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BP_PAINTPARAMS_FLAGS(pub u32);
+impl BP_PAINTPARAMS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for BP_PAINTPARAMS_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for BP_PAINTPARAMS_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for BP_PAINTPARAMS_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for BP_PAINTPARAMS_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for BP_PAINTPARAMS_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const BP_PUSHBUTTON: BUTTONPARTS = BUTTONPARTS(1i32);
+pub const BP_PUSHBUTTONDROPDOWN: BUTTONPARTS = BUTTONPARTS(11i32);
+pub const BP_RADIOBUTTON: BUTTONPARTS = BUTTONPARTS(2i32);
+pub const BP_RADIOBUTTON_HCDISABLED: BUTTONPARTS = BUTTONPARTS(8i32);
+pub const BP_USERBUTTON: BUTTONPARTS = BUTTONPARTS(5i32);
+pub const BST_CHECKED: DLG_BUTTON_CHECK_STATE = DLG_BUTTON_CHECK_STATE(1u32);
+pub const BST_DROPDOWNPUSHED: u32 = 1024u32;
+pub const BST_HOT: u32 = 512u32;
+pub const BST_INDETERMINATE: DLG_BUTTON_CHECK_STATE = DLG_BUTTON_CHECK_STATE(2u32);
+pub const BST_UNCHECKED: DLG_BUTTON_CHECK_STATE = DLG_BUTTON_CHECK_STATE(0u32);
+pub const BS_COMMANDLINK: i32 = 14i32;
+pub const BS_DEFCOMMANDLINK: i32 = 15i32;
+pub const BS_DEFSPLITBUTTON: i32 = 13i32;
+pub const BS_SPLITBUTTON: i32 = 12i32;
+pub const BTNS_AUTOSIZE: u32 = 16u32;
+pub const BTNS_BUTTON: u32 = 0u32;
+pub const BTNS_CHECK: u32 = 2u32;
+pub const BTNS_DROPDOWN: u32 = 8u32;
+pub const BTNS_GROUP: u32 = 4u32;
+pub const BTNS_NOPREFIX: u32 = 32u32;
+pub const BTNS_SEP: u32 = 1u32;
+pub const BTNS_SHOWTEXT: u32 = 64u32;
+pub const BTNS_WHOLEDROPDOWN: u32 = 128u32;
+pub const BT_BORDERFILL: BGTYPE = BGTYPE(1i32);
+pub const BT_ELLIPSE: BORDERTYPE = BORDERTYPE(2i32);
+pub const BT_IMAGEFILE: BGTYPE = BGTYPE(0i32);
+pub const BT_NONE: BGTYPE = BGTYPE(2i32);
+pub const BT_RECT: BORDERTYPE = BORDERTYPE(0i32);
+pub const BT_ROUNDRECT: BORDERTYPE = BORDERTYPE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BUTTONPARTS(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct BUTTON_IMAGELIST {
+    pub himl: HIMAGELIST,
+    pub margin: super::super::Foundation::RECT,
+    pub uAlign: BUTTON_IMAGELIST_ALIGN,
+}
+impl Default for BUTTON_IMAGELIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for BUTTON_IMAGELIST {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BUTTON_IMAGELIST_ALIGN(pub u32);
+pub const BUTTON_IMAGELIST_ALIGN_BOTTOM: BUTTON_IMAGELIST_ALIGN = BUTTON_IMAGELIST_ALIGN(3u32);
+pub const BUTTON_IMAGELIST_ALIGN_CENTER: BUTTON_IMAGELIST_ALIGN = BUTTON_IMAGELIST_ALIGN(4u32);
+pub const BUTTON_IMAGELIST_ALIGN_LEFT: BUTTON_IMAGELIST_ALIGN = BUTTON_IMAGELIST_ALIGN(0u32);
+pub const BUTTON_IMAGELIST_ALIGN_RIGHT: BUTTON_IMAGELIST_ALIGN = BUTTON_IMAGELIST_ALIGN(1u32);
+pub const BUTTON_IMAGELIST_ALIGN_TOP: BUTTON_IMAGELIST_ALIGN = BUTTON_IMAGELIST_ALIGN(2u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct BUTTON_SPLITINFO {
+    pub mask: u32,
+    pub himlGlyph: HIMAGELIST,
+    pub uSplitStyle: u32,
+    pub size: super::super::Foundation::SIZE,
+}
+impl Default for BUTTON_SPLITINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for BUTTON_SPLITINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CAPTIONSTATES(pub i32);
+pub const CA_CENTER: CONTENTALIGNMENT = CONTENTALIGNMENT(1i32);
+pub const CA_LEFT: CONTENTALIGNMENT = CONTENTALIGNMENT(0i32);
+pub const CA_RIGHT: CONTENTALIGNMENT = CONTENTALIGNMENT(2i32);
+pub const CBB_DISABLED: BORDERSTATES = BORDERSTATES(4i32);
+pub const CBB_FOCUSED: BORDERSTATES = BORDERSTATES(3i32);
+pub const CBB_HOT: BORDERSTATES = BORDERSTATES(2i32);
+pub const CBB_NORMAL: BORDERSTATES = BORDERSTATES(1i32);
+pub const CBCB_DISABLED: CUEBANNERSTATES = CUEBANNERSTATES(4i32);
+pub const CBCB_HOT: CUEBANNERSTATES = CUEBANNERSTATES(2i32);
+pub const CBCB_NORMAL: CUEBANNERSTATES = CUEBANNERSTATES(1i32);
+pub const CBCB_PRESSED: CUEBANNERSTATES = CUEBANNERSTATES(3i32);
+pub const CBDI_HIGHLIGHTED: DROPDOWNITEMSTATES = DROPDOWNITEMSTATES(2i32);
+pub const CBDI_NORMAL: DROPDOWNITEMSTATES = DROPDOWNITEMSTATES(1i32);
+pub const CBEIF_DI_SETITEM: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(268435456u32);
+pub const CBEIF_IMAGE: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(2u32);
+pub const CBEIF_INDENT: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(16u32);
+pub const CBEIF_LPARAM: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(32u32);
+pub const CBEIF_OVERLAY: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(8u32);
+pub const CBEIF_SELECTEDIMAGE: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(4u32);
+pub const CBEIF_TEXT: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(1u32);
+pub const CBEMAXSTRLEN: u32 = 260u32;
+pub const CBEM_GETCOMBOCONTROL: u32 = 1030u32;
+pub const CBEM_GETEDITCONTROL: u32 = 1031u32;
+pub const CBEM_GETEXSTYLE: u32 = 1033u32;
+pub const CBEM_GETEXTENDEDSTYLE: u32 = 1033u32;
+pub const CBEM_GETIMAGELIST: u32 = 1027u32;
+pub const CBEM_GETITEM: u32 = 1037u32;
+pub const CBEM_GETITEMA: u32 = 1028u32;
+pub const CBEM_GETITEMW: u32 = 1037u32;
+pub const CBEM_GETUNICODEFORMAT: u32 = 8198u32;
+pub const CBEM_HASEDITCHANGED: u32 = 1034u32;
+pub const CBEM_INSERTITEM: u32 = 1035u32;
+pub const CBEM_INSERTITEMA: u32 = 1025u32;
+pub const CBEM_INSERTITEMW: u32 = 1035u32;
+pub const CBEM_SETEXSTYLE: u32 = 1032u32;
+pub const CBEM_SETEXTENDEDSTYLE: u32 = 1038u32;
+pub const CBEM_SETIMAGELIST: u32 = 1026u32;
+pub const CBEM_SETITEM: u32 = 1036u32;
+pub const CBEM_SETITEMA: u32 = 1029u32;
+pub const CBEM_SETITEMW: u32 = 1036u32;
+pub const CBEM_SETUNICODEFORMAT: u32 = 8197u32;
+pub const CBEM_SETWINDOWTHEME: u32 = 8203u32;
+pub const CBENF_DROPDOWN: u32 = 4u32;
+pub const CBENF_ESCAPE: u32 = 3u32;
+pub const CBENF_KILLFOCUS: u32 = 1u32;
+pub const CBENF_RETURN: u32 = 2u32;
+pub const CBEN_BEGINEDIT: u32 = 4294966492u32;
+pub const CBEN_DELETEITEM: u32 = 4294966494u32;
+pub const CBEN_DRAGBEGIN: u32 = 4294966487u32;
+pub const CBEN_DRAGBEGINA: u32 = 4294966488u32;
+pub const CBEN_DRAGBEGINW: u32 = 4294966487u32;
+pub const CBEN_ENDEDIT: u32 = 4294966490u32;
+pub const CBEN_ENDEDITA: u32 = 4294966491u32;
+pub const CBEN_ENDEDITW: u32 = 4294966490u32;
+pub const CBEN_FIRST: u32 = 4294966496u32;
+pub const CBEN_GETDISPINFOA: u32 = 4294966496u32;
+pub const CBEN_GETDISPINFOW: u32 = 4294966489u32;
+pub const CBEN_INSERTITEM: u32 = 4294966495u32;
+pub const CBEN_LAST: u32 = 4294966466u32;
+pub const CBES_EX_CASESENSITIVE: u32 = 16u32;
+pub const CBES_EX_NOEDITIMAGE: u32 = 1u32;
+pub const CBES_EX_NOEDITIMAGEINDENT: u32 = 2u32;
+pub const CBES_EX_NOSIZELIMIT: u32 = 8u32;
+pub const CBES_EX_PATHWORDBREAKPROC: u32 = 4u32;
+pub const CBES_EX_TEXTENDELLIPSIS: u32 = 32u32;
+pub const CBM_FIRST: u32 = 5888u32;
+pub const CBRO_DISABLED: READONLYSTATES = READONLYSTATES(4i32);
+pub const CBRO_HOT: READONLYSTATES = READONLYSTATES(2i32);
+pub const CBRO_NORMAL: READONLYSTATES = READONLYSTATES(1i32);
+pub const CBRO_PRESSED: READONLYSTATES = READONLYSTATES(3i32);
+pub const CBS_CHECKEDDISABLED: CHECKBOXSTATES = CHECKBOXSTATES(8i32);
+pub const CBS_CHECKEDHOT: CHECKBOXSTATES = CHECKBOXSTATES(6i32);
+pub const CBS_CHECKEDNORMAL: CHECKBOXSTATES = CHECKBOXSTATES(5i32);
+pub const CBS_CHECKEDPRESSED: CHECKBOXSTATES = CHECKBOXSTATES(7i32);
+pub const CBS_DISABLED: CLOSEBUTTONSTATES = CLOSEBUTTONSTATES(4i32);
+pub const CBS_EXCLUDEDDISABLED: CHECKBOXSTATES = CHECKBOXSTATES(20i32);
+pub const CBS_EXCLUDEDHOT: CHECKBOXSTATES = CHECKBOXSTATES(18i32);
+pub const CBS_EXCLUDEDNORMAL: CHECKBOXSTATES = CHECKBOXSTATES(17i32);
+pub const CBS_EXCLUDEDPRESSED: CHECKBOXSTATES = CHECKBOXSTATES(19i32);
+pub const CBS_HOT: CLOSEBUTTONSTATES = CLOSEBUTTONSTATES(2i32);
+pub const CBS_IMPLICITDISABLED: CHECKBOXSTATES = CHECKBOXSTATES(16i32);
+pub const CBS_IMPLICITHOT: CHECKBOXSTATES = CHECKBOXSTATES(14i32);
+pub const CBS_IMPLICITNORMAL: CHECKBOXSTATES = CHECKBOXSTATES(13i32);
+pub const CBS_IMPLICITPRESSED: CHECKBOXSTATES = CHECKBOXSTATES(15i32);
+pub const CBS_MIXEDDISABLED: CHECKBOXSTATES = CHECKBOXSTATES(12i32);
+pub const CBS_MIXEDHOT: CHECKBOXSTATES = CHECKBOXSTATES(10i32);
+pub const CBS_MIXEDNORMAL: CHECKBOXSTATES = CHECKBOXSTATES(9i32);
+pub const CBS_MIXEDPRESSED: CHECKBOXSTATES = CHECKBOXSTATES(11i32);
+pub const CBS_NORMAL: CLOSEBUTTONSTATES = CLOSEBUTTONSTATES(1i32);
+pub const CBS_PUSHED: CLOSEBUTTONSTATES = CLOSEBUTTONSTATES(3i32);
+pub const CBS_UNCHECKEDDISABLED: CHECKBOXSTATES = CHECKBOXSTATES(4i32);
+pub const CBS_UNCHECKEDHOT: CHECKBOXSTATES = CHECKBOXSTATES(2i32);
+pub const CBS_UNCHECKEDNORMAL: CHECKBOXSTATES = CHECKBOXSTATES(1i32);
+pub const CBS_UNCHECKEDPRESSED: CHECKBOXSTATES = CHECKBOXSTATES(3i32);
+pub const CBTBS_DISABLED: TRANSPARENTBACKGROUNDSTATES = TRANSPARENTBACKGROUNDSTATES(3i32);
+pub const CBTBS_FOCUSED: TRANSPARENTBACKGROUNDSTATES = TRANSPARENTBACKGROUNDSTATES(4i32);
+pub const CBTBS_HOT: TRANSPARENTBACKGROUNDSTATES = TRANSPARENTBACKGROUNDSTATES(2i32);
+pub const CBTBS_NORMAL: TRANSPARENTBACKGROUNDSTATES = TRANSPARENTBACKGROUNDSTATES(1i32);
+pub const CBXSL_DISABLED: DROPDOWNBUTTONLEFTSTATES = DROPDOWNBUTTONLEFTSTATES(4i32);
+pub const CBXSL_HOT: DROPDOWNBUTTONLEFTSTATES = DROPDOWNBUTTONLEFTSTATES(2i32);
+pub const CBXSL_NORMAL: DROPDOWNBUTTONLEFTSTATES = DROPDOWNBUTTONLEFTSTATES(1i32);
+pub const CBXSL_PRESSED: DROPDOWNBUTTONLEFTSTATES = DROPDOWNBUTTONLEFTSTATES(3i32);
+pub const CBXSR_DISABLED: DROPDOWNBUTTONRIGHTSTATES = DROPDOWNBUTTONRIGHTSTATES(4i32);
+pub const CBXSR_HOT: DROPDOWNBUTTONRIGHTSTATES = DROPDOWNBUTTONRIGHTSTATES(2i32);
+pub const CBXSR_NORMAL: DROPDOWNBUTTONRIGHTSTATES = DROPDOWNBUTTONRIGHTSTATES(1i32);
+pub const CBXSR_PRESSED: DROPDOWNBUTTONRIGHTSTATES = DROPDOWNBUTTONRIGHTSTATES(3i32);
+pub const CBXS_DISABLED: COMBOBOXSTYLESTATES = COMBOBOXSTYLESTATES(4i32);
+pub const CBXS_HOT: COMBOBOXSTYLESTATES = COMBOBOXSTYLESTATES(2i32);
+pub const CBXS_NORMAL: COMBOBOXSTYLESTATES = COMBOBOXSTYLESTATES(1i32);
+pub const CBXS_PRESSED: COMBOBOXSTYLESTATES = COMBOBOXSTYLESTATES(3i32);
+pub const CB_GETCUEBANNER: u32 = 5892u32;
+pub const CB_GETMINVISIBLE: u32 = 5890u32;
+pub const CB_SETCUEBANNER: u32 = 5891u32;
+pub const CB_SETMINVISIBLE: u32 = 5889u32;
+pub const CCF_NOTEXT: u32 = 1u32;
+pub const CCHCCCLASS: u32 = 32u32;
+pub const CCHCCDESC: u32 = 32u32;
+pub const CCHCCTEXT: u32 = 256u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CCINFOA {
+    pub szClass: [i8; 32],
+    pub flOptions: u32,
+    pub szDesc: [i8; 32],
+    pub cxDefault: u32,
+    pub cyDefault: u32,
+    pub flStyleDefault: u32,
+    pub flExtStyleDefault: u32,
+    pub flCtrlTypeMask: u32,
+    pub szTextDefault: [i8; 256],
+    pub cStyleFlags: i32,
+    pub aStyleFlags: *mut CCSTYLEFLAGA,
+    pub lpfnStyle: LPFNCCSTYLEA,
+    pub lpfnSizeToText: LPFNCCSIZETOTEXTA,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for CCINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for CCINFOA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CCINFOW {
+    pub szClass: [u16; 32],
+    pub flOptions: u32,
+    pub szDesc: [u16; 32],
+    pub cxDefault: u32,
+    pub cyDefault: u32,
+    pub flStyleDefault: u32,
+    pub flExtStyleDefault: u32,
+    pub flCtrlTypeMask: u32,
+    pub cStyleFlags: i32,
+    pub aStyleFlags: *mut CCSTYLEFLAGW,
+    pub szTextDefault: [u16; 256],
+    pub lpfnStyle: LPFNCCSTYLEW,
+    pub lpfnSizeToText: LPFNCCSIZETOTEXTW,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for CCINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for CCINFOW {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CCM_DPISCALE: u32 = 8204u32;
+pub const CCM_FIRST: u32 = 8192u32;
+pub const CCM_GETCOLORSCHEME: u32 = 8195u32;
+pub const CCM_GETDROPTARGET: u32 = 8196u32;
+pub const CCM_GETUNICODEFORMAT: u32 = 8198u32;
+pub const CCM_GETVERSION: u32 = 8200u32;
+pub const CCM_LAST: u32 = 8704u32;
+pub const CCM_SETBKCOLOR: u32 = 8193u32;
+pub const CCM_SETCOLORSCHEME: u32 = 8194u32;
+pub const CCM_SETNOTIFYWINDOW: u32 = 8201u32;
+pub const CCM_SETUNICODEFORMAT: u32 = 8197u32;
+pub const CCM_SETVERSION: u32 = 8199u32;
+pub const CCM_SETWINDOWTHEME: u32 = 8203u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CCSTYLEA {
+    pub flStyle: u32,
+    pub flExtStyle: u32,
+    pub szText: [i8; 256],
+    pub lgid: u16,
+    pub wReserved1: u16,
+}
+impl Default for CCSTYLEA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CCSTYLEA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CCSTYLEFLAGA {
+    pub flStyle: u32,
+    pub flStyleMask: u32,
+    pub pszStyle: windows_core::PSTR,
+}
+impl Default for CCSTYLEFLAGA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CCSTYLEFLAGA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CCSTYLEFLAGW {
+    pub flStyle: u32,
+    pub flStyleMask: u32,
+    pub pszStyle: windows_core::PWSTR,
+}
+impl Default for CCSTYLEFLAGW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CCSTYLEFLAGW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CCSTYLEW {
+    pub flStyle: u32,
+    pub flExtStyle: u32,
+    pub szText: [u16; 256],
+    pub lgid: u16,
+    pub wReserved1: u16,
+}
+impl Default for CCSTYLEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CCSTYLEW {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CCS_ADJUSTABLE: i32 = 32i32;
+pub const CCS_BOTTOM: i32 = 3i32;
+pub const CCS_NODIVIDER: i32 = 64i32;
+pub const CCS_NOMOVEY: i32 = 2i32;
+pub const CCS_NOPARENTALIGN: i32 = 8i32;
+pub const CCS_NORESIZE: i32 = 4i32;
+pub const CCS_TOP: i32 = 1i32;
+pub const CCS_VERT: i32 = 128i32;
+pub const CDDS_ITEM: u32 = 65536u32;
+pub const CDDS_ITEMPOSTERASE: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(65540u32);
+pub const CDDS_ITEMPOSTPAINT: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(65538u32);
+pub const CDDS_ITEMPREERASE: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(65539u32);
+pub const CDDS_ITEMPREPAINT: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(65537u32);
+pub const CDDS_POSTERASE: u32 = 4u32;
+pub const CDDS_POSTPAINT: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(2u32);
+pub const CDDS_PREERASE: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(3u32);
+pub const CDDS_PREPAINT: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(1u32);
+pub const CDDS_SUBITEM: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(131072u32);
+pub const CDIS_CHECKED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(8u32);
+pub const CDIS_DEFAULT: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(32u32);
+pub const CDIS_DISABLED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(4u32);
+pub const CDIS_DROPHILITED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(4096u32);
+pub const CDIS_FOCUS: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(16u32);
+pub const CDIS_GRAYED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(2u32);
+pub const CDIS_HOT: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(64u32);
+pub const CDIS_INDETERMINATE: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(256u32);
+pub const CDIS_MARKED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(128u32);
+pub const CDIS_NEARHOT: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(1024u32);
+pub const CDIS_OTHERSIDEHOT: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(2048u32);
+pub const CDIS_SELECTED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(1u32);
+pub const CDIS_SHOWKEYBOARDCUES: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(512u32);
+pub const CDN_FIRST: u32 = 4294966695u32;
+pub const CDN_LAST: u32 = 4294966597u32;
+pub const CDRF_DODEFAULT: u32 = 0u32;
+pub const CDRF_DOERASE: u32 = 8u32;
+pub const CDRF_NEWFONT: u32 = 2u32;
+pub const CDRF_NOTIFYITEMDRAW: u32 = 32u32;
+pub const CDRF_NOTIFYPOSTERASE: u32 = 64u32;
+pub const CDRF_NOTIFYPOSTPAINT: u32 = 16u32;
+pub const CDRF_NOTIFYSUBITEMDRAW: u32 = 32u32;
+pub const CDRF_SKIPDEFAULT: u32 = 4u32;
+pub const CDRF_SKIPPOSTPAINT: u32 = 256u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CHECKBOXSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CHEVRONSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CHEVRONVERTSTATES(pub i32);
+pub const CHEVSV_HOT: CHEVRONVERTSTATES = CHEVRONVERTSTATES(2i32);
+pub const CHEVSV_NORMAL: CHEVRONVERTSTATES = CHEVRONVERTSTATES(1i32);
+pub const CHEVSV_PRESSED: CHEVRONVERTSTATES = CHEVRONVERTSTATES(3i32);
+pub const CHEVS_HOT: CHEVRONSTATES = CHEVRONSTATES(2i32);
+pub const CHEVS_NORMAL: CHEVRONSTATES = CHEVRONSTATES(1i32);
+pub const CHEVS_PRESSED: CHEVRONSTATES = CHEVRONSTATES(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CLOCKPARTS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CLOCKSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CLOSEBUTTONSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CLOSESTATES(pub i32);
+pub const CLP_TIME: CLOCKPARTS = CLOCKPARTS(1i32);
+pub const CLR_DEFAULT: i32 = -16777216i32;
+pub const CLR_HILIGHT: i32 = -16777216i32;
+pub const CLR_NONE: i32 = -1i32;
+pub const CLS_HOT: CLOCKSTATES = CLOCKSTATES(2i32);
+pub const CLS_NORMAL: CLOCKSTATES = CLOCKSTATES(1i32);
+pub const CLS_PRESSED: CLOCKSTATES = CLOCKSTATES(3i32);
+pub const CMB_MASKED: u32 = 2u32;
+pub const CMDLGS_DEFAULTED: COMMANDLINKGLYPHSTATES = COMMANDLINKGLYPHSTATES(5i32);
+pub const CMDLGS_DISABLED: COMMANDLINKGLYPHSTATES = COMMANDLINKGLYPHSTATES(4i32);
+pub const CMDLGS_HOT: COMMANDLINKGLYPHSTATES = COMMANDLINKGLYPHSTATES(2i32);
+pub const CMDLGS_NORMAL: COMMANDLINKGLYPHSTATES = COMMANDLINKGLYPHSTATES(1i32);
+pub const CMDLGS_PRESSED: COMMANDLINKGLYPHSTATES = COMMANDLINKGLYPHSTATES(3i32);
+pub const CMDLS_DEFAULTED: COMMANDLINKSTATES = COMMANDLINKSTATES(5i32);
+pub const CMDLS_DEFAULTED_ANIMATING: COMMANDLINKSTATES = COMMANDLINKSTATES(6i32);
+pub const CMDLS_DISABLED: COMMANDLINKSTATES = COMMANDLINKSTATES(4i32);
+pub const CMDLS_HOT: COMMANDLINKSTATES = COMMANDLINKSTATES(2i32);
+pub const CMDLS_NORMAL: COMMANDLINKSTATES = COMMANDLINKSTATES(1i32);
+pub const CMDLS_PRESSED: COMMANDLINKSTATES = COMMANDLINKSTATES(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COLLAPSEBUTTONSTATES(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COLORMAP {
+    pub from: super::super::Foundation::COLORREF,
+    pub to: super::super::Foundation::COLORREF,
+}
+impl Default for COLORMAP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COLORMAP {
+    type TypeKind = windows_core::CopyType;
+}
+pub const COLORMGMTDLGORD: u32 = 1551u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COLORSCHEME {
+    pub dwSize: u32,
+    pub clrBtnHighlight: super::super::Foundation::COLORREF,
+    pub clrBtnShadow: super::super::Foundation::COLORREF,
+}
+impl Default for COLORSCHEME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COLORSCHEME {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COMBOBOXEXITEMA {
+    pub mask: COMBOBOX_EX_ITEM_FLAGS,
+    pub iItem: isize,
+    pub pszText: windows_core::PSTR,
+    pub cchTextMax: i32,
+    pub iImage: i32,
+    pub iSelectedImage: i32,
+    pub iOverlay: i32,
+    pub iIndent: i32,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+impl Default for COMBOBOXEXITEMA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COMBOBOXEXITEMA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COMBOBOXEXITEMW {
+    pub mask: COMBOBOX_EX_ITEM_FLAGS,
+    pub iItem: isize,
+    pub pszText: windows_core::PWSTR,
+    pub cchTextMax: i32,
+    pub iImage: i32,
+    pub iSelectedImage: i32,
+    pub iOverlay: i32,
+    pub iIndent: i32,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+impl Default for COMBOBOXEXITEMW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COMBOBOXEXITEMW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COMBOBOXINFO {
+    pub cbSize: u32,
+    pub rcItem: super::super::Foundation::RECT,
+    pub rcButton: super::super::Foundation::RECT,
+    pub stateButton: COMBOBOXINFO_BUTTON_STATE,
+    pub hwndCombo: super::super::Foundation::HWND,
+    pub hwndItem: super::super::Foundation::HWND,
+    pub hwndList: super::super::Foundation::HWND,
+}
+impl Default for COMBOBOXINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COMBOBOXINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COMBOBOXINFO_BUTTON_STATE(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COMBOBOXPARTS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COMBOBOXSTYLESTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COMBOBOX_EX_ITEM_FLAGS(pub u32);
+impl COMBOBOX_EX_ITEM_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for COMBOBOX_EX_ITEM_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for COMBOBOX_EX_ITEM_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for COMBOBOX_EX_ITEM_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for COMBOBOX_EX_ITEM_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for COMBOBOX_EX_ITEM_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const COMCTL32_VERSION: u32 = 6u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COMMANDLINKGLYPHSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COMMANDLINKSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COMMUNICATIONSPARTS(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COMPAREITEMSTRUCT {
+    pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
+    pub CtlID: u32,
+    pub hwndItem: super::super::Foundation::HWND,
+    pub itemID1: u32,
+    pub itemData1: usize,
+    pub itemID2: u32,
+    pub itemData2: usize,
+    pub dwLocaleId: u32,
+}
+impl Default for COMPAREITEMSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COMPAREITEMSTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CONTENTALIGNMENT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CONTENTAREASTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CONTENTLINKSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CONTENTPANESTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CONTROLLABELSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CONTROLPANELPARTS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COPYSTATES(pub i32);
+pub const CPANEL_BANNERAREA: CONTROLPANELPARTS = CONTROLPANELPARTS(18i32);
+pub const CPANEL_BODYTEXT: CONTROLPANELPARTS = CONTROLPANELPARTS(6i32);
+pub const CPANEL_BODYTITLE: CONTROLPANELPARTS = CONTROLPANELPARTS(19i32);
+pub const CPANEL_BUTTON: CONTROLPANELPARTS = CONTROLPANELPARTS(14i32);
+pub const CPANEL_CONTENTLINK: CONTROLPANELPARTS = CONTROLPANELPARTS(10i32);
+pub const CPANEL_CONTENTPANE: CONTROLPANELPARTS = CONTROLPANELPARTS(2i32);
+pub const CPANEL_CONTENTPANELABEL: CONTROLPANELPARTS = CONTROLPANELPARTS(4i32);
+pub const CPANEL_CONTENTPANELINE: CONTROLPANELPARTS = CONTROLPANELPARTS(17i32);
+pub const CPANEL_GROUPTEXT: CONTROLPANELPARTS = CONTROLPANELPARTS(9i32);
+pub const CPANEL_HELPLINK: CONTROLPANELPARTS = CONTROLPANELPARTS(7i32);
+pub const CPANEL_LARGECOMMANDAREA: CONTROLPANELPARTS = CONTROLPANELPARTS(12i32);
+pub const CPANEL_MESSAGETEXT: CONTROLPANELPARTS = CONTROLPANELPARTS(15i32);
+pub const CPANEL_NAVIGATIONPANE: CONTROLPANELPARTS = CONTROLPANELPARTS(1i32);
+pub const CPANEL_NAVIGATIONPANELABEL: CONTROLPANELPARTS = CONTROLPANELPARTS(3i32);
+pub const CPANEL_NAVIGATIONPANELINE: CONTROLPANELPARTS = CONTROLPANELPARTS(16i32);
+pub const CPANEL_SECTIONTITLELINK: CONTROLPANELPARTS = CONTROLPANELPARTS(11i32);
+pub const CPANEL_SMALLCOMMANDAREA: CONTROLPANELPARTS = CONTROLPANELPARTS(13i32);
+pub const CPANEL_TASKLINK: CONTROLPANELPARTS = CONTROLPANELPARTS(8i32);
+pub const CPANEL_TITLE: CONTROLPANELPARTS = CONTROLPANELPARTS(5i32);
+pub const CPCL_DISABLED: CONTENTLINKSTATES = CONTENTLINKSTATES(4i32);
+pub const CPCL_HOT: CONTENTLINKSTATES = CONTENTLINKSTATES(2i32);
+pub const CPCL_NORMAL: CONTENTLINKSTATES = CONTENTLINKSTATES(1i32);
+pub const CPCL_PRESSED: CONTENTLINKSTATES = CONTENTLINKSTATES(3i32);
+pub const CPHL_DISABLED: HELPLINKSTATES = HELPLINKSTATES(4i32);
+pub const CPHL_HOT: HELPLINKSTATES = HELPLINKSTATES(2i32);
+pub const CPHL_NORMAL: HELPLINKSTATES = HELPLINKSTATES(1i32);
+pub const CPHL_PRESSED: HELPLINKSTATES = HELPLINKSTATES(3i32);
+pub const CPSTL_HOT: SECTIONTITLELINKSTATES = SECTIONTITLELINKSTATES(2i32);
+pub const CPSTL_NORMAL: SECTIONTITLELINKSTATES = SECTIONTITLELINKSTATES(1i32);
+pub const CPTL_DISABLED: TASKLINKSTATES = TASKLINKSTATES(4i32);
+pub const CPTL_HOT: TASKLINKSTATES = TASKLINKSTATES(2i32);
+pub const CPTL_NORMAL: TASKLINKSTATES = TASKLINKSTATES(1i32);
+pub const CPTL_PAGE: TASKLINKSTATES = TASKLINKSTATES(5i32);
+pub const CPTL_PRESSED: TASKLINKSTATES = TASKLINKSTATES(3i32);
+pub const CP_BACKGROUND: COMBOBOXPARTS = COMBOBOXPARTS(2i32);
+pub const CP_BORDER: COMBOBOXPARTS = COMBOBOXPARTS(4i32);
+pub const CP_CUEBANNER: COMBOBOXPARTS = COMBOBOXPARTS(8i32);
+pub const CP_DROPDOWNBUTTON: COMBOBOXPARTS = COMBOBOXPARTS(1i32);
+pub const CP_DROPDOWNBUTTONLEFT: COMBOBOXPARTS = COMBOBOXPARTS(7i32);
+pub const CP_DROPDOWNBUTTONRIGHT: COMBOBOXPARTS = COMBOBOXPARTS(6i32);
+pub const CP_DROPDOWNITEM: COMBOBOXPARTS = COMBOBOXPARTS(9i32);
+pub const CP_READONLY: COMBOBOXPARTS = COMBOBOXPARTS(5i32);
+pub const CP_TRANSPARENTBACKGROUND: COMBOBOXPARTS = COMBOBOXPARTS(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CREATELINKSTATES(pub i32);
+pub const CSST_TAB: COMMUNICATIONSPARTS = COMMUNICATIONSPARTS(1i32);
+pub const CSTB_HOT: TABSTATES = TABSTATES(2i32);
+pub const CSTB_NORMAL: TABSTATES = TABSTATES(1i32);
+pub const CSTB_SELECTED: TABSTATES = TABSTATES(3i32);
+pub const CS_ACTIVE: CAPTIONSTATES = CAPTIONSTATES(1i32);
+pub const CS_DISABLED: CAPTIONSTATES = CAPTIONSTATES(3i32);
+pub const CS_INACTIVE: CAPTIONSTATES = CAPTIONSTATES(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CUEBANNERSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DATEBORDERSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DATEPICKERPARTS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DATETEXTSTATES(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DATETIMEPICKERINFO {
+    pub cbSize: u32,
+    pub rcCheck: super::super::Foundation::RECT,
+    pub stateCheck: u32,
+    pub rcButton: super::super::Foundation::RECT,
+    pub stateButton: u32,
+    pub hwndEdit: super::super::Foundation::HWND,
+    pub hwndUD: super::super::Foundation::HWND,
+    pub hwndDropDown: super::super::Foundation::HWND,
+}
+impl Default for DATETIMEPICKERINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DATETIMEPICKERINFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DATETIMEPICK_CLASS: windows_core::PCWSTR = windows_core::w!("SysDateTimePick32");
+pub const DATETIMEPICK_CLASSA: windows_core::PCSTR = windows_core::s!("SysDateTimePick32");
+pub const DATETIMEPICK_CLASSW: windows_core::PCWSTR = windows_core::w!("SysDateTimePick32");
+pub const DA_ERR: i32 = -1i32;
+pub const DA_LAST: u32 = 2147483647u32;
+pub const DDCOPY_HIGHLIGHT: COPYSTATES = COPYSTATES(1i32);
+pub const DDCOPY_NOHIGHLIGHT: COPYSTATES = COPYSTATES(2i32);
+pub const DDCREATELINK_HIGHLIGHT: CREATELINKSTATES = CREATELINKSTATES(1i32);
+pub const DDCREATELINK_NOHIGHLIGHT: CREATELINKSTATES = CREATELINKSTATES(2i32);
+pub const DDL_ARCHIVE: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(32u32);
+pub const DDL_DIRECTORY: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(16u32);
+pub const DDL_DRIVES: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(16384u32);
+pub const DDL_EXCLUSIVE: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(32768u32);
+pub const DDL_HIDDEN: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(2u32);
+pub const DDL_POSTMSGS: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(8192u32);
+pub const DDL_READONLY: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(1u32);
+pub const DDL_READWRITE: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(0u32);
+pub const DDL_SYSTEM: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(4u32);
+pub const DDMOVE_HIGHLIGHT: MOVESTATES = MOVESTATES(1i32);
+pub const DDMOVE_NOHIGHLIGHT: MOVESTATES = MOVESTATES(2i32);
+pub const DDNONE_HIGHLIGHT: NONESTATES = NONESTATES(1i32);
+pub const DDNONE_NOHIGHLIGHT: NONESTATES = NONESTATES(2i32);
+pub const DDUPDATEMETADATA_HIGHLIGHT: UPDATEMETADATASTATES = UPDATEMETADATASTATES(1i32);
+pub const DDUPDATEMETADATA_NOHIGHLIGHT: UPDATEMETADATASTATES = UPDATEMETADATASTATES(2i32);
+pub const DDWARNING_HIGHLIGHT: WARNINGSTATES = WARNINGSTATES(1i32);
+pub const DDWARNING_NOHIGHLIGHT: WARNINGSTATES = WARNINGSTATES(2i32);
+pub const DD_COPY: DRAGDROPPARTS = DRAGDROPPARTS(1i32);
+pub const DD_CREATELINK: DRAGDROPPARTS = DRAGDROPPARTS(4i32);
+pub const DD_IMAGEBG: DRAGDROPPARTS = DRAGDROPPARTS(7i32);
+pub const DD_MOVE: DRAGDROPPARTS = DRAGDROPPARTS(2i32);
+pub const DD_NONE: DRAGDROPPARTS = DRAGDROPPARTS(6i32);
+pub const DD_TEXTBG: DRAGDROPPARTS = DRAGDROPPARTS(8i32);
+pub const DD_UPDATEMETADATA: DRAGDROPPARTS = DRAGDROPPARTS(3i32);
+pub const DD_WARNING: DRAGDROPPARTS = DRAGDROPPARTS(5i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DELETEITEMSTRUCT {
+    pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
+    pub CtlID: u32,
+    pub itemID: u32,
+    pub hwndItem: super::super::Foundation::HWND,
+    pub itemData: usize,
+}
+impl Default for DELETEITEMSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DELETEITEMSTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DLG_BUTTON_CHECK_STATE(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DLG_DIR_LIST_FILE_TYPE(pub u32);
+impl DLG_DIR_LIST_FILE_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DLG_DIR_LIST_FILE_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DLG_DIR_LIST_FILE_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DLG_DIR_LIST_FILE_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DLG_DIR_LIST_FILE_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DLG_DIR_LIST_FILE_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const DL_BEGINDRAG: DRAGLISTINFO_NOTIFICATION_FLAGS = DRAGLISTINFO_NOTIFICATION_FLAGS(1157u32);
+pub const DL_CANCELDRAG: DRAGLISTINFO_NOTIFICATION_FLAGS = DRAGLISTINFO_NOTIFICATION_FLAGS(1160u32);
+pub const DL_COPYCURSOR: u32 = 2u32;
+pub const DL_CURSORSET: u32 = 0u32;
+pub const DL_DRAGGING: DRAGLISTINFO_NOTIFICATION_FLAGS = DRAGLISTINFO_NOTIFICATION_FLAGS(1158u32);
+pub const DL_DROPPED: DRAGLISTINFO_NOTIFICATION_FLAGS = DRAGLISTINFO_NOTIFICATION_FLAGS(1159u32);
+pub const DL_MOVECURSOR: u32 = 3u32;
+pub const DL_STOPCURSOR: u32 = 1u32;
+pub const DNHZS_DISABLED: DOWNHORZSTATES = DOWNHORZSTATES(4i32);
+pub const DNHZS_HOT: DOWNHORZSTATES = DOWNHORZSTATES(2i32);
+pub const DNHZS_NORMAL: DOWNHORZSTATES = DOWNHORZSTATES(1i32);
+pub const DNHZS_PRESSED: DOWNHORZSTATES = DOWNHORZSTATES(3i32);
+pub const DNS_DISABLED: DOWNSTATES = DOWNSTATES(4i32);
+pub const DNS_HOT: DOWNSTATES = DOWNSTATES(2i32);
+pub const DNS_NORMAL: DOWNSTATES = DOWNSTATES(1i32);
+pub const DNS_PRESSED: DOWNSTATES = DOWNSTATES(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DOWNHORZSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DOWNSTATES(pub i32);
+pub const DPAMM_DELETE: DPAMM_MESSAGE = DPAMM_MESSAGE(2u32);
+pub const DPAMM_INSERT: DPAMM_MESSAGE = DPAMM_MESSAGE(3u32);
+pub const DPAMM_MERGE: DPAMM_MESSAGE = DPAMM_MESSAGE(1u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DPAMM_MESSAGE(pub u32);
+pub const DPAM_INTERSECT: u32 = 8u32;
+pub const DPAM_NORMAL: u32 = 2u32;
+pub const DPAM_SORTED: u32 = 1u32;
+pub const DPAM_UNION: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DPASTREAMINFO {
+    pub iPos: i32,
+    pub pvItem: *mut core::ffi::c_void,
+}
+impl Default for DPASTREAMINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DPASTREAMINFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DPAS_INSERTAFTER: u32 = 4u32;
+pub const DPAS_INSERTBEFORE: u32 = 2u32;
+pub const DPAS_SORTED: u32 = 1u32;
+pub const DPA_APPEND: u32 = 2147483647u32;
+pub const DPA_ERR: i32 = -1i32;
+pub const DPDB_DISABLED: DATEBORDERSTATES = DATEBORDERSTATES(4i32);
+pub const DPDB_FOCUSED: DATEBORDERSTATES = DATEBORDERSTATES(3i32);
+pub const DPDB_HOT: DATEBORDERSTATES = DATEBORDERSTATES(2i32);
+pub const DPDB_NORMAL: DATEBORDERSTATES = DATEBORDERSTATES(1i32);
+pub const DPDT_DISABLED: DATETEXTSTATES = DATETEXTSTATES(2i32);
+pub const DPDT_NORMAL: DATETEXTSTATES = DATETEXTSTATES(1i32);
+pub const DPDT_SELECTED: DATETEXTSTATES = DATETEXTSTATES(3i32);
+pub const DPSCBR_DISABLED: SHOWCALENDARBUTTONRIGHTSTATES = SHOWCALENDARBUTTONRIGHTSTATES(4i32);
+pub const DPSCBR_HOT: SHOWCALENDARBUTTONRIGHTSTATES = SHOWCALENDARBUTTONRIGHTSTATES(2i32);
+pub const DPSCBR_NORMAL: SHOWCALENDARBUTTONRIGHTSTATES = SHOWCALENDARBUTTONRIGHTSTATES(1i32);
+pub const DPSCBR_PRESSED: SHOWCALENDARBUTTONRIGHTSTATES = SHOWCALENDARBUTTONRIGHTSTATES(3i32);
+pub const DP_DATEBORDER: DATEPICKERPARTS = DATEPICKERPARTS(2i32);
+pub const DP_DATETEXT: DATEPICKERPARTS = DATEPICKERPARTS(1i32);
+pub const DP_SHOWCALENDARBUTTONRIGHT: DATEPICKERPARTS = DATEPICKERPARTS(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DRAGDROPPARTS(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DRAGLISTINFO {
+    pub uNotification: DRAGLISTINFO_NOTIFICATION_FLAGS,
+    pub hWnd: super::super::Foundation::HWND,
+    pub ptCursor: super::super::Foundation::POINT,
+}
+impl Default for DRAGLISTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DRAGLISTINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DRAGLISTINFO_NOTIFICATION_FLAGS(pub u32);
+pub const DRAGLISTMSGSTRING: windows_core::PCWSTR = windows_core::w!("commctrl_DragListMsg");
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DRAWITEMSTRUCT {
+    pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
+    pub CtlID: u32,
+    pub itemID: u32,
+    pub itemAction: ODA_FLAGS,
+    pub itemState: ODS_FLAGS,
+    pub hwndItem: super::super::Foundation::HWND,
+    pub hDC: super::super::Graphics::Gdi::HDC,
+    pub rcItem: super::super::Foundation::RECT,
+    pub itemData: usize,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for DRAWITEMSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for DRAWITEMSTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DRAWITEMSTRUCT_CTL_TYPE(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DRAW_THEME_PARENT_BACKGROUND_FLAGS(pub u32);
+impl DRAW_THEME_PARENT_BACKGROUND_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DRAW_THEME_PARENT_BACKGROUND_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DRAW_THEME_PARENT_BACKGROUND_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DRAW_THEME_PARENT_BACKGROUND_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DRAW_THEME_PARENT_BACKGROUND_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DRAW_THEME_PARENT_BACKGROUND_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DROPDOWNBUTTONLEFTSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DROPDOWNBUTTONRIGHTSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DROPDOWNITEMSTATES(pub i32);
+pub const DSA_APPEND: u32 = 2147483647u32;
+pub const DSA_ERR: i32 = -1i32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DTBGOPTS {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub rcClip: super::super::Foundation::RECT,
+}
+impl Default for DTBGOPTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DTBGOPTS {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DTBG_CLIPRECT: u32 = 1u32;
+pub const DTBG_COMPUTINGREGION: u32 = 16u32;
+pub const DTBG_DRAWSOLID: u32 = 2u32;
+pub const DTBG_MIRRORDC: u32 = 32u32;
+pub const DTBG_NOMIRROR: u32 = 64u32;
+pub const DTBG_OMITBORDER: u32 = 4u32;
+pub const DTBG_OMITCONTENT: u32 = 8u32;
+pub const DTM_CLOSEMONTHCAL: u32 = 4109u32;
+pub const DTM_FIRST: u32 = 4096u32;
+pub const DTM_GETDATETIMEPICKERINFO: u32 = 4110u32;
+pub const DTM_GETIDEALSIZE: u32 = 4111u32;
+pub const DTM_GETMCCOLOR: u32 = 4103u32;
+pub const DTM_GETMCFONT: u32 = 4106u32;
+pub const DTM_GETMCSTYLE: u32 = 4108u32;
+pub const DTM_GETMONTHCAL: u32 = 4104u32;
+pub const DTM_GETRANGE: u32 = 4099u32;
+pub const DTM_GETSYSTEMTIME: u32 = 4097u32;
+pub const DTM_SETFORMAT: u32 = 4146u32;
+pub const DTM_SETFORMATA: u32 = 4101u32;
+pub const DTM_SETFORMATW: u32 = 4146u32;
+pub const DTM_SETMCCOLOR: u32 = 4102u32;
+pub const DTM_SETMCFONT: u32 = 4105u32;
+pub const DTM_SETMCSTYLE: u32 = 4107u32;
+pub const DTM_SETRANGE: u32 = 4100u32;
+pub const DTM_SETSYSTEMTIME: u32 = 4098u32;
+pub const DTN_CLOSEUP: u32 = 4294966543u32;
+pub const DTN_DATETIMECHANGE: u32 = 4294966537u32;
+pub const DTN_DROPDOWN: u32 = 4294966542u32;
+pub const DTN_FIRST: u32 = 4294966556u32;
+pub const DTN_FIRST2: u32 = 4294966543u32;
+pub const DTN_FORMAT: u32 = 4294966553u32;
+pub const DTN_FORMATA: u32 = 4294966540u32;
+pub const DTN_FORMATQUERY: u32 = 4294966554u32;
+pub const DTN_FORMATQUERYA: u32 = 4294966541u32;
+pub const DTN_FORMATQUERYW: u32 = 4294966554u32;
+pub const DTN_FORMATW: u32 = 4294966553u32;
+pub const DTN_LAST: u32 = 4294966551u32;
+pub const DTN_LAST2: u32 = 4294966497u32;
+pub const DTN_USERSTRING: u32 = 4294966551u32;
+pub const DTN_USERSTRINGA: u32 = 4294966538u32;
+pub const DTN_USERSTRINGW: u32 = 4294966551u32;
+pub const DTN_WMKEYDOWN: u32 = 4294966552u32;
+pub const DTN_WMKEYDOWNA: u32 = 4294966539u32;
+pub const DTN_WMKEYDOWNW: u32 = 4294966552u32;
+pub const DTPB_USECTLCOLORSTATIC: DRAW_THEME_PARENT_BACKGROUND_FLAGS = DRAW_THEME_PARENT_BACKGROUND_FLAGS(2u32);
+pub const DTPB_USEERASEBKGND: DRAW_THEME_PARENT_BACKGROUND_FLAGS = DRAW_THEME_PARENT_BACKGROUND_FLAGS(4u32);
+pub const DTPB_WINDOWDC: DRAW_THEME_PARENT_BACKGROUND_FLAGS = DRAW_THEME_PARENT_BACKGROUND_FLAGS(1u32);
+pub const DTS_APPCANPARSE: u32 = 16u32;
+pub const DTS_LONGDATEFORMAT: u32 = 4u32;
+pub const DTS_RIGHTALIGN: u32 = 32u32;
+pub const DTS_SHORTDATECENTURYFORMAT: u32 = 12u32;
+pub const DTS_SHORTDATEFORMAT: u32 = 0u32;
+pub const DTS_SHOWNONE: u32 = 2u32;
+pub const DTS_TIMEFORMAT: u32 = 9u32;
+pub const DTS_UPDOWN: u32 = 1u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DTTOPTS {
+    pub dwSize: u32,
+    pub dwFlags: DTTOPTS_FLAGS,
+    pub crText: super::super::Foundation::COLORREF,
+    pub crBorder: super::super::Foundation::COLORREF,
+    pub crShadow: super::super::Foundation::COLORREF,
+    pub iTextShadowType: i32,
+    pub ptShadowOffset: super::super::Foundation::POINT,
+    pub iBorderSize: i32,
+    pub iFontPropId: i32,
+    pub iColorPropId: i32,
+    pub iStateId: i32,
+    pub fApplyOverlay: super::super::Foundation::BOOL,
+    pub iGlowSize: i32,
+    pub pfnDrawTextCallback: DTT_CALLBACK_PROC,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for DTTOPTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for DTTOPTS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DTTOPTS_FLAGS(pub u32);
+impl DTTOPTS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DTTOPTS_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DTTOPTS_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DTTOPTS_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DTTOPTS_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DTTOPTS_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const DTT_APPLYOVERLAY: DTTOPTS_FLAGS = DTTOPTS_FLAGS(1024u32);
+pub const DTT_BORDERCOLOR: DTTOPTS_FLAGS = DTTOPTS_FLAGS(2u32);
+pub const DTT_BORDERSIZE: DTTOPTS_FLAGS = DTTOPTS_FLAGS(32u32);
+pub const DTT_CALCRECT: DTTOPTS_FLAGS = DTTOPTS_FLAGS(512u32);
+pub const DTT_CALLBACK: DTTOPTS_FLAGS = DTTOPTS_FLAGS(4096u32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type DTT_CALLBACK_PROC = Option<unsafe extern "system" fn(hdc: super::super::Graphics::Gdi::HDC, psztext: windows_core::PWSTR, cchtext: i32, prc: *mut super::super::Foundation::RECT, dwflags: u32, lparam: super::super::Foundation::LPARAM) -> i32>;
+pub const DTT_COLORPROP: DTTOPTS_FLAGS = DTTOPTS_FLAGS(128u32);
+pub const DTT_COMPOSITED: DTTOPTS_FLAGS = DTTOPTS_FLAGS(8192u32);
+pub const DTT_FLAGS2VALIDBITS: u32 = 1u32;
+pub const DTT_FONTPROP: DTTOPTS_FLAGS = DTTOPTS_FLAGS(64u32);
+pub const DTT_GLOWSIZE: DTTOPTS_FLAGS = DTTOPTS_FLAGS(2048u32);
+pub const DTT_GRAYED: u32 = 1u32;
+pub const DTT_SHADOWCOLOR: DTTOPTS_FLAGS = DTTOPTS_FLAGS(4u32);
+pub const DTT_SHADOWOFFSET: DTTOPTS_FLAGS = DTTOPTS_FLAGS(16u32);
+pub const DTT_SHADOWTYPE: DTTOPTS_FLAGS = DTTOPTS_FLAGS(8u32);
+pub const DTT_STATEID: DTTOPTS_FLAGS = DTTOPTS_FLAGS(256u32);
+pub const DTT_TEXTCOLOR: DTTOPTS_FLAGS = DTTOPTS_FLAGS(1u32);
+pub const DTT_VALIDBITS: DTTOPTS_FLAGS = DTTOPTS_FLAGS(12287u32);
+pub const EBHC_HOT: HEADERCLOSESTATES = HEADERCLOSESTATES(2i32);
+pub const EBHC_NORMAL: HEADERCLOSESTATES = HEADERCLOSESTATES(1i32);
+pub const EBHC_PRESSED: HEADERCLOSESTATES = HEADERCLOSESTATES(3i32);
+pub const EBHP_HOT: HEADERPINSTATES = HEADERPINSTATES(2i32);
+pub const EBHP_NORMAL: HEADERPINSTATES = HEADERPINSTATES(1i32);
+pub const EBHP_PRESSED: HEADERPINSTATES = HEADERPINSTATES(3i32);
+pub const EBHP_SELECTEDHOT: HEADERPINSTATES = HEADERPINSTATES(5i32);
+pub const EBHP_SELECTEDNORMAL: HEADERPINSTATES = HEADERPINSTATES(4i32);
+pub const EBHP_SELECTEDPRESSED: HEADERPINSTATES = HEADERPINSTATES(6i32);
+pub const EBM_HOT: IEBARMENUSTATES = IEBARMENUSTATES(2i32);
+pub const EBM_NORMAL: IEBARMENUSTATES = IEBARMENUSTATES(1i32);
+pub const EBM_PRESSED: IEBARMENUSTATES = IEBARMENUSTATES(3i32);
+pub const EBNGC_HOT: NORMALGROUPCOLLAPSESTATES = NORMALGROUPCOLLAPSESTATES(2i32);
+pub const EBNGC_NORMAL: NORMALGROUPCOLLAPSESTATES = NORMALGROUPCOLLAPSESTATES(1i32);
+pub const EBNGC_PRESSED: NORMALGROUPCOLLAPSESTATES = NORMALGROUPCOLLAPSESTATES(3i32);
+pub const EBNGE_HOT: NORMALGROUPEXPANDSTATES = NORMALGROUPEXPANDSTATES(2i32);
+pub const EBNGE_NORMAL: NORMALGROUPEXPANDSTATES = NORMALGROUPEXPANDSTATES(1i32);
+pub const EBNGE_PRESSED: NORMALGROUPEXPANDSTATES = NORMALGROUPEXPANDSTATES(3i32);
+pub const EBP_HEADERBACKGROUND: EXPLORERBARPARTS = EXPLORERBARPARTS(1i32);
+pub const EBP_HEADERCLOSE: EXPLORERBARPARTS = EXPLORERBARPARTS(2i32);
+pub const EBP_HEADERPIN: EXPLORERBARPARTS = EXPLORERBARPARTS(3i32);
+pub const EBP_IEBARMENU: EXPLORERBARPARTS = EXPLORERBARPARTS(4i32);
+pub const EBP_NORMALGROUPBACKGROUND: EXPLORERBARPARTS = EXPLORERBARPARTS(5i32);
+pub const EBP_NORMALGROUPCOLLAPSE: EXPLORERBARPARTS = EXPLORERBARPARTS(6i32);
+pub const EBP_NORMALGROUPEXPAND: EXPLORERBARPARTS = EXPLORERBARPARTS(7i32);
+pub const EBP_NORMALGROUPHEAD: EXPLORERBARPARTS = EXPLORERBARPARTS(8i32);
+pub const EBP_SPECIALGROUPBACKGROUND: EXPLORERBARPARTS = EXPLORERBARPARTS(9i32);
+pub const EBP_SPECIALGROUPCOLLAPSE: EXPLORERBARPARTS = EXPLORERBARPARTS(10i32);
+pub const EBP_SPECIALGROUPEXPAND: EXPLORERBARPARTS = EXPLORERBARPARTS(11i32);
+pub const EBP_SPECIALGROUPHEAD: EXPLORERBARPARTS = EXPLORERBARPARTS(12i32);
+pub const EBSGC_HOT: SPECIALGROUPCOLLAPSESTATES = SPECIALGROUPCOLLAPSESTATES(2i32);
+pub const EBSGC_NORMAL: SPECIALGROUPCOLLAPSESTATES = SPECIALGROUPCOLLAPSESTATES(1i32);
+pub const EBSGC_PRESSED: SPECIALGROUPCOLLAPSESTATES = SPECIALGROUPCOLLAPSESTATES(3i32);
+pub const EBSGE_HOT: SPECIALGROUPEXPANDSTATES = SPECIALGROUPEXPANDSTATES(2i32);
+pub const EBSGE_NORMAL: SPECIALGROUPEXPANDSTATES = SPECIALGROUPEXPANDSTATES(1i32);
+pub const EBSGE_PRESSED: SPECIALGROUPEXPANDSTATES = SPECIALGROUPEXPANDSTATES(3i32);
+pub const EBS_ASSIST: BACKGROUNDSTATES = BACKGROUNDSTATES(6i32);
+pub const EBS_DISABLED: BACKGROUNDSTATES = BACKGROUNDSTATES(3i32);
+pub const EBS_FOCUSED: BACKGROUNDSTATES = BACKGROUNDSTATES(4i32);
+pub const EBS_HOT: BACKGROUNDSTATES = BACKGROUNDSTATES(2i32);
+pub const EBS_NORMAL: BACKGROUNDSTATES = BACKGROUNDSTATES(1i32);
+pub const EBS_READONLY: BACKGROUNDSTATES = BACKGROUNDSTATES(5i32);
+pub const EBWBS_DISABLED: BACKGROUNDWITHBORDERSTATES = BACKGROUNDWITHBORDERSTATES(3i32);
+pub const EBWBS_FOCUSED: BACKGROUNDWITHBORDERSTATES = BACKGROUNDWITHBORDERSTATES(4i32);
+pub const EBWBS_HOT: BACKGROUNDWITHBORDERSTATES = BACKGROUNDWITHBORDERSTATES(2i32);
+pub const EBWBS_NORMAL: BACKGROUNDWITHBORDERSTATES = BACKGROUNDWITHBORDERSTATES(1i32);
+pub const ECM_FIRST: u32 = 5376u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EC_ENDOFLINE(pub i32);
+pub const EC_ENDOFLINE_CR: EC_ENDOFLINE = EC_ENDOFLINE(2i32);
+pub const EC_ENDOFLINE_CRLF: EC_ENDOFLINE = EC_ENDOFLINE(1i32);
+pub const EC_ENDOFLINE_DETECTFROMCONTENT: EC_ENDOFLINE = EC_ENDOFLINE(0i32);
+pub const EC_ENDOFLINE_LF: EC_ENDOFLINE = EC_ENDOFLINE(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EC_SEARCHWEB_ENTRYPOINT(pub i32);
+pub const EC_SEARCHWEB_ENTRYPOINT_CONTEXTMENU: EC_SEARCHWEB_ENTRYPOINT = EC_SEARCHWEB_ENTRYPOINT(1i32);
+pub const EC_SEARCHWEB_ENTRYPOINT_EXTERNAL: EC_SEARCHWEB_ENTRYPOINT = EC_SEARCHWEB_ENTRYPOINT(0i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EDITBALLOONTIP {
+    pub cbStruct: u32,
+    pub pszTitle: windows_core::PCWSTR,
+    pub pszText: windows_core::PCWSTR,
+    pub ttiIcon: EDITBALLOONTIP_ICON,
+}
+impl Default for EDITBALLOONTIP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for EDITBALLOONTIP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EDITBALLOONTIP_ICON(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EDITBORDER_HSCROLLSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EDITBORDER_HVSCROLLSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EDITBORDER_NOSCROLLSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EDITBORDER_VSCROLLSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EDITPARTS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EDITTEXTSTATES(pub i32);
+pub type EDITWORDBREAKPROCA = Option<unsafe extern "system" fn(lpch: windows_core::PCSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32>;
+pub type EDITWORDBREAKPROCW = Option<unsafe extern "system" fn(lpch: windows_core::PCWSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32>;
+pub const EMF_CENTERED: NMLVEMPTYMARKUP_FLAGS = NMLVEMPTYMARKUP_FLAGS(1u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EMPTYMARKUPPARTS(pub i32);
+pub const EMP_MARKUPTEXT: EMPTYMARKUPPARTS = EMPTYMARKUPPARTS(1i32);
+pub const EMT_LINKTEXT: MARKUPTEXTSTATES = MARKUPTEXTSTATES(2i32);
+pub const EMT_NORMALTEXT: MARKUPTEXTSTATES = MARKUPTEXTSTATES(1i32);
+pub const EM_CANUNDO: u32 = 198u32;
+pub const EM_CHARFROMPOS: u32 = 215u32;
+pub const EM_EMPTYUNDOBUFFER: u32 = 205u32;
+pub const EM_ENABLEFEATURE: u32 = 218u32;
+pub const EM_ENABLESEARCHWEB: u32 = 5390u32;
+pub const EM_FILELINEFROMCHAR: u32 = 5395u32;
+pub const EM_FILELINEINDEX: u32 = 5396u32;
+pub const EM_FILELINELENGTH: u32 = 5397u32;
+pub const EM_FMTLINES: u32 = 200u32;
+pub const EM_GETCARETINDEX: u32 = 5394u32;
+pub const EM_GETCUEBANNER: u32 = 5378u32;
+pub const EM_GETENDOFLINE: u32 = 5389u32;
+pub const EM_GETEXTENDEDSTYLE: u32 = 5387u32;
+pub const EM_GETFILELINE: u32 = 5398u32;
+pub const EM_GETFILELINECOUNT: u32 = 5399u32;
+pub const EM_GETFIRSTVISIBLELINE: u32 = 206u32;
+pub const EM_GETHANDLE: u32 = 189u32;
+pub const EM_GETHILITE: u32 = 5382u32;
+pub const EM_GETIMESTATUS: u32 = 217u32;
+pub const EM_GETLIMITTEXT: u32 = 213u32;
+pub const EM_GETLINE: u32 = 196u32;
+pub const EM_GETLINECOUNT: u32 = 186u32;
+pub const EM_GETMARGINS: u32 = 212u32;
+pub const EM_GETMODIFY: u32 = 184u32;
+pub const EM_GETPASSWORDCHAR: u32 = 210u32;
+pub const EM_GETRECT: u32 = 178u32;
+pub const EM_GETSEL: u32 = 176u32;
+pub const EM_GETTHUMB: u32 = 190u32;
+pub const EM_GETWORDBREAKPROC: u32 = 209u32;
+pub const EM_HIDEBALLOONTIP: u32 = 5380u32;
+pub const EM_LIMITTEXT: u32 = 197u32;
+pub const EM_LINEFROMCHAR: u32 = 201u32;
+pub const EM_LINEINDEX: u32 = 187u32;
+pub const EM_LINELENGTH: u32 = 193u32;
+pub const EM_LINESCROLL: u32 = 182u32;
+pub const EM_NOSETFOCUS: u32 = 5383u32;
+pub const EM_POSFROMCHAR: u32 = 214u32;
+pub const EM_REPLACESEL: u32 = 194u32;
+pub const EM_SCROLL: u32 = 181u32;
+pub const EM_SCROLLCARET: u32 = 183u32;
+pub const EM_SEARCHWEB: u32 = 5391u32;
+pub const EM_SETCARETINDEX: u32 = 5393u32;
+pub const EM_SETCUEBANNER: u32 = 5377u32;
+pub const EM_SETENDOFLINE: u32 = 5388u32;
+pub const EM_SETEXTENDEDSTYLE: u32 = 5386u32;
+pub const EM_SETHANDLE: u32 = 188u32;
+pub const EM_SETHILITE: u32 = 5381u32;
+pub const EM_SETIMESTATUS: u32 = 216u32;
+pub const EM_SETLIMITTEXT: u32 = 197u32;
+pub const EM_SETMARGINS: u32 = 211u32;
+pub const EM_SETMODIFY: u32 = 185u32;
+pub const EM_SETPASSWORDCHAR: u32 = 204u32;
+pub const EM_SETREADONLY: u32 = 207u32;
+pub const EM_SETRECT: u32 = 179u32;
+pub const EM_SETRECTNP: u32 = 180u32;
+pub const EM_SETSEL: u32 = 177u32;
+pub const EM_SETTABSTOPS: u32 = 203u32;
+pub const EM_SETWORDBREAKPROC: u32 = 208u32;
+pub const EM_SHOWBALLOONTIP: u32 = 5379u32;
+pub const EM_TAKEFOCUS: u32 = 5384u32;
+pub const EM_UNDO: u32 = 199u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ENABLE_SCROLL_BAR_ARROWS(pub u32);
+pub const EN_FIRST: u32 = 4294965776u32;
+pub const EN_LAST: u32 = 4294965756u32;
+pub const EN_SEARCHWEB: u32 = 4294965776u32;
+pub const EPSHV_DISABLED: EDITBORDER_HVSCROLLSTATES = EDITBORDER_HVSCROLLSTATES(4i32);
+pub const EPSHV_FOCUSED: EDITBORDER_HVSCROLLSTATES = EDITBORDER_HVSCROLLSTATES(3i32);
+pub const EPSHV_HOT: EDITBORDER_HVSCROLLSTATES = EDITBORDER_HVSCROLLSTATES(2i32);
+pub const EPSHV_NORMAL: EDITBORDER_HVSCROLLSTATES = EDITBORDER_HVSCROLLSTATES(1i32);
+pub const EPSH_DISABLED: EDITBORDER_HSCROLLSTATES = EDITBORDER_HSCROLLSTATES(4i32);
+pub const EPSH_FOCUSED: EDITBORDER_HSCROLLSTATES = EDITBORDER_HSCROLLSTATES(3i32);
+pub const EPSH_HOT: EDITBORDER_HSCROLLSTATES = EDITBORDER_HSCROLLSTATES(2i32);
+pub const EPSH_NORMAL: EDITBORDER_HSCROLLSTATES = EDITBORDER_HSCROLLSTATES(1i32);
+pub const EPSN_DISABLED: EDITBORDER_NOSCROLLSTATES = EDITBORDER_NOSCROLLSTATES(4i32);
+pub const EPSN_FOCUSED: EDITBORDER_NOSCROLLSTATES = EDITBORDER_NOSCROLLSTATES(3i32);
+pub const EPSN_HOT: EDITBORDER_NOSCROLLSTATES = EDITBORDER_NOSCROLLSTATES(2i32);
+pub const EPSN_NORMAL: EDITBORDER_NOSCROLLSTATES = EDITBORDER_NOSCROLLSTATES(1i32);
+pub const EPSV_DISABLED: EDITBORDER_VSCROLLSTATES = EDITBORDER_VSCROLLSTATES(4i32);
+pub const EPSV_FOCUSED: EDITBORDER_VSCROLLSTATES = EDITBORDER_VSCROLLSTATES(3i32);
+pub const EPSV_HOT: EDITBORDER_VSCROLLSTATES = EDITBORDER_VSCROLLSTATES(2i32);
+pub const EPSV_NORMAL: EDITBORDER_VSCROLLSTATES = EDITBORDER_VSCROLLSTATES(1i32);
+pub const EP_BACKGROUND: EDITPARTS = EDITPARTS(3i32);
+pub const EP_BACKGROUNDWITHBORDER: EDITPARTS = EDITPARTS(5i32);
+pub const EP_CARET: EDITPARTS = EDITPARTS(2i32);
+pub const EP_EDITBORDER_HSCROLL: EDITPARTS = EDITPARTS(7i32);
+pub const EP_EDITBORDER_HVSCROLL: EDITPARTS = EDITPARTS(9i32);
+pub const EP_EDITBORDER_NOSCROLL: EDITPARTS = EDITPARTS(6i32);
+pub const EP_EDITBORDER_VSCROLL: EDITPARTS = EDITPARTS(8i32);
+pub const EP_EDITTEXT: EDITPARTS = EDITPARTS(1i32);
+pub const EP_PASSWORD: EDITPARTS = EDITPARTS(4i32);
+pub const ESB_DISABLE_BOTH: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(3u32);
+pub const ESB_DISABLE_DOWN: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(2u32);
+pub const ESB_DISABLE_LEFT: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(1u32);
+pub const ESB_DISABLE_LTUP: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(1u32);
+pub const ESB_DISABLE_RIGHT: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(2u32);
+pub const ESB_DISABLE_RTDN: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(2u32);
+pub const ESB_DISABLE_UP: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(1u32);
+pub const ESB_ENABLE_BOTH: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(0u32);
+pub const ES_EX_ALLOWEOL_CR: i32 = 1i32;
+pub const ES_EX_ALLOWEOL_LF: i32 = 2i32;
+pub const ES_EX_CONVERT_EOL_ON_PASTE: i32 = 4i32;
+pub const ES_EX_ZOOMABLE: i32 = 16i32;
+pub const ETDT_DISABLE: u32 = 1u32;
+pub const ETDT_ENABLE: u32 = 2u32;
+pub const ETDT_USEAEROWIZARDTABTEXTURE: u32 = 8u32;
+pub const ETDT_USETABTEXTURE: u32 = 4u32;
+pub const ETS_ASSIST: EDITTEXTSTATES = EDITTEXTSTATES(7i32);
+pub const ETS_CUEBANNER: EDITTEXTSTATES = EDITTEXTSTATES(8i32);
+pub const ETS_DISABLED: EDITTEXTSTATES = EDITTEXTSTATES(4i32);
+pub const ETS_FOCUSED: EDITTEXTSTATES = EDITTEXTSTATES(5i32);
+pub const ETS_HOT: EDITTEXTSTATES = EDITTEXTSTATES(2i32);
+pub const ETS_NORMAL: EDITTEXTSTATES = EDITTEXTSTATES(1i32);
+pub const ETS_READONLY: EDITTEXTSTATES = EDITTEXTSTATES(6i32);
+pub const ETS_SELECTED: EDITTEXTSTATES = EDITTEXTSTATES(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EXPANDBUTTONSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EXPANDOBUTTONSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EXPLORERBARPARTS(pub i32);
+pub const FBS_EMPHASIZED: BODYSTATES = BODYSTATES(2i32);
+pub const FBS_NORMAL: BODYSTATES = BODYSTATES(1i32);
+pub const FEEDBACK_GESTURE_PRESSANDTAP: FEEDBACK_TYPE = FEEDBACK_TYPE(11i32);
+pub const FEEDBACK_MAX: FEEDBACK_TYPE = FEEDBACK_TYPE(-1i32);
+pub const FEEDBACK_PEN_BARRELVISUALIZATION: FEEDBACK_TYPE = FEEDBACK_TYPE(2i32);
+pub const FEEDBACK_PEN_DOUBLETAP: FEEDBACK_TYPE = FEEDBACK_TYPE(4i32);
+pub const FEEDBACK_PEN_PRESSANDHOLD: FEEDBACK_TYPE = FEEDBACK_TYPE(5i32);
+pub const FEEDBACK_PEN_RIGHTTAP: FEEDBACK_TYPE = FEEDBACK_TYPE(6i32);
+pub const FEEDBACK_PEN_TAP: FEEDBACK_TYPE = FEEDBACK_TYPE(3i32);
+pub const FEEDBACK_TOUCH_CONTACTVISUALIZATION: FEEDBACK_TYPE = FEEDBACK_TYPE(1i32);
+pub const FEEDBACK_TOUCH_DOUBLETAP: FEEDBACK_TYPE = FEEDBACK_TYPE(8i32);
+pub const FEEDBACK_TOUCH_PRESSANDHOLD: FEEDBACK_TYPE = FEEDBACK_TYPE(9i32);
+pub const FEEDBACK_TOUCH_RIGHTTAP: FEEDBACK_TYPE = FEEDBACK_TYPE(10i32);
+pub const FEEDBACK_TOUCH_TAP: FEEDBACK_TYPE = FEEDBACK_TYPE(7i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FEEDBACK_TYPE(pub i32);
+pub const FILEOPENORD: u32 = 1536u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILLSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILLTYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILLVERTSTATES(pub i32);
+pub const FINDDLGORD: u32 = 1540u32;
+pub const FLH_HOVER: LINKHEADERSTATES = LINKHEADERSTATES(2i32);
+pub const FLH_NORMAL: LINKHEADERSTATES = LINKHEADERSTATES(1i32);
+pub const FLS_DISABLED: LABELSTATES = LABELSTATES(4i32);
+pub const FLS_EMPHASIZED: LABELSTATES = LABELSTATES(3i32);
+pub const FLS_NORMAL: LABELSTATES = LABELSTATES(1i32);
+pub const FLS_SELECTED: LABELSTATES = LABELSTATES(2i32);
+pub const FLYOUTLINK_HOVER: LINKSTATES = LINKSTATES(2i32);
+pub const FLYOUTLINK_NORMAL: LINKSTATES = LINKSTATES(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FLYOUTPARTS(pub i32);
+pub const FLYOUT_BODY: FLYOUTPARTS = FLYOUTPARTS(2i32);
+pub const FLYOUT_DIVIDER: FLYOUTPARTS = FLYOUTPARTS(5i32);
+pub const FLYOUT_HEADER: FLYOUTPARTS = FLYOUTPARTS(1i32);
+pub const FLYOUT_LABEL: FLYOUTPARTS = FLYOUTPARTS(3i32);
+pub const FLYOUT_LINK: FLYOUTPARTS = FLYOUTPARTS(4i32);
+pub const FLYOUT_LINKAREA: FLYOUTPARTS = FLYOUTPARTS(7i32);
+pub const FLYOUT_LINKHEADER: FLYOUTPARTS = FLYOUTPARTS(8i32);
+pub const FLYOUT_WINDOW: FLYOUTPARTS = FLYOUTPARTS(6i32);
+pub const FONTDLGORD: u32 = 1542u32;
+pub const FORMATDLGORD30: u32 = 1544u32;
+pub const FORMATDLGORD31: u32 = 1543u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FRAMEBOTTOMSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FRAMELEFTSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FRAMERIGHTSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FRAMESTATES(pub i32);
+pub const FRB_ACTIVE: FRAMEBOTTOMSTATES = FRAMEBOTTOMSTATES(1i32);
+pub const FRB_INACTIVE: FRAMEBOTTOMSTATES = FRAMEBOTTOMSTATES(2i32);
+pub const FRL_ACTIVE: FRAMELEFTSTATES = FRAMELEFTSTATES(1i32);
+pub const FRL_INACTIVE: FRAMELEFTSTATES = FRAMELEFTSTATES(2i32);
+pub const FRR_ACTIVE: FRAMERIGHTSTATES = FRAMERIGHTSTATES(1i32);
+pub const FRR_INACTIVE: FRAMERIGHTSTATES = FRAMERIGHTSTATES(2i32);
+pub const FSB_ENCARTA_MODE: u32 = 1u32;
+pub const FSB_FLAT_MODE: u32 = 2u32;
+pub const FSB_REGULAR_MODE: u32 = 0u32;
+pub const FS_ACTIVE: FRAMESTATES = FRAMESTATES(1i32);
+pub const FS_INACTIVE: FRAMESTATES = FRAMESTATES(2i32);
+pub const FT_HORZGRADIENT: FILLTYPE = FILLTYPE(2i32);
+pub const FT_RADIALGRADIENT: FILLTYPE = FILLTYPE(3i32);
+pub const FT_SOLID: FILLTYPE = FILLTYPE(0i32);
+pub const FT_TILEIMAGE: FILLTYPE = FILLTYPE(4i32);
+pub const FT_VERTGRADIENT: FILLTYPE = FILLTYPE(1i32);
+pub const GBF_COPY: GET_THEME_BITMAP_FLAGS = GET_THEME_BITMAP_FLAGS(2u32);
+pub const GBF_DIRECT: GET_THEME_BITMAP_FLAGS = GET_THEME_BITMAP_FLAGS(1u32);
+pub const GBF_VALIDBITS: GET_THEME_BITMAP_FLAGS = GET_THEME_BITMAP_FLAGS(3u32);
+pub const GBS_DISABLED: GROUPBOXSTATES = GROUPBOXSTATES(2i32);
+pub const GBS_NORMAL: GROUPBOXSTATES = GROUPBOXSTATES(1i32);
+pub const GDTR_MAX: u32 = 2u32;
+pub const GDTR_MIN: u32 = 1u32;
+pub const GDT_ERROR: i32 = -1i32;
+pub const GDT_NONE: NMDATETIMECHANGE_FLAGS = NMDATETIMECHANGE_FLAGS(1u32);
+pub const GDT_VALID: NMDATETIMECHANGE_FLAGS = NMDATETIMECHANGE_FLAGS(0u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GET_THEME_BITMAP_FLAGS(pub u32);
+pub const GFST_DPI: GLYPHFONTSIZINGTYPE = GLYPHFONTSIZINGTYPE(2i32);
+pub const GFST_NONE: GLYPHFONTSIZINGTYPE = GLYPHFONTSIZINGTYPE(0i32);
+pub const GFST_SIZE: GLYPHFONTSIZINGTYPE = GLYPHFONTSIZINGTYPE(1i32);
+pub const GLPS_CLOSED: GLYPHSTATES = GLYPHSTATES(1i32);
+pub const GLPS_OPENED: GLYPHSTATES = GLYPHSTATES(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GLYPHFONTSIZINGTYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GLYPHSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GLYPHTYPE(pub i32);
+pub const GMR_DAYSTATE: u32 = 1u32;
+pub const GMR_VISIBLE: u32 = 0u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GRIDCELLBACKGROUNDSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GRIDCELLSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GRIDCELLUPPERSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GRIPPERSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GROUPBOXSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GROUPHEADERLINESTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GROUPHEADERSTATES(pub i32);
+pub const GT_FONTGLYPH: GLYPHTYPE = GLYPHTYPE(2i32);
+pub const GT_IMAGEGLYPH: GLYPHTYPE = GLYPHTYPE(1i32);
+pub const GT_NONE: GLYPHTYPE = GLYPHTYPE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HALIGN(pub i32);
+pub const HA_CENTER: HALIGN = HALIGN(1i32);
+pub const HA_LEFT: HALIGN = HALIGN(0i32);
+pub const HA_RIGHT: HALIGN = HALIGN(2i32);
+pub const HBG_DETAILS: HEADERSTYLESTATES = HEADERSTYLESTATES(1i32);
+pub const HBG_ICON: HEADERSTYLESTATES = HEADERSTYLESTATES(2i32);
+pub const HBS_DISABLED: HELPBUTTONSTATES = HELPBUTTONSTATES(4i32);
+pub const HBS_HOT: HELPBUTTONSTATES = HELPBUTTONSTATES(2i32);
+pub const HBS_NORMAL: HELPBUTTONSTATES = HELPBUTTONSTATES(1i32);
+pub const HBS_PUSHED: HELPBUTTONSTATES = HELPBUTTONSTATES(3i32);
+pub const HDDFS_HOT: HEADERDROPDOWNFILTERSTATES = HEADERDROPDOWNFILTERSTATES(3i32);
+pub const HDDFS_NORMAL: HEADERDROPDOWNFILTERSTATES = HEADERDROPDOWNFILTERSTATES(1i32);
+pub const HDDFS_SOFTHOT: HEADERDROPDOWNFILTERSTATES = HEADERDROPDOWNFILTERSTATES(2i32);
+pub const HDDS_HOT: HEADERDROPDOWNSTATES = HEADERDROPDOWNSTATES(3i32);
+pub const HDDS_NORMAL: HEADERDROPDOWNSTATES = HEADERDROPDOWNSTATES(1i32);
+pub const HDDS_SOFTHOT: HEADERDROPDOWNSTATES = HEADERDROPDOWNSTATES(2i32);
+pub const HDFT_HASNOVALUE: HEADER_CONTROL_FORMAT_TYPE = HEADER_CONTROL_FORMAT_TYPE(32768u32);
+pub const HDFT_ISDATE: HEADER_CONTROL_FORMAT_TYPE = HEADER_CONTROL_FORMAT_TYPE(2u32);
+pub const HDFT_ISNUMBER: HEADER_CONTROL_FORMAT_TYPE = HEADER_CONTROL_FORMAT_TYPE(1u32);
+pub const HDFT_ISSTRING: HEADER_CONTROL_FORMAT_TYPE = HEADER_CONTROL_FORMAT_TYPE(0u32);
+pub const HDF_BITMAP: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(8192i32);
+pub const HDF_BITMAP_ON_RIGHT: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(4096i32);
+pub const HDF_CENTER: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(2i32);
+pub const HDF_CHECKBOX: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(64i32);
+pub const HDF_CHECKED: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(128i32);
+pub const HDF_FIXEDWIDTH: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(256i32);
+pub const HDF_IMAGE: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(2048i32);
+pub const HDF_JUSTIFYMASK: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(3i32);
+pub const HDF_LEFT: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(0i32);
+pub const HDF_OWNERDRAW: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(32768i32);
+pub const HDF_RIGHT: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(1i32);
+pub const HDF_RTLREADING: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(4i32);
+pub const HDF_SORTDOWN: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(512i32);
+pub const HDF_SORTUP: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(1024i32);
+pub const HDF_SPLITBUTTON: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(16777216i32);
+pub const HDF_STRING: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(16384i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HDHITTESTINFO {
+    pub pt: super::super::Foundation::POINT,
+    pub flags: HEADER_HITTEST_INFO_FLAGS,
+    pub iItem: i32,
+}
+impl Default for HDHITTESTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HDHITTESTINFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const HDIS_FOCUSED: HEADER_CONTROL_FORMAT_STATE = HEADER_CONTROL_FORMAT_STATE(1u32);
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HDITEMA {
+    pub mask: HDI_MASK,
+    pub cxy: i32,
+    pub pszText: windows_core::PSTR,
+    pub hbm: super::super::Graphics::Gdi::HBITMAP,
+    pub cchTextMax: i32,
+    pub fmt: HEADER_CONTROL_FORMAT_FLAGS,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub iImage: i32,
+    pub iOrder: i32,
+    pub r#type: HEADER_CONTROL_FORMAT_TYPE,
+    pub pvFilter: *mut core::ffi::c_void,
+    pub state: HEADER_CONTROL_FORMAT_STATE,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for HDITEMA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for HDITEMA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HDITEMW {
+    pub mask: HDI_MASK,
+    pub cxy: i32,
+    pub pszText: windows_core::PWSTR,
+    pub hbm: super::super::Graphics::Gdi::HBITMAP,
+    pub cchTextMax: i32,
+    pub fmt: HEADER_CONTROL_FORMAT_FLAGS,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub iImage: i32,
+    pub iOrder: i32,
+    pub r#type: HEADER_CONTROL_FORMAT_TYPE,
+    pub pvFilter: *mut core::ffi::c_void,
+    pub state: HEADER_CONTROL_FORMAT_STATE,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for HDITEMW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for HDITEMW {
+    type TypeKind = windows_core::CopyType;
+}
+pub const HDI_BITMAP: HDI_MASK = HDI_MASK(16u32);
+pub const HDI_DI_SETITEM: HDI_MASK = HDI_MASK(64u32);
+pub const HDI_FILTER: HDI_MASK = HDI_MASK(256u32);
+pub const HDI_FORMAT: HDI_MASK = HDI_MASK(4u32);
+pub const HDI_HEIGHT: HDI_MASK = HDI_MASK(1u32);
+pub const HDI_IMAGE: HDI_MASK = HDI_MASK(32u32);
+pub const HDI_LPARAM: HDI_MASK = HDI_MASK(8u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HDI_MASK(pub u32);
+impl HDI_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for HDI_MASK {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for HDI_MASK {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for HDI_MASK {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for HDI_MASK {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for HDI_MASK {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const HDI_ORDER: HDI_MASK = HDI_MASK(128u32);
+pub const HDI_STATE: HDI_MASK = HDI_MASK(512u32);
+pub const HDI_TEXT: HDI_MASK = HDI_MASK(2u32);
+pub const HDI_WIDTH: HDI_MASK = HDI_MASK(1u32);
+#[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HDLAYOUT {
+    pub prc: *mut super::super::Foundation::RECT,
+    pub pwpos: *mut super::WindowsAndMessaging::WINDOWPOS,
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for HDLAYOUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::TypeKind for HDLAYOUT {
+    type TypeKind = windows_core::CopyType;
+}
+pub const HDM_CLEARFILTER: u32 = 4632u32;
+pub const HDM_CREATEDRAGIMAGE: u32 = 4624u32;
+pub const HDM_DELETEITEM: u32 = 4610u32;
+pub const HDM_EDITFILTER: u32 = 4631u32;
+pub const HDM_FIRST: u32 = 4608u32;
+pub const HDM_GETBITMAPMARGIN: u32 = 4629u32;
+pub const HDM_GETFOCUSEDITEM: u32 = 4635u32;
+pub const HDM_GETIMAGELIST: u32 = 4617u32;
+pub const HDM_GETITEM: u32 = 4619u32;
+pub const HDM_GETITEMA: u32 = 4611u32;
+pub const HDM_GETITEMCOUNT: u32 = 4608u32;
+pub const HDM_GETITEMDROPDOWNRECT: u32 = 4633u32;
+pub const HDM_GETITEMRECT: u32 = 4615u32;
+pub const HDM_GETITEMW: u32 = 4619u32;
+pub const HDM_GETORDERARRAY: u32 = 4625u32;
+pub const HDM_GETOVERFLOWRECT: u32 = 4634u32;
+pub const HDM_GETUNICODEFORMAT: u32 = 8198u32;
+pub const HDM_HITTEST: u32 = 4614u32;
+pub const HDM_INSERTITEM: u32 = 4618u32;
+pub const HDM_INSERTITEMA: u32 = 4609u32;
+pub const HDM_INSERTITEMW: u32 = 4618u32;
+pub const HDM_LAYOUT: u32 = 4613u32;
+pub const HDM_ORDERTOINDEX: u32 = 4623u32;
+pub const HDM_SETBITMAPMARGIN: u32 = 4628u32;
+pub const HDM_SETFILTERCHANGETIMEOUT: u32 = 4630u32;
+pub const HDM_SETFOCUSEDITEM: u32 = 4636u32;
+pub const HDM_SETHOTDIVIDER: u32 = 4627u32;
+pub const HDM_SETIMAGELIST: u32 = 4616u32;
+pub const HDM_SETITEM: u32 = 4620u32;
+pub const HDM_SETITEMA: u32 = 4612u32;
+pub const HDM_SETITEMW: u32 = 4620u32;
+pub const HDM_SETORDERARRAY: u32 = 4626u32;
+pub const HDM_SETUNICODEFORMAT: u32 = 8197u32;
+pub const HDN_BEGINDRAG: u32 = 4294966986u32;
+pub const HDN_BEGINFILTEREDIT: u32 = 4294966982u32;
+pub const HDN_BEGINTRACK: u32 = 4294966970u32;
+pub const HDN_BEGINTRACKA: u32 = 4294966990u32;
+pub const HDN_BEGINTRACKW: u32 = 4294966970u32;
+pub const HDN_DIVIDERDBLCLICK: u32 = 4294966971u32;
+pub const HDN_DIVIDERDBLCLICKA: u32 = 4294966991u32;
+pub const HDN_DIVIDERDBLCLICKW: u32 = 4294966971u32;
+pub const HDN_DROPDOWN: u32 = 4294966978u32;
+pub const HDN_ENDDRAG: u32 = 4294966985u32;
+pub const HDN_ENDFILTEREDIT: u32 = 4294966981u32;
+pub const HDN_ENDTRACK: u32 = 4294966969u32;
+pub const HDN_ENDTRACKA: u32 = 4294966989u32;
+pub const HDN_ENDTRACKW: u32 = 4294966969u32;
+pub const HDN_FILTERBTNCLICK: u32 = 4294966983u32;
+pub const HDN_FILTERCHANGE: u32 = 4294966984u32;
+pub const HDN_FIRST: u32 = 4294966996u32;
+pub const HDN_GETDISPINFO: u32 = 4294966967u32;
+pub const HDN_GETDISPINFOA: u32 = 4294966987u32;
+pub const HDN_GETDISPINFOW: u32 = 4294966967u32;
+pub const HDN_ITEMCHANGED: u32 = 4294966975u32;
+pub const HDN_ITEMCHANGEDA: u32 = 4294966995u32;
+pub const HDN_ITEMCHANGEDW: u32 = 4294966975u32;
+pub const HDN_ITEMCHANGING: u32 = 4294966976u32;
+pub const HDN_ITEMCHANGINGA: u32 = 4294966996u32;
+pub const HDN_ITEMCHANGINGW: u32 = 4294966976u32;
+pub const HDN_ITEMCLICK: u32 = 4294966974u32;
+pub const HDN_ITEMCLICKA: u32 = 4294966994u32;
+pub const HDN_ITEMCLICKW: u32 = 4294966974u32;
+pub const HDN_ITEMDBLCLICK: u32 = 4294966973u32;
+pub const HDN_ITEMDBLCLICKA: u32 = 4294966993u32;
+pub const HDN_ITEMDBLCLICKW: u32 = 4294966973u32;
+pub const HDN_ITEMKEYDOWN: u32 = 4294966979u32;
+pub const HDN_ITEMSTATEICONCLICK: u32 = 4294966980u32;
+pub const HDN_LAST: u32 = 4294966897u32;
+pub const HDN_OVERFLOWCLICK: u32 = 4294966977u32;
+pub const HDN_TRACK: u32 = 4294966968u32;
+pub const HDN_TRACKA: u32 = 4294966988u32;
+pub const HDN_TRACKW: u32 = 4294966968u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct HDPA(pub isize);
+impl windows_core::TypeKind for HDPA {
+    type TypeKind = windows_core::CopyType;
+}
+impl HDPA {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HDPA {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("comctl32.dll" "system" fn DPA_Destroy(hdpa : isize) -> i32);
+            DPA_Destroy(self.0);
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct HDSA(pub isize);
+impl windows_core::TypeKind for HDSA {
+    type TypeKind = windows_core::CopyType;
+}
+impl HDSA {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HDSA {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("comctl32.dll" "system" fn DSA_Destroy(hdsa : isize) -> i32);
+            DSA_Destroy(self.0);
+        }
+    }
+}
+pub const HDSIL_NORMAL: u32 = 0u32;
+pub const HDSIL_STATE: u32 = 1u32;
+pub const HDS_BUTTONS: u32 = 2u32;
+pub const HDS_CHECKBOXES: u32 = 1024u32;
+pub const HDS_DRAGDROP: u32 = 64u32;
+pub const HDS_FILTERBAR: u32 = 256u32;
+pub const HDS_FLAT: u32 = 512u32;
+pub const HDS_FULLDRAG: u32 = 128u32;
+pub const HDS_HIDDEN: u32 = 8u32;
+pub const HDS_HORZ: u32 = 0u32;
+pub const HDS_HOTTRACK: u32 = 4u32;
+pub const HDS_NOSIZING: u32 = 2048u32;
+pub const HDS_OVERFLOW: u32 = 4096u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HD_TEXTFILTERA {
+    pub pszText: windows_core::PSTR,
+    pub cchTextMax: i32,
+}
+impl Default for HD_TEXTFILTERA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HD_TEXTFILTERA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HD_TEXTFILTERW {
+    pub pszText: windows_core::PWSTR,
+    pub cchTextMax: i32,
+}
+impl Default for HD_TEXTFILTERW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HD_TEXTFILTERW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HEADERAREASTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HEADERCLOSESTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HEADERDROPDOWNFILTERSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HEADERDROPDOWNSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HEADERITEMLEFTSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HEADERITEMRIGHTSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HEADERITEMSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HEADEROVERFLOWSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HEADERPARTS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HEADERPINSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HEADERSORTARROWSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HEADERSTYLESTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HEADER_CONTROL_FORMAT_FLAGS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HEADER_CONTROL_FORMAT_STATE(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HEADER_CONTROL_FORMAT_TYPE(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HEADER_CONTROL_NOTIFICATION_BUTTON(pub i32);
+pub const HEADER_CONTROL_NOTIFICATION_BUTTON_LEFT: HEADER_CONTROL_NOTIFICATION_BUTTON = HEADER_CONTROL_NOTIFICATION_BUTTON(0i32);
+pub const HEADER_CONTROL_NOTIFICATION_BUTTON_MIDDLE: HEADER_CONTROL_NOTIFICATION_BUTTON = HEADER_CONTROL_NOTIFICATION_BUTTON(2i32);
+pub const HEADER_CONTROL_NOTIFICATION_BUTTON_RIGHT: HEADER_CONTROL_NOTIFICATION_BUTTON = HEADER_CONTROL_NOTIFICATION_BUTTON(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HEADER_HITTEST_INFO_FLAGS(pub u32);
+impl HEADER_HITTEST_INFO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for HEADER_HITTEST_INFO_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for HEADER_HITTEST_INFO_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for HEADER_HITTEST_INFO_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for HEADER_HITTEST_INFO_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for HEADER_HITTEST_INFO_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HELPBUTTONSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HELPLINKSTATES(pub i32);
+pub const HGLPS_CLOSED: HOTGLYPHSTATES = HOTGLYPHSTATES(1i32);
+pub const HGLPS_OPENED: HOTGLYPHSTATES = HOTGLYPHSTATES(2i32);
+pub const HHT_ABOVE: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(256u32);
+pub const HHT_BELOW: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(512u32);
+pub const HHT_NOWHERE: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(1u32);
+pub const HHT_ONDIVIDER: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(4u32);
+pub const HHT_ONDIVOPEN: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(8u32);
+pub const HHT_ONDROPDOWN: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(8192u32);
+pub const HHT_ONFILTER: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(16u32);
+pub const HHT_ONFILTERBUTTON: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(32u32);
+pub const HHT_ONHEADER: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(2u32);
+pub const HHT_ONITEMSTATEICON: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(4096u32);
+pub const HHT_ONOVERFLOW: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(16384u32);
+pub const HHT_TOLEFT: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(2048u32);
+pub const HHT_TORIGHT: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(1024u32);
+pub const HICF_ACCELERATOR: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(4u32);
+pub const HICF_ARROWKEYS: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(2u32);
+pub const HICF_DUPACCEL: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(8u32);
+pub const HICF_ENTERING: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(16u32);
+pub const HICF_LEAVING: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(32u32);
+pub const HICF_LMOUSE: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(128u32);
+pub const HICF_MOUSE: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(1u32);
+pub const HICF_OTHER: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(0u32);
+pub const HICF_RESELECT: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(64u32);
+pub const HICF_TOGGLEDROPDOWN: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(256u32);
+pub const HILS_HOT: HEADERITEMLEFTSTATES = HEADERITEMLEFTSTATES(2i32);
+pub const HILS_NORMAL: HEADERITEMLEFTSTATES = HEADERITEMLEFTSTATES(1i32);
+pub const HILS_PRESSED: HEADERITEMLEFTSTATES = HEADERITEMLEFTSTATES(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct HIMAGELIST(pub isize);
+impl windows_core::TypeKind for HIMAGELIST {
+    type TypeKind = windows_core::CopyType;
+}
+impl HIMAGELIST {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HIMAGELIST {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("comctl32.dll" "system" fn ImageList_Destroy(himl : isize) -> i32);
+            ImageList_Destroy(self.0);
+        }
+    }
+}
+pub const HIRS_HOT: HEADERITEMRIGHTSTATES = HEADERITEMRIGHTSTATES(2i32);
+pub const HIRS_NORMAL: HEADERITEMRIGHTSTATES = HEADERITEMRIGHTSTATES(1i32);
+pub const HIRS_PRESSED: HEADERITEMRIGHTSTATES = HEADERITEMRIGHTSTATES(3i32);
+pub const HIST_ADDTOFAVORITES: u32 = 3u32;
+pub const HIST_BACK: u32 = 0u32;
+pub const HIST_FAVORITES: u32 = 2u32;
+pub const HIST_FORWARD: u32 = 1u32;
+pub const HIST_VIEWTREE: u32 = 4u32;
+pub const HIS_HOT: HEADERITEMSTATES = HEADERITEMSTATES(2i32);
+pub const HIS_ICONHOT: HEADERITEMSTATES = HEADERITEMSTATES(8i32);
+pub const HIS_ICONNORMAL: HEADERITEMSTATES = HEADERITEMSTATES(7i32);
+pub const HIS_ICONPRESSED: HEADERITEMSTATES = HEADERITEMSTATES(9i32);
+pub const HIS_ICONSORTEDHOT: HEADERITEMSTATES = HEADERITEMSTATES(11i32);
+pub const HIS_ICONSORTEDNORMAL: HEADERITEMSTATES = HEADERITEMSTATES(10i32);
+pub const HIS_ICONSORTEDPRESSED: HEADERITEMSTATES = HEADERITEMSTATES(12i32);
+pub const HIS_NORMAL: HEADERITEMSTATES = HEADERITEMSTATES(1i32);
+pub const HIS_PRESSED: HEADERITEMSTATES = HEADERITEMSTATES(3i32);
+pub const HIS_SORTEDHOT: HEADERITEMSTATES = HEADERITEMSTATES(5i32);
+pub const HIS_SORTEDNORMAL: HEADERITEMSTATES = HEADERITEMSTATES(4i32);
+pub const HIS_SORTEDPRESSED: HEADERITEMSTATES = HEADERITEMSTATES(6i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HIT_TEST_BACKGROUND_OPTIONS(pub u32);
+pub const HKCOMB_A: u32 = 8u32;
+pub const HKCOMB_C: u32 = 4u32;
+pub const HKCOMB_CA: u32 = 64u32;
+pub const HKCOMB_NONE: u32 = 1u32;
+pub const HKCOMB_S: u32 = 2u32;
+pub const HKCOMB_SA: u32 = 32u32;
+pub const HKCOMB_SC: u32 = 16u32;
+pub const HKCOMB_SCA: u32 = 128u32;
+pub const HKM_GETHOTKEY: u32 = 1026u32;
+pub const HKM_SETHOTKEY: u32 = 1025u32;
+pub const HKM_SETRULES: u32 = 1027u32;
+pub const HLS_LINKTEXT: HYPERLINKSTATES = HYPERLINKSTATES(2i32);
+pub const HLS_NORMALTEXT: HYPERLINKSTATES = HYPERLINKSTATES(1i32);
+pub const HOFS_HOT: HEADEROVERFLOWSTATES = HEADEROVERFLOWSTATES(2i32);
+pub const HOFS_NORMAL: HEADEROVERFLOWSTATES = HEADEROVERFLOWSTATES(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HORZSCROLLSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HORZTHUMBSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HOTGLYPHSTATES(pub i32);
+pub const HOTKEYF_ALT: u32 = 4u32;
+pub const HOTKEYF_CONTROL: u32 = 2u32;
+pub const HOTKEYF_EXT: u32 = 8u32;
+pub const HOTKEYF_SHIFT: u32 = 1u32;
+pub const HOTKEY_CLASS: windows_core::PCWSTR = windows_core::w!("msctls_hotkey32");
+pub const HOTKEY_CLASSA: windows_core::PCSTR = windows_core::s!("msctls_hotkey32");
+pub const HOTKEY_CLASSW: windows_core::PCWSTR = windows_core::w!("msctls_hotkey32");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HOVERBACKGROUNDSTATES(pub i32);
+pub const HOVER_DEFAULT: u32 = 4294967295u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HPROPSHEETPAGE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HPROPSHEETPAGE {
+    type TypeKind = windows_core::CopyType;
+}
+impl HPROPSHEETPAGE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HPROPSHEETPAGE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("comctl32.dll" "system" fn DestroyPropertySheetPage(param0 : *mut core::ffi::c_void) -> i32);
+            DestroyPropertySheetPage(self.0);
+        }
+    }
+}
+impl Default for HPROPSHEETPAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const HP_HEADERDROPDOWN: HEADERPARTS = HEADERPARTS(5i32);
+pub const HP_HEADERDROPDOWNFILTER: HEADERPARTS = HEADERPARTS(6i32);
+pub const HP_HEADERITEM: HEADERPARTS = HEADERPARTS(1i32);
+pub const HP_HEADERITEMLEFT: HEADERPARTS = HEADERPARTS(2i32);
+pub const HP_HEADERITEMRIGHT: HEADERPARTS = HEADERPARTS(3i32);
+pub const HP_HEADEROVERFLOW: HEADERPARTS = HEADERPARTS(7i32);
+pub const HP_HEADERSORTARROW: HEADERPARTS = HEADERPARTS(4i32);
+pub const HSAS_SORTEDDOWN: HEADERSORTARROWSTATES = HEADERSORTARROWSTATES(2i32);
+pub const HSAS_SORTEDUP: HEADERSORTARROWSTATES = HEADERSORTARROWSTATES(1i32);
+pub const HSS_DISABLED: HORZSCROLLSTATES = HORZSCROLLSTATES(4i32);
+pub const HSS_HOT: HORZSCROLLSTATES = HORZSCROLLSTATES(2i32);
+pub const HSS_NORMAL: HORZSCROLLSTATES = HORZSCROLLSTATES(1i32);
+pub const HSS_PUSHED: HORZSCROLLSTATES = HORZSCROLLSTATES(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HSYNTHETICPOINTERDEVICE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HSYNTHETICPOINTERDEVICE {
+    type TypeKind = windows_core::CopyType;
+}
+impl HSYNTHETICPOINTERDEVICE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HSYNTHETICPOINTERDEVICE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("user32.dll" "system" fn DestroySyntheticPointerDevice(device : *mut core::ffi::c_void));
+            DestroySyntheticPointerDevice(self.0);
+        }
+    }
+}
+impl Default for HSYNTHETICPOINTERDEVICE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct HTHEME(pub isize);
+impl windows_core::TypeKind for HTHEME {
+    type TypeKind = windows_core::CopyType;
+}
+impl HTHEME {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == 0
+    }
+}
+impl windows_core::Free for HTHEME {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("uxtheme.dll" "system" fn CloseThemeData(htheme : isize) -> i32);
+            CloseThemeData(self.0);
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct HTREEITEM(pub isize);
+impl windows_core::TypeKind for HTREEITEM {
+    type TypeKind = windows_core::CopyType;
+}
+pub const HTS_DISABLED: HORZTHUMBSTATES = HORZTHUMBSTATES(4i32);
+pub const HTS_HOT: HORZTHUMBSTATES = HORZTHUMBSTATES(2i32);
+pub const HTS_NORMAL: HORZTHUMBSTATES = HORZTHUMBSTATES(1i32);
+pub const HTS_PUSHED: HORZTHUMBSTATES = HORZTHUMBSTATES(3i32);
+pub const HTTB_BACKGROUNDSEG: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(0u32);
+pub const HTTB_CAPTION: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(4u32);
+pub const HTTB_FIXEDBORDER: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(2u32);
+pub const HTTB_RESIZINGBORDER: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(240u32);
+pub const HTTB_RESIZINGBORDER_BOTTOM: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(128u32);
+pub const HTTB_RESIZINGBORDER_LEFT: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(16u32);
+pub const HTTB_RESIZINGBORDER_RIGHT: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(64u32);
+pub const HTTB_RESIZINGBORDER_TOP: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(32u32);
+pub const HTTB_SIZINGTEMPLATE: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(256u32);
+pub const HTTB_SYSTEMSIZINGMARGINS: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(512u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HYPERLINKSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HYPERLINKTEXTSTATES(pub i32);
+pub const ICC_ANIMATE_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(128u32);
+pub const ICC_BAR_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(4u32);
+pub const ICC_COOL_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(1024u32);
+pub const ICC_DATE_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(256u32);
+pub const ICC_HOTKEY_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(64u32);
+pub const ICC_INTERNET_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(2048u32);
+pub const ICC_LINK_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(32768u32);
+pub const ICC_LISTVIEW_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(1u32);
+pub const ICC_NATIVEFNTCTL_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(8192u32);
+pub const ICC_PAGESCROLLER_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(4096u32);
+pub const ICC_PROGRESS_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(32u32);
+pub const ICC_STANDARD_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(16384u32);
+pub const ICC_TAB_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(8u32);
+pub const ICC_TREEVIEW_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(2u32);
+pub const ICC_UPDOWN_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(16u32);
+pub const ICC_USEREX_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(512u32);
+pub const ICC_WIN95_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(255u32);
+pub const ICE_ALPHA: ICONEFFECT = ICONEFFECT(4i32);
+pub const ICE_GLOW: ICONEFFECT = ICONEFFECT(1i32);
+pub const ICE_NONE: ICONEFFECT = ICONEFFECT(0i32);
+pub const ICE_PULSE: ICONEFFECT = ICONEFFECT(3i32);
+pub const ICE_SHADOW: ICONEFFECT = ICONEFFECT(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ICONEFFECT(pub i32);
+pub const IDB_HIST_DISABLED: u32 = 14u32;
+pub const IDB_HIST_HOT: u32 = 13u32;
+pub const IDB_HIST_LARGE_COLOR: u32 = 9u32;
+pub const IDB_HIST_NORMAL: u32 = 12u32;
+pub const IDB_HIST_PRESSED: u32 = 15u32;
+pub const IDB_HIST_SMALL_COLOR: u32 = 8u32;
+pub const IDB_STD_LARGE_COLOR: u32 = 1u32;
+pub const IDB_STD_SMALL_COLOR: u32 = 0u32;
+pub const IDB_VIEW_LARGE_COLOR: u32 = 5u32;
+pub const IDB_VIEW_SMALL_COLOR: u32 = 4u32;
+pub const IDC_MANAGE_LINK: u32 = 1592u32;
+pub const ID_PSRESTARTWINDOWS: u32 = 2u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IEBARMENUSTATES(pub i32);
 windows_core::imp::define_interface!(IImageList, IImageList_Vtbl, 0x46eb5926_582e_4017_9fdf_e8998daa0950);
 windows_core::imp::interface_hierarchy!(IImageList, windows_core::IUnknown);
 impl IImageList {
@@ -2412,651 +4758,139 @@ impl IImageList2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl windows_core::RuntimeName for IImageList2 {}
+pub const ILCF_MOVE: IMAGE_LIST_COPY_FLAGS = IMAGE_LIST_COPY_FLAGS(0u32);
+pub const ILCF_SWAP: IMAGE_LIST_COPY_FLAGS = IMAGE_LIST_COPY_FLAGS(1u32);
+pub const ILC_COLOR: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(0u32);
+pub const ILC_COLOR16: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(16u32);
+pub const ILC_COLOR24: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(24u32);
+pub const ILC_COLOR32: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(32u32);
+pub const ILC_COLOR4: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(4u32);
+pub const ILC_COLOR8: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(8u32);
+pub const ILC_COLORDDB: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(254u32);
+pub const ILC_HIGHQUALITYSCALE: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(131072u32);
+pub const ILC_MASK: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(1u32);
+pub const ILC_MIRROR: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(8192u32);
+pub const ILC_ORIGINALSIZE: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(65536u32);
+pub const ILC_PALETTE: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(2048u32);
+pub const ILC_PERITEMMIRROR: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(32768u32);
+pub const ILDI_PURGE: u32 = 1u32;
+pub const ILDI_QUERYACCESS: u32 = 8u32;
+pub const ILDI_RESETACCESS: u32 = 4u32;
+pub const ILDI_STANDBY: u32 = 2u32;
+pub const ILDRF_IMAGELOWQUALITY: u32 = 1u32;
+pub const ILDRF_OVERLAYLOWQUALITY: u32 = 16u32;
+pub const ILD_ASYNC: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(32768u32);
+pub const ILD_BLEND: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(4u32);
+pub const ILD_BLEND25: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(2u32);
+pub const ILD_BLEND50: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(4u32);
+pub const ILD_DPISCALE: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(16384u32);
+pub const ILD_FOCUS: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(2u32);
+pub const ILD_IMAGE: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(32u32);
+pub const ILD_MASK: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(16u32);
+pub const ILD_NORMAL: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(0u32);
+pub const ILD_OVERLAYMASK: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(3840u32);
+pub const ILD_PRESERVEALPHA: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(4096u32);
+pub const ILD_ROP: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(64u32);
+pub const ILD_SCALE: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(8192u32);
+pub const ILD_SELECTED: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(4u32);
+pub const ILD_TRANSPARENT: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(1u32);
+pub const ILFIP_ALWAYS: u32 = 0u32;
+pub const ILFIP_FROMSTANDBY: u32 = 1u32;
+pub const ILGOS_ALWAYS: u32 = 0u32;
+pub const ILGOS_FROMSTANDBY: u32 = 1u32;
+pub const ILGT_ASYNC: u32 = 1u32;
+pub const ILGT_NORMAL: u32 = 0u32;
+pub const ILIF_ALPHA: IMAGE_LIST_ITEM_FLAGS = IMAGE_LIST_ITEM_FLAGS(1u32);
+pub const ILIF_LOWQUALITY: IMAGE_LIST_ITEM_FLAGS = IMAGE_LIST_ITEM_FLAGS(2u32);
+pub const ILP_DOWNLEVEL: IMAGE_LIST_WRITE_STREAM_FLAGS = IMAGE_LIST_WRITE_STREAM_FLAGS(1u32);
+pub const ILP_NORMAL: IMAGE_LIST_WRITE_STREAM_FLAGS = IMAGE_LIST_WRITE_STREAM_FLAGS(0u32);
+pub const ILR_DEFAULT: u32 = 0u32;
+pub const ILR_HORIZONTAL_CENTER: u32 = 1u32;
+pub const ILR_HORIZONTAL_LEFT: u32 = 0u32;
+pub const ILR_HORIZONTAL_RIGHT: u32 = 2u32;
+pub const ILR_SCALE_ASPECTRATIO: u32 = 256u32;
+pub const ILR_SCALE_CLIP: u32 = 0u32;
+pub const ILR_VERTICAL_BOTTOM: u32 = 32u32;
+pub const ILR_VERTICAL_CENTER: u32 = 16u32;
+pub const ILR_VERTICAL_TOP: u32 = 0u32;
+pub const ILS_ALPHA: u32 = 8u32;
+pub const ILS_GLOW: u32 = 1u32;
+pub const ILS_NORMAL: u32 = 0u32;
+pub const ILS_SATURATE: u32 = 4u32;
+pub const ILS_SHADOW: u32 = 2u32;
+pub const IL_HORIZONTAL: IMAGELAYOUT = IMAGELAYOUT(1i32);
+pub const IL_VERTICAL: IMAGELAYOUT = IMAGELAYOUT(0i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type DTT_CALLBACK_PROC = Option<unsafe extern "system" fn(hdc: super::super::Graphics::Gdi::HDC, psztext: windows_core::PWSTR, cchtext: i32, prc: *mut super::super::Foundation::RECT, dwflags: u32, lparam: super::super::Foundation::LPARAM) -> i32>;
-pub type EDITWORDBREAKPROCA = Option<unsafe extern "system" fn(lpch: windows_core::PCSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32>;
-pub type EDITWORDBREAKPROCW = Option<unsafe extern "system" fn(lpch: windows_core::PCWSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32>;
-pub type LPFNADDPROPSHEETPAGES = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: LPFNSVADDPROPSHEETPAGE, param2: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMAGEINFO {
+    pub hbmImage: super::super::Graphics::Gdi::HBITMAP,
+    pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
+    pub Unused1: i32,
+    pub Unused2: i32,
+    pub rcImage: super::super::Foundation::RECT,
+}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type LPFNCCINFOA = Option<unsafe extern "system" fn(acci: *mut CCINFOA) -> u32>;
+impl Default for IMAGEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type LPFNCCINFOW = Option<unsafe extern "system" fn(acci: *mut CCINFOW) -> u32>;
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type LPFNCCSIZETOTEXTA = Option<unsafe extern "system" fn(flstyle: u32, flextstyle: u32, hfont: super::super::Graphics::Gdi::HFONT, psztext: windows_core::PCSTR) -> i32>;
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type LPFNCCSIZETOTEXTW = Option<unsafe extern "system" fn(flstyle: u32, flextstyle: u32, hfont: super::super::Graphics::Gdi::HFONT, psztext: windows_core::PCWSTR) -> i32>;
-pub type LPFNCCSTYLEA = Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pccs: *mut CCSTYLEA) -> super::super::Foundation::BOOL>;
-pub type LPFNCCSTYLEW = Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pccs: *mut CCSTYLEW) -> super::super::Foundation::BOOL>;
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type LPFNPSPCALLBACKA = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: PSPCB_MESSAGE, ppsp: *mut PROPSHEETPAGEA) -> u32>;
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type LPFNPSPCALLBACKW = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: PSPCB_MESSAGE, ppsp: *mut PROPSHEETPAGEW) -> u32>;
-pub type LPFNSVADDPROPSHEETPAGE = Option<unsafe extern "system" fn(param0: HPROPSHEETPAGE, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-pub type PFNDACOMPARE = Option<unsafe extern "system" fn(p1: *const core::ffi::c_void, p2: *const core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> i32>;
-pub type PFNDACOMPARECONST = Option<unsafe extern "system" fn(p1: *const core::ffi::c_void, p2: *const core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> i32>;
-pub type PFNDAENUMCALLBACK = Option<unsafe extern "system" fn(p: *const core::ffi::c_void, pdata: *const core::ffi::c_void) -> i32>;
-pub type PFNDAENUMCALLBACKCONST = Option<unsafe extern "system" fn(p: *const core::ffi::c_void, pdata: *const core::ffi::c_void) -> i32>;
-pub type PFNDPAMERGE = Option<unsafe extern "system" fn(umsg: DPAMM_MESSAGE, pvdest: *const core::ffi::c_void, pvsrc: *const core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> *mut core::ffi::c_void>;
-pub type PFNDPAMERGECONST = Option<unsafe extern "system" fn(umsg: DPAMM_MESSAGE, pvdest: *const core::ffi::c_void, pvsrc: *const core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> *mut core::ffi::c_void>;
-#[cfg(feature = "Win32_System_Com")]
-pub type PFNDPASTREAM = Option<unsafe extern "system" fn(pinfo: *const DPASTREAMINFO, pstream: Option<super::super::System::Com::IStream>, pvinstdata: *const core::ffi::c_void) -> windows_core::HRESULT>;
-pub type PFNLVCOMPARE = Option<unsafe extern "system" fn(param0: super::super::Foundation::LPARAM, param1: super::super::Foundation::LPARAM, param2: super::super::Foundation::LPARAM) -> i32>;
-pub type PFNLVGROUPCOMPARE = Option<unsafe extern "system" fn(param0: i32, param1: i32, param2: *mut core::ffi::c_void) -> i32>;
-pub type PFNPROPSHEETCALLBACK = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::LPARAM) -> i32>;
-pub type PFNTVCOMPARE = Option<unsafe extern "system" fn(lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM, lparamsort: super::super::Foundation::LPARAM) -> i32>;
-pub type PFTASKDIALOGCALLBACK = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, msg: TASKDIALOG_NOTIFICATIONS, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lprefdata: isize) -> windows_core::HRESULT>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AEROWIZARDPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ARROWBTNSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BACKGROUNDSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BACKGROUNDWITHBORDERSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BALLOONSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BALLOONSTEMSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BARBACKGROUNDSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BARITEMSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BGTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BODYSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BORDERSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BORDERTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BORDER_HSCROLLSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BORDER_HVSCROLLSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BORDER_NOSCROLLSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BORDER_VSCROLLSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BP_ANIMATIONSTYLE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BP_BUFFERFORMAT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BP_PAINTPARAMS_FLAGS(pub u32);
-impl BP_PAINTPARAMS_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
+impl windows_core::TypeKind for IMAGEINFO {
+    type TypeKind = windows_core::CopyType;
 }
-impl core::ops::BitOr for BP_PAINTPARAMS_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for BP_PAINTPARAMS_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for BP_PAINTPARAMS_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for BP_PAINTPARAMS_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for BP_PAINTPARAMS_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BUTTONPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BUTTON_IMAGELIST_ALIGN(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CAPTIONSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CHECKBOXSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CHEVRONSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CHEVRONVERTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CLOCKPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CLOCKSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CLOSEBUTTONSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CLOSESTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COLLAPSEBUTTONSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COMBOBOXINFO_BUTTON_STATE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COMBOBOXPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COMBOBOXSTYLESTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COMBOBOX_EX_ITEM_FLAGS(pub u32);
-impl COMBOBOX_EX_ITEM_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for COMBOBOX_EX_ITEM_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for COMBOBOX_EX_ITEM_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for COMBOBOX_EX_ITEM_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for COMBOBOX_EX_ITEM_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for COMBOBOX_EX_ITEM_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COMMANDLINKGLYPHSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COMMANDLINKSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COMMUNICATIONSPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CONTENTALIGNMENT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CONTENTAREASTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CONTENTLINKSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CONTENTPANESTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CONTROLLABELSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CONTROLPANELPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COPYSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CREATELINKSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CUEBANNERSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DATEBORDERSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DATEPICKERPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DATETEXTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DLG_BUTTON_CHECK_STATE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DLG_DIR_LIST_FILE_TYPE(pub u32);
-impl DLG_DIR_LIST_FILE_TYPE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DLG_DIR_LIST_FILE_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DLG_DIR_LIST_FILE_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DLG_DIR_LIST_FILE_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DLG_DIR_LIST_FILE_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DLG_DIR_LIST_FILE_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DOWNHORZSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DOWNSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DPAMM_MESSAGE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DRAGDROPPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DRAGLISTINFO_NOTIFICATION_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DRAWITEMSTRUCT_CTL_TYPE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DRAW_THEME_PARENT_BACKGROUND_FLAGS(pub u32);
-impl DRAW_THEME_PARENT_BACKGROUND_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DRAW_THEME_PARENT_BACKGROUND_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DRAW_THEME_PARENT_BACKGROUND_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DRAW_THEME_PARENT_BACKGROUND_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DRAW_THEME_PARENT_BACKGROUND_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DRAW_THEME_PARENT_BACKGROUND_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DROPDOWNBUTTONLEFTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DROPDOWNBUTTONRIGHTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DROPDOWNITEMSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DTTOPTS_FLAGS(pub u32);
-impl DTTOPTS_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DTTOPTS_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DTTOPTS_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DTTOPTS_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DTTOPTS_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DTTOPTS_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EC_ENDOFLINE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EC_SEARCHWEB_ENTRYPOINT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EDITBALLOONTIP_ICON(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EDITBORDER_HSCROLLSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EDITBORDER_HVSCROLLSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EDITBORDER_NOSCROLLSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EDITBORDER_VSCROLLSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EDITPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EDITTEXTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EMPTYMARKUPPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ENABLE_SCROLL_BAR_ARROWS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EXPANDBUTTONSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EXPANDOBUTTONSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EXPLORERBARPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FEEDBACK_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FILLSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FILLTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FILLVERTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FLYOUTPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FRAMEBOTTOMSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FRAMELEFTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FRAMERIGHTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FRAMESTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GET_THEME_BITMAP_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GLYPHFONTSIZINGTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GLYPHSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GLYPHTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GRIDCELLBACKGROUNDSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GRIDCELLSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GRIDCELLUPPERSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GRIPPERSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GROUPBOXSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GROUPHEADERLINESTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GROUPHEADERSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HALIGN(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HDI_MASK(pub u32);
-impl HDI_MASK {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for HDI_MASK {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for HDI_MASK {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for HDI_MASK {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for HDI_MASK {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for HDI_MASK {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HEADERAREASTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HEADERCLOSESTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HEADERDROPDOWNFILTERSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HEADERDROPDOWNSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HEADERITEMLEFTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HEADERITEMRIGHTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HEADERITEMSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HEADEROVERFLOWSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HEADERPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HEADERPINSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HEADERSORTARROWSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HEADERSTYLESTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HEADER_CONTROL_FORMAT_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HEADER_CONTROL_FORMAT_STATE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HEADER_CONTROL_FORMAT_TYPE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HEADER_CONTROL_NOTIFICATION_BUTTON(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HEADER_HITTEST_INFO_FLAGS(pub u32);
-impl HEADER_HITTEST_INFO_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for HEADER_HITTEST_INFO_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for HEADER_HITTEST_INFO_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for HEADER_HITTEST_INFO_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for HEADER_HITTEST_INFO_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for HEADER_HITTEST_INFO_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HELPBUTTONSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HELPLINKSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HIT_TEST_BACKGROUND_OPTIONS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HORZSCROLLSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HORZTHUMBSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HOTGLYPHSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HOVERBACKGROUNDSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HYPERLINKSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HYPERLINKTEXTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ICONEFFECT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IEBARMENUSTATES(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGELAYOUT(pub i32);
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMAGELISTDRAWPARAMS {
+    pub cbSize: u32,
+    pub himl: HIMAGELIST,
+    pub i: i32,
+    pub hdcDst: super::super::Graphics::Gdi::HDC,
+    pub x: i32,
+    pub y: i32,
+    pub cx: i32,
+    pub cy: i32,
+    pub xBitmap: i32,
+    pub yBitmap: i32,
+    pub rgbBk: super::super::Foundation::COLORREF,
+    pub rgbFg: super::super::Foundation::COLORREF,
+    pub fStyle: u32,
+    pub dwRop: u32,
+    pub fState: u32,
+    pub Frame: u32,
+    pub crEffect: super::super::Foundation::COLORREF,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for IMAGELISTDRAWPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for IMAGELISTDRAWPARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMAGELISTSTATS {
+    pub cbSize: u32,
+    pub cAlloc: i32,
+    pub cUsed: i32,
+    pub cStandby: i32,
+}
+impl Default for IMAGELISTSTATS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMAGELISTSTATS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGELIST_CREATION_FLAGS(pub u32);
@@ -3174,6 +5008,21 @@ impl core::ops::Not for IMAGE_LIST_WRITE_STREAM_FLAGS {
         Self(self.0.not())
     }
 }
+pub const INFOTIPSIZE: u32 = 1024u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct INITCOMMONCONTROLSEX {
+    pub dwSize: u32,
+    pub dwICC: INITCOMMONCONTROLSEX_ICC,
+}
+impl Default for INITCOMMONCONTROLSEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for INITCOMMONCONTROLSEX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INITCOMMONCONTROLSEX_ICC(pub u32);
@@ -3210,12 +5059,94 @@ impl core::ops::Not for INITCOMMONCONTROLSEX_ICC {
         Self(self.0.not())
     }
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct INTLIST {
+    pub iValueCount: i32,
+    pub iValues: [i32; 402],
+}
+impl Default for INTLIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for INTLIST {
+    type TypeKind = windows_core::CopyType;
+}
+pub const INVALID_LINK_INDEX: i32 = -1i32;
+pub const IPM_CLEARADDRESS: u32 = 1124u32;
+pub const IPM_GETADDRESS: u32 = 1126u32;
+pub const IPM_ISBLANK: u32 = 1129u32;
+pub const IPM_SETADDRESS: u32 = 1125u32;
+pub const IPM_SETFOCUS: u32 = 1128u32;
+pub const IPM_SETRANGE: u32 = 1127u32;
+pub const IPN_FIELDCHANGED: u32 = 4294966436u32;
+pub const IPN_FIRST: u32 = 4294966436u32;
+pub const IPN_LAST: u32 = 4294966417u32;
+pub const IST_DPI: IMAGESELECTTYPE = IMAGESELECTTYPE(2i32);
+pub const IST_NONE: IMAGESELECTTYPE = IMAGESELECTTYPE(0i32);
+pub const IST_SIZE: IMAGESELECTTYPE = IMAGESELECTTYPE(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ITEMSTATES(pub i32);
+pub const I_CHILDRENAUTO: TVITEMEXW_CHILDREN = TVITEMEXW_CHILDREN(-2i32);
+pub const I_CHILDRENCALLBACK: TVITEMEXW_CHILDREN = TVITEMEXW_CHILDREN(-1i32);
+pub const I_GROUPIDCALLBACK: LVITEMA_GROUP_ID = LVITEMA_GROUP_ID(-1i32);
+pub const I_GROUPIDNONE: LVITEMA_GROUP_ID = LVITEMA_GROUP_ID(-2i32);
+pub const I_IMAGECALLBACK: i32 = -1i32;
+pub const I_IMAGENONE: i32 = -2i32;
+pub const I_INDENTCALLBACK: i32 = -1i32;
+pub const I_ONE_OR_MORE: TVITEMEXW_CHILDREN = TVITEMEXW_CHILDREN(1i32);
+pub const I_ZERO: TVITEMEXW_CHILDREN = TVITEMEXW_CHILDREN(0i32);
+pub const ImageList: windows_core::GUID = windows_core::GUID::from_u128(0x7c476ba2_02b1_48f4_8048_b24619ddc058);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LABELSTATES(pub i32);
+pub const LBCP_BORDER_HSCROLL: LISTBOXPARTS = LISTBOXPARTS(1i32);
+pub const LBCP_BORDER_HVSCROLL: LISTBOXPARTS = LISTBOXPARTS(2i32);
+pub const LBCP_BORDER_NOSCROLL: LISTBOXPARTS = LISTBOXPARTS(3i32);
+pub const LBCP_BORDER_VSCROLL: LISTBOXPARTS = LISTBOXPARTS(4i32);
+pub const LBCP_ITEM: LISTBOXPARTS = LISTBOXPARTS(5i32);
+pub const LBPSHV_DISABLED: BORDER_HVSCROLLSTATES = BORDER_HVSCROLLSTATES(4i32);
+pub const LBPSHV_FOCUSED: BORDER_HVSCROLLSTATES = BORDER_HVSCROLLSTATES(2i32);
+pub const LBPSHV_HOT: BORDER_HVSCROLLSTATES = BORDER_HVSCROLLSTATES(3i32);
+pub const LBPSHV_NORMAL: BORDER_HVSCROLLSTATES = BORDER_HVSCROLLSTATES(1i32);
+pub const LBPSH_DISABLED: BORDER_HSCROLLSTATES = BORDER_HSCROLLSTATES(4i32);
+pub const LBPSH_FOCUSED: BORDER_HSCROLLSTATES = BORDER_HSCROLLSTATES(2i32);
+pub const LBPSH_HOT: BORDER_HSCROLLSTATES = BORDER_HSCROLLSTATES(3i32);
+pub const LBPSH_NORMAL: BORDER_HSCROLLSTATES = BORDER_HSCROLLSTATES(1i32);
+pub const LBPSI_HOT: ITEMSTATES = ITEMSTATES(1i32);
+pub const LBPSI_HOTSELECTED: ITEMSTATES = ITEMSTATES(2i32);
+pub const LBPSI_SELECTED: ITEMSTATES = ITEMSTATES(3i32);
+pub const LBPSI_SELECTEDNOTFOCUS: ITEMSTATES = ITEMSTATES(4i32);
+pub const LBPSN_DISABLED: BORDER_NOSCROLLSTATES = BORDER_NOSCROLLSTATES(4i32);
+pub const LBPSN_FOCUSED: BORDER_NOSCROLLSTATES = BORDER_NOSCROLLSTATES(2i32);
+pub const LBPSN_HOT: BORDER_NOSCROLLSTATES = BORDER_NOSCROLLSTATES(3i32);
+pub const LBPSN_NORMAL: BORDER_NOSCROLLSTATES = BORDER_NOSCROLLSTATES(1i32);
+pub const LBPSV_DISABLED: BORDER_VSCROLLSTATES = BORDER_VSCROLLSTATES(4i32);
+pub const LBPSV_FOCUSED: BORDER_VSCROLLSTATES = BORDER_VSCROLLSTATES(2i32);
+pub const LBPSV_HOT: BORDER_VSCROLLSTATES = BORDER_VSCROLLSTATES(3i32);
+pub const LBPSV_NORMAL: BORDER_VSCROLLSTATES = BORDER_VSCROLLSTATES(1i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LHITTESTINFO {
+    pub pt: super::super::Foundation::POINT,
+    pub item: LITEM,
+}
+impl Default for LHITTESTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LHITTESTINFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const LIF_ITEMID: LIST_ITEM_FLAGS = LIST_ITEM_FLAGS(4u32);
+pub const LIF_ITEMINDEX: LIST_ITEM_FLAGS = LIST_ITEM_FLAGS(1u32);
+pub const LIF_STATE: LIST_ITEM_FLAGS = LIST_ITEM_FLAGS(2u32);
+pub const LIF_URL: LIST_ITEM_FLAGS = LIST_ITEM_FLAGS(8u32);
+pub const LIM_LARGE: _LI_METRIC = _LI_METRIC(1i32);
+pub const LIM_SMALL: _LI_METRIC = _LI_METRIC(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LINKHEADERSTATES(pub i32);
@@ -3225,6 +5156,12 @@ pub struct LINKPARTS(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LINKSTATES(pub i32);
+pub const LISS_DISABLED: LISTITEMSTATES = LISTITEMSTATES(4i32);
+pub const LISS_HOT: LISTITEMSTATES = LISTITEMSTATES(2i32);
+pub const LISS_HOTSELECTED: LISTITEMSTATES = LISTITEMSTATES(6i32);
+pub const LISS_NORMAL: LISTITEMSTATES = LISTITEMSTATES(1i32);
+pub const LISS_SELECTED: LISTITEMSTATES = LISTITEMSTATES(3i32);
+pub const LISS_SELECTEDNOTFOCUS: LISTITEMSTATES = LISTITEMSTATES(5i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LISTBOXPARTS(pub i32);
@@ -3489,9 +5426,189 @@ impl core::ops::Not for LIST_VIEW_ITEM_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LIST_VIEW_ITEM_STATE_FLAGS(pub u32);
+pub const LIS_DEFAULTCOLORS: LIST_ITEM_STATE_FLAGS = LIST_ITEM_STATE_FLAGS(16u32);
+pub const LIS_ENABLED: LIST_ITEM_STATE_FLAGS = LIST_ITEM_STATE_FLAGS(2u32);
+pub const LIS_FOCUSED: LIST_ITEM_STATE_FLAGS = LIST_ITEM_STATE_FLAGS(1u32);
+pub const LIS_HOTTRACK: LIST_ITEM_STATE_FLAGS = LIST_ITEM_STATE_FLAGS(8u32);
+pub const LIS_VISITED: LIST_ITEM_STATE_FLAGS = LIST_ITEM_STATE_FLAGS(4u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LITEM {
+    pub mask: LIST_ITEM_FLAGS,
+    pub iLink: i32,
+    pub state: LIST_ITEM_STATE_FLAGS,
+    pub stateMask: LIST_ITEM_STATE_FLAGS,
+    pub szID: [u16; 48],
+    pub szUrl: [u16; 2084],
+}
+impl Default for LITEM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LITEM {
+    type TypeKind = windows_core::CopyType;
+}
+pub const LM_GETIDEALHEIGHT: u32 = 1793u32;
+pub const LM_GETIDEALSIZE: u32 = 1793u32;
+pub const LM_GETITEM: u32 = 1795u32;
+pub const LM_HITTEST: u32 = 1792u32;
+pub const LM_SETITEM: u32 = 1794u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOGOFFBUTTONSSTATES(pub i32);
+pub type LPFNADDPROPSHEETPAGES = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: LPFNSVADDPROPSHEETPAGE, param2: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type LPFNCCINFOA = Option<unsafe extern "system" fn(acci: *mut CCINFOA) -> u32>;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type LPFNCCINFOW = Option<unsafe extern "system" fn(acci: *mut CCINFOW) -> u32>;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type LPFNCCSIZETOTEXTA = Option<unsafe extern "system" fn(flstyle: u32, flextstyle: u32, hfont: super::super::Graphics::Gdi::HFONT, psztext: windows_core::PCSTR) -> i32>;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type LPFNCCSIZETOTEXTW = Option<unsafe extern "system" fn(flstyle: u32, flextstyle: u32, hfont: super::super::Graphics::Gdi::HFONT, psztext: windows_core::PCWSTR) -> i32>;
+pub type LPFNCCSTYLEA = Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pccs: *mut CCSTYLEA) -> super::super::Foundation::BOOL>;
+pub type LPFNCCSTYLEW = Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pccs: *mut CCSTYLEW) -> super::super::Foundation::BOOL>;
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+pub type LPFNPSPCALLBACKA = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: PSPCB_MESSAGE, ppsp: *mut PROPSHEETPAGEA) -> u32>;
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+pub type LPFNPSPCALLBACKW = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: PSPCB_MESSAGE, ppsp: *mut PROPSHEETPAGEW) -> u32>;
+pub type LPFNSVADDPROPSHEETPAGE = Option<unsafe extern "system" fn(param0: HPROPSHEETPAGE, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub const LP_HYPERLINK: LINKPARTS = LINKPARTS(1i32);
+pub const LVA_ALIGNLEFT: u32 = 1u32;
+pub const LVA_ALIGNTOP: u32 = 2u32;
+pub const LVA_DEFAULT: u32 = 0u32;
+pub const LVA_SNAPTOGRID: u32 = 5u32;
+pub const LVBKIF_FLAG_ALPHABLEND: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(536870912u32);
+pub const LVBKIF_FLAG_TILEOFFSET: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(256u32);
+pub const LVBKIF_SOURCE_HBITMAP: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(1u32);
+pub const LVBKIF_SOURCE_MASK: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(3u32);
+pub const LVBKIF_SOURCE_NONE: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(0u32);
+pub const LVBKIF_SOURCE_URL: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(2u32);
+pub const LVBKIF_STYLE_MASK: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(16u32);
+pub const LVBKIF_STYLE_NORMAL: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(0u32);
+pub const LVBKIF_STYLE_TILE: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(16u32);
+pub const LVBKIF_TYPE_WATERMARK: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(268435456u32);
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LVBKIMAGEA {
+    pub ulFlags: LIST_VIEW_BACKGROUND_IMAGE_FLAGS,
+    pub hbm: super::super::Graphics::Gdi::HBITMAP,
+    pub pszImage: windows_core::PSTR,
+    pub cchImageMax: u32,
+    pub xOffsetPercent: i32,
+    pub yOffsetPercent: i32,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for LVBKIMAGEA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for LVBKIMAGEA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LVBKIMAGEW {
+    pub ulFlags: LIST_VIEW_BACKGROUND_IMAGE_FLAGS,
+    pub hbm: super::super::Graphics::Gdi::HBITMAP,
+    pub pszImage: windows_core::PWSTR,
+    pub cchImageMax: u32,
+    pub xOffsetPercent: i32,
+    pub yOffsetPercent: i32,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for LVBKIMAGEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for LVBKIMAGEW {
+    type TypeKind = windows_core::CopyType;
+}
+pub const LVCB_HOVER: COLLAPSEBUTTONSTATES = COLLAPSEBUTTONSTATES(2i32);
+pub const LVCB_NORMAL: COLLAPSEBUTTONSTATES = COLLAPSEBUTTONSTATES(1i32);
+pub const LVCB_PUSHED: COLLAPSEBUTTONSTATES = COLLAPSEBUTTONSTATES(3i32);
+pub const LVCDI_GROUP: NMLVCUSTOMDRAW_ITEM_TYPE = NMLVCUSTOMDRAW_ITEM_TYPE(1u32);
+pub const LVCDI_ITEM: NMLVCUSTOMDRAW_ITEM_TYPE = NMLVCUSTOMDRAW_ITEM_TYPE(0u32);
+pub const LVCDI_ITEMSLIST: NMLVCUSTOMDRAW_ITEM_TYPE = NMLVCUSTOMDRAW_ITEM_TYPE(2u32);
+pub const LVCDRF_NOGROUPFRAME: u32 = 131072u32;
+pub const LVCDRF_NOSELECT: u32 = 65536u32;
+pub const LVCFMT_BITMAP_ON_RIGHT: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(4096i32);
+pub const LVCFMT_CENTER: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(2i32);
+pub const LVCFMT_COL_HAS_IMAGES: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(32768i32);
+pub const LVCFMT_FILL: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(2097152i32);
+pub const LVCFMT_FIXED_RATIO: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(524288i32);
+pub const LVCFMT_FIXED_WIDTH: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(256i32);
+pub const LVCFMT_IMAGE: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(2048i32);
+pub const LVCFMT_JUSTIFYMASK: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(3i32);
+pub const LVCFMT_LEFT: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(0i32);
+pub const LVCFMT_LINE_BREAK: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(1048576i32);
+pub const LVCFMT_NO_DPI_SCALE: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(262144i32);
+pub const LVCFMT_NO_TITLE: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(8388608i32);
+pub const LVCFMT_RIGHT: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(1i32);
+pub const LVCFMT_SPLITBUTTON: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(16777216i32);
+pub const LVCFMT_TILE_PLACEMENTMASK: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(3145728i32);
+pub const LVCFMT_WRAP: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(4194304i32);
+pub const LVCF_DEFAULTWIDTH: LVCOLUMNW_MASK = LVCOLUMNW_MASK(128u32);
+pub const LVCF_FMT: LVCOLUMNW_MASK = LVCOLUMNW_MASK(1u32);
+pub const LVCF_IDEALWIDTH: LVCOLUMNW_MASK = LVCOLUMNW_MASK(256u32);
+pub const LVCF_IMAGE: LVCOLUMNW_MASK = LVCOLUMNW_MASK(16u32);
+pub const LVCF_MINWIDTH: LVCOLUMNW_MASK = LVCOLUMNW_MASK(64u32);
+pub const LVCF_ORDER: LVCOLUMNW_MASK = LVCOLUMNW_MASK(32u32);
+pub const LVCF_SUBITEM: LVCOLUMNW_MASK = LVCOLUMNW_MASK(8u32);
+pub const LVCF_TEXT: LVCOLUMNW_MASK = LVCOLUMNW_MASK(4u32);
+pub const LVCF_WIDTH: LVCOLUMNW_MASK = LVCOLUMNW_MASK(2u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LVCOLUMNA {
+    pub mask: LVCOLUMNW_MASK,
+    pub fmt: LVCOLUMNW_FORMAT,
+    pub cx: i32,
+    pub pszText: windows_core::PSTR,
+    pub cchTextMax: i32,
+    pub iSubItem: i32,
+    pub iImage: i32,
+    pub iOrder: i32,
+    pub cxMin: i32,
+    pub cxDefault: i32,
+    pub cxIdeal: i32,
+}
+impl Default for LVCOLUMNA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LVCOLUMNA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LVCOLUMNW {
+    pub mask: LVCOLUMNW_MASK,
+    pub fmt: LVCOLUMNW_FORMAT,
+    pub cx: i32,
+    pub pszText: windows_core::PWSTR,
+    pub cchTextMax: i32,
+    pub iSubItem: i32,
+    pub iImage: i32,
+    pub iOrder: i32,
+    pub cxMin: i32,
+    pub cxDefault: i32,
+    pub cxIdeal: i32,
+}
+impl Default for LVCOLUMNW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LVCOLUMNW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVCOLUMNW_FORMAT(pub i32);
@@ -3564,6 +5681,46 @@ impl core::ops::Not for LVCOLUMNW_MASK {
         Self(self.0.not())
     }
 }
+pub const LVEB_HOVER: EXPANDBUTTONSTATES = EXPANDBUTTONSTATES(2i32);
+pub const LVEB_NORMAL: EXPANDBUTTONSTATES = EXPANDBUTTONSTATES(1i32);
+pub const LVEB_PUSHED: EXPANDBUTTONSTATES = EXPANDBUTTONSTATES(3i32);
+pub const LVFF_ITEMCOUNT: u32 = 1u32;
+pub const LVFIF_STATE: LVFOOTERITEM_MASK = LVFOOTERITEM_MASK(2u32);
+pub const LVFIF_TEXT: LVFOOTERITEM_MASK = LVFOOTERITEM_MASK(1u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LVFINDINFOA {
+    pub flags: LVFINDINFOW_FLAGS,
+    pub psz: windows_core::PCSTR,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub pt: super::super::Foundation::POINT,
+    pub vkDirection: u32,
+}
+impl Default for LVFINDINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LVFINDINFOA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LVFINDINFOW {
+    pub flags: LVFINDINFOW_FLAGS,
+    pub psz: windows_core::PCWSTR,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub pt: super::super::Foundation::POINT,
+    pub vkDirection: u32,
+}
+impl Default for LVFINDINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LVFINDINFOW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVFINDINFOW_FLAGS(pub u32);
@@ -3600,9 +5757,173 @@ impl core::ops::Not for LVFINDINFOW_FLAGS {
         Self(self.0.not())
     }
 }
+pub const LVFIS_FOCUSED: u32 = 1u32;
+pub const LVFI_NEARESTXY: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(64u32);
+pub const LVFI_PARAM: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(1u32);
+pub const LVFI_PARTIAL: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(8u32);
+pub const LVFI_STRING: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(2u32);
+pub const LVFI_SUBSTRING: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(4u32);
+pub const LVFI_WRAP: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(32u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LVFOOTERINFO {
+    pub mask: u32,
+    pub pszText: windows_core::PWSTR,
+    pub cchTextMax: i32,
+    pub cItems: u32,
+}
+impl Default for LVFOOTERINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LVFOOTERINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LVFOOTERITEM {
+    pub mask: LVFOOTERITEM_MASK,
+    pub iItem: i32,
+    pub pszText: windows_core::PWSTR,
+    pub cchTextMax: i32,
+    pub state: u32,
+    pub stateMask: u32,
+}
+impl Default for LVFOOTERITEM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LVFOOTERITEM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVFOOTERITEM_MASK(pub u32);
+pub const LVGA_FOOTER_CENTER: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(16u32);
+pub const LVGA_FOOTER_LEFT: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(8u32);
+pub const LVGA_FOOTER_RIGHT: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(32u32);
+pub const LVGA_HEADER_CENTER: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(2u32);
+pub const LVGA_HEADER_LEFT: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(1u32);
+pub const LVGA_HEADER_RIGHT: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(4u32);
+pub const LVGF_ALIGN: LVGROUP_MASK = LVGROUP_MASK(8u32);
+pub const LVGF_DESCRIPTIONBOTTOM: LVGROUP_MASK = LVGROUP_MASK(2048u32);
+pub const LVGF_DESCRIPTIONTOP: LVGROUP_MASK = LVGROUP_MASK(1024u32);
+pub const LVGF_EXTENDEDIMAGE: LVGROUP_MASK = LVGROUP_MASK(8192u32);
+pub const LVGF_FOOTER: LVGROUP_MASK = LVGROUP_MASK(2u32);
+pub const LVGF_GROUPID: LVGROUP_MASK = LVGROUP_MASK(16u32);
+pub const LVGF_HEADER: LVGROUP_MASK = LVGROUP_MASK(1u32);
+pub const LVGF_ITEMS: LVGROUP_MASK = LVGROUP_MASK(16384u32);
+pub const LVGF_NONE: LVGROUP_MASK = LVGROUP_MASK(0u32);
+pub const LVGF_STATE: LVGROUP_MASK = LVGROUP_MASK(4u32);
+pub const LVGF_SUBSET: LVGROUP_MASK = LVGROUP_MASK(32768u32);
+pub const LVGF_SUBSETITEMS: LVGROUP_MASK = LVGROUP_MASK(65536u32);
+pub const LVGF_SUBTITLE: LVGROUP_MASK = LVGROUP_MASK(256u32);
+pub const LVGF_TASK: LVGROUP_MASK = LVGROUP_MASK(512u32);
+pub const LVGF_TITLEIMAGE: LVGROUP_MASK = LVGROUP_MASK(4096u32);
+pub const LVGGR_GROUP: u32 = 0u32;
+pub const LVGGR_HEADER: u32 = 1u32;
+pub const LVGGR_LABEL: u32 = 2u32;
+pub const LVGGR_SUBSETLINK: u32 = 3u32;
+pub const LVGHL_CLOSE: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(9i32);
+pub const LVGHL_CLOSEHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(10i32);
+pub const LVGHL_CLOSEMIXEDSELECTION: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(15i32);
+pub const LVGHL_CLOSEMIXEDSELECTIONHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(16i32);
+pub const LVGHL_CLOSESELECTED: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(11i32);
+pub const LVGHL_CLOSESELECTEDHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(12i32);
+pub const LVGHL_CLOSESELECTEDNOTFOCUSED: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(13i32);
+pub const LVGHL_CLOSESELECTEDNOTFOCUSEDHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(14i32);
+pub const LVGHL_OPEN: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(1i32);
+pub const LVGHL_OPENHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(2i32);
+pub const LVGHL_OPENMIXEDSELECTION: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(7i32);
+pub const LVGHL_OPENMIXEDSELECTIONHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(8i32);
+pub const LVGHL_OPENSELECTED: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(3i32);
+pub const LVGHL_OPENSELECTEDHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(4i32);
+pub const LVGHL_OPENSELECTEDNOTFOCUSED: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(5i32);
+pub const LVGHL_OPENSELECTEDNOTFOCUSEDHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(6i32);
+pub const LVGH_CLOSE: GROUPHEADERSTATES = GROUPHEADERSTATES(9i32);
+pub const LVGH_CLOSEHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(10i32);
+pub const LVGH_CLOSEMIXEDSELECTION: GROUPHEADERSTATES = GROUPHEADERSTATES(15i32);
+pub const LVGH_CLOSEMIXEDSELECTIONHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(16i32);
+pub const LVGH_CLOSESELECTED: GROUPHEADERSTATES = GROUPHEADERSTATES(11i32);
+pub const LVGH_CLOSESELECTEDHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(12i32);
+pub const LVGH_CLOSESELECTEDNOTFOCUSED: GROUPHEADERSTATES = GROUPHEADERSTATES(13i32);
+pub const LVGH_CLOSESELECTEDNOTFOCUSEDHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(14i32);
+pub const LVGH_OPEN: GROUPHEADERSTATES = GROUPHEADERSTATES(1i32);
+pub const LVGH_OPENHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(2i32);
+pub const LVGH_OPENMIXEDSELECTION: GROUPHEADERSTATES = GROUPHEADERSTATES(7i32);
+pub const LVGH_OPENMIXEDSELECTIONHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(8i32);
+pub const LVGH_OPENSELECTED: GROUPHEADERSTATES = GROUPHEADERSTATES(3i32);
+pub const LVGH_OPENSELECTEDHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(4i32);
+pub const LVGH_OPENSELECTEDNOTFOCUSED: GROUPHEADERSTATES = GROUPHEADERSTATES(5i32);
+pub const LVGH_OPENSELECTEDNOTFOCUSEDHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(6i32);
+pub const LVGIT_UNFOLDED: NMLVGETINFOTIP_FLAGS = NMLVGETINFOTIP_FLAGS(1u32);
+pub const LVGIT_ZERO: NMLVGETINFOTIP_FLAGS = NMLVGETINFOTIP_FLAGS(0u32);
+pub const LVGMF_BORDERCOLOR: u32 = 2u32;
+pub const LVGMF_BORDERSIZE: u32 = 1u32;
+pub const LVGMF_NONE: u32 = 0u32;
+pub const LVGMF_TEXTCOLOR: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LVGROUP {
+    pub cbSize: u32,
+    pub mask: LVGROUP_MASK,
+    pub pszHeader: windows_core::PWSTR,
+    pub cchHeader: i32,
+    pub pszFooter: windows_core::PWSTR,
+    pub cchFooter: i32,
+    pub iGroupId: i32,
+    pub stateMask: LIST_VIEW_GROUP_STATE_FLAGS,
+    pub state: LIST_VIEW_GROUP_STATE_FLAGS,
+    pub uAlign: LIST_VIEW_GROUP_ALIGN_FLAGS,
+    pub pszSubtitle: windows_core::PWSTR,
+    pub cchSubtitle: u32,
+    pub pszTask: windows_core::PWSTR,
+    pub cchTask: u32,
+    pub pszDescriptionTop: windows_core::PWSTR,
+    pub cchDescriptionTop: u32,
+    pub pszDescriptionBottom: windows_core::PWSTR,
+    pub cchDescriptionBottom: u32,
+    pub iTitleImage: i32,
+    pub iExtendedImage: i32,
+    pub iFirstItem: i32,
+    pub cItems: u32,
+    pub pszSubsetTitle: windows_core::PWSTR,
+    pub cchSubsetTitle: u32,
+}
+impl Default for LVGROUP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LVGROUP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LVGROUPMETRICS {
+    pub cbSize: u32,
+    pub mask: u32,
+    pub Left: u32,
+    pub Top: u32,
+    pub Right: u32,
+    pub Bottom: u32,
+    pub crLeft: super::super::Foundation::COLORREF,
+    pub crTop: super::super::Foundation::COLORREF,
+    pub crRight: super::super::Foundation::COLORREF,
+    pub crBottom: super::super::Foundation::COLORREF,
+    pub crHeader: super::super::Foundation::COLORREF,
+    pub crFooter: super::super::Foundation::COLORREF,
+}
+impl Default for LVGROUPMETRICS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LVGROUPMETRICS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVGROUP_MASK(pub u32);
@@ -3638,6 +5959,32 @@ impl core::ops::Not for LVGROUP_MASK {
     fn not(self) -> Self {
         Self(self.0.not())
     }
+}
+pub const LVGS_COLLAPSED: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(1u32);
+pub const LVGS_COLLAPSIBLE: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(8u32);
+pub const LVGS_FOCUSED: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(16u32);
+pub const LVGS_HIDDEN: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(2u32);
+pub const LVGS_NOHEADER: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(4u32);
+pub const LVGS_NORMAL: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(0u32);
+pub const LVGS_SELECTED: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(32u32);
+pub const LVGS_SUBSETED: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(64u32);
+pub const LVGS_SUBSETLINKFOCUSED: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(128u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LVHITTESTINFO {
+    pub pt: super::super::Foundation::POINT,
+    pub flags: LVHITTESTINFO_FLAGS,
+    pub iItem: i32,
+    pub iSubItem: i32,
+    pub iGroup: i32,
+}
+impl Default for LVHITTESTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LVHITTESTINFO {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3675,9 +6022,487 @@ impl core::ops::Not for LVHITTESTINFO_FLAGS {
         Self(self.0.not())
     }
 }
+pub const LVHT_ABOVE: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(8u32);
+pub const LVHT_BELOW: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(16u32);
+pub const LVHT_EX_FOOTER: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(134217728u32);
+pub const LVHT_EX_GROUP: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(4076863488u32);
+pub const LVHT_EX_GROUP_BACKGROUND: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(2147483648u32);
+pub const LVHT_EX_GROUP_COLLAPSE: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(1073741824u32);
+pub const LVHT_EX_GROUP_FOOTER: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(536870912u32);
+pub const LVHT_EX_GROUP_HEADER: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(268435456u32);
+pub const LVHT_EX_GROUP_STATEICON: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(16777216u32);
+pub const LVHT_EX_GROUP_SUBSETLINK: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(33554432u32);
+pub const LVHT_EX_ONCONTENTS: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(67108864u32);
+pub const LVHT_NOWHERE: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(1u32);
+pub const LVHT_ONITEMICON: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(2u32);
+pub const LVHT_ONITEMLABEL: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(4u32);
+pub const LVHT_ONITEMSTATEICON: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(8u32);
+pub const LVHT_TOLEFT: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(64u32);
+pub const LVHT_TORIGHT: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(32u32);
+pub const LVIF_COLFMT: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(65536u32);
+pub const LVIF_COLUMNS: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(512u32);
+pub const LVIF_DI_SETITEM: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(4096u32);
+pub const LVIF_GROUPID: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(256u32);
+pub const LVIF_IMAGE: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(2u32);
+pub const LVIF_INDENT: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(16u32);
+pub const LVIF_NORECOMPUTE: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(2048u32);
+pub const LVIF_PARAM: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(4u32);
+pub const LVIF_STATE: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(8u32);
+pub const LVIF_TEXT: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(1u32);
+pub const LVIM_AFTER: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LVINSERTGROUPSORTED {
+    pub pfnGroupCompare: PFNLVGROUPCOMPARE,
+    pub pvData: *mut core::ffi::c_void,
+    pub lvGroup: LVGROUP,
+}
+impl Default for LVINSERTGROUPSORTED {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LVINSERTGROUPSORTED {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LVINSERTMARK {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub iItem: i32,
+    pub dwReserved: u32,
+}
+impl Default for LVINSERTMARK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LVINSERTMARK {
+    type TypeKind = windows_core::CopyType;
+}
+pub const LVIR_BOUNDS: u32 = 0u32;
+pub const LVIR_ICON: u32 = 1u32;
+pub const LVIR_LABEL: u32 = 2u32;
+pub const LVIR_SELECTBOUNDS: u32 = 3u32;
+pub const LVIS_ACTIVATING: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(32u32);
+pub const LVIS_CUT: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(4u32);
+pub const LVIS_DROPHILITED: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(8u32);
+pub const LVIS_FOCUSED: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(1u32);
+pub const LVIS_GLOW: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(16u32);
+pub const LVIS_OVERLAYMASK: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(3840u32);
+pub const LVIS_SELECTED: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(2u32);
+pub const LVIS_STATEIMAGEMASK: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(61440u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LVITEMA {
+    pub mask: LIST_VIEW_ITEM_FLAGS,
+    pub iItem: i32,
+    pub iSubItem: i32,
+    pub state: LIST_VIEW_ITEM_STATE_FLAGS,
+    pub stateMask: LIST_VIEW_ITEM_STATE_FLAGS,
+    pub pszText: windows_core::PSTR,
+    pub cchTextMax: i32,
+    pub iImage: i32,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub iIndent: i32,
+    pub iGroupId: i32,
+    pub cColumns: u32,
+    pub puColumns: *mut u32,
+    pub piColFmt: *mut LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS,
+    pub iGroup: i32,
+}
+impl Default for LVITEMA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LVITEMA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVITEMA_GROUP_ID(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LVITEMINDEX {
+    pub iItem: i32,
+    pub iGroup: i32,
+}
+impl Default for LVITEMINDEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LVITEMINDEX {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LVITEMW {
+    pub mask: LIST_VIEW_ITEM_FLAGS,
+    pub iItem: i32,
+    pub iSubItem: i32,
+    pub state: LIST_VIEW_ITEM_STATE_FLAGS,
+    pub stateMask: LIST_VIEW_ITEM_STATE_FLAGS,
+    pub pszText: windows_core::PWSTR,
+    pub cchTextMax: i32,
+    pub iImage: i32,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub iIndent: i32,
+    pub iGroupId: i32,
+    pub cColumns: u32,
+    pub puColumns: *mut u32,
+    pub piColFmt: *mut LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS,
+    pub iGroup: i32,
+}
+impl Default for LVITEMW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LVITEMW {
+    type TypeKind = windows_core::CopyType;
+}
+pub const LVKF_ALT: u32 = 1u32;
+pub const LVKF_CONTROL: u32 = 2u32;
+pub const LVKF_SHIFT: u32 = 4u32;
+pub const LVM_APPROXIMATEVIEWRECT: u32 = 4160u32;
+pub const LVM_ARRANGE: u32 = 4118u32;
+pub const LVM_CANCELEDITLABEL: u32 = 4275u32;
+pub const LVM_CREATEDRAGIMAGE: u32 = 4129u32;
+pub const LVM_DELETEALLITEMS: u32 = 4105u32;
+pub const LVM_DELETECOLUMN: u32 = 4124u32;
+pub const LVM_DELETEITEM: u32 = 4104u32;
+pub const LVM_EDITLABEL: u32 = 4214u32;
+pub const LVM_EDITLABELA: u32 = 4119u32;
+pub const LVM_EDITLABELW: u32 = 4214u32;
+pub const LVM_ENABLEGROUPVIEW: u32 = 4253u32;
+pub const LVM_ENSUREVISIBLE: u32 = 4115u32;
+pub const LVM_FINDITEM: u32 = 4179u32;
+pub const LVM_FINDITEMA: u32 = 4109u32;
+pub const LVM_FINDITEMW: u32 = 4179u32;
+pub const LVM_FIRST: u32 = 4096u32;
+pub const LVM_GETBKCOLOR: u32 = 4096u32;
+pub const LVM_GETBKIMAGE: u32 = 4235u32;
+pub const LVM_GETBKIMAGEA: u32 = 4165u32;
+pub const LVM_GETBKIMAGEW: u32 = 4235u32;
+pub const LVM_GETCALLBACKMASK: u32 = 4106u32;
+pub const LVM_GETCOLUMN: u32 = 4191u32;
+pub const LVM_GETCOLUMNA: u32 = 4121u32;
+pub const LVM_GETCOLUMNORDERARRAY: u32 = 4155u32;
+pub const LVM_GETCOLUMNW: u32 = 4191u32;
+pub const LVM_GETCOLUMNWIDTH: u32 = 4125u32;
+pub const LVM_GETCOUNTPERPAGE: u32 = 4136u32;
+pub const LVM_GETEDITCONTROL: u32 = 4120u32;
+pub const LVM_GETEMPTYTEXT: u32 = 4300u32;
+pub const LVM_GETEXTENDEDLISTVIEWSTYLE: u32 = 4151u32;
+pub const LVM_GETFOCUSEDGROUP: u32 = 4189u32;
+pub const LVM_GETFOOTERINFO: u32 = 4302u32;
+pub const LVM_GETFOOTERITEM: u32 = 4304u32;
+pub const LVM_GETFOOTERITEMRECT: u32 = 4303u32;
+pub const LVM_GETFOOTERRECT: u32 = 4301u32;
+pub const LVM_GETGROUPCOUNT: u32 = 4248u32;
+pub const LVM_GETGROUPINFO: u32 = 4245u32;
+pub const LVM_GETGROUPINFOBYINDEX: u32 = 4249u32;
+pub const LVM_GETGROUPMETRICS: u32 = 4252u32;
+pub const LVM_GETGROUPRECT: u32 = 4194u32;
+pub const LVM_GETGROUPSTATE: u32 = 4188u32;
+pub const LVM_GETHEADER: u32 = 4127u32;
+pub const LVM_GETHOTCURSOR: u32 = 4159u32;
+pub const LVM_GETHOTITEM: u32 = 4157u32;
+pub const LVM_GETHOVERTIME: u32 = 4168u32;
+pub const LVM_GETIMAGELIST: u32 = 4098u32;
+pub const LVM_GETINSERTMARK: u32 = 4263u32;
+pub const LVM_GETINSERTMARKCOLOR: u32 = 4267u32;
+pub const LVM_GETINSERTMARKRECT: u32 = 4265u32;
+pub const LVM_GETISEARCHSTRING: u32 = 4213u32;
+pub const LVM_GETISEARCHSTRINGA: u32 = 4148u32;
+pub const LVM_GETISEARCHSTRINGW: u32 = 4213u32;
+pub const LVM_GETITEM: u32 = 4171u32;
+pub const LVM_GETITEMA: u32 = 4101u32;
+pub const LVM_GETITEMCOUNT: u32 = 4100u32;
+pub const LVM_GETITEMINDEXRECT: u32 = 4305u32;
+pub const LVM_GETITEMPOSITION: u32 = 4112u32;
+pub const LVM_GETITEMRECT: u32 = 4110u32;
+pub const LVM_GETITEMSPACING: u32 = 4147u32;
+pub const LVM_GETITEMSTATE: u32 = 4140u32;
+pub const LVM_GETITEMTEXT: u32 = 4211u32;
+pub const LVM_GETITEMTEXTA: u32 = 4141u32;
+pub const LVM_GETITEMTEXTW: u32 = 4211u32;
+pub const LVM_GETITEMW: u32 = 4171u32;
+pub const LVM_GETNEXTITEM: u32 = 4108u32;
+pub const LVM_GETNEXTITEMINDEX: u32 = 4307u32;
+pub const LVM_GETNUMBEROFWORKAREAS: u32 = 4169u32;
+pub const LVM_GETORIGIN: u32 = 4137u32;
+pub const LVM_GETOUTLINECOLOR: u32 = 4272u32;
+pub const LVM_GETSELECTEDCOLUMN: u32 = 4270u32;
+pub const LVM_GETSELECTEDCOUNT: u32 = 4146u32;
+pub const LVM_GETSELECTIONMARK: u32 = 4162u32;
+pub const LVM_GETSTRINGWIDTH: u32 = 4183u32;
+pub const LVM_GETSTRINGWIDTHA: u32 = 4113u32;
+pub const LVM_GETSTRINGWIDTHW: u32 = 4183u32;
+pub const LVM_GETSUBITEMRECT: u32 = 4152u32;
+pub const LVM_GETTEXTBKCOLOR: u32 = 4133u32;
+pub const LVM_GETTEXTCOLOR: u32 = 4131u32;
+pub const LVM_GETTILEINFO: u32 = 4261u32;
+pub const LVM_GETTILEVIEWINFO: u32 = 4259u32;
+pub const LVM_GETTOOLTIPS: u32 = 4174u32;
+pub const LVM_GETTOPINDEX: u32 = 4135u32;
+pub const LVM_GETUNICODEFORMAT: u32 = 8198u32;
+pub const LVM_GETVIEW: u32 = 4239u32;
+pub const LVM_GETVIEWRECT: u32 = 4130u32;
+pub const LVM_GETWORKAREAS: u32 = 4166u32;
+pub const LVM_HASGROUP: u32 = 4257u32;
+pub const LVM_HITTEST: u32 = 4114u32;
+pub const LVM_INSERTCOLUMN: u32 = 4193u32;
+pub const LVM_INSERTCOLUMNA: u32 = 4123u32;
+pub const LVM_INSERTCOLUMNW: u32 = 4193u32;
+pub const LVM_INSERTGROUP: u32 = 4241u32;
+pub const LVM_INSERTGROUPSORTED: u32 = 4255u32;
+pub const LVM_INSERTITEM: u32 = 4173u32;
+pub const LVM_INSERTITEMA: u32 = 4103u32;
+pub const LVM_INSERTITEMW: u32 = 4173u32;
+pub const LVM_INSERTMARKHITTEST: u32 = 4264u32;
+pub const LVM_ISGROUPVIEWENABLED: u32 = 4271u32;
+pub const LVM_ISITEMVISIBLE: u32 = 4278u32;
+pub const LVM_MAPIDTOINDEX: u32 = 4277u32;
+pub const LVM_MAPINDEXTOID: u32 = 4276u32;
+pub const LVM_MOVEGROUP: u32 = 4247u32;
+pub const LVM_MOVEITEMTOGROUP: u32 = 4250u32;
+pub const LVM_REDRAWITEMS: u32 = 4117u32;
+pub const LVM_REMOVEALLGROUPS: u32 = 4256u32;
+pub const LVM_REMOVEGROUP: u32 = 4246u32;
+pub const LVM_SCROLL: u32 = 4116u32;
+pub const LVM_SETBKCOLOR: u32 = 4097u32;
+pub const LVM_SETBKIMAGE: u32 = 4234u32;
+pub const LVM_SETBKIMAGEA: u32 = 4164u32;
+pub const LVM_SETBKIMAGEW: u32 = 4234u32;
+pub const LVM_SETCALLBACKMASK: u32 = 4107u32;
+pub const LVM_SETCOLUMN: u32 = 4192u32;
+pub const LVM_SETCOLUMNA: u32 = 4122u32;
+pub const LVM_SETCOLUMNORDERARRAY: u32 = 4154u32;
+pub const LVM_SETCOLUMNW: u32 = 4192u32;
+pub const LVM_SETCOLUMNWIDTH: u32 = 4126u32;
+pub const LVM_SETEXTENDEDLISTVIEWSTYLE: u32 = 4150u32;
+pub const LVM_SETGROUPINFO: u32 = 4243u32;
+pub const LVM_SETGROUPMETRICS: u32 = 4251u32;
+pub const LVM_SETHOTCURSOR: u32 = 4158u32;
+pub const LVM_SETHOTITEM: u32 = 4156u32;
+pub const LVM_SETHOVERTIME: u32 = 4167u32;
+pub const LVM_SETICONSPACING: u32 = 4149u32;
+pub const LVM_SETIMAGELIST: u32 = 4099u32;
+pub const LVM_SETINFOTIP: u32 = 4269u32;
+pub const LVM_SETINSERTMARK: u32 = 4262u32;
+pub const LVM_SETINSERTMARKCOLOR: u32 = 4266u32;
+pub const LVM_SETITEM: u32 = 4172u32;
+pub const LVM_SETITEMA: u32 = 4102u32;
+pub const LVM_SETITEMCOUNT: u32 = 4143u32;
+pub const LVM_SETITEMINDEXSTATE: u32 = 4306u32;
+pub const LVM_SETITEMPOSITION: u32 = 4111u32;
+pub const LVM_SETITEMPOSITION32: u32 = 4145u32;
+pub const LVM_SETITEMSTATE: u32 = 4139u32;
+pub const LVM_SETITEMTEXT: u32 = 4212u32;
+pub const LVM_SETITEMTEXTA: u32 = 4142u32;
+pub const LVM_SETITEMTEXTW: u32 = 4212u32;
+pub const LVM_SETITEMW: u32 = 4172u32;
+pub const LVM_SETOUTLINECOLOR: u32 = 4273u32;
+pub const LVM_SETSELECTEDCOLUMN: u32 = 4236u32;
+pub const LVM_SETSELECTIONMARK: u32 = 4163u32;
+pub const LVM_SETTEXTBKCOLOR: u32 = 4134u32;
+pub const LVM_SETTEXTCOLOR: u32 = 4132u32;
+pub const LVM_SETTILEINFO: u32 = 4260u32;
+pub const LVM_SETTILEVIEWINFO: u32 = 4258u32;
+pub const LVM_SETTOOLTIPS: u32 = 4170u32;
+pub const LVM_SETUNICODEFORMAT: u32 = 8197u32;
+pub const LVM_SETVIEW: u32 = 4238u32;
+pub const LVM_SETWORKAREAS: u32 = 4161u32;
+pub const LVM_SORTGROUPS: u32 = 4254u32;
+pub const LVM_SORTITEMS: u32 = 4144u32;
+pub const LVM_SORTITEMSEX: u32 = 4177u32;
+pub const LVM_SUBITEMHITTEST: u32 = 4153u32;
+pub const LVM_UPDATE: u32 = 4138u32;
+pub const LVNI_ABOVE: u32 = 256u32;
+pub const LVNI_ALL: u32 = 0u32;
+pub const LVNI_BELOW: u32 = 512u32;
+pub const LVNI_CUT: u32 = 4u32;
+pub const LVNI_DROPHILITED: u32 = 8u32;
+pub const LVNI_FOCUSED: u32 = 1u32;
+pub const LVNI_PREVIOUS: u32 = 32u32;
+pub const LVNI_SAMEGROUPONLY: u32 = 128u32;
+pub const LVNI_SELECTED: u32 = 2u32;
+pub const LVNI_TOLEFT: u32 = 1024u32;
+pub const LVNI_TORIGHT: u32 = 2048u32;
+pub const LVNI_VISIBLEONLY: u32 = 64u32;
+pub const LVNI_VISIBLEORDER: u32 = 16u32;
+pub const LVNSCH_DEFAULT: i32 = -1i32;
+pub const LVNSCH_ERROR: i32 = -2i32;
+pub const LVNSCH_IGNORE: i32 = -3i32;
+pub const LVN_BEGINDRAG: u32 = 4294967187u32;
+pub const LVN_BEGINLABELEDIT: u32 = 4294967121u32;
+pub const LVN_BEGINLABELEDITA: u32 = 4294967191u32;
+pub const LVN_BEGINLABELEDITW: u32 = 4294967121u32;
+pub const LVN_BEGINRDRAG: u32 = 4294967185u32;
+pub const LVN_BEGINSCROLL: u32 = 4294967116u32;
+pub const LVN_COLUMNCLICK: u32 = 4294967188u32;
+pub const LVN_COLUMNDROPDOWN: u32 = 4294967132u32;
+pub const LVN_COLUMNOVERFLOWCLICK: u32 = 4294967130u32;
+pub const LVN_DELETEALLITEMS: u32 = 4294967192u32;
+pub const LVN_DELETEITEM: u32 = 4294967193u32;
+pub const LVN_ENDLABELEDIT: u32 = 4294967120u32;
+pub const LVN_ENDLABELEDITA: u32 = 4294967190u32;
+pub const LVN_ENDLABELEDITW: u32 = 4294967120u32;
+pub const LVN_ENDSCROLL: u32 = 4294967115u32;
+pub const LVN_FIRST: u32 = 4294967196u32;
+pub const LVN_GETDISPINFO: u32 = 4294967119u32;
+pub const LVN_GETDISPINFOA: u32 = 4294967146u32;
+pub const LVN_GETDISPINFOW: u32 = 4294967119u32;
+pub const LVN_GETEMPTYMARKUP: u32 = 4294967109u32;
+pub const LVN_GETINFOTIP: u32 = 4294967138u32;
+pub const LVN_GETINFOTIPA: u32 = 4294967139u32;
+pub const LVN_GETINFOTIPW: u32 = 4294967138u32;
+pub const LVN_HOTTRACK: u32 = 4294967175u32;
+pub const LVN_INCREMENTALSEARCH: u32 = 4294967133u32;
+pub const LVN_INCREMENTALSEARCHA: u32 = 4294967134u32;
+pub const LVN_INCREMENTALSEARCHW: u32 = 4294967133u32;
+pub const LVN_INSERTITEM: u32 = 4294967194u32;
+pub const LVN_ITEMACTIVATE: u32 = 4294967182u32;
+pub const LVN_ITEMCHANGED: u32 = 4294967195u32;
+pub const LVN_ITEMCHANGING: u32 = 4294967196u32;
+pub const LVN_KEYDOWN: u32 = 4294967141u32;
+pub const LVN_LAST: u32 = 4294967097u32;
+pub const LVN_LINKCLICK: u32 = 4294967112u32;
+pub const LVN_MARQUEEBEGIN: u32 = 4294967140u32;
+pub const LVN_ODCACHEHINT: u32 = 4294967183u32;
+pub const LVN_ODFINDITEM: u32 = 4294967117u32;
+pub const LVN_ODFINDITEMA: u32 = 4294967144u32;
+pub const LVN_ODFINDITEMW: u32 = 4294967117u32;
+pub const LVN_ODSTATECHANGED: u32 = 4294967181u32;
+pub const LVN_SETDISPINFO: u32 = 4294967118u32;
+pub const LVN_SETDISPINFOA: u32 = 4294967145u32;
+pub const LVN_SETDISPINFOW: u32 = 4294967118u32;
+pub const LVP_COLLAPSEBUTTON: LISTVIEWPARTS = LISTVIEWPARTS(9i32);
+pub const LVP_COLUMNDETAIL: LISTVIEWPARTS = LISTVIEWPARTS(10i32);
+pub const LVP_EMPTYTEXT: LISTVIEWPARTS = LISTVIEWPARTS(5i32);
+pub const LVP_EXPANDBUTTON: LISTVIEWPARTS = LISTVIEWPARTS(8i32);
+pub const LVP_GROUPHEADER: LISTVIEWPARTS = LISTVIEWPARTS(6i32);
+pub const LVP_GROUPHEADERLINE: LISTVIEWPARTS = LISTVIEWPARTS(7i32);
+pub const LVP_LISTDETAIL: LISTVIEWPARTS = LISTVIEWPARTS(3i32);
+pub const LVP_LISTGROUP: LISTVIEWPARTS = LISTVIEWPARTS(2i32);
+pub const LVP_LISTITEM: LISTVIEWPARTS = LISTVIEWPARTS(1i32);
+pub const LVP_LISTSORTEDDETAIL: LISTVIEWPARTS = LISTVIEWPARTS(4i32);
+pub const LVSCW_AUTOSIZE: i32 = -1i32;
+pub const LVSCW_AUTOSIZE_USEHEADER: i32 = -2i32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LVSETINFOTIP {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub pszText: windows_core::PWSTR,
+    pub iItem: i32,
+    pub iSubItem: i32,
+}
+impl Default for LVSETINFOTIP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LVSETINFOTIP {
+    type TypeKind = windows_core::CopyType;
+}
+pub const LVSICF_NOINVALIDATEALL: u32 = 1u32;
+pub const LVSICF_NOSCROLL: u32 = 2u32;
+pub const LVSIL_GROUPHEADER: u32 = 3u32;
+pub const LVSIL_NORMAL: u32 = 0u32;
+pub const LVSIL_SMALL: u32 = 1u32;
+pub const LVSIL_STATE: u32 = 2u32;
+pub const LVS_ALIGNLEFT: u32 = 2048u32;
+pub const LVS_ALIGNMASK: u32 = 3072u32;
+pub const LVS_ALIGNTOP: u32 = 0u32;
+pub const LVS_AUTOARRANGE: u32 = 256u32;
+pub const LVS_EDITLABELS: u32 = 512u32;
+pub const LVS_EX_AUTOAUTOARRANGE: u32 = 16777216u32;
+pub const LVS_EX_AUTOCHECKSELECT: u32 = 134217728u32;
+pub const LVS_EX_AUTOSIZECOLUMNS: u32 = 268435456u32;
+pub const LVS_EX_BORDERSELECT: u32 = 32768u32;
+pub const LVS_EX_CHECKBOXES: u32 = 4u32;
+pub const LVS_EX_COLUMNOVERFLOW: u32 = 2147483648u32;
+pub const LVS_EX_COLUMNSNAPPOINTS: u32 = 1073741824u32;
+pub const LVS_EX_DOUBLEBUFFER: u32 = 65536u32;
+pub const LVS_EX_FLATSB: u32 = 256u32;
+pub const LVS_EX_FULLROWSELECT: u32 = 32u32;
+pub const LVS_EX_GRIDLINES: u32 = 1u32;
+pub const LVS_EX_HEADERDRAGDROP: u32 = 16u32;
+pub const LVS_EX_HEADERINALLVIEWS: u32 = 33554432u32;
+pub const LVS_EX_HIDELABELS: u32 = 131072u32;
+pub const LVS_EX_INFOTIP: u32 = 1024u32;
+pub const LVS_EX_JUSTIFYCOLUMNS: u32 = 2097152u32;
+pub const LVS_EX_LABELTIP: u32 = 16384u32;
+pub const LVS_EX_MULTIWORKAREAS: u32 = 8192u32;
+pub const LVS_EX_ONECLICKACTIVATE: u32 = 64u32;
+pub const LVS_EX_REGIONAL: u32 = 512u32;
+pub const LVS_EX_SIMPLESELECT: u32 = 1048576u32;
+pub const LVS_EX_SINGLEROW: u32 = 262144u32;
+pub const LVS_EX_SNAPTOGRID: u32 = 524288u32;
+pub const LVS_EX_SUBITEMIMAGES: u32 = 2u32;
+pub const LVS_EX_TRACKSELECT: u32 = 8u32;
+pub const LVS_EX_TRANSPARENTBKGND: u32 = 4194304u32;
+pub const LVS_EX_TRANSPARENTSHADOWTEXT: u32 = 8388608u32;
+pub const LVS_EX_TWOCLICKACTIVATE: u32 = 128u32;
+pub const LVS_EX_UNDERLINECOLD: u32 = 4096u32;
+pub const LVS_EX_UNDERLINEHOT: u32 = 2048u32;
+pub const LVS_ICON: u32 = 0u32;
+pub const LVS_LIST: u32 = 3u32;
+pub const LVS_NOCOLUMNHEADER: u32 = 16384u32;
+pub const LVS_NOLABELWRAP: u32 = 128u32;
+pub const LVS_NOSCROLL: u32 = 8192u32;
+pub const LVS_NOSORTHEADER: u32 = 32768u32;
+pub const LVS_OWNERDATA: u32 = 4096u32;
+pub const LVS_OWNERDRAWFIXED: u32 = 1024u32;
+pub const LVS_REPORT: u32 = 1u32;
+pub const LVS_SHAREIMAGELISTS: u32 = 64u32;
+pub const LVS_SHOWSELALWAYS: u32 = 8u32;
+pub const LVS_SINGLESEL: u32 = 4u32;
+pub const LVS_SMALLICON: u32 = 2u32;
+pub const LVS_SORTASCENDING: u32 = 16u32;
+pub const LVS_SORTDESCENDING: u32 = 32u32;
+pub const LVS_TYPEMASK: u32 = 3u32;
+pub const LVS_TYPESTYLEMASK: u32 = 64512u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LVTILEINFO {
+    pub cbSize: u32,
+    pub iItem: i32,
+    pub cColumns: u32,
+    pub puColumns: *mut u32,
+    pub piColFmt: *mut i32,
+}
+impl Default for LVTILEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LVTILEINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LVTILEVIEWINFO {
+    pub cbSize: u32,
+    pub dwMask: LVTILEVIEWINFO_MASK,
+    pub dwFlags: LVTILEVIEWINFO_FLAGS,
+    pub sizeTile: super::super::Foundation::SIZE,
+    pub cLines: i32,
+    pub rcLabelMargin: super::super::Foundation::RECT,
+}
+impl Default for LVTILEVIEWINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LVTILEVIEWINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVTILEVIEWINFO_FLAGS(pub u32);
@@ -3750,15 +6575,126 @@ impl core::ops::Not for LVTILEVIEWINFO_MASK {
         Self(self.0.not())
     }
 }
+pub const LVTVIF_AUTOSIZE: LVTILEVIEWINFO_FLAGS = LVTILEVIEWINFO_FLAGS(0u32);
+pub const LVTVIF_EXTENDED: u32 = 4u32;
+pub const LVTVIF_FIXEDHEIGHT: LVTILEVIEWINFO_FLAGS = LVTILEVIEWINFO_FLAGS(2u32);
+pub const LVTVIF_FIXEDSIZE: LVTILEVIEWINFO_FLAGS = LVTILEVIEWINFO_FLAGS(3u32);
+pub const LVTVIF_FIXEDWIDTH: LVTILEVIEWINFO_FLAGS = LVTILEVIEWINFO_FLAGS(1u32);
+pub const LVTVIM_COLUMNS: LVTILEVIEWINFO_MASK = LVTILEVIEWINFO_MASK(2u32);
+pub const LVTVIM_LABELMARGIN: LVTILEVIEWINFO_MASK = LVTILEVIEWINFO_MASK(4u32);
+pub const LVTVIM_TILESIZE: LVTILEVIEWINFO_MASK = LVTILEVIEWINFO_MASK(1u32);
+pub const LV_MAX_WORKAREAS: u32 = 16u32;
+pub const LV_VIEW_DETAILS: u32 = 1u32;
+pub const LV_VIEW_ICON: u32 = 0u32;
+pub const LV_VIEW_LIST: u32 = 3u32;
+pub const LV_VIEW_MAX: u32 = 4u32;
+pub const LV_VIEW_SMALLICON: u32 = 2u32;
+pub const LV_VIEW_TILE: u32 = 4u32;
+pub const LWS_IGNORERETURN: u32 = 2u32;
+pub const LWS_NOPREFIX: u32 = 4u32;
+pub const LWS_RIGHT: u32 = 32u32;
+pub const LWS_TRANSPARENT: u32 = 1u32;
+pub const LWS_USECUSTOMTEXT: u32 = 16u32;
+pub const LWS_USEVISUALSTYLE: u32 = 8u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MARGINS {
+    pub cxLeftWidth: i32,
+    pub cxRightWidth: i32,
+    pub cyTopHeight: i32,
+    pub cyBottomHeight: i32,
+}
+impl Default for MARGINS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MARGINS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MARKUPTEXTSTATES(pub i32);
+pub const MAXBS_DISABLED: MAXBUTTONSTATES = MAXBUTTONSTATES(4i32);
+pub const MAXBS_HOT: MAXBUTTONSTATES = MAXBUTTONSTATES(2i32);
+pub const MAXBS_NORMAL: MAXBUTTONSTATES = MAXBUTTONSTATES(1i32);
+pub const MAXBS_PUSHED: MAXBUTTONSTATES = MAXBUTTONSTATES(3i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MAXBUTTONSTATES(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MAXCAPTIONSTATES(pub i32);
+pub const MAXPROPPAGES: u32 = 100u32;
+pub const MAX_INTLIST_COUNT: u32 = 402u32;
+pub const MAX_LINKID_TEXT: u32 = 48u32;
+pub const MAX_THEMECOLOR: u32 = 64u32;
+pub const MAX_THEMESIZE: u32 = 64u32;
+pub const MBI_DISABLED: BARITEMSTATES = BARITEMSTATES(4i32);
+pub const MBI_DISABLEDHOT: BARITEMSTATES = BARITEMSTATES(5i32);
+pub const MBI_DISABLEDPUSHED: BARITEMSTATES = BARITEMSTATES(6i32);
+pub const MBI_HOT: BARITEMSTATES = BARITEMSTATES(2i32);
+pub const MBI_NORMAL: BARITEMSTATES = BARITEMSTATES(1i32);
+pub const MBI_PUSHED: BARITEMSTATES = BARITEMSTATES(3i32);
+pub const MB_ACTIVE: BARBACKGROUNDSTATES = BARBACKGROUNDSTATES(1i32);
+pub const MB_INACTIVE: BARBACKGROUNDSTATES = BARBACKGROUNDSTATES(2i32);
+pub const MCB_BITMAP: POPUPCHECKBACKGROUNDSTATES = POPUPCHECKBACKGROUNDSTATES(3i32);
+pub const MCB_DISABLED: POPUPCHECKBACKGROUNDSTATES = POPUPCHECKBACKGROUNDSTATES(1i32);
+pub const MCB_NORMAL: POPUPCHECKBACKGROUNDSTATES = POPUPCHECKBACKGROUNDSTATES(2i32);
+pub const MCGCB_HOT: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(2i32);
+pub const MCGCB_SELECTED: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(1i32);
+pub const MCGCB_SELECTEDHOT: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(3i32);
+pub const MCGCB_SELECTEDNOTFOCUSED: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(4i32);
+pub const MCGCB_TODAY: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(5i32);
+pub const MCGCB_TODAYSELECTED: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(6i32);
+pub const MCGCU_HASSTATE: GRIDCELLUPPERSTATES = GRIDCELLUPPERSTATES(2i32);
+pub const MCGCU_HASSTATEHOT: GRIDCELLUPPERSTATES = GRIDCELLUPPERSTATES(3i32);
+pub const MCGCU_HOT: GRIDCELLUPPERSTATES = GRIDCELLUPPERSTATES(1i32);
+pub const MCGCU_SELECTED: GRIDCELLUPPERSTATES = GRIDCELLUPPERSTATES(4i32);
+pub const MCGCU_SELECTEDHOT: GRIDCELLUPPERSTATES = GRIDCELLUPPERSTATES(5i32);
+pub const MCGC_HASSTATE: GRIDCELLSTATES = GRIDCELLSTATES(2i32);
+pub const MCGC_HASSTATEHOT: GRIDCELLSTATES = GRIDCELLSTATES(3i32);
+pub const MCGC_HOT: GRIDCELLSTATES = GRIDCELLSTATES(1i32);
+pub const MCGC_SELECTED: GRIDCELLSTATES = GRIDCELLSTATES(6i32);
+pub const MCGC_SELECTEDHOT: GRIDCELLSTATES = GRIDCELLSTATES(7i32);
+pub const MCGC_TODAY: GRIDCELLSTATES = GRIDCELLSTATES(4i32);
+pub const MCGC_TODAYSELECTED: GRIDCELLSTATES = GRIDCELLSTATES(5i32);
+pub const MCGIF_DATE: MCGRIDINFO_FLAGS = MCGRIDINFO_FLAGS(1u32);
+pub const MCGIF_NAME: MCGRIDINFO_FLAGS = MCGRIDINFO_FLAGS(4u32);
+pub const MCGIF_RECT: MCGRIDINFO_FLAGS = MCGRIDINFO_FLAGS(2u32);
+pub const MCGIP_CALENDAR: MCGRIDINFO_PART = MCGRIDINFO_PART(4u32);
+pub const MCGIP_CALENDARBODY: MCGRIDINFO_PART = MCGRIDINFO_PART(6u32);
+pub const MCGIP_CALENDARCELL: MCGRIDINFO_PART = MCGRIDINFO_PART(8u32);
+pub const MCGIP_CALENDARCONTROL: MCGRIDINFO_PART = MCGRIDINFO_PART(0u32);
+pub const MCGIP_CALENDARHEADER: MCGRIDINFO_PART = MCGRIDINFO_PART(5u32);
+pub const MCGIP_CALENDARROW: MCGRIDINFO_PART = MCGRIDINFO_PART(7u32);
+pub const MCGIP_FOOTER: MCGRIDINFO_PART = MCGRIDINFO_PART(3u32);
+pub const MCGIP_NEXT: MCGRIDINFO_PART = MCGRIDINFO_PART(1u32);
+pub const MCGIP_PREV: MCGRIDINFO_PART = MCGRIDINFO_PART(2u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MCGRIDINFO {
+    pub cbSize: u32,
+    pub dwPart: MCGRIDINFO_PART,
+    pub dwFlags: MCGRIDINFO_FLAGS,
+    pub iCalendar: i32,
+    pub iRow: i32,
+    pub iCol: i32,
+    pub bSelected: super::super::Foundation::BOOL,
+    pub stStart: super::super::Foundation::SYSTEMTIME,
+    pub stEnd: super::super::Foundation::SYSTEMTIME,
+    pub rc: super::super::Foundation::RECT,
+    pub pszName: windows_core::PWSTR,
+    pub cchName: usize,
+}
+impl Default for MCGRIDINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MCGRIDINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCGRIDINFO_FLAGS(pub u32);
@@ -3798,6 +6734,26 @@ impl core::ops::Not for MCGRIDINFO_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCGRIDINFO_PART(pub u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MCHITTESTINFO {
+    pub cbSize: u32,
+    pub pt: super::super::Foundation::POINT,
+    pub uHit: MCHITTESTINFO_HIT_FLAGS,
+    pub st: super::super::Foundation::SYSTEMTIME,
+    pub rc: super::super::Foundation::RECT,
+    pub iOffset: i32,
+    pub iRow: i32,
+    pub iCol: i32,
+}
+impl Default for MCHITTESTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MCHITTESTINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCHITTESTINFO_HIT_FLAGS(pub u32);
@@ -3834,6 +6790,123 @@ impl core::ops::Not for MCHITTESTINFO_HIT_FLAGS {
         Self(self.0.not())
     }
 }
+pub const MCHT_CALENDAR: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131072u32);
+pub const MCHT_CALENDARBK: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131072u32);
+pub const MCHT_CALENDARCONTROL: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(1048576u32);
+pub const MCHT_CALENDARDATE: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131073u32);
+pub const MCHT_CALENDARDATEMAX: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131077u32);
+pub const MCHT_CALENDARDATEMIN: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131076u32);
+pub const MCHT_CALENDARDATENEXT: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(16908289u32);
+pub const MCHT_CALENDARDATEPREV: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(33685505u32);
+pub const MCHT_CALENDARDAY: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131074u32);
+pub const MCHT_CALENDARWEEKNUM: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131075u32);
+pub const MCHT_NEXT: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(16777216u32);
+pub const MCHT_NOWHERE: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(0u32);
+pub const MCHT_PREV: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(33554432u32);
+pub const MCHT_TITLE: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(65536u32);
+pub const MCHT_TITLEBK: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(65536u32);
+pub const MCHT_TITLEBTNNEXT: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(16842755u32);
+pub const MCHT_TITLEBTNPREV: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(33619971u32);
+pub const MCHT_TITLEMONTH: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(65537u32);
+pub const MCHT_TITLEYEAR: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(65538u32);
+pub const MCHT_TODAYLINK: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(196608u32);
+pub const MCMV_CENTURY: MONTH_CALDENDAR_MESSAGES_VIEW = MONTH_CALDENDAR_MESSAGES_VIEW(3u32);
+pub const MCMV_DECADE: MONTH_CALDENDAR_MESSAGES_VIEW = MONTH_CALDENDAR_MESSAGES_VIEW(2u32);
+pub const MCMV_MAX: MONTH_CALDENDAR_MESSAGES_VIEW = MONTH_CALDENDAR_MESSAGES_VIEW(3u32);
+pub const MCMV_MONTH: MONTH_CALDENDAR_MESSAGES_VIEW = MONTH_CALDENDAR_MESSAGES_VIEW(0u32);
+pub const MCMV_YEAR: MONTH_CALDENDAR_MESSAGES_VIEW = MONTH_CALDENDAR_MESSAGES_VIEW(1u32);
+pub const MCM_FIRST: u32 = 4096u32;
+pub const MCM_GETCALENDARBORDER: u32 = 4127u32;
+pub const MCM_GETCALENDARCOUNT: u32 = 4119u32;
+pub const MCM_GETCALENDARGRIDINFO: u32 = 4120u32;
+pub const MCM_GETCALID: u32 = 4123u32;
+pub const MCM_GETCOLOR: u32 = 4107u32;
+pub const MCM_GETCURRENTVIEW: u32 = 4118u32;
+pub const MCM_GETCURSEL: u32 = 4097u32;
+pub const MCM_GETFIRSTDAYOFWEEK: u32 = 4112u32;
+pub const MCM_GETMAXSELCOUNT: u32 = 4099u32;
+pub const MCM_GETMAXTODAYWIDTH: u32 = 4117u32;
+pub const MCM_GETMINREQRECT: u32 = 4105u32;
+pub const MCM_GETMONTHDELTA: u32 = 4115u32;
+pub const MCM_GETMONTHRANGE: u32 = 4103u32;
+pub const MCM_GETRANGE: u32 = 4113u32;
+pub const MCM_GETSELRANGE: u32 = 4101u32;
+pub const MCM_GETTODAY: u32 = 4109u32;
+pub const MCM_GETUNICODEFORMAT: u32 = 8198u32;
+pub const MCM_HITTEST: u32 = 4110u32;
+pub const MCM_SETCALENDARBORDER: u32 = 4126u32;
+pub const MCM_SETCALID: u32 = 4124u32;
+pub const MCM_SETCOLOR: u32 = 4106u32;
+pub const MCM_SETCURRENTVIEW: u32 = 4128u32;
+pub const MCM_SETCURSEL: u32 = 4098u32;
+pub const MCM_SETDAYSTATE: u32 = 4104u32;
+pub const MCM_SETFIRSTDAYOFWEEK: u32 = 4111u32;
+pub const MCM_SETMAXSELCOUNT: u32 = 4100u32;
+pub const MCM_SETMONTHDELTA: u32 = 4116u32;
+pub const MCM_SETRANGE: u32 = 4114u32;
+pub const MCM_SETSELRANGE: u32 = 4102u32;
+pub const MCM_SETTODAY: u32 = 4108u32;
+pub const MCM_SETUNICODEFORMAT: u32 = 8197u32;
+pub const MCM_SIZERECTTOMIN: u32 = 4125u32;
+pub const MCNN_DISABLED: NAVNEXTSTATES = NAVNEXTSTATES(4i32);
+pub const MCNN_HOT: NAVNEXTSTATES = NAVNEXTSTATES(2i32);
+pub const MCNN_NORMAL: NAVNEXTSTATES = NAVNEXTSTATES(1i32);
+pub const MCNN_PRESSED: NAVNEXTSTATES = NAVNEXTSTATES(3i32);
+pub const MCNP_DISABLED: NAVPREVSTATES = NAVPREVSTATES(4i32);
+pub const MCNP_HOT: NAVPREVSTATES = NAVPREVSTATES(2i32);
+pub const MCNP_NORMAL: NAVPREVSTATES = NAVPREVSTATES(1i32);
+pub const MCNP_PRESSED: NAVPREVSTATES = NAVPREVSTATES(3i32);
+pub const MCN_FIRST: u32 = 4294966550u32;
+pub const MCN_GETDAYSTATE: u32 = 4294966549u32;
+pub const MCN_LAST: u32 = 4294966544u32;
+pub const MCN_SELCHANGE: u32 = 4294966547u32;
+pub const MCN_SELECT: u32 = 4294966550u32;
+pub const MCN_VIEWCHANGE: u32 = 4294966546u32;
+pub const MCSC_BACKGROUND: u32 = 0u32;
+pub const MCSC_MONTHBK: u32 = 4u32;
+pub const MCSC_TEXT: u32 = 1u32;
+pub const MCSC_TITLEBK: u32 = 2u32;
+pub const MCSC_TITLETEXT: u32 = 3u32;
+pub const MCSC_TRAILINGTEXT: u32 = 5u32;
+pub const MCS_DAYSTATE: u32 = 1u32;
+pub const MCS_MULTISELECT: u32 = 2u32;
+pub const MCS_NOSELCHANGEONNAV: u32 = 256u32;
+pub const MCS_NOTODAY: u32 = 16u32;
+pub const MCS_NOTODAYCIRCLE: u32 = 8u32;
+pub const MCS_NOTRAILINGDATES: u32 = 64u32;
+pub const MCS_SHORTDAYSOFWEEK: u32 = 128u32;
+pub const MCS_WEEKNUMBERS: u32 = 4u32;
+pub const MCTGCU_HASSTATE: TRAILINGGRIDCELLUPPERSTATES = TRAILINGGRIDCELLUPPERSTATES(2i32);
+pub const MCTGCU_HASSTATEHOT: TRAILINGGRIDCELLUPPERSTATES = TRAILINGGRIDCELLUPPERSTATES(3i32);
+pub const MCTGCU_HOT: TRAILINGGRIDCELLUPPERSTATES = TRAILINGGRIDCELLUPPERSTATES(1i32);
+pub const MCTGCU_SELECTED: TRAILINGGRIDCELLUPPERSTATES = TRAILINGGRIDCELLUPPERSTATES(4i32);
+pub const MCTGCU_SELECTEDHOT: TRAILINGGRIDCELLUPPERSTATES = TRAILINGGRIDCELLUPPERSTATES(5i32);
+pub const MCTGC_HASSTATE: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(2i32);
+pub const MCTGC_HASSTATEHOT: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(3i32);
+pub const MCTGC_HOT: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(1i32);
+pub const MCTGC_SELECTED: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(6i32);
+pub const MCTGC_SELECTEDHOT: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(7i32);
+pub const MCTGC_TODAY: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(4i32);
+pub const MCTGC_TODAYSELECTED: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(5i32);
+pub const MC_BACKGROUND: MONTHCALPARTS = MONTHCALPARTS(1i32);
+pub const MC_BORDERS: MONTHCALPARTS = MONTHCALPARTS(2i32);
+pub const MC_BULLETDISABLED: POPUPCHECKSTATES = POPUPCHECKSTATES(4i32);
+pub const MC_BULLETNORMAL: POPUPCHECKSTATES = POPUPCHECKSTATES(3i32);
+pub const MC_CHECKMARKDISABLED: POPUPCHECKSTATES = POPUPCHECKSTATES(2i32);
+pub const MC_CHECKMARKNORMAL: POPUPCHECKSTATES = POPUPCHECKSTATES(1i32);
+pub const MC_COLHEADERSPLITTER: MONTHCALPARTS = MONTHCALPARTS(4i32);
+pub const MC_GRIDBACKGROUND: MONTHCALPARTS = MONTHCALPARTS(3i32);
+pub const MC_GRIDCELL: MONTHCALPARTS = MONTHCALPARTS(6i32);
+pub const MC_GRIDCELLBACKGROUND: MONTHCALPARTS = MONTHCALPARTS(5i32);
+pub const MC_GRIDCELLUPPER: MONTHCALPARTS = MONTHCALPARTS(7i32);
+pub const MC_NAVNEXT: MONTHCALPARTS = MONTHCALPARTS(10i32);
+pub const MC_NAVPREV: MONTHCALPARTS = MONTHCALPARTS(11i32);
+pub const MC_TRAILINGGRIDCELL: MONTHCALPARTS = MONTHCALPARTS(8i32);
+pub const MC_TRAILINGGRIDCELLUPPER: MONTHCALPARTS = MONTHCALPARTS(9i32);
+pub const MDCL_DISABLED: MDICLOSEBUTTONSTATES = MDICLOSEBUTTONSTATES(4i32);
+pub const MDCL_HOT: MDICLOSEBUTTONSTATES = MDICLOSEBUTTONSTATES(2i32);
+pub const MDCL_NORMAL: MDICLOSEBUTTONSTATES = MDICLOSEBUTTONSTATES(1i32);
+pub const MDCL_PUSHED: MDICLOSEBUTTONSTATES = MDICLOSEBUTTONSTATES(3i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MDICLOSEBUTTONSTATES(pub i32);
@@ -3843,2348 +6916,22 @@ pub struct MDIMINBUTTONSTATES(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MDIRESTOREBUTTONSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MENUBANDPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MENUBANDSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MENUPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MINBUTTONSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MINCAPTIONSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MONTHCALPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MONTH_CALDENDAR_MESSAGES_VIEW(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MOREPROGRAMSARROWBACKSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MOREPROGRAMSARROWSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MOREPROGRAMSTABSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MOVESTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NAVIGATIONPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NAVNEXTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NAVPREVSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NAV_BACKBUTTONSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NAV_FORWARDBUTTONSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NAV_MENUBUTTONSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NMCUSTOMDRAW_DRAW_STAGE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NMCUSTOMDRAW_DRAW_STATE_FLAGS(pub u32);
-impl NMCUSTOMDRAW_DRAW_STATE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NMDATETIMECHANGE_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NMLVCUSTOMDRAW_ITEM_TYPE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NMLVEMPTYMARKUP_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NMLVGETINFOTIP_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NMPGCALCSIZE_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NMPGSCROLL_DIR(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NMPGSCROLL_KEYS(pub u16);
-impl NMPGSCROLL_KEYS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for NMPGSCROLL_KEYS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for NMPGSCROLL_KEYS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for NMPGSCROLL_KEYS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for NMPGSCROLL_KEYS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for NMPGSCROLL_KEYS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NMREBAR_MASK_FLAGS(pub u32);
-impl NMREBAR_MASK_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for NMREBAR_MASK_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for NMREBAR_MASK_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for NMREBAR_MASK_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for NMREBAR_MASK_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for NMREBAR_MASK_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NMTBDISPINFOW_MASK(pub u32);
-impl NMTBDISPINFOW_MASK {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for NMTBDISPINFOW_MASK {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for NMTBDISPINFOW_MASK {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for NMTBDISPINFOW_MASK {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for NMTBDISPINFOW_MASK {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for NMTBDISPINFOW_MASK {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NMTBHOTITEM_FLAGS(pub u32);
-impl NMTBHOTITEM_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for NMTBHOTITEM_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for NMTBHOTITEM_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for NMTBHOTITEM_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for NMTBHOTITEM_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for NMTBHOTITEM_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NM_TREEVIEW_ACTION(pub u32);
-impl NM_TREEVIEW_ACTION {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for NM_TREEVIEW_ACTION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for NM_TREEVIEW_ACTION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for NM_TREEVIEW_ACTION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for NM_TREEVIEW_ACTION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for NM_TREEVIEW_ACTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NONESTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NORMALGROUPCOLLAPSESTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NORMALGROUPEXPANDSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ODA_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ODS_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OFFSETTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OPENBOXSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OPEN_THEME_DATA_FLAGS(pub u32);
-impl OPEN_THEME_DATA_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for OPEN_THEME_DATA_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for OPEN_THEME_DATA_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for OPEN_THEME_DATA_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for OPEN_THEME_DATA_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for OPEN_THEME_DATA_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PAGEPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct POINTER_DEVICE_CURSOR_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct POINTER_DEVICE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct POINTER_FEEDBACK_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct POPUPCHECKBACKGROUNDSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct POPUPCHECKSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct POPUPITEMFOCUSABLESTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct POPUPITEMKBFOCUSSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct POPUPITEMSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct POPUPSUBMENUHCHOTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct POPUPSUBMENUSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROGRESSPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROPERTYORIGIN(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PSPCB_MESSAGE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PUSHBUTTONDROPDOWNSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PUSHBUTTONSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RADIOBUTTONSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct READONLYSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct REBARPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RESTOREBUTTONSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCROLLBARPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCROLLBARSTYLESTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SECTIONTITLELINKSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SET_THEME_APP_PROPERTIES_FLAGS(pub u32);
-impl SET_THEME_APP_PROPERTIES_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for SET_THEME_APP_PROPERTIES_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for SET_THEME_APP_PROPERTIES_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for SET_THEME_APP_PROPERTIES_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for SET_THEME_APP_PROPERTIES_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for SET_THEME_APP_PROPERTIES_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SHOWCALENDARBUTTONRIGHTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SIZEBOXSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SIZINGTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SMALLCAPTIONSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SMALLCLOSEBUTTONSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SMALLFRAMEBOTTOMSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SMALLFRAMELEFTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SMALLFRAMERIGHTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SOFTWAREEXPLORERSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPECIALGROUPCOLLAPSESTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPECIALGROUPEXPANDSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPINPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPLITTERSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPLITTERVERTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STANDARDSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STARTPANELPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STATICPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STATUSPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SYSBUTTONSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SYSTEMCLOSEHCHOTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SYSTEMCLOSESTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SYSTEMMAXIMIZEHCHOTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SYSTEMMAXIMIZESTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SYSTEMMINIMIZEHCHOTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SYSTEMMINIMIZESTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SYSTEMRESTOREHCHOTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SYSTEMRESTORESTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TABITEMBOTHEDGESTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TABITEMLEFTEDGESTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TABITEMRIGHTEDGESTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TABITEMSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TABPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TABSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TAB_CONTROL_ITEM_STATE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TASKBANDPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TASKBARPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TASKDIALOGPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TASKDIALOG_COMMON_BUTTON_FLAGS(pub i32);
-impl TASKDIALOG_COMMON_BUTTON_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for TASKDIALOG_COMMON_BUTTON_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for TASKDIALOG_COMMON_BUTTON_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for TASKDIALOG_COMMON_BUTTON_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for TASKDIALOG_COMMON_BUTTON_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for TASKDIALOG_COMMON_BUTTON_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TASKDIALOG_ELEMENTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TASKDIALOG_FLAGS(pub i32);
-impl TASKDIALOG_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for TASKDIALOG_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for TASKDIALOG_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for TASKDIALOG_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for TASKDIALOG_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for TASKDIALOG_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TASKDIALOG_ICON_ELEMENTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TASKDIALOG_MESSAGES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TASKDIALOG_NOTIFICATIONS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TASKLINKSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TA_PROPERTY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TA_PROPERTY_FLAG(pub i32);
-impl TA_PROPERTY_FLAG {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for TA_PROPERTY_FLAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for TA_PROPERTY_FLAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for TA_PROPERTY_FLAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for TA_PROPERTY_FLAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for TA_PROPERTY_FLAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TA_TIMINGFUNCTION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TA_TRANSFORM_FLAG(pub i32);
-impl TA_TRANSFORM_FLAG {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for TA_TRANSFORM_FLAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for TA_TRANSFORM_FLAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for TA_TRANSFORM_FLAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for TA_TRANSFORM_FLAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for TA_TRANSFORM_FLAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TA_TRANSFORM_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TBBUTTONINFOW_MASK(pub u32);
-impl TBBUTTONINFOW_MASK {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for TBBUTTONINFOW_MASK {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for TBBUTTONINFOW_MASK {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for TBBUTTONINFOW_MASK {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for TBBUTTONINFOW_MASK {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for TBBUTTONINFOW_MASK {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TBINSERTMARK_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TCHITTESTINFO_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TCITEMHEADERA_MASK(pub u32);
-impl TCITEMHEADERA_MASK {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for TCITEMHEADERA_MASK {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for TCITEMHEADERA_MASK {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for TCITEMHEADERA_MASK {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for TCITEMHEADERA_MASK {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for TCITEMHEADERA_MASK {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TEXTSELECTIONGRIPPERPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TEXTSHADOWTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TEXTSTYLEPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct THEMESIZE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct THEME_PROPERTY_SYMBOL_ID(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct THUMBBOTTOMSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct THUMBLEFTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct THUMBRIGHTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct THUMBSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct THUMBTOPSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct THUMBVERTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TICSSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TICSVERTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TITLEBARSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TOOLBARPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TOOLBARSTYLESTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TOOLTIPPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TOOLTIP_FLAGS(pub u32);
-impl TOOLTIP_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for TOOLTIP_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for TOOLTIP_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for TOOLTIP_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for TOOLTIP_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for TOOLTIP_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TOPTABITEMBOTHEDGESTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TOPTABITEMLEFTEDGESTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TOPTABITEMRIGHTEDGESTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TOPTABITEMSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TRACKBARPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TRACKBARSTYLESTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TRACKSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TRACKVERTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TRAILINGGRIDCELLSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TRAILINGGRIDCELLUPPERSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TRANSPARENTBACKGROUNDSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TRANSPARENTBARSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TRANSPARENTBARVERTSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TRAYNOTIFYPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TREEITEMSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TREEVIEWPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TREE_VIEW_ITEM_STATE_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TRUESIZESCALINGTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TVHITTESTINFO_FLAGS(pub u32);
-impl TVHITTESTINFO_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for TVHITTESTINFO_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for TVHITTESTINFO_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for TVHITTESTINFO_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for TVHITTESTINFO_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for TVHITTESTINFO_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TVITEMEXW_CHILDREN(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TVITEMPART(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TVITEM_MASK(pub u32);
-impl TVITEM_MASK {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for TVITEM_MASK {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for TVITEM_MASK {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for TVITEM_MASK {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for TVITEM_MASK {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for TVITEM_MASK {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct UPDATEMETADATASTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct UPHORZSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct UPSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct USERTILEPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VALIGN(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VERTSCROLLSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VERTTHUMBSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WARNINGSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WINDOWPARTS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WINDOWTHEMEATTRIBUTETYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WORD_BREAK_ACTION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WRENCHSTATES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WSB_PROP(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _LI_METRIC(pub i32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct BP_ANIMATIONPARAMS {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub style: BP_ANIMATIONSTYLE,
-    pub dwDuration: u32,
-}
-impl Default for BP_ANIMATIONPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for BP_ANIMATIONPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct BP_PAINTPARAMS {
-    pub cbSize: u32,
-    pub dwFlags: BP_PAINTPARAMS_FLAGS,
-    pub prcExclude: *const super::super::Foundation::RECT,
-    pub pBlendFunction: *const super::super::Graphics::Gdi::BLENDFUNCTION,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for BP_PAINTPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for BP_PAINTPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct BUTTON_IMAGELIST {
-    pub himl: HIMAGELIST,
-    pub margin: super::super::Foundation::RECT,
-    pub uAlign: BUTTON_IMAGELIST_ALIGN,
-}
-impl Default for BUTTON_IMAGELIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for BUTTON_IMAGELIST {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct BUTTON_SPLITINFO {
-    pub mask: u32,
-    pub himlGlyph: HIMAGELIST,
-    pub uSplitStyle: u32,
-    pub size: super::super::Foundation::SIZE,
-}
-impl Default for BUTTON_SPLITINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for BUTTON_SPLITINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CCINFOA {
-    pub szClass: [i8; 32],
-    pub flOptions: u32,
-    pub szDesc: [i8; 32],
-    pub cxDefault: u32,
-    pub cyDefault: u32,
-    pub flStyleDefault: u32,
-    pub flExtStyleDefault: u32,
-    pub flCtrlTypeMask: u32,
-    pub szTextDefault: [i8; 256],
-    pub cStyleFlags: i32,
-    pub aStyleFlags: *mut CCSTYLEFLAGA,
-    pub lpfnStyle: LPFNCCSTYLEA,
-    pub lpfnSizeToText: LPFNCCSIZETOTEXTA,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for CCINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for CCINFOA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CCINFOW {
-    pub szClass: [u16; 32],
-    pub flOptions: u32,
-    pub szDesc: [u16; 32],
-    pub cxDefault: u32,
-    pub cyDefault: u32,
-    pub flStyleDefault: u32,
-    pub flExtStyleDefault: u32,
-    pub flCtrlTypeMask: u32,
-    pub cStyleFlags: i32,
-    pub aStyleFlags: *mut CCSTYLEFLAGW,
-    pub szTextDefault: [u16; 256],
-    pub lpfnStyle: LPFNCCSTYLEW,
-    pub lpfnSizeToText: LPFNCCSIZETOTEXTW,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for CCINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for CCINFOW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CCSTYLEA {
-    pub flStyle: u32,
-    pub flExtStyle: u32,
-    pub szText: [i8; 256],
-    pub lgid: u16,
-    pub wReserved1: u16,
-}
-impl Default for CCSTYLEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CCSTYLEA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CCSTYLEFLAGA {
-    pub flStyle: u32,
-    pub flStyleMask: u32,
-    pub pszStyle: windows_core::PSTR,
-}
-impl Default for CCSTYLEFLAGA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CCSTYLEFLAGA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CCSTYLEFLAGW {
-    pub flStyle: u32,
-    pub flStyleMask: u32,
-    pub pszStyle: windows_core::PWSTR,
-}
-impl Default for CCSTYLEFLAGW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CCSTYLEFLAGW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CCSTYLEW {
-    pub flStyle: u32,
-    pub flExtStyle: u32,
-    pub szText: [u16; 256],
-    pub lgid: u16,
-    pub wReserved1: u16,
-}
-impl Default for CCSTYLEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CCSTYLEW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct COLORMAP {
-    pub from: super::super::Foundation::COLORREF,
-    pub to: super::super::Foundation::COLORREF,
-}
-impl Default for COLORMAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for COLORMAP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct COLORSCHEME {
-    pub dwSize: u32,
-    pub clrBtnHighlight: super::super::Foundation::COLORREF,
-    pub clrBtnShadow: super::super::Foundation::COLORREF,
-}
-impl Default for COLORSCHEME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for COLORSCHEME {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct COMBOBOXEXITEMA {
-    pub mask: COMBOBOX_EX_ITEM_FLAGS,
-    pub iItem: isize,
-    pub pszText: windows_core::PSTR,
-    pub cchTextMax: i32,
-    pub iImage: i32,
-    pub iSelectedImage: i32,
-    pub iOverlay: i32,
-    pub iIndent: i32,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-impl Default for COMBOBOXEXITEMA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for COMBOBOXEXITEMA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct COMBOBOXEXITEMW {
-    pub mask: COMBOBOX_EX_ITEM_FLAGS,
-    pub iItem: isize,
-    pub pszText: windows_core::PWSTR,
-    pub cchTextMax: i32,
-    pub iImage: i32,
-    pub iSelectedImage: i32,
-    pub iOverlay: i32,
-    pub iIndent: i32,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-impl Default for COMBOBOXEXITEMW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for COMBOBOXEXITEMW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct COMBOBOXINFO {
-    pub cbSize: u32,
-    pub rcItem: super::super::Foundation::RECT,
-    pub rcButton: super::super::Foundation::RECT,
-    pub stateButton: COMBOBOXINFO_BUTTON_STATE,
-    pub hwndCombo: super::super::Foundation::HWND,
-    pub hwndItem: super::super::Foundation::HWND,
-    pub hwndList: super::super::Foundation::HWND,
-}
-impl Default for COMBOBOXINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for COMBOBOXINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct COMPAREITEMSTRUCT {
-    pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
-    pub CtlID: u32,
-    pub hwndItem: super::super::Foundation::HWND,
-    pub itemID1: u32,
-    pub itemData1: usize,
-    pub itemID2: u32,
-    pub itemData2: usize,
-    pub dwLocaleId: u32,
-}
-impl Default for COMPAREITEMSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for COMPAREITEMSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DATETIMEPICKERINFO {
-    pub cbSize: u32,
-    pub rcCheck: super::super::Foundation::RECT,
-    pub stateCheck: u32,
-    pub rcButton: super::super::Foundation::RECT,
-    pub stateButton: u32,
-    pub hwndEdit: super::super::Foundation::HWND,
-    pub hwndUD: super::super::Foundation::HWND,
-    pub hwndDropDown: super::super::Foundation::HWND,
-}
-impl Default for DATETIMEPICKERINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DATETIMEPICKERINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DELETEITEMSTRUCT {
-    pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
-    pub CtlID: u32,
-    pub itemID: u32,
-    pub hwndItem: super::super::Foundation::HWND,
-    pub itemData: usize,
-}
-impl Default for DELETEITEMSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DELETEITEMSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DPASTREAMINFO {
-    pub iPos: i32,
-    pub pvItem: *mut core::ffi::c_void,
-}
-impl Default for DPASTREAMINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DPASTREAMINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DRAGLISTINFO {
-    pub uNotification: DRAGLISTINFO_NOTIFICATION_FLAGS,
-    pub hWnd: super::super::Foundation::HWND,
-    pub ptCursor: super::super::Foundation::POINT,
-}
-impl Default for DRAGLISTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DRAGLISTINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DRAWITEMSTRUCT {
-    pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
-    pub CtlID: u32,
-    pub itemID: u32,
-    pub itemAction: ODA_FLAGS,
-    pub itemState: ODS_FLAGS,
-    pub hwndItem: super::super::Foundation::HWND,
-    pub hDC: super::super::Graphics::Gdi::HDC,
-    pub rcItem: super::super::Foundation::RECT,
-    pub itemData: usize,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for DRAWITEMSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for DRAWITEMSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DTBGOPTS {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub rcClip: super::super::Foundation::RECT,
-}
-impl Default for DTBGOPTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DTBGOPTS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DTTOPTS {
-    pub dwSize: u32,
-    pub dwFlags: DTTOPTS_FLAGS,
-    pub crText: super::super::Foundation::COLORREF,
-    pub crBorder: super::super::Foundation::COLORREF,
-    pub crShadow: super::super::Foundation::COLORREF,
-    pub iTextShadowType: i32,
-    pub ptShadowOffset: super::super::Foundation::POINT,
-    pub iBorderSize: i32,
-    pub iFontPropId: i32,
-    pub iColorPropId: i32,
-    pub iStateId: i32,
-    pub fApplyOverlay: super::super::Foundation::BOOL,
-    pub iGlowSize: i32,
-    pub pfnDrawTextCallback: DTT_CALLBACK_PROC,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for DTTOPTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for DTTOPTS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct EDITBALLOONTIP {
-    pub cbStruct: u32,
-    pub pszTitle: windows_core::PCWSTR,
-    pub pszText: windows_core::PCWSTR,
-    pub ttiIcon: EDITBALLOONTIP_ICON,
-}
-impl Default for EDITBALLOONTIP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for EDITBALLOONTIP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HDHITTESTINFO {
-    pub pt: super::super::Foundation::POINT,
-    pub flags: HEADER_HITTEST_INFO_FLAGS,
-    pub iItem: i32,
-}
-impl Default for HDHITTESTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HDHITTESTINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HDITEMA {
-    pub mask: HDI_MASK,
-    pub cxy: i32,
-    pub pszText: windows_core::PSTR,
-    pub hbm: super::super::Graphics::Gdi::HBITMAP,
-    pub cchTextMax: i32,
-    pub fmt: HEADER_CONTROL_FORMAT_FLAGS,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub iImage: i32,
-    pub iOrder: i32,
-    pub r#type: HEADER_CONTROL_FORMAT_TYPE,
-    pub pvFilter: *mut core::ffi::c_void,
-    pub state: HEADER_CONTROL_FORMAT_STATE,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for HDITEMA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for HDITEMA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HDITEMW {
-    pub mask: HDI_MASK,
-    pub cxy: i32,
-    pub pszText: windows_core::PWSTR,
-    pub hbm: super::super::Graphics::Gdi::HBITMAP,
-    pub cchTextMax: i32,
-    pub fmt: HEADER_CONTROL_FORMAT_FLAGS,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub iImage: i32,
-    pub iOrder: i32,
-    pub r#type: HEADER_CONTROL_FORMAT_TYPE,
-    pub pvFilter: *mut core::ffi::c_void,
-    pub state: HEADER_CONTROL_FORMAT_STATE,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for HDITEMW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for HDITEMW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HDLAYOUT {
-    pub prc: *mut super::super::Foundation::RECT,
-    pub pwpos: *mut super::WindowsAndMessaging::WINDOWPOS,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Default for HDLAYOUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for HDLAYOUT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HDPA(pub isize);
-impl windows_core::TypeKind for HDPA {
-    type TypeKind = windows_core::CopyType;
-}
-impl HDPA {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl windows_core::Free for HDPA {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("comctl32.dll" "system" fn DPA_Destroy(hdpa : isize) -> i32);
-            DPA_Destroy(self.0);
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HDSA(pub isize);
-impl windows_core::TypeKind for HDSA {
-    type TypeKind = windows_core::CopyType;
-}
-impl HDSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl windows_core::Free for HDSA {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("comctl32.dll" "system" fn DSA_Destroy(hdsa : isize) -> i32);
-            DSA_Destroy(self.0);
-        }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HD_TEXTFILTERA {
-    pub pszText: windows_core::PSTR,
-    pub cchTextMax: i32,
-}
-impl Default for HD_TEXTFILTERA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HD_TEXTFILTERA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HD_TEXTFILTERW {
-    pub pszText: windows_core::PWSTR,
-    pub cchTextMax: i32,
-}
-impl Default for HD_TEXTFILTERW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HD_TEXTFILTERW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HIMAGELIST(pub isize);
-impl windows_core::TypeKind for HIMAGELIST {
-    type TypeKind = windows_core::CopyType;
-}
-impl HIMAGELIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl windows_core::Free for HIMAGELIST {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("comctl32.dll" "system" fn ImageList_Destroy(himl : isize) -> i32);
-            ImageList_Destroy(self.0);
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HPROPSHEETPAGE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HPROPSHEETPAGE {
-    type TypeKind = windows_core::CopyType;
-}
-impl HPROPSHEETPAGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HPROPSHEETPAGE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("comctl32.dll" "system" fn DestroyPropertySheetPage(param0 : *mut core::ffi::c_void) -> i32);
-            DestroyPropertySheetPage(self.0);
-        }
-    }
-}
-impl Default for HPROPSHEETPAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HSYNTHETICPOINTERDEVICE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HSYNTHETICPOINTERDEVICE {
-    type TypeKind = windows_core::CopyType;
-}
-impl HSYNTHETICPOINTERDEVICE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HSYNTHETICPOINTERDEVICE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("user32.dll" "system" fn DestroySyntheticPointerDevice(device : *mut core::ffi::c_void));
-            DestroySyntheticPointerDevice(self.0);
-        }
-    }
-}
-impl Default for HSYNTHETICPOINTERDEVICE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HTHEME(pub isize);
-impl windows_core::TypeKind for HTHEME {
-    type TypeKind = windows_core::CopyType;
-}
-impl HTHEME {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == 0
-    }
-}
-impl windows_core::Free for HTHEME {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("uxtheme.dll" "system" fn CloseThemeData(htheme : isize) -> i32);
-            CloseThemeData(self.0);
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HTREEITEM(pub isize);
-impl windows_core::TypeKind for HTREEITEM {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct IMAGEINFO {
-    pub hbmImage: super::super::Graphics::Gdi::HBITMAP,
-    pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
-    pub Unused1: i32,
-    pub Unused2: i32,
-    pub rcImage: super::super::Foundation::RECT,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for IMAGEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for IMAGEINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct IMAGELISTDRAWPARAMS {
-    pub cbSize: u32,
-    pub himl: HIMAGELIST,
-    pub i: i32,
-    pub hdcDst: super::super::Graphics::Gdi::HDC,
-    pub x: i32,
-    pub y: i32,
-    pub cx: i32,
-    pub cy: i32,
-    pub xBitmap: i32,
-    pub yBitmap: i32,
-    pub rgbBk: super::super::Foundation::COLORREF,
-    pub rgbFg: super::super::Foundation::COLORREF,
-    pub fStyle: u32,
-    pub dwRop: u32,
-    pub fState: u32,
-    pub Frame: u32,
-    pub crEffect: super::super::Foundation::COLORREF,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for IMAGELISTDRAWPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for IMAGELISTDRAWPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct IMAGELISTSTATS {
-    pub cbSize: u32,
-    pub cAlloc: i32,
-    pub cUsed: i32,
-    pub cStandby: i32,
-}
-impl Default for IMAGELISTSTATS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IMAGELISTSTATS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct INITCOMMONCONTROLSEX {
-    pub dwSize: u32,
-    pub dwICC: INITCOMMONCONTROLSEX_ICC,
-}
-impl Default for INITCOMMONCONTROLSEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for INITCOMMONCONTROLSEX {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct INTLIST {
-    pub iValueCount: i32,
-    pub iValues: [i32; 402],
-}
-impl Default for INTLIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for INTLIST {
-    type TypeKind = windows_core::CopyType;
-}
-pub const ImageList: windows_core::GUID = windows_core::GUID::from_u128(0x7c476ba2_02b1_48f4_8048_b24619ddc058);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LHITTESTINFO {
-    pub pt: super::super::Foundation::POINT,
-    pub item: LITEM,
-}
-impl Default for LHITTESTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LHITTESTINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LITEM {
-    pub mask: LIST_ITEM_FLAGS,
-    pub iLink: i32,
-    pub state: LIST_ITEM_STATE_FLAGS,
-    pub stateMask: LIST_ITEM_STATE_FLAGS,
-    pub szID: [u16; 48],
-    pub szUrl: [u16; 2084],
-}
-impl Default for LITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LITEM {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LVBKIMAGEA {
-    pub ulFlags: LIST_VIEW_BACKGROUND_IMAGE_FLAGS,
-    pub hbm: super::super::Graphics::Gdi::HBITMAP,
-    pub pszImage: windows_core::PSTR,
-    pub cchImageMax: u32,
-    pub xOffsetPercent: i32,
-    pub yOffsetPercent: i32,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for LVBKIMAGEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for LVBKIMAGEA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LVBKIMAGEW {
-    pub ulFlags: LIST_VIEW_BACKGROUND_IMAGE_FLAGS,
-    pub hbm: super::super::Graphics::Gdi::HBITMAP,
-    pub pszImage: windows_core::PWSTR,
-    pub cchImageMax: u32,
-    pub xOffsetPercent: i32,
-    pub yOffsetPercent: i32,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for LVBKIMAGEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for LVBKIMAGEW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LVCOLUMNA {
-    pub mask: LVCOLUMNW_MASK,
-    pub fmt: LVCOLUMNW_FORMAT,
-    pub cx: i32,
-    pub pszText: windows_core::PSTR,
-    pub cchTextMax: i32,
-    pub iSubItem: i32,
-    pub iImage: i32,
-    pub iOrder: i32,
-    pub cxMin: i32,
-    pub cxDefault: i32,
-    pub cxIdeal: i32,
-}
-impl Default for LVCOLUMNA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LVCOLUMNA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LVCOLUMNW {
-    pub mask: LVCOLUMNW_MASK,
-    pub fmt: LVCOLUMNW_FORMAT,
-    pub cx: i32,
-    pub pszText: windows_core::PWSTR,
-    pub cchTextMax: i32,
-    pub iSubItem: i32,
-    pub iImage: i32,
-    pub iOrder: i32,
-    pub cxMin: i32,
-    pub cxDefault: i32,
-    pub cxIdeal: i32,
-}
-impl Default for LVCOLUMNW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LVCOLUMNW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LVFINDINFOA {
-    pub flags: LVFINDINFOW_FLAGS,
-    pub psz: windows_core::PCSTR,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub pt: super::super::Foundation::POINT,
-    pub vkDirection: u32,
-}
-impl Default for LVFINDINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LVFINDINFOA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LVFINDINFOW {
-    pub flags: LVFINDINFOW_FLAGS,
-    pub psz: windows_core::PCWSTR,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub pt: super::super::Foundation::POINT,
-    pub vkDirection: u32,
-}
-impl Default for LVFINDINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LVFINDINFOW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LVFOOTERINFO {
-    pub mask: u32,
-    pub pszText: windows_core::PWSTR,
-    pub cchTextMax: i32,
-    pub cItems: u32,
-}
-impl Default for LVFOOTERINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LVFOOTERINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LVFOOTERITEM {
-    pub mask: LVFOOTERITEM_MASK,
-    pub iItem: i32,
-    pub pszText: windows_core::PWSTR,
-    pub cchTextMax: i32,
-    pub state: u32,
-    pub stateMask: u32,
-}
-impl Default for LVFOOTERITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LVFOOTERITEM {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LVGROUP {
-    pub cbSize: u32,
-    pub mask: LVGROUP_MASK,
-    pub pszHeader: windows_core::PWSTR,
-    pub cchHeader: i32,
-    pub pszFooter: windows_core::PWSTR,
-    pub cchFooter: i32,
-    pub iGroupId: i32,
-    pub stateMask: LIST_VIEW_GROUP_STATE_FLAGS,
-    pub state: LIST_VIEW_GROUP_STATE_FLAGS,
-    pub uAlign: LIST_VIEW_GROUP_ALIGN_FLAGS,
-    pub pszSubtitle: windows_core::PWSTR,
-    pub cchSubtitle: u32,
-    pub pszTask: windows_core::PWSTR,
-    pub cchTask: u32,
-    pub pszDescriptionTop: windows_core::PWSTR,
-    pub cchDescriptionTop: u32,
-    pub pszDescriptionBottom: windows_core::PWSTR,
-    pub cchDescriptionBottom: u32,
-    pub iTitleImage: i32,
-    pub iExtendedImage: i32,
-    pub iFirstItem: i32,
-    pub cItems: u32,
-    pub pszSubsetTitle: windows_core::PWSTR,
-    pub cchSubsetTitle: u32,
-}
-impl Default for LVGROUP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LVGROUP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LVGROUPMETRICS {
-    pub cbSize: u32,
-    pub mask: u32,
-    pub Left: u32,
-    pub Top: u32,
-    pub Right: u32,
-    pub Bottom: u32,
-    pub crLeft: super::super::Foundation::COLORREF,
-    pub crTop: super::super::Foundation::COLORREF,
-    pub crRight: super::super::Foundation::COLORREF,
-    pub crBottom: super::super::Foundation::COLORREF,
-    pub crHeader: super::super::Foundation::COLORREF,
-    pub crFooter: super::super::Foundation::COLORREF,
-}
-impl Default for LVGROUPMETRICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LVGROUPMETRICS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LVHITTESTINFO {
-    pub pt: super::super::Foundation::POINT,
-    pub flags: LVHITTESTINFO_FLAGS,
-    pub iItem: i32,
-    pub iSubItem: i32,
-    pub iGroup: i32,
-}
-impl Default for LVHITTESTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LVHITTESTINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LVINSERTGROUPSORTED {
-    pub pfnGroupCompare: PFNLVGROUPCOMPARE,
-    pub pvData: *mut core::ffi::c_void,
-    pub lvGroup: LVGROUP,
-}
-impl Default for LVINSERTGROUPSORTED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LVINSERTGROUPSORTED {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LVINSERTMARK {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub iItem: i32,
-    pub dwReserved: u32,
-}
-impl Default for LVINSERTMARK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LVINSERTMARK {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LVITEMA {
-    pub mask: LIST_VIEW_ITEM_FLAGS,
-    pub iItem: i32,
-    pub iSubItem: i32,
-    pub state: LIST_VIEW_ITEM_STATE_FLAGS,
-    pub stateMask: LIST_VIEW_ITEM_STATE_FLAGS,
-    pub pszText: windows_core::PSTR,
-    pub cchTextMax: i32,
-    pub iImage: i32,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub iIndent: i32,
-    pub iGroupId: i32,
-    pub cColumns: u32,
-    pub puColumns: *mut u32,
-    pub piColFmt: *mut LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS,
-    pub iGroup: i32,
-}
-impl Default for LVITEMA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LVITEMA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LVITEMINDEX {
-    pub iItem: i32,
-    pub iGroup: i32,
-}
-impl Default for LVITEMINDEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LVITEMINDEX {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LVITEMW {
-    pub mask: LIST_VIEW_ITEM_FLAGS,
-    pub iItem: i32,
-    pub iSubItem: i32,
-    pub state: LIST_VIEW_ITEM_STATE_FLAGS,
-    pub stateMask: LIST_VIEW_ITEM_STATE_FLAGS,
-    pub pszText: windows_core::PWSTR,
-    pub cchTextMax: i32,
-    pub iImage: i32,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub iIndent: i32,
-    pub iGroupId: i32,
-    pub cColumns: u32,
-    pub puColumns: *mut u32,
-    pub piColFmt: *mut LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS,
-    pub iGroup: i32,
-}
-impl Default for LVITEMW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LVITEMW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LVSETINFOTIP {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub pszText: windows_core::PWSTR,
-    pub iItem: i32,
-    pub iSubItem: i32,
-}
-impl Default for LVSETINFOTIP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LVSETINFOTIP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LVTILEINFO {
-    pub cbSize: u32,
-    pub iItem: i32,
-    pub cColumns: u32,
-    pub puColumns: *mut u32,
-    pub piColFmt: *mut i32,
-}
-impl Default for LVTILEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LVTILEINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LVTILEVIEWINFO {
-    pub cbSize: u32,
-    pub dwMask: LVTILEVIEWINFO_MASK,
-    pub dwFlags: LVTILEVIEWINFO_FLAGS,
-    pub sizeTile: super::super::Foundation::SIZE,
-    pub cLines: i32,
-    pub rcLabelMargin: super::super::Foundation::RECT,
-}
-impl Default for LVTILEVIEWINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LVTILEVIEWINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MARGINS {
-    pub cxLeftWidth: i32,
-    pub cxRightWidth: i32,
-    pub cyTopHeight: i32,
-    pub cyBottomHeight: i32,
-}
-impl Default for MARGINS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MARGINS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MCGRIDINFO {
-    pub cbSize: u32,
-    pub dwPart: MCGRIDINFO_PART,
-    pub dwFlags: MCGRIDINFO_FLAGS,
-    pub iCalendar: i32,
-    pub iRow: i32,
-    pub iCol: i32,
-    pub bSelected: super::super::Foundation::BOOL,
-    pub stStart: super::super::Foundation::SYSTEMTIME,
-    pub stEnd: super::super::Foundation::SYSTEMTIME,
-    pub rc: super::super::Foundation::RECT,
-    pub pszName: windows_core::PWSTR,
-    pub cchName: usize,
-}
-impl Default for MCGRIDINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MCGRIDINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MCHITTESTINFO {
-    pub cbSize: u32,
-    pub pt: super::super::Foundation::POINT,
-    pub uHit: MCHITTESTINFO_HIT_FLAGS,
-    pub st: super::super::Foundation::SYSTEMTIME,
-    pub rc: super::super::Foundation::RECT,
-    pub iOffset: i32,
-    pub iRow: i32,
-    pub iCol: i32,
-}
-impl Default for MCHITTESTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MCHITTESTINFO {
-    type TypeKind = windows_core::CopyType;
-}
+pub const MDMI_DISABLED: MDIMINBUTTONSTATES = MDIMINBUTTONSTATES(4i32);
+pub const MDMI_HOT: MDIMINBUTTONSTATES = MDIMINBUTTONSTATES(2i32);
+pub const MDMI_NORMAL: MDIMINBUTTONSTATES = MDIMINBUTTONSTATES(1i32);
+pub const MDMI_PUSHED: MDIMINBUTTONSTATES = MDIMINBUTTONSTATES(3i32);
+pub const MDP_NEWAPPBUTTON: MENUBANDPARTS = MENUBANDPARTS(1i32);
+pub const MDP_SEPERATOR: MENUBANDPARTS = MENUBANDPARTS(2i32);
+pub const MDRE_DISABLED: MDIRESTOREBUTTONSTATES = MDIRESTOREBUTTONSTATES(4i32);
+pub const MDRE_HOT: MDIRESTOREBUTTONSTATES = MDIRESTOREBUTTONSTATES(2i32);
+pub const MDRE_NORMAL: MDIRESTOREBUTTONSTATES = MDIRESTOREBUTTONSTATES(1i32);
+pub const MDRE_PUSHED: MDIRESTOREBUTTONSTATES = MDIRESTOREBUTTONSTATES(3i32);
+pub const MDS_CHECKED: MENUBANDSTATES = MENUBANDSTATES(5i32);
+pub const MDS_DISABLED: MENUBANDSTATES = MENUBANDSTATES(4i32);
+pub const MDS_HOT: MENUBANDSTATES = MENUBANDSTATES(2i32);
+pub const MDS_HOTCHECKED: MENUBANDSTATES = MENUBANDSTATES(6i32);
+pub const MDS_NORMAL: MENUBANDSTATES = MENUBANDSTATES(1i32);
+pub const MDS_PRESSED: MENUBANDSTATES = MENUBANDSTATES(3i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MEASUREITEMSTRUCT {
@@ -6203,6 +6950,151 @@ impl Default for MEASUREITEMSTRUCT {
 impl windows_core::TypeKind for MEASUREITEMSTRUCT {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MENUBANDPARTS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MENUBANDSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MENUPARTS(pub i32);
+pub const MENU_BARBACKGROUND: MENUPARTS = MENUPARTS(7i32);
+pub const MENU_BARITEM: MENUPARTS = MENUPARTS(8i32);
+pub const MENU_CHEVRON_TMSCHEMA: MENUPARTS = MENUPARTS(5i32);
+pub const MENU_MENUBARDROPDOWN_TMSCHEMA: MENUPARTS = MENUPARTS(4i32);
+pub const MENU_MENUBARITEM_TMSCHEMA: MENUPARTS = MENUPARTS(3i32);
+pub const MENU_MENUDROPDOWN_TMSCHEMA: MENUPARTS = MENUPARTS(2i32);
+pub const MENU_MENUITEM_TMSCHEMA: MENUPARTS = MENUPARTS(1i32);
+pub const MENU_POPUPBACKGROUND: MENUPARTS = MENUPARTS(9i32);
+pub const MENU_POPUPBORDERS: MENUPARTS = MENUPARTS(10i32);
+pub const MENU_POPUPCHECK: MENUPARTS = MENUPARTS(11i32);
+pub const MENU_POPUPCHECKBACKGROUND: MENUPARTS = MENUPARTS(12i32);
+pub const MENU_POPUPGUTTER: MENUPARTS = MENUPARTS(13i32);
+pub const MENU_POPUPITEM: MENUPARTS = MENUPARTS(14i32);
+pub const MENU_POPUPITEMKBFOCUS: MENUPARTS = MENUPARTS(26i32);
+pub const MENU_POPUPITEM_FOCUSABLE: MENUPARTS = MENUPARTS(27i32);
+pub const MENU_POPUPSEPARATOR: MENUPARTS = MENUPARTS(15i32);
+pub const MENU_POPUPSUBMENU: MENUPARTS = MENUPARTS(16i32);
+pub const MENU_POPUPSUBMENU_HCHOT: MENUPARTS = MENUPARTS(21i32);
+pub const MENU_SEPARATOR_TMSCHEMA: MENUPARTS = MENUPARTS(6i32);
+pub const MENU_SYSTEMCLOSE: MENUPARTS = MENUPARTS(17i32);
+pub const MENU_SYSTEMCLOSE_HCHOT: MENUPARTS = MENUPARTS(22i32);
+pub const MENU_SYSTEMMAXIMIZE: MENUPARTS = MENUPARTS(18i32);
+pub const MENU_SYSTEMMAXIMIZE_HCHOT: MENUPARTS = MENUPARTS(23i32);
+pub const MENU_SYSTEMMINIMIZE: MENUPARTS = MENUPARTS(19i32);
+pub const MENU_SYSTEMMINIMIZE_HCHOT: MENUPARTS = MENUPARTS(24i32);
+pub const MENU_SYSTEMRESTORE: MENUPARTS = MENUPARTS(20i32);
+pub const MENU_SYSTEMRESTORE_HCHOT: MENUPARTS = MENUPARTS(25i32);
+pub const MINBS_DISABLED: MINBUTTONSTATES = MINBUTTONSTATES(4i32);
+pub const MINBS_HOT: MINBUTTONSTATES = MINBUTTONSTATES(2i32);
+pub const MINBS_NORMAL: MINBUTTONSTATES = MINBUTTONSTATES(1i32);
+pub const MINBS_PUSHED: MINBUTTONSTATES = MINBUTTONSTATES(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MINBUTTONSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MINCAPTIONSTATES(pub i32);
+pub const MNCS_ACTIVE: MINCAPTIONSTATES = MINCAPTIONSTATES(1i32);
+pub const MNCS_DISABLED: MINCAPTIONSTATES = MINCAPTIONSTATES(3i32);
+pub const MNCS_INACTIVE: MINCAPTIONSTATES = MINCAPTIONSTATES(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MONTHCALPARTS(pub i32);
+pub const MONTHCAL_CLASS: windows_core::PCWSTR = windows_core::w!("SysMonthCal32");
+pub const MONTHCAL_CLASSA: windows_core::PCSTR = windows_core::s!("SysMonthCal32");
+pub const MONTHCAL_CLASSW: windows_core::PCWSTR = windows_core::w!("SysMonthCal32");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MONTH_CALDENDAR_MESSAGES_VIEW(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MOREPROGRAMSARROWBACKSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MOREPROGRAMSARROWSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MOREPROGRAMSTABSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MOVESTATES(pub i32);
+pub const MPIF_DISABLED: POPUPITEMFOCUSABLESTATES = POPUPITEMFOCUSABLESTATES(3i32);
+pub const MPIF_DISABLEDHOT: POPUPITEMFOCUSABLESTATES = POPUPITEMFOCUSABLESTATES(4i32);
+pub const MPIF_HOT: POPUPITEMFOCUSABLESTATES = POPUPITEMFOCUSABLESTATES(2i32);
+pub const MPIF_NORMAL: POPUPITEMFOCUSABLESTATES = POPUPITEMFOCUSABLESTATES(1i32);
+pub const MPIKBFOCUS_NORMAL: POPUPITEMKBFOCUSSTATES = POPUPITEMKBFOCUSSTATES(1i32);
+pub const MPI_DISABLED: POPUPITEMSTATES = POPUPITEMSTATES(3i32);
+pub const MPI_DISABLEDHOT: POPUPITEMSTATES = POPUPITEMSTATES(4i32);
+pub const MPI_HOT: POPUPITEMSTATES = POPUPITEMSTATES(2i32);
+pub const MPI_NORMAL: POPUPITEMSTATES = POPUPITEMSTATES(1i32);
+pub const MSGF_COMMCTRL_BEGINDRAG: u32 = 16896u32;
+pub const MSGF_COMMCTRL_DRAGSELECT: u32 = 16898u32;
+pub const MSGF_COMMCTRL_SIZEHEADER: u32 = 16897u32;
+pub const MSGF_COMMCTRL_TOOLBARCUST: u32 = 16899u32;
+pub const MSMHC_HOT: POPUPSUBMENUHCHOTSTATES = POPUPSUBMENUHCHOTSTATES(1i32);
+pub const MSM_DISABLED: POPUPSUBMENUSTATES = POPUPSUBMENUSTATES(2i32);
+pub const MSM_NORMAL: POPUPSUBMENUSTATES = POPUPSUBMENUSTATES(1i32);
+pub const MSYSCHC_HOT: SYSTEMCLOSEHCHOTSTATES = SYSTEMCLOSEHCHOTSTATES(1i32);
+pub const MSYSC_DISABLED: SYSTEMCLOSESTATES = SYSTEMCLOSESTATES(2i32);
+pub const MSYSC_NORMAL: SYSTEMCLOSESTATES = SYSTEMCLOSESTATES(1i32);
+pub const MSYSMNHC_HOT: SYSTEMMINIMIZEHCHOTSTATES = SYSTEMMINIMIZEHCHOTSTATES(1i32);
+pub const MSYSMN_DISABLED: SYSTEMMINIMIZESTATES = SYSTEMMINIMIZESTATES(2i32);
+pub const MSYSMN_NORMAL: SYSTEMMINIMIZESTATES = SYSTEMMINIMIZESTATES(1i32);
+pub const MSYSMXHC_HOT: SYSTEMMAXIMIZEHCHOTSTATES = SYSTEMMAXIMIZEHCHOTSTATES(1i32);
+pub const MSYSMX_DISABLED: SYSTEMMAXIMIZESTATES = SYSTEMMAXIMIZESTATES(2i32);
+pub const MSYSMX_NORMAL: SYSTEMMAXIMIZESTATES = SYSTEMMAXIMIZESTATES(1i32);
+pub const MSYSRHC_HOT: SYSTEMRESTOREHCHOTSTATES = SYSTEMRESTOREHCHOTSTATES(1i32);
+pub const MSYSR_DISABLED: SYSTEMRESTORESTATES = SYSTEMRESTORESTATES(2i32);
+pub const MSYSR_NORMAL: SYSTEMRESTORESTATES = SYSTEMRESTORESTATES(1i32);
+pub const MULTIFILEOPENORD: u32 = 1537u32;
+pub const MXCS_ACTIVE: MAXCAPTIONSTATES = MAXCAPTIONSTATES(1i32);
+pub const MXCS_DISABLED: MAXCAPTIONSTATES = MAXCAPTIONSTATES(3i32);
+pub const MXCS_INACTIVE: MAXCAPTIONSTATES = MAXCAPTIONSTATES(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NAVIGATIONPARTS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NAVNEXTSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NAVPREVSTATES(pub i32);
+pub const NAV_BACKBUTTON: NAVIGATIONPARTS = NAVIGATIONPARTS(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NAV_BACKBUTTONSTATES(pub i32);
+pub const NAV_BB_DISABLED: NAV_BACKBUTTONSTATES = NAV_BACKBUTTONSTATES(4i32);
+pub const NAV_BB_HOT: NAV_BACKBUTTONSTATES = NAV_BACKBUTTONSTATES(2i32);
+pub const NAV_BB_NORMAL: NAV_BACKBUTTONSTATES = NAV_BACKBUTTONSTATES(1i32);
+pub const NAV_BB_PRESSED: NAV_BACKBUTTONSTATES = NAV_BACKBUTTONSTATES(3i32);
+pub const NAV_FB_DISABLED: NAV_FORWARDBUTTONSTATES = NAV_FORWARDBUTTONSTATES(4i32);
+pub const NAV_FB_HOT: NAV_FORWARDBUTTONSTATES = NAV_FORWARDBUTTONSTATES(2i32);
+pub const NAV_FB_NORMAL: NAV_FORWARDBUTTONSTATES = NAV_FORWARDBUTTONSTATES(1i32);
+pub const NAV_FB_PRESSED: NAV_FORWARDBUTTONSTATES = NAV_FORWARDBUTTONSTATES(3i32);
+pub const NAV_FORWARDBUTTON: NAVIGATIONPARTS = NAVIGATIONPARTS(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NAV_FORWARDBUTTONSTATES(pub i32);
+pub const NAV_MB_DISABLED: NAV_MENUBUTTONSTATES = NAV_MENUBUTTONSTATES(4i32);
+pub const NAV_MB_HOT: NAV_MENUBUTTONSTATES = NAV_MENUBUTTONSTATES(2i32);
+pub const NAV_MB_NORMAL: NAV_MENUBUTTONSTATES = NAV_MENUBUTTONSTATES(1i32);
+pub const NAV_MB_PRESSED: NAV_MENUBUTTONSTATES = NAV_MENUBUTTONSTATES(3i32);
+pub const NAV_MENUBUTTON: NAVIGATIONPARTS = NAVIGATIONPARTS(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NAV_MENUBUTTONSTATES(pub i32);
+pub const NEWFILEOPENORD: u32 = 1547u32;
+pub const NEWFILEOPENV2ORD: u32 = 1552u32;
+pub const NEWFILEOPENV3ORD: u32 = 1553u32;
+pub const NEWFORMATDLGWITHLINK: u32 = 1591u32;
+pub const NFS_ALL: u32 = 16u32;
+pub const NFS_BUTTON: u32 = 8u32;
+pub const NFS_EDIT: u32 = 1u32;
+pub const NFS_LISTCOMBO: u32 = 4u32;
+pub const NFS_STATIC: u32 = 2u32;
+pub const NFS_USEFONTASSOC: u32 = 32u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMBCDROPDOWN {
@@ -6361,6 +7253,45 @@ impl Default for NMCUSTOMDRAW {
 impl windows_core::TypeKind for NMCUSTOMDRAW {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NMCUSTOMDRAW_DRAW_STAGE(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NMCUSTOMDRAW_DRAW_STATE_FLAGS(pub u32);
+impl NMCUSTOMDRAW_DRAW_STATE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMCUSTOMSPLITRECTINFO {
@@ -6414,6 +7345,9 @@ impl Default for NMDATETIMECHANGE {
 impl windows_core::TypeKind for NMDATETIMECHANGE {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NMDATETIMECHANGE_FLAGS(pub u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMDATETIMEFORMATA {
@@ -6791,6 +7725,9 @@ impl Default for NMLVCUSTOMDRAW {
 impl windows_core::TypeKind for NMLVCUSTOMDRAW {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NMLVCUSTOMDRAW_ITEM_TYPE(pub u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMLVDISPINFOA {
@@ -6834,6 +7771,9 @@ impl Default for NMLVEMPTYMARKUP {
 impl windows_core::TypeKind for NMLVEMPTYMARKUP {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NMLVEMPTYMARKUP_FLAGS(pub u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMLVFINDITEMA {
@@ -6902,6 +7842,9 @@ impl Default for NMLVGETINFOTIPW {
 impl windows_core::TypeKind for NMLVGETINFOTIPW {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NMLVGETINFOTIP_FLAGS(pub u32);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct NMLVKEYDOWN {
@@ -7016,6 +7959,9 @@ impl Default for NMPGCALCSIZE {
 impl windows_core::TypeKind for NMPGCALCSIZE {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NMPGCALCSIZE_FLAGS(pub u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMPGHOTITEM {
@@ -7050,6 +7996,45 @@ impl Default for NMPGSCROLL {
 }
 impl windows_core::TypeKind for NMPGSCROLL {
     type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NMPGSCROLL_DIR(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NMPGSCROLL_KEYS(pub u16);
+impl NMPGSCROLL_KEYS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for NMPGSCROLL_KEYS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for NMPGSCROLL_KEYS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for NMPGSCROLL_KEYS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for NMPGSCROLL_KEYS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for NMPGSCROLL_KEYS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7153,6 +8138,42 @@ impl Default for NMREBARSPLITTER {
 impl windows_core::TypeKind for NMREBARSPLITTER {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NMREBAR_MASK_FLAGS(pub u32);
+impl NMREBAR_MASK_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for NMREBAR_MASK_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for NMREBAR_MASK_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for NMREBAR_MASK_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for NMREBAR_MASK_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for NMREBAR_MASK_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMSEARCHWEB {
@@ -7251,6 +8272,42 @@ impl Default for NMTBDISPINFOW {
 impl windows_core::TypeKind for NMTBDISPINFOW {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NMTBDISPINFOW_MASK(pub u32);
+impl NMTBDISPINFOW_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for NMTBDISPINFOW_MASK {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for NMTBDISPINFOW_MASK {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for NMTBDISPINFOW_MASK {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for NMTBDISPINFOW_MASK {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for NMTBDISPINFOW_MASK {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTBGETINFOTIPA {
@@ -7300,6 +8357,42 @@ impl Default for NMTBHOTITEM {
 }
 impl windows_core::TypeKind for NMTBHOTITEM {
     type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NMTBHOTITEM_FLAGS(pub u32);
+impl NMTBHOTITEM_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for NMTBHOTITEM_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for NMTBHOTITEM_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for NMTBHOTITEM_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for NMTBHOTITEM_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for NMTBHOTITEM_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7717,6 +8810,197 @@ impl Default for NMVIEWCHANGE {
 impl windows_core::TypeKind for NMVIEWCHANGE {
     type TypeKind = windows_core::CopyType;
 }
+pub const NM_CHAR: u32 = 4294967278u32;
+pub const NM_CLICK: u32 = 4294967294u32;
+pub const NM_CUSTOMDRAW: u32 = 4294967284u32;
+pub const NM_CUSTOMTEXT: u32 = 4294967272u32;
+pub const NM_DBLCLK: u32 = 4294967293u32;
+pub const NM_FIRST: u32 = 0u32;
+pub const NM_FONTCHANGED: u32 = 4294967273u32;
+pub const NM_GETCUSTOMSPLITRECT: u32 = 4294966049u32;
+pub const NM_HOVER: u32 = 4294967283u32;
+pub const NM_KEYDOWN: u32 = 4294967281u32;
+pub const NM_KILLFOCUS: u32 = 4294967288u32;
+pub const NM_LAST: u32 = 4294967197u32;
+pub const NM_LDOWN: u32 = 4294967276u32;
+pub const NM_NCHITTEST: u32 = 4294967282u32;
+pub const NM_OUTOFMEMORY: u32 = 4294967295u32;
+pub const NM_RCLICK: u32 = 4294967291u32;
+pub const NM_RDBLCLK: u32 = 4294967290u32;
+pub const NM_RDOWN: u32 = 4294967275u32;
+pub const NM_RELEASEDCAPTURE: u32 = 4294967280u32;
+pub const NM_RETURN: u32 = 4294967292u32;
+pub const NM_SETCURSOR: u32 = 4294967279u32;
+pub const NM_SETFOCUS: u32 = 4294967289u32;
+pub const NM_THEMECHANGED: u32 = 4294967274u32;
+pub const NM_TOOLTIPSCREATED: u32 = 4294967277u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NM_TREEVIEW_ACTION(pub u32);
+impl NM_TREEVIEW_ACTION {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for NM_TREEVIEW_ACTION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for NM_TREEVIEW_ACTION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for NM_TREEVIEW_ACTION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for NM_TREEVIEW_ACTION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for NM_TREEVIEW_ACTION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const NM_TVSTATEIMAGECHANGING: u32 = 4294967272u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NONESTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NORMALGROUPCOLLAPSESTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NORMALGROUPEXPANDSTATES(pub i32);
+pub const ODA_DRAWENTIRE: ODA_FLAGS = ODA_FLAGS(1u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ODA_FLAGS(pub u32);
+pub const ODA_FOCUS: ODA_FLAGS = ODA_FLAGS(4u32);
+pub const ODA_SELECT: ODA_FLAGS = ODA_FLAGS(2u32);
+pub const ODS_CHECKED: ODS_FLAGS = ODS_FLAGS(8u32);
+pub const ODS_COMBOBOXEDIT: ODS_FLAGS = ODS_FLAGS(4096u32);
+pub const ODS_DEFAULT: ODS_FLAGS = ODS_FLAGS(32u32);
+pub const ODS_DISABLED: ODS_FLAGS = ODS_FLAGS(4u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ODS_FLAGS(pub u32);
+pub const ODS_FOCUS: ODS_FLAGS = ODS_FLAGS(16u32);
+pub const ODS_GRAYED: ODS_FLAGS = ODS_FLAGS(2u32);
+pub const ODS_HOTLIGHT: ODS_FLAGS = ODS_FLAGS(64u32);
+pub const ODS_INACTIVE: ODS_FLAGS = ODS_FLAGS(128u32);
+pub const ODS_NOACCEL: ODS_FLAGS = ODS_FLAGS(256u32);
+pub const ODS_NOFOCUSRECT: ODS_FLAGS = ODS_FLAGS(512u32);
+pub const ODS_SELECTED: ODS_FLAGS = ODS_FLAGS(1u32);
+pub const ODT_BUTTON: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(4u32);
+pub const ODT_COMBOBOX: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(3u32);
+pub const ODT_HEADER: u32 = 100u32;
+pub const ODT_LISTBOX: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(2u32);
+pub const ODT_LISTVIEW: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(102u32);
+pub const ODT_MENU: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(1u32);
+pub const ODT_STATIC: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(5u32);
+pub const ODT_TAB: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(101u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OFFSETTYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OPENBOXSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OPEN_THEME_DATA_FLAGS(pub u32);
+impl OPEN_THEME_DATA_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for OPEN_THEME_DATA_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for OPEN_THEME_DATA_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for OPEN_THEME_DATA_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for OPEN_THEME_DATA_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for OPEN_THEME_DATA_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const OTD_FORCE_RECT_SIZING: OPEN_THEME_DATA_FLAGS = OPEN_THEME_DATA_FLAGS(1u32);
+pub const OTD_NONCLIENT: OPEN_THEME_DATA_FLAGS = OPEN_THEME_DATA_FLAGS(2u32);
+pub const OT_ABOVELASTBUTTON: OFFSETTYPE = OFFSETTYPE(12i32);
+pub const OT_BELOWLASTBUTTON: OFFSETTYPE = OFFSETTYPE(13i32);
+pub const OT_BOTTOMLEFT: OFFSETTYPE = OFFSETTYPE(3i32);
+pub const OT_BOTTOMMIDDLE: OFFSETTYPE = OFFSETTYPE(5i32);
+pub const OT_BOTTOMRIGHT: OFFSETTYPE = OFFSETTYPE(4i32);
+pub const OT_LEFTOFCAPTION: OFFSETTYPE = OFFSETTYPE(8i32);
+pub const OT_LEFTOFLASTBUTTON: OFFSETTYPE = OFFSETTYPE(10i32);
+pub const OT_MIDDLELEFT: OFFSETTYPE = OFFSETTYPE(6i32);
+pub const OT_MIDDLERIGHT: OFFSETTYPE = OFFSETTYPE(7i32);
+pub const OT_RIGHTOFCAPTION: OFFSETTYPE = OFFSETTYPE(9i32);
+pub const OT_RIGHTOFLASTBUTTON: OFFSETTYPE = OFFSETTYPE(11i32);
+pub const OT_TOPLEFT: OFFSETTYPE = OFFSETTYPE(0i32);
+pub const OT_TOPMIDDLE: OFFSETTYPE = OFFSETTYPE(2i32);
+pub const OT_TOPRIGHT: OFFSETTYPE = OFFSETTYPE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PAGEPARTS(pub i32);
+pub const PAGESETUPDLGORD: u32 = 1546u32;
+pub const PAGESETUPDLGORDMOTIF: u32 = 1550u32;
+pub const PBBS_NORMAL: TRANSPARENTBARSTATES = TRANSPARENTBARSTATES(1i32);
+pub const PBBS_PARTIAL: TRANSPARENTBARSTATES = TRANSPARENTBARSTATES(2i32);
+pub const PBBVS_NORMAL: TRANSPARENTBARVERTSTATES = TRANSPARENTBARVERTSTATES(1i32);
+pub const PBBVS_PARTIAL: TRANSPARENTBARVERTSTATES = TRANSPARENTBARVERTSTATES(2i32);
+pub const PBDDS_DISABLED: PUSHBUTTONDROPDOWNSTATES = PUSHBUTTONDROPDOWNSTATES(2i32);
+pub const PBDDS_NORMAL: PUSHBUTTONDROPDOWNSTATES = PUSHBUTTONDROPDOWNSTATES(1i32);
+pub const PBFS_ERROR: FILLSTATES = FILLSTATES(2i32);
+pub const PBFS_NORMAL: FILLSTATES = FILLSTATES(1i32);
+pub const PBFS_PARTIAL: FILLSTATES = FILLSTATES(4i32);
+pub const PBFS_PAUSED: FILLSTATES = FILLSTATES(3i32);
+pub const PBFVS_ERROR: FILLVERTSTATES = FILLVERTSTATES(2i32);
+pub const PBFVS_NORMAL: FILLVERTSTATES = FILLVERTSTATES(1i32);
+pub const PBFVS_PARTIAL: FILLVERTSTATES = FILLVERTSTATES(4i32);
+pub const PBFVS_PAUSED: FILLVERTSTATES = FILLVERTSTATES(3i32);
+pub const PBM_DELTAPOS: u32 = 1027u32;
+pub const PBM_GETBARCOLOR: u32 = 1039u32;
+pub const PBM_GETBKCOLOR: u32 = 1038u32;
+pub const PBM_GETPOS: u32 = 1032u32;
+pub const PBM_GETRANGE: u32 = 1031u32;
+pub const PBM_GETSTATE: u32 = 1041u32;
+pub const PBM_GETSTEP: u32 = 1037u32;
+pub const PBM_SETBARCOLOR: u32 = 1033u32;
+pub const PBM_SETBKCOLOR: u32 = 8193u32;
+pub const PBM_SETMARQUEE: u32 = 1034u32;
+pub const PBM_SETPOS: u32 = 1026u32;
+pub const PBM_SETRANGE: u32 = 1025u32;
+pub const PBM_SETRANGE32: u32 = 1030u32;
+pub const PBM_SETSTATE: u32 = 1040u32;
+pub const PBM_SETSTEP: u32 = 1028u32;
+pub const PBM_STEPIT: u32 = 1029u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PBRANGE {
@@ -7731,6 +9015,77 @@ impl Default for PBRANGE {
 impl windows_core::TypeKind for PBRANGE {
     type TypeKind = windows_core::CopyType;
 }
+pub const PBST_ERROR: u32 = 2u32;
+pub const PBST_NORMAL: u32 = 1u32;
+pub const PBST_PAUSED: u32 = 3u32;
+pub const PBS_DEFAULTED: PUSHBUTTONSTATES = PUSHBUTTONSTATES(5i32);
+pub const PBS_DEFAULTED_ANIMATING: PUSHBUTTONSTATES = PUSHBUTTONSTATES(6i32);
+pub const PBS_DISABLED: PUSHBUTTONSTATES = PUSHBUTTONSTATES(4i32);
+pub const PBS_HOT: PUSHBUTTONSTATES = PUSHBUTTONSTATES(2i32);
+pub const PBS_MARQUEE: u32 = 8u32;
+pub const PBS_NORMAL: PUSHBUTTONSTATES = PUSHBUTTONSTATES(1i32);
+pub const PBS_PRESSED: PUSHBUTTONSTATES = PUSHBUTTONSTATES(3i32);
+pub const PBS_SMOOTH: u32 = 1u32;
+pub const PBS_SMOOTHREVERSE: u32 = 16u32;
+pub const PBS_VERTICAL: u32 = 4u32;
+pub type PFNDACOMPARE = Option<unsafe extern "system" fn(p1: *const core::ffi::c_void, p2: *const core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> i32>;
+pub type PFNDACOMPARECONST = Option<unsafe extern "system" fn(p1: *const core::ffi::c_void, p2: *const core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> i32>;
+pub type PFNDAENUMCALLBACK = Option<unsafe extern "system" fn(p: *const core::ffi::c_void, pdata: *const core::ffi::c_void) -> i32>;
+pub type PFNDAENUMCALLBACKCONST = Option<unsafe extern "system" fn(p: *const core::ffi::c_void, pdata: *const core::ffi::c_void) -> i32>;
+pub type PFNDPAMERGE = Option<unsafe extern "system" fn(umsg: DPAMM_MESSAGE, pvdest: *const core::ffi::c_void, pvsrc: *const core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> *mut core::ffi::c_void>;
+pub type PFNDPAMERGECONST = Option<unsafe extern "system" fn(umsg: DPAMM_MESSAGE, pvdest: *const core::ffi::c_void, pvsrc: *const core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> *mut core::ffi::c_void>;
+#[cfg(feature = "Win32_System_Com")]
+pub type PFNDPASTREAM = Option<unsafe extern "system" fn(pinfo: *const DPASTREAMINFO, pstream: Option<super::super::System::Com::IStream>, pvinstdata: *const core::ffi::c_void) -> windows_core::HRESULT>;
+pub type PFNLVCOMPARE = Option<unsafe extern "system" fn(param0: super::super::Foundation::LPARAM, param1: super::super::Foundation::LPARAM, param2: super::super::Foundation::LPARAM) -> i32>;
+pub type PFNLVGROUPCOMPARE = Option<unsafe extern "system" fn(param0: i32, param1: i32, param2: *mut core::ffi::c_void) -> i32>;
+pub type PFNPROPSHEETCALLBACK = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::LPARAM) -> i32>;
+pub type PFNTVCOMPARE = Option<unsafe extern "system" fn(lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM, lparamsort: super::super::Foundation::LPARAM) -> i32>;
+pub type PFTASKDIALOGCALLBACK = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, msg: TASKDIALOG_NOTIFICATIONS, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lprefdata: isize) -> windows_core::HRESULT>;
+pub const PGB_BOTTOMORRIGHT: u32 = 1u32;
+pub const PGB_TOPORLEFT: u32 = 0u32;
+pub const PGF_CALCHEIGHT: NMPGCALCSIZE_FLAGS = NMPGCALCSIZE_FLAGS(2u32);
+pub const PGF_CALCWIDTH: NMPGCALCSIZE_FLAGS = NMPGCALCSIZE_FLAGS(1u32);
+pub const PGF_DEPRESSED: u32 = 4u32;
+pub const PGF_GRAYED: u32 = 2u32;
+pub const PGF_HOT: u32 = 8u32;
+pub const PGF_INVISIBLE: u32 = 0u32;
+pub const PGF_NORMAL: u32 = 1u32;
+pub const PGF_SCROLLDOWN: NMPGSCROLL_DIR = NMPGSCROLL_DIR(2i32);
+pub const PGF_SCROLLLEFT: NMPGSCROLL_DIR = NMPGSCROLL_DIR(4i32);
+pub const PGF_SCROLLRIGHT: NMPGSCROLL_DIR = NMPGSCROLL_DIR(8i32);
+pub const PGF_SCROLLUP: NMPGSCROLL_DIR = NMPGSCROLL_DIR(1i32);
+pub const PGK_CONTROL: NMPGSCROLL_KEYS = NMPGSCROLL_KEYS(2u16);
+pub const PGK_MENU: NMPGSCROLL_KEYS = NMPGSCROLL_KEYS(4u16);
+pub const PGK_NONE: NMPGSCROLL_KEYS = NMPGSCROLL_KEYS(0u16);
+pub const PGK_SHIFT: NMPGSCROLL_KEYS = NMPGSCROLL_KEYS(1u16);
+pub const PGM_FIRST: u32 = 5120u32;
+pub const PGM_FORWARDMOUSE: u32 = 5123u32;
+pub const PGM_GETBKCOLOR: u32 = 5125u32;
+pub const PGM_GETBORDER: u32 = 5127u32;
+pub const PGM_GETBUTTONSIZE: u32 = 5131u32;
+pub const PGM_GETBUTTONSTATE: u32 = 5132u32;
+pub const PGM_GETDROPTARGET: u32 = 8196u32;
+pub const PGM_GETPOS: u32 = 5129u32;
+pub const PGM_RECALCSIZE: u32 = 5122u32;
+pub const PGM_SETBKCOLOR: u32 = 5124u32;
+pub const PGM_SETBORDER: u32 = 5126u32;
+pub const PGM_SETBUTTONSIZE: u32 = 5130u32;
+pub const PGM_SETCHILD: u32 = 5121u32;
+pub const PGM_SETPOS: u32 = 5128u32;
+pub const PGM_SETSCROLLINFO: u32 = 5133u32;
+pub const PGN_CALCSIZE: u32 = 4294966394u32;
+pub const PGN_FIRST: u32 = 4294966396u32;
+pub const PGN_HOTITEMCHANGE: u32 = 4294966393u32;
+pub const PGN_LAST: u32 = 4294966346u32;
+pub const PGN_SCROLL: u32 = 4294966395u32;
+pub const PGRP_DOWN: PAGEPARTS = PAGEPARTS(2i32);
+pub const PGRP_DOWNHORZ: PAGEPARTS = PAGEPARTS(4i32);
+pub const PGRP_UP: PAGEPARTS = PAGEPARTS(1i32);
+pub const PGRP_UPHORZ: PAGEPARTS = PAGEPARTS(3i32);
+pub const PGS_AUTOSCROLL: u32 = 2u32;
+pub const PGS_DRAGNDROP: u32 = 4u32;
+pub const PGS_HORZ: u32 = 1u32;
+pub const PGS_VERT: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POINTER_DEVICE_CURSOR_INFO {
@@ -7745,6 +9100,13 @@ impl Default for POINTER_DEVICE_CURSOR_INFO {
 impl windows_core::TypeKind for POINTER_DEVICE_CURSOR_INFO {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct POINTER_DEVICE_CURSOR_TYPE(pub i32);
+pub const POINTER_DEVICE_CURSOR_TYPE_ERASER: POINTER_DEVICE_CURSOR_TYPE = POINTER_DEVICE_CURSOR_TYPE(2i32);
+pub const POINTER_DEVICE_CURSOR_TYPE_MAX: POINTER_DEVICE_CURSOR_TYPE = POINTER_DEVICE_CURSOR_TYPE(-1i32);
+pub const POINTER_DEVICE_CURSOR_TYPE_TIP: POINTER_DEVICE_CURSOR_TYPE = POINTER_DEVICE_CURSOR_TYPE(1i32);
+pub const POINTER_DEVICE_CURSOR_TYPE_UNKNOWN: POINTER_DEVICE_CURSOR_TYPE = POINTER_DEVICE_CURSOR_TYPE(0i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7787,6 +9149,20 @@ impl Default for POINTER_DEVICE_PROPERTY {
 impl windows_core::TypeKind for POINTER_DEVICE_PROPERTY {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct POINTER_DEVICE_TYPE(pub i32);
+pub const POINTER_DEVICE_TYPE_EXTERNAL_PEN: POINTER_DEVICE_TYPE = POINTER_DEVICE_TYPE(2i32);
+pub const POINTER_DEVICE_TYPE_INTEGRATED_PEN: POINTER_DEVICE_TYPE = POINTER_DEVICE_TYPE(1i32);
+pub const POINTER_DEVICE_TYPE_MAX: POINTER_DEVICE_TYPE = POINTER_DEVICE_TYPE(-1i32);
+pub const POINTER_DEVICE_TYPE_TOUCH: POINTER_DEVICE_TYPE = POINTER_DEVICE_TYPE(3i32);
+pub const POINTER_DEVICE_TYPE_TOUCH_PAD: POINTER_DEVICE_TYPE = POINTER_DEVICE_TYPE(4i32);
+pub const POINTER_FEEDBACK_DEFAULT: POINTER_FEEDBACK_MODE = POINTER_FEEDBACK_MODE(1i32);
+pub const POINTER_FEEDBACK_INDIRECT: POINTER_FEEDBACK_MODE = POINTER_FEEDBACK_MODE(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct POINTER_FEEDBACK_MODE(pub i32);
+pub const POINTER_FEEDBACK_NONE: POINTER_FEEDBACK_MODE = POINTER_FEEDBACK_MODE(3i32);
 #[repr(C)]
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
@@ -7821,6 +9197,56 @@ impl Default for POINTER_TYPE_INFO_0 {
 impl windows_core::TypeKind for POINTER_TYPE_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct POPUPCHECKBACKGROUNDSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct POPUPCHECKSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct POPUPITEMFOCUSABLESTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct POPUPITEMKBFOCUSSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct POPUPITEMSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct POPUPSUBMENUHCHOTSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct POPUPSUBMENUSTATES(pub i32);
+pub const PO_CLASS: PROPERTYORIGIN = PROPERTYORIGIN(2i32);
+pub const PO_GLOBAL: PROPERTYORIGIN = PROPERTYORIGIN(3i32);
+pub const PO_NOTFOUND: PROPERTYORIGIN = PROPERTYORIGIN(4i32);
+pub const PO_PART: PROPERTYORIGIN = PROPERTYORIGIN(1i32);
+pub const PO_STATE: PROPERTYORIGIN = PROPERTYORIGIN(0i32);
+pub const PP_BAR: PROGRESSPARTS = PROGRESSPARTS(1i32);
+pub const PP_BARVERT: PROGRESSPARTS = PROGRESSPARTS(2i32);
+pub const PP_CHUNK: PROGRESSPARTS = PROGRESSPARTS(3i32);
+pub const PP_CHUNKVERT: PROGRESSPARTS = PROGRESSPARTS(4i32);
+pub const PP_FILL: PROGRESSPARTS = PROGRESSPARTS(5i32);
+pub const PP_FILLVERT: PROGRESSPARTS = PROGRESSPARTS(6i32);
+pub const PP_MOVEOVERLAY: PROGRESSPARTS = PROGRESSPARTS(8i32);
+pub const PP_MOVEOVERLAYVERT: PROGRESSPARTS = PROGRESSPARTS(10i32);
+pub const PP_PULSEOVERLAY: PROGRESSPARTS = PROGRESSPARTS(7i32);
+pub const PP_PULSEOVERLAYVERT: PROGRESSPARTS = PROGRESSPARTS(9i32);
+pub const PP_TRANSPARENTBAR: PROGRESSPARTS = PROGRESSPARTS(11i32);
+pub const PP_TRANSPARENTBARVERT: PROGRESSPARTS = PROGRESSPARTS(12i32);
+pub const PRINTDLGEXORD: u32 = 1549u32;
+pub const PRINTDLGORD: u32 = 1538u32;
+pub const PRNSETUPDLGORD: u32 = 1539u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PROGRESSPARTS(pub i32);
+pub const PROGRESS_CLASS: windows_core::PCWSTR = windows_core::w!("msctls_progress32");
+pub const PROGRESS_CLASSA: windows_core::PCSTR = windows_core::s!("msctls_progress32");
+pub const PROGRESS_CLASSW: windows_core::PCWSTR = windows_core::w!("msctls_progress32");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PROPERTYORIGIN(pub i32);
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
@@ -8723,3070 +10149,6 @@ impl Default for PROPSHEETPAGEW_V3_1 {
 impl windows_core::TypeKind for PROPSHEETPAGEW_V3_1 {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PSHNOTIFY {
-    pub hdr: NMHDR,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-impl Default for PSHNOTIFY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PSHNOTIFY {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct RBHITTESTINFO {
-    pub pt: super::super::Foundation::POINT,
-    pub flags: u32,
-    pub iBand: i32,
-}
-impl Default for RBHITTESTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for RBHITTESTINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct REBARBANDINFOA {
-    pub cbSize: u32,
-    pub fMask: u32,
-    pub fStyle: u32,
-    pub clrFore: super::super::Foundation::COLORREF,
-    pub clrBack: super::super::Foundation::COLORREF,
-    pub lpText: windows_core::PSTR,
-    pub cch: u32,
-    pub iImage: i32,
-    pub hwndChild: super::super::Foundation::HWND,
-    pub cxMinChild: u32,
-    pub cyMinChild: u32,
-    pub cx: u32,
-    pub hbmBack: super::super::Graphics::Gdi::HBITMAP,
-    pub wID: u32,
-    pub cyChild: u32,
-    pub cyMaxChild: u32,
-    pub cyIntegral: u32,
-    pub cxIdeal: u32,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub cxHeader: u32,
-    pub rcChevronLocation: super::super::Foundation::RECT,
-    pub uChevronState: u32,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for REBARBANDINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for REBARBANDINFOA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct REBARBANDINFOW {
-    pub cbSize: u32,
-    pub fMask: u32,
-    pub fStyle: u32,
-    pub clrFore: super::super::Foundation::COLORREF,
-    pub clrBack: super::super::Foundation::COLORREF,
-    pub lpText: windows_core::PWSTR,
-    pub cch: u32,
-    pub iImage: i32,
-    pub hwndChild: super::super::Foundation::HWND,
-    pub cxMinChild: u32,
-    pub cyMinChild: u32,
-    pub cx: u32,
-    pub hbmBack: super::super::Graphics::Gdi::HBITMAP,
-    pub wID: u32,
-    pub cyChild: u32,
-    pub cyMaxChild: u32,
-    pub cyIntegral: u32,
-    pub cxIdeal: u32,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub cxHeader: u32,
-    pub rcChevronLocation: super::super::Foundation::RECT,
-    pub uChevronState: u32,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for REBARBANDINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for REBARBANDINFOW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct REBARINFO {
-    pub cbSize: u32,
-    pub fMask: u32,
-    pub himl: HIMAGELIST,
-}
-impl Default for REBARINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for REBARINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub struct TASKDIALOGCONFIG {
-    pub cbSize: u32,
-    pub hwndParent: super::super::Foundation::HWND,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub dwFlags: TASKDIALOG_FLAGS,
-    pub dwCommonButtons: TASKDIALOG_COMMON_BUTTON_FLAGS,
-    pub pszWindowTitle: windows_core::PCWSTR,
-    pub Anonymous1: TASKDIALOGCONFIG_0,
-    pub pszMainInstruction: windows_core::PCWSTR,
-    pub pszContent: windows_core::PCWSTR,
-    pub cButtons: u32,
-    pub pButtons: *const TASKDIALOG_BUTTON,
-    pub nDefaultButton: i32,
-    pub cRadioButtons: u32,
-    pub pRadioButtons: *const TASKDIALOG_BUTTON,
-    pub nDefaultRadioButton: i32,
-    pub pszVerificationText: windows_core::PCWSTR,
-    pub pszExpandedInformation: windows_core::PCWSTR,
-    pub pszExpandedControlText: windows_core::PCWSTR,
-    pub pszCollapsedControlText: windows_core::PCWSTR,
-    pub Anonymous2: TASKDIALOGCONFIG_1,
-    pub pszFooter: windows_core::PCWSTR,
-    pub pfCallback: PFTASKDIALOGCALLBACK,
-    pub lpCallbackData: isize,
-    pub cxWidth: u32,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Default for TASKDIALOGCONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for TASKDIALOGCONFIG {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub union TASKDIALOGCONFIG_0 {
-    pub hMainIcon: super::WindowsAndMessaging::HICON,
-    pub pszMainIcon: windows_core::PCWSTR,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Default for TASKDIALOGCONFIG_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for TASKDIALOGCONFIG_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
-pub union TASKDIALOGCONFIG_1 {
-    pub hFooterIcon: super::WindowsAndMessaging::HICON,
-    pub pszFooterIcon: windows_core::PCWSTR,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Default for TASKDIALOGCONFIG_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for TASKDIALOGCONFIG_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct TASKDIALOG_BUTTON {
-    pub nButtonID: i32,
-    pub pszButtonText: windows_core::PCWSTR,
-}
-impl Default for TASKDIALOG_BUTTON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TASKDIALOG_BUTTON {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TA_CUBIC_BEZIER {
-    pub header: TA_TIMINGFUNCTION,
-    pub rX0: f32,
-    pub rY0: f32,
-    pub rX1: f32,
-    pub rY1: f32,
-}
-impl Default for TA_CUBIC_BEZIER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TA_CUBIC_BEZIER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TA_TIMINGFUNCTION {
-    pub eTimingFunctionType: TA_TIMINGFUNCTION_TYPE,
-}
-impl Default for TA_TIMINGFUNCTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TA_TIMINGFUNCTION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TA_TRANSFORM {
-    pub eTransformType: TA_TRANSFORM_TYPE,
-    pub dwTimingFunctionId: u32,
-    pub dwStartTime: u32,
-    pub dwDurationTime: u32,
-    pub eFlags: TA_TRANSFORM_FLAG,
-}
-impl Default for TA_TRANSFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TA_TRANSFORM {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TA_TRANSFORM_2D {
-    pub header: TA_TRANSFORM,
-    pub rX: f32,
-    pub rY: f32,
-    pub rInitialX: f32,
-    pub rInitialY: f32,
-    pub rOriginX: f32,
-    pub rOriginY: f32,
-}
-impl Default for TA_TRANSFORM_2D {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TA_TRANSFORM_2D {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TA_TRANSFORM_CLIP {
-    pub header: TA_TRANSFORM,
-    pub rLeft: f32,
-    pub rTop: f32,
-    pub rRight: f32,
-    pub rBottom: f32,
-    pub rInitialLeft: f32,
-    pub rInitialTop: f32,
-    pub rInitialRight: f32,
-    pub rInitialBottom: f32,
-}
-impl Default for TA_TRANSFORM_CLIP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TA_TRANSFORM_CLIP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TA_TRANSFORM_OPACITY {
-    pub header: TA_TRANSFORM,
-    pub rOpacity: f32,
-    pub rInitialOpacity: f32,
-}
-impl Default for TA_TRANSFORM_OPACITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TA_TRANSFORM_OPACITY {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TBADDBITMAP {
-    pub hInst: super::super::Foundation::HINSTANCE,
-    pub nID: usize,
-}
-impl Default for TBADDBITMAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TBADDBITMAP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TBBUTTON {
-    pub iBitmap: i32,
-    pub idCommand: i32,
-    pub fsState: u8,
-    pub fsStyle: u8,
-    pub bReserved: [u8; 6],
-    pub dwData: usize,
-    pub iString: isize,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for TBBUTTON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for TBBUTTON {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TBBUTTON {
-    pub iBitmap: i32,
-    pub idCommand: i32,
-    pub fsState: u8,
-    pub fsStyle: u8,
-    pub bReserved: [u8; 2],
-    pub dwData: usize,
-    pub iString: isize,
-}
-#[cfg(target_arch = "x86")]
-impl Default for TBBUTTON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for TBBUTTON {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TBBUTTONINFOA {
-    pub cbSize: u32,
-    pub dwMask: TBBUTTONINFOW_MASK,
-    pub idCommand: i32,
-    pub iImage: i32,
-    pub fsState: u8,
-    pub fsStyle: u8,
-    pub cx: u16,
-    pub lParam: usize,
-    pub pszText: windows_core::PSTR,
-    pub cchText: i32,
-}
-impl Default for TBBUTTONINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TBBUTTONINFOA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TBBUTTONINFOW {
-    pub cbSize: u32,
-    pub dwMask: TBBUTTONINFOW_MASK,
-    pub idCommand: i32,
-    pub iImage: i32,
-    pub fsState: u8,
-    pub fsStyle: u8,
-    pub cx: u16,
-    pub lParam: usize,
-    pub pszText: windows_core::PWSTR,
-    pub cchText: i32,
-}
-impl Default for TBBUTTONINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TBBUTTONINFOW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TBINSERTMARK {
-    pub iButton: i32,
-    pub dwFlags: TBINSERTMARK_FLAGS,
-}
-impl Default for TBINSERTMARK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TBINSERTMARK {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TBMETRICS {
-    pub cbSize: u32,
-    pub dwMask: u32,
-    pub cxPad: i32,
-    pub cyPad: i32,
-    pub cxBarPad: i32,
-    pub cyBarPad: i32,
-    pub cxButtonSpacing: i32,
-    pub cyButtonSpacing: i32,
-}
-impl Default for TBMETRICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TBMETRICS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TBREPLACEBITMAP {
-    pub hInstOld: super::super::Foundation::HINSTANCE,
-    pub nIDOld: usize,
-    pub hInstNew: super::super::Foundation::HINSTANCE,
-    pub nIDNew: usize,
-    pub nButtons: i32,
-}
-impl Default for TBREPLACEBITMAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TBREPLACEBITMAP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TBSAVEPARAMSA {
-    pub hkr: super::super::System::Registry::HKEY,
-    pub pszSubKey: windows_core::PCSTR,
-    pub pszValueName: windows_core::PCSTR,
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl Default for TBSAVEPARAMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl windows_core::TypeKind for TBSAVEPARAMSA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TBSAVEPARAMSW {
-    pub hkr: super::super::System::Registry::HKEY,
-    pub pszSubKey: windows_core::PCWSTR,
-    pub pszValueName: windows_core::PCWSTR,
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl Default for TBSAVEPARAMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl windows_core::TypeKind for TBSAVEPARAMSW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TCHITTESTINFO {
-    pub pt: super::super::Foundation::POINT,
-    pub flags: TCHITTESTINFO_FLAGS,
-}
-impl Default for TCHITTESTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TCHITTESTINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TCITEMA {
-    pub mask: TCITEMHEADERA_MASK,
-    pub dwState: TAB_CONTROL_ITEM_STATE,
-    pub dwStateMask: TAB_CONTROL_ITEM_STATE,
-    pub pszText: windows_core::PSTR,
-    pub cchTextMax: i32,
-    pub iImage: i32,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-impl Default for TCITEMA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TCITEMA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TCITEMHEADERA {
-    pub mask: TCITEMHEADERA_MASK,
-    pub lpReserved1: u32,
-    pub lpReserved2: u32,
-    pub pszText: windows_core::PSTR,
-    pub cchTextMax: i32,
-    pub iImage: i32,
-}
-impl Default for TCITEMHEADERA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TCITEMHEADERA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TCITEMHEADERW {
-    pub mask: TCITEMHEADERA_MASK,
-    pub lpReserved1: u32,
-    pub lpReserved2: u32,
-    pub pszText: windows_core::PWSTR,
-    pub cchTextMax: i32,
-    pub iImage: i32,
-}
-impl Default for TCITEMHEADERW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TCITEMHEADERW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TCITEMW {
-    pub mask: TCITEMHEADERA_MASK,
-    pub dwState: TAB_CONTROL_ITEM_STATE,
-    pub dwStateMask: TAB_CONTROL_ITEM_STATE,
-    pub pszText: windows_core::PWSTR,
-    pub cchTextMax: i32,
-    pub iImage: i32,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-impl Default for TCITEMW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TCITEMW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TOUCH_HIT_TESTING_INPUT {
-    pub pointerId: u32,
-    pub point: super::super::Foundation::POINT,
-    pub boundingBox: super::super::Foundation::RECT,
-    pub nonOccludedBoundingBox: super::super::Foundation::RECT,
-    pub orientation: u32,
-}
-impl Default for TOUCH_HIT_TESTING_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TOUCH_HIT_TESTING_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {
-    pub score: u16,
-    pub adjustedPoint: super::super::Foundation::POINT,
-}
-impl Default for TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TTGETTITLE {
-    pub dwSize: u32,
-    pub uTitleBitmap: u32,
-    pub cch: u32,
-    pub pszTitle: windows_core::PWSTR,
-}
-impl Default for TTGETTITLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TTGETTITLE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TTHITTESTINFOA {
-    pub hwnd: super::super::Foundation::HWND,
-    pub pt: super::super::Foundation::POINT,
-    pub ti: TTTOOLINFOA,
-}
-impl Default for TTHITTESTINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TTHITTESTINFOA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TTHITTESTINFOW {
-    pub hwnd: super::super::Foundation::HWND,
-    pub pt: super::super::Foundation::POINT,
-    pub ti: TTTOOLINFOW,
-}
-impl Default for TTHITTESTINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TTHITTESTINFOW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TTTOOLINFOA {
-    pub cbSize: u32,
-    pub uFlags: TOOLTIP_FLAGS,
-    pub hwnd: super::super::Foundation::HWND,
-    pub uId: usize,
-    pub rect: super::super::Foundation::RECT,
-    pub hinst: super::super::Foundation::HINSTANCE,
-    pub lpszText: windows_core::PSTR,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub lpReserved: *mut core::ffi::c_void,
-}
-impl Default for TTTOOLINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TTTOOLINFOA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TTTOOLINFOW {
-    pub cbSize: u32,
-    pub uFlags: TOOLTIP_FLAGS,
-    pub hwnd: super::super::Foundation::HWND,
-    pub uId: usize,
-    pub rect: super::super::Foundation::RECT,
-    pub hinst: super::super::Foundation::HINSTANCE,
-    pub lpszText: windows_core::PWSTR,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub lpReserved: *mut core::ffi::c_void,
-}
-impl Default for TTTOOLINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TTTOOLINFOW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TVGETITEMPARTRECTINFO {
-    pub hti: HTREEITEM,
-    pub prc: *mut super::super::Foundation::RECT,
-    pub partID: TVITEMPART,
-}
-impl Default for TVGETITEMPARTRECTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TVGETITEMPARTRECTINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TVHITTESTINFO {
-    pub pt: super::super::Foundation::POINT,
-    pub flags: TVHITTESTINFO_FLAGS,
-    pub hItem: HTREEITEM,
-}
-impl Default for TVHITTESTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TVHITTESTINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TVINSERTSTRUCTA {
-    pub hParent: HTREEITEM,
-    pub hInsertAfter: HTREEITEM,
-    pub Anonymous: TVINSERTSTRUCTA_0,
-}
-impl Default for TVINSERTSTRUCTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TVINSERTSTRUCTA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union TVINSERTSTRUCTA_0 {
-    pub itemex: TVITEMEXA,
-    pub item: TVITEMA,
-}
-impl Default for TVINSERTSTRUCTA_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TVINSERTSTRUCTA_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TVINSERTSTRUCTW {
-    pub hParent: HTREEITEM,
-    pub hInsertAfter: HTREEITEM,
-    pub Anonymous: TVINSERTSTRUCTW_0,
-}
-impl Default for TVINSERTSTRUCTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TVINSERTSTRUCTW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union TVINSERTSTRUCTW_0 {
-    pub itemex: TVITEMEXW,
-    pub item: TVITEMW,
-}
-impl Default for TVINSERTSTRUCTW_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TVINSERTSTRUCTW_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TVITEMA {
-    pub mask: TVITEM_MASK,
-    pub hItem: HTREEITEM,
-    pub state: TREE_VIEW_ITEM_STATE_FLAGS,
-    pub stateMask: TREE_VIEW_ITEM_STATE_FLAGS,
-    pub pszText: windows_core::PSTR,
-    pub cchTextMax: i32,
-    pub iImage: i32,
-    pub iSelectedImage: i32,
-    pub cChildren: TVITEMEXW_CHILDREN,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-impl Default for TVITEMA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TVITEMA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TVITEMEXA {
-    pub mask: TVITEM_MASK,
-    pub hItem: HTREEITEM,
-    pub state: u32,
-    pub stateMask: u32,
-    pub pszText: windows_core::PSTR,
-    pub cchTextMax: i32,
-    pub iImage: i32,
-    pub iSelectedImage: i32,
-    pub cChildren: TVITEMEXW_CHILDREN,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub iIntegral: i32,
-    pub uStateEx: u32,
-    pub hwnd: super::super::Foundation::HWND,
-    pub iExpandedImage: i32,
-    pub iReserved: i32,
-}
-impl Default for TVITEMEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TVITEMEXA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TVITEMEXW {
-    pub mask: TVITEM_MASK,
-    pub hItem: HTREEITEM,
-    pub state: u32,
-    pub stateMask: u32,
-    pub pszText: windows_core::PWSTR,
-    pub cchTextMax: i32,
-    pub iImage: i32,
-    pub iSelectedImage: i32,
-    pub cChildren: TVITEMEXW_CHILDREN,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub iIntegral: i32,
-    pub uStateEx: u32,
-    pub hwnd: super::super::Foundation::HWND,
-    pub iExpandedImage: i32,
-    pub iReserved: i32,
-}
-impl Default for TVITEMEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TVITEMEXW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TVITEMW {
-    pub mask: TVITEM_MASK,
-    pub hItem: HTREEITEM,
-    pub state: TREE_VIEW_ITEM_STATE_FLAGS,
-    pub stateMask: TREE_VIEW_ITEM_STATE_FLAGS,
-    pub pszText: windows_core::PWSTR,
-    pub cchTextMax: i32,
-    pub iImage: i32,
-    pub iSelectedImage: i32,
-    pub cChildren: TVITEMEXW_CHILDREN,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-impl Default for TVITEMW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TVITEMW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TVSORTCB {
-    pub hParent: HTREEITEM,
-    pub lpfnCompare: PFNTVCOMPARE,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-impl Default for TVSORTCB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TVSORTCB {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct UDACCEL {
-    pub nSec: u32,
-    pub nInc: u32,
-}
-impl Default for UDACCEL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for UDACCEL {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct USAGE_PROPERTIES {
-    pub level: u16,
-    pub page: u16,
-    pub usage: u16,
-    pub logicalMinimum: i32,
-    pub logicalMaximum: i32,
-    pub unit: u16,
-    pub exponent: u16,
-    pub count: u8,
-    pub physicalMinimum: i32,
-    pub physicalMaximum: i32,
-}
-impl Default for USAGE_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for USAGE_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WTA_OPTIONS {
-    pub dwFlags: u32,
-    pub dwMask: u32,
-}
-impl Default for WTA_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WTA_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-pub const ABS_DOWNDISABLED: ARROWBTNSTATES = ARROWBTNSTATES(8i32);
-pub const ABS_DOWNHOT: ARROWBTNSTATES = ARROWBTNSTATES(6i32);
-pub const ABS_DOWNHOVER: ARROWBTNSTATES = ARROWBTNSTATES(18i32);
-pub const ABS_DOWNNORMAL: ARROWBTNSTATES = ARROWBTNSTATES(5i32);
-pub const ABS_DOWNPRESSED: ARROWBTNSTATES = ARROWBTNSTATES(7i32);
-pub const ABS_LEFTDISABLED: ARROWBTNSTATES = ARROWBTNSTATES(12i32);
-pub const ABS_LEFTHOT: ARROWBTNSTATES = ARROWBTNSTATES(10i32);
-pub const ABS_LEFTHOVER: ARROWBTNSTATES = ARROWBTNSTATES(19i32);
-pub const ABS_LEFTNORMAL: ARROWBTNSTATES = ARROWBTNSTATES(9i32);
-pub const ABS_LEFTPRESSED: ARROWBTNSTATES = ARROWBTNSTATES(11i32);
-pub const ABS_RIGHTDISABLED: ARROWBTNSTATES = ARROWBTNSTATES(16i32);
-pub const ABS_RIGHTHOT: ARROWBTNSTATES = ARROWBTNSTATES(14i32);
-pub const ABS_RIGHTHOVER: ARROWBTNSTATES = ARROWBTNSTATES(20i32);
-pub const ABS_RIGHTNORMAL: ARROWBTNSTATES = ARROWBTNSTATES(13i32);
-pub const ABS_RIGHTPRESSED: ARROWBTNSTATES = ARROWBTNSTATES(15i32);
-pub const ABS_UPDISABLED: ARROWBTNSTATES = ARROWBTNSTATES(4i32);
-pub const ABS_UPHOT: ARROWBTNSTATES = ARROWBTNSTATES(2i32);
-pub const ABS_UPHOVER: ARROWBTNSTATES = ARROWBTNSTATES(17i32);
-pub const ABS_UPNORMAL: ARROWBTNSTATES = ARROWBTNSTATES(1i32);
-pub const ABS_UPPRESSED: ARROWBTNSTATES = ARROWBTNSTATES(3i32);
-pub const ACM_ISPLAYING: u32 = 1128u32;
-pub const ACM_OPEN: u32 = 1127u32;
-pub const ACM_OPENA: u32 = 1124u32;
-pub const ACM_OPENW: u32 = 1127u32;
-pub const ACM_PLAY: u32 = 1125u32;
-pub const ACM_STOP: u32 = 1126u32;
-pub const ACN_START: u32 = 1u32;
-pub const ACN_STOP: u32 = 2u32;
-pub const ACS_AUTOPLAY: u32 = 4u32;
-pub const ACS_CENTER: u32 = 1u32;
-pub const ACS_TIMER: u32 = 8u32;
-pub const ACS_TRANSPARENT: u32 = 2u32;
-pub const ALLOW_CONTROLS: SET_THEME_APP_PROPERTIES_FLAGS = SET_THEME_APP_PROPERTIES_FLAGS(2u32);
-pub const ALLOW_NONCLIENT: SET_THEME_APP_PROPERTIES_FLAGS = SET_THEME_APP_PROPERTIES_FLAGS(1u32);
-pub const ALLOW_WEBCONTENT: SET_THEME_APP_PROPERTIES_FLAGS = SET_THEME_APP_PROPERTIES_FLAGS(4u32);
-pub const ANIMATE_CLASS: windows_core::PCWSTR = windows_core::w!("SysAnimate32");
-pub const ANIMATE_CLASSA: windows_core::PCSTR = windows_core::s!("SysAnimate32");
-pub const ANIMATE_CLASSW: windows_core::PCWSTR = windows_core::w!("SysAnimate32");
-pub const AW_BUTTON: AEROWIZARDPARTS = AEROWIZARDPARTS(5i32);
-pub const AW_COMMANDAREA: AEROWIZARDPARTS = AEROWIZARDPARTS(4i32);
-pub const AW_CONTENTAREA: AEROWIZARDPARTS = AEROWIZARDPARTS(3i32);
-pub const AW_HEADERAREA: AEROWIZARDPARTS = AEROWIZARDPARTS(2i32);
-pub const AW_S_CONTENTAREA_NOMARGIN: CONTENTAREASTATES = CONTENTAREASTATES(1i32);
-pub const AW_S_HEADERAREA_NOMARGIN: HEADERAREASTATES = HEADERAREASTATES(1i32);
-pub const AW_S_TITLEBAR_ACTIVE: TITLEBARSTATES = TITLEBARSTATES(1i32);
-pub const AW_S_TITLEBAR_INACTIVE: TITLEBARSTATES = TITLEBARSTATES(2i32);
-pub const AW_TITLEBAR: AEROWIZARDPARTS = AEROWIZARDPARTS(1i32);
-pub const BCM_FIRST: u32 = 5632u32;
-pub const BCM_GETIDEALSIZE: u32 = 5633u32;
-pub const BCM_GETIMAGELIST: u32 = 5635u32;
-pub const BCM_GETNOTE: u32 = 5642u32;
-pub const BCM_GETNOTELENGTH: u32 = 5643u32;
-pub const BCM_GETSPLITINFO: u32 = 5640u32;
-pub const BCM_GETTEXTMARGIN: u32 = 5637u32;
-pub const BCM_SETDROPDOWNSTATE: u32 = 5638u32;
-pub const BCM_SETIMAGELIST: u32 = 5634u32;
-pub const BCM_SETNOTE: u32 = 5641u32;
-pub const BCM_SETSHIELD: u32 = 5644u32;
-pub const BCM_SETSPLITINFO: u32 = 5639u32;
-pub const BCM_SETTEXTMARGIN: u32 = 5636u32;
-pub const BCN_DROPDOWN: u32 = 4294966048u32;
-pub const BCN_FIRST: u32 = 4294966046u32;
-pub const BCN_HOTITEMCHANGE: u32 = 4294966047u32;
-pub const BCN_LAST: u32 = 4294965946u32;
-pub const BCSIF_GLYPH: u32 = 1u32;
-pub const BCSIF_IMAGE: u32 = 2u32;
-pub const BCSIF_SIZE: u32 = 8u32;
-pub const BCSIF_STYLE: u32 = 4u32;
-pub const BCSS_ALIGNLEFT: u32 = 4u32;
-pub const BCSS_IMAGE: u32 = 8u32;
-pub const BCSS_NOSPLIT: u32 = 1u32;
-pub const BCSS_STRETCH: u32 = 2u32;
-pub const BPAS_CUBIC: BP_ANIMATIONSTYLE = BP_ANIMATIONSTYLE(2i32);
-pub const BPAS_LINEAR: BP_ANIMATIONSTYLE = BP_ANIMATIONSTYLE(1i32);
-pub const BPAS_NONE: BP_ANIMATIONSTYLE = BP_ANIMATIONSTYLE(0i32);
-pub const BPAS_SINE: BP_ANIMATIONSTYLE = BP_ANIMATIONSTYLE(3i32);
-pub const BPBF_COMPATIBLEBITMAP: BP_BUFFERFORMAT = BP_BUFFERFORMAT(0i32);
-pub const BPBF_DIB: BP_BUFFERFORMAT = BP_BUFFERFORMAT(1i32);
-pub const BPBF_TOPDOWNDIB: BP_BUFFERFORMAT = BP_BUFFERFORMAT(2i32);
-pub const BPBF_TOPDOWNMONODIB: BP_BUFFERFORMAT = BP_BUFFERFORMAT(3i32);
-pub const BPPF_ERASE: BP_PAINTPARAMS_FLAGS = BP_PAINTPARAMS_FLAGS(1u32);
-pub const BPPF_NOCLIP: BP_PAINTPARAMS_FLAGS = BP_PAINTPARAMS_FLAGS(2u32);
-pub const BPPF_NONCLIENT: BP_PAINTPARAMS_FLAGS = BP_PAINTPARAMS_FLAGS(4u32);
-pub const BP_CHECKBOX: BUTTONPARTS = BUTTONPARTS(3i32);
-pub const BP_CHECKBOX_HCDISABLED: BUTTONPARTS = BUTTONPARTS(9i32);
-pub const BP_COMMANDLINK: BUTTONPARTS = BUTTONPARTS(6i32);
-pub const BP_COMMANDLINKGLYPH: BUTTONPARTS = BUTTONPARTS(7i32);
-pub const BP_GROUPBOX: BUTTONPARTS = BUTTONPARTS(4i32);
-pub const BP_GROUPBOX_HCDISABLED: BUTTONPARTS = BUTTONPARTS(10i32);
-pub const BP_PUSHBUTTON: BUTTONPARTS = BUTTONPARTS(1i32);
-pub const BP_PUSHBUTTONDROPDOWN: BUTTONPARTS = BUTTONPARTS(11i32);
-pub const BP_RADIOBUTTON: BUTTONPARTS = BUTTONPARTS(2i32);
-pub const BP_RADIOBUTTON_HCDISABLED: BUTTONPARTS = BUTTONPARTS(8i32);
-pub const BP_USERBUTTON: BUTTONPARTS = BUTTONPARTS(5i32);
-pub const BST_CHECKED: DLG_BUTTON_CHECK_STATE = DLG_BUTTON_CHECK_STATE(1u32);
-pub const BST_DROPDOWNPUSHED: u32 = 1024u32;
-pub const BST_HOT: u32 = 512u32;
-pub const BST_INDETERMINATE: DLG_BUTTON_CHECK_STATE = DLG_BUTTON_CHECK_STATE(2u32);
-pub const BST_UNCHECKED: DLG_BUTTON_CHECK_STATE = DLG_BUTTON_CHECK_STATE(0u32);
-pub const BS_COMMANDLINK: i32 = 14i32;
-pub const BS_DEFCOMMANDLINK: i32 = 15i32;
-pub const BS_DEFSPLITBUTTON: i32 = 13i32;
-pub const BS_SPLITBUTTON: i32 = 12i32;
-pub const BTNS_AUTOSIZE: u32 = 16u32;
-pub const BTNS_BUTTON: u32 = 0u32;
-pub const BTNS_CHECK: u32 = 2u32;
-pub const BTNS_DROPDOWN: u32 = 8u32;
-pub const BTNS_GROUP: u32 = 4u32;
-pub const BTNS_NOPREFIX: u32 = 32u32;
-pub const BTNS_SEP: u32 = 1u32;
-pub const BTNS_SHOWTEXT: u32 = 64u32;
-pub const BTNS_WHOLEDROPDOWN: u32 = 128u32;
-pub const BT_BORDERFILL: BGTYPE = BGTYPE(1i32);
-pub const BT_ELLIPSE: BORDERTYPE = BORDERTYPE(2i32);
-pub const BT_IMAGEFILE: BGTYPE = BGTYPE(0i32);
-pub const BT_NONE: BGTYPE = BGTYPE(2i32);
-pub const BT_RECT: BORDERTYPE = BORDERTYPE(0i32);
-pub const BT_ROUNDRECT: BORDERTYPE = BORDERTYPE(1i32);
-pub const BUTTON_IMAGELIST_ALIGN_BOTTOM: BUTTON_IMAGELIST_ALIGN = BUTTON_IMAGELIST_ALIGN(3u32);
-pub const BUTTON_IMAGELIST_ALIGN_CENTER: BUTTON_IMAGELIST_ALIGN = BUTTON_IMAGELIST_ALIGN(4u32);
-pub const BUTTON_IMAGELIST_ALIGN_LEFT: BUTTON_IMAGELIST_ALIGN = BUTTON_IMAGELIST_ALIGN(0u32);
-pub const BUTTON_IMAGELIST_ALIGN_RIGHT: BUTTON_IMAGELIST_ALIGN = BUTTON_IMAGELIST_ALIGN(1u32);
-pub const BUTTON_IMAGELIST_ALIGN_TOP: BUTTON_IMAGELIST_ALIGN = BUTTON_IMAGELIST_ALIGN(2u32);
-pub const CA_CENTER: CONTENTALIGNMENT = CONTENTALIGNMENT(1i32);
-pub const CA_LEFT: CONTENTALIGNMENT = CONTENTALIGNMENT(0i32);
-pub const CA_RIGHT: CONTENTALIGNMENT = CONTENTALIGNMENT(2i32);
-pub const CBB_DISABLED: BORDERSTATES = BORDERSTATES(4i32);
-pub const CBB_FOCUSED: BORDERSTATES = BORDERSTATES(3i32);
-pub const CBB_HOT: BORDERSTATES = BORDERSTATES(2i32);
-pub const CBB_NORMAL: BORDERSTATES = BORDERSTATES(1i32);
-pub const CBCB_DISABLED: CUEBANNERSTATES = CUEBANNERSTATES(4i32);
-pub const CBCB_HOT: CUEBANNERSTATES = CUEBANNERSTATES(2i32);
-pub const CBCB_NORMAL: CUEBANNERSTATES = CUEBANNERSTATES(1i32);
-pub const CBCB_PRESSED: CUEBANNERSTATES = CUEBANNERSTATES(3i32);
-pub const CBDI_HIGHLIGHTED: DROPDOWNITEMSTATES = DROPDOWNITEMSTATES(2i32);
-pub const CBDI_NORMAL: DROPDOWNITEMSTATES = DROPDOWNITEMSTATES(1i32);
-pub const CBEIF_DI_SETITEM: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(268435456u32);
-pub const CBEIF_IMAGE: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(2u32);
-pub const CBEIF_INDENT: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(16u32);
-pub const CBEIF_LPARAM: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(32u32);
-pub const CBEIF_OVERLAY: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(8u32);
-pub const CBEIF_SELECTEDIMAGE: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(4u32);
-pub const CBEIF_TEXT: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(1u32);
-pub const CBEMAXSTRLEN: u32 = 260u32;
-pub const CBEM_GETCOMBOCONTROL: u32 = 1030u32;
-pub const CBEM_GETEDITCONTROL: u32 = 1031u32;
-pub const CBEM_GETEXSTYLE: u32 = 1033u32;
-pub const CBEM_GETEXTENDEDSTYLE: u32 = 1033u32;
-pub const CBEM_GETIMAGELIST: u32 = 1027u32;
-pub const CBEM_GETITEM: u32 = 1037u32;
-pub const CBEM_GETITEMA: u32 = 1028u32;
-pub const CBEM_GETITEMW: u32 = 1037u32;
-pub const CBEM_GETUNICODEFORMAT: u32 = 8198u32;
-pub const CBEM_HASEDITCHANGED: u32 = 1034u32;
-pub const CBEM_INSERTITEM: u32 = 1035u32;
-pub const CBEM_INSERTITEMA: u32 = 1025u32;
-pub const CBEM_INSERTITEMW: u32 = 1035u32;
-pub const CBEM_SETEXSTYLE: u32 = 1032u32;
-pub const CBEM_SETEXTENDEDSTYLE: u32 = 1038u32;
-pub const CBEM_SETIMAGELIST: u32 = 1026u32;
-pub const CBEM_SETITEM: u32 = 1036u32;
-pub const CBEM_SETITEMA: u32 = 1029u32;
-pub const CBEM_SETITEMW: u32 = 1036u32;
-pub const CBEM_SETUNICODEFORMAT: u32 = 8197u32;
-pub const CBEM_SETWINDOWTHEME: u32 = 8203u32;
-pub const CBENF_DROPDOWN: u32 = 4u32;
-pub const CBENF_ESCAPE: u32 = 3u32;
-pub const CBENF_KILLFOCUS: u32 = 1u32;
-pub const CBENF_RETURN: u32 = 2u32;
-pub const CBEN_BEGINEDIT: u32 = 4294966492u32;
-pub const CBEN_DELETEITEM: u32 = 4294966494u32;
-pub const CBEN_DRAGBEGIN: u32 = 4294966487u32;
-pub const CBEN_DRAGBEGINA: u32 = 4294966488u32;
-pub const CBEN_DRAGBEGINW: u32 = 4294966487u32;
-pub const CBEN_ENDEDIT: u32 = 4294966490u32;
-pub const CBEN_ENDEDITA: u32 = 4294966491u32;
-pub const CBEN_ENDEDITW: u32 = 4294966490u32;
-pub const CBEN_FIRST: u32 = 4294966496u32;
-pub const CBEN_GETDISPINFOA: u32 = 4294966496u32;
-pub const CBEN_GETDISPINFOW: u32 = 4294966489u32;
-pub const CBEN_INSERTITEM: u32 = 4294966495u32;
-pub const CBEN_LAST: u32 = 4294966466u32;
-pub const CBES_EX_CASESENSITIVE: u32 = 16u32;
-pub const CBES_EX_NOEDITIMAGE: u32 = 1u32;
-pub const CBES_EX_NOEDITIMAGEINDENT: u32 = 2u32;
-pub const CBES_EX_NOSIZELIMIT: u32 = 8u32;
-pub const CBES_EX_PATHWORDBREAKPROC: u32 = 4u32;
-pub const CBES_EX_TEXTENDELLIPSIS: u32 = 32u32;
-pub const CBM_FIRST: u32 = 5888u32;
-pub const CBRO_DISABLED: READONLYSTATES = READONLYSTATES(4i32);
-pub const CBRO_HOT: READONLYSTATES = READONLYSTATES(2i32);
-pub const CBRO_NORMAL: READONLYSTATES = READONLYSTATES(1i32);
-pub const CBRO_PRESSED: READONLYSTATES = READONLYSTATES(3i32);
-pub const CBS_CHECKEDDISABLED: CHECKBOXSTATES = CHECKBOXSTATES(8i32);
-pub const CBS_CHECKEDHOT: CHECKBOXSTATES = CHECKBOXSTATES(6i32);
-pub const CBS_CHECKEDNORMAL: CHECKBOXSTATES = CHECKBOXSTATES(5i32);
-pub const CBS_CHECKEDPRESSED: CHECKBOXSTATES = CHECKBOXSTATES(7i32);
-pub const CBS_DISABLED: CLOSEBUTTONSTATES = CLOSEBUTTONSTATES(4i32);
-pub const CBS_EXCLUDEDDISABLED: CHECKBOXSTATES = CHECKBOXSTATES(20i32);
-pub const CBS_EXCLUDEDHOT: CHECKBOXSTATES = CHECKBOXSTATES(18i32);
-pub const CBS_EXCLUDEDNORMAL: CHECKBOXSTATES = CHECKBOXSTATES(17i32);
-pub const CBS_EXCLUDEDPRESSED: CHECKBOXSTATES = CHECKBOXSTATES(19i32);
-pub const CBS_HOT: CLOSEBUTTONSTATES = CLOSEBUTTONSTATES(2i32);
-pub const CBS_IMPLICITDISABLED: CHECKBOXSTATES = CHECKBOXSTATES(16i32);
-pub const CBS_IMPLICITHOT: CHECKBOXSTATES = CHECKBOXSTATES(14i32);
-pub const CBS_IMPLICITNORMAL: CHECKBOXSTATES = CHECKBOXSTATES(13i32);
-pub const CBS_IMPLICITPRESSED: CHECKBOXSTATES = CHECKBOXSTATES(15i32);
-pub const CBS_MIXEDDISABLED: CHECKBOXSTATES = CHECKBOXSTATES(12i32);
-pub const CBS_MIXEDHOT: CHECKBOXSTATES = CHECKBOXSTATES(10i32);
-pub const CBS_MIXEDNORMAL: CHECKBOXSTATES = CHECKBOXSTATES(9i32);
-pub const CBS_MIXEDPRESSED: CHECKBOXSTATES = CHECKBOXSTATES(11i32);
-pub const CBS_NORMAL: CLOSEBUTTONSTATES = CLOSEBUTTONSTATES(1i32);
-pub const CBS_PUSHED: CLOSEBUTTONSTATES = CLOSEBUTTONSTATES(3i32);
-pub const CBS_UNCHECKEDDISABLED: CHECKBOXSTATES = CHECKBOXSTATES(4i32);
-pub const CBS_UNCHECKEDHOT: CHECKBOXSTATES = CHECKBOXSTATES(2i32);
-pub const CBS_UNCHECKEDNORMAL: CHECKBOXSTATES = CHECKBOXSTATES(1i32);
-pub const CBS_UNCHECKEDPRESSED: CHECKBOXSTATES = CHECKBOXSTATES(3i32);
-pub const CBTBS_DISABLED: TRANSPARENTBACKGROUNDSTATES = TRANSPARENTBACKGROUNDSTATES(3i32);
-pub const CBTBS_FOCUSED: TRANSPARENTBACKGROUNDSTATES = TRANSPARENTBACKGROUNDSTATES(4i32);
-pub const CBTBS_HOT: TRANSPARENTBACKGROUNDSTATES = TRANSPARENTBACKGROUNDSTATES(2i32);
-pub const CBTBS_NORMAL: TRANSPARENTBACKGROUNDSTATES = TRANSPARENTBACKGROUNDSTATES(1i32);
-pub const CBXSL_DISABLED: DROPDOWNBUTTONLEFTSTATES = DROPDOWNBUTTONLEFTSTATES(4i32);
-pub const CBXSL_HOT: DROPDOWNBUTTONLEFTSTATES = DROPDOWNBUTTONLEFTSTATES(2i32);
-pub const CBXSL_NORMAL: DROPDOWNBUTTONLEFTSTATES = DROPDOWNBUTTONLEFTSTATES(1i32);
-pub const CBXSL_PRESSED: DROPDOWNBUTTONLEFTSTATES = DROPDOWNBUTTONLEFTSTATES(3i32);
-pub const CBXSR_DISABLED: DROPDOWNBUTTONRIGHTSTATES = DROPDOWNBUTTONRIGHTSTATES(4i32);
-pub const CBXSR_HOT: DROPDOWNBUTTONRIGHTSTATES = DROPDOWNBUTTONRIGHTSTATES(2i32);
-pub const CBXSR_NORMAL: DROPDOWNBUTTONRIGHTSTATES = DROPDOWNBUTTONRIGHTSTATES(1i32);
-pub const CBXSR_PRESSED: DROPDOWNBUTTONRIGHTSTATES = DROPDOWNBUTTONRIGHTSTATES(3i32);
-pub const CBXS_DISABLED: COMBOBOXSTYLESTATES = COMBOBOXSTYLESTATES(4i32);
-pub const CBXS_HOT: COMBOBOXSTYLESTATES = COMBOBOXSTYLESTATES(2i32);
-pub const CBXS_NORMAL: COMBOBOXSTYLESTATES = COMBOBOXSTYLESTATES(1i32);
-pub const CBXS_PRESSED: COMBOBOXSTYLESTATES = COMBOBOXSTYLESTATES(3i32);
-pub const CB_GETCUEBANNER: u32 = 5892u32;
-pub const CB_GETMINVISIBLE: u32 = 5890u32;
-pub const CB_SETCUEBANNER: u32 = 5891u32;
-pub const CB_SETMINVISIBLE: u32 = 5889u32;
-pub const CCF_NOTEXT: u32 = 1u32;
-pub const CCHCCCLASS: u32 = 32u32;
-pub const CCHCCDESC: u32 = 32u32;
-pub const CCHCCTEXT: u32 = 256u32;
-pub const CCM_DPISCALE: u32 = 8204u32;
-pub const CCM_FIRST: u32 = 8192u32;
-pub const CCM_GETCOLORSCHEME: u32 = 8195u32;
-pub const CCM_GETDROPTARGET: u32 = 8196u32;
-pub const CCM_GETUNICODEFORMAT: u32 = 8198u32;
-pub const CCM_GETVERSION: u32 = 8200u32;
-pub const CCM_LAST: u32 = 8704u32;
-pub const CCM_SETBKCOLOR: u32 = 8193u32;
-pub const CCM_SETCOLORSCHEME: u32 = 8194u32;
-pub const CCM_SETNOTIFYWINDOW: u32 = 8201u32;
-pub const CCM_SETUNICODEFORMAT: u32 = 8197u32;
-pub const CCM_SETVERSION: u32 = 8199u32;
-pub const CCM_SETWINDOWTHEME: u32 = 8203u32;
-pub const CCS_ADJUSTABLE: i32 = 32i32;
-pub const CCS_BOTTOM: i32 = 3i32;
-pub const CCS_NODIVIDER: i32 = 64i32;
-pub const CCS_NOMOVEY: i32 = 2i32;
-pub const CCS_NOPARENTALIGN: i32 = 8i32;
-pub const CCS_NORESIZE: i32 = 4i32;
-pub const CCS_TOP: i32 = 1i32;
-pub const CCS_VERT: i32 = 128i32;
-pub const CDDS_ITEM: u32 = 65536u32;
-pub const CDDS_ITEMPOSTERASE: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(65540u32);
-pub const CDDS_ITEMPOSTPAINT: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(65538u32);
-pub const CDDS_ITEMPREERASE: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(65539u32);
-pub const CDDS_ITEMPREPAINT: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(65537u32);
-pub const CDDS_POSTERASE: u32 = 4u32;
-pub const CDDS_POSTPAINT: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(2u32);
-pub const CDDS_PREERASE: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(3u32);
-pub const CDDS_PREPAINT: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(1u32);
-pub const CDDS_SUBITEM: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(131072u32);
-pub const CDIS_CHECKED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(8u32);
-pub const CDIS_DEFAULT: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(32u32);
-pub const CDIS_DISABLED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(4u32);
-pub const CDIS_DROPHILITED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(4096u32);
-pub const CDIS_FOCUS: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(16u32);
-pub const CDIS_GRAYED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(2u32);
-pub const CDIS_HOT: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(64u32);
-pub const CDIS_INDETERMINATE: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(256u32);
-pub const CDIS_MARKED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(128u32);
-pub const CDIS_NEARHOT: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(1024u32);
-pub const CDIS_OTHERSIDEHOT: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(2048u32);
-pub const CDIS_SELECTED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(1u32);
-pub const CDIS_SHOWKEYBOARDCUES: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(512u32);
-pub const CDN_FIRST: u32 = 4294966695u32;
-pub const CDN_LAST: u32 = 4294966597u32;
-pub const CDRF_DODEFAULT: u32 = 0u32;
-pub const CDRF_DOERASE: u32 = 8u32;
-pub const CDRF_NEWFONT: u32 = 2u32;
-pub const CDRF_NOTIFYITEMDRAW: u32 = 32u32;
-pub const CDRF_NOTIFYPOSTERASE: u32 = 64u32;
-pub const CDRF_NOTIFYPOSTPAINT: u32 = 16u32;
-pub const CDRF_NOTIFYSUBITEMDRAW: u32 = 32u32;
-pub const CDRF_SKIPDEFAULT: u32 = 4u32;
-pub const CDRF_SKIPPOSTPAINT: u32 = 256u32;
-pub const CHEVSV_HOT: CHEVRONVERTSTATES = CHEVRONVERTSTATES(2i32);
-pub const CHEVSV_NORMAL: CHEVRONVERTSTATES = CHEVRONVERTSTATES(1i32);
-pub const CHEVSV_PRESSED: CHEVRONVERTSTATES = CHEVRONVERTSTATES(3i32);
-pub const CHEVS_HOT: CHEVRONSTATES = CHEVRONSTATES(2i32);
-pub const CHEVS_NORMAL: CHEVRONSTATES = CHEVRONSTATES(1i32);
-pub const CHEVS_PRESSED: CHEVRONSTATES = CHEVRONSTATES(3i32);
-pub const CLP_TIME: CLOCKPARTS = CLOCKPARTS(1i32);
-pub const CLR_DEFAULT: i32 = -16777216i32;
-pub const CLR_HILIGHT: i32 = -16777216i32;
-pub const CLR_NONE: i32 = -1i32;
-pub const CLS_HOT: CLOCKSTATES = CLOCKSTATES(2i32);
-pub const CLS_NORMAL: CLOCKSTATES = CLOCKSTATES(1i32);
-pub const CLS_PRESSED: CLOCKSTATES = CLOCKSTATES(3i32);
-pub const CMB_MASKED: u32 = 2u32;
-pub const CMDLGS_DEFAULTED: COMMANDLINKGLYPHSTATES = COMMANDLINKGLYPHSTATES(5i32);
-pub const CMDLGS_DISABLED: COMMANDLINKGLYPHSTATES = COMMANDLINKGLYPHSTATES(4i32);
-pub const CMDLGS_HOT: COMMANDLINKGLYPHSTATES = COMMANDLINKGLYPHSTATES(2i32);
-pub const CMDLGS_NORMAL: COMMANDLINKGLYPHSTATES = COMMANDLINKGLYPHSTATES(1i32);
-pub const CMDLGS_PRESSED: COMMANDLINKGLYPHSTATES = COMMANDLINKGLYPHSTATES(3i32);
-pub const CMDLS_DEFAULTED: COMMANDLINKSTATES = COMMANDLINKSTATES(5i32);
-pub const CMDLS_DEFAULTED_ANIMATING: COMMANDLINKSTATES = COMMANDLINKSTATES(6i32);
-pub const CMDLS_DISABLED: COMMANDLINKSTATES = COMMANDLINKSTATES(4i32);
-pub const CMDLS_HOT: COMMANDLINKSTATES = COMMANDLINKSTATES(2i32);
-pub const CMDLS_NORMAL: COMMANDLINKSTATES = COMMANDLINKSTATES(1i32);
-pub const CMDLS_PRESSED: COMMANDLINKSTATES = COMMANDLINKSTATES(3i32);
-pub const COLORMGMTDLGORD: u32 = 1551u32;
-pub const COMCTL32_VERSION: u32 = 6u32;
-pub const CPANEL_BANNERAREA: CONTROLPANELPARTS = CONTROLPANELPARTS(18i32);
-pub const CPANEL_BODYTEXT: CONTROLPANELPARTS = CONTROLPANELPARTS(6i32);
-pub const CPANEL_BODYTITLE: CONTROLPANELPARTS = CONTROLPANELPARTS(19i32);
-pub const CPANEL_BUTTON: CONTROLPANELPARTS = CONTROLPANELPARTS(14i32);
-pub const CPANEL_CONTENTLINK: CONTROLPANELPARTS = CONTROLPANELPARTS(10i32);
-pub const CPANEL_CONTENTPANE: CONTROLPANELPARTS = CONTROLPANELPARTS(2i32);
-pub const CPANEL_CONTENTPANELABEL: CONTROLPANELPARTS = CONTROLPANELPARTS(4i32);
-pub const CPANEL_CONTENTPANELINE: CONTROLPANELPARTS = CONTROLPANELPARTS(17i32);
-pub const CPANEL_GROUPTEXT: CONTROLPANELPARTS = CONTROLPANELPARTS(9i32);
-pub const CPANEL_HELPLINK: CONTROLPANELPARTS = CONTROLPANELPARTS(7i32);
-pub const CPANEL_LARGECOMMANDAREA: CONTROLPANELPARTS = CONTROLPANELPARTS(12i32);
-pub const CPANEL_MESSAGETEXT: CONTROLPANELPARTS = CONTROLPANELPARTS(15i32);
-pub const CPANEL_NAVIGATIONPANE: CONTROLPANELPARTS = CONTROLPANELPARTS(1i32);
-pub const CPANEL_NAVIGATIONPANELABEL: CONTROLPANELPARTS = CONTROLPANELPARTS(3i32);
-pub const CPANEL_NAVIGATIONPANELINE: CONTROLPANELPARTS = CONTROLPANELPARTS(16i32);
-pub const CPANEL_SECTIONTITLELINK: CONTROLPANELPARTS = CONTROLPANELPARTS(11i32);
-pub const CPANEL_SMALLCOMMANDAREA: CONTROLPANELPARTS = CONTROLPANELPARTS(13i32);
-pub const CPANEL_TASKLINK: CONTROLPANELPARTS = CONTROLPANELPARTS(8i32);
-pub const CPANEL_TITLE: CONTROLPANELPARTS = CONTROLPANELPARTS(5i32);
-pub const CPCL_DISABLED: CONTENTLINKSTATES = CONTENTLINKSTATES(4i32);
-pub const CPCL_HOT: CONTENTLINKSTATES = CONTENTLINKSTATES(2i32);
-pub const CPCL_NORMAL: CONTENTLINKSTATES = CONTENTLINKSTATES(1i32);
-pub const CPCL_PRESSED: CONTENTLINKSTATES = CONTENTLINKSTATES(3i32);
-pub const CPHL_DISABLED: HELPLINKSTATES = HELPLINKSTATES(4i32);
-pub const CPHL_HOT: HELPLINKSTATES = HELPLINKSTATES(2i32);
-pub const CPHL_NORMAL: HELPLINKSTATES = HELPLINKSTATES(1i32);
-pub const CPHL_PRESSED: HELPLINKSTATES = HELPLINKSTATES(3i32);
-pub const CPSTL_HOT: SECTIONTITLELINKSTATES = SECTIONTITLELINKSTATES(2i32);
-pub const CPSTL_NORMAL: SECTIONTITLELINKSTATES = SECTIONTITLELINKSTATES(1i32);
-pub const CPTL_DISABLED: TASKLINKSTATES = TASKLINKSTATES(4i32);
-pub const CPTL_HOT: TASKLINKSTATES = TASKLINKSTATES(2i32);
-pub const CPTL_NORMAL: TASKLINKSTATES = TASKLINKSTATES(1i32);
-pub const CPTL_PAGE: TASKLINKSTATES = TASKLINKSTATES(5i32);
-pub const CPTL_PRESSED: TASKLINKSTATES = TASKLINKSTATES(3i32);
-pub const CP_BACKGROUND: COMBOBOXPARTS = COMBOBOXPARTS(2i32);
-pub const CP_BORDER: COMBOBOXPARTS = COMBOBOXPARTS(4i32);
-pub const CP_CUEBANNER: COMBOBOXPARTS = COMBOBOXPARTS(8i32);
-pub const CP_DROPDOWNBUTTON: COMBOBOXPARTS = COMBOBOXPARTS(1i32);
-pub const CP_DROPDOWNBUTTONLEFT: COMBOBOXPARTS = COMBOBOXPARTS(7i32);
-pub const CP_DROPDOWNBUTTONRIGHT: COMBOBOXPARTS = COMBOBOXPARTS(6i32);
-pub const CP_DROPDOWNITEM: COMBOBOXPARTS = COMBOBOXPARTS(9i32);
-pub const CP_READONLY: COMBOBOXPARTS = COMBOBOXPARTS(5i32);
-pub const CP_TRANSPARENTBACKGROUND: COMBOBOXPARTS = COMBOBOXPARTS(3i32);
-pub const CSST_TAB: COMMUNICATIONSPARTS = COMMUNICATIONSPARTS(1i32);
-pub const CSTB_HOT: TABSTATES = TABSTATES(2i32);
-pub const CSTB_NORMAL: TABSTATES = TABSTATES(1i32);
-pub const CSTB_SELECTED: TABSTATES = TABSTATES(3i32);
-pub const CS_ACTIVE: CAPTIONSTATES = CAPTIONSTATES(1i32);
-pub const CS_DISABLED: CAPTIONSTATES = CAPTIONSTATES(3i32);
-pub const CS_INACTIVE: CAPTIONSTATES = CAPTIONSTATES(2i32);
-pub const DATETIMEPICK_CLASS: windows_core::PCWSTR = windows_core::w!("SysDateTimePick32");
-pub const DATETIMEPICK_CLASSA: windows_core::PCSTR = windows_core::s!("SysDateTimePick32");
-pub const DATETIMEPICK_CLASSW: windows_core::PCWSTR = windows_core::w!("SysDateTimePick32");
-pub const DA_ERR: i32 = -1i32;
-pub const DA_LAST: u32 = 2147483647u32;
-pub const DDCOPY_HIGHLIGHT: COPYSTATES = COPYSTATES(1i32);
-pub const DDCOPY_NOHIGHLIGHT: COPYSTATES = COPYSTATES(2i32);
-pub const DDCREATELINK_HIGHLIGHT: CREATELINKSTATES = CREATELINKSTATES(1i32);
-pub const DDCREATELINK_NOHIGHLIGHT: CREATELINKSTATES = CREATELINKSTATES(2i32);
-pub const DDL_ARCHIVE: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(32u32);
-pub const DDL_DIRECTORY: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(16u32);
-pub const DDL_DRIVES: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(16384u32);
-pub const DDL_EXCLUSIVE: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(32768u32);
-pub const DDL_HIDDEN: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(2u32);
-pub const DDL_POSTMSGS: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(8192u32);
-pub const DDL_READONLY: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(1u32);
-pub const DDL_READWRITE: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(0u32);
-pub const DDL_SYSTEM: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(4u32);
-pub const DDMOVE_HIGHLIGHT: MOVESTATES = MOVESTATES(1i32);
-pub const DDMOVE_NOHIGHLIGHT: MOVESTATES = MOVESTATES(2i32);
-pub const DDNONE_HIGHLIGHT: NONESTATES = NONESTATES(1i32);
-pub const DDNONE_NOHIGHLIGHT: NONESTATES = NONESTATES(2i32);
-pub const DDUPDATEMETADATA_HIGHLIGHT: UPDATEMETADATASTATES = UPDATEMETADATASTATES(1i32);
-pub const DDUPDATEMETADATA_NOHIGHLIGHT: UPDATEMETADATASTATES = UPDATEMETADATASTATES(2i32);
-pub const DDWARNING_HIGHLIGHT: WARNINGSTATES = WARNINGSTATES(1i32);
-pub const DDWARNING_NOHIGHLIGHT: WARNINGSTATES = WARNINGSTATES(2i32);
-pub const DD_COPY: DRAGDROPPARTS = DRAGDROPPARTS(1i32);
-pub const DD_CREATELINK: DRAGDROPPARTS = DRAGDROPPARTS(4i32);
-pub const DD_IMAGEBG: DRAGDROPPARTS = DRAGDROPPARTS(7i32);
-pub const DD_MOVE: DRAGDROPPARTS = DRAGDROPPARTS(2i32);
-pub const DD_NONE: DRAGDROPPARTS = DRAGDROPPARTS(6i32);
-pub const DD_TEXTBG: DRAGDROPPARTS = DRAGDROPPARTS(8i32);
-pub const DD_UPDATEMETADATA: DRAGDROPPARTS = DRAGDROPPARTS(3i32);
-pub const DD_WARNING: DRAGDROPPARTS = DRAGDROPPARTS(5i32);
-pub const DL_BEGINDRAG: DRAGLISTINFO_NOTIFICATION_FLAGS = DRAGLISTINFO_NOTIFICATION_FLAGS(1157u32);
-pub const DL_CANCELDRAG: DRAGLISTINFO_NOTIFICATION_FLAGS = DRAGLISTINFO_NOTIFICATION_FLAGS(1160u32);
-pub const DL_COPYCURSOR: u32 = 2u32;
-pub const DL_CURSORSET: u32 = 0u32;
-pub const DL_DRAGGING: DRAGLISTINFO_NOTIFICATION_FLAGS = DRAGLISTINFO_NOTIFICATION_FLAGS(1158u32);
-pub const DL_DROPPED: DRAGLISTINFO_NOTIFICATION_FLAGS = DRAGLISTINFO_NOTIFICATION_FLAGS(1159u32);
-pub const DL_MOVECURSOR: u32 = 3u32;
-pub const DL_STOPCURSOR: u32 = 1u32;
-pub const DNHZS_DISABLED: DOWNHORZSTATES = DOWNHORZSTATES(4i32);
-pub const DNHZS_HOT: DOWNHORZSTATES = DOWNHORZSTATES(2i32);
-pub const DNHZS_NORMAL: DOWNHORZSTATES = DOWNHORZSTATES(1i32);
-pub const DNHZS_PRESSED: DOWNHORZSTATES = DOWNHORZSTATES(3i32);
-pub const DNS_DISABLED: DOWNSTATES = DOWNSTATES(4i32);
-pub const DNS_HOT: DOWNSTATES = DOWNSTATES(2i32);
-pub const DNS_NORMAL: DOWNSTATES = DOWNSTATES(1i32);
-pub const DNS_PRESSED: DOWNSTATES = DOWNSTATES(3i32);
-pub const DPAMM_DELETE: DPAMM_MESSAGE = DPAMM_MESSAGE(2u32);
-pub const DPAMM_INSERT: DPAMM_MESSAGE = DPAMM_MESSAGE(3u32);
-pub const DPAMM_MERGE: DPAMM_MESSAGE = DPAMM_MESSAGE(1u32);
-pub const DPAM_INTERSECT: u32 = 8u32;
-pub const DPAM_NORMAL: u32 = 2u32;
-pub const DPAM_SORTED: u32 = 1u32;
-pub const DPAM_UNION: u32 = 4u32;
-pub const DPAS_INSERTAFTER: u32 = 4u32;
-pub const DPAS_INSERTBEFORE: u32 = 2u32;
-pub const DPAS_SORTED: u32 = 1u32;
-pub const DPA_APPEND: u32 = 2147483647u32;
-pub const DPA_ERR: i32 = -1i32;
-pub const DPDB_DISABLED: DATEBORDERSTATES = DATEBORDERSTATES(4i32);
-pub const DPDB_FOCUSED: DATEBORDERSTATES = DATEBORDERSTATES(3i32);
-pub const DPDB_HOT: DATEBORDERSTATES = DATEBORDERSTATES(2i32);
-pub const DPDB_NORMAL: DATEBORDERSTATES = DATEBORDERSTATES(1i32);
-pub const DPDT_DISABLED: DATETEXTSTATES = DATETEXTSTATES(2i32);
-pub const DPDT_NORMAL: DATETEXTSTATES = DATETEXTSTATES(1i32);
-pub const DPDT_SELECTED: DATETEXTSTATES = DATETEXTSTATES(3i32);
-pub const DPSCBR_DISABLED: SHOWCALENDARBUTTONRIGHTSTATES = SHOWCALENDARBUTTONRIGHTSTATES(4i32);
-pub const DPSCBR_HOT: SHOWCALENDARBUTTONRIGHTSTATES = SHOWCALENDARBUTTONRIGHTSTATES(2i32);
-pub const DPSCBR_NORMAL: SHOWCALENDARBUTTONRIGHTSTATES = SHOWCALENDARBUTTONRIGHTSTATES(1i32);
-pub const DPSCBR_PRESSED: SHOWCALENDARBUTTONRIGHTSTATES = SHOWCALENDARBUTTONRIGHTSTATES(3i32);
-pub const DP_DATEBORDER: DATEPICKERPARTS = DATEPICKERPARTS(2i32);
-pub const DP_DATETEXT: DATEPICKERPARTS = DATEPICKERPARTS(1i32);
-pub const DP_SHOWCALENDARBUTTONRIGHT: DATEPICKERPARTS = DATEPICKERPARTS(3i32);
-pub const DRAGLISTMSGSTRING: windows_core::PCWSTR = windows_core::w!("commctrl_DragListMsg");
-pub const DSA_APPEND: u32 = 2147483647u32;
-pub const DSA_ERR: i32 = -1i32;
-pub const DTBG_CLIPRECT: u32 = 1u32;
-pub const DTBG_COMPUTINGREGION: u32 = 16u32;
-pub const DTBG_DRAWSOLID: u32 = 2u32;
-pub const DTBG_MIRRORDC: u32 = 32u32;
-pub const DTBG_NOMIRROR: u32 = 64u32;
-pub const DTBG_OMITBORDER: u32 = 4u32;
-pub const DTBG_OMITCONTENT: u32 = 8u32;
-pub const DTM_CLOSEMONTHCAL: u32 = 4109u32;
-pub const DTM_FIRST: u32 = 4096u32;
-pub const DTM_GETDATETIMEPICKERINFO: u32 = 4110u32;
-pub const DTM_GETIDEALSIZE: u32 = 4111u32;
-pub const DTM_GETMCCOLOR: u32 = 4103u32;
-pub const DTM_GETMCFONT: u32 = 4106u32;
-pub const DTM_GETMCSTYLE: u32 = 4108u32;
-pub const DTM_GETMONTHCAL: u32 = 4104u32;
-pub const DTM_GETRANGE: u32 = 4099u32;
-pub const DTM_GETSYSTEMTIME: u32 = 4097u32;
-pub const DTM_SETFORMAT: u32 = 4146u32;
-pub const DTM_SETFORMATA: u32 = 4101u32;
-pub const DTM_SETFORMATW: u32 = 4146u32;
-pub const DTM_SETMCCOLOR: u32 = 4102u32;
-pub const DTM_SETMCFONT: u32 = 4105u32;
-pub const DTM_SETMCSTYLE: u32 = 4107u32;
-pub const DTM_SETRANGE: u32 = 4100u32;
-pub const DTM_SETSYSTEMTIME: u32 = 4098u32;
-pub const DTN_CLOSEUP: u32 = 4294966543u32;
-pub const DTN_DATETIMECHANGE: u32 = 4294966537u32;
-pub const DTN_DROPDOWN: u32 = 4294966542u32;
-pub const DTN_FIRST: u32 = 4294966556u32;
-pub const DTN_FIRST2: u32 = 4294966543u32;
-pub const DTN_FORMAT: u32 = 4294966553u32;
-pub const DTN_FORMATA: u32 = 4294966540u32;
-pub const DTN_FORMATQUERY: u32 = 4294966554u32;
-pub const DTN_FORMATQUERYA: u32 = 4294966541u32;
-pub const DTN_FORMATQUERYW: u32 = 4294966554u32;
-pub const DTN_FORMATW: u32 = 4294966553u32;
-pub const DTN_LAST: u32 = 4294966551u32;
-pub const DTN_LAST2: u32 = 4294966497u32;
-pub const DTN_USERSTRING: u32 = 4294966551u32;
-pub const DTN_USERSTRINGA: u32 = 4294966538u32;
-pub const DTN_USERSTRINGW: u32 = 4294966551u32;
-pub const DTN_WMKEYDOWN: u32 = 4294966552u32;
-pub const DTN_WMKEYDOWNA: u32 = 4294966539u32;
-pub const DTN_WMKEYDOWNW: u32 = 4294966552u32;
-pub const DTPB_USECTLCOLORSTATIC: DRAW_THEME_PARENT_BACKGROUND_FLAGS = DRAW_THEME_PARENT_BACKGROUND_FLAGS(2u32);
-pub const DTPB_USEERASEBKGND: DRAW_THEME_PARENT_BACKGROUND_FLAGS = DRAW_THEME_PARENT_BACKGROUND_FLAGS(4u32);
-pub const DTPB_WINDOWDC: DRAW_THEME_PARENT_BACKGROUND_FLAGS = DRAW_THEME_PARENT_BACKGROUND_FLAGS(1u32);
-pub const DTS_APPCANPARSE: u32 = 16u32;
-pub const DTS_LONGDATEFORMAT: u32 = 4u32;
-pub const DTS_RIGHTALIGN: u32 = 32u32;
-pub const DTS_SHORTDATECENTURYFORMAT: u32 = 12u32;
-pub const DTS_SHORTDATEFORMAT: u32 = 0u32;
-pub const DTS_SHOWNONE: u32 = 2u32;
-pub const DTS_TIMEFORMAT: u32 = 9u32;
-pub const DTS_UPDOWN: u32 = 1u32;
-pub const DTT_APPLYOVERLAY: DTTOPTS_FLAGS = DTTOPTS_FLAGS(1024u32);
-pub const DTT_BORDERCOLOR: DTTOPTS_FLAGS = DTTOPTS_FLAGS(2u32);
-pub const DTT_BORDERSIZE: DTTOPTS_FLAGS = DTTOPTS_FLAGS(32u32);
-pub const DTT_CALCRECT: DTTOPTS_FLAGS = DTTOPTS_FLAGS(512u32);
-pub const DTT_CALLBACK: DTTOPTS_FLAGS = DTTOPTS_FLAGS(4096u32);
-pub const DTT_COLORPROP: DTTOPTS_FLAGS = DTTOPTS_FLAGS(128u32);
-pub const DTT_COMPOSITED: DTTOPTS_FLAGS = DTTOPTS_FLAGS(8192u32);
-pub const DTT_FLAGS2VALIDBITS: u32 = 1u32;
-pub const DTT_FONTPROP: DTTOPTS_FLAGS = DTTOPTS_FLAGS(64u32);
-pub const DTT_GLOWSIZE: DTTOPTS_FLAGS = DTTOPTS_FLAGS(2048u32);
-pub const DTT_GRAYED: u32 = 1u32;
-pub const DTT_SHADOWCOLOR: DTTOPTS_FLAGS = DTTOPTS_FLAGS(4u32);
-pub const DTT_SHADOWOFFSET: DTTOPTS_FLAGS = DTTOPTS_FLAGS(16u32);
-pub const DTT_SHADOWTYPE: DTTOPTS_FLAGS = DTTOPTS_FLAGS(8u32);
-pub const DTT_STATEID: DTTOPTS_FLAGS = DTTOPTS_FLAGS(256u32);
-pub const DTT_TEXTCOLOR: DTTOPTS_FLAGS = DTTOPTS_FLAGS(1u32);
-pub const DTT_VALIDBITS: DTTOPTS_FLAGS = DTTOPTS_FLAGS(12287u32);
-pub const EBHC_HOT: HEADERCLOSESTATES = HEADERCLOSESTATES(2i32);
-pub const EBHC_NORMAL: HEADERCLOSESTATES = HEADERCLOSESTATES(1i32);
-pub const EBHC_PRESSED: HEADERCLOSESTATES = HEADERCLOSESTATES(3i32);
-pub const EBHP_HOT: HEADERPINSTATES = HEADERPINSTATES(2i32);
-pub const EBHP_NORMAL: HEADERPINSTATES = HEADERPINSTATES(1i32);
-pub const EBHP_PRESSED: HEADERPINSTATES = HEADERPINSTATES(3i32);
-pub const EBHP_SELECTEDHOT: HEADERPINSTATES = HEADERPINSTATES(5i32);
-pub const EBHP_SELECTEDNORMAL: HEADERPINSTATES = HEADERPINSTATES(4i32);
-pub const EBHP_SELECTEDPRESSED: HEADERPINSTATES = HEADERPINSTATES(6i32);
-pub const EBM_HOT: IEBARMENUSTATES = IEBARMENUSTATES(2i32);
-pub const EBM_NORMAL: IEBARMENUSTATES = IEBARMENUSTATES(1i32);
-pub const EBM_PRESSED: IEBARMENUSTATES = IEBARMENUSTATES(3i32);
-pub const EBNGC_HOT: NORMALGROUPCOLLAPSESTATES = NORMALGROUPCOLLAPSESTATES(2i32);
-pub const EBNGC_NORMAL: NORMALGROUPCOLLAPSESTATES = NORMALGROUPCOLLAPSESTATES(1i32);
-pub const EBNGC_PRESSED: NORMALGROUPCOLLAPSESTATES = NORMALGROUPCOLLAPSESTATES(3i32);
-pub const EBNGE_HOT: NORMALGROUPEXPANDSTATES = NORMALGROUPEXPANDSTATES(2i32);
-pub const EBNGE_NORMAL: NORMALGROUPEXPANDSTATES = NORMALGROUPEXPANDSTATES(1i32);
-pub const EBNGE_PRESSED: NORMALGROUPEXPANDSTATES = NORMALGROUPEXPANDSTATES(3i32);
-pub const EBP_HEADERBACKGROUND: EXPLORERBARPARTS = EXPLORERBARPARTS(1i32);
-pub const EBP_HEADERCLOSE: EXPLORERBARPARTS = EXPLORERBARPARTS(2i32);
-pub const EBP_HEADERPIN: EXPLORERBARPARTS = EXPLORERBARPARTS(3i32);
-pub const EBP_IEBARMENU: EXPLORERBARPARTS = EXPLORERBARPARTS(4i32);
-pub const EBP_NORMALGROUPBACKGROUND: EXPLORERBARPARTS = EXPLORERBARPARTS(5i32);
-pub const EBP_NORMALGROUPCOLLAPSE: EXPLORERBARPARTS = EXPLORERBARPARTS(6i32);
-pub const EBP_NORMALGROUPEXPAND: EXPLORERBARPARTS = EXPLORERBARPARTS(7i32);
-pub const EBP_NORMALGROUPHEAD: EXPLORERBARPARTS = EXPLORERBARPARTS(8i32);
-pub const EBP_SPECIALGROUPBACKGROUND: EXPLORERBARPARTS = EXPLORERBARPARTS(9i32);
-pub const EBP_SPECIALGROUPCOLLAPSE: EXPLORERBARPARTS = EXPLORERBARPARTS(10i32);
-pub const EBP_SPECIALGROUPEXPAND: EXPLORERBARPARTS = EXPLORERBARPARTS(11i32);
-pub const EBP_SPECIALGROUPHEAD: EXPLORERBARPARTS = EXPLORERBARPARTS(12i32);
-pub const EBSGC_HOT: SPECIALGROUPCOLLAPSESTATES = SPECIALGROUPCOLLAPSESTATES(2i32);
-pub const EBSGC_NORMAL: SPECIALGROUPCOLLAPSESTATES = SPECIALGROUPCOLLAPSESTATES(1i32);
-pub const EBSGC_PRESSED: SPECIALGROUPCOLLAPSESTATES = SPECIALGROUPCOLLAPSESTATES(3i32);
-pub const EBSGE_HOT: SPECIALGROUPEXPANDSTATES = SPECIALGROUPEXPANDSTATES(2i32);
-pub const EBSGE_NORMAL: SPECIALGROUPEXPANDSTATES = SPECIALGROUPEXPANDSTATES(1i32);
-pub const EBSGE_PRESSED: SPECIALGROUPEXPANDSTATES = SPECIALGROUPEXPANDSTATES(3i32);
-pub const EBS_ASSIST: BACKGROUNDSTATES = BACKGROUNDSTATES(6i32);
-pub const EBS_DISABLED: BACKGROUNDSTATES = BACKGROUNDSTATES(3i32);
-pub const EBS_FOCUSED: BACKGROUNDSTATES = BACKGROUNDSTATES(4i32);
-pub const EBS_HOT: BACKGROUNDSTATES = BACKGROUNDSTATES(2i32);
-pub const EBS_NORMAL: BACKGROUNDSTATES = BACKGROUNDSTATES(1i32);
-pub const EBS_READONLY: BACKGROUNDSTATES = BACKGROUNDSTATES(5i32);
-pub const EBWBS_DISABLED: BACKGROUNDWITHBORDERSTATES = BACKGROUNDWITHBORDERSTATES(3i32);
-pub const EBWBS_FOCUSED: BACKGROUNDWITHBORDERSTATES = BACKGROUNDWITHBORDERSTATES(4i32);
-pub const EBWBS_HOT: BACKGROUNDWITHBORDERSTATES = BACKGROUNDWITHBORDERSTATES(2i32);
-pub const EBWBS_NORMAL: BACKGROUNDWITHBORDERSTATES = BACKGROUNDWITHBORDERSTATES(1i32);
-pub const ECM_FIRST: u32 = 5376u32;
-pub const EC_ENDOFLINE_CR: EC_ENDOFLINE = EC_ENDOFLINE(2i32);
-pub const EC_ENDOFLINE_CRLF: EC_ENDOFLINE = EC_ENDOFLINE(1i32);
-pub const EC_ENDOFLINE_DETECTFROMCONTENT: EC_ENDOFLINE = EC_ENDOFLINE(0i32);
-pub const EC_ENDOFLINE_LF: EC_ENDOFLINE = EC_ENDOFLINE(3i32);
-pub const EC_SEARCHWEB_ENTRYPOINT_CONTEXTMENU: EC_SEARCHWEB_ENTRYPOINT = EC_SEARCHWEB_ENTRYPOINT(1i32);
-pub const EC_SEARCHWEB_ENTRYPOINT_EXTERNAL: EC_SEARCHWEB_ENTRYPOINT = EC_SEARCHWEB_ENTRYPOINT(0i32);
-pub const EMF_CENTERED: NMLVEMPTYMARKUP_FLAGS = NMLVEMPTYMARKUP_FLAGS(1u32);
-pub const EMP_MARKUPTEXT: EMPTYMARKUPPARTS = EMPTYMARKUPPARTS(1i32);
-pub const EMT_LINKTEXT: MARKUPTEXTSTATES = MARKUPTEXTSTATES(2i32);
-pub const EMT_NORMALTEXT: MARKUPTEXTSTATES = MARKUPTEXTSTATES(1i32);
-pub const EM_CANUNDO: u32 = 198u32;
-pub const EM_CHARFROMPOS: u32 = 215u32;
-pub const EM_EMPTYUNDOBUFFER: u32 = 205u32;
-pub const EM_ENABLEFEATURE: u32 = 218u32;
-pub const EM_ENABLESEARCHWEB: u32 = 5390u32;
-pub const EM_FILELINEFROMCHAR: u32 = 5395u32;
-pub const EM_FILELINEINDEX: u32 = 5396u32;
-pub const EM_FILELINELENGTH: u32 = 5397u32;
-pub const EM_FMTLINES: u32 = 200u32;
-pub const EM_GETCARETINDEX: u32 = 5394u32;
-pub const EM_GETCUEBANNER: u32 = 5378u32;
-pub const EM_GETENDOFLINE: u32 = 5389u32;
-pub const EM_GETEXTENDEDSTYLE: u32 = 5387u32;
-pub const EM_GETFILELINE: u32 = 5398u32;
-pub const EM_GETFILELINECOUNT: u32 = 5399u32;
-pub const EM_GETFIRSTVISIBLELINE: u32 = 206u32;
-pub const EM_GETHANDLE: u32 = 189u32;
-pub const EM_GETHILITE: u32 = 5382u32;
-pub const EM_GETIMESTATUS: u32 = 217u32;
-pub const EM_GETLIMITTEXT: u32 = 213u32;
-pub const EM_GETLINE: u32 = 196u32;
-pub const EM_GETLINECOUNT: u32 = 186u32;
-pub const EM_GETMARGINS: u32 = 212u32;
-pub const EM_GETMODIFY: u32 = 184u32;
-pub const EM_GETPASSWORDCHAR: u32 = 210u32;
-pub const EM_GETRECT: u32 = 178u32;
-pub const EM_GETSEL: u32 = 176u32;
-pub const EM_GETTHUMB: u32 = 190u32;
-pub const EM_GETWORDBREAKPROC: u32 = 209u32;
-pub const EM_HIDEBALLOONTIP: u32 = 5380u32;
-pub const EM_LIMITTEXT: u32 = 197u32;
-pub const EM_LINEFROMCHAR: u32 = 201u32;
-pub const EM_LINEINDEX: u32 = 187u32;
-pub const EM_LINELENGTH: u32 = 193u32;
-pub const EM_LINESCROLL: u32 = 182u32;
-pub const EM_NOSETFOCUS: u32 = 5383u32;
-pub const EM_POSFROMCHAR: u32 = 214u32;
-pub const EM_REPLACESEL: u32 = 194u32;
-pub const EM_SCROLL: u32 = 181u32;
-pub const EM_SCROLLCARET: u32 = 183u32;
-pub const EM_SEARCHWEB: u32 = 5391u32;
-pub const EM_SETCARETINDEX: u32 = 5393u32;
-pub const EM_SETCUEBANNER: u32 = 5377u32;
-pub const EM_SETENDOFLINE: u32 = 5388u32;
-pub const EM_SETEXTENDEDSTYLE: u32 = 5386u32;
-pub const EM_SETHANDLE: u32 = 188u32;
-pub const EM_SETHILITE: u32 = 5381u32;
-pub const EM_SETIMESTATUS: u32 = 216u32;
-pub const EM_SETLIMITTEXT: u32 = 197u32;
-pub const EM_SETMARGINS: u32 = 211u32;
-pub const EM_SETMODIFY: u32 = 185u32;
-pub const EM_SETPASSWORDCHAR: u32 = 204u32;
-pub const EM_SETREADONLY: u32 = 207u32;
-pub const EM_SETRECT: u32 = 179u32;
-pub const EM_SETRECTNP: u32 = 180u32;
-pub const EM_SETSEL: u32 = 177u32;
-pub const EM_SETTABSTOPS: u32 = 203u32;
-pub const EM_SETWORDBREAKPROC: u32 = 208u32;
-pub const EM_SHOWBALLOONTIP: u32 = 5379u32;
-pub const EM_TAKEFOCUS: u32 = 5384u32;
-pub const EM_UNDO: u32 = 199u32;
-pub const EN_FIRST: u32 = 4294965776u32;
-pub const EN_LAST: u32 = 4294965756u32;
-pub const EN_SEARCHWEB: u32 = 4294965776u32;
-pub const EPSHV_DISABLED: EDITBORDER_HVSCROLLSTATES = EDITBORDER_HVSCROLLSTATES(4i32);
-pub const EPSHV_FOCUSED: EDITBORDER_HVSCROLLSTATES = EDITBORDER_HVSCROLLSTATES(3i32);
-pub const EPSHV_HOT: EDITBORDER_HVSCROLLSTATES = EDITBORDER_HVSCROLLSTATES(2i32);
-pub const EPSHV_NORMAL: EDITBORDER_HVSCROLLSTATES = EDITBORDER_HVSCROLLSTATES(1i32);
-pub const EPSH_DISABLED: EDITBORDER_HSCROLLSTATES = EDITBORDER_HSCROLLSTATES(4i32);
-pub const EPSH_FOCUSED: EDITBORDER_HSCROLLSTATES = EDITBORDER_HSCROLLSTATES(3i32);
-pub const EPSH_HOT: EDITBORDER_HSCROLLSTATES = EDITBORDER_HSCROLLSTATES(2i32);
-pub const EPSH_NORMAL: EDITBORDER_HSCROLLSTATES = EDITBORDER_HSCROLLSTATES(1i32);
-pub const EPSN_DISABLED: EDITBORDER_NOSCROLLSTATES = EDITBORDER_NOSCROLLSTATES(4i32);
-pub const EPSN_FOCUSED: EDITBORDER_NOSCROLLSTATES = EDITBORDER_NOSCROLLSTATES(3i32);
-pub const EPSN_HOT: EDITBORDER_NOSCROLLSTATES = EDITBORDER_NOSCROLLSTATES(2i32);
-pub const EPSN_NORMAL: EDITBORDER_NOSCROLLSTATES = EDITBORDER_NOSCROLLSTATES(1i32);
-pub const EPSV_DISABLED: EDITBORDER_VSCROLLSTATES = EDITBORDER_VSCROLLSTATES(4i32);
-pub const EPSV_FOCUSED: EDITBORDER_VSCROLLSTATES = EDITBORDER_VSCROLLSTATES(3i32);
-pub const EPSV_HOT: EDITBORDER_VSCROLLSTATES = EDITBORDER_VSCROLLSTATES(2i32);
-pub const EPSV_NORMAL: EDITBORDER_VSCROLLSTATES = EDITBORDER_VSCROLLSTATES(1i32);
-pub const EP_BACKGROUND: EDITPARTS = EDITPARTS(3i32);
-pub const EP_BACKGROUNDWITHBORDER: EDITPARTS = EDITPARTS(5i32);
-pub const EP_CARET: EDITPARTS = EDITPARTS(2i32);
-pub const EP_EDITBORDER_HSCROLL: EDITPARTS = EDITPARTS(7i32);
-pub const EP_EDITBORDER_HVSCROLL: EDITPARTS = EDITPARTS(9i32);
-pub const EP_EDITBORDER_NOSCROLL: EDITPARTS = EDITPARTS(6i32);
-pub const EP_EDITBORDER_VSCROLL: EDITPARTS = EDITPARTS(8i32);
-pub const EP_EDITTEXT: EDITPARTS = EDITPARTS(1i32);
-pub const EP_PASSWORD: EDITPARTS = EDITPARTS(4i32);
-pub const ESB_DISABLE_BOTH: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(3u32);
-pub const ESB_DISABLE_DOWN: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(2u32);
-pub const ESB_DISABLE_LEFT: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(1u32);
-pub const ESB_DISABLE_LTUP: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(1u32);
-pub const ESB_DISABLE_RIGHT: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(2u32);
-pub const ESB_DISABLE_RTDN: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(2u32);
-pub const ESB_DISABLE_UP: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(1u32);
-pub const ESB_ENABLE_BOTH: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(0u32);
-pub const ES_EX_ALLOWEOL_CR: i32 = 1i32;
-pub const ES_EX_ALLOWEOL_LF: i32 = 2i32;
-pub const ES_EX_CONVERT_EOL_ON_PASTE: i32 = 4i32;
-pub const ES_EX_ZOOMABLE: i32 = 16i32;
-pub const ETDT_DISABLE: u32 = 1u32;
-pub const ETDT_ENABLE: u32 = 2u32;
-pub const ETDT_USEAEROWIZARDTABTEXTURE: u32 = 8u32;
-pub const ETDT_USETABTEXTURE: u32 = 4u32;
-pub const ETS_ASSIST: EDITTEXTSTATES = EDITTEXTSTATES(7i32);
-pub const ETS_CUEBANNER: EDITTEXTSTATES = EDITTEXTSTATES(8i32);
-pub const ETS_DISABLED: EDITTEXTSTATES = EDITTEXTSTATES(4i32);
-pub const ETS_FOCUSED: EDITTEXTSTATES = EDITTEXTSTATES(5i32);
-pub const ETS_HOT: EDITTEXTSTATES = EDITTEXTSTATES(2i32);
-pub const ETS_NORMAL: EDITTEXTSTATES = EDITTEXTSTATES(1i32);
-pub const ETS_READONLY: EDITTEXTSTATES = EDITTEXTSTATES(6i32);
-pub const ETS_SELECTED: EDITTEXTSTATES = EDITTEXTSTATES(3i32);
-pub const FBS_EMPHASIZED: BODYSTATES = BODYSTATES(2i32);
-pub const FBS_NORMAL: BODYSTATES = BODYSTATES(1i32);
-pub const FEEDBACK_GESTURE_PRESSANDTAP: FEEDBACK_TYPE = FEEDBACK_TYPE(11i32);
-pub const FEEDBACK_MAX: FEEDBACK_TYPE = FEEDBACK_TYPE(-1i32);
-pub const FEEDBACK_PEN_BARRELVISUALIZATION: FEEDBACK_TYPE = FEEDBACK_TYPE(2i32);
-pub const FEEDBACK_PEN_DOUBLETAP: FEEDBACK_TYPE = FEEDBACK_TYPE(4i32);
-pub const FEEDBACK_PEN_PRESSANDHOLD: FEEDBACK_TYPE = FEEDBACK_TYPE(5i32);
-pub const FEEDBACK_PEN_RIGHTTAP: FEEDBACK_TYPE = FEEDBACK_TYPE(6i32);
-pub const FEEDBACK_PEN_TAP: FEEDBACK_TYPE = FEEDBACK_TYPE(3i32);
-pub const FEEDBACK_TOUCH_CONTACTVISUALIZATION: FEEDBACK_TYPE = FEEDBACK_TYPE(1i32);
-pub const FEEDBACK_TOUCH_DOUBLETAP: FEEDBACK_TYPE = FEEDBACK_TYPE(8i32);
-pub const FEEDBACK_TOUCH_PRESSANDHOLD: FEEDBACK_TYPE = FEEDBACK_TYPE(9i32);
-pub const FEEDBACK_TOUCH_RIGHTTAP: FEEDBACK_TYPE = FEEDBACK_TYPE(10i32);
-pub const FEEDBACK_TOUCH_TAP: FEEDBACK_TYPE = FEEDBACK_TYPE(7i32);
-pub const FILEOPENORD: u32 = 1536u32;
-pub const FINDDLGORD: u32 = 1540u32;
-pub const FLH_HOVER: LINKHEADERSTATES = LINKHEADERSTATES(2i32);
-pub const FLH_NORMAL: LINKHEADERSTATES = LINKHEADERSTATES(1i32);
-pub const FLS_DISABLED: LABELSTATES = LABELSTATES(4i32);
-pub const FLS_EMPHASIZED: LABELSTATES = LABELSTATES(3i32);
-pub const FLS_NORMAL: LABELSTATES = LABELSTATES(1i32);
-pub const FLS_SELECTED: LABELSTATES = LABELSTATES(2i32);
-pub const FLYOUTLINK_HOVER: LINKSTATES = LINKSTATES(2i32);
-pub const FLYOUTLINK_NORMAL: LINKSTATES = LINKSTATES(1i32);
-pub const FLYOUT_BODY: FLYOUTPARTS = FLYOUTPARTS(2i32);
-pub const FLYOUT_DIVIDER: FLYOUTPARTS = FLYOUTPARTS(5i32);
-pub const FLYOUT_HEADER: FLYOUTPARTS = FLYOUTPARTS(1i32);
-pub const FLYOUT_LABEL: FLYOUTPARTS = FLYOUTPARTS(3i32);
-pub const FLYOUT_LINK: FLYOUTPARTS = FLYOUTPARTS(4i32);
-pub const FLYOUT_LINKAREA: FLYOUTPARTS = FLYOUTPARTS(7i32);
-pub const FLYOUT_LINKHEADER: FLYOUTPARTS = FLYOUTPARTS(8i32);
-pub const FLYOUT_WINDOW: FLYOUTPARTS = FLYOUTPARTS(6i32);
-pub const FONTDLGORD: u32 = 1542u32;
-pub const FORMATDLGORD30: u32 = 1544u32;
-pub const FORMATDLGORD31: u32 = 1543u32;
-pub const FRB_ACTIVE: FRAMEBOTTOMSTATES = FRAMEBOTTOMSTATES(1i32);
-pub const FRB_INACTIVE: FRAMEBOTTOMSTATES = FRAMEBOTTOMSTATES(2i32);
-pub const FRL_ACTIVE: FRAMELEFTSTATES = FRAMELEFTSTATES(1i32);
-pub const FRL_INACTIVE: FRAMELEFTSTATES = FRAMELEFTSTATES(2i32);
-pub const FRR_ACTIVE: FRAMERIGHTSTATES = FRAMERIGHTSTATES(1i32);
-pub const FRR_INACTIVE: FRAMERIGHTSTATES = FRAMERIGHTSTATES(2i32);
-pub const FSB_ENCARTA_MODE: u32 = 1u32;
-pub const FSB_FLAT_MODE: u32 = 2u32;
-pub const FSB_REGULAR_MODE: u32 = 0u32;
-pub const FS_ACTIVE: FRAMESTATES = FRAMESTATES(1i32);
-pub const FS_INACTIVE: FRAMESTATES = FRAMESTATES(2i32);
-pub const FT_HORZGRADIENT: FILLTYPE = FILLTYPE(2i32);
-pub const FT_RADIALGRADIENT: FILLTYPE = FILLTYPE(3i32);
-pub const FT_SOLID: FILLTYPE = FILLTYPE(0i32);
-pub const FT_TILEIMAGE: FILLTYPE = FILLTYPE(4i32);
-pub const FT_VERTGRADIENT: FILLTYPE = FILLTYPE(1i32);
-pub const GBF_COPY: GET_THEME_BITMAP_FLAGS = GET_THEME_BITMAP_FLAGS(2u32);
-pub const GBF_DIRECT: GET_THEME_BITMAP_FLAGS = GET_THEME_BITMAP_FLAGS(1u32);
-pub const GBF_VALIDBITS: GET_THEME_BITMAP_FLAGS = GET_THEME_BITMAP_FLAGS(3u32);
-pub const GBS_DISABLED: GROUPBOXSTATES = GROUPBOXSTATES(2i32);
-pub const GBS_NORMAL: GROUPBOXSTATES = GROUPBOXSTATES(1i32);
-pub const GDTR_MAX: u32 = 2u32;
-pub const GDTR_MIN: u32 = 1u32;
-pub const GDT_ERROR: i32 = -1i32;
-pub const GDT_NONE: NMDATETIMECHANGE_FLAGS = NMDATETIMECHANGE_FLAGS(1u32);
-pub const GDT_VALID: NMDATETIMECHANGE_FLAGS = NMDATETIMECHANGE_FLAGS(0u32);
-pub const GFST_DPI: GLYPHFONTSIZINGTYPE = GLYPHFONTSIZINGTYPE(2i32);
-pub const GFST_NONE: GLYPHFONTSIZINGTYPE = GLYPHFONTSIZINGTYPE(0i32);
-pub const GFST_SIZE: GLYPHFONTSIZINGTYPE = GLYPHFONTSIZINGTYPE(1i32);
-pub const GLPS_CLOSED: GLYPHSTATES = GLYPHSTATES(1i32);
-pub const GLPS_OPENED: GLYPHSTATES = GLYPHSTATES(2i32);
-pub const GMR_DAYSTATE: u32 = 1u32;
-pub const GMR_VISIBLE: u32 = 0u32;
-pub const GT_FONTGLYPH: GLYPHTYPE = GLYPHTYPE(2i32);
-pub const GT_IMAGEGLYPH: GLYPHTYPE = GLYPHTYPE(1i32);
-pub const GT_NONE: GLYPHTYPE = GLYPHTYPE(0i32);
-pub const HA_CENTER: HALIGN = HALIGN(1i32);
-pub const HA_LEFT: HALIGN = HALIGN(0i32);
-pub const HA_RIGHT: HALIGN = HALIGN(2i32);
-pub const HBG_DETAILS: HEADERSTYLESTATES = HEADERSTYLESTATES(1i32);
-pub const HBG_ICON: HEADERSTYLESTATES = HEADERSTYLESTATES(2i32);
-pub const HBS_DISABLED: HELPBUTTONSTATES = HELPBUTTONSTATES(4i32);
-pub const HBS_HOT: HELPBUTTONSTATES = HELPBUTTONSTATES(2i32);
-pub const HBS_NORMAL: HELPBUTTONSTATES = HELPBUTTONSTATES(1i32);
-pub const HBS_PUSHED: HELPBUTTONSTATES = HELPBUTTONSTATES(3i32);
-pub const HDDFS_HOT: HEADERDROPDOWNFILTERSTATES = HEADERDROPDOWNFILTERSTATES(3i32);
-pub const HDDFS_NORMAL: HEADERDROPDOWNFILTERSTATES = HEADERDROPDOWNFILTERSTATES(1i32);
-pub const HDDFS_SOFTHOT: HEADERDROPDOWNFILTERSTATES = HEADERDROPDOWNFILTERSTATES(2i32);
-pub const HDDS_HOT: HEADERDROPDOWNSTATES = HEADERDROPDOWNSTATES(3i32);
-pub const HDDS_NORMAL: HEADERDROPDOWNSTATES = HEADERDROPDOWNSTATES(1i32);
-pub const HDDS_SOFTHOT: HEADERDROPDOWNSTATES = HEADERDROPDOWNSTATES(2i32);
-pub const HDFT_HASNOVALUE: HEADER_CONTROL_FORMAT_TYPE = HEADER_CONTROL_FORMAT_TYPE(32768u32);
-pub const HDFT_ISDATE: HEADER_CONTROL_FORMAT_TYPE = HEADER_CONTROL_FORMAT_TYPE(2u32);
-pub const HDFT_ISNUMBER: HEADER_CONTROL_FORMAT_TYPE = HEADER_CONTROL_FORMAT_TYPE(1u32);
-pub const HDFT_ISSTRING: HEADER_CONTROL_FORMAT_TYPE = HEADER_CONTROL_FORMAT_TYPE(0u32);
-pub const HDF_BITMAP: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(8192i32);
-pub const HDF_BITMAP_ON_RIGHT: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(4096i32);
-pub const HDF_CENTER: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(2i32);
-pub const HDF_CHECKBOX: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(64i32);
-pub const HDF_CHECKED: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(128i32);
-pub const HDF_FIXEDWIDTH: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(256i32);
-pub const HDF_IMAGE: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(2048i32);
-pub const HDF_JUSTIFYMASK: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(3i32);
-pub const HDF_LEFT: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(0i32);
-pub const HDF_OWNERDRAW: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(32768i32);
-pub const HDF_RIGHT: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(1i32);
-pub const HDF_RTLREADING: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(4i32);
-pub const HDF_SORTDOWN: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(512i32);
-pub const HDF_SORTUP: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(1024i32);
-pub const HDF_SPLITBUTTON: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(16777216i32);
-pub const HDF_STRING: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(16384i32);
-pub const HDIS_FOCUSED: HEADER_CONTROL_FORMAT_STATE = HEADER_CONTROL_FORMAT_STATE(1u32);
-pub const HDI_BITMAP: HDI_MASK = HDI_MASK(16u32);
-pub const HDI_DI_SETITEM: HDI_MASK = HDI_MASK(64u32);
-pub const HDI_FILTER: HDI_MASK = HDI_MASK(256u32);
-pub const HDI_FORMAT: HDI_MASK = HDI_MASK(4u32);
-pub const HDI_HEIGHT: HDI_MASK = HDI_MASK(1u32);
-pub const HDI_IMAGE: HDI_MASK = HDI_MASK(32u32);
-pub const HDI_LPARAM: HDI_MASK = HDI_MASK(8u32);
-pub const HDI_ORDER: HDI_MASK = HDI_MASK(128u32);
-pub const HDI_STATE: HDI_MASK = HDI_MASK(512u32);
-pub const HDI_TEXT: HDI_MASK = HDI_MASK(2u32);
-pub const HDI_WIDTH: HDI_MASK = HDI_MASK(1u32);
-pub const HDM_CLEARFILTER: u32 = 4632u32;
-pub const HDM_CREATEDRAGIMAGE: u32 = 4624u32;
-pub const HDM_DELETEITEM: u32 = 4610u32;
-pub const HDM_EDITFILTER: u32 = 4631u32;
-pub const HDM_FIRST: u32 = 4608u32;
-pub const HDM_GETBITMAPMARGIN: u32 = 4629u32;
-pub const HDM_GETFOCUSEDITEM: u32 = 4635u32;
-pub const HDM_GETIMAGELIST: u32 = 4617u32;
-pub const HDM_GETITEM: u32 = 4619u32;
-pub const HDM_GETITEMA: u32 = 4611u32;
-pub const HDM_GETITEMCOUNT: u32 = 4608u32;
-pub const HDM_GETITEMDROPDOWNRECT: u32 = 4633u32;
-pub const HDM_GETITEMRECT: u32 = 4615u32;
-pub const HDM_GETITEMW: u32 = 4619u32;
-pub const HDM_GETORDERARRAY: u32 = 4625u32;
-pub const HDM_GETOVERFLOWRECT: u32 = 4634u32;
-pub const HDM_GETUNICODEFORMAT: u32 = 8198u32;
-pub const HDM_HITTEST: u32 = 4614u32;
-pub const HDM_INSERTITEM: u32 = 4618u32;
-pub const HDM_INSERTITEMA: u32 = 4609u32;
-pub const HDM_INSERTITEMW: u32 = 4618u32;
-pub const HDM_LAYOUT: u32 = 4613u32;
-pub const HDM_ORDERTOINDEX: u32 = 4623u32;
-pub const HDM_SETBITMAPMARGIN: u32 = 4628u32;
-pub const HDM_SETFILTERCHANGETIMEOUT: u32 = 4630u32;
-pub const HDM_SETFOCUSEDITEM: u32 = 4636u32;
-pub const HDM_SETHOTDIVIDER: u32 = 4627u32;
-pub const HDM_SETIMAGELIST: u32 = 4616u32;
-pub const HDM_SETITEM: u32 = 4620u32;
-pub const HDM_SETITEMA: u32 = 4612u32;
-pub const HDM_SETITEMW: u32 = 4620u32;
-pub const HDM_SETORDERARRAY: u32 = 4626u32;
-pub const HDM_SETUNICODEFORMAT: u32 = 8197u32;
-pub const HDN_BEGINDRAG: u32 = 4294966986u32;
-pub const HDN_BEGINFILTEREDIT: u32 = 4294966982u32;
-pub const HDN_BEGINTRACK: u32 = 4294966970u32;
-pub const HDN_BEGINTRACKA: u32 = 4294966990u32;
-pub const HDN_BEGINTRACKW: u32 = 4294966970u32;
-pub const HDN_DIVIDERDBLCLICK: u32 = 4294966971u32;
-pub const HDN_DIVIDERDBLCLICKA: u32 = 4294966991u32;
-pub const HDN_DIVIDERDBLCLICKW: u32 = 4294966971u32;
-pub const HDN_DROPDOWN: u32 = 4294966978u32;
-pub const HDN_ENDDRAG: u32 = 4294966985u32;
-pub const HDN_ENDFILTEREDIT: u32 = 4294966981u32;
-pub const HDN_ENDTRACK: u32 = 4294966969u32;
-pub const HDN_ENDTRACKA: u32 = 4294966989u32;
-pub const HDN_ENDTRACKW: u32 = 4294966969u32;
-pub const HDN_FILTERBTNCLICK: u32 = 4294966983u32;
-pub const HDN_FILTERCHANGE: u32 = 4294966984u32;
-pub const HDN_FIRST: u32 = 4294966996u32;
-pub const HDN_GETDISPINFO: u32 = 4294966967u32;
-pub const HDN_GETDISPINFOA: u32 = 4294966987u32;
-pub const HDN_GETDISPINFOW: u32 = 4294966967u32;
-pub const HDN_ITEMCHANGED: u32 = 4294966975u32;
-pub const HDN_ITEMCHANGEDA: u32 = 4294966995u32;
-pub const HDN_ITEMCHANGEDW: u32 = 4294966975u32;
-pub const HDN_ITEMCHANGING: u32 = 4294966976u32;
-pub const HDN_ITEMCHANGINGA: u32 = 4294966996u32;
-pub const HDN_ITEMCHANGINGW: u32 = 4294966976u32;
-pub const HDN_ITEMCLICK: u32 = 4294966974u32;
-pub const HDN_ITEMCLICKA: u32 = 4294966994u32;
-pub const HDN_ITEMCLICKW: u32 = 4294966974u32;
-pub const HDN_ITEMDBLCLICK: u32 = 4294966973u32;
-pub const HDN_ITEMDBLCLICKA: u32 = 4294966993u32;
-pub const HDN_ITEMDBLCLICKW: u32 = 4294966973u32;
-pub const HDN_ITEMKEYDOWN: u32 = 4294966979u32;
-pub const HDN_ITEMSTATEICONCLICK: u32 = 4294966980u32;
-pub const HDN_LAST: u32 = 4294966897u32;
-pub const HDN_OVERFLOWCLICK: u32 = 4294966977u32;
-pub const HDN_TRACK: u32 = 4294966968u32;
-pub const HDN_TRACKA: u32 = 4294966988u32;
-pub const HDN_TRACKW: u32 = 4294966968u32;
-pub const HDSIL_NORMAL: u32 = 0u32;
-pub const HDSIL_STATE: u32 = 1u32;
-pub const HDS_BUTTONS: u32 = 2u32;
-pub const HDS_CHECKBOXES: u32 = 1024u32;
-pub const HDS_DRAGDROP: u32 = 64u32;
-pub const HDS_FILTERBAR: u32 = 256u32;
-pub const HDS_FLAT: u32 = 512u32;
-pub const HDS_FULLDRAG: u32 = 128u32;
-pub const HDS_HIDDEN: u32 = 8u32;
-pub const HDS_HORZ: u32 = 0u32;
-pub const HDS_HOTTRACK: u32 = 4u32;
-pub const HDS_NOSIZING: u32 = 2048u32;
-pub const HDS_OVERFLOW: u32 = 4096u32;
-pub const HEADER_CONTROL_NOTIFICATION_BUTTON_LEFT: HEADER_CONTROL_NOTIFICATION_BUTTON = HEADER_CONTROL_NOTIFICATION_BUTTON(0i32);
-pub const HEADER_CONTROL_NOTIFICATION_BUTTON_MIDDLE: HEADER_CONTROL_NOTIFICATION_BUTTON = HEADER_CONTROL_NOTIFICATION_BUTTON(2i32);
-pub const HEADER_CONTROL_NOTIFICATION_BUTTON_RIGHT: HEADER_CONTROL_NOTIFICATION_BUTTON = HEADER_CONTROL_NOTIFICATION_BUTTON(1i32);
-pub const HGLPS_CLOSED: HOTGLYPHSTATES = HOTGLYPHSTATES(1i32);
-pub const HGLPS_OPENED: HOTGLYPHSTATES = HOTGLYPHSTATES(2i32);
-pub const HHT_ABOVE: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(256u32);
-pub const HHT_BELOW: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(512u32);
-pub const HHT_NOWHERE: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(1u32);
-pub const HHT_ONDIVIDER: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(4u32);
-pub const HHT_ONDIVOPEN: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(8u32);
-pub const HHT_ONDROPDOWN: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(8192u32);
-pub const HHT_ONFILTER: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(16u32);
-pub const HHT_ONFILTERBUTTON: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(32u32);
-pub const HHT_ONHEADER: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(2u32);
-pub const HHT_ONITEMSTATEICON: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(4096u32);
-pub const HHT_ONOVERFLOW: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(16384u32);
-pub const HHT_TOLEFT: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(2048u32);
-pub const HHT_TORIGHT: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(1024u32);
-pub const HICF_ACCELERATOR: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(4u32);
-pub const HICF_ARROWKEYS: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(2u32);
-pub const HICF_DUPACCEL: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(8u32);
-pub const HICF_ENTERING: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(16u32);
-pub const HICF_LEAVING: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(32u32);
-pub const HICF_LMOUSE: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(128u32);
-pub const HICF_MOUSE: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(1u32);
-pub const HICF_OTHER: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(0u32);
-pub const HICF_RESELECT: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(64u32);
-pub const HICF_TOGGLEDROPDOWN: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(256u32);
-pub const HILS_HOT: HEADERITEMLEFTSTATES = HEADERITEMLEFTSTATES(2i32);
-pub const HILS_NORMAL: HEADERITEMLEFTSTATES = HEADERITEMLEFTSTATES(1i32);
-pub const HILS_PRESSED: HEADERITEMLEFTSTATES = HEADERITEMLEFTSTATES(3i32);
-pub const HIRS_HOT: HEADERITEMRIGHTSTATES = HEADERITEMRIGHTSTATES(2i32);
-pub const HIRS_NORMAL: HEADERITEMRIGHTSTATES = HEADERITEMRIGHTSTATES(1i32);
-pub const HIRS_PRESSED: HEADERITEMRIGHTSTATES = HEADERITEMRIGHTSTATES(3i32);
-pub const HIST_ADDTOFAVORITES: u32 = 3u32;
-pub const HIST_BACK: u32 = 0u32;
-pub const HIST_FAVORITES: u32 = 2u32;
-pub const HIST_FORWARD: u32 = 1u32;
-pub const HIST_VIEWTREE: u32 = 4u32;
-pub const HIS_HOT: HEADERITEMSTATES = HEADERITEMSTATES(2i32);
-pub const HIS_ICONHOT: HEADERITEMSTATES = HEADERITEMSTATES(8i32);
-pub const HIS_ICONNORMAL: HEADERITEMSTATES = HEADERITEMSTATES(7i32);
-pub const HIS_ICONPRESSED: HEADERITEMSTATES = HEADERITEMSTATES(9i32);
-pub const HIS_ICONSORTEDHOT: HEADERITEMSTATES = HEADERITEMSTATES(11i32);
-pub const HIS_ICONSORTEDNORMAL: HEADERITEMSTATES = HEADERITEMSTATES(10i32);
-pub const HIS_ICONSORTEDPRESSED: HEADERITEMSTATES = HEADERITEMSTATES(12i32);
-pub const HIS_NORMAL: HEADERITEMSTATES = HEADERITEMSTATES(1i32);
-pub const HIS_PRESSED: HEADERITEMSTATES = HEADERITEMSTATES(3i32);
-pub const HIS_SORTEDHOT: HEADERITEMSTATES = HEADERITEMSTATES(5i32);
-pub const HIS_SORTEDNORMAL: HEADERITEMSTATES = HEADERITEMSTATES(4i32);
-pub const HIS_SORTEDPRESSED: HEADERITEMSTATES = HEADERITEMSTATES(6i32);
-pub const HKCOMB_A: u32 = 8u32;
-pub const HKCOMB_C: u32 = 4u32;
-pub const HKCOMB_CA: u32 = 64u32;
-pub const HKCOMB_NONE: u32 = 1u32;
-pub const HKCOMB_S: u32 = 2u32;
-pub const HKCOMB_SA: u32 = 32u32;
-pub const HKCOMB_SC: u32 = 16u32;
-pub const HKCOMB_SCA: u32 = 128u32;
-pub const HKM_GETHOTKEY: u32 = 1026u32;
-pub const HKM_SETHOTKEY: u32 = 1025u32;
-pub const HKM_SETRULES: u32 = 1027u32;
-pub const HLS_LINKTEXT: HYPERLINKSTATES = HYPERLINKSTATES(2i32);
-pub const HLS_NORMALTEXT: HYPERLINKSTATES = HYPERLINKSTATES(1i32);
-pub const HOFS_HOT: HEADEROVERFLOWSTATES = HEADEROVERFLOWSTATES(2i32);
-pub const HOFS_NORMAL: HEADEROVERFLOWSTATES = HEADEROVERFLOWSTATES(1i32);
-pub const HOTKEYF_ALT: u32 = 4u32;
-pub const HOTKEYF_CONTROL: u32 = 2u32;
-pub const HOTKEYF_EXT: u32 = 8u32;
-pub const HOTKEYF_SHIFT: u32 = 1u32;
-pub const HOTKEY_CLASS: windows_core::PCWSTR = windows_core::w!("msctls_hotkey32");
-pub const HOTKEY_CLASSA: windows_core::PCSTR = windows_core::s!("msctls_hotkey32");
-pub const HOTKEY_CLASSW: windows_core::PCWSTR = windows_core::w!("msctls_hotkey32");
-pub const HOVER_DEFAULT: u32 = 4294967295u32;
-pub const HP_HEADERDROPDOWN: HEADERPARTS = HEADERPARTS(5i32);
-pub const HP_HEADERDROPDOWNFILTER: HEADERPARTS = HEADERPARTS(6i32);
-pub const HP_HEADERITEM: HEADERPARTS = HEADERPARTS(1i32);
-pub const HP_HEADERITEMLEFT: HEADERPARTS = HEADERPARTS(2i32);
-pub const HP_HEADERITEMRIGHT: HEADERPARTS = HEADERPARTS(3i32);
-pub const HP_HEADEROVERFLOW: HEADERPARTS = HEADERPARTS(7i32);
-pub const HP_HEADERSORTARROW: HEADERPARTS = HEADERPARTS(4i32);
-pub const HSAS_SORTEDDOWN: HEADERSORTARROWSTATES = HEADERSORTARROWSTATES(2i32);
-pub const HSAS_SORTEDUP: HEADERSORTARROWSTATES = HEADERSORTARROWSTATES(1i32);
-pub const HSS_DISABLED: HORZSCROLLSTATES = HORZSCROLLSTATES(4i32);
-pub const HSS_HOT: HORZSCROLLSTATES = HORZSCROLLSTATES(2i32);
-pub const HSS_NORMAL: HORZSCROLLSTATES = HORZSCROLLSTATES(1i32);
-pub const HSS_PUSHED: HORZSCROLLSTATES = HORZSCROLLSTATES(3i32);
-pub const HTS_DISABLED: HORZTHUMBSTATES = HORZTHUMBSTATES(4i32);
-pub const HTS_HOT: HORZTHUMBSTATES = HORZTHUMBSTATES(2i32);
-pub const HTS_NORMAL: HORZTHUMBSTATES = HORZTHUMBSTATES(1i32);
-pub const HTS_PUSHED: HORZTHUMBSTATES = HORZTHUMBSTATES(3i32);
-pub const HTTB_BACKGROUNDSEG: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(0u32);
-pub const HTTB_CAPTION: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(4u32);
-pub const HTTB_FIXEDBORDER: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(2u32);
-pub const HTTB_RESIZINGBORDER: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(240u32);
-pub const HTTB_RESIZINGBORDER_BOTTOM: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(128u32);
-pub const HTTB_RESIZINGBORDER_LEFT: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(16u32);
-pub const HTTB_RESIZINGBORDER_RIGHT: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(64u32);
-pub const HTTB_RESIZINGBORDER_TOP: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(32u32);
-pub const HTTB_SIZINGTEMPLATE: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(256u32);
-pub const HTTB_SYSTEMSIZINGMARGINS: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(512u32);
-pub const ICC_ANIMATE_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(128u32);
-pub const ICC_BAR_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(4u32);
-pub const ICC_COOL_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(1024u32);
-pub const ICC_DATE_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(256u32);
-pub const ICC_HOTKEY_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(64u32);
-pub const ICC_INTERNET_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(2048u32);
-pub const ICC_LINK_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(32768u32);
-pub const ICC_LISTVIEW_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(1u32);
-pub const ICC_NATIVEFNTCTL_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(8192u32);
-pub const ICC_PAGESCROLLER_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(4096u32);
-pub const ICC_PROGRESS_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(32u32);
-pub const ICC_STANDARD_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(16384u32);
-pub const ICC_TAB_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(8u32);
-pub const ICC_TREEVIEW_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(2u32);
-pub const ICC_UPDOWN_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(16u32);
-pub const ICC_USEREX_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(512u32);
-pub const ICC_WIN95_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(255u32);
-pub const ICE_ALPHA: ICONEFFECT = ICONEFFECT(4i32);
-pub const ICE_GLOW: ICONEFFECT = ICONEFFECT(1i32);
-pub const ICE_NONE: ICONEFFECT = ICONEFFECT(0i32);
-pub const ICE_PULSE: ICONEFFECT = ICONEFFECT(3i32);
-pub const ICE_SHADOW: ICONEFFECT = ICONEFFECT(2i32);
-pub const IDB_HIST_DISABLED: u32 = 14u32;
-pub const IDB_HIST_HOT: u32 = 13u32;
-pub const IDB_HIST_LARGE_COLOR: u32 = 9u32;
-pub const IDB_HIST_NORMAL: u32 = 12u32;
-pub const IDB_HIST_PRESSED: u32 = 15u32;
-pub const IDB_HIST_SMALL_COLOR: u32 = 8u32;
-pub const IDB_STD_LARGE_COLOR: u32 = 1u32;
-pub const IDB_STD_SMALL_COLOR: u32 = 0u32;
-pub const IDB_VIEW_LARGE_COLOR: u32 = 5u32;
-pub const IDB_VIEW_SMALL_COLOR: u32 = 4u32;
-pub const IDC_MANAGE_LINK: u32 = 1592u32;
-pub const ID_PSRESTARTWINDOWS: u32 = 2u32;
-pub const ILCF_MOVE: IMAGE_LIST_COPY_FLAGS = IMAGE_LIST_COPY_FLAGS(0u32);
-pub const ILCF_SWAP: IMAGE_LIST_COPY_FLAGS = IMAGE_LIST_COPY_FLAGS(1u32);
-pub const ILC_COLOR: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(0u32);
-pub const ILC_COLOR16: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(16u32);
-pub const ILC_COLOR24: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(24u32);
-pub const ILC_COLOR32: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(32u32);
-pub const ILC_COLOR4: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(4u32);
-pub const ILC_COLOR8: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(8u32);
-pub const ILC_COLORDDB: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(254u32);
-pub const ILC_HIGHQUALITYSCALE: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(131072u32);
-pub const ILC_MASK: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(1u32);
-pub const ILC_MIRROR: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(8192u32);
-pub const ILC_ORIGINALSIZE: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(65536u32);
-pub const ILC_PALETTE: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(2048u32);
-pub const ILC_PERITEMMIRROR: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(32768u32);
-pub const ILDI_PURGE: u32 = 1u32;
-pub const ILDI_QUERYACCESS: u32 = 8u32;
-pub const ILDI_RESETACCESS: u32 = 4u32;
-pub const ILDI_STANDBY: u32 = 2u32;
-pub const ILDRF_IMAGELOWQUALITY: u32 = 1u32;
-pub const ILDRF_OVERLAYLOWQUALITY: u32 = 16u32;
-pub const ILD_ASYNC: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(32768u32);
-pub const ILD_BLEND: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(4u32);
-pub const ILD_BLEND25: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(2u32);
-pub const ILD_BLEND50: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(4u32);
-pub const ILD_DPISCALE: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(16384u32);
-pub const ILD_FOCUS: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(2u32);
-pub const ILD_IMAGE: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(32u32);
-pub const ILD_MASK: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(16u32);
-pub const ILD_NORMAL: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(0u32);
-pub const ILD_OVERLAYMASK: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(3840u32);
-pub const ILD_PRESERVEALPHA: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(4096u32);
-pub const ILD_ROP: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(64u32);
-pub const ILD_SCALE: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(8192u32);
-pub const ILD_SELECTED: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(4u32);
-pub const ILD_TRANSPARENT: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(1u32);
-pub const ILFIP_ALWAYS: u32 = 0u32;
-pub const ILFIP_FROMSTANDBY: u32 = 1u32;
-pub const ILGOS_ALWAYS: u32 = 0u32;
-pub const ILGOS_FROMSTANDBY: u32 = 1u32;
-pub const ILGT_ASYNC: u32 = 1u32;
-pub const ILGT_NORMAL: u32 = 0u32;
-pub const ILIF_ALPHA: IMAGE_LIST_ITEM_FLAGS = IMAGE_LIST_ITEM_FLAGS(1u32);
-pub const ILIF_LOWQUALITY: IMAGE_LIST_ITEM_FLAGS = IMAGE_LIST_ITEM_FLAGS(2u32);
-pub const ILP_DOWNLEVEL: IMAGE_LIST_WRITE_STREAM_FLAGS = IMAGE_LIST_WRITE_STREAM_FLAGS(1u32);
-pub const ILP_NORMAL: IMAGE_LIST_WRITE_STREAM_FLAGS = IMAGE_LIST_WRITE_STREAM_FLAGS(0u32);
-pub const ILR_DEFAULT: u32 = 0u32;
-pub const ILR_HORIZONTAL_CENTER: u32 = 1u32;
-pub const ILR_HORIZONTAL_LEFT: u32 = 0u32;
-pub const ILR_HORIZONTAL_RIGHT: u32 = 2u32;
-pub const ILR_SCALE_ASPECTRATIO: u32 = 256u32;
-pub const ILR_SCALE_CLIP: u32 = 0u32;
-pub const ILR_VERTICAL_BOTTOM: u32 = 32u32;
-pub const ILR_VERTICAL_CENTER: u32 = 16u32;
-pub const ILR_VERTICAL_TOP: u32 = 0u32;
-pub const ILS_ALPHA: u32 = 8u32;
-pub const ILS_GLOW: u32 = 1u32;
-pub const ILS_NORMAL: u32 = 0u32;
-pub const ILS_SATURATE: u32 = 4u32;
-pub const ILS_SHADOW: u32 = 2u32;
-pub const IL_HORIZONTAL: IMAGELAYOUT = IMAGELAYOUT(1i32);
-pub const IL_VERTICAL: IMAGELAYOUT = IMAGELAYOUT(0i32);
-pub const INFOTIPSIZE: u32 = 1024u32;
-pub const INVALID_LINK_INDEX: i32 = -1i32;
-pub const IPM_CLEARADDRESS: u32 = 1124u32;
-pub const IPM_GETADDRESS: u32 = 1126u32;
-pub const IPM_ISBLANK: u32 = 1129u32;
-pub const IPM_SETADDRESS: u32 = 1125u32;
-pub const IPM_SETFOCUS: u32 = 1128u32;
-pub const IPM_SETRANGE: u32 = 1127u32;
-pub const IPN_FIELDCHANGED: u32 = 4294966436u32;
-pub const IPN_FIRST: u32 = 4294966436u32;
-pub const IPN_LAST: u32 = 4294966417u32;
-pub const IST_DPI: IMAGESELECTTYPE = IMAGESELECTTYPE(2i32);
-pub const IST_NONE: IMAGESELECTTYPE = IMAGESELECTTYPE(0i32);
-pub const IST_SIZE: IMAGESELECTTYPE = IMAGESELECTTYPE(1i32);
-pub const I_CHILDRENAUTO: TVITEMEXW_CHILDREN = TVITEMEXW_CHILDREN(-2i32);
-pub const I_CHILDRENCALLBACK: TVITEMEXW_CHILDREN = TVITEMEXW_CHILDREN(-1i32);
-pub const I_GROUPIDCALLBACK: LVITEMA_GROUP_ID = LVITEMA_GROUP_ID(-1i32);
-pub const I_GROUPIDNONE: LVITEMA_GROUP_ID = LVITEMA_GROUP_ID(-2i32);
-pub const I_IMAGECALLBACK: i32 = -1i32;
-pub const I_IMAGENONE: i32 = -2i32;
-pub const I_INDENTCALLBACK: i32 = -1i32;
-pub const I_ONE_OR_MORE: TVITEMEXW_CHILDREN = TVITEMEXW_CHILDREN(1i32);
-pub const I_ZERO: TVITEMEXW_CHILDREN = TVITEMEXW_CHILDREN(0i32);
-pub const LBCP_BORDER_HSCROLL: LISTBOXPARTS = LISTBOXPARTS(1i32);
-pub const LBCP_BORDER_HVSCROLL: LISTBOXPARTS = LISTBOXPARTS(2i32);
-pub const LBCP_BORDER_NOSCROLL: LISTBOXPARTS = LISTBOXPARTS(3i32);
-pub const LBCP_BORDER_VSCROLL: LISTBOXPARTS = LISTBOXPARTS(4i32);
-pub const LBCP_ITEM: LISTBOXPARTS = LISTBOXPARTS(5i32);
-pub const LBPSHV_DISABLED: BORDER_HVSCROLLSTATES = BORDER_HVSCROLLSTATES(4i32);
-pub const LBPSHV_FOCUSED: BORDER_HVSCROLLSTATES = BORDER_HVSCROLLSTATES(2i32);
-pub const LBPSHV_HOT: BORDER_HVSCROLLSTATES = BORDER_HVSCROLLSTATES(3i32);
-pub const LBPSHV_NORMAL: BORDER_HVSCROLLSTATES = BORDER_HVSCROLLSTATES(1i32);
-pub const LBPSH_DISABLED: BORDER_HSCROLLSTATES = BORDER_HSCROLLSTATES(4i32);
-pub const LBPSH_FOCUSED: BORDER_HSCROLLSTATES = BORDER_HSCROLLSTATES(2i32);
-pub const LBPSH_HOT: BORDER_HSCROLLSTATES = BORDER_HSCROLLSTATES(3i32);
-pub const LBPSH_NORMAL: BORDER_HSCROLLSTATES = BORDER_HSCROLLSTATES(1i32);
-pub const LBPSI_HOT: ITEMSTATES = ITEMSTATES(1i32);
-pub const LBPSI_HOTSELECTED: ITEMSTATES = ITEMSTATES(2i32);
-pub const LBPSI_SELECTED: ITEMSTATES = ITEMSTATES(3i32);
-pub const LBPSI_SELECTEDNOTFOCUS: ITEMSTATES = ITEMSTATES(4i32);
-pub const LBPSN_DISABLED: BORDER_NOSCROLLSTATES = BORDER_NOSCROLLSTATES(4i32);
-pub const LBPSN_FOCUSED: BORDER_NOSCROLLSTATES = BORDER_NOSCROLLSTATES(2i32);
-pub const LBPSN_HOT: BORDER_NOSCROLLSTATES = BORDER_NOSCROLLSTATES(3i32);
-pub const LBPSN_NORMAL: BORDER_NOSCROLLSTATES = BORDER_NOSCROLLSTATES(1i32);
-pub const LBPSV_DISABLED: BORDER_VSCROLLSTATES = BORDER_VSCROLLSTATES(4i32);
-pub const LBPSV_FOCUSED: BORDER_VSCROLLSTATES = BORDER_VSCROLLSTATES(2i32);
-pub const LBPSV_HOT: BORDER_VSCROLLSTATES = BORDER_VSCROLLSTATES(3i32);
-pub const LBPSV_NORMAL: BORDER_VSCROLLSTATES = BORDER_VSCROLLSTATES(1i32);
-pub const LIF_ITEMID: LIST_ITEM_FLAGS = LIST_ITEM_FLAGS(4u32);
-pub const LIF_ITEMINDEX: LIST_ITEM_FLAGS = LIST_ITEM_FLAGS(1u32);
-pub const LIF_STATE: LIST_ITEM_FLAGS = LIST_ITEM_FLAGS(2u32);
-pub const LIF_URL: LIST_ITEM_FLAGS = LIST_ITEM_FLAGS(8u32);
-pub const LIM_LARGE: _LI_METRIC = _LI_METRIC(1i32);
-pub const LIM_SMALL: _LI_METRIC = _LI_METRIC(0i32);
-pub const LISS_DISABLED: LISTITEMSTATES = LISTITEMSTATES(4i32);
-pub const LISS_HOT: LISTITEMSTATES = LISTITEMSTATES(2i32);
-pub const LISS_HOTSELECTED: LISTITEMSTATES = LISTITEMSTATES(6i32);
-pub const LISS_NORMAL: LISTITEMSTATES = LISTITEMSTATES(1i32);
-pub const LISS_SELECTED: LISTITEMSTATES = LISTITEMSTATES(3i32);
-pub const LISS_SELECTEDNOTFOCUS: LISTITEMSTATES = LISTITEMSTATES(5i32);
-pub const LIS_DEFAULTCOLORS: LIST_ITEM_STATE_FLAGS = LIST_ITEM_STATE_FLAGS(16u32);
-pub const LIS_ENABLED: LIST_ITEM_STATE_FLAGS = LIST_ITEM_STATE_FLAGS(2u32);
-pub const LIS_FOCUSED: LIST_ITEM_STATE_FLAGS = LIST_ITEM_STATE_FLAGS(1u32);
-pub const LIS_HOTTRACK: LIST_ITEM_STATE_FLAGS = LIST_ITEM_STATE_FLAGS(8u32);
-pub const LIS_VISITED: LIST_ITEM_STATE_FLAGS = LIST_ITEM_STATE_FLAGS(4u32);
-pub const LM_GETIDEALHEIGHT: u32 = 1793u32;
-pub const LM_GETIDEALSIZE: u32 = 1793u32;
-pub const LM_GETITEM: u32 = 1795u32;
-pub const LM_HITTEST: u32 = 1792u32;
-pub const LM_SETITEM: u32 = 1794u32;
-pub const LP_HYPERLINK: LINKPARTS = LINKPARTS(1i32);
-pub const LVA_ALIGNLEFT: u32 = 1u32;
-pub const LVA_ALIGNTOP: u32 = 2u32;
-pub const LVA_DEFAULT: u32 = 0u32;
-pub const LVA_SNAPTOGRID: u32 = 5u32;
-pub const LVBKIF_FLAG_ALPHABLEND: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(536870912u32);
-pub const LVBKIF_FLAG_TILEOFFSET: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(256u32);
-pub const LVBKIF_SOURCE_HBITMAP: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(1u32);
-pub const LVBKIF_SOURCE_MASK: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(3u32);
-pub const LVBKIF_SOURCE_NONE: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(0u32);
-pub const LVBKIF_SOURCE_URL: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(2u32);
-pub const LVBKIF_STYLE_MASK: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(16u32);
-pub const LVBKIF_STYLE_NORMAL: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(0u32);
-pub const LVBKIF_STYLE_TILE: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(16u32);
-pub const LVBKIF_TYPE_WATERMARK: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(268435456u32);
-pub const LVCB_HOVER: COLLAPSEBUTTONSTATES = COLLAPSEBUTTONSTATES(2i32);
-pub const LVCB_NORMAL: COLLAPSEBUTTONSTATES = COLLAPSEBUTTONSTATES(1i32);
-pub const LVCB_PUSHED: COLLAPSEBUTTONSTATES = COLLAPSEBUTTONSTATES(3i32);
-pub const LVCDI_GROUP: NMLVCUSTOMDRAW_ITEM_TYPE = NMLVCUSTOMDRAW_ITEM_TYPE(1u32);
-pub const LVCDI_ITEM: NMLVCUSTOMDRAW_ITEM_TYPE = NMLVCUSTOMDRAW_ITEM_TYPE(0u32);
-pub const LVCDI_ITEMSLIST: NMLVCUSTOMDRAW_ITEM_TYPE = NMLVCUSTOMDRAW_ITEM_TYPE(2u32);
-pub const LVCDRF_NOGROUPFRAME: u32 = 131072u32;
-pub const LVCDRF_NOSELECT: u32 = 65536u32;
-pub const LVCFMT_BITMAP_ON_RIGHT: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(4096i32);
-pub const LVCFMT_CENTER: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(2i32);
-pub const LVCFMT_COL_HAS_IMAGES: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(32768i32);
-pub const LVCFMT_FILL: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(2097152i32);
-pub const LVCFMT_FIXED_RATIO: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(524288i32);
-pub const LVCFMT_FIXED_WIDTH: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(256i32);
-pub const LVCFMT_IMAGE: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(2048i32);
-pub const LVCFMT_JUSTIFYMASK: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(3i32);
-pub const LVCFMT_LEFT: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(0i32);
-pub const LVCFMT_LINE_BREAK: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(1048576i32);
-pub const LVCFMT_NO_DPI_SCALE: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(262144i32);
-pub const LVCFMT_NO_TITLE: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(8388608i32);
-pub const LVCFMT_RIGHT: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(1i32);
-pub const LVCFMT_SPLITBUTTON: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(16777216i32);
-pub const LVCFMT_TILE_PLACEMENTMASK: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(3145728i32);
-pub const LVCFMT_WRAP: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(4194304i32);
-pub const LVCF_DEFAULTWIDTH: LVCOLUMNW_MASK = LVCOLUMNW_MASK(128u32);
-pub const LVCF_FMT: LVCOLUMNW_MASK = LVCOLUMNW_MASK(1u32);
-pub const LVCF_IDEALWIDTH: LVCOLUMNW_MASK = LVCOLUMNW_MASK(256u32);
-pub const LVCF_IMAGE: LVCOLUMNW_MASK = LVCOLUMNW_MASK(16u32);
-pub const LVCF_MINWIDTH: LVCOLUMNW_MASK = LVCOLUMNW_MASK(64u32);
-pub const LVCF_ORDER: LVCOLUMNW_MASK = LVCOLUMNW_MASK(32u32);
-pub const LVCF_SUBITEM: LVCOLUMNW_MASK = LVCOLUMNW_MASK(8u32);
-pub const LVCF_TEXT: LVCOLUMNW_MASK = LVCOLUMNW_MASK(4u32);
-pub const LVCF_WIDTH: LVCOLUMNW_MASK = LVCOLUMNW_MASK(2u32);
-pub const LVEB_HOVER: EXPANDBUTTONSTATES = EXPANDBUTTONSTATES(2i32);
-pub const LVEB_NORMAL: EXPANDBUTTONSTATES = EXPANDBUTTONSTATES(1i32);
-pub const LVEB_PUSHED: EXPANDBUTTONSTATES = EXPANDBUTTONSTATES(3i32);
-pub const LVFF_ITEMCOUNT: u32 = 1u32;
-pub const LVFIF_STATE: LVFOOTERITEM_MASK = LVFOOTERITEM_MASK(2u32);
-pub const LVFIF_TEXT: LVFOOTERITEM_MASK = LVFOOTERITEM_MASK(1u32);
-pub const LVFIS_FOCUSED: u32 = 1u32;
-pub const LVFI_NEARESTXY: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(64u32);
-pub const LVFI_PARAM: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(1u32);
-pub const LVFI_PARTIAL: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(8u32);
-pub const LVFI_STRING: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(2u32);
-pub const LVFI_SUBSTRING: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(4u32);
-pub const LVFI_WRAP: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(32u32);
-pub const LVGA_FOOTER_CENTER: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(16u32);
-pub const LVGA_FOOTER_LEFT: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(8u32);
-pub const LVGA_FOOTER_RIGHT: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(32u32);
-pub const LVGA_HEADER_CENTER: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(2u32);
-pub const LVGA_HEADER_LEFT: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(1u32);
-pub const LVGA_HEADER_RIGHT: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(4u32);
-pub const LVGF_ALIGN: LVGROUP_MASK = LVGROUP_MASK(8u32);
-pub const LVGF_DESCRIPTIONBOTTOM: LVGROUP_MASK = LVGROUP_MASK(2048u32);
-pub const LVGF_DESCRIPTIONTOP: LVGROUP_MASK = LVGROUP_MASK(1024u32);
-pub const LVGF_EXTENDEDIMAGE: LVGROUP_MASK = LVGROUP_MASK(8192u32);
-pub const LVGF_FOOTER: LVGROUP_MASK = LVGROUP_MASK(2u32);
-pub const LVGF_GROUPID: LVGROUP_MASK = LVGROUP_MASK(16u32);
-pub const LVGF_HEADER: LVGROUP_MASK = LVGROUP_MASK(1u32);
-pub const LVGF_ITEMS: LVGROUP_MASK = LVGROUP_MASK(16384u32);
-pub const LVGF_NONE: LVGROUP_MASK = LVGROUP_MASK(0u32);
-pub const LVGF_STATE: LVGROUP_MASK = LVGROUP_MASK(4u32);
-pub const LVGF_SUBSET: LVGROUP_MASK = LVGROUP_MASK(32768u32);
-pub const LVGF_SUBSETITEMS: LVGROUP_MASK = LVGROUP_MASK(65536u32);
-pub const LVGF_SUBTITLE: LVGROUP_MASK = LVGROUP_MASK(256u32);
-pub const LVGF_TASK: LVGROUP_MASK = LVGROUP_MASK(512u32);
-pub const LVGF_TITLEIMAGE: LVGROUP_MASK = LVGROUP_MASK(4096u32);
-pub const LVGGR_GROUP: u32 = 0u32;
-pub const LVGGR_HEADER: u32 = 1u32;
-pub const LVGGR_LABEL: u32 = 2u32;
-pub const LVGGR_SUBSETLINK: u32 = 3u32;
-pub const LVGHL_CLOSE: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(9i32);
-pub const LVGHL_CLOSEHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(10i32);
-pub const LVGHL_CLOSEMIXEDSELECTION: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(15i32);
-pub const LVGHL_CLOSEMIXEDSELECTIONHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(16i32);
-pub const LVGHL_CLOSESELECTED: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(11i32);
-pub const LVGHL_CLOSESELECTEDHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(12i32);
-pub const LVGHL_CLOSESELECTEDNOTFOCUSED: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(13i32);
-pub const LVGHL_CLOSESELECTEDNOTFOCUSEDHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(14i32);
-pub const LVGHL_OPEN: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(1i32);
-pub const LVGHL_OPENHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(2i32);
-pub const LVGHL_OPENMIXEDSELECTION: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(7i32);
-pub const LVGHL_OPENMIXEDSELECTIONHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(8i32);
-pub const LVGHL_OPENSELECTED: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(3i32);
-pub const LVGHL_OPENSELECTEDHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(4i32);
-pub const LVGHL_OPENSELECTEDNOTFOCUSED: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(5i32);
-pub const LVGHL_OPENSELECTEDNOTFOCUSEDHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(6i32);
-pub const LVGH_CLOSE: GROUPHEADERSTATES = GROUPHEADERSTATES(9i32);
-pub const LVGH_CLOSEHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(10i32);
-pub const LVGH_CLOSEMIXEDSELECTION: GROUPHEADERSTATES = GROUPHEADERSTATES(15i32);
-pub const LVGH_CLOSEMIXEDSELECTIONHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(16i32);
-pub const LVGH_CLOSESELECTED: GROUPHEADERSTATES = GROUPHEADERSTATES(11i32);
-pub const LVGH_CLOSESELECTEDHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(12i32);
-pub const LVGH_CLOSESELECTEDNOTFOCUSED: GROUPHEADERSTATES = GROUPHEADERSTATES(13i32);
-pub const LVGH_CLOSESELECTEDNOTFOCUSEDHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(14i32);
-pub const LVGH_OPEN: GROUPHEADERSTATES = GROUPHEADERSTATES(1i32);
-pub const LVGH_OPENHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(2i32);
-pub const LVGH_OPENMIXEDSELECTION: GROUPHEADERSTATES = GROUPHEADERSTATES(7i32);
-pub const LVGH_OPENMIXEDSELECTIONHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(8i32);
-pub const LVGH_OPENSELECTED: GROUPHEADERSTATES = GROUPHEADERSTATES(3i32);
-pub const LVGH_OPENSELECTEDHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(4i32);
-pub const LVGH_OPENSELECTEDNOTFOCUSED: GROUPHEADERSTATES = GROUPHEADERSTATES(5i32);
-pub const LVGH_OPENSELECTEDNOTFOCUSEDHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(6i32);
-pub const LVGIT_UNFOLDED: NMLVGETINFOTIP_FLAGS = NMLVGETINFOTIP_FLAGS(1u32);
-pub const LVGIT_ZERO: NMLVGETINFOTIP_FLAGS = NMLVGETINFOTIP_FLAGS(0u32);
-pub const LVGMF_BORDERCOLOR: u32 = 2u32;
-pub const LVGMF_BORDERSIZE: u32 = 1u32;
-pub const LVGMF_NONE: u32 = 0u32;
-pub const LVGMF_TEXTCOLOR: u32 = 4u32;
-pub const LVGS_COLLAPSED: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(1u32);
-pub const LVGS_COLLAPSIBLE: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(8u32);
-pub const LVGS_FOCUSED: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(16u32);
-pub const LVGS_HIDDEN: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(2u32);
-pub const LVGS_NOHEADER: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(4u32);
-pub const LVGS_NORMAL: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(0u32);
-pub const LVGS_SELECTED: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(32u32);
-pub const LVGS_SUBSETED: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(64u32);
-pub const LVGS_SUBSETLINKFOCUSED: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(128u32);
-pub const LVHT_ABOVE: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(8u32);
-pub const LVHT_BELOW: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(16u32);
-pub const LVHT_EX_FOOTER: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(134217728u32);
-pub const LVHT_EX_GROUP: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(4076863488u32);
-pub const LVHT_EX_GROUP_BACKGROUND: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(2147483648u32);
-pub const LVHT_EX_GROUP_COLLAPSE: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(1073741824u32);
-pub const LVHT_EX_GROUP_FOOTER: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(536870912u32);
-pub const LVHT_EX_GROUP_HEADER: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(268435456u32);
-pub const LVHT_EX_GROUP_STATEICON: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(16777216u32);
-pub const LVHT_EX_GROUP_SUBSETLINK: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(33554432u32);
-pub const LVHT_EX_ONCONTENTS: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(67108864u32);
-pub const LVHT_NOWHERE: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(1u32);
-pub const LVHT_ONITEMICON: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(2u32);
-pub const LVHT_ONITEMLABEL: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(4u32);
-pub const LVHT_ONITEMSTATEICON: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(8u32);
-pub const LVHT_TOLEFT: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(64u32);
-pub const LVHT_TORIGHT: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(32u32);
-pub const LVIF_COLFMT: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(65536u32);
-pub const LVIF_COLUMNS: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(512u32);
-pub const LVIF_DI_SETITEM: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(4096u32);
-pub const LVIF_GROUPID: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(256u32);
-pub const LVIF_IMAGE: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(2u32);
-pub const LVIF_INDENT: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(16u32);
-pub const LVIF_NORECOMPUTE: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(2048u32);
-pub const LVIF_PARAM: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(4u32);
-pub const LVIF_STATE: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(8u32);
-pub const LVIF_TEXT: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(1u32);
-pub const LVIM_AFTER: u32 = 1u32;
-pub const LVIR_BOUNDS: u32 = 0u32;
-pub const LVIR_ICON: u32 = 1u32;
-pub const LVIR_LABEL: u32 = 2u32;
-pub const LVIR_SELECTBOUNDS: u32 = 3u32;
-pub const LVIS_ACTIVATING: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(32u32);
-pub const LVIS_CUT: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(4u32);
-pub const LVIS_DROPHILITED: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(8u32);
-pub const LVIS_FOCUSED: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(1u32);
-pub const LVIS_GLOW: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(16u32);
-pub const LVIS_OVERLAYMASK: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(3840u32);
-pub const LVIS_SELECTED: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(2u32);
-pub const LVIS_STATEIMAGEMASK: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(61440u32);
-pub const LVKF_ALT: u32 = 1u32;
-pub const LVKF_CONTROL: u32 = 2u32;
-pub const LVKF_SHIFT: u32 = 4u32;
-pub const LVM_APPROXIMATEVIEWRECT: u32 = 4160u32;
-pub const LVM_ARRANGE: u32 = 4118u32;
-pub const LVM_CANCELEDITLABEL: u32 = 4275u32;
-pub const LVM_CREATEDRAGIMAGE: u32 = 4129u32;
-pub const LVM_DELETEALLITEMS: u32 = 4105u32;
-pub const LVM_DELETECOLUMN: u32 = 4124u32;
-pub const LVM_DELETEITEM: u32 = 4104u32;
-pub const LVM_EDITLABEL: u32 = 4214u32;
-pub const LVM_EDITLABELA: u32 = 4119u32;
-pub const LVM_EDITLABELW: u32 = 4214u32;
-pub const LVM_ENABLEGROUPVIEW: u32 = 4253u32;
-pub const LVM_ENSUREVISIBLE: u32 = 4115u32;
-pub const LVM_FINDITEM: u32 = 4179u32;
-pub const LVM_FINDITEMA: u32 = 4109u32;
-pub const LVM_FINDITEMW: u32 = 4179u32;
-pub const LVM_FIRST: u32 = 4096u32;
-pub const LVM_GETBKCOLOR: u32 = 4096u32;
-pub const LVM_GETBKIMAGE: u32 = 4235u32;
-pub const LVM_GETBKIMAGEA: u32 = 4165u32;
-pub const LVM_GETBKIMAGEW: u32 = 4235u32;
-pub const LVM_GETCALLBACKMASK: u32 = 4106u32;
-pub const LVM_GETCOLUMN: u32 = 4191u32;
-pub const LVM_GETCOLUMNA: u32 = 4121u32;
-pub const LVM_GETCOLUMNORDERARRAY: u32 = 4155u32;
-pub const LVM_GETCOLUMNW: u32 = 4191u32;
-pub const LVM_GETCOLUMNWIDTH: u32 = 4125u32;
-pub const LVM_GETCOUNTPERPAGE: u32 = 4136u32;
-pub const LVM_GETEDITCONTROL: u32 = 4120u32;
-pub const LVM_GETEMPTYTEXT: u32 = 4300u32;
-pub const LVM_GETEXTENDEDLISTVIEWSTYLE: u32 = 4151u32;
-pub const LVM_GETFOCUSEDGROUP: u32 = 4189u32;
-pub const LVM_GETFOOTERINFO: u32 = 4302u32;
-pub const LVM_GETFOOTERITEM: u32 = 4304u32;
-pub const LVM_GETFOOTERITEMRECT: u32 = 4303u32;
-pub const LVM_GETFOOTERRECT: u32 = 4301u32;
-pub const LVM_GETGROUPCOUNT: u32 = 4248u32;
-pub const LVM_GETGROUPINFO: u32 = 4245u32;
-pub const LVM_GETGROUPINFOBYINDEX: u32 = 4249u32;
-pub const LVM_GETGROUPMETRICS: u32 = 4252u32;
-pub const LVM_GETGROUPRECT: u32 = 4194u32;
-pub const LVM_GETGROUPSTATE: u32 = 4188u32;
-pub const LVM_GETHEADER: u32 = 4127u32;
-pub const LVM_GETHOTCURSOR: u32 = 4159u32;
-pub const LVM_GETHOTITEM: u32 = 4157u32;
-pub const LVM_GETHOVERTIME: u32 = 4168u32;
-pub const LVM_GETIMAGELIST: u32 = 4098u32;
-pub const LVM_GETINSERTMARK: u32 = 4263u32;
-pub const LVM_GETINSERTMARKCOLOR: u32 = 4267u32;
-pub const LVM_GETINSERTMARKRECT: u32 = 4265u32;
-pub const LVM_GETISEARCHSTRING: u32 = 4213u32;
-pub const LVM_GETISEARCHSTRINGA: u32 = 4148u32;
-pub const LVM_GETISEARCHSTRINGW: u32 = 4213u32;
-pub const LVM_GETITEM: u32 = 4171u32;
-pub const LVM_GETITEMA: u32 = 4101u32;
-pub const LVM_GETITEMCOUNT: u32 = 4100u32;
-pub const LVM_GETITEMINDEXRECT: u32 = 4305u32;
-pub const LVM_GETITEMPOSITION: u32 = 4112u32;
-pub const LVM_GETITEMRECT: u32 = 4110u32;
-pub const LVM_GETITEMSPACING: u32 = 4147u32;
-pub const LVM_GETITEMSTATE: u32 = 4140u32;
-pub const LVM_GETITEMTEXT: u32 = 4211u32;
-pub const LVM_GETITEMTEXTA: u32 = 4141u32;
-pub const LVM_GETITEMTEXTW: u32 = 4211u32;
-pub const LVM_GETITEMW: u32 = 4171u32;
-pub const LVM_GETNEXTITEM: u32 = 4108u32;
-pub const LVM_GETNEXTITEMINDEX: u32 = 4307u32;
-pub const LVM_GETNUMBEROFWORKAREAS: u32 = 4169u32;
-pub const LVM_GETORIGIN: u32 = 4137u32;
-pub const LVM_GETOUTLINECOLOR: u32 = 4272u32;
-pub const LVM_GETSELECTEDCOLUMN: u32 = 4270u32;
-pub const LVM_GETSELECTEDCOUNT: u32 = 4146u32;
-pub const LVM_GETSELECTIONMARK: u32 = 4162u32;
-pub const LVM_GETSTRINGWIDTH: u32 = 4183u32;
-pub const LVM_GETSTRINGWIDTHA: u32 = 4113u32;
-pub const LVM_GETSTRINGWIDTHW: u32 = 4183u32;
-pub const LVM_GETSUBITEMRECT: u32 = 4152u32;
-pub const LVM_GETTEXTBKCOLOR: u32 = 4133u32;
-pub const LVM_GETTEXTCOLOR: u32 = 4131u32;
-pub const LVM_GETTILEINFO: u32 = 4261u32;
-pub const LVM_GETTILEVIEWINFO: u32 = 4259u32;
-pub const LVM_GETTOOLTIPS: u32 = 4174u32;
-pub const LVM_GETTOPINDEX: u32 = 4135u32;
-pub const LVM_GETUNICODEFORMAT: u32 = 8198u32;
-pub const LVM_GETVIEW: u32 = 4239u32;
-pub const LVM_GETVIEWRECT: u32 = 4130u32;
-pub const LVM_GETWORKAREAS: u32 = 4166u32;
-pub const LVM_HASGROUP: u32 = 4257u32;
-pub const LVM_HITTEST: u32 = 4114u32;
-pub const LVM_INSERTCOLUMN: u32 = 4193u32;
-pub const LVM_INSERTCOLUMNA: u32 = 4123u32;
-pub const LVM_INSERTCOLUMNW: u32 = 4193u32;
-pub const LVM_INSERTGROUP: u32 = 4241u32;
-pub const LVM_INSERTGROUPSORTED: u32 = 4255u32;
-pub const LVM_INSERTITEM: u32 = 4173u32;
-pub const LVM_INSERTITEMA: u32 = 4103u32;
-pub const LVM_INSERTITEMW: u32 = 4173u32;
-pub const LVM_INSERTMARKHITTEST: u32 = 4264u32;
-pub const LVM_ISGROUPVIEWENABLED: u32 = 4271u32;
-pub const LVM_ISITEMVISIBLE: u32 = 4278u32;
-pub const LVM_MAPIDTOINDEX: u32 = 4277u32;
-pub const LVM_MAPINDEXTOID: u32 = 4276u32;
-pub const LVM_MOVEGROUP: u32 = 4247u32;
-pub const LVM_MOVEITEMTOGROUP: u32 = 4250u32;
-pub const LVM_REDRAWITEMS: u32 = 4117u32;
-pub const LVM_REMOVEALLGROUPS: u32 = 4256u32;
-pub const LVM_REMOVEGROUP: u32 = 4246u32;
-pub const LVM_SCROLL: u32 = 4116u32;
-pub const LVM_SETBKCOLOR: u32 = 4097u32;
-pub const LVM_SETBKIMAGE: u32 = 4234u32;
-pub const LVM_SETBKIMAGEA: u32 = 4164u32;
-pub const LVM_SETBKIMAGEW: u32 = 4234u32;
-pub const LVM_SETCALLBACKMASK: u32 = 4107u32;
-pub const LVM_SETCOLUMN: u32 = 4192u32;
-pub const LVM_SETCOLUMNA: u32 = 4122u32;
-pub const LVM_SETCOLUMNORDERARRAY: u32 = 4154u32;
-pub const LVM_SETCOLUMNW: u32 = 4192u32;
-pub const LVM_SETCOLUMNWIDTH: u32 = 4126u32;
-pub const LVM_SETEXTENDEDLISTVIEWSTYLE: u32 = 4150u32;
-pub const LVM_SETGROUPINFO: u32 = 4243u32;
-pub const LVM_SETGROUPMETRICS: u32 = 4251u32;
-pub const LVM_SETHOTCURSOR: u32 = 4158u32;
-pub const LVM_SETHOTITEM: u32 = 4156u32;
-pub const LVM_SETHOVERTIME: u32 = 4167u32;
-pub const LVM_SETICONSPACING: u32 = 4149u32;
-pub const LVM_SETIMAGELIST: u32 = 4099u32;
-pub const LVM_SETINFOTIP: u32 = 4269u32;
-pub const LVM_SETINSERTMARK: u32 = 4262u32;
-pub const LVM_SETINSERTMARKCOLOR: u32 = 4266u32;
-pub const LVM_SETITEM: u32 = 4172u32;
-pub const LVM_SETITEMA: u32 = 4102u32;
-pub const LVM_SETITEMCOUNT: u32 = 4143u32;
-pub const LVM_SETITEMINDEXSTATE: u32 = 4306u32;
-pub const LVM_SETITEMPOSITION: u32 = 4111u32;
-pub const LVM_SETITEMPOSITION32: u32 = 4145u32;
-pub const LVM_SETITEMSTATE: u32 = 4139u32;
-pub const LVM_SETITEMTEXT: u32 = 4212u32;
-pub const LVM_SETITEMTEXTA: u32 = 4142u32;
-pub const LVM_SETITEMTEXTW: u32 = 4212u32;
-pub const LVM_SETITEMW: u32 = 4172u32;
-pub const LVM_SETOUTLINECOLOR: u32 = 4273u32;
-pub const LVM_SETSELECTEDCOLUMN: u32 = 4236u32;
-pub const LVM_SETSELECTIONMARK: u32 = 4163u32;
-pub const LVM_SETTEXTBKCOLOR: u32 = 4134u32;
-pub const LVM_SETTEXTCOLOR: u32 = 4132u32;
-pub const LVM_SETTILEINFO: u32 = 4260u32;
-pub const LVM_SETTILEVIEWINFO: u32 = 4258u32;
-pub const LVM_SETTOOLTIPS: u32 = 4170u32;
-pub const LVM_SETUNICODEFORMAT: u32 = 8197u32;
-pub const LVM_SETVIEW: u32 = 4238u32;
-pub const LVM_SETWORKAREAS: u32 = 4161u32;
-pub const LVM_SORTGROUPS: u32 = 4254u32;
-pub const LVM_SORTITEMS: u32 = 4144u32;
-pub const LVM_SORTITEMSEX: u32 = 4177u32;
-pub const LVM_SUBITEMHITTEST: u32 = 4153u32;
-pub const LVM_UPDATE: u32 = 4138u32;
-pub const LVNI_ABOVE: u32 = 256u32;
-pub const LVNI_ALL: u32 = 0u32;
-pub const LVNI_BELOW: u32 = 512u32;
-pub const LVNI_CUT: u32 = 4u32;
-pub const LVNI_DROPHILITED: u32 = 8u32;
-pub const LVNI_FOCUSED: u32 = 1u32;
-pub const LVNI_PREVIOUS: u32 = 32u32;
-pub const LVNI_SAMEGROUPONLY: u32 = 128u32;
-pub const LVNI_SELECTED: u32 = 2u32;
-pub const LVNI_TOLEFT: u32 = 1024u32;
-pub const LVNI_TORIGHT: u32 = 2048u32;
-pub const LVNI_VISIBLEONLY: u32 = 64u32;
-pub const LVNI_VISIBLEORDER: u32 = 16u32;
-pub const LVNSCH_DEFAULT: i32 = -1i32;
-pub const LVNSCH_ERROR: i32 = -2i32;
-pub const LVNSCH_IGNORE: i32 = -3i32;
-pub const LVN_BEGINDRAG: u32 = 4294967187u32;
-pub const LVN_BEGINLABELEDIT: u32 = 4294967121u32;
-pub const LVN_BEGINLABELEDITA: u32 = 4294967191u32;
-pub const LVN_BEGINLABELEDITW: u32 = 4294967121u32;
-pub const LVN_BEGINRDRAG: u32 = 4294967185u32;
-pub const LVN_BEGINSCROLL: u32 = 4294967116u32;
-pub const LVN_COLUMNCLICK: u32 = 4294967188u32;
-pub const LVN_COLUMNDROPDOWN: u32 = 4294967132u32;
-pub const LVN_COLUMNOVERFLOWCLICK: u32 = 4294967130u32;
-pub const LVN_DELETEALLITEMS: u32 = 4294967192u32;
-pub const LVN_DELETEITEM: u32 = 4294967193u32;
-pub const LVN_ENDLABELEDIT: u32 = 4294967120u32;
-pub const LVN_ENDLABELEDITA: u32 = 4294967190u32;
-pub const LVN_ENDLABELEDITW: u32 = 4294967120u32;
-pub const LVN_ENDSCROLL: u32 = 4294967115u32;
-pub const LVN_FIRST: u32 = 4294967196u32;
-pub const LVN_GETDISPINFO: u32 = 4294967119u32;
-pub const LVN_GETDISPINFOA: u32 = 4294967146u32;
-pub const LVN_GETDISPINFOW: u32 = 4294967119u32;
-pub const LVN_GETEMPTYMARKUP: u32 = 4294967109u32;
-pub const LVN_GETINFOTIP: u32 = 4294967138u32;
-pub const LVN_GETINFOTIPA: u32 = 4294967139u32;
-pub const LVN_GETINFOTIPW: u32 = 4294967138u32;
-pub const LVN_HOTTRACK: u32 = 4294967175u32;
-pub const LVN_INCREMENTALSEARCH: u32 = 4294967133u32;
-pub const LVN_INCREMENTALSEARCHA: u32 = 4294967134u32;
-pub const LVN_INCREMENTALSEARCHW: u32 = 4294967133u32;
-pub const LVN_INSERTITEM: u32 = 4294967194u32;
-pub const LVN_ITEMACTIVATE: u32 = 4294967182u32;
-pub const LVN_ITEMCHANGED: u32 = 4294967195u32;
-pub const LVN_ITEMCHANGING: u32 = 4294967196u32;
-pub const LVN_KEYDOWN: u32 = 4294967141u32;
-pub const LVN_LAST: u32 = 4294967097u32;
-pub const LVN_LINKCLICK: u32 = 4294967112u32;
-pub const LVN_MARQUEEBEGIN: u32 = 4294967140u32;
-pub const LVN_ODCACHEHINT: u32 = 4294967183u32;
-pub const LVN_ODFINDITEM: u32 = 4294967117u32;
-pub const LVN_ODFINDITEMA: u32 = 4294967144u32;
-pub const LVN_ODFINDITEMW: u32 = 4294967117u32;
-pub const LVN_ODSTATECHANGED: u32 = 4294967181u32;
-pub const LVN_SETDISPINFO: u32 = 4294967118u32;
-pub const LVN_SETDISPINFOA: u32 = 4294967145u32;
-pub const LVN_SETDISPINFOW: u32 = 4294967118u32;
-pub const LVP_COLLAPSEBUTTON: LISTVIEWPARTS = LISTVIEWPARTS(9i32);
-pub const LVP_COLUMNDETAIL: LISTVIEWPARTS = LISTVIEWPARTS(10i32);
-pub const LVP_EMPTYTEXT: LISTVIEWPARTS = LISTVIEWPARTS(5i32);
-pub const LVP_EXPANDBUTTON: LISTVIEWPARTS = LISTVIEWPARTS(8i32);
-pub const LVP_GROUPHEADER: LISTVIEWPARTS = LISTVIEWPARTS(6i32);
-pub const LVP_GROUPHEADERLINE: LISTVIEWPARTS = LISTVIEWPARTS(7i32);
-pub const LVP_LISTDETAIL: LISTVIEWPARTS = LISTVIEWPARTS(3i32);
-pub const LVP_LISTGROUP: LISTVIEWPARTS = LISTVIEWPARTS(2i32);
-pub const LVP_LISTITEM: LISTVIEWPARTS = LISTVIEWPARTS(1i32);
-pub const LVP_LISTSORTEDDETAIL: LISTVIEWPARTS = LISTVIEWPARTS(4i32);
-pub const LVSCW_AUTOSIZE: i32 = -1i32;
-pub const LVSCW_AUTOSIZE_USEHEADER: i32 = -2i32;
-pub const LVSICF_NOINVALIDATEALL: u32 = 1u32;
-pub const LVSICF_NOSCROLL: u32 = 2u32;
-pub const LVSIL_GROUPHEADER: u32 = 3u32;
-pub const LVSIL_NORMAL: u32 = 0u32;
-pub const LVSIL_SMALL: u32 = 1u32;
-pub const LVSIL_STATE: u32 = 2u32;
-pub const LVS_ALIGNLEFT: u32 = 2048u32;
-pub const LVS_ALIGNMASK: u32 = 3072u32;
-pub const LVS_ALIGNTOP: u32 = 0u32;
-pub const LVS_AUTOARRANGE: u32 = 256u32;
-pub const LVS_EDITLABELS: u32 = 512u32;
-pub const LVS_EX_AUTOAUTOARRANGE: u32 = 16777216u32;
-pub const LVS_EX_AUTOCHECKSELECT: u32 = 134217728u32;
-pub const LVS_EX_AUTOSIZECOLUMNS: u32 = 268435456u32;
-pub const LVS_EX_BORDERSELECT: u32 = 32768u32;
-pub const LVS_EX_CHECKBOXES: u32 = 4u32;
-pub const LVS_EX_COLUMNOVERFLOW: u32 = 2147483648u32;
-pub const LVS_EX_COLUMNSNAPPOINTS: u32 = 1073741824u32;
-pub const LVS_EX_DOUBLEBUFFER: u32 = 65536u32;
-pub const LVS_EX_FLATSB: u32 = 256u32;
-pub const LVS_EX_FULLROWSELECT: u32 = 32u32;
-pub const LVS_EX_GRIDLINES: u32 = 1u32;
-pub const LVS_EX_HEADERDRAGDROP: u32 = 16u32;
-pub const LVS_EX_HEADERINALLVIEWS: u32 = 33554432u32;
-pub const LVS_EX_HIDELABELS: u32 = 131072u32;
-pub const LVS_EX_INFOTIP: u32 = 1024u32;
-pub const LVS_EX_JUSTIFYCOLUMNS: u32 = 2097152u32;
-pub const LVS_EX_LABELTIP: u32 = 16384u32;
-pub const LVS_EX_MULTIWORKAREAS: u32 = 8192u32;
-pub const LVS_EX_ONECLICKACTIVATE: u32 = 64u32;
-pub const LVS_EX_REGIONAL: u32 = 512u32;
-pub const LVS_EX_SIMPLESELECT: u32 = 1048576u32;
-pub const LVS_EX_SINGLEROW: u32 = 262144u32;
-pub const LVS_EX_SNAPTOGRID: u32 = 524288u32;
-pub const LVS_EX_SUBITEMIMAGES: u32 = 2u32;
-pub const LVS_EX_TRACKSELECT: u32 = 8u32;
-pub const LVS_EX_TRANSPARENTBKGND: u32 = 4194304u32;
-pub const LVS_EX_TRANSPARENTSHADOWTEXT: u32 = 8388608u32;
-pub const LVS_EX_TWOCLICKACTIVATE: u32 = 128u32;
-pub const LVS_EX_UNDERLINECOLD: u32 = 4096u32;
-pub const LVS_EX_UNDERLINEHOT: u32 = 2048u32;
-pub const LVS_ICON: u32 = 0u32;
-pub const LVS_LIST: u32 = 3u32;
-pub const LVS_NOCOLUMNHEADER: u32 = 16384u32;
-pub const LVS_NOLABELWRAP: u32 = 128u32;
-pub const LVS_NOSCROLL: u32 = 8192u32;
-pub const LVS_NOSORTHEADER: u32 = 32768u32;
-pub const LVS_OWNERDATA: u32 = 4096u32;
-pub const LVS_OWNERDRAWFIXED: u32 = 1024u32;
-pub const LVS_REPORT: u32 = 1u32;
-pub const LVS_SHAREIMAGELISTS: u32 = 64u32;
-pub const LVS_SHOWSELALWAYS: u32 = 8u32;
-pub const LVS_SINGLESEL: u32 = 4u32;
-pub const LVS_SMALLICON: u32 = 2u32;
-pub const LVS_SORTASCENDING: u32 = 16u32;
-pub const LVS_SORTDESCENDING: u32 = 32u32;
-pub const LVS_TYPEMASK: u32 = 3u32;
-pub const LVS_TYPESTYLEMASK: u32 = 64512u32;
-pub const LVTVIF_AUTOSIZE: LVTILEVIEWINFO_FLAGS = LVTILEVIEWINFO_FLAGS(0u32);
-pub const LVTVIF_EXTENDED: u32 = 4u32;
-pub const LVTVIF_FIXEDHEIGHT: LVTILEVIEWINFO_FLAGS = LVTILEVIEWINFO_FLAGS(2u32);
-pub const LVTVIF_FIXEDSIZE: LVTILEVIEWINFO_FLAGS = LVTILEVIEWINFO_FLAGS(3u32);
-pub const LVTVIF_FIXEDWIDTH: LVTILEVIEWINFO_FLAGS = LVTILEVIEWINFO_FLAGS(1u32);
-pub const LVTVIM_COLUMNS: LVTILEVIEWINFO_MASK = LVTILEVIEWINFO_MASK(2u32);
-pub const LVTVIM_LABELMARGIN: LVTILEVIEWINFO_MASK = LVTILEVIEWINFO_MASK(4u32);
-pub const LVTVIM_TILESIZE: LVTILEVIEWINFO_MASK = LVTILEVIEWINFO_MASK(1u32);
-pub const LV_MAX_WORKAREAS: u32 = 16u32;
-pub const LV_VIEW_DETAILS: u32 = 1u32;
-pub const LV_VIEW_ICON: u32 = 0u32;
-pub const LV_VIEW_LIST: u32 = 3u32;
-pub const LV_VIEW_MAX: u32 = 4u32;
-pub const LV_VIEW_SMALLICON: u32 = 2u32;
-pub const LV_VIEW_TILE: u32 = 4u32;
-pub const LWS_IGNORERETURN: u32 = 2u32;
-pub const LWS_NOPREFIX: u32 = 4u32;
-pub const LWS_RIGHT: u32 = 32u32;
-pub const LWS_TRANSPARENT: u32 = 1u32;
-pub const LWS_USECUSTOMTEXT: u32 = 16u32;
-pub const LWS_USEVISUALSTYLE: u32 = 8u32;
-pub const MAXBS_DISABLED: MAXBUTTONSTATES = MAXBUTTONSTATES(4i32);
-pub const MAXBS_HOT: MAXBUTTONSTATES = MAXBUTTONSTATES(2i32);
-pub const MAXBS_NORMAL: MAXBUTTONSTATES = MAXBUTTONSTATES(1i32);
-pub const MAXBS_PUSHED: MAXBUTTONSTATES = MAXBUTTONSTATES(3i32);
-pub const MAXPROPPAGES: u32 = 100u32;
-pub const MAX_INTLIST_COUNT: u32 = 402u32;
-pub const MAX_LINKID_TEXT: u32 = 48u32;
-pub const MAX_THEMECOLOR: u32 = 64u32;
-pub const MAX_THEMESIZE: u32 = 64u32;
-pub const MBI_DISABLED: BARITEMSTATES = BARITEMSTATES(4i32);
-pub const MBI_DISABLEDHOT: BARITEMSTATES = BARITEMSTATES(5i32);
-pub const MBI_DISABLEDPUSHED: BARITEMSTATES = BARITEMSTATES(6i32);
-pub const MBI_HOT: BARITEMSTATES = BARITEMSTATES(2i32);
-pub const MBI_NORMAL: BARITEMSTATES = BARITEMSTATES(1i32);
-pub const MBI_PUSHED: BARITEMSTATES = BARITEMSTATES(3i32);
-pub const MB_ACTIVE: BARBACKGROUNDSTATES = BARBACKGROUNDSTATES(1i32);
-pub const MB_INACTIVE: BARBACKGROUNDSTATES = BARBACKGROUNDSTATES(2i32);
-pub const MCB_BITMAP: POPUPCHECKBACKGROUNDSTATES = POPUPCHECKBACKGROUNDSTATES(3i32);
-pub const MCB_DISABLED: POPUPCHECKBACKGROUNDSTATES = POPUPCHECKBACKGROUNDSTATES(1i32);
-pub const MCB_NORMAL: POPUPCHECKBACKGROUNDSTATES = POPUPCHECKBACKGROUNDSTATES(2i32);
-pub const MCGCB_HOT: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(2i32);
-pub const MCGCB_SELECTED: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(1i32);
-pub const MCGCB_SELECTEDHOT: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(3i32);
-pub const MCGCB_SELECTEDNOTFOCUSED: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(4i32);
-pub const MCGCB_TODAY: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(5i32);
-pub const MCGCB_TODAYSELECTED: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(6i32);
-pub const MCGCU_HASSTATE: GRIDCELLUPPERSTATES = GRIDCELLUPPERSTATES(2i32);
-pub const MCGCU_HASSTATEHOT: GRIDCELLUPPERSTATES = GRIDCELLUPPERSTATES(3i32);
-pub const MCGCU_HOT: GRIDCELLUPPERSTATES = GRIDCELLUPPERSTATES(1i32);
-pub const MCGCU_SELECTED: GRIDCELLUPPERSTATES = GRIDCELLUPPERSTATES(4i32);
-pub const MCGCU_SELECTEDHOT: GRIDCELLUPPERSTATES = GRIDCELLUPPERSTATES(5i32);
-pub const MCGC_HASSTATE: GRIDCELLSTATES = GRIDCELLSTATES(2i32);
-pub const MCGC_HASSTATEHOT: GRIDCELLSTATES = GRIDCELLSTATES(3i32);
-pub const MCGC_HOT: GRIDCELLSTATES = GRIDCELLSTATES(1i32);
-pub const MCGC_SELECTED: GRIDCELLSTATES = GRIDCELLSTATES(6i32);
-pub const MCGC_SELECTEDHOT: GRIDCELLSTATES = GRIDCELLSTATES(7i32);
-pub const MCGC_TODAY: GRIDCELLSTATES = GRIDCELLSTATES(4i32);
-pub const MCGC_TODAYSELECTED: GRIDCELLSTATES = GRIDCELLSTATES(5i32);
-pub const MCGIF_DATE: MCGRIDINFO_FLAGS = MCGRIDINFO_FLAGS(1u32);
-pub const MCGIF_NAME: MCGRIDINFO_FLAGS = MCGRIDINFO_FLAGS(4u32);
-pub const MCGIF_RECT: MCGRIDINFO_FLAGS = MCGRIDINFO_FLAGS(2u32);
-pub const MCGIP_CALENDAR: MCGRIDINFO_PART = MCGRIDINFO_PART(4u32);
-pub const MCGIP_CALENDARBODY: MCGRIDINFO_PART = MCGRIDINFO_PART(6u32);
-pub const MCGIP_CALENDARCELL: MCGRIDINFO_PART = MCGRIDINFO_PART(8u32);
-pub const MCGIP_CALENDARCONTROL: MCGRIDINFO_PART = MCGRIDINFO_PART(0u32);
-pub const MCGIP_CALENDARHEADER: MCGRIDINFO_PART = MCGRIDINFO_PART(5u32);
-pub const MCGIP_CALENDARROW: MCGRIDINFO_PART = MCGRIDINFO_PART(7u32);
-pub const MCGIP_FOOTER: MCGRIDINFO_PART = MCGRIDINFO_PART(3u32);
-pub const MCGIP_NEXT: MCGRIDINFO_PART = MCGRIDINFO_PART(1u32);
-pub const MCGIP_PREV: MCGRIDINFO_PART = MCGRIDINFO_PART(2u32);
-pub const MCHT_CALENDAR: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131072u32);
-pub const MCHT_CALENDARBK: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131072u32);
-pub const MCHT_CALENDARCONTROL: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(1048576u32);
-pub const MCHT_CALENDARDATE: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131073u32);
-pub const MCHT_CALENDARDATEMAX: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131077u32);
-pub const MCHT_CALENDARDATEMIN: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131076u32);
-pub const MCHT_CALENDARDATENEXT: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(16908289u32);
-pub const MCHT_CALENDARDATEPREV: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(33685505u32);
-pub const MCHT_CALENDARDAY: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131074u32);
-pub const MCHT_CALENDARWEEKNUM: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131075u32);
-pub const MCHT_NEXT: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(16777216u32);
-pub const MCHT_NOWHERE: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(0u32);
-pub const MCHT_PREV: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(33554432u32);
-pub const MCHT_TITLE: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(65536u32);
-pub const MCHT_TITLEBK: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(65536u32);
-pub const MCHT_TITLEBTNNEXT: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(16842755u32);
-pub const MCHT_TITLEBTNPREV: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(33619971u32);
-pub const MCHT_TITLEMONTH: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(65537u32);
-pub const MCHT_TITLEYEAR: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(65538u32);
-pub const MCHT_TODAYLINK: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(196608u32);
-pub const MCMV_CENTURY: MONTH_CALDENDAR_MESSAGES_VIEW = MONTH_CALDENDAR_MESSAGES_VIEW(3u32);
-pub const MCMV_DECADE: MONTH_CALDENDAR_MESSAGES_VIEW = MONTH_CALDENDAR_MESSAGES_VIEW(2u32);
-pub const MCMV_MAX: MONTH_CALDENDAR_MESSAGES_VIEW = MONTH_CALDENDAR_MESSAGES_VIEW(3u32);
-pub const MCMV_MONTH: MONTH_CALDENDAR_MESSAGES_VIEW = MONTH_CALDENDAR_MESSAGES_VIEW(0u32);
-pub const MCMV_YEAR: MONTH_CALDENDAR_MESSAGES_VIEW = MONTH_CALDENDAR_MESSAGES_VIEW(1u32);
-pub const MCM_FIRST: u32 = 4096u32;
-pub const MCM_GETCALENDARBORDER: u32 = 4127u32;
-pub const MCM_GETCALENDARCOUNT: u32 = 4119u32;
-pub const MCM_GETCALENDARGRIDINFO: u32 = 4120u32;
-pub const MCM_GETCALID: u32 = 4123u32;
-pub const MCM_GETCOLOR: u32 = 4107u32;
-pub const MCM_GETCURRENTVIEW: u32 = 4118u32;
-pub const MCM_GETCURSEL: u32 = 4097u32;
-pub const MCM_GETFIRSTDAYOFWEEK: u32 = 4112u32;
-pub const MCM_GETMAXSELCOUNT: u32 = 4099u32;
-pub const MCM_GETMAXTODAYWIDTH: u32 = 4117u32;
-pub const MCM_GETMINREQRECT: u32 = 4105u32;
-pub const MCM_GETMONTHDELTA: u32 = 4115u32;
-pub const MCM_GETMONTHRANGE: u32 = 4103u32;
-pub const MCM_GETRANGE: u32 = 4113u32;
-pub const MCM_GETSELRANGE: u32 = 4101u32;
-pub const MCM_GETTODAY: u32 = 4109u32;
-pub const MCM_GETUNICODEFORMAT: u32 = 8198u32;
-pub const MCM_HITTEST: u32 = 4110u32;
-pub const MCM_SETCALENDARBORDER: u32 = 4126u32;
-pub const MCM_SETCALID: u32 = 4124u32;
-pub const MCM_SETCOLOR: u32 = 4106u32;
-pub const MCM_SETCURRENTVIEW: u32 = 4128u32;
-pub const MCM_SETCURSEL: u32 = 4098u32;
-pub const MCM_SETDAYSTATE: u32 = 4104u32;
-pub const MCM_SETFIRSTDAYOFWEEK: u32 = 4111u32;
-pub const MCM_SETMAXSELCOUNT: u32 = 4100u32;
-pub const MCM_SETMONTHDELTA: u32 = 4116u32;
-pub const MCM_SETRANGE: u32 = 4114u32;
-pub const MCM_SETSELRANGE: u32 = 4102u32;
-pub const MCM_SETTODAY: u32 = 4108u32;
-pub const MCM_SETUNICODEFORMAT: u32 = 8197u32;
-pub const MCM_SIZERECTTOMIN: u32 = 4125u32;
-pub const MCNN_DISABLED: NAVNEXTSTATES = NAVNEXTSTATES(4i32);
-pub const MCNN_HOT: NAVNEXTSTATES = NAVNEXTSTATES(2i32);
-pub const MCNN_NORMAL: NAVNEXTSTATES = NAVNEXTSTATES(1i32);
-pub const MCNN_PRESSED: NAVNEXTSTATES = NAVNEXTSTATES(3i32);
-pub const MCNP_DISABLED: NAVPREVSTATES = NAVPREVSTATES(4i32);
-pub const MCNP_HOT: NAVPREVSTATES = NAVPREVSTATES(2i32);
-pub const MCNP_NORMAL: NAVPREVSTATES = NAVPREVSTATES(1i32);
-pub const MCNP_PRESSED: NAVPREVSTATES = NAVPREVSTATES(3i32);
-pub const MCN_FIRST: u32 = 4294966550u32;
-pub const MCN_GETDAYSTATE: u32 = 4294966549u32;
-pub const MCN_LAST: u32 = 4294966544u32;
-pub const MCN_SELCHANGE: u32 = 4294966547u32;
-pub const MCN_SELECT: u32 = 4294966550u32;
-pub const MCN_VIEWCHANGE: u32 = 4294966546u32;
-pub const MCSC_BACKGROUND: u32 = 0u32;
-pub const MCSC_MONTHBK: u32 = 4u32;
-pub const MCSC_TEXT: u32 = 1u32;
-pub const MCSC_TITLEBK: u32 = 2u32;
-pub const MCSC_TITLETEXT: u32 = 3u32;
-pub const MCSC_TRAILINGTEXT: u32 = 5u32;
-pub const MCS_DAYSTATE: u32 = 1u32;
-pub const MCS_MULTISELECT: u32 = 2u32;
-pub const MCS_NOSELCHANGEONNAV: u32 = 256u32;
-pub const MCS_NOTODAY: u32 = 16u32;
-pub const MCS_NOTODAYCIRCLE: u32 = 8u32;
-pub const MCS_NOTRAILINGDATES: u32 = 64u32;
-pub const MCS_SHORTDAYSOFWEEK: u32 = 128u32;
-pub const MCS_WEEKNUMBERS: u32 = 4u32;
-pub const MCTGCU_HASSTATE: TRAILINGGRIDCELLUPPERSTATES = TRAILINGGRIDCELLUPPERSTATES(2i32);
-pub const MCTGCU_HASSTATEHOT: TRAILINGGRIDCELLUPPERSTATES = TRAILINGGRIDCELLUPPERSTATES(3i32);
-pub const MCTGCU_HOT: TRAILINGGRIDCELLUPPERSTATES = TRAILINGGRIDCELLUPPERSTATES(1i32);
-pub const MCTGCU_SELECTED: TRAILINGGRIDCELLUPPERSTATES = TRAILINGGRIDCELLUPPERSTATES(4i32);
-pub const MCTGCU_SELECTEDHOT: TRAILINGGRIDCELLUPPERSTATES = TRAILINGGRIDCELLUPPERSTATES(5i32);
-pub const MCTGC_HASSTATE: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(2i32);
-pub const MCTGC_HASSTATEHOT: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(3i32);
-pub const MCTGC_HOT: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(1i32);
-pub const MCTGC_SELECTED: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(6i32);
-pub const MCTGC_SELECTEDHOT: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(7i32);
-pub const MCTGC_TODAY: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(4i32);
-pub const MCTGC_TODAYSELECTED: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(5i32);
-pub const MC_BACKGROUND: MONTHCALPARTS = MONTHCALPARTS(1i32);
-pub const MC_BORDERS: MONTHCALPARTS = MONTHCALPARTS(2i32);
-pub const MC_BULLETDISABLED: POPUPCHECKSTATES = POPUPCHECKSTATES(4i32);
-pub const MC_BULLETNORMAL: POPUPCHECKSTATES = POPUPCHECKSTATES(3i32);
-pub const MC_CHECKMARKDISABLED: POPUPCHECKSTATES = POPUPCHECKSTATES(2i32);
-pub const MC_CHECKMARKNORMAL: POPUPCHECKSTATES = POPUPCHECKSTATES(1i32);
-pub const MC_COLHEADERSPLITTER: MONTHCALPARTS = MONTHCALPARTS(4i32);
-pub const MC_GRIDBACKGROUND: MONTHCALPARTS = MONTHCALPARTS(3i32);
-pub const MC_GRIDCELL: MONTHCALPARTS = MONTHCALPARTS(6i32);
-pub const MC_GRIDCELLBACKGROUND: MONTHCALPARTS = MONTHCALPARTS(5i32);
-pub const MC_GRIDCELLUPPER: MONTHCALPARTS = MONTHCALPARTS(7i32);
-pub const MC_NAVNEXT: MONTHCALPARTS = MONTHCALPARTS(10i32);
-pub const MC_NAVPREV: MONTHCALPARTS = MONTHCALPARTS(11i32);
-pub const MC_TRAILINGGRIDCELL: MONTHCALPARTS = MONTHCALPARTS(8i32);
-pub const MC_TRAILINGGRIDCELLUPPER: MONTHCALPARTS = MONTHCALPARTS(9i32);
-pub const MDCL_DISABLED: MDICLOSEBUTTONSTATES = MDICLOSEBUTTONSTATES(4i32);
-pub const MDCL_HOT: MDICLOSEBUTTONSTATES = MDICLOSEBUTTONSTATES(2i32);
-pub const MDCL_NORMAL: MDICLOSEBUTTONSTATES = MDICLOSEBUTTONSTATES(1i32);
-pub const MDCL_PUSHED: MDICLOSEBUTTONSTATES = MDICLOSEBUTTONSTATES(3i32);
-pub const MDMI_DISABLED: MDIMINBUTTONSTATES = MDIMINBUTTONSTATES(4i32);
-pub const MDMI_HOT: MDIMINBUTTONSTATES = MDIMINBUTTONSTATES(2i32);
-pub const MDMI_NORMAL: MDIMINBUTTONSTATES = MDIMINBUTTONSTATES(1i32);
-pub const MDMI_PUSHED: MDIMINBUTTONSTATES = MDIMINBUTTONSTATES(3i32);
-pub const MDP_NEWAPPBUTTON: MENUBANDPARTS = MENUBANDPARTS(1i32);
-pub const MDP_SEPERATOR: MENUBANDPARTS = MENUBANDPARTS(2i32);
-pub const MDRE_DISABLED: MDIRESTOREBUTTONSTATES = MDIRESTOREBUTTONSTATES(4i32);
-pub const MDRE_HOT: MDIRESTOREBUTTONSTATES = MDIRESTOREBUTTONSTATES(2i32);
-pub const MDRE_NORMAL: MDIRESTOREBUTTONSTATES = MDIRESTOREBUTTONSTATES(1i32);
-pub const MDRE_PUSHED: MDIRESTOREBUTTONSTATES = MDIRESTOREBUTTONSTATES(3i32);
-pub const MDS_CHECKED: MENUBANDSTATES = MENUBANDSTATES(5i32);
-pub const MDS_DISABLED: MENUBANDSTATES = MENUBANDSTATES(4i32);
-pub const MDS_HOT: MENUBANDSTATES = MENUBANDSTATES(2i32);
-pub const MDS_HOTCHECKED: MENUBANDSTATES = MENUBANDSTATES(6i32);
-pub const MDS_NORMAL: MENUBANDSTATES = MENUBANDSTATES(1i32);
-pub const MDS_PRESSED: MENUBANDSTATES = MENUBANDSTATES(3i32);
-pub const MENU_BARBACKGROUND: MENUPARTS = MENUPARTS(7i32);
-pub const MENU_BARITEM: MENUPARTS = MENUPARTS(8i32);
-pub const MENU_CHEVRON_TMSCHEMA: MENUPARTS = MENUPARTS(5i32);
-pub const MENU_MENUBARDROPDOWN_TMSCHEMA: MENUPARTS = MENUPARTS(4i32);
-pub const MENU_MENUBARITEM_TMSCHEMA: MENUPARTS = MENUPARTS(3i32);
-pub const MENU_MENUDROPDOWN_TMSCHEMA: MENUPARTS = MENUPARTS(2i32);
-pub const MENU_MENUITEM_TMSCHEMA: MENUPARTS = MENUPARTS(1i32);
-pub const MENU_POPUPBACKGROUND: MENUPARTS = MENUPARTS(9i32);
-pub const MENU_POPUPBORDERS: MENUPARTS = MENUPARTS(10i32);
-pub const MENU_POPUPCHECK: MENUPARTS = MENUPARTS(11i32);
-pub const MENU_POPUPCHECKBACKGROUND: MENUPARTS = MENUPARTS(12i32);
-pub const MENU_POPUPGUTTER: MENUPARTS = MENUPARTS(13i32);
-pub const MENU_POPUPITEM: MENUPARTS = MENUPARTS(14i32);
-pub const MENU_POPUPITEMKBFOCUS: MENUPARTS = MENUPARTS(26i32);
-pub const MENU_POPUPITEM_FOCUSABLE: MENUPARTS = MENUPARTS(27i32);
-pub const MENU_POPUPSEPARATOR: MENUPARTS = MENUPARTS(15i32);
-pub const MENU_POPUPSUBMENU: MENUPARTS = MENUPARTS(16i32);
-pub const MENU_POPUPSUBMENU_HCHOT: MENUPARTS = MENUPARTS(21i32);
-pub const MENU_SEPARATOR_TMSCHEMA: MENUPARTS = MENUPARTS(6i32);
-pub const MENU_SYSTEMCLOSE: MENUPARTS = MENUPARTS(17i32);
-pub const MENU_SYSTEMCLOSE_HCHOT: MENUPARTS = MENUPARTS(22i32);
-pub const MENU_SYSTEMMAXIMIZE: MENUPARTS = MENUPARTS(18i32);
-pub const MENU_SYSTEMMAXIMIZE_HCHOT: MENUPARTS = MENUPARTS(23i32);
-pub const MENU_SYSTEMMINIMIZE: MENUPARTS = MENUPARTS(19i32);
-pub const MENU_SYSTEMMINIMIZE_HCHOT: MENUPARTS = MENUPARTS(24i32);
-pub const MENU_SYSTEMRESTORE: MENUPARTS = MENUPARTS(20i32);
-pub const MENU_SYSTEMRESTORE_HCHOT: MENUPARTS = MENUPARTS(25i32);
-pub const MINBS_DISABLED: MINBUTTONSTATES = MINBUTTONSTATES(4i32);
-pub const MINBS_HOT: MINBUTTONSTATES = MINBUTTONSTATES(2i32);
-pub const MINBS_NORMAL: MINBUTTONSTATES = MINBUTTONSTATES(1i32);
-pub const MINBS_PUSHED: MINBUTTONSTATES = MINBUTTONSTATES(3i32);
-pub const MNCS_ACTIVE: MINCAPTIONSTATES = MINCAPTIONSTATES(1i32);
-pub const MNCS_DISABLED: MINCAPTIONSTATES = MINCAPTIONSTATES(3i32);
-pub const MNCS_INACTIVE: MINCAPTIONSTATES = MINCAPTIONSTATES(2i32);
-pub const MONTHCAL_CLASS: windows_core::PCWSTR = windows_core::w!("SysMonthCal32");
-pub const MONTHCAL_CLASSA: windows_core::PCSTR = windows_core::s!("SysMonthCal32");
-pub const MONTHCAL_CLASSW: windows_core::PCWSTR = windows_core::w!("SysMonthCal32");
-pub const MPIF_DISABLED: POPUPITEMFOCUSABLESTATES = POPUPITEMFOCUSABLESTATES(3i32);
-pub const MPIF_DISABLEDHOT: POPUPITEMFOCUSABLESTATES = POPUPITEMFOCUSABLESTATES(4i32);
-pub const MPIF_HOT: POPUPITEMFOCUSABLESTATES = POPUPITEMFOCUSABLESTATES(2i32);
-pub const MPIF_NORMAL: POPUPITEMFOCUSABLESTATES = POPUPITEMFOCUSABLESTATES(1i32);
-pub const MPIKBFOCUS_NORMAL: POPUPITEMKBFOCUSSTATES = POPUPITEMKBFOCUSSTATES(1i32);
-pub const MPI_DISABLED: POPUPITEMSTATES = POPUPITEMSTATES(3i32);
-pub const MPI_DISABLEDHOT: POPUPITEMSTATES = POPUPITEMSTATES(4i32);
-pub const MPI_HOT: POPUPITEMSTATES = POPUPITEMSTATES(2i32);
-pub const MPI_NORMAL: POPUPITEMSTATES = POPUPITEMSTATES(1i32);
-pub const MSGF_COMMCTRL_BEGINDRAG: u32 = 16896u32;
-pub const MSGF_COMMCTRL_DRAGSELECT: u32 = 16898u32;
-pub const MSGF_COMMCTRL_SIZEHEADER: u32 = 16897u32;
-pub const MSGF_COMMCTRL_TOOLBARCUST: u32 = 16899u32;
-pub const MSMHC_HOT: POPUPSUBMENUHCHOTSTATES = POPUPSUBMENUHCHOTSTATES(1i32);
-pub const MSM_DISABLED: POPUPSUBMENUSTATES = POPUPSUBMENUSTATES(2i32);
-pub const MSM_NORMAL: POPUPSUBMENUSTATES = POPUPSUBMENUSTATES(1i32);
-pub const MSYSCHC_HOT: SYSTEMCLOSEHCHOTSTATES = SYSTEMCLOSEHCHOTSTATES(1i32);
-pub const MSYSC_DISABLED: SYSTEMCLOSESTATES = SYSTEMCLOSESTATES(2i32);
-pub const MSYSC_NORMAL: SYSTEMCLOSESTATES = SYSTEMCLOSESTATES(1i32);
-pub const MSYSMNHC_HOT: SYSTEMMINIMIZEHCHOTSTATES = SYSTEMMINIMIZEHCHOTSTATES(1i32);
-pub const MSYSMN_DISABLED: SYSTEMMINIMIZESTATES = SYSTEMMINIMIZESTATES(2i32);
-pub const MSYSMN_NORMAL: SYSTEMMINIMIZESTATES = SYSTEMMINIMIZESTATES(1i32);
-pub const MSYSMXHC_HOT: SYSTEMMAXIMIZEHCHOTSTATES = SYSTEMMAXIMIZEHCHOTSTATES(1i32);
-pub const MSYSMX_DISABLED: SYSTEMMAXIMIZESTATES = SYSTEMMAXIMIZESTATES(2i32);
-pub const MSYSMX_NORMAL: SYSTEMMAXIMIZESTATES = SYSTEMMAXIMIZESTATES(1i32);
-pub const MSYSRHC_HOT: SYSTEMRESTOREHCHOTSTATES = SYSTEMRESTOREHCHOTSTATES(1i32);
-pub const MSYSR_DISABLED: SYSTEMRESTORESTATES = SYSTEMRESTORESTATES(2i32);
-pub const MSYSR_NORMAL: SYSTEMRESTORESTATES = SYSTEMRESTORESTATES(1i32);
-pub const MULTIFILEOPENORD: u32 = 1537u32;
-pub const MXCS_ACTIVE: MAXCAPTIONSTATES = MAXCAPTIONSTATES(1i32);
-pub const MXCS_DISABLED: MAXCAPTIONSTATES = MAXCAPTIONSTATES(3i32);
-pub const MXCS_INACTIVE: MAXCAPTIONSTATES = MAXCAPTIONSTATES(2i32);
-pub const NAV_BACKBUTTON: NAVIGATIONPARTS = NAVIGATIONPARTS(1i32);
-pub const NAV_BB_DISABLED: NAV_BACKBUTTONSTATES = NAV_BACKBUTTONSTATES(4i32);
-pub const NAV_BB_HOT: NAV_BACKBUTTONSTATES = NAV_BACKBUTTONSTATES(2i32);
-pub const NAV_BB_NORMAL: NAV_BACKBUTTONSTATES = NAV_BACKBUTTONSTATES(1i32);
-pub const NAV_BB_PRESSED: NAV_BACKBUTTONSTATES = NAV_BACKBUTTONSTATES(3i32);
-pub const NAV_FB_DISABLED: NAV_FORWARDBUTTONSTATES = NAV_FORWARDBUTTONSTATES(4i32);
-pub const NAV_FB_HOT: NAV_FORWARDBUTTONSTATES = NAV_FORWARDBUTTONSTATES(2i32);
-pub const NAV_FB_NORMAL: NAV_FORWARDBUTTONSTATES = NAV_FORWARDBUTTONSTATES(1i32);
-pub const NAV_FB_PRESSED: NAV_FORWARDBUTTONSTATES = NAV_FORWARDBUTTONSTATES(3i32);
-pub const NAV_FORWARDBUTTON: NAVIGATIONPARTS = NAVIGATIONPARTS(2i32);
-pub const NAV_MB_DISABLED: NAV_MENUBUTTONSTATES = NAV_MENUBUTTONSTATES(4i32);
-pub const NAV_MB_HOT: NAV_MENUBUTTONSTATES = NAV_MENUBUTTONSTATES(2i32);
-pub const NAV_MB_NORMAL: NAV_MENUBUTTONSTATES = NAV_MENUBUTTONSTATES(1i32);
-pub const NAV_MB_PRESSED: NAV_MENUBUTTONSTATES = NAV_MENUBUTTONSTATES(3i32);
-pub const NAV_MENUBUTTON: NAVIGATIONPARTS = NAVIGATIONPARTS(3i32);
-pub const NEWFILEOPENORD: u32 = 1547u32;
-pub const NEWFILEOPENV2ORD: u32 = 1552u32;
-pub const NEWFILEOPENV3ORD: u32 = 1553u32;
-pub const NEWFORMATDLGWITHLINK: u32 = 1591u32;
-pub const NFS_ALL: u32 = 16u32;
-pub const NFS_BUTTON: u32 = 8u32;
-pub const NFS_EDIT: u32 = 1u32;
-pub const NFS_LISTCOMBO: u32 = 4u32;
-pub const NFS_STATIC: u32 = 2u32;
-pub const NFS_USEFONTASSOC: u32 = 32u32;
-pub const NM_CHAR: u32 = 4294967278u32;
-pub const NM_CLICK: u32 = 4294967294u32;
-pub const NM_CUSTOMDRAW: u32 = 4294967284u32;
-pub const NM_CUSTOMTEXT: u32 = 4294967272u32;
-pub const NM_DBLCLK: u32 = 4294967293u32;
-pub const NM_FIRST: u32 = 0u32;
-pub const NM_FONTCHANGED: u32 = 4294967273u32;
-pub const NM_GETCUSTOMSPLITRECT: u32 = 4294966049u32;
-pub const NM_HOVER: u32 = 4294967283u32;
-pub const NM_KEYDOWN: u32 = 4294967281u32;
-pub const NM_KILLFOCUS: u32 = 4294967288u32;
-pub const NM_LAST: u32 = 4294967197u32;
-pub const NM_LDOWN: u32 = 4294967276u32;
-pub const NM_NCHITTEST: u32 = 4294967282u32;
-pub const NM_OUTOFMEMORY: u32 = 4294967295u32;
-pub const NM_RCLICK: u32 = 4294967291u32;
-pub const NM_RDBLCLK: u32 = 4294967290u32;
-pub const NM_RDOWN: u32 = 4294967275u32;
-pub const NM_RELEASEDCAPTURE: u32 = 4294967280u32;
-pub const NM_RETURN: u32 = 4294967292u32;
-pub const NM_SETCURSOR: u32 = 4294967279u32;
-pub const NM_SETFOCUS: u32 = 4294967289u32;
-pub const NM_THEMECHANGED: u32 = 4294967274u32;
-pub const NM_TOOLTIPSCREATED: u32 = 4294967277u32;
-pub const NM_TVSTATEIMAGECHANGING: u32 = 4294967272u32;
-pub const ODA_DRAWENTIRE: ODA_FLAGS = ODA_FLAGS(1u32);
-pub const ODA_FOCUS: ODA_FLAGS = ODA_FLAGS(4u32);
-pub const ODA_SELECT: ODA_FLAGS = ODA_FLAGS(2u32);
-pub const ODS_CHECKED: ODS_FLAGS = ODS_FLAGS(8u32);
-pub const ODS_COMBOBOXEDIT: ODS_FLAGS = ODS_FLAGS(4096u32);
-pub const ODS_DEFAULT: ODS_FLAGS = ODS_FLAGS(32u32);
-pub const ODS_DISABLED: ODS_FLAGS = ODS_FLAGS(4u32);
-pub const ODS_FOCUS: ODS_FLAGS = ODS_FLAGS(16u32);
-pub const ODS_GRAYED: ODS_FLAGS = ODS_FLAGS(2u32);
-pub const ODS_HOTLIGHT: ODS_FLAGS = ODS_FLAGS(64u32);
-pub const ODS_INACTIVE: ODS_FLAGS = ODS_FLAGS(128u32);
-pub const ODS_NOACCEL: ODS_FLAGS = ODS_FLAGS(256u32);
-pub const ODS_NOFOCUSRECT: ODS_FLAGS = ODS_FLAGS(512u32);
-pub const ODS_SELECTED: ODS_FLAGS = ODS_FLAGS(1u32);
-pub const ODT_BUTTON: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(4u32);
-pub const ODT_COMBOBOX: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(3u32);
-pub const ODT_HEADER: u32 = 100u32;
-pub const ODT_LISTBOX: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(2u32);
-pub const ODT_LISTVIEW: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(102u32);
-pub const ODT_MENU: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(1u32);
-pub const ODT_STATIC: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(5u32);
-pub const ODT_TAB: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(101u32);
-pub const OTD_FORCE_RECT_SIZING: OPEN_THEME_DATA_FLAGS = OPEN_THEME_DATA_FLAGS(1u32);
-pub const OTD_NONCLIENT: OPEN_THEME_DATA_FLAGS = OPEN_THEME_DATA_FLAGS(2u32);
-pub const OT_ABOVELASTBUTTON: OFFSETTYPE = OFFSETTYPE(12i32);
-pub const OT_BELOWLASTBUTTON: OFFSETTYPE = OFFSETTYPE(13i32);
-pub const OT_BOTTOMLEFT: OFFSETTYPE = OFFSETTYPE(3i32);
-pub const OT_BOTTOMMIDDLE: OFFSETTYPE = OFFSETTYPE(5i32);
-pub const OT_BOTTOMRIGHT: OFFSETTYPE = OFFSETTYPE(4i32);
-pub const OT_LEFTOFCAPTION: OFFSETTYPE = OFFSETTYPE(8i32);
-pub const OT_LEFTOFLASTBUTTON: OFFSETTYPE = OFFSETTYPE(10i32);
-pub const OT_MIDDLELEFT: OFFSETTYPE = OFFSETTYPE(6i32);
-pub const OT_MIDDLERIGHT: OFFSETTYPE = OFFSETTYPE(7i32);
-pub const OT_RIGHTOFCAPTION: OFFSETTYPE = OFFSETTYPE(9i32);
-pub const OT_RIGHTOFLASTBUTTON: OFFSETTYPE = OFFSETTYPE(11i32);
-pub const OT_TOPLEFT: OFFSETTYPE = OFFSETTYPE(0i32);
-pub const OT_TOPMIDDLE: OFFSETTYPE = OFFSETTYPE(2i32);
-pub const OT_TOPRIGHT: OFFSETTYPE = OFFSETTYPE(1i32);
-pub const PAGESETUPDLGORD: u32 = 1546u32;
-pub const PAGESETUPDLGORDMOTIF: u32 = 1550u32;
-pub const PBBS_NORMAL: TRANSPARENTBARSTATES = TRANSPARENTBARSTATES(1i32);
-pub const PBBS_PARTIAL: TRANSPARENTBARSTATES = TRANSPARENTBARSTATES(2i32);
-pub const PBBVS_NORMAL: TRANSPARENTBARVERTSTATES = TRANSPARENTBARVERTSTATES(1i32);
-pub const PBBVS_PARTIAL: TRANSPARENTBARVERTSTATES = TRANSPARENTBARVERTSTATES(2i32);
-pub const PBDDS_DISABLED: PUSHBUTTONDROPDOWNSTATES = PUSHBUTTONDROPDOWNSTATES(2i32);
-pub const PBDDS_NORMAL: PUSHBUTTONDROPDOWNSTATES = PUSHBUTTONDROPDOWNSTATES(1i32);
-pub const PBFS_ERROR: FILLSTATES = FILLSTATES(2i32);
-pub const PBFS_NORMAL: FILLSTATES = FILLSTATES(1i32);
-pub const PBFS_PARTIAL: FILLSTATES = FILLSTATES(4i32);
-pub const PBFS_PAUSED: FILLSTATES = FILLSTATES(3i32);
-pub const PBFVS_ERROR: FILLVERTSTATES = FILLVERTSTATES(2i32);
-pub const PBFVS_NORMAL: FILLVERTSTATES = FILLVERTSTATES(1i32);
-pub const PBFVS_PARTIAL: FILLVERTSTATES = FILLVERTSTATES(4i32);
-pub const PBFVS_PAUSED: FILLVERTSTATES = FILLVERTSTATES(3i32);
-pub const PBM_DELTAPOS: u32 = 1027u32;
-pub const PBM_GETBARCOLOR: u32 = 1039u32;
-pub const PBM_GETBKCOLOR: u32 = 1038u32;
-pub const PBM_GETPOS: u32 = 1032u32;
-pub const PBM_GETRANGE: u32 = 1031u32;
-pub const PBM_GETSTATE: u32 = 1041u32;
-pub const PBM_GETSTEP: u32 = 1037u32;
-pub const PBM_SETBARCOLOR: u32 = 1033u32;
-pub const PBM_SETBKCOLOR: u32 = 8193u32;
-pub const PBM_SETMARQUEE: u32 = 1034u32;
-pub const PBM_SETPOS: u32 = 1026u32;
-pub const PBM_SETRANGE: u32 = 1025u32;
-pub const PBM_SETRANGE32: u32 = 1030u32;
-pub const PBM_SETSTATE: u32 = 1040u32;
-pub const PBM_SETSTEP: u32 = 1028u32;
-pub const PBM_STEPIT: u32 = 1029u32;
-pub const PBST_ERROR: u32 = 2u32;
-pub const PBST_NORMAL: u32 = 1u32;
-pub const PBST_PAUSED: u32 = 3u32;
-pub const PBS_DEFAULTED: PUSHBUTTONSTATES = PUSHBUTTONSTATES(5i32);
-pub const PBS_DEFAULTED_ANIMATING: PUSHBUTTONSTATES = PUSHBUTTONSTATES(6i32);
-pub const PBS_DISABLED: PUSHBUTTONSTATES = PUSHBUTTONSTATES(4i32);
-pub const PBS_HOT: PUSHBUTTONSTATES = PUSHBUTTONSTATES(2i32);
-pub const PBS_MARQUEE: u32 = 8u32;
-pub const PBS_NORMAL: PUSHBUTTONSTATES = PUSHBUTTONSTATES(1i32);
-pub const PBS_PRESSED: PUSHBUTTONSTATES = PUSHBUTTONSTATES(3i32);
-pub const PBS_SMOOTH: u32 = 1u32;
-pub const PBS_SMOOTHREVERSE: u32 = 16u32;
-pub const PBS_VERTICAL: u32 = 4u32;
-pub const PGB_BOTTOMORRIGHT: u32 = 1u32;
-pub const PGB_TOPORLEFT: u32 = 0u32;
-pub const PGF_CALCHEIGHT: NMPGCALCSIZE_FLAGS = NMPGCALCSIZE_FLAGS(2u32);
-pub const PGF_CALCWIDTH: NMPGCALCSIZE_FLAGS = NMPGCALCSIZE_FLAGS(1u32);
-pub const PGF_DEPRESSED: u32 = 4u32;
-pub const PGF_GRAYED: u32 = 2u32;
-pub const PGF_HOT: u32 = 8u32;
-pub const PGF_INVISIBLE: u32 = 0u32;
-pub const PGF_NORMAL: u32 = 1u32;
-pub const PGF_SCROLLDOWN: NMPGSCROLL_DIR = NMPGSCROLL_DIR(2i32);
-pub const PGF_SCROLLLEFT: NMPGSCROLL_DIR = NMPGSCROLL_DIR(4i32);
-pub const PGF_SCROLLRIGHT: NMPGSCROLL_DIR = NMPGSCROLL_DIR(8i32);
-pub const PGF_SCROLLUP: NMPGSCROLL_DIR = NMPGSCROLL_DIR(1i32);
-pub const PGK_CONTROL: NMPGSCROLL_KEYS = NMPGSCROLL_KEYS(2u16);
-pub const PGK_MENU: NMPGSCROLL_KEYS = NMPGSCROLL_KEYS(4u16);
-pub const PGK_NONE: NMPGSCROLL_KEYS = NMPGSCROLL_KEYS(0u16);
-pub const PGK_SHIFT: NMPGSCROLL_KEYS = NMPGSCROLL_KEYS(1u16);
-pub const PGM_FIRST: u32 = 5120u32;
-pub const PGM_FORWARDMOUSE: u32 = 5123u32;
-pub const PGM_GETBKCOLOR: u32 = 5125u32;
-pub const PGM_GETBORDER: u32 = 5127u32;
-pub const PGM_GETBUTTONSIZE: u32 = 5131u32;
-pub const PGM_GETBUTTONSTATE: u32 = 5132u32;
-pub const PGM_GETDROPTARGET: u32 = 8196u32;
-pub const PGM_GETPOS: u32 = 5129u32;
-pub const PGM_RECALCSIZE: u32 = 5122u32;
-pub const PGM_SETBKCOLOR: u32 = 5124u32;
-pub const PGM_SETBORDER: u32 = 5126u32;
-pub const PGM_SETBUTTONSIZE: u32 = 5130u32;
-pub const PGM_SETCHILD: u32 = 5121u32;
-pub const PGM_SETPOS: u32 = 5128u32;
-pub const PGM_SETSCROLLINFO: u32 = 5133u32;
-pub const PGN_CALCSIZE: u32 = 4294966394u32;
-pub const PGN_FIRST: u32 = 4294966396u32;
-pub const PGN_HOTITEMCHANGE: u32 = 4294966393u32;
-pub const PGN_LAST: u32 = 4294966346u32;
-pub const PGN_SCROLL: u32 = 4294966395u32;
-pub const PGRP_DOWN: PAGEPARTS = PAGEPARTS(2i32);
-pub const PGRP_DOWNHORZ: PAGEPARTS = PAGEPARTS(4i32);
-pub const PGRP_UP: PAGEPARTS = PAGEPARTS(1i32);
-pub const PGRP_UPHORZ: PAGEPARTS = PAGEPARTS(3i32);
-pub const PGS_AUTOSCROLL: u32 = 2u32;
-pub const PGS_DRAGNDROP: u32 = 4u32;
-pub const PGS_HORZ: u32 = 1u32;
-pub const PGS_VERT: u32 = 0u32;
-pub const POINTER_DEVICE_CURSOR_TYPE_ERASER: POINTER_DEVICE_CURSOR_TYPE = POINTER_DEVICE_CURSOR_TYPE(2i32);
-pub const POINTER_DEVICE_CURSOR_TYPE_MAX: POINTER_DEVICE_CURSOR_TYPE = POINTER_DEVICE_CURSOR_TYPE(-1i32);
-pub const POINTER_DEVICE_CURSOR_TYPE_TIP: POINTER_DEVICE_CURSOR_TYPE = POINTER_DEVICE_CURSOR_TYPE(1i32);
-pub const POINTER_DEVICE_CURSOR_TYPE_UNKNOWN: POINTER_DEVICE_CURSOR_TYPE = POINTER_DEVICE_CURSOR_TYPE(0i32);
-pub const POINTER_DEVICE_TYPE_EXTERNAL_PEN: POINTER_DEVICE_TYPE = POINTER_DEVICE_TYPE(2i32);
-pub const POINTER_DEVICE_TYPE_INTEGRATED_PEN: POINTER_DEVICE_TYPE = POINTER_DEVICE_TYPE(1i32);
-pub const POINTER_DEVICE_TYPE_MAX: POINTER_DEVICE_TYPE = POINTER_DEVICE_TYPE(-1i32);
-pub const POINTER_DEVICE_TYPE_TOUCH: POINTER_DEVICE_TYPE = POINTER_DEVICE_TYPE(3i32);
-pub const POINTER_DEVICE_TYPE_TOUCH_PAD: POINTER_DEVICE_TYPE = POINTER_DEVICE_TYPE(4i32);
-pub const POINTER_FEEDBACK_DEFAULT: POINTER_FEEDBACK_MODE = POINTER_FEEDBACK_MODE(1i32);
-pub const POINTER_FEEDBACK_INDIRECT: POINTER_FEEDBACK_MODE = POINTER_FEEDBACK_MODE(2i32);
-pub const POINTER_FEEDBACK_NONE: POINTER_FEEDBACK_MODE = POINTER_FEEDBACK_MODE(3i32);
-pub const PO_CLASS: PROPERTYORIGIN = PROPERTYORIGIN(2i32);
-pub const PO_GLOBAL: PROPERTYORIGIN = PROPERTYORIGIN(3i32);
-pub const PO_NOTFOUND: PROPERTYORIGIN = PROPERTYORIGIN(4i32);
-pub const PO_PART: PROPERTYORIGIN = PROPERTYORIGIN(1i32);
-pub const PO_STATE: PROPERTYORIGIN = PROPERTYORIGIN(0i32);
-pub const PP_BAR: PROGRESSPARTS = PROGRESSPARTS(1i32);
-pub const PP_BARVERT: PROGRESSPARTS = PROGRESSPARTS(2i32);
-pub const PP_CHUNK: PROGRESSPARTS = PROGRESSPARTS(3i32);
-pub const PP_CHUNKVERT: PROGRESSPARTS = PROGRESSPARTS(4i32);
-pub const PP_FILL: PROGRESSPARTS = PROGRESSPARTS(5i32);
-pub const PP_FILLVERT: PROGRESSPARTS = PROGRESSPARTS(6i32);
-pub const PP_MOVEOVERLAY: PROGRESSPARTS = PROGRESSPARTS(8i32);
-pub const PP_MOVEOVERLAYVERT: PROGRESSPARTS = PROGRESSPARTS(10i32);
-pub const PP_PULSEOVERLAY: PROGRESSPARTS = PROGRESSPARTS(7i32);
-pub const PP_PULSEOVERLAYVERT: PROGRESSPARTS = PROGRESSPARTS(9i32);
-pub const PP_TRANSPARENTBAR: PROGRESSPARTS = PROGRESSPARTS(11i32);
-pub const PP_TRANSPARENTBARVERT: PROGRESSPARTS = PROGRESSPARTS(12i32);
-pub const PRINTDLGEXORD: u32 = 1549u32;
-pub const PRINTDLGORD: u32 = 1538u32;
-pub const PRNSETUPDLGORD: u32 = 1539u32;
-pub const PROGRESS_CLASS: windows_core::PCWSTR = windows_core::w!("msctls_progress32");
-pub const PROGRESS_CLASSA: windows_core::PCSTR = windows_core::s!("msctls_progress32");
-pub const PROGRESS_CLASSW: windows_core::PCWSTR = windows_core::w!("msctls_progress32");
 pub const PROP_LG_CXDLG: u32 = 252u32;
 pub const PROP_LG_CYDLG: u32 = 218u32;
 pub const PROP_MED_CXDLG: u32 = 227u32;
@@ -11804,6 +10166,20 @@ pub const PSBTN_OK: u32 = 3u32;
 pub const PSCB_BUTTONPRESSED: u32 = 3u32;
 pub const PSCB_INITIALIZED: u32 = 1u32;
 pub const PSCB_PRECREATE: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PSHNOTIFY {
+    pub hdr: NMHDR,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+impl Default for PSHNOTIFY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PSHNOTIFY {
+    type TypeKind = windows_core::CopyType;
+}
 pub const PSH_AEROWIZARD: u32 = 16384u32;
 pub const PSH_DEFAULT: u32 = 0u32;
 pub const PSH_HASHELP: u32 = 512u32;
@@ -11895,6 +10271,9 @@ pub const PSN_WIZFINISH: u32 = 4294967088u32;
 pub const PSN_WIZNEXT: u32 = 4294967089u32;
 pub const PSPCB_ADDREF: PSPCB_MESSAGE = PSPCB_MESSAGE(0u32);
 pub const PSPCB_CREATE: PSPCB_MESSAGE = PSPCB_MESSAGE(2u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PSPCB_MESSAGE(pub u32);
 pub const PSPCB_RELEASE: PSPCB_MESSAGE = PSPCB_MESSAGE(1u32);
 pub const PSPCB_SI_INITDIALOG: PSPCB_MESSAGE = PSPCB_MESSAGE(1025u32);
 pub const PSP_DEFAULT: u32 = 0u32;
@@ -11919,6 +10298,15 @@ pub const PSWIZB_FINISH: u32 = 4u32;
 pub const PSWIZB_NEXT: u32 = 2u32;
 pub const PSWIZB_RESTORE: u32 = 1u32;
 pub const PSWIZB_SHOW: u32 = 0u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PUSHBUTTONDROPDOWNSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PUSHBUTTONSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RADIOBUTTONSTATES(pub i32);
 pub const RBAB_ADDBAND: u32 = 2u32;
 pub const RBAB_AUTOSIZE: u32 = 1u32;
 pub const RBBIM_BACKGROUND: u32 = 128u32;
@@ -11947,6 +10335,21 @@ pub const RBBS_NOVERT: u32 = 16u32;
 pub const RBBS_TOPALIGN: u32 = 2048u32;
 pub const RBBS_USECHEVRON: u32 = 512u32;
 pub const RBBS_VARIABLEHEIGHT: u32 = 64u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RBHITTESTINFO {
+    pub pt: super::super::Foundation::POINT,
+    pub flags: u32,
+    pub iBand: i32,
+}
+impl Default for RBHITTESTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RBHITTESTINFO {
+    type TypeKind = windows_core::CopyType;
+}
 pub const RBHT_CAPTION: u32 = 2u32;
 pub const RBHT_CHEVRON: u32 = 8u32;
 pub const RBHT_CLIENT: u32 = 3u32;
@@ -12041,10 +10444,108 @@ pub const RB_SETUNICODEFORMAT: u32 = 8197u32;
 pub const RB_SETWINDOWTHEME: u32 = 8203u32;
 pub const RB_SHOWBAND: u32 = 1059u32;
 pub const RB_SIZETORECT: u32 = 1047u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct READONLYSTATES(pub i32);
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct REBARBANDINFOA {
+    pub cbSize: u32,
+    pub fMask: u32,
+    pub fStyle: u32,
+    pub clrFore: super::super::Foundation::COLORREF,
+    pub clrBack: super::super::Foundation::COLORREF,
+    pub lpText: windows_core::PSTR,
+    pub cch: u32,
+    pub iImage: i32,
+    pub hwndChild: super::super::Foundation::HWND,
+    pub cxMinChild: u32,
+    pub cyMinChild: u32,
+    pub cx: u32,
+    pub hbmBack: super::super::Graphics::Gdi::HBITMAP,
+    pub wID: u32,
+    pub cyChild: u32,
+    pub cyMaxChild: u32,
+    pub cyIntegral: u32,
+    pub cxIdeal: u32,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub cxHeader: u32,
+    pub rcChevronLocation: super::super::Foundation::RECT,
+    pub uChevronState: u32,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for REBARBANDINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for REBARBANDINFOA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct REBARBANDINFOW {
+    pub cbSize: u32,
+    pub fMask: u32,
+    pub fStyle: u32,
+    pub clrFore: super::super::Foundation::COLORREF,
+    pub clrBack: super::super::Foundation::COLORREF,
+    pub lpText: windows_core::PWSTR,
+    pub cch: u32,
+    pub iImage: i32,
+    pub hwndChild: super::super::Foundation::HWND,
+    pub cxMinChild: u32,
+    pub cyMinChild: u32,
+    pub cx: u32,
+    pub hbmBack: super::super::Graphics::Gdi::HBITMAP,
+    pub wID: u32,
+    pub cyChild: u32,
+    pub cyMaxChild: u32,
+    pub cyIntegral: u32,
+    pub cxIdeal: u32,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub cxHeader: u32,
+    pub rcChevronLocation: super::super::Foundation::RECT,
+    pub uChevronState: u32,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for REBARBANDINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for REBARBANDINFOW {
+    type TypeKind = windows_core::CopyType;
+}
 pub const REBARCLASSNAME: windows_core::PCWSTR = windows_core::w!("ReBarWindow32");
 pub const REBARCLASSNAMEA: windows_core::PCSTR = windows_core::s!("ReBarWindow32");
 pub const REBARCLASSNAMEW: windows_core::PCWSTR = windows_core::w!("ReBarWindow32");
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct REBARINFO {
+    pub cbSize: u32,
+    pub fMask: u32,
+    pub himl: HIMAGELIST,
+}
+impl Default for REBARINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for REBARINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REBARPARTS(pub i32);
 pub const REPLACEDLGORD: u32 = 1541u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RESTOREBUTTONSTATES(pub i32);
 pub const RP_BACKGROUND: REBARPARTS = REBARPARTS(6i32);
 pub const RP_BAND: REBARPARTS = REBARPARTS(3i32);
 pub const RP_CHEVRON: REBARPARTS = REBARPARTS(4i32);
@@ -12115,21 +10616,108 @@ pub const SCRBS_HOT: SCROLLBARSTYLESTATES = SCROLLBARSTYLESTATES(2i32);
 pub const SCRBS_HOVER: SCROLLBARSTYLESTATES = SCROLLBARSTYLESTATES(5i32);
 pub const SCRBS_NORMAL: SCROLLBARSTYLESTATES = SCROLLBARSTYLESTATES(1i32);
 pub const SCRBS_PRESSED: SCROLLBARSTYLESTATES = SCROLLBARSTYLESTATES(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCROLLBARPARTS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCROLLBARSTYLESTATES(pub i32);
 pub const SCS_ACTIVE: SMALLCAPTIONSTATES = SMALLCAPTIONSTATES(1i32);
 pub const SCS_DISABLED: SMALLCAPTIONSTATES = SMALLCAPTIONSTATES(3i32);
 pub const SCS_INACTIVE: SMALLCAPTIONSTATES = SMALLCAPTIONSTATES(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SECTIONTITLELINKSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SET_THEME_APP_PROPERTIES_FLAGS(pub u32);
+impl SET_THEME_APP_PROPERTIES_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for SET_THEME_APP_PROPERTIES_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for SET_THEME_APP_PROPERTIES_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for SET_THEME_APP_PROPERTIES_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for SET_THEME_APP_PROPERTIES_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for SET_THEME_APP_PROPERTIES_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const SFRB_ACTIVE: SMALLFRAMEBOTTOMSTATES = SMALLFRAMEBOTTOMSTATES(1i32);
 pub const SFRB_INACTIVE: SMALLFRAMEBOTTOMSTATES = SMALLFRAMEBOTTOMSTATES(2i32);
 pub const SFRL_ACTIVE: SMALLFRAMELEFTSTATES = SMALLFRAMELEFTSTATES(1i32);
 pub const SFRL_INACTIVE: SMALLFRAMELEFTSTATES = SMALLFRAMELEFTSTATES(2i32);
 pub const SFRR_ACTIVE: SMALLFRAMERIGHTSTATES = SMALLFRAMERIGHTSTATES(1i32);
 pub const SFRR_INACTIVE: SMALLFRAMERIGHTSTATES = SMALLFRAMERIGHTSTATES(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SHOWCALENDARBUTTONRIGHTSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SIZEBOXSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SIZINGTYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SMALLCAPTIONSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SMALLCLOSEBUTTONSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SMALLFRAMEBOTTOMSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SMALLFRAMELEFTSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SMALLFRAMERIGHTSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SOFTWAREEXPLORERSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPECIALGROUPCOLLAPSESTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPECIALGROUPEXPANDSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPINPARTS(pub i32);
 pub const SPLITSV_HOT: SPLITTERVERTSTATES = SPLITTERVERTSTATES(2i32);
 pub const SPLITSV_NORMAL: SPLITTERVERTSTATES = SPLITTERVERTSTATES(1i32);
 pub const SPLITSV_PRESSED: SPLITTERVERTSTATES = SPLITTERVERTSTATES(3i32);
 pub const SPLITS_HOT: SPLITTERSTATES = SPLITTERSTATES(2i32);
 pub const SPLITS_NORMAL: SPLITTERSTATES = SPLITTERSTATES(1i32);
 pub const SPLITS_PRESSED: SPLITTERSTATES = SPLITTERSTATES(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPLITTERSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPLITTERVERTSTATES(pub i32);
 pub const SPLS_HOT: LOGOFFBUTTONSSTATES = LOGOFFBUTTONSSTATES(2i32);
 pub const SPLS_NORMAL: LOGOFFBUTTONSSTATES = LOGOFFBUTTONSSTATES(1i32);
 pub const SPLS_PRESSED: LOGOFFBUTTONSSTATES = LOGOFFBUTTONSSTATES(3i32);
@@ -12180,14 +10768,26 @@ pub const SPS_PRESSED: MOREPROGRAMSARROWSTATES = MOREPROGRAMSARROWSTATES(3i32);
 pub const SP_GRIPPER: STATUSPARTS = STATUSPARTS(3i32);
 pub const SP_GRIPPERPANE: STATUSPARTS = STATUSPARTS(2i32);
 pub const SP_PANE: STATUSPARTS = STATUSPARTS(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STANDARDSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STARTPANELPARTS(pub i32);
 pub const STATE_SYSTEM_FOCUSABLE: COMBOBOXINFO_BUTTON_STATE = COMBOBOXINFO_BUTTON_STATE(1048576u32);
 pub const STATE_SYSTEM_INVISIBLE: COMBOBOXINFO_BUTTON_STATE = COMBOBOXINFO_BUTTON_STATE(32768u32);
 pub const STATE_SYSTEM_OFFSCREEN: COMBOBOXINFO_BUTTON_STATE = COMBOBOXINFO_BUTTON_STATE(65536u32);
 pub const STATE_SYSTEM_PRESSED: COMBOBOXINFO_BUTTON_STATE = COMBOBOXINFO_BUTTON_STATE(8u32);
 pub const STATE_SYSTEM_UNAVAILABLE: COMBOBOXINFO_BUTTON_STATE = COMBOBOXINFO_BUTTON_STATE(1u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STATICPARTS(pub i32);
 pub const STATUSCLASSNAME: windows_core::PCWSTR = windows_core::w!("msctls_statusbar32");
 pub const STATUSCLASSNAMEA: windows_core::PCSTR = windows_core::s!("msctls_statusbar32");
 pub const STATUSCLASSNAMEW: windows_core::PCWSTR = windows_core::w!("msctls_statusbar32");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STATUSPARTS(pub i32);
 pub const STAT_TEXT: STATICPARTS = STATICPARTS(1i32);
 pub const STD_COPY: u32 = 1u32;
 pub const STD_CUT: u32 = 0u32;
@@ -12207,6 +10807,33 @@ pub const STD_UNDO: u32 = 3u32;
 pub const ST_STRETCH: SIZINGTYPE = SIZINGTYPE(1i32);
 pub const ST_TILE: SIZINGTYPE = SIZINGTYPE(2i32);
 pub const ST_TRUESIZE: SIZINGTYPE = SIZINGTYPE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYSBUTTONSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYSTEMCLOSEHCHOTSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYSTEMCLOSESTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYSTEMMAXIMIZEHCHOTSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYSTEMMAXIMIZESTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYSTEMMINIMIZEHCHOTSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYSTEMMINIMIZESTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYSTEMRESTOREHCHOTSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYSTEMRESTORESTATES(pub i32);
 pub const SZB_HALFBOTTOMLEFTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(6i32);
 pub const SZB_HALFBOTTOMRIGHTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(5i32);
 pub const SZB_HALFTOPLEFTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(8i32);
@@ -12219,6 +10846,21 @@ pub const SZ_THDOCPROP_AUTHOR: windows_core::PCWSTR = windows_core::w!("author")
 pub const SZ_THDOCPROP_CANONICALNAME: windows_core::PCWSTR = windows_core::w!("ThemeName");
 pub const SZ_THDOCPROP_DISPLAYNAME: windows_core::PCWSTR = windows_core::w!("DisplayName");
 pub const SZ_THDOCPROP_TOOLTIP: windows_core::PCWSTR = windows_core::w!("ToolTip");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TABITEMBOTHEDGESTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TABITEMLEFTEDGESTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TABITEMRIGHTEDGESTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TABITEMSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TABPARTS(pub i32);
 pub const TABP_AEROWIZARDBODY: TABPARTS = TABPARTS(11i32);
 pub const TABP_BODY: TABPARTS = TABPARTS(10i32);
 pub const TABP_PANE: TABPARTS = TABPARTS(9i32);
@@ -12230,6 +10872,12 @@ pub const TABP_TOPTABITEM: TABPARTS = TABPARTS(5i32);
 pub const TABP_TOPTABITEMBOTHEDGE: TABPARTS = TABPARTS(8i32);
 pub const TABP_TOPTABITEMLEFTEDGE: TABPARTS = TABPARTS(6i32);
 pub const TABP_TOPTABITEMRIGHTEDGE: TABPARTS = TABPARTS(7i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TABSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TAB_CONTROL_ITEM_STATE(pub u32);
 pub const TAPF_ALLOWCOLLECTION: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(4i32);
 pub const TAPF_HASBACKGROUND: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(8i32);
 pub const TAPF_HASPERSPECTIVE: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(16i32);
@@ -12242,6 +10890,189 @@ pub const TAP_STAGGERDELAYCAP: TA_PROPERTY = TA_PROPERTY(3i32);
 pub const TAP_STAGGERDELAYFACTOR: TA_PROPERTY = TA_PROPERTY(4i32);
 pub const TAP_TRANSFORMCOUNT: TA_PROPERTY = TA_PROPERTY(1i32);
 pub const TAP_ZORDER: TA_PROPERTY = TA_PROPERTY(5i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TASKBANDPARTS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TASKBARPARTS(pub i32);
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct TASKDIALOGCONFIG {
+    pub cbSize: u32,
+    pub hwndParent: super::super::Foundation::HWND,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub dwFlags: TASKDIALOG_FLAGS,
+    pub dwCommonButtons: TASKDIALOG_COMMON_BUTTON_FLAGS,
+    pub pszWindowTitle: windows_core::PCWSTR,
+    pub Anonymous1: TASKDIALOGCONFIG_0,
+    pub pszMainInstruction: windows_core::PCWSTR,
+    pub pszContent: windows_core::PCWSTR,
+    pub cButtons: u32,
+    pub pButtons: *const TASKDIALOG_BUTTON,
+    pub nDefaultButton: i32,
+    pub cRadioButtons: u32,
+    pub pRadioButtons: *const TASKDIALOG_BUTTON,
+    pub nDefaultRadioButton: i32,
+    pub pszVerificationText: windows_core::PCWSTR,
+    pub pszExpandedInformation: windows_core::PCWSTR,
+    pub pszExpandedControlText: windows_core::PCWSTR,
+    pub pszCollapsedControlText: windows_core::PCWSTR,
+    pub Anonymous2: TASKDIALOGCONFIG_1,
+    pub pszFooter: windows_core::PCWSTR,
+    pub pfCallback: PFTASKDIALOGCALLBACK,
+    pub lpCallbackData: isize,
+    pub cxWidth: u32,
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for TASKDIALOGCONFIG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::TypeKind for TASKDIALOGCONFIG {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub union TASKDIALOGCONFIG_0 {
+    pub hMainIcon: super::WindowsAndMessaging::HICON,
+    pub pszMainIcon: windows_core::PCWSTR,
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for TASKDIALOGCONFIG_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::TypeKind for TASKDIALOGCONFIG_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub union TASKDIALOGCONFIG_1 {
+    pub hFooterIcon: super::WindowsAndMessaging::HICON,
+    pub pszFooterIcon: windows_core::PCWSTR,
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for TASKDIALOGCONFIG_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::TypeKind for TASKDIALOGCONFIG_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TASKDIALOGPARTS(pub i32);
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct TASKDIALOG_BUTTON {
+    pub nButtonID: i32,
+    pub pszButtonText: windows_core::PCWSTR,
+}
+impl Default for TASKDIALOG_BUTTON {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TASKDIALOG_BUTTON {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TASKDIALOG_COMMON_BUTTON_FLAGS(pub i32);
+impl TASKDIALOG_COMMON_BUTTON_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for TASKDIALOG_COMMON_BUTTON_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for TASKDIALOG_COMMON_BUTTON_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for TASKDIALOG_COMMON_BUTTON_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for TASKDIALOG_COMMON_BUTTON_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for TASKDIALOG_COMMON_BUTTON_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TASKDIALOG_ELEMENTS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TASKDIALOG_FLAGS(pub i32);
+impl TASKDIALOG_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for TASKDIALOG_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for TASKDIALOG_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for TASKDIALOG_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for TASKDIALOG_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for TASKDIALOG_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TASKDIALOG_ICON_ELEMENTS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TASKDIALOG_MESSAGES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TASKDIALOG_NOTIFICATIONS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TASKLINKSTATES(pub i32);
 pub const TATF_HASINITIALVALUES: TA_TRANSFORM_FLAG = TA_TRANSFORM_FLAG(2i32);
 pub const TATF_HASORIGINVALUES: TA_TRANSFORM_FLAG = TA_TRANSFORM_FLAG(4i32);
 pub const TATF_NONE: TA_TRANSFORM_FLAG = TA_TRANSFORM_FLAG(0i32);
@@ -12250,7 +11081,328 @@ pub const TATT_CLIP: TA_TRANSFORM_TYPE = TA_TRANSFORM_TYPE(3i32);
 pub const TATT_OPACITY: TA_TRANSFORM_TYPE = TA_TRANSFORM_TYPE(2i32);
 pub const TATT_SCALE_2D: TA_TRANSFORM_TYPE = TA_TRANSFORM_TYPE(1i32);
 pub const TATT_TRANSLATE_2D: TA_TRANSFORM_TYPE = TA_TRANSFORM_TYPE(0i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TA_CUBIC_BEZIER {
+    pub header: TA_TIMINGFUNCTION,
+    pub rX0: f32,
+    pub rY0: f32,
+    pub rX1: f32,
+    pub rY1: f32,
+}
+impl Default for TA_CUBIC_BEZIER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TA_CUBIC_BEZIER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TA_PROPERTY(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TA_PROPERTY_FLAG(pub i32);
+impl TA_PROPERTY_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for TA_PROPERTY_FLAG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for TA_PROPERTY_FLAG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for TA_PROPERTY_FLAG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for TA_PROPERTY_FLAG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for TA_PROPERTY_FLAG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TA_TIMINGFUNCTION {
+    pub eTimingFunctionType: TA_TIMINGFUNCTION_TYPE,
+}
+impl Default for TA_TIMINGFUNCTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TA_TIMINGFUNCTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TA_TIMINGFUNCTION_TYPE(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TA_TRANSFORM {
+    pub eTransformType: TA_TRANSFORM_TYPE,
+    pub dwTimingFunctionId: u32,
+    pub dwStartTime: u32,
+    pub dwDurationTime: u32,
+    pub eFlags: TA_TRANSFORM_FLAG,
+}
+impl Default for TA_TRANSFORM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TA_TRANSFORM {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TA_TRANSFORM_2D {
+    pub header: TA_TRANSFORM,
+    pub rX: f32,
+    pub rY: f32,
+    pub rInitialX: f32,
+    pub rInitialY: f32,
+    pub rOriginX: f32,
+    pub rOriginY: f32,
+}
+impl Default for TA_TRANSFORM_2D {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TA_TRANSFORM_2D {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TA_TRANSFORM_CLIP {
+    pub header: TA_TRANSFORM,
+    pub rLeft: f32,
+    pub rTop: f32,
+    pub rRight: f32,
+    pub rBottom: f32,
+    pub rInitialLeft: f32,
+    pub rInitialTop: f32,
+    pub rInitialRight: f32,
+    pub rInitialBottom: f32,
+}
+impl Default for TA_TRANSFORM_CLIP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TA_TRANSFORM_CLIP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TA_TRANSFORM_FLAG(pub i32);
+impl TA_TRANSFORM_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for TA_TRANSFORM_FLAG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for TA_TRANSFORM_FLAG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for TA_TRANSFORM_FLAG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for TA_TRANSFORM_FLAG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for TA_TRANSFORM_FLAG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TA_TRANSFORM_OPACITY {
+    pub header: TA_TRANSFORM,
+    pub rOpacity: f32,
+    pub rInitialOpacity: f32,
+}
+impl Default for TA_TRANSFORM_OPACITY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TA_TRANSFORM_OPACITY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TA_TRANSFORM_TYPE(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TBADDBITMAP {
+    pub hInst: super::super::Foundation::HINSTANCE,
+    pub nID: usize,
+}
+impl Default for TBADDBITMAP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TBADDBITMAP {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TBBF_LARGE: u32 = 1u32;
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TBBUTTON {
+    pub iBitmap: i32,
+    pub idCommand: i32,
+    pub fsState: u8,
+    pub fsStyle: u8,
+    pub bReserved: [u8; 2],
+    pub dwData: usize,
+    pub iString: isize,
+}
+#[cfg(target_arch = "x86")]
+impl Default for TBBUTTON {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for TBBUTTON {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TBBUTTON {
+    pub iBitmap: i32,
+    pub idCommand: i32,
+    pub fsState: u8,
+    pub fsStyle: u8,
+    pub bReserved: [u8; 6],
+    pub dwData: usize,
+    pub iString: isize,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for TBBUTTON {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for TBBUTTON {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TBBUTTONINFOA {
+    pub cbSize: u32,
+    pub dwMask: TBBUTTONINFOW_MASK,
+    pub idCommand: i32,
+    pub iImage: i32,
+    pub fsState: u8,
+    pub fsStyle: u8,
+    pub cx: u16,
+    pub lParam: usize,
+    pub pszText: windows_core::PSTR,
+    pub cchText: i32,
+}
+impl Default for TBBUTTONINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TBBUTTONINFOA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TBBUTTONINFOW {
+    pub cbSize: u32,
+    pub dwMask: TBBUTTONINFOW_MASK,
+    pub idCommand: i32,
+    pub iImage: i32,
+    pub fsState: u8,
+    pub fsStyle: u8,
+    pub cx: u16,
+    pub lParam: usize,
+    pub pszText: windows_core::PWSTR,
+    pub cchText: i32,
+}
+impl Default for TBBUTTONINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TBBUTTONINFOW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TBBUTTONINFOW_MASK(pub u32);
+impl TBBUTTONINFOW_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for TBBUTTONINFOW_MASK {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for TBBUTTONINFOW_MASK {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for TBBUTTONINFOW_MASK {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for TBBUTTONINFOW_MASK {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for TBBUTTONINFOW_MASK {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const TBCDRF_BLENDICON: u32 = 2097152u32;
 pub const TBCDRF_HILITEHOTTRACK: u32 = 131072u32;
 pub const TBCDRF_NOBACKGROUND: u32 = 4194304u32;
@@ -12276,6 +11428,43 @@ pub const TBIF_TEXT: TBBUTTONINFOW_MASK = TBBUTTONINFOW_MASK(2u32);
 pub const TBIMHT_AFTER: TBINSERTMARK_FLAGS = TBINSERTMARK_FLAGS(1u32);
 pub const TBIMHT_BACKGROUND: TBINSERTMARK_FLAGS = TBINSERTMARK_FLAGS(2u32);
 pub const TBIMHT_NONE: TBINSERTMARK_FLAGS = TBINSERTMARK_FLAGS(0u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TBINSERTMARK {
+    pub iButton: i32,
+    pub dwFlags: TBINSERTMARK_FLAGS,
+}
+impl Default for TBINSERTMARK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TBINSERTMARK {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TBINSERTMARK_FLAGS(pub u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TBMETRICS {
+    pub cbSize: u32,
+    pub dwMask: u32,
+    pub cxPad: i32,
+    pub cyPad: i32,
+    pub cxBarPad: i32,
+    pub cyBarPad: i32,
+    pub cxButtonSpacing: i32,
+    pub cyButtonSpacing: i32,
+}
+impl Default for TBMETRICS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TBMETRICS {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TBMF_BARPAD: u32 = 2u32;
 pub const TBMF_BUTTONSPACING: u32 = 4u32;
 pub const TBMF_PAD: u32 = 1u32;
@@ -12360,6 +11549,59 @@ pub const TBP_SIZINGBARBOTTOM: TASKBARPARTS = TASKBARPARTS(5i32);
 pub const TBP_SIZINGBARLEFT: TASKBARPARTS = TASKBARPARTS(8i32);
 pub const TBP_SIZINGBARRIGHT: TASKBARPARTS = TASKBARPARTS(6i32);
 pub const TBP_SIZINGBARTOP: TASKBARPARTS = TASKBARPARTS(7i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TBREPLACEBITMAP {
+    pub hInstOld: super::super::Foundation::HINSTANCE,
+    pub nIDOld: usize,
+    pub hInstNew: super::super::Foundation::HINSTANCE,
+    pub nIDNew: usize,
+    pub nButtons: i32,
+}
+impl Default for TBREPLACEBITMAP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TBREPLACEBITMAP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TBSAVEPARAMSA {
+    pub hkr: super::super::System::Registry::HKEY,
+    pub pszSubKey: windows_core::PCSTR,
+    pub pszValueName: windows_core::PCSTR,
+}
+#[cfg(feature = "Win32_System_Registry")]
+impl Default for TBSAVEPARAMSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_System_Registry")]
+impl windows_core::TypeKind for TBSAVEPARAMSA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TBSAVEPARAMSW {
+    pub hkr: super::super::System::Registry::HKEY,
+    pub pszSubKey: windows_core::PCWSTR,
+    pub pszValueName: windows_core::PCWSTR,
+}
+#[cfg(feature = "Win32_System_Registry")]
+impl Default for TBSAVEPARAMSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_System_Registry")]
+impl windows_core::TypeKind for TBSAVEPARAMSW {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TBSTATE_CHECKED: u32 = 1u32;
 pub const TBSTATE_ELLIPSES: u32 = 64u32;
 pub const TBSTATE_ENABLED: u32 = 4u32;
@@ -12530,6 +11772,23 @@ pub const TB_SETWINDOWTHEME: u32 = 8203u32;
 pub const TB_THUMBPOSITION: u32 = 4u32;
 pub const TB_THUMBTRACK: u32 = 5u32;
 pub const TB_TOP: u32 = 6u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TCHITTESTINFO {
+    pub pt: super::super::Foundation::POINT,
+    pub flags: TCHITTESTINFO_FLAGS,
+}
+impl Default for TCHITTESTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TCHITTESTINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TCHITTESTINFO_FLAGS(pub u32);
 pub const TCHT_NOWHERE: TCHITTESTINFO_FLAGS = TCHITTESTINFO_FLAGS(1u32);
 pub const TCHT_ONITEM: TCHITTESTINFO_FLAGS = TCHITTESTINFO_FLAGS(6u32);
 pub const TCHT_ONITEMICON: TCHITTESTINFO_FLAGS = TCHITTESTINFO_FLAGS(2u32);
@@ -12541,6 +11800,116 @@ pub const TCIF_STATE: TCITEMHEADERA_MASK = TCITEMHEADERA_MASK(16u32);
 pub const TCIF_TEXT: TCITEMHEADERA_MASK = TCITEMHEADERA_MASK(1u32);
 pub const TCIS_BUTTONPRESSED: TAB_CONTROL_ITEM_STATE = TAB_CONTROL_ITEM_STATE(1u32);
 pub const TCIS_HIGHLIGHTED: TAB_CONTROL_ITEM_STATE = TAB_CONTROL_ITEM_STATE(2u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TCITEMA {
+    pub mask: TCITEMHEADERA_MASK,
+    pub dwState: TAB_CONTROL_ITEM_STATE,
+    pub dwStateMask: TAB_CONTROL_ITEM_STATE,
+    pub pszText: windows_core::PSTR,
+    pub cchTextMax: i32,
+    pub iImage: i32,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+impl Default for TCITEMA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TCITEMA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TCITEMHEADERA {
+    pub mask: TCITEMHEADERA_MASK,
+    pub lpReserved1: u32,
+    pub lpReserved2: u32,
+    pub pszText: windows_core::PSTR,
+    pub cchTextMax: i32,
+    pub iImage: i32,
+}
+impl Default for TCITEMHEADERA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TCITEMHEADERA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TCITEMHEADERA_MASK(pub u32);
+impl TCITEMHEADERA_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for TCITEMHEADERA_MASK {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for TCITEMHEADERA_MASK {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for TCITEMHEADERA_MASK {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for TCITEMHEADERA_MASK {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for TCITEMHEADERA_MASK {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TCITEMHEADERW {
+    pub mask: TCITEMHEADERA_MASK,
+    pub lpReserved1: u32,
+    pub lpReserved2: u32,
+    pub pszText: windows_core::PWSTR,
+    pub cchTextMax: i32,
+    pub iImage: i32,
+}
+impl Default for TCITEMHEADERW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TCITEMHEADERW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TCITEMW {
+    pub mask: TCITEMHEADERA_MASK,
+    pub dwState: TAB_CONTROL_ITEM_STATE,
+    pub dwStateMask: TAB_CONTROL_ITEM_STATE,
+    pub pszText: windows_core::PWSTR,
+    pub cchTextMax: i32,
+    pub iImage: i32,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+impl Default for TCITEMW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TCITEMW {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TCM_ADJUSTRECT: u32 = 4904u32;
 pub const TCM_DELETEALLITEMS: u32 = 4873u32;
 pub const TCM_DELETEITEM: u32 = 4872u32;
@@ -12704,6 +12073,15 @@ pub const TD_ERROR_ICON: windows_core::PCWSTR = windows_core::PCWSTR(65534u16 as
 pub const TD_INFORMATION_ICON: windows_core::PCWSTR = windows_core::PCWSTR(65533u16 as _);
 pub const TD_SHIELD_ICON: windows_core::PCWSTR = windows_core::PCWSTR(65532u16 as _);
 pub const TD_WARNING_ICON: windows_core::PCWSTR = windows_core::PCWSTR(65535u16 as _);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TEXTSELECTIONGRIPPERPARTS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TEXTSHADOWTYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TEXTSTYLEPARTS(pub i32);
 pub const TEXT_BODYTEXT: TEXTSTYLEPARTS = TEXTSTYLEPARTS(4i32);
 pub const TEXT_BODYTITLE: TEXTSTYLEPARTS = TEXTSTYLEPARTS(3i32);
 pub const TEXT_CONTROLLABEL: TEXTSTYLEPARTS = TEXTSTYLEPARTS(9i32);
@@ -12713,11 +12091,41 @@ pub const TEXT_INSTRUCTION: TEXTSTYLEPARTS = TEXTSTYLEPARTS(2i32);
 pub const TEXT_LABEL: TEXTSTYLEPARTS = TEXTSTYLEPARTS(8i32);
 pub const TEXT_MAININSTRUCTION: TEXTSTYLEPARTS = TEXTSTYLEPARTS(1i32);
 pub const TEXT_SECONDARYTEXT: TEXTSTYLEPARTS = TEXTSTYLEPARTS(5i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct THEMESIZE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct THEME_PROPERTY_SYMBOL_ID(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct THUMBBOTTOMSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct THUMBLEFTSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct THUMBRIGHTSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct THUMBSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct THUMBTOPSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct THUMBVERTSTATES(pub i32);
 pub const TIBES_DISABLED: TABITEMBOTHEDGESTATES = TABITEMBOTHEDGESTATES(4i32);
 pub const TIBES_FOCUSED: TABITEMBOTHEDGESTATES = TABITEMBOTHEDGESTATES(5i32);
 pub const TIBES_HOT: TABITEMBOTHEDGESTATES = TABITEMBOTHEDGESTATES(2i32);
 pub const TIBES_NORMAL: TABITEMBOTHEDGESTATES = TABITEMBOTHEDGESTATES(1i32);
 pub const TIBES_SELECTED: TABITEMBOTHEDGESTATES = TABITEMBOTHEDGESTATES(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TICSSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TICSVERTSTATES(pub i32);
 pub const TILES_DISABLED: TABITEMLEFTEDGESTATES = TABITEMLEFTEDGESTATES(4i32);
 pub const TILES_FOCUSED: TABITEMLEFTEDGESTATES = TABITEMLEFTEDGESTATES(5i32);
 pub const TILES_HOT: TABITEMLEFTEDGESTATES = TABITEMLEFTEDGESTATES(2i32);
@@ -12733,6 +12141,9 @@ pub const TIS_FOCUSED: TABITEMSTATES = TABITEMSTATES(5i32);
 pub const TIS_HOT: TABITEMSTATES = TABITEMSTATES(2i32);
 pub const TIS_NORMAL: TABITEMSTATES = TABITEMSTATES(1i32);
 pub const TIS_SELECTED: TABITEMSTATES = TABITEMSTATES(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TITLEBARSTATES(pub i32);
 pub const TKP_THUMB: TRACKBARPARTS = TRACKBARPARTS(3i32);
 pub const TKP_THUMBBOTTOM: TRACKBARPARTS = TRACKBARPARTS(4i32);
 pub const TKP_THUMBLEFT: TRACKBARPARTS = TRACKBARPARTS(7i32);
@@ -13008,9 +12419,97 @@ pub const TNP_BACKGROUND: TRAYNOTIFYPARTS = TRAYNOTIFYPARTS(1i32);
 pub const TOOLBARCLASSNAME: windows_core::PCWSTR = windows_core::w!("ToolbarWindow32");
 pub const TOOLBARCLASSNAMEA: windows_core::PCSTR = windows_core::s!("ToolbarWindow32");
 pub const TOOLBARCLASSNAMEW: windows_core::PCWSTR = windows_core::w!("ToolbarWindow32");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TOOLBARPARTS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TOOLBARSTYLESTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TOOLTIPPARTS(pub i32);
 pub const TOOLTIPS_CLASS: windows_core::PCWSTR = windows_core::w!("tooltips_class32");
 pub const TOOLTIPS_CLASSA: windows_core::PCSTR = windows_core::s!("tooltips_class32");
 pub const TOOLTIPS_CLASSW: windows_core::PCWSTR = windows_core::w!("tooltips_class32");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TOOLTIP_FLAGS(pub u32);
+impl TOOLTIP_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for TOOLTIP_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for TOOLTIP_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for TOOLTIP_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for TOOLTIP_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for TOOLTIP_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TOPTABITEMBOTHEDGESTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TOPTABITEMLEFTEDGESTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TOPTABITEMRIGHTEDGESTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TOPTABITEMSTATES(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TOUCH_HIT_TESTING_INPUT {
+    pub pointerId: u32,
+    pub point: super::super::Foundation::POINT,
+    pub boundingBox: super::super::Foundation::RECT,
+    pub nonOccludedBoundingBox: super::super::Foundation::RECT,
+    pub orientation: u32,
+}
+impl Default for TOUCH_HIT_TESTING_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TOUCH_HIT_TESTING_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {
+    pub score: u16,
+    pub adjustedPoint: super::super::Foundation::POINT,
+}
+impl Default for TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TP_BUTTON: TOOLBARPARTS = TOOLBARPARTS(1i32);
 pub const TP_DROPDOWNBUTTON: TOOLBARPARTS = TOOLBARPARTS(2i32);
 pub const TP_DROPDOWNBUTTONGLYPH: TOOLBARPARTS = TOOLBARPARTS(7i32);
@@ -13018,12 +12517,51 @@ pub const TP_SEPARATOR: TOOLBARPARTS = TOOLBARPARTS(5i32);
 pub const TP_SEPARATORVERT: TOOLBARPARTS = TOOLBARPARTS(6i32);
 pub const TP_SPLITBUTTON: TOOLBARPARTS = TOOLBARPARTS(3i32);
 pub const TP_SPLITBUTTONDROPDOWN: TOOLBARPARTS = TOOLBARPARTS(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TRACKBARPARTS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TRACKBARSTYLESTATES(pub i32);
 pub const TRACKBAR_CLASS: windows_core::PCWSTR = windows_core::w!("msctls_trackbar32");
 pub const TRACKBAR_CLASSA: windows_core::PCSTR = windows_core::s!("msctls_trackbar32");
 pub const TRACKBAR_CLASSW: windows_core::PCWSTR = windows_core::w!("msctls_trackbar32");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TRACKSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TRACKVERTSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TRAILINGGRIDCELLSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TRAILINGGRIDCELLUPPERSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TRANSPARENTBACKGROUNDSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TRANSPARENTBARSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TRANSPARENTBARVERTSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TRAYNOTIFYPARTS(pub i32);
 pub const TRBN_FIRST: u32 = 4294965795u32;
 pub const TRBN_LAST: u32 = 4294965777u32;
 pub const TRBN_THUMBPOSCHANGING: u32 = 4294965794u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TREEITEMSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TREEVIEWPARTS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TREE_VIEW_ITEM_STATE_FLAGS(pub u32);
 pub const TREIS_DISABLED: TREEITEMSTATES = TREEITEMSTATES(4i32);
 pub const TREIS_HOT: TREEITEMSTATES = TREEITEMSTATES(2i32);
 pub const TREIS_HOTSELECTED: TREEITEMSTATES = TREEITEMSTATES(6i32);
@@ -13031,6 +12569,9 @@ pub const TREIS_NORMAL: TREEITEMSTATES = TREEITEMSTATES(1i32);
 pub const TREIS_SELECTED: TREEITEMSTATES = TREEITEMSTATES(3i32);
 pub const TREIS_SELECTEDNOTFOCUS: TREEITEMSTATES = TREEITEMSTATES(5i32);
 pub const TRS_NORMAL: TRACKSTATES = TRACKSTATES(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TRUESIZESCALINGTYPE(pub i32);
 pub const TRVS_NORMAL: TRACKVERTSTATES = TRACKVERTSTATES(1i32);
 pub const TSGP_GRIPPER: TEXTSELECTIONGRIPPERPARTS = TEXTSELECTIONGRIPPERPARTS(1i32);
 pub const TSGS_CENTERED: GRIPPERSTATES = GRIPPERSTATES(2i32);
@@ -13086,6 +12627,52 @@ pub const TTF_RTLREADING: TOOLTIP_FLAGS = TOOLTIP_FLAGS(4u32);
 pub const TTF_SUBCLASS: TOOLTIP_FLAGS = TOOLTIP_FLAGS(16u32);
 pub const TTF_TRACK: TOOLTIP_FLAGS = TOOLTIP_FLAGS(32u32);
 pub const TTF_TRANSPARENT: TOOLTIP_FLAGS = TOOLTIP_FLAGS(256u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TTGETTITLE {
+    pub dwSize: u32,
+    pub uTitleBitmap: u32,
+    pub cch: u32,
+    pub pszTitle: windows_core::PWSTR,
+}
+impl Default for TTGETTITLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TTGETTITLE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TTHITTESTINFOA {
+    pub hwnd: super::super::Foundation::HWND,
+    pub pt: super::super::Foundation::POINT,
+    pub ti: TTTOOLINFOA,
+}
+impl Default for TTHITTESTINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TTHITTESTINFOA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TTHITTESTINFOW {
+    pub hwnd: super::super::Foundation::HWND,
+    pub pt: super::super::Foundation::POINT,
+    pub ti: TTTOOLINFOW,
+}
+impl Default for TTHITTESTINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TTHITTESTINFOW {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TTIBES_DISABLED: TOPTABITEMBOTHEDGESTATES = TOPTABITEMBOTHEDGESTATES(4i32);
 pub const TTIBES_FOCUSED: TOPTABITEMBOTHEDGESTATES = TOPTABITEMBOTHEDGESTATES(5i32);
 pub const TTIBES_HOT: TOPTABITEMBOTHEDGESTATES = TOPTABITEMBOTHEDGESTATES(2i32);
@@ -13196,6 +12783,48 @@ pub const TTS_NOANIMATE: u32 = 16u32;
 pub const TTS_NOFADE: u32 = 32u32;
 pub const TTS_NOPREFIX: u32 = 2u32;
 pub const TTS_USEVISUALSTYLE: u32 = 256u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TTTOOLINFOA {
+    pub cbSize: u32,
+    pub uFlags: TOOLTIP_FLAGS,
+    pub hwnd: super::super::Foundation::HWND,
+    pub uId: usize,
+    pub rect: super::super::Foundation::RECT,
+    pub hinst: super::super::Foundation::HINSTANCE,
+    pub lpszText: windows_core::PSTR,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub lpReserved: *mut core::ffi::c_void,
+}
+impl Default for TTTOOLINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TTTOOLINFOA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TTTOOLINFOW {
+    pub cbSize: u32,
+    pub uFlags: TOOLTIP_FLAGS,
+    pub hwnd: super::super::Foundation::HWND,
+    pub uId: usize,
+    pub rect: super::super::Foundation::RECT,
+    pub hinst: super::super::Foundation::HINSTANCE,
+    pub lpszText: windows_core::PWSTR,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub lpReserved: *mut core::ffi::c_void,
+}
+impl Default for TTTOOLINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TTTOOLINFOW {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TTWS_HOT: WRENCHSTATES = WRENCHSTATES(2i32);
 pub const TTWS_NORMAL: WRENCHSTATES = WRENCHSTATES(1i32);
 pub const TTWS_PRESSED: WRENCHSTATES = WRENCHSTATES(3i32);
@@ -13238,6 +12867,21 @@ pub const TVE_COLLAPSERESET: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(32768u32);
 pub const TVE_EXPAND: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(2u32);
 pub const TVE_EXPANDPARTIAL: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(16384u32);
 pub const TVE_TOGGLE: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(3u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TVGETITEMPARTRECTINFO {
+    pub hti: HTREEITEM,
+    pub prc: *mut super::super::Foundation::RECT,
+    pub partID: TVITEMPART,
+}
+impl Default for TVGETITEMPARTRECTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TVGETITEMPARTRECTINFO {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TVGIPR_BUTTON: TVITEMPART = TVITEMPART(1i32);
 pub const TVGN_CARET: u32 = 9u32;
 pub const TVGN_CHILD: u32 = 4u32;
@@ -13251,6 +12895,57 @@ pub const TVGN_PARENT: u32 = 3u32;
 pub const TVGN_PREVIOUS: u32 = 2u32;
 pub const TVGN_PREVIOUSVISIBLE: u32 = 7u32;
 pub const TVGN_ROOT: u32 = 0u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TVHITTESTINFO {
+    pub pt: super::super::Foundation::POINT,
+    pub flags: TVHITTESTINFO_FLAGS,
+    pub hItem: HTREEITEM,
+}
+impl Default for TVHITTESTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TVHITTESTINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TVHITTESTINFO_FLAGS(pub u32);
+impl TVHITTESTINFO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for TVHITTESTINFO_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for TVHITTESTINFO_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for TVHITTESTINFO_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for TVHITTESTINFO_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for TVHITTESTINFO_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const TVHT_ABOVE: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(256u32);
 pub const TVHT_BELOW: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(512u32);
 pub const TVHT_NOWHERE: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(1u32);
@@ -13274,6 +12969,64 @@ pub const TVIF_SELECTEDIMAGE: TVITEM_MASK = TVITEM_MASK(32u32);
 pub const TVIF_STATE: TVITEM_MASK = TVITEM_MASK(8u32);
 pub const TVIF_STATEEX: TVITEM_MASK = TVITEM_MASK(256u32);
 pub const TVIF_TEXT: TVITEM_MASK = TVITEM_MASK(1u32);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TVINSERTSTRUCTA {
+    pub hParent: HTREEITEM,
+    pub hInsertAfter: HTREEITEM,
+    pub Anonymous: TVINSERTSTRUCTA_0,
+}
+impl Default for TVINSERTSTRUCTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TVINSERTSTRUCTA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union TVINSERTSTRUCTA_0 {
+    pub itemex: TVITEMEXA,
+    pub item: TVITEMA,
+}
+impl Default for TVINSERTSTRUCTA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TVINSERTSTRUCTA_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TVINSERTSTRUCTW {
+    pub hParent: HTREEITEM,
+    pub hInsertAfter: HTREEITEM,
+    pub Anonymous: TVINSERTSTRUCTW_0,
+}
+impl Default for TVINSERTSTRUCTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TVINSERTSTRUCTW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union TVINSERTSTRUCTW_0 {
+    pub itemex: TVITEMEXW,
+    pub item: TVITEMW,
+}
+impl Default for TVINSERTSTRUCTW_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TVINSERTSTRUCTW_0 {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TVIS_BOLD: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(16u32);
 pub const TVIS_CUT: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(4u32);
 pub const TVIS_DROPHILITED: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(8u32);
@@ -13287,6 +13040,146 @@ pub const TVIS_OVERLAYMASK: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FL
 pub const TVIS_SELECTED: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(2u32);
 pub const TVIS_STATEIMAGEMASK: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(61440u32);
 pub const TVIS_USERMASK: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(61440u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TVITEMA {
+    pub mask: TVITEM_MASK,
+    pub hItem: HTREEITEM,
+    pub state: TREE_VIEW_ITEM_STATE_FLAGS,
+    pub stateMask: TREE_VIEW_ITEM_STATE_FLAGS,
+    pub pszText: windows_core::PSTR,
+    pub cchTextMax: i32,
+    pub iImage: i32,
+    pub iSelectedImage: i32,
+    pub cChildren: TVITEMEXW_CHILDREN,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+impl Default for TVITEMA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TVITEMA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TVITEMEXA {
+    pub mask: TVITEM_MASK,
+    pub hItem: HTREEITEM,
+    pub state: u32,
+    pub stateMask: u32,
+    pub pszText: windows_core::PSTR,
+    pub cchTextMax: i32,
+    pub iImage: i32,
+    pub iSelectedImage: i32,
+    pub cChildren: TVITEMEXW_CHILDREN,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub iIntegral: i32,
+    pub uStateEx: u32,
+    pub hwnd: super::super::Foundation::HWND,
+    pub iExpandedImage: i32,
+    pub iReserved: i32,
+}
+impl Default for TVITEMEXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TVITEMEXA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TVITEMEXW {
+    pub mask: TVITEM_MASK,
+    pub hItem: HTREEITEM,
+    pub state: u32,
+    pub stateMask: u32,
+    pub pszText: windows_core::PWSTR,
+    pub cchTextMax: i32,
+    pub iImage: i32,
+    pub iSelectedImage: i32,
+    pub cChildren: TVITEMEXW_CHILDREN,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub iIntegral: i32,
+    pub uStateEx: u32,
+    pub hwnd: super::super::Foundation::HWND,
+    pub iExpandedImage: i32,
+    pub iReserved: i32,
+}
+impl Default for TVITEMEXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TVITEMEXW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TVITEMEXW_CHILDREN(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TVITEMPART(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TVITEMW {
+    pub mask: TVITEM_MASK,
+    pub hItem: HTREEITEM,
+    pub state: TREE_VIEW_ITEM_STATE_FLAGS,
+    pub stateMask: TREE_VIEW_ITEM_STATE_FLAGS,
+    pub pszText: windows_core::PWSTR,
+    pub cchTextMax: i32,
+    pub iImage: i32,
+    pub iSelectedImage: i32,
+    pub cChildren: TVITEMEXW_CHILDREN,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+impl Default for TVITEMW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TVITEMW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TVITEM_MASK(pub u32);
+impl TVITEM_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for TVITEM_MASK {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for TVITEM_MASK {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for TVITEM_MASK {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for TVITEM_MASK {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for TVITEM_MASK {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const TVI_FIRST: HTREEITEM = HTREEITEM(-65535i32 as _);
 pub const TVI_LAST: HTREEITEM = HTREEITEM(-65534i32 as _);
 pub const TVI_ROOT: HTREEITEM = HTREEITEM(-65536i32 as _);
@@ -13411,6 +13304,21 @@ pub const TVSBF_YBORDER: u32 = 2u32;
 pub const TVSIL_NORMAL: u32 = 0u32;
 pub const TVSIL_STATE: u32 = 2u32;
 pub const TVSI_NOSINGLEEXPAND: u32 = 32768u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TVSORTCB {
+    pub hParent: HTREEITEM,
+    pub lpfnCompare: PFNTVCOMPARE,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+impl Default for TVSORTCB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TVSORTCB {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TVS_CHECKBOXES: u32 = 256u32;
 pub const TVS_DISABLEDRAGDROP: u32 = 16u32;
 pub const TVS_EDITLABELS: u32 = 8u32;
@@ -13439,6 +13347,20 @@ pub const TVS_SHOWSELALWAYS: u32 = 32u32;
 pub const TVS_SINGLEEXPAND: u32 = 1024u32;
 pub const TVS_TRACKSELECT: u32 = 512u32;
 pub const TV_FIRST: u32 = 4352u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct UDACCEL {
+    pub nSec: u32,
+    pub nInc: u32,
+}
+impl Default for UDACCEL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for UDACCEL {
+    type TypeKind = windows_core::CopyType;
+}
 pub const UDM_GETACCEL: u32 = 1132u32;
 pub const UDM_GETBASE: u32 = 1134u32;
 pub const UDM_GETBUDDY: u32 = 1130u32;
@@ -13468,26 +13390,69 @@ pub const UDS_NOTHOUSANDS: u32 = 128u32;
 pub const UDS_SETBUDDYINT: u32 = 2u32;
 pub const UDS_WRAP: u32 = 1u32;
 pub const UD_MAXVAL: u32 = 32767u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct UPDATEMETADATASTATES(pub i32);
 pub const UPDOWN_CLASS: windows_core::PCWSTR = windows_core::w!("msctls_updown32");
 pub const UPDOWN_CLASSA: windows_core::PCSTR = windows_core::s!("msctls_updown32");
 pub const UPDOWN_CLASSW: windows_core::PCWSTR = windows_core::w!("msctls_updown32");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct UPHORZSTATES(pub i32);
 pub const UPHZS_DISABLED: UPHORZSTATES = UPHORZSTATES(4i32);
 pub const UPHZS_HOT: UPHORZSTATES = UPHORZSTATES(2i32);
 pub const UPHZS_NORMAL: UPHORZSTATES = UPHORZSTATES(1i32);
 pub const UPHZS_PRESSED: UPHORZSTATES = UPHORZSTATES(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct UPSTATES(pub i32);
 pub const UPS_DISABLED: UPSTATES = UPSTATES(4i32);
 pub const UPS_HOT: UPSTATES = UPSTATES(2i32);
 pub const UPS_NORMAL: UPSTATES = UPSTATES(1i32);
 pub const UPS_PRESSED: UPSTATES = UPSTATES(3i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct USAGE_PROPERTIES {
+    pub level: u16,
+    pub page: u16,
+    pub usage: u16,
+    pub logicalMinimum: i32,
+    pub logicalMaximum: i32,
+    pub unit: u16,
+    pub exponent: u16,
+    pub count: u8,
+    pub physicalMinimum: i32,
+    pub physicalMaximum: i32,
+}
+impl Default for USAGE_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for USAGE_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct USERTILEPARTS(pub i32);
 pub const UTP_HOVERBACKGROUND: USERTILEPARTS = USERTILEPARTS(2i32);
 pub const UTP_STROKEBACKGROUND: USERTILEPARTS = USERTILEPARTS(1i32);
 pub const UTS_HOT: HOVERBACKGROUNDSTATES = HOVERBACKGROUNDSTATES(2i32);
 pub const UTS_NORMAL: HOVERBACKGROUNDSTATES = HOVERBACKGROUNDSTATES(1i32);
 pub const UTS_PRESSED: HOVERBACKGROUNDSTATES = HOVERBACKGROUNDSTATES(3i32);
 pub const VALIDBITS: SET_THEME_APP_PROPERTIES_FLAGS = SET_THEME_APP_PROPERTIES_FLAGS(7u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VALIGN(pub i32);
 pub const VA_BOTTOM: VALIGN = VALIGN(2i32);
 pub const VA_CENTER: VALIGN = VALIGN(1i32);
 pub const VA_TOP: VALIGN = VALIGN(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VERTSCROLLSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VERTTHUMBSTATES(pub i32);
 pub const VIEW_DETAILS: u32 = 3u32;
 pub const VIEW_LARGEICONS: u32 = 0u32;
 pub const VIEW_LIST: u32 = 2u32;
@@ -13576,6 +13541,9 @@ pub const VTS_DISABLED: VERTTHUMBSTATES = VERTTHUMBSTATES(4i32);
 pub const VTS_HOT: VERTTHUMBSTATES = VERTTHUMBSTATES(2i32);
 pub const VTS_NORMAL: VERTTHUMBSTATES = VERTTHUMBSTATES(1i32);
 pub const VTS_PUSHED: VERTTHUMBSTATES = VERTTHUMBSTATES(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WARNINGSTATES(pub i32);
 pub const WB_CLASSIFY: WORD_BREAK_ACTION = WORD_BREAK_ACTION(3i32);
 pub const WB_ISDELIMITER: WORD_BREAK_ACTION = WORD_BREAK_ACTION(2i32);
 pub const WB_LEFT: WORD_BREAK_ACTION = WORD_BREAK_ACTION(0i32);
@@ -13627,6 +13595,12 @@ pub const WC_TABCONTROLW: windows_core::PCWSTR = windows_core::w!("SysTabControl
 pub const WC_TREEVIEW: windows_core::PCWSTR = windows_core::w!("SysTreeView32");
 pub const WC_TREEVIEWA: windows_core::PCSTR = windows_core::s!("SysTreeView32");
 pub const WC_TREEVIEWW: windows_core::PCWSTR = windows_core::w!("SysTreeView32");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WINDOWPARTS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WINDOWTHEMEATTRIBUTETYPE(pub i32);
 pub const WIZ_BODYCX: u32 = 184u32;
 pub const WIZ_BODYX: u32 = 92u32;
 pub const WIZ_CXBMP: u32 = 80u32;
@@ -13637,6 +13611,9 @@ pub const WMN_LAST: u32 = 4294966096u32;
 pub const WM_CTLCOLOR: u32 = 25u32;
 pub const WM_MOUSEHOVER: u32 = 673u32;
 pub const WM_MOUSELEAVE: u32 = 675u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WORD_BREAK_ACTION(pub i32);
 pub const WP_BORDER: WINDOWPARTS = WINDOWPARTS(39i32);
 pub const WP_CAPTION: WINDOWPARTS = WINDOWPARTS(1i32);
 pub const WP_CAPTIONSIZINGTEMPLATE: WINDOWPARTS = WINDOWPARTS(30i32);
@@ -13676,6 +13653,12 @@ pub const WP_SMALLMINCAPTION: WINDOWPARTS = WINDOWPARTS(4i32);
 pub const WP_SYSBUTTON: WINDOWPARTS = WINDOWPARTS(13i32);
 pub const WP_VERTSCROLL: WINDOWPARTS = WINDOWPARTS(27i32);
 pub const WP_VERTTHUMB: WINDOWPARTS = WINDOWPARTS(28i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WRENCHSTATES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WSB_PROP(pub i32);
 pub const WSB_PROP_CXHSCROLL: WSB_PROP = WSB_PROP(2i32);
 pub const WSB_PROP_CXHTHUMB: WSB_PROP = WSB_PROP(16i32);
 pub const WSB_PROP_CXVSCROLL: WSB_PROP = WSB_PROP(8i32);
@@ -13690,10 +13673,27 @@ pub const WSB_PROP_VBKGCOLOR: WSB_PROP = WSB_PROP(64i32);
 pub const WSB_PROP_VSTYLE: WSB_PROP = WSB_PROP(256i32);
 pub const WSB_PROP_WINSTYLE: WSB_PROP = WSB_PROP(1024i32);
 pub const WTA_NONCLIENT: WINDOWTHEMEATTRIBUTETYPE = WINDOWTHEMEATTRIBUTETYPE(1i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WTA_OPTIONS {
+    pub dwFlags: u32,
+    pub dwMask: u32,
+}
+impl Default for WTA_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WTA_OPTIONS {
+    type TypeKind = windows_core::CopyType;
+}
 pub const WTNCA_NODRAWCAPTION: u32 = 1u32;
 pub const WTNCA_NODRAWICON: u32 = 2u32;
 pub const WTNCA_NOMIRRORHELP: u32 = 8u32;
 pub const WTNCA_NOSYSMENU: u32 = 4u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _LI_METRIC(pub i32);
 pub const chx1: u32 = 1040u32;
 pub const chx10: u32 = 1049u32;
 pub const chx11: u32 = 1050u32;

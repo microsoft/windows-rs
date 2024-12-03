@@ -893,470 +893,102 @@ where
     windows_targets::link!("winhvplatform.dll" "system" fn WHvWriteVpciDeviceRegister(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, register : *const WHV_VPCI_DEVICE_REGISTER, data : *const core::ffi::c_void) -> windows_core::HRESULT);
     WHvWriteVpciDeviceRegister(partition.param().abi(), core::mem::transmute(logicaldeviceid), core::mem::transmute(register), core::mem::transmute(data)).ok()
 }
-pub type FOUND_IMAGE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, imageinfo: *const DOS_IMAGE_INFO) -> super::super::Foundation::BOOL>;
-pub type GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK = Option<unsafe extern "system" fn(infomessage: windows_core::PCSTR)>;
-pub type HDV_PCI_DEVICE_GET_DETAILS = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void, pnpid: *mut HDV_PCI_PNP_ID, probedbarscount: u32, probedbars: *mut u32) -> windows_core::HRESULT>;
-pub type HDV_PCI_DEVICE_INITIALIZE = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void) -> windows_core::HRESULT>;
-pub type HDV_PCI_DEVICE_SET_CONFIGURATION = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void, configurationvaluecount: u32, configurationvalues: *const windows_core::PCWSTR) -> windows_core::HRESULT>;
-pub type HDV_PCI_DEVICE_START = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void) -> windows_core::HRESULT>;
-pub type HDV_PCI_DEVICE_STOP = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void)>;
-pub type HDV_PCI_DEVICE_TEARDOWN = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void)>;
-pub type HDV_PCI_READ_CONFIG_SPACE = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void, offset: u32, value: *mut u32) -> windows_core::HRESULT>;
-pub type HDV_PCI_READ_INTERCEPTED_MEMORY = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offset: u64, length: u64, value: *mut u8) -> windows_core::HRESULT>;
-pub type HDV_PCI_WRITE_CONFIG_SPACE = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void, offset: u32, value: u32) -> windows_core::HRESULT>;
-pub type HDV_PCI_WRITE_INTERCEPTED_MEMORY = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offset: u64, length: u64, value: *const u8) -> windows_core::HRESULT>;
-pub type WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *mut WHV_REGISTER_VALUE) -> windows_core::HRESULT>;
-pub type WHV_EMULATOR_IO_PORT_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, ioaccess: *mut WHV_EMULATOR_IO_ACCESS_INFO) -> windows_core::HRESULT>;
-pub type WHV_EMULATOR_MEMORY_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, memoryaccess: *mut WHV_EMULATOR_MEMORY_ACCESS_INFO) -> windows_core::HRESULT>;
-pub type WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *const WHV_REGISTER_VALUE) -> windows_core::HRESULT>;
-pub type WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, gva: u64, translateflags: WHV_TRANSLATE_GVA_FLAGS, translationresult: *mut WHV_TRANSLATE_GVA_RESULT_CODE, gpa: *mut u64) -> windows_core::HRESULT>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GUEST_OS_MICROSOFT_IDS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GUEST_OS_OPENSOURCE_IDS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GUEST_OS_VENDOR(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HDV_DEVICE_HOST_FLAGS(pub i32);
-impl HDV_DEVICE_HOST_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for HDV_DEVICE_HOST_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for HDV_DEVICE_HOST_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for HDV_DEVICE_HOST_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for HDV_DEVICE_HOST_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for HDV_DEVICE_HOST_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HDV_DEVICE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HDV_DOORBELL_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HDV_MMIO_MAPPING_FLAGS(pub i32);
-impl HDV_MMIO_MAPPING_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for HDV_MMIO_MAPPING_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for HDV_MMIO_MAPPING_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for HDV_MMIO_MAPPING_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for HDV_MMIO_MAPPING_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for HDV_MMIO_MAPPING_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HDV_PCI_BAR_SELECTOR(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HDV_PCI_INTERFACE_VERSION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PAGING_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct REGISTER_ID(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VIRTUAL_PROCESSOR_ARCH(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VIRTUAL_PROCESSOR_VENDOR(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_ADVISE_GPA_RANGE_CODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_ALLOCATE_VPCI_RESOURCE_FLAGS(pub i32);
-impl WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_CACHE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_CAPABILITY_CODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_CREATE_VPCI_DEVICE_FLAGS(pub i32);
-impl WHV_CREATE_VPCI_DEVICE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for WHV_CREATE_VPCI_DEVICE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for WHV_CREATE_VPCI_DEVICE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for WHV_CREATE_VPCI_DEVICE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for WHV_CREATE_VPCI_DEVICE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for WHV_CREATE_VPCI_DEVICE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_EXCEPTION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_INTERRUPT_DESTINATION_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_INTERRUPT_TRIGGER_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_INTERRUPT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_MAP_GPA_RANGE_FLAGS(pub i32);
-impl WHV_MAP_GPA_RANGE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for WHV_MAP_GPA_RANGE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for WHV_MAP_GPA_RANGE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for WHV_MAP_GPA_RANGE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for WHV_MAP_GPA_RANGE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for WHV_MAP_GPA_RANGE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_MEMORY_ACCESS_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_MSR_ACTION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_NOTIFICATION_PORT_PROPERTY_CODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_NOTIFICATION_PORT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_PARTITION_COUNTER_SET(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_PARTITION_PROPERTY_CODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_PROCESSOR_COUNTER_SET(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_PROCESSOR_VENDOR(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_REGISTER_NAME(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_RUN_VP_CANCEL_REASON(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_RUN_VP_EXIT_REASON(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_TRANSLATE_GVA_FLAGS(pub i32);
-impl WHV_TRANSLATE_GVA_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for WHV_TRANSLATE_GVA_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for WHV_TRANSLATE_GVA_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for WHV_TRANSLATE_GVA_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for WHV_TRANSLATE_GVA_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for WHV_TRANSLATE_GVA_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_TRANSLATE_GVA_RESULT_CODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_TRIGGER_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_VIRTUAL_PROCESSOR_STATE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_VPCI_DEVICE_NOTIFICATION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_VPCI_DEVICE_PROPERTY_CODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_VPCI_DEVICE_REGISTER_SPACE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_VPCI_INTERRUPT_TARGET_FLAGS(pub i32);
-impl WHV_VPCI_INTERRUPT_TARGET_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_VPCI_MMIO_RANGE_FLAGS(pub i32);
-impl WHV_VPCI_MMIO_RANGE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for WHV_VPCI_MMIO_RANGE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for WHV_VPCI_MMIO_RANGE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for WHV_VPCI_MMIO_RANGE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for WHV_VPCI_MMIO_RANGE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for WHV_VPCI_MMIO_RANGE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_X64_APIC_WRITE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_X64_CPUID_RESULT2_FLAGS(pub i32);
-impl WHV_X64_CPUID_RESULT2_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for WHV_X64_CPUID_RESULT2_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for WHV_X64_CPUID_RESULT2_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for WHV_X64_CPUID_RESULT2_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for WHV_X64_CPUID_RESULT2_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for WHV_X64_CPUID_RESULT2_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_X64_LOCAL_APIC_EMULATION_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_X64_PENDING_EVENT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_X64_PENDING_INTERRUPTION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WHV_X64_UNSUPPORTED_FEATURE_CODE(pub i32);
+pub const ARM64_RegisterActlrEl1: REGISTER_ID = REGISTER_ID(145i32);
+pub const ARM64_RegisterAmairEl1: REGISTER_ID = REGISTER_ID(148i32);
+pub const ARM64_RegisterCntkctlEl1: REGISTER_ID = REGISTER_ID(155i32);
+pub const ARM64_RegisterCntvCtlEl0: REGISTER_ID = REGISTER_ID(157i32);
+pub const ARM64_RegisterCntvCvalEl0: REGISTER_ID = REGISTER_ID(156i32);
+pub const ARM64_RegisterContextIdrEl1: REGISTER_ID = REGISTER_ID(152i32);
+pub const ARM64_RegisterCpacrEl1: REGISTER_ID = REGISTER_ID(153i32);
+pub const ARM64_RegisterCpsr: REGISTER_ID = REGISTER_ID(101i32);
+pub const ARM64_RegisterCsselrEl1: REGISTER_ID = REGISTER_ID(154i32);
+pub const ARM64_RegisterElrEl1: REGISTER_ID = REGISTER_ID(140i32);
+pub const ARM64_RegisterEsrEl1: REGISTER_ID = REGISTER_ID(136i32);
+pub const ARM64_RegisterFarEl1: REGISTER_ID = REGISTER_ID(138i32);
+pub const ARM64_RegisterFpControl: REGISTER_ID = REGISTER_ID(135i32);
+pub const ARM64_RegisterFpStatus: REGISTER_ID = REGISTER_ID(134i32);
+pub const ARM64_RegisterMairEl1: REGISTER_ID = REGISTER_ID(147i32);
+pub const ARM64_RegisterMax: REGISTER_ID = REGISTER_ID(158i32);
+pub const ARM64_RegisterParEl1: REGISTER_ID = REGISTER_ID(139i32);
+pub const ARM64_RegisterPc: REGISTER_ID = REGISTER_ID(98i32);
+pub const ARM64_RegisterQ0: REGISTER_ID = REGISTER_ID(102i32);
+pub const ARM64_RegisterQ1: REGISTER_ID = REGISTER_ID(103i32);
+pub const ARM64_RegisterQ10: REGISTER_ID = REGISTER_ID(112i32);
+pub const ARM64_RegisterQ11: REGISTER_ID = REGISTER_ID(113i32);
+pub const ARM64_RegisterQ12: REGISTER_ID = REGISTER_ID(114i32);
+pub const ARM64_RegisterQ13: REGISTER_ID = REGISTER_ID(115i32);
+pub const ARM64_RegisterQ14: REGISTER_ID = REGISTER_ID(116i32);
+pub const ARM64_RegisterQ15: REGISTER_ID = REGISTER_ID(117i32);
+pub const ARM64_RegisterQ16: REGISTER_ID = REGISTER_ID(118i32);
+pub const ARM64_RegisterQ17: REGISTER_ID = REGISTER_ID(119i32);
+pub const ARM64_RegisterQ18: REGISTER_ID = REGISTER_ID(120i32);
+pub const ARM64_RegisterQ19: REGISTER_ID = REGISTER_ID(121i32);
+pub const ARM64_RegisterQ2: REGISTER_ID = REGISTER_ID(104i32);
+pub const ARM64_RegisterQ20: REGISTER_ID = REGISTER_ID(122i32);
+pub const ARM64_RegisterQ21: REGISTER_ID = REGISTER_ID(123i32);
+pub const ARM64_RegisterQ22: REGISTER_ID = REGISTER_ID(124i32);
+pub const ARM64_RegisterQ23: REGISTER_ID = REGISTER_ID(125i32);
+pub const ARM64_RegisterQ24: REGISTER_ID = REGISTER_ID(126i32);
+pub const ARM64_RegisterQ25: REGISTER_ID = REGISTER_ID(127i32);
+pub const ARM64_RegisterQ26: REGISTER_ID = REGISTER_ID(128i32);
+pub const ARM64_RegisterQ27: REGISTER_ID = REGISTER_ID(129i32);
+pub const ARM64_RegisterQ28: REGISTER_ID = REGISTER_ID(130i32);
+pub const ARM64_RegisterQ29: REGISTER_ID = REGISTER_ID(131i32);
+pub const ARM64_RegisterQ3: REGISTER_ID = REGISTER_ID(105i32);
+pub const ARM64_RegisterQ30: REGISTER_ID = REGISTER_ID(132i32);
+pub const ARM64_RegisterQ31: REGISTER_ID = REGISTER_ID(133i32);
+pub const ARM64_RegisterQ4: REGISTER_ID = REGISTER_ID(106i32);
+pub const ARM64_RegisterQ5: REGISTER_ID = REGISTER_ID(107i32);
+pub const ARM64_RegisterQ6: REGISTER_ID = REGISTER_ID(108i32);
+pub const ARM64_RegisterQ7: REGISTER_ID = REGISTER_ID(109i32);
+pub const ARM64_RegisterQ8: REGISTER_ID = REGISTER_ID(110i32);
+pub const ARM64_RegisterQ9: REGISTER_ID = REGISTER_ID(111i32);
+pub const ARM64_RegisterSctlrEl1: REGISTER_ID = REGISTER_ID(144i32);
+pub const ARM64_RegisterSpEl0: REGISTER_ID = REGISTER_ID(99i32);
+pub const ARM64_RegisterSpEl1: REGISTER_ID = REGISTER_ID(100i32);
+pub const ARM64_RegisterSpsrEl1: REGISTER_ID = REGISTER_ID(137i32);
+pub const ARM64_RegisterTcrEl1: REGISTER_ID = REGISTER_ID(146i32);
+pub const ARM64_RegisterTpidrEl0: REGISTER_ID = REGISTER_ID(149i32);
+pub const ARM64_RegisterTpidrEl1: REGISTER_ID = REGISTER_ID(151i32);
+pub const ARM64_RegisterTpidrroEl0: REGISTER_ID = REGISTER_ID(150i32);
+pub const ARM64_RegisterTtbr0El1: REGISTER_ID = REGISTER_ID(141i32);
+pub const ARM64_RegisterTtbr1El1: REGISTER_ID = REGISTER_ID(142i32);
+pub const ARM64_RegisterVbarEl1: REGISTER_ID = REGISTER_ID(143i32);
+pub const ARM64_RegisterX0: REGISTER_ID = REGISTER_ID(67i32);
+pub const ARM64_RegisterX1: REGISTER_ID = REGISTER_ID(68i32);
+pub const ARM64_RegisterX10: REGISTER_ID = REGISTER_ID(77i32);
+pub const ARM64_RegisterX11: REGISTER_ID = REGISTER_ID(78i32);
+pub const ARM64_RegisterX12: REGISTER_ID = REGISTER_ID(79i32);
+pub const ARM64_RegisterX13: REGISTER_ID = REGISTER_ID(80i32);
+pub const ARM64_RegisterX14: REGISTER_ID = REGISTER_ID(81i32);
+pub const ARM64_RegisterX15: REGISTER_ID = REGISTER_ID(82i32);
+pub const ARM64_RegisterX16: REGISTER_ID = REGISTER_ID(83i32);
+pub const ARM64_RegisterX17: REGISTER_ID = REGISTER_ID(84i32);
+pub const ARM64_RegisterX18: REGISTER_ID = REGISTER_ID(85i32);
+pub const ARM64_RegisterX19: REGISTER_ID = REGISTER_ID(86i32);
+pub const ARM64_RegisterX2: REGISTER_ID = REGISTER_ID(69i32);
+pub const ARM64_RegisterX20: REGISTER_ID = REGISTER_ID(87i32);
+pub const ARM64_RegisterX21: REGISTER_ID = REGISTER_ID(88i32);
+pub const ARM64_RegisterX22: REGISTER_ID = REGISTER_ID(89i32);
+pub const ARM64_RegisterX23: REGISTER_ID = REGISTER_ID(90i32);
+pub const ARM64_RegisterX24: REGISTER_ID = REGISTER_ID(91i32);
+pub const ARM64_RegisterX25: REGISTER_ID = REGISTER_ID(92i32);
+pub const ARM64_RegisterX26: REGISTER_ID = REGISTER_ID(93i32);
+pub const ARM64_RegisterX27: REGISTER_ID = REGISTER_ID(94i32);
+pub const ARM64_RegisterX28: REGISTER_ID = REGISTER_ID(95i32);
+pub const ARM64_RegisterX3: REGISTER_ID = REGISTER_ID(70i32);
+pub const ARM64_RegisterX4: REGISTER_ID = REGISTER_ID(71i32);
+pub const ARM64_RegisterX5: REGISTER_ID = REGISTER_ID(72i32);
+pub const ARM64_RegisterX6: REGISTER_ID = REGISTER_ID(73i32);
+pub const ARM64_RegisterX7: REGISTER_ID = REGISTER_ID(74i32);
+pub const ARM64_RegisterX8: REGISTER_ID = REGISTER_ID(75i32);
+pub const ARM64_RegisterX9: REGISTER_ID = REGISTER_ID(76i32);
+pub const ARM64_RegisterXFp: REGISTER_ID = REGISTER_ID(96i32);
+pub const ARM64_RegisterXLr: REGISTER_ID = REGISTER_ID(97i32);
+pub const Arch_Armv8: VIRTUAL_PROCESSOR_ARCH = VIRTUAL_PROCESSOR_ARCH(3i32);
+pub const Arch_Unknown: VIRTUAL_PROCESSOR_ARCH = VIRTUAL_PROCESSOR_ARCH(0i32);
+pub const Arch_x64: VIRTUAL_PROCESSOR_ARCH = VIRTUAL_PROCESSOR_ARCH(2i32);
+pub const Arch_x86: VIRTUAL_PROCESSOR_ARCH = VIRTUAL_PROCESSOR_ARCH(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOS_IMAGE_INFO {
@@ -1373,6 +1005,7 @@ impl Default for DOS_IMAGE_INFO {
 impl windows_core::TypeKind for DOS_IMAGE_INFO {
     type TypeKind = windows_core::CopyType;
 }
+pub type FOUND_IMAGE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, imageinfo: *const DOS_IMAGE_INFO) -> super::super::Foundation::BOOL>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GPA_MEMORY_CHUNK {
@@ -1428,6 +1061,128 @@ impl Default for GUEST_OS_INFO_1 {
 impl windows_core::TypeKind for GUEST_OS_INFO_1 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GUEST_OS_MICROSOFT_IDS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GUEST_OS_OPENSOURCE_IDS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GUEST_OS_VENDOR(pub i32);
+pub type GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK = Option<unsafe extern "system" fn(infomessage: windows_core::PCSTR)>;
+pub const GUID_DEVINTERFACE_VM_GENCOUNTER: windows_core::GUID = windows_core::GUID::from_u128(0x3ff2c92b_6598_4e60_8e1c_0ccf4927e319);
+pub const GuestOsMicrosoftMSDOS: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(1i32);
+pub const GuestOsMicrosoftUndefined: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(0i32);
+pub const GuestOsMicrosoftWindows3x: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(2i32);
+pub const GuestOsMicrosoftWindows9x: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(3i32);
+pub const GuestOsMicrosoftWindowsCE: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(5i32);
+pub const GuestOsMicrosoftWindowsNT: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(4i32);
+pub const GuestOsOpenSourceFreeBSD: GUEST_OS_OPENSOURCE_IDS = GUEST_OS_OPENSOURCE_IDS(2i32);
+pub const GuestOsOpenSourceIllumos: GUEST_OS_OPENSOURCE_IDS = GUEST_OS_OPENSOURCE_IDS(4i32);
+pub const GuestOsOpenSourceLinux: GUEST_OS_OPENSOURCE_IDS = GUEST_OS_OPENSOURCE_IDS(1i32);
+pub const GuestOsOpenSourceUndefined: GUEST_OS_OPENSOURCE_IDS = GUEST_OS_OPENSOURCE_IDS(0i32);
+pub const GuestOsOpenSourceXen: GUEST_OS_OPENSOURCE_IDS = GUEST_OS_OPENSOURCE_IDS(3i32);
+pub const GuestOsVendorHPE: GUEST_OS_VENDOR = GUEST_OS_VENDOR(2i32);
+pub const GuestOsVendorLANCOM: GUEST_OS_VENDOR = GUEST_OS_VENDOR(512i32);
+pub const GuestOsVendorMicrosoft: GUEST_OS_VENDOR = GUEST_OS_VENDOR(1i32);
+pub const GuestOsVendorUndefined: GUEST_OS_VENDOR = GUEST_OS_VENDOR(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HDV_DEVICE_HOST_FLAGS(pub i32);
+impl HDV_DEVICE_HOST_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for HDV_DEVICE_HOST_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for HDV_DEVICE_HOST_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for HDV_DEVICE_HOST_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for HDV_DEVICE_HOST_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for HDV_DEVICE_HOST_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HDV_DEVICE_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HDV_DOORBELL_FLAGS(pub i32);
+pub const HDV_DOORBELL_FLAG_TRIGGER_ANY_VALUE: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(-2147483648i32);
+pub const HDV_DOORBELL_FLAG_TRIGGER_SIZE_ANY: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(0i32);
+pub const HDV_DOORBELL_FLAG_TRIGGER_SIZE_BYTE: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(1i32);
+pub const HDV_DOORBELL_FLAG_TRIGGER_SIZE_DWORD: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(3i32);
+pub const HDV_DOORBELL_FLAG_TRIGGER_SIZE_QWORD: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(4i32);
+pub const HDV_DOORBELL_FLAG_TRIGGER_SIZE_WORD: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HDV_MMIO_MAPPING_FLAGS(pub i32);
+impl HDV_MMIO_MAPPING_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for HDV_MMIO_MAPPING_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for HDV_MMIO_MAPPING_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for HDV_MMIO_MAPPING_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for HDV_MMIO_MAPPING_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for HDV_MMIO_MAPPING_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const HDV_PCI_BAR0: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(0i32);
+pub const HDV_PCI_BAR1: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(1i32);
+pub const HDV_PCI_BAR2: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(2i32);
+pub const HDV_PCI_BAR3: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(3i32);
+pub const HDV_PCI_BAR4: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(4i32);
+pub const HDV_PCI_BAR5: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(5i32);
+pub const HDV_PCI_BAR_COUNT: u32 = 6u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HDV_PCI_BAR_SELECTOR(pub i32);
+pub type HDV_PCI_DEVICE_GET_DETAILS = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void, pnpid: *mut HDV_PCI_PNP_ID, probedbarscount: u32, probedbars: *mut u32) -> windows_core::HRESULT>;
+pub type HDV_PCI_DEVICE_INITIALIZE = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HDV_PCI_DEVICE_INTERFACE {
@@ -1451,6 +1206,13 @@ impl Default for HDV_PCI_DEVICE_INTERFACE {
 impl windows_core::TypeKind for HDV_PCI_DEVICE_INTERFACE {
     type TypeKind = windows_core::CopyType;
 }
+pub type HDV_PCI_DEVICE_SET_CONFIGURATION = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void, configurationvaluecount: u32, configurationvalues: *const windows_core::PCWSTR) -> windows_core::HRESULT>;
+pub type HDV_PCI_DEVICE_START = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void) -> windows_core::HRESULT>;
+pub type HDV_PCI_DEVICE_STOP = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void)>;
+pub type HDV_PCI_DEVICE_TEARDOWN = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void)>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HDV_PCI_INTERFACE_VERSION(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HDV_PCI_PNP_ID {
@@ -1471,6 +1233,11 @@ impl Default for HDV_PCI_PNP_ID {
 impl windows_core::TypeKind for HDV_PCI_PNP_ID {
     type TypeKind = windows_core::CopyType;
 }
+pub type HDV_PCI_READ_CONFIG_SPACE = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void, offset: u32, value: *mut u32) -> windows_core::HRESULT>;
+pub type HDV_PCI_READ_INTERCEPTED_MEMORY = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offset: u64, length: u64, value: *mut u8) -> windows_core::HRESULT>;
+pub type HDV_PCI_WRITE_CONFIG_SPACE = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void, offset: u32, value: u32) -> windows_core::HRESULT>;
+pub type HDV_PCI_WRITE_INTERCEPTED_MEMORY = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offset: u64, length: u64, value: *const u8) -> windows_core::HRESULT>;
+pub const HVSOCKET_ADDRESS_FLAG_PASSTHRU: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HVSOCKET_ADDRESS_INFO {
@@ -1487,6 +1254,28 @@ impl Default for HVSOCKET_ADDRESS_INFO {
 impl windows_core::TypeKind for HVSOCKET_ADDRESS_INFO {
     type TypeKind = windows_core::CopyType;
 }
+pub const HVSOCKET_CONNECTED_SUSPEND: u32 = 4u32;
+pub const HVSOCKET_CONNECT_TIMEOUT: u32 = 1u32;
+pub const HVSOCKET_CONNECT_TIMEOUT_MAX: u32 = 300000u32;
+pub const HVSOCKET_HIGH_VTL: u32 = 8u32;
+pub const HV_GUID_BROADCAST: windows_core::GUID = windows_core::GUID::from_u128(0xffffffff_ffff_ffff_ffff_ffffffffffff);
+pub const HV_GUID_CHILDREN: windows_core::GUID = windows_core::GUID::from_u128(0x90db8b89_0d35_4f79_8ce9_49ea0ac8b7cd);
+pub const HV_GUID_LOOPBACK: windows_core::GUID = windows_core::GUID::from_u128(0xe0e16197_dd56_4a10_9195_5ee7a155a838);
+pub const HV_GUID_PARENT: windows_core::GUID = windows_core::GUID::from_u128(0xa42e7cda_d03f_480c_9cc2_a4de20abb878);
+pub const HV_GUID_SILOHOST: windows_core::GUID = windows_core::GUID::from_u128(0x36bd0c5c_7276_4223_88ba_7d03b654c568);
+pub const HV_GUID_VSOCK_TEMPLATE: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_facb_11e6_bd58_64006a7986d3);
+pub const HV_GUID_ZERO: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+pub const HV_PROTOCOL_RAW: u32 = 1u32;
+pub const HdvDeviceHostFlagInitializeComSecurity: HDV_DEVICE_HOST_FLAGS = HDV_DEVICE_HOST_FLAGS(1i32);
+pub const HdvDeviceHostFlagNone: HDV_DEVICE_HOST_FLAGS = HDV_DEVICE_HOST_FLAGS(0i32);
+pub const HdvDeviceTypePCI: HDV_DEVICE_TYPE = HDV_DEVICE_TYPE(1i32);
+pub const HdvDeviceTypeUndefined: HDV_DEVICE_TYPE = HDV_DEVICE_TYPE(0i32);
+pub const HdvMmioMappingFlagExecutable: HDV_MMIO_MAPPING_FLAGS = HDV_MMIO_MAPPING_FLAGS(2i32);
+pub const HdvMmioMappingFlagNone: HDV_MMIO_MAPPING_FLAGS = HDV_MMIO_MAPPING_FLAGS(0i32);
+pub const HdvMmioMappingFlagWriteable: HDV_MMIO_MAPPING_FLAGS = HDV_MMIO_MAPPING_FLAGS(1i32);
+pub const HdvPciDeviceInterfaceVersion1: HDV_PCI_INTERFACE_VERSION = HDV_PCI_INTERFACE_VERSION(1i32);
+pub const HdvPciDeviceInterfaceVersionInvalid: HDV_PCI_INTERFACE_VERSION = HDV_PCI_INTERFACE_VERSION(0i32);
+pub const IOCTL_VMGENCOUNTER_READ: u32 = 3325956u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MODULE_INFO {
@@ -1501,6 +1290,23 @@ impl Default for MODULE_INFO {
 impl windows_core::TypeKind for MODULE_INFO {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PAGING_MODE(pub i32);
+pub const Paging_32Bit: PAGING_MODE = PAGING_MODE(2i32);
+pub const Paging_Armv8: PAGING_MODE = PAGING_MODE(5i32);
+pub const Paging_Invalid: PAGING_MODE = PAGING_MODE(0i32);
+pub const Paging_Long: PAGING_MODE = PAGING_MODE(4i32);
+pub const Paging_NonPaged: PAGING_MODE = PAGING_MODE(1i32);
+pub const Paging_Pae: PAGING_MODE = PAGING_MODE(3i32);
+pub const ProcessorVendor_Amd: VIRTUAL_PROCESSOR_VENDOR = VIRTUAL_PROCESSOR_VENDOR(1i32);
+pub const ProcessorVendor_Arm: VIRTUAL_PROCESSOR_VENDOR = VIRTUAL_PROCESSOR_VENDOR(4i32);
+pub const ProcessorVendor_Hygon: VIRTUAL_PROCESSOR_VENDOR = VIRTUAL_PROCESSOR_VENDOR(3i32);
+pub const ProcessorVendor_Intel: VIRTUAL_PROCESSOR_VENDOR = VIRTUAL_PROCESSOR_VENDOR(2i32);
+pub const ProcessorVendor_Unknown: VIRTUAL_PROCESSOR_VENDOR = VIRTUAL_PROCESSOR_VENDOR(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REGISTER_ID(pub i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1520,6 +1326,9 @@ impl Default for SOCKADDR_HV {
 impl windows_core::TypeKind for SOCKADDR_HV {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VIRTUAL_PROCESSOR_ARCH(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union VIRTUAL_PROCESSOR_REGISTER {
@@ -1714,6 +1523,9 @@ impl Default for VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {
 impl windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VIRTUAL_PROCESSOR_VENDOR(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VM_GENCOUNTER {
@@ -1728,6 +1540,7 @@ impl Default for VM_GENCOUNTER {
 impl windows_core::TypeKind for VM_GENCOUNTER {
     type TypeKind = windows_core::CopyType;
 }
+pub const VM_GENCOUNTER_SYMBOLIC_LINK_NAME: windows_core::PCWSTR = windows_core::w!("\\VmGenerationCounter");
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_ACCESS_GPA_CONTROLS {
@@ -1769,6 +1582,9 @@ impl Default for WHV_ADVISE_GPA_RANGE {
 impl windows_core::TypeKind for WHV_ADVISE_GPA_RANGE {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_ADVISE_GPA_RANGE_CODE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WHV_ADVISE_GPA_RANGE_POPULATE {
@@ -1810,6 +1626,46 @@ impl Default for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
 impl windows_core::TypeKind for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_ALLOCATE_VPCI_RESOURCE_FLAGS(pub i32);
+impl WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const WHV_ANY_VP: u32 = 4294967295u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_CACHE_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_CAPABILITY {
@@ -1839,6 +1695,9 @@ impl Default for WHV_CAPABILITY {
 impl windows_core::TypeKind for WHV_CAPABILITY {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_CAPABILITY_CODE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_CAPABILITY_FEATURES {
@@ -1899,6 +1758,42 @@ impl Default for WHV_CPUID_OUTPUT {
 impl windows_core::TypeKind for WHV_CPUID_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_CREATE_VPCI_DEVICE_FLAGS(pub i32);
+impl WHV_CREATE_VPCI_DEVICE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for WHV_CREATE_VPCI_DEVICE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for WHV_CREATE_VPCI_DEVICE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for WHV_CREATE_VPCI_DEVICE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for WHV_CREATE_VPCI_DEVICE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for WHV_CREATE_VPCI_DEVICE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WHV_DOORBELL_MATCH_DATA {
@@ -1934,6 +1829,7 @@ impl Default for WHV_EMULATOR_CALLBACKS {
 impl windows_core::TypeKind for WHV_EMULATOR_CALLBACKS {
     type TypeKind = windows_core::CopyType;
 }
+pub type WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *mut WHV_REGISTER_VALUE) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WHV_EMULATOR_IO_ACCESS_INFO {
@@ -1950,6 +1846,7 @@ impl Default for WHV_EMULATOR_IO_ACCESS_INFO {
 impl windows_core::TypeKind for WHV_EMULATOR_IO_ACCESS_INFO {
     type TypeKind = windows_core::CopyType;
 }
+pub type WHV_EMULATOR_IO_PORT_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, ioaccess: *mut WHV_EMULATOR_IO_ACCESS_INFO) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WHV_EMULATOR_MEMORY_ACCESS_INFO {
@@ -1966,6 +1863,8 @@ impl Default for WHV_EMULATOR_MEMORY_ACCESS_INFO {
 impl windows_core::TypeKind for WHV_EMULATOR_MEMORY_ACCESS_INFO {
     type TypeKind = windows_core::CopyType;
 }
+pub type WHV_EMULATOR_MEMORY_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, memoryaccess: *mut WHV_EMULATOR_MEMORY_ACCESS_INFO) -> windows_core::HRESULT>;
+pub type WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *const WHV_REGISTER_VALUE) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_EMULATOR_STATUS {
@@ -1993,6 +1892,10 @@ impl Default for WHV_EMULATOR_STATUS_0 {
 impl windows_core::TypeKind for WHV_EMULATOR_STATUS_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub type WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, gva: u64, translateflags: WHV_TRANSLATE_GVA_FLAGS, translationresult: *mut WHV_TRANSLATE_GVA_RESULT_CODE, gpa: *mut u64) -> windows_core::HRESULT>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_EXCEPTION_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_EXTENDED_VM_EXITS {
@@ -2042,6 +1945,7 @@ impl Default for WHV_HYPERCALL_CONTEXT {
 impl windows_core::TypeKind for WHV_HYPERCALL_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
+pub const WHV_HYPERCALL_CONTEXT_MAX_XMM_REGISTERS: u32 = 6u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_INTERNAL_ACTIVITY_REGISTER {
@@ -2084,6 +1988,52 @@ impl Default for WHV_INTERRUPT_CONTROL {
 impl windows_core::TypeKind for WHV_INTERRUPT_CONTROL {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_INTERRUPT_DESTINATION_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_INTERRUPT_TRIGGER_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_INTERRUPT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_MAP_GPA_RANGE_FLAGS(pub i32);
+impl WHV_MAP_GPA_RANGE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for WHV_MAP_GPA_RANGE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for WHV_MAP_GPA_RANGE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for WHV_MAP_GPA_RANGE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for WHV_MAP_GPA_RANGE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for WHV_MAP_GPA_RANGE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const WHV_MAX_DEVICE_ID_SIZE_IN_CHARS: u32 = 200u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WHV_MEMORY_ACCESS_CONTEXT {
@@ -2129,6 +2079,9 @@ impl Default for WHV_MEMORY_ACCESS_INFO_0 {
 impl windows_core::TypeKind for WHV_MEMORY_ACCESS_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_MEMORY_ACCESS_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WHV_MEMORY_RANGE_ENTRY {
@@ -2143,6 +2096,9 @@ impl Default for WHV_MEMORY_RANGE_ENTRY {
 impl windows_core::TypeKind for WHV_MEMORY_RANGE_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_MSR_ACTION(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WHV_MSR_ACTION_ENTRY {
@@ -2201,6 +2157,15 @@ impl Default for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
 impl windows_core::TypeKind for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_NOTIFICATION_PORT_PROPERTY_CODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_NOTIFICATION_PORT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_PARTITION_COUNTER_SET(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WHV_PARTITION_HANDLE(pub isize);
@@ -2278,6 +2243,9 @@ impl Default for WHV_PARTITION_PROPERTY {
 impl windows_core::TypeKind for WHV_PARTITION_PROPERTY {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_PARTITION_PROPERTY_CODE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WHV_PROCESSOR_APIC_COUNTERS {
@@ -2295,6 +2263,9 @@ impl Default for WHV_PROCESSOR_APIC_COUNTERS {
 impl windows_core::TypeKind for WHV_PROCESSOR_APIC_COUNTERS {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_PROCESSOR_COUNTER_SET(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WHV_PROCESSOR_EVENT_COUNTERS {
@@ -2407,6 +2378,7 @@ impl Default for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
 impl windows_core::TypeKind for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const WHV_PROCESSOR_FEATURES_BANKS_COUNT: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WHV_PROCESSOR_INTERCEPT_COUNTER {
@@ -2506,6 +2478,9 @@ impl Default for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
 impl windows_core::TypeKind for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_PROCESSOR_VENDOR(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_PROCESSOR_XSAVE_FEATURES {
@@ -2533,6 +2508,10 @@ impl Default for WHV_PROCESSOR_XSAVE_FEATURES_0 {
 impl windows_core::TypeKind for WHV_PROCESSOR_XSAVE_FEATURES_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const WHV_READ_WRITE_GPA_RANGE_MAX_SIZE: u32 = 16u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_REGISTER_NAME(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_REGISTER_VALUE {
@@ -2575,6 +2554,9 @@ impl Default for WHV_RUN_VP_CANCELED_CONTEXT {
 impl windows_core::TypeKind for WHV_RUN_VP_CANCELED_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_RUN_VP_CANCEL_REASON(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WHV_RUN_VP_EXIT_CONTEXT {
@@ -2618,6 +2600,9 @@ impl Default for WHV_RUN_VP_EXIT_CONTEXT_0 {
 impl windows_core::TypeKind for WHV_RUN_VP_EXIT_CONTEXT_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_RUN_VP_EXIT_REASON(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_SCHEDULER_FEATURES {
@@ -2677,6 +2662,7 @@ impl Default for WHV_SYNIC_EVENT_PARAMETERS {
 impl windows_core::TypeKind for WHV_SYNIC_EVENT_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
+pub const WHV_SYNIC_MESSAGE_SIZE: u32 = 256u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
@@ -2761,6 +2747,43 @@ impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
 impl windows_core::TypeKind for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_COUNT: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_TRANSLATE_GVA_FLAGS(pub i32);
+impl WHV_TRANSLATE_GVA_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for WHV_TRANSLATE_GVA_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for WHV_TRANSLATE_GVA_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for WHV_TRANSLATE_GVA_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for WHV_TRANSLATE_GVA_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for WHV_TRANSLATE_GVA_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WHV_TRANSLATE_GVA_RESULT {
@@ -2775,6 +2798,9 @@ impl Default for WHV_TRANSLATE_GVA_RESULT {
 impl windows_core::TypeKind for WHV_TRANSLATE_GVA_RESULT {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_TRANSLATE_GVA_RESULT_CODE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WHV_TRIGGER_PARAMETERS {
@@ -2821,6 +2847,9 @@ impl Default for WHV_TRIGGER_PARAMETERS_0_0 {
 impl windows_core::TypeKind for WHV_TRIGGER_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_TRIGGER_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_UINT128 {
@@ -2878,6 +2907,12 @@ impl Default for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
 impl windows_core::TypeKind for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_VIRTUAL_PROCESSOR_STATE_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WHV_VPCI_DEVICE_NOTIFICATION {
@@ -2906,6 +2941,12 @@ impl Default for WHV_VPCI_DEVICE_NOTIFICATION_0 {
 impl windows_core::TypeKind for WHV_VPCI_DEVICE_NOTIFICATION_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_VPCI_DEVICE_NOTIFICATION_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_VPCI_DEVICE_PROPERTY_CODE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WHV_VPCI_DEVICE_REGISTER {
@@ -2921,6 +2962,9 @@ impl Default for WHV_VPCI_DEVICE_REGISTER {
 impl windows_core::TypeKind for WHV_VPCI_DEVICE_REGISTER {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_VPCI_DEVICE_REGISTER_SPACE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WHV_VPCI_HARDWARE_IDS {
@@ -2957,6 +3001,42 @@ impl Default for WHV_VPCI_INTERRUPT_TARGET {
 impl windows_core::TypeKind for WHV_VPCI_INTERRUPT_TARGET {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_VPCI_INTERRUPT_TARGET_FLAGS(pub i32);
+impl WHV_VPCI_INTERRUPT_TARGET_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WHV_VPCI_MMIO_MAPPING {
@@ -2974,6 +3054,42 @@ impl Default for WHV_VPCI_MMIO_MAPPING {
 impl windows_core::TypeKind for WHV_VPCI_MMIO_MAPPING {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_VPCI_MMIO_RANGE_FLAGS(pub i32);
+impl WHV_VPCI_MMIO_RANGE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for WHV_VPCI_MMIO_RANGE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for WHV_VPCI_MMIO_RANGE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for WHV_VPCI_MMIO_RANGE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for WHV_VPCI_MMIO_RANGE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for WHV_VPCI_MMIO_RANGE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WHV_VPCI_PROBED_BARS {
@@ -2987,6 +3103,7 @@ impl Default for WHV_VPCI_PROBED_BARS {
 impl windows_core::TypeKind for WHV_VPCI_PROBED_BARS {
     type TypeKind = windows_core::CopyType;
 }
+pub const WHV_VPCI_TYPE0_BAR_COUNT: u32 = 6u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WHV_VP_EXCEPTION_CONTEXT {
@@ -3107,6 +3224,9 @@ impl Default for WHV_X64_APIC_WRITE_CONTEXT {
 impl windows_core::TypeKind for WHV_X64_APIC_WRITE_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_X64_APIC_WRITE_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WHV_X64_CPUID_ACCESS_CONTEXT {
@@ -3162,6 +3282,42 @@ impl Default for WHV_X64_CPUID_RESULT2 {
 }
 impl windows_core::TypeKind for WHV_X64_CPUID_RESULT2 {
     type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_X64_CPUID_RESULT2_FLAGS(pub i32);
+impl WHV_X64_CPUID_RESULT2_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for WHV_X64_CPUID_RESULT2_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for WHV_X64_CPUID_RESULT2_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for WHV_X64_CPUID_RESULT2_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for WHV_X64_CPUID_RESULT2_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for WHV_X64_CPUID_RESULT2_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3370,6 +3526,9 @@ impl Default for WHV_X64_IO_PORT_ACCESS_INFO_0 {
 impl windows_core::TypeKind for WHV_X64_IO_PORT_ACCESS_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_X64_LOCAL_APIC_EMULATION_MODE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WHV_X64_MSR_ACCESS_CONTEXT {
@@ -3467,6 +3626,9 @@ impl Default for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
 impl windows_core::TypeKind for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_X64_PENDING_EVENT_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_EXCEPTION_EVENT {
@@ -3552,6 +3714,9 @@ impl Default for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
 impl windows_core::TypeKind for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_X64_PENDING_INTERRUPTION_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WHV_X64_RDTSC_CONTEXT {
@@ -3654,6 +3819,9 @@ impl Default for WHV_X64_TABLE_REGISTER {
 impl windows_core::TypeKind for WHV_X64_TABLE_REGISTER {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WHV_X64_UNSUPPORTED_FEATURE_CODE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
@@ -3754,174 +3922,6 @@ impl Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
 impl windows_core::TypeKind for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-pub const ARM64_RegisterActlrEl1: REGISTER_ID = REGISTER_ID(145i32);
-pub const ARM64_RegisterAmairEl1: REGISTER_ID = REGISTER_ID(148i32);
-pub const ARM64_RegisterCntkctlEl1: REGISTER_ID = REGISTER_ID(155i32);
-pub const ARM64_RegisterCntvCtlEl0: REGISTER_ID = REGISTER_ID(157i32);
-pub const ARM64_RegisterCntvCvalEl0: REGISTER_ID = REGISTER_ID(156i32);
-pub const ARM64_RegisterContextIdrEl1: REGISTER_ID = REGISTER_ID(152i32);
-pub const ARM64_RegisterCpacrEl1: REGISTER_ID = REGISTER_ID(153i32);
-pub const ARM64_RegisterCpsr: REGISTER_ID = REGISTER_ID(101i32);
-pub const ARM64_RegisterCsselrEl1: REGISTER_ID = REGISTER_ID(154i32);
-pub const ARM64_RegisterElrEl1: REGISTER_ID = REGISTER_ID(140i32);
-pub const ARM64_RegisterEsrEl1: REGISTER_ID = REGISTER_ID(136i32);
-pub const ARM64_RegisterFarEl1: REGISTER_ID = REGISTER_ID(138i32);
-pub const ARM64_RegisterFpControl: REGISTER_ID = REGISTER_ID(135i32);
-pub const ARM64_RegisterFpStatus: REGISTER_ID = REGISTER_ID(134i32);
-pub const ARM64_RegisterMairEl1: REGISTER_ID = REGISTER_ID(147i32);
-pub const ARM64_RegisterMax: REGISTER_ID = REGISTER_ID(158i32);
-pub const ARM64_RegisterParEl1: REGISTER_ID = REGISTER_ID(139i32);
-pub const ARM64_RegisterPc: REGISTER_ID = REGISTER_ID(98i32);
-pub const ARM64_RegisterQ0: REGISTER_ID = REGISTER_ID(102i32);
-pub const ARM64_RegisterQ1: REGISTER_ID = REGISTER_ID(103i32);
-pub const ARM64_RegisterQ10: REGISTER_ID = REGISTER_ID(112i32);
-pub const ARM64_RegisterQ11: REGISTER_ID = REGISTER_ID(113i32);
-pub const ARM64_RegisterQ12: REGISTER_ID = REGISTER_ID(114i32);
-pub const ARM64_RegisterQ13: REGISTER_ID = REGISTER_ID(115i32);
-pub const ARM64_RegisterQ14: REGISTER_ID = REGISTER_ID(116i32);
-pub const ARM64_RegisterQ15: REGISTER_ID = REGISTER_ID(117i32);
-pub const ARM64_RegisterQ16: REGISTER_ID = REGISTER_ID(118i32);
-pub const ARM64_RegisterQ17: REGISTER_ID = REGISTER_ID(119i32);
-pub const ARM64_RegisterQ18: REGISTER_ID = REGISTER_ID(120i32);
-pub const ARM64_RegisterQ19: REGISTER_ID = REGISTER_ID(121i32);
-pub const ARM64_RegisterQ2: REGISTER_ID = REGISTER_ID(104i32);
-pub const ARM64_RegisterQ20: REGISTER_ID = REGISTER_ID(122i32);
-pub const ARM64_RegisterQ21: REGISTER_ID = REGISTER_ID(123i32);
-pub const ARM64_RegisterQ22: REGISTER_ID = REGISTER_ID(124i32);
-pub const ARM64_RegisterQ23: REGISTER_ID = REGISTER_ID(125i32);
-pub const ARM64_RegisterQ24: REGISTER_ID = REGISTER_ID(126i32);
-pub const ARM64_RegisterQ25: REGISTER_ID = REGISTER_ID(127i32);
-pub const ARM64_RegisterQ26: REGISTER_ID = REGISTER_ID(128i32);
-pub const ARM64_RegisterQ27: REGISTER_ID = REGISTER_ID(129i32);
-pub const ARM64_RegisterQ28: REGISTER_ID = REGISTER_ID(130i32);
-pub const ARM64_RegisterQ29: REGISTER_ID = REGISTER_ID(131i32);
-pub const ARM64_RegisterQ3: REGISTER_ID = REGISTER_ID(105i32);
-pub const ARM64_RegisterQ30: REGISTER_ID = REGISTER_ID(132i32);
-pub const ARM64_RegisterQ31: REGISTER_ID = REGISTER_ID(133i32);
-pub const ARM64_RegisterQ4: REGISTER_ID = REGISTER_ID(106i32);
-pub const ARM64_RegisterQ5: REGISTER_ID = REGISTER_ID(107i32);
-pub const ARM64_RegisterQ6: REGISTER_ID = REGISTER_ID(108i32);
-pub const ARM64_RegisterQ7: REGISTER_ID = REGISTER_ID(109i32);
-pub const ARM64_RegisterQ8: REGISTER_ID = REGISTER_ID(110i32);
-pub const ARM64_RegisterQ9: REGISTER_ID = REGISTER_ID(111i32);
-pub const ARM64_RegisterSctlrEl1: REGISTER_ID = REGISTER_ID(144i32);
-pub const ARM64_RegisterSpEl0: REGISTER_ID = REGISTER_ID(99i32);
-pub const ARM64_RegisterSpEl1: REGISTER_ID = REGISTER_ID(100i32);
-pub const ARM64_RegisterSpsrEl1: REGISTER_ID = REGISTER_ID(137i32);
-pub const ARM64_RegisterTcrEl1: REGISTER_ID = REGISTER_ID(146i32);
-pub const ARM64_RegisterTpidrEl0: REGISTER_ID = REGISTER_ID(149i32);
-pub const ARM64_RegisterTpidrEl1: REGISTER_ID = REGISTER_ID(151i32);
-pub const ARM64_RegisterTpidrroEl0: REGISTER_ID = REGISTER_ID(150i32);
-pub const ARM64_RegisterTtbr0El1: REGISTER_ID = REGISTER_ID(141i32);
-pub const ARM64_RegisterTtbr1El1: REGISTER_ID = REGISTER_ID(142i32);
-pub const ARM64_RegisterVbarEl1: REGISTER_ID = REGISTER_ID(143i32);
-pub const ARM64_RegisterX0: REGISTER_ID = REGISTER_ID(67i32);
-pub const ARM64_RegisterX1: REGISTER_ID = REGISTER_ID(68i32);
-pub const ARM64_RegisterX10: REGISTER_ID = REGISTER_ID(77i32);
-pub const ARM64_RegisterX11: REGISTER_ID = REGISTER_ID(78i32);
-pub const ARM64_RegisterX12: REGISTER_ID = REGISTER_ID(79i32);
-pub const ARM64_RegisterX13: REGISTER_ID = REGISTER_ID(80i32);
-pub const ARM64_RegisterX14: REGISTER_ID = REGISTER_ID(81i32);
-pub const ARM64_RegisterX15: REGISTER_ID = REGISTER_ID(82i32);
-pub const ARM64_RegisterX16: REGISTER_ID = REGISTER_ID(83i32);
-pub const ARM64_RegisterX17: REGISTER_ID = REGISTER_ID(84i32);
-pub const ARM64_RegisterX18: REGISTER_ID = REGISTER_ID(85i32);
-pub const ARM64_RegisterX19: REGISTER_ID = REGISTER_ID(86i32);
-pub const ARM64_RegisterX2: REGISTER_ID = REGISTER_ID(69i32);
-pub const ARM64_RegisterX20: REGISTER_ID = REGISTER_ID(87i32);
-pub const ARM64_RegisterX21: REGISTER_ID = REGISTER_ID(88i32);
-pub const ARM64_RegisterX22: REGISTER_ID = REGISTER_ID(89i32);
-pub const ARM64_RegisterX23: REGISTER_ID = REGISTER_ID(90i32);
-pub const ARM64_RegisterX24: REGISTER_ID = REGISTER_ID(91i32);
-pub const ARM64_RegisterX25: REGISTER_ID = REGISTER_ID(92i32);
-pub const ARM64_RegisterX26: REGISTER_ID = REGISTER_ID(93i32);
-pub const ARM64_RegisterX27: REGISTER_ID = REGISTER_ID(94i32);
-pub const ARM64_RegisterX28: REGISTER_ID = REGISTER_ID(95i32);
-pub const ARM64_RegisterX3: REGISTER_ID = REGISTER_ID(70i32);
-pub const ARM64_RegisterX4: REGISTER_ID = REGISTER_ID(71i32);
-pub const ARM64_RegisterX5: REGISTER_ID = REGISTER_ID(72i32);
-pub const ARM64_RegisterX6: REGISTER_ID = REGISTER_ID(73i32);
-pub const ARM64_RegisterX7: REGISTER_ID = REGISTER_ID(74i32);
-pub const ARM64_RegisterX8: REGISTER_ID = REGISTER_ID(75i32);
-pub const ARM64_RegisterX9: REGISTER_ID = REGISTER_ID(76i32);
-pub const ARM64_RegisterXFp: REGISTER_ID = REGISTER_ID(96i32);
-pub const ARM64_RegisterXLr: REGISTER_ID = REGISTER_ID(97i32);
-pub const Arch_Armv8: VIRTUAL_PROCESSOR_ARCH = VIRTUAL_PROCESSOR_ARCH(3i32);
-pub const Arch_Unknown: VIRTUAL_PROCESSOR_ARCH = VIRTUAL_PROCESSOR_ARCH(0i32);
-pub const Arch_x64: VIRTUAL_PROCESSOR_ARCH = VIRTUAL_PROCESSOR_ARCH(2i32);
-pub const Arch_x86: VIRTUAL_PROCESSOR_ARCH = VIRTUAL_PROCESSOR_ARCH(1i32);
-pub const GUID_DEVINTERFACE_VM_GENCOUNTER: windows_core::GUID = windows_core::GUID::from_u128(0x3ff2c92b_6598_4e60_8e1c_0ccf4927e319);
-pub const GuestOsMicrosoftMSDOS: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(1i32);
-pub const GuestOsMicrosoftUndefined: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(0i32);
-pub const GuestOsMicrosoftWindows3x: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(2i32);
-pub const GuestOsMicrosoftWindows9x: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(3i32);
-pub const GuestOsMicrosoftWindowsCE: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(5i32);
-pub const GuestOsMicrosoftWindowsNT: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(4i32);
-pub const GuestOsOpenSourceFreeBSD: GUEST_OS_OPENSOURCE_IDS = GUEST_OS_OPENSOURCE_IDS(2i32);
-pub const GuestOsOpenSourceIllumos: GUEST_OS_OPENSOURCE_IDS = GUEST_OS_OPENSOURCE_IDS(4i32);
-pub const GuestOsOpenSourceLinux: GUEST_OS_OPENSOURCE_IDS = GUEST_OS_OPENSOURCE_IDS(1i32);
-pub const GuestOsOpenSourceUndefined: GUEST_OS_OPENSOURCE_IDS = GUEST_OS_OPENSOURCE_IDS(0i32);
-pub const GuestOsOpenSourceXen: GUEST_OS_OPENSOURCE_IDS = GUEST_OS_OPENSOURCE_IDS(3i32);
-pub const GuestOsVendorHPE: GUEST_OS_VENDOR = GUEST_OS_VENDOR(2i32);
-pub const GuestOsVendorLANCOM: GUEST_OS_VENDOR = GUEST_OS_VENDOR(512i32);
-pub const GuestOsVendorMicrosoft: GUEST_OS_VENDOR = GUEST_OS_VENDOR(1i32);
-pub const GuestOsVendorUndefined: GUEST_OS_VENDOR = GUEST_OS_VENDOR(0i32);
-pub const HDV_DOORBELL_FLAG_TRIGGER_ANY_VALUE: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(-2147483648i32);
-pub const HDV_DOORBELL_FLAG_TRIGGER_SIZE_ANY: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(0i32);
-pub const HDV_DOORBELL_FLAG_TRIGGER_SIZE_BYTE: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(1i32);
-pub const HDV_DOORBELL_FLAG_TRIGGER_SIZE_DWORD: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(3i32);
-pub const HDV_DOORBELL_FLAG_TRIGGER_SIZE_QWORD: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(4i32);
-pub const HDV_DOORBELL_FLAG_TRIGGER_SIZE_WORD: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(2i32);
-pub const HDV_PCI_BAR0: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(0i32);
-pub const HDV_PCI_BAR1: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(1i32);
-pub const HDV_PCI_BAR2: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(2i32);
-pub const HDV_PCI_BAR3: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(3i32);
-pub const HDV_PCI_BAR4: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(4i32);
-pub const HDV_PCI_BAR5: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(5i32);
-pub const HDV_PCI_BAR_COUNT: u32 = 6u32;
-pub const HVSOCKET_ADDRESS_FLAG_PASSTHRU: u32 = 1u32;
-pub const HVSOCKET_CONNECTED_SUSPEND: u32 = 4u32;
-pub const HVSOCKET_CONNECT_TIMEOUT: u32 = 1u32;
-pub const HVSOCKET_CONNECT_TIMEOUT_MAX: u32 = 300000u32;
-pub const HVSOCKET_HIGH_VTL: u32 = 8u32;
-pub const HV_GUID_BROADCAST: windows_core::GUID = windows_core::GUID::from_u128(0xffffffff_ffff_ffff_ffff_ffffffffffff);
-pub const HV_GUID_CHILDREN: windows_core::GUID = windows_core::GUID::from_u128(0x90db8b89_0d35_4f79_8ce9_49ea0ac8b7cd);
-pub const HV_GUID_LOOPBACK: windows_core::GUID = windows_core::GUID::from_u128(0xe0e16197_dd56_4a10_9195_5ee7a155a838);
-pub const HV_GUID_PARENT: windows_core::GUID = windows_core::GUID::from_u128(0xa42e7cda_d03f_480c_9cc2_a4de20abb878);
-pub const HV_GUID_SILOHOST: windows_core::GUID = windows_core::GUID::from_u128(0x36bd0c5c_7276_4223_88ba_7d03b654c568);
-pub const HV_GUID_VSOCK_TEMPLATE: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_facb_11e6_bd58_64006a7986d3);
-pub const HV_GUID_ZERO: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
-pub const HV_PROTOCOL_RAW: u32 = 1u32;
-pub const HdvDeviceHostFlagInitializeComSecurity: HDV_DEVICE_HOST_FLAGS = HDV_DEVICE_HOST_FLAGS(1i32);
-pub const HdvDeviceHostFlagNone: HDV_DEVICE_HOST_FLAGS = HDV_DEVICE_HOST_FLAGS(0i32);
-pub const HdvDeviceTypePCI: HDV_DEVICE_TYPE = HDV_DEVICE_TYPE(1i32);
-pub const HdvDeviceTypeUndefined: HDV_DEVICE_TYPE = HDV_DEVICE_TYPE(0i32);
-pub const HdvMmioMappingFlagExecutable: HDV_MMIO_MAPPING_FLAGS = HDV_MMIO_MAPPING_FLAGS(2i32);
-pub const HdvMmioMappingFlagNone: HDV_MMIO_MAPPING_FLAGS = HDV_MMIO_MAPPING_FLAGS(0i32);
-pub const HdvMmioMappingFlagWriteable: HDV_MMIO_MAPPING_FLAGS = HDV_MMIO_MAPPING_FLAGS(1i32);
-pub const HdvPciDeviceInterfaceVersion1: HDV_PCI_INTERFACE_VERSION = HDV_PCI_INTERFACE_VERSION(1i32);
-pub const HdvPciDeviceInterfaceVersionInvalid: HDV_PCI_INTERFACE_VERSION = HDV_PCI_INTERFACE_VERSION(0i32);
-pub const IOCTL_VMGENCOUNTER_READ: u32 = 3325956u32;
-pub const Paging_32Bit: PAGING_MODE = PAGING_MODE(2i32);
-pub const Paging_Armv8: PAGING_MODE = PAGING_MODE(5i32);
-pub const Paging_Invalid: PAGING_MODE = PAGING_MODE(0i32);
-pub const Paging_Long: PAGING_MODE = PAGING_MODE(4i32);
-pub const Paging_NonPaged: PAGING_MODE = PAGING_MODE(1i32);
-pub const Paging_Pae: PAGING_MODE = PAGING_MODE(3i32);
-pub const ProcessorVendor_Amd: VIRTUAL_PROCESSOR_VENDOR = VIRTUAL_PROCESSOR_VENDOR(1i32);
-pub const ProcessorVendor_Arm: VIRTUAL_PROCESSOR_VENDOR = VIRTUAL_PROCESSOR_VENDOR(4i32);
-pub const ProcessorVendor_Hygon: VIRTUAL_PROCESSOR_VENDOR = VIRTUAL_PROCESSOR_VENDOR(3i32);
-pub const ProcessorVendor_Intel: VIRTUAL_PROCESSOR_VENDOR = VIRTUAL_PROCESSOR_VENDOR(2i32);
-pub const ProcessorVendor_Unknown: VIRTUAL_PROCESSOR_VENDOR = VIRTUAL_PROCESSOR_VENDOR(0i32);
-pub const VM_GENCOUNTER_SYMBOLIC_LINK_NAME: windows_core::PCWSTR = windows_core::w!("\\VmGenerationCounter");
-pub const WHV_ANY_VP: u32 = 4294967295u32;
-pub const WHV_HYPERCALL_CONTEXT_MAX_XMM_REGISTERS: u32 = 6u32;
-pub const WHV_MAX_DEVICE_ID_SIZE_IN_CHARS: u32 = 200u32;
-pub const WHV_PROCESSOR_FEATURES_BANKS_COUNT: u32 = 2u32;
-pub const WHV_READ_WRITE_GPA_RANGE_MAX_SIZE: u32 = 16u32;
-pub const WHV_SYNIC_MESSAGE_SIZE: u32 = 256u32;
-pub const WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_COUNT: u32 = 1u32;
-pub const WHV_VPCI_TYPE0_BAR_COUNT: u32 = 6u32;
 pub const WHvAdviseGpaRangeCodePin: WHV_ADVISE_GPA_RANGE_CODE = WHV_ADVISE_GPA_RANGE_CODE(1i32);
 pub const WHvAdviseGpaRangeCodePopulate: WHV_ADVISE_GPA_RANGE_CODE = WHV_ADVISE_GPA_RANGE_CODE(0i32);
 pub const WHvAdviseGpaRangeCodeUnpin: WHV_ADVISE_GPA_RANGE_CODE = WHV_ADVISE_GPA_RANGE_CODE(2i32);

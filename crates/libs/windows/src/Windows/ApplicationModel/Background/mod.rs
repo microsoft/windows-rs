@@ -57,6 +57,21 @@ impl windows_core::RuntimeName for ActivitySensorTrigger {
 }
 unsafe impl Send for ActivitySensorTrigger {}
 unsafe impl Sync for ActivitySensorTrigger {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AlarmAccessStatus(pub i32);
+impl AlarmAccessStatus {
+    pub const Unspecified: Self = Self(0i32);
+    pub const AllowedWithWakeupCapability: Self = Self(1i32);
+    pub const AllowedWithoutWakeupCapability: Self = Self(2i32);
+    pub const Denied: Self = Self(3i32);
+}
+impl windows_core::TypeKind for AlarmAccessStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AlarmAccessStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.AlarmAccessStatus;i4)");
+}
 pub struct AlarmApplicationManager;
 impl AlarmApplicationManager {
     pub fn RequestAccessAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<AlarmAccessStatus>> {
@@ -277,6 +292,21 @@ impl windows_core::RuntimeName for ApplicationTriggerDetails {
 unsafe impl Send for ApplicationTriggerDetails {}
 unsafe impl Sync for ApplicationTriggerDetails {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ApplicationTriggerResult(pub i32);
+impl ApplicationTriggerResult {
+    pub const Allowed: Self = Self(0i32);
+    pub const CurrentlyRunning: Self = Self(1i32);
+    pub const DisabledByPolicy: Self = Self(2i32);
+    pub const UnknownError: Self = Self(3i32);
+}
+impl windows_core::TypeKind for ApplicationTriggerResult {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ApplicationTriggerResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.ApplicationTriggerResult;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppointmentStoreNotificationTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentStoreNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable);
@@ -302,6 +332,38 @@ impl windows_core::RuntimeName for AppointmentStoreNotificationTrigger {
 }
 unsafe impl Send for AppointmentStoreNotificationTrigger {}
 unsafe impl Sync for AppointmentStoreNotificationTrigger {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BackgroundAccessRequestKind(pub i32);
+impl BackgroundAccessRequestKind {
+    pub const AlwaysAllowed: Self = Self(0i32);
+    pub const AllowedSubjectToSystemPolicy: Self = Self(1i32);
+}
+impl windows_core::TypeKind for BackgroundAccessRequestKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for BackgroundAccessRequestKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundAccessRequestKind;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BackgroundAccessStatus(pub i32);
+impl BackgroundAccessStatus {
+    pub const Unspecified: Self = Self(0i32);
+    pub const AllowedWithAlwaysOnRealTimeConnectivity: Self = Self(1i32);
+    pub const AllowedMayUseActiveRealTimeConnectivity: Self = Self(2i32);
+    pub const Denied: Self = Self(3i32);
+    pub const AlwaysAllowed: Self = Self(4i32);
+    pub const AllowedSubjectToSystemPolicy: Self = Self(5i32);
+    pub const DeniedBySystemPolicy: Self = Self(6i32);
+    pub const DeniedByUser: Self = Self(7i32);
+}
+impl windows_core::TypeKind for BackgroundAccessStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for BackgroundAccessStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundAccessStatus;i4)");
+}
 pub struct BackgroundExecutionManager;
 impl BackgroundExecutionManager {
     pub fn RequestAccessAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<BackgroundAccessStatus>> {
@@ -515,6 +577,89 @@ unsafe impl windows_core::Interface for BackgroundTaskBuilder {
 impl windows_core::RuntimeName for BackgroundTaskBuilder {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskBuilder";
 }
+windows_core::imp::define_interface!(BackgroundTaskCanceledEventHandler, BackgroundTaskCanceledEventHandler_Vtbl, 0xa6c4bac0_51f8_4c57_ac3f_156dd1680c4f);
+impl windows_core::RuntimeType for BackgroundTaskCanceledEventHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl BackgroundTaskCanceledEventHandler {
+    pub fn new<F: FnMut(Option<&IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = BackgroundTaskCanceledEventHandlerBox { vtable: &BackgroundTaskCanceledEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
+    pub fn Invoke<P0>(&self, sender: P0, reason: BackgroundTaskCancellationReason) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<IBackgroundTaskInstance>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), reason).ok() }
+    }
+}
+#[repr(C)]
+pub struct BackgroundTaskCanceledEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, reason: BackgroundTaskCancellationReason) -> windows_core::HRESULT,
+}
+#[repr(C)]
+struct BackgroundTaskCanceledEventHandlerBox<F: FnMut(Option<&IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static> {
+    vtable: *const BackgroundTaskCanceledEventHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+impl<F: FnMut(Option<&IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static> BackgroundTaskCanceledEventHandlerBox<F> {
+    const VTABLE: BackgroundTaskCanceledEventHandler_Vtbl = BackgroundTaskCanceledEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <BackgroundTaskCanceledEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+        if (*interface).is_null() {
+            windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, reason: BackgroundTaskCancellationReason) -> windows_core::HRESULT {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender), reason).into()
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BackgroundTaskCancellationReason(pub i32);
+impl BackgroundTaskCancellationReason {
+    pub const Abort: Self = Self(0i32);
+    pub const Terminating: Self = Self(1i32);
+    pub const LoggingOff: Self = Self(2i32);
+    pub const ServicingUpdate: Self = Self(3i32);
+    pub const IdleTask: Self = Self(4i32);
+    pub const Uninstall: Self = Self(5i32);
+    pub const ConditionLoss: Self = Self(6i32);
+    pub const SystemPolicy: Self = Self(7i32);
+    pub const QuietHoursEntered: Self = Self(8i32);
+    pub const ExecutionTimeExceeded: Self = Self(9i32);
+    pub const ResourceRevocation: Self = Self(10i32);
+    pub const EnergySaver: Self = Self(11i32);
+}
+impl windows_core::TypeKind for BackgroundTaskCancellationReason {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for BackgroundTaskCancellationReason {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundTaskCancellationReason;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BackgroundTaskCompletedEventArgs(windows_core::IUnknown);
@@ -544,6 +689,67 @@ impl windows_core::RuntimeName for BackgroundTaskCompletedEventArgs {
 }
 unsafe impl Send for BackgroundTaskCompletedEventArgs {}
 unsafe impl Sync for BackgroundTaskCompletedEventArgs {}
+windows_core::imp::define_interface!(BackgroundTaskCompletedEventHandler, BackgroundTaskCompletedEventHandler_Vtbl, 0x5b38e929_a086_46a7_a678_439135822bcf);
+impl windows_core::RuntimeType for BackgroundTaskCompletedEventHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl BackgroundTaskCompletedEventHandler {
+    pub fn new<F: FnMut(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = BackgroundTaskCompletedEventHandlerBox { vtable: &BackgroundTaskCompletedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
+    pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<BackgroundTaskRegistration>,
+        P1: windows_core::Param<BackgroundTaskCompletedEventArgs>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), args.param().abi()).ok() }
+    }
+}
+#[repr(C)]
+pub struct BackgroundTaskCompletedEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[repr(C)]
+struct BackgroundTaskCompletedEventHandlerBox<F: FnMut(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+    vtable: *const BackgroundTaskCompletedEventHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+impl<F: FnMut(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static> BackgroundTaskCompletedEventHandlerBox<F> {
+    const VTABLE: BackgroundTaskCompletedEventHandler_Vtbl = BackgroundTaskCompletedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <BackgroundTaskCompletedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+        if (*interface).is_null() {
+            windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&args)).into()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BackgroundTaskDeferral(windows_core::IUnknown);
@@ -598,6 +804,67 @@ impl windows_core::RuntimeName for BackgroundTaskProgressEventArgs {
 }
 unsafe impl Send for BackgroundTaskProgressEventArgs {}
 unsafe impl Sync for BackgroundTaskProgressEventArgs {}
+windows_core::imp::define_interface!(BackgroundTaskProgressEventHandler, BackgroundTaskProgressEventHandler_Vtbl, 0x46e0683c_8a88_4c99_804c_76897f6277a6);
+impl windows_core::RuntimeType for BackgroundTaskProgressEventHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl BackgroundTaskProgressEventHandler {
+    pub fn new<F: FnMut(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = BackgroundTaskProgressEventHandlerBox { vtable: &BackgroundTaskProgressEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
+    pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<BackgroundTaskRegistration>,
+        P1: windows_core::Param<BackgroundTaskProgressEventArgs>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), args.param().abi()).ok() }
+    }
+}
+#[repr(C)]
+pub struct BackgroundTaskProgressEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[repr(C)]
+struct BackgroundTaskProgressEventHandlerBox<F: FnMut(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+    vtable: *const BackgroundTaskProgressEventHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+impl<F: FnMut(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static> BackgroundTaskProgressEventHandlerBox<F> {
+    const VTABLE: BackgroundTaskProgressEventHandler_Vtbl = BackgroundTaskProgressEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <BackgroundTaskProgressEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+        if (*interface).is_null() {
+            windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&args)).into()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BackgroundTaskRegistration(windows_core::IUnknown);
@@ -790,6 +1057,20 @@ impl windows_core::RuntimeName for BackgroundTaskRegistrationGroup {
 }
 unsafe impl Send for BackgroundTaskRegistrationGroup {}
 unsafe impl Sync for BackgroundTaskRegistrationGroup {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BackgroundTaskThrottleCounter(pub i32);
+impl BackgroundTaskThrottleCounter {
+    pub const All: Self = Self(0i32);
+    pub const Cpu: Self = Self(1i32);
+    pub const Network: Self = Self(2i32);
+}
+impl windows_core::TypeKind for BackgroundTaskThrottleCounter {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for BackgroundTaskThrottleCounter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundTaskThrottleCounter;i4)");
+}
 pub struct BackgroundWorkCost;
 impl BackgroundWorkCost {
     pub fn CurrentBackgroundWorkCost() -> windows_core::Result<BackgroundWorkCostValue> {
@@ -827,6 +1108,20 @@ impl BackgroundWorkCost {
 }
 impl windows_core::RuntimeName for BackgroundWorkCost {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundWorkCost";
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BackgroundWorkCostValue(pub i32);
+impl BackgroundWorkCostValue {
+    pub const Low: Self = Self(0i32);
+    pub const Medium: Self = Self(1i32);
+    pub const High: Self = Self(2i32);
+}
+impl windows_core::TypeKind for BackgroundWorkCostValue {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for BackgroundWorkCostValue {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundWorkCostValue;i4)");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1283,6 +1578,19 @@ impl windows_core::RuntimeName for CustomSystemEventTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CustomSystemEventTrigger";
 }
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CustomSystemEventTriggerRecurrence(pub i32);
+impl CustomSystemEventTriggerRecurrence {
+    pub const Once: Self = Self(0i32);
+    pub const Always: Self = Self(1i32);
+}
+impl windows_core::TypeKind for CustomSystemEventTriggerRecurrence {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for CustomSystemEventTriggerRecurrence {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.CustomSystemEventTriggerRecurrence;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeviceConnectionChangeTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceConnectionChangeTrigger, windows_core::IUnknown, windows_core::IInspectable);
@@ -1428,6 +1736,21 @@ impl windows_core::RuntimeName for DeviceServicingTrigger {
 unsafe impl Send for DeviceServicingTrigger {}
 unsafe impl Sync for DeviceServicingTrigger {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DeviceTriggerResult(pub i32);
+impl DeviceTriggerResult {
+    pub const Allowed: Self = Self(0i32);
+    pub const DeniedByUser: Self = Self(1i32);
+    pub const DeniedBySystem: Self = Self(2i32);
+    pub const LowBattery: Self = Self(3i32);
+}
+impl windows_core::TypeKind for DeviceTriggerResult {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DeviceTriggerResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.DeviceTriggerResult;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeviceUseTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceUseTrigger, windows_core::IUnknown, windows_core::IInspectable);
@@ -1509,6 +1832,21 @@ impl windows_core::RuntimeName for EmailStoreNotificationTrigger {
 }
 unsafe impl Send for EmailStoreNotificationTrigger {}
 unsafe impl Sync for EmailStoreNotificationTrigger {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EnergyUseLevel(pub i32);
+impl EnergyUseLevel {
+    pub const Unknown: Self = Self(0i32);
+    pub const UnderHalfOfBudget: Self = Self(1i32);
+    pub const OverHalfOfBudget: Self = Self(2i32);
+    pub const OverBudget: Self = Self(3i32);
+}
+impl windows_core::TypeKind for EnergyUseLevel {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for EnergyUseLevel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.EnergyUseLevel;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattCharacteristicNotificationTrigger(windows_core::IUnknown);
@@ -1704,1073 +2042,6 @@ impl windows_core::RuntimeName for GeovisitTrigger {
 }
 unsafe impl Send for GeovisitTrigger {}
 unsafe impl Sync for GeovisitTrigger {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct LocationTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(LocationTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(LocationTrigger, IBackgroundTrigger);
-impl LocationTrigger {
-    pub fn TriggerType(&self) -> windows_core::Result<LocationTriggerType> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TriggerType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Create(triggertype: LocationTriggerType) -> windows_core::Result<LocationTrigger> {
-        Self::ILocationTriggerFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), triggertype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn ILocationTriggerFactory<R, F: FnOnce(&ILocationTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<LocationTrigger, ILocationTriggerFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for LocationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILocationTrigger>();
-}
-unsafe impl windows_core::Interface for LocationTrigger {
-    type Vtable = <ILocationTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ILocationTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for LocationTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.LocationTrigger";
-}
-unsafe impl Send for LocationTrigger {}
-unsafe impl Sync for LocationTrigger {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MaintenanceTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MaintenanceTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MaintenanceTrigger, IBackgroundTrigger);
-impl MaintenanceTrigger {
-    pub fn FreshnessTime(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FreshnessTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn OneShot(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OneShot)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Create(freshnesstime: u32, oneshot: bool) -> windows_core::Result<MaintenanceTrigger> {
-        Self::IMaintenanceTriggerFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), freshnesstime, oneshot, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IMaintenanceTriggerFactory<R, F: FnOnce(&IMaintenanceTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<MaintenanceTrigger, IMaintenanceTriggerFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for MaintenanceTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMaintenanceTrigger>();
-}
-unsafe impl windows_core::Interface for MaintenanceTrigger {
-    type Vtable = <IMaintenanceTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMaintenanceTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MaintenanceTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.MaintenanceTrigger";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MediaProcessingTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MediaProcessingTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MediaProcessingTrigger, IBackgroundTrigger);
-impl MediaProcessingTrigger {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<MediaProcessingTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn RequestAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RequestAsyncWithArguments<P0>(&self, arguments: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::ValueSet>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestAsyncWithArguments)(windows_core::Interface::as_raw(this), arguments.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for MediaProcessingTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaProcessingTrigger>();
-}
-unsafe impl windows_core::Interface for MediaProcessingTrigger {
-    type Vtable = <IMediaProcessingTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IMediaProcessingTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MediaProcessingTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.MediaProcessingTrigger";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandDeviceServiceNotificationTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
-impl MobileBroadbandDeviceServiceNotificationTrigger {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<MobileBroadbandDeviceServiceNotificationTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandDeviceServiceNotificationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceNotificationTrigger {
-    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandDeviceServiceNotificationTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandDeviceServiceNotificationTrigger";
-}
-unsafe impl Send for MobileBroadbandDeviceServiceNotificationTrigger {}
-unsafe impl Sync for MobileBroadbandDeviceServiceNotificationTrigger {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandPcoDataChangeTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandPcoDataChangeTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
-impl MobileBroadbandPcoDataChangeTrigger {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<MobileBroadbandPcoDataChangeTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandPcoDataChangeTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandPcoDataChangeTrigger {
-    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandPcoDataChangeTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandPcoDataChangeTrigger";
-}
-unsafe impl Send for MobileBroadbandPcoDataChangeTrigger {}
-unsafe impl Sync for MobileBroadbandPcoDataChangeTrigger {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandPinLockStateChangeTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandPinLockStateChangeTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
-impl MobileBroadbandPinLockStateChangeTrigger {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<MobileBroadbandPinLockStateChangeTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandPinLockStateChangeTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandPinLockStateChangeTrigger {
-    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandPinLockStateChangeTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandPinLockStateChangeTrigger";
-}
-unsafe impl Send for MobileBroadbandPinLockStateChangeTrigger {}
-unsafe impl Sync for MobileBroadbandPinLockStateChangeTrigger {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandRadioStateChangeTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandRadioStateChangeTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
-impl MobileBroadbandRadioStateChangeTrigger {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<MobileBroadbandRadioStateChangeTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandRadioStateChangeTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandRadioStateChangeTrigger {
-    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandRadioStateChangeTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandRadioStateChangeTrigger";
-}
-unsafe impl Send for MobileBroadbandRadioStateChangeTrigger {}
-unsafe impl Sync for MobileBroadbandRadioStateChangeTrigger {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct MobileBroadbandRegistrationStateChangeTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandRegistrationStateChangeTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
-impl MobileBroadbandRegistrationStateChangeTrigger {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<MobileBroadbandRegistrationStateChangeTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for MobileBroadbandRegistrationStateChangeTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
-unsafe impl windows_core::Interface for MobileBroadbandRegistrationStateChangeTrigger {
-    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for MobileBroadbandRegistrationStateChangeTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandRegistrationStateChangeTrigger";
-}
-unsafe impl Send for MobileBroadbandRegistrationStateChangeTrigger {}
-unsafe impl Sync for MobileBroadbandRegistrationStateChangeTrigger {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct NetworkOperatorDataUsageTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(NetworkOperatorDataUsageTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
-impl NetworkOperatorDataUsageTrigger {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<NetworkOperatorDataUsageTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for NetworkOperatorDataUsageTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
-unsafe impl windows_core::Interface for NetworkOperatorDataUsageTrigger {
-    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for NetworkOperatorDataUsageTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorDataUsageTrigger";
-}
-unsafe impl Send for NetworkOperatorDataUsageTrigger {}
-unsafe impl Sync for NetworkOperatorDataUsageTrigger {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct NetworkOperatorHotspotAuthenticationTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(NetworkOperatorHotspotAuthenticationTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(NetworkOperatorHotspotAuthenticationTrigger, IBackgroundTrigger);
-impl NetworkOperatorHotspotAuthenticationTrigger {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<NetworkOperatorHotspotAuthenticationTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for NetworkOperatorHotspotAuthenticationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorHotspotAuthenticationTrigger>();
-}
-unsafe impl windows_core::Interface for NetworkOperatorHotspotAuthenticationTrigger {
-    type Vtable = <INetworkOperatorHotspotAuthenticationTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <INetworkOperatorHotspotAuthenticationTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for NetworkOperatorHotspotAuthenticationTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorHotspotAuthenticationTrigger";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct NetworkOperatorNotificationTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(NetworkOperatorNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(NetworkOperatorNotificationTrigger, IBackgroundTrigger);
-impl NetworkOperatorNotificationTrigger {
-    pub fn NetworkAccountId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NetworkAccountId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Create(networkaccountid: &windows_core::HSTRING) -> windows_core::Result<NetworkOperatorNotificationTrigger> {
-        Self::INetworkOperatorNotificationTriggerFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn INetworkOperatorNotificationTriggerFactory<R, F: FnOnce(&INetworkOperatorNotificationTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<NetworkOperatorNotificationTrigger, INetworkOperatorNotificationTriggerFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for NetworkOperatorNotificationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorNotificationTrigger>();
-}
-unsafe impl windows_core::Interface for NetworkOperatorNotificationTrigger {
-    type Vtable = <INetworkOperatorNotificationTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <INetworkOperatorNotificationTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for NetworkOperatorNotificationTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorNotificationTrigger";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PaymentAppCanMakePaymentTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PaymentAppCanMakePaymentTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
-impl PaymentAppCanMakePaymentTrigger {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<PaymentAppCanMakePaymentTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for PaymentAppCanMakePaymentTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
-unsafe impl windows_core::Interface for PaymentAppCanMakePaymentTrigger {
-    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for PaymentAppCanMakePaymentTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.PaymentAppCanMakePaymentTrigger";
-}
-unsafe impl Send for PaymentAppCanMakePaymentTrigger {}
-unsafe impl Sync for PaymentAppCanMakePaymentTrigger {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PhoneTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PhoneTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PhoneTrigger, IBackgroundTrigger);
-impl PhoneTrigger {
-    pub fn OneShot(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OneShot)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "ApplicationModel_Calls_Background")]
-    pub fn TriggerType(&self) -> windows_core::Result<super::Calls::Background::PhoneTriggerType> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TriggerType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "ApplicationModel_Calls_Background")]
-    pub fn Create(r#type: super::Calls::Background::PhoneTriggerType, oneshot: bool) -> windows_core::Result<PhoneTrigger> {
-        Self::IPhoneTriggerFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), r#type, oneshot, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IPhoneTriggerFactory<R, F: FnOnce(&IPhoneTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<PhoneTrigger, IPhoneTriggerFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for PhoneTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneTrigger>();
-}
-unsafe impl windows_core::Interface for PhoneTrigger {
-    type Vtable = <IPhoneTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IPhoneTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for PhoneTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.PhoneTrigger";
-}
-unsafe impl Send for PhoneTrigger {}
-unsafe impl Sync for PhoneTrigger {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PushNotificationTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PushNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
-impl PushNotificationTrigger {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<PushNotificationTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn Create(applicationid: &windows_core::HSTRING) -> windows_core::Result<PushNotificationTrigger> {
-        Self::IPushNotificationTriggerFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IPushNotificationTriggerFactory<R, F: FnOnce(&IPushNotificationTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<PushNotificationTrigger, IPushNotificationTriggerFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for PushNotificationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
-unsafe impl windows_core::Interface for PushNotificationTrigger {
-    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for PushNotificationTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.PushNotificationTrigger";
-}
-unsafe impl Send for PushNotificationTrigger {}
-unsafe impl Sync for PushNotificationTrigger {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct RcsEndUserMessageAvailableTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(RcsEndUserMessageAvailableTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(RcsEndUserMessageAvailableTrigger, IBackgroundTrigger);
-impl RcsEndUserMessageAvailableTrigger {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<RcsEndUserMessageAvailableTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for RcsEndUserMessageAvailableTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsEndUserMessageAvailableTrigger>();
-}
-unsafe impl windows_core::Interface for RcsEndUserMessageAvailableTrigger {
-    type Vtable = <IRcsEndUserMessageAvailableTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IRcsEndUserMessageAvailableTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for RcsEndUserMessageAvailableTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.RcsEndUserMessageAvailableTrigger";
-}
-unsafe impl Send for RcsEndUserMessageAvailableTrigger {}
-unsafe impl Sync for RcsEndUserMessageAvailableTrigger {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct RfcommConnectionTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(RfcommConnectionTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(RfcommConnectionTrigger, IBackgroundTrigger);
-impl RfcommConnectionTrigger {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<RfcommConnectionTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[cfg(feature = "Devices_Bluetooth_Background")]
-    pub fn InboundConnection(&self) -> windows_core::Result<super::super::Devices::Bluetooth::Background::RfcommInboundConnectionInformation> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InboundConnection)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Devices_Bluetooth_Background")]
-    pub fn OutboundConnection(&self) -> windows_core::Result<super::super::Devices::Bluetooth::Background::RfcommOutboundConnectionInformation> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OutboundConnection)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn AllowMultipleConnections(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AllowMultipleConnections)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetAllowMultipleConnections(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAllowMultipleConnections)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    #[cfg(feature = "Networking_Sockets")]
-    pub fn ProtectionLevel(&self) -> windows_core::Result<super::super::Networking::Sockets::SocketProtectionLevel> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProtectionLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Networking_Sockets")]
-    pub fn SetProtectionLevel(&self, value: super::super::Networking::Sockets::SocketProtectionLevel) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetProtectionLevel)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    #[cfg(feature = "Networking")]
-    pub fn RemoteHostName(&self) -> windows_core::Result<super::super::Networking::HostName> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoteHostName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Networking")]
-    pub fn SetRemoteHostName<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Networking::HostName>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetRemoteHostName)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-}
-impl windows_core::RuntimeType for RfcommConnectionTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRfcommConnectionTrigger>();
-}
-unsafe impl windows_core::Interface for RfcommConnectionTrigger {
-    type Vtable = <IRfcommConnectionTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IRfcommConnectionTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for RfcommConnectionTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.RfcommConnectionTrigger";
-}
-unsafe impl Send for RfcommConnectionTrigger {}
-unsafe impl Sync for RfcommConnectionTrigger {}
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct SecondaryAuthenticationFactorAuthenticationTrigger(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-windows_core::imp::interface_hierarchy!(SecondaryAuthenticationFactorAuthenticationTrigger, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-windows_core::imp::required_hierarchy!(SecondaryAuthenticationFactorAuthenticationTrigger, IBackgroundTrigger);
-#[cfg(feature = "deprecated")]
-impl SecondaryAuthenticationFactorAuthenticationTrigger {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<SecondaryAuthenticationFactorAuthenticationTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for SecondaryAuthenticationFactorAuthenticationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISecondaryAuthenticationFactorAuthenticationTrigger>();
-}
-#[cfg(feature = "deprecated")]
-unsafe impl windows_core::Interface for SecondaryAuthenticationFactorAuthenticationTrigger {
-    type Vtable = <ISecondaryAuthenticationFactorAuthenticationTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ISecondaryAuthenticationFactorAuthenticationTrigger as windows_core::Interface>::IID;
-}
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeName for SecondaryAuthenticationFactorAuthenticationTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.SecondaryAuthenticationFactorAuthenticationTrigger";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct SensorDataThresholdTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SensorDataThresholdTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SensorDataThresholdTrigger, IBackgroundTrigger);
-impl SensorDataThresholdTrigger {
-    #[cfg(feature = "Devices_Sensors")]
-    pub fn Create<P0>(threshold: P0) -> windows_core::Result<SensorDataThresholdTrigger>
-    where
-        P0: windows_core::Param<super::super::Devices::Sensors::ISensorDataThreshold>,
-    {
-        Self::ISensorDataThresholdTriggerFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), threshold.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn ISensorDataThresholdTriggerFactory<R, F: FnOnce(&ISensorDataThresholdTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<SensorDataThresholdTrigger, ISensorDataThresholdTriggerFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for SensorDataThresholdTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISensorDataThresholdTrigger>();
-}
-unsafe impl windows_core::Interface for SensorDataThresholdTrigger {
-    type Vtable = <ISensorDataThresholdTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ISensorDataThresholdTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for SensorDataThresholdTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.SensorDataThresholdTrigger";
-}
-unsafe impl Send for SensorDataThresholdTrigger {}
-unsafe impl Sync for SensorDataThresholdTrigger {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct SmartCardTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SmartCardTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SmartCardTrigger, IBackgroundTrigger);
-impl SmartCardTrigger {
-    #[cfg(feature = "Devices_SmartCards")]
-    pub fn TriggerType(&self) -> windows_core::Result<super::super::Devices::SmartCards::SmartCardTriggerType> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TriggerType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Devices_SmartCards")]
-    pub fn Create(triggertype: super::super::Devices::SmartCards::SmartCardTriggerType) -> windows_core::Result<SmartCardTrigger> {
-        Self::ISmartCardTriggerFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), triggertype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn ISmartCardTriggerFactory<R, F: FnOnce(&ISmartCardTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<SmartCardTrigger, ISmartCardTriggerFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for SmartCardTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardTrigger>();
-}
-unsafe impl windows_core::Interface for SmartCardTrigger {
-    type Vtable = <ISmartCardTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ISmartCardTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for SmartCardTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.SmartCardTrigger";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct SmsMessageReceivedTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SmsMessageReceivedTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
-impl SmsMessageReceivedTrigger {
-    #[cfg(feature = "Devices_Sms")]
-    pub fn Create<P0>(filterrules: P0) -> windows_core::Result<SmsMessageReceivedTrigger>
-    where
-        P0: windows_core::Param<super::super::Devices::Sms::SmsFilterRules>,
-    {
-        Self::ISmsMessageReceivedTriggerFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), filterrules.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn ISmsMessageReceivedTriggerFactory<R, F: FnOnce(&ISmsMessageReceivedTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<SmsMessageReceivedTrigger, ISmsMessageReceivedTriggerFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for SmsMessageReceivedTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
-unsafe impl windows_core::Interface for SmsMessageReceivedTrigger {
-    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for SmsMessageReceivedTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.SmsMessageReceivedTrigger";
-}
-unsafe impl Send for SmsMessageReceivedTrigger {}
-unsafe impl Sync for SmsMessageReceivedTrigger {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct SocketActivityTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SocketActivityTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
-impl SocketActivityTrigger {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<SocketActivityTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn IsWakeFromLowPowerSupported(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<ISocketActivityTrigger>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsWakeFromLowPowerSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for SocketActivityTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
-unsafe impl windows_core::Interface for SocketActivityTrigger {
-    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for SocketActivityTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.SocketActivityTrigger";
-}
-unsafe impl Send for SocketActivityTrigger {}
-unsafe impl Sync for SocketActivityTrigger {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct StorageLibraryChangeTrackerTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(StorageLibraryChangeTrackerTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
-impl StorageLibraryChangeTrackerTrigger {
-    #[cfg(feature = "Storage")]
-    pub fn Create<P0>(tracker: P0) -> windows_core::Result<StorageLibraryChangeTrackerTrigger>
-    where
-        P0: windows_core::Param<super::super::Storage::StorageLibraryChangeTracker>,
-    {
-        Self::IStorageLibraryChangeTrackerTriggerFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), tracker.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IStorageLibraryChangeTrackerTriggerFactory<R, F: FnOnce(&IStorageLibraryChangeTrackerTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<StorageLibraryChangeTrackerTrigger, IStorageLibraryChangeTrackerTriggerFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for StorageLibraryChangeTrackerTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
-unsafe impl windows_core::Interface for StorageLibraryChangeTrackerTrigger {
-    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for StorageLibraryChangeTrackerTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.StorageLibraryChangeTrackerTrigger";
-}
-unsafe impl Send for StorageLibraryChangeTrackerTrigger {}
-unsafe impl Sync for StorageLibraryChangeTrackerTrigger {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct StorageLibraryContentChangedTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(StorageLibraryContentChangedTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(StorageLibraryContentChangedTrigger, IBackgroundTrigger);
-impl StorageLibraryContentChangedTrigger {
-    #[cfg(feature = "Storage")]
-    pub fn Create<P0>(storagelibrary: P0) -> windows_core::Result<StorageLibraryContentChangedTrigger>
-    where
-        P0: windows_core::Param<super::super::Storage::StorageLibrary>,
-    {
-        Self::IStorageLibraryContentChangedTriggerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), storagelibrary.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    pub fn CreateFromLibraries<P0>(storagelibraries: P0) -> windows_core::Result<StorageLibraryContentChangedTrigger>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Storage::StorageLibrary>>,
-    {
-        Self::IStorageLibraryContentChangedTriggerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromLibraries)(windows_core::Interface::as_raw(this), storagelibraries.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IStorageLibraryContentChangedTriggerStatics<R, F: FnOnce(&IStorageLibraryContentChangedTriggerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<StorageLibraryContentChangedTrigger, IStorageLibraryContentChangedTriggerStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for StorageLibraryContentChangedTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageLibraryContentChangedTrigger>();
-}
-unsafe impl windows_core::Interface for StorageLibraryContentChangedTrigger {
-    type Vtable = <IStorageLibraryContentChangedTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IStorageLibraryContentChangedTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for StorageLibraryContentChangedTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.StorageLibraryContentChangedTrigger";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct SystemCondition(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SystemCondition, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SystemCondition, IBackgroundCondition);
-impl SystemCondition {
-    pub fn ConditionType(&self) -> windows_core::Result<SystemConditionType> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConditionType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Create(conditiontype: SystemConditionType) -> windows_core::Result<SystemCondition> {
-        Self::ISystemConditionFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), conditiontype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn ISystemConditionFactory<R, F: FnOnce(&ISystemConditionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<SystemCondition, ISystemConditionFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for SystemCondition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemCondition>();
-}
-unsafe impl windows_core::Interface for SystemCondition {
-    type Vtable = <ISystemCondition as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ISystemCondition as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for SystemCondition {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.SystemCondition";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct SystemTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SystemTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SystemTrigger, IBackgroundTrigger);
-impl SystemTrigger {
-    pub fn OneShot(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OneShot)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn TriggerType(&self) -> windows_core::Result<SystemTriggerType> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TriggerType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Create(triggertype: SystemTriggerType, oneshot: bool) -> windows_core::Result<SystemTrigger> {
-        Self::ISystemTriggerFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), triggertype, oneshot, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn ISystemTriggerFactory<R, F: FnOnce(&ISystemTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<SystemTrigger, ISystemTriggerFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for SystemTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemTrigger>();
-}
-unsafe impl windows_core::Interface for SystemTrigger {
-    type Vtable = <ISystemTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ISystemTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for SystemTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.SystemTrigger";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct TetheringEntitlementCheckTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(TetheringEntitlementCheckTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
-impl TetheringEntitlementCheckTrigger {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<TetheringEntitlementCheckTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for TetheringEntitlementCheckTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
-unsafe impl windows_core::Interface for TetheringEntitlementCheckTrigger {
-    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for TetheringEntitlementCheckTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.TetheringEntitlementCheckTrigger";
-}
-unsafe impl Send for TetheringEntitlementCheckTrigger {}
-unsafe impl Sync for TetheringEntitlementCheckTrigger {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct TimeTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(TimeTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(TimeTrigger, IBackgroundTrigger);
-impl TimeTrigger {
-    pub fn FreshnessTime(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FreshnessTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn OneShot(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OneShot)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Create(freshnesstime: u32, oneshot: bool) -> windows_core::Result<TimeTrigger> {
-        Self::ITimeTriggerFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), freshnesstime, oneshot, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn ITimeTriggerFactory<R, F: FnOnce(&ITimeTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<TimeTrigger, ITimeTriggerFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for TimeTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITimeTrigger>();
-}
-unsafe impl windows_core::Interface for TimeTrigger {
-    type Vtable = <ITimeTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ITimeTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for TimeTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.TimeTrigger";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct ToastNotificationActionTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ToastNotificationActionTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
-impl ToastNotificationActionTrigger {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<ToastNotificationActionTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn Create(applicationid: &windows_core::HSTRING) -> windows_core::Result<ToastNotificationActionTrigger> {
-        Self::IToastNotificationActionTriggerFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IToastNotificationActionTriggerFactory<R, F: FnOnce(&IToastNotificationActionTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<ToastNotificationActionTrigger, IToastNotificationActionTriggerFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for ToastNotificationActionTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
-unsafe impl windows_core::Interface for ToastNotificationActionTrigger {
-    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for ToastNotificationActionTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.ToastNotificationActionTrigger";
-}
-unsafe impl Send for ToastNotificationActionTrigger {}
-unsafe impl Sync for ToastNotificationActionTrigger {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct ToastNotificationHistoryChangedTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ToastNotificationHistoryChangedTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
-impl ToastNotificationHistoryChangedTrigger {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<ToastNotificationHistoryChangedTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn Create(applicationid: &windows_core::HSTRING) -> windows_core::Result<ToastNotificationHistoryChangedTrigger> {
-        Self::IToastNotificationHistoryChangedTriggerFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IToastNotificationHistoryChangedTriggerFactory<R, F: FnOnce(&IToastNotificationHistoryChangedTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<ToastNotificationHistoryChangedTrigger, IToastNotificationHistoryChangedTriggerFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for ToastNotificationHistoryChangedTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
-unsafe impl windows_core::Interface for ToastNotificationHistoryChangedTrigger {
-    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for ToastNotificationHistoryChangedTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.ToastNotificationHistoryChangedTrigger";
-}
-unsafe impl Send for ToastNotificationHistoryChangedTrigger {}
-unsafe impl Sync for ToastNotificationHistoryChangedTrigger {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct UserNotificationChangedTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(UserNotificationChangedTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
-impl UserNotificationChangedTrigger {
-    #[cfg(feature = "UI_Notifications")]
-    pub fn Create(notificationkinds: super::super::UI::Notifications::NotificationKinds) -> windows_core::Result<UserNotificationChangedTrigger> {
-        Self::IUserNotificationChangedTriggerFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), notificationkinds, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IUserNotificationChangedTriggerFactory<R, F: FnOnce(&IUserNotificationChangedTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<UserNotificationChangedTrigger, IUserNotificationChangedTriggerFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for UserNotificationChangedTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
-unsafe impl windows_core::Interface for UserNotificationChangedTrigger {
-    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for UserNotificationChangedTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.UserNotificationChangedTrigger";
-}
-unsafe impl Send for UserNotificationChangedTrigger {}
-unsafe impl Sync for UserNotificationChangedTrigger {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct WiFiOnDemandHotspotConnectTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(WiFiOnDemandHotspotConnectTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
-impl WiFiOnDemandHotspotConnectTrigger {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<WiFiOnDemandHotspotConnectTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for WiFiOnDemandHotspotConnectTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
-unsafe impl windows_core::Interface for WiFiOnDemandHotspotConnectTrigger {
-    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for WiFiOnDemandHotspotConnectTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.WiFiOnDemandHotspotConnectTrigger";
-}
-unsafe impl Send for WiFiOnDemandHotspotConnectTrigger {}
-unsafe impl Sync for WiFiOnDemandHotspotConnectTrigger {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct WiFiOnDemandHotspotUpdateMetadataTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(WiFiOnDemandHotspotUpdateMetadataTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
-impl WiFiOnDemandHotspotUpdateMetadataTrigger {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<WiFiOnDemandHotspotUpdateMetadataTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for WiFiOnDemandHotspotUpdateMetadataTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
-unsafe impl windows_core::Interface for WiFiOnDemandHotspotUpdateMetadataTrigger {
-    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for WiFiOnDemandHotspotUpdateMetadataTrigger {
-    const NAME: &'static str = "Windows.ApplicationModel.Background.WiFiOnDemandHotspotUpdateMetadataTrigger";
-}
-unsafe impl Send for WiFiOnDemandHotspotUpdateMetadataTrigger {}
-unsafe impl Sync for WiFiOnDemandHotspotUpdateMetadataTrigger {}
 windows_core::imp::define_interface!(IActivitySensorTrigger, IActivitySensorTrigger_Vtbl, 0xd0dd4342_e37b_4823_a5fe_6b31dfefdeb0);
 impl windows_core::RuntimeType for IActivitySensorTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -4630,344 +3901,42 @@ pub struct IUserNotificationChangedTriggerFactory_Vtbl {
     #[cfg(not(feature = "UI_Notifications"))]
     Create: usize,
 }
-windows_core::imp::define_interface!(BackgroundTaskCanceledEventHandler, BackgroundTaskCanceledEventHandler_Vtbl, 0xa6c4bac0_51f8_4c57_ac3f_156dd1680c4f);
-impl windows_core::RuntimeType for BackgroundTaskCanceledEventHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-impl BackgroundTaskCanceledEventHandler {
-    pub fn new<F: FnMut(Option<&IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = BackgroundTaskCanceledEventHandlerBox { vtable: &BackgroundTaskCanceledEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
-    }
-    pub fn Invoke<P0>(&self, sender: P0, reason: BackgroundTaskCancellationReason) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IBackgroundTaskInstance>,
-    {
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct LocationTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(LocationTrigger, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(LocationTrigger, IBackgroundTrigger);
+impl LocationTrigger {
+    pub fn TriggerType(&self) -> windows_core::Result<LocationTriggerType> {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), reason).ok() }
-    }
-}
-#[repr(C)]
-pub struct BackgroundTaskCanceledEventHandler_Vtbl {
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, reason: BackgroundTaskCancellationReason) -> windows_core::HRESULT,
-}
-#[repr(C)]
-struct BackgroundTaskCanceledEventHandlerBox<F: FnMut(Option<&IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static> {
-    vtable: *const BackgroundTaskCanceledEventHandler_Vtbl,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
-impl<F: FnMut(Option<&IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static> BackgroundTaskCanceledEventHandlerBox<F> {
-    const VTABLE: BackgroundTaskCanceledEventHandler_Vtbl = BackgroundTaskCanceledEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <BackgroundTaskCanceledEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TriggerType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
+    pub fn Create(triggertype: LocationTriggerType) -> windows_core::Result<LocationTrigger> {
+        Self::ILocationTriggerFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), triggertype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
     }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, reason: BackgroundTaskCancellationReason) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&sender), reason).into()
+    fn ILocationTriggerFactory<R, F: FnOnce(&ILocationTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<LocationTrigger, ILocationTriggerFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
-windows_core::imp::define_interface!(BackgroundTaskCompletedEventHandler, BackgroundTaskCompletedEventHandler_Vtbl, 0x5b38e929_a086_46a7_a678_439135822bcf);
-impl windows_core::RuntimeType for BackgroundTaskCompletedEventHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl windows_core::RuntimeType for LocationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILocationTrigger>();
 }
-impl BackgroundTaskCompletedEventHandler {
-    pub fn new<F: FnMut(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = BackgroundTaskCompletedEventHandlerBox { vtable: &BackgroundTaskCompletedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
-    }
-    pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<BackgroundTaskRegistration>,
-        P1: windows_core::Param<BackgroundTaskCompletedEventArgs>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), args.param().abi()).ok() }
-    }
+unsafe impl windows_core::Interface for LocationTrigger {
+    type Vtable = <ILocationTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ILocationTrigger as windows_core::Interface>::IID;
 }
-#[repr(C)]
-pub struct BackgroundTaskCompletedEventHandler_Vtbl {
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT,
+impl windows_core::RuntimeName for LocationTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.LocationTrigger";
 }
-#[repr(C)]
-struct BackgroundTaskCompletedEventHandlerBox<F: FnMut(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
-    vtable: *const BackgroundTaskCompletedEventHandler_Vtbl,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
-impl<F: FnMut(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static> BackgroundTaskCompletedEventHandlerBox<F> {
-    const VTABLE: BackgroundTaskCompletedEventHandler_Vtbl = BackgroundTaskCompletedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <BackgroundTaskCompletedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&args)).into()
-    }
-}
-windows_core::imp::define_interface!(BackgroundTaskProgressEventHandler, BackgroundTaskProgressEventHandler_Vtbl, 0x46e0683c_8a88_4c99_804c_76897f6277a6);
-impl windows_core::RuntimeType for BackgroundTaskProgressEventHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-impl BackgroundTaskProgressEventHandler {
-    pub fn new<F: FnMut(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = BackgroundTaskProgressEventHandlerBox { vtable: &BackgroundTaskProgressEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
-    }
-    pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<BackgroundTaskRegistration>,
-        P1: windows_core::Param<BackgroundTaskProgressEventArgs>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), args.param().abi()).ok() }
-    }
-}
-#[repr(C)]
-pub struct BackgroundTaskProgressEventHandler_Vtbl {
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(C)]
-struct BackgroundTaskProgressEventHandlerBox<F: FnMut(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static> {
-    vtable: *const BackgroundTaskProgressEventHandler_Vtbl,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
-impl<F: FnMut(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static> BackgroundTaskProgressEventHandlerBox<F> {
-    const VTABLE: BackgroundTaskProgressEventHandler_Vtbl = BackgroundTaskProgressEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <BackgroundTaskProgressEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&args)).into()
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AlarmAccessStatus(pub i32);
-impl AlarmAccessStatus {
-    pub const Unspecified: Self = Self(0i32);
-    pub const AllowedWithWakeupCapability: Self = Self(1i32);
-    pub const AllowedWithoutWakeupCapability: Self = Self(2i32);
-    pub const Denied: Self = Self(3i32);
-}
-impl windows_core::TypeKind for AlarmAccessStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AlarmAccessStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.AlarmAccessStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ApplicationTriggerResult(pub i32);
-impl ApplicationTriggerResult {
-    pub const Allowed: Self = Self(0i32);
-    pub const CurrentlyRunning: Self = Self(1i32);
-    pub const DisabledByPolicy: Self = Self(2i32);
-    pub const UnknownError: Self = Self(3i32);
-}
-impl windows_core::TypeKind for ApplicationTriggerResult {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ApplicationTriggerResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.ApplicationTriggerResult;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BackgroundAccessRequestKind(pub i32);
-impl BackgroundAccessRequestKind {
-    pub const AlwaysAllowed: Self = Self(0i32);
-    pub const AllowedSubjectToSystemPolicy: Self = Self(1i32);
-}
-impl windows_core::TypeKind for BackgroundAccessRequestKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for BackgroundAccessRequestKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundAccessRequestKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BackgroundAccessStatus(pub i32);
-impl BackgroundAccessStatus {
-    pub const Unspecified: Self = Self(0i32);
-    pub const AllowedWithAlwaysOnRealTimeConnectivity: Self = Self(1i32);
-    pub const AllowedMayUseActiveRealTimeConnectivity: Self = Self(2i32);
-    pub const Denied: Self = Self(3i32);
-    pub const AlwaysAllowed: Self = Self(4i32);
-    pub const AllowedSubjectToSystemPolicy: Self = Self(5i32);
-    pub const DeniedBySystemPolicy: Self = Self(6i32);
-    pub const DeniedByUser: Self = Self(7i32);
-}
-impl windows_core::TypeKind for BackgroundAccessStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for BackgroundAccessStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundAccessStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BackgroundTaskCancellationReason(pub i32);
-impl BackgroundTaskCancellationReason {
-    pub const Abort: Self = Self(0i32);
-    pub const Terminating: Self = Self(1i32);
-    pub const LoggingOff: Self = Self(2i32);
-    pub const ServicingUpdate: Self = Self(3i32);
-    pub const IdleTask: Self = Self(4i32);
-    pub const Uninstall: Self = Self(5i32);
-    pub const ConditionLoss: Self = Self(6i32);
-    pub const SystemPolicy: Self = Self(7i32);
-    pub const QuietHoursEntered: Self = Self(8i32);
-    pub const ExecutionTimeExceeded: Self = Self(9i32);
-    pub const ResourceRevocation: Self = Self(10i32);
-    pub const EnergySaver: Self = Self(11i32);
-}
-impl windows_core::TypeKind for BackgroundTaskCancellationReason {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for BackgroundTaskCancellationReason {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundTaskCancellationReason;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BackgroundTaskThrottleCounter(pub i32);
-impl BackgroundTaskThrottleCounter {
-    pub const All: Self = Self(0i32);
-    pub const Cpu: Self = Self(1i32);
-    pub const Network: Self = Self(2i32);
-}
-impl windows_core::TypeKind for BackgroundTaskThrottleCounter {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for BackgroundTaskThrottleCounter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundTaskThrottleCounter;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BackgroundWorkCostValue(pub i32);
-impl BackgroundWorkCostValue {
-    pub const Low: Self = Self(0i32);
-    pub const Medium: Self = Self(1i32);
-    pub const High: Self = Self(2i32);
-}
-impl windows_core::TypeKind for BackgroundWorkCostValue {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for BackgroundWorkCostValue {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundWorkCostValue;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CustomSystemEventTriggerRecurrence(pub i32);
-impl CustomSystemEventTriggerRecurrence {
-    pub const Once: Self = Self(0i32);
-    pub const Always: Self = Self(1i32);
-}
-impl windows_core::TypeKind for CustomSystemEventTriggerRecurrence {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for CustomSystemEventTriggerRecurrence {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.CustomSystemEventTriggerRecurrence;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DeviceTriggerResult(pub i32);
-impl DeviceTriggerResult {
-    pub const Allowed: Self = Self(0i32);
-    pub const DeniedByUser: Self = Self(1i32);
-    pub const DeniedBySystem: Self = Self(2i32);
-    pub const LowBattery: Self = Self(3i32);
-}
-impl windows_core::TypeKind for DeviceTriggerResult {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DeviceTriggerResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.DeviceTriggerResult;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EnergyUseLevel(pub i32);
-impl EnergyUseLevel {
-    pub const Unknown: Self = Self(0i32);
-    pub const UnderHalfOfBudget: Self = Self(1i32);
-    pub const OverHalfOfBudget: Self = Self(2i32);
-    pub const OverBudget: Self = Self(3i32);
-}
-impl windows_core::TypeKind for EnergyUseLevel {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for EnergyUseLevel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.EnergyUseLevel;i4)");
-}
+unsafe impl Send for LocationTrigger {}
+unsafe impl Sync for LocationTrigger {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LocationTriggerType(pub i32);
@@ -4979,6 +3948,89 @@ impl windows_core::TypeKind for LocationTriggerType {
 }
 impl windows_core::RuntimeType for LocationTriggerType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.LocationTriggerType;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MaintenanceTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MaintenanceTrigger, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(MaintenanceTrigger, IBackgroundTrigger);
+impl MaintenanceTrigger {
+    pub fn FreshnessTime(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FreshnessTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn OneShot(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OneShot)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Create(freshnesstime: u32, oneshot: bool) -> windows_core::Result<MaintenanceTrigger> {
+        Self::IMaintenanceTriggerFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), freshnesstime, oneshot, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IMaintenanceTriggerFactory<R, F: FnOnce(&IMaintenanceTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<MaintenanceTrigger, IMaintenanceTriggerFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for MaintenanceTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMaintenanceTrigger>();
+}
+unsafe impl windows_core::Interface for MaintenanceTrigger {
+    type Vtable = <IMaintenanceTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMaintenanceTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MaintenanceTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.MaintenanceTrigger";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MediaProcessingTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MediaProcessingTrigger, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(MediaProcessingTrigger, IBackgroundTrigger);
+impl MediaProcessingTrigger {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<MediaProcessingTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn RequestAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn RequestAsyncWithArguments<P0>(&self, arguments: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::ValueSet>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestAsyncWithArguments)(windows_core::Interface::as_raw(this), arguments.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MediaProcessingTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaProcessingTrigger>();
+}
+unsafe impl windows_core::Interface for MediaProcessingTrigger {
+    type Vtable = <IMediaProcessingTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IMediaProcessingTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MediaProcessingTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.MediaProcessingTrigger";
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4994,6 +4046,698 @@ impl windows_core::TypeKind for MediaProcessingTriggerResult {
 }
 impl windows_core::RuntimeType for MediaProcessingTriggerResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.MediaProcessingTriggerResult;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandDeviceServiceNotificationTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
+impl MobileBroadbandDeviceServiceNotificationTrigger {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<MobileBroadbandDeviceServiceNotificationTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandDeviceServiceNotificationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceNotificationTrigger {
+    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandDeviceServiceNotificationTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandDeviceServiceNotificationTrigger";
+}
+unsafe impl Send for MobileBroadbandDeviceServiceNotificationTrigger {}
+unsafe impl Sync for MobileBroadbandDeviceServiceNotificationTrigger {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandPcoDataChangeTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandPcoDataChangeTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
+impl MobileBroadbandPcoDataChangeTrigger {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<MobileBroadbandPcoDataChangeTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandPcoDataChangeTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandPcoDataChangeTrigger {
+    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandPcoDataChangeTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandPcoDataChangeTrigger";
+}
+unsafe impl Send for MobileBroadbandPcoDataChangeTrigger {}
+unsafe impl Sync for MobileBroadbandPcoDataChangeTrigger {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandPinLockStateChangeTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandPinLockStateChangeTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
+impl MobileBroadbandPinLockStateChangeTrigger {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<MobileBroadbandPinLockStateChangeTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandPinLockStateChangeTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandPinLockStateChangeTrigger {
+    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandPinLockStateChangeTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandPinLockStateChangeTrigger";
+}
+unsafe impl Send for MobileBroadbandPinLockStateChangeTrigger {}
+unsafe impl Sync for MobileBroadbandPinLockStateChangeTrigger {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandRadioStateChangeTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandRadioStateChangeTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
+impl MobileBroadbandRadioStateChangeTrigger {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<MobileBroadbandRadioStateChangeTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandRadioStateChangeTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandRadioStateChangeTrigger {
+    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandRadioStateChangeTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandRadioStateChangeTrigger";
+}
+unsafe impl Send for MobileBroadbandRadioStateChangeTrigger {}
+unsafe impl Sync for MobileBroadbandRadioStateChangeTrigger {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MobileBroadbandRegistrationStateChangeTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandRegistrationStateChangeTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
+impl MobileBroadbandRegistrationStateChangeTrigger {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<MobileBroadbandRegistrationStateChangeTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandRegistrationStateChangeTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandRegistrationStateChangeTrigger {
+    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandRegistrationStateChangeTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandRegistrationStateChangeTrigger";
+}
+unsafe impl Send for MobileBroadbandRegistrationStateChangeTrigger {}
+unsafe impl Sync for MobileBroadbandRegistrationStateChangeTrigger {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct NetworkOperatorDataUsageTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(NetworkOperatorDataUsageTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
+impl NetworkOperatorDataUsageTrigger {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<NetworkOperatorDataUsageTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for NetworkOperatorDataUsageTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
+unsafe impl windows_core::Interface for NetworkOperatorDataUsageTrigger {
+    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for NetworkOperatorDataUsageTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorDataUsageTrigger";
+}
+unsafe impl Send for NetworkOperatorDataUsageTrigger {}
+unsafe impl Sync for NetworkOperatorDataUsageTrigger {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct NetworkOperatorHotspotAuthenticationTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(NetworkOperatorHotspotAuthenticationTrigger, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(NetworkOperatorHotspotAuthenticationTrigger, IBackgroundTrigger);
+impl NetworkOperatorHotspotAuthenticationTrigger {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<NetworkOperatorHotspotAuthenticationTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for NetworkOperatorHotspotAuthenticationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorHotspotAuthenticationTrigger>();
+}
+unsafe impl windows_core::Interface for NetworkOperatorHotspotAuthenticationTrigger {
+    type Vtable = <INetworkOperatorHotspotAuthenticationTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <INetworkOperatorHotspotAuthenticationTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for NetworkOperatorHotspotAuthenticationTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorHotspotAuthenticationTrigger";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct NetworkOperatorNotificationTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(NetworkOperatorNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(NetworkOperatorNotificationTrigger, IBackgroundTrigger);
+impl NetworkOperatorNotificationTrigger {
+    pub fn NetworkAccountId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NetworkAccountId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Create(networkaccountid: &windows_core::HSTRING) -> windows_core::Result<NetworkOperatorNotificationTrigger> {
+        Self::INetworkOperatorNotificationTriggerFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn INetworkOperatorNotificationTriggerFactory<R, F: FnOnce(&INetworkOperatorNotificationTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<NetworkOperatorNotificationTrigger, INetworkOperatorNotificationTriggerFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for NetworkOperatorNotificationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorNotificationTrigger>();
+}
+unsafe impl windows_core::Interface for NetworkOperatorNotificationTrigger {
+    type Vtable = <INetworkOperatorNotificationTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <INetworkOperatorNotificationTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for NetworkOperatorNotificationTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorNotificationTrigger";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PaymentAppCanMakePaymentTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PaymentAppCanMakePaymentTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
+impl PaymentAppCanMakePaymentTrigger {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<PaymentAppCanMakePaymentTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for PaymentAppCanMakePaymentTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
+unsafe impl windows_core::Interface for PaymentAppCanMakePaymentTrigger {
+    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PaymentAppCanMakePaymentTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.PaymentAppCanMakePaymentTrigger";
+}
+unsafe impl Send for PaymentAppCanMakePaymentTrigger {}
+unsafe impl Sync for PaymentAppCanMakePaymentTrigger {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PhoneTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PhoneTrigger, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PhoneTrigger, IBackgroundTrigger);
+impl PhoneTrigger {
+    pub fn OneShot(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OneShot)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "ApplicationModel_Calls_Background")]
+    pub fn TriggerType(&self) -> windows_core::Result<super::Calls::Background::PhoneTriggerType> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TriggerType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "ApplicationModel_Calls_Background")]
+    pub fn Create(r#type: super::Calls::Background::PhoneTriggerType, oneshot: bool) -> windows_core::Result<PhoneTrigger> {
+        Self::IPhoneTriggerFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), r#type, oneshot, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IPhoneTriggerFactory<R, F: FnOnce(&IPhoneTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<PhoneTrigger, IPhoneTriggerFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for PhoneTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneTrigger>();
+}
+unsafe impl windows_core::Interface for PhoneTrigger {
+    type Vtable = <IPhoneTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPhoneTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PhoneTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.PhoneTrigger";
+}
+unsafe impl Send for PhoneTrigger {}
+unsafe impl Sync for PhoneTrigger {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PushNotificationTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PushNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
+impl PushNotificationTrigger {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<PushNotificationTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn Create(applicationid: &windows_core::HSTRING) -> windows_core::Result<PushNotificationTrigger> {
+        Self::IPushNotificationTriggerFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IPushNotificationTriggerFactory<R, F: FnOnce(&IPushNotificationTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<PushNotificationTrigger, IPushNotificationTriggerFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for PushNotificationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
+unsafe impl windows_core::Interface for PushNotificationTrigger {
+    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PushNotificationTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.PushNotificationTrigger";
+}
+unsafe impl Send for PushNotificationTrigger {}
+unsafe impl Sync for PushNotificationTrigger {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct RcsEndUserMessageAvailableTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(RcsEndUserMessageAvailableTrigger, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(RcsEndUserMessageAvailableTrigger, IBackgroundTrigger);
+impl RcsEndUserMessageAvailableTrigger {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<RcsEndUserMessageAvailableTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for RcsEndUserMessageAvailableTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsEndUserMessageAvailableTrigger>();
+}
+unsafe impl windows_core::Interface for RcsEndUserMessageAvailableTrigger {
+    type Vtable = <IRcsEndUserMessageAvailableTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IRcsEndUserMessageAvailableTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for RcsEndUserMessageAvailableTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.RcsEndUserMessageAvailableTrigger";
+}
+unsafe impl Send for RcsEndUserMessageAvailableTrigger {}
+unsafe impl Sync for RcsEndUserMessageAvailableTrigger {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct RfcommConnectionTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(RfcommConnectionTrigger, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(RfcommConnectionTrigger, IBackgroundTrigger);
+impl RfcommConnectionTrigger {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<RfcommConnectionTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[cfg(feature = "Devices_Bluetooth_Background")]
+    pub fn InboundConnection(&self) -> windows_core::Result<super::super::Devices::Bluetooth::Background::RfcommInboundConnectionInformation> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).InboundConnection)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Devices_Bluetooth_Background")]
+    pub fn OutboundConnection(&self) -> windows_core::Result<super::super::Devices::Bluetooth::Background::RfcommOutboundConnectionInformation> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OutboundConnection)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn AllowMultipleConnections(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AllowMultipleConnections)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetAllowMultipleConnections(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetAllowMultipleConnections)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    #[cfg(feature = "Networking_Sockets")]
+    pub fn ProtectionLevel(&self) -> windows_core::Result<super::super::Networking::Sockets::SocketProtectionLevel> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ProtectionLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Networking_Sockets")]
+    pub fn SetProtectionLevel(&self, value: super::super::Networking::Sockets::SocketProtectionLevel) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetProtectionLevel)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    #[cfg(feature = "Networking")]
+    pub fn RemoteHostName(&self) -> windows_core::Result<super::super::Networking::HostName> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RemoteHostName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Networking")]
+    pub fn SetRemoteHostName<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Networking::HostName>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetRemoteHostName)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+}
+impl windows_core::RuntimeType for RfcommConnectionTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRfcommConnectionTrigger>();
+}
+unsafe impl windows_core::Interface for RfcommConnectionTrigger {
+    type Vtable = <IRfcommConnectionTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IRfcommConnectionTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for RfcommConnectionTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.RfcommConnectionTrigger";
+}
+unsafe impl Send for RfcommConnectionTrigger {}
+unsafe impl Sync for RfcommConnectionTrigger {}
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SecondaryAuthenticationFactorAuthenticationTrigger(windows_core::IUnknown);
+#[cfg(feature = "deprecated")]
+windows_core::imp::interface_hierarchy!(SecondaryAuthenticationFactorAuthenticationTrigger, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+windows_core::imp::required_hierarchy!(SecondaryAuthenticationFactorAuthenticationTrigger, IBackgroundTrigger);
+#[cfg(feature = "deprecated")]
+impl SecondaryAuthenticationFactorAuthenticationTrigger {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<SecondaryAuthenticationFactorAuthenticationTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for SecondaryAuthenticationFactorAuthenticationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISecondaryAuthenticationFactorAuthenticationTrigger>();
+}
+#[cfg(feature = "deprecated")]
+unsafe impl windows_core::Interface for SecondaryAuthenticationFactorAuthenticationTrigger {
+    type Vtable = <ISecondaryAuthenticationFactorAuthenticationTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ISecondaryAuthenticationFactorAuthenticationTrigger as windows_core::Interface>::IID;
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeName for SecondaryAuthenticationFactorAuthenticationTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.SecondaryAuthenticationFactorAuthenticationTrigger";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SensorDataThresholdTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(SensorDataThresholdTrigger, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SensorDataThresholdTrigger, IBackgroundTrigger);
+impl SensorDataThresholdTrigger {
+    #[cfg(feature = "Devices_Sensors")]
+    pub fn Create<P0>(threshold: P0) -> windows_core::Result<SensorDataThresholdTrigger>
+    where
+        P0: windows_core::Param<super::super::Devices::Sensors::ISensorDataThreshold>,
+    {
+        Self::ISensorDataThresholdTriggerFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), threshold.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn ISensorDataThresholdTriggerFactory<R, F: FnOnce(&ISensorDataThresholdTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<SensorDataThresholdTrigger, ISensorDataThresholdTriggerFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for SensorDataThresholdTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISensorDataThresholdTrigger>();
+}
+unsafe impl windows_core::Interface for SensorDataThresholdTrigger {
+    type Vtable = <ISensorDataThresholdTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ISensorDataThresholdTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for SensorDataThresholdTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.SensorDataThresholdTrigger";
+}
+unsafe impl Send for SensorDataThresholdTrigger {}
+unsafe impl Sync for SensorDataThresholdTrigger {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SmartCardTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(SmartCardTrigger, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SmartCardTrigger, IBackgroundTrigger);
+impl SmartCardTrigger {
+    #[cfg(feature = "Devices_SmartCards")]
+    pub fn TriggerType(&self) -> windows_core::Result<super::super::Devices::SmartCards::SmartCardTriggerType> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TriggerType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Devices_SmartCards")]
+    pub fn Create(triggertype: super::super::Devices::SmartCards::SmartCardTriggerType) -> windows_core::Result<SmartCardTrigger> {
+        Self::ISmartCardTriggerFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), triggertype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn ISmartCardTriggerFactory<R, F: FnOnce(&ISmartCardTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<SmartCardTrigger, ISmartCardTriggerFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for SmartCardTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardTrigger>();
+}
+unsafe impl windows_core::Interface for SmartCardTrigger {
+    type Vtable = <ISmartCardTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ISmartCardTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for SmartCardTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.SmartCardTrigger";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SmsMessageReceivedTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(SmsMessageReceivedTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
+impl SmsMessageReceivedTrigger {
+    #[cfg(feature = "Devices_Sms")]
+    pub fn Create<P0>(filterrules: P0) -> windows_core::Result<SmsMessageReceivedTrigger>
+    where
+        P0: windows_core::Param<super::super::Devices::Sms::SmsFilterRules>,
+    {
+        Self::ISmsMessageReceivedTriggerFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), filterrules.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn ISmsMessageReceivedTriggerFactory<R, F: FnOnce(&ISmsMessageReceivedTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<SmsMessageReceivedTrigger, ISmsMessageReceivedTriggerFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for SmsMessageReceivedTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
+unsafe impl windows_core::Interface for SmsMessageReceivedTrigger {
+    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for SmsMessageReceivedTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.SmsMessageReceivedTrigger";
+}
+unsafe impl Send for SmsMessageReceivedTrigger {}
+unsafe impl Sync for SmsMessageReceivedTrigger {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SocketActivityTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(SocketActivityTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
+impl SocketActivityTrigger {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<SocketActivityTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn IsWakeFromLowPowerSupported(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<ISocketActivityTrigger>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsWakeFromLowPowerSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for SocketActivityTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
+unsafe impl windows_core::Interface for SocketActivityTrigger {
+    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for SocketActivityTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.SocketActivityTrigger";
+}
+unsafe impl Send for SocketActivityTrigger {}
+unsafe impl Sync for SocketActivityTrigger {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct StorageLibraryChangeTrackerTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(StorageLibraryChangeTrackerTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
+impl StorageLibraryChangeTrackerTrigger {
+    #[cfg(feature = "Storage")]
+    pub fn Create<P0>(tracker: P0) -> windows_core::Result<StorageLibraryChangeTrackerTrigger>
+    where
+        P0: windows_core::Param<super::super::Storage::StorageLibraryChangeTracker>,
+    {
+        Self::IStorageLibraryChangeTrackerTriggerFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), tracker.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IStorageLibraryChangeTrackerTriggerFactory<R, F: FnOnce(&IStorageLibraryChangeTrackerTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<StorageLibraryChangeTrackerTrigger, IStorageLibraryChangeTrackerTriggerFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for StorageLibraryChangeTrackerTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
+unsafe impl windows_core::Interface for StorageLibraryChangeTrackerTrigger {
+    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for StorageLibraryChangeTrackerTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.StorageLibraryChangeTrackerTrigger";
+}
+unsafe impl Send for StorageLibraryChangeTrackerTrigger {}
+unsafe impl Sync for StorageLibraryChangeTrackerTrigger {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct StorageLibraryContentChangedTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(StorageLibraryContentChangedTrigger, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(StorageLibraryContentChangedTrigger, IBackgroundTrigger);
+impl StorageLibraryContentChangedTrigger {
+    #[cfg(feature = "Storage")]
+    pub fn Create<P0>(storagelibrary: P0) -> windows_core::Result<StorageLibraryContentChangedTrigger>
+    where
+        P0: windows_core::Param<super::super::Storage::StorageLibrary>,
+    {
+        Self::IStorageLibraryContentChangedTriggerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), storagelibrary.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
+    pub fn CreateFromLibraries<P0>(storagelibraries: P0) -> windows_core::Result<StorageLibraryContentChangedTrigger>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Storage::StorageLibrary>>,
+    {
+        Self::IStorageLibraryContentChangedTriggerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateFromLibraries)(windows_core::Interface::as_raw(this), storagelibraries.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IStorageLibraryContentChangedTriggerStatics<R, F: FnOnce(&IStorageLibraryContentChangedTriggerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<StorageLibraryContentChangedTrigger, IStorageLibraryContentChangedTriggerStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for StorageLibraryContentChangedTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageLibraryContentChangedTrigger>();
+}
+unsafe impl windows_core::Interface for StorageLibraryContentChangedTrigger {
+    type Vtable = <IStorageLibraryContentChangedTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IStorageLibraryContentChangedTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for StorageLibraryContentChangedTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.StorageLibraryContentChangedTrigger";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SystemCondition(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(SystemCondition, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SystemCondition, IBackgroundCondition);
+impl SystemCondition {
+    pub fn ConditionType(&self) -> windows_core::Result<SystemConditionType> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ConditionType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Create(conditiontype: SystemConditionType) -> windows_core::Result<SystemCondition> {
+        Self::ISystemConditionFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), conditiontype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn ISystemConditionFactory<R, F: FnOnce(&ISystemConditionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<SystemCondition, ISystemConditionFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for SystemCondition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemCondition>();
+}
+unsafe impl windows_core::Interface for SystemCondition {
+    type Vtable = <ISystemCondition as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ISystemCondition as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for SystemCondition {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.SystemCondition";
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5014,6 +4758,47 @@ impl windows_core::TypeKind for SystemConditionType {
 }
 impl windows_core::RuntimeType for SystemConditionType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.SystemConditionType;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SystemTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(SystemTrigger, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SystemTrigger, IBackgroundTrigger);
+impl SystemTrigger {
+    pub fn OneShot(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OneShot)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn TriggerType(&self) -> windows_core::Result<SystemTriggerType> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TriggerType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Create(triggertype: SystemTriggerType, oneshot: bool) -> windows_core::Result<SystemTrigger> {
+        Self::ISystemTriggerFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), triggertype, oneshot, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn ISystemTriggerFactory<R, F: FnOnce(&ISystemTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<SystemTrigger, ISystemTriggerFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for SystemTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemTrigger>();
+}
+unsafe impl windows_core::Interface for SystemTrigger {
+    type Vtable = <ISystemTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ISystemTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for SystemTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.SystemTrigger";
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5042,3 +4827,218 @@ impl windows_core::TypeKind for SystemTriggerType {
 impl windows_core::RuntimeType for SystemTriggerType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.SystemTriggerType;i4)");
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct TetheringEntitlementCheckTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(TetheringEntitlementCheckTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
+impl TetheringEntitlementCheckTrigger {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<TetheringEntitlementCheckTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for TetheringEntitlementCheckTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
+unsafe impl windows_core::Interface for TetheringEntitlementCheckTrigger {
+    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for TetheringEntitlementCheckTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.TetheringEntitlementCheckTrigger";
+}
+unsafe impl Send for TetheringEntitlementCheckTrigger {}
+unsafe impl Sync for TetheringEntitlementCheckTrigger {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct TimeTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(TimeTrigger, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(TimeTrigger, IBackgroundTrigger);
+impl TimeTrigger {
+    pub fn FreshnessTime(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FreshnessTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn OneShot(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OneShot)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Create(freshnesstime: u32, oneshot: bool) -> windows_core::Result<TimeTrigger> {
+        Self::ITimeTriggerFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), freshnesstime, oneshot, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn ITimeTriggerFactory<R, F: FnOnce(&ITimeTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<TimeTrigger, ITimeTriggerFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for TimeTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITimeTrigger>();
+}
+unsafe impl windows_core::Interface for TimeTrigger {
+    type Vtable = <ITimeTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ITimeTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for TimeTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.TimeTrigger";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ToastNotificationActionTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(ToastNotificationActionTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
+impl ToastNotificationActionTrigger {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<ToastNotificationActionTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn Create(applicationid: &windows_core::HSTRING) -> windows_core::Result<ToastNotificationActionTrigger> {
+        Self::IToastNotificationActionTriggerFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IToastNotificationActionTriggerFactory<R, F: FnOnce(&IToastNotificationActionTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<ToastNotificationActionTrigger, IToastNotificationActionTriggerFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for ToastNotificationActionTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
+unsafe impl windows_core::Interface for ToastNotificationActionTrigger {
+    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for ToastNotificationActionTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.ToastNotificationActionTrigger";
+}
+unsafe impl Send for ToastNotificationActionTrigger {}
+unsafe impl Sync for ToastNotificationActionTrigger {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ToastNotificationHistoryChangedTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(ToastNotificationHistoryChangedTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
+impl ToastNotificationHistoryChangedTrigger {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<ToastNotificationHistoryChangedTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn Create(applicationid: &windows_core::HSTRING) -> windows_core::Result<ToastNotificationHistoryChangedTrigger> {
+        Self::IToastNotificationHistoryChangedTriggerFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IToastNotificationHistoryChangedTriggerFactory<R, F: FnOnce(&IToastNotificationHistoryChangedTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<ToastNotificationHistoryChangedTrigger, IToastNotificationHistoryChangedTriggerFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for ToastNotificationHistoryChangedTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
+unsafe impl windows_core::Interface for ToastNotificationHistoryChangedTrigger {
+    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for ToastNotificationHistoryChangedTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.ToastNotificationHistoryChangedTrigger";
+}
+unsafe impl Send for ToastNotificationHistoryChangedTrigger {}
+unsafe impl Sync for ToastNotificationHistoryChangedTrigger {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct UserNotificationChangedTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(UserNotificationChangedTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
+impl UserNotificationChangedTrigger {
+    #[cfg(feature = "UI_Notifications")]
+    pub fn Create(notificationkinds: super::super::UI::Notifications::NotificationKinds) -> windows_core::Result<UserNotificationChangedTrigger> {
+        Self::IUserNotificationChangedTriggerFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), notificationkinds, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IUserNotificationChangedTriggerFactory<R, F: FnOnce(&IUserNotificationChangedTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<UserNotificationChangedTrigger, IUserNotificationChangedTriggerFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for UserNotificationChangedTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
+unsafe impl windows_core::Interface for UserNotificationChangedTrigger {
+    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for UserNotificationChangedTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.UserNotificationChangedTrigger";
+}
+unsafe impl Send for UserNotificationChangedTrigger {}
+unsafe impl Sync for UserNotificationChangedTrigger {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WiFiOnDemandHotspotConnectTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WiFiOnDemandHotspotConnectTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
+impl WiFiOnDemandHotspotConnectTrigger {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WiFiOnDemandHotspotConnectTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for WiFiOnDemandHotspotConnectTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
+unsafe impl windows_core::Interface for WiFiOnDemandHotspotConnectTrigger {
+    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WiFiOnDemandHotspotConnectTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.WiFiOnDemandHotspotConnectTrigger";
+}
+unsafe impl Send for WiFiOnDemandHotspotConnectTrigger {}
+unsafe impl Sync for WiFiOnDemandHotspotConnectTrigger {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WiFiOnDemandHotspotUpdateMetadataTrigger(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WiFiOnDemandHotspotUpdateMetadataTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
+impl WiFiOnDemandHotspotUpdateMetadataTrigger {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WiFiOnDemandHotspotUpdateMetadataTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for WiFiOnDemandHotspotUpdateMetadataTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
+unsafe impl windows_core::Interface for WiFiOnDemandHotspotUpdateMetadataTrigger {
+    type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WiFiOnDemandHotspotUpdateMetadataTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.WiFiOnDemandHotspotUpdateMetadataTrigger";
+}
+unsafe impl Send for WiFiOnDemandHotspotUpdateMetadataTrigger {}
+unsafe impl Sync for WiFiOnDemandHotspotUpdateMetadataTrigger {}

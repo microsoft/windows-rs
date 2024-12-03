@@ -1,3 +1,4 @@
+pub const PERCEPTIONFIELD_StateStream_TimeStamps: windows_core::GUID = windows_core::GUID::from_u128(0xaa886119_f32f_49bf_92ca_f9ddf784d297);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PERCEPTION_PAYLOAD_FIELD {
@@ -27,4 +28,3 @@ impl Default for PERCEPTION_STATE_STREAM_TIMESTAMPS {
 impl windows_core::TypeKind for PERCEPTION_STATE_STREAM_TIMESTAMPS {
     type TypeKind = windows_core::CopyType;
 }
-pub const PERCEPTIONFIELD_StateStream_TimeStamps: windows_core::GUID = windows_core::GUID::from_u128(0xaa886119_f32f_49bf_92ca_f9ddf784d297);

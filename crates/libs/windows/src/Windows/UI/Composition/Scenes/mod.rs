@@ -1,130 +1,412 @@
+windows_core::imp::define_interface!(ISceneBoundingBox, ISceneBoundingBox_Vtbl, 0x5d8ffc70_c618_4083_8251_9962593114aa);
+impl windows_core::RuntimeType for ISceneBoundingBox {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneBoundingBox_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub Center: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    Center: usize,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub Extents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    Extents: usize,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub Max: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    Max: usize,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub Min: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    Min: usize,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    Size: usize,
+}
+windows_core::imp::define_interface!(ISceneComponent, ISceneComponent_Vtbl, 0xae20fc96_226c_44bd_95cb_dd5ed9ebe9a5);
+impl windows_core::RuntimeType for ISceneComponent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneComponent_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ComponentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SceneComponentType) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISceneComponentCollection, ISceneComponentCollection_Vtbl, 0xc483791c_5f46_45e4_b666_a3d2259f9b2e);
+impl windows_core::RuntimeType for ISceneComponentCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneComponentCollection_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(ISceneComponentFactory, ISceneComponentFactory_Vtbl, 0x5fbc5574_ddd8_5889_ab5b_d8fa716e7c9e);
+impl windows_core::RuntimeType for ISceneComponentFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneComponentFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(ISceneMaterial, ISceneMaterial_Vtbl, 0x8ca74b7c_30df_4e07_9490_37875af1a123);
+impl windows_core::RuntimeType for ISceneMaterial {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneMaterial_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(ISceneMaterialFactory, ISceneMaterialFactory_Vtbl, 0x67536c19_a707_5254_a495_7fdc799893b9);
+impl windows_core::RuntimeType for ISceneMaterialFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneMaterialFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(ISceneMaterialInput, ISceneMaterialInput_Vtbl, 0x422a1642_1ef1_485c_97e9_ae6f95ad812f);
+impl windows_core::RuntimeType for ISceneMaterialInput {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneMaterialInput_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(ISceneMaterialInputFactory, ISceneMaterialInputFactory_Vtbl, 0xa88feb74_7d0a_5e4c_a748_1015af9ca74f);
+impl windows_core::RuntimeType for ISceneMaterialInputFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneMaterialInputFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(ISceneMesh, ISceneMesh_Vtbl, 0xee9a1530_1155_4c0c_92bd_40020cf78347);
+impl windows_core::RuntimeType for ISceneMesh {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneMesh_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Bounds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Graphics_DirectX")]
+    pub PrimitiveTopology: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Graphics::DirectX::DirectXPrimitiveTopology) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_DirectX"))]
+    PrimitiveTopology: usize,
+    #[cfg(feature = "Graphics_DirectX")]
+    pub SetPrimitiveTopology: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Graphics::DirectX::DirectXPrimitiveTopology) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_DirectX"))]
+    SetPrimitiveTopology: usize,
+    #[cfg(feature = "Graphics_DirectX")]
+    pub FillMeshAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, SceneAttributeSemantic, super::super::super::Graphics::DirectX::DirectXPixelFormat, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_DirectX"))]
+    FillMeshAttribute: usize,
+}
+windows_core::imp::define_interface!(ISceneMeshMaterialAttributeMap, ISceneMeshMaterialAttributeMap_Vtbl, 0xce843171_3d43_4855_aa69_31ff988d049d);
+impl windows_core::RuntimeType for ISceneMeshMaterialAttributeMap {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneMeshMaterialAttributeMap_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(ISceneMeshRendererComponent, ISceneMeshRendererComponent_Vtbl, 0x9929f7e3_6364_477e_98fe_74ed9fd4c2de);
+impl windows_core::RuntimeType for ISceneMeshRendererComponent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneMeshRendererComponent_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Material: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetMaterial: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Mesh: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetMesh: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub UVMappings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    UVMappings: usize,
+}
+windows_core::imp::define_interface!(ISceneMeshRendererComponentStatics, ISceneMeshRendererComponentStatics_Vtbl, 0x4954f37a_4459_4521_bd6e_2b38b8d711ea);
+impl windows_core::RuntimeType for ISceneMeshRendererComponentStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneMeshRendererComponentStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISceneMeshStatics, ISceneMeshStatics_Vtbl, 0x8412316c_7b57_473f_966b_81dc277b1751);
+impl windows_core::RuntimeType for ISceneMeshStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneMeshStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISceneMetallicRoughnessMaterial, ISceneMetallicRoughnessMaterial_Vtbl, 0xc1d91446_799c_429e_a4e4_5da645f18e61);
+impl windows_core::RuntimeType for ISceneMetallicRoughnessMaterial {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneMetallicRoughnessMaterial_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub BaseColorInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetBaseColorInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub BaseColorFactor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector4) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    BaseColorFactor: usize,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub SetBaseColorFactor: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector4) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    SetBaseColorFactor: usize,
+    pub MetallicFactor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub SetMetallicFactor: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub MetallicRoughnessInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetMetallicRoughnessInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RoughnessFactor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub SetRoughnessFactor: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISceneMetallicRoughnessMaterialStatics, ISceneMetallicRoughnessMaterialStatics_Vtbl, 0x3bddca50_6d9d_4531_8dc4_b27e3e49b7ab);
+impl windows_core::RuntimeType for ISceneMetallicRoughnessMaterialStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneMetallicRoughnessMaterialStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISceneModelTransform, ISceneModelTransform_Vtbl, 0xc05576c2_32b1_4269_980d_b98537100ae4);
+impl windows_core::RuntimeType for ISceneModelTransform {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneModelTransform_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub Orientation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Quaternion) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    Orientation: usize,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub SetOrientation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Quaternion) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    SetOrientation: usize,
+    pub RotationAngle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub SetRotationAngle: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub RotationAngleInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub SetRotationAngleInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub RotationAxis: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    RotationAxis: usize,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub SetRotationAxis: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    SetRotationAxis: usize,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub Scale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    Scale: usize,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub SetScale: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    SetScale: usize,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub Translation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    Translation: usize,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub SetTranslation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    SetTranslation: usize,
+}
+windows_core::imp::define_interface!(ISceneNode, ISceneNode_Vtbl, 0xacf2c247_f307_4581_9c41_af2e29c3b016);
+impl windows_core::RuntimeType for ISceneNode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneNode_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Children: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Children: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Components: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Components: usize,
+    pub Parent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Transform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindFirstComponentOfType: unsafe extern "system" fn(*mut core::ffi::c_void, SceneComponentType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISceneNodeCollection, ISceneNodeCollection_Vtbl, 0x29ada101_2dd9_4332_be63_60d2cf4269f2);
+impl windows_core::RuntimeType for ISceneNodeCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneNodeCollection_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(ISceneNodeStatics, ISceneNodeStatics_Vtbl, 0x579a0faa_be9d_4210_908c_93d15feed0b7);
+impl windows_core::RuntimeType for ISceneNodeStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneNodeStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISceneObject, ISceneObject_Vtbl, 0x1e94249b_0f1b_49eb_a819_877d8450005b);
+impl windows_core::RuntimeType for ISceneObject {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneObject_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(ISceneObjectFactory, ISceneObjectFactory_Vtbl, 0x14fe799a_33e4_52ef_956c_44229d21f2c1);
+impl windows_core::RuntimeType for ISceneObjectFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneObjectFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(IScenePbrMaterial, IScenePbrMaterial_Vtbl, 0xaab6ebbe_d680_46df_8294_b6800a9f95e7);
+impl windows_core::RuntimeType for IScenePbrMaterial {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IScenePbrMaterial_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub AlphaCutoff: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub SetAlphaCutoff: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub AlphaMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SceneAlphaMode) -> windows_core::HRESULT,
+    pub SetAlphaMode: unsafe extern "system" fn(*mut core::ffi::c_void, SceneAlphaMode) -> windows_core::HRESULT,
+    pub EmissiveInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetEmissiveInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub EmissiveFactor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    EmissiveFactor: usize,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub SetEmissiveFactor: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    SetEmissiveFactor: usize,
+    pub IsDoubleSided: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetIsDoubleSided: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub NormalInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetNormalInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub NormalScale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub SetNormalScale: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub OcclusionInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetOcclusionInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OcclusionStrength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub SetOcclusionStrength: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IScenePbrMaterialFactory, IScenePbrMaterialFactory_Vtbl, 0x2e3f3dfe_0b85_5727_b5be_b7d3cbac37fa);
+impl windows_core::RuntimeType for IScenePbrMaterialFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IScenePbrMaterialFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(ISceneRendererComponent, ISceneRendererComponent_Vtbl, 0xf1acb857_cf4f_4025_9b25_a2d1944cf507);
+impl windows_core::RuntimeType for ISceneRendererComponent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneRendererComponent_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(ISceneRendererComponentFactory, ISceneRendererComponentFactory_Vtbl, 0x1db6ed6c_aa2c_5967_9035_56352dc69658);
+impl windows_core::RuntimeType for ISceneRendererComponentFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneRendererComponentFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(ISceneSurfaceMaterialInput, ISceneSurfaceMaterialInput_Vtbl, 0x9937da5c_a9ca_4cfc_b3aa_088356518742);
+impl windows_core::RuntimeType for ISceneSurfaceMaterialInput {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneSurfaceMaterialInput_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub BitmapInterpolationMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::CompositionBitmapInterpolationMode) -> windows_core::HRESULT,
+    pub SetBitmapInterpolationMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::CompositionBitmapInterpolationMode) -> windows_core::HRESULT,
+    pub Surface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub WrappingUMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SceneWrappingMode) -> windows_core::HRESULT,
+    pub SetWrappingUMode: unsafe extern "system" fn(*mut core::ffi::c_void, SceneWrappingMode) -> windows_core::HRESULT,
+    pub WrappingVMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SceneWrappingMode) -> windows_core::HRESULT,
+    pub SetWrappingVMode: unsafe extern "system" fn(*mut core::ffi::c_void, SceneWrappingMode) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISceneSurfaceMaterialInputStatics, ISceneSurfaceMaterialInputStatics_Vtbl, 0x5a2394d3_6429_4589_bbcf_b84f4f3cfbfe);
+impl windows_core::RuntimeType for ISceneSurfaceMaterialInputStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneSurfaceMaterialInputStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISceneVisual, ISceneVisual_Vtbl, 0x8e672c1e_d734_47b1_be14_3d694ffa4301);
+impl windows_core::RuntimeType for ISceneVisual {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneVisual_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Root: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetRoot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISceneVisualStatics, ISceneVisualStatics_Vtbl, 0xb8347e9a_50aa_4527_8d34_de4cb8ea88b4);
+impl windows_core::RuntimeType for ISceneVisualStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISceneVisualStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct SceneObject(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SceneObject, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SceneObject, super::IAnimationObject, super::super::super::Foundation::IClosable, super::CompositionObject);
-impl SceneObject {
-    pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::AnimationPropertyInfo>,
-    {
-        let this = &windows_core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
-    }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn Compositor(&self) -> windows_core::Result<super::Compositor> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Compositor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> windows_core::Result<super::super::Core::CoreDispatcher> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Dispatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Properties(&self) -> windows_core::Result<super::CompositionPropertySet> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn StartAnimation<P1>(&self, propertyname: &windows_core::HSTRING, animation: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::CompositionAnimation>,
-    {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StartAnimation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi()).ok() }
-    }
-    pub fn StopAnimation(&self, propertyname: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StopAnimation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname)).ok() }
-    }
-    pub fn Comment(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Comment)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetComment(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ImplicitAnimations(&self) -> windows_core::Result<super::ImplicitAnimationCollection> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::ImplicitAnimationCollection>,
-    {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetImplicitAnimations)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    pub fn StartAnimationGroup<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::ICompositionAnimationBase>,
-    {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StartAnimationGroup)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    pub fn StopAnimationGroup<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::ICompositionAnimationBase>,
-    {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StopAnimationGroup)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(feature = "System")]
-    pub fn DispatcherQueue(&self) -> windows_core::Result<super::super::super::System::DispatcherQueue> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DispatcherQueue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn TryGetAnimationController(&self, propertyname: &windows_core::HSTRING) -> windows_core::Result<super::AnimationController> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject4>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetAnimationController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn StartAnimationWithController<P1, P2>(&self, propertyname: &windows_core::HSTRING, animation: P1, animationcontroller: P2) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::CompositionAnimation>,
-        P2: windows_core::Param<super::AnimationController>,
-    {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject5>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
-    }
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SceneAlphaMode(pub i32);
+impl SceneAlphaMode {
+    pub const Opaque: Self = Self(0i32);
+    pub const AlphaTest: Self = Self(1i32);
+    pub const Blend: Self = Self(2i32);
 }
-impl windows_core::RuntimeType for SceneObject {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneObject>();
+impl windows_core::TypeKind for SceneAlphaMode {
+    type TypeKind = windows_core::CopyType;
 }
-unsafe impl windows_core::Interface for SceneObject {
-    type Vtable = <ISceneObject as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ISceneObject as windows_core::Interface>::IID;
+impl windows_core::RuntimeType for SceneAlphaMode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneAlphaMode;i4)");
 }
-impl windows_core::RuntimeName for SceneObject {
-    const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneObject";
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SceneAttributeSemantic(pub i32);
+impl SceneAttributeSemantic {
+    pub const Index: Self = Self(0i32);
+    pub const Vertex: Self = Self(1i32);
+    pub const Normal: Self = Self(2i32);
+    pub const TexCoord0: Self = Self(3i32);
+    pub const TexCoord1: Self = Self(4i32);
+    pub const Color: Self = Self(5i32);
+    pub const Tangent: Self = Self(6i32);
 }
-unsafe impl Send for SceneObject {}
-unsafe impl Sync for SceneObject {}
+impl windows_core::TypeKind for SceneAttributeSemantic {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for SceneAttributeSemantic {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneAttributeSemantic;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneBoundingBox(windows_core::IUnknown);
@@ -660,6 +942,18 @@ impl IntoIterator for &SceneComponentCollection {
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SceneComponentType(pub i32);
+impl SceneComponentType {
+    pub const MeshRendererComponent: Self = Self(0i32);
+}
+impl windows_core::TypeKind for SceneComponentType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for SceneComponentType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneComponentType;i4)");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1286,140 +1580,6 @@ impl IntoIterator for &SceneMeshMaterialAttributeMap {
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub struct SceneRendererComponent(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SceneRendererComponent, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SceneRendererComponent, super::IAnimationObject, super::super::super::Foundation::IClosable, SceneComponent, SceneObject, super::CompositionObject);
-impl SceneRendererComponent {
-    pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::AnimationPropertyInfo>,
-    {
-        let this = &windows_core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
-    }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn Compositor(&self) -> windows_core::Result<super::Compositor> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Compositor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> windows_core::Result<super::super::Core::CoreDispatcher> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Dispatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Properties(&self) -> windows_core::Result<super::CompositionPropertySet> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn StartAnimation<P1>(&self, propertyname: &windows_core::HSTRING, animation: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::CompositionAnimation>,
-    {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StartAnimation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi()).ok() }
-    }
-    pub fn StopAnimation(&self, propertyname: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StopAnimation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname)).ok() }
-    }
-    pub fn Comment(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Comment)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetComment(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ImplicitAnimations(&self) -> windows_core::Result<super::ImplicitAnimationCollection> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::ImplicitAnimationCollection>,
-    {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetImplicitAnimations)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    pub fn StartAnimationGroup<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::ICompositionAnimationBase>,
-    {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StartAnimationGroup)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    pub fn StopAnimationGroup<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::ICompositionAnimationBase>,
-    {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StopAnimationGroup)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(feature = "System")]
-    pub fn DispatcherQueue(&self) -> windows_core::Result<super::super::super::System::DispatcherQueue> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DispatcherQueue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn TryGetAnimationController(&self, propertyname: &windows_core::HSTRING) -> windows_core::Result<super::AnimationController> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject4>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetAnimationController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn StartAnimationWithController<P1, P2>(&self, propertyname: &windows_core::HSTRING, animation: P1, animationcontroller: P2) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::CompositionAnimation>,
-        P2: windows_core::Param<super::AnimationController>,
-    {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject5>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
-    }
-    pub fn ComponentType(&self) -> windows_core::Result<SceneComponentType> {
-        let this = &windows_core::Interface::cast::<ISceneComponent>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ComponentType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for SceneRendererComponent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneRendererComponent>();
-}
-unsafe impl windows_core::Interface for SceneRendererComponent {
-    type Vtable = <ISceneRendererComponent as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ISceneRendererComponent as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for SceneRendererComponent {
-    const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneRendererComponent";
-}
-unsafe impl Send for SceneRendererComponent {}
-unsafe impl Sync for SceneRendererComponent {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneMeshRendererComponent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SceneMeshRendererComponent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneMeshRendererComponent, super::IAnimationObject, super::super::super::Foundation::IClosable, SceneRendererComponent, SceneComponent, SceneObject, super::CompositionObject);
@@ -1601,243 +1761,6 @@ impl windows_core::RuntimeName for SceneMeshRendererComponent {
 }
 unsafe impl Send for SceneMeshRendererComponent {}
 unsafe impl Sync for SceneMeshRendererComponent {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct ScenePbrMaterial(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ScenePbrMaterial, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ScenePbrMaterial, super::IAnimationObject, super::super::super::Foundation::IClosable, SceneMaterial, SceneObject, super::CompositionObject);
-impl ScenePbrMaterial {
-    pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::AnimationPropertyInfo>,
-    {
-        let this = &windows_core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
-    }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn Compositor(&self) -> windows_core::Result<super::Compositor> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Compositor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> windows_core::Result<super::super::Core::CoreDispatcher> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Dispatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Properties(&self) -> windows_core::Result<super::CompositionPropertySet> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn StartAnimation<P1>(&self, propertyname: &windows_core::HSTRING, animation: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::CompositionAnimation>,
-    {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StartAnimation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi()).ok() }
-    }
-    pub fn StopAnimation(&self, propertyname: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StopAnimation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname)).ok() }
-    }
-    pub fn Comment(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Comment)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetComment(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ImplicitAnimations(&self) -> windows_core::Result<super::ImplicitAnimationCollection> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::ImplicitAnimationCollection>,
-    {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetImplicitAnimations)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    pub fn StartAnimationGroup<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::ICompositionAnimationBase>,
-    {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StartAnimationGroup)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    pub fn StopAnimationGroup<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::ICompositionAnimationBase>,
-    {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StopAnimationGroup)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(feature = "System")]
-    pub fn DispatcherQueue(&self) -> windows_core::Result<super::super::super::System::DispatcherQueue> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DispatcherQueue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn TryGetAnimationController(&self, propertyname: &windows_core::HSTRING) -> windows_core::Result<super::AnimationController> {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject4>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetAnimationController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn StartAnimationWithController<P1, P2>(&self, propertyname: &windows_core::HSTRING, animation: P1, animationcontroller: P2) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::CompositionAnimation>,
-        P2: windows_core::Param<super::AnimationController>,
-    {
-        let this = &windows_core::Interface::cast::<super::ICompositionObject5>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
-    }
-    pub fn AlphaCutoff(&self) -> windows_core::Result<f32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AlphaCutoff)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetAlphaCutoff(&self, value: f32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAlphaCutoff)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn AlphaMode(&self) -> windows_core::Result<SceneAlphaMode> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AlphaMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetAlphaMode(&self, value: SceneAlphaMode) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAlphaMode)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn EmissiveInput(&self) -> windows_core::Result<SceneMaterialInput> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EmissiveInput)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SetEmissiveInput<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<SceneMaterialInput>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetEmissiveInput)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn EmissiveFactor(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EmissiveFactor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetEmissiveFactor(&self, value: super::super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetEmissiveFactor)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn IsDoubleSided(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsDoubleSided)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetIsDoubleSided(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIsDoubleSided)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn NormalInput(&self) -> windows_core::Result<SceneMaterialInput> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NormalInput)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SetNormalInput<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<SceneMaterialInput>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetNormalInput)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    pub fn NormalScale(&self) -> windows_core::Result<f32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NormalScale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetNormalScale(&self, value: f32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetNormalScale)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn OcclusionInput(&self) -> windows_core::Result<SceneMaterialInput> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OcclusionInput)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SetOcclusionInput<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<SceneMaterialInput>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetOcclusionInput)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    pub fn OcclusionStrength(&self) -> windows_core::Result<f32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OcclusionStrength)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetOcclusionStrength(&self, value: f32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetOcclusionStrength)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-}
-impl windows_core::RuntimeType for ScenePbrMaterial {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScenePbrMaterial>();
-}
-unsafe impl windows_core::Interface for ScenePbrMaterial {
-    type Vtable = <IScenePbrMaterial as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IScenePbrMaterial as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for ScenePbrMaterial {
-    const NAME: &'static str = "Windows.UI.Composition.Scenes.ScenePbrMaterial";
-}
-unsafe impl Send for ScenePbrMaterial {}
-unsafe impl Sync for ScenePbrMaterial {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneMetallicRoughnessMaterial(windows_core::IUnknown);
@@ -2766,6 +2689,504 @@ impl IntoIterator for &SceneNodeCollection {
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SceneObject(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(SceneObject, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SceneObject, super::IAnimationObject, super::super::super::Foundation::IClosable, super::CompositionObject);
+impl SceneObject {
+    pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<super::AnimationPropertyInfo>,
+    {
+        let this = &windows_core::Interface::cast::<super::IAnimationObject>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn Compositor(&self) -> windows_core::Result<super::Compositor> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Compositor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "UI_Core")]
+    pub fn Dispatcher(&self) -> windows_core::Result<super::super::Core::CoreDispatcher> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Dispatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Properties(&self) -> windows_core::Result<super::CompositionPropertySet> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn StartAnimation<P1>(&self, propertyname: &windows_core::HSTRING, animation: P1) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<super::CompositionAnimation>,
+    {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StartAnimation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi()).ok() }
+    }
+    pub fn StopAnimation(&self, propertyname: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StopAnimation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname)).ok() }
+    }
+    pub fn Comment(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Comment)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetComment(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ImplicitAnimations(&self) -> windows_core::Result<super::ImplicitAnimationCollection> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::ImplicitAnimationCollection>,
+    {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetImplicitAnimations)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    pub fn StartAnimationGroup<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::ICompositionAnimationBase>,
+    {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StartAnimationGroup)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    pub fn StopAnimationGroup<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::ICompositionAnimationBase>,
+    {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StopAnimationGroup)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(feature = "System")]
+    pub fn DispatcherQueue(&self) -> windows_core::Result<super::super::super::System::DispatcherQueue> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DispatcherQueue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn TryGetAnimationController(&self, propertyname: &windows_core::HSTRING) -> windows_core::Result<super::AnimationController> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject4>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TryGetAnimationController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn StartAnimationWithController<P1, P2>(&self, propertyname: &windows_core::HSTRING, animation: P1, animationcontroller: P2) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<super::CompositionAnimation>,
+        P2: windows_core::Param<super::AnimationController>,
+    {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject5>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
+    }
+}
+impl windows_core::RuntimeType for SceneObject {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneObject>();
+}
+unsafe impl windows_core::Interface for SceneObject {
+    type Vtable = <ISceneObject as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ISceneObject as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for SceneObject {
+    const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneObject";
+}
+unsafe impl Send for SceneObject {}
+unsafe impl Sync for SceneObject {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ScenePbrMaterial(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(ScenePbrMaterial, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ScenePbrMaterial, super::IAnimationObject, super::super::super::Foundation::IClosable, SceneMaterial, SceneObject, super::CompositionObject);
+impl ScenePbrMaterial {
+    pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<super::AnimationPropertyInfo>,
+    {
+        let this = &windows_core::Interface::cast::<super::IAnimationObject>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn Compositor(&self) -> windows_core::Result<super::Compositor> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Compositor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "UI_Core")]
+    pub fn Dispatcher(&self) -> windows_core::Result<super::super::Core::CoreDispatcher> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Dispatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Properties(&self) -> windows_core::Result<super::CompositionPropertySet> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn StartAnimation<P1>(&self, propertyname: &windows_core::HSTRING, animation: P1) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<super::CompositionAnimation>,
+    {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StartAnimation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi()).ok() }
+    }
+    pub fn StopAnimation(&self, propertyname: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StopAnimation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname)).ok() }
+    }
+    pub fn Comment(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Comment)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetComment(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ImplicitAnimations(&self) -> windows_core::Result<super::ImplicitAnimationCollection> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::ImplicitAnimationCollection>,
+    {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetImplicitAnimations)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    pub fn StartAnimationGroup<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::ICompositionAnimationBase>,
+    {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StartAnimationGroup)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    pub fn StopAnimationGroup<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::ICompositionAnimationBase>,
+    {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StopAnimationGroup)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(feature = "System")]
+    pub fn DispatcherQueue(&self) -> windows_core::Result<super::super::super::System::DispatcherQueue> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DispatcherQueue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn TryGetAnimationController(&self, propertyname: &windows_core::HSTRING) -> windows_core::Result<super::AnimationController> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject4>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TryGetAnimationController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn StartAnimationWithController<P1, P2>(&self, propertyname: &windows_core::HSTRING, animation: P1, animationcontroller: P2) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<super::CompositionAnimation>,
+        P2: windows_core::Param<super::AnimationController>,
+    {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject5>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
+    }
+    pub fn AlphaCutoff(&self) -> windows_core::Result<f32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AlphaCutoff)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetAlphaCutoff(&self, value: f32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetAlphaCutoff)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn AlphaMode(&self) -> windows_core::Result<SceneAlphaMode> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AlphaMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetAlphaMode(&self, value: SceneAlphaMode) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetAlphaMode)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn EmissiveInput(&self) -> windows_core::Result<SceneMaterialInput> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EmissiveInput)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetEmissiveInput<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<SceneMaterialInput>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetEmissiveInput)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(feature = "Foundation_Numerics")]
+    pub fn EmissiveFactor(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EmissiveFactor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Numerics")]
+    pub fn SetEmissiveFactor(&self, value: super::super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetEmissiveFactor)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn IsDoubleSided(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsDoubleSided)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetIsDoubleSided(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetIsDoubleSided)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn NormalInput(&self) -> windows_core::Result<SceneMaterialInput> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NormalInput)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetNormalInput<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<SceneMaterialInput>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetNormalInput)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    pub fn NormalScale(&self) -> windows_core::Result<f32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NormalScale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetNormalScale(&self, value: f32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetNormalScale)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn OcclusionInput(&self) -> windows_core::Result<SceneMaterialInput> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OcclusionInput)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetOcclusionInput<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<SceneMaterialInput>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetOcclusionInput)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    pub fn OcclusionStrength(&self) -> windows_core::Result<f32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OcclusionStrength)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetOcclusionStrength(&self, value: f32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetOcclusionStrength)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl windows_core::RuntimeType for ScenePbrMaterial {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScenePbrMaterial>();
+}
+unsafe impl windows_core::Interface for ScenePbrMaterial {
+    type Vtable = <IScenePbrMaterial as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IScenePbrMaterial as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for ScenePbrMaterial {
+    const NAME: &'static str = "Windows.UI.Composition.Scenes.ScenePbrMaterial";
+}
+unsafe impl Send for ScenePbrMaterial {}
+unsafe impl Sync for ScenePbrMaterial {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SceneRendererComponent(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(SceneRendererComponent, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SceneRendererComponent, super::IAnimationObject, super::super::super::Foundation::IClosable, SceneComponent, SceneObject, super::CompositionObject);
+impl SceneRendererComponent {
+    pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<super::AnimationPropertyInfo>,
+    {
+        let this = &windows_core::Interface::cast::<super::IAnimationObject>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn Compositor(&self) -> windows_core::Result<super::Compositor> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Compositor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "UI_Core")]
+    pub fn Dispatcher(&self) -> windows_core::Result<super::super::Core::CoreDispatcher> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Dispatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Properties(&self) -> windows_core::Result<super::CompositionPropertySet> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn StartAnimation<P1>(&self, propertyname: &windows_core::HSTRING, animation: P1) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<super::CompositionAnimation>,
+    {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StartAnimation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi()).ok() }
+    }
+    pub fn StopAnimation(&self, propertyname: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StopAnimation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname)).ok() }
+    }
+    pub fn Comment(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Comment)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetComment(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ImplicitAnimations(&self) -> windows_core::Result<super::ImplicitAnimationCollection> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::ImplicitAnimationCollection>,
+    {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetImplicitAnimations)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    pub fn StartAnimationGroup<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::ICompositionAnimationBase>,
+    {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StartAnimationGroup)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    pub fn StopAnimationGroup<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::ICompositionAnimationBase>,
+    {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StopAnimationGroup)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(feature = "System")]
+    pub fn DispatcherQueue(&self) -> windows_core::Result<super::super::super::System::DispatcherQueue> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DispatcherQueue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn TryGetAnimationController(&self, propertyname: &windows_core::HSTRING) -> windows_core::Result<super::AnimationController> {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject4>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TryGetAnimationController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn StartAnimationWithController<P1, P2>(&self, propertyname: &windows_core::HSTRING, animation: P1, animationcontroller: P2) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<super::CompositionAnimation>,
+        P2: windows_core::Param<super::AnimationController>,
+    {
+        let this = &windows_core::Interface::cast::<super::ICompositionObject5>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
+    }
+    pub fn ComponentType(&self) -> windows_core::Result<SceneComponentType> {
+        let this = &windows_core::Interface::cast::<ISceneComponent>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ComponentType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for SceneRendererComponent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneRendererComponent>();
+}
+unsafe impl windows_core::Interface for SceneRendererComponent {
+    type Vtable = <ISceneRendererComponent as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ISceneRendererComponent as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for SceneRendererComponent {
+    const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneRendererComponent";
+}
+unsafe impl Send for SceneRendererComponent {}
+unsafe impl Sync for SceneRendererComponent {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneSurfaceMaterialInput(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SceneSurfaceMaterialInput, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneSurfaceMaterialInput, super::IAnimationObject, super::super::super::Foundation::IClosable, SceneMaterialInput, SceneObject, super::CompositionObject);
@@ -3377,427 +3798,6 @@ impl windows_core::RuntimeName for SceneVisual {
 }
 unsafe impl Send for SceneVisual {}
 unsafe impl Sync for SceneVisual {}
-windows_core::imp::define_interface!(ISceneBoundingBox, ISceneBoundingBox_Vtbl, 0x5d8ffc70_c618_4083_8251_9962593114aa);
-impl windows_core::RuntimeType for ISceneBoundingBox {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneBoundingBox_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Center: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Center: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Extents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Extents: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Max: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Max: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Min: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Min: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Size: usize,
-}
-windows_core::imp::define_interface!(ISceneComponent, ISceneComponent_Vtbl, 0xae20fc96_226c_44bd_95cb_dd5ed9ebe9a5);
-impl windows_core::RuntimeType for ISceneComponent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneComponent_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ComponentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SceneComponentType) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISceneComponentCollection, ISceneComponentCollection_Vtbl, 0xc483791c_5f46_45e4_b666_a3d2259f9b2e);
-impl windows_core::RuntimeType for ISceneComponentCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneComponentCollection_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
-windows_core::imp::define_interface!(ISceneComponentFactory, ISceneComponentFactory_Vtbl, 0x5fbc5574_ddd8_5889_ab5b_d8fa716e7c9e);
-impl windows_core::RuntimeType for ISceneComponentFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneComponentFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
-windows_core::imp::define_interface!(ISceneMaterial, ISceneMaterial_Vtbl, 0x8ca74b7c_30df_4e07_9490_37875af1a123);
-impl windows_core::RuntimeType for ISceneMaterial {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneMaterial_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
-windows_core::imp::define_interface!(ISceneMaterialFactory, ISceneMaterialFactory_Vtbl, 0x67536c19_a707_5254_a495_7fdc799893b9);
-impl windows_core::RuntimeType for ISceneMaterialFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneMaterialFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
-windows_core::imp::define_interface!(ISceneMaterialInput, ISceneMaterialInput_Vtbl, 0x422a1642_1ef1_485c_97e9_ae6f95ad812f);
-impl windows_core::RuntimeType for ISceneMaterialInput {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneMaterialInput_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
-windows_core::imp::define_interface!(ISceneMaterialInputFactory, ISceneMaterialInputFactory_Vtbl, 0xa88feb74_7d0a_5e4c_a748_1015af9ca74f);
-impl windows_core::RuntimeType for ISceneMaterialInputFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneMaterialInputFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
-windows_core::imp::define_interface!(ISceneMesh, ISceneMesh_Vtbl, 0xee9a1530_1155_4c0c_92bd_40020cf78347);
-impl windows_core::RuntimeType for ISceneMesh {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneMesh_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Bounds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Graphics_DirectX")]
-    pub PrimitiveTopology: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Graphics::DirectX::DirectXPrimitiveTopology) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Graphics_DirectX"))]
-    PrimitiveTopology: usize,
-    #[cfg(feature = "Graphics_DirectX")]
-    pub SetPrimitiveTopology: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Graphics::DirectX::DirectXPrimitiveTopology) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Graphics_DirectX"))]
-    SetPrimitiveTopology: usize,
-    #[cfg(feature = "Graphics_DirectX")]
-    pub FillMeshAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, SceneAttributeSemantic, super::super::super::Graphics::DirectX::DirectXPixelFormat, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Graphics_DirectX"))]
-    FillMeshAttribute: usize,
-}
-windows_core::imp::define_interface!(ISceneMeshMaterialAttributeMap, ISceneMeshMaterialAttributeMap_Vtbl, 0xce843171_3d43_4855_aa69_31ff988d049d);
-impl windows_core::RuntimeType for ISceneMeshMaterialAttributeMap {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneMeshMaterialAttributeMap_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
-windows_core::imp::define_interface!(ISceneMeshRendererComponent, ISceneMeshRendererComponent_Vtbl, 0x9929f7e3_6364_477e_98fe_74ed9fd4c2de);
-impl windows_core::RuntimeType for ISceneMeshRendererComponent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneMeshRendererComponent_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Material: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetMaterial: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Mesh: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetMesh: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub UVMappings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    UVMappings: usize,
-}
-windows_core::imp::define_interface!(ISceneMeshRendererComponentStatics, ISceneMeshRendererComponentStatics_Vtbl, 0x4954f37a_4459_4521_bd6e_2b38b8d711ea);
-impl windows_core::RuntimeType for ISceneMeshRendererComponentStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneMeshRendererComponentStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISceneMeshStatics, ISceneMeshStatics_Vtbl, 0x8412316c_7b57_473f_966b_81dc277b1751);
-impl windows_core::RuntimeType for ISceneMeshStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneMeshStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISceneMetallicRoughnessMaterial, ISceneMetallicRoughnessMaterial_Vtbl, 0xc1d91446_799c_429e_a4e4_5da645f18e61);
-impl windows_core::RuntimeType for ISceneMetallicRoughnessMaterial {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneMetallicRoughnessMaterial_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub BaseColorInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetBaseColorInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub BaseColorFactor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector4) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    BaseColorFactor: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetBaseColorFactor: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector4) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetBaseColorFactor: usize,
-    pub MetallicFactor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetMetallicFactor: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub MetallicRoughnessInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetMetallicRoughnessInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RoughnessFactor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetRoughnessFactor: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISceneMetallicRoughnessMaterialStatics, ISceneMetallicRoughnessMaterialStatics_Vtbl, 0x3bddca50_6d9d_4531_8dc4_b27e3e49b7ab);
-impl windows_core::RuntimeType for ISceneMetallicRoughnessMaterialStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneMetallicRoughnessMaterialStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISceneModelTransform, ISceneModelTransform_Vtbl, 0xc05576c2_32b1_4269_980d_b98537100ae4);
-impl windows_core::RuntimeType for ISceneModelTransform {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneModelTransform_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Orientation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Quaternion) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Orientation: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetOrientation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Quaternion) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetOrientation: usize,
-    pub RotationAngle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetRotationAngle: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub RotationAngleInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetRotationAngleInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub RotationAxis: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    RotationAxis: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetRotationAxis: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetRotationAxis: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Scale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Scale: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetScale: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetScale: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Translation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Translation: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetTranslation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetTranslation: usize,
-}
-windows_core::imp::define_interface!(ISceneNode, ISceneNode_Vtbl, 0xacf2c247_f307_4581_9c41_af2e29c3b016);
-impl windows_core::RuntimeType for ISceneNode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneNode_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Children: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Children: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Components: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Components: usize,
-    pub Parent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Transform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FindFirstComponentOfType: unsafe extern "system" fn(*mut core::ffi::c_void, SceneComponentType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISceneNodeCollection, ISceneNodeCollection_Vtbl, 0x29ada101_2dd9_4332_be63_60d2cf4269f2);
-impl windows_core::RuntimeType for ISceneNodeCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneNodeCollection_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
-windows_core::imp::define_interface!(ISceneNodeStatics, ISceneNodeStatics_Vtbl, 0x579a0faa_be9d_4210_908c_93d15feed0b7);
-impl windows_core::RuntimeType for ISceneNodeStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneNodeStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISceneObject, ISceneObject_Vtbl, 0x1e94249b_0f1b_49eb_a819_877d8450005b);
-impl windows_core::RuntimeType for ISceneObject {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneObject_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
-windows_core::imp::define_interface!(ISceneObjectFactory, ISceneObjectFactory_Vtbl, 0x14fe799a_33e4_52ef_956c_44229d21f2c1);
-impl windows_core::RuntimeType for ISceneObjectFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneObjectFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
-windows_core::imp::define_interface!(IScenePbrMaterial, IScenePbrMaterial_Vtbl, 0xaab6ebbe_d680_46df_8294_b6800a9f95e7);
-impl windows_core::RuntimeType for IScenePbrMaterial {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IScenePbrMaterial_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub AlphaCutoff: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetAlphaCutoff: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub AlphaMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SceneAlphaMode) -> windows_core::HRESULT,
-    pub SetAlphaMode: unsafe extern "system" fn(*mut core::ffi::c_void, SceneAlphaMode) -> windows_core::HRESULT,
-    pub EmissiveInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetEmissiveInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub EmissiveFactor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    EmissiveFactor: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub SetEmissiveFactor: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    SetEmissiveFactor: usize,
-    pub IsDoubleSided: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetIsDoubleSided: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub NormalInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetNormalInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub NormalScale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetNormalScale: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub OcclusionInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetOcclusionInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub OcclusionStrength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetOcclusionStrength: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IScenePbrMaterialFactory, IScenePbrMaterialFactory_Vtbl, 0x2e3f3dfe_0b85_5727_b5be_b7d3cbac37fa);
-impl windows_core::RuntimeType for IScenePbrMaterialFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IScenePbrMaterialFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
-windows_core::imp::define_interface!(ISceneRendererComponent, ISceneRendererComponent_Vtbl, 0xf1acb857_cf4f_4025_9b25_a2d1944cf507);
-impl windows_core::RuntimeType for ISceneRendererComponent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneRendererComponent_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
-windows_core::imp::define_interface!(ISceneRendererComponentFactory, ISceneRendererComponentFactory_Vtbl, 0x1db6ed6c_aa2c_5967_9035_56352dc69658);
-impl windows_core::RuntimeType for ISceneRendererComponentFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneRendererComponentFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
-windows_core::imp::define_interface!(ISceneSurfaceMaterialInput, ISceneSurfaceMaterialInput_Vtbl, 0x9937da5c_a9ca_4cfc_b3aa_088356518742);
-impl windows_core::RuntimeType for ISceneSurfaceMaterialInput {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneSurfaceMaterialInput_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub BitmapInterpolationMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::CompositionBitmapInterpolationMode) -> windows_core::HRESULT,
-    pub SetBitmapInterpolationMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::CompositionBitmapInterpolationMode) -> windows_core::HRESULT,
-    pub Surface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub WrappingUMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SceneWrappingMode) -> windows_core::HRESULT,
-    pub SetWrappingUMode: unsafe extern "system" fn(*mut core::ffi::c_void, SceneWrappingMode) -> windows_core::HRESULT,
-    pub WrappingVMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SceneWrappingMode) -> windows_core::HRESULT,
-    pub SetWrappingVMode: unsafe extern "system" fn(*mut core::ffi::c_void, SceneWrappingMode) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISceneSurfaceMaterialInputStatics, ISceneSurfaceMaterialInputStatics_Vtbl, 0x5a2394d3_6429_4589_bbcf_b84f4f3cfbfe);
-impl windows_core::RuntimeType for ISceneSurfaceMaterialInputStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneSurfaceMaterialInputStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISceneVisual, ISceneVisual_Vtbl, 0x8e672c1e_d734_47b1_be14_3d694ffa4301);
-impl windows_core::RuntimeType for ISceneVisual {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneVisual_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Root: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetRoot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISceneVisualStatics, ISceneVisualStatics_Vtbl, 0xb8347e9a_50aa_4527_8d34_de4cb8ea88b4);
-impl windows_core::RuntimeType for ISceneVisualStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISceneVisualStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SceneAlphaMode(pub i32);
-impl SceneAlphaMode {
-    pub const Opaque: Self = Self(0i32);
-    pub const AlphaTest: Self = Self(1i32);
-    pub const Blend: Self = Self(2i32);
-}
-impl windows_core::TypeKind for SceneAlphaMode {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for SceneAlphaMode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneAlphaMode;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SceneAttributeSemantic(pub i32);
-impl SceneAttributeSemantic {
-    pub const Index: Self = Self(0i32);
-    pub const Vertex: Self = Self(1i32);
-    pub const Normal: Self = Self(2i32);
-    pub const TexCoord0: Self = Self(3i32);
-    pub const TexCoord1: Self = Self(4i32);
-    pub const Color: Self = Self(5i32);
-    pub const Tangent: Self = Self(6i32);
-}
-impl windows_core::TypeKind for SceneAttributeSemantic {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for SceneAttributeSemantic {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneAttributeSemantic;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SceneComponentType(pub i32);
-impl SceneComponentType {
-    pub const MeshRendererComponent: Self = Self(0i32);
-}
-impl windows_core::TypeKind for SceneComponentType {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for SceneComponentType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneComponentType;i4)");
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SceneWrappingMode(pub i32);

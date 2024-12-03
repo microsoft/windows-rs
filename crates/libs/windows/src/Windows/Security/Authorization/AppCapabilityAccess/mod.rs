@@ -128,6 +128,22 @@ impl windows_core::RuntimeName for AppCapabilityAccessChangedEventArgs {
 }
 unsafe impl Send for AppCapabilityAccessChangedEventArgs {}
 unsafe impl Sync for AppCapabilityAccessChangedEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AppCapabilityAccessStatus(pub i32);
+impl AppCapabilityAccessStatus {
+    pub const DeniedBySystem: Self = Self(0i32);
+    pub const NotDeclaredByApp: Self = Self(1i32);
+    pub const DeniedByUser: Self = Self(2i32);
+    pub const UserPromptRequired: Self = Self(3i32);
+    pub const Allowed: Self = Self(4i32);
+}
+impl windows_core::TypeKind for AppCapabilityAccessStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AppCapabilityAccessStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessStatus;i4)");
+}
 windows_core::imp::define_interface!(IAppCapability, IAppCapability_Vtbl, 0x4c49d915_8a2a_4295_9437_2df7c396aff4);
 impl windows_core::RuntimeType for IAppCapability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -183,20 +199,4 @@ pub struct IAppCapabilityStatics_Vtbl {
     pub CreateWithProcessIdForUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "System"))]
     CreateWithProcessIdForUser: usize,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AppCapabilityAccessStatus(pub i32);
-impl AppCapabilityAccessStatus {
-    pub const DeniedBySystem: Self = Self(0i32);
-    pub const NotDeclaredByApp: Self = Self(1i32);
-    pub const DeniedByUser: Self = Self(2i32);
-    pub const UserPromptRequired: Self = Self(3i32);
-    pub const Allowed: Self = Self(4i32);
-}
-impl windows_core::TypeKind for AppCapabilityAccessStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AppCapabilityAccessStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessStatus;i4)");
 }

@@ -91,8 +91,6 @@ where
     windows_targets::link!("kernel32.dll" "system" fn PostQueuedCompletionStatus(completionport : super::super::Foundation:: HANDLE, dwnumberofbytestransferred : u32, dwcompletionkey : usize, lpoverlapped : *const OVERLAPPED) -> super::super::Foundation:: BOOL);
     PostQueuedCompletionStatus(completionport.param().abi(), core::mem::transmute(dwnumberofbytestransferred), core::mem::transmute(dwcompletionkey), core::mem::transmute(lpoverlapped.unwrap_or(core::ptr::null()))).ok()
 }
-pub type LPOVERLAPPED_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(dwerrorcode: u32, dwnumberofbytestransfered: u32, lpoverlapped: *mut OVERLAPPED)>;
-pub type PIO_APC_ROUTINE = Option<unsafe extern "system" fn(apccontext: *mut core::ffi::c_void, iostatusblock: *mut IO_STATUS_BLOCK, reserved: u32)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IO_STATUS_BLOCK {
@@ -121,6 +119,7 @@ impl Default for IO_STATUS_BLOCK_0 {
 impl windows_core::TypeKind for IO_STATUS_BLOCK_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub type LPOVERLAPPED_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(dwerrorcode: u32, dwnumberofbytestransfered: u32, lpoverlapped: *mut OVERLAPPED)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OVERLAPPED {
@@ -181,3 +180,4 @@ impl Default for OVERLAPPED_ENTRY {
 impl windows_core::TypeKind for OVERLAPPED_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
+pub type PIO_APC_ROUTINE = Option<unsafe extern "system" fn(apccontext: *mut core::ffi::c_void, iostatusblock: *mut IO_STATUS_BLOCK, reserved: u32)>;

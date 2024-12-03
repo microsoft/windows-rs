@@ -63,6 +63,151 @@ windows_targets::link!("mpr.dll" "system" fn WNetUseConnection4A(hwndowner : sup
 windows_targets::link!("mpr.dll" "system" fn WNetUseConnection4W(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEW, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : *const u8, cbuseoptions : u32, lpaccessname : windows_sys::core::PWSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("mpr.dll" "system" fn WNetUseConnectionA(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEA, lppassword : windows_sys::core::PCSTR, lpuserid : windows_sys::core::PCSTR, dwflags : NET_CONNECT_FLAGS, lpaccessname : windows_sys::core::PSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("mpr.dll" "system" fn WNetUseConnectionW(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEW, lppassword : windows_sys::core::PCWSTR, lpuserid : windows_sys::core::PCWSTR, dwflags : NET_CONNECT_FLAGS, lpaccessname : windows_sys::core::PWSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+pub const CONNDLG_CONN_POINT: CONNECTDLGSTRUCT_FLAGS = 2u32;
+pub const CONNDLG_HIDE_BOX: CONNECTDLGSTRUCT_FLAGS = 8u32;
+pub const CONNDLG_NOT_PERSIST: CONNECTDLGSTRUCT_FLAGS = 32u32;
+pub const CONNDLG_PERSIST: CONNECTDLGSTRUCT_FLAGS = 16u32;
+pub const CONNDLG_RO_PATH: CONNECTDLGSTRUCT_FLAGS = 1u32;
+pub const CONNDLG_USE_MRU: CONNECTDLGSTRUCT_FLAGS = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CONNECTDLGSTRUCTA {
+    pub cbStructure: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub lpConnRes: *mut NETRESOURCEA,
+    pub dwFlags: CONNECTDLGSTRUCT_FLAGS,
+    pub dwDevNum: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CONNECTDLGSTRUCTW {
+    pub cbStructure: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub lpConnRes: *mut NETRESOURCEW,
+    pub dwFlags: CONNECTDLGSTRUCT_FLAGS,
+    pub dwDevNum: u32,
+}
+pub type CONNECTDLGSTRUCT_FLAGS = u32;
+pub const CONNECT_CMD_SAVECRED: NET_CONNECT_FLAGS = 4096u32;
+pub const CONNECT_COMMANDLINE: NET_CONNECT_FLAGS = 2048u32;
+pub const CONNECT_CRED_RESET: NET_CONNECT_FLAGS = 8192u32;
+pub const CONNECT_CURRENT_MEDIA: NET_CONNECT_FLAGS = 512u32;
+pub const CONNECT_DEFERRED: NET_CONNECT_FLAGS = 1024u32;
+pub const CONNECT_GLOBAL_MAPPING: NET_CONNECT_FLAGS = 262144u32;
+pub const CONNECT_INTERACTIVE: NET_CONNECT_FLAGS = 8u32;
+pub const CONNECT_LOCALDRIVE: NET_CONNECT_FLAGS = 256u32;
+pub const CONNECT_NEED_DRIVE: NET_CONNECT_FLAGS = 32u32;
+pub const CONNECT_PROMPT: NET_CONNECT_FLAGS = 16u32;
+pub const CONNECT_REDIRECT: NET_CONNECT_FLAGS = 128u32;
+pub const CONNECT_REFCOUNT: NET_CONNECT_FLAGS = 64u32;
+pub const CONNECT_REQUIRE_INTEGRITY: NET_CONNECT_FLAGS = 16384u32;
+pub const CONNECT_REQUIRE_PRIVACY: NET_CONNECT_FLAGS = 32768u32;
+pub const CONNECT_RESERVED: NET_CONNECT_FLAGS = 4278190080u32;
+pub const CONNECT_TEMPORARY: NET_CONNECT_FLAGS = 4u32;
+pub const CONNECT_UPDATE_PROFILE: NET_CONNECT_FLAGS = 1u32;
+pub const CONNECT_UPDATE_RECENT: NET_CONNECT_FLAGS = 2u32;
+pub const CONNECT_WRITE_THROUGH_SEMANTICS: NET_CONNECT_FLAGS = 65536u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DISCDLGSTRUCTA {
+    pub cbStructure: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub lpLocalName: windows_sys::core::PSTR,
+    pub lpRemoteName: windows_sys::core::PSTR,
+    pub dwFlags: DISCDLGSTRUCT_FLAGS,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DISCDLGSTRUCTW {
+    pub cbStructure: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub lpLocalName: windows_sys::core::PWSTR,
+    pub lpRemoteName: windows_sys::core::PWSTR,
+    pub dwFlags: DISCDLGSTRUCT_FLAGS,
+}
+pub type DISCDLGSTRUCT_FLAGS = u32;
+pub const DISC_NO_FORCE: DISCDLGSTRUCT_FLAGS = 64u32;
+pub const DISC_UPDATE_PROFILE: DISCDLGSTRUCT_FLAGS = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETCONNECTINFOSTRUCT {
+    pub cbStructure: u32,
+    pub dwFlags: u32,
+    pub dwSpeed: u32,
+    pub dwDelay: u32,
+    pub dwOptDataSize: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETINFOSTRUCT {
+    pub cbStructure: u32,
+    pub dwProviderVersion: u32,
+    pub dwStatus: super::super::Foundation::WIN32_ERROR,
+    pub dwCharacteristics: NETINFOSTRUCT_CHARACTERISTICS,
+    pub dwHandle: usize,
+    pub wNetType: u16,
+    pub dwPrinters: u32,
+    pub dwDrives: u32,
+}
+pub type NETINFOSTRUCT_CHARACTERISTICS = u32;
+pub const NETINFO_DISKRED: NETINFOSTRUCT_CHARACTERISTICS = 4u32;
+pub const NETINFO_DLL16: NETINFOSTRUCT_CHARACTERISTICS = 1u32;
+pub const NETINFO_PRINTERRED: NETINFOSTRUCT_CHARACTERISTICS = 8u32;
+pub const NETPROPERTY_PERSISTENT: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETRESOURCEA {
+    pub dwScope: NET_RESOURCE_SCOPE,
+    pub dwType: NET_RESOURCE_TYPE,
+    pub dwDisplayType: u32,
+    pub dwUsage: u32,
+    pub lpLocalName: windows_sys::core::PSTR,
+    pub lpRemoteName: windows_sys::core::PSTR,
+    pub lpComment: windows_sys::core::PSTR,
+    pub lpProvider: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NETRESOURCEW {
+    pub dwScope: NET_RESOURCE_SCOPE,
+    pub dwType: NET_RESOURCE_TYPE,
+    pub dwDisplayType: u32,
+    pub dwUsage: u32,
+    pub lpLocalName: windows_sys::core::PWSTR,
+    pub lpRemoteName: windows_sys::core::PWSTR,
+    pub lpComment: windows_sys::core::PWSTR,
+    pub lpProvider: windows_sys::core::PWSTR,
+}
+pub type NETWORK_NAME_FORMAT_FLAGS = u32;
+pub type NET_CONNECT_FLAGS = u32;
+pub type NET_RESOURCE_SCOPE = u32;
+pub type NET_RESOURCE_TYPE = u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NOTIFYADD {
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub NetResource: NETRESOURCEA,
+    pub dwAddFlags: NET_CONNECT_FLAGS,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NOTIFYCANCEL {
+    pub lpName: windows_sys::core::PWSTR,
+    pub lpProvider: windows_sys::core::PWSTR,
+    pub dwFlags: u32,
+    pub fForce: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NOTIFYINFO {
+    pub dwNotifyStatus: u32,
+    pub dwOperationStatus: u32,
+    pub lpContext: *mut core::ffi::c_void,
+}
+pub const NOTIFY_POST: u32 = 2u32;
+pub const NOTIFY_PRE: u32 = 1u32;
+pub type NPDIRECTORY_NOTIFY_OPERATION = u32;
+pub type NP_PROPERTY_DIALOG_SELECTION = u32;
 pub type PF_AddConnectNotify = Option<unsafe extern "system" fn(lpnotifyinfo: *mut NOTIFYINFO, lpaddinfo: *const NOTIFYADD) -> u32>;
 pub type PF_CancelConnectNotify = Option<unsafe extern "system" fn(lpnotifyinfo: *mut NOTIFYINFO, lpcancelinfo: *const NOTIFYCANCEL) -> u32>;
 pub type PF_NPAddConnection = Option<unsafe extern "system" fn(lpnetresource: *const NETRESOURCEW, lppassword: windows_sys::core::PCWSTR, lpusername: windows_sys::core::PCWSTR) -> u32>;
@@ -94,121 +239,6 @@ pub type PF_NPOpenEnum = Option<unsafe extern "system" fn(dwscope: u32, dwtype: 
 pub type PF_NPPasswordChangeNotify = Option<unsafe extern "system" fn(lpauthentinfotype: windows_sys::core::PCWSTR, lpauthentinfo: *const core::ffi::c_void, lppreviousauthentinfotype: windows_sys::core::PCWSTR, lppreviousauthentinfo: *const core::ffi::c_void, lpstationname: windows_sys::core::PCWSTR, stationhandle: *const core::ffi::c_void, dwchangeinfo: u32) -> u32>;
 pub type PF_NPPropertyDialog = Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, ibuttondlg: u32, npropsel: u32, lpfilename: windows_sys::core::PCWSTR, ntype: u32) -> u32>;
 pub type PF_NPSearchDialog = Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, lpbuffer: *mut core::ffi::c_void, cbbuffer: u32, lpnflags: *mut u32) -> u32>;
-pub type CONNECTDLGSTRUCT_FLAGS = u32;
-pub type DISCDLGSTRUCT_FLAGS = u32;
-pub type NETINFOSTRUCT_CHARACTERISTICS = u32;
-pub type NETWORK_NAME_FORMAT_FLAGS = u32;
-pub type NET_CONNECT_FLAGS = u32;
-pub type NET_RESOURCE_SCOPE = u32;
-pub type NET_RESOURCE_TYPE = u32;
-pub type NPDIRECTORY_NOTIFY_OPERATION = u32;
-pub type NP_PROPERTY_DIALOG_SELECTION = u32;
-pub type UNC_INFO_LEVEL = u32;
-pub type WNET_OPEN_ENUM_USAGE = u32;
-pub type WNPERM_DLG = u32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CONNECTDLGSTRUCTA {
-    pub cbStructure: u32,
-    pub hwndOwner: super::super::Foundation::HWND,
-    pub lpConnRes: *mut NETRESOURCEA,
-    pub dwFlags: CONNECTDLGSTRUCT_FLAGS,
-    pub dwDevNum: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CONNECTDLGSTRUCTW {
-    pub cbStructure: u32,
-    pub hwndOwner: super::super::Foundation::HWND,
-    pub lpConnRes: *mut NETRESOURCEW,
-    pub dwFlags: CONNECTDLGSTRUCT_FLAGS,
-    pub dwDevNum: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DISCDLGSTRUCTA {
-    pub cbStructure: u32,
-    pub hwndOwner: super::super::Foundation::HWND,
-    pub lpLocalName: windows_sys::core::PSTR,
-    pub lpRemoteName: windows_sys::core::PSTR,
-    pub dwFlags: DISCDLGSTRUCT_FLAGS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DISCDLGSTRUCTW {
-    pub cbStructure: u32,
-    pub hwndOwner: super::super::Foundation::HWND,
-    pub lpLocalName: windows_sys::core::PWSTR,
-    pub lpRemoteName: windows_sys::core::PWSTR,
-    pub dwFlags: DISCDLGSTRUCT_FLAGS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETCONNECTINFOSTRUCT {
-    pub cbStructure: u32,
-    pub dwFlags: u32,
-    pub dwSpeed: u32,
-    pub dwDelay: u32,
-    pub dwOptDataSize: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETINFOSTRUCT {
-    pub cbStructure: u32,
-    pub dwProviderVersion: u32,
-    pub dwStatus: super::super::Foundation::WIN32_ERROR,
-    pub dwCharacteristics: NETINFOSTRUCT_CHARACTERISTICS,
-    pub dwHandle: usize,
-    pub wNetType: u16,
-    pub dwPrinters: u32,
-    pub dwDrives: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETRESOURCEA {
-    pub dwScope: NET_RESOURCE_SCOPE,
-    pub dwType: NET_RESOURCE_TYPE,
-    pub dwDisplayType: u32,
-    pub dwUsage: u32,
-    pub lpLocalName: windows_sys::core::PSTR,
-    pub lpRemoteName: windows_sys::core::PSTR,
-    pub lpComment: windows_sys::core::PSTR,
-    pub lpProvider: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NETRESOURCEW {
-    pub dwScope: NET_RESOURCE_SCOPE,
-    pub dwType: NET_RESOURCE_TYPE,
-    pub dwDisplayType: u32,
-    pub dwUsage: u32,
-    pub lpLocalName: windows_sys::core::PWSTR,
-    pub lpRemoteName: windows_sys::core::PWSTR,
-    pub lpComment: windows_sys::core::PWSTR,
-    pub lpProvider: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NOTIFYADD {
-    pub hwndOwner: super::super::Foundation::HWND,
-    pub NetResource: NETRESOURCEA,
-    pub dwAddFlags: NET_CONNECT_FLAGS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NOTIFYCANCEL {
-    pub lpName: windows_sys::core::PWSTR,
-    pub lpProvider: windows_sys::core::PWSTR,
-    pub dwFlags: u32,
-    pub fForce: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NOTIFYINFO {
-    pub dwNotifyStatus: u32,
-    pub dwOperationStatus: u32,
-    pub lpContext: *mut core::ffi::c_void,
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct REMOTE_NAME_INFOA {
@@ -223,49 +253,6 @@ pub struct REMOTE_NAME_INFOW {
     pub lpConnectionName: windows_sys::core::PWSTR,
     pub lpRemainingPath: windows_sys::core::PWSTR,
 }
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UNIVERSAL_NAME_INFOA {
-    pub lpUniversalName: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct UNIVERSAL_NAME_INFOW {
-    pub lpUniversalName: windows_sys::core::PWSTR,
-}
-pub const CONNDLG_CONN_POINT: CONNECTDLGSTRUCT_FLAGS = 2u32;
-pub const CONNDLG_HIDE_BOX: CONNECTDLGSTRUCT_FLAGS = 8u32;
-pub const CONNDLG_NOT_PERSIST: CONNECTDLGSTRUCT_FLAGS = 32u32;
-pub const CONNDLG_PERSIST: CONNECTDLGSTRUCT_FLAGS = 16u32;
-pub const CONNDLG_RO_PATH: CONNECTDLGSTRUCT_FLAGS = 1u32;
-pub const CONNDLG_USE_MRU: CONNECTDLGSTRUCT_FLAGS = 4u32;
-pub const CONNECT_CMD_SAVECRED: NET_CONNECT_FLAGS = 4096u32;
-pub const CONNECT_COMMANDLINE: NET_CONNECT_FLAGS = 2048u32;
-pub const CONNECT_CRED_RESET: NET_CONNECT_FLAGS = 8192u32;
-pub const CONNECT_CURRENT_MEDIA: NET_CONNECT_FLAGS = 512u32;
-pub const CONNECT_DEFERRED: NET_CONNECT_FLAGS = 1024u32;
-pub const CONNECT_GLOBAL_MAPPING: NET_CONNECT_FLAGS = 262144u32;
-pub const CONNECT_INTERACTIVE: NET_CONNECT_FLAGS = 8u32;
-pub const CONNECT_LOCALDRIVE: NET_CONNECT_FLAGS = 256u32;
-pub const CONNECT_NEED_DRIVE: NET_CONNECT_FLAGS = 32u32;
-pub const CONNECT_PROMPT: NET_CONNECT_FLAGS = 16u32;
-pub const CONNECT_REDIRECT: NET_CONNECT_FLAGS = 128u32;
-pub const CONNECT_REFCOUNT: NET_CONNECT_FLAGS = 64u32;
-pub const CONNECT_REQUIRE_INTEGRITY: NET_CONNECT_FLAGS = 16384u32;
-pub const CONNECT_REQUIRE_PRIVACY: NET_CONNECT_FLAGS = 32768u32;
-pub const CONNECT_RESERVED: NET_CONNECT_FLAGS = 4278190080u32;
-pub const CONNECT_TEMPORARY: NET_CONNECT_FLAGS = 4u32;
-pub const CONNECT_UPDATE_PROFILE: NET_CONNECT_FLAGS = 1u32;
-pub const CONNECT_UPDATE_RECENT: NET_CONNECT_FLAGS = 2u32;
-pub const CONNECT_WRITE_THROUGH_SEMANTICS: NET_CONNECT_FLAGS = 65536u32;
-pub const DISC_NO_FORCE: DISCDLGSTRUCT_FLAGS = 64u32;
-pub const DISC_UPDATE_PROFILE: DISCDLGSTRUCT_FLAGS = 1u32;
-pub const NETINFO_DISKRED: NETINFOSTRUCT_CHARACTERISTICS = 4u32;
-pub const NETINFO_DLL16: NETINFOSTRUCT_CHARACTERISTICS = 1u32;
-pub const NETINFO_PRINTERRED: NETINFOSTRUCT_CHARACTERISTICS = 8u32;
-pub const NETPROPERTY_PERSISTENT: u32 = 1u32;
-pub const NOTIFY_POST: u32 = 2u32;
-pub const NOTIFY_PRE: u32 = 1u32;
 pub const REMOTE_NAME_INFO_LEVEL: UNC_INFO_LEVEL = 2u32;
 pub const RESOURCEDISPLAYTYPE_DIRECTORY: u32 = 9u32;
 pub const RESOURCEDISPLAYTYPE_NDSCONTAINER: u32 = 11u32;
@@ -290,6 +277,17 @@ pub const RESOURCE_CONTEXT: NET_RESOURCE_SCOPE = 5u32;
 pub const RESOURCE_GLOBALNET: NET_RESOURCE_SCOPE = 2u32;
 pub const RESOURCE_RECENT: u32 = 4u32;
 pub const RESOURCE_REMEMBERED: NET_RESOURCE_SCOPE = 3u32;
+pub type UNC_INFO_LEVEL = u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UNIVERSAL_NAME_INFOA {
+    pub lpUniversalName: windows_sys::core::PSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct UNIVERSAL_NAME_INFOW {
+    pub lpUniversalName: windows_sys::core::PWSTR,
+}
 pub const UNIVERSAL_NAME_INFO_LEVEL: UNC_INFO_LEVEL = 1u32;
 pub const WNCON_DYNAMIC: u32 = 8u32;
 pub const WNCON_FORNETCARD: u32 = 1u32;
@@ -300,6 +298,7 @@ pub const WNDN_MVDIR: NPDIRECTORY_NOTIFY_OPERATION = 3u32;
 pub const WNDN_RMDIR: NPDIRECTORY_NOTIFY_OPERATION = 2u32;
 pub const WNDT_NETWORK: u32 = 1u32;
 pub const WNDT_NORMAL: u32 = 0u32;
+pub type WNET_OPEN_ENUM_USAGE = u32;
 pub const WNFMT_ABBREVIATED: NETWORK_NAME_FORMAT_FLAGS = 2u32;
 pub const WNFMT_CONNECTION: u32 = 32u32;
 pub const WNFMT_INENUM: u32 = 16u32;
@@ -344,6 +343,7 @@ pub const WNNC_WAIT_FOR_START: u32 = 1u32;
 pub const WNPERMC_AUDIT: u32 = 2u32;
 pub const WNPERMC_OWNER: u32 = 4u32;
 pub const WNPERMC_PERM: u32 = 1u32;
+pub type WNPERM_DLG = u32;
 pub const WNPERM_DLG_AUDIT: WNPERM_DLG = 1u32;
 pub const WNPERM_DLG_OWNER: WNPERM_DLG = 2u32;
 pub const WNPERM_DLG_PERM: WNPERM_DLG = 0u32;

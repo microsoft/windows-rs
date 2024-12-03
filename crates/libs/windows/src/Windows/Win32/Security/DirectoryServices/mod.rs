@@ -46,6 +46,13 @@ where
     windows_targets::link!("dssec.dll" "system" fn DSEditSecurity(hwndowner : super::super::Foundation:: HWND, pwszobjectpath : windows_core::PCWSTR, pwszobjectclass : windows_core::PCWSTR, dwflags : u32, pwszcaption : windows_core::PCWSTR, pfnreadsd : PFNREADOBJECTSECURITY, pfnwritesd : PFNWRITEOBJECTSECURITY, lpcontext : super::super::Foundation:: LPARAM) -> windows_core::HRESULT);
     DSEditSecurity(hwndowner.param().abi(), pwszobjectpath.param().abi(), pwszobjectclass.param().abi(), core::mem::transmute(dwflags), pwszcaption.param().abi(), core::mem::transmute(pfnreadsd), core::mem::transmute(pfnwritesd), lpcontext.param().abi()).ok()
 }
+pub const DSSI_IS_ROOT: u32 = 16u32;
+pub const DSSI_NO_ACCESS_CHECK: u32 = 2u32;
+pub const DSSI_NO_EDIT_OWNER: u32 = 8u32;
+pub const DSSI_NO_EDIT_SACL: u32 = 4u32;
+pub const DSSI_NO_FILTER: u32 = 32u32;
+pub const DSSI_NO_READONLY_MESSAGE: u32 = 64u32;
+pub const DSSI_READ_ONLY: u32 = 1u32;
 #[cfg(feature = "Win32_Security_Authorization_UI")]
 pub type PFNDSCREATEISECINFO = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR, param1: windows_core::PCWSTR, param2: u32, param3: *mut Option<super::Authorization::UI::ISecurityInformation>, param4: PFNREADOBJECTSECURITY, param5: PFNWRITEOBJECTSECURITY, param6: super::super::Foundation::LPARAM) -> windows_core::HRESULT>;
 #[cfg(feature = "Win32_Security_Authorization_UI")]
@@ -55,10 +62,3 @@ pub type PFNDSCREATESECPAGE = Option<unsafe extern "system" fn(param0: windows_c
 pub type PFNDSEDITSECURITY = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_core::PCWSTR, param2: windows_core::PCWSTR, param3: u32, param4: windows_core::PCWSTR, param5: PFNREADOBJECTSECURITY, param6: PFNWRITEOBJECTSECURITY, param7: super::super::Foundation::LPARAM) -> windows_core::HRESULT>;
 pub type PFNREADOBJECTSECURITY = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR, param1: u32, param2: *mut super::PSECURITY_DESCRIPTOR, param3: super::super::Foundation::LPARAM) -> windows_core::HRESULT>;
 pub type PFNWRITEOBJECTSECURITY = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR, param1: u32, param2: super::PSECURITY_DESCRIPTOR, param3: super::super::Foundation::LPARAM) -> windows_core::HRESULT>;
-pub const DSSI_IS_ROOT: u32 = 16u32;
-pub const DSSI_NO_ACCESS_CHECK: u32 = 2u32;
-pub const DSSI_NO_EDIT_OWNER: u32 = 8u32;
-pub const DSSI_NO_EDIT_SACL: u32 = 4u32;
-pub const DSSI_NO_FILTER: u32 = 32u32;
-pub const DSSI_NO_READONLY_MESSAGE: u32 = 64u32;
-pub const DSSI_READ_ONLY: u32 = 1u32;

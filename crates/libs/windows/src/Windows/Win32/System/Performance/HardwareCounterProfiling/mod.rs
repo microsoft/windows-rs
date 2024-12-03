@@ -30,9 +30,6 @@ where
     windows_targets::link!("kernel32.dll" "system" fn ReadThreadProfilingData(performancedatahandle : super::super::super::Foundation:: HANDLE, flags : u32, performancedata : *mut PERFORMANCE_DATA) -> u32);
     ReadThreadProfilingData(performancedatahandle.param().abi(), core::mem::transmute(flags), core::mem::transmute(performancedata))
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HARDWARE_COUNTER_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HARDWARE_COUNTER_DATA {
@@ -48,6 +45,10 @@ impl Default for HARDWARE_COUNTER_DATA {
 impl windows_core::TypeKind for HARDWARE_COUNTER_DATA {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HARDWARE_COUNTER_TYPE(pub i32);
+pub const MaxHardwareCounterType: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PERFORMANCE_DATA {
@@ -69,5 +70,4 @@ impl Default for PERFORMANCE_DATA {
 impl windows_core::TypeKind for PERFORMANCE_DATA {
     type TypeKind = windows_core::CopyType;
 }
-pub const MaxHardwareCounterType: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(1i32);
 pub const PMCCounter: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(0i32);

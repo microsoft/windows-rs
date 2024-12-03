@@ -182,18 +182,12 @@ where
     windows_targets::link!("ntdll.dll" "system" fn ZwWaitForSingleObject(handle : super::super::super::Win32::Foundation:: HANDLE, alertable : super::super::super::Win32::Foundation:: BOOLEAN, timeout : *const i64) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwWaitForSingleObject(handle.param().abi(), alertable.param().abi(), core::mem::transmute(timeout.unwrap_or(core::ptr::null())))
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROCESSINFOCLASS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct THREADINFOCLASS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TIMER_SET_INFORMATION_CLASS(pub i32);
 pub const MaxProcessInfoClass: PROCESSINFOCLASS = PROCESSINFOCLASS(83i32);
 pub const MaxThreadInfoClass: THREADINFOCLASS = THREADINFOCLASS(56i32);
 pub const MaxTimerInfoClass: TIMER_SET_INFORMATION_CLASS = TIMER_SET_INFORMATION_CLASS(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PROCESSINFOCLASS(pub i32);
 pub const ProcessAccessToken: PROCESSINFOCLASS = PROCESSINFOCLASS(9i32);
 pub const ProcessAffinityMask: PROCESSINFOCLASS = PROCESSINFOCLASS(21i32);
 pub const ProcessAffinityUpdateMode: PROCESSINFOCLASS = PROCESSINFOCLASS(45i32);
@@ -268,6 +262,12 @@ pub const ProcessWorkingSetWatch: PROCESSINFOCLASS = PROCESSINFOCLASS(15i32);
 pub const ProcessWorkingSetWatchEx: PROCESSINFOCLASS = PROCESSINFOCLASS(42i32);
 pub const ProcessWow64Information: PROCESSINFOCLASS = PROCESSINFOCLASS(26i32);
 pub const ProcessWx86Information: PROCESSINFOCLASS = PROCESSINFOCLASS(19i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct THREADINFOCLASS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TIMER_SET_INFORMATION_CLASS(pub i32);
 pub const ThreadActualBasePriority: THREADINFOCLASS = THREADINFOCLASS(25i32);
 pub const ThreadActualGroupAffinity: THREADINFOCLASS = THREADINFOCLASS(41i32);
 pub const ThreadAffinityMask: THREADINFOCLASS = THREADINFOCLASS(4i32);

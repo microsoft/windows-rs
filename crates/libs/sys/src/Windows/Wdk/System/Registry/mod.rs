@@ -68,7 +68,6 @@ windows_targets::link!("ntdll.dll" "system" fn ZwSetInformationKey(keyhandle : s
 windows_targets::link!("ntdll.dll" "system" fn ZwSetValueKey(keyhandle : super::super::super::Win32::Foundation:: HANDLE, valuename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, titleindex : u32, r#type : u32, data : *const core::ffi::c_void, datasize : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
 pub type KEY_INFORMATION_CLASS = i32;
 pub type KEY_SET_INFORMATION_CLASS = i32;
-pub type KEY_VALUE_INFORMATION_CLASS = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KEY_VALUE_ENTRY {
@@ -77,6 +76,33 @@ pub struct KEY_VALUE_ENTRY {
     pub DataOffset: u32,
     pub Type: u32,
 }
+pub type KEY_VALUE_INFORMATION_CLASS = i32;
+pub const KeyBasicInformation: KEY_INFORMATION_CLASS = 0i32;
+pub const KeyCachedInformation: KEY_INFORMATION_CLASS = 4i32;
+pub const KeyControlFlagsInformation: KEY_SET_INFORMATION_CLASS = 2i32;
+pub const KeyFlagsInformation: KEY_INFORMATION_CLASS = 5i32;
+pub const KeyFullInformation: KEY_INFORMATION_CLASS = 2i32;
+pub const KeyHandleTagsInformation: KEY_INFORMATION_CLASS = 7i32;
+pub const KeyLayerInformation: KEY_INFORMATION_CLASS = 9i32;
+pub const KeyNameInformation: KEY_INFORMATION_CLASS = 3i32;
+pub const KeyNodeInformation: KEY_INFORMATION_CLASS = 1i32;
+pub const KeySetDebugInformation: KEY_SET_INFORMATION_CLASS = 4i32;
+pub const KeySetHandleTagsInformation: KEY_SET_INFORMATION_CLASS = 5i32;
+pub const KeySetLayerInformation: KEY_SET_INFORMATION_CLASS = 6i32;
+pub const KeySetVirtualizationInformation: KEY_SET_INFORMATION_CLASS = 3i32;
+pub const KeyTrustInformation: KEY_INFORMATION_CLASS = 8i32;
+pub const KeyValueBasicInformation: KEY_VALUE_INFORMATION_CLASS = 0i32;
+pub const KeyValueFullInformation: KEY_VALUE_INFORMATION_CLASS = 1i32;
+pub const KeyValueFullInformationAlign64: KEY_VALUE_INFORMATION_CLASS = 3i32;
+pub const KeyValueLayerInformation: KEY_VALUE_INFORMATION_CLASS = 5i32;
+pub const KeyValuePartialInformation: KEY_VALUE_INFORMATION_CLASS = 2i32;
+pub const KeyValuePartialInformationAlign64: KEY_VALUE_INFORMATION_CLASS = 4i32;
+pub const KeyVirtualizationInformation: KEY_INFORMATION_CLASS = 6i32;
+pub const KeyWow64FlagsInformation: KEY_SET_INFORMATION_CLASS = 1i32;
+pub const KeyWriteTimeInformation: KEY_SET_INFORMATION_CLASS = 0i32;
+pub const MaxKeyInfoClass: KEY_INFORMATION_CLASS = 10i32;
+pub const MaxKeySetInfoClass: KEY_SET_INFORMATION_CLASS = 7i32;
+pub const MaxKeyValueInfoClass: KEY_VALUE_INFORMATION_CLASS = 6i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct REG_ENUMERATE_KEY_INFORMATION {
@@ -152,29 +178,3 @@ pub struct REG_SET_INFORMATION_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-pub const KeyBasicInformation: KEY_INFORMATION_CLASS = 0i32;
-pub const KeyCachedInformation: KEY_INFORMATION_CLASS = 4i32;
-pub const KeyControlFlagsInformation: KEY_SET_INFORMATION_CLASS = 2i32;
-pub const KeyFlagsInformation: KEY_INFORMATION_CLASS = 5i32;
-pub const KeyFullInformation: KEY_INFORMATION_CLASS = 2i32;
-pub const KeyHandleTagsInformation: KEY_INFORMATION_CLASS = 7i32;
-pub const KeyLayerInformation: KEY_INFORMATION_CLASS = 9i32;
-pub const KeyNameInformation: KEY_INFORMATION_CLASS = 3i32;
-pub const KeyNodeInformation: KEY_INFORMATION_CLASS = 1i32;
-pub const KeySetDebugInformation: KEY_SET_INFORMATION_CLASS = 4i32;
-pub const KeySetHandleTagsInformation: KEY_SET_INFORMATION_CLASS = 5i32;
-pub const KeySetLayerInformation: KEY_SET_INFORMATION_CLASS = 6i32;
-pub const KeySetVirtualizationInformation: KEY_SET_INFORMATION_CLASS = 3i32;
-pub const KeyTrustInformation: KEY_INFORMATION_CLASS = 8i32;
-pub const KeyValueBasicInformation: KEY_VALUE_INFORMATION_CLASS = 0i32;
-pub const KeyValueFullInformation: KEY_VALUE_INFORMATION_CLASS = 1i32;
-pub const KeyValueFullInformationAlign64: KEY_VALUE_INFORMATION_CLASS = 3i32;
-pub const KeyValueLayerInformation: KEY_VALUE_INFORMATION_CLASS = 5i32;
-pub const KeyValuePartialInformation: KEY_VALUE_INFORMATION_CLASS = 2i32;
-pub const KeyValuePartialInformationAlign64: KEY_VALUE_INFORMATION_CLASS = 4i32;
-pub const KeyVirtualizationInformation: KEY_INFORMATION_CLASS = 6i32;
-pub const KeyWow64FlagsInformation: KEY_SET_INFORMATION_CLASS = 1i32;
-pub const KeyWriteTimeInformation: KEY_SET_INFORMATION_CLASS = 0i32;
-pub const MaxKeyInfoClass: KEY_INFORMATION_CLASS = 10i32;
-pub const MaxKeySetInfoClass: KEY_SET_INFORMATION_CLASS = 7i32;
-pub const MaxKeyValueInfoClass: KEY_VALUE_INFORMATION_CLASS = 6i32;

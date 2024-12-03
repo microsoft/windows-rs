@@ -266,6 +266,47 @@ impl windows_core::RuntimeName for HttpCacheControl {
 unsafe impl Send for HttpCacheControl {}
 unsafe impl Sync for HttpCacheControl {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HttpCacheReadBehavior(pub i32);
+impl HttpCacheReadBehavior {
+    pub const Default: Self = Self(0i32);
+    pub const MostRecent: Self = Self(1i32);
+    pub const OnlyFromCache: Self = Self(2i32);
+    pub const NoCache: Self = Self(3i32);
+}
+impl windows_core::TypeKind for HttpCacheReadBehavior {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HttpCacheReadBehavior {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCacheReadBehavior;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HttpCacheWriteBehavior(pub i32);
+impl HttpCacheWriteBehavior {
+    pub const Default: Self = Self(0i32);
+    pub const NoCache: Self = Self(1i32);
+}
+impl windows_core::TypeKind for HttpCacheWriteBehavior {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HttpCacheWriteBehavior {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCacheWriteBehavior;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HttpCookieUsageBehavior(pub i32);
+impl HttpCookieUsageBehavior {
+    pub const Default: Self = Self(0i32);
+    pub const NoCookies: Self = Self(1i32);
+}
+impl windows_core::TypeKind for HttpCookieUsageBehavior {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HttpCookieUsageBehavior {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCookieUsageBehavior;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpServerCustomValidationRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpServerCustomValidationRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -526,45 +567,4 @@ pub struct IHttpServerCustomValidationRequestedEventArgs_Vtbl {
     ServerIntermediateCertificates: usize,
     pub Reject: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HttpCacheReadBehavior(pub i32);
-impl HttpCacheReadBehavior {
-    pub const Default: Self = Self(0i32);
-    pub const MostRecent: Self = Self(1i32);
-    pub const OnlyFromCache: Self = Self(2i32);
-    pub const NoCache: Self = Self(3i32);
-}
-impl windows_core::TypeKind for HttpCacheReadBehavior {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HttpCacheReadBehavior {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCacheReadBehavior;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HttpCacheWriteBehavior(pub i32);
-impl HttpCacheWriteBehavior {
-    pub const Default: Self = Self(0i32);
-    pub const NoCache: Self = Self(1i32);
-}
-impl windows_core::TypeKind for HttpCacheWriteBehavior {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HttpCacheWriteBehavior {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCacheWriteBehavior;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HttpCookieUsageBehavior(pub i32);
-impl HttpCookieUsageBehavior {
-    pub const Default: Self = Self(0i32);
-    pub const NoCookies: Self = Self(1i32);
-}
-impl windows_core::TypeKind for HttpCookieUsageBehavior {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HttpCookieUsageBehavior {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCookieUsageBehavior;i4)");
 }

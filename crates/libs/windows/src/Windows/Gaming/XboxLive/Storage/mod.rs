@@ -346,6 +346,32 @@ impl windows_core::RuntimeName for GameSaveContainerInfoQuery {
 unsafe impl Send for GameSaveContainerInfoQuery {}
 unsafe impl Sync for GameSaveContainerInfoQuery {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GameSaveErrorStatus(pub i32);
+impl GameSaveErrorStatus {
+    pub const Ok: Self = Self(0i32);
+    pub const Abort: Self = Self(-2147467260i32);
+    pub const InvalidContainerName: Self = Self(-2138898431i32);
+    pub const NoAccess: Self = Self(-2138898430i32);
+    pub const OutOfLocalStorage: Self = Self(-2138898429i32);
+    pub const UserCanceled: Self = Self(-2138898428i32);
+    pub const UpdateTooBig: Self = Self(-2138898427i32);
+    pub const QuotaExceeded: Self = Self(-2138898426i32);
+    pub const ProvidedBufferTooSmall: Self = Self(-2138898425i32);
+    pub const BlobNotFound: Self = Self(-2138898424i32);
+    pub const NoXboxLiveInfo: Self = Self(-2138898423i32);
+    pub const ContainerNotInSync: Self = Self(-2138898422i32);
+    pub const ContainerSyncFailed: Self = Self(-2138898421i32);
+    pub const UserHasNoXboxLiveInfo: Self = Self(-2138898420i32);
+    pub const ObjectExpired: Self = Self(-2138898419i32);
+}
+impl windows_core::TypeKind for GameSaveErrorStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GameSaveErrorStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.XboxLive.Storage.GameSaveErrorStatus;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GameSaveOperationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveOperationResult, windows_core::IUnknown, windows_core::IInspectable);
@@ -661,30 +687,4 @@ pub struct IGameSaveProviderStatics_Vtbl {
     pub GetSyncOnDemandForUserAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "System"))]
     GetSyncOnDemandForUserAsync: usize,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GameSaveErrorStatus(pub i32);
-impl GameSaveErrorStatus {
-    pub const Ok: Self = Self(0i32);
-    pub const Abort: Self = Self(-2147467260i32);
-    pub const InvalidContainerName: Self = Self(-2138898431i32);
-    pub const NoAccess: Self = Self(-2138898430i32);
-    pub const OutOfLocalStorage: Self = Self(-2138898429i32);
-    pub const UserCanceled: Self = Self(-2138898428i32);
-    pub const UpdateTooBig: Self = Self(-2138898427i32);
-    pub const QuotaExceeded: Self = Self(-2138898426i32);
-    pub const ProvidedBufferTooSmall: Self = Self(-2138898425i32);
-    pub const BlobNotFound: Self = Self(-2138898424i32);
-    pub const NoXboxLiveInfo: Self = Self(-2138898423i32);
-    pub const ContainerNotInSync: Self = Self(-2138898422i32);
-    pub const ContainerSyncFailed: Self = Self(-2138898421i32);
-    pub const UserHasNoXboxLiveInfo: Self = Self(-2138898420i32);
-    pub const ObjectExpired: Self = Self(-2138898419i32);
-}
-impl windows_core::TypeKind for GameSaveErrorStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GameSaveErrorStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.XboxLive.Storage.GameSaveErrorStatus;i4)");
 }

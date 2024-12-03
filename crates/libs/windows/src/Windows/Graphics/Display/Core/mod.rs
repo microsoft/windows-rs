@@ -1,4 +1,56 @@
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HdmiDisplayColorSpace(pub i32);
+impl HdmiDisplayColorSpace {
+    pub const RgbLimited: Self = Self(0i32);
+    pub const RgbFull: Self = Self(1i32);
+    pub const BT2020: Self = Self(2i32);
+    pub const BT709: Self = Self(3i32);
+}
+impl windows_core::TypeKind for HdmiDisplayColorSpace {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HdmiDisplayColorSpace {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayColorSpace;i4)");
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct HdmiDisplayHdr2086Metadata {
+    pub RedPrimaryX: u16,
+    pub RedPrimaryY: u16,
+    pub GreenPrimaryX: u16,
+    pub GreenPrimaryY: u16,
+    pub BluePrimaryX: u16,
+    pub BluePrimaryY: u16,
+    pub WhitePointX: u16,
+    pub WhitePointY: u16,
+    pub MaxMasteringLuminance: u16,
+    pub MinMasteringLuminance: u16,
+    pub MaxContentLightLevel: u16,
+    pub MaxFrameAverageLightLevel: u16,
+}
+impl windows_core::TypeKind for HdmiDisplayHdr2086Metadata {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HdmiDisplayHdr2086Metadata {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Display.Core.HdmiDisplayHdr2086Metadata;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HdmiDisplayHdrOption(pub i32);
+impl HdmiDisplayHdrOption {
+    pub const None: Self = Self(0i32);
+    pub const EotfSdr: Self = Self(1i32);
+    pub const Eotf2084: Self = Self(2i32);
+    pub const DolbyVisionLowLatency: Self = Self(3i32);
+}
+impl windows_core::TypeKind for HdmiDisplayHdrOption {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HdmiDisplayHdrOption {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayHdrOption;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HdmiDisplayInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HdmiDisplayInformation, windows_core::IUnknown, windows_core::IInspectable);
@@ -197,6 +249,21 @@ impl windows_core::RuntimeName for HdmiDisplayMode {
 }
 unsafe impl Send for HdmiDisplayMode {}
 unsafe impl Sync for HdmiDisplayMode {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HdmiDisplayPixelEncoding(pub i32);
+impl HdmiDisplayPixelEncoding {
+    pub const Rgb444: Self = Self(0i32);
+    pub const Ycc444: Self = Self(1i32);
+    pub const Ycc422: Self = Self(2i32);
+    pub const Ycc420: Self = Self(3i32);
+}
+impl windows_core::TypeKind for HdmiDisplayPixelEncoding {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HdmiDisplayPixelEncoding {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayPixelEncoding;i4)");
+}
 windows_core::imp::define_interface!(IHdmiDisplayInformation, IHdmiDisplayInformation_Vtbl, 0x130b3c0a_f565_476e_abd5_ea05aee74c69);
 impl windows_core::RuntimeType for IHdmiDisplayInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -252,71 +319,4 @@ impl windows_core::RuntimeType for IHdmiDisplayMode2 {
 pub struct IHdmiDisplayMode2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsDolbyVisionLowLatencySupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HdmiDisplayColorSpace(pub i32);
-impl HdmiDisplayColorSpace {
-    pub const RgbLimited: Self = Self(0i32);
-    pub const RgbFull: Self = Self(1i32);
-    pub const BT2020: Self = Self(2i32);
-    pub const BT709: Self = Self(3i32);
-}
-impl windows_core::TypeKind for HdmiDisplayColorSpace {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HdmiDisplayColorSpace {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayColorSpace;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HdmiDisplayHdrOption(pub i32);
-impl HdmiDisplayHdrOption {
-    pub const None: Self = Self(0i32);
-    pub const EotfSdr: Self = Self(1i32);
-    pub const Eotf2084: Self = Self(2i32);
-    pub const DolbyVisionLowLatency: Self = Self(3i32);
-}
-impl windows_core::TypeKind for HdmiDisplayHdrOption {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HdmiDisplayHdrOption {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayHdrOption;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HdmiDisplayPixelEncoding(pub i32);
-impl HdmiDisplayPixelEncoding {
-    pub const Rgb444: Self = Self(0i32);
-    pub const Ycc444: Self = Self(1i32);
-    pub const Ycc422: Self = Self(2i32);
-    pub const Ycc420: Self = Self(3i32);
-}
-impl windows_core::TypeKind for HdmiDisplayPixelEncoding {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HdmiDisplayPixelEncoding {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayPixelEncoding;i4)");
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct HdmiDisplayHdr2086Metadata {
-    pub RedPrimaryX: u16,
-    pub RedPrimaryY: u16,
-    pub GreenPrimaryX: u16,
-    pub GreenPrimaryY: u16,
-    pub BluePrimaryX: u16,
-    pub BluePrimaryY: u16,
-    pub WhitePointX: u16,
-    pub WhitePointY: u16,
-    pub MaxMasteringLuminance: u16,
-    pub MinMasteringLuminance: u16,
-    pub MaxContentLightLevel: u16,
-    pub MaxFrameAverageLightLevel: u16,
-}
-impl windows_core::TypeKind for HdmiDisplayHdr2086Metadata {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HdmiDisplayHdr2086Metadata {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Display.Core.HdmiDisplayHdr2086Metadata;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2)");
 }

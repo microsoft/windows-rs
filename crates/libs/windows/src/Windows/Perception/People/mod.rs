@@ -56,6 +56,43 @@ impl windows_core::RuntimeName for EyesPose {
 unsafe impl Send for EyesPose {}
 unsafe impl Sync for EyesPose {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HandJointKind(pub i32);
+impl HandJointKind {
+    pub const Palm: Self = Self(0i32);
+    pub const Wrist: Self = Self(1i32);
+    pub const ThumbMetacarpal: Self = Self(2i32);
+    pub const ThumbProximal: Self = Self(3i32);
+    pub const ThumbDistal: Self = Self(4i32);
+    pub const ThumbTip: Self = Self(5i32);
+    pub const IndexMetacarpal: Self = Self(6i32);
+    pub const IndexProximal: Self = Self(7i32);
+    pub const IndexIntermediate: Self = Self(8i32);
+    pub const IndexDistal: Self = Self(9i32);
+    pub const IndexTip: Self = Self(10i32);
+    pub const MiddleMetacarpal: Self = Self(11i32);
+    pub const MiddleProximal: Self = Self(12i32);
+    pub const MiddleIntermediate: Self = Self(13i32);
+    pub const MiddleDistal: Self = Self(14i32);
+    pub const MiddleTip: Self = Self(15i32);
+    pub const RingMetacarpal: Self = Self(16i32);
+    pub const RingProximal: Self = Self(17i32);
+    pub const RingIntermediate: Self = Self(18i32);
+    pub const RingDistal: Self = Self(19i32);
+    pub const RingTip: Self = Self(20i32);
+    pub const LittleMetacarpal: Self = Self(21i32);
+    pub const LittleProximal: Self = Self(22i32);
+    pub const LittleIntermediate: Self = Self(23i32);
+    pub const LittleDistal: Self = Self(24i32);
+    pub const LittleTip: Self = Self(25i32);
+}
+impl windows_core::TypeKind for HandJointKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HandJointKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Perception.People.HandJointKind;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HandMeshObserver(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HandMeshObserver, windows_core::IUnknown, windows_core::IInspectable);
@@ -130,6 +167,18 @@ impl windows_core::RuntimeName for HandMeshObserver {
 }
 unsafe impl Send for HandMeshObserver {}
 unsafe impl Sync for HandMeshObserver {}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct HandMeshVertex {
+    pub Position: super::super::Foundation::Numerics::Vector3,
+    pub Normal: super::super::Foundation::Numerics::Vector3,
+}
+impl windows_core::TypeKind for HandMeshVertex {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HandMeshVertex {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Perception.People.HandMeshVertex;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HandMeshVertexState(windows_core::IUnknown);
@@ -370,68 +419,6 @@ pub struct IHeadPose_Vtbl {
     #[cfg(not(feature = "Foundation_Numerics"))]
     UpDirection: usize,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HandJointKind(pub i32);
-impl HandJointKind {
-    pub const Palm: Self = Self(0i32);
-    pub const Wrist: Self = Self(1i32);
-    pub const ThumbMetacarpal: Self = Self(2i32);
-    pub const ThumbProximal: Self = Self(3i32);
-    pub const ThumbDistal: Self = Self(4i32);
-    pub const ThumbTip: Self = Self(5i32);
-    pub const IndexMetacarpal: Self = Self(6i32);
-    pub const IndexProximal: Self = Self(7i32);
-    pub const IndexIntermediate: Self = Self(8i32);
-    pub const IndexDistal: Self = Self(9i32);
-    pub const IndexTip: Self = Self(10i32);
-    pub const MiddleMetacarpal: Self = Self(11i32);
-    pub const MiddleProximal: Self = Self(12i32);
-    pub const MiddleIntermediate: Self = Self(13i32);
-    pub const MiddleDistal: Self = Self(14i32);
-    pub const MiddleTip: Self = Self(15i32);
-    pub const RingMetacarpal: Self = Self(16i32);
-    pub const RingProximal: Self = Self(17i32);
-    pub const RingIntermediate: Self = Self(18i32);
-    pub const RingDistal: Self = Self(19i32);
-    pub const RingTip: Self = Self(20i32);
-    pub const LittleMetacarpal: Self = Self(21i32);
-    pub const LittleProximal: Self = Self(22i32);
-    pub const LittleIntermediate: Self = Self(23i32);
-    pub const LittleDistal: Self = Self(24i32);
-    pub const LittleTip: Self = Self(25i32);
-}
-impl windows_core::TypeKind for HandJointKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HandJointKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Perception.People.HandJointKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct JointPoseAccuracy(pub i32);
-impl JointPoseAccuracy {
-    pub const High: Self = Self(0i32);
-    pub const Approximate: Self = Self(1i32);
-}
-impl windows_core::TypeKind for JointPoseAccuracy {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for JointPoseAccuracy {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Perception.People.JointPoseAccuracy;i4)");
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct HandMeshVertex {
-    pub Position: super::super::Foundation::Numerics::Vector3,
-    pub Normal: super::super::Foundation::Numerics::Vector3,
-}
-impl windows_core::TypeKind for HandMeshVertex {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HandMeshVertex {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Perception.People.HandMeshVertex;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))");
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct JointPose {
@@ -445,4 +432,17 @@ impl windows_core::TypeKind for JointPose {
 }
 impl windows_core::RuntimeType for JointPose {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Perception.People.JointPose;struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4;enum(Windows.Perception.People.JointPoseAccuracy;i4))");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct JointPoseAccuracy(pub i32);
+impl JointPoseAccuracy {
+    pub const High: Self = Self(0i32);
+    pub const Approximate: Self = Self(1i32);
+}
+impl windows_core::TypeKind for JointPoseAccuracy {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for JointPoseAccuracy {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Perception.People.JointPoseAccuracy;i4)");
 }

@@ -72,7 +72,9 @@ pub unsafe fn RmStartSession(psessionhandle: *mut u32, dwsessionflags: u32, strs
     windows_targets::link!("rstrtmgr.dll" "system" fn RmStartSession(psessionhandle : *mut u32, dwsessionflags : u32, strsessionkey : windows_core::PWSTR) -> super::super::Foundation:: WIN32_ERROR);
     RmStartSession(core::mem::transmute(psessionhandle), core::mem::transmute(dwsessionflags), core::mem::transmute(strsessionkey))
 }
-pub type RM_WRITE_STATUS_CALLBACK = Option<unsafe extern "system" fn(npercentcomplete: u32)>;
+pub const CCH_RM_MAX_APP_NAME: u32 = 255u32;
+pub const CCH_RM_MAX_SVC_NAME: u32 = 63u32;
+pub const CCH_RM_SESSION_KEY: u32 = 32u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RM_APP_STATUS(pub i32);
@@ -82,15 +84,6 @@ pub struct RM_APP_TYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RM_FILTER_ACTION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RM_FILTER_TRIGGER(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RM_REBOOT_REASON(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RM_SHUTDOWN_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RM_FILTER_INFO {
@@ -122,6 +115,11 @@ impl Default for RM_FILTER_INFO_0 {
 impl windows_core::TypeKind for RM_FILTER_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RM_FILTER_TRIGGER(pub i32);
+pub const RM_INVALID_PROCESS: i32 = -1i32;
+pub const RM_INVALID_TS_SESSION: i32 = -1i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RM_PROCESS_INFO {
@@ -141,6 +139,12 @@ impl Default for RM_PROCESS_INFO {
 impl windows_core::TypeKind for RM_PROCESS_INFO {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RM_REBOOT_REASON(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RM_SHUTDOWN_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RM_UNIQUE_PROCESS {
@@ -155,11 +159,7 @@ impl Default for RM_UNIQUE_PROCESS {
 impl windows_core::TypeKind for RM_UNIQUE_PROCESS {
     type TypeKind = windows_core::CopyType;
 }
-pub const CCH_RM_MAX_APP_NAME: u32 = 255u32;
-pub const CCH_RM_MAX_SVC_NAME: u32 = 63u32;
-pub const CCH_RM_SESSION_KEY: u32 = 32u32;
-pub const RM_INVALID_PROCESS: i32 = -1i32;
-pub const RM_INVALID_TS_SESSION: i32 = -1i32;
+pub type RM_WRITE_STATUS_CALLBACK = Option<unsafe extern "system" fn(npercentcomplete: u32)>;
 pub const RmConsole: RM_APP_TYPE = RM_APP_TYPE(5i32);
 pub const RmCritical: RM_APP_TYPE = RM_APP_TYPE(1000i32);
 pub const RmExplorer: RM_APP_TYPE = RM_APP_TYPE(4i32);

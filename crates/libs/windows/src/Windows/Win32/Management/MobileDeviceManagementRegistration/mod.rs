@@ -126,9 +126,12 @@ where
     windows_targets::link!("mdmregistration.dll" "system" fn UnregisterDeviceWithManagement(enrollmentid : windows_core::PCWSTR) -> windows_core::HRESULT);
     UnregisterDeviceWithManagement(enrollmentid.param().abi()).ok()
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct REGISTRATION_INFORMATION_CLASS(pub i32);
+pub const DEVICEREGISTRATIONTYPE_MAM: u32 = 5u32;
+pub const DEVICEREGISTRATIONTYPE_MDM_DEVICEWIDE_WITH_AAD: u32 = 6u32;
+pub const DEVICEREGISTRATIONTYPE_MDM_ONLY: u32 = 0u32;
+pub const DEVICEREGISTRATIONTYPE_MDM_USERSPECIFIC_WITH_AAD: u32 = 13u32;
+pub const DEVICE_ENROLLER_FACILITY_CODE: u32 = 24u32;
+pub const DeviceRegistrationBasicInfo: REGISTRATION_INFORMATION_CLASS = REGISTRATION_INFORMATION_CLASS(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MANAGEMENT_REGISTRATION_INFO {
@@ -159,12 +162,6 @@ impl Default for MANAGEMENT_SERVICE_INFO {
 impl windows_core::TypeKind for MANAGEMENT_SERVICE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-pub const DEVICEREGISTRATIONTYPE_MAM: u32 = 5u32;
-pub const DEVICEREGISTRATIONTYPE_MDM_DEVICEWIDE_WITH_AAD: u32 = 6u32;
-pub const DEVICEREGISTRATIONTYPE_MDM_ONLY: u32 = 0u32;
-pub const DEVICEREGISTRATIONTYPE_MDM_USERSPECIFIC_WITH_AAD: u32 = 13u32;
-pub const DEVICE_ENROLLER_FACILITY_CODE: u32 = 24u32;
-pub const DeviceRegistrationBasicInfo: REGISTRATION_INFORMATION_CLASS = REGISTRATION_INFORMATION_CLASS(1i32);
 pub const MDM_REGISTRATION_FACILITY_CODE: u32 = 25u32;
 pub const MENROLL_E_CERTAUTH_FAILED_TO_FIND_CERT: windows_core::HRESULT = windows_core::HRESULT(0x80180028_u32 as _);
 pub const MENROLL_E_CERTPOLICY_PRIVATEKEYCREATION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80180027_u32 as _);
@@ -227,3 +224,6 @@ pub const MREGISTER_E_DISCOVERY_FAILED: windows_core::HRESULT = windows_core::HR
 pub const MREGISTER_E_DISCOVERY_REDIRECTED: windows_core::HRESULT = windows_core::HRESULT(0x8019000C_u32 as _);
 pub const MREGISTER_E_REGISTRATION_IN_PROGRESS: windows_core::HRESULT = windows_core::HRESULT(0x80190009_u32 as _);
 pub const MaxDeviceInfoClass: REGISTRATION_INFORMATION_CLASS = REGISTRATION_INFORMATION_CLASS(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REGISTRATION_INFORMATION_CLASS(pub i32);

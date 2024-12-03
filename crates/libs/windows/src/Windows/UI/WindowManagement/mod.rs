@@ -360,6 +360,20 @@ impl windows_core::RuntimeName for AppWindowClosedEventArgs {
 unsafe impl Send for AppWindowClosedEventArgs {}
 unsafe impl Sync for AppWindowClosedEventArgs {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AppWindowClosedReason(pub i32);
+impl AppWindowClosedReason {
+    pub const Other: Self = Self(0i32);
+    pub const AppInitiated: Self = Self(1i32);
+    pub const UserInitiated: Self = Self(2i32);
+}
+impl windows_core::TypeKind for AppWindowClosedReason {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AppWindowClosedReason {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowClosedReason;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppWindowFrame(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppWindowFrame, windows_core::IUnknown, windows_core::IInspectable);
@@ -396,6 +410,19 @@ impl windows_core::RuntimeName for AppWindowFrame {
 }
 unsafe impl Send for AppWindowFrame {}
 unsafe impl Sync for AppWindowFrame {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AppWindowFrameStyle(pub i32);
+impl AppWindowFrameStyle {
+    pub const Default: Self = Self(0i32);
+    pub const NoFrame: Self = Self(1i32);
+}
+impl windows_core::TypeKind for AppWindowFrameStyle {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AppWindowFrameStyle {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowFrameStyle;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppWindowPlacement(windows_core::IUnknown);
@@ -460,6 +487,20 @@ impl windows_core::RuntimeName for AppWindowPresentationConfiguration {
 }
 unsafe impl Send for AppWindowPresentationConfiguration {}
 unsafe impl Sync for AppWindowPresentationConfiguration {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AppWindowPresentationKind(pub i32);
+impl AppWindowPresentationKind {
+    pub const Default: Self = Self(0i32);
+    pub const CompactOverlay: Self = Self(1i32);
+    pub const FullScreen: Self = Self(2i32);
+}
+impl windows_core::TypeKind for AppWindowPresentationKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AppWindowPresentationKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowPresentationKind;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppWindowPresenter(windows_core::IUnknown);
@@ -758,6 +799,19 @@ impl windows_core::RuntimeName for AppWindowTitleBarOcclusion {
 unsafe impl Send for AppWindowTitleBarOcclusion {}
 unsafe impl Sync for AppWindowTitleBarOcclusion {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AppWindowTitleBarVisibility(pub i32);
+impl AppWindowTitleBarVisibility {
+    pub const Default: Self = Self(0i32);
+    pub const AlwaysHidden: Self = Self(1i32);
+}
+impl windows_core::TypeKind for AppWindowTitleBarVisibility {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AppWindowTitleBarVisibility {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowTitleBarVisibility;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompactOverlayPresentationConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompactOverlayPresentationConfiguration, windows_core::IUnknown, windows_core::IInspectable);
@@ -934,162 +988,6 @@ impl windows_core::RuntimeName for FullScreenPresentationConfiguration {
 }
 unsafe impl Send for FullScreenPresentationConfiguration {}
 unsafe impl Sync for FullScreenPresentationConfiguration {}
-pub struct WindowServices;
-impl WindowServices {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllTopLevelWindowIds() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::WindowId>> {
-        Self::IWindowServicesStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindAllTopLevelWindowIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IWindowServicesStatics<R, F: FnOnce(&IWindowServicesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<WindowServices, IWindowServicesStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeName for WindowServices {
-    const NAME: &'static str = "Windows.UI.WindowManagement.WindowServices";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct WindowingEnvironment(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(WindowingEnvironment, windows_core::IUnknown, windows_core::IInspectable);
-impl WindowingEnvironment {
-    pub fn IsEnabled(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Kind(&self) -> windows_core::Result<WindowingEnvironmentKind> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetDisplayRegions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<DisplayRegion>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDisplayRegions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowingEnvironment, WindowingEnvironmentChangedEventArgs>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveChanged)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAll() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>> {
-        Self::IWindowingEnvironmentStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindAll)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllWithKind(kind: WindowingEnvironmentKind) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>> {
-        Self::IWindowingEnvironmentStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindAllWithKind)(windows_core::Interface::as_raw(this), kind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IWindowingEnvironmentStatics<R, F: FnOnce(&IWindowingEnvironmentStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<WindowingEnvironment, IWindowingEnvironmentStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for WindowingEnvironment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowingEnvironment>();
-}
-unsafe impl windows_core::Interface for WindowingEnvironment {
-    type Vtable = <IWindowingEnvironment as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IWindowingEnvironment as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for WindowingEnvironment {
-    const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironment";
-}
-unsafe impl Send for WindowingEnvironment {}
-unsafe impl Sync for WindowingEnvironment {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct WindowingEnvironmentAddedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(WindowingEnvironmentAddedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl WindowingEnvironmentAddedEventArgs {
-    pub fn WindowingEnvironment(&self) -> windows_core::Result<WindowingEnvironment> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WindowingEnvironment)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for WindowingEnvironmentAddedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowingEnvironmentAddedEventArgs>();
-}
-unsafe impl windows_core::Interface for WindowingEnvironmentAddedEventArgs {
-    type Vtable = <IWindowingEnvironmentAddedEventArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IWindowingEnvironmentAddedEventArgs as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for WindowingEnvironmentAddedEventArgs {
-    const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentAddedEventArgs";
-}
-unsafe impl Send for WindowingEnvironmentAddedEventArgs {}
-unsafe impl Sync for WindowingEnvironmentAddedEventArgs {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct WindowingEnvironmentChangedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(WindowingEnvironmentChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl WindowingEnvironmentChangedEventArgs {}
-impl windows_core::RuntimeType for WindowingEnvironmentChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowingEnvironmentChangedEventArgs>();
-}
-unsafe impl windows_core::Interface for WindowingEnvironmentChangedEventArgs {
-    type Vtable = <IWindowingEnvironmentChangedEventArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IWindowingEnvironmentChangedEventArgs as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for WindowingEnvironmentChangedEventArgs {
-    const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentChangedEventArgs";
-}
-unsafe impl Send for WindowingEnvironmentChangedEventArgs {}
-unsafe impl Sync for WindowingEnvironmentChangedEventArgs {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct WindowingEnvironmentRemovedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(WindowingEnvironmentRemovedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl WindowingEnvironmentRemovedEventArgs {
-    pub fn WindowingEnvironment(&self) -> windows_core::Result<WindowingEnvironment> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WindowingEnvironment)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for WindowingEnvironmentRemovedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowingEnvironmentRemovedEventArgs>();
-}
-unsafe impl windows_core::Interface for WindowingEnvironmentRemovedEventArgs {
-    type Vtable = <IWindowingEnvironmentRemovedEventArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IWindowingEnvironmentRemovedEventArgs as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for WindowingEnvironmentRemovedEventArgs {
-    const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentRemovedEventArgs";
-}
-unsafe impl Send for WindowingEnvironmentRemovedEventArgs {}
-unsafe impl Sync for WindowingEnvironmentRemovedEventArgs {}
 windows_core::imp::define_interface!(IAppWindow, IAppWindow_Vtbl, 0x663014a6_b75e_5dbd_995c_f0117fa3fb61);
 impl windows_core::RuntimeType for IAppWindow {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1411,60 +1309,137 @@ pub struct IWindowingEnvironmentStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     FindAllWithKind: usize,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AppWindowClosedReason(pub i32);
-impl AppWindowClosedReason {
-    pub const Other: Self = Self(0i32);
-    pub const AppInitiated: Self = Self(1i32);
-    pub const UserInitiated: Self = Self(2i32);
+pub struct WindowServices;
+impl WindowServices {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn FindAllTopLevelWindowIds() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::WindowId>> {
+        Self::IWindowServicesStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FindAllTopLevelWindowIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWindowServicesStatics<R, F: FnOnce(&IWindowServicesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WindowServices, IWindowServicesStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
 }
-impl windows_core::TypeKind for AppWindowClosedReason {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AppWindowClosedReason {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowClosedReason;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AppWindowFrameStyle(pub i32);
-impl AppWindowFrameStyle {
-    pub const Default: Self = Self(0i32);
-    pub const NoFrame: Self = Self(1i32);
-}
-impl windows_core::TypeKind for AppWindowFrameStyle {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AppWindowFrameStyle {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowFrameStyle;i4)");
+impl windows_core::RuntimeName for WindowServices {
+    const NAME: &'static str = "Windows.UI.WindowManagement.WindowServices";
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AppWindowPresentationKind(pub i32);
-impl AppWindowPresentationKind {
-    pub const Default: Self = Self(0i32);
-    pub const CompactOverlay: Self = Self(1i32);
-    pub const FullScreen: Self = Self(2i32);
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WindowingEnvironment(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WindowingEnvironment, windows_core::IUnknown, windows_core::IInspectable);
+impl WindowingEnvironment {
+    pub fn IsEnabled(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Kind(&self) -> windows_core::Result<WindowingEnvironmentKind> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetDisplayRegions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<DisplayRegion>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetDisplayRegions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowingEnvironment, WindowingEnvironmentChangedEventArgs>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveChanged)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn FindAll() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>> {
+        Self::IWindowingEnvironmentStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FindAll)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn FindAllWithKind(kind: WindowingEnvironmentKind) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>> {
+        Self::IWindowingEnvironmentStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FindAllWithKind)(windows_core::Interface::as_raw(this), kind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWindowingEnvironmentStatics<R, F: FnOnce(&IWindowingEnvironmentStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WindowingEnvironment, IWindowingEnvironmentStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
 }
-impl windows_core::TypeKind for AppWindowPresentationKind {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::RuntimeType for WindowingEnvironment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowingEnvironment>();
 }
-impl windows_core::RuntimeType for AppWindowPresentationKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowPresentationKind;i4)");
+unsafe impl windows_core::Interface for WindowingEnvironment {
+    type Vtable = <IWindowingEnvironment as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWindowingEnvironment as windows_core::Interface>::IID;
 }
+impl windows_core::RuntimeName for WindowingEnvironment {
+    const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironment";
+}
+unsafe impl Send for WindowingEnvironment {}
+unsafe impl Sync for WindowingEnvironment {}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AppWindowTitleBarVisibility(pub i32);
-impl AppWindowTitleBarVisibility {
-    pub const Default: Self = Self(0i32);
-    pub const AlwaysHidden: Self = Self(1i32);
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WindowingEnvironmentAddedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WindowingEnvironmentAddedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl WindowingEnvironmentAddedEventArgs {
+    pub fn WindowingEnvironment(&self) -> windows_core::Result<WindowingEnvironment> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).WindowingEnvironment)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
-impl windows_core::TypeKind for AppWindowTitleBarVisibility {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::RuntimeType for WindowingEnvironmentAddedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowingEnvironmentAddedEventArgs>();
 }
-impl windows_core::RuntimeType for AppWindowTitleBarVisibility {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowTitleBarVisibility;i4)");
+unsafe impl windows_core::Interface for WindowingEnvironmentAddedEventArgs {
+    type Vtable = <IWindowingEnvironmentAddedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWindowingEnvironmentAddedEventArgs as windows_core::Interface>::IID;
 }
+impl windows_core::RuntimeName for WindowingEnvironmentAddedEventArgs {
+    const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentAddedEventArgs";
+}
+unsafe impl Send for WindowingEnvironmentAddedEventArgs {}
+unsafe impl Sync for WindowingEnvironmentAddedEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WindowingEnvironmentChangedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WindowingEnvironmentChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl WindowingEnvironmentChangedEventArgs {}
+impl windows_core::RuntimeType for WindowingEnvironmentChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowingEnvironmentChangedEventArgs>();
+}
+unsafe impl windows_core::Interface for WindowingEnvironmentChangedEventArgs {
+    type Vtable = <IWindowingEnvironmentChangedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWindowingEnvironmentChangedEventArgs as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WindowingEnvironmentChangedEventArgs {
+    const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentChangedEventArgs";
+}
+unsafe impl Send for WindowingEnvironmentChangedEventArgs {}
+unsafe impl Sync for WindowingEnvironmentChangedEventArgs {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WindowingEnvironmentKind(pub i32);
@@ -1479,3 +1454,28 @@ impl windows_core::TypeKind for WindowingEnvironmentKind {
 impl windows_core::RuntimeType for WindowingEnvironmentKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.WindowingEnvironmentKind;i4)");
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WindowingEnvironmentRemovedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WindowingEnvironmentRemovedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl WindowingEnvironmentRemovedEventArgs {
+    pub fn WindowingEnvironment(&self) -> windows_core::Result<WindowingEnvironment> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).WindowingEnvironment)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for WindowingEnvironmentRemovedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowingEnvironmentRemovedEventArgs>();
+}
+unsafe impl windows_core::Interface for WindowingEnvironmentRemovedEventArgs {
+    type Vtable = <IWindowingEnvironmentRemovedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWindowingEnvironmentRemovedEventArgs as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WindowingEnvironmentRemovedEventArgs {
+    const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentRemovedEventArgs";
+}
+unsafe impl Send for WindowingEnvironmentRemovedEventArgs {}
+unsafe impl Sync for WindowingEnvironmentRemovedEventArgs {}

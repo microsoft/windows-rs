@@ -83,6 +83,80 @@ impl windows_core::RuntimeName for GameList {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.GameList";
 }
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GameListCategory(pub i32);
+impl GameListCategory {
+    pub const Candidate: Self = Self(0i32);
+    pub const ConfirmedBySystem: Self = Self(1i32);
+    pub const ConfirmedByUser: Self = Self(2i32);
+}
+impl windows_core::TypeKind for GameListCategory {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GameListCategory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Preview.GamesEnumeration.GameListCategory;i4)");
+}
+windows_core::imp::define_interface!(GameListChangedEventHandler, GameListChangedEventHandler_Vtbl, 0x25f6a421_d8f5_4d91_b40e_53d5e86fde64);
+impl windows_core::RuntimeType for GameListChangedEventHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl GameListChangedEventHandler {
+    pub fn new<F: FnMut(Option<&GameListEntry>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = GameListChangedEventHandlerBox { vtable: &GameListChangedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
+    pub fn Invoke<P0>(&self, game: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<GameListEntry>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), game.param().abi()).ok() }
+    }
+}
+#[repr(C)]
+pub struct GameListChangedEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, game: *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[repr(C)]
+struct GameListChangedEventHandlerBox<F: FnMut(Option<&GameListEntry>) -> windows_core::Result<()> + Send + 'static> {
+    vtable: *const GameListChangedEventHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+impl<F: FnMut(Option<&GameListEntry>) -> windows_core::Result<()> + Send + 'static> GameListChangedEventHandlerBox<F> {
+    const VTABLE: GameListChangedEventHandler_Vtbl = GameListChangedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <GameListChangedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+        if (*interface).is_null() {
+            windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, game: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&game)).into()
+    }
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GameListEntry(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameListEntry, windows_core::IUnknown, windows_core::IInspectable, IGameListEntry);
@@ -202,6 +276,78 @@ impl windows_core::RuntimeName for GameListEntry {
 }
 unsafe impl Send for GameListEntry {}
 unsafe impl Sync for GameListEntry {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GameListEntryLaunchableState(pub i32);
+impl GameListEntryLaunchableState {
+    pub const NotLaunchable: Self = Self(0i32);
+    pub const ByLastRunningFullPath: Self = Self(1i32);
+    pub const ByUserProvidedPath: Self = Self(2i32);
+    pub const ByTile: Self = Self(3i32);
+}
+impl windows_core::TypeKind for GameListEntryLaunchableState {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GameListEntryLaunchableState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Preview.GamesEnumeration.GameListEntryLaunchableState;i4)");
+}
+windows_core::imp::define_interface!(GameListRemovedEventHandler, GameListRemovedEventHandler_Vtbl, 0x10c5648f_6c8f_4712_9b38_474bc22e76d8);
+impl windows_core::RuntimeType for GameListRemovedEventHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl GameListRemovedEventHandler {
+    pub fn new<F: FnMut(&windows_core::HSTRING) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = GameListRemovedEventHandlerBox { vtable: &GameListRemovedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
+    pub fn Invoke(&self, identifier: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(identifier)).ok() }
+    }
+}
+#[repr(C)]
+pub struct GameListRemovedEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, identifier: *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[repr(C)]
+struct GameListRemovedEventHandlerBox<F: FnMut(&windows_core::HSTRING) -> windows_core::Result<()> + Send + 'static> {
+    vtable: *const GameListRemovedEventHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+impl<F: FnMut(&windows_core::HSTRING) -> windows_core::Result<()> + Send + 'static> GameListRemovedEventHandlerBox<F> {
+    const VTABLE: GameListRemovedEventHandler_Vtbl = GameListRemovedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <GameListRemovedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+        if (*interface).is_null() {
+            windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, identifier: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(core::mem::transmute(&identifier)).into()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GameModeConfiguration(windows_core::IUnknown);
@@ -635,150 +781,4 @@ impl windows_core::RuntimeType for IGameModeUserConfigurationStatics {
 pub struct IGameModeUserConfigurationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(GameListChangedEventHandler, GameListChangedEventHandler_Vtbl, 0x25f6a421_d8f5_4d91_b40e_53d5e86fde64);
-impl windows_core::RuntimeType for GameListChangedEventHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-impl GameListChangedEventHandler {
-    pub fn new<F: FnMut(Option<&GameListEntry>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = GameListChangedEventHandlerBox { vtable: &GameListChangedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
-    }
-    pub fn Invoke<P0>(&self, game: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<GameListEntry>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), game.param().abi()).ok() }
-    }
-}
-#[repr(C)]
-pub struct GameListChangedEventHandler_Vtbl {
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, game: *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(C)]
-struct GameListChangedEventHandlerBox<F: FnMut(Option<&GameListEntry>) -> windows_core::Result<()> + Send + 'static> {
-    vtable: *const GameListChangedEventHandler_Vtbl,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
-impl<F: FnMut(Option<&GameListEntry>) -> windows_core::Result<()> + Send + 'static> GameListChangedEventHandlerBox<F> {
-    const VTABLE: GameListChangedEventHandler_Vtbl = GameListChangedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <GameListChangedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, game: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&game)).into()
-    }
-}
-windows_core::imp::define_interface!(GameListRemovedEventHandler, GameListRemovedEventHandler_Vtbl, 0x10c5648f_6c8f_4712_9b38_474bc22e76d8);
-impl windows_core::RuntimeType for GameListRemovedEventHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-impl GameListRemovedEventHandler {
-    pub fn new<F: FnMut(&windows_core::HSTRING) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = GameListRemovedEventHandlerBox { vtable: &GameListRemovedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
-    }
-    pub fn Invoke(&self, identifier: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(identifier)).ok() }
-    }
-}
-#[repr(C)]
-pub struct GameListRemovedEventHandler_Vtbl {
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, identifier: *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(C)]
-struct GameListRemovedEventHandlerBox<F: FnMut(&windows_core::HSTRING) -> windows_core::Result<()> + Send + 'static> {
-    vtable: *const GameListRemovedEventHandler_Vtbl,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
-impl<F: FnMut(&windows_core::HSTRING) -> windows_core::Result<()> + Send + 'static> GameListRemovedEventHandlerBox<F> {
-    const VTABLE: GameListRemovedEventHandler_Vtbl = GameListRemovedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <GameListRemovedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, identifier: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(core::mem::transmute(&identifier)).into()
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GameListCategory(pub i32);
-impl GameListCategory {
-    pub const Candidate: Self = Self(0i32);
-    pub const ConfirmedBySystem: Self = Self(1i32);
-    pub const ConfirmedByUser: Self = Self(2i32);
-}
-impl windows_core::TypeKind for GameListCategory {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GameListCategory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Preview.GamesEnumeration.GameListCategory;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GameListEntryLaunchableState(pub i32);
-impl GameListEntryLaunchableState {
-    pub const NotLaunchable: Self = Self(0i32);
-    pub const ByLastRunningFullPath: Self = Self(1i32);
-    pub const ByUserProvidedPath: Self = Self(2i32);
-    pub const ByTile: Self = Self(3i32);
-}
-impl windows_core::TypeKind for GameListEntryLaunchableState {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GameListEntryLaunchableState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Preview.GamesEnumeration.GameListEntryLaunchableState;i4)");
 }

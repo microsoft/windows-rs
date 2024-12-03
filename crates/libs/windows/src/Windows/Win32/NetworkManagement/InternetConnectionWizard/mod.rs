@@ -1,5 +1,3 @@
-pub type PFNCHECKCONNECTIONWIZARD = Option<unsafe extern "system" fn(param0: u32, param1: *mut u32) -> u32>;
-pub type PFNSETSHELLNEXT = Option<unsafe extern "system" fn(param0: windows_core::PCSTR) -> u32>;
 pub const ICW_ALREADYRUN: u32 = 4u32;
 pub const ICW_CHECKSTATUS: u32 = 1u32;
 pub const ICW_FULLPRESENT: u32 = 1u32;
@@ -20,3 +18,5 @@ pub const ICW_REGKEYCOMPLETED: windows_core::PCSTR = windows_core::s!("Completed
 pub const ICW_REGPATHSETTINGS: windows_core::PCSTR = windows_core::s!("Software\\Microsoft\\Internet Connection Wizard");
 pub const ICW_USEDEFAULTS: u32 = 1u32;
 pub const ICW_USE_SHELLNEXT: u32 = 1024u32;
+pub type PFNCHECKCONNECTIONWIZARD = Option<unsafe extern "system" fn(param0: u32, param1: *mut u32) -> u32>;
+pub type PFNSETSHELLNEXT = Option<unsafe extern "system" fn(param0: windows_core::PCSTR) -> u32>;

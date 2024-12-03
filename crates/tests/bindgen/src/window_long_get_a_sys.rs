@@ -15,6 +15,6 @@ windows_targets::link!("user32.dll" "system" fn GetWindowLongA(hwnd : HWND, nind
 windows_targets::link!("user32.dll" "system" fn GetWindowLongPtrA(hwnd : HWND, nindex : WINDOW_LONG_PTR_INDEX) -> isize);
 #[cfg(target_pointer_width = "32")]
 pub use GetWindowLongA as GetWindowLongPtrA;
-pub type WINDOW_LONG_PTR_INDEX = i32;
 pub type HANDLE = *mut core::ffi::c_void;
 pub type HWND = *mut core::ffi::c_void;
+pub type WINDOW_LONG_PTR_INDEX = i32;

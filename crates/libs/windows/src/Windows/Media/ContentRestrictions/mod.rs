@@ -1,4 +1,19 @@
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ContentAccessRestrictionLevel(pub i32);
+impl ContentAccessRestrictionLevel {
+    pub const Allow: Self = Self(0i32);
+    pub const Warn: Self = Self(1i32);
+    pub const Block: Self = Self(2i32);
+    pub const Hide: Self = Self(3i32);
+}
+impl windows_core::TypeKind for ContentAccessRestrictionLevel {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ContentAccessRestrictionLevel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ContentRestrictions.ContentAccessRestrictionLevel;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContentRestrictionsBrowsePolicy(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContentRestrictionsBrowsePolicy, windows_core::IUnknown, windows_core::IInspectable);
@@ -37,6 +52,95 @@ impl windows_core::RuntimeName for ContentRestrictionsBrowsePolicy {
 }
 unsafe impl Send for ContentRestrictionsBrowsePolicy {}
 unsafe impl Sync for ContentRestrictionsBrowsePolicy {}
+windows_core::imp::define_interface!(IContentRestrictionsBrowsePolicy, IContentRestrictionsBrowsePolicy_Vtbl, 0x8c0133a4_442e_461a_8757_fad2f5bd37e4);
+impl windows_core::RuntimeType for IContentRestrictionsBrowsePolicy {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IContentRestrictionsBrowsePolicy_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GeographicRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub MaxBrowsableAgeRating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PreferredAgeRating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IRatedContentDescription, IRatedContentDescription_Vtbl, 0x694866df_66b2_4dc3_96b1_f090eedee255);
+impl windows_core::RuntimeType for IRatedContentDescription {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRatedContentDescription_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub Image: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    Image: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub SetImage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    SetImage: usize,
+    pub Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RatedContentCategory) -> windows_core::HRESULT,
+    pub SetCategory: unsafe extern "system" fn(*mut core::ffi::c_void, RatedContentCategory) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Ratings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Ratings: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SetRatings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SetRatings: usize,
+}
+windows_core::imp::define_interface!(IRatedContentDescriptionFactory, IRatedContentDescriptionFactory_Vtbl, 0x2e38df62_9b90_4fa6_89c1_4b8d2ffb3573);
+impl windows_core::RuntimeType for IRatedContentDescriptionFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRatedContentDescriptionFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, RatedContentCategory, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IRatedContentRestrictions, IRatedContentRestrictions_Vtbl, 0x3f7f23cb_ba07_4401_a49d_8b9222205723);
+impl windows_core::RuntimeType for IRatedContentRestrictions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRatedContentRestrictions_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetBrowsePolicyAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetRestrictionLevelAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RequestContentAccessAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RestrictionsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveRestrictionsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IRatedContentRestrictionsFactory, IRatedContentRestrictionsFactory_Vtbl, 0xfb4b2996_c3bd_4910_9619_97cfd0694d56);
+impl windows_core::RuntimeType for IRatedContentRestrictionsFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRatedContentRestrictionsFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateWithMaxAgeRating: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RatedContentCategory(pub i32);
+impl RatedContentCategory {
+    pub const General: Self = Self(0i32);
+    pub const Application: Self = Self(1i32);
+    pub const Game: Self = Self(2i32);
+    pub const Movie: Self = Self(3i32);
+    pub const Television: Self = Self(4i32);
+    pub const Music: Self = Self(5i32);
+}
+impl windows_core::TypeKind for RatedContentCategory {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for RatedContentCategory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ContentRestrictions.RatedContentCategory;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RatedContentDescription(windows_core::IUnknown);
@@ -206,107 +310,3 @@ impl windows_core::RuntimeName for RatedContentRestrictions {
 }
 unsafe impl Send for RatedContentRestrictions {}
 unsafe impl Sync for RatedContentRestrictions {}
-windows_core::imp::define_interface!(IContentRestrictionsBrowsePolicy, IContentRestrictionsBrowsePolicy_Vtbl, 0x8c0133a4_442e_461a_8757_fad2f5bd37e4);
-impl windows_core::RuntimeType for IContentRestrictionsBrowsePolicy {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IContentRestrictionsBrowsePolicy_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GeographicRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub MaxBrowsableAgeRating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PreferredAgeRating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IRatedContentDescription, IRatedContentDescription_Vtbl, 0x694866df_66b2_4dc3_96b1_f090eedee255);
-impl windows_core::RuntimeType for IRatedContentDescription {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRatedContentDescription_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub Image: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    Image: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub SetImage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    SetImage: usize,
-    pub Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RatedContentCategory) -> windows_core::HRESULT,
-    pub SetCategory: unsafe extern "system" fn(*mut core::ffi::c_void, RatedContentCategory) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Ratings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Ratings: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SetRatings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetRatings: usize,
-}
-windows_core::imp::define_interface!(IRatedContentDescriptionFactory, IRatedContentDescriptionFactory_Vtbl, 0x2e38df62_9b90_4fa6_89c1_4b8d2ffb3573);
-impl windows_core::RuntimeType for IRatedContentDescriptionFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRatedContentDescriptionFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, RatedContentCategory, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IRatedContentRestrictions, IRatedContentRestrictions_Vtbl, 0x3f7f23cb_ba07_4401_a49d_8b9222205723);
-impl windows_core::RuntimeType for IRatedContentRestrictions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRatedContentRestrictions_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetBrowsePolicyAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetRestrictionLevelAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RequestContentAccessAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RestrictionsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveRestrictionsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IRatedContentRestrictionsFactory, IRatedContentRestrictionsFactory_Vtbl, 0xfb4b2996_c3bd_4910_9619_97cfd0694d56);
-impl windows_core::RuntimeType for IRatedContentRestrictionsFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRatedContentRestrictionsFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateWithMaxAgeRating: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ContentAccessRestrictionLevel(pub i32);
-impl ContentAccessRestrictionLevel {
-    pub const Allow: Self = Self(0i32);
-    pub const Warn: Self = Self(1i32);
-    pub const Block: Self = Self(2i32);
-    pub const Hide: Self = Self(3i32);
-}
-impl windows_core::TypeKind for ContentAccessRestrictionLevel {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ContentAccessRestrictionLevel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ContentRestrictions.ContentAccessRestrictionLevel;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RatedContentCategory(pub i32);
-impl RatedContentCategory {
-    pub const General: Self = Self(0i32);
-    pub const Application: Self = Self(1i32);
-    pub const Game: Self = Self(2i32);
-    pub const Movie: Self = Self(3i32);
-    pub const Television: Self = Self(4i32);
-    pub const Music: Self = Self(5i32);
-}
-impl windows_core::TypeKind for RatedContentCategory {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for RatedContentCategory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ContentRestrictions.RatedContentCategory;i4)");
-}

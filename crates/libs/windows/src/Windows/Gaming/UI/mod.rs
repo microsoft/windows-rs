@@ -45,6 +45,19 @@ impl windows_core::RuntimeName for GameBar {
     const NAME: &'static str = "Windows.Gaming.UI.GameBar";
 }
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GameChatMessageOrigin(pub i32);
+impl GameChatMessageOrigin {
+    pub const Voice: Self = Self(0i32);
+    pub const Text: Self = Self(1i32);
+}
+impl windows_core::TypeKind for GameChatMessageOrigin {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GameChatMessageOrigin {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.UI.GameChatMessageOrigin;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GameChatMessageReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameChatMessageReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -183,6 +196,25 @@ impl windows_core::RuntimeName for GameChatOverlayMessageSource {
 }
 unsafe impl Send for GameChatOverlayMessageSource {}
 unsafe impl Sync for GameChatOverlayMessageSource {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GameChatOverlayPosition(pub i32);
+impl GameChatOverlayPosition {
+    pub const BottomCenter: Self = Self(0i32);
+    pub const BottomLeft: Self = Self(1i32);
+    pub const BottomRight: Self = Self(2i32);
+    pub const MiddleRight: Self = Self(3i32);
+    pub const MiddleLeft: Self = Self(4i32);
+    pub const TopCenter: Self = Self(5i32);
+    pub const TopLeft: Self = Self(6i32);
+    pub const TopRight: Self = Self(7i32);
+}
+impl windows_core::TypeKind for GameChatOverlayPosition {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GameChatOverlayPosition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.UI.GameChatOverlayPosition;i4)");
+}
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -327,36 +359,4 @@ pub struct IGameUIProviderActivatedEventArgs_Vtbl {
     pub ReportCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     ReportCompleted: usize,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GameChatMessageOrigin(pub i32);
-impl GameChatMessageOrigin {
-    pub const Voice: Self = Self(0i32);
-    pub const Text: Self = Self(1i32);
-}
-impl windows_core::TypeKind for GameChatMessageOrigin {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GameChatMessageOrigin {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.UI.GameChatMessageOrigin;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GameChatOverlayPosition(pub i32);
-impl GameChatOverlayPosition {
-    pub const BottomCenter: Self = Self(0i32);
-    pub const BottomLeft: Self = Self(1i32);
-    pub const BottomRight: Self = Self(2i32);
-    pub const MiddleRight: Self = Self(3i32);
-    pub const MiddleLeft: Self = Self(4i32);
-    pub const TopCenter: Self = Self(5i32);
-    pub const TopLeft: Self = Self(6i32);
-    pub const TopRight: Self = Self(7i32);
-}
-impl windows_core::TypeKind for GameChatOverlayPosition {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GameChatOverlayPosition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.UI.GameChatOverlayPosition;i4)");
 }

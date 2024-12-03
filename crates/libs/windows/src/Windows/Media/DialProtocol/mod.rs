@@ -45,6 +45,36 @@ impl windows_core::RuntimeName for DialApp {
 unsafe impl Send for DialApp {}
 unsafe impl Sync for DialApp {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DialAppLaunchResult(pub i32);
+impl DialAppLaunchResult {
+    pub const Launched: Self = Self(0i32);
+    pub const FailedToLaunch: Self = Self(1i32);
+    pub const NotFound: Self = Self(2i32);
+    pub const NetworkFailure: Self = Self(3i32);
+}
+impl windows_core::TypeKind for DialAppLaunchResult {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DialAppLaunchResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppLaunchResult;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DialAppState(pub i32);
+impl DialAppState {
+    pub const Unknown: Self = Self(0i32);
+    pub const Stopped: Self = Self(1i32);
+    pub const Running: Self = Self(2i32);
+    pub const NetworkFailure: Self = Self(3i32);
+}
+impl windows_core::TypeKind for DialAppState {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DialAppState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppState;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DialAppStateDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DialAppStateDetails, windows_core::IUnknown, windows_core::IInspectable);
@@ -76,6 +106,21 @@ impl windows_core::RuntimeName for DialAppStateDetails {
 }
 unsafe impl Send for DialAppStateDetails {}
 unsafe impl Sync for DialAppStateDetails {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DialAppStopResult(pub i32);
+impl DialAppStopResult {
+    pub const Stopped: Self = Self(0i32);
+    pub const StopFailed: Self = Self(1i32);
+    pub const OperationNotSupported: Self = Self(2i32);
+    pub const NetworkFailure: Self = Self(3i32);
+}
+impl windows_core::TypeKind for DialAppStopResult {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DialAppStopResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppStopResult;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DialDevice(windows_core::IUnknown);
@@ -149,6 +194,23 @@ impl windows_core::RuntimeName for DialDevice {
 }
 unsafe impl Send for DialDevice {}
 unsafe impl Sync for DialDevice {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DialDeviceDisplayStatus(pub i32);
+impl DialDeviceDisplayStatus {
+    pub const None: Self = Self(0i32);
+    pub const Connecting: Self = Self(1i32);
+    pub const Connected: Self = Self(2i32);
+    pub const Disconnecting: Self = Self(3i32);
+    pub const Disconnected: Self = Self(4i32);
+    pub const Error: Self = Self(5i32);
+}
+impl windows_core::TypeKind for DialDeviceDisplayStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DialDeviceDisplayStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialDeviceDisplayStatus;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DialDevicePicker(windows_core::IUnknown);
@@ -549,66 +611,4 @@ impl windows_core::RuntimeType for IDialReceiverAppStatics {
 pub struct IDialReceiverAppStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DialAppLaunchResult(pub i32);
-impl DialAppLaunchResult {
-    pub const Launched: Self = Self(0i32);
-    pub const FailedToLaunch: Self = Self(1i32);
-    pub const NotFound: Self = Self(2i32);
-    pub const NetworkFailure: Self = Self(3i32);
-}
-impl windows_core::TypeKind for DialAppLaunchResult {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DialAppLaunchResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppLaunchResult;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DialAppState(pub i32);
-impl DialAppState {
-    pub const Unknown: Self = Self(0i32);
-    pub const Stopped: Self = Self(1i32);
-    pub const Running: Self = Self(2i32);
-    pub const NetworkFailure: Self = Self(3i32);
-}
-impl windows_core::TypeKind for DialAppState {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DialAppState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppState;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DialAppStopResult(pub i32);
-impl DialAppStopResult {
-    pub const Stopped: Self = Self(0i32);
-    pub const StopFailed: Self = Self(1i32);
-    pub const OperationNotSupported: Self = Self(2i32);
-    pub const NetworkFailure: Self = Self(3i32);
-}
-impl windows_core::TypeKind for DialAppStopResult {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DialAppStopResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppStopResult;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DialDeviceDisplayStatus(pub i32);
-impl DialDeviceDisplayStatus {
-    pub const None: Self = Self(0i32);
-    pub const Connecting: Self = Self(1i32);
-    pub const Connected: Self = Self(2i32);
-    pub const Disconnecting: Self = Self(3i32);
-    pub const Disconnected: Self = Self(4i32);
-    pub const Error: Self = Self(5i32);
-}
-impl windows_core::TypeKind for DialDeviceDisplayStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DialDeviceDisplayStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialDeviceDisplayStatus;i4)");
 }

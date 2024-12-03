@@ -339,103 +339,6 @@ windows_targets::link!("mspatcha.dll" "system" fn TestApplyPatchToFileByBuffers(
 windows_targets::link!("mspatcha.dll" "system" fn TestApplyPatchToFileByHandles(patchfilehandle : super::super::Foundation:: HANDLE, oldfilehandle : super::super::Foundation:: HANDLE, applyoptionflags : u32) -> super::super::Foundation:: BOOL);
 windows_targets::link!("mspatcha.dll" "system" fn TestApplyPatchToFileW(patchfilename : windows_sys::core::PCWSTR, oldfilename : windows_sys::core::PCWSTR, applyoptionflags : u32) -> super::super::Foundation:: BOOL);
 windows_targets::link!("kernel32.dll" "system" fn ZombifyActCtx(hactctx : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-pub type INSTALLUI_HANDLERA = Option<unsafe extern "system" fn(pvcontext: *mut core::ffi::c_void, imessagetype: u32, szmessage: windows_sys::core::PCSTR) -> i32>;
-pub type INSTALLUI_HANDLERW = Option<unsafe extern "system" fn(pvcontext: *mut core::ffi::c_void, imessagetype: u32, szmessage: windows_sys::core::PCWSTR) -> i32>;
-pub type LPDISPLAYVAL = Option<unsafe extern "system" fn(pcontext: *mut core::ffi::c_void, uitype: RESULTTYPES, szwval: windows_sys::core::PCWSTR, szwdescription: windows_sys::core::PCWSTR, szwlocation: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
-pub type LPEVALCOMCALLBACK = Option<unsafe extern "system" fn(istatus: STATUSTYPES, szdata: windows_sys::core::PCWSTR, pcontext: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type PINSTALLUI_HANDLER_RECORD = Option<unsafe extern "system" fn(pvcontext: *mut core::ffi::c_void, imessagetype: u32, hrecord: MSIHANDLE) -> i32>;
-pub type PPATCH_PROGRESS_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: *mut core::ffi::c_void, currentposition: u32, maximumposition: u32) -> super::super::Foundation::BOOL>;
-pub type PPATCH_SYMLOAD_CALLBACK = Option<unsafe extern "system" fn(whichfile: u32, symbolfilename: windows_sys::core::PCSTR, symtype: u32, symbolfilechecksum: u32, symbolfiletimedate: u32, imagefilechecksum: u32, imagefiletimedate: u32, callbackcontext: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type ACTCTX_COMPATIBILITY_ELEMENT_TYPE = i32;
-pub type ACTCTX_REQUESTED_RUN_LEVEL = i32;
-pub type ADVERTISEFLAGS = i32;
-pub type ASM_BIND_FLAGS = i32;
-pub type ASM_CMP_FLAGS = i32;
-pub type ASM_DISPLAY_FLAGS = i32;
-pub type ASM_NAME = i32;
-pub type CREATE_ASM_NAME_OBJ_FLAGS = i32;
-pub type IASSEMBLYCACHE_UNINSTALL_DISPOSITION = u32;
-pub type INSTALLFEATUREATTRIBUTE = i32;
-pub type INSTALLLEVEL = i32;
-pub type INSTALLLOGATTRIBUTES = i32;
-pub type INSTALLLOGMODE = i32;
-pub type INSTALLMESSAGE = i32;
-pub type INSTALLMODE = i32;
-pub type INSTALLSTATE = i32;
-pub type INSTALLTYPE = i32;
-pub type INSTALLUILEVEL = i32;
-pub type MSIADVERTISEOPTIONFLAGS = i32;
-pub type MSIARCHITECTUREFLAGS = i32;
-pub type MSIASSEMBLYINFO = u32;
-pub type MSICODE = i32;
-pub type MSICOLINFO = i32;
-pub type MSICONDITION = i32;
-pub type MSICOSTTREE = i32;
-pub type MSIDBERROR = i32;
-pub type MSIDBSTATE = i32;
-pub type MSIINSTALLCONTEXT = i32;
-pub type MSIMODIFY = i32;
-pub type MSIOPENPACKAGEFLAGS = i32;
-pub type MSIPATCHDATATYPE = i32;
-pub type MSIPATCHSTATE = i32;
-pub type MSIRUNMODE = i32;
-pub type MSISOURCETYPE = i32;
-pub type MSITRANSACTION = i32;
-pub type MSITRANSACTIONSTATE = u32;
-pub type MSITRANSFORM_ERROR = i32;
-pub type MSITRANSFORM_VALIDATE = i32;
-pub type PACKMAN_RUNTIME = i32;
-pub type PM_ACTIVATION_POLICY = i32;
-pub type PM_APPLICATION_HUBTYPE = i32;
-pub type PM_APPLICATION_INSTALL_TYPE = i32;
-pub type PM_APPLICATION_STATE = i32;
-pub type PM_APP_GENRE = i32;
-pub type PM_ENUM_APP_FILTER = i32;
-pub type PM_ENUM_BSA_FILTER = i32;
-pub type PM_ENUM_BW_FILTER = i32;
-pub type PM_ENUM_EXTENSION_FILTER = i32;
-pub type PM_ENUM_TASK_FILTER = i32;
-pub type PM_ENUM_TILE_FILTER = i32;
-pub type PM_LIVETILE_RECURRENCE_TYPE = i32;
-pub type PM_LOGO_SIZE = i32;
-pub type PM_STARTTILE_TYPE = i32;
-pub type PM_TASK_TRANSITION = i32;
-pub type PM_TASK_TYPE = i32;
-pub type PM_TILE_HUBTYPE = i32;
-pub type PM_TILE_SIZE = i32;
-pub type QUERYASMINFO_FLAGS = u32;
-pub type REINSTALLMODE = i32;
-pub type RESULTTYPES = i32;
-pub type SCRIPTFLAGS = i32;
-pub type STATUSTYPES = i32;
-pub type TILE_TEMPLATE_TYPE = i32;
-pub type USERINFOSTATE = i32;
-pub type msidbAssemblyAttributes = i32;
-pub type msidbClassAttributes = i32;
-pub type msidbComponentAttributes = i32;
-pub type msidbControlAttributes = i32;
-pub type msidbCustomActionType = i32;
-pub type msidbDialogAttributes = i32;
-pub type msidbEmbeddedUIAttributes = i32;
-pub type msidbFeatureAttributes = i32;
-pub type msidbFileAttributes = i32;
-pub type msidbIniFileAction = i32;
-pub type msidbLocatorType = i32;
-pub type msidbMoveFileOptions = i32;
-pub type msidbODBCDataSourceRegistration = i32;
-pub type msidbPatchAttributes = i32;
-pub type msidbRegistryRoot = i32;
-pub type msidbRemoveFileInstallMode = i32;
-pub type msidbServiceConfigEvent = i32;
-pub type msidbServiceControlEvent = i32;
-pub type msidbServiceInstallErrorControl = i32;
-pub type msidbSumInfoSourceType = i32;
-pub type msidbTextStyleStyleBits = i32;
-pub type msidbUpgradeAttributes = i32;
-pub type msifiFastInstallBits = i32;
-pub type msirbRebootReason = i32;
-pub type msirbRebootType = i32;
-pub type msmErrorType = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACTCTXA {
@@ -462,6 +365,17 @@ pub struct ACTCTXW {
     pub lpApplicationName: windows_sys::core::PCWSTR,
     pub hModule: super::super::Foundation::HMODULE,
 }
+pub type ACTCTX_COMPATIBILITY_ELEMENT_TYPE = i32;
+pub const ACTCTX_COMPATIBILITY_ELEMENT_TYPE_MAXVERSIONTESTED: ACTCTX_COMPATIBILITY_ELEMENT_TYPE = 3i32;
+pub const ACTCTX_COMPATIBILITY_ELEMENT_TYPE_MITIGATION: ACTCTX_COMPATIBILITY_ELEMENT_TYPE = 2i32;
+pub const ACTCTX_COMPATIBILITY_ELEMENT_TYPE_OS: ACTCTX_COMPATIBILITY_ELEMENT_TYPE = 1i32;
+pub const ACTCTX_COMPATIBILITY_ELEMENT_TYPE_UNKNOWN: ACTCTX_COMPATIBILITY_ELEMENT_TYPE = 0i32;
+pub type ACTCTX_REQUESTED_RUN_LEVEL = i32;
+pub const ACTCTX_RUN_LEVEL_AS_INVOKER: ACTCTX_REQUESTED_RUN_LEVEL = 1i32;
+pub const ACTCTX_RUN_LEVEL_HIGHEST_AVAILABLE: ACTCTX_REQUESTED_RUN_LEVEL = 2i32;
+pub const ACTCTX_RUN_LEVEL_NUMBERS: ACTCTX_REQUESTED_RUN_LEVEL = 4i32;
+pub const ACTCTX_RUN_LEVEL_REQUIRE_ADMIN: ACTCTX_REQUESTED_RUN_LEVEL = 3i32;
+pub const ACTCTX_RUN_LEVEL_UNSPECIFIED: ACTCTX_REQUESTED_RUN_LEVEL = 0i32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[derive(Clone, Copy)]
@@ -537,6 +451,63 @@ pub struct ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {
     pub RunLevel: ACTCTX_REQUESTED_RUN_LEVEL,
     pub UiAccess: u32,
 }
+pub type ADVERTISEFLAGS = i32;
+pub const ADVERTISEFLAGS_MACHINEASSIGN: ADVERTISEFLAGS = 0i32;
+pub const ADVERTISEFLAGS_USERASSIGN: ADVERTISEFLAGS = 1i32;
+pub const APPLY_OPTION_FAIL_IF_CLOSE: u32 = 2u32;
+pub const APPLY_OPTION_FAIL_IF_EXACT: u32 = 1u32;
+pub const APPLY_OPTION_TEST_ONLY: u32 = 4u32;
+pub const APPLY_OPTION_VALID_FLAGS: u32 = 7u32;
+pub const ASM_BINDF_BINPATH_PROBE_ONLY: ASM_BIND_FLAGS = 8i32;
+pub const ASM_BINDF_FORCE_CACHE_INSTALL: ASM_BIND_FLAGS = 1i32;
+pub const ASM_BINDF_PARENT_ASM_HINT: ASM_BIND_FLAGS = 32i32;
+pub const ASM_BINDF_RFS_INTEGRITY_CHECK: ASM_BIND_FLAGS = 2i32;
+pub const ASM_BINDF_RFS_MODULE_CHECK: ASM_BIND_FLAGS = 4i32;
+pub const ASM_BINDF_SHARED_BINPATH_HINT: ASM_BIND_FLAGS = 16i32;
+pub type ASM_BIND_FLAGS = i32;
+pub const ASM_CMPF_ALL: ASM_CMP_FLAGS = 255i32;
+pub const ASM_CMPF_BUILD_NUMBER: ASM_CMP_FLAGS = 8i32;
+pub const ASM_CMPF_CULTURE: ASM_CMP_FLAGS = 64i32;
+pub const ASM_CMPF_CUSTOM: ASM_CMP_FLAGS = 128i32;
+pub const ASM_CMPF_DEFAULT: ASM_CMP_FLAGS = 256i32;
+pub const ASM_CMPF_MAJOR_VERSION: ASM_CMP_FLAGS = 2i32;
+pub const ASM_CMPF_MINOR_VERSION: ASM_CMP_FLAGS = 4i32;
+pub const ASM_CMPF_NAME: ASM_CMP_FLAGS = 1i32;
+pub const ASM_CMPF_PUBLIC_KEY_TOKEN: ASM_CMP_FLAGS = 32i32;
+pub const ASM_CMPF_REVISION_NUMBER: ASM_CMP_FLAGS = 16i32;
+pub type ASM_CMP_FLAGS = i32;
+pub const ASM_DISPLAYF_CULTURE: ASM_DISPLAY_FLAGS = 2i32;
+pub const ASM_DISPLAYF_CUSTOM: ASM_DISPLAY_FLAGS = 16i32;
+pub const ASM_DISPLAYF_LANGUAGEID: ASM_DISPLAY_FLAGS = 64i32;
+pub const ASM_DISPLAYF_PROCESSORARCHITECTURE: ASM_DISPLAY_FLAGS = 32i32;
+pub const ASM_DISPLAYF_PUBLIC_KEY: ASM_DISPLAY_FLAGS = 8i32;
+pub const ASM_DISPLAYF_PUBLIC_KEY_TOKEN: ASM_DISPLAY_FLAGS = 4i32;
+pub const ASM_DISPLAYF_VERSION: ASM_DISPLAY_FLAGS = 1i32;
+pub type ASM_DISPLAY_FLAGS = i32;
+pub type ASM_NAME = i32;
+pub const ASM_NAME_ALIAS: ASM_NAME = 12i32;
+pub const ASM_NAME_BUILD_NUMBER: ASM_NAME = 6i32;
+pub const ASM_NAME_CODEBASE_LASTMOD: ASM_NAME = 14i32;
+pub const ASM_NAME_CODEBASE_URL: ASM_NAME = 13i32;
+pub const ASM_NAME_CULTURE: ASM_NAME = 8i32;
+pub const ASM_NAME_CUSTOM: ASM_NAME = 17i32;
+pub const ASM_NAME_HASH_ALGID: ASM_NAME = 11i32;
+pub const ASM_NAME_HASH_VALUE: ASM_NAME = 2i32;
+pub const ASM_NAME_MAJOR_VERSION: ASM_NAME = 4i32;
+pub const ASM_NAME_MAX_PARAMS: ASM_NAME = 20i32;
+pub const ASM_NAME_MINOR_VERSION: ASM_NAME = 5i32;
+pub const ASM_NAME_MVID: ASM_NAME = 19i32;
+pub const ASM_NAME_NAME: ASM_NAME = 3i32;
+pub const ASM_NAME_NULL_CUSTOM: ASM_NAME = 18i32;
+pub const ASM_NAME_NULL_PUBLIC_KEY: ASM_NAME = 15i32;
+pub const ASM_NAME_NULL_PUBLIC_KEY_TOKEN: ASM_NAME = 16i32;
+pub const ASM_NAME_OSINFO_ARRAY: ASM_NAME = 10i32;
+pub const ASM_NAME_PROCESSOR_ID_ARRAY: ASM_NAME = 9i32;
+pub const ASM_NAME_PUBLIC_KEY: ASM_NAME = 0i32;
+pub const ASM_NAME_PUBLIC_KEY_TOKEN: ASM_NAME = 1i32;
+pub const ASM_NAME_REVISION_NUMBER: ASM_NAME = 7i32;
+pub const ASSEMBLYINFO_FLAG_INSTALLED: u32 = 1u32;
+pub const ASSEMBLYINFO_FLAG_PAYLOADRESIDENT: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ASSEMBLY_FILE_DETAILED_INFORMATION {
@@ -555,6 +526,10 @@ pub struct ASSEMBLY_INFO {
     pub pszCurrentAssemblyPathBuf: windows_sys::core::PWSTR,
     pub cchBuf: u32,
 }
+pub const CANOF_PARSE_DISPLAY_NAME: CREATE_ASM_NAME_OBJ_FLAGS = 1i32;
+pub const CANOF_SET_DEFAULT_VALUES: CREATE_ASM_NAME_OBJ_FLAGS = 2i32;
+pub const CLSID_EvalCom2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6e5e1910_8053_4660_b795_6b612e29bc58);
+pub const CLSID_MsmMerge2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf94985d5_29f9_4743_9805_99bc3f35b678);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct COMPATIBILITY_CONTEXT_ELEMENT {
@@ -562,6 +537,10 @@ pub struct COMPATIBILITY_CONTEXT_ELEMENT {
     pub Type: ACTCTX_COMPATIBILITY_ELEMENT_TYPE,
     pub MaxVersionTested: u64,
 }
+pub type CREATE_ASM_NAME_OBJ_FLAGS = i32;
+pub const DEFAULT_DISK_ID: u32 = 2u32;
+pub const DEFAULT_FILE_SEQUENCE_START: u32 = 2u32;
+pub const DEFAULT_MINIMUM_REQUIRED_MSI_VERSION: u32 = 100u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DELTA_HASH {
@@ -593,335 +572,13 @@ pub union DELTA_INPUT_0 {
     pub lpcStart: *const core::ffi::c_void,
     pub lpStart: *mut core::ffi::c_void,
 }
+pub const DELTA_MAX_HASH_SIZE: u32 = 32u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DELTA_OUTPUT {
     pub lpStart: *mut core::ffi::c_void,
     pub uSize: usize,
 }
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FUSION_INSTALL_REFERENCE {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub guidScheme: windows_sys::core::GUID,
-    pub szIdentifier: windows_sys::core::PCWSTR,
-    pub szNonCannonicalData: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MSIFILEHASHINFO {
-    pub dwFileHashInfoSize: u32,
-    pub dwData: [u32; 4],
-}
-pub type MSIHANDLE = u32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MSIPATCHSEQUENCEINFOA {
-    pub szPatchData: windows_sys::core::PCSTR,
-    pub ePatchDataType: MSIPATCHDATATYPE,
-    pub dwOrder: u32,
-    pub uStatus: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MSIPATCHSEQUENCEINFOW {
-    pub szPatchData: windows_sys::core::PCWSTR,
-    pub ePatchDataType: MSIPATCHDATATYPE,
-    pub dwOrder: u32,
-    pub uStatus: u32,
-}
-pub const MsmMerge: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0adda830_2c26_11d2_ad65_00a0c9af11a6);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PATCH_IGNORE_RANGE {
-    pub OffsetInOldFile: u32,
-    pub LengthInBytes: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PATCH_INTERLEAVE_MAP {
-    pub CountRanges: u32,
-    pub Range: [PATCH_INTERLEAVE_MAP_0; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PATCH_INTERLEAVE_MAP_0 {
-    pub OldOffset: u32,
-    pub OldLength: u32,
-    pub NewLength: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PATCH_OLD_FILE_INFO {
-    pub SizeOfThisStruct: u32,
-    pub Anonymous: PATCH_OLD_FILE_INFO_0,
-    pub IgnoreRangeCount: u32,
-    pub IgnoreRangeArray: *mut PATCH_IGNORE_RANGE,
-    pub RetainRangeCount: u32,
-    pub RetainRangeArray: *mut PATCH_RETAIN_RANGE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PATCH_OLD_FILE_INFO_0 {
-    pub OldFileNameA: windows_sys::core::PCSTR,
-    pub OldFileNameW: windows_sys::core::PCWSTR,
-    pub OldFileHandle: super::super::Foundation::HANDLE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PATCH_OLD_FILE_INFO_A {
-    pub SizeOfThisStruct: u32,
-    pub OldFileName: windows_sys::core::PCSTR,
-    pub IgnoreRangeCount: u32,
-    pub IgnoreRangeArray: *mut PATCH_IGNORE_RANGE,
-    pub RetainRangeCount: u32,
-    pub RetainRangeArray: *mut PATCH_RETAIN_RANGE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PATCH_OLD_FILE_INFO_H {
-    pub SizeOfThisStruct: u32,
-    pub OldFileHandle: super::super::Foundation::HANDLE,
-    pub IgnoreRangeCount: u32,
-    pub IgnoreRangeArray: *mut PATCH_IGNORE_RANGE,
-    pub RetainRangeCount: u32,
-    pub RetainRangeArray: *mut PATCH_RETAIN_RANGE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PATCH_OLD_FILE_INFO_W {
-    pub SizeOfThisStruct: u32,
-    pub OldFileName: windows_sys::core::PCWSTR,
-    pub IgnoreRangeCount: u32,
-    pub IgnoreRangeArray: *mut PATCH_IGNORE_RANGE,
-    pub RetainRangeCount: u32,
-    pub RetainRangeArray: *mut PATCH_RETAIN_RANGE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PATCH_OPTION_DATA {
-    pub SizeOfThisStruct: u32,
-    pub SymbolOptionFlags: u32,
-    pub NewFileSymbolPath: windows_sys::core::PCSTR,
-    pub OldFileSymbolPathArray: *const windows_sys::core::PCSTR,
-    pub ExtendedOptionFlags: u32,
-    pub SymLoadCallback: PPATCH_SYMLOAD_CALLBACK,
-    pub SymLoadContext: *mut core::ffi::c_void,
-    pub InterleaveMapArray: *mut *mut PATCH_INTERLEAVE_MAP,
-    pub MaxLzxWindowSize: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PATCH_RETAIN_RANGE {
-    pub OffsetInOldFile: u32,
-    pub LengthInBytes: u32,
-    pub OffsetInNewFile: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PMSIHANDLE {
-    pub m_h: MSIHANDLE,
-}
-pub const PMSvc: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb9e511fc_e364_497a_a121_b7b3612cedce);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PM_APPTASKTYPE {
-    pub ProductID: windows_sys::core::GUID,
-    pub TaskType: PM_TASK_TYPE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PM_BSATASKID {
-    pub ProductID: windows_sys::core::GUID,
-    pub TaskID: windows_sys::core::BSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PM_BWTASKID {
-    pub ProductID: windows_sys::core::GUID,
-    pub TaskID: windows_sys::core::BSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PM_ENUM_FILTER {
-    pub FilterType: i32,
-    pub FilterParameter: PM_ENUM_FILTER_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PM_ENUM_FILTER_0 {
-    pub Dummy: i32,
-    pub Genre: PM_APP_GENRE,
-    pub AppHubType: PM_APPLICATION_HUBTYPE,
-    pub HubType: PM_TILE_HUBTYPE,
-    pub Tasktype: PM_TASK_TYPE,
-    pub TaskProductID: windows_sys::core::GUID,
-    pub TileProductID: windows_sys::core::GUID,
-    pub AppTaskType: PM_APPTASKTYPE,
-    pub Consumer: PM_EXTENSIONCONSUMER,
-    pub BSATask: PM_BSATASKID,
-    pub BSAProductID: windows_sys::core::GUID,
-    pub BWTask: PM_BWTASKID,
-    pub ProtocolName: windows_sys::core::BSTR,
-    pub FileType: windows_sys::core::BSTR,
-    pub ContentType: windows_sys::core::BSTR,
-    pub AppSupportedFileExtPID: windows_sys::core::GUID,
-    pub ShareTargetFileType: windows_sys::core::BSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PM_EXTENSIONCONSUMER {
-    pub ConsumerPID: windows_sys::core::GUID,
-    pub ExtensionID: windows_sys::core::BSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PM_INSTALLINFO {
-    pub ProductID: windows_sys::core::GUID,
-    pub PackagePath: windows_sys::core::BSTR,
-    pub InstanceID: windows_sys::core::GUID,
-    pub pbLicense: *mut u8,
-    pub cbLicense: u32,
-    pub IsUninstallDisabled: super::super::Foundation::BOOL,
-    pub DeploymentOptions: u32,
-    pub OfferID: windows_sys::core::GUID,
-    pub MarketplaceAppVersion: windows_sys::core::BSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PM_INVOCATIONINFO {
-    pub URIBaseOrAUMID: windows_sys::core::BSTR,
-    pub URIFragmentOrArgs: windows_sys::core::BSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PM_STARTAPPBLOB {
-    pub cbSize: u32,
-    pub ProductID: windows_sys::core::GUID,
-    pub AppTitle: windows_sys::core::BSTR,
-    pub IconPath: windows_sys::core::BSTR,
-    pub IsUninstallable: super::super::Foundation::BOOL,
-    pub AppInstallType: PM_APPLICATION_INSTALL_TYPE,
-    pub InstanceID: windows_sys::core::GUID,
-    pub State: PM_APPLICATION_STATE,
-    pub IsModern: super::super::Foundation::BOOL,
-    pub IsModernLightUp: super::super::Foundation::BOOL,
-    pub LightUpSupportMask: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PM_STARTTILEBLOB {
-    pub cbSize: u32,
-    pub ProductID: windows_sys::core::GUID,
-    pub TileID: windows_sys::core::BSTR,
-    pub TemplateType: TILE_TEMPLATE_TYPE,
-    pub HubPosition: [u32; 32],
-    pub HubVisibilityBitmask: u32,
-    pub IsDefault: super::super::Foundation::BOOL,
-    pub TileType: PM_STARTTILE_TYPE,
-    pub pbPropBlob: *mut u8,
-    pub cbPropBlob: u32,
-    pub IsRestoring: super::super::Foundation::BOOL,
-    pub IsModern: super::super::Foundation::BOOL,
-    pub InvocationInfo: PM_INVOCATIONINFO,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PM_UPDATEINFO {
-    pub ProductID: windows_sys::core::GUID,
-    pub PackagePath: windows_sys::core::BSTR,
-    pub InstanceID: windows_sys::core::GUID,
-    pub pbLicense: *mut u8,
-    pub cbLicense: u32,
-    pub MarketplaceAppVersion: windows_sys::core::BSTR,
-    pub DeploymentOptions: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PM_UPDATEINFO_LEGACY {
-    pub ProductID: windows_sys::core::GUID,
-    pub PackagePath: windows_sys::core::BSTR,
-    pub InstanceID: windows_sys::core::GUID,
-    pub pbLicense: *mut u8,
-    pub cbLicense: u32,
-    pub MarketplaceAppVersion: windows_sys::core::BSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROTECTED_FILE_DATA {
-    pub FileName: [u16; 260],
-    pub FileNumber: u32,
-}
-pub const ACTCTX_COMPATIBILITY_ELEMENT_TYPE_MAXVERSIONTESTED: ACTCTX_COMPATIBILITY_ELEMENT_TYPE = 3i32;
-pub const ACTCTX_COMPATIBILITY_ELEMENT_TYPE_MITIGATION: ACTCTX_COMPATIBILITY_ELEMENT_TYPE = 2i32;
-pub const ACTCTX_COMPATIBILITY_ELEMENT_TYPE_OS: ACTCTX_COMPATIBILITY_ELEMENT_TYPE = 1i32;
-pub const ACTCTX_COMPATIBILITY_ELEMENT_TYPE_UNKNOWN: ACTCTX_COMPATIBILITY_ELEMENT_TYPE = 0i32;
-pub const ACTCTX_RUN_LEVEL_AS_INVOKER: ACTCTX_REQUESTED_RUN_LEVEL = 1i32;
-pub const ACTCTX_RUN_LEVEL_HIGHEST_AVAILABLE: ACTCTX_REQUESTED_RUN_LEVEL = 2i32;
-pub const ACTCTX_RUN_LEVEL_NUMBERS: ACTCTX_REQUESTED_RUN_LEVEL = 4i32;
-pub const ACTCTX_RUN_LEVEL_REQUIRE_ADMIN: ACTCTX_REQUESTED_RUN_LEVEL = 3i32;
-pub const ACTCTX_RUN_LEVEL_UNSPECIFIED: ACTCTX_REQUESTED_RUN_LEVEL = 0i32;
-pub const ADVERTISEFLAGS_MACHINEASSIGN: ADVERTISEFLAGS = 0i32;
-pub const ADVERTISEFLAGS_USERASSIGN: ADVERTISEFLAGS = 1i32;
-pub const APPLY_OPTION_FAIL_IF_CLOSE: u32 = 2u32;
-pub const APPLY_OPTION_FAIL_IF_EXACT: u32 = 1u32;
-pub const APPLY_OPTION_TEST_ONLY: u32 = 4u32;
-pub const APPLY_OPTION_VALID_FLAGS: u32 = 7u32;
-pub const ASM_BINDF_BINPATH_PROBE_ONLY: ASM_BIND_FLAGS = 8i32;
-pub const ASM_BINDF_FORCE_CACHE_INSTALL: ASM_BIND_FLAGS = 1i32;
-pub const ASM_BINDF_PARENT_ASM_HINT: ASM_BIND_FLAGS = 32i32;
-pub const ASM_BINDF_RFS_INTEGRITY_CHECK: ASM_BIND_FLAGS = 2i32;
-pub const ASM_BINDF_RFS_MODULE_CHECK: ASM_BIND_FLAGS = 4i32;
-pub const ASM_BINDF_SHARED_BINPATH_HINT: ASM_BIND_FLAGS = 16i32;
-pub const ASM_CMPF_ALL: ASM_CMP_FLAGS = 255i32;
-pub const ASM_CMPF_BUILD_NUMBER: ASM_CMP_FLAGS = 8i32;
-pub const ASM_CMPF_CULTURE: ASM_CMP_FLAGS = 64i32;
-pub const ASM_CMPF_CUSTOM: ASM_CMP_FLAGS = 128i32;
-pub const ASM_CMPF_DEFAULT: ASM_CMP_FLAGS = 256i32;
-pub const ASM_CMPF_MAJOR_VERSION: ASM_CMP_FLAGS = 2i32;
-pub const ASM_CMPF_MINOR_VERSION: ASM_CMP_FLAGS = 4i32;
-pub const ASM_CMPF_NAME: ASM_CMP_FLAGS = 1i32;
-pub const ASM_CMPF_PUBLIC_KEY_TOKEN: ASM_CMP_FLAGS = 32i32;
-pub const ASM_CMPF_REVISION_NUMBER: ASM_CMP_FLAGS = 16i32;
-pub const ASM_DISPLAYF_CULTURE: ASM_DISPLAY_FLAGS = 2i32;
-pub const ASM_DISPLAYF_CUSTOM: ASM_DISPLAY_FLAGS = 16i32;
-pub const ASM_DISPLAYF_LANGUAGEID: ASM_DISPLAY_FLAGS = 64i32;
-pub const ASM_DISPLAYF_PROCESSORARCHITECTURE: ASM_DISPLAY_FLAGS = 32i32;
-pub const ASM_DISPLAYF_PUBLIC_KEY: ASM_DISPLAY_FLAGS = 8i32;
-pub const ASM_DISPLAYF_PUBLIC_KEY_TOKEN: ASM_DISPLAY_FLAGS = 4i32;
-pub const ASM_DISPLAYF_VERSION: ASM_DISPLAY_FLAGS = 1i32;
-pub const ASM_NAME_ALIAS: ASM_NAME = 12i32;
-pub const ASM_NAME_BUILD_NUMBER: ASM_NAME = 6i32;
-pub const ASM_NAME_CODEBASE_LASTMOD: ASM_NAME = 14i32;
-pub const ASM_NAME_CODEBASE_URL: ASM_NAME = 13i32;
-pub const ASM_NAME_CULTURE: ASM_NAME = 8i32;
-pub const ASM_NAME_CUSTOM: ASM_NAME = 17i32;
-pub const ASM_NAME_HASH_ALGID: ASM_NAME = 11i32;
-pub const ASM_NAME_HASH_VALUE: ASM_NAME = 2i32;
-pub const ASM_NAME_MAJOR_VERSION: ASM_NAME = 4i32;
-pub const ASM_NAME_MAX_PARAMS: ASM_NAME = 20i32;
-pub const ASM_NAME_MINOR_VERSION: ASM_NAME = 5i32;
-pub const ASM_NAME_MVID: ASM_NAME = 19i32;
-pub const ASM_NAME_NAME: ASM_NAME = 3i32;
-pub const ASM_NAME_NULL_CUSTOM: ASM_NAME = 18i32;
-pub const ASM_NAME_NULL_PUBLIC_KEY: ASM_NAME = 15i32;
-pub const ASM_NAME_NULL_PUBLIC_KEY_TOKEN: ASM_NAME = 16i32;
-pub const ASM_NAME_OSINFO_ARRAY: ASM_NAME = 10i32;
-pub const ASM_NAME_PROCESSOR_ID_ARRAY: ASM_NAME = 9i32;
-pub const ASM_NAME_PUBLIC_KEY: ASM_NAME = 0i32;
-pub const ASM_NAME_PUBLIC_KEY_TOKEN: ASM_NAME = 1i32;
-pub const ASM_NAME_REVISION_NUMBER: ASM_NAME = 7i32;
-pub const ASSEMBLYINFO_FLAG_INSTALLED: u32 = 1u32;
-pub const ASSEMBLYINFO_FLAG_PAYLOADRESIDENT: u32 = 2u32;
-pub const CANOF_PARSE_DISPLAY_NAME: CREATE_ASM_NAME_OBJ_FLAGS = 1i32;
-pub const CANOF_SET_DEFAULT_VALUES: CREATE_ASM_NAME_OBJ_FLAGS = 2i32;
-pub const CLSID_EvalCom2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6e5e1910_8053_4660_b795_6b612e29bc58);
-pub const CLSID_MsmMerge2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf94985d5_29f9_4743_9805_99bc3f35b678);
-pub const DEFAULT_DISK_ID: u32 = 2u32;
-pub const DEFAULT_FILE_SEQUENCE_START: u32 = 2u32;
-pub const DEFAULT_MINIMUM_REQUIRED_MSI_VERSION: u32 = 100u32;
-pub const DELTA_MAX_HASH_SIZE: u32 = 32u32;
 pub const ERROR_PATCH_BIGGER_THAN_COMPRESSED: u32 = 3222155525u32;
 pub const ERROR_PATCH_CORRUPT: u32 = 3222159618u32;
 pub const ERROR_PATCH_DECODE_FAILURE: u32 = 3222159617u32;
@@ -1103,6 +760,15 @@ pub const ERROR_PCW_VIEW_FETCH: u32 = 3222163871u32;
 pub const ERROR_PCW_WRITE_SUMMARY_PROPERTIES: u32 = 3222163787u32;
 pub const ERROR_PCW_WRONG_PATCHMETADATA_STRD_PROP: u32 = 3222163859u32;
 pub const ERROR_ROLLBACK_DISABLED: u32 = 1653u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FUSION_INSTALL_REFERENCE {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub guidScheme: windows_sys::core::GUID,
+    pub szIdentifier: windows_sys::core::PCWSTR,
+    pub szNonCannonicalData: windows_sys::core::PCWSTR,
+}
 pub const FUSION_REFCOUNT_FILEPATH_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb02f9d65_fb77_4f7a_afa5_b391309f11c9);
 pub const FUSION_REFCOUNT_OPAQUE_STRING_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2ec93463_b0c3_45e1_8364_327e96aea856);
 pub const FUSION_REFCOUNT_UNINSTALL_SUBKEY_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8cedc215_ac4b_488b_93c0_a50a49cb2fb8);
@@ -1116,6 +782,7 @@ pub const IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_ALREADY_INSTALLED: u32 = 3u32;
 pub const IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_INSTALLED: u32 = 1u32;
 pub const IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_REFRESHED: u32 = 2u32;
 pub const IASSEMBLYCACHEITEM_COMMIT_FLAG_REFRESH: u32 = 1u32;
+pub type IASSEMBLYCACHE_UNINSTALL_DISPOSITION = u32;
 pub const IASSEMBLYCACHE_UNINSTALL_DISPOSITION_ALREADY_UNINSTALLED: IASSEMBLYCACHE_UNINSTALL_DISPOSITION = 3u32;
 pub const IASSEMBLYCACHE_UNINSTALL_DISPOSITION_DELETE_PENDING: IASSEMBLYCACHE_UNINSTALL_DISPOSITION = 4u32;
 pub const IASSEMBLYCACHE_UNINSTALL_DISPOSITION_STILL_IN_USE: IASSEMBLYCACHE_UNINSTALL_DISPOSITION = 2u32;
@@ -1139,17 +806,21 @@ pub const INFO_SUCCESSFUL_PATCH_CREATION: u32 = 3222229271u32;
 pub const INFO_TEMP_DIR: u32 = 3222229253u32;
 pub const INFO_TEMP_DIR_CLEANUP: u32 = 3222229266u32;
 pub const INFO_USING_USER_MSI_FOR_PATCH_TABLES: u32 = 3222229270u32;
+pub type INSTALLFEATUREATTRIBUTE = i32;
 pub const INSTALLFEATUREATTRIBUTE_DISALLOWADVERTISE: INSTALLFEATUREATTRIBUTE = 16i32;
 pub const INSTALLFEATUREATTRIBUTE_FAVORADVERTISE: INSTALLFEATUREATTRIBUTE = 8i32;
 pub const INSTALLFEATUREATTRIBUTE_FAVORLOCAL: INSTALLFEATUREATTRIBUTE = 1i32;
 pub const INSTALLFEATUREATTRIBUTE_FAVORSOURCE: INSTALLFEATUREATTRIBUTE = 2i32;
 pub const INSTALLFEATUREATTRIBUTE_FOLLOWPARENT: INSTALLFEATUREATTRIBUTE = 4i32;
 pub const INSTALLFEATUREATTRIBUTE_NOUNSUPPORTEDADVERTISE: INSTALLFEATUREATTRIBUTE = 32i32;
+pub type INSTALLLEVEL = i32;
 pub const INSTALLLEVEL_DEFAULT: INSTALLLEVEL = 0i32;
 pub const INSTALLLEVEL_MAXIMUM: INSTALLLEVEL = 65535i32;
 pub const INSTALLLEVEL_MINIMUM: INSTALLLEVEL = 1i32;
+pub type INSTALLLOGATTRIBUTES = i32;
 pub const INSTALLLOGATTRIBUTES_APPEND: INSTALLLOGATTRIBUTES = 1i32;
 pub const INSTALLLOGATTRIBUTES_FLUSHEACHLINE: INSTALLLOGATTRIBUTES = 2i32;
+pub type INSTALLLOGMODE = i32;
 pub const INSTALLLOGMODE_ACTIONDATA: INSTALLLOGMODE = 512i32;
 pub const INSTALLLOGMODE_ACTIONSTART: INSTALLLOGMODE = 256i32;
 pub const INSTALLLOGMODE_COMMONDATA: INSTALLLOGMODE = 2048i32;
@@ -1173,6 +844,7 @@ pub const INSTALLLOGMODE_TERMINATE: INSTALLLOGMODE = 8192i32;
 pub const INSTALLLOGMODE_USER: INSTALLLOGMODE = 8i32;
 pub const INSTALLLOGMODE_VERBOSE: INSTALLLOGMODE = 4096i32;
 pub const INSTALLLOGMODE_WARNING: INSTALLLOGMODE = 4i32;
+pub type INSTALLMESSAGE = i32;
 pub const INSTALLMESSAGE_ACTIONDATA: INSTALLMESSAGE = 150994944i32;
 pub const INSTALLMESSAGE_ACTIONSTART: INSTALLMESSAGE = 134217728i32;
 pub const INSTALLMESSAGE_COMMONDATA: INSTALLMESSAGE = 184549376i32;
@@ -1193,6 +865,7 @@ pub const INSTALLMESSAGE_TERMINATE: INSTALLMESSAGE = 218103808i32;
 pub const INSTALLMESSAGE_TYPEMASK: i32 = -16777216i32;
 pub const INSTALLMESSAGE_USER: INSTALLMESSAGE = 50331648i32;
 pub const INSTALLMESSAGE_WARNING: INSTALLMESSAGE = 33554432i32;
+pub type INSTALLMODE = i32;
 pub const INSTALLMODE_DEFAULT: INSTALLMODE = 0i32;
 pub const INSTALLMODE_EXISTING: INSTALLMODE = -1i32;
 pub const INSTALLMODE_NODETECTION: INSTALLMODE = -2i32;
@@ -1236,6 +909,7 @@ pub const INSTALLPROPERTY_VERSION: windows_sys::core::PCWSTR = windows_sys::core
 pub const INSTALLPROPERTY_VERSIONMAJOR: windows_sys::core::PCWSTR = windows_sys::core::w!("VersionMajor");
 pub const INSTALLPROPERTY_VERSIONMINOR: windows_sys::core::PCWSTR = windows_sys::core::w!("VersionMinor");
 pub const INSTALLPROPERTY_VERSIONSTRING: windows_sys::core::PCWSTR = windows_sys::core::w!("VersionString");
+pub type INSTALLSTATE = i32;
 pub const INSTALLSTATE_ABSENT: INSTALLSTATE = 2i32;
 pub const INSTALLSTATE_ADVERTISED: INSTALLSTATE = 1i32;
 pub const INSTALLSTATE_BADCONFIG: INSTALLSTATE = -6i32;
@@ -1250,9 +924,11 @@ pub const INSTALLSTATE_REMOVED: INSTALLSTATE = 1i32;
 pub const INSTALLSTATE_SOURCE: INSTALLSTATE = 4i32;
 pub const INSTALLSTATE_SOURCEABSENT: INSTALLSTATE = -4i32;
 pub const INSTALLSTATE_UNKNOWN: INSTALLSTATE = -1i32;
+pub type INSTALLTYPE = i32;
 pub const INSTALLTYPE_DEFAULT: INSTALLTYPE = 0i32;
 pub const INSTALLTYPE_NETWORK_IMAGE: INSTALLTYPE = 1i32;
 pub const INSTALLTYPE_SINGLE_INSTANCE: INSTALLTYPE = 2i32;
+pub type INSTALLUILEVEL = i32;
 pub const INSTALLUILEVEL_BASIC: INSTALLUILEVEL = 3i32;
 pub const INSTALLUILEVEL_DEFAULT: INSTALLUILEVEL = 1i32;
 pub const INSTALLUILEVEL_ENDDIALOG: INSTALLUILEVEL = 128i32;
@@ -1264,6 +940,8 @@ pub const INSTALLUILEVEL_PROGRESSONLY: INSTALLUILEVEL = 64i32;
 pub const INSTALLUILEVEL_REDUCED: INSTALLUILEVEL = 4i32;
 pub const INSTALLUILEVEL_SOURCERESONLY: INSTALLUILEVEL = 256i32;
 pub const INSTALLUILEVEL_UACONLY: INSTALLUILEVEL = 512i32;
+pub type INSTALLUI_HANDLERA = Option<unsafe extern "system" fn(pvcontext: *mut core::ffi::c_void, imessagetype: u32, szmessage: windows_sys::core::PCSTR) -> i32>;
+pub type INSTALLUI_HANDLERW = Option<unsafe extern "system" fn(pvcontext: *mut core::ffi::c_void, imessagetype: u32, szmessage: windows_sys::core::PCWSTR) -> i32>;
 pub const IPROPNAME_ACTION: windows_sys::core::PCWSTR = windows_sys::core::w!("ACTION");
 pub const IPROPNAME_ADMINTOOLS_FOLDER: windows_sys::core::PCWSTR = windows_sys::core::w!("AdminToolsFolder");
 pub const IPROPNAME_ADMINUSER: windows_sys::core::PCWSTR = windows_sys::core::w!("AdminUser");
@@ -1495,27 +1173,37 @@ pub const LOGTOKEN_SETUPAPI_DEVLOG: u32 = 3u32;
 pub const LOGTOKEN_TYPE_MASK: u32 = 3u32;
 pub const LOGTOKEN_UNSPECIFIED: u32 = 0u32;
 pub const LOGWARN: u32 = 2u32;
+pub type LPDISPLAYVAL = Option<unsafe extern "system" fn(pcontext: *mut core::ffi::c_void, uitype: RESULTTYPES, szwval: windows_sys::core::PCWSTR, szwdescription: windows_sys::core::PCWSTR, szwlocation: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+pub type LPEVALCOMCALLBACK = Option<unsafe extern "system" fn(istatus: STATUSTYPES, szdata: windows_sys::core::PCWSTR, pcontext: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub const MAX_FEATURE_CHARS: u32 = 38u32;
 pub const MAX_GUID_CHARS: u32 = 38u32;
+pub type MSIADVERTISEOPTIONFLAGS = i32;
 pub const MSIADVERTISEOPTIONFLAGS_INSTANCE: MSIADVERTISEOPTIONFLAGS = 1i32;
+pub type MSIARCHITECTUREFLAGS = i32;
 pub const MSIARCHITECTUREFLAGS_AMD64: MSIARCHITECTUREFLAGS = 4i32;
 pub const MSIARCHITECTUREFLAGS_ARM: MSIARCHITECTUREFLAGS = 8i32;
 pub const MSIARCHITECTUREFLAGS_IA64: MSIARCHITECTUREFLAGS = 2i32;
 pub const MSIARCHITECTUREFLAGS_X86: MSIARCHITECTUREFLAGS = 1i32;
+pub type MSIASSEMBLYINFO = u32;
 pub const MSIASSEMBLYINFO_NETASSEMBLY: MSIASSEMBLYINFO = 0u32;
 pub const MSIASSEMBLYINFO_WIN32ASSEMBLY: MSIASSEMBLYINFO = 1u32;
+pub type MSICODE = i32;
 pub const MSICODE_PATCH: MSICODE = 1073741824i32;
 pub const MSICODE_PRODUCT: MSICODE = 0i32;
+pub type MSICOLINFO = i32;
 pub const MSICOLINFO_NAMES: MSICOLINFO = 0i32;
 pub const MSICOLINFO_TYPES: MSICOLINFO = 1i32;
+pub type MSICONDITION = i32;
 pub const MSICONDITION_ERROR: MSICONDITION = 3i32;
 pub const MSICONDITION_FALSE: MSICONDITION = 0i32;
 pub const MSICONDITION_NONE: MSICONDITION = 2i32;
 pub const MSICONDITION_TRUE: MSICONDITION = 1i32;
+pub type MSICOSTTREE = i32;
 pub const MSICOSTTREE_CHILDREN: MSICOSTTREE = 1i32;
 pub const MSICOSTTREE_PARENTS: MSICOSTTREE = 2i32;
 pub const MSICOSTTREE_RESERVED: MSICOSTTREE = 3i32;
 pub const MSICOSTTREE_SELFONLY: MSICOSTTREE = 0i32;
+pub type MSIDBERROR = i32;
 pub const MSIDBERROR_BADCABINET: MSIDBERROR = 26i32;
 pub const MSIDBERROR_BADCASE: MSIDBERROR = 8i32;
 pub const MSIDBERROR_BADCATEGORY: MSIDBERROR = 23i32;
@@ -1555,9 +1243,18 @@ pub const MSIDBOPEN_DIRECT: windows_sys::core::PCWSTR = 2i32 as _;
 pub const MSIDBOPEN_PATCHFILE: i32 = 16i32;
 pub const MSIDBOPEN_READONLY: windows_sys::core::PCWSTR = 0i32 as _;
 pub const MSIDBOPEN_TRANSACT: windows_sys::core::PCWSTR = 1i32 as _;
+pub type MSIDBSTATE = i32;
 pub const MSIDBSTATE_ERROR: MSIDBSTATE = -1i32;
 pub const MSIDBSTATE_READ: MSIDBSTATE = 0i32;
 pub const MSIDBSTATE_WRITE: MSIDBSTATE = 1i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MSIFILEHASHINFO {
+    pub dwFileHashInfoSize: u32,
+    pub dwData: [u32; 4],
+}
+pub type MSIHANDLE = u32;
+pub type MSIINSTALLCONTEXT = i32;
 pub const MSIINSTALLCONTEXT_ALL: MSIINSTALLCONTEXT = 7i32;
 pub const MSIINSTALLCONTEXT_ALLUSERMANAGED: MSIINSTALLCONTEXT = 8i32;
 pub const MSIINSTALLCONTEXT_FIRSTVISIBLE: MSIINSTALLCONTEXT = 0i32;
@@ -1565,6 +1262,7 @@ pub const MSIINSTALLCONTEXT_MACHINE: MSIINSTALLCONTEXT = 4i32;
 pub const MSIINSTALLCONTEXT_NONE: MSIINSTALLCONTEXT = 0i32;
 pub const MSIINSTALLCONTEXT_USERMANAGED: MSIINSTALLCONTEXT = 1i32;
 pub const MSIINSTALLCONTEXT_USERUNMANAGED: MSIINSTALLCONTEXT = 2i32;
+pub type MSIMODIFY = i32;
 pub const MSIMODIFY_ASSIGN: MSIMODIFY = 3i32;
 pub const MSIMODIFY_DELETE: MSIMODIFY = 6i32;
 pub const MSIMODIFY_INSERT: MSIMODIFY = 1i32;
@@ -1578,7 +1276,26 @@ pub const MSIMODIFY_VALIDATE: MSIMODIFY = 8i32;
 pub const MSIMODIFY_VALIDATE_DELETE: MSIMODIFY = 11i32;
 pub const MSIMODIFY_VALIDATE_FIELD: MSIMODIFY = 10i32;
 pub const MSIMODIFY_VALIDATE_NEW: MSIMODIFY = 9i32;
+pub type MSIOPENPACKAGEFLAGS = i32;
 pub const MSIOPENPACKAGEFLAGS_IGNOREMACHINESTATE: MSIOPENPACKAGEFLAGS = 1i32;
+pub type MSIPATCHDATATYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MSIPATCHSEQUENCEINFOA {
+    pub szPatchData: windows_sys::core::PCSTR,
+    pub ePatchDataType: MSIPATCHDATATYPE,
+    pub dwOrder: u32,
+    pub uStatus: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MSIPATCHSEQUENCEINFOW {
+    pub szPatchData: windows_sys::core::PCWSTR,
+    pub ePatchDataType: MSIPATCHDATATYPE,
+    pub dwOrder: u32,
+    pub uStatus: u32,
+}
+pub type MSIPATCHSTATE = i32;
 pub const MSIPATCHSTATE_ALL: MSIPATCHSTATE = 15i32;
 pub const MSIPATCHSTATE_APPLIED: MSIPATCHSTATE = 1i32;
 pub const MSIPATCHSTATE_INVALID: MSIPATCHSTATE = 0i32;
@@ -1588,6 +1305,7 @@ pub const MSIPATCHSTATE_SUPERSEDED: MSIPATCHSTATE = 2i32;
 pub const MSIPATCH_DATATYPE_PATCHFILE: MSIPATCHDATATYPE = 0i32;
 pub const MSIPATCH_DATATYPE_XMLBLOB: MSIPATCHDATATYPE = 2i32;
 pub const MSIPATCH_DATATYPE_XMLPATH: MSIPATCHDATATYPE = 1i32;
+pub type MSIRUNMODE = i32;
 pub const MSIRUNMODE_ADMIN: MSIRUNMODE = 0i32;
 pub const MSIRUNMODE_ADVERTISE: MSIRUNMODE = 1i32;
 pub const MSIRUNMODE_CABINET: MSIRUNMODE = 8i32;
@@ -1607,14 +1325,18 @@ pub const MSIRUNMODE_SOURCESHORTNAMES: MSIRUNMODE = 9i32;
 pub const MSIRUNMODE_TARGETSHORTNAMES: MSIRUNMODE = 10i32;
 pub const MSIRUNMODE_WINDOWS9X: MSIRUNMODE = 12i32;
 pub const MSIRUNMODE_ZAWENABLED: MSIRUNMODE = 13i32;
+pub type MSISOURCETYPE = i32;
 pub const MSISOURCETYPE_MEDIA: MSISOURCETYPE = 4i32;
 pub const MSISOURCETYPE_NETWORK: MSISOURCETYPE = 1i32;
 pub const MSISOURCETYPE_UNKNOWN: MSISOURCETYPE = 0i32;
 pub const MSISOURCETYPE_URL: MSISOURCETYPE = 2i32;
+pub type MSITRANSACTION = i32;
+pub type MSITRANSACTIONSTATE = u32;
 pub const MSITRANSACTIONSTATE_COMMIT: MSITRANSACTIONSTATE = 1u32;
 pub const MSITRANSACTIONSTATE_ROLLBACK: MSITRANSACTIONSTATE = 0u32;
 pub const MSITRANSACTION_CHAIN_EMBEDDEDUI: MSITRANSACTION = 1i32;
 pub const MSITRANSACTION_JOIN_EXISTING_EMBEDDEDUI: MSITRANSACTION = 2i32;
+pub type MSITRANSFORM_ERROR = i32;
 pub const MSITRANSFORM_ERROR_ADDEXISTINGROW: MSITRANSFORM_ERROR = 1i32;
 pub const MSITRANSFORM_ERROR_ADDEXISTINGTABLE: MSITRANSFORM_ERROR = 4i32;
 pub const MSITRANSFORM_ERROR_CHANGECODEPAGE: MSITRANSFORM_ERROR = 32i32;
@@ -1623,6 +1345,7 @@ pub const MSITRANSFORM_ERROR_DELMISSINGTABLE: MSITRANSFORM_ERROR = 8i32;
 pub const MSITRANSFORM_ERROR_NONE: MSITRANSFORM_ERROR = 0i32;
 pub const MSITRANSFORM_ERROR_UPDATEMISSINGROW: MSITRANSFORM_ERROR = 16i32;
 pub const MSITRANSFORM_ERROR_VIEWTRANSFORM: MSITRANSFORM_ERROR = 256i32;
+pub type MSITRANSFORM_VALIDATE = i32;
 pub const MSITRANSFORM_VALIDATE_LANGUAGE: MSITRANSFORM_VALIDATE = 1i32;
 pub const MSITRANSFORM_VALIDATE_MAJORVERSION: MSITRANSFORM_VALIDATE = 8i32;
 pub const MSITRANSFORM_VALIDATE_MINORVERSION: MSITRANSFORM_VALIDATE = 16i32;
@@ -1637,12 +1360,93 @@ pub const MSITRANSFORM_VALIDATE_UPDATEVERSION: MSITRANSFORM_VALIDATE = 32i32;
 pub const MSITRANSFORM_VALIDATE_UPGRADECODE: MSITRANSFORM_VALIDATE = 2048i32;
 pub const MSI_INVALID_HASH_IS_FATAL: u32 = 1u32;
 pub const MSI_NULL_INTEGER: u32 = 2147483648u32;
+pub const MsmMerge: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0adda830_2c26_11d2_ad65_00a0c9af11a6);
+pub type PACKMAN_RUNTIME = i32;
 pub const PACKMAN_RUNTIME_INVALID: PACKMAN_RUNTIME = 6i32;
 pub const PACKMAN_RUNTIME_JUPITER: PACKMAN_RUNTIME = 5i32;
 pub const PACKMAN_RUNTIME_MODERN_NATIVE: PACKMAN_RUNTIME = 4i32;
 pub const PACKMAN_RUNTIME_NATIVE: PACKMAN_RUNTIME = 1i32;
 pub const PACKMAN_RUNTIME_SILVERLIGHTMOBILE: PACKMAN_RUNTIME = 2i32;
 pub const PACKMAN_RUNTIME_XNA: PACKMAN_RUNTIME = 3i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PATCH_IGNORE_RANGE {
+    pub OffsetInOldFile: u32,
+    pub LengthInBytes: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PATCH_INTERLEAVE_MAP {
+    pub CountRanges: u32,
+    pub Range: [PATCH_INTERLEAVE_MAP_0; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PATCH_INTERLEAVE_MAP_0 {
+    pub OldOffset: u32,
+    pub OldLength: u32,
+    pub NewLength: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PATCH_OLD_FILE_INFO {
+    pub SizeOfThisStruct: u32,
+    pub Anonymous: PATCH_OLD_FILE_INFO_0,
+    pub IgnoreRangeCount: u32,
+    pub IgnoreRangeArray: *mut PATCH_IGNORE_RANGE,
+    pub RetainRangeCount: u32,
+    pub RetainRangeArray: *mut PATCH_RETAIN_RANGE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PATCH_OLD_FILE_INFO_0 {
+    pub OldFileNameA: windows_sys::core::PCSTR,
+    pub OldFileNameW: windows_sys::core::PCWSTR,
+    pub OldFileHandle: super::super::Foundation::HANDLE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PATCH_OLD_FILE_INFO_A {
+    pub SizeOfThisStruct: u32,
+    pub OldFileName: windows_sys::core::PCSTR,
+    pub IgnoreRangeCount: u32,
+    pub IgnoreRangeArray: *mut PATCH_IGNORE_RANGE,
+    pub RetainRangeCount: u32,
+    pub RetainRangeArray: *mut PATCH_RETAIN_RANGE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PATCH_OLD_FILE_INFO_H {
+    pub SizeOfThisStruct: u32,
+    pub OldFileHandle: super::super::Foundation::HANDLE,
+    pub IgnoreRangeCount: u32,
+    pub IgnoreRangeArray: *mut PATCH_IGNORE_RANGE,
+    pub RetainRangeCount: u32,
+    pub RetainRangeArray: *mut PATCH_RETAIN_RANGE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PATCH_OLD_FILE_INFO_W {
+    pub SizeOfThisStruct: u32,
+    pub OldFileName: windows_sys::core::PCWSTR,
+    pub IgnoreRangeCount: u32,
+    pub IgnoreRangeArray: *mut PATCH_IGNORE_RANGE,
+    pub RetainRangeCount: u32,
+    pub RetainRangeArray: *mut PATCH_RETAIN_RANGE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PATCH_OPTION_DATA {
+    pub SizeOfThisStruct: u32,
+    pub SymbolOptionFlags: u32,
+    pub NewFileSymbolPath: windows_sys::core::PCSTR,
+    pub OldFileSymbolPathArray: *const windows_sys::core::PCSTR,
+    pub ExtendedOptionFlags: u32,
+    pub SymLoadCallback: PPATCH_SYMLOAD_CALLBACK,
+    pub SymLoadContext: *mut core::ffi::c_void,
+    pub InterleaveMapArray: *mut *mut PATCH_INTERLEAVE_MAP,
+    pub MaxLzxWindowSize: u32,
+}
 pub const PATCH_OPTION_FAIL_IF_BIGGER: u32 = 1048576u32;
 pub const PATCH_OPTION_FAIL_IF_SAME_FILE: u32 = 524288u32;
 pub const PATCH_OPTION_INTERLEAVE_FILES: u32 = 1073741824u32;
@@ -1660,6 +1464,13 @@ pub const PATCH_OPTION_USE_LZX_B: u32 = 2u32;
 pub const PATCH_OPTION_USE_LZX_BEST: u32 = 3u32;
 pub const PATCH_OPTION_USE_LZX_LARGE: u32 = 4u32;
 pub const PATCH_OPTION_VALID_FLAGS: u32 = 3237937159u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PATCH_RETAIN_RANGE {
+    pub OffsetInOldFile: u32,
+    pub LengthInBytes: u32,
+    pub OffsetInNewFile: u32,
+}
 pub const PATCH_SYMBOL_NO_FAILURES: u32 = 2u32;
 pub const PATCH_SYMBOL_NO_IMAGEHLP: u32 = 1u32;
 pub const PATCH_SYMBOL_RESERVED1: u32 = 2147483648u32;
@@ -1686,6 +1497,14 @@ pub const PID_TEMPLATE: u32 = 7u32;
 pub const PID_THUMBNAIL: u32 = 17u32;
 pub const PID_TITLE: u32 = 2u32;
 pub const PID_WORDCOUNT: u32 = 15u32;
+pub type PINSTALLUI_HANDLER_RECORD = Option<unsafe extern "system" fn(pvcontext: *mut core::ffi::c_void, imessagetype: u32, hrecord: MSIHANDLE) -> i32>;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PMSIHANDLE {
+    pub m_h: MSIHANDLE,
+}
+pub const PMSvc: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb9e511fc_e364_497a_a121_b7b3612cedce);
+pub type PM_ACTIVATION_POLICY = i32;
 pub const PM_ACTIVATION_POLICY_INVALID: PM_ACTIVATION_POLICY = 7i32;
 pub const PM_ACTIVATION_POLICY_MULTISESSION: PM_ACTIVATION_POLICY = 4i32;
 pub const PM_ACTIVATION_POLICY_REPLACE: PM_ACTIVATION_POLICY = 2i32;
@@ -1694,6 +1513,7 @@ pub const PM_ACTIVATION_POLICY_REPLACE_IGNOREFOREGROUND: PM_ACTIVATION_POLICY = 
 pub const PM_ACTIVATION_POLICY_RESUME: PM_ACTIVATION_POLICY = 0i32;
 pub const PM_ACTIVATION_POLICY_RESUMESAMEPARAMS: PM_ACTIVATION_POLICY = 1i32;
 pub const PM_ACTIVATION_POLICY_UNKNOWN: PM_ACTIVATION_POLICY = 6i32;
+pub type PM_APPLICATION_HUBTYPE = i32;
 pub const PM_APPLICATION_HUBTYPE_INVALID: PM_APPLICATION_HUBTYPE = 2i32;
 pub const PM_APPLICATION_HUBTYPE_MUSIC: PM_APPLICATION_HUBTYPE = 1i32;
 pub const PM_APPLICATION_HUBTYPE_NONMUSIC: PM_APPLICATION_HUBTYPE = 0i32;
@@ -1703,6 +1523,8 @@ pub const PM_APPLICATION_INSTALL_INVALID: PM_APPLICATION_INSTALL_TYPE = 5i32;
 pub const PM_APPLICATION_INSTALL_IN_ROM: PM_APPLICATION_INSTALL_TYPE = 1i32;
 pub const PM_APPLICATION_INSTALL_NORMAL: PM_APPLICATION_INSTALL_TYPE = 0i32;
 pub const PM_APPLICATION_INSTALL_PA: PM_APPLICATION_INSTALL_TYPE = 2i32;
+pub type PM_APPLICATION_INSTALL_TYPE = i32;
+pub type PM_APPLICATION_STATE = i32;
 pub const PM_APPLICATION_STATE_DISABLED_BACKING_UP: PM_APPLICATION_STATE = 9i32;
 pub const PM_APPLICATION_STATE_DISABLED_ENTERPRISE: PM_APPLICATION_STATE = 8i32;
 pub const PM_APPLICATION_STATE_DISABLED_MDIL_BINDING: PM_APPLICATION_STATE = 10i32;
@@ -1716,6 +1538,12 @@ pub const PM_APPLICATION_STATE_MIN: PM_APPLICATION_STATE = 0i32;
 pub const PM_APPLICATION_STATE_MOVING: PM_APPLICATION_STATE = 6i32;
 pub const PM_APPLICATION_STATE_UNINSTALLING: PM_APPLICATION_STATE = 4i32;
 pub const PM_APPLICATION_STATE_UPDATING: PM_APPLICATION_STATE = 3i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PM_APPTASKTYPE {
+    pub ProductID: windows_sys::core::GUID,
+    pub TaskType: PM_TASK_TYPE,
+}
 pub const PM_APP_FILTER_ALL: PM_ENUM_APP_FILTER = 0i32;
 pub const PM_APP_FILTER_ALL_INCLUDE_MODERN: PM_ENUM_APP_FILTER = 6i32;
 pub const PM_APP_FILTER_FRAMEWORK: PM_ENUM_APP_FILTER = 7i32;
@@ -1725,18 +1553,35 @@ pub const PM_APP_FILTER_MAX: PM_ENUM_APP_FILTER = 8i32;
 pub const PM_APP_FILTER_NONGAMES: PM_ENUM_APP_FILTER = 3i32;
 pub const PM_APP_FILTER_PINABLEONKIDZONE: PM_ENUM_APP_FILTER = 5i32;
 pub const PM_APP_FILTER_VISIBLE: PM_ENUM_APP_FILTER = 1i32;
+pub type PM_APP_GENRE = i32;
 pub const PM_APP_GENRE_GAMES: PM_APP_GENRE = 0i32;
 pub const PM_APP_GENRE_INVALID: PM_APP_GENRE = 2i32;
 pub const PM_APP_GENRE_OTHER: PM_APP_GENRE = 1i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PM_BSATASKID {
+    pub ProductID: windows_sys::core::GUID,
+    pub TaskID: windows_sys::core::BSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PM_BWTASKID {
+    pub ProductID: windows_sys::core::GUID,
+    pub TaskID: windows_sys::core::BSTR,
+}
+pub type PM_ENUM_APP_FILTER = i32;
+pub type PM_ENUM_BSA_FILTER = i32;
 pub const PM_ENUM_BSA_FILTER_ALL: PM_ENUM_BSA_FILTER = 26i32;
 pub const PM_ENUM_BSA_FILTER_BY_ALL_LAUNCHONBOOT: PM_ENUM_BSA_FILTER = 30i32;
 pub const PM_ENUM_BSA_FILTER_BY_PERIODIC: PM_ENUM_BSA_FILTER = 29i32;
 pub const PM_ENUM_BSA_FILTER_BY_PRODUCTID: PM_ENUM_BSA_FILTER = 28i32;
 pub const PM_ENUM_BSA_FILTER_BY_TASKID: PM_ENUM_BSA_FILTER = 27i32;
 pub const PM_ENUM_BSA_FILTER_MAX: PM_ENUM_BSA_FILTER = 31i32;
+pub type PM_ENUM_BW_FILTER = i32;
 pub const PM_ENUM_BW_FILTER_BOOTWORKER_ALL: PM_ENUM_BW_FILTER = 31i32;
 pub const PM_ENUM_BW_FILTER_BY_TASKID: PM_ENUM_BW_FILTER = 32i32;
 pub const PM_ENUM_BW_FILTER_MAX: PM_ENUM_BW_FILTER = 33i32;
+pub type PM_ENUM_EXTENSION_FILTER = i32;
 pub const PM_ENUM_EXTENSION_FILTER_APPCONNECT: PM_ENUM_EXTENSION_FILTER = 17i32;
 pub const PM_ENUM_EXTENSION_FILTER_BY_CONSUMER: PM_ENUM_EXTENSION_FILTER = 17i32;
 pub const PM_ENUM_EXTENSION_FILTER_CACHEDFILEUPDATER_ALL: PM_ENUM_EXTENSION_FILTER = 25i32;
@@ -1748,14 +1593,103 @@ pub const PM_ENUM_EXTENSION_FILTER_FTASSOC_FILETYPE_ALL: PM_ENUM_EXTENSION_FILTE
 pub const PM_ENUM_EXTENSION_FILTER_MAX: PM_ENUM_EXTENSION_FILTER = 26i32;
 pub const PM_ENUM_EXTENSION_FILTER_PROTOCOL_ALL: PM_ENUM_EXTENSION_FILTER = 18i32;
 pub const PM_ENUM_EXTENSION_FILTER_SHARETARGET_ALL: PM_ENUM_EXTENSION_FILTER = 22i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PM_ENUM_FILTER {
+    pub FilterType: i32,
+    pub FilterParameter: PM_ENUM_FILTER_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PM_ENUM_FILTER_0 {
+    pub Dummy: i32,
+    pub Genre: PM_APP_GENRE,
+    pub AppHubType: PM_APPLICATION_HUBTYPE,
+    pub HubType: PM_TILE_HUBTYPE,
+    pub Tasktype: PM_TASK_TYPE,
+    pub TaskProductID: windows_sys::core::GUID,
+    pub TileProductID: windows_sys::core::GUID,
+    pub AppTaskType: PM_APPTASKTYPE,
+    pub Consumer: PM_EXTENSIONCONSUMER,
+    pub BSATask: PM_BSATASKID,
+    pub BSAProductID: windows_sys::core::GUID,
+    pub BWTask: PM_BWTASKID,
+    pub ProtocolName: windows_sys::core::BSTR,
+    pub FileType: windows_sys::core::BSTR,
+    pub ContentType: windows_sys::core::BSTR,
+    pub AppSupportedFileExtPID: windows_sys::core::GUID,
+    pub ShareTargetFileType: windows_sys::core::BSTR,
+}
+pub type PM_ENUM_TASK_FILTER = i32;
+pub type PM_ENUM_TILE_FILTER = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PM_EXTENSIONCONSUMER {
+    pub ConsumerPID: windows_sys::core::GUID,
+    pub ExtensionID: windows_sys::core::BSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PM_INSTALLINFO {
+    pub ProductID: windows_sys::core::GUID,
+    pub PackagePath: windows_sys::core::BSTR,
+    pub InstanceID: windows_sys::core::GUID,
+    pub pbLicense: *mut u8,
+    pub cbLicense: u32,
+    pub IsUninstallDisabled: super::super::Foundation::BOOL,
+    pub DeploymentOptions: u32,
+    pub OfferID: windows_sys::core::GUID,
+    pub MarketplaceAppVersion: windows_sys::core::BSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PM_INVOCATIONINFO {
+    pub URIBaseOrAUMID: windows_sys::core::BSTR,
+    pub URIFragmentOrArgs: windows_sys::core::BSTR,
+}
+pub type PM_LIVETILE_RECURRENCE_TYPE = i32;
 pub const PM_LIVETILE_RECURRENCE_TYPE_INSTANT: PM_LIVETILE_RECURRENCE_TYPE = 0i32;
 pub const PM_LIVETILE_RECURRENCE_TYPE_INTERVAL: PM_LIVETILE_RECURRENCE_TYPE = 2i32;
 pub const PM_LIVETILE_RECURRENCE_TYPE_MAX: PM_LIVETILE_RECURRENCE_TYPE = 2i32;
 pub const PM_LIVETILE_RECURRENCE_TYPE_ONETIME: PM_LIVETILE_RECURRENCE_TYPE = 1i32;
+pub type PM_LOGO_SIZE = i32;
 pub const PM_LOGO_SIZE_INVALID: PM_LOGO_SIZE = 3i32;
 pub const PM_LOGO_SIZE_LARGE: PM_LOGO_SIZE = 2i32;
 pub const PM_LOGO_SIZE_MEDIUM: PM_LOGO_SIZE = 1i32;
 pub const PM_LOGO_SIZE_SMALL: PM_LOGO_SIZE = 0i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PM_STARTAPPBLOB {
+    pub cbSize: u32,
+    pub ProductID: windows_sys::core::GUID,
+    pub AppTitle: windows_sys::core::BSTR,
+    pub IconPath: windows_sys::core::BSTR,
+    pub IsUninstallable: super::super::Foundation::BOOL,
+    pub AppInstallType: PM_APPLICATION_INSTALL_TYPE,
+    pub InstanceID: windows_sys::core::GUID,
+    pub State: PM_APPLICATION_STATE,
+    pub IsModern: super::super::Foundation::BOOL,
+    pub IsModernLightUp: super::super::Foundation::BOOL,
+    pub LightUpSupportMask: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PM_STARTTILEBLOB {
+    pub cbSize: u32,
+    pub ProductID: windows_sys::core::GUID,
+    pub TileID: windows_sys::core::BSTR,
+    pub TemplateType: TILE_TEMPLATE_TYPE,
+    pub HubPosition: [u32; 32],
+    pub HubVisibilityBitmask: u32,
+    pub IsDefault: super::super::Foundation::BOOL,
+    pub TileType: PM_STARTTILE_TYPE,
+    pub pbPropBlob: *mut u8,
+    pub cbPropBlob: u32,
+    pub IsRestoring: super::super::Foundation::BOOL,
+    pub IsModern: super::super::Foundation::BOOL,
+    pub InvocationInfo: PM_INVOCATIONINFO,
+}
+pub type PM_STARTTILE_TYPE = i32;
 pub const PM_STARTTILE_TYPE_APPLIST: PM_STARTTILE_TYPE = 3i32;
 pub const PM_STARTTILE_TYPE_APPLISTPRIMARY: PM_STARTTILE_TYPE = 4i32;
 pub const PM_STARTTILE_TYPE_INVALID: PM_STARTTILE_TYPE = 5i32;
@@ -1767,6 +1701,7 @@ pub const PM_TASK_FILTER_BGEXECUTION: PM_ENUM_TASK_FILTER = 16i32;
 pub const PM_TASK_FILTER_DEHYD_SUPRESSING: PM_ENUM_TASK_FILTER = 14i32;
 pub const PM_TASK_FILTER_MAX: PM_ENUM_TASK_FILTER = 17i32;
 pub const PM_TASK_FILTER_TASK_TYPE: PM_ENUM_TASK_FILTER = 13i32;
+pub type PM_TASK_TRANSITION = i32;
 pub const PM_TASK_TRANSITION_CUSTOM: PM_TASK_TRANSITION = 6i32;
 pub const PM_TASK_TRANSITION_DEFAULT: PM_TASK_TRANSITION = 0i32;
 pub const PM_TASK_TRANSITION_INVALID: PM_TASK_TRANSITION = 7i32;
@@ -1775,6 +1710,7 @@ pub const PM_TASK_TRANSITION_READERBOARD: PM_TASK_TRANSITION = 5i32;
 pub const PM_TASK_TRANSITION_SLIDE: PM_TASK_TRANSITION = 3i32;
 pub const PM_TASK_TRANSITION_SWIVEL: PM_TASK_TRANSITION = 4i32;
 pub const PM_TASK_TRANSITION_TURNSTILE: PM_TASK_TRANSITION = 2i32;
+pub type PM_TASK_TYPE = i32;
 pub const PM_TASK_TYPE_BACKGROUNDSERVICEAGENT: PM_TASK_TYPE = 3i32;
 pub const PM_TASK_TYPE_BACKGROUNDWORKER: PM_TASK_TYPE = 4i32;
 pub const PM_TASK_TYPE_DEFAULT: PM_TASK_TYPE = 1i32;
@@ -1786,6 +1722,7 @@ pub const PM_TILE_FILTER_APP_ALL: PM_ENUM_TILE_FILTER = 11i32;
 pub const PM_TILE_FILTER_HUBTYPE: PM_ENUM_TILE_FILTER = 10i32;
 pub const PM_TILE_FILTER_MAX: PM_ENUM_TILE_FILTER = 12i32;
 pub const PM_TILE_FILTER_PINNED: PM_ENUM_TILE_FILTER = 9i32;
+pub type PM_TILE_HUBTYPE = i32;
 pub const PM_TILE_HUBTYPE_APPLIST: PM_TILE_HUBTYPE = 1073741824i32;
 pub const PM_TILE_HUBTYPE_CACHED: PM_TILE_HUBTYPE = 67108864i32;
 pub const PM_TILE_HUBTYPE_GAMES: PM_TILE_HUBTYPE = 536870912i32;
@@ -1795,13 +1732,45 @@ pub const PM_TILE_HUBTYPE_LOCKSCREEN: PM_TILE_HUBTYPE = 16777216i32;
 pub const PM_TILE_HUBTYPE_MOSETTINGS: PM_TILE_HUBTYPE = 268435456i32;
 pub const PM_TILE_HUBTYPE_MUSIC: PM_TILE_HUBTYPE = 1i32;
 pub const PM_TILE_HUBTYPE_STARTMENU: PM_TILE_HUBTYPE = -2147483648i32;
+pub type PM_TILE_SIZE = i32;
 pub const PM_TILE_SIZE_INVALID: PM_TILE_SIZE = 5i32;
 pub const PM_TILE_SIZE_LARGE: PM_TILE_SIZE = 2i32;
 pub const PM_TILE_SIZE_MEDIUM: PM_TILE_SIZE = 1i32;
 pub const PM_TILE_SIZE_SMALL: PM_TILE_SIZE = 0i32;
 pub const PM_TILE_SIZE_SQUARE310X310: PM_TILE_SIZE = 3i32;
 pub const PM_TILE_SIZE_TALL150X310: PM_TILE_SIZE = 4i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PM_UPDATEINFO {
+    pub ProductID: windows_sys::core::GUID,
+    pub PackagePath: windows_sys::core::BSTR,
+    pub InstanceID: windows_sys::core::GUID,
+    pub pbLicense: *mut u8,
+    pub cbLicense: u32,
+    pub MarketplaceAppVersion: windows_sys::core::BSTR,
+    pub DeploymentOptions: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PM_UPDATEINFO_LEGACY {
+    pub ProductID: windows_sys::core::GUID,
+    pub PackagePath: windows_sys::core::BSTR,
+    pub InstanceID: windows_sys::core::GUID,
+    pub pbLicense: *mut u8,
+    pub cbLicense: u32,
+    pub MarketplaceAppVersion: windows_sys::core::BSTR,
+}
+pub type PPATCH_PROGRESS_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: *mut core::ffi::c_void, currentposition: u32, maximumposition: u32) -> super::super::Foundation::BOOL>;
+pub type PPATCH_SYMLOAD_CALLBACK = Option<unsafe extern "system" fn(whichfile: u32, symbolfilename: windows_sys::core::PCSTR, symtype: u32, symbolfilechecksum: u32, symbolfiletimedate: u32, imagefilechecksum: u32, imagefiletimedate: u32, callbackcontext: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROTECTED_FILE_DATA {
+    pub FileName: [u16; 260],
+    pub FileNumber: u32,
+}
+pub type QUERYASMINFO_FLAGS = u32;
 pub const QUERYASMINFO_FLAG_VALIDATE: QUERYASMINFO_FLAGS = 1u32;
+pub type REINSTALLMODE = i32;
 pub const REINSTALLMODE_FILEEQUALVERSION: REINSTALLMODE = 8i32;
 pub const REINSTALLMODE_FILEEXACT: REINSTALLMODE = 16i32;
 pub const REINSTALLMODE_FILEMISSING: REINSTALLMODE = 2i32;
@@ -1813,6 +1782,8 @@ pub const REINSTALLMODE_PACKAGE: REINSTALLMODE = 1024i32;
 pub const REINSTALLMODE_REPAIR: REINSTALLMODE = 1i32;
 pub const REINSTALLMODE_SHORTCUT: REINSTALLMODE = 512i32;
 pub const REINSTALLMODE_USERDATA: REINSTALLMODE = 256i32;
+pub type RESULTTYPES = i32;
+pub type SCRIPTFLAGS = i32;
 pub const SCRIPTFLAGS_CACHEINFO: SCRIPTFLAGS = 1i32;
 pub const SCRIPTFLAGS_MACHINEASSIGN: SCRIPTFLAGS = 8i32;
 pub const SCRIPTFLAGS_REGDATA: SCRIPTFLAGS = 416i32;
@@ -1833,6 +1804,7 @@ pub const SFC_SCAN_ALWAYS: u32 = 1u32;
 pub const SFC_SCAN_IMMEDIATE: u32 = 3u32;
 pub const SFC_SCAN_NORMAL: u32 = 0u32;
 pub const SFC_SCAN_ONCE: u32 = 2u32;
+pub type STATUSTYPES = i32;
 pub const STREAM_FORMAT_COMPLIB_MANIFEST: u32 = 1u32;
 pub const STREAM_FORMAT_COMPLIB_MODULE: u32 = 0u32;
 pub const STREAM_FORMAT_WIN32_MANIFEST: u32 = 4u32;
@@ -1895,6 +1867,7 @@ pub const TILE_TEMPLATE_TEXT09: TILE_TEMPLATE_TYPE = 26i32;
 pub const TILE_TEMPLATE_TEXT10: TILE_TEMPLATE_TYPE = 27i32;
 pub const TILE_TEMPLATE_TEXT11: TILE_TEMPLATE_TYPE = 28i32;
 pub const TILE_TEMPLATE_TILEFLYOUT01: TILE_TEMPLATE_TYPE = 58i32;
+pub type TILE_TEMPLATE_TYPE = i32;
 pub const TXTLOG_BACKUP: u32 = 128u32;
 pub const TXTLOG_CMI: u32 = 268435456u32;
 pub const TXTLOG_COPYFILES: u32 = 8u32;
@@ -1933,6 +1906,7 @@ pub const TXTLOG_WARNING: u32 = 2u32;
 pub const UIALL: u32 = 32768u32;
 pub const UILOGBITS: u32 = 15u32;
 pub const UINONE: u32 = 0u32;
+pub type USERINFOSTATE = i32;
 pub const USERINFOSTATE_ABSENT: USERINFOSTATE = 0i32;
 pub const USERINFOSTATE_INVALIDARG: USERINFOSTATE = -2i32;
 pub const USERINFOSTATE_MOREDATA: USERINFOSTATE = -3i32;
@@ -1971,9 +1945,12 @@ pub const ieStatusSuccess: STATUSTYPES = 8i32;
 pub const ieStatusSummaryInfo: STATUSTYPES = 3i32;
 pub const ieUnknown: RESULTTYPES = 0i32;
 pub const ieWarning: RESULTTYPES = 2i32;
+pub type msidbAssemblyAttributes = i32;
 pub const msidbAssemblyAttributesURT: msidbAssemblyAttributes = 0i32;
 pub const msidbAssemblyAttributesWin32: msidbAssemblyAttributes = 1i32;
+pub type msidbClassAttributes = i32;
 pub const msidbClassAttributesRelativePath: msidbClassAttributes = 1i32;
+pub type msidbComponentAttributes = i32;
 pub const msidbComponentAttributes64bit: msidbComponentAttributes = 256i32;
 pub const msidbComponentAttributesDisableRegistryReflection: msidbComponentAttributes = 512i32;
 pub const msidbComponentAttributesLocalOnly: msidbComponentAttributes = 0i32;
@@ -1987,6 +1964,7 @@ pub const msidbComponentAttributesSharedDllRefCount: msidbComponentAttributes = 
 pub const msidbComponentAttributesSourceOnly: msidbComponentAttributes = 1i32;
 pub const msidbComponentAttributesTransitive: msidbComponentAttributes = 64i32;
 pub const msidbComponentAttributesUninstallOnSupersedence: msidbComponentAttributes = 1024i32;
+pub type msidbControlAttributes = i32;
 pub const msidbControlAttributesBiDi: msidbControlAttributes = 224i32;
 pub const msidbControlAttributesBitmap: msidbControlAttributes = 262144i32;
 pub const msidbControlAttributesCDROMVolume: msidbControlAttributes = 524288i32;
@@ -2023,6 +2001,7 @@ pub const msidbControlAttributesTransparent: msidbControlAttributes = 65536i32;
 pub const msidbControlAttributesUsersLanguage: msidbControlAttributes = 1048576i32;
 pub const msidbControlAttributesVisible: msidbControlAttributes = 1i32;
 pub const msidbControlShowRollbackCost: msidbControlAttributes = 4194304i32;
+pub type msidbCustomActionType = i32;
 pub const msidbCustomActionType64BitScript: msidbCustomActionType = 4096i32;
 pub const msidbCustomActionTypeAsync: msidbCustomActionType = 128i32;
 pub const msidbCustomActionTypeBinaryData: msidbCustomActionType = 0i32;
@@ -2046,6 +2025,7 @@ pub const msidbCustomActionTypeSourceFile: msidbCustomActionType = 16i32;
 pub const msidbCustomActionTypeTSAware: msidbCustomActionType = 16384i32;
 pub const msidbCustomActionTypeTextData: msidbCustomActionType = 3i32;
 pub const msidbCustomActionTypeVBScript: msidbCustomActionType = 6i32;
+pub type msidbDialogAttributes = i32;
 pub const msidbDialogAttributesBiDi: msidbDialogAttributes = 896i32;
 pub const msidbDialogAttributesError: msidbDialogAttributes = 65536i32;
 pub const msidbDialogAttributesKeepModeless: msidbDialogAttributes = 16i32;
@@ -2060,6 +2040,8 @@ pub const msidbDialogAttributesUseCustomPalette: msidbDialogAttributes = 64i32;
 pub const msidbDialogAttributesVisible: msidbDialogAttributes = 1i32;
 pub const msidbEmbeddedHandlesBasic: msidbEmbeddedUIAttributes = 2i32;
 pub const msidbEmbeddedUI: msidbEmbeddedUIAttributes = 1i32;
+pub type msidbEmbeddedUIAttributes = i32;
+pub type msidbFeatureAttributes = i32;
 pub const msidbFeatureAttributesDisallowAdvertise: msidbFeatureAttributes = 8i32;
 pub const msidbFeatureAttributesFavorAdvertise: msidbFeatureAttributes = 4i32;
 pub const msidbFeatureAttributesFavorLocal: msidbFeatureAttributes = 0i32;
@@ -2067,6 +2049,7 @@ pub const msidbFeatureAttributesFavorSource: msidbFeatureAttributes = 1i32;
 pub const msidbFeatureAttributesFollowParent: msidbFeatureAttributes = 2i32;
 pub const msidbFeatureAttributesNoUnsupportedAdvertise: msidbFeatureAttributes = 32i32;
 pub const msidbFeatureAttributesUIDisallowAbsent: msidbFeatureAttributes = 16i32;
+pub type msidbFileAttributes = i32;
 pub const msidbFileAttributesChecksum: msidbFileAttributes = 1024i32;
 pub const msidbFileAttributesCompressed: msidbFileAttributes = 16384i32;
 pub const msidbFileAttributesHidden: msidbFileAttributes = 2i32;
@@ -2081,50 +2064,64 @@ pub const msidbFileAttributesReserved3: msidbFileAttributes = 256i32;
 pub const msidbFileAttributesReserved4: msidbFileAttributes = 32768i32;
 pub const msidbFileAttributesSystem: msidbFileAttributes = 4i32;
 pub const msidbFileAttributesVital: msidbFileAttributes = 512i32;
+pub type msidbIniFileAction = i32;
 pub const msidbIniFileActionAddLine: msidbIniFileAction = 0i32;
 pub const msidbIniFileActionAddTag: msidbIniFileAction = 3i32;
 pub const msidbIniFileActionCreateLine: msidbIniFileAction = 1i32;
 pub const msidbIniFileActionRemoveLine: msidbIniFileAction = 2i32;
 pub const msidbIniFileActionRemoveTag: msidbIniFileAction = 4i32;
+pub type msidbLocatorType = i32;
 pub const msidbLocatorType64bit: msidbLocatorType = 16i32;
 pub const msidbLocatorTypeDirectory: msidbLocatorType = 0i32;
 pub const msidbLocatorTypeFileName: msidbLocatorType = 1i32;
 pub const msidbLocatorTypeRawValue: msidbLocatorType = 2i32;
+pub type msidbMoveFileOptions = i32;
 pub const msidbMoveFileOptionsMove: msidbMoveFileOptions = 1i32;
+pub type msidbODBCDataSourceRegistration = i32;
 pub const msidbODBCDataSourceRegistrationPerMachine: msidbODBCDataSourceRegistration = 0i32;
 pub const msidbODBCDataSourceRegistrationPerUser: msidbODBCDataSourceRegistration = 1i32;
+pub type msidbPatchAttributes = i32;
 pub const msidbPatchAttributesNonVital: msidbPatchAttributes = 1i32;
+pub type msidbRegistryRoot = i32;
 pub const msidbRegistryRootClassesRoot: msidbRegistryRoot = 0i32;
 pub const msidbRegistryRootCurrentUser: msidbRegistryRoot = 1i32;
 pub const msidbRegistryRootLocalMachine: msidbRegistryRoot = 2i32;
 pub const msidbRegistryRootUsers: msidbRegistryRoot = 3i32;
+pub type msidbRemoveFileInstallMode = i32;
 pub const msidbRemoveFileInstallModeOnBoth: msidbRemoveFileInstallMode = 3i32;
 pub const msidbRemoveFileInstallModeOnInstall: msidbRemoveFileInstallMode = 1i32;
 pub const msidbRemoveFileInstallModeOnRemove: msidbRemoveFileInstallMode = 2i32;
+pub type msidbServiceConfigEvent = i32;
 pub const msidbServiceConfigEventInstall: msidbServiceConfigEvent = 1i32;
 pub const msidbServiceConfigEventReinstall: msidbServiceConfigEvent = 4i32;
 pub const msidbServiceConfigEventUninstall: msidbServiceConfigEvent = 2i32;
+pub type msidbServiceControlEvent = i32;
 pub const msidbServiceControlEventDelete: msidbServiceControlEvent = 8i32;
 pub const msidbServiceControlEventStart: msidbServiceControlEvent = 1i32;
 pub const msidbServiceControlEventStop: msidbServiceControlEvent = 2i32;
 pub const msidbServiceControlEventUninstallDelete: msidbServiceControlEvent = 128i32;
 pub const msidbServiceControlEventUninstallStart: msidbServiceControlEvent = 16i32;
 pub const msidbServiceControlEventUninstallStop: msidbServiceControlEvent = 32i32;
+pub type msidbServiceInstallErrorControl = i32;
 pub const msidbServiceInstallErrorControlVital: msidbServiceInstallErrorControl = 32768i32;
+pub type msidbSumInfoSourceType = i32;
 pub const msidbSumInfoSourceTypeAdminImage: msidbSumInfoSourceType = 4i32;
 pub const msidbSumInfoSourceTypeCompressed: msidbSumInfoSourceType = 2i32;
 pub const msidbSumInfoSourceTypeLUAPackage: msidbSumInfoSourceType = 8i32;
 pub const msidbSumInfoSourceTypeSFN: msidbSumInfoSourceType = 1i32;
+pub type msidbTextStyleStyleBits = i32;
 pub const msidbTextStyleStyleBitsBold: msidbTextStyleStyleBits = 1i32;
 pub const msidbTextStyleStyleBitsItalic: msidbTextStyleStyleBits = 2i32;
 pub const msidbTextStyleStyleBitsStrike: msidbTextStyleStyleBits = 8i32;
 pub const msidbTextStyleStyleBitsUnderline: msidbTextStyleStyleBits = 4i32;
+pub type msidbUpgradeAttributes = i32;
 pub const msidbUpgradeAttributesIgnoreRemoveFailure: msidbUpgradeAttributes = 4i32;
 pub const msidbUpgradeAttributesLanguagesExclusive: msidbUpgradeAttributes = 1024i32;
 pub const msidbUpgradeAttributesMigrateFeatures: msidbUpgradeAttributes = 1i32;
 pub const msidbUpgradeAttributesOnlyDetect: msidbUpgradeAttributes = 2i32;
 pub const msidbUpgradeAttributesVersionMaxInclusive: msidbUpgradeAttributes = 512i32;
 pub const msidbUpgradeAttributesVersionMinInclusive: msidbUpgradeAttributes = 256i32;
+pub type msifiFastInstallBits = i32;
 pub const msifiFastInstallLessPrgMsg: msifiFastInstallBits = 4i32;
 pub const msifiFastInstallNoSR: msifiFastInstallBits = 1i32;
 pub const msifiFastInstallQuickCosting: msifiFastInstallBits = 2i32;
@@ -2133,7 +2130,9 @@ pub const msirbRebootDeferred: msirbRebootType = 2i32;
 pub const msirbRebootForceRebootReason: msirbRebootReason = 3i32;
 pub const msirbRebootImmediate: msirbRebootType = 1i32;
 pub const msirbRebootInUseFilesReason: msirbRebootReason = 1i32;
+pub type msirbRebootReason = i32;
 pub const msirbRebootScheduleRebootReason: msirbRebootReason = 2i32;
+pub type msirbRebootType = i32;
 pub const msirbRebootUndeterminedReason: msirbRebootReason = 0i32;
 pub const msmErrorDirCreate: msmErrorType = 7i32;
 pub const msmErrorExclusion: msmErrorType = 3i32;
@@ -2143,3 +2142,4 @@ pub const msmErrorLanguageFailed: msmErrorType = 2i32;
 pub const msmErrorLanguageUnsupported: msmErrorType = 1i32;
 pub const msmErrorResequenceMerge: msmErrorType = 5i32;
 pub const msmErrorTableMerge: msmErrorType = 4i32;
+pub type msmErrorType = i32;

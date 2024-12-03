@@ -29,19 +29,15 @@ windows_targets::link!("kernel32.dll" "system" fn SetupComm(hfile : super::super
 windows_targets::link!("kernel32.dll" "system" fn TransmitCommChar(hfile : super::super::Foundation:: HANDLE, cchar : i8) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_IO")]
 windows_targets::link!("kernel32.dll" "system" fn WaitCommEvent(hfile : super::super::Foundation:: HANDLE, lpevtmask : *mut COMM_EVENT_MASK, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
+pub const CE_BREAK: CLEAR_COMM_ERROR_FLAGS = 16u32;
+pub const CE_FRAME: CLEAR_COMM_ERROR_FLAGS = 8u32;
+pub const CE_OVERRUN: CLEAR_COMM_ERROR_FLAGS = 2u32;
+pub const CE_RXOVER: CLEAR_COMM_ERROR_FLAGS = 1u32;
+pub const CE_RXPARITY: CLEAR_COMM_ERROR_FLAGS = 4u32;
 pub type CLEAR_COMM_ERROR_FLAGS = u32;
-pub type COMMPROP_STOP_PARITY = u16;
-pub type COMM_EVENT_MASK = u32;
-pub type DCB_PARITY = u8;
-pub type DCB_STOP_BITS = u8;
-pub type ESCAPE_COMM_FUNCTION = u32;
-pub type MODEMDEVCAPS_DIAL_OPTIONS = u32;
-pub type MODEMDEVCAPS_SPEAKER_MODE = u32;
-pub type MODEMDEVCAPS_SPEAKER_VOLUME = u32;
-pub type MODEMSETTINGS_SPEAKER_MODE = u32;
-pub type MODEM_SPEAKER_VOLUME = u32;
-pub type MODEM_STATUS_FLAGS = u32;
-pub type PURGE_COMM_FLAGS = u32;
+pub const CLRBREAK: ESCAPE_COMM_FUNCTION = 9u32;
+pub const CLRDTR: ESCAPE_COMM_FUNCTION = 6u32;
+pub const CLRRTS: ESCAPE_COMM_FUNCTION = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct COMMCONFIG {
@@ -76,6 +72,7 @@ pub struct COMMPROP {
     pub dwProvSpec2: u32,
     pub wcProvChar: [u16; 1],
 }
+pub type COMMPROP_STOP_PARITY = u16;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct COMMTIMEOUTS {
@@ -85,6 +82,7 @@ pub struct COMMTIMEOUTS {
     pub WriteTotalTimeoutMultiplier: u32,
     pub WriteTotalTimeoutConstant: u32,
 }
+pub type COMM_EVENT_MASK = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct COMSTAT {
@@ -111,57 +109,12 @@ pub struct DCB {
     pub EvtChar: i8,
     pub wReserved1: u16,
 }
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MODEMDEVCAPS {
-    pub dwActualSize: u32,
-    pub dwRequiredSize: u32,
-    pub dwDevSpecificOffset: u32,
-    pub dwDevSpecificSize: u32,
-    pub dwModemProviderVersion: u32,
-    pub dwModemManufacturerOffset: u32,
-    pub dwModemManufacturerSize: u32,
-    pub dwModemModelOffset: u32,
-    pub dwModemModelSize: u32,
-    pub dwModemVersionOffset: u32,
-    pub dwModemVersionSize: u32,
-    pub dwDialOptions: MODEMDEVCAPS_DIAL_OPTIONS,
-    pub dwCallSetupFailTimer: u32,
-    pub dwInactivityTimeout: u32,
-    pub dwSpeakerVolume: MODEMDEVCAPS_SPEAKER_VOLUME,
-    pub dwSpeakerMode: MODEMDEVCAPS_SPEAKER_MODE,
-    pub dwModemOptions: u32,
-    pub dwMaxDTERate: u32,
-    pub dwMaxDCERate: u32,
-    pub abVariablePortion: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MODEMSETTINGS {
-    pub dwActualSize: u32,
-    pub dwRequiredSize: u32,
-    pub dwDevSpecificOffset: u32,
-    pub dwDevSpecificSize: u32,
-    pub dwCallSetupFailTimer: u32,
-    pub dwInactivityTimeout: u32,
-    pub dwSpeakerVolume: MODEM_SPEAKER_VOLUME,
-    pub dwSpeakerMode: MODEMSETTINGS_SPEAKER_MODE,
-    pub dwPreferredModemOptions: u32,
-    pub dwNegotiatedModemOptions: u32,
-    pub dwNegotiatedDCERate: u32,
-    pub abVariablePortion: [u8; 1],
-}
-pub const CE_BREAK: CLEAR_COMM_ERROR_FLAGS = 16u32;
-pub const CE_FRAME: CLEAR_COMM_ERROR_FLAGS = 8u32;
-pub const CE_OVERRUN: CLEAR_COMM_ERROR_FLAGS = 2u32;
-pub const CE_RXOVER: CLEAR_COMM_ERROR_FLAGS = 1u32;
-pub const CE_RXPARITY: CLEAR_COMM_ERROR_FLAGS = 4u32;
-pub const CLRBREAK: ESCAPE_COMM_FUNCTION = 9u32;
-pub const CLRDTR: ESCAPE_COMM_FUNCTION = 6u32;
-pub const CLRRTS: ESCAPE_COMM_FUNCTION = 4u32;
+pub type DCB_PARITY = u8;
+pub type DCB_STOP_BITS = u8;
 pub const DIALOPTION_BILLING: MODEMDEVCAPS_DIAL_OPTIONS = 64u32;
 pub const DIALOPTION_DIALTONE: MODEMDEVCAPS_DIAL_OPTIONS = 256u32;
 pub const DIALOPTION_QUIET: MODEMDEVCAPS_DIAL_OPTIONS = 128u32;
+pub type ESCAPE_COMM_FUNCTION = u32;
 pub const EVENPARITY: DCB_PARITY = 2u8;
 pub const EV_BREAK: COMM_EVENT_MASK = 64u32;
 pub const EV_CTS: COMM_EVENT_MASK = 8u32;
@@ -282,6 +235,52 @@ pub const MDM_X75_DATA_64K: u32 = 1u32;
 pub const MDM_X75_DATA_BTX: u32 = 4u32;
 pub const MDM_X75_DATA_DEFAULT: u32 = 0u32;
 pub const MDM_X75_DATA_T_70: u32 = 3u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MODEMDEVCAPS {
+    pub dwActualSize: u32,
+    pub dwRequiredSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwModemProviderVersion: u32,
+    pub dwModemManufacturerOffset: u32,
+    pub dwModemManufacturerSize: u32,
+    pub dwModemModelOffset: u32,
+    pub dwModemModelSize: u32,
+    pub dwModemVersionOffset: u32,
+    pub dwModemVersionSize: u32,
+    pub dwDialOptions: MODEMDEVCAPS_DIAL_OPTIONS,
+    pub dwCallSetupFailTimer: u32,
+    pub dwInactivityTimeout: u32,
+    pub dwSpeakerVolume: MODEMDEVCAPS_SPEAKER_VOLUME,
+    pub dwSpeakerMode: MODEMDEVCAPS_SPEAKER_MODE,
+    pub dwModemOptions: u32,
+    pub dwMaxDTERate: u32,
+    pub dwMaxDCERate: u32,
+    pub abVariablePortion: [u8; 1],
+}
+pub type MODEMDEVCAPS_DIAL_OPTIONS = u32;
+pub type MODEMDEVCAPS_SPEAKER_MODE = u32;
+pub type MODEMDEVCAPS_SPEAKER_VOLUME = u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MODEMSETTINGS {
+    pub dwActualSize: u32,
+    pub dwRequiredSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwCallSetupFailTimer: u32,
+    pub dwInactivityTimeout: u32,
+    pub dwSpeakerVolume: MODEM_SPEAKER_VOLUME,
+    pub dwSpeakerMode: MODEMSETTINGS_SPEAKER_MODE,
+    pub dwPreferredModemOptions: u32,
+    pub dwNegotiatedModemOptions: u32,
+    pub dwNegotiatedDCERate: u32,
+    pub abVariablePortion: [u8; 1],
+}
+pub type MODEMSETTINGS_SPEAKER_MODE = u32;
+pub type MODEM_SPEAKER_VOLUME = u32;
+pub type MODEM_STATUS_FLAGS = u32;
 pub const MS_CTS_ON: MODEM_STATUS_FLAGS = 16u32;
 pub const MS_DSR_ON: MODEM_STATUS_FLAGS = 32u32;
 pub const MS_RING_ON: MODEM_STATUS_FLAGS = 64u32;
@@ -295,6 +294,7 @@ pub const PARITY_MARK: COMMPROP_STOP_PARITY = 2048u16;
 pub const PARITY_NONE: COMMPROP_STOP_PARITY = 256u16;
 pub const PARITY_ODD: COMMPROP_STOP_PARITY = 512u16;
 pub const PARITY_SPACE: COMMPROP_STOP_PARITY = 4096u16;
+pub type PURGE_COMM_FLAGS = u32;
 pub const PURGE_RXABORT: PURGE_COMM_FLAGS = 2u32;
 pub const PURGE_RXCLEAR: PURGE_COMM_FLAGS = 8u32;
 pub const PURGE_TXABORT: PURGE_COMM_FLAGS = 1u32;

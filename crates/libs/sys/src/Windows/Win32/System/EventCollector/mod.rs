@@ -13,6 +13,10 @@ windows_targets::link!("wecapi.dll" "system" fn EcRetrySubscription(subscription
 windows_targets::link!("wecapi.dll" "system" fn EcSaveSubscription(subscription : isize, flags : u32) -> super::super::Foundation:: BOOL);
 windows_targets::link!("wecapi.dll" "system" fn EcSetObjectArrayProperty(objectarray : isize, propertyid : EC_SUBSCRIPTION_PROPERTY_ID, arrayindex : u32, flags : u32, propertyvalue : *mut EC_VARIANT) -> super::super::Foundation:: BOOL);
 windows_targets::link!("wecapi.dll" "system" fn EcSetSubscriptionProperty(subscription : isize, propertyid : EC_SUBSCRIPTION_PROPERTY_ID, flags : u32, propertyvalue : *mut EC_VARIANT) -> super::super::Foundation:: BOOL);
+pub const EC_CREATE_NEW: u32 = 1u32;
+pub const EC_OPEN_ALWAYS: u32 = 0u32;
+pub const EC_OPEN_EXISTING: u32 = 2u32;
+pub const EC_READ_ACCESS: u32 = 1u32;
 pub type EC_SUBSCRIPTION_CONFIGURATION_MODE = i32;
 pub type EC_SUBSCRIPTION_CONTENT_FORMAT = i32;
 pub type EC_SUBSCRIPTION_CREDENTIALS_TYPE = i32;
@@ -21,7 +25,6 @@ pub type EC_SUBSCRIPTION_PROPERTY_ID = i32;
 pub type EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS = i32;
 pub type EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID = i32;
 pub type EC_SUBSCRIPTION_TYPE = i32;
-pub type EC_VARIANT_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EC_VARIANT {
@@ -42,10 +45,7 @@ pub union EC_VARIANT_0 {
     pub StringArr: *mut windows_sys::core::PWSTR,
     pub PropertyHandleVal: isize,
 }
-pub const EC_CREATE_NEW: u32 = 1u32;
-pub const EC_OPEN_ALWAYS: u32 = 0u32;
-pub const EC_OPEN_EXISTING: u32 = 2u32;
-pub const EC_READ_ACCESS: u32 = 1u32;
+pub type EC_VARIANT_TYPE = i32;
 pub const EC_VARIANT_TYPE_ARRAY: u32 = 128u32;
 pub const EC_VARIANT_TYPE_MASK: u32 = 127u32;
 pub const EC_WRITE_ACCESS: u32 = 2u32;

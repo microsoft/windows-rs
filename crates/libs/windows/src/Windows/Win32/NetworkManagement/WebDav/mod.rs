@@ -83,11 +83,17 @@ pub unsafe fn DavUnregisterAuthCallback(hcallback: u32) {
     windows_targets::link!("davclnt.dll" "system" fn DavUnregisterAuthCallback(hcallback : u32));
     DavUnregisterAuthCallback(core::mem::transmute(hcallback))
 }
-pub type PFNDAVAUTHCALLBACK = Option<unsafe extern "system" fn(lpwzservername: windows_core::PCWSTR, lpwzremotename: windows_core::PCWSTR, dwauthscheme: u32, dwflags: u32, pcallbackcred: *mut DAV_CALLBACK_CRED, nextstep: *mut AUTHNEXTSTEP, pfreecred: *mut PFNDAVAUTHCALLBACK_FREECRED) -> u32>;
-pub type PFNDAVAUTHCALLBACK_FREECRED = Option<unsafe extern "system" fn(pbuffer: *const core::ffi::c_void) -> u32>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHNEXTSTEP(pub i32);
+pub const CancelRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(2i32);
+pub const DAV_AUTHN_SCHEME_BASIC: u32 = 1u32;
+pub const DAV_AUTHN_SCHEME_CERT: u32 = 65536u32;
+pub const DAV_AUTHN_SCHEME_DIGEST: u32 = 8u32;
+pub const DAV_AUTHN_SCHEME_FBA: u32 = 1048576u32;
+pub const DAV_AUTHN_SCHEME_NEGOTIATE: u32 = 16u32;
+pub const DAV_AUTHN_SCHEME_NTLM: u32 = 2u32;
+pub const DAV_AUTHN_SCHEME_PASSPORT: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DAV_CALLBACK_AUTH_BLOB {
@@ -135,13 +141,7 @@ impl Default for DAV_CALLBACK_CRED {
 impl windows_core::TypeKind for DAV_CALLBACK_CRED {
     type TypeKind = windows_core::CopyType;
 }
-pub const CancelRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(2i32);
-pub const DAV_AUTHN_SCHEME_BASIC: u32 = 1u32;
-pub const DAV_AUTHN_SCHEME_CERT: u32 = 65536u32;
-pub const DAV_AUTHN_SCHEME_DIGEST: u32 = 8u32;
-pub const DAV_AUTHN_SCHEME_FBA: u32 = 1048576u32;
-pub const DAV_AUTHN_SCHEME_NEGOTIATE: u32 = 16u32;
-pub const DAV_AUTHN_SCHEME_NTLM: u32 = 2u32;
-pub const DAV_AUTHN_SCHEME_PASSPORT: u32 = 4u32;
 pub const DefaultBehavior: AUTHNEXTSTEP = AUTHNEXTSTEP(0i32);
+pub type PFNDAVAUTHCALLBACK = Option<unsafe extern "system" fn(lpwzservername: windows_core::PCWSTR, lpwzremotename: windows_core::PCWSTR, dwauthscheme: u32, dwflags: u32, pcallbackcred: *mut DAV_CALLBACK_CRED, nextstep: *mut AUTHNEXTSTEP, pfreecred: *mut PFNDAVAUTHCALLBACK_FREECRED) -> u32>;
+pub type PFNDAVAUTHCALLBACK_FREECRED = Option<unsafe extern "system" fn(pbuffer: *const core::ffi::c_void) -> u32>;
 pub const RetryRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(1i32);

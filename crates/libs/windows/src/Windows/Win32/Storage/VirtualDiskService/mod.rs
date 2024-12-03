@@ -1,3 +1,174 @@
+pub const BeepAlarm: VDS_MAINTENANCE_OPERATION = VDS_MAINTENANCE_OPERATION(2i32);
+pub const BlinkLight: VDS_MAINTENANCE_OPERATION = VDS_MAINTENANCE_OPERATION(1i32);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CHANGE_ATTRIBUTES_PARAMETERS {
+    pub style: VDS_PARTITION_STYLE,
+    pub Anonymous: CHANGE_ATTRIBUTES_PARAMETERS_0,
+}
+impl Default for CHANGE_ATTRIBUTES_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CHANGE_ATTRIBUTES_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union CHANGE_ATTRIBUTES_PARAMETERS_0 {
+    pub MbrPartInfo: CHANGE_ATTRIBUTES_PARAMETERS_0_0,
+    pub GptPartInfo: CHANGE_ATTRIBUTES_PARAMETERS_0_1,
+}
+impl Default for CHANGE_ATTRIBUTES_PARAMETERS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CHANGE_ATTRIBUTES_PARAMETERS_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
+    pub attributes: u64,
+}
+impl Default for CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
+    pub bootIndicator: super::super::Foundation::BOOLEAN,
+}
+impl Default for CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CHANGE_PARTITION_TYPE_PARAMETERS {
+    pub style: VDS_PARTITION_STYLE,
+    pub Anonymous: CHANGE_PARTITION_TYPE_PARAMETERS_0,
+}
+impl Default for CHANGE_PARTITION_TYPE_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CHANGE_PARTITION_TYPE_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union CHANGE_PARTITION_TYPE_PARAMETERS_0 {
+    pub MbrPartInfo: CHANGE_PARTITION_TYPE_PARAMETERS_0_0,
+    pub GptPartInfo: CHANGE_PARTITION_TYPE_PARAMETERS_0_1,
+}
+impl Default for CHANGE_PARTITION_TYPE_PARAMETERS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CHANGE_PARTITION_TYPE_PARAMETERS_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
+    pub partitionType: windows_core::GUID,
+}
+impl Default for CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
+    pub partitionType: u8,
+}
+impl Default for CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CLSID_VdsLoader: windows_core::GUID = windows_core::GUID::from_u128(0x9c38ed61_d565_4728_aeee_c80952f0ecde);
+pub const CLSID_VdsService: windows_core::GUID = windows_core::GUID::from_u128(0x7d1933cb_86f6_4a98_8628_01be94c9a575);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CREATE_PARTITION_PARAMETERS {
+    pub style: VDS_PARTITION_STYLE,
+    pub Anonymous: CREATE_PARTITION_PARAMETERS_0,
+}
+impl Default for CREATE_PARTITION_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CREATE_PARTITION_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union CREATE_PARTITION_PARAMETERS_0 {
+    pub MbrPartInfo: CREATE_PARTITION_PARAMETERS_0_0,
+    pub GptPartInfo: CREATE_PARTITION_PARAMETERS_0_1,
+}
+impl Default for CREATE_PARTITION_PARAMETERS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CREATE_PARTITION_PARAMETERS_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CREATE_PARTITION_PARAMETERS_0_1 {
+    pub partitionType: windows_core::GUID,
+    pub partitionId: windows_core::GUID,
+    pub attributes: u64,
+    pub name: [u16; 36],
+}
+impl Default for CREATE_PARTITION_PARAMETERS_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CREATE_PARTITION_PARAMETERS_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CREATE_PARTITION_PARAMETERS_0_0 {
+    pub partitionType: u8,
+    pub bootIndicator: super::super::Foundation::BOOLEAN,
+}
+impl Default for CREATE_PARTITION_PARAMETERS_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CREATE_PARTITION_PARAMETERS_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+pub const GPT_PARTITION_NAME_LENGTH: u32 = 36u32;
 windows_core::imp::define_interface!(IEnumVdsObject, IEnumVdsObject_Vtbl, 0x118610b7_8d94_4030_b5b8_500889788e4e);
 windows_core::imp::interface_hierarchy!(IEnumVdsObject, windows_core::IUnknown);
 impl IEnumVdsObject {
@@ -5289,400 +5460,56 @@ impl IVdsVolumeShrink_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IVdsVolumeShrink {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_ASYNC_OUTPUT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_CONTROLLER_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_DISK_EXTENT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_DISK_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_DISK_OFFLINE_REASON(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_DISK_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_DRIVE_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_DRIVE_LETTER_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_DRIVE_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_FILE_SYSTEM_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_FILE_SYSTEM_FORMAT_SUPPORT_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_FILE_SYSTEM_PROP_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_FILE_SYSTEM_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_FORMAT_OPTION_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_HBAPORT_SPEED_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_HBAPORT_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_HBAPORT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_HEALTH(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_HWPROVIDER_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_INTERCONNECT_ADDRESS_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_INTERCONNECT_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_IPADDRESS_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_ISCSI_AUTH_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_ISCSI_IPSEC_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_ISCSI_LOGIN_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_ISCSI_LOGIN_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_ISCSI_PORTAL_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_LOADBALANCE_POLICY_ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_LUN_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_LUN_PLEX_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_LUN_PLEX_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_LUN_PLEX_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_LUN_RESERVE_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_LUN_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_LUN_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_MAINTENANCE_OPERATION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_NF_CONTROLLER(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_NF_DISK(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_NF_DRIVE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_NF_FILE_SYSTEM(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_NF_LUN(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_NF_PACK(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_NF_PORT(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_NOTIFICATION_TARGET_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_OBJECT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_PACK_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_PACK_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_PARTITION_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_PARTITION_STYLE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_PATH_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_PORT_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_PROVIDER_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_PROVIDER_LBSUPPORT_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_PROVIDER_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_QUERY_PROVIDER_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_RAID_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_RECOVER_ACTION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_SAN_POLICY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_SERVICE_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_STORAGE_BUS_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_STORAGE_IDENTIFIER_CODE_SET(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_STORAGE_IDENTIFIER_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_STORAGE_POOL_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_STORAGE_POOL_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_SUB_SYSTEM_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_SUB_SYSTEM_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_TRANSITION_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_VDISK_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_VERSION_SUPPORT_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_VOLUME_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_VOLUME_PLEX_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_VOLUME_PLEX_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_VOLUME_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VDS_VOLUME_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct __VDS_PARTITION_STYLE(pub i32);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CHANGE_ATTRIBUTES_PARAMETERS {
-    pub style: VDS_PARTITION_STYLE,
-    pub Anonymous: CHANGE_ATTRIBUTES_PARAMETERS_0,
-}
-impl Default for CHANGE_ATTRIBUTES_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CHANGE_ATTRIBUTES_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union CHANGE_ATTRIBUTES_PARAMETERS_0 {
-    pub MbrPartInfo: CHANGE_ATTRIBUTES_PARAMETERS_0_0,
-    pub GptPartInfo: CHANGE_ATTRIBUTES_PARAMETERS_0_1,
-}
-impl Default for CHANGE_ATTRIBUTES_PARAMETERS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CHANGE_ATTRIBUTES_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
-    pub attributes: u64,
-}
-impl Default for CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
-    pub bootIndicator: super::super::Foundation::BOOLEAN,
-}
-impl Default for CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CHANGE_PARTITION_TYPE_PARAMETERS {
-    pub style: VDS_PARTITION_STYLE,
-    pub Anonymous: CHANGE_PARTITION_TYPE_PARAMETERS_0,
-}
-impl Default for CHANGE_PARTITION_TYPE_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CHANGE_PARTITION_TYPE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union CHANGE_PARTITION_TYPE_PARAMETERS_0 {
-    pub MbrPartInfo: CHANGE_PARTITION_TYPE_PARAMETERS_0_0,
-    pub GptPartInfo: CHANGE_PARTITION_TYPE_PARAMETERS_0_1,
-}
-impl Default for CHANGE_PARTITION_TYPE_PARAMETERS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CHANGE_PARTITION_TYPE_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
-    pub partitionType: windows_core::GUID,
-}
-impl Default for CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
-    pub partitionType: u8,
-}
-impl Default for CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CREATE_PARTITION_PARAMETERS {
-    pub style: VDS_PARTITION_STYLE,
-    pub Anonymous: CREATE_PARTITION_PARAMETERS_0,
-}
-impl Default for CREATE_PARTITION_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CREATE_PARTITION_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union CREATE_PARTITION_PARAMETERS_0 {
-    pub MbrPartInfo: CREATE_PARTITION_PARAMETERS_0_0,
-    pub GptPartInfo: CREATE_PARTITION_PARAMETERS_0_1,
-}
-impl Default for CREATE_PARTITION_PARAMETERS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CREATE_PARTITION_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CREATE_PARTITION_PARAMETERS_0_1 {
-    pub partitionType: windows_core::GUID,
-    pub partitionId: windows_core::GUID,
-    pub attributes: u64,
-    pub name: [u16; 36],
-}
-impl Default for CREATE_PARTITION_PARAMETERS_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CREATE_PARTITION_PARAMETERS_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CREATE_PARTITION_PARAMETERS_0_0 {
-    pub partitionType: u8,
-    pub bootIndicator: super::super::Foundation::BOOLEAN,
-}
-impl Default for CREATE_PARTITION_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CREATE_PARTITION_PARAMETERS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
+pub const MAX_FS_ALLOWED_CLUSTER_SIZES_SIZE: u32 = 32u32;
+pub const MAX_FS_FORMAT_SUPPORT_NAME_SIZE: u32 = 32u32;
+pub const MAX_FS_NAME_SIZE: u32 = 8u32;
+pub const Ping: VDS_MAINTENANCE_OPERATION = VDS_MAINTENANCE_OPERATION(5i32);
+pub const SpinDown: VDS_MAINTENANCE_OPERATION = VDS_MAINTENANCE_OPERATION(3i32);
+pub const SpinUp: VDS_MAINTENANCE_OPERATION = VDS_MAINTENANCE_OPERATION(4i32);
+pub const VDSBusType1394: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(4i32);
+pub const VDSBusTypeAta: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(3i32);
+pub const VDSBusTypeAtapi: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(2i32);
+pub const VDSBusTypeFibre: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(6i32);
+pub const VDSBusTypeFileBackedVirtual: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(15i32);
+pub const VDSBusTypeMax: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(14i32);
+pub const VDSBusTypeMaxReserved: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(127i32);
+pub const VDSBusTypeMmc: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(13i32);
+pub const VDSBusTypeNVMe: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(17i32);
+pub const VDSBusTypeRAID: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(8i32);
+pub const VDSBusTypeSas: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(10i32);
+pub const VDSBusTypeSata: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(11i32);
+pub const VDSBusTypeScm: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(18i32);
+pub const VDSBusTypeScsi: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(1i32);
+pub const VDSBusTypeSd: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(12i32);
+pub const VDSBusTypeSpaces: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(16i32);
+pub const VDSBusTypeSsa: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(5i32);
+pub const VDSBusTypeUfs: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(19i32);
+pub const VDSBusTypeUnknown: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(0i32);
+pub const VDSBusTypeUsb: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(7i32);
+pub const VDSBusTypeVirtual: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(14i32);
+pub const VDSBusTypeiScsi: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(9i32);
+pub const VDSDiskOfflineReasonCollision: VDS_DISK_OFFLINE_REASON = VDS_DISK_OFFLINE_REASON(4i32);
+pub const VDSDiskOfflineReasonDIScan: VDS_DISK_OFFLINE_REASON = VDS_DISK_OFFLINE_REASON(7i32);
+pub const VDSDiskOfflineReasonLostDataPersistence: VDS_DISK_OFFLINE_REASON = VDS_DISK_OFFLINE_REASON(8i32);
+pub const VDSDiskOfflineReasonNone: VDS_DISK_OFFLINE_REASON = VDS_DISK_OFFLINE_REASON(0i32);
+pub const VDSDiskOfflineReasonPolicy: VDS_DISK_OFFLINE_REASON = VDS_DISK_OFFLINE_REASON(1i32);
+pub const VDSDiskOfflineReasonRedundantPath: VDS_DISK_OFFLINE_REASON = VDS_DISK_OFFLINE_REASON(2i32);
+pub const VDSDiskOfflineReasonResourceExhaustion: VDS_DISK_OFFLINE_REASON = VDS_DISK_OFFLINE_REASON(5i32);
+pub const VDSDiskOfflineReasonSnapshot: VDS_DISK_OFFLINE_REASON = VDS_DISK_OFFLINE_REASON(3i32);
+pub const VDSDiskOfflineReasonWriteFailure: VDS_DISK_OFFLINE_REASON = VDS_DISK_OFFLINE_REASON(6i32);
+pub const VDSStorageIdCodeSetAscii: VDS_STORAGE_IDENTIFIER_CODE_SET = VDS_STORAGE_IDENTIFIER_CODE_SET(2i32);
+pub const VDSStorageIdCodeSetBinary: VDS_STORAGE_IDENTIFIER_CODE_SET = VDS_STORAGE_IDENTIFIER_CODE_SET(1i32);
+pub const VDSStorageIdCodeSetReserved: VDS_STORAGE_IDENTIFIER_CODE_SET = VDS_STORAGE_IDENTIFIER_CODE_SET(0i32);
+pub const VDSStorageIdCodeSetUtf8: VDS_STORAGE_IDENTIFIER_CODE_SET = VDS_STORAGE_IDENTIFIER_CODE_SET(3i32);
+pub const VDSStorageIdTypeEUI64: VDS_STORAGE_IDENTIFIER_TYPE = VDS_STORAGE_IDENTIFIER_TYPE(2i32);
+pub const VDSStorageIdTypeFCPHName: VDS_STORAGE_IDENTIFIER_TYPE = VDS_STORAGE_IDENTIFIER_TYPE(3i32);
+pub const VDSStorageIdTypeLogicalUnitGroup: VDS_STORAGE_IDENTIFIER_TYPE = VDS_STORAGE_IDENTIFIER_TYPE(6i32);
+pub const VDSStorageIdTypeMD5LogicalUnitIdentifier: VDS_STORAGE_IDENTIFIER_TYPE = VDS_STORAGE_IDENTIFIER_TYPE(7i32);
+pub const VDSStorageIdTypePortRelative: VDS_STORAGE_IDENTIFIER_TYPE = VDS_STORAGE_IDENTIFIER_TYPE(4i32);
+pub const VDSStorageIdTypeScsiNameString: VDS_STORAGE_IDENTIFIER_TYPE = VDS_STORAGE_IDENTIFIER_TYPE(8i32);
+pub const VDSStorageIdTypeTargetPortGroup: VDS_STORAGE_IDENTIFIER_TYPE = VDS_STORAGE_IDENTIFIER_TYPE(5i32);
+pub const VDSStorageIdTypeVendorId: VDS_STORAGE_IDENTIFIER_TYPE = VDS_STORAGE_IDENTIFIER_TYPE(1i32);
+pub const VDSStorageIdTypeVendorSpecific: VDS_STORAGE_IDENTIFIER_TYPE = VDS_STORAGE_IDENTIFIER_TYPE(0i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VDS_ADVANCEDDISK_PROP {
@@ -5732,6 +5559,38 @@ impl Default for VDS_ADVANCEDDISK_PROP_0 {
 impl windows_core::TypeKind for VDS_ADVANCEDDISK_PROP_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const VDS_ASYNCOUT_ADDLUNPLEX: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(52i32);
+pub const VDS_ASYNCOUT_ADDPORTAL: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(65i32);
+pub const VDS_ASYNCOUT_ADDVOLUMEPLEX: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(4i32);
+pub const VDS_ASYNCOUT_ATTACH_VDISK: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(201i32);
+pub const VDS_ASYNCOUT_BREAKVOLUMEPLEX: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(5i32);
+pub const VDS_ASYNCOUT_CLEAN: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(11i32);
+pub const VDS_ASYNCOUT_COMPACT_VDISK: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(202i32);
+pub const VDS_ASYNCOUT_CREATELUN: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(50i32);
+pub const VDS_ASYNCOUT_CREATEPARTITION: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(10i32);
+pub const VDS_ASYNCOUT_CREATEPORTALGROUP: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(63i32);
+pub const VDS_ASYNCOUT_CREATETARGET: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(62i32);
+pub const VDS_ASYNCOUT_CREATEVOLUME: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(1i32);
+pub const VDS_ASYNCOUT_CREATE_VDISK: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(200i32);
+pub const VDS_ASYNCOUT_DELETEPORTALGROUP: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(67i32);
+pub const VDS_ASYNCOUT_DELETETARGET: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(64i32);
+pub const VDS_ASYNCOUT_EXPAND_VDISK: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(204i32);
+pub const VDS_ASYNCOUT_EXTENDLUN: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(54i32);
+pub const VDS_ASYNCOUT_EXTENDVOLUME: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(2i32);
+pub const VDS_ASYNCOUT_FORMAT: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(101i32);
+pub const VDS_ASYNCOUT_LOGINTOTARGET: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(60i32);
+pub const VDS_ASYNCOUT_LOGOUTFROMTARGET: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(61i32);
+pub const VDS_ASYNCOUT_MERGE_VDISK: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(203i32);
+pub const VDS_ASYNCOUT_RECOVERLUN: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(56i32);
+pub const VDS_ASYNCOUT_RECOVERPACK: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(8i32);
+pub const VDS_ASYNCOUT_REMOVELUNPLEX: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(53i32);
+pub const VDS_ASYNCOUT_REMOVEPORTAL: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(66i32);
+pub const VDS_ASYNCOUT_REMOVEVOLUMEPLEX: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(6i32);
+pub const VDS_ASYNCOUT_REPAIRVOLUMEPLEX: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(7i32);
+pub const VDS_ASYNCOUT_REPLACEDISK: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(9i32);
+pub const VDS_ASYNCOUT_SHRINKLUN: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(55i32);
+pub const VDS_ASYNCOUT_SHRINKVOLUME: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(3i32);
+pub const VDS_ASYNCOUT_UNKNOWN: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(0i32);
 #[repr(C)]
 pub struct VDS_ASYNC_OUTPUT {
     pub r#type: VDS_ASYNC_OUTPUT_TYPE,
@@ -5879,6 +5738,10 @@ impl Default for VDS_ASYNC_OUTPUT_0_3 {
 impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_3 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_ASYNC_OUTPUT_TYPE(pub i32);
+pub const VDS_ATTACH_VIRTUAL_DISK_FLAG_USE_FILE_ACL: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_CONTROLLER_NOTIFICATION {
@@ -5911,6 +5774,9 @@ impl Default for VDS_CONTROLLER_PROP {
 impl windows_core::TypeKind for VDS_CONTROLLER_PROP {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_CONTROLLER_STATUS(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_CREATE_VDISK_PARAMETERS {
@@ -5929,6 +5795,38 @@ impl Default for VDS_CREATE_VDISK_PARAMETERS {
 impl windows_core::TypeKind for VDS_CREATE_VDISK_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
+pub const VDS_CS_FAILED: VDS_CONTROLLER_STATUS = VDS_CONTROLLER_STATUS(5i32);
+pub const VDS_CS_NOT_READY: VDS_CONTROLLER_STATUS = VDS_CONTROLLER_STATUS(2i32);
+pub const VDS_CS_OFFLINE: VDS_CONTROLLER_STATUS = VDS_CONTROLLER_STATUS(4i32);
+pub const VDS_CS_ONLINE: VDS_CONTROLLER_STATUS = VDS_CONTROLLER_STATUS(1i32);
+pub const VDS_CS_REMOVED: VDS_CONTROLLER_STATUS = VDS_CONTROLLER_STATUS(8i32);
+pub const VDS_CS_UNKNOWN: VDS_CONTROLLER_STATUS = VDS_CONTROLLER_STATUS(0i32);
+pub const VDS_DET_CLUSTER: VDS_DISK_EXTENT_TYPE = VDS_DISK_EXTENT_TYPE(7i32);
+pub const VDS_DET_DATA: VDS_DISK_EXTENT_TYPE = VDS_DISK_EXTENT_TYPE(2i32);
+pub const VDS_DET_ESP: VDS_DISK_EXTENT_TYPE = VDS_DISK_EXTENT_TYPE(4i32);
+pub const VDS_DET_FREE: VDS_DISK_EXTENT_TYPE = VDS_DISK_EXTENT_TYPE(1i32);
+pub const VDS_DET_LDM: VDS_DISK_EXTENT_TYPE = VDS_DISK_EXTENT_TYPE(6i32);
+pub const VDS_DET_MSR: VDS_DISK_EXTENT_TYPE = VDS_DISK_EXTENT_TYPE(5i32);
+pub const VDS_DET_OEM: VDS_DISK_EXTENT_TYPE = VDS_DISK_EXTENT_TYPE(3i32);
+pub const VDS_DET_UNKNOWN: VDS_DISK_EXTENT_TYPE = VDS_DISK_EXTENT_TYPE(0i32);
+pub const VDS_DET_UNUSABLE: VDS_DISK_EXTENT_TYPE = VDS_DISK_EXTENT_TYPE(32767i32);
+pub const VDS_DF_AUDIO_CD: VDS_DISK_FLAG = VDS_DISK_FLAG(1i32);
+pub const VDS_DF_BOOT_DISK: VDS_DISK_FLAG = VDS_DISK_FLAG(256i32);
+pub const VDS_DF_BOOT_FROM_DISK: VDS_DISK_FLAG = VDS_DISK_FLAG(16384i32);
+pub const VDS_DF_CLUSTERED: VDS_DISK_FLAG = VDS_DISK_FLAG(32i32);
+pub const VDS_DF_CRASHDUMP_DISK: VDS_DISK_FLAG = VDS_DISK_FLAG(2048i32);
+pub const VDS_DF_CURRENT_READ_ONLY: VDS_DISK_FLAG = VDS_DISK_FLAG(32768i32);
+pub const VDS_DF_DYNAMIC: VDS_DISK_FLAG = VDS_DISK_FLAG(8192i32);
+pub const VDS_DF_HAS_ARC_PATH: VDS_DISK_FLAG = VDS_DISK_FLAG(4096i32);
+pub const VDS_DF_HIBERNATIONFILE_DISK: VDS_DISK_FLAG = VDS_DISK_FLAG(1024i32);
+pub const VDS_DF_HOTSPARE: VDS_DISK_FLAG = VDS_DISK_FLAG(2i32);
+pub const VDS_DF_MASKED: VDS_DISK_FLAG = VDS_DISK_FLAG(8i32);
+pub const VDS_DF_PAGEFILE_DISK: VDS_DISK_FLAG = VDS_DISK_FLAG(512i32);
+pub const VDS_DF_READ_ONLY: VDS_DISK_FLAG = VDS_DISK_FLAG(64i32);
+pub const VDS_DF_REFS_NOT_SUPPORTED: VDS_DISK_FLAG = VDS_DISK_FLAG(65536i32);
+pub const VDS_DF_RESERVE_CAPABLE: VDS_DISK_FLAG = VDS_DISK_FLAG(4i32);
+pub const VDS_DF_STYLE_CONVERTIBLE: VDS_DISK_FLAG = VDS_DISK_FLAG(16i32);
+pub const VDS_DF_SYSTEM_DISK: VDS_DISK_FLAG = VDS_DISK_FLAG(128i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_DISK_EXTENT {
@@ -5948,6 +5846,12 @@ impl Default for VDS_DISK_EXTENT {
 impl windows_core::TypeKind for VDS_DISK_EXTENT {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_DISK_EXTENT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_DISK_FLAG(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_DISK_FREE_EXTENT {
@@ -5977,6 +5881,9 @@ impl Default for VDS_DISK_NOTIFICATION {
 impl windows_core::TypeKind for VDS_DISK_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_DISK_OFFLINE_REASON(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VDS_DISK_PROP {
@@ -6069,6 +5976,15 @@ impl Default for VDS_DISK_PROP2_0 {
 impl windows_core::TypeKind for VDS_DISK_PROP2_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_DISK_STATUS(pub i32);
+pub const VDS_DLF_NON_PERSISTENT: VDS_DRIVE_LETTER_FLAG = VDS_DRIVE_LETTER_FLAG(1i32);
+pub const VDS_DRF_ASSIGNED: VDS_DRIVE_FLAG = VDS_DRIVE_FLAG(2i32);
+pub const VDS_DRF_HOTSPARE: VDS_DRIVE_FLAG = VDS_DRIVE_FLAG(1i32);
+pub const VDS_DRF_HOTSPARE_IN_USE: VDS_DRIVE_FLAG = VDS_DRIVE_FLAG(8i32);
+pub const VDS_DRF_HOTSPARE_STANDBY: VDS_DRIVE_FLAG = VDS_DRIVE_FLAG(16i32);
+pub const VDS_DRF_UNASSIGNED: VDS_DRIVE_FLAG = VDS_DRIVE_FLAG(4i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_DRIVE_EXTENT {
@@ -6085,6 +6001,12 @@ impl Default for VDS_DRIVE_EXTENT {
 impl windows_core::TypeKind for VDS_DRIVE_EXTENT {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_DRIVE_FLAG(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_DRIVE_LETTER_FLAG(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_DRIVE_LETTER_NOTIFICATION {
@@ -6175,1261 +6097,9 @@ impl Default for VDS_DRIVE_PROP2 {
 impl windows_core::TypeKind for VDS_DRIVE_PROP2 {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP {
-    pub ulFlags: u32,
-    pub usRevision: u16,
-    pub ulDefaultUnitAllocationSize: u32,
-    pub rgulAllowedUnitAllocationSizes: [u32; 32],
-    pub wszName: [u16; 32],
-}
-impl Default for VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_FILE_SYSTEM_NOTIFICATION {
-    pub ulEvent: VDS_NF_FILE_SYSTEM,
-    pub volumeId: windows_core::GUID,
-    pub dwPercentCompleted: u32,
-}
-impl Default for VDS_FILE_SYSTEM_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_FILE_SYSTEM_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_FILE_SYSTEM_PROP {
-    pub r#type: VDS_FILE_SYSTEM_TYPE,
-    pub volumeId: windows_core::GUID,
-    pub ulFlags: u32,
-    pub ullTotalAllocationUnits: u64,
-    pub ullAvailableAllocationUnits: u64,
-    pub ulAllocationUnitSize: u32,
-    pub pwszLabel: windows_core::PWSTR,
-}
-impl Default for VDS_FILE_SYSTEM_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_FILE_SYSTEM_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_FILE_SYSTEM_TYPE_PROP {
-    pub r#type: VDS_FILE_SYSTEM_TYPE,
-    pub wszName: [u16; 8],
-    pub ulFlags: u32,
-    pub ulCompressionFlags: u32,
-    pub ulMaxLableLength: u32,
-    pub pwszIllegalLabelCharSet: windows_core::PWSTR,
-}
-impl Default for VDS_FILE_SYSTEM_TYPE_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_FILE_SYSTEM_TYPE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_HBAPORT_PROP {
-    pub id: windows_core::GUID,
-    pub wwnNode: VDS_WWN,
-    pub wwnPort: VDS_WWN,
-    pub r#type: VDS_HBAPORT_TYPE,
-    pub status: VDS_HBAPORT_STATUS,
-    pub ulPortSpeed: u32,
-    pub ulSupportedPortSpeed: u32,
-}
-impl Default for VDS_HBAPORT_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_HBAPORT_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_HINTS {
-    pub ullHintMask: u64,
-    pub ullExpectedMaximumSize: u64,
-    pub ulOptimalReadSize: u32,
-    pub ulOptimalReadAlignment: u32,
-    pub ulOptimalWriteSize: u32,
-    pub ulOptimalWriteAlignment: u32,
-    pub ulMaximumDriveCount: u32,
-    pub ulStripeSize: u32,
-    pub bFastCrashRecoveryRequired: super::super::Foundation::BOOL,
-    pub bMostlyReads: super::super::Foundation::BOOL,
-    pub bOptimizeForSequentialReads: super::super::Foundation::BOOL,
-    pub bOptimizeForSequentialWrites: super::super::Foundation::BOOL,
-    pub bRemapEnabled: super::super::Foundation::BOOL,
-    pub bReadBackVerifyEnabled: super::super::Foundation::BOOL,
-    pub bWriteThroughCachingEnabled: super::super::Foundation::BOOL,
-    pub bHardwareChecksumEnabled: super::super::Foundation::BOOL,
-    pub bIsYankable: super::super::Foundation::BOOL,
-    pub sRebuildPriority: i16,
-}
-impl Default for VDS_HINTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_HINTS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_HINTS2 {
-    pub ullHintMask: u64,
-    pub ullExpectedMaximumSize: u64,
-    pub ulOptimalReadSize: u32,
-    pub ulOptimalReadAlignment: u32,
-    pub ulOptimalWriteSize: u32,
-    pub ulOptimalWriteAlignment: u32,
-    pub ulMaximumDriveCount: u32,
-    pub ulStripeSize: u32,
-    pub ulReserved1: u32,
-    pub ulReserved2: u32,
-    pub ulReserved3: u32,
-    pub bFastCrashRecoveryRequired: super::super::Foundation::BOOL,
-    pub bMostlyReads: super::super::Foundation::BOOL,
-    pub bOptimizeForSequentialReads: super::super::Foundation::BOOL,
-    pub bOptimizeForSequentialWrites: super::super::Foundation::BOOL,
-    pub bRemapEnabled: super::super::Foundation::BOOL,
-    pub bReadBackVerifyEnabled: super::super::Foundation::BOOL,
-    pub bWriteThroughCachingEnabled: super::super::Foundation::BOOL,
-    pub bHardwareChecksumEnabled: super::super::Foundation::BOOL,
-    pub bIsYankable: super::super::Foundation::BOOL,
-    pub bAllocateHotSpare: super::super::Foundation::BOOL,
-    pub bUseMirroredCache: super::super::Foundation::BOOL,
-    pub bReadCachingEnabled: super::super::Foundation::BOOL,
-    pub bWriteCachingEnabled: super::super::Foundation::BOOL,
-    pub bMediaScanEnabled: super::super::Foundation::BOOL,
-    pub bConsistencyCheckEnabled: super::super::Foundation::BOOL,
-    pub BusType: VDS_STORAGE_BUS_TYPE,
-    pub bReserved1: super::super::Foundation::BOOL,
-    pub bReserved2: super::super::Foundation::BOOL,
-    pub bReserved3: super::super::Foundation::BOOL,
-    pub sRebuildPriority: i16,
-}
-impl Default for VDS_HINTS2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_HINTS2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_INPUT_DISK {
-    pub diskId: windows_core::GUID,
-    pub ullSize: u64,
-    pub plexId: windows_core::GUID,
-    pub memberIdx: u32,
-}
-impl Default for VDS_INPUT_DISK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_INPUT_DISK {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_INTERCONNECT {
-    pub m_addressType: VDS_INTERCONNECT_ADDRESS_TYPE,
-    pub m_cbPort: u32,
-    pub m_pbPort: *mut u8,
-    pub m_cbAddress: u32,
-    pub m_pbAddress: *mut u8,
-}
-impl Default for VDS_INTERCONNECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_INTERCONNECT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_IPADDRESS {
-    pub r#type: VDS_IPADDRESS_TYPE,
-    pub ipv4Address: u32,
-    pub ipv6Address: [u8; 16],
-    pub ulIpv6FlowInfo: u32,
-    pub ulIpv6ScopeId: u32,
-    pub wszTextAddress: [u16; 257],
-    pub ulPort: u32,
-}
-impl Default for VDS_IPADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_IPADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_ISCSI_INITIATOR_ADAPTER_PROP {
-    pub id: windows_core::GUID,
-    pub pwszName: windows_core::PWSTR,
-}
-impl Default for VDS_ISCSI_INITIATOR_ADAPTER_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_ISCSI_INITIATOR_ADAPTER_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_ISCSI_INITIATOR_PORTAL_PROP {
-    pub id: windows_core::GUID,
-    pub address: VDS_IPADDRESS,
-    pub ulPortIndex: u32,
-}
-impl Default for VDS_ISCSI_INITIATOR_PORTAL_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_ISCSI_INITIATOR_PORTAL_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_ISCSI_IPSEC_KEY {
-    pub pKey: *mut u8,
-    pub ulKeySize: u32,
-}
-impl Default for VDS_ISCSI_IPSEC_KEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_ISCSI_IPSEC_KEY {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_ISCSI_PORTALGROUP_PROP {
-    pub id: windows_core::GUID,
-    pub tag: u16,
-}
-impl Default for VDS_ISCSI_PORTALGROUP_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_ISCSI_PORTALGROUP_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_ISCSI_PORTAL_PROP {
-    pub id: windows_core::GUID,
-    pub address: VDS_IPADDRESS,
-    pub status: VDS_ISCSI_PORTAL_STATUS,
-}
-impl Default for VDS_ISCSI_PORTAL_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_ISCSI_PORTAL_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_ISCSI_SHARED_SECRET {
-    pub pSharedSecret: *mut u8,
-    pub ulSharedSecretSize: u32,
-}
-impl Default for VDS_ISCSI_SHARED_SECRET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_ISCSI_SHARED_SECRET {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_ISCSI_TARGET_PROP {
-    pub id: windows_core::GUID,
-    pub pwszIscsiName: windows_core::PWSTR,
-    pub pwszFriendlyName: windows_core::PWSTR,
-    pub bChapEnabled: super::super::Foundation::BOOL,
-}
-impl Default for VDS_ISCSI_TARGET_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_ISCSI_TARGET_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_LUN_INFORMATION {
-    pub m_version: u32,
-    pub m_DeviceType: u8,
-    pub m_DeviceTypeModifier: u8,
-    pub m_bCommandQueueing: super::super::Foundation::BOOL,
-    pub m_BusType: VDS_STORAGE_BUS_TYPE,
-    pub m_szVendorId: *mut u8,
-    pub m_szProductId: *mut u8,
-    pub m_szProductRevision: *mut u8,
-    pub m_szSerialNumber: *mut u8,
-    pub m_diskSignature: windows_core::GUID,
-    pub m_deviceIdDescriptor: VDS_STORAGE_DEVICE_ID_DESCRIPTOR,
-    pub m_cInterconnects: u32,
-    pub m_rgInterconnects: *mut VDS_INTERCONNECT,
-}
-impl Default for VDS_LUN_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_LUN_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_LUN_NOTIFICATION {
-    pub ulEvent: VDS_NF_LUN,
-    pub LunId: windows_core::GUID,
-}
-impl Default for VDS_LUN_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_LUN_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_LUN_PLEX_PROP {
-    pub id: windows_core::GUID,
-    pub ullSize: u64,
-    pub r#type: VDS_LUN_PLEX_TYPE,
-    pub status: VDS_LUN_PLEX_STATUS,
-    pub health: VDS_HEALTH,
-    pub TransitionState: VDS_TRANSITION_STATE,
-    pub ulFlags: u32,
-    pub ulStripeSize: u32,
-    pub sRebuildPriority: i16,
-}
-impl Default for VDS_LUN_PLEX_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_LUN_PLEX_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_LUN_PROP {
-    pub id: windows_core::GUID,
-    pub ullSize: u64,
-    pub pwszFriendlyName: windows_core::PWSTR,
-    pub pwszIdentification: windows_core::PWSTR,
-    pub pwszUnmaskingList: windows_core::PWSTR,
-    pub ulFlags: u32,
-    pub r#type: VDS_LUN_TYPE,
-    pub status: VDS_LUN_STATUS,
-    pub health: VDS_HEALTH,
-    pub TransitionState: VDS_TRANSITION_STATE,
-    pub sRebuildPriority: i16,
-}
-impl Default for VDS_LUN_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_LUN_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_MOUNT_POINT_NOTIFICATION {
-    pub ulEvent: u32,
-    pub volumeId: windows_core::GUID,
-}
-impl Default for VDS_MOUNT_POINT_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_MOUNT_POINT_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VDS_NOTIFICATION {
-    pub objectType: VDS_NOTIFICATION_TARGET_TYPE,
-    pub Anonymous: VDS_NOTIFICATION_0,
-}
-impl Default for VDS_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union VDS_NOTIFICATION_0 {
-    pub Pack: VDS_PACK_NOTIFICATION,
-    pub Disk: VDS_DISK_NOTIFICATION,
-    pub Volume: VDS_VOLUME_NOTIFICATION,
-    pub Partition: VDS_PARTITION_NOTIFICATION,
-    pub Letter: VDS_DRIVE_LETTER_NOTIFICATION,
-    pub FileSystem: VDS_FILE_SYSTEM_NOTIFICATION,
-    pub MountPoint: VDS_MOUNT_POINT_NOTIFICATION,
-    pub SubSystem: VDS_SUB_SYSTEM_NOTIFICATION,
-    pub Controller: VDS_CONTROLLER_NOTIFICATION,
-    pub Drive: VDS_DRIVE_NOTIFICATION,
-    pub Lun: VDS_LUN_NOTIFICATION,
-    pub Port: VDS_PORT_NOTIFICATION,
-    pub Portal: VDS_PORTAL_NOTIFICATION,
-    pub Target: VDS_TARGET_NOTIFICATION,
-    pub PortalGroup: VDS_PORTAL_GROUP_NOTIFICATION,
-    pub Service: VDS_SERVICE_NOTIFICATION,
-}
-impl Default for VDS_NOTIFICATION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_NOTIFICATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_PACK_NOTIFICATION {
-    pub ulEvent: VDS_NF_PACK,
-    pub packId: windows_core::GUID,
-}
-impl Default for VDS_PACK_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_PACK_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_PACK_PROP {
-    pub id: windows_core::GUID,
-    pub pwszName: windows_core::PWSTR,
-    pub status: VDS_PACK_STATUS,
-    pub ulFlags: u32,
-}
-impl Default for VDS_PACK_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_PACK_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VDS_PARTITION_INFORMATION_EX {
-    pub dwPartitionStyle: __VDS_PARTITION_STYLE,
-    pub ullStartingOffset: u64,
-    pub ullPartitionLength: u64,
-    pub dwPartitionNumber: u32,
-    pub bRewritePartition: super::super::Foundation::BOOLEAN,
-    pub Anonymous: VDS_PARTITION_INFORMATION_EX_0,
-}
-impl Default for VDS_PARTITION_INFORMATION_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_PARTITION_INFORMATION_EX {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union VDS_PARTITION_INFORMATION_EX_0 {
-    pub Mbr: VDS_PARTITION_INFO_MBR,
-    pub Gpt: VDS_PARTITION_INFO_GPT,
-}
-impl Default for VDS_PARTITION_INFORMATION_EX_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_PARTITION_INFORMATION_EX_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_PARTITION_INFO_GPT {
-    pub partitionType: windows_core::GUID,
-    pub partitionId: windows_core::GUID,
-    pub attributes: u64,
-    pub name: [u16; 36],
-}
-impl Default for VDS_PARTITION_INFO_GPT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_PARTITION_INFO_GPT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_PARTITION_INFO_MBR {
-    pub partitionType: u8,
-    pub bootIndicator: super::super::Foundation::BOOLEAN,
-    pub recognizedPartition: super::super::Foundation::BOOLEAN,
-    pub hiddenSectors: u32,
-}
-impl Default for VDS_PARTITION_INFO_MBR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_PARTITION_INFO_MBR {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_PARTITION_NOTIFICATION {
-    pub ulEvent: u32,
-    pub diskId: windows_core::GUID,
-    pub ullOffset: u64,
-}
-impl Default for VDS_PARTITION_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_PARTITION_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VDS_PARTITION_PROP {
-    pub PartitionStyle: VDS_PARTITION_STYLE,
-    pub ulFlags: u32,
-    pub ulPartitionNumber: u32,
-    pub ullOffset: u64,
-    pub ullSize: u64,
-    pub Anonymous: VDS_PARTITION_PROP_0,
-}
-impl Default for VDS_PARTITION_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_PARTITION_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union VDS_PARTITION_PROP_0 {
-    pub Mbr: VDS_PARTITION_INFO_MBR,
-    pub Gpt: VDS_PARTITION_INFO_GPT,
-}
-impl Default for VDS_PARTITION_PROP_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_PARTITION_PROP_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_PATH_ID {
-    pub ullSourceId: u64,
-    pub ullPathId: u64,
-}
-impl Default for VDS_PATH_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_PATH_ID {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VDS_PATH_INFO {
-    pub pathId: VDS_PATH_ID,
-    pub r#type: VDS_HWPROVIDER_TYPE,
-    pub status: VDS_PATH_STATUS,
-    pub Anonymous1: VDS_PATH_INFO_0,
-    pub Anonymous2: VDS_PATH_INFO_1,
-    pub Anonymous3: VDS_PATH_INFO_2,
-}
-impl Default for VDS_PATH_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_PATH_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union VDS_PATH_INFO_0 {
-    pub controllerPortId: windows_core::GUID,
-    pub targetPortalId: windows_core::GUID,
-}
-impl Default for VDS_PATH_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_PATH_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union VDS_PATH_INFO_1 {
-    pub hbaPortId: windows_core::GUID,
-    pub initiatorAdapterId: windows_core::GUID,
-}
-impl Default for VDS_PATH_INFO_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_PATH_INFO_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union VDS_PATH_INFO_2 {
-    pub pHbaPortProp: *mut VDS_HBAPORT_PROP,
-    pub pInitiatorPortalIpAddr: *mut VDS_IPADDRESS,
-}
-impl Default for VDS_PATH_INFO_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_PATH_INFO_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_PATH_POLICY {
-    pub pathId: VDS_PATH_ID,
-    pub bPrimaryPath: super::super::Foundation::BOOL,
-    pub ulWeight: u32,
-}
-impl Default for VDS_PATH_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_PATH_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_POOL_ATTRIBUTES {
-    pub ullAttributeMask: u64,
-    pub raidType: VDS_RAID_TYPE,
-    pub busType: VDS_STORAGE_BUS_TYPE,
-    pub pwszIntendedUsage: windows_core::PWSTR,
-    pub bSpinDown: super::super::Foundation::BOOL,
-    pub bIsThinProvisioned: super::super::Foundation::BOOL,
-    pub ullProvisionedSpace: u64,
-    pub bNoSinglePointOfFailure: super::super::Foundation::BOOL,
-    pub ulDataRedundancyMax: u32,
-    pub ulDataRedundancyMin: u32,
-    pub ulDataRedundancyDefault: u32,
-    pub ulPackageRedundancyMax: u32,
-    pub ulPackageRedundancyMin: u32,
-    pub ulPackageRedundancyDefault: u32,
-    pub ulStripeSize: u32,
-    pub ulStripeSizeMax: u32,
-    pub ulStripeSizeMin: u32,
-    pub ulDefaultStripeSize: u32,
-    pub ulNumberOfColumns: u32,
-    pub ulNumberOfColumnsMax: u32,
-    pub ulNumberOfColumnsMin: u32,
-    pub ulDefaultNumberofColumns: u32,
-    pub ulDataAvailabilityHint: u32,
-    pub ulAccessRandomnessHint: u32,
-    pub ulAccessDirectionHint: u32,
-    pub ulAccessSizeHint: u32,
-    pub ulAccessLatencyHint: u32,
-    pub ulAccessBandwidthWeightHint: u32,
-    pub ulStorageCostHint: u32,
-    pub ulStorageEfficiencyHint: u32,
-    pub ulNumOfCustomAttributes: u32,
-    pub pPoolCustomAttributes: *mut VDS_POOL_CUSTOM_ATTRIBUTES,
-    pub bReserved1: super::super::Foundation::BOOL,
-    pub bReserved2: super::super::Foundation::BOOL,
-    pub ulReserved1: u32,
-    pub ulReserved2: u32,
-    pub ullReserved1: u64,
-    pub ullReserved2: u64,
-}
-impl Default for VDS_POOL_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_POOL_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_POOL_CUSTOM_ATTRIBUTES {
-    pub pwszName: windows_core::PWSTR,
-    pub pwszValue: windows_core::PWSTR,
-}
-impl Default for VDS_POOL_CUSTOM_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_POOL_CUSTOM_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_PORTAL_GROUP_NOTIFICATION {
-    pub ulEvent: u32,
-    pub portalGroupId: windows_core::GUID,
-}
-impl Default for VDS_PORTAL_GROUP_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_PORTAL_GROUP_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_PORTAL_NOTIFICATION {
-    pub ulEvent: u32,
-    pub portalId: windows_core::GUID,
-}
-impl Default for VDS_PORTAL_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_PORTAL_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_PORT_NOTIFICATION {
-    pub ulEvent: VDS_NF_PORT,
-    pub portId: windows_core::GUID,
-}
-impl Default for VDS_PORT_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_PORT_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_PORT_PROP {
-    pub id: windows_core::GUID,
-    pub pwszFriendlyName: windows_core::PWSTR,
-    pub pwszIdentification: windows_core::PWSTR,
-    pub status: VDS_PORT_STATUS,
-}
-impl Default for VDS_PORT_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_PORT_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_PROVIDER_PROP {
-    pub id: windows_core::GUID,
-    pub pwszName: windows_core::PWSTR,
-    pub guidVersionId: windows_core::GUID,
-    pub pwszVersion: windows_core::PWSTR,
-    pub r#type: VDS_PROVIDER_TYPE,
-    pub ulFlags: u32,
-    pub ulStripeSizeFlags: u32,
-    pub sRebuildPriority: i16,
-}
-impl Default for VDS_PROVIDER_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_PROVIDER_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_REPARSE_POINT_PROP {
-    pub SourceVolumeId: windows_core::GUID,
-    pub pwszPath: windows_core::PWSTR,
-}
-impl Default for VDS_REPARSE_POINT_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_REPARSE_POINT_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_SERVICE_NOTIFICATION {
-    pub ulEvent: u32,
-    pub action: VDS_RECOVER_ACTION,
-}
-impl Default for VDS_SERVICE_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_SERVICE_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_SERVICE_PROP {
-    pub pwszVersion: windows_core::PWSTR,
-    pub ulFlags: u32,
-}
-impl Default for VDS_SERVICE_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_SERVICE_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
-    pub m_version: u32,
-    pub m_cIdentifiers: u32,
-    pub m_rgIdentifiers: *mut VDS_STORAGE_IDENTIFIER,
-}
-impl Default for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_STORAGE_IDENTIFIER {
-    pub m_CodeSet: VDS_STORAGE_IDENTIFIER_CODE_SET,
-    pub m_Type: VDS_STORAGE_IDENTIFIER_TYPE,
-    pub m_cbIdentifier: u32,
-    pub m_rgbIdentifier: *mut u8,
-}
-impl Default for VDS_STORAGE_IDENTIFIER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_STORAGE_IDENTIFIER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_STORAGE_POOL_DRIVE_EXTENT {
-    pub id: windows_core::GUID,
-    pub ullSize: u64,
-    pub bUsed: super::super::Foundation::BOOL,
-}
-impl Default for VDS_STORAGE_POOL_DRIVE_EXTENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_STORAGE_POOL_DRIVE_EXTENT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_STORAGE_POOL_PROP {
-    pub id: windows_core::GUID,
-    pub status: VDS_STORAGE_POOL_STATUS,
-    pub health: VDS_HEALTH,
-    pub r#type: VDS_STORAGE_POOL_TYPE,
-    pub pwszName: windows_core::PWSTR,
-    pub pwszDescription: windows_core::PWSTR,
-    pub ullTotalConsumedSpace: u64,
-    pub ullTotalManagedSpace: u64,
-    pub ullRemainingFreeSpace: u64,
-}
-impl Default for VDS_STORAGE_POOL_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_STORAGE_POOL_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_SUB_SYSTEM_NOTIFICATION {
-    pub ulEvent: u32,
-    pub subSystemId: windows_core::GUID,
-}
-impl Default for VDS_SUB_SYSTEM_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_SUB_SYSTEM_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_SUB_SYSTEM_PROP {
-    pub id: windows_core::GUID,
-    pub pwszFriendlyName: windows_core::PWSTR,
-    pub pwszIdentification: windows_core::PWSTR,
-    pub ulFlags: u32,
-    pub ulStripeSizeFlags: u32,
-    pub status: VDS_SUB_SYSTEM_STATUS,
-    pub health: VDS_HEALTH,
-    pub sNumberOfInternalBuses: i16,
-    pub sMaxNumberOfSlotsEachBus: i16,
-    pub sMaxNumberOfControllers: i16,
-    pub sRebuildPriority: i16,
-}
-impl Default for VDS_SUB_SYSTEM_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_SUB_SYSTEM_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_SUB_SYSTEM_PROP2 {
-    pub id: windows_core::GUID,
-    pub pwszFriendlyName: windows_core::PWSTR,
-    pub pwszIdentification: windows_core::PWSTR,
-    pub ulFlags: u32,
-    pub ulStripeSizeFlags: u32,
-    pub ulSupportedRaidTypeFlags: u32,
-    pub status: VDS_SUB_SYSTEM_STATUS,
-    pub health: VDS_HEALTH,
-    pub sNumberOfInternalBuses: i16,
-    pub sMaxNumberOfSlotsEachBus: i16,
-    pub sMaxNumberOfControllers: i16,
-    pub sRebuildPriority: i16,
-    pub ulNumberOfEnclosures: u32,
-}
-impl Default for VDS_SUB_SYSTEM_PROP2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_SUB_SYSTEM_PROP2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_TARGET_NOTIFICATION {
-    pub ulEvent: u32,
-    pub targetId: windows_core::GUID,
-}
-impl Default for VDS_TARGET_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_TARGET_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Storage_Vhd")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_VDISK_PROPERTIES {
-    pub Id: windows_core::GUID,
-    pub State: VDS_VDISK_STATE,
-    pub VirtualDeviceType: super::Vhd::VIRTUAL_STORAGE_TYPE,
-    pub VirtualSize: u64,
-    pub PhysicalSize: u64,
-    pub pPath: windows_core::PWSTR,
-    pub pDeviceName: windows_core::PWSTR,
-    pub DiskFlag: super::Vhd::DEPENDENT_DISK_FLAG,
-    pub bIsChild: super::super::Foundation::BOOL,
-    pub pParentPath: windows_core::PWSTR,
-}
-#[cfg(feature = "Win32_Storage_Vhd")]
-impl Default for VDS_VDISK_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Storage_Vhd")]
-impl windows_core::TypeKind for VDS_VDISK_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_VOLUME_NOTIFICATION {
-    pub ulEvent: u32,
-    pub volumeId: windows_core::GUID,
-    pub plexId: windows_core::GUID,
-    pub ulPercentCompleted: u32,
-}
-impl Default for VDS_VOLUME_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_VOLUME_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_VOLUME_PLEX_PROP {
-    pub id: windows_core::GUID,
-    pub r#type: VDS_VOLUME_PLEX_TYPE,
-    pub status: VDS_VOLUME_PLEX_STATUS,
-    pub health: VDS_HEALTH,
-    pub TransitionState: VDS_TRANSITION_STATE,
-    pub ullSize: u64,
-    pub ulStripeSize: u32,
-    pub ulNumberOfMembers: u32,
-}
-impl Default for VDS_VOLUME_PLEX_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_VOLUME_PLEX_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_VOLUME_PROP {
-    pub id: windows_core::GUID,
-    pub r#type: VDS_VOLUME_TYPE,
-    pub status: VDS_VOLUME_STATUS,
-    pub health: VDS_HEALTH,
-    pub TransitionState: VDS_TRANSITION_STATE,
-    pub ullSize: u64,
-    pub ulFlags: u32,
-    pub RecommendedFileSystemType: VDS_FILE_SYSTEM_TYPE,
-    pub pwszName: windows_core::PWSTR,
-}
-impl Default for VDS_VOLUME_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_VOLUME_PROP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_VOLUME_PROP2 {
-    pub id: windows_core::GUID,
-    pub r#type: VDS_VOLUME_TYPE,
-    pub status: VDS_VOLUME_STATUS,
-    pub health: VDS_HEALTH,
-    pub TransitionState: VDS_TRANSITION_STATE,
-    pub ullSize: u64,
-    pub ulFlags: u32,
-    pub RecommendedFileSystemType: VDS_FILE_SYSTEM_TYPE,
-    pub cbUniqueId: u32,
-    pub pwszName: windows_core::PWSTR,
-    pub pUniqueId: *mut u8,
-}
-impl Default for VDS_VOLUME_PROP2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_VOLUME_PROP2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VDS_WWN {
-    pub rguchWwn: [u8; 8],
-}
-impl Default for VDS_WWN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VDS_WWN {
-    type TypeKind = windows_core::CopyType;
-}
-pub const BeepAlarm: VDS_MAINTENANCE_OPERATION = VDS_MAINTENANCE_OPERATION(2i32);
-pub const BlinkLight: VDS_MAINTENANCE_OPERATION = VDS_MAINTENANCE_OPERATION(1i32);
-pub const CLSID_VdsLoader: windows_core::GUID = windows_core::GUID::from_u128(0x9c38ed61_d565_4728_aeee_c80952f0ecde);
-pub const CLSID_VdsService: windows_core::GUID = windows_core::GUID::from_u128(0x7d1933cb_86f6_4a98_8628_01be94c9a575);
-pub const GPT_PARTITION_NAME_LENGTH: u32 = 36u32;
-pub const MAX_FS_ALLOWED_CLUSTER_SIZES_SIZE: u32 = 32u32;
-pub const MAX_FS_FORMAT_SUPPORT_NAME_SIZE: u32 = 32u32;
-pub const MAX_FS_NAME_SIZE: u32 = 8u32;
-pub const Ping: VDS_MAINTENANCE_OPERATION = VDS_MAINTENANCE_OPERATION(5i32);
-pub const SpinDown: VDS_MAINTENANCE_OPERATION = VDS_MAINTENANCE_OPERATION(3i32);
-pub const SpinUp: VDS_MAINTENANCE_OPERATION = VDS_MAINTENANCE_OPERATION(4i32);
-pub const VDSBusType1394: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(4i32);
-pub const VDSBusTypeAta: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(3i32);
-pub const VDSBusTypeAtapi: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(2i32);
-pub const VDSBusTypeFibre: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(6i32);
-pub const VDSBusTypeFileBackedVirtual: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(15i32);
-pub const VDSBusTypeMax: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(14i32);
-pub const VDSBusTypeMaxReserved: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(127i32);
-pub const VDSBusTypeMmc: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(13i32);
-pub const VDSBusTypeNVMe: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(17i32);
-pub const VDSBusTypeRAID: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(8i32);
-pub const VDSBusTypeSas: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(10i32);
-pub const VDSBusTypeSata: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(11i32);
-pub const VDSBusTypeScm: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(18i32);
-pub const VDSBusTypeScsi: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(1i32);
-pub const VDSBusTypeSd: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(12i32);
-pub const VDSBusTypeSpaces: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(16i32);
-pub const VDSBusTypeSsa: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(5i32);
-pub const VDSBusTypeUfs: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(19i32);
-pub const VDSBusTypeUnknown: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(0i32);
-pub const VDSBusTypeUsb: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(7i32);
-pub const VDSBusTypeVirtual: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(14i32);
-pub const VDSBusTypeiScsi: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(9i32);
-pub const VDSDiskOfflineReasonCollision: VDS_DISK_OFFLINE_REASON = VDS_DISK_OFFLINE_REASON(4i32);
-pub const VDSDiskOfflineReasonDIScan: VDS_DISK_OFFLINE_REASON = VDS_DISK_OFFLINE_REASON(7i32);
-pub const VDSDiskOfflineReasonLostDataPersistence: VDS_DISK_OFFLINE_REASON = VDS_DISK_OFFLINE_REASON(8i32);
-pub const VDSDiskOfflineReasonNone: VDS_DISK_OFFLINE_REASON = VDS_DISK_OFFLINE_REASON(0i32);
-pub const VDSDiskOfflineReasonPolicy: VDS_DISK_OFFLINE_REASON = VDS_DISK_OFFLINE_REASON(1i32);
-pub const VDSDiskOfflineReasonRedundantPath: VDS_DISK_OFFLINE_REASON = VDS_DISK_OFFLINE_REASON(2i32);
-pub const VDSDiskOfflineReasonResourceExhaustion: VDS_DISK_OFFLINE_REASON = VDS_DISK_OFFLINE_REASON(5i32);
-pub const VDSDiskOfflineReasonSnapshot: VDS_DISK_OFFLINE_REASON = VDS_DISK_OFFLINE_REASON(3i32);
-pub const VDSDiskOfflineReasonWriteFailure: VDS_DISK_OFFLINE_REASON = VDS_DISK_OFFLINE_REASON(6i32);
-pub const VDSStorageIdCodeSetAscii: VDS_STORAGE_IDENTIFIER_CODE_SET = VDS_STORAGE_IDENTIFIER_CODE_SET(2i32);
-pub const VDSStorageIdCodeSetBinary: VDS_STORAGE_IDENTIFIER_CODE_SET = VDS_STORAGE_IDENTIFIER_CODE_SET(1i32);
-pub const VDSStorageIdCodeSetReserved: VDS_STORAGE_IDENTIFIER_CODE_SET = VDS_STORAGE_IDENTIFIER_CODE_SET(0i32);
-pub const VDSStorageIdCodeSetUtf8: VDS_STORAGE_IDENTIFIER_CODE_SET = VDS_STORAGE_IDENTIFIER_CODE_SET(3i32);
-pub const VDSStorageIdTypeEUI64: VDS_STORAGE_IDENTIFIER_TYPE = VDS_STORAGE_IDENTIFIER_TYPE(2i32);
-pub const VDSStorageIdTypeFCPHName: VDS_STORAGE_IDENTIFIER_TYPE = VDS_STORAGE_IDENTIFIER_TYPE(3i32);
-pub const VDSStorageIdTypeLogicalUnitGroup: VDS_STORAGE_IDENTIFIER_TYPE = VDS_STORAGE_IDENTIFIER_TYPE(6i32);
-pub const VDSStorageIdTypeMD5LogicalUnitIdentifier: VDS_STORAGE_IDENTIFIER_TYPE = VDS_STORAGE_IDENTIFIER_TYPE(7i32);
-pub const VDSStorageIdTypePortRelative: VDS_STORAGE_IDENTIFIER_TYPE = VDS_STORAGE_IDENTIFIER_TYPE(4i32);
-pub const VDSStorageIdTypeScsiNameString: VDS_STORAGE_IDENTIFIER_TYPE = VDS_STORAGE_IDENTIFIER_TYPE(8i32);
-pub const VDSStorageIdTypeTargetPortGroup: VDS_STORAGE_IDENTIFIER_TYPE = VDS_STORAGE_IDENTIFIER_TYPE(5i32);
-pub const VDSStorageIdTypeVendorId: VDS_STORAGE_IDENTIFIER_TYPE = VDS_STORAGE_IDENTIFIER_TYPE(1i32);
-pub const VDSStorageIdTypeVendorSpecific: VDS_STORAGE_IDENTIFIER_TYPE = VDS_STORAGE_IDENTIFIER_TYPE(0i32);
-pub const VDS_ASYNCOUT_ADDLUNPLEX: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(52i32);
-pub const VDS_ASYNCOUT_ADDPORTAL: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(65i32);
-pub const VDS_ASYNCOUT_ADDVOLUMEPLEX: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(4i32);
-pub const VDS_ASYNCOUT_ATTACH_VDISK: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(201i32);
-pub const VDS_ASYNCOUT_BREAKVOLUMEPLEX: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(5i32);
-pub const VDS_ASYNCOUT_CLEAN: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(11i32);
-pub const VDS_ASYNCOUT_COMPACT_VDISK: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(202i32);
-pub const VDS_ASYNCOUT_CREATELUN: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(50i32);
-pub const VDS_ASYNCOUT_CREATEPARTITION: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(10i32);
-pub const VDS_ASYNCOUT_CREATEPORTALGROUP: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(63i32);
-pub const VDS_ASYNCOUT_CREATETARGET: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(62i32);
-pub const VDS_ASYNCOUT_CREATEVOLUME: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(1i32);
-pub const VDS_ASYNCOUT_CREATE_VDISK: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(200i32);
-pub const VDS_ASYNCOUT_DELETEPORTALGROUP: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(67i32);
-pub const VDS_ASYNCOUT_DELETETARGET: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(64i32);
-pub const VDS_ASYNCOUT_EXPAND_VDISK: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(204i32);
-pub const VDS_ASYNCOUT_EXTENDLUN: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(54i32);
-pub const VDS_ASYNCOUT_EXTENDVOLUME: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(2i32);
-pub const VDS_ASYNCOUT_FORMAT: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(101i32);
-pub const VDS_ASYNCOUT_LOGINTOTARGET: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(60i32);
-pub const VDS_ASYNCOUT_LOGOUTFROMTARGET: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(61i32);
-pub const VDS_ASYNCOUT_MERGE_VDISK: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(203i32);
-pub const VDS_ASYNCOUT_RECOVERLUN: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(56i32);
-pub const VDS_ASYNCOUT_RECOVERPACK: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(8i32);
-pub const VDS_ASYNCOUT_REMOVELUNPLEX: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(53i32);
-pub const VDS_ASYNCOUT_REMOVEPORTAL: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(66i32);
-pub const VDS_ASYNCOUT_REMOVEVOLUMEPLEX: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(6i32);
-pub const VDS_ASYNCOUT_REPAIRVOLUMEPLEX: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(7i32);
-pub const VDS_ASYNCOUT_REPLACEDISK: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(9i32);
-pub const VDS_ASYNCOUT_SHRINKLUN: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(55i32);
-pub const VDS_ASYNCOUT_SHRINKVOLUME: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(3i32);
-pub const VDS_ASYNCOUT_UNKNOWN: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(0i32);
-pub const VDS_ATTACH_VIRTUAL_DISK_FLAG_USE_FILE_ACL: u32 = 1u32;
-pub const VDS_CS_FAILED: VDS_CONTROLLER_STATUS = VDS_CONTROLLER_STATUS(5i32);
-pub const VDS_CS_NOT_READY: VDS_CONTROLLER_STATUS = VDS_CONTROLLER_STATUS(2i32);
-pub const VDS_CS_OFFLINE: VDS_CONTROLLER_STATUS = VDS_CONTROLLER_STATUS(4i32);
-pub const VDS_CS_ONLINE: VDS_CONTROLLER_STATUS = VDS_CONTROLLER_STATUS(1i32);
-pub const VDS_CS_REMOVED: VDS_CONTROLLER_STATUS = VDS_CONTROLLER_STATUS(8i32);
-pub const VDS_CS_UNKNOWN: VDS_CONTROLLER_STATUS = VDS_CONTROLLER_STATUS(0i32);
-pub const VDS_DET_CLUSTER: VDS_DISK_EXTENT_TYPE = VDS_DISK_EXTENT_TYPE(7i32);
-pub const VDS_DET_DATA: VDS_DISK_EXTENT_TYPE = VDS_DISK_EXTENT_TYPE(2i32);
-pub const VDS_DET_ESP: VDS_DISK_EXTENT_TYPE = VDS_DISK_EXTENT_TYPE(4i32);
-pub const VDS_DET_FREE: VDS_DISK_EXTENT_TYPE = VDS_DISK_EXTENT_TYPE(1i32);
-pub const VDS_DET_LDM: VDS_DISK_EXTENT_TYPE = VDS_DISK_EXTENT_TYPE(6i32);
-pub const VDS_DET_MSR: VDS_DISK_EXTENT_TYPE = VDS_DISK_EXTENT_TYPE(5i32);
-pub const VDS_DET_OEM: VDS_DISK_EXTENT_TYPE = VDS_DISK_EXTENT_TYPE(3i32);
-pub const VDS_DET_UNKNOWN: VDS_DISK_EXTENT_TYPE = VDS_DISK_EXTENT_TYPE(0i32);
-pub const VDS_DET_UNUSABLE: VDS_DISK_EXTENT_TYPE = VDS_DISK_EXTENT_TYPE(32767i32);
-pub const VDS_DF_AUDIO_CD: VDS_DISK_FLAG = VDS_DISK_FLAG(1i32);
-pub const VDS_DF_BOOT_DISK: VDS_DISK_FLAG = VDS_DISK_FLAG(256i32);
-pub const VDS_DF_BOOT_FROM_DISK: VDS_DISK_FLAG = VDS_DISK_FLAG(16384i32);
-pub const VDS_DF_CLUSTERED: VDS_DISK_FLAG = VDS_DISK_FLAG(32i32);
-pub const VDS_DF_CRASHDUMP_DISK: VDS_DISK_FLAG = VDS_DISK_FLAG(2048i32);
-pub const VDS_DF_CURRENT_READ_ONLY: VDS_DISK_FLAG = VDS_DISK_FLAG(32768i32);
-pub const VDS_DF_DYNAMIC: VDS_DISK_FLAG = VDS_DISK_FLAG(8192i32);
-pub const VDS_DF_HAS_ARC_PATH: VDS_DISK_FLAG = VDS_DISK_FLAG(4096i32);
-pub const VDS_DF_HIBERNATIONFILE_DISK: VDS_DISK_FLAG = VDS_DISK_FLAG(1024i32);
-pub const VDS_DF_HOTSPARE: VDS_DISK_FLAG = VDS_DISK_FLAG(2i32);
-pub const VDS_DF_MASKED: VDS_DISK_FLAG = VDS_DISK_FLAG(8i32);
-pub const VDS_DF_PAGEFILE_DISK: VDS_DISK_FLAG = VDS_DISK_FLAG(512i32);
-pub const VDS_DF_READ_ONLY: VDS_DISK_FLAG = VDS_DISK_FLAG(64i32);
-pub const VDS_DF_REFS_NOT_SUPPORTED: VDS_DISK_FLAG = VDS_DISK_FLAG(65536i32);
-pub const VDS_DF_RESERVE_CAPABLE: VDS_DISK_FLAG = VDS_DISK_FLAG(4i32);
-pub const VDS_DF_STYLE_CONVERTIBLE: VDS_DISK_FLAG = VDS_DISK_FLAG(16i32);
-pub const VDS_DF_SYSTEM_DISK: VDS_DISK_FLAG = VDS_DISK_FLAG(128i32);
-pub const VDS_DLF_NON_PERSISTENT: VDS_DRIVE_LETTER_FLAG = VDS_DRIVE_LETTER_FLAG(1i32);
-pub const VDS_DRF_ASSIGNED: VDS_DRIVE_FLAG = VDS_DRIVE_FLAG(2i32);
-pub const VDS_DRF_HOTSPARE: VDS_DRIVE_FLAG = VDS_DRIVE_FLAG(1i32);
-pub const VDS_DRF_HOTSPARE_IN_USE: VDS_DRIVE_FLAG = VDS_DRIVE_FLAG(8i32);
-pub const VDS_DRF_HOTSPARE_STANDBY: VDS_DRIVE_FLAG = VDS_DRIVE_FLAG(16i32);
-pub const VDS_DRF_UNASSIGNED: VDS_DRIVE_FLAG = VDS_DRIVE_FLAG(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_DRIVE_STATUS(pub i32);
 pub const VDS_DRS_FAILED: VDS_DRIVE_STATUS = VDS_DRIVE_STATUS(5i32);
 pub const VDS_DRS_NOT_READY: VDS_DRIVE_STATUS = VDS_DRIVE_STATUS(2i32);
 pub const VDS_DRS_OFFLINE: VDS_DRIVE_STATUS = VDS_DRIVE_STATUS(4i32);
@@ -7792,6 +6462,90 @@ pub const VDS_E_VOLUME_SYNCHRONIZING: windows_core::HRESULT = windows_core::HRES
 pub const VDS_E_VOLUME_TEMPORARILY_DISMOUNTED: windows_core::HRESULT = windows_core::HRESULT(0x8004245C_u32 as _);
 pub const VDS_E_VOLUME_TOO_BIG: windows_core::HRESULT = windows_core::HRESULT(0x8004242D_u32 as _);
 pub const VDS_E_VOLUME_TOO_SMALL: windows_core::HRESULT = windows_core::HRESULT(0x8004242C_u32 as _);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_FILE_SYSTEM_FLAG(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_FILE_SYSTEM_FORMAT_SUPPORT_FLAG(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP {
+    pub ulFlags: u32,
+    pub usRevision: u16,
+    pub ulDefaultUnitAllocationSize: u32,
+    pub rgulAllowedUnitAllocationSizes: [u32; 32],
+    pub wszName: [u16; 32],
+}
+impl Default for VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_FILE_SYSTEM_NOTIFICATION {
+    pub ulEvent: VDS_NF_FILE_SYSTEM,
+    pub volumeId: windows_core::GUID,
+    pub dwPercentCompleted: u32,
+}
+impl Default for VDS_FILE_SYSTEM_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_FILE_SYSTEM_NOTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_FILE_SYSTEM_PROP {
+    pub r#type: VDS_FILE_SYSTEM_TYPE,
+    pub volumeId: windows_core::GUID,
+    pub ulFlags: u32,
+    pub ullTotalAllocationUnits: u64,
+    pub ullAvailableAllocationUnits: u64,
+    pub ulAllocationUnitSize: u32,
+    pub pwszLabel: windows_core::PWSTR,
+}
+impl Default for VDS_FILE_SYSTEM_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_FILE_SYSTEM_PROP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_FILE_SYSTEM_PROP_FLAG(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_FILE_SYSTEM_TYPE(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_FILE_SYSTEM_TYPE_PROP {
+    pub r#type: VDS_FILE_SYSTEM_TYPE,
+    pub wszName: [u16; 8],
+    pub ulFlags: u32,
+    pub ulCompressionFlags: u32,
+    pub ulMaxLableLength: u32,
+    pub pwszIllegalLabelCharSet: windows_core::PWSTR,
+}
+impl Default for VDS_FILE_SYSTEM_TYPE_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_FILE_SYSTEM_TYPE_PROP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_FORMAT_OPTION_FLAGS(pub i32);
 pub const VDS_FPF_COMPRESSED: VDS_FILE_SYSTEM_PROP_FLAG = VDS_FILE_SYSTEM_PROP_FLAG(1i32);
 pub const VDS_FSF_ALLOCATION_UNIT_128K: VDS_FILE_SYSTEM_FLAG = VDS_FILE_SYSTEM_FLAG(16777216i32);
 pub const VDS_FSF_ALLOCATION_UNIT_16K: VDS_FILE_SYSTEM_FLAG = VDS_FILE_SYSTEM_FLAG(2097152i32);
@@ -7828,6 +6582,110 @@ pub const VDS_FST_RAW: VDS_FILE_SYSTEM_TYPE = VDS_FILE_SYSTEM_TYPE(1i32);
 pub const VDS_FST_REFS: VDS_FILE_SYSTEM_TYPE = VDS_FILE_SYSTEM_TYPE(9i32);
 pub const VDS_FST_UDF: VDS_FILE_SYSTEM_TYPE = VDS_FILE_SYSTEM_TYPE(6i32);
 pub const VDS_FST_UNKNOWN: VDS_FILE_SYSTEM_TYPE = VDS_FILE_SYSTEM_TYPE(0i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_HBAPORT_PROP {
+    pub id: windows_core::GUID,
+    pub wwnNode: VDS_WWN,
+    pub wwnPort: VDS_WWN,
+    pub r#type: VDS_HBAPORT_TYPE,
+    pub status: VDS_HBAPORT_STATUS,
+    pub ulPortSpeed: u32,
+    pub ulSupportedPortSpeed: u32,
+}
+impl Default for VDS_HBAPORT_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_HBAPORT_PROP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_HBAPORT_SPEED_FLAG(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_HBAPORT_STATUS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_HBAPORT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_HEALTH(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_HINTS {
+    pub ullHintMask: u64,
+    pub ullExpectedMaximumSize: u64,
+    pub ulOptimalReadSize: u32,
+    pub ulOptimalReadAlignment: u32,
+    pub ulOptimalWriteSize: u32,
+    pub ulOptimalWriteAlignment: u32,
+    pub ulMaximumDriveCount: u32,
+    pub ulStripeSize: u32,
+    pub bFastCrashRecoveryRequired: super::super::Foundation::BOOL,
+    pub bMostlyReads: super::super::Foundation::BOOL,
+    pub bOptimizeForSequentialReads: super::super::Foundation::BOOL,
+    pub bOptimizeForSequentialWrites: super::super::Foundation::BOOL,
+    pub bRemapEnabled: super::super::Foundation::BOOL,
+    pub bReadBackVerifyEnabled: super::super::Foundation::BOOL,
+    pub bWriteThroughCachingEnabled: super::super::Foundation::BOOL,
+    pub bHardwareChecksumEnabled: super::super::Foundation::BOOL,
+    pub bIsYankable: super::super::Foundation::BOOL,
+    pub sRebuildPriority: i16,
+}
+impl Default for VDS_HINTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_HINTS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_HINTS2 {
+    pub ullHintMask: u64,
+    pub ullExpectedMaximumSize: u64,
+    pub ulOptimalReadSize: u32,
+    pub ulOptimalReadAlignment: u32,
+    pub ulOptimalWriteSize: u32,
+    pub ulOptimalWriteAlignment: u32,
+    pub ulMaximumDriveCount: u32,
+    pub ulStripeSize: u32,
+    pub ulReserved1: u32,
+    pub ulReserved2: u32,
+    pub ulReserved3: u32,
+    pub bFastCrashRecoveryRequired: super::super::Foundation::BOOL,
+    pub bMostlyReads: super::super::Foundation::BOOL,
+    pub bOptimizeForSequentialReads: super::super::Foundation::BOOL,
+    pub bOptimizeForSequentialWrites: super::super::Foundation::BOOL,
+    pub bRemapEnabled: super::super::Foundation::BOOL,
+    pub bReadBackVerifyEnabled: super::super::Foundation::BOOL,
+    pub bWriteThroughCachingEnabled: super::super::Foundation::BOOL,
+    pub bHardwareChecksumEnabled: super::super::Foundation::BOOL,
+    pub bIsYankable: super::super::Foundation::BOOL,
+    pub bAllocateHotSpare: super::super::Foundation::BOOL,
+    pub bUseMirroredCache: super::super::Foundation::BOOL,
+    pub bReadCachingEnabled: super::super::Foundation::BOOL,
+    pub bWriteCachingEnabled: super::super::Foundation::BOOL,
+    pub bMediaScanEnabled: super::super::Foundation::BOOL,
+    pub bConsistencyCheckEnabled: super::super::Foundation::BOOL,
+    pub BusType: VDS_STORAGE_BUS_TYPE,
+    pub bReserved1: super::super::Foundation::BOOL,
+    pub bReserved2: super::super::Foundation::BOOL,
+    pub bReserved3: super::super::Foundation::BOOL,
+    pub sRebuildPriority: i16,
+}
+impl Default for VDS_HINTS2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_HINTS2 {
+    type TypeKind = windows_core::CopyType;
+}
 pub const VDS_HINT_ALLOCATEHOTSPARE: i32 = 512i32;
 pub const VDS_HINT_BUSTYPE: i32 = 1024i32;
 pub const VDS_HINT_CONSISTENCYCHECKENABLED: i32 = 32768i32;
@@ -7869,6 +6727,9 @@ pub const VDS_HSF_2GBIT: VDS_HBAPORT_SPEED_FLAG = VDS_HBAPORT_SPEED_FLAG(2i32);
 pub const VDS_HSF_4GBIT: VDS_HBAPORT_SPEED_FLAG = VDS_HBAPORT_SPEED_FLAG(8i32);
 pub const VDS_HSF_NOT_NEGOTIATED: VDS_HBAPORT_SPEED_FLAG = VDS_HBAPORT_SPEED_FLAG(32768i32);
 pub const VDS_HSF_UNKNOWN: VDS_HBAPORT_SPEED_FLAG = VDS_HBAPORT_SPEED_FLAG(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_HWPROVIDER_TYPE(pub i32);
 pub const VDS_HWT_FIBRE_CHANNEL: VDS_HWPROVIDER_TYPE = VDS_HWPROVIDER_TYPE(2i32);
 pub const VDS_HWT_HYBRID: VDS_HWPROVIDER_TYPE = VDS_HWPROVIDER_TYPE(5i32);
 pub const VDS_HWT_ISCSI: VDS_HWPROVIDER_TYPE = VDS_HWPROVIDER_TYPE(3i32);
@@ -7908,6 +6769,67 @@ pub const VDS_ILF_REQUIRE_IPSEC: VDS_ISCSI_LOGIN_FLAG = VDS_ISCSI_LOGIN_FLAG(1i3
 pub const VDS_ILT_BOOT: VDS_ISCSI_LOGIN_TYPE = VDS_ISCSI_LOGIN_TYPE(2i32);
 pub const VDS_ILT_MANUAL: VDS_ISCSI_LOGIN_TYPE = VDS_ISCSI_LOGIN_TYPE(0i32);
 pub const VDS_ILT_PERSISTENT: VDS_ISCSI_LOGIN_TYPE = VDS_ISCSI_LOGIN_TYPE(1i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_INPUT_DISK {
+    pub diskId: windows_core::GUID,
+    pub ullSize: u64,
+    pub plexId: windows_core::GUID,
+    pub memberIdx: u32,
+}
+impl Default for VDS_INPUT_DISK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_INPUT_DISK {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_INTERCONNECT {
+    pub m_addressType: VDS_INTERCONNECT_ADDRESS_TYPE,
+    pub m_cbPort: u32,
+    pub m_pbPort: *mut u8,
+    pub m_cbAddress: u32,
+    pub m_pbAddress: *mut u8,
+}
+impl Default for VDS_INTERCONNECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_INTERCONNECT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_INTERCONNECT_ADDRESS_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_INTERCONNECT_FLAG(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_IPADDRESS {
+    pub r#type: VDS_IPADDRESS_TYPE,
+    pub ipv4Address: u32,
+    pub ipv6Address: [u8; 16],
+    pub ulIpv6FlowInfo: u32,
+    pub ulIpv6ScopeId: u32,
+    pub wszTextAddress: [u16; 257],
+    pub ulPort: u32,
+}
+impl Default for VDS_IPADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_IPADDRESS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_IPADDRESS_TYPE(pub i32);
 pub const VDS_IPS_FAILED: VDS_ISCSI_PORTAL_STATUS = VDS_ISCSI_PORTAL_STATUS(5i32);
 pub const VDS_IPS_NOT_READY: VDS_ISCSI_PORTAL_STATUS = VDS_ISCSI_PORTAL_STATUS(2i32);
 pub const VDS_IPS_OFFLINE: VDS_ISCSI_PORTAL_STATUS = VDS_ISCSI_PORTAL_STATUS(4i32);
@@ -7917,6 +6839,123 @@ pub const VDS_IPT_EMPTY: VDS_IPADDRESS_TYPE = VDS_IPADDRESS_TYPE(3i32);
 pub const VDS_IPT_IPV4: VDS_IPADDRESS_TYPE = VDS_IPADDRESS_TYPE(1i32);
 pub const VDS_IPT_IPV6: VDS_IPADDRESS_TYPE = VDS_IPADDRESS_TYPE(2i32);
 pub const VDS_IPT_TEXT: VDS_IPADDRESS_TYPE = VDS_IPADDRESS_TYPE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_ISCSI_AUTH_TYPE(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_ISCSI_INITIATOR_ADAPTER_PROP {
+    pub id: windows_core::GUID,
+    pub pwszName: windows_core::PWSTR,
+}
+impl Default for VDS_ISCSI_INITIATOR_ADAPTER_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_ISCSI_INITIATOR_ADAPTER_PROP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_ISCSI_INITIATOR_PORTAL_PROP {
+    pub id: windows_core::GUID,
+    pub address: VDS_IPADDRESS,
+    pub ulPortIndex: u32,
+}
+impl Default for VDS_ISCSI_INITIATOR_PORTAL_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_ISCSI_INITIATOR_PORTAL_PROP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_ISCSI_IPSEC_FLAG(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_ISCSI_IPSEC_KEY {
+    pub pKey: *mut u8,
+    pub ulKeySize: u32,
+}
+impl Default for VDS_ISCSI_IPSEC_KEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_ISCSI_IPSEC_KEY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_ISCSI_LOGIN_FLAG(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_ISCSI_LOGIN_TYPE(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_ISCSI_PORTALGROUP_PROP {
+    pub id: windows_core::GUID,
+    pub tag: u16,
+}
+impl Default for VDS_ISCSI_PORTALGROUP_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_ISCSI_PORTALGROUP_PROP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_ISCSI_PORTAL_PROP {
+    pub id: windows_core::GUID,
+    pub address: VDS_IPADDRESS,
+    pub status: VDS_ISCSI_PORTAL_STATUS,
+}
+impl Default for VDS_ISCSI_PORTAL_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_ISCSI_PORTAL_PROP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_ISCSI_PORTAL_STATUS(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_ISCSI_SHARED_SECRET {
+    pub pSharedSecret: *mut u8,
+    pub ulSharedSecretSize: u32,
+}
+impl Default for VDS_ISCSI_SHARED_SECRET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_ISCSI_SHARED_SECRET {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_ISCSI_TARGET_PROP {
+    pub id: windows_core::GUID,
+    pub pwszIscsiName: windows_core::PWSTR,
+    pub pwszFriendlyName: windows_core::PWSTR,
+    pub bChapEnabled: super::super::Foundation::BOOL,
+}
+impl Default for VDS_ISCSI_TARGET_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_ISCSI_TARGET_PROP {
+    type TypeKind = windows_core::CopyType;
+}
 pub const VDS_ITF_FIBRE_CHANNEL: VDS_INTERCONNECT_FLAG = VDS_INTERCONNECT_FLAG(2i32);
 pub const VDS_ITF_ISCSI: VDS_INTERCONNECT_FLAG = VDS_INTERCONNECT_FLAG(4i32);
 pub const VDS_ITF_PCI_RAID: VDS_INTERCONNECT_FLAG = VDS_INTERCONNECT_FLAG(1i32);
@@ -7945,6 +6984,9 @@ pub const VDS_LF_READ_CACHE_ENABLED: VDS_LUN_FLAG = VDS_LUN_FLAG(16i32);
 pub const VDS_LF_SNAPSHOT: VDS_LUN_FLAG = VDS_LUN_FLAG(256i32);
 pub const VDS_LF_WRITE_CACHE_ENABLED: VDS_LUN_FLAG = VDS_LUN_FLAG(32i32);
 pub const VDS_LF_WRITE_THROUGH_CACHING_ENABLED: VDS_LUN_FLAG = VDS_LUN_FLAG(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_LOADBALANCE_POLICY_ENUM(pub i32);
 pub const VDS_LPF_LBN_REMAP_ENABLED: VDS_LUN_PLEX_FLAG = VDS_LUN_PLEX_FLAG(1i32);
 pub const VDS_LPS_FAILED: VDS_LUN_PLEX_STATUS = VDS_LUN_PLEX_STATUS(5i32);
 pub const VDS_LPS_NOT_READY: VDS_LUN_PLEX_STATUS = VDS_LUN_PLEX_STATUS(2i32);
@@ -8004,36 +7046,178 @@ pub const VDS_LT_SIMPLE: VDS_LUN_TYPE = VDS_LUN_TYPE(10i32);
 pub const VDS_LT_SPAN: VDS_LUN_TYPE = VDS_LUN_TYPE(11i32);
 pub const VDS_LT_STRIPE: VDS_LUN_TYPE = VDS_LUN_TYPE(12i32);
 pub const VDS_LT_UNKNOWN: VDS_LUN_TYPE = VDS_LUN_TYPE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_LUN_FLAG(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_LUN_INFORMATION {
+    pub m_version: u32,
+    pub m_DeviceType: u8,
+    pub m_DeviceTypeModifier: u8,
+    pub m_bCommandQueueing: super::super::Foundation::BOOL,
+    pub m_BusType: VDS_STORAGE_BUS_TYPE,
+    pub m_szVendorId: *mut u8,
+    pub m_szProductId: *mut u8,
+    pub m_szProductRevision: *mut u8,
+    pub m_szSerialNumber: *mut u8,
+    pub m_diskSignature: windows_core::GUID,
+    pub m_deviceIdDescriptor: VDS_STORAGE_DEVICE_ID_DESCRIPTOR,
+    pub m_cInterconnects: u32,
+    pub m_rgInterconnects: *mut VDS_INTERCONNECT,
+}
+impl Default for VDS_LUN_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_LUN_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_LUN_NOTIFICATION {
+    pub ulEvent: VDS_NF_LUN,
+    pub LunId: windows_core::GUID,
+}
+impl Default for VDS_LUN_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_LUN_NOTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_LUN_PLEX_FLAG(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_LUN_PLEX_PROP {
+    pub id: windows_core::GUID,
+    pub ullSize: u64,
+    pub r#type: VDS_LUN_PLEX_TYPE,
+    pub status: VDS_LUN_PLEX_STATUS,
+    pub health: VDS_HEALTH,
+    pub TransitionState: VDS_TRANSITION_STATE,
+    pub ulFlags: u32,
+    pub ulStripeSize: u32,
+    pub sRebuildPriority: i16,
+}
+impl Default for VDS_LUN_PLEX_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_LUN_PLEX_PROP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_LUN_PLEX_STATUS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_LUN_PLEX_TYPE(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_LUN_PROP {
+    pub id: windows_core::GUID,
+    pub ullSize: u64,
+    pub pwszFriendlyName: windows_core::PWSTR,
+    pub pwszIdentification: windows_core::PWSTR,
+    pub pwszUnmaskingList: windows_core::PWSTR,
+    pub ulFlags: u32,
+    pub r#type: VDS_LUN_TYPE,
+    pub status: VDS_LUN_STATUS,
+    pub health: VDS_HEALTH,
+    pub TransitionState: VDS_TRANSITION_STATE,
+    pub sRebuildPriority: i16,
+}
+impl Default for VDS_LUN_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_LUN_PROP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_LUN_RESERVE_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_LUN_STATUS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_LUN_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_MAINTENANCE_OPERATION(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_MOUNT_POINT_NOTIFICATION {
+    pub ulEvent: u32,
+    pub volumeId: windows_core::GUID,
+}
+impl Default for VDS_MOUNT_POINT_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_MOUNT_POINT_NOTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
 pub const VDS_MPS_FAILED: VDS_PATH_STATUS = VDS_PATH_STATUS(5i32);
 pub const VDS_MPS_ONLINE: VDS_PATH_STATUS = VDS_PATH_STATUS(1i32);
 pub const VDS_MPS_STANDBY: VDS_PATH_STATUS = VDS_PATH_STATUS(7i32);
 pub const VDS_MPS_UNKNOWN: VDS_PATH_STATUS = VDS_PATH_STATUS(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_NF_CONTROLLER(pub u32);
 pub const VDS_NF_CONTROLLER_ARRIVE: VDS_NF_CONTROLLER = VDS_NF_CONTROLLER(103u32);
 pub const VDS_NF_CONTROLLER_DEPART: VDS_NF_CONTROLLER = VDS_NF_CONTROLLER(104u32);
 pub const VDS_NF_CONTROLLER_MODIFY: VDS_NF_CONTROLLER = VDS_NF_CONTROLLER(350u32);
 pub const VDS_NF_CONTROLLER_REMOVED: VDS_NF_CONTROLLER = VDS_NF_CONTROLLER(351u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_NF_DISK(pub u32);
 pub const VDS_NF_DISK_ARRIVE: VDS_NF_DISK = VDS_NF_DISK(8u32);
 pub const VDS_NF_DISK_DEPART: VDS_NF_DISK = VDS_NF_DISK(9u32);
 pub const VDS_NF_DISK_MODIFY: VDS_NF_DISK = VDS_NF_DISK(10u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_NF_DRIVE(pub u32);
 pub const VDS_NF_DRIVE_ARRIVE: VDS_NF_DRIVE = VDS_NF_DRIVE(105u32);
 pub const VDS_NF_DRIVE_DEPART: VDS_NF_DRIVE = VDS_NF_DRIVE(106u32);
 pub const VDS_NF_DRIVE_LETTER_ASSIGN: u32 = 202u32;
 pub const VDS_NF_DRIVE_LETTER_FREE: u32 = 201u32;
 pub const VDS_NF_DRIVE_MODIFY: VDS_NF_DRIVE = VDS_NF_DRIVE(107u32);
 pub const VDS_NF_DRIVE_REMOVED: VDS_NF_DRIVE = VDS_NF_DRIVE(354u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_NF_FILE_SYSTEM(pub u32);
 pub const VDS_NF_FILE_SYSTEM_FORMAT_PROGRESS: VDS_NF_FILE_SYSTEM = VDS_NF_FILE_SYSTEM(204u32);
 pub const VDS_NF_FILE_SYSTEM_MODIFY: VDS_NF_FILE_SYSTEM = VDS_NF_FILE_SYSTEM(203u32);
 pub const VDS_NF_FILE_SYSTEM_SHRINKING_PROGRESS: u32 = 206u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_NF_LUN(pub u32);
 pub const VDS_NF_LUN_ARRIVE: VDS_NF_LUN = VDS_NF_LUN(108u32);
 pub const VDS_NF_LUN_DEPART: VDS_NF_LUN = VDS_NF_LUN(109u32);
 pub const VDS_NF_LUN_MODIFY: VDS_NF_LUN = VDS_NF_LUN(110u32);
 pub const VDS_NF_MOUNT_POINTS_CHANGE: u32 = 205u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_NF_PACK(pub u32);
 pub const VDS_NF_PACK_ARRIVE: VDS_NF_PACK = VDS_NF_PACK(1u32);
 pub const VDS_NF_PACK_DEPART: VDS_NF_PACK = VDS_NF_PACK(2u32);
 pub const VDS_NF_PACK_MODIFY: VDS_NF_PACK = VDS_NF_PACK(3u32);
 pub const VDS_NF_PARTITION_ARRIVE: u32 = 11u32;
 pub const VDS_NF_PARTITION_DEPART: u32 = 12u32;
 pub const VDS_NF_PARTITION_MODIFY: u32 = 13u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_NF_PORT(pub u32);
 pub const VDS_NF_PORTAL_ARRIVE: u32 = 123u32;
 pub const VDS_NF_PORTAL_DEPART: u32 = 124u32;
 pub const VDS_NF_PORTAL_GROUP_ARRIVE: u32 = 129u32;
@@ -8055,6 +7239,51 @@ pub const VDS_NF_VOLUME_ARRIVE: u32 = 4u32;
 pub const VDS_NF_VOLUME_DEPART: u32 = 5u32;
 pub const VDS_NF_VOLUME_MODIFY: u32 = 6u32;
 pub const VDS_NF_VOLUME_REBUILDING_PROGRESS: u32 = 7u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VDS_NOTIFICATION {
+    pub objectType: VDS_NOTIFICATION_TARGET_TYPE,
+    pub Anonymous: VDS_NOTIFICATION_0,
+}
+impl Default for VDS_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_NOTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union VDS_NOTIFICATION_0 {
+    pub Pack: VDS_PACK_NOTIFICATION,
+    pub Disk: VDS_DISK_NOTIFICATION,
+    pub Volume: VDS_VOLUME_NOTIFICATION,
+    pub Partition: VDS_PARTITION_NOTIFICATION,
+    pub Letter: VDS_DRIVE_LETTER_NOTIFICATION,
+    pub FileSystem: VDS_FILE_SYSTEM_NOTIFICATION,
+    pub MountPoint: VDS_MOUNT_POINT_NOTIFICATION,
+    pub SubSystem: VDS_SUB_SYSTEM_NOTIFICATION,
+    pub Controller: VDS_CONTROLLER_NOTIFICATION,
+    pub Drive: VDS_DRIVE_NOTIFICATION,
+    pub Lun: VDS_LUN_NOTIFICATION,
+    pub Port: VDS_PORT_NOTIFICATION,
+    pub Portal: VDS_PORTAL_NOTIFICATION,
+    pub Target: VDS_TARGET_NOTIFICATION,
+    pub PortalGroup: VDS_PORTAL_GROUP_NOTIFICATION,
+    pub Service: VDS_SERVICE_NOTIFICATION,
+}
+impl Default for VDS_NOTIFICATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_NOTIFICATION_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_NOTIFICATION_TARGET_TYPE(pub i32);
 pub const VDS_NTT_CONTROLLER: VDS_NOTIFICATION_TARGET_TYPE = VDS_NOTIFICATION_TARGET_TYPE(31i32);
 pub const VDS_NTT_DISK: VDS_NOTIFICATION_TARGET_TYPE = VDS_NOTIFICATION_TARGET_TYPE(13i32);
 pub const VDS_NTT_DRIVE: VDS_NOTIFICATION_TARGET_TYPE = VDS_NOTIFICATION_TARGET_TYPE(32i32);
@@ -8072,6 +7301,9 @@ pub const VDS_NTT_SUB_SYSTEM: VDS_NOTIFICATION_TARGET_TYPE = VDS_NOTIFICATION_TA
 pub const VDS_NTT_TARGET: VDS_NOTIFICATION_TARGET_TYPE = VDS_NOTIFICATION_TARGET_TYPE(37i32);
 pub const VDS_NTT_UNKNOWN: VDS_NOTIFICATION_TARGET_TYPE = VDS_NOTIFICATION_TARGET_TYPE(0i32);
 pub const VDS_NTT_VOLUME: VDS_NOTIFICATION_TARGET_TYPE = VDS_NOTIFICATION_TARGET_TYPE(11i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_OBJECT_TYPE(pub i32);
 pub const VDS_OT_ASYNC: VDS_OBJECT_TYPE = VDS_OBJECT_TYPE(100i32);
 pub const VDS_OT_CONTROLLER: VDS_OBJECT_TYPE = VDS_OBJECT_TYPE(31i32);
 pub const VDS_OT_DISK: VDS_OBJECT_TYPE = VDS_OBJECT_TYPE(13i32);
@@ -8095,9 +7327,254 @@ pub const VDS_OT_UNKNOWN: VDS_OBJECT_TYPE = VDS_OBJECT_TYPE(0i32);
 pub const VDS_OT_VDISK: VDS_OBJECT_TYPE = VDS_OBJECT_TYPE(200i32);
 pub const VDS_OT_VOLUME: VDS_OBJECT_TYPE = VDS_OBJECT_TYPE(11i32);
 pub const VDS_OT_VOLUME_PLEX: VDS_OBJECT_TYPE = VDS_OBJECT_TYPE(12i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_PACK_FLAG(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_PACK_NOTIFICATION {
+    pub ulEvent: VDS_NF_PACK,
+    pub packId: windows_core::GUID,
+}
+impl Default for VDS_PACK_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_PACK_NOTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_PACK_PROP {
+    pub id: windows_core::GUID,
+    pub pwszName: windows_core::PWSTR,
+    pub status: VDS_PACK_STATUS,
+    pub ulFlags: u32,
+}
+impl Default for VDS_PACK_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_PACK_PROP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_PACK_STATUS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_PARTITION_FLAG(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VDS_PARTITION_INFORMATION_EX {
+    pub dwPartitionStyle: __VDS_PARTITION_STYLE,
+    pub ullStartingOffset: u64,
+    pub ullPartitionLength: u64,
+    pub dwPartitionNumber: u32,
+    pub bRewritePartition: super::super::Foundation::BOOLEAN,
+    pub Anonymous: VDS_PARTITION_INFORMATION_EX_0,
+}
+impl Default for VDS_PARTITION_INFORMATION_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_PARTITION_INFORMATION_EX {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union VDS_PARTITION_INFORMATION_EX_0 {
+    pub Mbr: VDS_PARTITION_INFO_MBR,
+    pub Gpt: VDS_PARTITION_INFO_GPT,
+}
+impl Default for VDS_PARTITION_INFORMATION_EX_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_PARTITION_INFORMATION_EX_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_PARTITION_INFO_GPT {
+    pub partitionType: windows_core::GUID,
+    pub partitionId: windows_core::GUID,
+    pub attributes: u64,
+    pub name: [u16; 36],
+}
+impl Default for VDS_PARTITION_INFO_GPT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_PARTITION_INFO_GPT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_PARTITION_INFO_MBR {
+    pub partitionType: u8,
+    pub bootIndicator: super::super::Foundation::BOOLEAN,
+    pub recognizedPartition: super::super::Foundation::BOOLEAN,
+    pub hiddenSectors: u32,
+}
+impl Default for VDS_PARTITION_INFO_MBR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_PARTITION_INFO_MBR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_PARTITION_NOTIFICATION {
+    pub ulEvent: u32,
+    pub diskId: windows_core::GUID,
+    pub ullOffset: u64,
+}
+impl Default for VDS_PARTITION_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_PARTITION_NOTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VDS_PARTITION_PROP {
+    pub PartitionStyle: VDS_PARTITION_STYLE,
+    pub ulFlags: u32,
+    pub ulPartitionNumber: u32,
+    pub ullOffset: u64,
+    pub ullSize: u64,
+    pub Anonymous: VDS_PARTITION_PROP_0,
+}
+impl Default for VDS_PARTITION_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_PARTITION_PROP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union VDS_PARTITION_PROP_0 {
+    pub Mbr: VDS_PARTITION_INFO_MBR,
+    pub Gpt: VDS_PARTITION_INFO_GPT,
+}
+impl Default for VDS_PARTITION_PROP_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_PARTITION_PROP_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_PARTITION_STYLE(pub i32);
 pub const VDS_PARTITION_STYLE_GPT: __VDS_PARTITION_STYLE = __VDS_PARTITION_STYLE(1i32);
 pub const VDS_PARTITION_STYLE_MBR: __VDS_PARTITION_STYLE = __VDS_PARTITION_STYLE(0i32);
 pub const VDS_PARTITION_STYLE_RAW: __VDS_PARTITION_STYLE = __VDS_PARTITION_STYLE(2i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_PATH_ID {
+    pub ullSourceId: u64,
+    pub ullPathId: u64,
+}
+impl Default for VDS_PATH_ID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_PATH_ID {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VDS_PATH_INFO {
+    pub pathId: VDS_PATH_ID,
+    pub r#type: VDS_HWPROVIDER_TYPE,
+    pub status: VDS_PATH_STATUS,
+    pub Anonymous1: VDS_PATH_INFO_0,
+    pub Anonymous2: VDS_PATH_INFO_1,
+    pub Anonymous3: VDS_PATH_INFO_2,
+}
+impl Default for VDS_PATH_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_PATH_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union VDS_PATH_INFO_0 {
+    pub controllerPortId: windows_core::GUID,
+    pub targetPortalId: windows_core::GUID,
+}
+impl Default for VDS_PATH_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_PATH_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union VDS_PATH_INFO_1 {
+    pub hbaPortId: windows_core::GUID,
+    pub initiatorAdapterId: windows_core::GUID,
+}
+impl Default for VDS_PATH_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_PATH_INFO_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union VDS_PATH_INFO_2 {
+    pub pHbaPortProp: *mut VDS_HBAPORT_PROP,
+    pub pInitiatorPortalIpAddr: *mut VDS_IPADDRESS,
+}
+impl Default for VDS_PATH_INFO_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_PATH_INFO_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_PATH_POLICY {
+    pub pathId: VDS_PATH_ID,
+    pub bPrimaryPath: super::super::Foundation::BOOL,
+    pub ulWeight: u32,
+}
+impl Default for VDS_PATH_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_PATH_POLICY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_PATH_STATUS(pub i32);
 pub const VDS_PF_DYNAMIC: VDS_PROVIDER_FLAG = VDS_PROVIDER_FLAG(1i32);
 pub const VDS_PF_INTERNAL_HARDWARE_PROVIDER: VDS_PROVIDER_FLAG = VDS_PROVIDER_FLAG(2i32);
 pub const VDS_PF_ONE_DISK_ONLY_PER_PACK: VDS_PROVIDER_FLAG = VDS_PROVIDER_FLAG(4i32);
@@ -8113,6 +7590,56 @@ pub const VDS_PKF_FOREIGN: VDS_PACK_FLAG = VDS_PACK_FLAG(1i32);
 pub const VDS_PKF_NOQUORUM: VDS_PACK_FLAG = VDS_PACK_FLAG(2i32);
 pub const VDS_PKF_ONLINE_ERROR: VDS_PACK_FLAG = VDS_PACK_FLAG(16i32);
 pub const VDS_PKF_POLICY: VDS_PACK_FLAG = VDS_PACK_FLAG(4i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_POOL_ATTRIBUTES {
+    pub ullAttributeMask: u64,
+    pub raidType: VDS_RAID_TYPE,
+    pub busType: VDS_STORAGE_BUS_TYPE,
+    pub pwszIntendedUsage: windows_core::PWSTR,
+    pub bSpinDown: super::super::Foundation::BOOL,
+    pub bIsThinProvisioned: super::super::Foundation::BOOL,
+    pub ullProvisionedSpace: u64,
+    pub bNoSinglePointOfFailure: super::super::Foundation::BOOL,
+    pub ulDataRedundancyMax: u32,
+    pub ulDataRedundancyMin: u32,
+    pub ulDataRedundancyDefault: u32,
+    pub ulPackageRedundancyMax: u32,
+    pub ulPackageRedundancyMin: u32,
+    pub ulPackageRedundancyDefault: u32,
+    pub ulStripeSize: u32,
+    pub ulStripeSizeMax: u32,
+    pub ulStripeSizeMin: u32,
+    pub ulDefaultStripeSize: u32,
+    pub ulNumberOfColumns: u32,
+    pub ulNumberOfColumnsMax: u32,
+    pub ulNumberOfColumnsMin: u32,
+    pub ulDefaultNumberofColumns: u32,
+    pub ulDataAvailabilityHint: u32,
+    pub ulAccessRandomnessHint: u32,
+    pub ulAccessDirectionHint: u32,
+    pub ulAccessSizeHint: u32,
+    pub ulAccessLatencyHint: u32,
+    pub ulAccessBandwidthWeightHint: u32,
+    pub ulStorageCostHint: u32,
+    pub ulStorageEfficiencyHint: u32,
+    pub ulNumOfCustomAttributes: u32,
+    pub pPoolCustomAttributes: *mut VDS_POOL_CUSTOM_ATTRIBUTES,
+    pub bReserved1: super::super::Foundation::BOOL,
+    pub bReserved2: super::super::Foundation::BOOL,
+    pub ulReserved1: u32,
+    pub ulReserved2: u32,
+    pub ullReserved1: u64,
+    pub ullReserved2: u64,
+}
+impl Default for VDS_POOL_ATTRIBUTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_POOL_ATTRIBUTES {
+    type TypeKind = windows_core::CopyType;
+}
 pub const VDS_POOL_ATTRIB_ACCS_BDW_WT_HINT: i32 = 16777216i32;
 pub const VDS_POOL_ATTRIB_ACCS_DIR_HINT: i32 = 2097152i32;
 pub const VDS_POOL_ATTRIB_ACCS_LTNCY_HINT: i32 = 8388608i32;
@@ -8141,6 +7668,110 @@ pub const VDS_POOL_ATTRIB_STRIPE_SIZE_DEF: i32 = 16384i32;
 pub const VDS_POOL_ATTRIB_STRIPE_SIZE_MAX: i32 = 4096i32;
 pub const VDS_POOL_ATTRIB_STRIPE_SIZE_MIN: i32 = 8192i32;
 pub const VDS_POOL_ATTRIB_THIN_PROVISION: i32 = 8i32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_POOL_CUSTOM_ATTRIBUTES {
+    pub pwszName: windows_core::PWSTR,
+    pub pwszValue: windows_core::PWSTR,
+}
+impl Default for VDS_POOL_CUSTOM_ATTRIBUTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_POOL_CUSTOM_ATTRIBUTES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_PORTAL_GROUP_NOTIFICATION {
+    pub ulEvent: u32,
+    pub portalGroupId: windows_core::GUID,
+}
+impl Default for VDS_PORTAL_GROUP_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_PORTAL_GROUP_NOTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_PORTAL_NOTIFICATION {
+    pub ulEvent: u32,
+    pub portalId: windows_core::GUID,
+}
+impl Default for VDS_PORTAL_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_PORTAL_NOTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_PORT_NOTIFICATION {
+    pub ulEvent: VDS_NF_PORT,
+    pub portId: windows_core::GUID,
+}
+impl Default for VDS_PORT_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_PORT_NOTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_PORT_PROP {
+    pub id: windows_core::GUID,
+    pub pwszFriendlyName: windows_core::PWSTR,
+    pub pwszIdentification: windows_core::PWSTR,
+    pub status: VDS_PORT_STATUS,
+}
+impl Default for VDS_PORT_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_PORT_PROP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_PORT_STATUS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_PROVIDER_FLAG(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_PROVIDER_LBSUPPORT_FLAG(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_PROVIDER_PROP {
+    pub id: windows_core::GUID,
+    pub pwszName: windows_core::PWSTR,
+    pub guidVersionId: windows_core::GUID,
+    pub pwszVersion: windows_core::PWSTR,
+    pub r#type: VDS_PROVIDER_TYPE,
+    pub ulFlags: u32,
+    pub ulStripeSizeFlags: u32,
+    pub sRebuildPriority: i16,
+}
+impl Default for VDS_PROVIDER_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_PROVIDER_PROP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_PROVIDER_TYPE(pub i32);
 pub const VDS_PRS_FAILED: VDS_PORT_STATUS = VDS_PORT_STATUS(5i32);
 pub const VDS_PRS_NOT_READY: VDS_PORT_STATUS = VDS_PORT_STATUS(2i32);
 pub const VDS_PRS_OFFLINE: VDS_PORT_STATUS = VDS_PORT_STATUS(4i32);
@@ -8160,13 +7791,36 @@ pub const VDS_PT_SOFTWARE: VDS_PROVIDER_TYPE = VDS_PROVIDER_TYPE(1i32);
 pub const VDS_PT_UNKNOWN: VDS_PROVIDER_TYPE = VDS_PROVIDER_TYPE(0i32);
 pub const VDS_PT_VIRTUALDISK: VDS_PROVIDER_TYPE = VDS_PROVIDER_TYPE(3i32);
 pub const VDS_QUERY_HARDWARE_PROVIDERS: VDS_QUERY_PROVIDER_FLAG = VDS_QUERY_PROVIDER_FLAG(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_QUERY_PROVIDER_FLAG(pub i32);
 pub const VDS_QUERY_SOFTWARE_PROVIDERS: VDS_QUERY_PROVIDER_FLAG = VDS_QUERY_PROVIDER_FLAG(1i32);
 pub const VDS_QUERY_VIRTUALDISK_PROVIDERS: VDS_QUERY_PROVIDER_FLAG = VDS_QUERY_PROVIDER_FLAG(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_RAID_TYPE(pub i32);
 pub const VDS_RA_REFRESH: VDS_RECOVER_ACTION = VDS_RECOVER_ACTION(1i32);
 pub const VDS_RA_RESTART: VDS_RECOVER_ACTION = VDS_RECOVER_ACTION(2i32);
 pub const VDS_RA_UNKNOWN: VDS_RECOVER_ACTION = VDS_RECOVER_ACTION(0i32);
 pub const VDS_REBUILD_PRIORITY_MAX: u32 = 16u32;
 pub const VDS_REBUILD_PRIORITY_MIN: u32 = 0u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_RECOVER_ACTION(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_REPARSE_POINT_PROP {
+    pub SourceVolumeId: windows_core::GUID,
+    pub pwszPath: windows_core::PWSTR,
+}
+impl Default for VDS_REPARSE_POINT_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_REPARSE_POINT_PROP {
+    type TypeKind = windows_core::CopyType;
+}
 pub const VDS_RT_RAID0: VDS_RAID_TYPE = VDS_RAID_TYPE(10i32);
 pub const VDS_RT_RAID01: VDS_RAID_TYPE = VDS_RAID_TYPE(17i32);
 pub const VDS_RT_RAID03: VDS_RAID_TYPE = VDS_RAID_TYPE(18i32);
@@ -8186,6 +7840,40 @@ pub const VDS_RT_RAID6: VDS_RAID_TYPE = VDS_RAID_TYPE(16i32);
 pub const VDS_RT_RAID60: VDS_RAID_TYPE = VDS_RAID_TYPE(26i32);
 pub const VDS_RT_RAID61: VDS_RAID_TYPE = VDS_RAID_TYPE(27i32);
 pub const VDS_RT_UNKNOWN: VDS_RAID_TYPE = VDS_RAID_TYPE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_SAN_POLICY(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_SERVICE_FLAG(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_SERVICE_NOTIFICATION {
+    pub ulEvent: u32,
+    pub action: VDS_RECOVER_ACTION,
+}
+impl Default for VDS_SERVICE_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_SERVICE_NOTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_SERVICE_PROP {
+    pub pwszVersion: windows_core::PWSTR,
+    pub ulFlags: u32,
+}
+impl Default for VDS_SERVICE_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_SERVICE_PROP {
+    type TypeKind = windows_core::CopyType;
+}
 pub const VDS_SF_CONSISTENCY_CHECK_CAPABLE: VDS_SUB_SYSTEM_FLAG = VDS_SUB_SYSTEM_FLAG(16777216i32);
 pub const VDS_SF_DRIVE_EXTENT_CAPABLE: VDS_SUB_SYSTEM_FLAG = VDS_SUB_SYSTEM_FLAG(8i32);
 pub const VDS_SF_HARDWARE_CHECKSUM_CAPABLE: VDS_SUB_SYSTEM_FLAG = VDS_SUB_SYSTEM_FLAG(16i32);
@@ -8245,6 +7933,159 @@ pub const VDS_SSS_OFFLINE: VDS_SUB_SYSTEM_STATUS = VDS_SUB_SYSTEM_STATUS(4i32);
 pub const VDS_SSS_ONLINE: VDS_SUB_SYSTEM_STATUS = VDS_SUB_SYSTEM_STATUS(1i32);
 pub const VDS_SSS_PARTIALLY_MANAGED: VDS_SUB_SYSTEM_STATUS = VDS_SUB_SYSTEM_STATUS(9i32);
 pub const VDS_SSS_UNKNOWN: VDS_SUB_SYSTEM_STATUS = VDS_SUB_SYSTEM_STATUS(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_STORAGE_BUS_TYPE(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
+    pub m_version: u32,
+    pub m_cIdentifiers: u32,
+    pub m_rgIdentifiers: *mut VDS_STORAGE_IDENTIFIER,
+}
+impl Default for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_STORAGE_IDENTIFIER {
+    pub m_CodeSet: VDS_STORAGE_IDENTIFIER_CODE_SET,
+    pub m_Type: VDS_STORAGE_IDENTIFIER_TYPE,
+    pub m_cbIdentifier: u32,
+    pub m_rgbIdentifier: *mut u8,
+}
+impl Default for VDS_STORAGE_IDENTIFIER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_STORAGE_IDENTIFIER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_STORAGE_IDENTIFIER_CODE_SET(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_STORAGE_IDENTIFIER_TYPE(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_STORAGE_POOL_DRIVE_EXTENT {
+    pub id: windows_core::GUID,
+    pub ullSize: u64,
+    pub bUsed: super::super::Foundation::BOOL,
+}
+impl Default for VDS_STORAGE_POOL_DRIVE_EXTENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_STORAGE_POOL_DRIVE_EXTENT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_STORAGE_POOL_PROP {
+    pub id: windows_core::GUID,
+    pub status: VDS_STORAGE_POOL_STATUS,
+    pub health: VDS_HEALTH,
+    pub r#type: VDS_STORAGE_POOL_TYPE,
+    pub pwszName: windows_core::PWSTR,
+    pub pwszDescription: windows_core::PWSTR,
+    pub ullTotalConsumedSpace: u64,
+    pub ullTotalManagedSpace: u64,
+    pub ullRemainingFreeSpace: u64,
+}
+impl Default for VDS_STORAGE_POOL_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_STORAGE_POOL_PROP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_STORAGE_POOL_STATUS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_STORAGE_POOL_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_SUB_SYSTEM_FLAG(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_SUB_SYSTEM_NOTIFICATION {
+    pub ulEvent: u32,
+    pub subSystemId: windows_core::GUID,
+}
+impl Default for VDS_SUB_SYSTEM_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_SUB_SYSTEM_NOTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_SUB_SYSTEM_PROP {
+    pub id: windows_core::GUID,
+    pub pwszFriendlyName: windows_core::PWSTR,
+    pub pwszIdentification: windows_core::PWSTR,
+    pub ulFlags: u32,
+    pub ulStripeSizeFlags: u32,
+    pub status: VDS_SUB_SYSTEM_STATUS,
+    pub health: VDS_HEALTH,
+    pub sNumberOfInternalBuses: i16,
+    pub sMaxNumberOfSlotsEachBus: i16,
+    pub sMaxNumberOfControllers: i16,
+    pub sRebuildPriority: i16,
+}
+impl Default for VDS_SUB_SYSTEM_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_SUB_SYSTEM_PROP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_SUB_SYSTEM_PROP2 {
+    pub id: windows_core::GUID,
+    pub pwszFriendlyName: windows_core::PWSTR,
+    pub pwszIdentification: windows_core::PWSTR,
+    pub ulFlags: u32,
+    pub ulStripeSizeFlags: u32,
+    pub ulSupportedRaidTypeFlags: u32,
+    pub status: VDS_SUB_SYSTEM_STATUS,
+    pub health: VDS_HEALTH,
+    pub sNumberOfInternalBuses: i16,
+    pub sMaxNumberOfSlotsEachBus: i16,
+    pub sMaxNumberOfControllers: i16,
+    pub sRebuildPriority: i16,
+    pub ulNumberOfEnclosures: u32,
+}
+impl Default for VDS_SUB_SYSTEM_PROP2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_SUB_SYSTEM_PROP2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_SUB_SYSTEM_STATUS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG(pub i32);
 pub const VDS_SVF_AUTO_MOUNT_OFF: VDS_SERVICE_FLAG = VDS_SERVICE_FLAG(32i32);
 pub const VDS_SVF_CLUSTER_SERVICE_CONFIGURED: VDS_SERVICE_FLAG = VDS_SERVICE_FLAG(16i32);
 pub const VDS_SVF_EFI: VDS_SERVICE_FLAG = VDS_SERVICE_FLAG(128i32);
@@ -8290,12 +8131,60 @@ pub const VDS_S_VOLUME_COMPRESS_FAILED: windows_core::HRESULT = windows_core::HR
 pub const VDS_S_VSS_FLUSH_AND_HOLD_WRITES: windows_core::HRESULT = windows_core::HRESULT(0x42581_u32 as _);
 pub const VDS_S_VSS_RELEASE_WRITES: windows_core::HRESULT = windows_core::HRESULT(0x42582_u32 as _);
 pub const VDS_S_WINPE_BOOTENTRY: windows_core::HRESULT = windows_core::HRESULT(0x4258E_u32 as _);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_TARGET_NOTIFICATION {
+    pub ulEvent: u32,
+    pub targetId: windows_core::GUID,
+}
+impl Default for VDS_TARGET_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_TARGET_NOTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_TRANSITION_STATE(pub i32);
 pub const VDS_TS_EXTENDING: VDS_TRANSITION_STATE = VDS_TRANSITION_STATE(2i32);
 pub const VDS_TS_RECONFIGING: VDS_TRANSITION_STATE = VDS_TRANSITION_STATE(4i32);
 pub const VDS_TS_RESTRIPING: VDS_TRANSITION_STATE = VDS_TRANSITION_STATE(5i32);
 pub const VDS_TS_SHRINKING: VDS_TRANSITION_STATE = VDS_TRANSITION_STATE(3i32);
 pub const VDS_TS_STABLE: VDS_TRANSITION_STATE = VDS_TRANSITION_STATE(1i32);
 pub const VDS_TS_UNKNOWN: VDS_TRANSITION_STATE = VDS_TRANSITION_STATE(0i32);
+#[repr(C)]
+#[cfg(feature = "Win32_Storage_Vhd")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_VDISK_PROPERTIES {
+    pub Id: windows_core::GUID,
+    pub State: VDS_VDISK_STATE,
+    pub VirtualDeviceType: super::Vhd::VIRTUAL_STORAGE_TYPE,
+    pub VirtualSize: u64,
+    pub PhysicalSize: u64,
+    pub pPath: windows_core::PWSTR,
+    pub pDeviceName: windows_core::PWSTR,
+    pub DiskFlag: super::Vhd::DEPENDENT_DISK_FLAG,
+    pub bIsChild: super::super::Foundation::BOOL,
+    pub pParentPath: windows_core::PWSTR,
+}
+#[cfg(feature = "Win32_Storage_Vhd")]
+impl Default for VDS_VDISK_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Storage_Vhd")]
+impl windows_core::TypeKind for VDS_VDISK_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_VDISK_STATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_VERSION_SUPPORT_FLAG(pub i32);
 pub const VDS_VF_ACTIVE: VDS_VOLUME_FLAG = VDS_VOLUME_FLAG(4i32);
 pub const VDS_VF_BACKED_BY_WIM_IMAGE: VDS_VOLUME_FLAG = VDS_VOLUME_FLAG(33554432i32);
 pub const VDS_VF_BACKS_BOOT_VOLUME: VDS_VOLUME_FLAG = VDS_VOLUME_FLAG(16777216i32);
@@ -8322,6 +8211,101 @@ pub const VDS_VF_READONLY: VDS_VOLUME_FLAG = VDS_VOLUME_FLAG(8i32);
 pub const VDS_VF_REFS_NOT_SUPPORTED: VDS_VOLUME_FLAG = VDS_VOLUME_FLAG(8388608i32);
 pub const VDS_VF_SHADOW_COPY: VDS_VOLUME_FLAG = VDS_VOLUME_FLAG(1048576i32);
 pub const VDS_VF_SYSTEM_VOLUME: VDS_VOLUME_FLAG = VDS_VOLUME_FLAG(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_VOLUME_FLAG(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_VOLUME_NOTIFICATION {
+    pub ulEvent: u32,
+    pub volumeId: windows_core::GUID,
+    pub plexId: windows_core::GUID,
+    pub ulPercentCompleted: u32,
+}
+impl Default for VDS_VOLUME_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_VOLUME_NOTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_VOLUME_PLEX_PROP {
+    pub id: windows_core::GUID,
+    pub r#type: VDS_VOLUME_PLEX_TYPE,
+    pub status: VDS_VOLUME_PLEX_STATUS,
+    pub health: VDS_HEALTH,
+    pub TransitionState: VDS_TRANSITION_STATE,
+    pub ullSize: u64,
+    pub ulStripeSize: u32,
+    pub ulNumberOfMembers: u32,
+}
+impl Default for VDS_VOLUME_PLEX_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_VOLUME_PLEX_PROP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_VOLUME_PLEX_STATUS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_VOLUME_PLEX_TYPE(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_VOLUME_PROP {
+    pub id: windows_core::GUID,
+    pub r#type: VDS_VOLUME_TYPE,
+    pub status: VDS_VOLUME_STATUS,
+    pub health: VDS_HEALTH,
+    pub TransitionState: VDS_TRANSITION_STATE,
+    pub ullSize: u64,
+    pub ulFlags: u32,
+    pub RecommendedFileSystemType: VDS_FILE_SYSTEM_TYPE,
+    pub pwszName: windows_core::PWSTR,
+}
+impl Default for VDS_VOLUME_PROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_VOLUME_PROP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_VOLUME_PROP2 {
+    pub id: windows_core::GUID,
+    pub r#type: VDS_VOLUME_TYPE,
+    pub status: VDS_VOLUME_STATUS,
+    pub health: VDS_HEALTH,
+    pub TransitionState: VDS_TRANSITION_STATE,
+    pub ullSize: u64,
+    pub ulFlags: u32,
+    pub RecommendedFileSystemType: VDS_FILE_SYSTEM_TYPE,
+    pub cbUniqueId: u32,
+    pub pwszName: windows_core::PWSTR,
+    pub pUniqueId: *mut u8,
+}
+impl Default for VDS_VOLUME_PROP2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_VOLUME_PROP2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_VOLUME_STATUS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VDS_VOLUME_TYPE(pub i32);
 pub const VDS_VPS_FAILED: VDS_VOLUME_PLEX_STATUS = VDS_VOLUME_PLEX_STATUS(5i32);
 pub const VDS_VPS_NO_MEDIA: VDS_VOLUME_PLEX_STATUS = VDS_VOLUME_PLEX_STATUS(3i32);
 pub const VDS_VPS_ONLINE: VDS_VOLUME_PLEX_STATUS = VDS_VOLUME_PLEX_STATUS(1i32);
@@ -8359,4 +8343,20 @@ pub const VDS_VT_SIMPLE: VDS_VOLUME_TYPE = VDS_VOLUME_TYPE(10i32);
 pub const VDS_VT_SPAN: VDS_VOLUME_TYPE = VDS_VOLUME_TYPE(11i32);
 pub const VDS_VT_STRIPE: VDS_VOLUME_TYPE = VDS_VOLUME_TYPE(12i32);
 pub const VDS_VT_UNKNOWN: VDS_VOLUME_TYPE = VDS_VOLUME_TYPE(0i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VDS_WWN {
+    pub rguchWwn: [u8; 8],
+}
+impl Default for VDS_WWN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VDS_WWN {
+    type TypeKind = windows_core::CopyType;
+}
 pub const VER_VDS_LUN_INFORMATION: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct __VDS_PARTITION_STYLE(pub i32);

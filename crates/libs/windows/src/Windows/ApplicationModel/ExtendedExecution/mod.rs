@@ -1,6 +1,33 @@
 #[cfg(feature = "ApplicationModel_ExtendedExecution_Foreground")]
 pub mod Foreground;
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ExtendedExecutionReason(pub i32);
+impl ExtendedExecutionReason {
+    pub const Unspecified: Self = Self(0i32);
+    pub const LocationTracking: Self = Self(1i32);
+    pub const SavingData: Self = Self(2i32);
+}
+impl windows_core::TypeKind for ExtendedExecutionReason {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ExtendedExecutionReason {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionReason;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ExtendedExecutionResult(pub i32);
+impl ExtendedExecutionResult {
+    pub const Allowed: Self = Self(0i32);
+    pub const Denied: Self = Self(1i32);
+}
+impl windows_core::TypeKind for ExtendedExecutionResult {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ExtendedExecutionResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionResult;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ExtendedExecutionRevokedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ExtendedExecutionRevokedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -25,6 +52,19 @@ impl windows_core::RuntimeName for ExtendedExecutionRevokedEventArgs {
 }
 unsafe impl Send for ExtendedExecutionRevokedEventArgs {}
 unsafe impl Sync for ExtendedExecutionRevokedEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ExtendedExecutionRevokedReason(pub i32);
+impl ExtendedExecutionRevokedReason {
+    pub const Resumed: Self = Self(0i32);
+    pub const SystemPolicy: Self = Self(1i32);
+}
+impl windows_core::TypeKind for ExtendedExecutionRevokedReason {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ExtendedExecutionRevokedReason {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedReason;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ExtendedExecutionSession(windows_core::IUnknown);
@@ -134,44 +174,4 @@ pub struct IExtendedExecutionSession_Vtbl {
     pub Revoked: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveRevoked: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RequestExtensionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ExtendedExecutionReason(pub i32);
-impl ExtendedExecutionReason {
-    pub const Unspecified: Self = Self(0i32);
-    pub const LocationTracking: Self = Self(1i32);
-    pub const SavingData: Self = Self(2i32);
-}
-impl windows_core::TypeKind for ExtendedExecutionReason {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ExtendedExecutionReason {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionReason;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ExtendedExecutionResult(pub i32);
-impl ExtendedExecutionResult {
-    pub const Allowed: Self = Self(0i32);
-    pub const Denied: Self = Self(1i32);
-}
-impl windows_core::TypeKind for ExtendedExecutionResult {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ExtendedExecutionResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionResult;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ExtendedExecutionRevokedReason(pub i32);
-impl ExtendedExecutionRevokedReason {
-    pub const Resumed: Self = Self(0i32);
-    pub const SystemPolicy: Self = Self(1i32);
-}
-impl windows_core::TypeKind for ExtendedExecutionRevokedReason {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ExtendedExecutionRevokedReason {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedReason;i4)");
 }

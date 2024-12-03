@@ -59,6 +59,25 @@ pub unsafe fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, 
     windows_targets::link!("winmm.dll" "system" fn timeSetEvent(udelay : u32, uresolution : u32, fptc : LPTIMECALLBACK, dwuser : usize, fuevent : u32) -> u32);
     timeSetEvent(core::mem::transmute(udelay), core::mem::transmute(uresolution), core::mem::transmute(fptc), core::mem::transmute(dwuser), core::mem::transmute(fuevent))
 }
+pub const ED_DEVCAP_ATN_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5047u32);
+pub const ED_DEVCAP_RTC_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5050u32);
+pub const ED_DEVCAP_TIMECODE_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(4121u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HTASK(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HTASK {
+    type TypeKind = windows_core::CopyType;
+}
+impl HTASK {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl Default for HTASK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 windows_core::imp::define_interface!(IReferenceClock, IReferenceClock_Vtbl, 0x56a86897_0ad4_11ce_b03a_0020af0ba770);
 windows_core::imp::interface_hierarchy!(IReferenceClock, windows_core::IUnknown);
 impl IReferenceClock {
@@ -217,61 +236,44 @@ impl IReferenceClockTimerControl_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IReferenceClockTimerControl {}
+pub const JOYERR_BASE: u32 = 160u32;
 #[cfg(feature = "Win32_Media_Multimedia")]
 pub type LPDRVCALLBACK = Option<unsafe extern "system" fn(hdrvr: Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
 pub type LPTIMECALLBACK = Option<unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TIMECODE_SAMPLE_FLAGS(pub u32);
-impl TIMECODE_SAMPLE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for TIMECODE_SAMPLE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for TIMECODE_SAMPLE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for TIMECODE_SAMPLE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for TIMECODE_SAMPLE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for TIMECODE_SAMPLE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HTASK(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HTASK {
-    type TypeKind = windows_core::CopyType;
-}
-impl HTASK {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl Default for HTASK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub const MAXERRORLENGTH: u32 = 256u32;
+pub const MAXPNAMELEN: u32 = 32u32;
+pub const MCIERR_BASE: u32 = 256u32;
+pub const MCI_CD_OFFSET: u32 = 1088u32;
+pub const MCI_SEQ_OFFSET: u32 = 1216u32;
+pub const MCI_STRING_OFFSET: u32 = 512u32;
+pub const MCI_VD_OFFSET: u32 = 1024u32;
+pub const MCI_WAVE_OFFSET: u32 = 1152u32;
+pub const MIDIERR_BASE: u32 = 64u32;
+pub const MIXERR_BASE: u32 = 1024u32;
+pub const MMSYSERR_ALLOCATED: u32 = 4u32;
+pub const MMSYSERR_BADDB: u32 = 14u32;
+pub const MMSYSERR_BADDEVICEID: u32 = 2u32;
+pub const MMSYSERR_BADERRNUM: u32 = 9u32;
+pub const MMSYSERR_BASE: u32 = 0u32;
+pub const MMSYSERR_DELETEERROR: u32 = 18u32;
+pub const MMSYSERR_ERROR: u32 = 1u32;
+pub const MMSYSERR_HANDLEBUSY: u32 = 12u32;
+pub const MMSYSERR_INVALFLAG: u32 = 10u32;
+pub const MMSYSERR_INVALHANDLE: u32 = 5u32;
+pub const MMSYSERR_INVALIDALIAS: u32 = 13u32;
+pub const MMSYSERR_INVALPARAM: u32 = 11u32;
+pub const MMSYSERR_KEYNOTFOUND: u32 = 15u32;
+pub const MMSYSERR_LASTERROR: u32 = 21u32;
+pub const MMSYSERR_MOREDATA: u32 = 21u32;
+pub const MMSYSERR_NODRIVER: u32 = 6u32;
+pub const MMSYSERR_NODRIVERCB: u32 = 20u32;
+pub const MMSYSERR_NOERROR: u32 = 0u32;
+pub const MMSYSERR_NOMEM: u32 = 7u32;
+pub const MMSYSERR_NOTENABLED: u32 = 3u32;
+pub const MMSYSERR_NOTSUPPORTED: u32 = 8u32;
+pub const MMSYSERR_READERROR: u32 = 16u32;
+pub const MMSYSERR_VALNOTFOUND: u32 = 19u32;
+pub const MMSYSERR_WRITEERROR: u32 = 17u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MMTIME {
@@ -336,6 +338,55 @@ impl Default for MMTIME_0_0 {
 impl windows_core::TypeKind for MMTIME_0_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const MM_ADLIB: u32 = 9u32;
+pub const MM_DRVM_CLOSE: u32 = 977u32;
+pub const MM_DRVM_DATA: u32 = 978u32;
+pub const MM_DRVM_ERROR: u32 = 979u32;
+pub const MM_DRVM_OPEN: u32 = 976u32;
+pub const MM_JOY1BUTTONDOWN: u32 = 949u32;
+pub const MM_JOY1BUTTONUP: u32 = 951u32;
+pub const MM_JOY1MOVE: u32 = 928u32;
+pub const MM_JOY1ZMOVE: u32 = 930u32;
+pub const MM_JOY2BUTTONDOWN: u32 = 950u32;
+pub const MM_JOY2BUTTONUP: u32 = 952u32;
+pub const MM_JOY2MOVE: u32 = 929u32;
+pub const MM_JOY2ZMOVE: u32 = 931u32;
+pub const MM_MCINOTIFY: u32 = 953u32;
+pub const MM_MCISIGNAL: u32 = 971u32;
+pub const MM_MICROSOFT: u32 = 1u32;
+pub const MM_MIDI_MAPPER: u32 = 1u32;
+pub const MM_MIM_CLOSE: u32 = 962u32;
+pub const MM_MIM_DATA: u32 = 963u32;
+pub const MM_MIM_ERROR: u32 = 965u32;
+pub const MM_MIM_LONGDATA: u32 = 964u32;
+pub const MM_MIM_LONGERROR: u32 = 966u32;
+pub const MM_MIM_MOREDATA: u32 = 972u32;
+pub const MM_MIM_OPEN: u32 = 961u32;
+pub const MM_MIXM_CONTROL_CHANGE: u32 = 977u32;
+pub const MM_MIXM_LINE_CHANGE: u32 = 976u32;
+pub const MM_MOM_CLOSE: u32 = 968u32;
+pub const MM_MOM_DONE: u32 = 969u32;
+pub const MM_MOM_OPEN: u32 = 967u32;
+pub const MM_MOM_POSITIONCB: u32 = 970u32;
+pub const MM_MPU401_MIDIIN: u32 = 11u32;
+pub const MM_MPU401_MIDIOUT: u32 = 10u32;
+pub const MM_PC_JOYSTICK: u32 = 12u32;
+pub const MM_SNDBLST_MIDIIN: u32 = 4u32;
+pub const MM_SNDBLST_MIDIOUT: u32 = 3u32;
+pub const MM_SNDBLST_SYNTH: u32 = 5u32;
+pub const MM_SNDBLST_WAVEIN: u32 = 7u32;
+pub const MM_SNDBLST_WAVEOUT: u32 = 6u32;
+pub const MM_STREAM_CLOSE: u32 = 981u32;
+pub const MM_STREAM_DONE: u32 = 982u32;
+pub const MM_STREAM_ERROR: u32 = 983u32;
+pub const MM_STREAM_OPEN: u32 = 980u32;
+pub const MM_WAVE_MAPPER: u32 = 2u32;
+pub const MM_WIM_CLOSE: u32 = 959u32;
+pub const MM_WIM_DATA: u32 = 960u32;
+pub const MM_WIM_OPEN: u32 = 958u32;
+pub const MM_WOM_CLOSE: u32 = 956u32;
+pub const MM_WOM_DONE: u32 = 957u32;
+pub const MM_WOM_OPEN: u32 = 955u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TIMECAPS {
@@ -395,93 +446,42 @@ impl Default for TIMECODE_SAMPLE {
 impl windows_core::TypeKind for TIMECODE_SAMPLE {
     type TypeKind = windows_core::CopyType;
 }
-pub const ED_DEVCAP_ATN_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5047u32);
-pub const ED_DEVCAP_RTC_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5050u32);
-pub const ED_DEVCAP_TIMECODE_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(4121u32);
-pub const JOYERR_BASE: u32 = 160u32;
-pub const MAXERRORLENGTH: u32 = 256u32;
-pub const MAXPNAMELEN: u32 = 32u32;
-pub const MCIERR_BASE: u32 = 256u32;
-pub const MCI_CD_OFFSET: u32 = 1088u32;
-pub const MCI_SEQ_OFFSET: u32 = 1216u32;
-pub const MCI_STRING_OFFSET: u32 = 512u32;
-pub const MCI_VD_OFFSET: u32 = 1024u32;
-pub const MCI_WAVE_OFFSET: u32 = 1152u32;
-pub const MIDIERR_BASE: u32 = 64u32;
-pub const MIXERR_BASE: u32 = 1024u32;
-pub const MMSYSERR_ALLOCATED: u32 = 4u32;
-pub const MMSYSERR_BADDB: u32 = 14u32;
-pub const MMSYSERR_BADDEVICEID: u32 = 2u32;
-pub const MMSYSERR_BADERRNUM: u32 = 9u32;
-pub const MMSYSERR_BASE: u32 = 0u32;
-pub const MMSYSERR_DELETEERROR: u32 = 18u32;
-pub const MMSYSERR_ERROR: u32 = 1u32;
-pub const MMSYSERR_HANDLEBUSY: u32 = 12u32;
-pub const MMSYSERR_INVALFLAG: u32 = 10u32;
-pub const MMSYSERR_INVALHANDLE: u32 = 5u32;
-pub const MMSYSERR_INVALIDALIAS: u32 = 13u32;
-pub const MMSYSERR_INVALPARAM: u32 = 11u32;
-pub const MMSYSERR_KEYNOTFOUND: u32 = 15u32;
-pub const MMSYSERR_LASTERROR: u32 = 21u32;
-pub const MMSYSERR_MOREDATA: u32 = 21u32;
-pub const MMSYSERR_NODRIVER: u32 = 6u32;
-pub const MMSYSERR_NODRIVERCB: u32 = 20u32;
-pub const MMSYSERR_NOERROR: u32 = 0u32;
-pub const MMSYSERR_NOMEM: u32 = 7u32;
-pub const MMSYSERR_NOTENABLED: u32 = 3u32;
-pub const MMSYSERR_NOTSUPPORTED: u32 = 8u32;
-pub const MMSYSERR_READERROR: u32 = 16u32;
-pub const MMSYSERR_VALNOTFOUND: u32 = 19u32;
-pub const MMSYSERR_WRITEERROR: u32 = 17u32;
-pub const MM_ADLIB: u32 = 9u32;
-pub const MM_DRVM_CLOSE: u32 = 977u32;
-pub const MM_DRVM_DATA: u32 = 978u32;
-pub const MM_DRVM_ERROR: u32 = 979u32;
-pub const MM_DRVM_OPEN: u32 = 976u32;
-pub const MM_JOY1BUTTONDOWN: u32 = 949u32;
-pub const MM_JOY1BUTTONUP: u32 = 951u32;
-pub const MM_JOY1MOVE: u32 = 928u32;
-pub const MM_JOY1ZMOVE: u32 = 930u32;
-pub const MM_JOY2BUTTONDOWN: u32 = 950u32;
-pub const MM_JOY2BUTTONUP: u32 = 952u32;
-pub const MM_JOY2MOVE: u32 = 929u32;
-pub const MM_JOY2ZMOVE: u32 = 931u32;
-pub const MM_MCINOTIFY: u32 = 953u32;
-pub const MM_MCISIGNAL: u32 = 971u32;
-pub const MM_MICROSOFT: u32 = 1u32;
-pub const MM_MIDI_MAPPER: u32 = 1u32;
-pub const MM_MIM_CLOSE: u32 = 962u32;
-pub const MM_MIM_DATA: u32 = 963u32;
-pub const MM_MIM_ERROR: u32 = 965u32;
-pub const MM_MIM_LONGDATA: u32 = 964u32;
-pub const MM_MIM_LONGERROR: u32 = 966u32;
-pub const MM_MIM_MOREDATA: u32 = 972u32;
-pub const MM_MIM_OPEN: u32 = 961u32;
-pub const MM_MIXM_CONTROL_CHANGE: u32 = 977u32;
-pub const MM_MIXM_LINE_CHANGE: u32 = 976u32;
-pub const MM_MOM_CLOSE: u32 = 968u32;
-pub const MM_MOM_DONE: u32 = 969u32;
-pub const MM_MOM_OPEN: u32 = 967u32;
-pub const MM_MOM_POSITIONCB: u32 = 970u32;
-pub const MM_MPU401_MIDIIN: u32 = 11u32;
-pub const MM_MPU401_MIDIOUT: u32 = 10u32;
-pub const MM_PC_JOYSTICK: u32 = 12u32;
-pub const MM_SNDBLST_MIDIIN: u32 = 4u32;
-pub const MM_SNDBLST_MIDIOUT: u32 = 3u32;
-pub const MM_SNDBLST_SYNTH: u32 = 5u32;
-pub const MM_SNDBLST_WAVEIN: u32 = 7u32;
-pub const MM_SNDBLST_WAVEOUT: u32 = 6u32;
-pub const MM_STREAM_CLOSE: u32 = 981u32;
-pub const MM_STREAM_DONE: u32 = 982u32;
-pub const MM_STREAM_ERROR: u32 = 983u32;
-pub const MM_STREAM_OPEN: u32 = 980u32;
-pub const MM_WAVE_MAPPER: u32 = 2u32;
-pub const MM_WIM_CLOSE: u32 = 959u32;
-pub const MM_WIM_DATA: u32 = 960u32;
-pub const MM_WIM_OPEN: u32 = 958u32;
-pub const MM_WOM_CLOSE: u32 = 956u32;
-pub const MM_WOM_DONE: u32 = 957u32;
-pub const MM_WOM_OPEN: u32 = 955u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TIMECODE_SAMPLE_FLAGS(pub u32);
+impl TIMECODE_SAMPLE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for TIMECODE_SAMPLE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for TIMECODE_SAMPLE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for TIMECODE_SAMPLE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for TIMECODE_SAMPLE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for TIMECODE_SAMPLE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const TIMERR_BASE: u32 = 96u32;
 pub const TIMERR_NOCANDO: u32 = 97u32;
 pub const TIMERR_NOERROR: u32 = 0u32;

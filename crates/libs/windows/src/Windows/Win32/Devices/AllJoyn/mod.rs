@@ -4544,579 +4544,6 @@ pub unsafe fn alljoyn_unity_set_deferred_callback_mainthread_only(mainthread_onl
     windows_targets::link!("msajapi.dll" "system" fn alljoyn_unity_set_deferred_callback_mainthread_only(mainthread_only : i32));
     alljoyn_unity_set_deferred_callback_mainthread_only(core::mem::transmute(mainthread_only))
 }
-pub type alljoyn_about_announced_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, busname: windows_core::PCSTR, version: u16, port: u16, objectdescriptionarg: alljoyn_msgarg, aboutdataarg: alljoyn_msgarg)>;
-pub type alljoyn_aboutdatalistener_getaboutdata_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, msgarg: alljoyn_msgarg, language: windows_core::PCSTR) -> QStatus>;
-pub type alljoyn_aboutdatalistener_getannouncedaboutdata_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, msgarg: alljoyn_msgarg) -> QStatus>;
-pub type alljoyn_applicationstatelistener_state_ptr = Option<unsafe extern "system" fn(busname: *mut i8, publickey: *mut i8, applicationstate: alljoyn_applicationstate, context: *mut core::ffi::c_void)>;
-pub type alljoyn_authlistener_authenticationcomplete_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, authmechanism: windows_core::PCSTR, peername: windows_core::PCSTR, success: i32)>;
-pub type alljoyn_authlistener_requestcredentials_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, authmechanism: windows_core::PCSTR, peername: windows_core::PCSTR, authcount: u16, username: windows_core::PCSTR, credmask: u16, credentials: alljoyn_credentials) -> i32>;
-pub type alljoyn_authlistener_requestcredentialsasync_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, listener: alljoyn_authlistener, authmechanism: windows_core::PCSTR, peername: windows_core::PCSTR, authcount: u16, username: windows_core::PCSTR, credmask: u16, authcontext: *mut core::ffi::c_void) -> QStatus>;
-pub type alljoyn_authlistener_securityviolation_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, status: QStatus, msg: alljoyn_message)>;
-pub type alljoyn_authlistener_verifycredentials_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, authmechanism: windows_core::PCSTR, peername: windows_core::PCSTR, credentials: alljoyn_credentials) -> i32>;
-pub type alljoyn_authlistener_verifycredentialsasync_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, listener: alljoyn_authlistener, authmechanism: windows_core::PCSTR, peername: windows_core::PCSTR, credentials: alljoyn_credentials, authcontext: *mut core::ffi::c_void) -> QStatus>;
-pub type alljoyn_autopinger_destination_found_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, group: windows_core::PCSTR, destination: windows_core::PCSTR)>;
-pub type alljoyn_autopinger_destination_lost_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, group: windows_core::PCSTR, destination: windows_core::PCSTR)>;
-pub type alljoyn_busattachment_joinsessioncb_ptr = Option<unsafe extern "system" fn(status: QStatus, sessionid: u32, opts: alljoyn_sessionopts, context: *mut core::ffi::c_void)>;
-pub type alljoyn_busattachment_setlinktimeoutcb_ptr = Option<unsafe extern "system" fn(status: QStatus, timeout: u32, context: *mut core::ffi::c_void)>;
-pub type alljoyn_buslistener_bus_disconnected_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
-pub type alljoyn_buslistener_bus_prop_changed_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, prop_name: windows_core::PCSTR, prop_value: alljoyn_msgarg)>;
-pub type alljoyn_buslistener_bus_stopping_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
-pub type alljoyn_buslistener_found_advertised_name_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, name: windows_core::PCSTR, transport: u16, nameprefix: windows_core::PCSTR)>;
-pub type alljoyn_buslistener_listener_registered_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, bus: alljoyn_busattachment)>;
-pub type alljoyn_buslistener_listener_unregistered_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
-pub type alljoyn_buslistener_lost_advertised_name_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, name: windows_core::PCSTR, transport: u16, nameprefix: windows_core::PCSTR)>;
-pub type alljoyn_buslistener_name_owner_changed_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, busname: windows_core::PCSTR, previousowner: windows_core::PCSTR, newowner: windows_core::PCSTR)>;
-pub type alljoyn_busobject_object_registration_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
-pub type alljoyn_busobject_prop_get_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, ifcname: windows_core::PCSTR, propname: windows_core::PCSTR, val: alljoyn_msgarg) -> QStatus>;
-pub type alljoyn_busobject_prop_set_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, ifcname: windows_core::PCSTR, propname: windows_core::PCSTR, val: alljoyn_msgarg) -> QStatus>;
-pub type alljoyn_interfacedescription_translation_callback_ptr = Option<unsafe extern "system" fn(sourcelanguage: windows_core::PCSTR, targetlanguage: windows_core::PCSTR, sourcetext: windows_core::PCSTR) -> windows_core::PCSTR>;
-pub type alljoyn_keystorelistener_acquireexclusivelock_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, listener: alljoyn_keystorelistener) -> QStatus>;
-pub type alljoyn_keystorelistener_loadrequest_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, listener: alljoyn_keystorelistener, keystore: alljoyn_keystore) -> QStatus>;
-pub type alljoyn_keystorelistener_releaseexclusivelock_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, listener: alljoyn_keystorelistener)>;
-pub type alljoyn_keystorelistener_storerequest_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, listener: alljoyn_keystorelistener, keystore: alljoyn_keystore) -> QStatus>;
-pub type alljoyn_messagereceiver_methodhandler_ptr = Option<unsafe extern "system" fn(bus: alljoyn_busobject, member: *const alljoyn_interfacedescription_member, message: alljoyn_message)>;
-pub type alljoyn_messagereceiver_replyhandler_ptr = Option<unsafe extern "system" fn(message: alljoyn_message, context: *mut core::ffi::c_void)>;
-pub type alljoyn_messagereceiver_signalhandler_ptr = Option<unsafe extern "system" fn(member: *const alljoyn_interfacedescription_member, srcpath: windows_core::PCSTR, message: alljoyn_message)>;
-pub type alljoyn_observer_object_discovered_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, proxyref: alljoyn_proxybusobject_ref)>;
-pub type alljoyn_observer_object_lost_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, proxyref: alljoyn_proxybusobject_ref)>;
-pub type alljoyn_permissionconfigurationlistener_endmanagement_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
-pub type alljoyn_permissionconfigurationlistener_factoryreset_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> QStatus>;
-pub type alljoyn_permissionconfigurationlistener_policychanged_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
-pub type alljoyn_permissionconfigurationlistener_startmanagement_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
-pub type alljoyn_proxybusobject_listener_getallpropertiescb_ptr = Option<unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, values: alljoyn_msgarg, context: *mut core::ffi::c_void)>;
-pub type alljoyn_proxybusobject_listener_getpropertycb_ptr = Option<unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, value: alljoyn_msgarg, context: *mut core::ffi::c_void)>;
-pub type alljoyn_proxybusobject_listener_introspectcb_ptr = Option<unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, context: *mut core::ffi::c_void)>;
-pub type alljoyn_proxybusobject_listener_propertieschanged_ptr = Option<unsafe extern "system" fn(obj: alljoyn_proxybusobject, ifacename: windows_core::PCSTR, changed: alljoyn_msgarg, invalidated: alljoyn_msgarg, context: *mut core::ffi::c_void)>;
-pub type alljoyn_proxybusobject_listener_setpropertycb_ptr = Option<unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, context: *mut core::ffi::c_void)>;
-pub type alljoyn_sessionlistener_sessionlost_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, sessionid: u32, reason: alljoyn_sessionlostreason)>;
-pub type alljoyn_sessionlistener_sessionmemberadded_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, sessionid: u32, uniquename: windows_core::PCSTR)>;
-pub type alljoyn_sessionlistener_sessionmemberremoved_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, sessionid: u32, uniquename: windows_core::PCSTR)>;
-pub type alljoyn_sessionportlistener_acceptsessionjoiner_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, sessionport: u16, joiner: windows_core::PCSTR, opts: alljoyn_sessionopts) -> i32>;
-pub type alljoyn_sessionportlistener_sessionjoined_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, sessionport: u16, id: u32, joiner: windows_core::PCSTR)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct QStatus(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct alljoyn_about_announceflag(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct alljoyn_applicationstate(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct alljoyn_claimcapability_masks(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct alljoyn_claimcapabilityadditionalinfo_masks(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct alljoyn_interfacedescription_securitypolicy(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct alljoyn_messagetype(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct alljoyn_sessionlostreason(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct alljoyn_typeid(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_aboutdata(pub isize);
-impl windows_core::TypeKind for alljoyn_aboutdata {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_aboutdatalistener(pub isize);
-impl windows_core::TypeKind for alljoyn_aboutdatalistener {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct alljoyn_aboutdatalistener_callbacks {
-    pub about_datalistener_getaboutdata: alljoyn_aboutdatalistener_getaboutdata_ptr,
-    pub about_datalistener_getannouncedaboutdata: alljoyn_aboutdatalistener_getannouncedaboutdata_ptr,
-}
-impl Default for alljoyn_aboutdatalistener_callbacks {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for alljoyn_aboutdatalistener_callbacks {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_abouticon(pub isize);
-impl windows_core::TypeKind for alljoyn_abouticon {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_abouticonobj(pub isize);
-impl windows_core::TypeKind for alljoyn_abouticonobj {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_abouticonproxy(pub isize);
-impl windows_core::TypeKind for alljoyn_abouticonproxy {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_aboutlistener(pub isize);
-impl windows_core::TypeKind for alljoyn_aboutlistener {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct alljoyn_aboutlistener_callback {
-    pub about_listener_announced: alljoyn_about_announced_ptr,
-}
-impl Default for alljoyn_aboutlistener_callback {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for alljoyn_aboutlistener_callback {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_aboutobj(pub isize);
-impl windows_core::TypeKind for alljoyn_aboutobj {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_aboutobjectdescription(pub isize);
-impl windows_core::TypeKind for alljoyn_aboutobjectdescription {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_aboutproxy(pub isize);
-impl windows_core::TypeKind for alljoyn_aboutproxy {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_applicationstatelistener(pub isize);
-impl windows_core::TypeKind for alljoyn_applicationstatelistener {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct alljoyn_applicationstatelistener_callbacks {
-    pub state: alljoyn_applicationstatelistener_state_ptr,
-}
-impl Default for alljoyn_applicationstatelistener_callbacks {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for alljoyn_applicationstatelistener_callbacks {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_authlistener(pub isize);
-impl windows_core::TypeKind for alljoyn_authlistener {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct alljoyn_authlistener_callbacks {
-    pub request_credentials: alljoyn_authlistener_requestcredentials_ptr,
-    pub verify_credentials: alljoyn_authlistener_verifycredentials_ptr,
-    pub security_violation: alljoyn_authlistener_securityviolation_ptr,
-    pub authentication_complete: alljoyn_authlistener_authenticationcomplete_ptr,
-}
-impl Default for alljoyn_authlistener_callbacks {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for alljoyn_authlistener_callbacks {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct alljoyn_authlistenerasync_callbacks {
-    pub request_credentials: alljoyn_authlistener_requestcredentialsasync_ptr,
-    pub verify_credentials: alljoyn_authlistener_verifycredentialsasync_ptr,
-    pub security_violation: alljoyn_authlistener_securityviolation_ptr,
-    pub authentication_complete: alljoyn_authlistener_authenticationcomplete_ptr,
-}
-impl Default for alljoyn_authlistenerasync_callbacks {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for alljoyn_authlistenerasync_callbacks {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_autopinger(pub isize);
-impl windows_core::TypeKind for alljoyn_autopinger {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_busattachment(pub isize);
-impl windows_core::TypeKind for alljoyn_busattachment {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_buslistener(pub isize);
-impl windows_core::TypeKind for alljoyn_buslistener {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct alljoyn_buslistener_callbacks {
-    pub listener_registered: alljoyn_buslistener_listener_registered_ptr,
-    pub listener_unregistered: alljoyn_buslistener_listener_unregistered_ptr,
-    pub found_advertised_name: alljoyn_buslistener_found_advertised_name_ptr,
-    pub lost_advertised_name: alljoyn_buslistener_lost_advertised_name_ptr,
-    pub name_owner_changed: alljoyn_buslistener_name_owner_changed_ptr,
-    pub bus_stopping: alljoyn_buslistener_bus_stopping_ptr,
-    pub bus_disconnected: alljoyn_buslistener_bus_disconnected_ptr,
-    pub property_changed: alljoyn_buslistener_bus_prop_changed_ptr,
-}
-impl Default for alljoyn_buslistener_callbacks {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for alljoyn_buslistener_callbacks {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_busobject(pub isize);
-impl windows_core::TypeKind for alljoyn_busobject {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct alljoyn_busobject_callbacks {
-    pub property_get: alljoyn_busobject_prop_get_ptr,
-    pub property_set: alljoyn_busobject_prop_set_ptr,
-    pub object_registered: alljoyn_busobject_object_registration_ptr,
-    pub object_unregistered: alljoyn_busobject_object_registration_ptr,
-}
-impl Default for alljoyn_busobject_callbacks {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for alljoyn_busobject_callbacks {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct alljoyn_busobject_methodentry {
-    pub member: *const alljoyn_interfacedescription_member,
-    pub method_handler: alljoyn_messagereceiver_methodhandler_ptr,
-}
-impl Default for alljoyn_busobject_methodentry {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for alljoyn_busobject_methodentry {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct alljoyn_certificateid {
-    pub serial: *mut u8,
-    pub serialLen: usize,
-    pub issuerPublicKey: *mut i8,
-    pub issuerAki: *mut u8,
-    pub issuerAkiLen: usize,
-}
-impl Default for alljoyn_certificateid {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for alljoyn_certificateid {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct alljoyn_certificateidarray {
-    pub count: usize,
-    pub ids: *mut alljoyn_certificateid,
-}
-impl Default for alljoyn_certificateidarray {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for alljoyn_certificateidarray {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_credentials(pub isize);
-impl windows_core::TypeKind for alljoyn_credentials {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_interfacedescription(pub isize);
-impl windows_core::TypeKind for alljoyn_interfacedescription {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct alljoyn_interfacedescription_member {
-    pub iface: alljoyn_interfacedescription,
-    pub memberType: alljoyn_messagetype,
-    pub name: windows_core::PCSTR,
-    pub signature: windows_core::PCSTR,
-    pub returnSignature: windows_core::PCSTR,
-    pub argNames: windows_core::PCSTR,
-    pub internal_member: *const core::ffi::c_void,
-}
-impl Default for alljoyn_interfacedescription_member {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for alljoyn_interfacedescription_member {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct alljoyn_interfacedescription_property {
-    pub name: windows_core::PCSTR,
-    pub signature: windows_core::PCSTR,
-    pub access: u8,
-    pub internal_property: *const core::ffi::c_void,
-}
-impl Default for alljoyn_interfacedescription_property {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for alljoyn_interfacedescription_property {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_keystore(pub isize);
-impl windows_core::TypeKind for alljoyn_keystore {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_keystorelistener(pub isize);
-impl windows_core::TypeKind for alljoyn_keystorelistener {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct alljoyn_keystorelistener_callbacks {
-    pub load_request: alljoyn_keystorelistener_loadrequest_ptr,
-    pub store_request: alljoyn_keystorelistener_storerequest_ptr,
-}
-impl Default for alljoyn_keystorelistener_callbacks {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for alljoyn_keystorelistener_callbacks {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct alljoyn_keystorelistener_with_synchronization_callbacks {
-    pub load_request: alljoyn_keystorelistener_loadrequest_ptr,
-    pub store_request: alljoyn_keystorelistener_storerequest_ptr,
-    pub acquire_exclusive_lock: alljoyn_keystorelistener_acquireexclusivelock_ptr,
-    pub release_exclusive_lock: alljoyn_keystorelistener_releaseexclusivelock_ptr,
-}
-impl Default for alljoyn_keystorelistener_with_synchronization_callbacks {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for alljoyn_keystorelistener_with_synchronization_callbacks {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct alljoyn_manifestarray {
-    pub count: usize,
-    pub xmls: *mut *mut i8,
-}
-impl Default for alljoyn_manifestarray {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for alljoyn_manifestarray {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_message(pub isize);
-impl windows_core::TypeKind for alljoyn_message {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_msgarg(pub isize);
-impl windows_core::TypeKind for alljoyn_msgarg {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_observer(pub isize);
-impl windows_core::TypeKind for alljoyn_observer {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_observerlistener(pub isize);
-impl windows_core::TypeKind for alljoyn_observerlistener {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct alljoyn_observerlistener_callback {
-    pub object_discovered: alljoyn_observer_object_discovered_ptr,
-    pub object_lost: alljoyn_observer_object_lost_ptr,
-}
-impl Default for alljoyn_observerlistener_callback {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for alljoyn_observerlistener_callback {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_permissionconfigurationlistener(pub isize);
-impl windows_core::TypeKind for alljoyn_permissionconfigurationlistener {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct alljoyn_permissionconfigurationlistener_callbacks {
-    pub factory_reset: alljoyn_permissionconfigurationlistener_factoryreset_ptr,
-    pub policy_changed: alljoyn_permissionconfigurationlistener_policychanged_ptr,
-    pub start_management: alljoyn_permissionconfigurationlistener_startmanagement_ptr,
-    pub end_management: alljoyn_permissionconfigurationlistener_endmanagement_ptr,
-}
-impl Default for alljoyn_permissionconfigurationlistener_callbacks {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for alljoyn_permissionconfigurationlistener_callbacks {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_permissionconfigurator(pub isize);
-impl windows_core::TypeKind for alljoyn_permissionconfigurator {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_pinglistener(pub isize);
-impl windows_core::TypeKind for alljoyn_pinglistener {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct alljoyn_pinglistener_callback {
-    pub destination_found: alljoyn_autopinger_destination_found_ptr,
-    pub destination_lost: alljoyn_autopinger_destination_lost_ptr,
-}
-impl Default for alljoyn_pinglistener_callback {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for alljoyn_pinglistener_callback {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_proxybusobject(pub isize);
-impl windows_core::TypeKind for alljoyn_proxybusobject {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_proxybusobject_ref(pub isize);
-impl windows_core::TypeKind for alljoyn_proxybusobject_ref {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_securityapplicationproxy(pub isize);
-impl windows_core::TypeKind for alljoyn_securityapplicationproxy {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_sessionlistener(pub isize);
-impl windows_core::TypeKind for alljoyn_sessionlistener {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct alljoyn_sessionlistener_callbacks {
-    pub session_lost: alljoyn_sessionlistener_sessionlost_ptr,
-    pub session_member_added: alljoyn_sessionlistener_sessionmemberadded_ptr,
-    pub session_member_removed: alljoyn_sessionlistener_sessionmemberremoved_ptr,
-}
-impl Default for alljoyn_sessionlistener_callbacks {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for alljoyn_sessionlistener_callbacks {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_sessionopts(pub isize);
-impl windows_core::TypeKind for alljoyn_sessionopts {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct alljoyn_sessionportlistener(pub isize);
-impl windows_core::TypeKind for alljoyn_sessionportlistener {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct alljoyn_sessionportlistener_callbacks {
-    pub accept_session_joiner: alljoyn_sessionportlistener_acceptsessionjoiner_ptr,
-    pub session_joined: alljoyn_sessionportlistener_sessionjoined_ptr,
-}
-impl Default for alljoyn_sessionportlistener_callbacks {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for alljoyn_sessionportlistener_callbacks {
-    type TypeKind = windows_core::CopyType;
-}
 pub const AJ_IFC_SECURITY_INHERIT: alljoyn_interfacedescription_securitypolicy = alljoyn_interfacedescription_securitypolicy(0i32);
 pub const AJ_IFC_SECURITY_OFF: alljoyn_interfacedescription_securitypolicy = alljoyn_interfacedescription_securitypolicy(2i32);
 pub const AJ_IFC_SECURITY_REQUIRED: alljoyn_interfacedescription_securitypolicy = alljoyn_interfacedescription_securitypolicy(1i32);
@@ -5606,4 +5033,577 @@ pub const PASSWORD_GENERATED_BY_APPLICATION: alljoyn_claimcapabilityadditionalin
 pub const PASSWORD_GENERATED_BY_SECURITY_MANAGER: alljoyn_claimcapabilityadditionalinfo_masks = alljoyn_claimcapabilityadditionalinfo_masks(1i32);
 pub const QCC_FALSE: u32 = 0u32;
 pub const QCC_TRUE: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QStatus(pub i32);
 pub const UNANNOUNCED: alljoyn_about_announceflag = alljoyn_about_announceflag(0i32);
+pub type alljoyn_about_announced_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, busname: windows_core::PCSTR, version: u16, port: u16, objectdescriptionarg: alljoyn_msgarg, aboutdataarg: alljoyn_msgarg)>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct alljoyn_about_announceflag(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_aboutdata(pub isize);
+impl windows_core::TypeKind for alljoyn_aboutdata {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_aboutdatalistener(pub isize);
+impl windows_core::TypeKind for alljoyn_aboutdatalistener {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct alljoyn_aboutdatalistener_callbacks {
+    pub about_datalistener_getaboutdata: alljoyn_aboutdatalistener_getaboutdata_ptr,
+    pub about_datalistener_getannouncedaboutdata: alljoyn_aboutdatalistener_getannouncedaboutdata_ptr,
+}
+impl Default for alljoyn_aboutdatalistener_callbacks {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for alljoyn_aboutdatalistener_callbacks {
+    type TypeKind = windows_core::CopyType;
+}
+pub type alljoyn_aboutdatalistener_getaboutdata_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, msgarg: alljoyn_msgarg, language: windows_core::PCSTR) -> QStatus>;
+pub type alljoyn_aboutdatalistener_getannouncedaboutdata_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, msgarg: alljoyn_msgarg) -> QStatus>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_abouticon(pub isize);
+impl windows_core::TypeKind for alljoyn_abouticon {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_abouticonobj(pub isize);
+impl windows_core::TypeKind for alljoyn_abouticonobj {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_abouticonproxy(pub isize);
+impl windows_core::TypeKind for alljoyn_abouticonproxy {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_aboutlistener(pub isize);
+impl windows_core::TypeKind for alljoyn_aboutlistener {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct alljoyn_aboutlistener_callback {
+    pub about_listener_announced: alljoyn_about_announced_ptr,
+}
+impl Default for alljoyn_aboutlistener_callback {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for alljoyn_aboutlistener_callback {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_aboutobj(pub isize);
+impl windows_core::TypeKind for alljoyn_aboutobj {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_aboutobjectdescription(pub isize);
+impl windows_core::TypeKind for alljoyn_aboutobjectdescription {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_aboutproxy(pub isize);
+impl windows_core::TypeKind for alljoyn_aboutproxy {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct alljoyn_applicationstate(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_applicationstatelistener(pub isize);
+impl windows_core::TypeKind for alljoyn_applicationstatelistener {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct alljoyn_applicationstatelistener_callbacks {
+    pub state: alljoyn_applicationstatelistener_state_ptr,
+}
+impl Default for alljoyn_applicationstatelistener_callbacks {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for alljoyn_applicationstatelistener_callbacks {
+    type TypeKind = windows_core::CopyType;
+}
+pub type alljoyn_applicationstatelistener_state_ptr = Option<unsafe extern "system" fn(busname: *mut i8, publickey: *mut i8, applicationstate: alljoyn_applicationstate, context: *mut core::ffi::c_void)>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_authlistener(pub isize);
+impl windows_core::TypeKind for alljoyn_authlistener {
+    type TypeKind = windows_core::CopyType;
+}
+pub type alljoyn_authlistener_authenticationcomplete_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, authmechanism: windows_core::PCSTR, peername: windows_core::PCSTR, success: i32)>;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct alljoyn_authlistener_callbacks {
+    pub request_credentials: alljoyn_authlistener_requestcredentials_ptr,
+    pub verify_credentials: alljoyn_authlistener_verifycredentials_ptr,
+    pub security_violation: alljoyn_authlistener_securityviolation_ptr,
+    pub authentication_complete: alljoyn_authlistener_authenticationcomplete_ptr,
+}
+impl Default for alljoyn_authlistener_callbacks {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for alljoyn_authlistener_callbacks {
+    type TypeKind = windows_core::CopyType;
+}
+pub type alljoyn_authlistener_requestcredentials_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, authmechanism: windows_core::PCSTR, peername: windows_core::PCSTR, authcount: u16, username: windows_core::PCSTR, credmask: u16, credentials: alljoyn_credentials) -> i32>;
+pub type alljoyn_authlistener_requestcredentialsasync_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, listener: alljoyn_authlistener, authmechanism: windows_core::PCSTR, peername: windows_core::PCSTR, authcount: u16, username: windows_core::PCSTR, credmask: u16, authcontext: *mut core::ffi::c_void) -> QStatus>;
+pub type alljoyn_authlistener_securityviolation_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, status: QStatus, msg: alljoyn_message)>;
+pub type alljoyn_authlistener_verifycredentials_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, authmechanism: windows_core::PCSTR, peername: windows_core::PCSTR, credentials: alljoyn_credentials) -> i32>;
+pub type alljoyn_authlistener_verifycredentialsasync_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, listener: alljoyn_authlistener, authmechanism: windows_core::PCSTR, peername: windows_core::PCSTR, credentials: alljoyn_credentials, authcontext: *mut core::ffi::c_void) -> QStatus>;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct alljoyn_authlistenerasync_callbacks {
+    pub request_credentials: alljoyn_authlistener_requestcredentialsasync_ptr,
+    pub verify_credentials: alljoyn_authlistener_verifycredentialsasync_ptr,
+    pub security_violation: alljoyn_authlistener_securityviolation_ptr,
+    pub authentication_complete: alljoyn_authlistener_authenticationcomplete_ptr,
+}
+impl Default for alljoyn_authlistenerasync_callbacks {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for alljoyn_authlistenerasync_callbacks {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_autopinger(pub isize);
+impl windows_core::TypeKind for alljoyn_autopinger {
+    type TypeKind = windows_core::CopyType;
+}
+pub type alljoyn_autopinger_destination_found_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, group: windows_core::PCSTR, destination: windows_core::PCSTR)>;
+pub type alljoyn_autopinger_destination_lost_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, group: windows_core::PCSTR, destination: windows_core::PCSTR)>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_busattachment(pub isize);
+impl windows_core::TypeKind for alljoyn_busattachment {
+    type TypeKind = windows_core::CopyType;
+}
+pub type alljoyn_busattachment_joinsessioncb_ptr = Option<unsafe extern "system" fn(status: QStatus, sessionid: u32, opts: alljoyn_sessionopts, context: *mut core::ffi::c_void)>;
+pub type alljoyn_busattachment_setlinktimeoutcb_ptr = Option<unsafe extern "system" fn(status: QStatus, timeout: u32, context: *mut core::ffi::c_void)>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_buslistener(pub isize);
+impl windows_core::TypeKind for alljoyn_buslistener {
+    type TypeKind = windows_core::CopyType;
+}
+pub type alljoyn_buslistener_bus_disconnected_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
+pub type alljoyn_buslistener_bus_prop_changed_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, prop_name: windows_core::PCSTR, prop_value: alljoyn_msgarg)>;
+pub type alljoyn_buslistener_bus_stopping_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct alljoyn_buslistener_callbacks {
+    pub listener_registered: alljoyn_buslistener_listener_registered_ptr,
+    pub listener_unregistered: alljoyn_buslistener_listener_unregistered_ptr,
+    pub found_advertised_name: alljoyn_buslistener_found_advertised_name_ptr,
+    pub lost_advertised_name: alljoyn_buslistener_lost_advertised_name_ptr,
+    pub name_owner_changed: alljoyn_buslistener_name_owner_changed_ptr,
+    pub bus_stopping: alljoyn_buslistener_bus_stopping_ptr,
+    pub bus_disconnected: alljoyn_buslistener_bus_disconnected_ptr,
+    pub property_changed: alljoyn_buslistener_bus_prop_changed_ptr,
+}
+impl Default for alljoyn_buslistener_callbacks {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for alljoyn_buslistener_callbacks {
+    type TypeKind = windows_core::CopyType;
+}
+pub type alljoyn_buslistener_found_advertised_name_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, name: windows_core::PCSTR, transport: u16, nameprefix: windows_core::PCSTR)>;
+pub type alljoyn_buslistener_listener_registered_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, bus: alljoyn_busattachment)>;
+pub type alljoyn_buslistener_listener_unregistered_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
+pub type alljoyn_buslistener_lost_advertised_name_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, name: windows_core::PCSTR, transport: u16, nameprefix: windows_core::PCSTR)>;
+pub type alljoyn_buslistener_name_owner_changed_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, busname: windows_core::PCSTR, previousowner: windows_core::PCSTR, newowner: windows_core::PCSTR)>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_busobject(pub isize);
+impl windows_core::TypeKind for alljoyn_busobject {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct alljoyn_busobject_callbacks {
+    pub property_get: alljoyn_busobject_prop_get_ptr,
+    pub property_set: alljoyn_busobject_prop_set_ptr,
+    pub object_registered: alljoyn_busobject_object_registration_ptr,
+    pub object_unregistered: alljoyn_busobject_object_registration_ptr,
+}
+impl Default for alljoyn_busobject_callbacks {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for alljoyn_busobject_callbacks {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct alljoyn_busobject_methodentry {
+    pub member: *const alljoyn_interfacedescription_member,
+    pub method_handler: alljoyn_messagereceiver_methodhandler_ptr,
+}
+impl Default for alljoyn_busobject_methodentry {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for alljoyn_busobject_methodentry {
+    type TypeKind = windows_core::CopyType;
+}
+pub type alljoyn_busobject_object_registration_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
+pub type alljoyn_busobject_prop_get_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, ifcname: windows_core::PCSTR, propname: windows_core::PCSTR, val: alljoyn_msgarg) -> QStatus>;
+pub type alljoyn_busobject_prop_set_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, ifcname: windows_core::PCSTR, propname: windows_core::PCSTR, val: alljoyn_msgarg) -> QStatus>;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct alljoyn_certificateid {
+    pub serial: *mut u8,
+    pub serialLen: usize,
+    pub issuerPublicKey: *mut i8,
+    pub issuerAki: *mut u8,
+    pub issuerAkiLen: usize,
+}
+impl Default for alljoyn_certificateid {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for alljoyn_certificateid {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct alljoyn_certificateidarray {
+    pub count: usize,
+    pub ids: *mut alljoyn_certificateid,
+}
+impl Default for alljoyn_certificateidarray {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for alljoyn_certificateidarray {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct alljoyn_claimcapability_masks(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct alljoyn_claimcapabilityadditionalinfo_masks(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_credentials(pub isize);
+impl windows_core::TypeKind for alljoyn_credentials {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_interfacedescription(pub isize);
+impl windows_core::TypeKind for alljoyn_interfacedescription {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct alljoyn_interfacedescription_member {
+    pub iface: alljoyn_interfacedescription,
+    pub memberType: alljoyn_messagetype,
+    pub name: windows_core::PCSTR,
+    pub signature: windows_core::PCSTR,
+    pub returnSignature: windows_core::PCSTR,
+    pub argNames: windows_core::PCSTR,
+    pub internal_member: *const core::ffi::c_void,
+}
+impl Default for alljoyn_interfacedescription_member {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for alljoyn_interfacedescription_member {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct alljoyn_interfacedescription_property {
+    pub name: windows_core::PCSTR,
+    pub signature: windows_core::PCSTR,
+    pub access: u8,
+    pub internal_property: *const core::ffi::c_void,
+}
+impl Default for alljoyn_interfacedescription_property {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for alljoyn_interfacedescription_property {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct alljoyn_interfacedescription_securitypolicy(pub i32);
+pub type alljoyn_interfacedescription_translation_callback_ptr = Option<unsafe extern "system" fn(sourcelanguage: windows_core::PCSTR, targetlanguage: windows_core::PCSTR, sourcetext: windows_core::PCSTR) -> windows_core::PCSTR>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_keystore(pub isize);
+impl windows_core::TypeKind for alljoyn_keystore {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_keystorelistener(pub isize);
+impl windows_core::TypeKind for alljoyn_keystorelistener {
+    type TypeKind = windows_core::CopyType;
+}
+pub type alljoyn_keystorelistener_acquireexclusivelock_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, listener: alljoyn_keystorelistener) -> QStatus>;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct alljoyn_keystorelistener_callbacks {
+    pub load_request: alljoyn_keystorelistener_loadrequest_ptr,
+    pub store_request: alljoyn_keystorelistener_storerequest_ptr,
+}
+impl Default for alljoyn_keystorelistener_callbacks {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for alljoyn_keystorelistener_callbacks {
+    type TypeKind = windows_core::CopyType;
+}
+pub type alljoyn_keystorelistener_loadrequest_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, listener: alljoyn_keystorelistener, keystore: alljoyn_keystore) -> QStatus>;
+pub type alljoyn_keystorelistener_releaseexclusivelock_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, listener: alljoyn_keystorelistener)>;
+pub type alljoyn_keystorelistener_storerequest_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, listener: alljoyn_keystorelistener, keystore: alljoyn_keystore) -> QStatus>;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct alljoyn_keystorelistener_with_synchronization_callbacks {
+    pub load_request: alljoyn_keystorelistener_loadrequest_ptr,
+    pub store_request: alljoyn_keystorelistener_storerequest_ptr,
+    pub acquire_exclusive_lock: alljoyn_keystorelistener_acquireexclusivelock_ptr,
+    pub release_exclusive_lock: alljoyn_keystorelistener_releaseexclusivelock_ptr,
+}
+impl Default for alljoyn_keystorelistener_with_synchronization_callbacks {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for alljoyn_keystorelistener_with_synchronization_callbacks {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct alljoyn_manifestarray {
+    pub count: usize,
+    pub xmls: *mut *mut i8,
+}
+impl Default for alljoyn_manifestarray {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for alljoyn_manifestarray {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_message(pub isize);
+impl windows_core::TypeKind for alljoyn_message {
+    type TypeKind = windows_core::CopyType;
+}
+pub type alljoyn_messagereceiver_methodhandler_ptr = Option<unsafe extern "system" fn(bus: alljoyn_busobject, member: *const alljoyn_interfacedescription_member, message: alljoyn_message)>;
+pub type alljoyn_messagereceiver_replyhandler_ptr = Option<unsafe extern "system" fn(message: alljoyn_message, context: *mut core::ffi::c_void)>;
+pub type alljoyn_messagereceiver_signalhandler_ptr = Option<unsafe extern "system" fn(member: *const alljoyn_interfacedescription_member, srcpath: windows_core::PCSTR, message: alljoyn_message)>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct alljoyn_messagetype(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_msgarg(pub isize);
+impl windows_core::TypeKind for alljoyn_msgarg {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_observer(pub isize);
+impl windows_core::TypeKind for alljoyn_observer {
+    type TypeKind = windows_core::CopyType;
+}
+pub type alljoyn_observer_object_discovered_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, proxyref: alljoyn_proxybusobject_ref)>;
+pub type alljoyn_observer_object_lost_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, proxyref: alljoyn_proxybusobject_ref)>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_observerlistener(pub isize);
+impl windows_core::TypeKind for alljoyn_observerlistener {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct alljoyn_observerlistener_callback {
+    pub object_discovered: alljoyn_observer_object_discovered_ptr,
+    pub object_lost: alljoyn_observer_object_lost_ptr,
+}
+impl Default for alljoyn_observerlistener_callback {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for alljoyn_observerlistener_callback {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_permissionconfigurationlistener(pub isize);
+impl windows_core::TypeKind for alljoyn_permissionconfigurationlistener {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct alljoyn_permissionconfigurationlistener_callbacks {
+    pub factory_reset: alljoyn_permissionconfigurationlistener_factoryreset_ptr,
+    pub policy_changed: alljoyn_permissionconfigurationlistener_policychanged_ptr,
+    pub start_management: alljoyn_permissionconfigurationlistener_startmanagement_ptr,
+    pub end_management: alljoyn_permissionconfigurationlistener_endmanagement_ptr,
+}
+impl Default for alljoyn_permissionconfigurationlistener_callbacks {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for alljoyn_permissionconfigurationlistener_callbacks {
+    type TypeKind = windows_core::CopyType;
+}
+pub type alljoyn_permissionconfigurationlistener_endmanagement_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
+pub type alljoyn_permissionconfigurationlistener_factoryreset_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> QStatus>;
+pub type alljoyn_permissionconfigurationlistener_policychanged_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
+pub type alljoyn_permissionconfigurationlistener_startmanagement_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_permissionconfigurator(pub isize);
+impl windows_core::TypeKind for alljoyn_permissionconfigurator {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_pinglistener(pub isize);
+impl windows_core::TypeKind for alljoyn_pinglistener {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct alljoyn_pinglistener_callback {
+    pub destination_found: alljoyn_autopinger_destination_found_ptr,
+    pub destination_lost: alljoyn_autopinger_destination_lost_ptr,
+}
+impl Default for alljoyn_pinglistener_callback {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for alljoyn_pinglistener_callback {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_proxybusobject(pub isize);
+impl windows_core::TypeKind for alljoyn_proxybusobject {
+    type TypeKind = windows_core::CopyType;
+}
+pub type alljoyn_proxybusobject_listener_getallpropertiescb_ptr = Option<unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, values: alljoyn_msgarg, context: *mut core::ffi::c_void)>;
+pub type alljoyn_proxybusobject_listener_getpropertycb_ptr = Option<unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, value: alljoyn_msgarg, context: *mut core::ffi::c_void)>;
+pub type alljoyn_proxybusobject_listener_introspectcb_ptr = Option<unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, context: *mut core::ffi::c_void)>;
+pub type alljoyn_proxybusobject_listener_propertieschanged_ptr = Option<unsafe extern "system" fn(obj: alljoyn_proxybusobject, ifacename: windows_core::PCSTR, changed: alljoyn_msgarg, invalidated: alljoyn_msgarg, context: *mut core::ffi::c_void)>;
+pub type alljoyn_proxybusobject_listener_setpropertycb_ptr = Option<unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, context: *mut core::ffi::c_void)>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_proxybusobject_ref(pub isize);
+impl windows_core::TypeKind for alljoyn_proxybusobject_ref {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_securityapplicationproxy(pub isize);
+impl windows_core::TypeKind for alljoyn_securityapplicationproxy {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_sessionlistener(pub isize);
+impl windows_core::TypeKind for alljoyn_sessionlistener {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct alljoyn_sessionlistener_callbacks {
+    pub session_lost: alljoyn_sessionlistener_sessionlost_ptr,
+    pub session_member_added: alljoyn_sessionlistener_sessionmemberadded_ptr,
+    pub session_member_removed: alljoyn_sessionlistener_sessionmemberremoved_ptr,
+}
+impl Default for alljoyn_sessionlistener_callbacks {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for alljoyn_sessionlistener_callbacks {
+    type TypeKind = windows_core::CopyType;
+}
+pub type alljoyn_sessionlistener_sessionlost_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, sessionid: u32, reason: alljoyn_sessionlostreason)>;
+pub type alljoyn_sessionlistener_sessionmemberadded_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, sessionid: u32, uniquename: windows_core::PCSTR)>;
+pub type alljoyn_sessionlistener_sessionmemberremoved_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, sessionid: u32, uniquename: windows_core::PCSTR)>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct alljoyn_sessionlostreason(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_sessionopts(pub isize);
+impl windows_core::TypeKind for alljoyn_sessionopts {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct alljoyn_sessionportlistener(pub isize);
+impl windows_core::TypeKind for alljoyn_sessionportlistener {
+    type TypeKind = windows_core::CopyType;
+}
+pub type alljoyn_sessionportlistener_acceptsessionjoiner_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, sessionport: u16, joiner: windows_core::PCSTR, opts: alljoyn_sessionopts) -> i32>;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct alljoyn_sessionportlistener_callbacks {
+    pub accept_session_joiner: alljoyn_sessionportlistener_acceptsessionjoiner_ptr,
+    pub session_joined: alljoyn_sessionportlistener_sessionjoined_ptr,
+}
+impl Default for alljoyn_sessionportlistener_callbacks {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for alljoyn_sessionportlistener_callbacks {
+    type TypeKind = windows_core::CopyType;
+}
+pub type alljoyn_sessionportlistener_sessionjoined_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, sessionport: u16, id: u32, joiner: windows_core::PCSTR)>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct alljoyn_typeid(pub i32);

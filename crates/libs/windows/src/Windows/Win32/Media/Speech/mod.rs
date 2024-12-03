@@ -1,3 +1,498 @@
+pub const AllWords: SPMATCHINGMODE = SPMATCHINGMODE(0i32);
+pub const DEFAULT_WEIGHT: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPIDSPRG(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPIDSPTSI(pub i32);
+pub const DISPIDSPTSI_ActiveLength: DISPIDSPTSI = DISPIDSPTSI(2i32);
+pub const DISPIDSPTSI_ActiveOffset: DISPIDSPTSI = DISPIDSPTSI(1i32);
+pub const DISPIDSPTSI_SelectionLength: DISPIDSPTSI = DISPIDSPTSI(4i32);
+pub const DISPIDSPTSI_SelectionOffset: DISPIDSPTSI = DISPIDSPTSI(3i32);
+pub const DISPID_SABIBufferSize: DISPID_SpeechAudioBufferInfo = DISPID_SpeechAudioBufferInfo(2i32);
+pub const DISPID_SABIEventBias: DISPID_SpeechAudioBufferInfo = DISPID_SpeechAudioBufferInfo(3i32);
+pub const DISPID_SABIMinNotification: DISPID_SpeechAudioBufferInfo = DISPID_SpeechAudioBufferInfo(1i32);
+pub const DISPID_SABufferInfo: DISPID_SpeechAudio = DISPID_SpeechAudio(201i32);
+pub const DISPID_SABufferNotifySize: DISPID_SpeechAudio = DISPID_SpeechAudio(204i32);
+pub const DISPID_SADefaultFormat: DISPID_SpeechAudio = DISPID_SpeechAudio(202i32);
+pub const DISPID_SAEventHandle: DISPID_SpeechAudio = DISPID_SpeechAudio(205i32);
+pub const DISPID_SAFGetWaveFormatEx: DISPID_SpeechAudioFormat = DISPID_SpeechAudioFormat(3i32);
+pub const DISPID_SAFGuid: DISPID_SpeechAudioFormat = DISPID_SpeechAudioFormat(2i32);
+pub const DISPID_SAFSetWaveFormatEx: DISPID_SpeechAudioFormat = DISPID_SpeechAudioFormat(4i32);
+pub const DISPID_SAFType: DISPID_SpeechAudioFormat = DISPID_SpeechAudioFormat(1i32);
+pub const DISPID_SASCurrentDevicePosition: DISPID_SpeechAudioStatus = DISPID_SpeechAudioStatus(5i32);
+pub const DISPID_SASCurrentSeekPosition: DISPID_SpeechAudioStatus = DISPID_SpeechAudioStatus(4i32);
+pub const DISPID_SASFreeBufferSpace: DISPID_SpeechAudioStatus = DISPID_SpeechAudioStatus(1i32);
+pub const DISPID_SASNonBlockingIO: DISPID_SpeechAudioStatus = DISPID_SpeechAudioStatus(2i32);
+pub const DISPID_SASState: DISPID_SpeechAudioStatus = DISPID_SpeechAudioStatus(3i32);
+pub const DISPID_SASetState: DISPID_SpeechAudio = DISPID_SpeechAudio(206i32);
+pub const DISPID_SAStatus: DISPID_SpeechAudio = DISPID_SpeechAudio(200i32);
+pub const DISPID_SAVolume: DISPID_SpeechAudio = DISPID_SpeechAudio(203i32);
+pub const DISPID_SBSFormat: DISPID_SpeechBaseStream = DISPID_SpeechBaseStream(1i32);
+pub const DISPID_SBSRead: DISPID_SpeechBaseStream = DISPID_SpeechBaseStream(2i32);
+pub const DISPID_SBSSeek: DISPID_SpeechBaseStream = DISPID_SpeechBaseStream(4i32);
+pub const DISPID_SBSWrite: DISPID_SpeechBaseStream = DISPID_SpeechBaseStream(3i32);
+pub const DISPID_SCSBaseStream: DISPID_SpeechCustomStream = DISPID_SpeechCustomStream(100i32);
+pub const DISPID_SDKCreateKey: DISPID_SpeechDataKey = DISPID_SpeechDataKey(8i32);
+pub const DISPID_SDKDeleteKey: DISPID_SpeechDataKey = DISPID_SpeechDataKey(9i32);
+pub const DISPID_SDKDeleteValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(10i32);
+pub const DISPID_SDKEnumKeys: DISPID_SpeechDataKey = DISPID_SpeechDataKey(11i32);
+pub const DISPID_SDKEnumValues: DISPID_SpeechDataKey = DISPID_SpeechDataKey(12i32);
+pub const DISPID_SDKGetBinaryValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(2i32);
+pub const DISPID_SDKGetStringValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(4i32);
+pub const DISPID_SDKGetlongValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(6i32);
+pub const DISPID_SDKOpenKey: DISPID_SpeechDataKey = DISPID_SpeechDataKey(7i32);
+pub const DISPID_SDKSetBinaryValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(1i32);
+pub const DISPID_SDKSetLongValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(5i32);
+pub const DISPID_SDKSetStringValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(3i32);
+pub const DISPID_SFSClose: DISPID_SpeechFileStream = DISPID_SpeechFileStream(101i32);
+pub const DISPID_SFSOpen: DISPID_SpeechFileStream = DISPID_SpeechFileStream(100i32);
+pub const DISPID_SGRAddResource: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(6i32);
+pub const DISPID_SGRAddState: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(7i32);
+pub const DISPID_SGRAttributes: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(1i32);
+pub const DISPID_SGRClear: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(5i32);
+pub const DISPID_SGRId: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(4i32);
+pub const DISPID_SGRInitialState: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(2i32);
+pub const DISPID_SGRName: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(3i32);
+pub const DISPID_SGRSAddRuleTransition: DISPID_SpeechGrammarRuleState = DISPID_SpeechGrammarRuleState(4i32);
+pub const DISPID_SGRSAddSpecialTransition: DISPID_SpeechGrammarRuleState = DISPID_SpeechGrammarRuleState(5i32);
+pub const DISPID_SGRSAddWordTransition: DISPID_SpeechGrammarRuleState = DISPID_SpeechGrammarRuleState(3i32);
+pub const DISPID_SGRSRule: DISPID_SpeechGrammarRuleState = DISPID_SpeechGrammarRuleState(1i32);
+pub const DISPID_SGRSTNextState: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(8i32);
+pub const DISPID_SGRSTPropertyId: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(6i32);
+pub const DISPID_SGRSTPropertyName: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(5i32);
+pub const DISPID_SGRSTPropertyValue: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(7i32);
+pub const DISPID_SGRSTRule: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(3i32);
+pub const DISPID_SGRSTText: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(2i32);
+pub const DISPID_SGRSTType: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(1i32);
+pub const DISPID_SGRSTWeight: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(4i32);
+pub const DISPID_SGRSTransitions: DISPID_SpeechGrammarRuleState = DISPID_SpeechGrammarRuleState(2i32);
+pub const DISPID_SGRSTsCount: DISPID_SpeechGrammarRuleStateTransitions = DISPID_SpeechGrammarRuleStateTransitions(1i32);
+pub const DISPID_SGRSTsItem: DISPID_SpeechGrammarRuleStateTransitions = DISPID_SpeechGrammarRuleStateTransitions(0i32);
+pub const DISPID_SGRSTs_NewEnum: DISPID_SpeechGrammarRuleStateTransitions = DISPID_SpeechGrammarRuleStateTransitions(-4i32);
+pub const DISPID_SGRsAdd: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(3i32);
+pub const DISPID_SGRsCommit: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(4i32);
+pub const DISPID_SGRsCommitAndSave: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(5i32);
+pub const DISPID_SGRsCount: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(1i32);
+pub const DISPID_SGRsDynamic: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(2i32);
+pub const DISPID_SGRsFindRule: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(6i32);
+pub const DISPID_SGRsItem: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(0i32);
+pub const DISPID_SGRs_NewEnum: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(-4i32);
+pub const DISPID_SLAddPronunciation: DISPID_SpeechLexicon = DISPID_SpeechLexicon(3i32);
+pub const DISPID_SLAddPronunciationByPhoneIds: DISPID_SpeechLexicon = DISPID_SpeechLexicon(4i32);
+pub const DISPID_SLGenerationId: DISPID_SpeechLexicon = DISPID_SpeechLexicon(1i32);
+pub const DISPID_SLGetGenerationChange: DISPID_SpeechLexicon = DISPID_SpeechLexicon(8i32);
+pub const DISPID_SLGetPronunciations: DISPID_SpeechLexicon = DISPID_SpeechLexicon(7i32);
+pub const DISPID_SLGetWords: DISPID_SpeechLexicon = DISPID_SpeechLexicon(2i32);
+pub const DISPID_SLPLangId: DISPID_SpeechLexiconPronunciation = DISPID_SpeechLexiconPronunciation(2i32);
+pub const DISPID_SLPPartOfSpeech: DISPID_SpeechLexiconPronunciation = DISPID_SpeechLexiconPronunciation(3i32);
+pub const DISPID_SLPPhoneIds: DISPID_SpeechLexiconPronunciation = DISPID_SpeechLexiconPronunciation(4i32);
+pub const DISPID_SLPSymbolic: DISPID_SpeechLexiconPronunciation = DISPID_SpeechLexiconPronunciation(5i32);
+pub const DISPID_SLPType: DISPID_SpeechLexiconPronunciation = DISPID_SpeechLexiconPronunciation(1i32);
+pub const DISPID_SLPsCount: DISPID_SpeechLexiconProns = DISPID_SpeechLexiconProns(1i32);
+pub const DISPID_SLPsItem: DISPID_SpeechLexiconProns = DISPID_SpeechLexiconProns(0i32);
+pub const DISPID_SLPs_NewEnum: DISPID_SpeechLexiconProns = DISPID_SpeechLexiconProns(-4i32);
+pub const DISPID_SLRemovePronunciation: DISPID_SpeechLexicon = DISPID_SpeechLexicon(5i32);
+pub const DISPID_SLRemovePronunciationByPhoneIds: DISPID_SpeechLexicon = DISPID_SpeechLexicon(6i32);
+pub const DISPID_SLWLangId: DISPID_SpeechLexiconWord = DISPID_SpeechLexiconWord(1i32);
+pub const DISPID_SLWPronunciations: DISPID_SpeechLexiconWord = DISPID_SpeechLexiconWord(4i32);
+pub const DISPID_SLWType: DISPID_SpeechLexiconWord = DISPID_SpeechLexiconWord(2i32);
+pub const DISPID_SLWWord: DISPID_SpeechLexiconWord = DISPID_SpeechLexiconWord(3i32);
+pub const DISPID_SLWsCount: DISPID_SpeechLexiconWords = DISPID_SpeechLexiconWords(1i32);
+pub const DISPID_SLWsItem: DISPID_SpeechLexiconWords = DISPID_SpeechLexiconWords(0i32);
+pub const DISPID_SLWs_NewEnum: DISPID_SpeechLexiconWords = DISPID_SpeechLexiconWords(-4i32);
+pub const DISPID_SMSADeviceId: DISPID_SpeechMMSysAudio = DISPID_SpeechMMSysAudio(300i32);
+pub const DISPID_SMSALineId: DISPID_SpeechMMSysAudio = DISPID_SpeechMMSysAudio(301i32);
+pub const DISPID_SMSAMMHandle: DISPID_SpeechMMSysAudio = DISPID_SpeechMMSysAudio(302i32);
+pub const DISPID_SMSGetData: DISPID_SpeechMemoryStream = DISPID_SpeechMemoryStream(101i32);
+pub const DISPID_SMSSetData: DISPID_SpeechMemoryStream = DISPID_SpeechMemoryStream(100i32);
+pub const DISPID_SOTCDefault: DISPID_SpeechObjectTokenCategory = DISPID_SpeechObjectTokenCategory(2i32);
+pub const DISPID_SOTCEnumerateTokens: DISPID_SpeechObjectTokenCategory = DISPID_SpeechObjectTokenCategory(5i32);
+pub const DISPID_SOTCGetDataKey: DISPID_SpeechObjectTokenCategory = DISPID_SpeechObjectTokenCategory(4i32);
+pub const DISPID_SOTCId: DISPID_SpeechObjectTokenCategory = DISPID_SpeechObjectTokenCategory(1i32);
+pub const DISPID_SOTCSetId: DISPID_SpeechObjectTokenCategory = DISPID_SpeechObjectTokenCategory(3i32);
+pub const DISPID_SOTCategory: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(3i32);
+pub const DISPID_SOTCreateInstance: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(7i32);
+pub const DISPID_SOTDataKey: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(2i32);
+pub const DISPID_SOTDisplayUI: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(12i32);
+pub const DISPID_SOTGetAttribute: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(6i32);
+pub const DISPID_SOTGetDescription: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(4i32);
+pub const DISPID_SOTGetStorageFileName: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(9i32);
+pub const DISPID_SOTId: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(1i32);
+pub const DISPID_SOTIsUISupported: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(11i32);
+pub const DISPID_SOTMatchesAttributes: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(13i32);
+pub const DISPID_SOTRemove: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(8i32);
+pub const DISPID_SOTRemoveStorageFileName: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(10i32);
+pub const DISPID_SOTSetId: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(5i32);
+pub const DISPID_SOTsCount: DISPID_SpeechObjectTokens = DISPID_SpeechObjectTokens(1i32);
+pub const DISPID_SOTsItem: DISPID_SpeechObjectTokens = DISPID_SpeechObjectTokens(0i32);
+pub const DISPID_SOTs_NewEnum: DISPID_SpeechObjectTokens = DISPID_SpeechObjectTokens(-4i32);
+pub const DISPID_SPACommit: DISPID_SpeechPhraseAlternate = DISPID_SpeechPhraseAlternate(5i32);
+pub const DISPID_SPANumberOfElementsInResult: DISPID_SpeechPhraseAlternate = DISPID_SpeechPhraseAlternate(3i32);
+pub const DISPID_SPAPhraseInfo: DISPID_SpeechPhraseAlternate = DISPID_SpeechPhraseAlternate(4i32);
+pub const DISPID_SPARecoResult: DISPID_SpeechPhraseAlternate = DISPID_SpeechPhraseAlternate(1i32);
+pub const DISPID_SPAStartElementInResult: DISPID_SpeechPhraseAlternate = DISPID_SpeechPhraseAlternate(2i32);
+pub const DISPID_SPAsCount: DISPID_SpeechPhraseAlternates = DISPID_SpeechPhraseAlternates(1i32);
+pub const DISPID_SPAsItem: DISPID_SpeechPhraseAlternates = DISPID_SpeechPhraseAlternates(0i32);
+pub const DISPID_SPAs_NewEnum: DISPID_SpeechPhraseAlternates = DISPID_SpeechPhraseAlternates(-4i32);
+pub const DISPID_SPCIdToPhone: DISPID_SpeechPhoneConverter = DISPID_SpeechPhoneConverter(3i32);
+pub const DISPID_SPCLangId: DISPID_SpeechPhoneConverter = DISPID_SpeechPhoneConverter(1i32);
+pub const DISPID_SPCPhoneToId: DISPID_SpeechPhoneConverter = DISPID_SpeechPhoneConverter(2i32);
+pub const DISPID_SPEActualConfidence: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(12i32);
+pub const DISPID_SPEAudioSizeBytes: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(4i32);
+pub const DISPID_SPEAudioSizeTime: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(2i32);
+pub const DISPID_SPEAudioStreamOffset: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(3i32);
+pub const DISPID_SPEAudioTimeOffset: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(1i32);
+pub const DISPID_SPEDisplayAttributes: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(10i32);
+pub const DISPID_SPEDisplayText: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(7i32);
+pub const DISPID_SPEEngineConfidence: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(13i32);
+pub const DISPID_SPELexicalForm: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(8i32);
+pub const DISPID_SPEPronunciation: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(9i32);
+pub const DISPID_SPERequiredConfidence: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(11i32);
+pub const DISPID_SPERetainedSizeBytes: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(6i32);
+pub const DISPID_SPERetainedStreamOffset: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(5i32);
+pub const DISPID_SPEsCount: DISPID_SpeechPhraseElements = DISPID_SpeechPhraseElements(1i32);
+pub const DISPID_SPEsItem: DISPID_SpeechPhraseElements = DISPID_SpeechPhraseElements(0i32);
+pub const DISPID_SPEs_NewEnum: DISPID_SpeechPhraseElements = DISPID_SpeechPhraseElements(-4i32);
+pub const DISPID_SPIAudioSizeBytes: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(5i32);
+pub const DISPID_SPIAudioSizeTime: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(7i32);
+pub const DISPID_SPIAudioStreamPosition: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(4i32);
+pub const DISPID_SPIElements: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(10i32);
+pub const DISPID_SPIEngineId: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(12i32);
+pub const DISPID_SPIEnginePrivateData: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(13i32);
+pub const DISPID_SPIGetDisplayAttributes: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(16i32);
+pub const DISPID_SPIGetText: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(15i32);
+pub const DISPID_SPIGrammarId: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(2i32);
+pub const DISPID_SPILanguageId: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(1i32);
+pub const DISPID_SPIProperties: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(9i32);
+pub const DISPID_SPIReplacements: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(11i32);
+pub const DISPID_SPIRetainedSizeBytes: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(6i32);
+pub const DISPID_SPIRule: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(8i32);
+pub const DISPID_SPISaveToMemory: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(14i32);
+pub const DISPID_SPIStartTime: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(3i32);
+pub const DISPID_SPPBRestorePhraseFromMemory: DISPID_SpeechPhraseBuilder = DISPID_SpeechPhraseBuilder(1i32);
+pub const DISPID_SPPChildren: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(9i32);
+pub const DISPID_SPPConfidence: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(7i32);
+pub const DISPID_SPPEngineConfidence: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(6i32);
+pub const DISPID_SPPFirstElement: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(4i32);
+pub const DISPID_SPPId: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(2i32);
+pub const DISPID_SPPName: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(1i32);
+pub const DISPID_SPPNumberOfElements: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(5i32);
+pub const DISPID_SPPParent: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(8i32);
+pub const DISPID_SPPValue: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(3i32);
+pub const DISPID_SPPsCount: DISPID_SpeechPhraseProperties = DISPID_SpeechPhraseProperties(1i32);
+pub const DISPID_SPPsItem: DISPID_SpeechPhraseProperties = DISPID_SpeechPhraseProperties(0i32);
+pub const DISPID_SPPs_NewEnum: DISPID_SpeechPhraseProperties = DISPID_SpeechPhraseProperties(-4i32);
+pub const DISPID_SPRDisplayAttributes: DISPID_SpeechPhraseReplacement = DISPID_SpeechPhraseReplacement(1i32);
+pub const DISPID_SPRFirstElement: DISPID_SpeechPhraseReplacement = DISPID_SpeechPhraseReplacement(3i32);
+pub const DISPID_SPRNumberOfElements: DISPID_SpeechPhraseReplacement = DISPID_SpeechPhraseReplacement(4i32);
+pub const DISPID_SPRText: DISPID_SpeechPhraseReplacement = DISPID_SpeechPhraseReplacement(2i32);
+pub const DISPID_SPRsCount: DISPID_SpeechPhraseReplacements = DISPID_SpeechPhraseReplacements(1i32);
+pub const DISPID_SPRsItem: DISPID_SpeechPhraseReplacements = DISPID_SpeechPhraseReplacements(0i32);
+pub const DISPID_SPRs_NewEnum: DISPID_SpeechPhraseReplacements = DISPID_SpeechPhraseReplacements(-4i32);
+pub const DISPID_SPRuleChildren: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(6i32);
+pub const DISPID_SPRuleConfidence: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(7i32);
+pub const DISPID_SPRuleEngineConfidence: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(8i32);
+pub const DISPID_SPRuleFirstElement: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(3i32);
+pub const DISPID_SPRuleId: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(2i32);
+pub const DISPID_SPRuleName: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(1i32);
+pub const DISPID_SPRuleNumberOfElements: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(4i32);
+pub const DISPID_SPRuleParent: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(5i32);
+pub const DISPID_SPRulesCount: DISPID_SpeechPhraseRules = DISPID_SpeechPhraseRules(1i32);
+pub const DISPID_SPRulesItem: DISPID_SpeechPhraseRules = DISPID_SpeechPhraseRules(0i32);
+pub const DISPID_SPRules_NewEnum: DISPID_SpeechPhraseRules = DISPID_SpeechPhraseRules(-4i32);
+pub const DISPID_SRAllowAudioInputFormatChangesOnNextSet: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(2i32);
+pub const DISPID_SRAllowVoiceFormatMatchingOnNextSet: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(5i32);
+pub const DISPID_SRAudioInput: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(3i32);
+pub const DISPID_SRAudioInputStream: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(4i32);
+pub const DISPID_SRCAudioInInterferenceStatus: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(2i32);
+pub const DISPID_SRCBookmark: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(16i32);
+pub const DISPID_SRCCmdMaxAlternates: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(8i32);
+pub const DISPID_SRCCreateGrammar: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(14i32);
+pub const DISPID_SRCCreateResultFromMemory: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(15i32);
+pub const DISPID_SRCEAdaptation: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(15i32);
+pub const DISPID_SRCEAudioLevel: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(17i32);
+pub const DISPID_SRCEBookmark: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(3i32);
+pub const DISPID_SRCEEndStream: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(2i32);
+pub const DISPID_SRCEEnginePrivate: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(18i32);
+pub const DISPID_SRCEFalseRecognition: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(11i32);
+pub const DISPID_SRCEHypothesis: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(8i32);
+pub const DISPID_SRCEInterference: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(12i32);
+pub const DISPID_SRCEPhraseStart: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(6i32);
+pub const DISPID_SRCEPropertyNumberChange: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(9i32);
+pub const DISPID_SRCEPropertyStringChange: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(10i32);
+pub const DISPID_SRCERecognition: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(7i32);
+pub const DISPID_SRCERecognitionForOtherContext: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(16i32);
+pub const DISPID_SRCERecognizerStateChange: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(14i32);
+pub const DISPID_SRCERequestUI: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(13i32);
+pub const DISPID_SRCESoundEnd: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(5i32);
+pub const DISPID_SRCESoundStart: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(4i32);
+pub const DISPID_SRCEStartStream: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(1i32);
+pub const DISPID_SRCEventInterests: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(7i32);
+pub const DISPID_SRCPause: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(12i32);
+pub const DISPID_SRCRecognizer: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(1i32);
+pub const DISPID_SRCRequestedUIType: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(3i32);
+pub const DISPID_SRCResume: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(13i32);
+pub const DISPID_SRCRetainedAudio: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(10i32);
+pub const DISPID_SRCRetainedAudioFormat: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(11i32);
+pub const DISPID_SRCSetAdaptationData: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(17i32);
+pub const DISPID_SRCState: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(9i32);
+pub const DISPID_SRCVoice: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(4i32);
+pub const DISPID_SRCVoicePurgeEvent: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(6i32);
+pub const DISPID_SRCreateRecoContext: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(10i32);
+pub const DISPID_SRDisplayUI: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(17i32);
+pub const DISPID_SREmulateRecognition: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(9i32);
+pub const DISPID_SRGCmdLoadFromFile: DISPIDSPRG = DISPIDSPRG(7i32);
+pub const DISPID_SRGCmdLoadFromMemory: DISPIDSPRG = DISPIDSPRG(10i32);
+pub const DISPID_SRGCmdLoadFromObject: DISPIDSPRG = DISPIDSPRG(8i32);
+pub const DISPID_SRGCmdLoadFromProprietaryGrammar: DISPIDSPRG = DISPIDSPRG(11i32);
+pub const DISPID_SRGCmdLoadFromResource: DISPIDSPRG = DISPIDSPRG(9i32);
+pub const DISPID_SRGCmdSetRuleIdState: DISPIDSPRG = DISPIDSPRG(13i32);
+pub const DISPID_SRGCmdSetRuleState: DISPIDSPRG = DISPIDSPRG(12i32);
+pub const DISPID_SRGCommit: DISPIDSPRG = DISPIDSPRG(6i32);
+pub const DISPID_SRGDictationLoad: DISPIDSPRG = DISPIDSPRG(14i32);
+pub const DISPID_SRGDictationSetState: DISPIDSPRG = DISPIDSPRG(16i32);
+pub const DISPID_SRGDictationUnload: DISPIDSPRG = DISPIDSPRG(15i32);
+pub const DISPID_SRGId: DISPIDSPRG = DISPIDSPRG(1i32);
+pub const DISPID_SRGIsPronounceable: DISPIDSPRG = DISPIDSPRG(19i32);
+pub const DISPID_SRGRecoContext: DISPIDSPRG = DISPIDSPRG(2i32);
+pub const DISPID_SRGReset: DISPIDSPRG = DISPIDSPRG(5i32);
+pub const DISPID_SRGRules: DISPIDSPRG = DISPIDSPRG(4i32);
+pub const DISPID_SRGSetTextSelection: DISPIDSPRG = DISPIDSPRG(18i32);
+pub const DISPID_SRGSetWordSequenceData: DISPIDSPRG = DISPIDSPRG(17i32);
+pub const DISPID_SRGState: DISPIDSPRG = DISPIDSPRG(3i32);
+pub const DISPID_SRGetFormat: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(11i32);
+pub const DISPID_SRGetPropertyNumber: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(13i32);
+pub const DISPID_SRGetPropertyString: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(15i32);
+pub const DISPID_SRGetRecognizers: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(18i32);
+pub const DISPID_SRIsShared: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(5i32);
+pub const DISPID_SRIsUISupported: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(16i32);
+pub const DISPID_SRProfile: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(8i32);
+pub const DISPID_SRRAlternates: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(5i32);
+pub const DISPID_SRRAudio: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(6i32);
+pub const DISPID_SRRAudioFormat: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(3i32);
+pub const DISPID_SRRDiscardResultInfo: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(9i32);
+pub const DISPID_SRRGetXMLErrorInfo: DISPID_SpeechXMLRecoResult = DISPID_SpeechXMLRecoResult(11i32);
+pub const DISPID_SRRGetXMLResult: DISPID_SpeechXMLRecoResult = DISPID_SpeechXMLRecoResult(10i32);
+pub const DISPID_SRRPhraseInfo: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(4i32);
+pub const DISPID_SRRRecoContext: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(1i32);
+pub const DISPID_SRRSaveToMemory: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(8i32);
+pub const DISPID_SRRSetTextFeedback: DISPID_SpeechRecoResult2 = DISPID_SpeechRecoResult2(12i32);
+pub const DISPID_SRRSpeakAudio: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(7i32);
+pub const DISPID_SRRTLength: DISPID_SpeechRecoResultTimes = DISPID_SpeechRecoResultTimes(2i32);
+pub const DISPID_SRRTOffsetFromStart: DISPID_SpeechRecoResultTimes = DISPID_SpeechRecoResultTimes(4i32);
+pub const DISPID_SRRTStreamTime: DISPID_SpeechRecoResultTimes = DISPID_SpeechRecoResultTimes(1i32);
+pub const DISPID_SRRTTickCount: DISPID_SpeechRecoResultTimes = DISPID_SpeechRecoResultTimes(3i32);
+pub const DISPID_SRRTimes: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(2i32);
+pub const DISPID_SRRecognizer: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(1i32);
+pub const DISPID_SRSAudioStatus: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(1i32);
+pub const DISPID_SRSClsidEngine: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(5i32);
+pub const DISPID_SRSCurrentStreamNumber: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(3i32);
+pub const DISPID_SRSCurrentStreamPosition: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(2i32);
+pub const DISPID_SRSNumberOfActiveRules: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(4i32);
+pub const DISPID_SRSSupportedLanguages: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(6i32);
+pub const DISPID_SRSetPropertyNumber: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(12i32);
+pub const DISPID_SRSetPropertyString: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(14i32);
+pub const DISPID_SRState: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(6i32);
+pub const DISPID_SRStatus: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(7i32);
+pub const DISPID_SVAlertBoundary: DISPID_SpeechVoice = DISPID_SpeechVoice(10i32);
+pub const DISPID_SVAllowAudioOuputFormatChangesOnNextSet: DISPID_SpeechVoice = DISPID_SpeechVoice(7i32);
+pub const DISPID_SVAudioOutput: DISPID_SpeechVoice = DISPID_SpeechVoice(3i32);
+pub const DISPID_SVAudioOutputStream: DISPID_SpeechVoice = DISPID_SpeechVoice(4i32);
+pub const DISPID_SVDisplayUI: DISPID_SpeechVoice = DISPID_SpeechVoice(22i32);
+pub const DISPID_SVEAudioLevel: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(9i32);
+pub const DISPID_SVEBookmark: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(4i32);
+pub const DISPID_SVEEnginePrivate: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(10i32);
+pub const DISPID_SVEPhoneme: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(6i32);
+pub const DISPID_SVESentenceBoundary: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(7i32);
+pub const DISPID_SVEStreamEnd: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(2i32);
+pub const DISPID_SVEStreamStart: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(1i32);
+pub const DISPID_SVEViseme: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(8i32);
+pub const DISPID_SVEVoiceChange: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(3i32);
+pub const DISPID_SVEWord: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(5i32);
+pub const DISPID_SVEventInterests: DISPID_SpeechVoice = DISPID_SpeechVoice(8i32);
+pub const DISPID_SVGetAudioInputs: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(19i32);
+pub const DISPID_SVGetAudioOutputs: DISPID_SpeechVoice = DISPID_SpeechVoice(18i32);
+pub const DISPID_SVGetProfiles: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(20i32);
+pub const DISPID_SVGetVoices: DISPID_SpeechVoice = DISPID_SpeechVoice(17i32);
+pub const DISPID_SVIsUISupported: DISPID_SpeechVoice = DISPID_SpeechVoice(21i32);
+pub const DISPID_SVPause: DISPID_SpeechVoice = DISPID_SpeechVoice(14i32);
+pub const DISPID_SVPriority: DISPID_SpeechVoice = DISPID_SpeechVoice(9i32);
+pub const DISPID_SVRate: DISPID_SpeechVoice = DISPID_SpeechVoice(5i32);
+pub const DISPID_SVResume: DISPID_SpeechVoice = DISPID_SpeechVoice(15i32);
+pub const DISPID_SVSCurrentStreamNumber: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(1i32);
+pub const DISPID_SVSInputSentenceLength: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(8i32);
+pub const DISPID_SVSInputSentencePosition: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(7i32);
+pub const DISPID_SVSInputWordLength: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(6i32);
+pub const DISPID_SVSInputWordPosition: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(5i32);
+pub const DISPID_SVSLastBookmark: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(9i32);
+pub const DISPID_SVSLastBookmarkId: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(10i32);
+pub const DISPID_SVSLastResult: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(3i32);
+pub const DISPID_SVSLastStreamNumberQueued: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(2i32);
+pub const DISPID_SVSPhonemeId: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(11i32);
+pub const DISPID_SVSRunningState: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(4i32);
+pub const DISPID_SVSVisemeId: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(12i32);
+pub const DISPID_SVSkip: DISPID_SpeechVoice = DISPID_SpeechVoice(16i32);
+pub const DISPID_SVSpeak: DISPID_SpeechVoice = DISPID_SpeechVoice(12i32);
+pub const DISPID_SVSpeakCompleteEvent: DISPID_SpeechVoice = DISPID_SpeechVoice(20i32);
+pub const DISPID_SVSpeakStream: DISPID_SpeechVoice = DISPID_SpeechVoice(13i32);
+pub const DISPID_SVStatus: DISPID_SpeechVoice = DISPID_SpeechVoice(1i32);
+pub const DISPID_SVSyncronousSpeakTimeout: DISPID_SpeechVoice = DISPID_SpeechVoice(11i32);
+pub const DISPID_SVVoice: DISPID_SpeechVoice = DISPID_SpeechVoice(2i32);
+pub const DISPID_SVVolume: DISPID_SpeechVoice = DISPID_SpeechVoice(6i32);
+pub const DISPID_SVWaitUntilDone: DISPID_SpeechVoice = DISPID_SpeechVoice(19i32);
+pub const DISPID_SWFEAvgBytesPerSec: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(4i32);
+pub const DISPID_SWFEBitsPerSample: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(6i32);
+pub const DISPID_SWFEBlockAlign: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(5i32);
+pub const DISPID_SWFEChannels: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(2i32);
+pub const DISPID_SWFEExtraData: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(7i32);
+pub const DISPID_SWFEFormatTag: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(1i32);
+pub const DISPID_SWFESamplesPerSec: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechAudio(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechAudioBufferInfo(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechAudioFormat(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechAudioStatus(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechBaseStream(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechCustomStream(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechDataKey(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechFileStream(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechGrammarRule(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechGrammarRuleState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechGrammarRuleStateTransition(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechGrammarRuleStateTransitions(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechGrammarRules(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechLexicon(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechLexiconProns(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechLexiconPronunciation(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechLexiconWord(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechLexiconWords(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechMMSysAudio(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechMemoryStream(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechObjectToken(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechObjectTokenCategory(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechObjectTokens(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechPhoneConverter(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechPhraseAlternate(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechPhraseAlternates(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechPhraseBuilder(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechPhraseElement(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechPhraseElements(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechPhraseInfo(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechPhraseProperties(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechPhraseProperty(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechPhraseReplacement(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechPhraseReplacements(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechPhraseRule(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechPhraseRules(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechRecoContext(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechRecoContextEvents(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechRecoResult(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechRecoResult2(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechRecoResultTimes(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechRecognizer(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechRecognizerStatus(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechVoice(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechVoiceEvent(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechVoiceStatus(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechWaveFormatEx(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPID_SpeechXMLRecoResult(pub i32);
 windows_core::imp::define_interface!(IEnumSpObjectTokens, IEnumSpObjectTokens_Vtbl, 0x06b64f9e_7fda_11d2_b4f2_00c04f797396);
 windows_core::imp::interface_hierarchy!(IEnumSpObjectTokens, windows_core::IUnknown);
 impl IEnumSpObjectTokens {
@@ -14228,520 +14723,176 @@ impl ISpeechXMLRecoResult_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISpeechXMLRecoResult {}
-windows_core::imp::define_interface!(_ISpPrivateEngineCall, _ISpPrivateEngineCall_Vtbl, 0x8e7c791e_4467_11d3_9723_00c04f72db08);
-windows_core::imp::interface_hierarchy!(_ISpPrivateEngineCall, windows_core::IUnknown);
-impl _ISpPrivateEngineCall {
-    pub unsafe fn CallEngine(&self, pcallframe: *mut core::ffi::c_void, ulcallframesize: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CallEngine)(windows_core::Interface::as_raw(self), core::mem::transmute(pcallframe), core::mem::transmute(ulcallframesize)).ok()
-    }
-    pub unsafe fn CallEngineEx(&self, pinframe: *const core::ffi::c_void, ulinframesize: u32, ppcomemoutframe: *mut *mut core::ffi::c_void, puloutframesize: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CallEngineEx)(windows_core::Interface::as_raw(self), core::mem::transmute(pinframe), core::mem::transmute(ulinframesize), core::mem::transmute(ppcomemoutframe), core::mem::transmute(puloutframesize)).ok()
-    }
-}
-#[repr(C)]
-pub struct _ISpPrivateEngineCall_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub CallEngine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub CallEngineEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-}
-pub trait _ISpPrivateEngineCall_Impl: windows_core::IUnknownImpl {
-    fn CallEngine(&self, pcallframe: *mut core::ffi::c_void, ulcallframesize: u32) -> windows_core::Result<()>;
-    fn CallEngineEx(&self, pinframe: *const core::ffi::c_void, ulinframesize: u32, ppcomemoutframe: *mut *mut core::ffi::c_void, puloutframesize: *mut u32) -> windows_core::Result<()>;
-}
-impl _ISpPrivateEngineCall_Vtbl {
-    pub const fn new<Identity: _ISpPrivateEngineCall_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CallEngine<Identity: _ISpPrivateEngineCall_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallframe: *mut core::ffi::c_void, ulcallframesize: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            _ISpPrivateEngineCall_Impl::CallEngine(this, core::mem::transmute_copy(&pcallframe), core::mem::transmute_copy(&ulcallframesize)).into()
-        }
-        unsafe extern "system" fn CallEngineEx<Identity: _ISpPrivateEngineCall_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinframe: *const core::ffi::c_void, ulinframesize: u32, ppcomemoutframe: *mut *mut core::ffi::c_void, puloutframesize: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            _ISpPrivateEngineCall_Impl::CallEngineEx(this, core::mem::transmute_copy(&pinframe), core::mem::transmute_copy(&ulinframesize), core::mem::transmute_copy(&ppcomemoutframe), core::mem::transmute_copy(&puloutframesize)).into()
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            CallEngine: CallEngine::<Identity, OFFSET>,
-            CallEngineEx: CallEngineEx::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<_ISpPrivateEngineCall as windows_core::Interface>::IID
-    }
-}
-impl windows_core::RuntimeName for _ISpPrivateEngineCall {}
-#[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(_ISpeechRecoContextEvents, _ISpeechRecoContextEvents_Vtbl, 0x7b8fcb42_0e9d_4f00_a048_7b04d6179d3d);
-#[cfg(feature = "Win32_System_Com")]
-impl core::ops::Deref for _ISpeechRecoContextEvents {
-    type Target = super::super::System::Com::IDispatch;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-windows_core::imp::interface_hierarchy!(_ISpeechRecoContextEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-#[repr(C)]
-pub struct _ISpeechRecoContextEvents_Vtbl {
-    pub base__: super::super::System::Com::IDispatch_Vtbl,
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait _ISpeechRecoContextEvents_Impl: super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl _ISpeechRecoContextEvents_Vtbl {
-    pub const fn new<Identity: _ISpeechRecoContextEvents_Impl, const OFFSET: isize>() -> Self {
-        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<_ISpeechRecoContextEvents as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for _ISpeechRecoContextEvents {}
-#[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(_ISpeechVoiceEvents, _ISpeechVoiceEvents_Vtbl, 0xa372acd1_3bef_4bbd_8ffb_cb3e2b416af8);
-#[cfg(feature = "Win32_System_Com")]
-impl core::ops::Deref for _ISpeechVoiceEvents {
-    type Target = super::super::System::Com::IDispatch;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-windows_core::imp::interface_hierarchy!(_ISpeechVoiceEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-#[repr(C)]
-pub struct _ISpeechVoiceEvents_Vtbl {
-    pub base__: super::super::System::Com::IDispatch_Vtbl,
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait _ISpeechVoiceEvents_Impl: super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl _ISpeechVoiceEvents_Vtbl {
-    pub const fn new<Identity: _ISpeechVoiceEvents_Impl, const OFFSET: isize>() -> Self {
-        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<_ISpeechVoiceEvents as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for _ISpeechVoiceEvents {}
-pub type SPNOTIFYCALLBACK = Option<unsafe extern "system" fn(wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPIDSPRG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPIDSPTSI(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechAudio(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechAudioBufferInfo(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechAudioFormat(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechAudioStatus(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechBaseStream(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechCustomStream(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechDataKey(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechFileStream(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechGrammarRule(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechGrammarRuleState(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechGrammarRuleStateTransition(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechGrammarRuleStateTransitions(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechGrammarRules(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechLexicon(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechLexiconProns(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechLexiconPronunciation(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechLexiconWord(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechLexiconWords(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechMMSysAudio(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechMemoryStream(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechObjectToken(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechObjectTokenCategory(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechObjectTokens(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechPhoneConverter(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechPhraseAlternate(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechPhraseAlternates(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechPhraseBuilder(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechPhraseElement(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechPhraseElements(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechPhraseInfo(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechPhraseProperties(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechPhraseProperty(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechPhraseReplacement(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechPhraseReplacements(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechPhraseRule(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechPhraseRules(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechRecoContext(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechRecoContextEvents(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechRecoResult(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechRecoResult2(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechRecoResultTimes(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechRecognizer(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechRecognizerStatus(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechVoice(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechVoiceEvent(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechVoiceStatus(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechWaveFormatEx(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPID_SpeechXMLRecoResult(pub i32);
+pub const OrderedSubset: SPMATCHINGMODE = SPMATCHINGMODE(3i32);
+pub const OrderedSubsetContentRequired: SPMATCHINGMODE = SPMATCHINGMODE(7i32);
+pub const PA_Ipa: PHONETICALPHABET = PHONETICALPHABET(0i32);
+pub const PA_Sapi: PHONETICALPHABET = PHONETICALPHABET(2i32);
+pub const PA_Ups: PHONETICALPHABET = PHONETICALPHABET(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PHONETICALPHABET(pub i32);
+pub const SAFT11kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(10i32);
+pub const SAFT11kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(11i32);
+pub const SAFT11kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(8i32);
+pub const SAFT11kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(9i32);
+pub const SAFT12kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(14i32);
+pub const SAFT12kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(15i32);
+pub const SAFT12kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(12i32);
+pub const SAFT12kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(13i32);
+pub const SAFT16kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(18i32);
+pub const SAFT16kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(19i32);
+pub const SAFT16kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(16i32);
+pub const SAFT16kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(17i32);
+pub const SAFT22kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(22i32);
+pub const SAFT22kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(23i32);
+pub const SAFT22kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(20i32);
+pub const SAFT22kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(21i32);
+pub const SAFT24kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(26i32);
+pub const SAFT24kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(27i32);
+pub const SAFT24kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(24i32);
+pub const SAFT24kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(25i32);
+pub const SAFT32kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(30i32);
+pub const SAFT32kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(31i32);
+pub const SAFT32kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(28i32);
+pub const SAFT32kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(29i32);
+pub const SAFT44kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(34i32);
+pub const SAFT44kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(35i32);
+pub const SAFT44kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(32i32);
+pub const SAFT44kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(33i32);
+pub const SAFT48kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(38i32);
+pub const SAFT48kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(39i32);
+pub const SAFT48kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(36i32);
+pub const SAFT48kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(37i32);
+pub const SAFT8kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(6i32);
+pub const SAFT8kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(7i32);
+pub const SAFT8kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(4i32);
+pub const SAFT8kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(5i32);
+pub const SAFTADPCM_11kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(59i32);
+pub const SAFTADPCM_11kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(60i32);
+pub const SAFTADPCM_22kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(61i32);
+pub const SAFTADPCM_22kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(62i32);
+pub const SAFTADPCM_44kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(63i32);
+pub const SAFTADPCM_44kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(64i32);
+pub const SAFTADPCM_8kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(57i32);
+pub const SAFTADPCM_8kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(58i32);
+pub const SAFTCCITT_ALaw_11kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(43i32);
+pub const SAFTCCITT_ALaw_11kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(44i32);
+pub const SAFTCCITT_ALaw_22kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(45i32);
+pub const SAFTCCITT_ALaw_22kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(46i32);
+pub const SAFTCCITT_ALaw_44kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(47i32);
+pub const SAFTCCITT_ALaw_44kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(48i32);
+pub const SAFTCCITT_ALaw_8kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(41i32);
+pub const SAFTCCITT_ALaw_8kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(42i32);
+pub const SAFTCCITT_uLaw_11kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(51i32);
+pub const SAFTCCITT_uLaw_11kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(52i32);
+pub const SAFTCCITT_uLaw_22kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(53i32);
+pub const SAFTCCITT_uLaw_22kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(54i32);
+pub const SAFTCCITT_uLaw_44kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(55i32);
+pub const SAFTCCITT_uLaw_44kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(56i32);
+pub const SAFTCCITT_uLaw_8kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(49i32);
+pub const SAFTCCITT_uLaw_8kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(50i32);
+pub const SAFTDefault: SpeechAudioFormatType = SpeechAudioFormatType(-1i32);
+pub const SAFTExtendedAudioFormat: SpeechAudioFormatType = SpeechAudioFormatType(3i32);
+pub const SAFTGSM610_11kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(66i32);
+pub const SAFTGSM610_22kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(67i32);
+pub const SAFTGSM610_44kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(68i32);
+pub const SAFTGSM610_8kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(65i32);
+pub const SAFTNoAssignedFormat: SpeechAudioFormatType = SpeechAudioFormatType(0i32);
+pub const SAFTNonStandardFormat: SpeechAudioFormatType = SpeechAudioFormatType(2i32);
+pub const SAFTText: SpeechAudioFormatType = SpeechAudioFormatType(1i32);
+pub const SAFTTrueSpeech_8kHz1BitMono: SpeechAudioFormatType = SpeechAudioFormatType(40i32);
+pub const SAPI_ERROR_BASE: u32 = 20480u32;
+pub const SASClosed: SpeechAudioState = SpeechAudioState(0i32);
+pub const SASPause: SpeechAudioState = SpeechAudioState(2i32);
+pub const SASRun: SpeechAudioState = SpeechAudioState(3i32);
+pub const SASStop: SpeechAudioState = SpeechAudioState(1i32);
+pub const SBONone: SpeechBookmarkOptions = SpeechBookmarkOptions(0i32);
+pub const SBOPause: SpeechBookmarkOptions = SpeechBookmarkOptions(1i32);
+pub const SDA_Consume_Leading_Spaces: SpeechDisplayAttributes = SpeechDisplayAttributes(8i32);
+pub const SDA_No_Trailing_Space: SpeechDisplayAttributes = SpeechDisplayAttributes(0i32);
+pub const SDA_One_Trailing_Space: SpeechDisplayAttributes = SpeechDisplayAttributes(2i32);
+pub const SDA_Two_Trailing_Spaces: SpeechDisplayAttributes = SpeechDisplayAttributes(4i32);
+pub const SDKLCurrentConfig: SpeechDataKeyLocation = SpeechDataKeyLocation(5i32);
+pub const SDKLCurrentUser: SpeechDataKeyLocation = SpeechDataKeyLocation(1i32);
+pub const SDKLDefaultLocation: SpeechDataKeyLocation = SpeechDataKeyLocation(0i32);
+pub const SDKLLocalMachine: SpeechDataKeyLocation = SpeechDataKeyLocation(2i32);
+pub const SDTAll: SpeechDiscardType = SpeechDiscardType(255i32);
+pub const SDTAlternates: SpeechDiscardType = SpeechDiscardType(128i32);
+pub const SDTAudio: SpeechDiscardType = SpeechDiscardType(64i32);
+pub const SDTDisplayText: SpeechDiscardType = SpeechDiscardType(8i32);
+pub const SDTLexicalForm: SpeechDiscardType = SpeechDiscardType(16i32);
+pub const SDTPronunciation: SpeechDiscardType = SpeechDiscardType(32i32);
+pub const SDTProperty: SpeechDiscardType = SpeechDiscardType(1i32);
+pub const SDTReplacement: SpeechDiscardType = SpeechDiscardType(2i32);
+pub const SDTRule: SpeechDiscardType = SpeechDiscardType(4i32);
+pub const SECFDefault: SpeechEmulationCompareFlags = SpeechEmulationCompareFlags(196609i32);
+pub const SECFEmulateResult: SpeechEmulationCompareFlags = SpeechEmulationCompareFlags(1073741824i32);
+pub const SECFIgnoreCase: SpeechEmulationCompareFlags = SpeechEmulationCompareFlags(1i32);
+pub const SECFIgnoreKanaType: SpeechEmulationCompareFlags = SpeechEmulationCompareFlags(65536i32);
+pub const SECFIgnoreWidth: SpeechEmulationCompareFlags = SpeechEmulationCompareFlags(131072i32);
+pub const SECFNoSpecialChars: SpeechEmulationCompareFlags = SpeechEmulationCompareFlags(536870912i32);
+pub const SECHighConfidence: SpeechEngineConfidence = SpeechEngineConfidence(1i32);
+pub const SECLowConfidence: SpeechEngineConfidence = SpeechEngineConfidence(-1i32);
+pub const SECNormalConfidence: SpeechEngineConfidence = SpeechEngineConfidence(0i32);
+pub const SFTInput: SpeechFormatType = SpeechFormatType(0i32);
+pub const SFTSREngine: SpeechFormatType = SpeechFormatType(1i32);
+pub const SGDSActive: SpeechRuleState = SpeechRuleState(1i32);
+pub const SGDSActiveUserDelimited: SpeechRuleState = SpeechRuleState(4i32);
+pub const SGDSActiveWithAutoPause: SpeechRuleState = SpeechRuleState(3i32);
+pub const SGDSInactive: SpeechRuleState = SpeechRuleState(0i32);
+pub const SGDisplay: SpeechGrammarWordType = SpeechGrammarWordType(0i32);
+pub const SGLexical: SpeechGrammarWordType = SpeechGrammarWordType(1i32);
+pub const SGLexicalNoSpecialChars: SpeechGrammarWordType = SpeechGrammarWordType(3i32);
+pub const SGPronounciation: SpeechGrammarWordType = SpeechGrammarWordType(2i32);
+pub const SGRSTTDictation: SpeechGrammarRuleStateTransitionType = SpeechGrammarRuleStateTransitionType(3i32);
+pub const SGRSTTEpsilon: SpeechGrammarRuleStateTransitionType = SpeechGrammarRuleStateTransitionType(0i32);
+pub const SGRSTTRule: SpeechGrammarRuleStateTransitionType = SpeechGrammarRuleStateTransitionType(2i32);
+pub const SGRSTTTextBuffer: SpeechGrammarRuleStateTransitionType = SpeechGrammarRuleStateTransitionType(5i32);
+pub const SGRSTTWildcard: SpeechGrammarRuleStateTransitionType = SpeechGrammarRuleStateTransitionType(4i32);
+pub const SGRSTTWord: SpeechGrammarRuleStateTransitionType = SpeechGrammarRuleStateTransitionType(1i32);
+pub const SGSDisabled: SpeechGrammarState = SpeechGrammarState(0i32);
+pub const SGSEnabled: SpeechGrammarState = SpeechGrammarState(1i32);
+pub const SGSExclusive: SpeechGrammarState = SpeechGrammarState(3i32);
+pub const SINoSignal: SpeechInterference = SpeechInterference(2i32);
+pub const SINoise: SpeechInterference = SpeechInterference(1i32);
+pub const SINone: SpeechInterference = SpeechInterference(0i32);
+pub const SITooFast: SpeechInterference = SpeechInterference(5i32);
+pub const SITooLoud: SpeechInterference = SpeechInterference(3i32);
+pub const SITooQuiet: SpeechInterference = SpeechInterference(4i32);
+pub const SITooSlow: SpeechInterference = SpeechInterference(6i32);
+pub const SLODynamic: SpeechLoadOption = SpeechLoadOption(1i32);
+pub const SLOStatic: SpeechLoadOption = SpeechLoadOption(0i32);
+pub const SLTApp: SpeechLexiconType = SpeechLexiconType(2i32);
+pub const SLTUser: SpeechLexiconType = SpeechLexiconType(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPADAPTATIONRELEVANCE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPADAPTATIONSETTINGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPAUDIOOPTIONS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPAUDIOSTATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPBOOKMARKOPTIONS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPCFGNOTIFY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPCFGRULEATTRIBUTES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPCOMMITFLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPCONTEXTSTATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPDATAKEYLOCATION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPDISPLAYATTRIBUTES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPEAKFLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPENDSRSTREAMFLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPEVENTENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPEVENTLPARAMTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPFILEMODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPGRAMMAROPTIONS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPGRAMMARSTATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPGRAMMARWORDTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPINTERFERENCE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPLEXICONTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPLOADOPTIONS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPMATCHINGMODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPPARTOFSPEECH(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPPHRASEPROPERTYUNIONTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPPHRASERNG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPPRONUNCIATIONFLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPPROPSRC(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPRECOEVENTFLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPRECOSTATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPRESULTTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPRULEINFOOPT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPRULESTATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPRUNSTATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPSEMANTICFORMAT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPSHORTCUTTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPSTREAMFORMAT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPSTREAMFORMATTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPTRANSITIONTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPVACTIONS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPVALUETYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPVESACTIONS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPVFEATURE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPVISEMES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPVLIMITS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPVPRIORITY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPVSKIPTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPWORDINFOOPT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPWORDPRONOUNCEABLE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPWORDTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPXMLRESULTOPTIONS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechAudioFormatType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechAudioState(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechBookmarkOptions(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechDataKeyLocation(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechDiscardType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechDisplayAttributes(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechEmulationCompareFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechEngineConfidence(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechFormatType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechGrammarRuleStateTransitionType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechGrammarState(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechGrammarWordType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechInterference(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechLexiconType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechLoadOption(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechPartOfSpeech(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechRecoContextState(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechRecoEvents(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechRecognitionType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechRecognizerState(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechRetainedAudioOptions(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechRuleAttributes(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechRuleState(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechRunState(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechSpecialTransitionType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechStreamFileMode(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechStreamSeekPositionType(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechTokenContext(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechTokenShellFolder(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechVisemeFeature(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechVisemeType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechVoiceEvents(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechVoicePriority(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechVoiceSpeakFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechWordPronounceable(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SpeechWordType(pub i32);
+pub const SPADS_CurrentRecognizer: SPADAPTATIONSETTINGS = SPADAPTATIONSETTINGS(1i32);
+pub const SPADS_Default: SPADAPTATIONSETTINGS = SPADAPTATIONSETTINGS(0i32);
+pub const SPADS_HighVolumeDataSource: SPADAPTATIONSETTINGS = SPADAPTATIONSETTINGS(16i32);
+pub const SPADS_Immediate: SPADAPTATIONSETTINGS = SPADAPTATIONSETTINGS(4i32);
+pub const SPADS_RecoProfile: SPADAPTATIONSETTINGS = SPADAPTATIONSETTINGS(2i32);
+pub const SPADS_Reset: SPADAPTATIONSETTINGS = SPADAPTATIONSETTINGS(8i32);
+pub const SPAF_ALL: SPDISPLAYATTRIBUTES = SPDISPLAYATTRIBUTES(31i32);
+pub const SPAF_BUFFER_POSITION: SPDISPLAYATTRIBUTES = SPDISPLAYATTRIBUTES(16i32);
+pub const SPAF_CONSUME_LEADING_SPACES: SPDISPLAYATTRIBUTES = SPDISPLAYATTRIBUTES(8i32);
+pub const SPAF_ONE_TRAILING_SPACE: SPDISPLAYATTRIBUTES = SPDISPLAYATTRIBUTES(2i32);
+pub const SPAF_TWO_TRAILING_SPACES: SPDISPLAYATTRIBUTES = SPDISPLAYATTRIBUTES(4i32);
+pub const SPAF_USER_SPECIFIED: SPDISPLAYATTRIBUTES = SPDISPLAYATTRIBUTES(128i32);
+pub const SPALTERNATESCLSID: windows_core::PCWSTR = windows_core::w!("AlternatesCLSID");
+pub const SPAO_NONE: SPAUDIOOPTIONS = SPAUDIOOPTIONS(0i32);
+pub const SPAO_RETAIN_AUDIO: SPAUDIOOPTIONS = SPAUDIOOPTIONS(1i32);
+pub const SPAR_High: SPADAPTATIONRELEVANCE = SPADAPTATIONRELEVANCE(3i32);
+pub const SPAR_Low: SPADAPTATIONRELEVANCE = SPADAPTATIONRELEVANCE(1i32);
+pub const SPAR_Medium: SPADAPTATIONRELEVANCE = SPADAPTATIONRELEVANCE(2i32);
+pub const SPAR_Unknown: SPADAPTATIONRELEVANCE = SPADAPTATIONRELEVANCE(0i32);
+pub const SPAS_CLOSED: SPAUDIOSTATE = SPAUDIOSTATE(0i32);
+pub const SPAS_PAUSE: SPAUDIOSTATE = SPAUDIOSTATE(2i32);
+pub const SPAS_RUN: SPAUDIOSTATE = SPAUDIOSTATE(3i32);
+pub const SPAS_STOP: SPAUDIOSTATE = SPAUDIOSTATE(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPAUDIOBUFFERINFO {
@@ -14757,6 +14908,12 @@ impl Default for SPAUDIOBUFFERINFO {
 impl windows_core::TypeKind for SPAUDIOBUFFERINFO {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPAUDIOOPTIONS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPAUDIOSTATE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPAUDIOSTATUS {
@@ -14789,6 +14946,61 @@ impl Default for SPBINARYGRAMMAR {
 impl windows_core::TypeKind for SPBINARYGRAMMAR {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPBOOKMARKOPTIONS(pub i32);
+pub const SPBO_AHEAD: SPBOOKMARKOPTIONS = SPBOOKMARKOPTIONS(2i32);
+pub const SPBO_NONE: SPBOOKMARKOPTIONS = SPBOOKMARKOPTIONS(0i32);
+pub const SPBO_PAUSE: SPBOOKMARKOPTIONS = SPBOOKMARKOPTIONS(1i32);
+pub const SPBO_TIME_UNITS: SPBOOKMARKOPTIONS = SPBOOKMARKOPTIONS(4i32);
+pub const SPCAT_APPLEXICONS: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AppLexicons");
+pub const SPCAT_AUDIOIN: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioInput");
+pub const SPCAT_AUDIOOUT: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioOutput");
+pub const SPCAT_PHONECONVERTERS: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\PhoneConverters");
+pub const SPCAT_RECOGNIZERS: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Recognizers");
+pub const SPCAT_RECOPROFILES: windows_core::PCWSTR = windows_core::w!("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\RecoProfiles");
+pub const SPCAT_TEXTNORMALIZERS: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\TextNormalizers");
+pub const SPCAT_VOICES: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Voices");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPCFGNOTIFY(pub i32);
+pub const SPCFGN_ACTIVATE: SPCFGNOTIFY = SPCFGNOTIFY(3i32);
+pub const SPCFGN_ADD: SPCFGNOTIFY = SPCFGNOTIFY(0i32);
+pub const SPCFGN_DEACTIVATE: SPCFGNOTIFY = SPCFGNOTIFY(4i32);
+pub const SPCFGN_INVALIDATE: SPCFGNOTIFY = SPCFGNOTIFY(2i32);
+pub const SPCFGN_REMOVE: SPCFGNOTIFY = SPCFGNOTIFY(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPCFGRULEATTRIBUTES(pub i32);
+pub const SPCF_ADD_TO_USER_LEXICON: SPCOMMITFLAGS = SPCOMMITFLAGS(1i32);
+pub const SPCF_DEFINITE_CORRECTION: SPCOMMITFLAGS = SPCOMMITFLAGS(2i32);
+pub const SPCF_NONE: SPCOMMITFLAGS = SPCOMMITFLAGS(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPCOMMITFLAGS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPCONTEXTSTATE(pub i32);
+pub const SPCS_DISABLED: SPCONTEXTSTATE = SPCONTEXTSTATE(0i32);
+pub const SPCS_ENABLED: SPCONTEXTSTATE = SPCONTEXTSTATE(1i32);
+pub const SPCURRENT_USER_LEXICON_TOKEN_ID: windows_core::PCWSTR = windows_core::w!("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\CurrentUserLexicon");
+pub const SPCURRENT_USER_SHORTCUT_TOKEN_ID: windows_core::PCWSTR = windows_core::w!("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\CurrentUserShortcut");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPDATAKEYLOCATION(pub i32);
+pub const SPDF_ALL: SPVALUETYPE = SPVALUETYPE(255i32);
+pub const SPDF_ALTERNATES: SPVALUETYPE = SPVALUETYPE(128i32);
+pub const SPDF_AUDIO: SPVALUETYPE = SPVALUETYPE(64i32);
+pub const SPDF_DISPLAYTEXT: SPVALUETYPE = SPVALUETYPE(8i32);
+pub const SPDF_LEXICALFORM: SPVALUETYPE = SPVALUETYPE(16i32);
+pub const SPDF_PRONUNCIATION: SPVALUETYPE = SPVALUETYPE(32i32);
+pub const SPDF_PROPERTY: SPVALUETYPE = SPVALUETYPE(1i32);
+pub const SPDF_REPLACEMENT: SPVALUETYPE = SPVALUETYPE(2i32);
+pub const SPDF_RULE: SPVALUETYPE = SPVALUETYPE(4i32);
+pub const SPDICTATION: windows_core::PCWSTR = windows_core::w!("*");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPDISPLAYATTRIBUTES(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPDISPLAYPHRASE {
@@ -14818,6 +15030,74 @@ impl Default for SPDISPLAYTOKEN {
 impl windows_core::TypeKind for SPDISPLAYTOKEN {
     type TypeKind = windows_core::CopyType;
 }
+pub const SPDKL_CurrentConfig: SPDATAKEYLOCATION = SPDATAKEYLOCATION(5i32);
+pub const SPDKL_CurrentUser: SPDATAKEYLOCATION = SPDATAKEYLOCATION(1i32);
+pub const SPDKL_DefaultLocation: SPDATAKEYLOCATION = SPDATAKEYLOCATION(0i32);
+pub const SPDKL_LocalMachine: SPDATAKEYLOCATION = SPDATAKEYLOCATION(2i32);
+pub const SPDUI_AddRemoveWord: windows_core::PCWSTR = windows_core::w!("AddRemoveWord");
+pub const SPDUI_AudioProperties: windows_core::PCWSTR = windows_core::w!("AudioProperties");
+pub const SPDUI_AudioVolume: windows_core::PCWSTR = windows_core::w!("AudioVolume");
+pub const SPDUI_EngineProperties: windows_core::PCWSTR = windows_core::w!("EngineProperties");
+pub const SPDUI_MicTraining: windows_core::PCWSTR = windows_core::w!("MicTraining");
+pub const SPDUI_RecoProfileProperties: windows_core::PCWSTR = windows_core::w!("RecoProfileProperties");
+pub const SPDUI_ShareData: windows_core::PCWSTR = windows_core::w!("ShareData");
+pub const SPDUI_Tutorial: windows_core::PCWSTR = windows_core::w!("Tutorial");
+pub const SPDUI_UserEnrollment: windows_core::PCWSTR = windows_core::w!("UserEnrollment");
+pub const SPDUI_UserTraining: windows_core::PCWSTR = windows_core::w!("UserTraining");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPEAKFLAGS(pub i32);
+pub const SPEI_ADAPTATION: SPEVENTENUM = SPEVENTENUM(47i32);
+pub const SPEI_END_INPUT_STREAM: SPEVENTENUM = SPEVENTENUM(2i32);
+pub const SPEI_END_SR_STREAM: SPEVENTENUM = SPEVENTENUM(34i32);
+pub const SPEI_FALSE_RECOGNITION: SPEVENTENUM = SPEVENTENUM(43i32);
+pub const SPEI_HYPOTHESIS: SPEVENTENUM = SPEVENTENUM(39i32);
+pub const SPEI_INTERFERENCE: SPEVENTENUM = SPEVENTENUM(44i32);
+pub const SPEI_MAX_SR: SPEVENTENUM = SPEVENTENUM(55i32);
+pub const SPEI_MAX_TTS: SPEVENTENUM = SPEVENTENUM(15i32);
+pub const SPEI_MIN_SR: SPEVENTENUM = SPEVENTENUM(34i32);
+pub const SPEI_MIN_TTS: SPEVENTENUM = SPEVENTENUM(1i32);
+pub const SPEI_PHONEME: SPEVENTENUM = SPEVENTENUM(6i32);
+pub const SPEI_PHRASE_START: SPEVENTENUM = SPEVENTENUM(37i32);
+pub const SPEI_PROPERTY_NUM_CHANGE: SPEVENTENUM = SPEVENTENUM(41i32);
+pub const SPEI_PROPERTY_STRING_CHANGE: SPEVENTENUM = SPEVENTENUM(42i32);
+pub const SPEI_RECOGNITION: SPEVENTENUM = SPEVENTENUM(38i32);
+pub const SPEI_RECO_OTHER_CONTEXT: SPEVENTENUM = SPEVENTENUM(49i32);
+pub const SPEI_RECO_STATE_CHANGE: SPEVENTENUM = SPEVENTENUM(46i32);
+pub const SPEI_REQUEST_UI: SPEVENTENUM = SPEVENTENUM(45i32);
+pub const SPEI_RESERVED1: SPEVENTENUM = SPEVENTENUM(30i32);
+pub const SPEI_RESERVED2: SPEVENTENUM = SPEVENTENUM(33i32);
+pub const SPEI_RESERVED3: SPEVENTENUM = SPEVENTENUM(63i32);
+pub const SPEI_RESERVED4: SPEVENTENUM = SPEVENTENUM(53i32);
+pub const SPEI_RESERVED5: SPEVENTENUM = SPEVENTENUM(54i32);
+pub const SPEI_RESERVED6: SPEVENTENUM = SPEVENTENUM(55i32);
+pub const SPEI_SENTENCE_BOUNDARY: SPEVENTENUM = SPEVENTENUM(7i32);
+pub const SPEI_SOUND_END: SPEVENTENUM = SPEVENTENUM(36i32);
+pub const SPEI_SOUND_START: SPEVENTENUM = SPEVENTENUM(35i32);
+pub const SPEI_SR_AUDIO_LEVEL: SPEVENTENUM = SPEVENTENUM(50i32);
+pub const SPEI_SR_BOOKMARK: SPEVENTENUM = SPEVENTENUM(40i32);
+pub const SPEI_SR_PRIVATE: SPEVENTENUM = SPEVENTENUM(52i32);
+pub const SPEI_SR_RETAINEDAUDIO: SPEVENTENUM = SPEVENTENUM(51i32);
+pub const SPEI_START_INPUT_STREAM: SPEVENTENUM = SPEVENTENUM(1i32);
+pub const SPEI_START_SR_STREAM: SPEVENTENUM = SPEVENTENUM(48i32);
+pub const SPEI_TTS_AUDIO_LEVEL: SPEVENTENUM = SPEVENTENUM(9i32);
+pub const SPEI_TTS_BOOKMARK: SPEVENTENUM = SPEVENTENUM(4i32);
+pub const SPEI_TTS_PRIVATE: SPEVENTENUM = SPEVENTENUM(15i32);
+pub const SPEI_UNDEFINED: SPEVENTENUM = SPEVENTENUM(0i32);
+pub const SPEI_VISEME: SPEVENTENUM = SPEVENTENUM(8i32);
+pub const SPEI_VOICE_CHANGE: SPEVENTENUM = SPEVENTENUM(3i32);
+pub const SPEI_WORD_BOUNDARY: SPEVENTENUM = SPEVENTENUM(5i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPENDSRSTREAMFLAGS(pub i32);
+pub const SPESF_EMULATED: SPENDSRSTREAMFLAGS = SPENDSRSTREAMFLAGS(2i32);
+pub const SPESF_NONE: SPENDSRSTREAMFLAGS = SPENDSRSTREAMFLAGS(0i32);
+pub const SPESF_STREAM_RELEASED: SPENDSRSTREAMFLAGS = SPENDSRSTREAMFLAGS(1i32);
+pub const SPET_LPARAM_IS_OBJECT: SPEVENTLPARAMTYPE = SPEVENTLPARAMTYPE(2i32);
+pub const SPET_LPARAM_IS_POINTER: SPEVENTLPARAMTYPE = SPEVENTLPARAMTYPE(3i32);
+pub const SPET_LPARAM_IS_STRING: SPEVENTLPARAMTYPE = SPEVENTLPARAMTYPE(4i32);
+pub const SPET_LPARAM_IS_TOKEN: SPEVENTLPARAMTYPE = SPEVENTLPARAMTYPE(1i32);
+pub const SPET_LPARAM_IS_UNDEFINED: SPEVENTLPARAMTYPE = SPEVENTLPARAMTYPE(0i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPEVENT {
@@ -14835,6 +15115,9 @@ impl Default for SPEVENT {
 impl windows_core::TypeKind for SPEVENT {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPEVENTENUM(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPEVENTEX {
@@ -14853,6 +15136,9 @@ impl Default for SPEVENTEX {
 impl windows_core::TypeKind for SPEVENTEX {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPEVENTLPARAMTYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPEVENTSOURCEINFO {
@@ -14869,6 +15155,42 @@ impl windows_core::TypeKind for SPEVENTSOURCEINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPFILEMODE(pub i32);
+pub const SPFM_CREATE: SPFILEMODE = SPFILEMODE(2i32);
+pub const SPFM_CREATE_ALWAYS: SPFILEMODE = SPFILEMODE(3i32);
+pub const SPFM_NUM_MODES: SPFILEMODE = SPFILEMODE(4i32);
+pub const SPFM_OPEN_READONLY: SPFILEMODE = SPFILEMODE(0i32);
+pub const SPFM_OPEN_READWRITE: SPFILEMODE = SPFILEMODE(1i32);
+pub const SPF_ASYNC: SPEAKFLAGS = SPEAKFLAGS(1i32);
+pub const SPF_DEFAULT: SPEAKFLAGS = SPEAKFLAGS(0i32);
+pub const SPF_IS_FILENAME: SPEAKFLAGS = SPEAKFLAGS(4i32);
+pub const SPF_IS_NOT_XML: SPEAKFLAGS = SPEAKFLAGS(16i32);
+pub const SPF_IS_XML: SPEAKFLAGS = SPEAKFLAGS(8i32);
+pub const SPF_NLP_MASK: SPEAKFLAGS = SPEAKFLAGS(64i32);
+pub const SPF_NLP_SPEAK_PUNC: SPEAKFLAGS = SPEAKFLAGS(64i32);
+pub const SPF_PARSE_AUTODETECT: SPEAKFLAGS = SPEAKFLAGS(0i32);
+pub const SPF_PARSE_MASK: SPEAKFLAGS = SPEAKFLAGS(384i32);
+pub const SPF_PARSE_SAPI: SPEAKFLAGS = SPEAKFLAGS(128i32);
+pub const SPF_PARSE_SSML: SPEAKFLAGS = SPEAKFLAGS(256i32);
+pub const SPF_PERSIST_XML: SPEAKFLAGS = SPEAKFLAGS(32i32);
+pub const SPF_PURGEBEFORESPEAK: SPEAKFLAGS = SPEAKFLAGS(2i32);
+pub const SPF_UNUSED_FLAGS: SPEAKFLAGS = SPEAKFLAGS(-512i32);
+pub const SPF_VOICE_MASK: SPEAKFLAGS = SPEAKFLAGS(511i32);
+pub const SPGO_ALL: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(1023i32);
+pub const SPGO_DEFAULT: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(1019i32);
+pub const SPGO_FILE: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(16i32);
+pub const SPGO_HTTP: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(32i32);
+pub const SPGO_OBJECT: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(128i32);
+pub const SPGO_RES: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(64i32);
+pub const SPGO_SAPI: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(1i32);
+pub const SPGO_SRGS: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(2i32);
+pub const SPGO_SRGS_MS_SCRIPT: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(8i32);
+pub const SPGO_SRGS_SCRIPT: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(778i32);
+pub const SPGO_SRGS_STG_SCRIPT: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(512i32);
+pub const SPGO_SRGS_W3C_SCRIPT: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(256i32);
+pub const SPGO_UPS: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(4i32);
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SPGRAMMARHANDLE(pub *mut core::ffi::c_void);
 impl windows_core::TypeKind for SPGRAMMARHANDLE {
@@ -14884,6 +15206,49 @@ impl Default for SPGRAMMARHANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPGRAMMAROPTIONS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPGRAMMARSTATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPGRAMMARWORDTYPE(pub i32);
+pub const SPGS_DISABLED: SPGRAMMARSTATE = SPGRAMMARSTATE(0i32);
+pub const SPGS_ENABLED: SPGRAMMARSTATE = SPGRAMMARSTATE(1i32);
+pub const SPGS_EXCLUSIVE: SPGRAMMARSTATE = SPGRAMMARSTATE(3i32);
+pub const SPINFDICTATION: windows_core::PCWSTR = windows_core::w!("*+");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPINTERFERENCE(pub i32);
+pub const SPINTERFERENCE_LATENCY_TRUNCATE_BEGIN: SPINTERFERENCE = SPINTERFERENCE(8i32);
+pub const SPINTERFERENCE_LATENCY_TRUNCATE_END: SPINTERFERENCE = SPINTERFERENCE(9i32);
+pub const SPINTERFERENCE_LATENCY_WARNING: SPINTERFERENCE = SPINTERFERENCE(7i32);
+pub const SPINTERFERENCE_NOISE: SPINTERFERENCE = SPINTERFERENCE(1i32);
+pub const SPINTERFERENCE_NONE: SPINTERFERENCE = SPINTERFERENCE(0i32);
+pub const SPINTERFERENCE_NOSIGNAL: SPINTERFERENCE = SPINTERFERENCE(2i32);
+pub const SPINTERFERENCE_TOOFAST: SPINTERFERENCE = SPINTERFERENCE(5i32);
+pub const SPINTERFERENCE_TOOLOUD: SPINTERFERENCE = SPINTERFERENCE(3i32);
+pub const SPINTERFERENCE_TOOQUIET: SPINTERFERENCE = SPINTERFERENCE(4i32);
+pub const SPINTERFERENCE_TOOSLOW: SPINTERFERENCE = SPINTERFERENCE(6i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPLEXICONTYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPLOADOPTIONS(pub i32);
+pub const SPLO_DYNAMIC: SPLOADOPTIONS = SPLOADOPTIONS(1i32);
+pub const SPLO_STATIC: SPLOADOPTIONS = SPLOADOPTIONS(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPMATCHINGMODE(pub i32);
+pub const SPMAX_RATE: SPVLIMITS = SPVLIMITS(10i32);
+pub const SPMAX_VOLUME: SPVLIMITS = SPVLIMITS(100i32);
+pub const SPMIN_RATE: SPVLIMITS = SPVLIMITS(-10i32);
+pub const SPMIN_VOLUME: SPVLIMITS = SPVLIMITS(0i32);
+pub const SPMMSYS_AUDIO_IN_TOKEN_ID: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioInput\\TokenEnums\\MMAudioIn\\");
+pub const SPMMSYS_AUDIO_OUT_TOKEN_ID: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioOutput\\TokenEnums\\MMAudioOut\\");
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPNORMALIZATIONLIST {
@@ -14898,6 +15263,7 @@ impl Default for SPNORMALIZATIONLIST {
 impl windows_core::TypeKind for SPNORMALIZATIONLIST {
     type TypeKind = windows_core::CopyType;
 }
+pub type SPNOTIFYCALLBACK = Option<unsafe extern "system" fn(wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPPARSEINFO {
@@ -14920,6 +15286,9 @@ impl Default for SPPARSEINFO {
 impl windows_core::TypeKind for SPPARSEINFO {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPPARTOFSPEECH(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPPATHENTRY {
@@ -15096,6 +15465,9 @@ impl Default for SPPHRASEPROPERTYHANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPPHRASEPROPERTYUNIONTYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPPHRASEREPLACEMENT {
@@ -15112,6 +15484,9 @@ impl Default for SPPHRASEREPLACEMENT {
 impl windows_core::TypeKind for SPPHRASEREPLACEMENT {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPPHRASERNG(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPPHRASERULE {
@@ -15180,6 +15555,11 @@ impl Default for SPPHRASE_50 {
 impl windows_core::TypeKind for SPPHRASE_50 {
     type TypeKind = windows_core::CopyType;
 }
+pub const SPPPUT_ARRAY_INDEX: SPPHRASEPROPERTYUNIONTYPE = SPPHRASEPROPERTYUNIONTYPE(1i32);
+pub const SPPPUT_UNUSED: SPPHRASEPROPERTYUNIONTYPE = SPPHRASEPROPERTYUNIONTYPE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPPRONUNCIATIONFLAGS(pub i32);
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct SPPROPERTYINFO {
@@ -15204,6 +15584,46 @@ impl Default for SPPROPERTYINFO {
 impl windows_core::TypeKind for SPPROPERTYINFO {
     type TypeKind = windows_core::CloneType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPPROPSRC(pub i32);
+pub const SPPROPSRC_RECO_CTX: SPPROPSRC = SPPROPSRC(1i32);
+pub const SPPROPSRC_RECO_GRAMMAR: SPPROPSRC = SPPROPSRC(2i32);
+pub const SPPROPSRC_RECO_INST: SPPROPSRC = SPPROPSRC(0i32);
+pub const SPPROP_ADAPTATION_ON: windows_core::PCWSTR = windows_core::w!("AdaptationOn");
+pub const SPPROP_COMPLEX_RESPONSE_SPEED: windows_core::PCWSTR = windows_core::w!("ComplexResponseSpeed");
+pub const SPPROP_HIGH_CONFIDENCE_THRESHOLD: windows_core::PCWSTR = windows_core::w!("HighConfidenceThreshold");
+pub const SPPROP_LOW_CONFIDENCE_THRESHOLD: windows_core::PCWSTR = windows_core::w!("LowConfidenceThreshold");
+pub const SPPROP_NORMAL_CONFIDENCE_THRESHOLD: windows_core::PCWSTR = windows_core::w!("NormalConfidenceThreshold");
+pub const SPPROP_PERSISTED_BACKGROUND_ADAPTATION: windows_core::PCWSTR = windows_core::w!("PersistedBackgroundAdaptation");
+pub const SPPROP_PERSISTED_LANGUAGE_MODEL_ADAPTATION: windows_core::PCWSTR = windows_core::w!("PersistedLanguageModelAdaptation");
+pub const SPPROP_RESOURCE_USAGE: windows_core::PCWSTR = windows_core::w!("ResourceUsage");
+pub const SPPROP_RESPONSE_SPEED: windows_core::PCWSTR = windows_core::w!("ResponseSpeed");
+pub const SPPROP_UX_IS_LISTENING: windows_core::PCWSTR = windows_core::w!("UXIsListening");
+pub const SPPR_ALL_ELEMENTS: SPPHRASERNG = SPPHRASERNG(-1i32);
+pub const SPPS_Function: SPPARTOFSPEECH = SPPARTOFSPEECH(16384i32);
+pub const SPPS_Interjection: SPPARTOFSPEECH = SPPARTOFSPEECH(20480i32);
+pub const SPPS_LMA: SPPARTOFSPEECH = SPPARTOFSPEECH(28672i32);
+pub const SPPS_Modifier: SPPARTOFSPEECH = SPPARTOFSPEECH(12288i32);
+pub const SPPS_Noncontent: SPPARTOFSPEECH = SPPARTOFSPEECH(24576i32);
+pub const SPPS_NotOverriden: SPPARTOFSPEECH = SPPARTOFSPEECH(-1i32);
+pub const SPPS_Noun: SPPARTOFSPEECH = SPPARTOFSPEECH(4096i32);
+pub const SPPS_RESERVED1: SPSHORTCUTTYPE = SPSHORTCUTTYPE(12288i32);
+pub const SPPS_RESERVED2: SPSHORTCUTTYPE = SPSHORTCUTTYPE(16384i32);
+pub const SPPS_RESERVED3: SPSHORTCUTTYPE = SPSHORTCUTTYPE(20480i32);
+pub const SPPS_RESERVED4: SPSHORTCUTTYPE = SPSHORTCUTTYPE(61440i32);
+pub const SPPS_SuppressWord: SPPARTOFSPEECH = SPPARTOFSPEECH(61440i32);
+pub const SPPS_Unknown: SPPARTOFSPEECH = SPPARTOFSPEECH(0i32);
+pub const SPPS_Verb: SPPARTOFSPEECH = SPPARTOFSPEECH(8192i32);
+pub const SPRAF_Active: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(2i32);
+pub const SPRAF_AutoPause: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(65536i32);
+pub const SPRAF_Dynamic: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(32i32);
+pub const SPRAF_Export: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(4i32);
+pub const SPRAF_Import: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(8i32);
+pub const SPRAF_Interpreter: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(16i32);
+pub const SPRAF_Root: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(64i32);
+pub const SPRAF_TopLevel: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(1i32);
+pub const SPRAF_UserDelimited: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(131072i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SPRECOCONTEXTHANDLE(pub *mut core::ffi::c_void);
@@ -15236,6 +15656,10 @@ impl Default for SPRECOCONTEXTSTATUS {
 impl windows_core::TypeKind for SPRECOCONTEXTSTATUS {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPRECOEVENTFLAGS(pub i32);
+pub const SPRECOEXTENSION: windows_core::PCWSTR = windows_core::w!("RecoExtension");
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPRECOGNIZERSTATUS {
@@ -15311,6 +15735,42 @@ impl Default for SPRECORESULTTIMES {
 impl windows_core::TypeKind for SPRECORESULTTIMES {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPRECOSTATE(pub i32);
+pub const SPREF_AutoPause: SPRECOEVENTFLAGS = SPRECOEVENTFLAGS(1i32);
+pub const SPREF_Emulated: SPRECOEVENTFLAGS = SPRECOEVENTFLAGS(2i32);
+pub const SPREF_ExtendableParse: SPRECOEVENTFLAGS = SPRECOEVENTFLAGS(8i32);
+pub const SPREF_FalseRecognition: SPRECOEVENTFLAGS = SPRECOEVENTFLAGS(64i32);
+pub const SPREF_Hypothesis: SPRECOEVENTFLAGS = SPRECOEVENTFLAGS(32i32);
+pub const SPREF_ReSent: SPRECOEVENTFLAGS = SPRECOEVENTFLAGS(16i32);
+pub const SPREF_SMLTimeout: SPRECOEVENTFLAGS = SPRECOEVENTFLAGS(4i32);
+pub const SPREG_LOCAL_MACHINE_ROOT: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech");
+pub const SPREG_SAFE_USER_TOKENS: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\UserTokens");
+pub const SPREG_USER_ROOT: windows_core::PCWSTR = windows_core::w!("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPRESULTTYPE(pub i32);
+pub const SPRIO_NONE: SPRULEINFOOPT = SPRULEINFOOPT(0i32);
+pub const SPRP_NORMAL: u32 = 0u32;
+pub const SPRST_ACTIVE: SPRECOSTATE = SPRECOSTATE(1i32);
+pub const SPRST_ACTIVE_ALWAYS: SPRECOSTATE = SPRECOSTATE(2i32);
+pub const SPRST_INACTIVE: SPRECOSTATE = SPRECOSTATE(0i32);
+pub const SPRST_INACTIVE_WITH_PURGE: SPRECOSTATE = SPRECOSTATE(3i32);
+pub const SPRST_NUM_STATES: SPRECOSTATE = SPRECOSTATE(4i32);
+pub const SPRS_ACTIVE: SPRULESTATE = SPRULESTATE(1i32);
+pub const SPRS_ACTIVE_USER_DELIMITED: SPRULESTATE = SPRULESTATE(4i32);
+pub const SPRS_ACTIVE_WITH_AUTO_PAUSE: SPRULESTATE = SPRULESTATE(3i32);
+pub const SPRS_DONE: SPRUNSTATE = SPRUNSTATE(1i32);
+pub const SPRS_INACTIVE: SPRULESTATE = SPRULESTATE(0i32);
+pub const SPRS_IS_SPEAKING: SPRUNSTATE = SPRUNSTATE(2i32);
+pub const SPRT_CFG: SPRESULTTYPE = SPRESULTTYPE(0i32);
+pub const SPRT_EMULATED: SPRESULTTYPE = SPRESULTTYPE(8i32);
+pub const SPRT_EXTENDABLE_PARSE: SPRESULTTYPE = SPRESULTTYPE(16i32);
+pub const SPRT_FALSE_RECOGNITION: SPRESULTTYPE = SPRESULTTYPE(4i32);
+pub const SPRT_PROPRIETARY: SPRESULTTYPE = SPRESULTTYPE(2i32);
+pub const SPRT_SLM: SPRESULTTYPE = SPRESULTTYPE(1i32);
+pub const SPRT_TYPE_MASK: SPRESULTTYPE = SPRESULTTYPE(3i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPRULE {
@@ -15359,6 +15819,15 @@ impl Default for SPRULEHANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPRULEINFOOPT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPRULESTATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPRUNSTATE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPSEMANTICERRORINFO {
@@ -15376,6 +15845,9 @@ impl Default for SPSEMANTICERRORINFO {
 impl windows_core::TypeKind for SPSEMANTICERRORINFO {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPSEMANTICFORMAT(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPSERIALIZEDEVENT {
@@ -15436,6 +15908,78 @@ impl Default for SPSERIALIZEDRESULT {
 impl windows_core::TypeKind for SPSERIALIZEDRESULT {
     type TypeKind = windows_core::CopyType;
 }
+pub const SPSF_11kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(10i32);
+pub const SPSF_11kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(11i32);
+pub const SPSF_11kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(8i32);
+pub const SPSF_11kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(9i32);
+pub const SPSF_12kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(14i32);
+pub const SPSF_12kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(15i32);
+pub const SPSF_12kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(12i32);
+pub const SPSF_12kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(13i32);
+pub const SPSF_16kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(18i32);
+pub const SPSF_16kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(19i32);
+pub const SPSF_16kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(16i32);
+pub const SPSF_16kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(17i32);
+pub const SPSF_22kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(22i32);
+pub const SPSF_22kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(23i32);
+pub const SPSF_22kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(20i32);
+pub const SPSF_22kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(21i32);
+pub const SPSF_24kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(26i32);
+pub const SPSF_24kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(27i32);
+pub const SPSF_24kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(24i32);
+pub const SPSF_24kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(25i32);
+pub const SPSF_32kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(30i32);
+pub const SPSF_32kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(31i32);
+pub const SPSF_32kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(28i32);
+pub const SPSF_32kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(29i32);
+pub const SPSF_44kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(34i32);
+pub const SPSF_44kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(35i32);
+pub const SPSF_44kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(32i32);
+pub const SPSF_44kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(33i32);
+pub const SPSF_48kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(38i32);
+pub const SPSF_48kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(39i32);
+pub const SPSF_48kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(36i32);
+pub const SPSF_48kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(37i32);
+pub const SPSF_8kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(6i32);
+pub const SPSF_8kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(7i32);
+pub const SPSF_8kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(4i32);
+pub const SPSF_8kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(5i32);
+pub const SPSF_ADPCM_11kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(59i32);
+pub const SPSF_ADPCM_11kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(60i32);
+pub const SPSF_ADPCM_22kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(61i32);
+pub const SPSF_ADPCM_22kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(62i32);
+pub const SPSF_ADPCM_44kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(63i32);
+pub const SPSF_ADPCM_44kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(64i32);
+pub const SPSF_ADPCM_8kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(57i32);
+pub const SPSF_ADPCM_8kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(58i32);
+pub const SPSF_CCITT_ALaw_11kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(43i32);
+pub const SPSF_CCITT_ALaw_11kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(44i32);
+pub const SPSF_CCITT_ALaw_22kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(45i32);
+pub const SPSF_CCITT_ALaw_22kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(46i32);
+pub const SPSF_CCITT_ALaw_44kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(47i32);
+pub const SPSF_CCITT_ALaw_44kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(48i32);
+pub const SPSF_CCITT_ALaw_8kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(41i32);
+pub const SPSF_CCITT_ALaw_8kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(42i32);
+pub const SPSF_CCITT_uLaw_11kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(51i32);
+pub const SPSF_CCITT_uLaw_11kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(52i32);
+pub const SPSF_CCITT_uLaw_22kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(53i32);
+pub const SPSF_CCITT_uLaw_22kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(54i32);
+pub const SPSF_CCITT_uLaw_44kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(55i32);
+pub const SPSF_CCITT_uLaw_44kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(56i32);
+pub const SPSF_CCITT_uLaw_8kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(49i32);
+pub const SPSF_CCITT_uLaw_8kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(50i32);
+pub const SPSF_Default: SPSTREAMFORMAT = SPSTREAMFORMAT(-1i32);
+pub const SPSF_ExtendedAudioFormat: SPSTREAMFORMAT = SPSTREAMFORMAT(3i32);
+pub const SPSF_GSM610_11kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(66i32);
+pub const SPSF_GSM610_22kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(67i32);
+pub const SPSF_GSM610_44kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(68i32);
+pub const SPSF_GSM610_8kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(65i32);
+pub const SPSF_NUM_FORMATS: SPSTREAMFORMAT = SPSTREAMFORMAT(69i32);
+pub const SPSF_NoAssignedFormat: SPSTREAMFORMAT = SPSTREAMFORMAT(0i32);
+pub const SPSF_NonStandardFormat: SPSTREAMFORMAT = SPSTREAMFORMAT(2i32);
+pub const SPSF_Text: SPSTREAMFORMAT = SPSTREAMFORMAT(1i32);
+pub const SPSF_TrueSpeech_8kHz1BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(40i32);
+pub const SPSFunction: SpeechPartOfSpeech = SpeechPartOfSpeech(16384i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPSHORTCUTPAIR {
@@ -15468,6 +16012,24 @@ impl Default for SPSHORTCUTPAIRLIST {
 impl windows_core::TypeKind for SPSHORTCUTPAIRLIST {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPSHORTCUTTYPE(pub i32);
+pub const SPSHT_EMAIL: SPSHORTCUTTYPE = SPSHORTCUTTYPE(4096i32);
+pub const SPSHT_NotOverriden: SPSHORTCUTTYPE = SPSHORTCUTTYPE(-1i32);
+pub const SPSHT_OTHER: SPSHORTCUTTYPE = SPSHORTCUTTYPE(8192i32);
+pub const SPSHT_Unknown: SPSHORTCUTTYPE = SPSHORTCUTTYPE(0i32);
+pub const SPSInterjection: SpeechPartOfSpeech = SpeechPartOfSpeech(20480i32);
+pub const SPSLMA: SpeechPartOfSpeech = SpeechPartOfSpeech(28672i32);
+pub const SPSMF_SAPI_PROPERTIES: SPSEMANTICFORMAT = SPSEMANTICFORMAT(0i32);
+pub const SPSMF_SRGS_SAPIPROPERTIES: SPSEMANTICFORMAT = SPSEMANTICFORMAT(2i32);
+pub const SPSMF_SRGS_SEMANTICINTERPRETATION_MS: SPSEMANTICFORMAT = SPSEMANTICFORMAT(1i32);
+pub const SPSMF_SRGS_SEMANTICINTERPRETATION_W3C: SPSEMANTICFORMAT = SPSEMANTICFORMAT(8i32);
+pub const SPSMF_UPS: SPSEMANTICFORMAT = SPSEMANTICFORMAT(4i32);
+pub const SPSModifier: SpeechPartOfSpeech = SpeechPartOfSpeech(12288i32);
+pub const SPSNotOverriden: SpeechPartOfSpeech = SpeechPartOfSpeech(-1i32);
+pub const SPSNoun: SpeechPartOfSpeech = SpeechPartOfSpeech(4096i32);
+pub const SPSSuppressWord: SpeechPartOfSpeech = SpeechPartOfSpeech(61440i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SPSTATEHANDLE(pub *mut core::ffi::c_void);
@@ -15502,6 +16064,14 @@ impl Default for SPSTATEINFO {
 impl windows_core::TypeKind for SPSTATEINFO {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPSTREAMFORMAT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPSTREAMFORMATTYPE(pub i32);
+pub const SPSUnknown: SpeechPartOfSpeech = SpeechPartOfSpeech(0i32);
+pub const SPSVerb: SpeechPartOfSpeech = SpeechPartOfSpeech(8192i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPTEXTSELECTIONINFO {
@@ -15534,6 +16104,17 @@ impl Default for SPTMTHREADINFO {
 impl windows_core::TypeKind for SPTMTHREADINFO {
     type TypeKind = windows_core::CopyType;
 }
+pub const SPTOKENKEY_ATTRIBUTES: windows_core::PCWSTR = windows_core::w!("Attributes");
+pub const SPTOKENKEY_AUDIO_LATENCY_TRUNCATE: windows_core::PCWSTR = windows_core::w!("LatencyTruncateThreshold");
+pub const SPTOKENKEY_AUDIO_LATENCY_UPDATE_INTERVAL: windows_core::PCWSTR = windows_core::w!("LatencyUpdateInterval");
+pub const SPTOKENKEY_AUDIO_LATENCY_WARNING: windows_core::PCWSTR = windows_core::w!("LatencyWarningThreshold");
+pub const SPTOKENKEY_FILES: windows_core::PCWSTR = windows_core::w!("Files");
+pub const SPTOKENKEY_RETAINEDAUDIO: windows_core::PCWSTR = windows_core::w!("SecondsPerRetainedAudioEvent");
+pub const SPTOKENKEY_UI: windows_core::PCWSTR = windows_core::w!("UI");
+pub const SPTOKENVALUE_CLSID: windows_core::PCWSTR = windows_core::w!("CLSID");
+pub const SPTOPIC_SPELLING: windows_core::PCWSTR = windows_core::w!("Spelling");
+pub const SPTRANSDICTATION: SPTRANSITIONTYPE = SPTRANSITIONTYPE(5i32);
+pub const SPTRANSEPSILON: SPTRANSITIONTYPE = SPTRANSITIONTYPE(0i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SPTRANSITIONENTRY {
@@ -15663,6 +16244,26 @@ impl Default for SPTRANSITIONPROPERTY {
 impl windows_core::TypeKind for SPTRANSITIONPROPERTY {
     type TypeKind = windows_core::CloneType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPTRANSITIONTYPE(pub i32);
+pub const SPTRANSRULE: SPTRANSITIONTYPE = SPTRANSITIONTYPE(2i32);
+pub const SPTRANSTEXTBUF: SPTRANSITIONTYPE = SPTRANSITIONTYPE(3i32);
+pub const SPTRANSWILDCARD: SPTRANSITIONTYPE = SPTRANSITIONTYPE(4i32);
+pub const SPTRANSWORD: SPTRANSITIONTYPE = SPTRANSITIONTYPE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPVACTIONS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPVALUETYPE(pub i32);
+pub const SPVA_Bookmark: SPVACTIONS = SPVACTIONS(3i32);
+pub const SPVA_ParseUnknownTag: SPVACTIONS = SPVACTIONS(6i32);
+pub const SPVA_Pronounce: SPVACTIONS = SPVACTIONS(2i32);
+pub const SPVA_Section: SPVACTIONS = SPVACTIONS(5i32);
+pub const SPVA_Silence: SPVACTIONS = SPVACTIONS(1i32);
+pub const SPVA_Speak: SPVACTIONS = SPVACTIONS(0i32);
+pub const SPVA_SpellOut: SPVACTIONS = SPVACTIONS(4i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPVCONTEXT {
@@ -15678,6 +16279,26 @@ impl Default for SPVCONTEXT {
 impl windows_core::TypeKind for SPVCONTEXT {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPVESACTIONS(pub i32);
+pub const SPVES_ABORT: SPVESACTIONS = SPVESACTIONS(1i32);
+pub const SPVES_CONTINUE: SPVESACTIONS = SPVESACTIONS(0i32);
+pub const SPVES_RATE: SPVESACTIONS = SPVESACTIONS(4i32);
+pub const SPVES_SKIP: SPVESACTIONS = SPVESACTIONS(2i32);
+pub const SPVES_VOLUME: SPVESACTIONS = SPVESACTIONS(8i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPVFEATURE(pub i32);
+pub const SPVFEATURE_EMPHASIS: SPVFEATURE = SPVFEATURE(2i32);
+pub const SPVFEATURE_STRESSED: SPVFEATURE = SPVFEATURE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPVISEMES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPVLIMITS(pub i32);
+pub const SPVOICECATEGORY_TTSRATE: windows_core::PCWSTR = windows_core::w!("DefaultTTSRate");
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPVOICESTATUS {
@@ -15717,6 +16338,15 @@ impl Default for SPVPITCH {
 impl windows_core::TypeKind for SPVPITCH {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPVPRIORITY(pub i32);
+pub const SPVPRI_ALERT: SPVPRIORITY = SPVPRIORITY(1i32);
+pub const SPVPRI_NORMAL: SPVPRIORITY = SPVPRIORITY(0i32);
+pub const SPVPRI_OVER: SPVPRIORITY = SPVPRIORITY(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPVSKIPTYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPVSTATE {
@@ -15740,6 +16370,7 @@ impl Default for SPVSTATE {
 impl windows_core::TypeKind for SPVSTATE {
     type TypeKind = windows_core::CopyType;
 }
+pub const SPVST_SENTENCE: SPVSKIPTYPE = SPVSKIPTYPE(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPVTEXTFRAG {
@@ -15757,6 +16388,11 @@ impl Default for SPVTEXTFRAG {
 impl windows_core::TypeKind for SPVTEXTFRAG {
     type TypeKind = windows_core::CopyType;
 }
+pub const SPWF_INPUT: SPSTREAMFORMATTYPE = SPSTREAMFORMATTYPE(0i32);
+pub const SPWF_SRENGINE: SPSTREAMFORMATTYPE = SPSTREAMFORMATTYPE(1i32);
+pub const SPWILDCARD: windows_core::PCWSTR = windows_core::w!("...");
+pub const SPWIO_NONE: SPWORDINFOOPT = SPWORDINFOOPT(0i32);
+pub const SPWIO_WANT_TEXT: SPWORDINFOOPT = SPWORDINFOOPT(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPWORD {
@@ -15809,6 +16445,9 @@ impl Default for SPWORDHANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPWORDINFOOPT(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPWORDLIST {
@@ -15824,6 +16463,9 @@ impl Default for SPWORDLIST {
 impl windows_core::TypeKind for SPWORDLIST {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPWORDPRONOUNCEABLE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPWORDPRONUNCIATION {
@@ -15857,896 +16499,9 @@ impl Default for SPWORDPRONUNCIATIONLIST {
 impl windows_core::TypeKind for SPWORDPRONUNCIATIONLIST {
     type TypeKind = windows_core::CopyType;
 }
-pub const SpAudioFormat: windows_core::GUID = windows_core::GUID::from_u128(0x9ef96870_e160_4792_820d_48cf0649e4ec);
-pub const SpCompressedLexicon: windows_core::GUID = windows_core::GUID::from_u128(0x90903716_2f42_11d3_9c26_00c04f8ef87c);
-pub const SpCustomStream: windows_core::GUID = windows_core::GUID::from_u128(0x8dbef13f_1948_4aa8_8cf0_048eebed95d8);
-pub const SpDataKey: windows_core::GUID = windows_core::GUID::from_u128(0xd9f6ee60_58c9_458b_88e1_2f908fd7f87c);
-pub const SpFileStream: windows_core::GUID = windows_core::GUID::from_u128(0x947812b3_2ae1_4644_ba86_9e90ded7ec91);
-pub const SpGramCompBackend: windows_core::GUID = windows_core::GUID::from_u128(0xda93e903_c843_11d2_a084_00c04f8ef9b5);
-pub const SpGrammarCompiler: windows_core::GUID = windows_core::GUID::from_u128(0xb1e29d59_a675_11d2_8302_00c04f8ee6c0);
-pub const SpITNProcessor: windows_core::GUID = windows_core::GUID::from_u128(0x12d73610_a1c9_11d3_bc90_00c04f72df9f);
-pub const SpInProcRecoContext: windows_core::GUID = windows_core::GUID::from_u128(0x73ad6842_ace0_45e8_a4dd_8795881a2c2a);
-pub const SpInprocRecognizer: windows_core::GUID = windows_core::GUID::from_u128(0x41b89b6b_9399_11d2_9623_00c04f8ee628);
-pub const SpLexicon: windows_core::GUID = windows_core::GUID::from_u128(0x0655e396_25d0_11d3_9c26_00c04f8ef87c);
-pub const SpMMAudioEnum: windows_core::GUID = windows_core::GUID::from_u128(0xab1890a0_e91f_11d2_bb91_00c04f8ee6c0);
-pub const SpMMAudioIn: windows_core::GUID = windows_core::GUID::from_u128(0xcf3d2e50_53f2_11d2_960c_00c04f8ee628);
-pub const SpMMAudioOut: windows_core::GUID = windows_core::GUID::from_u128(0xa8c680eb_3d32_11d2_9ee7_00c04f797396);
-pub const SpMemoryStream: windows_core::GUID = windows_core::GUID::from_u128(0x5fb7ef7d_dff4_468a_b6b7_2fcbd188f994);
-pub const SpNotifyTranslator: windows_core::GUID = windows_core::GUID::from_u128(0xe2ae5372_5d40_11d2_960e_00c04f8ee628);
-pub const SpNullPhoneConverter: windows_core::GUID = windows_core::GUID::from_u128(0x455f24e9_7396_4a16_9715_7c0fdbe3efe3);
-pub const SpObjectToken: windows_core::GUID = windows_core::GUID::from_u128(0xef411752_3736_4cb4_9c8c_8ef4ccb58efe);
-pub const SpObjectTokenCategory: windows_core::GUID = windows_core::GUID::from_u128(0xa910187f_0c7a_45ac_92cc_59edafb77b53);
-pub const SpObjectTokenEnum: windows_core::GUID = windows_core::GUID::from_u128(0x3918d75f_0acb_41f2_b733_92aa15bcecf6);
-pub const SpPhoneConverter: windows_core::GUID = windows_core::GUID::from_u128(0x9185f743_1143_4c28_86b5_bff14f20e5c8);
-pub const SpPhoneticAlphabetConverter: windows_core::GUID = windows_core::GUID::from_u128(0x4f414126_dfe3_4629_99ee_797978317ead);
-pub const SpPhraseBuilder: windows_core::GUID = windows_core::GUID::from_u128(0x777b6bbd_2ff2_11d3_88fe_00c04f8ef9b5);
-pub const SpPhraseInfoBuilder: windows_core::GUID = windows_core::GUID::from_u128(0xc23fc28d_c55f_4720_8b32_91f73c2bd5d1);
-pub const SpResourceManager: windows_core::GUID = windows_core::GUID::from_u128(0x96749373_3391_11d2_9ee3_00c04f797396);
-pub const SpSharedRecoContext: windows_core::GUID = windows_core::GUID::from_u128(0x47206204_5eca_11d2_960f_00c04f8ee628);
-pub const SpSharedRecognizer: windows_core::GUID = windows_core::GUID::from_u128(0x3bee4890_4fe9_4a37_8c1e_5e7e12791c1f);
-pub const SpShortcut: windows_core::GUID = windows_core::GUID::from_u128(0x0d722f1a_9fcf_4e62_96d8_6df8f01a26aa);
-pub const SpStream: windows_core::GUID = windows_core::GUID::from_u128(0x715d9c59_4442_11d2_9605_00c04f8ee628);
-pub const SpStreamFormatConverter: windows_core::GUID = windows_core::GUID::from_u128(0x7013943a_e2ec_11d2_a086_00c04f8ef9b5);
-pub const SpTextSelectionInformation: windows_core::GUID = windows_core::GUID::from_u128(0x0f92030a_cbfd_4ab8_a164_ff5985547ff6);
-pub const SpUnCompressedLexicon: windows_core::GUID = windows_core::GUID::from_u128(0xc9e37c15_df92_4727_85d6_72e5eeb6995a);
-pub const SpVoice: windows_core::GUID = windows_core::GUID::from_u128(0x96749377_3391_11d2_9ee3_00c04f797396);
-pub const SpW3CGrammarCompiler: windows_core::GUID = windows_core::GUID::from_u128(0xd2c13906_51ef_454e_bc67_a52475ff074c);
-pub const SpWaveFormatEx: windows_core::GUID = windows_core::GUID::from_u128(0xc79a574c_63be_44b9_801f_283f87f898be);
-pub const AllWords: SPMATCHINGMODE = SPMATCHINGMODE(0i32);
-pub const DEFAULT_WEIGHT: u32 = 1u32;
-pub const DISPIDSPTSI_ActiveLength: DISPIDSPTSI = DISPIDSPTSI(2i32);
-pub const DISPIDSPTSI_ActiveOffset: DISPIDSPTSI = DISPIDSPTSI(1i32);
-pub const DISPIDSPTSI_SelectionLength: DISPIDSPTSI = DISPIDSPTSI(4i32);
-pub const DISPIDSPTSI_SelectionOffset: DISPIDSPTSI = DISPIDSPTSI(3i32);
-pub const DISPID_SABIBufferSize: DISPID_SpeechAudioBufferInfo = DISPID_SpeechAudioBufferInfo(2i32);
-pub const DISPID_SABIEventBias: DISPID_SpeechAudioBufferInfo = DISPID_SpeechAudioBufferInfo(3i32);
-pub const DISPID_SABIMinNotification: DISPID_SpeechAudioBufferInfo = DISPID_SpeechAudioBufferInfo(1i32);
-pub const DISPID_SABufferInfo: DISPID_SpeechAudio = DISPID_SpeechAudio(201i32);
-pub const DISPID_SABufferNotifySize: DISPID_SpeechAudio = DISPID_SpeechAudio(204i32);
-pub const DISPID_SADefaultFormat: DISPID_SpeechAudio = DISPID_SpeechAudio(202i32);
-pub const DISPID_SAEventHandle: DISPID_SpeechAudio = DISPID_SpeechAudio(205i32);
-pub const DISPID_SAFGetWaveFormatEx: DISPID_SpeechAudioFormat = DISPID_SpeechAudioFormat(3i32);
-pub const DISPID_SAFGuid: DISPID_SpeechAudioFormat = DISPID_SpeechAudioFormat(2i32);
-pub const DISPID_SAFSetWaveFormatEx: DISPID_SpeechAudioFormat = DISPID_SpeechAudioFormat(4i32);
-pub const DISPID_SAFType: DISPID_SpeechAudioFormat = DISPID_SpeechAudioFormat(1i32);
-pub const DISPID_SASCurrentDevicePosition: DISPID_SpeechAudioStatus = DISPID_SpeechAudioStatus(5i32);
-pub const DISPID_SASCurrentSeekPosition: DISPID_SpeechAudioStatus = DISPID_SpeechAudioStatus(4i32);
-pub const DISPID_SASFreeBufferSpace: DISPID_SpeechAudioStatus = DISPID_SpeechAudioStatus(1i32);
-pub const DISPID_SASNonBlockingIO: DISPID_SpeechAudioStatus = DISPID_SpeechAudioStatus(2i32);
-pub const DISPID_SASState: DISPID_SpeechAudioStatus = DISPID_SpeechAudioStatus(3i32);
-pub const DISPID_SASetState: DISPID_SpeechAudio = DISPID_SpeechAudio(206i32);
-pub const DISPID_SAStatus: DISPID_SpeechAudio = DISPID_SpeechAudio(200i32);
-pub const DISPID_SAVolume: DISPID_SpeechAudio = DISPID_SpeechAudio(203i32);
-pub const DISPID_SBSFormat: DISPID_SpeechBaseStream = DISPID_SpeechBaseStream(1i32);
-pub const DISPID_SBSRead: DISPID_SpeechBaseStream = DISPID_SpeechBaseStream(2i32);
-pub const DISPID_SBSSeek: DISPID_SpeechBaseStream = DISPID_SpeechBaseStream(4i32);
-pub const DISPID_SBSWrite: DISPID_SpeechBaseStream = DISPID_SpeechBaseStream(3i32);
-pub const DISPID_SCSBaseStream: DISPID_SpeechCustomStream = DISPID_SpeechCustomStream(100i32);
-pub const DISPID_SDKCreateKey: DISPID_SpeechDataKey = DISPID_SpeechDataKey(8i32);
-pub const DISPID_SDKDeleteKey: DISPID_SpeechDataKey = DISPID_SpeechDataKey(9i32);
-pub const DISPID_SDKDeleteValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(10i32);
-pub const DISPID_SDKEnumKeys: DISPID_SpeechDataKey = DISPID_SpeechDataKey(11i32);
-pub const DISPID_SDKEnumValues: DISPID_SpeechDataKey = DISPID_SpeechDataKey(12i32);
-pub const DISPID_SDKGetBinaryValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(2i32);
-pub const DISPID_SDKGetStringValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(4i32);
-pub const DISPID_SDKGetlongValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(6i32);
-pub const DISPID_SDKOpenKey: DISPID_SpeechDataKey = DISPID_SpeechDataKey(7i32);
-pub const DISPID_SDKSetBinaryValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(1i32);
-pub const DISPID_SDKSetLongValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(5i32);
-pub const DISPID_SDKSetStringValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(3i32);
-pub const DISPID_SFSClose: DISPID_SpeechFileStream = DISPID_SpeechFileStream(101i32);
-pub const DISPID_SFSOpen: DISPID_SpeechFileStream = DISPID_SpeechFileStream(100i32);
-pub const DISPID_SGRAddResource: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(6i32);
-pub const DISPID_SGRAddState: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(7i32);
-pub const DISPID_SGRAttributes: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(1i32);
-pub const DISPID_SGRClear: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(5i32);
-pub const DISPID_SGRId: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(4i32);
-pub const DISPID_SGRInitialState: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(2i32);
-pub const DISPID_SGRName: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(3i32);
-pub const DISPID_SGRSAddRuleTransition: DISPID_SpeechGrammarRuleState = DISPID_SpeechGrammarRuleState(4i32);
-pub const DISPID_SGRSAddSpecialTransition: DISPID_SpeechGrammarRuleState = DISPID_SpeechGrammarRuleState(5i32);
-pub const DISPID_SGRSAddWordTransition: DISPID_SpeechGrammarRuleState = DISPID_SpeechGrammarRuleState(3i32);
-pub const DISPID_SGRSRule: DISPID_SpeechGrammarRuleState = DISPID_SpeechGrammarRuleState(1i32);
-pub const DISPID_SGRSTNextState: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(8i32);
-pub const DISPID_SGRSTPropertyId: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(6i32);
-pub const DISPID_SGRSTPropertyName: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(5i32);
-pub const DISPID_SGRSTPropertyValue: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(7i32);
-pub const DISPID_SGRSTRule: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(3i32);
-pub const DISPID_SGRSTText: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(2i32);
-pub const DISPID_SGRSTType: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(1i32);
-pub const DISPID_SGRSTWeight: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(4i32);
-pub const DISPID_SGRSTransitions: DISPID_SpeechGrammarRuleState = DISPID_SpeechGrammarRuleState(2i32);
-pub const DISPID_SGRSTsCount: DISPID_SpeechGrammarRuleStateTransitions = DISPID_SpeechGrammarRuleStateTransitions(1i32);
-pub const DISPID_SGRSTsItem: DISPID_SpeechGrammarRuleStateTransitions = DISPID_SpeechGrammarRuleStateTransitions(0i32);
-pub const DISPID_SGRSTs_NewEnum: DISPID_SpeechGrammarRuleStateTransitions = DISPID_SpeechGrammarRuleStateTransitions(-4i32);
-pub const DISPID_SGRsAdd: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(3i32);
-pub const DISPID_SGRsCommit: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(4i32);
-pub const DISPID_SGRsCommitAndSave: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(5i32);
-pub const DISPID_SGRsCount: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(1i32);
-pub const DISPID_SGRsDynamic: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(2i32);
-pub const DISPID_SGRsFindRule: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(6i32);
-pub const DISPID_SGRsItem: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(0i32);
-pub const DISPID_SGRs_NewEnum: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(-4i32);
-pub const DISPID_SLAddPronunciation: DISPID_SpeechLexicon = DISPID_SpeechLexicon(3i32);
-pub const DISPID_SLAddPronunciationByPhoneIds: DISPID_SpeechLexicon = DISPID_SpeechLexicon(4i32);
-pub const DISPID_SLGenerationId: DISPID_SpeechLexicon = DISPID_SpeechLexicon(1i32);
-pub const DISPID_SLGetGenerationChange: DISPID_SpeechLexicon = DISPID_SpeechLexicon(8i32);
-pub const DISPID_SLGetPronunciations: DISPID_SpeechLexicon = DISPID_SpeechLexicon(7i32);
-pub const DISPID_SLGetWords: DISPID_SpeechLexicon = DISPID_SpeechLexicon(2i32);
-pub const DISPID_SLPLangId: DISPID_SpeechLexiconPronunciation = DISPID_SpeechLexiconPronunciation(2i32);
-pub const DISPID_SLPPartOfSpeech: DISPID_SpeechLexiconPronunciation = DISPID_SpeechLexiconPronunciation(3i32);
-pub const DISPID_SLPPhoneIds: DISPID_SpeechLexiconPronunciation = DISPID_SpeechLexiconPronunciation(4i32);
-pub const DISPID_SLPSymbolic: DISPID_SpeechLexiconPronunciation = DISPID_SpeechLexiconPronunciation(5i32);
-pub const DISPID_SLPType: DISPID_SpeechLexiconPronunciation = DISPID_SpeechLexiconPronunciation(1i32);
-pub const DISPID_SLPsCount: DISPID_SpeechLexiconProns = DISPID_SpeechLexiconProns(1i32);
-pub const DISPID_SLPsItem: DISPID_SpeechLexiconProns = DISPID_SpeechLexiconProns(0i32);
-pub const DISPID_SLPs_NewEnum: DISPID_SpeechLexiconProns = DISPID_SpeechLexiconProns(-4i32);
-pub const DISPID_SLRemovePronunciation: DISPID_SpeechLexicon = DISPID_SpeechLexicon(5i32);
-pub const DISPID_SLRemovePronunciationByPhoneIds: DISPID_SpeechLexicon = DISPID_SpeechLexicon(6i32);
-pub const DISPID_SLWLangId: DISPID_SpeechLexiconWord = DISPID_SpeechLexiconWord(1i32);
-pub const DISPID_SLWPronunciations: DISPID_SpeechLexiconWord = DISPID_SpeechLexiconWord(4i32);
-pub const DISPID_SLWType: DISPID_SpeechLexiconWord = DISPID_SpeechLexiconWord(2i32);
-pub const DISPID_SLWWord: DISPID_SpeechLexiconWord = DISPID_SpeechLexiconWord(3i32);
-pub const DISPID_SLWsCount: DISPID_SpeechLexiconWords = DISPID_SpeechLexiconWords(1i32);
-pub const DISPID_SLWsItem: DISPID_SpeechLexiconWords = DISPID_SpeechLexiconWords(0i32);
-pub const DISPID_SLWs_NewEnum: DISPID_SpeechLexiconWords = DISPID_SpeechLexiconWords(-4i32);
-pub const DISPID_SMSADeviceId: DISPID_SpeechMMSysAudio = DISPID_SpeechMMSysAudio(300i32);
-pub const DISPID_SMSALineId: DISPID_SpeechMMSysAudio = DISPID_SpeechMMSysAudio(301i32);
-pub const DISPID_SMSAMMHandle: DISPID_SpeechMMSysAudio = DISPID_SpeechMMSysAudio(302i32);
-pub const DISPID_SMSGetData: DISPID_SpeechMemoryStream = DISPID_SpeechMemoryStream(101i32);
-pub const DISPID_SMSSetData: DISPID_SpeechMemoryStream = DISPID_SpeechMemoryStream(100i32);
-pub const DISPID_SOTCDefault: DISPID_SpeechObjectTokenCategory = DISPID_SpeechObjectTokenCategory(2i32);
-pub const DISPID_SOTCEnumerateTokens: DISPID_SpeechObjectTokenCategory = DISPID_SpeechObjectTokenCategory(5i32);
-pub const DISPID_SOTCGetDataKey: DISPID_SpeechObjectTokenCategory = DISPID_SpeechObjectTokenCategory(4i32);
-pub const DISPID_SOTCId: DISPID_SpeechObjectTokenCategory = DISPID_SpeechObjectTokenCategory(1i32);
-pub const DISPID_SOTCSetId: DISPID_SpeechObjectTokenCategory = DISPID_SpeechObjectTokenCategory(3i32);
-pub const DISPID_SOTCategory: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(3i32);
-pub const DISPID_SOTCreateInstance: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(7i32);
-pub const DISPID_SOTDataKey: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(2i32);
-pub const DISPID_SOTDisplayUI: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(12i32);
-pub const DISPID_SOTGetAttribute: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(6i32);
-pub const DISPID_SOTGetDescription: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(4i32);
-pub const DISPID_SOTGetStorageFileName: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(9i32);
-pub const DISPID_SOTId: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(1i32);
-pub const DISPID_SOTIsUISupported: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(11i32);
-pub const DISPID_SOTMatchesAttributes: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(13i32);
-pub const DISPID_SOTRemove: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(8i32);
-pub const DISPID_SOTRemoveStorageFileName: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(10i32);
-pub const DISPID_SOTSetId: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(5i32);
-pub const DISPID_SOTsCount: DISPID_SpeechObjectTokens = DISPID_SpeechObjectTokens(1i32);
-pub const DISPID_SOTsItem: DISPID_SpeechObjectTokens = DISPID_SpeechObjectTokens(0i32);
-pub const DISPID_SOTs_NewEnum: DISPID_SpeechObjectTokens = DISPID_SpeechObjectTokens(-4i32);
-pub const DISPID_SPACommit: DISPID_SpeechPhraseAlternate = DISPID_SpeechPhraseAlternate(5i32);
-pub const DISPID_SPANumberOfElementsInResult: DISPID_SpeechPhraseAlternate = DISPID_SpeechPhraseAlternate(3i32);
-pub const DISPID_SPAPhraseInfo: DISPID_SpeechPhraseAlternate = DISPID_SpeechPhraseAlternate(4i32);
-pub const DISPID_SPARecoResult: DISPID_SpeechPhraseAlternate = DISPID_SpeechPhraseAlternate(1i32);
-pub const DISPID_SPAStartElementInResult: DISPID_SpeechPhraseAlternate = DISPID_SpeechPhraseAlternate(2i32);
-pub const DISPID_SPAsCount: DISPID_SpeechPhraseAlternates = DISPID_SpeechPhraseAlternates(1i32);
-pub const DISPID_SPAsItem: DISPID_SpeechPhraseAlternates = DISPID_SpeechPhraseAlternates(0i32);
-pub const DISPID_SPAs_NewEnum: DISPID_SpeechPhraseAlternates = DISPID_SpeechPhraseAlternates(-4i32);
-pub const DISPID_SPCIdToPhone: DISPID_SpeechPhoneConverter = DISPID_SpeechPhoneConverter(3i32);
-pub const DISPID_SPCLangId: DISPID_SpeechPhoneConverter = DISPID_SpeechPhoneConverter(1i32);
-pub const DISPID_SPCPhoneToId: DISPID_SpeechPhoneConverter = DISPID_SpeechPhoneConverter(2i32);
-pub const DISPID_SPEActualConfidence: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(12i32);
-pub const DISPID_SPEAudioSizeBytes: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(4i32);
-pub const DISPID_SPEAudioSizeTime: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(2i32);
-pub const DISPID_SPEAudioStreamOffset: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(3i32);
-pub const DISPID_SPEAudioTimeOffset: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(1i32);
-pub const DISPID_SPEDisplayAttributes: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(10i32);
-pub const DISPID_SPEDisplayText: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(7i32);
-pub const DISPID_SPEEngineConfidence: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(13i32);
-pub const DISPID_SPELexicalForm: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(8i32);
-pub const DISPID_SPEPronunciation: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(9i32);
-pub const DISPID_SPERequiredConfidence: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(11i32);
-pub const DISPID_SPERetainedSizeBytes: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(6i32);
-pub const DISPID_SPERetainedStreamOffset: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(5i32);
-pub const DISPID_SPEsCount: DISPID_SpeechPhraseElements = DISPID_SpeechPhraseElements(1i32);
-pub const DISPID_SPEsItem: DISPID_SpeechPhraseElements = DISPID_SpeechPhraseElements(0i32);
-pub const DISPID_SPEs_NewEnum: DISPID_SpeechPhraseElements = DISPID_SpeechPhraseElements(-4i32);
-pub const DISPID_SPIAudioSizeBytes: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(5i32);
-pub const DISPID_SPIAudioSizeTime: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(7i32);
-pub const DISPID_SPIAudioStreamPosition: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(4i32);
-pub const DISPID_SPIElements: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(10i32);
-pub const DISPID_SPIEngineId: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(12i32);
-pub const DISPID_SPIEnginePrivateData: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(13i32);
-pub const DISPID_SPIGetDisplayAttributes: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(16i32);
-pub const DISPID_SPIGetText: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(15i32);
-pub const DISPID_SPIGrammarId: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(2i32);
-pub const DISPID_SPILanguageId: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(1i32);
-pub const DISPID_SPIProperties: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(9i32);
-pub const DISPID_SPIReplacements: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(11i32);
-pub const DISPID_SPIRetainedSizeBytes: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(6i32);
-pub const DISPID_SPIRule: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(8i32);
-pub const DISPID_SPISaveToMemory: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(14i32);
-pub const DISPID_SPIStartTime: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(3i32);
-pub const DISPID_SPPBRestorePhraseFromMemory: DISPID_SpeechPhraseBuilder = DISPID_SpeechPhraseBuilder(1i32);
-pub const DISPID_SPPChildren: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(9i32);
-pub const DISPID_SPPConfidence: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(7i32);
-pub const DISPID_SPPEngineConfidence: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(6i32);
-pub const DISPID_SPPFirstElement: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(4i32);
-pub const DISPID_SPPId: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(2i32);
-pub const DISPID_SPPName: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(1i32);
-pub const DISPID_SPPNumberOfElements: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(5i32);
-pub const DISPID_SPPParent: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(8i32);
-pub const DISPID_SPPValue: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(3i32);
-pub const DISPID_SPPsCount: DISPID_SpeechPhraseProperties = DISPID_SpeechPhraseProperties(1i32);
-pub const DISPID_SPPsItem: DISPID_SpeechPhraseProperties = DISPID_SpeechPhraseProperties(0i32);
-pub const DISPID_SPPs_NewEnum: DISPID_SpeechPhraseProperties = DISPID_SpeechPhraseProperties(-4i32);
-pub const DISPID_SPRDisplayAttributes: DISPID_SpeechPhraseReplacement = DISPID_SpeechPhraseReplacement(1i32);
-pub const DISPID_SPRFirstElement: DISPID_SpeechPhraseReplacement = DISPID_SpeechPhraseReplacement(3i32);
-pub const DISPID_SPRNumberOfElements: DISPID_SpeechPhraseReplacement = DISPID_SpeechPhraseReplacement(4i32);
-pub const DISPID_SPRText: DISPID_SpeechPhraseReplacement = DISPID_SpeechPhraseReplacement(2i32);
-pub const DISPID_SPRsCount: DISPID_SpeechPhraseReplacements = DISPID_SpeechPhraseReplacements(1i32);
-pub const DISPID_SPRsItem: DISPID_SpeechPhraseReplacements = DISPID_SpeechPhraseReplacements(0i32);
-pub const DISPID_SPRs_NewEnum: DISPID_SpeechPhraseReplacements = DISPID_SpeechPhraseReplacements(-4i32);
-pub const DISPID_SPRuleChildren: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(6i32);
-pub const DISPID_SPRuleConfidence: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(7i32);
-pub const DISPID_SPRuleEngineConfidence: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(8i32);
-pub const DISPID_SPRuleFirstElement: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(3i32);
-pub const DISPID_SPRuleId: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(2i32);
-pub const DISPID_SPRuleName: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(1i32);
-pub const DISPID_SPRuleNumberOfElements: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(4i32);
-pub const DISPID_SPRuleParent: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(5i32);
-pub const DISPID_SPRulesCount: DISPID_SpeechPhraseRules = DISPID_SpeechPhraseRules(1i32);
-pub const DISPID_SPRulesItem: DISPID_SpeechPhraseRules = DISPID_SpeechPhraseRules(0i32);
-pub const DISPID_SPRules_NewEnum: DISPID_SpeechPhraseRules = DISPID_SpeechPhraseRules(-4i32);
-pub const DISPID_SRAllowAudioInputFormatChangesOnNextSet: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(2i32);
-pub const DISPID_SRAllowVoiceFormatMatchingOnNextSet: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(5i32);
-pub const DISPID_SRAudioInput: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(3i32);
-pub const DISPID_SRAudioInputStream: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(4i32);
-pub const DISPID_SRCAudioInInterferenceStatus: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(2i32);
-pub const DISPID_SRCBookmark: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(16i32);
-pub const DISPID_SRCCmdMaxAlternates: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(8i32);
-pub const DISPID_SRCCreateGrammar: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(14i32);
-pub const DISPID_SRCCreateResultFromMemory: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(15i32);
-pub const DISPID_SRCEAdaptation: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(15i32);
-pub const DISPID_SRCEAudioLevel: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(17i32);
-pub const DISPID_SRCEBookmark: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(3i32);
-pub const DISPID_SRCEEndStream: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(2i32);
-pub const DISPID_SRCEEnginePrivate: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(18i32);
-pub const DISPID_SRCEFalseRecognition: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(11i32);
-pub const DISPID_SRCEHypothesis: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(8i32);
-pub const DISPID_SRCEInterference: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(12i32);
-pub const DISPID_SRCEPhraseStart: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(6i32);
-pub const DISPID_SRCEPropertyNumberChange: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(9i32);
-pub const DISPID_SRCEPropertyStringChange: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(10i32);
-pub const DISPID_SRCERecognition: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(7i32);
-pub const DISPID_SRCERecognitionForOtherContext: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(16i32);
-pub const DISPID_SRCERecognizerStateChange: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(14i32);
-pub const DISPID_SRCERequestUI: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(13i32);
-pub const DISPID_SRCESoundEnd: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(5i32);
-pub const DISPID_SRCESoundStart: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(4i32);
-pub const DISPID_SRCEStartStream: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(1i32);
-pub const DISPID_SRCEventInterests: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(7i32);
-pub const DISPID_SRCPause: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(12i32);
-pub const DISPID_SRCRecognizer: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(1i32);
-pub const DISPID_SRCRequestedUIType: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(3i32);
-pub const DISPID_SRCResume: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(13i32);
-pub const DISPID_SRCRetainedAudio: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(10i32);
-pub const DISPID_SRCRetainedAudioFormat: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(11i32);
-pub const DISPID_SRCSetAdaptationData: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(17i32);
-pub const DISPID_SRCState: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(9i32);
-pub const DISPID_SRCVoice: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(4i32);
-pub const DISPID_SRCVoicePurgeEvent: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(6i32);
-pub const DISPID_SRCreateRecoContext: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(10i32);
-pub const DISPID_SRDisplayUI: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(17i32);
-pub const DISPID_SREmulateRecognition: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(9i32);
-pub const DISPID_SRGCmdLoadFromFile: DISPIDSPRG = DISPIDSPRG(7i32);
-pub const DISPID_SRGCmdLoadFromMemory: DISPIDSPRG = DISPIDSPRG(10i32);
-pub const DISPID_SRGCmdLoadFromObject: DISPIDSPRG = DISPIDSPRG(8i32);
-pub const DISPID_SRGCmdLoadFromProprietaryGrammar: DISPIDSPRG = DISPIDSPRG(11i32);
-pub const DISPID_SRGCmdLoadFromResource: DISPIDSPRG = DISPIDSPRG(9i32);
-pub const DISPID_SRGCmdSetRuleIdState: DISPIDSPRG = DISPIDSPRG(13i32);
-pub const DISPID_SRGCmdSetRuleState: DISPIDSPRG = DISPIDSPRG(12i32);
-pub const DISPID_SRGCommit: DISPIDSPRG = DISPIDSPRG(6i32);
-pub const DISPID_SRGDictationLoad: DISPIDSPRG = DISPIDSPRG(14i32);
-pub const DISPID_SRGDictationSetState: DISPIDSPRG = DISPIDSPRG(16i32);
-pub const DISPID_SRGDictationUnload: DISPIDSPRG = DISPIDSPRG(15i32);
-pub const DISPID_SRGId: DISPIDSPRG = DISPIDSPRG(1i32);
-pub const DISPID_SRGIsPronounceable: DISPIDSPRG = DISPIDSPRG(19i32);
-pub const DISPID_SRGRecoContext: DISPIDSPRG = DISPIDSPRG(2i32);
-pub const DISPID_SRGReset: DISPIDSPRG = DISPIDSPRG(5i32);
-pub const DISPID_SRGRules: DISPIDSPRG = DISPIDSPRG(4i32);
-pub const DISPID_SRGSetTextSelection: DISPIDSPRG = DISPIDSPRG(18i32);
-pub const DISPID_SRGSetWordSequenceData: DISPIDSPRG = DISPIDSPRG(17i32);
-pub const DISPID_SRGState: DISPIDSPRG = DISPIDSPRG(3i32);
-pub const DISPID_SRGetFormat: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(11i32);
-pub const DISPID_SRGetPropertyNumber: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(13i32);
-pub const DISPID_SRGetPropertyString: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(15i32);
-pub const DISPID_SRGetRecognizers: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(18i32);
-pub const DISPID_SRIsShared: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(5i32);
-pub const DISPID_SRIsUISupported: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(16i32);
-pub const DISPID_SRProfile: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(8i32);
-pub const DISPID_SRRAlternates: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(5i32);
-pub const DISPID_SRRAudio: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(6i32);
-pub const DISPID_SRRAudioFormat: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(3i32);
-pub const DISPID_SRRDiscardResultInfo: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(9i32);
-pub const DISPID_SRRGetXMLErrorInfo: DISPID_SpeechXMLRecoResult = DISPID_SpeechXMLRecoResult(11i32);
-pub const DISPID_SRRGetXMLResult: DISPID_SpeechXMLRecoResult = DISPID_SpeechXMLRecoResult(10i32);
-pub const DISPID_SRRPhraseInfo: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(4i32);
-pub const DISPID_SRRRecoContext: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(1i32);
-pub const DISPID_SRRSaveToMemory: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(8i32);
-pub const DISPID_SRRSetTextFeedback: DISPID_SpeechRecoResult2 = DISPID_SpeechRecoResult2(12i32);
-pub const DISPID_SRRSpeakAudio: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(7i32);
-pub const DISPID_SRRTLength: DISPID_SpeechRecoResultTimes = DISPID_SpeechRecoResultTimes(2i32);
-pub const DISPID_SRRTOffsetFromStart: DISPID_SpeechRecoResultTimes = DISPID_SpeechRecoResultTimes(4i32);
-pub const DISPID_SRRTStreamTime: DISPID_SpeechRecoResultTimes = DISPID_SpeechRecoResultTimes(1i32);
-pub const DISPID_SRRTTickCount: DISPID_SpeechRecoResultTimes = DISPID_SpeechRecoResultTimes(3i32);
-pub const DISPID_SRRTimes: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(2i32);
-pub const DISPID_SRRecognizer: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(1i32);
-pub const DISPID_SRSAudioStatus: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(1i32);
-pub const DISPID_SRSClsidEngine: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(5i32);
-pub const DISPID_SRSCurrentStreamNumber: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(3i32);
-pub const DISPID_SRSCurrentStreamPosition: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(2i32);
-pub const DISPID_SRSNumberOfActiveRules: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(4i32);
-pub const DISPID_SRSSupportedLanguages: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(6i32);
-pub const DISPID_SRSetPropertyNumber: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(12i32);
-pub const DISPID_SRSetPropertyString: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(14i32);
-pub const DISPID_SRState: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(6i32);
-pub const DISPID_SRStatus: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(7i32);
-pub const DISPID_SVAlertBoundary: DISPID_SpeechVoice = DISPID_SpeechVoice(10i32);
-pub const DISPID_SVAllowAudioOuputFormatChangesOnNextSet: DISPID_SpeechVoice = DISPID_SpeechVoice(7i32);
-pub const DISPID_SVAudioOutput: DISPID_SpeechVoice = DISPID_SpeechVoice(3i32);
-pub const DISPID_SVAudioOutputStream: DISPID_SpeechVoice = DISPID_SpeechVoice(4i32);
-pub const DISPID_SVDisplayUI: DISPID_SpeechVoice = DISPID_SpeechVoice(22i32);
-pub const DISPID_SVEAudioLevel: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(9i32);
-pub const DISPID_SVEBookmark: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(4i32);
-pub const DISPID_SVEEnginePrivate: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(10i32);
-pub const DISPID_SVEPhoneme: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(6i32);
-pub const DISPID_SVESentenceBoundary: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(7i32);
-pub const DISPID_SVEStreamEnd: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(2i32);
-pub const DISPID_SVEStreamStart: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(1i32);
-pub const DISPID_SVEViseme: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(8i32);
-pub const DISPID_SVEVoiceChange: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(3i32);
-pub const DISPID_SVEWord: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(5i32);
-pub const DISPID_SVEventInterests: DISPID_SpeechVoice = DISPID_SpeechVoice(8i32);
-pub const DISPID_SVGetAudioInputs: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(19i32);
-pub const DISPID_SVGetAudioOutputs: DISPID_SpeechVoice = DISPID_SpeechVoice(18i32);
-pub const DISPID_SVGetProfiles: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(20i32);
-pub const DISPID_SVGetVoices: DISPID_SpeechVoice = DISPID_SpeechVoice(17i32);
-pub const DISPID_SVIsUISupported: DISPID_SpeechVoice = DISPID_SpeechVoice(21i32);
-pub const DISPID_SVPause: DISPID_SpeechVoice = DISPID_SpeechVoice(14i32);
-pub const DISPID_SVPriority: DISPID_SpeechVoice = DISPID_SpeechVoice(9i32);
-pub const DISPID_SVRate: DISPID_SpeechVoice = DISPID_SpeechVoice(5i32);
-pub const DISPID_SVResume: DISPID_SpeechVoice = DISPID_SpeechVoice(15i32);
-pub const DISPID_SVSCurrentStreamNumber: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(1i32);
-pub const DISPID_SVSInputSentenceLength: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(8i32);
-pub const DISPID_SVSInputSentencePosition: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(7i32);
-pub const DISPID_SVSInputWordLength: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(6i32);
-pub const DISPID_SVSInputWordPosition: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(5i32);
-pub const DISPID_SVSLastBookmark: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(9i32);
-pub const DISPID_SVSLastBookmarkId: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(10i32);
-pub const DISPID_SVSLastResult: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(3i32);
-pub const DISPID_SVSLastStreamNumberQueued: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(2i32);
-pub const DISPID_SVSPhonemeId: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(11i32);
-pub const DISPID_SVSRunningState: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(4i32);
-pub const DISPID_SVSVisemeId: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(12i32);
-pub const DISPID_SVSkip: DISPID_SpeechVoice = DISPID_SpeechVoice(16i32);
-pub const DISPID_SVSpeak: DISPID_SpeechVoice = DISPID_SpeechVoice(12i32);
-pub const DISPID_SVSpeakCompleteEvent: DISPID_SpeechVoice = DISPID_SpeechVoice(20i32);
-pub const DISPID_SVSpeakStream: DISPID_SpeechVoice = DISPID_SpeechVoice(13i32);
-pub const DISPID_SVStatus: DISPID_SpeechVoice = DISPID_SpeechVoice(1i32);
-pub const DISPID_SVSyncronousSpeakTimeout: DISPID_SpeechVoice = DISPID_SpeechVoice(11i32);
-pub const DISPID_SVVoice: DISPID_SpeechVoice = DISPID_SpeechVoice(2i32);
-pub const DISPID_SVVolume: DISPID_SpeechVoice = DISPID_SpeechVoice(6i32);
-pub const DISPID_SVWaitUntilDone: DISPID_SpeechVoice = DISPID_SpeechVoice(19i32);
-pub const DISPID_SWFEAvgBytesPerSec: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(4i32);
-pub const DISPID_SWFEBitsPerSample: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(6i32);
-pub const DISPID_SWFEBlockAlign: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(5i32);
-pub const DISPID_SWFEChannels: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(2i32);
-pub const DISPID_SWFEExtraData: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(7i32);
-pub const DISPID_SWFEFormatTag: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(1i32);
-pub const DISPID_SWFESamplesPerSec: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(3i32);
-pub const OrderedSubset: SPMATCHINGMODE = SPMATCHINGMODE(3i32);
-pub const OrderedSubsetContentRequired: SPMATCHINGMODE = SPMATCHINGMODE(7i32);
-pub const PA_Ipa: PHONETICALPHABET = PHONETICALPHABET(0i32);
-pub const PA_Sapi: PHONETICALPHABET = PHONETICALPHABET(2i32);
-pub const PA_Ups: PHONETICALPHABET = PHONETICALPHABET(1i32);
-pub const SAFT11kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(10i32);
-pub const SAFT11kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(11i32);
-pub const SAFT11kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(8i32);
-pub const SAFT11kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(9i32);
-pub const SAFT12kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(14i32);
-pub const SAFT12kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(15i32);
-pub const SAFT12kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(12i32);
-pub const SAFT12kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(13i32);
-pub const SAFT16kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(18i32);
-pub const SAFT16kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(19i32);
-pub const SAFT16kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(16i32);
-pub const SAFT16kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(17i32);
-pub const SAFT22kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(22i32);
-pub const SAFT22kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(23i32);
-pub const SAFT22kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(20i32);
-pub const SAFT22kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(21i32);
-pub const SAFT24kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(26i32);
-pub const SAFT24kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(27i32);
-pub const SAFT24kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(24i32);
-pub const SAFT24kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(25i32);
-pub const SAFT32kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(30i32);
-pub const SAFT32kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(31i32);
-pub const SAFT32kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(28i32);
-pub const SAFT32kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(29i32);
-pub const SAFT44kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(34i32);
-pub const SAFT44kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(35i32);
-pub const SAFT44kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(32i32);
-pub const SAFT44kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(33i32);
-pub const SAFT48kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(38i32);
-pub const SAFT48kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(39i32);
-pub const SAFT48kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(36i32);
-pub const SAFT48kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(37i32);
-pub const SAFT8kHz16BitMono: SpeechAudioFormatType = SpeechAudioFormatType(6i32);
-pub const SAFT8kHz16BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(7i32);
-pub const SAFT8kHz8BitMono: SpeechAudioFormatType = SpeechAudioFormatType(4i32);
-pub const SAFT8kHz8BitStereo: SpeechAudioFormatType = SpeechAudioFormatType(5i32);
-pub const SAFTADPCM_11kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(59i32);
-pub const SAFTADPCM_11kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(60i32);
-pub const SAFTADPCM_22kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(61i32);
-pub const SAFTADPCM_22kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(62i32);
-pub const SAFTADPCM_44kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(63i32);
-pub const SAFTADPCM_44kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(64i32);
-pub const SAFTADPCM_8kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(57i32);
-pub const SAFTADPCM_8kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(58i32);
-pub const SAFTCCITT_ALaw_11kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(43i32);
-pub const SAFTCCITT_ALaw_11kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(44i32);
-pub const SAFTCCITT_ALaw_22kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(45i32);
-pub const SAFTCCITT_ALaw_22kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(46i32);
-pub const SAFTCCITT_ALaw_44kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(47i32);
-pub const SAFTCCITT_ALaw_44kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(48i32);
-pub const SAFTCCITT_ALaw_8kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(41i32);
-pub const SAFTCCITT_ALaw_8kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(42i32);
-pub const SAFTCCITT_uLaw_11kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(51i32);
-pub const SAFTCCITT_uLaw_11kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(52i32);
-pub const SAFTCCITT_uLaw_22kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(53i32);
-pub const SAFTCCITT_uLaw_22kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(54i32);
-pub const SAFTCCITT_uLaw_44kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(55i32);
-pub const SAFTCCITT_uLaw_44kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(56i32);
-pub const SAFTCCITT_uLaw_8kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(49i32);
-pub const SAFTCCITT_uLaw_8kHzStereo: SpeechAudioFormatType = SpeechAudioFormatType(50i32);
-pub const SAFTDefault: SpeechAudioFormatType = SpeechAudioFormatType(-1i32);
-pub const SAFTExtendedAudioFormat: SpeechAudioFormatType = SpeechAudioFormatType(3i32);
-pub const SAFTGSM610_11kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(66i32);
-pub const SAFTGSM610_22kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(67i32);
-pub const SAFTGSM610_44kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(68i32);
-pub const SAFTGSM610_8kHzMono: SpeechAudioFormatType = SpeechAudioFormatType(65i32);
-pub const SAFTNoAssignedFormat: SpeechAudioFormatType = SpeechAudioFormatType(0i32);
-pub const SAFTNonStandardFormat: SpeechAudioFormatType = SpeechAudioFormatType(2i32);
-pub const SAFTText: SpeechAudioFormatType = SpeechAudioFormatType(1i32);
-pub const SAFTTrueSpeech_8kHz1BitMono: SpeechAudioFormatType = SpeechAudioFormatType(40i32);
-pub const SAPI_ERROR_BASE: u32 = 20480u32;
-pub const SASClosed: SpeechAudioState = SpeechAudioState(0i32);
-pub const SASPause: SpeechAudioState = SpeechAudioState(2i32);
-pub const SASRun: SpeechAudioState = SpeechAudioState(3i32);
-pub const SASStop: SpeechAudioState = SpeechAudioState(1i32);
-pub const SBONone: SpeechBookmarkOptions = SpeechBookmarkOptions(0i32);
-pub const SBOPause: SpeechBookmarkOptions = SpeechBookmarkOptions(1i32);
-pub const SDA_Consume_Leading_Spaces: SpeechDisplayAttributes = SpeechDisplayAttributes(8i32);
-pub const SDA_No_Trailing_Space: SpeechDisplayAttributes = SpeechDisplayAttributes(0i32);
-pub const SDA_One_Trailing_Space: SpeechDisplayAttributes = SpeechDisplayAttributes(2i32);
-pub const SDA_Two_Trailing_Spaces: SpeechDisplayAttributes = SpeechDisplayAttributes(4i32);
-pub const SDKLCurrentConfig: SpeechDataKeyLocation = SpeechDataKeyLocation(5i32);
-pub const SDKLCurrentUser: SpeechDataKeyLocation = SpeechDataKeyLocation(1i32);
-pub const SDKLDefaultLocation: SpeechDataKeyLocation = SpeechDataKeyLocation(0i32);
-pub const SDKLLocalMachine: SpeechDataKeyLocation = SpeechDataKeyLocation(2i32);
-pub const SDTAll: SpeechDiscardType = SpeechDiscardType(255i32);
-pub const SDTAlternates: SpeechDiscardType = SpeechDiscardType(128i32);
-pub const SDTAudio: SpeechDiscardType = SpeechDiscardType(64i32);
-pub const SDTDisplayText: SpeechDiscardType = SpeechDiscardType(8i32);
-pub const SDTLexicalForm: SpeechDiscardType = SpeechDiscardType(16i32);
-pub const SDTPronunciation: SpeechDiscardType = SpeechDiscardType(32i32);
-pub const SDTProperty: SpeechDiscardType = SpeechDiscardType(1i32);
-pub const SDTReplacement: SpeechDiscardType = SpeechDiscardType(2i32);
-pub const SDTRule: SpeechDiscardType = SpeechDiscardType(4i32);
-pub const SECFDefault: SpeechEmulationCompareFlags = SpeechEmulationCompareFlags(196609i32);
-pub const SECFEmulateResult: SpeechEmulationCompareFlags = SpeechEmulationCompareFlags(1073741824i32);
-pub const SECFIgnoreCase: SpeechEmulationCompareFlags = SpeechEmulationCompareFlags(1i32);
-pub const SECFIgnoreKanaType: SpeechEmulationCompareFlags = SpeechEmulationCompareFlags(65536i32);
-pub const SECFIgnoreWidth: SpeechEmulationCompareFlags = SpeechEmulationCompareFlags(131072i32);
-pub const SECFNoSpecialChars: SpeechEmulationCompareFlags = SpeechEmulationCompareFlags(536870912i32);
-pub const SECHighConfidence: SpeechEngineConfidence = SpeechEngineConfidence(1i32);
-pub const SECLowConfidence: SpeechEngineConfidence = SpeechEngineConfidence(-1i32);
-pub const SECNormalConfidence: SpeechEngineConfidence = SpeechEngineConfidence(0i32);
-pub const SFTInput: SpeechFormatType = SpeechFormatType(0i32);
-pub const SFTSREngine: SpeechFormatType = SpeechFormatType(1i32);
-pub const SGDSActive: SpeechRuleState = SpeechRuleState(1i32);
-pub const SGDSActiveUserDelimited: SpeechRuleState = SpeechRuleState(4i32);
-pub const SGDSActiveWithAutoPause: SpeechRuleState = SpeechRuleState(3i32);
-pub const SGDSInactive: SpeechRuleState = SpeechRuleState(0i32);
-pub const SGDisplay: SpeechGrammarWordType = SpeechGrammarWordType(0i32);
-pub const SGLexical: SpeechGrammarWordType = SpeechGrammarWordType(1i32);
-pub const SGLexicalNoSpecialChars: SpeechGrammarWordType = SpeechGrammarWordType(3i32);
-pub const SGPronounciation: SpeechGrammarWordType = SpeechGrammarWordType(2i32);
-pub const SGRSTTDictation: SpeechGrammarRuleStateTransitionType = SpeechGrammarRuleStateTransitionType(3i32);
-pub const SGRSTTEpsilon: SpeechGrammarRuleStateTransitionType = SpeechGrammarRuleStateTransitionType(0i32);
-pub const SGRSTTRule: SpeechGrammarRuleStateTransitionType = SpeechGrammarRuleStateTransitionType(2i32);
-pub const SGRSTTTextBuffer: SpeechGrammarRuleStateTransitionType = SpeechGrammarRuleStateTransitionType(5i32);
-pub const SGRSTTWildcard: SpeechGrammarRuleStateTransitionType = SpeechGrammarRuleStateTransitionType(4i32);
-pub const SGRSTTWord: SpeechGrammarRuleStateTransitionType = SpeechGrammarRuleStateTransitionType(1i32);
-pub const SGSDisabled: SpeechGrammarState = SpeechGrammarState(0i32);
-pub const SGSEnabled: SpeechGrammarState = SpeechGrammarState(1i32);
-pub const SGSExclusive: SpeechGrammarState = SpeechGrammarState(3i32);
-pub const SINoSignal: SpeechInterference = SpeechInterference(2i32);
-pub const SINoise: SpeechInterference = SpeechInterference(1i32);
-pub const SINone: SpeechInterference = SpeechInterference(0i32);
-pub const SITooFast: SpeechInterference = SpeechInterference(5i32);
-pub const SITooLoud: SpeechInterference = SpeechInterference(3i32);
-pub const SITooQuiet: SpeechInterference = SpeechInterference(4i32);
-pub const SITooSlow: SpeechInterference = SpeechInterference(6i32);
-pub const SLODynamic: SpeechLoadOption = SpeechLoadOption(1i32);
-pub const SLOStatic: SpeechLoadOption = SpeechLoadOption(0i32);
-pub const SLTApp: SpeechLexiconType = SpeechLexiconType(2i32);
-pub const SLTUser: SpeechLexiconType = SpeechLexiconType(1i32);
-pub const SPADS_CurrentRecognizer: SPADAPTATIONSETTINGS = SPADAPTATIONSETTINGS(1i32);
-pub const SPADS_Default: SPADAPTATIONSETTINGS = SPADAPTATIONSETTINGS(0i32);
-pub const SPADS_HighVolumeDataSource: SPADAPTATIONSETTINGS = SPADAPTATIONSETTINGS(16i32);
-pub const SPADS_Immediate: SPADAPTATIONSETTINGS = SPADAPTATIONSETTINGS(4i32);
-pub const SPADS_RecoProfile: SPADAPTATIONSETTINGS = SPADAPTATIONSETTINGS(2i32);
-pub const SPADS_Reset: SPADAPTATIONSETTINGS = SPADAPTATIONSETTINGS(8i32);
-pub const SPAF_ALL: SPDISPLAYATTRIBUTES = SPDISPLAYATTRIBUTES(31i32);
-pub const SPAF_BUFFER_POSITION: SPDISPLAYATTRIBUTES = SPDISPLAYATTRIBUTES(16i32);
-pub const SPAF_CONSUME_LEADING_SPACES: SPDISPLAYATTRIBUTES = SPDISPLAYATTRIBUTES(8i32);
-pub const SPAF_ONE_TRAILING_SPACE: SPDISPLAYATTRIBUTES = SPDISPLAYATTRIBUTES(2i32);
-pub const SPAF_TWO_TRAILING_SPACES: SPDISPLAYATTRIBUTES = SPDISPLAYATTRIBUTES(4i32);
-pub const SPAF_USER_SPECIFIED: SPDISPLAYATTRIBUTES = SPDISPLAYATTRIBUTES(128i32);
-pub const SPALTERNATESCLSID: windows_core::PCWSTR = windows_core::w!("AlternatesCLSID");
-pub const SPAO_NONE: SPAUDIOOPTIONS = SPAUDIOOPTIONS(0i32);
-pub const SPAO_RETAIN_AUDIO: SPAUDIOOPTIONS = SPAUDIOOPTIONS(1i32);
-pub const SPAR_High: SPADAPTATIONRELEVANCE = SPADAPTATIONRELEVANCE(3i32);
-pub const SPAR_Low: SPADAPTATIONRELEVANCE = SPADAPTATIONRELEVANCE(1i32);
-pub const SPAR_Medium: SPADAPTATIONRELEVANCE = SPADAPTATIONRELEVANCE(2i32);
-pub const SPAR_Unknown: SPADAPTATIONRELEVANCE = SPADAPTATIONRELEVANCE(0i32);
-pub const SPAS_CLOSED: SPAUDIOSTATE = SPAUDIOSTATE(0i32);
-pub const SPAS_PAUSE: SPAUDIOSTATE = SPAUDIOSTATE(2i32);
-pub const SPAS_RUN: SPAUDIOSTATE = SPAUDIOSTATE(3i32);
-pub const SPAS_STOP: SPAUDIOSTATE = SPAUDIOSTATE(1i32);
-pub const SPBO_AHEAD: SPBOOKMARKOPTIONS = SPBOOKMARKOPTIONS(2i32);
-pub const SPBO_NONE: SPBOOKMARKOPTIONS = SPBOOKMARKOPTIONS(0i32);
-pub const SPBO_PAUSE: SPBOOKMARKOPTIONS = SPBOOKMARKOPTIONS(1i32);
-pub const SPBO_TIME_UNITS: SPBOOKMARKOPTIONS = SPBOOKMARKOPTIONS(4i32);
-pub const SPCAT_APPLEXICONS: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AppLexicons");
-pub const SPCAT_AUDIOIN: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioInput");
-pub const SPCAT_AUDIOOUT: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioOutput");
-pub const SPCAT_PHONECONVERTERS: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\PhoneConverters");
-pub const SPCAT_RECOGNIZERS: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Recognizers");
-pub const SPCAT_RECOPROFILES: windows_core::PCWSTR = windows_core::w!("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\RecoProfiles");
-pub const SPCAT_TEXTNORMALIZERS: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\TextNormalizers");
-pub const SPCAT_VOICES: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Voices");
-pub const SPCFGN_ACTIVATE: SPCFGNOTIFY = SPCFGNOTIFY(3i32);
-pub const SPCFGN_ADD: SPCFGNOTIFY = SPCFGNOTIFY(0i32);
-pub const SPCFGN_DEACTIVATE: SPCFGNOTIFY = SPCFGNOTIFY(4i32);
-pub const SPCFGN_INVALIDATE: SPCFGNOTIFY = SPCFGNOTIFY(2i32);
-pub const SPCFGN_REMOVE: SPCFGNOTIFY = SPCFGNOTIFY(1i32);
-pub const SPCF_ADD_TO_USER_LEXICON: SPCOMMITFLAGS = SPCOMMITFLAGS(1i32);
-pub const SPCF_DEFINITE_CORRECTION: SPCOMMITFLAGS = SPCOMMITFLAGS(2i32);
-pub const SPCF_NONE: SPCOMMITFLAGS = SPCOMMITFLAGS(0i32);
-pub const SPCS_DISABLED: SPCONTEXTSTATE = SPCONTEXTSTATE(0i32);
-pub const SPCS_ENABLED: SPCONTEXTSTATE = SPCONTEXTSTATE(1i32);
-pub const SPCURRENT_USER_LEXICON_TOKEN_ID: windows_core::PCWSTR = windows_core::w!("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\CurrentUserLexicon");
-pub const SPCURRENT_USER_SHORTCUT_TOKEN_ID: windows_core::PCWSTR = windows_core::w!("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\CurrentUserShortcut");
-pub const SPDF_ALL: SPVALUETYPE = SPVALUETYPE(255i32);
-pub const SPDF_ALTERNATES: SPVALUETYPE = SPVALUETYPE(128i32);
-pub const SPDF_AUDIO: SPVALUETYPE = SPVALUETYPE(64i32);
-pub const SPDF_DISPLAYTEXT: SPVALUETYPE = SPVALUETYPE(8i32);
-pub const SPDF_LEXICALFORM: SPVALUETYPE = SPVALUETYPE(16i32);
-pub const SPDF_PRONUNCIATION: SPVALUETYPE = SPVALUETYPE(32i32);
-pub const SPDF_PROPERTY: SPVALUETYPE = SPVALUETYPE(1i32);
-pub const SPDF_REPLACEMENT: SPVALUETYPE = SPVALUETYPE(2i32);
-pub const SPDF_RULE: SPVALUETYPE = SPVALUETYPE(4i32);
-pub const SPDICTATION: windows_core::PCWSTR = windows_core::w!("*");
-pub const SPDKL_CurrentConfig: SPDATAKEYLOCATION = SPDATAKEYLOCATION(5i32);
-pub const SPDKL_CurrentUser: SPDATAKEYLOCATION = SPDATAKEYLOCATION(1i32);
-pub const SPDKL_DefaultLocation: SPDATAKEYLOCATION = SPDATAKEYLOCATION(0i32);
-pub const SPDKL_LocalMachine: SPDATAKEYLOCATION = SPDATAKEYLOCATION(2i32);
-pub const SPDUI_AddRemoveWord: windows_core::PCWSTR = windows_core::w!("AddRemoveWord");
-pub const SPDUI_AudioProperties: windows_core::PCWSTR = windows_core::w!("AudioProperties");
-pub const SPDUI_AudioVolume: windows_core::PCWSTR = windows_core::w!("AudioVolume");
-pub const SPDUI_EngineProperties: windows_core::PCWSTR = windows_core::w!("EngineProperties");
-pub const SPDUI_MicTraining: windows_core::PCWSTR = windows_core::w!("MicTraining");
-pub const SPDUI_RecoProfileProperties: windows_core::PCWSTR = windows_core::w!("RecoProfileProperties");
-pub const SPDUI_ShareData: windows_core::PCWSTR = windows_core::w!("ShareData");
-pub const SPDUI_Tutorial: windows_core::PCWSTR = windows_core::w!("Tutorial");
-pub const SPDUI_UserEnrollment: windows_core::PCWSTR = windows_core::w!("UserEnrollment");
-pub const SPDUI_UserTraining: windows_core::PCWSTR = windows_core::w!("UserTraining");
-pub const SPEI_ADAPTATION: SPEVENTENUM = SPEVENTENUM(47i32);
-pub const SPEI_END_INPUT_STREAM: SPEVENTENUM = SPEVENTENUM(2i32);
-pub const SPEI_END_SR_STREAM: SPEVENTENUM = SPEVENTENUM(34i32);
-pub const SPEI_FALSE_RECOGNITION: SPEVENTENUM = SPEVENTENUM(43i32);
-pub const SPEI_HYPOTHESIS: SPEVENTENUM = SPEVENTENUM(39i32);
-pub const SPEI_INTERFERENCE: SPEVENTENUM = SPEVENTENUM(44i32);
-pub const SPEI_MAX_SR: SPEVENTENUM = SPEVENTENUM(55i32);
-pub const SPEI_MAX_TTS: SPEVENTENUM = SPEVENTENUM(15i32);
-pub const SPEI_MIN_SR: SPEVENTENUM = SPEVENTENUM(34i32);
-pub const SPEI_MIN_TTS: SPEVENTENUM = SPEVENTENUM(1i32);
-pub const SPEI_PHONEME: SPEVENTENUM = SPEVENTENUM(6i32);
-pub const SPEI_PHRASE_START: SPEVENTENUM = SPEVENTENUM(37i32);
-pub const SPEI_PROPERTY_NUM_CHANGE: SPEVENTENUM = SPEVENTENUM(41i32);
-pub const SPEI_PROPERTY_STRING_CHANGE: SPEVENTENUM = SPEVENTENUM(42i32);
-pub const SPEI_RECOGNITION: SPEVENTENUM = SPEVENTENUM(38i32);
-pub const SPEI_RECO_OTHER_CONTEXT: SPEVENTENUM = SPEVENTENUM(49i32);
-pub const SPEI_RECO_STATE_CHANGE: SPEVENTENUM = SPEVENTENUM(46i32);
-pub const SPEI_REQUEST_UI: SPEVENTENUM = SPEVENTENUM(45i32);
-pub const SPEI_RESERVED1: SPEVENTENUM = SPEVENTENUM(30i32);
-pub const SPEI_RESERVED2: SPEVENTENUM = SPEVENTENUM(33i32);
-pub const SPEI_RESERVED3: SPEVENTENUM = SPEVENTENUM(63i32);
-pub const SPEI_RESERVED4: SPEVENTENUM = SPEVENTENUM(53i32);
-pub const SPEI_RESERVED5: SPEVENTENUM = SPEVENTENUM(54i32);
-pub const SPEI_RESERVED6: SPEVENTENUM = SPEVENTENUM(55i32);
-pub const SPEI_SENTENCE_BOUNDARY: SPEVENTENUM = SPEVENTENUM(7i32);
-pub const SPEI_SOUND_END: SPEVENTENUM = SPEVENTENUM(36i32);
-pub const SPEI_SOUND_START: SPEVENTENUM = SPEVENTENUM(35i32);
-pub const SPEI_SR_AUDIO_LEVEL: SPEVENTENUM = SPEVENTENUM(50i32);
-pub const SPEI_SR_BOOKMARK: SPEVENTENUM = SPEVENTENUM(40i32);
-pub const SPEI_SR_PRIVATE: SPEVENTENUM = SPEVENTENUM(52i32);
-pub const SPEI_SR_RETAINEDAUDIO: SPEVENTENUM = SPEVENTENUM(51i32);
-pub const SPEI_START_INPUT_STREAM: SPEVENTENUM = SPEVENTENUM(1i32);
-pub const SPEI_START_SR_STREAM: SPEVENTENUM = SPEVENTENUM(48i32);
-pub const SPEI_TTS_AUDIO_LEVEL: SPEVENTENUM = SPEVENTENUM(9i32);
-pub const SPEI_TTS_BOOKMARK: SPEVENTENUM = SPEVENTENUM(4i32);
-pub const SPEI_TTS_PRIVATE: SPEVENTENUM = SPEVENTENUM(15i32);
-pub const SPEI_UNDEFINED: SPEVENTENUM = SPEVENTENUM(0i32);
-pub const SPEI_VISEME: SPEVENTENUM = SPEVENTENUM(8i32);
-pub const SPEI_VOICE_CHANGE: SPEVENTENUM = SPEVENTENUM(3i32);
-pub const SPEI_WORD_BOUNDARY: SPEVENTENUM = SPEVENTENUM(5i32);
-pub const SPESF_EMULATED: SPENDSRSTREAMFLAGS = SPENDSRSTREAMFLAGS(2i32);
-pub const SPESF_NONE: SPENDSRSTREAMFLAGS = SPENDSRSTREAMFLAGS(0i32);
-pub const SPESF_STREAM_RELEASED: SPENDSRSTREAMFLAGS = SPENDSRSTREAMFLAGS(1i32);
-pub const SPET_LPARAM_IS_OBJECT: SPEVENTLPARAMTYPE = SPEVENTLPARAMTYPE(2i32);
-pub const SPET_LPARAM_IS_POINTER: SPEVENTLPARAMTYPE = SPEVENTLPARAMTYPE(3i32);
-pub const SPET_LPARAM_IS_STRING: SPEVENTLPARAMTYPE = SPEVENTLPARAMTYPE(4i32);
-pub const SPET_LPARAM_IS_TOKEN: SPEVENTLPARAMTYPE = SPEVENTLPARAMTYPE(1i32);
-pub const SPET_LPARAM_IS_UNDEFINED: SPEVENTLPARAMTYPE = SPEVENTLPARAMTYPE(0i32);
-pub const SPFM_CREATE: SPFILEMODE = SPFILEMODE(2i32);
-pub const SPFM_CREATE_ALWAYS: SPFILEMODE = SPFILEMODE(3i32);
-pub const SPFM_NUM_MODES: SPFILEMODE = SPFILEMODE(4i32);
-pub const SPFM_OPEN_READONLY: SPFILEMODE = SPFILEMODE(0i32);
-pub const SPFM_OPEN_READWRITE: SPFILEMODE = SPFILEMODE(1i32);
-pub const SPF_ASYNC: SPEAKFLAGS = SPEAKFLAGS(1i32);
-pub const SPF_DEFAULT: SPEAKFLAGS = SPEAKFLAGS(0i32);
-pub const SPF_IS_FILENAME: SPEAKFLAGS = SPEAKFLAGS(4i32);
-pub const SPF_IS_NOT_XML: SPEAKFLAGS = SPEAKFLAGS(16i32);
-pub const SPF_IS_XML: SPEAKFLAGS = SPEAKFLAGS(8i32);
-pub const SPF_NLP_MASK: SPEAKFLAGS = SPEAKFLAGS(64i32);
-pub const SPF_NLP_SPEAK_PUNC: SPEAKFLAGS = SPEAKFLAGS(64i32);
-pub const SPF_PARSE_AUTODETECT: SPEAKFLAGS = SPEAKFLAGS(0i32);
-pub const SPF_PARSE_MASK: SPEAKFLAGS = SPEAKFLAGS(384i32);
-pub const SPF_PARSE_SAPI: SPEAKFLAGS = SPEAKFLAGS(128i32);
-pub const SPF_PARSE_SSML: SPEAKFLAGS = SPEAKFLAGS(256i32);
-pub const SPF_PERSIST_XML: SPEAKFLAGS = SPEAKFLAGS(32i32);
-pub const SPF_PURGEBEFORESPEAK: SPEAKFLAGS = SPEAKFLAGS(2i32);
-pub const SPF_UNUSED_FLAGS: SPEAKFLAGS = SPEAKFLAGS(-512i32);
-pub const SPF_VOICE_MASK: SPEAKFLAGS = SPEAKFLAGS(511i32);
-pub const SPGO_ALL: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(1023i32);
-pub const SPGO_DEFAULT: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(1019i32);
-pub const SPGO_FILE: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(16i32);
-pub const SPGO_HTTP: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(32i32);
-pub const SPGO_OBJECT: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(128i32);
-pub const SPGO_RES: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(64i32);
-pub const SPGO_SAPI: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(1i32);
-pub const SPGO_SRGS: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(2i32);
-pub const SPGO_SRGS_MS_SCRIPT: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(8i32);
-pub const SPGO_SRGS_SCRIPT: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(778i32);
-pub const SPGO_SRGS_STG_SCRIPT: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(512i32);
-pub const SPGO_SRGS_W3C_SCRIPT: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(256i32);
-pub const SPGO_UPS: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(4i32);
-pub const SPGS_DISABLED: SPGRAMMARSTATE = SPGRAMMARSTATE(0i32);
-pub const SPGS_ENABLED: SPGRAMMARSTATE = SPGRAMMARSTATE(1i32);
-pub const SPGS_EXCLUSIVE: SPGRAMMARSTATE = SPGRAMMARSTATE(3i32);
-pub const SPINFDICTATION: windows_core::PCWSTR = windows_core::w!("*+");
-pub const SPINTERFERENCE_LATENCY_TRUNCATE_BEGIN: SPINTERFERENCE = SPINTERFERENCE(8i32);
-pub const SPINTERFERENCE_LATENCY_TRUNCATE_END: SPINTERFERENCE = SPINTERFERENCE(9i32);
-pub const SPINTERFERENCE_LATENCY_WARNING: SPINTERFERENCE = SPINTERFERENCE(7i32);
-pub const SPINTERFERENCE_NOISE: SPINTERFERENCE = SPINTERFERENCE(1i32);
-pub const SPINTERFERENCE_NONE: SPINTERFERENCE = SPINTERFERENCE(0i32);
-pub const SPINTERFERENCE_NOSIGNAL: SPINTERFERENCE = SPINTERFERENCE(2i32);
-pub const SPINTERFERENCE_TOOFAST: SPINTERFERENCE = SPINTERFERENCE(5i32);
-pub const SPINTERFERENCE_TOOLOUD: SPINTERFERENCE = SPINTERFERENCE(3i32);
-pub const SPINTERFERENCE_TOOQUIET: SPINTERFERENCE = SPINTERFERENCE(4i32);
-pub const SPINTERFERENCE_TOOSLOW: SPINTERFERENCE = SPINTERFERENCE(6i32);
-pub const SPLO_DYNAMIC: SPLOADOPTIONS = SPLOADOPTIONS(1i32);
-pub const SPLO_STATIC: SPLOADOPTIONS = SPLOADOPTIONS(0i32);
-pub const SPMAX_RATE: SPVLIMITS = SPVLIMITS(10i32);
-pub const SPMAX_VOLUME: SPVLIMITS = SPVLIMITS(100i32);
-pub const SPMIN_RATE: SPVLIMITS = SPVLIMITS(-10i32);
-pub const SPMIN_VOLUME: SPVLIMITS = SPVLIMITS(0i32);
-pub const SPMMSYS_AUDIO_IN_TOKEN_ID: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioInput\\TokenEnums\\MMAudioIn\\");
-pub const SPMMSYS_AUDIO_OUT_TOKEN_ID: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioOutput\\TokenEnums\\MMAudioOut\\");
-pub const SPPPUT_ARRAY_INDEX: SPPHRASEPROPERTYUNIONTYPE = SPPHRASEPROPERTYUNIONTYPE(1i32);
-pub const SPPPUT_UNUSED: SPPHRASEPROPERTYUNIONTYPE = SPPHRASEPROPERTYUNIONTYPE(0i32);
-pub const SPPROPSRC_RECO_CTX: SPPROPSRC = SPPROPSRC(1i32);
-pub const SPPROPSRC_RECO_GRAMMAR: SPPROPSRC = SPPROPSRC(2i32);
-pub const SPPROPSRC_RECO_INST: SPPROPSRC = SPPROPSRC(0i32);
-pub const SPPROP_ADAPTATION_ON: windows_core::PCWSTR = windows_core::w!("AdaptationOn");
-pub const SPPROP_COMPLEX_RESPONSE_SPEED: windows_core::PCWSTR = windows_core::w!("ComplexResponseSpeed");
-pub const SPPROP_HIGH_CONFIDENCE_THRESHOLD: windows_core::PCWSTR = windows_core::w!("HighConfidenceThreshold");
-pub const SPPROP_LOW_CONFIDENCE_THRESHOLD: windows_core::PCWSTR = windows_core::w!("LowConfidenceThreshold");
-pub const SPPROP_NORMAL_CONFIDENCE_THRESHOLD: windows_core::PCWSTR = windows_core::w!("NormalConfidenceThreshold");
-pub const SPPROP_PERSISTED_BACKGROUND_ADAPTATION: windows_core::PCWSTR = windows_core::w!("PersistedBackgroundAdaptation");
-pub const SPPROP_PERSISTED_LANGUAGE_MODEL_ADAPTATION: windows_core::PCWSTR = windows_core::w!("PersistedLanguageModelAdaptation");
-pub const SPPROP_RESOURCE_USAGE: windows_core::PCWSTR = windows_core::w!("ResourceUsage");
-pub const SPPROP_RESPONSE_SPEED: windows_core::PCWSTR = windows_core::w!("ResponseSpeed");
-pub const SPPROP_UX_IS_LISTENING: windows_core::PCWSTR = windows_core::w!("UXIsListening");
-pub const SPPR_ALL_ELEMENTS: SPPHRASERNG = SPPHRASERNG(-1i32);
-pub const SPPS_Function: SPPARTOFSPEECH = SPPARTOFSPEECH(16384i32);
-pub const SPPS_Interjection: SPPARTOFSPEECH = SPPARTOFSPEECH(20480i32);
-pub const SPPS_LMA: SPPARTOFSPEECH = SPPARTOFSPEECH(28672i32);
-pub const SPPS_Modifier: SPPARTOFSPEECH = SPPARTOFSPEECH(12288i32);
-pub const SPPS_Noncontent: SPPARTOFSPEECH = SPPARTOFSPEECH(24576i32);
-pub const SPPS_NotOverriden: SPPARTOFSPEECH = SPPARTOFSPEECH(-1i32);
-pub const SPPS_Noun: SPPARTOFSPEECH = SPPARTOFSPEECH(4096i32);
-pub const SPPS_RESERVED1: SPSHORTCUTTYPE = SPSHORTCUTTYPE(12288i32);
-pub const SPPS_RESERVED2: SPSHORTCUTTYPE = SPSHORTCUTTYPE(16384i32);
-pub const SPPS_RESERVED3: SPSHORTCUTTYPE = SPSHORTCUTTYPE(20480i32);
-pub const SPPS_RESERVED4: SPSHORTCUTTYPE = SPSHORTCUTTYPE(61440i32);
-pub const SPPS_SuppressWord: SPPARTOFSPEECH = SPPARTOFSPEECH(61440i32);
-pub const SPPS_Unknown: SPPARTOFSPEECH = SPPARTOFSPEECH(0i32);
-pub const SPPS_Verb: SPPARTOFSPEECH = SPPARTOFSPEECH(8192i32);
-pub const SPRAF_Active: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(2i32);
-pub const SPRAF_AutoPause: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(65536i32);
-pub const SPRAF_Dynamic: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(32i32);
-pub const SPRAF_Export: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(4i32);
-pub const SPRAF_Import: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(8i32);
-pub const SPRAF_Interpreter: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(16i32);
-pub const SPRAF_Root: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(64i32);
-pub const SPRAF_TopLevel: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(1i32);
-pub const SPRAF_UserDelimited: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(131072i32);
-pub const SPRECOEXTENSION: windows_core::PCWSTR = windows_core::w!("RecoExtension");
-pub const SPREF_AutoPause: SPRECOEVENTFLAGS = SPRECOEVENTFLAGS(1i32);
-pub const SPREF_Emulated: SPRECOEVENTFLAGS = SPRECOEVENTFLAGS(2i32);
-pub const SPREF_ExtendableParse: SPRECOEVENTFLAGS = SPRECOEVENTFLAGS(8i32);
-pub const SPREF_FalseRecognition: SPRECOEVENTFLAGS = SPRECOEVENTFLAGS(64i32);
-pub const SPREF_Hypothesis: SPRECOEVENTFLAGS = SPRECOEVENTFLAGS(32i32);
-pub const SPREF_ReSent: SPRECOEVENTFLAGS = SPRECOEVENTFLAGS(16i32);
-pub const SPREF_SMLTimeout: SPRECOEVENTFLAGS = SPRECOEVENTFLAGS(4i32);
-pub const SPREG_LOCAL_MACHINE_ROOT: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech");
-pub const SPREG_SAFE_USER_TOKENS: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\UserTokens");
-pub const SPREG_USER_ROOT: windows_core::PCWSTR = windows_core::w!("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech");
-pub const SPRIO_NONE: SPRULEINFOOPT = SPRULEINFOOPT(0i32);
-pub const SPRP_NORMAL: u32 = 0u32;
-pub const SPRST_ACTIVE: SPRECOSTATE = SPRECOSTATE(1i32);
-pub const SPRST_ACTIVE_ALWAYS: SPRECOSTATE = SPRECOSTATE(2i32);
-pub const SPRST_INACTIVE: SPRECOSTATE = SPRECOSTATE(0i32);
-pub const SPRST_INACTIVE_WITH_PURGE: SPRECOSTATE = SPRECOSTATE(3i32);
-pub const SPRST_NUM_STATES: SPRECOSTATE = SPRECOSTATE(4i32);
-pub const SPRS_ACTIVE: SPRULESTATE = SPRULESTATE(1i32);
-pub const SPRS_ACTIVE_USER_DELIMITED: SPRULESTATE = SPRULESTATE(4i32);
-pub const SPRS_ACTIVE_WITH_AUTO_PAUSE: SPRULESTATE = SPRULESTATE(3i32);
-pub const SPRS_DONE: SPRUNSTATE = SPRUNSTATE(1i32);
-pub const SPRS_INACTIVE: SPRULESTATE = SPRULESTATE(0i32);
-pub const SPRS_IS_SPEAKING: SPRUNSTATE = SPRUNSTATE(2i32);
-pub const SPRT_CFG: SPRESULTTYPE = SPRESULTTYPE(0i32);
-pub const SPRT_EMULATED: SPRESULTTYPE = SPRESULTTYPE(8i32);
-pub const SPRT_EXTENDABLE_PARSE: SPRESULTTYPE = SPRESULTTYPE(16i32);
-pub const SPRT_FALSE_RECOGNITION: SPRESULTTYPE = SPRESULTTYPE(4i32);
-pub const SPRT_PROPRIETARY: SPRESULTTYPE = SPRESULTTYPE(2i32);
-pub const SPRT_SLM: SPRESULTTYPE = SPRESULTTYPE(1i32);
-pub const SPRT_TYPE_MASK: SPRESULTTYPE = SPRESULTTYPE(3i32);
-pub const SPSF_11kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(10i32);
-pub const SPSF_11kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(11i32);
-pub const SPSF_11kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(8i32);
-pub const SPSF_11kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(9i32);
-pub const SPSF_12kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(14i32);
-pub const SPSF_12kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(15i32);
-pub const SPSF_12kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(12i32);
-pub const SPSF_12kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(13i32);
-pub const SPSF_16kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(18i32);
-pub const SPSF_16kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(19i32);
-pub const SPSF_16kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(16i32);
-pub const SPSF_16kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(17i32);
-pub const SPSF_22kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(22i32);
-pub const SPSF_22kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(23i32);
-pub const SPSF_22kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(20i32);
-pub const SPSF_22kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(21i32);
-pub const SPSF_24kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(26i32);
-pub const SPSF_24kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(27i32);
-pub const SPSF_24kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(24i32);
-pub const SPSF_24kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(25i32);
-pub const SPSF_32kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(30i32);
-pub const SPSF_32kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(31i32);
-pub const SPSF_32kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(28i32);
-pub const SPSF_32kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(29i32);
-pub const SPSF_44kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(34i32);
-pub const SPSF_44kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(35i32);
-pub const SPSF_44kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(32i32);
-pub const SPSF_44kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(33i32);
-pub const SPSF_48kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(38i32);
-pub const SPSF_48kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(39i32);
-pub const SPSF_48kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(36i32);
-pub const SPSF_48kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(37i32);
-pub const SPSF_8kHz16BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(6i32);
-pub const SPSF_8kHz16BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(7i32);
-pub const SPSF_8kHz8BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(4i32);
-pub const SPSF_8kHz8BitStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(5i32);
-pub const SPSF_ADPCM_11kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(59i32);
-pub const SPSF_ADPCM_11kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(60i32);
-pub const SPSF_ADPCM_22kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(61i32);
-pub const SPSF_ADPCM_22kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(62i32);
-pub const SPSF_ADPCM_44kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(63i32);
-pub const SPSF_ADPCM_44kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(64i32);
-pub const SPSF_ADPCM_8kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(57i32);
-pub const SPSF_ADPCM_8kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(58i32);
-pub const SPSF_CCITT_ALaw_11kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(43i32);
-pub const SPSF_CCITT_ALaw_11kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(44i32);
-pub const SPSF_CCITT_ALaw_22kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(45i32);
-pub const SPSF_CCITT_ALaw_22kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(46i32);
-pub const SPSF_CCITT_ALaw_44kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(47i32);
-pub const SPSF_CCITT_ALaw_44kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(48i32);
-pub const SPSF_CCITT_ALaw_8kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(41i32);
-pub const SPSF_CCITT_ALaw_8kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(42i32);
-pub const SPSF_CCITT_uLaw_11kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(51i32);
-pub const SPSF_CCITT_uLaw_11kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(52i32);
-pub const SPSF_CCITT_uLaw_22kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(53i32);
-pub const SPSF_CCITT_uLaw_22kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(54i32);
-pub const SPSF_CCITT_uLaw_44kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(55i32);
-pub const SPSF_CCITT_uLaw_44kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(56i32);
-pub const SPSF_CCITT_uLaw_8kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(49i32);
-pub const SPSF_CCITT_uLaw_8kHzStereo: SPSTREAMFORMAT = SPSTREAMFORMAT(50i32);
-pub const SPSF_Default: SPSTREAMFORMAT = SPSTREAMFORMAT(-1i32);
-pub const SPSF_ExtendedAudioFormat: SPSTREAMFORMAT = SPSTREAMFORMAT(3i32);
-pub const SPSF_GSM610_11kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(66i32);
-pub const SPSF_GSM610_22kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(67i32);
-pub const SPSF_GSM610_44kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(68i32);
-pub const SPSF_GSM610_8kHzMono: SPSTREAMFORMAT = SPSTREAMFORMAT(65i32);
-pub const SPSF_NUM_FORMATS: SPSTREAMFORMAT = SPSTREAMFORMAT(69i32);
-pub const SPSF_NoAssignedFormat: SPSTREAMFORMAT = SPSTREAMFORMAT(0i32);
-pub const SPSF_NonStandardFormat: SPSTREAMFORMAT = SPSTREAMFORMAT(2i32);
-pub const SPSF_Text: SPSTREAMFORMAT = SPSTREAMFORMAT(1i32);
-pub const SPSF_TrueSpeech_8kHz1BitMono: SPSTREAMFORMAT = SPSTREAMFORMAT(40i32);
-pub const SPSFunction: SpeechPartOfSpeech = SpeechPartOfSpeech(16384i32);
-pub const SPSHT_EMAIL: SPSHORTCUTTYPE = SPSHORTCUTTYPE(4096i32);
-pub const SPSHT_NotOverriden: SPSHORTCUTTYPE = SPSHORTCUTTYPE(-1i32);
-pub const SPSHT_OTHER: SPSHORTCUTTYPE = SPSHORTCUTTYPE(8192i32);
-pub const SPSHT_Unknown: SPSHORTCUTTYPE = SPSHORTCUTTYPE(0i32);
-pub const SPSInterjection: SpeechPartOfSpeech = SpeechPartOfSpeech(20480i32);
-pub const SPSLMA: SpeechPartOfSpeech = SpeechPartOfSpeech(28672i32);
-pub const SPSMF_SAPI_PROPERTIES: SPSEMANTICFORMAT = SPSEMANTICFORMAT(0i32);
-pub const SPSMF_SRGS_SAPIPROPERTIES: SPSEMANTICFORMAT = SPSEMANTICFORMAT(2i32);
-pub const SPSMF_SRGS_SEMANTICINTERPRETATION_MS: SPSEMANTICFORMAT = SPSEMANTICFORMAT(1i32);
-pub const SPSMF_SRGS_SEMANTICINTERPRETATION_W3C: SPSEMANTICFORMAT = SPSEMANTICFORMAT(8i32);
-pub const SPSMF_UPS: SPSEMANTICFORMAT = SPSEMANTICFORMAT(4i32);
-pub const SPSModifier: SpeechPartOfSpeech = SpeechPartOfSpeech(12288i32);
-pub const SPSNotOverriden: SpeechPartOfSpeech = SpeechPartOfSpeech(-1i32);
-pub const SPSNoun: SpeechPartOfSpeech = SpeechPartOfSpeech(4096i32);
-pub const SPSSuppressWord: SpeechPartOfSpeech = SpeechPartOfSpeech(61440i32);
-pub const SPSUnknown: SpeechPartOfSpeech = SpeechPartOfSpeech(0i32);
-pub const SPSVerb: SpeechPartOfSpeech = SpeechPartOfSpeech(8192i32);
-pub const SPTOKENKEY_ATTRIBUTES: windows_core::PCWSTR = windows_core::w!("Attributes");
-pub const SPTOKENKEY_AUDIO_LATENCY_TRUNCATE: windows_core::PCWSTR = windows_core::w!("LatencyTruncateThreshold");
-pub const SPTOKENKEY_AUDIO_LATENCY_UPDATE_INTERVAL: windows_core::PCWSTR = windows_core::w!("LatencyUpdateInterval");
-pub const SPTOKENKEY_AUDIO_LATENCY_WARNING: windows_core::PCWSTR = windows_core::w!("LatencyWarningThreshold");
-pub const SPTOKENKEY_FILES: windows_core::PCWSTR = windows_core::w!("Files");
-pub const SPTOKENKEY_RETAINEDAUDIO: windows_core::PCWSTR = windows_core::w!("SecondsPerRetainedAudioEvent");
-pub const SPTOKENKEY_UI: windows_core::PCWSTR = windows_core::w!("UI");
-pub const SPTOKENVALUE_CLSID: windows_core::PCWSTR = windows_core::w!("CLSID");
-pub const SPTOPIC_SPELLING: windows_core::PCWSTR = windows_core::w!("Spelling");
-pub const SPTRANSDICTATION: SPTRANSITIONTYPE = SPTRANSITIONTYPE(5i32);
-pub const SPTRANSEPSILON: SPTRANSITIONTYPE = SPTRANSITIONTYPE(0i32);
-pub const SPTRANSRULE: SPTRANSITIONTYPE = SPTRANSITIONTYPE(2i32);
-pub const SPTRANSTEXTBUF: SPTRANSITIONTYPE = SPTRANSITIONTYPE(3i32);
-pub const SPTRANSWILDCARD: SPTRANSITIONTYPE = SPTRANSITIONTYPE(4i32);
-pub const SPTRANSWORD: SPTRANSITIONTYPE = SPTRANSITIONTYPE(1i32);
-pub const SPVA_Bookmark: SPVACTIONS = SPVACTIONS(3i32);
-pub const SPVA_ParseUnknownTag: SPVACTIONS = SPVACTIONS(6i32);
-pub const SPVA_Pronounce: SPVACTIONS = SPVACTIONS(2i32);
-pub const SPVA_Section: SPVACTIONS = SPVACTIONS(5i32);
-pub const SPVA_Silence: SPVACTIONS = SPVACTIONS(1i32);
-pub const SPVA_Speak: SPVACTIONS = SPVACTIONS(0i32);
-pub const SPVA_SpellOut: SPVACTIONS = SPVACTIONS(4i32);
-pub const SPVES_ABORT: SPVESACTIONS = SPVESACTIONS(1i32);
-pub const SPVES_CONTINUE: SPVESACTIONS = SPVESACTIONS(0i32);
-pub const SPVES_RATE: SPVESACTIONS = SPVESACTIONS(4i32);
-pub const SPVES_SKIP: SPVESACTIONS = SPVESACTIONS(2i32);
-pub const SPVES_VOLUME: SPVESACTIONS = SPVESACTIONS(8i32);
-pub const SPVFEATURE_EMPHASIS: SPVFEATURE = SPVFEATURE(2i32);
-pub const SPVFEATURE_STRESSED: SPVFEATURE = SPVFEATURE(1i32);
-pub const SPVOICECATEGORY_TTSRATE: windows_core::PCWSTR = windows_core::w!("DefaultTTSRate");
-pub const SPVPRI_ALERT: SPVPRIORITY = SPVPRIORITY(1i32);
-pub const SPVPRI_NORMAL: SPVPRIORITY = SPVPRIORITY(0i32);
-pub const SPVPRI_OVER: SPVPRIORITY = SPVPRIORITY(2i32);
-pub const SPVST_SENTENCE: SPVSKIPTYPE = SPVSKIPTYPE(1i32);
-pub const SPWF_INPUT: SPSTREAMFORMATTYPE = SPSTREAMFORMATTYPE(0i32);
-pub const SPWF_SRENGINE: SPSTREAMFORMATTYPE = SPSTREAMFORMATTYPE(1i32);
-pub const SPWILDCARD: windows_core::PCWSTR = windows_core::w!("...");
-pub const SPWIO_NONE: SPWORDINFOOPT = SPWORDINFOOPT(0i32);
-pub const SPWIO_WANT_TEXT: SPWORDINFOOPT = SPWORDINFOOPT(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPWORDTYPE(pub i32);
 pub const SPWP_KNOWN_WORD_PRONOUNCEABLE: SPWORDPRONOUNCEABLE = SPWORDPRONOUNCEABLE(2i32);
 pub const SPWP_UNKNOWN_WORD_PRONOUNCEABLE: SPWORDPRONOUNCEABLE = SPWORDPRONOUNCEABLE(1i32);
 pub const SPWP_UNKNOWN_WORD_UNPRONOUNCEABLE: SPWORDPRONOUNCEABLE = SPWORDPRONOUNCEABLE(0i32);
@@ -16754,6 +16509,9 @@ pub const SPWT_DISPLAY: SPGRAMMARWORDTYPE = SPGRAMMARWORDTYPE(0i32);
 pub const SPWT_LEXICAL: SPGRAMMARWORDTYPE = SPGRAMMARWORDTYPE(1i32);
 pub const SPWT_LEXICAL_NO_SPECIAL_CHARS: SPGRAMMARWORDTYPE = SPGRAMMARWORDTYPE(3i32);
 pub const SPWT_PRONUNCIATION: SPGRAMMARWORDTYPE = SPGRAMMARWORDTYPE(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPXMLRESULTOPTIONS(pub i32);
 pub const SPXRO_Alternates_SML: SPXMLRESULTOPTIONS = SPXMLRESULTOPTIONS(1i32);
 pub const SPXRO_SML: SPXMLRESULTOPTIONS = SPXMLRESULTOPTIONS(0i32);
 pub const SP_EMULATE_RESULT: u32 = 1073741824u32;
@@ -16907,7 +16665,150 @@ pub const SWPUnknownWordPronounceable: SpeechWordPronounceable = SpeechWordProno
 pub const SWPUnknownWordUnpronounceable: SpeechWordPronounceable = SpeechWordPronounceable(0i32);
 pub const SWTAdded: SpeechWordType = SpeechWordType(1i32);
 pub const SWTDeleted: SpeechWordType = SpeechWordType(2i32);
+pub const SpAudioFormat: windows_core::GUID = windows_core::GUID::from_u128(0x9ef96870_e160_4792_820d_48cf0649e4ec);
+pub const SpCompressedLexicon: windows_core::GUID = windows_core::GUID::from_u128(0x90903716_2f42_11d3_9c26_00c04f8ef87c);
+pub const SpCustomStream: windows_core::GUID = windows_core::GUID::from_u128(0x8dbef13f_1948_4aa8_8cf0_048eebed95d8);
+pub const SpDataKey: windows_core::GUID = windows_core::GUID::from_u128(0xd9f6ee60_58c9_458b_88e1_2f908fd7f87c);
+pub const SpFileStream: windows_core::GUID = windows_core::GUID::from_u128(0x947812b3_2ae1_4644_ba86_9e90ded7ec91);
+pub const SpGramCompBackend: windows_core::GUID = windows_core::GUID::from_u128(0xda93e903_c843_11d2_a084_00c04f8ef9b5);
+pub const SpGrammarCompiler: windows_core::GUID = windows_core::GUID::from_u128(0xb1e29d59_a675_11d2_8302_00c04f8ee6c0);
+pub const SpITNProcessor: windows_core::GUID = windows_core::GUID::from_u128(0x12d73610_a1c9_11d3_bc90_00c04f72df9f);
+pub const SpInProcRecoContext: windows_core::GUID = windows_core::GUID::from_u128(0x73ad6842_ace0_45e8_a4dd_8795881a2c2a);
+pub const SpInprocRecognizer: windows_core::GUID = windows_core::GUID::from_u128(0x41b89b6b_9399_11d2_9623_00c04f8ee628);
+pub const SpLexicon: windows_core::GUID = windows_core::GUID::from_u128(0x0655e396_25d0_11d3_9c26_00c04f8ef87c);
+pub const SpMMAudioEnum: windows_core::GUID = windows_core::GUID::from_u128(0xab1890a0_e91f_11d2_bb91_00c04f8ee6c0);
+pub const SpMMAudioIn: windows_core::GUID = windows_core::GUID::from_u128(0xcf3d2e50_53f2_11d2_960c_00c04f8ee628);
+pub const SpMMAudioOut: windows_core::GUID = windows_core::GUID::from_u128(0xa8c680eb_3d32_11d2_9ee7_00c04f797396);
+pub const SpMemoryStream: windows_core::GUID = windows_core::GUID::from_u128(0x5fb7ef7d_dff4_468a_b6b7_2fcbd188f994);
+pub const SpNotifyTranslator: windows_core::GUID = windows_core::GUID::from_u128(0xe2ae5372_5d40_11d2_960e_00c04f8ee628);
+pub const SpNullPhoneConverter: windows_core::GUID = windows_core::GUID::from_u128(0x455f24e9_7396_4a16_9715_7c0fdbe3efe3);
+pub const SpObjectToken: windows_core::GUID = windows_core::GUID::from_u128(0xef411752_3736_4cb4_9c8c_8ef4ccb58efe);
+pub const SpObjectTokenCategory: windows_core::GUID = windows_core::GUID::from_u128(0xa910187f_0c7a_45ac_92cc_59edafb77b53);
+pub const SpObjectTokenEnum: windows_core::GUID = windows_core::GUID::from_u128(0x3918d75f_0acb_41f2_b733_92aa15bcecf6);
+pub const SpPhoneConverter: windows_core::GUID = windows_core::GUID::from_u128(0x9185f743_1143_4c28_86b5_bff14f20e5c8);
+pub const SpPhoneticAlphabetConverter: windows_core::GUID = windows_core::GUID::from_u128(0x4f414126_dfe3_4629_99ee_797978317ead);
+pub const SpPhraseBuilder: windows_core::GUID = windows_core::GUID::from_u128(0x777b6bbd_2ff2_11d3_88fe_00c04f8ef9b5);
+pub const SpPhraseInfoBuilder: windows_core::GUID = windows_core::GUID::from_u128(0xc23fc28d_c55f_4720_8b32_91f73c2bd5d1);
+pub const SpResourceManager: windows_core::GUID = windows_core::GUID::from_u128(0x96749373_3391_11d2_9ee3_00c04f797396);
+pub const SpSharedRecoContext: windows_core::GUID = windows_core::GUID::from_u128(0x47206204_5eca_11d2_960f_00c04f8ee628);
+pub const SpSharedRecognizer: windows_core::GUID = windows_core::GUID::from_u128(0x3bee4890_4fe9_4a37_8c1e_5e7e12791c1f);
+pub const SpShortcut: windows_core::GUID = windows_core::GUID::from_u128(0x0d722f1a_9fcf_4e62_96d8_6df8f01a26aa);
+pub const SpStream: windows_core::GUID = windows_core::GUID::from_u128(0x715d9c59_4442_11d2_9605_00c04f8ee628);
+pub const SpStreamFormatConverter: windows_core::GUID = windows_core::GUID::from_u128(0x7013943a_e2ec_11d2_a086_00c04f8ef9b5);
+pub const SpTextSelectionInformation: windows_core::GUID = windows_core::GUID::from_u128(0x0f92030a_cbfd_4ab8_a164_ff5985547ff6);
+pub const SpUnCompressedLexicon: windows_core::GUID = windows_core::GUID::from_u128(0xc9e37c15_df92_4727_85d6_72e5eeb6995a);
+pub const SpVoice: windows_core::GUID = windows_core::GUID::from_u128(0x96749377_3391_11d2_9ee3_00c04f797396);
+pub const SpW3CGrammarCompiler: windows_core::GUID = windows_core::GUID::from_u128(0xd2c13906_51ef_454e_bc67_a52475ff074c);
+pub const SpWaveFormatEx: windows_core::GUID = windows_core::GUID::from_u128(0xc79a574c_63be_44b9_801f_283f87f898be);
 pub const SpeechAllElements: i32 = -1i32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechAudioFormatType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechAudioState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechBookmarkOptions(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechDataKeyLocation(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechDiscardType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechDisplayAttributes(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechEmulationCompareFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechEngineConfidence(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechFormatType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechGrammarRuleStateTransitionType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechGrammarState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechGrammarWordType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechInterference(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechLexiconType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechLoadOption(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechPartOfSpeech(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechRecoContextState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechRecoEvents(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechRecognitionType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechRecognizerState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechRetainedAudioOptions(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechRuleAttributes(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechRuleState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechRunState(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechSpecialTransitionType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechStreamFileMode(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechStreamSeekPositionType(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechTokenContext(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechTokenShellFolder(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechVisemeFeature(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechVisemeType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechVoiceEvents(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechVoicePriority(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechVoiceSpeakFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechWordPronounceable(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SpeechWordType(pub i32);
 pub const Speech_Default_Weight: f32 = 1f32;
 pub const Speech_Max_Pron_Length: i32 = 384i32;
 pub const Speech_Max_Word_Length: i32 = 128i32;
@@ -16915,6 +16816,105 @@ pub const Speech_StreamPos_Asap: i32 = 0i32;
 pub const Speech_StreamPos_RealTime: i32 = -1i32;
 pub const Subsequence: SPMATCHINGMODE = SPMATCHINGMODE(1i32);
 pub const SubsequenceContentRequired: SPMATCHINGMODE = SPMATCHINGMODE(5i32);
+windows_core::imp::define_interface!(_ISpPrivateEngineCall, _ISpPrivateEngineCall_Vtbl, 0x8e7c791e_4467_11d3_9723_00c04f72db08);
+windows_core::imp::interface_hierarchy!(_ISpPrivateEngineCall, windows_core::IUnknown);
+impl _ISpPrivateEngineCall {
+    pub unsafe fn CallEngine(&self, pcallframe: *mut core::ffi::c_void, ulcallframesize: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).CallEngine)(windows_core::Interface::as_raw(self), core::mem::transmute(pcallframe), core::mem::transmute(ulcallframesize)).ok()
+    }
+    pub unsafe fn CallEngineEx(&self, pinframe: *const core::ffi::c_void, ulinframesize: u32, ppcomemoutframe: *mut *mut core::ffi::c_void, puloutframesize: *mut u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).CallEngineEx)(windows_core::Interface::as_raw(self), core::mem::transmute(pinframe), core::mem::transmute(ulinframesize), core::mem::transmute(ppcomemoutframe), core::mem::transmute(puloutframesize)).ok()
+    }
+}
+#[repr(C)]
+pub struct _ISpPrivateEngineCall_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub CallEngine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub CallEngineEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+}
+pub trait _ISpPrivateEngineCall_Impl: windows_core::IUnknownImpl {
+    fn CallEngine(&self, pcallframe: *mut core::ffi::c_void, ulcallframesize: u32) -> windows_core::Result<()>;
+    fn CallEngineEx(&self, pinframe: *const core::ffi::c_void, ulinframesize: u32, ppcomemoutframe: *mut *mut core::ffi::c_void, puloutframesize: *mut u32) -> windows_core::Result<()>;
+}
+impl _ISpPrivateEngineCall_Vtbl {
+    pub const fn new<Identity: _ISpPrivateEngineCall_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn CallEngine<Identity: _ISpPrivateEngineCall_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallframe: *mut core::ffi::c_void, ulcallframesize: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            _ISpPrivateEngineCall_Impl::CallEngine(this, core::mem::transmute_copy(&pcallframe), core::mem::transmute_copy(&ulcallframesize)).into()
+        }
+        unsafe extern "system" fn CallEngineEx<Identity: _ISpPrivateEngineCall_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinframe: *const core::ffi::c_void, ulinframesize: u32, ppcomemoutframe: *mut *mut core::ffi::c_void, puloutframesize: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            _ISpPrivateEngineCall_Impl::CallEngineEx(this, core::mem::transmute_copy(&pinframe), core::mem::transmute_copy(&ulinframesize), core::mem::transmute_copy(&ppcomemoutframe), core::mem::transmute_copy(&puloutframesize)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            CallEngine: CallEngine::<Identity, OFFSET>,
+            CallEngineEx: CallEngineEx::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<_ISpPrivateEngineCall as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for _ISpPrivateEngineCall {}
+#[cfg(feature = "Win32_System_Com")]
+windows_core::imp::define_interface!(_ISpeechRecoContextEvents, _ISpeechRecoContextEvents_Vtbl, 0x7b8fcb42_0e9d_4f00_a048_7b04d6179d3d);
+#[cfg(feature = "Win32_System_Com")]
+impl core::ops::Deref for _ISpeechRecoContextEvents {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+windows_core::imp::interface_hierarchy!(_ISpeechRecoContextEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+pub struct _ISpeechRecoContextEvents_Vtbl {
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub trait _ISpeechRecoContextEvents_Impl: super::super::System::Com::IDispatch_Impl {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl _ISpeechRecoContextEvents_Vtbl {
+    pub const fn new<Identity: _ISpeechRecoContextEvents_Impl, const OFFSET: isize>() -> Self {
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<_ISpeechRecoContextEvents as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for _ISpeechRecoContextEvents {}
+#[cfg(feature = "Win32_System_Com")]
+windows_core::imp::define_interface!(_ISpeechVoiceEvents, _ISpeechVoiceEvents_Vtbl, 0xa372acd1_3bef_4bbd_8ffb_cb3e2b416af8);
+#[cfg(feature = "Win32_System_Com")]
+impl core::ops::Deref for _ISpeechVoiceEvents {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+windows_core::imp::interface_hierarchy!(_ISpeechVoiceEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+pub struct _ISpeechVoiceEvents_Vtbl {
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub trait _ISpeechVoiceEvents_Impl: super::super::System::Com::IDispatch_Impl {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl _ISpeechVoiceEvents_Vtbl {
+    pub const fn new<Identity: _ISpeechVoiceEvents_Impl, const OFFSET: isize>() -> Self {
+        Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<_ISpeechVoiceEvents as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for _ISpeechVoiceEvents {}
 pub const eLEXTYPE_APP: SPLEXICONTYPE = SPLEXICONTYPE(2i32);
 pub const eLEXTYPE_LETTERTOSOUND: SPLEXICONTYPE = SPLEXICONTYPE(8i32);
 pub const eLEXTYPE_MORPHOLOGY: SPLEXICONTYPE = SPLEXICONTYPE(16i32);

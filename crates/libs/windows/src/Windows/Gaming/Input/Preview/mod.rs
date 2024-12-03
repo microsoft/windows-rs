@@ -1,3 +1,79 @@
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DeviceCommand(pub i32);
+impl DeviceCommand {
+    pub const Reset: Self = Self(0i32);
+}
+impl windows_core::TypeKind for DeviceCommand {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DeviceCommand {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.DeviceCommand;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GameControllerBatteryChargingState(pub i32);
+impl GameControllerBatteryChargingState {
+    pub const Unknown: Self = Self(0i32);
+    pub const Inactive: Self = Self(1i32);
+    pub const Active: Self = Self(2i32);
+    pub const Error: Self = Self(3i32);
+}
+impl windows_core::TypeKind for GameControllerBatteryChargingState {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GameControllerBatteryChargingState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.GameControllerBatteryChargingState;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GameControllerBatteryKind(pub i32);
+impl GameControllerBatteryKind {
+    pub const Unknown: Self = Self(0i32);
+    pub const None: Self = Self(1i32);
+    pub const Standard: Self = Self(2i32);
+    pub const Rechargeable: Self = Self(3i32);
+}
+impl windows_core::TypeKind for GameControllerBatteryKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GameControllerBatteryKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.GameControllerBatteryKind;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GameControllerBatteryLevel(pub i32);
+impl GameControllerBatteryLevel {
+    pub const Unknown: Self = Self(0i32);
+    pub const Critical: Self = Self(1i32);
+    pub const Low: Self = Self(2i32);
+    pub const Medium: Self = Self(3i32);
+    pub const Full: Self = Self(4i32);
+}
+impl windows_core::TypeKind for GameControllerBatteryLevel {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GameControllerBatteryLevel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.GameControllerBatteryLevel;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GameControllerFirmwareCorruptReason(pub i32);
+impl GameControllerFirmwareCorruptReason {
+    pub const Unknown: Self = Self(0i32);
+    pub const NotCorrupt: Self = Self(1i32);
+    pub const TwoUpCorrupt: Self = Self(2i32);
+    pub const AppCorrupt: Self = Self(3i32);
+    pub const RadioCorrupt: Self = Self(4i32);
+    pub const EepromCorrupt: Self = Self(5i32);
+    pub const SafeToUpdate: Self = Self(6i32);
+}
+impl windows_core::TypeKind for GameControllerFirmwareCorruptReason {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GameControllerFirmwareCorruptReason {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.GameControllerFirmwareCorruptReason;i4)");
+}
 pub struct GameControllerProviderInfo;
 impl GameControllerProviderInfo {
     #[cfg(feature = "Gaming_Input_Custom")]
@@ -27,6 +103,131 @@ impl GameControllerProviderInfo {
 }
 impl windows_core::RuntimeName for GameControllerProviderInfo {
     const NAME: &'static str = "Windows.Gaming.Input.Preview.GameControllerProviderInfo";
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct HeadsetGeqGains {
+    pub band1Gain: i32,
+    pub band2Gain: i32,
+    pub band3Gain: i32,
+    pub band4Gain: i32,
+    pub band5Gain: i32,
+}
+impl windows_core::TypeKind for HeadsetGeqGains {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HeadsetGeqGains {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.Preview.HeadsetGeqGains;i4;i4;i4;i4;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HeadsetLevel(pub i32);
+impl HeadsetLevel {
+    pub const Off: Self = Self(0i32);
+    pub const Low: Self = Self(1i32);
+    pub const Medium: Self = Self(2i32);
+    pub const High: Self = Self(3i32);
+}
+impl windows_core::TypeKind for HeadsetLevel {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HeadsetLevel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.HeadsetLevel;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HeadsetOperation(pub i32);
+impl HeadsetOperation {
+    pub const Geq: Self = Self(0i32);
+    pub const BassBoostGain: Self = Self(1i32);
+    pub const SmartMute: Self = Self(2i32);
+    pub const SideTone: Self = Self(3i32);
+    pub const MuteLedBrightness: Self = Self(4i32);
+    pub const SwapMixAndVolumeDials: Self = Self(5i32);
+}
+impl windows_core::TypeKind for HeadsetOperation {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HeadsetOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.HeadsetOperation;i4)");
+}
+windows_core::imp::define_interface!(IGameControllerProviderInfoStatics, IGameControllerProviderInfoStatics_Vtbl, 0x0be1e6c5_d9bd_44ee_8362_488b2e464bfb);
+impl windows_core::RuntimeType for IGameControllerProviderInfoStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IGameControllerProviderInfoStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Gaming_Input_Custom")]
+    pub GetParentProviderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Gaming_Input_Custom"))]
+    GetParentProviderId: usize,
+    #[cfg(feature = "Gaming_Input_Custom")]
+    pub GetProviderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Gaming_Input_Custom"))]
+    GetProviderId: usize,
+}
+windows_core::imp::define_interface!(ILegacyGipGameControllerProvider, ILegacyGipGameControllerProvider_Vtbl, 0x2da3ed52_ffd9_43e2_825c_1d2790e04d14);
+impl windows_core::RuntimeType for ILegacyGipGameControllerProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ILegacyGipGameControllerProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub BatteryChargingState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GameControllerBatteryChargingState) -> windows_core::HRESULT,
+    pub BatteryKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GameControllerBatteryKind) -> windows_core::HRESULT,
+    pub BatteryLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GameControllerBatteryLevel) -> windows_core::HRESULT,
+    pub GetDeviceFirmwareCorruptionState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GameControllerFirmwareCorruptReason) -> windows_core::HRESULT,
+    pub IsFirmwareCorrupted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsInterfaceSupported: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut bool) -> windows_core::HRESULT,
+    pub IsSyntheticDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub PreferredTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    PreferredTypes: usize,
+    pub ExecuteCommand: unsafe extern "system" fn(*mut core::ffi::c_void, DeviceCommand) -> windows_core::HRESULT,
+    pub SetHomeLedIntensity: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
+    pub GetExtendedDeviceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
+    pub SetHeadsetOperation: unsafe extern "system" fn(*mut core::ffi::c_void, HeadsetOperation, u32, *const u8) -> windows_core::HRESULT,
+    pub GetHeadsetOperation: unsafe extern "system" fn(*mut core::ffi::c_void, HeadsetOperation, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
+    pub AppCompatVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
+    pub SetStandardControllerButtonRemapping: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "System")))]
+    SetStandardControllerButtonRemapping: usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
+    pub GetStandardControllerButtonRemapping: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "System")))]
+    GetStandardControllerButtonRemapping: usize,
+}
+windows_core::imp::define_interface!(ILegacyGipGameControllerProviderStatics, ILegacyGipGameControllerProviderStatics_Vtbl, 0xd40dda17_b1f4_499a_874c_7095aac15291);
+impl windows_core::RuntimeType for ILegacyGipGameControllerProviderStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ILegacyGipGameControllerProviderStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub FromGameController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Gaming_Input_Custom")]
+    pub FromGameControllerProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Gaming_Input_Custom"))]
+    FromGameControllerProvider: usize,
+    #[cfg(feature = "System")]
+    pub PairPilotToCopilot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "System"))]
+    PairPilotToCopilot: usize,
+    #[cfg(feature = "System")]
+    pub ClearPairing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "System"))]
+    ClearPairing: usize,
+    #[cfg(feature = "System")]
+    pub IsPilot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "System"))]
+    IsPilot: usize,
+    #[cfg(feature = "System")]
+    pub IsCopilot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "System"))]
+    IsCopilot: usize,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -213,192 +414,6 @@ impl windows_core::RuntimeName for LegacyGipGameControllerProvider {
 }
 unsafe impl Send for LegacyGipGameControllerProvider {}
 unsafe impl Sync for LegacyGipGameControllerProvider {}
-windows_core::imp::define_interface!(IGameControllerProviderInfoStatics, IGameControllerProviderInfoStatics_Vtbl, 0x0be1e6c5_d9bd_44ee_8362_488b2e464bfb);
-impl windows_core::RuntimeType for IGameControllerProviderInfoStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IGameControllerProviderInfoStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Gaming_Input_Custom")]
-    pub GetParentProviderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Gaming_Input_Custom"))]
-    GetParentProviderId: usize,
-    #[cfg(feature = "Gaming_Input_Custom")]
-    pub GetProviderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Gaming_Input_Custom"))]
-    GetProviderId: usize,
-}
-windows_core::imp::define_interface!(ILegacyGipGameControllerProvider, ILegacyGipGameControllerProvider_Vtbl, 0x2da3ed52_ffd9_43e2_825c_1d2790e04d14);
-impl windows_core::RuntimeType for ILegacyGipGameControllerProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ILegacyGipGameControllerProvider_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub BatteryChargingState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GameControllerBatteryChargingState) -> windows_core::HRESULT,
-    pub BatteryKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GameControllerBatteryKind) -> windows_core::HRESULT,
-    pub BatteryLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GameControllerBatteryLevel) -> windows_core::HRESULT,
-    pub GetDeviceFirmwareCorruptionState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GameControllerFirmwareCorruptReason) -> windows_core::HRESULT,
-    pub IsFirmwareCorrupted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsInterfaceSupported: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut bool) -> windows_core::HRESULT,
-    pub IsSyntheticDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub PreferredTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PreferredTypes: usize,
-    pub ExecuteCommand: unsafe extern "system" fn(*mut core::ffi::c_void, DeviceCommand) -> windows_core::HRESULT,
-    pub SetHomeLedIntensity: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
-    pub GetExtendedDeviceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
-    pub SetHeadsetOperation: unsafe extern "system" fn(*mut core::ffi::c_void, HeadsetOperation, u32, *const u8) -> windows_core::HRESULT,
-    pub GetHeadsetOperation: unsafe extern "system" fn(*mut core::ffi::c_void, HeadsetOperation, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
-    pub AppCompatVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
-    pub SetStandardControllerButtonRemapping: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "System")))]
-    SetStandardControllerButtonRemapping: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
-    pub GetStandardControllerButtonRemapping: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "System")))]
-    GetStandardControllerButtonRemapping: usize,
-}
-windows_core::imp::define_interface!(ILegacyGipGameControllerProviderStatics, ILegacyGipGameControllerProviderStatics_Vtbl, 0xd40dda17_b1f4_499a_874c_7095aac15291);
-impl windows_core::RuntimeType for ILegacyGipGameControllerProviderStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ILegacyGipGameControllerProviderStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub FromGameController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Gaming_Input_Custom")]
-    pub FromGameControllerProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Gaming_Input_Custom"))]
-    FromGameControllerProvider: usize,
-    #[cfg(feature = "System")]
-    pub PairPilotToCopilot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "System"))]
-    PairPilotToCopilot: usize,
-    #[cfg(feature = "System")]
-    pub ClearPairing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "System"))]
-    ClearPairing: usize,
-    #[cfg(feature = "System")]
-    pub IsPilot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "System"))]
-    IsPilot: usize,
-    #[cfg(feature = "System")]
-    pub IsCopilot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "System"))]
-    IsCopilot: usize,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DeviceCommand(pub i32);
-impl DeviceCommand {
-    pub const Reset: Self = Self(0i32);
-}
-impl windows_core::TypeKind for DeviceCommand {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DeviceCommand {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.DeviceCommand;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GameControllerBatteryChargingState(pub i32);
-impl GameControllerBatteryChargingState {
-    pub const Unknown: Self = Self(0i32);
-    pub const Inactive: Self = Self(1i32);
-    pub const Active: Self = Self(2i32);
-    pub const Error: Self = Self(3i32);
-}
-impl windows_core::TypeKind for GameControllerBatteryChargingState {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GameControllerBatteryChargingState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.GameControllerBatteryChargingState;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GameControllerBatteryKind(pub i32);
-impl GameControllerBatteryKind {
-    pub const Unknown: Self = Self(0i32);
-    pub const None: Self = Self(1i32);
-    pub const Standard: Self = Self(2i32);
-    pub const Rechargeable: Self = Self(3i32);
-}
-impl windows_core::TypeKind for GameControllerBatteryKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GameControllerBatteryKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.GameControllerBatteryKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GameControllerBatteryLevel(pub i32);
-impl GameControllerBatteryLevel {
-    pub const Unknown: Self = Self(0i32);
-    pub const Critical: Self = Self(1i32);
-    pub const Low: Self = Self(2i32);
-    pub const Medium: Self = Self(3i32);
-    pub const Full: Self = Self(4i32);
-}
-impl windows_core::TypeKind for GameControllerBatteryLevel {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GameControllerBatteryLevel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.GameControllerBatteryLevel;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GameControllerFirmwareCorruptReason(pub i32);
-impl GameControllerFirmwareCorruptReason {
-    pub const Unknown: Self = Self(0i32);
-    pub const NotCorrupt: Self = Self(1i32);
-    pub const TwoUpCorrupt: Self = Self(2i32);
-    pub const AppCorrupt: Self = Self(3i32);
-    pub const RadioCorrupt: Self = Self(4i32);
-    pub const EepromCorrupt: Self = Self(5i32);
-    pub const SafeToUpdate: Self = Self(6i32);
-}
-impl windows_core::TypeKind for GameControllerFirmwareCorruptReason {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GameControllerFirmwareCorruptReason {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.GameControllerFirmwareCorruptReason;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HeadsetLevel(pub i32);
-impl HeadsetLevel {
-    pub const Off: Self = Self(0i32);
-    pub const Low: Self = Self(1i32);
-    pub const Medium: Self = Self(2i32);
-    pub const High: Self = Self(3i32);
-}
-impl windows_core::TypeKind for HeadsetLevel {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HeadsetLevel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.HeadsetLevel;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HeadsetOperation(pub i32);
-impl HeadsetOperation {
-    pub const Geq: Self = Self(0i32);
-    pub const BassBoostGain: Self = Self(1i32);
-    pub const SmartMute: Self = Self(2i32);
-    pub const SideTone: Self = Self(3i32);
-    pub const MuteLedBrightness: Self = Self(4i32);
-    pub const SwapMixAndVolumeDials: Self = Self(5i32);
-}
-impl windows_core::TypeKind for HeadsetOperation {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HeadsetOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.HeadsetOperation;i4)");
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemappingButtonCategory(pub i32);
@@ -421,19 +436,4 @@ impl windows_core::TypeKind for RemappingButtonCategory {
 }
 impl windows_core::RuntimeType for RemappingButtonCategory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.RemappingButtonCategory;i4)");
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct HeadsetGeqGains {
-    pub band1Gain: i32,
-    pub band2Gain: i32,
-    pub band3Gain: i32,
-    pub band4Gain: i32,
-    pub band5Gain: i32,
-}
-impl windows_core::TypeKind for HeadsetGeqGains {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HeadsetGeqGains {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.Preview.HeadsetGeqGains;i4;i4;i4;i4;i4)");
 }

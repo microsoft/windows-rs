@@ -139,6 +139,23 @@ impl windows_core::RuntimeName for DevicePortalConnectionClosedEventArgs {
 unsafe impl Send for DevicePortalConnectionClosedEventArgs {}
 unsafe impl Sync for DevicePortalConnectionClosedEventArgs {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DevicePortalConnectionClosedReason(pub i32);
+impl DevicePortalConnectionClosedReason {
+    pub const Unknown: Self = Self(0i32);
+    pub const ResourceLimitsExceeded: Self = Self(1i32);
+    pub const ProtocolError: Self = Self(2i32);
+    pub const NotAuthorized: Self = Self(3i32);
+    pub const UserNotPresent: Self = Self(4i32);
+    pub const ServiceTerminated: Self = Self(5i32);
+}
+impl windows_core::TypeKind for DevicePortalConnectionClosedReason {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DevicePortalConnectionClosedReason {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedReason;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DevicePortalConnectionRequestReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DevicePortalConnectionRequestReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -284,21 +301,4 @@ pub struct IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     WebSocketProtocolsRequested: usize,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DevicePortalConnectionClosedReason(pub i32);
-impl DevicePortalConnectionClosedReason {
-    pub const Unknown: Self = Self(0i32);
-    pub const ResourceLimitsExceeded: Self = Self(1i32);
-    pub const ProtocolError: Self = Self(2i32);
-    pub const NotAuthorized: Self = Self(3i32);
-    pub const UserNotPresent: Self = Self(4i32);
-    pub const ServiceTerminated: Self = Self(5i32);
-}
-impl windows_core::TypeKind for DevicePortalConnectionClosedReason {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DevicePortalConnectionClosedReason {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedReason;i4)");
 }

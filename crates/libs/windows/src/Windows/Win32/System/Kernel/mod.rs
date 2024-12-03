@@ -35,29 +35,11 @@ pub unsafe fn RtlQueryDepthSList(listhead: *const SLIST_HEADER) -> u16 {
     windows_targets::link!("ntdll.dll" "system" fn RtlQueryDepthSList(listhead : *const SLIST_HEADER) -> u16);
     RtlQueryDepthSList(core::mem::transmute(listhead))
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-pub type EXCEPTION_ROUTINE = Option<unsafe extern "system" fn(exceptionrecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD, establisherframe: *const core::ffi::c_void, contextrecord: *mut super::Diagnostics::Debug::CONTEXT, dispatchercontext: *const core::ffi::c_void) -> EXCEPTION_DISPOSITION>;
+pub const BackOffice: SUITE_TYPE = SUITE_TYPE(2i32);
+pub const Blade: SUITE_TYPE = SUITE_TYPE(10i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPARTMENT_ID(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EVENT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EXCEPTION_DISPOSITION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NT_PRODUCT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SUITE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TIMER_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WAIT_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CSTRING {
@@ -73,6 +55,16 @@ impl Default for CSTRING {
 impl windows_core::TypeKind for CSTRING {
     type TypeKind = windows_core::CopyType;
 }
+pub const CommunicationServer: SUITE_TYPE = SUITE_TYPE(3i32);
+pub const ComputeServer: SUITE_TYPE = SUITE_TYPE(14i32);
+pub const DEFAULT_COMPARTMENT_ID: COMPARTMENT_ID = COMPARTMENT_ID(1i32);
+pub const DataCenter: SUITE_TYPE = SUITE_TYPE(7i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EVENT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EXCEPTION_DISPOSITION(pub i32);
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -88,6 +80,39 @@ impl Default for EXCEPTION_REGISTRATION_RECORD {
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl windows_core::TypeKind for EXCEPTION_REGISTRATION_RECORD {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+pub type EXCEPTION_ROUTINE = Option<unsafe extern "system" fn(exceptionrecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD, establisherframe: *const core::ffi::c_void, contextrecord: *mut super::Diagnostics::Debug::CONTEXT, dispatchercontext: *const core::ffi::c_void) -> EXCEPTION_DISPOSITION>;
+pub const EmbeddedNT: SUITE_TYPE = SUITE_TYPE(6i32);
+pub const EmbeddedRestricted: SUITE_TYPE = SUITE_TYPE(11i32);
+pub const Enterprise: SUITE_TYPE = SUITE_TYPE(1i32);
+pub const ExceptionCollidedUnwind: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(3i32);
+pub const ExceptionContinueExecution: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(0i32);
+pub const ExceptionContinueSearch: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(1i32);
+pub const ExceptionNestedException: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(2i32);
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FLOATING_SAVE_AREA {
+    pub ControlWord: u32,
+    pub StatusWord: u32,
+    pub TagWord: u32,
+    pub ErrorOffset: u32,
+    pub ErrorSelector: u32,
+    pub DataOffset: u32,
+    pub DataSelector: u32,
+    pub RegisterArea: [u8; 80],
+    pub Spare0: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for FLOATING_SAVE_AREA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for FLOATING_SAVE_AREA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
@@ -111,30 +136,6 @@ impl Default for FLOATING_SAVE_AREA {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FLOATING_SAVE_AREA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FLOATING_SAVE_AREA {
-    pub ControlWord: u32,
-    pub StatusWord: u32,
-    pub TagWord: u32,
-    pub ErrorOffset: u32,
-    pub ErrorSelector: u32,
-    pub DataOffset: u32,
-    pub DataSelector: u32,
-    pub RegisterArea: [u8; 80],
-    pub Spare0: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for FLOATING_SAVE_AREA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for FLOATING_SAVE_AREA {
     type TypeKind = windows_core::CopyType;
 }
@@ -180,6 +181,14 @@ impl Default for LIST_ENTRY64 {
 impl windows_core::TypeKind for LIST_ENTRY64 {
     type TypeKind = windows_core::CopyType;
 }
+pub const MAXUCHAR: u32 = 255u32;
+pub const MAXULONG: u32 = 4294967295u32;
+pub const MAXUSHORT: u32 = 65535u32;
+pub const MaxSuiteType: SUITE_TYPE = SUITE_TYPE(18i32);
+pub const MultiUserTS: SUITE_TYPE = SUITE_TYPE(17i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NT_PRODUCT_TYPE(pub i32);
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[derive(Clone, Copy)]
@@ -219,6 +228,12 @@ impl Default for NT_TIB_0 {
 impl windows_core::TypeKind for NT_TIB_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const NULL64: u32 = 0u32;
+pub const NotificationEvent: EVENT_TYPE = EVENT_TYPE(0i32);
+pub const NotificationTimer: TIMER_TYPE = TIMER_TYPE(0i32);
+pub const NtProductLanManNt: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(2i32);
+pub const NtProductServer: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(3i32);
+pub const NtProductWinNt: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OBJECTID {
@@ -233,6 +248,7 @@ impl Default for OBJECTID {
 impl windows_core::TypeKind for OBJECTID {
     type TypeKind = windows_core::CopyType;
 }
+pub const OBJ_HANDLE_TAGBITS: i32 = 3i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESSOR_NUMBER {
@@ -248,6 +264,8 @@ impl Default for PROCESSOR_NUMBER {
 impl windows_core::TypeKind for PROCESSOR_NUMBER {
     type TypeKind = windows_core::CopyType;
 }
+pub const Personal: SUITE_TYPE = SUITE_TYPE(9i32);
+pub const PhoneNT: SUITE_TYPE = SUITE_TYPE(16i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct QUAD {
@@ -331,6 +349,7 @@ impl Default for RTL_BALANCED_NODE_1 {
 impl windows_core::TypeKind for RTL_BALANCED_NODE_1 {
     type TypeKind = windows_core::CopyType;
 }
+pub const RTL_BALANCED_NODE_RESERVED_PARENT_MASK: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SINGLE_LIST_ENTRY {
@@ -371,54 +390,38 @@ impl windows_core::TypeKind for SLIST_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[cfg(target_arch = "aarch64")]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub union SLIST_HEADER {
+    pub Alignment: u64,
     pub Anonymous: SLIST_HEADER_0,
-    pub HeaderArm64: SLIST_HEADER_1,
 }
-#[cfg(target_arch = "aarch64")]
+#[cfg(target_arch = "x86")]
 impl Default for SLIST_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "aarch64")]
+#[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for SLIST_HEADER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[cfg(target_arch = "aarch64")]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SLIST_HEADER_0 {
-    pub Alignment: u64,
-    pub Region: u64,
+    pub Next: SINGLE_LIST_ENTRY,
+    pub Depth: u16,
+    pub CpuId: u16,
 }
-#[cfg(target_arch = "aarch64")]
+#[cfg(target_arch = "x86")]
 impl Default for SLIST_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "aarch64")]
+#[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for SLIST_HEADER_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SLIST_HEADER_1 {
-    pub _bitfield1: u64,
-    pub _bitfield2: u64,
-}
-#[cfg(target_arch = "aarch64")]
-impl Default for SLIST_HEADER_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "aarch64")]
-impl windows_core::TypeKind for SLIST_HEADER_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
@@ -473,38 +476,54 @@ impl windows_core::TypeKind for SLIST_HEADER_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[cfg(target_arch = "x86")]
+#[cfg(target_arch = "aarch64")]
 #[derive(Clone, Copy)]
 pub union SLIST_HEADER {
-    pub Alignment: u64,
     pub Anonymous: SLIST_HEADER_0,
+    pub HeaderArm64: SLIST_HEADER_1,
 }
-#[cfg(target_arch = "x86")]
+#[cfg(target_arch = "aarch64")]
 impl Default for SLIST_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
+#[cfg(target_arch = "aarch64")]
 impl windows_core::TypeKind for SLIST_HEADER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[cfg(target_arch = "x86")]
+#[cfg(target_arch = "aarch64")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SLIST_HEADER_0 {
-    pub Next: SINGLE_LIST_ENTRY,
-    pub Depth: u16,
-    pub CpuId: u16,
+    pub Alignment: u64,
+    pub Region: u64,
 }
-#[cfg(target_arch = "x86")]
+#[cfg(target_arch = "aarch64")]
 impl Default for SLIST_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
+#[cfg(target_arch = "aarch64")]
 impl windows_core::TypeKind for SLIST_HEADER_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SLIST_HEADER_1 {
+    pub _bitfield1: u64,
+    pub _bitfield2: u64,
+}
+#[cfg(target_arch = "aarch64")]
+impl Default for SLIST_HEADER_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "aarch64")]
+impl windows_core::TypeKind for SLIST_HEADER_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
@@ -552,6 +571,25 @@ impl Default for STRING64 {
 impl windows_core::TypeKind for STRING64 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SUITE_TYPE(pub i32);
+pub const SecurityAppliance: SUITE_TYPE = SUITE_TYPE(12i32);
+pub const SingleUserTS: SUITE_TYPE = SUITE_TYPE(8i32);
+pub const SmallBusiness: SUITE_TYPE = SUITE_TYPE(0i32);
+pub const SmallBusinessRestricted: SUITE_TYPE = SUITE_TYPE(5i32);
+pub const StorageServer: SUITE_TYPE = SUITE_TYPE(13i32);
+pub const SynchronizationEvent: EVENT_TYPE = EVENT_TYPE(1i32);
+pub const SynchronizationTimer: TIMER_TYPE = TIMER_TYPE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TIMER_TYPE(pub i32);
+pub const TerminalServer: SUITE_TYPE = SUITE_TYPE(4i32);
+pub const UNSPECIFIED_COMPARTMENT_ID: COMPARTMENT_ID = COMPARTMENT_ID(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WAIT_TYPE(pub i32);
+pub const WHServer: SUITE_TYPE = SUITE_TYPE(15i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WNF_STATE_NAME {
@@ -565,44 +603,6 @@ impl Default for WNF_STATE_NAME {
 impl windows_core::TypeKind for WNF_STATE_NAME {
     type TypeKind = windows_core::CopyType;
 }
-pub const BackOffice: SUITE_TYPE = SUITE_TYPE(2i32);
-pub const Blade: SUITE_TYPE = SUITE_TYPE(10i32);
-pub const CommunicationServer: SUITE_TYPE = SUITE_TYPE(3i32);
-pub const ComputeServer: SUITE_TYPE = SUITE_TYPE(14i32);
-pub const DEFAULT_COMPARTMENT_ID: COMPARTMENT_ID = COMPARTMENT_ID(1i32);
-pub const DataCenter: SUITE_TYPE = SUITE_TYPE(7i32);
-pub const EmbeddedNT: SUITE_TYPE = SUITE_TYPE(6i32);
-pub const EmbeddedRestricted: SUITE_TYPE = SUITE_TYPE(11i32);
-pub const Enterprise: SUITE_TYPE = SUITE_TYPE(1i32);
-pub const ExceptionCollidedUnwind: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(3i32);
-pub const ExceptionContinueExecution: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(0i32);
-pub const ExceptionContinueSearch: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(1i32);
-pub const ExceptionNestedException: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(2i32);
-pub const MAXUCHAR: u32 = 255u32;
-pub const MAXULONG: u32 = 4294967295u32;
-pub const MAXUSHORT: u32 = 65535u32;
-pub const MaxSuiteType: SUITE_TYPE = SUITE_TYPE(18i32);
-pub const MultiUserTS: SUITE_TYPE = SUITE_TYPE(17i32);
-pub const NULL64: u32 = 0u32;
-pub const NotificationEvent: EVENT_TYPE = EVENT_TYPE(0i32);
-pub const NotificationTimer: TIMER_TYPE = TIMER_TYPE(0i32);
-pub const NtProductLanManNt: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(2i32);
-pub const NtProductServer: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(3i32);
-pub const NtProductWinNt: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(1i32);
-pub const OBJ_HANDLE_TAGBITS: i32 = 3i32;
-pub const Personal: SUITE_TYPE = SUITE_TYPE(9i32);
-pub const PhoneNT: SUITE_TYPE = SUITE_TYPE(16i32);
-pub const RTL_BALANCED_NODE_RESERVED_PARENT_MASK: u32 = 3u32;
-pub const SecurityAppliance: SUITE_TYPE = SUITE_TYPE(12i32);
-pub const SingleUserTS: SUITE_TYPE = SUITE_TYPE(8i32);
-pub const SmallBusiness: SUITE_TYPE = SUITE_TYPE(0i32);
-pub const SmallBusinessRestricted: SUITE_TYPE = SUITE_TYPE(5i32);
-pub const StorageServer: SUITE_TYPE = SUITE_TYPE(13i32);
-pub const SynchronizationEvent: EVENT_TYPE = EVENT_TYPE(1i32);
-pub const SynchronizationTimer: TIMER_TYPE = TIMER_TYPE(1i32);
-pub const TerminalServer: SUITE_TYPE = SUITE_TYPE(4i32);
-pub const UNSPECIFIED_COMPARTMENT_ID: COMPARTMENT_ID = COMPARTMENT_ID(0i32);
-pub const WHServer: SUITE_TYPE = SUITE_TYPE(15i32);
 pub const WaitAll: WAIT_TYPE = WAIT_TYPE(0i32);
 pub const WaitAny: WAIT_TYPE = WAIT_TYPE(1i32);
 pub const WaitDequeue: WAIT_TYPE = WAIT_TYPE(3i32);

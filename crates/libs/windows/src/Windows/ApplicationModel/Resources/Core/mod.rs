@@ -1,3 +1,226 @@
+windows_core::imp::define_interface!(INamedResource, INamedResource_Vtbl, 0x1c98c219_0b13_4240_89a5_d495dc189a00);
+impl windows_core::RuntimeType for INamedResource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct INamedResource_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Candidates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Candidates: usize,
+    pub Resolve: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ResolveForContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub ResolveAll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    ResolveAll: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub ResolveAllForContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    ResolveAllForContext: usize,
+}
+windows_core::imp::define_interface!(IResourceCandidate, IResourceCandidate_Vtbl, 0xaf5207d9_c433_4764_b3fd_8fa6bfbcbadc);
+impl windows_core::RuntimeType for IResourceCandidate {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IResourceCandidate_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Qualifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Qualifiers: usize,
+    pub IsMatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsMatchAsDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub ValueAsString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub GetValueAsFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    GetValueAsFileAsync: usize,
+    pub GetQualifierValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IResourceCandidate2, IResourceCandidate2_Vtbl, 0x69e5b468_f6fc_4013_aaa2_d53f1757d3b5);
+impl windows_core::RuntimeType for IResourceCandidate2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IResourceCandidate2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Storage_Streams")]
+    pub GetValueAsStreamAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    GetValueAsStreamAsync: usize,
+}
+windows_core::imp::define_interface!(IResourceCandidate3, IResourceCandidate3_Vtbl, 0x08ae97f8_517a_4674_958c_4a3c7cd2cc6b);
+impl windows_core::RuntimeType for IResourceCandidate3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IResourceCandidate3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ResourceCandidateKind) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IResourceContext, IResourceContext_Vtbl, 0x2fa22f4b_707e_4b27_ad0d_d0d8cd468fd2);
+impl windows_core::RuntimeType for IResourceContext {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IResourceContext_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub QualifierValues: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    QualifierValues: usize,
+    pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub ResetQualifierValues: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    ResetQualifierValues: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub OverrideToMatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    OverrideToMatch: usize,
+    pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Languages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Languages: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SetLanguages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SetLanguages: usize,
+}
+windows_core::imp::define_interface!(IResourceContextStatics, IResourceContextStatics_Vtbl, 0x98be9d6c_6338_4b31_99df_b2b442f17149);
+impl windows_core::RuntimeType for IResourceContextStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IResourceContextStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateMatchingContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateMatchingContext: usize,
+}
+windows_core::imp::define_interface!(IResourceContextStatics2, IResourceContextStatics2_Vtbl, 0x41f752ef_12af_41b9_ab36_b1eb4b512460);
+impl windows_core::RuntimeType for IResourceContextStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IResourceContextStatics2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetGlobalQualifierValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ResetGlobalQualifierValues: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub ResetGlobalQualifierValuesForSpecifiedQualifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    ResetGlobalQualifierValuesForSpecifiedQualifiers: usize,
+    pub GetForViewIndependentUse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IResourceContextStatics3, IResourceContextStatics3_Vtbl, 0x20cf492c_af0f_450b_9da6_106dd0c29a39);
+impl windows_core::RuntimeType for IResourceContextStatics3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IResourceContextStatics3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SetGlobalQualifierValueWithPersistence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, ResourceQualifierPersistence) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IResourceContextStatics4, IResourceContextStatics4_Vtbl, 0x22eb9ccd_fb31_4bfa_b86b_df9d9d7bdc39);
+impl windows_core::RuntimeType for IResourceContextStatics4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IResourceContextStatics4_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "UI")]
+    pub GetForUIContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "UI"))]
+    GetForUIContext: usize,
+}
+windows_core::imp::define_interface!(IResourceManager, IResourceManager_Vtbl, 0xf744d97b_9988_44fb_abd6_5378844cfa8b);
+impl windows_core::RuntimeType for IResourceManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IResourceManager_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub MainResourceMap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    MainResourceMap: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub AllResourceMaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    AllResourceMaps: usize,
+    pub DefaultContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    pub LoadPriFiles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    LoadPriFiles: usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    pub UnloadPriFiles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    UnloadPriFiles: usize,
+}
+windows_core::imp::define_interface!(IResourceManager2, IResourceManager2_Vtbl, 0x9d66fe6c_a4d7_4c23_9e85_675f304c252d);
+impl windows_core::RuntimeType for IResourceManager2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IResourceManager2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetAllNamedResourcesForPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ResourceLayoutInfo, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetAllNamedResourcesForPackage: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetAllSubtreesForPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ResourceLayoutInfo, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetAllSubtreesForPackage: usize,
+}
+windows_core::imp::define_interface!(IResourceManagerStatics, IResourceManagerStatics_Vtbl, 0x1cc0fdfc_69ee_4e43_9901_47f12687baf7);
+impl windows_core::RuntimeType for IResourceManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IResourceManagerStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub IsResourceReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
+#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::define_interface!(IResourceMap, IResourceMap_Vtbl, 0x72284824_db8c_42f8_b08c_53ff357dad82);
+#[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for IResourceMap {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "Foundation_Collections")]
+#[repr(C)]
+pub struct IResourceMap_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetValueForContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetSubtree: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IResourceQualifier, IResourceQualifier_Vtbl, 0x785da5b2_4afd_4376_a888_c5f9a6b7a05c);
+impl windows_core::RuntimeType for IResourceQualifier {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IResourceQualifier_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub QualifierName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub QualifierValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub IsDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsMatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub Score: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NamedResource(windows_core::IUnknown);
@@ -151,6 +374,20 @@ impl windows_core::RuntimeName for ResourceCandidate {
 }
 unsafe impl Send for ResourceCandidate {}
 unsafe impl Sync for ResourceCandidate {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ResourceCandidateKind(pub i32);
+impl ResourceCandidateKind {
+    pub const String: Self = Self(0i32);
+    pub const File: Self = Self(1i32);
+    pub const EmbeddedData: Self = Self(2i32);
+}
+impl windows_core::TypeKind for ResourceCandidateKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ResourceCandidateKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Core.ResourceCandidateKind;i4)");
+}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -451,6 +688,21 @@ impl IntoIterator for &ResourceContextLanguagesVectorView {
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct ResourceLayoutInfo {
+    pub MajorVersion: u32,
+    pub MinorVersion: u32,
+    pub ResourceSubtreeCount: u32,
+    pub NamedResourceCount: u32,
+    pub Checksum: i32,
+}
+impl windows_core::TypeKind for ResourceLayoutInfo {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ResourceLayoutInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.ApplicationModel.Resources.Core.ResourceLayoutInfo;u4;u4;u4;u4;i4)");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1071,6 +1323,19 @@ impl IntoIterator for &ResourceQualifierObservableMap {
         self.First().unwrap()
     }
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ResourceQualifierPersistence(pub i32);
+impl ResourceQualifierPersistence {
+    pub const None: Self = Self(0i32);
+    pub const LocalMachine: Self = Self(1i32);
+}
+impl windows_core::TypeKind for ResourceQualifierPersistence {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ResourceQualifierPersistence {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Core.ResourceQualifierPersistence;i4)");
+}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1152,269 +1417,4 @@ impl IntoIterator for &ResourceQualifierVectorView {
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
-}
-windows_core::imp::define_interface!(INamedResource, INamedResource_Vtbl, 0x1c98c219_0b13_4240_89a5_d495dc189a00);
-impl windows_core::RuntimeType for INamedResource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct INamedResource_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Candidates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Candidates: usize,
-    pub Resolve: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ResolveForContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub ResolveAll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ResolveAll: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub ResolveAllForContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ResolveAllForContext: usize,
-}
-windows_core::imp::define_interface!(IResourceCandidate, IResourceCandidate_Vtbl, 0xaf5207d9_c433_4764_b3fd_8fa6bfbcbadc);
-impl windows_core::RuntimeType for IResourceCandidate {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IResourceCandidate_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Qualifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Qualifiers: usize,
-    pub IsMatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsMatchAsDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub ValueAsString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub GetValueAsFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    GetValueAsFileAsync: usize,
-    pub GetQualifierValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IResourceCandidate2, IResourceCandidate2_Vtbl, 0x69e5b468_f6fc_4013_aaa2_d53f1757d3b5);
-impl windows_core::RuntimeType for IResourceCandidate2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IResourceCandidate2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage_Streams")]
-    pub GetValueAsStreamAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    GetValueAsStreamAsync: usize,
-}
-windows_core::imp::define_interface!(IResourceCandidate3, IResourceCandidate3_Vtbl, 0x08ae97f8_517a_4674_958c_4a3c7cd2cc6b);
-impl windows_core::RuntimeType for IResourceCandidate3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IResourceCandidate3_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ResourceCandidateKind) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IResourceContext, IResourceContext_Vtbl, 0x2fa22f4b_707e_4b27_ad0d_d0d8cd468fd2);
-impl windows_core::RuntimeType for IResourceContext {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IResourceContext_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub QualifierValues: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    QualifierValues: usize,
-    pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub ResetQualifierValues: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ResetQualifierValues: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub OverrideToMatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    OverrideToMatch: usize,
-    pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Languages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Languages: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SetLanguages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetLanguages: usize,
-}
-windows_core::imp::define_interface!(IResourceContextStatics, IResourceContextStatics_Vtbl, 0x98be9d6c_6338_4b31_99df_b2b442f17149);
-impl windows_core::RuntimeType for IResourceContextStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IResourceContextStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateMatchingContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateMatchingContext: usize,
-}
-windows_core::imp::define_interface!(IResourceContextStatics2, IResourceContextStatics2_Vtbl, 0x41f752ef_12af_41b9_ab36_b1eb4b512460);
-impl windows_core::RuntimeType for IResourceContextStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IResourceContextStatics2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetGlobalQualifierValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ResetGlobalQualifierValues: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub ResetGlobalQualifierValuesForSpecifiedQualifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ResetGlobalQualifierValuesForSpecifiedQualifiers: usize,
-    pub GetForViewIndependentUse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IResourceContextStatics3, IResourceContextStatics3_Vtbl, 0x20cf492c_af0f_450b_9da6_106dd0c29a39);
-impl windows_core::RuntimeType for IResourceContextStatics3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IResourceContextStatics3_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SetGlobalQualifierValueWithPersistence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, ResourceQualifierPersistence) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IResourceContextStatics4, IResourceContextStatics4_Vtbl, 0x22eb9ccd_fb31_4bfa_b86b_df9d9d7bdc39);
-impl windows_core::RuntimeType for IResourceContextStatics4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IResourceContextStatics4_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "UI")]
-    pub GetForUIContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI"))]
-    GetForUIContext: usize,
-}
-windows_core::imp::define_interface!(IResourceManager, IResourceManager_Vtbl, 0xf744d97b_9988_44fb_abd6_5378844cfa8b);
-impl windows_core::RuntimeType for IResourceManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IResourceManager_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub MainResourceMap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    MainResourceMap: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub AllResourceMaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AllResourceMaps: usize,
-    pub DefaultContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub LoadPriFiles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
-    LoadPriFiles: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub UnloadPriFiles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
-    UnloadPriFiles: usize,
-}
-windows_core::imp::define_interface!(IResourceManager2, IResourceManager2_Vtbl, 0x9d66fe6c_a4d7_4c23_9e85_675f304c252d);
-impl windows_core::RuntimeType for IResourceManager2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IResourceManager2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetAllNamedResourcesForPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ResourceLayoutInfo, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAllNamedResourcesForPackage: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetAllSubtreesForPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ResourceLayoutInfo, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAllSubtreesForPackage: usize,
-}
-windows_core::imp::define_interface!(IResourceManagerStatics, IResourceManagerStatics_Vtbl, 0x1cc0fdfc_69ee_4e43_9901_47f12687baf7);
-impl windows_core::RuntimeType for IResourceManagerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IResourceManagerStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsResourceReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-}
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::define_interface!(IResourceMap, IResourceMap_Vtbl, 0x72284824_db8c_42f8_b08c_53ff357dad82);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for IResourceMap {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "Foundation_Collections")]
-#[repr(C)]
-pub struct IResourceMap_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetValueForContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetSubtree: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IResourceQualifier, IResourceQualifier_Vtbl, 0x785da5b2_4afd_4376_a888_c5f9a6b7a05c);
-impl windows_core::RuntimeType for IResourceQualifier {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IResourceQualifier_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub QualifierName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub QualifierValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsMatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub Score: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ResourceCandidateKind(pub i32);
-impl ResourceCandidateKind {
-    pub const String: Self = Self(0i32);
-    pub const File: Self = Self(1i32);
-    pub const EmbeddedData: Self = Self(2i32);
-}
-impl windows_core::TypeKind for ResourceCandidateKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ResourceCandidateKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Core.ResourceCandidateKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ResourceQualifierPersistence(pub i32);
-impl ResourceQualifierPersistence {
-    pub const None: Self = Self(0i32);
-    pub const LocalMachine: Self = Self(1i32);
-}
-impl windows_core::TypeKind for ResourceQualifierPersistence {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ResourceQualifierPersistence {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Core.ResourceQualifierPersistence;i4)");
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct ResourceLayoutInfo {
-    pub MajorVersion: u32,
-    pub MinorVersion: u32,
-    pub ResourceSubtreeCount: u32,
-    pub NamedResourceCount: u32,
-    pub Checksum: i32,
-}
-impl windows_core::TypeKind for ResourceLayoutInfo {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ResourceLayoutInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.ApplicationModel.Resources.Core.ResourceLayoutInfo;u4;u4;u4;u4;i4)");
 }

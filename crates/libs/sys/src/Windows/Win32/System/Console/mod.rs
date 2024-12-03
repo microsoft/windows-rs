@@ -94,11 +94,13 @@ windows_targets::link!("kernel32.dll" "system" fn WriteConsoleOutputCharacterA(h
 windows_targets::link!("kernel32.dll" "system" fn WriteConsoleOutputCharacterW(hconsoleoutput : super::super::Foundation:: HANDLE, lpcharacter : windows_sys::core::PCWSTR, nlength : u32, dwwritecoord : COORD, lpnumberofcharswritten : *mut u32) -> super::super::Foundation:: BOOL);
 windows_targets::link!("kernel32.dll" "system" fn WriteConsoleOutputW(hconsoleoutput : super::super::Foundation:: HANDLE, lpbuffer : *const CHAR_INFO, dwbuffersize : COORD, dwbuffercoord : COORD, lpwriteregion : *mut SMALL_RECT) -> super::super::Foundation:: BOOL);
 windows_targets::link!("kernel32.dll" "system" fn WriteConsoleW(hconsoleoutput : super::super::Foundation:: HANDLE, lpbuffer : windows_sys::core::PCWSTR, nnumberofcharstowrite : u32, lpnumberofcharswritten : *mut u32, lpreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-pub type PHANDLER_ROUTINE = Option<unsafe extern "system" fn(ctrltype: u32) -> super::super::Foundation::BOOL>;
-pub type CONSOLECONTROL = i32;
-pub type CONSOLE_CHARACTER_ATTRIBUTES = u16;
-pub type CONSOLE_MODE = u32;
-pub type STD_HANDLE = u32;
+pub const ALTNUMPAD_BIT: u32 = 67108864u32;
+pub const ATTACH_PARENT_PROCESS: u32 = 4294967295u32;
+pub const BACKGROUND_BLUE: CONSOLE_CHARACTER_ATTRIBUTES = 16u16;
+pub const BACKGROUND_GREEN: CONSOLE_CHARACTER_ATTRIBUTES = 32u16;
+pub const BACKGROUND_INTENSITY: CONSOLE_CHARACTER_ATTRIBUTES = 128u16;
+pub const BACKGROUND_RED: CONSOLE_CHARACTER_ATTRIBUTES = 64u16;
+pub const CAPSLOCK_ON: u32 = 128u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CHAR_INFO {
@@ -111,6 +113,15 @@ pub union CHAR_INFO_0 {
     pub UnicodeChar: u16,
     pub AsciiChar: i8,
 }
+pub const COMMON_LVB_GRID_HORIZONTAL: CONSOLE_CHARACTER_ATTRIBUTES = 1024u16;
+pub const COMMON_LVB_GRID_LVERTICAL: CONSOLE_CHARACTER_ATTRIBUTES = 2048u16;
+pub const COMMON_LVB_GRID_RVERTICAL: CONSOLE_CHARACTER_ATTRIBUTES = 4096u16;
+pub const COMMON_LVB_LEADING_BYTE: CONSOLE_CHARACTER_ATTRIBUTES = 256u16;
+pub const COMMON_LVB_REVERSE_VIDEO: CONSOLE_CHARACTER_ATTRIBUTES = 16384u16;
+pub const COMMON_LVB_SBCSDBCS: CONSOLE_CHARACTER_ATTRIBUTES = 768u16;
+pub const COMMON_LVB_TRAILING_BYTE: CONSOLE_CHARACTER_ATTRIBUTES = 512u16;
+pub const COMMON_LVB_UNDERSCORE: CONSOLE_CHARACTER_ATTRIBUTES = 32768u16;
+pub type CONSOLECONTROL = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CONSOLEENDTASK {
@@ -138,6 +149,7 @@ pub struct CONSOLE_CARET_INFO {
     pub hwnd: super::super::Foundation::HWND,
     pub rc: super::super::Foundation::RECT,
 }
+pub type CONSOLE_CHARACTER_ATTRIBUTES = u16;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CONSOLE_CURSOR_INFO {
@@ -160,6 +172,9 @@ pub struct CONSOLE_FONT_INFOEX {
     pub FontWeight: u32,
     pub FaceName: [u16; 32],
 }
+pub const CONSOLE_FULLSCREEN: u32 = 1u32;
+pub const CONSOLE_FULLSCREEN_HARDWARE: u32 = 2u32;
+pub const CONSOLE_FULLSCREEN_MODE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CONSOLE_HISTORY_INFO {
@@ -168,6 +183,10 @@ pub struct CONSOLE_HISTORY_INFO {
     pub NumberOfHistoryBuffers: u32,
     pub dwFlags: u32,
 }
+pub type CONSOLE_MODE = u32;
+pub const CONSOLE_MOUSE_DOWN: u32 = 8u32;
+pub const CONSOLE_MOUSE_SELECTION: u32 = 4u32;
+pub const CONSOLE_NO_SELECTION: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CONSOLE_PROCESS_INFO {
@@ -211,100 +230,16 @@ pub struct CONSOLE_SELECTION_INFO {
     pub dwSelectionAnchor: COORD,
     pub srSelection: SMALL_RECT,
 }
+pub const CONSOLE_SELECTION_IN_PROGRESS: u32 = 1u32;
+pub const CONSOLE_SELECTION_NOT_EMPTY: u32 = 2u32;
+pub const CONSOLE_TEXTMODE_BUFFER: u32 = 1u32;
+pub const CONSOLE_WINDOWED_MODE: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct COORD {
     pub X: i16,
     pub Y: i16,
 }
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FOCUS_EVENT_RECORD {
-    pub bSetFocus: super::super::Foundation::BOOL,
-}
-pub type HPCON = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct INPUT_RECORD {
-    pub EventType: u16,
-    pub Event: INPUT_RECORD_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union INPUT_RECORD_0 {
-    pub KeyEvent: KEY_EVENT_RECORD,
-    pub MouseEvent: MOUSE_EVENT_RECORD,
-    pub WindowBufferSizeEvent: WINDOW_BUFFER_SIZE_RECORD,
-    pub MenuEvent: MENU_EVENT_RECORD,
-    pub FocusEvent: FOCUS_EVENT_RECORD,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct KEY_EVENT_RECORD {
-    pub bKeyDown: super::super::Foundation::BOOL,
-    pub wRepeatCount: u16,
-    pub wVirtualKeyCode: u16,
-    pub wVirtualScanCode: u16,
-    pub uChar: KEY_EVENT_RECORD_0,
-    pub dwControlKeyState: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union KEY_EVENT_RECORD_0 {
-    pub UnicodeChar: u16,
-    pub AsciiChar: i8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MENU_EVENT_RECORD {
-    pub dwCommandId: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MOUSE_EVENT_RECORD {
-    pub dwMousePosition: COORD,
-    pub dwButtonState: u32,
-    pub dwControlKeyState: u32,
-    pub dwEventFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SMALL_RECT {
-    pub Left: i16,
-    pub Top: i16,
-    pub Right: i16,
-    pub Bottom: i16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WINDOW_BUFFER_SIZE_RECORD {
-    pub dwSize: COORD,
-}
-pub const ALTNUMPAD_BIT: u32 = 67108864u32;
-pub const ATTACH_PARENT_PROCESS: u32 = 4294967295u32;
-pub const BACKGROUND_BLUE: CONSOLE_CHARACTER_ATTRIBUTES = 16u16;
-pub const BACKGROUND_GREEN: CONSOLE_CHARACTER_ATTRIBUTES = 32u16;
-pub const BACKGROUND_INTENSITY: CONSOLE_CHARACTER_ATTRIBUTES = 128u16;
-pub const BACKGROUND_RED: CONSOLE_CHARACTER_ATTRIBUTES = 64u16;
-pub const CAPSLOCK_ON: u32 = 128u32;
-pub const COMMON_LVB_GRID_HORIZONTAL: CONSOLE_CHARACTER_ATTRIBUTES = 1024u16;
-pub const COMMON_LVB_GRID_LVERTICAL: CONSOLE_CHARACTER_ATTRIBUTES = 2048u16;
-pub const COMMON_LVB_GRID_RVERTICAL: CONSOLE_CHARACTER_ATTRIBUTES = 4096u16;
-pub const COMMON_LVB_LEADING_BYTE: CONSOLE_CHARACTER_ATTRIBUTES = 256u16;
-pub const COMMON_LVB_REVERSE_VIDEO: CONSOLE_CHARACTER_ATTRIBUTES = 16384u16;
-pub const COMMON_LVB_SBCSDBCS: CONSOLE_CHARACTER_ATTRIBUTES = 768u16;
-pub const COMMON_LVB_TRAILING_BYTE: CONSOLE_CHARACTER_ATTRIBUTES = 512u16;
-pub const COMMON_LVB_UNDERSCORE: CONSOLE_CHARACTER_ATTRIBUTES = 32768u16;
-pub const CONSOLE_FULLSCREEN: u32 = 1u32;
-pub const CONSOLE_FULLSCREEN_HARDWARE: u32 = 2u32;
-pub const CONSOLE_FULLSCREEN_MODE: u32 = 1u32;
-pub const CONSOLE_MOUSE_DOWN: u32 = 8u32;
-pub const CONSOLE_MOUSE_SELECTION: u32 = 4u32;
-pub const CONSOLE_NO_SELECTION: u32 = 0u32;
-pub const CONSOLE_SELECTION_IN_PROGRESS: u32 = 1u32;
-pub const CONSOLE_SELECTION_NOT_EMPTY: u32 = 2u32;
-pub const CONSOLE_TEXTMODE_BUFFER: u32 = 1u32;
-pub const CONSOLE_WINDOWED_MODE: u32 = 2u32;
 pub const CTRL_BREAK_EVENT: u32 = 1u32;
 pub const CTRL_CLOSE_EVENT: u32 = 2u32;
 pub const CTRL_C_EVENT: u32 = 0u32;
@@ -333,6 +268,11 @@ pub const ENABLE_WINDOW_INPUT: CONSOLE_MODE = 8u32;
 pub const ENABLE_WRAP_AT_EOL_OUTPUT: CONSOLE_MODE = 2u32;
 pub const ENHANCED_KEY: u32 = 256u32;
 pub const FOCUS_EVENT: u32 = 16u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FOCUS_EVENT_RECORD {
+    pub bSetFocus: super::super::Foundation::BOOL,
+}
 pub const FOREGROUND_BLUE: CONSOLE_CHARACTER_ATTRIBUTES = 1u16;
 pub const FOREGROUND_GREEN: CONSOLE_CHARACTER_ATTRIBUTES = 2u16;
 pub const FOREGROUND_INTENSITY: CONSOLE_CHARACTER_ATTRIBUTES = 8u16;
@@ -342,11 +282,56 @@ pub const FROM_LEFT_2ND_BUTTON_PRESSED: u32 = 4u32;
 pub const FROM_LEFT_3RD_BUTTON_PRESSED: u32 = 8u32;
 pub const FROM_LEFT_4TH_BUTTON_PRESSED: u32 = 16u32;
 pub const HISTORY_NO_DUP_FLAG: u32 = 1u32;
+pub type HPCON = isize;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct INPUT_RECORD {
+    pub EventType: u16,
+    pub Event: INPUT_RECORD_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union INPUT_RECORD_0 {
+    pub KeyEvent: KEY_EVENT_RECORD,
+    pub MouseEvent: MOUSE_EVENT_RECORD,
+    pub WindowBufferSizeEvent: WINDOW_BUFFER_SIZE_RECORD,
+    pub MenuEvent: MENU_EVENT_RECORD,
+    pub FocusEvent: FOCUS_EVENT_RECORD,
+}
 pub const KEY_EVENT: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KEY_EVENT_RECORD {
+    pub bKeyDown: super::super::Foundation::BOOL,
+    pub wRepeatCount: u16,
+    pub wVirtualKeyCode: u16,
+    pub wVirtualScanCode: u16,
+    pub uChar: KEY_EVENT_RECORD_0,
+    pub dwControlKeyState: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union KEY_EVENT_RECORD_0 {
+    pub UnicodeChar: u16,
+    pub AsciiChar: i8,
+}
 pub const LEFT_ALT_PRESSED: u32 = 2u32;
 pub const LEFT_CTRL_PRESSED: u32 = 8u32;
 pub const MENU_EVENT: u32 = 8u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MENU_EVENT_RECORD {
+    pub dwCommandId: u32,
+}
 pub const MOUSE_EVENT: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MOUSE_EVENT_RECORD {
+    pub dwMousePosition: COORD,
+    pub dwButtonState: u32,
+    pub dwControlKeyState: u32,
+    pub dwEventFlags: u32,
+}
 pub const MOUSE_HWHEELED: u32 = 8u32;
 pub const MOUSE_MOVED: u32 = 1u32;
 pub const MOUSE_WHEELED: u32 = 4u32;
@@ -358,6 +343,7 @@ pub const NLS_IME_DISABLE: u32 = 536870912u32;
 pub const NLS_KATAKANA: u32 = 131072u32;
 pub const NLS_ROMAN: u32 = 4194304u32;
 pub const NUMLOCK_ON: u32 = 32u32;
+pub type PHANDLER_ROUTINE = Option<unsafe extern "system" fn(ctrltype: u32) -> super::super::Foundation::BOOL>;
 pub const PSEUDOCONSOLE_INHERIT_CURSOR: u32 = 1u32;
 pub const RIGHTMOST_BUTTON_PRESSED: u32 = 2u32;
 pub const RIGHT_ALT_PRESSED: u32 = 1u32;
@@ -367,7 +353,21 @@ pub const Reserved2: CONSOLECONTROL = 2i32;
 pub const Reserved3: CONSOLECONTROL = 4i32;
 pub const SCROLLLOCK_ON: u32 = 64u32;
 pub const SHIFT_PRESSED: u32 = 16u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SMALL_RECT {
+    pub Left: i16,
+    pub Top: i16,
+    pub Right: i16,
+    pub Bottom: i16,
+}
 pub const STD_ERROR_HANDLE: STD_HANDLE = 4294967284u32;
+pub type STD_HANDLE = u32;
 pub const STD_INPUT_HANDLE: STD_HANDLE = 4294967286u32;
 pub const STD_OUTPUT_HANDLE: STD_HANDLE = 4294967285u32;
 pub const WINDOW_BUFFER_SIZE_EVENT: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WINDOW_BUFFER_SIZE_RECORD {
+    pub dwSize: COORD,
+}

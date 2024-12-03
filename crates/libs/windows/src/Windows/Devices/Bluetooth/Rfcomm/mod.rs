@@ -1,3 +1,159 @@
+windows_core::imp::define_interface!(IRfcommDeviceService, IRfcommDeviceService_Vtbl, 0xae81ff1f_c5a1_4c40_8c28_f3efd69062f3);
+impl windows_core::RuntimeType for IRfcommDeviceService {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRfcommDeviceService_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Networking")]
+    pub ConnectionHostName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Networking"))]
+    ConnectionHostName: usize,
+    pub ConnectionServiceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Networking_Sockets")]
+    pub ProtectionLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Networking::Sockets::SocketProtectionLevel) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Networking_Sockets"))]
+    ProtectionLevel: usize,
+    #[cfg(feature = "Networking_Sockets")]
+    pub MaxProtectionLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Networking::Sockets::SocketProtectionLevel) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Networking_Sockets"))]
+    MaxProtectionLevel: usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    pub GetSdpRawAttributesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    GetSdpRawAttributesAsync: usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    pub GetSdpRawAttributesWithCacheModeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::BluetoothCacheMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    GetSdpRawAttributesWithCacheModeAsync: usize,
+}
+windows_core::imp::define_interface!(IRfcommDeviceService2, IRfcommDeviceService2_Vtbl, 0x536ced14_ebcd_49fe_bf9f_40efc689b20d);
+impl windows_core::RuntimeType for IRfcommDeviceService2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRfcommDeviceService2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Device: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IRfcommDeviceService3, IRfcommDeviceService3_Vtbl, 0x1c22ace6_dd44_4d23_866d_8f3486ee6490);
+impl windows_core::RuntimeType for IRfcommDeviceService3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRfcommDeviceService3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Devices_Enumeration")]
+    pub DeviceAccessInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Enumeration"))]
+    DeviceAccessInformation: usize,
+    #[cfg(feature = "Devices_Enumeration")]
+    pub RequestAccessAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Enumeration"))]
+    RequestAccessAsync: usize,
+}
+windows_core::imp::define_interface!(IRfcommDeviceServiceStatics, IRfcommDeviceServiceStatics_Vtbl, 0xa4a149ef_626d_41ac_b253_87ac5c27e28a);
+impl windows_core::RuntimeType for IRfcommDeviceServiceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRfcommDeviceServiceStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IRfcommDeviceServiceStatics2, IRfcommDeviceServiceStatics2_Vtbl, 0xaa8cb1c9_e78d_4be4_8076_0a3d87a0a05f);
+impl windows_core::RuntimeType for IRfcommDeviceServiceStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRfcommDeviceServiceStatics2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetDeviceSelectorForBluetoothDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetDeviceSelectorForBluetoothDeviceWithCacheMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::BluetoothCacheMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetDeviceSelectorForBluetoothDeviceAndServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetDeviceSelectorForBluetoothDeviceAndServiceIdWithCacheMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::BluetoothCacheMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IRfcommDeviceServicesResult, IRfcommDeviceServicesResult_Vtbl, 0x3b48388c_7ccf_488e_9625_d259a5732d55);
+impl windows_core::RuntimeType for IRfcommDeviceServicesResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRfcommDeviceServicesResult_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::BluetoothError) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Services: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Services: usize,
+}
+windows_core::imp::define_interface!(IRfcommServiceId, IRfcommServiceId_Vtbl, 0x22629204_7e02_4017_8136_da1b6a1b9bbf);
+impl windows_core::RuntimeType for IRfcommServiceId {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRfcommServiceId_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Uuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
+    pub AsShortId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub AsString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IRfcommServiceIdStatics, IRfcommServiceIdStatics_Vtbl, 0x2a179eba_a975_46e3_b56b_08ffd783a5fe);
+impl windows_core::RuntimeType for IRfcommServiceIdStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRfcommServiceIdStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub FromUuid: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FromShortId: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SerialPort: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ObexObjectPush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ObexFileTransfer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PhoneBookAccessPce: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PhoneBookAccessPse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GenericFileTransfer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IRfcommServiceProvider, IRfcommServiceProvider_Vtbl, 0xeadbfdc4_b1f6_44ff_9f7c_e7a82ab86821);
+impl windows_core::RuntimeType for IRfcommServiceProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRfcommServiceProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    pub SdpRawAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    SdpRawAttributes: usize,
+    #[cfg(feature = "Networking_Sockets")]
+    pub StartAdvertising: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Networking_Sockets"))]
+    StartAdvertising: usize,
+    pub StopAdvertising: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IRfcommServiceProvider2, IRfcommServiceProvider2_Vtbl, 0x736bdfc6_3c81_4d1e_baf2_ddbb81284512);
+impl windows_core::RuntimeType for IRfcommServiceProvider2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRfcommServiceProvider2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Networking_Sockets")]
+    pub StartAdvertisingWithRadioDiscoverability: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Networking_Sockets"))]
+    StartAdvertisingWithRadioDiscoverability: usize,
+}
+windows_core::imp::define_interface!(IRfcommServiceProviderStatics, IRfcommServiceProviderStatics_Vtbl, 0x98888303_69ca_413a_84f7_4344c7292997);
+impl windows_core::RuntimeType for IRfcommServiceProviderStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRfcommServiceProviderStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RfcommDeviceService(windows_core::IUnknown);
@@ -349,159 +505,3 @@ impl windows_core::RuntimeName for RfcommServiceProvider {
 }
 unsafe impl Send for RfcommServiceProvider {}
 unsafe impl Sync for RfcommServiceProvider {}
-windows_core::imp::define_interface!(IRfcommDeviceService, IRfcommDeviceService_Vtbl, 0xae81ff1f_c5a1_4c40_8c28_f3efd69062f3);
-impl windows_core::RuntimeType for IRfcommDeviceService {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRfcommDeviceService_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Networking")]
-    pub ConnectionHostName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Networking"))]
-    ConnectionHostName: usize,
-    pub ConnectionServiceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Networking_Sockets")]
-    pub ProtectionLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Networking::Sockets::SocketProtectionLevel) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Networking_Sockets"))]
-    ProtectionLevel: usize,
-    #[cfg(feature = "Networking_Sockets")]
-    pub MaxProtectionLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Networking::Sockets::SocketProtectionLevel) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Networking_Sockets"))]
-    MaxProtectionLevel: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub GetSdpRawAttributesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
-    GetSdpRawAttributesAsync: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub GetSdpRawAttributesWithCacheModeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::BluetoothCacheMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
-    GetSdpRawAttributesWithCacheModeAsync: usize,
-}
-windows_core::imp::define_interface!(IRfcommDeviceService2, IRfcommDeviceService2_Vtbl, 0x536ced14_ebcd_49fe_bf9f_40efc689b20d);
-impl windows_core::RuntimeType for IRfcommDeviceService2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRfcommDeviceService2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Device: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IRfcommDeviceService3, IRfcommDeviceService3_Vtbl, 0x1c22ace6_dd44_4d23_866d_8f3486ee6490);
-impl windows_core::RuntimeType for IRfcommDeviceService3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRfcommDeviceService3_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Devices_Enumeration")]
-    pub DeviceAccessInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Devices_Enumeration"))]
-    DeviceAccessInformation: usize,
-    #[cfg(feature = "Devices_Enumeration")]
-    pub RequestAccessAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Devices_Enumeration"))]
-    RequestAccessAsync: usize,
-}
-windows_core::imp::define_interface!(IRfcommDeviceServiceStatics, IRfcommDeviceServiceStatics_Vtbl, 0xa4a149ef_626d_41ac_b253_87ac5c27e28a);
-impl windows_core::RuntimeType for IRfcommDeviceServiceStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRfcommDeviceServiceStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IRfcommDeviceServiceStatics2, IRfcommDeviceServiceStatics2_Vtbl, 0xaa8cb1c9_e78d_4be4_8076_0a3d87a0a05f);
-impl windows_core::RuntimeType for IRfcommDeviceServiceStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRfcommDeviceServiceStatics2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetDeviceSelectorForBluetoothDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeviceSelectorForBluetoothDeviceWithCacheMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::BluetoothCacheMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeviceSelectorForBluetoothDeviceAndServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeviceSelectorForBluetoothDeviceAndServiceIdWithCacheMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::BluetoothCacheMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IRfcommDeviceServicesResult, IRfcommDeviceServicesResult_Vtbl, 0x3b48388c_7ccf_488e_9625_d259a5732d55);
-impl windows_core::RuntimeType for IRfcommDeviceServicesResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRfcommDeviceServicesResult_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::BluetoothError) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Services: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Services: usize,
-}
-windows_core::imp::define_interface!(IRfcommServiceId, IRfcommServiceId_Vtbl, 0x22629204_7e02_4017_8136_da1b6a1b9bbf);
-impl windows_core::RuntimeType for IRfcommServiceId {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRfcommServiceId_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Uuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    pub AsShortId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub AsString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IRfcommServiceIdStatics, IRfcommServiceIdStatics_Vtbl, 0x2a179eba_a975_46e3_b56b_08ffd783a5fe);
-impl windows_core::RuntimeType for IRfcommServiceIdStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRfcommServiceIdStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub FromUuid: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FromShortId: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SerialPort: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ObexObjectPush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ObexFileTransfer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PhoneBookAccessPce: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PhoneBookAccessPse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GenericFileTransfer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IRfcommServiceProvider, IRfcommServiceProvider_Vtbl, 0xeadbfdc4_b1f6_44ff_9f7c_e7a82ab86821);
-impl windows_core::RuntimeType for IRfcommServiceProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRfcommServiceProvider_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub SdpRawAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
-    SdpRawAttributes: usize,
-    #[cfg(feature = "Networking_Sockets")]
-    pub StartAdvertising: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Networking_Sockets"))]
-    StartAdvertising: usize,
-    pub StopAdvertising: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IRfcommServiceProvider2, IRfcommServiceProvider2_Vtbl, 0x736bdfc6_3c81_4d1e_baf2_ddbb81284512);
-impl windows_core::RuntimeType for IRfcommServiceProvider2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRfcommServiceProvider2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Networking_Sockets")]
-    pub StartAdvertisingWithRadioDiscoverability: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Networking_Sockets"))]
-    StartAdvertisingWithRadioDiscoverability: usize,
-}
-windows_core::imp::define_interface!(IRfcommServiceProviderStatics, IRfcommServiceProviderStatics_Vtbl, 0x98888303_69ca_413a_84f7_4344c7292997);
-impl windows_core::RuntimeType for IRfcommServiceProviderStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRfcommServiceProviderStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}

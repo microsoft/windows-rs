@@ -132,6 +132,33 @@ impl windows_core::RuntimeName for BluetoothAdapter {
 unsafe impl Send for BluetoothAdapter {}
 unsafe impl Sync for BluetoothAdapter {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BluetoothAddressType(pub i32);
+impl BluetoothAddressType {
+    pub const Public: Self = Self(0i32);
+    pub const Random: Self = Self(1i32);
+    pub const Unspecified: Self = Self(2i32);
+}
+impl windows_core::TypeKind for BluetoothAddressType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for BluetoothAddressType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothAddressType;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BluetoothCacheMode(pub i32);
+impl BluetoothCacheMode {
+    pub const Cached: Self = Self(0i32);
+    pub const Uncached: Self = Self(1i32);
+}
+impl windows_core::TypeKind for BluetoothCacheMode {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for BluetoothCacheMode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothCacheMode;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BluetoothClassOfDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothClassOfDevice, windows_core::IUnknown, windows_core::IInspectable);
@@ -193,6 +220,19 @@ impl windows_core::RuntimeName for BluetoothClassOfDevice {
 }
 unsafe impl Send for BluetoothClassOfDevice {}
 unsafe impl Sync for BluetoothClassOfDevice {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BluetoothConnectionStatus(pub i32);
+impl BluetoothConnectionStatus {
+    pub const Disconnected: Self = Self(0i32);
+    pub const Connected: Self = Self(1i32);
+}
+impl windows_core::TypeKind for BluetoothConnectionStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for BluetoothConnectionStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothConnectionStatus;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BluetoothDevice(windows_core::IUnknown);
@@ -511,6 +551,27 @@ impl windows_core::RuntimeName for BluetoothDeviceId {
 }
 unsafe impl Send for BluetoothDeviceId {}
 unsafe impl Sync for BluetoothDeviceId {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BluetoothError(pub i32);
+impl BluetoothError {
+    pub const Success: Self = Self(0i32);
+    pub const RadioNotAvailable: Self = Self(1i32);
+    pub const ResourceInUse: Self = Self(2i32);
+    pub const DeviceNotConnected: Self = Self(3i32);
+    pub const OtherError: Self = Self(4i32);
+    pub const DisabledByPolicy: Self = Self(5i32);
+    pub const NotSupported: Self = Self(6i32);
+    pub const DisabledByUser: Self = Self(7i32);
+    pub const ConsentRequired: Self = Self(8i32);
+    pub const TransportNotSupported: Self = Self(9i32);
+}
+impl windows_core::TypeKind for BluetoothError {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for BluetoothError {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothError;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BluetoothLEAppearance(windows_core::IUnknown);
@@ -1411,6 +1472,178 @@ impl windows_core::RuntimeName for BluetoothLEPreferredConnectionParametersReque
 unsafe impl Send for BluetoothLEPreferredConnectionParametersRequest {}
 unsafe impl Sync for BluetoothLEPreferredConnectionParametersRequest {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BluetoothLEPreferredConnectionParametersRequestStatus(pub i32);
+impl BluetoothLEPreferredConnectionParametersRequestStatus {
+    pub const Unspecified: Self = Self(0i32);
+    pub const Success: Self = Self(1i32);
+    pub const DeviceNotAvailable: Self = Self(2i32);
+    pub const AccessDenied: Self = Self(3i32);
+}
+impl windows_core::TypeKind for BluetoothLEPreferredConnectionParametersRequestStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for BluetoothLEPreferredConnectionParametersRequestStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParametersRequestStatus;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BluetoothMajorClass(pub i32);
+impl BluetoothMajorClass {
+    pub const Miscellaneous: Self = Self(0i32);
+    pub const Computer: Self = Self(1i32);
+    pub const Phone: Self = Self(2i32);
+    pub const NetworkAccessPoint: Self = Self(3i32);
+    pub const AudioVideo: Self = Self(4i32);
+    pub const Peripheral: Self = Self(5i32);
+    pub const Imaging: Self = Self(6i32);
+    pub const Wearable: Self = Self(7i32);
+    pub const Toy: Self = Self(8i32);
+    pub const Health: Self = Self(9i32);
+}
+impl windows_core::TypeKind for BluetoothMajorClass {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for BluetoothMajorClass {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothMajorClass;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BluetoothMinorClass(pub i32);
+impl BluetoothMinorClass {
+    pub const Uncategorized: Self = Self(0i32);
+    pub const ComputerDesktop: Self = Self(1i32);
+    pub const ComputerServer: Self = Self(2i32);
+    pub const ComputerLaptop: Self = Self(3i32);
+    pub const ComputerHandheld: Self = Self(4i32);
+    pub const ComputerPalmSize: Self = Self(5i32);
+    pub const ComputerWearable: Self = Self(6i32);
+    pub const ComputerTablet: Self = Self(7i32);
+    pub const PhoneCellular: Self = Self(1i32);
+    pub const PhoneCordless: Self = Self(2i32);
+    pub const PhoneSmartPhone: Self = Self(3i32);
+    pub const PhoneWired: Self = Self(4i32);
+    pub const PhoneIsdn: Self = Self(5i32);
+    pub const NetworkFullyAvailable: Self = Self(0i32);
+    pub const NetworkUsed01To17Percent: Self = Self(8i32);
+    pub const NetworkUsed17To33Percent: Self = Self(16i32);
+    pub const NetworkUsed33To50Percent: Self = Self(24i32);
+    pub const NetworkUsed50To67Percent: Self = Self(32i32);
+    pub const NetworkUsed67To83Percent: Self = Self(40i32);
+    pub const NetworkUsed83To99Percent: Self = Self(48i32);
+    pub const NetworkNoServiceAvailable: Self = Self(56i32);
+    pub const AudioVideoWearableHeadset: Self = Self(1i32);
+    pub const AudioVideoHandsFree: Self = Self(2i32);
+    pub const AudioVideoMicrophone: Self = Self(4i32);
+    pub const AudioVideoLoudspeaker: Self = Self(5i32);
+    pub const AudioVideoHeadphones: Self = Self(6i32);
+    pub const AudioVideoPortableAudio: Self = Self(7i32);
+    pub const AudioVideoCarAudio: Self = Self(8i32);
+    pub const AudioVideoSetTopBox: Self = Self(9i32);
+    pub const AudioVideoHifiAudioDevice: Self = Self(10i32);
+    pub const AudioVideoVcr: Self = Self(11i32);
+    pub const AudioVideoVideoCamera: Self = Self(12i32);
+    pub const AudioVideoCamcorder: Self = Self(13i32);
+    pub const AudioVideoVideoMonitor: Self = Self(14i32);
+    pub const AudioVideoVideoDisplayAndLoudspeaker: Self = Self(15i32);
+    pub const AudioVideoVideoConferencing: Self = Self(16i32);
+    pub const AudioVideoGamingOrToy: Self = Self(18i32);
+    pub const PeripheralJoystick: Self = Self(1i32);
+    pub const PeripheralGamepad: Self = Self(2i32);
+    pub const PeripheralRemoteControl: Self = Self(3i32);
+    pub const PeripheralSensing: Self = Self(4i32);
+    pub const PeripheralDigitizerTablet: Self = Self(5i32);
+    pub const PeripheralCardReader: Self = Self(6i32);
+    pub const PeripheralDigitalPen: Self = Self(7i32);
+    pub const PeripheralHandheldScanner: Self = Self(8i32);
+    pub const PeripheralHandheldGesture: Self = Self(9i32);
+    pub const WearableWristwatch: Self = Self(1i32);
+    pub const WearablePager: Self = Self(2i32);
+    pub const WearableJacket: Self = Self(3i32);
+    pub const WearableHelmet: Self = Self(4i32);
+    pub const WearableGlasses: Self = Self(5i32);
+    pub const ToyRobot: Self = Self(1i32);
+    pub const ToyVehicle: Self = Self(2i32);
+    pub const ToyDoll: Self = Self(3i32);
+    pub const ToyController: Self = Self(4i32);
+    pub const ToyGame: Self = Self(5i32);
+    pub const HealthBloodPressureMonitor: Self = Self(1i32);
+    pub const HealthThermometer: Self = Self(2i32);
+    pub const HealthWeighingScale: Self = Self(3i32);
+    pub const HealthGlucoseMeter: Self = Self(4i32);
+    pub const HealthPulseOximeter: Self = Self(5i32);
+    pub const HealthHeartRateMonitor: Self = Self(6i32);
+    pub const HealthHealthDataDisplay: Self = Self(7i32);
+    pub const HealthStepCounter: Self = Self(8i32);
+    pub const HealthBodyCompositionAnalyzer: Self = Self(9i32);
+    pub const HealthPeakFlowMonitor: Self = Self(10i32);
+    pub const HealthMedicationMonitor: Self = Self(11i32);
+    pub const HealthKneeProsthesis: Self = Self(12i32);
+    pub const HealthAnkleProsthesis: Self = Self(13i32);
+    pub const HealthGenericHealthManager: Self = Self(14i32);
+    pub const HealthPersonalMobilityDevice: Self = Self(15i32);
+}
+impl windows_core::TypeKind for BluetoothMinorClass {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for BluetoothMinorClass {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothMinorClass;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BluetoothServiceCapabilities(pub u32);
+impl BluetoothServiceCapabilities {
+    pub const None: Self = Self(0u32);
+    pub const LimitedDiscoverableMode: Self = Self(1u32);
+    pub const PositioningService: Self = Self(8u32);
+    pub const NetworkingService: Self = Self(16u32);
+    pub const RenderingService: Self = Self(32u32);
+    pub const CapturingService: Self = Self(64u32);
+    pub const ObjectTransferService: Self = Self(128u32);
+    pub const AudioService: Self = Self(256u32);
+    pub const TelephoneService: Self = Self(512u32);
+    pub const InformationService: Self = Self(1024u32);
+}
+impl windows_core::TypeKind for BluetoothServiceCapabilities {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for BluetoothServiceCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothServiceCapabilities;u4)");
+}
+impl BluetoothServiceCapabilities {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for BluetoothServiceCapabilities {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for BluetoothServiceCapabilities {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for BluetoothServiceCapabilities {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for BluetoothServiceCapabilities {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for BluetoothServiceCapabilities {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BluetoothSignalStrengthFilter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothSignalStrengthFilter, windows_core::IUnknown, windows_core::IInspectable);
@@ -2033,237 +2266,4 @@ pub struct IBluetoothUuidHelperStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromShortId: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub TryGetShortId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BluetoothAddressType(pub i32);
-impl BluetoothAddressType {
-    pub const Public: Self = Self(0i32);
-    pub const Random: Self = Self(1i32);
-    pub const Unspecified: Self = Self(2i32);
-}
-impl windows_core::TypeKind for BluetoothAddressType {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for BluetoothAddressType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothAddressType;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BluetoothCacheMode(pub i32);
-impl BluetoothCacheMode {
-    pub const Cached: Self = Self(0i32);
-    pub const Uncached: Self = Self(1i32);
-}
-impl windows_core::TypeKind for BluetoothCacheMode {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for BluetoothCacheMode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothCacheMode;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BluetoothConnectionStatus(pub i32);
-impl BluetoothConnectionStatus {
-    pub const Disconnected: Self = Self(0i32);
-    pub const Connected: Self = Self(1i32);
-}
-impl windows_core::TypeKind for BluetoothConnectionStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for BluetoothConnectionStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothConnectionStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BluetoothError(pub i32);
-impl BluetoothError {
-    pub const Success: Self = Self(0i32);
-    pub const RadioNotAvailable: Self = Self(1i32);
-    pub const ResourceInUse: Self = Self(2i32);
-    pub const DeviceNotConnected: Self = Self(3i32);
-    pub const OtherError: Self = Self(4i32);
-    pub const DisabledByPolicy: Self = Self(5i32);
-    pub const NotSupported: Self = Self(6i32);
-    pub const DisabledByUser: Self = Self(7i32);
-    pub const ConsentRequired: Self = Self(8i32);
-    pub const TransportNotSupported: Self = Self(9i32);
-}
-impl windows_core::TypeKind for BluetoothError {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for BluetoothError {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothError;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BluetoothLEPreferredConnectionParametersRequestStatus(pub i32);
-impl BluetoothLEPreferredConnectionParametersRequestStatus {
-    pub const Unspecified: Self = Self(0i32);
-    pub const Success: Self = Self(1i32);
-    pub const DeviceNotAvailable: Self = Self(2i32);
-    pub const AccessDenied: Self = Self(3i32);
-}
-impl windows_core::TypeKind for BluetoothLEPreferredConnectionParametersRequestStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for BluetoothLEPreferredConnectionParametersRequestStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParametersRequestStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BluetoothMajorClass(pub i32);
-impl BluetoothMajorClass {
-    pub const Miscellaneous: Self = Self(0i32);
-    pub const Computer: Self = Self(1i32);
-    pub const Phone: Self = Self(2i32);
-    pub const NetworkAccessPoint: Self = Self(3i32);
-    pub const AudioVideo: Self = Self(4i32);
-    pub const Peripheral: Self = Self(5i32);
-    pub const Imaging: Self = Self(6i32);
-    pub const Wearable: Self = Self(7i32);
-    pub const Toy: Self = Self(8i32);
-    pub const Health: Self = Self(9i32);
-}
-impl windows_core::TypeKind for BluetoothMajorClass {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for BluetoothMajorClass {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothMajorClass;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BluetoothMinorClass(pub i32);
-impl BluetoothMinorClass {
-    pub const Uncategorized: Self = Self(0i32);
-    pub const ComputerDesktop: Self = Self(1i32);
-    pub const ComputerServer: Self = Self(2i32);
-    pub const ComputerLaptop: Self = Self(3i32);
-    pub const ComputerHandheld: Self = Self(4i32);
-    pub const ComputerPalmSize: Self = Self(5i32);
-    pub const ComputerWearable: Self = Self(6i32);
-    pub const ComputerTablet: Self = Self(7i32);
-    pub const PhoneCellular: Self = Self(1i32);
-    pub const PhoneCordless: Self = Self(2i32);
-    pub const PhoneSmartPhone: Self = Self(3i32);
-    pub const PhoneWired: Self = Self(4i32);
-    pub const PhoneIsdn: Self = Self(5i32);
-    pub const NetworkFullyAvailable: Self = Self(0i32);
-    pub const NetworkUsed01To17Percent: Self = Self(8i32);
-    pub const NetworkUsed17To33Percent: Self = Self(16i32);
-    pub const NetworkUsed33To50Percent: Self = Self(24i32);
-    pub const NetworkUsed50To67Percent: Self = Self(32i32);
-    pub const NetworkUsed67To83Percent: Self = Self(40i32);
-    pub const NetworkUsed83To99Percent: Self = Self(48i32);
-    pub const NetworkNoServiceAvailable: Self = Self(56i32);
-    pub const AudioVideoWearableHeadset: Self = Self(1i32);
-    pub const AudioVideoHandsFree: Self = Self(2i32);
-    pub const AudioVideoMicrophone: Self = Self(4i32);
-    pub const AudioVideoLoudspeaker: Self = Self(5i32);
-    pub const AudioVideoHeadphones: Self = Self(6i32);
-    pub const AudioVideoPortableAudio: Self = Self(7i32);
-    pub const AudioVideoCarAudio: Self = Self(8i32);
-    pub const AudioVideoSetTopBox: Self = Self(9i32);
-    pub const AudioVideoHifiAudioDevice: Self = Self(10i32);
-    pub const AudioVideoVcr: Self = Self(11i32);
-    pub const AudioVideoVideoCamera: Self = Self(12i32);
-    pub const AudioVideoCamcorder: Self = Self(13i32);
-    pub const AudioVideoVideoMonitor: Self = Self(14i32);
-    pub const AudioVideoVideoDisplayAndLoudspeaker: Self = Self(15i32);
-    pub const AudioVideoVideoConferencing: Self = Self(16i32);
-    pub const AudioVideoGamingOrToy: Self = Self(18i32);
-    pub const PeripheralJoystick: Self = Self(1i32);
-    pub const PeripheralGamepad: Self = Self(2i32);
-    pub const PeripheralRemoteControl: Self = Self(3i32);
-    pub const PeripheralSensing: Self = Self(4i32);
-    pub const PeripheralDigitizerTablet: Self = Self(5i32);
-    pub const PeripheralCardReader: Self = Self(6i32);
-    pub const PeripheralDigitalPen: Self = Self(7i32);
-    pub const PeripheralHandheldScanner: Self = Self(8i32);
-    pub const PeripheralHandheldGesture: Self = Self(9i32);
-    pub const WearableWristwatch: Self = Self(1i32);
-    pub const WearablePager: Self = Self(2i32);
-    pub const WearableJacket: Self = Self(3i32);
-    pub const WearableHelmet: Self = Self(4i32);
-    pub const WearableGlasses: Self = Self(5i32);
-    pub const ToyRobot: Self = Self(1i32);
-    pub const ToyVehicle: Self = Self(2i32);
-    pub const ToyDoll: Self = Self(3i32);
-    pub const ToyController: Self = Self(4i32);
-    pub const ToyGame: Self = Self(5i32);
-    pub const HealthBloodPressureMonitor: Self = Self(1i32);
-    pub const HealthThermometer: Self = Self(2i32);
-    pub const HealthWeighingScale: Self = Self(3i32);
-    pub const HealthGlucoseMeter: Self = Self(4i32);
-    pub const HealthPulseOximeter: Self = Self(5i32);
-    pub const HealthHeartRateMonitor: Self = Self(6i32);
-    pub const HealthHealthDataDisplay: Self = Self(7i32);
-    pub const HealthStepCounter: Self = Self(8i32);
-    pub const HealthBodyCompositionAnalyzer: Self = Self(9i32);
-    pub const HealthPeakFlowMonitor: Self = Self(10i32);
-    pub const HealthMedicationMonitor: Self = Self(11i32);
-    pub const HealthKneeProsthesis: Self = Self(12i32);
-    pub const HealthAnkleProsthesis: Self = Self(13i32);
-    pub const HealthGenericHealthManager: Self = Self(14i32);
-    pub const HealthPersonalMobilityDevice: Self = Self(15i32);
-}
-impl windows_core::TypeKind for BluetoothMinorClass {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for BluetoothMinorClass {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothMinorClass;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BluetoothServiceCapabilities(pub u32);
-impl BluetoothServiceCapabilities {
-    pub const None: Self = Self(0u32);
-    pub const LimitedDiscoverableMode: Self = Self(1u32);
-    pub const PositioningService: Self = Self(8u32);
-    pub const NetworkingService: Self = Self(16u32);
-    pub const RenderingService: Self = Self(32u32);
-    pub const CapturingService: Self = Self(64u32);
-    pub const ObjectTransferService: Self = Self(128u32);
-    pub const AudioService: Self = Self(256u32);
-    pub const TelephoneService: Self = Self(512u32);
-    pub const InformationService: Self = Self(1024u32);
-}
-impl windows_core::TypeKind for BluetoothServiceCapabilities {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for BluetoothServiceCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothServiceCapabilities;u4)");
-}
-impl BluetoothServiceCapabilities {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for BluetoothServiceCapabilities {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for BluetoothServiceCapabilities {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for BluetoothServiceCapabilities {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for BluetoothServiceCapabilities {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for BluetoothServiceCapabilities {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }

@@ -174,6 +174,32 @@ impl windows_core::RuntimeName for GraphicsCaptureAccess {
     const NAME: &'static str = "Windows.Graphics.Capture.GraphicsCaptureAccess";
 }
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GraphicsCaptureAccessKind(pub i32);
+impl GraphicsCaptureAccessKind {
+    pub const Borderless: Self = Self(0i32);
+    pub const Programmatic: Self = Self(1i32);
+}
+impl windows_core::TypeKind for GraphicsCaptureAccessKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GraphicsCaptureAccessKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Capture.GraphicsCaptureAccessKind;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GraphicsCaptureDirtyRegionMode(pub i32);
+impl GraphicsCaptureDirtyRegionMode {
+    pub const ReportOnly: Self = Self(0i32);
+    pub const ReportAndRender: Self = Self(1i32);
+}
+impl windows_core::TypeKind for GraphicsCaptureDirtyRegionMode {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GraphicsCaptureDirtyRegionMode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Capture.GraphicsCaptureDirtyRegionMode;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GraphicsCaptureItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GraphicsCaptureItem, windows_core::IUnknown, windows_core::IInspectable);
@@ -570,30 +596,4 @@ impl windows_core::RuntimeType for IGraphicsCaptureSessionStatics {
 pub struct IGraphicsCaptureSessionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GraphicsCaptureAccessKind(pub i32);
-impl GraphicsCaptureAccessKind {
-    pub const Borderless: Self = Self(0i32);
-    pub const Programmatic: Self = Self(1i32);
-}
-impl windows_core::TypeKind for GraphicsCaptureAccessKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GraphicsCaptureAccessKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Capture.GraphicsCaptureAccessKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GraphicsCaptureDirtyRegionMode(pub i32);
-impl GraphicsCaptureDirtyRegionMode {
-    pub const ReportOnly: Self = Self(0i32);
-    pub const ReportAndRender: Self = Self(1i32);
-}
-impl windows_core::TypeKind for GraphicsCaptureDirtyRegionMode {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GraphicsCaptureDirtyRegionMode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Capture.GraphicsCaptureDirtyRegionMode;i4)");
 }

@@ -1,39 +1,6 @@
 windows_targets::link!("srclient.dll" "system" fn SRRemoveRestorePoint(dwrpnum : u32) -> u32);
 windows_targets::link!("sfc.dll" "system" fn SRSetRestorePointA(prestoreptspec : *const RESTOREPOINTINFOA, psmgrstatus : *mut STATEMGRSTATUS) -> super::super::Foundation:: BOOL);
 windows_targets::link!("sfc.dll" "system" fn SRSetRestorePointW(prestoreptspec : *const RESTOREPOINTINFOW, psmgrstatus : *mut STATEMGRSTATUS) -> super::super::Foundation:: BOOL);
-pub type RESTOREPOINTINFO_EVENT_TYPE = u32;
-pub type RESTOREPOINTINFO_TYPE = u32;
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct RESTOREPOINTINFOA {
-    pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
-    pub dwRestorePtType: RESTOREPOINTINFO_TYPE,
-    pub llSequenceNumber: i64,
-    pub szDescription: [i8; 64],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct RESTOREPOINTINFOEX {
-    pub ftCreation: super::super::Foundation::FILETIME,
-    pub dwEventType: u32,
-    pub dwRestorePtType: u32,
-    pub dwRPNum: u32,
-    pub szDescription: [u16; 256],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct RESTOREPOINTINFOW {
-    pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
-    pub dwRestorePtType: RESTOREPOINTINFO_TYPE,
-    pub llSequenceNumber: i64,
-    pub szDescription: [u16; 256],
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct STATEMGRSTATUS {
-    pub nStatus: super::super::Foundation::WIN32_ERROR,
-    pub llSequenceNumber: i64,
-}
 pub const ACCESSIBILITY_SETTING: u32 = 3u32;
 pub const APPLICATION_INSTALL: RESTOREPOINTINFO_TYPE = 0u32;
 pub const APPLICATION_RUN: u32 = 5u32;
@@ -61,6 +28,39 @@ pub const MIN_RPT: u32 = 0u32;
 pub const MODIFY_SETTINGS: RESTOREPOINTINFO_TYPE = 12u32;
 pub const OE_SETTING: u32 = 4u32;
 pub const RESTORE: u32 = 6u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct RESTOREPOINTINFOA {
+    pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
+    pub dwRestorePtType: RESTOREPOINTINFO_TYPE,
+    pub llSequenceNumber: i64,
+    pub szDescription: [i8; 64],
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct RESTOREPOINTINFOEX {
+    pub ftCreation: super::super::Foundation::FILETIME,
+    pub dwEventType: u32,
+    pub dwRestorePtType: u32,
+    pub dwRPNum: u32,
+    pub szDescription: [u16; 256],
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct RESTOREPOINTINFOW {
+    pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
+    pub dwRestorePtType: RESTOREPOINTINFO_TYPE,
+    pub llSequenceNumber: i64,
+    pub szDescription: [u16; 256],
+}
+pub type RESTOREPOINTINFO_EVENT_TYPE = u32;
+pub type RESTOREPOINTINFO_TYPE = u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct STATEMGRSTATUS {
+    pub nStatus: super::super::Foundation::WIN32_ERROR,
+    pub llSequenceNumber: i64,
+}
 pub const WINDOWS_BOOT: u32 = 9u32;
 pub const WINDOWS_SHUTDOWN: u32 = 8u32;
 pub const WINDOWS_UPDATE: u32 = 17u32;

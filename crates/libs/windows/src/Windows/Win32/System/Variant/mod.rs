@@ -556,6 +556,12 @@ pub unsafe fn VariantToUInt64WithDefault(varin: *const VARIANT, ulldefault: u64)
     windows_targets::link!("propsys.dll" "system" fn VariantToUInt64WithDefault(varin : *const VARIANT, ulldefault : u64) -> u64);
     VariantToUInt64WithDefault(core::mem::transmute(varin), core::mem::transmute(ulldefault))
 }
+pub const DPF_ERROR: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(4i32);
+pub const DPF_MARQUEE: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(1i32);
+pub const DPF_MARQUEE_COMPLETE: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(2i32);
+pub const DPF_NONE: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(0i32);
+pub const DPF_STOPPED: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(16i32);
+pub const DPF_WARNING: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(8i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRAWPROGRESSFLAGS(pub i32);
@@ -592,6 +598,8 @@ impl core::ops::Not for DRAWPROGRESSFLAGS {
         Self(self.0.not())
     }
 }
+pub const PSTF_LOCAL: PSTIME_FLAGS = PSTIME_FLAGS(1i32);
+pub const PSTF_UTC: PSTIME_FLAGS = PSTIME_FLAGS(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSTIME_FLAGS(pub i32);
@@ -659,42 +667,6 @@ impl core::ops::BitAndAssign for VARENUM {
     }
 }
 impl core::ops::Not for VARENUM {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VAR_CHANGE_FLAGS(pub u16);
-impl VAR_CHANGE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for VAR_CHANGE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for VAR_CHANGE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for VAR_CHANGE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for VAR_CHANGE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for VAR_CHANGE_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -845,14 +817,6 @@ impl Default for VARIANT_0_0_0_0 {
 impl windows_core::TypeKind for VARIANT_0_0_0_0 {
     type TypeKind = windows_core::CloneType;
 }
-pub const DPF_ERROR: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(4i32);
-pub const DPF_MARQUEE: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(1i32);
-pub const DPF_MARQUEE_COMPLETE: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(2i32);
-pub const DPF_NONE: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(0i32);
-pub const DPF_STOPPED: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(16i32);
-pub const DPF_WARNING: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(8i32);
-pub const PSTF_LOCAL: PSTIME_FLAGS = PSTIME_FLAGS(1i32);
-pub const PSTF_UTC: PSTIME_FLAGS = PSTIME_FLAGS(0i32);
 pub const VARIANT_ALPHABOOL: VAR_CHANGE_FLAGS = VAR_CHANGE_FLAGS(2u16);
 pub const VARIANT_CALENDAR_GREGORIAN: VAR_CHANGE_FLAGS = VAR_CHANGE_FLAGS(64u16);
 pub const VARIANT_CALENDAR_HIJRI: VAR_CHANGE_FLAGS = VAR_CHANGE_FLAGS(8u16);
@@ -861,6 +825,42 @@ pub const VARIANT_LOCALBOOL: VAR_CHANGE_FLAGS = VAR_CHANGE_FLAGS(16u16);
 pub const VARIANT_NOUSEROVERRIDE: VAR_CHANGE_FLAGS = VAR_CHANGE_FLAGS(4u16);
 pub const VARIANT_NOVALUEPROP: VAR_CHANGE_FLAGS = VAR_CHANGE_FLAGS(1u16);
 pub const VARIANT_USE_NLS: VAR_CHANGE_FLAGS = VAR_CHANGE_FLAGS(128u16);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VAR_CHANGE_FLAGS(pub u16);
+impl VAR_CHANGE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for VAR_CHANGE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for VAR_CHANGE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for VAR_CHANGE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for VAR_CHANGE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for VAR_CHANGE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const VT_ARRAY: VARENUM = VARENUM(8192u16);
 pub const VT_BLOB: VARENUM = VARENUM(65u16);
 pub const VT_BLOB_OBJECT: VARENUM = VARENUM(70u16);

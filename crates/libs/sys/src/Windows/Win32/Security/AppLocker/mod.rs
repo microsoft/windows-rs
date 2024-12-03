@@ -9,10 +9,6 @@ windows_targets::link!("advapi32.dll" "system" fn SaferRecordEventLogEntry(hleve
 windows_targets::link!("advapi32.dll" "system" fn SaferSetLevelInformation(levelhandle : super:: SAFER_LEVEL_HANDLE, dwinfotype : SAFER_OBJECT_INFO_CLASS, lpquerybuffer : *const core::ffi::c_void, dwinbuffersize : u32) -> super::super::Foundation:: BOOL);
 windows_targets::link!("advapi32.dll" "system" fn SaferSetPolicyInformation(dwscopeid : u32, saferpolicyinfoclass : SAFER_POLICY_INFO_CLASS, infobuffersize : u32, infobuffer : *const core::ffi::c_void, lpreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
 windows_targets::link!("advapi32.dll" "system" fn SaferiIsExecutableFileType(szfullpathname : windows_sys::core::PCWSTR, bfromshellexecute : super::super::Foundation:: BOOLEAN) -> super::super::Foundation:: BOOL);
-pub type SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = u32;
-pub type SAFER_IDENTIFICATION_TYPES = i32;
-pub type SAFER_OBJECT_INFO_CLASS = i32;
-pub type SAFER_POLICY_INFO_CLASS = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy)]
@@ -52,6 +48,14 @@ pub struct SAFER_CODE_PROPERTIES_V2 {
     pub PackageVersion: u64,
     pub PackageIsFramework: super::super::Foundation::BOOL,
 }
+pub type SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = u32;
+pub const SAFER_CRITERIA_APPX_PACKAGE: u32 = 32u32;
+pub const SAFER_CRITERIA_AUTHENTICODE: u32 = 8u32;
+pub const SAFER_CRITERIA_IMAGEHASH: u32 = 4u32;
+pub const SAFER_CRITERIA_IMAGEPATH: u32 = 1u32;
+pub const SAFER_CRITERIA_IMAGEPATH_NT: u32 = 4096u32;
+pub const SAFER_CRITERIA_NOSIGNEDHASH: u32 = 2u32;
+pub const SAFER_CRITERIA_URLZONE: u32 = 16u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy)]
@@ -82,28 +86,7 @@ pub struct SAFER_IDENTIFICATION_HEADER {
     pub IdentificationGuid: windows_sys::core::GUID,
     pub lastModified: super::super::Foundation::FILETIME,
 }
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SAFER_PATHNAME_IDENTIFICATION {
-    pub header: SAFER_IDENTIFICATION_HEADER,
-    pub Description: [u16; 256],
-    pub ImageName: windows_sys::core::PWSTR,
-    pub dwSaferFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SAFER_URLZONE_IDENTIFICATION {
-    pub header: SAFER_IDENTIFICATION_HEADER,
-    pub UrlZoneId: u32,
-    pub dwSaferFlags: u32,
-}
-pub const SAFER_CRITERIA_APPX_PACKAGE: u32 = 32u32;
-pub const SAFER_CRITERIA_AUTHENTICODE: u32 = 8u32;
-pub const SAFER_CRITERIA_IMAGEHASH: u32 = 4u32;
-pub const SAFER_CRITERIA_IMAGEPATH: u32 = 1u32;
-pub const SAFER_CRITERIA_IMAGEPATH_NT: u32 = 4096u32;
-pub const SAFER_CRITERIA_NOSIGNEDHASH: u32 = 2u32;
-pub const SAFER_CRITERIA_URLZONE: u32 = 16u32;
+pub type SAFER_IDENTIFICATION_TYPES = i32;
 pub const SAFER_LEVELID_CONSTRAINED: u32 = 65536u32;
 pub const SAFER_LEVELID_DISALLOWED: u32 = 0u32;
 pub const SAFER_LEVELID_FULLYTRUSTED: u32 = 262144u32;
@@ -113,8 +96,18 @@ pub const SAFER_LEVEL_OPEN: u32 = 1u32;
 pub const SAFER_MAX_DESCRIPTION_SIZE: u32 = 256u32;
 pub const SAFER_MAX_FRIENDLYNAME_SIZE: u32 = 256u32;
 pub const SAFER_MAX_HASH_SIZE: u32 = 64u32;
+pub type SAFER_OBJECT_INFO_CLASS = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SAFER_PATHNAME_IDENTIFICATION {
+    pub header: SAFER_IDENTIFICATION_HEADER,
+    pub Description: [u16; 256],
+    pub ImageName: windows_sys::core::PWSTR,
+    pub dwSaferFlags: u32,
+}
 pub const SAFER_POLICY_BLOCK_CLIENT_UI: u32 = 8192u32;
 pub const SAFER_POLICY_HASH_DUPLICATE: u32 = 262144u32;
+pub type SAFER_POLICY_INFO_CLASS = i32;
 pub const SAFER_POLICY_JOBID_CONSTRAINED: u32 = 67108864u32;
 pub const SAFER_POLICY_JOBID_MASK: u32 = 4278190080u32;
 pub const SAFER_POLICY_JOBID_UNTRUSTED: u32 = 50331648u32;
@@ -131,6 +124,13 @@ pub const SAFER_TOKEN_COMPARE_ONLY: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = 2u32;
 pub const SAFER_TOKEN_MAKE_INERT: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = 4u32;
 pub const SAFER_TOKEN_NULL_IF_EQUAL: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = 1u32;
 pub const SAFER_TOKEN_WANT_FLAGS: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = 8u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SAFER_URLZONE_IDENTIFICATION {
+    pub header: SAFER_IDENTIFICATION_HEADER,
+    pub UrlZoneId: u32,
+    pub dwSaferFlags: u32,
+}
 pub const SRP_POLICY_APPX: windows_sys::core::PCWSTR = windows_sys::core::w!("APPX");
 pub const SRP_POLICY_DLL: windows_sys::core::PCWSTR = windows_sys::core::w!("DLL");
 pub const SRP_POLICY_EXE: windows_sys::core::PCWSTR = windows_sys::core::w!("EXE");

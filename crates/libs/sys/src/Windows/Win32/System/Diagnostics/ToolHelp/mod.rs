@@ -15,7 +15,6 @@ windows_targets::link!("kernel32.dll" "system" fn Thread32First(hsnapshot : supe
 windows_targets::link!("kernel32.dll" "system" fn Thread32Next(hsnapshot : super::super::super::Foundation:: HANDLE, lpte : *mut THREADENTRY32) -> super::super::super::Foundation:: BOOL);
 windows_targets::link!("kernel32.dll" "system" fn Toolhelp32ReadProcessMemory(th32processid : u32, lpbaseaddress : *const core::ffi::c_void, lpbuffer : *mut core::ffi::c_void, cbread : usize, lpnumberofbytesread : *mut usize) -> super::super::super::Foundation:: BOOL);
 pub type CREATE_TOOLHELP_SNAPSHOT_FLAGS = u32;
-pub type HEAPENTRY32_FLAGS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HEAPENTRY32 {
@@ -29,6 +28,7 @@ pub struct HEAPENTRY32 {
     pub th32ProcessID: u32,
     pub th32HeapID: usize,
 }
+pub type HEAPENTRY32_FLAGS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HEAPLIST32 {
@@ -37,6 +37,12 @@ pub struct HEAPLIST32 {
     pub th32HeapID: usize,
     pub dwFlags: u32,
 }
+pub const HF32_DEFAULT: u32 = 1u32;
+pub const HF32_SHARED: u32 = 2u32;
+pub const LF32_FIXED: HEAPENTRY32_FLAGS = 1u32;
+pub const LF32_FREE: HEAPENTRY32_FLAGS = 2u32;
+pub const LF32_MOVEABLE: HEAPENTRY32_FLAGS = 4u32;
+pub const MAX_MODULE_NAME32: u32 = 255u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MODULEENTRY32 {
@@ -93,6 +99,13 @@ pub struct PROCESSENTRY32W {
     pub dwFlags: u32,
     pub szExeFile: [u16; 260],
 }
+pub const TH32CS_INHERIT: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 2147483648u32;
+pub const TH32CS_SNAPALL: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 15u32;
+pub const TH32CS_SNAPHEAPLIST: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 1u32;
+pub const TH32CS_SNAPMODULE: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 8u32;
+pub const TH32CS_SNAPMODULE32: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 16u32;
+pub const TH32CS_SNAPPROCESS: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 2u32;
+pub const TH32CS_SNAPTHREAD: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct THREADENTRY32 {
@@ -104,16 +117,3 @@ pub struct THREADENTRY32 {
     pub tpDeltaPri: i32,
     pub dwFlags: u32,
 }
-pub const HF32_DEFAULT: u32 = 1u32;
-pub const HF32_SHARED: u32 = 2u32;
-pub const LF32_FIXED: HEAPENTRY32_FLAGS = 1u32;
-pub const LF32_FREE: HEAPENTRY32_FLAGS = 2u32;
-pub const LF32_MOVEABLE: HEAPENTRY32_FLAGS = 4u32;
-pub const MAX_MODULE_NAME32: u32 = 255u32;
-pub const TH32CS_INHERIT: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 2147483648u32;
-pub const TH32CS_SNAPALL: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 15u32;
-pub const TH32CS_SNAPHEAPLIST: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 1u32;
-pub const TH32CS_SNAPMODULE: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 8u32;
-pub const TH32CS_SNAPMODULE32: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 16u32;
-pub const TH32CS_SNAPPROCESS: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 2u32;
-pub const TH32CS_SNAPTHREAD: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 4u32;

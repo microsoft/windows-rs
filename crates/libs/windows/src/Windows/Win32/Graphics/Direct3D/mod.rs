@@ -2,259 +2,6 @@
 pub mod Dxc;
 #[cfg(feature = "Win32_Graphics_Direct3D_Fxc")]
 pub mod Fxc;
-windows_core::imp::define_interface!(ID3DBlob, ID3DBlob_Vtbl, 0x8ba5fb08_5195_40e2_ac58_0d989c3a0102);
-windows_core::imp::interface_hierarchy!(ID3DBlob, windows_core::IUnknown);
-impl ID3DBlob {
-    pub unsafe fn GetBufferPointer(&self) -> *mut core::ffi::c_void {
-        (windows_core::Interface::vtable(self).GetBufferPointer)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn GetBufferSize(&self) -> usize {
-        (windows_core::Interface::vtable(self).GetBufferSize)(windows_core::Interface::as_raw(self))
-    }
-}
-#[repr(C)]
-pub struct ID3DBlob_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub GetBufferPointer: unsafe extern "system" fn(*mut core::ffi::c_void) -> *mut core::ffi::c_void,
-    pub GetBufferSize: unsafe extern "system" fn(*mut core::ffi::c_void) -> usize,
-}
-pub trait ID3DBlob_Impl: windows_core::IUnknownImpl {
-    fn GetBufferPointer(&self) -> *mut core::ffi::c_void;
-    fn GetBufferSize(&self) -> usize;
-}
-impl ID3DBlob_Vtbl {
-    pub const fn new<Identity: ID3DBlob_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetBufferPointer<Identity: ID3DBlob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> *mut core::ffi::c_void {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ID3DBlob_Impl::GetBufferPointer(this)
-        }
-        unsafe extern "system" fn GetBufferSize<Identity: ID3DBlob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> usize {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ID3DBlob_Impl::GetBufferSize(this)
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            GetBufferPointer: GetBufferPointer::<Identity, OFFSET>,
-            GetBufferSize: GetBufferSize::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3DBlob as windows_core::Interface>::IID
-    }
-}
-impl windows_core::RuntimeName for ID3DBlob {}
-unsafe impl Send for ID3DBlob {}
-unsafe impl Sync for ID3DBlob {}
-windows_core::imp::define_interface!(ID3DDestructionNotifier, ID3DDestructionNotifier_Vtbl, 0xa06eb39a_50da_425b_8c31_4eecd6c270f3);
-windows_core::imp::interface_hierarchy!(ID3DDestructionNotifier, windows_core::IUnknown);
-impl ID3DDestructionNotifier {
-    pub unsafe fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void) -> windows_core::Result<u32> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).RegisterDestructionCallback)(windows_core::Interface::as_raw(self), core::mem::transmute(callbackfn), core::mem::transmute(pdata), &mut result__).map(|| result__)
-    }
-    pub unsafe fn UnregisterDestructionCallback(&self, callbackid: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).UnregisterDestructionCallback)(windows_core::Interface::as_raw(self), core::mem::transmute(callbackid)).ok()
-    }
-}
-#[repr(C)]
-pub struct ID3DDestructionNotifier_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub RegisterDestructionCallback: unsafe extern "system" fn(*mut core::ffi::c_void, PFN_DESTRUCTION_CALLBACK, *const core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub UnregisterDestructionCallback: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-}
-pub trait ID3DDestructionNotifier_Impl: windows_core::IUnknownImpl {
-    fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void) -> windows_core::Result<u32>;
-    fn UnregisterDestructionCallback(&self, callbackid: u32) -> windows_core::Result<()>;
-}
-impl ID3DDestructionNotifier_Vtbl {
-    pub const fn new<Identity: ID3DDestructionNotifier_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn RegisterDestructionCallback<Identity: ID3DDestructionNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void, pcallbackid: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ID3DDestructionNotifier_Impl::RegisterDestructionCallback(this, core::mem::transmute_copy(&callbackfn), core::mem::transmute_copy(&pdata)) {
-                Ok(ok__) => {
-                    pcallbackid.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn UnregisterDestructionCallback<Identity: ID3DDestructionNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callbackid: u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ID3DDestructionNotifier_Impl::UnregisterDestructionCallback(this, core::mem::transmute_copy(&callbackid)).into()
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            RegisterDestructionCallback: RegisterDestructionCallback::<Identity, OFFSET>,
-            UnregisterDestructionCallback: UnregisterDestructionCallback::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3DDestructionNotifier as windows_core::Interface>::IID
-    }
-}
-impl windows_core::RuntimeName for ID3DDestructionNotifier {}
-unsafe impl Send for ID3DDestructionNotifier {}
-unsafe impl Sync for ID3DDestructionNotifier {}
-windows_core::imp::define_interface!(ID3DInclude, ID3DInclude_Vtbl);
-impl ID3DInclude {
-    pub unsafe fn Open<P1>(&self, includetype: D3D_INCLUDE_TYPE, pfilename: P1, pparentdata: *const core::ffi::c_void, ppdata: *mut *mut core::ffi::c_void, pbytes: *mut u32) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<windows_core::PCSTR>,
-    {
-        (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), core::mem::transmute(includetype), pfilename.param().abi(), core::mem::transmute(pparentdata), core::mem::transmute(ppdata), core::mem::transmute(pbytes)).ok()
-    }
-    pub unsafe fn Close(&self, pdata: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata)).ok()
-    }
-}
-#[repr(C)]
-pub struct ID3DInclude_Vtbl {
-    pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, D3D_INCLUDE_TYPE, windows_core::PCSTR, *const core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
-}
-pub trait ID3DInclude_Impl {
-    fn Open(&self, includetype: D3D_INCLUDE_TYPE, pfilename: &windows_core::PCSTR, pparentdata: *const core::ffi::c_void, ppdata: *mut *mut core::ffi::c_void, pbytes: *mut u32) -> windows_core::Result<()>;
-    fn Close(&self, pdata: *const core::ffi::c_void) -> windows_core::Result<()>;
-}
-impl ID3DInclude_Vtbl {
-    pub const fn new<Identity: ID3DInclude_Impl>() -> Self {
-        unsafe extern "system" fn Open<Identity: ID3DInclude_Impl>(this: *mut core::ffi::c_void, includetype: D3D_INCLUDE_TYPE, pfilename: windows_core::PCSTR, pparentdata: *const core::ffi::c_void, ppdata: *mut *mut core::ffi::c_void, pbytes: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
-            let this = &*((*this).this as *const Identity);
-            ID3DInclude_Impl::Open(this, core::mem::transmute_copy(&includetype), core::mem::transmute(&pfilename), core::mem::transmute_copy(&pparentdata), core::mem::transmute_copy(&ppdata), core::mem::transmute_copy(&pbytes)).into()
-        }
-        unsafe extern "system" fn Close<Identity: ID3DInclude_Impl>(this: *mut core::ffi::c_void, pdata: *const core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
-            let this = &*((*this).this as *const Identity);
-            ID3DInclude_Impl::Close(this, core::mem::transmute_copy(&pdata)).into()
-        }
-        Self { Open: Open::<Identity>, Close: Close::<Identity> }
-    }
-}
-#[cfg(feature = "std")]
-struct ID3DInclude_ImplVtbl<T: ID3DInclude_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
-impl<T: ID3DInclude_Impl> ID3DInclude_ImplVtbl<T> {
-    const VTABLE: ID3DInclude_Vtbl = ID3DInclude_Vtbl::new::<T>();
-}
-#[cfg(feature = "std")]
-impl ID3DInclude {
-    pub fn new<'a, T: ID3DInclude_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
-        let this = windows_core::ScopedHeap { vtable: &ID3DInclude_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
-        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
-    }
-}
-unsafe impl Send for ID3DInclude {}
-unsafe impl Sync for ID3DInclude {}
-pub type PFN_DESTRUCTION_CALLBACK = Option<unsafe extern "system" fn(pdata: *mut core::ffi::c_void)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3D_CBUFFER_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3D_DRIVER_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3D_FEATURE_LEVEL(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3D_FORMAT_COMPONENT_INTERPRETATION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3D_FORMAT_COMPONENT_NAME(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3D_FORMAT_LAYOUT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3D_FORMAT_TYPE_LEVEL(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3D_INCLUDE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3D_INTERPOLATION_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3D_MIN_PRECISION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3D_NAME(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3D_PARAMETER_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3D_PRIMITIVE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3D_PRIMITIVE_TOPOLOGY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3D_REGISTER_COMPONENT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3D_RESOURCE_RETURN_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3D_SHADER_CBUFFER_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3D_SHADER_INPUT_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3D_SHADER_INPUT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3D_SHADER_VARIABLE_CLASS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3D_SHADER_VARIABLE_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3D_SHADER_VARIABLE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3D_SRV_DIMENSION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3D_TESSELLATOR_DOMAIN(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3D_TESSELLATOR_OUTPUT_PRIMITIVE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct D3D_TESSELLATOR_PARTITIONING(pub i32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D3DVECTOR {
-    pub x: f32,
-    pub y: f32,
-    pub z: f32,
-}
-impl Default for D3DVECTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for D3DVECTOR {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct D3D_SHADER_MACRO {
-    pub Name: windows_core::PCSTR,
-    pub Definition: windows_core::PCSTR,
-}
-impl Default for D3D_SHADER_MACRO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for D3D_SHADER_MACRO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const D3D10_1_SRV_DIMENSION_BUFFER: D3D_SRV_DIMENSION = D3D_SRV_DIMENSION(1i32);
 pub const D3D10_1_SRV_DIMENSION_TEXTURE1D: D3D_SRV_DIMENSION = D3D_SRV_DIMENSION(2i32);
 pub const D3D10_1_SRV_DIMENSION_TEXTURE1DARRAY: D3D_SRV_DIMENSION = D3D_SRV_DIMENSION(3i32);
@@ -559,7 +306,25 @@ pub const D3DFL_STANDARD: D3D_FORMAT_LAYOUT = D3D_FORMAT_LAYOUT(0i32);
 pub const D3DFTL_FULL_TYPE: D3D_FORMAT_TYPE_LEVEL = D3D_FORMAT_TYPE_LEVEL(-1i32);
 pub const D3DFTL_NO_TYPE: D3D_FORMAT_TYPE_LEVEL = D3D_FORMAT_TYPE_LEVEL(0i32);
 pub const D3DFTL_PARTIAL_TYPE: D3D_FORMAT_TYPE_LEVEL = D3D_FORMAT_TYPE_LEVEL(-2i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3DVECTOR {
+    pub x: f32,
+    pub y: f32,
+    pub z: f32,
+}
+impl Default for D3DVECTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for D3DVECTOR {
+    type TypeKind = windows_core::CopyType;
+}
 pub const D3D_CBF_USERPACKED: D3D_SHADER_CBUFFER_FLAGS = D3D_SHADER_CBUFFER_FLAGS(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D_CBUFFER_TYPE(pub i32);
 pub const D3D_COMPONENT_MASK_W: u32 = 8u32;
 pub const D3D_COMPONENT_MASK_X: u32 = 1u32;
 pub const D3D_COMPONENT_MASK_Y: u32 = 2u32;
@@ -568,12 +333,18 @@ pub const D3D_CT_CBUFFER: D3D_CBUFFER_TYPE = D3D_CBUFFER_TYPE(0i32);
 pub const D3D_CT_INTERFACE_POINTERS: D3D_CBUFFER_TYPE = D3D_CBUFFER_TYPE(2i32);
 pub const D3D_CT_RESOURCE_BIND_INFO: D3D_CBUFFER_TYPE = D3D_CBUFFER_TYPE(3i32);
 pub const D3D_CT_TBUFFER: D3D_CBUFFER_TYPE = D3D_CBUFFER_TYPE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D_DRIVER_TYPE(pub i32);
 pub const D3D_DRIVER_TYPE_HARDWARE: D3D_DRIVER_TYPE = D3D_DRIVER_TYPE(1i32);
 pub const D3D_DRIVER_TYPE_NULL: D3D_DRIVER_TYPE = D3D_DRIVER_TYPE(3i32);
 pub const D3D_DRIVER_TYPE_REFERENCE: D3D_DRIVER_TYPE = D3D_DRIVER_TYPE(2i32);
 pub const D3D_DRIVER_TYPE_SOFTWARE: D3D_DRIVER_TYPE = D3D_DRIVER_TYPE(4i32);
 pub const D3D_DRIVER_TYPE_UNKNOWN: D3D_DRIVER_TYPE = D3D_DRIVER_TYPE(0i32);
 pub const D3D_DRIVER_TYPE_WARP: D3D_DRIVER_TYPE = D3D_DRIVER_TYPE(5i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D_FEATURE_LEVEL(pub i32);
 pub const D3D_FEATURE_LEVEL_10_0: D3D_FEATURE_LEVEL = D3D_FEATURE_LEVEL(40960i32);
 pub const D3D_FEATURE_LEVEL_10_1: D3D_FEATURE_LEVEL = D3D_FEATURE_LEVEL(41216i32);
 pub const D3D_FEATURE_LEVEL_11_0: D3D_FEATURE_LEVEL = D3D_FEATURE_LEVEL(45056i32);
@@ -601,8 +372,23 @@ pub const D3D_FL9_3_REQ_TEXTURE1D_U_DIMENSION: u32 = 4096u32;
 pub const D3D_FL9_3_REQ_TEXTURE2D_U_OR_V_DIMENSION: u32 = 4096u32;
 pub const D3D_FL9_3_REQ_TEXTURECUBE_DIMENSION: u32 = 4096u32;
 pub const D3D_FL9_3_SIMULTANEOUS_RENDER_TARGET_COUNT: u32 = 4u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D_FORMAT_COMPONENT_INTERPRETATION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D_FORMAT_COMPONENT_NAME(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D_FORMAT_LAYOUT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D_FORMAT_TYPE_LEVEL(pub i32);
 pub const D3D_INCLUDE_LOCAL: D3D_INCLUDE_TYPE = D3D_INCLUDE_TYPE(0i32);
 pub const D3D_INCLUDE_SYSTEM: D3D_INCLUDE_TYPE = D3D_INCLUDE_TYPE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D_INCLUDE_TYPE(pub i32);
 pub const D3D_INTERPOLATION_CONSTANT: D3D_INTERPOLATION_MODE = D3D_INTERPOLATION_MODE(1i32);
 pub const D3D_INTERPOLATION_LINEAR: D3D_INTERPOLATION_MODE = D3D_INTERPOLATION_MODE(2i32);
 pub const D3D_INTERPOLATION_LINEAR_CENTROID: D3D_INTERPOLATION_MODE = D3D_INTERPOLATION_MODE(3i32);
@@ -610,7 +396,13 @@ pub const D3D_INTERPOLATION_LINEAR_NOPERSPECTIVE: D3D_INTERPOLATION_MODE = D3D_I
 pub const D3D_INTERPOLATION_LINEAR_NOPERSPECTIVE_CENTROID: D3D_INTERPOLATION_MODE = D3D_INTERPOLATION_MODE(5i32);
 pub const D3D_INTERPOLATION_LINEAR_NOPERSPECTIVE_SAMPLE: D3D_INTERPOLATION_MODE = D3D_INTERPOLATION_MODE(7i32);
 pub const D3D_INTERPOLATION_LINEAR_SAMPLE: D3D_INTERPOLATION_MODE = D3D_INTERPOLATION_MODE(6i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D_INTERPOLATION_MODE(pub i32);
 pub const D3D_INTERPOLATION_UNDEFINED: D3D_INTERPOLATION_MODE = D3D_INTERPOLATION_MODE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D_MIN_PRECISION(pub i32);
 pub const D3D_MIN_PRECISION_ANY_10: D3D_MIN_PRECISION = D3D_MIN_PRECISION(241i32);
 pub const D3D_MIN_PRECISION_ANY_16: D3D_MIN_PRECISION = D3D_MIN_PRECISION(240i32);
 pub const D3D_MIN_PRECISION_DEFAULT: D3D_MIN_PRECISION = D3D_MIN_PRECISION(0i32);
@@ -619,6 +411,9 @@ pub const D3D_MIN_PRECISION_FLOAT_2_8: D3D_MIN_PRECISION = D3D_MIN_PRECISION(2i3
 pub const D3D_MIN_PRECISION_RESERVED: D3D_MIN_PRECISION = D3D_MIN_PRECISION(3i32);
 pub const D3D_MIN_PRECISION_SINT_16: D3D_MIN_PRECISION = D3D_MIN_PRECISION(4i32);
 pub const D3D_MIN_PRECISION_UINT_16: D3D_MIN_PRECISION = D3D_MIN_PRECISION(5i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D_NAME(pub i32);
 pub const D3D_NAME_BARYCENTRICS: D3D_NAME = D3D_NAME(23i32);
 pub const D3D_NAME_CLIP_DISTANCE: D3D_NAME = D3D_NAME(2i32);
 pub const D3D_NAME_COVERAGE: D3D_NAME = D3D_NAME(66i32);
@@ -646,9 +441,15 @@ pub const D3D_NAME_TARGET: D3D_NAME = D3D_NAME(64i32);
 pub const D3D_NAME_UNDEFINED: D3D_NAME = D3D_NAME(0i32);
 pub const D3D_NAME_VERTEX_ID: D3D_NAME = D3D_NAME(6i32);
 pub const D3D_NAME_VIEWPORT_ARRAY_INDEX: D3D_NAME = D3D_NAME(5i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D_PARAMETER_FLAGS(pub i32);
 pub const D3D_PF_IN: D3D_PARAMETER_FLAGS = D3D_PARAMETER_FLAGS(1i32);
 pub const D3D_PF_NONE: D3D_PARAMETER_FLAGS = D3D_PARAMETER_FLAGS(0i32);
 pub const D3D_PF_OUT: D3D_PARAMETER_FLAGS = D3D_PARAMETER_FLAGS(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D_PRIMITIVE(pub i32);
 pub const D3D_PRIMITIVE_10_CONTROL_POINT_PATCH: D3D_PRIMITIVE = D3D_PRIMITIVE(17i32);
 pub const D3D_PRIMITIVE_11_CONTROL_POINT_PATCH: D3D_PRIMITIVE = D3D_PRIMITIVE(18i32);
 pub const D3D_PRIMITIVE_12_CONTROL_POINT_PATCH: D3D_PRIMITIVE = D3D_PRIMITIVE(19i32);
@@ -684,6 +485,9 @@ pub const D3D_PRIMITIVE_9_CONTROL_POINT_PATCH: D3D_PRIMITIVE = D3D_PRIMITIVE(16i
 pub const D3D_PRIMITIVE_LINE: D3D_PRIMITIVE = D3D_PRIMITIVE(2i32);
 pub const D3D_PRIMITIVE_LINE_ADJ: D3D_PRIMITIVE = D3D_PRIMITIVE(6i32);
 pub const D3D_PRIMITIVE_POINT: D3D_PRIMITIVE = D3D_PRIMITIVE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D_PRIMITIVE_TOPOLOGY(pub i32);
 pub const D3D_PRIMITIVE_TOPOLOGY_10_CONTROL_POINT_PATCHLIST: D3D_PRIMITIVE_TOPOLOGY = D3D_PRIMITIVE_TOPOLOGY(42i32);
 pub const D3D_PRIMITIVE_TOPOLOGY_11_CONTROL_POINT_PATCHLIST: D3D_PRIMITIVE_TOPOLOGY = D3D_PRIMITIVE_TOPOLOGY(43i32);
 pub const D3D_PRIMITIVE_TOPOLOGY_12_CONTROL_POINT_PATCHLIST: D3D_PRIMITIVE_TOPOLOGY = D3D_PRIMITIVE_TOPOLOGY(44i32);
@@ -736,10 +540,16 @@ pub const D3D_REGISTER_COMPONENT_FLOAT64: D3D_REGISTER_COMPONENT_TYPE = D3D_REGI
 pub const D3D_REGISTER_COMPONENT_SINT16: D3D_REGISTER_COMPONENT_TYPE = D3D_REGISTER_COMPONENT_TYPE(5i32);
 pub const D3D_REGISTER_COMPONENT_SINT32: D3D_REGISTER_COMPONENT_TYPE = D3D_REGISTER_COMPONENT_TYPE(2i32);
 pub const D3D_REGISTER_COMPONENT_SINT64: D3D_REGISTER_COMPONENT_TYPE = D3D_REGISTER_COMPONENT_TYPE(8i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D_REGISTER_COMPONENT_TYPE(pub i32);
 pub const D3D_REGISTER_COMPONENT_UINT16: D3D_REGISTER_COMPONENT_TYPE = D3D_REGISTER_COMPONENT_TYPE(4i32);
 pub const D3D_REGISTER_COMPONENT_UINT32: D3D_REGISTER_COMPONENT_TYPE = D3D_REGISTER_COMPONENT_TYPE(1i32);
 pub const D3D_REGISTER_COMPONENT_UINT64: D3D_REGISTER_COMPONENT_TYPE = D3D_REGISTER_COMPONENT_TYPE(7i32);
 pub const D3D_REGISTER_COMPONENT_UNKNOWN: D3D_REGISTER_COMPONENT_TYPE = D3D_REGISTER_COMPONENT_TYPE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D_RESOURCE_RETURN_TYPE(pub i32);
 pub const D3D_RETURN_TYPE_CONTINUED: D3D_RESOURCE_RETURN_TYPE = D3D_RESOURCE_RETURN_TYPE(8i32);
 pub const D3D_RETURN_TYPE_DOUBLE: D3D_RESOURCE_RETURN_TYPE = D3D_RESOURCE_RETURN_TYPE(7i32);
 pub const D3D_RETURN_TYPE_FLOAT: D3D_RESOURCE_RETURN_TYPE = D3D_RESOURCE_RETURN_TYPE(5i32);
@@ -748,6 +558,9 @@ pub const D3D_RETURN_TYPE_SINT: D3D_RESOURCE_RETURN_TYPE = D3D_RESOURCE_RETURN_T
 pub const D3D_RETURN_TYPE_SNORM: D3D_RESOURCE_RETURN_TYPE = D3D_RESOURCE_RETURN_TYPE(2i32);
 pub const D3D_RETURN_TYPE_UINT: D3D_RESOURCE_RETURN_TYPE = D3D_RESOURCE_RETURN_TYPE(4i32);
 pub const D3D_RETURN_TYPE_UNORM: D3D_RESOURCE_RETURN_TYPE = D3D_RESOURCE_RETURN_TYPE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D_SHADER_CBUFFER_FLAGS(pub i32);
 pub const D3D_SHADER_FEATURE_11_1_DOUBLE_EXTENSIONS: u32 = 32u32;
 pub const D3D_SHADER_FEATURE_11_1_SHADER_EXTENSIONS: u32 = 64u32;
 pub const D3D_SHADER_FEATURE_64_UAVS: u32 = 8u32;
@@ -780,6 +593,35 @@ pub const D3D_SHADER_FEATURE_VIEW_ID: u32 = 65536u32;
 pub const D3D_SHADER_FEATURE_WAVE_MMA: u32 = 134217728u32;
 pub const D3D_SHADER_FEATURE_WAVE_OPS: u32 = 16384u32;
 pub const D3D_SHADER_FEATURE_WRITEABLE_MSAA_TEXTURES: u32 = 1073741824u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D_SHADER_INPUT_FLAGS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D_SHADER_INPUT_TYPE(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D_SHADER_MACRO {
+    pub Name: windows_core::PCSTR,
+    pub Definition: windows_core::PCSTR,
+}
+impl Default for D3D_SHADER_MACRO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for D3D_SHADER_MACRO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D_SHADER_VARIABLE_CLASS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D_SHADER_VARIABLE_FLAGS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D_SHADER_VARIABLE_TYPE(pub i32);
 pub const D3D_SIF_COMPARISON_SAMPLER: D3D_SHADER_INPUT_FLAGS = D3D_SHADER_INPUT_FLAGS(2i32);
 pub const D3D_SIF_TEXTURE_COMPONENTS: D3D_SHADER_INPUT_FLAGS = D3D_SHADER_INPUT_FLAGS(12i32);
 pub const D3D_SIF_TEXTURE_COMPONENT_0: D3D_SHADER_INPUT_FLAGS = D3D_SHADER_INPUT_FLAGS(4i32);
@@ -800,6 +642,9 @@ pub const D3D_SIT_UAV_RWBYTEADDRESS: D3D_SHADER_INPUT_TYPE = D3D_SHADER_INPUT_TY
 pub const D3D_SIT_UAV_RWSTRUCTURED: D3D_SHADER_INPUT_TYPE = D3D_SHADER_INPUT_TYPE(6i32);
 pub const D3D_SIT_UAV_RWSTRUCTURED_WITH_COUNTER: D3D_SHADER_INPUT_TYPE = D3D_SHADER_INPUT_TYPE(11i32);
 pub const D3D_SIT_UAV_RWTYPED: D3D_SHADER_INPUT_TYPE = D3D_SHADER_INPUT_TYPE(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D_SRV_DIMENSION(pub i32);
 pub const D3D_SRV_DIMENSION_BUFFER: D3D_SRV_DIMENSION = D3D_SRV_DIMENSION(1i32);
 pub const D3D_SRV_DIMENSION_BUFFEREX: D3D_SRV_DIMENSION = D3D_SRV_DIMENSION(11i32);
 pub const D3D_SRV_DIMENSION_TEXTURE1D: D3D_SRV_DIMENSION = D3D_SRV_DIMENSION(2i32);
@@ -887,15 +732,24 @@ pub const D3D_SVT_UINT8: D3D_SHADER_VARIABLE_TYPE = D3D_SHADER_VARIABLE_TYPE(20i
 pub const D3D_SVT_VERTEXFRAGMENT: D3D_SHADER_VARIABLE_TYPE = D3D_SHADER_VARIABLE_TYPE(18i32);
 pub const D3D_SVT_VERTEXSHADER: D3D_SHADER_VARIABLE_TYPE = D3D_SHADER_VARIABLE_TYPE(16i32);
 pub const D3D_SVT_VOID: D3D_SHADER_VARIABLE_TYPE = D3D_SHADER_VARIABLE_TYPE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D_TESSELLATOR_DOMAIN(pub i32);
 pub const D3D_TESSELLATOR_DOMAIN_ISOLINE: D3D_TESSELLATOR_DOMAIN = D3D_TESSELLATOR_DOMAIN(1i32);
 pub const D3D_TESSELLATOR_DOMAIN_QUAD: D3D_TESSELLATOR_DOMAIN = D3D_TESSELLATOR_DOMAIN(3i32);
 pub const D3D_TESSELLATOR_DOMAIN_TRI: D3D_TESSELLATOR_DOMAIN = D3D_TESSELLATOR_DOMAIN(2i32);
 pub const D3D_TESSELLATOR_DOMAIN_UNDEFINED: D3D_TESSELLATOR_DOMAIN = D3D_TESSELLATOR_DOMAIN(0i32);
 pub const D3D_TESSELLATOR_OUTPUT_LINE: D3D_TESSELLATOR_OUTPUT_PRIMITIVE = D3D_TESSELLATOR_OUTPUT_PRIMITIVE(2i32);
 pub const D3D_TESSELLATOR_OUTPUT_POINT: D3D_TESSELLATOR_OUTPUT_PRIMITIVE = D3D_TESSELLATOR_OUTPUT_PRIMITIVE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D_TESSELLATOR_OUTPUT_PRIMITIVE(pub i32);
 pub const D3D_TESSELLATOR_OUTPUT_TRIANGLE_CCW: D3D_TESSELLATOR_OUTPUT_PRIMITIVE = D3D_TESSELLATOR_OUTPUT_PRIMITIVE(4i32);
 pub const D3D_TESSELLATOR_OUTPUT_TRIANGLE_CW: D3D_TESSELLATOR_OUTPUT_PRIMITIVE = D3D_TESSELLATOR_OUTPUT_PRIMITIVE(3i32);
 pub const D3D_TESSELLATOR_OUTPUT_UNDEFINED: D3D_TESSELLATOR_OUTPUT_PRIMITIVE = D3D_TESSELLATOR_OUTPUT_PRIMITIVE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D_TESSELLATOR_PARTITIONING(pub i32);
 pub const D3D_TESSELLATOR_PARTITIONING_FRACTIONAL_EVEN: D3D_TESSELLATOR_PARTITIONING = D3D_TESSELLATOR_PARTITIONING(4i32);
 pub const D3D_TESSELLATOR_PARTITIONING_FRACTIONAL_ODD: D3D_TESSELLATOR_PARTITIONING = D3D_TESSELLATOR_PARTITIONING(3i32);
 pub const D3D_TESSELLATOR_PARTITIONING_INTEGER: D3D_TESSELLATOR_PARTITIONING = D3D_TESSELLATOR_PARTITIONING(1i32);
@@ -903,6 +757,152 @@ pub const D3D_TESSELLATOR_PARTITIONING_POW2: D3D_TESSELLATOR_PARTITIONING = D3D_
 pub const D3D_TESSELLATOR_PARTITIONING_UNDEFINED: D3D_TESSELLATOR_PARTITIONING = D3D_TESSELLATOR_PARTITIONING(0i32);
 pub const D3D_TEXTURE_LAYOUT_64KB_STANDARD_SWIZZLE: windows_core::GUID = windows_core::GUID::from_u128(0x4c0f29e3_3f5f_4d35_84c9_bc0983b62c28);
 pub const D3D_TEXTURE_LAYOUT_ROW_MAJOR: windows_core::GUID = windows_core::GUID::from_u128(0xb5dc234f_72bb_4bec_9705_8cf258df6b6c);
+windows_core::imp::define_interface!(ID3DBlob, ID3DBlob_Vtbl, 0x8ba5fb08_5195_40e2_ac58_0d989c3a0102);
+windows_core::imp::interface_hierarchy!(ID3DBlob, windows_core::IUnknown);
+impl ID3DBlob {
+    pub unsafe fn GetBufferPointer(&self) -> *mut core::ffi::c_void {
+        (windows_core::Interface::vtable(self).GetBufferPointer)(windows_core::Interface::as_raw(self))
+    }
+    pub unsafe fn GetBufferSize(&self) -> usize {
+        (windows_core::Interface::vtable(self).GetBufferSize)(windows_core::Interface::as_raw(self))
+    }
+}
+#[repr(C)]
+pub struct ID3DBlob_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetBufferPointer: unsafe extern "system" fn(*mut core::ffi::c_void) -> *mut core::ffi::c_void,
+    pub GetBufferSize: unsafe extern "system" fn(*mut core::ffi::c_void) -> usize,
+}
+pub trait ID3DBlob_Impl: windows_core::IUnknownImpl {
+    fn GetBufferPointer(&self) -> *mut core::ffi::c_void;
+    fn GetBufferSize(&self) -> usize;
+}
+impl ID3DBlob_Vtbl {
+    pub const fn new<Identity: ID3DBlob_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetBufferPointer<Identity: ID3DBlob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> *mut core::ffi::c_void {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ID3DBlob_Impl::GetBufferPointer(this)
+        }
+        unsafe extern "system" fn GetBufferSize<Identity: ID3DBlob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> usize {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ID3DBlob_Impl::GetBufferSize(this)
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetBufferPointer: GetBufferPointer::<Identity, OFFSET>,
+            GetBufferSize: GetBufferSize::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3DBlob as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3DBlob {}
+unsafe impl Send for ID3DBlob {}
+unsafe impl Sync for ID3DBlob {}
+windows_core::imp::define_interface!(ID3DDestructionNotifier, ID3DDestructionNotifier_Vtbl, 0xa06eb39a_50da_425b_8c31_4eecd6c270f3);
+windows_core::imp::interface_hierarchy!(ID3DDestructionNotifier, windows_core::IUnknown);
+impl ID3DDestructionNotifier {
+    pub unsafe fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void) -> windows_core::Result<u32> {
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).RegisterDestructionCallback)(windows_core::Interface::as_raw(self), core::mem::transmute(callbackfn), core::mem::transmute(pdata), &mut result__).map(|| result__)
+    }
+    pub unsafe fn UnregisterDestructionCallback(&self, callbackid: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).UnregisterDestructionCallback)(windows_core::Interface::as_raw(self), core::mem::transmute(callbackid)).ok()
+    }
+}
+#[repr(C)]
+pub struct ID3DDestructionNotifier_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub RegisterDestructionCallback: unsafe extern "system" fn(*mut core::ffi::c_void, PFN_DESTRUCTION_CALLBACK, *const core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub UnregisterDestructionCallback: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+}
+pub trait ID3DDestructionNotifier_Impl: windows_core::IUnknownImpl {
+    fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void) -> windows_core::Result<u32>;
+    fn UnregisterDestructionCallback(&self, callbackid: u32) -> windows_core::Result<()>;
+}
+impl ID3DDestructionNotifier_Vtbl {
+    pub const fn new<Identity: ID3DDestructionNotifier_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn RegisterDestructionCallback<Identity: ID3DDestructionNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void, pcallbackid: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match ID3DDestructionNotifier_Impl::RegisterDestructionCallback(this, core::mem::transmute_copy(&callbackfn), core::mem::transmute_copy(&pdata)) {
+                Ok(ok__) => {
+                    pcallbackid.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn UnregisterDestructionCallback<Identity: ID3DDestructionNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callbackid: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ID3DDestructionNotifier_Impl::UnregisterDestructionCallback(this, core::mem::transmute_copy(&callbackid)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            RegisterDestructionCallback: RegisterDestructionCallback::<Identity, OFFSET>,
+            UnregisterDestructionCallback: UnregisterDestructionCallback::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3DDestructionNotifier as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3DDestructionNotifier {}
+unsafe impl Send for ID3DDestructionNotifier {}
+unsafe impl Sync for ID3DDestructionNotifier {}
+windows_core::imp::define_interface!(ID3DInclude, ID3DInclude_Vtbl);
+impl ID3DInclude {
+    pub unsafe fn Open<P1>(&self, includetype: D3D_INCLUDE_TYPE, pfilename: P1, pparentdata: *const core::ffi::c_void, ppdata: *mut *mut core::ffi::c_void, pbytes: *mut u32) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<windows_core::PCSTR>,
+    {
+        (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), core::mem::transmute(includetype), pfilename.param().abi(), core::mem::transmute(pparentdata), core::mem::transmute(ppdata), core::mem::transmute(pbytes)).ok()
+    }
+    pub unsafe fn Close(&self, pdata: *const core::ffi::c_void) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata)).ok()
+    }
+}
+#[repr(C)]
+pub struct ID3DInclude_Vtbl {
+    pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, D3D_INCLUDE_TYPE, windows_core::PCSTR, *const core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait ID3DInclude_Impl {
+    fn Open(&self, includetype: D3D_INCLUDE_TYPE, pfilename: &windows_core::PCSTR, pparentdata: *const core::ffi::c_void, ppdata: *mut *mut core::ffi::c_void, pbytes: *mut u32) -> windows_core::Result<()>;
+    fn Close(&self, pdata: *const core::ffi::c_void) -> windows_core::Result<()>;
+}
+impl ID3DInclude_Vtbl {
+    pub const fn new<Identity: ID3DInclude_Impl>() -> Self {
+        unsafe extern "system" fn Open<Identity: ID3DInclude_Impl>(this: *mut core::ffi::c_void, includetype: D3D_INCLUDE_TYPE, pfilename: windows_core::PCSTR, pparentdata: *const core::ffi::c_void, ppdata: *mut *mut core::ffi::c_void, pbytes: *mut u32) -> windows_core::HRESULT {
+            let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+            let this = &*((*this).this as *const Identity);
+            ID3DInclude_Impl::Open(this, core::mem::transmute_copy(&includetype), core::mem::transmute(&pfilename), core::mem::transmute_copy(&pparentdata), core::mem::transmute_copy(&ppdata), core::mem::transmute_copy(&pbytes)).into()
+        }
+        unsafe extern "system" fn Close<Identity: ID3DInclude_Impl>(this: *mut core::ffi::c_void, pdata: *const core::ffi::c_void) -> windows_core::HRESULT {
+            let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+            let this = &*((*this).this as *const Identity);
+            ID3DInclude_Impl::Close(this, core::mem::transmute_copy(&pdata)).into()
+        }
+        Self { Open: Open::<Identity>, Close: Close::<Identity> }
+    }
+}
+#[cfg(feature = "std")]
+struct ID3DInclude_ImplVtbl<T: ID3DInclude_Impl>(core::marker::PhantomData<T>);
+#[cfg(feature = "std")]
+impl<T: ID3DInclude_Impl> ID3DInclude_ImplVtbl<T> {
+    const VTABLE: ID3DInclude_Vtbl = ID3DInclude_Vtbl::new::<T>();
+}
+#[cfg(feature = "std")]
+impl ID3DInclude {
+    pub fn new<'a, T: ID3DInclude_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
+        let this = windows_core::ScopedHeap { vtable: &ID3DInclude_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = core::mem::ManuallyDrop::new(Box::new(this));
+        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
+    }
+}
+unsafe impl Send for ID3DInclude {}
+unsafe impl Sync for ID3DInclude {}
+pub type PFN_DESTRUCTION_CALLBACK = Option<unsafe extern "system" fn(pdata: *mut core::ffi::c_void)>;
 pub const WKPDID_CommentStringW: windows_core::GUID = windows_core::GUID::from_u128(0xd0149dc0_90e8_4ec8_8144_e900ad266bb2);
 pub const WKPDID_D3D12UniqueObjectId: windows_core::GUID = windows_core::GUID::from_u128(0x1b39de15_ec04_4bae_ba4d_8cef79fc04c1);
 pub const WKPDID_D3DDebugObjectName: windows_core::GUID = windows_core::GUID::from_u128(0x429b8c22_9188_4b0c_8742_acb0bf85c200);

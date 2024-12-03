@@ -271,6 +271,95 @@ impl windows_core::RuntimeName for ActivationSignalDetectionConfigurationCreatio
 unsafe impl Send for ActivationSignalDetectionConfigurationCreationResult {}
 unsafe impl Sync for ActivationSignalDetectionConfigurationCreationResult {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ActivationSignalDetectionConfigurationCreationStatus(pub i32);
+impl ActivationSignalDetectionConfigurationCreationStatus {
+    pub const Success: Self = Self(0i32);
+    pub const SignalIdNotAvailable: Self = Self(1i32);
+    pub const ModelIdNotSupported: Self = Self(2i32);
+    pub const InvalidSignalId: Self = Self(3i32);
+    pub const InvalidModelId: Self = Self(4i32);
+    pub const InvalidDisplayName: Self = Self(5i32);
+    pub const ConfigurationAlreadyExists: Self = Self(6i32);
+    pub const CreationNotSupported: Self = Self(7i32);
+}
+impl windows_core::TypeKind for ActivationSignalDetectionConfigurationCreationStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ActivationSignalDetectionConfigurationCreationStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationStatus;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ActivationSignalDetectionConfigurationRemovalResult(pub i32);
+impl ActivationSignalDetectionConfigurationRemovalResult {
+    pub const Success: Self = Self(0i32);
+    pub const NotFound: Self = Self(1i32);
+    pub const CurrentlyEnabled: Self = Self(2i32);
+    pub const RemovalNotSupported: Self = Self(3i32);
+}
+impl windows_core::TypeKind for ActivationSignalDetectionConfigurationRemovalResult {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ActivationSignalDetectionConfigurationRemovalResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationRemovalResult;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ActivationSignalDetectionConfigurationSetModelDataResult(pub i32);
+impl ActivationSignalDetectionConfigurationSetModelDataResult {
+    pub const Success: Self = Self(0i32);
+    pub const EmptyModelData: Self = Self(1i32);
+    pub const UnsupportedFormat: Self = Self(2i32);
+    pub const ConfigurationCurrentlyEnabled: Self = Self(3i32);
+    pub const InvalidData: Self = Self(4i32);
+    pub const SetModelDataNotSupported: Self = Self(5i32);
+    pub const ConfigurationNotFound: Self = Self(6i32);
+    pub const UnknownError: Self = Self(7i32);
+}
+impl windows_core::TypeKind for ActivationSignalDetectionConfigurationSetModelDataResult {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ActivationSignalDetectionConfigurationSetModelDataResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationSetModelDataResult;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ActivationSignalDetectionConfigurationStateChangeResult(pub i32);
+impl ActivationSignalDetectionConfigurationStateChangeResult {
+    pub const Success: Self = Self(0i32);
+    pub const NoModelData: Self = Self(1i32);
+    pub const ConfigurationNotFound: Self = Self(2i32);
+}
+impl windows_core::TypeKind for ActivationSignalDetectionConfigurationStateChangeResult {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ActivationSignalDetectionConfigurationStateChangeResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationStateChangeResult;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ActivationSignalDetectionTrainingDataFormat(pub i32);
+impl ActivationSignalDetectionTrainingDataFormat {
+    pub const Voice8kHz8BitMono: Self = Self(0i32);
+    pub const Voice8kHz16BitMono: Self = Self(1i32);
+    pub const Voice16kHz8BitMono: Self = Self(2i32);
+    pub const Voice16kHz16BitMono: Self = Self(3i32);
+    pub const VoiceOEMDefined: Self = Self(4i32);
+    pub const Audio44kHz8BitMono: Self = Self(5i32);
+    pub const Audio44kHz16BitMono: Self = Self(6i32);
+    pub const Audio48kHz8BitMono: Self = Self(7i32);
+    pub const Audio48kHz16BitMono: Self = Self(8i32);
+    pub const AudioOEMDefined: Self = Self(9i32);
+    pub const OtherOEMDefined: Self = Self(10i32);
+}
+impl windows_core::TypeKind for ActivationSignalDetectionTrainingDataFormat {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ActivationSignalDetectionTrainingDataFormat {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ActivationSignalDetector(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ActivationSignalDetector, windows_core::IUnknown, windows_core::IInspectable);
@@ -452,6 +541,62 @@ impl windows_core::RuntimeName for ActivationSignalDetector {
 }
 unsafe impl Send for ActivationSignalDetector {}
 unsafe impl Sync for ActivationSignalDetector {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ActivationSignalDetectorKind(pub i32);
+impl ActivationSignalDetectorKind {
+    pub const AudioPattern: Self = Self(0i32);
+    pub const AudioImpulse: Self = Self(1i32);
+    pub const HardwareEvent: Self = Self(2i32);
+}
+impl windows_core::TypeKind for ActivationSignalDetectorKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ActivationSignalDetectorKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorKind;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ActivationSignalDetectorPowerState(pub i32);
+impl ActivationSignalDetectorPowerState {
+    pub const HighPower: Self = Self(0i32);
+    pub const ConnectedLowPower: Self = Self(1i32);
+    pub const DisconnectedLowPower: Self = Self(2i32);
+}
+impl windows_core::TypeKind for ActivationSignalDetectorPowerState {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ActivationSignalDetectorPowerState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorPowerState;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ConversationalAgentActivationKind(pub i32);
+impl ConversationalAgentActivationKind {
+    pub const VoiceActivationPreview: Self = Self(0i32);
+    pub const Foreground: Self = Self(1i32);
+}
+impl windows_core::TypeKind for ConversationalAgentActivationKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ConversationalAgentActivationKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationKind;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ConversationalAgentActivationResult(pub i32);
+impl ConversationalAgentActivationResult {
+    pub const Success: Self = Self(0i32);
+    pub const AgentInactive: Self = Self(1i32);
+    pub const ScreenNotAvailable: Self = Self(2i32);
+    pub const AgentInterrupted: Self = Self(3i32);
+}
+impl windows_core::TypeKind for ConversationalAgentActivationResult {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ConversationalAgentActivationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationResult;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ConversationalAgentDetectorManager(windows_core::IUnknown);
@@ -872,6 +1017,19 @@ impl windows_core::RuntimeName for ConversationalAgentSessionInterruptedEventArg
 unsafe impl Send for ConversationalAgentSessionInterruptedEventArgs {}
 unsafe impl Sync for ConversationalAgentSessionInterruptedEventArgs {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ConversationalAgentSessionUpdateResponse(pub i32);
+impl ConversationalAgentSessionUpdateResponse {
+    pub const Success: Self = Self(0i32);
+    pub const Failed: Self = Self(1i32);
+}
+impl windows_core::TypeKind for ConversationalAgentSessionUpdateResponse {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ConversationalAgentSessionUpdateResponse {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionUpdateResponse;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ConversationalAgentSignal(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ConversationalAgentSignal, windows_core::IUnknown, windows_core::IInspectable);
@@ -990,6 +1148,38 @@ impl windows_core::RuntimeName for ConversationalAgentSignalDetectedEventArgs {
 unsafe impl Send for ConversationalAgentSignalDetectedEventArgs {}
 unsafe impl Sync for ConversationalAgentSignalDetectedEventArgs {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ConversationalAgentState(pub i32);
+impl ConversationalAgentState {
+    pub const Inactive: Self = Self(0i32);
+    pub const Detecting: Self = Self(1i32);
+    pub const Listening: Self = Self(2i32);
+    pub const Working: Self = Self(3i32);
+    pub const Speaking: Self = Self(4i32);
+    pub const ListeningAndSpeaking: Self = Self(5i32);
+}
+impl windows_core::TypeKind for ConversationalAgentState {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ConversationalAgentState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentState;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ConversationalAgentSystemStateChangeType(pub i32);
+impl ConversationalAgentSystemStateChangeType {
+    pub const UserAuthentication: Self = Self(0i32);
+    pub const ScreenAvailability: Self = Self(1i32);
+    pub const IndicatorLightAvailability: Self = Self(2i32);
+    pub const VoiceActivationAvailability: Self = Self(3i32);
+}
+impl windows_core::TypeKind for ConversationalAgentSystemStateChangeType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ConversationalAgentSystemStateChangeType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangeType;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ConversationalAgentSystemStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ConversationalAgentSystemStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1014,6 +1204,37 @@ impl windows_core::RuntimeName for ConversationalAgentSystemStateChangedEventArg
 }
 unsafe impl Send for ConversationalAgentSystemStateChangedEventArgs {}
 unsafe impl Sync for ConversationalAgentSystemStateChangedEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ConversationalAgentVoiceActivationPrerequisiteKind(pub i32);
+impl ConversationalAgentVoiceActivationPrerequisiteKind {
+    pub const MicrophonePermission: Self = Self(0i32);
+    pub const KnownAgents: Self = Self(1i32);
+    pub const AgentAllowed: Self = Self(2i32);
+    pub const AppCapability: Self = Self(3i32);
+    pub const BackgroundTaskRegistration: Self = Self(4i32);
+    pub const PolicyPermission: Self = Self(5i32);
+}
+impl windows_core::TypeKind for ConversationalAgentVoiceActivationPrerequisiteKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ConversationalAgentVoiceActivationPrerequisiteKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentVoiceActivationPrerequisiteKind;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DetectionConfigurationAvailabilityChangeKind(pub i32);
+impl DetectionConfigurationAvailabilityChangeKind {
+    pub const SystemResourceAccess: Self = Self(0i32);
+    pub const Permission: Self = Self(1i32);
+    pub const LockScreenPermission: Self = Self(2i32);
+}
+impl windows_core::TypeKind for DetectionConfigurationAvailabilityChangeKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DetectionConfigurationAvailabilityChangeKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangeKind;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DetectionConfigurationAvailabilityChangedEventArgs(windows_core::IUnknown);
@@ -1093,6 +1314,27 @@ impl windows_core::RuntimeName for DetectionConfigurationAvailabilityInfo {
 }
 unsafe impl Send for DetectionConfigurationAvailabilityInfo {}
 unsafe impl Sync for DetectionConfigurationAvailabilityInfo {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DetectionConfigurationTrainingStatus(pub i32);
+impl DetectionConfigurationTrainingStatus {
+    pub const Success: Self = Self(0i32);
+    pub const FormatNotSupported: Self = Self(1i32);
+    pub const VoiceTooQuiet: Self = Self(2i32);
+    pub const VoiceTooLoud: Self = Self(3i32);
+    pub const VoiceTooFast: Self = Self(4i32);
+    pub const VoiceTooSlow: Self = Self(5i32);
+    pub const VoiceQualityProblem: Self = Self(6i32);
+    pub const TrainingSystemInternalError: Self = Self(7i32);
+    pub const TrainingTimedOut: Self = Self(8i32);
+    pub const ConfigurationNotFound: Self = Self(9i32);
+}
+impl windows_core::TypeKind for DetectionConfigurationTrainingStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DetectionConfigurationTrainingStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationTrainingStatus;i4)");
+}
 windows_core::imp::define_interface!(IActivationSignalDetectionConfiguration, IActivationSignalDetectionConfiguration_Vtbl, 0x40d8be16_5217_581c_9ab2_ce9b2f2e8e00);
 impl windows_core::RuntimeType for IActivationSignalDetectionConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1452,248 +1694,6 @@ pub struct IDetectionConfigurationAvailabilityInfo2_Vtbl {
     pub UnavailableSystemResources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     UnavailableSystemResources: usize,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ActivationSignalDetectionConfigurationCreationStatus(pub i32);
-impl ActivationSignalDetectionConfigurationCreationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const SignalIdNotAvailable: Self = Self(1i32);
-    pub const ModelIdNotSupported: Self = Self(2i32);
-    pub const InvalidSignalId: Self = Self(3i32);
-    pub const InvalidModelId: Self = Self(4i32);
-    pub const InvalidDisplayName: Self = Self(5i32);
-    pub const ConfigurationAlreadyExists: Self = Self(6i32);
-    pub const CreationNotSupported: Self = Self(7i32);
-}
-impl windows_core::TypeKind for ActivationSignalDetectionConfigurationCreationStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ActivationSignalDetectionConfigurationCreationStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ActivationSignalDetectionConfigurationRemovalResult(pub i32);
-impl ActivationSignalDetectionConfigurationRemovalResult {
-    pub const Success: Self = Self(0i32);
-    pub const NotFound: Self = Self(1i32);
-    pub const CurrentlyEnabled: Self = Self(2i32);
-    pub const RemovalNotSupported: Self = Self(3i32);
-}
-impl windows_core::TypeKind for ActivationSignalDetectionConfigurationRemovalResult {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ActivationSignalDetectionConfigurationRemovalResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationRemovalResult;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ActivationSignalDetectionConfigurationSetModelDataResult(pub i32);
-impl ActivationSignalDetectionConfigurationSetModelDataResult {
-    pub const Success: Self = Self(0i32);
-    pub const EmptyModelData: Self = Self(1i32);
-    pub const UnsupportedFormat: Self = Self(2i32);
-    pub const ConfigurationCurrentlyEnabled: Self = Self(3i32);
-    pub const InvalidData: Self = Self(4i32);
-    pub const SetModelDataNotSupported: Self = Self(5i32);
-    pub const ConfigurationNotFound: Self = Self(6i32);
-    pub const UnknownError: Self = Self(7i32);
-}
-impl windows_core::TypeKind for ActivationSignalDetectionConfigurationSetModelDataResult {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ActivationSignalDetectionConfigurationSetModelDataResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationSetModelDataResult;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ActivationSignalDetectionConfigurationStateChangeResult(pub i32);
-impl ActivationSignalDetectionConfigurationStateChangeResult {
-    pub const Success: Self = Self(0i32);
-    pub const NoModelData: Self = Self(1i32);
-    pub const ConfigurationNotFound: Self = Self(2i32);
-}
-impl windows_core::TypeKind for ActivationSignalDetectionConfigurationStateChangeResult {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ActivationSignalDetectionConfigurationStateChangeResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationStateChangeResult;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ActivationSignalDetectionTrainingDataFormat(pub i32);
-impl ActivationSignalDetectionTrainingDataFormat {
-    pub const Voice8kHz8BitMono: Self = Self(0i32);
-    pub const Voice8kHz16BitMono: Self = Self(1i32);
-    pub const Voice16kHz8BitMono: Self = Self(2i32);
-    pub const Voice16kHz16BitMono: Self = Self(3i32);
-    pub const VoiceOEMDefined: Self = Self(4i32);
-    pub const Audio44kHz8BitMono: Self = Self(5i32);
-    pub const Audio44kHz16BitMono: Self = Self(6i32);
-    pub const Audio48kHz8BitMono: Self = Self(7i32);
-    pub const Audio48kHz16BitMono: Self = Self(8i32);
-    pub const AudioOEMDefined: Self = Self(9i32);
-    pub const OtherOEMDefined: Self = Self(10i32);
-}
-impl windows_core::TypeKind for ActivationSignalDetectionTrainingDataFormat {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ActivationSignalDetectionTrainingDataFormat {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ActivationSignalDetectorKind(pub i32);
-impl ActivationSignalDetectorKind {
-    pub const AudioPattern: Self = Self(0i32);
-    pub const AudioImpulse: Self = Self(1i32);
-    pub const HardwareEvent: Self = Self(2i32);
-}
-impl windows_core::TypeKind for ActivationSignalDetectorKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ActivationSignalDetectorKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ActivationSignalDetectorPowerState(pub i32);
-impl ActivationSignalDetectorPowerState {
-    pub const HighPower: Self = Self(0i32);
-    pub const ConnectedLowPower: Self = Self(1i32);
-    pub const DisconnectedLowPower: Self = Self(2i32);
-}
-impl windows_core::TypeKind for ActivationSignalDetectorPowerState {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ActivationSignalDetectorPowerState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorPowerState;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ConversationalAgentActivationKind(pub i32);
-impl ConversationalAgentActivationKind {
-    pub const VoiceActivationPreview: Self = Self(0i32);
-    pub const Foreground: Self = Self(1i32);
-}
-impl windows_core::TypeKind for ConversationalAgentActivationKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ConversationalAgentActivationKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ConversationalAgentActivationResult(pub i32);
-impl ConversationalAgentActivationResult {
-    pub const Success: Self = Self(0i32);
-    pub const AgentInactive: Self = Self(1i32);
-    pub const ScreenNotAvailable: Self = Self(2i32);
-    pub const AgentInterrupted: Self = Self(3i32);
-}
-impl windows_core::TypeKind for ConversationalAgentActivationResult {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ConversationalAgentActivationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationResult;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ConversationalAgentSessionUpdateResponse(pub i32);
-impl ConversationalAgentSessionUpdateResponse {
-    pub const Success: Self = Self(0i32);
-    pub const Failed: Self = Self(1i32);
-}
-impl windows_core::TypeKind for ConversationalAgentSessionUpdateResponse {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ConversationalAgentSessionUpdateResponse {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionUpdateResponse;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ConversationalAgentState(pub i32);
-impl ConversationalAgentState {
-    pub const Inactive: Self = Self(0i32);
-    pub const Detecting: Self = Self(1i32);
-    pub const Listening: Self = Self(2i32);
-    pub const Working: Self = Self(3i32);
-    pub const Speaking: Self = Self(4i32);
-    pub const ListeningAndSpeaking: Self = Self(5i32);
-}
-impl windows_core::TypeKind for ConversationalAgentState {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ConversationalAgentState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentState;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ConversationalAgentSystemStateChangeType(pub i32);
-impl ConversationalAgentSystemStateChangeType {
-    pub const UserAuthentication: Self = Self(0i32);
-    pub const ScreenAvailability: Self = Self(1i32);
-    pub const IndicatorLightAvailability: Self = Self(2i32);
-    pub const VoiceActivationAvailability: Self = Self(3i32);
-}
-impl windows_core::TypeKind for ConversationalAgentSystemStateChangeType {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ConversationalAgentSystemStateChangeType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangeType;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ConversationalAgentVoiceActivationPrerequisiteKind(pub i32);
-impl ConversationalAgentVoiceActivationPrerequisiteKind {
-    pub const MicrophonePermission: Self = Self(0i32);
-    pub const KnownAgents: Self = Self(1i32);
-    pub const AgentAllowed: Self = Self(2i32);
-    pub const AppCapability: Self = Self(3i32);
-    pub const BackgroundTaskRegistration: Self = Self(4i32);
-    pub const PolicyPermission: Self = Self(5i32);
-}
-impl windows_core::TypeKind for ConversationalAgentVoiceActivationPrerequisiteKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ConversationalAgentVoiceActivationPrerequisiteKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentVoiceActivationPrerequisiteKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DetectionConfigurationAvailabilityChangeKind(pub i32);
-impl DetectionConfigurationAvailabilityChangeKind {
-    pub const SystemResourceAccess: Self = Self(0i32);
-    pub const Permission: Self = Self(1i32);
-    pub const LockScreenPermission: Self = Self(2i32);
-}
-impl windows_core::TypeKind for DetectionConfigurationAvailabilityChangeKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DetectionConfigurationAvailabilityChangeKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangeKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DetectionConfigurationTrainingStatus(pub i32);
-impl DetectionConfigurationTrainingStatus {
-    pub const Success: Self = Self(0i32);
-    pub const FormatNotSupported: Self = Self(1i32);
-    pub const VoiceTooQuiet: Self = Self(2i32);
-    pub const VoiceTooLoud: Self = Self(3i32);
-    pub const VoiceTooFast: Self = Self(4i32);
-    pub const VoiceTooSlow: Self = Self(5i32);
-    pub const VoiceQualityProblem: Self = Self(6i32);
-    pub const TrainingSystemInternalError: Self = Self(7i32);
-    pub const TrainingTimedOut: Self = Self(8i32);
-    pub const ConfigurationNotFound: Self = Self(9i32);
-}
-impl windows_core::TypeKind for DetectionConfigurationTrainingStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DetectionConfigurationTrainingStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationTrainingStatus;i4)");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

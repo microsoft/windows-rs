@@ -40,34 +40,29 @@ windows_targets::link!("winusb.dll" "system" fn WinUsb_WriteIsochPipe(bufferhand
 windows_targets::link!("winusb.dll" "system" fn WinUsb_WriteIsochPipeAsap(bufferhandle : *const core::ffi::c_void, offset : u32, length : u32, continuestream : super::super::Foundation:: BOOL, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_IO")]
 windows_targets::link!("winusb.dll" "system" fn WinUsb_WritePipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, buffer : *const u8, bufferlength : u32, lengthtransferred : *mut u32, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-pub type USB_IDLE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
-pub type PIPE_TYPE = i32;
-pub type RAW_PIPE_TYPE = i32;
-pub type USBD_ENDPOINT_OFFLOAD_MODE = i32;
-pub type USBD_PIPE_TYPE = i32;
-pub type USBFN_BUS_SPEED = i32;
-pub type USBFN_DEVICE_STATE = i32;
-pub type USBFN_DIRECTION = i32;
-pub type USBFN_EVENT = i32;
-pub type USBFN_PORT_TYPE = i32;
-pub type USB_CONNECTION_STATUS = i32;
-pub type USB_CONTROLLER_FLAVOR = i32;
-pub type USB_DEVICE_SPEED = i32;
-pub type USB_DEVICE_TYPE = i32;
-pub type USB_HUB_NODE = i32;
-pub type USB_HUB_TYPE = i32;
-pub type USB_NOTIFICATION_TYPE = i32;
-pub type USB_USER_ERROR_CODE = i32;
-pub type USB_WMI_DEVICE_NODE_TYPE = i32;
-pub type WDMUSB_POWER_STATE = i32;
-pub type WINUSB_PIPE_POLICY = u32;
-pub type WINUSB_POWER_POLICY = u32;
+pub const ALLOW_PARTIAL_READS: WINUSB_PIPE_POLICY = 5u32;
+pub const ALL_PIPE: PIPE_TYPE = 3i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ALTERNATE_INTERFACE {
     pub InterfaceNumber: u16,
     pub AlternateInterfaceNumber: u16,
 }
+pub const AUTO_CLEAR_STALL: WINUSB_PIPE_POLICY = 2u32;
+pub const AUTO_FLUSH: WINUSB_PIPE_POLICY = 6u32;
+pub const AUTO_SUSPEND: WINUSB_POWER_POLICY = 129u32;
+pub const AcquireBusInfo: USB_NOTIFICATION_TYPE = 5i32;
+pub const AcquireControllerName: USB_NOTIFICATION_TYPE = 7i32;
+pub const AcquireHubName: USB_NOTIFICATION_TYPE = 6i32;
+pub const BMREQUEST_CLASS: u32 = 1u32;
+pub const BMREQUEST_DEVICE_TO_HOST: u32 = 1u32;
+pub const BMREQUEST_HOST_TO_DEVICE: u32 = 0u32;
+pub const BMREQUEST_STANDARD: u32 = 0u32;
+pub const BMREQUEST_TO_DEVICE: u32 = 0u32;
+pub const BMREQUEST_TO_ENDPOINT: u32 = 2u32;
+pub const BMREQUEST_TO_INTERFACE: u32 = 1u32;
+pub const BMREQUEST_TO_OTHER: u32 = 3u32;
+pub const BMREQUEST_VENDOR: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union BM_REQUEST_TYPE {
@@ -79,6 +74,7 @@ pub union BM_REQUEST_TYPE {
 pub struct BM_REQUEST_TYPE_0 {
     pub _bitfield: u8,
 }
+pub const BULKIN_FLAG: u32 = 128u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CHANNEL_INFO {
@@ -86,6 +82,7 @@ pub struct CHANNEL_INFO {
     pub uReadDataAlignment: u32,
     pub uWriteDataAlignment: u32,
 }
+pub const CompositeDevice: USB_WMI_DEVICE_NODE_TYPE = 2i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEVICE_DESCRIPTOR {
@@ -94,6 +91,7 @@ pub struct DEVICE_DESCRIPTOR {
     pub usBcdDevice: u16,
     pub usLanguageId: u16,
 }
+pub const DEVICE_SPEED: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DRV_VERSION {
@@ -101,6 +99,48 @@ pub struct DRV_VERSION {
     pub minor: u32,
     pub internal: u32,
 }
+pub const DeviceCausedOvercurrent: USB_CONNECTION_STATUS = 4i32;
+pub const DeviceConnected: USB_CONNECTION_STATUS = 1i32;
+pub const DeviceEnumerating: USB_CONNECTION_STATUS = 9i32;
+pub const DeviceFailedEnumeration: USB_CONNECTION_STATUS = 2i32;
+pub const DeviceGeneralFailure: USB_CONNECTION_STATUS = 3i32;
+pub const DeviceHubNestedTooDeeply: USB_CONNECTION_STATUS = 7i32;
+pub const DeviceInLegacyHub: USB_CONNECTION_STATUS = 8i32;
+pub const DeviceNotEnoughBandwidth: USB_CONNECTION_STATUS = 6i32;
+pub const DeviceNotEnoughPower: USB_CONNECTION_STATUS = 5i32;
+pub const DeviceReset: USB_CONNECTION_STATUS = 10i32;
+pub const EHCI_Generic: USB_CONTROLLER_FLAVOR = 1000i32;
+pub const EHCI_Intel_Medfield: USB_CONTROLLER_FLAVOR = 5001i32;
+pub const EHCI_Lucent: USB_CONTROLLER_FLAVOR = 3000i32;
+pub const EHCI_NEC: USB_CONTROLLER_FLAVOR = 2000i32;
+pub const EHCI_NVIDIA_Tegra2: USB_CONTROLLER_FLAVOR = 4000i32;
+pub const EHCI_NVIDIA_Tegra3: USB_CONTROLLER_FLAVOR = 4001i32;
+pub const EVENT_PIPE: PIPE_TYPE = 0i32;
+pub const EnumerationFailure: USB_NOTIFICATION_TYPE = 0i32;
+pub const FILE_DEVICE_USB: u32 = 34u32;
+pub const FILE_DEVICE_USB_SCAN: u32 = 32768u32;
+pub const FullSpeed: u32 = 2u32;
+pub const GUID_DEVINTERFACE_USB_BILLBOARD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5e9adaef_f879_473f_b807_4e5ea77d1b1c);
+pub const GUID_DEVINTERFACE_USB_DEVICE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa5dcbf10_6530_11d2_901f_00c04fb951ed);
+pub const GUID_DEVINTERFACE_USB_HOST_CONTROLLER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3abf6f2d_71c4_462a_8a92_1e6861e6af27);
+pub const GUID_DEVINTERFACE_USB_HUB: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf18a0e88_c30c_11d0_8815_00a0c906bed8);
+pub const GUID_USB_MSOS20_PLATFORM_CAPABILITY_ID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd8dd60df_4589_4cc7_9cd2_659d9e648a9f);
+pub const GUID_USB_PERFORMANCE_TRACING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd5de77a6_6ae9_425c_b1e2_f5615fd348a9);
+pub const GUID_USB_TRANSFER_TRACING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x681eb8aa_403d_452c_9f8a_f0616fac9540);
+pub const GUID_USB_WMI_DEVICE_PERF_INFO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x66c1aa3c_499f_49a0_a9a5_61e2359f6407);
+pub const GUID_USB_WMI_NODE_INFO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9c179357_dc7a_4f41_b66b_323b9ddcb5b1);
+pub const GUID_USB_WMI_STD_DATA: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4e623b20_cb14_11d1_b331_00a0c959bbd2);
+pub const GUID_USB_WMI_STD_NOTIFICATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4e623b20_cb14_11d1_b331_00a0c959bbd2);
+pub const GUID_USB_WMI_SURPRISE_REMOVAL_NOTIFICATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9bbbf831_a2f2_43b4_96d1_86944b5914b3);
+pub const GUID_USB_WMI_TRACING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3a61881b_b4e6_4bf9_ae0f_3cd8f394e52f);
+pub const HCD_DIAGNOSTIC_MODE_OFF: u32 = 257u32;
+pub const HCD_DIAGNOSTIC_MODE_ON: u32 = 256u32;
+pub const HCD_DISABLE_PORT: u32 = 268u32;
+pub const HCD_ENABLE_PORT: u32 = 269u32;
+pub const HCD_GET_DRIVERKEY_NAME: u32 = 265u32;
+pub const HCD_GET_ROOT_HUB_NAME: u32 = 258u32;
+pub const HCD_GET_STATS_1: u32 = 255u32;
+pub const HCD_GET_STATS_2: u32 = 266u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct HCD_ISO_STAT_COUNTERS {
@@ -160,6 +200,8 @@ pub struct HCD_STAT_INFORMATION_2 {
     pub Counters: HCD_STAT_COUNTERS,
     pub IsoCounters: HCD_ISO_STAT_COUNTERS,
 }
+pub const HCD_TRACE_READ_REQUEST: u32 = 275u32;
+pub const HCD_USER_REQUEST: u32 = 270u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct HUB_DEVICE_CONFIG_INFO {
@@ -172,6 +214,98 @@ pub struct HUB_DEVICE_CONFIG_INFO {
     pub Reserved: [u32; 19],
     pub UxdSettings: USB_HUB_DEVICE_UXD_SETTINGS,
 }
+pub const HighSpeed: u32 = 3u32;
+pub const HubDevice: USB_WMI_DEVICE_NODE_TYPE = 1i32;
+pub const HubNestedTooDeeply: USB_NOTIFICATION_TYPE = 10i32;
+pub const HubOvercurrent: USB_NOTIFICATION_TYPE = 8i32;
+pub const HubPowerChange: USB_NOTIFICATION_TYPE = 9i32;
+pub const IGNORE_SHORT_PACKETS: WINUSB_PIPE_POLICY = 4u32;
+pub const IOCTL_ABORT_PIPE: u32 = 2147491844u32;
+pub const IOCTL_CANCEL_IO: u32 = 2147491844u32;
+pub const IOCTL_GENERICUSBFN_ACTIVATE_USB_BUS: u32 = 2277420u32;
+pub const IOCTL_GENERICUSBFN_BUS_EVENT_NOTIFICATION: u32 = 2277430u32;
+pub const IOCTL_GENERICUSBFN_CONTROL_STATUS_HANDSHAKE_IN: u32 = 2277400u32;
+pub const IOCTL_GENERICUSBFN_CONTROL_STATUS_HANDSHAKE_OUT: u32 = 2277404u32;
+pub const IOCTL_GENERICUSBFN_DEACTIVATE_USB_BUS: u32 = 2277424u32;
+pub const IOCTL_GENERICUSBFN_GET_CLASS_INFO: u32 = 2277410u32;
+pub const IOCTL_GENERICUSBFN_GET_CLASS_INFO_EX: u32 = 2277434u32;
+pub const IOCTL_GENERICUSBFN_GET_INTERFACE_DESCRIPTOR_SET: u32 = 2277438u32;
+pub const IOCTL_GENERICUSBFN_GET_PIPE_STATE: u32 = 2277414u32;
+pub const IOCTL_GENERICUSBFN_REGISTER_USB_STRING: u32 = 2277441u32;
+pub const IOCTL_GENERICUSBFN_SET_PIPE_STATE: u32 = 2277417u32;
+pub const IOCTL_GENERICUSBFN_TRANSFER_IN: u32 = 2277389u32;
+pub const IOCTL_GENERICUSBFN_TRANSFER_IN_APPEND_ZERO_PKT: u32 = 2277393u32;
+pub const IOCTL_GENERICUSBFN_TRANSFER_OUT: u32 = 2277398u32;
+pub const IOCTL_GET_CHANNEL_ALIGN_RQST: u32 = 2147491860u32;
+pub const IOCTL_GET_DEVICE_DESCRIPTOR: u32 = 2147491864u32;
+pub const IOCTL_GET_HCD_DRIVERKEY_NAME: u32 = 2229284u32;
+pub const IOCTL_GET_PIPE_CONFIGURATION: u32 = 2147491880u32;
+pub const IOCTL_GET_USB_DESCRIPTOR: u32 = 2147491872u32;
+pub const IOCTL_GET_VERSION: u32 = 2147491840u32;
+pub const IOCTL_INDEX: u32 = 2048u32;
+pub const IOCTL_INTERNAL_USB_CYCLE_PORT: u32 = 2228255u32;
+pub const IOCTL_INTERNAL_USB_ENABLE_PORT: u32 = 2228247u32;
+pub const IOCTL_INTERNAL_USB_FAIL_GET_STATUS_FROM_DEVICE: u32 = 2229347u32;
+pub const IOCTL_INTERNAL_USB_GET_BUSGUID_INFO: u32 = 2229288u32;
+pub const IOCTL_INTERNAL_USB_GET_BUS_INFO: u32 = 2229280u32;
+pub const IOCTL_INTERNAL_USB_GET_CONTROLLER_NAME: u32 = 2229284u32;
+pub const IOCTL_INTERNAL_USB_GET_DEVICE_CONFIG_INFO: u32 = 2229327u32;
+pub const IOCTL_INTERNAL_USB_GET_DEVICE_HANDLE: u32 = 2229299u32;
+pub const IOCTL_INTERNAL_USB_GET_DEVICE_HANDLE_EX: u32 = 2229303u32;
+pub const IOCTL_INTERNAL_USB_GET_HUB_COUNT: u32 = 2228251u32;
+pub const IOCTL_INTERNAL_USB_GET_HUB_NAME: u32 = 2228256u32;
+pub const IOCTL_INTERNAL_USB_GET_PARENT_HUB_INFO: u32 = 2229292u32;
+pub const IOCTL_INTERNAL_USB_GET_PORT_STATUS: u32 = 2228243u32;
+pub const IOCTL_INTERNAL_USB_GET_ROOTHUB_PDO: u32 = 2228239u32;
+pub const IOCTL_INTERNAL_USB_GET_TOPOLOGY_ADDRESS: u32 = 2229311u32;
+pub const IOCTL_INTERNAL_USB_GET_TT_DEVICE_HANDLE: u32 = 2229307u32;
+pub const IOCTL_INTERNAL_USB_NOTIFY_IDLE_READY: u32 = 2229315u32;
+pub const IOCTL_INTERNAL_USB_RECORD_FAILURE: u32 = 2228267u32;
+pub const IOCTL_INTERNAL_USB_REGISTER_COMPOSITE_DEVICE: u32 = 4784131u32;
+pub const IOCTL_INTERNAL_USB_REQUEST_REMOTE_WAKE_NOTIFICATION: u32 = 4784139u32;
+pub const IOCTL_INTERNAL_USB_REQ_GLOBAL_RESUME: u32 = 2229323u32;
+pub const IOCTL_INTERNAL_USB_REQ_GLOBAL_SUSPEND: u32 = 2229319u32;
+pub const IOCTL_INTERNAL_USB_RESET_PORT: u32 = 2228231u32;
+pub const IOCTL_INTERNAL_USB_SUBMIT_IDLE_NOTIFICATION: u32 = 2228263u32;
+pub const IOCTL_INTERNAL_USB_SUBMIT_URB: u32 = 2228227u32;
+pub const IOCTL_INTERNAL_USB_UNREGISTER_COMPOSITE_DEVICE: u32 = 4784135u32;
+pub const IOCTL_READ_REGISTERS: u32 = 2147491852u32;
+pub const IOCTL_RESET_PIPE: u32 = 2147491868u32;
+pub const IOCTL_SEND_USB_REQUEST: u32 = 2147491876u32;
+pub const IOCTL_SET_TIMEOUT: u32 = 2147491884u32;
+pub const IOCTL_USB_DIAGNOSTIC_MODE_OFF: u32 = 2229252u32;
+pub const IOCTL_USB_DIAGNOSTIC_MODE_ON: u32 = 2229248u32;
+pub const IOCTL_USB_DIAG_IGNORE_HUBS_OFF: u32 = 2229276u32;
+pub const IOCTL_USB_DIAG_IGNORE_HUBS_ON: u32 = 2229272u32;
+pub const IOCTL_USB_GET_DESCRIPTOR_FROM_NODE_CONNECTION: u32 = 2229264u32;
+pub const IOCTL_USB_GET_DEVICE_CHARACTERISTICS: u32 = 2229376u32;
+pub const IOCTL_USB_GET_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC: u32 = 2229368u32;
+pub const IOCTL_USB_GET_HUB_CAPABILITIES: u32 = 2229308u32;
+pub const IOCTL_USB_GET_HUB_CAPABILITIES_EX: u32 = 2229328u32;
+pub const IOCTL_USB_GET_HUB_INFORMATION_EX: u32 = 2229332u32;
+pub const IOCTL_USB_GET_NODE_CONNECTION_ATTRIBUTES: u32 = 2229312u32;
+pub const IOCTL_USB_GET_NODE_CONNECTION_DRIVERKEY_NAME: u32 = 2229280u32;
+pub const IOCTL_USB_GET_NODE_CONNECTION_INFORMATION: u32 = 2229260u32;
+pub const IOCTL_USB_GET_NODE_CONNECTION_INFORMATION_EX: u32 = 2229320u32;
+pub const IOCTL_USB_GET_NODE_CONNECTION_INFORMATION_EX_V2: u32 = 2229340u32;
+pub const IOCTL_USB_GET_NODE_CONNECTION_NAME: u32 = 2229268u32;
+pub const IOCTL_USB_GET_NODE_INFORMATION: u32 = 2229256u32;
+pub const IOCTL_USB_GET_PORT_CONNECTOR_PROPERTIES: u32 = 2229336u32;
+pub const IOCTL_USB_GET_ROOT_HUB_NAME: u32 = 2229256u32;
+pub const IOCTL_USB_GET_TRANSPORT_CHARACTERISTICS: u32 = 2229348u32;
+pub const IOCTL_USB_HCD_DISABLE_PORT: u32 = 2229296u32;
+pub const IOCTL_USB_HCD_ENABLE_PORT: u32 = 2229300u32;
+pub const IOCTL_USB_HCD_GET_STATS_1: u32 = 2229244u32;
+pub const IOCTL_USB_HCD_GET_STATS_2: u32 = 2229288u32;
+pub const IOCTL_USB_HUB_CYCLE_PORT: u32 = 2229316u32;
+pub const IOCTL_USB_NOTIFY_ON_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 2229356u32;
+pub const IOCTL_USB_REGISTER_FOR_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 2229352u32;
+pub const IOCTL_USB_RESET_HUB: u32 = 2229324u32;
+pub const IOCTL_USB_START_TRACKING_FOR_TIME_SYNC: u32 = 2229364u32;
+pub const IOCTL_USB_STOP_TRACKING_FOR_TIME_SYNC: u32 = 2229372u32;
+pub const IOCTL_USB_UNREGISTER_FOR_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 2229360u32;
+pub const IOCTL_WAIT_ON_DEVICE_EVENT: u32 = 2147491848u32;
+pub const IOCTL_WRITE_REGISTERS: u32 = 2147491856u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IO_BLOCK {
@@ -191,6 +325,30 @@ pub struct IO_BLOCK_EX {
     pub bmRequestType: u8,
     pub fTransferDirectionIn: u8,
 }
+pub const InsufficentBandwidth: USB_NOTIFICATION_TYPE = 1i32;
+pub const InsufficentPower: USB_NOTIFICATION_TYPE = 2i32;
+pub const KREGMANUSBFNENUMPATH: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\ManufacturingMode\\Current\\USBFN\\");
+pub const KREGUSBFNENUMPATH: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\USBFN\\");
+pub const LowSpeed: u32 = 1u32;
+pub const MAXIMUM_TRANSFER_SIZE: WINUSB_PIPE_POLICY = 8u32;
+pub const MAXIMUM_USB_STRING_LENGTH: u32 = 255u32;
+pub const MAX_ALTERNATE_NAME_LENGTH: u32 = 40u32;
+pub const MAX_ASSOCIATION_NAME_LENGTH: u32 = 40u32;
+pub const MAX_CONFIGURATION_NAME_LENGTH: u32 = 40u32;
+pub const MAX_INTERFACE_NAME_LENGTH: u32 = 40u32;
+pub const MAX_NUM_PIPES: u32 = 8u32;
+pub const MAX_NUM_USBFN_ENDPOINTS: u32 = 15u32;
+pub const MAX_SUPPORTED_CONFIGURATIONS: u32 = 12u32;
+pub const MAX_USB_STRING_LENGTH: u32 = 255u32;
+pub const MS_GENRE_DESCRIPTOR_INDEX: u32 = 1u32;
+pub const MS_OS_FLAGS_CONTAINERID: u32 = 2u32;
+pub const MS_OS_STRING_SIGNATURE: windows_sys::core::PCWSTR = windows_sys::core::w!("MSFT100");
+pub const MS_POWER_DESCRIPTOR_INDEX: u32 = 2u32;
+pub const ModernDeviceInLegacyHub: USB_NOTIFICATION_TYPE = 11i32;
+pub const NoDeviceConnected: USB_CONNECTION_STATUS = 0i32;
+pub const OHCI_Generic: USB_CONTROLLER_FLAVOR = 100i32;
+pub const OHCI_Hydra: USB_CONTROLLER_FLAVOR = 101i32;
+pub const OHCI_NEC: USB_CONTROLLER_FLAVOR = 102i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OS_STRING {
@@ -206,6 +364,8 @@ pub union OS_STRING_0 {
     pub bPad: u8,
     pub bFlags: u8,
 }
+pub const OS_STRING_DESCRIPTOR_INDEX: u32 = 238u32;
+pub const OverCurrent: USB_NOTIFICATION_TYPE = 3i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct PACKET_PARAMETERS {
@@ -222,6 +382,23 @@ pub struct PACKET_PARAMETERS {
     pub UsbdStatusCode: i32,
     pub Data: [u8; 4],
 }
+pub const PIPE_TRANSFER_TIMEOUT: WINUSB_PIPE_POLICY = 3u32;
+pub type PIPE_TYPE = i32;
+pub const PORT_LINK_STATE_COMPLIANCE_MODE: u32 = 10u32;
+pub const PORT_LINK_STATE_DISABLED: u32 = 4u32;
+pub const PORT_LINK_STATE_HOT_RESET: u32 = 9u32;
+pub const PORT_LINK_STATE_INACTIVE: u32 = 6u32;
+pub const PORT_LINK_STATE_LOOPBACK: u32 = 11u32;
+pub const PORT_LINK_STATE_POLLING: u32 = 7u32;
+pub const PORT_LINK_STATE_RECOVERY: u32 = 8u32;
+pub const PORT_LINK_STATE_RX_DETECT: u32 = 5u32;
+pub const PORT_LINK_STATE_TEST_MODE: u32 = 11u32;
+pub const PORT_LINK_STATE_U0: u32 = 0u32;
+pub const PORT_LINK_STATE_U1: u32 = 1u32;
+pub const PORT_LINK_STATE_U2: u32 = 2u32;
+pub const PORT_LINK_STATE_U3: u32 = 3u32;
+pub const RAW_IO: WINUSB_PIPE_POLICY = 7u32;
+pub type RAW_PIPE_TYPE = i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct RAW_RESET_PORT_PARAMETERS {
@@ -241,6 +418,28 @@ pub struct RAW_ROOTPORT_PARAMETERS {
     pub PortNumber: u16,
     pub PortStatus: u16,
 }
+pub const READ_DATA_PIPE: PIPE_TYPE = 1i32;
+pub const RESET_PIPE_ON_RESUME: WINUSB_PIPE_POLICY = 9u32;
+pub const ResetOvercurrent: USB_NOTIFICATION_TYPE = 4i32;
+pub const SHORT_PACKET_TERMINATE: WINUSB_PIPE_POLICY = 1u32;
+pub const SUSPEND_DELAY: WINUSB_POWER_POLICY = 131u32;
+pub const UHCI_Generic: USB_CONTROLLER_FLAVOR = 200i32;
+pub const UHCI_Ich1: USB_CONTROLLER_FLAVOR = 205i32;
+pub const UHCI_Ich2: USB_CONTROLLER_FLAVOR = 203i32;
+pub const UHCI_Ich3m: USB_CONTROLLER_FLAVOR = 206i32;
+pub const UHCI_Ich4: USB_CONTROLLER_FLAVOR = 207i32;
+pub const UHCI_Ich5: USB_CONTROLLER_FLAVOR = 208i32;
+pub const UHCI_Ich6: USB_CONTROLLER_FLAVOR = 209i32;
+pub const UHCI_Intel: USB_CONTROLLER_FLAVOR = 249i32;
+pub const UHCI_Piix3: USB_CONTROLLER_FLAVOR = 202i32;
+pub const UHCI_Piix4: USB_CONTROLLER_FLAVOR = 201i32;
+pub const UHCI_Reserved204: USB_CONTROLLER_FLAVOR = 204i32;
+pub const UHCI_VIA: USB_CONTROLLER_FLAVOR = 250i32;
+pub const UHCI_VIA_x01: USB_CONTROLLER_FLAVOR = 251i32;
+pub const UHCI_VIA_x02: USB_CONTROLLER_FLAVOR = 252i32;
+pub const UHCI_VIA_x03: USB_CONTROLLER_FLAVOR = 253i32;
+pub const UHCI_VIA_x04: USB_CONTROLLER_FLAVOR = 254i32;
+pub const UHCI_VIA_x0E_FIFO: USB_CONTROLLER_FLAVOR = 264i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct URB {
@@ -271,6 +470,71 @@ pub union URB_0 {
     pub UrbOpenStaticStreams: _URB_OPEN_STATIC_STREAMS,
     pub UrbGetIsochPipeTransferPathDelays: _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS,
 }
+pub const URB_FUNCTION_ABORT_PIPE: u32 = 2u32;
+pub const URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER: u32 = 9u32;
+pub const URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER_USING_CHAINED_MDL: u32 = 55u32;
+pub const URB_FUNCTION_CLASS_DEVICE: u32 = 26u32;
+pub const URB_FUNCTION_CLASS_ENDPOINT: u32 = 28u32;
+pub const URB_FUNCTION_CLASS_INTERFACE: u32 = 27u32;
+pub const URB_FUNCTION_CLASS_OTHER: u32 = 31u32;
+pub const URB_FUNCTION_CLEAR_FEATURE_TO_DEVICE: u32 = 16u32;
+pub const URB_FUNCTION_CLEAR_FEATURE_TO_ENDPOINT: u32 = 18u32;
+pub const URB_FUNCTION_CLEAR_FEATURE_TO_INTERFACE: u32 = 17u32;
+pub const URB_FUNCTION_CLEAR_FEATURE_TO_OTHER: u32 = 34u32;
+pub const URB_FUNCTION_CLOSE_STATIC_STREAMS: u32 = 54u32;
+pub const URB_FUNCTION_CONTROL_TRANSFER: u32 = 8u32;
+pub const URB_FUNCTION_CONTROL_TRANSFER_EX: u32 = 50u32;
+pub const URB_FUNCTION_GET_CONFIGURATION: u32 = 38u32;
+pub const URB_FUNCTION_GET_CURRENT_FRAME_NUMBER: u32 = 7u32;
+pub const URB_FUNCTION_GET_DESCRIPTOR_FROM_DEVICE: u32 = 11u32;
+pub const URB_FUNCTION_GET_DESCRIPTOR_FROM_ENDPOINT: u32 = 36u32;
+pub const URB_FUNCTION_GET_DESCRIPTOR_FROM_INTERFACE: u32 = 40u32;
+pub const URB_FUNCTION_GET_FRAME_LENGTH: u32 = 5u32;
+pub const URB_FUNCTION_GET_INTERFACE: u32 = 39u32;
+pub const URB_FUNCTION_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS: u32 = 61u32;
+pub const URB_FUNCTION_GET_MS_FEATURE_DESCRIPTOR: u32 = 42u32;
+pub const URB_FUNCTION_GET_STATUS_FROM_DEVICE: u32 = 19u32;
+pub const URB_FUNCTION_GET_STATUS_FROM_ENDPOINT: u32 = 21u32;
+pub const URB_FUNCTION_GET_STATUS_FROM_INTERFACE: u32 = 20u32;
+pub const URB_FUNCTION_GET_STATUS_FROM_OTHER: u32 = 33u32;
+pub const URB_FUNCTION_ISOCH_TRANSFER: u32 = 10u32;
+pub const URB_FUNCTION_ISOCH_TRANSFER_USING_CHAINED_MDL: u32 = 56u32;
+pub const URB_FUNCTION_OPEN_STATIC_STREAMS: u32 = 53u32;
+pub const URB_FUNCTION_RELEASE_FRAME_LENGTH_CONTROL: u32 = 4u32;
+pub const URB_FUNCTION_RESERVED_0X0016: u32 = 22u32;
+pub const URB_FUNCTION_RESERVE_0X001D: u32 = 29u32;
+pub const URB_FUNCTION_RESERVE_0X002B: u32 = 43u32;
+pub const URB_FUNCTION_RESERVE_0X002C: u32 = 44u32;
+pub const URB_FUNCTION_RESERVE_0X002D: u32 = 45u32;
+pub const URB_FUNCTION_RESERVE_0X002E: u32 = 46u32;
+pub const URB_FUNCTION_RESERVE_0X002F: u32 = 47u32;
+pub const URB_FUNCTION_RESERVE_0X0033: u32 = 51u32;
+pub const URB_FUNCTION_RESERVE_0X0034: u32 = 52u32;
+pub const URB_FUNCTION_RESET_PIPE: u32 = 30u32;
+pub const URB_FUNCTION_SELECT_CONFIGURATION: u32 = 0u32;
+pub const URB_FUNCTION_SELECT_INTERFACE: u32 = 1u32;
+pub const URB_FUNCTION_SET_DESCRIPTOR_TO_DEVICE: u32 = 12u32;
+pub const URB_FUNCTION_SET_DESCRIPTOR_TO_ENDPOINT: u32 = 37u32;
+pub const URB_FUNCTION_SET_DESCRIPTOR_TO_INTERFACE: u32 = 41u32;
+pub const URB_FUNCTION_SET_FEATURE_TO_DEVICE: u32 = 13u32;
+pub const URB_FUNCTION_SET_FEATURE_TO_ENDPOINT: u32 = 15u32;
+pub const URB_FUNCTION_SET_FEATURE_TO_INTERFACE: u32 = 14u32;
+pub const URB_FUNCTION_SET_FEATURE_TO_OTHER: u32 = 35u32;
+pub const URB_FUNCTION_SET_FRAME_LENGTH: u32 = 6u32;
+pub const URB_FUNCTION_SYNC_CLEAR_STALL: u32 = 49u32;
+pub const URB_FUNCTION_SYNC_RESET_PIPE: u32 = 48u32;
+pub const URB_FUNCTION_SYNC_RESET_PIPE_AND_CLEAR_STALL: u32 = 30u32;
+pub const URB_FUNCTION_TAKE_FRAME_LENGTH_CONTROL: u32 = 3u32;
+pub const URB_FUNCTION_VENDOR_DEVICE: u32 = 23u32;
+pub const URB_FUNCTION_VENDOR_ENDPOINT: u32 = 25u32;
+pub const URB_FUNCTION_VENDOR_INTERFACE: u32 = 24u32;
+pub const URB_FUNCTION_VENDOR_OTHER: u32 = 32u32;
+pub const URB_OPEN_STATIC_STREAMS_VERSION_100: u32 = 256u32;
+pub const UREGMANUSBFNENUMPATH: windows_sys::core::PCWSTR = windows_sys::core::w!("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\ManufacturingMode\\Current\\USBFN\\");
+pub const UREGUSBFNENUMPATH: windows_sys::core::PCWSTR = windows_sys::core::w!("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\USBFN\\");
+pub const USBDI_VERSION: u32 = 1536u32;
+pub const USBD_DEFAULT_MAXIMUM_TRANSFER_SIZE: u32 = 4294967295u32;
+pub const USBD_DEFAULT_PIPE_TRANSFER: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USBD_DEVICE_INFORMATION {
@@ -297,6 +561,7 @@ pub struct USBD_ENDPOINT_OFFLOAD_INFORMATION {
     pub EventRingSize: usize,
     pub EventRingInitialCycleBit: u32,
 }
+pub type USBD_ENDPOINT_OFFLOAD_MODE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USBD_INTERFACE_INFORMATION {
@@ -318,6 +583,17 @@ pub struct USBD_ISO_PACKET_DESCRIPTOR {
     pub Length: u32,
     pub Status: i32,
 }
+pub const USBD_ISO_START_FRAME_RANGE: u32 = 1024u32;
+pub const USBD_PF_CHANGE_MAX_PACKET: u32 = 1u32;
+pub const USBD_PF_ENABLE_RT_THREAD_ACCESS: u32 = 4u32;
+pub const USBD_PF_HANDLES_SSP_HIGH_BANDWIDTH_ISOCH: u32 = 256u32;
+pub const USBD_PF_INTERACTIVE_PRIORITY: u32 = 48u32;
+pub const USBD_PF_MAP_ADD_TRANSFERS: u32 = 8u32;
+pub const USBD_PF_PRIORITY_MASK: u32 = 240u32;
+pub const USBD_PF_SHORT_PACKET_OPT: u32 = 2u32;
+pub const USBD_PF_SSP_HIGH_BANDWIDTH_ISOCH: u32 = 65536u32;
+pub const USBD_PF_VIDEO_PRIORITY: u32 = 16u32;
+pub const USBD_PF_VOICE_PRIORITY: u32 = 32u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USBD_PIPE_INFORMATION {
@@ -329,6 +605,11 @@ pub struct USBD_PIPE_INFORMATION {
     pub MaximumTransferSize: u32,
     pub PipeFlags: u32,
 }
+pub type USBD_PIPE_TYPE = i32;
+pub const USBD_PORT_CONNECTED: u32 = 2u32;
+pub const USBD_PORT_ENABLED: u32 = 1u32;
+pub const USBD_SHORT_TRANSFER_OK: u32 = 2u32;
+pub const USBD_START_ISO_TRANSFER_ASAP: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USBD_STREAM_INFORMATION {
@@ -337,6 +618,9 @@ pub struct USBD_STREAM_INFORMATION {
     pub MaximumTransferSize: u32,
     pub PipeFlags: u32,
 }
+pub const USBD_TRANSFER_DIRECTION: u32 = 1u32;
+pub const USBD_TRANSFER_DIRECTION_IN: u32 = 1u32;
+pub const USBD_TRANSFER_DIRECTION_OUT: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USBD_VERSION_INFORMATION {
@@ -350,6 +634,7 @@ pub struct USBFN_BUS_CONFIGURATION_INFO {
     pub IsCurrent: super::super::Foundation::BOOLEAN,
     pub IsActive: super::super::Foundation::BOOLEAN,
 }
+pub type USBFN_BUS_SPEED = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USBFN_CLASS_INFORMATION_PACKET {
@@ -385,6 +670,9 @@ pub struct USBFN_CLASS_INTERFACE_EX {
     pub PipeCount: u8,
     pub PipeArr: [USBFN_PIPE_INFORMATION; 16],
 }
+pub type USBFN_DEVICE_STATE = i32;
+pub type USBFN_DIRECTION = i32;
+pub type USBFN_EVENT = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USBFN_INTERFACE_INFO {
@@ -393,6 +681,7 @@ pub struct USBFN_INTERFACE_INFO {
     pub Size: u16,
     pub InterfaceDescriptorSet: [u8; 1],
 }
+pub const USBFN_INTERRUPT_ENDPOINT_SIZE_NOT_UPDATEABLE_MASK: u32 = 128u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USBFN_NOTIFICATION {
@@ -414,6 +703,7 @@ pub struct USBFN_PIPE_INFORMATION {
     pub EpDesc: USB_ENDPOINT_DESCRIPTOR,
     pub PipeId: u32,
 }
+pub type USBFN_PORT_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USBFN_USB_STRING {
@@ -427,12 +717,14 @@ pub struct USBSCAN_GET_DESCRIPTOR {
     pub Index: u8,
     pub LanguageId: u16,
 }
+pub const USBSCAN_PIPE_BULK: RAW_PIPE_TYPE = 2i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USBSCAN_PIPE_CONFIGURATION {
     pub NumberOfPipes: u32,
     pub PipeInfo: [USBSCAN_PIPE_INFORMATION; 8],
 }
+pub const USBSCAN_PIPE_CONTROL: RAW_PIPE_TYPE = 0i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USBSCAN_PIPE_INFORMATION {
@@ -441,6 +733,8 @@ pub struct USBSCAN_PIPE_INFORMATION {
     pub Interval: u8,
     pub PipeType: RAW_PIPE_TYPE,
 }
+pub const USBSCAN_PIPE_INTERRUPT: RAW_PIPE_TYPE = 3i32;
+pub const USBSCAN_PIPE_ISOCHRONOUS: RAW_PIPE_TYPE = 1i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USBSCAN_TIMEOUT {
@@ -460,6 +754,7 @@ pub struct USBUSER_BUS_STATISTICS_0_REQUEST {
     pub Header: USBUSER_REQUEST_HEADER,
     pub BusStatistics0: USB_BUS_STATISTICS_0,
 }
+pub const USBUSER_CLEAR_ROOTPORT_FEATURE: u32 = 536870918u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USBUSER_CLOSE_RAW_DEVICE {
@@ -478,24 +773,42 @@ pub struct USBUSER_CONTROLLER_UNICODE_NAME {
     pub Header: USBUSER_REQUEST_HEADER,
     pub UnicodeName: USB_UNICODE_NAME,
 }
+pub const USBUSER_GET_BANDWIDTH_INFORMATION: u32 = 5u32;
+pub const USBUSER_GET_BUS_STATISTICS_0: u32 = 6u32;
+pub const USBUSER_GET_CONTROLLER_DRIVER_KEY: u32 = 2u32;
+pub const USBUSER_GET_CONTROLLER_INFO_0: u32 = 1u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USBUSER_GET_DRIVER_VERSION {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Parameters: USB_DRIVER_VERSION_PARAMETERS,
 }
+pub const USBUSER_GET_POWER_STATE_MAP: u32 = 4u32;
+pub const USBUSER_GET_ROOTHUB_SYMBOLIC_NAME: u32 = 7u32;
+pub const USBUSER_GET_ROOTPORT_STATUS: u32 = 536870919u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USBUSER_GET_USB2HW_VERSION {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Parameters: USB_USB2HW_VERSION_PARAMETERS,
 }
+pub const USBUSER_GET_USB2_HW_VERSION: u32 = 9u32;
+pub const USBUSER_GET_USB_DRIVER_VERSION: u32 = 8u32;
+pub const USBUSER_INVALID_REQUEST: u32 = 4294967280u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USBUSER_OPEN_RAW_DEVICE {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Parameters: USB_OPEN_RAW_DEVICE_PARAMETERS,
 }
+pub const USBUSER_OP_CLOSE_RAW_DEVICE: u32 = 536870915u32;
+pub const USBUSER_OP_MASK_DEVONLY_API: u32 = 268435456u32;
+pub const USBUSER_OP_MASK_HCTEST_API: u32 = 536870912u32;
+pub const USBUSER_OP_OPEN_RAW_DEVICE: u32 = 536870914u32;
+pub const USBUSER_OP_RAW_RESET_PORT: u32 = 536870913u32;
+pub const USBUSER_OP_SEND_ONE_PACKET: u32 = 268435457u32;
+pub const USBUSER_OP_SEND_RAW_COMMAND: u32 = 536870916u32;
+pub const USBUSER_PASS_THRU: u32 = 3u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USBUSER_PASS_THRU_REQUEST {
@@ -552,6 +865,11 @@ pub struct USBUSER_SEND_RAW_COMMAND {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Parameters: USB_SEND_RAW_COMMAND_PARAMETERS,
 }
+pub const USBUSER_SET_ROOTPORT_FEATURE: u32 = 536870917u32;
+pub const USBUSER_USB_REFRESH_HCT_REG: u32 = 10u32;
+pub const USBUSER_VERSION: u32 = 4u32;
+pub const USB_20_ENDPOINT_TYPE_INTERRUPT_RESERVED_MASK: u32 = 252u32;
+pub const USB_20_HUB_DESCRIPTOR_TYPE: u32 = 41u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_20_PORT_CHANGE {
@@ -574,6 +892,12 @@ pub union USB_20_PORT_STATUS {
 pub struct USB_20_PORT_STATUS_0 {
     pub _bitfield: u16,
 }
+pub const USB_30_ENDPOINT_TYPE_INTERRUPT_RESERVED_MASK: u32 = 204u32;
+pub const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_MASK: u32 = 48u32;
+pub const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_NOTIFICATION: u32 = 16u32;
+pub const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_PERIODIC: u32 = 0u32;
+pub const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_RESERVED10: u32 = 32u32;
+pub const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_RESERVED11: u32 = 48u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_30_HUB_DESCRIPTOR {
@@ -587,6 +911,7 @@ pub struct USB_30_HUB_DESCRIPTOR {
     pub wHubDelay: u16,
     pub DeviceRemovable: u16,
 }
+pub const USB_30_HUB_DESCRIPTOR_TYPE: u32 = 42u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_30_PORT_CHANGE {
@@ -616,6 +941,7 @@ pub struct USB_ACQUIRE_INFO {
     pub TotalSize: u32,
     pub Buffer: [u16; 1],
 }
+pub const USB_ALLOW_FIRMWARE_UPDATE: u32 = 1u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_BANDWIDTH_INFO {
@@ -639,6 +965,7 @@ pub struct USB_BOS_DESCRIPTOR {
     pub wTotalLength: u16,
     pub bNumDeviceCaps: u8,
 }
+pub const USB_BOS_DESCRIPTOR_TYPE: u32 = 15u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_BUS_NOTIFICATION {
@@ -668,6 +995,10 @@ pub struct USB_BUS_STATISTICS_0 {
     pub NameIndex: u8,
 }
 pub type USB_CHANGE_REGISTRATION_HANDLE = *mut core::ffi::c_void;
+pub const USB_CHARGING_POLICY_DEFAULT: u32 = 0u32;
+pub const USB_CHARGING_POLICY_ICCHPF: u32 = 1u32;
+pub const USB_CHARGING_POLICY_ICCLPF: u32 = 2u32;
+pub const USB_CHARGING_POLICY_NO_POWER: u32 = 3u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_CLOSE_RAW_DEVICE_PARAMETERS {
@@ -708,6 +1039,7 @@ pub struct USB_CONFIGURATION_DESCRIPTOR {
     pub bmAttributes: u8,
     pub MaxPower: u8,
 }
+pub const USB_CONFIGURATION_DESCRIPTOR_TYPE: u32 = 2u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_CONFIGURATION_POWER_DESCRIPTOR {
@@ -725,6 +1057,12 @@ pub struct USB_CONFIGURATION_POWER_DESCRIPTOR {
     pub TransitionTimeFromD2: u16,
     pub TransitionTimeFromD3: u16,
 }
+pub const USB_CONFIG_BUS_POWERED: u32 = 128u32;
+pub const USB_CONFIG_POWERED_MASK: u32 = 192u32;
+pub const USB_CONFIG_POWER_DESCRIPTOR_TYPE: u32 = 7u32;
+pub const USB_CONFIG_REMOTE_WAKEUP: u32 = 32u32;
+pub const USB_CONFIG_RESERVED: u32 = 31u32;
+pub const USB_CONFIG_SELF_POWERED: u32 = 64u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_CONNECTION_NOTIFICATION {
@@ -735,6 +1073,7 @@ pub struct USB_CONNECTION_NOTIFICATION {
     pub PowerRequested: u32,
     pub HubNameLength: u32,
 }
+pub type USB_CONNECTION_STATUS = i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_CONTROLLER_DEVICE_INFO {
@@ -744,6 +1083,7 @@ pub struct USB_CONTROLLER_DEVICE_INFO {
     pub NumberOfRootPorts: u32,
     pub HcFeatureFlags: u32,
 }
+pub type USB_CONTROLLER_FLAVOR = i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_CONTROLLER_INFO_0 {
@@ -754,12 +1094,17 @@ pub struct USB_CONTROLLER_INFO_0 {
     pub ControllerFlavor: USB_CONTROLLER_FLAVOR,
     pub HcFeatureFlags: u32,
 }
+pub const USB_CYCLE_PORT: u32 = 7u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_CYCLE_PORT_PARAMS {
     pub ConnectionIndex: u32,
     pub StatusReturned: u32,
 }
+pub const USB_DEBUG_DESCRIPTOR_TYPE: u32 = 10u32;
+pub const USB_DEFAULT_DEVICE_ADDRESS: u32 = 0u32;
+pub const USB_DEFAULT_ENDPOINT_ADDRESS: u32 = 0u32;
+pub const USB_DEFAULT_MAX_PACKET: u32 = 64u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_DEFAULT_PIPE_SETUP_PACKET {
@@ -809,6 +1154,8 @@ pub struct USB_DESCRIPTOR_REQUEST_0 {
     pub wIndex: u16,
     pub wLength: u16,
 }
+pub const USB_DEVICE_CAPABILITY_BATTERY_INFO: u32 = 7u32;
+pub const USB_DEVICE_CAPABILITY_BILLBOARD: u32 = 13u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
@@ -841,6 +1188,7 @@ pub union USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
 pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0_0 {
     pub _bitfield: u16,
 }
+pub const USB_DEVICE_CAPABILITY_CONTAINER_ID: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
@@ -857,6 +1205,8 @@ pub struct USB_DEVICE_CAPABILITY_DESCRIPTOR {
     pub bDescriptorType: u8,
     pub bDevCapabilityType: u8,
 }
+pub const USB_DEVICE_CAPABILITY_DESCRIPTOR_TYPE: u32 = 16u32;
+pub const USB_DEVICE_CAPABILITY_FIRMWARE_STATUS: u32 = 17u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {
@@ -877,6 +1227,9 @@ pub union USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0 {
 pub struct USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
 }
+pub const USB_DEVICE_CAPABILITY_MAX_U1_LATENCY: u32 = 10u32;
+pub const USB_DEVICE_CAPABILITY_MAX_U2_LATENCY: u32 = 2047u32;
+pub const USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT: u32 = 8u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {
@@ -903,6 +1256,8 @@ pub union USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0 {
 pub struct USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0 {
     pub _bitfield: u16,
 }
+pub const USB_DEVICE_CAPABILITY_PD_PROVIDER_PORT: u32 = 9u32;
+pub const USB_DEVICE_CAPABILITY_PLATFORM: u32 = 5u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
@@ -913,6 +1268,7 @@ pub struct USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
     pub PlatformCapabilityUuid: windows_sys::core::GUID,
     pub CapabililityData: [u8; 1],
 }
+pub const USB_DEVICE_CAPABILITY_POWER_DELIVERY: u32 = 6u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {
@@ -938,6 +1294,7 @@ pub union USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0 {
 pub struct USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
 }
+pub const USB_DEVICE_CAPABILITY_PRECISION_TIME_MEASUREMENT: u32 = 11u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
@@ -949,6 +1306,17 @@ pub union USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
 pub struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {
     pub _bitfield: u32,
 }
+pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_DIR_RX: u32 = 0u32;
+pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_DIR_TX: u32 = 1u32;
+pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_LSE_BPS: u32 = 0u32;
+pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_LSE_GBPS: u32 = 3u32;
+pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_LSE_KBPS: u32 = 1u32;
+pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_LSE_MBPS: u32 = 2u32;
+pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_MODE_ASYMMETRIC: u32 = 1u32;
+pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_MODE_SYMMETRIC: u32 = 0u32;
+pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_PROTOCOL_SS: u32 = 0u32;
+pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_PROTOCOL_SSP: u32 = 1u32;
+pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB: u32 = 10u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR {
@@ -983,6 +1351,16 @@ pub union USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1 {
 pub struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0 {
     pub _bitfield: u16,
 }
+pub const USB_DEVICE_CAPABILITY_SUPERSPEED_BMATTRIBUTES_LTM_CAPABLE: u32 = 2u32;
+pub const USB_DEVICE_CAPABILITY_SUPERSPEED_BMATTRIBUTES_RESERVED_MASK: u32 = 253u32;
+pub const USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_FULL: u32 = 2u32;
+pub const USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_HIGH: u32 = 4u32;
+pub const USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_LOW: u32 = 1u32;
+pub const USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_RESERVED_MASK: u32 = 65520u32;
+pub const USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_SUPER: u32 = 8u32;
+pub const USB_DEVICE_CAPABILITY_SUPERSPEED_U1_DEVICE_EXIT_MAX_VALUE: u32 = 10u32;
+pub const USB_DEVICE_CAPABILITY_SUPERSPEED_U2_DEVICE_EXIT_MAX_VALUE: u32 = 2047u32;
+pub const USB_DEVICE_CAPABILITY_SUPERSPEED_USB: u32 = 3u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {
@@ -995,6 +1373,8 @@ pub struct USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {
     pub bU1DevExitLat: u8,
     pub wU2DevExitLat: u16,
 }
+pub const USB_DEVICE_CAPABILITY_USB20_EXTENSION: u32 = 2u32;
+pub const USB_DEVICE_CAPABILITY_USB20_EXTENSION_BMATTRIBUTES_RESERVED_MASK: u32 = 4294901985u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {
@@ -1014,6 +1394,7 @@ pub union USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0 {
 pub struct USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
 }
+pub const USB_DEVICE_CAPABILITY_WIRELESS_USB: u32 = 1u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_CHARACTERISTICS {
@@ -1023,6 +1404,31 @@ pub struct USB_DEVICE_CHARACTERISTICS {
     pub MaximumSendPathDelayInMilliSeconds: u32,
     pub MaximumCompletionPathDelayInMilliSeconds: u32,
 }
+pub const USB_DEVICE_CHARACTERISTICS_MAXIMUM_PATH_DELAYS_AVAILABLE: u32 = 1u32;
+pub const USB_DEVICE_CHARACTERISTICS_VERSION_1: u32 = 1u32;
+pub const USB_DEVICE_CLASS_APPLICATION_SPECIFIC: u32 = 254u32;
+pub const USB_DEVICE_CLASS_AUDIO: u32 = 1u32;
+pub const USB_DEVICE_CLASS_AUDIO_VIDEO: u32 = 16u32;
+pub const USB_DEVICE_CLASS_BILLBOARD: u32 = 17u32;
+pub const USB_DEVICE_CLASS_CDC_DATA: u32 = 10u32;
+pub const USB_DEVICE_CLASS_COMMUNICATIONS: u32 = 2u32;
+pub const USB_DEVICE_CLASS_CONTENT_SECURITY: u32 = 13u32;
+pub const USB_DEVICE_CLASS_DIAGNOSTIC_DEVICE: u32 = 220u32;
+pub const USB_DEVICE_CLASS_HUB: u32 = 9u32;
+pub const USB_DEVICE_CLASS_HUMAN_INTERFACE: u32 = 3u32;
+pub const USB_DEVICE_CLASS_IMAGE: u32 = 6u32;
+pub const USB_DEVICE_CLASS_MISCELLANEOUS: u32 = 239u32;
+pub const USB_DEVICE_CLASS_MONITOR: u32 = 4u32;
+pub const USB_DEVICE_CLASS_PERSONAL_HEALTHCARE: u32 = 15u32;
+pub const USB_DEVICE_CLASS_PHYSICAL_INTERFACE: u32 = 5u32;
+pub const USB_DEVICE_CLASS_POWER: u32 = 6u32;
+pub const USB_DEVICE_CLASS_PRINTER: u32 = 7u32;
+pub const USB_DEVICE_CLASS_RESERVED: u32 = 0u32;
+pub const USB_DEVICE_CLASS_SMART_CARD: u32 = 11u32;
+pub const USB_DEVICE_CLASS_STORAGE: u32 = 8u32;
+pub const USB_DEVICE_CLASS_VENDOR_SPECIFIC: u32 = 255u32;
+pub const USB_DEVICE_CLASS_VIDEO: u32 = 14u32;
+pub const USB_DEVICE_CLASS_WIRELESS_CONTROLLER: u32 = 224u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_DESCRIPTOR {
@@ -1041,6 +1447,8 @@ pub struct USB_DEVICE_DESCRIPTOR {
     pub iSerialNumber: u8,
     pub bNumConfigurations: u8,
 }
+pub const USB_DEVICE_DESCRIPTOR_TYPE: u32 = 1u32;
+pub const USB_DEVICE_FIRMWARE_HASH_LENGTH: u32 = 32u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_INFO {
@@ -1118,6 +1526,8 @@ pub struct USB_DEVICE_QUALIFIER_DESCRIPTOR {
     pub bNumConfigurations: u8,
     pub bReserved: u8,
 }
+pub const USB_DEVICE_QUALIFIER_DESCRIPTOR_TYPE: u32 = 6u32;
+pub type USB_DEVICE_SPEED = i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_STATE {
@@ -1134,6 +1544,10 @@ pub union USB_DEVICE_STATUS {
 pub struct USB_DEVICE_STATUS_0 {
     pub _bitfield: u16,
 }
+pub type USB_DEVICE_TYPE = i32;
+pub const USB_DIAG_IGNORE_HUBS_OFF: u32 = 263u32;
+pub const USB_DIAG_IGNORE_HUBS_ON: u32 = 262u32;
+pub const USB_DISALLOW_FIRMWARE_UPDATE: u32 = 0u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_DRIVER_VERSION_PARAMETERS {
@@ -1144,6 +1558,8 @@ pub struct USB_DRIVER_VERSION_PARAMETERS {
     pub CheckedMiniportDriver: super::super::Foundation::BOOLEAN,
     pub USB_Version: u16,
 }
+pub const USB_ENABLE_PORT: u32 = 5u32;
+pub const USB_ENDPOINT_ADDRESS_MASK: u32 = 15u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_ENDPOINT_DESCRIPTOR {
@@ -1154,6 +1570,8 @@ pub struct USB_ENDPOINT_DESCRIPTOR {
     pub wMaxPacketSize: u16,
     pub bInterval: u8,
 }
+pub const USB_ENDPOINT_DESCRIPTOR_TYPE: u32 = 5u32;
+pub const USB_ENDPOINT_DIRECTION_MASK: u32 = 128u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_ENDPOINT_STATUS {
@@ -1165,6 +1583,45 @@ pub union USB_ENDPOINT_STATUS {
 pub struct USB_ENDPOINT_STATUS_0 {
     pub _bitfield: u16,
 }
+pub const USB_ENDPOINT_SUPERSPEED_BULK_MAX_PACKET_SIZE: u32 = 1024u32;
+pub const USB_ENDPOINT_SUPERSPEED_CONTROL_MAX_PACKET_SIZE: u32 = 512u32;
+pub const USB_ENDPOINT_SUPERSPEED_INTERRUPT_MAX_PACKET_SIZE: u32 = 1024u32;
+pub const USB_ENDPOINT_SUPERSPEED_ISO_MAX_PACKET_SIZE: u32 = 1024u32;
+pub const USB_ENDPOINT_TYPE_BULK: u32 = 2u32;
+pub const USB_ENDPOINT_TYPE_BULK_RESERVED_MASK: u32 = 252u32;
+pub const USB_ENDPOINT_TYPE_CONTROL: u32 = 0u32;
+pub const USB_ENDPOINT_TYPE_CONTROL_RESERVED_MASK: u32 = 252u32;
+pub const USB_ENDPOINT_TYPE_INTERRUPT: u32 = 3u32;
+pub const USB_ENDPOINT_TYPE_ISOCHRONOUS: u32 = 1u32;
+pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_RESERVED_MASK: u32 = 192u32;
+pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_ADAPTIVE: u32 = 8u32;
+pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_ASYNCHRONOUS: u32 = 4u32;
+pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_MASK: u32 = 12u32;
+pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_NO_SYNCHRONIZATION: u32 = 0u32;
+pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_SYNCHRONOUS: u32 = 12u32;
+pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_DATA_ENDOINT: u32 = 0u32;
+pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_FEEDBACK_ENDPOINT: u32 = 16u32;
+pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_IMPLICIT_FEEDBACK_DATA_ENDPOINT: u32 = 32u32;
+pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_MASK: u32 = 48u32;
+pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_RESERVED: u32 = 48u32;
+pub const USB_ENDPOINT_TYPE_MASK: u32 = 3u32;
+pub const USB_FAIL_GET_STATUS: u32 = 280u32;
+pub const USB_FEATURE_BATTERY_WAKE_MASK: u32 = 40u32;
+pub const USB_FEATURE_CHARGING_POLICY: u32 = 54u32;
+pub const USB_FEATURE_ENDPOINT_STALL: u32 = 0u32;
+pub const USB_FEATURE_FUNCTION_SUSPEND: u32 = 0u32;
+pub const USB_FEATURE_INTERFACE_POWER_D0: u32 = 2u32;
+pub const USB_FEATURE_INTERFACE_POWER_D1: u32 = 3u32;
+pub const USB_FEATURE_INTERFACE_POWER_D2: u32 = 4u32;
+pub const USB_FEATURE_INTERFACE_POWER_D3: u32 = 5u32;
+pub const USB_FEATURE_LDM_ENABLE: u32 = 53u32;
+pub const USB_FEATURE_LTM_ENABLE: u32 = 50u32;
+pub const USB_FEATURE_OS_IS_PD_AWARE: u32 = 41u32;
+pub const USB_FEATURE_POLICY_MODE: u32 = 42u32;
+pub const USB_FEATURE_REMOTE_WAKEUP: u32 = 1u32;
+pub const USB_FEATURE_TEST_MODE: u32 = 2u32;
+pub const USB_FEATURE_U1_ENABLE: u32 = 48u32;
+pub const USB_FEATURE_U2_ENABLE: u32 = 49u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {
@@ -1191,12 +1648,51 @@ pub union USB_FUNCTION_SUSPEND_OPTIONS {
 pub struct USB_FUNCTION_SUSPEND_OPTIONS_0 {
     pub _bitfield: u8,
 }
+pub const USB_GETSTATUS_LTM_ENABLE: u32 = 16u32;
+pub const USB_GETSTATUS_REMOTE_WAKEUP_ENABLED: u32 = 2u32;
+pub const USB_GETSTATUS_SELF_POWERED: u32 = 1u32;
+pub const USB_GETSTATUS_U1_ENABLE: u32 = 4u32;
+pub const USB_GETSTATUS_U2_ENABLE: u32 = 8u32;
+pub const USB_GET_BUSGUID_INFO: u32 = 266u32;
+pub const USB_GET_BUS_INFO: u32 = 264u32;
+pub const USB_GET_CONTROLLER_NAME: u32 = 265u32;
+pub const USB_GET_DESCRIPTOR_FROM_NODE_CONNECTION: u32 = 260u32;
+pub const USB_GET_DEVICE_CHARACTERISTICS: u32 = 288u32;
+pub const USB_GET_DEVICE_HANDLE: u32 = 268u32;
+pub const USB_GET_DEVICE_HANDLE_EX: u32 = 269u32;
+pub const USB_GET_FIRMWARE_ALLOWED_OR_DISALLOWED_STATE: u32 = 0u32;
+pub const USB_GET_FIRMWARE_HASH: u32 = 1u32;
+pub const USB_GET_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC: u32 = 286u32;
+pub const USB_GET_HUB_CAPABILITIES: u32 = 271u32;
+pub const USB_GET_HUB_CAPABILITIES_EX: u32 = 276u32;
+pub const USB_GET_HUB_CONFIG_INFO: u32 = 275u32;
+pub const USB_GET_HUB_COUNT: u32 = 6u32;
+pub const USB_GET_HUB_INFORMATION_EX: u32 = 277u32;
+pub const USB_GET_HUB_NAME: u32 = 8u32;
+pub const USB_GET_NODE_CONNECTION_ATTRIBUTES: u32 = 272u32;
+pub const USB_GET_NODE_CONNECTION_DRIVERKEY_NAME: u32 = 264u32;
+pub const USB_GET_NODE_CONNECTION_INFORMATION: u32 = 259u32;
+pub const USB_GET_NODE_CONNECTION_INFORMATION_EX: u32 = 274u32;
+pub const USB_GET_NODE_CONNECTION_INFORMATION_EX_V2: u32 = 279u32;
+pub const USB_GET_NODE_CONNECTION_NAME: u32 = 261u32;
+pub const USB_GET_NODE_INFORMATION: u32 = 258u32;
+pub const USB_GET_PARENT_HUB_INFO: u32 = 267u32;
+pub const USB_GET_PORT_CONNECTOR_PROPERTIES: u32 = 278u32;
+pub const USB_GET_PORT_STATUS: u32 = 4u32;
+pub const USB_GET_ROOTHUB_PDO: u32 = 3u32;
+pub const USB_GET_TOPOLOGY_ADDRESS: u32 = 271u32;
+pub const USB_GET_TRANSPORT_CHARACTERISTICS: u32 = 281u32;
+pub const USB_GET_TT_DEVICE_HANDLE: u32 = 270u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_HCD_DRIVERKEY_NAME {
     pub ActualLength: u32,
     pub DriverKeyName: [u16; 1],
 }
+pub const USB_HC_FEATURE_FLAG_PORT_POWER_SWITCHING: u32 = 1u32;
+pub const USB_HC_FEATURE_FLAG_SEL_SUSPEND: u32 = 2u32;
+pub const USB_HC_FEATURE_LEGACY_BIOS: u32 = 4u32;
+pub const USB_HC_FEATURE_TIME_SYNC_API: u32 = 8u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_HIGH_SPEED_MAXPACKET {
@@ -1250,6 +1746,7 @@ pub union USB_HUB_CHANGE {
 pub struct USB_HUB_CHANGE_0 {
     pub _bitfield: u16,
 }
+pub const USB_HUB_CYCLE_PORT: u32 = 273u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_HUB_DESCRIPTOR {
@@ -1309,6 +1806,7 @@ pub struct USB_HUB_NAME {
     pub ActualLength: u32,
     pub HubName: [u16; 1],
 }
+pub type USB_HUB_NODE = i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_HUB_PORT_INFORMATION {
@@ -1341,12 +1839,17 @@ pub struct USB_HUB_STATUS_AND_CHANGE_0 {
     pub HubStatus: USB_HUB_STATUS,
     pub HubChange: USB_HUB_CHANGE,
 }
+pub type USB_HUB_TYPE = i32;
+pub const USB_HcGeneric: USB_CONTROLLER_FLAVOR = 0i32;
+pub type USB_IDLE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USB_IDLE_CALLBACK_INFO {
     pub IdleCallback: USB_IDLE_CALLBACK,
     pub IdleContext: *mut core::ffi::c_void,
 }
+pub const USB_IDLE_NOTIFICATION: u32 = 9u32;
+pub const USB_IDLE_NOTIFICATION_EX: u32 = 272u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_ID_STRING {
@@ -1367,6 +1870,7 @@ pub struct USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
     pub bFunctionProtocol: u8,
     pub iFunction: u8,
 }
+pub const USB_INTERFACE_ASSOCIATION_DESCRIPTOR_TYPE: u32 = 11u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USB_INTERFACE_DESCRIPTOR {
@@ -1380,6 +1884,7 @@ pub struct USB_INTERFACE_DESCRIPTOR {
     pub bInterfaceProtocol: u8,
     pub iInterface: u8,
 }
+pub const USB_INTERFACE_DESCRIPTOR_TYPE: u32 = 4u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_INTERFACE_POWER_DESCRIPTOR {
@@ -1396,6 +1901,7 @@ pub struct USB_INTERFACE_POWER_DESCRIPTOR {
     pub TransitionTimeFromD2: u16,
     pub TransitionTimeFromD3: u16,
 }
+pub const USB_INTERFACE_POWER_DESCRIPTOR_TYPE: u32 = 8u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_INTERFACE_STATUS {
@@ -1495,12 +2001,26 @@ pub union USB_NODE_INFORMATION_0 {
 pub struct USB_NOTIFICATION {
     pub NotificationType: USB_NOTIFICATION_TYPE,
 }
+pub type USB_NOTIFICATION_TYPE = i32;
+pub const USB_NOTIFY_ON_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 283u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_OPEN_RAW_DEVICE_PARAMETERS {
     pub PortStatus: u16,
     pub MaxPacketEp0: u16,
 }
+pub const USB_OTG_DESCRIPTOR_TYPE: u32 = 9u32;
+pub const USB_OTHER_SPEED_CONFIGURATION_DESCRIPTOR_TYPE: u32 = 7u32;
+pub const USB_PACKETFLAG_ASYNC_IN: u32 = 8u32;
+pub const USB_PACKETFLAG_ASYNC_OUT: u32 = 16u32;
+pub const USB_PACKETFLAG_FULL_SPEED: u32 = 2u32;
+pub const USB_PACKETFLAG_HIGH_SPEED: u32 = 4u32;
+pub const USB_PACKETFLAG_ISO_IN: u32 = 32u32;
+pub const USB_PACKETFLAG_ISO_OUT: u32 = 64u32;
+pub const USB_PACKETFLAG_LOW_SPEED: u32 = 1u32;
+pub const USB_PACKETFLAG_SETUP: u32 = 128u32;
+pub const USB_PACKETFLAG_TOGGLE0: u32 = 256u32;
+pub const USB_PACKETFLAG_TOGGLE1: u32 = 512u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_PASS_THRU_PARAMETERS {
@@ -1514,6 +2034,12 @@ pub struct USB_PIPE_INFO {
     pub EndpointDescriptor: USB_ENDPOINT_DESCRIPTOR,
     pub ScheduleOffset: u32,
 }
+pub const USB_PORTATTR_MINI_CONNECTOR: u32 = 4u32;
+pub const USB_PORTATTR_NO_CONNECTOR: u32 = 1u32;
+pub const USB_PORTATTR_NO_OVERCURRENT_UI: u32 = 33554432u32;
+pub const USB_PORTATTR_OEM_CONNECTOR: u32 = 8u32;
+pub const USB_PORTATTR_OWNED_BY_CC: u32 = 16777216u32;
+pub const USB_PORTATTR_SHARED_USB2: u32 = 2u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_PORT_CHANGE {
@@ -1584,6 +2110,14 @@ pub struct USB_PORT_STATUS_AND_CHANGE_0 {
     pub PortStatus: USB_PORT_STATUS,
     pub PortChange: USB_PORT_CHANGE,
 }
+pub const USB_PORT_STATUS_CONNECT: u32 = 1u32;
+pub const USB_PORT_STATUS_ENABLE: u32 = 2u32;
+pub const USB_PORT_STATUS_HIGH_SPEED: u32 = 1024u32;
+pub const USB_PORT_STATUS_LOW_SPEED: u32 = 512u32;
+pub const USB_PORT_STATUS_OVER_CURRENT: u32 = 8u32;
+pub const USB_PORT_STATUS_POWER: u32 = 256u32;
+pub const USB_PORT_STATUS_RESET: u32 = 16u32;
+pub const USB_PORT_STATUS_SUSPEND: u32 = 4u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_POWER_INFO {
@@ -1609,6 +2143,40 @@ pub union USB_PROTOCOLS {
 pub struct USB_PROTOCOLS_0 {
     pub _bitfield: u32,
 }
+pub const USB_RECORD_FAILURE: u32 = 10u32;
+pub const USB_REGISTER_COMPOSITE_DEVICE: u32 = 0u32;
+pub const USB_REGISTER_FOR_TRANSPORT_BANDWIDTH_CHANGE: u32 = 2u32;
+pub const USB_REGISTER_FOR_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 282u32;
+pub const USB_REGISTER_FOR_TRANSPORT_LATENCY_CHANGE: u32 = 1u32;
+pub const USB_REQUEST_CLEAR_FEATURE: u32 = 1u32;
+pub const USB_REQUEST_CLEAR_TT_BUFFER: u32 = 8u32;
+pub const USB_REQUEST_GET_CONFIGURATION: u32 = 8u32;
+pub const USB_REQUEST_GET_DESCRIPTOR: u32 = 6u32;
+pub const USB_REQUEST_GET_FIRMWARE_STATUS: u32 = 26u32;
+pub const USB_REQUEST_GET_INTERFACE: u32 = 10u32;
+pub const USB_REQUEST_GET_PORT_ERR_COUNT: u32 = 13u32;
+pub const USB_REQUEST_GET_STATE: u32 = 2u32;
+pub const USB_REQUEST_GET_STATUS: u32 = 0u32;
+pub const USB_REQUEST_GET_TT_STATE: u32 = 10u32;
+pub const USB_REQUEST_ISOCH_DELAY: u32 = 49u32;
+pub const USB_REQUEST_REMOTE_WAKE_NOTIFICATION: u32 = 2u32;
+pub const USB_REQUEST_RESET_TT: u32 = 9u32;
+pub const USB_REQUEST_SET_ADDRESS: u32 = 5u32;
+pub const USB_REQUEST_SET_CONFIGURATION: u32 = 9u32;
+pub const USB_REQUEST_SET_DESCRIPTOR: u32 = 7u32;
+pub const USB_REQUEST_SET_FEATURE: u32 = 3u32;
+pub const USB_REQUEST_SET_FIRMWARE_STATUS: u32 = 27u32;
+pub const USB_REQUEST_SET_HUB_DEPTH: u32 = 12u32;
+pub const USB_REQUEST_SET_INTERFACE: u32 = 11u32;
+pub const USB_REQUEST_SET_SEL: u32 = 48u32;
+pub const USB_REQUEST_STOP_TT: u32 = 11u32;
+pub const USB_REQUEST_SYNC_FRAME: u32 = 12u32;
+pub const USB_REQ_GLOBAL_RESUME: u32 = 274u32;
+pub const USB_REQ_GLOBAL_SUSPEND: u32 = 273u32;
+pub const USB_RESERVED_DESCRIPTOR_TYPE: u32 = 6u32;
+pub const USB_RESERVED_USER_BASE: u32 = 1024u32;
+pub const USB_RESET_HUB: u32 = 275u32;
+pub const USB_RESET_PORT: u32 = 1u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_ROOT_HUB_NAME {
@@ -1630,12 +2198,17 @@ pub struct USB_SEND_RAW_COMMAND_PARAMETERS {
     pub UsbdStatusCode: i32,
     pub Data: [u8; 4],
 }
+pub const USB_START_TRACKING_FOR_TIME_SYNC: u32 = 285u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
     pub TimeTrackingHandle: super::super::Foundation::HANDLE,
     pub IsStartupDelayTolerable: super::super::Foundation::BOOLEAN,
 }
+pub const USB_STATUS_EXT_PORT_STATUS: u32 = 2u32;
+pub const USB_STATUS_PD_STATUS: u32 = 1u32;
+pub const USB_STATUS_PORT_STATUS: u32 = 0u32;
+pub const USB_STOP_TRACKING_FOR_TIME_SYNC: u32 = 287u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
@@ -1648,6 +2221,10 @@ pub struct USB_STRING_DESCRIPTOR {
     pub bDescriptorType: u8,
     pub bString: [u16; 1],
 }
+pub const USB_STRING_DESCRIPTOR_TYPE: u32 = 3u32;
+pub const USB_SUBMIT_URB: u32 = 0u32;
+pub const USB_SUPERSPEEDPLUS_ISOCHRONOUS_MAX_BYTESPERINTERVAL: u32 = 16777215u32;
+pub const USB_SUPERSPEEDPLUS_ISOCHRONOUS_MIN_BYTESPERINTERVAL: u32 = 49153u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
@@ -1656,6 +2233,7 @@ pub struct USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
     pub wReserved: u16,
     pub dwBytesPerInterval: u32,
 }
+pub const USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR_TYPE: u32 = 49u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
@@ -1682,6 +2260,19 @@ pub struct USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0 {
 pub struct USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1 {
     pub _bitfield: u8,
 }
+pub const USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_TYPE: u32 = 48u32;
+pub const USB_SUPERSPEED_ISOCHRONOUS_MAX_MULTIPLIER: u32 = 2u32;
+pub const USB_SUPPORT_D0_COMMAND: u32 = 1u32;
+pub const USB_SUPPORT_D1_COMMAND: u32 = 2u32;
+pub const USB_SUPPORT_D1_WAKEUP: u32 = 16u32;
+pub const USB_SUPPORT_D2_COMMAND: u32 = 4u32;
+pub const USB_SUPPORT_D2_WAKEUP: u32 = 32u32;
+pub const USB_SUPPORT_D3_COMMAND: u32 = 8u32;
+pub const USB_TEST_MODE_TEST_FORCE_ENABLE: u32 = 5u32;
+pub const USB_TEST_MODE_TEST_J: u32 = 1u32;
+pub const USB_TEST_MODE_TEST_K: u32 = 2u32;
+pub const USB_TEST_MODE_TEST_PACKET: u32 = 4u32;
+pub const USB_TEST_MODE_TEST_SE0_NAK: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USB_TOPOLOGY_ADDRESS {
@@ -1701,6 +2292,7 @@ pub struct USB_TRANSPORT_CHARACTERISTICS {
     pub CurrentRoundtripLatencyInMilliSeconds: u64,
     pub MaxPotentialBandwidth: u64,
 }
+pub const USB_TRANSPORT_CHARACTERISTICS_BANDWIDTH_AVAILABLE: u32 = 2u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_TRANSPORT_CHARACTERISTICS_CHANGE_NOTIFICATION {
@@ -1719,17 +2311,94 @@ pub struct USB_TRANSPORT_CHARACTERISTICS_CHANGE_REGISTRATION {
 pub struct USB_TRANSPORT_CHARACTERISTICS_CHANGE_UNREGISTRATION {
     pub Handle: USB_CHANGE_REGISTRATION_HANDLE,
 }
+pub const USB_TRANSPORT_CHARACTERISTICS_LATENCY_AVAILABLE: u32 = 1u32;
+pub const USB_TRANSPORT_CHARACTERISTICS_VERSION_1: u32 = 1u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_UNICODE_NAME {
     pub Length: u32,
     pub String: [u16; 1],
 }
+pub const USB_UNREGISTER_COMPOSITE_DEVICE: u32 = 1u32;
+pub const USB_UNREGISTER_FOR_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 284u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_USB2HW_VERSION_PARAMETERS {
     pub Usb2HwRevision: u8,
 }
+pub type USB_USER_ERROR_CODE = i32;
+pub type USB_WMI_DEVICE_NODE_TYPE = i32;
+pub const Usb11Device: USB_DEVICE_TYPE = 0i32;
+pub const Usb20Device: USB_DEVICE_TYPE = 1i32;
+pub const Usb20Hub: USB_HUB_TYPE = 2i32;
+pub const Usb30Hub: USB_HUB_TYPE = 3i32;
+pub const UsbController: USB_WMI_DEVICE_NODE_TYPE = 3i32;
+pub const UsbDevice: USB_WMI_DEVICE_NODE_TYPE = 0i32;
+pub const UsbFullSpeed: USB_DEVICE_SPEED = 1i32;
+pub const UsbHighSpeed: USB_DEVICE_SPEED = 2i32;
+pub const UsbHub: USB_HUB_NODE = 0i32;
+pub const UsbLowSpeed: USB_DEVICE_SPEED = 0i32;
+pub const UsbMIParent: USB_HUB_NODE = 1i32;
+pub const UsbRootHub: USB_HUB_TYPE = 1i32;
+pub const UsbSuperSpeed: USB_DEVICE_SPEED = 3i32;
+pub const UsbUserBufferTooSmall: USB_USER_ERROR_CODE = 7i32;
+pub const UsbUserDeviceNotStarted: USB_USER_ERROR_CODE = 9i32;
+pub const UsbUserErrorNotMapped: USB_USER_ERROR_CODE = 8i32;
+pub const UsbUserFeatureDisabled: USB_USER_ERROR_CODE = 3i32;
+pub const UsbUserInvalidHeaderParameter: USB_USER_ERROR_CODE = 4i32;
+pub const UsbUserInvalidParameter: USB_USER_ERROR_CODE = 5i32;
+pub const UsbUserInvalidRequestCode: USB_USER_ERROR_CODE = 2i32;
+pub const UsbUserMiniportError: USB_USER_ERROR_CODE = 6i32;
+pub const UsbUserNoDeviceConnected: USB_USER_ERROR_CODE = 10i32;
+pub const UsbUserNotSupported: USB_USER_ERROR_CODE = 1i32;
+pub const UsbUserSuccess: USB_USER_ERROR_CODE = 0i32;
+pub const UsbdEndpointOffloadHardwareAssisted: USBD_ENDPOINT_OFFLOAD_MODE = 2i32;
+pub const UsbdEndpointOffloadModeNotSupported: USBD_ENDPOINT_OFFLOAD_MODE = 0i32;
+pub const UsbdEndpointOffloadSoftwareAssisted: USBD_ENDPOINT_OFFLOAD_MODE = 1i32;
+pub const UsbdPipeTypeBulk: USBD_PIPE_TYPE = 2i32;
+pub const UsbdPipeTypeControl: USBD_PIPE_TYPE = 0i32;
+pub const UsbdPipeTypeInterrupt: USBD_PIPE_TYPE = 3i32;
+pub const UsbdPipeTypeIsochronous: USBD_PIPE_TYPE = 1i32;
+pub const UsbfnBusSpeedFull: USBFN_BUS_SPEED = 1i32;
+pub const UsbfnBusSpeedHigh: USBFN_BUS_SPEED = 2i32;
+pub const UsbfnBusSpeedLow: USBFN_BUS_SPEED = 0i32;
+pub const UsbfnBusSpeedMaximum: USBFN_BUS_SPEED = 4i32;
+pub const UsbfnBusSpeedSuper: USBFN_BUS_SPEED = 3i32;
+pub const UsbfnChargingDownstreamPort: USBFN_PORT_TYPE = 2i32;
+pub const UsbfnDedicatedChargingPort: USBFN_PORT_TYPE = 3i32;
+pub const UsbfnDeviceStateAddressed: USBFN_DEVICE_STATE = 4i32;
+pub const UsbfnDeviceStateAttached: USBFN_DEVICE_STATE = 1i32;
+pub const UsbfnDeviceStateConfigured: USBFN_DEVICE_STATE = 5i32;
+pub const UsbfnDeviceStateDefault: USBFN_DEVICE_STATE = 2i32;
+pub const UsbfnDeviceStateDetached: USBFN_DEVICE_STATE = 3i32;
+pub const UsbfnDeviceStateMinimum: USBFN_DEVICE_STATE = 0i32;
+pub const UsbfnDeviceStateStateMaximum: USBFN_DEVICE_STATE = 7i32;
+pub const UsbfnDeviceStateSuspended: USBFN_DEVICE_STATE = 6i32;
+pub const UsbfnDirectionIn: USBFN_DIRECTION = 1i32;
+pub const UsbfnDirectionMaximum: USBFN_DIRECTION = 3i32;
+pub const UsbfnDirectionMinimum: USBFN_DIRECTION = 0i32;
+pub const UsbfnDirectionOut: USBFN_DIRECTION = 2i32;
+pub const UsbfnDirectionRx: USBFN_DIRECTION = 2i32;
+pub const UsbfnDirectionTx: USBFN_DIRECTION = 1i32;
+pub const UsbfnEventAttach: USBFN_EVENT = 1i32;
+pub const UsbfnEventBusTearDown: USBFN_EVENT = 10i32;
+pub const UsbfnEventConfigured: USBFN_EVENT = 7i32;
+pub const UsbfnEventDetach: USBFN_EVENT = 3i32;
+pub const UsbfnEventMaximum: USBFN_EVENT = 12i32;
+pub const UsbfnEventMinimum: USBFN_EVENT = 0i32;
+pub const UsbfnEventPortType: USBFN_EVENT = 9i32;
+pub const UsbfnEventReset: USBFN_EVENT = 2i32;
+pub const UsbfnEventResume: USBFN_EVENT = 5i32;
+pub const UsbfnEventSetInterface: USBFN_EVENT = 11i32;
+pub const UsbfnEventSetupPacket: USBFN_EVENT = 6i32;
+pub const UsbfnEventSuspend: USBFN_EVENT = 4i32;
+pub const UsbfnEventUnConfigured: USBFN_EVENT = 8i32;
+pub const UsbfnInvalidDedicatedChargingPort: USBFN_PORT_TYPE = 4i32;
+pub const UsbfnPortTypeMaximum: USBFN_PORT_TYPE = 6i32;
+pub const UsbfnProprietaryDedicatedChargingPort: USBFN_PORT_TYPE = 5i32;
+pub const UsbfnStandardDownstreamPort: USBFN_PORT_TYPE = 1i32;
+pub const UsbfnUnknownPort: USBFN_PORT_TYPE = 0i32;
+pub type WDMUSB_POWER_STATE = i32;
 pub type WINUSB_INTERFACE_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1748,6 +2417,8 @@ pub struct WINUSB_PIPE_INFORMATION_EX {
     pub Interval: u8,
     pub MaximumBytesPerInterval: u32,
 }
+pub type WINUSB_PIPE_POLICY = u32;
+pub type WINUSB_POWER_POLICY = u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WINUSB_SETUP_PACKET {
@@ -1757,6 +2428,27 @@ pub struct WINUSB_SETUP_PACKET {
     pub Index: u16,
     pub Length: u16,
 }
+pub const WMI_USB_DEVICE_NODE_INFORMATION: u32 = 2u32;
+pub const WMI_USB_DRIVER_INFORMATION: u32 = 0u32;
+pub const WMI_USB_DRIVER_NOTIFICATION: u32 = 1u32;
+pub const WMI_USB_HUB_NODE_INFORMATION: u32 = 4u32;
+pub const WMI_USB_PERFORMANCE_INFORMATION: u32 = 1u32;
+pub const WMI_USB_POWER_DEVICE_ENABLE: u32 = 2u32;
+pub const WRITE_DATA_PIPE: PIPE_TYPE = 2i32;
+pub const WdmUsbPowerDeviceD0: WDMUSB_POWER_STATE = 201i32;
+pub const WdmUsbPowerDeviceD1: WDMUSB_POWER_STATE = 202i32;
+pub const WdmUsbPowerDeviceD2: WDMUSB_POWER_STATE = 203i32;
+pub const WdmUsbPowerDeviceD3: WDMUSB_POWER_STATE = 204i32;
+pub const WdmUsbPowerDeviceUnspecified: WDMUSB_POWER_STATE = 200i32;
+pub const WdmUsbPowerNotMapped: WDMUSB_POWER_STATE = 0i32;
+pub const WdmUsbPowerSystemHibernate: WDMUSB_POWER_STATE = 105i32;
+pub const WdmUsbPowerSystemShutdown: WDMUSB_POWER_STATE = 106i32;
+pub const WdmUsbPowerSystemSleeping1: WDMUSB_POWER_STATE = 102i32;
+pub const WdmUsbPowerSystemSleeping2: WDMUSB_POWER_STATE = 103i32;
+pub const WdmUsbPowerSystemSleeping3: WDMUSB_POWER_STATE = 104i32;
+pub const WdmUsbPowerSystemUnspecified: WDMUSB_POWER_STATE = 100i32;
+pub const WdmUsbPowerSystemWorking: WDMUSB_POWER_STATE = 101i32;
+pub const WinUSB_TestGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xda812bff_12c3_46a2_8e2b_dbd3b7834c43);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct _URB_BULK_OR_INTERRUPT_TRANSFER {
@@ -2000,695 +2692,3 @@ pub struct _URB_SET_FRAME_LENGTH {
     pub Hdr: _URB_HEADER,
     pub FrameLengthDelta: i32,
 }
-pub const ALLOW_PARTIAL_READS: WINUSB_PIPE_POLICY = 5u32;
-pub const ALL_PIPE: PIPE_TYPE = 3i32;
-pub const AUTO_CLEAR_STALL: WINUSB_PIPE_POLICY = 2u32;
-pub const AUTO_FLUSH: WINUSB_PIPE_POLICY = 6u32;
-pub const AUTO_SUSPEND: WINUSB_POWER_POLICY = 129u32;
-pub const AcquireBusInfo: USB_NOTIFICATION_TYPE = 5i32;
-pub const AcquireControllerName: USB_NOTIFICATION_TYPE = 7i32;
-pub const AcquireHubName: USB_NOTIFICATION_TYPE = 6i32;
-pub const BMREQUEST_CLASS: u32 = 1u32;
-pub const BMREQUEST_DEVICE_TO_HOST: u32 = 1u32;
-pub const BMREQUEST_HOST_TO_DEVICE: u32 = 0u32;
-pub const BMREQUEST_STANDARD: u32 = 0u32;
-pub const BMREQUEST_TO_DEVICE: u32 = 0u32;
-pub const BMREQUEST_TO_ENDPOINT: u32 = 2u32;
-pub const BMREQUEST_TO_INTERFACE: u32 = 1u32;
-pub const BMREQUEST_TO_OTHER: u32 = 3u32;
-pub const BMREQUEST_VENDOR: u32 = 2u32;
-pub const BULKIN_FLAG: u32 = 128u32;
-pub const CompositeDevice: USB_WMI_DEVICE_NODE_TYPE = 2i32;
-pub const DEVICE_SPEED: u32 = 1u32;
-pub const DeviceCausedOvercurrent: USB_CONNECTION_STATUS = 4i32;
-pub const DeviceConnected: USB_CONNECTION_STATUS = 1i32;
-pub const DeviceEnumerating: USB_CONNECTION_STATUS = 9i32;
-pub const DeviceFailedEnumeration: USB_CONNECTION_STATUS = 2i32;
-pub const DeviceGeneralFailure: USB_CONNECTION_STATUS = 3i32;
-pub const DeviceHubNestedTooDeeply: USB_CONNECTION_STATUS = 7i32;
-pub const DeviceInLegacyHub: USB_CONNECTION_STATUS = 8i32;
-pub const DeviceNotEnoughBandwidth: USB_CONNECTION_STATUS = 6i32;
-pub const DeviceNotEnoughPower: USB_CONNECTION_STATUS = 5i32;
-pub const DeviceReset: USB_CONNECTION_STATUS = 10i32;
-pub const EHCI_Generic: USB_CONTROLLER_FLAVOR = 1000i32;
-pub const EHCI_Intel_Medfield: USB_CONTROLLER_FLAVOR = 5001i32;
-pub const EHCI_Lucent: USB_CONTROLLER_FLAVOR = 3000i32;
-pub const EHCI_NEC: USB_CONTROLLER_FLAVOR = 2000i32;
-pub const EHCI_NVIDIA_Tegra2: USB_CONTROLLER_FLAVOR = 4000i32;
-pub const EHCI_NVIDIA_Tegra3: USB_CONTROLLER_FLAVOR = 4001i32;
-pub const EVENT_PIPE: PIPE_TYPE = 0i32;
-pub const EnumerationFailure: USB_NOTIFICATION_TYPE = 0i32;
-pub const FILE_DEVICE_USB: u32 = 34u32;
-pub const FILE_DEVICE_USB_SCAN: u32 = 32768u32;
-pub const FullSpeed: u32 = 2u32;
-pub const GUID_DEVINTERFACE_USB_BILLBOARD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5e9adaef_f879_473f_b807_4e5ea77d1b1c);
-pub const GUID_DEVINTERFACE_USB_DEVICE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa5dcbf10_6530_11d2_901f_00c04fb951ed);
-pub const GUID_DEVINTERFACE_USB_HOST_CONTROLLER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3abf6f2d_71c4_462a_8a92_1e6861e6af27);
-pub const GUID_DEVINTERFACE_USB_HUB: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf18a0e88_c30c_11d0_8815_00a0c906bed8);
-pub const GUID_USB_MSOS20_PLATFORM_CAPABILITY_ID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd8dd60df_4589_4cc7_9cd2_659d9e648a9f);
-pub const GUID_USB_PERFORMANCE_TRACING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd5de77a6_6ae9_425c_b1e2_f5615fd348a9);
-pub const GUID_USB_TRANSFER_TRACING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x681eb8aa_403d_452c_9f8a_f0616fac9540);
-pub const GUID_USB_WMI_DEVICE_PERF_INFO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x66c1aa3c_499f_49a0_a9a5_61e2359f6407);
-pub const GUID_USB_WMI_NODE_INFO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9c179357_dc7a_4f41_b66b_323b9ddcb5b1);
-pub const GUID_USB_WMI_STD_DATA: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4e623b20_cb14_11d1_b331_00a0c959bbd2);
-pub const GUID_USB_WMI_STD_NOTIFICATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4e623b20_cb14_11d1_b331_00a0c959bbd2);
-pub const GUID_USB_WMI_SURPRISE_REMOVAL_NOTIFICATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9bbbf831_a2f2_43b4_96d1_86944b5914b3);
-pub const GUID_USB_WMI_TRACING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3a61881b_b4e6_4bf9_ae0f_3cd8f394e52f);
-pub const HCD_DIAGNOSTIC_MODE_OFF: u32 = 257u32;
-pub const HCD_DIAGNOSTIC_MODE_ON: u32 = 256u32;
-pub const HCD_DISABLE_PORT: u32 = 268u32;
-pub const HCD_ENABLE_PORT: u32 = 269u32;
-pub const HCD_GET_DRIVERKEY_NAME: u32 = 265u32;
-pub const HCD_GET_ROOT_HUB_NAME: u32 = 258u32;
-pub const HCD_GET_STATS_1: u32 = 255u32;
-pub const HCD_GET_STATS_2: u32 = 266u32;
-pub const HCD_TRACE_READ_REQUEST: u32 = 275u32;
-pub const HCD_USER_REQUEST: u32 = 270u32;
-pub const HighSpeed: u32 = 3u32;
-pub const HubDevice: USB_WMI_DEVICE_NODE_TYPE = 1i32;
-pub const HubNestedTooDeeply: USB_NOTIFICATION_TYPE = 10i32;
-pub const HubOvercurrent: USB_NOTIFICATION_TYPE = 8i32;
-pub const HubPowerChange: USB_NOTIFICATION_TYPE = 9i32;
-pub const IGNORE_SHORT_PACKETS: WINUSB_PIPE_POLICY = 4u32;
-pub const IOCTL_ABORT_PIPE: u32 = 2147491844u32;
-pub const IOCTL_CANCEL_IO: u32 = 2147491844u32;
-pub const IOCTL_GENERICUSBFN_ACTIVATE_USB_BUS: u32 = 2277420u32;
-pub const IOCTL_GENERICUSBFN_BUS_EVENT_NOTIFICATION: u32 = 2277430u32;
-pub const IOCTL_GENERICUSBFN_CONTROL_STATUS_HANDSHAKE_IN: u32 = 2277400u32;
-pub const IOCTL_GENERICUSBFN_CONTROL_STATUS_HANDSHAKE_OUT: u32 = 2277404u32;
-pub const IOCTL_GENERICUSBFN_DEACTIVATE_USB_BUS: u32 = 2277424u32;
-pub const IOCTL_GENERICUSBFN_GET_CLASS_INFO: u32 = 2277410u32;
-pub const IOCTL_GENERICUSBFN_GET_CLASS_INFO_EX: u32 = 2277434u32;
-pub const IOCTL_GENERICUSBFN_GET_INTERFACE_DESCRIPTOR_SET: u32 = 2277438u32;
-pub const IOCTL_GENERICUSBFN_GET_PIPE_STATE: u32 = 2277414u32;
-pub const IOCTL_GENERICUSBFN_REGISTER_USB_STRING: u32 = 2277441u32;
-pub const IOCTL_GENERICUSBFN_SET_PIPE_STATE: u32 = 2277417u32;
-pub const IOCTL_GENERICUSBFN_TRANSFER_IN: u32 = 2277389u32;
-pub const IOCTL_GENERICUSBFN_TRANSFER_IN_APPEND_ZERO_PKT: u32 = 2277393u32;
-pub const IOCTL_GENERICUSBFN_TRANSFER_OUT: u32 = 2277398u32;
-pub const IOCTL_GET_CHANNEL_ALIGN_RQST: u32 = 2147491860u32;
-pub const IOCTL_GET_DEVICE_DESCRIPTOR: u32 = 2147491864u32;
-pub const IOCTL_GET_HCD_DRIVERKEY_NAME: u32 = 2229284u32;
-pub const IOCTL_GET_PIPE_CONFIGURATION: u32 = 2147491880u32;
-pub const IOCTL_GET_USB_DESCRIPTOR: u32 = 2147491872u32;
-pub const IOCTL_GET_VERSION: u32 = 2147491840u32;
-pub const IOCTL_INDEX: u32 = 2048u32;
-pub const IOCTL_INTERNAL_USB_CYCLE_PORT: u32 = 2228255u32;
-pub const IOCTL_INTERNAL_USB_ENABLE_PORT: u32 = 2228247u32;
-pub const IOCTL_INTERNAL_USB_FAIL_GET_STATUS_FROM_DEVICE: u32 = 2229347u32;
-pub const IOCTL_INTERNAL_USB_GET_BUSGUID_INFO: u32 = 2229288u32;
-pub const IOCTL_INTERNAL_USB_GET_BUS_INFO: u32 = 2229280u32;
-pub const IOCTL_INTERNAL_USB_GET_CONTROLLER_NAME: u32 = 2229284u32;
-pub const IOCTL_INTERNAL_USB_GET_DEVICE_CONFIG_INFO: u32 = 2229327u32;
-pub const IOCTL_INTERNAL_USB_GET_DEVICE_HANDLE: u32 = 2229299u32;
-pub const IOCTL_INTERNAL_USB_GET_DEVICE_HANDLE_EX: u32 = 2229303u32;
-pub const IOCTL_INTERNAL_USB_GET_HUB_COUNT: u32 = 2228251u32;
-pub const IOCTL_INTERNAL_USB_GET_HUB_NAME: u32 = 2228256u32;
-pub const IOCTL_INTERNAL_USB_GET_PARENT_HUB_INFO: u32 = 2229292u32;
-pub const IOCTL_INTERNAL_USB_GET_PORT_STATUS: u32 = 2228243u32;
-pub const IOCTL_INTERNAL_USB_GET_ROOTHUB_PDO: u32 = 2228239u32;
-pub const IOCTL_INTERNAL_USB_GET_TOPOLOGY_ADDRESS: u32 = 2229311u32;
-pub const IOCTL_INTERNAL_USB_GET_TT_DEVICE_HANDLE: u32 = 2229307u32;
-pub const IOCTL_INTERNAL_USB_NOTIFY_IDLE_READY: u32 = 2229315u32;
-pub const IOCTL_INTERNAL_USB_RECORD_FAILURE: u32 = 2228267u32;
-pub const IOCTL_INTERNAL_USB_REGISTER_COMPOSITE_DEVICE: u32 = 4784131u32;
-pub const IOCTL_INTERNAL_USB_REQUEST_REMOTE_WAKE_NOTIFICATION: u32 = 4784139u32;
-pub const IOCTL_INTERNAL_USB_REQ_GLOBAL_RESUME: u32 = 2229323u32;
-pub const IOCTL_INTERNAL_USB_REQ_GLOBAL_SUSPEND: u32 = 2229319u32;
-pub const IOCTL_INTERNAL_USB_RESET_PORT: u32 = 2228231u32;
-pub const IOCTL_INTERNAL_USB_SUBMIT_IDLE_NOTIFICATION: u32 = 2228263u32;
-pub const IOCTL_INTERNAL_USB_SUBMIT_URB: u32 = 2228227u32;
-pub const IOCTL_INTERNAL_USB_UNREGISTER_COMPOSITE_DEVICE: u32 = 4784135u32;
-pub const IOCTL_READ_REGISTERS: u32 = 2147491852u32;
-pub const IOCTL_RESET_PIPE: u32 = 2147491868u32;
-pub const IOCTL_SEND_USB_REQUEST: u32 = 2147491876u32;
-pub const IOCTL_SET_TIMEOUT: u32 = 2147491884u32;
-pub const IOCTL_USB_DIAGNOSTIC_MODE_OFF: u32 = 2229252u32;
-pub const IOCTL_USB_DIAGNOSTIC_MODE_ON: u32 = 2229248u32;
-pub const IOCTL_USB_DIAG_IGNORE_HUBS_OFF: u32 = 2229276u32;
-pub const IOCTL_USB_DIAG_IGNORE_HUBS_ON: u32 = 2229272u32;
-pub const IOCTL_USB_GET_DESCRIPTOR_FROM_NODE_CONNECTION: u32 = 2229264u32;
-pub const IOCTL_USB_GET_DEVICE_CHARACTERISTICS: u32 = 2229376u32;
-pub const IOCTL_USB_GET_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC: u32 = 2229368u32;
-pub const IOCTL_USB_GET_HUB_CAPABILITIES: u32 = 2229308u32;
-pub const IOCTL_USB_GET_HUB_CAPABILITIES_EX: u32 = 2229328u32;
-pub const IOCTL_USB_GET_HUB_INFORMATION_EX: u32 = 2229332u32;
-pub const IOCTL_USB_GET_NODE_CONNECTION_ATTRIBUTES: u32 = 2229312u32;
-pub const IOCTL_USB_GET_NODE_CONNECTION_DRIVERKEY_NAME: u32 = 2229280u32;
-pub const IOCTL_USB_GET_NODE_CONNECTION_INFORMATION: u32 = 2229260u32;
-pub const IOCTL_USB_GET_NODE_CONNECTION_INFORMATION_EX: u32 = 2229320u32;
-pub const IOCTL_USB_GET_NODE_CONNECTION_INFORMATION_EX_V2: u32 = 2229340u32;
-pub const IOCTL_USB_GET_NODE_CONNECTION_NAME: u32 = 2229268u32;
-pub const IOCTL_USB_GET_NODE_INFORMATION: u32 = 2229256u32;
-pub const IOCTL_USB_GET_PORT_CONNECTOR_PROPERTIES: u32 = 2229336u32;
-pub const IOCTL_USB_GET_ROOT_HUB_NAME: u32 = 2229256u32;
-pub const IOCTL_USB_GET_TRANSPORT_CHARACTERISTICS: u32 = 2229348u32;
-pub const IOCTL_USB_HCD_DISABLE_PORT: u32 = 2229296u32;
-pub const IOCTL_USB_HCD_ENABLE_PORT: u32 = 2229300u32;
-pub const IOCTL_USB_HCD_GET_STATS_1: u32 = 2229244u32;
-pub const IOCTL_USB_HCD_GET_STATS_2: u32 = 2229288u32;
-pub const IOCTL_USB_HUB_CYCLE_PORT: u32 = 2229316u32;
-pub const IOCTL_USB_NOTIFY_ON_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 2229356u32;
-pub const IOCTL_USB_REGISTER_FOR_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 2229352u32;
-pub const IOCTL_USB_RESET_HUB: u32 = 2229324u32;
-pub const IOCTL_USB_START_TRACKING_FOR_TIME_SYNC: u32 = 2229364u32;
-pub const IOCTL_USB_STOP_TRACKING_FOR_TIME_SYNC: u32 = 2229372u32;
-pub const IOCTL_USB_UNREGISTER_FOR_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 2229360u32;
-pub const IOCTL_WAIT_ON_DEVICE_EVENT: u32 = 2147491848u32;
-pub const IOCTL_WRITE_REGISTERS: u32 = 2147491856u32;
-pub const InsufficentBandwidth: USB_NOTIFICATION_TYPE = 1i32;
-pub const InsufficentPower: USB_NOTIFICATION_TYPE = 2i32;
-pub const KREGMANUSBFNENUMPATH: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\ManufacturingMode\\Current\\USBFN\\");
-pub const KREGUSBFNENUMPATH: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\USBFN\\");
-pub const LowSpeed: u32 = 1u32;
-pub const MAXIMUM_TRANSFER_SIZE: WINUSB_PIPE_POLICY = 8u32;
-pub const MAXIMUM_USB_STRING_LENGTH: u32 = 255u32;
-pub const MAX_ALTERNATE_NAME_LENGTH: u32 = 40u32;
-pub const MAX_ASSOCIATION_NAME_LENGTH: u32 = 40u32;
-pub const MAX_CONFIGURATION_NAME_LENGTH: u32 = 40u32;
-pub const MAX_INTERFACE_NAME_LENGTH: u32 = 40u32;
-pub const MAX_NUM_PIPES: u32 = 8u32;
-pub const MAX_NUM_USBFN_ENDPOINTS: u32 = 15u32;
-pub const MAX_SUPPORTED_CONFIGURATIONS: u32 = 12u32;
-pub const MAX_USB_STRING_LENGTH: u32 = 255u32;
-pub const MS_GENRE_DESCRIPTOR_INDEX: u32 = 1u32;
-pub const MS_OS_FLAGS_CONTAINERID: u32 = 2u32;
-pub const MS_OS_STRING_SIGNATURE: windows_sys::core::PCWSTR = windows_sys::core::w!("MSFT100");
-pub const MS_POWER_DESCRIPTOR_INDEX: u32 = 2u32;
-pub const ModernDeviceInLegacyHub: USB_NOTIFICATION_TYPE = 11i32;
-pub const NoDeviceConnected: USB_CONNECTION_STATUS = 0i32;
-pub const OHCI_Generic: USB_CONTROLLER_FLAVOR = 100i32;
-pub const OHCI_Hydra: USB_CONTROLLER_FLAVOR = 101i32;
-pub const OHCI_NEC: USB_CONTROLLER_FLAVOR = 102i32;
-pub const OS_STRING_DESCRIPTOR_INDEX: u32 = 238u32;
-pub const OverCurrent: USB_NOTIFICATION_TYPE = 3i32;
-pub const PIPE_TRANSFER_TIMEOUT: WINUSB_PIPE_POLICY = 3u32;
-pub const PORT_LINK_STATE_COMPLIANCE_MODE: u32 = 10u32;
-pub const PORT_LINK_STATE_DISABLED: u32 = 4u32;
-pub const PORT_LINK_STATE_HOT_RESET: u32 = 9u32;
-pub const PORT_LINK_STATE_INACTIVE: u32 = 6u32;
-pub const PORT_LINK_STATE_LOOPBACK: u32 = 11u32;
-pub const PORT_LINK_STATE_POLLING: u32 = 7u32;
-pub const PORT_LINK_STATE_RECOVERY: u32 = 8u32;
-pub const PORT_LINK_STATE_RX_DETECT: u32 = 5u32;
-pub const PORT_LINK_STATE_TEST_MODE: u32 = 11u32;
-pub const PORT_LINK_STATE_U0: u32 = 0u32;
-pub const PORT_LINK_STATE_U1: u32 = 1u32;
-pub const PORT_LINK_STATE_U2: u32 = 2u32;
-pub const PORT_LINK_STATE_U3: u32 = 3u32;
-pub const RAW_IO: WINUSB_PIPE_POLICY = 7u32;
-pub const READ_DATA_PIPE: PIPE_TYPE = 1i32;
-pub const RESET_PIPE_ON_RESUME: WINUSB_PIPE_POLICY = 9u32;
-pub const ResetOvercurrent: USB_NOTIFICATION_TYPE = 4i32;
-pub const SHORT_PACKET_TERMINATE: WINUSB_PIPE_POLICY = 1u32;
-pub const SUSPEND_DELAY: WINUSB_POWER_POLICY = 131u32;
-pub const UHCI_Generic: USB_CONTROLLER_FLAVOR = 200i32;
-pub const UHCI_Ich1: USB_CONTROLLER_FLAVOR = 205i32;
-pub const UHCI_Ich2: USB_CONTROLLER_FLAVOR = 203i32;
-pub const UHCI_Ich3m: USB_CONTROLLER_FLAVOR = 206i32;
-pub const UHCI_Ich4: USB_CONTROLLER_FLAVOR = 207i32;
-pub const UHCI_Ich5: USB_CONTROLLER_FLAVOR = 208i32;
-pub const UHCI_Ich6: USB_CONTROLLER_FLAVOR = 209i32;
-pub const UHCI_Intel: USB_CONTROLLER_FLAVOR = 249i32;
-pub const UHCI_Piix3: USB_CONTROLLER_FLAVOR = 202i32;
-pub const UHCI_Piix4: USB_CONTROLLER_FLAVOR = 201i32;
-pub const UHCI_Reserved204: USB_CONTROLLER_FLAVOR = 204i32;
-pub const UHCI_VIA: USB_CONTROLLER_FLAVOR = 250i32;
-pub const UHCI_VIA_x01: USB_CONTROLLER_FLAVOR = 251i32;
-pub const UHCI_VIA_x02: USB_CONTROLLER_FLAVOR = 252i32;
-pub const UHCI_VIA_x03: USB_CONTROLLER_FLAVOR = 253i32;
-pub const UHCI_VIA_x04: USB_CONTROLLER_FLAVOR = 254i32;
-pub const UHCI_VIA_x0E_FIFO: USB_CONTROLLER_FLAVOR = 264i32;
-pub const URB_FUNCTION_ABORT_PIPE: u32 = 2u32;
-pub const URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER: u32 = 9u32;
-pub const URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER_USING_CHAINED_MDL: u32 = 55u32;
-pub const URB_FUNCTION_CLASS_DEVICE: u32 = 26u32;
-pub const URB_FUNCTION_CLASS_ENDPOINT: u32 = 28u32;
-pub const URB_FUNCTION_CLASS_INTERFACE: u32 = 27u32;
-pub const URB_FUNCTION_CLASS_OTHER: u32 = 31u32;
-pub const URB_FUNCTION_CLEAR_FEATURE_TO_DEVICE: u32 = 16u32;
-pub const URB_FUNCTION_CLEAR_FEATURE_TO_ENDPOINT: u32 = 18u32;
-pub const URB_FUNCTION_CLEAR_FEATURE_TO_INTERFACE: u32 = 17u32;
-pub const URB_FUNCTION_CLEAR_FEATURE_TO_OTHER: u32 = 34u32;
-pub const URB_FUNCTION_CLOSE_STATIC_STREAMS: u32 = 54u32;
-pub const URB_FUNCTION_CONTROL_TRANSFER: u32 = 8u32;
-pub const URB_FUNCTION_CONTROL_TRANSFER_EX: u32 = 50u32;
-pub const URB_FUNCTION_GET_CONFIGURATION: u32 = 38u32;
-pub const URB_FUNCTION_GET_CURRENT_FRAME_NUMBER: u32 = 7u32;
-pub const URB_FUNCTION_GET_DESCRIPTOR_FROM_DEVICE: u32 = 11u32;
-pub const URB_FUNCTION_GET_DESCRIPTOR_FROM_ENDPOINT: u32 = 36u32;
-pub const URB_FUNCTION_GET_DESCRIPTOR_FROM_INTERFACE: u32 = 40u32;
-pub const URB_FUNCTION_GET_FRAME_LENGTH: u32 = 5u32;
-pub const URB_FUNCTION_GET_INTERFACE: u32 = 39u32;
-pub const URB_FUNCTION_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS: u32 = 61u32;
-pub const URB_FUNCTION_GET_MS_FEATURE_DESCRIPTOR: u32 = 42u32;
-pub const URB_FUNCTION_GET_STATUS_FROM_DEVICE: u32 = 19u32;
-pub const URB_FUNCTION_GET_STATUS_FROM_ENDPOINT: u32 = 21u32;
-pub const URB_FUNCTION_GET_STATUS_FROM_INTERFACE: u32 = 20u32;
-pub const URB_FUNCTION_GET_STATUS_FROM_OTHER: u32 = 33u32;
-pub const URB_FUNCTION_ISOCH_TRANSFER: u32 = 10u32;
-pub const URB_FUNCTION_ISOCH_TRANSFER_USING_CHAINED_MDL: u32 = 56u32;
-pub const URB_FUNCTION_OPEN_STATIC_STREAMS: u32 = 53u32;
-pub const URB_FUNCTION_RELEASE_FRAME_LENGTH_CONTROL: u32 = 4u32;
-pub const URB_FUNCTION_RESERVED_0X0016: u32 = 22u32;
-pub const URB_FUNCTION_RESERVE_0X001D: u32 = 29u32;
-pub const URB_FUNCTION_RESERVE_0X002B: u32 = 43u32;
-pub const URB_FUNCTION_RESERVE_0X002C: u32 = 44u32;
-pub const URB_FUNCTION_RESERVE_0X002D: u32 = 45u32;
-pub const URB_FUNCTION_RESERVE_0X002E: u32 = 46u32;
-pub const URB_FUNCTION_RESERVE_0X002F: u32 = 47u32;
-pub const URB_FUNCTION_RESERVE_0X0033: u32 = 51u32;
-pub const URB_FUNCTION_RESERVE_0X0034: u32 = 52u32;
-pub const URB_FUNCTION_RESET_PIPE: u32 = 30u32;
-pub const URB_FUNCTION_SELECT_CONFIGURATION: u32 = 0u32;
-pub const URB_FUNCTION_SELECT_INTERFACE: u32 = 1u32;
-pub const URB_FUNCTION_SET_DESCRIPTOR_TO_DEVICE: u32 = 12u32;
-pub const URB_FUNCTION_SET_DESCRIPTOR_TO_ENDPOINT: u32 = 37u32;
-pub const URB_FUNCTION_SET_DESCRIPTOR_TO_INTERFACE: u32 = 41u32;
-pub const URB_FUNCTION_SET_FEATURE_TO_DEVICE: u32 = 13u32;
-pub const URB_FUNCTION_SET_FEATURE_TO_ENDPOINT: u32 = 15u32;
-pub const URB_FUNCTION_SET_FEATURE_TO_INTERFACE: u32 = 14u32;
-pub const URB_FUNCTION_SET_FEATURE_TO_OTHER: u32 = 35u32;
-pub const URB_FUNCTION_SET_FRAME_LENGTH: u32 = 6u32;
-pub const URB_FUNCTION_SYNC_CLEAR_STALL: u32 = 49u32;
-pub const URB_FUNCTION_SYNC_RESET_PIPE: u32 = 48u32;
-pub const URB_FUNCTION_SYNC_RESET_PIPE_AND_CLEAR_STALL: u32 = 30u32;
-pub const URB_FUNCTION_TAKE_FRAME_LENGTH_CONTROL: u32 = 3u32;
-pub const URB_FUNCTION_VENDOR_DEVICE: u32 = 23u32;
-pub const URB_FUNCTION_VENDOR_ENDPOINT: u32 = 25u32;
-pub const URB_FUNCTION_VENDOR_INTERFACE: u32 = 24u32;
-pub const URB_FUNCTION_VENDOR_OTHER: u32 = 32u32;
-pub const URB_OPEN_STATIC_STREAMS_VERSION_100: u32 = 256u32;
-pub const UREGMANUSBFNENUMPATH: windows_sys::core::PCWSTR = windows_sys::core::w!("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\ManufacturingMode\\Current\\USBFN\\");
-pub const UREGUSBFNENUMPATH: windows_sys::core::PCWSTR = windows_sys::core::w!("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\USBFN\\");
-pub const USBDI_VERSION: u32 = 1536u32;
-pub const USBD_DEFAULT_MAXIMUM_TRANSFER_SIZE: u32 = 4294967295u32;
-pub const USBD_DEFAULT_PIPE_TRANSFER: u32 = 8u32;
-pub const USBD_ISO_START_FRAME_RANGE: u32 = 1024u32;
-pub const USBD_PF_CHANGE_MAX_PACKET: u32 = 1u32;
-pub const USBD_PF_ENABLE_RT_THREAD_ACCESS: u32 = 4u32;
-pub const USBD_PF_HANDLES_SSP_HIGH_BANDWIDTH_ISOCH: u32 = 256u32;
-pub const USBD_PF_INTERACTIVE_PRIORITY: u32 = 48u32;
-pub const USBD_PF_MAP_ADD_TRANSFERS: u32 = 8u32;
-pub const USBD_PF_PRIORITY_MASK: u32 = 240u32;
-pub const USBD_PF_SHORT_PACKET_OPT: u32 = 2u32;
-pub const USBD_PF_SSP_HIGH_BANDWIDTH_ISOCH: u32 = 65536u32;
-pub const USBD_PF_VIDEO_PRIORITY: u32 = 16u32;
-pub const USBD_PF_VOICE_PRIORITY: u32 = 32u32;
-pub const USBD_PORT_CONNECTED: u32 = 2u32;
-pub const USBD_PORT_ENABLED: u32 = 1u32;
-pub const USBD_SHORT_TRANSFER_OK: u32 = 2u32;
-pub const USBD_START_ISO_TRANSFER_ASAP: u32 = 4u32;
-pub const USBD_TRANSFER_DIRECTION: u32 = 1u32;
-pub const USBD_TRANSFER_DIRECTION_IN: u32 = 1u32;
-pub const USBD_TRANSFER_DIRECTION_OUT: u32 = 0u32;
-pub const USBFN_INTERRUPT_ENDPOINT_SIZE_NOT_UPDATEABLE_MASK: u32 = 128u32;
-pub const USBSCAN_PIPE_BULK: RAW_PIPE_TYPE = 2i32;
-pub const USBSCAN_PIPE_CONTROL: RAW_PIPE_TYPE = 0i32;
-pub const USBSCAN_PIPE_INTERRUPT: RAW_PIPE_TYPE = 3i32;
-pub const USBSCAN_PIPE_ISOCHRONOUS: RAW_PIPE_TYPE = 1i32;
-pub const USBUSER_CLEAR_ROOTPORT_FEATURE: u32 = 536870918u32;
-pub const USBUSER_GET_BANDWIDTH_INFORMATION: u32 = 5u32;
-pub const USBUSER_GET_BUS_STATISTICS_0: u32 = 6u32;
-pub const USBUSER_GET_CONTROLLER_DRIVER_KEY: u32 = 2u32;
-pub const USBUSER_GET_CONTROLLER_INFO_0: u32 = 1u32;
-pub const USBUSER_GET_POWER_STATE_MAP: u32 = 4u32;
-pub const USBUSER_GET_ROOTHUB_SYMBOLIC_NAME: u32 = 7u32;
-pub const USBUSER_GET_ROOTPORT_STATUS: u32 = 536870919u32;
-pub const USBUSER_GET_USB2_HW_VERSION: u32 = 9u32;
-pub const USBUSER_GET_USB_DRIVER_VERSION: u32 = 8u32;
-pub const USBUSER_INVALID_REQUEST: u32 = 4294967280u32;
-pub const USBUSER_OP_CLOSE_RAW_DEVICE: u32 = 536870915u32;
-pub const USBUSER_OP_MASK_DEVONLY_API: u32 = 268435456u32;
-pub const USBUSER_OP_MASK_HCTEST_API: u32 = 536870912u32;
-pub const USBUSER_OP_OPEN_RAW_DEVICE: u32 = 536870914u32;
-pub const USBUSER_OP_RAW_RESET_PORT: u32 = 536870913u32;
-pub const USBUSER_OP_SEND_ONE_PACKET: u32 = 268435457u32;
-pub const USBUSER_OP_SEND_RAW_COMMAND: u32 = 536870916u32;
-pub const USBUSER_PASS_THRU: u32 = 3u32;
-pub const USBUSER_SET_ROOTPORT_FEATURE: u32 = 536870917u32;
-pub const USBUSER_USB_REFRESH_HCT_REG: u32 = 10u32;
-pub const USBUSER_VERSION: u32 = 4u32;
-pub const USB_20_ENDPOINT_TYPE_INTERRUPT_RESERVED_MASK: u32 = 252u32;
-pub const USB_20_HUB_DESCRIPTOR_TYPE: u32 = 41u32;
-pub const USB_30_ENDPOINT_TYPE_INTERRUPT_RESERVED_MASK: u32 = 204u32;
-pub const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_MASK: u32 = 48u32;
-pub const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_NOTIFICATION: u32 = 16u32;
-pub const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_PERIODIC: u32 = 0u32;
-pub const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_RESERVED10: u32 = 32u32;
-pub const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_RESERVED11: u32 = 48u32;
-pub const USB_30_HUB_DESCRIPTOR_TYPE: u32 = 42u32;
-pub const USB_ALLOW_FIRMWARE_UPDATE: u32 = 1u32;
-pub const USB_BOS_DESCRIPTOR_TYPE: u32 = 15u32;
-pub const USB_CHARGING_POLICY_DEFAULT: u32 = 0u32;
-pub const USB_CHARGING_POLICY_ICCHPF: u32 = 1u32;
-pub const USB_CHARGING_POLICY_ICCLPF: u32 = 2u32;
-pub const USB_CHARGING_POLICY_NO_POWER: u32 = 3u32;
-pub const USB_CONFIGURATION_DESCRIPTOR_TYPE: u32 = 2u32;
-pub const USB_CONFIG_BUS_POWERED: u32 = 128u32;
-pub const USB_CONFIG_POWERED_MASK: u32 = 192u32;
-pub const USB_CONFIG_POWER_DESCRIPTOR_TYPE: u32 = 7u32;
-pub const USB_CONFIG_REMOTE_WAKEUP: u32 = 32u32;
-pub const USB_CONFIG_RESERVED: u32 = 31u32;
-pub const USB_CONFIG_SELF_POWERED: u32 = 64u32;
-pub const USB_CYCLE_PORT: u32 = 7u32;
-pub const USB_DEBUG_DESCRIPTOR_TYPE: u32 = 10u32;
-pub const USB_DEFAULT_DEVICE_ADDRESS: u32 = 0u32;
-pub const USB_DEFAULT_ENDPOINT_ADDRESS: u32 = 0u32;
-pub const USB_DEFAULT_MAX_PACKET: u32 = 64u32;
-pub const USB_DEVICE_CAPABILITY_BATTERY_INFO: u32 = 7u32;
-pub const USB_DEVICE_CAPABILITY_BILLBOARD: u32 = 13u32;
-pub const USB_DEVICE_CAPABILITY_CONTAINER_ID: u32 = 4u32;
-pub const USB_DEVICE_CAPABILITY_DESCRIPTOR_TYPE: u32 = 16u32;
-pub const USB_DEVICE_CAPABILITY_FIRMWARE_STATUS: u32 = 17u32;
-pub const USB_DEVICE_CAPABILITY_MAX_U1_LATENCY: u32 = 10u32;
-pub const USB_DEVICE_CAPABILITY_MAX_U2_LATENCY: u32 = 2047u32;
-pub const USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT: u32 = 8u32;
-pub const USB_DEVICE_CAPABILITY_PD_PROVIDER_PORT: u32 = 9u32;
-pub const USB_DEVICE_CAPABILITY_PLATFORM: u32 = 5u32;
-pub const USB_DEVICE_CAPABILITY_POWER_DELIVERY: u32 = 6u32;
-pub const USB_DEVICE_CAPABILITY_PRECISION_TIME_MEASUREMENT: u32 = 11u32;
-pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_DIR_RX: u32 = 0u32;
-pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_DIR_TX: u32 = 1u32;
-pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_LSE_BPS: u32 = 0u32;
-pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_LSE_GBPS: u32 = 3u32;
-pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_LSE_KBPS: u32 = 1u32;
-pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_LSE_MBPS: u32 = 2u32;
-pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_MODE_ASYMMETRIC: u32 = 1u32;
-pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_MODE_SYMMETRIC: u32 = 0u32;
-pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_PROTOCOL_SS: u32 = 0u32;
-pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_PROTOCOL_SSP: u32 = 1u32;
-pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB: u32 = 10u32;
-pub const USB_DEVICE_CAPABILITY_SUPERSPEED_BMATTRIBUTES_LTM_CAPABLE: u32 = 2u32;
-pub const USB_DEVICE_CAPABILITY_SUPERSPEED_BMATTRIBUTES_RESERVED_MASK: u32 = 253u32;
-pub const USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_FULL: u32 = 2u32;
-pub const USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_HIGH: u32 = 4u32;
-pub const USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_LOW: u32 = 1u32;
-pub const USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_RESERVED_MASK: u32 = 65520u32;
-pub const USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_SUPER: u32 = 8u32;
-pub const USB_DEVICE_CAPABILITY_SUPERSPEED_U1_DEVICE_EXIT_MAX_VALUE: u32 = 10u32;
-pub const USB_DEVICE_CAPABILITY_SUPERSPEED_U2_DEVICE_EXIT_MAX_VALUE: u32 = 2047u32;
-pub const USB_DEVICE_CAPABILITY_SUPERSPEED_USB: u32 = 3u32;
-pub const USB_DEVICE_CAPABILITY_USB20_EXTENSION: u32 = 2u32;
-pub const USB_DEVICE_CAPABILITY_USB20_EXTENSION_BMATTRIBUTES_RESERVED_MASK: u32 = 4294901985u32;
-pub const USB_DEVICE_CAPABILITY_WIRELESS_USB: u32 = 1u32;
-pub const USB_DEVICE_CHARACTERISTICS_MAXIMUM_PATH_DELAYS_AVAILABLE: u32 = 1u32;
-pub const USB_DEVICE_CHARACTERISTICS_VERSION_1: u32 = 1u32;
-pub const USB_DEVICE_CLASS_APPLICATION_SPECIFIC: u32 = 254u32;
-pub const USB_DEVICE_CLASS_AUDIO: u32 = 1u32;
-pub const USB_DEVICE_CLASS_AUDIO_VIDEO: u32 = 16u32;
-pub const USB_DEVICE_CLASS_BILLBOARD: u32 = 17u32;
-pub const USB_DEVICE_CLASS_CDC_DATA: u32 = 10u32;
-pub const USB_DEVICE_CLASS_COMMUNICATIONS: u32 = 2u32;
-pub const USB_DEVICE_CLASS_CONTENT_SECURITY: u32 = 13u32;
-pub const USB_DEVICE_CLASS_DIAGNOSTIC_DEVICE: u32 = 220u32;
-pub const USB_DEVICE_CLASS_HUB: u32 = 9u32;
-pub const USB_DEVICE_CLASS_HUMAN_INTERFACE: u32 = 3u32;
-pub const USB_DEVICE_CLASS_IMAGE: u32 = 6u32;
-pub const USB_DEVICE_CLASS_MISCELLANEOUS: u32 = 239u32;
-pub const USB_DEVICE_CLASS_MONITOR: u32 = 4u32;
-pub const USB_DEVICE_CLASS_PERSONAL_HEALTHCARE: u32 = 15u32;
-pub const USB_DEVICE_CLASS_PHYSICAL_INTERFACE: u32 = 5u32;
-pub const USB_DEVICE_CLASS_POWER: u32 = 6u32;
-pub const USB_DEVICE_CLASS_PRINTER: u32 = 7u32;
-pub const USB_DEVICE_CLASS_RESERVED: u32 = 0u32;
-pub const USB_DEVICE_CLASS_SMART_CARD: u32 = 11u32;
-pub const USB_DEVICE_CLASS_STORAGE: u32 = 8u32;
-pub const USB_DEVICE_CLASS_VENDOR_SPECIFIC: u32 = 255u32;
-pub const USB_DEVICE_CLASS_VIDEO: u32 = 14u32;
-pub const USB_DEVICE_CLASS_WIRELESS_CONTROLLER: u32 = 224u32;
-pub const USB_DEVICE_DESCRIPTOR_TYPE: u32 = 1u32;
-pub const USB_DEVICE_FIRMWARE_HASH_LENGTH: u32 = 32u32;
-pub const USB_DEVICE_QUALIFIER_DESCRIPTOR_TYPE: u32 = 6u32;
-pub const USB_DIAG_IGNORE_HUBS_OFF: u32 = 263u32;
-pub const USB_DIAG_IGNORE_HUBS_ON: u32 = 262u32;
-pub const USB_DISALLOW_FIRMWARE_UPDATE: u32 = 0u32;
-pub const USB_ENABLE_PORT: u32 = 5u32;
-pub const USB_ENDPOINT_ADDRESS_MASK: u32 = 15u32;
-pub const USB_ENDPOINT_DESCRIPTOR_TYPE: u32 = 5u32;
-pub const USB_ENDPOINT_DIRECTION_MASK: u32 = 128u32;
-pub const USB_ENDPOINT_SUPERSPEED_BULK_MAX_PACKET_SIZE: u32 = 1024u32;
-pub const USB_ENDPOINT_SUPERSPEED_CONTROL_MAX_PACKET_SIZE: u32 = 512u32;
-pub const USB_ENDPOINT_SUPERSPEED_INTERRUPT_MAX_PACKET_SIZE: u32 = 1024u32;
-pub const USB_ENDPOINT_SUPERSPEED_ISO_MAX_PACKET_SIZE: u32 = 1024u32;
-pub const USB_ENDPOINT_TYPE_BULK: u32 = 2u32;
-pub const USB_ENDPOINT_TYPE_BULK_RESERVED_MASK: u32 = 252u32;
-pub const USB_ENDPOINT_TYPE_CONTROL: u32 = 0u32;
-pub const USB_ENDPOINT_TYPE_CONTROL_RESERVED_MASK: u32 = 252u32;
-pub const USB_ENDPOINT_TYPE_INTERRUPT: u32 = 3u32;
-pub const USB_ENDPOINT_TYPE_ISOCHRONOUS: u32 = 1u32;
-pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_RESERVED_MASK: u32 = 192u32;
-pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_ADAPTIVE: u32 = 8u32;
-pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_ASYNCHRONOUS: u32 = 4u32;
-pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_MASK: u32 = 12u32;
-pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_NO_SYNCHRONIZATION: u32 = 0u32;
-pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_SYNCHRONOUS: u32 = 12u32;
-pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_DATA_ENDOINT: u32 = 0u32;
-pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_FEEDBACK_ENDPOINT: u32 = 16u32;
-pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_IMPLICIT_FEEDBACK_DATA_ENDPOINT: u32 = 32u32;
-pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_MASK: u32 = 48u32;
-pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_RESERVED: u32 = 48u32;
-pub const USB_ENDPOINT_TYPE_MASK: u32 = 3u32;
-pub const USB_FAIL_GET_STATUS: u32 = 280u32;
-pub const USB_FEATURE_BATTERY_WAKE_MASK: u32 = 40u32;
-pub const USB_FEATURE_CHARGING_POLICY: u32 = 54u32;
-pub const USB_FEATURE_ENDPOINT_STALL: u32 = 0u32;
-pub const USB_FEATURE_FUNCTION_SUSPEND: u32 = 0u32;
-pub const USB_FEATURE_INTERFACE_POWER_D0: u32 = 2u32;
-pub const USB_FEATURE_INTERFACE_POWER_D1: u32 = 3u32;
-pub const USB_FEATURE_INTERFACE_POWER_D2: u32 = 4u32;
-pub const USB_FEATURE_INTERFACE_POWER_D3: u32 = 5u32;
-pub const USB_FEATURE_LDM_ENABLE: u32 = 53u32;
-pub const USB_FEATURE_LTM_ENABLE: u32 = 50u32;
-pub const USB_FEATURE_OS_IS_PD_AWARE: u32 = 41u32;
-pub const USB_FEATURE_POLICY_MODE: u32 = 42u32;
-pub const USB_FEATURE_REMOTE_WAKEUP: u32 = 1u32;
-pub const USB_FEATURE_TEST_MODE: u32 = 2u32;
-pub const USB_FEATURE_U1_ENABLE: u32 = 48u32;
-pub const USB_FEATURE_U2_ENABLE: u32 = 49u32;
-pub const USB_GETSTATUS_LTM_ENABLE: u32 = 16u32;
-pub const USB_GETSTATUS_REMOTE_WAKEUP_ENABLED: u32 = 2u32;
-pub const USB_GETSTATUS_SELF_POWERED: u32 = 1u32;
-pub const USB_GETSTATUS_U1_ENABLE: u32 = 4u32;
-pub const USB_GETSTATUS_U2_ENABLE: u32 = 8u32;
-pub const USB_GET_BUSGUID_INFO: u32 = 266u32;
-pub const USB_GET_BUS_INFO: u32 = 264u32;
-pub const USB_GET_CONTROLLER_NAME: u32 = 265u32;
-pub const USB_GET_DESCRIPTOR_FROM_NODE_CONNECTION: u32 = 260u32;
-pub const USB_GET_DEVICE_CHARACTERISTICS: u32 = 288u32;
-pub const USB_GET_DEVICE_HANDLE: u32 = 268u32;
-pub const USB_GET_DEVICE_HANDLE_EX: u32 = 269u32;
-pub const USB_GET_FIRMWARE_ALLOWED_OR_DISALLOWED_STATE: u32 = 0u32;
-pub const USB_GET_FIRMWARE_HASH: u32 = 1u32;
-pub const USB_GET_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC: u32 = 286u32;
-pub const USB_GET_HUB_CAPABILITIES: u32 = 271u32;
-pub const USB_GET_HUB_CAPABILITIES_EX: u32 = 276u32;
-pub const USB_GET_HUB_CONFIG_INFO: u32 = 275u32;
-pub const USB_GET_HUB_COUNT: u32 = 6u32;
-pub const USB_GET_HUB_INFORMATION_EX: u32 = 277u32;
-pub const USB_GET_HUB_NAME: u32 = 8u32;
-pub const USB_GET_NODE_CONNECTION_ATTRIBUTES: u32 = 272u32;
-pub const USB_GET_NODE_CONNECTION_DRIVERKEY_NAME: u32 = 264u32;
-pub const USB_GET_NODE_CONNECTION_INFORMATION: u32 = 259u32;
-pub const USB_GET_NODE_CONNECTION_INFORMATION_EX: u32 = 274u32;
-pub const USB_GET_NODE_CONNECTION_INFORMATION_EX_V2: u32 = 279u32;
-pub const USB_GET_NODE_CONNECTION_NAME: u32 = 261u32;
-pub const USB_GET_NODE_INFORMATION: u32 = 258u32;
-pub const USB_GET_PARENT_HUB_INFO: u32 = 267u32;
-pub const USB_GET_PORT_CONNECTOR_PROPERTIES: u32 = 278u32;
-pub const USB_GET_PORT_STATUS: u32 = 4u32;
-pub const USB_GET_ROOTHUB_PDO: u32 = 3u32;
-pub const USB_GET_TOPOLOGY_ADDRESS: u32 = 271u32;
-pub const USB_GET_TRANSPORT_CHARACTERISTICS: u32 = 281u32;
-pub const USB_GET_TT_DEVICE_HANDLE: u32 = 270u32;
-pub const USB_HC_FEATURE_FLAG_PORT_POWER_SWITCHING: u32 = 1u32;
-pub const USB_HC_FEATURE_FLAG_SEL_SUSPEND: u32 = 2u32;
-pub const USB_HC_FEATURE_LEGACY_BIOS: u32 = 4u32;
-pub const USB_HC_FEATURE_TIME_SYNC_API: u32 = 8u32;
-pub const USB_HUB_CYCLE_PORT: u32 = 273u32;
-pub const USB_HcGeneric: USB_CONTROLLER_FLAVOR = 0i32;
-pub const USB_IDLE_NOTIFICATION: u32 = 9u32;
-pub const USB_IDLE_NOTIFICATION_EX: u32 = 272u32;
-pub const USB_INTERFACE_ASSOCIATION_DESCRIPTOR_TYPE: u32 = 11u32;
-pub const USB_INTERFACE_DESCRIPTOR_TYPE: u32 = 4u32;
-pub const USB_INTERFACE_POWER_DESCRIPTOR_TYPE: u32 = 8u32;
-pub const USB_NOTIFY_ON_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 283u32;
-pub const USB_OTG_DESCRIPTOR_TYPE: u32 = 9u32;
-pub const USB_OTHER_SPEED_CONFIGURATION_DESCRIPTOR_TYPE: u32 = 7u32;
-pub const USB_PACKETFLAG_ASYNC_IN: u32 = 8u32;
-pub const USB_PACKETFLAG_ASYNC_OUT: u32 = 16u32;
-pub const USB_PACKETFLAG_FULL_SPEED: u32 = 2u32;
-pub const USB_PACKETFLAG_HIGH_SPEED: u32 = 4u32;
-pub const USB_PACKETFLAG_ISO_IN: u32 = 32u32;
-pub const USB_PACKETFLAG_ISO_OUT: u32 = 64u32;
-pub const USB_PACKETFLAG_LOW_SPEED: u32 = 1u32;
-pub const USB_PACKETFLAG_SETUP: u32 = 128u32;
-pub const USB_PACKETFLAG_TOGGLE0: u32 = 256u32;
-pub const USB_PACKETFLAG_TOGGLE1: u32 = 512u32;
-pub const USB_PORTATTR_MINI_CONNECTOR: u32 = 4u32;
-pub const USB_PORTATTR_NO_CONNECTOR: u32 = 1u32;
-pub const USB_PORTATTR_NO_OVERCURRENT_UI: u32 = 33554432u32;
-pub const USB_PORTATTR_OEM_CONNECTOR: u32 = 8u32;
-pub const USB_PORTATTR_OWNED_BY_CC: u32 = 16777216u32;
-pub const USB_PORTATTR_SHARED_USB2: u32 = 2u32;
-pub const USB_PORT_STATUS_CONNECT: u32 = 1u32;
-pub const USB_PORT_STATUS_ENABLE: u32 = 2u32;
-pub const USB_PORT_STATUS_HIGH_SPEED: u32 = 1024u32;
-pub const USB_PORT_STATUS_LOW_SPEED: u32 = 512u32;
-pub const USB_PORT_STATUS_OVER_CURRENT: u32 = 8u32;
-pub const USB_PORT_STATUS_POWER: u32 = 256u32;
-pub const USB_PORT_STATUS_RESET: u32 = 16u32;
-pub const USB_PORT_STATUS_SUSPEND: u32 = 4u32;
-pub const USB_RECORD_FAILURE: u32 = 10u32;
-pub const USB_REGISTER_COMPOSITE_DEVICE: u32 = 0u32;
-pub const USB_REGISTER_FOR_TRANSPORT_BANDWIDTH_CHANGE: u32 = 2u32;
-pub const USB_REGISTER_FOR_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 282u32;
-pub const USB_REGISTER_FOR_TRANSPORT_LATENCY_CHANGE: u32 = 1u32;
-pub const USB_REQUEST_CLEAR_FEATURE: u32 = 1u32;
-pub const USB_REQUEST_CLEAR_TT_BUFFER: u32 = 8u32;
-pub const USB_REQUEST_GET_CONFIGURATION: u32 = 8u32;
-pub const USB_REQUEST_GET_DESCRIPTOR: u32 = 6u32;
-pub const USB_REQUEST_GET_FIRMWARE_STATUS: u32 = 26u32;
-pub const USB_REQUEST_GET_INTERFACE: u32 = 10u32;
-pub const USB_REQUEST_GET_PORT_ERR_COUNT: u32 = 13u32;
-pub const USB_REQUEST_GET_STATE: u32 = 2u32;
-pub const USB_REQUEST_GET_STATUS: u32 = 0u32;
-pub const USB_REQUEST_GET_TT_STATE: u32 = 10u32;
-pub const USB_REQUEST_ISOCH_DELAY: u32 = 49u32;
-pub const USB_REQUEST_REMOTE_WAKE_NOTIFICATION: u32 = 2u32;
-pub const USB_REQUEST_RESET_TT: u32 = 9u32;
-pub const USB_REQUEST_SET_ADDRESS: u32 = 5u32;
-pub const USB_REQUEST_SET_CONFIGURATION: u32 = 9u32;
-pub const USB_REQUEST_SET_DESCRIPTOR: u32 = 7u32;
-pub const USB_REQUEST_SET_FEATURE: u32 = 3u32;
-pub const USB_REQUEST_SET_FIRMWARE_STATUS: u32 = 27u32;
-pub const USB_REQUEST_SET_HUB_DEPTH: u32 = 12u32;
-pub const USB_REQUEST_SET_INTERFACE: u32 = 11u32;
-pub const USB_REQUEST_SET_SEL: u32 = 48u32;
-pub const USB_REQUEST_STOP_TT: u32 = 11u32;
-pub const USB_REQUEST_SYNC_FRAME: u32 = 12u32;
-pub const USB_REQ_GLOBAL_RESUME: u32 = 274u32;
-pub const USB_REQ_GLOBAL_SUSPEND: u32 = 273u32;
-pub const USB_RESERVED_DESCRIPTOR_TYPE: u32 = 6u32;
-pub const USB_RESERVED_USER_BASE: u32 = 1024u32;
-pub const USB_RESET_HUB: u32 = 275u32;
-pub const USB_RESET_PORT: u32 = 1u32;
-pub const USB_START_TRACKING_FOR_TIME_SYNC: u32 = 285u32;
-pub const USB_STATUS_EXT_PORT_STATUS: u32 = 2u32;
-pub const USB_STATUS_PD_STATUS: u32 = 1u32;
-pub const USB_STATUS_PORT_STATUS: u32 = 0u32;
-pub const USB_STOP_TRACKING_FOR_TIME_SYNC: u32 = 287u32;
-pub const USB_STRING_DESCRIPTOR_TYPE: u32 = 3u32;
-pub const USB_SUBMIT_URB: u32 = 0u32;
-pub const USB_SUPERSPEEDPLUS_ISOCHRONOUS_MAX_BYTESPERINTERVAL: u32 = 16777215u32;
-pub const USB_SUPERSPEEDPLUS_ISOCHRONOUS_MIN_BYTESPERINTERVAL: u32 = 49153u32;
-pub const USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR_TYPE: u32 = 49u32;
-pub const USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_TYPE: u32 = 48u32;
-pub const USB_SUPERSPEED_ISOCHRONOUS_MAX_MULTIPLIER: u32 = 2u32;
-pub const USB_SUPPORT_D0_COMMAND: u32 = 1u32;
-pub const USB_SUPPORT_D1_COMMAND: u32 = 2u32;
-pub const USB_SUPPORT_D1_WAKEUP: u32 = 16u32;
-pub const USB_SUPPORT_D2_COMMAND: u32 = 4u32;
-pub const USB_SUPPORT_D2_WAKEUP: u32 = 32u32;
-pub const USB_SUPPORT_D3_COMMAND: u32 = 8u32;
-pub const USB_TEST_MODE_TEST_FORCE_ENABLE: u32 = 5u32;
-pub const USB_TEST_MODE_TEST_J: u32 = 1u32;
-pub const USB_TEST_MODE_TEST_K: u32 = 2u32;
-pub const USB_TEST_MODE_TEST_PACKET: u32 = 4u32;
-pub const USB_TEST_MODE_TEST_SE0_NAK: u32 = 3u32;
-pub const USB_TRANSPORT_CHARACTERISTICS_BANDWIDTH_AVAILABLE: u32 = 2u32;
-pub const USB_TRANSPORT_CHARACTERISTICS_LATENCY_AVAILABLE: u32 = 1u32;
-pub const USB_TRANSPORT_CHARACTERISTICS_VERSION_1: u32 = 1u32;
-pub const USB_UNREGISTER_COMPOSITE_DEVICE: u32 = 1u32;
-pub const USB_UNREGISTER_FOR_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 284u32;
-pub const Usb11Device: USB_DEVICE_TYPE = 0i32;
-pub const Usb20Device: USB_DEVICE_TYPE = 1i32;
-pub const Usb20Hub: USB_HUB_TYPE = 2i32;
-pub const Usb30Hub: USB_HUB_TYPE = 3i32;
-pub const UsbController: USB_WMI_DEVICE_NODE_TYPE = 3i32;
-pub const UsbDevice: USB_WMI_DEVICE_NODE_TYPE = 0i32;
-pub const UsbFullSpeed: USB_DEVICE_SPEED = 1i32;
-pub const UsbHighSpeed: USB_DEVICE_SPEED = 2i32;
-pub const UsbHub: USB_HUB_NODE = 0i32;
-pub const UsbLowSpeed: USB_DEVICE_SPEED = 0i32;
-pub const UsbMIParent: USB_HUB_NODE = 1i32;
-pub const UsbRootHub: USB_HUB_TYPE = 1i32;
-pub const UsbSuperSpeed: USB_DEVICE_SPEED = 3i32;
-pub const UsbUserBufferTooSmall: USB_USER_ERROR_CODE = 7i32;
-pub const UsbUserDeviceNotStarted: USB_USER_ERROR_CODE = 9i32;
-pub const UsbUserErrorNotMapped: USB_USER_ERROR_CODE = 8i32;
-pub const UsbUserFeatureDisabled: USB_USER_ERROR_CODE = 3i32;
-pub const UsbUserInvalidHeaderParameter: USB_USER_ERROR_CODE = 4i32;
-pub const UsbUserInvalidParameter: USB_USER_ERROR_CODE = 5i32;
-pub const UsbUserInvalidRequestCode: USB_USER_ERROR_CODE = 2i32;
-pub const UsbUserMiniportError: USB_USER_ERROR_CODE = 6i32;
-pub const UsbUserNoDeviceConnected: USB_USER_ERROR_CODE = 10i32;
-pub const UsbUserNotSupported: USB_USER_ERROR_CODE = 1i32;
-pub const UsbUserSuccess: USB_USER_ERROR_CODE = 0i32;
-pub const UsbdEndpointOffloadHardwareAssisted: USBD_ENDPOINT_OFFLOAD_MODE = 2i32;
-pub const UsbdEndpointOffloadModeNotSupported: USBD_ENDPOINT_OFFLOAD_MODE = 0i32;
-pub const UsbdEndpointOffloadSoftwareAssisted: USBD_ENDPOINT_OFFLOAD_MODE = 1i32;
-pub const UsbdPipeTypeBulk: USBD_PIPE_TYPE = 2i32;
-pub const UsbdPipeTypeControl: USBD_PIPE_TYPE = 0i32;
-pub const UsbdPipeTypeInterrupt: USBD_PIPE_TYPE = 3i32;
-pub const UsbdPipeTypeIsochronous: USBD_PIPE_TYPE = 1i32;
-pub const UsbfnBusSpeedFull: USBFN_BUS_SPEED = 1i32;
-pub const UsbfnBusSpeedHigh: USBFN_BUS_SPEED = 2i32;
-pub const UsbfnBusSpeedLow: USBFN_BUS_SPEED = 0i32;
-pub const UsbfnBusSpeedMaximum: USBFN_BUS_SPEED = 4i32;
-pub const UsbfnBusSpeedSuper: USBFN_BUS_SPEED = 3i32;
-pub const UsbfnChargingDownstreamPort: USBFN_PORT_TYPE = 2i32;
-pub const UsbfnDedicatedChargingPort: USBFN_PORT_TYPE = 3i32;
-pub const UsbfnDeviceStateAddressed: USBFN_DEVICE_STATE = 4i32;
-pub const UsbfnDeviceStateAttached: USBFN_DEVICE_STATE = 1i32;
-pub const UsbfnDeviceStateConfigured: USBFN_DEVICE_STATE = 5i32;
-pub const UsbfnDeviceStateDefault: USBFN_DEVICE_STATE = 2i32;
-pub const UsbfnDeviceStateDetached: USBFN_DEVICE_STATE = 3i32;
-pub const UsbfnDeviceStateMinimum: USBFN_DEVICE_STATE = 0i32;
-pub const UsbfnDeviceStateStateMaximum: USBFN_DEVICE_STATE = 7i32;
-pub const UsbfnDeviceStateSuspended: USBFN_DEVICE_STATE = 6i32;
-pub const UsbfnDirectionIn: USBFN_DIRECTION = 1i32;
-pub const UsbfnDirectionMaximum: USBFN_DIRECTION = 3i32;
-pub const UsbfnDirectionMinimum: USBFN_DIRECTION = 0i32;
-pub const UsbfnDirectionOut: USBFN_DIRECTION = 2i32;
-pub const UsbfnDirectionRx: USBFN_DIRECTION = 2i32;
-pub const UsbfnDirectionTx: USBFN_DIRECTION = 1i32;
-pub const UsbfnEventAttach: USBFN_EVENT = 1i32;
-pub const UsbfnEventBusTearDown: USBFN_EVENT = 10i32;
-pub const UsbfnEventConfigured: USBFN_EVENT = 7i32;
-pub const UsbfnEventDetach: USBFN_EVENT = 3i32;
-pub const UsbfnEventMaximum: USBFN_EVENT = 12i32;
-pub const UsbfnEventMinimum: USBFN_EVENT = 0i32;
-pub const UsbfnEventPortType: USBFN_EVENT = 9i32;
-pub const UsbfnEventReset: USBFN_EVENT = 2i32;
-pub const UsbfnEventResume: USBFN_EVENT = 5i32;
-pub const UsbfnEventSetInterface: USBFN_EVENT = 11i32;
-pub const UsbfnEventSetupPacket: USBFN_EVENT = 6i32;
-pub const UsbfnEventSuspend: USBFN_EVENT = 4i32;
-pub const UsbfnEventUnConfigured: USBFN_EVENT = 8i32;
-pub const UsbfnInvalidDedicatedChargingPort: USBFN_PORT_TYPE = 4i32;
-pub const UsbfnPortTypeMaximum: USBFN_PORT_TYPE = 6i32;
-pub const UsbfnProprietaryDedicatedChargingPort: USBFN_PORT_TYPE = 5i32;
-pub const UsbfnStandardDownstreamPort: USBFN_PORT_TYPE = 1i32;
-pub const UsbfnUnknownPort: USBFN_PORT_TYPE = 0i32;
-pub const WMI_USB_DEVICE_NODE_INFORMATION: u32 = 2u32;
-pub const WMI_USB_DRIVER_INFORMATION: u32 = 0u32;
-pub const WMI_USB_DRIVER_NOTIFICATION: u32 = 1u32;
-pub const WMI_USB_HUB_NODE_INFORMATION: u32 = 4u32;
-pub const WMI_USB_PERFORMANCE_INFORMATION: u32 = 1u32;
-pub const WMI_USB_POWER_DEVICE_ENABLE: u32 = 2u32;
-pub const WRITE_DATA_PIPE: PIPE_TYPE = 2i32;
-pub const WdmUsbPowerDeviceD0: WDMUSB_POWER_STATE = 201i32;
-pub const WdmUsbPowerDeviceD1: WDMUSB_POWER_STATE = 202i32;
-pub const WdmUsbPowerDeviceD2: WDMUSB_POWER_STATE = 203i32;
-pub const WdmUsbPowerDeviceD3: WDMUSB_POWER_STATE = 204i32;
-pub const WdmUsbPowerDeviceUnspecified: WDMUSB_POWER_STATE = 200i32;
-pub const WdmUsbPowerNotMapped: WDMUSB_POWER_STATE = 0i32;
-pub const WdmUsbPowerSystemHibernate: WDMUSB_POWER_STATE = 105i32;
-pub const WdmUsbPowerSystemShutdown: WDMUSB_POWER_STATE = 106i32;
-pub const WdmUsbPowerSystemSleeping1: WDMUSB_POWER_STATE = 102i32;
-pub const WdmUsbPowerSystemSleeping2: WDMUSB_POWER_STATE = 103i32;
-pub const WdmUsbPowerSystemSleeping3: WDMUSB_POWER_STATE = 104i32;
-pub const WdmUsbPowerSystemUnspecified: WDMUSB_POWER_STATE = 100i32;
-pub const WdmUsbPowerSystemWorking: WDMUSB_POWER_STATE = 101i32;
-pub const WinUSB_TestGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xda812bff_12c3_46a2_8e2b_dbd3b7834c43);

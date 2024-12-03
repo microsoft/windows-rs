@@ -45,6 +45,59 @@ impl windows_core::RuntimeName for CompositionDebugHeatMaps {
 unsafe impl Send for CompositionDebugHeatMaps {}
 unsafe impl Sync for CompositionDebugHeatMaps {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CompositionDebugOverdrawContentKinds(pub u32);
+impl CompositionDebugOverdrawContentKinds {
+    pub const None: Self = Self(0u32);
+    pub const OffscreenRendered: Self = Self(1u32);
+    pub const Colors: Self = Self(2u32);
+    pub const Effects: Self = Self(4u32);
+    pub const Shadows: Self = Self(8u32);
+    pub const Lights: Self = Self(16u32);
+    pub const Surfaces: Self = Self(32u32);
+    pub const SwapChains: Self = Self(64u32);
+    pub const All: Self = Self(4294967295u32);
+}
+impl windows_core::TypeKind for CompositionDebugOverdrawContentKinds {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for CompositionDebugOverdrawContentKinds {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Diagnostics.CompositionDebugOverdrawContentKinds;u4)");
+}
+impl CompositionDebugOverdrawContentKinds {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for CompositionDebugOverdrawContentKinds {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for CompositionDebugOverdrawContentKinds {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for CompositionDebugOverdrawContentKinds {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for CompositionDebugOverdrawContentKinds {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for CompositionDebugOverdrawContentKinds {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionDebugSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionDebugSettings, windows_core::IUnknown, windows_core::IInspectable);
@@ -111,57 +164,4 @@ impl windows_core::RuntimeType for ICompositionDebugSettingsStatics {
 pub struct ICompositionDebugSettingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryGetSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CompositionDebugOverdrawContentKinds(pub u32);
-impl CompositionDebugOverdrawContentKinds {
-    pub const None: Self = Self(0u32);
-    pub const OffscreenRendered: Self = Self(1u32);
-    pub const Colors: Self = Self(2u32);
-    pub const Effects: Self = Self(4u32);
-    pub const Shadows: Self = Self(8u32);
-    pub const Lights: Self = Self(16u32);
-    pub const Surfaces: Self = Self(32u32);
-    pub const SwapChains: Self = Self(64u32);
-    pub const All: Self = Self(4294967295u32);
-}
-impl windows_core::TypeKind for CompositionDebugOverdrawContentKinds {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for CompositionDebugOverdrawContentKinds {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Diagnostics.CompositionDebugOverdrawContentKinds;u4)");
-}
-impl CompositionDebugOverdrawContentKinds {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for CompositionDebugOverdrawContentKinds {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for CompositionDebugOverdrawContentKinds {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for CompositionDebugOverdrawContentKinds {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for CompositionDebugOverdrawContentKinds {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for CompositionDebugOverdrawContentKinds {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }

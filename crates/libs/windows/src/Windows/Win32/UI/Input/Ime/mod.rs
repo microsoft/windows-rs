@@ -701,6 +701,341 @@ where
     windows_targets::link!("imm32.dll" "system" fn ImmUnregisterWordW(param0 : super::KeyboardAndMouse:: HKL, lpszreading : windows_core::PCWSTR, param2 : u32, lpszunregister : windows_core::PCWSTR) -> super::super::super::Foundation:: BOOL);
     ImmUnregisterWordW(param0.param().abi(), lpszreading.param().abi(), core::mem::transmute(param2), lpszunregister.param().abi())
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct APPLETIDLIST {
+    pub count: i32,
+    pub pIIDList: *mut windows_core::GUID,
+}
+impl Default for APPLETIDLIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for APPLETIDLIST {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct APPLYCANDEXPARAM {
+    pub dwSize: u32,
+    pub lpwstrDisplay: windows_core::PWSTR,
+    pub lpwstrReading: windows_core::PWSTR,
+    pub dwReserved: u32,
+}
+impl Default for APPLYCANDEXPARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for APPLYCANDEXPARAM {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ATTR_CONVERTED: u32 = 2u32;
+pub const ATTR_FIXEDCONVERTED: u32 = 5u32;
+pub const ATTR_INPUT: u32 = 0u32;
+pub const ATTR_INPUT_ERROR: u32 = 4u32;
+pub const ATTR_TARGET_CONVERTED: u32 = 1u32;
+pub const ATTR_TARGET_NOTCONVERTED: u32 = 3u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CANDIDATEFORM {
+    pub dwIndex: u32,
+    pub dwStyle: u32,
+    pub ptCurrentPos: super::super::super::Foundation::POINT,
+    pub rcArea: super::super::super::Foundation::RECT,
+}
+impl Default for CANDIDATEFORM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CANDIDATEFORM {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CANDIDATEINFO {
+    pub dwSize: u32,
+    pub dwCount: u32,
+    pub dwOffset: [u32; 32],
+    pub dwPrivateSize: u32,
+    pub dwPrivateOffset: u32,
+}
+impl Default for CANDIDATEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CANDIDATEINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CANDIDATELIST {
+    pub dwSize: u32,
+    pub dwStyle: u32,
+    pub dwCount: u32,
+    pub dwSelection: u32,
+    pub dwPageStart: u32,
+    pub dwPageSize: u32,
+    pub dwOffset: [u32; 1],
+}
+impl Default for CANDIDATELIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CANDIDATELIST {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CATID_MSIME_IImePadApplet: windows_core::GUID = windows_core::GUID::from_u128(0x7566cad1_4ec9_4478_9fe9_8ed766619edf);
+pub const CATID_MSIME_IImePadApplet1000: windows_core::GUID = windows_core::GUID::from_u128(0xe081e1d6_2389_43cb_b66f_609f823d9f9c);
+pub const CATID_MSIME_IImePadApplet1200: windows_core::GUID = windows_core::GUID::from_u128(0xa47fb5fc_7d15_4223_a789_b781bf9ae667);
+pub const CATID_MSIME_IImePadApplet900: windows_core::GUID = windows_core::GUID::from_u128(0xfaae51bf_5e5b_4a1d_8de1_17c1d9e1728d);
+pub const CATID_MSIME_IImePadApplet_VER7: windows_core::GUID = windows_core::GUID::from_u128(0x4a0f8e31_c3ee_11d1_afef_00805f0c8b6d);
+pub const CATID_MSIME_IImePadApplet_VER80: windows_core::GUID = windows_core::GUID::from_u128(0x56f7a792_fef1_11d3_8463_00c04f7a06e5);
+pub const CATID_MSIME_IImePadApplet_VER81: windows_core::GUID = windows_core::GUID::from_u128(0x656520b0_bb88_11d4_84c0_00c04f7a06e5);
+pub const CActiveIMM: windows_core::GUID = windows_core::GUID::from_u128(0x4955dd33_b159_11d0_8fcf_00aa006bcc59);
+pub const CFS_CANDIDATEPOS: u32 = 64u32;
+pub const CFS_DEFAULT: u32 = 0u32;
+pub const CFS_EXCLUDE: u32 = 128u32;
+pub const CFS_FORCE_POSITION: u32 = 32u32;
+pub const CFS_POINT: u32 = 2u32;
+pub const CFS_RECT: u32 = 1u32;
+pub const CHARINFO_APPLETID_MASK: u32 = 4278190080u32;
+pub const CHARINFO_CHARID_MASK: u32 = 65535u32;
+pub const CHARINFO_FEID_MASK: u32 = 15728640u32;
+pub const CLSID_ImePlugInDictDictionaryList_CHS: windows_core::GUID = windows_core::GUID::from_u128(0x7bf0129b_5bef_4de4_9b0b_5edb66ac2fa6);
+pub const CLSID_ImePlugInDictDictionaryList_JPN: windows_core::GUID = windows_core::GUID::from_u128(0x4fe2776b_b0f9_4396_b5fc_e9d4cf1ec195);
+pub const CLSID_VERSION_DEPENDENT_MSIME_JAPANESE: windows_core::GUID = windows_core::GUID::from_u128(0x6a91029e_aa49_471b_aee7_7d332785660d);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COMPOSITIONFORM {
+    pub dwStyle: u32,
+    pub ptCurrentPos: super::super::super::Foundation::POINT,
+    pub rcArea: super::super::super::Foundation::RECT,
+}
+impl Default for COMPOSITIONFORM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COMPOSITIONFORM {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COMPOSITIONSTRING {
+    pub dwSize: u32,
+    pub dwCompReadAttrLen: u32,
+    pub dwCompReadAttrOffset: u32,
+    pub dwCompReadClauseLen: u32,
+    pub dwCompReadClauseOffset: u32,
+    pub dwCompReadStrLen: u32,
+    pub dwCompReadStrOffset: u32,
+    pub dwCompAttrLen: u32,
+    pub dwCompAttrOffset: u32,
+    pub dwCompClauseLen: u32,
+    pub dwCompClauseOffset: u32,
+    pub dwCompStrLen: u32,
+    pub dwCompStrOffset: u32,
+    pub dwCursorPos: u32,
+    pub dwDeltaStart: u32,
+    pub dwResultReadClauseLen: u32,
+    pub dwResultReadClauseOffset: u32,
+    pub dwResultReadStrLen: u32,
+    pub dwResultReadStrOffset: u32,
+    pub dwResultClauseLen: u32,
+    pub dwResultClauseOffset: u32,
+    pub dwResultStrLen: u32,
+    pub dwResultStrOffset: u32,
+    pub dwPrivateSize: u32,
+    pub dwPrivateOffset: u32,
+}
+impl Default for COMPOSITIONSTRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COMPOSITIONSTRING {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CPS_CANCEL: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(4u32);
+pub const CPS_COMPLETE: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(1u32);
+pub const CPS_CONVERT: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(2u32);
+pub const CPS_REVERT: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(3u32);
+pub const CS_INSERTCHAR: u32 = 8192u32;
+pub const CS_NOMOVECARET: u32 = 16384u32;
+pub const E_LARGEINPUT: u32 = 51u32;
+pub const E_NOCAND: u32 = 48u32;
+pub const E_NOTENOUGH_BUFFER: u32 = 49u32;
+pub const E_NOTENOUGH_WDD: u32 = 50u32;
+pub const FEID_CHINESE_HONGKONG: u32 = 3u32;
+pub const FEID_CHINESE_SIMPLIFIED: u32 = 2u32;
+pub const FEID_CHINESE_SINGAPORE: u32 = 4u32;
+pub const FEID_CHINESE_TRADITIONAL: u32 = 1u32;
+pub const FEID_JAPANESE: u32 = 5u32;
+pub const FEID_KOREAN: u32 = 6u32;
+pub const FEID_KOREAN_JOHAB: u32 = 7u32;
+pub const FEID_NONE: u32 = 0u32;
+pub const FELANG_CLMN_FIXD: u32 = 32u32;
+pub const FELANG_CLMN_FIXR: u32 = 16u32;
+pub const FELANG_CLMN_NOPBREAK: u32 = 8u32;
+pub const FELANG_CLMN_NOWBREAK: u32 = 2u32;
+pub const FELANG_CLMN_PBREAK: u32 = 4u32;
+pub const FELANG_CLMN_WBREAK: u32 = 1u32;
+pub const FELANG_CMODE_AUTOMATIC: u32 = 134217728u32;
+pub const FELANG_CMODE_BESTFIRST: u32 = 16384u32;
+pub const FELANG_CMODE_BOPOMOFO: u32 = 64u32;
+pub const FELANG_CMODE_CONVERSATION: u32 = 536870912u32;
+pub const FELANG_CMODE_FULLWIDTHOUT: u32 = 32u32;
+pub const FELANG_CMODE_HALFWIDTHOUT: u32 = 16u32;
+pub const FELANG_CMODE_HANGUL: u32 = 128u32;
+pub const FELANG_CMODE_HIRAGANAOUT: u32 = 0u32;
+pub const FELANG_CMODE_KATAKANAOUT: u32 = 8u32;
+pub const FELANG_CMODE_MERGECAND: u32 = 4096u32;
+pub const FELANG_CMODE_MONORUBY: u32 = 2u32;
+pub const FELANG_CMODE_NAME: u32 = 268435456u32;
+pub const FELANG_CMODE_NOINVISIBLECHAR: u32 = 1073741824u32;
+pub const FELANG_CMODE_NONE: u32 = 16777216u32;
+pub const FELANG_CMODE_NOPRUNING: u32 = 4u32;
+pub const FELANG_CMODE_PHRASEPREDICT: u32 = 268435456u32;
+pub const FELANG_CMODE_PINYIN: u32 = 256u32;
+pub const FELANG_CMODE_PLAURALCLAUSE: u32 = 33554432u32;
+pub const FELANG_CMODE_PRECONV: u32 = 512u32;
+pub const FELANG_CMODE_RADICAL: u32 = 1024u32;
+pub const FELANG_CMODE_ROMAN: u32 = 8192u32;
+pub const FELANG_CMODE_SINGLECONVERT: u32 = 67108864u32;
+pub const FELANG_CMODE_UNKNOWNREADING: u32 = 2048u32;
+pub const FELANG_CMODE_USENOREVWORDS: u32 = 32768u32;
+pub const FELANG_INVALD_PO: u32 = 65535u32;
+pub const FELANG_REQ_CONV: u32 = 65536u32;
+pub const FELANG_REQ_RECONV: u32 = 131072u32;
+pub const FELANG_REQ_REV: u32 = 196608u32;
+pub const FID_MSIME_KMS_DEL_KEYLIST: u32 = 4u32;
+pub const FID_MSIME_KMS_FUNCDESC: u32 = 9u32;
+pub const FID_MSIME_KMS_GETMAP: u32 = 6u32;
+pub const FID_MSIME_KMS_GETMAPFAST: u32 = 11u32;
+pub const FID_MSIME_KMS_GETMAPSEAMLESS: u32 = 10u32;
+pub const FID_MSIME_KMS_INIT: u32 = 2u32;
+pub const FID_MSIME_KMS_INVOKE: u32 = 7u32;
+pub const FID_MSIME_KMS_NOTIFY: u32 = 5u32;
+pub const FID_MSIME_KMS_SETMAP: u32 = 8u32;
+pub const FID_MSIME_KMS_TERM: u32 = 3u32;
+pub const FID_MSIME_KMS_VERSION: u32 = 1u32;
+pub const FID_MSIME_VERSION: u32 = 0u32;
+pub const FID_RECONVERT_VERSION: u32 = 268435456u32;
+pub const GCL_CONVERSION: GET_CONVERSION_LIST_FLAG = GET_CONVERSION_LIST_FLAG(1u32);
+pub const GCL_REVERSECONVERSION: GET_CONVERSION_LIST_FLAG = GET_CONVERSION_LIST_FLAG(2u32);
+pub const GCL_REVERSE_LENGTH: GET_CONVERSION_LIST_FLAG = GET_CONVERSION_LIST_FLAG(3u32);
+pub const GCSEX_CANCELRECONVERT: u32 = 268435456u32;
+pub const GCS_COMPATTR: IME_COMPOSITION_STRING = IME_COMPOSITION_STRING(16u32);
+pub const GCS_COMPCLAUSE: IME_COMPOSITION_STRING = IME_COMPOSITION_STRING(32u32);
+pub const GCS_COMPREADATTR: IME_COMPOSITION_STRING = IME_COMPOSITION_STRING(2u32);
+pub const GCS_COMPREADCLAUSE: IME_COMPOSITION_STRING = IME_COMPOSITION_STRING(4u32);
+pub const GCS_COMPREADSTR: IME_COMPOSITION_STRING = IME_COMPOSITION_STRING(1u32);
+pub const GCS_COMPSTR: IME_COMPOSITION_STRING = IME_COMPOSITION_STRING(8u32);
+pub const GCS_CURSORPOS: IME_COMPOSITION_STRING = IME_COMPOSITION_STRING(128u32);
+pub const GCS_DELTASTART: IME_COMPOSITION_STRING = IME_COMPOSITION_STRING(256u32);
+pub const GCS_RESULTCLAUSE: IME_COMPOSITION_STRING = IME_COMPOSITION_STRING(4096u32);
+pub const GCS_RESULTREADCLAUSE: IME_COMPOSITION_STRING = IME_COMPOSITION_STRING(1024u32);
+pub const GCS_RESULTREADSTR: IME_COMPOSITION_STRING = IME_COMPOSITION_STRING(512u32);
+pub const GCS_RESULTSTR: IME_COMPOSITION_STRING = IME_COMPOSITION_STRING(2048u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GET_CONVERSION_LIST_FLAG(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GET_GUIDE_LINE_TYPE(pub u32);
+pub const GGL_INDEX: GET_GUIDE_LINE_TYPE = GET_GUIDE_LINE_TYPE(2u32);
+pub const GGL_LEVEL: GET_GUIDE_LINE_TYPE = GET_GUIDE_LINE_TYPE(1u32);
+pub const GGL_PRIVATE: GET_GUIDE_LINE_TYPE = GET_GUIDE_LINE_TYPE(4u32);
+pub const GGL_STRING: GET_GUIDE_LINE_TYPE = GET_GUIDE_LINE_TYPE(3u32);
+pub const GL_ID_CANNOTSAVE: u32 = 17u32;
+pub const GL_ID_CHOOSECANDIDATE: u32 = 40u32;
+pub const GL_ID_INPUTCODE: u32 = 38u32;
+pub const GL_ID_INPUTRADICAL: u32 = 37u32;
+pub const GL_ID_INPUTREADING: u32 = 36u32;
+pub const GL_ID_INPUTSYMBOL: u32 = 39u32;
+pub const GL_ID_NOCONVERT: u32 = 32u32;
+pub const GL_ID_NODICTIONARY: u32 = 16u32;
+pub const GL_ID_NOMODULE: u32 = 1u32;
+pub const GL_ID_PRIVATE_FIRST: u32 = 32768u32;
+pub const GL_ID_PRIVATE_LAST: u32 = 65535u32;
+pub const GL_ID_READINGCONFLICT: u32 = 35u32;
+pub const GL_ID_REVERSECONVERSION: u32 = 41u32;
+pub const GL_ID_TOOMANYSTROKE: u32 = 34u32;
+pub const GL_ID_TYPINGERROR: u32 = 33u32;
+pub const GL_ID_UNKNOWN: u32 = 0u32;
+pub const GL_LEVEL_ERROR: u32 = 2u32;
+pub const GL_LEVEL_FATAL: u32 = 1u32;
+pub const GL_LEVEL_INFORMATION: u32 = 4u32;
+pub const GL_LEVEL_NOGUIDELINE: u32 = 0u32;
+pub const GL_LEVEL_WARNING: u32 = 3u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GUIDELINE {
+    pub dwSize: u32,
+    pub dwLevel: u32,
+    pub dwIndex: u32,
+    pub dwStrLen: u32,
+    pub dwStrOffset: u32,
+    pub dwPrivateSize: u32,
+    pub dwPrivateOffset: u32,
+}
+impl Default for GUIDELINE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for GUIDELINE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HIMC(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HIMC {
+    type TypeKind = windows_core::CopyType;
+}
+impl HIMC {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HIMC {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("imm32.dll" "system" fn ImmDestroyContext(param0 : *mut core::ffi::c_void) -> i32);
+            ImmDestroyContext(self.0);
+        }
+    }
+}
+impl Default for HIMC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HIMCC(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HIMCC {
+    type TypeKind = windows_core::CopyType;
+}
+impl HIMCC {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl Default for HIMCC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const IACE_CHILDREN: u32 = 1u32;
+pub const IACE_DEFAULT: u32 = 16u32;
+pub const IACE_IGNORENOCONTEXT: u32 = 32u32;
 windows_core::imp::define_interface!(IActiveIME, IActiveIME_Vtbl, 0x6fe20962_d077_11d0_8fe7_00aa006bcc59);
 windows_core::imp::interface_hierarchy!(IActiveIME, windows_core::IUnknown);
 impl IActiveIME {
@@ -3982,6 +4317,7 @@ impl IEnumRegisterWordW_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IEnumRegisterWordW {}
+pub const IFEC_S_ALREADY_DEFAULT: windows_core::HRESULT = windows_core::HRESULT(0x47400_u32 as _);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFEClassFactory, IFEClassFactory_Vtbl, 0);
 #[cfg(feature = "Win32_System_Com")]
@@ -4072,6 +4408,122 @@ impl IFECommon_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IFECommon {}
+pub const IFED_ACTIVE_DICT: IMEFMT = IMEFMT(13i32);
+pub const IFED_ATOK10: IMEFMT = IMEFMT(15i32);
+pub const IFED_ATOK9: IMEFMT = IMEFMT(14i32);
+pub const IFED_E_INVALID_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0x80047301_u32 as _);
+pub const IFED_E_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80047300_u32 as _);
+pub const IFED_E_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80047307_u32 as _);
+pub const IFED_E_NOT_USER_DIC: windows_core::HRESULT = windows_core::HRESULT(0x80047306_u32 as _);
+pub const IFED_E_NO_ENTRY: windows_core::HRESULT = windows_core::HRESULT(0x80047304_u32 as _);
+pub const IFED_E_OPEN_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80047302_u32 as _);
+pub const IFED_E_REGISTER_DISCONNECTED: windows_core::HRESULT = windows_core::HRESULT(0x8004730B_u32 as _);
+pub const IFED_E_REGISTER_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80047305_u32 as _);
+pub const IFED_E_REGISTER_ILLEGAL_POS: windows_core::HRESULT = windows_core::HRESULT(0x80047309_u32 as _);
+pub const IFED_E_REGISTER_IMPROPER_WORD: windows_core::HRESULT = windows_core::HRESULT(0x8004730A_u32 as _);
+pub const IFED_E_USER_COMMENT: windows_core::HRESULT = windows_core::HRESULT(0x80047308_u32 as _);
+pub const IFED_E_WRITE_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80047303_u32 as _);
+pub const IFED_MSIME2_BIN_SYSTEM: IMEFMT = IMEFMT(1i32);
+pub const IFED_MSIME2_BIN_USER: IMEFMT = IMEFMT(2i32);
+pub const IFED_MSIME2_TEXT_USER: IMEFMT = IMEFMT(3i32);
+pub const IFED_MSIME95_BIN_SYSTEM: IMEFMT = IMEFMT(4i32);
+pub const IFED_MSIME95_BIN_USER: IMEFMT = IMEFMT(5i32);
+pub const IFED_MSIME95_TEXT_USER: IMEFMT = IMEFMT(6i32);
+pub const IFED_MSIME97_BIN_SYSTEM: IMEFMT = IMEFMT(7i32);
+pub const IFED_MSIME97_BIN_USER: IMEFMT = IMEFMT(8i32);
+pub const IFED_MSIME97_TEXT_USER: IMEFMT = IMEFMT(9i32);
+pub const IFED_MSIME98_BIN_SYSTEM: IMEFMT = IMEFMT(10i32);
+pub const IFED_MSIME98_BIN_USER: IMEFMT = IMEFMT(11i32);
+pub const IFED_MSIME98_SYSTEM_CE: IMEFMT = IMEFMT(20i32);
+pub const IFED_MSIME98_TEXT_USER: IMEFMT = IMEFMT(12i32);
+pub const IFED_MSIME_BIN_SYSTEM: IMEFMT = IMEFMT(21i32);
+pub const IFED_MSIME_BIN_USER: IMEFMT = IMEFMT(22i32);
+pub const IFED_MSIME_TEXT_USER: IMEFMT = IMEFMT(23i32);
+pub const IFED_NEC_AI_: IMEFMT = IMEFMT(16i32);
+pub const IFED_PIME2_BIN_STANDARD_SYSTEM: IMEFMT = IMEFMT(26i32);
+pub const IFED_PIME2_BIN_SYSTEM: IMEFMT = IMEFMT(25i32);
+pub const IFED_PIME2_BIN_USER: IMEFMT = IMEFMT(24i32);
+pub const IFED_POS_ADJECTIVE: u32 = 4u32;
+pub const IFED_POS_ADJECTIVE_VERB: u32 = 8u32;
+pub const IFED_POS_ADNOUN: u32 = 32u32;
+pub const IFED_POS_ADVERB: u32 = 16u32;
+pub const IFED_POS_AFFIX: u32 = 1536u32;
+pub const IFED_POS_ALL: u32 = 131071u32;
+pub const IFED_POS_AUXILIARY_VERB: u32 = 32768u32;
+pub const IFED_POS_CONJUNCTION: u32 = 64u32;
+pub const IFED_POS_DEPENDENT: u32 = 114688u32;
+pub const IFED_POS_IDIOMS: u32 = 4096u32;
+pub const IFED_POS_INDEPENDENT: u32 = 255u32;
+pub const IFED_POS_INFLECTIONALSUFFIX: u32 = 256u32;
+pub const IFED_POS_INTERJECTION: u32 = 128u32;
+pub const IFED_POS_NONE: u32 = 0u32;
+pub const IFED_POS_NOUN: u32 = 1u32;
+pub const IFED_POS_PARTICLE: u32 = 16384u32;
+pub const IFED_POS_PREFIX: u32 = 512u32;
+pub const IFED_POS_SUB_VERB: u32 = 65536u32;
+pub const IFED_POS_SUFFIX: u32 = 1024u32;
+pub const IFED_POS_SYMBOLS: u32 = 8192u32;
+pub const IFED_POS_TANKANJI: u32 = 2048u32;
+pub const IFED_POS_VERB: u32 = 2u32;
+pub const IFED_REG_ALL: u32 = 7u32;
+pub const IFED_REG_AUTO: u32 = 2u32;
+pub const IFED_REG_DEL: IMEREG = IMEREG(2i32);
+pub const IFED_REG_GRAMMAR: u32 = 4u32;
+pub const IFED_REG_HEAD: IMEREG = IMEREG(0i32);
+pub const IFED_REG_NONE: u32 = 0u32;
+pub const IFED_REG_TAIL: IMEREG = IMEREG(1i32);
+pub const IFED_REG_USER: u32 = 1u32;
+pub const IFED_REL_ALL: IMEREL = IMEREL(24i32);
+pub const IFED_REL_DE: IMEREL = IMEREL(5i32);
+pub const IFED_REL_FUKU_YOUGEN: IMEREL = IMEREL(12i32);
+pub const IFED_REL_GA: IMEREL = IMEREL(2i32);
+pub const IFED_REL_HE: IMEREL = IMEREL(9i32);
+pub const IFED_REL_IDEOM: IMEREL = IMEREL(11i32);
+pub const IFED_REL_KARA: IMEREL = IMEREL(7i32);
+pub const IFED_REL_KEIDOU1_YOUGEN: IMEREL = IMEREL(14i32);
+pub const IFED_REL_KEIDOU2_YOUGEN: IMEREL = IMEREL(15i32);
+pub const IFED_REL_KEIYOU_TARU_YOUGEN: IMEREL = IMEREL(21i32);
+pub const IFED_REL_KEIYOU_TO_YOUGEN: IMEREL = IMEREL(20i32);
+pub const IFED_REL_KEIYOU_YOUGEN: IMEREL = IMEREL(13i32);
+pub const IFED_REL_MADE: IMEREL = IMEREL(8i32);
+pub const IFED_REL_NI: IMEREL = IMEREL(4i32);
+pub const IFED_REL_NO: IMEREL = IMEREL(1i32);
+pub const IFED_REL_NONE: IMEREL = IMEREL(0i32);
+pub const IFED_REL_RENSOU: IMEREL = IMEREL(19i32);
+pub const IFED_REL_RENTAI_MEI: IMEREL = IMEREL(18i32);
+pub const IFED_REL_TAIGEN: IMEREL = IMEREL(16i32);
+pub const IFED_REL_TO: IMEREL = IMEREL(10i32);
+pub const IFED_REL_UNKNOWN1: IMEREL = IMEREL(22i32);
+pub const IFED_REL_UNKNOWN2: IMEREL = IMEREL(23i32);
+pub const IFED_REL_WO: IMEREL = IMEREL(3i32);
+pub const IFED_REL_YORI: IMEREL = IMEREL(6i32);
+pub const IFED_REL_YOUGEN: IMEREL = IMEREL(17i32);
+pub const IFED_SELECT_ALL: u32 = 15u32;
+pub const IFED_SELECT_COMMENT: u32 = 8u32;
+pub const IFED_SELECT_DISPLAY: u32 = 2u32;
+pub const IFED_SELECT_NONE: u32 = 0u32;
+pub const IFED_SELECT_POS: u32 = 4u32;
+pub const IFED_SELECT_READING: u32 = 1u32;
+pub const IFED_S_COMMENT_CHANGED: windows_core::HRESULT = windows_core::HRESULT(0x47203_u32 as _);
+pub const IFED_S_EMPTY_DICTIONARY: windows_core::HRESULT = windows_core::HRESULT(0x47201_u32 as _);
+pub const IFED_S_MORE_ENTRIES: windows_core::HRESULT = windows_core::HRESULT(0x47200_u32 as _);
+pub const IFED_S_WORD_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x47202_u32 as _);
+pub const IFED_TYPE_ALL: u32 = 31u32;
+pub const IFED_TYPE_ENGLISH: u32 = 16u32;
+pub const IFED_TYPE_GENERAL: u32 = 1u32;
+pub const IFED_TYPE_NAMEPLACE: u32 = 2u32;
+pub const IFED_TYPE_NONE: u32 = 0u32;
+pub const IFED_TYPE_REVERSE: u32 = 8u32;
+pub const IFED_TYPE_SPEECH: u32 = 4u32;
+pub const IFED_UCT_MAX: IMEUCT = IMEUCT(4i32);
+pub const IFED_UCT_NONE: IMEUCT = IMEUCT(0i32);
+pub const IFED_UCT_STRING_SJIS: IMEUCT = IMEUCT(1i32);
+pub const IFED_UCT_STRING_UNICODE: IMEUCT = IMEUCT(2i32);
+pub const IFED_UCT_USER_DEFINED: IMEUCT = IMEUCT(3i32);
+pub const IFED_UNKNOWN: IMEFMT = IMEFMT(0i32);
+pub const IFED_VJE_20: IMEFMT = IMEFMT(19i32);
+pub const IFED_WX_II: IMEFMT = IMEFMT(17i32);
+pub const IFED_WX_III: IMEFMT = IMEFMT(18i32);
 windows_core::imp::define_interface!(IFEDictionary, IFEDictionary_Vtbl, 0x019f7153_e6db_11d0_83c3_00c04fddb82e);
 windows_core::imp::interface_hierarchy!(IFEDictionary, windows_core::IUnknown);
 impl IFEDictionary {
@@ -4367,6 +4819,14 @@ impl IFELanguage_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IFELanguage {}
+pub const IGIMIF_RIGHTMENU: u32 = 1u32;
+pub const IGIMII_CMODE: u32 = 1u32;
+pub const IGIMII_CONFIGURE: u32 = 4u32;
+pub const IGIMII_HELP: u32 = 16u32;
+pub const IGIMII_INPUTTOOLS: u32 = 64u32;
+pub const IGIMII_OTHER: u32 = 32u32;
+pub const IGIMII_SMODE: u32 = 2u32;
+pub const IGIMII_TOOLS: u32 = 8u32;
 windows_core::imp::define_interface!(IImePad, IImePad_Vtbl, 0x5d8e643a_c3a9_11d1_afef_00805f0c8b6d);
 windows_core::imp::interface_hierarchy!(IImePad, windows_core::IUnknown);
 impl IImePad {
@@ -4566,351 +5026,26 @@ impl IImeSpecifyApplets_Vtbl {
 }
 impl windows_core::RuntimeName for IImeSpecifyApplets {}
 pub type IMCENUMPROC = Option<unsafe extern "system" fn(param0: HIMC, param1: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL>;
-pub type PFNLOG = Option<unsafe extern "system" fn(param0: *mut IMEDP, param1: windows_core::HRESULT) -> super::super::super::Foundation::BOOL>;
-pub type REGISTERWORDENUMPROCA = Option<unsafe extern "system" fn(lpszreading: windows_core::PCSTR, param1: u32, lpszstring: windows_core::PCSTR, param3: *mut core::ffi::c_void) -> i32>;
-pub type REGISTERWORDENUMPROCW = Option<unsafe extern "system" fn(lpszreading: windows_core::PCWSTR, param1: u32, lpszstring: windows_core::PCWSTR, param3: *mut core::ffi::c_void) -> i32>;
-pub type fpCreateIFECommonInstanceType = Option<unsafe extern "system" fn(ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
-pub type fpCreateIFEDictionaryInstanceType = Option<unsafe extern "system" fn(ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
-pub type fpCreateIFELanguageInstanceType = Option<unsafe extern "system" fn(clsid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GET_CONVERSION_LIST_FLAG(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GET_GUIDE_LINE_TYPE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IMEFMT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IMEREG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IMEREL(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IMEUCT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IME_COMPOSITION_STRING(pub u32);
-impl IME_COMPOSITION_STRING {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for IME_COMPOSITION_STRING {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for IME_COMPOSITION_STRING {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for IME_COMPOSITION_STRING {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for IME_COMPOSITION_STRING {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for IME_COMPOSITION_STRING {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IME_CONVERSION_MODE(pub u32);
-impl IME_CONVERSION_MODE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for IME_CONVERSION_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for IME_CONVERSION_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for IME_CONVERSION_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for IME_CONVERSION_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for IME_CONVERSION_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IME_ESCAPE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IME_HOTKEY_IDENTIFIER(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IME_PAD_REQUEST_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IME_SENTENCE_MODE(pub u32);
-impl IME_SENTENCE_MODE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for IME_SENTENCE_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for IME_SENTENCE_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for IME_SENTENCE_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for IME_SENTENCE_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for IME_SENTENCE_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NOTIFY_IME_ACTION(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NOTIFY_IME_INDEX(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SET_COMPOSITION_STRING_TYPE(pub u32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct APPLETIDLIST {
-    pub count: i32,
-    pub pIIDList: *mut windows_core::GUID,
-}
-impl Default for APPLETIDLIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for APPLETIDLIST {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct APPLYCANDEXPARAM {
-    pub dwSize: u32,
-    pub lpwstrDisplay: windows_core::PWSTR,
-    pub lpwstrReading: windows_core::PWSTR,
-    pub dwReserved: u32,
-}
-impl Default for APPLYCANDEXPARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for APPLYCANDEXPARAM {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CANDIDATEFORM {
-    pub dwIndex: u32,
-    pub dwStyle: u32,
-    pub ptCurrentPos: super::super::super::Foundation::POINT,
-    pub rcArea: super::super::super::Foundation::RECT,
-}
-impl Default for CANDIDATEFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CANDIDATEFORM {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CANDIDATEINFO {
-    pub dwSize: u32,
-    pub dwCount: u32,
-    pub dwOffset: [u32; 32],
-    pub dwPrivateSize: u32,
-    pub dwPrivateOffset: u32,
-}
-impl Default for CANDIDATEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CANDIDATEINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CANDIDATELIST {
-    pub dwSize: u32,
-    pub dwStyle: u32,
-    pub dwCount: u32,
-    pub dwSelection: u32,
-    pub dwPageStart: u32,
-    pub dwPageSize: u32,
-    pub dwOffset: [u32; 1],
-}
-impl Default for CANDIDATELIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CANDIDATELIST {
-    type TypeKind = windows_core::CopyType;
-}
-pub const CActiveIMM: windows_core::GUID = windows_core::GUID::from_u128(0x4955dd33_b159_11d0_8fcf_00aa006bcc59);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct COMPOSITIONFORM {
-    pub dwStyle: u32,
-    pub ptCurrentPos: super::super::super::Foundation::POINT,
-    pub rcArea: super::super::super::Foundation::RECT,
-}
-impl Default for COMPOSITIONFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for COMPOSITIONFORM {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct COMPOSITIONSTRING {
-    pub dwSize: u32,
-    pub dwCompReadAttrLen: u32,
-    pub dwCompReadAttrOffset: u32,
-    pub dwCompReadClauseLen: u32,
-    pub dwCompReadClauseOffset: u32,
-    pub dwCompReadStrLen: u32,
-    pub dwCompReadStrOffset: u32,
-    pub dwCompAttrLen: u32,
-    pub dwCompAttrOffset: u32,
-    pub dwCompClauseLen: u32,
-    pub dwCompClauseOffset: u32,
-    pub dwCompStrLen: u32,
-    pub dwCompStrOffset: u32,
-    pub dwCursorPos: u32,
-    pub dwDeltaStart: u32,
-    pub dwResultReadClauseLen: u32,
-    pub dwResultReadClauseOffset: u32,
-    pub dwResultReadStrLen: u32,
-    pub dwResultReadStrOffset: u32,
-    pub dwResultClauseLen: u32,
-    pub dwResultClauseOffset: u32,
-    pub dwResultStrLen: u32,
-    pub dwResultStrOffset: u32,
-    pub dwPrivateSize: u32,
-    pub dwPrivateOffset: u32,
-}
-impl Default for COMPOSITIONSTRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for COMPOSITIONSTRING {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct GUIDELINE {
-    pub dwSize: u32,
-    pub dwLevel: u32,
-    pub dwIndex: u32,
-    pub dwStrLen: u32,
-    pub dwStrOffset: u32,
-    pub dwPrivateSize: u32,
-    pub dwPrivateOffset: u32,
-}
-impl Default for GUIDELINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for GUIDELINE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HIMC(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HIMC {
-    type TypeKind = windows_core::CopyType;
-}
-impl HIMC {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HIMC {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("imm32.dll" "system" fn ImmDestroyContext(param0 : *mut core::ffi::c_void) -> i32);
-            ImmDestroyContext(self.0);
-        }
-    }
-}
-impl Default for HIMC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HIMCC(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HIMCC {
-    type TypeKind = windows_core::CopyType;
-}
-impl HIMCC {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl Default for HIMCC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub const IMC_CLOSESTATUSWINDOW: u32 = 33u32;
+pub const IMC_GETCANDIDATEPOS: u32 = 7u32;
+pub const IMC_GETCOMPOSITIONFONT: u32 = 9u32;
+pub const IMC_GETCOMPOSITIONWINDOW: u32 = 11u32;
+pub const IMC_GETSOFTKBDFONT: u32 = 17u32;
+pub const IMC_GETSOFTKBDPOS: u32 = 19u32;
+pub const IMC_GETSOFTKBDSUBTYPE: u32 = 21u32;
+pub const IMC_GETSTATUSWINDOWPOS: u32 = 15u32;
+pub const IMC_OPENSTATUSWINDOW: u32 = 34u32;
+pub const IMC_SETCANDIDATEPOS: u32 = 8u32;
+pub const IMC_SETCOMPOSITIONFONT: u32 = 10u32;
+pub const IMC_SETCOMPOSITIONWINDOW: u32 = 12u32;
+pub const IMC_SETCONVERSIONMODE: u32 = 2u32;
+pub const IMC_SETOPENSTATUS: u32 = 6u32;
+pub const IMC_SETSENTENCEMODE: u32 = 4u32;
+pub const IMC_SETSOFTKBDDATA: u32 = 24u32;
+pub const IMC_SETSOFTKBDFONT: u32 = 18u32;
+pub const IMC_SETSOFTKBDPOS: u32 = 20u32;
+pub const IMC_SETSOFTKBDSUBTYPE: u32 = 22u32;
+pub const IMC_SETSTATUSWINDOWPOS: u32 = 16u32;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5052,6 +5187,13 @@ impl Default for IMEFAREASTINFO {
 impl windows_core::TypeKind for IMEFAREASTINFO {
     type TypeKind = windows_core::CopyType;
 }
+pub const IMEFAREASTINFO_TYPE_COMMENT: u32 = 2u32;
+pub const IMEFAREASTINFO_TYPE_COSTTIME: u32 = 3u32;
+pub const IMEFAREASTINFO_TYPE_DEFAULT: u32 = 0u32;
+pub const IMEFAREASTINFO_TYPE_READING: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IMEFMT(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMEINFO {
@@ -5100,6 +5242,11 @@ impl Default for IMEITEMCANDIDATE {
 impl windows_core::TypeKind for IMEITEMCANDIDATE {
     type TypeKind = windows_core::CopyType;
 }
+pub const IMEKEYCTRLMASK_ALT: u32 = 1u32;
+pub const IMEKEYCTRLMASK_CTRL: u32 = 2u32;
+pub const IMEKEYCTRLMASK_SHIFT: u32 = 4u32;
+pub const IMEKEYCTRL_DOWN: u32 = 0u32;
+pub const IMEKEYCTRL_UP: u32 = 1u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IMEKMS {
@@ -5240,6 +5387,14 @@ impl Default for IMEKMSNTFY {
 impl windows_core::TypeKind for IMEKMSNTFY {
     type TypeKind = windows_core::CopyType;
 }
+pub const IMEKMS_2NDLEVEL: u32 = 4u32;
+pub const IMEKMS_CANDIDATE: u32 = 6u32;
+pub const IMEKMS_COMPOSITION: u32 = 1u32;
+pub const IMEKMS_IMEOFF: u32 = 3u32;
+pub const IMEKMS_INPTGL: u32 = 5u32;
+pub const IMEKMS_NOCOMPOSITION: u32 = 0u32;
+pub const IMEKMS_SELECTION: u32 = 2u32;
+pub const IMEKMS_TYPECAND: u32 = 7u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5288,709 +5443,6 @@ impl Default for IMEMENUITEMINFOW {
 impl windows_core::TypeKind for IMEMENUITEMINFOW {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMESHF {
-    pub cbShf: u16,
-    pub verDic: u16,
-    pub szTitle: [i8; 48],
-    pub szDescription: [i8; 256],
-    pub szCopyright: [i8; 128],
-}
-impl Default for IMESHF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IMESHF {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct IMESTRINGCANDIDATE {
-    pub uCount: u32,
-    pub lpwstr: [windows_core::PWSTR; 1],
-}
-impl Default for IMESTRINGCANDIDATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IMESTRINGCANDIDATE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct IMESTRINGCANDIDATEINFO {
-    pub dwFarEastId: u32,
-    pub lpFarEastInfo: *mut IMEFAREASTINFO,
-    pub fInfoMask: u32,
-    pub iSelIndex: i32,
-    pub uCount: u32,
-    pub lpwstr: [windows_core::PWSTR; 1],
-}
-impl Default for IMESTRINGCANDIDATEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IMESTRINGCANDIDATEINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct IMESTRINGINFO {
-    pub dwFarEastId: u32,
-    pub lpwstr: windows_core::PWSTR,
-}
-impl Default for IMESTRINGINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IMESTRINGINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMEWRD {
-    pub pwchReading: windows_core::PWSTR,
-    pub pwchDisplay: windows_core::PWSTR,
-    pub Anonymous: IMEWRD_0,
-    pub rgulAttrs: [u32; 2],
-    pub cbComment: i32,
-    pub uct: IMEUCT,
-    pub pvComment: *mut core::ffi::c_void,
-}
-impl Default for IMEWRD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IMEWRD {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union IMEWRD_0 {
-    pub ulPos: u32,
-    pub Anonymous: IMEWRD_0_0,
-}
-impl Default for IMEWRD_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IMEWRD_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IMEWRD_0_0 {
-    pub nPos1: u16,
-    pub nPos2: u16,
-}
-impl Default for IMEWRD_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IMEWRD_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct INPUTCONTEXT {
-    pub hWnd: super::super::super::Foundation::HWND,
-    pub fOpen: super::super::super::Foundation::BOOL,
-    pub ptStatusWndPos: super::super::super::Foundation::POINT,
-    pub ptSoftKbdPos: super::super::super::Foundation::POINT,
-    pub fdwConversion: u32,
-    pub fdwSentence: u32,
-    pub lfFont: INPUTCONTEXT_0,
-    pub cfCompForm: COMPOSITIONFORM,
-    pub cfCandForm: [CANDIDATEFORM; 4],
-    pub hCompStr: HIMCC,
-    pub hCandInfo: HIMCC,
-    pub hGuideLine: HIMCC,
-    pub hPrivate: HIMCC,
-    pub dwNumMsgBuf: u32,
-    pub hMsgBuf: HIMCC,
-    pub fdwInit: u32,
-    pub dwReserve: [u32; 3],
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for INPUTCONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for INPUTCONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub union INPUTCONTEXT_0 {
-    pub A: super::super::super::Graphics::Gdi::LOGFONTA,
-    pub W: super::super::super::Graphics::Gdi::LOGFONTW,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for INPUTCONTEXT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for INPUTCONTEXT_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MORRSLT {
-    pub dwSize: u32,
-    pub pwchOutput: windows_core::PWSTR,
-    pub cchOutput: u16,
-    pub Anonymous1: MORRSLT_0,
-    pub Anonymous2: MORRSLT_1,
-    pub pchInputPos: *mut u16,
-    pub pchOutputIdxWDD: *mut u16,
-    pub Anonymous3: MORRSLT_2,
-    pub paMonoRubyPos: *mut u16,
-    pub pWDD: *mut WDD,
-    pub cWDD: i32,
-    pub pPrivate: *mut core::ffi::c_void,
-    pub BLKBuff: [u16; 1],
-}
-impl Default for MORRSLT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MORRSLT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union MORRSLT_0 {
-    pub pwchRead: windows_core::PWSTR,
-    pub pwchComp: windows_core::PWSTR,
-}
-impl Default for MORRSLT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MORRSLT_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union MORRSLT_1 {
-    pub cchRead: u16,
-    pub cchComp: u16,
-}
-impl Default for MORRSLT_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MORRSLT_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union MORRSLT_2 {
-    pub pchReadIdxWDD: *mut u16,
-    pub pchCompIdxWDD: *mut u16,
-}
-impl Default for MORRSLT_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MORRSLT_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct POSTBL {
-    pub nPos: u16,
-    pub szName: *mut u8,
-}
-impl Default for POSTBL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for POSTBL {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct RECONVERTSTRING {
-    pub dwSize: u32,
-    pub dwVersion: u32,
-    pub dwStrLen: u32,
-    pub dwStrOffset: u32,
-    pub dwCompStrLen: u32,
-    pub dwCompStrOffset: u32,
-    pub dwTargetStrLen: u32,
-    pub dwTargetStrOffset: u32,
-}
-impl Default for RECONVERTSTRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for RECONVERTSTRING {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct REGISTERWORDA {
-    pub lpReading: windows_core::PSTR,
-    pub lpWord: windows_core::PSTR,
-}
-impl Default for REGISTERWORDA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for REGISTERWORDA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct REGISTERWORDW {
-    pub lpReading: windows_core::PWSTR,
-    pub lpWord: windows_core::PWSTR,
-}
-impl Default for REGISTERWORDW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for REGISTERWORDW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SOFTKBDDATA {
-    pub uCount: u32,
-    pub wCode: [u16; 256],
-}
-impl Default for SOFTKBDDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SOFTKBDDATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct STYLEBUFA {
-    pub dwStyle: u32,
-    pub szDescription: [i8; 32],
-}
-impl Default for STYLEBUFA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for STYLEBUFA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct STYLEBUFW {
-    pub dwStyle: u32,
-    pub szDescription: [u16; 32],
-}
-impl Default for STYLEBUFW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for STYLEBUFW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TRANSMSG {
-    pub message: u32,
-    pub wParam: super::super::super::Foundation::WPARAM,
-    pub lParam: super::super::super::Foundation::LPARAM,
-}
-impl Default for TRANSMSG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TRANSMSG {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TRANSMSGLIST {
-    pub uMsgCount: u32,
-    pub TransMsg: [TRANSMSG; 1],
-}
-impl Default for TRANSMSGLIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TRANSMSGLIST {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct WDD {
-    pub wDispPos: u16,
-    pub Anonymous1: WDD_0,
-    pub cchDisp: u16,
-    pub Anonymous2: WDD_1,
-    pub WDD_nReserve1: u32,
-    pub nPos: u16,
-    pub _bitfield: u16,
-    pub pReserved: *mut core::ffi::c_void,
-}
-impl Default for WDD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WDD {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union WDD_0 {
-    pub wReadPos: u16,
-    pub wCompPos: u16,
-}
-impl Default for WDD_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WDD_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union WDD_1 {
-    pub cchRead: u16,
-    pub cchComp: u16,
-}
-impl Default for WDD_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WDD_1 {
-    type TypeKind = windows_core::CopyType;
-}
-pub const ATTR_CONVERTED: u32 = 2u32;
-pub const ATTR_FIXEDCONVERTED: u32 = 5u32;
-pub const ATTR_INPUT: u32 = 0u32;
-pub const ATTR_INPUT_ERROR: u32 = 4u32;
-pub const ATTR_TARGET_CONVERTED: u32 = 1u32;
-pub const ATTR_TARGET_NOTCONVERTED: u32 = 3u32;
-pub const CATID_MSIME_IImePadApplet: windows_core::GUID = windows_core::GUID::from_u128(0x7566cad1_4ec9_4478_9fe9_8ed766619edf);
-pub const CATID_MSIME_IImePadApplet1000: windows_core::GUID = windows_core::GUID::from_u128(0xe081e1d6_2389_43cb_b66f_609f823d9f9c);
-pub const CATID_MSIME_IImePadApplet1200: windows_core::GUID = windows_core::GUID::from_u128(0xa47fb5fc_7d15_4223_a789_b781bf9ae667);
-pub const CATID_MSIME_IImePadApplet900: windows_core::GUID = windows_core::GUID::from_u128(0xfaae51bf_5e5b_4a1d_8de1_17c1d9e1728d);
-pub const CATID_MSIME_IImePadApplet_VER7: windows_core::GUID = windows_core::GUID::from_u128(0x4a0f8e31_c3ee_11d1_afef_00805f0c8b6d);
-pub const CATID_MSIME_IImePadApplet_VER80: windows_core::GUID = windows_core::GUID::from_u128(0x56f7a792_fef1_11d3_8463_00c04f7a06e5);
-pub const CATID_MSIME_IImePadApplet_VER81: windows_core::GUID = windows_core::GUID::from_u128(0x656520b0_bb88_11d4_84c0_00c04f7a06e5);
-pub const CFS_CANDIDATEPOS: u32 = 64u32;
-pub const CFS_DEFAULT: u32 = 0u32;
-pub const CFS_EXCLUDE: u32 = 128u32;
-pub const CFS_FORCE_POSITION: u32 = 32u32;
-pub const CFS_POINT: u32 = 2u32;
-pub const CFS_RECT: u32 = 1u32;
-pub const CHARINFO_APPLETID_MASK: u32 = 4278190080u32;
-pub const CHARINFO_CHARID_MASK: u32 = 65535u32;
-pub const CHARINFO_FEID_MASK: u32 = 15728640u32;
-pub const CLSID_ImePlugInDictDictionaryList_CHS: windows_core::GUID = windows_core::GUID::from_u128(0x7bf0129b_5bef_4de4_9b0b_5edb66ac2fa6);
-pub const CLSID_ImePlugInDictDictionaryList_JPN: windows_core::GUID = windows_core::GUID::from_u128(0x4fe2776b_b0f9_4396_b5fc_e9d4cf1ec195);
-pub const CLSID_VERSION_DEPENDENT_MSIME_JAPANESE: windows_core::GUID = windows_core::GUID::from_u128(0x6a91029e_aa49_471b_aee7_7d332785660d);
-pub const CPS_CANCEL: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(4u32);
-pub const CPS_COMPLETE: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(1u32);
-pub const CPS_CONVERT: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(2u32);
-pub const CPS_REVERT: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(3u32);
-pub const CS_INSERTCHAR: u32 = 8192u32;
-pub const CS_NOMOVECARET: u32 = 16384u32;
-pub const E_LARGEINPUT: u32 = 51u32;
-pub const E_NOCAND: u32 = 48u32;
-pub const E_NOTENOUGH_BUFFER: u32 = 49u32;
-pub const E_NOTENOUGH_WDD: u32 = 50u32;
-pub const FEID_CHINESE_HONGKONG: u32 = 3u32;
-pub const FEID_CHINESE_SIMPLIFIED: u32 = 2u32;
-pub const FEID_CHINESE_SINGAPORE: u32 = 4u32;
-pub const FEID_CHINESE_TRADITIONAL: u32 = 1u32;
-pub const FEID_JAPANESE: u32 = 5u32;
-pub const FEID_KOREAN: u32 = 6u32;
-pub const FEID_KOREAN_JOHAB: u32 = 7u32;
-pub const FEID_NONE: u32 = 0u32;
-pub const FELANG_CLMN_FIXD: u32 = 32u32;
-pub const FELANG_CLMN_FIXR: u32 = 16u32;
-pub const FELANG_CLMN_NOPBREAK: u32 = 8u32;
-pub const FELANG_CLMN_NOWBREAK: u32 = 2u32;
-pub const FELANG_CLMN_PBREAK: u32 = 4u32;
-pub const FELANG_CLMN_WBREAK: u32 = 1u32;
-pub const FELANG_CMODE_AUTOMATIC: u32 = 134217728u32;
-pub const FELANG_CMODE_BESTFIRST: u32 = 16384u32;
-pub const FELANG_CMODE_BOPOMOFO: u32 = 64u32;
-pub const FELANG_CMODE_CONVERSATION: u32 = 536870912u32;
-pub const FELANG_CMODE_FULLWIDTHOUT: u32 = 32u32;
-pub const FELANG_CMODE_HALFWIDTHOUT: u32 = 16u32;
-pub const FELANG_CMODE_HANGUL: u32 = 128u32;
-pub const FELANG_CMODE_HIRAGANAOUT: u32 = 0u32;
-pub const FELANG_CMODE_KATAKANAOUT: u32 = 8u32;
-pub const FELANG_CMODE_MERGECAND: u32 = 4096u32;
-pub const FELANG_CMODE_MONORUBY: u32 = 2u32;
-pub const FELANG_CMODE_NAME: u32 = 268435456u32;
-pub const FELANG_CMODE_NOINVISIBLECHAR: u32 = 1073741824u32;
-pub const FELANG_CMODE_NONE: u32 = 16777216u32;
-pub const FELANG_CMODE_NOPRUNING: u32 = 4u32;
-pub const FELANG_CMODE_PHRASEPREDICT: u32 = 268435456u32;
-pub const FELANG_CMODE_PINYIN: u32 = 256u32;
-pub const FELANG_CMODE_PLAURALCLAUSE: u32 = 33554432u32;
-pub const FELANG_CMODE_PRECONV: u32 = 512u32;
-pub const FELANG_CMODE_RADICAL: u32 = 1024u32;
-pub const FELANG_CMODE_ROMAN: u32 = 8192u32;
-pub const FELANG_CMODE_SINGLECONVERT: u32 = 67108864u32;
-pub const FELANG_CMODE_UNKNOWNREADING: u32 = 2048u32;
-pub const FELANG_CMODE_USENOREVWORDS: u32 = 32768u32;
-pub const FELANG_INVALD_PO: u32 = 65535u32;
-pub const FELANG_REQ_CONV: u32 = 65536u32;
-pub const FELANG_REQ_RECONV: u32 = 131072u32;
-pub const FELANG_REQ_REV: u32 = 196608u32;
-pub const FID_MSIME_KMS_DEL_KEYLIST: u32 = 4u32;
-pub const FID_MSIME_KMS_FUNCDESC: u32 = 9u32;
-pub const FID_MSIME_KMS_GETMAP: u32 = 6u32;
-pub const FID_MSIME_KMS_GETMAPFAST: u32 = 11u32;
-pub const FID_MSIME_KMS_GETMAPSEAMLESS: u32 = 10u32;
-pub const FID_MSIME_KMS_INIT: u32 = 2u32;
-pub const FID_MSIME_KMS_INVOKE: u32 = 7u32;
-pub const FID_MSIME_KMS_NOTIFY: u32 = 5u32;
-pub const FID_MSIME_KMS_SETMAP: u32 = 8u32;
-pub const FID_MSIME_KMS_TERM: u32 = 3u32;
-pub const FID_MSIME_KMS_VERSION: u32 = 1u32;
-pub const FID_MSIME_VERSION: u32 = 0u32;
-pub const FID_RECONVERT_VERSION: u32 = 268435456u32;
-pub const GCL_CONVERSION: GET_CONVERSION_LIST_FLAG = GET_CONVERSION_LIST_FLAG(1u32);
-pub const GCL_REVERSECONVERSION: GET_CONVERSION_LIST_FLAG = GET_CONVERSION_LIST_FLAG(2u32);
-pub const GCL_REVERSE_LENGTH: GET_CONVERSION_LIST_FLAG = GET_CONVERSION_LIST_FLAG(3u32);
-pub const GCSEX_CANCELRECONVERT: u32 = 268435456u32;
-pub const GCS_COMPATTR: IME_COMPOSITION_STRING = IME_COMPOSITION_STRING(16u32);
-pub const GCS_COMPCLAUSE: IME_COMPOSITION_STRING = IME_COMPOSITION_STRING(32u32);
-pub const GCS_COMPREADATTR: IME_COMPOSITION_STRING = IME_COMPOSITION_STRING(2u32);
-pub const GCS_COMPREADCLAUSE: IME_COMPOSITION_STRING = IME_COMPOSITION_STRING(4u32);
-pub const GCS_COMPREADSTR: IME_COMPOSITION_STRING = IME_COMPOSITION_STRING(1u32);
-pub const GCS_COMPSTR: IME_COMPOSITION_STRING = IME_COMPOSITION_STRING(8u32);
-pub const GCS_CURSORPOS: IME_COMPOSITION_STRING = IME_COMPOSITION_STRING(128u32);
-pub const GCS_DELTASTART: IME_COMPOSITION_STRING = IME_COMPOSITION_STRING(256u32);
-pub const GCS_RESULTCLAUSE: IME_COMPOSITION_STRING = IME_COMPOSITION_STRING(4096u32);
-pub const GCS_RESULTREADCLAUSE: IME_COMPOSITION_STRING = IME_COMPOSITION_STRING(1024u32);
-pub const GCS_RESULTREADSTR: IME_COMPOSITION_STRING = IME_COMPOSITION_STRING(512u32);
-pub const GCS_RESULTSTR: IME_COMPOSITION_STRING = IME_COMPOSITION_STRING(2048u32);
-pub const GGL_INDEX: GET_GUIDE_LINE_TYPE = GET_GUIDE_LINE_TYPE(2u32);
-pub const GGL_LEVEL: GET_GUIDE_LINE_TYPE = GET_GUIDE_LINE_TYPE(1u32);
-pub const GGL_PRIVATE: GET_GUIDE_LINE_TYPE = GET_GUIDE_LINE_TYPE(4u32);
-pub const GGL_STRING: GET_GUIDE_LINE_TYPE = GET_GUIDE_LINE_TYPE(3u32);
-pub const GL_ID_CANNOTSAVE: u32 = 17u32;
-pub const GL_ID_CHOOSECANDIDATE: u32 = 40u32;
-pub const GL_ID_INPUTCODE: u32 = 38u32;
-pub const GL_ID_INPUTRADICAL: u32 = 37u32;
-pub const GL_ID_INPUTREADING: u32 = 36u32;
-pub const GL_ID_INPUTSYMBOL: u32 = 39u32;
-pub const GL_ID_NOCONVERT: u32 = 32u32;
-pub const GL_ID_NODICTIONARY: u32 = 16u32;
-pub const GL_ID_NOMODULE: u32 = 1u32;
-pub const GL_ID_PRIVATE_FIRST: u32 = 32768u32;
-pub const GL_ID_PRIVATE_LAST: u32 = 65535u32;
-pub const GL_ID_READINGCONFLICT: u32 = 35u32;
-pub const GL_ID_REVERSECONVERSION: u32 = 41u32;
-pub const GL_ID_TOOMANYSTROKE: u32 = 34u32;
-pub const GL_ID_TYPINGERROR: u32 = 33u32;
-pub const GL_ID_UNKNOWN: u32 = 0u32;
-pub const GL_LEVEL_ERROR: u32 = 2u32;
-pub const GL_LEVEL_FATAL: u32 = 1u32;
-pub const GL_LEVEL_INFORMATION: u32 = 4u32;
-pub const GL_LEVEL_NOGUIDELINE: u32 = 0u32;
-pub const GL_LEVEL_WARNING: u32 = 3u32;
-pub const IACE_CHILDREN: u32 = 1u32;
-pub const IACE_DEFAULT: u32 = 16u32;
-pub const IACE_IGNORENOCONTEXT: u32 = 32u32;
-pub const IFEC_S_ALREADY_DEFAULT: windows_core::HRESULT = windows_core::HRESULT(0x47400_u32 as _);
-pub const IFED_ACTIVE_DICT: IMEFMT = IMEFMT(13i32);
-pub const IFED_ATOK10: IMEFMT = IMEFMT(15i32);
-pub const IFED_ATOK9: IMEFMT = IMEFMT(14i32);
-pub const IFED_E_INVALID_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0x80047301_u32 as _);
-pub const IFED_E_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x80047300_u32 as _);
-pub const IFED_E_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80047307_u32 as _);
-pub const IFED_E_NOT_USER_DIC: windows_core::HRESULT = windows_core::HRESULT(0x80047306_u32 as _);
-pub const IFED_E_NO_ENTRY: windows_core::HRESULT = windows_core::HRESULT(0x80047304_u32 as _);
-pub const IFED_E_OPEN_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80047302_u32 as _);
-pub const IFED_E_REGISTER_DISCONNECTED: windows_core::HRESULT = windows_core::HRESULT(0x8004730B_u32 as _);
-pub const IFED_E_REGISTER_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80047305_u32 as _);
-pub const IFED_E_REGISTER_ILLEGAL_POS: windows_core::HRESULT = windows_core::HRESULT(0x80047309_u32 as _);
-pub const IFED_E_REGISTER_IMPROPER_WORD: windows_core::HRESULT = windows_core::HRESULT(0x8004730A_u32 as _);
-pub const IFED_E_USER_COMMENT: windows_core::HRESULT = windows_core::HRESULT(0x80047308_u32 as _);
-pub const IFED_E_WRITE_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80047303_u32 as _);
-pub const IFED_MSIME2_BIN_SYSTEM: IMEFMT = IMEFMT(1i32);
-pub const IFED_MSIME2_BIN_USER: IMEFMT = IMEFMT(2i32);
-pub const IFED_MSIME2_TEXT_USER: IMEFMT = IMEFMT(3i32);
-pub const IFED_MSIME95_BIN_SYSTEM: IMEFMT = IMEFMT(4i32);
-pub const IFED_MSIME95_BIN_USER: IMEFMT = IMEFMT(5i32);
-pub const IFED_MSIME95_TEXT_USER: IMEFMT = IMEFMT(6i32);
-pub const IFED_MSIME97_BIN_SYSTEM: IMEFMT = IMEFMT(7i32);
-pub const IFED_MSIME97_BIN_USER: IMEFMT = IMEFMT(8i32);
-pub const IFED_MSIME97_TEXT_USER: IMEFMT = IMEFMT(9i32);
-pub const IFED_MSIME98_BIN_SYSTEM: IMEFMT = IMEFMT(10i32);
-pub const IFED_MSIME98_BIN_USER: IMEFMT = IMEFMT(11i32);
-pub const IFED_MSIME98_SYSTEM_CE: IMEFMT = IMEFMT(20i32);
-pub const IFED_MSIME98_TEXT_USER: IMEFMT = IMEFMT(12i32);
-pub const IFED_MSIME_BIN_SYSTEM: IMEFMT = IMEFMT(21i32);
-pub const IFED_MSIME_BIN_USER: IMEFMT = IMEFMT(22i32);
-pub const IFED_MSIME_TEXT_USER: IMEFMT = IMEFMT(23i32);
-pub const IFED_NEC_AI_: IMEFMT = IMEFMT(16i32);
-pub const IFED_PIME2_BIN_STANDARD_SYSTEM: IMEFMT = IMEFMT(26i32);
-pub const IFED_PIME2_BIN_SYSTEM: IMEFMT = IMEFMT(25i32);
-pub const IFED_PIME2_BIN_USER: IMEFMT = IMEFMT(24i32);
-pub const IFED_POS_ADJECTIVE: u32 = 4u32;
-pub const IFED_POS_ADJECTIVE_VERB: u32 = 8u32;
-pub const IFED_POS_ADNOUN: u32 = 32u32;
-pub const IFED_POS_ADVERB: u32 = 16u32;
-pub const IFED_POS_AFFIX: u32 = 1536u32;
-pub const IFED_POS_ALL: u32 = 131071u32;
-pub const IFED_POS_AUXILIARY_VERB: u32 = 32768u32;
-pub const IFED_POS_CONJUNCTION: u32 = 64u32;
-pub const IFED_POS_DEPENDENT: u32 = 114688u32;
-pub const IFED_POS_IDIOMS: u32 = 4096u32;
-pub const IFED_POS_INDEPENDENT: u32 = 255u32;
-pub const IFED_POS_INFLECTIONALSUFFIX: u32 = 256u32;
-pub const IFED_POS_INTERJECTION: u32 = 128u32;
-pub const IFED_POS_NONE: u32 = 0u32;
-pub const IFED_POS_NOUN: u32 = 1u32;
-pub const IFED_POS_PARTICLE: u32 = 16384u32;
-pub const IFED_POS_PREFIX: u32 = 512u32;
-pub const IFED_POS_SUB_VERB: u32 = 65536u32;
-pub const IFED_POS_SUFFIX: u32 = 1024u32;
-pub const IFED_POS_SYMBOLS: u32 = 8192u32;
-pub const IFED_POS_TANKANJI: u32 = 2048u32;
-pub const IFED_POS_VERB: u32 = 2u32;
-pub const IFED_REG_ALL: u32 = 7u32;
-pub const IFED_REG_AUTO: u32 = 2u32;
-pub const IFED_REG_DEL: IMEREG = IMEREG(2i32);
-pub const IFED_REG_GRAMMAR: u32 = 4u32;
-pub const IFED_REG_HEAD: IMEREG = IMEREG(0i32);
-pub const IFED_REG_NONE: u32 = 0u32;
-pub const IFED_REG_TAIL: IMEREG = IMEREG(1i32);
-pub const IFED_REG_USER: u32 = 1u32;
-pub const IFED_REL_ALL: IMEREL = IMEREL(24i32);
-pub const IFED_REL_DE: IMEREL = IMEREL(5i32);
-pub const IFED_REL_FUKU_YOUGEN: IMEREL = IMEREL(12i32);
-pub const IFED_REL_GA: IMEREL = IMEREL(2i32);
-pub const IFED_REL_HE: IMEREL = IMEREL(9i32);
-pub const IFED_REL_IDEOM: IMEREL = IMEREL(11i32);
-pub const IFED_REL_KARA: IMEREL = IMEREL(7i32);
-pub const IFED_REL_KEIDOU1_YOUGEN: IMEREL = IMEREL(14i32);
-pub const IFED_REL_KEIDOU2_YOUGEN: IMEREL = IMEREL(15i32);
-pub const IFED_REL_KEIYOU_TARU_YOUGEN: IMEREL = IMEREL(21i32);
-pub const IFED_REL_KEIYOU_TO_YOUGEN: IMEREL = IMEREL(20i32);
-pub const IFED_REL_KEIYOU_YOUGEN: IMEREL = IMEREL(13i32);
-pub const IFED_REL_MADE: IMEREL = IMEREL(8i32);
-pub const IFED_REL_NI: IMEREL = IMEREL(4i32);
-pub const IFED_REL_NO: IMEREL = IMEREL(1i32);
-pub const IFED_REL_NONE: IMEREL = IMEREL(0i32);
-pub const IFED_REL_RENSOU: IMEREL = IMEREL(19i32);
-pub const IFED_REL_RENTAI_MEI: IMEREL = IMEREL(18i32);
-pub const IFED_REL_TAIGEN: IMEREL = IMEREL(16i32);
-pub const IFED_REL_TO: IMEREL = IMEREL(10i32);
-pub const IFED_REL_UNKNOWN1: IMEREL = IMEREL(22i32);
-pub const IFED_REL_UNKNOWN2: IMEREL = IMEREL(23i32);
-pub const IFED_REL_WO: IMEREL = IMEREL(3i32);
-pub const IFED_REL_YORI: IMEREL = IMEREL(6i32);
-pub const IFED_REL_YOUGEN: IMEREL = IMEREL(17i32);
-pub const IFED_SELECT_ALL: u32 = 15u32;
-pub const IFED_SELECT_COMMENT: u32 = 8u32;
-pub const IFED_SELECT_DISPLAY: u32 = 2u32;
-pub const IFED_SELECT_NONE: u32 = 0u32;
-pub const IFED_SELECT_POS: u32 = 4u32;
-pub const IFED_SELECT_READING: u32 = 1u32;
-pub const IFED_S_COMMENT_CHANGED: windows_core::HRESULT = windows_core::HRESULT(0x47203_u32 as _);
-pub const IFED_S_EMPTY_DICTIONARY: windows_core::HRESULT = windows_core::HRESULT(0x47201_u32 as _);
-pub const IFED_S_MORE_ENTRIES: windows_core::HRESULT = windows_core::HRESULT(0x47200_u32 as _);
-pub const IFED_S_WORD_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x47202_u32 as _);
-pub const IFED_TYPE_ALL: u32 = 31u32;
-pub const IFED_TYPE_ENGLISH: u32 = 16u32;
-pub const IFED_TYPE_GENERAL: u32 = 1u32;
-pub const IFED_TYPE_NAMEPLACE: u32 = 2u32;
-pub const IFED_TYPE_NONE: u32 = 0u32;
-pub const IFED_TYPE_REVERSE: u32 = 8u32;
-pub const IFED_TYPE_SPEECH: u32 = 4u32;
-pub const IFED_UCT_MAX: IMEUCT = IMEUCT(4i32);
-pub const IFED_UCT_NONE: IMEUCT = IMEUCT(0i32);
-pub const IFED_UCT_STRING_SJIS: IMEUCT = IMEUCT(1i32);
-pub const IFED_UCT_STRING_UNICODE: IMEUCT = IMEUCT(2i32);
-pub const IFED_UCT_USER_DEFINED: IMEUCT = IMEUCT(3i32);
-pub const IFED_UNKNOWN: IMEFMT = IMEFMT(0i32);
-pub const IFED_VJE_20: IMEFMT = IMEFMT(19i32);
-pub const IFED_WX_II: IMEFMT = IMEFMT(17i32);
-pub const IFED_WX_III: IMEFMT = IMEFMT(18i32);
-pub const IGIMIF_RIGHTMENU: u32 = 1u32;
-pub const IGIMII_CMODE: u32 = 1u32;
-pub const IGIMII_CONFIGURE: u32 = 4u32;
-pub const IGIMII_HELP: u32 = 16u32;
-pub const IGIMII_INPUTTOOLS: u32 = 64u32;
-pub const IGIMII_OTHER: u32 = 32u32;
-pub const IGIMII_SMODE: u32 = 2u32;
-pub const IGIMII_TOOLS: u32 = 8u32;
-pub const IMC_CLOSESTATUSWINDOW: u32 = 33u32;
-pub const IMC_GETCANDIDATEPOS: u32 = 7u32;
-pub const IMC_GETCOMPOSITIONFONT: u32 = 9u32;
-pub const IMC_GETCOMPOSITIONWINDOW: u32 = 11u32;
-pub const IMC_GETSOFTKBDFONT: u32 = 17u32;
-pub const IMC_GETSOFTKBDPOS: u32 = 19u32;
-pub const IMC_GETSOFTKBDSUBTYPE: u32 = 21u32;
-pub const IMC_GETSTATUSWINDOWPOS: u32 = 15u32;
-pub const IMC_OPENSTATUSWINDOW: u32 = 34u32;
-pub const IMC_SETCANDIDATEPOS: u32 = 8u32;
-pub const IMC_SETCOMPOSITIONFONT: u32 = 10u32;
-pub const IMC_SETCOMPOSITIONWINDOW: u32 = 12u32;
-pub const IMC_SETCONVERSIONMODE: u32 = 2u32;
-pub const IMC_SETOPENSTATUS: u32 = 6u32;
-pub const IMC_SETSENTENCEMODE: u32 = 4u32;
-pub const IMC_SETSOFTKBDDATA: u32 = 24u32;
-pub const IMC_SETSOFTKBDFONT: u32 = 18u32;
-pub const IMC_SETSOFTKBDPOS: u32 = 20u32;
-pub const IMC_SETSOFTKBDSUBTYPE: u32 = 22u32;
-pub const IMC_SETSTATUSWINDOWPOS: u32 = 16u32;
-pub const IMEFAREASTINFO_TYPE_COMMENT: u32 = 2u32;
-pub const IMEFAREASTINFO_TYPE_COSTTIME: u32 = 3u32;
-pub const IMEFAREASTINFO_TYPE_DEFAULT: u32 = 0u32;
-pub const IMEFAREASTINFO_TYPE_READING: u32 = 1u32;
-pub const IMEKEYCTRLMASK_ALT: u32 = 1u32;
-pub const IMEKEYCTRLMASK_CTRL: u32 = 2u32;
-pub const IMEKEYCTRLMASK_SHIFT: u32 = 4u32;
-pub const IMEKEYCTRL_DOWN: u32 = 0u32;
-pub const IMEKEYCTRL_UP: u32 = 1u32;
-pub const IMEKMS_2NDLEVEL: u32 = 4u32;
-pub const IMEKMS_CANDIDATE: u32 = 6u32;
-pub const IMEKMS_COMPOSITION: u32 = 1u32;
-pub const IMEKMS_IMEOFF: u32 = 3u32;
-pub const IMEKMS_INPTGL: u32 = 5u32;
-pub const IMEKMS_NOCOMPOSITION: u32 = 0u32;
-pub const IMEKMS_SELECTION: u32 = 2u32;
-pub const IMEKMS_TYPECAND: u32 = 7u32;
 pub const IMEMENUITEM_STRING_SIZE: u32 = 80u32;
 pub const IMEMOUSERET_NOTHANDLED: i32 = -1i32;
 pub const IMEMOUSE_LDOWN: u32 = 1u32;
@@ -6067,8 +5519,127 @@ pub const IMEPN_SHOW: u32 = 260u32;
 pub const IMEPN_SIZECHANGED: u32 = 263u32;
 pub const IMEPN_SIZECHANGING: u32 = 262u32;
 pub const IMEPN_USER: u32 = 356u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IMEREG(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IMEREL(pub i32);
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMESHF {
+    pub cbShf: u16,
+    pub verDic: u16,
+    pub szTitle: [i8; 48],
+    pub szDescription: [i8; 256],
+    pub szCopyright: [i8; 128],
+}
+impl Default for IMESHF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMESHF {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMESTRINGCANDIDATE {
+    pub uCount: u32,
+    pub lpwstr: [windows_core::PWSTR; 1],
+}
+impl Default for IMESTRINGCANDIDATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMESTRINGCANDIDATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMESTRINGCANDIDATEINFO {
+    pub dwFarEastId: u32,
+    pub lpFarEastInfo: *mut IMEFAREASTINFO,
+    pub fInfoMask: u32,
+    pub iSelIndex: i32,
+    pub uCount: u32,
+    pub lpwstr: [windows_core::PWSTR; 1],
+}
+impl Default for IMESTRINGCANDIDATEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMESTRINGCANDIDATEINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMESTRINGINFO {
+    pub dwFarEastId: u32,
+    pub lpwstr: windows_core::PWSTR,
+}
+impl Default for IMESTRINGINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMESTRINGINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IMEUCT(pub i32);
 pub const IMEVER_0310: u32 = 196618u32;
 pub const IMEVER_0400: u32 = 262144u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMEWRD {
+    pub pwchReading: windows_core::PWSTR,
+    pub pwchDisplay: windows_core::PWSTR,
+    pub Anonymous: IMEWRD_0,
+    pub rgulAttrs: [u32; 2],
+    pub cbComment: i32,
+    pub uct: IMEUCT,
+    pub pvComment: *mut core::ffi::c_void,
+}
+impl Default for IMEWRD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMEWRD {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union IMEWRD_0 {
+    pub ulPos: u32,
+    pub Anonymous: IMEWRD_0_0,
+}
+impl Default for IMEWRD_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMEWRD_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IMEWRD_0_0 {
+    pub nPos1: u16,
+    pub nPos2: u16,
+}
+impl Default for IMEWRD_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IMEWRD_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 pub const IME_CAND_CODE: u32 = 2u32;
 pub const IME_CAND_MEANING: u32 = 3u32;
 pub const IME_CAND_RADICAL: u32 = 4u32;
@@ -6097,9 +5668,84 @@ pub const IME_CMODE_RESERVED: IME_CONVERSION_MODE = IME_CONVERSION_MODE(40265318
 pub const IME_CMODE_ROMAN: IME_CONVERSION_MODE = IME_CONVERSION_MODE(16u32);
 pub const IME_CMODE_SOFTKBD: IME_CONVERSION_MODE = IME_CONVERSION_MODE(128u32);
 pub const IME_CMODE_SYMBOL: IME_CONVERSION_MODE = IME_CONVERSION_MODE(1024u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IME_COMPOSITION_STRING(pub u32);
+impl IME_COMPOSITION_STRING {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for IME_COMPOSITION_STRING {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for IME_COMPOSITION_STRING {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for IME_COMPOSITION_STRING {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for IME_COMPOSITION_STRING {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for IME_COMPOSITION_STRING {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const IME_CONFIG_GENERAL: u32 = 1u32;
 pub const IME_CONFIG_REGISTERWORD: u32 = 2u32;
 pub const IME_CONFIG_SELECTDICTIONARY: u32 = 3u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IME_CONVERSION_MODE(pub u32);
+impl IME_CONVERSION_MODE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for IME_CONVERSION_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for IME_CONVERSION_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for IME_CONVERSION_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for IME_CONVERSION_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for IME_CONVERSION_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IME_ESCAPE(pub u32);
 pub const IME_ESC_AUTOMATA: IME_ESCAPE = IME_ESCAPE(4105u32);
 pub const IME_ESC_GETHELPFILENAME: IME_ESCAPE = IME_ESCAPE(4107u32);
 pub const IME_ESC_GET_EUDC_DICTIONARY: IME_ESCAPE = IME_ESCAPE(4099u32);
@@ -6118,6 +5764,9 @@ pub const IME_ESC_STRING_BUFFER_SIZE: u32 = 80u32;
 pub const IME_ESC_SYNC_HOTKEY: IME_ESCAPE = IME_ESCAPE(4103u32);
 pub const IME_HOTKEY_DSWITCH_FIRST: u32 = 256u32;
 pub const IME_HOTKEY_DSWITCH_LAST: u32 = 287u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IME_HOTKEY_IDENTIFIER(pub u32);
 pub const IME_HOTKEY_PRIVATE_FIRST: u32 = 512u32;
 pub const IME_HOTKEY_PRIVATE_LAST: u32 = 543u32;
 pub const IME_ITHOTKEY_PREVIOUS_COMPOSITION: IME_HOTKEY_IDENTIFIER = IME_HOTKEY_IDENTIFIER(513u32);
@@ -6128,6 +5777,9 @@ pub const IME_JHOTKEY_CLOSE_OPEN: IME_HOTKEY_IDENTIFIER = IME_HOTKEY_IDENTIFIER(
 pub const IME_KHOTKEY_ENGLISH: IME_HOTKEY_IDENTIFIER = IME_HOTKEY_IDENTIFIER(82u32);
 pub const IME_KHOTKEY_HANJACONVERT: IME_HOTKEY_IDENTIFIER = IME_HOTKEY_IDENTIFIER(81u32);
 pub const IME_KHOTKEY_SHAPE_TOGGLE: IME_HOTKEY_IDENTIFIER = IME_HOTKEY_IDENTIFIER(80u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IME_PAD_REQUEST_FLAGS(pub u32);
 pub const IME_PROP_ACCEPT_WIDE_VKEY: u32 = 32u32;
 pub const IME_PROP_AT_CARET: u32 = 65536u32;
 pub const IME_PROP_CANDLIST_START_FROM_1: u32 = 262144u32;
@@ -6142,6 +5794,42 @@ pub const IME_PROP_UNICODE: u32 = 524288u32;
 pub const IME_REGWORD_STYLE_EUDC: u32 = 1u32;
 pub const IME_REGWORD_STYLE_USER_FIRST: u32 = 2147483648u32;
 pub const IME_REGWORD_STYLE_USER_LAST: u32 = 4294967295u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IME_SENTENCE_MODE(pub u32);
+impl IME_SENTENCE_MODE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for IME_SENTENCE_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for IME_SENTENCE_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for IME_SENTENCE_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for IME_SENTENCE_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for IME_SENTENCE_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const IME_SMODE_AUTOMATIC: IME_SENTENCE_MODE = IME_SENTENCE_MODE(4u32);
 pub const IME_SMODE_CONVERSATION: IME_SENTENCE_MODE = IME_SENTENCE_MODE(16u32);
 pub const IME_SMODE_NONE: IME_SENTENCE_MODE = IME_SENTENCE_MODE(0u32);
@@ -6196,6 +5884,55 @@ pub const INIT_LOGFONT: u32 = 8u32;
 pub const INIT_SENTENCE: u32 = 4u32;
 pub const INIT_SOFTKBDPOS: u32 = 32u32;
 pub const INIT_STATUSWNDPOS: u32 = 1u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct INPUTCONTEXT {
+    pub hWnd: super::super::super::Foundation::HWND,
+    pub fOpen: super::super::super::Foundation::BOOL,
+    pub ptStatusWndPos: super::super::super::Foundation::POINT,
+    pub ptSoftKbdPos: super::super::super::Foundation::POINT,
+    pub fdwConversion: u32,
+    pub fdwSentence: u32,
+    pub lfFont: INPUTCONTEXT_0,
+    pub cfCompForm: COMPOSITIONFORM,
+    pub cfCandForm: [CANDIDATEFORM; 4],
+    pub hCompStr: HIMCC,
+    pub hCandInfo: HIMCC,
+    pub hGuideLine: HIMCC,
+    pub hPrivate: HIMCC,
+    pub dwNumMsgBuf: u32,
+    pub hMsgBuf: HIMCC,
+    pub fdwInit: u32,
+    pub dwReserve: [u32; 3],
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for INPUTCONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for INPUTCONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub union INPUTCONTEXT_0 {
+    pub A: super::super::super::Graphics::Gdi::LOGFONTA,
+    pub W: super::super::super::Graphics::Gdi::LOGFONTW,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for INPUTCONTEXT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for INPUTCONTEXT_0 {
+    type TypeKind = windows_core::CopyType;
+}
 pub const IPACFG_CATEGORY: i32 = 262144i32;
 pub const IPACFG_HELP: i32 = 2i32;
 pub const IPACFG_LANG: i32 = 16i32;
@@ -6403,6 +6140,73 @@ pub const MOD_IGNORE_ALL_MODIFIER: u32 = 1024u32;
 pub const MOD_LEFT: u32 = 32768u32;
 pub const MOD_ON_KEYUP: u32 = 2048u32;
 pub const MOD_RIGHT: u32 = 16384u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MORRSLT {
+    pub dwSize: u32,
+    pub pwchOutput: windows_core::PWSTR,
+    pub cchOutput: u16,
+    pub Anonymous1: MORRSLT_0,
+    pub Anonymous2: MORRSLT_1,
+    pub pchInputPos: *mut u16,
+    pub pchOutputIdxWDD: *mut u16,
+    pub Anonymous3: MORRSLT_2,
+    pub paMonoRubyPos: *mut u16,
+    pub pWDD: *mut WDD,
+    pub cWDD: i32,
+    pub pPrivate: *mut core::ffi::c_void,
+    pub BLKBuff: [u16; 1],
+}
+impl Default for MORRSLT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MORRSLT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union MORRSLT_0 {
+    pub pwchRead: windows_core::PWSTR,
+    pub pwchComp: windows_core::PWSTR,
+}
+impl Default for MORRSLT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MORRSLT_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union MORRSLT_1 {
+    pub cchRead: u16,
+    pub cchComp: u16,
+}
+impl Default for MORRSLT_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MORRSLT_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union MORRSLT_2 {
+    pub pchReadIdxWDD: *mut u16,
+    pub pchCompIdxWDD: *mut u16,
+}
+impl Default for MORRSLT_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MORRSLT_2 {
+    type TypeKind = windows_core::CopyType;
+}
 pub const NI_CHANGECANDIDATELIST: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(19u32);
 pub const NI_CLOSECANDIDATE: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(17u32);
 pub const NI_COMPOSITIONSTR: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(21u32);
@@ -6413,9 +6217,80 @@ pub const NI_OPENCANDIDATE: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(16u32);
 pub const NI_SELECTCANDIDATESTR: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(18u32);
 pub const NI_SETCANDIDATE_PAGESIZE: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(23u32);
 pub const NI_SETCANDIDATE_PAGESTART: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(22u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NOTIFY_IME_ACTION(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NOTIFY_IME_INDEX(pub u32);
+pub type PFNLOG = Option<unsafe extern "system" fn(param0: *mut IMEDP, param1: windows_core::HRESULT) -> super::super::super::Foundation::BOOL>;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct POSTBL {
+    pub nPos: u16,
+    pub szName: *mut u8,
+}
+impl Default for POSTBL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for POSTBL {
+    type TypeKind = windows_core::CopyType;
+}
 pub const POS_UNDEFINED: u32 = 0u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RECONVERTSTRING {
+    pub dwSize: u32,
+    pub dwVersion: u32,
+    pub dwStrLen: u32,
+    pub dwStrOffset: u32,
+    pub dwCompStrLen: u32,
+    pub dwCompStrOffset: u32,
+    pub dwTargetStrLen: u32,
+    pub dwTargetStrOffset: u32,
+}
+impl Default for RECONVERTSTRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RECONVERTSTRING {
+    type TypeKind = windows_core::CopyType;
+}
 pub const RECONVOPT_NONE: u32 = 0u32;
 pub const RECONVOPT_USECANCELNOTIFY: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct REGISTERWORDA {
+    pub lpReading: windows_core::PSTR,
+    pub lpWord: windows_core::PSTR,
+}
+impl Default for REGISTERWORDA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for REGISTERWORDA {
+    type TypeKind = windows_core::CopyType;
+}
+pub type REGISTERWORDENUMPROCA = Option<unsafe extern "system" fn(lpszreading: windows_core::PCSTR, param1: u32, lpszstring: windows_core::PCSTR, param3: *mut core::ffi::c_void) -> i32>;
+pub type REGISTERWORDENUMPROCW = Option<unsafe extern "system" fn(lpszreading: windows_core::PCWSTR, param1: u32, lpszstring: windows_core::PCWSTR, param3: *mut core::ffi::c_void) -> i32>;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct REGISTERWORDW {
+    pub lpReading: windows_core::PWSTR,
+    pub lpWord: windows_core::PWSTR,
+}
+impl Default for REGISTERWORDW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for REGISTERWORDW {
+    type TypeKind = windows_core::CopyType;
+}
 pub const RWM_CHGKEYMAP: windows_core::PCWSTR = windows_core::w!("MSIMEChangeKeyMap");
 pub const RWM_DOCUMENTFEED: windows_core::PCWSTR = windows_core::w!("MSIMEDocumentFeed");
 pub const RWM_KEYMAP: windows_core::PCWSTR = windows_core::w!("MSIMEKeyMap");
@@ -6439,12 +6314,86 @@ pub const SCS_SETRECONVERTSTRING: SET_COMPOSITION_STRING_TYPE = SET_COMPOSITION_
 pub const SCS_SETSTR: SET_COMPOSITION_STRING_TYPE = SET_COMPOSITION_STRING_TYPE(9u32);
 pub const SELECT_CAP_CONVERSION: u32 = 1u32;
 pub const SELECT_CAP_SENTENCE: u32 = 2u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SET_COMPOSITION_STRING_TYPE(pub u32);
 pub const SHOWIMEPAD_CATEGORY: u32 = 1u32;
 pub const SHOWIMEPAD_DEFAULT: u32 = 0u32;
 pub const SHOWIMEPAD_GUID: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SOFTKBDDATA {
+    pub uCount: u32,
+    pub wCode: [u16; 256],
+}
+impl Default for SOFTKBDDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SOFTKBDDATA {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SOFTKEYBOARD_TYPE_C1: u32 = 2u32;
 pub const SOFTKEYBOARD_TYPE_T1: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct STYLEBUFA {
+    pub dwStyle: u32,
+    pub szDescription: [i8; 32],
+}
+impl Default for STYLEBUFA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for STYLEBUFA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct STYLEBUFW {
+    pub dwStyle: u32,
+    pub szDescription: [u16; 32],
+}
+impl Default for STYLEBUFW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for STYLEBUFW {
+    type TypeKind = windows_core::CopyType;
+}
 pub const STYLE_DESCRIPTION_SIZE: u32 = 32u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TRANSMSG {
+    pub message: u32,
+    pub wParam: super::super::super::Foundation::WPARAM,
+    pub lParam: super::super::super::Foundation::LPARAM,
+}
+impl Default for TRANSMSG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TRANSMSG {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TRANSMSGLIST {
+    pub uMsgCount: u32,
+    pub TransMsg: [TRANSMSG; 1],
+}
+impl Default for TRANSMSGLIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TRANSMSGLIST {
+    type TypeKind = windows_core::CopyType;
+}
 pub const UI_CAP_2700: u32 = 1u32;
 pub const UI_CAP_ROT90: u32 = 2u32;
 pub const UI_CAP_ROTANY: u32 = 4u32;
@@ -6458,7 +6407,58 @@ pub const VERSION_MODEBIAS: u32 = 1u32;
 pub const VERSION_MOUSE_OPERATION: u32 = 1u32;
 pub const VERSION_QUERYPOSITION: u32 = 1u32;
 pub const VERSION_RECONVERSION: u32 = 1u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct WDD {
+    pub wDispPos: u16,
+    pub Anonymous1: WDD_0,
+    pub cchDisp: u16,
+    pub Anonymous2: WDD_1,
+    pub WDD_nReserve1: u32,
+    pub nPos: u16,
+    pub _bitfield: u16,
+    pub pReserved: *mut core::ffi::c_void,
+}
+impl Default for WDD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WDD {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union WDD_0 {
+    pub wReadPos: u16,
+    pub wCompPos: u16,
+}
+impl Default for WDD_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WDD_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union WDD_1 {
+    pub cchRead: u16,
+    pub cchComp: u16,
+}
+impl Default for WDD_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WDD_1 {
+    type TypeKind = windows_core::CopyType;
+}
 pub const cbCommentMax: u32 = 256u32;
+pub type fpCreateIFECommonInstanceType = Option<unsafe extern "system" fn(ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub type fpCreateIFEDictionaryInstanceType = Option<unsafe extern "system" fn(ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub type fpCreateIFELanguageInstanceType = Option<unsafe extern "system" fn(clsid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
 pub const szImeChina: windows_core::PCWSTR = windows_core::w!("MSIME.China");
 pub const szImeJapan: windows_core::PCWSTR = windows_core::w!("MSIME.Japan");
 pub const szImeKorea: windows_core::PCWSTR = windows_core::w!("MSIME.Korea");

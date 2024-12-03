@@ -94,6 +94,7 @@ impl Default for DYNAMIC_TIME_ZONE_INFORMATION {
 impl windows_core::TypeKind for DYNAMIC_TIME_ZONE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+pub const TIME_ZONE_ID_INVALID: u32 = 4294967295u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TIME_ZONE_INFORMATION {
@@ -113,7 +114,6 @@ impl Default for TIME_ZONE_INFORMATION {
 impl windows_core::TypeKind for TIME_ZONE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-pub const TIME_ZONE_ID_INVALID: u32 = 4294967295u32;
 pub const TSF_Authenticated: u32 = 2u32;
 pub const TSF_Hardware: u32 = 1u32;
 pub const TSF_IPv6: u32 = 4u32;

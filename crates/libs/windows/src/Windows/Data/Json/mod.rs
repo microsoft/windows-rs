@@ -1,3 +1,307 @@
+windows_core::imp::define_interface!(IJsonArray, IJsonArray_Vtbl, 0x08c1ddb6_0cbd_4a9a_b5d3_2f852dc37e81);
+impl windows_core::RuntimeType for IJsonArray {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IJsonArray_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetObjectAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetObjectAt: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetArrayAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetArrayAt: usize,
+    pub GetStringAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetNumberAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut f64) -> windows_core::HRESULT,
+    pub GetBooleanAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IJsonArrayStatics, IJsonArrayStatics_Vtbl, 0xdb1434a9_e164_499f_93e2_8a8f49bb90ba);
+impl windows_core::RuntimeType for IJsonArrayStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IJsonArrayStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Parse: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub TryParse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    TryParse: usize,
+}
+windows_core::imp::define_interface!(IJsonErrorStatics2, IJsonErrorStatics2_Vtbl, 0x404030da_87d0_436c_83ab_fc7b12c0cc26);
+impl windows_core::RuntimeType for IJsonErrorStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IJsonErrorStatics2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetJsonStatus: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut JsonErrorStatus) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IJsonObject, IJsonObject_Vtbl, 0x064e24dd_29c2_4f83_9ac1_9ee11578beb3);
+impl windows_core::RuntimeType for IJsonObject {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IJsonObject_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetNamedValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetNamedValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetNamedObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetNamedObject: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetNamedArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetNamedArray: usize,
+    pub GetNamedString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetNamedNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub GetNamedBoolean: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IJsonObjectStatics, IJsonObjectStatics_Vtbl, 0x2289f159_54de_45d8_abcc_22603fa066a0);
+impl windows_core::RuntimeType for IJsonObjectStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IJsonObjectStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Parse: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub TryParse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    TryParse: usize,
+}
+windows_core::imp::define_interface!(IJsonObjectWithDefaultValues, IJsonObjectWithDefaultValues_Vtbl, 0xd960d2a2_b7f0_4f00_8e44_d82cf415ea13);
+impl windows_core::RuntimeType for IJsonObjectWithDefaultValues {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IJsonObjectWithDefaultValues_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetNamedValueOrDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetNamedObjectOrDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetNamedObjectOrDefault: usize,
+    pub GetNamedStringOrDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetNamedArrayOrDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetNamedArrayOrDefault: usize,
+    pub GetNamedNumberOrDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, f64, *mut f64) -> windows_core::HRESULT,
+    pub GetNamedBooleanOrDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IJsonValue, IJsonValue_Vtbl, 0xa3219ecb_f0b3_4dcd_beee_19d48cd3ed1e);
+impl windows_core::RuntimeType for IJsonValue {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+windows_core::imp::interface_hierarchy!(IJsonValue, windows_core::IUnknown, windows_core::IInspectable);
+impl IJsonValue {
+    pub fn ValueType(&self) -> windows_core::Result<JsonValueType> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ValueType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Stringify(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Stringify)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn GetString(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetString)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn GetNumber(&self) -> windows_core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn GetBoolean(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetBoolean)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetArray(&self) -> windows_core::Result<JsonArray> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetArray)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetObject(&self) -> windows_core::Result<JsonObject> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetObject)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeName for IJsonValue {
+    const NAME: &'static str = "Windows.Data.Json.IJsonValue";
+}
+#[cfg(feature = "Foundation_Collections")]
+pub trait IJsonValue_Impl: windows_core::IUnknownImpl {
+    fn ValueType(&self) -> windows_core::Result<JsonValueType>;
+    fn Stringify(&self) -> windows_core::Result<windows_core::HSTRING>;
+    fn GetString(&self) -> windows_core::Result<windows_core::HSTRING>;
+    fn GetNumber(&self) -> windows_core::Result<f64>;
+    fn GetBoolean(&self) -> windows_core::Result<bool>;
+    fn GetArray(&self) -> windows_core::Result<JsonArray>;
+    fn GetObject(&self) -> windows_core::Result<JsonObject>;
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IJsonValue_Vtbl {
+    pub const fn new<Identity: IJsonValue_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn ValueType<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut JsonValueType) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IJsonValue_Impl::ValueType(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Stringify<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IJsonValue_Impl::Stringify(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetString<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IJsonValue_Impl::GetString(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetNumber<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut f64) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IJsonValue_Impl::GetNumber(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetBoolean<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IJsonValue_Impl::GetBoolean(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetArray<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IJsonValue_Impl::GetArray(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetObject<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IJsonValue_Impl::GetObject(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IJsonValue, OFFSET>(),
+            ValueType: ValueType::<Identity, OFFSET>,
+            Stringify: Stringify::<Identity, OFFSET>,
+            GetString: GetString::<Identity, OFFSET>,
+            GetNumber: GetNumber::<Identity, OFFSET>,
+            GetBoolean: GetBoolean::<Identity, OFFSET>,
+            GetArray: GetArray::<Identity, OFFSET>,
+            GetObject: GetObject::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IJsonValue as windows_core::Interface>::IID
+    }
+}
+#[repr(C)]
+pub struct IJsonValue_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ValueType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut JsonValueType) -> windows_core::HRESULT,
+    pub Stringify: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub GetBoolean: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetArray: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetObject: usize,
+}
+windows_core::imp::define_interface!(IJsonValueStatics, IJsonValueStatics_Vtbl, 0x5f6b544a_2f53_48e1_91a3_f78b50a6345c);
+impl windows_core::RuntimeType for IJsonValueStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IJsonValueStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub TryParse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub CreateBooleanValue: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateNumberValue: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateStringValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IJsonValueStatics2, IJsonValueStatics2_Vtbl, 0x1d9ecbe4_3fe8_4335_8392_93d8e36865f0);
+impl windows_core::RuntimeType for IJsonValueStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IJsonValueStatics2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateNullValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -256,6 +560,22 @@ impl JsonError {
 }
 impl windows_core::RuntimeName for JsonError {
     const NAME: &'static str = "Windows.Data.Json.JsonError";
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct JsonErrorStatus(pub i32);
+impl JsonErrorStatus {
+    pub const Unknown: Self = Self(0i32);
+    pub const InvalidJsonString: Self = Self(1i32);
+    pub const InvalidJsonNumber: Self = Self(2i32);
+    pub const JsonValueNotFound: Self = Self(3i32);
+    pub const ImplementationLimit: Self = Self(4i32);
+}
+impl windows_core::TypeKind for JsonErrorStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for JsonErrorStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Json.JsonErrorStatus;i4)");
 }
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
@@ -658,326 +978,6 @@ impl windows_core::RuntimeName for JsonValue {
 }
 unsafe impl Send for JsonValue {}
 unsafe impl Sync for JsonValue {}
-windows_core::imp::define_interface!(IJsonArray, IJsonArray_Vtbl, 0x08c1ddb6_0cbd_4a9a_b5d3_2f852dc37e81);
-impl windows_core::RuntimeType for IJsonArray {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IJsonArray_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetObjectAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetObjectAt: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetArrayAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetArrayAt: usize,
-    pub GetStringAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetNumberAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut f64) -> windows_core::HRESULT,
-    pub GetBooleanAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut bool) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IJsonArrayStatics, IJsonArrayStatics_Vtbl, 0xdb1434a9_e164_499f_93e2_8a8f49bb90ba);
-impl windows_core::RuntimeType for IJsonArrayStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IJsonArrayStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Parse: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub TryParse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    TryParse: usize,
-}
-windows_core::imp::define_interface!(IJsonErrorStatics2, IJsonErrorStatics2_Vtbl, 0x404030da_87d0_436c_83ab_fc7b12c0cc26);
-impl windows_core::RuntimeType for IJsonErrorStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IJsonErrorStatics2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetJsonStatus: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut JsonErrorStatus) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IJsonObject, IJsonObject_Vtbl, 0x064e24dd_29c2_4f83_9ac1_9ee11578beb3);
-impl windows_core::RuntimeType for IJsonObject {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IJsonObject_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetNamedValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetNamedValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetNamedObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetNamedObject: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetNamedArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetNamedArray: usize,
-    pub GetNamedString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetNamedNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub GetNamedBoolean: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IJsonObjectStatics, IJsonObjectStatics_Vtbl, 0x2289f159_54de_45d8_abcc_22603fa066a0);
-impl windows_core::RuntimeType for IJsonObjectStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IJsonObjectStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Parse: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub TryParse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    TryParse: usize,
-}
-windows_core::imp::define_interface!(IJsonObjectWithDefaultValues, IJsonObjectWithDefaultValues_Vtbl, 0xd960d2a2_b7f0_4f00_8e44_d82cf415ea13);
-impl windows_core::RuntimeType for IJsonObjectWithDefaultValues {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IJsonObjectWithDefaultValues_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetNamedValueOrDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetNamedObjectOrDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetNamedObjectOrDefault: usize,
-    pub GetNamedStringOrDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetNamedArrayOrDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetNamedArrayOrDefault: usize,
-    pub GetNamedNumberOrDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, f64, *mut f64) -> windows_core::HRESULT,
-    pub GetNamedBooleanOrDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut bool) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IJsonValue, IJsonValue_Vtbl, 0xa3219ecb_f0b3_4dcd_beee_19d48cd3ed1e);
-impl windows_core::RuntimeType for IJsonValue {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-windows_core::imp::interface_hierarchy!(IJsonValue, windows_core::IUnknown, windows_core::IInspectable);
-impl IJsonValue {
-    pub fn ValueType(&self) -> windows_core::Result<JsonValueType> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ValueType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Stringify(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Stringify)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn GetString(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetString)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn GetNumber(&self) -> windows_core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn GetBoolean(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetBoolean)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetArray(&self) -> windows_core::Result<JsonArray> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetArray)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetObject(&self) -> windows_core::Result<JsonObject> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetObject)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeName for IJsonValue {
-    const NAME: &'static str = "Windows.Data.Json.IJsonValue";
-}
-#[cfg(feature = "Foundation_Collections")]
-pub trait IJsonValue_Impl: windows_core::IUnknownImpl {
-    fn ValueType(&self) -> windows_core::Result<JsonValueType>;
-    fn Stringify(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn GetString(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn GetNumber(&self) -> windows_core::Result<f64>;
-    fn GetBoolean(&self) -> windows_core::Result<bool>;
-    fn GetArray(&self) -> windows_core::Result<JsonArray>;
-    fn GetObject(&self) -> windows_core::Result<JsonObject>;
-}
-#[cfg(feature = "Foundation_Collections")]
-impl IJsonValue_Vtbl {
-    pub const fn new<Identity: IJsonValue_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ValueType<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut JsonValueType) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IJsonValue_Impl::ValueType(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn Stringify<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IJsonValue_Impl::Stringify(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn GetString<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IJsonValue_Impl::GetString(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn GetNumber<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut f64) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IJsonValue_Impl::GetNumber(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn GetBoolean<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IJsonValue_Impl::GetBoolean(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn GetArray<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IJsonValue_Impl::GetArray(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn GetObject<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IJsonValue_Impl::GetObject(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IJsonValue, OFFSET>(),
-            ValueType: ValueType::<Identity, OFFSET>,
-            Stringify: Stringify::<Identity, OFFSET>,
-            GetString: GetString::<Identity, OFFSET>,
-            GetNumber: GetNumber::<Identity, OFFSET>,
-            GetBoolean: GetBoolean::<Identity, OFFSET>,
-            GetArray: GetArray::<Identity, OFFSET>,
-            GetObject: GetObject::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IJsonValue as windows_core::Interface>::IID
-    }
-}
-#[repr(C)]
-pub struct IJsonValue_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ValueType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut JsonValueType) -> windows_core::HRESULT,
-    pub Stringify: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub GetBoolean: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetArray: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetObject: usize,
-}
-windows_core::imp::define_interface!(IJsonValueStatics, IJsonValueStatics_Vtbl, 0x5f6b544a_2f53_48e1_91a3_f78b50a6345c);
-impl windows_core::RuntimeType for IJsonValueStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IJsonValueStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub TryParse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub CreateBooleanValue: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateNumberValue: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateStringValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IJsonValueStatics2, IJsonValueStatics2_Vtbl, 0x1d9ecbe4_3fe8_4335_8392_93d8e36865f0);
-impl windows_core::RuntimeType for IJsonValueStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IJsonValueStatics2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateNullValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct JsonErrorStatus(pub i32);
-impl JsonErrorStatus {
-    pub const Unknown: Self = Self(0i32);
-    pub const InvalidJsonString: Self = Self(1i32);
-    pub const InvalidJsonNumber: Self = Self(2i32);
-    pub const JsonValueNotFound: Self = Self(3i32);
-    pub const ImplementationLimit: Self = Self(4i32);
-}
-impl windows_core::TypeKind for JsonErrorStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for JsonErrorStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Json.JsonErrorStatus;i4)");
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JsonValueType(pub i32);

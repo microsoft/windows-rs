@@ -1,3 +1,20 @@
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CompressAlgorithm(pub i32);
+impl CompressAlgorithm {
+    pub const InvalidAlgorithm: Self = Self(0i32);
+    pub const NullAlgorithm: Self = Self(1i32);
+    pub const Mszip: Self = Self(2i32);
+    pub const Xpress: Self = Self(3i32);
+    pub const XpressHuff: Self = Self(4i32);
+    pub const Lzms: Self = Self(5i32);
+}
+impl windows_core::TypeKind for CompressAlgorithm {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for CompressAlgorithm {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Compression.CompressAlgorithm;i4)");
+}
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -199,21 +216,4 @@ pub struct IDecompressorFactory_Vtbl {
     pub CreateDecompressor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     CreateDecompressor: usize,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CompressAlgorithm(pub i32);
-impl CompressAlgorithm {
-    pub const InvalidAlgorithm: Self = Self(0i32);
-    pub const NullAlgorithm: Self = Self(1i32);
-    pub const Mszip: Self = Self(2i32);
-    pub const Xpress: Self = Self(3i32);
-    pub const XpressHuff: Self = Self(4i32);
-    pub const Lzms: Self = Self(5i32);
-}
-impl windows_core::TypeKind for CompressAlgorithm {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for CompressAlgorithm {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Compression.CompressAlgorithm;i4)");
 }

@@ -20,6 +20,73 @@ unsafe impl windows_core::Interface for ActivatedDeferral {
 impl windows_core::RuntimeName for ActivatedDeferral {
     const NAME: &'static str = "Windows.UI.WebUI.ActivatedDeferral";
 }
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::define_interface!(ActivatedEventHandler, ActivatedEventHandler_Vtbl, 0x50f1e730_c5d1_4b6b_9adb_8a11756be29c);
+#[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for ActivatedEventHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
+impl ActivatedEventHandler {
+    pub fn new<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = ActivatedEventHandlerBox { vtable: &ActivatedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
+    pub fn Invoke<P0, P1>(&self, sender: P0, eventargs: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+        P1: windows_core::Param<super::super::ApplicationModel::Activation::IActivatedEventArgs>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), eventargs.param().abi()).ok() }
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
+#[repr(C)]
+pub struct ActivatedEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, eventargs: *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[cfg(feature = "ApplicationModel_Activation")]
+#[repr(C)]
+struct ActivatedEventHandlerBox<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+    vtable: *const ActivatedEventHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+#[cfg(feature = "ApplicationModel_Activation")]
+impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static> ActivatedEventHandlerBox<F> {
+    const VTABLE: ActivatedEventHandler_Vtbl = ActivatedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <ActivatedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+        if (*interface).is_null() {
+            windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, eventargs: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&eventargs)).into()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ActivatedOperation(windows_core::IUnknown);
@@ -77,6 +144,73 @@ impl windows_core::RuntimeName for BackgroundActivatedEventArgs {
 unsafe impl Send for BackgroundActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl Sync for BackgroundActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::define_interface!(BackgroundActivatedEventHandler, BackgroundActivatedEventHandler_Vtbl, 0xedb19fbb_0761_47cc_9a77_24d7072965ca);
+#[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for BackgroundActivatedEventHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
+impl BackgroundActivatedEventHandler {
+    pub fn new<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = BackgroundActivatedEventHandlerBox { vtable: &BackgroundActivatedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
+    pub fn Invoke<P0, P1>(&self, sender: P0, eventargs: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+        P1: windows_core::Param<super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), eventargs.param().abi()).ok() }
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
+#[repr(C)]
+pub struct BackgroundActivatedEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, eventargs: *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[cfg(feature = "ApplicationModel_Activation")]
+#[repr(C)]
+struct BackgroundActivatedEventHandlerBox<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+    vtable: *const BackgroundActivatedEventHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+#[cfg(feature = "ApplicationModel_Activation")]
+impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static> BackgroundActivatedEventHandlerBox<F> {
+    const VTABLE: BackgroundActivatedEventHandler_Vtbl = BackgroundActivatedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <BackgroundActivatedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+        if (*interface).is_null() {
+            windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, eventargs: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&eventargs)).into()
+    }
+}
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -110,6 +244,73 @@ impl windows_core::RuntimeName for EnteredBackgroundEventArgs {
 unsafe impl Send for EnteredBackgroundEventArgs {}
 #[cfg(feature = "ApplicationModel")]
 unsafe impl Sync for EnteredBackgroundEventArgs {}
+#[cfg(feature = "ApplicationModel")]
+windows_core::imp::define_interface!(EnteredBackgroundEventHandler, EnteredBackgroundEventHandler_Vtbl, 0x2b09a173_b68e_4def_88c1_8de84e5aab2f);
+#[cfg(feature = "ApplicationModel")]
+impl windows_core::RuntimeType for EnteredBackgroundEventHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "ApplicationModel")]
+impl EnteredBackgroundEventHandler {
+    pub fn new<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = EnteredBackgroundEventHandlerBox { vtable: &EnteredBackgroundEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
+    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+        P1: windows_core::Param<super::super::ApplicationModel::IEnteredBackgroundEventArgs>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), e.param().abi()).ok() }
+    }
+}
+#[cfg(feature = "ApplicationModel")]
+#[repr(C)]
+pub struct EnteredBackgroundEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[cfg(feature = "ApplicationModel")]
+#[repr(C)]
+struct EnteredBackgroundEventHandlerBox<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+    vtable: *const EnteredBackgroundEventHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+#[cfg(feature = "ApplicationModel")]
+impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static> EnteredBackgroundEventHandlerBox<F> {
+    const VTABLE: EnteredBackgroundEventHandler_Vtbl = EnteredBackgroundEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <EnteredBackgroundEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+        if (*interface).is_null() {
+            windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&e)).into()
+    }
+}
 #[cfg(feature = "Graphics_Printing")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -244,6 +445,358 @@ impl windows_core::RuntimeName for HtmlPrintDocumentSource {
 unsafe impl Send for HtmlPrintDocumentSource {}
 #[cfg(feature = "Graphics_Printing")]
 unsafe impl Sync for HtmlPrintDocumentSource {}
+windows_core::imp::define_interface!(IActivatedDeferral, IActivatedDeferral_Vtbl, 0xc3bd1978_a431_49d8_a76a_395a4e03dcf3);
+impl windows_core::RuntimeType for IActivatedDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IActivatedDeferral_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IActivatedEventArgsDeferral, IActivatedEventArgsDeferral_Vtbl, 0xca6d5f74_63c2_44a6_b97b_d9a03c20bc9b);
+impl windows_core::RuntimeType for IActivatedEventArgsDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+windows_core::imp::interface_hierarchy!(IActivatedEventArgsDeferral, windows_core::IUnknown, windows_core::IInspectable);
+impl IActivatedEventArgsDeferral {
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeName for IActivatedEventArgsDeferral {
+    const NAME: &'static str = "Windows.UI.WebUI.IActivatedEventArgsDeferral";
+}
+pub trait IActivatedEventArgsDeferral_Impl: windows_core::IUnknownImpl {
+    fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation>;
+}
+impl IActivatedEventArgsDeferral_Vtbl {
+    pub const fn new<Identity: IActivatedEventArgsDeferral_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn ActivatedOperation<Identity: IActivatedEventArgsDeferral_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IActivatedEventArgsDeferral_Impl::ActivatedOperation(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IActivatedEventArgsDeferral, OFFSET>(),
+            ActivatedOperation: ActivatedOperation::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IActivatedEventArgsDeferral as windows_core::Interface>::IID
+    }
+}
+#[repr(C)]
+pub struct IActivatedEventArgsDeferral_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ActivatedOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IActivatedOperation, IActivatedOperation_Vtbl, 0xb6a0b4bc_c6ca_42fd_9818_71904e45fed7);
+impl windows_core::RuntimeType for IActivatedOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IActivatedOperation_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[cfg(feature = "Graphics_Printing")]
+windows_core::imp::define_interface!(IHtmlPrintDocumentSource, IHtmlPrintDocumentSource_Vtbl, 0xcea6469a_0e05_467a_abc9_36ec1d4cdcb6);
+#[cfg(feature = "Graphics_Printing")]
+impl windows_core::RuntimeType for IHtmlPrintDocumentSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "Graphics_Printing")]
+#[repr(C)]
+pub struct IHtmlPrintDocumentSource_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Content: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintContent) -> windows_core::HRESULT,
+    pub SetContent: unsafe extern "system" fn(*mut core::ffi::c_void, PrintContent) -> windows_core::HRESULT,
+    pub LeftMargin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub SetLeftMargin: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub TopMargin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub SetTopMargin: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub RightMargin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub SetRightMargin: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub BottomMargin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub SetBottomMargin: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub EnableHeaderFooter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetEnableHeaderFooter: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub ShrinkToFit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetShrinkToFit: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub PercentScale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub SetPercentScale: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub PageRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub TrySetPageRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(INewWebUIViewCreatedEventArgs, INewWebUIViewCreatedEventArgs_Vtbl, 0xe8e1b216_be2b_4c9e_85e7_083143ec4be7);
+impl windows_core::RuntimeType for INewWebUIViewCreatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct INewWebUIViewCreatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Web_UI")]
+    pub WebUIView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Web_UI"))]
+    WebUIView: usize,
+    #[cfg(feature = "ApplicationModel_Activation")]
+    pub ActivatedEventArgs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_Activation"))]
+    ActivatedEventArgs: usize,
+    pub HasPendingNavigate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWebUIActivationStatics, IWebUIActivationStatics_Vtbl, 0x351b86bd_43b3_482b_85db_35d87b517ad9);
+impl windows_core::RuntimeType for IWebUIActivationStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IWebUIActivationStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "ApplicationModel_Activation")]
+    pub Activated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_Activation"))]
+    Activated: usize,
+    pub RemoveActivated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(feature = "ApplicationModel")]
+    pub Suspending: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel"))]
+    Suspending: usize,
+    pub RemoveSuspending: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub Resuming: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveResuming: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub Navigated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveNavigated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWebUIActivationStatics2, IWebUIActivationStatics2_Vtbl, 0xc8e88696_4d78_4aa4_8f06_2a9eadc6c40a);
+impl windows_core::RuntimeType for IWebUIActivationStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IWebUIActivationStatics2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "ApplicationModel")]
+    pub LeavingBackground: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel"))]
+    LeavingBackground: usize,
+    pub RemoveLeavingBackground: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(feature = "ApplicationModel")]
+    pub EnteredBackground: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel"))]
+    EnteredBackground: usize,
+    pub RemoveEnteredBackground: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub EnablePrelaunch: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWebUIActivationStatics3, IWebUIActivationStatics3_Vtbl, 0x91abb686_1af5_4445_b49f_9459f40fc8de);
+impl windows_core::RuntimeType for IWebUIActivationStatics3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IWebUIActivationStatics3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "ApplicationModel_Core")]
+    pub RequestRestartAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_Core"))]
+    RequestRestartAsync: usize,
+    #[cfg(all(feature = "ApplicationModel_Core", feature = "System"))]
+    pub RequestRestartForUserAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "ApplicationModel_Core", feature = "System")))]
+    RequestRestartForUserAsync: usize,
+}
+windows_core::imp::define_interface!(IWebUIActivationStatics4, IWebUIActivationStatics4_Vtbl, 0x5e391429_183f_478d_8a25_67f80d03935b);
+impl windows_core::RuntimeType for IWebUIActivationStatics4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IWebUIActivationStatics4_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub NewWebUIViewCreated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveNewWebUIViewCreated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(feature = "ApplicationModel_Activation")]
+    pub BackgroundActivated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_Activation"))]
+    BackgroundActivated: usize,
+    pub RemoveBackgroundActivated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWebUIBackgroundTaskInstance, IWebUIBackgroundTaskInstance_Vtbl, 0x23f12c25_e2f7_4741_bc9c_394595de24dc);
+impl windows_core::RuntimeType for IWebUIBackgroundTaskInstance {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+windows_core::imp::interface_hierarchy!(IWebUIBackgroundTaskInstance, windows_core::IUnknown, windows_core::IInspectable);
+impl IWebUIBackgroundTaskInstance {
+    pub fn Succeeded(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Succeeded)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetSucceeded(&self, succeeded: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetSucceeded)(windows_core::Interface::as_raw(this), succeeded).ok() }
+    }
+}
+impl windows_core::RuntimeName for IWebUIBackgroundTaskInstance {
+    const NAME: &'static str = "Windows.UI.WebUI.IWebUIBackgroundTaskInstance";
+}
+pub trait IWebUIBackgroundTaskInstance_Impl: windows_core::IUnknownImpl {
+    fn Succeeded(&self) -> windows_core::Result<bool>;
+    fn SetSucceeded(&self, succeeded: bool) -> windows_core::Result<()>;
+}
+impl IWebUIBackgroundTaskInstance_Vtbl {
+    pub const fn new<Identity: IWebUIBackgroundTaskInstance_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Succeeded<Identity: IWebUIBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWebUIBackgroundTaskInstance_Impl::Succeeded(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetSucceeded<Identity: IWebUIBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, succeeded: bool) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWebUIBackgroundTaskInstance_Impl::SetSucceeded(this, succeeded).into()
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebUIBackgroundTaskInstance, OFFSET>(),
+            Succeeded: Succeeded::<Identity, OFFSET>,
+            SetSucceeded: SetSucceeded::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWebUIBackgroundTaskInstance as windows_core::Interface>::IID
+    }
+}
+#[repr(C)]
+pub struct IWebUIBackgroundTaskInstance_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Succeeded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetSucceeded: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWebUIBackgroundTaskInstanceStatics, IWebUIBackgroundTaskInstanceStatics_Vtbl, 0x9c7a5291_19ae_4ca3_b94b_fe4ec744a740);
+impl windows_core::RuntimeType for IWebUIBackgroundTaskInstanceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IWebUIBackgroundTaskInstanceStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWebUINavigatedDeferral, IWebUINavigatedDeferral_Vtbl, 0xd804204d_831f_46e2_b432_3afce211f962);
+impl windows_core::RuntimeType for IWebUINavigatedDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IWebUINavigatedDeferral_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWebUINavigatedEventArgs, IWebUINavigatedEventArgs_Vtbl, 0xa75841b8_2499_4030_a69d_15d2d9cfe524);
+impl windows_core::RuntimeType for IWebUINavigatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+windows_core::imp::interface_hierarchy!(IWebUINavigatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl IWebUINavigatedEventArgs {
+    pub fn NavigatedOperation(&self) -> windows_core::Result<WebUINavigatedOperation> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NavigatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeName for IWebUINavigatedEventArgs {
+    const NAME: &'static str = "Windows.UI.WebUI.IWebUINavigatedEventArgs";
+}
+pub trait IWebUINavigatedEventArgs_Impl: windows_core::IUnknownImpl {
+    fn NavigatedOperation(&self) -> windows_core::Result<WebUINavigatedOperation>;
+}
+impl IWebUINavigatedEventArgs_Vtbl {
+    pub const fn new<Identity: IWebUINavigatedEventArgs_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn NavigatedOperation<Identity: IWebUINavigatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWebUINavigatedEventArgs_Impl::NavigatedOperation(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebUINavigatedEventArgs, OFFSET>(),
+            NavigatedOperation: NavigatedOperation::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWebUINavigatedEventArgs as windows_core::Interface>::IID
+    }
+}
+#[repr(C)]
+pub struct IWebUINavigatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub NavigatedOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWebUINavigatedOperation, IWebUINavigatedOperation_Vtbl, 0x7a965f08_8182_4a89_ab67_8492e8750d4b);
+impl windows_core::RuntimeType for IWebUINavigatedOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IWebUINavigatedOperation_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWebUIView, IWebUIView_Vtbl, 0x6783f64f_52da_4fd7_be69_8ef6284b423c);
+impl windows_core::RuntimeType for IWebUIView {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IWebUIView_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ApplicationViewId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    #[cfg(feature = "Web_UI")]
+    pub Closed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Web_UI"))]
+    Closed: usize,
+    pub RemoveClosed: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Web_UI"))]
+    pub Activated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "ApplicationModel_Activation", feature = "Web_UI")))]
+    Activated: usize,
+    pub RemoveActivated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub IgnoreApplicationContentUriRulesNavigationRestrictions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetIgnoreApplicationContentUriRulesNavigationRestrictions: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWebUIViewStatics, IWebUIViewStatics_Vtbl, 0xb591e668_8e59_44f9_8803_1b24c9149d30);
+impl windows_core::RuntimeType for IWebUIViewStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IWebUIViewStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Web_UI")]
+    pub CreateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Web_UI"))]
+    CreateAsync: usize,
+    #[cfg(feature = "Web_UI")]
+    pub CreateWithUriAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Web_UI"))]
+    CreateWithUriAsync: usize,
+}
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -277,6 +830,134 @@ impl windows_core::RuntimeName for LeavingBackgroundEventArgs {
 unsafe impl Send for LeavingBackgroundEventArgs {}
 #[cfg(feature = "ApplicationModel")]
 unsafe impl Sync for LeavingBackgroundEventArgs {}
+#[cfg(feature = "ApplicationModel")]
+windows_core::imp::define_interface!(LeavingBackgroundEventHandler, LeavingBackgroundEventHandler_Vtbl, 0x00b4ccd9_7a9c_4b6b_9ac4_13474f268bc4);
+#[cfg(feature = "ApplicationModel")]
+impl windows_core::RuntimeType for LeavingBackgroundEventHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "ApplicationModel")]
+impl LeavingBackgroundEventHandler {
+    pub fn new<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = LeavingBackgroundEventHandlerBox { vtable: &LeavingBackgroundEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
+    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+        P1: windows_core::Param<super::super::ApplicationModel::ILeavingBackgroundEventArgs>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), e.param().abi()).ok() }
+    }
+}
+#[cfg(feature = "ApplicationModel")]
+#[repr(C)]
+pub struct LeavingBackgroundEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[cfg(feature = "ApplicationModel")]
+#[repr(C)]
+struct LeavingBackgroundEventHandlerBox<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+    vtable: *const LeavingBackgroundEventHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+#[cfg(feature = "ApplicationModel")]
+impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static> LeavingBackgroundEventHandlerBox<F> {
+    const VTABLE: LeavingBackgroundEventHandler_Vtbl = LeavingBackgroundEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <LeavingBackgroundEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+        if (*interface).is_null() {
+            windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&e)).into()
+    }
+}
+windows_core::imp::define_interface!(NavigatedEventHandler, NavigatedEventHandler_Vtbl, 0x7af46fe6_40ca_4e49_a7d6_dbdb330cd1a3);
+impl windows_core::RuntimeType for NavigatedEventHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl NavigatedEventHandler {
+    pub fn new<F: FnMut(Option<&windows_core::IInspectable>, Option<&IWebUINavigatedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = NavigatedEventHandlerBox { vtable: &NavigatedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
+    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+        P1: windows_core::Param<IWebUINavigatedEventArgs>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), e.param().abi()).ok() }
+    }
+}
+#[repr(C)]
+pub struct NavigatedEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[repr(C)]
+struct NavigatedEventHandlerBox<F: FnMut(Option<&windows_core::IInspectable>, Option<&IWebUINavigatedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+    vtable: *const NavigatedEventHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&IWebUINavigatedEventArgs>) -> windows_core::Result<()> + Send + 'static> NavigatedEventHandlerBox<F> {
+    const VTABLE: NavigatedEventHandler_Vtbl = NavigatedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <NavigatedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+        if (*interface).is_null() {
+            windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&e)).into()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NewWebUIViewCreatedEventArgs(windows_core::IUnknown);
@@ -322,6 +1003,81 @@ unsafe impl windows_core::Interface for NewWebUIViewCreatedEventArgs {
 }
 impl windows_core::RuntimeName for NewWebUIViewCreatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.NewWebUIViewCreatedEventArgs";
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PrintContent(pub i32);
+impl PrintContent {
+    pub const AllPages: Self = Self(0i32);
+    pub const CurrentPage: Self = Self(1i32);
+    pub const CustomPageRange: Self = Self(2i32);
+    pub const CurrentSelection: Self = Self(3i32);
+}
+impl windows_core::TypeKind for PrintContent {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for PrintContent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WebUI.PrintContent;i4)");
+}
+windows_core::imp::define_interface!(ResumingEventHandler, ResumingEventHandler_Vtbl, 0x26599ba9_a22d_4806_a728_acadc1d075fa);
+impl windows_core::RuntimeType for ResumingEventHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl ResumingEventHandler {
+    pub fn new<F: FnMut(Option<&windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = ResumingEventHandlerBox { vtable: &ResumingEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
+    pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi()).ok() }
+    }
+}
+#[repr(C)]
+pub struct ResumingEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[repr(C)]
+struct ResumingEventHandlerBox<F: FnMut(Option<&windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static> {
+    vtable: *const ResumingEventHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+impl<F: FnMut(Option<&windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static> ResumingEventHandlerBox<F> {
+    const VTABLE: ResumingEventHandler_Vtbl = ResumingEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <ResumingEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+        if (*interface).is_null() {
+            windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender)).into()
+    }
 }
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
@@ -378,6 +1134,73 @@ unsafe impl windows_core::Interface for SuspendingEventArgs {
 #[cfg(feature = "ApplicationModel")]
 impl windows_core::RuntimeName for SuspendingEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.SuspendingEventArgs";
+}
+#[cfg(feature = "ApplicationModel")]
+windows_core::imp::define_interface!(SuspendingEventHandler, SuspendingEventHandler_Vtbl, 0x509c429c_78e2_4883_abc8_8960dcde1b5c);
+#[cfg(feature = "ApplicationModel")]
+impl windows_core::RuntimeType for SuspendingEventHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "ApplicationModel")]
+impl SuspendingEventHandler {
+    pub fn new<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::ISuspendingEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = SuspendingEventHandlerBox { vtable: &SuspendingEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
+    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+        P1: windows_core::Param<super::super::ApplicationModel::ISuspendingEventArgs>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), e.param().abi()).ok() }
+    }
+}
+#[cfg(feature = "ApplicationModel")]
+#[repr(C)]
+pub struct SuspendingEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[cfg(feature = "ApplicationModel")]
+#[repr(C)]
+struct SuspendingEventHandlerBox<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::ISuspendingEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+    vtable: *const SuspendingEventHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+#[cfg(feature = "ApplicationModel")]
+impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::ISuspendingEventArgs>) -> windows_core::Result<()> + Send + 'static> SuspendingEventHandlerBox<F> {
+    const VTABLE: SuspendingEventHandler_Vtbl = SuspendingEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <SuspendingEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+        if (*interface).is_null() {
+            windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&e)).into()
+    }
 }
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
@@ -4735,827 +5558,4 @@ unsafe impl windows_core::Interface for WebUIWebAuthenticationBrokerContinuation
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeName for WebUIWebAuthenticationBrokerContinuationEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIWebAuthenticationBrokerContinuationEventArgs";
-}
-windows_core::imp::define_interface!(IActivatedDeferral, IActivatedDeferral_Vtbl, 0xc3bd1978_a431_49d8_a76a_395a4e03dcf3);
-impl windows_core::RuntimeType for IActivatedDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IActivatedDeferral_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IActivatedEventArgsDeferral, IActivatedEventArgsDeferral_Vtbl, 0xca6d5f74_63c2_44a6_b97b_d9a03c20bc9b);
-impl windows_core::RuntimeType for IActivatedEventArgsDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-windows_core::imp::interface_hierarchy!(IActivatedEventArgsDeferral, windows_core::IUnknown, windows_core::IInspectable);
-impl IActivatedEventArgsDeferral {
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeName for IActivatedEventArgsDeferral {
-    const NAME: &'static str = "Windows.UI.WebUI.IActivatedEventArgsDeferral";
-}
-pub trait IActivatedEventArgsDeferral_Impl: windows_core::IUnknownImpl {
-    fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation>;
-}
-impl IActivatedEventArgsDeferral_Vtbl {
-    pub const fn new<Identity: IActivatedEventArgsDeferral_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ActivatedOperation<Identity: IActivatedEventArgsDeferral_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IActivatedEventArgsDeferral_Impl::ActivatedOperation(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IActivatedEventArgsDeferral, OFFSET>(),
-            ActivatedOperation: ActivatedOperation::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IActivatedEventArgsDeferral as windows_core::Interface>::IID
-    }
-}
-#[repr(C)]
-pub struct IActivatedEventArgsDeferral_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ActivatedOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IActivatedOperation, IActivatedOperation_Vtbl, 0xb6a0b4bc_c6ca_42fd_9818_71904e45fed7);
-impl windows_core::RuntimeType for IActivatedOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IActivatedOperation_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[cfg(feature = "Graphics_Printing")]
-windows_core::imp::define_interface!(IHtmlPrintDocumentSource, IHtmlPrintDocumentSource_Vtbl, 0xcea6469a_0e05_467a_abc9_36ec1d4cdcb6);
-#[cfg(feature = "Graphics_Printing")]
-impl windows_core::RuntimeType for IHtmlPrintDocumentSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "Graphics_Printing")]
-#[repr(C)]
-pub struct IHtmlPrintDocumentSource_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Content: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintContent) -> windows_core::HRESULT,
-    pub SetContent: unsafe extern "system" fn(*mut core::ffi::c_void, PrintContent) -> windows_core::HRESULT,
-    pub LeftMargin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetLeftMargin: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub TopMargin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetTopMargin: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub RightMargin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetRightMargin: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub BottomMargin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetBottomMargin: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub EnableHeaderFooter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetEnableHeaderFooter: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub ShrinkToFit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetShrinkToFit: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub PercentScale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetPercentScale: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub PageRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub TrySetPageRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(INewWebUIViewCreatedEventArgs, INewWebUIViewCreatedEventArgs_Vtbl, 0xe8e1b216_be2b_4c9e_85e7_083143ec4be7);
-impl windows_core::RuntimeType for INewWebUIViewCreatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct INewWebUIViewCreatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Web_UI")]
-    pub WebUIView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Web_UI"))]
-    WebUIView: usize,
-    #[cfg(feature = "ApplicationModel_Activation")]
-    pub ActivatedEventArgs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Activation"))]
-    ActivatedEventArgs: usize,
-    pub HasPendingNavigate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IWebUIActivationStatics, IWebUIActivationStatics_Vtbl, 0x351b86bd_43b3_482b_85db_35d87b517ad9);
-impl windows_core::RuntimeType for IWebUIActivationStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IWebUIActivationStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "ApplicationModel_Activation")]
-    pub Activated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Activation"))]
-    Activated: usize,
-    pub RemoveActivated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(feature = "ApplicationModel")]
-    pub Suspending: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel"))]
-    Suspending: usize,
-    pub RemoveSuspending: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub Resuming: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveResuming: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub Navigated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveNavigated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IWebUIActivationStatics2, IWebUIActivationStatics2_Vtbl, 0xc8e88696_4d78_4aa4_8f06_2a9eadc6c40a);
-impl windows_core::RuntimeType for IWebUIActivationStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IWebUIActivationStatics2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "ApplicationModel")]
-    pub LeavingBackground: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel"))]
-    LeavingBackground: usize,
-    pub RemoveLeavingBackground: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(feature = "ApplicationModel")]
-    pub EnteredBackground: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel"))]
-    EnteredBackground: usize,
-    pub RemoveEnteredBackground: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub EnablePrelaunch: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IWebUIActivationStatics3, IWebUIActivationStatics3_Vtbl, 0x91abb686_1af5_4445_b49f_9459f40fc8de);
-impl windows_core::RuntimeType for IWebUIActivationStatics3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IWebUIActivationStatics3_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "ApplicationModel_Core")]
-    pub RequestRestartAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Core"))]
-    RequestRestartAsync: usize,
-    #[cfg(all(feature = "ApplicationModel_Core", feature = "System"))]
-    pub RequestRestartForUserAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel_Core", feature = "System")))]
-    RequestRestartForUserAsync: usize,
-}
-windows_core::imp::define_interface!(IWebUIActivationStatics4, IWebUIActivationStatics4_Vtbl, 0x5e391429_183f_478d_8a25_67f80d03935b);
-impl windows_core::RuntimeType for IWebUIActivationStatics4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IWebUIActivationStatics4_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub NewWebUIViewCreated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveNewWebUIViewCreated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(feature = "ApplicationModel_Activation")]
-    pub BackgroundActivated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Activation"))]
-    BackgroundActivated: usize,
-    pub RemoveBackgroundActivated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IWebUIBackgroundTaskInstance, IWebUIBackgroundTaskInstance_Vtbl, 0x23f12c25_e2f7_4741_bc9c_394595de24dc);
-impl windows_core::RuntimeType for IWebUIBackgroundTaskInstance {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-windows_core::imp::interface_hierarchy!(IWebUIBackgroundTaskInstance, windows_core::IUnknown, windows_core::IInspectable);
-impl IWebUIBackgroundTaskInstance {
-    pub fn Succeeded(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Succeeded)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetSucceeded(&self, succeeded: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSucceeded)(windows_core::Interface::as_raw(this), succeeded).ok() }
-    }
-}
-impl windows_core::RuntimeName for IWebUIBackgroundTaskInstance {
-    const NAME: &'static str = "Windows.UI.WebUI.IWebUIBackgroundTaskInstance";
-}
-pub trait IWebUIBackgroundTaskInstance_Impl: windows_core::IUnknownImpl {
-    fn Succeeded(&self) -> windows_core::Result<bool>;
-    fn SetSucceeded(&self, succeeded: bool) -> windows_core::Result<()>;
-}
-impl IWebUIBackgroundTaskInstance_Vtbl {
-    pub const fn new<Identity: IWebUIBackgroundTaskInstance_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Succeeded<Identity: IWebUIBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWebUIBackgroundTaskInstance_Impl::Succeeded(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn SetSucceeded<Identity: IWebUIBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, succeeded: bool) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IWebUIBackgroundTaskInstance_Impl::SetSucceeded(this, succeeded).into()
-        }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebUIBackgroundTaskInstance, OFFSET>(),
-            Succeeded: Succeeded::<Identity, OFFSET>,
-            SetSucceeded: SetSucceeded::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWebUIBackgroundTaskInstance as windows_core::Interface>::IID
-    }
-}
-#[repr(C)]
-pub struct IWebUIBackgroundTaskInstance_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Succeeded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetSucceeded: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IWebUIBackgroundTaskInstanceStatics, IWebUIBackgroundTaskInstanceStatics_Vtbl, 0x9c7a5291_19ae_4ca3_b94b_fe4ec744a740);
-impl windows_core::RuntimeType for IWebUIBackgroundTaskInstanceStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IWebUIBackgroundTaskInstanceStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IWebUINavigatedDeferral, IWebUINavigatedDeferral_Vtbl, 0xd804204d_831f_46e2_b432_3afce211f962);
-impl windows_core::RuntimeType for IWebUINavigatedDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IWebUINavigatedDeferral_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IWebUINavigatedEventArgs, IWebUINavigatedEventArgs_Vtbl, 0xa75841b8_2499_4030_a69d_15d2d9cfe524);
-impl windows_core::RuntimeType for IWebUINavigatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-windows_core::imp::interface_hierarchy!(IWebUINavigatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl IWebUINavigatedEventArgs {
-    pub fn NavigatedOperation(&self) -> windows_core::Result<WebUINavigatedOperation> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NavigatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeName for IWebUINavigatedEventArgs {
-    const NAME: &'static str = "Windows.UI.WebUI.IWebUINavigatedEventArgs";
-}
-pub trait IWebUINavigatedEventArgs_Impl: windows_core::IUnknownImpl {
-    fn NavigatedOperation(&self) -> windows_core::Result<WebUINavigatedOperation>;
-}
-impl IWebUINavigatedEventArgs_Vtbl {
-    pub const fn new<Identity: IWebUINavigatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn NavigatedOperation<Identity: IWebUINavigatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IWebUINavigatedEventArgs_Impl::NavigatedOperation(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebUINavigatedEventArgs, OFFSET>(),
-            NavigatedOperation: NavigatedOperation::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWebUINavigatedEventArgs as windows_core::Interface>::IID
-    }
-}
-#[repr(C)]
-pub struct IWebUINavigatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub NavigatedOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IWebUINavigatedOperation, IWebUINavigatedOperation_Vtbl, 0x7a965f08_8182_4a89_ab67_8492e8750d4b);
-impl windows_core::RuntimeType for IWebUINavigatedOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IWebUINavigatedOperation_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IWebUIView, IWebUIView_Vtbl, 0x6783f64f_52da_4fd7_be69_8ef6284b423c);
-impl windows_core::RuntimeType for IWebUIView {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IWebUIView_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ApplicationViewId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Web_UI")]
-    pub Closed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Web_UI"))]
-    Closed: usize,
-    pub RemoveClosed: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Web_UI"))]
-    pub Activated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel_Activation", feature = "Web_UI")))]
-    Activated: usize,
-    pub RemoveActivated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub IgnoreApplicationContentUriRulesNavigationRestrictions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetIgnoreApplicationContentUriRulesNavigationRestrictions: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IWebUIViewStatics, IWebUIViewStatics_Vtbl, 0xb591e668_8e59_44f9_8803_1b24c9149d30);
-impl windows_core::RuntimeType for IWebUIViewStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IWebUIViewStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Web_UI")]
-    pub CreateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Web_UI"))]
-    CreateAsync: usize,
-    #[cfg(feature = "Web_UI")]
-    pub CreateWithUriAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Web_UI"))]
-    CreateWithUriAsync: usize,
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::define_interface!(ActivatedEventHandler, ActivatedEventHandler_Vtbl, 0x50f1e730_c5d1_4b6b_9adb_8a11756be29c);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for ActivatedEventHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ActivatedEventHandler {
-    pub fn new<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = ActivatedEventHandlerBox { vtable: &ActivatedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
-    }
-    pub fn Invoke<P0, P1>(&self, sender: P0, eventargs: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IInspectable>,
-        P1: windows_core::Param<super::super::ApplicationModel::Activation::IActivatedEventArgs>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), eventargs.param().abi()).ok() }
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-#[repr(C)]
-pub struct ActivatedEventHandler_Vtbl {
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, eventargs: *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-#[repr(C)]
-struct ActivatedEventHandlerBox<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
-    vtable: *const ActivatedEventHandler_Vtbl,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static> ActivatedEventHandlerBox<F> {
-    const VTABLE: ActivatedEventHandler_Vtbl = ActivatedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <ActivatedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, eventargs: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&eventargs)).into()
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::define_interface!(BackgroundActivatedEventHandler, BackgroundActivatedEventHandler_Vtbl, 0xedb19fbb_0761_47cc_9a77_24d7072965ca);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for BackgroundActivatedEventHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl BackgroundActivatedEventHandler {
-    pub fn new<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = BackgroundActivatedEventHandlerBox { vtable: &BackgroundActivatedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
-    }
-    pub fn Invoke<P0, P1>(&self, sender: P0, eventargs: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IInspectable>,
-        P1: windows_core::Param<super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), eventargs.param().abi()).ok() }
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-#[repr(C)]
-pub struct BackgroundActivatedEventHandler_Vtbl {
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, eventargs: *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-#[repr(C)]
-struct BackgroundActivatedEventHandlerBox<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
-    vtable: *const BackgroundActivatedEventHandler_Vtbl,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static> BackgroundActivatedEventHandlerBox<F> {
-    const VTABLE: BackgroundActivatedEventHandler_Vtbl = BackgroundActivatedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <BackgroundActivatedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, eventargs: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&eventargs)).into()
-    }
-}
-#[cfg(feature = "ApplicationModel")]
-windows_core::imp::define_interface!(EnteredBackgroundEventHandler, EnteredBackgroundEventHandler_Vtbl, 0x2b09a173_b68e_4def_88c1_8de84e5aab2f);
-#[cfg(feature = "ApplicationModel")]
-impl windows_core::RuntimeType for EnteredBackgroundEventHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "ApplicationModel")]
-impl EnteredBackgroundEventHandler {
-    pub fn new<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = EnteredBackgroundEventHandlerBox { vtable: &EnteredBackgroundEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
-    }
-    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IInspectable>,
-        P1: windows_core::Param<super::super::ApplicationModel::IEnteredBackgroundEventArgs>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), e.param().abi()).ok() }
-    }
-}
-#[cfg(feature = "ApplicationModel")]
-#[repr(C)]
-pub struct EnteredBackgroundEventHandler_Vtbl {
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[cfg(feature = "ApplicationModel")]
-#[repr(C)]
-struct EnteredBackgroundEventHandlerBox<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static> {
-    vtable: *const EnteredBackgroundEventHandler_Vtbl,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
-#[cfg(feature = "ApplicationModel")]
-impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static> EnteredBackgroundEventHandlerBox<F> {
-    const VTABLE: EnteredBackgroundEventHandler_Vtbl = EnteredBackgroundEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <EnteredBackgroundEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&e)).into()
-    }
-}
-#[cfg(feature = "ApplicationModel")]
-windows_core::imp::define_interface!(LeavingBackgroundEventHandler, LeavingBackgroundEventHandler_Vtbl, 0x00b4ccd9_7a9c_4b6b_9ac4_13474f268bc4);
-#[cfg(feature = "ApplicationModel")]
-impl windows_core::RuntimeType for LeavingBackgroundEventHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "ApplicationModel")]
-impl LeavingBackgroundEventHandler {
-    pub fn new<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = LeavingBackgroundEventHandlerBox { vtable: &LeavingBackgroundEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
-    }
-    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IInspectable>,
-        P1: windows_core::Param<super::super::ApplicationModel::ILeavingBackgroundEventArgs>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), e.param().abi()).ok() }
-    }
-}
-#[cfg(feature = "ApplicationModel")]
-#[repr(C)]
-pub struct LeavingBackgroundEventHandler_Vtbl {
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[cfg(feature = "ApplicationModel")]
-#[repr(C)]
-struct LeavingBackgroundEventHandlerBox<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static> {
-    vtable: *const LeavingBackgroundEventHandler_Vtbl,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
-#[cfg(feature = "ApplicationModel")]
-impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static> LeavingBackgroundEventHandlerBox<F> {
-    const VTABLE: LeavingBackgroundEventHandler_Vtbl = LeavingBackgroundEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <LeavingBackgroundEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&e)).into()
-    }
-}
-windows_core::imp::define_interface!(NavigatedEventHandler, NavigatedEventHandler_Vtbl, 0x7af46fe6_40ca_4e49_a7d6_dbdb330cd1a3);
-impl windows_core::RuntimeType for NavigatedEventHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-impl NavigatedEventHandler {
-    pub fn new<F: FnMut(Option<&windows_core::IInspectable>, Option<&IWebUINavigatedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = NavigatedEventHandlerBox { vtable: &NavigatedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
-    }
-    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IInspectable>,
-        P1: windows_core::Param<IWebUINavigatedEventArgs>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), e.param().abi()).ok() }
-    }
-}
-#[repr(C)]
-pub struct NavigatedEventHandler_Vtbl {
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(C)]
-struct NavigatedEventHandlerBox<F: FnMut(Option<&windows_core::IInspectable>, Option<&IWebUINavigatedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
-    vtable: *const NavigatedEventHandler_Vtbl,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
-impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&IWebUINavigatedEventArgs>) -> windows_core::Result<()> + Send + 'static> NavigatedEventHandlerBox<F> {
-    const VTABLE: NavigatedEventHandler_Vtbl = NavigatedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <NavigatedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&e)).into()
-    }
-}
-windows_core::imp::define_interface!(ResumingEventHandler, ResumingEventHandler_Vtbl, 0x26599ba9_a22d_4806_a728_acadc1d075fa);
-impl windows_core::RuntimeType for ResumingEventHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-impl ResumingEventHandler {
-    pub fn new<F: FnMut(Option<&windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = ResumingEventHandlerBox { vtable: &ResumingEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
-    }
-    pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IInspectable>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi()).ok() }
-    }
-}
-#[repr(C)]
-pub struct ResumingEventHandler_Vtbl {
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(C)]
-struct ResumingEventHandlerBox<F: FnMut(Option<&windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static> {
-    vtable: *const ResumingEventHandler_Vtbl,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
-impl<F: FnMut(Option<&windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static> ResumingEventHandlerBox<F> {
-    const VTABLE: ResumingEventHandler_Vtbl = ResumingEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <ResumingEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&sender)).into()
-    }
-}
-#[cfg(feature = "ApplicationModel")]
-windows_core::imp::define_interface!(SuspendingEventHandler, SuspendingEventHandler_Vtbl, 0x509c429c_78e2_4883_abc8_8960dcde1b5c);
-#[cfg(feature = "ApplicationModel")]
-impl windows_core::RuntimeType for SuspendingEventHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "ApplicationModel")]
-impl SuspendingEventHandler {
-    pub fn new<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::ISuspendingEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = SuspendingEventHandlerBox { vtable: &SuspendingEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
-    }
-    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IInspectable>,
-        P1: windows_core::Param<super::super::ApplicationModel::ISuspendingEventArgs>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), e.param().abi()).ok() }
-    }
-}
-#[cfg(feature = "ApplicationModel")]
-#[repr(C)]
-pub struct SuspendingEventHandler_Vtbl {
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[cfg(feature = "ApplicationModel")]
-#[repr(C)]
-struct SuspendingEventHandlerBox<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::ISuspendingEventArgs>) -> windows_core::Result<()> + Send + 'static> {
-    vtable: *const SuspendingEventHandler_Vtbl,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
-#[cfg(feature = "ApplicationModel")]
-impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::ISuspendingEventArgs>) -> windows_core::Result<()> + Send + 'static> SuspendingEventHandlerBox<F> {
-    const VTABLE: SuspendingEventHandler_Vtbl = SuspendingEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <SuspendingEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&e)).into()
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PrintContent(pub i32);
-impl PrintContent {
-    pub const AllPages: Self = Self(0i32);
-    pub const CurrentPage: Self = Self(1i32);
-    pub const CustomPageRange: Self = Self(2i32);
-    pub const CurrentSelection: Self = Self(3i32);
-}
-impl windows_core::TypeKind for PrintContent {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for PrintContent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WebUI.PrintContent;i4)");
 }

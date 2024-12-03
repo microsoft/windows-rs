@@ -1648,6 +1648,543 @@ where
     windows_targets::link!("tapi32.dll" "system" fn tapiRequestMediaCallW(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM, lpszdeviceclass : windows_core::PCWSTR, lpdeviceid : windows_core::PCWSTR, dwsize : u32, dwsecure : u32, lpszdestaddress : windows_core::PCWSTR, lpszappname : windows_core::PCWSTR, lpszcalledparty : windows_core::PCWSTR, lpszcomment : windows_core::PCWSTR) -> i32);
     tapiRequestMediaCallW(hwnd.param().abi(), wrequestid.param().abi(), lpszdeviceclass.param().abi(), lpdeviceid.param().abi(), core::mem::transmute(dwsize), core::mem::transmute(dwsecure), lpszdestaddress.param().abi(), lpszappname.param().abi(), lpszcalledparty.param().abi(), lpszcomment.param().abi())
 }
+pub const ACDGE_GROUP_REMOVED: ACDGROUP_EVENT = ACDGROUP_EVENT(1i32);
+pub const ACDGE_NEW_GROUP: ACDGROUP_EVENT = ACDGROUP_EVENT(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ACDGROUP_EVENT(pub i32);
+pub const ACDQE_NEW_QUEUE: ACDQUEUE_EVENT = ACDQUEUE_EVENT(0i32);
+pub const ACDQE_QUEUE_REMOVED: ACDQUEUE_EVENT = ACDQUEUE_EVENT(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ACDQUEUE_EVENT(pub i32);
+pub const ACS_ADDRESSDEVICESPECIFIC: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(1i32);
+pub const ACS_LINEDEVICESPECIFIC: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(2i32);
+pub const ACS_PERMANENTDEVICEGUID: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(5i32);
+pub const ACS_PROTOCOL: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(0i32);
+pub const ACS_PROVIDERSPECIFIC: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(3i32);
+pub const ACS_SWITCHSPECIFIC: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(4i32);
+pub const AC_ADDRESSCAPFLAGS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(23i32);
+pub const AC_ADDRESSFEATURES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(29i32);
+pub const AC_ADDRESSID: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(33i32);
+pub const AC_ADDRESSTYPES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(0i32);
+pub const AC_ANSWERMODES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(14i32);
+pub const AC_BEARERMODES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(1i32);
+pub const AC_CALLCOMPLETIONCONDITIONS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(40i32);
+pub const AC_CALLCOMPLETIONMODES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(41i32);
+pub const AC_CALLEDIDSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(19i32);
+pub const AC_CALLERIDSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(18i32);
+pub const AC_CALLFEATURES1: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(24i32);
+pub const AC_CALLFEATURES2: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(25i32);
+pub const AC_CONNECTEDIDSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(20i32);
+pub const AC_DEVCAPFLAGS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(13i32);
+pub const AC_FORWARDMODES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(34i32);
+pub const AC_GATHERDIGITSMAXTIMEOUT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(44i32);
+pub const AC_GATHERDIGITSMINTIMEOUT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(43i32);
+pub const AC_GENERATEDIGITDEFAULTDURATION: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(47i32);
+pub const AC_GENERATEDIGITMAXDURATION: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(46i32);
+pub const AC_GENERATEDIGITMINDURATION: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(45i32);
+pub const AC_GENERATEDIGITSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(8i32);
+pub const AC_GENERATETONEMAXNUMFREQ: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(10i32);
+pub const AC_GENERATETONEMODES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(9i32);
+pub const AC_LINEFEATURES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(15i32);
+pub const AC_LINEID: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(32i32);
+pub const AC_MAXACTIVECALLS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(2i32);
+pub const AC_MAXCALLCOMPLETIONS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(39i32);
+pub const AC_MAXCALLDATASIZE: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(31i32);
+pub const AC_MAXFORWARDENTRIES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(35i32);
+pub const AC_MAXFWDNUMRINGS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(38i32);
+pub const AC_MAXNUMCONFERENCE: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(5i32);
+pub const AC_MAXNUMTRANSCONF: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(6i32);
+pub const AC_MAXONHOLDCALLS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(3i32);
+pub const AC_MAXONHOLDPENDINGCALLS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(4i32);
+pub const AC_MAXSPECIFICENTRIES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(36i32);
+pub const AC_MINFWDNUMRINGS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(37i32);
+pub const AC_MONITORDIGITSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(7i32);
+pub const AC_MONITORTONEMAXNUMENTRIES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(12i32);
+pub const AC_MONITORTONEMAXNUMFREQ: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(11i32);
+pub const AC_PARKSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(17i32);
+pub const AC_PERMANENTDEVICEID: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(42i32);
+pub const AC_PREDICTIVEAUTOTRANSFERSTATES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(30i32);
+pub const AC_REDIRECTINGIDSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(22i32);
+pub const AC_REDIRECTIONIDSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(21i32);
+pub const AC_REMOVEFROMCONFCAPS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(26i32);
+pub const AC_REMOVEFROMCONFSTATE: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(27i32);
+pub const AC_SETTABLEDEVSTATUS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(16i32);
+pub const AC_TRANSFERMODES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(28i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADDRALIAS {
+    pub rgchName: [i8; 41],
+    pub rgchEName: [i8; 11],
+    pub rgchSrvr: [i8; 12],
+    pub dibDetail: u32,
+    pub r#type: u16,
+}
+impl Default for ADDRALIAS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADDRALIAS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADDRESS_CAPABILITY(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADDRESS_CAPABILITY_STRING(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADDRESS_EVENT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADDRESS_STATE(pub i32);
+pub const ADDRESS_TERMINAL_AVAILABLE: MSP_ADDRESS_EVENT = MSP_ADDRESS_EVENT(0i32);
+pub const ADDRESS_TERMINAL_UNAVAILABLE: MSP_ADDRESS_EVENT = MSP_ADDRESS_EVENT(1i32);
+pub const AE_BUSY_ACD: AGENT_EVENT = AGENT_EVENT(2i32);
+pub const AE_BUSY_INCOMING: AGENT_EVENT = AGENT_EVENT(3i32);
+pub const AE_BUSY_OUTGOING: AGENT_EVENT = AGENT_EVENT(4i32);
+pub const AE_CAPSCHANGE: ADDRESS_EVENT = ADDRESS_EVENT(1i32);
+pub const AE_CONFIGCHANGE: ADDRESS_EVENT = ADDRESS_EVENT(3i32);
+pub const AE_FORWARD: ADDRESS_EVENT = ADDRESS_EVENT(4i32);
+pub const AE_LASTITEM: ADDRESS_EVENT = ADDRESS_EVENT(8i32);
+pub const AE_MSGWAITOFF: ADDRESS_EVENT = ADDRESS_EVENT(8i32);
+pub const AE_MSGWAITON: ADDRESS_EVENT = ADDRESS_EVENT(7i32);
+pub const AE_NEWTERMINAL: ADDRESS_EVENT = ADDRESS_EVENT(5i32);
+pub const AE_NOT_READY: AGENT_EVENT = AGENT_EVENT(0i32);
+pub const AE_READY: AGENT_EVENT = AGENT_EVENT(1i32);
+pub const AE_REMOVETERMINAL: ADDRESS_EVENT = ADDRESS_EVENT(6i32);
+pub const AE_RINGING: ADDRESS_EVENT = ADDRESS_EVENT(2i32);
+pub const AE_STATE: ADDRESS_EVENT = ADDRESS_EVENT(0i32);
+pub const AE_UNKNOWN: AGENT_EVENT = AGENT_EVENT(5i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AGENTHANDLER_EVENT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AGENT_EVENT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AGENT_SESSION_EVENT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AGENT_SESSION_STATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AGENT_STATE(pub i32);
+pub const AHE_AGENTHANDLER_REMOVED: AGENTHANDLER_EVENT = AGENTHANDLER_EVENT(1i32);
+pub const AHE_NEW_AGENTHANDLER: AGENTHANDLER_EVENT = AGENTHANDLER_EVENT(0i32);
+pub const ASE_BUSY: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(3i32);
+pub const ASE_END: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(5i32);
+pub const ASE_NEW_SESSION: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(0i32);
+pub const ASE_NOT_READY: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(1i32);
+pub const ASE_READY: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(2i32);
+pub const ASE_WRAPUP: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(4i32);
+pub const ASST_BUSY_ON_CALL: AGENT_SESSION_STATE = AGENT_SESSION_STATE(2i32);
+pub const ASST_BUSY_WRAPUP: AGENT_SESSION_STATE = AGENT_SESSION_STATE(3i32);
+pub const ASST_NOT_READY: AGENT_SESSION_STATE = AGENT_SESSION_STATE(0i32);
+pub const ASST_READY: AGENT_SESSION_STATE = AGENT_SESSION_STATE(1i32);
+pub const ASST_SESSION_ENDED: AGENT_SESSION_STATE = AGENT_SESSION_STATE(4i32);
+pub type ASYNC_COMPLETION = Option<unsafe extern "system" fn(dwrequestid: u32, lresult: i32)>;
+pub const AS_BUSY_ACD: AGENT_STATE = AGENT_STATE(2i32);
+pub const AS_BUSY_INCOMING: AGENT_STATE = AGENT_STATE(3i32);
+pub const AS_BUSY_OUTGOING: AGENT_STATE = AGENT_STATE(4i32);
+pub const AS_INSERVICE: ADDRESS_STATE = ADDRESS_STATE(0i32);
+pub const AS_NOT_READY: AGENT_STATE = AGENT_STATE(0i32);
+pub const AS_OUTOFSERVICE: ADDRESS_STATE = ADDRESS_STATE(1i32);
+pub const AS_READY: AGENT_STATE = AGENT_STATE(1i32);
+pub const AS_UNKNOWN: AGENT_STATE = AGENT_STATE(5i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CALLHUB_EVENT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CALLHUB_STATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CALLINFOCHANGE_CAUSE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CALLINFO_BUFFER(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CALLINFO_LONG(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CALLINFO_STRING(pub i32);
+pub const CALL_CAUSE_BAD_DEVICE: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(1i32);
+pub const CALL_CAUSE_CONNECT_FAIL: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(2i32);
+pub const CALL_CAUSE_LOCAL_REQUEST: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(3i32);
+pub const CALL_CAUSE_MEDIA_RECOVERED: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(6i32);
+pub const CALL_CAUSE_MEDIA_TIMEOUT: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(5i32);
+pub const CALL_CAUSE_QUALITY_OF_SERVICE: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(7i32);
+pub const CALL_CAUSE_REMOTE_REQUEST: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(4i32);
+pub const CALL_CAUSE_UNKNOWN: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CALL_MEDIA_EVENT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CALL_MEDIA_EVENT_CAUSE(pub i32);
+pub const CALL_NEW_STREAM: MSP_CALL_EVENT = MSP_CALL_EVENT(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CALL_NOTIFICATION_EVENT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CALL_PRIVILEGE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CALL_STATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CALL_STATE_EVENT_CAUSE(pub i32);
+pub const CALL_STREAM_ACTIVE: MSP_CALL_EVENT = MSP_CALL_EVENT(4i32);
+pub const CALL_STREAM_FAIL: MSP_CALL_EVENT = MSP_CALL_EVENT(1i32);
+pub const CALL_STREAM_INACTIVE: MSP_CALL_EVENT = MSP_CALL_EVENT(5i32);
+pub const CALL_STREAM_NOT_USED: MSP_CALL_EVENT = MSP_CALL_EVENT(3i32);
+pub const CALL_TERMINAL_FAIL: MSP_CALL_EVENT = MSP_CALL_EVENT(2i32);
+pub const CEC_DISCONNECT_BADADDRESS: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(3i32);
+pub const CEC_DISCONNECT_BLOCKED: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(8i32);
+pub const CEC_DISCONNECT_BUSY: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(2i32);
+pub const CEC_DISCONNECT_CANCELLED: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(5i32);
+pub const CEC_DISCONNECT_FAILED: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(7i32);
+pub const CEC_DISCONNECT_NOANSWER: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(4i32);
+pub const CEC_DISCONNECT_NORMAL: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(1i32);
+pub const CEC_DISCONNECT_REJECTED: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(6i32);
+pub const CEC_NONE: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(0i32);
+pub const CHE_CALLHUBIDLE: CALLHUB_EVENT = CALLHUB_EVENT(3i32);
+pub const CHE_CALLHUBNEW: CALLHUB_EVENT = CALLHUB_EVENT(2i32);
+pub const CHE_CALLJOIN: CALLHUB_EVENT = CALLHUB_EVENT(0i32);
+pub const CHE_CALLLEAVE: CALLHUB_EVENT = CALLHUB_EVENT(1i32);
+pub const CHE_LASTITEM: CALLHUB_EVENT = CALLHUB_EVENT(3i32);
+pub const CHS_ACTIVE: CALLHUB_STATE = CALLHUB_STATE(0i32);
+pub const CHS_IDLE: CALLHUB_STATE = CALLHUB_STATE(1i32);
+pub const CIB_CALLDATABUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(2i32);
+pub const CIB_CHARGINGINFOBUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(3i32);
+pub const CIB_DEVSPECIFICBUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(1i32);
+pub const CIB_HIGHLEVELCOMPATIBILITYBUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(4i32);
+pub const CIB_LOWLEVELCOMPATIBILITYBUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(5i32);
+pub const CIB_USERUSERINFO: CALLINFO_BUFFER = CALLINFO_BUFFER(0i32);
+pub const CIC_APPSPECIFIC: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(4i32);
+pub const CIC_BEARERMODE: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(2i32);
+pub const CIC_CALLDATA: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(24i32);
+pub const CIC_CALLEDID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(15i32);
+pub const CIC_CALLERID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(14i32);
+pub const CIC_CALLID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(5i32);
+pub const CIC_CHARGINGINFO: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(22i32);
+pub const CIC_COMPLETIONID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(9i32);
+pub const CIC_CONNECTEDID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(16i32);
+pub const CIC_DEVSPECIFIC: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(1i32);
+pub const CIC_HIGHLEVELCOMP: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(20i32);
+pub const CIC_LASTITEM: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(26i32);
+pub const CIC_LOWLEVELCOMP: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(21i32);
+pub const CIC_MEDIATYPE: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(26i32);
+pub const CIC_NUMMONITORS: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(12i32);
+pub const CIC_NUMOWNERDECR: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(11i32);
+pub const CIC_NUMOWNERINCR: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(10i32);
+pub const CIC_ORIGIN: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(7i32);
+pub const CIC_OTHER: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(0i32);
+pub const CIC_PRIVILEGE: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(25i32);
+pub const CIC_RATE: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(3i32);
+pub const CIC_REASON: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(8i32);
+pub const CIC_REDIRECTINGID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(18i32);
+pub const CIC_REDIRECTIONID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(17i32);
+pub const CIC_RELATEDCALLID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(6i32);
+pub const CIC_TREATMENT: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(23i32);
+pub const CIC_TRUNK: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(13i32);
+pub const CIC_USERUSERINFO: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(19i32);
+pub const CIL_APPSPECIFIC: CALLINFO_LONG = CALLINFO_LONG(9i32);
+pub const CIL_BEARERMODE: CALLINFO_LONG = CALLINFO_LONG(1i32);
+pub const CIL_CALLEDIDADDRESSTYPE: CALLINFO_LONG = CALLINFO_LONG(3i32);
+pub const CIL_CALLERIDADDRESSTYPE: CALLINFO_LONG = CALLINFO_LONG(2i32);
+pub const CIL_CALLID: CALLINFO_LONG = CALLINFO_LONG(15i32);
+pub const CIL_CALLPARAMSFLAGS: CALLINFO_LONG = CALLINFO_LONG(10i32);
+pub const CIL_CALLTREATMENT: CALLINFO_LONG = CALLINFO_LONG(11i32);
+pub const CIL_COMPLETIONID: CALLINFO_LONG = CALLINFO_LONG(17i32);
+pub const CIL_CONNECTEDIDADDRESSTYPE: CALLINFO_LONG = CALLINFO_LONG(4i32);
+pub const CIL_COUNTRYCODE: CALLINFO_LONG = CALLINFO_LONG(14i32);
+pub const CIL_GENERATEDIGITDURATION: CALLINFO_LONG = CALLINFO_LONG(22i32);
+pub const CIL_MAXRATE: CALLINFO_LONG = CALLINFO_LONG(13i32);
+pub const CIL_MEDIATYPESAVAILABLE: CALLINFO_LONG = CALLINFO_LONG(0i32);
+pub const CIL_MINRATE: CALLINFO_LONG = CALLINFO_LONG(12i32);
+pub const CIL_MONITORDIGITMODES: CALLINFO_LONG = CALLINFO_LONG(23i32);
+pub const CIL_MONITORMEDIAMODES: CALLINFO_LONG = CALLINFO_LONG(24i32);
+pub const CIL_NUMBEROFMONITORS: CALLINFO_LONG = CALLINFO_LONG(19i32);
+pub const CIL_NUMBEROFOWNERS: CALLINFO_LONG = CALLINFO_LONG(18i32);
+pub const CIL_ORIGIN: CALLINFO_LONG = CALLINFO_LONG(7i32);
+pub const CIL_RATE: CALLINFO_LONG = CALLINFO_LONG(21i32);
+pub const CIL_REASON: CALLINFO_LONG = CALLINFO_LONG(8i32);
+pub const CIL_REDIRECTINGIDADDRESSTYPE: CALLINFO_LONG = CALLINFO_LONG(6i32);
+pub const CIL_REDIRECTIONIDADDRESSTYPE: CALLINFO_LONG = CALLINFO_LONG(5i32);
+pub const CIL_RELATEDCALLID: CALLINFO_LONG = CALLINFO_LONG(16i32);
+pub const CIL_TRUNK: CALLINFO_LONG = CALLINFO_LONG(20i32);
+pub const CIS_CALLEDIDNAME: CALLINFO_STRING = CALLINFO_STRING(2i32);
+pub const CIS_CALLEDIDNUMBER: CALLINFO_STRING = CALLINFO_STRING(3i32);
+pub const CIS_CALLEDPARTYFRIENDLYNAME: CALLINFO_STRING = CALLINFO_STRING(10i32);
+pub const CIS_CALLERIDNAME: CALLINFO_STRING = CALLINFO_STRING(0i32);
+pub const CIS_CALLERIDNUMBER: CALLINFO_STRING = CALLINFO_STRING(1i32);
+pub const CIS_CALLINGPARTYID: CALLINFO_STRING = CALLINFO_STRING(13i32);
+pub const CIS_COMMENT: CALLINFO_STRING = CALLINFO_STRING(11i32);
+pub const CIS_CONNECTEDIDNAME: CALLINFO_STRING = CALLINFO_STRING(4i32);
+pub const CIS_CONNECTEDIDNUMBER: CALLINFO_STRING = CALLINFO_STRING(5i32);
+pub const CIS_DISPLAYABLEADDRESS: CALLINFO_STRING = CALLINFO_STRING(12i32);
+pub const CIS_REDIRECTINGIDNAME: CALLINFO_STRING = CALLINFO_STRING(8i32);
+pub const CIS_REDIRECTINGIDNUMBER: CALLINFO_STRING = CALLINFO_STRING(9i32);
+pub const CIS_REDIRECTIONIDNAME: CALLINFO_STRING = CALLINFO_STRING(6i32);
+pub const CIS_REDIRECTIONIDNUMBER: CALLINFO_STRING = CALLINFO_STRING(7i32);
+pub const CMC_BAD_DEVICE: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(1i32);
+pub const CMC_CONNECT_FAIL: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(2i32);
+pub const CMC_LOCAL_REQUEST: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(3i32);
+pub const CMC_MEDIA_RECOVERED: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(6i32);
+pub const CMC_MEDIA_TIMEOUT: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(5i32);
+pub const CMC_QUALITY_OF_SERVICE: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(7i32);
+pub const CMC_REMOTE_REQUEST: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(4i32);
+pub const CMC_UNKNOWN: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(0i32);
+pub const CME_LASTITEM: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(5i32);
+pub const CME_NEW_STREAM: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(0i32);
+pub const CME_STREAM_ACTIVE: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(4i32);
+pub const CME_STREAM_FAIL: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(1i32);
+pub const CME_STREAM_INACTIVE: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(5i32);
+pub const CME_STREAM_NOT_USED: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(3i32);
+pub const CME_TERMINAL_FAIL: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(2i32);
+pub const CNE_LASTITEM: CALL_NOTIFICATION_EVENT = CALL_NOTIFICATION_EVENT(1i32);
+pub const CNE_MONITOR: CALL_NOTIFICATION_EVENT = CALL_NOTIFICATION_EVENT(1i32);
+pub const CNE_OWNER: CALL_NOTIFICATION_EVENT = CALL_NOTIFICATION_EVENT(0i32);
+pub const CP_MONITOR: CALL_PRIVILEGE = CALL_PRIVILEGE(1i32);
+pub const CP_OWNER: CALL_PRIVILEGE = CALL_PRIVILEGE(0i32);
+pub const CS_CONNECTED: CALL_STATE = CALL_STATE(2i32);
+pub const CS_DISCONNECTED: CALL_STATE = CALL_STATE(3i32);
+pub const CS_HOLD: CALL_STATE = CALL_STATE(5i32);
+pub const CS_IDLE: CALL_STATE = CALL_STATE(0i32);
+pub const CS_INPROGRESS: CALL_STATE = CALL_STATE(1i32);
+pub const CS_LASTITEM: CALL_STATE = CALL_STATE(6i32);
+pub const CS_OFFERING: CALL_STATE = CALL_STATE(4i32);
+pub const CS_QUEUED: CALL_STATE = CALL_STATE(6i32);
+pub const DC_NOANSWER: DISCONNECT_CODE = DISCONNECT_CODE(1i32);
+pub const DC_NORMAL: DISCONNECT_CODE = DISCONNECT_CODE(0i32);
+pub const DC_REJECTED: DISCONNECT_CODE = DISCONNECT_CODE(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DIRECTORY_OBJECT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DIRECTORY_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISCONNECT_CODE(pub i32);
+pub const DISPIDMASK: u32 = 65535u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct DTR {
+    pub wYear: u16,
+    pub wMonth: u16,
+    pub wDay: u16,
+    pub wHour: u16,
+    pub wMinute: u16,
+    pub wSecond: u16,
+    pub wDayOfWeek: u16,
+}
+impl Default for DTR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DTR {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DT_ILS: DIRECTORY_TYPE = DIRECTORY_TYPE(2i32);
+pub const DT_NTDS: DIRECTORY_TYPE = DIRECTORY_TYPE(1i32);
+pub const DispatchMapper: windows_core::GUID = windows_core::GUID::from_u128(0xe9225296_c759_11d1_a02b_00c04fb6809f);
+pub const FDS_NOTSUPPORTED: FULLDUPLEX_SUPPORT = FULLDUPLEX_SUPPORT(1i32);
+pub const FDS_SUPPORTED: FULLDUPLEX_SUPPORT = FULLDUPLEX_SUPPORT(0i32);
+pub const FDS_UNKNOWN: FULLDUPLEX_SUPPORT = FULLDUPLEX_SUPPORT(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FINISH_MODE(pub i32);
+pub const FM_ASCONFERENCE: FINISH_MODE = FINISH_MODE(1i32);
+pub const FM_ASTRANSFER: FINISH_MODE = FINISH_MODE(0i32);
+pub const FTEC_END_OF_FILE: FT_STATE_EVENT_CAUSE = FT_STATE_EVENT_CAUSE(1i32);
+pub const FTEC_NORMAL: FT_STATE_EVENT_CAUSE = FT_STATE_EVENT_CAUSE(0i32);
+pub const FTEC_READ_ERROR: FT_STATE_EVENT_CAUSE = FT_STATE_EVENT_CAUSE(2i32);
+pub const FTEC_WRITE_ERROR: FT_STATE_EVENT_CAUSE = FT_STATE_EVENT_CAUSE(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FT_STATE_EVENT_CAUSE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FULLDUPLEX_SUPPORT(pub i32);
+pub const GETTNEFSTREAMCODEPAGE: windows_core::PCSTR = windows_core::s!("GetTnefStreamCodePage");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HDRVCALL(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HDRVCALL {
+    type TypeKind = windows_core::CopyType;
+}
+impl HDRVCALL {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for HDRVCALL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HDRVDIALOGINSTANCE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HDRVDIALOGINSTANCE {
+    type TypeKind = windows_core::CopyType;
+}
+impl HDRVDIALOGINSTANCE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for HDRVDIALOGINSTANCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HDRVLINE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HDRVLINE {
+    type TypeKind = windows_core::CopyType;
+}
+impl HDRVLINE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for HDRVLINE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HDRVMSPLINE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HDRVMSPLINE {
+    type TypeKind = windows_core::CopyType;
+}
+impl HDRVMSPLINE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for HDRVMSPLINE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HDRVPHONE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HDRVPHONE {
+    type TypeKind = windows_core::CopyType;
+}
+impl HDRVPHONE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for HDRVPHONE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HPROVIDER(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HPROVIDER {
+    type TypeKind = windows_core::CopyType;
+}
+impl HPROVIDER {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for HPROVIDER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HTAPICALL(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HTAPICALL {
+    type TypeKind = windows_core::CopyType;
+}
+impl HTAPICALL {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for HTAPICALL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HTAPILINE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HTAPILINE {
+    type TypeKind = windows_core::CopyType;
+}
+impl HTAPILINE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for HTAPILINE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HTAPIPHONE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HTAPIPHONE {
+    type TypeKind = windows_core::CopyType;
+}
+impl HTAPIPHONE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for HTAPIPHONE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const IDISPADDRESS: u32 = 65536u32;
+pub const IDISPADDRESSCAPABILITIES: u32 = 131072u32;
+pub const IDISPADDRESSTRANSLATION: u32 = 262144u32;
+pub const IDISPAGGREGATEDMSPADDRESSOBJ: u32 = 393216u32;
+pub const IDISPAGGREGATEDMSPCALLOBJ: u32 = 262144u32;
+pub const IDISPAPC: u32 = 131072u32;
+pub const IDISPBASICCALLCONTROL: u32 = 131072u32;
+pub const IDISPCALLINFO: u32 = 65536u32;
+pub const IDISPDIRECTORY: u32 = 65536u32;
+pub const IDISPDIROBJCONFERENCE: u32 = 131072u32;
+pub const IDISPDIROBJECT: u32 = 65536u32;
+pub const IDISPDIROBJUSER: u32 = 196608u32;
+pub const IDISPFILETRACK: u32 = 65536u32;
+pub const IDISPILSCONFIG: u32 = 131072u32;
+pub const IDISPLEGACYADDRESSMEDIACONTROL: u32 = 327680u32;
+pub const IDISPLEGACYCALLMEDIACONTROL: u32 = 196608u32;
+pub const IDISPMEDIACONTROL: u32 = 131072u32;
+pub const IDISPMEDIAPLAYBACK: u32 = 262144u32;
+pub const IDISPMEDIARECORD: u32 = 196608u32;
+pub const IDISPMEDIASUPPORT: u32 = 196608u32;
+pub const IDISPMULTITRACK: u32 = 65536u32;
+pub const IDISPPHONE: u32 = 65536u32;
+pub const IDISPTAPI: u32 = 65536u32;
+pub const IDISPTAPICALLCENTER: u32 = 131072u32;
 windows_core::imp::define_interface!(IEnumACDGroup, IEnumACDGroup_Vtbl, 0x5afc3157_4bcc_11d1_bf80_00805fc147d3);
 windows_core::imp::interface_hierarchy!(IEnumACDGroup, windows_core::IUnknown);
 impl IEnumACDGroup {
@@ -3760,6 +4297,8 @@ impl IMcastScope_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMcastScope {}
+pub const INITIALIZE_NEGOTIATION: u32 = 4294967295u32;
+pub const INTERFACEMASK: u32 = 16711680u32;
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITACDGroup, ITACDGroup_Vtbl, 0x5afc3148_4bcc_11d1_bf80_00805fc147d3);
 #[cfg(feature = "Win32_System_Com")]
@@ -15615,370 +16154,40 @@ impl ITnef_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ITnef {}
-pub type ASYNC_COMPLETION = Option<unsafe extern "system" fn(dwrequestid: u32, lresult: i32)>;
-pub type LINECALLBACK = Option<unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
-pub type LINEEVENT = Option<unsafe extern "system" fn(htline: HTAPILINE, htcall: HTAPICALL, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
-#[cfg(feature = "Win32_System_Com")]
-pub type LPGETTNEFSTREAMCODEPAGE = Option<unsafe extern "system" fn(lpstream: Option<super::super::System::Com::IStream>, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> windows_core::HRESULT>;
-#[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
-pub type LPOPENTNEFSTREAM = Option<unsafe extern "system" fn(lpvsupport: *mut core::ffi::c_void, lpstream: Option<super::super::System::Com::IStream>, lpszstreamname: *const i8, ulflags: u32, lpmessage: Option<super::super::System::AddressBook::IMessage>, wkeyval: u16, lpptnef: *mut Option<ITnef>) -> windows_core::HRESULT>;
-#[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
-pub type LPOPENTNEFSTREAMEX = Option<unsafe extern "system" fn(lpvsupport: *mut core::ffi::c_void, lpstream: Option<super::super::System::Com::IStream>, lpszstreamname: *const i8, ulflags: u32, lpmessage: Option<super::super::System::AddressBook::IMessage>, wkeyval: u16, lpadressbook: Option<super::super::System::AddressBook::IAddrBook>, lpptnef: *mut Option<ITnef>) -> windows_core::HRESULT>;
-pub type PHONECALLBACK = Option<unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
-pub type PHONEEVENT = Option<unsafe extern "system" fn(htphone: HTAPIPHONE, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
-pub type TUISPIDLLCALLBACK = Option<unsafe extern "system" fn(dwobjectid: usize, dwobjecttype: u32, lpparams: *mut core::ffi::c_void, dwsize: u32) -> i32>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ACDGROUP_EVENT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ACDQUEUE_EVENT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADDRESS_CAPABILITY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADDRESS_CAPABILITY_STRING(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADDRESS_EVENT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADDRESS_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AGENTHANDLER_EVENT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AGENT_EVENT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AGENT_SESSION_EVENT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AGENT_SESSION_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AGENT_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CALLHUB_EVENT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CALLHUB_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CALLINFOCHANGE_CAUSE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CALLINFO_BUFFER(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CALLINFO_LONG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CALLINFO_STRING(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CALL_MEDIA_EVENT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CALL_MEDIA_EVENT_CAUSE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CALL_NOTIFICATION_EVENT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CALL_PRIVILEGE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CALL_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CALL_STATE_EVENT_CAUSE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DIRECTORY_OBJECT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DIRECTORY_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISCONNECT_CODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FINISH_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FT_STATE_EVENT_CAUSE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FULLDUPLEX_SUPPORT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MSP_ADDRESS_EVENT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MSP_CALL_EVENT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MSP_CALL_EVENT_CAUSE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MSP_EVENT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PHONECAPS_BUFFER(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PHONECAPS_LONG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PHONECAPS_STRING(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PHONE_BUTTON_FUNCTION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PHONE_BUTTON_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PHONE_BUTTON_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PHONE_EVENT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PHONE_HOOK_SWITCH_DEVICE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PHONE_HOOK_SWITCH_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PHONE_LAMP_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PHONE_PRIVILEGE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PHONE_TONE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct QOS_EVENT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct QOS_SERVICE_LEVEL(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RND_ADVERTISING_SCOPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TAPIOBJECT_EVENT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TAPI_EVENT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TAPI_GATHERTERM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TAPI_OBJECT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TAPI_TONEMODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TERMINAL_DIRECTION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TERMINAL_MEDIA_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TERMINAL_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TERMINAL_TYPE(pub i32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADDRALIAS {
-    pub rgchName: [i8; 41],
-    pub rgchEName: [i8; 11],
-    pub rgchSrvr: [i8; 12],
-    pub dibDetail: u32,
-    pub r#type: u16,
-}
-impl Default for ADDRALIAS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADDRALIAS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct DTR {
-    pub wYear: u16,
-    pub wMonth: u16,
-    pub wDay: u16,
-    pub wHour: u16,
-    pub wMinute: u16,
-    pub wSecond: u16,
-    pub wDayOfWeek: u16,
-}
-impl Default for DTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DTR {
-    type TypeKind = windows_core::CopyType;
-}
-pub const DispatchMapper: windows_core::GUID = windows_core::GUID::from_u128(0xe9225296_c759_11d1_a02b_00c04fb6809f);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HDRVCALL(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDRVCALL {
-    type TypeKind = windows_core::CopyType;
-}
-impl HDRVCALL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for HDRVCALL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HDRVDIALOGINSTANCE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDRVDIALOGINSTANCE {
-    type TypeKind = windows_core::CopyType;
-}
-impl HDRVDIALOGINSTANCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for HDRVDIALOGINSTANCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HDRVLINE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDRVLINE {
-    type TypeKind = windows_core::CopyType;
-}
-impl HDRVLINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for HDRVLINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HDRVMSPLINE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDRVMSPLINE {
-    type TypeKind = windows_core::CopyType;
-}
-impl HDRVMSPLINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for HDRVMSPLINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HDRVPHONE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDRVPHONE {
-    type TypeKind = windows_core::CopyType;
-}
-impl HDRVPHONE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for HDRVPHONE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HPROVIDER(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HPROVIDER {
-    type TypeKind = windows_core::CopyType;
-}
-impl HPROVIDER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for HPROVIDER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HTAPICALL(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HTAPICALL {
-    type TypeKind = windows_core::CopyType;
-}
-impl HTAPICALL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for HTAPICALL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HTAPILINE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HTAPILINE {
-    type TypeKind = windows_core::CopyType;
-}
-impl HTAPILINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for HTAPILINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HTAPIPHONE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HTAPIPHONE {
-    type TypeKind = windows_core::CopyType;
-}
-impl HTAPIPHONE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for HTAPIPHONE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub const LAST_LINEMEDIAMODE: u32 = 32768u32;
+pub const LAST_LINEREQUESTMODE: u32 = 2u32;
+pub const LINEADDRCAPFLAGS_ACCEPTTOALERT: u32 = 1048576u32;
+pub const LINEADDRCAPFLAGS_ACDGROUP: u32 = 1073741824u32;
+pub const LINEADDRCAPFLAGS_AUTORECONNECT: u32 = 1024u32;
+pub const LINEADDRCAPFLAGS_BLOCKIDDEFAULT: u32 = 8u32;
+pub const LINEADDRCAPFLAGS_BLOCKIDOVERRIDE: u32 = 16u32;
+pub const LINEADDRCAPFLAGS_COMPLETIONID: u32 = 2048u32;
+pub const LINEADDRCAPFLAGS_CONFDROP: u32 = 2097152u32;
+pub const LINEADDRCAPFLAGS_CONFERENCEHELD: u32 = 16384u32;
+pub const LINEADDRCAPFLAGS_CONFERENCEMAKE: u32 = 32768u32;
+pub const LINEADDRCAPFLAGS_DESTOFFHOOK: u32 = 128u32;
+pub const LINEADDRCAPFLAGS_DIALED: u32 = 32u32;
+pub const LINEADDRCAPFLAGS_FWDBUSYNAADDR: u32 = 524288u32;
+pub const LINEADDRCAPFLAGS_FWDCONSULT: u32 = 256u32;
+pub const LINEADDRCAPFLAGS_FWDINTEXTADDR: u32 = 262144u32;
+pub const LINEADDRCAPFLAGS_FWDNUMRINGS: u32 = 1u32;
+pub const LINEADDRCAPFLAGS_FWDSTATUSVALID: u32 = 131072u32;
+pub const LINEADDRCAPFLAGS_HOLDMAKESNEW: u32 = 67108864u32;
+pub const LINEADDRCAPFLAGS_NOEXTERNALCALLS: u32 = 268435456u32;
+pub const LINEADDRCAPFLAGS_NOINTERNALCALLS: u32 = 134217728u32;
+pub const LINEADDRCAPFLAGS_NOPSTNADDRESSTRANSLATION: u32 = 2147483648u32;
+pub const LINEADDRCAPFLAGS_ORIGOFFHOOK: u32 = 64u32;
+pub const LINEADDRCAPFLAGS_PARTIALDIAL: u32 = 65536u32;
+pub const LINEADDRCAPFLAGS_PICKUPCALLWAIT: u32 = 4194304u32;
+pub const LINEADDRCAPFLAGS_PICKUPGROUPID: u32 = 2u32;
+pub const LINEADDRCAPFLAGS_PREDICTIVEDIALER: u32 = 8388608u32;
+pub const LINEADDRCAPFLAGS_QUEUE: u32 = 16777216u32;
+pub const LINEADDRCAPFLAGS_ROUTEPOINT: u32 = 33554432u32;
+pub const LINEADDRCAPFLAGS_SECURE: u32 = 4u32;
+pub const LINEADDRCAPFLAGS_SETCALLINGID: u32 = 536870912u32;
+pub const LINEADDRCAPFLAGS_SETUPCONFNULL: u32 = 512u32;
+pub const LINEADDRCAPFLAGS_TRANSFERHELD: u32 = 4096u32;
+pub const LINEADDRCAPFLAGS_TRANSFERMAKE: u32 = 8192u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEADDRESSCAPS {
@@ -16048,6 +16257,22 @@ impl Default for LINEADDRESSCAPS {
 impl windows_core::TypeKind for LINEADDRESSCAPS {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINEADDRESSMODE_ADDRESSID: u32 = 1u32;
+pub const LINEADDRESSMODE_DIALABLEADDR: u32 = 2u32;
+pub const LINEADDRESSSHARING_BRIDGEDEXCL: u32 = 2u32;
+pub const LINEADDRESSSHARING_BRIDGEDNEW: u32 = 4u32;
+pub const LINEADDRESSSHARING_BRIDGEDSHARED: u32 = 8u32;
+pub const LINEADDRESSSHARING_MONITORED: u32 = 16u32;
+pub const LINEADDRESSSHARING_PRIVATE: u32 = 1u32;
+pub const LINEADDRESSSTATE_CAPSCHANGE: u32 = 256u32;
+pub const LINEADDRESSSTATE_DEVSPECIFIC: u32 = 2u32;
+pub const LINEADDRESSSTATE_FORWARD: u32 = 64u32;
+pub const LINEADDRESSSTATE_INUSEMANY: u32 = 16u32;
+pub const LINEADDRESSSTATE_INUSEONE: u32 = 8u32;
+pub const LINEADDRESSSTATE_INUSEZERO: u32 = 4u32;
+pub const LINEADDRESSSTATE_NUMCALLS: u32 = 32u32;
+pub const LINEADDRESSSTATE_OTHER: u32 = 1u32;
+pub const LINEADDRESSSTATE_TERMINALS: u32 = 128u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEADDRESSSTATUS {
@@ -16076,6 +16301,25 @@ impl Default for LINEADDRESSSTATUS {
 impl windows_core::TypeKind for LINEADDRESSSTATUS {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINEADDRESSTYPE_DOMAINNAME: u32 = 8u32;
+pub const LINEADDRESSTYPE_EMAILNAME: u32 = 4u32;
+pub const LINEADDRESSTYPE_IPADDRESS: u32 = 16u32;
+pub const LINEADDRESSTYPE_PHONENUMBER: u32 = 1u32;
+pub const LINEADDRESSTYPE_SDP: u32 = 2u32;
+pub const LINEADDRFEATURE_FORWARD: u32 = 1u32;
+pub const LINEADDRFEATURE_FORWARDDND: u32 = 8192u32;
+pub const LINEADDRFEATURE_FORWARDFWD: u32 = 4096u32;
+pub const LINEADDRFEATURE_MAKECALL: u32 = 2u32;
+pub const LINEADDRFEATURE_PICKUP: u32 = 4u32;
+pub const LINEADDRFEATURE_PICKUPDIRECT: u32 = 1024u32;
+pub const LINEADDRFEATURE_PICKUPGROUP: u32 = 512u32;
+pub const LINEADDRFEATURE_PICKUPHELD: u32 = 256u32;
+pub const LINEADDRFEATURE_PICKUPWAITING: u32 = 2048u32;
+pub const LINEADDRFEATURE_SETMEDIACONTROL: u32 = 8u32;
+pub const LINEADDRFEATURE_SETTERMINAL: u32 = 16u32;
+pub const LINEADDRFEATURE_SETUPCONF: u32 = 32u32;
+pub const LINEADDRFEATURE_UNCOMPLETECALL: u32 = 64u32;
+pub const LINEADDRFEATURE_UNPARK: u32 = 128u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEAGENTACTIVITYENTRY {
@@ -16155,6 +16399,12 @@ impl Default for LINEAGENTENTRY {
 impl windows_core::TypeKind for LINEAGENTENTRY {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINEAGENTFEATURE_AGENTSPECIFIC: u32 = 8u32;
+pub const LINEAGENTFEATURE_GETAGENTACTIVITYLIST: u32 = 16u32;
+pub const LINEAGENTFEATURE_GETAGENTGROUP: u32 = 32u32;
+pub const LINEAGENTFEATURE_SETAGENTACTIVITY: u32 = 4u32;
+pub const LINEAGENTFEATURE_SETAGENTGROUP: u32 = 1u32;
+pub const LINEAGENTFEATURE_SETAGENTSTATE: u32 = 2u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEAGENTGROUPENTRY {
@@ -16316,6 +16566,32 @@ impl Default for LINEAGENTSESSIONLIST {
 impl windows_core::TypeKind for LINEAGENTSESSIONLIST {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINEAGENTSESSIONSTATE_BUSYONCALL: u32 = 4u32;
+pub const LINEAGENTSESSIONSTATE_BUSYWRAPUP: u32 = 8u32;
+pub const LINEAGENTSESSIONSTATE_ENDED: u32 = 16u32;
+pub const LINEAGENTSESSIONSTATE_NOTREADY: u32 = 1u32;
+pub const LINEAGENTSESSIONSTATE_READY: u32 = 2u32;
+pub const LINEAGENTSESSIONSTATE_RELEASED: u32 = 32u32;
+pub const LINEAGENTSESSIONSTATUS_NEWSESSION: u32 = 1u32;
+pub const LINEAGENTSESSIONSTATUS_STATE: u32 = 2u32;
+pub const LINEAGENTSESSIONSTATUS_UPDATEINFO: u32 = 4u32;
+pub const LINEAGENTSTATEEX_BUSYACD: u32 = 4u32;
+pub const LINEAGENTSTATEEX_BUSYINCOMING: u32 = 8u32;
+pub const LINEAGENTSTATEEX_BUSYOUTGOING: u32 = 16u32;
+pub const LINEAGENTSTATEEX_NOTREADY: u32 = 1u32;
+pub const LINEAGENTSTATEEX_READY: u32 = 2u32;
+pub const LINEAGENTSTATEEX_RELEASED: u32 = 64u32;
+pub const LINEAGENTSTATEEX_UNKNOWN: u32 = 32u32;
+pub const LINEAGENTSTATE_BUSYACD: u32 = 8u32;
+pub const LINEAGENTSTATE_BUSYINCOMING: u32 = 16u32;
+pub const LINEAGENTSTATE_BUSYOTHER: u32 = 64u32;
+pub const LINEAGENTSTATE_BUSYOUTBOUND: u32 = 32u32;
+pub const LINEAGENTSTATE_LOGGEDOFF: u32 = 1u32;
+pub const LINEAGENTSTATE_NOTREADY: u32 = 2u32;
+pub const LINEAGENTSTATE_READY: u32 = 4u32;
+pub const LINEAGENTSTATE_UNAVAIL: u32 = 512u32;
+pub const LINEAGENTSTATE_UNKNOWN: u32 = 256u32;
+pub const LINEAGENTSTATE_WORKINGAFTERCALL: u32 = 128u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEAGENTSTATUS {
@@ -16342,6 +16618,21 @@ impl Default for LINEAGENTSTATUS {
 impl windows_core::TypeKind for LINEAGENTSTATUS {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINEAGENTSTATUSEX_NEWAGENT: u32 = 1u32;
+pub const LINEAGENTSTATUSEX_STATE: u32 = 2u32;
+pub const LINEAGENTSTATUSEX_UPDATEINFO: u32 = 4u32;
+pub const LINEAGENTSTATUS_ACTIVITY: u32 = 8u32;
+pub const LINEAGENTSTATUS_ACTIVITYLIST: u32 = 16u32;
+pub const LINEAGENTSTATUS_CAPSCHANGE: u32 = 64u32;
+pub const LINEAGENTSTATUS_GROUP: u32 = 1u32;
+pub const LINEAGENTSTATUS_GROUPLIST: u32 = 32u32;
+pub const LINEAGENTSTATUS_NEXTSTATE: u32 = 4u32;
+pub const LINEAGENTSTATUS_STATE: u32 = 2u32;
+pub const LINEAGENTSTATUS_VALIDNEXTSTATES: u32 = 256u32;
+pub const LINEAGENTSTATUS_VALIDSTATES: u32 = 128u32;
+pub const LINEANSWERMODE_DROP: u32 = 2u32;
+pub const LINEANSWERMODE_HOLD: u32 = 4u32;
+pub const LINEANSWERMODE_NONE: u32 = 1u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEAPPINFO {
@@ -16364,6 +16655,70 @@ impl Default for LINEAPPINFO {
 impl windows_core::TypeKind for LINEAPPINFO {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINEBEARERMODE_ALTSPEECHDATA: u32 = 16u32;
+pub const LINEBEARERMODE_DATA: u32 = 8u32;
+pub const LINEBEARERMODE_MULTIUSE: u32 = 4u32;
+pub const LINEBEARERMODE_NONCALLSIGNALING: u32 = 32u32;
+pub const LINEBEARERMODE_PASSTHROUGH: u32 = 64u32;
+pub const LINEBEARERMODE_RESTRICTEDDATA: u32 = 128u32;
+pub const LINEBEARERMODE_SPEECH: u32 = 2u32;
+pub const LINEBEARERMODE_VOICE: u32 = 1u32;
+pub const LINEBUSYMODE_STATION: u32 = 1u32;
+pub const LINEBUSYMODE_TRUNK: u32 = 2u32;
+pub const LINEBUSYMODE_UNAVAIL: u32 = 8u32;
+pub const LINEBUSYMODE_UNKNOWN: u32 = 4u32;
+pub type LINECALLBACK = Option<unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
+pub const LINECALLCOMPLCOND_BUSY: u32 = 1u32;
+pub const LINECALLCOMPLCOND_NOANSWER: u32 = 2u32;
+pub const LINECALLCOMPLMODE_CALLBACK: u32 = 2u32;
+pub const LINECALLCOMPLMODE_CAMPON: u32 = 1u32;
+pub const LINECALLCOMPLMODE_INTRUDE: u32 = 4u32;
+pub const LINECALLCOMPLMODE_MESSAGE: u32 = 8u32;
+pub const LINECALLFEATURE2_COMPLCALLBACK: u32 = 8u32;
+pub const LINECALLFEATURE2_COMPLCAMPON: u32 = 4u32;
+pub const LINECALLFEATURE2_COMPLINTRUDE: u32 = 16u32;
+pub const LINECALLFEATURE2_COMPLMESSAGE: u32 = 32u32;
+pub const LINECALLFEATURE2_NOHOLDCONFERENCE: u32 = 1u32;
+pub const LINECALLFEATURE2_ONESTEPTRANSFER: u32 = 2u32;
+pub const LINECALLFEATURE2_PARKDIRECT: u32 = 256u32;
+pub const LINECALLFEATURE2_PARKNONDIRECT: u32 = 512u32;
+pub const LINECALLFEATURE2_TRANSFERCONF: u32 = 128u32;
+pub const LINECALLFEATURE2_TRANSFERNORM: u32 = 64u32;
+pub const LINECALLFEATURE_ACCEPT: u32 = 1u32;
+pub const LINECALLFEATURE_ADDTOCONF: u32 = 2u32;
+pub const LINECALLFEATURE_ANSWER: u32 = 4u32;
+pub const LINECALLFEATURE_BLINDTRANSFER: u32 = 8u32;
+pub const LINECALLFEATURE_COMPLETECALL: u32 = 16u32;
+pub const LINECALLFEATURE_COMPLETETRANSF: u32 = 32u32;
+pub const LINECALLFEATURE_DIAL: u32 = 64u32;
+pub const LINECALLFEATURE_DROP: u32 = 128u32;
+pub const LINECALLFEATURE_GATHERDIGITS: u32 = 256u32;
+pub const LINECALLFEATURE_GENERATEDIGITS: u32 = 512u32;
+pub const LINECALLFEATURE_GENERATETONE: u32 = 1024u32;
+pub const LINECALLFEATURE_HOLD: u32 = 2048u32;
+pub const LINECALLFEATURE_MONITORDIGITS: u32 = 4096u32;
+pub const LINECALLFEATURE_MONITORMEDIA: u32 = 8192u32;
+pub const LINECALLFEATURE_MONITORTONES: u32 = 16384u32;
+pub const LINECALLFEATURE_PARK: u32 = 32768u32;
+pub const LINECALLFEATURE_PREPAREADDCONF: u32 = 65536u32;
+pub const LINECALLFEATURE_REDIRECT: u32 = 131072u32;
+pub const LINECALLFEATURE_RELEASEUSERUSERINFO: u32 = 268435456u32;
+pub const LINECALLFEATURE_REMOVEFROMCONF: u32 = 262144u32;
+pub const LINECALLFEATURE_SECURECALL: u32 = 524288u32;
+pub const LINECALLFEATURE_SENDUSERUSER: u32 = 1048576u32;
+pub const LINECALLFEATURE_SETCALLDATA: u32 = 2147483648u32;
+pub const LINECALLFEATURE_SETCALLPARAMS: u32 = 2097152u32;
+pub const LINECALLFEATURE_SETMEDIACONTROL: u32 = 4194304u32;
+pub const LINECALLFEATURE_SETQOS: u32 = 1073741824u32;
+pub const LINECALLFEATURE_SETTERMINAL: u32 = 8388608u32;
+pub const LINECALLFEATURE_SETTREATMENT: u32 = 536870912u32;
+pub const LINECALLFEATURE_SETUPCONF: u32 = 16777216u32;
+pub const LINECALLFEATURE_SETUPTRANSFER: u32 = 33554432u32;
+pub const LINECALLFEATURE_SWAPHOLD: u32 = 67108864u32;
+pub const LINECALLFEATURE_UNHOLD: u32 = 134217728u32;
+pub const LINECALLHUBTRACKING_ALLCALLS: u32 = 2u32;
+pub const LINECALLHUBTRACKING_NONE: u32 = 0u32;
+pub const LINECALLHUBTRACKING_PROVIDERLEVEL: u32 = 1u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINECALLINFO {
@@ -16454,6 +16809,37 @@ impl Default for LINECALLINFO {
 impl windows_core::TypeKind for LINECALLINFO {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINECALLINFOSTATE_APPSPECIFIC: u32 = 32u32;
+pub const LINECALLINFOSTATE_BEARERMODE: u32 = 4u32;
+pub const LINECALLINFOSTATE_CALLDATA: u32 = 1073741824u32;
+pub const LINECALLINFOSTATE_CALLEDID: u32 = 65536u32;
+pub const LINECALLINFOSTATE_CALLERID: u32 = 32768u32;
+pub const LINECALLINFOSTATE_CALLID: u32 = 64u32;
+pub const LINECALLINFOSTATE_CHARGINGINFO: u32 = 16777216u32;
+pub const LINECALLINFOSTATE_COMPLETIONID: u32 = 1024u32;
+pub const LINECALLINFOSTATE_CONNECTEDID: u32 = 131072u32;
+pub const LINECALLINFOSTATE_DEVSPECIFIC: u32 = 2u32;
+pub const LINECALLINFOSTATE_DIALPARAMS: u32 = 67108864u32;
+pub const LINECALLINFOSTATE_DISPLAY: u32 = 1048576u32;
+pub const LINECALLINFOSTATE_HIGHLEVELCOMP: u32 = 4194304u32;
+pub const LINECALLINFOSTATE_LOWLEVELCOMP: u32 = 8388608u32;
+pub const LINECALLINFOSTATE_MEDIAMODE: u32 = 16u32;
+pub const LINECALLINFOSTATE_MONITORMODES: u32 = 134217728u32;
+pub const LINECALLINFOSTATE_NUMMONITORS: u32 = 8192u32;
+pub const LINECALLINFOSTATE_NUMOWNERDECR: u32 = 4096u32;
+pub const LINECALLINFOSTATE_NUMOWNERINCR: u32 = 2048u32;
+pub const LINECALLINFOSTATE_ORIGIN: u32 = 256u32;
+pub const LINECALLINFOSTATE_OTHER: u32 = 1u32;
+pub const LINECALLINFOSTATE_QOS: u32 = 536870912u32;
+pub const LINECALLINFOSTATE_RATE: u32 = 8u32;
+pub const LINECALLINFOSTATE_REASON: u32 = 512u32;
+pub const LINECALLINFOSTATE_REDIRECTINGID: u32 = 524288u32;
+pub const LINECALLINFOSTATE_REDIRECTIONID: u32 = 262144u32;
+pub const LINECALLINFOSTATE_RELATEDCALLID: u32 = 128u32;
+pub const LINECALLINFOSTATE_TERMINAL: u32 = 33554432u32;
+pub const LINECALLINFOSTATE_TREATMENT: u32 = 268435456u32;
+pub const LINECALLINFOSTATE_TRUNK: u32 = 16384u32;
+pub const LINECALLINFOSTATE_USERUSERINFO: u32 = 2097152u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINECALLLIST {
@@ -16472,6 +16858,21 @@ impl Default for LINECALLLIST {
 impl windows_core::TypeKind for LINECALLLIST {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINECALLORIGIN_CONFERENCE: u32 = 64u32;
+pub const LINECALLORIGIN_EXTERNAL: u32 = 4u32;
+pub const LINECALLORIGIN_INBOUND: u32 = 128u32;
+pub const LINECALLORIGIN_INTERNAL: u32 = 2u32;
+pub const LINECALLORIGIN_OUTBOUND: u32 = 1u32;
+pub const LINECALLORIGIN_UNAVAIL: u32 = 32u32;
+pub const LINECALLORIGIN_UNKNOWN: u32 = 16u32;
+pub const LINECALLPARAMFLAGS_BLOCKID: u32 = 4u32;
+pub const LINECALLPARAMFLAGS_DESTOFFHOOK: u32 = 16u32;
+pub const LINECALLPARAMFLAGS_IDLE: u32 = 2u32;
+pub const LINECALLPARAMFLAGS_NOHOLDCONFERENCE: u32 = 32u32;
+pub const LINECALLPARAMFLAGS_ONESTEPTRANSFER: u32 = 128u32;
+pub const LINECALLPARAMFLAGS_ORIGOFFHOOK: u32 = 8u32;
+pub const LINECALLPARAMFLAGS_PREDICTIVEDIAL: u32 = 64u32;
+pub const LINECALLPARAMFLAGS_SECURE: u32 = 1u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINECALLPARAMS {
@@ -16525,6 +16926,53 @@ impl Default for LINECALLPARAMS {
 impl windows_core::TypeKind for LINECALLPARAMS {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINECALLPARTYID_ADDRESS: u32 = 8u32;
+pub const LINECALLPARTYID_BLOCKED: u32 = 1u32;
+pub const LINECALLPARTYID_NAME: u32 = 4u32;
+pub const LINECALLPARTYID_OUTOFAREA: u32 = 2u32;
+pub const LINECALLPARTYID_PARTIAL: u32 = 16u32;
+pub const LINECALLPARTYID_UNAVAIL: u32 = 64u32;
+pub const LINECALLPARTYID_UNKNOWN: u32 = 32u32;
+pub const LINECALLPRIVILEGE_MONITOR: u32 = 2u32;
+pub const LINECALLPRIVILEGE_NONE: u32 = 1u32;
+pub const LINECALLPRIVILEGE_OWNER: u32 = 4u32;
+pub const LINECALLREASON_CALLCOMPLETION: u32 = 128u32;
+pub const LINECALLREASON_CAMPEDON: u32 = 16384u32;
+pub const LINECALLREASON_DIRECT: u32 = 1u32;
+pub const LINECALLREASON_FWDBUSY: u32 = 2u32;
+pub const LINECALLREASON_FWDNOANSWER: u32 = 4u32;
+pub const LINECALLREASON_FWDUNCOND: u32 = 8u32;
+pub const LINECALLREASON_INTRUDE: u32 = 4096u32;
+pub const LINECALLREASON_PARKED: u32 = 8192u32;
+pub const LINECALLREASON_PICKUP: u32 = 16u32;
+pub const LINECALLREASON_REDIRECT: u32 = 64u32;
+pub const LINECALLREASON_REMINDER: u32 = 512u32;
+pub const LINECALLREASON_ROUTEREQUEST: u32 = 32768u32;
+pub const LINECALLREASON_TRANSFER: u32 = 256u32;
+pub const LINECALLREASON_UNAVAIL: u32 = 2048u32;
+pub const LINECALLREASON_UNKNOWN: u32 = 1024u32;
+pub const LINECALLREASON_UNPARK: u32 = 32u32;
+pub const LINECALLSELECT_ADDRESS: u32 = 2u32;
+pub const LINECALLSELECT_CALL: u32 = 4u32;
+pub const LINECALLSELECT_CALLID: u32 = 16u32;
+pub const LINECALLSELECT_DEVICEID: u32 = 8u32;
+pub const LINECALLSELECT_LINE: u32 = 1u32;
+pub const LINECALLSTATE_ACCEPTED: u32 = 4u32;
+pub const LINECALLSTATE_BUSY: u32 = 64u32;
+pub const LINECALLSTATE_CONFERENCED: u32 = 2048u32;
+pub const LINECALLSTATE_CONNECTED: u32 = 256u32;
+pub const LINECALLSTATE_DIALING: u32 = 16u32;
+pub const LINECALLSTATE_DIALTONE: u32 = 8u32;
+pub const LINECALLSTATE_DISCONNECTED: u32 = 16384u32;
+pub const LINECALLSTATE_IDLE: u32 = 1u32;
+pub const LINECALLSTATE_OFFERING: u32 = 2u32;
+pub const LINECALLSTATE_ONHOLD: u32 = 1024u32;
+pub const LINECALLSTATE_ONHOLDPENDCONF: u32 = 4096u32;
+pub const LINECALLSTATE_ONHOLDPENDTRANSFER: u32 = 8192u32;
+pub const LINECALLSTATE_PROCEEDING: u32 = 512u32;
+pub const LINECALLSTATE_RINGBACK: u32 = 32u32;
+pub const LINECALLSTATE_SPECIALINFO: u32 = 128u32;
+pub const LINECALLSTATE_UNKNOWN: u32 = 32768u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINECALLSTATUS {
@@ -16563,6 +17011,10 @@ impl Default for LINECALLTREATMENTENTRY {
 impl windows_core::TypeKind for LINECALLTREATMENTENTRY {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINECALLTREATMENT_BUSY: u32 = 3u32;
+pub const LINECALLTREATMENT_MUSIC: u32 = 4u32;
+pub const LINECALLTREATMENT_RINGBACK: u32 = 2u32;
+pub const LINECALLTREATMENT_SILENCE: u32 = 1u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINECARDENTRY {
@@ -16586,6 +17038,13 @@ impl Default for LINECARDENTRY {
 impl windows_core::TypeKind for LINECARDENTRY {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINECARDOPTION_HIDDEN: u32 = 2u32;
+pub const LINECARDOPTION_PREDEFINED: u32 = 1u32;
+pub const LINECONNECTEDMODE_ACTIVE: u32 = 1u32;
+pub const LINECONNECTEDMODE_ACTIVEHELD: u32 = 4u32;
+pub const LINECONNECTEDMODE_CONFIRMED: u32 = 16u32;
+pub const LINECONNECTEDMODE_INACTIVE: u32 = 2u32;
+pub const LINECONNECTEDMODE_INACTIVEHELD: u32 = 8u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINECOUNTRYENTRY {
@@ -16627,6 +17086,20 @@ impl Default for LINECOUNTRYLIST {
 impl windows_core::TypeKind for LINECOUNTRYLIST {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINEDEVCAPFLAGS_CALLHUB: u32 = 1024u32;
+pub const LINEDEVCAPFLAGS_CALLHUBTRACKING: u32 = 2048u32;
+pub const LINEDEVCAPFLAGS_CLOSEDROP: u32 = 32u32;
+pub const LINEDEVCAPFLAGS_CROSSADDRCONF: u32 = 1u32;
+pub const LINEDEVCAPFLAGS_DIALBILLING: u32 = 64u32;
+pub const LINEDEVCAPFLAGS_DIALDIALTONE: u32 = 256u32;
+pub const LINEDEVCAPFLAGS_DIALQUIET: u32 = 128u32;
+pub const LINEDEVCAPFLAGS_HIGHLEVCOMP: u32 = 2u32;
+pub const LINEDEVCAPFLAGS_LOCAL: u32 = 8192u32;
+pub const LINEDEVCAPFLAGS_LOWLEVCOMP: u32 = 4u32;
+pub const LINEDEVCAPFLAGS_MEDIACONTROL: u32 = 8u32;
+pub const LINEDEVCAPFLAGS_MSP: u32 = 512u32;
+pub const LINEDEVCAPFLAGS_MULTIPLEADDR: u32 = 16u32;
+pub const LINEDEVCAPFLAGS_PRIVATEOBJECTS: u32 = 4096u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEDEVCAPS {
@@ -16694,6 +17167,31 @@ impl Default for LINEDEVCAPS {
 impl windows_core::TypeKind for LINEDEVCAPS {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINEDEVSTATE_BATTERY: u32 = 32768u32;
+pub const LINEDEVSTATE_CAPSCHANGE: u32 = 1048576u32;
+pub const LINEDEVSTATE_CLOSE: u32 = 1024u32;
+pub const LINEDEVSTATE_COMPLCANCEL: u32 = 8388608u32;
+pub const LINEDEVSTATE_CONFIGCHANGE: u32 = 2097152u32;
+pub const LINEDEVSTATE_CONNECTED: u32 = 4u32;
+pub const LINEDEVSTATE_DEVSPECIFIC: u32 = 131072u32;
+pub const LINEDEVSTATE_DISCONNECTED: u32 = 8u32;
+pub const LINEDEVSTATE_INSERVICE: u32 = 64u32;
+pub const LINEDEVSTATE_LOCK: u32 = 524288u32;
+pub const LINEDEVSTATE_MAINTENANCE: u32 = 256u32;
+pub const LINEDEVSTATE_MSGWAITOFF: u32 = 32u32;
+pub const LINEDEVSTATE_MSGWAITON: u32 = 16u32;
+pub const LINEDEVSTATE_NUMCALLS: u32 = 2048u32;
+pub const LINEDEVSTATE_NUMCOMPLETIONS: u32 = 4096u32;
+pub const LINEDEVSTATE_OPEN: u32 = 512u32;
+pub const LINEDEVSTATE_OTHER: u32 = 1u32;
+pub const LINEDEVSTATE_OUTOFSERVICE: u32 = 128u32;
+pub const LINEDEVSTATE_REINIT: u32 = 262144u32;
+pub const LINEDEVSTATE_REMOVED: u32 = 16777216u32;
+pub const LINEDEVSTATE_RINGING: u32 = 2u32;
+pub const LINEDEVSTATE_ROAMMODE: u32 = 16384u32;
+pub const LINEDEVSTATE_SIGNAL: u32 = 65536u32;
+pub const LINEDEVSTATE_TERMINALS: u32 = 8192u32;
+pub const LINEDEVSTATE_TRANSLATECHANGE: u32 = 4194304u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEDEVSTATUS {
@@ -16728,6 +17226,10 @@ impl Default for LINEDEVSTATUS {
 impl windows_core::TypeKind for LINEDEVSTATUS {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINEDEVSTATUSFLAGS_CONNECTED: u32 = 1u32;
+pub const LINEDEVSTATUSFLAGS_INSERVICE: u32 = 4u32;
+pub const LINEDEVSTATUSFLAGS_LOCKED: u32 = 8u32;
+pub const LINEDEVSTATUSFLAGS_MSGWAIT: u32 = 2u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEDIALPARAMS {
@@ -16744,6 +17246,137 @@ impl Default for LINEDIALPARAMS {
 impl windows_core::TypeKind for LINEDIALPARAMS {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINEDIALTONEMODE_EXTERNAL: u32 = 8u32;
+pub const LINEDIALTONEMODE_INTERNAL: u32 = 4u32;
+pub const LINEDIALTONEMODE_NORMAL: u32 = 1u32;
+pub const LINEDIALTONEMODE_SPECIAL: u32 = 2u32;
+pub const LINEDIALTONEMODE_UNAVAIL: u32 = 32u32;
+pub const LINEDIALTONEMODE_UNKNOWN: u32 = 16u32;
+pub const LINEDIGITMODE_DTMF: u32 = 2u32;
+pub const LINEDIGITMODE_DTMFEND: u32 = 4u32;
+pub const LINEDIGITMODE_PULSE: u32 = 1u32;
+pub const LINEDISCONNECTMODE_BADADDRESS: u32 = 128u32;
+pub const LINEDISCONNECTMODE_BLOCKED: u32 = 131072u32;
+pub const LINEDISCONNECTMODE_BUSY: u32 = 32u32;
+pub const LINEDISCONNECTMODE_CANCELLED: u32 = 524288u32;
+pub const LINEDISCONNECTMODE_CONGESTION: u32 = 512u32;
+pub const LINEDISCONNECTMODE_DESTINATIONBARRED: u32 = 1048576u32;
+pub const LINEDISCONNECTMODE_DONOTDISTURB: u32 = 262144u32;
+pub const LINEDISCONNECTMODE_FDNRESTRICT: u32 = 2097152u32;
+pub const LINEDISCONNECTMODE_FORWARDED: u32 = 16u32;
+pub const LINEDISCONNECTMODE_INCOMPATIBLE: u32 = 1024u32;
+pub const LINEDISCONNECTMODE_NOANSWER: u32 = 64u32;
+pub const LINEDISCONNECTMODE_NODIALTONE: u32 = 4096u32;
+pub const LINEDISCONNECTMODE_NORMAL: u32 = 1u32;
+pub const LINEDISCONNECTMODE_NUMBERCHANGED: u32 = 8192u32;
+pub const LINEDISCONNECTMODE_OUTOFORDER: u32 = 16384u32;
+pub const LINEDISCONNECTMODE_PICKUP: u32 = 8u32;
+pub const LINEDISCONNECTMODE_QOSUNAVAIL: u32 = 65536u32;
+pub const LINEDISCONNECTMODE_REJECT: u32 = 4u32;
+pub const LINEDISCONNECTMODE_TEMPFAILURE: u32 = 32768u32;
+pub const LINEDISCONNECTMODE_UNAVAIL: u32 = 2048u32;
+pub const LINEDISCONNECTMODE_UNKNOWN: u32 = 2u32;
+pub const LINEDISCONNECTMODE_UNREACHABLE: u32 = 256u32;
+pub const LINEEQOSINFO_ADMISSIONFAILURE: u32 = 2u32;
+pub const LINEEQOSINFO_GENERICERROR: u32 = 4u32;
+pub const LINEEQOSINFO_NOQOS: u32 = 1u32;
+pub const LINEEQOSINFO_POLICYFAILURE: u32 = 3u32;
+pub const LINEERR_ADDRESSBLOCKED: u32 = 2147483731u32;
+pub const LINEERR_ALLOCATED: u32 = 2147483649u32;
+pub const LINEERR_BADDEVICEID: u32 = 2147483650u32;
+pub const LINEERR_BEARERMODEUNAVAIL: u32 = 2147483651u32;
+pub const LINEERR_BILLINGREJECTED: u32 = 2147483732u32;
+pub const LINEERR_CALLUNAVAIL: u32 = 2147483653u32;
+pub const LINEERR_COMPLETIONOVERRUN: u32 = 2147483654u32;
+pub const LINEERR_CONFERENCEFULL: u32 = 2147483655u32;
+pub const LINEERR_DIALBILLING: u32 = 2147483656u32;
+pub const LINEERR_DIALDIALTONE: u32 = 2147483657u32;
+pub const LINEERR_DIALPROMPT: u32 = 2147483658u32;
+pub const LINEERR_DIALQUIET: u32 = 2147483659u32;
+pub const LINEERR_DIALVOICEDETECT: u32 = 2147483740u32;
+pub const LINEERR_DISCONNECTED: u32 = 2147483744u32;
+pub const LINEERR_INCOMPATIBLEAPIVERSION: u32 = 2147483660u32;
+pub const LINEERR_INCOMPATIBLEEXTVERSION: u32 = 2147483661u32;
+pub const LINEERR_INIFILECORRUPT: u32 = 2147483662u32;
+pub const LINEERR_INUSE: u32 = 2147483663u32;
+pub const LINEERR_INVALADDRESS: u32 = 2147483664u32;
+pub const LINEERR_INVALADDRESSID: u32 = 2147483665u32;
+pub const LINEERR_INVALADDRESSMODE: u32 = 2147483666u32;
+pub const LINEERR_INVALADDRESSSTATE: u32 = 2147483667u32;
+pub const LINEERR_INVALADDRESSTYPE: u32 = 2147483742u32;
+pub const LINEERR_INVALAGENTACTIVITY: u32 = 2147483739u32;
+pub const LINEERR_INVALAGENTGROUP: u32 = 2147483736u32;
+pub const LINEERR_INVALAGENTID: u32 = 2147483735u32;
+pub const LINEERR_INVALAGENTSESSIONSTATE: u32 = 2147483743u32;
+pub const LINEERR_INVALAGENTSTATE: u32 = 2147483738u32;
+pub const LINEERR_INVALAPPHANDLE: u32 = 2147483668u32;
+pub const LINEERR_INVALAPPNAME: u32 = 2147483669u32;
+pub const LINEERR_INVALBEARERMODE: u32 = 2147483670u32;
+pub const LINEERR_INVALCALLCOMPLMODE: u32 = 2147483671u32;
+pub const LINEERR_INVALCALLHANDLE: u32 = 2147483672u32;
+pub const LINEERR_INVALCALLPARAMS: u32 = 2147483673u32;
+pub const LINEERR_INVALCALLPRIVILEGE: u32 = 2147483674u32;
+pub const LINEERR_INVALCALLSELECT: u32 = 2147483675u32;
+pub const LINEERR_INVALCALLSTATE: u32 = 2147483676u32;
+pub const LINEERR_INVALCALLSTATELIST: u32 = 2147483677u32;
+pub const LINEERR_INVALCARD: u32 = 2147483678u32;
+pub const LINEERR_INVALCOMPLETIONID: u32 = 2147483679u32;
+pub const LINEERR_INVALCONFCALLHANDLE: u32 = 2147483680u32;
+pub const LINEERR_INVALCONSULTCALLHANDLE: u32 = 2147483681u32;
+pub const LINEERR_INVALCOUNTRYCODE: u32 = 2147483682u32;
+pub const LINEERR_INVALDEVICECLASS: u32 = 2147483683u32;
+pub const LINEERR_INVALDEVICEHANDLE: u32 = 2147483684u32;
+pub const LINEERR_INVALDIALPARAMS: u32 = 2147483685u32;
+pub const LINEERR_INVALDIGITLIST: u32 = 2147483686u32;
+pub const LINEERR_INVALDIGITMODE: u32 = 2147483687u32;
+pub const LINEERR_INVALDIGITS: u32 = 2147483688u32;
+pub const LINEERR_INVALEXTVERSION: u32 = 2147483689u32;
+pub const LINEERR_INVALFEATURE: u32 = 2147483733u32;
+pub const LINEERR_INVALGROUPID: u32 = 2147483690u32;
+pub const LINEERR_INVALLINEHANDLE: u32 = 2147483691u32;
+pub const LINEERR_INVALLINESTATE: u32 = 2147483692u32;
+pub const LINEERR_INVALLOCATION: u32 = 2147483693u32;
+pub const LINEERR_INVALMEDIALIST: u32 = 2147483694u32;
+pub const LINEERR_INVALMEDIAMODE: u32 = 2147483695u32;
+pub const LINEERR_INVALMESSAGEID: u32 = 2147483696u32;
+pub const LINEERR_INVALPARAM: u32 = 2147483698u32;
+pub const LINEERR_INVALPARKID: u32 = 2147483699u32;
+pub const LINEERR_INVALPARKMODE: u32 = 2147483700u32;
+pub const LINEERR_INVALPASSWORD: u32 = 2147483737u32;
+pub const LINEERR_INVALPOINTER: u32 = 2147483701u32;
+pub const LINEERR_INVALPRIVSELECT: u32 = 2147483702u32;
+pub const LINEERR_INVALRATE: u32 = 2147483703u32;
+pub const LINEERR_INVALREQUESTMODE: u32 = 2147483704u32;
+pub const LINEERR_INVALTERMINALID: u32 = 2147483705u32;
+pub const LINEERR_INVALTERMINALMODE: u32 = 2147483706u32;
+pub const LINEERR_INVALTIMEOUT: u32 = 2147483707u32;
+pub const LINEERR_INVALTONE: u32 = 2147483708u32;
+pub const LINEERR_INVALTONELIST: u32 = 2147483709u32;
+pub const LINEERR_INVALTONEMODE: u32 = 2147483710u32;
+pub const LINEERR_INVALTRANSFERMODE: u32 = 2147483711u32;
+pub const LINEERR_LINEMAPPERFAILED: u32 = 2147483712u32;
+pub const LINEERR_NOCONFERENCE: u32 = 2147483713u32;
+pub const LINEERR_NODEVICE: u32 = 2147483714u32;
+pub const LINEERR_NODRIVER: u32 = 2147483715u32;
+pub const LINEERR_NOMEM: u32 = 2147483716u32;
+pub const LINEERR_NOMULTIPLEINSTANCE: u32 = 2147483734u32;
+pub const LINEERR_NOREQUEST: u32 = 2147483717u32;
+pub const LINEERR_NOTOWNER: u32 = 2147483718u32;
+pub const LINEERR_NOTREGISTERED: u32 = 2147483719u32;
+pub const LINEERR_OPERATIONFAILED: u32 = 2147483720u32;
+pub const LINEERR_OPERATIONUNAVAIL: u32 = 2147483721u32;
+pub const LINEERR_RATEUNAVAIL: u32 = 2147483722u32;
+pub const LINEERR_REINIT: u32 = 2147483730u32;
+pub const LINEERR_REQUESTOVERRUN: u32 = 2147483724u32;
+pub const LINEERR_RESOURCEUNAVAIL: u32 = 2147483723u32;
+pub const LINEERR_SERVICE_NOT_RUNNING: u32 = 2147483745u32;
+pub const LINEERR_STRUCTURETOOSMALL: u32 = 2147483725u32;
+pub const LINEERR_TARGETNOTFOUND: u32 = 2147483726u32;
+pub const LINEERR_TARGETSELF: u32 = 2147483727u32;
+pub const LINEERR_UNINITIALIZED: u32 = 2147483728u32;
+pub const LINEERR_USERCANCELLED: u32 = 2147483741u32;
+pub const LINEERR_USERUSERINFOTOOBIG: u32 = 2147483729u32;
+pub type LINEEVENT = Option<unsafe extern "system" fn(htline: HTAPILINE, htcall: HTAPICALL, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEEXTENSIONID {
@@ -16760,6 +17393,15 @@ impl Default for LINEEXTENSIONID {
 impl windows_core::TypeKind for LINEEXTENSIONID {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINEFEATURE_DEVSPECIFIC: u32 = 1u32;
+pub const LINEFEATURE_DEVSPECIFICFEAT: u32 = 2u32;
+pub const LINEFEATURE_FORWARD: u32 = 4u32;
+pub const LINEFEATURE_FORWARDDND: u32 = 256u32;
+pub const LINEFEATURE_FORWARDFWD: u32 = 128u32;
+pub const LINEFEATURE_MAKECALL: u32 = 8u32;
+pub const LINEFEATURE_SETDEVSTATUS: u32 = 64u32;
+pub const LINEFEATURE_SETMEDIACONTROL: u32 = 16u32;
+pub const LINEFEATURE_SETTERMINAL: u32 = 32u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEFORWARD {
@@ -16793,6 +17435,31 @@ impl Default for LINEFORWARDLIST {
 impl windows_core::TypeKind for LINEFORWARDLIST {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINEFORWARDMODE_BUSY: u32 = 16u32;
+pub const LINEFORWARDMODE_BUSYEXTERNAL: u32 = 64u32;
+pub const LINEFORWARDMODE_BUSYINTERNAL: u32 = 32u32;
+pub const LINEFORWARDMODE_BUSYNA: u32 = 4096u32;
+pub const LINEFORWARDMODE_BUSYNAEXTERNAL: u32 = 16384u32;
+pub const LINEFORWARDMODE_BUSYNAINTERNAL: u32 = 8192u32;
+pub const LINEFORWARDMODE_BUSYNASPECIFIC: u32 = 32768u32;
+pub const LINEFORWARDMODE_BUSYSPECIFIC: u32 = 128u32;
+pub const LINEFORWARDMODE_NOANSW: u32 = 256u32;
+pub const LINEFORWARDMODE_NOANSWEXTERNAL: u32 = 1024u32;
+pub const LINEFORWARDMODE_NOANSWINTERNAL: u32 = 512u32;
+pub const LINEFORWARDMODE_NOANSWSPECIFIC: u32 = 2048u32;
+pub const LINEFORWARDMODE_UNAVAIL: u32 = 131072u32;
+pub const LINEFORWARDMODE_UNCOND: u32 = 1u32;
+pub const LINEFORWARDMODE_UNCONDEXTERNAL: u32 = 4u32;
+pub const LINEFORWARDMODE_UNCONDINTERNAL: u32 = 2u32;
+pub const LINEFORWARDMODE_UNCONDSPECIFIC: u32 = 8u32;
+pub const LINEFORWARDMODE_UNKNOWN: u32 = 65536u32;
+pub const LINEGATHERTERM_BUFFERFULL: u32 = 1u32;
+pub const LINEGATHERTERM_CANCEL: u32 = 16u32;
+pub const LINEGATHERTERM_FIRSTTIMEOUT: u32 = 4u32;
+pub const LINEGATHERTERM_INTERTIMEOUT: u32 = 8u32;
+pub const LINEGATHERTERM_TERMDIGIT: u32 = 2u32;
+pub const LINEGENERATETERM_CANCEL: u32 = 2u32;
+pub const LINEGENERATETERM_DONE: u32 = 1u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEGENERATETONE {
@@ -16809,6 +17476,12 @@ impl Default for LINEGENERATETONE {
 impl windows_core::TypeKind for LINEGENERATETONE {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINEGROUPSTATUS_GROUPREMOVED: u32 = 2u32;
+pub const LINEGROUPSTATUS_NEWGROUP: u32 = 1u32;
+pub const LINEINITIALIZEEXOPTION_CALLHUBTRACKING: u32 = 2147483648u32;
+pub const LINEINITIALIZEEXOPTION_USECOMPLETIONPORT: u32 = 3u32;
+pub const LINEINITIALIZEEXOPTION_USEEVENT: u32 = 2u32;
+pub const LINEINITIALIZEEXOPTION_USEHIDDENWINDOW: u32 = 1u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEINITIALIZEEXPARAMS {
@@ -16870,6 +17543,8 @@ impl Default for LINELOCATIONENTRY {
 impl windows_core::TypeKind for LINELOCATIONENTRY {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINELOCATIONOPTION_PULSEDIAL: u32 = 1u32;
+pub const LINEMAPPER: u32 = 4294967295u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEMEDIACONTROLCALLSTATE {
@@ -16932,6 +17607,32 @@ impl Default for LINEMEDIACONTROLTONE {
 impl windows_core::TypeKind for LINEMEDIACONTROLTONE {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINEMEDIACONTROL_NONE: u32 = 1u32;
+pub const LINEMEDIACONTROL_PAUSE: u32 = 8u32;
+pub const LINEMEDIACONTROL_RATEDOWN: u32 = 64u32;
+pub const LINEMEDIACONTROL_RATENORMAL: u32 = 128u32;
+pub const LINEMEDIACONTROL_RATEUP: u32 = 32u32;
+pub const LINEMEDIACONTROL_RESET: u32 = 4u32;
+pub const LINEMEDIACONTROL_RESUME: u32 = 16u32;
+pub const LINEMEDIACONTROL_START: u32 = 2u32;
+pub const LINEMEDIACONTROL_VOLUMEDOWN: u32 = 512u32;
+pub const LINEMEDIACONTROL_VOLUMENORMAL: u32 = 1024u32;
+pub const LINEMEDIACONTROL_VOLUMEUP: u32 = 256u32;
+pub const LINEMEDIAMODE_ADSI: u32 = 8192u32;
+pub const LINEMEDIAMODE_AUTOMATEDVOICE: u32 = 8u32;
+pub const LINEMEDIAMODE_DATAMODEM: u32 = 16u32;
+pub const LINEMEDIAMODE_DIGITALDATA: u32 = 256u32;
+pub const LINEMEDIAMODE_G3FAX: u32 = 32u32;
+pub const LINEMEDIAMODE_G4FAX: u32 = 128u32;
+pub const LINEMEDIAMODE_INTERACTIVEVOICE: u32 = 4u32;
+pub const LINEMEDIAMODE_MIXED: u32 = 4096u32;
+pub const LINEMEDIAMODE_TDD: u32 = 64u32;
+pub const LINEMEDIAMODE_TELETEX: u32 = 512u32;
+pub const LINEMEDIAMODE_TELEX: u32 = 2048u32;
+pub const LINEMEDIAMODE_UNKNOWN: u32 = 2u32;
+pub const LINEMEDIAMODE_VIDEO: u32 = 32768u32;
+pub const LINEMEDIAMODE_VIDEOTEX: u32 = 1024u32;
+pub const LINEMEDIAMODE_VOICEVIEW: u32 = 16384u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEMESSAGE {
@@ -16967,6 +17668,12 @@ impl Default for LINEMONITORTONE {
 impl windows_core::TypeKind for LINEMONITORTONE {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINEOFFERINGMODE_ACTIVE: u32 = 1u32;
+pub const LINEOFFERINGMODE_INACTIVE: u32 = 2u32;
+pub const LINEOPENOPTION_PROXY: u32 = 1073741824u32;
+pub const LINEOPENOPTION_SINGLEADDRESS: u32 = 2147483648u32;
+pub const LINEPARKMODE_DIRECTED: u32 = 1u32;
+pub const LINEPARKMODE_NONDIRECTED: u32 = 2u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEPROVIDERENTRY {
@@ -17427,6 +18134,33 @@ impl Default for LINEPROXYREQUESTLIST {
 impl windows_core::TypeKind for LINEPROXYREQUESTLIST {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINEPROXYREQUEST_AGENTSPECIFIC: u32 = 6u32;
+pub const LINEPROXYREQUEST_CREATEAGENT: u32 = 9u32;
+pub const LINEPROXYREQUEST_CREATEAGENTSESSION: u32 = 12u32;
+pub const LINEPROXYREQUEST_GETAGENTACTIVITYLIST: u32 = 7u32;
+pub const LINEPROXYREQUEST_GETAGENTCAPS: u32 = 4u32;
+pub const LINEPROXYREQUEST_GETAGENTGROUPLIST: u32 = 8u32;
+pub const LINEPROXYREQUEST_GETAGENTINFO: u32 = 11u32;
+pub const LINEPROXYREQUEST_GETAGENTSESSIONINFO: u32 = 15u32;
+pub const LINEPROXYREQUEST_GETAGENTSESSIONLIST: u32 = 13u32;
+pub const LINEPROXYREQUEST_GETAGENTSTATUS: u32 = 5u32;
+pub const LINEPROXYREQUEST_GETGROUPLIST: u32 = 19u32;
+pub const LINEPROXYREQUEST_GETQUEUEINFO: u32 = 18u32;
+pub const LINEPROXYREQUEST_GETQUEUELIST: u32 = 16u32;
+pub const LINEPROXYREQUEST_SETAGENTACTIVITY: u32 = 3u32;
+pub const LINEPROXYREQUEST_SETAGENTGROUP: u32 = 1u32;
+pub const LINEPROXYREQUEST_SETAGENTMEASUREMENTPERIOD: u32 = 10u32;
+pub const LINEPROXYREQUEST_SETAGENTSESSIONSTATE: u32 = 14u32;
+pub const LINEPROXYREQUEST_SETAGENTSTATE: u32 = 2u32;
+pub const LINEPROXYREQUEST_SETAGENTSTATEEX: u32 = 20u32;
+pub const LINEPROXYREQUEST_SETQUEUEMEASUREMENTPERIOD: u32 = 17u32;
+pub const LINEPROXYSTATUS_ALLOPENFORACD: u32 = 4u32;
+pub const LINEPROXYSTATUS_CLOSE: u32 = 2u32;
+pub const LINEPROXYSTATUS_OPEN: u32 = 1u32;
+pub const LINEQOSREQUESTTYPE_SERVICELEVEL: u32 = 1u32;
+pub const LINEQOSSERVICELEVEL_BESTEFFORT: u32 = 3u32;
+pub const LINEQOSSERVICELEVEL_IFAVAILABLE: u32 = 2u32;
+pub const LINEQOSSERVICELEVEL_NEEDED: u32 = 1u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEQUEUEENTRY {
@@ -17485,6 +18219,12 @@ impl Default for LINEQUEUELIST {
 impl windows_core::TypeKind for LINEQUEUELIST {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINEQUEUESTATUS_NEWQUEUE: u32 = 2u32;
+pub const LINEQUEUESTATUS_QUEUEREMOVED: u32 = 4u32;
+pub const LINEQUEUESTATUS_UPDATEINFO: u32 = 1u32;
+pub const LINEREMOVEFROMCONF_ANY: u32 = 3u32;
+pub const LINEREMOVEFROMCONF_LAST: u32 = 2u32;
+pub const LINEREMOVEFROMCONF_NONE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LINEREQMAKECALL {
@@ -17561,6 +18301,19 @@ impl Default for LINEREQMEDIACALLW {
 impl windows_core::TypeKind for LINEREQMEDIACALLW {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINEREQUESTMODE_DROP: u32 = 4u32;
+pub const LINEREQUESTMODE_MAKECALL: u32 = 1u32;
+pub const LINEREQUESTMODE_MEDIACALL: u32 = 2u32;
+pub const LINEROAMMODE_HOME: u32 = 4u32;
+pub const LINEROAMMODE_ROAMA: u32 = 8u32;
+pub const LINEROAMMODE_ROAMB: u32 = 16u32;
+pub const LINEROAMMODE_UNAVAIL: u32 = 2u32;
+pub const LINEROAMMODE_UNKNOWN: u32 = 1u32;
+pub const LINESPECIALINFO_CUSTIRREG: u32 = 2u32;
+pub const LINESPECIALINFO_NOCIRCUIT: u32 = 1u32;
+pub const LINESPECIALINFO_REORDER: u32 = 4u32;
+pub const LINESPECIALINFO_UNAVAIL: u32 = 16u32;
+pub const LINESPECIALINFO_UNKNOWN: u32 = 8u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINETERMCAPS {
@@ -17576,6 +18329,29 @@ impl Default for LINETERMCAPS {
 impl windows_core::TypeKind for LINETERMCAPS {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINETERMDEV_HEADSET: u32 = 2u32;
+pub const LINETERMDEV_PHONE: u32 = 1u32;
+pub const LINETERMDEV_SPEAKER: u32 = 4u32;
+pub const LINETERMMODE_BUTTONS: u32 = 1u32;
+pub const LINETERMMODE_DISPLAY: u32 = 4u32;
+pub const LINETERMMODE_HOOKSWITCH: u32 = 16u32;
+pub const LINETERMMODE_LAMPS: u32 = 2u32;
+pub const LINETERMMODE_MEDIABIDIRECT: u32 = 128u32;
+pub const LINETERMMODE_MEDIAFROMLINE: u32 = 64u32;
+pub const LINETERMMODE_MEDIATOLINE: u32 = 32u32;
+pub const LINETERMMODE_RINGER: u32 = 8u32;
+pub const LINETERMSHARING_PRIVATE: u32 = 1u32;
+pub const LINETERMSHARING_SHAREDCONF: u32 = 4u32;
+pub const LINETERMSHARING_SHAREDEXCL: u32 = 2u32;
+pub const LINETOLLLISTOPTION_ADD: u32 = 1u32;
+pub const LINETOLLLISTOPTION_REMOVE: u32 = 2u32;
+pub const LINETONEMODE_BEEP: u32 = 8u32;
+pub const LINETONEMODE_BILLING: u32 = 16u32;
+pub const LINETONEMODE_BUSY: u32 = 4u32;
+pub const LINETONEMODE_CUSTOM: u32 = 1u32;
+pub const LINETONEMODE_RINGBACK: u32 = 2u32;
+pub const LINETRANSFERMODE_CONFERENCE: u32 = 2u32;
+pub const LINETRANSFERMODE_TRANSFER: u32 = 1u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINETRANSLATECAPS {
@@ -17599,6 +18375,10 @@ impl Default for LINETRANSLATECAPS {
 impl windows_core::TypeKind for LINETRANSLATECAPS {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINETRANSLATEOPTION_CANCELCALLWAITING: u32 = 2u32;
+pub const LINETRANSLATEOPTION_CARDOVERRIDE: u32 = 1u32;
+pub const LINETRANSLATEOPTION_FORCELD: u32 = 8u32;
+pub const LINETRANSLATEOPTION_FORCELOCAL: u32 = 4u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINETRANSLATEOUTPUT {
@@ -17621,6 +18401,81 @@ impl Default for LINETRANSLATEOUTPUT {
 impl windows_core::TypeKind for LINETRANSLATEOUTPUT {
     type TypeKind = windows_core::CopyType;
 }
+pub const LINETRANSLATERESULT_CANONICAL: u32 = 1u32;
+pub const LINETRANSLATERESULT_DIALBILLING: u32 = 64u32;
+pub const LINETRANSLATERESULT_DIALDIALTONE: u32 = 256u32;
+pub const LINETRANSLATERESULT_DIALPROMPT: u32 = 512u32;
+pub const LINETRANSLATERESULT_DIALQUIET: u32 = 128u32;
+pub const LINETRANSLATERESULT_INTERNATIONAL: u32 = 2u32;
+pub const LINETRANSLATERESULT_INTOLLLIST: u32 = 16u32;
+pub const LINETRANSLATERESULT_LOCAL: u32 = 8u32;
+pub const LINETRANSLATERESULT_LONGDISTANCE: u32 = 4u32;
+pub const LINETRANSLATERESULT_NOTINTOLLLIST: u32 = 32u32;
+pub const LINETRANSLATERESULT_NOTRANSLATION: u32 = 2048u32;
+pub const LINETRANSLATERESULT_VOICEDETECT: u32 = 1024u32;
+pub const LINETSPIOPTION_NONREENTRANT: u32 = 1u32;
+pub const LINE_ADDRESSSTATE: i32 = 0i32;
+pub const LINE_AGENTSESSIONSTATUS: i32 = 27i32;
+pub const LINE_AGENTSPECIFIC: i32 = 21i32;
+pub const LINE_AGENTSTATUS: i32 = 22i32;
+pub const LINE_AGENTSTATUSEX: i32 = 29i32;
+pub const LINE_APPNEWCALL: i32 = 23i32;
+pub const LINE_APPNEWCALLHUB: i32 = 32i32;
+pub const LINE_CALLHUBCLOSE: i32 = 33i32;
+pub const LINE_CALLINFO: i32 = 1i32;
+pub const LINE_CALLSTATE: i32 = 2i32;
+pub const LINE_CLOSE: i32 = 3i32;
+pub const LINE_CREATE: i32 = 19i32;
+pub const LINE_DEVSPECIFIC: i32 = 4i32;
+pub const LINE_DEVSPECIFICEX: i32 = 34i32;
+pub const LINE_DEVSPECIFICFEATURE: i32 = 5i32;
+pub const LINE_GATHERDIGITS: i32 = 6i32;
+pub const LINE_GENERATE: i32 = 7i32;
+pub const LINE_GROUPSTATUS: i32 = 30i32;
+pub const LINE_LINEDEVSTATE: i32 = 8i32;
+pub const LINE_MONITORDIGITS: i32 = 9i32;
+pub const LINE_MONITORMEDIA: i32 = 10i32;
+pub const LINE_MONITORTONE: i32 = 11i32;
+pub const LINE_PROXYREQUEST: i32 = 24i32;
+pub const LINE_PROXYSTATUS: i32 = 31i32;
+pub const LINE_QUEUESTATUS: i32 = 28i32;
+pub const LINE_REMOVE: i32 = 25i32;
+pub const LINE_REPLY: i32 = 12i32;
+pub const LINE_REQUEST: i32 = 13i32;
+pub const LM_BROKENFLUTTER: PHONE_LAMP_MODE = PHONE_LAMP_MODE(64i32);
+pub const LM_DUMMY: PHONE_LAMP_MODE = PHONE_LAMP_MODE(1i32);
+pub const LM_FLASH: PHONE_LAMP_MODE = PHONE_LAMP_MODE(16i32);
+pub const LM_FLUTTER: PHONE_LAMP_MODE = PHONE_LAMP_MODE(32i32);
+pub const LM_OFF: PHONE_LAMP_MODE = PHONE_LAMP_MODE(2i32);
+pub const LM_STEADY: PHONE_LAMP_MODE = PHONE_LAMP_MODE(4i32);
+pub const LM_UNKNOWN: PHONE_LAMP_MODE = PHONE_LAMP_MODE(128i32);
+pub const LM_WINK: PHONE_LAMP_MODE = PHONE_LAMP_MODE(8i32);
+#[cfg(feature = "Win32_System_Com")]
+pub type LPGETTNEFSTREAMCODEPAGE = Option<unsafe extern "system" fn(lpstream: Option<super::super::System::Com::IStream>, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> windows_core::HRESULT>;
+#[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
+pub type LPOPENTNEFSTREAM = Option<unsafe extern "system" fn(lpvsupport: *mut core::ffi::c_void, lpstream: Option<super::super::System::Com::IStream>, lpszstreamname: *const i8, ulflags: u32, lpmessage: Option<super::super::System::AddressBook::IMessage>, wkeyval: u16, lpptnef: *mut Option<ITnef>) -> windows_core::HRESULT>;
+#[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
+pub type LPOPENTNEFSTREAMEX = Option<unsafe extern "system" fn(lpvsupport: *mut core::ffi::c_void, lpstream: Option<super::super::System::Com::IStream>, lpszstreamname: *const i8, ulflags: u32, lpmessage: Option<super::super::System::AddressBook::IMessage>, wkeyval: u16, lpadressbook: Option<super::super::System::AddressBook::IAddrBook>, lpptnef: *mut Option<ITnef>) -> windows_core::HRESULT>;
+pub const ME_ADDRESS_EVENT: MSP_EVENT = MSP_EVENT(0i32);
+pub const ME_ASR_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(4i32);
+pub const ME_CALL_EVENT: MSP_EVENT = MSP_EVENT(1i32);
+pub const ME_FILE_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(6i32);
+pub const ME_PRIVATE_EVENT: MSP_EVENT = MSP_EVENT(3i32);
+pub const ME_TONE_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(7i32);
+pub const ME_TSP_DATA: MSP_EVENT = MSP_EVENT(2i32);
+pub const ME_TTS_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(5i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MSP_ADDRESS_EVENT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MSP_CALL_EVENT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MSP_CALL_EVENT_CAUSE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MSP_EVENT(pub i32);
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO {
@@ -17847,1255 +18702,6 @@ impl Default for NSID_0 {
 impl windows_core::TypeKind for NSID_0 {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct PHONEBUTTONINFO {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwButtonMode: u32,
-    pub dwButtonFunction: u32,
-    pub dwButtonTextSize: u32,
-    pub dwButtonTextOffset: u32,
-    pub dwDevSpecificSize: u32,
-    pub dwDevSpecificOffset: u32,
-    pub dwButtonState: u32,
-}
-impl Default for PHONEBUTTONINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PHONEBUTTONINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct PHONECAPS {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwProviderInfoSize: u32,
-    pub dwProviderInfoOffset: u32,
-    pub dwPhoneInfoSize: u32,
-    pub dwPhoneInfoOffset: u32,
-    pub dwPermanentPhoneID: u32,
-    pub dwPhoneNameSize: u32,
-    pub dwPhoneNameOffset: u32,
-    pub dwStringFormat: u32,
-    pub dwPhoneStates: u32,
-    pub dwHookSwitchDevs: u32,
-    pub dwHandsetHookSwitchModes: u32,
-    pub dwSpeakerHookSwitchModes: u32,
-    pub dwHeadsetHookSwitchModes: u32,
-    pub dwVolumeFlags: u32,
-    pub dwGainFlags: u32,
-    pub dwDisplayNumRows: u32,
-    pub dwDisplayNumColumns: u32,
-    pub dwNumRingModes: u32,
-    pub dwNumButtonLamps: u32,
-    pub dwButtonModesSize: u32,
-    pub dwButtonModesOffset: u32,
-    pub dwButtonFunctionsSize: u32,
-    pub dwButtonFunctionsOffset: u32,
-    pub dwLampModesSize: u32,
-    pub dwLampModesOffset: u32,
-    pub dwNumSetData: u32,
-    pub dwSetDataSize: u32,
-    pub dwSetDataOffset: u32,
-    pub dwNumGetData: u32,
-    pub dwGetDataSize: u32,
-    pub dwGetDataOffset: u32,
-    pub dwDevSpecificSize: u32,
-    pub dwDevSpecificOffset: u32,
-    pub dwDeviceClassesSize: u32,
-    pub dwDeviceClassesOffset: u32,
-    pub dwPhoneFeatures: u32,
-    pub dwSettableHandsetHookSwitchModes: u32,
-    pub dwSettableSpeakerHookSwitchModes: u32,
-    pub dwSettableHeadsetHookSwitchModes: u32,
-    pub dwMonitoredHandsetHookSwitchModes: u32,
-    pub dwMonitoredSpeakerHookSwitchModes: u32,
-    pub dwMonitoredHeadsetHookSwitchModes: u32,
-    pub PermanentPhoneGuid: windows_core::GUID,
-}
-impl Default for PHONECAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PHONECAPS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct PHONEEXTENSIONID {
-    pub dwExtensionID0: u32,
-    pub dwExtensionID1: u32,
-    pub dwExtensionID2: u32,
-    pub dwExtensionID3: u32,
-}
-impl Default for PHONEEXTENSIONID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PHONEEXTENSIONID {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct PHONEINITIALIZEEXPARAMS {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwOptions: u32,
-    pub Handles: PHONEINITIALIZEEXPARAMS_0,
-    pub dwCompletionKey: u32,
-}
-impl Default for PHONEINITIALIZEEXPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PHONEINITIALIZEEXPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union PHONEINITIALIZEEXPARAMS_0 {
-    pub hEvent: super::super::Foundation::HANDLE,
-    pub hCompletionPort: super::super::Foundation::HANDLE,
-}
-impl Default for PHONEINITIALIZEEXPARAMS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PHONEINITIALIZEEXPARAMS_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct PHONEMESSAGE {
-    pub hDevice: u32,
-    pub dwMessageID: u32,
-    pub dwCallbackInstance: usize,
-    pub dwParam1: usize,
-    pub dwParam2: usize,
-    pub dwParam3: usize,
-}
-impl Default for PHONEMESSAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PHONEMESSAGE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct PHONESTATUS {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwStatusFlags: u32,
-    pub dwNumOwners: u32,
-    pub dwNumMonitors: u32,
-    pub dwRingMode: u32,
-    pub dwRingVolume: u32,
-    pub dwHandsetHookSwitchMode: u32,
-    pub dwHandsetVolume: u32,
-    pub dwHandsetGain: u32,
-    pub dwSpeakerHookSwitchMode: u32,
-    pub dwSpeakerVolume: u32,
-    pub dwSpeakerGain: u32,
-    pub dwHeadsetHookSwitchMode: u32,
-    pub dwHeadsetVolume: u32,
-    pub dwHeadsetGain: u32,
-    pub dwDisplaySize: u32,
-    pub dwDisplayOffset: u32,
-    pub dwLampModesSize: u32,
-    pub dwLampModesOffset: u32,
-    pub dwOwnerNameSize: u32,
-    pub dwOwnerNameOffset: u32,
-    pub dwDevSpecificSize: u32,
-    pub dwDevSpecificOffset: u32,
-    pub dwPhoneFeatures: u32,
-}
-impl Default for PHONESTATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PHONESTATUS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct RENDDATA {
-    pub atyp: u16,
-    pub ulPosition: u32,
-    pub dxWidth: u16,
-    pub dyHeight: u16,
-    pub dwFlags: u32,
-}
-impl Default for RENDDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for RENDDATA {
-    type TypeKind = windows_core::CopyType;
-}
-pub const Rendezvous: windows_core::GUID = windows_core::GUID::from_u128(0xf1029e5b_cb5b_11d0_8d59_00c04fd91ac0);
-pub const RequestMakeCall: windows_core::GUID = windows_core::GUID::from_u128(0xac48ffe0_f8c4_11d1_a030_00c04fb6809f);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct STnefProblem {
-    pub ulComponent: u32,
-    pub ulAttribute: u32,
-    pub ulPropTag: u32,
-    pub scode: i32,
-}
-impl Default for STnefProblem {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for STnefProblem {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct STnefProblemArray {
-    pub cProblem: u32,
-    pub aProblem: [STnefProblem; 1],
-}
-impl Default for STnefProblemArray {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for STnefProblemArray {
-    type TypeKind = windows_core::CopyType;
-}
-pub const TAPI: windows_core::GUID = windows_core::GUID::from_u128(0x21d6d48e_a88b_11d0_83dd_00aa003ccabd);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TAPI_CUSTOMTONE {
-    pub dwFrequency: u32,
-    pub dwCadenceOn: u32,
-    pub dwCadenceOff: u32,
-    pub dwVolume: u32,
-}
-impl Default for TAPI_CUSTOMTONE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TAPI_CUSTOMTONE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TAPI_DETECTTONE {
-    pub dwAppSpecific: u32,
-    pub dwDuration: u32,
-    pub dwFrequency1: u32,
-    pub dwFrequency2: u32,
-    pub dwFrequency3: u32,
-}
-impl Default for TAPI_DETECTTONE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TAPI_DETECTTONE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TRP {
-    pub trpid: u16,
-    pub cbgrtrp: u16,
-    pub cch: u16,
-    pub cbRgb: u16,
-}
-impl Default for TRP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TRP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TUISPICREATEDIALOGINSTANCEPARAMS {
-    pub dwRequestID: u32,
-    pub hdDlgInst: HDRVDIALOGINSTANCE,
-    pub htDlgInst: u32,
-    pub lpszUIDLLName: windows_core::PCWSTR,
-    pub lpParams: *mut core::ffi::c_void,
-    pub dwSize: u32,
-}
-impl Default for TUISPICREATEDIALOGINSTANCEPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TUISPICREATEDIALOGINSTANCEPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct VARSTRING {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwStringFormat: u32,
-    pub dwStringSize: u32,
-    pub dwStringOffset: u32,
-}
-impl Default for VARSTRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VARSTRING {
-    type TypeKind = windows_core::CopyType;
-}
-pub const ACDGE_GROUP_REMOVED: ACDGROUP_EVENT = ACDGROUP_EVENT(1i32);
-pub const ACDGE_NEW_GROUP: ACDGROUP_EVENT = ACDGROUP_EVENT(0i32);
-pub const ACDQE_NEW_QUEUE: ACDQUEUE_EVENT = ACDQUEUE_EVENT(0i32);
-pub const ACDQE_QUEUE_REMOVED: ACDQUEUE_EVENT = ACDQUEUE_EVENT(1i32);
-pub const ACS_ADDRESSDEVICESPECIFIC: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(1i32);
-pub const ACS_LINEDEVICESPECIFIC: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(2i32);
-pub const ACS_PERMANENTDEVICEGUID: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(5i32);
-pub const ACS_PROTOCOL: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(0i32);
-pub const ACS_PROVIDERSPECIFIC: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(3i32);
-pub const ACS_SWITCHSPECIFIC: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(4i32);
-pub const AC_ADDRESSCAPFLAGS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(23i32);
-pub const AC_ADDRESSFEATURES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(29i32);
-pub const AC_ADDRESSID: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(33i32);
-pub const AC_ADDRESSTYPES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(0i32);
-pub const AC_ANSWERMODES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(14i32);
-pub const AC_BEARERMODES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(1i32);
-pub const AC_CALLCOMPLETIONCONDITIONS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(40i32);
-pub const AC_CALLCOMPLETIONMODES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(41i32);
-pub const AC_CALLEDIDSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(19i32);
-pub const AC_CALLERIDSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(18i32);
-pub const AC_CALLFEATURES1: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(24i32);
-pub const AC_CALLFEATURES2: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(25i32);
-pub const AC_CONNECTEDIDSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(20i32);
-pub const AC_DEVCAPFLAGS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(13i32);
-pub const AC_FORWARDMODES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(34i32);
-pub const AC_GATHERDIGITSMAXTIMEOUT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(44i32);
-pub const AC_GATHERDIGITSMINTIMEOUT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(43i32);
-pub const AC_GENERATEDIGITDEFAULTDURATION: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(47i32);
-pub const AC_GENERATEDIGITMAXDURATION: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(46i32);
-pub const AC_GENERATEDIGITMINDURATION: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(45i32);
-pub const AC_GENERATEDIGITSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(8i32);
-pub const AC_GENERATETONEMAXNUMFREQ: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(10i32);
-pub const AC_GENERATETONEMODES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(9i32);
-pub const AC_LINEFEATURES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(15i32);
-pub const AC_LINEID: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(32i32);
-pub const AC_MAXACTIVECALLS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(2i32);
-pub const AC_MAXCALLCOMPLETIONS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(39i32);
-pub const AC_MAXCALLDATASIZE: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(31i32);
-pub const AC_MAXFORWARDENTRIES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(35i32);
-pub const AC_MAXFWDNUMRINGS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(38i32);
-pub const AC_MAXNUMCONFERENCE: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(5i32);
-pub const AC_MAXNUMTRANSCONF: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(6i32);
-pub const AC_MAXONHOLDCALLS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(3i32);
-pub const AC_MAXONHOLDPENDINGCALLS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(4i32);
-pub const AC_MAXSPECIFICENTRIES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(36i32);
-pub const AC_MINFWDNUMRINGS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(37i32);
-pub const AC_MONITORDIGITSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(7i32);
-pub const AC_MONITORTONEMAXNUMENTRIES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(12i32);
-pub const AC_MONITORTONEMAXNUMFREQ: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(11i32);
-pub const AC_PARKSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(17i32);
-pub const AC_PERMANENTDEVICEID: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(42i32);
-pub const AC_PREDICTIVEAUTOTRANSFERSTATES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(30i32);
-pub const AC_REDIRECTINGIDSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(22i32);
-pub const AC_REDIRECTIONIDSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(21i32);
-pub const AC_REMOVEFROMCONFCAPS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(26i32);
-pub const AC_REMOVEFROMCONFSTATE: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(27i32);
-pub const AC_SETTABLEDEVSTATUS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(16i32);
-pub const AC_TRANSFERMODES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(28i32);
-pub const ADDRESS_TERMINAL_AVAILABLE: MSP_ADDRESS_EVENT = MSP_ADDRESS_EVENT(0i32);
-pub const ADDRESS_TERMINAL_UNAVAILABLE: MSP_ADDRESS_EVENT = MSP_ADDRESS_EVENT(1i32);
-pub const AE_BUSY_ACD: AGENT_EVENT = AGENT_EVENT(2i32);
-pub const AE_BUSY_INCOMING: AGENT_EVENT = AGENT_EVENT(3i32);
-pub const AE_BUSY_OUTGOING: AGENT_EVENT = AGENT_EVENT(4i32);
-pub const AE_CAPSCHANGE: ADDRESS_EVENT = ADDRESS_EVENT(1i32);
-pub const AE_CONFIGCHANGE: ADDRESS_EVENT = ADDRESS_EVENT(3i32);
-pub const AE_FORWARD: ADDRESS_EVENT = ADDRESS_EVENT(4i32);
-pub const AE_LASTITEM: ADDRESS_EVENT = ADDRESS_EVENT(8i32);
-pub const AE_MSGWAITOFF: ADDRESS_EVENT = ADDRESS_EVENT(8i32);
-pub const AE_MSGWAITON: ADDRESS_EVENT = ADDRESS_EVENT(7i32);
-pub const AE_NEWTERMINAL: ADDRESS_EVENT = ADDRESS_EVENT(5i32);
-pub const AE_NOT_READY: AGENT_EVENT = AGENT_EVENT(0i32);
-pub const AE_READY: AGENT_EVENT = AGENT_EVENT(1i32);
-pub const AE_REMOVETERMINAL: ADDRESS_EVENT = ADDRESS_EVENT(6i32);
-pub const AE_RINGING: ADDRESS_EVENT = ADDRESS_EVENT(2i32);
-pub const AE_STATE: ADDRESS_EVENT = ADDRESS_EVENT(0i32);
-pub const AE_UNKNOWN: AGENT_EVENT = AGENT_EVENT(5i32);
-pub const AHE_AGENTHANDLER_REMOVED: AGENTHANDLER_EVENT = AGENTHANDLER_EVENT(1i32);
-pub const AHE_NEW_AGENTHANDLER: AGENTHANDLER_EVENT = AGENTHANDLER_EVENT(0i32);
-pub const ASE_BUSY: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(3i32);
-pub const ASE_END: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(5i32);
-pub const ASE_NEW_SESSION: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(0i32);
-pub const ASE_NOT_READY: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(1i32);
-pub const ASE_READY: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(2i32);
-pub const ASE_WRAPUP: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(4i32);
-pub const ASST_BUSY_ON_CALL: AGENT_SESSION_STATE = AGENT_SESSION_STATE(2i32);
-pub const ASST_BUSY_WRAPUP: AGENT_SESSION_STATE = AGENT_SESSION_STATE(3i32);
-pub const ASST_NOT_READY: AGENT_SESSION_STATE = AGENT_SESSION_STATE(0i32);
-pub const ASST_READY: AGENT_SESSION_STATE = AGENT_SESSION_STATE(1i32);
-pub const ASST_SESSION_ENDED: AGENT_SESSION_STATE = AGENT_SESSION_STATE(4i32);
-pub const AS_BUSY_ACD: AGENT_STATE = AGENT_STATE(2i32);
-pub const AS_BUSY_INCOMING: AGENT_STATE = AGENT_STATE(3i32);
-pub const AS_BUSY_OUTGOING: AGENT_STATE = AGENT_STATE(4i32);
-pub const AS_INSERVICE: ADDRESS_STATE = ADDRESS_STATE(0i32);
-pub const AS_NOT_READY: AGENT_STATE = AGENT_STATE(0i32);
-pub const AS_OUTOFSERVICE: ADDRESS_STATE = ADDRESS_STATE(1i32);
-pub const AS_READY: AGENT_STATE = AGENT_STATE(1i32);
-pub const AS_UNKNOWN: AGENT_STATE = AGENT_STATE(5i32);
-pub const CALL_CAUSE_BAD_DEVICE: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(1i32);
-pub const CALL_CAUSE_CONNECT_FAIL: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(2i32);
-pub const CALL_CAUSE_LOCAL_REQUEST: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(3i32);
-pub const CALL_CAUSE_MEDIA_RECOVERED: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(6i32);
-pub const CALL_CAUSE_MEDIA_TIMEOUT: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(5i32);
-pub const CALL_CAUSE_QUALITY_OF_SERVICE: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(7i32);
-pub const CALL_CAUSE_REMOTE_REQUEST: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(4i32);
-pub const CALL_CAUSE_UNKNOWN: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(0i32);
-pub const CALL_NEW_STREAM: MSP_CALL_EVENT = MSP_CALL_EVENT(0i32);
-pub const CALL_STREAM_ACTIVE: MSP_CALL_EVENT = MSP_CALL_EVENT(4i32);
-pub const CALL_STREAM_FAIL: MSP_CALL_EVENT = MSP_CALL_EVENT(1i32);
-pub const CALL_STREAM_INACTIVE: MSP_CALL_EVENT = MSP_CALL_EVENT(5i32);
-pub const CALL_STREAM_NOT_USED: MSP_CALL_EVENT = MSP_CALL_EVENT(3i32);
-pub const CALL_TERMINAL_FAIL: MSP_CALL_EVENT = MSP_CALL_EVENT(2i32);
-pub const CEC_DISCONNECT_BADADDRESS: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(3i32);
-pub const CEC_DISCONNECT_BLOCKED: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(8i32);
-pub const CEC_DISCONNECT_BUSY: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(2i32);
-pub const CEC_DISCONNECT_CANCELLED: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(5i32);
-pub const CEC_DISCONNECT_FAILED: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(7i32);
-pub const CEC_DISCONNECT_NOANSWER: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(4i32);
-pub const CEC_DISCONNECT_NORMAL: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(1i32);
-pub const CEC_DISCONNECT_REJECTED: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(6i32);
-pub const CEC_NONE: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(0i32);
-pub const CHE_CALLHUBIDLE: CALLHUB_EVENT = CALLHUB_EVENT(3i32);
-pub const CHE_CALLHUBNEW: CALLHUB_EVENT = CALLHUB_EVENT(2i32);
-pub const CHE_CALLJOIN: CALLHUB_EVENT = CALLHUB_EVENT(0i32);
-pub const CHE_CALLLEAVE: CALLHUB_EVENT = CALLHUB_EVENT(1i32);
-pub const CHE_LASTITEM: CALLHUB_EVENT = CALLHUB_EVENT(3i32);
-pub const CHS_ACTIVE: CALLHUB_STATE = CALLHUB_STATE(0i32);
-pub const CHS_IDLE: CALLHUB_STATE = CALLHUB_STATE(1i32);
-pub const CIB_CALLDATABUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(2i32);
-pub const CIB_CHARGINGINFOBUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(3i32);
-pub const CIB_DEVSPECIFICBUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(1i32);
-pub const CIB_HIGHLEVELCOMPATIBILITYBUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(4i32);
-pub const CIB_LOWLEVELCOMPATIBILITYBUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(5i32);
-pub const CIB_USERUSERINFO: CALLINFO_BUFFER = CALLINFO_BUFFER(0i32);
-pub const CIC_APPSPECIFIC: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(4i32);
-pub const CIC_BEARERMODE: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(2i32);
-pub const CIC_CALLDATA: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(24i32);
-pub const CIC_CALLEDID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(15i32);
-pub const CIC_CALLERID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(14i32);
-pub const CIC_CALLID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(5i32);
-pub const CIC_CHARGINGINFO: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(22i32);
-pub const CIC_COMPLETIONID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(9i32);
-pub const CIC_CONNECTEDID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(16i32);
-pub const CIC_DEVSPECIFIC: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(1i32);
-pub const CIC_HIGHLEVELCOMP: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(20i32);
-pub const CIC_LASTITEM: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(26i32);
-pub const CIC_LOWLEVELCOMP: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(21i32);
-pub const CIC_MEDIATYPE: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(26i32);
-pub const CIC_NUMMONITORS: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(12i32);
-pub const CIC_NUMOWNERDECR: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(11i32);
-pub const CIC_NUMOWNERINCR: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(10i32);
-pub const CIC_ORIGIN: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(7i32);
-pub const CIC_OTHER: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(0i32);
-pub const CIC_PRIVILEGE: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(25i32);
-pub const CIC_RATE: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(3i32);
-pub const CIC_REASON: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(8i32);
-pub const CIC_REDIRECTINGID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(18i32);
-pub const CIC_REDIRECTIONID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(17i32);
-pub const CIC_RELATEDCALLID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(6i32);
-pub const CIC_TREATMENT: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(23i32);
-pub const CIC_TRUNK: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(13i32);
-pub const CIC_USERUSERINFO: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(19i32);
-pub const CIL_APPSPECIFIC: CALLINFO_LONG = CALLINFO_LONG(9i32);
-pub const CIL_BEARERMODE: CALLINFO_LONG = CALLINFO_LONG(1i32);
-pub const CIL_CALLEDIDADDRESSTYPE: CALLINFO_LONG = CALLINFO_LONG(3i32);
-pub const CIL_CALLERIDADDRESSTYPE: CALLINFO_LONG = CALLINFO_LONG(2i32);
-pub const CIL_CALLID: CALLINFO_LONG = CALLINFO_LONG(15i32);
-pub const CIL_CALLPARAMSFLAGS: CALLINFO_LONG = CALLINFO_LONG(10i32);
-pub const CIL_CALLTREATMENT: CALLINFO_LONG = CALLINFO_LONG(11i32);
-pub const CIL_COMPLETIONID: CALLINFO_LONG = CALLINFO_LONG(17i32);
-pub const CIL_CONNECTEDIDADDRESSTYPE: CALLINFO_LONG = CALLINFO_LONG(4i32);
-pub const CIL_COUNTRYCODE: CALLINFO_LONG = CALLINFO_LONG(14i32);
-pub const CIL_GENERATEDIGITDURATION: CALLINFO_LONG = CALLINFO_LONG(22i32);
-pub const CIL_MAXRATE: CALLINFO_LONG = CALLINFO_LONG(13i32);
-pub const CIL_MEDIATYPESAVAILABLE: CALLINFO_LONG = CALLINFO_LONG(0i32);
-pub const CIL_MINRATE: CALLINFO_LONG = CALLINFO_LONG(12i32);
-pub const CIL_MONITORDIGITMODES: CALLINFO_LONG = CALLINFO_LONG(23i32);
-pub const CIL_MONITORMEDIAMODES: CALLINFO_LONG = CALLINFO_LONG(24i32);
-pub const CIL_NUMBEROFMONITORS: CALLINFO_LONG = CALLINFO_LONG(19i32);
-pub const CIL_NUMBEROFOWNERS: CALLINFO_LONG = CALLINFO_LONG(18i32);
-pub const CIL_ORIGIN: CALLINFO_LONG = CALLINFO_LONG(7i32);
-pub const CIL_RATE: CALLINFO_LONG = CALLINFO_LONG(21i32);
-pub const CIL_REASON: CALLINFO_LONG = CALLINFO_LONG(8i32);
-pub const CIL_REDIRECTINGIDADDRESSTYPE: CALLINFO_LONG = CALLINFO_LONG(6i32);
-pub const CIL_REDIRECTIONIDADDRESSTYPE: CALLINFO_LONG = CALLINFO_LONG(5i32);
-pub const CIL_RELATEDCALLID: CALLINFO_LONG = CALLINFO_LONG(16i32);
-pub const CIL_TRUNK: CALLINFO_LONG = CALLINFO_LONG(20i32);
-pub const CIS_CALLEDIDNAME: CALLINFO_STRING = CALLINFO_STRING(2i32);
-pub const CIS_CALLEDIDNUMBER: CALLINFO_STRING = CALLINFO_STRING(3i32);
-pub const CIS_CALLEDPARTYFRIENDLYNAME: CALLINFO_STRING = CALLINFO_STRING(10i32);
-pub const CIS_CALLERIDNAME: CALLINFO_STRING = CALLINFO_STRING(0i32);
-pub const CIS_CALLERIDNUMBER: CALLINFO_STRING = CALLINFO_STRING(1i32);
-pub const CIS_CALLINGPARTYID: CALLINFO_STRING = CALLINFO_STRING(13i32);
-pub const CIS_COMMENT: CALLINFO_STRING = CALLINFO_STRING(11i32);
-pub const CIS_CONNECTEDIDNAME: CALLINFO_STRING = CALLINFO_STRING(4i32);
-pub const CIS_CONNECTEDIDNUMBER: CALLINFO_STRING = CALLINFO_STRING(5i32);
-pub const CIS_DISPLAYABLEADDRESS: CALLINFO_STRING = CALLINFO_STRING(12i32);
-pub const CIS_REDIRECTINGIDNAME: CALLINFO_STRING = CALLINFO_STRING(8i32);
-pub const CIS_REDIRECTINGIDNUMBER: CALLINFO_STRING = CALLINFO_STRING(9i32);
-pub const CIS_REDIRECTIONIDNAME: CALLINFO_STRING = CALLINFO_STRING(6i32);
-pub const CIS_REDIRECTIONIDNUMBER: CALLINFO_STRING = CALLINFO_STRING(7i32);
-pub const CMC_BAD_DEVICE: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(1i32);
-pub const CMC_CONNECT_FAIL: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(2i32);
-pub const CMC_LOCAL_REQUEST: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(3i32);
-pub const CMC_MEDIA_RECOVERED: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(6i32);
-pub const CMC_MEDIA_TIMEOUT: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(5i32);
-pub const CMC_QUALITY_OF_SERVICE: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(7i32);
-pub const CMC_REMOTE_REQUEST: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(4i32);
-pub const CMC_UNKNOWN: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(0i32);
-pub const CME_LASTITEM: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(5i32);
-pub const CME_NEW_STREAM: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(0i32);
-pub const CME_STREAM_ACTIVE: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(4i32);
-pub const CME_STREAM_FAIL: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(1i32);
-pub const CME_STREAM_INACTIVE: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(5i32);
-pub const CME_STREAM_NOT_USED: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(3i32);
-pub const CME_TERMINAL_FAIL: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(2i32);
-pub const CNE_LASTITEM: CALL_NOTIFICATION_EVENT = CALL_NOTIFICATION_EVENT(1i32);
-pub const CNE_MONITOR: CALL_NOTIFICATION_EVENT = CALL_NOTIFICATION_EVENT(1i32);
-pub const CNE_OWNER: CALL_NOTIFICATION_EVENT = CALL_NOTIFICATION_EVENT(0i32);
-pub const CP_MONITOR: CALL_PRIVILEGE = CALL_PRIVILEGE(1i32);
-pub const CP_OWNER: CALL_PRIVILEGE = CALL_PRIVILEGE(0i32);
-pub const CS_CONNECTED: CALL_STATE = CALL_STATE(2i32);
-pub const CS_DISCONNECTED: CALL_STATE = CALL_STATE(3i32);
-pub const CS_HOLD: CALL_STATE = CALL_STATE(5i32);
-pub const CS_IDLE: CALL_STATE = CALL_STATE(0i32);
-pub const CS_INPROGRESS: CALL_STATE = CALL_STATE(1i32);
-pub const CS_LASTITEM: CALL_STATE = CALL_STATE(6i32);
-pub const CS_OFFERING: CALL_STATE = CALL_STATE(4i32);
-pub const CS_QUEUED: CALL_STATE = CALL_STATE(6i32);
-pub const DC_NOANSWER: DISCONNECT_CODE = DISCONNECT_CODE(1i32);
-pub const DC_NORMAL: DISCONNECT_CODE = DISCONNECT_CODE(0i32);
-pub const DC_REJECTED: DISCONNECT_CODE = DISCONNECT_CODE(2i32);
-pub const DISPIDMASK: u32 = 65535u32;
-pub const DT_ILS: DIRECTORY_TYPE = DIRECTORY_TYPE(2i32);
-pub const DT_NTDS: DIRECTORY_TYPE = DIRECTORY_TYPE(1i32);
-pub const FDS_NOTSUPPORTED: FULLDUPLEX_SUPPORT = FULLDUPLEX_SUPPORT(1i32);
-pub const FDS_SUPPORTED: FULLDUPLEX_SUPPORT = FULLDUPLEX_SUPPORT(0i32);
-pub const FDS_UNKNOWN: FULLDUPLEX_SUPPORT = FULLDUPLEX_SUPPORT(2i32);
-pub const FM_ASCONFERENCE: FINISH_MODE = FINISH_MODE(1i32);
-pub const FM_ASTRANSFER: FINISH_MODE = FINISH_MODE(0i32);
-pub const FTEC_END_OF_FILE: FT_STATE_EVENT_CAUSE = FT_STATE_EVENT_CAUSE(1i32);
-pub const FTEC_NORMAL: FT_STATE_EVENT_CAUSE = FT_STATE_EVENT_CAUSE(0i32);
-pub const FTEC_READ_ERROR: FT_STATE_EVENT_CAUSE = FT_STATE_EVENT_CAUSE(2i32);
-pub const FTEC_WRITE_ERROR: FT_STATE_EVENT_CAUSE = FT_STATE_EVENT_CAUSE(3i32);
-pub const GETTNEFSTREAMCODEPAGE: windows_core::PCSTR = windows_core::s!("GetTnefStreamCodePage");
-pub const IDISPADDRESS: u32 = 65536u32;
-pub const IDISPADDRESSCAPABILITIES: u32 = 131072u32;
-pub const IDISPADDRESSTRANSLATION: u32 = 262144u32;
-pub const IDISPAGGREGATEDMSPADDRESSOBJ: u32 = 393216u32;
-pub const IDISPAGGREGATEDMSPCALLOBJ: u32 = 262144u32;
-pub const IDISPAPC: u32 = 131072u32;
-pub const IDISPBASICCALLCONTROL: u32 = 131072u32;
-pub const IDISPCALLINFO: u32 = 65536u32;
-pub const IDISPDIRECTORY: u32 = 65536u32;
-pub const IDISPDIROBJCONFERENCE: u32 = 131072u32;
-pub const IDISPDIROBJECT: u32 = 65536u32;
-pub const IDISPDIROBJUSER: u32 = 196608u32;
-pub const IDISPFILETRACK: u32 = 65536u32;
-pub const IDISPILSCONFIG: u32 = 131072u32;
-pub const IDISPLEGACYADDRESSMEDIACONTROL: u32 = 327680u32;
-pub const IDISPLEGACYCALLMEDIACONTROL: u32 = 196608u32;
-pub const IDISPMEDIACONTROL: u32 = 131072u32;
-pub const IDISPMEDIAPLAYBACK: u32 = 262144u32;
-pub const IDISPMEDIARECORD: u32 = 196608u32;
-pub const IDISPMEDIASUPPORT: u32 = 196608u32;
-pub const IDISPMULTITRACK: u32 = 65536u32;
-pub const IDISPPHONE: u32 = 65536u32;
-pub const IDISPTAPI: u32 = 65536u32;
-pub const IDISPTAPICALLCENTER: u32 = 131072u32;
-pub const INITIALIZE_NEGOTIATION: u32 = 4294967295u32;
-pub const INTERFACEMASK: u32 = 16711680u32;
-pub const LAST_LINEMEDIAMODE: u32 = 32768u32;
-pub const LAST_LINEREQUESTMODE: u32 = 2u32;
-pub const LINEADDRCAPFLAGS_ACCEPTTOALERT: u32 = 1048576u32;
-pub const LINEADDRCAPFLAGS_ACDGROUP: u32 = 1073741824u32;
-pub const LINEADDRCAPFLAGS_AUTORECONNECT: u32 = 1024u32;
-pub const LINEADDRCAPFLAGS_BLOCKIDDEFAULT: u32 = 8u32;
-pub const LINEADDRCAPFLAGS_BLOCKIDOVERRIDE: u32 = 16u32;
-pub const LINEADDRCAPFLAGS_COMPLETIONID: u32 = 2048u32;
-pub const LINEADDRCAPFLAGS_CONFDROP: u32 = 2097152u32;
-pub const LINEADDRCAPFLAGS_CONFERENCEHELD: u32 = 16384u32;
-pub const LINEADDRCAPFLAGS_CONFERENCEMAKE: u32 = 32768u32;
-pub const LINEADDRCAPFLAGS_DESTOFFHOOK: u32 = 128u32;
-pub const LINEADDRCAPFLAGS_DIALED: u32 = 32u32;
-pub const LINEADDRCAPFLAGS_FWDBUSYNAADDR: u32 = 524288u32;
-pub const LINEADDRCAPFLAGS_FWDCONSULT: u32 = 256u32;
-pub const LINEADDRCAPFLAGS_FWDINTEXTADDR: u32 = 262144u32;
-pub const LINEADDRCAPFLAGS_FWDNUMRINGS: u32 = 1u32;
-pub const LINEADDRCAPFLAGS_FWDSTATUSVALID: u32 = 131072u32;
-pub const LINEADDRCAPFLAGS_HOLDMAKESNEW: u32 = 67108864u32;
-pub const LINEADDRCAPFLAGS_NOEXTERNALCALLS: u32 = 268435456u32;
-pub const LINEADDRCAPFLAGS_NOINTERNALCALLS: u32 = 134217728u32;
-pub const LINEADDRCAPFLAGS_NOPSTNADDRESSTRANSLATION: u32 = 2147483648u32;
-pub const LINEADDRCAPFLAGS_ORIGOFFHOOK: u32 = 64u32;
-pub const LINEADDRCAPFLAGS_PARTIALDIAL: u32 = 65536u32;
-pub const LINEADDRCAPFLAGS_PICKUPCALLWAIT: u32 = 4194304u32;
-pub const LINEADDRCAPFLAGS_PICKUPGROUPID: u32 = 2u32;
-pub const LINEADDRCAPFLAGS_PREDICTIVEDIALER: u32 = 8388608u32;
-pub const LINEADDRCAPFLAGS_QUEUE: u32 = 16777216u32;
-pub const LINEADDRCAPFLAGS_ROUTEPOINT: u32 = 33554432u32;
-pub const LINEADDRCAPFLAGS_SECURE: u32 = 4u32;
-pub const LINEADDRCAPFLAGS_SETCALLINGID: u32 = 536870912u32;
-pub const LINEADDRCAPFLAGS_SETUPCONFNULL: u32 = 512u32;
-pub const LINEADDRCAPFLAGS_TRANSFERHELD: u32 = 4096u32;
-pub const LINEADDRCAPFLAGS_TRANSFERMAKE: u32 = 8192u32;
-pub const LINEADDRESSMODE_ADDRESSID: u32 = 1u32;
-pub const LINEADDRESSMODE_DIALABLEADDR: u32 = 2u32;
-pub const LINEADDRESSSHARING_BRIDGEDEXCL: u32 = 2u32;
-pub const LINEADDRESSSHARING_BRIDGEDNEW: u32 = 4u32;
-pub const LINEADDRESSSHARING_BRIDGEDSHARED: u32 = 8u32;
-pub const LINEADDRESSSHARING_MONITORED: u32 = 16u32;
-pub const LINEADDRESSSHARING_PRIVATE: u32 = 1u32;
-pub const LINEADDRESSSTATE_CAPSCHANGE: u32 = 256u32;
-pub const LINEADDRESSSTATE_DEVSPECIFIC: u32 = 2u32;
-pub const LINEADDRESSSTATE_FORWARD: u32 = 64u32;
-pub const LINEADDRESSSTATE_INUSEMANY: u32 = 16u32;
-pub const LINEADDRESSSTATE_INUSEONE: u32 = 8u32;
-pub const LINEADDRESSSTATE_INUSEZERO: u32 = 4u32;
-pub const LINEADDRESSSTATE_NUMCALLS: u32 = 32u32;
-pub const LINEADDRESSSTATE_OTHER: u32 = 1u32;
-pub const LINEADDRESSSTATE_TERMINALS: u32 = 128u32;
-pub const LINEADDRESSTYPE_DOMAINNAME: u32 = 8u32;
-pub const LINEADDRESSTYPE_EMAILNAME: u32 = 4u32;
-pub const LINEADDRESSTYPE_IPADDRESS: u32 = 16u32;
-pub const LINEADDRESSTYPE_PHONENUMBER: u32 = 1u32;
-pub const LINEADDRESSTYPE_SDP: u32 = 2u32;
-pub const LINEADDRFEATURE_FORWARD: u32 = 1u32;
-pub const LINEADDRFEATURE_FORWARDDND: u32 = 8192u32;
-pub const LINEADDRFEATURE_FORWARDFWD: u32 = 4096u32;
-pub const LINEADDRFEATURE_MAKECALL: u32 = 2u32;
-pub const LINEADDRFEATURE_PICKUP: u32 = 4u32;
-pub const LINEADDRFEATURE_PICKUPDIRECT: u32 = 1024u32;
-pub const LINEADDRFEATURE_PICKUPGROUP: u32 = 512u32;
-pub const LINEADDRFEATURE_PICKUPHELD: u32 = 256u32;
-pub const LINEADDRFEATURE_PICKUPWAITING: u32 = 2048u32;
-pub const LINEADDRFEATURE_SETMEDIACONTROL: u32 = 8u32;
-pub const LINEADDRFEATURE_SETTERMINAL: u32 = 16u32;
-pub const LINEADDRFEATURE_SETUPCONF: u32 = 32u32;
-pub const LINEADDRFEATURE_UNCOMPLETECALL: u32 = 64u32;
-pub const LINEADDRFEATURE_UNPARK: u32 = 128u32;
-pub const LINEAGENTFEATURE_AGENTSPECIFIC: u32 = 8u32;
-pub const LINEAGENTFEATURE_GETAGENTACTIVITYLIST: u32 = 16u32;
-pub const LINEAGENTFEATURE_GETAGENTGROUP: u32 = 32u32;
-pub const LINEAGENTFEATURE_SETAGENTACTIVITY: u32 = 4u32;
-pub const LINEAGENTFEATURE_SETAGENTGROUP: u32 = 1u32;
-pub const LINEAGENTFEATURE_SETAGENTSTATE: u32 = 2u32;
-pub const LINEAGENTSESSIONSTATE_BUSYONCALL: u32 = 4u32;
-pub const LINEAGENTSESSIONSTATE_BUSYWRAPUP: u32 = 8u32;
-pub const LINEAGENTSESSIONSTATE_ENDED: u32 = 16u32;
-pub const LINEAGENTSESSIONSTATE_NOTREADY: u32 = 1u32;
-pub const LINEAGENTSESSIONSTATE_READY: u32 = 2u32;
-pub const LINEAGENTSESSIONSTATE_RELEASED: u32 = 32u32;
-pub const LINEAGENTSESSIONSTATUS_NEWSESSION: u32 = 1u32;
-pub const LINEAGENTSESSIONSTATUS_STATE: u32 = 2u32;
-pub const LINEAGENTSESSIONSTATUS_UPDATEINFO: u32 = 4u32;
-pub const LINEAGENTSTATEEX_BUSYACD: u32 = 4u32;
-pub const LINEAGENTSTATEEX_BUSYINCOMING: u32 = 8u32;
-pub const LINEAGENTSTATEEX_BUSYOUTGOING: u32 = 16u32;
-pub const LINEAGENTSTATEEX_NOTREADY: u32 = 1u32;
-pub const LINEAGENTSTATEEX_READY: u32 = 2u32;
-pub const LINEAGENTSTATEEX_RELEASED: u32 = 64u32;
-pub const LINEAGENTSTATEEX_UNKNOWN: u32 = 32u32;
-pub const LINEAGENTSTATE_BUSYACD: u32 = 8u32;
-pub const LINEAGENTSTATE_BUSYINCOMING: u32 = 16u32;
-pub const LINEAGENTSTATE_BUSYOTHER: u32 = 64u32;
-pub const LINEAGENTSTATE_BUSYOUTBOUND: u32 = 32u32;
-pub const LINEAGENTSTATE_LOGGEDOFF: u32 = 1u32;
-pub const LINEAGENTSTATE_NOTREADY: u32 = 2u32;
-pub const LINEAGENTSTATE_READY: u32 = 4u32;
-pub const LINEAGENTSTATE_UNAVAIL: u32 = 512u32;
-pub const LINEAGENTSTATE_UNKNOWN: u32 = 256u32;
-pub const LINEAGENTSTATE_WORKINGAFTERCALL: u32 = 128u32;
-pub const LINEAGENTSTATUSEX_NEWAGENT: u32 = 1u32;
-pub const LINEAGENTSTATUSEX_STATE: u32 = 2u32;
-pub const LINEAGENTSTATUSEX_UPDATEINFO: u32 = 4u32;
-pub const LINEAGENTSTATUS_ACTIVITY: u32 = 8u32;
-pub const LINEAGENTSTATUS_ACTIVITYLIST: u32 = 16u32;
-pub const LINEAGENTSTATUS_CAPSCHANGE: u32 = 64u32;
-pub const LINEAGENTSTATUS_GROUP: u32 = 1u32;
-pub const LINEAGENTSTATUS_GROUPLIST: u32 = 32u32;
-pub const LINEAGENTSTATUS_NEXTSTATE: u32 = 4u32;
-pub const LINEAGENTSTATUS_STATE: u32 = 2u32;
-pub const LINEAGENTSTATUS_VALIDNEXTSTATES: u32 = 256u32;
-pub const LINEAGENTSTATUS_VALIDSTATES: u32 = 128u32;
-pub const LINEANSWERMODE_DROP: u32 = 2u32;
-pub const LINEANSWERMODE_HOLD: u32 = 4u32;
-pub const LINEANSWERMODE_NONE: u32 = 1u32;
-pub const LINEBEARERMODE_ALTSPEECHDATA: u32 = 16u32;
-pub const LINEBEARERMODE_DATA: u32 = 8u32;
-pub const LINEBEARERMODE_MULTIUSE: u32 = 4u32;
-pub const LINEBEARERMODE_NONCALLSIGNALING: u32 = 32u32;
-pub const LINEBEARERMODE_PASSTHROUGH: u32 = 64u32;
-pub const LINEBEARERMODE_RESTRICTEDDATA: u32 = 128u32;
-pub const LINEBEARERMODE_SPEECH: u32 = 2u32;
-pub const LINEBEARERMODE_VOICE: u32 = 1u32;
-pub const LINEBUSYMODE_STATION: u32 = 1u32;
-pub const LINEBUSYMODE_TRUNK: u32 = 2u32;
-pub const LINEBUSYMODE_UNAVAIL: u32 = 8u32;
-pub const LINEBUSYMODE_UNKNOWN: u32 = 4u32;
-pub const LINECALLCOMPLCOND_BUSY: u32 = 1u32;
-pub const LINECALLCOMPLCOND_NOANSWER: u32 = 2u32;
-pub const LINECALLCOMPLMODE_CALLBACK: u32 = 2u32;
-pub const LINECALLCOMPLMODE_CAMPON: u32 = 1u32;
-pub const LINECALLCOMPLMODE_INTRUDE: u32 = 4u32;
-pub const LINECALLCOMPLMODE_MESSAGE: u32 = 8u32;
-pub const LINECALLFEATURE2_COMPLCALLBACK: u32 = 8u32;
-pub const LINECALLFEATURE2_COMPLCAMPON: u32 = 4u32;
-pub const LINECALLFEATURE2_COMPLINTRUDE: u32 = 16u32;
-pub const LINECALLFEATURE2_COMPLMESSAGE: u32 = 32u32;
-pub const LINECALLFEATURE2_NOHOLDCONFERENCE: u32 = 1u32;
-pub const LINECALLFEATURE2_ONESTEPTRANSFER: u32 = 2u32;
-pub const LINECALLFEATURE2_PARKDIRECT: u32 = 256u32;
-pub const LINECALLFEATURE2_PARKNONDIRECT: u32 = 512u32;
-pub const LINECALLFEATURE2_TRANSFERCONF: u32 = 128u32;
-pub const LINECALLFEATURE2_TRANSFERNORM: u32 = 64u32;
-pub const LINECALLFEATURE_ACCEPT: u32 = 1u32;
-pub const LINECALLFEATURE_ADDTOCONF: u32 = 2u32;
-pub const LINECALLFEATURE_ANSWER: u32 = 4u32;
-pub const LINECALLFEATURE_BLINDTRANSFER: u32 = 8u32;
-pub const LINECALLFEATURE_COMPLETECALL: u32 = 16u32;
-pub const LINECALLFEATURE_COMPLETETRANSF: u32 = 32u32;
-pub const LINECALLFEATURE_DIAL: u32 = 64u32;
-pub const LINECALLFEATURE_DROP: u32 = 128u32;
-pub const LINECALLFEATURE_GATHERDIGITS: u32 = 256u32;
-pub const LINECALLFEATURE_GENERATEDIGITS: u32 = 512u32;
-pub const LINECALLFEATURE_GENERATETONE: u32 = 1024u32;
-pub const LINECALLFEATURE_HOLD: u32 = 2048u32;
-pub const LINECALLFEATURE_MONITORDIGITS: u32 = 4096u32;
-pub const LINECALLFEATURE_MONITORMEDIA: u32 = 8192u32;
-pub const LINECALLFEATURE_MONITORTONES: u32 = 16384u32;
-pub const LINECALLFEATURE_PARK: u32 = 32768u32;
-pub const LINECALLFEATURE_PREPAREADDCONF: u32 = 65536u32;
-pub const LINECALLFEATURE_REDIRECT: u32 = 131072u32;
-pub const LINECALLFEATURE_RELEASEUSERUSERINFO: u32 = 268435456u32;
-pub const LINECALLFEATURE_REMOVEFROMCONF: u32 = 262144u32;
-pub const LINECALLFEATURE_SECURECALL: u32 = 524288u32;
-pub const LINECALLFEATURE_SENDUSERUSER: u32 = 1048576u32;
-pub const LINECALLFEATURE_SETCALLDATA: u32 = 2147483648u32;
-pub const LINECALLFEATURE_SETCALLPARAMS: u32 = 2097152u32;
-pub const LINECALLFEATURE_SETMEDIACONTROL: u32 = 4194304u32;
-pub const LINECALLFEATURE_SETQOS: u32 = 1073741824u32;
-pub const LINECALLFEATURE_SETTERMINAL: u32 = 8388608u32;
-pub const LINECALLFEATURE_SETTREATMENT: u32 = 536870912u32;
-pub const LINECALLFEATURE_SETUPCONF: u32 = 16777216u32;
-pub const LINECALLFEATURE_SETUPTRANSFER: u32 = 33554432u32;
-pub const LINECALLFEATURE_SWAPHOLD: u32 = 67108864u32;
-pub const LINECALLFEATURE_UNHOLD: u32 = 134217728u32;
-pub const LINECALLHUBTRACKING_ALLCALLS: u32 = 2u32;
-pub const LINECALLHUBTRACKING_NONE: u32 = 0u32;
-pub const LINECALLHUBTRACKING_PROVIDERLEVEL: u32 = 1u32;
-pub const LINECALLINFOSTATE_APPSPECIFIC: u32 = 32u32;
-pub const LINECALLINFOSTATE_BEARERMODE: u32 = 4u32;
-pub const LINECALLINFOSTATE_CALLDATA: u32 = 1073741824u32;
-pub const LINECALLINFOSTATE_CALLEDID: u32 = 65536u32;
-pub const LINECALLINFOSTATE_CALLERID: u32 = 32768u32;
-pub const LINECALLINFOSTATE_CALLID: u32 = 64u32;
-pub const LINECALLINFOSTATE_CHARGINGINFO: u32 = 16777216u32;
-pub const LINECALLINFOSTATE_COMPLETIONID: u32 = 1024u32;
-pub const LINECALLINFOSTATE_CONNECTEDID: u32 = 131072u32;
-pub const LINECALLINFOSTATE_DEVSPECIFIC: u32 = 2u32;
-pub const LINECALLINFOSTATE_DIALPARAMS: u32 = 67108864u32;
-pub const LINECALLINFOSTATE_DISPLAY: u32 = 1048576u32;
-pub const LINECALLINFOSTATE_HIGHLEVELCOMP: u32 = 4194304u32;
-pub const LINECALLINFOSTATE_LOWLEVELCOMP: u32 = 8388608u32;
-pub const LINECALLINFOSTATE_MEDIAMODE: u32 = 16u32;
-pub const LINECALLINFOSTATE_MONITORMODES: u32 = 134217728u32;
-pub const LINECALLINFOSTATE_NUMMONITORS: u32 = 8192u32;
-pub const LINECALLINFOSTATE_NUMOWNERDECR: u32 = 4096u32;
-pub const LINECALLINFOSTATE_NUMOWNERINCR: u32 = 2048u32;
-pub const LINECALLINFOSTATE_ORIGIN: u32 = 256u32;
-pub const LINECALLINFOSTATE_OTHER: u32 = 1u32;
-pub const LINECALLINFOSTATE_QOS: u32 = 536870912u32;
-pub const LINECALLINFOSTATE_RATE: u32 = 8u32;
-pub const LINECALLINFOSTATE_REASON: u32 = 512u32;
-pub const LINECALLINFOSTATE_REDIRECTINGID: u32 = 524288u32;
-pub const LINECALLINFOSTATE_REDIRECTIONID: u32 = 262144u32;
-pub const LINECALLINFOSTATE_RELATEDCALLID: u32 = 128u32;
-pub const LINECALLINFOSTATE_TERMINAL: u32 = 33554432u32;
-pub const LINECALLINFOSTATE_TREATMENT: u32 = 268435456u32;
-pub const LINECALLINFOSTATE_TRUNK: u32 = 16384u32;
-pub const LINECALLINFOSTATE_USERUSERINFO: u32 = 2097152u32;
-pub const LINECALLORIGIN_CONFERENCE: u32 = 64u32;
-pub const LINECALLORIGIN_EXTERNAL: u32 = 4u32;
-pub const LINECALLORIGIN_INBOUND: u32 = 128u32;
-pub const LINECALLORIGIN_INTERNAL: u32 = 2u32;
-pub const LINECALLORIGIN_OUTBOUND: u32 = 1u32;
-pub const LINECALLORIGIN_UNAVAIL: u32 = 32u32;
-pub const LINECALLORIGIN_UNKNOWN: u32 = 16u32;
-pub const LINECALLPARAMFLAGS_BLOCKID: u32 = 4u32;
-pub const LINECALLPARAMFLAGS_DESTOFFHOOK: u32 = 16u32;
-pub const LINECALLPARAMFLAGS_IDLE: u32 = 2u32;
-pub const LINECALLPARAMFLAGS_NOHOLDCONFERENCE: u32 = 32u32;
-pub const LINECALLPARAMFLAGS_ONESTEPTRANSFER: u32 = 128u32;
-pub const LINECALLPARAMFLAGS_ORIGOFFHOOK: u32 = 8u32;
-pub const LINECALLPARAMFLAGS_PREDICTIVEDIAL: u32 = 64u32;
-pub const LINECALLPARAMFLAGS_SECURE: u32 = 1u32;
-pub const LINECALLPARTYID_ADDRESS: u32 = 8u32;
-pub const LINECALLPARTYID_BLOCKED: u32 = 1u32;
-pub const LINECALLPARTYID_NAME: u32 = 4u32;
-pub const LINECALLPARTYID_OUTOFAREA: u32 = 2u32;
-pub const LINECALLPARTYID_PARTIAL: u32 = 16u32;
-pub const LINECALLPARTYID_UNAVAIL: u32 = 64u32;
-pub const LINECALLPARTYID_UNKNOWN: u32 = 32u32;
-pub const LINECALLPRIVILEGE_MONITOR: u32 = 2u32;
-pub const LINECALLPRIVILEGE_NONE: u32 = 1u32;
-pub const LINECALLPRIVILEGE_OWNER: u32 = 4u32;
-pub const LINECALLREASON_CALLCOMPLETION: u32 = 128u32;
-pub const LINECALLREASON_CAMPEDON: u32 = 16384u32;
-pub const LINECALLREASON_DIRECT: u32 = 1u32;
-pub const LINECALLREASON_FWDBUSY: u32 = 2u32;
-pub const LINECALLREASON_FWDNOANSWER: u32 = 4u32;
-pub const LINECALLREASON_FWDUNCOND: u32 = 8u32;
-pub const LINECALLREASON_INTRUDE: u32 = 4096u32;
-pub const LINECALLREASON_PARKED: u32 = 8192u32;
-pub const LINECALLREASON_PICKUP: u32 = 16u32;
-pub const LINECALLREASON_REDIRECT: u32 = 64u32;
-pub const LINECALLREASON_REMINDER: u32 = 512u32;
-pub const LINECALLREASON_ROUTEREQUEST: u32 = 32768u32;
-pub const LINECALLREASON_TRANSFER: u32 = 256u32;
-pub const LINECALLREASON_UNAVAIL: u32 = 2048u32;
-pub const LINECALLREASON_UNKNOWN: u32 = 1024u32;
-pub const LINECALLREASON_UNPARK: u32 = 32u32;
-pub const LINECALLSELECT_ADDRESS: u32 = 2u32;
-pub const LINECALLSELECT_CALL: u32 = 4u32;
-pub const LINECALLSELECT_CALLID: u32 = 16u32;
-pub const LINECALLSELECT_DEVICEID: u32 = 8u32;
-pub const LINECALLSELECT_LINE: u32 = 1u32;
-pub const LINECALLSTATE_ACCEPTED: u32 = 4u32;
-pub const LINECALLSTATE_BUSY: u32 = 64u32;
-pub const LINECALLSTATE_CONFERENCED: u32 = 2048u32;
-pub const LINECALLSTATE_CONNECTED: u32 = 256u32;
-pub const LINECALLSTATE_DIALING: u32 = 16u32;
-pub const LINECALLSTATE_DIALTONE: u32 = 8u32;
-pub const LINECALLSTATE_DISCONNECTED: u32 = 16384u32;
-pub const LINECALLSTATE_IDLE: u32 = 1u32;
-pub const LINECALLSTATE_OFFERING: u32 = 2u32;
-pub const LINECALLSTATE_ONHOLD: u32 = 1024u32;
-pub const LINECALLSTATE_ONHOLDPENDCONF: u32 = 4096u32;
-pub const LINECALLSTATE_ONHOLDPENDTRANSFER: u32 = 8192u32;
-pub const LINECALLSTATE_PROCEEDING: u32 = 512u32;
-pub const LINECALLSTATE_RINGBACK: u32 = 32u32;
-pub const LINECALLSTATE_SPECIALINFO: u32 = 128u32;
-pub const LINECALLSTATE_UNKNOWN: u32 = 32768u32;
-pub const LINECALLTREATMENT_BUSY: u32 = 3u32;
-pub const LINECALLTREATMENT_MUSIC: u32 = 4u32;
-pub const LINECALLTREATMENT_RINGBACK: u32 = 2u32;
-pub const LINECALLTREATMENT_SILENCE: u32 = 1u32;
-pub const LINECARDOPTION_HIDDEN: u32 = 2u32;
-pub const LINECARDOPTION_PREDEFINED: u32 = 1u32;
-pub const LINECONNECTEDMODE_ACTIVE: u32 = 1u32;
-pub const LINECONNECTEDMODE_ACTIVEHELD: u32 = 4u32;
-pub const LINECONNECTEDMODE_CONFIRMED: u32 = 16u32;
-pub const LINECONNECTEDMODE_INACTIVE: u32 = 2u32;
-pub const LINECONNECTEDMODE_INACTIVEHELD: u32 = 8u32;
-pub const LINEDEVCAPFLAGS_CALLHUB: u32 = 1024u32;
-pub const LINEDEVCAPFLAGS_CALLHUBTRACKING: u32 = 2048u32;
-pub const LINEDEVCAPFLAGS_CLOSEDROP: u32 = 32u32;
-pub const LINEDEVCAPFLAGS_CROSSADDRCONF: u32 = 1u32;
-pub const LINEDEVCAPFLAGS_DIALBILLING: u32 = 64u32;
-pub const LINEDEVCAPFLAGS_DIALDIALTONE: u32 = 256u32;
-pub const LINEDEVCAPFLAGS_DIALQUIET: u32 = 128u32;
-pub const LINEDEVCAPFLAGS_HIGHLEVCOMP: u32 = 2u32;
-pub const LINEDEVCAPFLAGS_LOCAL: u32 = 8192u32;
-pub const LINEDEVCAPFLAGS_LOWLEVCOMP: u32 = 4u32;
-pub const LINEDEVCAPFLAGS_MEDIACONTROL: u32 = 8u32;
-pub const LINEDEVCAPFLAGS_MSP: u32 = 512u32;
-pub const LINEDEVCAPFLAGS_MULTIPLEADDR: u32 = 16u32;
-pub const LINEDEVCAPFLAGS_PRIVATEOBJECTS: u32 = 4096u32;
-pub const LINEDEVSTATE_BATTERY: u32 = 32768u32;
-pub const LINEDEVSTATE_CAPSCHANGE: u32 = 1048576u32;
-pub const LINEDEVSTATE_CLOSE: u32 = 1024u32;
-pub const LINEDEVSTATE_COMPLCANCEL: u32 = 8388608u32;
-pub const LINEDEVSTATE_CONFIGCHANGE: u32 = 2097152u32;
-pub const LINEDEVSTATE_CONNECTED: u32 = 4u32;
-pub const LINEDEVSTATE_DEVSPECIFIC: u32 = 131072u32;
-pub const LINEDEVSTATE_DISCONNECTED: u32 = 8u32;
-pub const LINEDEVSTATE_INSERVICE: u32 = 64u32;
-pub const LINEDEVSTATE_LOCK: u32 = 524288u32;
-pub const LINEDEVSTATE_MAINTENANCE: u32 = 256u32;
-pub const LINEDEVSTATE_MSGWAITOFF: u32 = 32u32;
-pub const LINEDEVSTATE_MSGWAITON: u32 = 16u32;
-pub const LINEDEVSTATE_NUMCALLS: u32 = 2048u32;
-pub const LINEDEVSTATE_NUMCOMPLETIONS: u32 = 4096u32;
-pub const LINEDEVSTATE_OPEN: u32 = 512u32;
-pub const LINEDEVSTATE_OTHER: u32 = 1u32;
-pub const LINEDEVSTATE_OUTOFSERVICE: u32 = 128u32;
-pub const LINEDEVSTATE_REINIT: u32 = 262144u32;
-pub const LINEDEVSTATE_REMOVED: u32 = 16777216u32;
-pub const LINEDEVSTATE_RINGING: u32 = 2u32;
-pub const LINEDEVSTATE_ROAMMODE: u32 = 16384u32;
-pub const LINEDEVSTATE_SIGNAL: u32 = 65536u32;
-pub const LINEDEVSTATE_TERMINALS: u32 = 8192u32;
-pub const LINEDEVSTATE_TRANSLATECHANGE: u32 = 4194304u32;
-pub const LINEDEVSTATUSFLAGS_CONNECTED: u32 = 1u32;
-pub const LINEDEVSTATUSFLAGS_INSERVICE: u32 = 4u32;
-pub const LINEDEVSTATUSFLAGS_LOCKED: u32 = 8u32;
-pub const LINEDEVSTATUSFLAGS_MSGWAIT: u32 = 2u32;
-pub const LINEDIALTONEMODE_EXTERNAL: u32 = 8u32;
-pub const LINEDIALTONEMODE_INTERNAL: u32 = 4u32;
-pub const LINEDIALTONEMODE_NORMAL: u32 = 1u32;
-pub const LINEDIALTONEMODE_SPECIAL: u32 = 2u32;
-pub const LINEDIALTONEMODE_UNAVAIL: u32 = 32u32;
-pub const LINEDIALTONEMODE_UNKNOWN: u32 = 16u32;
-pub const LINEDIGITMODE_DTMF: u32 = 2u32;
-pub const LINEDIGITMODE_DTMFEND: u32 = 4u32;
-pub const LINEDIGITMODE_PULSE: u32 = 1u32;
-pub const LINEDISCONNECTMODE_BADADDRESS: u32 = 128u32;
-pub const LINEDISCONNECTMODE_BLOCKED: u32 = 131072u32;
-pub const LINEDISCONNECTMODE_BUSY: u32 = 32u32;
-pub const LINEDISCONNECTMODE_CANCELLED: u32 = 524288u32;
-pub const LINEDISCONNECTMODE_CONGESTION: u32 = 512u32;
-pub const LINEDISCONNECTMODE_DESTINATIONBARRED: u32 = 1048576u32;
-pub const LINEDISCONNECTMODE_DONOTDISTURB: u32 = 262144u32;
-pub const LINEDISCONNECTMODE_FDNRESTRICT: u32 = 2097152u32;
-pub const LINEDISCONNECTMODE_FORWARDED: u32 = 16u32;
-pub const LINEDISCONNECTMODE_INCOMPATIBLE: u32 = 1024u32;
-pub const LINEDISCONNECTMODE_NOANSWER: u32 = 64u32;
-pub const LINEDISCONNECTMODE_NODIALTONE: u32 = 4096u32;
-pub const LINEDISCONNECTMODE_NORMAL: u32 = 1u32;
-pub const LINEDISCONNECTMODE_NUMBERCHANGED: u32 = 8192u32;
-pub const LINEDISCONNECTMODE_OUTOFORDER: u32 = 16384u32;
-pub const LINEDISCONNECTMODE_PICKUP: u32 = 8u32;
-pub const LINEDISCONNECTMODE_QOSUNAVAIL: u32 = 65536u32;
-pub const LINEDISCONNECTMODE_REJECT: u32 = 4u32;
-pub const LINEDISCONNECTMODE_TEMPFAILURE: u32 = 32768u32;
-pub const LINEDISCONNECTMODE_UNAVAIL: u32 = 2048u32;
-pub const LINEDISCONNECTMODE_UNKNOWN: u32 = 2u32;
-pub const LINEDISCONNECTMODE_UNREACHABLE: u32 = 256u32;
-pub const LINEEQOSINFO_ADMISSIONFAILURE: u32 = 2u32;
-pub const LINEEQOSINFO_GENERICERROR: u32 = 4u32;
-pub const LINEEQOSINFO_NOQOS: u32 = 1u32;
-pub const LINEEQOSINFO_POLICYFAILURE: u32 = 3u32;
-pub const LINEERR_ADDRESSBLOCKED: u32 = 2147483731u32;
-pub const LINEERR_ALLOCATED: u32 = 2147483649u32;
-pub const LINEERR_BADDEVICEID: u32 = 2147483650u32;
-pub const LINEERR_BEARERMODEUNAVAIL: u32 = 2147483651u32;
-pub const LINEERR_BILLINGREJECTED: u32 = 2147483732u32;
-pub const LINEERR_CALLUNAVAIL: u32 = 2147483653u32;
-pub const LINEERR_COMPLETIONOVERRUN: u32 = 2147483654u32;
-pub const LINEERR_CONFERENCEFULL: u32 = 2147483655u32;
-pub const LINEERR_DIALBILLING: u32 = 2147483656u32;
-pub const LINEERR_DIALDIALTONE: u32 = 2147483657u32;
-pub const LINEERR_DIALPROMPT: u32 = 2147483658u32;
-pub const LINEERR_DIALQUIET: u32 = 2147483659u32;
-pub const LINEERR_DIALVOICEDETECT: u32 = 2147483740u32;
-pub const LINEERR_DISCONNECTED: u32 = 2147483744u32;
-pub const LINEERR_INCOMPATIBLEAPIVERSION: u32 = 2147483660u32;
-pub const LINEERR_INCOMPATIBLEEXTVERSION: u32 = 2147483661u32;
-pub const LINEERR_INIFILECORRUPT: u32 = 2147483662u32;
-pub const LINEERR_INUSE: u32 = 2147483663u32;
-pub const LINEERR_INVALADDRESS: u32 = 2147483664u32;
-pub const LINEERR_INVALADDRESSID: u32 = 2147483665u32;
-pub const LINEERR_INVALADDRESSMODE: u32 = 2147483666u32;
-pub const LINEERR_INVALADDRESSSTATE: u32 = 2147483667u32;
-pub const LINEERR_INVALADDRESSTYPE: u32 = 2147483742u32;
-pub const LINEERR_INVALAGENTACTIVITY: u32 = 2147483739u32;
-pub const LINEERR_INVALAGENTGROUP: u32 = 2147483736u32;
-pub const LINEERR_INVALAGENTID: u32 = 2147483735u32;
-pub const LINEERR_INVALAGENTSESSIONSTATE: u32 = 2147483743u32;
-pub const LINEERR_INVALAGENTSTATE: u32 = 2147483738u32;
-pub const LINEERR_INVALAPPHANDLE: u32 = 2147483668u32;
-pub const LINEERR_INVALAPPNAME: u32 = 2147483669u32;
-pub const LINEERR_INVALBEARERMODE: u32 = 2147483670u32;
-pub const LINEERR_INVALCALLCOMPLMODE: u32 = 2147483671u32;
-pub const LINEERR_INVALCALLHANDLE: u32 = 2147483672u32;
-pub const LINEERR_INVALCALLPARAMS: u32 = 2147483673u32;
-pub const LINEERR_INVALCALLPRIVILEGE: u32 = 2147483674u32;
-pub const LINEERR_INVALCALLSELECT: u32 = 2147483675u32;
-pub const LINEERR_INVALCALLSTATE: u32 = 2147483676u32;
-pub const LINEERR_INVALCALLSTATELIST: u32 = 2147483677u32;
-pub const LINEERR_INVALCARD: u32 = 2147483678u32;
-pub const LINEERR_INVALCOMPLETIONID: u32 = 2147483679u32;
-pub const LINEERR_INVALCONFCALLHANDLE: u32 = 2147483680u32;
-pub const LINEERR_INVALCONSULTCALLHANDLE: u32 = 2147483681u32;
-pub const LINEERR_INVALCOUNTRYCODE: u32 = 2147483682u32;
-pub const LINEERR_INVALDEVICECLASS: u32 = 2147483683u32;
-pub const LINEERR_INVALDEVICEHANDLE: u32 = 2147483684u32;
-pub const LINEERR_INVALDIALPARAMS: u32 = 2147483685u32;
-pub const LINEERR_INVALDIGITLIST: u32 = 2147483686u32;
-pub const LINEERR_INVALDIGITMODE: u32 = 2147483687u32;
-pub const LINEERR_INVALDIGITS: u32 = 2147483688u32;
-pub const LINEERR_INVALEXTVERSION: u32 = 2147483689u32;
-pub const LINEERR_INVALFEATURE: u32 = 2147483733u32;
-pub const LINEERR_INVALGROUPID: u32 = 2147483690u32;
-pub const LINEERR_INVALLINEHANDLE: u32 = 2147483691u32;
-pub const LINEERR_INVALLINESTATE: u32 = 2147483692u32;
-pub const LINEERR_INVALLOCATION: u32 = 2147483693u32;
-pub const LINEERR_INVALMEDIALIST: u32 = 2147483694u32;
-pub const LINEERR_INVALMEDIAMODE: u32 = 2147483695u32;
-pub const LINEERR_INVALMESSAGEID: u32 = 2147483696u32;
-pub const LINEERR_INVALPARAM: u32 = 2147483698u32;
-pub const LINEERR_INVALPARKID: u32 = 2147483699u32;
-pub const LINEERR_INVALPARKMODE: u32 = 2147483700u32;
-pub const LINEERR_INVALPASSWORD: u32 = 2147483737u32;
-pub const LINEERR_INVALPOINTER: u32 = 2147483701u32;
-pub const LINEERR_INVALPRIVSELECT: u32 = 2147483702u32;
-pub const LINEERR_INVALRATE: u32 = 2147483703u32;
-pub const LINEERR_INVALREQUESTMODE: u32 = 2147483704u32;
-pub const LINEERR_INVALTERMINALID: u32 = 2147483705u32;
-pub const LINEERR_INVALTERMINALMODE: u32 = 2147483706u32;
-pub const LINEERR_INVALTIMEOUT: u32 = 2147483707u32;
-pub const LINEERR_INVALTONE: u32 = 2147483708u32;
-pub const LINEERR_INVALTONELIST: u32 = 2147483709u32;
-pub const LINEERR_INVALTONEMODE: u32 = 2147483710u32;
-pub const LINEERR_INVALTRANSFERMODE: u32 = 2147483711u32;
-pub const LINEERR_LINEMAPPERFAILED: u32 = 2147483712u32;
-pub const LINEERR_NOCONFERENCE: u32 = 2147483713u32;
-pub const LINEERR_NODEVICE: u32 = 2147483714u32;
-pub const LINEERR_NODRIVER: u32 = 2147483715u32;
-pub const LINEERR_NOMEM: u32 = 2147483716u32;
-pub const LINEERR_NOMULTIPLEINSTANCE: u32 = 2147483734u32;
-pub const LINEERR_NOREQUEST: u32 = 2147483717u32;
-pub const LINEERR_NOTOWNER: u32 = 2147483718u32;
-pub const LINEERR_NOTREGISTERED: u32 = 2147483719u32;
-pub const LINEERR_OPERATIONFAILED: u32 = 2147483720u32;
-pub const LINEERR_OPERATIONUNAVAIL: u32 = 2147483721u32;
-pub const LINEERR_RATEUNAVAIL: u32 = 2147483722u32;
-pub const LINEERR_REINIT: u32 = 2147483730u32;
-pub const LINEERR_REQUESTOVERRUN: u32 = 2147483724u32;
-pub const LINEERR_RESOURCEUNAVAIL: u32 = 2147483723u32;
-pub const LINEERR_SERVICE_NOT_RUNNING: u32 = 2147483745u32;
-pub const LINEERR_STRUCTURETOOSMALL: u32 = 2147483725u32;
-pub const LINEERR_TARGETNOTFOUND: u32 = 2147483726u32;
-pub const LINEERR_TARGETSELF: u32 = 2147483727u32;
-pub const LINEERR_UNINITIALIZED: u32 = 2147483728u32;
-pub const LINEERR_USERCANCELLED: u32 = 2147483741u32;
-pub const LINEERR_USERUSERINFOTOOBIG: u32 = 2147483729u32;
-pub const LINEFEATURE_DEVSPECIFIC: u32 = 1u32;
-pub const LINEFEATURE_DEVSPECIFICFEAT: u32 = 2u32;
-pub const LINEFEATURE_FORWARD: u32 = 4u32;
-pub const LINEFEATURE_FORWARDDND: u32 = 256u32;
-pub const LINEFEATURE_FORWARDFWD: u32 = 128u32;
-pub const LINEFEATURE_MAKECALL: u32 = 8u32;
-pub const LINEFEATURE_SETDEVSTATUS: u32 = 64u32;
-pub const LINEFEATURE_SETMEDIACONTROL: u32 = 16u32;
-pub const LINEFEATURE_SETTERMINAL: u32 = 32u32;
-pub const LINEFORWARDMODE_BUSY: u32 = 16u32;
-pub const LINEFORWARDMODE_BUSYEXTERNAL: u32 = 64u32;
-pub const LINEFORWARDMODE_BUSYINTERNAL: u32 = 32u32;
-pub const LINEFORWARDMODE_BUSYNA: u32 = 4096u32;
-pub const LINEFORWARDMODE_BUSYNAEXTERNAL: u32 = 16384u32;
-pub const LINEFORWARDMODE_BUSYNAINTERNAL: u32 = 8192u32;
-pub const LINEFORWARDMODE_BUSYNASPECIFIC: u32 = 32768u32;
-pub const LINEFORWARDMODE_BUSYSPECIFIC: u32 = 128u32;
-pub const LINEFORWARDMODE_NOANSW: u32 = 256u32;
-pub const LINEFORWARDMODE_NOANSWEXTERNAL: u32 = 1024u32;
-pub const LINEFORWARDMODE_NOANSWINTERNAL: u32 = 512u32;
-pub const LINEFORWARDMODE_NOANSWSPECIFIC: u32 = 2048u32;
-pub const LINEFORWARDMODE_UNAVAIL: u32 = 131072u32;
-pub const LINEFORWARDMODE_UNCOND: u32 = 1u32;
-pub const LINEFORWARDMODE_UNCONDEXTERNAL: u32 = 4u32;
-pub const LINEFORWARDMODE_UNCONDINTERNAL: u32 = 2u32;
-pub const LINEFORWARDMODE_UNCONDSPECIFIC: u32 = 8u32;
-pub const LINEFORWARDMODE_UNKNOWN: u32 = 65536u32;
-pub const LINEGATHERTERM_BUFFERFULL: u32 = 1u32;
-pub const LINEGATHERTERM_CANCEL: u32 = 16u32;
-pub const LINEGATHERTERM_FIRSTTIMEOUT: u32 = 4u32;
-pub const LINEGATHERTERM_INTERTIMEOUT: u32 = 8u32;
-pub const LINEGATHERTERM_TERMDIGIT: u32 = 2u32;
-pub const LINEGENERATETERM_CANCEL: u32 = 2u32;
-pub const LINEGENERATETERM_DONE: u32 = 1u32;
-pub const LINEGROUPSTATUS_GROUPREMOVED: u32 = 2u32;
-pub const LINEGROUPSTATUS_NEWGROUP: u32 = 1u32;
-pub const LINEINITIALIZEEXOPTION_CALLHUBTRACKING: u32 = 2147483648u32;
-pub const LINEINITIALIZEEXOPTION_USECOMPLETIONPORT: u32 = 3u32;
-pub const LINEINITIALIZEEXOPTION_USEEVENT: u32 = 2u32;
-pub const LINEINITIALIZEEXOPTION_USEHIDDENWINDOW: u32 = 1u32;
-pub const LINELOCATIONOPTION_PULSEDIAL: u32 = 1u32;
-pub const LINEMAPPER: u32 = 4294967295u32;
-pub const LINEMEDIACONTROL_NONE: u32 = 1u32;
-pub const LINEMEDIACONTROL_PAUSE: u32 = 8u32;
-pub const LINEMEDIACONTROL_RATEDOWN: u32 = 64u32;
-pub const LINEMEDIACONTROL_RATENORMAL: u32 = 128u32;
-pub const LINEMEDIACONTROL_RATEUP: u32 = 32u32;
-pub const LINEMEDIACONTROL_RESET: u32 = 4u32;
-pub const LINEMEDIACONTROL_RESUME: u32 = 16u32;
-pub const LINEMEDIACONTROL_START: u32 = 2u32;
-pub const LINEMEDIACONTROL_VOLUMEDOWN: u32 = 512u32;
-pub const LINEMEDIACONTROL_VOLUMENORMAL: u32 = 1024u32;
-pub const LINEMEDIACONTROL_VOLUMEUP: u32 = 256u32;
-pub const LINEMEDIAMODE_ADSI: u32 = 8192u32;
-pub const LINEMEDIAMODE_AUTOMATEDVOICE: u32 = 8u32;
-pub const LINEMEDIAMODE_DATAMODEM: u32 = 16u32;
-pub const LINEMEDIAMODE_DIGITALDATA: u32 = 256u32;
-pub const LINEMEDIAMODE_G3FAX: u32 = 32u32;
-pub const LINEMEDIAMODE_G4FAX: u32 = 128u32;
-pub const LINEMEDIAMODE_INTERACTIVEVOICE: u32 = 4u32;
-pub const LINEMEDIAMODE_MIXED: u32 = 4096u32;
-pub const LINEMEDIAMODE_TDD: u32 = 64u32;
-pub const LINEMEDIAMODE_TELETEX: u32 = 512u32;
-pub const LINEMEDIAMODE_TELEX: u32 = 2048u32;
-pub const LINEMEDIAMODE_UNKNOWN: u32 = 2u32;
-pub const LINEMEDIAMODE_VIDEO: u32 = 32768u32;
-pub const LINEMEDIAMODE_VIDEOTEX: u32 = 1024u32;
-pub const LINEMEDIAMODE_VOICEVIEW: u32 = 16384u32;
-pub const LINEOFFERINGMODE_ACTIVE: u32 = 1u32;
-pub const LINEOFFERINGMODE_INACTIVE: u32 = 2u32;
-pub const LINEOPENOPTION_PROXY: u32 = 1073741824u32;
-pub const LINEOPENOPTION_SINGLEADDRESS: u32 = 2147483648u32;
-pub const LINEPARKMODE_DIRECTED: u32 = 1u32;
-pub const LINEPARKMODE_NONDIRECTED: u32 = 2u32;
-pub const LINEPROXYREQUEST_AGENTSPECIFIC: u32 = 6u32;
-pub const LINEPROXYREQUEST_CREATEAGENT: u32 = 9u32;
-pub const LINEPROXYREQUEST_CREATEAGENTSESSION: u32 = 12u32;
-pub const LINEPROXYREQUEST_GETAGENTACTIVITYLIST: u32 = 7u32;
-pub const LINEPROXYREQUEST_GETAGENTCAPS: u32 = 4u32;
-pub const LINEPROXYREQUEST_GETAGENTGROUPLIST: u32 = 8u32;
-pub const LINEPROXYREQUEST_GETAGENTINFO: u32 = 11u32;
-pub const LINEPROXYREQUEST_GETAGENTSESSIONINFO: u32 = 15u32;
-pub const LINEPROXYREQUEST_GETAGENTSESSIONLIST: u32 = 13u32;
-pub const LINEPROXYREQUEST_GETAGENTSTATUS: u32 = 5u32;
-pub const LINEPROXYREQUEST_GETGROUPLIST: u32 = 19u32;
-pub const LINEPROXYREQUEST_GETQUEUEINFO: u32 = 18u32;
-pub const LINEPROXYREQUEST_GETQUEUELIST: u32 = 16u32;
-pub const LINEPROXYREQUEST_SETAGENTACTIVITY: u32 = 3u32;
-pub const LINEPROXYREQUEST_SETAGENTGROUP: u32 = 1u32;
-pub const LINEPROXYREQUEST_SETAGENTMEASUREMENTPERIOD: u32 = 10u32;
-pub const LINEPROXYREQUEST_SETAGENTSESSIONSTATE: u32 = 14u32;
-pub const LINEPROXYREQUEST_SETAGENTSTATE: u32 = 2u32;
-pub const LINEPROXYREQUEST_SETAGENTSTATEEX: u32 = 20u32;
-pub const LINEPROXYREQUEST_SETQUEUEMEASUREMENTPERIOD: u32 = 17u32;
-pub const LINEPROXYSTATUS_ALLOPENFORACD: u32 = 4u32;
-pub const LINEPROXYSTATUS_CLOSE: u32 = 2u32;
-pub const LINEPROXYSTATUS_OPEN: u32 = 1u32;
-pub const LINEQOSREQUESTTYPE_SERVICELEVEL: u32 = 1u32;
-pub const LINEQOSSERVICELEVEL_BESTEFFORT: u32 = 3u32;
-pub const LINEQOSSERVICELEVEL_IFAVAILABLE: u32 = 2u32;
-pub const LINEQOSSERVICELEVEL_NEEDED: u32 = 1u32;
-pub const LINEQUEUESTATUS_NEWQUEUE: u32 = 2u32;
-pub const LINEQUEUESTATUS_QUEUEREMOVED: u32 = 4u32;
-pub const LINEQUEUESTATUS_UPDATEINFO: u32 = 1u32;
-pub const LINEREMOVEFROMCONF_ANY: u32 = 3u32;
-pub const LINEREMOVEFROMCONF_LAST: u32 = 2u32;
-pub const LINEREMOVEFROMCONF_NONE: u32 = 1u32;
-pub const LINEREQUESTMODE_DROP: u32 = 4u32;
-pub const LINEREQUESTMODE_MAKECALL: u32 = 1u32;
-pub const LINEREQUESTMODE_MEDIACALL: u32 = 2u32;
-pub const LINEROAMMODE_HOME: u32 = 4u32;
-pub const LINEROAMMODE_ROAMA: u32 = 8u32;
-pub const LINEROAMMODE_ROAMB: u32 = 16u32;
-pub const LINEROAMMODE_UNAVAIL: u32 = 2u32;
-pub const LINEROAMMODE_UNKNOWN: u32 = 1u32;
-pub const LINESPECIALINFO_CUSTIRREG: u32 = 2u32;
-pub const LINESPECIALINFO_NOCIRCUIT: u32 = 1u32;
-pub const LINESPECIALINFO_REORDER: u32 = 4u32;
-pub const LINESPECIALINFO_UNAVAIL: u32 = 16u32;
-pub const LINESPECIALINFO_UNKNOWN: u32 = 8u32;
-pub const LINETERMDEV_HEADSET: u32 = 2u32;
-pub const LINETERMDEV_PHONE: u32 = 1u32;
-pub const LINETERMDEV_SPEAKER: u32 = 4u32;
-pub const LINETERMMODE_BUTTONS: u32 = 1u32;
-pub const LINETERMMODE_DISPLAY: u32 = 4u32;
-pub const LINETERMMODE_HOOKSWITCH: u32 = 16u32;
-pub const LINETERMMODE_LAMPS: u32 = 2u32;
-pub const LINETERMMODE_MEDIABIDIRECT: u32 = 128u32;
-pub const LINETERMMODE_MEDIAFROMLINE: u32 = 64u32;
-pub const LINETERMMODE_MEDIATOLINE: u32 = 32u32;
-pub const LINETERMMODE_RINGER: u32 = 8u32;
-pub const LINETERMSHARING_PRIVATE: u32 = 1u32;
-pub const LINETERMSHARING_SHAREDCONF: u32 = 4u32;
-pub const LINETERMSHARING_SHAREDEXCL: u32 = 2u32;
-pub const LINETOLLLISTOPTION_ADD: u32 = 1u32;
-pub const LINETOLLLISTOPTION_REMOVE: u32 = 2u32;
-pub const LINETONEMODE_BEEP: u32 = 8u32;
-pub const LINETONEMODE_BILLING: u32 = 16u32;
-pub const LINETONEMODE_BUSY: u32 = 4u32;
-pub const LINETONEMODE_CUSTOM: u32 = 1u32;
-pub const LINETONEMODE_RINGBACK: u32 = 2u32;
-pub const LINETRANSFERMODE_CONFERENCE: u32 = 2u32;
-pub const LINETRANSFERMODE_TRANSFER: u32 = 1u32;
-pub const LINETRANSLATEOPTION_CANCELCALLWAITING: u32 = 2u32;
-pub const LINETRANSLATEOPTION_CARDOVERRIDE: u32 = 1u32;
-pub const LINETRANSLATEOPTION_FORCELD: u32 = 8u32;
-pub const LINETRANSLATEOPTION_FORCELOCAL: u32 = 4u32;
-pub const LINETRANSLATERESULT_CANONICAL: u32 = 1u32;
-pub const LINETRANSLATERESULT_DIALBILLING: u32 = 64u32;
-pub const LINETRANSLATERESULT_DIALDIALTONE: u32 = 256u32;
-pub const LINETRANSLATERESULT_DIALPROMPT: u32 = 512u32;
-pub const LINETRANSLATERESULT_DIALQUIET: u32 = 128u32;
-pub const LINETRANSLATERESULT_INTERNATIONAL: u32 = 2u32;
-pub const LINETRANSLATERESULT_INTOLLLIST: u32 = 16u32;
-pub const LINETRANSLATERESULT_LOCAL: u32 = 8u32;
-pub const LINETRANSLATERESULT_LONGDISTANCE: u32 = 4u32;
-pub const LINETRANSLATERESULT_NOTINTOLLLIST: u32 = 32u32;
-pub const LINETRANSLATERESULT_NOTRANSLATION: u32 = 2048u32;
-pub const LINETRANSLATERESULT_VOICEDETECT: u32 = 1024u32;
-pub const LINETSPIOPTION_NONREENTRANT: u32 = 1u32;
-pub const LINE_ADDRESSSTATE: i32 = 0i32;
-pub const LINE_AGENTSESSIONSTATUS: i32 = 27i32;
-pub const LINE_AGENTSPECIFIC: i32 = 21i32;
-pub const LINE_AGENTSTATUS: i32 = 22i32;
-pub const LINE_AGENTSTATUSEX: i32 = 29i32;
-pub const LINE_APPNEWCALL: i32 = 23i32;
-pub const LINE_APPNEWCALLHUB: i32 = 32i32;
-pub const LINE_CALLHUBCLOSE: i32 = 33i32;
-pub const LINE_CALLINFO: i32 = 1i32;
-pub const LINE_CALLSTATE: i32 = 2i32;
-pub const LINE_CLOSE: i32 = 3i32;
-pub const LINE_CREATE: i32 = 19i32;
-pub const LINE_DEVSPECIFIC: i32 = 4i32;
-pub const LINE_DEVSPECIFICEX: i32 = 34i32;
-pub const LINE_DEVSPECIFICFEATURE: i32 = 5i32;
-pub const LINE_GATHERDIGITS: i32 = 6i32;
-pub const LINE_GENERATE: i32 = 7i32;
-pub const LINE_GROUPSTATUS: i32 = 30i32;
-pub const LINE_LINEDEVSTATE: i32 = 8i32;
-pub const LINE_MONITORDIGITS: i32 = 9i32;
-pub const LINE_MONITORMEDIA: i32 = 10i32;
-pub const LINE_MONITORTONE: i32 = 11i32;
-pub const LINE_PROXYREQUEST: i32 = 24i32;
-pub const LINE_PROXYSTATUS: i32 = 31i32;
-pub const LINE_QUEUESTATUS: i32 = 28i32;
-pub const LINE_REMOVE: i32 = 25i32;
-pub const LINE_REPLY: i32 = 12i32;
-pub const LINE_REQUEST: i32 = 13i32;
-pub const LM_BROKENFLUTTER: PHONE_LAMP_MODE = PHONE_LAMP_MODE(64i32);
-pub const LM_DUMMY: PHONE_LAMP_MODE = PHONE_LAMP_MODE(1i32);
-pub const LM_FLASH: PHONE_LAMP_MODE = PHONE_LAMP_MODE(16i32);
-pub const LM_FLUTTER: PHONE_LAMP_MODE = PHONE_LAMP_MODE(32i32);
-pub const LM_OFF: PHONE_LAMP_MODE = PHONE_LAMP_MODE(2i32);
-pub const LM_STEADY: PHONE_LAMP_MODE = PHONE_LAMP_MODE(4i32);
-pub const LM_UNKNOWN: PHONE_LAMP_MODE = PHONE_LAMP_MODE(128i32);
-pub const LM_WINK: PHONE_LAMP_MODE = PHONE_LAMP_MODE(8i32);
-pub const ME_ADDRESS_EVENT: MSP_EVENT = MSP_EVENT(0i32);
-pub const ME_ASR_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(4i32);
-pub const ME_CALL_EVENT: MSP_EVENT = MSP_EVENT(1i32);
-pub const ME_FILE_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(6i32);
-pub const ME_PRIVATE_EVENT: MSP_EVENT = MSP_EVENT(3i32);
-pub const ME_TONE_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(7i32);
-pub const ME_TSP_DATA: MSP_EVENT = MSP_EVENT(2i32);
-pub const ME_TTS_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(5i32);
 pub const OPENTNEFSTREAM: windows_core::PCSTR = windows_core::s!("OpenTnefStream");
 pub const OPENTNEFSTREAMEX: windows_core::PCSTR = windows_core::s!("OpenTnefStreamEx");
 pub const OT_CONFERENCE: DIRECTORY_OBJECT_TYPE = DIRECTORY_OBJECT_TYPE(1i32);
@@ -19232,6 +18838,28 @@ pub const PHONEBUTTONFUNCTION_TRANSFER: u32 = 2u32;
 pub const PHONEBUTTONFUNCTION_UNKNOWN: u32 = 0u32;
 pub const PHONEBUTTONFUNCTION_VOLUMEDOWN: u32 = 20u32;
 pub const PHONEBUTTONFUNCTION_VOLUMEUP: u32 = 19u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct PHONEBUTTONINFO {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwButtonMode: u32,
+    pub dwButtonFunction: u32,
+    pub dwButtonTextSize: u32,
+    pub dwButtonTextOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwButtonState: u32,
+}
+impl Default for PHONEBUTTONINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PHONEBUTTONINFO {
+    type TypeKind = windows_core::CopyType;
+}
 pub const PHONEBUTTONMODE_CALL: u32 = 2u32;
 pub const PHONEBUTTONMODE_DISPLAY: u32 = 32u32;
 pub const PHONEBUTTONMODE_DUMMY: u32 = 1u32;
@@ -19242,6 +18870,74 @@ pub const PHONEBUTTONSTATE_DOWN: u32 = 2u32;
 pub const PHONEBUTTONSTATE_UNAVAIL: u32 = 8u32;
 pub const PHONEBUTTONSTATE_UNKNOWN: u32 = 4u32;
 pub const PHONEBUTTONSTATE_UP: u32 = 1u32;
+pub type PHONECALLBACK = Option<unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct PHONECAPS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwProviderInfoSize: u32,
+    pub dwProviderInfoOffset: u32,
+    pub dwPhoneInfoSize: u32,
+    pub dwPhoneInfoOffset: u32,
+    pub dwPermanentPhoneID: u32,
+    pub dwPhoneNameSize: u32,
+    pub dwPhoneNameOffset: u32,
+    pub dwStringFormat: u32,
+    pub dwPhoneStates: u32,
+    pub dwHookSwitchDevs: u32,
+    pub dwHandsetHookSwitchModes: u32,
+    pub dwSpeakerHookSwitchModes: u32,
+    pub dwHeadsetHookSwitchModes: u32,
+    pub dwVolumeFlags: u32,
+    pub dwGainFlags: u32,
+    pub dwDisplayNumRows: u32,
+    pub dwDisplayNumColumns: u32,
+    pub dwNumRingModes: u32,
+    pub dwNumButtonLamps: u32,
+    pub dwButtonModesSize: u32,
+    pub dwButtonModesOffset: u32,
+    pub dwButtonFunctionsSize: u32,
+    pub dwButtonFunctionsOffset: u32,
+    pub dwLampModesSize: u32,
+    pub dwLampModesOffset: u32,
+    pub dwNumSetData: u32,
+    pub dwSetDataSize: u32,
+    pub dwSetDataOffset: u32,
+    pub dwNumGetData: u32,
+    pub dwGetDataSize: u32,
+    pub dwGetDataOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwDeviceClassesSize: u32,
+    pub dwDeviceClassesOffset: u32,
+    pub dwPhoneFeatures: u32,
+    pub dwSettableHandsetHookSwitchModes: u32,
+    pub dwSettableSpeakerHookSwitchModes: u32,
+    pub dwSettableHeadsetHookSwitchModes: u32,
+    pub dwMonitoredHandsetHookSwitchModes: u32,
+    pub dwMonitoredSpeakerHookSwitchModes: u32,
+    pub dwMonitoredHeadsetHookSwitchModes: u32,
+    pub PermanentPhoneGuid: windows_core::GUID,
+}
+impl Default for PHONECAPS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PHONECAPS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PHONECAPS_BUFFER(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PHONECAPS_LONG(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PHONECAPS_STRING(pub i32);
 pub const PHONEERR_ALLOCATED: u32 = 2415919105u32;
 pub const PHONEERR_BADDEVICEID: u32 = 2415919106u32;
 pub const PHONEERR_DISCONNECTED: u32 = 2415919140u32;
@@ -19278,6 +18974,23 @@ pub const PHONEERR_RESOURCEUNAVAIL: u32 = 2415919135u32;
 pub const PHONEERR_SERVICE_NOT_RUNNING: u32 = 2415919141u32;
 pub const PHONEERR_STRUCTURETOOSMALL: u32 = 2415919137u32;
 pub const PHONEERR_UNINITIALIZED: u32 = 2415919138u32;
+pub type PHONEEVENT = Option<unsafe extern "system" fn(htphone: HTAPIPHONE, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct PHONEEXTENSIONID {
+    pub dwExtensionID0: u32,
+    pub dwExtensionID1: u32,
+    pub dwExtensionID2: u32,
+    pub dwExtensionID3: u32,
+}
+impl Default for PHONEEXTENSIONID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PHONEEXTENSIONID {
+    type TypeKind = windows_core::CopyType;
+}
 pub const PHONEFEATURE_GENERICPHONE: u32 = 268435456u32;
 pub const PHONEFEATURE_GETBUTTONINFO: u32 = 1u32;
 pub const PHONEFEATURE_GETDATA: u32 = 2u32;
@@ -19318,6 +19031,38 @@ pub const PHONEHOOKSWITCHMODE_UNKNOWN: u32 = 16u32;
 pub const PHONEINITIALIZEEXOPTION_USECOMPLETIONPORT: u32 = 3u32;
 pub const PHONEINITIALIZEEXOPTION_USEEVENT: u32 = 2u32;
 pub const PHONEINITIALIZEEXOPTION_USEHIDDENWINDOW: u32 = 1u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct PHONEINITIALIZEEXPARAMS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwOptions: u32,
+    pub Handles: PHONEINITIALIZEEXPARAMS_0,
+    pub dwCompletionKey: u32,
+}
+impl Default for PHONEINITIALIZEEXPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PHONEINITIALIZEEXPARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union PHONEINITIALIZEEXPARAMS_0 {
+    pub hEvent: super::super::Foundation::HANDLE,
+    pub hCompletionPort: super::super::Foundation::HANDLE,
+}
+impl Default for PHONEINITIALIZEEXPARAMS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PHONEINITIALIZEEXPARAMS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 pub const PHONELAMPMODE_BROKENFLUTTER: u32 = 64u32;
 pub const PHONELAMPMODE_DUMMY: u32 = 1u32;
 pub const PHONELAMPMODE_FLASH: u32 = 16u32;
@@ -19326,6 +19071,24 @@ pub const PHONELAMPMODE_OFF: u32 = 2u32;
 pub const PHONELAMPMODE_STEADY: u32 = 4u32;
 pub const PHONELAMPMODE_UNKNOWN: u32 = 128u32;
 pub const PHONELAMPMODE_WINK: u32 = 8u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct PHONEMESSAGE {
+    pub hDevice: u32,
+    pub dwMessageID: u32,
+    pub dwCallbackInstance: usize,
+    pub dwParam1: usize,
+    pub dwParam2: usize,
+    pub dwParam3: usize,
+}
+impl Default for PHONEMESSAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PHONEMESSAGE {
+    type TypeKind = windows_core::CopyType;
+}
 pub const PHONEPRIVILEGE_MONITOR: u32 = 1u32;
 pub const PHONEPRIVILEGE_OWNER: u32 = 2u32;
 pub const PHONESTATE_CAPSCHANGE: u32 = 4194304u32;
@@ -19352,15 +19115,80 @@ pub const PHONESTATE_SPEAKERGAIN: u32 = 16384u32;
 pub const PHONESTATE_SPEAKERHOOKSWITCH: u32 = 4096u32;
 pub const PHONESTATE_SPEAKERVOLUME: u32 = 8192u32;
 pub const PHONESTATE_SUSPEND: u32 = 262144u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct PHONESTATUS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwStatusFlags: u32,
+    pub dwNumOwners: u32,
+    pub dwNumMonitors: u32,
+    pub dwRingMode: u32,
+    pub dwRingVolume: u32,
+    pub dwHandsetHookSwitchMode: u32,
+    pub dwHandsetVolume: u32,
+    pub dwHandsetGain: u32,
+    pub dwSpeakerHookSwitchMode: u32,
+    pub dwSpeakerVolume: u32,
+    pub dwSpeakerGain: u32,
+    pub dwHeadsetHookSwitchMode: u32,
+    pub dwHeadsetVolume: u32,
+    pub dwHeadsetGain: u32,
+    pub dwDisplaySize: u32,
+    pub dwDisplayOffset: u32,
+    pub dwLampModesSize: u32,
+    pub dwLampModesOffset: u32,
+    pub dwOwnerNameSize: u32,
+    pub dwOwnerNameOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwPhoneFeatures: u32,
+}
+impl Default for PHONESTATUS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PHONESTATUS {
+    type TypeKind = windows_core::CopyType;
+}
 pub const PHONESTATUSFLAGS_CONNECTED: u32 = 1u32;
 pub const PHONESTATUSFLAGS_SUSPENDED: u32 = 2u32;
 pub const PHONE_BUTTON: i32 = 14i32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PHONE_BUTTON_FUNCTION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PHONE_BUTTON_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PHONE_BUTTON_STATE(pub i32);
 pub const PHONE_CLOSE: i32 = 15i32;
 pub const PHONE_CREATE: i32 = 20i32;
 pub const PHONE_DEVSPECIFIC: i32 = 16i32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PHONE_EVENT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PHONE_HOOK_SWITCH_DEVICE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PHONE_HOOK_SWITCH_STATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PHONE_LAMP_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PHONE_PRIVILEGE(pub i32);
 pub const PHONE_REMOVE: i32 = 26i32;
 pub const PHONE_REPLY: i32 = 17i32;
 pub const PHONE_STATE: i32 = 18i32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PHONE_TONE(pub i32);
 pub const PHSD_HANDSET: PHONE_HOOK_SWITCH_DEVICE = PHONE_HOOK_SWITCH_DEVICE(1i32);
 pub const PHSD_HEADSET: PHONE_HOOK_SWITCH_DEVICE = PHONE_HOOK_SWITCH_DEVICE(4i32);
 pub const PHSD_SPEAKERPHONE: PHONE_HOOK_SWITCH_DEVICE = PHONE_HOOK_SWITCH_DEVICE(2i32);
@@ -19403,6 +19231,12 @@ pub const QE_GENERICERROR: QOS_EVENT = QOS_EVENT(4i32);
 pub const QE_LASTITEM: QOS_EVENT = QOS_EVENT(4i32);
 pub const QE_NOQOS: QOS_EVENT = QOS_EVENT(1i32);
 pub const QE_POLICYFAILURE: QOS_EVENT = QOS_EVENT(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QOS_EVENT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QOS_SERVICE_LEVEL(pub i32);
 pub const QSL_BEST_EFFORT: QOS_SERVICE_LEVEL = QOS_SERVICE_LEVEL(3i32);
 pub const QSL_IF_AVAILABLE: QOS_SERVICE_LEVEL = QOS_SERVICE_LEVEL(2i32);
 pub const QSL_NEEDED: QOS_SERVICE_LEVEL = QOS_SERVICE_LEVEL(1i32);
@@ -19415,6 +19249,28 @@ pub const RENDBIND_DEFAULTCREDENTIALS: u32 = 14u32;
 pub const RENDBIND_DEFAULTDOMAINNAME: u32 = 2u32;
 pub const RENDBIND_DEFAULTPASSWORD: u32 = 8u32;
 pub const RENDBIND_DEFAULTUSERNAME: u32 = 4u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct RENDDATA {
+    pub atyp: u16,
+    pub ulPosition: u32,
+    pub dxWidth: u16,
+    pub dyHeight: u16,
+    pub dwFlags: u32,
+}
+impl Default for RENDDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RENDDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RND_ADVERTISING_SCOPE(pub i32);
+pub const Rendezvous: windows_core::GUID = windows_core::GUID::from_u128(0xf1029e5b_cb5b_11d0_8d59_00c04fd91ac0);
+pub const RequestMakeCall: windows_core::GUID = windows_core::GUID::from_u128(0xac48ffe0_f8c4_11d1_a030_00c04fb6809f);
 pub const STRINGFORMAT_ASCII: u32 = 1u32;
 pub const STRINGFORMAT_BINARY: u32 = 4u32;
 pub const STRINGFORMAT_DBCS: u32 = 2u32;
@@ -19425,6 +19281,37 @@ pub const STRM_PAUSED: u32 = 8u32;
 pub const STRM_RUNNING: u32 = 4u32;
 pub const STRM_STOPPED: u32 = 16u32;
 pub const STRM_TERMINALSELECTED: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct STnefProblem {
+    pub ulComponent: u32,
+    pub ulAttribute: u32,
+    pub ulPropTag: u32,
+    pub scode: i32,
+}
+impl Default for STnefProblem {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for STnefProblem {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct STnefProblemArray {
+    pub cProblem: u32,
+    pub aProblem: [STnefProblem; 1],
+}
+impl Default for STnefProblemArray {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for STnefProblemArray {
+    type TypeKind = windows_core::CopyType;
+}
+pub const TAPI: windows_core::GUID = windows_core::GUID::from_u128(0x21d6d48e_a88b_11d0_83dd_00aa003ccabd);
 pub const TAPIERR_CONNECTED: i32 = 0i32;
 pub const TAPIERR_DESTBUSY: i32 = -11i32;
 pub const TAPIERR_DESTNOANSWER: i32 = -12i32;
@@ -19460,7 +19347,46 @@ pub const TAPIMEDIATYPE_DATAMODEM: u32 = 16u32;
 pub const TAPIMEDIATYPE_G3FAX: u32 = 32u32;
 pub const TAPIMEDIATYPE_MULTITRACK: u32 = 65536u32;
 pub const TAPIMEDIATYPE_VIDEO: u32 = 32768u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TAPIOBJECT_EVENT(pub i32);
 pub const TAPI_CURRENT_VERSION: u32 = 131074u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TAPI_CUSTOMTONE {
+    pub dwFrequency: u32,
+    pub dwCadenceOn: u32,
+    pub dwCadenceOff: u32,
+    pub dwVolume: u32,
+}
+impl Default for TAPI_CUSTOMTONE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TAPI_CUSTOMTONE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TAPI_DETECTTONE {
+    pub dwAppSpecific: u32,
+    pub dwDuration: u32,
+    pub dwFrequency1: u32,
+    pub dwFrequency2: u32,
+    pub dwFrequency3: u32,
+}
+impl Default for TAPI_DETECTTONE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TAPI_DETECTTONE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TAPI_EVENT(pub i32);
 pub const TAPI_E_ADDRESSBLOCKED: windows_core::HRESULT = windows_core::HRESULT(0x8004002A_u32 as _);
 pub const TAPI_E_ALLOCATED: windows_core::HRESULT = windows_core::HRESULT(0x80040006_u32 as _);
 pub const TAPI_E_BILLINGREJECTED: windows_core::HRESULT = windows_core::HRESULT(0x8004002B_u32 as _);
@@ -19551,12 +19477,33 @@ pub const TAPI_E_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x800400
 pub const TAPI_E_USERUSERINFOTOOBIG: windows_core::HRESULT = windows_core::HRESULT(0x80040028_u32 as _);
 pub const TAPI_E_WRONGEVENT: windows_core::HRESULT = windows_core::HRESULT(0x80040055_u32 as _);
 pub const TAPI_E_WRONG_STATE: windows_core::HRESULT = windows_core::HRESULT(0x80040058_u32 as _);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TAPI_GATHERTERM(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TAPI_OBJECT_TYPE(pub i32);
 pub const TAPI_REPLY: u32 = 1123u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TAPI_TONEMODE(pub i32);
 pub const TD_BIDIRECTIONAL: TERMINAL_DIRECTION = TERMINAL_DIRECTION(2i32);
 pub const TD_CAPTURE: TERMINAL_DIRECTION = TERMINAL_DIRECTION(0i32);
 pub const TD_MULTITRACK_MIXED: TERMINAL_DIRECTION = TERMINAL_DIRECTION(3i32);
 pub const TD_NONE: TERMINAL_DIRECTION = TERMINAL_DIRECTION(4i32);
 pub const TD_RENDER: TERMINAL_DIRECTION = TERMINAL_DIRECTION(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TERMINAL_DIRECTION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TERMINAL_MEDIA_STATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TERMINAL_STATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TERMINAL_TYPE(pub i32);
 pub const TE_ACDGROUP: TAPI_EVENT = TAPI_EVENT(8192i32);
 pub const TE_ADDRESS: TAPI_EVENT = TAPI_EVENT(2i32);
 pub const TE_ADDRESSCLOSE: TAPIOBJECT_EVENT = TAPIOBJECT_EVENT(4i32);
@@ -19606,6 +19553,22 @@ pub const TOT_NONE: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(0i32);
 pub const TOT_PHONE: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(6i32);
 pub const TOT_TAPI: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(1i32);
 pub const TOT_TERMINAL: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(3i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TRP {
+    pub trpid: u16,
+    pub cbgrtrp: u16,
+    pub cch: u16,
+    pub cbRgb: u16,
+}
+impl Default for TRP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TRP {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TSPI_LINEACCEPT: u32 = 500u32;
 pub const TSPI_LINEADDTOCONFERENCE: u32 = 501u32;
 pub const TSPI_LINEANSWER: u32 = 502u32;
@@ -19726,10 +19689,47 @@ pub const TTM_BUSY: TAPI_TONEMODE = TAPI_TONEMODE(4i32);
 pub const TTM_RINGBACK: TAPI_TONEMODE = TAPI_TONEMODE(2i32);
 pub const TT_DYNAMIC: TERMINAL_TYPE = TERMINAL_TYPE(1i32);
 pub const TT_STATIC: TERMINAL_TYPE = TERMINAL_TYPE(0i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TUISPICREATEDIALOGINSTANCEPARAMS {
+    pub dwRequestID: u32,
+    pub hdDlgInst: HDRVDIALOGINSTANCE,
+    pub htDlgInst: u32,
+    pub lpszUIDLLName: windows_core::PCWSTR,
+    pub lpParams: *mut core::ffi::c_void,
+    pub dwSize: u32,
+}
+impl Default for TUISPICREATEDIALOGINSTANCEPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TUISPICREATEDIALOGINSTANCEPARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+pub type TUISPIDLLCALLBACK = Option<unsafe extern "system" fn(dwobjectid: usize, dwobjecttype: u32, lpparams: *mut core::ffi::c_void, dwsize: u32) -> i32>;
 pub const TUISPIDLL_OBJECT_DIALOGINSTANCE: i32 = 4i32;
 pub const TUISPIDLL_OBJECT_LINEID: i32 = 1i32;
 pub const TUISPIDLL_OBJECT_PHONEID: i32 = 2i32;
 pub const TUISPIDLL_OBJECT_PROVIDERID: i32 = 3i32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct VARSTRING {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwStringFormat: u32,
+    pub dwStringSize: u32,
+    pub dwStringOffset: u32,
+}
+impl Default for VARSTRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VARSTRING {
+    type TypeKind = windows_core::CopyType;
+}
 pub const atypFile: i32 = 1i32;
 pub const atypMax: i32 = 4i32;
 pub const atypNull: i32 = 0i32;

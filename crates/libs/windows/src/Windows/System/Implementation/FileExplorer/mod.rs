@@ -1,38 +1,3 @@
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct SysStorageProviderEventReceivedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SysStorageProviderEventReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl SysStorageProviderEventReceivedEventArgs {
-    pub fn Json(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Json)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn CreateInstance(json: &windows_core::HSTRING) -> windows_core::Result<SysStorageProviderEventReceivedEventArgs> {
-        Self::ISysStorageProviderEventReceivedEventArgsFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(json), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn ISysStorageProviderEventReceivedEventArgsFactory<R, F: FnOnce(&ISysStorageProviderEventReceivedEventArgsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<SysStorageProviderEventReceivedEventArgs, ISysStorageProviderEventReceivedEventArgsFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for SysStorageProviderEventReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISysStorageProviderEventReceivedEventArgs>();
-}
-unsafe impl windows_core::Interface for SysStorageProviderEventReceivedEventArgs {
-    type Vtable = <ISysStorageProviderEventReceivedEventArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ISysStorageProviderEventReceivedEventArgs as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for SysStorageProviderEventReceivedEventArgs {
-    const NAME: &'static str = "Windows.System.Implementation.FileExplorer.SysStorageProviderEventReceivedEventArgs";
-}
-unsafe impl Send for SysStorageProviderEventReceivedEventArgs {}
-unsafe impl Sync for SysStorageProviderEventReceivedEventArgs {}
 windows_core::imp::define_interface!(ISysStorageProviderEventReceivedEventArgs, ISysStorageProviderEventReceivedEventArgs_Vtbl, 0xe132d1b9_7b9d_5820_9728_4262b5289142);
 impl windows_core::RuntimeType for ISysStorageProviderEventReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -236,3 +201,38 @@ pub struct ISysStorageProviderHttpRequestProvider_Vtbl {
     #[cfg(not(feature = "Web_Http"))]
     SendRequestAsync: usize,
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SysStorageProviderEventReceivedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(SysStorageProviderEventReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl SysStorageProviderEventReceivedEventArgs {
+    pub fn Json(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Json)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn CreateInstance(json: &windows_core::HSTRING) -> windows_core::Result<SysStorageProviderEventReceivedEventArgs> {
+        Self::ISysStorageProviderEventReceivedEventArgsFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(json), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn ISysStorageProviderEventReceivedEventArgsFactory<R, F: FnOnce(&ISysStorageProviderEventReceivedEventArgsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<SysStorageProviderEventReceivedEventArgs, ISysStorageProviderEventReceivedEventArgsFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for SysStorageProviderEventReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISysStorageProviderEventReceivedEventArgs>();
+}
+unsafe impl windows_core::Interface for SysStorageProviderEventReceivedEventArgs {
+    type Vtable = <ISysStorageProviderEventReceivedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ISysStorageProviderEventReceivedEventArgs as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for SysStorageProviderEventReceivedEventArgs {
+    const NAME: &'static str = "Windows.System.Implementation.FileExplorer.SysStorageProviderEventReceivedEventArgs";
+}
+unsafe impl Send for SysStorageProviderEventReceivedEventArgs {}
+unsafe impl Sync for SysStorageProviderEventReceivedEventArgs {}

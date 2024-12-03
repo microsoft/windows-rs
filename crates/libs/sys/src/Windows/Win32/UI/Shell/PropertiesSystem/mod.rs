@@ -123,54 +123,10 @@ windows_targets::link!("shell32.dll" "system" fn SHPropStgCreate(psstg : * mut c
 windows_targets::link!("shell32.dll" "system" fn SHPropStgReadMultiple(pps : * mut core::ffi::c_void, ucodepage : u32, cpspec : u32, rgpspec : *const super::super::super::System::Com::StructuredStorage:: PROPSPEC, rgvar : *mut super::super::super::System::Com::StructuredStorage:: PROPVARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 windows_targets::link!("shell32.dll" "system" fn SHPropStgWriteMultiple(pps : * mut core::ffi::c_void, pucodepage : *mut u32, cpspec : u32, rgpspec : *const super::super::super::System::Com::StructuredStorage:: PROPSPEC, rgvar : *mut super::super::super::System::Com::StructuredStorage:: PROPVARIANT, propidnamefirst : u32) -> windows_sys::core::HRESULT);
-pub type GETPROPERTYSTOREFLAGS = i32;
-pub type PDOPSTATUS = i32;
-pub type PKA_FLAGS = i32;
-pub type PLACEHOLDER_STATES = i32;
-pub type PROPDESC_AGGREGATION_TYPE = i32;
-pub type PROPDESC_COLUMNINDEX_TYPE = i32;
-pub type PROPDESC_CONDITION_TYPE = i32;
-pub type PROPDESC_DISPLAYTYPE = i32;
-pub type PROPDESC_ENUMFILTER = i32;
-pub type PROPDESC_FORMAT_FLAGS = i32;
-pub type PROPDESC_GROUPING_RANGE = i32;
-pub type PROPDESC_RELATIVEDESCRIPTION_TYPE = i32;
-pub type PROPDESC_SEARCHINFO_FLAGS = i32;
-pub type PROPDESC_SORTDESCRIPTION = i32;
-pub type PROPDESC_TYPE_FLAGS = u32;
-pub type PROPDESC_VIEW_FLAGS = i32;
-pub type PROPENUMTYPE = i32;
-pub type PROPERTYUI_FLAGS = i32;
-pub type PROPERTYUI_FORMAT_FLAGS = i32;
-pub type PROPERTYUI_NAME_FLAGS = i32;
-pub type PSC_STATE = i32;
-pub type SYNC_ENGINE_STATE_FLAGS = i32;
-pub type SYNC_TRANSFER_STATUS = i32;
-pub type _PERSIST_SPROPSTORE_FLAGS = i32;
-pub const InMemoryPropertyStore: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9a02e012_6303_4e1e_b9a1_630f802592c5);
-pub const InMemoryPropertyStoreMarshalByValue: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd4ca0e2d_6da7_4b75_a97c_5f306f0eaedc);
-pub type PCUSERIALIZEDPROPSTORAGE = isize;
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct PROPPRG {
-    pub flPrg: u16,
-    pub flPrgInit: u16,
-    pub achTitle: [i8; 30],
-    pub achCmdLine: [i8; 128],
-    pub achWorkDir: [i8; 64],
-    pub wHotKey: u16,
-    pub achIconFile: [i8; 80],
-    pub wIconIndex: u16,
-    pub dwEnhModeFlags: u32,
-    pub dwRealModeFlags: u32,
-    pub achOtherFile: [i8; 80],
-    pub achPIFFile: [i8; 260],
-}
-pub const PropertySystem: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb8967f85_58ae_4f46_9fb2_5d7904798f4b);
-pub type SERIALIZEDPROPSTORAGE = isize;
 pub const FPSPS_DEFAULT: _PERSIST_SPROPSTORE_FLAGS = 0i32;
 pub const FPSPS_READONLY: _PERSIST_SPROPSTORE_FLAGS = 1i32;
 pub const FPSPS_TREAT_NEW_VALUES_AS_DIRTY: _PERSIST_SPROPSTORE_FLAGS = 2i32;
+pub type GETPROPERTYSTOREFLAGS = i32;
 pub const GPS_BESTEFFORT: GETPROPERTYSTOREFLAGS = 64i32;
 pub const GPS_DEFAULT: GETPROPERTYSTOREFLAGS = 0i32;
 pub const GPS_DELAYCREATION: GETPROPERTYSTOREFLAGS = 32i32;
@@ -186,6 +142,9 @@ pub const GPS_READWRITE: GETPROPERTYSTOREFLAGS = 2i32;
 pub const GPS_TEMPORARY: GETPROPERTYSTOREFLAGS = 4i32;
 pub const GPS_VOLATILEPROPERTIES: GETPROPERTYSTOREFLAGS = 2048i32;
 pub const GPS_VOLATILEPROPERTIESONLY: GETPROPERTYSTOREFLAGS = 4096i32;
+pub const InMemoryPropertyStore: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9a02e012_6303_4e1e_b9a1_630f802592c5);
+pub const InMemoryPropertyStoreMarshalByValue: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd4ca0e2d_6da7_4b75_a97c_5f306f0eaedc);
+pub type PCUSERIALIZEDPROPSTORAGE = isize;
 pub const PDAT_AVERAGE: PROPDESC_AGGREGATION_TYPE = 3i32;
 pub const PDAT_DATERANGE: PROPDESC_AGGREGATION_TYPE = 4i32;
 pub const PDAT_DEFAULT: PROPDESC_AGGREGATION_TYPE = 0i32;
@@ -240,6 +199,7 @@ pub const PDGR_DYNAMIC: PROPDESC_GROUPING_RANGE = 3i32;
 pub const PDGR_ENUMERATED: PROPDESC_GROUPING_RANGE = 6i32;
 pub const PDGR_PERCENT: PROPDESC_GROUPING_RANGE = 5i32;
 pub const PDGR_SIZE: PROPDESC_GROUPING_RANGE = 2i32;
+pub type PDOPSTATUS = i32;
 pub const PDOPS_CANCELLED: PDOPSTATUS = 3i32;
 pub const PDOPS_ERRORS: PDOPSTATUS = 5i32;
 pub const PDOPS_PAUSED: PDOPSTATUS = 2i32;
@@ -303,12 +263,47 @@ pub const PET_ENDRANGE: PROPENUMTYPE = 3i32;
 pub const PET_RANGEDVALUE: PROPENUMTYPE = 1i32;
 pub const PKA_APPEND: PKA_FLAGS = 1i32;
 pub const PKA_DELETE: PKA_FLAGS = 2i32;
+pub type PKA_FLAGS = i32;
 pub const PKA_SET: PKA_FLAGS = 0i32;
 pub const PKEY_PIDSTR_MAX: u32 = 10u32;
+pub type PLACEHOLDER_STATES = i32;
+pub type PROPDESC_AGGREGATION_TYPE = i32;
+pub type PROPDESC_COLUMNINDEX_TYPE = i32;
+pub type PROPDESC_CONDITION_TYPE = i32;
+pub type PROPDESC_DISPLAYTYPE = i32;
+pub type PROPDESC_ENUMFILTER = i32;
+pub type PROPDESC_FORMAT_FLAGS = i32;
+pub type PROPDESC_GROUPING_RANGE = i32;
+pub type PROPDESC_RELATIVEDESCRIPTION_TYPE = i32;
+pub type PROPDESC_SEARCHINFO_FLAGS = i32;
+pub type PROPDESC_SORTDESCRIPTION = i32;
+pub type PROPDESC_TYPE_FLAGS = u32;
+pub type PROPDESC_VIEW_FLAGS = i32;
+pub type PROPENUMTYPE = i32;
+pub type PROPERTYUI_FLAGS = i32;
+pub type PROPERTYUI_FORMAT_FLAGS = i32;
+pub type PROPERTYUI_NAME_FLAGS = i32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct PROPPRG {
+    pub flPrg: u16,
+    pub flPrgInit: u16,
+    pub achTitle: [i8; 30],
+    pub achCmdLine: [i8; 128],
+    pub achWorkDir: [i8; 64],
+    pub wHotKey: u16,
+    pub achIconFile: [i8; 80],
+    pub wIconIndex: u16,
+    pub dwEnhModeFlags: u32,
+    pub dwRealModeFlags: u32,
+    pub achOtherFile: [i8; 80],
+    pub achPIFFile: [i8; 260],
+}
 pub const PSC_DIRTY: PSC_STATE = 2i32;
 pub const PSC_NORMAL: PSC_STATE = 0i32;
 pub const PSC_NOTINSOURCE: PSC_STATE = 1i32;
 pub const PSC_READONLY: PSC_STATE = 3i32;
+pub type PSC_STATE = i32;
 pub const PS_ALL: PLACEHOLDER_STATES = 15i32;
 pub const PS_CLOUDFILE_PLACEHOLDER: PLACEHOLDER_STATES = 8i32;
 pub const PS_CREATE_FILE_ACCESSIBLE: PLACEHOLDER_STATES = 4i32;
@@ -326,6 +321,8 @@ pub const PUIFNF_MNEMONIC: PROPERTYUI_NAME_FLAGS = 1i32;
 pub const PUIF_DEFAULT: PROPERTYUI_FLAGS = 0i32;
 pub const PUIF_NOLABELININFOTIP: PROPERTYUI_FLAGS = 2i32;
 pub const PUIF_RIGHTALIGN: PROPERTYUI_FLAGS = 1i32;
+pub const PropertySystem: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb8967f85_58ae_4f46_9fb2_5d7904798f4b);
+pub type SERIALIZEDPROPSTORAGE = isize;
 pub const SESF_ALL_FLAGS: SYNC_ENGINE_STATE_FLAGS = 511i32;
 pub const SESF_AUTHENTICATION_ERROR: SYNC_ENGINE_STATE_FLAGS = 4i32;
 pub const SESF_NONE: SYNC_ENGINE_STATE_FLAGS = 0i32;
@@ -349,3 +346,6 @@ pub const STS_PAUSED: SYNC_TRANSFER_STATUS = 8i32;
 pub const STS_PLACEHOLDER_IFEMPTY: SYNC_TRANSFER_STATUS = 1024i32;
 pub const STS_TRANSFERRING: SYNC_TRANSFER_STATUS = 4i32;
 pub const STS_USER_REQUESTED_REFRESH: SYNC_TRANSFER_STATUS = 64i32;
+pub type SYNC_ENGINE_STATE_FLAGS = i32;
+pub type SYNC_TRANSFER_STATUS = i32;
+pub type _PERSIST_SPROPSTORE_FLAGS = i32;

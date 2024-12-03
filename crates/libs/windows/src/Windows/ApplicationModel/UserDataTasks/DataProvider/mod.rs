@@ -1,3 +1,140 @@
+windows_core::imp::define_interface!(IUserDataTaskDataProviderConnection, IUserDataTaskDataProviderConnection_Vtbl, 0x9ff39d1d_a447_428b_afe9_e5402bdeb041);
+impl windows_core::RuntimeType for IUserDataTaskDataProviderConnection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IUserDataTaskDataProviderConnection_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateOrUpdateTaskRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveCreateOrUpdateTaskRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub SyncRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveSyncRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub SkipOccurrenceRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveSkipOccurrenceRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub CompleteTaskRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveCompleteTaskRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub DeleteTaskRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveDeleteTaskRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IUserDataTaskDataProviderTriggerDetails, IUserDataTaskDataProviderTriggerDetails_Vtbl, 0xae273202_b1c9_453e_afc5_b30af3bd217d);
+impl windows_core::RuntimeType for IUserDataTaskDataProviderTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IUserDataTaskDataProviderTriggerDetails_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Connection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IUserDataTaskListCompleteTaskRequest, IUserDataTaskListCompleteTaskRequest_Vtbl, 0xf65e14a3_1a42_49da_8552_2873e52c55eb);
+impl windows_core::RuntimeType for IUserDataTaskListCompleteTaskRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IUserDataTaskListCompleteTaskRequest_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub TaskListId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub TaskId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ReportCompletedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IUserDataTaskListCompleteTaskRequestEventArgs, IUserDataTaskListCompleteTaskRequestEventArgs_Vtbl, 0xd77c393d_4cf2_48ad_87fd_963f0eaa7a95);
+impl windows_core::RuntimeType for IUserDataTaskListCompleteTaskRequestEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IUserDataTaskListCompleteTaskRequestEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IUserDataTaskListCreateOrUpdateTaskRequest, IUserDataTaskListCreateOrUpdateTaskRequest_Vtbl, 0x2133772c_55c2_4300_8279_04326e07cce4);
+impl windows_core::RuntimeType for IUserDataTaskListCreateOrUpdateTaskRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IUserDataTaskListCreateOrUpdateTaskRequest_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub TaskListId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Task: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ReportCompletedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IUserDataTaskListCreateOrUpdateTaskRequestEventArgs, IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_Vtbl, 0x12c55a52_e378_419b_ae38_a5e9e604476e);
+impl windows_core::RuntimeType for IUserDataTaskListCreateOrUpdateTaskRequestEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IUserDataTaskListDeleteTaskRequest, IUserDataTaskListDeleteTaskRequest_Vtbl, 0x4b863c68_7657_4f3d_b074_d47ec8df07e7);
+impl windows_core::RuntimeType for IUserDataTaskListDeleteTaskRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IUserDataTaskListDeleteTaskRequest_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub TaskListId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub TaskId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ReportCompletedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IUserDataTaskListDeleteTaskRequestEventArgs, IUserDataTaskListDeleteTaskRequestEventArgs_Vtbl, 0x6063dad9_f562_4145_8efe_d50078c92b7f);
+impl windows_core::RuntimeType for IUserDataTaskListDeleteTaskRequestEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IUserDataTaskListDeleteTaskRequestEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IUserDataTaskListSkipOccurrenceRequest, IUserDataTaskListSkipOccurrenceRequest_Vtbl, 0xab87e34d_1cd3_431c_9f58_089aa4338d85);
+impl windows_core::RuntimeType for IUserDataTaskListSkipOccurrenceRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IUserDataTaskListSkipOccurrenceRequest_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub TaskListId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub TaskId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ReportCompletedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IUserDataTaskListSkipOccurrenceRequestEventArgs, IUserDataTaskListSkipOccurrenceRequestEventArgs_Vtbl, 0x7a3b924a_cc2f_4e7b_aacd_a5b9d29cfa4e);
+impl windows_core::RuntimeType for IUserDataTaskListSkipOccurrenceRequestEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IUserDataTaskListSkipOccurrenceRequestEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IUserDataTaskListSyncManagerSyncRequest, IUserDataTaskListSyncManagerSyncRequest_Vtbl, 0x40a73807_7590_4149_ae19_b211431a9f48);
+impl windows_core::RuntimeType for IUserDataTaskListSyncManagerSyncRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IUserDataTaskListSyncManagerSyncRequest_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub TaskListId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ReportCompletedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IUserDataTaskListSyncManagerSyncRequestEventArgs, IUserDataTaskListSyncManagerSyncRequestEventArgs_Vtbl, 0x8ead1c12_768e_43bd_8385_5cdc351ffdea);
+impl windows_core::RuntimeType for IUserDataTaskListSyncManagerSyncRequestEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IUserDataTaskListSyncManagerSyncRequestEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserDataTaskDataProviderConnection(windows_core::IUnknown);
@@ -501,140 +638,3 @@ impl windows_core::RuntimeName for UserDataTaskListSyncManagerSyncRequestEventAr
 }
 unsafe impl Send for UserDataTaskListSyncManagerSyncRequestEventArgs {}
 unsafe impl Sync for UserDataTaskListSyncManagerSyncRequestEventArgs {}
-windows_core::imp::define_interface!(IUserDataTaskDataProviderConnection, IUserDataTaskDataProviderConnection_Vtbl, 0x9ff39d1d_a447_428b_afe9_e5402bdeb041);
-impl windows_core::RuntimeType for IUserDataTaskDataProviderConnection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IUserDataTaskDataProviderConnection_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateOrUpdateTaskRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveCreateOrUpdateTaskRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub SyncRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveSyncRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub SkipOccurrenceRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveSkipOccurrenceRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub CompleteTaskRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveCompleteTaskRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub DeleteTaskRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveDeleteTaskRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IUserDataTaskDataProviderTriggerDetails, IUserDataTaskDataProviderTriggerDetails_Vtbl, 0xae273202_b1c9_453e_afc5_b30af3bd217d);
-impl windows_core::RuntimeType for IUserDataTaskDataProviderTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IUserDataTaskDataProviderTriggerDetails_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Connection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IUserDataTaskListCompleteTaskRequest, IUserDataTaskListCompleteTaskRequest_Vtbl, 0xf65e14a3_1a42_49da_8552_2873e52c55eb);
-impl windows_core::RuntimeType for IUserDataTaskListCompleteTaskRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IUserDataTaskListCompleteTaskRequest_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub TaskListId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub TaskId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReportCompletedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IUserDataTaskListCompleteTaskRequestEventArgs, IUserDataTaskListCompleteTaskRequestEventArgs_Vtbl, 0xd77c393d_4cf2_48ad_87fd_963f0eaa7a95);
-impl windows_core::RuntimeType for IUserDataTaskListCompleteTaskRequestEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IUserDataTaskListCompleteTaskRequestEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IUserDataTaskListCreateOrUpdateTaskRequest, IUserDataTaskListCreateOrUpdateTaskRequest_Vtbl, 0x2133772c_55c2_4300_8279_04326e07cce4);
-impl windows_core::RuntimeType for IUserDataTaskListCreateOrUpdateTaskRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IUserDataTaskListCreateOrUpdateTaskRequest_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub TaskListId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Task: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReportCompletedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IUserDataTaskListCreateOrUpdateTaskRequestEventArgs, IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_Vtbl, 0x12c55a52_e378_419b_ae38_a5e9e604476e);
-impl windows_core::RuntimeType for IUserDataTaskListCreateOrUpdateTaskRequestEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IUserDataTaskListDeleteTaskRequest, IUserDataTaskListDeleteTaskRequest_Vtbl, 0x4b863c68_7657_4f3d_b074_d47ec8df07e7);
-impl windows_core::RuntimeType for IUserDataTaskListDeleteTaskRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IUserDataTaskListDeleteTaskRequest_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub TaskListId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub TaskId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReportCompletedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IUserDataTaskListDeleteTaskRequestEventArgs, IUserDataTaskListDeleteTaskRequestEventArgs_Vtbl, 0x6063dad9_f562_4145_8efe_d50078c92b7f);
-impl windows_core::RuntimeType for IUserDataTaskListDeleteTaskRequestEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IUserDataTaskListDeleteTaskRequestEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IUserDataTaskListSkipOccurrenceRequest, IUserDataTaskListSkipOccurrenceRequest_Vtbl, 0xab87e34d_1cd3_431c_9f58_089aa4338d85);
-impl windows_core::RuntimeType for IUserDataTaskListSkipOccurrenceRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IUserDataTaskListSkipOccurrenceRequest_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub TaskListId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub TaskId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReportCompletedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IUserDataTaskListSkipOccurrenceRequestEventArgs, IUserDataTaskListSkipOccurrenceRequestEventArgs_Vtbl, 0x7a3b924a_cc2f_4e7b_aacd_a5b9d29cfa4e);
-impl windows_core::RuntimeType for IUserDataTaskListSkipOccurrenceRequestEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IUserDataTaskListSkipOccurrenceRequestEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IUserDataTaskListSyncManagerSyncRequest, IUserDataTaskListSyncManagerSyncRequest_Vtbl, 0x40a73807_7590_4149_ae19_b211431a9f48);
-impl windows_core::RuntimeType for IUserDataTaskListSyncManagerSyncRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IUserDataTaskListSyncManagerSyncRequest_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub TaskListId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReportCompletedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IUserDataTaskListSyncManagerSyncRequestEventArgs, IUserDataTaskListSyncManagerSyncRequestEventArgs_Vtbl, 0x8ead1c12_768e_43bd_8385_5cdc351ffdea);
-impl windows_core::RuntimeType for IUserDataTaskListSyncManagerSyncRequestEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IUserDataTaskListSyncManagerSyncRequestEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}

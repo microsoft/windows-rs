@@ -3,6 +3,28 @@ pub unsafe fn MI_Application_InitializeV1(flags: u32, applicationid: Option<*con
     windows_targets::link!("mi.dll" "cdecl" fn MI_Application_InitializeV1(flags : u32, applicationid : *const u16, extendederror : *mut *mut MI_Instance, application : *mut MI_Application) -> MI_Result);
     MI_Application_InitializeV1(core::mem::transmute(flags), core::mem::transmute(applicationid.unwrap_or(core::ptr::null())), core::mem::transmute(extendederror.unwrap_or(core::ptr::null_mut())), core::mem::transmute(application))
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CIMTYPE_ENUMERATION(pub i32);
+pub const CIM_BOOLEAN: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(11i32);
+pub const CIM_CHAR16: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(103i32);
+pub const CIM_DATETIME: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(101i32);
+pub const CIM_EMPTY: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(0i32);
+pub const CIM_FLAG_ARRAY: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(8192i32);
+pub const CIM_ILLEGAL: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(4095i32);
+pub const CIM_OBJECT: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(13i32);
+pub const CIM_REAL32: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(4i32);
+pub const CIM_REAL64: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(5i32);
+pub const CIM_REFERENCE: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(102i32);
+pub const CIM_SINT16: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(2i32);
+pub const CIM_SINT32: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(3i32);
+pub const CIM_SINT64: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(20i32);
+pub const CIM_SINT8: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(16i32);
+pub const CIM_STRING: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(8i32);
+pub const CIM_UINT16: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(18i32);
+pub const CIM_UINT32: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(19i32);
+pub const CIM_UINT64: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(21i32);
+pub const CIM_UINT8: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(17i32);
 windows_core::imp::define_interface!(IEnumWbemClassObject, IEnumWbemClassObject_Vtbl, 0x027947e1_d731_11ce_a357_000000000001);
 windows_core::imp::interface_hierarchy!(IEnumWbemClassObject, windows_core::IUnknown);
 impl IEnumWbemClassObject {
@@ -7964,253 +7986,7 @@ impl IWbemUnsecuredApartment_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWbemUnsecuredApartment {}
-pub type MI_CancelCallback = Option<unsafe extern "system" fn(reason: MI_CancellationReason, callbackdata: *const core::ffi::c_void)>;
-pub type MI_Deserializer_ClassObjectNeeded = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, servername: *const u16, namespacename: *const u16, classname: *const u16, requestedclassobject: *mut *mut MI_Class) -> MI_Result>;
-pub type MI_MainFunction = Option<unsafe extern "system" fn(server: *mut MI_Server) -> *mut MI_Module>;
-pub type MI_MethodDecl_Invoke = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, methodname: *const u16, instancename: *const MI_Instance, parameters: *const MI_Instance)>;
-pub type MI_Module_Load = Option<unsafe extern "system" fn(self_: *mut *mut MI_Module_Self, context: *const MI_Context)>;
-pub type MI_Module_Unload = Option<unsafe extern "system" fn(self_: *const MI_Module_Self, context: *const MI_Context)>;
-pub type MI_OperationCallback_Class = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, classresult: *const MI_Class, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize)>;
-pub type MI_OperationCallback_Indication = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, instance: *const MI_Instance, bookmark: *const u16, machineid: *const u16, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize)>;
-pub type MI_OperationCallback_Instance = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, instance: *const MI_Instance, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize)>;
-pub type MI_OperationCallback_PromptUser = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, message: *const u16, prompttype: MI_PromptType, promptuserresult: isize)>;
-pub type MI_OperationCallback_StreamedParameter = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, parametername: *const u16, resulttype: MI_Type, result: *const MI_Value, resultacknowledgement: isize)>;
-pub type MI_OperationCallback_WriteError = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, instance: *const MI_Instance, writeerrorresult: isize)>;
-pub type MI_OperationCallback_WriteMessage = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, channel: u32, message: *const u16)>;
-pub type MI_OperationCallback_WriteProgress = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, activity: *const u16, currentoperation: *const u16, statusdescription: *const u16, percentagecomplete: u32, secondsremaining: u32)>;
-pub type MI_ProviderFT_AssociatorInstances = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance, resultclass: *const u16, role: *const u16, resultrole: *const u16, propertyset: *const MI_PropertySet, keysonly: u8, filter: *const MI_Filter)>;
-pub type MI_ProviderFT_CreateInstance = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, newinstance: *const MI_Instance)>;
-pub type MI_ProviderFT_DeleteInstance = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance)>;
-pub type MI_ProviderFT_DisableIndications = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, indicationscontext: *const MI_Context, namespace: *const u16, classname: *const u16)>;
-pub type MI_ProviderFT_EnableIndications = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, indicationscontext: *const MI_Context, namespace: *const u16, classname: *const u16)>;
-pub type MI_ProviderFT_EnumerateInstances = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, propertyset: *const MI_PropertySet, keysonly: u8, filter: *const MI_Filter)>;
-pub type MI_ProviderFT_GetInstance = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance, propertyset: *const MI_PropertySet)>;
-pub type MI_ProviderFT_Invoke = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, methodname: *const u16, instancename: *const MI_Instance, inputparameters: *const MI_Instance)>;
-pub type MI_ProviderFT_Load = Option<unsafe extern "system" fn(self_: *mut *mut core::ffi::c_void, selfmodule: *const MI_Module_Self, context: *const MI_Context)>;
-pub type MI_ProviderFT_ModifyInstance = Option<unsafe extern "system" fn(self_: *mut core::ffi::c_void, context: *mut MI_Context, namespace: *const u16, classname: *const u16, modifiedinstance: *const MI_Instance, propertyset: *const MI_PropertySet)>;
-pub type MI_ProviderFT_ReferenceInstances = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance, role: *const u16, propertyset: *const MI_PropertySet, keysonly: u8, filter: *const MI_Filter)>;
-pub type MI_ProviderFT_Subscribe = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, filter: *const MI_Filter, bookmark: *const u16, subscriptionid: u64, subscriptionself: *mut *mut core::ffi::c_void)>;
-pub type MI_ProviderFT_Unload = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context)>;
-pub type MI_ProviderFT_Unsubscribe = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, subscriptionid: u64, subscriptionself: *const core::ffi::c_void)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CIMTYPE_ENUMERATION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MI_CallbackMode(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MI_CancellationReason(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MI_DestinationOptions_ImpersonationType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MI_ErrorCategory(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MI_LocaleType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MI_OperationCallback_ResponseType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MI_PromptType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MI_ProviderArchitecture(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MI_Result(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MI_SubscriptionDeliveryType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MI_Type(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEMSTATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEMSTATUS_FORMAT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_BACKUP_RESTORE_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_BATCH_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_CHANGE_FLAG_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_COMPARISON_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_COMPILER_OPTIONS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_CONDITION_FLAG_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_CONNECT_OPTIONS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_EXTRA_RETURN_CODES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_FLAVOR_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_GENERIC_FLAG_TYPE(pub i32);
-impl WBEM_GENERIC_FLAG_TYPE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for WBEM_GENERIC_FLAG_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for WBEM_GENERIC_FLAG_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for WBEM_GENERIC_FLAG_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for WBEM_GENERIC_FLAG_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for WBEM_GENERIC_FLAG_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_GENUS_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_GET_KEY_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_GET_TEXT_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_INFORMATION_FLAG_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_LIMITATION_FLAG_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_LIMITS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_LOCKING_FLAG_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_LOGIN_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_PATH_CREATE_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_PATH_STATUS_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_PROVIDER_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_PROVIDER_REQUIREMENTS_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_QUERY_FLAG_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_REFRESHER_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_SECURITY_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_SHUTDOWN_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_STATUS_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_TEXT_FLAG_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WBEM_UNSECAPP_FLAG_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WMIQ_ANALYSIS_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WMIQ_ASSOCQ_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WMIQ_LANGUAGE_FEATURES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WMIQ_RPNF_FEATURE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WMIQ_RPN_TOKEN_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WMI_OBJ_TEXT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WbemAuthenticationLevelEnum(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WbemChangeFlagEnum(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WbemCimtypeEnum(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WbemComparisonFlagEnum(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WbemConnectOptionsEnum(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WbemErrorEnum(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WbemFlagEnum(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WbemImpersonationLevelEnum(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WbemObjectTextFormatEnum(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WbemPrivilegeEnum(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WbemQueryFlagEnum(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WbemTextFlagEnum(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WbemTimeout(pub i32);
+pub const MI_ARRAY: MI_Type = MI_Type(16i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Application {
@@ -8278,6 +8054,8 @@ impl Default for MI_ArrayField {
 impl windows_core::TypeKind for MI_ArrayField {
     type TypeKind = windows_core::CopyType;
 }
+pub const MI_BOOLEAN: MI_Type = MI_Type(0i32);
+pub const MI_BOOLEANA: MI_Type = MI_Type(16i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_BooleanA {
@@ -8322,6 +8100,20 @@ impl Default for MI_BooleanField {
 impl windows_core::TypeKind for MI_BooleanField {
     type TypeKind = windows_core::CopyType;
 }
+pub const MI_CALLBACKMODE_IGNORE: MI_CallbackMode = MI_CallbackMode(2i32);
+pub const MI_CALLBACKMODE_INQUIRE: MI_CallbackMode = MI_CallbackMode(1i32);
+pub const MI_CALLBACKMODE_REPORT: MI_CallbackMode = MI_CallbackMode(0i32);
+pub const MI_CALL_VERSION: u32 = 1u32;
+pub const MI_CHAR16: MI_Type = MI_Type(11i32);
+pub const MI_CHAR16A: MI_Type = MI_Type(27i32);
+pub const MI_CHAR_TYPE: u32 = 2u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MI_CallbackMode(pub i32);
+pub type MI_CancelCallback = Option<unsafe extern "system" fn(reason: MI_CancellationReason, callbackdata: *const core::ffi::c_void)>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MI_CancellationReason(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Char16A {
@@ -9218,6 +9010,8 @@ impl Default for MI_ContextFT {
 impl windows_core::TypeKind for MI_ContextFT {
     type TypeKind = windows_core::CopyType;
 }
+pub const MI_DATETIME: MI_Type = MI_Type(12i32);
+pub const MI_DATETIMEA: MI_Type = MI_Type(28i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MI_Datetime {
@@ -9322,6 +9116,7 @@ impl Default for MI_DeserializerFT {
 impl windows_core::TypeKind for MI_DeserializerFT {
     type TypeKind = windows_core::CopyType;
 }
+pub type MI_Deserializer_ClassObjectNeeded = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, servername: *const u16, namespacename: *const u16, classname: *const u16, requestedclassobject: *mut *mut MI_Class) -> MI_Result>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_DestinationOptions {
@@ -9364,6 +9159,78 @@ impl Default for MI_DestinationOptionsFT {
 impl windows_core::TypeKind for MI_DestinationOptionsFT {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MI_DestinationOptions_ImpersonationType(pub i32);
+pub const MI_DestinationOptions_ImpersonationType_Default: MI_DestinationOptions_ImpersonationType = MI_DestinationOptions_ImpersonationType(0i32);
+pub const MI_DestinationOptions_ImpersonationType_Delegate: MI_DestinationOptions_ImpersonationType = MI_DestinationOptions_ImpersonationType(4i32);
+pub const MI_DestinationOptions_ImpersonationType_Identify: MI_DestinationOptions_ImpersonationType = MI_DestinationOptions_ImpersonationType(2i32);
+pub const MI_DestinationOptions_ImpersonationType_Impersonate: MI_DestinationOptions_ImpersonationType = MI_DestinationOptions_ImpersonationType(3i32);
+pub const MI_DestinationOptions_ImpersonationType_None: MI_DestinationOptions_ImpersonationType = MI_DestinationOptions_ImpersonationType(1i32);
+pub const MI_ERRORCATEGORY_ACCESS_DENIED: MI_ErrorCategory = MI_ErrorCategory(18i32);
+pub const MI_ERRORCATEGORY_AUTHENTICATION_ERROR: MI_ErrorCategory = MI_ErrorCategory(28i32);
+pub const MI_ERRORCATEGORY_CLOS_EERROR: MI_ErrorCategory = MI_ErrorCategory(2i32);
+pub const MI_ERRORCATEGORY_CONNECTION_ERROR: MI_ErrorCategory = MI_ErrorCategory(27i32);
+pub const MI_ERRORCATEGORY_DEADLOCK_DETECTED: MI_ErrorCategory = MI_ErrorCategory(4i32);
+pub const MI_ERRORCATEGORY_DEVICE_ERROR: MI_ErrorCategory = MI_ErrorCategory(3i32);
+pub const MI_ERRORCATEGORY_FROM_STDERR: MI_ErrorCategory = MI_ErrorCategory(24i32);
+pub const MI_ERRORCATEGORY_INVALID_ARGUMENT: MI_ErrorCategory = MI_ErrorCategory(5i32);
+pub const MI_ERRORCATEGORY_INVALID_DATA: MI_ErrorCategory = MI_ErrorCategory(6i32);
+pub const MI_ERRORCATEGORY_INVALID_OPERATION: MI_ErrorCategory = MI_ErrorCategory(7i32);
+pub const MI_ERRORCATEGORY_INVALID_RESULT: MI_ErrorCategory = MI_ErrorCategory(8i32);
+pub const MI_ERRORCATEGORY_INVALID_TYPE: MI_ErrorCategory = MI_ErrorCategory(9i32);
+pub const MI_ERRORCATEGORY_LIMITS_EXCEEDED: MI_ErrorCategory = MI_ErrorCategory(29i32);
+pub const MI_ERRORCATEGORY_METADATA_ERROR: MI_ErrorCategory = MI_ErrorCategory(10i32);
+pub const MI_ERRORCATEGORY_NOT_ENABLED: MI_ErrorCategory = MI_ErrorCategory(31i32);
+pub const MI_ERRORCATEGORY_NOT_IMPLEMENTED: MI_ErrorCategory = MI_ErrorCategory(11i32);
+pub const MI_ERRORCATEGORY_NOT_INSTALLED: MI_ErrorCategory = MI_ErrorCategory(12i32);
+pub const MI_ERRORCATEGORY_NOT_SPECIFIED: MI_ErrorCategory = MI_ErrorCategory(0i32);
+pub const MI_ERRORCATEGORY_OBJECT_NOT_FOUND: MI_ErrorCategory = MI_ErrorCategory(13i32);
+pub const MI_ERRORCATEGORY_OPEN_ERROR: MI_ErrorCategory = MI_ErrorCategory(1i32);
+pub const MI_ERRORCATEGORY_OPERATION_STOPPED: MI_ErrorCategory = MI_ErrorCategory(14i32);
+pub const MI_ERRORCATEGORY_OPERATION_TIMEOUT: MI_ErrorCategory = MI_ErrorCategory(15i32);
+pub const MI_ERRORCATEGORY_PARSER_ERROR: MI_ErrorCategory = MI_ErrorCategory(17i32);
+pub const MI_ERRORCATEGORY_PROTOCOL_ERROR: MI_ErrorCategory = MI_ErrorCategory(26i32);
+pub const MI_ERRORCATEGORY_QUOTA_EXCEEDED: MI_ErrorCategory = MI_ErrorCategory(30i32);
+pub const MI_ERRORCATEGORY_READ_ERROR: MI_ErrorCategory = MI_ErrorCategory(22i32);
+pub const MI_ERRORCATEGORY_RESOURCE_BUSY: MI_ErrorCategory = MI_ErrorCategory(19i32);
+pub const MI_ERRORCATEGORY_RESOURCE_EXISTS: MI_ErrorCategory = MI_ErrorCategory(20i32);
+pub const MI_ERRORCATEGORY_RESOURCE_UNAVAILABLE: MI_ErrorCategory = MI_ErrorCategory(21i32);
+pub const MI_ERRORCATEGORY_SECURITY_ERROR: MI_ErrorCategory = MI_ErrorCategory(25i32);
+pub const MI_ERRORCATEGORY_SYNTAX_ERROR: MI_ErrorCategory = MI_ErrorCategory(16i32);
+pub const MI_ERRORCATEGORY_WRITE_ERROR: MI_ErrorCategory = MI_ErrorCategory(23i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MI_ErrorCategory(pub i32);
+pub const MI_FLAG_ABSTRACT: u32 = 131072u32;
+pub const MI_FLAG_ADOPT: u32 = 2147483648u32;
+pub const MI_FLAG_ANY: u32 = 127u32;
+pub const MI_FLAG_ASSOCIATION: u32 = 16u32;
+pub const MI_FLAG_BORROW: u32 = 1073741824u32;
+pub const MI_FLAG_CLASS: u32 = 1u32;
+pub const MI_FLAG_DISABLEOVERRIDE: u32 = 256u32;
+pub const MI_FLAG_ENABLEOVERRIDE: u32 = 128u32;
+pub const MI_FLAG_EXPENSIVE: u32 = 524288u32;
+pub const MI_FLAG_EXTENDED: u32 = 4096u32;
+pub const MI_FLAG_IN: u32 = 8192u32;
+pub const MI_FLAG_INDICATION: u32 = 32u32;
+pub const MI_FLAG_KEY: u32 = 4096u32;
+pub const MI_FLAG_METHOD: u32 = 2u32;
+pub const MI_FLAG_NOT_MODIFIED: u32 = 33554432u32;
+pub const MI_FLAG_NULL: u32 = 536870912u32;
+pub const MI_FLAG_OUT: u32 = 16384u32;
+pub const MI_FLAG_PARAMETER: u32 = 8u32;
+pub const MI_FLAG_PROPERTY: u32 = 4u32;
+pub const MI_FLAG_READONLY: u32 = 2097152u32;
+pub const MI_FLAG_REFERENCE: u32 = 64u32;
+pub const MI_FLAG_REQUIRED: u32 = 32768u32;
+pub const MI_FLAG_RESTRICTED: u32 = 512u32;
+pub const MI_FLAG_STATIC: u32 = 65536u32;
+pub const MI_FLAG_STREAM: u32 = 1048576u32;
+pub const MI_FLAG_TERMINAL: u32 = 262144u32;
+pub const MI_FLAG_TOSUBCLASS: u32 = 1024u32;
+pub const MI_FLAG_TRANSLATABLE: u32 = 2048u32;
+pub const MI_FLAG_VERSION: u32 = 469762048u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_FeatureDecl {
@@ -9438,6 +9305,8 @@ impl Default for MI_HostedProviderFT {
 impl windows_core::TypeKind for MI_HostedProviderFT {
     type TypeKind = windows_core::CopyType;
 }
+pub const MI_INSTANCE: MI_Type = MI_Type(15i32);
+pub const MI_INSTANCEA: MI_Type = MI_Type(31i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Instance {
@@ -9563,6 +9432,23 @@ impl Default for MI_Interval {
 impl windows_core::TypeKind for MI_Interval {
     type TypeKind = windows_core::CopyType;
 }
+pub const MI_LOCALE_TYPE_CLOSEST_DATA: MI_LocaleType = MI_LocaleType(3i32);
+pub const MI_LOCALE_TYPE_CLOSEST_UI: MI_LocaleType = MI_LocaleType(2i32);
+pub const MI_LOCALE_TYPE_REQUESTED_DATA: MI_LocaleType = MI_LocaleType(1i32);
+pub const MI_LOCALE_TYPE_REQUESTED_UI: MI_LocaleType = MI_LocaleType(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MI_LocaleType(pub i32);
+pub const MI_MAX_LOCALE_SIZE: u32 = 128u32;
+pub const MI_MODULE_FLAG_BOOLEANS: u32 = 16u32;
+pub const MI_MODULE_FLAG_CPLUSPLUS: u32 = 32u32;
+pub const MI_MODULE_FLAG_DESCRIPTIONS: u32 = 2u32;
+pub const MI_MODULE_FLAG_FILTER_SUPPORT: u32 = 128u32;
+pub const MI_MODULE_FLAG_LOCALIZED: u32 = 64u32;
+pub const MI_MODULE_FLAG_MAPPING_STRINGS: u32 = 8u32;
+pub const MI_MODULE_FLAG_STANDARD_QUALIFIERS: u32 = 1u32;
+pub const MI_MODULE_FLAG_VALUES: u32 = 4u32;
+pub type MI_MainFunction = Option<unsafe extern "system" fn(server: *mut MI_Server) -> *mut MI_Module>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_MethodDecl {
@@ -9588,6 +9474,7 @@ impl Default for MI_MethodDecl {
 impl windows_core::TypeKind for MI_MethodDecl {
     type TypeKind = windows_core::CopyType;
 }
+pub type MI_MethodDecl_Invoke = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, methodname: *const u16, instancename: *const MI_Instance, parameters: *const MI_Instance)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Module {
@@ -9608,12 +9495,25 @@ impl Default for MI_Module {
 impl windows_core::TypeKind for MI_Module {
     type TypeKind = windows_core::CopyType;
 }
+pub type MI_Module_Load = Option<unsafe extern "system" fn(self_: *mut *mut MI_Module_Self, context: *const MI_Context)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct MI_Module_Self(pub isize);
 impl windows_core::TypeKind for MI_Module_Self {
     type TypeKind = windows_core::CopyType;
 }
+pub type MI_Module_Unload = Option<unsafe extern "system" fn(self_: *const MI_Module_Self, context: *const MI_Context)>;
+pub const MI_OPERATIONFLAGS_BASIC_RTTI: u32 = 2u32;
+pub const MI_OPERATIONFLAGS_DEFAULT_RTTI: u32 = 0u32;
+pub const MI_OPERATIONFLAGS_EXPENSIVE_PROPERTIES: u32 = 64u32;
+pub const MI_OPERATIONFLAGS_FULL_RTTI: u32 = 4u32;
+pub const MI_OPERATIONFLAGS_LOCALIZED_QUALIFIERS: u32 = 8u32;
+pub const MI_OPERATIONFLAGS_MANUAL_ACK_RESULTS: u32 = 1u32;
+pub const MI_OPERATIONFLAGS_NO_RTTI: u32 = 1024u32;
+pub const MI_OPERATIONFLAGS_POLYMORPHISM_DEEP_BASE_PROPS_ONLY: u32 = 384u32;
+pub const MI_OPERATIONFLAGS_POLYMORPHISM_SHALLOW: u32 = 128u32;
+pub const MI_OPERATIONFLAGS_REPORT_OPERATION_STARTED: u32 = 512u32;
+pub const MI_OPERATIONFLAGS_STANDARD_RTTI: u32 = 2048u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ObjectDecl {
@@ -9649,6 +9549,21 @@ impl Default for MI_Operation {
 impl windows_core::TypeKind for MI_Operation {
     type TypeKind = windows_core::CopyType;
 }
+pub type MI_OperationCallback_Class = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, classresult: *const MI_Class, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize)>;
+pub type MI_OperationCallback_Indication = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, instance: *const MI_Instance, bookmark: *const u16, machineid: *const u16, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize)>;
+pub type MI_OperationCallback_Instance = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, instance: *const MI_Instance, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize)>;
+pub type MI_OperationCallback_PromptUser = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, message: *const u16, prompttype: MI_PromptType, promptuserresult: isize)>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MI_OperationCallback_ResponseType(pub i32);
+pub const MI_OperationCallback_ResponseType_No: MI_OperationCallback_ResponseType = MI_OperationCallback_ResponseType(0i32);
+pub const MI_OperationCallback_ResponseType_NoToAll: MI_OperationCallback_ResponseType = MI_OperationCallback_ResponseType(2i32);
+pub const MI_OperationCallback_ResponseType_Yes: MI_OperationCallback_ResponseType = MI_OperationCallback_ResponseType(1i32);
+pub const MI_OperationCallback_ResponseType_YesToAll: MI_OperationCallback_ResponseType = MI_OperationCallback_ResponseType(3i32);
+pub type MI_OperationCallback_StreamedParameter = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, parametername: *const u16, resulttype: MI_Type, result: *const MI_Value, resultacknowledgement: isize)>;
+pub type MI_OperationCallback_WriteError = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, instance: *const MI_Instance, writeerrorresult: isize)>;
+pub type MI_OperationCallback_WriteMessage = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, channel: u32, message: *const u16)>;
+pub type MI_OperationCallback_WriteProgress = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, activity: *const u16, currentoperation: *const u16, statusdescription: *const u16, percentagecomplete: u32, secondsremaining: u32)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_OperationCallbacks {
@@ -9728,6 +9643,10 @@ impl Default for MI_OperationOptionsFT {
 impl windows_core::TypeKind for MI_OperationOptionsFT {
     type TypeKind = windows_core::CopyType;
 }
+pub const MI_PROMPTTYPE_CRITICAL: MI_PromptType = MI_PromptType(1i32);
+pub const MI_PROMPTTYPE_NORMAL: MI_PromptType = MI_PromptType(0i32);
+pub const MI_PROVIDER_ARCHITECTURE_32BIT: MI_ProviderArchitecture = MI_ProviderArchitecture(0i32);
+pub const MI_PROVIDER_ARCHITECTURE_64BIT: MI_ProviderArchitecture = MI_ProviderArchitecture(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ParameterDecl {
@@ -9780,6 +9699,9 @@ impl Default for MI_ParameterSetFT {
 impl windows_core::TypeKind for MI_ParameterSetFT {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MI_PromptType(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_PropertyDecl {
@@ -9838,6 +9760,9 @@ impl Default for MI_PropertySetFT {
 impl windows_core::TypeKind for MI_PropertySetFT {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MI_ProviderArchitecture(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ProviderFT {
@@ -9864,6 +9789,20 @@ impl Default for MI_ProviderFT {
 impl windows_core::TypeKind for MI_ProviderFT {
     type TypeKind = windows_core::CopyType;
 }
+pub type MI_ProviderFT_AssociatorInstances = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance, resultclass: *const u16, role: *const u16, resultrole: *const u16, propertyset: *const MI_PropertySet, keysonly: u8, filter: *const MI_Filter)>;
+pub type MI_ProviderFT_CreateInstance = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, newinstance: *const MI_Instance)>;
+pub type MI_ProviderFT_DeleteInstance = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance)>;
+pub type MI_ProviderFT_DisableIndications = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, indicationscontext: *const MI_Context, namespace: *const u16, classname: *const u16)>;
+pub type MI_ProviderFT_EnableIndications = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, indicationscontext: *const MI_Context, namespace: *const u16, classname: *const u16)>;
+pub type MI_ProviderFT_EnumerateInstances = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, propertyset: *const MI_PropertySet, keysonly: u8, filter: *const MI_Filter)>;
+pub type MI_ProviderFT_GetInstance = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance, propertyset: *const MI_PropertySet)>;
+pub type MI_ProviderFT_Invoke = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, methodname: *const u16, instancename: *const MI_Instance, inputparameters: *const MI_Instance)>;
+pub type MI_ProviderFT_Load = Option<unsafe extern "system" fn(self_: *mut *mut core::ffi::c_void, selfmodule: *const MI_Module_Self, context: *const MI_Context)>;
+pub type MI_ProviderFT_ModifyInstance = Option<unsafe extern "system" fn(self_: *mut core::ffi::c_void, context: *mut MI_Context, namespace: *const u16, classname: *const u16, modifiedinstance: *const MI_Instance, propertyset: *const MI_PropertySet)>;
+pub type MI_ProviderFT_ReferenceInstances = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance, role: *const u16, propertyset: *const MI_PropertySet, keysonly: u8, filter: *const MI_Filter)>;
+pub type MI_ProviderFT_Subscribe = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, filter: *const MI_Filter, bookmark: *const u16, subscriptionid: u64, subscriptionself: *mut *mut core::ffi::c_void)>;
+pub type MI_ProviderFT_Unload = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context)>;
+pub type MI_ProviderFT_Unsubscribe = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, subscriptionid: u64, subscriptionself: *const core::ffi::c_void)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Qualifier {
@@ -9928,6 +9867,43 @@ impl Default for MI_QualifierSetFT {
 impl windows_core::TypeKind for MI_QualifierSetFT {
     type TypeKind = windows_core::CopyType;
 }
+pub const MI_REAL32: MI_Type = MI_Type(9i32);
+pub const MI_REAL32A: MI_Type = MI_Type(25i32);
+pub const MI_REAL64: MI_Type = MI_Type(10i32);
+pub const MI_REAL64A: MI_Type = MI_Type(26i32);
+pub const MI_REASON_NONE: MI_CancellationReason = MI_CancellationReason(0i32);
+pub const MI_REASON_SERVICESTOP: MI_CancellationReason = MI_CancellationReason(3i32);
+pub const MI_REASON_SHUTDOWN: MI_CancellationReason = MI_CancellationReason(2i32);
+pub const MI_REASON_TIMEOUT: MI_CancellationReason = MI_CancellationReason(1i32);
+pub const MI_REFERENCE: MI_Type = MI_Type(14i32);
+pub const MI_REFERENCEA: MI_Type = MI_Type(30i32);
+pub const MI_RESULT_ACCESS_DENIED: MI_Result = MI_Result(2i32);
+pub const MI_RESULT_ALREADY_EXISTS: MI_Result = MI_Result(11i32);
+pub const MI_RESULT_CLASS_HAS_CHILDREN: MI_Result = MI_Result(8i32);
+pub const MI_RESULT_CLASS_HAS_INSTANCES: MI_Result = MI_Result(9i32);
+pub const MI_RESULT_CONTINUATION_ON_ERROR_NOT_SUPPORTED: MI_Result = MI_Result(26i32);
+pub const MI_RESULT_FAILED: MI_Result = MI_Result(1i32);
+pub const MI_RESULT_FILTERED_ENUMERATION_NOT_SUPPORTED: MI_Result = MI_Result(25i32);
+pub const MI_RESULT_INVALID_CLASS: MI_Result = MI_Result(5i32);
+pub const MI_RESULT_INVALID_ENUMERATION_CONTEXT: MI_Result = MI_Result(21i32);
+pub const MI_RESULT_INVALID_NAMESPACE: MI_Result = MI_Result(3i32);
+pub const MI_RESULT_INVALID_OPERATION_TIMEOUT: MI_Result = MI_Result(22i32);
+pub const MI_RESULT_INVALID_PARAMETER: MI_Result = MI_Result(4i32);
+pub const MI_RESULT_INVALID_QUERY: MI_Result = MI_Result(15i32);
+pub const MI_RESULT_INVALID_SUPERCLASS: MI_Result = MI_Result(10i32);
+pub const MI_RESULT_METHOD_NOT_AVAILABLE: MI_Result = MI_Result(16i32);
+pub const MI_RESULT_METHOD_NOT_FOUND: MI_Result = MI_Result(17i32);
+pub const MI_RESULT_NAMESPACE_NOT_EMPTY: MI_Result = MI_Result(20i32);
+pub const MI_RESULT_NOT_FOUND: MI_Result = MI_Result(6i32);
+pub const MI_RESULT_NOT_SUPPORTED: MI_Result = MI_Result(7i32);
+pub const MI_RESULT_NO_SUCH_PROPERTY: MI_Result = MI_Result(12i32);
+pub const MI_RESULT_OK: MI_Result = MI_Result(0i32);
+pub const MI_RESULT_PULL_CANNOT_BE_ABANDONED: MI_Result = MI_Result(24i32);
+pub const MI_RESULT_PULL_HAS_BEEN_ABANDONED: MI_Result = MI_Result(23i32);
+pub const MI_RESULT_QUERY_LANGUAGE_NOT_SUPPORTED: MI_Result = MI_Result(14i32);
+pub const MI_RESULT_SERVER_IS_SHUTTING_DOWN: MI_Result = MI_Result(28i32);
+pub const MI_RESULT_SERVER_LIMITS_EXCEEDED: MI_Result = MI_Result(27i32);
+pub const MI_RESULT_TYPE_MISMATCH: MI_Result = MI_Result(13i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Real32A {
@@ -10060,6 +10036,23 @@ impl Default for MI_ReferenceField {
 impl windows_core::TypeKind for MI_ReferenceField {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MI_Result(pub i32);
+pub const MI_SERIALIZER_FLAGS_CLASS_DEEP: u32 = 1u32;
+pub const MI_SERIALIZER_FLAGS_INSTANCE_WITH_CLASS: u32 = 1u32;
+pub const MI_SINT16: MI_Type = MI_Type(4i32);
+pub const MI_SINT16A: MI_Type = MI_Type(20i32);
+pub const MI_SINT32: MI_Type = MI_Type(6i32);
+pub const MI_SINT32A: MI_Type = MI_Type(22i32);
+pub const MI_SINT64: MI_Type = MI_Type(8i32);
+pub const MI_SINT64A: MI_Type = MI_Type(24i32);
+pub const MI_SINT8: MI_Type = MI_Type(2i32);
+pub const MI_SINT8A: MI_Type = MI_Type(18i32);
+pub const MI_STRING: MI_Type = MI_Type(13i32);
+pub const MI_STRINGA: MI_Type = MI_Type(29i32);
+pub const MI_SUBSCRIBE_BOOKMARK_NEWEST: windows_core::PCWSTR = windows_core::w!("MI_SUBSCRIBE_BOOKMARK_NEWEST");
+pub const MI_SUBSCRIBE_BOOKMARK_OLDEST: windows_core::PCWSTR = windows_core::w!("MI_SUBSCRIBE_BOOKMARK_OLDEST");
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_SchemaDecl {
@@ -10457,6 +10450,11 @@ impl Default for MI_SubscriptionDeliveryOptionsFT {
 impl windows_core::TypeKind for MI_SubscriptionDeliveryOptionsFT {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MI_SubscriptionDeliveryType(pub i32);
+pub const MI_SubscriptionDeliveryType_Pull: MI_SubscriptionDeliveryType = MI_SubscriptionDeliveryType(1i32);
+pub const MI_SubscriptionDeliveryType_Push: MI_SubscriptionDeliveryType = MI_SubscriptionDeliveryType(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Timestamp {
@@ -10477,6 +10475,17 @@ impl Default for MI_Timestamp {
 impl windows_core::TypeKind for MI_Timestamp {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MI_Type(pub i32);
+pub const MI_UINT16: MI_Type = MI_Type(3i32);
+pub const MI_UINT16A: MI_Type = MI_Type(19i32);
+pub const MI_UINT32: MI_Type = MI_Type(5i32);
+pub const MI_UINT32A: MI_Type = MI_Type(21i32);
+pub const MI_UINT64: MI_Type = MI_Type(7i32);
+pub const MI_UINT64A: MI_Type = MI_Type(23i32);
+pub const MI_UINT8: MI_Type = MI_Type(1i32);
+pub const MI_UINT8A: MI_Type = MI_Type(17i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Uint16A {
@@ -10755,6 +10764,9 @@ impl Default for MI_Value {
 impl windows_core::TypeKind for MI_Value {
     type TypeKind = windows_core::CopyType;
 }
+pub const MI_WRITEMESSAGE_CHANNEL_DEBUG: u32 = 2u32;
+pub const MI_WRITEMESSAGE_CHANNEL_VERBOSE: u32 = 1u32;
+pub const MI_WRITEMESSAGE_CHANNEL_WARNING: u32 = 0u32;
 pub const MofCompiler: windows_core::GUID = windows_core::GUID::from_u128(0x6daf9757_2e37_11d2_aec9_00c04fb68820);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10947,238 +10959,6 @@ pub const SWbemServices: windows_core::GUID = windows_core::GUID::from_u128(0x04
 pub const SWbemServicesEx: windows_core::GUID = windows_core::GUID::from_u128(0x62e522dc_8cf3_40a8_8b2e_37d595651e40);
 pub const SWbemSink: windows_core::GUID = windows_core::GUID::from_u128(0x75718c9a_f029_11d1_a1ac_00c04fb6c223);
 pub const UnsecuredApartment: windows_core::GUID = windows_core::GUID::from_u128(0x49bd2028_1523_11d1_ad79_00c04fd8fdff);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WBEM_COMPILE_STATUS_INFO {
-    pub lPhaseError: i32,
-    pub hRes: windows_core::HRESULT,
-    pub ObjectNum: i32,
-    pub FirstLine: i32,
-    pub LastLine: i32,
-    pub dwOutFlags: u32,
-}
-impl Default for WBEM_COMPILE_STATUS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WBEM_COMPILE_STATUS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-pub const WMIExtension: windows_core::GUID = windows_core::GUID::from_u128(0xf0975afe_5c7f_11d2_8b74_00104b2afb41);
-pub const WbemAdministrativeLocator: windows_core::GUID = windows_core::GUID::from_u128(0xcb8555cc_9128_11d1_ad9b_00c04fd8fdff);
-pub const WbemAuthenticatedLocator: windows_core::GUID = windows_core::GUID::from_u128(0xcd184336_9128_11d1_ad9b_00c04fd8fdff);
-pub const WbemBackupRestore: windows_core::GUID = windows_core::GUID::from_u128(0xc49e32c6_bc8b_11d2_85d4_00105a1f8304);
-pub const WbemClassObject: windows_core::GUID = windows_core::GUID::from_u128(0x9a653086_174f_11d2_b5f9_00104b703efd);
-pub const WbemContext: windows_core::GUID = windows_core::GUID::from_u128(0x674b6698_ee92_11d0_ad71_00c04fd8fdff);
-pub const WbemDCOMTransport: windows_core::GUID = windows_core::GUID::from_u128(0xf7ce2e13_8c90_11d1_9e7b_00c04fc324a8);
-pub const WbemDecoupledBasicEventProvider: windows_core::GUID = windows_core::GUID::from_u128(0xf5f75737_2843_4f22_933d_c76a97cda62f);
-pub const WbemDecoupledRegistrar: windows_core::GUID = windows_core::GUID::from_u128(0x4cfc7932_0f9d_4bef_9c32_8ea2a6b56fcb);
-pub const WbemDefPath: windows_core::GUID = windows_core::GUID::from_u128(0xcf4cc405_e2c5_4ddd_b3ce_5e7582d8c9fa);
-pub const WbemLevel1Login: windows_core::GUID = windows_core::GUID::from_u128(0x8bc3f05e_d86b_11d0_a075_00c04fb68820);
-pub const WbemLocalAddrRes: windows_core::GUID = windows_core::GUID::from_u128(0xa1044801_8f7e_11d1_9e7c_00c04fc324a8);
-pub const WbemLocator: windows_core::GUID = windows_core::GUID::from_u128(0x4590f811_1d3a_11d0_891f_00aa004b2e24);
-pub const WbemObjectTextSrc: windows_core::GUID = windows_core::GUID::from_u128(0x8d1c559d_84f0_4bb3_a7d5_56a7435a9ba6);
-pub const WbemQuery: windows_core::GUID = windows_core::GUID::from_u128(0xeac8a024_21e2_4523_ad73_a71a0aa2f56a);
-pub const WbemRefresher: windows_core::GUID = windows_core::GUID::from_u128(0xc71566f2_561e_11d1_ad87_00c04fd8fdff);
-pub const WbemStatusCodeText: windows_core::GUID = windows_core::GUID::from_u128(0xeb87e1bd_3233_11d2_aec9_00c04fb68820);
-pub const WbemUnauthenticatedLocator: windows_core::GUID = windows_core::GUID::from_u128(0x443e7b79_de31_11d2_b340_00104bcc4b4a);
-pub const WbemUninitializedClassObject: windows_core::GUID = windows_core::GUID::from_u128(0x7a0227f6_7108_11d1_ad90_00c04fd8fdff);
-pub const CIM_BOOLEAN: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(11i32);
-pub const CIM_CHAR16: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(103i32);
-pub const CIM_DATETIME: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(101i32);
-pub const CIM_EMPTY: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(0i32);
-pub const CIM_FLAG_ARRAY: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(8192i32);
-pub const CIM_ILLEGAL: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(4095i32);
-pub const CIM_OBJECT: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(13i32);
-pub const CIM_REAL32: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(4i32);
-pub const CIM_REAL64: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(5i32);
-pub const CIM_REFERENCE: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(102i32);
-pub const CIM_SINT16: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(2i32);
-pub const CIM_SINT32: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(3i32);
-pub const CIM_SINT64: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(20i32);
-pub const CIM_SINT8: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(16i32);
-pub const CIM_STRING: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(8i32);
-pub const CIM_UINT16: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(18i32);
-pub const CIM_UINT32: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(19i32);
-pub const CIM_UINT64: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(21i32);
-pub const CIM_UINT8: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(17i32);
-pub const MI_ARRAY: MI_Type = MI_Type(16i32);
-pub const MI_BOOLEAN: MI_Type = MI_Type(0i32);
-pub const MI_BOOLEANA: MI_Type = MI_Type(16i32);
-pub const MI_CALLBACKMODE_IGNORE: MI_CallbackMode = MI_CallbackMode(2i32);
-pub const MI_CALLBACKMODE_INQUIRE: MI_CallbackMode = MI_CallbackMode(1i32);
-pub const MI_CALLBACKMODE_REPORT: MI_CallbackMode = MI_CallbackMode(0i32);
-pub const MI_CALL_VERSION: u32 = 1u32;
-pub const MI_CHAR16: MI_Type = MI_Type(11i32);
-pub const MI_CHAR16A: MI_Type = MI_Type(27i32);
-pub const MI_CHAR_TYPE: u32 = 2u32;
-pub const MI_DATETIME: MI_Type = MI_Type(12i32);
-pub const MI_DATETIMEA: MI_Type = MI_Type(28i32);
-pub const MI_DestinationOptions_ImpersonationType_Default: MI_DestinationOptions_ImpersonationType = MI_DestinationOptions_ImpersonationType(0i32);
-pub const MI_DestinationOptions_ImpersonationType_Delegate: MI_DestinationOptions_ImpersonationType = MI_DestinationOptions_ImpersonationType(4i32);
-pub const MI_DestinationOptions_ImpersonationType_Identify: MI_DestinationOptions_ImpersonationType = MI_DestinationOptions_ImpersonationType(2i32);
-pub const MI_DestinationOptions_ImpersonationType_Impersonate: MI_DestinationOptions_ImpersonationType = MI_DestinationOptions_ImpersonationType(3i32);
-pub const MI_DestinationOptions_ImpersonationType_None: MI_DestinationOptions_ImpersonationType = MI_DestinationOptions_ImpersonationType(1i32);
-pub const MI_ERRORCATEGORY_ACCESS_DENIED: MI_ErrorCategory = MI_ErrorCategory(18i32);
-pub const MI_ERRORCATEGORY_AUTHENTICATION_ERROR: MI_ErrorCategory = MI_ErrorCategory(28i32);
-pub const MI_ERRORCATEGORY_CLOS_EERROR: MI_ErrorCategory = MI_ErrorCategory(2i32);
-pub const MI_ERRORCATEGORY_CONNECTION_ERROR: MI_ErrorCategory = MI_ErrorCategory(27i32);
-pub const MI_ERRORCATEGORY_DEADLOCK_DETECTED: MI_ErrorCategory = MI_ErrorCategory(4i32);
-pub const MI_ERRORCATEGORY_DEVICE_ERROR: MI_ErrorCategory = MI_ErrorCategory(3i32);
-pub const MI_ERRORCATEGORY_FROM_STDERR: MI_ErrorCategory = MI_ErrorCategory(24i32);
-pub const MI_ERRORCATEGORY_INVALID_ARGUMENT: MI_ErrorCategory = MI_ErrorCategory(5i32);
-pub const MI_ERRORCATEGORY_INVALID_DATA: MI_ErrorCategory = MI_ErrorCategory(6i32);
-pub const MI_ERRORCATEGORY_INVALID_OPERATION: MI_ErrorCategory = MI_ErrorCategory(7i32);
-pub const MI_ERRORCATEGORY_INVALID_RESULT: MI_ErrorCategory = MI_ErrorCategory(8i32);
-pub const MI_ERRORCATEGORY_INVALID_TYPE: MI_ErrorCategory = MI_ErrorCategory(9i32);
-pub const MI_ERRORCATEGORY_LIMITS_EXCEEDED: MI_ErrorCategory = MI_ErrorCategory(29i32);
-pub const MI_ERRORCATEGORY_METADATA_ERROR: MI_ErrorCategory = MI_ErrorCategory(10i32);
-pub const MI_ERRORCATEGORY_NOT_ENABLED: MI_ErrorCategory = MI_ErrorCategory(31i32);
-pub const MI_ERRORCATEGORY_NOT_IMPLEMENTED: MI_ErrorCategory = MI_ErrorCategory(11i32);
-pub const MI_ERRORCATEGORY_NOT_INSTALLED: MI_ErrorCategory = MI_ErrorCategory(12i32);
-pub const MI_ERRORCATEGORY_NOT_SPECIFIED: MI_ErrorCategory = MI_ErrorCategory(0i32);
-pub const MI_ERRORCATEGORY_OBJECT_NOT_FOUND: MI_ErrorCategory = MI_ErrorCategory(13i32);
-pub const MI_ERRORCATEGORY_OPEN_ERROR: MI_ErrorCategory = MI_ErrorCategory(1i32);
-pub const MI_ERRORCATEGORY_OPERATION_STOPPED: MI_ErrorCategory = MI_ErrorCategory(14i32);
-pub const MI_ERRORCATEGORY_OPERATION_TIMEOUT: MI_ErrorCategory = MI_ErrorCategory(15i32);
-pub const MI_ERRORCATEGORY_PARSER_ERROR: MI_ErrorCategory = MI_ErrorCategory(17i32);
-pub const MI_ERRORCATEGORY_PROTOCOL_ERROR: MI_ErrorCategory = MI_ErrorCategory(26i32);
-pub const MI_ERRORCATEGORY_QUOTA_EXCEEDED: MI_ErrorCategory = MI_ErrorCategory(30i32);
-pub const MI_ERRORCATEGORY_READ_ERROR: MI_ErrorCategory = MI_ErrorCategory(22i32);
-pub const MI_ERRORCATEGORY_RESOURCE_BUSY: MI_ErrorCategory = MI_ErrorCategory(19i32);
-pub const MI_ERRORCATEGORY_RESOURCE_EXISTS: MI_ErrorCategory = MI_ErrorCategory(20i32);
-pub const MI_ERRORCATEGORY_RESOURCE_UNAVAILABLE: MI_ErrorCategory = MI_ErrorCategory(21i32);
-pub const MI_ERRORCATEGORY_SECURITY_ERROR: MI_ErrorCategory = MI_ErrorCategory(25i32);
-pub const MI_ERRORCATEGORY_SYNTAX_ERROR: MI_ErrorCategory = MI_ErrorCategory(16i32);
-pub const MI_ERRORCATEGORY_WRITE_ERROR: MI_ErrorCategory = MI_ErrorCategory(23i32);
-pub const MI_FLAG_ABSTRACT: u32 = 131072u32;
-pub const MI_FLAG_ADOPT: u32 = 2147483648u32;
-pub const MI_FLAG_ANY: u32 = 127u32;
-pub const MI_FLAG_ASSOCIATION: u32 = 16u32;
-pub const MI_FLAG_BORROW: u32 = 1073741824u32;
-pub const MI_FLAG_CLASS: u32 = 1u32;
-pub const MI_FLAG_DISABLEOVERRIDE: u32 = 256u32;
-pub const MI_FLAG_ENABLEOVERRIDE: u32 = 128u32;
-pub const MI_FLAG_EXPENSIVE: u32 = 524288u32;
-pub const MI_FLAG_EXTENDED: u32 = 4096u32;
-pub const MI_FLAG_IN: u32 = 8192u32;
-pub const MI_FLAG_INDICATION: u32 = 32u32;
-pub const MI_FLAG_KEY: u32 = 4096u32;
-pub const MI_FLAG_METHOD: u32 = 2u32;
-pub const MI_FLAG_NOT_MODIFIED: u32 = 33554432u32;
-pub const MI_FLAG_NULL: u32 = 536870912u32;
-pub const MI_FLAG_OUT: u32 = 16384u32;
-pub const MI_FLAG_PARAMETER: u32 = 8u32;
-pub const MI_FLAG_PROPERTY: u32 = 4u32;
-pub const MI_FLAG_READONLY: u32 = 2097152u32;
-pub const MI_FLAG_REFERENCE: u32 = 64u32;
-pub const MI_FLAG_REQUIRED: u32 = 32768u32;
-pub const MI_FLAG_RESTRICTED: u32 = 512u32;
-pub const MI_FLAG_STATIC: u32 = 65536u32;
-pub const MI_FLAG_STREAM: u32 = 1048576u32;
-pub const MI_FLAG_TERMINAL: u32 = 262144u32;
-pub const MI_FLAG_TOSUBCLASS: u32 = 1024u32;
-pub const MI_FLAG_TRANSLATABLE: u32 = 2048u32;
-pub const MI_FLAG_VERSION: u32 = 469762048u32;
-pub const MI_INSTANCE: MI_Type = MI_Type(15i32);
-pub const MI_INSTANCEA: MI_Type = MI_Type(31i32);
-pub const MI_LOCALE_TYPE_CLOSEST_DATA: MI_LocaleType = MI_LocaleType(3i32);
-pub const MI_LOCALE_TYPE_CLOSEST_UI: MI_LocaleType = MI_LocaleType(2i32);
-pub const MI_LOCALE_TYPE_REQUESTED_DATA: MI_LocaleType = MI_LocaleType(1i32);
-pub const MI_LOCALE_TYPE_REQUESTED_UI: MI_LocaleType = MI_LocaleType(0i32);
-pub const MI_MAX_LOCALE_SIZE: u32 = 128u32;
-pub const MI_MODULE_FLAG_BOOLEANS: u32 = 16u32;
-pub const MI_MODULE_FLAG_CPLUSPLUS: u32 = 32u32;
-pub const MI_MODULE_FLAG_DESCRIPTIONS: u32 = 2u32;
-pub const MI_MODULE_FLAG_FILTER_SUPPORT: u32 = 128u32;
-pub const MI_MODULE_FLAG_LOCALIZED: u32 = 64u32;
-pub const MI_MODULE_FLAG_MAPPING_STRINGS: u32 = 8u32;
-pub const MI_MODULE_FLAG_STANDARD_QUALIFIERS: u32 = 1u32;
-pub const MI_MODULE_FLAG_VALUES: u32 = 4u32;
-pub const MI_OPERATIONFLAGS_BASIC_RTTI: u32 = 2u32;
-pub const MI_OPERATIONFLAGS_DEFAULT_RTTI: u32 = 0u32;
-pub const MI_OPERATIONFLAGS_EXPENSIVE_PROPERTIES: u32 = 64u32;
-pub const MI_OPERATIONFLAGS_FULL_RTTI: u32 = 4u32;
-pub const MI_OPERATIONFLAGS_LOCALIZED_QUALIFIERS: u32 = 8u32;
-pub const MI_OPERATIONFLAGS_MANUAL_ACK_RESULTS: u32 = 1u32;
-pub const MI_OPERATIONFLAGS_NO_RTTI: u32 = 1024u32;
-pub const MI_OPERATIONFLAGS_POLYMORPHISM_DEEP_BASE_PROPS_ONLY: u32 = 384u32;
-pub const MI_OPERATIONFLAGS_POLYMORPHISM_SHALLOW: u32 = 128u32;
-pub const MI_OPERATIONFLAGS_REPORT_OPERATION_STARTED: u32 = 512u32;
-pub const MI_OPERATIONFLAGS_STANDARD_RTTI: u32 = 2048u32;
-pub const MI_OperationCallback_ResponseType_No: MI_OperationCallback_ResponseType = MI_OperationCallback_ResponseType(0i32);
-pub const MI_OperationCallback_ResponseType_NoToAll: MI_OperationCallback_ResponseType = MI_OperationCallback_ResponseType(2i32);
-pub const MI_OperationCallback_ResponseType_Yes: MI_OperationCallback_ResponseType = MI_OperationCallback_ResponseType(1i32);
-pub const MI_OperationCallback_ResponseType_YesToAll: MI_OperationCallback_ResponseType = MI_OperationCallback_ResponseType(3i32);
-pub const MI_PROMPTTYPE_CRITICAL: MI_PromptType = MI_PromptType(1i32);
-pub const MI_PROMPTTYPE_NORMAL: MI_PromptType = MI_PromptType(0i32);
-pub const MI_PROVIDER_ARCHITECTURE_32BIT: MI_ProviderArchitecture = MI_ProviderArchitecture(0i32);
-pub const MI_PROVIDER_ARCHITECTURE_64BIT: MI_ProviderArchitecture = MI_ProviderArchitecture(1i32);
-pub const MI_REAL32: MI_Type = MI_Type(9i32);
-pub const MI_REAL32A: MI_Type = MI_Type(25i32);
-pub const MI_REAL64: MI_Type = MI_Type(10i32);
-pub const MI_REAL64A: MI_Type = MI_Type(26i32);
-pub const MI_REASON_NONE: MI_CancellationReason = MI_CancellationReason(0i32);
-pub const MI_REASON_SERVICESTOP: MI_CancellationReason = MI_CancellationReason(3i32);
-pub const MI_REASON_SHUTDOWN: MI_CancellationReason = MI_CancellationReason(2i32);
-pub const MI_REASON_TIMEOUT: MI_CancellationReason = MI_CancellationReason(1i32);
-pub const MI_REFERENCE: MI_Type = MI_Type(14i32);
-pub const MI_REFERENCEA: MI_Type = MI_Type(30i32);
-pub const MI_RESULT_ACCESS_DENIED: MI_Result = MI_Result(2i32);
-pub const MI_RESULT_ALREADY_EXISTS: MI_Result = MI_Result(11i32);
-pub const MI_RESULT_CLASS_HAS_CHILDREN: MI_Result = MI_Result(8i32);
-pub const MI_RESULT_CLASS_HAS_INSTANCES: MI_Result = MI_Result(9i32);
-pub const MI_RESULT_CONTINUATION_ON_ERROR_NOT_SUPPORTED: MI_Result = MI_Result(26i32);
-pub const MI_RESULT_FAILED: MI_Result = MI_Result(1i32);
-pub const MI_RESULT_FILTERED_ENUMERATION_NOT_SUPPORTED: MI_Result = MI_Result(25i32);
-pub const MI_RESULT_INVALID_CLASS: MI_Result = MI_Result(5i32);
-pub const MI_RESULT_INVALID_ENUMERATION_CONTEXT: MI_Result = MI_Result(21i32);
-pub const MI_RESULT_INVALID_NAMESPACE: MI_Result = MI_Result(3i32);
-pub const MI_RESULT_INVALID_OPERATION_TIMEOUT: MI_Result = MI_Result(22i32);
-pub const MI_RESULT_INVALID_PARAMETER: MI_Result = MI_Result(4i32);
-pub const MI_RESULT_INVALID_QUERY: MI_Result = MI_Result(15i32);
-pub const MI_RESULT_INVALID_SUPERCLASS: MI_Result = MI_Result(10i32);
-pub const MI_RESULT_METHOD_NOT_AVAILABLE: MI_Result = MI_Result(16i32);
-pub const MI_RESULT_METHOD_NOT_FOUND: MI_Result = MI_Result(17i32);
-pub const MI_RESULT_NAMESPACE_NOT_EMPTY: MI_Result = MI_Result(20i32);
-pub const MI_RESULT_NOT_FOUND: MI_Result = MI_Result(6i32);
-pub const MI_RESULT_NOT_SUPPORTED: MI_Result = MI_Result(7i32);
-pub const MI_RESULT_NO_SUCH_PROPERTY: MI_Result = MI_Result(12i32);
-pub const MI_RESULT_OK: MI_Result = MI_Result(0i32);
-pub const MI_RESULT_PULL_CANNOT_BE_ABANDONED: MI_Result = MI_Result(24i32);
-pub const MI_RESULT_PULL_HAS_BEEN_ABANDONED: MI_Result = MI_Result(23i32);
-pub const MI_RESULT_QUERY_LANGUAGE_NOT_SUPPORTED: MI_Result = MI_Result(14i32);
-pub const MI_RESULT_SERVER_IS_SHUTTING_DOWN: MI_Result = MI_Result(28i32);
-pub const MI_RESULT_SERVER_LIMITS_EXCEEDED: MI_Result = MI_Result(27i32);
-pub const MI_RESULT_TYPE_MISMATCH: MI_Result = MI_Result(13i32);
-pub const MI_SERIALIZER_FLAGS_CLASS_DEEP: u32 = 1u32;
-pub const MI_SERIALIZER_FLAGS_INSTANCE_WITH_CLASS: u32 = 1u32;
-pub const MI_SINT16: MI_Type = MI_Type(4i32);
-pub const MI_SINT16A: MI_Type = MI_Type(20i32);
-pub const MI_SINT32: MI_Type = MI_Type(6i32);
-pub const MI_SINT32A: MI_Type = MI_Type(22i32);
-pub const MI_SINT64: MI_Type = MI_Type(8i32);
-pub const MI_SINT64A: MI_Type = MI_Type(24i32);
-pub const MI_SINT8: MI_Type = MI_Type(2i32);
-pub const MI_SINT8A: MI_Type = MI_Type(18i32);
-pub const MI_STRING: MI_Type = MI_Type(13i32);
-pub const MI_STRINGA: MI_Type = MI_Type(29i32);
-pub const MI_SUBSCRIBE_BOOKMARK_NEWEST: windows_core::PCWSTR = windows_core::w!("MI_SUBSCRIBE_BOOKMARK_NEWEST");
-pub const MI_SUBSCRIBE_BOOKMARK_OLDEST: windows_core::PCWSTR = windows_core::w!("MI_SUBSCRIBE_BOOKMARK_OLDEST");
-pub const MI_SubscriptionDeliveryType_Pull: MI_SubscriptionDeliveryType = MI_SubscriptionDeliveryType(1i32);
-pub const MI_SubscriptionDeliveryType_Push: MI_SubscriptionDeliveryType = MI_SubscriptionDeliveryType(2i32);
-pub const MI_UINT16: MI_Type = MI_Type(3i32);
-pub const MI_UINT16A: MI_Type = MI_Type(19i32);
-pub const MI_UINT32: MI_Type = MI_Type(5i32);
-pub const MI_UINT32A: MI_Type = MI_Type(21i32);
-pub const MI_UINT64: MI_Type = MI_Type(7i32);
-pub const MI_UINT64A: MI_Type = MI_Type(23i32);
-pub const MI_UINT8: MI_Type = MI_Type(1i32);
-pub const MI_UINT8A: MI_Type = MI_Type(17i32);
-pub const MI_WRITEMESSAGE_CHANNEL_DEBUG: u32 = 2u32;
-pub const MI_WRITEMESSAGE_CHANNEL_VERBOSE: u32 = 1u32;
-pub const MI_WRITEMESSAGE_CHANNEL_WARNING: u32 = 0u32;
 pub const WBEMESS_E_AUTHZ_NOT_PRIVILEGED: WBEMSTATUS = WBEMSTATUS(-2147213309i32);
 pub const WBEMESS_E_REGISTRATION_TOO_BROAD: WBEMSTATUS = WBEMSTATUS(-2147213311i32);
 pub const WBEMESS_E_REGISTRATION_TOO_PRECISE: WBEMSTATUS = WBEMSTATUS(-2147213310i32);
@@ -11261,6 +11041,12 @@ pub const WBEMPATH_INFO_WMI_PATH: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(
 pub const WBEMPATH_QUOTEDTEXT: WBEM_GET_KEY_FLAGS = WBEM_GET_KEY_FLAGS(2i32);
 pub const WBEMPATH_TEXT: WBEM_GET_KEY_FLAGS = WBEM_GET_KEY_FLAGS(1i32);
 pub const WBEMPATH_TREAT_SINGLE_IDENT_AS_NS: WBEM_PATH_CREATE_FLAG = WBEM_PATH_CREATE_FLAG(8i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEMSTATUS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEMSTATUS_FORMAT(pub i32);
 pub const WBEMSTATUS_FORMAT_NEWLINE: WBEMSTATUS_FORMAT = WBEMSTATUS_FORMAT(0i32);
 pub const WBEMSTATUS_FORMAT_NO_NEWLINE: WBEMSTATUS_FORMAT = WBEMSTATUS_FORMAT(1i32);
 pub const WBEMS_DISPID_COMPLETED: u32 = 2u32;
@@ -11270,8 +11056,50 @@ pub const WBEMS_DISPID_OBJECT_PUT: u32 = 4u32;
 pub const WBEMS_DISPID_OBJECT_READY: u32 = 1u32;
 pub const WBEMS_DISPID_PROGRESS: u32 = 3u32;
 pub const WBEM_AUTHENTICATION_METHOD_MASK: WBEM_LOGIN_TYPE = WBEM_LOGIN_TYPE(15i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_BACKUP_RESTORE_FLAGS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_BATCH_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_CHANGE_FLAG_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_COMPARISON_FLAG(pub i32);
 pub const WBEM_COMPARISON_INCLUDE_ALL: WBEM_COMPARISON_FLAG = WBEM_COMPARISON_FLAG(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_COMPILER_OPTIONS(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WBEM_COMPILE_STATUS_INFO {
+    pub lPhaseError: i32,
+    pub hRes: windows_core::HRESULT,
+    pub ObjectNum: i32,
+    pub FirstLine: i32,
+    pub LastLine: i32,
+    pub dwOutFlags: u32,
+}
+impl Default for WBEM_COMPILE_STATUS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WBEM_COMPILE_STATUS_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_CONDITION_FLAG_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_CONNECT_OPTIONS(pub i32);
 pub const WBEM_ENABLE: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_EXTRA_RETURN_CODES(pub i32);
 pub const WBEM_E_ACCESS_DENIED: WBEMSTATUS = WBEMSTATUS(-2147217405i32);
 pub const WBEM_E_AGGREGATING_BY_OBJECT: WBEMSTATUS = WBEMSTATUS(-2147217315i32);
 pub const WBEM_E_ALREADY_EXISTS: WBEMSTATUS = WBEMSTATUS(-2147217383i32);
@@ -11486,10 +11314,73 @@ pub const WBEM_FLAVOR_ORIGIN_LOCAL: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(0i32);
 pub const WBEM_FLAVOR_ORIGIN_PROPAGATED: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(32i32);
 pub const WBEM_FLAVOR_ORIGIN_SYSTEM: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(64i32);
 pub const WBEM_FLAVOR_OVERRIDABLE: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_FLAVOR_TYPE(pub i32);
 pub const WBEM_FULL_WRITE_REP: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_GENERIC_FLAG_TYPE(pub i32);
+impl WBEM_GENERIC_FLAG_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for WBEM_GENERIC_FLAG_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for WBEM_GENERIC_FLAG_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for WBEM_GENERIC_FLAG_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for WBEM_GENERIC_FLAG_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for WBEM_GENERIC_FLAG_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const WBEM_GENUS_CLASS: WBEM_GENUS_TYPE = WBEM_GENUS_TYPE(1i32);
 pub const WBEM_GENUS_INSTANCE: WBEM_GENUS_TYPE = WBEM_GENUS_TYPE(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_GENUS_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_GET_KEY_FLAGS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_GET_TEXT_FLAGS(pub i32);
 pub const WBEM_INFINITE: i32 = -1i32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_INFORMATION_FLAG_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_LIMITATION_FLAG_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_LIMITS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_LOCKING_FLAG_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_LOGIN_TYPE(pub i32);
 pub const WBEM_MASK_CLASS_CONDITION: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(768i32);
 pub const WBEM_MASK_CONDITION_ORIGIN: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(112i32);
 pub const WBEM_MASK_PRIMARY_CONDITION: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(3i32);
@@ -11504,6 +11395,24 @@ pub const WBEM_METHOD_EXECUTE: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(2i32);
 pub const WBEM_NO_ERROR: WBEMSTATUS = WBEMSTATUS(0i32);
 pub const WBEM_NO_WAIT: i32 = 0i32;
 pub const WBEM_PARTIAL_WRITE_REP: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(8i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_PATH_CREATE_FLAG(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_PATH_STATUS_FLAG(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_PROVIDER_FLAGS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_PROVIDER_REQUIREMENTS_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_QUERY_FLAG_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_REFRESHER_FLAGS(pub i32);
 pub const WBEM_REMOTE_ACCESS: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(32i32);
 pub const WBEM_REQUIREMENTS_RECHECK_SUBSCRIPTIONS: WBEM_PROVIDER_REQUIREMENTS_TYPE = WBEM_PROVIDER_REQUIREMENTS_TYPE(2i32);
 pub const WBEM_REQUIREMENTS_START_POSTFILTER: WBEM_PROVIDER_REQUIREMENTS_TYPE = WBEM_PROVIDER_REQUIREMENTS_TYPE(0i32);
@@ -11512,6 +11421,12 @@ pub const WBEM_RETURN_IMMEDIATELY: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TY
 pub const WBEM_RETURN_WHEN_COMPLETE: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(0i32);
 pub const WBEM_RIGHT_PUBLISH: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(128i32);
 pub const WBEM_RIGHT_SUBSCRIBE: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(64i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_SECURITY_FLAGS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_SHUTDOWN_FLAGS(pub i32);
 pub const WBEM_SHUTDOWN_OS: WBEM_SHUTDOWN_FLAGS = WBEM_SHUTDOWN_FLAGS(3i32);
 pub const WBEM_SHUTDOWN_UNLOAD_COMPONENT: WBEM_SHUTDOWN_FLAGS = WBEM_SHUTDOWN_FLAGS(1i32);
 pub const WBEM_SHUTDOWN_WMI: WBEM_SHUTDOWN_FLAGS = WBEM_SHUTDOWN_FLAGS(2i32);
@@ -11523,6 +11438,9 @@ pub const WBEM_STATUS_LOGGING_INFORMATION_PROVIDER: WBEM_STATUS_TYPE = WBEM_STAT
 pub const WBEM_STATUS_LOGGING_INFORMATION_REPOSITORY: WBEM_STATUS_TYPE = WBEM_STATUS_TYPE(2048i32);
 pub const WBEM_STATUS_PROGRESS: WBEM_STATUS_TYPE = WBEM_STATUS_TYPE(2i32);
 pub const WBEM_STATUS_REQUIREMENTS: WBEM_STATUS_TYPE = WBEM_STATUS_TYPE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_STATUS_TYPE(pub i32);
 pub const WBEM_S_ACCESS_DENIED: WBEMSTATUS = WBEMSTATUS(262153i32);
 pub const WBEM_S_ALREADY_EXISTS: WBEMSTATUS = WBEMSTATUS(262145i32);
 pub const WBEM_S_DIFFERENT: WBEMSTATUS = WBEMSTATUS(262147i32);
@@ -11541,16 +11459,29 @@ pub const WBEM_S_SAME: WBEMSTATUS = WBEMSTATUS(0i32);
 pub const WBEM_S_SOURCE_NOT_AVAILABLE: WBEMSTATUS = WBEMSTATUS(262167i32);
 pub const WBEM_S_SUBJECT_TO_SDS: WBEM_EXTRA_RETURN_CODES = WBEM_EXTRA_RETURN_CODES(274435i32);
 pub const WBEM_S_TIMEDOUT: WBEMSTATUS = WBEMSTATUS(262148i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_TEXT_FLAG_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WBEM_UNSECAPP_FLAG_TYPE(pub i32);
 pub const WBEM_WRITE_PROVIDER: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(16i32);
+pub const WMIExtension: windows_core::GUID = windows_core::GUID::from_u128(0xf0975afe_5c7f_11d2_8b74_00104b2afb41);
 pub const WMIQ_ANALYSIS_ASSOC_QUERY: WMIQ_ANALYSIS_TYPE = WMIQ_ANALYSIS_TYPE(2i32);
 pub const WMIQ_ANALYSIS_PROP_ANALYSIS_MATRIX: WMIQ_ANALYSIS_TYPE = WMIQ_ANALYSIS_TYPE(3i32);
 pub const WMIQ_ANALYSIS_QUERY_TEXT: WMIQ_ANALYSIS_TYPE = WMIQ_ANALYSIS_TYPE(4i32);
 pub const WMIQ_ANALYSIS_RESERVED: WMIQ_ANALYSIS_TYPE = WMIQ_ANALYSIS_TYPE(134217728i32);
 pub const WMIQ_ANALYSIS_RPN_SEQUENCE: WMIQ_ANALYSIS_TYPE = WMIQ_ANALYSIS_TYPE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WMIQ_ANALYSIS_TYPE(pub i32);
 pub const WMIQ_ASSOCQ_ASSOCCLASS: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(8i32);
 pub const WMIQ_ASSOCQ_ASSOCIATORS: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(1i32);
 pub const WMIQ_ASSOCQ_CLASSDEFSONLY: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(256i32);
 pub const WMIQ_ASSOCQ_CLASSREFSONLY: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(2048i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WMIQ_ASSOCQ_FLAGS(pub i32);
 pub const WMIQ_ASSOCQ_KEYSONLY: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(512i32);
 pub const WMIQ_ASSOCQ_REFERENCES: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(2i32);
 pub const WMIQ_ASSOCQ_REQUIREDASSOCQUALIFIER: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(128i32);
@@ -11559,6 +11490,9 @@ pub const WMIQ_ASSOCQ_RESULTCLASS: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(4i32);
 pub const WMIQ_ASSOCQ_RESULTROLE: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(32i32);
 pub const WMIQ_ASSOCQ_ROLE: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(16i32);
 pub const WMIQ_ASSOCQ_SCHEMAONLY: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(1024i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WMIQ_LANGUAGE_FEATURES(pub i32);
 pub const WMIQ_LF10_COMPEX_SUBEXPRESSIONS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(10i32);
 pub const WMIQ_LF11_ALIASING: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(11i32);
 pub const WMIQ_LF12_GROUP_BY_HAVING: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(12i32);
@@ -11603,6 +11537,9 @@ pub const WMIQ_LF_LAST: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(40i32);
 pub const WMIQ_RPNF_ARRAY_ACCESS_USED: WMIQ_RPNF_FEATURE = WMIQ_RPNF_FEATURE(8192i32);
 pub const WMIQ_RPNF_COUNT_STAR: WMIQ_RPNF_FEATURE = WMIQ_RPNF_FEATURE(64i32);
 pub const WMIQ_RPNF_EQUALITY_TESTS_ONLY: WMIQ_RPNF_FEATURE = WMIQ_RPNF_FEATURE(32i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WMIQ_RPNF_FEATURE(pub i32);
 pub const WMIQ_RPNF_FEATURE_SELECT_STAR: WMIQ_RPNF_FEATURE = WMIQ_RPNF_FEATURE(16i32);
 pub const WMIQ_RPNF_GROUP_BY_HAVING: WMIQ_RPNF_FEATURE = WMIQ_RPNF_FEATURE(4096i32);
 pub const WMIQ_RPNF_ISA_USED: WMIQ_RPNF_FEATURE = WMIQ_RPNF_FEATURE(2048i32);
@@ -11645,8 +11582,14 @@ pub const WMIQ_RPN_RIGHT_FUNCTION: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(6
 pub const WMIQ_RPN_RIGHT_PROPERTY_NAME: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(2i32);
 pub const WMIQ_RPN_TOKEN_AND: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(2i32);
 pub const WMIQ_RPN_TOKEN_EXPRESSION: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WMIQ_RPN_TOKEN_FLAGS(pub i32);
 pub const WMIQ_RPN_TOKEN_NOT: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(4i32);
 pub const WMIQ_RPN_TOKEN_OR: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WMI_OBJ_TEXT(pub i32);
 pub const WMI_OBJ_TEXT_CIM_DTD_2_0: WMI_OBJ_TEXT = WMI_OBJ_TEXT(1i32);
 pub const WMI_OBJ_TEXT_LAST: WMI_OBJ_TEXT = WMI_OBJ_TEXT(13i32);
 pub const WMI_OBJ_TEXT_WMI_DTD_2_0: WMI_OBJ_TEXT = WMI_OBJ_TEXT(2i32);
@@ -11660,6 +11603,63 @@ pub const WMI_OBJ_TEXT_WMI_EXT6: WMI_OBJ_TEXT = WMI_OBJ_TEXT(8i32);
 pub const WMI_OBJ_TEXT_WMI_EXT7: WMI_OBJ_TEXT = WMI_OBJ_TEXT(9i32);
 pub const WMI_OBJ_TEXT_WMI_EXT8: WMI_OBJ_TEXT = WMI_OBJ_TEXT(10i32);
 pub const WMI_OBJ_TEXT_WMI_EXT9: WMI_OBJ_TEXT = WMI_OBJ_TEXT(11i32);
+pub const WbemAdministrativeLocator: windows_core::GUID = windows_core::GUID::from_u128(0xcb8555cc_9128_11d1_ad9b_00c04fd8fdff);
+pub const WbemAuthenticatedLocator: windows_core::GUID = windows_core::GUID::from_u128(0xcd184336_9128_11d1_ad9b_00c04fd8fdff);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WbemAuthenticationLevelEnum(pub i32);
+pub const WbemBackupRestore: windows_core::GUID = windows_core::GUID::from_u128(0xc49e32c6_bc8b_11d2_85d4_00105a1f8304);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WbemChangeFlagEnum(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WbemCimtypeEnum(pub i32);
+pub const WbemClassObject: windows_core::GUID = windows_core::GUID::from_u128(0x9a653086_174f_11d2_b5f9_00104b703efd);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WbemComparisonFlagEnum(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WbemConnectOptionsEnum(pub i32);
+pub const WbemContext: windows_core::GUID = windows_core::GUID::from_u128(0x674b6698_ee92_11d0_ad71_00c04fd8fdff);
+pub const WbemDCOMTransport: windows_core::GUID = windows_core::GUID::from_u128(0xf7ce2e13_8c90_11d1_9e7b_00c04fc324a8);
+pub const WbemDecoupledBasicEventProvider: windows_core::GUID = windows_core::GUID::from_u128(0xf5f75737_2843_4f22_933d_c76a97cda62f);
+pub const WbemDecoupledRegistrar: windows_core::GUID = windows_core::GUID::from_u128(0x4cfc7932_0f9d_4bef_9c32_8ea2a6b56fcb);
+pub const WbemDefPath: windows_core::GUID = windows_core::GUID::from_u128(0xcf4cc405_e2c5_4ddd_b3ce_5e7582d8c9fa);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WbemErrorEnum(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WbemFlagEnum(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WbemImpersonationLevelEnum(pub i32);
+pub const WbemLevel1Login: windows_core::GUID = windows_core::GUID::from_u128(0x8bc3f05e_d86b_11d0_a075_00c04fb68820);
+pub const WbemLocalAddrRes: windows_core::GUID = windows_core::GUID::from_u128(0xa1044801_8f7e_11d1_9e7c_00c04fc324a8);
+pub const WbemLocator: windows_core::GUID = windows_core::GUID::from_u128(0x4590f811_1d3a_11d0_891f_00aa004b2e24);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WbemObjectTextFormatEnum(pub i32);
+pub const WbemObjectTextSrc: windows_core::GUID = windows_core::GUID::from_u128(0x8d1c559d_84f0_4bb3_a7d5_56a7435a9ba6);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WbemPrivilegeEnum(pub i32);
+pub const WbemQuery: windows_core::GUID = windows_core::GUID::from_u128(0xeac8a024_21e2_4523_ad73_a71a0aa2f56a);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WbemQueryFlagEnum(pub i32);
+pub const WbemRefresher: windows_core::GUID = windows_core::GUID::from_u128(0xc71566f2_561e_11d1_ad87_00c04fd8fdff);
+pub const WbemStatusCodeText: windows_core::GUID = windows_core::GUID::from_u128(0xeb87e1bd_3233_11d2_aec9_00c04fb68820);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WbemTextFlagEnum(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WbemTimeout(pub i32);
+pub const WbemUnauthenticatedLocator: windows_core::GUID = windows_core::GUID::from_u128(0x443e7b79_de31_11d2_b340_00104bcc4b4a);
+pub const WbemUninitializedClassObject: windows_core::GUID = windows_core::GUID::from_u128(0x7a0227f6_7108_11d1_ad90_00c04fd8fdff);
 pub const wbemAuthenticationLevelCall: WbemAuthenticationLevelEnum = WbemAuthenticationLevelEnum(3i32);
 pub const wbemAuthenticationLevelConnect: WbemAuthenticationLevelEnum = WbemAuthenticationLevelEnum(2i32);
 pub const wbemAuthenticationLevelDefault: WbemAuthenticationLevelEnum = WbemAuthenticationLevelEnum(0i32);

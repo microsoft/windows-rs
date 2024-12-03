@@ -287,6 +287,20 @@ impl windows_core::RuntimeName for ClipboardHistoryItemsResult {
 unsafe impl Send for ClipboardHistoryItemsResult {}
 unsafe impl Sync for ClipboardHistoryItemsResult {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ClipboardHistoryItemsResultStatus(pub i32);
+impl ClipboardHistoryItemsResultStatus {
+    pub const Success: Self = Self(0i32);
+    pub const AccessDenied: Self = Self(1i32);
+    pub const ClipboardHistoryDisabled: Self = Self(2i32);
+}
+impl windows_core::TypeKind for ClipboardHistoryItemsResultStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ClipboardHistoryItemsResultStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResultStatus;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DataPackage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataPackage, windows_core::IUnknown, windows_core::IInspectable);
@@ -472,6 +486,54 @@ impl windows_core::RuntimeName for DataPackage {
 }
 unsafe impl Send for DataPackage {}
 unsafe impl Sync for DataPackage {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DataPackageOperation(pub u32);
+impl DataPackageOperation {
+    pub const None: Self = Self(0u32);
+    pub const Copy: Self = Self(1u32);
+    pub const Move: Self = Self(2u32);
+    pub const Link: Self = Self(4u32);
+}
+impl windows_core::TypeKind for DataPackageOperation {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DataPackageOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DataPackageOperation;u4)");
+}
+impl DataPackageOperation {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DataPackageOperation {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DataPackageOperation {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DataPackageOperation {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DataPackageOperation {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DataPackageOperation {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1091,6 +1153,66 @@ impl windows_core::RuntimeName for DataProviderDeferral {
 }
 unsafe impl Send for DataProviderDeferral {}
 unsafe impl Sync for DataProviderDeferral {}
+windows_core::imp::define_interface!(DataProviderHandler, DataProviderHandler_Vtbl, 0xe7ecd720_f2f4_4a2d_920e_170a2f482a27);
+impl windows_core::RuntimeType for DataProviderHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl DataProviderHandler {
+    pub fn new<F: FnMut(Option<&DataProviderRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = DataProviderHandlerBox { vtable: &DataProviderHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
+    pub fn Invoke<P0>(&self, request: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<DataProviderRequest>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), request.param().abi()).ok() }
+    }
+}
+#[repr(C)]
+pub struct DataProviderHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, request: *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[repr(C)]
+struct DataProviderHandlerBox<F: FnMut(Option<&DataProviderRequest>) -> windows_core::Result<()> + Send + 'static> {
+    vtable: *const DataProviderHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+impl<F: FnMut(Option<&DataProviderRequest>) -> windows_core::Result<()> + Send + 'static> DataProviderHandlerBox<F> {
+    const VTABLE: DataProviderHandler_Vtbl = DataProviderHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <DataProviderHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+        if (*interface).is_null() {
+            windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, request: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&request)).into()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DataProviderRequest(windows_core::IUnknown);
@@ -1347,418 +1469,6 @@ impl HtmlFormatHelper {
 impl windows_core::RuntimeName for HtmlFormatHelper {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.HtmlFormatHelper";
 }
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct OperationCompletedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(OperationCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl OperationCompletedEventArgs {
-    pub fn Operation(&self) -> windows_core::Result<DataPackageOperation> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Operation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn AcceptedFormatId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IOperationCompletedEventArgs2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AcceptedFormatId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for OperationCompletedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOperationCompletedEventArgs>();
-}
-unsafe impl windows_core::Interface for OperationCompletedEventArgs {
-    type Vtable = <IOperationCompletedEventArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IOperationCompletedEventArgs as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for OperationCompletedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.OperationCompletedEventArgs";
-}
-unsafe impl Send for OperationCompletedEventArgs {}
-unsafe impl Sync for OperationCompletedEventArgs {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct ShareCompletedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ShareCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl ShareCompletedEventArgs {
-    pub fn ShareTarget(&self) -> windows_core::Result<ShareTargetInfo> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShareTarget)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for ShareCompletedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShareCompletedEventArgs>();
-}
-unsafe impl windows_core::Interface for ShareCompletedEventArgs {
-    type Vtable = <IShareCompletedEventArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IShareCompletedEventArgs as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for ShareCompletedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareCompletedEventArgs";
-}
-unsafe impl Send for ShareCompletedEventArgs {}
-unsafe impl Sync for ShareCompletedEventArgs {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct ShareProvider(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ShareProvider, windows_core::IUnknown, windows_core::IInspectable);
-impl ShareProvider {
-    pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Title)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn DisplayIcon(&self) -> windows_core::Result<super::super::Storage::Streams::RandomAccessStreamReference> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayIcon)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "UI")]
-    pub fn BackgroundColor(&self) -> windows_core::Result<super::super::UI::Color> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Tag(&self) -> windows_core::Result<windows_core::IInspectable> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Tag)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SetTag<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IInspectable>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTag)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Storage_Streams", feature = "UI"))]
-    pub fn Create<P1, P3>(title: &windows_core::HSTRING, displayicon: P1, backgroundcolor: super::super::UI::Color, handler: P3) -> windows_core::Result<ShareProvider>
-    where
-        P1: windows_core::Param<super::super::Storage::Streams::RandomAccessStreamReference>,
-        P3: windows_core::Param<ShareProviderHandler>,
-    {
-        Self::IShareProviderFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), displayicon.param().abi(), backgroundcolor, handler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IShareProviderFactory<R, F: FnOnce(&IShareProviderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<ShareProvider, IShareProviderFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for ShareProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShareProvider>();
-}
-unsafe impl windows_core::Interface for ShareProvider {
-    type Vtable = <IShareProvider as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IShareProvider as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for ShareProvider {
-    const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareProvider";
-}
-unsafe impl Send for ShareProvider {}
-unsafe impl Sync for ShareProvider {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct ShareProviderOperation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ShareProviderOperation, windows_core::IUnknown, windows_core::IInspectable);
-impl ShareProviderOperation {
-    pub fn Data(&self) -> windows_core::Result<DataPackageView> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Data)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Provider(&self) -> windows_core::Result<ShareProvider> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Provider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn ReportCompleted(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ReportCompleted)(windows_core::Interface::as_raw(this)).ok() }
-    }
-}
-impl windows_core::RuntimeType for ShareProviderOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShareProviderOperation>();
-}
-unsafe impl windows_core::Interface for ShareProviderOperation {
-    type Vtable = <IShareProviderOperation as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IShareProviderOperation as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for ShareProviderOperation {
-    const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareProviderOperation";
-}
-unsafe impl Send for ShareProviderOperation {}
-unsafe impl Sync for ShareProviderOperation {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct ShareProvidersRequestedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ShareProvidersRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl ShareProvidersRequestedEventArgs {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Providers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<ShareProvider>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Providers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Data(&self) -> windows_core::Result<DataPackageView> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Data)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for ShareProvidersRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShareProvidersRequestedEventArgs>();
-}
-unsafe impl windows_core::Interface for ShareProvidersRequestedEventArgs {
-    type Vtable = <IShareProvidersRequestedEventArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IShareProvidersRequestedEventArgs as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for ShareProvidersRequestedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareProvidersRequestedEventArgs";
-}
-unsafe impl Send for ShareProvidersRequestedEventArgs {}
-unsafe impl Sync for ShareProvidersRequestedEventArgs {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct ShareTargetInfo(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ShareTargetInfo, windows_core::IUnknown, windows_core::IInspectable);
-impl ShareTargetInfo {
-    pub fn AppUserModelId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppUserModelId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn ShareProvider(&self) -> windows_core::Result<ShareProvider> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShareProvider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for ShareTargetInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShareTargetInfo>();
-}
-unsafe impl windows_core::Interface for ShareTargetInfo {
-    type Vtable = <IShareTargetInfo as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IShareTargetInfo as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for ShareTargetInfo {
-    const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTargetInfo";
-}
-unsafe impl Send for ShareTargetInfo {}
-unsafe impl Sync for ShareTargetInfo {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct ShareUIOptions(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ShareUIOptions, windows_core::IUnknown, windows_core::IInspectable);
-impl ShareUIOptions {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<ShareUIOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn Theme(&self) -> windows_core::Result<ShareUITheme> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Theme)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetTheme(&self, value: ShareUITheme) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTheme)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn SelectionRect(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::Rect>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectionRect)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SetSelectionRect<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::Rect>>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSelectionRect)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-}
-impl windows_core::RuntimeType for ShareUIOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShareUIOptions>();
-}
-unsafe impl windows_core::Interface for ShareUIOptions {
-    type Vtable = <IShareUIOptions as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IShareUIOptions as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for ShareUIOptions {
-    const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareUIOptions";
-}
-unsafe impl Send for ShareUIOptions {}
-unsafe impl Sync for ShareUIOptions {}
-pub struct SharedStorageAccessManager;
-impl SharedStorageAccessManager {
-    #[cfg(feature = "Storage_Streams")]
-    pub fn AddFile<P0>(file: P0) -> windows_core::Result<windows_core::HSTRING>
-    where
-        P0: windows_core::Param<super::super::Storage::IStorageFile>,
-    {
-        Self::ISharedStorageAccessManagerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AddFile)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn RedeemTokenForFileAsync(token: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>> {
-        Self::ISharedStorageAccessManagerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RedeemTokenForFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(token), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn RemoveFile(token: &windows_core::HSTRING) -> windows_core::Result<()> {
-        Self::ISharedStorageAccessManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveFile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(token)).ok() })
-    }
-    fn ISharedStorageAccessManagerStatics<R, F: FnOnce(&ISharedStorageAccessManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<SharedStorageAccessManager, ISharedStorageAccessManagerStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeName for SharedStorageAccessManager {
-    const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.SharedStorageAccessManager";
-}
-pub struct StandardDataFormats;
-impl StandardDataFormats {
-    pub fn Text() -> windows_core::Result<windows_core::HSTRING> {
-        Self::IStandardDataFormatsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Text)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Uri() -> windows_core::Result<windows_core::HSTRING> {
-        Self::IStandardDataFormatsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Html() -> windows_core::Result<windows_core::HSTRING> {
-        Self::IStandardDataFormatsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Html)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Rtf() -> windows_core::Result<windows_core::HSTRING> {
-        Self::IStandardDataFormatsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Rtf)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Bitmap() -> windows_core::Result<windows_core::HSTRING> {
-        Self::IStandardDataFormatsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Bitmap)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn StorageItems() -> windows_core::Result<windows_core::HSTRING> {
-        Self::IStandardDataFormatsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StorageItems)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn WebLink() -> windows_core::Result<windows_core::HSTRING> {
-        Self::IStandardDataFormatsStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WebLink)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn ApplicationLink() -> windows_core::Result<windows_core::HSTRING> {
-        Self::IStandardDataFormatsStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ApplicationLink)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn UserActivityJsonArray() -> windows_core::Result<windows_core::HSTRING> {
-        Self::IStandardDataFormatsStatics3(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UserActivityJsonArray)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    fn IStandardDataFormatsStatics<R, F: FnOnce(&IStandardDataFormatsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<StandardDataFormats, IStandardDataFormatsStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn IStandardDataFormatsStatics2<R, F: FnOnce(&IStandardDataFormatsStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<StandardDataFormats, IStandardDataFormatsStatics2> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn IStandardDataFormatsStatics3<R, F: FnOnce(&IStandardDataFormatsStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<StandardDataFormats, IStandardDataFormatsStatics3> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeName for StandardDataFormats {
-    const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.StandardDataFormats";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct TargetApplicationChosenEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(TargetApplicationChosenEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl TargetApplicationChosenEventArgs {
-    pub fn ApplicationName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ApplicationName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for TargetApplicationChosenEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetApplicationChosenEventArgs>();
-}
-unsafe impl windows_core::Interface for TargetApplicationChosenEventArgs {
-    type Vtable = <ITargetApplicationChosenEventArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ITargetApplicationChosenEventArgs as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for TargetApplicationChosenEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.TargetApplicationChosenEventArgs";
-}
-unsafe impl Send for TargetApplicationChosenEventArgs {}
-unsafe impl Sync for TargetApplicationChosenEventArgs {}
 windows_core::imp::define_interface!(IClipboardContentOptions, IClipboardContentOptions_Vtbl, 0xe888a98c_ad4b_5447_a056_ab3556276d2b);
 impl windows_core::RuntimeType for IClipboardContentOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -2416,66 +2126,147 @@ pub struct ITargetApplicationChosenEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ApplicationName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(DataProviderHandler, DataProviderHandler_Vtbl, 0xe7ecd720_f2f4_4a2d_920e_170a2f482a27);
-impl windows_core::RuntimeType for DataProviderHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-impl DataProviderHandler {
-    pub fn new<F: FnMut(Option<&DataProviderRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = DataProviderHandlerBox { vtable: &DataProviderHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct OperationCompletedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(OperationCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl OperationCompletedEventArgs {
+    pub fn Operation(&self) -> windows_core::Result<DataPackageOperation> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Operation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
     }
-    pub fn Invoke<P0>(&self, request: P0) -> windows_core::Result<()>
+    pub fn AcceptedFormatId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IOperationCompletedEventArgs2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AcceptedFormatId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for OperationCompletedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOperationCompletedEventArgs>();
+}
+unsafe impl windows_core::Interface for OperationCompletedEventArgs {
+    type Vtable = <IOperationCompletedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IOperationCompletedEventArgs as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for OperationCompletedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.OperationCompletedEventArgs";
+}
+unsafe impl Send for OperationCompletedEventArgs {}
+unsafe impl Sync for OperationCompletedEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SetHistoryItemAsContentStatus(pub i32);
+impl SetHistoryItemAsContentStatus {
+    pub const Success: Self = Self(0i32);
+    pub const AccessDenied: Self = Self(1i32);
+    pub const ItemDeleted: Self = Self(2i32);
+}
+impl windows_core::TypeKind for SetHistoryItemAsContentStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for SetHistoryItemAsContentStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.SetHistoryItemAsContentStatus;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ShareCompletedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(ShareCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl ShareCompletedEventArgs {
+    pub fn ShareTarget(&self) -> windows_core::Result<ShareTargetInfo> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ShareTarget)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for ShareCompletedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShareCompletedEventArgs>();
+}
+unsafe impl windows_core::Interface for ShareCompletedEventArgs {
+    type Vtable = <IShareCompletedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IShareCompletedEventArgs as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for ShareCompletedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareCompletedEventArgs";
+}
+unsafe impl Send for ShareCompletedEventArgs {}
+unsafe impl Sync for ShareCompletedEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ShareProvider(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(ShareProvider, windows_core::IUnknown, windows_core::IInspectable);
+impl ShareProvider {
+    pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Title)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn DisplayIcon(&self) -> windows_core::Result<super::super::Storage::Streams::RandomAccessStreamReference> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayIcon)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "UI")]
+    pub fn BackgroundColor(&self) -> windows_core::Result<super::super::UI::Color> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).BackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Tag(&self) -> windows_core::Result<windows_core::IInspectable> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Tag)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetTag<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<DataProviderRequest>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), request.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetTag)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(all(feature = "Storage_Streams", feature = "UI"))]
+    pub fn Create<P1, P3>(title: &windows_core::HSTRING, displayicon: P1, backgroundcolor: super::super::UI::Color, handler: P3) -> windows_core::Result<ShareProvider>
+    where
+        P1: windows_core::Param<super::super::Storage::Streams::RandomAccessStreamReference>,
+        P3: windows_core::Param<ShareProviderHandler>,
+    {
+        Self::IShareProviderFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), displayicon.param().abi(), backgroundcolor, handler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IShareProviderFactory<R, F: FnOnce(&IShareProviderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<ShareProvider, IShareProviderFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
-#[repr(C)]
-pub struct DataProviderHandler_Vtbl {
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, request: *mut core::ffi::c_void) -> windows_core::HRESULT,
+impl windows_core::RuntimeType for ShareProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShareProvider>();
 }
-#[repr(C)]
-struct DataProviderHandlerBox<F: FnMut(Option<&DataProviderRequest>) -> windows_core::Result<()> + Send + 'static> {
-    vtable: *const DataProviderHandler_Vtbl,
-    invoke: F,
-    count: windows_core::imp::RefCount,
+unsafe impl windows_core::Interface for ShareProvider {
+    type Vtable = <IShareProvider as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IShareProvider as windows_core::Interface>::IID;
 }
-impl<F: FnMut(Option<&DataProviderRequest>) -> windows_core::Result<()> + Send + 'static> DataProviderHandlerBox<F> {
-    const VTABLE: DataProviderHandler_Vtbl = DataProviderHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <DataProviderHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, request: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&request)).into()
-    }
+impl windows_core::RuntimeName for ShareProvider {
+    const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareProvider";
 }
+unsafe impl Send for ShareProvider {}
+unsafe impl Sync for ShareProvider {}
 windows_core::imp::define_interface!(ShareProviderHandler, ShareProviderHandler_Vtbl, 0xe7f9d9ba_e1ba_4e4d_bd65_d43845d3212f);
 impl windows_core::RuntimeType for ShareProviderHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -2537,81 +2328,163 @@ impl<F: FnMut(Option<&ShareProviderOperation>) -> windows_core::Result<()> + Sen
     }
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ClipboardHistoryItemsResultStatus(pub i32);
-impl ClipboardHistoryItemsResultStatus {
-    pub const Success: Self = Self(0i32);
-    pub const AccessDenied: Self = Self(1i32);
-    pub const ClipboardHistoryDisabled: Self = Self(2i32);
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ShareProviderOperation(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(ShareProviderOperation, windows_core::IUnknown, windows_core::IInspectable);
+impl ShareProviderOperation {
+    pub fn Data(&self) -> windows_core::Result<DataPackageView> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Data)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Provider(&self) -> windows_core::Result<ShareProvider> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Provider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ReportCompleted(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).ReportCompleted)(windows_core::Interface::as_raw(this)).ok() }
+    }
 }
-impl windows_core::TypeKind for ClipboardHistoryItemsResultStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::RuntimeType for ShareProviderOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShareProviderOperation>();
 }
-impl windows_core::RuntimeType for ClipboardHistoryItemsResultStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResultStatus;i4)");
+unsafe impl windows_core::Interface for ShareProviderOperation {
+    type Vtable = <IShareProviderOperation as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IShareProviderOperation as windows_core::Interface>::IID;
 }
+impl windows_core::RuntimeName for ShareProviderOperation {
+    const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareProviderOperation";
+}
+unsafe impl Send for ShareProviderOperation {}
+unsafe impl Sync for ShareProviderOperation {}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DataPackageOperation(pub u32);
-impl DataPackageOperation {
-    pub const None: Self = Self(0u32);
-    pub const Copy: Self = Self(1u32);
-    pub const Move: Self = Self(2u32);
-    pub const Link: Self = Self(4u32);
-}
-impl windows_core::TypeKind for DataPackageOperation {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DataPackageOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DataPackageOperation;u4)");
-}
-impl DataPackageOperation {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ShareProvidersRequestedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(ShareProvidersRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl ShareProvidersRequestedEventArgs {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Providers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<ShareProvider>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Providers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Data(&self) -> windows_core::Result<DataPackageView> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Data)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
-impl core::ops::BitOr for DataPackageOperation {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
+impl windows_core::RuntimeType for ShareProvidersRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShareProvidersRequestedEventArgs>();
 }
-impl core::ops::BitAnd for DataPackageOperation {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
+unsafe impl windows_core::Interface for ShareProvidersRequestedEventArgs {
+    type Vtable = <IShareProvidersRequestedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IShareProvidersRequestedEventArgs as windows_core::Interface>::IID;
 }
-impl core::ops::BitOrAssign for DataPackageOperation {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
+impl windows_core::RuntimeName for ShareProvidersRequestedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareProvidersRequestedEventArgs";
 }
-impl core::ops::BitAndAssign for DataPackageOperation {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DataPackageOperation {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+unsafe impl Send for ShareProvidersRequestedEventArgs {}
+unsafe impl Sync for ShareProvidersRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SetHistoryItemAsContentStatus(pub i32);
-impl SetHistoryItemAsContentStatus {
-    pub const Success: Self = Self(0i32);
-    pub const AccessDenied: Self = Self(1i32);
-    pub const ItemDeleted: Self = Self(2i32);
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ShareTargetInfo(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(ShareTargetInfo, windows_core::IUnknown, windows_core::IInspectable);
+impl ShareTargetInfo {
+    pub fn AppUserModelId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AppUserModelId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn ShareProvider(&self) -> windows_core::Result<ShareProvider> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ShareProvider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
-impl windows_core::TypeKind for SetHistoryItemAsContentStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::RuntimeType for ShareTargetInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShareTargetInfo>();
 }
-impl windows_core::RuntimeType for SetHistoryItemAsContentStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.SetHistoryItemAsContentStatus;i4)");
+unsafe impl windows_core::Interface for ShareTargetInfo {
+    type Vtable = <IShareTargetInfo as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IShareTargetInfo as windows_core::Interface>::IID;
 }
+impl windows_core::RuntimeName for ShareTargetInfo {
+    const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTargetInfo";
+}
+unsafe impl Send for ShareTargetInfo {}
+unsafe impl Sync for ShareTargetInfo {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ShareUIOptions(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(ShareUIOptions, windows_core::IUnknown, windows_core::IInspectable);
+impl ShareUIOptions {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<ShareUIOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn Theme(&self) -> windows_core::Result<ShareUITheme> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Theme)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetTheme(&self, value: ShareUITheme) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetTheme)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn SelectionRect(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::Rect>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SelectionRect)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetSelectionRect<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::Rect>>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetSelectionRect)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+}
+impl windows_core::RuntimeType for ShareUIOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShareUIOptions>();
+}
+unsafe impl windows_core::Interface for ShareUIOptions {
+    type Vtable = <IShareUIOptions as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IShareUIOptions as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for ShareUIOptions {
+    const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareUIOptions";
+}
+unsafe impl Send for ShareUIOptions {}
+unsafe impl Sync for ShareUIOptions {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ShareUITheme(pub i32);
@@ -2626,3 +2499,130 @@ impl windows_core::TypeKind for ShareUITheme {
 impl windows_core::RuntimeType for ShareUITheme {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.ShareUITheme;i4)");
 }
+pub struct SharedStorageAccessManager;
+impl SharedStorageAccessManager {
+    #[cfg(feature = "Storage_Streams")]
+    pub fn AddFile<P0>(file: P0) -> windows_core::Result<windows_core::HSTRING>
+    where
+        P0: windows_core::Param<super::super::Storage::IStorageFile>,
+    {
+        Self::ISharedStorageAccessManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AddFile)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn RedeemTokenForFileAsync(token: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>> {
+        Self::ISharedStorageAccessManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RedeemTokenForFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(token), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn RemoveFile(token: &windows_core::HSTRING) -> windows_core::Result<()> {
+        Self::ISharedStorageAccessManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveFile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(token)).ok() })
+    }
+    fn ISharedStorageAccessManagerStatics<R, F: FnOnce(&ISharedStorageAccessManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<SharedStorageAccessManager, ISharedStorageAccessManagerStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeName for SharedStorageAccessManager {
+    const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.SharedStorageAccessManager";
+}
+pub struct StandardDataFormats;
+impl StandardDataFormats {
+    pub fn Text() -> windows_core::Result<windows_core::HSTRING> {
+        Self::IStandardDataFormatsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Text)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Uri() -> windows_core::Result<windows_core::HSTRING> {
+        Self::IStandardDataFormatsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Html() -> windows_core::Result<windows_core::HSTRING> {
+        Self::IStandardDataFormatsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Html)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Rtf() -> windows_core::Result<windows_core::HSTRING> {
+        Self::IStandardDataFormatsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Rtf)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Bitmap() -> windows_core::Result<windows_core::HSTRING> {
+        Self::IStandardDataFormatsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Bitmap)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn StorageItems() -> windows_core::Result<windows_core::HSTRING> {
+        Self::IStandardDataFormatsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).StorageItems)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn WebLink() -> windows_core::Result<windows_core::HSTRING> {
+        Self::IStandardDataFormatsStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).WebLink)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn ApplicationLink() -> windows_core::Result<windows_core::HSTRING> {
+        Self::IStandardDataFormatsStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ApplicationLink)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn UserActivityJsonArray() -> windows_core::Result<windows_core::HSTRING> {
+        Self::IStandardDataFormatsStatics3(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UserActivityJsonArray)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    fn IStandardDataFormatsStatics<R, F: FnOnce(&IStandardDataFormatsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<StandardDataFormats, IStandardDataFormatsStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IStandardDataFormatsStatics2<R, F: FnOnce(&IStandardDataFormatsStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<StandardDataFormats, IStandardDataFormatsStatics2> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IStandardDataFormatsStatics3<R, F: FnOnce(&IStandardDataFormatsStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<StandardDataFormats, IStandardDataFormatsStatics3> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeName for StandardDataFormats {
+    const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.StandardDataFormats";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct TargetApplicationChosenEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(TargetApplicationChosenEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl TargetApplicationChosenEventArgs {
+    pub fn ApplicationName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ApplicationName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for TargetApplicationChosenEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetApplicationChosenEventArgs>();
+}
+unsafe impl windows_core::Interface for TargetApplicationChosenEventArgs {
+    type Vtable = <ITargetApplicationChosenEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ITargetApplicationChosenEventArgs as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for TargetApplicationChosenEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.TargetApplicationChosenEventArgs";
+}
+unsafe impl Send for TargetApplicationChosenEventArgs {}
+unsafe impl Sync for TargetApplicationChosenEventArgs {}

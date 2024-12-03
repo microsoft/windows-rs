@@ -53,6 +53,21 @@ impl windows_core::RuntimeName for AttributedNetworkUsage {
 unsafe impl Send for AttributedNetworkUsage {}
 unsafe impl Sync for AttributedNetworkUsage {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CellularApnAuthenticationType(pub i32);
+impl CellularApnAuthenticationType {
+    pub const None: Self = Self(0i32);
+    pub const Pap: Self = Self(1i32);
+    pub const Chap: Self = Self(2i32);
+    pub const Mschapv2: Self = Self(3i32);
+}
+impl windows_core::TypeKind for CellularApnAuthenticationType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for CellularApnAuthenticationType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.CellularApnAuthenticationType;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CellularApnContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CellularApnContext, windows_core::IUnknown, windows_core::IInspectable);
@@ -391,6 +406,21 @@ impl windows_core::RuntimeName for ConnectionProfile {
 }
 unsafe impl Send for ConnectionProfile {}
 unsafe impl Sync for ConnectionProfile {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ConnectionProfileDeleteStatus(pub i32);
+impl ConnectionProfileDeleteStatus {
+    pub const Success: Self = Self(0i32);
+    pub const DeniedByUser: Self = Self(1i32);
+    pub const DeniedBySystem: Self = Self(2i32);
+    pub const UnknownError: Self = Self(3i32);
+}
+impl windows_core::TypeKind for ConnectionProfileDeleteStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ConnectionProfileDeleteStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.ConnectionProfileDeleteStatus;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ConnectionProfileFilter(windows_core::IUnknown);
@@ -766,639 +796,48 @@ unsafe impl Send for DataUsage {}
 #[cfg(feature = "deprecated")]
 unsafe impl Sync for DataUsage {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct IPInformation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(IPInformation, windows_core::IUnknown, windows_core::IInspectable);
-impl IPInformation {
-    pub fn NetworkAdapter(&self) -> windows_core::Result<NetworkAdapter> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NetworkAdapter)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn PrefixLength(&self) -> windows_core::Result<super::super::Foundation::IReference<u8>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrefixLength)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DataUsageGranularity(pub i32);
+impl DataUsageGranularity {
+    pub const PerMinute: Self = Self(0i32);
+    pub const PerHour: Self = Self(1i32);
+    pub const PerDay: Self = Self(2i32);
+    pub const Total: Self = Self(3i32);
 }
-impl windows_core::RuntimeType for IPInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIPInformation>();
+impl windows_core::TypeKind for DataUsageGranularity {
+    type TypeKind = windows_core::CopyType;
 }
-unsafe impl windows_core::Interface for IPInformation {
-    type Vtable = <IIPInformation as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IIPInformation as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for IPInformation {
-    const NAME: &'static str = "Windows.Networking.Connectivity.IPInformation";
-}
-unsafe impl Send for IPInformation {}
-unsafe impl Sync for IPInformation {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct LanIdentifier(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(LanIdentifier, windows_core::IUnknown, windows_core::IInspectable);
-impl LanIdentifier {
-    pub fn InfrastructureId(&self) -> windows_core::Result<LanIdentifierData> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InfrastructureId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn PortId(&self) -> windows_core::Result<LanIdentifierData> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PortId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn NetworkAdapterId(&self) -> windows_core::Result<windows_core::GUID> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NetworkAdapterId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for LanIdentifier {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILanIdentifier>();
-}
-unsafe impl windows_core::Interface for LanIdentifier {
-    type Vtable = <ILanIdentifier as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ILanIdentifier as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for LanIdentifier {
-    const NAME: &'static str = "Windows.Networking.Connectivity.LanIdentifier";
-}
-unsafe impl Send for LanIdentifier {}
-unsafe impl Sync for LanIdentifier {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct LanIdentifierData(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(LanIdentifierData, windows_core::IUnknown, windows_core::IInspectable);
-impl LanIdentifierData {
-    pub fn Type(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Value(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u8>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for LanIdentifierData {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILanIdentifierData>();
-}
-unsafe impl windows_core::Interface for LanIdentifierData {
-    type Vtable = <ILanIdentifierData as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ILanIdentifierData as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for LanIdentifierData {
-    const NAME: &'static str = "Windows.Networking.Connectivity.LanIdentifierData";
-}
-unsafe impl Send for LanIdentifierData {}
-unsafe impl Sync for LanIdentifierData {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct NetworkAdapter(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(NetworkAdapter, windows_core::IUnknown, windows_core::IInspectable);
-impl NetworkAdapter {
-    pub fn OutboundMaxBitsPerSecond(&self) -> windows_core::Result<u64> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OutboundMaxBitsPerSecond)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn InboundMaxBitsPerSecond(&self) -> windows_core::Result<u64> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InboundMaxBitsPerSecond)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn IanaInterfaceType(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IanaInterfaceType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn NetworkItem(&self) -> windows_core::Result<NetworkItem> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NetworkItem)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn NetworkAdapterId(&self) -> windows_core::Result<windows_core::GUID> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NetworkAdapterId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn GetConnectedProfileAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ConnectionProfile>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetConnectedProfileAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for NetworkAdapter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkAdapter>();
-}
-unsafe impl windows_core::Interface for NetworkAdapter {
-    type Vtable = <INetworkAdapter as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <INetworkAdapter as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for NetworkAdapter {
-    const NAME: &'static str = "Windows.Networking.Connectivity.NetworkAdapter";
-}
-unsafe impl Send for NetworkAdapter {}
-unsafe impl Sync for NetworkAdapter {}
-pub struct NetworkInformation;
-impl NetworkInformation {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetConnectionProfiles() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ConnectionProfile>> {
-        Self::INetworkInformationStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetConnectionProfiles)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn GetInternetConnectionProfile() -> windows_core::Result<ConnectionProfile> {
-        Self::INetworkInformationStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetInternetConnectionProfile)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetLanIdentifiers() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<LanIdentifier>> {
-        Self::INetworkInformationStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetLanIdentifiers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetHostNames() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::HostName>> {
-        Self::INetworkInformationStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetHostNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn GetProxyConfigurationAsync<P0>(uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ProxyConfiguration>>
-    where
-        P0: windows_core::Param<super::super::Foundation::Uri>,
-    {
-        Self::INetworkInformationStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetProxyConfigurationAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSortedEndpointPairs<P0>(destinationlist: P0, sortoptions: super::HostNameSortOptions) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::EndpointPair>>,
-    {
-        Self::INetworkInformationStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetSortedEndpointPairs)(windows_core::Interface::as_raw(this), destinationlist.param().abi(), sortoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn NetworkStatusChanged<P0>(networkstatushandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<NetworkStatusChangedEventHandler>,
-    {
-        Self::INetworkInformationStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NetworkStatusChanged)(windows_core::Interface::as_raw(this), networkstatushandler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn RemoveNetworkStatusChanged(eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        Self::INetworkInformationStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveNetworkStatusChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindConnectionProfilesAsync<P0>(pprofilefilter: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>>
-    where
-        P0: windows_core::Param<ConnectionProfileFilter>,
-    {
-        Self::INetworkInformationStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindConnectionProfilesAsync)(windows_core::Interface::as_raw(this), pprofilefilter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn INetworkInformationStatics<R, F: FnOnce(&INetworkInformationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<NetworkInformation, INetworkInformationStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn INetworkInformationStatics2<R, F: FnOnce(&INetworkInformationStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<NetworkInformation, INetworkInformationStatics2> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeName for NetworkInformation {
-    const NAME: &'static str = "Windows.Networking.Connectivity.NetworkInformation";
+impl windows_core::RuntimeType for DataUsageGranularity {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DataUsageGranularity;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct NetworkItem(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(NetworkItem, windows_core::IUnknown, windows_core::IInspectable);
-impl NetworkItem {
-    pub fn NetworkId(&self) -> windows_core::Result<windows_core::GUID> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NetworkId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn GetNetworkTypes(&self) -> windows_core::Result<NetworkTypes> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetNetworkTypes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DomainAuthenticationKind(pub i32);
+impl DomainAuthenticationKind {
+    pub const None: Self = Self(0i32);
+    pub const Ldap: Self = Self(1i32);
+    pub const Tls: Self = Self(2i32);
 }
-impl windows_core::RuntimeType for NetworkItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkItem>();
+impl windows_core::TypeKind for DomainAuthenticationKind {
+    type TypeKind = windows_core::CopyType;
 }
-unsafe impl windows_core::Interface for NetworkItem {
-    type Vtable = <INetworkItem as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <INetworkItem as windows_core::Interface>::IID;
+impl windows_core::RuntimeType for DomainAuthenticationKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DomainAuthenticationKind;i4)");
 }
-impl windows_core::RuntimeName for NetworkItem {
-    const NAME: &'static str = "Windows.Networking.Connectivity.NetworkItem";
-}
-unsafe impl Send for NetworkItem {}
-unsafe impl Sync for NetworkItem {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct NetworkSecuritySettings(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(NetworkSecuritySettings, windows_core::IUnknown, windows_core::IInspectable);
-impl NetworkSecuritySettings {
-    pub fn NetworkAuthenticationType(&self) -> windows_core::Result<NetworkAuthenticationType> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NetworkAuthenticationType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn NetworkEncryptionType(&self) -> windows_core::Result<NetworkEncryptionType> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NetworkEncryptionType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DomainConnectivityLevel(pub i32);
+impl DomainConnectivityLevel {
+    pub const None: Self = Self(0i32);
+    pub const Unauthenticated: Self = Self(1i32);
+    pub const Authenticated: Self = Self(2i32);
 }
-impl windows_core::RuntimeType for NetworkSecuritySettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkSecuritySettings>();
+impl windows_core::TypeKind for DomainConnectivityLevel {
+    type TypeKind = windows_core::CopyType;
 }
-unsafe impl windows_core::Interface for NetworkSecuritySettings {
-    type Vtable = <INetworkSecuritySettings as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <INetworkSecuritySettings as windows_core::Interface>::IID;
+impl windows_core::RuntimeType for DomainConnectivityLevel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DomainConnectivityLevel;i4)");
 }
-impl windows_core::RuntimeName for NetworkSecuritySettings {
-    const NAME: &'static str = "Windows.Networking.Connectivity.NetworkSecuritySettings";
-}
-unsafe impl Send for NetworkSecuritySettings {}
-unsafe impl Sync for NetworkSecuritySettings {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct NetworkStateChangeEventDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(NetworkStateChangeEventDetails, windows_core::IUnknown, windows_core::IInspectable);
-impl NetworkStateChangeEventDetails {
-    pub fn HasNewInternetConnectionProfile(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HasNewInternetConnectionProfile)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn HasNewConnectionCost(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HasNewConnectionCost)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn HasNewNetworkConnectivityLevel(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HasNewNetworkConnectivityLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn HasNewDomainConnectivityLevel(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HasNewDomainConnectivityLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn HasNewHostNameList(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HasNewHostNameList)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn HasNewWwanRegistrationState(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HasNewWwanRegistrationState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn HasNewTetheringOperationalState(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<INetworkStateChangeEventDetails2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HasNewTetheringOperationalState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn HasNewTetheringClientCount(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<INetworkStateChangeEventDetails2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HasNewTetheringClientCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for NetworkStateChangeEventDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkStateChangeEventDetails>();
-}
-unsafe impl windows_core::Interface for NetworkStateChangeEventDetails {
-    type Vtable = <INetworkStateChangeEventDetails as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <INetworkStateChangeEventDetails as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for NetworkStateChangeEventDetails {
-    const NAME: &'static str = "Windows.Networking.Connectivity.NetworkStateChangeEventDetails";
-}
-unsafe impl Send for NetworkStateChangeEventDetails {}
-unsafe impl Sync for NetworkStateChangeEventDetails {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct NetworkUsage(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(NetworkUsage, windows_core::IUnknown, windows_core::IInspectable);
-impl NetworkUsage {
-    pub fn BytesSent(&self) -> windows_core::Result<u64> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BytesSent)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn BytesReceived(&self) -> windows_core::Result<u64> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BytesReceived)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn ConnectionDuration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConnectionDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for NetworkUsage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkUsage>();
-}
-unsafe impl windows_core::Interface for NetworkUsage {
-    type Vtable = <INetworkUsage as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <INetworkUsage as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for NetworkUsage {
-    const NAME: &'static str = "Windows.Networking.Connectivity.NetworkUsage";
-}
-unsafe impl Send for NetworkUsage {}
-unsafe impl Sync for NetworkUsage {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct ProviderNetworkUsage(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ProviderNetworkUsage, windows_core::IUnknown, windows_core::IInspectable);
-impl ProviderNetworkUsage {
-    pub fn BytesSent(&self) -> windows_core::Result<u64> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BytesSent)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn BytesReceived(&self) -> windows_core::Result<u64> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BytesReceived)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn ProviderId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProviderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for ProviderNetworkUsage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProviderNetworkUsage>();
-}
-unsafe impl windows_core::Interface for ProviderNetworkUsage {
-    type Vtable = <IProviderNetworkUsage as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IProviderNetworkUsage as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for ProviderNetworkUsage {
-    const NAME: &'static str = "Windows.Networking.Connectivity.ProviderNetworkUsage";
-}
-unsafe impl Send for ProviderNetworkUsage {}
-unsafe impl Sync for ProviderNetworkUsage {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct ProxyConfiguration(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ProxyConfiguration, windows_core::IUnknown, windows_core::IInspectable);
-impl ProxyConfiguration {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ProxyUris(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProxyUris)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn CanConnectDirectly(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CanConnectDirectly)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for ProxyConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProxyConfiguration>();
-}
-unsafe impl windows_core::Interface for ProxyConfiguration {
-    type Vtable = <IProxyConfiguration as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IProxyConfiguration as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for ProxyConfiguration {
-    const NAME: &'static str = "Windows.Networking.Connectivity.ProxyConfiguration";
-}
-unsafe impl Send for ProxyConfiguration {}
-unsafe impl Sync for ProxyConfiguration {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct RoutePolicy(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(RoutePolicy, windows_core::IUnknown, windows_core::IInspectable);
-impl RoutePolicy {
-    pub fn ConnectionProfile(&self) -> windows_core::Result<ConnectionProfile> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConnectionProfile)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn HostName(&self) -> windows_core::Result<super::HostName> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HostName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn HostNameType(&self) -> windows_core::Result<super::DomainNameType> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HostNameType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn CreateRoutePolicy<P0, P1>(connectionprofile: P0, hostname: P1, r#type: super::DomainNameType) -> windows_core::Result<RoutePolicy>
-    where
-        P0: windows_core::Param<ConnectionProfile>,
-        P1: windows_core::Param<super::HostName>,
-    {
-        Self::IRoutePolicyFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateRoutePolicy)(windows_core::Interface::as_raw(this), connectionprofile.param().abi(), hostname.param().abi(), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IRoutePolicyFactory<R, F: FnOnce(&IRoutePolicyFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<RoutePolicy, IRoutePolicyFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for RoutePolicy {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRoutePolicy>();
-}
-unsafe impl windows_core::Interface for RoutePolicy {
-    type Vtable = <IRoutePolicy as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IRoutePolicy as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for RoutePolicy {
-    const NAME: &'static str = "Windows.Networking.Connectivity.RoutePolicy";
-}
-unsafe impl Send for RoutePolicy {}
-unsafe impl Sync for RoutePolicy {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct WlanConnectionProfileDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(WlanConnectionProfileDetails, windows_core::IUnknown, windows_core::IInspectable);
-impl WlanConnectionProfileDetails {
-    pub fn GetConnectedSsid(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetConnectedSsid)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for WlanConnectionProfileDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWlanConnectionProfileDetails>();
-}
-unsafe impl windows_core::Interface for WlanConnectionProfileDetails {
-    type Vtable = <IWlanConnectionProfileDetails as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IWlanConnectionProfileDetails as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for WlanConnectionProfileDetails {
-    const NAME: &'static str = "Windows.Networking.Connectivity.WlanConnectionProfileDetails";
-}
-unsafe impl Send for WlanConnectionProfileDetails {}
-unsafe impl Sync for WlanConnectionProfileDetails {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct WwanConnectionProfileDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(WwanConnectionProfileDetails, windows_core::IUnknown, windows_core::IInspectable);
-impl WwanConnectionProfileDetails {
-    pub fn HomeProviderId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HomeProviderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn AccessPointName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AccessPointName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn GetNetworkRegistrationState(&self) -> windows_core::Result<WwanNetworkRegistrationState> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetNetworkRegistrationState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn GetCurrentDataClass(&self) -> windows_core::Result<WwanDataClass> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetCurrentDataClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn IPKind(&self) -> windows_core::Result<WwanNetworkIPKind> {
-        let this = &windows_core::Interface::cast::<IWwanConnectionProfileDetails2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IPKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn PurposeGuids(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::GUID>> {
-        let this = &windows_core::Interface::cast::<IWwanConnectionProfileDetails2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PurposeGuids)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for WwanConnectionProfileDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWwanConnectionProfileDetails>();
-}
-unsafe impl windows_core::Interface for WwanConnectionProfileDetails {
-    type Vtable = <IWwanConnectionProfileDetails as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IWwanConnectionProfileDetails as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for WwanConnectionProfileDetails {
-    const NAME: &'static str = "Windows.Networking.Connectivity.WwanConnectionProfileDetails";
-}
-unsafe impl Send for WwanConnectionProfileDetails {}
-unsafe impl Sync for WwanConnectionProfileDetails {}
 windows_core::imp::define_interface!(IAttributedNetworkUsage, IAttributedNetworkUsage_Vtbl, 0xf769b039_eca2_45eb_ade1_b0368b756c49);
 impl windows_core::RuntimeType for IAttributedNetworkUsage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1814,6 +1253,38 @@ pub struct INetworkUsage_Vtbl {
     pub BytesReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     pub ConnectionDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct IPInformation(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(IPInformation, windows_core::IUnknown, windows_core::IInspectable);
+impl IPInformation {
+    pub fn NetworkAdapter(&self) -> windows_core::Result<NetworkAdapter> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NetworkAdapter)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn PrefixLength(&self) -> windows_core::Result<super::super::Foundation::IReference<u8>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PrefixLength)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for IPInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIPInformation>();
+}
+unsafe impl windows_core::Interface for IPInformation {
+    type Vtable = <IIPInformation as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IIPInformation as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for IPInformation {
+    const NAME: &'static str = "Windows.Networking.Connectivity.IPInformation";
+}
+unsafe impl Send for IPInformation {}
+unsafe impl Sync for IPInformation {}
 windows_core::imp::define_interface!(IProviderNetworkUsage, IProviderNetworkUsage_Vtbl, 0x5ec69e04_7931_48c8_b8f3_46300fa42728);
 impl windows_core::RuntimeType for IProviderNetworkUsage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1892,139 +1363,138 @@ pub struct IWwanConnectionProfileDetails2_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     PurposeGuids: usize,
 }
-windows_core::imp::define_interface!(NetworkStatusChangedEventHandler, NetworkStatusChangedEventHandler_Vtbl, 0x71ba143f_598e_49d0_84eb_8febaedcc195);
-impl windows_core::RuntimeType for NetworkStatusChangedEventHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-impl NetworkStatusChangedEventHandler {
-    pub fn new<F: FnMut(Option<&windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = NetworkStatusChangedEventHandlerBox { vtable: &NetworkStatusChangedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
-    }
-    pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IInspectable>,
-    {
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct LanIdentifier(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(LanIdentifier, windows_core::IUnknown, windows_core::IInspectable);
+impl LanIdentifier {
+    pub fn InfrastructureId(&self) -> windows_core::Result<LanIdentifierData> {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi()).ok() }
-    }
-}
-#[repr(C)]
-pub struct NetworkStatusChangedEventHandler_Vtbl {
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(C)]
-struct NetworkStatusChangedEventHandlerBox<F: FnMut(Option<&windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static> {
-    vtable: *const NetworkStatusChangedEventHandler_Vtbl,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
-impl<F: FnMut(Option<&windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static> NetworkStatusChangedEventHandlerBox<F> {
-    const VTABLE: NetworkStatusChangedEventHandler_Vtbl = NetworkStatusChangedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <NetworkStatusChangedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).InfrastructureId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = Box::from_raw(this);
+    pub fn PortId(&self) -> windows_core::Result<LanIdentifierData> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PortId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
-        remaining
     }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&sender)).into()
+    pub fn NetworkAdapterId(&self) -> windows_core::Result<windows_core::GUID> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NetworkAdapterId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
 }
+impl windows_core::RuntimeType for LanIdentifier {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILanIdentifier>();
+}
+unsafe impl windows_core::Interface for LanIdentifier {
+    type Vtable = <ILanIdentifier as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ILanIdentifier as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for LanIdentifier {
+    const NAME: &'static str = "Windows.Networking.Connectivity.LanIdentifier";
+}
+unsafe impl Send for LanIdentifier {}
+unsafe impl Sync for LanIdentifier {}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CellularApnAuthenticationType(pub i32);
-impl CellularApnAuthenticationType {
-    pub const None: Self = Self(0i32);
-    pub const Pap: Self = Self(1i32);
-    pub const Chap: Self = Self(2i32);
-    pub const Mschapv2: Self = Self(3i32);
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct LanIdentifierData(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(LanIdentifierData, windows_core::IUnknown, windows_core::IInspectable);
+impl LanIdentifierData {
+    pub fn Type(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Value(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<u8>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
-impl windows_core::TypeKind for CellularApnAuthenticationType {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::RuntimeType for LanIdentifierData {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILanIdentifierData>();
 }
-impl windows_core::RuntimeType for CellularApnAuthenticationType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.CellularApnAuthenticationType;i4)");
+unsafe impl windows_core::Interface for LanIdentifierData {
+    type Vtable = <ILanIdentifierData as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ILanIdentifierData as windows_core::Interface>::IID;
 }
+impl windows_core::RuntimeName for LanIdentifierData {
+    const NAME: &'static str = "Windows.Networking.Connectivity.LanIdentifierData";
+}
+unsafe impl Send for LanIdentifierData {}
+unsafe impl Sync for LanIdentifierData {}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ConnectionProfileDeleteStatus(pub i32);
-impl ConnectionProfileDeleteStatus {
-    pub const Success: Self = Self(0i32);
-    pub const DeniedByUser: Self = Self(1i32);
-    pub const DeniedBySystem: Self = Self(2i32);
-    pub const UnknownError: Self = Self(3i32);
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct NetworkAdapter(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(NetworkAdapter, windows_core::IUnknown, windows_core::IInspectable);
+impl NetworkAdapter {
+    pub fn OutboundMaxBitsPerSecond(&self) -> windows_core::Result<u64> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OutboundMaxBitsPerSecond)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn InboundMaxBitsPerSecond(&self) -> windows_core::Result<u64> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).InboundMaxBitsPerSecond)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn IanaInterfaceType(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IanaInterfaceType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn NetworkItem(&self) -> windows_core::Result<NetworkItem> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NetworkItem)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn NetworkAdapterId(&self) -> windows_core::Result<windows_core::GUID> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NetworkAdapterId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn GetConnectedProfileAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ConnectionProfile>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetConnectedProfileAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
-impl windows_core::TypeKind for ConnectionProfileDeleteStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::RuntimeType for NetworkAdapter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkAdapter>();
 }
-impl windows_core::RuntimeType for ConnectionProfileDeleteStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.ConnectionProfileDeleteStatus;i4)");
+unsafe impl windows_core::Interface for NetworkAdapter {
+    type Vtable = <INetworkAdapter as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <INetworkAdapter as windows_core::Interface>::IID;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DataUsageGranularity(pub i32);
-impl DataUsageGranularity {
-    pub const PerMinute: Self = Self(0i32);
-    pub const PerHour: Self = Self(1i32);
-    pub const PerDay: Self = Self(2i32);
-    pub const Total: Self = Self(3i32);
+impl windows_core::RuntimeName for NetworkAdapter {
+    const NAME: &'static str = "Windows.Networking.Connectivity.NetworkAdapter";
 }
-impl windows_core::TypeKind for DataUsageGranularity {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DataUsageGranularity {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DataUsageGranularity;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DomainAuthenticationKind(pub i32);
-impl DomainAuthenticationKind {
-    pub const None: Self = Self(0i32);
-    pub const Ldap: Self = Self(1i32);
-    pub const Tls: Self = Self(2i32);
-}
-impl windows_core::TypeKind for DomainAuthenticationKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DomainAuthenticationKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DomainAuthenticationKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DomainConnectivityLevel(pub i32);
-impl DomainConnectivityLevel {
-    pub const None: Self = Self(0i32);
-    pub const Unauthenticated: Self = Self(1i32);
-    pub const Authenticated: Self = Self(2i32);
-}
-impl windows_core::TypeKind for DomainConnectivityLevel {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DomainConnectivityLevel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DomainConnectivityLevel;i4)");
-}
+unsafe impl Send for NetworkAdapter {}
+unsafe impl Sync for NetworkAdapter {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NetworkAuthenticationType(pub i32);
@@ -2104,6 +1574,286 @@ impl windows_core::TypeKind for NetworkEncryptionType {
 impl windows_core::RuntimeType for NetworkEncryptionType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkEncryptionType;i4)");
 }
+pub struct NetworkInformation;
+impl NetworkInformation {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetConnectionProfiles() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ConnectionProfile>> {
+        Self::INetworkInformationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetConnectionProfiles)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn GetInternetConnectionProfile() -> windows_core::Result<ConnectionProfile> {
+        Self::INetworkInformationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetInternetConnectionProfile)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetLanIdentifiers() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<LanIdentifier>> {
+        Self::INetworkInformationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetLanIdentifiers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetHostNames() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::HostName>> {
+        Self::INetworkInformationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetHostNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn GetProxyConfigurationAsync<P0>(uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ProxyConfiguration>>
+    where
+        P0: windows_core::Param<super::super::Foundation::Uri>,
+    {
+        Self::INetworkInformationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetProxyConfigurationAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetSortedEndpointPairs<P0>(destinationlist: P0, sortoptions: super::HostNameSortOptions) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::EndpointPair>>,
+    {
+        Self::INetworkInformationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetSortedEndpointPairs)(windows_core::Interface::as_raw(this), destinationlist.param().abi(), sortoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn NetworkStatusChanged<P0>(networkstatushandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<NetworkStatusChangedEventHandler>,
+    {
+        Self::INetworkInformationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NetworkStatusChanged)(windows_core::Interface::as_raw(this), networkstatushandler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn RemoveNetworkStatusChanged(eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        Self::INetworkInformationStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveNetworkStatusChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() })
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn FindConnectionProfilesAsync<P0>(pprofilefilter: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>>
+    where
+        P0: windows_core::Param<ConnectionProfileFilter>,
+    {
+        Self::INetworkInformationStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FindConnectionProfilesAsync)(windows_core::Interface::as_raw(this), pprofilefilter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn INetworkInformationStatics<R, F: FnOnce(&INetworkInformationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<NetworkInformation, INetworkInformationStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn INetworkInformationStatics2<R, F: FnOnce(&INetworkInformationStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<NetworkInformation, INetworkInformationStatics2> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeName for NetworkInformation {
+    const NAME: &'static str = "Windows.Networking.Connectivity.NetworkInformation";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct NetworkItem(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(NetworkItem, windows_core::IUnknown, windows_core::IInspectable);
+impl NetworkItem {
+    pub fn NetworkId(&self) -> windows_core::Result<windows_core::GUID> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NetworkId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn GetNetworkTypes(&self) -> windows_core::Result<NetworkTypes> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetNetworkTypes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for NetworkItem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkItem>();
+}
+unsafe impl windows_core::Interface for NetworkItem {
+    type Vtable = <INetworkItem as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <INetworkItem as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for NetworkItem {
+    const NAME: &'static str = "Windows.Networking.Connectivity.NetworkItem";
+}
+unsafe impl Send for NetworkItem {}
+unsafe impl Sync for NetworkItem {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct NetworkSecuritySettings(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(NetworkSecuritySettings, windows_core::IUnknown, windows_core::IInspectable);
+impl NetworkSecuritySettings {
+    pub fn NetworkAuthenticationType(&self) -> windows_core::Result<NetworkAuthenticationType> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NetworkAuthenticationType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn NetworkEncryptionType(&self) -> windows_core::Result<NetworkEncryptionType> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NetworkEncryptionType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for NetworkSecuritySettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkSecuritySettings>();
+}
+unsafe impl windows_core::Interface for NetworkSecuritySettings {
+    type Vtable = <INetworkSecuritySettings as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <INetworkSecuritySettings as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for NetworkSecuritySettings {
+    const NAME: &'static str = "Windows.Networking.Connectivity.NetworkSecuritySettings";
+}
+unsafe impl Send for NetworkSecuritySettings {}
+unsafe impl Sync for NetworkSecuritySettings {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct NetworkStateChangeEventDetails(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(NetworkStateChangeEventDetails, windows_core::IUnknown, windows_core::IInspectable);
+impl NetworkStateChangeEventDetails {
+    pub fn HasNewInternetConnectionProfile(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HasNewInternetConnectionProfile)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn HasNewConnectionCost(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HasNewConnectionCost)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn HasNewNetworkConnectivityLevel(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HasNewNetworkConnectivityLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn HasNewDomainConnectivityLevel(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HasNewDomainConnectivityLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn HasNewHostNameList(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HasNewHostNameList)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn HasNewWwanRegistrationState(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HasNewWwanRegistrationState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn HasNewTetheringOperationalState(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<INetworkStateChangeEventDetails2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HasNewTetheringOperationalState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn HasNewTetheringClientCount(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<INetworkStateChangeEventDetails2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HasNewTetheringClientCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for NetworkStateChangeEventDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkStateChangeEventDetails>();
+}
+unsafe impl windows_core::Interface for NetworkStateChangeEventDetails {
+    type Vtable = <INetworkStateChangeEventDetails as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <INetworkStateChangeEventDetails as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for NetworkStateChangeEventDetails {
+    const NAME: &'static str = "Windows.Networking.Connectivity.NetworkStateChangeEventDetails";
+}
+unsafe impl Send for NetworkStateChangeEventDetails {}
+unsafe impl Sync for NetworkStateChangeEventDetails {}
+windows_core::imp::define_interface!(NetworkStatusChangedEventHandler, NetworkStatusChangedEventHandler_Vtbl, 0x71ba143f_598e_49d0_84eb_8febaedcc195);
+impl windows_core::RuntimeType for NetworkStatusChangedEventHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl NetworkStatusChangedEventHandler {
+    pub fn new<F: FnMut(Option<&windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = NetworkStatusChangedEventHandlerBox { vtable: &NetworkStatusChangedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
+    pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi()).ok() }
+    }
+}
+#[repr(C)]
+pub struct NetworkStatusChangedEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[repr(C)]
+struct NetworkStatusChangedEventHandlerBox<F: FnMut(Option<&windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static> {
+    vtable: *const NetworkStatusChangedEventHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+impl<F: FnMut(Option<&windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static> NetworkStatusChangedEventHandlerBox<F> {
+    const VTABLE: NetworkStatusChangedEventHandler_Vtbl = NetworkStatusChangedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <NetworkStatusChangedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+        if (*interface).is_null() {
+            windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender)).into()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NetworkTypes(pub u32);
@@ -2152,6 +1902,129 @@ impl core::ops::Not for NetworkTypes {
     }
 }
 #[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct NetworkUsage(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(NetworkUsage, windows_core::IUnknown, windows_core::IInspectable);
+impl NetworkUsage {
+    pub fn BytesSent(&self) -> windows_core::Result<u64> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).BytesSent)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn BytesReceived(&self) -> windows_core::Result<u64> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).BytesReceived)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ConnectionDuration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ConnectionDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for NetworkUsage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkUsage>();
+}
+unsafe impl windows_core::Interface for NetworkUsage {
+    type Vtable = <INetworkUsage as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <INetworkUsage as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for NetworkUsage {
+    const NAME: &'static str = "Windows.Networking.Connectivity.NetworkUsage";
+}
+unsafe impl Send for NetworkUsage {}
+unsafe impl Sync for NetworkUsage {}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct NetworkUsageStates {
+    pub Roaming: TriStates,
+    pub Shared: TriStates,
+}
+impl windows_core::TypeKind for NetworkUsageStates {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for NetworkUsageStates {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.Connectivity.NetworkUsageStates;enum(Windows.Networking.Connectivity.TriStates;i4);enum(Windows.Networking.Connectivity.TriStates;i4))");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ProviderNetworkUsage(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(ProviderNetworkUsage, windows_core::IUnknown, windows_core::IInspectable);
+impl ProviderNetworkUsage {
+    pub fn BytesSent(&self) -> windows_core::Result<u64> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).BytesSent)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn BytesReceived(&self) -> windows_core::Result<u64> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).BytesReceived)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ProviderId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ProviderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for ProviderNetworkUsage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProviderNetworkUsage>();
+}
+unsafe impl windows_core::Interface for ProviderNetworkUsage {
+    type Vtable = <IProviderNetworkUsage as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IProviderNetworkUsage as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for ProviderNetworkUsage {
+    const NAME: &'static str = "Windows.Networking.Connectivity.ProviderNetworkUsage";
+}
+unsafe impl Send for ProviderNetworkUsage {}
+unsafe impl Sync for ProviderNetworkUsage {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ProxyConfiguration(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(ProxyConfiguration, windows_core::IUnknown, windows_core::IInspectable);
+impl ProxyConfiguration {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ProxyUris(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ProxyUris)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CanConnectDirectly(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CanConnectDirectly)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for ProxyConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProxyConfiguration>();
+}
+unsafe impl windows_core::Interface for ProxyConfiguration {
+    type Vtable = <IProxyConfiguration as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IProxyConfiguration as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for ProxyConfiguration {
+    const NAME: &'static str = "Windows.Networking.Connectivity.ProxyConfiguration";
+}
+unsafe impl Send for ProxyConfiguration {}
+unsafe impl Sync for ProxyConfiguration {}
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RoamingStates(pub u32);
 impl RoamingStates {
@@ -2199,6 +2072,59 @@ impl core::ops::Not for RoamingStates {
     }
 }
 #[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct RoutePolicy(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(RoutePolicy, windows_core::IUnknown, windows_core::IInspectable);
+impl RoutePolicy {
+    pub fn ConnectionProfile(&self) -> windows_core::Result<ConnectionProfile> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ConnectionProfile)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn HostName(&self) -> windows_core::Result<super::HostName> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HostName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn HostNameType(&self) -> windows_core::Result<super::DomainNameType> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HostNameType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn CreateRoutePolicy<P0, P1>(connectionprofile: P0, hostname: P1, r#type: super::DomainNameType) -> windows_core::Result<RoutePolicy>
+    where
+        P0: windows_core::Param<ConnectionProfile>,
+        P1: windows_core::Param<super::HostName>,
+    {
+        Self::IRoutePolicyFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateRoutePolicy)(windows_core::Interface::as_raw(this), connectionprofile.param().abi(), hostname.param().abi(), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IRoutePolicyFactory<R, F: FnOnce(&IRoutePolicyFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<RoutePolicy, IRoutePolicyFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for RoutePolicy {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRoutePolicy>();
+}
+unsafe impl windows_core::Interface for RoutePolicy {
+    type Vtable = <IRoutePolicy as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IRoutePolicy as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for RoutePolicy {
+    const NAME: &'static str = "Windows.Networking.Connectivity.RoutePolicy";
+}
+unsafe impl Send for RoutePolicy {}
+unsafe impl Sync for RoutePolicy {}
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TriStates(pub i32);
 impl TriStates {
@@ -2212,6 +2138,92 @@ impl windows_core::TypeKind for TriStates {
 impl windows_core::RuntimeType for TriStates {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.TriStates;i4)");
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WlanConnectionProfileDetails(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WlanConnectionProfileDetails, windows_core::IUnknown, windows_core::IInspectable);
+impl WlanConnectionProfileDetails {
+    pub fn GetConnectedSsid(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetConnectedSsid)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for WlanConnectionProfileDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWlanConnectionProfileDetails>();
+}
+unsafe impl windows_core::Interface for WlanConnectionProfileDetails {
+    type Vtable = <IWlanConnectionProfileDetails as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWlanConnectionProfileDetails as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WlanConnectionProfileDetails {
+    const NAME: &'static str = "Windows.Networking.Connectivity.WlanConnectionProfileDetails";
+}
+unsafe impl Send for WlanConnectionProfileDetails {}
+unsafe impl Sync for WlanConnectionProfileDetails {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WwanConnectionProfileDetails(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WwanConnectionProfileDetails, windows_core::IUnknown, windows_core::IInspectable);
+impl WwanConnectionProfileDetails {
+    pub fn HomeProviderId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HomeProviderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn AccessPointName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AccessPointName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn GetNetworkRegistrationState(&self) -> windows_core::Result<WwanNetworkRegistrationState> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetNetworkRegistrationState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn GetCurrentDataClass(&self) -> windows_core::Result<WwanDataClass> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetCurrentDataClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn IPKind(&self) -> windows_core::Result<WwanNetworkIPKind> {
+        let this = &windows_core::Interface::cast::<IWwanConnectionProfileDetails2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IPKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn PurposeGuids(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::GUID>> {
+        let this = &windows_core::Interface::cast::<IWwanConnectionProfileDetails2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PurposeGuids)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for WwanConnectionProfileDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWwanConnectionProfileDetails>();
+}
+unsafe impl windows_core::Interface for WwanConnectionProfileDetails {
+    type Vtable = <IWwanConnectionProfileDetails as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWwanConnectionProfileDetails as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WwanConnectionProfileDetails {
+    const NAME: &'static str = "Windows.Networking.Connectivity.WwanConnectionProfileDetails";
+}
+unsafe impl Send for WwanConnectionProfileDetails {}
+unsafe impl Sync for WwanConnectionProfileDetails {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WwanDataClass(pub u32);
@@ -2306,16 +2318,4 @@ impl windows_core::TypeKind for WwanNetworkRegistrationState {
 }
 impl windows_core::RuntimeType for WwanNetworkRegistrationState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.WwanNetworkRegistrationState;i4)");
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct NetworkUsageStates {
-    pub Roaming: TriStates,
-    pub Shared: TriStates,
-}
-impl windows_core::TypeKind for NetworkUsageStates {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for NetworkUsageStates {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.Connectivity.NetworkUsageStates;enum(Windows.Networking.Connectivity.TriStates;i4);enum(Windows.Networking.Connectivity.TriStates;i4))");
 }

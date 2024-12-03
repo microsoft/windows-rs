@@ -4199,11 +4199,142 @@ where
     windows_targets::link!("newdev.dll" "system" fn UpdateDriverForPlugAndPlayDevicesW(hwndparent : super::super::Foundation:: HWND, hardwareid : windows_core::PCWSTR, fullinfpath : windows_core::PCWSTR, installflags : UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS, brebootrequired : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     UpdateDriverForPlugAndPlayDevicesW(hwndparent.param().abi(), hardwareid.param().abi(), fullinfpath.param().abi(), core::mem::transmute(installflags), core::mem::transmute(brebootrequired.unwrap_or(core::ptr::null_mut()))).ok()
 }
-pub type PCM_NOTIFY_CALLBACK = Option<unsafe extern "system" fn(hnotify: HCMNOTIFICATION, context: *const core::ffi::c_void, action: CM_NOTIFY_ACTION, eventdata: *const CM_NOTIFY_EVENT_DATA, eventdatasize: u32) -> u32>;
-pub type PDETECT_PROGRESS_NOTIFY = Option<unsafe extern "system" fn(progressnotifyparam: *const core::ffi::c_void, detectcomplete: u32) -> super::super::Foundation::BOOL>;
-pub type PSP_DETSIG_CMPPROC = Option<unsafe extern "system" fn(deviceinfoset: HDEVINFO, newdevicedata: *const SP_DEVINFO_DATA, existingdevicedata: *const SP_DEVINFO_DATA, comparecontext: *const core::ffi::c_void) -> u32>;
-pub type PSP_FILE_CALLBACK_A = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32>;
-pub type PSP_FILE_CALLBACK_W = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32>;
+pub const ALLOC_LOG_CONF: CM_LOG_CONF = CM_LOG_CONF(2u32);
+pub const BASIC_LOG_CONF: CM_LOG_CONF = CM_LOG_CONF(0u32);
+pub const BOOT_LOG_CONF: CM_LOG_CONF = CM_LOG_CONF(3u32);
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct BUSNUMBER_DES {
+    pub BUSD_Count: u32,
+    pub BUSD_Type: u32,
+    pub BUSD_Flags: u32,
+    pub BUSD_Alloc_Base: u32,
+    pub BUSD_Alloc_End: u32,
+}
+impl Default for BUSNUMBER_DES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for BUSNUMBER_DES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct BUSNUMBER_RANGE {
+    pub BUSR_Min: u32,
+    pub BUSR_Max: u32,
+    pub BUSR_nBusNumbers: u32,
+    pub BUSR_Flags: u32,
+}
+impl Default for BUSNUMBER_RANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for BUSNUMBER_RANGE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct BUSNUMBER_RESOURCE {
+    pub BusNumber_Header: BUSNUMBER_DES,
+    pub BusNumber_Data: [BUSNUMBER_RANGE; 1],
+}
+impl Default for BUSNUMBER_RESOURCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for BUSNUMBER_RESOURCE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct CABINET_INFO_A {
+    pub CabinetPath: windows_core::PCSTR,
+    pub CabinetFile: windows_core::PCSTR,
+    pub DiskName: windows_core::PCSTR,
+    pub SetId: u16,
+    pub CabinetNumber: u16,
+}
+#[cfg(target_arch = "x86")]
+impl Default for CABINET_INFO_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for CABINET_INFO_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CABINET_INFO_A {
+    pub CabinetPath: windows_core::PCSTR,
+    pub CabinetFile: windows_core::PCSTR,
+    pub DiskName: windows_core::PCSTR,
+    pub SetId: u16,
+    pub CabinetNumber: u16,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for CABINET_INFO_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for CABINET_INFO_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct CABINET_INFO_W {
+    pub CabinetPath: windows_core::PCWSTR,
+    pub CabinetFile: windows_core::PCWSTR,
+    pub DiskName: windows_core::PCWSTR,
+    pub SetId: u16,
+    pub CabinetNumber: u16,
+}
+#[cfg(target_arch = "x86")]
+impl Default for CABINET_INFO_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for CABINET_INFO_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CABINET_INFO_W {
+    pub CabinetPath: windows_core::PCWSTR,
+    pub CabinetFile: windows_core::PCWSTR,
+    pub DiskName: windows_core::PCWSTR,
+    pub SetId: u16,
+    pub CabinetNumber: u16,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for CABINET_INFO_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for CABINET_INFO_W {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CM_ADD_ID_BITS: u32 = 1u32;
+pub const CM_ADD_ID_COMPATIBLE: u32 = 1u32;
+pub const CM_ADD_ID_HARDWARE: u32 = 0u32;
+pub const CM_ADD_RANGE_ADDIFCONFLICT: u32 = 0u32;
+pub const CM_ADD_RANGE_BITS: u32 = 1u32;
+pub const CM_ADD_RANGE_DONOTADDIFCONFLICT: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_CDFLAGS(pub u32);
@@ -4240,6 +4371,9 @@ impl core::ops::Not for CM_CDFLAGS {
         Self(self.0.not())
     }
 }
+pub const CM_CDFLAGS_DRIVER: CM_CDFLAGS = CM_CDFLAGS(1u32);
+pub const CM_CDFLAGS_RESERVED: CM_CDFLAGS = CM_CDFLAGS(4u32);
+pub const CM_CDFLAGS_ROOT_OWNED: CM_CDFLAGS = CM_CDFLAGS(2u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_CDMASK(pub u32);
@@ -4276,6 +4410,46 @@ impl core::ops::Not for CM_CDMASK {
         Self(self.0.not())
     }
 }
+pub const CM_CDMASK_DESCRIPTION: CM_CDMASK = CM_CDMASK(8u32);
+pub const CM_CDMASK_DEVINST: CM_CDMASK = CM_CDMASK(1u32);
+pub const CM_CDMASK_FLAGS: CM_CDMASK = CM_CDMASK(4u32);
+pub const CM_CDMASK_RESDES: CM_CDMASK = CM_CDMASK(2u32);
+pub const CM_CDMASK_VALID: CM_CDMASK = CM_CDMASK(15u32);
+pub const CM_CLASS_PROPERTY_BITS: u32 = 1u32;
+pub const CM_CLASS_PROPERTY_INSTALLER: u32 = 0u32;
+pub const CM_CLASS_PROPERTY_INTERFACE: u32 = 1u32;
+pub const CM_CREATE_DEVINST_BITS: u32 = 15u32;
+pub const CM_CREATE_DEVINST_DO_NOT_INSTALL: u32 = 8u32;
+pub const CM_CREATE_DEVINST_GENERATE_ID: u32 = 4u32;
+pub const CM_CREATE_DEVINST_NORMAL: u32 = 0u32;
+pub const CM_CREATE_DEVINST_NO_WAIT_INSTALL: u32 = 1u32;
+pub const CM_CREATE_DEVINST_PHANTOM: u32 = 2u32;
+pub const CM_CREATE_DEVNODE_BITS: u32 = 15u32;
+pub const CM_CREATE_DEVNODE_DO_NOT_INSTALL: u32 = 8u32;
+pub const CM_CREATE_DEVNODE_GENERATE_ID: u32 = 4u32;
+pub const CM_CREATE_DEVNODE_NORMAL: u32 = 0u32;
+pub const CM_CREATE_DEVNODE_NO_WAIT_INSTALL: u32 = 1u32;
+pub const CM_CREATE_DEVNODE_PHANTOM: u32 = 2u32;
+pub const CM_CRP_CHARACTERISTICS: u32 = 28u32;
+pub const CM_CRP_DEVTYPE: u32 = 26u32;
+pub const CM_CRP_EXCLUSIVE: u32 = 27u32;
+pub const CM_CRP_LOWERFILTERS: u32 = 19u32;
+pub const CM_CRP_MAX: u32 = 37u32;
+pub const CM_CRP_MIN: u32 = 1u32;
+pub const CM_CRP_SECURITY: u32 = 24u32;
+pub const CM_CRP_SECURITY_SDS: u32 = 25u32;
+pub const CM_CRP_UPPERFILTERS: u32 = 18u32;
+pub const CM_CUSTOMDEVPROP_BITS: u32 = 1u32;
+pub const CM_CUSTOMDEVPROP_MERGE_MULTISZ: u32 = 1u32;
+pub const CM_DELETE_CLASS_BITS: u32 = 3u32;
+pub const CM_DELETE_CLASS_INTERFACE: u32 = 2u32;
+pub const CM_DELETE_CLASS_ONLY: u32 = 0u32;
+pub const CM_DELETE_CLASS_SUBKEYS: u32 = 1u32;
+pub const CM_DETECT_BITS: u32 = 2147483655u32;
+pub const CM_DETECT_CRASHED: u32 = 2u32;
+pub const CM_DETECT_HWPROF_FIRST_BOOT: u32 = 4u32;
+pub const CM_DETECT_NEW_PROFILE: u32 = 1u32;
+pub const CM_DETECT_RUN: u32 = 2147483648u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_DEVCAP(pub u32);
@@ -4312,6 +4486,39 @@ impl core::ops::Not for CM_DEVCAP {
         Self(self.0.not())
     }
 }
+pub const CM_DEVCAP_DOCKDEVICE: CM_DEVCAP = CM_DEVCAP(8u32);
+pub const CM_DEVCAP_EJECTSUPPORTED: CM_DEVCAP = CM_DEVCAP(2u32);
+pub const CM_DEVCAP_HARDWAREDISABLED: CM_DEVCAP = CM_DEVCAP(256u32);
+pub const CM_DEVCAP_LOCKSUPPORTED: CM_DEVCAP = CM_DEVCAP(1u32);
+pub const CM_DEVCAP_NONDYNAMIC: CM_DEVCAP = CM_DEVCAP(512u32);
+pub const CM_DEVCAP_RAWDEVICEOK: CM_DEVCAP = CM_DEVCAP(64u32);
+pub const CM_DEVCAP_REMOVABLE: CM_DEVCAP = CM_DEVCAP(4u32);
+pub const CM_DEVCAP_SECUREDEVICE: CM_DEVCAP = CM_DEVCAP(1024u32);
+pub const CM_DEVCAP_SILENTINSTALL: CM_DEVCAP = CM_DEVCAP(32u32);
+pub const CM_DEVCAP_SURPRISEREMOVALOK: CM_DEVCAP = CM_DEVCAP(128u32);
+pub const CM_DEVCAP_UNIQUEID: CM_DEVCAP = CM_DEVCAP(16u32);
+pub const CM_DEVICE_PANEL_EDGE_BOTTOM: u32 = 2u32;
+pub const CM_DEVICE_PANEL_EDGE_LEFT: u32 = 3u32;
+pub const CM_DEVICE_PANEL_EDGE_RIGHT: u32 = 4u32;
+pub const CM_DEVICE_PANEL_EDGE_TOP: u32 = 1u32;
+pub const CM_DEVICE_PANEL_EDGE_UNKNOWN: u32 = 0u32;
+pub const CM_DEVICE_PANEL_JOINT_TYPE_HINGE: u32 = 2u32;
+pub const CM_DEVICE_PANEL_JOINT_TYPE_PIVOT: u32 = 3u32;
+pub const CM_DEVICE_PANEL_JOINT_TYPE_PLANAR: u32 = 1u32;
+pub const CM_DEVICE_PANEL_JOINT_TYPE_SWIVEL: u32 = 4u32;
+pub const CM_DEVICE_PANEL_JOINT_TYPE_UNKNOWN: u32 = 0u32;
+pub const CM_DEVICE_PANEL_ORIENTATION_HORIZONTAL: u32 = 0u32;
+pub const CM_DEVICE_PANEL_ORIENTATION_VERTICAL: u32 = 1u32;
+pub const CM_DEVICE_PANEL_SHAPE_OVAL: u32 = 2u32;
+pub const CM_DEVICE_PANEL_SHAPE_RECTANGLE: u32 = 1u32;
+pub const CM_DEVICE_PANEL_SHAPE_UNKNOWN: u32 = 0u32;
+pub const CM_DEVICE_PANEL_SIDE_BACK: u32 = 6u32;
+pub const CM_DEVICE_PANEL_SIDE_BOTTOM: u32 = 2u32;
+pub const CM_DEVICE_PANEL_SIDE_FRONT: u32 = 5u32;
+pub const CM_DEVICE_PANEL_SIDE_LEFT: u32 = 3u32;
+pub const CM_DEVICE_PANEL_SIDE_RIGHT: u32 = 4u32;
+pub const CM_DEVICE_PANEL_SIDE_TOP: u32 = 1u32;
+pub const CM_DEVICE_PANEL_SIDE_UNKNOWN: u32 = 0u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_DEVNODE_STATUS_FLAGS(pub u32);
@@ -4348,6 +4555,54 @@ impl core::ops::Not for CM_DEVNODE_STATUS_FLAGS {
         Self(self.0.not())
     }
 }
+pub const CM_DISABLE_ABSOLUTE: u32 = 1u32;
+pub const CM_DISABLE_BITS: u32 = 15u32;
+pub const CM_DISABLE_HARDWARE: u32 = 2u32;
+pub const CM_DISABLE_PERSIST: u32 = 8u32;
+pub const CM_DISABLE_POLITE: u32 = 0u32;
+pub const CM_DISABLE_UI_NOT_OK: u32 = 4u32;
+pub const CM_DRP_ADDRESS: u32 = 29u32;
+pub const CM_DRP_BASE_CONTAINERID: u32 = 37u32;
+pub const CM_DRP_BUSNUMBER: u32 = 22u32;
+pub const CM_DRP_BUSTYPEGUID: u32 = 20u32;
+pub const CM_DRP_CAPABILITIES: u32 = 16u32;
+pub const CM_DRP_CHARACTERISTICS: u32 = 28u32;
+pub const CM_DRP_CLASS: u32 = 8u32;
+pub const CM_DRP_CLASSGUID: u32 = 9u32;
+pub const CM_DRP_COMPATIBLEIDS: u32 = 3u32;
+pub const CM_DRP_CONFIGFLAGS: u32 = 11u32;
+pub const CM_DRP_DEVICEDESC: u32 = 1u32;
+pub const CM_DRP_DEVICE_POWER_DATA: u32 = 31u32;
+pub const CM_DRP_DEVTYPE: u32 = 26u32;
+pub const CM_DRP_DRIVER: u32 = 10u32;
+pub const CM_DRP_ENUMERATOR_NAME: u32 = 23u32;
+pub const CM_DRP_EXCLUSIVE: u32 = 27u32;
+pub const CM_DRP_FRIENDLYNAME: u32 = 13u32;
+pub const CM_DRP_HARDWAREID: u32 = 2u32;
+pub const CM_DRP_INSTALL_STATE: u32 = 35u32;
+pub const CM_DRP_LEGACYBUSTYPE: u32 = 21u32;
+pub const CM_DRP_LOCATION_INFORMATION: u32 = 14u32;
+pub const CM_DRP_LOCATION_PATHS: u32 = 36u32;
+pub const CM_DRP_LOWERFILTERS: u32 = 19u32;
+pub const CM_DRP_MAX: u32 = 37u32;
+pub const CM_DRP_MFG: u32 = 12u32;
+pub const CM_DRP_MIN: u32 = 1u32;
+pub const CM_DRP_PHYSICAL_DEVICE_OBJECT_NAME: u32 = 15u32;
+pub const CM_DRP_REMOVAL_POLICY: u32 = 32u32;
+pub const CM_DRP_REMOVAL_POLICY_HW_DEFAULT: u32 = 33u32;
+pub const CM_DRP_REMOVAL_POLICY_OVERRIDE: u32 = 34u32;
+pub const CM_DRP_SECURITY: u32 = 24u32;
+pub const CM_DRP_SECURITY_SDS: u32 = 25u32;
+pub const CM_DRP_SERVICE: u32 = 5u32;
+pub const CM_DRP_UI_NUMBER: u32 = 17u32;
+pub const CM_DRP_UI_NUMBER_DESC_FORMAT: u32 = 30u32;
+pub const CM_DRP_UNUSED0: u32 = 4u32;
+pub const CM_DRP_UNUSED1: u32 = 6u32;
+pub const CM_DRP_UNUSED2: u32 = 7u32;
+pub const CM_DRP_UPPERFILTERS: u32 = 18u32;
+pub const CM_ENUMERATE_CLASSES_BITS: CM_ENUMERATE_FLAGS = CM_ENUMERATE_FLAGS(1u32);
+pub const CM_ENUMERATE_CLASSES_INSTALLER: CM_ENUMERATE_FLAGS = CM_ENUMERATE_FLAGS(0u32);
+pub const CM_ENUMERATE_CLASSES_INTERFACE: CM_ENUMERATE_FLAGS = CM_ENUMERATE_FLAGS(1u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_ENUMERATE_FLAGS(pub u32);
@@ -4384,27 +4639,290 @@ impl core::ops::Not for CM_ENUMERATE_FLAGS {
         Self(self.0.not())
     }
 }
+pub const CM_GETIDLIST_DONOTGENERATE: u32 = 268435520u32;
+pub const CM_GETIDLIST_FILTER_BITS: u32 = 268435583u32;
+pub const CM_GETIDLIST_FILTER_BUSRELATIONS: u32 = 32u32;
+pub const CM_GETIDLIST_FILTER_CLASS: u32 = 512u32;
+pub const CM_GETIDLIST_FILTER_EJECTRELATIONS: u32 = 4u32;
+pub const CM_GETIDLIST_FILTER_ENUMERATOR: u32 = 1u32;
+pub const CM_GETIDLIST_FILTER_NONE: u32 = 0u32;
+pub const CM_GETIDLIST_FILTER_POWERRELATIONS: u32 = 16u32;
+pub const CM_GETIDLIST_FILTER_PRESENT: u32 = 256u32;
+pub const CM_GETIDLIST_FILTER_REMOVALRELATIONS: u32 = 8u32;
+pub const CM_GETIDLIST_FILTER_SERVICE: u32 = 2u32;
+pub const CM_GETIDLIST_FILTER_TRANSPORTRELATIONS: u32 = 128u32;
+pub const CM_GET_DEVICE_INTERFACE_LIST_ALL_DEVICES: CM_GET_DEVICE_INTERFACE_LIST_FLAGS = CM_GET_DEVICE_INTERFACE_LIST_FLAGS(1u32);
+pub const CM_GET_DEVICE_INTERFACE_LIST_BITS: CM_GET_DEVICE_INTERFACE_LIST_FLAGS = CM_GET_DEVICE_INTERFACE_LIST_FLAGS(1u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_GET_DEVICE_INTERFACE_LIST_FLAGS(pub u32);
+pub const CM_GET_DEVICE_INTERFACE_LIST_PRESENT: CM_GET_DEVICE_INTERFACE_LIST_FLAGS = CM_GET_DEVICE_INTERFACE_LIST_FLAGS(0u32);
+pub const CM_GLOBAL_STATE_CAN_DO_UI: u32 = 1u32;
+pub const CM_GLOBAL_STATE_DETECTION_PENDING: u32 = 16u32;
+pub const CM_GLOBAL_STATE_ON_BIG_STACK: u32 = 2u32;
+pub const CM_GLOBAL_STATE_REBOOT_REQUIRED: u32 = 32u32;
+pub const CM_GLOBAL_STATE_SERVICES_AVAILABLE: u32 = 4u32;
+pub const CM_GLOBAL_STATE_SHUTTING_DOWN: u32 = 8u32;
+pub const CM_HWPI_DOCKED: u32 = 2u32;
+pub const CM_HWPI_NOT_DOCKABLE: u32 = 0u32;
+pub const CM_HWPI_UNDOCKED: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_INSTALL_STATE(pub u32);
+pub const CM_INSTALL_STATE_FAILED_INSTALL: CM_INSTALL_STATE = CM_INSTALL_STATE(2u32);
+pub const CM_INSTALL_STATE_FINISH_INSTALL: CM_INSTALL_STATE = CM_INSTALL_STATE(3u32);
+pub const CM_INSTALL_STATE_INSTALLED: CM_INSTALL_STATE = CM_INSTALL_STATE(0u32);
+pub const CM_INSTALL_STATE_NEEDS_REINSTALL: CM_INSTALL_STATE = CM_INSTALL_STATE(1u32);
+pub const CM_LOCATE_DEVNODE_BITS: CM_LOCATE_DEVNODE_FLAGS = CM_LOCATE_DEVNODE_FLAGS(7u32);
+pub const CM_LOCATE_DEVNODE_CANCELREMOVE: CM_LOCATE_DEVNODE_FLAGS = CM_LOCATE_DEVNODE_FLAGS(2u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_LOCATE_DEVNODE_FLAGS(pub u32);
+pub const CM_LOCATE_DEVNODE_NORMAL: CM_LOCATE_DEVNODE_FLAGS = CM_LOCATE_DEVNODE_FLAGS(0u32);
+pub const CM_LOCATE_DEVNODE_NOVALIDATION: CM_LOCATE_DEVNODE_FLAGS = CM_LOCATE_DEVNODE_FLAGS(4u32);
+pub const CM_LOCATE_DEVNODE_PHANTOM: CM_LOCATE_DEVNODE_FLAGS = CM_LOCATE_DEVNODE_FLAGS(1u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_LOG_CONF(pub u32);
+pub const CM_NAME_ATTRIBUTE_NAME_RETRIEVED_FROM_DEVICE: u32 = 1u32;
+pub const CM_NAME_ATTRIBUTE_USER_ASSIGNED_NAME: u32 = 2u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_NOTIFY_ACTION(pub i32);
+pub const CM_NOTIFY_ACTION_DEVICECUSTOMEVENT: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(6i32);
+pub const CM_NOTIFY_ACTION_DEVICEINSTANCEENUMERATED: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(7i32);
+pub const CM_NOTIFY_ACTION_DEVICEINSTANCEREMOVED: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(9i32);
+pub const CM_NOTIFY_ACTION_DEVICEINSTANCESTARTED: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(8i32);
+pub const CM_NOTIFY_ACTION_DEVICEINTERFACEARRIVAL: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(0i32);
+pub const CM_NOTIFY_ACTION_DEVICEINTERFACEREMOVAL: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(1i32);
+pub const CM_NOTIFY_ACTION_DEVICEQUERYREMOVE: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(2i32);
+pub const CM_NOTIFY_ACTION_DEVICEQUERYREMOVEFAILED: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(3i32);
+pub const CM_NOTIFY_ACTION_DEVICEREMOVECOMPLETE: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(5i32);
+pub const CM_NOTIFY_ACTION_DEVICEREMOVEPENDING: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(4i32);
+pub const CM_NOTIFY_ACTION_MAX: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(10i32);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CM_NOTIFY_EVENT_DATA {
+    pub FilterType: CM_NOTIFY_FILTER_TYPE,
+    pub Reserved: u32,
+    pub u: CM_NOTIFY_EVENT_DATA_0,
+}
+impl Default for CM_NOTIFY_EVENT_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union CM_NOTIFY_EVENT_DATA_0 {
+    pub DeviceInterface: CM_NOTIFY_EVENT_DATA_0_0,
+    pub DeviceHandle: CM_NOTIFY_EVENT_DATA_0_1,
+    pub DeviceInstance: CM_NOTIFY_EVENT_DATA_0_2,
+}
+impl Default for CM_NOTIFY_EVENT_DATA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CM_NOTIFY_EVENT_DATA_0_1 {
+    pub EventGuid: windows_core::GUID,
+    pub NameOffset: i32,
+    pub DataSize: u32,
+    pub Data: [u8; 1],
+}
+impl Default for CM_NOTIFY_EVENT_DATA_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CM_NOTIFY_EVENT_DATA_0_2 {
+    pub InstanceId: [u16; 1],
+}
+impl Default for CM_NOTIFY_EVENT_DATA_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CM_NOTIFY_EVENT_DATA_0_0 {
+    pub ClassGuid: windows_core::GUID,
+    pub SymbolicLink: [u16; 1],
+}
+impl Default for CM_NOTIFY_EVENT_DATA_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CM_NOTIFY_FILTER {
+    pub cbSize: u32,
+    pub Flags: u32,
+    pub FilterType: CM_NOTIFY_FILTER_TYPE,
+    pub Reserved: u32,
+    pub u: CM_NOTIFY_FILTER_0,
+}
+impl Default for CM_NOTIFY_FILTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CM_NOTIFY_FILTER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union CM_NOTIFY_FILTER_0 {
+    pub DeviceInterface: CM_NOTIFY_FILTER_0_0,
+    pub DeviceHandle: CM_NOTIFY_FILTER_0_1,
+    pub DeviceInstance: CM_NOTIFY_FILTER_0_2,
+}
+impl Default for CM_NOTIFY_FILTER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CM_NOTIFY_FILTER_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CM_NOTIFY_FILTER_0_1 {
+    pub hTarget: super::super::Foundation::HANDLE,
+}
+impl Default for CM_NOTIFY_FILTER_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CM_NOTIFY_FILTER_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CM_NOTIFY_FILTER_0_2 {
+    pub InstanceId: [u16; 200],
+}
+impl Default for CM_NOTIFY_FILTER_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CM_NOTIFY_FILTER_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CM_NOTIFY_FILTER_0_0 {
+    pub ClassGuid: windows_core::GUID,
+}
+impl Default for CM_NOTIFY_FILTER_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CM_NOTIFY_FILTER_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CM_NOTIFY_FILTER_FLAG_ALL_DEVICE_INSTANCES: u32 = 2u32;
+pub const CM_NOTIFY_FILTER_FLAG_ALL_INTERFACE_CLASSES: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_NOTIFY_FILTER_TYPE(pub i32);
+pub const CM_NOTIFY_FILTER_TYPE_DEVICEHANDLE: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(1i32);
+pub const CM_NOTIFY_FILTER_TYPE_DEVICEINSTANCE: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(2i32);
+pub const CM_NOTIFY_FILTER_TYPE_DEVICEINTERFACE: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(0i32);
+pub const CM_NOTIFY_FILTER_TYPE_MAX: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(3i32);
+pub const CM_OPEN_CLASS_KEY_BITS: u32 = 1u32;
+pub const CM_OPEN_CLASS_KEY_INSTALLER: u32 = 0u32;
+pub const CM_OPEN_CLASS_KEY_INTERFACE: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PROB(pub u32);
+pub const CM_PROB_BIOS_TABLE: CM_PROB = CM_PROB(35u32);
+pub const CM_PROB_BOOT_CONFIG_CONFLICT: CM_PROB = CM_PROB(6u32);
+pub const CM_PROB_CANT_SHARE_IRQ: CM_PROB = CM_PROB(30u32);
+pub const CM_PROB_CONSOLE_LOCKED: CM_PROB = CM_PROB(55u32);
+pub const CM_PROB_DEVICE_NOT_THERE: CM_PROB = CM_PROB(24u32);
+pub const CM_PROB_DEVICE_RESET: CM_PROB = CM_PROB(54u32);
+pub const CM_PROB_DEVLOADER_FAILED: CM_PROB = CM_PROB(2u32);
+pub const CM_PROB_DEVLOADER_NOT_FOUND: CM_PROB = CM_PROB(8u32);
+pub const CM_PROB_DEVLOADER_NOT_READY: CM_PROB = CM_PROB(23u32);
+pub const CM_PROB_DISABLED: CM_PROB = CM_PROB(22u32);
+pub const CM_PROB_DISABLED_SERVICE: CM_PROB = CM_PROB(32u32);
+pub const CM_PROB_DRIVER_BLOCKED: CM_PROB = CM_PROB(48u32);
+pub const CM_PROB_DRIVER_FAILED_LOAD: CM_PROB = CM_PROB(39u32);
+pub const CM_PROB_DRIVER_FAILED_PRIOR_UNLOAD: CM_PROB = CM_PROB(38u32);
+pub const CM_PROB_DRIVER_SERVICE_KEY_INVALID: CM_PROB = CM_PROB(40u32);
+pub const CM_PROB_DUPLICATE_DEVICE: CM_PROB = CM_PROB(42u32);
+pub const CM_PROB_ENTRY_IS_WRONG_TYPE: CM_PROB = CM_PROB(4u32);
+pub const CM_PROB_FAILED_ADD: CM_PROB = CM_PROB(31u32);
+pub const CM_PROB_FAILED_DRIVER_ENTRY: CM_PROB = CM_PROB(37u32);
+pub const CM_PROB_FAILED_FILTER: CM_PROB = CM_PROB(7u32);
+pub const CM_PROB_FAILED_INSTALL: CM_PROB = CM_PROB(28u32);
+pub const CM_PROB_FAILED_POST_START: CM_PROB = CM_PROB(43u32);
+pub const CM_PROB_FAILED_START: CM_PROB = CM_PROB(10u32);
+pub const CM_PROB_GUEST_ASSIGNMENT_FAILED: CM_PROB = CM_PROB(57u32);
+pub const CM_PROB_HALTED: CM_PROB = CM_PROB(44u32);
+pub const CM_PROB_HARDWARE_DISABLED: CM_PROB = CM_PROB(29u32);
+pub const CM_PROB_HELD_FOR_EJECT: CM_PROB = CM_PROB(47u32);
+pub const CM_PROB_INVALID_DATA: CM_PROB = CM_PROB(9u32);
+pub const CM_PROB_IRQ_TRANSLATION_FAILED: CM_PROB = CM_PROB(36u32);
+pub const CM_PROB_LACKED_ARBITRATOR: CM_PROB = CM_PROB(5u32);
+pub const CM_PROB_LEGACY_SERVICE_NO_DEVICES: CM_PROB = CM_PROB(41u32);
+pub const CM_PROB_LIAR: CM_PROB = CM_PROB(11u32);
+pub const CM_PROB_MOVED: CM_PROB = CM_PROB(25u32);
+pub const CM_PROB_NEED_CLASS_CONFIG: CM_PROB = CM_PROB(56u32);
+pub const CM_PROB_NEED_RESTART: CM_PROB = CM_PROB(14u32);
+pub const CM_PROB_NORMAL_CONFLICT: CM_PROB = CM_PROB(12u32);
+pub const CM_PROB_NOT_CONFIGURED: CM_PROB = CM_PROB(1u32);
+pub const CM_PROB_NOT_VERIFIED: CM_PROB = CM_PROB(13u32);
+pub const CM_PROB_NO_SOFTCONFIG: CM_PROB = CM_PROB(34u32);
+pub const CM_PROB_NO_VALID_LOG_CONF: CM_PROB = CM_PROB(27u32);
+pub const CM_PROB_OUT_OF_MEMORY: CM_PROB = CM_PROB(3u32);
+pub const CM_PROB_PARTIAL_LOG_CONF: CM_PROB = CM_PROB(16u32);
+pub const CM_PROB_PHANTOM: CM_PROB = CM_PROB(45u32);
+pub const CM_PROB_REENUMERATION: CM_PROB = CM_PROB(15u32);
+pub const CM_PROB_REGISTRY: CM_PROB = CM_PROB(19u32);
+pub const CM_PROB_REGISTRY_TOO_LARGE: CM_PROB = CM_PROB(49u32);
+pub const CM_PROB_REINSTALL: CM_PROB = CM_PROB(18u32);
+pub const CM_PROB_SETPROPERTIES_FAILED: CM_PROB = CM_PROB(50u32);
+pub const CM_PROB_SYSTEM_SHUTDOWN: CM_PROB = CM_PROB(46u32);
+pub const CM_PROB_TOO_EARLY: CM_PROB = CM_PROB(26u32);
+pub const CM_PROB_TRANSLATION_FAILED: CM_PROB = CM_PROB(33u32);
+pub const CM_PROB_UNKNOWN_RESOURCE: CM_PROB = CM_PROB(17u32);
+pub const CM_PROB_UNSIGNED_DRIVER: CM_PROB = CM_PROB(52u32);
+pub const CM_PROB_USED_BY_DEBUGGER: CM_PROB = CM_PROB(53u32);
+pub const CM_PROB_VXDLDR: CM_PROB = CM_PROB(20u32);
+pub const CM_PROB_WAITING_ON_DEPENDENCY: CM_PROB = CM_PROB(51u32);
+pub const CM_PROB_WILL_BE_REMOVED: CM_PROB = CM_PROB(21u32);
+pub const CM_QUERY_ARBITRATOR_BITS: u32 = 1u32;
+pub const CM_QUERY_ARBITRATOR_RAW: u32 = 0u32;
+pub const CM_QUERY_ARBITRATOR_TRANSLATED: u32 = 1u32;
+pub const CM_QUERY_REMOVE_UI_NOT_OK: u32 = 1u32;
+pub const CM_QUERY_REMOVE_UI_OK: u32 = 0u32;
+pub const CM_REENUMERATE_ASYNCHRONOUS: CM_REENUMERATE_FLAGS = CM_REENUMERATE_FLAGS(4u32);
+pub const CM_REENUMERATE_BITS: CM_REENUMERATE_FLAGS = CM_REENUMERATE_FLAGS(7u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_REENUMERATE_FLAGS(pub u32);
@@ -4441,15 +4959,296 @@ impl core::ops::Not for CM_REENUMERATE_FLAGS {
         Self(self.0.not())
     }
 }
+pub const CM_REENUMERATE_NORMAL: CM_REENUMERATE_FLAGS = CM_REENUMERATE_FLAGS(0u32);
+pub const CM_REENUMERATE_RETRY_INSTALLATION: CM_REENUMERATE_FLAGS = CM_REENUMERATE_FLAGS(2u32);
+pub const CM_REENUMERATE_SYNCHRONOUS: CM_REENUMERATE_FLAGS = CM_REENUMERATE_FLAGS(1u32);
+pub const CM_REGISTER_DEVICE_DRIVER_BITS: u32 = 3u32;
+pub const CM_REGISTER_DEVICE_DRIVER_DISABLEABLE: u32 = 1u32;
+pub const CM_REGISTER_DEVICE_DRIVER_REMOVABLE: u32 = 2u32;
+pub const CM_REGISTER_DEVICE_DRIVER_STATIC: u32 = 0u32;
+pub const CM_REGISTRY_BITS: u32 = 769u32;
+pub const CM_REGISTRY_CONFIG: u32 = 512u32;
+pub const CM_REGISTRY_HARDWARE: u32 = 0u32;
+pub const CM_REGISTRY_SOFTWARE: u32 = 1u32;
+pub const CM_REGISTRY_USER: u32 = 256u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_REMOVAL_POLICY(pub u32);
+pub const CM_REMOVAL_POLICY_EXPECT_NO_REMOVAL: CM_REMOVAL_POLICY = CM_REMOVAL_POLICY(1u32);
+pub const CM_REMOVAL_POLICY_EXPECT_ORDERLY_REMOVAL: CM_REMOVAL_POLICY = CM_REMOVAL_POLICY(2u32);
+pub const CM_REMOVAL_POLICY_EXPECT_SURPRISE_REMOVAL: CM_REMOVAL_POLICY = CM_REMOVAL_POLICY(3u32);
+pub const CM_REMOVE_BITS: u32 = 7u32;
+pub const CM_REMOVE_DISABLE: u32 = 4u32;
+pub const CM_REMOVE_NO_RESTART: u32 = 2u32;
+pub const CM_REMOVE_UI_NOT_OK: u32 = 1u32;
+pub const CM_REMOVE_UI_OK: u32 = 0u32;
+pub const CM_RESDES_WIDTH_32: u32 = 1u32;
+pub const CM_RESDES_WIDTH_64: u32 = 2u32;
+pub const CM_RESDES_WIDTH_BITS: u32 = 3u32;
+pub const CM_RESDES_WIDTH_DEFAULT: u32 = 0u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_RESTYPE(pub u32);
+pub const CM_SETUP_BITS: u32 = 15u32;
+pub const CM_SETUP_DEVINST_CONFIG: u32 = 5u32;
+pub const CM_SETUP_DEVINST_CONFIG_CLASS: u32 = 6u32;
+pub const CM_SETUP_DEVINST_CONFIG_EXTENSIONS: u32 = 7u32;
+pub const CM_SETUP_DEVINST_CONFIG_RESET: u32 = 8u32;
+pub const CM_SETUP_DEVINST_READY: u32 = 0u32;
+pub const CM_SETUP_DEVINST_RESET: u32 = 4u32;
+pub const CM_SETUP_DEVNODE_CONFIG: u32 = 5u32;
+pub const CM_SETUP_DEVNODE_CONFIG_CLASS: u32 = 6u32;
+pub const CM_SETUP_DEVNODE_CONFIG_EXTENSIONS: u32 = 7u32;
+pub const CM_SETUP_DEVNODE_CONFIG_RESET: u32 = 8u32;
+pub const CM_SETUP_DEVNODE_READY: u32 = 0u32;
+pub const CM_SETUP_DEVNODE_RESET: u32 = 4u32;
+pub const CM_SETUP_DOWNLOAD: u32 = 1u32;
+pub const CM_SETUP_PROP_CHANGE: u32 = 3u32;
+pub const CM_SETUP_WRITE_LOG_CONFS: u32 = 2u32;
+pub const CM_SET_DEVINST_PROBLEM_BITS: u32 = 1u32;
+pub const CM_SET_DEVINST_PROBLEM_NORMAL: u32 = 0u32;
+pub const CM_SET_DEVINST_PROBLEM_OVERRIDE: u32 = 1u32;
+pub const CM_SET_DEVNODE_PROBLEM_BITS: u32 = 1u32;
+pub const CM_SET_DEVNODE_PROBLEM_NORMAL: u32 = 0u32;
+pub const CM_SET_DEVNODE_PROBLEM_OVERRIDE: u32 = 1u32;
+pub const CM_SET_HW_PROF_FLAGS_BITS: u32 = 1u32;
+pub const CM_SET_HW_PROF_FLAGS_UI_NOT_OK: u32 = 1u32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct COINSTALLER_CONTEXT_DATA {
+    pub PostProcessing: super::super::Foundation::BOOL,
+    pub InstallResult: u32,
+    pub PrivateData: *mut core::ffi::c_void,
+}
+#[cfg(target_arch = "x86")]
+impl Default for COINSTALLER_CONTEXT_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for COINSTALLER_CONTEXT_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COINSTALLER_CONTEXT_DATA {
+    pub PostProcessing: super::super::Foundation::BOOL,
+    pub InstallResult: u32,
+    pub PrivateData: *mut core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for COINSTALLER_CONTEXT_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for COINSTALLER_CONTEXT_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CONFIGFLAG_BOOT_DEVICE: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(262144u32);
+pub const CONFIGFLAG_CANTSTOPACHILD: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(128u32);
+pub const CONFIGFLAG_DISABLED: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(1u32);
+pub const CONFIGFLAG_FAILEDINSTALL: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(64u32);
+pub const CONFIGFLAG_FINISHINSTALL_ACTION: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(131072u32);
+pub const CONFIGFLAG_FINISHINSTALL_UI: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(65536u32);
+pub const CONFIGFLAG_FINISH_INSTALL: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(1024u32);
+pub const CONFIGFLAG_IGNORE_BOOT_LC: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(8u32);
+pub const CONFIGFLAG_MANUAL_INSTALL: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(4u32);
+pub const CONFIGFLAG_NEEDS_CLASS_CONFIG: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(524288u32);
+pub const CONFIGFLAG_NEEDS_FORCED_CONFIG: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(2048u32);
+pub const CONFIGFLAG_NETBOOT_CARD: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(4096u32);
+pub const CONFIGFLAG_NET_BOOT: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(16u32);
+pub const CONFIGFLAG_NOREMOVEEXIT: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(512u32);
+pub const CONFIGFLAG_OKREMOVEROM: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(256u32);
+pub const CONFIGFLAG_PARTIAL_LOG_CONF: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(8192u32);
+pub const CONFIGFLAG_REINSTALL: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(32u32);
+pub const CONFIGFLAG_REMOVED: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(2u32);
+pub const CONFIGFLAG_SUPPRESS_SURPRISE: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(16384u32);
+pub const CONFIGFLAG_VERIFY_HARDWARE: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(32768u32);
+pub const CONFIGMG_VERSION: u32 = 1024u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONFIGRET(pub u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CONFLICT_DETAILS_A {
+    pub CD_ulSize: u32,
+    pub CD_ulMask: CM_CDMASK,
+    pub CD_dnDevInst: u32,
+    pub CD_rdResDes: usize,
+    pub CD_ulFlags: CM_CDFLAGS,
+    pub CD_szDescription: [i8; 260],
+}
+impl Default for CONFLICT_DETAILS_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CONFLICT_DETAILS_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CONFLICT_DETAILS_W {
+    pub CD_ulSize: u32,
+    pub CD_ulMask: CM_CDMASK,
+    pub CD_dnDevInst: u32,
+    pub CD_rdResDes: usize,
+    pub CD_ulFlags: CM_CDFLAGS,
+    pub CD_szDescription: [u16; 260],
+}
+impl Default for CONFLICT_DETAILS_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CONFLICT_DETAILS_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct CONNECTION_DES {
+    pub COND_Type: u32,
+    pub COND_Flags: u32,
+    pub COND_Class: u8,
+    pub COND_ClassType: u8,
+    pub COND_Reserved1: u8,
+    pub COND_Reserved2: u8,
+    pub COND_Id: i64,
+}
+impl Default for CONNECTION_DES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CONNECTION_DES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct CONNECTION_RESOURCE {
+    pub Connection_Header: CONNECTION_DES,
+}
+impl Default for CONNECTION_RESOURCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CONNECTION_RESOURCE {
+    type TypeKind = windows_core::CopyType;
+}
+pub const COPYFLG_FORCE_FILE_IN_USE: u32 = 8u32;
+pub const COPYFLG_IN_USE_TRY_RENAME: u32 = 16384u32;
+pub const COPYFLG_NODECOMP: u32 = 2048u32;
+pub const COPYFLG_NOPRUNE: u32 = 8192u32;
+pub const COPYFLG_NOSKIP: u32 = 2u32;
+pub const COPYFLG_NOVERSIONCHECK: u32 = 4u32;
+pub const COPYFLG_NO_OVERWRITE: u32 = 16u32;
+pub const COPYFLG_NO_VERSION_DIALOG: u32 = 32u32;
+pub const COPYFLG_OVERWRITE_OLDER_ONLY: u32 = 64u32;
+pub const COPYFLG_PROTECTED_WINDOWS_DRIVER_FILE: u32 = 256u32;
+pub const COPYFLG_REPLACEONLY: u32 = 1024u32;
+pub const COPYFLG_REPLACE_BOOT_FILE: u32 = 4096u32;
+pub const COPYFLG_WARN_IF_SKIP: u32 = 1u32;
+pub const CR_ACCESS_DENIED: CONFIGRET = CONFIGRET(51u32);
+pub const CR_ALREADY_SUCH_DEVINST: CONFIGRET = CONFIGRET(16u32);
+pub const CR_ALREADY_SUCH_DEVNODE: CONFIGRET = CONFIGRET(16u32);
+pub const CR_APM_VETOED: CONFIGRET = CONFIGRET(24u32);
+pub const CR_BUFFER_SMALL: CONFIGRET = CONFIGRET(26u32);
+pub const CR_CALL_NOT_IMPLEMENTED: CONFIGRET = CONFIGRET(52u32);
+pub const CR_CANT_SHARE_IRQ: CONFIGRET = CONFIGRET(43u32);
+pub const CR_CREATE_BLOCKED: CONFIGRET = CONFIGRET(21u32);
+pub const CR_DEFAULT: CONFIGRET = CONFIGRET(1u32);
+pub const CR_DEVICE_INTERFACE_ACTIVE: CONFIGRET = CONFIGRET(54u32);
+pub const CR_DEVICE_NOT_THERE: CONFIGRET = CONFIGRET(36u32);
+pub const CR_DEVINST_HAS_REQS: CONFIGRET = CONFIGRET(10u32);
+pub const CR_DEVLOADER_NOT_READY: CONFIGRET = CONFIGRET(33u32);
+pub const CR_DEVNODE_HAS_REQS: CONFIGRET = CONFIGRET(10u32);
+pub const CR_DLVXD_NOT_FOUND: CONFIGRET = CONFIGRET(12u32);
+pub const CR_FAILURE: CONFIGRET = CONFIGRET(19u32);
+pub const CR_FREE_RESOURCES: CONFIGRET = CONFIGRET(41u32);
+pub const CR_INVALID_API: CONFIGRET = CONFIGRET(32u32);
+pub const CR_INVALID_ARBITRATOR: CONFIGRET = CONFIGRET(8u32);
+pub const CR_INVALID_CONFLICT_LIST: CONFIGRET = CONFIGRET(57u32);
+pub const CR_INVALID_DATA: CONFIGRET = CONFIGRET(31u32);
+pub const CR_INVALID_DEVICE_ID: CONFIGRET = CONFIGRET(30u32);
+pub const CR_INVALID_DEVINST: CONFIGRET = CONFIGRET(5u32);
+pub const CR_INVALID_DEVNODE: CONFIGRET = CONFIGRET(5u32);
+pub const CR_INVALID_FLAG: CONFIGRET = CONFIGRET(4u32);
+pub const CR_INVALID_INDEX: CONFIGRET = CONFIGRET(58u32);
+pub const CR_INVALID_LOAD_TYPE: CONFIGRET = CONFIGRET(25u32);
+pub const CR_INVALID_LOG_CONF: CONFIGRET = CONFIGRET(7u32);
+pub const CR_INVALID_MACHINENAME: CONFIGRET = CONFIGRET(47u32);
+pub const CR_INVALID_NODELIST: CONFIGRET = CONFIGRET(9u32);
+pub const CR_INVALID_POINTER: CONFIGRET = CONFIGRET(3u32);
+pub const CR_INVALID_PRIORITY: CONFIGRET = CONFIGRET(39u32);
+pub const CR_INVALID_PROPERTY: CONFIGRET = CONFIGRET(53u32);
+pub const CR_INVALID_RANGE: CONFIGRET = CONFIGRET(18u32);
+pub const CR_INVALID_RANGE_LIST: CONFIGRET = CONFIGRET(17u32);
+pub const CR_INVALID_REFERENCE_STRING: CONFIGRET = CONFIGRET(56u32);
+pub const CR_INVALID_RESOURCEID: CONFIGRET = CONFIGRET(11u32);
+pub const CR_INVALID_RES_DES: CONFIGRET = CONFIGRET(6u32);
+pub const CR_INVALID_STRUCTURE_SIZE: CONFIGRET = CONFIGRET(59u32);
+pub const CR_MACHINE_UNAVAILABLE: CONFIGRET = CONFIGRET(49u32);
+pub const CR_NEED_RESTART: CONFIGRET = CONFIGRET(34u32);
+pub const CR_NOT_DISABLEABLE: CONFIGRET = CONFIGRET(40u32);
+pub const CR_NOT_SYSTEM_VM: CONFIGRET = CONFIGRET(22u32);
+pub const CR_NO_ARBITRATOR: CONFIGRET = CONFIGRET(27u32);
+pub const CR_NO_CM_SERVICES: CONFIGRET = CONFIGRET(50u32);
+pub const CR_NO_DEPENDENT: CONFIGRET = CONFIGRET(44u32);
+pub const CR_NO_MORE_HW_PROFILES: CONFIGRET = CONFIGRET(35u32);
+pub const CR_NO_MORE_LOG_CONF: CONFIGRET = CONFIGRET(14u32);
+pub const CR_NO_MORE_RES_DES: CONFIGRET = CONFIGRET(15u32);
+pub const CR_NO_REGISTRY_HANDLE: CONFIGRET = CONFIGRET(28u32);
+pub const CR_NO_SUCH_DEVICE_INTERFACE: CONFIGRET = CONFIGRET(55u32);
+pub const CR_NO_SUCH_DEVINST: CONFIGRET = CONFIGRET(13u32);
+pub const CR_NO_SUCH_DEVNODE: CONFIGRET = CONFIGRET(13u32);
+pub const CR_NO_SUCH_LOGICAL_DEV: CONFIGRET = CONFIGRET(20u32);
+pub const CR_NO_SUCH_REGISTRY_KEY: CONFIGRET = CONFIGRET(46u32);
+pub const CR_NO_SUCH_VALUE: CONFIGRET = CONFIGRET(37u32);
+pub const CR_OUT_OF_MEMORY: CONFIGRET = CONFIGRET(2u32);
+pub const CR_QUERY_VETOED: CONFIGRET = CONFIGRET(42u32);
+pub const CR_REGISTRY_ERROR: CONFIGRET = CONFIGRET(29u32);
+pub const CR_REMOTE_COMM_FAILURE: CONFIGRET = CONFIGRET(48u32);
+pub const CR_REMOVE_VETOED: CONFIGRET = CONFIGRET(23u32);
+pub const CR_SAME_RESOURCES: CONFIGRET = CONFIGRET(45u32);
+pub const CR_SUCCESS: CONFIGRET = CONFIGRET(0u32);
+pub const CR_WRONG_TYPE: CONFIGRET = CONFIGRET(38u32);
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct CS_DES {
+    pub CSD_SignatureLength: u32,
+    pub CSD_LegacyDataOffset: u32,
+    pub CSD_LegacyDataSize: u32,
+    pub CSD_Flags: u32,
+    pub CSD_ClassGuid: windows_core::GUID,
+    pub CSD_Signature: [u8; 1],
+}
+impl Default for CS_DES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CS_DES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct CS_RESOURCE {
+    pub CS_Header: CS_DES,
+}
+impl Default for CS_RESOURCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CS_RESOURCE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DD_FLAGS(pub u32);
@@ -4486,6 +5285,128 @@ impl core::ops::Not for DD_FLAGS {
         Self(self.0.not())
     }
 }
+pub const DELFLG_IN_USE: u32 = 1u32;
+pub const DELFLG_IN_USE1: u32 = 65536u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct DEVPRIVATE_DES {
+    pub PD_Count: u32,
+    pub PD_Type: u32,
+    pub PD_Data1: u32,
+    pub PD_Data2: u32,
+    pub PD_Data3: u32,
+    pub PD_Flags: u32,
+}
+impl Default for DEVPRIVATE_DES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DEVPRIVATE_DES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct DEVPRIVATE_RANGE {
+    pub PR_Data1: u32,
+    pub PR_Data2: u32,
+    pub PR_Data3: u32,
+}
+impl Default for DEVPRIVATE_RANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DEVPRIVATE_RANGE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct DEVPRIVATE_RESOURCE {
+    pub PRV_Header: DEVPRIVATE_DES,
+    pub PRV_Data: [DEVPRIVATE_RANGE; 1],
+}
+impl Default for DEVPRIVATE_RESOURCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DEVPRIVATE_RESOURCE {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DIBCI_NODISPLAYCLASS: u32 = 2u32;
+pub const DIBCI_NOINSTALLCLASS: u32 = 1u32;
+pub const DICD_GENERATE_ID: SETUP_DI_DEVICE_CREATION_FLAGS = SETUP_DI_DEVICE_CREATION_FLAGS(1u32);
+pub const DICD_INHERIT_CLASSDRVS: SETUP_DI_DEVICE_CREATION_FLAGS = SETUP_DI_DEVICE_CREATION_FLAGS(2u32);
+pub const DICLASSPROP_INSTALLER: u32 = 1u32;
+pub const DICLASSPROP_INTERFACE: u32 = 2u32;
+pub const DICS_DISABLE: SETUP_DI_STATE_CHANGE = SETUP_DI_STATE_CHANGE(2u32);
+pub const DICS_ENABLE: SETUP_DI_STATE_CHANGE = SETUP_DI_STATE_CHANGE(1u32);
+pub const DICS_FLAG_CONFIGGENERAL: SETUP_DI_PROPERTY_CHANGE_SCOPE = SETUP_DI_PROPERTY_CHANGE_SCOPE(4u32);
+pub const DICS_FLAG_CONFIGSPECIFIC: SETUP_DI_PROPERTY_CHANGE_SCOPE = SETUP_DI_PROPERTY_CHANGE_SCOPE(2u32);
+pub const DICS_FLAG_GLOBAL: SETUP_DI_PROPERTY_CHANGE_SCOPE = SETUP_DI_PROPERTY_CHANGE_SCOPE(1u32);
+pub const DICS_PROPCHANGE: SETUP_DI_STATE_CHANGE = SETUP_DI_STATE_CHANGE(3u32);
+pub const DICS_START: SETUP_DI_STATE_CHANGE = SETUP_DI_STATE_CHANGE(4u32);
+pub const DICS_STOP: SETUP_DI_STATE_CHANGE = SETUP_DI_STATE_CHANGE(5u32);
+pub const DICUSTOMDEVPROP_MERGE_MULTISZ: u32 = 1u32;
+pub const DIF_ADDPROPERTYPAGE_ADVANCED: DI_FUNCTION = DI_FUNCTION(35u32);
+pub const DIF_ADDPROPERTYPAGE_BASIC: DI_FUNCTION = DI_FUNCTION(36u32);
+pub const DIF_ADDREMOTEPROPERTYPAGE_ADVANCED: DI_FUNCTION = DI_FUNCTION(40u32);
+pub const DIF_ALLOW_INSTALL: DI_FUNCTION = DI_FUNCTION(24u32);
+pub const DIF_ASSIGNRESOURCES: DI_FUNCTION = DI_FUNCTION(3u32);
+pub const DIF_CALCDISKSPACE: DI_FUNCTION = DI_FUNCTION(11u32);
+pub const DIF_DESTROYPRIVATEDATA: DI_FUNCTION = DI_FUNCTION(12u32);
+pub const DIF_DESTROYWIZARDDATA: DI_FUNCTION = DI_FUNCTION(17u32);
+pub const DIF_DETECT: DI_FUNCTION = DI_FUNCTION(15u32);
+pub const DIF_DETECTCANCEL: DI_FUNCTION = DI_FUNCTION(33u32);
+pub const DIF_DETECTVERIFY: DI_FUNCTION = DI_FUNCTION(20u32);
+pub const DIF_ENABLECLASS: DI_FUNCTION = DI_FUNCTION(19u32);
+pub const DIF_FINISHINSTALL_ACTION: DI_FUNCTION = DI_FUNCTION(42u32);
+pub const DIF_FIRSTTIMESETUP: DI_FUNCTION = DI_FUNCTION(6u32);
+pub const DIF_FOUNDDEVICE: DI_FUNCTION = DI_FUNCTION(7u32);
+pub const DIF_INSTALLCLASSDRIVERS: DI_FUNCTION = DI_FUNCTION(10u32);
+pub const DIF_INSTALLDEVICE: DI_FUNCTION = DI_FUNCTION(2u32);
+pub const DIF_INSTALLDEVICEFILES: DI_FUNCTION = DI_FUNCTION(21u32);
+pub const DIF_INSTALLINTERFACES: DI_FUNCTION = DI_FUNCTION(32u32);
+pub const DIF_INSTALLWIZARD: DI_FUNCTION = DI_FUNCTION(16u32);
+pub const DIF_MOVEDEVICE: DI_FUNCTION = DI_FUNCTION(14u32);
+pub const DIF_NEWDEVICEWIZARD_FINISHINSTALL: DI_FUNCTION = DI_FUNCTION(30u32);
+pub const DIF_NEWDEVICEWIZARD_POSTANALYZE: DI_FUNCTION = DI_FUNCTION(29u32);
+pub const DIF_NEWDEVICEWIZARD_PREANALYZE: DI_FUNCTION = DI_FUNCTION(28u32);
+pub const DIF_NEWDEVICEWIZARD_PRESELECT: DI_FUNCTION = DI_FUNCTION(26u32);
+pub const DIF_NEWDEVICEWIZARD_SELECT: DI_FUNCTION = DI_FUNCTION(27u32);
+pub const DIF_POWERMESSAGEWAKE: DI_FUNCTION = DI_FUNCTION(39u32);
+pub const DIF_PROPERTIES: DI_FUNCTION = DI_FUNCTION(4u32);
+pub const DIF_PROPERTYCHANGE: DI_FUNCTION = DI_FUNCTION(18u32);
+pub const DIF_REGISTERDEVICE: DI_FUNCTION = DI_FUNCTION(25u32);
+pub const DIF_REGISTER_COINSTALLERS: DI_FUNCTION = DI_FUNCTION(34u32);
+pub const DIF_REMOVE: DI_FUNCTION = DI_FUNCTION(5u32);
+pub const DIF_RESERVED1: DI_FUNCTION = DI_FUNCTION(37u32);
+pub const DIF_RESERVED2: DI_FUNCTION = DI_FUNCTION(48u32);
+pub const DIF_SELECTBESTCOMPATDRV: DI_FUNCTION = DI_FUNCTION(23u32);
+pub const DIF_SELECTCLASSDRIVERS: DI_FUNCTION = DI_FUNCTION(8u32);
+pub const DIF_SELECTDEVICE: DI_FUNCTION = DI_FUNCTION(1u32);
+pub const DIF_TROUBLESHOOTER: DI_FUNCTION = DI_FUNCTION(38u32);
+pub const DIF_UNREMOVE: DI_FUNCTION = DI_FUNCTION(22u32);
+pub const DIF_UNUSED1: DI_FUNCTION = DI_FUNCTION(31u32);
+pub const DIF_UPDATEDRIVER_UI: DI_FUNCTION = DI_FUNCTION(41u32);
+pub const DIF_VALIDATECLASSDRIVERS: DI_FUNCTION = DI_FUNCTION(9u32);
+pub const DIF_VALIDATEDRIVER: DI_FUNCTION = DI_FUNCTION(13u32);
+pub const DIGCDP_FLAG_ADVANCED: u32 = 2u32;
+pub const DIGCDP_FLAG_BASIC: u32 = 1u32;
+pub const DIGCDP_FLAG_REMOTE_ADVANCED: u32 = 4u32;
+pub const DIGCDP_FLAG_REMOTE_BASIC: u32 = 3u32;
+pub const DIGCF_ALLCLASSES: SETUP_DI_GET_CLASS_DEVS_FLAGS = SETUP_DI_GET_CLASS_DEVS_FLAGS(4u32);
+pub const DIGCF_DEFAULT: SETUP_DI_GET_CLASS_DEVS_FLAGS = SETUP_DI_GET_CLASS_DEVS_FLAGS(1u32);
+pub const DIGCF_DEVICEINTERFACE: SETUP_DI_GET_CLASS_DEVS_FLAGS = SETUP_DI_GET_CLASS_DEVS_FLAGS(16u32);
+pub const DIGCF_INTERFACEDEVICE: SETUP_DI_GET_CLASS_DEVS_FLAGS = SETUP_DI_GET_CLASS_DEVS_FLAGS(16u32);
+pub const DIGCF_PRESENT: SETUP_DI_GET_CLASS_DEVS_FLAGS = SETUP_DI_GET_CLASS_DEVS_FLAGS(2u32);
+pub const DIGCF_PROFILE: SETUP_DI_GET_CLASS_DEVS_FLAGS = SETUP_DI_GET_CLASS_DEVS_FLAGS(8u32);
+pub const DIIDFLAG_BITS: DIINSTALLDEVICE_FLAGS = DIINSTALLDEVICE_FLAGS(15u32);
+pub const DIIDFLAG_INSTALLCOPYINFDRIVERS: DIINSTALLDEVICE_FLAGS = DIINSTALLDEVICE_FLAGS(8u32);
+pub const DIIDFLAG_INSTALLNULLDRIVER: DIINSTALLDEVICE_FLAGS = DIINSTALLDEVICE_FLAGS(4u32);
+pub const DIIDFLAG_NOFINISHINSTALLUI: DIINSTALLDEVICE_FLAGS = DIINSTALLDEVICE_FLAGS(2u32);
+pub const DIIDFLAG_SHOWSEARCHUI: DIINSTALLDEVICE_FLAGS = DIINSTALLDEVICE_FLAGS(1u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIINSTALLDEVICE_FLAGS(pub u32);
@@ -4558,6 +5479,61 @@ impl core::ops::Not for DIINSTALLDRIVER_FLAGS {
         Self(self.0.not())
     }
 }
+pub const DIIRFLAG_BITS: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(106u32);
+pub const DIIRFLAG_FORCE_INF: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(2u32);
+pub const DIIRFLAG_HOTPATCH: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(8u32);
+pub const DIIRFLAG_HW_USING_THE_INF: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(4u32);
+pub const DIIRFLAG_INF_ALREADY_COPIED: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(1u32);
+pub const DIIRFLAG_INSTALL_AS_SET: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(64u32);
+pub const DIIRFLAG_NOBACKUP: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(16u32);
+pub const DIIRFLAG_PRE_CONFIGURE_INF: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(32u32);
+pub const DIIRFLAG_SYSTEM_BITS: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(127u32);
+pub const DIOCR_INSTALLER: u32 = 1u32;
+pub const DIOCR_INTERFACE: u32 = 2u32;
+pub const DIODI_NO_ADD: u32 = 1u32;
+pub const DIOD_CANCEL_REMOVE: u32 = 4u32;
+pub const DIOD_INHERIT_CLASSDRVS: u32 = 2u32;
+pub const DIREG_BOTH: u32 = 4u32;
+pub const DIREG_DEV: u32 = 1u32;
+pub const DIREG_DRV: u32 = 2u32;
+pub const DIRID_ABSOLUTE: i32 = -1i32;
+pub const DIRID_ABSOLUTE_16BIT: u32 = 65535u32;
+pub const DIRID_APPS: u32 = 24u32;
+pub const DIRID_BOOT: u32 = 30u32;
+pub const DIRID_COLOR: u32 = 23u32;
+pub const DIRID_COMMON_APPDATA: u32 = 16419u32;
+pub const DIRID_COMMON_DESKTOPDIRECTORY: u32 = 16409u32;
+pub const DIRID_COMMON_DOCUMENTS: u32 = 16430u32;
+pub const DIRID_COMMON_FAVORITES: u32 = 16415u32;
+pub const DIRID_COMMON_PROGRAMS: u32 = 16407u32;
+pub const DIRID_COMMON_STARTMENU: u32 = 16406u32;
+pub const DIRID_COMMON_STARTUP: u32 = 16408u32;
+pub const DIRID_COMMON_TEMPLATES: u32 = 16429u32;
+pub const DIRID_DEFAULT: u32 = 11u32;
+pub const DIRID_DRIVERS: u32 = 12u32;
+pub const DIRID_DRIVER_STORE: u32 = 13u32;
+pub const DIRID_FONTS: u32 = 20u32;
+pub const DIRID_HELP: u32 = 18u32;
+pub const DIRID_INF: u32 = 17u32;
+pub const DIRID_IOSUBSYS: u32 = 12u32;
+pub const DIRID_LOADER: u32 = 54u32;
+pub const DIRID_NULL: u32 = 0u32;
+pub const DIRID_PRINTPROCESSOR: u32 = 55u32;
+pub const DIRID_PROGRAM_FILES: u32 = 16422u32;
+pub const DIRID_PROGRAM_FILES_COMMON: u32 = 16427u32;
+pub const DIRID_PROGRAM_FILES_COMMONX86: u32 = 16428u32;
+pub const DIRID_PROGRAM_FILES_X86: u32 = 16426u32;
+pub const DIRID_SHARED: u32 = 25u32;
+pub const DIRID_SPOOL: u32 = 51u32;
+pub const DIRID_SPOOLDRIVERS: u32 = 52u32;
+pub const DIRID_SRCPATH: u32 = 1u32;
+pub const DIRID_SYSTEM: u32 = 11u32;
+pub const DIRID_SYSTEM16: u32 = 50u32;
+pub const DIRID_SYSTEM_X86: u32 = 16425u32;
+pub const DIRID_USER: u32 = 32768u32;
+pub const DIRID_USERPROFILE: u32 = 53u32;
+pub const DIRID_VIEWERS: u32 = 21u32;
+pub const DIRID_WINDOWS: u32 = 10u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIROLLBACKDRIVER_FLAGS(pub u32);
@@ -4630,9 +5606,397 @@ impl core::ops::Not for DIUNINSTALLDRIVER_FLAGS {
         Self(self.0.not())
     }
 }
+pub const DIURFLAG_NO_REMOVE_INF: DIUNINSTALLDRIVER_FLAGS = DIUNINSTALLDRIVER_FLAGS(1u32);
+pub const DIURFLAG_RESERVED: DIUNINSTALLDRIVER_FLAGS = DIUNINSTALLDRIVER_FLAGS(2u32);
+pub const DIURFLAG_VALID: DIUNINSTALLDRIVER_FLAGS = DIUNINSTALLDRIVER_FLAGS(3u32);
+pub const DI_AUTOASSIGNRES: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(64u32);
+pub const DI_CLASSINSTALLPARAMS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(1048576u32);
+pub const DI_COMPAT_FROM_CLASS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(524288u32);
+pub const DI_DIDCLASS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(32u32);
+pub const DI_DIDCOMPAT: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(16u32);
+pub const DI_DISABLED: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(2048u32);
+pub const DI_DONOTCALLCONFIGMG: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(131072u32);
+pub const DI_DRIVERPAGE_ADDED: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(67108864u32);
+pub const DI_ENUMSINGLEINF: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(65536u32);
+pub const DI_FLAGSEX_ALLOWEXCLUDEDDRVS: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(2048u32);
+pub const DI_FLAGSEX_ALTPLATFORM_DRVSEARCH: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(268435456u32);
+pub const DI_FLAGSEX_ALWAYSWRITEIDS: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(512u32);
+pub const DI_FLAGSEX_APPENDDRIVERLIST: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(262144u32);
+pub const DI_FLAGSEX_BACKUPONREPLACE: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(1048576u32);
+pub const DI_FLAGSEX_CI_FAILED: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(4u32);
+pub const DI_FLAGSEX_DEVICECHANGE: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(256u32);
+pub const DI_FLAGSEX_DIDCOMPATINFO: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(32u32);
+pub const DI_FLAGSEX_DIDINFOLIST: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(16u32);
+pub const DI_FLAGSEX_DRIVERLIST_FROM_URL: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(2097152u32);
+pub const DI_FLAGSEX_EXCLUDE_OLD_INET_DRIVERS: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(8388608u32);
+pub const DI_FLAGSEX_FILTERCLASSES: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(64u32);
+pub const DI_FLAGSEX_FILTERSIMILARDRIVERS: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(33554432u32);
+pub const DI_FLAGSEX_FINISHINSTALL_ACTION: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(8u32);
+pub const DI_FLAGSEX_INET_DRIVER: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(131072u32);
+pub const DI_FLAGSEX_INSTALLEDDRIVER: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(67108864u32);
+pub const DI_FLAGSEX_IN_SYSTEM_SETUP: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(65536u32);
+pub const DI_FLAGSEX_NOUIONQUERYREMOVE: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(4096u32);
+pub const DI_FLAGSEX_NO_CLASSLIST_NODE_MERGE: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(134217728u32);
+pub const DI_FLAGSEX_NO_DRVREG_MODIFY: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(32768u32);
+pub const DI_FLAGSEX_POWERPAGE_ADDED: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(16777216u32);
+pub const DI_FLAGSEX_PREINSTALLBACKUP: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(524288u32);
+pub const DI_FLAGSEX_PROPCHANGE_PENDING: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(1024u32);
+pub const DI_FLAGSEX_RECURSIVESEARCH: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(1073741824u32);
+pub const DI_FLAGSEX_RESERVED1: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(4194304u32);
+pub const DI_FLAGSEX_RESERVED2: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(1u32);
+pub const DI_FLAGSEX_RESERVED3: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(2u32);
+pub const DI_FLAGSEX_RESERVED4: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(16384u32);
+pub const DI_FLAGSEX_RESTART_DEVICE_ONLY: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(536870912u32);
+pub const DI_FLAGSEX_SEARCH_PUBLISHED_INFS: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(2147483648u32);
+pub const DI_FLAGSEX_SETFAILEDINSTALL: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(128u32);
+pub const DI_FLAGSEX_USECLASSFORCOMPAT: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(8192u32);
+pub const DI_FORCECOPY: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(33554432u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DI_FUNCTION(pub u32);
+pub const DI_GENERALPAGE_ADDED: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(4096u32);
+pub const DI_INF_IS_SORTED: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(32768u32);
+pub const DI_INSTALLDISABLED: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(262144u32);
+pub const DI_MULTMFGS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(1024u32);
+pub const DI_NEEDREBOOT: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(256u32);
+pub const DI_NEEDRESTART: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(128u32);
+pub const DI_NOBROWSE: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(512u32);
+pub const DI_NODI_DEFAULTACTION: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(2097152u32);
+pub const DI_NOFILECOPY: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(16777216u32);
+pub const DI_NOSELECTICONS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(1073741824u32);
+pub const DI_NOVCP: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(8u32);
+pub const DI_NOWRITE_IDS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(2147483648u32);
+pub const DI_OVERRIDE_INFFLAGS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(268435456u32);
+pub const DI_PROPERTIES_CHANGE: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(16384u32);
+pub const DI_PROPS_NOCHANGEUSAGE: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(536870912u32);
+pub const DI_QUIETINSTALL: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(8388608u32);
+pub const DI_REMOVEDEVICE_CONFIGSPECIFIC: SETUP_DI_REMOVE_DEVICE_SCOPE = SETUP_DI_REMOVE_DEVICE_SCOPE(2u32);
+pub const DI_REMOVEDEVICE_GLOBAL: SETUP_DI_REMOVE_DEVICE_SCOPE = SETUP_DI_REMOVE_DEVICE_SCOPE(1u32);
+pub const DI_RESOURCEPAGE_ADDED: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(8192u32);
+pub const DI_SHOWALL: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(7u32);
+pub const DI_SHOWCLASS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(4u32);
+pub const DI_SHOWCOMPAT: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(2u32);
+pub const DI_SHOWOEM: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(1u32);
+pub const DI_UNREMOVEDEVICE_CONFIGSPECIFIC: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(2u32);
+pub const DI_USECI_SELECTSTRINGS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(134217728u32);
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct DMA_DES {
+    pub DD_Count: u32,
+    pub DD_Type: u32,
+    pub DD_Flags: DD_FLAGS,
+    pub DD_Alloc_Chan: u32,
+}
+impl Default for DMA_DES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DMA_DES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct DMA_RANGE {
+    pub DR_Min: u32,
+    pub DR_Max: u32,
+    pub DR_Flags: DD_FLAGS,
+}
+impl Default for DMA_RANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DMA_RANGE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct DMA_RESOURCE {
+    pub DMA_Header: DMA_DES,
+    pub DMA_Data: [DMA_RANGE; 1],
+}
+impl Default for DMA_RESOURCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DMA_RESOURCE {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DMI_BKCOLOR: u32 = 2u32;
+pub const DMI_MASK: u32 = 1u32;
+pub const DMI_USERECT: u32 = 4u32;
+pub const DNF_ALWAYSEXCLUDEFROMLIST: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(524288u32);
+pub const DNF_AUTHENTICODE_SIGNED: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(131072u32);
+pub const DNF_BAD_DRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(2048u32);
+pub const DNF_BASIC_DRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(65536u32);
+pub const DNF_CLASS_DRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(32u32);
+pub const DNF_COMPATIBLE_DRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(64u32);
+pub const DNF_DUPDESC: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(1u32);
+pub const DNF_DUPDRIVERVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(32768u32);
+pub const DNF_DUPPROVIDER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(4096u32);
+pub const DNF_EXCLUDEFROMLIST: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(4u32);
+pub const DNF_INBOX_DRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(1048576u32);
+pub const DNF_INET_DRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(128u32);
+pub const DNF_INF_IS_SIGNED: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(8192u32);
+pub const DNF_INSTALLEDDRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(262144u32);
+pub const DNF_LEGACYINF: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(16u32);
+pub const DNF_NODRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(8u32);
+pub const DNF_OEM_F6_INF: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(16384u32);
+pub const DNF_OLDDRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(2u32);
+pub const DNF_OLD_INET_DRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(1024u32);
+pub const DNF_REQUESTADDITIONALSOFTWARE: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(2097152u32);
+pub const DNF_UNUSED1: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(256u32);
+pub const DNF_UNUSED2: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(512u32);
+pub const DNF_UNUSED_22: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(4194304u32);
+pub const DNF_UNUSED_23: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(8388608u32);
+pub const DNF_UNUSED_24: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(16777216u32);
+pub const DNF_UNUSED_25: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(33554432u32);
+pub const DNF_UNUSED_26: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(67108864u32);
+pub const DNF_UNUSED_27: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(134217728u32);
+pub const DNF_UNUSED_28: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(268435456u32);
+pub const DNF_UNUSED_29: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(536870912u32);
+pub const DNF_UNUSED_30: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(1073741824u32);
+pub const DNF_UNUSED_31: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(2147483648u32);
+pub const DN_APM_DRIVER: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(268435456u32);
+pub const DN_APM_ENUMERATOR: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(134217728u32);
+pub const DN_ARM_WAKEUP: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(67108864u32);
+pub const DN_BAD_PARTIAL: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(4194304u32);
+pub const DN_BOOT_LOG_PROB: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(2147483648u32);
+pub const DN_CHANGEABLE_FLAGS: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(1639670464u32);
+pub const DN_CHILD_WITH_INVALID_ID: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(512u32);
+pub const DN_DEVICE_DISCONNECTED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(33554432u32);
+pub const DN_DISABLEABLE: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(8192u32);
+pub const DN_DRIVER_BLOCKED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(64u32);
+pub const DN_DRIVER_LOADED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(2u32);
+pub const DN_ENUM_LOADED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(4u32);
+pub const DN_FILTERED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(2048u32);
+pub const DN_HARDWARE_ENUM: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(128u32);
+pub const DN_HAS_MARK: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(512u32);
+pub const DN_HAS_PROBLEM: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(1024u32);
+pub const DN_LEGACY_DRIVER: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(4096u32);
+pub const DN_LIAR: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(256u32);
+pub const DN_MANUAL: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(16u32);
+pub const DN_MF_CHILD: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(131072u32);
+pub const DN_MF_PARENT: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(65536u32);
+pub const DN_MOVED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(4096u32);
+pub const DN_NEEDS_LOCKING: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(33554432u32);
+pub const DN_NEED_RESTART: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(256u32);
+pub const DN_NEED_TO_ENUM: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(32u32);
+pub const DN_NOT_FIRST_TIME: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(64u32);
+pub const DN_NOT_FIRST_TIMEE: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(524288u32);
+pub const DN_NO_SHOW_IN_DM: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(1073741824u32);
+pub const DN_NT_DRIVER: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(16777216u32);
+pub const DN_NT_ENUMERATOR: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(8388608u32);
+pub const DN_PRIVATE_PROBLEM: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(32768u32);
+pub const DN_QUERY_REMOVE_ACTIVE: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(131072u32);
+pub const DN_QUERY_REMOVE_PENDING: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(65536u32);
+pub const DN_REBAL_CANDIDATE: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(2097152u32);
+pub const DN_REMOVABLE: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(16384u32);
+pub const DN_ROOT_ENUMERATED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(1u32);
+pub const DN_SILENT_INSTALL: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(536870912u32);
+pub const DN_STARTED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(8u32);
+pub const DN_STOP_FREE_RES: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(1048576u32);
+pub const DN_WILL_BE_REMOVED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(262144u32);
+pub const DPROMPT_BUFFERTOOSMALL: u32 = 3u32;
+pub const DPROMPT_CANCEL: u32 = 1u32;
+pub const DPROMPT_OUTOFMEMORY: u32 = 4u32;
+pub const DPROMPT_SKIPFILE: u32 = 2u32;
+pub const DPROMPT_SUCCESS: u32 = 0u32;
+pub const DRIVER_COMPATID_RANK: u32 = 16383u32;
+pub const DRIVER_HARDWAREID_MASK: u32 = 2147487743u32;
+pub const DRIVER_HARDWAREID_RANK: u32 = 4095u32;
+pub const DRIVER_UNTRUSTED_COMPATID_RANK: u32 = 49151u32;
+pub const DRIVER_UNTRUSTED_HARDWAREID_RANK: u32 = 36863u32;
+pub const DRIVER_UNTRUSTED_RANK: u32 = 2147483648u32;
+pub const DRIVER_W9X_SUSPECT_COMPATID_RANK: u32 = 65535u32;
+pub const DRIVER_W9X_SUSPECT_HARDWAREID_RANK: u32 = 53247u32;
+pub const DRIVER_W9X_SUSPECT_RANK: u32 = 3221225472u32;
+pub const DWORD_MAX: u32 = 4294967295u32;
+pub const DYNAWIZ_FLAG_ANALYZE_HANDLECONFLICT: u32 = 8u32;
+pub const DYNAWIZ_FLAG_INSTALLDET_NEXT: u32 = 2u32;
+pub const DYNAWIZ_FLAG_INSTALLDET_PREV: u32 = 4u32;
+pub const DYNAWIZ_FLAG_PAGESADDED: u32 = 1u32;
+pub const ENABLECLASS_FAILURE: u32 = 2u32;
+pub const ENABLECLASS_QUERY: u32 = 0u32;
+pub const ENABLECLASS_SUCCESS: u32 = 1u32;
+pub const FILEOP_ABORT: u32 = 0u32;
+pub const FILEOP_BACKUP: u32 = 3u32;
+pub const FILEOP_COPY: SETUP_FILE_OPERATION = SETUP_FILE_OPERATION(0u32);
+pub const FILEOP_DELETE: SETUP_FILE_OPERATION = SETUP_FILE_OPERATION(2u32);
+pub const FILEOP_DOIT: u32 = 1u32;
+pub const FILEOP_NEWPATH: u32 = 4u32;
+pub const FILEOP_RENAME: u32 = 1u32;
+pub const FILEOP_RETRY: u32 = 1u32;
+pub const FILEOP_SKIP: u32 = 2u32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct FILEPATHS_A {
+    pub Target: windows_core::PCSTR,
+    pub Source: windows_core::PCSTR,
+    pub Win32Error: u32,
+    pub Flags: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for FILEPATHS_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for FILEPATHS_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILEPATHS_A {
+    pub Target: windows_core::PCSTR,
+    pub Source: windows_core::PCSTR,
+    pub Win32Error: u32,
+    pub Flags: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for FILEPATHS_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for FILEPATHS_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct FILEPATHS_SIGNERINFO_A {
+    pub Target: windows_core::PCSTR,
+    pub Source: windows_core::PCSTR,
+    pub Win32Error: u32,
+    pub Flags: u32,
+    pub DigitalSigner: windows_core::PCSTR,
+    pub Version: windows_core::PCSTR,
+    pub CatalogFile: windows_core::PCSTR,
+}
+#[cfg(target_arch = "x86")]
+impl Default for FILEPATHS_SIGNERINFO_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for FILEPATHS_SIGNERINFO_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILEPATHS_SIGNERINFO_A {
+    pub Target: windows_core::PCSTR,
+    pub Source: windows_core::PCSTR,
+    pub Win32Error: u32,
+    pub Flags: u32,
+    pub DigitalSigner: windows_core::PCSTR,
+    pub Version: windows_core::PCSTR,
+    pub CatalogFile: windows_core::PCSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for FILEPATHS_SIGNERINFO_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for FILEPATHS_SIGNERINFO_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct FILEPATHS_SIGNERINFO_W {
+    pub Target: windows_core::PCWSTR,
+    pub Source: windows_core::PCWSTR,
+    pub Win32Error: u32,
+    pub Flags: u32,
+    pub DigitalSigner: windows_core::PCWSTR,
+    pub Version: windows_core::PCWSTR,
+    pub CatalogFile: windows_core::PCWSTR,
+}
+#[cfg(target_arch = "x86")]
+impl Default for FILEPATHS_SIGNERINFO_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for FILEPATHS_SIGNERINFO_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILEPATHS_SIGNERINFO_W {
+    pub Target: windows_core::PCWSTR,
+    pub Source: windows_core::PCWSTR,
+    pub Win32Error: u32,
+    pub Flags: u32,
+    pub DigitalSigner: windows_core::PCWSTR,
+    pub Version: windows_core::PCWSTR,
+    pub CatalogFile: windows_core::PCWSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for FILEPATHS_SIGNERINFO_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for FILEPATHS_SIGNERINFO_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct FILEPATHS_W {
+    pub Target: windows_core::PCWSTR,
+    pub Source: windows_core::PCWSTR,
+    pub Win32Error: u32,
+    pub Flags: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for FILEPATHS_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for FILEPATHS_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILEPATHS_W {
+    pub Target: windows_core::PCWSTR,
+    pub Source: windows_core::PCWSTR,
+    pub Win32Error: u32,
+    pub Flags: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for FILEPATHS_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for FILEPATHS_W {
+    type TypeKind = windows_core::CopyType;
+}
+pub const FILE_COMPRESSION_MSZIP: FILE_COMPRESSION_TYPE = FILE_COMPRESSION_TYPE(2u32);
+pub const FILE_COMPRESSION_NONE: FILE_COMPRESSION_TYPE = FILE_COMPRESSION_TYPE(0u32);
+pub const FILE_COMPRESSION_NTCAB: FILE_COMPRESSION_TYPE = FILE_COMPRESSION_TYPE(3u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_COMPRESSION_TYPE(pub u32);
@@ -4669,6 +6033,659 @@ impl core::ops::Not for FILE_COMPRESSION_TYPE {
         Self(self.0.not())
     }
 }
+pub const FILE_COMPRESSION_WINLZA: FILE_COMPRESSION_TYPE = FILE_COMPRESSION_TYPE(1u32);
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct FILE_IN_CABINET_INFO_A {
+    pub NameInCabinet: windows_core::PCSTR,
+    pub FileSize: u32,
+    pub Win32Error: u32,
+    pub DosDate: u16,
+    pub DosTime: u16,
+    pub DosAttribs: u16,
+    pub FullTargetName: [i8; 260],
+}
+#[cfg(target_arch = "x86")]
+impl Default for FILE_IN_CABINET_INFO_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for FILE_IN_CABINET_INFO_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_IN_CABINET_INFO_A {
+    pub NameInCabinet: windows_core::PCSTR,
+    pub FileSize: u32,
+    pub Win32Error: u32,
+    pub DosDate: u16,
+    pub DosTime: u16,
+    pub DosAttribs: u16,
+    pub FullTargetName: [i8; 260],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for FILE_IN_CABINET_INFO_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for FILE_IN_CABINET_INFO_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct FILE_IN_CABINET_INFO_W {
+    pub NameInCabinet: windows_core::PCWSTR,
+    pub FileSize: u32,
+    pub Win32Error: u32,
+    pub DosDate: u16,
+    pub DosTime: u16,
+    pub DosAttribs: u16,
+    pub FullTargetName: [u16; 260],
+}
+#[cfg(target_arch = "x86")]
+impl Default for FILE_IN_CABINET_INFO_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for FILE_IN_CABINET_INFO_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILE_IN_CABINET_INFO_W {
+    pub NameInCabinet: windows_core::PCWSTR,
+    pub FileSize: u32,
+    pub Win32Error: u32,
+    pub DosDate: u16,
+    pub DosTime: u16,
+    pub DosAttribs: u16,
+    pub FullTargetName: [u16; 260],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for FILE_IN_CABINET_INFO_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for FILE_IN_CABINET_INFO_W {
+    type TypeKind = windows_core::CopyType;
+}
+pub const FILTERED_LOG_CONF: CM_LOG_CONF = CM_LOG_CONF(1u32);
+pub const FLG_ADDPROPERTY_AND: u32 = 16u32;
+pub const FLG_ADDPROPERTY_APPEND: u32 = 4u32;
+pub const FLG_ADDPROPERTY_NOCLOBBER: u32 = 1u32;
+pub const FLG_ADDPROPERTY_OR: u32 = 8u32;
+pub const FLG_ADDPROPERTY_OVERWRITEONLY: u32 = 2u32;
+pub const FLG_ADDREG_32BITKEY: u32 = 16384u32;
+pub const FLG_ADDREG_64BITKEY: u32 = 4096u32;
+pub const FLG_ADDREG_APPEND: u32 = 8u32;
+pub const FLG_ADDREG_BINVALUETYPE: u32 = 1u32;
+pub const FLG_ADDREG_DELREG_BIT: u32 = 32768u32;
+pub const FLG_ADDREG_DELVAL: u32 = 4u32;
+pub const FLG_ADDREG_KEYONLY: u32 = 16u32;
+pub const FLG_ADDREG_KEYONLY_COMMON: u32 = 8192u32;
+pub const FLG_ADDREG_NOCLOBBER: u32 = 2u32;
+pub const FLG_ADDREG_OVERWRITEONLY: u32 = 32u32;
+pub const FLG_ADDREG_TYPE_EXPAND_SZ: u32 = 131072u32;
+pub const FLG_ADDREG_TYPE_MULTI_SZ: u32 = 65536u32;
+pub const FLG_ADDREG_TYPE_SZ: u32 = 0u32;
+pub const FLG_BITREG_32BITKEY: u32 = 16384u32;
+pub const FLG_BITREG_64BITKEY: u32 = 4096u32;
+pub const FLG_BITREG_CLEARBITS: u32 = 0u32;
+pub const FLG_BITREG_SETBITS: u32 = 1u32;
+pub const FLG_DELPROPERTY_MULTI_SZ_DELSTRING: u32 = 1u32;
+pub const FLG_DELREG_32BITKEY: u32 = 16384u32;
+pub const FLG_DELREG_64BITKEY: u32 = 4096u32;
+pub const FLG_DELREG_KEYONLY_COMMON: u32 = 8192u32;
+pub const FLG_DELREG_OPERATION_MASK: u32 = 254u32;
+pub const FLG_DELREG_TYPE_EXPAND_SZ: u32 = 131072u32;
+pub const FLG_DELREG_TYPE_MULTI_SZ: u32 = 65536u32;
+pub const FLG_DELREG_TYPE_SZ: u32 = 0u32;
+pub const FLG_DELREG_VALUE: u32 = 0u32;
+pub const FLG_INI2REG_32BITKEY: u32 = 16384u32;
+pub const FLG_INI2REG_64BITKEY: u32 = 4096u32;
+pub const FLG_PROFITEM_CSIDL: u32 = 8u32;
+pub const FLG_PROFITEM_CURRENTUSER: u32 = 1u32;
+pub const FLG_PROFITEM_DELETE: u32 = 2u32;
+pub const FLG_PROFITEM_GROUP: u32 = 4u32;
+pub const FLG_REGSVR_DLLINSTALL: u32 = 2u32;
+pub const FLG_REGSVR_DLLREGISTER: u32 = 1u32;
+pub const FORCED_LOG_CONF: CM_LOG_CONF = CM_LOG_CONF(4u32);
+pub const GUID_ACPI_CMOS_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0x3a8d0384_6505_40ca_bc39_56c15f8c5fed);
+pub const GUID_ACPI_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0xb091a08a_ba97_11d0_bd14_00aa00b7b32a);
+pub const GUID_ACPI_INTERFACE_STANDARD2: windows_core::GUID = windows_core::GUID::from_u128(0xe8695f63_1831_4870_a8cf_9c2f03f9dcb5);
+pub const GUID_ACPI_PORT_RANGES_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0xf14f609b_cbbd_4957_a674_bc00213f1c97);
+pub const GUID_ACPI_REGS_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0x06141966_7245_6369_462e_4e656c736f6e);
+pub const GUID_AGP_TARGET_BUS_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0xb15cfce8_06d1_4d37_9d4c_bedde0c2a6ff);
+pub const GUID_ARBITER_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0xe644f185_8c0e_11d0_becf_08002be2092f);
+pub const GUID_BUS_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0x496b8280_6f25_11d0_beaf_08002be2092f);
+pub const GUID_BUS_RESOURCE_UPDATE_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x27d0102d_bfb2_4164_81dd_dbb82f968b48);
+pub const GUID_BUS_TYPE_1394: windows_core::GUID = windows_core::GUID::from_u128(0xf74e73eb_9ac5_45eb_be4d_772cc71ddfb3);
+pub const GUID_BUS_TYPE_ACPI: windows_core::GUID = windows_core::GUID::from_u128(0xd7b46895_001a_4942_891f_a7d46610a843);
+pub const GUID_BUS_TYPE_AVC: windows_core::GUID = windows_core::GUID::from_u128(0xc06ff265_ae09_48f0_812c_16753d7cba83);
+pub const GUID_BUS_TYPE_DOT4PRT: windows_core::GUID = windows_core::GUID::from_u128(0x441ee001_4342_11d5_a184_00c04f60524d);
+pub const GUID_BUS_TYPE_EISA: windows_core::GUID = windows_core::GUID::from_u128(0xddc35509_f3fc_11d0_a537_0000f8753ed1);
+pub const GUID_BUS_TYPE_HID: windows_core::GUID = windows_core::GUID::from_u128(0xeeaf37d0_1963_47c4_aa48_72476db7cf49);
+pub const GUID_BUS_TYPE_INTERNAL: windows_core::GUID = windows_core::GUID::from_u128(0x1530ea73_086b_11d1_a09f_00c04fc340b1);
+pub const GUID_BUS_TYPE_IRDA: windows_core::GUID = windows_core::GUID::from_u128(0x7ae17dc1_c944_44d6_881f_4c2e61053bc1);
+pub const GUID_BUS_TYPE_ISAPNP: windows_core::GUID = windows_core::GUID::from_u128(0xe676f854_d87d_11d0_92b2_00a0c9055fc5);
+pub const GUID_BUS_TYPE_LPTENUM: windows_core::GUID = windows_core::GUID::from_u128(0xc4ca1000_2ddc_11d5_a17a_00c04f60524d);
+pub const GUID_BUS_TYPE_MCA: windows_core::GUID = windows_core::GUID::from_u128(0x1c75997a_dc33_11d0_92b2_00a0c9055fc5);
+pub const GUID_BUS_TYPE_PCI: windows_core::GUID = windows_core::GUID::from_u128(0xc8ebdfb0_b510_11d0_80e5_00a0c92542e3);
+pub const GUID_BUS_TYPE_PCMCIA: windows_core::GUID = windows_core::GUID::from_u128(0x09343630_af9f_11d0_92e9_0000f81e1b30);
+pub const GUID_BUS_TYPE_SCM: windows_core::GUID = windows_core::GUID::from_u128(0x375a5912_804c_45aa_bdc2_fdd25a1d9512);
+pub const GUID_BUS_TYPE_SD: windows_core::GUID = windows_core::GUID::from_u128(0xe700cc04_4036_4e89_9579_89ebf45f00cd);
+pub const GUID_BUS_TYPE_SERENUM: windows_core::GUID = windows_core::GUID::from_u128(0x77114a87_8944_11d1_bd90_00a0c906be2d);
+pub const GUID_BUS_TYPE_SW_DEVICE: windows_core::GUID = windows_core::GUID::from_u128(0x06d10322_7de0_4cef_8e25_197d0e7442e2);
+pub const GUID_BUS_TYPE_USB: windows_core::GUID = windows_core::GUID::from_u128(0x9d7debbc_c85d_11d1_9eb4_006008c3a19a);
+pub const GUID_BUS_TYPE_USBPRINT: windows_core::GUID = windows_core::GUID::from_u128(0x441ee000_4342_11d5_a184_00c04f60524d);
+pub const GUID_D3COLD_AUX_POWER_AND_TIMING_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x0044d8aa_f664_4588_9ffc_2afeaf5950b9);
+pub const GUID_D3COLD_SUPPORT_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0xb38290e5_3cd0_4f9d_9937_f5fe2b44d47a);
+pub const GUID_DEVCLASS_1394: windows_core::GUID = windows_core::GUID::from_u128(0x6bdd1fc1_810f_11d0_bec7_08002be2092f);
+pub const GUID_DEVCLASS_1394DEBUG: windows_core::GUID = windows_core::GUID::from_u128(0x66f250d6_7801_4a64_b139_eea80a450b24);
+pub const GUID_DEVCLASS_61883: windows_core::GUID = windows_core::GUID::from_u128(0x7ebefbc0_3200_11d2_b4c2_00a0c9697d07);
+pub const GUID_DEVCLASS_ADAPTER: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e964_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_APMSUPPORT: windows_core::GUID = windows_core::GUID::from_u128(0xd45b1c18_c8fa_11d1_9f77_0000f805f530);
+pub const GUID_DEVCLASS_AVC: windows_core::GUID = windows_core::GUID::from_u128(0xc06ff265_ae09_48f0_812c_16753d7cba83);
+pub const GUID_DEVCLASS_BATTERY: windows_core::GUID = windows_core::GUID::from_u128(0x72631e54_78a4_11d0_bcf7_00aa00b7b32a);
+pub const GUID_DEVCLASS_BIOMETRIC: windows_core::GUID = windows_core::GUID::from_u128(0x53d29ef7_377c_4d14_864b_eb3a85769359);
+pub const GUID_DEVCLASS_BLUETOOTH: windows_core::GUID = windows_core::GUID::from_u128(0xe0cbf06c_cd8b_4647_bb8a_263b43f0f974);
+pub const GUID_DEVCLASS_CAMERA: windows_core::GUID = windows_core::GUID::from_u128(0xca3e7ab9_b4c3_4ae6_8251_579ef933890f);
+pub const GUID_DEVCLASS_CDROM: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e965_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_COMPUTEACCELERATOR: windows_core::GUID = windows_core::GUID::from_u128(0xf01a9d53_3ff6_48d2_9f97_c8a7004be10c);
+pub const GUID_DEVCLASS_COMPUTER: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e966_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_DECODER: windows_core::GUID = windows_core::GUID::from_u128(0x6bdd1fc2_810f_11d0_bec7_08002be2092f);
+pub const GUID_DEVCLASS_DISKDRIVE: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e967_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_DISPLAY: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e968_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_DOT4: windows_core::GUID = windows_core::GUID::from_u128(0x48721b56_6795_11d2_b1a8_0080c72e74a2);
+pub const GUID_DEVCLASS_DOT4PRINT: windows_core::GUID = windows_core::GUID::from_u128(0x49ce6ac8_6f86_11d2_b1e5_0080c72e74a2);
+pub const GUID_DEVCLASS_EHSTORAGESILO: windows_core::GUID = windows_core::GUID::from_u128(0x9da2b80f_f89f_4a49_a5c2_511b085b9e8a);
+pub const GUID_DEVCLASS_ENUM1394: windows_core::GUID = windows_core::GUID::from_u128(0xc459df55_db08_11d1_b009_00a0c9081ff6);
+pub const GUID_DEVCLASS_EXTENSION: windows_core::GUID = windows_core::GUID::from_u128(0xe2f84ce7_8efa_411c_aa69_97454ca4cb57);
+pub const GUID_DEVCLASS_FDC: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e969_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_FIRMWARE: windows_core::GUID = windows_core::GUID::from_u128(0xf2e7dd72_6468_4e36_b6f1_6488f42c1b52);
+pub const GUID_DEVCLASS_FLOPPYDISK: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e980_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_FSFILTER_ACTIVITYMONITOR: windows_core::GUID = windows_core::GUID::from_u128(0xb86dff51_a31e_4bac_b3cf_e8cfe75c9fc2);
+pub const GUID_DEVCLASS_FSFILTER_ANTIVIRUS: windows_core::GUID = windows_core::GUID::from_u128(0xb1d1a169_c54f_4379_81db_bee7d88d7454);
+pub const GUID_DEVCLASS_FSFILTER_BOTTOM: windows_core::GUID = windows_core::GUID::from_u128(0x37765ea0_5958_4fc9_b04b_2fdfef97e59e);
+pub const GUID_DEVCLASS_FSFILTER_CFSMETADATASERVER: windows_core::GUID = windows_core::GUID::from_u128(0xcdcf0939_b75b_4630_bf76_80f7ba655884);
+pub const GUID_DEVCLASS_FSFILTER_COMPRESSION: windows_core::GUID = windows_core::GUID::from_u128(0xf3586baf_b5aa_49b5_8d6c_0569284c639f);
+pub const GUID_DEVCLASS_FSFILTER_CONTENTSCREENER: windows_core::GUID = windows_core::GUID::from_u128(0x3e3f0674_c83c_4558_bb26_9820e1eba5c5);
+pub const GUID_DEVCLASS_FSFILTER_CONTINUOUSBACKUP: windows_core::GUID = windows_core::GUID::from_u128(0x71aa14f8_6fad_4622_ad77_92bb9d7e6947);
+pub const GUID_DEVCLASS_FSFILTER_COPYPROTECTION: windows_core::GUID = windows_core::GUID::from_u128(0x89786ff1_9c12_402f_9c9e_17753c7f4375);
+pub const GUID_DEVCLASS_FSFILTER_ENCRYPTION: windows_core::GUID = windows_core::GUID::from_u128(0xa0a701c0_a511_42ff_aa6c_06dc0395576f);
+pub const GUID_DEVCLASS_FSFILTER_HSM: windows_core::GUID = windows_core::GUID::from_u128(0xd546500a_2aeb_45f6_9482_f4b1799c3177);
+pub const GUID_DEVCLASS_FSFILTER_INFRASTRUCTURE: windows_core::GUID = windows_core::GUID::from_u128(0xe55fa6f9_128c_4d04_abab_630c74b1453a);
+pub const GUID_DEVCLASS_FSFILTER_OPENFILEBACKUP: windows_core::GUID = windows_core::GUID::from_u128(0xf8ecafa6_66d1_41a5_899b_66585d7216b7);
+pub const GUID_DEVCLASS_FSFILTER_PHYSICALQUOTAMANAGEMENT: windows_core::GUID = windows_core::GUID::from_u128(0x6a0a8e78_bba6_4fc4_a709_1e33cd09d67e);
+pub const GUID_DEVCLASS_FSFILTER_QUOTAMANAGEMENT: windows_core::GUID = windows_core::GUID::from_u128(0x8503c911_a6c7_4919_8f79_5028f5866b0c);
+pub const GUID_DEVCLASS_FSFILTER_REPLICATION: windows_core::GUID = windows_core::GUID::from_u128(0x48d3ebc4_4cf8_48ff_b869_9c68ad42eb9f);
+pub const GUID_DEVCLASS_FSFILTER_SECURITYENHANCER: windows_core::GUID = windows_core::GUID::from_u128(0xd02bc3da_0c8e_4945_9bd5_f1883c226c8c);
+pub const GUID_DEVCLASS_FSFILTER_SYSTEM: windows_core::GUID = windows_core::GUID::from_u128(0x5d1b9aaa_01e2_46af_849f_272b3f324c46);
+pub const GUID_DEVCLASS_FSFILTER_SYSTEMRECOVERY: windows_core::GUID = windows_core::GUID::from_u128(0x2db15374_706e_4131_a0c7_d7c78eb0289a);
+pub const GUID_DEVCLASS_FSFILTER_TOP: windows_core::GUID = windows_core::GUID::from_u128(0xb369baf4_5568_4e82_a87e_a93eb16bca87);
+pub const GUID_DEVCLASS_FSFILTER_UNDELETE: windows_core::GUID = windows_core::GUID::from_u128(0xfe8f1572_c67a_48c0_bbac_0b5c6d66cafb);
+pub const GUID_DEVCLASS_FSFILTER_VIRTUALIZATION: windows_core::GUID = windows_core::GUID::from_u128(0xf75a86c0_10d8_4c3a_b233_ed60e4cdfaac);
+pub const GUID_DEVCLASS_GENERIC: windows_core::GUID = windows_core::GUID::from_u128(0xff494df1_c4ed_4fac_9b3f_3786f6e91e7e);
+pub const GUID_DEVCLASS_GPS: windows_core::GUID = windows_core::GUID::from_u128(0x6bdd1fc3_810f_11d0_bec7_08002be2092f);
+pub const GUID_DEVCLASS_HDC: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e96a_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_HIDCLASS: windows_core::GUID = windows_core::GUID::from_u128(0x745a17a0_74d3_11d0_b6fe_00a0c90f57da);
+pub const GUID_DEVCLASS_HOLOGRAPHIC: windows_core::GUID = windows_core::GUID::from_u128(0xd612553d_06b1_49ca_8938_e39ef80eb16f);
+pub const GUID_DEVCLASS_IMAGE: windows_core::GUID = windows_core::GUID::from_u128(0x6bdd1fc6_810f_11d0_bec7_08002be2092f);
+pub const GUID_DEVCLASS_INFINIBAND: windows_core::GUID = windows_core::GUID::from_u128(0x30ef7132_d858_4a0c_ac24_b9028a5cca3f);
+pub const GUID_DEVCLASS_INFRARED: windows_core::GUID = windows_core::GUID::from_u128(0x6bdd1fc5_810f_11d0_bec7_08002be2092f);
+pub const GUID_DEVCLASS_KEYBOARD: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e96b_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_LEGACYDRIVER: windows_core::GUID = windows_core::GUID::from_u128(0x8ecc055d_047f_11d1_a537_0000f8753ed1);
+pub const GUID_DEVCLASS_MEDIA: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e96c_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_MEDIUM_CHANGER: windows_core::GUID = windows_core::GUID::from_u128(0xce5939ae_ebde_11d0_b181_0000f8753ec4);
+pub const GUID_DEVCLASS_MEMORY: windows_core::GUID = windows_core::GUID::from_u128(0x5099944a_f6b9_4057_a056_8c550228544c);
+pub const GUID_DEVCLASS_MODEM: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e96d_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_MONITOR: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e96e_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_MOUSE: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e96f_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_MTD: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e970_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_MULTIFUNCTION: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e971_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_MULTIPORTSERIAL: windows_core::GUID = windows_core::GUID::from_u128(0x50906cb8_ba12_11d1_bf5d_0000f805f530);
+pub const GUID_DEVCLASS_NET: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e972_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_NETCLIENT: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e973_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_NETDRIVER: windows_core::GUID = windows_core::GUID::from_u128(0x87ef9ad1_8f70_49ee_b215_ab1fcadcbe3c);
+pub const GUID_DEVCLASS_NETSERVICE: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e974_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_NETTRANS: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e975_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_NETUIO: windows_core::GUID = windows_core::GUID::from_u128(0x78912bc1_cb8e_4b28_a329_f322ebadbe0f);
+pub const GUID_DEVCLASS_NODRIVER: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e976_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_PCMCIA: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e977_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_PNPPRINTERS: windows_core::GUID = windows_core::GUID::from_u128(0x4658ee7e_f050_11d1_b6bd_00c04fa372a7);
+pub const GUID_DEVCLASS_PORTS: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e978_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_PRIMITIVE: windows_core::GUID = windows_core::GUID::from_u128(0x242681d1_eed3_41d2_a1ef_1468fc843106);
+pub const GUID_DEVCLASS_PRINTER: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e979_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_PRINTERUPGRADE: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e97a_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_PRINTQUEUE: windows_core::GUID = windows_core::GUID::from_u128(0x1ed2bbf9_11f0_4084_b21f_ad83a8e6dcdc);
+pub const GUID_DEVCLASS_PROCESSOR: windows_core::GUID = windows_core::GUID::from_u128(0x50127dc3_0f36_415e_a6cc_4cb3be910b65);
+pub const GUID_DEVCLASS_SBP2: windows_core::GUID = windows_core::GUID::from_u128(0xd48179be_ec20_11d1_b6b8_00c04fa372a7);
+pub const GUID_DEVCLASS_SCMDISK: windows_core::GUID = windows_core::GUID::from_u128(0x53966cb1_4d46_4166_bf23_c522403cd495);
+pub const GUID_DEVCLASS_SCMVOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x53ccb149_e543_4c84_b6e0_bce4f6b7e806);
+pub const GUID_DEVCLASS_SCSIADAPTER: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e97b_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_SECURITYACCELERATOR: windows_core::GUID = windows_core::GUID::from_u128(0x268c95a1_edfe_11d3_95c3_0010dc4050a5);
+pub const GUID_DEVCLASS_SENSOR: windows_core::GUID = windows_core::GUID::from_u128(0x5175d334_c371_4806_b3ba_71fd53c9258d);
+pub const GUID_DEVCLASS_SIDESHOW: windows_core::GUID = windows_core::GUID::from_u128(0x997b5d8d_c442_4f2e_baf3_9c8e671e9e21);
+pub const GUID_DEVCLASS_SMARTCARDREADER: windows_core::GUID = windows_core::GUID::from_u128(0x50dd5230_ba8a_11d1_bf5d_0000f805f530);
+pub const GUID_DEVCLASS_SMRDISK: windows_core::GUID = windows_core::GUID::from_u128(0x53487c23_680f_4585_acc3_1f10d6777e82);
+pub const GUID_DEVCLASS_SMRVOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x53b3cf03_8f5a_4788_91b6_d19ed9fcccbf);
+pub const GUID_DEVCLASS_SOFTWARECOMPONENT: windows_core::GUID = windows_core::GUID::from_u128(0x5c4c3332_344d_483c_8739_259e934c9cc8);
+pub const GUID_DEVCLASS_SOUND: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e97c_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_SYSTEM: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e97d_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_TAPEDRIVE: windows_core::GUID = windows_core::GUID::from_u128(0x6d807884_7d21_11cf_801c_08002be10318);
+pub const GUID_DEVCLASS_UCM: windows_core::GUID = windows_core::GUID::from_u128(0xe6f1aa1c_7f3b_4473_b2e8_c97d8ac71d53);
+pub const GUID_DEVCLASS_UNKNOWN: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e97e_e325_11ce_bfc1_08002be10318);
+pub const GUID_DEVCLASS_USB: windows_core::GUID = windows_core::GUID::from_u128(0x36fc9e60_c465_11cf_8056_444553540000);
+pub const GUID_DEVCLASS_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x71a27cdd_812a_11d0_bec7_08002be2092f);
+pub const GUID_DEVCLASS_VOLUMESNAPSHOT: windows_core::GUID = windows_core::GUID::from_u128(0x533c5b84_ec70_11d2_9505_00c04f79deaf);
+pub const GUID_DEVCLASS_WCEUSBS: windows_core::GUID = windows_core::GUID::from_u128(0x25dbce51_6c8f_4a72_8a6d_b54c2b4fc835);
+pub const GUID_DEVCLASS_WPD: windows_core::GUID = windows_core::GUID::from_u128(0xeec5ad98_8080_425f_922a_dabf3de3f69a);
+pub const GUID_DEVICE_INTERFACE_ARRIVAL: windows_core::GUID = windows_core::GUID::from_u128(0xcb3a4004_46f0_11d0_b08f_00609713053f);
+pub const GUID_DEVICE_INTERFACE_REMOVAL: windows_core::GUID = windows_core::GUID::from_u128(0xcb3a4005_46f0_11d0_b08f_00609713053f);
+pub const GUID_DEVICE_RESET_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0x649fdf26_3bc0_4813_ad24_7e0c1eda3fa3);
+pub const GUID_DMA_CACHE_COHERENCY_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0xb520f7fa_8a5a_4e40_a3f6_6be1e162d935);
+pub const GUID_HWPROFILE_CHANGE_CANCELLED: windows_core::GUID = windows_core::GUID::from_u128(0xcb3a4002_46f0_11d0_b08f_00609713053f);
+pub const GUID_HWPROFILE_CHANGE_COMPLETE: windows_core::GUID = windows_core::GUID::from_u128(0xcb3a4003_46f0_11d0_b08f_00609713053f);
+pub const GUID_HWPROFILE_QUERY_CHANGE: windows_core::GUID = windows_core::GUID::from_u128(0xcb3a4001_46f0_11d0_b08f_00609713053f);
+pub const GUID_INT_ROUTE_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0x70941bf4_0073_11d1_a09e_00c04fc340b1);
+pub const GUID_IOMMU_BUS_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x1efee0b2_d278_4ae4_bddc_1b34dd648043);
+pub const GUID_KERNEL_SOFT_RESTART_CANCEL: windows_core::GUID = windows_core::GUID::from_u128(0x31d737e7_8c0b_468a_956e_9f433ec358fb);
+pub const GUID_KERNEL_SOFT_RESTART_FINALIZE: windows_core::GUID = windows_core::GUID::from_u128(0x20e91abd_350a_4d4f_8577_99c81507473a);
+pub const GUID_KERNEL_SOFT_RESTART_PREPARE: windows_core::GUID = windows_core::GUID::from_u128(0xde373def_a85c_4f76_8cbf_f96bea8bd10f);
+pub const GUID_LEGACY_DEVICE_DETECTION_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0x50feb0de_596a_11d2_a5b8_0000f81a4619);
+pub const GUID_MF_ENUMERATION_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0xaeb895f0_5586_11d1_8d84_00a0c906b244);
+pub const GUID_MSIX_TABLE_CONFIG_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x1a6a460b_194f_455d_b34b_b84c5b05712b);
+pub const GUID_NPEM_CONTROL_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x4d95573d_b774_488a_b120_4f284a9eff51);
+pub const GUID_PARTITION_UNIT_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0x52363f5b_d891_429b_8195_aec5fef6853c);
+pub const GUID_PCC_INTERFACE_INTERNAL: windows_core::GUID = windows_core::GUID::from_u128(0x7cce62ce_c189_4814_a6a7_12112089e938);
+pub const GUID_PCC_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0x3ee8ba63_0f59_4a24_8a45_35808bdd1249);
+pub const GUID_PCI_ATS_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x010a7fe8_96f5_4943_bedf_95e651b93412);
+pub const GUID_PCI_BUS_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0x496b8281_6f25_11d0_beaf_08002be2092f);
+pub const GUID_PCI_BUS_INTERFACE_STANDARD2: windows_core::GUID = windows_core::GUID::from_u128(0xde94e966_fdff_4c9c_9998_6747b150e74c);
+pub const GUID_PCI_DEVICE_PRESENT_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0xd1b82c26_bf49_45ef_b216_71cbd7889b57);
+pub const GUID_PCI_EXPRESS_LINK_QUIESCENT_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x146cd41c_dae3_4437_8aff_2af3f038099b);
+pub const GUID_PCI_EXPRESS_ROOT_PORT_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x83a7734a_84c7_4161_9a98_6000ed0c4a33);
+pub const GUID_PCI_FPGA_CONTROL_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x2df3f7a8_b9b3_4063_9215_b5d14a0b266e);
+pub const GUID_PCI_PTM_CONTROL_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x348a5ebb_ba24_44b7_9916_285687735117);
+pub const GUID_PCI_SECURITY_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x6e7f1451_199e_4acc_ba2d_762b4edf4674);
+pub const GUID_PCI_VIRTUALIZATION_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x64897b47_3a4a_4d75_bc74_89dd6c078293);
+pub const GUID_PCMCIA_BUS_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0x76173af0_c504_11d1_947f_00c04fb960ee);
+pub const GUID_PNP_CUSTOM_NOTIFICATION: windows_core::GUID = windows_core::GUID::from_u128(0xaca73f8e_8d23_11d1_ac7d_0000f87571d0);
+pub const GUID_PNP_EXTENDED_ADDRESS_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0xb8e992ec_a797_4dc4_8846_84d041707446);
+pub const GUID_PNP_LOCATION_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x70211b0e_0afb_47db_afc1_410bf842497a);
+pub const GUID_PNP_POWER_NOTIFICATION: windows_core::GUID = windows_core::GUID::from_u128(0xc2cf0660_eb7a_11d1_bd7f_0000f87571d0);
+pub const GUID_PNP_POWER_SETTING_CHANGE: windows_core::GUID = windows_core::GUID::from_u128(0x29c69b3e_c79a_43bf_bbde_a932fa1bea7e);
+pub const GUID_POWER_DEVICE_ENABLE: windows_core::GUID = windows_core::GUID::from_u128(0x827c0a6f_feb0_11d0_bd26_00aa00b7b32a);
+pub const GUID_POWER_DEVICE_TIMEOUTS: windows_core::GUID = windows_core::GUID::from_u128(0xa45da735_feb0_11d0_bd26_00aa00b7b32a);
+pub const GUID_POWER_DEVICE_WAKE_ENABLE: windows_core::GUID = windows_core::GUID::from_u128(0xa9546a82_feb0_11d0_bd26_00aa00b7b32a);
+pub const GUID_PROCESSOR_PCC_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0x37b17e9a_c21c_4296_972d_11c4b32b28f0);
+pub const GUID_QUERY_CRASHDUMP_FUNCTIONS: windows_core::GUID = windows_core::GUID::from_u128(0x9cc6b8ff_32e2_4834_b1de_b32ef8880a4b);
+pub const GUID_RECOVERY_NVMED_PREPARE_SHUTDOWN: windows_core::GUID = windows_core::GUID::from_u128(0x4b9770ea_bde7_400b_a9b9_4f684f54cc2a);
+pub const GUID_RECOVERY_PCI_PREPARE_SHUTDOWN: windows_core::GUID = windows_core::GUID::from_u128(0x90d889de_8704_44cf_8115_ed8528d2b2da);
+pub const GUID_REENUMERATE_SELF_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0x2aeb0243_6a6e_486b_82fc_d815f6b97006);
+pub const GUID_SCM_BUS_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x25944783_ce79_4232_815e_4a30014e8eb4);
+pub const GUID_SCM_BUS_LD_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x9b89307d_d76b_4f48_b186_54041ae92e8d);
+pub const GUID_SCM_BUS_NVD_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x8de064ff_b630_42e4_88ea_6f24c8641175);
+pub const GUID_SCM_PHYSICAL_NVDIMM_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x0079c21b_917e_405e_a9ce_0732b5bbcebd);
+pub const GUID_SDEV_IDENTIFIER_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x49d67af8_916c_4ee8_9df1_889f17d21e91);
+pub const GUID_SECURE_DRIVER_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x370f67e1_4ff5_4a94_9a35_06c5d9cc30e2);
+pub const GUID_TARGET_DEVICE_QUERY_REMOVE: windows_core::GUID = windows_core::GUID::from_u128(0xcb3a4006_46f0_11d0_b08f_00609713053f);
+pub const GUID_TARGET_DEVICE_REMOVE_CANCELLED: windows_core::GUID = windows_core::GUID::from_u128(0xcb3a4007_46f0_11d0_b08f_00609713053f);
+pub const GUID_TARGET_DEVICE_REMOVE_COMPLETE: windows_core::GUID = windows_core::GUID::from_u128(0xcb3a4008_46f0_11d0_b08f_00609713053f);
+pub const GUID_TARGET_DEVICE_TRANSPORT_RELATIONS_CHANGED: windows_core::GUID = windows_core::GUID::from_u128(0xfcf528f6_a82f_47b1_ad3a_8050594cad28);
+pub const GUID_THERMAL_COOLING_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0xecbe47a8_c498_4bb9_bd70_e867e0940d22);
+pub const GUID_TRANSLATOR_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0x6c154a92_aacf_11d0_8d2a_00a0c906b244);
+pub const GUID_WUDF_DEVICE_HOST_PROBLEM: windows_core::GUID = windows_core::GUID::from_u128(0xc43d25bd_9346_40ee_a2d2_d70c15f8b75b);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HCMNOTIFICATION(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HCMNOTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
+impl HCMNOTIFICATION {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HCMNOTIFICATION {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("cfgmgr32.dll" "system" fn CM_Unregister_Notification(notifycontext : *mut core::ffi::c_void) -> u32);
+            CM_Unregister_Notification(self.0);
+        }
+    }
+}
+impl Default for HCMNOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct HDEVINFO(pub isize);
+impl windows_core::TypeKind for HDEVINFO {
+    type TypeKind = windows_core::CopyType;
+}
+impl HDEVINFO {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HDEVINFO {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("setupapi.dll" "system" fn SetupDiDestroyDeviceInfoList(deviceinfoset : isize) -> i32);
+            SetupDiDestroyDeviceInfoList(self.0);
+        }
+    }
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct HWPROFILEINFO_A {
+    pub HWPI_ulHWProfile: u32,
+    pub HWPI_szFriendlyName: [i8; 80],
+    pub HWPI_dwFlags: u32,
+}
+impl Default for HWPROFILEINFO_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HWPROFILEINFO_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct HWPROFILEINFO_W {
+    pub HWPI_ulHWProfile: u32,
+    pub HWPI_szFriendlyName: [u16; 80],
+    pub HWPI_dwFlags: u32,
+}
+impl Default for HWPROFILEINFO_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HWPROFILEINFO_W {
+    type TypeKind = windows_core::CopyType;
+}
+pub const IDD_DYNAWIZ_ANALYZEDEV_PAGE: u32 = 10010u32;
+pub const IDD_DYNAWIZ_ANALYZE_NEXTPAGE: u32 = 10004u32;
+pub const IDD_DYNAWIZ_ANALYZE_PREVPAGE: u32 = 10003u32;
+pub const IDD_DYNAWIZ_FIRSTPAGE: u32 = 10000u32;
+pub const IDD_DYNAWIZ_INSTALLDETECTEDDEVS_PAGE: u32 = 10011u32;
+pub const IDD_DYNAWIZ_INSTALLDETECTED_NEXTPAGE: u32 = 10007u32;
+pub const IDD_DYNAWIZ_INSTALLDETECTED_NODEVS: u32 = 10008u32;
+pub const IDD_DYNAWIZ_INSTALLDETECTED_PREVPAGE: u32 = 10006u32;
+pub const IDD_DYNAWIZ_SELECTCLASS_PAGE: u32 = 10012u32;
+pub const IDD_DYNAWIZ_SELECTDEV_PAGE: u32 = 10009u32;
+pub const IDD_DYNAWIZ_SELECT_NEXTPAGE: u32 = 10002u32;
+pub const IDD_DYNAWIZ_SELECT_PREVPAGE: u32 = 10001u32;
+pub const IDF_CHECKFIRST: u32 = 256u32;
+pub const IDF_NOBEEP: u32 = 512u32;
+pub const IDF_NOBROWSE: u32 = 1u32;
+pub const IDF_NOCOMPRESSED: u32 = 8u32;
+pub const IDF_NODETAILS: u32 = 4u32;
+pub const IDF_NOFOREGROUND: u32 = 1024u32;
+pub const IDF_NOREMOVABLEMEDIAPROMPT: u32 = 4096u32;
+pub const IDF_NOSKIP: u32 = 2u32;
+pub const IDF_OEMDISK: u32 = 2147483648u32;
+pub const IDF_USEDISKNAMEASPROMPT: u32 = 8192u32;
+pub const IDF_WARNIFSKIP: u32 = 2048u32;
+pub const IDI_CLASSICON_OVERLAYFIRST: u32 = 500u32;
+pub const IDI_CLASSICON_OVERLAYLAST: u32 = 502u32;
+pub const IDI_CONFLICT: u32 = 161u32;
+pub const IDI_DISABLED_OVL: u32 = 501u32;
+pub const IDI_FORCED_OVL: u32 = 502u32;
+pub const IDI_PROBLEM_OVL: u32 = 500u32;
+pub const IDI_RESOURCE: u32 = 159u32;
+pub const IDI_RESOURCEFIRST: u32 = 159u32;
+pub const IDI_RESOURCELAST: u32 = 161u32;
+pub const IDI_RESOURCEOVERLAYFIRST: u32 = 161u32;
+pub const IDI_RESOURCEOVERLAYLAST: u32 = 161u32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct INFCONTEXT {
+    pub Inf: *mut core::ffi::c_void,
+    pub CurrentInf: *mut core::ffi::c_void,
+    pub Section: u32,
+    pub Line: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for INFCONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for INFCONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct INFCONTEXT {
+    pub Inf: *mut core::ffi::c_void,
+    pub CurrentInf: *mut core::ffi::c_void,
+    pub Section: u32,
+    pub Line: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for INFCONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for INFCONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+pub const INFINFO_DEFAULT_SEARCH: u32 = 3u32;
+pub const INFINFO_INF_NAME_IS_ABSOLUTE: u32 = 2u32;
+pub const INFINFO_INF_PATH_LIST_SEARCH: u32 = 5u32;
+pub const INFINFO_INF_SPEC_IS_HINF: u32 = 1u32;
+pub const INFINFO_REVERSE_DEFAULT_SEARCH: u32 = 4u32;
+pub const INFSTR_BUS_ALL: windows_core::PCWSTR = windows_core::w!("BUS_ALL");
+pub const INFSTR_BUS_EISA: windows_core::PCWSTR = windows_core::w!("BUS_EISA");
+pub const INFSTR_BUS_ISA: windows_core::PCWSTR = windows_core::w!("BUS_ISA");
+pub const INFSTR_BUS_MCA: windows_core::PCWSTR = windows_core::w!("BUS_MCA");
+pub const INFSTR_CFGPRI_DESIRED: windows_core::PCWSTR = windows_core::w!("DESIRED");
+pub const INFSTR_CFGPRI_DISABLED: windows_core::PCWSTR = windows_core::w!("DISABLED");
+pub const INFSTR_CFGPRI_FORCECONFIG: windows_core::PCWSTR = windows_core::w!("FORCECONFIG");
+pub const INFSTR_CFGPRI_HARDRECONFIG: windows_core::PCWSTR = windows_core::w!("HARDRECONFIG");
+pub const INFSTR_CFGPRI_HARDWIRED: windows_core::PCWSTR = windows_core::w!("HARDWIRED");
+pub const INFSTR_CFGPRI_NORMAL: windows_core::PCWSTR = windows_core::w!("NORMAL");
+pub const INFSTR_CFGPRI_POWEROFF: windows_core::PCWSTR = windows_core::w!("POWEROFF");
+pub const INFSTR_CFGPRI_REBOOT: windows_core::PCWSTR = windows_core::w!("REBOOT");
+pub const INFSTR_CFGPRI_RESTART: windows_core::PCWSTR = windows_core::w!("RESTART");
+pub const INFSTR_CFGPRI_SUBOPTIMAL: windows_core::PCWSTR = windows_core::w!("SUBOPTIMAL");
+pub const INFSTR_CFGTYPE_BASIC: windows_core::PCWSTR = windows_core::w!("BASIC");
+pub const INFSTR_CFGTYPE_FORCED: windows_core::PCWSTR = windows_core::w!("FORCED");
+pub const INFSTR_CFGTYPE_OVERRIDE: windows_core::PCWSTR = windows_core::w!("OVERRIDE");
+pub const INFSTR_CLASS_SAFEEXCL: windows_core::PCWSTR = windows_core::w!("SAFE_EXCL");
+pub const INFSTR_CONTROLFLAGS_SECTION: windows_core::PCWSTR = windows_core::w!("ControlFlags");
+pub const INFSTR_DRIVERSELECT_FUNCTIONS: windows_core::PCWSTR = windows_core::w!("DriverSelectFunctions");
+pub const INFSTR_DRIVERSELECT_SECTION: windows_core::PCWSTR = windows_core::w!("DriverSelect");
+pub const INFSTR_DRIVERVERSION_SECTION: windows_core::PCWSTR = windows_core::w!("DriverVer");
+pub const INFSTR_KEY_ACTION: windows_core::PCWSTR = windows_core::w!("Action");
+pub const INFSTR_KEY_ALWAYSEXCLUDEFROMSELECT: windows_core::PCWSTR = windows_core::w!("AlwaysExcludeFromSelect");
+pub const INFSTR_KEY_BUFFER_SIZE: windows_core::PCWSTR = windows_core::w!("BufferSize");
+pub const INFSTR_KEY_CATALOGFILE: windows_core::PCWSTR = windows_core::w!("CatalogFile");
+pub const INFSTR_KEY_CHANNEL_ACCESS: windows_core::PCWSTR = windows_core::w!("Access");
+pub const INFSTR_KEY_CHANNEL_ENABLED: windows_core::PCWSTR = windows_core::w!("Enabled");
+pub const INFSTR_KEY_CHANNEL_ISOLATION: windows_core::PCWSTR = windows_core::w!("Isolation");
+pub const INFSTR_KEY_CHANNEL_VALUE: windows_core::PCWSTR = windows_core::w!("Value");
+pub const INFSTR_KEY_CLASS: windows_core::PCWSTR = windows_core::w!("Class");
+pub const INFSTR_KEY_CLASSGUID: windows_core::PCWSTR = windows_core::w!("ClassGUID");
+pub const INFSTR_KEY_CLOCK_TYPE: windows_core::PCWSTR = windows_core::w!("ClockType");
+pub const INFSTR_KEY_CONFIGPRIORITY: windows_core::PCWSTR = windows_core::w!("ConfigPriority");
+pub const INFSTR_KEY_COPYFILESONLY: windows_core::PCWSTR = windows_core::w!("CopyFilesOnly");
+pub const INFSTR_KEY_DATA_ITEM: windows_core::PCWSTR = windows_core::w!("DataItem");
+pub const INFSTR_KEY_DELAYEDAUTOSTART: windows_core::PCWSTR = windows_core::w!("DelayedAutoStart");
+pub const INFSTR_KEY_DEPENDENCIES: windows_core::PCWSTR = windows_core::w!("Dependencies");
+pub const INFSTR_KEY_DESCRIPTION: windows_core::PCWSTR = windows_core::w!("Description");
+pub const INFSTR_KEY_DETECTLIST: windows_core::PCWSTR = windows_core::w!("DetectList");
+pub const INFSTR_KEY_DETPARAMS: windows_core::PCWSTR = windows_core::w!("Params");
+pub const INFSTR_KEY_DISABLE_REALTIME_PERSISTENCE: windows_core::PCWSTR = windows_core::w!("DisableRealtimePersistence");
+pub const INFSTR_KEY_DISPLAYNAME: windows_core::PCWSTR = windows_core::w!("DisplayName");
+pub const INFSTR_KEY_DMA: windows_core::PCWSTR = windows_core::w!("DMA");
+pub const INFSTR_KEY_DMACONFIG: windows_core::PCWSTR = windows_core::w!("DMAConfig");
+pub const INFSTR_KEY_DRIVERSET: windows_core::PCWSTR = windows_core::w!("DriverSet");
+pub const INFSTR_KEY_ENABLED: windows_core::PCWSTR = windows_core::w!("Enabled");
+pub const INFSTR_KEY_ENABLE_FLAGS: windows_core::PCWSTR = windows_core::w!("EnableFlags");
+pub const INFSTR_KEY_ENABLE_LEVEL: windows_core::PCWSTR = windows_core::w!("EnableLevel");
+pub const INFSTR_KEY_ENABLE_PROPERTY: windows_core::PCWSTR = windows_core::w!("EnableProperty");
+pub const INFSTR_KEY_ERRORCONTROL: windows_core::PCWSTR = windows_core::w!("ErrorControl");
+pub const INFSTR_KEY_EXCLUDEFROMSELECT: windows_core::PCWSTR = windows_core::w!("ExcludeFromSelect");
+pub const INFSTR_KEY_EXCLUDERES: windows_core::PCWSTR = windows_core::w!("ExcludeRes");
+pub const INFSTR_KEY_EXTENSIONID: windows_core::PCWSTR = windows_core::w!("ExtensionId");
+pub const INFSTR_KEY_FAILURE_ACTION: windows_core::PCWSTR = windows_core::w!("Action");
+pub const INFSTR_KEY_FILE_MAX: windows_core::PCWSTR = windows_core::w!("FileMax");
+pub const INFSTR_KEY_FILE_NAME: windows_core::PCWSTR = windows_core::w!("FileName");
+pub const INFSTR_KEY_FLUSH_TIMER: windows_core::PCWSTR = windows_core::w!("FlushTimer");
+pub const INFSTR_KEY_FROMINET: windows_core::PCWSTR = windows_core::w!("FromINet");
+pub const INFSTR_KEY_HARDWARE_CLASS: windows_core::PCWSTR = windows_core::w!("Class");
+pub const INFSTR_KEY_HARDWARE_CLASSGUID: windows_core::PCWSTR = windows_core::w!("ClassGUID");
+pub const INFSTR_KEY_INTERACTIVEINSTALL: windows_core::PCWSTR = windows_core::w!("InteractiveInstall");
+pub const INFSTR_KEY_IO: windows_core::PCWSTR = windows_core::w!("IO");
+pub const INFSTR_KEY_IOCONFIG: windows_core::PCWSTR = windows_core::w!("IOConfig");
+pub const INFSTR_KEY_IRQ: windows_core::PCWSTR = windows_core::w!("IRQ");
+pub const INFSTR_KEY_IRQCONFIG: windows_core::PCWSTR = windows_core::w!("IRQConfig");
+pub const INFSTR_KEY_LOADORDERGROUP: windows_core::PCWSTR = windows_core::w!("LoadOrderGroup");
+pub const INFSTR_KEY_LOGGING_AUTOBACKUP: windows_core::PCWSTR = windows_core::w!("LoggingAutoBackup");
+pub const INFSTR_KEY_LOGGING_MAXSIZE: windows_core::PCWSTR = windows_core::w!("LoggingMaxSize");
+pub const INFSTR_KEY_LOGGING_RETENTION: windows_core::PCWSTR = windows_core::w!("LoggingRetention");
+pub const INFSTR_KEY_LOG_FILE_MODE: windows_core::PCWSTR = windows_core::w!("LogFileMode");
+pub const INFSTR_KEY_MATCH_ALL_KEYWORD: windows_core::PCWSTR = windows_core::w!("MatchAllKeyword");
+pub const INFSTR_KEY_MATCH_ANY_KEYWORD: windows_core::PCWSTR = windows_core::w!("MatchAnyKeyword");
+pub const INFSTR_KEY_MAXIMUM_BUFFERS: windows_core::PCWSTR = windows_core::w!("MaximumBuffers");
+pub const INFSTR_KEY_MAX_FILE_SIZE: windows_core::PCWSTR = windows_core::w!("MaxFileSize");
+pub const INFSTR_KEY_MEM: windows_core::PCWSTR = windows_core::w!("Mem");
+pub const INFSTR_KEY_MEMCONFIG: windows_core::PCWSTR = windows_core::w!("MemConfig");
+pub const INFSTR_KEY_MEMLARGECONFIG: windows_core::PCWSTR = windows_core::w!("MemLargeConfig");
+pub const INFSTR_KEY_MESSAGE_FILE: windows_core::PCWSTR = windows_core::w!("MessageFile");
+pub const INFSTR_KEY_MFCARDCONFIG: windows_core::PCWSTR = windows_core::w!("MfCardConfig");
+pub const INFSTR_KEY_MINIMUM_BUFFERS: windows_core::PCWSTR = windows_core::w!("MinimumBuffers");
+pub const INFSTR_KEY_NAME: windows_core::PCWSTR = windows_core::w!("Name");
+pub const INFSTR_KEY_NON_CRASH_FAILURES: windows_core::PCWSTR = windows_core::w!("NonCrashFailures");
+pub const INFSTR_KEY_NOSETUPINF: windows_core::PCWSTR = windows_core::w!("NoSetupInf");
+pub const INFSTR_KEY_PARAMETER_FILE: windows_core::PCWSTR = windows_core::w!("ParameterFile");
+pub const INFSTR_KEY_PATH: windows_core::PCWSTR = windows_core::w!("Path");
+pub const INFSTR_KEY_PCCARDCONFIG: windows_core::PCWSTR = windows_core::w!("PcCardConfig");
+pub const INFSTR_KEY_PNPLOCKDOWN: windows_core::PCWSTR = windows_core::w!("PnpLockDown");
+pub const INFSTR_KEY_PROVIDER: windows_core::PCWSTR = windows_core::w!("Provider");
+pub const INFSTR_KEY_PROVIDER_NAME: windows_core::PCWSTR = windows_core::w!("ProviderName");
+pub const INFSTR_KEY_REQUESTADDITIONALSOFTWARE: windows_core::PCWSTR = windows_core::w!("RequestAdditionalSoftware");
+pub const INFSTR_KEY_REQUIREDPRIVILEGES: windows_core::PCWSTR = windows_core::w!("RequiredPrivileges");
+pub const INFSTR_KEY_RESET_PERIOD: windows_core::PCWSTR = windows_core::w!("ResetPeriod");
+pub const INFSTR_KEY_RESOURCE_FILE: windows_core::PCWSTR = windows_core::w!("ResourceFile");
+pub const INFSTR_KEY_SECURITY: windows_core::PCWSTR = windows_core::w!("Security");
+pub const INFSTR_KEY_SERVICEBINARY: windows_core::PCWSTR = windows_core::w!("ServiceBinary");
+pub const INFSTR_KEY_SERVICESIDTYPE: windows_core::PCWSTR = windows_core::w!("ServiceSidType");
+pub const INFSTR_KEY_SERVICETYPE: windows_core::PCWSTR = windows_core::w!("ServiceType");
+pub const INFSTR_KEY_SIGNATURE: windows_core::PCWSTR = windows_core::w!("Signature");
+pub const INFSTR_KEY_SKIPLIST: windows_core::PCWSTR = windows_core::w!("SkipList");
+pub const INFSTR_KEY_START: windows_core::PCWSTR = windows_core::w!("Start");
+pub const INFSTR_KEY_STARTNAME: windows_core::PCWSTR = windows_core::w!("StartName");
+pub const INFSTR_KEY_STARTTYPE: windows_core::PCWSTR = windows_core::w!("StartType");
+pub const INFSTR_KEY_SUB_TYPE: windows_core::PCWSTR = windows_core::w!("SubType");
+pub const INFSTR_KEY_TRIGGER_TYPE: windows_core::PCWSTR = windows_core::w!("TriggerType");
+pub const INFSTR_PLATFORM_NT: windows_core::PCWSTR = windows_core::w!("NT");
+pub const INFSTR_PLATFORM_NTALPHA: windows_core::PCWSTR = windows_core::w!("NTAlpha");
+pub const INFSTR_PLATFORM_NTAMD64: windows_core::PCWSTR = windows_core::w!("NTAMD64");
+pub const INFSTR_PLATFORM_NTARM: windows_core::PCWSTR = windows_core::w!("NTARM");
+pub const INFSTR_PLATFORM_NTARM64: windows_core::PCWSTR = windows_core::w!("NTARM64");
+pub const INFSTR_PLATFORM_NTAXP64: windows_core::PCWSTR = windows_core::w!("NTAXP64");
+pub const INFSTR_PLATFORM_NTIA64: windows_core::PCWSTR = windows_core::w!("NTIA64");
+pub const INFSTR_PLATFORM_NTMIPS: windows_core::PCWSTR = windows_core::w!("NTMIPS");
+pub const INFSTR_PLATFORM_NTPPC: windows_core::PCWSTR = windows_core::w!("NTPPC");
+pub const INFSTR_PLATFORM_NTX86: windows_core::PCWSTR = windows_core::w!("NTx86");
+pub const INFSTR_PLATFORM_WIN: windows_core::PCWSTR = windows_core::w!("Win");
+pub const INFSTR_REBOOT: windows_core::PCWSTR = windows_core::w!("Reboot");
+pub const INFSTR_RESTART: windows_core::PCWSTR = windows_core::w!("Restart");
+pub const INFSTR_RISK_BIOSROMRD: windows_core::PCWSTR = windows_core::w!("RISK_BIOSROMRD");
+pub const INFSTR_RISK_DELICATE: windows_core::PCWSTR = windows_core::w!("RISK_DELICATE");
+pub const INFSTR_RISK_IORD: windows_core::PCWSTR = windows_core::w!("RISK_IORD");
+pub const INFSTR_RISK_IOWR: windows_core::PCWSTR = windows_core::w!("RISK_IOWR");
+pub const INFSTR_RISK_LOW: windows_core::PCWSTR = windows_core::w!("RISK_LOW");
+pub const INFSTR_RISK_MEMRD: windows_core::PCWSTR = windows_core::w!("RISK_MEMRD");
+pub const INFSTR_RISK_MEMWR: windows_core::PCWSTR = windows_core::w!("RISK_MEMWR");
+pub const INFSTR_RISK_NONE: windows_core::PCWSTR = windows_core::w!("RISK_NONE");
+pub const INFSTR_RISK_QUERYDRV: windows_core::PCWSTR = windows_core::w!("RISK_QUERYDRV");
+pub const INFSTR_RISK_SWINT: windows_core::PCWSTR = windows_core::w!("RISK_SWINT");
+pub const INFSTR_RISK_UNRELIABLE: windows_core::PCWSTR = windows_core::w!("RISK_UNRELIABLE");
+pub const INFSTR_RISK_VERYHIGH: windows_core::PCWSTR = windows_core::w!("RISK_VERYHIGH");
+pub const INFSTR_RISK_VERYLOW: windows_core::PCWSTR = windows_core::w!("RISK_VERYLOW");
+pub const INFSTR_SECT_AUTOEXECBAT: windows_core::PCWSTR = windows_core::w!("AutoexecBatDrivers");
+pub const INFSTR_SECT_AVOIDCFGSYSDEV: windows_core::PCWSTR = windows_core::w!("Det.AvoidCfgSysDev");
+pub const INFSTR_SECT_AVOIDENVDEV: windows_core::PCWSTR = windows_core::w!("Det.AvoidEnvDev");
+pub const INFSTR_SECT_AVOIDINIDEV: windows_core::PCWSTR = windows_core::w!("Det.AvoidIniDev");
+pub const INFSTR_SECT_BADACPIBIOS: windows_core::PCWSTR = windows_core::w!("BadACPIBios");
+pub const INFSTR_SECT_BADDISKBIOS: windows_core::PCWSTR = windows_core::w!("BadDiskBios");
+pub const INFSTR_SECT_BADDSBIOS: windows_core::PCWSTR = windows_core::w!("BadDSBios");
+pub const INFSTR_SECT_BADPMCALLBIOS: windows_core::PCWSTR = windows_core::w!("BadProtectedModeCallBios");
+pub const INFSTR_SECT_BADPNPBIOS: windows_core::PCWSTR = windows_core::w!("BadPnpBios");
+pub const INFSTR_SECT_BADRMCALLBIOS: windows_core::PCWSTR = windows_core::w!("BadRealModeCallBios");
+pub const INFSTR_SECT_BADROUTINGTABLEBIOS: windows_core::PCWSTR = windows_core::w!("BadPCIIRQRoutingTableBios");
+pub const INFSTR_SECT_CFGSYS: windows_core::PCWSTR = windows_core::w!("ConfigSysDrivers");
+pub const INFSTR_SECT_CLASS_INSTALL: windows_core::PCWSTR = windows_core::w!("ClassInstall");
+pub const INFSTR_SECT_CLASS_INSTALL_32: windows_core::PCWSTR = windows_core::w!("ClassInstall32");
+pub const INFSTR_SECT_DEFAULT_INSTALL: windows_core::PCWSTR = windows_core::w!("DefaultInstall");
+pub const INFSTR_SECT_DEFAULT_UNINSTALL: windows_core::PCWSTR = windows_core::w!("DefaultUninstall");
+pub const INFSTR_SECT_DETCLASSINFO: windows_core::PCWSTR = windows_core::w!("Det.ClassInfo");
+pub const INFSTR_SECT_DETMODULES: windows_core::PCWSTR = windows_core::w!("Det.Modules");
+pub const INFSTR_SECT_DETOPTIONS: windows_core::PCWSTR = windows_core::w!("Det.Options");
+pub const INFSTR_SECT_DEVINFS: windows_core::PCWSTR = windows_core::w!("Det.DevINFs");
+pub const INFSTR_SECT_DISPLAY_CLEANUP: windows_core::PCWSTR = windows_core::w!("DisplayCleanup");
+pub const INFSTR_SECT_EXTENSIONCONTRACTS: windows_core::PCWSTR = windows_core::w!("ExtensionContracts");
+pub const INFSTR_SECT_FORCEHWVERIFY: windows_core::PCWSTR = windows_core::w!("Det.ForceHWVerify");
+pub const INFSTR_SECT_GOODACPIBIOS: windows_core::PCWSTR = windows_core::w!("GoodACPIBios");
+pub const INFSTR_SECT_HPOMNIBOOK: windows_core::PCWSTR = windows_core::w!("Det.HPOmnibook");
+pub const INFSTR_SECT_INTERFACE_INSTALL_32: windows_core::PCWSTR = windows_core::w!("InterfaceInstall32");
+pub const INFSTR_SECT_MACHINEIDBIOS: windows_core::PCWSTR = windows_core::w!("MachineIDBios");
+pub const INFSTR_SECT_MANUALDEV: windows_core::PCWSTR = windows_core::w!("Det.ManualDev");
+pub const INFSTR_SECT_MFG: windows_core::PCWSTR = windows_core::w!("Manufacturer");
+pub const INFSTR_SECT_REGCFGSYSDEV: windows_core::PCWSTR = windows_core::w!("Det.RegCfgSysDev");
+pub const INFSTR_SECT_REGENVDEV: windows_core::PCWSTR = windows_core::w!("Det.RegEnvDev");
+pub const INFSTR_SECT_REGINIDEV: windows_core::PCWSTR = windows_core::w!("Det.RegIniDev");
+pub const INFSTR_SECT_SYSINI: windows_core::PCWSTR = windows_core::w!("SystemIniDrivers");
+pub const INFSTR_SECT_SYSINIDRV: windows_core::PCWSTR = windows_core::w!("SystemIniDriversLine");
+pub const INFSTR_SECT_TARGETCOMPUTERS: windows_core::PCWSTR = windows_core::w!("TargetComputers");
+pub const INFSTR_SECT_VERSION: windows_core::PCWSTR = windows_core::w!("Version");
+pub const INFSTR_SECT_WININIRUN: windows_core::PCWSTR = windows_core::w!("WinIniRunLine");
+pub const INFSTR_SOFTWAREVERSION_SECTION: windows_core::PCWSTR = windows_core::w!("SoftwareVersion");
+pub const INFSTR_STRKEY_DRVDESC: windows_core::PCWSTR = windows_core::w!("DriverDesc");
+pub const INFSTR_SUBKEY_COINSTALLERS: windows_core::PCWSTR = windows_core::w!("CoInstallers");
+pub const INFSTR_SUBKEY_CTL: windows_core::PCWSTR = windows_core::w!("CTL");
+pub const INFSTR_SUBKEY_DET: windows_core::PCWSTR = windows_core::w!("Det");
+pub const INFSTR_SUBKEY_EVENTS: windows_core::PCWSTR = windows_core::w!("Events");
+pub const INFSTR_SUBKEY_FACTDEF: windows_core::PCWSTR = windows_core::w!("FactDef");
+pub const INFSTR_SUBKEY_FILTERS: windows_core::PCWSTR = windows_core::w!("Filters");
+pub const INFSTR_SUBKEY_HW: windows_core::PCWSTR = windows_core::w!("Hw");
+pub const INFSTR_SUBKEY_INTERFACES: windows_core::PCWSTR = windows_core::w!("Interfaces");
+pub const INFSTR_SUBKEY_LOGCONFIG: windows_core::PCWSTR = windows_core::w!("LogConfig");
+pub const INFSTR_SUBKEY_LOGCONFIGOVERRIDE: windows_core::PCWSTR = windows_core::w!("LogConfigOverride");
+pub const INFSTR_SUBKEY_NORESOURCEDUPS: windows_core::PCWSTR = windows_core::w!("NoResDup");
+pub const INFSTR_SUBKEY_POSSIBLEDUPS: windows_core::PCWSTR = windows_core::w!("PosDup");
+pub const INFSTR_SUBKEY_SERVICES: windows_core::PCWSTR = windows_core::w!("Services");
+pub const INFSTR_SUBKEY_SOFTWARE: windows_core::PCWSTR = windows_core::w!("Software");
+pub const INFSTR_SUBKEY_WMI: windows_core::PCWSTR = windows_core::w!("WMI");
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INF_STYLE(pub u32);
@@ -4705,6 +6722,17 @@ impl core::ops::Not for INF_STYLE {
         Self(self.0.not())
     }
 }
+pub const INF_STYLE_CACHE_DISABLE: INF_STYLE = INF_STYLE(32u32);
+pub const INF_STYLE_CACHE_ENABLE: INF_STYLE = INF_STYLE(16u32);
+pub const INF_STYLE_CACHE_IGNORE: INF_STYLE = INF_STYLE(64u32);
+pub const INF_STYLE_NONE: INF_STYLE = INF_STYLE(0u32);
+pub const INF_STYLE_OLDNT: INF_STYLE = INF_STYLE(1u32);
+pub const INF_STYLE_WIN4: INF_STYLE = INF_STYLE(2u32);
+pub const INSTALLFLAG_BITS: UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS = UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS(7u32);
+pub const INSTALLFLAG_FORCE: UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS = UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS(1u32);
+pub const INSTALLFLAG_NONINTERACTIVE: UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS = UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS(4u32);
+pub const INSTALLFLAG_READONLY: UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS = UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS(2u32);
+pub const IOA_Local: u32 = 255u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOD_DESFLAGS(pub u32);
@@ -4740,6 +6768,59 @@ impl core::ops::Not for IOD_DESFLAGS {
     fn not(self) -> Self {
         Self(self.0.not())
     }
+}
+pub const IO_ALIAS_10_BIT_DECODE: u32 = 4u32;
+pub const IO_ALIAS_12_BIT_DECODE: u32 = 16u32;
+pub const IO_ALIAS_16_BIT_DECODE: u32 = 0u32;
+pub const IO_ALIAS_POSITIVE_DECODE: u32 = 255u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IO_DES {
+    pub IOD_Count: u32,
+    pub IOD_Type: u32,
+    pub IOD_Alloc_Base: u64,
+    pub IOD_Alloc_End: u64,
+    pub IOD_DesFlags: IOD_DESFLAGS,
+}
+impl Default for IO_DES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IO_DES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IO_RANGE {
+    pub IOR_Align: u64,
+    pub IOR_nPorts: u32,
+    pub IOR_Min: u64,
+    pub IOR_Max: u64,
+    pub IOR_RangeFlags: IOD_DESFLAGS,
+    pub IOR_Alias: u64,
+}
+impl Default for IO_RANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IO_RANGE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IO_RESOURCE {
+    pub IO_Header: IO_DES,
+    pub IO_Data: [IO_RANGE; 1],
+}
+impl Default for IO_RESOURCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IO_RESOURCE {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4777,6 +6858,129 @@ impl core::ops::Not for IRQD_FLAGS {
         Self(self.0.not())
     }
 }
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IRQ_DES_32 {
+    pub IRQD_Count: u32,
+    pub IRQD_Type: u32,
+    pub IRQD_Flags: IRQD_FLAGS,
+    pub IRQD_Alloc_Num: u32,
+    pub IRQD_Affinity: u32,
+}
+impl Default for IRQ_DES_32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IRQ_DES_32 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IRQ_DES_64 {
+    pub IRQD_Count: u32,
+    pub IRQD_Type: u32,
+    pub IRQD_Flags: IRQD_FLAGS,
+    pub IRQD_Alloc_Num: u32,
+    pub IRQD_Affinity: u64,
+}
+impl Default for IRQ_DES_64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IRQ_DES_64 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IRQ_RANGE {
+    pub IRQR_Min: u32,
+    pub IRQR_Max: u32,
+    pub IRQR_Flags: IRQD_FLAGS,
+}
+impl Default for IRQ_RANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IRQ_RANGE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IRQ_RESOURCE_32 {
+    pub IRQ_Header: IRQ_DES_32,
+    pub IRQ_Data: [IRQ_RANGE; 1],
+}
+impl Default for IRQ_RESOURCE_32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IRQ_RESOURCE_32 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct IRQ_RESOURCE_64 {
+    pub IRQ_Header: IRQ_DES_64,
+    pub IRQ_Data: [IRQ_RANGE; 1],
+}
+impl Default for IRQ_RESOURCE_64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IRQ_RESOURCE_64 {
+    type TypeKind = windows_core::CopyType;
+}
+pub const LCPRI_BOOTCONFIG: u32 = 1u32;
+pub const LCPRI_DESIRED: u32 = 8192u32;
+pub const LCPRI_DISABLED: u32 = 65535u32;
+pub const LCPRI_FORCECONFIG: u32 = 0u32;
+pub const LCPRI_HARDRECONFIG: u32 = 49152u32;
+pub const LCPRI_HARDWIRED: u32 = 57344u32;
+pub const LCPRI_IMPOSSIBLE: u32 = 61440u32;
+pub const LCPRI_LASTBESTCONFIG: u32 = 16383u32;
+pub const LCPRI_LASTSOFTCONFIG: u32 = 32767u32;
+pub const LCPRI_NORMAL: u32 = 12288u32;
+pub const LCPRI_POWEROFF: u32 = 40960u32;
+pub const LCPRI_REBOOT: u32 = 36864u32;
+pub const LCPRI_RESTART: u32 = 32768u32;
+pub const LCPRI_SUBOPTIMAL: u32 = 20480u32;
+pub const LINE_LEN: u32 = 256u32;
+pub const LOG_CONF_BITS: u32 = 7u32;
+pub const LogSevError: u32 = 2u32;
+pub const LogSevFatalError: u32 = 3u32;
+pub const LogSevInformation: u32 = 0u32;
+pub const LogSevMaximum: u32 = 4u32;
+pub const LogSevWarning: u32 = 1u32;
+pub const MAX_CLASS_NAME_LEN: u32 = 32u32;
+pub const MAX_CONFIG_VALUE: u32 = 9999u32;
+pub const MAX_DEVICE_ID_LEN: u32 = 200u32;
+pub const MAX_DEVNODE_ID_LEN: u32 = 200u32;
+pub const MAX_DMA_CHANNELS: u32 = 7u32;
+pub const MAX_GUID_STRING_LEN: u32 = 39u32;
+pub const MAX_IDD_DYNAWIZ_RESOURCE_ID: u32 = 11000u32;
+pub const MAX_INFSTR_STRKEY_LEN: u32 = 32u32;
+pub const MAX_INF_FLAG: u32 = 20u32;
+pub const MAX_INF_SECTION_NAME_LENGTH: u32 = 255u32;
+pub const MAX_INF_STRING_LENGTH: u32 = 4096u32;
+pub const MAX_INSTALLWIZARD_DYNAPAGES: u32 = 20u32;
+pub const MAX_INSTANCE_VALUE: u32 = 9999u32;
+pub const MAX_INSTRUCTION_LEN: u32 = 256u32;
+pub const MAX_IO_PORTS: u32 = 20u32;
+pub const MAX_IRQS: u32 = 7u32;
+pub const MAX_KEY_LEN: u32 = 100u32;
+pub const MAX_LABEL_LEN: u32 = 30u32;
+pub const MAX_LCPRI: u32 = 65535u32;
+pub const MAX_MEM_REGISTERS: u32 = 9u32;
+pub const MAX_PRIORITYSTR_LEN: u32 = 16u32;
+pub const MAX_PROFILE_LEN: u32 = 80u32;
+pub const MAX_SERVICE_NAME_LEN: u32 = 256u32;
+pub const MAX_SUBTITLE_LEN: u32 = 256u32;
+pub const MAX_TITLE_LEN: u32 = 60u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MD_FLAGS(pub u32);
@@ -4813,9 +7017,203 @@ impl core::ops::Not for MD_FLAGS {
         Self(self.0.not())
     }
 }
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MEM_DES {
+    pub MD_Count: u32,
+    pub MD_Type: u32,
+    pub MD_Alloc_Base: u64,
+    pub MD_Alloc_End: u64,
+    pub MD_Flags: MD_FLAGS,
+    pub MD_Reserved: u32,
+}
+impl Default for MEM_DES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MEM_DES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MEM_LARGE_DES {
+    pub MLD_Count: u32,
+    pub MLD_Type: u32,
+    pub MLD_Alloc_Base: u64,
+    pub MLD_Alloc_End: u64,
+    pub MLD_Flags: u32,
+    pub MLD_Reserved: u32,
+}
+impl Default for MEM_LARGE_DES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MEM_LARGE_DES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MEM_LARGE_RANGE {
+    pub MLR_Align: u64,
+    pub MLR_nBytes: u64,
+    pub MLR_Min: u64,
+    pub MLR_Max: u64,
+    pub MLR_Flags: u32,
+    pub MLR_Reserved: u32,
+}
+impl Default for MEM_LARGE_RANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MEM_LARGE_RANGE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MEM_LARGE_RESOURCE {
+    pub MEM_LARGE_Header: MEM_LARGE_DES,
+    pub MEM_LARGE_Data: [MEM_LARGE_RANGE; 1],
+}
+impl Default for MEM_LARGE_RESOURCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MEM_LARGE_RESOURCE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MEM_RANGE {
+    pub MR_Align: u64,
+    pub MR_nBytes: u32,
+    pub MR_Min: u64,
+    pub MR_Max: u64,
+    pub MR_Flags: MD_FLAGS,
+    pub MR_Reserved: u32,
+}
+impl Default for MEM_RANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MEM_RANGE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MEM_RESOURCE {
+    pub MEM_Header: MEM_DES,
+    pub MEM_Data: [MEM_RANGE; 1],
+}
+impl Default for MEM_RESOURCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MEM_RESOURCE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MFCARD_DES {
+    pub PMF_Count: u32,
+    pub PMF_Type: u32,
+    pub PMF_Flags: PMF_FLAGS,
+    pub PMF_ConfigOptions: u8,
+    pub PMF_IoResourceIndex: u8,
+    pub PMF_Reserved: [u8; 2],
+    pub PMF_ConfigRegisterBase: u32,
+}
+impl Default for MFCARD_DES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MFCARD_DES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MFCARD_RESOURCE {
+    pub MfCard_Header: MFCARD_DES,
+}
+impl Default for MFCARD_RESOURCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MFCARD_RESOURCE {
+    type TypeKind = windows_core::CopyType;
+}
+pub const MIN_IDD_DYNAWIZ_RESOURCE_ID: u32 = 10000u32;
+pub const NDW_INSTALLFLAG_CI_PICKED_OEM: u32 = 32768u32;
+pub const NDW_INSTALLFLAG_DIDFACTDEFS: u32 = 1u32;
+pub const NDW_INSTALLFLAG_EXPRESSINTRO: u32 = 1024u32;
+pub const NDW_INSTALLFLAG_HARDWAREALLREADYIN: u32 = 2u32;
+pub const NDW_INSTALLFLAG_INSTALLSPECIFIC: u32 = 8192u32;
+pub const NDW_INSTALLFLAG_KNOWNCLASS: u32 = 524288u32;
+pub const NDW_INSTALLFLAG_NEEDSHUTDOWN: u32 = 512u32;
+pub const NDW_INSTALLFLAG_NODETECTEDDEVS: u32 = 4096u32;
+pub const NDW_INSTALLFLAG_PCMCIADEVICE: u32 = 131072u32;
+pub const NDW_INSTALLFLAG_PCMCIAMODE: u32 = 65536u32;
+pub const NDW_INSTALLFLAG_SKIPCLASSLIST: u32 = 16384u32;
+pub const NDW_INSTALLFLAG_SKIPISDEVINSTALLED: u32 = 2048u32;
+pub const NDW_INSTALLFLAG_USERCANCEL: u32 = 262144u32;
+pub const NUM_CM_PROB: u32 = 58u32;
+pub const NUM_CM_PROB_V1: u32 = 37u32;
+pub const NUM_CM_PROB_V2: u32 = 50u32;
+pub const NUM_CM_PROB_V3: u32 = 51u32;
+pub const NUM_CM_PROB_V4: u32 = 52u32;
+pub const NUM_CM_PROB_V5: u32 = 53u32;
+pub const NUM_CM_PROB_V6: u32 = 54u32;
+pub const NUM_CM_PROB_V7: u32 = 55u32;
+pub const NUM_CM_PROB_V8: u32 = 57u32;
+pub const NUM_CM_PROB_V9: u32 = 58u32;
+pub const NUM_CR_RESULTS: CONFIGRET = CONFIGRET(60u32);
+pub const NUM_LOG_CONF: CM_LOG_CONF = CM_LOG_CONF(6u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OEM_SOURCE_MEDIA_TYPE(pub u32);
+pub const OVERRIDE_LOG_CONF: CM_LOG_CONF = CM_LOG_CONF(5u32);
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct PCCARD_DES {
+    pub PCD_Count: u32,
+    pub PCD_Type: u32,
+    pub PCD_Flags: PCD_FLAGS,
+    pub PCD_ConfigIndex: u8,
+    pub PCD_Reserved: [u8; 3],
+    pub PCD_MemoryCardBase1: u32,
+    pub PCD_MemoryCardBase2: u32,
+    pub PCD_MemoryCardBase: [u32; 2],
+    pub PCD_MemoryFlags: [u16; 2],
+    pub PCD_IoFlags: [u8; 2],
+}
+impl Default for PCCARD_DES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PCCARD_DES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct PCCARD_RESOURCE {
+    pub PcCard_Header: PCCARD_DES,
+}
+impl Default for PCCARD_RESOURCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PCCARD_RESOURCE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCD_FLAGS(pub u32);
@@ -4852,6 +7250,10 @@ impl core::ops::Not for PCD_FLAGS {
         Self(self.0.not())
     }
 }
+pub const PCD_MAX_IO: u32 = 2u32;
+pub const PCD_MAX_MEMORY: u32 = 2u32;
+pub type PCM_NOTIFY_CALLBACK = Option<unsafe extern "system" fn(hnotify: HCMNOTIFICATION, context: *const core::ffi::c_void, action: CM_NOTIFY_ACTION, eventdata: *const CM_NOTIFY_EVENT_DATA, eventdatasize: u32) -> u32>;
+pub type PDETECT_PROGRESS_NOTIFY = Option<unsafe extern "system" fn(progressnotifyparam: *const core::ffi::c_void, detectcomplete: u32) -> super::super::Foundation::BOOL>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PMF_FLAGS(pub u32);
@@ -4891,6 +7293,50 @@ impl core::ops::Not for PMF_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PNP_VETO_TYPE(pub i32);
+pub const PNP_VetoAlreadyRemoved: PNP_VETO_TYPE = PNP_VETO_TYPE(13i32);
+pub const PNP_VetoDevice: PNP_VETO_TYPE = PNP_VETO_TYPE(6i32);
+pub const PNP_VetoDriver: PNP_VETO_TYPE = PNP_VETO_TYPE(7i32);
+pub const PNP_VetoIllegalDeviceRequest: PNP_VETO_TYPE = PNP_VETO_TYPE(8i32);
+pub const PNP_VetoInsufficientPower: PNP_VETO_TYPE = PNP_VETO_TYPE(9i32);
+pub const PNP_VetoInsufficientRights: PNP_VETO_TYPE = PNP_VETO_TYPE(12i32);
+pub const PNP_VetoLegacyDevice: PNP_VETO_TYPE = PNP_VETO_TYPE(1i32);
+pub const PNP_VetoLegacyDriver: PNP_VETO_TYPE = PNP_VETO_TYPE(11i32);
+pub const PNP_VetoNonDisableable: PNP_VETO_TYPE = PNP_VETO_TYPE(10i32);
+pub const PNP_VetoOutstandingOpen: PNP_VETO_TYPE = PNP_VETO_TYPE(5i32);
+pub const PNP_VetoPendingClose: PNP_VETO_TYPE = PNP_VETO_TYPE(2i32);
+pub const PNP_VetoTypeUnknown: PNP_VETO_TYPE = PNP_VETO_TYPE(0i32);
+pub const PNP_VetoWindowsApp: PNP_VETO_TYPE = PNP_VETO_TYPE(3i32);
+pub const PNP_VetoWindowsService: PNP_VETO_TYPE = PNP_VETO_TYPE(4i32);
+pub const PRIORITY_BIT: u32 = 8u32;
+pub const PRIORITY_EQUAL_FIRST: u32 = 8u32;
+pub const PRIORITY_EQUAL_LAST: u32 = 0u32;
+pub type PSP_DETSIG_CMPPROC = Option<unsafe extern "system" fn(deviceinfoset: HDEVINFO, newdevicedata: *const SP_DEVINFO_DATA, existingdevicedata: *const SP_DEVINFO_DATA, comparecontext: *const core::ffi::c_void) -> u32>;
+pub type PSP_FILE_CALLBACK_A = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32>;
+pub type PSP_FILE_CALLBACK_W = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32>;
+pub const ROLLBACK_BITS: DIROLLBACKDRIVER_FLAGS = DIROLLBACKDRIVER_FLAGS(1u32);
+pub const ROLLBACK_FLAG_NO_UI: DIROLLBACKDRIVER_FLAGS = DIROLLBACKDRIVER_FLAGS(1u32);
+pub const RegDisposition_Bits: u32 = 1u32;
+pub const RegDisposition_OpenAlways: u32 = 0u32;
+pub const RegDisposition_OpenExisting: u32 = 1u32;
+pub const ResType_All: CM_RESTYPE = CM_RESTYPE(0u32);
+pub const ResType_BusNumber: CM_RESTYPE = CM_RESTYPE(6u32);
+pub const ResType_ClassSpecific: CM_RESTYPE = CM_RESTYPE(65535u32);
+pub const ResType_Connection: CM_RESTYPE = CM_RESTYPE(32772u32);
+pub const ResType_DMA: CM_RESTYPE = CM_RESTYPE(3u32);
+pub const ResType_DevicePrivate: CM_RESTYPE = CM_RESTYPE(32769u32);
+pub const ResType_DoNotUse: CM_RESTYPE = CM_RESTYPE(5u32);
+pub const ResType_IO: CM_RESTYPE = CM_RESTYPE(2u32);
+pub const ResType_IRQ: CM_RESTYPE = CM_RESTYPE(4u32);
+pub const ResType_Ignored_Bit: CM_RESTYPE = CM_RESTYPE(32768u32);
+pub const ResType_MAX: CM_RESTYPE = CM_RESTYPE(7u32);
+pub const ResType_Mem: CM_RESTYPE = CM_RESTYPE(1u32);
+pub const ResType_MemLarge: CM_RESTYPE = CM_RESTYPE(7u32);
+pub const ResType_MfCardConfig: CM_RESTYPE = CM_RESTYPE(32771u32);
+pub const ResType_None: CM_RESTYPE = CM_RESTYPE(0u32);
+pub const ResType_PcCardConfig: CM_RESTYPE = CM_RESTYPE(32770u32);
+pub const ResType_Reserved: CM_RESTYPE = CM_RESTYPE(32768u32);
+pub const SCWMI_CLOBBER_SECURITY: u32 = 1u32;
+pub const SETDIRID_NOT_FULL_PATH: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUPSCANFILEQUEUE_FLAGS(pub u32);
@@ -5161,4652 +7607,6 @@ pub struct SETUP_DI_STATE_CHANGE(pub u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUP_FILE_OPERATION(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SPSVCINST_FLAGS(pub u32);
-impl SPSVCINST_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for SPSVCINST_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for SPSVCINST_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for SPSVCINST_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for SPSVCINST_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for SPSVCINST_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SP_COPY_STYLE(pub u32);
-impl SP_COPY_STYLE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for SP_COPY_STYLE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for SP_COPY_STYLE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for SP_COPY_STYLE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for SP_COPY_STYLE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for SP_COPY_STYLE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SetupFileLogInfo(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS(pub u32);
-impl UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct BUSNUMBER_DES {
-    pub BUSD_Count: u32,
-    pub BUSD_Type: u32,
-    pub BUSD_Flags: u32,
-    pub BUSD_Alloc_Base: u32,
-    pub BUSD_Alloc_End: u32,
-}
-impl Default for BUSNUMBER_DES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for BUSNUMBER_DES {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct BUSNUMBER_RANGE {
-    pub BUSR_Min: u32,
-    pub BUSR_Max: u32,
-    pub BUSR_nBusNumbers: u32,
-    pub BUSR_Flags: u32,
-}
-impl Default for BUSNUMBER_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for BUSNUMBER_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct BUSNUMBER_RESOURCE {
-    pub BusNumber_Header: BUSNUMBER_DES,
-    pub BusNumber_Data: [BUSNUMBER_RANGE; 1],
-}
-impl Default for BUSNUMBER_RESOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for BUSNUMBER_RESOURCE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CABINET_INFO_A {
-    pub CabinetPath: windows_core::PCSTR,
-    pub CabinetFile: windows_core::PCSTR,
-    pub DiskName: windows_core::PCSTR,
-    pub SetId: u16,
-    pub CabinetNumber: u16,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for CABINET_INFO_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for CABINET_INFO_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct CABINET_INFO_A {
-    pub CabinetPath: windows_core::PCSTR,
-    pub CabinetFile: windows_core::PCSTR,
-    pub DiskName: windows_core::PCSTR,
-    pub SetId: u16,
-    pub CabinetNumber: u16,
-}
-#[cfg(target_arch = "x86")]
-impl Default for CABINET_INFO_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for CABINET_INFO_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CABINET_INFO_W {
-    pub CabinetPath: windows_core::PCWSTR,
-    pub CabinetFile: windows_core::PCWSTR,
-    pub DiskName: windows_core::PCWSTR,
-    pub SetId: u16,
-    pub CabinetNumber: u16,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for CABINET_INFO_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for CABINET_INFO_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct CABINET_INFO_W {
-    pub CabinetPath: windows_core::PCWSTR,
-    pub CabinetFile: windows_core::PCWSTR,
-    pub DiskName: windows_core::PCWSTR,
-    pub SetId: u16,
-    pub CabinetNumber: u16,
-}
-#[cfg(target_arch = "x86")]
-impl Default for CABINET_INFO_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for CABINET_INFO_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CM_NOTIFY_EVENT_DATA {
-    pub FilterType: CM_NOTIFY_FILTER_TYPE,
-    pub Reserved: u32,
-    pub u: CM_NOTIFY_EVENT_DATA_0,
-}
-impl Default for CM_NOTIFY_EVENT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union CM_NOTIFY_EVENT_DATA_0 {
-    pub DeviceInterface: CM_NOTIFY_EVENT_DATA_0_0,
-    pub DeviceHandle: CM_NOTIFY_EVENT_DATA_0_1,
-    pub DeviceInstance: CM_NOTIFY_EVENT_DATA_0_2,
-}
-impl Default for CM_NOTIFY_EVENT_DATA_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CM_NOTIFY_EVENT_DATA_0_1 {
-    pub EventGuid: windows_core::GUID,
-    pub NameOffset: i32,
-    pub DataSize: u32,
-    pub Data: [u8; 1],
-}
-impl Default for CM_NOTIFY_EVENT_DATA_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CM_NOTIFY_EVENT_DATA_0_2 {
-    pub InstanceId: [u16; 1],
-}
-impl Default for CM_NOTIFY_EVENT_DATA_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CM_NOTIFY_EVENT_DATA_0_0 {
-    pub ClassGuid: windows_core::GUID,
-    pub SymbolicLink: [u16; 1],
-}
-impl Default for CM_NOTIFY_EVENT_DATA_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CM_NOTIFY_FILTER {
-    pub cbSize: u32,
-    pub Flags: u32,
-    pub FilterType: CM_NOTIFY_FILTER_TYPE,
-    pub Reserved: u32,
-    pub u: CM_NOTIFY_FILTER_0,
-}
-impl Default for CM_NOTIFY_FILTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CM_NOTIFY_FILTER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union CM_NOTIFY_FILTER_0 {
-    pub DeviceInterface: CM_NOTIFY_FILTER_0_0,
-    pub DeviceHandle: CM_NOTIFY_FILTER_0_1,
-    pub DeviceInstance: CM_NOTIFY_FILTER_0_2,
-}
-impl Default for CM_NOTIFY_FILTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CM_NOTIFY_FILTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CM_NOTIFY_FILTER_0_1 {
-    pub hTarget: super::super::Foundation::HANDLE,
-}
-impl Default for CM_NOTIFY_FILTER_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CM_NOTIFY_FILTER_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CM_NOTIFY_FILTER_0_2 {
-    pub InstanceId: [u16; 200],
-}
-impl Default for CM_NOTIFY_FILTER_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CM_NOTIFY_FILTER_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CM_NOTIFY_FILTER_0_0 {
-    pub ClassGuid: windows_core::GUID,
-}
-impl Default for CM_NOTIFY_FILTER_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CM_NOTIFY_FILTER_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct COINSTALLER_CONTEXT_DATA {
-    pub PostProcessing: super::super::Foundation::BOOL,
-    pub InstallResult: u32,
-    pub PrivateData: *mut core::ffi::c_void,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for COINSTALLER_CONTEXT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for COINSTALLER_CONTEXT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct COINSTALLER_CONTEXT_DATA {
-    pub PostProcessing: super::super::Foundation::BOOL,
-    pub InstallResult: u32,
-    pub PrivateData: *mut core::ffi::c_void,
-}
-#[cfg(target_arch = "x86")]
-impl Default for COINSTALLER_CONTEXT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for COINSTALLER_CONTEXT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CONFLICT_DETAILS_A {
-    pub CD_ulSize: u32,
-    pub CD_ulMask: CM_CDMASK,
-    pub CD_dnDevInst: u32,
-    pub CD_rdResDes: usize,
-    pub CD_ulFlags: CM_CDFLAGS,
-    pub CD_szDescription: [i8; 260],
-}
-impl Default for CONFLICT_DETAILS_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CONFLICT_DETAILS_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CONFLICT_DETAILS_W {
-    pub CD_ulSize: u32,
-    pub CD_ulMask: CM_CDMASK,
-    pub CD_dnDevInst: u32,
-    pub CD_rdResDes: usize,
-    pub CD_ulFlags: CM_CDFLAGS,
-    pub CD_szDescription: [u16; 260],
-}
-impl Default for CONFLICT_DETAILS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CONFLICT_DETAILS_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct CONNECTION_DES {
-    pub COND_Type: u32,
-    pub COND_Flags: u32,
-    pub COND_Class: u8,
-    pub COND_ClassType: u8,
-    pub COND_Reserved1: u8,
-    pub COND_Reserved2: u8,
-    pub COND_Id: i64,
-}
-impl Default for CONNECTION_DES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CONNECTION_DES {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct CONNECTION_RESOURCE {
-    pub Connection_Header: CONNECTION_DES,
-}
-impl Default for CONNECTION_RESOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CONNECTION_RESOURCE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct CS_DES {
-    pub CSD_SignatureLength: u32,
-    pub CSD_LegacyDataOffset: u32,
-    pub CSD_LegacyDataSize: u32,
-    pub CSD_Flags: u32,
-    pub CSD_ClassGuid: windows_core::GUID,
-    pub CSD_Signature: [u8; 1],
-}
-impl Default for CS_DES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CS_DES {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct CS_RESOURCE {
-    pub CS_Header: CS_DES,
-}
-impl Default for CS_RESOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CS_RESOURCE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct DEVPRIVATE_DES {
-    pub PD_Count: u32,
-    pub PD_Type: u32,
-    pub PD_Data1: u32,
-    pub PD_Data2: u32,
-    pub PD_Data3: u32,
-    pub PD_Flags: u32,
-}
-impl Default for DEVPRIVATE_DES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DEVPRIVATE_DES {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct DEVPRIVATE_RANGE {
-    pub PR_Data1: u32,
-    pub PR_Data2: u32,
-    pub PR_Data3: u32,
-}
-impl Default for DEVPRIVATE_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DEVPRIVATE_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct DEVPRIVATE_RESOURCE {
-    pub PRV_Header: DEVPRIVATE_DES,
-    pub PRV_Data: [DEVPRIVATE_RANGE; 1],
-}
-impl Default for DEVPRIVATE_RESOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DEVPRIVATE_RESOURCE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct DMA_DES {
-    pub DD_Count: u32,
-    pub DD_Type: u32,
-    pub DD_Flags: DD_FLAGS,
-    pub DD_Alloc_Chan: u32,
-}
-impl Default for DMA_DES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DMA_DES {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct DMA_RANGE {
-    pub DR_Min: u32,
-    pub DR_Max: u32,
-    pub DR_Flags: DD_FLAGS,
-}
-impl Default for DMA_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DMA_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct DMA_RESOURCE {
-    pub DMA_Header: DMA_DES,
-    pub DMA_Data: [DMA_RANGE; 1],
-}
-impl Default for DMA_RESOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DMA_RESOURCE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILEPATHS_A {
-    pub Target: windows_core::PCSTR,
-    pub Source: windows_core::PCSTR,
-    pub Win32Error: u32,
-    pub Flags: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for FILEPATHS_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FILEPATHS_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct FILEPATHS_A {
-    pub Target: windows_core::PCSTR,
-    pub Source: windows_core::PCSTR,
-    pub Win32Error: u32,
-    pub Flags: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for FILEPATHS_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FILEPATHS_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILEPATHS_SIGNERINFO_A {
-    pub Target: windows_core::PCSTR,
-    pub Source: windows_core::PCSTR,
-    pub Win32Error: u32,
-    pub Flags: u32,
-    pub DigitalSigner: windows_core::PCSTR,
-    pub Version: windows_core::PCSTR,
-    pub CatalogFile: windows_core::PCSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for FILEPATHS_SIGNERINFO_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FILEPATHS_SIGNERINFO_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct FILEPATHS_SIGNERINFO_A {
-    pub Target: windows_core::PCSTR,
-    pub Source: windows_core::PCSTR,
-    pub Win32Error: u32,
-    pub Flags: u32,
-    pub DigitalSigner: windows_core::PCSTR,
-    pub Version: windows_core::PCSTR,
-    pub CatalogFile: windows_core::PCSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Default for FILEPATHS_SIGNERINFO_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FILEPATHS_SIGNERINFO_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILEPATHS_SIGNERINFO_W {
-    pub Target: windows_core::PCWSTR,
-    pub Source: windows_core::PCWSTR,
-    pub Win32Error: u32,
-    pub Flags: u32,
-    pub DigitalSigner: windows_core::PCWSTR,
-    pub Version: windows_core::PCWSTR,
-    pub CatalogFile: windows_core::PCWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for FILEPATHS_SIGNERINFO_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FILEPATHS_SIGNERINFO_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct FILEPATHS_SIGNERINFO_W {
-    pub Target: windows_core::PCWSTR,
-    pub Source: windows_core::PCWSTR,
-    pub Win32Error: u32,
-    pub Flags: u32,
-    pub DigitalSigner: windows_core::PCWSTR,
-    pub Version: windows_core::PCWSTR,
-    pub CatalogFile: windows_core::PCWSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Default for FILEPATHS_SIGNERINFO_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FILEPATHS_SIGNERINFO_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILEPATHS_W {
-    pub Target: windows_core::PCWSTR,
-    pub Source: windows_core::PCWSTR,
-    pub Win32Error: u32,
-    pub Flags: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for FILEPATHS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FILEPATHS_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct FILEPATHS_W {
-    pub Target: windows_core::PCWSTR,
-    pub Source: windows_core::PCWSTR,
-    pub Win32Error: u32,
-    pub Flags: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for FILEPATHS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FILEPATHS_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_IN_CABINET_INFO_A {
-    pub NameInCabinet: windows_core::PCSTR,
-    pub FileSize: u32,
-    pub Win32Error: u32,
-    pub DosDate: u16,
-    pub DosTime: u16,
-    pub DosAttribs: u16,
-    pub FullTargetName: [i8; 260],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for FILE_IN_CABINET_INFO_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FILE_IN_CABINET_INFO_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct FILE_IN_CABINET_INFO_A {
-    pub NameInCabinet: windows_core::PCSTR,
-    pub FileSize: u32,
-    pub Win32Error: u32,
-    pub DosDate: u16,
-    pub DosTime: u16,
-    pub DosAttribs: u16,
-    pub FullTargetName: [i8; 260],
-}
-#[cfg(target_arch = "x86")]
-impl Default for FILE_IN_CABINET_INFO_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FILE_IN_CABINET_INFO_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILE_IN_CABINET_INFO_W {
-    pub NameInCabinet: windows_core::PCWSTR,
-    pub FileSize: u32,
-    pub Win32Error: u32,
-    pub DosDate: u16,
-    pub DosTime: u16,
-    pub DosAttribs: u16,
-    pub FullTargetName: [u16; 260],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for FILE_IN_CABINET_INFO_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FILE_IN_CABINET_INFO_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct FILE_IN_CABINET_INFO_W {
-    pub NameInCabinet: windows_core::PCWSTR,
-    pub FileSize: u32,
-    pub Win32Error: u32,
-    pub DosDate: u16,
-    pub DosTime: u16,
-    pub DosAttribs: u16,
-    pub FullTargetName: [u16; 260],
-}
-#[cfg(target_arch = "x86")]
-impl Default for FILE_IN_CABINET_INFO_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FILE_IN_CABINET_INFO_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HCMNOTIFICATION(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HCMNOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl HCMNOTIFICATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HCMNOTIFICATION {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("cfgmgr32.dll" "system" fn CM_Unregister_Notification(notifycontext : *mut core::ffi::c_void) -> u32);
-            CM_Unregister_Notification(self.0);
-        }
-    }
-}
-impl Default for HCMNOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HDEVINFO(pub isize);
-impl windows_core::TypeKind for HDEVINFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl HDEVINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl windows_core::Free for HDEVINFO {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("setupapi.dll" "system" fn SetupDiDestroyDeviceInfoList(deviceinfoset : isize) -> i32);
-            SetupDiDestroyDeviceInfoList(self.0);
-        }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct HWPROFILEINFO_A {
-    pub HWPI_ulHWProfile: u32,
-    pub HWPI_szFriendlyName: [i8; 80],
-    pub HWPI_dwFlags: u32,
-}
-impl Default for HWPROFILEINFO_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HWPROFILEINFO_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct HWPROFILEINFO_W {
-    pub HWPI_ulHWProfile: u32,
-    pub HWPI_szFriendlyName: [u16; 80],
-    pub HWPI_dwFlags: u32,
-}
-impl Default for HWPROFILEINFO_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HWPROFILEINFO_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct INFCONTEXT {
-    pub Inf: *mut core::ffi::c_void,
-    pub CurrentInf: *mut core::ffi::c_void,
-    pub Section: u32,
-    pub Line: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for INFCONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for INFCONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct INFCONTEXT {
-    pub Inf: *mut core::ffi::c_void,
-    pub CurrentInf: *mut core::ffi::c_void,
-    pub Section: u32,
-    pub Line: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for INFCONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for INFCONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IO_DES {
-    pub IOD_Count: u32,
-    pub IOD_Type: u32,
-    pub IOD_Alloc_Base: u64,
-    pub IOD_Alloc_End: u64,
-    pub IOD_DesFlags: IOD_DESFLAGS,
-}
-impl Default for IO_DES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IO_DES {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IO_RANGE {
-    pub IOR_Align: u64,
-    pub IOR_nPorts: u32,
-    pub IOR_Min: u64,
-    pub IOR_Max: u64,
-    pub IOR_RangeFlags: IOD_DESFLAGS,
-    pub IOR_Alias: u64,
-}
-impl Default for IO_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IO_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IO_RESOURCE {
-    pub IO_Header: IO_DES,
-    pub IO_Data: [IO_RANGE; 1],
-}
-impl Default for IO_RESOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IO_RESOURCE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IRQ_DES_32 {
-    pub IRQD_Count: u32,
-    pub IRQD_Type: u32,
-    pub IRQD_Flags: IRQD_FLAGS,
-    pub IRQD_Alloc_Num: u32,
-    pub IRQD_Affinity: u32,
-}
-impl Default for IRQ_DES_32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IRQ_DES_32 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IRQ_DES_64 {
-    pub IRQD_Count: u32,
-    pub IRQD_Type: u32,
-    pub IRQD_Flags: IRQD_FLAGS,
-    pub IRQD_Alloc_Num: u32,
-    pub IRQD_Affinity: u64,
-}
-impl Default for IRQ_DES_64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IRQ_DES_64 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IRQ_RANGE {
-    pub IRQR_Min: u32,
-    pub IRQR_Max: u32,
-    pub IRQR_Flags: IRQD_FLAGS,
-}
-impl Default for IRQ_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IRQ_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IRQ_RESOURCE_32 {
-    pub IRQ_Header: IRQ_DES_32,
-    pub IRQ_Data: [IRQ_RANGE; 1],
-}
-impl Default for IRQ_RESOURCE_32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IRQ_RESOURCE_32 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct IRQ_RESOURCE_64 {
-    pub IRQ_Header: IRQ_DES_64,
-    pub IRQ_Data: [IRQ_RANGE; 1],
-}
-impl Default for IRQ_RESOURCE_64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IRQ_RESOURCE_64 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MEM_DES {
-    pub MD_Count: u32,
-    pub MD_Type: u32,
-    pub MD_Alloc_Base: u64,
-    pub MD_Alloc_End: u64,
-    pub MD_Flags: MD_FLAGS,
-    pub MD_Reserved: u32,
-}
-impl Default for MEM_DES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MEM_DES {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MEM_LARGE_DES {
-    pub MLD_Count: u32,
-    pub MLD_Type: u32,
-    pub MLD_Alloc_Base: u64,
-    pub MLD_Alloc_End: u64,
-    pub MLD_Flags: u32,
-    pub MLD_Reserved: u32,
-}
-impl Default for MEM_LARGE_DES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MEM_LARGE_DES {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MEM_LARGE_RANGE {
-    pub MLR_Align: u64,
-    pub MLR_nBytes: u64,
-    pub MLR_Min: u64,
-    pub MLR_Max: u64,
-    pub MLR_Flags: u32,
-    pub MLR_Reserved: u32,
-}
-impl Default for MEM_LARGE_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MEM_LARGE_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MEM_LARGE_RESOURCE {
-    pub MEM_LARGE_Header: MEM_LARGE_DES,
-    pub MEM_LARGE_Data: [MEM_LARGE_RANGE; 1],
-}
-impl Default for MEM_LARGE_RESOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MEM_LARGE_RESOURCE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MEM_RANGE {
-    pub MR_Align: u64,
-    pub MR_nBytes: u32,
-    pub MR_Min: u64,
-    pub MR_Max: u64,
-    pub MR_Flags: MD_FLAGS,
-    pub MR_Reserved: u32,
-}
-impl Default for MEM_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MEM_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MEM_RESOURCE {
-    pub MEM_Header: MEM_DES,
-    pub MEM_Data: [MEM_RANGE; 1],
-}
-impl Default for MEM_RESOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MEM_RESOURCE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MFCARD_DES {
-    pub PMF_Count: u32,
-    pub PMF_Type: u32,
-    pub PMF_Flags: PMF_FLAGS,
-    pub PMF_ConfigOptions: u8,
-    pub PMF_IoResourceIndex: u8,
-    pub PMF_Reserved: [u8; 2],
-    pub PMF_ConfigRegisterBase: u32,
-}
-impl Default for MFCARD_DES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MFCARD_DES {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct MFCARD_RESOURCE {
-    pub MfCard_Header: MFCARD_DES,
-}
-impl Default for MFCARD_RESOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MFCARD_RESOURCE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct PCCARD_DES {
-    pub PCD_Count: u32,
-    pub PCD_Type: u32,
-    pub PCD_Flags: PCD_FLAGS,
-    pub PCD_ConfigIndex: u8,
-    pub PCD_Reserved: [u8; 3],
-    pub PCD_MemoryCardBase1: u32,
-    pub PCD_MemoryCardBase2: u32,
-    pub PCD_MemoryCardBase: [u32; 2],
-    pub PCD_MemoryFlags: [u16; 2],
-    pub PCD_IoFlags: [u8; 2],
-}
-impl Default for PCCARD_DES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PCCARD_DES {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct PCCARD_RESOURCE {
-    pub PcCard_Header: PCCARD_DES,
-}
-impl Default for PCCARD_RESOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PCCARD_RESOURCE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SOURCE_MEDIA_A {
-    pub Reserved: windows_core::PCSTR,
-    pub Tagfile: windows_core::PCSTR,
-    pub Description: windows_core::PCSTR,
-    pub SourcePath: windows_core::PCSTR,
-    pub SourceFile: windows_core::PCSTR,
-    pub Flags: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SOURCE_MEDIA_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SOURCE_MEDIA_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SOURCE_MEDIA_A {
-    pub Reserved: windows_core::PCSTR,
-    pub Tagfile: windows_core::PCSTR,
-    pub Description: windows_core::PCSTR,
-    pub SourcePath: windows_core::PCSTR,
-    pub SourceFile: windows_core::PCSTR,
-    pub Flags: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SOURCE_MEDIA_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SOURCE_MEDIA_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SOURCE_MEDIA_W {
-    pub Reserved: windows_core::PCWSTR,
-    pub Tagfile: windows_core::PCWSTR,
-    pub Description: windows_core::PCWSTR,
-    pub SourcePath: windows_core::PCWSTR,
-    pub SourceFile: windows_core::PCWSTR,
-    pub Flags: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SOURCE_MEDIA_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SOURCE_MEDIA_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SOURCE_MEDIA_W {
-    pub Reserved: windows_core::PCWSTR,
-    pub Tagfile: windows_core::PCWSTR,
-    pub Description: windows_core::PCWSTR,
-    pub SourcePath: windows_core::PCWSTR,
-    pub SourceFile: windows_core::PCWSTR,
-    pub Flags: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SOURCE_MEDIA_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SOURCE_MEDIA_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_ALTPLATFORM_INFO_V1 {
-    pub cbSize: u32,
-    pub Platform: super::super::System::Diagnostics::Debug::VER_PLATFORM,
-    pub MajorVersion: u32,
-    pub MinorVersion: u32,
-    pub ProcessorArchitecture: u16,
-    pub Reserved: u16,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Default for SP_ALTPLATFORM_INFO_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Clone, Copy)]
-pub struct SP_ALTPLATFORM_INFO_V1 {
-    pub cbSize: u32,
-    pub Platform: super::super::System::Diagnostics::Debug::VER_PLATFORM,
-    pub MajorVersion: u32,
-    pub MinorVersion: u32,
-    pub ProcessorArchitecture: u16,
-    pub Reserved: u16,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Default for SP_ALTPLATFORM_INFO_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-#[derive(Clone, Copy)]
-pub struct SP_ALTPLATFORM_INFO_V2 {
-    pub cbSize: u32,
-    pub Platform: super::super::System::Diagnostics::Debug::VER_PLATFORM,
-    pub MajorVersion: u32,
-    pub MinorVersion: u32,
-    pub ProcessorArchitecture: super::super::System::SystemInformation::PROCESSOR_ARCHITECTURE,
-    pub Anonymous: SP_ALTPLATFORM_INFO_V2_0,
-    pub FirstValidatedMajorVersion: u32,
-    pub FirstValidatedMinorVersion: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-impl Default for SP_ALTPLATFORM_INFO_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-#[derive(Clone, Copy)]
-pub union SP_ALTPLATFORM_INFO_V2_0 {
-    pub Reserved: u16,
-    pub Flags: u16,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-impl Default for SP_ALTPLATFORM_INFO_V2_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-#[derive(Clone, Copy)]
-pub struct SP_ALTPLATFORM_INFO_V2 {
-    pub cbSize: u32,
-    pub Platform: super::super::System::Diagnostics::Debug::VER_PLATFORM,
-    pub MajorVersion: u32,
-    pub MinorVersion: u32,
-    pub ProcessorArchitecture: super::super::System::SystemInformation::PROCESSOR_ARCHITECTURE,
-    pub Anonymous: SP_ALTPLATFORM_INFO_V2_0,
-    pub FirstValidatedMajorVersion: u32,
-    pub FirstValidatedMinorVersion: u32,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-impl Default for SP_ALTPLATFORM_INFO_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-#[derive(Clone, Copy)]
-pub union SP_ALTPLATFORM_INFO_V2_0 {
-    pub Reserved: u16,
-    pub Flags: u16,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-impl Default for SP_ALTPLATFORM_INFO_V2_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct SP_ALTPLATFORM_INFO_V3 {
-    pub cbSize: u32,
-    pub Platform: u32,
-    pub MajorVersion: u32,
-    pub MinorVersion: u32,
-    pub ProcessorArchitecture: u16,
-    pub Anonymous: SP_ALTPLATFORM_INFO_V3_0,
-    pub FirstValidatedMajorVersion: u32,
-    pub FirstValidatedMinorVersion: u32,
-    pub ProductType: u8,
-    pub SuiteMask: u16,
-    pub BuildNumber: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_ALTPLATFORM_INFO_V3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V3 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub union SP_ALTPLATFORM_INFO_V3_0 {
-    pub Reserved: u16,
-    pub Flags: u16,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_ALTPLATFORM_INFO_V3_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V3_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_ALTPLATFORM_INFO_V3 {
-    pub cbSize: u32,
-    pub Platform: u32,
-    pub MajorVersion: u32,
-    pub MinorVersion: u32,
-    pub ProcessorArchitecture: u16,
-    pub Anonymous: SP_ALTPLATFORM_INFO_V3_0,
-    pub FirstValidatedMajorVersion: u32,
-    pub FirstValidatedMinorVersion: u32,
-    pub ProductType: u8,
-    pub SuiteMask: u16,
-    pub BuildNumber: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_ALTPLATFORM_INFO_V3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V3 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub union SP_ALTPLATFORM_INFO_V3_0 {
-    pub Reserved: u16,
-    pub Flags: u16,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_ALTPLATFORM_INFO_V3_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V3_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_BACKUP_QUEUE_PARAMS_V1_A {
-    pub cbSize: u32,
-    pub FullInfPath: [i8; 260],
-    pub FilenameOffset: i32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_BACKUP_QUEUE_PARAMS_V1_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_BACKUP_QUEUE_PARAMS_V1_A {
-    pub cbSize: u32,
-    pub FullInfPath: [i8; 260],
-    pub FilenameOffset: i32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_BACKUP_QUEUE_PARAMS_V1_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_BACKUP_QUEUE_PARAMS_V1_W {
-    pub cbSize: u32,
-    pub FullInfPath: [u16; 260],
-    pub FilenameOffset: i32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_BACKUP_QUEUE_PARAMS_V1_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_BACKUP_QUEUE_PARAMS_V1_W {
-    pub cbSize: u32,
-    pub FullInfPath: [u16; 260],
-    pub FilenameOffset: i32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_BACKUP_QUEUE_PARAMS_V1_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_BACKUP_QUEUE_PARAMS_V2_A {
-    pub cbSize: u32,
-    pub FullInfPath: [i8; 260],
-    pub FilenameOffset: i32,
-    pub ReinstallInstance: [i8; 260],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_BACKUP_QUEUE_PARAMS_V2_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_BACKUP_QUEUE_PARAMS_V2_A {
-    pub cbSize: u32,
-    pub FullInfPath: [i8; 260],
-    pub FilenameOffset: i32,
-    pub ReinstallInstance: [i8; 260],
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_BACKUP_QUEUE_PARAMS_V2_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_BACKUP_QUEUE_PARAMS_V2_W {
-    pub cbSize: u32,
-    pub FullInfPath: [u16; 260],
-    pub FilenameOffset: i32,
-    pub ReinstallInstance: [u16; 260],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_BACKUP_QUEUE_PARAMS_V2_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_BACKUP_QUEUE_PARAMS_V2_W {
-    pub cbSize: u32,
-    pub FullInfPath: [u16; 260],
-    pub FilenameOffset: i32,
-    pub ReinstallInstance: [u16; 260],
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_BACKUP_QUEUE_PARAMS_V2_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_Controls")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_CLASSIMAGELIST_DATA {
-    pub cbSize: u32,
-    pub ImageList: super::super::UI::Controls::HIMAGELIST,
-    pub Reserved: usize,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_Controls")]
-impl Default for SP_CLASSIMAGELIST_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_Controls")]
-impl windows_core::TypeKind for SP_CLASSIMAGELIST_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_Controls")]
-#[derive(Clone, Copy)]
-pub struct SP_CLASSIMAGELIST_DATA {
-    pub cbSize: u32,
-    pub ImageList: super::super::UI::Controls::HIMAGELIST,
-    pub Reserved: usize,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_Controls")]
-impl Default for SP_CLASSIMAGELIST_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_Controls")]
-impl windows_core::TypeKind for SP_CLASSIMAGELIST_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_CLASSINSTALL_HEADER {
-    pub cbSize: u32,
-    pub InstallFunction: DI_FUNCTION,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_CLASSINSTALL_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_CLASSINSTALL_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_CLASSINSTALL_HEADER {
-    pub cbSize: u32,
-    pub InstallFunction: DI_FUNCTION,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_CLASSINSTALL_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_CLASSINSTALL_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_DETECTDEVICE_PARAMS {
-    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub DetectProgressNotify: PDETECT_PROGRESS_NOTIFY,
-    pub ProgressNotifyParam: *mut core::ffi::c_void,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_DETECTDEVICE_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DETECTDEVICE_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_DETECTDEVICE_PARAMS {
-    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub DetectProgressNotify: PDETECT_PROGRESS_NOTIFY,
-    pub ProgressNotifyParam: *mut core::ffi::c_void,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_DETECTDEVICE_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DETECTDEVICE_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_DEVICE_INTERFACE_DATA {
-    pub cbSize: u32,
-    pub InterfaceClassGuid: windows_core::GUID,
-    pub Flags: u32,
-    pub Reserved: usize,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_DEVICE_INTERFACE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_DEVICE_INTERFACE_DATA {
-    pub cbSize: u32,
-    pub InterfaceClassGuid: windows_core::GUID,
-    pub Flags: u32,
-    pub Reserved: usize,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_DEVICE_INTERFACE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
-    pub cbSize: u32,
-    pub DevicePath: [i8; 1],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
-    pub cbSize: u32,
-    pub DevicePath: [i8; 1],
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_W {
-    pub cbSize: u32,
-    pub DevicePath: [u16; 1],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_W {
-    pub cbSize: u32,
-    pub DevicePath: [u16; 1],
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_DEVINFO_DATA {
-    pub cbSize: u32,
-    pub ClassGuid: windows_core::GUID,
-    pub DevInst: u32,
-    pub Reserved: usize,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_DEVINFO_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DEVINFO_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_DEVINFO_DATA {
-    pub cbSize: u32,
-    pub ClassGuid: windows_core::GUID,
-    pub DevInst: u32,
-    pub Reserved: usize,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_DEVINFO_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DEVINFO_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_DEVINFO_LIST_DETAIL_DATA_A {
-    pub cbSize: u32,
-    pub ClassGuid: windows_core::GUID,
-    pub RemoteMachineHandle: super::super::Foundation::HANDLE,
-    pub RemoteMachineName: [i8; 263],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_DEVINFO_LIST_DETAIL_DATA_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_DEVINFO_LIST_DETAIL_DATA_A {
-    pub cbSize: u32,
-    pub ClassGuid: windows_core::GUID,
-    pub RemoteMachineHandle: super::super::Foundation::HANDLE,
-    pub RemoteMachineName: [i8; 263],
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_DEVINFO_LIST_DETAIL_DATA_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_DEVINFO_LIST_DETAIL_DATA_W {
-    pub cbSize: u32,
-    pub ClassGuid: windows_core::GUID,
-    pub RemoteMachineHandle: super::super::Foundation::HANDLE,
-    pub RemoteMachineName: [u16; 263],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_DEVINFO_LIST_DETAIL_DATA_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_DEVINFO_LIST_DETAIL_DATA_W {
-    pub cbSize: u32,
-    pub ClassGuid: windows_core::GUID,
-    pub RemoteMachineHandle: super::super::Foundation::HANDLE,
-    pub RemoteMachineName: [u16; 263],
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_DEVINFO_LIST_DETAIL_DATA_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_DEVINSTALL_PARAMS_A {
-    pub cbSize: u32,
-    pub Flags: SETUP_DI_DEVICE_INSTALL_FLAGS,
-    pub FlagsEx: SETUP_DI_DEVICE_INSTALL_FLAGS_EX,
-    pub hwndParent: super::super::Foundation::HWND,
-    pub InstallMsgHandler: PSP_FILE_CALLBACK_A,
-    pub InstallMsgHandlerContext: *mut core::ffi::c_void,
-    pub FileQueue: *mut core::ffi::c_void,
-    pub ClassInstallReserved: usize,
-    pub Reserved: u32,
-    pub DriverPath: [i8; 260],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_DEVINSTALL_PARAMS_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DEVINSTALL_PARAMS_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_DEVINSTALL_PARAMS_A {
-    pub cbSize: u32,
-    pub Flags: SETUP_DI_DEVICE_INSTALL_FLAGS,
-    pub FlagsEx: SETUP_DI_DEVICE_INSTALL_FLAGS_EX,
-    pub hwndParent: super::super::Foundation::HWND,
-    pub InstallMsgHandler: PSP_FILE_CALLBACK_A,
-    pub InstallMsgHandlerContext: *mut core::ffi::c_void,
-    pub FileQueue: *mut core::ffi::c_void,
-    pub ClassInstallReserved: usize,
-    pub Reserved: u32,
-    pub DriverPath: [i8; 260],
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_DEVINSTALL_PARAMS_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DEVINSTALL_PARAMS_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_DEVINSTALL_PARAMS_W {
-    pub cbSize: u32,
-    pub Flags: SETUP_DI_DEVICE_INSTALL_FLAGS,
-    pub FlagsEx: SETUP_DI_DEVICE_INSTALL_FLAGS_EX,
-    pub hwndParent: super::super::Foundation::HWND,
-    pub InstallMsgHandler: PSP_FILE_CALLBACK_W,
-    pub InstallMsgHandlerContext: *mut core::ffi::c_void,
-    pub FileQueue: *mut core::ffi::c_void,
-    pub ClassInstallReserved: usize,
-    pub Reserved: u32,
-    pub DriverPath: [u16; 260],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_DEVINSTALL_PARAMS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DEVINSTALL_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_DEVINSTALL_PARAMS_W {
-    pub cbSize: u32,
-    pub Flags: SETUP_DI_DEVICE_INSTALL_FLAGS,
-    pub FlagsEx: SETUP_DI_DEVICE_INSTALL_FLAGS_EX,
-    pub hwndParent: super::super::Foundation::HWND,
-    pub InstallMsgHandler: PSP_FILE_CALLBACK_W,
-    pub InstallMsgHandlerContext: *mut core::ffi::c_void,
-    pub FileQueue: *mut core::ffi::c_void,
-    pub ClassInstallReserved: usize,
-    pub Reserved: u32,
-    pub DriverPath: [u16; 260],
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_DEVINSTALL_PARAMS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DEVINSTALL_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_DRVINFO_DATA_V1_A {
-    pub cbSize: u32,
-    pub DriverType: u32,
-    pub Reserved: usize,
-    pub Description: [i8; 256],
-    pub MfgName: [i8; 256],
-    pub ProviderName: [i8; 256],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_DRVINFO_DATA_V1_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DRVINFO_DATA_V1_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_DRVINFO_DATA_V1_A {
-    pub cbSize: u32,
-    pub DriverType: u32,
-    pub Reserved: usize,
-    pub Description: [i8; 256],
-    pub MfgName: [i8; 256],
-    pub ProviderName: [i8; 256],
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_DRVINFO_DATA_V1_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DRVINFO_DATA_V1_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_DRVINFO_DATA_V1_W {
-    pub cbSize: u32,
-    pub DriverType: u32,
-    pub Reserved: usize,
-    pub Description: [u16; 256],
-    pub MfgName: [u16; 256],
-    pub ProviderName: [u16; 256],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_DRVINFO_DATA_V1_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DRVINFO_DATA_V1_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_DRVINFO_DATA_V1_W {
-    pub cbSize: u32,
-    pub DriverType: u32,
-    pub Reserved: usize,
-    pub Description: [u16; 256],
-    pub MfgName: [u16; 256],
-    pub ProviderName: [u16; 256],
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_DRVINFO_DATA_V1_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DRVINFO_DATA_V1_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_DRVINFO_DATA_V2_A {
-    pub cbSize: u32,
-    pub DriverType: u32,
-    pub Reserved: usize,
-    pub Description: [i8; 256],
-    pub MfgName: [i8; 256],
-    pub ProviderName: [i8; 256],
-    pub DriverDate: super::super::Foundation::FILETIME,
-    pub DriverVersion: u64,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_DRVINFO_DATA_V2_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DRVINFO_DATA_V2_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_DRVINFO_DATA_V2_A {
-    pub cbSize: u32,
-    pub DriverType: u32,
-    pub Reserved: usize,
-    pub Description: [i8; 256],
-    pub MfgName: [i8; 256],
-    pub ProviderName: [i8; 256],
-    pub DriverDate: super::super::Foundation::FILETIME,
-    pub DriverVersion: u64,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_DRVINFO_DATA_V2_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DRVINFO_DATA_V2_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_DRVINFO_DATA_V2_W {
-    pub cbSize: u32,
-    pub DriverType: u32,
-    pub Reserved: usize,
-    pub Description: [u16; 256],
-    pub MfgName: [u16; 256],
-    pub ProviderName: [u16; 256],
-    pub DriverDate: super::super::Foundation::FILETIME,
-    pub DriverVersion: u64,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_DRVINFO_DATA_V2_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DRVINFO_DATA_V2_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_DRVINFO_DATA_V2_W {
-    pub cbSize: u32,
-    pub DriverType: u32,
-    pub Reserved: usize,
-    pub Description: [u16; 256],
-    pub MfgName: [u16; 256],
-    pub ProviderName: [u16; 256],
-    pub DriverDate: super::super::Foundation::FILETIME,
-    pub DriverVersion: u64,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_DRVINFO_DATA_V2_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DRVINFO_DATA_V2_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_DRVINFO_DETAIL_DATA_A {
-    pub cbSize: u32,
-    pub InfDate: super::super::Foundation::FILETIME,
-    pub CompatIDsOffset: u32,
-    pub CompatIDsLength: u32,
-    pub Reserved: usize,
-    pub SectionName: [i8; 256],
-    pub InfFileName: [i8; 260],
-    pub DrvDescription: [i8; 256],
-    pub HardwareID: [i8; 1],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_DRVINFO_DETAIL_DATA_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DRVINFO_DETAIL_DATA_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_DRVINFO_DETAIL_DATA_A {
-    pub cbSize: u32,
-    pub InfDate: super::super::Foundation::FILETIME,
-    pub CompatIDsOffset: u32,
-    pub CompatIDsLength: u32,
-    pub Reserved: usize,
-    pub SectionName: [i8; 256],
-    pub InfFileName: [i8; 260],
-    pub DrvDescription: [i8; 256],
-    pub HardwareID: [i8; 1],
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_DRVINFO_DETAIL_DATA_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DRVINFO_DETAIL_DATA_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_DRVINFO_DETAIL_DATA_W {
-    pub cbSize: u32,
-    pub InfDate: super::super::Foundation::FILETIME,
-    pub CompatIDsOffset: u32,
-    pub CompatIDsLength: u32,
-    pub Reserved: usize,
-    pub SectionName: [u16; 256],
-    pub InfFileName: [u16; 260],
-    pub DrvDescription: [u16; 256],
-    pub HardwareID: [u16; 1],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_DRVINFO_DETAIL_DATA_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DRVINFO_DETAIL_DATA_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_DRVINFO_DETAIL_DATA_W {
-    pub cbSize: u32,
-    pub InfDate: super::super::Foundation::FILETIME,
-    pub CompatIDsOffset: u32,
-    pub CompatIDsLength: u32,
-    pub Reserved: usize,
-    pub SectionName: [u16; 256],
-    pub InfFileName: [u16; 260],
-    pub DrvDescription: [u16; 256],
-    pub HardwareID: [u16; 1],
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_DRVINFO_DETAIL_DATA_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DRVINFO_DETAIL_DATA_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_DRVINSTALL_PARAMS {
-    pub cbSize: u32,
-    pub Rank: u32,
-    pub Flags: SETUP_DI_DRIVER_INSTALL_FLAGS,
-    pub PrivateData: usize,
-    pub Reserved: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_DRVINSTALL_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DRVINSTALL_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_DRVINSTALL_PARAMS {
-    pub cbSize: u32,
-    pub Rank: u32,
-    pub Flags: SETUP_DI_DRIVER_INSTALL_FLAGS,
-    pub PrivateData: usize,
-    pub Reserved: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_DRVINSTALL_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DRVINSTALL_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_ENABLECLASS_PARAMS {
-    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub ClassGuid: windows_core::GUID,
-    pub EnableMessage: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_ENABLECLASS_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_ENABLECLASS_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_ENABLECLASS_PARAMS {
-    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub ClassGuid: windows_core::GUID,
-    pub EnableMessage: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_ENABLECLASS_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_ENABLECLASS_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_FILE_COPY_PARAMS_A {
-    pub cbSize: u32,
-    pub QueueHandle: *mut core::ffi::c_void,
-    pub SourceRootPath: windows_core::PCSTR,
-    pub SourcePath: windows_core::PCSTR,
-    pub SourceFilename: windows_core::PCSTR,
-    pub SourceDescription: windows_core::PCSTR,
-    pub SourceTagfile: windows_core::PCSTR,
-    pub TargetDirectory: windows_core::PCSTR,
-    pub TargetFilename: windows_core::PCSTR,
-    pub CopyStyle: u32,
-    pub LayoutInf: *mut core::ffi::c_void,
-    pub SecurityDescriptor: windows_core::PCSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_FILE_COPY_PARAMS_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_FILE_COPY_PARAMS_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_FILE_COPY_PARAMS_A {
-    pub cbSize: u32,
-    pub QueueHandle: *mut core::ffi::c_void,
-    pub SourceRootPath: windows_core::PCSTR,
-    pub SourcePath: windows_core::PCSTR,
-    pub SourceFilename: windows_core::PCSTR,
-    pub SourceDescription: windows_core::PCSTR,
-    pub SourceTagfile: windows_core::PCSTR,
-    pub TargetDirectory: windows_core::PCSTR,
-    pub TargetFilename: windows_core::PCSTR,
-    pub CopyStyle: u32,
-    pub LayoutInf: *mut core::ffi::c_void,
-    pub SecurityDescriptor: windows_core::PCSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_FILE_COPY_PARAMS_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_FILE_COPY_PARAMS_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_FILE_COPY_PARAMS_W {
-    pub cbSize: u32,
-    pub QueueHandle: *mut core::ffi::c_void,
-    pub SourceRootPath: windows_core::PCWSTR,
-    pub SourcePath: windows_core::PCWSTR,
-    pub SourceFilename: windows_core::PCWSTR,
-    pub SourceDescription: windows_core::PCWSTR,
-    pub SourceTagfile: windows_core::PCWSTR,
-    pub TargetDirectory: windows_core::PCWSTR,
-    pub TargetFilename: windows_core::PCWSTR,
-    pub CopyStyle: u32,
-    pub LayoutInf: *mut core::ffi::c_void,
-    pub SecurityDescriptor: windows_core::PCWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_FILE_COPY_PARAMS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_FILE_COPY_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_FILE_COPY_PARAMS_W {
-    pub cbSize: u32,
-    pub QueueHandle: *mut core::ffi::c_void,
-    pub SourceRootPath: windows_core::PCWSTR,
-    pub SourcePath: windows_core::PCWSTR,
-    pub SourceFilename: windows_core::PCWSTR,
-    pub SourceDescription: windows_core::PCWSTR,
-    pub SourceTagfile: windows_core::PCWSTR,
-    pub TargetDirectory: windows_core::PCWSTR,
-    pub TargetFilename: windows_core::PCWSTR,
-    pub CopyStyle: u32,
-    pub LayoutInf: *mut core::ffi::c_void,
-    pub SecurityDescriptor: windows_core::PCWSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_FILE_COPY_PARAMS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_FILE_COPY_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_INF_INFORMATION {
-    pub InfStyle: INF_STYLE,
-    pub InfCount: u32,
-    pub VersionData: [u8; 1],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_INF_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_INF_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_INF_INFORMATION {
-    pub InfStyle: INF_STYLE,
-    pub InfCount: u32,
-    pub VersionData: [u8; 1],
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_INF_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_INF_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_INF_SIGNER_INFO_V1_A {
-    pub cbSize: u32,
-    pub CatalogFile: [i8; 260],
-    pub DigitalSigner: [i8; 260],
-    pub DigitalSignerVersion: [i8; 260],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_INF_SIGNER_INFO_V1_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V1_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_INF_SIGNER_INFO_V1_A {
-    pub cbSize: u32,
-    pub CatalogFile: [i8; 260],
-    pub DigitalSigner: [i8; 260],
-    pub DigitalSignerVersion: [i8; 260],
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_INF_SIGNER_INFO_V1_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V1_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_INF_SIGNER_INFO_V1_W {
-    pub cbSize: u32,
-    pub CatalogFile: [u16; 260],
-    pub DigitalSigner: [u16; 260],
-    pub DigitalSignerVersion: [u16; 260],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_INF_SIGNER_INFO_V1_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V1_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_INF_SIGNER_INFO_V1_W {
-    pub cbSize: u32,
-    pub CatalogFile: [u16; 260],
-    pub DigitalSigner: [u16; 260],
-    pub DigitalSignerVersion: [u16; 260],
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_INF_SIGNER_INFO_V1_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V1_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_INF_SIGNER_INFO_V2_A {
-    pub cbSize: u32,
-    pub CatalogFile: [i8; 260],
-    pub DigitalSigner: [i8; 260],
-    pub DigitalSignerVersion: [i8; 260],
-    pub SignerScore: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_INF_SIGNER_INFO_V2_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V2_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_INF_SIGNER_INFO_V2_A {
-    pub cbSize: u32,
-    pub CatalogFile: [i8; 260],
-    pub DigitalSigner: [i8; 260],
-    pub DigitalSignerVersion: [i8; 260],
-    pub SignerScore: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_INF_SIGNER_INFO_V2_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V2_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_INF_SIGNER_INFO_V2_W {
-    pub cbSize: u32,
-    pub CatalogFile: [u16; 260],
-    pub DigitalSigner: [u16; 260],
-    pub DigitalSignerVersion: [u16; 260],
-    pub SignerScore: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_INF_SIGNER_INFO_V2_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V2_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_INF_SIGNER_INFO_V2_W {
-    pub cbSize: u32,
-    pub CatalogFile: [u16; 260],
-    pub DigitalSigner: [u16; 260],
-    pub DigitalSignerVersion: [u16; 260],
-    pub SignerScore: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_INF_SIGNER_INFO_V2_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V2_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_Controls")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_INSTALLWIZARD_DATA {
-    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub Flags: u32,
-    pub DynamicPages: [super::super::UI::Controls::HPROPSHEETPAGE; 20],
-    pub NumDynamicPages: u32,
-    pub DynamicPageFlags: u32,
-    pub PrivateFlags: u32,
-    pub PrivateData: super::super::Foundation::LPARAM,
-    pub hwndWizardDlg: super::super::Foundation::HWND,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_Controls")]
-impl Default for SP_INSTALLWIZARD_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_Controls")]
-impl windows_core::TypeKind for SP_INSTALLWIZARD_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_Controls")]
-#[derive(Clone, Copy)]
-pub struct SP_INSTALLWIZARD_DATA {
-    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub Flags: u32,
-    pub DynamicPages: [super::super::UI::Controls::HPROPSHEETPAGE; 20],
-    pub NumDynamicPages: u32,
-    pub DynamicPageFlags: u32,
-    pub PrivateFlags: u32,
-    pub PrivateData: super::super::Foundation::LPARAM,
-    pub hwndWizardDlg: super::super::Foundation::HWND,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_Controls")]
-impl Default for SP_INSTALLWIZARD_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_Controls")]
-impl windows_core::TypeKind for SP_INSTALLWIZARD_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_Controls")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_NEWDEVICEWIZARD_DATA {
-    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub Flags: u32,
-    pub DynamicPages: [super::super::UI::Controls::HPROPSHEETPAGE; 20],
-    pub NumDynamicPages: u32,
-    pub hwndWizardDlg: super::super::Foundation::HWND,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_Controls")]
-impl Default for SP_NEWDEVICEWIZARD_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_Controls")]
-impl windows_core::TypeKind for SP_NEWDEVICEWIZARD_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_Controls")]
-#[derive(Clone, Copy)]
-pub struct SP_NEWDEVICEWIZARD_DATA {
-    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub Flags: u32,
-    pub DynamicPages: [super::super::UI::Controls::HPROPSHEETPAGE; 20],
-    pub NumDynamicPages: u32,
-    pub hwndWizardDlg: super::super::Foundation::HWND,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_Controls")]
-impl Default for SP_NEWDEVICEWIZARD_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_Controls")]
-impl windows_core::TypeKind for SP_NEWDEVICEWIZARD_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_ORIGINAL_FILE_INFO_A {
-    pub cbSize: u32,
-    pub OriginalInfName: [i8; 260],
-    pub OriginalCatalogName: [i8; 260],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_ORIGINAL_FILE_INFO_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_ORIGINAL_FILE_INFO_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_ORIGINAL_FILE_INFO_A {
-    pub cbSize: u32,
-    pub OriginalInfName: [i8; 260],
-    pub OriginalCatalogName: [i8; 260],
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_ORIGINAL_FILE_INFO_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_ORIGINAL_FILE_INFO_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_ORIGINAL_FILE_INFO_W {
-    pub cbSize: u32,
-    pub OriginalInfName: [u16; 260],
-    pub OriginalCatalogName: [u16; 260],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_ORIGINAL_FILE_INFO_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_ORIGINAL_FILE_INFO_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_ORIGINAL_FILE_INFO_W {
-    pub cbSize: u32,
-    pub OriginalInfName: [u16; 260],
-    pub OriginalCatalogName: [u16; 260],
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_ORIGINAL_FILE_INFO_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_ORIGINAL_FILE_INFO_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_POWERMESSAGEWAKE_PARAMS_A {
-    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub PowerMessageWake: [i8; 512],
-}
-impl Default for SP_POWERMESSAGEWAKE_PARAMS_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SP_POWERMESSAGEWAKE_PARAMS_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_POWERMESSAGEWAKE_PARAMS_W {
-    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub PowerMessageWake: [u16; 512],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_POWERMESSAGEWAKE_PARAMS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_POWERMESSAGEWAKE_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_POWERMESSAGEWAKE_PARAMS_W {
-    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub PowerMessageWake: [u16; 512],
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_POWERMESSAGEWAKE_PARAMS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_POWERMESSAGEWAKE_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_PROPCHANGE_PARAMS {
-    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub StateChange: SETUP_DI_STATE_CHANGE,
-    pub Scope: SETUP_DI_PROPERTY_CHANGE_SCOPE,
-    pub HwProfile: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_PROPCHANGE_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_PROPCHANGE_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_PROPCHANGE_PARAMS {
-    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub StateChange: SETUP_DI_STATE_CHANGE,
-    pub Scope: SETUP_DI_PROPERTY_CHANGE_SCOPE,
-    pub HwProfile: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_PROPCHANGE_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_PROPCHANGE_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_PROPSHEETPAGE_REQUEST {
-    pub cbSize: u32,
-    pub PageRequested: u32,
-    pub DeviceInfoSet: HDEVINFO,
-    pub DeviceInfoData: *mut SP_DEVINFO_DATA,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_PROPSHEETPAGE_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_PROPSHEETPAGE_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_PROPSHEETPAGE_REQUEST {
-    pub cbSize: u32,
-    pub PageRequested: u32,
-    pub DeviceInfoSet: HDEVINFO,
-    pub DeviceInfoData: *mut SP_DEVINFO_DATA,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_PROPSHEETPAGE_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_PROPSHEETPAGE_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_REGISTER_CONTROL_STATUSA {
-    pub cbSize: u32,
-    pub FileName: windows_core::PCSTR,
-    pub Win32Error: u32,
-    pub FailureCode: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_REGISTER_CONTROL_STATUSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_REGISTER_CONTROL_STATUSA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_REGISTER_CONTROL_STATUSA {
-    pub cbSize: u32,
-    pub FileName: windows_core::PCSTR,
-    pub Win32Error: u32,
-    pub FailureCode: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_REGISTER_CONTROL_STATUSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_REGISTER_CONTROL_STATUSA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_REGISTER_CONTROL_STATUSW {
-    pub cbSize: u32,
-    pub FileName: windows_core::PCWSTR,
-    pub Win32Error: u32,
-    pub FailureCode: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_REGISTER_CONTROL_STATUSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_REGISTER_CONTROL_STATUSW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_REGISTER_CONTROL_STATUSW {
-    pub cbSize: u32,
-    pub FileName: windows_core::PCWSTR,
-    pub Win32Error: u32,
-    pub FailureCode: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_REGISTER_CONTROL_STATUSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_REGISTER_CONTROL_STATUSW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_REMOVEDEVICE_PARAMS {
-    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub Scope: SETUP_DI_REMOVE_DEVICE_SCOPE,
-    pub HwProfile: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_REMOVEDEVICE_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_REMOVEDEVICE_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_REMOVEDEVICE_PARAMS {
-    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub Scope: SETUP_DI_REMOVE_DEVICE_SCOPE,
-    pub HwProfile: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_REMOVEDEVICE_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_REMOVEDEVICE_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_SELECTDEVICE_PARAMS_A {
-    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub Title: [i8; 60],
-    pub Instructions: [i8; 256],
-    pub ListLabel: [i8; 30],
-    pub SubTitle: [i8; 256],
-    pub Reserved: [u8; 2],
-}
-impl Default for SP_SELECTDEVICE_PARAMS_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SP_SELECTDEVICE_PARAMS_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_SELECTDEVICE_PARAMS_W {
-    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub Title: [u16; 60],
-    pub Instructions: [u16; 256],
-    pub ListLabel: [u16; 30],
-    pub SubTitle: [u16; 256],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_SELECTDEVICE_PARAMS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_SELECTDEVICE_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_SELECTDEVICE_PARAMS_W {
-    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub Title: [u16; 60],
-    pub Instructions: [u16; 256],
-    pub ListLabel: [u16; 30],
-    pub SubTitle: [u16; 256],
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_SELECTDEVICE_PARAMS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_SELECTDEVICE_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_TROUBLESHOOTER_PARAMS_A {
-    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub ChmFile: [i8; 260],
-    pub HtmlTroubleShooter: [i8; 260],
-}
-impl Default for SP_TROUBLESHOOTER_PARAMS_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SP_TROUBLESHOOTER_PARAMS_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_TROUBLESHOOTER_PARAMS_W {
-    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub ChmFile: [u16; 260],
-    pub HtmlTroubleShooter: [u16; 260],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_TROUBLESHOOTER_PARAMS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_TROUBLESHOOTER_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_TROUBLESHOOTER_PARAMS_W {
-    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub ChmFile: [u16; 260],
-    pub HtmlTroubleShooter: [u16; 260],
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_TROUBLESHOOTER_PARAMS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_TROUBLESHOOTER_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SP_UNREMOVEDEVICE_PARAMS {
-    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub Scope: u32,
-    pub HwProfile: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SP_UNREMOVEDEVICE_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_UNREMOVEDEVICE_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct SP_UNREMOVEDEVICE_PARAMS {
-    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub Scope: u32,
-    pub HwProfile: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SP_UNREMOVEDEVICE_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_UNREMOVEDEVICE_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-pub const ALLOC_LOG_CONF: CM_LOG_CONF = CM_LOG_CONF(2u32);
-pub const BASIC_LOG_CONF: CM_LOG_CONF = CM_LOG_CONF(0u32);
-pub const BOOT_LOG_CONF: CM_LOG_CONF = CM_LOG_CONF(3u32);
-pub const CM_ADD_ID_BITS: u32 = 1u32;
-pub const CM_ADD_ID_COMPATIBLE: u32 = 1u32;
-pub const CM_ADD_ID_HARDWARE: u32 = 0u32;
-pub const CM_ADD_RANGE_ADDIFCONFLICT: u32 = 0u32;
-pub const CM_ADD_RANGE_BITS: u32 = 1u32;
-pub const CM_ADD_RANGE_DONOTADDIFCONFLICT: u32 = 1u32;
-pub const CM_CDFLAGS_DRIVER: CM_CDFLAGS = CM_CDFLAGS(1u32);
-pub const CM_CDFLAGS_RESERVED: CM_CDFLAGS = CM_CDFLAGS(4u32);
-pub const CM_CDFLAGS_ROOT_OWNED: CM_CDFLAGS = CM_CDFLAGS(2u32);
-pub const CM_CDMASK_DESCRIPTION: CM_CDMASK = CM_CDMASK(8u32);
-pub const CM_CDMASK_DEVINST: CM_CDMASK = CM_CDMASK(1u32);
-pub const CM_CDMASK_FLAGS: CM_CDMASK = CM_CDMASK(4u32);
-pub const CM_CDMASK_RESDES: CM_CDMASK = CM_CDMASK(2u32);
-pub const CM_CDMASK_VALID: CM_CDMASK = CM_CDMASK(15u32);
-pub const CM_CLASS_PROPERTY_BITS: u32 = 1u32;
-pub const CM_CLASS_PROPERTY_INSTALLER: u32 = 0u32;
-pub const CM_CLASS_PROPERTY_INTERFACE: u32 = 1u32;
-pub const CM_CREATE_DEVINST_BITS: u32 = 15u32;
-pub const CM_CREATE_DEVINST_DO_NOT_INSTALL: u32 = 8u32;
-pub const CM_CREATE_DEVINST_GENERATE_ID: u32 = 4u32;
-pub const CM_CREATE_DEVINST_NORMAL: u32 = 0u32;
-pub const CM_CREATE_DEVINST_NO_WAIT_INSTALL: u32 = 1u32;
-pub const CM_CREATE_DEVINST_PHANTOM: u32 = 2u32;
-pub const CM_CREATE_DEVNODE_BITS: u32 = 15u32;
-pub const CM_CREATE_DEVNODE_DO_NOT_INSTALL: u32 = 8u32;
-pub const CM_CREATE_DEVNODE_GENERATE_ID: u32 = 4u32;
-pub const CM_CREATE_DEVNODE_NORMAL: u32 = 0u32;
-pub const CM_CREATE_DEVNODE_NO_WAIT_INSTALL: u32 = 1u32;
-pub const CM_CREATE_DEVNODE_PHANTOM: u32 = 2u32;
-pub const CM_CRP_CHARACTERISTICS: u32 = 28u32;
-pub const CM_CRP_DEVTYPE: u32 = 26u32;
-pub const CM_CRP_EXCLUSIVE: u32 = 27u32;
-pub const CM_CRP_LOWERFILTERS: u32 = 19u32;
-pub const CM_CRP_MAX: u32 = 37u32;
-pub const CM_CRP_MIN: u32 = 1u32;
-pub const CM_CRP_SECURITY: u32 = 24u32;
-pub const CM_CRP_SECURITY_SDS: u32 = 25u32;
-pub const CM_CRP_UPPERFILTERS: u32 = 18u32;
-pub const CM_CUSTOMDEVPROP_BITS: u32 = 1u32;
-pub const CM_CUSTOMDEVPROP_MERGE_MULTISZ: u32 = 1u32;
-pub const CM_DELETE_CLASS_BITS: u32 = 3u32;
-pub const CM_DELETE_CLASS_INTERFACE: u32 = 2u32;
-pub const CM_DELETE_CLASS_ONLY: u32 = 0u32;
-pub const CM_DELETE_CLASS_SUBKEYS: u32 = 1u32;
-pub const CM_DETECT_BITS: u32 = 2147483655u32;
-pub const CM_DETECT_CRASHED: u32 = 2u32;
-pub const CM_DETECT_HWPROF_FIRST_BOOT: u32 = 4u32;
-pub const CM_DETECT_NEW_PROFILE: u32 = 1u32;
-pub const CM_DETECT_RUN: u32 = 2147483648u32;
-pub const CM_DEVCAP_DOCKDEVICE: CM_DEVCAP = CM_DEVCAP(8u32);
-pub const CM_DEVCAP_EJECTSUPPORTED: CM_DEVCAP = CM_DEVCAP(2u32);
-pub const CM_DEVCAP_HARDWAREDISABLED: CM_DEVCAP = CM_DEVCAP(256u32);
-pub const CM_DEVCAP_LOCKSUPPORTED: CM_DEVCAP = CM_DEVCAP(1u32);
-pub const CM_DEVCAP_NONDYNAMIC: CM_DEVCAP = CM_DEVCAP(512u32);
-pub const CM_DEVCAP_RAWDEVICEOK: CM_DEVCAP = CM_DEVCAP(64u32);
-pub const CM_DEVCAP_REMOVABLE: CM_DEVCAP = CM_DEVCAP(4u32);
-pub const CM_DEVCAP_SECUREDEVICE: CM_DEVCAP = CM_DEVCAP(1024u32);
-pub const CM_DEVCAP_SILENTINSTALL: CM_DEVCAP = CM_DEVCAP(32u32);
-pub const CM_DEVCAP_SURPRISEREMOVALOK: CM_DEVCAP = CM_DEVCAP(128u32);
-pub const CM_DEVCAP_UNIQUEID: CM_DEVCAP = CM_DEVCAP(16u32);
-pub const CM_DEVICE_PANEL_EDGE_BOTTOM: u32 = 2u32;
-pub const CM_DEVICE_PANEL_EDGE_LEFT: u32 = 3u32;
-pub const CM_DEVICE_PANEL_EDGE_RIGHT: u32 = 4u32;
-pub const CM_DEVICE_PANEL_EDGE_TOP: u32 = 1u32;
-pub const CM_DEVICE_PANEL_EDGE_UNKNOWN: u32 = 0u32;
-pub const CM_DEVICE_PANEL_JOINT_TYPE_HINGE: u32 = 2u32;
-pub const CM_DEVICE_PANEL_JOINT_TYPE_PIVOT: u32 = 3u32;
-pub const CM_DEVICE_PANEL_JOINT_TYPE_PLANAR: u32 = 1u32;
-pub const CM_DEVICE_PANEL_JOINT_TYPE_SWIVEL: u32 = 4u32;
-pub const CM_DEVICE_PANEL_JOINT_TYPE_UNKNOWN: u32 = 0u32;
-pub const CM_DEVICE_PANEL_ORIENTATION_HORIZONTAL: u32 = 0u32;
-pub const CM_DEVICE_PANEL_ORIENTATION_VERTICAL: u32 = 1u32;
-pub const CM_DEVICE_PANEL_SHAPE_OVAL: u32 = 2u32;
-pub const CM_DEVICE_PANEL_SHAPE_RECTANGLE: u32 = 1u32;
-pub const CM_DEVICE_PANEL_SHAPE_UNKNOWN: u32 = 0u32;
-pub const CM_DEVICE_PANEL_SIDE_BACK: u32 = 6u32;
-pub const CM_DEVICE_PANEL_SIDE_BOTTOM: u32 = 2u32;
-pub const CM_DEVICE_PANEL_SIDE_FRONT: u32 = 5u32;
-pub const CM_DEVICE_PANEL_SIDE_LEFT: u32 = 3u32;
-pub const CM_DEVICE_PANEL_SIDE_RIGHT: u32 = 4u32;
-pub const CM_DEVICE_PANEL_SIDE_TOP: u32 = 1u32;
-pub const CM_DEVICE_PANEL_SIDE_UNKNOWN: u32 = 0u32;
-pub const CM_DISABLE_ABSOLUTE: u32 = 1u32;
-pub const CM_DISABLE_BITS: u32 = 15u32;
-pub const CM_DISABLE_HARDWARE: u32 = 2u32;
-pub const CM_DISABLE_PERSIST: u32 = 8u32;
-pub const CM_DISABLE_POLITE: u32 = 0u32;
-pub const CM_DISABLE_UI_NOT_OK: u32 = 4u32;
-pub const CM_DRP_ADDRESS: u32 = 29u32;
-pub const CM_DRP_BASE_CONTAINERID: u32 = 37u32;
-pub const CM_DRP_BUSNUMBER: u32 = 22u32;
-pub const CM_DRP_BUSTYPEGUID: u32 = 20u32;
-pub const CM_DRP_CAPABILITIES: u32 = 16u32;
-pub const CM_DRP_CHARACTERISTICS: u32 = 28u32;
-pub const CM_DRP_CLASS: u32 = 8u32;
-pub const CM_DRP_CLASSGUID: u32 = 9u32;
-pub const CM_DRP_COMPATIBLEIDS: u32 = 3u32;
-pub const CM_DRP_CONFIGFLAGS: u32 = 11u32;
-pub const CM_DRP_DEVICEDESC: u32 = 1u32;
-pub const CM_DRP_DEVICE_POWER_DATA: u32 = 31u32;
-pub const CM_DRP_DEVTYPE: u32 = 26u32;
-pub const CM_DRP_DRIVER: u32 = 10u32;
-pub const CM_DRP_ENUMERATOR_NAME: u32 = 23u32;
-pub const CM_DRP_EXCLUSIVE: u32 = 27u32;
-pub const CM_DRP_FRIENDLYNAME: u32 = 13u32;
-pub const CM_DRP_HARDWAREID: u32 = 2u32;
-pub const CM_DRP_INSTALL_STATE: u32 = 35u32;
-pub const CM_DRP_LEGACYBUSTYPE: u32 = 21u32;
-pub const CM_DRP_LOCATION_INFORMATION: u32 = 14u32;
-pub const CM_DRP_LOCATION_PATHS: u32 = 36u32;
-pub const CM_DRP_LOWERFILTERS: u32 = 19u32;
-pub const CM_DRP_MAX: u32 = 37u32;
-pub const CM_DRP_MFG: u32 = 12u32;
-pub const CM_DRP_MIN: u32 = 1u32;
-pub const CM_DRP_PHYSICAL_DEVICE_OBJECT_NAME: u32 = 15u32;
-pub const CM_DRP_REMOVAL_POLICY: u32 = 32u32;
-pub const CM_DRP_REMOVAL_POLICY_HW_DEFAULT: u32 = 33u32;
-pub const CM_DRP_REMOVAL_POLICY_OVERRIDE: u32 = 34u32;
-pub const CM_DRP_SECURITY: u32 = 24u32;
-pub const CM_DRP_SECURITY_SDS: u32 = 25u32;
-pub const CM_DRP_SERVICE: u32 = 5u32;
-pub const CM_DRP_UI_NUMBER: u32 = 17u32;
-pub const CM_DRP_UI_NUMBER_DESC_FORMAT: u32 = 30u32;
-pub const CM_DRP_UNUSED0: u32 = 4u32;
-pub const CM_DRP_UNUSED1: u32 = 6u32;
-pub const CM_DRP_UNUSED2: u32 = 7u32;
-pub const CM_DRP_UPPERFILTERS: u32 = 18u32;
-pub const CM_ENUMERATE_CLASSES_BITS: CM_ENUMERATE_FLAGS = CM_ENUMERATE_FLAGS(1u32);
-pub const CM_ENUMERATE_CLASSES_INSTALLER: CM_ENUMERATE_FLAGS = CM_ENUMERATE_FLAGS(0u32);
-pub const CM_ENUMERATE_CLASSES_INTERFACE: CM_ENUMERATE_FLAGS = CM_ENUMERATE_FLAGS(1u32);
-pub const CM_GETIDLIST_DONOTGENERATE: u32 = 268435520u32;
-pub const CM_GETIDLIST_FILTER_BITS: u32 = 268435583u32;
-pub const CM_GETIDLIST_FILTER_BUSRELATIONS: u32 = 32u32;
-pub const CM_GETIDLIST_FILTER_CLASS: u32 = 512u32;
-pub const CM_GETIDLIST_FILTER_EJECTRELATIONS: u32 = 4u32;
-pub const CM_GETIDLIST_FILTER_ENUMERATOR: u32 = 1u32;
-pub const CM_GETIDLIST_FILTER_NONE: u32 = 0u32;
-pub const CM_GETIDLIST_FILTER_POWERRELATIONS: u32 = 16u32;
-pub const CM_GETIDLIST_FILTER_PRESENT: u32 = 256u32;
-pub const CM_GETIDLIST_FILTER_REMOVALRELATIONS: u32 = 8u32;
-pub const CM_GETIDLIST_FILTER_SERVICE: u32 = 2u32;
-pub const CM_GETIDLIST_FILTER_TRANSPORTRELATIONS: u32 = 128u32;
-pub const CM_GET_DEVICE_INTERFACE_LIST_ALL_DEVICES: CM_GET_DEVICE_INTERFACE_LIST_FLAGS = CM_GET_DEVICE_INTERFACE_LIST_FLAGS(1u32);
-pub const CM_GET_DEVICE_INTERFACE_LIST_BITS: CM_GET_DEVICE_INTERFACE_LIST_FLAGS = CM_GET_DEVICE_INTERFACE_LIST_FLAGS(1u32);
-pub const CM_GET_DEVICE_INTERFACE_LIST_PRESENT: CM_GET_DEVICE_INTERFACE_LIST_FLAGS = CM_GET_DEVICE_INTERFACE_LIST_FLAGS(0u32);
-pub const CM_GLOBAL_STATE_CAN_DO_UI: u32 = 1u32;
-pub const CM_GLOBAL_STATE_DETECTION_PENDING: u32 = 16u32;
-pub const CM_GLOBAL_STATE_ON_BIG_STACK: u32 = 2u32;
-pub const CM_GLOBAL_STATE_REBOOT_REQUIRED: u32 = 32u32;
-pub const CM_GLOBAL_STATE_SERVICES_AVAILABLE: u32 = 4u32;
-pub const CM_GLOBAL_STATE_SHUTTING_DOWN: u32 = 8u32;
-pub const CM_HWPI_DOCKED: u32 = 2u32;
-pub const CM_HWPI_NOT_DOCKABLE: u32 = 0u32;
-pub const CM_HWPI_UNDOCKED: u32 = 1u32;
-pub const CM_INSTALL_STATE_FAILED_INSTALL: CM_INSTALL_STATE = CM_INSTALL_STATE(2u32);
-pub const CM_INSTALL_STATE_FINISH_INSTALL: CM_INSTALL_STATE = CM_INSTALL_STATE(3u32);
-pub const CM_INSTALL_STATE_INSTALLED: CM_INSTALL_STATE = CM_INSTALL_STATE(0u32);
-pub const CM_INSTALL_STATE_NEEDS_REINSTALL: CM_INSTALL_STATE = CM_INSTALL_STATE(1u32);
-pub const CM_LOCATE_DEVNODE_BITS: CM_LOCATE_DEVNODE_FLAGS = CM_LOCATE_DEVNODE_FLAGS(7u32);
-pub const CM_LOCATE_DEVNODE_CANCELREMOVE: CM_LOCATE_DEVNODE_FLAGS = CM_LOCATE_DEVNODE_FLAGS(2u32);
-pub const CM_LOCATE_DEVNODE_NORMAL: CM_LOCATE_DEVNODE_FLAGS = CM_LOCATE_DEVNODE_FLAGS(0u32);
-pub const CM_LOCATE_DEVNODE_NOVALIDATION: CM_LOCATE_DEVNODE_FLAGS = CM_LOCATE_DEVNODE_FLAGS(4u32);
-pub const CM_LOCATE_DEVNODE_PHANTOM: CM_LOCATE_DEVNODE_FLAGS = CM_LOCATE_DEVNODE_FLAGS(1u32);
-pub const CM_NAME_ATTRIBUTE_NAME_RETRIEVED_FROM_DEVICE: u32 = 1u32;
-pub const CM_NAME_ATTRIBUTE_USER_ASSIGNED_NAME: u32 = 2u32;
-pub const CM_NOTIFY_ACTION_DEVICECUSTOMEVENT: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(6i32);
-pub const CM_NOTIFY_ACTION_DEVICEINSTANCEENUMERATED: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(7i32);
-pub const CM_NOTIFY_ACTION_DEVICEINSTANCEREMOVED: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(9i32);
-pub const CM_NOTIFY_ACTION_DEVICEINSTANCESTARTED: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(8i32);
-pub const CM_NOTIFY_ACTION_DEVICEINTERFACEARRIVAL: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(0i32);
-pub const CM_NOTIFY_ACTION_DEVICEINTERFACEREMOVAL: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(1i32);
-pub const CM_NOTIFY_ACTION_DEVICEQUERYREMOVE: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(2i32);
-pub const CM_NOTIFY_ACTION_DEVICEQUERYREMOVEFAILED: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(3i32);
-pub const CM_NOTIFY_ACTION_DEVICEREMOVECOMPLETE: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(5i32);
-pub const CM_NOTIFY_ACTION_DEVICEREMOVEPENDING: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(4i32);
-pub const CM_NOTIFY_ACTION_MAX: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(10i32);
-pub const CM_NOTIFY_FILTER_FLAG_ALL_DEVICE_INSTANCES: u32 = 2u32;
-pub const CM_NOTIFY_FILTER_FLAG_ALL_INTERFACE_CLASSES: u32 = 1u32;
-pub const CM_NOTIFY_FILTER_TYPE_DEVICEHANDLE: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(1i32);
-pub const CM_NOTIFY_FILTER_TYPE_DEVICEINSTANCE: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(2i32);
-pub const CM_NOTIFY_FILTER_TYPE_DEVICEINTERFACE: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(0i32);
-pub const CM_NOTIFY_FILTER_TYPE_MAX: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(3i32);
-pub const CM_OPEN_CLASS_KEY_BITS: u32 = 1u32;
-pub const CM_OPEN_CLASS_KEY_INSTALLER: u32 = 0u32;
-pub const CM_OPEN_CLASS_KEY_INTERFACE: u32 = 1u32;
-pub const CM_PROB_BIOS_TABLE: CM_PROB = CM_PROB(35u32);
-pub const CM_PROB_BOOT_CONFIG_CONFLICT: CM_PROB = CM_PROB(6u32);
-pub const CM_PROB_CANT_SHARE_IRQ: CM_PROB = CM_PROB(30u32);
-pub const CM_PROB_CONSOLE_LOCKED: CM_PROB = CM_PROB(55u32);
-pub const CM_PROB_DEVICE_NOT_THERE: CM_PROB = CM_PROB(24u32);
-pub const CM_PROB_DEVICE_RESET: CM_PROB = CM_PROB(54u32);
-pub const CM_PROB_DEVLOADER_FAILED: CM_PROB = CM_PROB(2u32);
-pub const CM_PROB_DEVLOADER_NOT_FOUND: CM_PROB = CM_PROB(8u32);
-pub const CM_PROB_DEVLOADER_NOT_READY: CM_PROB = CM_PROB(23u32);
-pub const CM_PROB_DISABLED: CM_PROB = CM_PROB(22u32);
-pub const CM_PROB_DISABLED_SERVICE: CM_PROB = CM_PROB(32u32);
-pub const CM_PROB_DRIVER_BLOCKED: CM_PROB = CM_PROB(48u32);
-pub const CM_PROB_DRIVER_FAILED_LOAD: CM_PROB = CM_PROB(39u32);
-pub const CM_PROB_DRIVER_FAILED_PRIOR_UNLOAD: CM_PROB = CM_PROB(38u32);
-pub const CM_PROB_DRIVER_SERVICE_KEY_INVALID: CM_PROB = CM_PROB(40u32);
-pub const CM_PROB_DUPLICATE_DEVICE: CM_PROB = CM_PROB(42u32);
-pub const CM_PROB_ENTRY_IS_WRONG_TYPE: CM_PROB = CM_PROB(4u32);
-pub const CM_PROB_FAILED_ADD: CM_PROB = CM_PROB(31u32);
-pub const CM_PROB_FAILED_DRIVER_ENTRY: CM_PROB = CM_PROB(37u32);
-pub const CM_PROB_FAILED_FILTER: CM_PROB = CM_PROB(7u32);
-pub const CM_PROB_FAILED_INSTALL: CM_PROB = CM_PROB(28u32);
-pub const CM_PROB_FAILED_POST_START: CM_PROB = CM_PROB(43u32);
-pub const CM_PROB_FAILED_START: CM_PROB = CM_PROB(10u32);
-pub const CM_PROB_GUEST_ASSIGNMENT_FAILED: CM_PROB = CM_PROB(57u32);
-pub const CM_PROB_HALTED: CM_PROB = CM_PROB(44u32);
-pub const CM_PROB_HARDWARE_DISABLED: CM_PROB = CM_PROB(29u32);
-pub const CM_PROB_HELD_FOR_EJECT: CM_PROB = CM_PROB(47u32);
-pub const CM_PROB_INVALID_DATA: CM_PROB = CM_PROB(9u32);
-pub const CM_PROB_IRQ_TRANSLATION_FAILED: CM_PROB = CM_PROB(36u32);
-pub const CM_PROB_LACKED_ARBITRATOR: CM_PROB = CM_PROB(5u32);
-pub const CM_PROB_LEGACY_SERVICE_NO_DEVICES: CM_PROB = CM_PROB(41u32);
-pub const CM_PROB_LIAR: CM_PROB = CM_PROB(11u32);
-pub const CM_PROB_MOVED: CM_PROB = CM_PROB(25u32);
-pub const CM_PROB_NEED_CLASS_CONFIG: CM_PROB = CM_PROB(56u32);
-pub const CM_PROB_NEED_RESTART: CM_PROB = CM_PROB(14u32);
-pub const CM_PROB_NORMAL_CONFLICT: CM_PROB = CM_PROB(12u32);
-pub const CM_PROB_NOT_CONFIGURED: CM_PROB = CM_PROB(1u32);
-pub const CM_PROB_NOT_VERIFIED: CM_PROB = CM_PROB(13u32);
-pub const CM_PROB_NO_SOFTCONFIG: CM_PROB = CM_PROB(34u32);
-pub const CM_PROB_NO_VALID_LOG_CONF: CM_PROB = CM_PROB(27u32);
-pub const CM_PROB_OUT_OF_MEMORY: CM_PROB = CM_PROB(3u32);
-pub const CM_PROB_PARTIAL_LOG_CONF: CM_PROB = CM_PROB(16u32);
-pub const CM_PROB_PHANTOM: CM_PROB = CM_PROB(45u32);
-pub const CM_PROB_REENUMERATION: CM_PROB = CM_PROB(15u32);
-pub const CM_PROB_REGISTRY: CM_PROB = CM_PROB(19u32);
-pub const CM_PROB_REGISTRY_TOO_LARGE: CM_PROB = CM_PROB(49u32);
-pub const CM_PROB_REINSTALL: CM_PROB = CM_PROB(18u32);
-pub const CM_PROB_SETPROPERTIES_FAILED: CM_PROB = CM_PROB(50u32);
-pub const CM_PROB_SYSTEM_SHUTDOWN: CM_PROB = CM_PROB(46u32);
-pub const CM_PROB_TOO_EARLY: CM_PROB = CM_PROB(26u32);
-pub const CM_PROB_TRANSLATION_FAILED: CM_PROB = CM_PROB(33u32);
-pub const CM_PROB_UNKNOWN_RESOURCE: CM_PROB = CM_PROB(17u32);
-pub const CM_PROB_UNSIGNED_DRIVER: CM_PROB = CM_PROB(52u32);
-pub const CM_PROB_USED_BY_DEBUGGER: CM_PROB = CM_PROB(53u32);
-pub const CM_PROB_VXDLDR: CM_PROB = CM_PROB(20u32);
-pub const CM_PROB_WAITING_ON_DEPENDENCY: CM_PROB = CM_PROB(51u32);
-pub const CM_PROB_WILL_BE_REMOVED: CM_PROB = CM_PROB(21u32);
-pub const CM_QUERY_ARBITRATOR_BITS: u32 = 1u32;
-pub const CM_QUERY_ARBITRATOR_RAW: u32 = 0u32;
-pub const CM_QUERY_ARBITRATOR_TRANSLATED: u32 = 1u32;
-pub const CM_QUERY_REMOVE_UI_NOT_OK: u32 = 1u32;
-pub const CM_QUERY_REMOVE_UI_OK: u32 = 0u32;
-pub const CM_REENUMERATE_ASYNCHRONOUS: CM_REENUMERATE_FLAGS = CM_REENUMERATE_FLAGS(4u32);
-pub const CM_REENUMERATE_BITS: CM_REENUMERATE_FLAGS = CM_REENUMERATE_FLAGS(7u32);
-pub const CM_REENUMERATE_NORMAL: CM_REENUMERATE_FLAGS = CM_REENUMERATE_FLAGS(0u32);
-pub const CM_REENUMERATE_RETRY_INSTALLATION: CM_REENUMERATE_FLAGS = CM_REENUMERATE_FLAGS(2u32);
-pub const CM_REENUMERATE_SYNCHRONOUS: CM_REENUMERATE_FLAGS = CM_REENUMERATE_FLAGS(1u32);
-pub const CM_REGISTER_DEVICE_DRIVER_BITS: u32 = 3u32;
-pub const CM_REGISTER_DEVICE_DRIVER_DISABLEABLE: u32 = 1u32;
-pub const CM_REGISTER_DEVICE_DRIVER_REMOVABLE: u32 = 2u32;
-pub const CM_REGISTER_DEVICE_DRIVER_STATIC: u32 = 0u32;
-pub const CM_REGISTRY_BITS: u32 = 769u32;
-pub const CM_REGISTRY_CONFIG: u32 = 512u32;
-pub const CM_REGISTRY_HARDWARE: u32 = 0u32;
-pub const CM_REGISTRY_SOFTWARE: u32 = 1u32;
-pub const CM_REGISTRY_USER: u32 = 256u32;
-pub const CM_REMOVAL_POLICY_EXPECT_NO_REMOVAL: CM_REMOVAL_POLICY = CM_REMOVAL_POLICY(1u32);
-pub const CM_REMOVAL_POLICY_EXPECT_ORDERLY_REMOVAL: CM_REMOVAL_POLICY = CM_REMOVAL_POLICY(2u32);
-pub const CM_REMOVAL_POLICY_EXPECT_SURPRISE_REMOVAL: CM_REMOVAL_POLICY = CM_REMOVAL_POLICY(3u32);
-pub const CM_REMOVE_BITS: u32 = 7u32;
-pub const CM_REMOVE_DISABLE: u32 = 4u32;
-pub const CM_REMOVE_NO_RESTART: u32 = 2u32;
-pub const CM_REMOVE_UI_NOT_OK: u32 = 1u32;
-pub const CM_REMOVE_UI_OK: u32 = 0u32;
-pub const CM_RESDES_WIDTH_32: u32 = 1u32;
-pub const CM_RESDES_WIDTH_64: u32 = 2u32;
-pub const CM_RESDES_WIDTH_BITS: u32 = 3u32;
-pub const CM_RESDES_WIDTH_DEFAULT: u32 = 0u32;
-pub const CM_SETUP_BITS: u32 = 15u32;
-pub const CM_SETUP_DEVINST_CONFIG: u32 = 5u32;
-pub const CM_SETUP_DEVINST_CONFIG_CLASS: u32 = 6u32;
-pub const CM_SETUP_DEVINST_CONFIG_EXTENSIONS: u32 = 7u32;
-pub const CM_SETUP_DEVINST_CONFIG_RESET: u32 = 8u32;
-pub const CM_SETUP_DEVINST_READY: u32 = 0u32;
-pub const CM_SETUP_DEVINST_RESET: u32 = 4u32;
-pub const CM_SETUP_DEVNODE_CONFIG: u32 = 5u32;
-pub const CM_SETUP_DEVNODE_CONFIG_CLASS: u32 = 6u32;
-pub const CM_SETUP_DEVNODE_CONFIG_EXTENSIONS: u32 = 7u32;
-pub const CM_SETUP_DEVNODE_CONFIG_RESET: u32 = 8u32;
-pub const CM_SETUP_DEVNODE_READY: u32 = 0u32;
-pub const CM_SETUP_DEVNODE_RESET: u32 = 4u32;
-pub const CM_SETUP_DOWNLOAD: u32 = 1u32;
-pub const CM_SETUP_PROP_CHANGE: u32 = 3u32;
-pub const CM_SETUP_WRITE_LOG_CONFS: u32 = 2u32;
-pub const CM_SET_DEVINST_PROBLEM_BITS: u32 = 1u32;
-pub const CM_SET_DEVINST_PROBLEM_NORMAL: u32 = 0u32;
-pub const CM_SET_DEVINST_PROBLEM_OVERRIDE: u32 = 1u32;
-pub const CM_SET_DEVNODE_PROBLEM_BITS: u32 = 1u32;
-pub const CM_SET_DEVNODE_PROBLEM_NORMAL: u32 = 0u32;
-pub const CM_SET_DEVNODE_PROBLEM_OVERRIDE: u32 = 1u32;
-pub const CM_SET_HW_PROF_FLAGS_BITS: u32 = 1u32;
-pub const CM_SET_HW_PROF_FLAGS_UI_NOT_OK: u32 = 1u32;
-pub const CONFIGFLAG_BOOT_DEVICE: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(262144u32);
-pub const CONFIGFLAG_CANTSTOPACHILD: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(128u32);
-pub const CONFIGFLAG_DISABLED: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(1u32);
-pub const CONFIGFLAG_FAILEDINSTALL: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(64u32);
-pub const CONFIGFLAG_FINISHINSTALL_ACTION: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(131072u32);
-pub const CONFIGFLAG_FINISHINSTALL_UI: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(65536u32);
-pub const CONFIGFLAG_FINISH_INSTALL: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(1024u32);
-pub const CONFIGFLAG_IGNORE_BOOT_LC: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(8u32);
-pub const CONFIGFLAG_MANUAL_INSTALL: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(4u32);
-pub const CONFIGFLAG_NEEDS_CLASS_CONFIG: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(524288u32);
-pub const CONFIGFLAG_NEEDS_FORCED_CONFIG: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(2048u32);
-pub const CONFIGFLAG_NETBOOT_CARD: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(4096u32);
-pub const CONFIGFLAG_NET_BOOT: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(16u32);
-pub const CONFIGFLAG_NOREMOVEEXIT: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(512u32);
-pub const CONFIGFLAG_OKREMOVEROM: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(256u32);
-pub const CONFIGFLAG_PARTIAL_LOG_CONF: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(8192u32);
-pub const CONFIGFLAG_REINSTALL: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(32u32);
-pub const CONFIGFLAG_REMOVED: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(2u32);
-pub const CONFIGFLAG_SUPPRESS_SURPRISE: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(16384u32);
-pub const CONFIGFLAG_VERIFY_HARDWARE: SETUP_DI_DEVICE_CONFIGURATION_FLAGS = SETUP_DI_DEVICE_CONFIGURATION_FLAGS(32768u32);
-pub const CONFIGMG_VERSION: u32 = 1024u32;
-pub const COPYFLG_FORCE_FILE_IN_USE: u32 = 8u32;
-pub const COPYFLG_IN_USE_TRY_RENAME: u32 = 16384u32;
-pub const COPYFLG_NODECOMP: u32 = 2048u32;
-pub const COPYFLG_NOPRUNE: u32 = 8192u32;
-pub const COPYFLG_NOSKIP: u32 = 2u32;
-pub const COPYFLG_NOVERSIONCHECK: u32 = 4u32;
-pub const COPYFLG_NO_OVERWRITE: u32 = 16u32;
-pub const COPYFLG_NO_VERSION_DIALOG: u32 = 32u32;
-pub const COPYFLG_OVERWRITE_OLDER_ONLY: u32 = 64u32;
-pub const COPYFLG_PROTECTED_WINDOWS_DRIVER_FILE: u32 = 256u32;
-pub const COPYFLG_REPLACEONLY: u32 = 1024u32;
-pub const COPYFLG_REPLACE_BOOT_FILE: u32 = 4096u32;
-pub const COPYFLG_WARN_IF_SKIP: u32 = 1u32;
-pub const CR_ACCESS_DENIED: CONFIGRET = CONFIGRET(51u32);
-pub const CR_ALREADY_SUCH_DEVINST: CONFIGRET = CONFIGRET(16u32);
-pub const CR_ALREADY_SUCH_DEVNODE: CONFIGRET = CONFIGRET(16u32);
-pub const CR_APM_VETOED: CONFIGRET = CONFIGRET(24u32);
-pub const CR_BUFFER_SMALL: CONFIGRET = CONFIGRET(26u32);
-pub const CR_CALL_NOT_IMPLEMENTED: CONFIGRET = CONFIGRET(52u32);
-pub const CR_CANT_SHARE_IRQ: CONFIGRET = CONFIGRET(43u32);
-pub const CR_CREATE_BLOCKED: CONFIGRET = CONFIGRET(21u32);
-pub const CR_DEFAULT: CONFIGRET = CONFIGRET(1u32);
-pub const CR_DEVICE_INTERFACE_ACTIVE: CONFIGRET = CONFIGRET(54u32);
-pub const CR_DEVICE_NOT_THERE: CONFIGRET = CONFIGRET(36u32);
-pub const CR_DEVINST_HAS_REQS: CONFIGRET = CONFIGRET(10u32);
-pub const CR_DEVLOADER_NOT_READY: CONFIGRET = CONFIGRET(33u32);
-pub const CR_DEVNODE_HAS_REQS: CONFIGRET = CONFIGRET(10u32);
-pub const CR_DLVXD_NOT_FOUND: CONFIGRET = CONFIGRET(12u32);
-pub const CR_FAILURE: CONFIGRET = CONFIGRET(19u32);
-pub const CR_FREE_RESOURCES: CONFIGRET = CONFIGRET(41u32);
-pub const CR_INVALID_API: CONFIGRET = CONFIGRET(32u32);
-pub const CR_INVALID_ARBITRATOR: CONFIGRET = CONFIGRET(8u32);
-pub const CR_INVALID_CONFLICT_LIST: CONFIGRET = CONFIGRET(57u32);
-pub const CR_INVALID_DATA: CONFIGRET = CONFIGRET(31u32);
-pub const CR_INVALID_DEVICE_ID: CONFIGRET = CONFIGRET(30u32);
-pub const CR_INVALID_DEVINST: CONFIGRET = CONFIGRET(5u32);
-pub const CR_INVALID_DEVNODE: CONFIGRET = CONFIGRET(5u32);
-pub const CR_INVALID_FLAG: CONFIGRET = CONFIGRET(4u32);
-pub const CR_INVALID_INDEX: CONFIGRET = CONFIGRET(58u32);
-pub const CR_INVALID_LOAD_TYPE: CONFIGRET = CONFIGRET(25u32);
-pub const CR_INVALID_LOG_CONF: CONFIGRET = CONFIGRET(7u32);
-pub const CR_INVALID_MACHINENAME: CONFIGRET = CONFIGRET(47u32);
-pub const CR_INVALID_NODELIST: CONFIGRET = CONFIGRET(9u32);
-pub const CR_INVALID_POINTER: CONFIGRET = CONFIGRET(3u32);
-pub const CR_INVALID_PRIORITY: CONFIGRET = CONFIGRET(39u32);
-pub const CR_INVALID_PROPERTY: CONFIGRET = CONFIGRET(53u32);
-pub const CR_INVALID_RANGE: CONFIGRET = CONFIGRET(18u32);
-pub const CR_INVALID_RANGE_LIST: CONFIGRET = CONFIGRET(17u32);
-pub const CR_INVALID_REFERENCE_STRING: CONFIGRET = CONFIGRET(56u32);
-pub const CR_INVALID_RESOURCEID: CONFIGRET = CONFIGRET(11u32);
-pub const CR_INVALID_RES_DES: CONFIGRET = CONFIGRET(6u32);
-pub const CR_INVALID_STRUCTURE_SIZE: CONFIGRET = CONFIGRET(59u32);
-pub const CR_MACHINE_UNAVAILABLE: CONFIGRET = CONFIGRET(49u32);
-pub const CR_NEED_RESTART: CONFIGRET = CONFIGRET(34u32);
-pub const CR_NOT_DISABLEABLE: CONFIGRET = CONFIGRET(40u32);
-pub const CR_NOT_SYSTEM_VM: CONFIGRET = CONFIGRET(22u32);
-pub const CR_NO_ARBITRATOR: CONFIGRET = CONFIGRET(27u32);
-pub const CR_NO_CM_SERVICES: CONFIGRET = CONFIGRET(50u32);
-pub const CR_NO_DEPENDENT: CONFIGRET = CONFIGRET(44u32);
-pub const CR_NO_MORE_HW_PROFILES: CONFIGRET = CONFIGRET(35u32);
-pub const CR_NO_MORE_LOG_CONF: CONFIGRET = CONFIGRET(14u32);
-pub const CR_NO_MORE_RES_DES: CONFIGRET = CONFIGRET(15u32);
-pub const CR_NO_REGISTRY_HANDLE: CONFIGRET = CONFIGRET(28u32);
-pub const CR_NO_SUCH_DEVICE_INTERFACE: CONFIGRET = CONFIGRET(55u32);
-pub const CR_NO_SUCH_DEVINST: CONFIGRET = CONFIGRET(13u32);
-pub const CR_NO_SUCH_DEVNODE: CONFIGRET = CONFIGRET(13u32);
-pub const CR_NO_SUCH_LOGICAL_DEV: CONFIGRET = CONFIGRET(20u32);
-pub const CR_NO_SUCH_REGISTRY_KEY: CONFIGRET = CONFIGRET(46u32);
-pub const CR_NO_SUCH_VALUE: CONFIGRET = CONFIGRET(37u32);
-pub const CR_OUT_OF_MEMORY: CONFIGRET = CONFIGRET(2u32);
-pub const CR_QUERY_VETOED: CONFIGRET = CONFIGRET(42u32);
-pub const CR_REGISTRY_ERROR: CONFIGRET = CONFIGRET(29u32);
-pub const CR_REMOTE_COMM_FAILURE: CONFIGRET = CONFIGRET(48u32);
-pub const CR_REMOVE_VETOED: CONFIGRET = CONFIGRET(23u32);
-pub const CR_SAME_RESOURCES: CONFIGRET = CONFIGRET(45u32);
-pub const CR_SUCCESS: CONFIGRET = CONFIGRET(0u32);
-pub const CR_WRONG_TYPE: CONFIGRET = CONFIGRET(38u32);
-pub const DELFLG_IN_USE: u32 = 1u32;
-pub const DELFLG_IN_USE1: u32 = 65536u32;
-pub const DIBCI_NODISPLAYCLASS: u32 = 2u32;
-pub const DIBCI_NOINSTALLCLASS: u32 = 1u32;
-pub const DICD_GENERATE_ID: SETUP_DI_DEVICE_CREATION_FLAGS = SETUP_DI_DEVICE_CREATION_FLAGS(1u32);
-pub const DICD_INHERIT_CLASSDRVS: SETUP_DI_DEVICE_CREATION_FLAGS = SETUP_DI_DEVICE_CREATION_FLAGS(2u32);
-pub const DICLASSPROP_INSTALLER: u32 = 1u32;
-pub const DICLASSPROP_INTERFACE: u32 = 2u32;
-pub const DICS_DISABLE: SETUP_DI_STATE_CHANGE = SETUP_DI_STATE_CHANGE(2u32);
-pub const DICS_ENABLE: SETUP_DI_STATE_CHANGE = SETUP_DI_STATE_CHANGE(1u32);
-pub const DICS_FLAG_CONFIGGENERAL: SETUP_DI_PROPERTY_CHANGE_SCOPE = SETUP_DI_PROPERTY_CHANGE_SCOPE(4u32);
-pub const DICS_FLAG_CONFIGSPECIFIC: SETUP_DI_PROPERTY_CHANGE_SCOPE = SETUP_DI_PROPERTY_CHANGE_SCOPE(2u32);
-pub const DICS_FLAG_GLOBAL: SETUP_DI_PROPERTY_CHANGE_SCOPE = SETUP_DI_PROPERTY_CHANGE_SCOPE(1u32);
-pub const DICS_PROPCHANGE: SETUP_DI_STATE_CHANGE = SETUP_DI_STATE_CHANGE(3u32);
-pub const DICS_START: SETUP_DI_STATE_CHANGE = SETUP_DI_STATE_CHANGE(4u32);
-pub const DICS_STOP: SETUP_DI_STATE_CHANGE = SETUP_DI_STATE_CHANGE(5u32);
-pub const DICUSTOMDEVPROP_MERGE_MULTISZ: u32 = 1u32;
-pub const DIF_ADDPROPERTYPAGE_ADVANCED: DI_FUNCTION = DI_FUNCTION(35u32);
-pub const DIF_ADDPROPERTYPAGE_BASIC: DI_FUNCTION = DI_FUNCTION(36u32);
-pub const DIF_ADDREMOTEPROPERTYPAGE_ADVANCED: DI_FUNCTION = DI_FUNCTION(40u32);
-pub const DIF_ALLOW_INSTALL: DI_FUNCTION = DI_FUNCTION(24u32);
-pub const DIF_ASSIGNRESOURCES: DI_FUNCTION = DI_FUNCTION(3u32);
-pub const DIF_CALCDISKSPACE: DI_FUNCTION = DI_FUNCTION(11u32);
-pub const DIF_DESTROYPRIVATEDATA: DI_FUNCTION = DI_FUNCTION(12u32);
-pub const DIF_DESTROYWIZARDDATA: DI_FUNCTION = DI_FUNCTION(17u32);
-pub const DIF_DETECT: DI_FUNCTION = DI_FUNCTION(15u32);
-pub const DIF_DETECTCANCEL: DI_FUNCTION = DI_FUNCTION(33u32);
-pub const DIF_DETECTVERIFY: DI_FUNCTION = DI_FUNCTION(20u32);
-pub const DIF_ENABLECLASS: DI_FUNCTION = DI_FUNCTION(19u32);
-pub const DIF_FINISHINSTALL_ACTION: DI_FUNCTION = DI_FUNCTION(42u32);
-pub const DIF_FIRSTTIMESETUP: DI_FUNCTION = DI_FUNCTION(6u32);
-pub const DIF_FOUNDDEVICE: DI_FUNCTION = DI_FUNCTION(7u32);
-pub const DIF_INSTALLCLASSDRIVERS: DI_FUNCTION = DI_FUNCTION(10u32);
-pub const DIF_INSTALLDEVICE: DI_FUNCTION = DI_FUNCTION(2u32);
-pub const DIF_INSTALLDEVICEFILES: DI_FUNCTION = DI_FUNCTION(21u32);
-pub const DIF_INSTALLINTERFACES: DI_FUNCTION = DI_FUNCTION(32u32);
-pub const DIF_INSTALLWIZARD: DI_FUNCTION = DI_FUNCTION(16u32);
-pub const DIF_MOVEDEVICE: DI_FUNCTION = DI_FUNCTION(14u32);
-pub const DIF_NEWDEVICEWIZARD_FINISHINSTALL: DI_FUNCTION = DI_FUNCTION(30u32);
-pub const DIF_NEWDEVICEWIZARD_POSTANALYZE: DI_FUNCTION = DI_FUNCTION(29u32);
-pub const DIF_NEWDEVICEWIZARD_PREANALYZE: DI_FUNCTION = DI_FUNCTION(28u32);
-pub const DIF_NEWDEVICEWIZARD_PRESELECT: DI_FUNCTION = DI_FUNCTION(26u32);
-pub const DIF_NEWDEVICEWIZARD_SELECT: DI_FUNCTION = DI_FUNCTION(27u32);
-pub const DIF_POWERMESSAGEWAKE: DI_FUNCTION = DI_FUNCTION(39u32);
-pub const DIF_PROPERTIES: DI_FUNCTION = DI_FUNCTION(4u32);
-pub const DIF_PROPERTYCHANGE: DI_FUNCTION = DI_FUNCTION(18u32);
-pub const DIF_REGISTERDEVICE: DI_FUNCTION = DI_FUNCTION(25u32);
-pub const DIF_REGISTER_COINSTALLERS: DI_FUNCTION = DI_FUNCTION(34u32);
-pub const DIF_REMOVE: DI_FUNCTION = DI_FUNCTION(5u32);
-pub const DIF_RESERVED1: DI_FUNCTION = DI_FUNCTION(37u32);
-pub const DIF_RESERVED2: DI_FUNCTION = DI_FUNCTION(48u32);
-pub const DIF_SELECTBESTCOMPATDRV: DI_FUNCTION = DI_FUNCTION(23u32);
-pub const DIF_SELECTCLASSDRIVERS: DI_FUNCTION = DI_FUNCTION(8u32);
-pub const DIF_SELECTDEVICE: DI_FUNCTION = DI_FUNCTION(1u32);
-pub const DIF_TROUBLESHOOTER: DI_FUNCTION = DI_FUNCTION(38u32);
-pub const DIF_UNREMOVE: DI_FUNCTION = DI_FUNCTION(22u32);
-pub const DIF_UNUSED1: DI_FUNCTION = DI_FUNCTION(31u32);
-pub const DIF_UPDATEDRIVER_UI: DI_FUNCTION = DI_FUNCTION(41u32);
-pub const DIF_VALIDATECLASSDRIVERS: DI_FUNCTION = DI_FUNCTION(9u32);
-pub const DIF_VALIDATEDRIVER: DI_FUNCTION = DI_FUNCTION(13u32);
-pub const DIGCDP_FLAG_ADVANCED: u32 = 2u32;
-pub const DIGCDP_FLAG_BASIC: u32 = 1u32;
-pub const DIGCDP_FLAG_REMOTE_ADVANCED: u32 = 4u32;
-pub const DIGCDP_FLAG_REMOTE_BASIC: u32 = 3u32;
-pub const DIGCF_ALLCLASSES: SETUP_DI_GET_CLASS_DEVS_FLAGS = SETUP_DI_GET_CLASS_DEVS_FLAGS(4u32);
-pub const DIGCF_DEFAULT: SETUP_DI_GET_CLASS_DEVS_FLAGS = SETUP_DI_GET_CLASS_DEVS_FLAGS(1u32);
-pub const DIGCF_DEVICEINTERFACE: SETUP_DI_GET_CLASS_DEVS_FLAGS = SETUP_DI_GET_CLASS_DEVS_FLAGS(16u32);
-pub const DIGCF_INTERFACEDEVICE: SETUP_DI_GET_CLASS_DEVS_FLAGS = SETUP_DI_GET_CLASS_DEVS_FLAGS(16u32);
-pub const DIGCF_PRESENT: SETUP_DI_GET_CLASS_DEVS_FLAGS = SETUP_DI_GET_CLASS_DEVS_FLAGS(2u32);
-pub const DIGCF_PROFILE: SETUP_DI_GET_CLASS_DEVS_FLAGS = SETUP_DI_GET_CLASS_DEVS_FLAGS(8u32);
-pub const DIIDFLAG_BITS: DIINSTALLDEVICE_FLAGS = DIINSTALLDEVICE_FLAGS(15u32);
-pub const DIIDFLAG_INSTALLCOPYINFDRIVERS: DIINSTALLDEVICE_FLAGS = DIINSTALLDEVICE_FLAGS(8u32);
-pub const DIIDFLAG_INSTALLNULLDRIVER: DIINSTALLDEVICE_FLAGS = DIINSTALLDEVICE_FLAGS(4u32);
-pub const DIIDFLAG_NOFINISHINSTALLUI: DIINSTALLDEVICE_FLAGS = DIINSTALLDEVICE_FLAGS(2u32);
-pub const DIIDFLAG_SHOWSEARCHUI: DIINSTALLDEVICE_FLAGS = DIINSTALLDEVICE_FLAGS(1u32);
-pub const DIIRFLAG_BITS: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(106u32);
-pub const DIIRFLAG_FORCE_INF: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(2u32);
-pub const DIIRFLAG_HOTPATCH: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(8u32);
-pub const DIIRFLAG_HW_USING_THE_INF: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(4u32);
-pub const DIIRFLAG_INF_ALREADY_COPIED: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(1u32);
-pub const DIIRFLAG_INSTALL_AS_SET: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(64u32);
-pub const DIIRFLAG_NOBACKUP: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(16u32);
-pub const DIIRFLAG_PRE_CONFIGURE_INF: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(32u32);
-pub const DIIRFLAG_SYSTEM_BITS: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(127u32);
-pub const DIOCR_INSTALLER: u32 = 1u32;
-pub const DIOCR_INTERFACE: u32 = 2u32;
-pub const DIODI_NO_ADD: u32 = 1u32;
-pub const DIOD_CANCEL_REMOVE: u32 = 4u32;
-pub const DIOD_INHERIT_CLASSDRVS: u32 = 2u32;
-pub const DIREG_BOTH: u32 = 4u32;
-pub const DIREG_DEV: u32 = 1u32;
-pub const DIREG_DRV: u32 = 2u32;
-pub const DIRID_ABSOLUTE: i32 = -1i32;
-pub const DIRID_ABSOLUTE_16BIT: u32 = 65535u32;
-pub const DIRID_APPS: u32 = 24u32;
-pub const DIRID_BOOT: u32 = 30u32;
-pub const DIRID_COLOR: u32 = 23u32;
-pub const DIRID_COMMON_APPDATA: u32 = 16419u32;
-pub const DIRID_COMMON_DESKTOPDIRECTORY: u32 = 16409u32;
-pub const DIRID_COMMON_DOCUMENTS: u32 = 16430u32;
-pub const DIRID_COMMON_FAVORITES: u32 = 16415u32;
-pub const DIRID_COMMON_PROGRAMS: u32 = 16407u32;
-pub const DIRID_COMMON_STARTMENU: u32 = 16406u32;
-pub const DIRID_COMMON_STARTUP: u32 = 16408u32;
-pub const DIRID_COMMON_TEMPLATES: u32 = 16429u32;
-pub const DIRID_DEFAULT: u32 = 11u32;
-pub const DIRID_DRIVERS: u32 = 12u32;
-pub const DIRID_DRIVER_STORE: u32 = 13u32;
-pub const DIRID_FONTS: u32 = 20u32;
-pub const DIRID_HELP: u32 = 18u32;
-pub const DIRID_INF: u32 = 17u32;
-pub const DIRID_IOSUBSYS: u32 = 12u32;
-pub const DIRID_LOADER: u32 = 54u32;
-pub const DIRID_NULL: u32 = 0u32;
-pub const DIRID_PRINTPROCESSOR: u32 = 55u32;
-pub const DIRID_PROGRAM_FILES: u32 = 16422u32;
-pub const DIRID_PROGRAM_FILES_COMMON: u32 = 16427u32;
-pub const DIRID_PROGRAM_FILES_COMMONX86: u32 = 16428u32;
-pub const DIRID_PROGRAM_FILES_X86: u32 = 16426u32;
-pub const DIRID_SHARED: u32 = 25u32;
-pub const DIRID_SPOOL: u32 = 51u32;
-pub const DIRID_SPOOLDRIVERS: u32 = 52u32;
-pub const DIRID_SRCPATH: u32 = 1u32;
-pub const DIRID_SYSTEM: u32 = 11u32;
-pub const DIRID_SYSTEM16: u32 = 50u32;
-pub const DIRID_SYSTEM_X86: u32 = 16425u32;
-pub const DIRID_USER: u32 = 32768u32;
-pub const DIRID_USERPROFILE: u32 = 53u32;
-pub const DIRID_VIEWERS: u32 = 21u32;
-pub const DIRID_WINDOWS: u32 = 10u32;
-pub const DIURFLAG_NO_REMOVE_INF: DIUNINSTALLDRIVER_FLAGS = DIUNINSTALLDRIVER_FLAGS(1u32);
-pub const DIURFLAG_RESERVED: DIUNINSTALLDRIVER_FLAGS = DIUNINSTALLDRIVER_FLAGS(2u32);
-pub const DIURFLAG_VALID: DIUNINSTALLDRIVER_FLAGS = DIUNINSTALLDRIVER_FLAGS(3u32);
-pub const DI_AUTOASSIGNRES: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(64u32);
-pub const DI_CLASSINSTALLPARAMS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(1048576u32);
-pub const DI_COMPAT_FROM_CLASS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(524288u32);
-pub const DI_DIDCLASS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(32u32);
-pub const DI_DIDCOMPAT: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(16u32);
-pub const DI_DISABLED: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(2048u32);
-pub const DI_DONOTCALLCONFIGMG: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(131072u32);
-pub const DI_DRIVERPAGE_ADDED: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(67108864u32);
-pub const DI_ENUMSINGLEINF: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(65536u32);
-pub const DI_FLAGSEX_ALLOWEXCLUDEDDRVS: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(2048u32);
-pub const DI_FLAGSEX_ALTPLATFORM_DRVSEARCH: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(268435456u32);
-pub const DI_FLAGSEX_ALWAYSWRITEIDS: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(512u32);
-pub const DI_FLAGSEX_APPENDDRIVERLIST: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(262144u32);
-pub const DI_FLAGSEX_BACKUPONREPLACE: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(1048576u32);
-pub const DI_FLAGSEX_CI_FAILED: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(4u32);
-pub const DI_FLAGSEX_DEVICECHANGE: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(256u32);
-pub const DI_FLAGSEX_DIDCOMPATINFO: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(32u32);
-pub const DI_FLAGSEX_DIDINFOLIST: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(16u32);
-pub const DI_FLAGSEX_DRIVERLIST_FROM_URL: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(2097152u32);
-pub const DI_FLAGSEX_EXCLUDE_OLD_INET_DRIVERS: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(8388608u32);
-pub const DI_FLAGSEX_FILTERCLASSES: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(64u32);
-pub const DI_FLAGSEX_FILTERSIMILARDRIVERS: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(33554432u32);
-pub const DI_FLAGSEX_FINISHINSTALL_ACTION: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(8u32);
-pub const DI_FLAGSEX_INET_DRIVER: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(131072u32);
-pub const DI_FLAGSEX_INSTALLEDDRIVER: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(67108864u32);
-pub const DI_FLAGSEX_IN_SYSTEM_SETUP: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(65536u32);
-pub const DI_FLAGSEX_NOUIONQUERYREMOVE: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(4096u32);
-pub const DI_FLAGSEX_NO_CLASSLIST_NODE_MERGE: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(134217728u32);
-pub const DI_FLAGSEX_NO_DRVREG_MODIFY: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(32768u32);
-pub const DI_FLAGSEX_POWERPAGE_ADDED: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(16777216u32);
-pub const DI_FLAGSEX_PREINSTALLBACKUP: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(524288u32);
-pub const DI_FLAGSEX_PROPCHANGE_PENDING: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(1024u32);
-pub const DI_FLAGSEX_RECURSIVESEARCH: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(1073741824u32);
-pub const DI_FLAGSEX_RESERVED1: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(4194304u32);
-pub const DI_FLAGSEX_RESERVED2: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(1u32);
-pub const DI_FLAGSEX_RESERVED3: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(2u32);
-pub const DI_FLAGSEX_RESERVED4: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(16384u32);
-pub const DI_FLAGSEX_RESTART_DEVICE_ONLY: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(536870912u32);
-pub const DI_FLAGSEX_SEARCH_PUBLISHED_INFS: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(2147483648u32);
-pub const DI_FLAGSEX_SETFAILEDINSTALL: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(128u32);
-pub const DI_FLAGSEX_USECLASSFORCOMPAT: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = SETUP_DI_DEVICE_INSTALL_FLAGS_EX(8192u32);
-pub const DI_FORCECOPY: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(33554432u32);
-pub const DI_GENERALPAGE_ADDED: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(4096u32);
-pub const DI_INF_IS_SORTED: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(32768u32);
-pub const DI_INSTALLDISABLED: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(262144u32);
-pub const DI_MULTMFGS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(1024u32);
-pub const DI_NEEDREBOOT: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(256u32);
-pub const DI_NEEDRESTART: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(128u32);
-pub const DI_NOBROWSE: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(512u32);
-pub const DI_NODI_DEFAULTACTION: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(2097152u32);
-pub const DI_NOFILECOPY: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(16777216u32);
-pub const DI_NOSELECTICONS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(1073741824u32);
-pub const DI_NOVCP: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(8u32);
-pub const DI_NOWRITE_IDS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(2147483648u32);
-pub const DI_OVERRIDE_INFFLAGS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(268435456u32);
-pub const DI_PROPERTIES_CHANGE: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(16384u32);
-pub const DI_PROPS_NOCHANGEUSAGE: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(536870912u32);
-pub const DI_QUIETINSTALL: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(8388608u32);
-pub const DI_REMOVEDEVICE_CONFIGSPECIFIC: SETUP_DI_REMOVE_DEVICE_SCOPE = SETUP_DI_REMOVE_DEVICE_SCOPE(2u32);
-pub const DI_REMOVEDEVICE_GLOBAL: SETUP_DI_REMOVE_DEVICE_SCOPE = SETUP_DI_REMOVE_DEVICE_SCOPE(1u32);
-pub const DI_RESOURCEPAGE_ADDED: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(8192u32);
-pub const DI_SHOWALL: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(7u32);
-pub const DI_SHOWCLASS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(4u32);
-pub const DI_SHOWCOMPAT: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(2u32);
-pub const DI_SHOWOEM: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(1u32);
-pub const DI_UNREMOVEDEVICE_CONFIGSPECIFIC: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(2u32);
-pub const DI_USECI_SELECTSTRINGS: SETUP_DI_DEVICE_INSTALL_FLAGS = SETUP_DI_DEVICE_INSTALL_FLAGS(134217728u32);
-pub const DMI_BKCOLOR: u32 = 2u32;
-pub const DMI_MASK: u32 = 1u32;
-pub const DMI_USERECT: u32 = 4u32;
-pub const DNF_ALWAYSEXCLUDEFROMLIST: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(524288u32);
-pub const DNF_AUTHENTICODE_SIGNED: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(131072u32);
-pub const DNF_BAD_DRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(2048u32);
-pub const DNF_BASIC_DRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(65536u32);
-pub const DNF_CLASS_DRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(32u32);
-pub const DNF_COMPATIBLE_DRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(64u32);
-pub const DNF_DUPDESC: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(1u32);
-pub const DNF_DUPDRIVERVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(32768u32);
-pub const DNF_DUPPROVIDER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(4096u32);
-pub const DNF_EXCLUDEFROMLIST: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(4u32);
-pub const DNF_INBOX_DRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(1048576u32);
-pub const DNF_INET_DRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(128u32);
-pub const DNF_INF_IS_SIGNED: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(8192u32);
-pub const DNF_INSTALLEDDRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(262144u32);
-pub const DNF_LEGACYINF: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(16u32);
-pub const DNF_NODRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(8u32);
-pub const DNF_OEM_F6_INF: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(16384u32);
-pub const DNF_OLDDRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(2u32);
-pub const DNF_OLD_INET_DRIVER: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(1024u32);
-pub const DNF_REQUESTADDITIONALSOFTWARE: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(2097152u32);
-pub const DNF_UNUSED1: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(256u32);
-pub const DNF_UNUSED2: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(512u32);
-pub const DNF_UNUSED_22: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(4194304u32);
-pub const DNF_UNUSED_23: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(8388608u32);
-pub const DNF_UNUSED_24: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(16777216u32);
-pub const DNF_UNUSED_25: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(33554432u32);
-pub const DNF_UNUSED_26: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(67108864u32);
-pub const DNF_UNUSED_27: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(134217728u32);
-pub const DNF_UNUSED_28: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(268435456u32);
-pub const DNF_UNUSED_29: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(536870912u32);
-pub const DNF_UNUSED_30: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(1073741824u32);
-pub const DNF_UNUSED_31: SETUP_DI_DRIVER_INSTALL_FLAGS = SETUP_DI_DRIVER_INSTALL_FLAGS(2147483648u32);
-pub const DN_APM_DRIVER: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(268435456u32);
-pub const DN_APM_ENUMERATOR: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(134217728u32);
-pub const DN_ARM_WAKEUP: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(67108864u32);
-pub const DN_BAD_PARTIAL: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(4194304u32);
-pub const DN_BOOT_LOG_PROB: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(2147483648u32);
-pub const DN_CHANGEABLE_FLAGS: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(1639670464u32);
-pub const DN_CHILD_WITH_INVALID_ID: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(512u32);
-pub const DN_DEVICE_DISCONNECTED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(33554432u32);
-pub const DN_DISABLEABLE: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(8192u32);
-pub const DN_DRIVER_BLOCKED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(64u32);
-pub const DN_DRIVER_LOADED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(2u32);
-pub const DN_ENUM_LOADED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(4u32);
-pub const DN_FILTERED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(2048u32);
-pub const DN_HARDWARE_ENUM: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(128u32);
-pub const DN_HAS_MARK: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(512u32);
-pub const DN_HAS_PROBLEM: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(1024u32);
-pub const DN_LEGACY_DRIVER: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(4096u32);
-pub const DN_LIAR: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(256u32);
-pub const DN_MANUAL: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(16u32);
-pub const DN_MF_CHILD: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(131072u32);
-pub const DN_MF_PARENT: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(65536u32);
-pub const DN_MOVED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(4096u32);
-pub const DN_NEEDS_LOCKING: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(33554432u32);
-pub const DN_NEED_RESTART: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(256u32);
-pub const DN_NEED_TO_ENUM: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(32u32);
-pub const DN_NOT_FIRST_TIME: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(64u32);
-pub const DN_NOT_FIRST_TIMEE: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(524288u32);
-pub const DN_NO_SHOW_IN_DM: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(1073741824u32);
-pub const DN_NT_DRIVER: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(16777216u32);
-pub const DN_NT_ENUMERATOR: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(8388608u32);
-pub const DN_PRIVATE_PROBLEM: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(32768u32);
-pub const DN_QUERY_REMOVE_ACTIVE: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(131072u32);
-pub const DN_QUERY_REMOVE_PENDING: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(65536u32);
-pub const DN_REBAL_CANDIDATE: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(2097152u32);
-pub const DN_REMOVABLE: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(16384u32);
-pub const DN_ROOT_ENUMERATED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(1u32);
-pub const DN_SILENT_INSTALL: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(536870912u32);
-pub const DN_STARTED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(8u32);
-pub const DN_STOP_FREE_RES: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(1048576u32);
-pub const DN_WILL_BE_REMOVED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(262144u32);
-pub const DPROMPT_BUFFERTOOSMALL: u32 = 3u32;
-pub const DPROMPT_CANCEL: u32 = 1u32;
-pub const DPROMPT_OUTOFMEMORY: u32 = 4u32;
-pub const DPROMPT_SKIPFILE: u32 = 2u32;
-pub const DPROMPT_SUCCESS: u32 = 0u32;
-pub const DRIVER_COMPATID_RANK: u32 = 16383u32;
-pub const DRIVER_HARDWAREID_MASK: u32 = 2147487743u32;
-pub const DRIVER_HARDWAREID_RANK: u32 = 4095u32;
-pub const DRIVER_UNTRUSTED_COMPATID_RANK: u32 = 49151u32;
-pub const DRIVER_UNTRUSTED_HARDWAREID_RANK: u32 = 36863u32;
-pub const DRIVER_UNTRUSTED_RANK: u32 = 2147483648u32;
-pub const DRIVER_W9X_SUSPECT_COMPATID_RANK: u32 = 65535u32;
-pub const DRIVER_W9X_SUSPECT_HARDWAREID_RANK: u32 = 53247u32;
-pub const DRIVER_W9X_SUSPECT_RANK: u32 = 3221225472u32;
-pub const DWORD_MAX: u32 = 4294967295u32;
-pub const DYNAWIZ_FLAG_ANALYZE_HANDLECONFLICT: u32 = 8u32;
-pub const DYNAWIZ_FLAG_INSTALLDET_NEXT: u32 = 2u32;
-pub const DYNAWIZ_FLAG_INSTALLDET_PREV: u32 = 4u32;
-pub const DYNAWIZ_FLAG_PAGESADDED: u32 = 1u32;
-pub const ENABLECLASS_FAILURE: u32 = 2u32;
-pub const ENABLECLASS_QUERY: u32 = 0u32;
-pub const ENABLECLASS_SUCCESS: u32 = 1u32;
-pub const FILEOP_ABORT: u32 = 0u32;
-pub const FILEOP_BACKUP: u32 = 3u32;
-pub const FILEOP_COPY: SETUP_FILE_OPERATION = SETUP_FILE_OPERATION(0u32);
-pub const FILEOP_DELETE: SETUP_FILE_OPERATION = SETUP_FILE_OPERATION(2u32);
-pub const FILEOP_DOIT: u32 = 1u32;
-pub const FILEOP_NEWPATH: u32 = 4u32;
-pub const FILEOP_RENAME: u32 = 1u32;
-pub const FILEOP_RETRY: u32 = 1u32;
-pub const FILEOP_SKIP: u32 = 2u32;
-pub const FILE_COMPRESSION_MSZIP: FILE_COMPRESSION_TYPE = FILE_COMPRESSION_TYPE(2u32);
-pub const FILE_COMPRESSION_NONE: FILE_COMPRESSION_TYPE = FILE_COMPRESSION_TYPE(0u32);
-pub const FILE_COMPRESSION_NTCAB: FILE_COMPRESSION_TYPE = FILE_COMPRESSION_TYPE(3u32);
-pub const FILE_COMPRESSION_WINLZA: FILE_COMPRESSION_TYPE = FILE_COMPRESSION_TYPE(1u32);
-pub const FILTERED_LOG_CONF: CM_LOG_CONF = CM_LOG_CONF(1u32);
-pub const FLG_ADDPROPERTY_AND: u32 = 16u32;
-pub const FLG_ADDPROPERTY_APPEND: u32 = 4u32;
-pub const FLG_ADDPROPERTY_NOCLOBBER: u32 = 1u32;
-pub const FLG_ADDPROPERTY_OR: u32 = 8u32;
-pub const FLG_ADDPROPERTY_OVERWRITEONLY: u32 = 2u32;
-pub const FLG_ADDREG_32BITKEY: u32 = 16384u32;
-pub const FLG_ADDREG_64BITKEY: u32 = 4096u32;
-pub const FLG_ADDREG_APPEND: u32 = 8u32;
-pub const FLG_ADDREG_BINVALUETYPE: u32 = 1u32;
-pub const FLG_ADDREG_DELREG_BIT: u32 = 32768u32;
-pub const FLG_ADDREG_DELVAL: u32 = 4u32;
-pub const FLG_ADDREG_KEYONLY: u32 = 16u32;
-pub const FLG_ADDREG_KEYONLY_COMMON: u32 = 8192u32;
-pub const FLG_ADDREG_NOCLOBBER: u32 = 2u32;
-pub const FLG_ADDREG_OVERWRITEONLY: u32 = 32u32;
-pub const FLG_ADDREG_TYPE_EXPAND_SZ: u32 = 131072u32;
-pub const FLG_ADDREG_TYPE_MULTI_SZ: u32 = 65536u32;
-pub const FLG_ADDREG_TYPE_SZ: u32 = 0u32;
-pub const FLG_BITREG_32BITKEY: u32 = 16384u32;
-pub const FLG_BITREG_64BITKEY: u32 = 4096u32;
-pub const FLG_BITREG_CLEARBITS: u32 = 0u32;
-pub const FLG_BITREG_SETBITS: u32 = 1u32;
-pub const FLG_DELPROPERTY_MULTI_SZ_DELSTRING: u32 = 1u32;
-pub const FLG_DELREG_32BITKEY: u32 = 16384u32;
-pub const FLG_DELREG_64BITKEY: u32 = 4096u32;
-pub const FLG_DELREG_KEYONLY_COMMON: u32 = 8192u32;
-pub const FLG_DELREG_OPERATION_MASK: u32 = 254u32;
-pub const FLG_DELREG_TYPE_EXPAND_SZ: u32 = 131072u32;
-pub const FLG_DELREG_TYPE_MULTI_SZ: u32 = 65536u32;
-pub const FLG_DELREG_TYPE_SZ: u32 = 0u32;
-pub const FLG_DELREG_VALUE: u32 = 0u32;
-pub const FLG_INI2REG_32BITKEY: u32 = 16384u32;
-pub const FLG_INI2REG_64BITKEY: u32 = 4096u32;
-pub const FLG_PROFITEM_CSIDL: u32 = 8u32;
-pub const FLG_PROFITEM_CURRENTUSER: u32 = 1u32;
-pub const FLG_PROFITEM_DELETE: u32 = 2u32;
-pub const FLG_PROFITEM_GROUP: u32 = 4u32;
-pub const FLG_REGSVR_DLLINSTALL: u32 = 2u32;
-pub const FLG_REGSVR_DLLREGISTER: u32 = 1u32;
-pub const FORCED_LOG_CONF: CM_LOG_CONF = CM_LOG_CONF(4u32);
-pub const GUID_ACPI_CMOS_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0x3a8d0384_6505_40ca_bc39_56c15f8c5fed);
-pub const GUID_ACPI_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0xb091a08a_ba97_11d0_bd14_00aa00b7b32a);
-pub const GUID_ACPI_INTERFACE_STANDARD2: windows_core::GUID = windows_core::GUID::from_u128(0xe8695f63_1831_4870_a8cf_9c2f03f9dcb5);
-pub const GUID_ACPI_PORT_RANGES_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0xf14f609b_cbbd_4957_a674_bc00213f1c97);
-pub const GUID_ACPI_REGS_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0x06141966_7245_6369_462e_4e656c736f6e);
-pub const GUID_AGP_TARGET_BUS_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0xb15cfce8_06d1_4d37_9d4c_bedde0c2a6ff);
-pub const GUID_ARBITER_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0xe644f185_8c0e_11d0_becf_08002be2092f);
-pub const GUID_BUS_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0x496b8280_6f25_11d0_beaf_08002be2092f);
-pub const GUID_BUS_RESOURCE_UPDATE_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x27d0102d_bfb2_4164_81dd_dbb82f968b48);
-pub const GUID_BUS_TYPE_1394: windows_core::GUID = windows_core::GUID::from_u128(0xf74e73eb_9ac5_45eb_be4d_772cc71ddfb3);
-pub const GUID_BUS_TYPE_ACPI: windows_core::GUID = windows_core::GUID::from_u128(0xd7b46895_001a_4942_891f_a7d46610a843);
-pub const GUID_BUS_TYPE_AVC: windows_core::GUID = windows_core::GUID::from_u128(0xc06ff265_ae09_48f0_812c_16753d7cba83);
-pub const GUID_BUS_TYPE_DOT4PRT: windows_core::GUID = windows_core::GUID::from_u128(0x441ee001_4342_11d5_a184_00c04f60524d);
-pub const GUID_BUS_TYPE_EISA: windows_core::GUID = windows_core::GUID::from_u128(0xddc35509_f3fc_11d0_a537_0000f8753ed1);
-pub const GUID_BUS_TYPE_HID: windows_core::GUID = windows_core::GUID::from_u128(0xeeaf37d0_1963_47c4_aa48_72476db7cf49);
-pub const GUID_BUS_TYPE_INTERNAL: windows_core::GUID = windows_core::GUID::from_u128(0x1530ea73_086b_11d1_a09f_00c04fc340b1);
-pub const GUID_BUS_TYPE_IRDA: windows_core::GUID = windows_core::GUID::from_u128(0x7ae17dc1_c944_44d6_881f_4c2e61053bc1);
-pub const GUID_BUS_TYPE_ISAPNP: windows_core::GUID = windows_core::GUID::from_u128(0xe676f854_d87d_11d0_92b2_00a0c9055fc5);
-pub const GUID_BUS_TYPE_LPTENUM: windows_core::GUID = windows_core::GUID::from_u128(0xc4ca1000_2ddc_11d5_a17a_00c04f60524d);
-pub const GUID_BUS_TYPE_MCA: windows_core::GUID = windows_core::GUID::from_u128(0x1c75997a_dc33_11d0_92b2_00a0c9055fc5);
-pub const GUID_BUS_TYPE_PCI: windows_core::GUID = windows_core::GUID::from_u128(0xc8ebdfb0_b510_11d0_80e5_00a0c92542e3);
-pub const GUID_BUS_TYPE_PCMCIA: windows_core::GUID = windows_core::GUID::from_u128(0x09343630_af9f_11d0_92e9_0000f81e1b30);
-pub const GUID_BUS_TYPE_SCM: windows_core::GUID = windows_core::GUID::from_u128(0x375a5912_804c_45aa_bdc2_fdd25a1d9512);
-pub const GUID_BUS_TYPE_SD: windows_core::GUID = windows_core::GUID::from_u128(0xe700cc04_4036_4e89_9579_89ebf45f00cd);
-pub const GUID_BUS_TYPE_SERENUM: windows_core::GUID = windows_core::GUID::from_u128(0x77114a87_8944_11d1_bd90_00a0c906be2d);
-pub const GUID_BUS_TYPE_SW_DEVICE: windows_core::GUID = windows_core::GUID::from_u128(0x06d10322_7de0_4cef_8e25_197d0e7442e2);
-pub const GUID_BUS_TYPE_USB: windows_core::GUID = windows_core::GUID::from_u128(0x9d7debbc_c85d_11d1_9eb4_006008c3a19a);
-pub const GUID_BUS_TYPE_USBPRINT: windows_core::GUID = windows_core::GUID::from_u128(0x441ee000_4342_11d5_a184_00c04f60524d);
-pub const GUID_D3COLD_AUX_POWER_AND_TIMING_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x0044d8aa_f664_4588_9ffc_2afeaf5950b9);
-pub const GUID_D3COLD_SUPPORT_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0xb38290e5_3cd0_4f9d_9937_f5fe2b44d47a);
-pub const GUID_DEVCLASS_1394: windows_core::GUID = windows_core::GUID::from_u128(0x6bdd1fc1_810f_11d0_bec7_08002be2092f);
-pub const GUID_DEVCLASS_1394DEBUG: windows_core::GUID = windows_core::GUID::from_u128(0x66f250d6_7801_4a64_b139_eea80a450b24);
-pub const GUID_DEVCLASS_61883: windows_core::GUID = windows_core::GUID::from_u128(0x7ebefbc0_3200_11d2_b4c2_00a0c9697d07);
-pub const GUID_DEVCLASS_ADAPTER: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e964_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_APMSUPPORT: windows_core::GUID = windows_core::GUID::from_u128(0xd45b1c18_c8fa_11d1_9f77_0000f805f530);
-pub const GUID_DEVCLASS_AVC: windows_core::GUID = windows_core::GUID::from_u128(0xc06ff265_ae09_48f0_812c_16753d7cba83);
-pub const GUID_DEVCLASS_BATTERY: windows_core::GUID = windows_core::GUID::from_u128(0x72631e54_78a4_11d0_bcf7_00aa00b7b32a);
-pub const GUID_DEVCLASS_BIOMETRIC: windows_core::GUID = windows_core::GUID::from_u128(0x53d29ef7_377c_4d14_864b_eb3a85769359);
-pub const GUID_DEVCLASS_BLUETOOTH: windows_core::GUID = windows_core::GUID::from_u128(0xe0cbf06c_cd8b_4647_bb8a_263b43f0f974);
-pub const GUID_DEVCLASS_CAMERA: windows_core::GUID = windows_core::GUID::from_u128(0xca3e7ab9_b4c3_4ae6_8251_579ef933890f);
-pub const GUID_DEVCLASS_CDROM: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e965_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_COMPUTEACCELERATOR: windows_core::GUID = windows_core::GUID::from_u128(0xf01a9d53_3ff6_48d2_9f97_c8a7004be10c);
-pub const GUID_DEVCLASS_COMPUTER: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e966_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_DECODER: windows_core::GUID = windows_core::GUID::from_u128(0x6bdd1fc2_810f_11d0_bec7_08002be2092f);
-pub const GUID_DEVCLASS_DISKDRIVE: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e967_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_DISPLAY: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e968_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_DOT4: windows_core::GUID = windows_core::GUID::from_u128(0x48721b56_6795_11d2_b1a8_0080c72e74a2);
-pub const GUID_DEVCLASS_DOT4PRINT: windows_core::GUID = windows_core::GUID::from_u128(0x49ce6ac8_6f86_11d2_b1e5_0080c72e74a2);
-pub const GUID_DEVCLASS_EHSTORAGESILO: windows_core::GUID = windows_core::GUID::from_u128(0x9da2b80f_f89f_4a49_a5c2_511b085b9e8a);
-pub const GUID_DEVCLASS_ENUM1394: windows_core::GUID = windows_core::GUID::from_u128(0xc459df55_db08_11d1_b009_00a0c9081ff6);
-pub const GUID_DEVCLASS_EXTENSION: windows_core::GUID = windows_core::GUID::from_u128(0xe2f84ce7_8efa_411c_aa69_97454ca4cb57);
-pub const GUID_DEVCLASS_FDC: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e969_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_FIRMWARE: windows_core::GUID = windows_core::GUID::from_u128(0xf2e7dd72_6468_4e36_b6f1_6488f42c1b52);
-pub const GUID_DEVCLASS_FLOPPYDISK: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e980_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_FSFILTER_ACTIVITYMONITOR: windows_core::GUID = windows_core::GUID::from_u128(0xb86dff51_a31e_4bac_b3cf_e8cfe75c9fc2);
-pub const GUID_DEVCLASS_FSFILTER_ANTIVIRUS: windows_core::GUID = windows_core::GUID::from_u128(0xb1d1a169_c54f_4379_81db_bee7d88d7454);
-pub const GUID_DEVCLASS_FSFILTER_BOTTOM: windows_core::GUID = windows_core::GUID::from_u128(0x37765ea0_5958_4fc9_b04b_2fdfef97e59e);
-pub const GUID_DEVCLASS_FSFILTER_CFSMETADATASERVER: windows_core::GUID = windows_core::GUID::from_u128(0xcdcf0939_b75b_4630_bf76_80f7ba655884);
-pub const GUID_DEVCLASS_FSFILTER_COMPRESSION: windows_core::GUID = windows_core::GUID::from_u128(0xf3586baf_b5aa_49b5_8d6c_0569284c639f);
-pub const GUID_DEVCLASS_FSFILTER_CONTENTSCREENER: windows_core::GUID = windows_core::GUID::from_u128(0x3e3f0674_c83c_4558_bb26_9820e1eba5c5);
-pub const GUID_DEVCLASS_FSFILTER_CONTINUOUSBACKUP: windows_core::GUID = windows_core::GUID::from_u128(0x71aa14f8_6fad_4622_ad77_92bb9d7e6947);
-pub const GUID_DEVCLASS_FSFILTER_COPYPROTECTION: windows_core::GUID = windows_core::GUID::from_u128(0x89786ff1_9c12_402f_9c9e_17753c7f4375);
-pub const GUID_DEVCLASS_FSFILTER_ENCRYPTION: windows_core::GUID = windows_core::GUID::from_u128(0xa0a701c0_a511_42ff_aa6c_06dc0395576f);
-pub const GUID_DEVCLASS_FSFILTER_HSM: windows_core::GUID = windows_core::GUID::from_u128(0xd546500a_2aeb_45f6_9482_f4b1799c3177);
-pub const GUID_DEVCLASS_FSFILTER_INFRASTRUCTURE: windows_core::GUID = windows_core::GUID::from_u128(0xe55fa6f9_128c_4d04_abab_630c74b1453a);
-pub const GUID_DEVCLASS_FSFILTER_OPENFILEBACKUP: windows_core::GUID = windows_core::GUID::from_u128(0xf8ecafa6_66d1_41a5_899b_66585d7216b7);
-pub const GUID_DEVCLASS_FSFILTER_PHYSICALQUOTAMANAGEMENT: windows_core::GUID = windows_core::GUID::from_u128(0x6a0a8e78_bba6_4fc4_a709_1e33cd09d67e);
-pub const GUID_DEVCLASS_FSFILTER_QUOTAMANAGEMENT: windows_core::GUID = windows_core::GUID::from_u128(0x8503c911_a6c7_4919_8f79_5028f5866b0c);
-pub const GUID_DEVCLASS_FSFILTER_REPLICATION: windows_core::GUID = windows_core::GUID::from_u128(0x48d3ebc4_4cf8_48ff_b869_9c68ad42eb9f);
-pub const GUID_DEVCLASS_FSFILTER_SECURITYENHANCER: windows_core::GUID = windows_core::GUID::from_u128(0xd02bc3da_0c8e_4945_9bd5_f1883c226c8c);
-pub const GUID_DEVCLASS_FSFILTER_SYSTEM: windows_core::GUID = windows_core::GUID::from_u128(0x5d1b9aaa_01e2_46af_849f_272b3f324c46);
-pub const GUID_DEVCLASS_FSFILTER_SYSTEMRECOVERY: windows_core::GUID = windows_core::GUID::from_u128(0x2db15374_706e_4131_a0c7_d7c78eb0289a);
-pub const GUID_DEVCLASS_FSFILTER_TOP: windows_core::GUID = windows_core::GUID::from_u128(0xb369baf4_5568_4e82_a87e_a93eb16bca87);
-pub const GUID_DEVCLASS_FSFILTER_UNDELETE: windows_core::GUID = windows_core::GUID::from_u128(0xfe8f1572_c67a_48c0_bbac_0b5c6d66cafb);
-pub const GUID_DEVCLASS_FSFILTER_VIRTUALIZATION: windows_core::GUID = windows_core::GUID::from_u128(0xf75a86c0_10d8_4c3a_b233_ed60e4cdfaac);
-pub const GUID_DEVCLASS_GENERIC: windows_core::GUID = windows_core::GUID::from_u128(0xff494df1_c4ed_4fac_9b3f_3786f6e91e7e);
-pub const GUID_DEVCLASS_GPS: windows_core::GUID = windows_core::GUID::from_u128(0x6bdd1fc3_810f_11d0_bec7_08002be2092f);
-pub const GUID_DEVCLASS_HDC: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e96a_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_HIDCLASS: windows_core::GUID = windows_core::GUID::from_u128(0x745a17a0_74d3_11d0_b6fe_00a0c90f57da);
-pub const GUID_DEVCLASS_HOLOGRAPHIC: windows_core::GUID = windows_core::GUID::from_u128(0xd612553d_06b1_49ca_8938_e39ef80eb16f);
-pub const GUID_DEVCLASS_IMAGE: windows_core::GUID = windows_core::GUID::from_u128(0x6bdd1fc6_810f_11d0_bec7_08002be2092f);
-pub const GUID_DEVCLASS_INFINIBAND: windows_core::GUID = windows_core::GUID::from_u128(0x30ef7132_d858_4a0c_ac24_b9028a5cca3f);
-pub const GUID_DEVCLASS_INFRARED: windows_core::GUID = windows_core::GUID::from_u128(0x6bdd1fc5_810f_11d0_bec7_08002be2092f);
-pub const GUID_DEVCLASS_KEYBOARD: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e96b_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_LEGACYDRIVER: windows_core::GUID = windows_core::GUID::from_u128(0x8ecc055d_047f_11d1_a537_0000f8753ed1);
-pub const GUID_DEVCLASS_MEDIA: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e96c_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_MEDIUM_CHANGER: windows_core::GUID = windows_core::GUID::from_u128(0xce5939ae_ebde_11d0_b181_0000f8753ec4);
-pub const GUID_DEVCLASS_MEMORY: windows_core::GUID = windows_core::GUID::from_u128(0x5099944a_f6b9_4057_a056_8c550228544c);
-pub const GUID_DEVCLASS_MODEM: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e96d_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_MONITOR: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e96e_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_MOUSE: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e96f_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_MTD: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e970_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_MULTIFUNCTION: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e971_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_MULTIPORTSERIAL: windows_core::GUID = windows_core::GUID::from_u128(0x50906cb8_ba12_11d1_bf5d_0000f805f530);
-pub const GUID_DEVCLASS_NET: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e972_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_NETCLIENT: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e973_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_NETDRIVER: windows_core::GUID = windows_core::GUID::from_u128(0x87ef9ad1_8f70_49ee_b215_ab1fcadcbe3c);
-pub const GUID_DEVCLASS_NETSERVICE: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e974_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_NETTRANS: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e975_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_NETUIO: windows_core::GUID = windows_core::GUID::from_u128(0x78912bc1_cb8e_4b28_a329_f322ebadbe0f);
-pub const GUID_DEVCLASS_NODRIVER: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e976_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_PCMCIA: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e977_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_PNPPRINTERS: windows_core::GUID = windows_core::GUID::from_u128(0x4658ee7e_f050_11d1_b6bd_00c04fa372a7);
-pub const GUID_DEVCLASS_PORTS: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e978_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_PRIMITIVE: windows_core::GUID = windows_core::GUID::from_u128(0x242681d1_eed3_41d2_a1ef_1468fc843106);
-pub const GUID_DEVCLASS_PRINTER: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e979_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_PRINTERUPGRADE: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e97a_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_PRINTQUEUE: windows_core::GUID = windows_core::GUID::from_u128(0x1ed2bbf9_11f0_4084_b21f_ad83a8e6dcdc);
-pub const GUID_DEVCLASS_PROCESSOR: windows_core::GUID = windows_core::GUID::from_u128(0x50127dc3_0f36_415e_a6cc_4cb3be910b65);
-pub const GUID_DEVCLASS_SBP2: windows_core::GUID = windows_core::GUID::from_u128(0xd48179be_ec20_11d1_b6b8_00c04fa372a7);
-pub const GUID_DEVCLASS_SCMDISK: windows_core::GUID = windows_core::GUID::from_u128(0x53966cb1_4d46_4166_bf23_c522403cd495);
-pub const GUID_DEVCLASS_SCMVOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x53ccb149_e543_4c84_b6e0_bce4f6b7e806);
-pub const GUID_DEVCLASS_SCSIADAPTER: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e97b_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_SECURITYACCELERATOR: windows_core::GUID = windows_core::GUID::from_u128(0x268c95a1_edfe_11d3_95c3_0010dc4050a5);
-pub const GUID_DEVCLASS_SENSOR: windows_core::GUID = windows_core::GUID::from_u128(0x5175d334_c371_4806_b3ba_71fd53c9258d);
-pub const GUID_DEVCLASS_SIDESHOW: windows_core::GUID = windows_core::GUID::from_u128(0x997b5d8d_c442_4f2e_baf3_9c8e671e9e21);
-pub const GUID_DEVCLASS_SMARTCARDREADER: windows_core::GUID = windows_core::GUID::from_u128(0x50dd5230_ba8a_11d1_bf5d_0000f805f530);
-pub const GUID_DEVCLASS_SMRDISK: windows_core::GUID = windows_core::GUID::from_u128(0x53487c23_680f_4585_acc3_1f10d6777e82);
-pub const GUID_DEVCLASS_SMRVOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x53b3cf03_8f5a_4788_91b6_d19ed9fcccbf);
-pub const GUID_DEVCLASS_SOFTWARECOMPONENT: windows_core::GUID = windows_core::GUID::from_u128(0x5c4c3332_344d_483c_8739_259e934c9cc8);
-pub const GUID_DEVCLASS_SOUND: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e97c_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_SYSTEM: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e97d_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_TAPEDRIVE: windows_core::GUID = windows_core::GUID::from_u128(0x6d807884_7d21_11cf_801c_08002be10318);
-pub const GUID_DEVCLASS_UCM: windows_core::GUID = windows_core::GUID::from_u128(0xe6f1aa1c_7f3b_4473_b2e8_c97d8ac71d53);
-pub const GUID_DEVCLASS_UNKNOWN: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e97e_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVCLASS_USB: windows_core::GUID = windows_core::GUID::from_u128(0x36fc9e60_c465_11cf_8056_444553540000);
-pub const GUID_DEVCLASS_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x71a27cdd_812a_11d0_bec7_08002be2092f);
-pub const GUID_DEVCLASS_VOLUMESNAPSHOT: windows_core::GUID = windows_core::GUID::from_u128(0x533c5b84_ec70_11d2_9505_00c04f79deaf);
-pub const GUID_DEVCLASS_WCEUSBS: windows_core::GUID = windows_core::GUID::from_u128(0x25dbce51_6c8f_4a72_8a6d_b54c2b4fc835);
-pub const GUID_DEVCLASS_WPD: windows_core::GUID = windows_core::GUID::from_u128(0xeec5ad98_8080_425f_922a_dabf3de3f69a);
-pub const GUID_DEVICE_INTERFACE_ARRIVAL: windows_core::GUID = windows_core::GUID::from_u128(0xcb3a4004_46f0_11d0_b08f_00609713053f);
-pub const GUID_DEVICE_INTERFACE_REMOVAL: windows_core::GUID = windows_core::GUID::from_u128(0xcb3a4005_46f0_11d0_b08f_00609713053f);
-pub const GUID_DEVICE_RESET_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0x649fdf26_3bc0_4813_ad24_7e0c1eda3fa3);
-pub const GUID_DMA_CACHE_COHERENCY_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0xb520f7fa_8a5a_4e40_a3f6_6be1e162d935);
-pub const GUID_HWPROFILE_CHANGE_CANCELLED: windows_core::GUID = windows_core::GUID::from_u128(0xcb3a4002_46f0_11d0_b08f_00609713053f);
-pub const GUID_HWPROFILE_CHANGE_COMPLETE: windows_core::GUID = windows_core::GUID::from_u128(0xcb3a4003_46f0_11d0_b08f_00609713053f);
-pub const GUID_HWPROFILE_QUERY_CHANGE: windows_core::GUID = windows_core::GUID::from_u128(0xcb3a4001_46f0_11d0_b08f_00609713053f);
-pub const GUID_INT_ROUTE_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0x70941bf4_0073_11d1_a09e_00c04fc340b1);
-pub const GUID_IOMMU_BUS_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x1efee0b2_d278_4ae4_bddc_1b34dd648043);
-pub const GUID_KERNEL_SOFT_RESTART_CANCEL: windows_core::GUID = windows_core::GUID::from_u128(0x31d737e7_8c0b_468a_956e_9f433ec358fb);
-pub const GUID_KERNEL_SOFT_RESTART_FINALIZE: windows_core::GUID = windows_core::GUID::from_u128(0x20e91abd_350a_4d4f_8577_99c81507473a);
-pub const GUID_KERNEL_SOFT_RESTART_PREPARE: windows_core::GUID = windows_core::GUID::from_u128(0xde373def_a85c_4f76_8cbf_f96bea8bd10f);
-pub const GUID_LEGACY_DEVICE_DETECTION_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0x50feb0de_596a_11d2_a5b8_0000f81a4619);
-pub const GUID_MF_ENUMERATION_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0xaeb895f0_5586_11d1_8d84_00a0c906b244);
-pub const GUID_MSIX_TABLE_CONFIG_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x1a6a460b_194f_455d_b34b_b84c5b05712b);
-pub const GUID_NPEM_CONTROL_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x4d95573d_b774_488a_b120_4f284a9eff51);
-pub const GUID_PARTITION_UNIT_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0x52363f5b_d891_429b_8195_aec5fef6853c);
-pub const GUID_PCC_INTERFACE_INTERNAL: windows_core::GUID = windows_core::GUID::from_u128(0x7cce62ce_c189_4814_a6a7_12112089e938);
-pub const GUID_PCC_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0x3ee8ba63_0f59_4a24_8a45_35808bdd1249);
-pub const GUID_PCI_ATS_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x010a7fe8_96f5_4943_bedf_95e651b93412);
-pub const GUID_PCI_BUS_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0x496b8281_6f25_11d0_beaf_08002be2092f);
-pub const GUID_PCI_BUS_INTERFACE_STANDARD2: windows_core::GUID = windows_core::GUID::from_u128(0xde94e966_fdff_4c9c_9998_6747b150e74c);
-pub const GUID_PCI_DEVICE_PRESENT_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0xd1b82c26_bf49_45ef_b216_71cbd7889b57);
-pub const GUID_PCI_EXPRESS_LINK_QUIESCENT_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x146cd41c_dae3_4437_8aff_2af3f038099b);
-pub const GUID_PCI_EXPRESS_ROOT_PORT_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x83a7734a_84c7_4161_9a98_6000ed0c4a33);
-pub const GUID_PCI_FPGA_CONTROL_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x2df3f7a8_b9b3_4063_9215_b5d14a0b266e);
-pub const GUID_PCI_PTM_CONTROL_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x348a5ebb_ba24_44b7_9916_285687735117);
-pub const GUID_PCI_SECURITY_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x6e7f1451_199e_4acc_ba2d_762b4edf4674);
-pub const GUID_PCI_VIRTUALIZATION_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x64897b47_3a4a_4d75_bc74_89dd6c078293);
-pub const GUID_PCMCIA_BUS_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0x76173af0_c504_11d1_947f_00c04fb960ee);
-pub const GUID_PNP_CUSTOM_NOTIFICATION: windows_core::GUID = windows_core::GUID::from_u128(0xaca73f8e_8d23_11d1_ac7d_0000f87571d0);
-pub const GUID_PNP_EXTENDED_ADDRESS_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0xb8e992ec_a797_4dc4_8846_84d041707446);
-pub const GUID_PNP_LOCATION_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x70211b0e_0afb_47db_afc1_410bf842497a);
-pub const GUID_PNP_POWER_NOTIFICATION: windows_core::GUID = windows_core::GUID::from_u128(0xc2cf0660_eb7a_11d1_bd7f_0000f87571d0);
-pub const GUID_PNP_POWER_SETTING_CHANGE: windows_core::GUID = windows_core::GUID::from_u128(0x29c69b3e_c79a_43bf_bbde_a932fa1bea7e);
-pub const GUID_POWER_DEVICE_ENABLE: windows_core::GUID = windows_core::GUID::from_u128(0x827c0a6f_feb0_11d0_bd26_00aa00b7b32a);
-pub const GUID_POWER_DEVICE_TIMEOUTS: windows_core::GUID = windows_core::GUID::from_u128(0xa45da735_feb0_11d0_bd26_00aa00b7b32a);
-pub const GUID_POWER_DEVICE_WAKE_ENABLE: windows_core::GUID = windows_core::GUID::from_u128(0xa9546a82_feb0_11d0_bd26_00aa00b7b32a);
-pub const GUID_PROCESSOR_PCC_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0x37b17e9a_c21c_4296_972d_11c4b32b28f0);
-pub const GUID_QUERY_CRASHDUMP_FUNCTIONS: windows_core::GUID = windows_core::GUID::from_u128(0x9cc6b8ff_32e2_4834_b1de_b32ef8880a4b);
-pub const GUID_RECOVERY_NVMED_PREPARE_SHUTDOWN: windows_core::GUID = windows_core::GUID::from_u128(0x4b9770ea_bde7_400b_a9b9_4f684f54cc2a);
-pub const GUID_RECOVERY_PCI_PREPARE_SHUTDOWN: windows_core::GUID = windows_core::GUID::from_u128(0x90d889de_8704_44cf_8115_ed8528d2b2da);
-pub const GUID_REENUMERATE_SELF_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0x2aeb0243_6a6e_486b_82fc_d815f6b97006);
-pub const GUID_SCM_BUS_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x25944783_ce79_4232_815e_4a30014e8eb4);
-pub const GUID_SCM_BUS_LD_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x9b89307d_d76b_4f48_b186_54041ae92e8d);
-pub const GUID_SCM_BUS_NVD_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x8de064ff_b630_42e4_88ea_6f24c8641175);
-pub const GUID_SCM_PHYSICAL_NVDIMM_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x0079c21b_917e_405e_a9ce_0732b5bbcebd);
-pub const GUID_SDEV_IDENTIFIER_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x49d67af8_916c_4ee8_9df1_889f17d21e91);
-pub const GUID_SECURE_DRIVER_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x370f67e1_4ff5_4a94_9a35_06c5d9cc30e2);
-pub const GUID_TARGET_DEVICE_QUERY_REMOVE: windows_core::GUID = windows_core::GUID::from_u128(0xcb3a4006_46f0_11d0_b08f_00609713053f);
-pub const GUID_TARGET_DEVICE_REMOVE_CANCELLED: windows_core::GUID = windows_core::GUID::from_u128(0xcb3a4007_46f0_11d0_b08f_00609713053f);
-pub const GUID_TARGET_DEVICE_REMOVE_COMPLETE: windows_core::GUID = windows_core::GUID::from_u128(0xcb3a4008_46f0_11d0_b08f_00609713053f);
-pub const GUID_TARGET_DEVICE_TRANSPORT_RELATIONS_CHANGED: windows_core::GUID = windows_core::GUID::from_u128(0xfcf528f6_a82f_47b1_ad3a_8050594cad28);
-pub const GUID_THERMAL_COOLING_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0xecbe47a8_c498_4bb9_bd70_e867e0940d22);
-pub const GUID_TRANSLATOR_INTERFACE_STANDARD: windows_core::GUID = windows_core::GUID::from_u128(0x6c154a92_aacf_11d0_8d2a_00a0c906b244);
-pub const GUID_WUDF_DEVICE_HOST_PROBLEM: windows_core::GUID = windows_core::GUID::from_u128(0xc43d25bd_9346_40ee_a2d2_d70c15f8b75b);
-pub const IDD_DYNAWIZ_ANALYZEDEV_PAGE: u32 = 10010u32;
-pub const IDD_DYNAWIZ_ANALYZE_NEXTPAGE: u32 = 10004u32;
-pub const IDD_DYNAWIZ_ANALYZE_PREVPAGE: u32 = 10003u32;
-pub const IDD_DYNAWIZ_FIRSTPAGE: u32 = 10000u32;
-pub const IDD_DYNAWIZ_INSTALLDETECTEDDEVS_PAGE: u32 = 10011u32;
-pub const IDD_DYNAWIZ_INSTALLDETECTED_NEXTPAGE: u32 = 10007u32;
-pub const IDD_DYNAWIZ_INSTALLDETECTED_NODEVS: u32 = 10008u32;
-pub const IDD_DYNAWIZ_INSTALLDETECTED_PREVPAGE: u32 = 10006u32;
-pub const IDD_DYNAWIZ_SELECTCLASS_PAGE: u32 = 10012u32;
-pub const IDD_DYNAWIZ_SELECTDEV_PAGE: u32 = 10009u32;
-pub const IDD_DYNAWIZ_SELECT_NEXTPAGE: u32 = 10002u32;
-pub const IDD_DYNAWIZ_SELECT_PREVPAGE: u32 = 10001u32;
-pub const IDF_CHECKFIRST: u32 = 256u32;
-pub const IDF_NOBEEP: u32 = 512u32;
-pub const IDF_NOBROWSE: u32 = 1u32;
-pub const IDF_NOCOMPRESSED: u32 = 8u32;
-pub const IDF_NODETAILS: u32 = 4u32;
-pub const IDF_NOFOREGROUND: u32 = 1024u32;
-pub const IDF_NOREMOVABLEMEDIAPROMPT: u32 = 4096u32;
-pub const IDF_NOSKIP: u32 = 2u32;
-pub const IDF_OEMDISK: u32 = 2147483648u32;
-pub const IDF_USEDISKNAMEASPROMPT: u32 = 8192u32;
-pub const IDF_WARNIFSKIP: u32 = 2048u32;
-pub const IDI_CLASSICON_OVERLAYFIRST: u32 = 500u32;
-pub const IDI_CLASSICON_OVERLAYLAST: u32 = 502u32;
-pub const IDI_CONFLICT: u32 = 161u32;
-pub const IDI_DISABLED_OVL: u32 = 501u32;
-pub const IDI_FORCED_OVL: u32 = 502u32;
-pub const IDI_PROBLEM_OVL: u32 = 500u32;
-pub const IDI_RESOURCE: u32 = 159u32;
-pub const IDI_RESOURCEFIRST: u32 = 159u32;
-pub const IDI_RESOURCELAST: u32 = 161u32;
-pub const IDI_RESOURCEOVERLAYFIRST: u32 = 161u32;
-pub const IDI_RESOURCEOVERLAYLAST: u32 = 161u32;
-pub const INFINFO_DEFAULT_SEARCH: u32 = 3u32;
-pub const INFINFO_INF_NAME_IS_ABSOLUTE: u32 = 2u32;
-pub const INFINFO_INF_PATH_LIST_SEARCH: u32 = 5u32;
-pub const INFINFO_INF_SPEC_IS_HINF: u32 = 1u32;
-pub const INFINFO_REVERSE_DEFAULT_SEARCH: u32 = 4u32;
-pub const INFSTR_BUS_ALL: windows_core::PCWSTR = windows_core::w!("BUS_ALL");
-pub const INFSTR_BUS_EISA: windows_core::PCWSTR = windows_core::w!("BUS_EISA");
-pub const INFSTR_BUS_ISA: windows_core::PCWSTR = windows_core::w!("BUS_ISA");
-pub const INFSTR_BUS_MCA: windows_core::PCWSTR = windows_core::w!("BUS_MCA");
-pub const INFSTR_CFGPRI_DESIRED: windows_core::PCWSTR = windows_core::w!("DESIRED");
-pub const INFSTR_CFGPRI_DISABLED: windows_core::PCWSTR = windows_core::w!("DISABLED");
-pub const INFSTR_CFGPRI_FORCECONFIG: windows_core::PCWSTR = windows_core::w!("FORCECONFIG");
-pub const INFSTR_CFGPRI_HARDRECONFIG: windows_core::PCWSTR = windows_core::w!("HARDRECONFIG");
-pub const INFSTR_CFGPRI_HARDWIRED: windows_core::PCWSTR = windows_core::w!("HARDWIRED");
-pub const INFSTR_CFGPRI_NORMAL: windows_core::PCWSTR = windows_core::w!("NORMAL");
-pub const INFSTR_CFGPRI_POWEROFF: windows_core::PCWSTR = windows_core::w!("POWEROFF");
-pub const INFSTR_CFGPRI_REBOOT: windows_core::PCWSTR = windows_core::w!("REBOOT");
-pub const INFSTR_CFGPRI_RESTART: windows_core::PCWSTR = windows_core::w!("RESTART");
-pub const INFSTR_CFGPRI_SUBOPTIMAL: windows_core::PCWSTR = windows_core::w!("SUBOPTIMAL");
-pub const INFSTR_CFGTYPE_BASIC: windows_core::PCWSTR = windows_core::w!("BASIC");
-pub const INFSTR_CFGTYPE_FORCED: windows_core::PCWSTR = windows_core::w!("FORCED");
-pub const INFSTR_CFGTYPE_OVERRIDE: windows_core::PCWSTR = windows_core::w!("OVERRIDE");
-pub const INFSTR_CLASS_SAFEEXCL: windows_core::PCWSTR = windows_core::w!("SAFE_EXCL");
-pub const INFSTR_CONTROLFLAGS_SECTION: windows_core::PCWSTR = windows_core::w!("ControlFlags");
-pub const INFSTR_DRIVERSELECT_FUNCTIONS: windows_core::PCWSTR = windows_core::w!("DriverSelectFunctions");
-pub const INFSTR_DRIVERSELECT_SECTION: windows_core::PCWSTR = windows_core::w!("DriverSelect");
-pub const INFSTR_DRIVERVERSION_SECTION: windows_core::PCWSTR = windows_core::w!("DriverVer");
-pub const INFSTR_KEY_ACTION: windows_core::PCWSTR = windows_core::w!("Action");
-pub const INFSTR_KEY_ALWAYSEXCLUDEFROMSELECT: windows_core::PCWSTR = windows_core::w!("AlwaysExcludeFromSelect");
-pub const INFSTR_KEY_BUFFER_SIZE: windows_core::PCWSTR = windows_core::w!("BufferSize");
-pub const INFSTR_KEY_CATALOGFILE: windows_core::PCWSTR = windows_core::w!("CatalogFile");
-pub const INFSTR_KEY_CHANNEL_ACCESS: windows_core::PCWSTR = windows_core::w!("Access");
-pub const INFSTR_KEY_CHANNEL_ENABLED: windows_core::PCWSTR = windows_core::w!("Enabled");
-pub const INFSTR_KEY_CHANNEL_ISOLATION: windows_core::PCWSTR = windows_core::w!("Isolation");
-pub const INFSTR_KEY_CHANNEL_VALUE: windows_core::PCWSTR = windows_core::w!("Value");
-pub const INFSTR_KEY_CLASS: windows_core::PCWSTR = windows_core::w!("Class");
-pub const INFSTR_KEY_CLASSGUID: windows_core::PCWSTR = windows_core::w!("ClassGUID");
-pub const INFSTR_KEY_CLOCK_TYPE: windows_core::PCWSTR = windows_core::w!("ClockType");
-pub const INFSTR_KEY_CONFIGPRIORITY: windows_core::PCWSTR = windows_core::w!("ConfigPriority");
-pub const INFSTR_KEY_COPYFILESONLY: windows_core::PCWSTR = windows_core::w!("CopyFilesOnly");
-pub const INFSTR_KEY_DATA_ITEM: windows_core::PCWSTR = windows_core::w!("DataItem");
-pub const INFSTR_KEY_DELAYEDAUTOSTART: windows_core::PCWSTR = windows_core::w!("DelayedAutoStart");
-pub const INFSTR_KEY_DEPENDENCIES: windows_core::PCWSTR = windows_core::w!("Dependencies");
-pub const INFSTR_KEY_DESCRIPTION: windows_core::PCWSTR = windows_core::w!("Description");
-pub const INFSTR_KEY_DETECTLIST: windows_core::PCWSTR = windows_core::w!("DetectList");
-pub const INFSTR_KEY_DETPARAMS: windows_core::PCWSTR = windows_core::w!("Params");
-pub const INFSTR_KEY_DISABLE_REALTIME_PERSISTENCE: windows_core::PCWSTR = windows_core::w!("DisableRealtimePersistence");
-pub const INFSTR_KEY_DISPLAYNAME: windows_core::PCWSTR = windows_core::w!("DisplayName");
-pub const INFSTR_KEY_DMA: windows_core::PCWSTR = windows_core::w!("DMA");
-pub const INFSTR_KEY_DMACONFIG: windows_core::PCWSTR = windows_core::w!("DMAConfig");
-pub const INFSTR_KEY_DRIVERSET: windows_core::PCWSTR = windows_core::w!("DriverSet");
-pub const INFSTR_KEY_ENABLED: windows_core::PCWSTR = windows_core::w!("Enabled");
-pub const INFSTR_KEY_ENABLE_FLAGS: windows_core::PCWSTR = windows_core::w!("EnableFlags");
-pub const INFSTR_KEY_ENABLE_LEVEL: windows_core::PCWSTR = windows_core::w!("EnableLevel");
-pub const INFSTR_KEY_ENABLE_PROPERTY: windows_core::PCWSTR = windows_core::w!("EnableProperty");
-pub const INFSTR_KEY_ERRORCONTROL: windows_core::PCWSTR = windows_core::w!("ErrorControl");
-pub const INFSTR_KEY_EXCLUDEFROMSELECT: windows_core::PCWSTR = windows_core::w!("ExcludeFromSelect");
-pub const INFSTR_KEY_EXCLUDERES: windows_core::PCWSTR = windows_core::w!("ExcludeRes");
-pub const INFSTR_KEY_EXTENSIONID: windows_core::PCWSTR = windows_core::w!("ExtensionId");
-pub const INFSTR_KEY_FAILURE_ACTION: windows_core::PCWSTR = windows_core::w!("Action");
-pub const INFSTR_KEY_FILE_MAX: windows_core::PCWSTR = windows_core::w!("FileMax");
-pub const INFSTR_KEY_FILE_NAME: windows_core::PCWSTR = windows_core::w!("FileName");
-pub const INFSTR_KEY_FLUSH_TIMER: windows_core::PCWSTR = windows_core::w!("FlushTimer");
-pub const INFSTR_KEY_FROMINET: windows_core::PCWSTR = windows_core::w!("FromINet");
-pub const INFSTR_KEY_HARDWARE_CLASS: windows_core::PCWSTR = windows_core::w!("Class");
-pub const INFSTR_KEY_HARDWARE_CLASSGUID: windows_core::PCWSTR = windows_core::w!("ClassGUID");
-pub const INFSTR_KEY_INTERACTIVEINSTALL: windows_core::PCWSTR = windows_core::w!("InteractiveInstall");
-pub const INFSTR_KEY_IO: windows_core::PCWSTR = windows_core::w!("IO");
-pub const INFSTR_KEY_IOCONFIG: windows_core::PCWSTR = windows_core::w!("IOConfig");
-pub const INFSTR_KEY_IRQ: windows_core::PCWSTR = windows_core::w!("IRQ");
-pub const INFSTR_KEY_IRQCONFIG: windows_core::PCWSTR = windows_core::w!("IRQConfig");
-pub const INFSTR_KEY_LOADORDERGROUP: windows_core::PCWSTR = windows_core::w!("LoadOrderGroup");
-pub const INFSTR_KEY_LOGGING_AUTOBACKUP: windows_core::PCWSTR = windows_core::w!("LoggingAutoBackup");
-pub const INFSTR_KEY_LOGGING_MAXSIZE: windows_core::PCWSTR = windows_core::w!("LoggingMaxSize");
-pub const INFSTR_KEY_LOGGING_RETENTION: windows_core::PCWSTR = windows_core::w!("LoggingRetention");
-pub const INFSTR_KEY_LOG_FILE_MODE: windows_core::PCWSTR = windows_core::w!("LogFileMode");
-pub const INFSTR_KEY_MATCH_ALL_KEYWORD: windows_core::PCWSTR = windows_core::w!("MatchAllKeyword");
-pub const INFSTR_KEY_MATCH_ANY_KEYWORD: windows_core::PCWSTR = windows_core::w!("MatchAnyKeyword");
-pub const INFSTR_KEY_MAXIMUM_BUFFERS: windows_core::PCWSTR = windows_core::w!("MaximumBuffers");
-pub const INFSTR_KEY_MAX_FILE_SIZE: windows_core::PCWSTR = windows_core::w!("MaxFileSize");
-pub const INFSTR_KEY_MEM: windows_core::PCWSTR = windows_core::w!("Mem");
-pub const INFSTR_KEY_MEMCONFIG: windows_core::PCWSTR = windows_core::w!("MemConfig");
-pub const INFSTR_KEY_MEMLARGECONFIG: windows_core::PCWSTR = windows_core::w!("MemLargeConfig");
-pub const INFSTR_KEY_MESSAGE_FILE: windows_core::PCWSTR = windows_core::w!("MessageFile");
-pub const INFSTR_KEY_MFCARDCONFIG: windows_core::PCWSTR = windows_core::w!("MfCardConfig");
-pub const INFSTR_KEY_MINIMUM_BUFFERS: windows_core::PCWSTR = windows_core::w!("MinimumBuffers");
-pub const INFSTR_KEY_NAME: windows_core::PCWSTR = windows_core::w!("Name");
-pub const INFSTR_KEY_NON_CRASH_FAILURES: windows_core::PCWSTR = windows_core::w!("NonCrashFailures");
-pub const INFSTR_KEY_NOSETUPINF: windows_core::PCWSTR = windows_core::w!("NoSetupInf");
-pub const INFSTR_KEY_PARAMETER_FILE: windows_core::PCWSTR = windows_core::w!("ParameterFile");
-pub const INFSTR_KEY_PATH: windows_core::PCWSTR = windows_core::w!("Path");
-pub const INFSTR_KEY_PCCARDCONFIG: windows_core::PCWSTR = windows_core::w!("PcCardConfig");
-pub const INFSTR_KEY_PNPLOCKDOWN: windows_core::PCWSTR = windows_core::w!("PnpLockDown");
-pub const INFSTR_KEY_PROVIDER: windows_core::PCWSTR = windows_core::w!("Provider");
-pub const INFSTR_KEY_PROVIDER_NAME: windows_core::PCWSTR = windows_core::w!("ProviderName");
-pub const INFSTR_KEY_REQUESTADDITIONALSOFTWARE: windows_core::PCWSTR = windows_core::w!("RequestAdditionalSoftware");
-pub const INFSTR_KEY_REQUIREDPRIVILEGES: windows_core::PCWSTR = windows_core::w!("RequiredPrivileges");
-pub const INFSTR_KEY_RESET_PERIOD: windows_core::PCWSTR = windows_core::w!("ResetPeriod");
-pub const INFSTR_KEY_RESOURCE_FILE: windows_core::PCWSTR = windows_core::w!("ResourceFile");
-pub const INFSTR_KEY_SECURITY: windows_core::PCWSTR = windows_core::w!("Security");
-pub const INFSTR_KEY_SERVICEBINARY: windows_core::PCWSTR = windows_core::w!("ServiceBinary");
-pub const INFSTR_KEY_SERVICESIDTYPE: windows_core::PCWSTR = windows_core::w!("ServiceSidType");
-pub const INFSTR_KEY_SERVICETYPE: windows_core::PCWSTR = windows_core::w!("ServiceType");
-pub const INFSTR_KEY_SIGNATURE: windows_core::PCWSTR = windows_core::w!("Signature");
-pub const INFSTR_KEY_SKIPLIST: windows_core::PCWSTR = windows_core::w!("SkipList");
-pub const INFSTR_KEY_START: windows_core::PCWSTR = windows_core::w!("Start");
-pub const INFSTR_KEY_STARTNAME: windows_core::PCWSTR = windows_core::w!("StartName");
-pub const INFSTR_KEY_STARTTYPE: windows_core::PCWSTR = windows_core::w!("StartType");
-pub const INFSTR_KEY_SUB_TYPE: windows_core::PCWSTR = windows_core::w!("SubType");
-pub const INFSTR_KEY_TRIGGER_TYPE: windows_core::PCWSTR = windows_core::w!("TriggerType");
-pub const INFSTR_PLATFORM_NT: windows_core::PCWSTR = windows_core::w!("NT");
-pub const INFSTR_PLATFORM_NTALPHA: windows_core::PCWSTR = windows_core::w!("NTAlpha");
-pub const INFSTR_PLATFORM_NTAMD64: windows_core::PCWSTR = windows_core::w!("NTAMD64");
-pub const INFSTR_PLATFORM_NTARM: windows_core::PCWSTR = windows_core::w!("NTARM");
-pub const INFSTR_PLATFORM_NTARM64: windows_core::PCWSTR = windows_core::w!("NTARM64");
-pub const INFSTR_PLATFORM_NTAXP64: windows_core::PCWSTR = windows_core::w!("NTAXP64");
-pub const INFSTR_PLATFORM_NTIA64: windows_core::PCWSTR = windows_core::w!("NTIA64");
-pub const INFSTR_PLATFORM_NTMIPS: windows_core::PCWSTR = windows_core::w!("NTMIPS");
-pub const INFSTR_PLATFORM_NTPPC: windows_core::PCWSTR = windows_core::w!("NTPPC");
-pub const INFSTR_PLATFORM_NTX86: windows_core::PCWSTR = windows_core::w!("NTx86");
-pub const INFSTR_PLATFORM_WIN: windows_core::PCWSTR = windows_core::w!("Win");
-pub const INFSTR_REBOOT: windows_core::PCWSTR = windows_core::w!("Reboot");
-pub const INFSTR_RESTART: windows_core::PCWSTR = windows_core::w!("Restart");
-pub const INFSTR_RISK_BIOSROMRD: windows_core::PCWSTR = windows_core::w!("RISK_BIOSROMRD");
-pub const INFSTR_RISK_DELICATE: windows_core::PCWSTR = windows_core::w!("RISK_DELICATE");
-pub const INFSTR_RISK_IORD: windows_core::PCWSTR = windows_core::w!("RISK_IORD");
-pub const INFSTR_RISK_IOWR: windows_core::PCWSTR = windows_core::w!("RISK_IOWR");
-pub const INFSTR_RISK_LOW: windows_core::PCWSTR = windows_core::w!("RISK_LOW");
-pub const INFSTR_RISK_MEMRD: windows_core::PCWSTR = windows_core::w!("RISK_MEMRD");
-pub const INFSTR_RISK_MEMWR: windows_core::PCWSTR = windows_core::w!("RISK_MEMWR");
-pub const INFSTR_RISK_NONE: windows_core::PCWSTR = windows_core::w!("RISK_NONE");
-pub const INFSTR_RISK_QUERYDRV: windows_core::PCWSTR = windows_core::w!("RISK_QUERYDRV");
-pub const INFSTR_RISK_SWINT: windows_core::PCWSTR = windows_core::w!("RISK_SWINT");
-pub const INFSTR_RISK_UNRELIABLE: windows_core::PCWSTR = windows_core::w!("RISK_UNRELIABLE");
-pub const INFSTR_RISK_VERYHIGH: windows_core::PCWSTR = windows_core::w!("RISK_VERYHIGH");
-pub const INFSTR_RISK_VERYLOW: windows_core::PCWSTR = windows_core::w!("RISK_VERYLOW");
-pub const INFSTR_SECT_AUTOEXECBAT: windows_core::PCWSTR = windows_core::w!("AutoexecBatDrivers");
-pub const INFSTR_SECT_AVOIDCFGSYSDEV: windows_core::PCWSTR = windows_core::w!("Det.AvoidCfgSysDev");
-pub const INFSTR_SECT_AVOIDENVDEV: windows_core::PCWSTR = windows_core::w!("Det.AvoidEnvDev");
-pub const INFSTR_SECT_AVOIDINIDEV: windows_core::PCWSTR = windows_core::w!("Det.AvoidIniDev");
-pub const INFSTR_SECT_BADACPIBIOS: windows_core::PCWSTR = windows_core::w!("BadACPIBios");
-pub const INFSTR_SECT_BADDISKBIOS: windows_core::PCWSTR = windows_core::w!("BadDiskBios");
-pub const INFSTR_SECT_BADDSBIOS: windows_core::PCWSTR = windows_core::w!("BadDSBios");
-pub const INFSTR_SECT_BADPMCALLBIOS: windows_core::PCWSTR = windows_core::w!("BadProtectedModeCallBios");
-pub const INFSTR_SECT_BADPNPBIOS: windows_core::PCWSTR = windows_core::w!("BadPnpBios");
-pub const INFSTR_SECT_BADRMCALLBIOS: windows_core::PCWSTR = windows_core::w!("BadRealModeCallBios");
-pub const INFSTR_SECT_BADROUTINGTABLEBIOS: windows_core::PCWSTR = windows_core::w!("BadPCIIRQRoutingTableBios");
-pub const INFSTR_SECT_CFGSYS: windows_core::PCWSTR = windows_core::w!("ConfigSysDrivers");
-pub const INFSTR_SECT_CLASS_INSTALL: windows_core::PCWSTR = windows_core::w!("ClassInstall");
-pub const INFSTR_SECT_CLASS_INSTALL_32: windows_core::PCWSTR = windows_core::w!("ClassInstall32");
-pub const INFSTR_SECT_DEFAULT_INSTALL: windows_core::PCWSTR = windows_core::w!("DefaultInstall");
-pub const INFSTR_SECT_DEFAULT_UNINSTALL: windows_core::PCWSTR = windows_core::w!("DefaultUninstall");
-pub const INFSTR_SECT_DETCLASSINFO: windows_core::PCWSTR = windows_core::w!("Det.ClassInfo");
-pub const INFSTR_SECT_DETMODULES: windows_core::PCWSTR = windows_core::w!("Det.Modules");
-pub const INFSTR_SECT_DETOPTIONS: windows_core::PCWSTR = windows_core::w!("Det.Options");
-pub const INFSTR_SECT_DEVINFS: windows_core::PCWSTR = windows_core::w!("Det.DevINFs");
-pub const INFSTR_SECT_DISPLAY_CLEANUP: windows_core::PCWSTR = windows_core::w!("DisplayCleanup");
-pub const INFSTR_SECT_EXTENSIONCONTRACTS: windows_core::PCWSTR = windows_core::w!("ExtensionContracts");
-pub const INFSTR_SECT_FORCEHWVERIFY: windows_core::PCWSTR = windows_core::w!("Det.ForceHWVerify");
-pub const INFSTR_SECT_GOODACPIBIOS: windows_core::PCWSTR = windows_core::w!("GoodACPIBios");
-pub const INFSTR_SECT_HPOMNIBOOK: windows_core::PCWSTR = windows_core::w!("Det.HPOmnibook");
-pub const INFSTR_SECT_INTERFACE_INSTALL_32: windows_core::PCWSTR = windows_core::w!("InterfaceInstall32");
-pub const INFSTR_SECT_MACHINEIDBIOS: windows_core::PCWSTR = windows_core::w!("MachineIDBios");
-pub const INFSTR_SECT_MANUALDEV: windows_core::PCWSTR = windows_core::w!("Det.ManualDev");
-pub const INFSTR_SECT_MFG: windows_core::PCWSTR = windows_core::w!("Manufacturer");
-pub const INFSTR_SECT_REGCFGSYSDEV: windows_core::PCWSTR = windows_core::w!("Det.RegCfgSysDev");
-pub const INFSTR_SECT_REGENVDEV: windows_core::PCWSTR = windows_core::w!("Det.RegEnvDev");
-pub const INFSTR_SECT_REGINIDEV: windows_core::PCWSTR = windows_core::w!("Det.RegIniDev");
-pub const INFSTR_SECT_SYSINI: windows_core::PCWSTR = windows_core::w!("SystemIniDrivers");
-pub const INFSTR_SECT_SYSINIDRV: windows_core::PCWSTR = windows_core::w!("SystemIniDriversLine");
-pub const INFSTR_SECT_TARGETCOMPUTERS: windows_core::PCWSTR = windows_core::w!("TargetComputers");
-pub const INFSTR_SECT_VERSION: windows_core::PCWSTR = windows_core::w!("Version");
-pub const INFSTR_SECT_WININIRUN: windows_core::PCWSTR = windows_core::w!("WinIniRunLine");
-pub const INFSTR_SOFTWAREVERSION_SECTION: windows_core::PCWSTR = windows_core::w!("SoftwareVersion");
-pub const INFSTR_STRKEY_DRVDESC: windows_core::PCWSTR = windows_core::w!("DriverDesc");
-pub const INFSTR_SUBKEY_COINSTALLERS: windows_core::PCWSTR = windows_core::w!("CoInstallers");
-pub const INFSTR_SUBKEY_CTL: windows_core::PCWSTR = windows_core::w!("CTL");
-pub const INFSTR_SUBKEY_DET: windows_core::PCWSTR = windows_core::w!("Det");
-pub const INFSTR_SUBKEY_EVENTS: windows_core::PCWSTR = windows_core::w!("Events");
-pub const INFSTR_SUBKEY_FACTDEF: windows_core::PCWSTR = windows_core::w!("FactDef");
-pub const INFSTR_SUBKEY_FILTERS: windows_core::PCWSTR = windows_core::w!("Filters");
-pub const INFSTR_SUBKEY_HW: windows_core::PCWSTR = windows_core::w!("Hw");
-pub const INFSTR_SUBKEY_INTERFACES: windows_core::PCWSTR = windows_core::w!("Interfaces");
-pub const INFSTR_SUBKEY_LOGCONFIG: windows_core::PCWSTR = windows_core::w!("LogConfig");
-pub const INFSTR_SUBKEY_LOGCONFIGOVERRIDE: windows_core::PCWSTR = windows_core::w!("LogConfigOverride");
-pub const INFSTR_SUBKEY_NORESOURCEDUPS: windows_core::PCWSTR = windows_core::w!("NoResDup");
-pub const INFSTR_SUBKEY_POSSIBLEDUPS: windows_core::PCWSTR = windows_core::w!("PosDup");
-pub const INFSTR_SUBKEY_SERVICES: windows_core::PCWSTR = windows_core::w!("Services");
-pub const INFSTR_SUBKEY_SOFTWARE: windows_core::PCWSTR = windows_core::w!("Software");
-pub const INFSTR_SUBKEY_WMI: windows_core::PCWSTR = windows_core::w!("WMI");
-pub const INF_STYLE_CACHE_DISABLE: INF_STYLE = INF_STYLE(32u32);
-pub const INF_STYLE_CACHE_ENABLE: INF_STYLE = INF_STYLE(16u32);
-pub const INF_STYLE_CACHE_IGNORE: INF_STYLE = INF_STYLE(64u32);
-pub const INF_STYLE_NONE: INF_STYLE = INF_STYLE(0u32);
-pub const INF_STYLE_OLDNT: INF_STYLE = INF_STYLE(1u32);
-pub const INF_STYLE_WIN4: INF_STYLE = INF_STYLE(2u32);
-pub const INSTALLFLAG_BITS: UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS = UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS(7u32);
-pub const INSTALLFLAG_FORCE: UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS = UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS(1u32);
-pub const INSTALLFLAG_NONINTERACTIVE: UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS = UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS(4u32);
-pub const INSTALLFLAG_READONLY: UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS = UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS(2u32);
-pub const IOA_Local: u32 = 255u32;
-pub const IO_ALIAS_10_BIT_DECODE: u32 = 4u32;
-pub const IO_ALIAS_12_BIT_DECODE: u32 = 16u32;
-pub const IO_ALIAS_16_BIT_DECODE: u32 = 0u32;
-pub const IO_ALIAS_POSITIVE_DECODE: u32 = 255u32;
-pub const LCPRI_BOOTCONFIG: u32 = 1u32;
-pub const LCPRI_DESIRED: u32 = 8192u32;
-pub const LCPRI_DISABLED: u32 = 65535u32;
-pub const LCPRI_FORCECONFIG: u32 = 0u32;
-pub const LCPRI_HARDRECONFIG: u32 = 49152u32;
-pub const LCPRI_HARDWIRED: u32 = 57344u32;
-pub const LCPRI_IMPOSSIBLE: u32 = 61440u32;
-pub const LCPRI_LASTBESTCONFIG: u32 = 16383u32;
-pub const LCPRI_LASTSOFTCONFIG: u32 = 32767u32;
-pub const LCPRI_NORMAL: u32 = 12288u32;
-pub const LCPRI_POWEROFF: u32 = 40960u32;
-pub const LCPRI_REBOOT: u32 = 36864u32;
-pub const LCPRI_RESTART: u32 = 32768u32;
-pub const LCPRI_SUBOPTIMAL: u32 = 20480u32;
-pub const LINE_LEN: u32 = 256u32;
-pub const LOG_CONF_BITS: u32 = 7u32;
-pub const LogSevError: u32 = 2u32;
-pub const LogSevFatalError: u32 = 3u32;
-pub const LogSevInformation: u32 = 0u32;
-pub const LogSevMaximum: u32 = 4u32;
-pub const LogSevWarning: u32 = 1u32;
-pub const MAX_CLASS_NAME_LEN: u32 = 32u32;
-pub const MAX_CONFIG_VALUE: u32 = 9999u32;
-pub const MAX_DEVICE_ID_LEN: u32 = 200u32;
-pub const MAX_DEVNODE_ID_LEN: u32 = 200u32;
-pub const MAX_DMA_CHANNELS: u32 = 7u32;
-pub const MAX_GUID_STRING_LEN: u32 = 39u32;
-pub const MAX_IDD_DYNAWIZ_RESOURCE_ID: u32 = 11000u32;
-pub const MAX_INFSTR_STRKEY_LEN: u32 = 32u32;
-pub const MAX_INF_FLAG: u32 = 20u32;
-pub const MAX_INF_SECTION_NAME_LENGTH: u32 = 255u32;
-pub const MAX_INF_STRING_LENGTH: u32 = 4096u32;
-pub const MAX_INSTALLWIZARD_DYNAPAGES: u32 = 20u32;
-pub const MAX_INSTANCE_VALUE: u32 = 9999u32;
-pub const MAX_INSTRUCTION_LEN: u32 = 256u32;
-pub const MAX_IO_PORTS: u32 = 20u32;
-pub const MAX_IRQS: u32 = 7u32;
-pub const MAX_KEY_LEN: u32 = 100u32;
-pub const MAX_LABEL_LEN: u32 = 30u32;
-pub const MAX_LCPRI: u32 = 65535u32;
-pub const MAX_MEM_REGISTERS: u32 = 9u32;
-pub const MAX_PRIORITYSTR_LEN: u32 = 16u32;
-pub const MAX_PROFILE_LEN: u32 = 80u32;
-pub const MAX_SERVICE_NAME_LEN: u32 = 256u32;
-pub const MAX_SUBTITLE_LEN: u32 = 256u32;
-pub const MAX_TITLE_LEN: u32 = 60u32;
-pub const MIN_IDD_DYNAWIZ_RESOURCE_ID: u32 = 10000u32;
-pub const NDW_INSTALLFLAG_CI_PICKED_OEM: u32 = 32768u32;
-pub const NDW_INSTALLFLAG_DIDFACTDEFS: u32 = 1u32;
-pub const NDW_INSTALLFLAG_EXPRESSINTRO: u32 = 1024u32;
-pub const NDW_INSTALLFLAG_HARDWAREALLREADYIN: u32 = 2u32;
-pub const NDW_INSTALLFLAG_INSTALLSPECIFIC: u32 = 8192u32;
-pub const NDW_INSTALLFLAG_KNOWNCLASS: u32 = 524288u32;
-pub const NDW_INSTALLFLAG_NEEDSHUTDOWN: u32 = 512u32;
-pub const NDW_INSTALLFLAG_NODETECTEDDEVS: u32 = 4096u32;
-pub const NDW_INSTALLFLAG_PCMCIADEVICE: u32 = 131072u32;
-pub const NDW_INSTALLFLAG_PCMCIAMODE: u32 = 65536u32;
-pub const NDW_INSTALLFLAG_SKIPCLASSLIST: u32 = 16384u32;
-pub const NDW_INSTALLFLAG_SKIPISDEVINSTALLED: u32 = 2048u32;
-pub const NDW_INSTALLFLAG_USERCANCEL: u32 = 262144u32;
-pub const NUM_CM_PROB: u32 = 58u32;
-pub const NUM_CM_PROB_V1: u32 = 37u32;
-pub const NUM_CM_PROB_V2: u32 = 50u32;
-pub const NUM_CM_PROB_V3: u32 = 51u32;
-pub const NUM_CM_PROB_V4: u32 = 52u32;
-pub const NUM_CM_PROB_V5: u32 = 53u32;
-pub const NUM_CM_PROB_V6: u32 = 54u32;
-pub const NUM_CM_PROB_V7: u32 = 55u32;
-pub const NUM_CM_PROB_V8: u32 = 57u32;
-pub const NUM_CM_PROB_V9: u32 = 58u32;
-pub const NUM_CR_RESULTS: CONFIGRET = CONFIGRET(60u32);
-pub const NUM_LOG_CONF: CM_LOG_CONF = CM_LOG_CONF(6u32);
-pub const OVERRIDE_LOG_CONF: CM_LOG_CONF = CM_LOG_CONF(5u32);
-pub const PCD_MAX_IO: u32 = 2u32;
-pub const PCD_MAX_MEMORY: u32 = 2u32;
-pub const PNP_VetoAlreadyRemoved: PNP_VETO_TYPE = PNP_VETO_TYPE(13i32);
-pub const PNP_VetoDevice: PNP_VETO_TYPE = PNP_VETO_TYPE(6i32);
-pub const PNP_VetoDriver: PNP_VETO_TYPE = PNP_VETO_TYPE(7i32);
-pub const PNP_VetoIllegalDeviceRequest: PNP_VETO_TYPE = PNP_VETO_TYPE(8i32);
-pub const PNP_VetoInsufficientPower: PNP_VETO_TYPE = PNP_VETO_TYPE(9i32);
-pub const PNP_VetoInsufficientRights: PNP_VETO_TYPE = PNP_VETO_TYPE(12i32);
-pub const PNP_VetoLegacyDevice: PNP_VETO_TYPE = PNP_VETO_TYPE(1i32);
-pub const PNP_VetoLegacyDriver: PNP_VETO_TYPE = PNP_VETO_TYPE(11i32);
-pub const PNP_VetoNonDisableable: PNP_VETO_TYPE = PNP_VETO_TYPE(10i32);
-pub const PNP_VetoOutstandingOpen: PNP_VETO_TYPE = PNP_VETO_TYPE(5i32);
-pub const PNP_VetoPendingClose: PNP_VETO_TYPE = PNP_VETO_TYPE(2i32);
-pub const PNP_VetoTypeUnknown: PNP_VETO_TYPE = PNP_VETO_TYPE(0i32);
-pub const PNP_VetoWindowsApp: PNP_VETO_TYPE = PNP_VETO_TYPE(3i32);
-pub const PNP_VetoWindowsService: PNP_VETO_TYPE = PNP_VETO_TYPE(4i32);
-pub const PRIORITY_BIT: u32 = 8u32;
-pub const PRIORITY_EQUAL_FIRST: u32 = 8u32;
-pub const PRIORITY_EQUAL_LAST: u32 = 0u32;
-pub const ROLLBACK_BITS: DIROLLBACKDRIVER_FLAGS = DIROLLBACKDRIVER_FLAGS(1u32);
-pub const ROLLBACK_FLAG_NO_UI: DIROLLBACKDRIVER_FLAGS = DIROLLBACKDRIVER_FLAGS(1u32);
-pub const RegDisposition_Bits: u32 = 1u32;
-pub const RegDisposition_OpenAlways: u32 = 0u32;
-pub const RegDisposition_OpenExisting: u32 = 1u32;
-pub const ResType_All: CM_RESTYPE = CM_RESTYPE(0u32);
-pub const ResType_BusNumber: CM_RESTYPE = CM_RESTYPE(6u32);
-pub const ResType_ClassSpecific: CM_RESTYPE = CM_RESTYPE(65535u32);
-pub const ResType_Connection: CM_RESTYPE = CM_RESTYPE(32772u32);
-pub const ResType_DMA: CM_RESTYPE = CM_RESTYPE(3u32);
-pub const ResType_DevicePrivate: CM_RESTYPE = CM_RESTYPE(32769u32);
-pub const ResType_DoNotUse: CM_RESTYPE = CM_RESTYPE(5u32);
-pub const ResType_IO: CM_RESTYPE = CM_RESTYPE(2u32);
-pub const ResType_IRQ: CM_RESTYPE = CM_RESTYPE(4u32);
-pub const ResType_Ignored_Bit: CM_RESTYPE = CM_RESTYPE(32768u32);
-pub const ResType_MAX: CM_RESTYPE = CM_RESTYPE(7u32);
-pub const ResType_Mem: CM_RESTYPE = CM_RESTYPE(1u32);
-pub const ResType_MemLarge: CM_RESTYPE = CM_RESTYPE(7u32);
-pub const ResType_MfCardConfig: CM_RESTYPE = CM_RESTYPE(32771u32);
-pub const ResType_None: CM_RESTYPE = CM_RESTYPE(0u32);
-pub const ResType_PcCardConfig: CM_RESTYPE = CM_RESTYPE(32770u32);
-pub const ResType_Reserved: CM_RESTYPE = CM_RESTYPE(32768u32);
-pub const SCWMI_CLOBBER_SECURITY: u32 = 1u32;
-pub const SETDIRID_NOT_FULL_PATH: u32 = 1u32;
 pub const SIGNERSCORE_AUTHENTICODE: u32 = 251658240u32;
 pub const SIGNERSCORE_INBOX: u32 = 218103811u32;
 pub const SIGNERSCORE_LOGO_PREMIUM: u32 = 218103809u32;
@@ -9818,6 +7618,90 @@ pub const SIGNERSCORE_UNKNOWN: u32 = 4278190080u32;
 pub const SIGNERSCORE_UNSIGNED: u32 = 2147483648u32;
 pub const SIGNERSCORE_W9X_SUSPECT: u32 = 3221225472u32;
 pub const SIGNERSCORE_WHQL: u32 = 218103813u32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SOURCE_MEDIA_A {
+    pub Reserved: windows_core::PCSTR,
+    pub Tagfile: windows_core::PCSTR,
+    pub Description: windows_core::PCSTR,
+    pub SourcePath: windows_core::PCSTR,
+    pub SourceFile: windows_core::PCSTR,
+    pub Flags: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SOURCE_MEDIA_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SOURCE_MEDIA_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SOURCE_MEDIA_A {
+    pub Reserved: windows_core::PCSTR,
+    pub Tagfile: windows_core::PCSTR,
+    pub Description: windows_core::PCSTR,
+    pub SourcePath: windows_core::PCSTR,
+    pub SourceFile: windows_core::PCSTR,
+    pub Flags: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SOURCE_MEDIA_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SOURCE_MEDIA_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SOURCE_MEDIA_W {
+    pub Reserved: windows_core::PCWSTR,
+    pub Tagfile: windows_core::PCWSTR,
+    pub Description: windows_core::PCWSTR,
+    pub SourcePath: windows_core::PCWSTR,
+    pub SourceFile: windows_core::PCWSTR,
+    pub Flags: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SOURCE_MEDIA_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SOURCE_MEDIA_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SOURCE_MEDIA_W {
+    pub Reserved: windows_core::PCWSTR,
+    pub Tagfile: windows_core::PCWSTR,
+    pub Description: windows_core::PCWSTR,
+    pub SourcePath: windows_core::PCWSTR,
+    pub SourceFile: windows_core::PCWSTR,
+    pub Flags: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SOURCE_MEDIA_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SOURCE_MEDIA_W {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SPCRP_CHARACTERISTICS: u32 = 27u32;
 pub const SPCRP_DEVTYPE: u32 = 25u32;
 pub const SPCRP_EXCLUSIVE: u32 = 26u32;
@@ -9964,6 +7848,42 @@ pub const SPREG_UNKNOWN: u32 = 4294967295u32;
 pub const SPSVCINST_ASSOCSERVICE: SPSVCINST_FLAGS = SPSVCINST_FLAGS(2u32);
 pub const SPSVCINST_CLOBBER_SECURITY: SPSVCINST_FLAGS = SPSVCINST_FLAGS(1024u32);
 pub const SPSVCINST_DELETEEVENTLOGENTRY: SPSVCINST_FLAGS = SPSVCINST_FLAGS(4u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPSVCINST_FLAGS(pub u32);
+impl SPSVCINST_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for SPSVCINST_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for SPSVCINST_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for SPSVCINST_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for SPSVCINST_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for SPSVCINST_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const SPSVCINST_NOCLOBBER_DELAYEDAUTOSTART: SPSVCINST_FLAGS = SPSVCINST_FLAGS(32768u32);
 pub const SPSVCINST_NOCLOBBER_DEPENDENCIES: SPSVCINST_FLAGS = SPSVCINST_FLAGS(128u32);
 pub const SPSVCINST_NOCLOBBER_DESCRIPTION: SPSVCINST_FLAGS = SPSVCINST_FLAGS(256u32);
@@ -9983,10 +7903,460 @@ pub const SPWPT_SELECTDEVICE: u32 = 1u32;
 pub const SPWP_USE_DEVINFO_DATA: u32 = 1u32;
 pub const SP_ALTPLATFORM_FLAGS_SUITE_MASK: u32 = 2u32;
 pub const SP_ALTPLATFORM_FLAGS_VERSION_RANGE: u32 = 1u32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
+pub struct SP_ALTPLATFORM_INFO_V1 {
+    pub cbSize: u32,
+    pub Platform: super::super::System::Diagnostics::Debug::VER_PLATFORM,
+    pub MajorVersion: u32,
+    pub MinorVersion: u32,
+    pub ProcessorArchitecture: u16,
+    pub Reserved: u16,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl Default for SP_ALTPLATFORM_INFO_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_ALTPLATFORM_INFO_V1 {
+    pub cbSize: u32,
+    pub Platform: super::super::System::Diagnostics::Debug::VER_PLATFORM,
+    pub MajorVersion: u32,
+    pub MinorVersion: u32,
+    pub ProcessorArchitecture: u16,
+    pub Reserved: u16,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl Default for SP_ALTPLATFORM_INFO_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
+#[derive(Clone, Copy)]
+pub struct SP_ALTPLATFORM_INFO_V2 {
+    pub cbSize: u32,
+    pub Platform: super::super::System::Diagnostics::Debug::VER_PLATFORM,
+    pub MajorVersion: u32,
+    pub MinorVersion: u32,
+    pub ProcessorArchitecture: super::super::System::SystemInformation::PROCESSOR_ARCHITECTURE,
+    pub Anonymous: SP_ALTPLATFORM_INFO_V2_0,
+    pub FirstValidatedMajorVersion: u32,
+    pub FirstValidatedMinorVersion: u32,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
+impl Default for SP_ALTPLATFORM_INFO_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
+impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
+#[derive(Clone, Copy)]
+pub union SP_ALTPLATFORM_INFO_V2_0 {
+    pub Reserved: u16,
+    pub Flags: u16,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
+impl Default for SP_ALTPLATFORM_INFO_V2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
+impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
+#[derive(Clone, Copy)]
+pub struct SP_ALTPLATFORM_INFO_V2 {
+    pub cbSize: u32,
+    pub Platform: super::super::System::Diagnostics::Debug::VER_PLATFORM,
+    pub MajorVersion: u32,
+    pub MinorVersion: u32,
+    pub ProcessorArchitecture: super::super::System::SystemInformation::PROCESSOR_ARCHITECTURE,
+    pub Anonymous: SP_ALTPLATFORM_INFO_V2_0,
+    pub FirstValidatedMajorVersion: u32,
+    pub FirstValidatedMinorVersion: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
+impl Default for SP_ALTPLATFORM_INFO_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
+impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
+#[derive(Clone, Copy)]
+pub union SP_ALTPLATFORM_INFO_V2_0 {
+    pub Reserved: u16,
+    pub Flags: u16,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
+impl Default for SP_ALTPLATFORM_INFO_V2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
+impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_ALTPLATFORM_INFO_V3 {
+    pub cbSize: u32,
+    pub Platform: u32,
+    pub MajorVersion: u32,
+    pub MinorVersion: u32,
+    pub ProcessorArchitecture: u16,
+    pub Anonymous: SP_ALTPLATFORM_INFO_V3_0,
+    pub FirstValidatedMajorVersion: u32,
+    pub FirstValidatedMinorVersion: u32,
+    pub ProductType: u8,
+    pub SuiteMask: u16,
+    pub BuildNumber: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_ALTPLATFORM_INFO_V3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V3 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub union SP_ALTPLATFORM_INFO_V3_0 {
+    pub Reserved: u16,
+    pub Flags: u16,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_ALTPLATFORM_INFO_V3_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V3_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct SP_ALTPLATFORM_INFO_V3 {
+    pub cbSize: u32,
+    pub Platform: u32,
+    pub MajorVersion: u32,
+    pub MinorVersion: u32,
+    pub ProcessorArchitecture: u16,
+    pub Anonymous: SP_ALTPLATFORM_INFO_V3_0,
+    pub FirstValidatedMajorVersion: u32,
+    pub FirstValidatedMinorVersion: u32,
+    pub ProductType: u8,
+    pub SuiteMask: u16,
+    pub BuildNumber: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_ALTPLATFORM_INFO_V3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V3 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub union SP_ALTPLATFORM_INFO_V3_0 {
+    pub Reserved: u16,
+    pub Flags: u16,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_ALTPLATFORM_INFO_V3_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V3_0 {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SP_BACKUP_BACKUPPASS: u32 = 1u32;
 pub const SP_BACKUP_BOOTFILE: u32 = 8u32;
 pub const SP_BACKUP_DEMANDPASS: u32 = 2u32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_BACKUP_QUEUE_PARAMS_V1_A {
+    pub cbSize: u32,
+    pub FullInfPath: [i8; 260],
+    pub FilenameOffset: i32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_BACKUP_QUEUE_PARAMS_V1_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_BACKUP_QUEUE_PARAMS_V1_A {
+    pub cbSize: u32,
+    pub FullInfPath: [i8; 260],
+    pub FilenameOffset: i32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_BACKUP_QUEUE_PARAMS_V1_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_BACKUP_QUEUE_PARAMS_V1_W {
+    pub cbSize: u32,
+    pub FullInfPath: [u16; 260],
+    pub FilenameOffset: i32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_BACKUP_QUEUE_PARAMS_V1_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_BACKUP_QUEUE_PARAMS_V1_W {
+    pub cbSize: u32,
+    pub FullInfPath: [u16; 260],
+    pub FilenameOffset: i32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_BACKUP_QUEUE_PARAMS_V1_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_BACKUP_QUEUE_PARAMS_V2_A {
+    pub cbSize: u32,
+    pub FullInfPath: [i8; 260],
+    pub FilenameOffset: i32,
+    pub ReinstallInstance: [i8; 260],
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_BACKUP_QUEUE_PARAMS_V2_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_BACKUP_QUEUE_PARAMS_V2_A {
+    pub cbSize: u32,
+    pub FullInfPath: [i8; 260],
+    pub FilenameOffset: i32,
+    pub ReinstallInstance: [i8; 260],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_BACKUP_QUEUE_PARAMS_V2_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_BACKUP_QUEUE_PARAMS_V2_W {
+    pub cbSize: u32,
+    pub FullInfPath: [u16; 260],
+    pub FilenameOffset: i32,
+    pub ReinstallInstance: [u16; 260],
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_BACKUP_QUEUE_PARAMS_V2_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_BACKUP_QUEUE_PARAMS_V2_W {
+    pub cbSize: u32,
+    pub FullInfPath: [u16; 260],
+    pub FilenameOffset: i32,
+    pub ReinstallInstance: [u16; 260],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_BACKUP_QUEUE_PARAMS_V2_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_W {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SP_BACKUP_SPECIAL: u32 = 4u32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_Controls")]
+#[derive(Clone, Copy)]
+pub struct SP_CLASSIMAGELIST_DATA {
+    pub cbSize: u32,
+    pub ImageList: super::super::UI::Controls::HIMAGELIST,
+    pub Reserved: usize,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_Controls")]
+impl Default for SP_CLASSIMAGELIST_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_Controls")]
+impl windows_core::TypeKind for SP_CLASSIMAGELIST_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_UI_Controls")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_CLASSIMAGELIST_DATA {
+    pub cbSize: u32,
+    pub ImageList: super::super::UI::Controls::HIMAGELIST,
+    pub Reserved: usize,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_UI_Controls")]
+impl Default for SP_CLASSIMAGELIST_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_UI_Controls")]
+impl windows_core::TypeKind for SP_CLASSIMAGELIST_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_CLASSINSTALL_HEADER {
+    pub cbSize: u32,
+    pub InstallFunction: DI_FUNCTION,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_CLASSINSTALL_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_CLASSINSTALL_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_CLASSINSTALL_HEADER {
+    pub cbSize: u32,
+    pub InstallFunction: DI_FUNCTION,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_CLASSINSTALL_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_CLASSINSTALL_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SP_COPY_ALREADYDECOMP: SP_COPY_STYLE = SP_COPY_STYLE(4194304u32);
 pub const SP_COPY_DELETESOURCE: SP_COPY_STYLE = SP_COPY_STYLE(1u32);
 pub const SP_COPY_FORCE_IN_USE: SP_COPY_STYLE = SP_COPY_STYLE(512u32);
@@ -10013,10 +8383,1601 @@ pub const SP_COPY_REPLACE_BOOT_FILE: SP_COPY_STYLE = SP_COPY_STYLE(524288u32);
 pub const SP_COPY_RESERVED: SP_COPY_STYLE = SP_COPY_STYLE(131072u32);
 pub const SP_COPY_SOURCEPATH_ABSOLUTE: SP_COPY_STYLE = SP_COPY_STYLE(128u32);
 pub const SP_COPY_SOURCE_ABSOLUTE: SP_COPY_STYLE = SP_COPY_STYLE(64u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SP_COPY_STYLE(pub u32);
+impl SP_COPY_STYLE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for SP_COPY_STYLE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for SP_COPY_STYLE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for SP_COPY_STYLE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for SP_COPY_STYLE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for SP_COPY_STYLE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const SP_COPY_WARNIFSKIP: SP_COPY_STYLE = SP_COPY_STYLE(16384u32);
 pub const SP_COPY_WINDOWS_SIGNED: SP_COPY_STYLE = SP_COPY_STYLE(16777216u32);
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_DETECTDEVICE_PARAMS {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub DetectProgressNotify: PDETECT_PROGRESS_NOTIFY,
+    pub ProgressNotifyParam: *mut core::ffi::c_void,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_DETECTDEVICE_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DETECTDEVICE_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_DETECTDEVICE_PARAMS {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub DetectProgressNotify: PDETECT_PROGRESS_NOTIFY,
+    pub ProgressNotifyParam: *mut core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_DETECTDEVICE_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DETECTDEVICE_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_DEVICE_INTERFACE_DATA {
+    pub cbSize: u32,
+    pub InterfaceClassGuid: windows_core::GUID,
+    pub Flags: u32,
+    pub Reserved: usize,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_DEVICE_INTERFACE_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_DEVICE_INTERFACE_DATA {
+    pub cbSize: u32,
+    pub InterfaceClassGuid: windows_core::GUID,
+    pub Flags: u32,
+    pub Reserved: usize,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_DEVICE_INTERFACE_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+    pub cbSize: u32,
+    pub DevicePath: [i8; 1],
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+    pub cbSize: u32,
+    pub DevicePath: [i8; 1],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+    pub cbSize: u32,
+    pub DevicePath: [u16; 1],
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+    pub cbSize: u32,
+    pub DevicePath: [u16; 1],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_DEVINFO_DATA {
+    pub cbSize: u32,
+    pub ClassGuid: windows_core::GUID,
+    pub DevInst: u32,
+    pub Reserved: usize,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_DEVINFO_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DEVINFO_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_DEVINFO_DATA {
+    pub cbSize: u32,
+    pub ClassGuid: windows_core::GUID,
+    pub DevInst: u32,
+    pub Reserved: usize,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_DEVINFO_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DEVINFO_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_DEVINFO_LIST_DETAIL_DATA_A {
+    pub cbSize: u32,
+    pub ClassGuid: windows_core::GUID,
+    pub RemoteMachineHandle: super::super::Foundation::HANDLE,
+    pub RemoteMachineName: [i8; 263],
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_DEVINFO_LIST_DETAIL_DATA_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_DEVINFO_LIST_DETAIL_DATA_A {
+    pub cbSize: u32,
+    pub ClassGuid: windows_core::GUID,
+    pub RemoteMachineHandle: super::super::Foundation::HANDLE,
+    pub RemoteMachineName: [i8; 263],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_DEVINFO_LIST_DETAIL_DATA_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_DEVINFO_LIST_DETAIL_DATA_W {
+    pub cbSize: u32,
+    pub ClassGuid: windows_core::GUID,
+    pub RemoteMachineHandle: super::super::Foundation::HANDLE,
+    pub RemoteMachineName: [u16; 263],
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_DEVINFO_LIST_DETAIL_DATA_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_DEVINFO_LIST_DETAIL_DATA_W {
+    pub cbSize: u32,
+    pub ClassGuid: windows_core::GUID,
+    pub RemoteMachineHandle: super::super::Foundation::HANDLE,
+    pub RemoteMachineName: [u16; 263],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_DEVINFO_LIST_DETAIL_DATA_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_DEVINSTALL_PARAMS_A {
+    pub cbSize: u32,
+    pub Flags: SETUP_DI_DEVICE_INSTALL_FLAGS,
+    pub FlagsEx: SETUP_DI_DEVICE_INSTALL_FLAGS_EX,
+    pub hwndParent: super::super::Foundation::HWND,
+    pub InstallMsgHandler: PSP_FILE_CALLBACK_A,
+    pub InstallMsgHandlerContext: *mut core::ffi::c_void,
+    pub FileQueue: *mut core::ffi::c_void,
+    pub ClassInstallReserved: usize,
+    pub Reserved: u32,
+    pub DriverPath: [i8; 260],
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_DEVINSTALL_PARAMS_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DEVINSTALL_PARAMS_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_DEVINSTALL_PARAMS_A {
+    pub cbSize: u32,
+    pub Flags: SETUP_DI_DEVICE_INSTALL_FLAGS,
+    pub FlagsEx: SETUP_DI_DEVICE_INSTALL_FLAGS_EX,
+    pub hwndParent: super::super::Foundation::HWND,
+    pub InstallMsgHandler: PSP_FILE_CALLBACK_A,
+    pub InstallMsgHandlerContext: *mut core::ffi::c_void,
+    pub FileQueue: *mut core::ffi::c_void,
+    pub ClassInstallReserved: usize,
+    pub Reserved: u32,
+    pub DriverPath: [i8; 260],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_DEVINSTALL_PARAMS_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DEVINSTALL_PARAMS_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_DEVINSTALL_PARAMS_W {
+    pub cbSize: u32,
+    pub Flags: SETUP_DI_DEVICE_INSTALL_FLAGS,
+    pub FlagsEx: SETUP_DI_DEVICE_INSTALL_FLAGS_EX,
+    pub hwndParent: super::super::Foundation::HWND,
+    pub InstallMsgHandler: PSP_FILE_CALLBACK_W,
+    pub InstallMsgHandlerContext: *mut core::ffi::c_void,
+    pub FileQueue: *mut core::ffi::c_void,
+    pub ClassInstallReserved: usize,
+    pub Reserved: u32,
+    pub DriverPath: [u16; 260],
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_DEVINSTALL_PARAMS_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DEVINSTALL_PARAMS_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_DEVINSTALL_PARAMS_W {
+    pub cbSize: u32,
+    pub Flags: SETUP_DI_DEVICE_INSTALL_FLAGS,
+    pub FlagsEx: SETUP_DI_DEVICE_INSTALL_FLAGS_EX,
+    pub hwndParent: super::super::Foundation::HWND,
+    pub InstallMsgHandler: PSP_FILE_CALLBACK_W,
+    pub InstallMsgHandlerContext: *mut core::ffi::c_void,
+    pub FileQueue: *mut core::ffi::c_void,
+    pub ClassInstallReserved: usize,
+    pub Reserved: u32,
+    pub DriverPath: [u16; 260],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_DEVINSTALL_PARAMS_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DEVINSTALL_PARAMS_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_DRVINFO_DATA_V1_A {
+    pub cbSize: u32,
+    pub DriverType: u32,
+    pub Reserved: usize,
+    pub Description: [i8; 256],
+    pub MfgName: [i8; 256],
+    pub ProviderName: [i8; 256],
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_DRVINFO_DATA_V1_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DRVINFO_DATA_V1_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_DRVINFO_DATA_V1_A {
+    pub cbSize: u32,
+    pub DriverType: u32,
+    pub Reserved: usize,
+    pub Description: [i8; 256],
+    pub MfgName: [i8; 256],
+    pub ProviderName: [i8; 256],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_DRVINFO_DATA_V1_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DRVINFO_DATA_V1_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_DRVINFO_DATA_V1_W {
+    pub cbSize: u32,
+    pub DriverType: u32,
+    pub Reserved: usize,
+    pub Description: [u16; 256],
+    pub MfgName: [u16; 256],
+    pub ProviderName: [u16; 256],
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_DRVINFO_DATA_V1_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DRVINFO_DATA_V1_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_DRVINFO_DATA_V1_W {
+    pub cbSize: u32,
+    pub DriverType: u32,
+    pub Reserved: usize,
+    pub Description: [u16; 256],
+    pub MfgName: [u16; 256],
+    pub ProviderName: [u16; 256],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_DRVINFO_DATA_V1_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DRVINFO_DATA_V1_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_DRVINFO_DATA_V2_A {
+    pub cbSize: u32,
+    pub DriverType: u32,
+    pub Reserved: usize,
+    pub Description: [i8; 256],
+    pub MfgName: [i8; 256],
+    pub ProviderName: [i8; 256],
+    pub DriverDate: super::super::Foundation::FILETIME,
+    pub DriverVersion: u64,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_DRVINFO_DATA_V2_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DRVINFO_DATA_V2_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_DRVINFO_DATA_V2_A {
+    pub cbSize: u32,
+    pub DriverType: u32,
+    pub Reserved: usize,
+    pub Description: [i8; 256],
+    pub MfgName: [i8; 256],
+    pub ProviderName: [i8; 256],
+    pub DriverDate: super::super::Foundation::FILETIME,
+    pub DriverVersion: u64,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_DRVINFO_DATA_V2_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DRVINFO_DATA_V2_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_DRVINFO_DATA_V2_W {
+    pub cbSize: u32,
+    pub DriverType: u32,
+    pub Reserved: usize,
+    pub Description: [u16; 256],
+    pub MfgName: [u16; 256],
+    pub ProviderName: [u16; 256],
+    pub DriverDate: super::super::Foundation::FILETIME,
+    pub DriverVersion: u64,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_DRVINFO_DATA_V2_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DRVINFO_DATA_V2_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_DRVINFO_DATA_V2_W {
+    pub cbSize: u32,
+    pub DriverType: u32,
+    pub Reserved: usize,
+    pub Description: [u16; 256],
+    pub MfgName: [u16; 256],
+    pub ProviderName: [u16; 256],
+    pub DriverDate: super::super::Foundation::FILETIME,
+    pub DriverVersion: u64,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_DRVINFO_DATA_V2_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DRVINFO_DATA_V2_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_DRVINFO_DETAIL_DATA_A {
+    pub cbSize: u32,
+    pub InfDate: super::super::Foundation::FILETIME,
+    pub CompatIDsOffset: u32,
+    pub CompatIDsLength: u32,
+    pub Reserved: usize,
+    pub SectionName: [i8; 256],
+    pub InfFileName: [i8; 260],
+    pub DrvDescription: [i8; 256],
+    pub HardwareID: [i8; 1],
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_DRVINFO_DETAIL_DATA_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DRVINFO_DETAIL_DATA_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_DRVINFO_DETAIL_DATA_A {
+    pub cbSize: u32,
+    pub InfDate: super::super::Foundation::FILETIME,
+    pub CompatIDsOffset: u32,
+    pub CompatIDsLength: u32,
+    pub Reserved: usize,
+    pub SectionName: [i8; 256],
+    pub InfFileName: [i8; 260],
+    pub DrvDescription: [i8; 256],
+    pub HardwareID: [i8; 1],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_DRVINFO_DETAIL_DATA_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DRVINFO_DETAIL_DATA_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_DRVINFO_DETAIL_DATA_W {
+    pub cbSize: u32,
+    pub InfDate: super::super::Foundation::FILETIME,
+    pub CompatIDsOffset: u32,
+    pub CompatIDsLength: u32,
+    pub Reserved: usize,
+    pub SectionName: [u16; 256],
+    pub InfFileName: [u16; 260],
+    pub DrvDescription: [u16; 256],
+    pub HardwareID: [u16; 1],
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_DRVINFO_DETAIL_DATA_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DRVINFO_DETAIL_DATA_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_DRVINFO_DETAIL_DATA_W {
+    pub cbSize: u32,
+    pub InfDate: super::super::Foundation::FILETIME,
+    pub CompatIDsOffset: u32,
+    pub CompatIDsLength: u32,
+    pub Reserved: usize,
+    pub SectionName: [u16; 256],
+    pub InfFileName: [u16; 260],
+    pub DrvDescription: [u16; 256],
+    pub HardwareID: [u16; 1],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_DRVINFO_DETAIL_DATA_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DRVINFO_DETAIL_DATA_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_DRVINSTALL_PARAMS {
+    pub cbSize: u32,
+    pub Rank: u32,
+    pub Flags: SETUP_DI_DRIVER_INSTALL_FLAGS,
+    pub PrivateData: usize,
+    pub Reserved: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_DRVINSTALL_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DRVINSTALL_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_DRVINSTALL_PARAMS {
+    pub cbSize: u32,
+    pub Rank: u32,
+    pub Flags: SETUP_DI_DRIVER_INSTALL_FLAGS,
+    pub PrivateData: usize,
+    pub Reserved: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_DRVINSTALL_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DRVINSTALL_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_ENABLECLASS_PARAMS {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub ClassGuid: windows_core::GUID,
+    pub EnableMessage: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_ENABLECLASS_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_ENABLECLASS_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_ENABLECLASS_PARAMS {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub ClassGuid: windows_core::GUID,
+    pub EnableMessage: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_ENABLECLASS_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_ENABLECLASS_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_FILE_COPY_PARAMS_A {
+    pub cbSize: u32,
+    pub QueueHandle: *mut core::ffi::c_void,
+    pub SourceRootPath: windows_core::PCSTR,
+    pub SourcePath: windows_core::PCSTR,
+    pub SourceFilename: windows_core::PCSTR,
+    pub SourceDescription: windows_core::PCSTR,
+    pub SourceTagfile: windows_core::PCSTR,
+    pub TargetDirectory: windows_core::PCSTR,
+    pub TargetFilename: windows_core::PCSTR,
+    pub CopyStyle: u32,
+    pub LayoutInf: *mut core::ffi::c_void,
+    pub SecurityDescriptor: windows_core::PCSTR,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_FILE_COPY_PARAMS_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_FILE_COPY_PARAMS_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_FILE_COPY_PARAMS_A {
+    pub cbSize: u32,
+    pub QueueHandle: *mut core::ffi::c_void,
+    pub SourceRootPath: windows_core::PCSTR,
+    pub SourcePath: windows_core::PCSTR,
+    pub SourceFilename: windows_core::PCSTR,
+    pub SourceDescription: windows_core::PCSTR,
+    pub SourceTagfile: windows_core::PCSTR,
+    pub TargetDirectory: windows_core::PCSTR,
+    pub TargetFilename: windows_core::PCSTR,
+    pub CopyStyle: u32,
+    pub LayoutInf: *mut core::ffi::c_void,
+    pub SecurityDescriptor: windows_core::PCSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_FILE_COPY_PARAMS_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_FILE_COPY_PARAMS_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_FILE_COPY_PARAMS_W {
+    pub cbSize: u32,
+    pub QueueHandle: *mut core::ffi::c_void,
+    pub SourceRootPath: windows_core::PCWSTR,
+    pub SourcePath: windows_core::PCWSTR,
+    pub SourceFilename: windows_core::PCWSTR,
+    pub SourceDescription: windows_core::PCWSTR,
+    pub SourceTagfile: windows_core::PCWSTR,
+    pub TargetDirectory: windows_core::PCWSTR,
+    pub TargetFilename: windows_core::PCWSTR,
+    pub CopyStyle: u32,
+    pub LayoutInf: *mut core::ffi::c_void,
+    pub SecurityDescriptor: windows_core::PCWSTR,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_FILE_COPY_PARAMS_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_FILE_COPY_PARAMS_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_FILE_COPY_PARAMS_W {
+    pub cbSize: u32,
+    pub QueueHandle: *mut core::ffi::c_void,
+    pub SourceRootPath: windows_core::PCWSTR,
+    pub SourcePath: windows_core::PCWSTR,
+    pub SourceFilename: windows_core::PCWSTR,
+    pub SourceDescription: windows_core::PCWSTR,
+    pub SourceTagfile: windows_core::PCWSTR,
+    pub TargetDirectory: windows_core::PCWSTR,
+    pub TargetFilename: windows_core::PCWSTR,
+    pub CopyStyle: u32,
+    pub LayoutInf: *mut core::ffi::c_void,
+    pub SecurityDescriptor: windows_core::PCWSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_FILE_COPY_PARAMS_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_FILE_COPY_PARAMS_W {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SP_FLAG_CABINETCONTINUATION: u32 = 2048u32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_INF_INFORMATION {
+    pub InfStyle: INF_STYLE,
+    pub InfCount: u32,
+    pub VersionData: [u8; 1],
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_INF_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_INF_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_INF_INFORMATION {
+    pub InfStyle: INF_STYLE,
+    pub InfCount: u32,
+    pub VersionData: [u8; 1],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_INF_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_INF_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_INF_SIGNER_INFO_V1_A {
+    pub cbSize: u32,
+    pub CatalogFile: [i8; 260],
+    pub DigitalSigner: [i8; 260],
+    pub DigitalSignerVersion: [i8; 260],
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_INF_SIGNER_INFO_V1_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V1_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_INF_SIGNER_INFO_V1_A {
+    pub cbSize: u32,
+    pub CatalogFile: [i8; 260],
+    pub DigitalSigner: [i8; 260],
+    pub DigitalSignerVersion: [i8; 260],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_INF_SIGNER_INFO_V1_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V1_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_INF_SIGNER_INFO_V1_W {
+    pub cbSize: u32,
+    pub CatalogFile: [u16; 260],
+    pub DigitalSigner: [u16; 260],
+    pub DigitalSignerVersion: [u16; 260],
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_INF_SIGNER_INFO_V1_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V1_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_INF_SIGNER_INFO_V1_W {
+    pub cbSize: u32,
+    pub CatalogFile: [u16; 260],
+    pub DigitalSigner: [u16; 260],
+    pub DigitalSignerVersion: [u16; 260],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_INF_SIGNER_INFO_V1_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V1_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_INF_SIGNER_INFO_V2_A {
+    pub cbSize: u32,
+    pub CatalogFile: [i8; 260],
+    pub DigitalSigner: [i8; 260],
+    pub DigitalSignerVersion: [i8; 260],
+    pub SignerScore: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_INF_SIGNER_INFO_V2_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V2_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_INF_SIGNER_INFO_V2_A {
+    pub cbSize: u32,
+    pub CatalogFile: [i8; 260],
+    pub DigitalSigner: [i8; 260],
+    pub DigitalSignerVersion: [i8; 260],
+    pub SignerScore: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_INF_SIGNER_INFO_V2_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V2_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_INF_SIGNER_INFO_V2_W {
+    pub cbSize: u32,
+    pub CatalogFile: [u16; 260],
+    pub DigitalSigner: [u16; 260],
+    pub DigitalSignerVersion: [u16; 260],
+    pub SignerScore: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_INF_SIGNER_INFO_V2_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V2_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_INF_SIGNER_INFO_V2_W {
+    pub cbSize: u32,
+    pub CatalogFile: [u16; 260],
+    pub DigitalSigner: [u16; 260],
+    pub DigitalSignerVersion: [u16; 260],
+    pub SignerScore: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_INF_SIGNER_INFO_V2_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V2_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_Controls")]
+#[derive(Clone, Copy)]
+pub struct SP_INSTALLWIZARD_DATA {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub Flags: u32,
+    pub DynamicPages: [super::super::UI::Controls::HPROPSHEETPAGE; 20],
+    pub NumDynamicPages: u32,
+    pub DynamicPageFlags: u32,
+    pub PrivateFlags: u32,
+    pub PrivateData: super::super::Foundation::LPARAM,
+    pub hwndWizardDlg: super::super::Foundation::HWND,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_Controls")]
+impl Default for SP_INSTALLWIZARD_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_Controls")]
+impl windows_core::TypeKind for SP_INSTALLWIZARD_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_UI_Controls")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_INSTALLWIZARD_DATA {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub Flags: u32,
+    pub DynamicPages: [super::super::UI::Controls::HPROPSHEETPAGE; 20],
+    pub NumDynamicPages: u32,
+    pub DynamicPageFlags: u32,
+    pub PrivateFlags: u32,
+    pub PrivateData: super::super::Foundation::LPARAM,
+    pub hwndWizardDlg: super::super::Foundation::HWND,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_UI_Controls")]
+impl Default for SP_INSTALLWIZARD_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_UI_Controls")]
+impl windows_core::TypeKind for SP_INSTALLWIZARD_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SP_MAX_MACHINENAME_LENGTH: u32 = 263u32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_Controls")]
+#[derive(Clone, Copy)]
+pub struct SP_NEWDEVICEWIZARD_DATA {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub Flags: u32,
+    pub DynamicPages: [super::super::UI::Controls::HPROPSHEETPAGE; 20],
+    pub NumDynamicPages: u32,
+    pub hwndWizardDlg: super::super::Foundation::HWND,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_Controls")]
+impl Default for SP_NEWDEVICEWIZARD_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_Controls")]
+impl windows_core::TypeKind for SP_NEWDEVICEWIZARD_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_UI_Controls")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_NEWDEVICEWIZARD_DATA {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub Flags: u32,
+    pub DynamicPages: [super::super::UI::Controls::HPROPSHEETPAGE; 20],
+    pub NumDynamicPages: u32,
+    pub hwndWizardDlg: super::super::Foundation::HWND,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_UI_Controls")]
+impl Default for SP_NEWDEVICEWIZARD_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_UI_Controls")]
+impl windows_core::TypeKind for SP_NEWDEVICEWIZARD_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_ORIGINAL_FILE_INFO_A {
+    pub cbSize: u32,
+    pub OriginalInfName: [i8; 260],
+    pub OriginalCatalogName: [i8; 260],
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_ORIGINAL_FILE_INFO_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_ORIGINAL_FILE_INFO_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_ORIGINAL_FILE_INFO_A {
+    pub cbSize: u32,
+    pub OriginalInfName: [i8; 260],
+    pub OriginalCatalogName: [i8; 260],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_ORIGINAL_FILE_INFO_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_ORIGINAL_FILE_INFO_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_ORIGINAL_FILE_INFO_W {
+    pub cbSize: u32,
+    pub OriginalInfName: [u16; 260],
+    pub OriginalCatalogName: [u16; 260],
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_ORIGINAL_FILE_INFO_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_ORIGINAL_FILE_INFO_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_ORIGINAL_FILE_INFO_W {
+    pub cbSize: u32,
+    pub OriginalInfName: [u16; 260],
+    pub OriginalCatalogName: [u16; 260],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_ORIGINAL_FILE_INFO_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_ORIGINAL_FILE_INFO_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_POWERMESSAGEWAKE_PARAMS_A {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub PowerMessageWake: [i8; 512],
+}
+impl Default for SP_POWERMESSAGEWAKE_PARAMS_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SP_POWERMESSAGEWAKE_PARAMS_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_POWERMESSAGEWAKE_PARAMS_W {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub PowerMessageWake: [u16; 512],
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_POWERMESSAGEWAKE_PARAMS_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_POWERMESSAGEWAKE_PARAMS_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_POWERMESSAGEWAKE_PARAMS_W {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub PowerMessageWake: [u16; 512],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_POWERMESSAGEWAKE_PARAMS_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_POWERMESSAGEWAKE_PARAMS_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_PROPCHANGE_PARAMS {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub StateChange: SETUP_DI_STATE_CHANGE,
+    pub Scope: SETUP_DI_PROPERTY_CHANGE_SCOPE,
+    pub HwProfile: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_PROPCHANGE_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_PROPCHANGE_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_PROPCHANGE_PARAMS {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub StateChange: SETUP_DI_STATE_CHANGE,
+    pub Scope: SETUP_DI_PROPERTY_CHANGE_SCOPE,
+    pub HwProfile: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_PROPCHANGE_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_PROPCHANGE_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_PROPSHEETPAGE_REQUEST {
+    pub cbSize: u32,
+    pub PageRequested: u32,
+    pub DeviceInfoSet: HDEVINFO,
+    pub DeviceInfoData: *mut SP_DEVINFO_DATA,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_PROPSHEETPAGE_REQUEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_PROPSHEETPAGE_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_PROPSHEETPAGE_REQUEST {
+    pub cbSize: u32,
+    pub PageRequested: u32,
+    pub DeviceInfoSet: HDEVINFO,
+    pub DeviceInfoData: *mut SP_DEVINFO_DATA,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_PROPSHEETPAGE_REQUEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_PROPSHEETPAGE_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_REGISTER_CONTROL_STATUSA {
+    pub cbSize: u32,
+    pub FileName: windows_core::PCSTR,
+    pub Win32Error: u32,
+    pub FailureCode: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_REGISTER_CONTROL_STATUSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_REGISTER_CONTROL_STATUSA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_REGISTER_CONTROL_STATUSA {
+    pub cbSize: u32,
+    pub FileName: windows_core::PCSTR,
+    pub Win32Error: u32,
+    pub FailureCode: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_REGISTER_CONTROL_STATUSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_REGISTER_CONTROL_STATUSA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_REGISTER_CONTROL_STATUSW {
+    pub cbSize: u32,
+    pub FileName: windows_core::PCWSTR,
+    pub Win32Error: u32,
+    pub FailureCode: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_REGISTER_CONTROL_STATUSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_REGISTER_CONTROL_STATUSW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_REGISTER_CONTROL_STATUSW {
+    pub cbSize: u32,
+    pub FileName: windows_core::PCWSTR,
+    pub Win32Error: u32,
+    pub FailureCode: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_REGISTER_CONTROL_STATUSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_REGISTER_CONTROL_STATUSW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_REMOVEDEVICE_PARAMS {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub Scope: SETUP_DI_REMOVE_DEVICE_SCOPE,
+    pub HwProfile: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_REMOVEDEVICE_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_REMOVEDEVICE_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_REMOVEDEVICE_PARAMS {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub Scope: SETUP_DI_REMOVE_DEVICE_SCOPE,
+    pub HwProfile: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_REMOVEDEVICE_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_REMOVEDEVICE_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_SELECTDEVICE_PARAMS_A {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub Title: [i8; 60],
+    pub Instructions: [i8; 256],
+    pub ListLabel: [i8; 30],
+    pub SubTitle: [i8; 256],
+    pub Reserved: [u8; 2],
+}
+impl Default for SP_SELECTDEVICE_PARAMS_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SP_SELECTDEVICE_PARAMS_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_SELECTDEVICE_PARAMS_W {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub Title: [u16; 60],
+    pub Instructions: [u16; 256],
+    pub ListLabel: [u16; 30],
+    pub SubTitle: [u16; 256],
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_SELECTDEVICE_PARAMS_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_SELECTDEVICE_PARAMS_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_SELECTDEVICE_PARAMS_W {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub Title: [u16; 60],
+    pub Instructions: [u16; 256],
+    pub ListLabel: [u16; 30],
+    pub SubTitle: [u16; 256],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_SELECTDEVICE_PARAMS_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_SELECTDEVICE_PARAMS_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_TROUBLESHOOTER_PARAMS_A {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub ChmFile: [i8; 260],
+    pub HtmlTroubleShooter: [i8; 260],
+}
+impl Default for SP_TROUBLESHOOTER_PARAMS_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SP_TROUBLESHOOTER_PARAMS_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_TROUBLESHOOTER_PARAMS_W {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub ChmFile: [u16; 260],
+    pub HtmlTroubleShooter: [u16; 260],
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_TROUBLESHOOTER_PARAMS_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_TROUBLESHOOTER_PARAMS_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_TROUBLESHOOTER_PARAMS_W {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub ChmFile: [u16; 260],
+    pub HtmlTroubleShooter: [u16; 260],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_TROUBLESHOOTER_PARAMS_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_TROUBLESHOOTER_PARAMS_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SP_UNREMOVEDEVICE_PARAMS {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub Scope: u32,
+    pub HwProfile: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SP_UNREMOVEDEVICE_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_UNREMOVEDEVICE_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SP_UNREMOVEDEVICE_PARAMS {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub Scope: u32,
+    pub HwProfile: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SP_UNREMOVEDEVICE_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_UNREMOVEDEVICE_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SRCINFO_DESCRIPTION: u32 = 3u32;
 pub const SRCINFO_FLAGS: u32 = 4u32;
 pub const SRCINFO_PATH: u32 = 1u32;
@@ -10089,9 +10050,48 @@ pub const SZ_KEY_UPGRADEONLY: windows_core::PCWSTR = windows_core::w!("UpgradeOn
 pub const SetupFileLogChecksum: SetupFileLogInfo = SetupFileLogInfo(1i32);
 pub const SetupFileLogDiskDescription: SetupFileLogInfo = SetupFileLogInfo(3i32);
 pub const SetupFileLogDiskTagfile: SetupFileLogInfo = SetupFileLogInfo(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SetupFileLogInfo(pub i32);
 pub const SetupFileLogMax: SetupFileLogInfo = SetupFileLogInfo(5i32);
 pub const SetupFileLogOtherInfo: SetupFileLogInfo = SetupFileLogInfo(4i32);
 pub const SetupFileLogSourceFilename: SetupFileLogInfo = SetupFileLogInfo(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS(pub u32);
+impl UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const fDD_BYTE: DD_FLAGS = DD_FLAGS(0u32);
 pub const fDD_BYTE_AND_WORD: DD_FLAGS = DD_FLAGS(3u32);
 pub const fDD_BusMaster: DD_FLAGS = DD_FLAGS(4u32);

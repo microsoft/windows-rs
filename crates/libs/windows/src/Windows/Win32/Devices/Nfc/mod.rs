@@ -1,51 +1,101 @@
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NFC_DEVICE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NFC_LLCP_LINK_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NFC_LLCP_SOCKET_CONNECT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NFC_LLCP_SOCKET_ERROR(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NFC_LLCP_SOCKET_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NFC_P2P_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NFC_RELEASE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NFC_RF_DISCOVERY_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NFC_SE_EMULATION_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NFC_SNEP_REQUEST_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NFC_SNEP_SERVER_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SECURE_ELEMENT_CARD_EMULATION_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SECURE_ELEMENT_EVENT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SECURE_ELEMENT_POWER_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SECURE_ELEMENT_ROUTING_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SECURE_ELEMENT_TYPE(pub i32);
+pub const ApplicationSelected: SECURE_ELEMENT_EVENT_TYPE = SECURE_ELEMENT_EVENT_TYPE(2i32);
+pub const ConnectionOriented: NFC_LLCP_SOCKET_TYPE = NFC_LLCP_SOCKET_TYPE(0i32);
+pub const Connectionless: NFC_LLCP_SOCKET_TYPE = NFC_LLCP_SOCKET_TYPE(1i32);
+pub const DefaultSnepServer: NFC_SNEP_SERVER_TYPE = NFC_SNEP_SERVER_TYPE(0i32);
+pub const DeviceHost: SECURE_ELEMENT_TYPE = SECURE_ELEMENT_TYPE(2i32);
+pub const Discovery: NFC_RELEASE_TYPE = NFC_RELEASE_TYPE(2i32);
+pub const EVT_TRANSACTION_PARAMETER_MAX_LEN: u32 = 255u32;
+pub const EVT_TRANSACTION_TAG_AID: u32 = 129u32;
+pub const EVT_TRANSACTION_TAG_PARAMETERS: u32 = 130u32;
+pub const EmulationDisabled: NFC_SE_EMULATION_MODE = NFC_SE_EMULATION_MODE(0i32);
+pub const EmulationEnabled: NFC_SE_EMULATION_MODE = NFC_SE_EMULATION_MODE(1i32);
+pub const EmulationOff: SECURE_ELEMENT_CARD_EMULATION_MODE = SECURE_ELEMENT_CARD_EMULATION_MODE(0i32);
+pub const EmulationOnPowerDependent: SECURE_ELEMENT_CARD_EMULATION_MODE = SECURE_ELEMENT_CARD_EMULATION_MODE(2i32);
+pub const EmulationOnPowerIndependent: SECURE_ELEMENT_CARD_EMULATION_MODE = SECURE_ELEMENT_CARD_EMULATION_MODE(1i32);
+pub const EmulationStealthListen: SECURE_ELEMENT_CARD_EMULATION_MODE = SECURE_ELEMENT_CARD_EMULATION_MODE(3i32);
+pub const ExtendedSnepServer: NFC_SNEP_SERVER_TYPE = NFC_SNEP_SERVER_TYPE(1i32);
+pub const External: SECURE_ELEMENT_TYPE = SECURE_ELEMENT_TYPE(1i32);
+pub const ExternalFieldEnter: SECURE_ELEMENT_EVENT_TYPE = SECURE_ELEMENT_EVENT_TYPE(6i32);
+pub const ExternalFieldExit: SECURE_ELEMENT_EVENT_TYPE = SECURE_ELEMENT_EVENT_TYPE(7i32);
+pub const ExternalReaderArrival: SECURE_ELEMENT_EVENT_TYPE = SECURE_ELEMENT_EVENT_TYPE(0i32);
+pub const ExternalReaderDeparture: SECURE_ELEMENT_EVENT_TYPE = SECURE_ELEMENT_EVENT_TYPE(1i32);
+pub const GUID_DEVINTERFACE_NFCDTA: windows_core::GUID = windows_core::GUID::from_u128(0x7fd3f30b_5e49_4be1_b3aa_af06260d236a);
+pub const GUID_DEVINTERFACE_NFCSE: windows_core::GUID = windows_core::GUID::from_u128(0x8dc7c854_f5e5_4bed_815d_0c85ad047725);
+pub const GUID_NFCSE_RADIO_MEDIA_DEVICE_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0xef8ba08f_148d_4116_83ef_a2679dfc3fa5);
+pub const GUID_NFC_RADIO_MEDIA_DEVICE_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x4d51e930_750d_4a36_a9f7_91dc540fcd30);
+pub const HceActivated: SECURE_ELEMENT_EVENT_TYPE = SECURE_ELEMENT_EVENT_TYPE(4i32);
+pub const HceDeactivated: SECURE_ELEMENT_EVENT_TYPE = SECURE_ELEMENT_EVENT_TYPE(5i32);
+pub const IOCTL_NFCDTA_CONFIG_P2P_PARAM: u32 = 2233376u32;
+pub const IOCTL_NFCDTA_CONFIG_RF_DISCOVERY: u32 = 2233344u32;
+pub const IOCTL_NFCDTA_LLCP_ACTIVATE: u32 = 2233476u32;
+pub const IOCTL_NFCDTA_LLCP_CONFIG: u32 = 2233472u32;
+pub const IOCTL_NFCDTA_LLCP_DEACTIVATE: u32 = 2233480u32;
+pub const IOCTL_NFCDTA_LLCP_DISCOVER_SERVICES: u32 = 2233484u32;
+pub const IOCTL_NFCDTA_LLCP_GET_NEXT_LINK_STATUS: u32 = 2233492u32;
+pub const IOCTL_NFCDTA_LLCP_LINK_STATUS_CHECK: u32 = 2233488u32;
+pub const IOCTL_NFCDTA_LLCP_SOCKET_ACCEPT: u32 = 2233512u32;
+pub const IOCTL_NFCDTA_LLCP_SOCKET_BIND: u32 = 2233504u32;
+pub const IOCTL_NFCDTA_LLCP_SOCKET_CLOSE: u32 = 2233500u32;
+pub const IOCTL_NFCDTA_LLCP_SOCKET_CONNECT: u32 = 2233516u32;
+pub const IOCTL_NFCDTA_LLCP_SOCKET_CREATE: u32 = 2233496u32;
+pub const IOCTL_NFCDTA_LLCP_SOCKET_DISCONNECT: u32 = 2233520u32;
+pub const IOCTL_NFCDTA_LLCP_SOCKET_GET_NEXT_ERROR: u32 = 2233540u32;
+pub const IOCTL_NFCDTA_LLCP_SOCKET_LISTEN: u32 = 2233508u32;
+pub const IOCTL_NFCDTA_LLCP_SOCKET_RECV: u32 = 2233524u32;
+pub const IOCTL_NFCDTA_LLCP_SOCKET_RECV_FROM: u32 = 2233528u32;
+pub const IOCTL_NFCDTA_LLCP_SOCKET_SEND: u32 = 2233532u32;
+pub const IOCTL_NFCDTA_LLCP_SOCKET_SNED_TO: u32 = 2233536u32;
+pub const IOCTL_NFCDTA_REMOTE_DEV_CHECK_PRESENCE: u32 = 2233372u32;
+pub const IOCTL_NFCDTA_REMOTE_DEV_CONNECT: u32 = 2233352u32;
+pub const IOCTL_NFCDTA_REMOTE_DEV_DISCONNECT: u32 = 2233356u32;
+pub const IOCTL_NFCDTA_REMOTE_DEV_GET_NEXT: u32 = 2233348u32;
+pub const IOCTL_NFCDTA_REMOTE_DEV_NDEF_CHECK: u32 = 2233420u32;
+pub const IOCTL_NFCDTA_REMOTE_DEV_NDEF_CONVERT_READ_ONLY: u32 = 2233416u32;
+pub const IOCTL_NFCDTA_REMOTE_DEV_NDEF_READ: u32 = 2233412u32;
+pub const IOCTL_NFCDTA_REMOTE_DEV_NDEF_WRITE: u32 = 2233408u32;
+pub const IOCTL_NFCDTA_REMOTE_DEV_RECV: u32 = 2233364u32;
+pub const IOCTL_NFCDTA_REMOTE_DEV_SEND: u32 = 2233368u32;
+pub const IOCTL_NFCDTA_REMOTE_DEV_TRANSCEIVE: u32 = 2233360u32;
+pub const IOCTL_NFCDTA_SET_RF_CONFIG: u32 = 2233380u32;
+pub const IOCTL_NFCDTA_SE_ENUMERATE: u32 = 2233728u32;
+pub const IOCTL_NFCDTA_SE_GET_NEXT_EVENT: u32 = 2233740u32;
+pub const IOCTL_NFCDTA_SE_SET_EMULATION_MODE: u32 = 2233732u32;
+pub const IOCTL_NFCDTA_SE_SET_ROUTING_TABLE: u32 = 2233736u32;
+pub const IOCTL_NFCDTA_SNEP_CLIENT_GET: u32 = 2233676u32;
+pub const IOCTL_NFCDTA_SNEP_CLIENT_PUT: u32 = 2233672u32;
+pub const IOCTL_NFCDTA_SNEP_DEINIT_CLIENT: u32 = 2233668u32;
+pub const IOCTL_NFCDTA_SNEP_DEINIT_SERVER: u32 = 2233604u32;
+pub const IOCTL_NFCDTA_SNEP_INIT_CLIENT: u32 = 2233664u32;
+pub const IOCTL_NFCDTA_SNEP_INIT_SERVER: u32 = 2233600u32;
+pub const IOCTL_NFCDTA_SNEP_SERVER_ACCEPT: u32 = 2233612u32;
+pub const IOCTL_NFCDTA_SNEP_SERVER_GET_NEXT_CONNECTION: u32 = 2233608u32;
+pub const IOCTL_NFCDTA_SNEP_SERVER_GET_NEXT_REQUEST: u32 = 2233616u32;
+pub const IOCTL_NFCDTA_SNEP_SERVER_SEND_RESPONSE: u32 = 2233620u32;
+pub const IOCTL_NFCRM_QUERY_RADIO_STATE: u32 = 5308808u32;
+pub const IOCTL_NFCRM_SET_RADIO_STATE: u32 = 5308804u32;
+pub const IOCTL_NFCSERM_QUERY_RADIO_STATE: u32 = 5308816u32;
+pub const IOCTL_NFCSERM_SET_RADIO_STATE: u32 = 5308812u32;
+pub const IOCTL_NFCSE_ENUM_ENDPOINTS: u32 = 2230272u32;
+pub const IOCTL_NFCSE_GET_NEXT_EVENT: u32 = 2230280u32;
+pub const IOCTL_NFCSE_GET_NFCC_CAPABILITIES: u32 = 2230288u32;
+pub const IOCTL_NFCSE_GET_ROUTING_TABLE: u32 = 2230292u32;
+pub const IOCTL_NFCSE_HCE_REMOTE_RECV: u32 = 2230592u32;
+pub const IOCTL_NFCSE_HCE_REMOTE_SEND: u32 = 2230596u32;
+pub const IOCTL_NFCSE_SET_CARD_EMULATION_MODE: u32 = 2230284u32;
+pub const IOCTL_NFCSE_SET_POWER_MODE: u32 = 2230600u32;
+pub const IOCTL_NFCSE_SET_ROUTING_TABLE: u32 = 2230296u32;
+pub const IOCTL_NFCSE_SUBSCRIBE_FOR_EVENT: u32 = 2230276u32;
+pub const ISO_7816_MAXIMUM_AID_LENGTH: u32 = 16u32;
+pub const ISO_7816_MINIMUM_AID_LENGTH: u32 = 5u32;
+pub const IdleMode: NFC_RELEASE_TYPE = NFC_RELEASE_TYPE(0i32);
+pub const Integrated: SECURE_ELEMENT_TYPE = SECURE_ELEMENT_TYPE(0i32);
+pub const LinkActivated: NFC_LLCP_LINK_STATUS = NFC_LLCP_LINK_STATUS(0i32);
+pub const LinkDeactivated: NFC_LLCP_LINK_STATUS = NFC_LLCP_LINK_STATUS(1i32);
+pub const MAX_ATR_LENGTH: u32 = 48u32;
+pub const MAX_LLCP_SERVICE_NAME_SIZE: u32 = 256u32;
+pub const MAX_SNEP_SERVER_NAME_SIZE: u32 = 256u32;
+pub const MAX_UID_SIZE: u32 = 16u32;
+pub const NFCRMDDI_IOCTL_BASE: u32 = 80u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFCRM_RADIO_STATE {
@@ -87,6 +137,9 @@ impl Default for NFC_DATA_BUFFER {
 impl windows_core::TypeKind for NFC_DATA_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NFC_DEVICE_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_LLCP_CONFIG {
@@ -104,6 +157,9 @@ impl Default for NFC_LLCP_CONFIG {
 impl windows_core::TypeKind for NFC_LLCP_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NFC_LLCP_LINK_STATUS(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_LLCP_SERVICE_DISCOVER_REQUEST {
@@ -206,6 +262,12 @@ impl Default for NFC_LLCP_SOCKET_CONNECT_INFO_0 {
 impl windows_core::TypeKind for NFC_LLCP_SOCKET_CONNECT_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NFC_LLCP_SOCKET_CONNECT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NFC_LLCP_SOCKET_ERROR(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_LLCP_SOCKET_ERROR_INFO {
@@ -278,6 +340,9 @@ impl Default for NFC_LLCP_SOCKET_SERVICE_INFO {
 impl windows_core::TypeKind for NFC_LLCP_SOCKET_SERVICE_INFO {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NFC_LLCP_SOCKET_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_NDEF_INFO {
@@ -294,6 +359,9 @@ impl Default for NFC_NDEF_INFO {
 impl windows_core::TypeKind for NFC_NDEF_INFO {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NFC_P2P_MODE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_P2P_PARAM_CONFIG {
@@ -309,6 +377,9 @@ impl Default for NFC_P2P_PARAM_CONFIG {
 impl windows_core::TypeKind for NFC_P2P_PARAM_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NFC_RELEASE_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_REMOTE_DEVICE_DISCONNET {
@@ -394,6 +465,9 @@ impl Default for NFC_RF_DISCOVERY_CONFIG {
 impl windows_core::TypeKind for NFC_RF_DISCOVERY_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NFC_RF_DISCOVERY_MODE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_SE_AID_ROUTING_INFO {
@@ -410,6 +484,9 @@ impl Default for NFC_SE_AID_ROUTING_INFO {
 impl windows_core::TypeKind for NFC_SE_AID_ROUTING_INFO {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NFC_SE_EMULATION_MODE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_SE_EMULATION_MODE_INFO {
@@ -585,6 +662,9 @@ impl Default for NFC_SNEP_CLIENT_PUT_INFO {
 impl windows_core::TypeKind for NFC_SNEP_CLIENT_PUT_INFO {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NFC_SNEP_REQUEST_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NFC_SNEP_SERVER_ACCEPT_INFO {
@@ -649,6 +729,31 @@ impl Default for NFC_SNEP_SERVER_RESPONSE_INFO {
 impl windows_core::TypeKind for NFC_SNEP_SERVER_RESPONSE_INFO {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NFC_SNEP_SERVER_TYPE(pub i32);
+pub const NfcConnectBySap: NFC_LLCP_SOCKET_CONNECT_TYPE = NFC_LLCP_SOCKET_CONNECT_TYPE(0i32);
+pub const NfcConnectByUri: NFC_LLCP_SOCKET_CONNECT_TYPE = NFC_LLCP_SOCKET_CONNECT_TYPE(1i32);
+pub const NfcDepDefault: NFC_P2P_MODE = NFC_P2P_MODE(0i32);
+pub const NfcDepListen: NFC_P2P_MODE = NFC_P2P_MODE(2i32);
+pub const NfcDepPoll: NFC_P2P_MODE = NFC_P2P_MODE(1i32);
+pub const NfcIP1Initiator: NFC_DEVICE_TYPE = NFC_DEVICE_TYPE(5i32);
+pub const NfcIP1Target: NFC_DEVICE_TYPE = NFC_DEVICE_TYPE(4i32);
+pub const NfcLlcpErrorBusyCondition: NFC_LLCP_SOCKET_ERROR = NFC_LLCP_SOCKET_ERROR(2i32);
+pub const NfcLlcpErrorDisconnected: NFC_LLCP_SOCKET_ERROR = NFC_LLCP_SOCKET_ERROR(0i32);
+pub const NfcLlcpErrorFrameRejected: NFC_LLCP_SOCKET_ERROR = NFC_LLCP_SOCKET_ERROR(1i32);
+pub const NfcLlcpErrorNotBusyCondition: NFC_LLCP_SOCKET_ERROR = NFC_LLCP_SOCKET_ERROR(3i32);
+pub const NfcReader: NFC_DEVICE_TYPE = NFC_DEVICE_TYPE(6i32);
+pub const NfcType1Tag: NFC_DEVICE_TYPE = NFC_DEVICE_TYPE(0i32);
+pub const NfcType2Tag: NFC_DEVICE_TYPE = NFC_DEVICE_TYPE(1i32);
+pub const NfcType3Tag: NFC_DEVICE_TYPE = NFC_DEVICE_TYPE(2i32);
+pub const NfcType4Tag: NFC_DEVICE_TYPE = NFC_DEVICE_TYPE(3i32);
+pub const RFDiscoveryResume: NFC_RF_DISCOVERY_MODE = NFC_RF_DISCOVERY_MODE(2i32);
+pub const RfDiscoveryConfig: NFC_RF_DISCOVERY_MODE = NFC_RF_DISCOVERY_MODE(0i32);
+pub const RfDiscoveryStart: NFC_RF_DISCOVERY_MODE = NFC_RF_DISCOVERY_MODE(1i32);
+pub const RoutingTypeAid: SECURE_ELEMENT_ROUTING_TYPE = SECURE_ELEMENT_ROUTING_TYPE(2i32);
+pub const RoutingTypeProtocol: SECURE_ELEMENT_ROUTING_TYPE = SECURE_ELEMENT_ROUTING_TYPE(1i32);
+pub const RoutingTypeTech: SECURE_ELEMENT_ROUTING_TYPE = SECURE_ELEMENT_ROUTING_TYPE(0i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECURE_ELEMENT_AID_ROUTING_INFO {
@@ -664,6 +769,9 @@ impl Default for SECURE_ELEMENT_AID_ROUTING_INFO {
 impl windows_core::TypeKind for SECURE_ELEMENT_AID_ROUTING_INFO {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SECURE_ELEMENT_CARD_EMULATION_MODE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECURE_ELEMENT_ENDPOINT_INFO {
@@ -722,6 +830,9 @@ impl Default for SECURE_ELEMENT_EVENT_SUBSCRIPTION_INFO {
 impl windows_core::TypeKind for SECURE_ELEMENT_EVENT_SUBSCRIPTION_INFO {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SECURE_ELEMENT_EVENT_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECURE_ELEMENT_HCE_ACTIVATION_PAYLOAD {
@@ -768,6 +879,9 @@ impl Default for SECURE_ELEMENT_NFCC_CAPABILITIES {
 impl windows_core::TypeKind for SECURE_ELEMENT_NFCC_CAPABILITIES {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SECURE_ELEMENT_POWER_MODE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECURE_ELEMENT_PROTO_ROUTING_INFO {
@@ -825,6 +939,9 @@ impl Default for SECURE_ELEMENT_ROUTING_TABLE_ENTRY_0 {
 impl windows_core::TypeKind for SECURE_ELEMENT_ROUTING_TABLE_ENTRY_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SECURE_ELEMENT_ROUTING_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECURE_ELEMENT_SET_CARD_EMULATION_MODE_INFO {
@@ -867,126 +984,9 @@ impl Default for SECURE_ELEMENT_TECH_ROUTING_INFO {
 impl windows_core::TypeKind for SECURE_ELEMENT_TECH_ROUTING_INFO {
     type TypeKind = windows_core::CopyType;
 }
-pub const ApplicationSelected: SECURE_ELEMENT_EVENT_TYPE = SECURE_ELEMENT_EVENT_TYPE(2i32);
-pub const ConnectionOriented: NFC_LLCP_SOCKET_TYPE = NFC_LLCP_SOCKET_TYPE(0i32);
-pub const Connectionless: NFC_LLCP_SOCKET_TYPE = NFC_LLCP_SOCKET_TYPE(1i32);
-pub const DefaultSnepServer: NFC_SNEP_SERVER_TYPE = NFC_SNEP_SERVER_TYPE(0i32);
-pub const DeviceHost: SECURE_ELEMENT_TYPE = SECURE_ELEMENT_TYPE(2i32);
-pub const Discovery: NFC_RELEASE_TYPE = NFC_RELEASE_TYPE(2i32);
-pub const EVT_TRANSACTION_PARAMETER_MAX_LEN: u32 = 255u32;
-pub const EVT_TRANSACTION_TAG_AID: u32 = 129u32;
-pub const EVT_TRANSACTION_TAG_PARAMETERS: u32 = 130u32;
-pub const EmulationDisabled: NFC_SE_EMULATION_MODE = NFC_SE_EMULATION_MODE(0i32);
-pub const EmulationEnabled: NFC_SE_EMULATION_MODE = NFC_SE_EMULATION_MODE(1i32);
-pub const EmulationOff: SECURE_ELEMENT_CARD_EMULATION_MODE = SECURE_ELEMENT_CARD_EMULATION_MODE(0i32);
-pub const EmulationOnPowerDependent: SECURE_ELEMENT_CARD_EMULATION_MODE = SECURE_ELEMENT_CARD_EMULATION_MODE(2i32);
-pub const EmulationOnPowerIndependent: SECURE_ELEMENT_CARD_EMULATION_MODE = SECURE_ELEMENT_CARD_EMULATION_MODE(1i32);
-pub const EmulationStealthListen: SECURE_ELEMENT_CARD_EMULATION_MODE = SECURE_ELEMENT_CARD_EMULATION_MODE(3i32);
-pub const ExtendedSnepServer: NFC_SNEP_SERVER_TYPE = NFC_SNEP_SERVER_TYPE(1i32);
-pub const External: SECURE_ELEMENT_TYPE = SECURE_ELEMENT_TYPE(1i32);
-pub const ExternalFieldEnter: SECURE_ELEMENT_EVENT_TYPE = SECURE_ELEMENT_EVENT_TYPE(6i32);
-pub const ExternalFieldExit: SECURE_ELEMENT_EVENT_TYPE = SECURE_ELEMENT_EVENT_TYPE(7i32);
-pub const ExternalReaderArrival: SECURE_ELEMENT_EVENT_TYPE = SECURE_ELEMENT_EVENT_TYPE(0i32);
-pub const ExternalReaderDeparture: SECURE_ELEMENT_EVENT_TYPE = SECURE_ELEMENT_EVENT_TYPE(1i32);
-pub const GUID_DEVINTERFACE_NFCDTA: windows_core::GUID = windows_core::GUID::from_u128(0x7fd3f30b_5e49_4be1_b3aa_af06260d236a);
-pub const GUID_DEVINTERFACE_NFCSE: windows_core::GUID = windows_core::GUID::from_u128(0x8dc7c854_f5e5_4bed_815d_0c85ad047725);
-pub const GUID_NFCSE_RADIO_MEDIA_DEVICE_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0xef8ba08f_148d_4116_83ef_a2679dfc3fa5);
-pub const GUID_NFC_RADIO_MEDIA_DEVICE_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x4d51e930_750d_4a36_a9f7_91dc540fcd30);
-pub const HceActivated: SECURE_ELEMENT_EVENT_TYPE = SECURE_ELEMENT_EVENT_TYPE(4i32);
-pub const HceDeactivated: SECURE_ELEMENT_EVENT_TYPE = SECURE_ELEMENT_EVENT_TYPE(5i32);
-pub const IOCTL_NFCDTA_CONFIG_P2P_PARAM: u32 = 2233376u32;
-pub const IOCTL_NFCDTA_CONFIG_RF_DISCOVERY: u32 = 2233344u32;
-pub const IOCTL_NFCDTA_LLCP_ACTIVATE: u32 = 2233476u32;
-pub const IOCTL_NFCDTA_LLCP_CONFIG: u32 = 2233472u32;
-pub const IOCTL_NFCDTA_LLCP_DEACTIVATE: u32 = 2233480u32;
-pub const IOCTL_NFCDTA_LLCP_DISCOVER_SERVICES: u32 = 2233484u32;
-pub const IOCTL_NFCDTA_LLCP_GET_NEXT_LINK_STATUS: u32 = 2233492u32;
-pub const IOCTL_NFCDTA_LLCP_LINK_STATUS_CHECK: u32 = 2233488u32;
-pub const IOCTL_NFCDTA_LLCP_SOCKET_ACCEPT: u32 = 2233512u32;
-pub const IOCTL_NFCDTA_LLCP_SOCKET_BIND: u32 = 2233504u32;
-pub const IOCTL_NFCDTA_LLCP_SOCKET_CLOSE: u32 = 2233500u32;
-pub const IOCTL_NFCDTA_LLCP_SOCKET_CONNECT: u32 = 2233516u32;
-pub const IOCTL_NFCDTA_LLCP_SOCKET_CREATE: u32 = 2233496u32;
-pub const IOCTL_NFCDTA_LLCP_SOCKET_DISCONNECT: u32 = 2233520u32;
-pub const IOCTL_NFCDTA_LLCP_SOCKET_GET_NEXT_ERROR: u32 = 2233540u32;
-pub const IOCTL_NFCDTA_LLCP_SOCKET_LISTEN: u32 = 2233508u32;
-pub const IOCTL_NFCDTA_LLCP_SOCKET_RECV: u32 = 2233524u32;
-pub const IOCTL_NFCDTA_LLCP_SOCKET_RECV_FROM: u32 = 2233528u32;
-pub const IOCTL_NFCDTA_LLCP_SOCKET_SEND: u32 = 2233532u32;
-pub const IOCTL_NFCDTA_LLCP_SOCKET_SNED_TO: u32 = 2233536u32;
-pub const IOCTL_NFCDTA_REMOTE_DEV_CHECK_PRESENCE: u32 = 2233372u32;
-pub const IOCTL_NFCDTA_REMOTE_DEV_CONNECT: u32 = 2233352u32;
-pub const IOCTL_NFCDTA_REMOTE_DEV_DISCONNECT: u32 = 2233356u32;
-pub const IOCTL_NFCDTA_REMOTE_DEV_GET_NEXT: u32 = 2233348u32;
-pub const IOCTL_NFCDTA_REMOTE_DEV_NDEF_CHECK: u32 = 2233420u32;
-pub const IOCTL_NFCDTA_REMOTE_DEV_NDEF_CONVERT_READ_ONLY: u32 = 2233416u32;
-pub const IOCTL_NFCDTA_REMOTE_DEV_NDEF_READ: u32 = 2233412u32;
-pub const IOCTL_NFCDTA_REMOTE_DEV_NDEF_WRITE: u32 = 2233408u32;
-pub const IOCTL_NFCDTA_REMOTE_DEV_RECV: u32 = 2233364u32;
-pub const IOCTL_NFCDTA_REMOTE_DEV_SEND: u32 = 2233368u32;
-pub const IOCTL_NFCDTA_REMOTE_DEV_TRANSCEIVE: u32 = 2233360u32;
-pub const IOCTL_NFCDTA_SET_RF_CONFIG: u32 = 2233380u32;
-pub const IOCTL_NFCDTA_SE_ENUMERATE: u32 = 2233728u32;
-pub const IOCTL_NFCDTA_SE_GET_NEXT_EVENT: u32 = 2233740u32;
-pub const IOCTL_NFCDTA_SE_SET_EMULATION_MODE: u32 = 2233732u32;
-pub const IOCTL_NFCDTA_SE_SET_ROUTING_TABLE: u32 = 2233736u32;
-pub const IOCTL_NFCDTA_SNEP_CLIENT_GET: u32 = 2233676u32;
-pub const IOCTL_NFCDTA_SNEP_CLIENT_PUT: u32 = 2233672u32;
-pub const IOCTL_NFCDTA_SNEP_DEINIT_CLIENT: u32 = 2233668u32;
-pub const IOCTL_NFCDTA_SNEP_DEINIT_SERVER: u32 = 2233604u32;
-pub const IOCTL_NFCDTA_SNEP_INIT_CLIENT: u32 = 2233664u32;
-pub const IOCTL_NFCDTA_SNEP_INIT_SERVER: u32 = 2233600u32;
-pub const IOCTL_NFCDTA_SNEP_SERVER_ACCEPT: u32 = 2233612u32;
-pub const IOCTL_NFCDTA_SNEP_SERVER_GET_NEXT_CONNECTION: u32 = 2233608u32;
-pub const IOCTL_NFCDTA_SNEP_SERVER_GET_NEXT_REQUEST: u32 = 2233616u32;
-pub const IOCTL_NFCDTA_SNEP_SERVER_SEND_RESPONSE: u32 = 2233620u32;
-pub const IOCTL_NFCRM_QUERY_RADIO_STATE: u32 = 5308808u32;
-pub const IOCTL_NFCRM_SET_RADIO_STATE: u32 = 5308804u32;
-pub const IOCTL_NFCSERM_QUERY_RADIO_STATE: u32 = 5308816u32;
-pub const IOCTL_NFCSERM_SET_RADIO_STATE: u32 = 5308812u32;
-pub const IOCTL_NFCSE_ENUM_ENDPOINTS: u32 = 2230272u32;
-pub const IOCTL_NFCSE_GET_NEXT_EVENT: u32 = 2230280u32;
-pub const IOCTL_NFCSE_GET_NFCC_CAPABILITIES: u32 = 2230288u32;
-pub const IOCTL_NFCSE_GET_ROUTING_TABLE: u32 = 2230292u32;
-pub const IOCTL_NFCSE_HCE_REMOTE_RECV: u32 = 2230592u32;
-pub const IOCTL_NFCSE_HCE_REMOTE_SEND: u32 = 2230596u32;
-pub const IOCTL_NFCSE_SET_CARD_EMULATION_MODE: u32 = 2230284u32;
-pub const IOCTL_NFCSE_SET_POWER_MODE: u32 = 2230600u32;
-pub const IOCTL_NFCSE_SET_ROUTING_TABLE: u32 = 2230296u32;
-pub const IOCTL_NFCSE_SUBSCRIBE_FOR_EVENT: u32 = 2230276u32;
-pub const ISO_7816_MAXIMUM_AID_LENGTH: u32 = 16u32;
-pub const ISO_7816_MINIMUM_AID_LENGTH: u32 = 5u32;
-pub const IdleMode: NFC_RELEASE_TYPE = NFC_RELEASE_TYPE(0i32);
-pub const Integrated: SECURE_ELEMENT_TYPE = SECURE_ELEMENT_TYPE(0i32);
-pub const LinkActivated: NFC_LLCP_LINK_STATUS = NFC_LLCP_LINK_STATUS(0i32);
-pub const LinkDeactivated: NFC_LLCP_LINK_STATUS = NFC_LLCP_LINK_STATUS(1i32);
-pub const MAX_ATR_LENGTH: u32 = 48u32;
-pub const MAX_LLCP_SERVICE_NAME_SIZE: u32 = 256u32;
-pub const MAX_SNEP_SERVER_NAME_SIZE: u32 = 256u32;
-pub const MAX_UID_SIZE: u32 = 16u32;
-pub const NFCRMDDI_IOCTL_BASE: u32 = 80u32;
-pub const NfcConnectBySap: NFC_LLCP_SOCKET_CONNECT_TYPE = NFC_LLCP_SOCKET_CONNECT_TYPE(0i32);
-pub const NfcConnectByUri: NFC_LLCP_SOCKET_CONNECT_TYPE = NFC_LLCP_SOCKET_CONNECT_TYPE(1i32);
-pub const NfcDepDefault: NFC_P2P_MODE = NFC_P2P_MODE(0i32);
-pub const NfcDepListen: NFC_P2P_MODE = NFC_P2P_MODE(2i32);
-pub const NfcDepPoll: NFC_P2P_MODE = NFC_P2P_MODE(1i32);
-pub const NfcIP1Initiator: NFC_DEVICE_TYPE = NFC_DEVICE_TYPE(5i32);
-pub const NfcIP1Target: NFC_DEVICE_TYPE = NFC_DEVICE_TYPE(4i32);
-pub const NfcLlcpErrorBusyCondition: NFC_LLCP_SOCKET_ERROR = NFC_LLCP_SOCKET_ERROR(2i32);
-pub const NfcLlcpErrorDisconnected: NFC_LLCP_SOCKET_ERROR = NFC_LLCP_SOCKET_ERROR(0i32);
-pub const NfcLlcpErrorFrameRejected: NFC_LLCP_SOCKET_ERROR = NFC_LLCP_SOCKET_ERROR(1i32);
-pub const NfcLlcpErrorNotBusyCondition: NFC_LLCP_SOCKET_ERROR = NFC_LLCP_SOCKET_ERROR(3i32);
-pub const NfcReader: NFC_DEVICE_TYPE = NFC_DEVICE_TYPE(6i32);
-pub const NfcType1Tag: NFC_DEVICE_TYPE = NFC_DEVICE_TYPE(0i32);
-pub const NfcType2Tag: NFC_DEVICE_TYPE = NFC_DEVICE_TYPE(1i32);
-pub const NfcType3Tag: NFC_DEVICE_TYPE = NFC_DEVICE_TYPE(2i32);
-pub const NfcType4Tag: NFC_DEVICE_TYPE = NFC_DEVICE_TYPE(3i32);
-pub const RFDiscoveryResume: NFC_RF_DISCOVERY_MODE = NFC_RF_DISCOVERY_MODE(2i32);
-pub const RfDiscoveryConfig: NFC_RF_DISCOVERY_MODE = NFC_RF_DISCOVERY_MODE(0i32);
-pub const RfDiscoveryStart: NFC_RF_DISCOVERY_MODE = NFC_RF_DISCOVERY_MODE(1i32);
-pub const RoutingTypeAid: SECURE_ELEMENT_ROUTING_TYPE = SECURE_ELEMENT_ROUTING_TYPE(2i32);
-pub const RoutingTypeProtocol: SECURE_ELEMENT_ROUTING_TYPE = SECURE_ELEMENT_ROUTING_TYPE(1i32);
-pub const RoutingTypeTech: SECURE_ELEMENT_ROUTING_TYPE = SECURE_ELEMENT_ROUTING_TYPE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SECURE_ELEMENT_TYPE(pub i32);
 pub const SEPowerMode_AllowOff: SECURE_ELEMENT_POWER_MODE = SECURE_ELEMENT_POWER_MODE(1i32);
 pub const SEPowerMode_ForceOn: SECURE_ELEMENT_POWER_MODE = SECURE_ELEMENT_POWER_MODE(0i32);
 pub const SleepMode: NFC_RELEASE_TYPE = NFC_RELEASE_TYPE(1i32);

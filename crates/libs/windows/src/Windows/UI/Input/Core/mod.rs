@@ -1,3 +1,40 @@
+windows_core::imp::define_interface!(IRadialControllerIndependentInputSource, IRadialControllerIndependentInputSource_Vtbl, 0x3d577ef6_4cee_11e6_b535_001bdc06ab3b);
+impl windows_core::RuntimeType for IRadialControllerIndependentInputSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRadialControllerIndependentInputSource_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Controller: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "UI_Core")]
+    pub Dispatcher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "UI_Core"))]
+    Dispatcher: usize,
+}
+windows_core::imp::define_interface!(IRadialControllerIndependentInputSource2, IRadialControllerIndependentInputSource2_Vtbl, 0x7073aad8_35f3_4eeb_8751_be4d0a66faf4);
+impl windows_core::RuntimeType for IRadialControllerIndependentInputSource2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRadialControllerIndependentInputSource2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "System")]
+    pub DispatcherQueue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "System"))]
+    DispatcherQueue: usize,
+}
+windows_core::imp::define_interface!(IRadialControllerIndependentInputSourceStatics, IRadialControllerIndependentInputSourceStatics_Vtbl, 0x3d577ef5_4cee_11e6_b535_001bdc06ab3b);
+impl windows_core::RuntimeType for IRadialControllerIndependentInputSourceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRadialControllerIndependentInputSourceStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "ApplicationModel_Core")]
+    pub CreateForView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_Core"))]
+    CreateForView: usize,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RadialControllerIndependentInputSource(windows_core::IUnknown);
@@ -53,40 +90,3 @@ impl windows_core::RuntimeName for RadialControllerIndependentInputSource {
 }
 unsafe impl Send for RadialControllerIndependentInputSource {}
 unsafe impl Sync for RadialControllerIndependentInputSource {}
-windows_core::imp::define_interface!(IRadialControllerIndependentInputSource, IRadialControllerIndependentInputSource_Vtbl, 0x3d577ef6_4cee_11e6_b535_001bdc06ab3b);
-impl windows_core::RuntimeType for IRadialControllerIndependentInputSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRadialControllerIndependentInputSource_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Controller: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "UI_Core")]
-    pub Dispatcher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI_Core"))]
-    Dispatcher: usize,
-}
-windows_core::imp::define_interface!(IRadialControllerIndependentInputSource2, IRadialControllerIndependentInputSource2_Vtbl, 0x7073aad8_35f3_4eeb_8751_be4d0a66faf4);
-impl windows_core::RuntimeType for IRadialControllerIndependentInputSource2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRadialControllerIndependentInputSource2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "System")]
-    pub DispatcherQueue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "System"))]
-    DispatcherQueue: usize,
-}
-windows_core::imp::define_interface!(IRadialControllerIndependentInputSourceStatics, IRadialControllerIndependentInputSourceStatics_Vtbl, 0x3d577ef5_4cee_11e6_b535_001bdc06ab3b);
-impl windows_core::RuntimeType for IRadialControllerIndependentInputSourceStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRadialControllerIndependentInputSourceStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "ApplicationModel_Core")]
-    pub CreateForView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Core"))]
-    CreateForView: usize,
-}

@@ -1,5 +1,17 @@
 #[cfg(feature = "Devices_Gpio_Provider")]
 pub mod Provider;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct GpioChangeCount {
+    pub Count: u64,
+    pub RelativeTime: super::super::Foundation::TimeSpan,
+}
+impl windows_core::TypeKind for GpioChangeCount {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GpioChangeCount {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Gpio.GpioChangeCount;u8;struct(Windows.Foundation.TimeSpan;i8))");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GpioChangeCounter(windows_core::IUnknown);
@@ -76,6 +88,20 @@ impl windows_core::RuntimeName for GpioChangeCounter {
 }
 unsafe impl Send for GpioChangeCounter {}
 unsafe impl Sync for GpioChangeCounter {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GpioChangePolarity(pub i32);
+impl GpioChangePolarity {
+    pub const Falling: Self = Self(0i32);
+    pub const Rising: Self = Self(1i32);
+    pub const Both: Self = Self(2i32);
+}
+impl windows_core::TypeKind for GpioChangePolarity {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GpioChangePolarity {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioChangePolarity;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GpioChangeReader(windows_core::IUnknown);
@@ -208,6 +234,18 @@ impl windows_core::RuntimeName for GpioChangeReader {
 }
 unsafe impl Send for GpioChangeReader {}
 unsafe impl Sync for GpioChangeReader {}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct GpioChangeRecord {
+    pub RelativeTime: super::super::Foundation::TimeSpan,
+    pub Edge: GpioPinEdge,
+}
+impl windows_core::TypeKind for GpioChangeRecord {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GpioChangeRecord {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Gpio.GpioChangeRecord;struct(Windows.Foundation.TimeSpan;i8);enum(Windows.Devices.Gpio.GpioPinEdge;i4))");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GpioController(windows_core::IUnknown);
@@ -284,6 +322,22 @@ impl windows_core::RuntimeName for GpioController {
 }
 unsafe impl Send for GpioController {}
 unsafe impl Sync for GpioController {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GpioOpenStatus(pub i32);
+impl GpioOpenStatus {
+    pub const PinOpened: Self = Self(0i32);
+    pub const PinUnavailable: Self = Self(1i32);
+    pub const SharingViolation: Self = Self(2i32);
+    pub const MuxingConflict: Self = Self(3i32);
+    pub const UnknownError: Self = Self(4i32);
+}
+impl windows_core::TypeKind for GpioOpenStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GpioOpenStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioOpenStatus;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GpioPin(windows_core::IUnknown);
@@ -376,6 +430,51 @@ impl windows_core::RuntimeName for GpioPin {
 unsafe impl Send for GpioPin {}
 unsafe impl Sync for GpioPin {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GpioPinDriveMode(pub i32);
+impl GpioPinDriveMode {
+    pub const Input: Self = Self(0i32);
+    pub const Output: Self = Self(1i32);
+    pub const InputPullUp: Self = Self(2i32);
+    pub const InputPullDown: Self = Self(3i32);
+    pub const OutputOpenDrain: Self = Self(4i32);
+    pub const OutputOpenDrainPullUp: Self = Self(5i32);
+    pub const OutputOpenSource: Self = Self(6i32);
+    pub const OutputOpenSourcePullDown: Self = Self(7i32);
+}
+impl windows_core::TypeKind for GpioPinDriveMode {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GpioPinDriveMode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinDriveMode;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GpioPinEdge(pub i32);
+impl GpioPinEdge {
+    pub const FallingEdge: Self = Self(0i32);
+    pub const RisingEdge: Self = Self(1i32);
+}
+impl windows_core::TypeKind for GpioPinEdge {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GpioPinEdge {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinEdge;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GpioPinValue(pub i32);
+impl GpioPinValue {
+    pub const Low: Self = Self(0i32);
+    pub const High: Self = Self(1i32);
+}
+impl windows_core::TypeKind for GpioPinValue {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GpioPinValue {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinValue;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GpioPinValueChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GpioPinValueChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -400,6 +499,19 @@ impl windows_core::RuntimeName for GpioPinValueChangedEventArgs {
 }
 unsafe impl Send for GpioPinValueChangedEventArgs {}
 unsafe impl Sync for GpioPinValueChangedEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GpioSharingMode(pub i32);
+impl GpioSharingMode {
+    pub const Exclusive: Self = Self(0i32);
+    pub const SharedReadOnly: Self = Self(1i32);
+}
+impl windows_core::TypeKind for GpioSharingMode {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GpioSharingMode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioSharingMode;i4)");
+}
 windows_core::imp::define_interface!(IGpioChangeCounter, IGpioChangeCounter_Vtbl, 0xcb5ec0de_6801_43ff_803d_4576628a8b26);
 impl windows_core::RuntimeType for IGpioChangeCounter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -520,116 +632,4 @@ impl windows_core::RuntimeType for IGpioPinValueChangedEventArgs {
 pub struct IGpioPinValueChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Edge: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GpioPinEdge) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GpioChangePolarity(pub i32);
-impl GpioChangePolarity {
-    pub const Falling: Self = Self(0i32);
-    pub const Rising: Self = Self(1i32);
-    pub const Both: Self = Self(2i32);
-}
-impl windows_core::TypeKind for GpioChangePolarity {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GpioChangePolarity {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioChangePolarity;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GpioOpenStatus(pub i32);
-impl GpioOpenStatus {
-    pub const PinOpened: Self = Self(0i32);
-    pub const PinUnavailable: Self = Self(1i32);
-    pub const SharingViolation: Self = Self(2i32);
-    pub const MuxingConflict: Self = Self(3i32);
-    pub const UnknownError: Self = Self(4i32);
-}
-impl windows_core::TypeKind for GpioOpenStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GpioOpenStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioOpenStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GpioPinDriveMode(pub i32);
-impl GpioPinDriveMode {
-    pub const Input: Self = Self(0i32);
-    pub const Output: Self = Self(1i32);
-    pub const InputPullUp: Self = Self(2i32);
-    pub const InputPullDown: Self = Self(3i32);
-    pub const OutputOpenDrain: Self = Self(4i32);
-    pub const OutputOpenDrainPullUp: Self = Self(5i32);
-    pub const OutputOpenSource: Self = Self(6i32);
-    pub const OutputOpenSourcePullDown: Self = Self(7i32);
-}
-impl windows_core::TypeKind for GpioPinDriveMode {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GpioPinDriveMode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinDriveMode;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GpioPinEdge(pub i32);
-impl GpioPinEdge {
-    pub const FallingEdge: Self = Self(0i32);
-    pub const RisingEdge: Self = Self(1i32);
-}
-impl windows_core::TypeKind for GpioPinEdge {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GpioPinEdge {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinEdge;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GpioPinValue(pub i32);
-impl GpioPinValue {
-    pub const Low: Self = Self(0i32);
-    pub const High: Self = Self(1i32);
-}
-impl windows_core::TypeKind for GpioPinValue {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GpioPinValue {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinValue;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GpioSharingMode(pub i32);
-impl GpioSharingMode {
-    pub const Exclusive: Self = Self(0i32);
-    pub const SharedReadOnly: Self = Self(1i32);
-}
-impl windows_core::TypeKind for GpioSharingMode {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GpioSharingMode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioSharingMode;i4)");
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct GpioChangeCount {
-    pub Count: u64,
-    pub RelativeTime: super::super::Foundation::TimeSpan,
-}
-impl windows_core::TypeKind for GpioChangeCount {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GpioChangeCount {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Gpio.GpioChangeCount;u8;struct(Windows.Foundation.TimeSpan;i8))");
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct GpioChangeRecord {
-    pub RelativeTime: super::super::Foundation::TimeSpan,
-    pub Edge: GpioPinEdge,
-}
-impl windows_core::TypeKind for GpioChangeRecord {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GpioChangeRecord {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Gpio.GpioChangeRecord;struct(Windows.Foundation.TimeSpan;i8);enum(Windows.Devices.Gpio.GpioPinEdge;i4))");
 }

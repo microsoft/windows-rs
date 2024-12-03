@@ -42,9 +42,6 @@ where
 #[cfg(target_pointer_width = "32")]
 pub use SetWindowLongA as SetWindowLongPtrA;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WINDOW_LONG_PTR_INDEX(pub i32);
-#[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HANDLE(pub *mut core::ffi::c_void);
 impl windows_core::TypeKind for HANDLE {
@@ -91,3 +88,6 @@ impl From<HWND> for HANDLE {
         Self(value.0)
     }
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WINDOW_LONG_PTR_INDEX(pub i32);

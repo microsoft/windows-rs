@@ -21,6 +21,405 @@ unsafe impl windows_core::Interface for CurrentTimeChangeRequestedEventArgs {
 impl windows_core::RuntimeName for CurrentTimeChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.CurrentTimeChangeRequestedEventArgs";
 }
+windows_core::imp::define_interface!(ICurrentTimeChangeRequestedEventArgs, ICurrentTimeChangeRequestedEventArgs_Vtbl, 0x99711324_edc7_4bf5_91f6_3c8627db59e5);
+impl windows_core::RuntimeType for ICurrentTimeChangeRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ICurrentTimeChangeRequestedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Time: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IMuteChangeRequestedEventArgs, IMuteChangeRequestedEventArgs_Vtbl, 0xe4b4f5f6_af1f_4f1e_b437_7da32400e1d4);
+impl windows_core::RuntimeType for IMuteChangeRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IMuteChangeRequestedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Mute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(IPlayToConnection, IPlayToConnection_Vtbl, 0x112fbfc8_f235_4fde_8d41_9bf27c9e9a40);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IPlayToConnection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct IPlayToConnection_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PlayToConnectionState) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    State: usize,
+    #[cfg(feature = "deprecated")]
+    pub StateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    StateChanged: usize,
+    #[cfg(feature = "deprecated")]
+    pub RemoveStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    RemoveStateChanged: usize,
+    #[cfg(feature = "deprecated")]
+    pub Transferred: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Transferred: usize,
+    #[cfg(feature = "deprecated")]
+    pub RemoveTransferred: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    RemoveTransferred: usize,
+    #[cfg(feature = "deprecated")]
+    pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Error: usize,
+    #[cfg(feature = "deprecated")]
+    pub RemoveError: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    RemoveError: usize,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(IPlayToConnectionErrorEventArgs, IPlayToConnectionErrorEventArgs_Vtbl, 0xbf5eada6_88e6_445f_9d40_d9b9f8939896);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IPlayToConnectionErrorEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct IPlayToConnectionErrorEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub Code: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PlayToConnectionError) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Code: usize,
+    #[cfg(feature = "deprecated")]
+    pub Message: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Message: usize,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(IPlayToConnectionStateChangedEventArgs, IPlayToConnectionStateChangedEventArgs_Vtbl, 0x68c4b50f_0c20_4980_8602_58c62238d423);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IPlayToConnectionStateChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct IPlayToConnectionStateChangedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub PreviousState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PlayToConnectionState) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    PreviousState: usize,
+    #[cfg(feature = "deprecated")]
+    pub CurrentState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PlayToConnectionState) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    CurrentState: usize,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(IPlayToConnectionTransferredEventArgs, IPlayToConnectionTransferredEventArgs_Vtbl, 0xfae3193a_0683_47d9_8df0_18cbb48984d8);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IPlayToConnectionTransferredEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct IPlayToConnectionTransferredEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub PreviousSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    PreviousSource: usize,
+    #[cfg(feature = "deprecated")]
+    pub CurrentSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    CurrentSource: usize,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(IPlayToManager, IPlayToManager_Vtbl, 0xf56a206e_1b77_42ef_8f0d_b949f8d9b260);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IPlayToManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct IPlayToManager_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub SourceRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SourceRequested: usize,
+    #[cfg(feature = "deprecated")]
+    pub RemoveSourceRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    RemoveSourceRequested: usize,
+    #[cfg(feature = "deprecated")]
+    pub SourceSelected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SourceSelected: usize,
+    #[cfg(feature = "deprecated")]
+    pub RemoveSourceSelected: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    RemoveSourceSelected: usize,
+    #[cfg(feature = "deprecated")]
+    pub SetDefaultSourceSelection: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SetDefaultSourceSelection: usize,
+    #[cfg(feature = "deprecated")]
+    pub DefaultSourceSelection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    DefaultSourceSelection: usize,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(IPlayToManagerStatics, IPlayToManagerStatics_Vtbl, 0x64e6a887_3982_4f3b_ba20_6155e435325b);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IPlayToManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct IPlayToManagerStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    GetForCurrentView: usize,
+    #[cfg(feature = "deprecated")]
+    pub ShowPlayToUI: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    ShowPlayToUI: usize,
+}
+windows_core::imp::define_interface!(IPlayToReceiver, IPlayToReceiver_Vtbl, 0xac15cf47_a162_4aa6_af1b_3aa35f3b9069);
+impl windows_core::RuntimeType for IPlayToReceiver {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPlayToReceiver_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub PlayRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePlayRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PauseRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePauseRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub SourceChangeRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveSourceChangeRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PlaybackRateChangeRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePlaybackRateChangeRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub CurrentTimeChangeRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveCurrentTimeChangeRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub MuteChangeRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveMuteChangeRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub VolumeChangeRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveVolumeChangeRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub TimeUpdateRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveTimeUpdateRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub StopRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveStopRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub NotifyVolumeChange: unsafe extern "system" fn(*mut core::ffi::c_void, f64, bool) -> windows_core::HRESULT,
+    pub NotifyRateChange: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    pub NotifyLoadedMetadata: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub NotifyTimeUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub NotifyDurationChange: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub NotifySeeking: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub NotifySeeked: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub NotifyPaused: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub NotifyPlaying: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub NotifyEnded: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub NotifyError: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub NotifyStopped: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetSupportsImage: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub SupportsImage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetSupportsAudio: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub SupportsAudio: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetSupportsVideo: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub SupportsVideo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Properties: usize,
+    pub StartAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub StopAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(IPlayToSource, IPlayToSource_Vtbl, 0x7f138a08_fbb7_4b09_8356_aa5f4e335c31);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IPlayToSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct IPlayToSource_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub Connection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Connection: usize,
+    #[cfg(feature = "deprecated")]
+    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Next: usize,
+    #[cfg(feature = "deprecated")]
+    pub SetNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SetNext: usize,
+    #[cfg(feature = "deprecated")]
+    pub PlayNext: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    PlayNext: usize,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(IPlayToSourceDeferral, IPlayToSourceDeferral_Vtbl, 0x4100891d_278e_4f29_859b_a9e501053e7d);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IPlayToSourceDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct IPlayToSourceDeferral_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Complete: usize,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(IPlayToSourceRequest, IPlayToSourceRequest_Vtbl, 0xf8584665_64f4_44a0_ac0d_468d2b8fda83);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IPlayToSourceRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct IPlayToSourceRequest_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Deadline: usize,
+    #[cfg(feature = "deprecated")]
+    pub DisplayErrorString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    DisplayErrorString: usize,
+    #[cfg(feature = "deprecated")]
+    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    GetDeferral: usize,
+    #[cfg(feature = "deprecated")]
+    pub SetSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SetSource: usize,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(IPlayToSourceRequestedEventArgs, IPlayToSourceRequestedEventArgs_Vtbl, 0xc5cdc330_29df_4ec6_9da9_9fbdfcfc1b3e);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IPlayToSourceRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct IPlayToSourceRequestedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub SourceRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SourceRequest: usize,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(IPlayToSourceSelectedEventArgs, IPlayToSourceSelectedEventArgs_Vtbl, 0x0c9d8511_5202_4dcb_8c67_abda12bb3c12);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IPlayToSourceSelectedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct IPlayToSourceSelectedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub FriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    FriendlyName: usize,
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    pub Icon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
+    Icon: usize,
+    #[cfg(feature = "deprecated")]
+    pub SupportsImage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SupportsImage: usize,
+    #[cfg(feature = "deprecated")]
+    pub SupportsAudio: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SupportsAudio: usize,
+    #[cfg(feature = "deprecated")]
+    pub SupportsVideo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SupportsVideo: usize,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(IPlayToSourceWithPreferredSourceUri, IPlayToSourceWithPreferredSourceUri_Vtbl, 0xaab253eb_3301_4dc4_afba_b2f2ed9635a0);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IPlayToSourceWithPreferredSourceUri {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct IPlayToSourceWithPreferredSourceUri_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub PreferredSourceUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    PreferredSourceUri: usize,
+    #[cfg(feature = "deprecated")]
+    pub SetPreferredSourceUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SetPreferredSourceUri: usize,
+}
+windows_core::imp::define_interface!(IPlaybackRateChangeRequestedEventArgs, IPlaybackRateChangeRequestedEventArgs_Vtbl, 0x0f5661ae_2c88_4cca_8540_d586095d13a5);
+impl windows_core::RuntimeType for IPlaybackRateChangeRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPlaybackRateChangeRequestedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Rate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISourceChangeRequestedEventArgs, ISourceChangeRequestedEventArgs_Vtbl, 0xfb3f3a96_7aa6_4a8b_86e7_54f6c6d34f64);
+impl windows_core::RuntimeType for ISourceChangeRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISourceChangeRequestedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Storage_Streams")]
+    pub Stream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    Stream: usize,
+    pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Author: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Album: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Genre: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Date: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub Thumbnail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    Thumbnail: usize,
+    pub Rating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Properties: usize,
+}
+windows_core::imp::define_interface!(IVolumeChangeRequestedEventArgs, IVolumeChangeRequestedEventArgs_Vtbl, 0x6f026d5c_cf75_4c2b_913e_6d7c6c329179);
+impl windows_core::RuntimeType for IVolumeChangeRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IVolumeChangeRequestedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Volume: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MuteChangeRequestedEventArgs(windows_core::IUnknown);
@@ -126,6 +525,22 @@ impl windows_core::RuntimeName for PlayToConnection {
 unsafe impl Send for PlayToConnection {}
 #[cfg(feature = "deprecated")]
 unsafe impl Sync for PlayToConnection {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PlayToConnectionError(pub i32);
+impl PlayToConnectionError {
+    pub const None: Self = Self(0i32);
+    pub const DeviceNotResponding: Self = Self(1i32);
+    pub const DeviceError: Self = Self(2i32);
+    pub const DeviceLocked: Self = Self(3i32);
+    pub const ProtectedPlaybackFailed: Self = Self(4i32);
+}
+impl windows_core::TypeKind for PlayToConnectionError {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for PlayToConnectionError {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.PlayTo.PlayToConnectionError;i4)");
+}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -168,6 +583,20 @@ impl windows_core::RuntimeName for PlayToConnectionErrorEventArgs {
 unsafe impl Send for PlayToConnectionErrorEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl Sync for PlayToConnectionErrorEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PlayToConnectionState(pub i32);
+impl PlayToConnectionState {
+    pub const Disconnected: Self = Self(0i32);
+    pub const Connected: Self = Self(1i32);
+    pub const Rendering: Self = Self(2i32);
+}
+impl windows_core::TypeKind for PlayToConnectionState {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for PlayToConnectionState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.PlayTo.PlayToConnectionState;i4)");
+}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -992,433 +1421,4 @@ unsafe impl windows_core::Interface for VolumeChangeRequestedEventArgs {
 }
 impl windows_core::RuntimeName for VolumeChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.VolumeChangeRequestedEventArgs";
-}
-windows_core::imp::define_interface!(ICurrentTimeChangeRequestedEventArgs, ICurrentTimeChangeRequestedEventArgs_Vtbl, 0x99711324_edc7_4bf5_91f6_3c8627db59e5);
-impl windows_core::RuntimeType for ICurrentTimeChangeRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ICurrentTimeChangeRequestedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Time: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IMuteChangeRequestedEventArgs, IMuteChangeRequestedEventArgs_Vtbl, 0xe4b4f5f6_af1f_4f1e_b437_7da32400e1d4);
-impl windows_core::RuntimeType for IMuteChangeRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IMuteChangeRequestedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Mute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(IPlayToConnection, IPlayToConnection_Vtbl, 0x112fbfc8_f235_4fde_8d41_9bf27c9e9a40);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IPlayToConnection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct IPlayToConnection_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PlayToConnectionState) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    State: usize,
-    #[cfg(feature = "deprecated")]
-    pub StateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    StateChanged: usize,
-    #[cfg(feature = "deprecated")]
-    pub RemoveStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveStateChanged: usize,
-    #[cfg(feature = "deprecated")]
-    pub Transferred: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Transferred: usize,
-    #[cfg(feature = "deprecated")]
-    pub RemoveTransferred: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveTransferred: usize,
-    #[cfg(feature = "deprecated")]
-    pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Error: usize,
-    #[cfg(feature = "deprecated")]
-    pub RemoveError: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveError: usize,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(IPlayToConnectionErrorEventArgs, IPlayToConnectionErrorEventArgs_Vtbl, 0xbf5eada6_88e6_445f_9d40_d9b9f8939896);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IPlayToConnectionErrorEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct IPlayToConnectionErrorEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub Code: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PlayToConnectionError) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Code: usize,
-    #[cfg(feature = "deprecated")]
-    pub Message: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Message: usize,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(IPlayToConnectionStateChangedEventArgs, IPlayToConnectionStateChangedEventArgs_Vtbl, 0x68c4b50f_0c20_4980_8602_58c62238d423);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IPlayToConnectionStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct IPlayToConnectionStateChangedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub PreviousState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PlayToConnectionState) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    PreviousState: usize,
-    #[cfg(feature = "deprecated")]
-    pub CurrentState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PlayToConnectionState) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    CurrentState: usize,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(IPlayToConnectionTransferredEventArgs, IPlayToConnectionTransferredEventArgs_Vtbl, 0xfae3193a_0683_47d9_8df0_18cbb48984d8);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IPlayToConnectionTransferredEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct IPlayToConnectionTransferredEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub PreviousSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    PreviousSource: usize,
-    #[cfg(feature = "deprecated")]
-    pub CurrentSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    CurrentSource: usize,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(IPlayToManager, IPlayToManager_Vtbl, 0xf56a206e_1b77_42ef_8f0d_b949f8d9b260);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IPlayToManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct IPlayToManager_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub SourceRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SourceRequested: usize,
-    #[cfg(feature = "deprecated")]
-    pub RemoveSourceRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveSourceRequested: usize,
-    #[cfg(feature = "deprecated")]
-    pub SourceSelected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SourceSelected: usize,
-    #[cfg(feature = "deprecated")]
-    pub RemoveSourceSelected: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveSourceSelected: usize,
-    #[cfg(feature = "deprecated")]
-    pub SetDefaultSourceSelection: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetDefaultSourceSelection: usize,
-    #[cfg(feature = "deprecated")]
-    pub DefaultSourceSelection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    DefaultSourceSelection: usize,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(IPlayToManagerStatics, IPlayToManagerStatics_Vtbl, 0x64e6a887_3982_4f3b_ba20_6155e435325b);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IPlayToManagerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct IPlayToManagerStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    GetForCurrentView: usize,
-    #[cfg(feature = "deprecated")]
-    pub ShowPlayToUI: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    ShowPlayToUI: usize,
-}
-windows_core::imp::define_interface!(IPlayToReceiver, IPlayToReceiver_Vtbl, 0xac15cf47_a162_4aa6_af1b_3aa35f3b9069);
-impl windows_core::RuntimeType for IPlayToReceiver {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPlayToReceiver_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub PlayRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePlayRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PauseRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePauseRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub SourceChangeRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveSourceChangeRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PlaybackRateChangeRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePlaybackRateChangeRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub CurrentTimeChangeRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveCurrentTimeChangeRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub MuteChangeRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveMuteChangeRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub VolumeChangeRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveVolumeChangeRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub TimeUpdateRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveTimeUpdateRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub StopRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveStopRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub NotifyVolumeChange: unsafe extern "system" fn(*mut core::ffi::c_void, f64, bool) -> windows_core::HRESULT,
-    pub NotifyRateChange: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub NotifyLoadedMetadata: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub NotifyTimeUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub NotifyDurationChange: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub NotifySeeking: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub NotifySeeked: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub NotifyPaused: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub NotifyPlaying: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub NotifyEnded: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub NotifyError: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub NotifyStopped: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetSupportsImage: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub SupportsImage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetSupportsAudio: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub SupportsAudio: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetSupportsVideo: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub SupportsVideo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
-    pub StartAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub StopAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(IPlayToSource, IPlayToSource_Vtbl, 0x7f138a08_fbb7_4b09_8356_aa5f4e335c31);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IPlayToSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct IPlayToSource_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub Connection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Connection: usize,
-    #[cfg(feature = "deprecated")]
-    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Next: usize,
-    #[cfg(feature = "deprecated")]
-    pub SetNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetNext: usize,
-    #[cfg(feature = "deprecated")]
-    pub PlayNext: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    PlayNext: usize,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(IPlayToSourceDeferral, IPlayToSourceDeferral_Vtbl, 0x4100891d_278e_4f29_859b_a9e501053e7d);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IPlayToSourceDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct IPlayToSourceDeferral_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Complete: usize,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(IPlayToSourceRequest, IPlayToSourceRequest_Vtbl, 0xf8584665_64f4_44a0_ac0d_468d2b8fda83);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IPlayToSourceRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct IPlayToSourceRequest_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Deadline: usize,
-    #[cfg(feature = "deprecated")]
-    pub DisplayErrorString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    DisplayErrorString: usize,
-    #[cfg(feature = "deprecated")]
-    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    GetDeferral: usize,
-    #[cfg(feature = "deprecated")]
-    pub SetSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetSource: usize,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(IPlayToSourceRequestedEventArgs, IPlayToSourceRequestedEventArgs_Vtbl, 0xc5cdc330_29df_4ec6_9da9_9fbdfcfc1b3e);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IPlayToSourceRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct IPlayToSourceRequestedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub SourceRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SourceRequest: usize,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(IPlayToSourceSelectedEventArgs, IPlayToSourceSelectedEventArgs_Vtbl, 0x0c9d8511_5202_4dcb_8c67_abda12bb3c12);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IPlayToSourceSelectedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct IPlayToSourceSelectedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub FriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    FriendlyName: usize,
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub Icon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
-    Icon: usize,
-    #[cfg(feature = "deprecated")]
-    pub SupportsImage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SupportsImage: usize,
-    #[cfg(feature = "deprecated")]
-    pub SupportsAudio: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SupportsAudio: usize,
-    #[cfg(feature = "deprecated")]
-    pub SupportsVideo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SupportsVideo: usize,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(IPlayToSourceWithPreferredSourceUri, IPlayToSourceWithPreferredSourceUri_Vtbl, 0xaab253eb_3301_4dc4_afba_b2f2ed9635a0);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IPlayToSourceWithPreferredSourceUri {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct IPlayToSourceWithPreferredSourceUri_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub PreferredSourceUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    PreferredSourceUri: usize,
-    #[cfg(feature = "deprecated")]
-    pub SetPreferredSourceUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetPreferredSourceUri: usize,
-}
-windows_core::imp::define_interface!(IPlaybackRateChangeRequestedEventArgs, IPlaybackRateChangeRequestedEventArgs_Vtbl, 0x0f5661ae_2c88_4cca_8540_d586095d13a5);
-impl windows_core::RuntimeType for IPlaybackRateChangeRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPlaybackRateChangeRequestedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Rate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISourceChangeRequestedEventArgs, ISourceChangeRequestedEventArgs_Vtbl, 0xfb3f3a96_7aa6_4a8b_86e7_54f6c6d34f64);
-impl windows_core::RuntimeType for ISourceChangeRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISourceChangeRequestedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage_Streams")]
-    pub Stream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    Stream: usize,
-    pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Author: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Album: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Genre: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Date: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub Thumbnail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    Thumbnail: usize,
-    pub Rating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
-}
-windows_core::imp::define_interface!(IVolumeChangeRequestedEventArgs, IVolumeChangeRequestedEventArgs_Vtbl, 0x6f026d5c_cf75_4c2b_913e_6d7c6c329179);
-impl windows_core::RuntimeType for IVolumeChangeRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IVolumeChangeRequestedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Volume: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PlayToConnectionError(pub i32);
-impl PlayToConnectionError {
-    pub const None: Self = Self(0i32);
-    pub const DeviceNotResponding: Self = Self(1i32);
-    pub const DeviceError: Self = Self(2i32);
-    pub const DeviceLocked: Self = Self(3i32);
-    pub const ProtectedPlaybackFailed: Self = Self(4i32);
-}
-impl windows_core::TypeKind for PlayToConnectionError {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for PlayToConnectionError {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.PlayTo.PlayToConnectionError;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PlayToConnectionState(pub i32);
-impl PlayToConnectionState {
-    pub const Disconnected: Self = Self(0i32);
-    pub const Connected: Self = Self(1i32);
-    pub const Rendering: Self = Self(2i32);
-}
-impl windows_core::TypeKind for PlayToConnectionState {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for PlayToConnectionState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.PlayTo.PlayToConnectionState;i4)");
 }

@@ -1088,6 +1088,25 @@ where
     windows_targets::link!("loadperf.dll" "system" fn UpdatePerfNameFilesW(sznewctrfilepath : windows_core::PCWSTR, sznewhlpfilepath : windows_core::PCWSTR, szlanguageid : windows_core::PCWSTR, dwflags : usize) -> u32);
     UpdatePerfNameFilesW(sznewctrfilepath.param().abi(), sznewhlpfilepath.param().abi(), szlanguageid.param().abi(), core::mem::transmute(dwflags))
 }
+pub const AppearPropPage: windows_core::GUID = windows_core::GUID::from_u128(0xe49741e9_93a8_4ab1_8e96_bf4482282e9c);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AutoPathFormat(pub i32);
+pub const BootTraceSession: windows_core::GUID = windows_core::GUID::from_u128(0x03837538_098b_11d8_9414_505054503030);
+pub const BootTraceSessionCollection: windows_core::GUID = windows_core::GUID::from_u128(0x03837539_098b_11d8_9414_505054503030);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ClockType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CommitMode(pub i32);
+pub const CounterItem: windows_core::GUID = windows_core::GUID::from_u128(0xc4d2d8e0_d1dd_11ce_940f_008029004348);
+pub const CounterItem2: windows_core::GUID = windows_core::GUID::from_u128(0x43196c62_c31f_4ce3_a02e_79efe0f6a525);
+pub type CounterPathCallBack = Option<unsafe extern "system" fn(param0: usize) -> i32>;
+pub const CounterPropPage: windows_core::GUID = windows_core::GUID::from_u128(0xcf948561_ede8_11ce_941e_008029004347);
+pub const Counters: windows_core::GUID = windows_core::GUID::from_u128(0xb2b066d2_2aac_11cf_942f_008029004347);
+pub const DATA_SOURCE_REGISTRY: REAL_TIME_DATA_SOURCE_ID_FLAGS = REAL_TIME_DATA_SOURCE_ID_FLAGS(1u32);
+pub const DATA_SOURCE_WBEM: REAL_TIME_DATA_SOURCE_ID_FLAGS = REAL_TIME_DATA_SOURCE_ID_FLAGS(4u32);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DICounterItem, DICounterItem_Vtbl, 0xc08c4ff2_0e2e_11cf_942c_008029004347);
 #[cfg(feature = "Win32_System_Com")]
@@ -1117,6 +1136,11 @@ impl DICounterItem_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for DICounterItem {}
+pub const DIID_DICounterItem: windows_core::GUID = windows_core::GUID::from_u128(0xc08c4ff2_0e2e_11cf_942c_008029004347);
+pub const DIID_DILogFileItem: windows_core::GUID = windows_core::GUID::from_u128(0x8d093ffc_f777_4917_82d1_833fbc54c58f);
+pub const DIID_DISystemMonitor: windows_core::GUID = windows_core::GUID::from_u128(0x13d73d81_c32e_11cf_9398_00aa00a3ddea);
+pub const DIID_DISystemMonitorEvents: windows_core::GUID = windows_core::GUID::from_u128(0x84979930_4ab3_11cf_943a_008029004347);
+pub const DIID_DISystemMonitorInternal: windows_core::GUID = windows_core::GUID::from_u128(0x194eb242_c32c_11cf_9398_00aa00a3ddea);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DILogFileItem, DILogFileItem_Vtbl, 0x8d093ffc_f777_4917_82d1_833fbc54c58f);
 #[cfg(feature = "Win32_System_Com")]
@@ -1233,6 +1257,32 @@ impl DISystemMonitorInternal_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for DISystemMonitorInternal {}
+pub const DataCollectorSet: windows_core::GUID = windows_core::GUID::from_u128(0x03837521_098b_11d8_9414_505054503030);
+pub const DataCollectorSetCollection: windows_core::GUID = windows_core::GUID::from_u128(0x03837525_098b_11d8_9414_505054503030);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DataCollectorSetStatus(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DataCollectorType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DataManagerSteps(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DataSourceTypeConstants(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DisplayTypeConstants(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FileFormat(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FolderActionSteps(pub i32);
+pub const GeneralPropPage: windows_core::GUID = windows_core::GUID::from_u128(0xc3e5d3d2_1a03_11cf_942d_008029004347);
+pub const GraphPropPage: windows_core::GUID = windows_core::GUID::from_u128(0xc3e5d3d3_1a03_11cf_942d_008029004347);
+pub const H_WBEM_DATASOURCE: i32 = -1i32;
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAlertDataCollector, IAlertDataCollector_Vtbl, 0x03837516_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
@@ -8398,6 +8448,1389 @@ impl IValueMapItem_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IValueMapItem {}
+pub const LIBID_SystemMonitor: windows_core::GUID = windows_core::GUID::from_u128(0x1b773e42_2509_11cf_942f_008029004347);
+pub const LegacyDataCollectorSet: windows_core::GUID = windows_core::GUID::from_u128(0x03837526_098b_11d8_9414_505054503030);
+pub const LegacyDataCollectorSetCollection: windows_core::GUID = windows_core::GUID::from_u128(0x03837527_098b_11d8_9414_505054503030);
+pub const LegacyTraceSession: windows_core::GUID = windows_core::GUID::from_u128(0x03837528_098b_11d8_9414_505054503030);
+pub const LegacyTraceSessionCollection: windows_core::GUID = windows_core::GUID::from_u128(0x03837529_098b_11d8_9414_505054503030);
+pub const LogFileItem: windows_core::GUID = windows_core::GUID::from_u128(0x16ec5be8_df93_4237_94e4_9ee918111d71);
+pub const LogFiles: windows_core::GUID = windows_core::GUID::from_u128(0x2735d9fd_f6b9_4f19_a5d9_e2d068584bc5);
+pub const MAX_COUNTER_PATH: u32 = 256u32;
+pub const MAX_PERF_OBJECTS_IN_QUERY_FUNCTION: i32 = 64i32;
+pub const PDH_ACCESS_DENIED: u32 = 3221228507u32;
+pub const PDH_ASYNC_QUERY_TIMEOUT: u32 = 2147485659u32;
+pub const PDH_BINARY_LOG_CORRUPT: u32 = 3221228535u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PDH_BROWSE_DLG_CONFIG_A {
+    pub _bitfield: u32,
+    pub hWndOwner: super::super::Foundation::HWND,
+    pub szDataSource: windows_core::PSTR,
+    pub szReturnPathBuffer: windows_core::PSTR,
+    pub cchReturnPathLength: u32,
+    pub pCallBack: CounterPathCallBack,
+    pub dwCallBackArg: usize,
+    pub CallBackStatus: i32,
+    pub dwDefaultDetailLevel: PERF_DETAIL,
+    pub szDialogBoxCaption: windows_core::PSTR,
+}
+impl Default for PDH_BROWSE_DLG_CONFIG_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_BROWSE_DLG_CONFIG_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PDH_BROWSE_DLG_CONFIG_HA {
+    pub _bitfield: u32,
+    pub hWndOwner: super::super::Foundation::HWND,
+    pub hDataSource: PDH_HLOG,
+    pub szReturnPathBuffer: windows_core::PSTR,
+    pub cchReturnPathLength: u32,
+    pub pCallBack: CounterPathCallBack,
+    pub dwCallBackArg: usize,
+    pub CallBackStatus: i32,
+    pub dwDefaultDetailLevel: PERF_DETAIL,
+    pub szDialogBoxCaption: windows_core::PSTR,
+}
+impl Default for PDH_BROWSE_DLG_CONFIG_HA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_BROWSE_DLG_CONFIG_HA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PDH_BROWSE_DLG_CONFIG_HW {
+    pub _bitfield: u32,
+    pub hWndOwner: super::super::Foundation::HWND,
+    pub hDataSource: PDH_HLOG,
+    pub szReturnPathBuffer: windows_core::PWSTR,
+    pub cchReturnPathLength: u32,
+    pub pCallBack: CounterPathCallBack,
+    pub dwCallBackArg: usize,
+    pub CallBackStatus: i32,
+    pub dwDefaultDetailLevel: PERF_DETAIL,
+    pub szDialogBoxCaption: windows_core::PWSTR,
+}
+impl Default for PDH_BROWSE_DLG_CONFIG_HW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_BROWSE_DLG_CONFIG_HW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PDH_BROWSE_DLG_CONFIG_W {
+    pub _bitfield: u32,
+    pub hWndOwner: super::super::Foundation::HWND,
+    pub szDataSource: windows_core::PWSTR,
+    pub szReturnPathBuffer: windows_core::PWSTR,
+    pub cchReturnPathLength: u32,
+    pub pCallBack: CounterPathCallBack,
+    pub dwCallBackArg: usize,
+    pub CallBackStatus: i32,
+    pub dwDefaultDetailLevel: PERF_DETAIL,
+    pub szDialogBoxCaption: windows_core::PWSTR,
+}
+impl Default for PDH_BROWSE_DLG_CONFIG_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_BROWSE_DLG_CONFIG_W {
+    type TypeKind = windows_core::CopyType;
+}
+pub const PDH_CALC_NEGATIVE_DENOMINATOR: u32 = 2147485654u32;
+pub const PDH_CALC_NEGATIVE_TIMEBASE: u32 = 2147485655u32;
+pub const PDH_CALC_NEGATIVE_VALUE: u32 = 2147485656u32;
+pub const PDH_CANNOT_CONNECT_MACHINE: u32 = 3221228483u32;
+pub const PDH_CANNOT_CONNECT_WMI_SERVER: u32 = 3221228520u32;
+pub const PDH_CANNOT_READ_NAME_STRINGS: u32 = 3221228488u32;
+pub const PDH_CANNOT_SET_DEFAULT_REALTIME_DATASOURCE: u32 = 2147485660u32;
+pub const PDH_COUNTER_ALREADY_IN_QUERY: u32 = 3221228534u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PDH_COUNTER_INFO_A {
+    pub dwLength: u32,
+    pub dwType: u32,
+    pub CVersion: u32,
+    pub CStatus: u32,
+    pub lScale: i32,
+    pub lDefaultScale: i32,
+    pub dwUserData: usize,
+    pub dwQueryUserData: usize,
+    pub szFullPath: windows_core::PSTR,
+    pub Anonymous: PDH_COUNTER_INFO_A_0,
+    pub szExplainText: windows_core::PSTR,
+    pub DataBuffer: [u32; 1],
+}
+impl Default for PDH_COUNTER_INFO_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_COUNTER_INFO_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PDH_COUNTER_INFO_A_0 {
+    pub DataItemPath: PDH_DATA_ITEM_PATH_ELEMENTS_A,
+    pub CounterPath: PDH_COUNTER_PATH_ELEMENTS_A,
+    pub Anonymous: PDH_COUNTER_INFO_A_0_0,
+}
+impl Default for PDH_COUNTER_INFO_A_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_COUNTER_INFO_A_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PDH_COUNTER_INFO_A_0_0 {
+    pub szMachineName: windows_core::PSTR,
+    pub szObjectName: windows_core::PSTR,
+    pub szInstanceName: windows_core::PSTR,
+    pub szParentInstance: windows_core::PSTR,
+    pub dwInstanceIndex: u32,
+    pub szCounterName: windows_core::PSTR,
+}
+impl Default for PDH_COUNTER_INFO_A_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_COUNTER_INFO_A_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PDH_COUNTER_INFO_W {
+    pub dwLength: u32,
+    pub dwType: u32,
+    pub CVersion: u32,
+    pub CStatus: u32,
+    pub lScale: i32,
+    pub lDefaultScale: i32,
+    pub dwUserData: usize,
+    pub dwQueryUserData: usize,
+    pub szFullPath: windows_core::PWSTR,
+    pub Anonymous: PDH_COUNTER_INFO_W_0,
+    pub szExplainText: windows_core::PWSTR,
+    pub DataBuffer: [u32; 1],
+}
+impl Default for PDH_COUNTER_INFO_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_COUNTER_INFO_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PDH_COUNTER_INFO_W_0 {
+    pub DataItemPath: PDH_DATA_ITEM_PATH_ELEMENTS_W,
+    pub CounterPath: PDH_COUNTER_PATH_ELEMENTS_W,
+    pub Anonymous: PDH_COUNTER_INFO_W_0_0,
+}
+impl Default for PDH_COUNTER_INFO_W_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_COUNTER_INFO_W_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PDH_COUNTER_INFO_W_0_0 {
+    pub szMachineName: windows_core::PWSTR,
+    pub szObjectName: windows_core::PWSTR,
+    pub szInstanceName: windows_core::PWSTR,
+    pub szParentInstance: windows_core::PWSTR,
+    pub dwInstanceIndex: u32,
+    pub szCounterName: windows_core::PWSTR,
+}
+impl Default for PDH_COUNTER_INFO_W_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_COUNTER_INFO_W_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PDH_COUNTER_PATH_ELEMENTS_A {
+    pub szMachineName: windows_core::PSTR,
+    pub szObjectName: windows_core::PSTR,
+    pub szInstanceName: windows_core::PSTR,
+    pub szParentInstance: windows_core::PSTR,
+    pub dwInstanceIndex: u32,
+    pub szCounterName: windows_core::PSTR,
+}
+impl Default for PDH_COUNTER_PATH_ELEMENTS_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_COUNTER_PATH_ELEMENTS_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PDH_COUNTER_PATH_ELEMENTS_W {
+    pub szMachineName: windows_core::PWSTR,
+    pub szObjectName: windows_core::PWSTR,
+    pub szInstanceName: windows_core::PWSTR,
+    pub szParentInstance: windows_core::PWSTR,
+    pub dwInstanceIndex: u32,
+    pub szCounterName: windows_core::PWSTR,
+}
+impl Default for PDH_COUNTER_PATH_ELEMENTS_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_COUNTER_PATH_ELEMENTS_W {
+    type TypeKind = windows_core::CopyType;
+}
+pub const PDH_CSTATUS_BAD_COUNTERNAME: u32 = 3221228480u32;
+pub const PDH_CSTATUS_INVALID_DATA: u32 = 3221228474u32;
+pub const PDH_CSTATUS_ITEM_NOT_VALIDATED: u32 = 2147485651u32;
+pub const PDH_CSTATUS_NEW_DATA: u32 = 1u32;
+pub const PDH_CSTATUS_NO_COUNTER: u32 = 3221228473u32;
+pub const PDH_CSTATUS_NO_COUNTERNAME: u32 = 3221228479u32;
+pub const PDH_CSTATUS_NO_INSTANCE: u32 = 2147485649u32;
+pub const PDH_CSTATUS_NO_MACHINE: u32 = 2147485648u32;
+pub const PDH_CSTATUS_NO_OBJECT: u32 = 3221228472u32;
+pub const PDH_CSTATUS_VALID_DATA: u32 = 0u32;
+pub const PDH_CVERSION_WIN50: PDH_DLL_VERSION = PDH_DLL_VERSION(1280u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PDH_DATA_ITEM_PATH_ELEMENTS_A {
+    pub szMachineName: windows_core::PSTR,
+    pub ObjectGUID: windows_core::GUID,
+    pub dwItemId: u32,
+    pub szInstanceName: windows_core::PSTR,
+}
+impl Default for PDH_DATA_ITEM_PATH_ELEMENTS_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_DATA_ITEM_PATH_ELEMENTS_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PDH_DATA_ITEM_PATH_ELEMENTS_W {
+    pub szMachineName: windows_core::PWSTR,
+    pub ObjectGUID: windows_core::GUID,
+    pub dwItemId: u32,
+    pub szInstanceName: windows_core::PWSTR,
+}
+impl Default for PDH_DATA_ITEM_PATH_ELEMENTS_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_DATA_ITEM_PATH_ELEMENTS_W {
+    type TypeKind = windows_core::CopyType;
+}
+pub const PDH_DATA_SOURCE_IS_LOG_FILE: u32 = 3221228494u32;
+pub const PDH_DATA_SOURCE_IS_REAL_TIME: u32 = 3221228495u32;
+pub const PDH_DIALOG_CANCELLED: u32 = 2147485657u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PDH_DLL_VERSION(pub u32);
+pub const PDH_END_OF_LOG_FILE: u32 = 2147485658u32;
+pub const PDH_ENTRY_NOT_IN_LOG_FILE: u32 = 3221228493u32;
+pub const PDH_FILE_ALREADY_EXISTS: u32 = 3221228498u32;
+pub const PDH_FILE_NOT_FOUND: u32 = 3221228497u32;
+pub const PDH_FLAGS_FILE_BROWSER_ONLY: PDH_SELECT_DATA_SOURCE_FLAGS = PDH_SELECT_DATA_SOURCE_FLAGS(1u32);
+pub const PDH_FLAGS_NONE: PDH_SELECT_DATA_SOURCE_FLAGS = PDH_SELECT_DATA_SOURCE_FLAGS(0u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PDH_FMT(pub u32);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PDH_FMT_COUNTERVALUE {
+    pub CStatus: u32,
+    pub Anonymous: PDH_FMT_COUNTERVALUE_0,
+}
+impl Default for PDH_FMT_COUNTERVALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_FMT_COUNTERVALUE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PDH_FMT_COUNTERVALUE_0 {
+    pub longValue: i32,
+    pub doubleValue: f64,
+    pub largeValue: i64,
+    pub AnsiStringValue: windows_core::PCSTR,
+    pub WideStringValue: windows_core::PCWSTR,
+}
+impl Default for PDH_FMT_COUNTERVALUE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_FMT_COUNTERVALUE_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PDH_FMT_COUNTERVALUE_ITEM_A {
+    pub szName: windows_core::PSTR,
+    pub FmtValue: PDH_FMT_COUNTERVALUE,
+}
+impl Default for PDH_FMT_COUNTERVALUE_ITEM_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_FMT_COUNTERVALUE_ITEM_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PDH_FMT_COUNTERVALUE_ITEM_W {
+    pub szName: windows_core::PWSTR,
+    pub FmtValue: PDH_FMT_COUNTERVALUE,
+}
+impl Default for PDH_FMT_COUNTERVALUE_ITEM_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_FMT_COUNTERVALUE_ITEM_W {
+    type TypeKind = windows_core::CopyType;
+}
+pub const PDH_FMT_DOUBLE: PDH_FMT = PDH_FMT(512u32);
+pub const PDH_FMT_LARGE: PDH_FMT = PDH_FMT(1024u32);
+pub const PDH_FMT_LONG: PDH_FMT = PDH_FMT(256u32);
+pub const PDH_FUNCTION_NOT_FOUND: u32 = 3221228478u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PDH_HCOUNTER(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for PDH_HCOUNTER {
+    type TypeKind = windows_core::CopyType;
+}
+impl PDH_HCOUNTER {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PDH_HCOUNTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PDH_HLOG(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for PDH_HLOG {
+    type TypeKind = windows_core::CopyType;
+}
+impl PDH_HLOG {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl windows_core::Free for PDH_HLOG {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("pdh.dll" "system" fn PdhCloseLog(hlog : *mut core::ffi::c_void, dwflags : u32) -> u32);
+            PdhCloseLog(self.0, 0);
+        }
+    }
+}
+impl Default for PDH_HLOG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PDH_HQUERY(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for PDH_HQUERY {
+    type TypeKind = windows_core::CopyType;
+}
+impl PDH_HQUERY {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl windows_core::Free for PDH_HQUERY {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("pdh.dll" "system" fn PdhCloseQuery(hquery : *mut core::ffi::c_void) -> u32);
+            PdhCloseQuery(self.0);
+        }
+    }
+}
+impl Default for PDH_HQUERY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const PDH_INCORRECT_APPEND_TIME: u32 = 3221228539u32;
+pub const PDH_INSUFFICIENT_BUFFER: u32 = 3221228482u32;
+pub const PDH_INVALID_ARGUMENT: u32 = 3221228477u32;
+pub const PDH_INVALID_BUFFER: u32 = 3221228481u32;
+pub const PDH_INVALID_DATA: u32 = 3221228486u32;
+pub const PDH_INVALID_DATASOURCE: u32 = 3221228509u32;
+pub const PDH_INVALID_HANDLE: u32 = 3221228476u32;
+pub const PDH_INVALID_INSTANCE: u32 = 3221228485u32;
+pub const PDH_INVALID_PATH: u32 = 3221228484u32;
+pub const PDH_INVALID_SQLDB: u32 = 3221228510u32;
+pub const PDH_INVALID_SQL_LOG_FORMAT: u32 = 3221228533u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PDH_LOG(pub u32);
+pub const PDH_LOGSVC_NOT_OPENED: u32 = 3221228505u32;
+pub const PDH_LOGSVC_QUERY_NOT_FOUND: u32 = 3221228504u32;
+pub const PDH_LOG_FILE_CREATE_ERROR: u32 = 3221228489u32;
+pub const PDH_LOG_FILE_OPEN_ERROR: u32 = 3221228490u32;
+pub const PDH_LOG_FILE_TOO_SMALL: u32 = 3221228508u32;
+pub const PDH_LOG_READ_ACCESS: PDH_LOG = PDH_LOG(65536u32);
+pub const PDH_LOG_SAMPLE_TOO_SMALL: u32 = 3221228536u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PDH_LOG_SERVICE_QUERY_INFO_A {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwLogQuota: u32,
+    pub szLogFileCaption: windows_core::PSTR,
+    pub szDefaultDir: windows_core::PSTR,
+    pub szBaseFileName: windows_core::PSTR,
+    pub dwFileType: u32,
+    pub dwReserved: u32,
+    pub Anonymous: PDH_LOG_SERVICE_QUERY_INFO_A_0,
+}
+impl Default for PDH_LOG_SERVICE_QUERY_INFO_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PDH_LOG_SERVICE_QUERY_INFO_A_0 {
+    pub Anonymous1: PDH_LOG_SERVICE_QUERY_INFO_A_0_0,
+    pub Anonymous2: PDH_LOG_SERVICE_QUERY_INFO_A_0_1,
+}
+impl Default for PDH_LOG_SERVICE_QUERY_INFO_A_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_A_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
+    pub PdlAutoNameInterval: u32,
+    pub PdlAutoNameUnits: u32,
+    pub PdlCommandFilename: windows_core::PSTR,
+    pub PdlCounterList: windows_core::PSTR,
+    pub PdlAutoNameFormat: u32,
+    pub PdlSampleInterval: u32,
+    pub PdlLogStartTime: super::super::Foundation::FILETIME,
+    pub PdlLogEndTime: super::super::Foundation::FILETIME,
+}
+impl Default for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
+    pub TlNumberOfBuffers: u32,
+    pub TlMinimumBuffers: u32,
+    pub TlMaximumBuffers: u32,
+    pub TlFreeBuffers: u32,
+    pub TlBufferSize: u32,
+    pub TlEventsLost: u32,
+    pub TlLoggerThreadId: u32,
+    pub TlBuffersWritten: u32,
+    pub TlLogHandle: u32,
+    pub TlLogFileName: windows_core::PSTR,
+}
+impl Default for PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PDH_LOG_SERVICE_QUERY_INFO_W {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwLogQuota: u32,
+    pub szLogFileCaption: windows_core::PWSTR,
+    pub szDefaultDir: windows_core::PWSTR,
+    pub szBaseFileName: windows_core::PWSTR,
+    pub dwFileType: u32,
+    pub dwReserved: u32,
+    pub Anonymous: PDH_LOG_SERVICE_QUERY_INFO_W_0,
+}
+impl Default for PDH_LOG_SERVICE_QUERY_INFO_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PDH_LOG_SERVICE_QUERY_INFO_W_0 {
+    pub Anonymous1: PDH_LOG_SERVICE_QUERY_INFO_W_0_0,
+    pub Anonymous2: PDH_LOG_SERVICE_QUERY_INFO_W_0_1,
+}
+impl Default for PDH_LOG_SERVICE_QUERY_INFO_W_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_W_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
+    pub PdlAutoNameInterval: u32,
+    pub PdlAutoNameUnits: u32,
+    pub PdlCommandFilename: windows_core::PWSTR,
+    pub PdlCounterList: windows_core::PWSTR,
+    pub PdlAutoNameFormat: u32,
+    pub PdlSampleInterval: u32,
+    pub PdlLogStartTime: super::super::Foundation::FILETIME,
+    pub PdlLogEndTime: super::super::Foundation::FILETIME,
+}
+impl Default for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
+    pub TlNumberOfBuffers: u32,
+    pub TlMinimumBuffers: u32,
+    pub TlMaximumBuffers: u32,
+    pub TlFreeBuffers: u32,
+    pub TlBufferSize: u32,
+    pub TlEventsLost: u32,
+    pub TlLoggerThreadId: u32,
+    pub TlBuffersWritten: u32,
+    pub TlLogHandle: u32,
+    pub TlLogFileName: windows_core::PWSTR,
+}
+impl Default for PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PDH_LOG_TYPE(pub u32);
+pub const PDH_LOG_TYPE_BINARY: PDH_LOG_TYPE = PDH_LOG_TYPE(8u32);
+pub const PDH_LOG_TYPE_CSV: PDH_LOG_TYPE = PDH_LOG_TYPE(1u32);
+pub const PDH_LOG_TYPE_NOT_FOUND: u32 = 3221228491u32;
+pub const PDH_LOG_TYPE_PERFMON: PDH_LOG_TYPE = PDH_LOG_TYPE(6u32);
+pub const PDH_LOG_TYPE_RETIRED_BIN: u32 = 3u32;
+pub const PDH_LOG_TYPE_SQL: PDH_LOG_TYPE = PDH_LOG_TYPE(7u32);
+pub const PDH_LOG_TYPE_TRACE_GENERIC: u32 = 5u32;
+pub const PDH_LOG_TYPE_TRACE_KERNEL: u32 = 4u32;
+pub const PDH_LOG_TYPE_TSV: PDH_LOG_TYPE = PDH_LOG_TYPE(2u32);
+pub const PDH_LOG_TYPE_UNDEFINED: PDH_LOG_TYPE = PDH_LOG_TYPE(0u32);
+pub const PDH_LOG_UPDATE_ACCESS: PDH_LOG = PDH_LOG(262144u32);
+pub const PDH_LOG_WRITE_ACCESS: PDH_LOG = PDH_LOG(131072u32);
+pub const PDH_MAX_COUNTER_NAME: u32 = 1024u32;
+pub const PDH_MAX_COUNTER_PATH: u32 = 2048u32;
+pub const PDH_MAX_DATASOURCE_PATH: u32 = 1024u32;
+pub const PDH_MAX_INSTANCE_NAME: u32 = 1024u32;
+pub const PDH_MAX_SCALE: i32 = 7i32;
+pub const PDH_MEMORY_ALLOCATION_FAILURE: u32 = 3221228475u32;
+pub const PDH_MIN_SCALE: i32 = -7i32;
+pub const PDH_MORE_DATA: u32 = 2147485650u32;
+pub const PDH_NOEXPANDCOUNTERS: u32 = 1u32;
+pub const PDH_NOEXPANDINSTANCES: u32 = 2u32;
+pub const PDH_NOT_IMPLEMENTED: u32 = 3221228499u32;
+pub const PDH_NO_COUNTERS: u32 = 3221228511u32;
+pub const PDH_NO_DATA: u32 = 2147485653u32;
+pub const PDH_NO_DIALOG_DATA: u32 = 3221228487u32;
+pub const PDH_NO_MORE_DATA: u32 = 3221228492u32;
+pub const PDH_OS_EARLIER_VERSION: u32 = 3221228538u32;
+pub const PDH_OS_LATER_VERSION: u32 = 3221228537u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PDH_PATH_FLAGS(pub u32);
+pub const PDH_PATH_WBEM_INPUT: PDH_PATH_FLAGS = PDH_PATH_FLAGS(2u32);
+pub const PDH_PATH_WBEM_NONE: PDH_PATH_FLAGS = PDH_PATH_FLAGS(0u32);
+pub const PDH_PATH_WBEM_RESULT: PDH_PATH_FLAGS = PDH_PATH_FLAGS(1u32);
+pub const PDH_PLA_COLLECTION_ALREADY_RUNNING: u32 = 3221228521u32;
+pub const PDH_PLA_COLLECTION_NOT_FOUND: u32 = 3221228523u32;
+pub const PDH_PLA_ERROR_ALREADY_EXISTS: u32 = 3221228526u32;
+pub const PDH_PLA_ERROR_FILEPATH: u32 = 3221228528u32;
+pub const PDH_PLA_ERROR_NAME_TOO_LONG: u32 = 3221228532u32;
+pub const PDH_PLA_ERROR_NOSTART: u32 = 3221228525u32;
+pub const PDH_PLA_ERROR_SCHEDULE_ELAPSED: u32 = 3221228524u32;
+pub const PDH_PLA_ERROR_SCHEDULE_OVERLAP: u32 = 3221228522u32;
+pub const PDH_PLA_ERROR_TYPE_MISMATCH: u32 = 3221228527u32;
+pub const PDH_PLA_SERVICE_ERROR: u32 = 3221228529u32;
+pub const PDH_PLA_VALIDATION_ERROR: u32 = 3221228530u32;
+pub const PDH_PLA_VALIDATION_WARNING: u32 = 2147486707u32;
+pub const PDH_QUERY_PERF_DATA_TIMEOUT: u32 = 3221228542u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PDH_RAW_COUNTER {
+    pub CStatus: u32,
+    pub TimeStamp: super::super::Foundation::FILETIME,
+    pub FirstValue: i64,
+    pub SecondValue: i64,
+    pub MultiCount: u32,
+}
+impl Default for PDH_RAW_COUNTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_RAW_COUNTER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PDH_RAW_COUNTER_ITEM_A {
+    pub szName: windows_core::PSTR,
+    pub RawValue: PDH_RAW_COUNTER,
+}
+impl Default for PDH_RAW_COUNTER_ITEM_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_RAW_COUNTER_ITEM_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PDH_RAW_COUNTER_ITEM_W {
+    pub szName: windows_core::PWSTR,
+    pub RawValue: PDH_RAW_COUNTER,
+}
+impl Default for PDH_RAW_COUNTER_ITEM_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_RAW_COUNTER_ITEM_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PDH_RAW_LOG_RECORD {
+    pub dwStructureSize: u32,
+    pub dwRecordType: PDH_LOG_TYPE,
+    pub dwItems: u32,
+    pub RawBytes: [u8; 1],
+}
+impl Default for PDH_RAW_LOG_RECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_RAW_LOG_RECORD {
+    type TypeKind = windows_core::CopyType;
+}
+pub const PDH_REFRESHCOUNTERS: u32 = 4u32;
+pub const PDH_RETRY: u32 = 2147485652u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PDH_SELECT_DATA_SOURCE_FLAGS(pub u32);
+pub const PDH_SQL_ALLOCCON_FAILED: u32 = 3221228513u32;
+pub const PDH_SQL_ALLOC_FAILED: u32 = 3221228512u32;
+pub const PDH_SQL_ALTER_DETAIL_FAILED: u32 = 3221228541u32;
+pub const PDH_SQL_BIND_FAILED: u32 = 3221228519u32;
+pub const PDH_SQL_CONNECT_FAILED: u32 = 3221228518u32;
+pub const PDH_SQL_EXEC_DIRECT_FAILED: u32 = 3221228514u32;
+pub const PDH_SQL_FETCH_FAILED: u32 = 3221228515u32;
+pub const PDH_SQL_MORE_RESULTS_FAILED: u32 = 3221228517u32;
+pub const PDH_SQL_ROWCOUNT_FAILED: u32 = 3221228516u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PDH_STATISTICS {
+    pub dwFormat: u32,
+    pub count: u32,
+    pub min: PDH_FMT_COUNTERVALUE,
+    pub max: PDH_FMT_COUNTERVALUE,
+    pub mean: PDH_FMT_COUNTERVALUE,
+}
+impl Default for PDH_STATISTICS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_STATISTICS {
+    type TypeKind = windows_core::CopyType;
+}
+pub const PDH_STRING_NOT_FOUND: u32 = 3221228500u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PDH_TIME_INFO {
+    pub StartTime: i64,
+    pub EndTime: i64,
+    pub SampleCount: u32,
+}
+impl Default for PDH_TIME_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PDH_TIME_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const PDH_UNABLE_MAP_NAME_FILES: u32 = 2147486677u32;
+pub const PDH_UNABLE_READ_LOG_HEADER: u32 = 3221228496u32;
+pub const PDH_UNKNOWN_LOGSVC_COMMAND: u32 = 3221228503u32;
+pub const PDH_UNKNOWN_LOG_FORMAT: u32 = 3221228502u32;
+pub const PDH_UNMATCHED_APPEND_COUNTER: u32 = 3221228540u32;
+pub const PDH_VERSION: PDH_DLL_VERSION = PDH_DLL_VERSION(1283u32);
+pub const PDH_WBEM_ERROR: u32 = 3221228506u32;
+pub type PERFLIBREQUEST = Option<unsafe extern "system" fn(requestcode: u32, buffer: *mut core::ffi::c_void, buffersize: u32) -> u32>;
+pub const PERF_ADD_COUNTER: u32 = 1u32;
+pub const PERF_AGGREGATE_AVG: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(2u32);
+pub const PERF_AGGREGATE_INSTANCE: windows_core::PCWSTR = windows_core::w!("_Total");
+pub const PERF_AGGREGATE_MAX: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(4u32);
+pub const PERF_AGGREGATE_MIN: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(3u32);
+pub const PERF_AGGREGATE_TOTAL: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(1u32);
+pub const PERF_AGGREGATE_UNDEFINED: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(0u32);
+pub const PERF_ATTRIB_BY_REFERENCE: u64 = 1u64;
+pub const PERF_ATTRIB_DISPLAY_AS_HEX: u64 = 16u64;
+pub const PERF_ATTRIB_DISPLAY_AS_REAL: u64 = 8u64;
+pub const PERF_ATTRIB_NO_DISPLAYABLE: u64 = 2u64;
+pub const PERF_ATTRIB_NO_GROUP_SEPARATOR: u64 = 4u64;
+pub const PERF_COLLECT_END: u32 = 6u32;
+pub const PERF_COLLECT_START: u32 = 5u32;
+pub const PERF_COUNTERSET: PerfCounterDataType = PerfCounterDataType(6i32);
+pub const PERF_COUNTERSET_FLAG_AGGREGATE: u32 = 4u32;
+pub const PERF_COUNTERSET_FLAG_HISTORY: u32 = 8u32;
+pub const PERF_COUNTERSET_FLAG_INSTANCE: u32 = 16u32;
+pub const PERF_COUNTERSET_FLAG_MULTIPLE: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PERF_COUNTERSET_INFO {
+    pub CounterSetGuid: windows_core::GUID,
+    pub ProviderGuid: windows_core::GUID,
+    pub NumCounters: u32,
+    pub InstanceType: u32,
+}
+impl Default for PERF_COUNTERSET_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PERF_COUNTERSET_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PERF_COUNTERSET_INSTANCE {
+    pub CounterSetGuid: windows_core::GUID,
+    pub dwSize: u32,
+    pub InstanceId: u32,
+    pub InstanceNameOffset: u32,
+    pub InstanceNameSize: u32,
+}
+impl Default for PERF_COUNTERSET_INSTANCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PERF_COUNTERSET_INSTANCE {
+    type TypeKind = windows_core::CopyType;
+}
+pub const PERF_COUNTERSET_MULTI_INSTANCES: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PERF_COUNTERSET_REG_INFO {
+    pub CounterSetGuid: windows_core::GUID,
+    pub CounterSetType: u32,
+    pub DetailLevel: u32,
+    pub NumCounters: u32,
+    pub InstanceType: u32,
+}
+impl Default for PERF_COUNTERSET_REG_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PERF_COUNTERSET_REG_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const PERF_COUNTERSET_SINGLE_AGGREGATE: u32 = 4u32;
+pub const PERF_COUNTERSET_SINGLE_INSTANCE: u32 = 0u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PERF_COUNTER_AGGREGATE_FUNC(pub u32);
+pub const PERF_COUNTER_BASE: u32 = 196608u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PERF_COUNTER_BLOCK {
+    pub ByteLength: u32,
+}
+impl Default for PERF_COUNTER_BLOCK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PERF_COUNTER_BLOCK {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PERF_COUNTER_DATA {
+    pub dwDataSize: u32,
+    pub dwSize: u32,
+}
+impl Default for PERF_COUNTER_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PERF_COUNTER_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PERF_COUNTER_DEFINITION {
+    pub ByteLength: u32,
+    pub CounterNameTitleIndex: u32,
+    pub CounterNameTitle: windows_core::PWSTR,
+    pub CounterHelpTitleIndex: u32,
+    pub CounterHelpTitle: windows_core::PWSTR,
+    pub DefaultScale: i32,
+    pub DetailLevel: u32,
+    pub CounterType: u32,
+    pub CounterSize: u32,
+    pub CounterOffset: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for PERF_COUNTER_DEFINITION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for PERF_COUNTER_DEFINITION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PERF_COUNTER_DEFINITION {
+    pub ByteLength: u32,
+    pub CounterNameTitleIndex: u32,
+    pub CounterNameTitle: u32,
+    pub CounterHelpTitleIndex: u32,
+    pub CounterHelpTitle: u32,
+    pub DefaultScale: i32,
+    pub DetailLevel: u32,
+    pub CounterType: u32,
+    pub CounterSize: u32,
+    pub CounterOffset: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for PERF_COUNTER_DEFINITION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for PERF_COUNTER_DEFINITION {
+    type TypeKind = windows_core::CopyType;
+}
+pub const PERF_COUNTER_ELAPSED: u32 = 262144u32;
+pub const PERF_COUNTER_FRACTION: u32 = 131072u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PERF_COUNTER_HEADER {
+    pub dwStatus: u32,
+    pub dwType: PerfCounterDataType,
+    pub dwSize: u32,
+    pub Reserved: u32,
+}
+impl Default for PERF_COUNTER_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PERF_COUNTER_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
+pub const PERF_COUNTER_HISTOGRAM: u32 = 393216u32;
+pub const PERF_COUNTER_HISTOGRAM_TYPE: u32 = 2147483648u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PERF_COUNTER_IDENTIFIER {
+    pub CounterSetGuid: windows_core::GUID,
+    pub Status: u32,
+    pub Size: u32,
+    pub CounterId: u32,
+    pub InstanceId: u32,
+    pub Index: u32,
+    pub Reserved: u32,
+}
+impl Default for PERF_COUNTER_IDENTIFIER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PERF_COUNTER_IDENTIFIER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PERF_COUNTER_IDENTITY {
+    pub CounterSetGuid: windows_core::GUID,
+    pub BufferSize: u32,
+    pub CounterId: u32,
+    pub InstanceId: u32,
+    pub MachineOffset: u32,
+    pub NameOffset: u32,
+    pub Reserved: u32,
+}
+impl Default for PERF_COUNTER_IDENTITY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PERF_COUNTER_IDENTITY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PERF_COUNTER_INFO {
+    pub CounterId: u32,
+    pub Type: u32,
+    pub Attrib: u64,
+    pub Size: u32,
+    pub DetailLevel: u32,
+    pub Scale: i32,
+    pub Offset: u32,
+}
+impl Default for PERF_COUNTER_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PERF_COUNTER_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const PERF_COUNTER_PRECISION: u32 = 458752u32;
+pub const PERF_COUNTER_QUEUELEN: u32 = 327680u32;
+pub const PERF_COUNTER_RATE: u32 = 65536u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PERF_COUNTER_REG_INFO {
+    pub CounterId: u32,
+    pub Type: u32,
+    pub Attrib: u64,
+    pub DetailLevel: u32,
+    pub DefaultScale: i32,
+    pub BaseCounterId: u32,
+    pub PerfTimeId: u32,
+    pub PerfFreqId: u32,
+    pub MultiId: u32,
+    pub AggregateFunc: PERF_COUNTER_AGGREGATE_FUNC,
+    pub Reserved: u32,
+}
+impl Default for PERF_COUNTER_REG_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PERF_COUNTER_REG_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const PERF_COUNTER_VALUE: u32 = 0u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PERF_DATA_BLOCK {
+    pub Signature: [u16; 4],
+    pub LittleEndian: u32,
+    pub Version: u32,
+    pub Revision: u32,
+    pub TotalByteLength: u32,
+    pub HeaderLength: u32,
+    pub NumObjectTypes: u32,
+    pub DefaultObject: i32,
+    pub SystemTime: super::super::Foundation::SYSTEMTIME,
+    pub PerfTime: i64,
+    pub PerfFreq: i64,
+    pub PerfTime100nSec: i64,
+    pub SystemNameLength: u32,
+    pub SystemNameOffset: u32,
+}
+impl Default for PERF_DATA_BLOCK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PERF_DATA_BLOCK {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PERF_DATA_HEADER {
+    pub dwTotalSize: u32,
+    pub dwNumCounters: u32,
+    pub PerfTimeStamp: i64,
+    pub PerfTime100NSec: i64,
+    pub PerfFreq: i64,
+    pub SystemTime: super::super::Foundation::SYSTEMTIME,
+}
+impl Default for PERF_DATA_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PERF_DATA_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
+pub const PERF_DATA_REVISION: u32 = 1u32;
+pub const PERF_DATA_VERSION: u32 = 1u32;
+pub const PERF_DELTA_BASE: u32 = 8388608u32;
+pub const PERF_DELTA_COUNTER: u32 = 4194304u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PERF_DETAIL(pub u32);
+pub const PERF_DETAIL_ADVANCED: PERF_DETAIL = PERF_DETAIL(200u32);
+pub const PERF_DETAIL_EXPERT: PERF_DETAIL = PERF_DETAIL(300u32);
+pub const PERF_DETAIL_NOVICE: PERF_DETAIL = PERF_DETAIL(100u32);
+pub const PERF_DETAIL_WIZARD: PERF_DETAIL = PERF_DETAIL(400u32);
+pub const PERF_DISPLAY_NOSHOW: u32 = 1073741824u32;
+pub const PERF_DISPLAY_NO_SUFFIX: u32 = 0u32;
+pub const PERF_DISPLAY_PERCENT: u32 = 536870912u32;
+pub const PERF_DISPLAY_PER_SEC: u32 = 268435456u32;
+pub const PERF_DISPLAY_SECONDS: u32 = 805306368u32;
+pub const PERF_ENUM_INSTANCES: u32 = 3u32;
+pub const PERF_ERROR_RETURN: PerfCounterDataType = PerfCounterDataType(0i32);
+pub const PERF_FILTER: u32 = 9u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PERF_INSTANCE_DEFINITION {
+    pub ByteLength: u32,
+    pub ParentObjectTitleIndex: u32,
+    pub ParentObjectInstance: u32,
+    pub UniqueID: i32,
+    pub NameOffset: u32,
+    pub NameLength: u32,
+}
+impl Default for PERF_INSTANCE_DEFINITION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PERF_INSTANCE_DEFINITION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PERF_INSTANCE_HEADER {
+    pub Size: u32,
+    pub InstanceId: u32,
+}
+impl Default for PERF_INSTANCE_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PERF_INSTANCE_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
+pub const PERF_INVERSE_COUNTER: u32 = 16777216u32;
+pub const PERF_MAX_INSTANCE_NAME: u32 = 1024u32;
+pub type PERF_MEM_ALLOC = Option<unsafe extern "system" fn(allocsize: usize, pcontext: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
+pub type PERF_MEM_FREE = Option<unsafe extern "system" fn(pbuffer: *mut core::ffi::c_void, pcontext: *mut core::ffi::c_void)>;
+pub const PERF_METADATA_MULTIPLE_INSTANCES: i32 = -2i32;
+pub const PERF_METADATA_NO_INSTANCES: i32 = -3i32;
+pub const PERF_MULTIPLE_COUNTERS: PerfCounterDataType = PerfCounterDataType(2i32);
+pub const PERF_MULTIPLE_INSTANCES: PerfCounterDataType = PerfCounterDataType(4i32);
+pub const PERF_MULTI_COUNTER: u32 = 33554432u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PERF_MULTI_COUNTERS {
+    pub dwSize: u32,
+    pub dwCounters: u32,
+}
+impl Default for PERF_MULTI_COUNTERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PERF_MULTI_COUNTERS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PERF_MULTI_INSTANCES {
+    pub dwTotalSize: u32,
+    pub dwInstances: u32,
+}
+impl Default for PERF_MULTI_INSTANCES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PERF_MULTI_INSTANCES {
+    type TypeKind = windows_core::CopyType;
+}
+pub const PERF_NO_INSTANCES: i32 = -1i32;
+pub const PERF_NO_UNIQUE_ID: i32 = -1i32;
+pub const PERF_NUMBER_DECIMAL: u32 = 65536u32;
+pub const PERF_NUMBER_DEC_1000: u32 = 131072u32;
+pub const PERF_NUMBER_HEX: u32 = 0u32;
+pub const PERF_OBJECT_TIMER: u32 = 2097152u32;
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PERF_OBJECT_TYPE {
+    pub TotalByteLength: u32,
+    pub DefinitionLength: u32,
+    pub HeaderLength: u32,
+    pub ObjectNameTitleIndex: u32,
+    pub ObjectNameTitle: windows_core::PWSTR,
+    pub ObjectHelpTitleIndex: u32,
+    pub ObjectHelpTitle: windows_core::PWSTR,
+    pub DetailLevel: u32,
+    pub NumCounters: u32,
+    pub DefaultCounter: i32,
+    pub NumInstances: i32,
+    pub CodePage: u32,
+    pub PerfTime: i64,
+    pub PerfFreq: i64,
+}
+#[cfg(target_arch = "x86")]
+impl Default for PERF_OBJECT_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for PERF_OBJECT_TYPE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PERF_OBJECT_TYPE {
+    pub TotalByteLength: u32,
+    pub DefinitionLength: u32,
+    pub HeaderLength: u32,
+    pub ObjectNameTitleIndex: u32,
+    pub ObjectNameTitle: u32,
+    pub ObjectHelpTitleIndex: u32,
+    pub ObjectHelpTitle: u32,
+    pub DetailLevel: u32,
+    pub NumCounters: u32,
+    pub DefaultCounter: i32,
+    pub NumInstances: i32,
+    pub CodePage: u32,
+    pub PerfTime: i64,
+    pub PerfFreq: i64,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for PERF_OBJECT_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for PERF_OBJECT_TYPE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PERF_PROVIDER_CONTEXT {
+    pub ContextSize: u32,
+    pub Reserved: u32,
+    pub ControlCallback: PERFLIBREQUEST,
+    pub MemAllocRoutine: PERF_MEM_ALLOC,
+    pub MemFreeRoutine: PERF_MEM_FREE,
+    pub pMemContext: *mut core::ffi::c_void,
+}
+impl Default for PERF_PROVIDER_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PERF_PROVIDER_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+pub const PERF_PROVIDER_DRIVER: u32 = 2u32;
+pub const PERF_PROVIDER_KERNEL_MODE: u32 = 1u32;
+pub const PERF_PROVIDER_USER_MODE: u32 = 0u32;
+pub const PERF_REG_COUNTERSET_ENGLISH_NAME: PerfRegInfoType = PerfRegInfoType(9i32);
+pub const PERF_REG_COUNTERSET_HELP_STRING: PerfRegInfoType = PerfRegInfoType(4i32);
+pub const PERF_REG_COUNTERSET_NAME_STRING: PerfRegInfoType = PerfRegInfoType(3i32);
+pub const PERF_REG_COUNTERSET_STRUCT: PerfRegInfoType = PerfRegInfoType(1i32);
+pub const PERF_REG_COUNTER_ENGLISH_NAMES: PerfRegInfoType = PerfRegInfoType(10i32);
+pub const PERF_REG_COUNTER_HELP_STRINGS: PerfRegInfoType = PerfRegInfoType(6i32);
+pub const PERF_REG_COUNTER_NAME_STRINGS: PerfRegInfoType = PerfRegInfoType(5i32);
+pub const PERF_REG_COUNTER_STRUCT: PerfRegInfoType = PerfRegInfoType(2i32);
+pub const PERF_REG_PROVIDER_GUID: PerfRegInfoType = PerfRegInfoType(8i32);
+pub const PERF_REG_PROVIDER_NAME: PerfRegInfoType = PerfRegInfoType(7i32);
+pub const PERF_REMOVE_COUNTER: u32 = 2u32;
+pub const PERF_SINGLE_COUNTER: PerfCounterDataType = PerfCounterDataType(1i32);
+pub const PERF_SIZE_DWORD: u32 = 0u32;
+pub const PERF_SIZE_LARGE: u32 = 256u32;
+pub const PERF_SIZE_VARIABLE_LEN: u32 = 768u32;
+pub const PERF_SIZE_ZERO: u32 = 512u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PERF_STRING_BUFFER_HEADER {
+    pub dwSize: u32,
+    pub dwCounters: u32,
+}
+impl Default for PERF_STRING_BUFFER_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PERF_STRING_BUFFER_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PERF_STRING_COUNTER_HEADER {
+    pub dwCounterId: u32,
+    pub dwOffset: u32,
+}
+impl Default for PERF_STRING_COUNTER_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PERF_STRING_COUNTER_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
+pub const PERF_TEXT_ASCII: u32 = 65536u32;
+pub const PERF_TEXT_UNICODE: u32 = 0u32;
+pub const PERF_TIMER_100NS: u32 = 1048576u32;
+pub const PERF_TIMER_TICK: u32 = 0u32;
+pub const PERF_TYPE_COUNTER: u32 = 1024u32;
+pub const PERF_TYPE_NUMBER: u32 = 0u32;
+pub const PERF_TYPE_TEXT: u32 = 2048u32;
+pub const PERF_TYPE_ZERO: u32 = 3072u32;
+pub const PERF_WILDCARD_COUNTER: u32 = 4294967295u32;
+pub const PERF_WILDCARD_INSTANCE: windows_core::PCWSTR = windows_core::w!("*");
+pub const PLAL_ALERT_CMD_LINE_A_NAME: u32 = 512u32;
+pub const PLAL_ALERT_CMD_LINE_C_NAME: u32 = 1024u32;
+pub const PLAL_ALERT_CMD_LINE_D_TIME: u32 = 2048u32;
+pub const PLAL_ALERT_CMD_LINE_L_VAL: u32 = 4096u32;
+pub const PLAL_ALERT_CMD_LINE_MASK: u32 = 32512u32;
+pub const PLAL_ALERT_CMD_LINE_M_VAL: u32 = 8192u32;
+pub const PLAL_ALERT_CMD_LINE_SINGLE: u32 = 256u32;
+pub const PLAL_ALERT_CMD_LINE_U_TEXT: u32 = 16384u32;
+pub type PLA_CABEXTRACT_CALLBACK = Option<unsafe extern "system" fn(filename: windows_core::PCWSTR, context: *mut core::ffi::c_void)>;
+pub const PLA_CAPABILITY_AUTOLOGGER: u32 = 32u32;
+pub const PLA_CAPABILITY_LEGACY_SESSION: u32 = 8u32;
+pub const PLA_CAPABILITY_LEGACY_SVC: u32 = 16u32;
+pub const PLA_CAPABILITY_LOCAL: u32 = 268435456u32;
+pub const PLA_CAPABILITY_V1_SESSION: u32 = 2u32;
+pub const PLA_CAPABILITY_V1_SVC: u32 = 1u32;
+pub const PLA_CAPABILITY_V1_SYSTEM: u32 = 4u32;
+pub type PM_CLOSE_PROC = Option<unsafe extern "system" fn() -> u32>;
+pub type PM_COLLECT_PROC = Option<unsafe extern "system" fn(pvaluename: windows_core::PCWSTR, ppdata: *mut *mut core::ffi::c_void, pcbtotalbytes: *mut u32, pnumobjecttypes: *mut u32) -> u32>;
+pub type PM_OPEN_PROC = Option<unsafe extern "system" fn(pcontext: windows_core::PCWSTR) -> u32>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PerfCounterDataType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PerfRegInfoType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REAL_TIME_DATA_SOURCE_ID_FLAGS(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ReportValueTypeConstants(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ResourcePolicy(pub i32);
+pub const S_PDH: windows_core::GUID = windows_core::GUID::from_u128(0x04d66358_c4a1_419b_8023_23b73902de2c);
+pub const ServerDataCollectorSet: windows_core::GUID = windows_core::GUID::from_u128(0x03837531_098b_11d8_9414_505054503030);
+pub const ServerDataCollectorSetCollection: windows_core::GUID = windows_core::GUID::from_u128(0x03837532_098b_11d8_9414_505054503030);
+pub const SourcePropPage: windows_core::GUID = windows_core::GUID::from_u128(0x0cf32aa1_7571_11d0_93c4_00aa00a3ddea);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct StreamMode(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SysmonBatchReason(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SysmonDataType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SysmonFileType(pub i32);
+pub const SystemDataCollectorSet: windows_core::GUID = windows_core::GUID::from_u128(0x03837546_098b_11d8_9414_505054503030);
+pub const SystemDataCollectorSetCollection: windows_core::GUID = windows_core::GUID::from_u128(0x03837547_098b_11d8_9414_505054503030);
+pub const SystemMonitor: windows_core::GUID = windows_core::GUID::from_u128(0xc4d2d8e0_d1dd_11ce_940f_008029004347);
+pub const SystemMonitor2: windows_core::GUID = windows_core::GUID::from_u128(0x7f30578c_5f38_4612_acfe_6ed04c7b7af8);
+pub const TraceDataProvider: windows_core::GUID = windows_core::GUID::from_u128(0x03837513_098b_11d8_9414_505054503030);
+pub const TraceDataProviderCollection: windows_core::GUID = windows_core::GUID::from_u128(0x03837511_098b_11d8_9414_505054503030);
+pub const TraceSession: windows_core::GUID = windows_core::GUID::from_u128(0x0383751c_098b_11d8_9414_505054503030);
+pub const TraceSessionCollection: windows_core::GUID = windows_core::GUID::from_u128(0x03837530_098b_11d8_9414_505054503030);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ValueMapType(pub i32);
+pub const WINPERF_LOG_DEBUG: u32 = 2u32;
+pub const WINPERF_LOG_NONE: u32 = 0u32;
+pub const WINPERF_LOG_USER: u32 = 1u32;
+pub const WINPERF_LOG_VERBOSE: u32 = 3u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WeekDays(pub i32);
 windows_core::imp::define_interface!(_ICounterItemUnion, _ICounterItemUnion_Vtbl, 0xde1a6b74_9182_4c41_8e2c_24c2cd30ee83);
 windows_core::imp::interface_hierarchy!(_ICounterItemUnion, windows_core::IUnknown);
 impl _ICounterItemUnion {
@@ -10020,1439 +11453,6 @@ impl _ISystemMonitorUnion_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl windows_core::RuntimeName for _ISystemMonitorUnion {}
-pub type CounterPathCallBack = Option<unsafe extern "system" fn(param0: usize) -> i32>;
-pub type PERFLIBREQUEST = Option<unsafe extern "system" fn(requestcode: u32, buffer: *mut core::ffi::c_void, buffersize: u32) -> u32>;
-pub type PERF_MEM_ALLOC = Option<unsafe extern "system" fn(allocsize: usize, pcontext: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
-pub type PERF_MEM_FREE = Option<unsafe extern "system" fn(pbuffer: *mut core::ffi::c_void, pcontext: *mut core::ffi::c_void)>;
-pub type PLA_CABEXTRACT_CALLBACK = Option<unsafe extern "system" fn(filename: windows_core::PCWSTR, context: *mut core::ffi::c_void)>;
-pub type PM_CLOSE_PROC = Option<unsafe extern "system" fn() -> u32>;
-pub type PM_COLLECT_PROC = Option<unsafe extern "system" fn(pvaluename: windows_core::PCWSTR, ppdata: *mut *mut core::ffi::c_void, pcbtotalbytes: *mut u32, pnumobjecttypes: *mut u32) -> u32>;
-pub type PM_OPEN_PROC = Option<unsafe extern "system" fn(pcontext: windows_core::PCWSTR) -> u32>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AutoPathFormat(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ClockType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CommitMode(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DataCollectorSetStatus(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DataCollectorType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DataManagerSteps(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DataSourceTypeConstants(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DisplayTypeConstants(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FileFormat(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FolderActionSteps(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PDH_DLL_VERSION(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PDH_FMT(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PDH_LOG(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PDH_LOG_TYPE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PDH_PATH_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PDH_SELECT_DATA_SOURCE_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PERF_COUNTER_AGGREGATE_FUNC(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PERF_DETAIL(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PerfCounterDataType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PerfRegInfoType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct REAL_TIME_DATA_SOURCE_ID_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ReportValueTypeConstants(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ResourcePolicy(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct StreamMode(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SysmonBatchReason(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SysmonDataType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SysmonFileType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ValueMapType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WeekDays(pub i32);
-pub const AppearPropPage: windows_core::GUID = windows_core::GUID::from_u128(0xe49741e9_93a8_4ab1_8e96_bf4482282e9c);
-pub const BootTraceSession: windows_core::GUID = windows_core::GUID::from_u128(0x03837538_098b_11d8_9414_505054503030);
-pub const BootTraceSessionCollection: windows_core::GUID = windows_core::GUID::from_u128(0x03837539_098b_11d8_9414_505054503030);
-pub const CounterItem: windows_core::GUID = windows_core::GUID::from_u128(0xc4d2d8e0_d1dd_11ce_940f_008029004348);
-pub const CounterItem2: windows_core::GUID = windows_core::GUID::from_u128(0x43196c62_c31f_4ce3_a02e_79efe0f6a525);
-pub const CounterPropPage: windows_core::GUID = windows_core::GUID::from_u128(0xcf948561_ede8_11ce_941e_008029004347);
-pub const Counters: windows_core::GUID = windows_core::GUID::from_u128(0xb2b066d2_2aac_11cf_942f_008029004347);
-pub const DataCollectorSet: windows_core::GUID = windows_core::GUID::from_u128(0x03837521_098b_11d8_9414_505054503030);
-pub const DataCollectorSetCollection: windows_core::GUID = windows_core::GUID::from_u128(0x03837525_098b_11d8_9414_505054503030);
-pub const GeneralPropPage: windows_core::GUID = windows_core::GUID::from_u128(0xc3e5d3d2_1a03_11cf_942d_008029004347);
-pub const GraphPropPage: windows_core::GUID = windows_core::GUID::from_u128(0xc3e5d3d3_1a03_11cf_942d_008029004347);
-pub const LegacyDataCollectorSet: windows_core::GUID = windows_core::GUID::from_u128(0x03837526_098b_11d8_9414_505054503030);
-pub const LegacyDataCollectorSetCollection: windows_core::GUID = windows_core::GUID::from_u128(0x03837527_098b_11d8_9414_505054503030);
-pub const LegacyTraceSession: windows_core::GUID = windows_core::GUID::from_u128(0x03837528_098b_11d8_9414_505054503030);
-pub const LegacyTraceSessionCollection: windows_core::GUID = windows_core::GUID::from_u128(0x03837529_098b_11d8_9414_505054503030);
-pub const LogFileItem: windows_core::GUID = windows_core::GUID::from_u128(0x16ec5be8_df93_4237_94e4_9ee918111d71);
-pub const LogFiles: windows_core::GUID = windows_core::GUID::from_u128(0x2735d9fd_f6b9_4f19_a5d9_e2d068584bc5);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PDH_BROWSE_DLG_CONFIG_A {
-    pub _bitfield: u32,
-    pub hWndOwner: super::super::Foundation::HWND,
-    pub szDataSource: windows_core::PSTR,
-    pub szReturnPathBuffer: windows_core::PSTR,
-    pub cchReturnPathLength: u32,
-    pub pCallBack: CounterPathCallBack,
-    pub dwCallBackArg: usize,
-    pub CallBackStatus: i32,
-    pub dwDefaultDetailLevel: PERF_DETAIL,
-    pub szDialogBoxCaption: windows_core::PSTR,
-}
-impl Default for PDH_BROWSE_DLG_CONFIG_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_BROWSE_DLG_CONFIG_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PDH_BROWSE_DLG_CONFIG_HA {
-    pub _bitfield: u32,
-    pub hWndOwner: super::super::Foundation::HWND,
-    pub hDataSource: PDH_HLOG,
-    pub szReturnPathBuffer: windows_core::PSTR,
-    pub cchReturnPathLength: u32,
-    pub pCallBack: CounterPathCallBack,
-    pub dwCallBackArg: usize,
-    pub CallBackStatus: i32,
-    pub dwDefaultDetailLevel: PERF_DETAIL,
-    pub szDialogBoxCaption: windows_core::PSTR,
-}
-impl Default for PDH_BROWSE_DLG_CONFIG_HA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_BROWSE_DLG_CONFIG_HA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PDH_BROWSE_DLG_CONFIG_HW {
-    pub _bitfield: u32,
-    pub hWndOwner: super::super::Foundation::HWND,
-    pub hDataSource: PDH_HLOG,
-    pub szReturnPathBuffer: windows_core::PWSTR,
-    pub cchReturnPathLength: u32,
-    pub pCallBack: CounterPathCallBack,
-    pub dwCallBackArg: usize,
-    pub CallBackStatus: i32,
-    pub dwDefaultDetailLevel: PERF_DETAIL,
-    pub szDialogBoxCaption: windows_core::PWSTR,
-}
-impl Default for PDH_BROWSE_DLG_CONFIG_HW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_BROWSE_DLG_CONFIG_HW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PDH_BROWSE_DLG_CONFIG_W {
-    pub _bitfield: u32,
-    pub hWndOwner: super::super::Foundation::HWND,
-    pub szDataSource: windows_core::PWSTR,
-    pub szReturnPathBuffer: windows_core::PWSTR,
-    pub cchReturnPathLength: u32,
-    pub pCallBack: CounterPathCallBack,
-    pub dwCallBackArg: usize,
-    pub CallBackStatus: i32,
-    pub dwDefaultDetailLevel: PERF_DETAIL,
-    pub szDialogBoxCaption: windows_core::PWSTR,
-}
-impl Default for PDH_BROWSE_DLG_CONFIG_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_BROWSE_DLG_CONFIG_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PDH_COUNTER_INFO_A {
-    pub dwLength: u32,
-    pub dwType: u32,
-    pub CVersion: u32,
-    pub CStatus: u32,
-    pub lScale: i32,
-    pub lDefaultScale: i32,
-    pub dwUserData: usize,
-    pub dwQueryUserData: usize,
-    pub szFullPath: windows_core::PSTR,
-    pub Anonymous: PDH_COUNTER_INFO_A_0,
-    pub szExplainText: windows_core::PSTR,
-    pub DataBuffer: [u32; 1],
-}
-impl Default for PDH_COUNTER_INFO_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_COUNTER_INFO_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PDH_COUNTER_INFO_A_0 {
-    pub DataItemPath: PDH_DATA_ITEM_PATH_ELEMENTS_A,
-    pub CounterPath: PDH_COUNTER_PATH_ELEMENTS_A,
-    pub Anonymous: PDH_COUNTER_INFO_A_0_0,
-}
-impl Default for PDH_COUNTER_INFO_A_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_COUNTER_INFO_A_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PDH_COUNTER_INFO_A_0_0 {
-    pub szMachineName: windows_core::PSTR,
-    pub szObjectName: windows_core::PSTR,
-    pub szInstanceName: windows_core::PSTR,
-    pub szParentInstance: windows_core::PSTR,
-    pub dwInstanceIndex: u32,
-    pub szCounterName: windows_core::PSTR,
-}
-impl Default for PDH_COUNTER_INFO_A_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_COUNTER_INFO_A_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PDH_COUNTER_INFO_W {
-    pub dwLength: u32,
-    pub dwType: u32,
-    pub CVersion: u32,
-    pub CStatus: u32,
-    pub lScale: i32,
-    pub lDefaultScale: i32,
-    pub dwUserData: usize,
-    pub dwQueryUserData: usize,
-    pub szFullPath: windows_core::PWSTR,
-    pub Anonymous: PDH_COUNTER_INFO_W_0,
-    pub szExplainText: windows_core::PWSTR,
-    pub DataBuffer: [u32; 1],
-}
-impl Default for PDH_COUNTER_INFO_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_COUNTER_INFO_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PDH_COUNTER_INFO_W_0 {
-    pub DataItemPath: PDH_DATA_ITEM_PATH_ELEMENTS_W,
-    pub CounterPath: PDH_COUNTER_PATH_ELEMENTS_W,
-    pub Anonymous: PDH_COUNTER_INFO_W_0_0,
-}
-impl Default for PDH_COUNTER_INFO_W_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_COUNTER_INFO_W_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PDH_COUNTER_INFO_W_0_0 {
-    pub szMachineName: windows_core::PWSTR,
-    pub szObjectName: windows_core::PWSTR,
-    pub szInstanceName: windows_core::PWSTR,
-    pub szParentInstance: windows_core::PWSTR,
-    pub dwInstanceIndex: u32,
-    pub szCounterName: windows_core::PWSTR,
-}
-impl Default for PDH_COUNTER_INFO_W_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_COUNTER_INFO_W_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PDH_COUNTER_PATH_ELEMENTS_A {
-    pub szMachineName: windows_core::PSTR,
-    pub szObjectName: windows_core::PSTR,
-    pub szInstanceName: windows_core::PSTR,
-    pub szParentInstance: windows_core::PSTR,
-    pub dwInstanceIndex: u32,
-    pub szCounterName: windows_core::PSTR,
-}
-impl Default for PDH_COUNTER_PATH_ELEMENTS_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_COUNTER_PATH_ELEMENTS_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PDH_COUNTER_PATH_ELEMENTS_W {
-    pub szMachineName: windows_core::PWSTR,
-    pub szObjectName: windows_core::PWSTR,
-    pub szInstanceName: windows_core::PWSTR,
-    pub szParentInstance: windows_core::PWSTR,
-    pub dwInstanceIndex: u32,
-    pub szCounterName: windows_core::PWSTR,
-}
-impl Default for PDH_COUNTER_PATH_ELEMENTS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_COUNTER_PATH_ELEMENTS_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PDH_DATA_ITEM_PATH_ELEMENTS_A {
-    pub szMachineName: windows_core::PSTR,
-    pub ObjectGUID: windows_core::GUID,
-    pub dwItemId: u32,
-    pub szInstanceName: windows_core::PSTR,
-}
-impl Default for PDH_DATA_ITEM_PATH_ELEMENTS_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_DATA_ITEM_PATH_ELEMENTS_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PDH_DATA_ITEM_PATH_ELEMENTS_W {
-    pub szMachineName: windows_core::PWSTR,
-    pub ObjectGUID: windows_core::GUID,
-    pub dwItemId: u32,
-    pub szInstanceName: windows_core::PWSTR,
-}
-impl Default for PDH_DATA_ITEM_PATH_ELEMENTS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_DATA_ITEM_PATH_ELEMENTS_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PDH_FMT_COUNTERVALUE {
-    pub CStatus: u32,
-    pub Anonymous: PDH_FMT_COUNTERVALUE_0,
-}
-impl Default for PDH_FMT_COUNTERVALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_FMT_COUNTERVALUE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PDH_FMT_COUNTERVALUE_0 {
-    pub longValue: i32,
-    pub doubleValue: f64,
-    pub largeValue: i64,
-    pub AnsiStringValue: windows_core::PCSTR,
-    pub WideStringValue: windows_core::PCWSTR,
-}
-impl Default for PDH_FMT_COUNTERVALUE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_FMT_COUNTERVALUE_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PDH_FMT_COUNTERVALUE_ITEM_A {
-    pub szName: windows_core::PSTR,
-    pub FmtValue: PDH_FMT_COUNTERVALUE,
-}
-impl Default for PDH_FMT_COUNTERVALUE_ITEM_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_FMT_COUNTERVALUE_ITEM_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PDH_FMT_COUNTERVALUE_ITEM_W {
-    pub szName: windows_core::PWSTR,
-    pub FmtValue: PDH_FMT_COUNTERVALUE,
-}
-impl Default for PDH_FMT_COUNTERVALUE_ITEM_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_FMT_COUNTERVALUE_ITEM_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDH_HCOUNTER(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for PDH_HCOUNTER {
-    type TypeKind = windows_core::CopyType;
-}
-impl PDH_HCOUNTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDH_HCOUNTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDH_HLOG(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for PDH_HLOG {
-    type TypeKind = windows_core::CopyType;
-}
-impl PDH_HLOG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl windows_core::Free for PDH_HLOG {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("pdh.dll" "system" fn PdhCloseLog(hlog : *mut core::ffi::c_void, dwflags : u32) -> u32);
-            PdhCloseLog(self.0, 0);
-        }
-    }
-}
-impl Default for PDH_HLOG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDH_HQUERY(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for PDH_HQUERY {
-    type TypeKind = windows_core::CopyType;
-}
-impl PDH_HQUERY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl windows_core::Free for PDH_HQUERY {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("pdh.dll" "system" fn PdhCloseQuery(hquery : *mut core::ffi::c_void) -> u32);
-            PdhCloseQuery(self.0);
-        }
-    }
-}
-impl Default for PDH_HQUERY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PDH_LOG_SERVICE_QUERY_INFO_A {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwLogQuota: u32,
-    pub szLogFileCaption: windows_core::PSTR,
-    pub szDefaultDir: windows_core::PSTR,
-    pub szBaseFileName: windows_core::PSTR,
-    pub dwFileType: u32,
-    pub dwReserved: u32,
-    pub Anonymous: PDH_LOG_SERVICE_QUERY_INFO_A_0,
-}
-impl Default for PDH_LOG_SERVICE_QUERY_INFO_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PDH_LOG_SERVICE_QUERY_INFO_A_0 {
-    pub Anonymous1: PDH_LOG_SERVICE_QUERY_INFO_A_0_0,
-    pub Anonymous2: PDH_LOG_SERVICE_QUERY_INFO_A_0_1,
-}
-impl Default for PDH_LOG_SERVICE_QUERY_INFO_A_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_A_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
-    pub PdlAutoNameInterval: u32,
-    pub PdlAutoNameUnits: u32,
-    pub PdlCommandFilename: windows_core::PSTR,
-    pub PdlCounterList: windows_core::PSTR,
-    pub PdlAutoNameFormat: u32,
-    pub PdlSampleInterval: u32,
-    pub PdlLogStartTime: super::super::Foundation::FILETIME,
-    pub PdlLogEndTime: super::super::Foundation::FILETIME,
-}
-impl Default for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
-    pub TlNumberOfBuffers: u32,
-    pub TlMinimumBuffers: u32,
-    pub TlMaximumBuffers: u32,
-    pub TlFreeBuffers: u32,
-    pub TlBufferSize: u32,
-    pub TlEventsLost: u32,
-    pub TlLoggerThreadId: u32,
-    pub TlBuffersWritten: u32,
-    pub TlLogHandle: u32,
-    pub TlLogFileName: windows_core::PSTR,
-}
-impl Default for PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PDH_LOG_SERVICE_QUERY_INFO_W {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwLogQuota: u32,
-    pub szLogFileCaption: windows_core::PWSTR,
-    pub szDefaultDir: windows_core::PWSTR,
-    pub szBaseFileName: windows_core::PWSTR,
-    pub dwFileType: u32,
-    pub dwReserved: u32,
-    pub Anonymous: PDH_LOG_SERVICE_QUERY_INFO_W_0,
-}
-impl Default for PDH_LOG_SERVICE_QUERY_INFO_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PDH_LOG_SERVICE_QUERY_INFO_W_0 {
-    pub Anonymous1: PDH_LOG_SERVICE_QUERY_INFO_W_0_0,
-    pub Anonymous2: PDH_LOG_SERVICE_QUERY_INFO_W_0_1,
-}
-impl Default for PDH_LOG_SERVICE_QUERY_INFO_W_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_W_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
-    pub PdlAutoNameInterval: u32,
-    pub PdlAutoNameUnits: u32,
-    pub PdlCommandFilename: windows_core::PWSTR,
-    pub PdlCounterList: windows_core::PWSTR,
-    pub PdlAutoNameFormat: u32,
-    pub PdlSampleInterval: u32,
-    pub PdlLogStartTime: super::super::Foundation::FILETIME,
-    pub PdlLogEndTime: super::super::Foundation::FILETIME,
-}
-impl Default for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
-    pub TlNumberOfBuffers: u32,
-    pub TlMinimumBuffers: u32,
-    pub TlMaximumBuffers: u32,
-    pub TlFreeBuffers: u32,
-    pub TlBufferSize: u32,
-    pub TlEventsLost: u32,
-    pub TlLoggerThreadId: u32,
-    pub TlBuffersWritten: u32,
-    pub TlLogHandle: u32,
-    pub TlLogFileName: windows_core::PWSTR,
-}
-impl Default for PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PDH_RAW_COUNTER {
-    pub CStatus: u32,
-    pub TimeStamp: super::super::Foundation::FILETIME,
-    pub FirstValue: i64,
-    pub SecondValue: i64,
-    pub MultiCount: u32,
-}
-impl Default for PDH_RAW_COUNTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_RAW_COUNTER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PDH_RAW_COUNTER_ITEM_A {
-    pub szName: windows_core::PSTR,
-    pub RawValue: PDH_RAW_COUNTER,
-}
-impl Default for PDH_RAW_COUNTER_ITEM_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_RAW_COUNTER_ITEM_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PDH_RAW_COUNTER_ITEM_W {
-    pub szName: windows_core::PWSTR,
-    pub RawValue: PDH_RAW_COUNTER,
-}
-impl Default for PDH_RAW_COUNTER_ITEM_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_RAW_COUNTER_ITEM_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PDH_RAW_LOG_RECORD {
-    pub dwStructureSize: u32,
-    pub dwRecordType: PDH_LOG_TYPE,
-    pub dwItems: u32,
-    pub RawBytes: [u8; 1],
-}
-impl Default for PDH_RAW_LOG_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_RAW_LOG_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PDH_STATISTICS {
-    pub dwFormat: u32,
-    pub count: u32,
-    pub min: PDH_FMT_COUNTERVALUE,
-    pub max: PDH_FMT_COUNTERVALUE,
-    pub mean: PDH_FMT_COUNTERVALUE,
-}
-impl Default for PDH_STATISTICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PDH_TIME_INFO {
-    pub StartTime: i64,
-    pub EndTime: i64,
-    pub SampleCount: u32,
-}
-impl Default for PDH_TIME_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PDH_TIME_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PERF_COUNTERSET_INFO {
-    pub CounterSetGuid: windows_core::GUID,
-    pub ProviderGuid: windows_core::GUID,
-    pub NumCounters: u32,
-    pub InstanceType: u32,
-}
-impl Default for PERF_COUNTERSET_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PERF_COUNTERSET_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PERF_COUNTERSET_INSTANCE {
-    pub CounterSetGuid: windows_core::GUID,
-    pub dwSize: u32,
-    pub InstanceId: u32,
-    pub InstanceNameOffset: u32,
-    pub InstanceNameSize: u32,
-}
-impl Default for PERF_COUNTERSET_INSTANCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PERF_COUNTERSET_INSTANCE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PERF_COUNTERSET_REG_INFO {
-    pub CounterSetGuid: windows_core::GUID,
-    pub CounterSetType: u32,
-    pub DetailLevel: u32,
-    pub NumCounters: u32,
-    pub InstanceType: u32,
-}
-impl Default for PERF_COUNTERSET_REG_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PERF_COUNTERSET_REG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PERF_COUNTER_BLOCK {
-    pub ByteLength: u32,
-}
-impl Default for PERF_COUNTER_BLOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PERF_COUNTER_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PERF_COUNTER_DATA {
-    pub dwDataSize: u32,
-    pub dwSize: u32,
-}
-impl Default for PERF_COUNTER_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PERF_COUNTER_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PERF_COUNTER_DEFINITION {
-    pub ByteLength: u32,
-    pub CounterNameTitleIndex: u32,
-    pub CounterNameTitle: u32,
-    pub CounterHelpTitleIndex: u32,
-    pub CounterHelpTitle: u32,
-    pub DefaultScale: i32,
-    pub DetailLevel: u32,
-    pub CounterType: u32,
-    pub CounterSize: u32,
-    pub CounterOffset: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for PERF_COUNTER_DEFINITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for PERF_COUNTER_DEFINITION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PERF_COUNTER_DEFINITION {
-    pub ByteLength: u32,
-    pub CounterNameTitleIndex: u32,
-    pub CounterNameTitle: windows_core::PWSTR,
-    pub CounterHelpTitleIndex: u32,
-    pub CounterHelpTitle: windows_core::PWSTR,
-    pub DefaultScale: i32,
-    pub DetailLevel: u32,
-    pub CounterType: u32,
-    pub CounterSize: u32,
-    pub CounterOffset: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for PERF_COUNTER_DEFINITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for PERF_COUNTER_DEFINITION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PERF_COUNTER_HEADER {
-    pub dwStatus: u32,
-    pub dwType: PerfCounterDataType,
-    pub dwSize: u32,
-    pub Reserved: u32,
-}
-impl Default for PERF_COUNTER_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PERF_COUNTER_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PERF_COUNTER_IDENTIFIER {
-    pub CounterSetGuid: windows_core::GUID,
-    pub Status: u32,
-    pub Size: u32,
-    pub CounterId: u32,
-    pub InstanceId: u32,
-    pub Index: u32,
-    pub Reserved: u32,
-}
-impl Default for PERF_COUNTER_IDENTIFIER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PERF_COUNTER_IDENTIFIER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PERF_COUNTER_IDENTITY {
-    pub CounterSetGuid: windows_core::GUID,
-    pub BufferSize: u32,
-    pub CounterId: u32,
-    pub InstanceId: u32,
-    pub MachineOffset: u32,
-    pub NameOffset: u32,
-    pub Reserved: u32,
-}
-impl Default for PERF_COUNTER_IDENTITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PERF_COUNTER_IDENTITY {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PERF_COUNTER_INFO {
-    pub CounterId: u32,
-    pub Type: u32,
-    pub Attrib: u64,
-    pub Size: u32,
-    pub DetailLevel: u32,
-    pub Scale: i32,
-    pub Offset: u32,
-}
-impl Default for PERF_COUNTER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PERF_COUNTER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PERF_COUNTER_REG_INFO {
-    pub CounterId: u32,
-    pub Type: u32,
-    pub Attrib: u64,
-    pub DetailLevel: u32,
-    pub DefaultScale: i32,
-    pub BaseCounterId: u32,
-    pub PerfTimeId: u32,
-    pub PerfFreqId: u32,
-    pub MultiId: u32,
-    pub AggregateFunc: PERF_COUNTER_AGGREGATE_FUNC,
-    pub Reserved: u32,
-}
-impl Default for PERF_COUNTER_REG_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PERF_COUNTER_REG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PERF_DATA_BLOCK {
-    pub Signature: [u16; 4],
-    pub LittleEndian: u32,
-    pub Version: u32,
-    pub Revision: u32,
-    pub TotalByteLength: u32,
-    pub HeaderLength: u32,
-    pub NumObjectTypes: u32,
-    pub DefaultObject: i32,
-    pub SystemTime: super::super::Foundation::SYSTEMTIME,
-    pub PerfTime: i64,
-    pub PerfFreq: i64,
-    pub PerfTime100nSec: i64,
-    pub SystemNameLength: u32,
-    pub SystemNameOffset: u32,
-}
-impl Default for PERF_DATA_BLOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PERF_DATA_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PERF_DATA_HEADER {
-    pub dwTotalSize: u32,
-    pub dwNumCounters: u32,
-    pub PerfTimeStamp: i64,
-    pub PerfTime100NSec: i64,
-    pub PerfFreq: i64,
-    pub SystemTime: super::super::Foundation::SYSTEMTIME,
-}
-impl Default for PERF_DATA_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PERF_DATA_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PERF_INSTANCE_DEFINITION {
-    pub ByteLength: u32,
-    pub ParentObjectTitleIndex: u32,
-    pub ParentObjectInstance: u32,
-    pub UniqueID: i32,
-    pub NameOffset: u32,
-    pub NameLength: u32,
-}
-impl Default for PERF_INSTANCE_DEFINITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PERF_INSTANCE_DEFINITION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PERF_INSTANCE_HEADER {
-    pub Size: u32,
-    pub InstanceId: u32,
-}
-impl Default for PERF_INSTANCE_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PERF_INSTANCE_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PERF_MULTI_COUNTERS {
-    pub dwSize: u32,
-    pub dwCounters: u32,
-}
-impl Default for PERF_MULTI_COUNTERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PERF_MULTI_COUNTERS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PERF_MULTI_INSTANCES {
-    pub dwTotalSize: u32,
-    pub dwInstances: u32,
-}
-impl Default for PERF_MULTI_INSTANCES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PERF_MULTI_INSTANCES {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PERF_OBJECT_TYPE {
-    pub TotalByteLength: u32,
-    pub DefinitionLength: u32,
-    pub HeaderLength: u32,
-    pub ObjectNameTitleIndex: u32,
-    pub ObjectNameTitle: u32,
-    pub ObjectHelpTitleIndex: u32,
-    pub ObjectHelpTitle: u32,
-    pub DetailLevel: u32,
-    pub NumCounters: u32,
-    pub DefaultCounter: i32,
-    pub NumInstances: i32,
-    pub CodePage: u32,
-    pub PerfTime: i64,
-    pub PerfFreq: i64,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for PERF_OBJECT_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for PERF_OBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PERF_OBJECT_TYPE {
-    pub TotalByteLength: u32,
-    pub DefinitionLength: u32,
-    pub HeaderLength: u32,
-    pub ObjectNameTitleIndex: u32,
-    pub ObjectNameTitle: windows_core::PWSTR,
-    pub ObjectHelpTitleIndex: u32,
-    pub ObjectHelpTitle: windows_core::PWSTR,
-    pub DetailLevel: u32,
-    pub NumCounters: u32,
-    pub DefaultCounter: i32,
-    pub NumInstances: i32,
-    pub CodePage: u32,
-    pub PerfTime: i64,
-    pub PerfFreq: i64,
-}
-#[cfg(target_arch = "x86")]
-impl Default for PERF_OBJECT_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for PERF_OBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PERF_PROVIDER_CONTEXT {
-    pub ContextSize: u32,
-    pub Reserved: u32,
-    pub ControlCallback: PERFLIBREQUEST,
-    pub MemAllocRoutine: PERF_MEM_ALLOC,
-    pub MemFreeRoutine: PERF_MEM_FREE,
-    pub pMemContext: *mut core::ffi::c_void,
-}
-impl Default for PERF_PROVIDER_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PERF_PROVIDER_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PERF_STRING_BUFFER_HEADER {
-    pub dwSize: u32,
-    pub dwCounters: u32,
-}
-impl Default for PERF_STRING_BUFFER_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PERF_STRING_BUFFER_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PERF_STRING_COUNTER_HEADER {
-    pub dwCounterId: u32,
-    pub dwOffset: u32,
-}
-impl Default for PERF_STRING_COUNTER_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PERF_STRING_COUNTER_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
-pub const ServerDataCollectorSet: windows_core::GUID = windows_core::GUID::from_u128(0x03837531_098b_11d8_9414_505054503030);
-pub const ServerDataCollectorSetCollection: windows_core::GUID = windows_core::GUID::from_u128(0x03837532_098b_11d8_9414_505054503030);
-pub const SourcePropPage: windows_core::GUID = windows_core::GUID::from_u128(0x0cf32aa1_7571_11d0_93c4_00aa00a3ddea);
-pub const SystemDataCollectorSet: windows_core::GUID = windows_core::GUID::from_u128(0x03837546_098b_11d8_9414_505054503030);
-pub const SystemDataCollectorSetCollection: windows_core::GUID = windows_core::GUID::from_u128(0x03837547_098b_11d8_9414_505054503030);
-pub const SystemMonitor: windows_core::GUID = windows_core::GUID::from_u128(0xc4d2d8e0_d1dd_11ce_940f_008029004347);
-pub const SystemMonitor2: windows_core::GUID = windows_core::GUID::from_u128(0x7f30578c_5f38_4612_acfe_6ed04c7b7af8);
-pub const TraceDataProvider: windows_core::GUID = windows_core::GUID::from_u128(0x03837513_098b_11d8_9414_505054503030);
-pub const TraceDataProviderCollection: windows_core::GUID = windows_core::GUID::from_u128(0x03837511_098b_11d8_9414_505054503030);
-pub const TraceSession: windows_core::GUID = windows_core::GUID::from_u128(0x0383751c_098b_11d8_9414_505054503030);
-pub const TraceSessionCollection: windows_core::GUID = windows_core::GUID::from_u128(0x03837530_098b_11d8_9414_505054503030);
-pub const DATA_SOURCE_REGISTRY: REAL_TIME_DATA_SOURCE_ID_FLAGS = REAL_TIME_DATA_SOURCE_ID_FLAGS(1u32);
-pub const DATA_SOURCE_WBEM: REAL_TIME_DATA_SOURCE_ID_FLAGS = REAL_TIME_DATA_SOURCE_ID_FLAGS(4u32);
-pub const DIID_DICounterItem: windows_core::GUID = windows_core::GUID::from_u128(0xc08c4ff2_0e2e_11cf_942c_008029004347);
-pub const DIID_DILogFileItem: windows_core::GUID = windows_core::GUID::from_u128(0x8d093ffc_f777_4917_82d1_833fbc54c58f);
-pub const DIID_DISystemMonitor: windows_core::GUID = windows_core::GUID::from_u128(0x13d73d81_c32e_11cf_9398_00aa00a3ddea);
-pub const DIID_DISystemMonitorEvents: windows_core::GUID = windows_core::GUID::from_u128(0x84979930_4ab3_11cf_943a_008029004347);
-pub const DIID_DISystemMonitorInternal: windows_core::GUID = windows_core::GUID::from_u128(0x194eb242_c32c_11cf_9398_00aa00a3ddea);
-pub const H_WBEM_DATASOURCE: i32 = -1i32;
-pub const LIBID_SystemMonitor: windows_core::GUID = windows_core::GUID::from_u128(0x1b773e42_2509_11cf_942f_008029004347);
-pub const MAX_COUNTER_PATH: u32 = 256u32;
-pub const MAX_PERF_OBJECTS_IN_QUERY_FUNCTION: i32 = 64i32;
-pub const PDH_ACCESS_DENIED: u32 = 3221228507u32;
-pub const PDH_ASYNC_QUERY_TIMEOUT: u32 = 2147485659u32;
-pub const PDH_BINARY_LOG_CORRUPT: u32 = 3221228535u32;
-pub const PDH_CALC_NEGATIVE_DENOMINATOR: u32 = 2147485654u32;
-pub const PDH_CALC_NEGATIVE_TIMEBASE: u32 = 2147485655u32;
-pub const PDH_CALC_NEGATIVE_VALUE: u32 = 2147485656u32;
-pub const PDH_CANNOT_CONNECT_MACHINE: u32 = 3221228483u32;
-pub const PDH_CANNOT_CONNECT_WMI_SERVER: u32 = 3221228520u32;
-pub const PDH_CANNOT_READ_NAME_STRINGS: u32 = 3221228488u32;
-pub const PDH_CANNOT_SET_DEFAULT_REALTIME_DATASOURCE: u32 = 2147485660u32;
-pub const PDH_COUNTER_ALREADY_IN_QUERY: u32 = 3221228534u32;
-pub const PDH_CSTATUS_BAD_COUNTERNAME: u32 = 3221228480u32;
-pub const PDH_CSTATUS_INVALID_DATA: u32 = 3221228474u32;
-pub const PDH_CSTATUS_ITEM_NOT_VALIDATED: u32 = 2147485651u32;
-pub const PDH_CSTATUS_NEW_DATA: u32 = 1u32;
-pub const PDH_CSTATUS_NO_COUNTER: u32 = 3221228473u32;
-pub const PDH_CSTATUS_NO_COUNTERNAME: u32 = 3221228479u32;
-pub const PDH_CSTATUS_NO_INSTANCE: u32 = 2147485649u32;
-pub const PDH_CSTATUS_NO_MACHINE: u32 = 2147485648u32;
-pub const PDH_CSTATUS_NO_OBJECT: u32 = 3221228472u32;
-pub const PDH_CSTATUS_VALID_DATA: u32 = 0u32;
-pub const PDH_CVERSION_WIN50: PDH_DLL_VERSION = PDH_DLL_VERSION(1280u32);
-pub const PDH_DATA_SOURCE_IS_LOG_FILE: u32 = 3221228494u32;
-pub const PDH_DATA_SOURCE_IS_REAL_TIME: u32 = 3221228495u32;
-pub const PDH_DIALOG_CANCELLED: u32 = 2147485657u32;
-pub const PDH_END_OF_LOG_FILE: u32 = 2147485658u32;
-pub const PDH_ENTRY_NOT_IN_LOG_FILE: u32 = 3221228493u32;
-pub const PDH_FILE_ALREADY_EXISTS: u32 = 3221228498u32;
-pub const PDH_FILE_NOT_FOUND: u32 = 3221228497u32;
-pub const PDH_FLAGS_FILE_BROWSER_ONLY: PDH_SELECT_DATA_SOURCE_FLAGS = PDH_SELECT_DATA_SOURCE_FLAGS(1u32);
-pub const PDH_FLAGS_NONE: PDH_SELECT_DATA_SOURCE_FLAGS = PDH_SELECT_DATA_SOURCE_FLAGS(0u32);
-pub const PDH_FMT_DOUBLE: PDH_FMT = PDH_FMT(512u32);
-pub const PDH_FMT_LARGE: PDH_FMT = PDH_FMT(1024u32);
-pub const PDH_FMT_LONG: PDH_FMT = PDH_FMT(256u32);
-pub const PDH_FUNCTION_NOT_FOUND: u32 = 3221228478u32;
-pub const PDH_INCORRECT_APPEND_TIME: u32 = 3221228539u32;
-pub const PDH_INSUFFICIENT_BUFFER: u32 = 3221228482u32;
-pub const PDH_INVALID_ARGUMENT: u32 = 3221228477u32;
-pub const PDH_INVALID_BUFFER: u32 = 3221228481u32;
-pub const PDH_INVALID_DATA: u32 = 3221228486u32;
-pub const PDH_INVALID_DATASOURCE: u32 = 3221228509u32;
-pub const PDH_INVALID_HANDLE: u32 = 3221228476u32;
-pub const PDH_INVALID_INSTANCE: u32 = 3221228485u32;
-pub const PDH_INVALID_PATH: u32 = 3221228484u32;
-pub const PDH_INVALID_SQLDB: u32 = 3221228510u32;
-pub const PDH_INVALID_SQL_LOG_FORMAT: u32 = 3221228533u32;
-pub const PDH_LOGSVC_NOT_OPENED: u32 = 3221228505u32;
-pub const PDH_LOGSVC_QUERY_NOT_FOUND: u32 = 3221228504u32;
-pub const PDH_LOG_FILE_CREATE_ERROR: u32 = 3221228489u32;
-pub const PDH_LOG_FILE_OPEN_ERROR: u32 = 3221228490u32;
-pub const PDH_LOG_FILE_TOO_SMALL: u32 = 3221228508u32;
-pub const PDH_LOG_READ_ACCESS: PDH_LOG = PDH_LOG(65536u32);
-pub const PDH_LOG_SAMPLE_TOO_SMALL: u32 = 3221228536u32;
-pub const PDH_LOG_TYPE_BINARY: PDH_LOG_TYPE = PDH_LOG_TYPE(8u32);
-pub const PDH_LOG_TYPE_CSV: PDH_LOG_TYPE = PDH_LOG_TYPE(1u32);
-pub const PDH_LOG_TYPE_NOT_FOUND: u32 = 3221228491u32;
-pub const PDH_LOG_TYPE_PERFMON: PDH_LOG_TYPE = PDH_LOG_TYPE(6u32);
-pub const PDH_LOG_TYPE_RETIRED_BIN: u32 = 3u32;
-pub const PDH_LOG_TYPE_SQL: PDH_LOG_TYPE = PDH_LOG_TYPE(7u32);
-pub const PDH_LOG_TYPE_TRACE_GENERIC: u32 = 5u32;
-pub const PDH_LOG_TYPE_TRACE_KERNEL: u32 = 4u32;
-pub const PDH_LOG_TYPE_TSV: PDH_LOG_TYPE = PDH_LOG_TYPE(2u32);
-pub const PDH_LOG_TYPE_UNDEFINED: PDH_LOG_TYPE = PDH_LOG_TYPE(0u32);
-pub const PDH_LOG_UPDATE_ACCESS: PDH_LOG = PDH_LOG(262144u32);
-pub const PDH_LOG_WRITE_ACCESS: PDH_LOG = PDH_LOG(131072u32);
-pub const PDH_MAX_COUNTER_NAME: u32 = 1024u32;
-pub const PDH_MAX_COUNTER_PATH: u32 = 2048u32;
-pub const PDH_MAX_DATASOURCE_PATH: u32 = 1024u32;
-pub const PDH_MAX_INSTANCE_NAME: u32 = 1024u32;
-pub const PDH_MAX_SCALE: i32 = 7i32;
-pub const PDH_MEMORY_ALLOCATION_FAILURE: u32 = 3221228475u32;
-pub const PDH_MIN_SCALE: i32 = -7i32;
-pub const PDH_MORE_DATA: u32 = 2147485650u32;
-pub const PDH_NOEXPANDCOUNTERS: u32 = 1u32;
-pub const PDH_NOEXPANDINSTANCES: u32 = 2u32;
-pub const PDH_NOT_IMPLEMENTED: u32 = 3221228499u32;
-pub const PDH_NO_COUNTERS: u32 = 3221228511u32;
-pub const PDH_NO_DATA: u32 = 2147485653u32;
-pub const PDH_NO_DIALOG_DATA: u32 = 3221228487u32;
-pub const PDH_NO_MORE_DATA: u32 = 3221228492u32;
-pub const PDH_OS_EARLIER_VERSION: u32 = 3221228538u32;
-pub const PDH_OS_LATER_VERSION: u32 = 3221228537u32;
-pub const PDH_PATH_WBEM_INPUT: PDH_PATH_FLAGS = PDH_PATH_FLAGS(2u32);
-pub const PDH_PATH_WBEM_NONE: PDH_PATH_FLAGS = PDH_PATH_FLAGS(0u32);
-pub const PDH_PATH_WBEM_RESULT: PDH_PATH_FLAGS = PDH_PATH_FLAGS(1u32);
-pub const PDH_PLA_COLLECTION_ALREADY_RUNNING: u32 = 3221228521u32;
-pub const PDH_PLA_COLLECTION_NOT_FOUND: u32 = 3221228523u32;
-pub const PDH_PLA_ERROR_ALREADY_EXISTS: u32 = 3221228526u32;
-pub const PDH_PLA_ERROR_FILEPATH: u32 = 3221228528u32;
-pub const PDH_PLA_ERROR_NAME_TOO_LONG: u32 = 3221228532u32;
-pub const PDH_PLA_ERROR_NOSTART: u32 = 3221228525u32;
-pub const PDH_PLA_ERROR_SCHEDULE_ELAPSED: u32 = 3221228524u32;
-pub const PDH_PLA_ERROR_SCHEDULE_OVERLAP: u32 = 3221228522u32;
-pub const PDH_PLA_ERROR_TYPE_MISMATCH: u32 = 3221228527u32;
-pub const PDH_PLA_SERVICE_ERROR: u32 = 3221228529u32;
-pub const PDH_PLA_VALIDATION_ERROR: u32 = 3221228530u32;
-pub const PDH_PLA_VALIDATION_WARNING: u32 = 2147486707u32;
-pub const PDH_QUERY_PERF_DATA_TIMEOUT: u32 = 3221228542u32;
-pub const PDH_REFRESHCOUNTERS: u32 = 4u32;
-pub const PDH_RETRY: u32 = 2147485652u32;
-pub const PDH_SQL_ALLOCCON_FAILED: u32 = 3221228513u32;
-pub const PDH_SQL_ALLOC_FAILED: u32 = 3221228512u32;
-pub const PDH_SQL_ALTER_DETAIL_FAILED: u32 = 3221228541u32;
-pub const PDH_SQL_BIND_FAILED: u32 = 3221228519u32;
-pub const PDH_SQL_CONNECT_FAILED: u32 = 3221228518u32;
-pub const PDH_SQL_EXEC_DIRECT_FAILED: u32 = 3221228514u32;
-pub const PDH_SQL_FETCH_FAILED: u32 = 3221228515u32;
-pub const PDH_SQL_MORE_RESULTS_FAILED: u32 = 3221228517u32;
-pub const PDH_SQL_ROWCOUNT_FAILED: u32 = 3221228516u32;
-pub const PDH_STRING_NOT_FOUND: u32 = 3221228500u32;
-pub const PDH_UNABLE_MAP_NAME_FILES: u32 = 2147486677u32;
-pub const PDH_UNABLE_READ_LOG_HEADER: u32 = 3221228496u32;
-pub const PDH_UNKNOWN_LOGSVC_COMMAND: u32 = 3221228503u32;
-pub const PDH_UNKNOWN_LOG_FORMAT: u32 = 3221228502u32;
-pub const PDH_UNMATCHED_APPEND_COUNTER: u32 = 3221228540u32;
-pub const PDH_VERSION: PDH_DLL_VERSION = PDH_DLL_VERSION(1283u32);
-pub const PDH_WBEM_ERROR: u32 = 3221228506u32;
-pub const PERF_ADD_COUNTER: u32 = 1u32;
-pub const PERF_AGGREGATE_AVG: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(2u32);
-pub const PERF_AGGREGATE_INSTANCE: windows_core::PCWSTR = windows_core::w!("_Total");
-pub const PERF_AGGREGATE_MAX: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(4u32);
-pub const PERF_AGGREGATE_MIN: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(3u32);
-pub const PERF_AGGREGATE_TOTAL: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(1u32);
-pub const PERF_AGGREGATE_UNDEFINED: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(0u32);
-pub const PERF_ATTRIB_BY_REFERENCE: u64 = 1u64;
-pub const PERF_ATTRIB_DISPLAY_AS_HEX: u64 = 16u64;
-pub const PERF_ATTRIB_DISPLAY_AS_REAL: u64 = 8u64;
-pub const PERF_ATTRIB_NO_DISPLAYABLE: u64 = 2u64;
-pub const PERF_ATTRIB_NO_GROUP_SEPARATOR: u64 = 4u64;
-pub const PERF_COLLECT_END: u32 = 6u32;
-pub const PERF_COLLECT_START: u32 = 5u32;
-pub const PERF_COUNTERSET: PerfCounterDataType = PerfCounterDataType(6i32);
-pub const PERF_COUNTERSET_FLAG_AGGREGATE: u32 = 4u32;
-pub const PERF_COUNTERSET_FLAG_HISTORY: u32 = 8u32;
-pub const PERF_COUNTERSET_FLAG_INSTANCE: u32 = 16u32;
-pub const PERF_COUNTERSET_FLAG_MULTIPLE: u32 = 2u32;
-pub const PERF_COUNTERSET_MULTI_INSTANCES: u32 = 2u32;
-pub const PERF_COUNTERSET_SINGLE_AGGREGATE: u32 = 4u32;
-pub const PERF_COUNTERSET_SINGLE_INSTANCE: u32 = 0u32;
-pub const PERF_COUNTER_BASE: u32 = 196608u32;
-pub const PERF_COUNTER_ELAPSED: u32 = 262144u32;
-pub const PERF_COUNTER_FRACTION: u32 = 131072u32;
-pub const PERF_COUNTER_HISTOGRAM: u32 = 393216u32;
-pub const PERF_COUNTER_HISTOGRAM_TYPE: u32 = 2147483648u32;
-pub const PERF_COUNTER_PRECISION: u32 = 458752u32;
-pub const PERF_COUNTER_QUEUELEN: u32 = 327680u32;
-pub const PERF_COUNTER_RATE: u32 = 65536u32;
-pub const PERF_COUNTER_VALUE: u32 = 0u32;
-pub const PERF_DATA_REVISION: u32 = 1u32;
-pub const PERF_DATA_VERSION: u32 = 1u32;
-pub const PERF_DELTA_BASE: u32 = 8388608u32;
-pub const PERF_DELTA_COUNTER: u32 = 4194304u32;
-pub const PERF_DETAIL_ADVANCED: PERF_DETAIL = PERF_DETAIL(200u32);
-pub const PERF_DETAIL_EXPERT: PERF_DETAIL = PERF_DETAIL(300u32);
-pub const PERF_DETAIL_NOVICE: PERF_DETAIL = PERF_DETAIL(100u32);
-pub const PERF_DETAIL_WIZARD: PERF_DETAIL = PERF_DETAIL(400u32);
-pub const PERF_DISPLAY_NOSHOW: u32 = 1073741824u32;
-pub const PERF_DISPLAY_NO_SUFFIX: u32 = 0u32;
-pub const PERF_DISPLAY_PERCENT: u32 = 536870912u32;
-pub const PERF_DISPLAY_PER_SEC: u32 = 268435456u32;
-pub const PERF_DISPLAY_SECONDS: u32 = 805306368u32;
-pub const PERF_ENUM_INSTANCES: u32 = 3u32;
-pub const PERF_ERROR_RETURN: PerfCounterDataType = PerfCounterDataType(0i32);
-pub const PERF_FILTER: u32 = 9u32;
-pub const PERF_INVERSE_COUNTER: u32 = 16777216u32;
-pub const PERF_MAX_INSTANCE_NAME: u32 = 1024u32;
-pub const PERF_METADATA_MULTIPLE_INSTANCES: i32 = -2i32;
-pub const PERF_METADATA_NO_INSTANCES: i32 = -3i32;
-pub const PERF_MULTIPLE_COUNTERS: PerfCounterDataType = PerfCounterDataType(2i32);
-pub const PERF_MULTIPLE_INSTANCES: PerfCounterDataType = PerfCounterDataType(4i32);
-pub const PERF_MULTI_COUNTER: u32 = 33554432u32;
-pub const PERF_NO_INSTANCES: i32 = -1i32;
-pub const PERF_NO_UNIQUE_ID: i32 = -1i32;
-pub const PERF_NUMBER_DECIMAL: u32 = 65536u32;
-pub const PERF_NUMBER_DEC_1000: u32 = 131072u32;
-pub const PERF_NUMBER_HEX: u32 = 0u32;
-pub const PERF_OBJECT_TIMER: u32 = 2097152u32;
-pub const PERF_PROVIDER_DRIVER: u32 = 2u32;
-pub const PERF_PROVIDER_KERNEL_MODE: u32 = 1u32;
-pub const PERF_PROVIDER_USER_MODE: u32 = 0u32;
-pub const PERF_REG_COUNTERSET_ENGLISH_NAME: PerfRegInfoType = PerfRegInfoType(9i32);
-pub const PERF_REG_COUNTERSET_HELP_STRING: PerfRegInfoType = PerfRegInfoType(4i32);
-pub const PERF_REG_COUNTERSET_NAME_STRING: PerfRegInfoType = PerfRegInfoType(3i32);
-pub const PERF_REG_COUNTERSET_STRUCT: PerfRegInfoType = PerfRegInfoType(1i32);
-pub const PERF_REG_COUNTER_ENGLISH_NAMES: PerfRegInfoType = PerfRegInfoType(10i32);
-pub const PERF_REG_COUNTER_HELP_STRINGS: PerfRegInfoType = PerfRegInfoType(6i32);
-pub const PERF_REG_COUNTER_NAME_STRINGS: PerfRegInfoType = PerfRegInfoType(5i32);
-pub const PERF_REG_COUNTER_STRUCT: PerfRegInfoType = PerfRegInfoType(2i32);
-pub const PERF_REG_PROVIDER_GUID: PerfRegInfoType = PerfRegInfoType(8i32);
-pub const PERF_REG_PROVIDER_NAME: PerfRegInfoType = PerfRegInfoType(7i32);
-pub const PERF_REMOVE_COUNTER: u32 = 2u32;
-pub const PERF_SINGLE_COUNTER: PerfCounterDataType = PerfCounterDataType(1i32);
-pub const PERF_SIZE_DWORD: u32 = 0u32;
-pub const PERF_SIZE_LARGE: u32 = 256u32;
-pub const PERF_SIZE_VARIABLE_LEN: u32 = 768u32;
-pub const PERF_SIZE_ZERO: u32 = 512u32;
-pub const PERF_TEXT_ASCII: u32 = 65536u32;
-pub const PERF_TEXT_UNICODE: u32 = 0u32;
-pub const PERF_TIMER_100NS: u32 = 1048576u32;
-pub const PERF_TIMER_TICK: u32 = 0u32;
-pub const PERF_TYPE_COUNTER: u32 = 1024u32;
-pub const PERF_TYPE_NUMBER: u32 = 0u32;
-pub const PERF_TYPE_TEXT: u32 = 2048u32;
-pub const PERF_TYPE_ZERO: u32 = 3072u32;
-pub const PERF_WILDCARD_COUNTER: u32 = 4294967295u32;
-pub const PERF_WILDCARD_INSTANCE: windows_core::PCWSTR = windows_core::w!("*");
-pub const PLAL_ALERT_CMD_LINE_A_NAME: u32 = 512u32;
-pub const PLAL_ALERT_CMD_LINE_C_NAME: u32 = 1024u32;
-pub const PLAL_ALERT_CMD_LINE_D_TIME: u32 = 2048u32;
-pub const PLAL_ALERT_CMD_LINE_L_VAL: u32 = 4096u32;
-pub const PLAL_ALERT_CMD_LINE_MASK: u32 = 32512u32;
-pub const PLAL_ALERT_CMD_LINE_M_VAL: u32 = 8192u32;
-pub const PLAL_ALERT_CMD_LINE_SINGLE: u32 = 256u32;
-pub const PLAL_ALERT_CMD_LINE_U_TEXT: u32 = 16384u32;
-pub const PLA_CAPABILITY_AUTOLOGGER: u32 = 32u32;
-pub const PLA_CAPABILITY_LEGACY_SESSION: u32 = 8u32;
-pub const PLA_CAPABILITY_LEGACY_SVC: u32 = 16u32;
-pub const PLA_CAPABILITY_LOCAL: u32 = 268435456u32;
-pub const PLA_CAPABILITY_V1_SESSION: u32 = 2u32;
-pub const PLA_CAPABILITY_V1_SVC: u32 = 1u32;
-pub const PLA_CAPABILITY_V1_SYSTEM: u32 = 4u32;
-pub const S_PDH: windows_core::GUID = windows_core::GUID::from_u128(0x04d66358_c4a1_419b_8023_23b73902de2c);
-pub const WINPERF_LOG_DEBUG: u32 = 2u32;
-pub const WINPERF_LOG_NONE: u32 = 0u32;
-pub const WINPERF_LOG_USER: u32 = 1u32;
-pub const WINPERF_LOG_VERBOSE: u32 = 3u32;
 pub const plaAlert: DataCollectorType = DataCollectorType(3i32);
 pub const plaApiTrace: DataCollectorType = DataCollectorType(4i32);
 pub const plaBinary: FileFormat = FileFormat(3i32);

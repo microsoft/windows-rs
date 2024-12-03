@@ -50,6 +50,10 @@ impl Default for IPNG_ADDRESS {
 impl windows_core::TypeKind for IPNG_ADDRESS {
     type TypeKind = windows_core::CopyType;
 }
+pub const MCAST_API_CURRENT_VERSION: i32 = 1i32;
+pub const MCAST_API_VERSION_0: i32 = 0i32;
+pub const MCAST_API_VERSION_1: i32 = 1i32;
+pub const MCAST_CLIENT_ID_LEN: u32 = 17u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MCAST_CLIENT_UID {
@@ -132,7 +136,3 @@ impl Default for MCAST_SCOPE_ENTRY {
 impl windows_core::TypeKind for MCAST_SCOPE_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-pub const MCAST_API_CURRENT_VERSION: i32 = 1i32;
-pub const MCAST_API_VERSION_0: i32 = 0i32;
-pub const MCAST_API_VERSION_1: i32 = 1i32;
-pub const MCAST_CLIENT_ID_LEN: u32 = 17u32;

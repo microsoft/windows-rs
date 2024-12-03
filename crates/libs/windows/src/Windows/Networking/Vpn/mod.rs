@@ -1,2618 +1,3 @@
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnAppId(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnAppId, windows_core::IUnknown, windows_core::IInspectable);
-impl VpnAppId {
-    pub fn Type(&self) -> windows_core::Result<VpnAppIdType> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetType(&self, value: VpnAppIdType) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetType)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Value(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetValue(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn Create(r#type: VpnAppIdType, value: &windows_core::HSTRING) -> windows_core::Result<VpnAppId> {
-        Self::IVpnAppIdFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), r#type, core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IVpnAppIdFactory<R, F: FnOnce(&IVpnAppIdFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VpnAppId, IVpnAppIdFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for VpnAppId {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnAppId>();
-}
-unsafe impl windows_core::Interface for VpnAppId {
-    type Vtable = <IVpnAppId as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnAppId as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnAppId {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnAppId";
-}
-unsafe impl Send for VpnAppId {}
-unsafe impl Sync for VpnAppId {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnChannel(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnChannel, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VpnChannel, IVpnChannelStatics);
-impl VpnChannel {
-    pub fn AssociateTransport<P0, P1>(&self, mainoutertunneltransport: P0, optionaloutertunneltransport: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IInspectable>,
-        P1: windows_core::Param<windows_core::IInspectable>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AssociateTransport)(windows_core::Interface::as_raw(this), mainoutertunneltransport.param().abi(), optionaloutertunneltransport.param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Start<P0, P1, P2, P3, P4, P8, P9>(&self, assignedclientipv4list: P0, assignedclientipv6list: P1, vpninterfaceid: P2, routescope: P3, namespacescope: P4, mtusize: u32, maxframesize: u32, optimizeforlowcostnetwork: bool, mainoutertunneltransport: P8, optionaloutertunneltransport: P9) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IVectorView<super::HostName>>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IVectorView<super::HostName>>,
-        P2: windows_core::Param<VpnInterfaceId>,
-        P3: windows_core::Param<VpnRouteAssignment>,
-        P4: windows_core::Param<VpnNamespaceAssignment>,
-        P8: windows_core::Param<windows_core::IInspectable>,
-        P9: windows_core::Param<windows_core::IInspectable>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this), assignedclientipv4list.param().abi(), assignedclientipv6list.param().abi(), vpninterfaceid.param().abi(), routescope.param().abi(), namespacescope.param().abi(), mtusize, maxframesize, optimizeforlowcostnetwork, mainoutertunneltransport.param().abi(), optionaloutertunneltransport.param().abi()).ok() }
-    }
-    pub fn Stop(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    #[cfg(feature = "Security_Cryptography_Certificates")]
-    pub fn RequestCredentials<P3>(&self, credtype: VpnCredentialType, isretry: bool, issinglesignoncredential: bool, certificate: P3) -> windows_core::Result<VpnPickedCredential>
-    where
-        P3: windows_core::Param<super::super::Security::Cryptography::Certificates::Certificate>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestCredentials)(windows_core::Interface::as_raw(this), credtype, isretry, issinglesignoncredential, certificate.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn RequestVpnPacketBuffer(&self, r#type: VpnDataPathType, vpnpacketbuffer: &mut Option<VpnPacketBuffer>) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RequestVpnPacketBuffer)(windows_core::Interface::as_raw(this), r#type, vpnpacketbuffer as *mut _ as _).ok() }
-    }
-    pub fn LogDiagnosticMessage(&self, message: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).LogDiagnosticMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(message)).ok() }
-    }
-    pub fn Id(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Configuration(&self) -> windows_core::Result<VpnChannelConfiguration> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Configuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn ActivityChange<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VpnChannel, VpnChannelActivityEventArgs>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivityChange)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveActivityChange(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveActivityChange)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn SetPlugInContext<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IInspectable>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPlugInContext)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    pub fn PlugInContext(&self) -> windows_core::Result<windows_core::IInspectable> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PlugInContext)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SystemHealth(&self) -> windows_core::Result<VpnSystemHealth> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemHealth)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RequestCustomPrompt<P0>(&self, customprompt: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IVectorView<IVpnCustomPrompt>>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RequestCustomPrompt)(windows_core::Interface::as_raw(this), customprompt.param().abi()).ok() }
-    }
-    pub fn SetErrorMessage(&self, message: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetErrorMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(message)).ok() }
-    }
-    pub fn SetAllowedSslTlsVersions<P0>(&self, tunneltransport: P0, usetls12: bool) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IInspectable>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAllowedSslTlsVersions)(windows_core::Interface::as_raw(this), tunneltransport.param().abi(), usetls12).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn StartWithMainTransport<P0, P1, P2, P3, P4, P8>(&self, assignedclientipv4list: P0, assignedclientipv6list: P1, vpninterfaceid: P2, assignedroutes: P3, assigneddomainname: P4, mtusize: u32, maxframesize: u32, reserved: bool, mainoutertunneltransport: P8) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IVectorView<super::HostName>>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IVectorView<super::HostName>>,
-        P2: windows_core::Param<VpnInterfaceId>,
-        P3: windows_core::Param<VpnRouteAssignment>,
-        P4: windows_core::Param<VpnDomainNameAssignment>,
-        P8: windows_core::Param<windows_core::IInspectable>,
-    {
-        let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StartWithMainTransport)(windows_core::Interface::as_raw(this), assignedclientipv4list.param().abi(), assignedclientipv6list.param().abi(), vpninterfaceid.param().abi(), assignedroutes.param().abi(), assigneddomainname.param().abi(), mtusize, maxframesize, reserved, mainoutertunneltransport.param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn StartExistingTransports<P0, P1, P2, P3, P4>(&self, assignedclientipv4list: P0, assignedclientipv6list: P1, vpninterfaceid: P2, assignedroutes: P3, assigneddomainname: P4, mtusize: u32, maxframesize: u32, reserved: bool) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IVectorView<super::HostName>>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IVectorView<super::HostName>>,
-        P2: windows_core::Param<VpnInterfaceId>,
-        P3: windows_core::Param<VpnRouteAssignment>,
-        P4: windows_core::Param<VpnDomainNameAssignment>,
-    {
-        let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StartExistingTransports)(windows_core::Interface::as_raw(this), assignedclientipv4list.param().abi(), assignedclientipv6list.param().abi(), vpninterfaceid.param().abi(), assignedroutes.param().abi(), assigneddomainname.param().abi(), mtusize, maxframesize, reserved).ok() }
-    }
-    pub fn ActivityStateChange<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VpnChannel, VpnChannelActivityStateChangedArgs>>,
-    {
-        let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivityStateChange)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveActivityStateChange(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveActivityStateChange)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn GetVpnSendPacketBuffer(&self) -> windows_core::Result<VpnPacketBuffer> {
-        let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetVpnSendPacketBuffer)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetVpnReceivePacketBuffer(&self) -> windows_core::Result<VpnPacketBuffer> {
-        let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetVpnReceivePacketBuffer)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RequestCustomPromptAsync<P0>(&self, custompromptelement: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IVectorView<IVpnCustomPromptElement>>,
-    {
-        let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestCustomPromptAsync)(windows_core::Interface::as_raw(this), custompromptelement.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Security_Cryptography_Certificates")]
-    pub fn RequestCredentialsWithCertificateAsync<P2>(&self, credtype: VpnCredentialType, credoptions: u32, certificate: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VpnCredential>>
-    where
-        P2: windows_core::Param<super::super::Security::Cryptography::Certificates::Certificate>,
-    {
-        let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestCredentialsWithCertificateAsync)(windows_core::Interface::as_raw(this), credtype, credoptions, certificate.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn RequestCredentialsWithOptionsAsync(&self, credtype: VpnCredentialType, credoptions: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VpnCredential>> {
-        let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestCredentialsWithOptionsAsync)(windows_core::Interface::as_raw(this), credtype, credoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn RequestCredentialsSimpleAsync(&self, credtype: VpnCredentialType) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VpnCredential>> {
-        let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestCredentialsSimpleAsync)(windows_core::Interface::as_raw(this), credtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn TerminateConnection(&self, message: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).TerminateConnection)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(message)).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn StartWithTrafficFilter<P0, P1, P2, P3, P4, P8, P9, P10>(&self, assignedclientipv4list: P0, assignedclientipv6list: P1, vpninterfaceid: P2, assignedroutes: P3, assignednamespace: P4, mtusize: u32, maxframesize: u32, reserved: bool, mainoutertunneltransport: P8, optionaloutertunneltransport: P9, assignedtrafficfilters: P10) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IVectorView<super::HostName>>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IVectorView<super::HostName>>,
-        P2: windows_core::Param<VpnInterfaceId>,
-        P3: windows_core::Param<VpnRouteAssignment>,
-        P4: windows_core::Param<VpnDomainNameAssignment>,
-        P8: windows_core::Param<windows_core::IInspectable>,
-        P9: windows_core::Param<windows_core::IInspectable>,
-        P10: windows_core::Param<VpnTrafficFilterAssignment>,
-    {
-        let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StartWithTrafficFilter)(windows_core::Interface::as_raw(this), assignedclientipv4list.param().abi(), assignedclientipv6list.param().abi(), vpninterfaceid.param().abi(), assignedroutes.param().abi(), assignednamespace.param().abi(), mtusize, maxframesize, reserved, mainoutertunneltransport.param().abi(), optionaloutertunneltransport.param().abi(), assignedtrafficfilters.param().abi()).ok() }
-    }
-    pub fn AddAndAssociateTransport<P0, P1>(&self, transport: P0, context: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IInspectable>,
-        P1: windows_core::Param<windows_core::IInspectable>,
-    {
-        let this = &windows_core::Interface::cast::<IVpnChannel4>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).AddAndAssociateTransport)(windows_core::Interface::as_raw(this), transport.param().abi(), context.param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn StartWithMultipleTransports<P0, P1, P2, P3, P4, P8, P9>(&self, assignedclientipv4addresses: P0, assignedclientipv6addresses: P1, vpninterfaceid: P2, assignedroutes: P3, assignednamespace: P4, mtusize: u32, maxframesize: u32, reserved: bool, transports: P8, assignedtrafficfilters: P9) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::HostName>>,
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<super::HostName>>,
-        P2: windows_core::Param<VpnInterfaceId>,
-        P3: windows_core::Param<VpnRouteAssignment>,
-        P4: windows_core::Param<VpnDomainNameAssignment>,
-        P8: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::IInspectable>>,
-        P9: windows_core::Param<VpnTrafficFilterAssignment>,
-    {
-        let this = &windows_core::Interface::cast::<IVpnChannel4>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StartWithMultipleTransports)(windows_core::Interface::as_raw(this), assignedclientipv4addresses.param().abi(), assignedclientipv6addresses.param().abi(), vpninterfaceid.param().abi(), assignedroutes.param().abi(), assignednamespace.param().abi(), mtusize, maxframesize, reserved, transports.param().abi(), assignedtrafficfilters.param().abi()).ok() }
-    }
-    pub fn ReplaceAndAssociateTransport<P0, P1>(&self, transport: P0, context: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IInspectable>,
-        P1: windows_core::Param<windows_core::IInspectable>,
-    {
-        let this = &windows_core::Interface::cast::<IVpnChannel4>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).ReplaceAndAssociateTransport)(windows_core::Interface::as_raw(this), transport.param().abi(), context.param().abi()).ok() }
-    }
-    pub fn StartReconnectingTransport<P0, P1>(&self, transport: P0, context: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IInspectable>,
-        P1: windows_core::Param<windows_core::IInspectable>,
-    {
-        let this = &windows_core::Interface::cast::<IVpnChannel4>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StartReconnectingTransport)(windows_core::Interface::as_raw(this), transport.param().abi(), context.param().abi()).ok() }
-    }
-    #[cfg(feature = "Networking_Sockets")]
-    pub fn GetSlotTypeForTransportContext<P0>(&self, context: P0) -> windows_core::Result<super::Sockets::ControlChannelTriggerStatus>
-    where
-        P0: windows_core::Param<windows_core::IInspectable>,
-    {
-        let this = &windows_core::Interface::cast::<IVpnChannel4>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetSlotTypeForTransportContext)(windows_core::Interface::as_raw(this), context.param().abi(), &mut result__).map(|| result__)
-        }
-    }
-    pub fn CurrentRequestTransportContext(&self) -> windows_core::Result<windows_core::IInspectable> {
-        let this = &windows_core::Interface::cast::<IVpnChannel4>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CurrentRequestTransportContext)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn AppendVpnReceivePacketBuffer<P0>(&self, decapsulatedpacketbuffer: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<VpnPacketBuffer>,
-    {
-        let this = &windows_core::Interface::cast::<IVpnChannel5>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).AppendVpnReceivePacketBuffer)(windows_core::Interface::as_raw(this), decapsulatedpacketbuffer.param().abi()).ok() }
-    }
-    pub fn AppendVpnSendPacketBuffer<P0>(&self, encapsulatedpacketbuffer: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<VpnPacketBuffer>,
-    {
-        let this = &windows_core::Interface::cast::<IVpnChannel5>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).AppendVpnSendPacketBuffer)(windows_core::Interface::as_raw(this), encapsulatedpacketbuffer.param().abi()).ok() }
-    }
-    pub fn FlushVpnReceivePacketBuffers(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnChannel5>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).FlushVpnReceivePacketBuffers)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn FlushVpnSendPacketBuffers(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnChannel5>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).FlushVpnSendPacketBuffers)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ActivateForeground<P1>(&self, packagerelativeappid: &windows_core::HSTRING, sharedcontext: P1) -> windows_core::Result<super::super::Foundation::Collections::ValueSet>
-    where
-        P1: windows_core::Param<super::super::Foundation::Collections::ValueSet>,
-    {
-        let this = &windows_core::Interface::cast::<IVpnChannel6>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivateForeground)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagerelativeappid), sharedcontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn ProcessEventAsync<P0, P1>(thirdpartyplugin: P0, event: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IInspectable>,
-        P1: windows_core::Param<windows_core::IInspectable>,
-    {
-        Self::IVpnChannelStatics(|this| unsafe { (windows_core::Interface::vtable(this).ProcessEventAsync)(windows_core::Interface::as_raw(this), thirdpartyplugin.param().abi(), event.param().abi()).ok() })
-    }
-    fn IVpnChannelStatics<R, F: FnOnce(&IVpnChannelStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VpnChannel, IVpnChannelStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for VpnChannel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnChannel>();
-}
-unsafe impl windows_core::Interface for VpnChannel {
-    type Vtable = <IVpnChannel as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnChannel as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnChannel {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnChannel";
-}
-unsafe impl Send for VpnChannel {}
-unsafe impl Sync for VpnChannel {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnChannelActivityEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnChannelActivityEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl VpnChannelActivityEventArgs {
-    pub fn Type(&self) -> windows_core::Result<VpnChannelActivityEventType> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for VpnChannelActivityEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnChannelActivityEventArgs>();
-}
-unsafe impl windows_core::Interface for VpnChannelActivityEventArgs {
-    type Vtable = <IVpnChannelActivityEventArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnChannelActivityEventArgs as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnChannelActivityEventArgs {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnChannelActivityEventArgs";
-}
-unsafe impl Send for VpnChannelActivityEventArgs {}
-unsafe impl Sync for VpnChannelActivityEventArgs {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnChannelActivityStateChangedArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnChannelActivityStateChangedArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl VpnChannelActivityStateChangedArgs {
-    pub fn ActivityState(&self) -> windows_core::Result<VpnChannelActivityEventType> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivityState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for VpnChannelActivityStateChangedArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnChannelActivityStateChangedArgs>();
-}
-unsafe impl windows_core::Interface for VpnChannelActivityStateChangedArgs {
-    type Vtable = <IVpnChannelActivityStateChangedArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnChannelActivityStateChangedArgs as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnChannelActivityStateChangedArgs {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnChannelActivityStateChangedArgs";
-}
-unsafe impl Send for VpnChannelActivityStateChangedArgs {}
-unsafe impl Sync for VpnChannelActivityStateChangedArgs {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnChannelConfiguration(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnChannelConfiguration, windows_core::IUnknown, windows_core::IInspectable);
-impl VpnChannelConfiguration {
-    pub fn ServerServiceName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ServerServiceName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ServerHostNameList(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::HostName>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ServerHostNameList)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn CustomField(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CustomField)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ServerUris(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>> {
-        let this = &windows_core::Interface::cast::<IVpnChannelConfiguration2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ServerUris)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for VpnChannelConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnChannelConfiguration>();
-}
-unsafe impl windows_core::Interface for VpnChannelConfiguration {
-    type Vtable = <IVpnChannelConfiguration as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnChannelConfiguration as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnChannelConfiguration {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnChannelConfiguration";
-}
-unsafe impl Send for VpnChannelConfiguration {}
-unsafe impl Sync for VpnChannelConfiguration {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnCredential(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnCredential, windows_core::IUnknown, windows_core::IInspectable, IVpnCredential);
-impl VpnCredential {
-    #[cfg(feature = "Security_Credentials")]
-    pub fn PasskeyCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PasskeyCredential)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Security_Cryptography_Certificates")]
-    pub fn CertificateCredential(&self) -> windows_core::Result<super::super::Security::Cryptography::Certificates::Certificate> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CertificateCredential)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn AdditionalPin(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AdditionalPin)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "Security_Credentials")]
-    pub fn OldPasswordCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OldPasswordCredential)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for VpnCredential {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCredential>();
-}
-unsafe impl windows_core::Interface for VpnCredential {
-    type Vtable = <IVpnCredential as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnCredential as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnCredential {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnCredential";
-}
-unsafe impl Send for VpnCredential {}
-unsafe impl Sync for VpnCredential {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnCustomCheckBox(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnCustomCheckBox, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VpnCustomCheckBox, IVpnCustomPrompt);
-impl VpnCustomCheckBox {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VpnCustomCheckBox, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn SetInitialCheckState(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetInitialCheckState)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn InitialCheckState(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InitialCheckState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Checked(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Checked)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetLabel(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetLabel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn Label(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Label)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetCompulsory(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetCompulsory)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Compulsory(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Compulsory)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetBordered(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetBordered)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Bordered(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Bordered)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for VpnCustomCheckBox {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomCheckBox>();
-}
-unsafe impl windows_core::Interface for VpnCustomCheckBox {
-    type Vtable = <IVpnCustomCheckBox as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnCustomCheckBox as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnCustomCheckBox {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomCheckBox";
-}
-unsafe impl Send for VpnCustomCheckBox {}
-unsafe impl Sync for VpnCustomCheckBox {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnCustomComboBox(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnCustomComboBox, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VpnCustomComboBox, IVpnCustomPrompt);
-impl VpnCustomComboBox {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VpnCustomComboBox, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SetOptionsText<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetOptionsText)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn OptionsText(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OptionsText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Selected(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Selected)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetLabel(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetLabel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn Label(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Label)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetCompulsory(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetCompulsory)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Compulsory(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Compulsory)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetBordered(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetBordered)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Bordered(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Bordered)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for VpnCustomComboBox {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomComboBox>();
-}
-unsafe impl windows_core::Interface for VpnCustomComboBox {
-    type Vtable = <IVpnCustomComboBox as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnCustomComboBox as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnCustomComboBox {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomComboBox";
-}
-unsafe impl Send for VpnCustomComboBox {}
-unsafe impl Sync for VpnCustomComboBox {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnCustomEditBox(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnCustomEditBox, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VpnCustomEditBox, IVpnCustomPrompt);
-impl VpnCustomEditBox {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VpnCustomEditBox, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn SetDefaultText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDefaultText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn DefaultText(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DefaultText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetNoEcho(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetNoEcho)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn NoEcho(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NoEcho)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Text(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Text)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetLabel(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetLabel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn Label(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Label)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetCompulsory(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetCompulsory)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Compulsory(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Compulsory)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetBordered(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetBordered)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Bordered(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Bordered)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for VpnCustomEditBox {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomEditBox>();
-}
-unsafe impl windows_core::Interface for VpnCustomEditBox {
-    type Vtable = <IVpnCustomEditBox as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnCustomEditBox as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnCustomEditBox {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomEditBox";
-}
-unsafe impl Send for VpnCustomEditBox {}
-unsafe impl Sync for VpnCustomEditBox {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnCustomErrorBox(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnCustomErrorBox, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VpnCustomErrorBox, IVpnCustomPrompt);
-impl VpnCustomErrorBox {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VpnCustomErrorBox, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn SetLabel(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetLabel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn Label(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Label)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetCompulsory(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetCompulsory)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Compulsory(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Compulsory)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetBordered(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetBordered)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Bordered(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Bordered)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for VpnCustomErrorBox {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomErrorBox>();
-}
-unsafe impl windows_core::Interface for VpnCustomErrorBox {
-    type Vtable = <IVpnCustomErrorBox as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnCustomErrorBox as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnCustomErrorBox {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomErrorBox";
-}
-unsafe impl Send for VpnCustomErrorBox {}
-unsafe impl Sync for VpnCustomErrorBox {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnCustomPromptBooleanInput(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnCustomPromptBooleanInput, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VpnCustomPromptBooleanInput, IVpnCustomPromptElement);
-impl VpnCustomPromptBooleanInput {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VpnCustomPromptBooleanInput, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn SetInitialValue(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetInitialValue)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn InitialValue(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InitialValue)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Value(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetCompulsory(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetCompulsory)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Compulsory(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Compulsory)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetEmphasized(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetEmphasized)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Emphasized(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Emphasized)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for VpnCustomPromptBooleanInput {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomPromptBooleanInput>();
-}
-unsafe impl windows_core::Interface for VpnCustomPromptBooleanInput {
-    type Vtable = <IVpnCustomPromptBooleanInput as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnCustomPromptBooleanInput as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnCustomPromptBooleanInput {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptBooleanInput";
-}
-unsafe impl Send for VpnCustomPromptBooleanInput {}
-unsafe impl Sync for VpnCustomPromptBooleanInput {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnCustomPromptOptionSelector(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnCustomPromptOptionSelector, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VpnCustomPromptOptionSelector, IVpnCustomPromptElement);
-impl VpnCustomPromptOptionSelector {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VpnCustomPromptOptionSelector, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetCompulsory(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetCompulsory)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Compulsory(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Compulsory)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetEmphasized(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetEmphasized)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Emphasized(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Emphasized)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Options(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Options)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SelectedIndex(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectedIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for VpnCustomPromptOptionSelector {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomPromptOptionSelector>();
-}
-unsafe impl windows_core::Interface for VpnCustomPromptOptionSelector {
-    type Vtable = <IVpnCustomPromptOptionSelector as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnCustomPromptOptionSelector as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnCustomPromptOptionSelector {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptOptionSelector";
-}
-unsafe impl Send for VpnCustomPromptOptionSelector {}
-unsafe impl Sync for VpnCustomPromptOptionSelector {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnCustomPromptText(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnCustomPromptText, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VpnCustomPromptText, IVpnCustomPromptElement);
-impl VpnCustomPromptText {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VpnCustomPromptText, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetCompulsory(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetCompulsory)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Compulsory(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Compulsory)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetEmphasized(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetEmphasized)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Emphasized(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Emphasized)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn Text(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Text)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for VpnCustomPromptText {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomPromptText>();
-}
-unsafe impl windows_core::Interface for VpnCustomPromptText {
-    type Vtable = <IVpnCustomPromptText as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnCustomPromptText as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnCustomPromptText {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptText";
-}
-unsafe impl Send for VpnCustomPromptText {}
-unsafe impl Sync for VpnCustomPromptText {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnCustomPromptTextInput(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnCustomPromptTextInput, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VpnCustomPromptTextInput, IVpnCustomPromptElement);
-impl VpnCustomPromptTextInput {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VpnCustomPromptTextInput, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetCompulsory(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetCompulsory)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Compulsory(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Compulsory)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetEmphasized(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetEmphasized)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Emphasized(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Emphasized)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetPlaceholderText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPlaceholderText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn PlaceholderText(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PlaceholderText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetIsTextHidden(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIsTextHidden)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn IsTextHidden(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsTextHidden)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Text(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Text)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for VpnCustomPromptTextInput {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomPromptTextInput>();
-}
-unsafe impl windows_core::Interface for VpnCustomPromptTextInput {
-    type Vtable = <IVpnCustomPromptTextInput as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnCustomPromptTextInput as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnCustomPromptTextInput {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptTextInput";
-}
-unsafe impl Send for VpnCustomPromptTextInput {}
-unsafe impl Sync for VpnCustomPromptTextInput {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnCustomTextBox(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnCustomTextBox, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VpnCustomTextBox, IVpnCustomPrompt);
-impl VpnCustomTextBox {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VpnCustomTextBox, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn SetLabel(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetLabel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn Label(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Label)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetCompulsory(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetCompulsory)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Compulsory(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Compulsory)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetBordered(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetBordered)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Bordered(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Bordered)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetDisplayText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDisplayText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn DisplayText(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for VpnCustomTextBox {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomTextBox>();
-}
-unsafe impl windows_core::Interface for VpnCustomTextBox {
-    type Vtable = <IVpnCustomTextBox as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnCustomTextBox as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnCustomTextBox {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomTextBox";
-}
-unsafe impl Send for VpnCustomTextBox {}
-unsafe impl Sync for VpnCustomTextBox {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnDomainNameAssignment(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnDomainNameAssignment, windows_core::IUnknown, windows_core::IInspectable);
-impl VpnDomainNameAssignment {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VpnDomainNameAssignment, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DomainNameList(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnDomainNameInfo>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DomainNameList)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SetProxyAutoConfigurationUri<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::Uri>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetProxyAutoConfigurationUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    pub fn ProxyAutoConfigurationUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProxyAutoConfigurationUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for VpnDomainNameAssignment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnDomainNameAssignment>();
-}
-unsafe impl windows_core::Interface for VpnDomainNameAssignment {
-    type Vtable = <IVpnDomainNameAssignment as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnDomainNameAssignment as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnDomainNameAssignment {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnDomainNameAssignment";
-}
-unsafe impl Send for VpnDomainNameAssignment {}
-unsafe impl Sync for VpnDomainNameAssignment {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnDomainNameInfo(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnDomainNameInfo, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VpnDomainNameInfo, IVpnDomainNameInfoFactory);
-impl VpnDomainNameInfo {
-    pub fn SetDomainName<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::HostName>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDomainName)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    pub fn DomainName(&self) -> windows_core::Result<super::HostName> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DomainName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SetDomainNameType(&self, value: VpnDomainNameType) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDomainNameType)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn DomainNameType(&self) -> windows_core::Result<VpnDomainNameType> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DomainNameType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DnsServers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::HostName>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DnsServers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn WebProxyServers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::HostName>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WebProxyServers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn WebProxyUris(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
-        let this = &windows_core::Interface::cast::<IVpnDomainNameInfo2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WebProxyUris)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateVpnDomainNameInfo<P2, P3>(name: &windows_core::HSTRING, nametype: VpnDomainNameType, dnsserverlist: P2, proxyserverlist: P3) -> windows_core::Result<VpnDomainNameInfo>
-    where
-        P2: windows_core::Param<super::super::Foundation::Collections::IIterable<super::HostName>>,
-        P3: windows_core::Param<super::super::Foundation::Collections::IIterable<super::HostName>>,
-    {
-        Self::IVpnDomainNameInfoFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateVpnDomainNameInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), nametype, dnsserverlist.param().abi(), proxyserverlist.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IVpnDomainNameInfoFactory<R, F: FnOnce(&IVpnDomainNameInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VpnDomainNameInfo, IVpnDomainNameInfoFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for VpnDomainNameInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnDomainNameInfo>();
-}
-unsafe impl windows_core::Interface for VpnDomainNameInfo {
-    type Vtable = <IVpnDomainNameInfo as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnDomainNameInfo as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnDomainNameInfo {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnDomainNameInfo";
-}
-unsafe impl Send for VpnDomainNameInfo {}
-unsafe impl Sync for VpnDomainNameInfo {}
-#[cfg(feature = "ApplicationModel_Activation")]
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnForegroundActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(VpnForegroundActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(VpnForegroundActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl VpnForegroundActivatedEventArgs {
-    #[cfg(feature = "ApplicationModel_Activation")]
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
-        let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "ApplicationModel_Activation")]
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
-        let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "ApplicationModel_Activation")]
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
-        let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
-        let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn ProfileName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProfileName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SharedContext(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SharedContext)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn ActivationOperation(&self) -> windows_core::Result<VpnForegroundActivationOperation> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivationOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for VpnForegroundActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnForegroundActivatedEventArgs>();
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl windows_core::Interface for VpnForegroundActivatedEventArgs {
-    type Vtable = <IVpnForegroundActivatedEventArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnForegroundActivatedEventArgs as windows_core::Interface>::IID;
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeName for VpnForegroundActivatedEventArgs {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnForegroundActivatedEventArgs";
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl Send for VpnForegroundActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl Sync for VpnForegroundActivatedEventArgs {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnForegroundActivationOperation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnForegroundActivationOperation, windows_core::IUnknown, windows_core::IInspectable);
-impl VpnForegroundActivationOperation {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Complete<P0>(&self, result: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::ValueSet>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this), result.param().abi()).ok() }
-    }
-}
-impl windows_core::RuntimeType for VpnForegroundActivationOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnForegroundActivationOperation>();
-}
-unsafe impl windows_core::Interface for VpnForegroundActivationOperation {
-    type Vtable = <IVpnForegroundActivationOperation as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnForegroundActivationOperation as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnForegroundActivationOperation {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnForegroundActivationOperation";
-}
-unsafe impl Send for VpnForegroundActivationOperation {}
-unsafe impl Sync for VpnForegroundActivationOperation {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnInterfaceId(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnInterfaceId, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VpnInterfaceId, IVpnInterfaceIdFactory);
-impl VpnInterfaceId {
-    pub fn GetAddressInfo(&self, id: &mut windows_core::Array<u8>) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).GetAddressInfo)(windows_core::Interface::as_raw(this), id.set_abi_len(), id as *mut _ as _).ok() }
-    }
-    pub fn CreateVpnInterfaceId(address: &[u8]) -> windows_core::Result<VpnInterfaceId> {
-        Self::IVpnInterfaceIdFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateVpnInterfaceId)(windows_core::Interface::as_raw(this), address.len().try_into().unwrap(), address.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IVpnInterfaceIdFactory<R, F: FnOnce(&IVpnInterfaceIdFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VpnInterfaceId, IVpnInterfaceIdFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for VpnInterfaceId {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnInterfaceId>();
-}
-unsafe impl windows_core::Interface for VpnInterfaceId {
-    type Vtable = <IVpnInterfaceId as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnInterfaceId as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnInterfaceId {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnInterfaceId";
-}
-unsafe impl Send for VpnInterfaceId {}
-unsafe impl Sync for VpnInterfaceId {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnManagementAgent(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnManagementAgent, windows_core::IUnknown, windows_core::IInspectable);
-impl VpnManagementAgent {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VpnManagementAgent, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn AddProfileFromXmlAsync(&self, xml: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AddProfileFromXmlAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xml), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn AddProfileFromObjectAsync<P0>(&self, profile: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
-    where
-        P0: windows_core::Param<IVpnProfile>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AddProfileFromObjectAsync)(windows_core::Interface::as_raw(this), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn UpdateProfileFromXmlAsync(&self, xml: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateProfileFromXmlAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xml), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn UpdateProfileFromObjectAsync<P0>(&self, profile: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
-    where
-        P0: windows_core::Param<IVpnProfile>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateProfileFromObjectAsync)(windows_core::Interface::as_raw(this), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetProfilesAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IVpnProfile>>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetProfilesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn DeleteProfileAsync<P0>(&self, profile: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
-    where
-        P0: windows_core::Param<IVpnProfile>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeleteProfileAsync)(windows_core::Interface::as_raw(this), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn ConnectProfileAsync<P0>(&self, profile: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
-    where
-        P0: windows_core::Param<IVpnProfile>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConnectProfileAsync)(windows_core::Interface::as_raw(this), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Security_Credentials")]
-    pub fn ConnectProfileWithPasswordCredentialAsync<P0, P1>(&self, profile: P0, passwordcredential: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
-    where
-        P0: windows_core::Param<IVpnProfile>,
-        P1: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConnectProfileWithPasswordCredentialAsync)(windows_core::Interface::as_raw(this), profile.param().abi(), passwordcredential.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn DisconnectProfileAsync<P0>(&self, profile: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
-    where
-        P0: windows_core::Param<IVpnProfile>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisconnectProfileAsync)(windows_core::Interface::as_raw(this), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for VpnManagementAgent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnManagementAgent>();
-}
-unsafe impl windows_core::Interface for VpnManagementAgent {
-    type Vtable = <IVpnManagementAgent as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnManagementAgent as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnManagementAgent {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnManagementAgent";
-}
-unsafe impl Send for VpnManagementAgent {}
-unsafe impl Sync for VpnManagementAgent {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnNamespaceAssignment(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnNamespaceAssignment, windows_core::IUnknown, windows_core::IInspectable);
-impl VpnNamespaceAssignment {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VpnNamespaceAssignment, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SetNamespaceList<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IVector<VpnNamespaceInfo>>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetNamespaceList)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn NamespaceList(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnNamespaceInfo>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NamespaceList)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SetProxyAutoConfigUri<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::Uri>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetProxyAutoConfigUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    pub fn ProxyAutoConfigUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProxyAutoConfigUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for VpnNamespaceAssignment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnNamespaceAssignment>();
-}
-unsafe impl windows_core::Interface for VpnNamespaceAssignment {
-    type Vtable = <IVpnNamespaceAssignment as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnNamespaceAssignment as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnNamespaceAssignment {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnNamespaceAssignment";
-}
-unsafe impl Send for VpnNamespaceAssignment {}
-unsafe impl Sync for VpnNamespaceAssignment {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnNamespaceInfo(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnNamespaceInfo, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VpnNamespaceInfo, IVpnNamespaceInfoFactory);
-impl VpnNamespaceInfo {
-    pub fn SetNamespace(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetNamespace)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn Namespace(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Namespace)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SetDnsServers<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IVector<super::HostName>>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDnsServers)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DnsServers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::HostName>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DnsServers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SetWebProxyServers<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IVector<super::HostName>>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetWebProxyServers)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn WebProxyServers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::HostName>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WebProxyServers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateVpnNamespaceInfo<P1, P2>(name: &windows_core::HSTRING, dnsserverlist: P1, proxyserverlist: P2) -> windows_core::Result<VpnNamespaceInfo>
-    where
-        P1: windows_core::Param<super::super::Foundation::Collections::IVector<super::HostName>>,
-        P2: windows_core::Param<super::super::Foundation::Collections::IVector<super::HostName>>,
-    {
-        Self::IVpnNamespaceInfoFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateVpnNamespaceInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), dnsserverlist.param().abi(), proxyserverlist.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IVpnNamespaceInfoFactory<R, F: FnOnce(&IVpnNamespaceInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VpnNamespaceInfo, IVpnNamespaceInfoFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for VpnNamespaceInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnNamespaceInfo>();
-}
-unsafe impl windows_core::Interface for VpnNamespaceInfo {
-    type Vtable = <IVpnNamespaceInfo as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnNamespaceInfo as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnNamespaceInfo {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnNamespaceInfo";
-}
-unsafe impl Send for VpnNamespaceInfo {}
-unsafe impl Sync for VpnNamespaceInfo {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnNativeProfile(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnNativeProfile, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VpnNativeProfile, IVpnProfile);
-impl VpnNativeProfile {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VpnNativeProfile, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Servers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Servers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn RoutingPolicyType(&self) -> windows_core::Result<VpnRoutingPolicyType> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RoutingPolicyType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetRoutingPolicyType(&self, value: VpnRoutingPolicyType) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetRoutingPolicyType)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn NativeProtocolType(&self) -> windows_core::Result<VpnNativeProtocolType> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NativeProtocolType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetNativeProtocolType(&self, value: VpnNativeProtocolType) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetNativeProtocolType)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn UserAuthenticationMethod(&self) -> windows_core::Result<VpnAuthenticationMethod> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UserAuthenticationMethod)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetUserAuthenticationMethod(&self, value: VpnAuthenticationMethod) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetUserAuthenticationMethod)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn TunnelAuthenticationMethod(&self) -> windows_core::Result<VpnAuthenticationMethod> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TunnelAuthenticationMethod)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetTunnelAuthenticationMethod(&self, value: VpnAuthenticationMethod) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTunnelAuthenticationMethod)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn EapConfiguration(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EapConfiguration)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetEapConfiguration(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetEapConfiguration)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn RequireVpnClientAppUI(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IVpnNativeProfile2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequireVpnClientAppUI)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetRequireVpnClientAppUI(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnNativeProfile2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetRequireVpnClientAppUI)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ConnectionStatus(&self) -> windows_core::Result<VpnManagementConnectionStatus> {
-        let this = &windows_core::Interface::cast::<IVpnNativeProfile2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConnectionStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn ProfileName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProfileName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetProfileName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetProfileName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AppTriggers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnAppId>> {
-        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppTriggers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Routes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnRoute>> {
-        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Routes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DomainNameInfoList(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnDomainNameInfo>> {
-        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DomainNameInfoList)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn TrafficFilters(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnTrafficFilter>> {
-        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrafficFilters)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn RememberCredentials(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RememberCredentials)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetRememberCredentials(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetRememberCredentials)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn AlwaysOn(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AlwaysOn)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetAlwaysOn(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAlwaysOn)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-}
-impl windows_core::RuntimeType for VpnNativeProfile {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnNativeProfile>();
-}
-unsafe impl windows_core::Interface for VpnNativeProfile {
-    type Vtable = <IVpnNativeProfile as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnNativeProfile as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnNativeProfile {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnNativeProfile";
-}
-unsafe impl Send for VpnNativeProfile {}
-unsafe impl Sync for VpnNativeProfile {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnPacketBuffer(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnPacketBuffer, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VpnPacketBuffer, IVpnPacketBufferFactory);
-impl VpnPacketBuffer {
-    #[cfg(feature = "Storage_Streams")]
-    pub fn Buffer(&self) -> windows_core::Result<super::super::Storage::Streams::Buffer> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Buffer)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SetStatus(&self, value: VpnPacketBufferStatus) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetStatus)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Status(&self) -> windows_core::Result<VpnPacketBufferStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetTransportAffinity(&self, value: u32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTransportAffinity)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn TransportAffinity(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TransportAffinity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn AppId(&self) -> windows_core::Result<VpnAppId> {
-        let this = &windows_core::Interface::cast::<IVpnPacketBuffer2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SetTransportContext<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IInspectable>,
-    {
-        let this = &windows_core::Interface::cast::<IVpnPacketBuffer3>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetTransportContext)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    pub fn TransportContext(&self) -> windows_core::Result<windows_core::IInspectable> {
-        let this = &windows_core::Interface::cast::<IVpnPacketBuffer3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TransportContext)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn CreateVpnPacketBuffer<P0>(parentbuffer: P0, offset: u32, length: u32) -> windows_core::Result<VpnPacketBuffer>
-    where
-        P0: windows_core::Param<VpnPacketBuffer>,
-    {
-        Self::IVpnPacketBufferFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateVpnPacketBuffer)(windows_core::Interface::as_raw(this), parentbuffer.param().abi(), offset, length, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IVpnPacketBufferFactory<R, F: FnOnce(&IVpnPacketBufferFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VpnPacketBuffer, IVpnPacketBufferFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for VpnPacketBuffer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnPacketBuffer>();
-}
-unsafe impl windows_core::Interface for VpnPacketBuffer {
-    type Vtable = <IVpnPacketBuffer as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnPacketBuffer as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnPacketBuffer {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnPacketBuffer";
-}
-unsafe impl Send for VpnPacketBuffer {}
-unsafe impl Sync for VpnPacketBuffer {}
-#[cfg(feature = "Foundation_Collections")]
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnPacketBufferList(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(VpnPacketBufferList, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(VpnPacketBufferList, super::super::Foundation::Collections::IIterable<VpnPacketBuffer>);
-#[cfg(feature = "Foundation_Collections")]
-impl VpnPacketBufferList {
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<VpnPacketBuffer>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<VpnPacketBuffer>>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Append<P0>(&self, nextvpnpacketbuffer: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<VpnPacketBuffer>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), nextvpnpacketbuffer.param().abi()).ok() }
-    }
-    pub fn AddAtBegin<P0>(&self, nextvpnpacketbuffer: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<VpnPacketBuffer>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddAtBegin)(windows_core::Interface::as_raw(this), nextvpnpacketbuffer.param().abi()).ok() }
-    }
-    pub fn RemoveAtEnd(&self) -> windows_core::Result<VpnPacketBuffer> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveAtEnd)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn RemoveAtBegin(&self) -> windows_core::Result<VpnPacketBuffer> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveAtBegin)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Clear(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn SetStatus(&self, value: VpnPacketBufferStatus) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetStatus)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Status(&self) -> windows_core::Result<VpnPacketBufferStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for VpnPacketBufferList {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnPacketBufferList>();
-}
-#[cfg(feature = "Foundation_Collections")]
-unsafe impl windows_core::Interface for VpnPacketBufferList {
-    type Vtable = <IVpnPacketBufferList as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnPacketBufferList as windows_core::Interface>::IID;
-}
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeName for VpnPacketBufferList {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnPacketBufferList";
-}
-#[cfg(feature = "Foundation_Collections")]
-unsafe impl Send for VpnPacketBufferList {}
-#[cfg(feature = "Foundation_Collections")]
-unsafe impl Sync for VpnPacketBufferList {}
-#[cfg(feature = "Foundation_Collections")]
-impl IntoIterator for VpnPacketBufferList {
-    type Item = VpnPacketBuffer;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
-    fn into_iter(self) -> Self::IntoIter {
-        IntoIterator::into_iter(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl IntoIterator for &VpnPacketBufferList {
-    type Item = VpnPacketBuffer;
-    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
-    fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnPickedCredential(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnPickedCredential, windows_core::IUnknown, windows_core::IInspectable);
-impl VpnPickedCredential {
-    #[cfg(feature = "Security_Credentials")]
-    pub fn PasskeyCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PasskeyCredential)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn AdditionalPin(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AdditionalPin)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "Security_Credentials")]
-    pub fn OldPasswordCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OldPasswordCredential)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for VpnPickedCredential {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnPickedCredential>();
-}
-unsafe impl windows_core::Interface for VpnPickedCredential {
-    type Vtable = <IVpnPickedCredential as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnPickedCredential as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnPickedCredential {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnPickedCredential";
-}
-unsafe impl Send for VpnPickedCredential {}
-unsafe impl Sync for VpnPickedCredential {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnPlugInProfile(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnPlugInProfile, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VpnPlugInProfile, IVpnProfile);
-impl VpnPlugInProfile {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VpnPlugInProfile, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ServerUris(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ServerUris)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn CustomConfiguration(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CustomConfiguration)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetCustomConfiguration(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetCustomConfiguration)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn VpnPluginPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).VpnPluginPackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetVpnPluginPackageFamilyName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetVpnPluginPackageFamilyName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn RequireVpnClientAppUI(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IVpnPlugInProfile2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequireVpnClientAppUI)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetRequireVpnClientAppUI(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnPlugInProfile2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetRequireVpnClientAppUI)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ConnectionStatus(&self) -> windows_core::Result<VpnManagementConnectionStatus> {
-        let this = &windows_core::Interface::cast::<IVpnPlugInProfile2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConnectionStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn ProfileName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProfileName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetProfileName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetProfileName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AppTriggers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnAppId>> {
-        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppTriggers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Routes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnRoute>> {
-        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Routes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DomainNameInfoList(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnDomainNameInfo>> {
-        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DomainNameInfoList)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn TrafficFilters(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnTrafficFilter>> {
-        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrafficFilters)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn RememberCredentials(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RememberCredentials)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetRememberCredentials(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetRememberCredentials)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn AlwaysOn(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AlwaysOn)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetAlwaysOn(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAlwaysOn)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-}
-impl windows_core::RuntimeType for VpnPlugInProfile {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnPlugInProfile>();
-}
-unsafe impl windows_core::Interface for VpnPlugInProfile {
-    type Vtable = <IVpnPlugInProfile as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnPlugInProfile as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnPlugInProfile {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnPlugInProfile";
-}
-unsafe impl Send for VpnPlugInProfile {}
-unsafe impl Sync for VpnPlugInProfile {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnRoute(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnRoute, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VpnRoute, IVpnRouteFactory);
-impl VpnRoute {
-    pub fn SetAddress<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::HostName>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAddress)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    pub fn Address(&self) -> windows_core::Result<super::HostName> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Address)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SetPrefixSize(&self, value: u8) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPrefixSize)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn PrefixSize(&self) -> windows_core::Result<u8> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrefixSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn CreateVpnRoute<P0>(address: P0, prefixsize: u8) -> windows_core::Result<VpnRoute>
-    where
-        P0: windows_core::Param<super::HostName>,
-    {
-        Self::IVpnRouteFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateVpnRoute)(windows_core::Interface::as_raw(this), address.param().abi(), prefixsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IVpnRouteFactory<R, F: FnOnce(&IVpnRouteFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VpnRoute, IVpnRouteFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for VpnRoute {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnRoute>();
-}
-unsafe impl windows_core::Interface for VpnRoute {
-    type Vtable = <IVpnRoute as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnRoute as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnRoute {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnRoute";
-}
-unsafe impl Send for VpnRoute {}
-unsafe impl Sync for VpnRoute {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnRouteAssignment(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnRouteAssignment, windows_core::IUnknown, windows_core::IInspectable);
-impl VpnRouteAssignment {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VpnRouteAssignment, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SetIpv4InclusionRoutes<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IVector<VpnRoute>>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIpv4InclusionRoutes)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SetIpv6InclusionRoutes<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IVector<VpnRoute>>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIpv6InclusionRoutes)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Ipv4InclusionRoutes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnRoute>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Ipv4InclusionRoutes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Ipv6InclusionRoutes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnRoute>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Ipv6InclusionRoutes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SetIpv4ExclusionRoutes<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IVector<VpnRoute>>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIpv4ExclusionRoutes)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SetIpv6ExclusionRoutes<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IVector<VpnRoute>>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIpv6ExclusionRoutes)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Ipv4ExclusionRoutes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnRoute>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Ipv4ExclusionRoutes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Ipv6ExclusionRoutes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnRoute>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Ipv6ExclusionRoutes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SetExcludeLocalSubnets(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetExcludeLocalSubnets)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ExcludeLocalSubnets(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ExcludeLocalSubnets)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for VpnRouteAssignment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnRouteAssignment>();
-}
-unsafe impl windows_core::Interface for VpnRouteAssignment {
-    type Vtable = <IVpnRouteAssignment as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnRouteAssignment as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnRouteAssignment {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnRouteAssignment";
-}
-unsafe impl Send for VpnRouteAssignment {}
-unsafe impl Sync for VpnRouteAssignment {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnSystemHealth(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnSystemHealth, windows_core::IUnknown, windows_core::IInspectable);
-impl VpnSystemHealth {
-    #[cfg(feature = "Storage_Streams")]
-    pub fn StatementOfHealth(&self) -> windows_core::Result<super::super::Storage::Streams::Buffer> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StatementOfHealth)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for VpnSystemHealth {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnSystemHealth>();
-}
-unsafe impl windows_core::Interface for VpnSystemHealth {
-    type Vtable = <IVpnSystemHealth as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnSystemHealth as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnSystemHealth {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnSystemHealth";
-}
-unsafe impl Send for VpnSystemHealth {}
-unsafe impl Sync for VpnSystemHealth {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnTrafficFilter(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnTrafficFilter, windows_core::IUnknown, windows_core::IInspectable);
-impl VpnTrafficFilter {
-    pub fn AppId(&self) -> windows_core::Result<VpnAppId> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SetAppId<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<VpnAppId>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAppId)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AppClaims(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppClaims)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Protocol(&self) -> windows_core::Result<VpnIPProtocol> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Protocol)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetProtocol(&self, value: VpnIPProtocol) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetProtocol)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn LocalPortRanges(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LocalPortRanges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RemotePortRanges(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemotePortRanges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn LocalAddressRanges(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LocalAddressRanges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RemoteAddressRanges(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoteAddressRanges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn RoutingPolicyType(&self) -> windows_core::Result<VpnRoutingPolicyType> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RoutingPolicyType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetRoutingPolicyType(&self, value: VpnRoutingPolicyType) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetRoutingPolicyType)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Create<P0>(appid: P0) -> windows_core::Result<VpnTrafficFilter>
-    where
-        P0: windows_core::Param<VpnAppId>,
-    {
-        Self::IVpnTrafficFilterFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), appid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IVpnTrafficFilterFactory<R, F: FnOnce(&IVpnTrafficFilterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VpnTrafficFilter, IVpnTrafficFilterFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for VpnTrafficFilter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnTrafficFilter>();
-}
-unsafe impl windows_core::Interface for VpnTrafficFilter {
-    type Vtable = <IVpnTrafficFilter as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnTrafficFilter as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnTrafficFilter {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnTrafficFilter";
-}
-unsafe impl Send for VpnTrafficFilter {}
-unsafe impl Sync for VpnTrafficFilter {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnTrafficFilterAssignment(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnTrafficFilterAssignment, windows_core::IUnknown, windows_core::IInspectable);
-impl VpnTrafficFilterAssignment {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VpnTrafficFilterAssignment, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn TrafficFilterList(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnTrafficFilter>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrafficFilterList)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn AllowOutbound(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AllowOutbound)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetAllowOutbound(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAllowOutbound)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn AllowInbound(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AllowInbound)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetAllowInbound(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAllowInbound)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-}
-impl windows_core::RuntimeType for VpnTrafficFilterAssignment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnTrafficFilterAssignment>();
-}
-unsafe impl windows_core::Interface for VpnTrafficFilterAssignment {
-    type Vtable = <IVpnTrafficFilterAssignment as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnTrafficFilterAssignment as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VpnTrafficFilterAssignment {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnTrafficFilterAssignment";
-}
-unsafe impl Send for VpnTrafficFilterAssignment {}
-unsafe impl Sync for VpnTrafficFilterAssignment {}
 windows_core::imp::define_interface!(IVpnAppId, IVpnAppId_Vtbl, 0x7b06a635_5c58_41d9_94a7_bfbcf1d8ca54);
 impl windows_core::RuntimeType for IVpnAppId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -4355,6 +1740,56 @@ pub struct IVpnTrafficFilterFactory_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnAppId(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnAppId, windows_core::IUnknown, windows_core::IInspectable);
+impl VpnAppId {
+    pub fn Type(&self) -> windows_core::Result<VpnAppIdType> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetType(&self, value: VpnAppIdType) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetType)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Value(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetValue(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn Create(r#type: VpnAppIdType, value: &windows_core::HSTRING) -> windows_core::Result<VpnAppId> {
+        Self::IVpnAppIdFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), r#type, core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IVpnAppIdFactory<R, F: FnOnce(&IVpnAppIdFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VpnAppId, IVpnAppIdFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for VpnAppId {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnAppId>();
+}
+unsafe impl windows_core::Interface for VpnAppId {
+    type Vtable = <IVpnAppId as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnAppId as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnAppId {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnAppId";
+}
+unsafe impl Send for VpnAppId {}
+unsafe impl Sync for VpnAppId {}
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VpnAppIdType(pub i32);
 impl VpnAppIdType {
@@ -4384,6 +1819,371 @@ impl windows_core::RuntimeType for VpnAuthenticationMethod {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnAuthenticationMethod;i4)");
 }
 #[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnChannel(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnChannel, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(VpnChannel, IVpnChannelStatics);
+impl VpnChannel {
+    pub fn AssociateTransport<P0, P1>(&self, mainoutertunneltransport: P0, optionaloutertunneltransport: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+        P1: windows_core::Param<windows_core::IInspectable>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AssociateTransport)(windows_core::Interface::as_raw(this), mainoutertunneltransport.param().abi(), optionaloutertunneltransport.param().abi()).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Start<P0, P1, P2, P3, P4, P8, P9>(&self, assignedclientipv4list: P0, assignedclientipv6list: P1, vpninterfaceid: P2, routescope: P3, namespacescope: P4, mtusize: u32, maxframesize: u32, optimizeforlowcostnetwork: bool, mainoutertunneltransport: P8, optionaloutertunneltransport: P9) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IVectorView<super::HostName>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IVectorView<super::HostName>>,
+        P2: windows_core::Param<VpnInterfaceId>,
+        P3: windows_core::Param<VpnRouteAssignment>,
+        P4: windows_core::Param<VpnNamespaceAssignment>,
+        P8: windows_core::Param<windows_core::IInspectable>,
+        P9: windows_core::Param<windows_core::IInspectable>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this), assignedclientipv4list.param().abi(), assignedclientipv6list.param().abi(), vpninterfaceid.param().abi(), routescope.param().abi(), namespacescope.param().abi(), mtusize, maxframesize, optimizeforlowcostnetwork, mainoutertunneltransport.param().abi(), optionaloutertunneltransport.param().abi()).ok() }
+    }
+    pub fn Stop(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub fn RequestCredentials<P3>(&self, credtype: VpnCredentialType, isretry: bool, issinglesignoncredential: bool, certificate: P3) -> windows_core::Result<VpnPickedCredential>
+    where
+        P3: windows_core::Param<super::super::Security::Cryptography::Certificates::Certificate>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestCredentials)(windows_core::Interface::as_raw(this), credtype, isretry, issinglesignoncredential, certificate.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn RequestVpnPacketBuffer(&self, r#type: VpnDataPathType, vpnpacketbuffer: &mut Option<VpnPacketBuffer>) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RequestVpnPacketBuffer)(windows_core::Interface::as_raw(this), r#type, vpnpacketbuffer as *mut _ as _).ok() }
+    }
+    pub fn LogDiagnosticMessage(&self, message: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).LogDiagnosticMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(message)).ok() }
+    }
+    pub fn Id(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Configuration(&self) -> windows_core::Result<VpnChannelConfiguration> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Configuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ActivityChange<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VpnChannel, VpnChannelActivityEventArgs>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivityChange)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveActivityChange(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveActivityChange)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn SetPlugInContext<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetPlugInContext)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    pub fn PlugInContext(&self) -> windows_core::Result<windows_core::IInspectable> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PlugInContext)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SystemHealth(&self) -> windows_core::Result<VpnSystemHealth> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SystemHealth)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn RequestCustomPrompt<P0>(&self, customprompt: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IVectorView<IVpnCustomPrompt>>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RequestCustomPrompt)(windows_core::Interface::as_raw(this), customprompt.param().abi()).ok() }
+    }
+    pub fn SetErrorMessage(&self, message: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetErrorMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(message)).ok() }
+    }
+    pub fn SetAllowedSslTlsVersions<P0>(&self, tunneltransport: P0, usetls12: bool) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetAllowedSslTlsVersions)(windows_core::Interface::as_raw(this), tunneltransport.param().abi(), usetls12).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn StartWithMainTransport<P0, P1, P2, P3, P4, P8>(&self, assignedclientipv4list: P0, assignedclientipv6list: P1, vpninterfaceid: P2, assignedroutes: P3, assigneddomainname: P4, mtusize: u32, maxframesize: u32, reserved: bool, mainoutertunneltransport: P8) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IVectorView<super::HostName>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IVectorView<super::HostName>>,
+        P2: windows_core::Param<VpnInterfaceId>,
+        P3: windows_core::Param<VpnRouteAssignment>,
+        P4: windows_core::Param<VpnDomainNameAssignment>,
+        P8: windows_core::Param<windows_core::IInspectable>,
+    {
+        let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StartWithMainTransport)(windows_core::Interface::as_raw(this), assignedclientipv4list.param().abi(), assignedclientipv6list.param().abi(), vpninterfaceid.param().abi(), assignedroutes.param().abi(), assigneddomainname.param().abi(), mtusize, maxframesize, reserved, mainoutertunneltransport.param().abi()).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn StartExistingTransports<P0, P1, P2, P3, P4>(&self, assignedclientipv4list: P0, assignedclientipv6list: P1, vpninterfaceid: P2, assignedroutes: P3, assigneddomainname: P4, mtusize: u32, maxframesize: u32, reserved: bool) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IVectorView<super::HostName>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IVectorView<super::HostName>>,
+        P2: windows_core::Param<VpnInterfaceId>,
+        P3: windows_core::Param<VpnRouteAssignment>,
+        P4: windows_core::Param<VpnDomainNameAssignment>,
+    {
+        let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StartExistingTransports)(windows_core::Interface::as_raw(this), assignedclientipv4list.param().abi(), assignedclientipv6list.param().abi(), vpninterfaceid.param().abi(), assignedroutes.param().abi(), assigneddomainname.param().abi(), mtusize, maxframesize, reserved).ok() }
+    }
+    pub fn ActivityStateChange<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VpnChannel, VpnChannelActivityStateChangedArgs>>,
+    {
+        let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivityStateChange)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveActivityStateChange(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveActivityStateChange)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn GetVpnSendPacketBuffer(&self) -> windows_core::Result<VpnPacketBuffer> {
+        let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetVpnSendPacketBuffer)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetVpnReceivePacketBuffer(&self) -> windows_core::Result<VpnPacketBuffer> {
+        let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetVpnReceivePacketBuffer)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn RequestCustomPromptAsync<P0>(&self, custompromptelement: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IVectorView<IVpnCustomPromptElement>>,
+    {
+        let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestCustomPromptAsync)(windows_core::Interface::as_raw(this), custompromptelement.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub fn RequestCredentialsWithCertificateAsync<P2>(&self, credtype: VpnCredentialType, credoptions: u32, certificate: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VpnCredential>>
+    where
+        P2: windows_core::Param<super::super::Security::Cryptography::Certificates::Certificate>,
+    {
+        let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestCredentialsWithCertificateAsync)(windows_core::Interface::as_raw(this), credtype, credoptions, certificate.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn RequestCredentialsWithOptionsAsync(&self, credtype: VpnCredentialType, credoptions: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VpnCredential>> {
+        let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestCredentialsWithOptionsAsync)(windows_core::Interface::as_raw(this), credtype, credoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn RequestCredentialsSimpleAsync(&self, credtype: VpnCredentialType) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VpnCredential>> {
+        let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestCredentialsSimpleAsync)(windows_core::Interface::as_raw(this), credtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn TerminateConnection(&self, message: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).TerminateConnection)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(message)).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn StartWithTrafficFilter<P0, P1, P2, P3, P4, P8, P9, P10>(&self, assignedclientipv4list: P0, assignedclientipv6list: P1, vpninterfaceid: P2, assignedroutes: P3, assignednamespace: P4, mtusize: u32, maxframesize: u32, reserved: bool, mainoutertunneltransport: P8, optionaloutertunneltransport: P9, assignedtrafficfilters: P10) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IVectorView<super::HostName>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IVectorView<super::HostName>>,
+        P2: windows_core::Param<VpnInterfaceId>,
+        P3: windows_core::Param<VpnRouteAssignment>,
+        P4: windows_core::Param<VpnDomainNameAssignment>,
+        P8: windows_core::Param<windows_core::IInspectable>,
+        P9: windows_core::Param<windows_core::IInspectable>,
+        P10: windows_core::Param<VpnTrafficFilterAssignment>,
+    {
+        let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StartWithTrafficFilter)(windows_core::Interface::as_raw(this), assignedclientipv4list.param().abi(), assignedclientipv6list.param().abi(), vpninterfaceid.param().abi(), assignedroutes.param().abi(), assignednamespace.param().abi(), mtusize, maxframesize, reserved, mainoutertunneltransport.param().abi(), optionaloutertunneltransport.param().abi(), assignedtrafficfilters.param().abi()).ok() }
+    }
+    pub fn AddAndAssociateTransport<P0, P1>(&self, transport: P0, context: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+        P1: windows_core::Param<windows_core::IInspectable>,
+    {
+        let this = &windows_core::Interface::cast::<IVpnChannel4>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).AddAndAssociateTransport)(windows_core::Interface::as_raw(this), transport.param().abi(), context.param().abi()).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn StartWithMultipleTransports<P0, P1, P2, P3, P4, P8, P9>(&self, assignedclientipv4addresses: P0, assignedclientipv6addresses: P1, vpninterfaceid: P2, assignedroutes: P3, assignednamespace: P4, mtusize: u32, maxframesize: u32, reserved: bool, transports: P8, assignedtrafficfilters: P9) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::HostName>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<super::HostName>>,
+        P2: windows_core::Param<VpnInterfaceId>,
+        P3: windows_core::Param<VpnRouteAssignment>,
+        P4: windows_core::Param<VpnDomainNameAssignment>,
+        P8: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::IInspectable>>,
+        P9: windows_core::Param<VpnTrafficFilterAssignment>,
+    {
+        let this = &windows_core::Interface::cast::<IVpnChannel4>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StartWithMultipleTransports)(windows_core::Interface::as_raw(this), assignedclientipv4addresses.param().abi(), assignedclientipv6addresses.param().abi(), vpninterfaceid.param().abi(), assignedroutes.param().abi(), assignednamespace.param().abi(), mtusize, maxframesize, reserved, transports.param().abi(), assignedtrafficfilters.param().abi()).ok() }
+    }
+    pub fn ReplaceAndAssociateTransport<P0, P1>(&self, transport: P0, context: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+        P1: windows_core::Param<windows_core::IInspectable>,
+    {
+        let this = &windows_core::Interface::cast::<IVpnChannel4>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).ReplaceAndAssociateTransport)(windows_core::Interface::as_raw(this), transport.param().abi(), context.param().abi()).ok() }
+    }
+    pub fn StartReconnectingTransport<P0, P1>(&self, transport: P0, context: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+        P1: windows_core::Param<windows_core::IInspectable>,
+    {
+        let this = &windows_core::Interface::cast::<IVpnChannel4>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StartReconnectingTransport)(windows_core::Interface::as_raw(this), transport.param().abi(), context.param().abi()).ok() }
+    }
+    #[cfg(feature = "Networking_Sockets")]
+    pub fn GetSlotTypeForTransportContext<P0>(&self, context: P0) -> windows_core::Result<super::Sockets::ControlChannelTriggerStatus>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+    {
+        let this = &windows_core::Interface::cast::<IVpnChannel4>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetSlotTypeForTransportContext)(windows_core::Interface::as_raw(this), context.param().abi(), &mut result__).map(|| result__)
+        }
+    }
+    pub fn CurrentRequestTransportContext(&self) -> windows_core::Result<windows_core::IInspectable> {
+        let this = &windows_core::Interface::cast::<IVpnChannel4>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CurrentRequestTransportContext)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn AppendVpnReceivePacketBuffer<P0>(&self, decapsulatedpacketbuffer: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<VpnPacketBuffer>,
+    {
+        let this = &windows_core::Interface::cast::<IVpnChannel5>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).AppendVpnReceivePacketBuffer)(windows_core::Interface::as_raw(this), decapsulatedpacketbuffer.param().abi()).ok() }
+    }
+    pub fn AppendVpnSendPacketBuffer<P0>(&self, encapsulatedpacketbuffer: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<VpnPacketBuffer>,
+    {
+        let this = &windows_core::Interface::cast::<IVpnChannel5>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).AppendVpnSendPacketBuffer)(windows_core::Interface::as_raw(this), encapsulatedpacketbuffer.param().abi()).ok() }
+    }
+    pub fn FlushVpnReceivePacketBuffers(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnChannel5>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).FlushVpnReceivePacketBuffers)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn FlushVpnSendPacketBuffers(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnChannel5>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).FlushVpnSendPacketBuffers)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ActivateForeground<P1>(&self, packagerelativeappid: &windows_core::HSTRING, sharedcontext: P1) -> windows_core::Result<super::super::Foundation::Collections::ValueSet>
+    where
+        P1: windows_core::Param<super::super::Foundation::Collections::ValueSet>,
+    {
+        let this = &windows_core::Interface::cast::<IVpnChannel6>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivateForeground)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagerelativeappid), sharedcontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ProcessEventAsync<P0, P1>(thirdpartyplugin: P0, event: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+        P1: windows_core::Param<windows_core::IInspectable>,
+    {
+        Self::IVpnChannelStatics(|this| unsafe { (windows_core::Interface::vtable(this).ProcessEventAsync)(windows_core::Interface::as_raw(this), thirdpartyplugin.param().abi(), event.param().abi()).ok() })
+    }
+    fn IVpnChannelStatics<R, F: FnOnce(&IVpnChannelStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VpnChannel, IVpnChannelStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for VpnChannel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnChannel>();
+}
+unsafe impl windows_core::Interface for VpnChannel {
+    type Vtable = <IVpnChannel as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnChannel as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnChannel {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnChannel";
+}
+unsafe impl Send for VpnChannel {}
+unsafe impl Sync for VpnChannel {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnChannelActivityEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnChannelActivityEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl VpnChannelActivityEventArgs {
+    pub fn Type(&self) -> windows_core::Result<VpnChannelActivityEventType> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for VpnChannelActivityEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnChannelActivityEventArgs>();
+}
+unsafe impl windows_core::Interface for VpnChannelActivityEventArgs {
+    type Vtable = <IVpnChannelActivityEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnChannelActivityEventArgs as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnChannelActivityEventArgs {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnChannelActivityEventArgs";
+}
+unsafe impl Send for VpnChannelActivityEventArgs {}
+unsafe impl Sync for VpnChannelActivityEventArgs {}
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VpnChannelActivityEventType(pub i32);
 impl VpnChannelActivityEventType {
@@ -4396,6 +2196,79 @@ impl windows_core::TypeKind for VpnChannelActivityEventType {
 impl windows_core::RuntimeType for VpnChannelActivityEventType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnChannelActivityEventType;i4)");
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnChannelActivityStateChangedArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnChannelActivityStateChangedArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl VpnChannelActivityStateChangedArgs {
+    pub fn ActivityState(&self) -> windows_core::Result<VpnChannelActivityEventType> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivityState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for VpnChannelActivityStateChangedArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnChannelActivityStateChangedArgs>();
+}
+unsafe impl windows_core::Interface for VpnChannelActivityStateChangedArgs {
+    type Vtable = <IVpnChannelActivityStateChangedArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnChannelActivityStateChangedArgs as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnChannelActivityStateChangedArgs {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnChannelActivityStateChangedArgs";
+}
+unsafe impl Send for VpnChannelActivityStateChangedArgs {}
+unsafe impl Sync for VpnChannelActivityStateChangedArgs {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnChannelConfiguration(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnChannelConfiguration, windows_core::IUnknown, windows_core::IInspectable);
+impl VpnChannelConfiguration {
+    pub fn ServerServiceName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ServerServiceName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ServerHostNameList(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::HostName>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ServerHostNameList)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CustomField(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CustomField)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ServerUris(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>> {
+        let this = &windows_core::Interface::cast::<IVpnChannelConfiguration2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ServerUris)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for VpnChannelConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnChannelConfiguration>();
+}
+unsafe impl windows_core::Interface for VpnChannelConfiguration {
+    type Vtable = <IVpnChannelConfiguration as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnChannelConfiguration as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnChannelConfiguration {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnChannelConfiguration";
+}
+unsafe impl Send for VpnChannelConfiguration {}
+unsafe impl Sync for VpnChannelConfiguration {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VpnChannelRequestCredentialsOptions(pub u32);
@@ -4444,6 +2317,55 @@ impl core::ops::Not for VpnChannelRequestCredentialsOptions {
     }
 }
 #[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnCredential(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnCredential, windows_core::IUnknown, windows_core::IInspectable, IVpnCredential);
+impl VpnCredential {
+    #[cfg(feature = "Security_Credentials")]
+    pub fn PasskeyCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PasskeyCredential)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub fn CertificateCredential(&self) -> windows_core::Result<super::super::Security::Cryptography::Certificates::Certificate> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CertificateCredential)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn AdditionalPin(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AdditionalPin)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "Security_Credentials")]
+    pub fn OldPasswordCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OldPasswordCredential)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for VpnCredential {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCredential>();
+}
+unsafe impl windows_core::Interface for VpnCredential {
+    type Vtable = <IVpnCredential as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnCredential as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnCredential {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnCredential";
+}
+unsafe impl Send for VpnCredential {}
+unsafe impl Sync for VpnCredential {}
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VpnCredentialType(pub i32);
 impl VpnCredentialType {
@@ -4462,6 +2384,691 @@ impl windows_core::RuntimeType for VpnCredentialType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnCredentialType;i4)");
 }
 #[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnCustomCheckBox(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnCustomCheckBox, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(VpnCustomCheckBox, IVpnCustomPrompt);
+impl VpnCustomCheckBox {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VpnCustomCheckBox, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn SetInitialCheckState(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetInitialCheckState)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn InitialCheckState(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).InitialCheckState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Checked(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Checked)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetLabel(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetLabel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn Label(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Label)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetCompulsory(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetCompulsory)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Compulsory(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Compulsory)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetBordered(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetBordered)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Bordered(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Bordered)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for VpnCustomCheckBox {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomCheckBox>();
+}
+unsafe impl windows_core::Interface for VpnCustomCheckBox {
+    type Vtable = <IVpnCustomCheckBox as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnCustomCheckBox as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnCustomCheckBox {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomCheckBox";
+}
+unsafe impl Send for VpnCustomCheckBox {}
+unsafe impl Sync for VpnCustomCheckBox {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnCustomComboBox(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnCustomComboBox, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(VpnCustomComboBox, IVpnCustomPrompt);
+impl VpnCustomComboBox {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VpnCustomComboBox, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SetOptionsText<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetOptionsText)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn OptionsText(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OptionsText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Selected(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Selected)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetLabel(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetLabel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn Label(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Label)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetCompulsory(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetCompulsory)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Compulsory(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Compulsory)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetBordered(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetBordered)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Bordered(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Bordered)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for VpnCustomComboBox {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomComboBox>();
+}
+unsafe impl windows_core::Interface for VpnCustomComboBox {
+    type Vtable = <IVpnCustomComboBox as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnCustomComboBox as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnCustomComboBox {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomComboBox";
+}
+unsafe impl Send for VpnCustomComboBox {}
+unsafe impl Sync for VpnCustomComboBox {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnCustomEditBox(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnCustomEditBox, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(VpnCustomEditBox, IVpnCustomPrompt);
+impl VpnCustomEditBox {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VpnCustomEditBox, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn SetDefaultText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetDefaultText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn DefaultText(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DefaultText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetNoEcho(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetNoEcho)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn NoEcho(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NoEcho)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Text(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Text)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetLabel(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetLabel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn Label(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Label)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetCompulsory(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetCompulsory)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Compulsory(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Compulsory)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetBordered(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetBordered)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Bordered(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Bordered)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for VpnCustomEditBox {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomEditBox>();
+}
+unsafe impl windows_core::Interface for VpnCustomEditBox {
+    type Vtable = <IVpnCustomEditBox as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnCustomEditBox as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnCustomEditBox {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomEditBox";
+}
+unsafe impl Send for VpnCustomEditBox {}
+unsafe impl Sync for VpnCustomEditBox {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnCustomErrorBox(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnCustomErrorBox, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(VpnCustomErrorBox, IVpnCustomPrompt);
+impl VpnCustomErrorBox {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VpnCustomErrorBox, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn SetLabel(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetLabel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn Label(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Label)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetCompulsory(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetCompulsory)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Compulsory(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Compulsory)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetBordered(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetBordered)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Bordered(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Bordered)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for VpnCustomErrorBox {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomErrorBox>();
+}
+unsafe impl windows_core::Interface for VpnCustomErrorBox {
+    type Vtable = <IVpnCustomErrorBox as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnCustomErrorBox as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnCustomErrorBox {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomErrorBox";
+}
+unsafe impl Send for VpnCustomErrorBox {}
+unsafe impl Sync for VpnCustomErrorBox {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnCustomPromptBooleanInput(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnCustomPromptBooleanInput, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(VpnCustomPromptBooleanInput, IVpnCustomPromptElement);
+impl VpnCustomPromptBooleanInput {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VpnCustomPromptBooleanInput, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn SetInitialValue(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetInitialValue)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn InitialValue(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).InitialValue)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Value(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetCompulsory(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetCompulsory)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Compulsory(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Compulsory)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetEmphasized(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetEmphasized)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Emphasized(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Emphasized)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for VpnCustomPromptBooleanInput {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomPromptBooleanInput>();
+}
+unsafe impl windows_core::Interface for VpnCustomPromptBooleanInput {
+    type Vtable = <IVpnCustomPromptBooleanInput as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnCustomPromptBooleanInput as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnCustomPromptBooleanInput {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptBooleanInput";
+}
+unsafe impl Send for VpnCustomPromptBooleanInput {}
+unsafe impl Sync for VpnCustomPromptBooleanInput {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnCustomPromptOptionSelector(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnCustomPromptOptionSelector, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(VpnCustomPromptOptionSelector, IVpnCustomPromptElement);
+impl VpnCustomPromptOptionSelector {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VpnCustomPromptOptionSelector, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetCompulsory(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetCompulsory)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Compulsory(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Compulsory)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetEmphasized(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetEmphasized)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Emphasized(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Emphasized)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Options(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Options)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SelectedIndex(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SelectedIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for VpnCustomPromptOptionSelector {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomPromptOptionSelector>();
+}
+unsafe impl windows_core::Interface for VpnCustomPromptOptionSelector {
+    type Vtable = <IVpnCustomPromptOptionSelector as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnCustomPromptOptionSelector as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnCustomPromptOptionSelector {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptOptionSelector";
+}
+unsafe impl Send for VpnCustomPromptOptionSelector {}
+unsafe impl Sync for VpnCustomPromptOptionSelector {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnCustomPromptText(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnCustomPromptText, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(VpnCustomPromptText, IVpnCustomPromptElement);
+impl VpnCustomPromptText {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VpnCustomPromptText, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetCompulsory(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetCompulsory)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Compulsory(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Compulsory)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetEmphasized(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetEmphasized)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Emphasized(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Emphasized)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn Text(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Text)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for VpnCustomPromptText {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomPromptText>();
+}
+unsafe impl windows_core::Interface for VpnCustomPromptText {
+    type Vtable = <IVpnCustomPromptText as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnCustomPromptText as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnCustomPromptText {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptText";
+}
+unsafe impl Send for VpnCustomPromptText {}
+unsafe impl Sync for VpnCustomPromptText {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnCustomPromptTextInput(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnCustomPromptTextInput, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(VpnCustomPromptTextInput, IVpnCustomPromptElement);
+impl VpnCustomPromptTextInput {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VpnCustomPromptTextInput, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetCompulsory(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetCompulsory)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Compulsory(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Compulsory)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetEmphasized(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetEmphasized)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Emphasized(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPromptElement>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Emphasized)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetPlaceholderText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetPlaceholderText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn PlaceholderText(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PlaceholderText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetIsTextHidden(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetIsTextHidden)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn IsTextHidden(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsTextHidden)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Text(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Text)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for VpnCustomPromptTextInput {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomPromptTextInput>();
+}
+unsafe impl windows_core::Interface for VpnCustomPromptTextInput {
+    type Vtable = <IVpnCustomPromptTextInput as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnCustomPromptTextInput as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnCustomPromptTextInput {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptTextInput";
+}
+unsafe impl Send for VpnCustomPromptTextInput {}
+unsafe impl Sync for VpnCustomPromptTextInput {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnCustomTextBox(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnCustomTextBox, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(VpnCustomTextBox, IVpnCustomPrompt);
+impl VpnCustomTextBox {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VpnCustomTextBox, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn SetLabel(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetLabel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn Label(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Label)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetCompulsory(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetCompulsory)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Compulsory(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Compulsory)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetBordered(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetBordered)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Bordered(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IVpnCustomPrompt>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Bordered)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetDisplayText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetDisplayText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn DisplayText(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for VpnCustomTextBox {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomTextBox>();
+}
+unsafe impl windows_core::Interface for VpnCustomTextBox {
+    type Vtable = <IVpnCustomTextBox as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnCustomTextBox as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnCustomTextBox {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomTextBox";
+}
+unsafe impl Send for VpnCustomTextBox {}
+unsafe impl Sync for VpnCustomTextBox {}
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VpnDataPathType(pub i32);
 impl VpnDataPathType {
@@ -4474,6 +3081,136 @@ impl windows_core::TypeKind for VpnDataPathType {
 impl windows_core::RuntimeType for VpnDataPathType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnDataPathType;i4)");
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnDomainNameAssignment(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnDomainNameAssignment, windows_core::IUnknown, windows_core::IInspectable);
+impl VpnDomainNameAssignment {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VpnDomainNameAssignment, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn DomainNameList(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnDomainNameInfo>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DomainNameList)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetProxyAutoConfigurationUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Uri>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetProxyAutoConfigurationUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    pub fn ProxyAutoConfigurationUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ProxyAutoConfigurationUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for VpnDomainNameAssignment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnDomainNameAssignment>();
+}
+unsafe impl windows_core::Interface for VpnDomainNameAssignment {
+    type Vtable = <IVpnDomainNameAssignment as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnDomainNameAssignment as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnDomainNameAssignment {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnDomainNameAssignment";
+}
+unsafe impl Send for VpnDomainNameAssignment {}
+unsafe impl Sync for VpnDomainNameAssignment {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnDomainNameInfo(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnDomainNameInfo, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(VpnDomainNameInfo, IVpnDomainNameInfoFactory);
+impl VpnDomainNameInfo {
+    pub fn SetDomainName<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::HostName>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetDomainName)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    pub fn DomainName(&self) -> windows_core::Result<super::HostName> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DomainName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetDomainNameType(&self, value: VpnDomainNameType) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetDomainNameType)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn DomainNameType(&self) -> windows_core::Result<VpnDomainNameType> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DomainNameType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn DnsServers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::HostName>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DnsServers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn WebProxyServers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::HostName>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).WebProxyServers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn WebProxyUris(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
+        let this = &windows_core::Interface::cast::<IVpnDomainNameInfo2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).WebProxyUris)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn CreateVpnDomainNameInfo<P2, P3>(name: &windows_core::HSTRING, nametype: VpnDomainNameType, dnsserverlist: P2, proxyserverlist: P3) -> windows_core::Result<VpnDomainNameInfo>
+    where
+        P2: windows_core::Param<super::super::Foundation::Collections::IIterable<super::HostName>>,
+        P3: windows_core::Param<super::super::Foundation::Collections::IIterable<super::HostName>>,
+    {
+        Self::IVpnDomainNameInfoFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateVpnDomainNameInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), nametype, dnsserverlist.param().abi(), proxyserverlist.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IVpnDomainNameInfoFactory<R, F: FnOnce(&IVpnDomainNameInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VpnDomainNameInfo, IVpnDomainNameInfoFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for VpnDomainNameInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnDomainNameInfo>();
+}
+unsafe impl windows_core::Interface for VpnDomainNameInfo {
+    type Vtable = <IVpnDomainNameInfo as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnDomainNameInfo as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnDomainNameInfo {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnDomainNameInfo";
+}
+unsafe impl Send for VpnDomainNameInfo {}
+unsafe impl Sync for VpnDomainNameInfo {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VpnDomainNameType(pub i32);
@@ -4488,6 +3225,114 @@ impl windows_core::TypeKind for VpnDomainNameType {
 impl windows_core::RuntimeType for VpnDomainNameType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnDomainNameType;i4)");
 }
+#[cfg(feature = "ApplicationModel_Activation")]
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnForegroundActivatedEventArgs(windows_core::IUnknown);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::interface_hierarchy!(VpnForegroundActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(VpnForegroundActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
+#[cfg(feature = "ApplicationModel_Activation")]
+impl VpnForegroundActivatedEventArgs {
+    #[cfg(feature = "ApplicationModel_Activation")]
+    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+        let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "ApplicationModel_Activation")]
+    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+        let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "ApplicationModel_Activation")]
+    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+        let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+        let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ProfileName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ProfileName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SharedContext(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SharedContext)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ActivationOperation(&self) -> windows_core::Result<VpnForegroundActivationOperation> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivationOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for VpnForegroundActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnForegroundActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl windows_core::Interface for VpnForegroundActivatedEventArgs {
+    type Vtable = <IVpnForegroundActivatedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnForegroundActivatedEventArgs as windows_core::Interface>::IID;
+}
+#[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeName for VpnForegroundActivatedEventArgs {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnForegroundActivatedEventArgs";
+}
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Send for VpnForegroundActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Sync for VpnForegroundActivatedEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnForegroundActivationOperation(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnForegroundActivationOperation, windows_core::IUnknown, windows_core::IInspectable);
+impl VpnForegroundActivationOperation {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Complete<P0>(&self, result: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::ValueSet>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this), result.param().abi()).ok() }
+    }
+}
+impl windows_core::RuntimeType for VpnForegroundActivationOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnForegroundActivationOperation>();
+}
+unsafe impl windows_core::Interface for VpnForegroundActivationOperation {
+    type Vtable = <IVpnForegroundActivationOperation as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnForegroundActivationOperation as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnForegroundActivationOperation {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnForegroundActivationOperation";
+}
+unsafe impl Send for VpnForegroundActivationOperation {}
+unsafe impl Sync for VpnForegroundActivationOperation {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VpnIPProtocol(pub i32);
@@ -4506,6 +3351,148 @@ impl windows_core::TypeKind for VpnIPProtocol {
 impl windows_core::RuntimeType for VpnIPProtocol {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnIPProtocol;i4)");
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnInterfaceId(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnInterfaceId, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(VpnInterfaceId, IVpnInterfaceIdFactory);
+impl VpnInterfaceId {
+    pub fn GetAddressInfo(&self, id: &mut windows_core::Array<u8>) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).GetAddressInfo)(windows_core::Interface::as_raw(this), id.set_abi_len(), id as *mut _ as _).ok() }
+    }
+    pub fn CreateVpnInterfaceId(address: &[u8]) -> windows_core::Result<VpnInterfaceId> {
+        Self::IVpnInterfaceIdFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateVpnInterfaceId)(windows_core::Interface::as_raw(this), address.len().try_into().unwrap(), address.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IVpnInterfaceIdFactory<R, F: FnOnce(&IVpnInterfaceIdFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VpnInterfaceId, IVpnInterfaceIdFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for VpnInterfaceId {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnInterfaceId>();
+}
+unsafe impl windows_core::Interface for VpnInterfaceId {
+    type Vtable = <IVpnInterfaceId as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnInterfaceId as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnInterfaceId {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnInterfaceId";
+}
+unsafe impl Send for VpnInterfaceId {}
+unsafe impl Sync for VpnInterfaceId {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnManagementAgent(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnManagementAgent, windows_core::IUnknown, windows_core::IInspectable);
+impl VpnManagementAgent {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VpnManagementAgent, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn AddProfileFromXmlAsync(&self, xml: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AddProfileFromXmlAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xml), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn AddProfileFromObjectAsync<P0>(&self, profile: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
+    where
+        P0: windows_core::Param<IVpnProfile>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AddProfileFromObjectAsync)(windows_core::Interface::as_raw(this), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn UpdateProfileFromXmlAsync(&self, xml: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UpdateProfileFromXmlAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xml), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn UpdateProfileFromObjectAsync<P0>(&self, profile: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
+    where
+        P0: windows_core::Param<IVpnProfile>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UpdateProfileFromObjectAsync)(windows_core::Interface::as_raw(this), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetProfilesAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IVpnProfile>>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetProfilesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn DeleteProfileAsync<P0>(&self, profile: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
+    where
+        P0: windows_core::Param<IVpnProfile>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeleteProfileAsync)(windows_core::Interface::as_raw(this), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ConnectProfileAsync<P0>(&self, profile: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
+    where
+        P0: windows_core::Param<IVpnProfile>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ConnectProfileAsync)(windows_core::Interface::as_raw(this), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Security_Credentials")]
+    pub fn ConnectProfileWithPasswordCredentialAsync<P0, P1>(&self, profile: P0, passwordcredential: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
+    where
+        P0: windows_core::Param<IVpnProfile>,
+        P1: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ConnectProfileWithPasswordCredentialAsync)(windows_core::Interface::as_raw(this), profile.param().abi(), passwordcredential.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn DisconnectProfileAsync<P0>(&self, profile: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
+    where
+        P0: windows_core::Param<IVpnProfile>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisconnectProfileAsync)(windows_core::Interface::as_raw(this), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for VpnManagementAgent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnManagementAgent>();
+}
+unsafe impl windows_core::Interface for VpnManagementAgent {
+    type Vtable = <IVpnManagementAgent as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnManagementAgent as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnManagementAgent {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnManagementAgent";
+}
+unsafe impl Send for VpnManagementAgent {}
+unsafe impl Sync for VpnManagementAgent {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VpnManagementConnectionStatus(pub i32);
@@ -4552,6 +3539,310 @@ impl windows_core::RuntimeType for VpnManagementErrorStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnManagementErrorStatus;i4)");
 }
 #[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnNamespaceAssignment(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnNamespaceAssignment, windows_core::IUnknown, windows_core::IInspectable);
+impl VpnNamespaceAssignment {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VpnNamespaceAssignment, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SetNamespaceList<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IVector<VpnNamespaceInfo>>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetNamespaceList)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn NamespaceList(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnNamespaceInfo>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NamespaceList)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetProxyAutoConfigUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Uri>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetProxyAutoConfigUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    pub fn ProxyAutoConfigUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ProxyAutoConfigUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for VpnNamespaceAssignment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnNamespaceAssignment>();
+}
+unsafe impl windows_core::Interface for VpnNamespaceAssignment {
+    type Vtable = <IVpnNamespaceAssignment as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnNamespaceAssignment as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnNamespaceAssignment {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnNamespaceAssignment";
+}
+unsafe impl Send for VpnNamespaceAssignment {}
+unsafe impl Sync for VpnNamespaceAssignment {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnNamespaceInfo(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnNamespaceInfo, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(VpnNamespaceInfo, IVpnNamespaceInfoFactory);
+impl VpnNamespaceInfo {
+    pub fn SetNamespace(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetNamespace)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn Namespace(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Namespace)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SetDnsServers<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IVector<super::HostName>>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetDnsServers)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn DnsServers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::HostName>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DnsServers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SetWebProxyServers<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IVector<super::HostName>>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetWebProxyServers)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn WebProxyServers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::HostName>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).WebProxyServers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn CreateVpnNamespaceInfo<P1, P2>(name: &windows_core::HSTRING, dnsserverlist: P1, proxyserverlist: P2) -> windows_core::Result<VpnNamespaceInfo>
+    where
+        P1: windows_core::Param<super::super::Foundation::Collections::IVector<super::HostName>>,
+        P2: windows_core::Param<super::super::Foundation::Collections::IVector<super::HostName>>,
+    {
+        Self::IVpnNamespaceInfoFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateVpnNamespaceInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), dnsserverlist.param().abi(), proxyserverlist.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IVpnNamespaceInfoFactory<R, F: FnOnce(&IVpnNamespaceInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VpnNamespaceInfo, IVpnNamespaceInfoFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for VpnNamespaceInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnNamespaceInfo>();
+}
+unsafe impl windows_core::Interface for VpnNamespaceInfo {
+    type Vtable = <IVpnNamespaceInfo as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnNamespaceInfo as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnNamespaceInfo {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnNamespaceInfo";
+}
+unsafe impl Send for VpnNamespaceInfo {}
+unsafe impl Sync for VpnNamespaceInfo {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnNativeProfile(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnNativeProfile, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(VpnNativeProfile, IVpnProfile);
+impl VpnNativeProfile {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VpnNativeProfile, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Servers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Servers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn RoutingPolicyType(&self) -> windows_core::Result<VpnRoutingPolicyType> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RoutingPolicyType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetRoutingPolicyType(&self, value: VpnRoutingPolicyType) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetRoutingPolicyType)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn NativeProtocolType(&self) -> windows_core::Result<VpnNativeProtocolType> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NativeProtocolType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetNativeProtocolType(&self, value: VpnNativeProtocolType) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetNativeProtocolType)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn UserAuthenticationMethod(&self) -> windows_core::Result<VpnAuthenticationMethod> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UserAuthenticationMethod)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetUserAuthenticationMethod(&self, value: VpnAuthenticationMethod) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetUserAuthenticationMethod)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn TunnelAuthenticationMethod(&self) -> windows_core::Result<VpnAuthenticationMethod> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TunnelAuthenticationMethod)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetTunnelAuthenticationMethod(&self, value: VpnAuthenticationMethod) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetTunnelAuthenticationMethod)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn EapConfiguration(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EapConfiguration)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetEapConfiguration(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetEapConfiguration)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn RequireVpnClientAppUI(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IVpnNativeProfile2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequireVpnClientAppUI)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetRequireVpnClientAppUI(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnNativeProfile2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetRequireVpnClientAppUI)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn ConnectionStatus(&self) -> windows_core::Result<VpnManagementConnectionStatus> {
+        let this = &windows_core::Interface::cast::<IVpnNativeProfile2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ConnectionStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ProfileName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ProfileName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetProfileName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetProfileName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn AppTriggers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnAppId>> {
+        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AppTriggers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Routes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnRoute>> {
+        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Routes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn DomainNameInfoList(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnDomainNameInfo>> {
+        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DomainNameInfoList)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn TrafficFilters(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnTrafficFilter>> {
+        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TrafficFilters)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn RememberCredentials(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RememberCredentials)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetRememberCredentials(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetRememberCredentials)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn AlwaysOn(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AlwaysOn)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetAlwaysOn(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetAlwaysOn)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl windows_core::RuntimeType for VpnNativeProfile {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnNativeProfile>();
+}
+unsafe impl windows_core::Interface for VpnNativeProfile {
+    type Vtable = <IVpnNativeProfile as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnNativeProfile as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnNativeProfile {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnNativeProfile";
+}
+unsafe impl Send for VpnNativeProfile {}
+unsafe impl Sync for VpnNativeProfile {}
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VpnNativeProtocolType(pub i32);
 impl VpnNativeProtocolType {
@@ -4564,6 +3855,190 @@ impl windows_core::TypeKind for VpnNativeProtocolType {
 }
 impl windows_core::RuntimeType for VpnNativeProtocolType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnNativeProtocolType;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnPacketBuffer(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnPacketBuffer, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(VpnPacketBuffer, IVpnPacketBufferFactory);
+impl VpnPacketBuffer {
+    #[cfg(feature = "Storage_Streams")]
+    pub fn Buffer(&self) -> windows_core::Result<super::super::Storage::Streams::Buffer> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Buffer)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetStatus(&self, value: VpnPacketBufferStatus) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetStatus)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Status(&self) -> windows_core::Result<VpnPacketBufferStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetTransportAffinity(&self, value: u32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetTransportAffinity)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn TransportAffinity(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TransportAffinity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn AppId(&self) -> windows_core::Result<VpnAppId> {
+        let this = &windows_core::Interface::cast::<IVpnPacketBuffer2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AppId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetTransportContext<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+    {
+        let this = &windows_core::Interface::cast::<IVpnPacketBuffer3>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetTransportContext)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    pub fn TransportContext(&self) -> windows_core::Result<windows_core::IInspectable> {
+        let this = &windows_core::Interface::cast::<IVpnPacketBuffer3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TransportContext)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CreateVpnPacketBuffer<P0>(parentbuffer: P0, offset: u32, length: u32) -> windows_core::Result<VpnPacketBuffer>
+    where
+        P0: windows_core::Param<VpnPacketBuffer>,
+    {
+        Self::IVpnPacketBufferFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateVpnPacketBuffer)(windows_core::Interface::as_raw(this), parentbuffer.param().abi(), offset, length, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IVpnPacketBufferFactory<R, F: FnOnce(&IVpnPacketBufferFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VpnPacketBuffer, IVpnPacketBufferFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for VpnPacketBuffer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnPacketBuffer>();
+}
+unsafe impl windows_core::Interface for VpnPacketBuffer {
+    type Vtable = <IVpnPacketBuffer as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnPacketBuffer as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnPacketBuffer {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnPacketBuffer";
+}
+unsafe impl Send for VpnPacketBuffer {}
+unsafe impl Sync for VpnPacketBuffer {}
+#[cfg(feature = "Foundation_Collections")]
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnPacketBufferList(windows_core::IUnknown);
+#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::interface_hierarchy!(VpnPacketBufferList, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(VpnPacketBufferList, super::super::Foundation::Collections::IIterable<VpnPacketBuffer>);
+#[cfg(feature = "Foundation_Collections")]
+impl VpnPacketBufferList {
+    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<VpnPacketBuffer>> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<VpnPacketBuffer>>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Append<P0>(&self, nextvpnpacketbuffer: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<VpnPacketBuffer>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), nextvpnpacketbuffer.param().abi()).ok() }
+    }
+    pub fn AddAtBegin<P0>(&self, nextvpnpacketbuffer: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<VpnPacketBuffer>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddAtBegin)(windows_core::Interface::as_raw(this), nextvpnpacketbuffer.param().abi()).ok() }
+    }
+    pub fn RemoveAtEnd(&self) -> windows_core::Result<VpnPacketBuffer> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RemoveAtEnd)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn RemoveAtBegin(&self) -> windows_core::Result<VpnPacketBuffer> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RemoveAtBegin)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Clear(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn SetStatus(&self, value: VpnPacketBufferStatus) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetStatus)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Status(&self) -> windows_core::Result<VpnPacketBufferStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Size(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for VpnPacketBufferList {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnPacketBufferList>();
+}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl windows_core::Interface for VpnPacketBufferList {
+    type Vtable = <IVpnPacketBufferList as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnPacketBufferList as windows_core::Interface>::IID;
+}
+#[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeName for VpnPacketBufferList {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnPacketBufferList";
+}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for VpnPacketBufferList {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for VpnPacketBufferList {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for VpnPacketBufferList {
+    type Item = VpnPacketBuffer;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &VpnPacketBufferList {
+    type Item = VpnPacketBuffer;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4579,6 +4054,343 @@ impl windows_core::RuntimeType for VpnPacketBufferStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnPacketBufferStatus;i4)");
 }
 #[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnPickedCredential(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnPickedCredential, windows_core::IUnknown, windows_core::IInspectable);
+impl VpnPickedCredential {
+    #[cfg(feature = "Security_Credentials")]
+    pub fn PasskeyCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PasskeyCredential)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn AdditionalPin(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AdditionalPin)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "Security_Credentials")]
+    pub fn OldPasswordCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OldPasswordCredential)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for VpnPickedCredential {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnPickedCredential>();
+}
+unsafe impl windows_core::Interface for VpnPickedCredential {
+    type Vtable = <IVpnPickedCredential as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnPickedCredential as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnPickedCredential {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnPickedCredential";
+}
+unsafe impl Send for VpnPickedCredential {}
+unsafe impl Sync for VpnPickedCredential {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnPlugInProfile(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnPlugInProfile, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(VpnPlugInProfile, IVpnProfile);
+impl VpnPlugInProfile {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VpnPlugInProfile, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ServerUris(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ServerUris)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CustomConfiguration(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CustomConfiguration)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetCustomConfiguration(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetCustomConfiguration)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn VpnPluginPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).VpnPluginPackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetVpnPluginPackageFamilyName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetVpnPluginPackageFamilyName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn RequireVpnClientAppUI(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IVpnPlugInProfile2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequireVpnClientAppUI)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetRequireVpnClientAppUI(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnPlugInProfile2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetRequireVpnClientAppUI)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn ConnectionStatus(&self) -> windows_core::Result<VpnManagementConnectionStatus> {
+        let this = &windows_core::Interface::cast::<IVpnPlugInProfile2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ConnectionStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ProfileName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ProfileName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetProfileName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetProfileName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn AppTriggers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnAppId>> {
+        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AppTriggers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Routes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnRoute>> {
+        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Routes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn DomainNameInfoList(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnDomainNameInfo>> {
+        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DomainNameInfoList)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn TrafficFilters(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnTrafficFilter>> {
+        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TrafficFilters)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn RememberCredentials(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RememberCredentials)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetRememberCredentials(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetRememberCredentials)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn AlwaysOn(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AlwaysOn)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetAlwaysOn(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnProfile>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetAlwaysOn)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl windows_core::RuntimeType for VpnPlugInProfile {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnPlugInProfile>();
+}
+unsafe impl windows_core::Interface for VpnPlugInProfile {
+    type Vtable = <IVpnPlugInProfile as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnPlugInProfile as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnPlugInProfile {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnPlugInProfile";
+}
+unsafe impl Send for VpnPlugInProfile {}
+unsafe impl Sync for VpnPlugInProfile {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnRoute(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnRoute, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(VpnRoute, IVpnRouteFactory);
+impl VpnRoute {
+    pub fn SetAddress<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::HostName>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetAddress)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    pub fn Address(&self) -> windows_core::Result<super::HostName> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Address)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetPrefixSize(&self, value: u8) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetPrefixSize)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn PrefixSize(&self) -> windows_core::Result<u8> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PrefixSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn CreateVpnRoute<P0>(address: P0, prefixsize: u8) -> windows_core::Result<VpnRoute>
+    where
+        P0: windows_core::Param<super::HostName>,
+    {
+        Self::IVpnRouteFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateVpnRoute)(windows_core::Interface::as_raw(this), address.param().abi(), prefixsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IVpnRouteFactory<R, F: FnOnce(&IVpnRouteFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VpnRoute, IVpnRouteFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for VpnRoute {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnRoute>();
+}
+unsafe impl windows_core::Interface for VpnRoute {
+    type Vtable = <IVpnRoute as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnRoute as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnRoute {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnRoute";
+}
+unsafe impl Send for VpnRoute {}
+unsafe impl Sync for VpnRoute {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnRouteAssignment(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnRouteAssignment, windows_core::IUnknown, windows_core::IInspectable);
+impl VpnRouteAssignment {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VpnRouteAssignment, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SetIpv4InclusionRoutes<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IVector<VpnRoute>>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetIpv4InclusionRoutes)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SetIpv6InclusionRoutes<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IVector<VpnRoute>>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetIpv6InclusionRoutes)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Ipv4InclusionRoutes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnRoute>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Ipv4InclusionRoutes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Ipv6InclusionRoutes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnRoute>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Ipv6InclusionRoutes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SetIpv4ExclusionRoutes<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IVector<VpnRoute>>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetIpv4ExclusionRoutes)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SetIpv6ExclusionRoutes<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IVector<VpnRoute>>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetIpv6ExclusionRoutes)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Ipv4ExclusionRoutes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnRoute>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Ipv4ExclusionRoutes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Ipv6ExclusionRoutes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnRoute>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Ipv6ExclusionRoutes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetExcludeLocalSubnets(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetExcludeLocalSubnets)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn ExcludeLocalSubnets(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ExcludeLocalSubnets)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for VpnRouteAssignment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnRouteAssignment>();
+}
+unsafe impl windows_core::Interface for VpnRouteAssignment {
+    type Vtable = <IVpnRouteAssignment as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnRouteAssignment as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnRouteAssignment {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnRouteAssignment";
+}
+unsafe impl Send for VpnRouteAssignment {}
+unsafe impl Sync for VpnRouteAssignment {}
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VpnRoutingPolicyType(pub i32);
 impl VpnRoutingPolicyType {
@@ -4591,3 +4403,191 @@ impl windows_core::TypeKind for VpnRoutingPolicyType {
 impl windows_core::RuntimeType for VpnRoutingPolicyType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnRoutingPolicyType;i4)");
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnSystemHealth(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnSystemHealth, windows_core::IUnknown, windows_core::IInspectable);
+impl VpnSystemHealth {
+    #[cfg(feature = "Storage_Streams")]
+    pub fn StatementOfHealth(&self) -> windows_core::Result<super::super::Storage::Streams::Buffer> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).StatementOfHealth)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for VpnSystemHealth {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnSystemHealth>();
+}
+unsafe impl windows_core::Interface for VpnSystemHealth {
+    type Vtable = <IVpnSystemHealth as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnSystemHealth as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnSystemHealth {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnSystemHealth";
+}
+unsafe impl Send for VpnSystemHealth {}
+unsafe impl Sync for VpnSystemHealth {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnTrafficFilter(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnTrafficFilter, windows_core::IUnknown, windows_core::IInspectable);
+impl VpnTrafficFilter {
+    pub fn AppId(&self) -> windows_core::Result<VpnAppId> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AppId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetAppId<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<VpnAppId>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetAppId)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn AppClaims(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AppClaims)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Protocol(&self) -> windows_core::Result<VpnIPProtocol> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Protocol)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetProtocol(&self, value: VpnIPProtocol) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetProtocol)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn LocalPortRanges(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LocalPortRanges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn RemotePortRanges(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RemotePortRanges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn LocalAddressRanges(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LocalAddressRanges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn RemoteAddressRanges(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RemoteAddressRanges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn RoutingPolicyType(&self) -> windows_core::Result<VpnRoutingPolicyType> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RoutingPolicyType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetRoutingPolicyType(&self, value: VpnRoutingPolicyType) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetRoutingPolicyType)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Create<P0>(appid: P0) -> windows_core::Result<VpnTrafficFilter>
+    where
+        P0: windows_core::Param<VpnAppId>,
+    {
+        Self::IVpnTrafficFilterFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), appid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IVpnTrafficFilterFactory<R, F: FnOnce(&IVpnTrafficFilterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VpnTrafficFilter, IVpnTrafficFilterFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for VpnTrafficFilter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnTrafficFilter>();
+}
+unsafe impl windows_core::Interface for VpnTrafficFilter {
+    type Vtable = <IVpnTrafficFilter as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnTrafficFilter as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnTrafficFilter {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnTrafficFilter";
+}
+unsafe impl Send for VpnTrafficFilter {}
+unsafe impl Sync for VpnTrafficFilter {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VpnTrafficFilterAssignment(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VpnTrafficFilterAssignment, windows_core::IUnknown, windows_core::IInspectable);
+impl VpnTrafficFilterAssignment {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VpnTrafficFilterAssignment, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn TrafficFilterList(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnTrafficFilter>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TrafficFilterList)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn AllowOutbound(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AllowOutbound)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetAllowOutbound(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetAllowOutbound)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn AllowInbound(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AllowInbound)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetAllowInbound(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetAllowInbound)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl windows_core::RuntimeType for VpnTrafficFilterAssignment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnTrafficFilterAssignment>();
+}
+unsafe impl windows_core::Interface for VpnTrafficFilterAssignment {
+    type Vtable = <IVpnTrafficFilterAssignment as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVpnTrafficFilterAssignment as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VpnTrafficFilterAssignment {
+    const NAME: &'static str = "Windows.Networking.Vpn.VpnTrafficFilterAssignment";
+}
+unsafe impl Send for VpnTrafficFilterAssignment {}
+unsafe impl Sync for VpnTrafficFilterAssignment {}

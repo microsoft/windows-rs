@@ -327,162 +327,13 @@ pub unsafe fn mouse_event(dwflags: MOUSE_EVENT_FLAGS, dx: i32, dy: i32, dwdata: 
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTIVATE_KEYBOARD_LAYOUT_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HOT_KEY_MODIFIERS(pub u32);
-impl HOT_KEY_MODIFIERS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for HOT_KEY_MODIFIERS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for HOT_KEY_MODIFIERS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for HOT_KEY_MODIFIERS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for HOT_KEY_MODIFIERS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for HOT_KEY_MODIFIERS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct INPUT_TYPE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KEYBD_EVENT_FLAGS(pub u32);
-impl KEYBD_EVENT_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for KEYBD_EVENT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for KEYBD_EVENT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for KEYBD_EVENT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for KEYBD_EVENT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for KEYBD_EVENT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MAP_VIRTUAL_KEY_TYPE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MOUSE_EVENT_FLAGS(pub u32);
-impl MOUSE_EVENT_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for MOUSE_EVENT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for MOUSE_EVENT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for MOUSE_EVENT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for MOUSE_EVENT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for MOUSE_EVENT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TRACKMOUSEEVENT_FLAGS(pub u32);
-impl TRACKMOUSEEVENT_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for TRACKMOUSEEVENT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for TRACKMOUSEEVENT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for TRACKMOUSEEVENT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for TRACKMOUSEEVENT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for TRACKMOUSEEVENT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VIRTUAL_KEY(pub u16);
+pub const ACUTE: u32 = 769u32;
+pub const AX_KBD_DESKTOP_TYPE: u32 = 1u32;
+pub const BREVE: u32 = 774u32;
+pub const CAPLOK: u32 = 1u32;
+pub const CAPLOKALTGR: u32 = 4u32;
+pub const CEDILLA: u32 = 807u32;
+pub const CIRCUMFLEX: u32 = 770u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEADKEY {
@@ -498,6 +349,27 @@ impl Default for DEADKEY {
 impl windows_core::TypeKind for DEADKEY {
     type TypeKind = windows_core::CopyType;
 }
+pub const DEC_KBD_ANSI_LAYOUT_TYPE: u32 = 1u32;
+pub const DEC_KBD_JIS_LAYOUT_TYPE: u32 = 2u32;
+pub const DIARESIS: u32 = 776u32;
+pub const DIARESIS_TONOS: u32 = 901u32;
+pub const DKF_DEAD: u32 = 1u32;
+pub const DONTCARE_BIT: u32 = 33554432u32;
+pub const DOT_ABOVE: u32 = 775u32;
+pub const DOUBLE_ACUTE: u32 = 779u32;
+pub const EXTENDED_BIT: u32 = 16777216u32;
+pub const FAKE_KEYSTROKE: u32 = 33554432u32;
+pub const FMR_KBD_JIS_TYPE: u32 = 0u32;
+pub const FMR_KBD_OASYS_TYPE: u32 = 1u32;
+pub const FMV_KBD_OASYS_TYPE: u32 = 2u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(pub u32);
+pub const GMMP_USE_DISPLAY_POINTS: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION = GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(1u32);
+pub const GMMP_USE_HIGH_RESOLUTION_POINTS: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION = GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(2u32);
+pub const GRAVE: u32 = 768u32;
+pub const GRPSELTAP: u32 = 128u32;
+pub const HACEK: u32 = 780u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HARDWAREINPUT {
@@ -538,6 +410,43 @@ impl Default for HKL {
         unsafe { core::mem::zeroed() }
     }
 }
+pub const HOOK_ABOVE: u32 = 777u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HOT_KEY_MODIFIERS(pub u32);
+impl HOT_KEY_MODIFIERS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for HOT_KEY_MODIFIERS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for HOT_KEY_MODIFIERS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for HOT_KEY_MODIFIERS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for HOT_KEY_MODIFIERS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for HOT_KEY_MODIFIERS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct INPUT {
@@ -567,6 +476,19 @@ impl Default for INPUT_0 {
 impl windows_core::TypeKind for INPUT_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const INPUT_HARDWARE: INPUT_TYPE = INPUT_TYPE(2u32);
+pub const INPUT_KEYBOARD: INPUT_TYPE = INPUT_TYPE(1u32);
+pub const INPUT_MOUSE: INPUT_TYPE = INPUT_TYPE(0u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct INPUT_TYPE(pub u32);
+pub const KANALOK: u32 = 8u32;
+pub const KBDALT: u32 = 4u32;
+pub const KBDBASE: u32 = 0u32;
+pub const KBDCTRL: u32 = 2u32;
+pub const KBDGRPSELTAP: u32 = 128u32;
+pub const KBDKANA: u32 = 8u32;
+pub const KBDLOYA: u32 = 32u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KBDNLSTABLES {
@@ -585,6 +507,29 @@ impl Default for KBDNLSTABLES {
 impl windows_core::TypeKind for KBDNLSTABLES {
     type TypeKind = windows_core::CopyType;
 }
+pub const KBDNLS_ALPHANUM: u32 = 5u32;
+pub const KBDNLS_CODEINPUT: u32 = 10u32;
+pub const KBDNLS_CONV_OR_NONCONV: u32 = 15u32;
+pub const KBDNLS_HELP_OR_END: u32 = 11u32;
+pub const KBDNLS_HIRAGANA: u32 = 6u32;
+pub const KBDNLS_HOME_OR_CLEAR: u32 = 12u32;
+pub const KBDNLS_INDEX_ALT: u32 = 2u32;
+pub const KBDNLS_INDEX_NORMAL: u32 = 1u32;
+pub const KBDNLS_KANAEVENT: u32 = 14u32;
+pub const KBDNLS_KANALOCK: u32 = 4u32;
+pub const KBDNLS_KATAKANA: u32 = 7u32;
+pub const KBDNLS_NOEVENT: u32 = 1u32;
+pub const KBDNLS_NULL: u32 = 0u32;
+pub const KBDNLS_NUMPAD: u32 = 13u32;
+pub const KBDNLS_ROMAN: u32 = 9u32;
+pub const KBDNLS_SBCSDBCS: u32 = 8u32;
+pub const KBDNLS_SEND_BASE_VK: u32 = 2u32;
+pub const KBDNLS_SEND_PARAM_VK: u32 = 3u32;
+pub const KBDNLS_TYPE_NORMAL: u32 = 1u32;
+pub const KBDNLS_TYPE_NULL: u32 = 0u32;
+pub const KBDNLS_TYPE_TOGGLE: u32 = 2u32;
+pub const KBDROYA: u32 = 16u32;
+pub const KBDSHIFT: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KBDTABLES {
@@ -642,6 +587,8 @@ impl Default for KBDTABLE_MULTI {
 impl windows_core::TypeKind for KBDTABLE_MULTI {
     type TypeKind = windows_core::CopyType;
 }
+pub const KBDTABLE_MULTI_MAX: u32 = 8u32;
+pub const KBD_TYPE: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KBD_TYPE_INFO {
@@ -657,6 +604,7 @@ impl Default for KBD_TYPE_INFO {
 impl windows_core::TypeKind for KBD_TYPE_INFO {
     type TypeKind = windows_core::CopyType;
 }
+pub const KBD_VERSION: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KEYBDINPUT {
@@ -674,6 +622,62 @@ impl Default for KEYBDINPUT {
 impl windows_core::TypeKind for KEYBDINPUT {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KEYBD_EVENT_FLAGS(pub u32);
+impl KEYBD_EVENT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for KEYBD_EVENT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for KEYBD_EVENT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for KEYBD_EVENT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for KEYBD_EVENT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for KEYBD_EVENT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const KEYBOARD_TYPE_GENERIC_101: u32 = 4u32;
+pub const KEYBOARD_TYPE_JAPAN: u32 = 7u32;
+pub const KEYBOARD_TYPE_KOREA: u32 = 8u32;
+pub const KEYBOARD_TYPE_UNKNOWN: u32 = 81u32;
+pub const KEYEVENTF_EXTENDEDKEY: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(1u32);
+pub const KEYEVENTF_KEYUP: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(2u32);
+pub const KEYEVENTF_SCANCODE: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(8u32);
+pub const KEYEVENTF_UNICODE: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(4u32);
+pub const KLF_ACTIVATE: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(1u32);
+pub const KLF_NOTELLSHELL: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(128u32);
+pub const KLF_REORDER: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(8u32);
+pub const KLF_REPLACELANG: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(16u32);
+pub const KLF_RESET: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(1073741824u32);
+pub const KLF_SETFORPROCESS: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(256u32);
+pub const KLF_SHIFTLOCK: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(65536u32);
+pub const KLF_SUBSTITUTE_OK: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(2u32);
+pub const KLLF_ALTGR: u32 = 1u32;
+pub const KLLF_GLOBAL_ATTRS: u32 = 2u32;
+pub const KLLF_LRM_RLM: u32 = 4u32;
+pub const KLLF_SHIFTLOCK: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LASTINPUTINFO {
@@ -763,6 +767,25 @@ impl Default for LIGATURE5 {
 impl windows_core::TypeKind for LIGATURE5 {
     type TypeKind = windows_core::CopyType;
 }
+pub const MACRON: u32 = 772u32;
+pub const MAPVK_VK_TO_CHAR: MAP_VIRTUAL_KEY_TYPE = MAP_VIRTUAL_KEY_TYPE(2u32);
+pub const MAPVK_VK_TO_VSC: MAP_VIRTUAL_KEY_TYPE = MAP_VIRTUAL_KEY_TYPE(0u32);
+pub const MAPVK_VK_TO_VSC_EX: MAP_VIRTUAL_KEY_TYPE = MAP_VIRTUAL_KEY_TYPE(4u32);
+pub const MAPVK_VSC_TO_VK: MAP_VIRTUAL_KEY_TYPE = MAP_VIRTUAL_KEY_TYPE(1u32);
+pub const MAPVK_VSC_TO_VK_EX: MAP_VIRTUAL_KEY_TYPE = MAP_VIRTUAL_KEY_TYPE(3u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MAP_VIRTUAL_KEY_TYPE(pub u32);
+pub const MICROSOFT_KBD_001_TYPE: u32 = 4u32;
+pub const MICROSOFT_KBD_002_TYPE: u32 = 3u32;
+pub const MICROSOFT_KBD_101A_TYPE: u32 = 0u32;
+pub const MICROSOFT_KBD_101B_TYPE: u32 = 4u32;
+pub const MICROSOFT_KBD_101C_TYPE: u32 = 5u32;
+pub const MICROSOFT_KBD_101_TYPE: u32 = 0u32;
+pub const MICROSOFT_KBD_103_TYPE: u32 = 6u32;
+pub const MICROSOFT_KBD_106_TYPE: u32 = 2u32;
+pub const MICROSOFT_KBD_AX_TYPE: u32 = 1u32;
+pub const MICROSOFT_KBD_FUNC: u32 = 12u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MODIFIERS {
@@ -778,6 +801,25 @@ impl Default for MODIFIERS {
 impl windows_core::TypeKind for MODIFIERS {
     type TypeKind = windows_core::CopyType;
 }
+pub const MOD_ALT: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(1u32);
+pub const MOD_CONTROL: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(2u32);
+pub const MOD_NOREPEAT: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(16384u32);
+pub const MOD_SHIFT: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(4u32);
+pub const MOD_WIN: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(8u32);
+pub const MOUSEEVENTF_ABSOLUTE: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(32768u32);
+pub const MOUSEEVENTF_HWHEEL: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(4096u32);
+pub const MOUSEEVENTF_LEFTDOWN: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(2u32);
+pub const MOUSEEVENTF_LEFTUP: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(4u32);
+pub const MOUSEEVENTF_MIDDLEDOWN: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(32u32);
+pub const MOUSEEVENTF_MIDDLEUP: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(64u32);
+pub const MOUSEEVENTF_MOVE: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(1u32);
+pub const MOUSEEVENTF_MOVE_NOCOALESCE: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(8192u32);
+pub const MOUSEEVENTF_RIGHTDOWN: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(8u32);
+pub const MOUSEEVENTF_RIGHTUP: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(16u32);
+pub const MOUSEEVENTF_VIRTUALDESK: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(16384u32);
+pub const MOUSEEVENTF_WHEEL: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(2048u32);
+pub const MOUSEEVENTF_XDOWN: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(128u32);
+pub const MOUSEEVENTF_XUP: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(256u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MOUSEINPUT {
@@ -812,6 +854,83 @@ impl Default for MOUSEMOVEPOINT {
 impl windows_core::TypeKind for MOUSEMOVEPOINT {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MOUSE_EVENT_FLAGS(pub u32);
+impl MOUSE_EVENT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for MOUSE_EVENT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for MOUSE_EVENT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for MOUSE_EVENT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for MOUSE_EVENT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for MOUSE_EVENT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const NEC_KBD_106_TYPE: u32 = 5u32;
+pub const NEC_KBD_H_MODE_TYPE: u32 = 3u32;
+pub const NEC_KBD_LAPTOP_TYPE: u32 = 4u32;
+pub const NEC_KBD_NORMAL_TYPE: u32 = 1u32;
+pub const NEC_KBD_N_MODE_TYPE: u32 = 2u32;
+pub const NLSKBD_INFO_ACCESSIBILITY_KEYMAP: u32 = 2u32;
+pub const NLSKBD_INFO_EMURATE_101_KEYBOARD: u32 = 16u32;
+pub const NLSKBD_INFO_EMURATE_106_KEYBOARD: u32 = 32u32;
+pub const NLSKBD_INFO_SEND_IME_NOTIFICATION: u32 = 1u32;
+pub const NLSKBD_OEM_AX: u32 = 1u32;
+pub const NLSKBD_OEM_DEC: u32 = 24u32;
+pub const NLSKBD_OEM_EPSON: u32 = 4u32;
+pub const NLSKBD_OEM_FUJITSU: u32 = 5u32;
+pub const NLSKBD_OEM_IBM: u32 = 7u32;
+pub const NLSKBD_OEM_MATSUSHITA: u32 = 10u32;
+pub const NLSKBD_OEM_MICROSOFT: u32 = 0u32;
+pub const NLSKBD_OEM_NEC: u32 = 13u32;
+pub const NLSKBD_OEM_TOSHIBA: u32 = 18u32;
+pub const OGONEK: u32 = 808u32;
+pub const OVERSCORE: u32 = 773u32;
+pub const RING: u32 = 778u32;
+pub const SCANCODE_ALT: u32 = 56u32;
+pub const SCANCODE_CTRL: u32 = 29u32;
+pub const SCANCODE_LSHIFT: u32 = 42u32;
+pub const SCANCODE_LWIN: u32 = 91u32;
+pub const SCANCODE_NUMPAD_FIRST: u32 = 71u32;
+pub const SCANCODE_NUMPAD_LAST: u32 = 82u32;
+pub const SCANCODE_RSHIFT: u32 = 54u32;
+pub const SCANCODE_RWIN: u32 = 92u32;
+pub const SCANCODE_THAI_LAYOUT_TOGGLE: u32 = 41u32;
+pub const SGCAPS: u32 = 2u32;
+pub const SHFT_INVALID: u32 = 15u32;
+pub const TILDE: u32 = 771u32;
+pub const TME_CANCEL: TRACKMOUSEEVENT_FLAGS = TRACKMOUSEEVENT_FLAGS(2147483648u32);
+pub const TME_HOVER: TRACKMOUSEEVENT_FLAGS = TRACKMOUSEEVENT_FLAGS(1u32);
+pub const TME_LEAVE: TRACKMOUSEEVENT_FLAGS = TRACKMOUSEEVENT_FLAGS(2u32);
+pub const TME_NONCLIENT: TRACKMOUSEEVENT_FLAGS = TRACKMOUSEEVENT_FLAGS(16u32);
+pub const TME_QUERY: TRACKMOUSEEVENT_FLAGS = TRACKMOUSEEVENT_FLAGS(1073741824u32);
+pub const TONOS: u32 = 900u32;
+pub const TOSHIBA_KBD_DESKTOP_TYPE: u32 = 13u32;
+pub const TOSHIBA_KBD_LAPTOP_TYPE: u32 = 15u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRACKMOUSEEVENT {
@@ -828,6 +947,104 @@ impl Default for TRACKMOUSEEVENT {
 impl windows_core::TypeKind for TRACKMOUSEEVENT {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TRACKMOUSEEVENT_FLAGS(pub u32);
+impl TRACKMOUSEEVENT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for TRACKMOUSEEVENT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for TRACKMOUSEEVENT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for TRACKMOUSEEVENT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for TRACKMOUSEEVENT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for TRACKMOUSEEVENT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const UMLAUT: u32 = 776u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VIRTUAL_KEY(pub u16);
+pub const VK_0: VIRTUAL_KEY = VIRTUAL_KEY(48u16);
+pub const VK_1: VIRTUAL_KEY = VIRTUAL_KEY(49u16);
+pub const VK_2: VIRTUAL_KEY = VIRTUAL_KEY(50u16);
+pub const VK_3: VIRTUAL_KEY = VIRTUAL_KEY(51u16);
+pub const VK_4: VIRTUAL_KEY = VIRTUAL_KEY(52u16);
+pub const VK_5: VIRTUAL_KEY = VIRTUAL_KEY(53u16);
+pub const VK_6: VIRTUAL_KEY = VIRTUAL_KEY(54u16);
+pub const VK_7: VIRTUAL_KEY = VIRTUAL_KEY(55u16);
+pub const VK_8: VIRTUAL_KEY = VIRTUAL_KEY(56u16);
+pub const VK_9: VIRTUAL_KEY = VIRTUAL_KEY(57u16);
+pub const VK_A: VIRTUAL_KEY = VIRTUAL_KEY(65u16);
+pub const VK_ABNT_C1: VIRTUAL_KEY = VIRTUAL_KEY(193u16);
+pub const VK_ABNT_C2: VIRTUAL_KEY = VIRTUAL_KEY(194u16);
+pub const VK_ACCEPT: VIRTUAL_KEY = VIRTUAL_KEY(30u16);
+pub const VK_ADD: VIRTUAL_KEY = VIRTUAL_KEY(107u16);
+pub const VK_APPS: VIRTUAL_KEY = VIRTUAL_KEY(93u16);
+pub const VK_ATTN: VIRTUAL_KEY = VIRTUAL_KEY(246u16);
+pub const VK_B: VIRTUAL_KEY = VIRTUAL_KEY(66u16);
+pub const VK_BACK: VIRTUAL_KEY = VIRTUAL_KEY(8u16);
+pub const VK_BROWSER_BACK: VIRTUAL_KEY = VIRTUAL_KEY(166u16);
+pub const VK_BROWSER_FAVORITES: VIRTUAL_KEY = VIRTUAL_KEY(171u16);
+pub const VK_BROWSER_FORWARD: VIRTUAL_KEY = VIRTUAL_KEY(167u16);
+pub const VK_BROWSER_HOME: VIRTUAL_KEY = VIRTUAL_KEY(172u16);
+pub const VK_BROWSER_REFRESH: VIRTUAL_KEY = VIRTUAL_KEY(168u16);
+pub const VK_BROWSER_SEARCH: VIRTUAL_KEY = VIRTUAL_KEY(170u16);
+pub const VK_BROWSER_STOP: VIRTUAL_KEY = VIRTUAL_KEY(169u16);
+pub const VK_C: VIRTUAL_KEY = VIRTUAL_KEY(67u16);
+pub const VK_CANCEL: VIRTUAL_KEY = VIRTUAL_KEY(3u16);
+pub const VK_CAPITAL: VIRTUAL_KEY = VIRTUAL_KEY(20u16);
+pub const VK_CLEAR: VIRTUAL_KEY = VIRTUAL_KEY(12u16);
+pub const VK_CONTROL: VIRTUAL_KEY = VIRTUAL_KEY(17u16);
+pub const VK_CONVERT: VIRTUAL_KEY = VIRTUAL_KEY(28u16);
+pub const VK_CRSEL: VIRTUAL_KEY = VIRTUAL_KEY(247u16);
+pub const VK_D: VIRTUAL_KEY = VIRTUAL_KEY(68u16);
+pub const VK_DBE_ALPHANUMERIC: VIRTUAL_KEY = VIRTUAL_KEY(240u16);
+pub const VK_DBE_CODEINPUT: VIRTUAL_KEY = VIRTUAL_KEY(250u16);
+pub const VK_DBE_DBCSCHAR: VIRTUAL_KEY = VIRTUAL_KEY(244u16);
+pub const VK_DBE_DETERMINESTRING: VIRTUAL_KEY = VIRTUAL_KEY(252u16);
+pub const VK_DBE_ENTERDLGCONVERSIONMODE: VIRTUAL_KEY = VIRTUAL_KEY(253u16);
+pub const VK_DBE_ENTERIMECONFIGMODE: VIRTUAL_KEY = VIRTUAL_KEY(248u16);
+pub const VK_DBE_ENTERWORDREGISTERMODE: VIRTUAL_KEY = VIRTUAL_KEY(247u16);
+pub const VK_DBE_FLUSHSTRING: VIRTUAL_KEY = VIRTUAL_KEY(249u16);
+pub const VK_DBE_HIRAGANA: VIRTUAL_KEY = VIRTUAL_KEY(242u16);
+pub const VK_DBE_KATAKANA: VIRTUAL_KEY = VIRTUAL_KEY(241u16);
+pub const VK_DBE_NOCODEINPUT: VIRTUAL_KEY = VIRTUAL_KEY(251u16);
+pub const VK_DBE_NOROMAN: VIRTUAL_KEY = VIRTUAL_KEY(246u16);
+pub const VK_DBE_ROMAN: VIRTUAL_KEY = VIRTUAL_KEY(245u16);
+pub const VK_DBE_SBCSCHAR: VIRTUAL_KEY = VIRTUAL_KEY(243u16);
+pub const VK_DECIMAL: VIRTUAL_KEY = VIRTUAL_KEY(110u16);
+pub const VK_DELETE: VIRTUAL_KEY = VIRTUAL_KEY(46u16);
+pub const VK_DIVIDE: VIRTUAL_KEY = VIRTUAL_KEY(111u16);
+pub const VK_DOWN: VIRTUAL_KEY = VIRTUAL_KEY(40u16);
+pub const VK_E: VIRTUAL_KEY = VIRTUAL_KEY(69u16);
+pub const VK_END: VIRTUAL_KEY = VIRTUAL_KEY(35u16);
+pub const VK_EREOF: VIRTUAL_KEY = VIRTUAL_KEY(249u16);
+pub const VK_ESCAPE: VIRTUAL_KEY = VIRTUAL_KEY(27u16);
+pub const VK_EXECUTE: VIRTUAL_KEY = VIRTUAL_KEY(43u16);
+pub const VK_EXSEL: VIRTUAL_KEY = VIRTUAL_KEY(248u16);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VK_F {
@@ -846,6 +1063,32 @@ impl Default for VK_F {
 impl windows_core::TypeKind for VK_F {
     type TypeKind = windows_core::CopyType;
 }
+pub const VK_F: VIRTUAL_KEY = VIRTUAL_KEY(70u16);
+pub const VK_F1: VIRTUAL_KEY = VIRTUAL_KEY(112u16);
+pub const VK_F10: VIRTUAL_KEY = VIRTUAL_KEY(121u16);
+pub const VK_F11: VIRTUAL_KEY = VIRTUAL_KEY(122u16);
+pub const VK_F12: VIRTUAL_KEY = VIRTUAL_KEY(123u16);
+pub const VK_F13: VIRTUAL_KEY = VIRTUAL_KEY(124u16);
+pub const VK_F14: VIRTUAL_KEY = VIRTUAL_KEY(125u16);
+pub const VK_F15: VIRTUAL_KEY = VIRTUAL_KEY(126u16);
+pub const VK_F16: VIRTUAL_KEY = VIRTUAL_KEY(127u16);
+pub const VK_F17: VIRTUAL_KEY = VIRTUAL_KEY(128u16);
+pub const VK_F18: VIRTUAL_KEY = VIRTUAL_KEY(129u16);
+pub const VK_F19: VIRTUAL_KEY = VIRTUAL_KEY(130u16);
+pub const VK_F2: VIRTUAL_KEY = VIRTUAL_KEY(113u16);
+pub const VK_F20: VIRTUAL_KEY = VIRTUAL_KEY(131u16);
+pub const VK_F21: VIRTUAL_KEY = VIRTUAL_KEY(132u16);
+pub const VK_F22: VIRTUAL_KEY = VIRTUAL_KEY(133u16);
+pub const VK_F23: VIRTUAL_KEY = VIRTUAL_KEY(134u16);
+pub const VK_F24: VIRTUAL_KEY = VIRTUAL_KEY(135u16);
+pub const VK_F3: VIRTUAL_KEY = VIRTUAL_KEY(114u16);
+pub const VK_F4: VIRTUAL_KEY = VIRTUAL_KEY(115u16);
+pub const VK_F5: VIRTUAL_KEY = VIRTUAL_KEY(116u16);
+pub const VK_F6: VIRTUAL_KEY = VIRTUAL_KEY(117u16);
+pub const VK_F7: VIRTUAL_KEY = VIRTUAL_KEY(118u16);
+pub const VK_F8: VIRTUAL_KEY = VIRTUAL_KEY(119u16);
+pub const VK_F9: VIRTUAL_KEY = VIRTUAL_KEY(120u16);
+pub const VK_FINAL: VIRTUAL_KEY = VIRTUAL_KEY(24u16);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VK_FPARAM {
@@ -860,6 +1103,155 @@ impl Default for VK_FPARAM {
 impl windows_core::TypeKind for VK_FPARAM {
     type TypeKind = windows_core::CopyType;
 }
+pub const VK_G: VIRTUAL_KEY = VIRTUAL_KEY(71u16);
+pub const VK_GAMEPAD_A: VIRTUAL_KEY = VIRTUAL_KEY(195u16);
+pub const VK_GAMEPAD_B: VIRTUAL_KEY = VIRTUAL_KEY(196u16);
+pub const VK_GAMEPAD_DPAD_DOWN: VIRTUAL_KEY = VIRTUAL_KEY(204u16);
+pub const VK_GAMEPAD_DPAD_LEFT: VIRTUAL_KEY = VIRTUAL_KEY(205u16);
+pub const VK_GAMEPAD_DPAD_RIGHT: VIRTUAL_KEY = VIRTUAL_KEY(206u16);
+pub const VK_GAMEPAD_DPAD_UP: VIRTUAL_KEY = VIRTUAL_KEY(203u16);
+pub const VK_GAMEPAD_LEFT_SHOULDER: VIRTUAL_KEY = VIRTUAL_KEY(200u16);
+pub const VK_GAMEPAD_LEFT_THUMBSTICK_BUTTON: VIRTUAL_KEY = VIRTUAL_KEY(209u16);
+pub const VK_GAMEPAD_LEFT_THUMBSTICK_DOWN: VIRTUAL_KEY = VIRTUAL_KEY(212u16);
+pub const VK_GAMEPAD_LEFT_THUMBSTICK_LEFT: VIRTUAL_KEY = VIRTUAL_KEY(214u16);
+pub const VK_GAMEPAD_LEFT_THUMBSTICK_RIGHT: VIRTUAL_KEY = VIRTUAL_KEY(213u16);
+pub const VK_GAMEPAD_LEFT_THUMBSTICK_UP: VIRTUAL_KEY = VIRTUAL_KEY(211u16);
+pub const VK_GAMEPAD_LEFT_TRIGGER: VIRTUAL_KEY = VIRTUAL_KEY(201u16);
+pub const VK_GAMEPAD_MENU: VIRTUAL_KEY = VIRTUAL_KEY(207u16);
+pub const VK_GAMEPAD_RIGHT_SHOULDER: VIRTUAL_KEY = VIRTUAL_KEY(199u16);
+pub const VK_GAMEPAD_RIGHT_THUMBSTICK_BUTTON: VIRTUAL_KEY = VIRTUAL_KEY(210u16);
+pub const VK_GAMEPAD_RIGHT_THUMBSTICK_DOWN: VIRTUAL_KEY = VIRTUAL_KEY(216u16);
+pub const VK_GAMEPAD_RIGHT_THUMBSTICK_LEFT: VIRTUAL_KEY = VIRTUAL_KEY(218u16);
+pub const VK_GAMEPAD_RIGHT_THUMBSTICK_RIGHT: VIRTUAL_KEY = VIRTUAL_KEY(217u16);
+pub const VK_GAMEPAD_RIGHT_THUMBSTICK_UP: VIRTUAL_KEY = VIRTUAL_KEY(215u16);
+pub const VK_GAMEPAD_RIGHT_TRIGGER: VIRTUAL_KEY = VIRTUAL_KEY(202u16);
+pub const VK_GAMEPAD_VIEW: VIRTUAL_KEY = VIRTUAL_KEY(208u16);
+pub const VK_GAMEPAD_X: VIRTUAL_KEY = VIRTUAL_KEY(197u16);
+pub const VK_GAMEPAD_Y: VIRTUAL_KEY = VIRTUAL_KEY(198u16);
+pub const VK_H: VIRTUAL_KEY = VIRTUAL_KEY(72u16);
+pub const VK_HANGEUL: VIRTUAL_KEY = VIRTUAL_KEY(21u16);
+pub const VK_HANGUL: VIRTUAL_KEY = VIRTUAL_KEY(21u16);
+pub const VK_HANJA: VIRTUAL_KEY = VIRTUAL_KEY(25u16);
+pub const VK_HELP: VIRTUAL_KEY = VIRTUAL_KEY(47u16);
+pub const VK_HOME: VIRTUAL_KEY = VIRTUAL_KEY(36u16);
+pub const VK_I: VIRTUAL_KEY = VIRTUAL_KEY(73u16);
+pub const VK_ICO_00: VIRTUAL_KEY = VIRTUAL_KEY(228u16);
+pub const VK_ICO_CLEAR: VIRTUAL_KEY = VIRTUAL_KEY(230u16);
+pub const VK_ICO_HELP: VIRTUAL_KEY = VIRTUAL_KEY(227u16);
+pub const VK_IME_OFF: VIRTUAL_KEY = VIRTUAL_KEY(26u16);
+pub const VK_IME_ON: VIRTUAL_KEY = VIRTUAL_KEY(22u16);
+pub const VK_INSERT: VIRTUAL_KEY = VIRTUAL_KEY(45u16);
+pub const VK_J: VIRTUAL_KEY = VIRTUAL_KEY(74u16);
+pub const VK_JUNJA: VIRTUAL_KEY = VIRTUAL_KEY(23u16);
+pub const VK_K: VIRTUAL_KEY = VIRTUAL_KEY(75u16);
+pub const VK_KANA: VIRTUAL_KEY = VIRTUAL_KEY(21u16);
+pub const VK_KANJI: VIRTUAL_KEY = VIRTUAL_KEY(25u16);
+pub const VK_L: VIRTUAL_KEY = VIRTUAL_KEY(76u16);
+pub const VK_LAUNCH_APP1: VIRTUAL_KEY = VIRTUAL_KEY(182u16);
+pub const VK_LAUNCH_APP2: VIRTUAL_KEY = VIRTUAL_KEY(183u16);
+pub const VK_LAUNCH_MAIL: VIRTUAL_KEY = VIRTUAL_KEY(180u16);
+pub const VK_LAUNCH_MEDIA_SELECT: VIRTUAL_KEY = VIRTUAL_KEY(181u16);
+pub const VK_LBUTTON: VIRTUAL_KEY = VIRTUAL_KEY(1u16);
+pub const VK_LCONTROL: VIRTUAL_KEY = VIRTUAL_KEY(162u16);
+pub const VK_LEFT: VIRTUAL_KEY = VIRTUAL_KEY(37u16);
+pub const VK_LMENU: VIRTUAL_KEY = VIRTUAL_KEY(164u16);
+pub const VK_LSHIFT: VIRTUAL_KEY = VIRTUAL_KEY(160u16);
+pub const VK_LWIN: VIRTUAL_KEY = VIRTUAL_KEY(91u16);
+pub const VK_M: VIRTUAL_KEY = VIRTUAL_KEY(77u16);
+pub const VK_MBUTTON: VIRTUAL_KEY = VIRTUAL_KEY(4u16);
+pub const VK_MEDIA_NEXT_TRACK: VIRTUAL_KEY = VIRTUAL_KEY(176u16);
+pub const VK_MEDIA_PLAY_PAUSE: VIRTUAL_KEY = VIRTUAL_KEY(179u16);
+pub const VK_MEDIA_PREV_TRACK: VIRTUAL_KEY = VIRTUAL_KEY(177u16);
+pub const VK_MEDIA_STOP: VIRTUAL_KEY = VIRTUAL_KEY(178u16);
+pub const VK_MENU: VIRTUAL_KEY = VIRTUAL_KEY(18u16);
+pub const VK_MODECHANGE: VIRTUAL_KEY = VIRTUAL_KEY(31u16);
+pub const VK_MULTIPLY: VIRTUAL_KEY = VIRTUAL_KEY(106u16);
+pub const VK_N: VIRTUAL_KEY = VIRTUAL_KEY(78u16);
+pub const VK_NAVIGATION_ACCEPT: VIRTUAL_KEY = VIRTUAL_KEY(142u16);
+pub const VK_NAVIGATION_CANCEL: VIRTUAL_KEY = VIRTUAL_KEY(143u16);
+pub const VK_NAVIGATION_DOWN: VIRTUAL_KEY = VIRTUAL_KEY(139u16);
+pub const VK_NAVIGATION_LEFT: VIRTUAL_KEY = VIRTUAL_KEY(140u16);
+pub const VK_NAVIGATION_MENU: VIRTUAL_KEY = VIRTUAL_KEY(137u16);
+pub const VK_NAVIGATION_RIGHT: VIRTUAL_KEY = VIRTUAL_KEY(141u16);
+pub const VK_NAVIGATION_UP: VIRTUAL_KEY = VIRTUAL_KEY(138u16);
+pub const VK_NAVIGATION_VIEW: VIRTUAL_KEY = VIRTUAL_KEY(136u16);
+pub const VK_NEXT: VIRTUAL_KEY = VIRTUAL_KEY(34u16);
+pub const VK_NONAME: VIRTUAL_KEY = VIRTUAL_KEY(252u16);
+pub const VK_NONCONVERT: VIRTUAL_KEY = VIRTUAL_KEY(29u16);
+pub const VK_NUMLOCK: VIRTUAL_KEY = VIRTUAL_KEY(144u16);
+pub const VK_NUMPAD0: VIRTUAL_KEY = VIRTUAL_KEY(96u16);
+pub const VK_NUMPAD1: VIRTUAL_KEY = VIRTUAL_KEY(97u16);
+pub const VK_NUMPAD2: VIRTUAL_KEY = VIRTUAL_KEY(98u16);
+pub const VK_NUMPAD3: VIRTUAL_KEY = VIRTUAL_KEY(99u16);
+pub const VK_NUMPAD4: VIRTUAL_KEY = VIRTUAL_KEY(100u16);
+pub const VK_NUMPAD5: VIRTUAL_KEY = VIRTUAL_KEY(101u16);
+pub const VK_NUMPAD6: VIRTUAL_KEY = VIRTUAL_KEY(102u16);
+pub const VK_NUMPAD7: VIRTUAL_KEY = VIRTUAL_KEY(103u16);
+pub const VK_NUMPAD8: VIRTUAL_KEY = VIRTUAL_KEY(104u16);
+pub const VK_NUMPAD9: VIRTUAL_KEY = VIRTUAL_KEY(105u16);
+pub const VK_O: VIRTUAL_KEY = VIRTUAL_KEY(79u16);
+pub const VK_OEM_1: VIRTUAL_KEY = VIRTUAL_KEY(186u16);
+pub const VK_OEM_102: VIRTUAL_KEY = VIRTUAL_KEY(226u16);
+pub const VK_OEM_2: VIRTUAL_KEY = VIRTUAL_KEY(191u16);
+pub const VK_OEM_3: VIRTUAL_KEY = VIRTUAL_KEY(192u16);
+pub const VK_OEM_4: VIRTUAL_KEY = VIRTUAL_KEY(219u16);
+pub const VK_OEM_5: VIRTUAL_KEY = VIRTUAL_KEY(220u16);
+pub const VK_OEM_6: VIRTUAL_KEY = VIRTUAL_KEY(221u16);
+pub const VK_OEM_7: VIRTUAL_KEY = VIRTUAL_KEY(222u16);
+pub const VK_OEM_8: VIRTUAL_KEY = VIRTUAL_KEY(223u16);
+pub const VK_OEM_ATTN: VIRTUAL_KEY = VIRTUAL_KEY(240u16);
+pub const VK_OEM_AUTO: VIRTUAL_KEY = VIRTUAL_KEY(243u16);
+pub const VK_OEM_AX: VIRTUAL_KEY = VIRTUAL_KEY(225u16);
+pub const VK_OEM_BACKTAB: VIRTUAL_KEY = VIRTUAL_KEY(245u16);
+pub const VK_OEM_CLEAR: VIRTUAL_KEY = VIRTUAL_KEY(254u16);
+pub const VK_OEM_COMMA: VIRTUAL_KEY = VIRTUAL_KEY(188u16);
+pub const VK_OEM_COPY: VIRTUAL_KEY = VIRTUAL_KEY(242u16);
+pub const VK_OEM_CUSEL: VIRTUAL_KEY = VIRTUAL_KEY(239u16);
+pub const VK_OEM_ENLW: VIRTUAL_KEY = VIRTUAL_KEY(244u16);
+pub const VK_OEM_FINISH: VIRTUAL_KEY = VIRTUAL_KEY(241u16);
+pub const VK_OEM_FJ_JISHO: VIRTUAL_KEY = VIRTUAL_KEY(146u16);
+pub const VK_OEM_FJ_LOYA: VIRTUAL_KEY = VIRTUAL_KEY(149u16);
+pub const VK_OEM_FJ_MASSHOU: VIRTUAL_KEY = VIRTUAL_KEY(147u16);
+pub const VK_OEM_FJ_ROYA: VIRTUAL_KEY = VIRTUAL_KEY(150u16);
+pub const VK_OEM_FJ_TOUROKU: VIRTUAL_KEY = VIRTUAL_KEY(148u16);
+pub const VK_OEM_JUMP: VIRTUAL_KEY = VIRTUAL_KEY(234u16);
+pub const VK_OEM_MINUS: VIRTUAL_KEY = VIRTUAL_KEY(189u16);
+pub const VK_OEM_NEC_EQUAL: VIRTUAL_KEY = VIRTUAL_KEY(146u16);
+pub const VK_OEM_PA1: VIRTUAL_KEY = VIRTUAL_KEY(235u16);
+pub const VK_OEM_PA2: VIRTUAL_KEY = VIRTUAL_KEY(236u16);
+pub const VK_OEM_PA3: VIRTUAL_KEY = VIRTUAL_KEY(237u16);
+pub const VK_OEM_PERIOD: VIRTUAL_KEY = VIRTUAL_KEY(190u16);
+pub const VK_OEM_PLUS: VIRTUAL_KEY = VIRTUAL_KEY(187u16);
+pub const VK_OEM_RESET: VIRTUAL_KEY = VIRTUAL_KEY(233u16);
+pub const VK_OEM_WSCTRL: VIRTUAL_KEY = VIRTUAL_KEY(238u16);
+pub const VK_P: VIRTUAL_KEY = VIRTUAL_KEY(80u16);
+pub const VK_PA1: VIRTUAL_KEY = VIRTUAL_KEY(253u16);
+pub const VK_PACKET: VIRTUAL_KEY = VIRTUAL_KEY(231u16);
+pub const VK_PAUSE: VIRTUAL_KEY = VIRTUAL_KEY(19u16);
+pub const VK_PLAY: VIRTUAL_KEY = VIRTUAL_KEY(250u16);
+pub const VK_PRINT: VIRTUAL_KEY = VIRTUAL_KEY(42u16);
+pub const VK_PRIOR: VIRTUAL_KEY = VIRTUAL_KEY(33u16);
+pub const VK_PROCESSKEY: VIRTUAL_KEY = VIRTUAL_KEY(229u16);
+pub const VK_Q: VIRTUAL_KEY = VIRTUAL_KEY(81u16);
+pub const VK_R: VIRTUAL_KEY = VIRTUAL_KEY(82u16);
+pub const VK_RBUTTON: VIRTUAL_KEY = VIRTUAL_KEY(2u16);
+pub const VK_RCONTROL: VIRTUAL_KEY = VIRTUAL_KEY(163u16);
+pub const VK_RETURN: VIRTUAL_KEY = VIRTUAL_KEY(13u16);
+pub const VK_RIGHT: VIRTUAL_KEY = VIRTUAL_KEY(39u16);
+pub const VK_RMENU: VIRTUAL_KEY = VIRTUAL_KEY(165u16);
+pub const VK_RSHIFT: VIRTUAL_KEY = VIRTUAL_KEY(161u16);
+pub const VK_RWIN: VIRTUAL_KEY = VIRTUAL_KEY(92u16);
+pub const VK_S: VIRTUAL_KEY = VIRTUAL_KEY(83u16);
+pub const VK_SCROLL: VIRTUAL_KEY = VIRTUAL_KEY(145u16);
+pub const VK_SELECT: VIRTUAL_KEY = VIRTUAL_KEY(41u16);
+pub const VK_SEPARATOR: VIRTUAL_KEY = VIRTUAL_KEY(108u16);
+pub const VK_SHIFT: VIRTUAL_KEY = VIRTUAL_KEY(16u16);
+pub const VK_SLEEP: VIRTUAL_KEY = VIRTUAL_KEY(95u16);
+pub const VK_SNAPSHOT: VIRTUAL_KEY = VIRTUAL_KEY(44u16);
+pub const VK_SPACE: VIRTUAL_KEY = VIRTUAL_KEY(32u16);
+pub const VK_SUBTRACT: VIRTUAL_KEY = VIRTUAL_KEY(109u16);
+pub const VK_T: VIRTUAL_KEY = VIRTUAL_KEY(84u16);
+pub const VK_TAB: VIRTUAL_KEY = VIRTUAL_KEY(9u16);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VK_TO_BIT {
@@ -1039,6 +1431,12 @@ impl Default for VK_TO_WCHAR_TABLE {
 impl windows_core::TypeKind for VK_TO_WCHAR_TABLE {
     type TypeKind = windows_core::CopyType;
 }
+pub const VK_U: VIRTUAL_KEY = VIRTUAL_KEY(85u16);
+pub const VK_UP: VIRTUAL_KEY = VIRTUAL_KEY(38u16);
+pub const VK_V: VIRTUAL_KEY = VIRTUAL_KEY(86u16);
+pub const VK_VOLUME_DOWN: VIRTUAL_KEY = VIRTUAL_KEY(174u16);
+pub const VK_VOLUME_MUTE: VIRTUAL_KEY = VIRTUAL_KEY(173u16);
+pub const VK_VOLUME_UP: VIRTUAL_KEY = VIRTUAL_KEY(175u16);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VK_VSC {
@@ -1053,6 +1451,14 @@ impl Default for VK_VSC {
 impl windows_core::TypeKind for VK_VSC {
     type TypeKind = windows_core::CopyType;
 }
+pub const VK_W: VIRTUAL_KEY = VIRTUAL_KEY(87u16);
+pub const VK_X: VIRTUAL_KEY = VIRTUAL_KEY(88u16);
+pub const VK_XBUTTON1: VIRTUAL_KEY = VIRTUAL_KEY(5u16);
+pub const VK_XBUTTON2: VIRTUAL_KEY = VIRTUAL_KEY(6u16);
+pub const VK_Y: VIRTUAL_KEY = VIRTUAL_KEY(89u16);
+pub const VK_Z: VIRTUAL_KEY = VIRTUAL_KEY(90u16);
+pub const VK_ZOOM: VIRTUAL_KEY = VIRTUAL_KEY(251u16);
+pub const VK__none_: VIRTUAL_KEY = VIRTUAL_KEY(255u16);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VSC_LPWSTR {
@@ -1081,412 +1487,6 @@ impl Default for VSC_VK {
 impl windows_core::TypeKind for VSC_VK {
     type TypeKind = windows_core::CopyType;
 }
-pub const ACUTE: u32 = 769u32;
-pub const AX_KBD_DESKTOP_TYPE: u32 = 1u32;
-pub const BREVE: u32 = 774u32;
-pub const CAPLOK: u32 = 1u32;
-pub const CAPLOKALTGR: u32 = 4u32;
-pub const CEDILLA: u32 = 807u32;
-pub const CIRCUMFLEX: u32 = 770u32;
-pub const DEC_KBD_ANSI_LAYOUT_TYPE: u32 = 1u32;
-pub const DEC_KBD_JIS_LAYOUT_TYPE: u32 = 2u32;
-pub const DIARESIS: u32 = 776u32;
-pub const DIARESIS_TONOS: u32 = 901u32;
-pub const DKF_DEAD: u32 = 1u32;
-pub const DONTCARE_BIT: u32 = 33554432u32;
-pub const DOT_ABOVE: u32 = 775u32;
-pub const DOUBLE_ACUTE: u32 = 779u32;
-pub const EXTENDED_BIT: u32 = 16777216u32;
-pub const FAKE_KEYSTROKE: u32 = 33554432u32;
-pub const FMR_KBD_JIS_TYPE: u32 = 0u32;
-pub const FMR_KBD_OASYS_TYPE: u32 = 1u32;
-pub const FMV_KBD_OASYS_TYPE: u32 = 2u32;
-pub const GMMP_USE_DISPLAY_POINTS: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION = GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(1u32);
-pub const GMMP_USE_HIGH_RESOLUTION_POINTS: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION = GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(2u32);
-pub const GRAVE: u32 = 768u32;
-pub const GRPSELTAP: u32 = 128u32;
-pub const HACEK: u32 = 780u32;
-pub const HOOK_ABOVE: u32 = 777u32;
-pub const INPUT_HARDWARE: INPUT_TYPE = INPUT_TYPE(2u32);
-pub const INPUT_KEYBOARD: INPUT_TYPE = INPUT_TYPE(1u32);
-pub const INPUT_MOUSE: INPUT_TYPE = INPUT_TYPE(0u32);
-pub const KANALOK: u32 = 8u32;
-pub const KBDALT: u32 = 4u32;
-pub const KBDBASE: u32 = 0u32;
-pub const KBDCTRL: u32 = 2u32;
-pub const KBDGRPSELTAP: u32 = 128u32;
-pub const KBDKANA: u32 = 8u32;
-pub const KBDLOYA: u32 = 32u32;
-pub const KBDNLS_ALPHANUM: u32 = 5u32;
-pub const KBDNLS_CODEINPUT: u32 = 10u32;
-pub const KBDNLS_CONV_OR_NONCONV: u32 = 15u32;
-pub const KBDNLS_HELP_OR_END: u32 = 11u32;
-pub const KBDNLS_HIRAGANA: u32 = 6u32;
-pub const KBDNLS_HOME_OR_CLEAR: u32 = 12u32;
-pub const KBDNLS_INDEX_ALT: u32 = 2u32;
-pub const KBDNLS_INDEX_NORMAL: u32 = 1u32;
-pub const KBDNLS_KANAEVENT: u32 = 14u32;
-pub const KBDNLS_KANALOCK: u32 = 4u32;
-pub const KBDNLS_KATAKANA: u32 = 7u32;
-pub const KBDNLS_NOEVENT: u32 = 1u32;
-pub const KBDNLS_NULL: u32 = 0u32;
-pub const KBDNLS_NUMPAD: u32 = 13u32;
-pub const KBDNLS_ROMAN: u32 = 9u32;
-pub const KBDNLS_SBCSDBCS: u32 = 8u32;
-pub const KBDNLS_SEND_BASE_VK: u32 = 2u32;
-pub const KBDNLS_SEND_PARAM_VK: u32 = 3u32;
-pub const KBDNLS_TYPE_NORMAL: u32 = 1u32;
-pub const KBDNLS_TYPE_NULL: u32 = 0u32;
-pub const KBDNLS_TYPE_TOGGLE: u32 = 2u32;
-pub const KBDROYA: u32 = 16u32;
-pub const KBDSHIFT: u32 = 1u32;
-pub const KBDTABLE_MULTI_MAX: u32 = 8u32;
-pub const KBD_TYPE: u32 = 4u32;
-pub const KBD_VERSION: u32 = 1u32;
-pub const KEYBOARD_TYPE_GENERIC_101: u32 = 4u32;
-pub const KEYBOARD_TYPE_JAPAN: u32 = 7u32;
-pub const KEYBOARD_TYPE_KOREA: u32 = 8u32;
-pub const KEYBOARD_TYPE_UNKNOWN: u32 = 81u32;
-pub const KEYEVENTF_EXTENDEDKEY: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(1u32);
-pub const KEYEVENTF_KEYUP: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(2u32);
-pub const KEYEVENTF_SCANCODE: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(8u32);
-pub const KEYEVENTF_UNICODE: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(4u32);
-pub const KLF_ACTIVATE: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(1u32);
-pub const KLF_NOTELLSHELL: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(128u32);
-pub const KLF_REORDER: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(8u32);
-pub const KLF_REPLACELANG: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(16u32);
-pub const KLF_RESET: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(1073741824u32);
-pub const KLF_SETFORPROCESS: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(256u32);
-pub const KLF_SHIFTLOCK: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(65536u32);
-pub const KLF_SUBSTITUTE_OK: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(2u32);
-pub const KLLF_ALTGR: u32 = 1u32;
-pub const KLLF_GLOBAL_ATTRS: u32 = 2u32;
-pub const KLLF_LRM_RLM: u32 = 4u32;
-pub const KLLF_SHIFTLOCK: u32 = 2u32;
-pub const MACRON: u32 = 772u32;
-pub const MAPVK_VK_TO_CHAR: MAP_VIRTUAL_KEY_TYPE = MAP_VIRTUAL_KEY_TYPE(2u32);
-pub const MAPVK_VK_TO_VSC: MAP_VIRTUAL_KEY_TYPE = MAP_VIRTUAL_KEY_TYPE(0u32);
-pub const MAPVK_VK_TO_VSC_EX: MAP_VIRTUAL_KEY_TYPE = MAP_VIRTUAL_KEY_TYPE(4u32);
-pub const MAPVK_VSC_TO_VK: MAP_VIRTUAL_KEY_TYPE = MAP_VIRTUAL_KEY_TYPE(1u32);
-pub const MAPVK_VSC_TO_VK_EX: MAP_VIRTUAL_KEY_TYPE = MAP_VIRTUAL_KEY_TYPE(3u32);
-pub const MICROSOFT_KBD_001_TYPE: u32 = 4u32;
-pub const MICROSOFT_KBD_002_TYPE: u32 = 3u32;
-pub const MICROSOFT_KBD_101A_TYPE: u32 = 0u32;
-pub const MICROSOFT_KBD_101B_TYPE: u32 = 4u32;
-pub const MICROSOFT_KBD_101C_TYPE: u32 = 5u32;
-pub const MICROSOFT_KBD_101_TYPE: u32 = 0u32;
-pub const MICROSOFT_KBD_103_TYPE: u32 = 6u32;
-pub const MICROSOFT_KBD_106_TYPE: u32 = 2u32;
-pub const MICROSOFT_KBD_AX_TYPE: u32 = 1u32;
-pub const MICROSOFT_KBD_FUNC: u32 = 12u32;
-pub const MOD_ALT: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(1u32);
-pub const MOD_CONTROL: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(2u32);
-pub const MOD_NOREPEAT: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(16384u32);
-pub const MOD_SHIFT: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(4u32);
-pub const MOD_WIN: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(8u32);
-pub const MOUSEEVENTF_ABSOLUTE: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(32768u32);
-pub const MOUSEEVENTF_HWHEEL: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(4096u32);
-pub const MOUSEEVENTF_LEFTDOWN: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(2u32);
-pub const MOUSEEVENTF_LEFTUP: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(4u32);
-pub const MOUSEEVENTF_MIDDLEDOWN: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(32u32);
-pub const MOUSEEVENTF_MIDDLEUP: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(64u32);
-pub const MOUSEEVENTF_MOVE: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(1u32);
-pub const MOUSEEVENTF_MOVE_NOCOALESCE: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(8192u32);
-pub const MOUSEEVENTF_RIGHTDOWN: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(8u32);
-pub const MOUSEEVENTF_RIGHTUP: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(16u32);
-pub const MOUSEEVENTF_VIRTUALDESK: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(16384u32);
-pub const MOUSEEVENTF_WHEEL: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(2048u32);
-pub const MOUSEEVENTF_XDOWN: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(128u32);
-pub const MOUSEEVENTF_XUP: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(256u32);
-pub const NEC_KBD_106_TYPE: u32 = 5u32;
-pub const NEC_KBD_H_MODE_TYPE: u32 = 3u32;
-pub const NEC_KBD_LAPTOP_TYPE: u32 = 4u32;
-pub const NEC_KBD_NORMAL_TYPE: u32 = 1u32;
-pub const NEC_KBD_N_MODE_TYPE: u32 = 2u32;
-pub const NLSKBD_INFO_ACCESSIBILITY_KEYMAP: u32 = 2u32;
-pub const NLSKBD_INFO_EMURATE_101_KEYBOARD: u32 = 16u32;
-pub const NLSKBD_INFO_EMURATE_106_KEYBOARD: u32 = 32u32;
-pub const NLSKBD_INFO_SEND_IME_NOTIFICATION: u32 = 1u32;
-pub const NLSKBD_OEM_AX: u32 = 1u32;
-pub const NLSKBD_OEM_DEC: u32 = 24u32;
-pub const NLSKBD_OEM_EPSON: u32 = 4u32;
-pub const NLSKBD_OEM_FUJITSU: u32 = 5u32;
-pub const NLSKBD_OEM_IBM: u32 = 7u32;
-pub const NLSKBD_OEM_MATSUSHITA: u32 = 10u32;
-pub const NLSKBD_OEM_MICROSOFT: u32 = 0u32;
-pub const NLSKBD_OEM_NEC: u32 = 13u32;
-pub const NLSKBD_OEM_TOSHIBA: u32 = 18u32;
-pub const OGONEK: u32 = 808u32;
-pub const OVERSCORE: u32 = 773u32;
-pub const RING: u32 = 778u32;
-pub const SCANCODE_ALT: u32 = 56u32;
-pub const SCANCODE_CTRL: u32 = 29u32;
-pub const SCANCODE_LSHIFT: u32 = 42u32;
-pub const SCANCODE_LWIN: u32 = 91u32;
-pub const SCANCODE_NUMPAD_FIRST: u32 = 71u32;
-pub const SCANCODE_NUMPAD_LAST: u32 = 82u32;
-pub const SCANCODE_RSHIFT: u32 = 54u32;
-pub const SCANCODE_RWIN: u32 = 92u32;
-pub const SCANCODE_THAI_LAYOUT_TOGGLE: u32 = 41u32;
-pub const SGCAPS: u32 = 2u32;
-pub const SHFT_INVALID: u32 = 15u32;
-pub const TILDE: u32 = 771u32;
-pub const TME_CANCEL: TRACKMOUSEEVENT_FLAGS = TRACKMOUSEEVENT_FLAGS(2147483648u32);
-pub const TME_HOVER: TRACKMOUSEEVENT_FLAGS = TRACKMOUSEEVENT_FLAGS(1u32);
-pub const TME_LEAVE: TRACKMOUSEEVENT_FLAGS = TRACKMOUSEEVENT_FLAGS(2u32);
-pub const TME_NONCLIENT: TRACKMOUSEEVENT_FLAGS = TRACKMOUSEEVENT_FLAGS(16u32);
-pub const TME_QUERY: TRACKMOUSEEVENT_FLAGS = TRACKMOUSEEVENT_FLAGS(1073741824u32);
-pub const TONOS: u32 = 900u32;
-pub const TOSHIBA_KBD_DESKTOP_TYPE: u32 = 13u32;
-pub const TOSHIBA_KBD_LAPTOP_TYPE: u32 = 15u32;
-pub const UMLAUT: u32 = 776u32;
-pub const VK_0: VIRTUAL_KEY = VIRTUAL_KEY(48u16);
-pub const VK_1: VIRTUAL_KEY = VIRTUAL_KEY(49u16);
-pub const VK_2: VIRTUAL_KEY = VIRTUAL_KEY(50u16);
-pub const VK_3: VIRTUAL_KEY = VIRTUAL_KEY(51u16);
-pub const VK_4: VIRTUAL_KEY = VIRTUAL_KEY(52u16);
-pub const VK_5: VIRTUAL_KEY = VIRTUAL_KEY(53u16);
-pub const VK_6: VIRTUAL_KEY = VIRTUAL_KEY(54u16);
-pub const VK_7: VIRTUAL_KEY = VIRTUAL_KEY(55u16);
-pub const VK_8: VIRTUAL_KEY = VIRTUAL_KEY(56u16);
-pub const VK_9: VIRTUAL_KEY = VIRTUAL_KEY(57u16);
-pub const VK_A: VIRTUAL_KEY = VIRTUAL_KEY(65u16);
-pub const VK_ABNT_C1: VIRTUAL_KEY = VIRTUAL_KEY(193u16);
-pub const VK_ABNT_C2: VIRTUAL_KEY = VIRTUAL_KEY(194u16);
-pub const VK_ACCEPT: VIRTUAL_KEY = VIRTUAL_KEY(30u16);
-pub const VK_ADD: VIRTUAL_KEY = VIRTUAL_KEY(107u16);
-pub const VK_APPS: VIRTUAL_KEY = VIRTUAL_KEY(93u16);
-pub const VK_ATTN: VIRTUAL_KEY = VIRTUAL_KEY(246u16);
-pub const VK_B: VIRTUAL_KEY = VIRTUAL_KEY(66u16);
-pub const VK_BACK: VIRTUAL_KEY = VIRTUAL_KEY(8u16);
-pub const VK_BROWSER_BACK: VIRTUAL_KEY = VIRTUAL_KEY(166u16);
-pub const VK_BROWSER_FAVORITES: VIRTUAL_KEY = VIRTUAL_KEY(171u16);
-pub const VK_BROWSER_FORWARD: VIRTUAL_KEY = VIRTUAL_KEY(167u16);
-pub const VK_BROWSER_HOME: VIRTUAL_KEY = VIRTUAL_KEY(172u16);
-pub const VK_BROWSER_REFRESH: VIRTUAL_KEY = VIRTUAL_KEY(168u16);
-pub const VK_BROWSER_SEARCH: VIRTUAL_KEY = VIRTUAL_KEY(170u16);
-pub const VK_BROWSER_STOP: VIRTUAL_KEY = VIRTUAL_KEY(169u16);
-pub const VK_C: VIRTUAL_KEY = VIRTUAL_KEY(67u16);
-pub const VK_CANCEL: VIRTUAL_KEY = VIRTUAL_KEY(3u16);
-pub const VK_CAPITAL: VIRTUAL_KEY = VIRTUAL_KEY(20u16);
-pub const VK_CLEAR: VIRTUAL_KEY = VIRTUAL_KEY(12u16);
-pub const VK_CONTROL: VIRTUAL_KEY = VIRTUAL_KEY(17u16);
-pub const VK_CONVERT: VIRTUAL_KEY = VIRTUAL_KEY(28u16);
-pub const VK_CRSEL: VIRTUAL_KEY = VIRTUAL_KEY(247u16);
-pub const VK_D: VIRTUAL_KEY = VIRTUAL_KEY(68u16);
-pub const VK_DBE_ALPHANUMERIC: VIRTUAL_KEY = VIRTUAL_KEY(240u16);
-pub const VK_DBE_CODEINPUT: VIRTUAL_KEY = VIRTUAL_KEY(250u16);
-pub const VK_DBE_DBCSCHAR: VIRTUAL_KEY = VIRTUAL_KEY(244u16);
-pub const VK_DBE_DETERMINESTRING: VIRTUAL_KEY = VIRTUAL_KEY(252u16);
-pub const VK_DBE_ENTERDLGCONVERSIONMODE: VIRTUAL_KEY = VIRTUAL_KEY(253u16);
-pub const VK_DBE_ENTERIMECONFIGMODE: VIRTUAL_KEY = VIRTUAL_KEY(248u16);
-pub const VK_DBE_ENTERWORDREGISTERMODE: VIRTUAL_KEY = VIRTUAL_KEY(247u16);
-pub const VK_DBE_FLUSHSTRING: VIRTUAL_KEY = VIRTUAL_KEY(249u16);
-pub const VK_DBE_HIRAGANA: VIRTUAL_KEY = VIRTUAL_KEY(242u16);
-pub const VK_DBE_KATAKANA: VIRTUAL_KEY = VIRTUAL_KEY(241u16);
-pub const VK_DBE_NOCODEINPUT: VIRTUAL_KEY = VIRTUAL_KEY(251u16);
-pub const VK_DBE_NOROMAN: VIRTUAL_KEY = VIRTUAL_KEY(246u16);
-pub const VK_DBE_ROMAN: VIRTUAL_KEY = VIRTUAL_KEY(245u16);
-pub const VK_DBE_SBCSCHAR: VIRTUAL_KEY = VIRTUAL_KEY(243u16);
-pub const VK_DECIMAL: VIRTUAL_KEY = VIRTUAL_KEY(110u16);
-pub const VK_DELETE: VIRTUAL_KEY = VIRTUAL_KEY(46u16);
-pub const VK_DIVIDE: VIRTUAL_KEY = VIRTUAL_KEY(111u16);
-pub const VK_DOWN: VIRTUAL_KEY = VIRTUAL_KEY(40u16);
-pub const VK_E: VIRTUAL_KEY = VIRTUAL_KEY(69u16);
-pub const VK_END: VIRTUAL_KEY = VIRTUAL_KEY(35u16);
-pub const VK_EREOF: VIRTUAL_KEY = VIRTUAL_KEY(249u16);
-pub const VK_ESCAPE: VIRTUAL_KEY = VIRTUAL_KEY(27u16);
-pub const VK_EXECUTE: VIRTUAL_KEY = VIRTUAL_KEY(43u16);
-pub const VK_EXSEL: VIRTUAL_KEY = VIRTUAL_KEY(248u16);
-pub const VK_F: VIRTUAL_KEY = VIRTUAL_KEY(70u16);
-pub const VK_F1: VIRTUAL_KEY = VIRTUAL_KEY(112u16);
-pub const VK_F10: VIRTUAL_KEY = VIRTUAL_KEY(121u16);
-pub const VK_F11: VIRTUAL_KEY = VIRTUAL_KEY(122u16);
-pub const VK_F12: VIRTUAL_KEY = VIRTUAL_KEY(123u16);
-pub const VK_F13: VIRTUAL_KEY = VIRTUAL_KEY(124u16);
-pub const VK_F14: VIRTUAL_KEY = VIRTUAL_KEY(125u16);
-pub const VK_F15: VIRTUAL_KEY = VIRTUAL_KEY(126u16);
-pub const VK_F16: VIRTUAL_KEY = VIRTUAL_KEY(127u16);
-pub const VK_F17: VIRTUAL_KEY = VIRTUAL_KEY(128u16);
-pub const VK_F18: VIRTUAL_KEY = VIRTUAL_KEY(129u16);
-pub const VK_F19: VIRTUAL_KEY = VIRTUAL_KEY(130u16);
-pub const VK_F2: VIRTUAL_KEY = VIRTUAL_KEY(113u16);
-pub const VK_F20: VIRTUAL_KEY = VIRTUAL_KEY(131u16);
-pub const VK_F21: VIRTUAL_KEY = VIRTUAL_KEY(132u16);
-pub const VK_F22: VIRTUAL_KEY = VIRTUAL_KEY(133u16);
-pub const VK_F23: VIRTUAL_KEY = VIRTUAL_KEY(134u16);
-pub const VK_F24: VIRTUAL_KEY = VIRTUAL_KEY(135u16);
-pub const VK_F3: VIRTUAL_KEY = VIRTUAL_KEY(114u16);
-pub const VK_F4: VIRTUAL_KEY = VIRTUAL_KEY(115u16);
-pub const VK_F5: VIRTUAL_KEY = VIRTUAL_KEY(116u16);
-pub const VK_F6: VIRTUAL_KEY = VIRTUAL_KEY(117u16);
-pub const VK_F7: VIRTUAL_KEY = VIRTUAL_KEY(118u16);
-pub const VK_F8: VIRTUAL_KEY = VIRTUAL_KEY(119u16);
-pub const VK_F9: VIRTUAL_KEY = VIRTUAL_KEY(120u16);
-pub const VK_FINAL: VIRTUAL_KEY = VIRTUAL_KEY(24u16);
-pub const VK_G: VIRTUAL_KEY = VIRTUAL_KEY(71u16);
-pub const VK_GAMEPAD_A: VIRTUAL_KEY = VIRTUAL_KEY(195u16);
-pub const VK_GAMEPAD_B: VIRTUAL_KEY = VIRTUAL_KEY(196u16);
-pub const VK_GAMEPAD_DPAD_DOWN: VIRTUAL_KEY = VIRTUAL_KEY(204u16);
-pub const VK_GAMEPAD_DPAD_LEFT: VIRTUAL_KEY = VIRTUAL_KEY(205u16);
-pub const VK_GAMEPAD_DPAD_RIGHT: VIRTUAL_KEY = VIRTUAL_KEY(206u16);
-pub const VK_GAMEPAD_DPAD_UP: VIRTUAL_KEY = VIRTUAL_KEY(203u16);
-pub const VK_GAMEPAD_LEFT_SHOULDER: VIRTUAL_KEY = VIRTUAL_KEY(200u16);
-pub const VK_GAMEPAD_LEFT_THUMBSTICK_BUTTON: VIRTUAL_KEY = VIRTUAL_KEY(209u16);
-pub const VK_GAMEPAD_LEFT_THUMBSTICK_DOWN: VIRTUAL_KEY = VIRTUAL_KEY(212u16);
-pub const VK_GAMEPAD_LEFT_THUMBSTICK_LEFT: VIRTUAL_KEY = VIRTUAL_KEY(214u16);
-pub const VK_GAMEPAD_LEFT_THUMBSTICK_RIGHT: VIRTUAL_KEY = VIRTUAL_KEY(213u16);
-pub const VK_GAMEPAD_LEFT_THUMBSTICK_UP: VIRTUAL_KEY = VIRTUAL_KEY(211u16);
-pub const VK_GAMEPAD_LEFT_TRIGGER: VIRTUAL_KEY = VIRTUAL_KEY(201u16);
-pub const VK_GAMEPAD_MENU: VIRTUAL_KEY = VIRTUAL_KEY(207u16);
-pub const VK_GAMEPAD_RIGHT_SHOULDER: VIRTUAL_KEY = VIRTUAL_KEY(199u16);
-pub const VK_GAMEPAD_RIGHT_THUMBSTICK_BUTTON: VIRTUAL_KEY = VIRTUAL_KEY(210u16);
-pub const VK_GAMEPAD_RIGHT_THUMBSTICK_DOWN: VIRTUAL_KEY = VIRTUAL_KEY(216u16);
-pub const VK_GAMEPAD_RIGHT_THUMBSTICK_LEFT: VIRTUAL_KEY = VIRTUAL_KEY(218u16);
-pub const VK_GAMEPAD_RIGHT_THUMBSTICK_RIGHT: VIRTUAL_KEY = VIRTUAL_KEY(217u16);
-pub const VK_GAMEPAD_RIGHT_THUMBSTICK_UP: VIRTUAL_KEY = VIRTUAL_KEY(215u16);
-pub const VK_GAMEPAD_RIGHT_TRIGGER: VIRTUAL_KEY = VIRTUAL_KEY(202u16);
-pub const VK_GAMEPAD_VIEW: VIRTUAL_KEY = VIRTUAL_KEY(208u16);
-pub const VK_GAMEPAD_X: VIRTUAL_KEY = VIRTUAL_KEY(197u16);
-pub const VK_GAMEPAD_Y: VIRTUAL_KEY = VIRTUAL_KEY(198u16);
-pub const VK_H: VIRTUAL_KEY = VIRTUAL_KEY(72u16);
-pub const VK_HANGEUL: VIRTUAL_KEY = VIRTUAL_KEY(21u16);
-pub const VK_HANGUL: VIRTUAL_KEY = VIRTUAL_KEY(21u16);
-pub const VK_HANJA: VIRTUAL_KEY = VIRTUAL_KEY(25u16);
-pub const VK_HELP: VIRTUAL_KEY = VIRTUAL_KEY(47u16);
-pub const VK_HOME: VIRTUAL_KEY = VIRTUAL_KEY(36u16);
-pub const VK_I: VIRTUAL_KEY = VIRTUAL_KEY(73u16);
-pub const VK_ICO_00: VIRTUAL_KEY = VIRTUAL_KEY(228u16);
-pub const VK_ICO_CLEAR: VIRTUAL_KEY = VIRTUAL_KEY(230u16);
-pub const VK_ICO_HELP: VIRTUAL_KEY = VIRTUAL_KEY(227u16);
-pub const VK_IME_OFF: VIRTUAL_KEY = VIRTUAL_KEY(26u16);
-pub const VK_IME_ON: VIRTUAL_KEY = VIRTUAL_KEY(22u16);
-pub const VK_INSERT: VIRTUAL_KEY = VIRTUAL_KEY(45u16);
-pub const VK_J: VIRTUAL_KEY = VIRTUAL_KEY(74u16);
-pub const VK_JUNJA: VIRTUAL_KEY = VIRTUAL_KEY(23u16);
-pub const VK_K: VIRTUAL_KEY = VIRTUAL_KEY(75u16);
-pub const VK_KANA: VIRTUAL_KEY = VIRTUAL_KEY(21u16);
-pub const VK_KANJI: VIRTUAL_KEY = VIRTUAL_KEY(25u16);
-pub const VK_L: VIRTUAL_KEY = VIRTUAL_KEY(76u16);
-pub const VK_LAUNCH_APP1: VIRTUAL_KEY = VIRTUAL_KEY(182u16);
-pub const VK_LAUNCH_APP2: VIRTUAL_KEY = VIRTUAL_KEY(183u16);
-pub const VK_LAUNCH_MAIL: VIRTUAL_KEY = VIRTUAL_KEY(180u16);
-pub const VK_LAUNCH_MEDIA_SELECT: VIRTUAL_KEY = VIRTUAL_KEY(181u16);
-pub const VK_LBUTTON: VIRTUAL_KEY = VIRTUAL_KEY(1u16);
-pub const VK_LCONTROL: VIRTUAL_KEY = VIRTUAL_KEY(162u16);
-pub const VK_LEFT: VIRTUAL_KEY = VIRTUAL_KEY(37u16);
-pub const VK_LMENU: VIRTUAL_KEY = VIRTUAL_KEY(164u16);
-pub const VK_LSHIFT: VIRTUAL_KEY = VIRTUAL_KEY(160u16);
-pub const VK_LWIN: VIRTUAL_KEY = VIRTUAL_KEY(91u16);
-pub const VK_M: VIRTUAL_KEY = VIRTUAL_KEY(77u16);
-pub const VK_MBUTTON: VIRTUAL_KEY = VIRTUAL_KEY(4u16);
-pub const VK_MEDIA_NEXT_TRACK: VIRTUAL_KEY = VIRTUAL_KEY(176u16);
-pub const VK_MEDIA_PLAY_PAUSE: VIRTUAL_KEY = VIRTUAL_KEY(179u16);
-pub const VK_MEDIA_PREV_TRACK: VIRTUAL_KEY = VIRTUAL_KEY(177u16);
-pub const VK_MEDIA_STOP: VIRTUAL_KEY = VIRTUAL_KEY(178u16);
-pub const VK_MENU: VIRTUAL_KEY = VIRTUAL_KEY(18u16);
-pub const VK_MODECHANGE: VIRTUAL_KEY = VIRTUAL_KEY(31u16);
-pub const VK_MULTIPLY: VIRTUAL_KEY = VIRTUAL_KEY(106u16);
-pub const VK_N: VIRTUAL_KEY = VIRTUAL_KEY(78u16);
-pub const VK_NAVIGATION_ACCEPT: VIRTUAL_KEY = VIRTUAL_KEY(142u16);
-pub const VK_NAVIGATION_CANCEL: VIRTUAL_KEY = VIRTUAL_KEY(143u16);
-pub const VK_NAVIGATION_DOWN: VIRTUAL_KEY = VIRTUAL_KEY(139u16);
-pub const VK_NAVIGATION_LEFT: VIRTUAL_KEY = VIRTUAL_KEY(140u16);
-pub const VK_NAVIGATION_MENU: VIRTUAL_KEY = VIRTUAL_KEY(137u16);
-pub const VK_NAVIGATION_RIGHT: VIRTUAL_KEY = VIRTUAL_KEY(141u16);
-pub const VK_NAVIGATION_UP: VIRTUAL_KEY = VIRTUAL_KEY(138u16);
-pub const VK_NAVIGATION_VIEW: VIRTUAL_KEY = VIRTUAL_KEY(136u16);
-pub const VK_NEXT: VIRTUAL_KEY = VIRTUAL_KEY(34u16);
-pub const VK_NONAME: VIRTUAL_KEY = VIRTUAL_KEY(252u16);
-pub const VK_NONCONVERT: VIRTUAL_KEY = VIRTUAL_KEY(29u16);
-pub const VK_NUMLOCK: VIRTUAL_KEY = VIRTUAL_KEY(144u16);
-pub const VK_NUMPAD0: VIRTUAL_KEY = VIRTUAL_KEY(96u16);
-pub const VK_NUMPAD1: VIRTUAL_KEY = VIRTUAL_KEY(97u16);
-pub const VK_NUMPAD2: VIRTUAL_KEY = VIRTUAL_KEY(98u16);
-pub const VK_NUMPAD3: VIRTUAL_KEY = VIRTUAL_KEY(99u16);
-pub const VK_NUMPAD4: VIRTUAL_KEY = VIRTUAL_KEY(100u16);
-pub const VK_NUMPAD5: VIRTUAL_KEY = VIRTUAL_KEY(101u16);
-pub const VK_NUMPAD6: VIRTUAL_KEY = VIRTUAL_KEY(102u16);
-pub const VK_NUMPAD7: VIRTUAL_KEY = VIRTUAL_KEY(103u16);
-pub const VK_NUMPAD8: VIRTUAL_KEY = VIRTUAL_KEY(104u16);
-pub const VK_NUMPAD9: VIRTUAL_KEY = VIRTUAL_KEY(105u16);
-pub const VK_O: VIRTUAL_KEY = VIRTUAL_KEY(79u16);
-pub const VK_OEM_1: VIRTUAL_KEY = VIRTUAL_KEY(186u16);
-pub const VK_OEM_102: VIRTUAL_KEY = VIRTUAL_KEY(226u16);
-pub const VK_OEM_2: VIRTUAL_KEY = VIRTUAL_KEY(191u16);
-pub const VK_OEM_3: VIRTUAL_KEY = VIRTUAL_KEY(192u16);
-pub const VK_OEM_4: VIRTUAL_KEY = VIRTUAL_KEY(219u16);
-pub const VK_OEM_5: VIRTUAL_KEY = VIRTUAL_KEY(220u16);
-pub const VK_OEM_6: VIRTUAL_KEY = VIRTUAL_KEY(221u16);
-pub const VK_OEM_7: VIRTUAL_KEY = VIRTUAL_KEY(222u16);
-pub const VK_OEM_8: VIRTUAL_KEY = VIRTUAL_KEY(223u16);
-pub const VK_OEM_ATTN: VIRTUAL_KEY = VIRTUAL_KEY(240u16);
-pub const VK_OEM_AUTO: VIRTUAL_KEY = VIRTUAL_KEY(243u16);
-pub const VK_OEM_AX: VIRTUAL_KEY = VIRTUAL_KEY(225u16);
-pub const VK_OEM_BACKTAB: VIRTUAL_KEY = VIRTUAL_KEY(245u16);
-pub const VK_OEM_CLEAR: VIRTUAL_KEY = VIRTUAL_KEY(254u16);
-pub const VK_OEM_COMMA: VIRTUAL_KEY = VIRTUAL_KEY(188u16);
-pub const VK_OEM_COPY: VIRTUAL_KEY = VIRTUAL_KEY(242u16);
-pub const VK_OEM_CUSEL: VIRTUAL_KEY = VIRTUAL_KEY(239u16);
-pub const VK_OEM_ENLW: VIRTUAL_KEY = VIRTUAL_KEY(244u16);
-pub const VK_OEM_FINISH: VIRTUAL_KEY = VIRTUAL_KEY(241u16);
-pub const VK_OEM_FJ_JISHO: VIRTUAL_KEY = VIRTUAL_KEY(146u16);
-pub const VK_OEM_FJ_LOYA: VIRTUAL_KEY = VIRTUAL_KEY(149u16);
-pub const VK_OEM_FJ_MASSHOU: VIRTUAL_KEY = VIRTUAL_KEY(147u16);
-pub const VK_OEM_FJ_ROYA: VIRTUAL_KEY = VIRTUAL_KEY(150u16);
-pub const VK_OEM_FJ_TOUROKU: VIRTUAL_KEY = VIRTUAL_KEY(148u16);
-pub const VK_OEM_JUMP: VIRTUAL_KEY = VIRTUAL_KEY(234u16);
-pub const VK_OEM_MINUS: VIRTUAL_KEY = VIRTUAL_KEY(189u16);
-pub const VK_OEM_NEC_EQUAL: VIRTUAL_KEY = VIRTUAL_KEY(146u16);
-pub const VK_OEM_PA1: VIRTUAL_KEY = VIRTUAL_KEY(235u16);
-pub const VK_OEM_PA2: VIRTUAL_KEY = VIRTUAL_KEY(236u16);
-pub const VK_OEM_PA3: VIRTUAL_KEY = VIRTUAL_KEY(237u16);
-pub const VK_OEM_PERIOD: VIRTUAL_KEY = VIRTUAL_KEY(190u16);
-pub const VK_OEM_PLUS: VIRTUAL_KEY = VIRTUAL_KEY(187u16);
-pub const VK_OEM_RESET: VIRTUAL_KEY = VIRTUAL_KEY(233u16);
-pub const VK_OEM_WSCTRL: VIRTUAL_KEY = VIRTUAL_KEY(238u16);
-pub const VK_P: VIRTUAL_KEY = VIRTUAL_KEY(80u16);
-pub const VK_PA1: VIRTUAL_KEY = VIRTUAL_KEY(253u16);
-pub const VK_PACKET: VIRTUAL_KEY = VIRTUAL_KEY(231u16);
-pub const VK_PAUSE: VIRTUAL_KEY = VIRTUAL_KEY(19u16);
-pub const VK_PLAY: VIRTUAL_KEY = VIRTUAL_KEY(250u16);
-pub const VK_PRINT: VIRTUAL_KEY = VIRTUAL_KEY(42u16);
-pub const VK_PRIOR: VIRTUAL_KEY = VIRTUAL_KEY(33u16);
-pub const VK_PROCESSKEY: VIRTUAL_KEY = VIRTUAL_KEY(229u16);
-pub const VK_Q: VIRTUAL_KEY = VIRTUAL_KEY(81u16);
-pub const VK_R: VIRTUAL_KEY = VIRTUAL_KEY(82u16);
-pub const VK_RBUTTON: VIRTUAL_KEY = VIRTUAL_KEY(2u16);
-pub const VK_RCONTROL: VIRTUAL_KEY = VIRTUAL_KEY(163u16);
-pub const VK_RETURN: VIRTUAL_KEY = VIRTUAL_KEY(13u16);
-pub const VK_RIGHT: VIRTUAL_KEY = VIRTUAL_KEY(39u16);
-pub const VK_RMENU: VIRTUAL_KEY = VIRTUAL_KEY(165u16);
-pub const VK_RSHIFT: VIRTUAL_KEY = VIRTUAL_KEY(161u16);
-pub const VK_RWIN: VIRTUAL_KEY = VIRTUAL_KEY(92u16);
-pub const VK_S: VIRTUAL_KEY = VIRTUAL_KEY(83u16);
-pub const VK_SCROLL: VIRTUAL_KEY = VIRTUAL_KEY(145u16);
-pub const VK_SELECT: VIRTUAL_KEY = VIRTUAL_KEY(41u16);
-pub const VK_SEPARATOR: VIRTUAL_KEY = VIRTUAL_KEY(108u16);
-pub const VK_SHIFT: VIRTUAL_KEY = VIRTUAL_KEY(16u16);
-pub const VK_SLEEP: VIRTUAL_KEY = VIRTUAL_KEY(95u16);
-pub const VK_SNAPSHOT: VIRTUAL_KEY = VIRTUAL_KEY(44u16);
-pub const VK_SPACE: VIRTUAL_KEY = VIRTUAL_KEY(32u16);
-pub const VK_SUBTRACT: VIRTUAL_KEY = VIRTUAL_KEY(109u16);
-pub const VK_T: VIRTUAL_KEY = VIRTUAL_KEY(84u16);
-pub const VK_TAB: VIRTUAL_KEY = VIRTUAL_KEY(9u16);
-pub const VK_U: VIRTUAL_KEY = VIRTUAL_KEY(85u16);
-pub const VK_UP: VIRTUAL_KEY = VIRTUAL_KEY(38u16);
-pub const VK_V: VIRTUAL_KEY = VIRTUAL_KEY(86u16);
-pub const VK_VOLUME_DOWN: VIRTUAL_KEY = VIRTUAL_KEY(174u16);
-pub const VK_VOLUME_MUTE: VIRTUAL_KEY = VIRTUAL_KEY(173u16);
-pub const VK_VOLUME_UP: VIRTUAL_KEY = VIRTUAL_KEY(175u16);
-pub const VK_W: VIRTUAL_KEY = VIRTUAL_KEY(87u16);
-pub const VK_X: VIRTUAL_KEY = VIRTUAL_KEY(88u16);
-pub const VK_XBUTTON1: VIRTUAL_KEY = VIRTUAL_KEY(5u16);
-pub const VK_XBUTTON2: VIRTUAL_KEY = VIRTUAL_KEY(6u16);
-pub const VK_Y: VIRTUAL_KEY = VIRTUAL_KEY(89u16);
-pub const VK_Z: VIRTUAL_KEY = VIRTUAL_KEY(90u16);
-pub const VK_ZOOM: VIRTUAL_KEY = VIRTUAL_KEY(251u16);
-pub const VK__none_: VIRTUAL_KEY = VIRTUAL_KEY(255u16);
 pub const WCH_DEAD: u32 = 61441u32;
 pub const WCH_LGTR: u32 = 61442u32;
 pub const WCH_NONE: u32 = 61440u32;

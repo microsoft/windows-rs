@@ -53,6 +53,21 @@ impl windows_core::RuntimeName for DnssdRegistrationResult {
 unsafe impl Send for DnssdRegistrationResult {}
 unsafe impl Sync for DnssdRegistrationResult {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DnssdRegistrationStatus(pub i32);
+impl DnssdRegistrationStatus {
+    pub const Success: Self = Self(0i32);
+    pub const InvalidServiceName: Self = Self(1i32);
+    pub const ServerError: Self = Self(2i32);
+    pub const SecurityError: Self = Self(3i32);
+}
+impl windows_core::TypeKind for DnssdRegistrationStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DnssdRegistrationStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.ServiceDiscovery.Dnssd.DnssdRegistrationStatus;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DnssdServiceInstance(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DnssdServiceInstance, windows_core::IUnknown, windows_core::IInspectable);
@@ -360,6 +375,23 @@ impl windows_core::RuntimeName for DnssdServiceWatcher {
 }
 unsafe impl Send for DnssdServiceWatcher {}
 unsafe impl Sync for DnssdServiceWatcher {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DnssdServiceWatcherStatus(pub i32);
+impl DnssdServiceWatcherStatus {
+    pub const Created: Self = Self(0i32);
+    pub const Started: Self = Self(1i32);
+    pub const EnumerationCompleted: Self = Self(2i32);
+    pub const Stopping: Self = Self(3i32);
+    pub const Stopped: Self = Self(4i32);
+    pub const Aborted: Self = Self(5i32);
+}
+impl windows_core::TypeKind for DnssdServiceWatcherStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DnssdServiceWatcherStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceWatcherStatus;i4)");
+}
 windows_core::imp::define_interface!(IDnssdRegistrationResult, IDnssdRegistrationResult_Vtbl, 0x3d786ad2_e606_5350_73ea_7e97f066162f);
 impl windows_core::RuntimeType for IDnssdRegistrationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -434,36 +466,4 @@ pub struct IDnssdServiceWatcher_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DnssdServiceWatcherStatus) -> windows_core::HRESULT,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DnssdRegistrationStatus(pub i32);
-impl DnssdRegistrationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const InvalidServiceName: Self = Self(1i32);
-    pub const ServerError: Self = Self(2i32);
-    pub const SecurityError: Self = Self(3i32);
-}
-impl windows_core::TypeKind for DnssdRegistrationStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DnssdRegistrationStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.ServiceDiscovery.Dnssd.DnssdRegistrationStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DnssdServiceWatcherStatus(pub i32);
-impl DnssdServiceWatcherStatus {
-    pub const Created: Self = Self(0i32);
-    pub const Started: Self = Self(1i32);
-    pub const EnumerationCompleted: Self = Self(2i32);
-    pub const Stopping: Self = Self(3i32);
-    pub const Stopped: Self = Self(4i32);
-    pub const Aborted: Self = Self(5i32);
-}
-impl windows_core::TypeKind for DnssdServiceWatcherStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DnssdServiceWatcherStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceWatcherStatus;i4)");
 }

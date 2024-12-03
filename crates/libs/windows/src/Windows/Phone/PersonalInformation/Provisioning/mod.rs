@@ -40,37 +40,6 @@ impl ContactPartnerProvisioningManager {
 impl windows_core::RuntimeName for ContactPartnerProvisioningManager {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.Provisioning.ContactPartnerProvisioningManager";
 }
-pub struct MessagePartnerProvisioningManager;
-impl MessagePartnerProvisioningManager {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ImportSmsToSystemAsync<P4>(incoming: bool, read: bool, body: &windows_core::HSTRING, sender: &windows_core::HSTRING, recipients: P4, deliverytime: super::super::super::Foundation::DateTime) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
-    where
-        P4: windows_core::Param<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>,
-    {
-        Self::IMessagePartnerProvisioningManagerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImportSmsToSystemAsync)(windows_core::Interface::as_raw(this), incoming, read, core::mem::transmute_copy(body), core::mem::transmute_copy(sender), recipients.param().abi(), deliverytime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ImportMmsToSystemAsync<P4, P6>(incoming: bool, read: bool, subject: &windows_core::HSTRING, sender: &windows_core::HSTRING, recipients: P4, deliverytime: super::super::super::Foundation::DateTime, attachments: P6) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
-    where
-        P4: windows_core::Param<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>,
-        P6: windows_core::Param<super::super::super::Foundation::Collections::IVectorView<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>>,
-    {
-        Self::IMessagePartnerProvisioningManagerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImportMmsToSystemAsync)(windows_core::Interface::as_raw(this), incoming, read, core::mem::transmute_copy(subject), core::mem::transmute_copy(sender), recipients.param().abi(), deliverytime, attachments.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IMessagePartnerProvisioningManagerStatics<R, F: FnOnce(&IMessagePartnerProvisioningManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<MessagePartnerProvisioningManager, IMessagePartnerProvisioningManagerStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeName for MessagePartnerProvisioningManager {
-    const NAME: &'static str = "Windows.Phone.PersonalInformation.Provisioning.MessagePartnerProvisioningManager";
-}
 windows_core::imp::define_interface!(IContactPartnerProvisioningManagerStatics, IContactPartnerProvisioningManagerStatics_Vtbl, 0xc0d79a21_01af_4fd3_98cd_b3d656de15f4);
 impl windows_core::RuntimeType for IContactPartnerProvisioningManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -108,4 +77,35 @@ pub struct IMessagePartnerProvisioningManagerStatics_Vtbl {
     pub ImportMmsToSystemAsync: unsafe extern "system" fn(*mut core::ffi::c_void, bool, bool, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::Foundation::DateTime, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     ImportMmsToSystemAsync: usize,
+}
+pub struct MessagePartnerProvisioningManager;
+impl MessagePartnerProvisioningManager {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ImportSmsToSystemAsync<P4>(incoming: bool, read: bool, body: &windows_core::HSTRING, sender: &windows_core::HSTRING, recipients: P4, deliverytime: super::super::super::Foundation::DateTime) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    where
+        P4: windows_core::Param<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>,
+    {
+        Self::IMessagePartnerProvisioningManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ImportSmsToSystemAsync)(windows_core::Interface::as_raw(this), incoming, read, core::mem::transmute_copy(body), core::mem::transmute_copy(sender), recipients.param().abi(), deliverytime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ImportMmsToSystemAsync<P4, P6>(incoming: bool, read: bool, subject: &windows_core::HSTRING, sender: &windows_core::HSTRING, recipients: P4, deliverytime: super::super::super::Foundation::DateTime, attachments: P6) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    where
+        P4: windows_core::Param<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>,
+        P6: windows_core::Param<super::super::super::Foundation::Collections::IVectorView<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>>,
+    {
+        Self::IMessagePartnerProvisioningManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ImportMmsToSystemAsync)(windows_core::Interface::as_raw(this), incoming, read, core::mem::transmute_copy(subject), core::mem::transmute_copy(sender), recipients.param().abi(), deliverytime, attachments.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IMessagePartnerProvisioningManagerStatics<R, F: FnOnce(&IMessagePartnerProvisioningManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<MessagePartnerProvisioningManager, IMessagePartnerProvisioningManagerStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeName for MessagePartnerProvisioningManager {
+    const NAME: &'static str = "Windows.Phone.PersonalInformation.Provisioning.MessagePartnerProvisioningManager";
 }

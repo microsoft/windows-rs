@@ -3165,985 +3165,6 @@ pub unsafe fn wglSwapMultipleBuffers(param0: u32, param1: *const WGLSWAP) -> u32
     windows_targets::link!("opengl32.dll" "system" fn wglSwapMultipleBuffers(param0 : u32, param1 : *const WGLSWAP) -> u32);
     wglSwapMultipleBuffers(core::mem::transmute(param0), core::mem::transmute(param1))
 }
-pub type CFP_ALLOCPROC = Option<unsafe extern "system" fn(param0: usize) -> *mut core::ffi::c_void>;
-pub type CFP_FREEPROC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void)>;
-pub type CFP_REALLOCPROC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: usize) -> *mut core::ffi::c_void>;
-pub type DRAWSTATEPROC = Option<unsafe extern "system" fn(hdc: HDC, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, cx: i32, cy: i32) -> super::super::Foundation::BOOL>;
-pub type ENHMFENUMPROC = Option<unsafe extern "system" fn(hdc: HDC, lpht: *const HANDLETABLE, lpmr: *const ENHMETARECORD, nhandles: i32, data: super::super::Foundation::LPARAM) -> i32>;
-pub type FONTENUMPROCA = Option<unsafe extern "system" fn(param0: *const LOGFONTA, param1: *const TEXTMETRICA, param2: u32, param3: super::super::Foundation::LPARAM) -> i32>;
-pub type FONTENUMPROCW = Option<unsafe extern "system" fn(param0: *const LOGFONTW, param1: *const TEXTMETRICW, param2: u32, param3: super::super::Foundation::LPARAM) -> i32>;
-pub type GOBJENUMPROC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: super::super::Foundation::LPARAM) -> i32>;
-pub type GRAYSTRINGPROC = Option<unsafe extern "system" fn(param0: HDC, param1: super::super::Foundation::LPARAM, param2: i32) -> super::super::Foundation::BOOL>;
-pub type LINEDDAPROC = Option<unsafe extern "system" fn(param0: i32, param1: i32, param2: super::super::Foundation::LPARAM)>;
-pub type LPFNDEVCAPS = Option<unsafe extern "system" fn(param0: windows_core::PCSTR, param1: windows_core::PCSTR, param2: u32, param3: windows_core::PCSTR, param4: *mut DEVMODEA) -> u32>;
-pub type LPFNDEVMODE = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::HMODULE, param2: *mut DEVMODEA, param3: windows_core::PCSTR, param4: windows_core::PCSTR, param5: *mut DEVMODEA, param6: windows_core::PCSTR, param7: u32) -> u32>;
-pub type MFENUMPROC = Option<unsafe extern "system" fn(hdc: HDC, lpht: *const HANDLETABLE, lpmr: *const METARECORD, nobj: i32, param4: super::super::Foundation::LPARAM) -> i32>;
-pub type MONITORENUMPROC = Option<unsafe extern "system" fn(param0: HMONITOR, param1: HDC, param2: *mut super::super::Foundation::RECT, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-pub type READEMBEDPROC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut core::ffi::c_void, param2: u32) -> u32>;
-pub type WRITEEMBEDPROC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *const core::ffi::c_void, param2: u32) -> u32>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ARC_DIRECTION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BACKGROUND_MODE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BI_COMPRESSION(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BRUSH_STYLE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CDS_TYPE(pub u32);
-impl CDS_TYPE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for CDS_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for CDS_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for CDS_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for CDS_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for CDS_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CREATE_FONT_PACKAGE_SUBSET_ENCODING(pub i16);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CREATE_FONT_PACKAGE_SUBSET_PLATFORM(pub i16);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CREATE_POLYGON_RGN_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DC_LAYOUT(pub u32);
-impl DC_LAYOUT {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DC_LAYOUT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DC_LAYOUT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DC_LAYOUT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DC_LAYOUT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DC_LAYOUT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DEVMODE_COLLATE(pub i16);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DEVMODE_COLOR(pub i16);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DEVMODE_DISPLAY_FIXED_OUTPUT(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DEVMODE_DISPLAY_ORIENTATION(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DEVMODE_DUPLEX(pub i16);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DEVMODE_FIELD_FLAGS(pub u32);
-impl DEVMODE_FIELD_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DEVMODE_FIELD_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DEVMODE_FIELD_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DEVMODE_FIELD_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DEVMODE_FIELD_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DEVMODE_FIELD_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DEVMODE_TRUETYPE_OPTION(pub i16);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DFCS_STATE(pub u32);
-impl DFCS_STATE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DFCS_STATE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DFCS_STATE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DFCS_STATE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DFCS_STATE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DFCS_STATE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DFC_TYPE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DIB_USAGE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPLAYCONFIG_COLOR_ENCODING(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPLAY_DEVICE_STATE_FLAGS(pub u32);
-impl DISPLAY_DEVICE_STATE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DISPLAY_DEVICE_STATE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DISPLAY_DEVICE_STATE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DISPLAY_DEVICE_STATE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DISPLAY_DEVICE_STATE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DISPLAY_DEVICE_STATE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISP_CHANGE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DRAWEDGE_FLAGS(pub u32);
-impl DRAWEDGE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DRAWEDGE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DRAWEDGE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DRAWEDGE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DRAWEDGE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DRAWEDGE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DRAWSTATE_FLAGS(pub u32);
-impl DRAWSTATE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DRAWSTATE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DRAWSTATE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DRAWSTATE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DRAWSTATE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DRAWSTATE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DRAW_CAPTION_FLAGS(pub u32);
-impl DRAW_CAPTION_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DRAW_CAPTION_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DRAW_CAPTION_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DRAW_CAPTION_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DRAW_CAPTION_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DRAW_CAPTION_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DRAW_EDGE_FLAGS(pub u32);
-impl DRAW_EDGE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DRAW_EDGE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DRAW_EDGE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DRAW_EDGE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DRAW_EDGE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DRAW_EDGE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DRAW_TEXT_FORMAT(pub u32);
-impl DRAW_TEXT_FORMAT {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DRAW_TEXT_FORMAT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DRAW_TEXT_FORMAT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DRAW_TEXT_FORMAT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DRAW_TEXT_FORMAT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DRAW_TEXT_FORMAT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EMBEDDED_FONT_PRIV_STATUS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EMBED_FONT_CHARSET(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ENHANCED_METAFILE_RECORD_TYPE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ENUM_DISPLAY_SETTINGS_FLAGS(pub u32);
-impl ENUM_DISPLAY_SETTINGS_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for ENUM_DISPLAY_SETTINGS_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for ENUM_DISPLAY_SETTINGS_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for ENUM_DISPLAY_SETTINGS_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for ENUM_DISPLAY_SETTINGS_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for ENUM_DISPLAY_SETTINGS_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ENUM_DISPLAY_SETTINGS_MODE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ETO_OPTIONS(pub u32);
-impl ETO_OPTIONS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for ETO_OPTIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for ETO_OPTIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for ETO_OPTIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for ETO_OPTIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for ETO_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EXT_FLOOD_FILL_TYPE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FONT_CHARSET(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FONT_CLIP_PRECISION(pub u8);
-impl FONT_CLIP_PRECISION {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for FONT_CLIP_PRECISION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for FONT_CLIP_PRECISION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for FONT_CLIP_PRECISION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for FONT_CLIP_PRECISION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for FONT_CLIP_PRECISION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FONT_FAMILY(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FONT_LICENSE_PRIVS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FONT_OUTPUT_PRECISION(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FONT_PITCH(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FONT_QUALITY(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FONT_RESOURCE_CHARACTERISTICS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FONT_WEIGHT(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GDI_REGION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GET_CHARACTER_PLACEMENT_FLAGS(pub u32);
-impl GET_CHARACTER_PLACEMENT_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for GET_CHARACTER_PLACEMENT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for GET_CHARACTER_PLACEMENT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for GET_CHARACTER_PLACEMENT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for GET_CHARACTER_PLACEMENT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for GET_CHARACTER_PLACEMENT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GET_DCX_FLAGS(pub u32);
-impl GET_DCX_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for GET_DCX_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for GET_DCX_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for GET_DCX_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for GET_DCX_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for GET_DCX_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GET_DEVICE_CAPS_INDEX(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GET_GLYPH_OUTLINE_FORMAT(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GET_STOCK_OBJECT_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GRADIENT_FILL(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GRAPHICS_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HATCH_BRUSH_STYLE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HDC_MAP_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MODIFY_WORLD_TRANSFORM_MODE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MONITOR_FROM_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OBJ_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PAN_ARM_STYLE(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PAN_CONTRAST(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PAN_FAMILY_TYPE(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PAN_LETT_FORM(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PAN_MIDLINE(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PAN_PROPORTION(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PAN_SERIF_STYLE(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PAN_STROKE_VARIATION(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PAN_WEIGHT(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PAN_XHEIGHT(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PEN_STYLE(pub i32);
-impl PEN_STYLE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for PEN_STYLE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for PEN_STYLE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for PEN_STYLE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for PEN_STYLE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for PEN_STYLE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct R2_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct REDRAW_WINDOW_FLAGS(pub u32);
-impl REDRAW_WINDOW_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for REDRAW_WINDOW_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for REDRAW_WINDOW_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for REDRAW_WINDOW_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for REDRAW_WINDOW_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for REDRAW_WINDOW_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RGN_COMBINE_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ROP_CODE(pub u32);
-impl ROP_CODE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for ROP_CODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for ROP_CODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for ROP_CODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for ROP_CODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for ROP_CODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SET_BOUNDS_RECT_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STRETCH_BLT_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SYSTEM_PALETTE_USE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SYS_COLOR_INDEX(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TEXT_ALIGN_OPTIONS(pub u32);
-impl TEXT_ALIGN_OPTIONS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for TEXT_ALIGN_OPTIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for TEXT_ALIGN_OPTIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for TEXT_ALIGN_OPTIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for TEXT_ALIGN_OPTIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for TEXT_ALIGN_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TMPF_FLAGS(pub u8);
-impl TMPF_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for TMPF_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for TMPF_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for TMPF_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for TMPF_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for TMPF_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TTEMBED_FLAGS(pub u32);
-impl TTEMBED_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for TTEMBED_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for TTEMBED_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for TTEMBED_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for TTEMBED_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for TTEMBED_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TTLOAD_EMBEDDED_FONT_STATUS(pub u32);
-impl TTLOAD_EMBEDDED_FONT_STATUS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for TTLOAD_EMBEDDED_FONT_STATUS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for TTLOAD_EMBEDDED_FONT_STATUS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for TTLOAD_EMBEDDED_FONT_STATUS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for TTLOAD_EMBEDDED_FONT_STATUS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for TTLOAD_EMBEDDED_FONT_STATUS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ABC {
@@ -4174,6 +3195,7 @@ impl Default for ABCFLOAT {
 impl windows_core::TypeKind for ABCFLOAT {
     type TypeKind = windows_core::CopyType;
 }
+pub const ABORTDOC: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ABORTPATH {
@@ -4187,6 +3209,24 @@ impl Default for ABORTPATH {
 impl windows_core::TypeKind for ABORTPATH {
     type TypeKind = windows_core::CopyType;
 }
+pub const ABSOLUTE: u32 = 1u32;
+pub const AC_SRC_ALPHA: u32 = 1u32;
+pub const AC_SRC_OVER: u32 = 0u32;
+pub const AD_CLOCKWISE: ARC_DIRECTION = ARC_DIRECTION(2i32);
+pub const AD_COUNTERCLOCKWISE: ARC_DIRECTION = ARC_DIRECTION(1i32);
+pub const ALTERNATE: CREATE_POLYGON_RGN_MODE = CREATE_POLYGON_RGN_MODE(1i32);
+pub const ANSI_CHARSET: FONT_CHARSET = FONT_CHARSET(0u8);
+pub const ANSI_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(11i32);
+pub const ANSI_VAR_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(12i32);
+pub const ANTIALIASED_QUALITY: FONT_QUALITY = FONT_QUALITY(4u8);
+pub const ARABIC_CHARSET: FONT_CHARSET = FONT_CHARSET(178u8);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ARC_DIRECTION(pub i32);
+pub const ASPECTX: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(40u32);
+pub const ASPECTXY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(44u32);
+pub const ASPECTY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(42u32);
+pub const ASPECT_FILTERING: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AXESLISTA {
@@ -4247,6 +3287,39 @@ impl Default for AXISINFOW {
 impl windows_core::TypeKind for AXISINFOW {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BACKGROUND_MODE(pub u32);
+pub const BALTIC_CHARSET: FONT_CHARSET = FONT_CHARSET(186u8);
+pub const BANDINFO: u32 = 24u32;
+pub const BDR_INNER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(12u32);
+pub const BDR_OUTER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(3u32);
+pub const BDR_RAISED: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(5u32);
+pub const BDR_RAISEDINNER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(4u32);
+pub const BDR_RAISEDOUTER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(1u32);
+pub const BDR_SUNKEN: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(10u32);
+pub const BDR_SUNKENINNER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(8u32);
+pub const BDR_SUNKENOUTER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(2u32);
+pub const BEGIN_PATH: u32 = 4096u32;
+pub const BF_ADJUST: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(8192u32);
+pub const BF_BOTTOM: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(8u32);
+pub const BF_BOTTOMLEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(9u32);
+pub const BF_BOTTOMRIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(12u32);
+pub const BF_DIAGONAL: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(16u32);
+pub const BF_DIAGONAL_ENDBOTTOMLEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(25u32);
+pub const BF_DIAGONAL_ENDBOTTOMRIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(28u32);
+pub const BF_DIAGONAL_ENDTOPLEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(19u32);
+pub const BF_DIAGONAL_ENDTOPRIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(22u32);
+pub const BF_FLAT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(16384u32);
+pub const BF_LEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(1u32);
+pub const BF_MIDDLE: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(2048u32);
+pub const BF_MONO: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(32768u32);
+pub const BF_RECT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(15u32);
+pub const BF_RIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(4u32);
+pub const BF_SOFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(4096u32);
+pub const BF_TOP: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(2u32);
+pub const BF_TOPLEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(3u32);
+pub const BF_TOPRIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(6u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BITMAP {
@@ -4419,6 +3492,21 @@ impl Default for BITMAPV5HEADER {
 impl windows_core::TypeKind for BITMAPV5HEADER {
     type TypeKind = windows_core::CopyType;
 }
+pub const BITSPIXEL: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(12u32);
+pub const BI_BITFIELDS: BI_COMPRESSION = BI_COMPRESSION(3u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BI_COMPRESSION(pub u32);
+pub const BI_JPEG: BI_COMPRESSION = BI_COMPRESSION(4u32);
+pub const BI_PNG: BI_COMPRESSION = BI_COMPRESSION(5u32);
+pub const BI_RGB: BI_COMPRESSION = BI_COMPRESSION(0u32);
+pub const BI_RLE4: BI_COMPRESSION = BI_COMPRESSION(2u32);
+pub const BI_RLE8: BI_COMPRESSION = BI_COMPRESSION(1u32);
+pub const BKMODE_LAST: u32 = 2u32;
+pub const BLACKNESS: ROP_CODE = ROP_CODE(66u32);
+pub const BLACKONWHITE: STRETCH_BLT_MODE = STRETCH_BLT_MODE(1i32);
+pub const BLACK_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(4i32);
+pub const BLACK_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(7i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BLENDFUNCTION {
@@ -4435,6 +3523,93 @@ impl Default for BLENDFUNCTION {
 impl windows_core::TypeKind for BLENDFUNCTION {
     type TypeKind = windows_core::CopyType;
 }
+pub const BLTALIGNMENT: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(119u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BRUSH_STYLE(pub u32);
+pub const BS_DIBPATTERN: BRUSH_STYLE = BRUSH_STYLE(5u32);
+pub const BS_DIBPATTERN8X8: BRUSH_STYLE = BRUSH_STYLE(8u32);
+pub const BS_DIBPATTERNPT: BRUSH_STYLE = BRUSH_STYLE(6u32);
+pub const BS_HATCHED: BRUSH_STYLE = BRUSH_STYLE(2u32);
+pub const BS_HOLLOW: BRUSH_STYLE = BRUSH_STYLE(1u32);
+pub const BS_INDEXED: BRUSH_STYLE = BRUSH_STYLE(4u32);
+pub const BS_MONOPATTERN: BRUSH_STYLE = BRUSH_STYLE(9u32);
+pub const BS_NULL: BRUSH_STYLE = BRUSH_STYLE(1u32);
+pub const BS_PATTERN: BRUSH_STYLE = BRUSH_STYLE(3u32);
+pub const BS_PATTERN8X8: BRUSH_STYLE = BRUSH_STYLE(7u32);
+pub const BS_SOLID: BRUSH_STYLE = BRUSH_STYLE(0u32);
+pub const CAPTUREBLT: ROP_CODE = ROP_CODE(1073741824u32);
+pub const CA_LOG_FILTER: u32 = 2u32;
+pub const CA_NEGATIVE: u32 = 1u32;
+pub const CBM_INIT: i32 = 4i32;
+pub const CCHFORMNAME: u32 = 32u32;
+pub const CC_CHORD: u32 = 4u32;
+pub const CC_CIRCLES: u32 = 1u32;
+pub const CC_ELLIPSES: u32 = 8u32;
+pub const CC_INTERIORS: u32 = 128u32;
+pub const CC_NONE: u32 = 0u32;
+pub const CC_PIE: u32 = 2u32;
+pub const CC_ROUNDRECT: u32 = 256u32;
+pub const CC_STYLED: u32 = 32u32;
+pub const CC_WIDE: u32 = 16u32;
+pub const CC_WIDESTYLED: u32 = 64u32;
+pub const CDS_DISABLE_UNSAFE_MODES: CDS_TYPE = CDS_TYPE(512u32);
+pub const CDS_ENABLE_UNSAFE_MODES: CDS_TYPE = CDS_TYPE(256u32);
+pub const CDS_FULLSCREEN: CDS_TYPE = CDS_TYPE(4u32);
+pub const CDS_GLOBAL: CDS_TYPE = CDS_TYPE(8u32);
+pub const CDS_NORESET: CDS_TYPE = CDS_TYPE(268435456u32);
+pub const CDS_RESET: CDS_TYPE = CDS_TYPE(1073741824u32);
+pub const CDS_RESET_EX: CDS_TYPE = CDS_TYPE(536870912u32);
+pub const CDS_SET_PRIMARY: CDS_TYPE = CDS_TYPE(16u32);
+pub const CDS_TEST: CDS_TYPE = CDS_TYPE(2u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CDS_TYPE(pub u32);
+impl CDS_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for CDS_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for CDS_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for CDS_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for CDS_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for CDS_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const CDS_UPDATEREGISTRY: CDS_TYPE = CDS_TYPE(1u32);
+pub const CDS_VIDEOPARAMETERS: CDS_TYPE = CDS_TYPE(32u32);
+pub type CFP_ALLOCPROC = Option<unsafe extern "system" fn(param0: usize) -> *mut core::ffi::c_void>;
+pub type CFP_FREEPROC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void)>;
+pub type CFP_REALLOCPROC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: usize) -> *mut core::ffi::c_void>;
+pub const CHARSET_DEFAULT: u32 = 1u32;
+pub const CHARSET_GLYPHIDX: u32 = 3u32;
+pub const CHARSET_SYMBOL: EMBED_FONT_CHARSET = EMBED_FONT_CHARSET(2u32);
+pub const CHARSET_UNICODE: EMBED_FONT_CHARSET = EMBED_FONT_CHARSET(1u32);
+pub const CHECKJPEGFORMAT: u32 = 4119u32;
+pub const CHECKPNGFORMAT: u32 = 4120u32;
+pub const CHINESEBIG5_CHARSET: FONT_CHARSET = FONT_CHARSET(136u8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CIEXYZ {
@@ -4465,6 +3640,27 @@ impl Default for CIEXYZTRIPLE {
 impl windows_core::TypeKind for CIEXYZTRIPLE {
     type TypeKind = windows_core::CopyType;
 }
+pub const CLEARTYPE_NATURAL_QUALITY: u32 = 6u32;
+pub const CLEARTYPE_QUALITY: FONT_QUALITY = FONT_QUALITY(5u8);
+pub const CLIPCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(36u32);
+pub const CLIP_CHARACTER_PRECIS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(1u8);
+pub const CLIP_DEFAULT_PRECIS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(0u8);
+pub const CLIP_DFA_DISABLE: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(64u8);
+pub const CLIP_DFA_OVERRIDE: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(64u8);
+pub const CLIP_EMBEDDED: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(128u8);
+pub const CLIP_LH_ANGLES: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(16u8);
+pub const CLIP_MASK: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(15u8);
+pub const CLIP_STROKE_PRECIS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(2u8);
+pub const CLIP_TO_PATH: u32 = 4097u32;
+pub const CLIP_TT_ALWAYS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(32u8);
+pub const CLOSECHANNEL: u32 = 4112u32;
+pub const CLR_INVALID: u32 = 4294967295u32;
+pub const CM_CMYK_COLOR: u32 = 4u32;
+pub const CM_DEVICE_ICM: u32 = 1u32;
+pub const CM_GAMMA_RAMP: u32 = 2u32;
+pub const CM_IN_GAMUT: u32 = 0u32;
+pub const CM_NONE: u32 = 0u32;
+pub const CM_OUT_OF_GAMUT: u32 = 255u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COLORADJUSTMENT {
@@ -4489,6 +3685,143 @@ impl Default for COLORADJUSTMENT {
 impl windows_core::TypeKind for COLORADJUSTMENT {
     type TypeKind = windows_core::CopyType;
 }
+pub const COLORMATCHTOTARGET_EMBEDED: u32 = 1u32;
+pub const COLORMGMTCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(121u32);
+pub const COLORONCOLOR: STRETCH_BLT_MODE = STRETCH_BLT_MODE(3i32);
+pub const COLORRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(108u32);
+pub const COLOR_3DDKSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(21i32);
+pub const COLOR_3DFACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(15i32);
+pub const COLOR_3DHIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20i32);
+pub const COLOR_3DHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20i32);
+pub const COLOR_3DLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(22i32);
+pub const COLOR_3DSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(16i32);
+pub const COLOR_ACTIVEBORDER: SYS_COLOR_INDEX = SYS_COLOR_INDEX(10i32);
+pub const COLOR_ACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(2i32);
+pub const COLOR_APPWORKSPACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(12i32);
+pub const COLOR_BACKGROUND: SYS_COLOR_INDEX = SYS_COLOR_INDEX(1i32);
+pub const COLOR_BTNFACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(15i32);
+pub const COLOR_BTNHIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20i32);
+pub const COLOR_BTNHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20i32);
+pub const COLOR_BTNSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(16i32);
+pub const COLOR_BTNTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(18i32);
+pub const COLOR_CAPTIONTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(9i32);
+pub const COLOR_DESKTOP: SYS_COLOR_INDEX = SYS_COLOR_INDEX(1i32);
+pub const COLOR_GRADIENTACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(27i32);
+pub const COLOR_GRADIENTINACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(28i32);
+pub const COLOR_GRAYTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(17i32);
+pub const COLOR_HIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(13i32);
+pub const COLOR_HIGHLIGHTTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(14i32);
+pub const COLOR_HOTLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(26i32);
+pub const COLOR_INACTIVEBORDER: SYS_COLOR_INDEX = SYS_COLOR_INDEX(11i32);
+pub const COLOR_INACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(3i32);
+pub const COLOR_INACTIVECAPTIONTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(19i32);
+pub const COLOR_INFOBK: SYS_COLOR_INDEX = SYS_COLOR_INDEX(24i32);
+pub const COLOR_INFOTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(23i32);
+pub const COLOR_MENU: SYS_COLOR_INDEX = SYS_COLOR_INDEX(4i32);
+pub const COLOR_MENUBAR: SYS_COLOR_INDEX = SYS_COLOR_INDEX(30i32);
+pub const COLOR_MENUHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(29i32);
+pub const COLOR_MENUTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(7i32);
+pub const COLOR_SCROLLBAR: SYS_COLOR_INDEX = SYS_COLOR_INDEX(0i32);
+pub const COLOR_WINDOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(5i32);
+pub const COLOR_WINDOWFRAME: SYS_COLOR_INDEX = SYS_COLOR_INDEX(6i32);
+pub const COLOR_WINDOWTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(8i32);
+pub const COMPLEXREGION: GDI_REGION_TYPE = GDI_REGION_TYPE(3i32);
+pub const CP_NONE: u32 = 0u32;
+pub const CP_RECTANGLE: u32 = 1u32;
+pub const CP_REGION: u32 = 2u32;
+pub const CREATECOLORSPACE_EMBEDED: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CREATE_FONT_PACKAGE_SUBSET_ENCODING(pub i16);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CREATE_FONT_PACKAGE_SUBSET_PLATFORM(pub i16);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CREATE_POLYGON_RGN_MODE(pub i32);
+pub const CURVECAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(28u32);
+pub const DCBA_FACEDOWNCENTER: u32 = 257u32;
+pub const DCBA_FACEDOWNLEFT: u32 = 258u32;
+pub const DCBA_FACEDOWNNONE: u32 = 256u32;
+pub const DCBA_FACEDOWNRIGHT: u32 = 259u32;
+pub const DCBA_FACEUPCENTER: u32 = 1u32;
+pub const DCBA_FACEUPLEFT: u32 = 2u32;
+pub const DCBA_FACEUPNONE: u32 = 0u32;
+pub const DCBA_FACEUPRIGHT: u32 = 3u32;
+pub const DCB_ACCUMULATE: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(2u32);
+pub const DCB_DISABLE: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(8u32);
+pub const DCB_ENABLE: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(4u32);
+pub const DCB_RESET: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(1u32);
+pub const DCTT_BITMAP: i32 = 1i32;
+pub const DCTT_DOWNLOAD: i32 = 2i32;
+pub const DCTT_DOWNLOAD_OUTLINE: i32 = 8i32;
+pub const DCTT_SUBDEV: i32 = 4i32;
+pub const DCX_CACHE: GET_DCX_FLAGS = GET_DCX_FLAGS(2u32);
+pub const DCX_CLIPCHILDREN: GET_DCX_FLAGS = GET_DCX_FLAGS(8u32);
+pub const DCX_CLIPSIBLINGS: GET_DCX_FLAGS = GET_DCX_FLAGS(16u32);
+pub const DCX_EXCLUDERGN: GET_DCX_FLAGS = GET_DCX_FLAGS(64u32);
+pub const DCX_INTERSECTRGN: GET_DCX_FLAGS = GET_DCX_FLAGS(128u32);
+pub const DCX_INTERSECTUPDATE: GET_DCX_FLAGS = GET_DCX_FLAGS(512u32);
+pub const DCX_LOCKWINDOWUPDATE: GET_DCX_FLAGS = GET_DCX_FLAGS(1024u32);
+pub const DCX_NORESETATTRS: GET_DCX_FLAGS = GET_DCX_FLAGS(4u32);
+pub const DCX_PARENTCLIP: GET_DCX_FLAGS = GET_DCX_FLAGS(32u32);
+pub const DCX_VALIDATE: GET_DCX_FLAGS = GET_DCX_FLAGS(2097152u32);
+pub const DCX_WINDOW: GET_DCX_FLAGS = GET_DCX_FLAGS(1u32);
+pub const DC_ACTIVE: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(1u32);
+pub const DC_BINADJUST: u32 = 19u32;
+pub const DC_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(18i32);
+pub const DC_BUTTONS: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(4096u32);
+pub const DC_DATATYPE_PRODUCED: u32 = 21u32;
+pub const DC_EMF_COMPLIANT: u32 = 20u32;
+pub const DC_GRADIENT: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(32u32);
+pub const DC_ICON: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(4u32);
+pub const DC_INBUTTON: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(16u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DC_LAYOUT(pub u32);
+impl DC_LAYOUT {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DC_LAYOUT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DC_LAYOUT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DC_LAYOUT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DC_LAYOUT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DC_LAYOUT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const DC_MANUFACTURER: u32 = 23u32;
+pub const DC_MODEL: u32 = 24u32;
+pub const DC_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(19i32);
+pub const DC_SMALLCAP: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(2u32);
+pub const DC_TEXT: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(8u32);
+pub const DEFAULT_CHARSET: FONT_CHARSET = FONT_CHARSET(1u8);
+pub const DEFAULT_GUI_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(17i32);
+pub const DEFAULT_PALETTE: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(15i32);
+pub const DEFAULT_PITCH: FONT_PITCH = FONT_PITCH(0u8);
+pub const DEFAULT_QUALITY: FONT_QUALITY = FONT_QUALITY(0u8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DESIGNVECTOR {
@@ -4504,6 +3837,11 @@ impl Default for DESIGNVECTOR {
 impl windows_core::TypeKind for DESIGNVECTOR {
     type TypeKind = windows_core::CopyType;
 }
+pub const DESKTOPHORZRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(118u32);
+pub const DESKTOPVERTRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(117u32);
+pub const DEVICEDATA: u32 = 19u32;
+pub const DEVICE_DEFAULT_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(14i32);
+pub const DEVICE_FONTTYPE: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEVMODEA {
@@ -4708,6 +4046,134 @@ impl Default for DEVMODEW_1 {
 impl windows_core::TypeKind for DEVMODEW_1 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DEVMODE_COLLATE(pub i16);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DEVMODE_COLOR(pub i16);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DEVMODE_DISPLAY_FIXED_OUTPUT(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DEVMODE_DISPLAY_ORIENTATION(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DEVMODE_DUPLEX(pub i16);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DEVMODE_FIELD_FLAGS(pub u32);
+impl DEVMODE_FIELD_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DEVMODE_FIELD_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DEVMODE_FIELD_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DEVMODE_FIELD_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DEVMODE_FIELD_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DEVMODE_FIELD_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DEVMODE_TRUETYPE_OPTION(pub i16);
+pub const DFCS_ADJUSTRECT: DFCS_STATE = DFCS_STATE(8192u32);
+pub const DFCS_BUTTON3STATE: DFCS_STATE = DFCS_STATE(8u32);
+pub const DFCS_BUTTONCHECK: DFCS_STATE = DFCS_STATE(0u32);
+pub const DFCS_BUTTONPUSH: DFCS_STATE = DFCS_STATE(16u32);
+pub const DFCS_BUTTONRADIO: DFCS_STATE = DFCS_STATE(4u32);
+pub const DFCS_BUTTONRADIOIMAGE: DFCS_STATE = DFCS_STATE(1u32);
+pub const DFCS_BUTTONRADIOMASK: DFCS_STATE = DFCS_STATE(2u32);
+pub const DFCS_CAPTIONCLOSE: DFCS_STATE = DFCS_STATE(0u32);
+pub const DFCS_CAPTIONHELP: DFCS_STATE = DFCS_STATE(4u32);
+pub const DFCS_CAPTIONMAX: DFCS_STATE = DFCS_STATE(2u32);
+pub const DFCS_CAPTIONMIN: DFCS_STATE = DFCS_STATE(1u32);
+pub const DFCS_CAPTIONRESTORE: DFCS_STATE = DFCS_STATE(3u32);
+pub const DFCS_CHECKED: DFCS_STATE = DFCS_STATE(1024u32);
+pub const DFCS_FLAT: DFCS_STATE = DFCS_STATE(16384u32);
+pub const DFCS_HOT: DFCS_STATE = DFCS_STATE(4096u32);
+pub const DFCS_INACTIVE: DFCS_STATE = DFCS_STATE(256u32);
+pub const DFCS_MENUARROW: DFCS_STATE = DFCS_STATE(0u32);
+pub const DFCS_MENUARROWRIGHT: DFCS_STATE = DFCS_STATE(4u32);
+pub const DFCS_MENUBULLET: DFCS_STATE = DFCS_STATE(2u32);
+pub const DFCS_MENUCHECK: DFCS_STATE = DFCS_STATE(1u32);
+pub const DFCS_MONO: DFCS_STATE = DFCS_STATE(32768u32);
+pub const DFCS_PUSHED: DFCS_STATE = DFCS_STATE(512u32);
+pub const DFCS_SCROLLCOMBOBOX: DFCS_STATE = DFCS_STATE(5u32);
+pub const DFCS_SCROLLDOWN: DFCS_STATE = DFCS_STATE(1u32);
+pub const DFCS_SCROLLLEFT: DFCS_STATE = DFCS_STATE(2u32);
+pub const DFCS_SCROLLRIGHT: DFCS_STATE = DFCS_STATE(3u32);
+pub const DFCS_SCROLLSIZEGRIP: DFCS_STATE = DFCS_STATE(8u32);
+pub const DFCS_SCROLLSIZEGRIPRIGHT: DFCS_STATE = DFCS_STATE(16u32);
+pub const DFCS_SCROLLUP: DFCS_STATE = DFCS_STATE(0u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DFCS_STATE(pub u32);
+impl DFCS_STATE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DFCS_STATE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DFCS_STATE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DFCS_STATE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DFCS_STATE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DFCS_STATE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const DFCS_TRANSPARENT: DFCS_STATE = DFCS_STATE(2048u32);
+pub const DFC_BUTTON: DFC_TYPE = DFC_TYPE(4u32);
+pub const DFC_CAPTION: DFC_TYPE = DFC_TYPE(1u32);
+pub const DFC_MENU: DFC_TYPE = DFC_TYPE(2u32);
+pub const DFC_POPUPMENU: DFC_TYPE = DFC_TYPE(5u32);
+pub const DFC_SCROLL: DFC_TYPE = DFC_TYPE(3u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DFC_TYPE(pub u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIBSECTION {
@@ -4725,6 +4191,36 @@ impl Default for DIBSECTION {
 impl windows_core::TypeKind for DIBSECTION {
     type TypeKind = windows_core::CopyType;
 }
+pub const DIB_PAL_COLORS: DIB_USAGE = DIB_USAGE(1u32);
+pub const DIB_RGB_COLORS: DIB_USAGE = DIB_USAGE(0u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DIB_USAGE(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPLAYCONFIG_COLOR_ENCODING(pub i32);
+pub const DISPLAYCONFIG_COLOR_ENCODING_INTENSITY: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(4i32);
+pub const DISPLAYCONFIG_COLOR_ENCODING_RGB: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(0i32);
+pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR420: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(3i32);
+pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR422: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(2i32);
+pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR444: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(1i32);
+pub const DISPLAYCONFIG_MAXPATH: u32 = 1024u32;
+pub const DISPLAYCONFIG_PATH_ACTIVE: u32 = 1u32;
+pub const DISPLAYCONFIG_PATH_CLONE_GROUP_INVALID: u32 = 65535u32;
+pub const DISPLAYCONFIG_PATH_DESKTOP_IMAGE_IDX_INVALID: u32 = 65535u32;
+pub const DISPLAYCONFIG_PATH_MODE_IDX_INVALID: u32 = 4294967295u32;
+pub const DISPLAYCONFIG_PATH_PREFERRED_UNSCALED: u32 = 4u32;
+pub const DISPLAYCONFIG_PATH_SOURCE_MODE_IDX_INVALID: u32 = 65535u32;
+pub const DISPLAYCONFIG_PATH_SUPPORT_VIRTUAL_MODE: u32 = 8u32;
+pub const DISPLAYCONFIG_PATH_TARGET_MODE_IDX_INVALID: u32 = 65535u32;
+pub const DISPLAYCONFIG_PATH_VALID_FLAGS: u32 = 29u32;
+pub const DISPLAYCONFIG_SOURCE_IN_USE: u32 = 1u32;
+pub const DISPLAYCONFIG_TARGET_FORCED_AVAILABILITY_BOOT: u32 = 4u32;
+pub const DISPLAYCONFIG_TARGET_FORCED_AVAILABILITY_PATH: u32 = 8u32;
+pub const DISPLAYCONFIG_TARGET_FORCED_AVAILABILITY_SYSTEM: u32 = 16u32;
+pub const DISPLAYCONFIG_TARGET_FORCIBLE: u32 = 2u32;
+pub const DISPLAYCONFIG_TARGET_IN_USE: u32 = 1u32;
+pub const DISPLAYCONFIG_TARGET_IS_HMD: u32 = 32u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISPLAY_DEVICEA {
@@ -4761,6 +4257,377 @@ impl Default for DISPLAY_DEVICEW {
 impl windows_core::TypeKind for DISPLAY_DEVICEW {
     type TypeKind = windows_core::CopyType;
 }
+pub const DISPLAY_DEVICE_ACC_DRIVER: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(64u32);
+pub const DISPLAY_DEVICE_ACTIVE: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(1u32);
+pub const DISPLAY_DEVICE_ATTACHED: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(2u32);
+pub const DISPLAY_DEVICE_ATTACHED_TO_DESKTOP: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(1u32);
+pub const DISPLAY_DEVICE_DISCONNECT: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(33554432u32);
+pub const DISPLAY_DEVICE_MIRRORING_DRIVER: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(8u32);
+pub const DISPLAY_DEVICE_MODESPRUNED: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(134217728u32);
+pub const DISPLAY_DEVICE_MULTI_DRIVER: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(2u32);
+pub const DISPLAY_DEVICE_PRIMARY_DEVICE: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(4u32);
+pub const DISPLAY_DEVICE_RDPUDD: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(16777216u32);
+pub const DISPLAY_DEVICE_REMOTE: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(67108864u32);
+pub const DISPLAY_DEVICE_REMOVABLE: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(32u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPLAY_DEVICE_STATE_FLAGS(pub u32);
+impl DISPLAY_DEVICE_STATE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DISPLAY_DEVICE_STATE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DISPLAY_DEVICE_STATE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DISPLAY_DEVICE_STATE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DISPLAY_DEVICE_STATE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DISPLAY_DEVICE_STATE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const DISPLAY_DEVICE_TS_COMPATIBLE: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(2097152u32);
+pub const DISPLAY_DEVICE_UNSAFE_MODES_ON: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(524288u32);
+pub const DISPLAY_DEVICE_VGA_COMPATIBLE: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(16u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISP_CHANGE(pub i32);
+pub const DISP_CHANGE_BADDUALVIEW: DISP_CHANGE = DISP_CHANGE(-6i32);
+pub const DISP_CHANGE_BADFLAGS: DISP_CHANGE = DISP_CHANGE(-4i32);
+pub const DISP_CHANGE_BADMODE: DISP_CHANGE = DISP_CHANGE(-2i32);
+pub const DISP_CHANGE_BADPARAM: DISP_CHANGE = DISP_CHANGE(-5i32);
+pub const DISP_CHANGE_FAILED: DISP_CHANGE = DISP_CHANGE(-1i32);
+pub const DISP_CHANGE_NOTUPDATED: DISP_CHANGE = DISP_CHANGE(-3i32);
+pub const DISP_CHANGE_RESTART: DISP_CHANGE = DISP_CHANGE(1i32);
+pub const DISP_CHANGE_SUCCESSFUL: DISP_CHANGE = DISP_CHANGE(0i32);
+pub const DI_APPBANDING: u32 = 1u32;
+pub const DI_ROPS_READ_DESTINATION: u32 = 2u32;
+pub const DKGRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(3i32);
+pub const DMBIN_AUTO: u32 = 7u32;
+pub const DMBIN_CASSETTE: u32 = 14u32;
+pub const DMBIN_ENVELOPE: u32 = 5u32;
+pub const DMBIN_ENVMANUAL: u32 = 6u32;
+pub const DMBIN_FORMSOURCE: u32 = 15u32;
+pub const DMBIN_LARGECAPACITY: u32 = 11u32;
+pub const DMBIN_LARGEFMT: u32 = 10u32;
+pub const DMBIN_LAST: u32 = 15u32;
+pub const DMBIN_LOWER: u32 = 2u32;
+pub const DMBIN_MANUAL: u32 = 4u32;
+pub const DMBIN_MIDDLE: u32 = 3u32;
+pub const DMBIN_ONLYONE: u32 = 1u32;
+pub const DMBIN_SMALLFMT: u32 = 9u32;
+pub const DMBIN_TRACTOR: u32 = 8u32;
+pub const DMBIN_UPPER: u32 = 1u32;
+pub const DMBIN_USER: u32 = 256u32;
+pub const DMCOLLATE_FALSE: DEVMODE_COLLATE = DEVMODE_COLLATE(0i16);
+pub const DMCOLLATE_TRUE: DEVMODE_COLLATE = DEVMODE_COLLATE(1i16);
+pub const DMCOLOR_COLOR: DEVMODE_COLOR = DEVMODE_COLOR(2i16);
+pub const DMCOLOR_MONOCHROME: DEVMODE_COLOR = DEVMODE_COLOR(1i16);
+pub const DMDFO_CENTER: DEVMODE_DISPLAY_FIXED_OUTPUT = DEVMODE_DISPLAY_FIXED_OUTPUT(2u32);
+pub const DMDFO_DEFAULT: DEVMODE_DISPLAY_FIXED_OUTPUT = DEVMODE_DISPLAY_FIXED_OUTPUT(0u32);
+pub const DMDFO_STRETCH: DEVMODE_DISPLAY_FIXED_OUTPUT = DEVMODE_DISPLAY_FIXED_OUTPUT(1u32);
+pub const DMDISPLAYFLAGS_TEXTMODE: u32 = 4u32;
+pub const DMDITHER_COARSE: u32 = 2u32;
+pub const DMDITHER_ERRORDIFFUSION: u32 = 5u32;
+pub const DMDITHER_FINE: u32 = 3u32;
+pub const DMDITHER_GRAYSCALE: u32 = 10u32;
+pub const DMDITHER_LINEART: u32 = 4u32;
+pub const DMDITHER_NONE: u32 = 1u32;
+pub const DMDITHER_RESERVED6: u32 = 6u32;
+pub const DMDITHER_RESERVED7: u32 = 7u32;
+pub const DMDITHER_RESERVED8: u32 = 8u32;
+pub const DMDITHER_RESERVED9: u32 = 9u32;
+pub const DMDITHER_USER: u32 = 256u32;
+pub const DMDO_180: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(2u32);
+pub const DMDO_270: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(3u32);
+pub const DMDO_90: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(1u32);
+pub const DMDO_DEFAULT: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(0u32);
+pub const DMDUP_HORIZONTAL: DEVMODE_DUPLEX = DEVMODE_DUPLEX(3i16);
+pub const DMDUP_SIMPLEX: DEVMODE_DUPLEX = DEVMODE_DUPLEX(1i16);
+pub const DMDUP_VERTICAL: DEVMODE_DUPLEX = DEVMODE_DUPLEX(2i16);
+pub const DMICMMETHOD_DEVICE: u32 = 4u32;
+pub const DMICMMETHOD_DRIVER: u32 = 3u32;
+pub const DMICMMETHOD_NONE: u32 = 1u32;
+pub const DMICMMETHOD_SYSTEM: u32 = 2u32;
+pub const DMICMMETHOD_USER: u32 = 256u32;
+pub const DMICM_ABS_COLORIMETRIC: u32 = 4u32;
+pub const DMICM_COLORIMETRIC: u32 = 3u32;
+pub const DMICM_CONTRAST: u32 = 2u32;
+pub const DMICM_SATURATE: u32 = 1u32;
+pub const DMICM_USER: u32 = 256u32;
+pub const DMMEDIA_GLOSSY: u32 = 3u32;
+pub const DMMEDIA_STANDARD: u32 = 1u32;
+pub const DMMEDIA_TRANSPARENCY: u32 = 2u32;
+pub const DMMEDIA_USER: u32 = 256u32;
+pub const DMNUP_ONEUP: u32 = 2u32;
+pub const DMNUP_SYSTEM: u32 = 1u32;
+pub const DMORIENT_LANDSCAPE: u32 = 2u32;
+pub const DMORIENT_PORTRAIT: u32 = 1u32;
+pub const DMPAPER_10X11: u32 = 45u32;
+pub const DMPAPER_10X14: u32 = 16u32;
+pub const DMPAPER_11X17: u32 = 17u32;
+pub const DMPAPER_12X11: u32 = 90u32;
+pub const DMPAPER_15X11: u32 = 46u32;
+pub const DMPAPER_9X11: u32 = 44u32;
+pub const DMPAPER_A2: u32 = 66u32;
+pub const DMPAPER_A3: u32 = 8u32;
+pub const DMPAPER_A3_EXTRA: u32 = 63u32;
+pub const DMPAPER_A3_EXTRA_TRANSVERSE: u32 = 68u32;
+pub const DMPAPER_A3_ROTATED: u32 = 76u32;
+pub const DMPAPER_A3_TRANSVERSE: u32 = 67u32;
+pub const DMPAPER_A4: u32 = 9u32;
+pub const DMPAPER_A4SMALL: u32 = 10u32;
+pub const DMPAPER_A4_EXTRA: u32 = 53u32;
+pub const DMPAPER_A4_PLUS: u32 = 60u32;
+pub const DMPAPER_A4_ROTATED: u32 = 77u32;
+pub const DMPAPER_A4_TRANSVERSE: u32 = 55u32;
+pub const DMPAPER_A5: u32 = 11u32;
+pub const DMPAPER_A5_EXTRA: u32 = 64u32;
+pub const DMPAPER_A5_ROTATED: u32 = 78u32;
+pub const DMPAPER_A5_TRANSVERSE: u32 = 61u32;
+pub const DMPAPER_A6: u32 = 70u32;
+pub const DMPAPER_A6_ROTATED: u32 = 83u32;
+pub const DMPAPER_A_PLUS: u32 = 57u32;
+pub const DMPAPER_B4: u32 = 12u32;
+pub const DMPAPER_B4_JIS_ROTATED: u32 = 79u32;
+pub const DMPAPER_B5: u32 = 13u32;
+pub const DMPAPER_B5_EXTRA: u32 = 65u32;
+pub const DMPAPER_B5_JIS_ROTATED: u32 = 80u32;
+pub const DMPAPER_B5_TRANSVERSE: u32 = 62u32;
+pub const DMPAPER_B6_JIS: u32 = 88u32;
+pub const DMPAPER_B6_JIS_ROTATED: u32 = 89u32;
+pub const DMPAPER_B_PLUS: u32 = 58u32;
+pub const DMPAPER_CSHEET: u32 = 24u32;
+pub const DMPAPER_DBL_JAPANESE_POSTCARD: u32 = 69u32;
+pub const DMPAPER_DBL_JAPANESE_POSTCARD_ROTATED: u32 = 82u32;
+pub const DMPAPER_DSHEET: u32 = 25u32;
+pub const DMPAPER_ENV_10: u32 = 20u32;
+pub const DMPAPER_ENV_11: u32 = 21u32;
+pub const DMPAPER_ENV_12: u32 = 22u32;
+pub const DMPAPER_ENV_14: u32 = 23u32;
+pub const DMPAPER_ENV_9: u32 = 19u32;
+pub const DMPAPER_ENV_B4: u32 = 33u32;
+pub const DMPAPER_ENV_B5: u32 = 34u32;
+pub const DMPAPER_ENV_B6: u32 = 35u32;
+pub const DMPAPER_ENV_C3: u32 = 29u32;
+pub const DMPAPER_ENV_C4: u32 = 30u32;
+pub const DMPAPER_ENV_C5: u32 = 28u32;
+pub const DMPAPER_ENV_C6: u32 = 31u32;
+pub const DMPAPER_ENV_C65: u32 = 32u32;
+pub const DMPAPER_ENV_DL: u32 = 27u32;
+pub const DMPAPER_ENV_INVITE: u32 = 47u32;
+pub const DMPAPER_ENV_ITALY: u32 = 36u32;
+pub const DMPAPER_ENV_MONARCH: u32 = 37u32;
+pub const DMPAPER_ENV_PERSONAL: u32 = 38u32;
+pub const DMPAPER_ESHEET: u32 = 26u32;
+pub const DMPAPER_EXECUTIVE: u32 = 7u32;
+pub const DMPAPER_FANFOLD_LGL_GERMAN: u32 = 41u32;
+pub const DMPAPER_FANFOLD_STD_GERMAN: u32 = 40u32;
+pub const DMPAPER_FANFOLD_US: u32 = 39u32;
+pub const DMPAPER_FOLIO: u32 = 14u32;
+pub const DMPAPER_ISO_B4: u32 = 42u32;
+pub const DMPAPER_JAPANESE_POSTCARD: u32 = 43u32;
+pub const DMPAPER_JAPANESE_POSTCARD_ROTATED: u32 = 81u32;
+pub const DMPAPER_JENV_CHOU3: u32 = 73u32;
+pub const DMPAPER_JENV_CHOU3_ROTATED: u32 = 86u32;
+pub const DMPAPER_JENV_CHOU4: u32 = 74u32;
+pub const DMPAPER_JENV_CHOU4_ROTATED: u32 = 87u32;
+pub const DMPAPER_JENV_KAKU2: u32 = 71u32;
+pub const DMPAPER_JENV_KAKU2_ROTATED: u32 = 84u32;
+pub const DMPAPER_JENV_KAKU3: u32 = 72u32;
+pub const DMPAPER_JENV_KAKU3_ROTATED: u32 = 85u32;
+pub const DMPAPER_JENV_YOU4: u32 = 91u32;
+pub const DMPAPER_JENV_YOU4_ROTATED: u32 = 92u32;
+pub const DMPAPER_LAST: u32 = 118u32;
+pub const DMPAPER_LEDGER: u32 = 4u32;
+pub const DMPAPER_LEGAL: u32 = 5u32;
+pub const DMPAPER_LEGAL_EXTRA: u32 = 51u32;
+pub const DMPAPER_LETTER: u32 = 1u32;
+pub const DMPAPER_LETTERSMALL: u32 = 2u32;
+pub const DMPAPER_LETTER_EXTRA: u32 = 50u32;
+pub const DMPAPER_LETTER_EXTRA_TRANSVERSE: u32 = 56u32;
+pub const DMPAPER_LETTER_PLUS: u32 = 59u32;
+pub const DMPAPER_LETTER_ROTATED: u32 = 75u32;
+pub const DMPAPER_LETTER_TRANSVERSE: u32 = 54u32;
+pub const DMPAPER_NOTE: u32 = 18u32;
+pub const DMPAPER_P16K: u32 = 93u32;
+pub const DMPAPER_P16K_ROTATED: u32 = 106u32;
+pub const DMPAPER_P32K: u32 = 94u32;
+pub const DMPAPER_P32KBIG: u32 = 95u32;
+pub const DMPAPER_P32KBIG_ROTATED: u32 = 108u32;
+pub const DMPAPER_P32K_ROTATED: u32 = 107u32;
+pub const DMPAPER_PENV_1: u32 = 96u32;
+pub const DMPAPER_PENV_10: u32 = 105u32;
+pub const DMPAPER_PENV_10_ROTATED: u32 = 118u32;
+pub const DMPAPER_PENV_1_ROTATED: u32 = 109u32;
+pub const DMPAPER_PENV_2: u32 = 97u32;
+pub const DMPAPER_PENV_2_ROTATED: u32 = 110u32;
+pub const DMPAPER_PENV_3: u32 = 98u32;
+pub const DMPAPER_PENV_3_ROTATED: u32 = 111u32;
+pub const DMPAPER_PENV_4: u32 = 99u32;
+pub const DMPAPER_PENV_4_ROTATED: u32 = 112u32;
+pub const DMPAPER_PENV_5: u32 = 100u32;
+pub const DMPAPER_PENV_5_ROTATED: u32 = 113u32;
+pub const DMPAPER_PENV_6: u32 = 101u32;
+pub const DMPAPER_PENV_6_ROTATED: u32 = 114u32;
+pub const DMPAPER_PENV_7: u32 = 102u32;
+pub const DMPAPER_PENV_7_ROTATED: u32 = 115u32;
+pub const DMPAPER_PENV_8: u32 = 103u32;
+pub const DMPAPER_PENV_8_ROTATED: u32 = 116u32;
+pub const DMPAPER_PENV_9: u32 = 104u32;
+pub const DMPAPER_PENV_9_ROTATED: u32 = 117u32;
+pub const DMPAPER_QUARTO: u32 = 15u32;
+pub const DMPAPER_RESERVED_48: u32 = 48u32;
+pub const DMPAPER_RESERVED_49: u32 = 49u32;
+pub const DMPAPER_STATEMENT: u32 = 6u32;
+pub const DMPAPER_TABLOID: u32 = 3u32;
+pub const DMPAPER_TABLOID_EXTRA: u32 = 52u32;
+pub const DMPAPER_USER: u32 = 256u32;
+pub const DMRES_DRAFT: i32 = -1i32;
+pub const DMRES_HIGH: i32 = -4i32;
+pub const DMRES_LOW: i32 = -2i32;
+pub const DMRES_MEDIUM: i32 = -3i32;
+pub const DMTT_BITMAP: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(1i16);
+pub const DMTT_DOWNLOAD: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(2i16);
+pub const DMTT_DOWNLOAD_OUTLINE: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(4i16);
+pub const DMTT_SUBDEV: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(3i16);
+pub const DM_BITSPERPEL: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(262144u32);
+pub const DM_COLLATE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(32768u32);
+pub const DM_COLOR: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2048u32);
+pub const DM_COPIES: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(256u32);
+pub const DM_COPY: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2u32);
+pub const DM_DEFAULTSOURCE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(512u32);
+pub const DM_DISPLAYFIXEDOUTPUT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(536870912u32);
+pub const DM_DISPLAYFLAGS: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2097152u32);
+pub const DM_DISPLAYFREQUENCY: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(4194304u32);
+pub const DM_DISPLAYORIENTATION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(128u32);
+pub const DM_DITHERTYPE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(67108864u32);
+pub const DM_DUPLEX: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(4096u32);
+pub const DM_FORMNAME: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(65536u32);
+pub const DM_ICMINTENT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(16777216u32);
+pub const DM_ICMMETHOD: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(8388608u32);
+pub const DM_INTERLACED: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2u32);
+pub const DM_IN_BUFFER: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(8u32);
+pub const DM_IN_PROMPT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(4u32);
+pub const DM_LOGPIXELS: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(131072u32);
+pub const DM_MEDIATYPE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(33554432u32);
+pub const DM_MODIFY: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(8u32);
+pub const DM_NUP: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(64u32);
+pub const DM_ORIENTATION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1u32);
+pub const DM_OUT_BUFFER: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2u32);
+pub const DM_OUT_DEFAULT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1u32);
+pub const DM_PANNINGHEIGHT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(268435456u32);
+pub const DM_PANNINGWIDTH: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(134217728u32);
+pub const DM_PAPERLENGTH: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(4u32);
+pub const DM_PAPERSIZE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2u32);
+pub const DM_PAPERWIDTH: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(8u32);
+pub const DM_PELSHEIGHT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1048576u32);
+pub const DM_PELSWIDTH: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(524288u32);
+pub const DM_POSITION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(32u32);
+pub const DM_PRINTQUALITY: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1024u32);
+pub const DM_PROMPT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(4u32);
+pub const DM_SCALE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(16u32);
+pub const DM_SPECVERSION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1025u32);
+pub const DM_TTOPTION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(16384u32);
+pub const DM_UPDATE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1u32);
+pub const DM_YRESOLUTION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(8192u32);
+pub const DOWNLOADFACE: u32 = 514u32;
+pub const DOWNLOADHEADER: u32 = 4111u32;
+pub const DRAFTMODE: u32 = 7u32;
+pub const DRAFT_QUALITY: FONT_QUALITY = FONT_QUALITY(1u8);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DRAWEDGE_FLAGS(pub u32);
+impl DRAWEDGE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DRAWEDGE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DRAWEDGE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DRAWEDGE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DRAWEDGE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DRAWEDGE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const DRAWPATTERNRECT: u32 = 25u32;
+pub type DRAWSTATEPROC = Option<unsafe extern "system" fn(hdc: HDC, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, cx: i32, cy: i32) -> super::super::Foundation::BOOL>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DRAWSTATE_FLAGS(pub u32);
+impl DRAWSTATE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DRAWSTATE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DRAWSTATE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DRAWSTATE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DRAWSTATE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DRAWSTATE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRAWTEXTPARAMS {
@@ -4778,6 +4645,179 @@ impl Default for DRAWTEXTPARAMS {
 impl windows_core::TypeKind for DRAWTEXTPARAMS {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DRAW_CAPTION_FLAGS(pub u32);
+impl DRAW_CAPTION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DRAW_CAPTION_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DRAW_CAPTION_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DRAW_CAPTION_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DRAW_CAPTION_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DRAW_CAPTION_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DRAW_EDGE_FLAGS(pub u32);
+impl DRAW_EDGE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DRAW_EDGE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DRAW_EDGE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DRAW_EDGE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DRAW_EDGE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DRAW_EDGE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DRAW_TEXT_FORMAT(pub u32);
+impl DRAW_TEXT_FORMAT {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DRAW_TEXT_FORMAT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DRAW_TEXT_FORMAT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DRAW_TEXT_FORMAT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DRAW_TEXT_FORMAT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DRAW_TEXT_FORMAT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const DRIVERVERSION: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(0u32);
+pub const DSS_DISABLED: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(32u32);
+pub const DSS_HIDEPREFIX: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(512u32);
+pub const DSS_MONO: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(128u32);
+pub const DSS_NORMAL: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(0u32);
+pub const DSS_PREFIXONLY: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(1024u32);
+pub const DSS_RIGHT: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(32768u32);
+pub const DSS_UNION: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(16u32);
+pub const DSTINVERT: ROP_CODE = ROP_CODE(5570569u32);
+pub const DST_BITMAP: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(4u32);
+pub const DST_COMPLEX: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(0u32);
+pub const DST_ICON: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(3u32);
+pub const DST_PREFIXTEXT: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(2u32);
+pub const DST_TEXT: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(1u32);
+pub const DT_BOTTOM: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(8u32);
+pub const DT_CALCRECT: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(1024u32);
+pub const DT_CENTER: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(1u32);
+pub const DT_CHARSTREAM: u32 = 4u32;
+pub const DT_DISPFILE: u32 = 6u32;
+pub const DT_EDITCONTROL: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(8192u32);
+pub const DT_END_ELLIPSIS: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(32768u32);
+pub const DT_EXPANDTABS: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(64u32);
+pub const DT_EXTERNALLEADING: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(512u32);
+pub const DT_HIDEPREFIX: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(1048576u32);
+pub const DT_INTERNAL: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(4096u32);
+pub const DT_LEFT: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(0u32);
+pub const DT_METAFILE: u32 = 5u32;
+pub const DT_MODIFYSTRING: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(65536u32);
+pub const DT_NOCLIP: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(256u32);
+pub const DT_NOFULLWIDTHCHARBREAK: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(524288u32);
+pub const DT_NOPREFIX: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(2048u32);
+pub const DT_PATH_ELLIPSIS: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(16384u32);
+pub const DT_PLOTTER: u32 = 0u32;
+pub const DT_PREFIXONLY: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(2097152u32);
+pub const DT_RASCAMERA: u32 = 3u32;
+pub const DT_RASDISPLAY: u32 = 1u32;
+pub const DT_RASPRINTER: u32 = 2u32;
+pub const DT_RIGHT: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(2u32);
+pub const DT_RTLREADING: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(131072u32);
+pub const DT_SINGLELINE: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(32u32);
+pub const DT_TABSTOP: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(128u32);
+pub const DT_TOP: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(0u32);
+pub const DT_VCENTER: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(4u32);
+pub const DT_WORDBREAK: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(16u32);
+pub const DT_WORD_ELLIPSIS: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(262144u32);
+pub const EASTEUROPE_CHARSET: FONT_CHARSET = FONT_CHARSET(238u8);
+pub const EDGE_BUMP: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(9u32);
+pub const EDGE_ETCHED: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(6u32);
+pub const EDGE_RAISED: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(5u32);
+pub const EDGE_SUNKEN: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(10u32);
+pub const EDS_RAWMODE: ENUM_DISPLAY_SETTINGS_FLAGS = ENUM_DISPLAY_SETTINGS_FLAGS(2u32);
+pub const EDS_ROTATEDMODE: ENUM_DISPLAY_SETTINGS_FLAGS = ENUM_DISPLAY_SETTINGS_FLAGS(4u32);
+pub const ELF_CULTURE_LATIN: u32 = 0u32;
+pub const ELF_VENDOR_SIZE: u32 = 4u32;
+pub const ELF_VERSION: u32 = 0u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EMBEDDED_FONT_PRIV_STATUS(pub u32);
+pub const EMBED_EDITABLE: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(2u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EMBED_FONT_CHARSET(pub u32);
+pub const EMBED_INSTALLABLE: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(3u32);
+pub const EMBED_NOEMBEDDING: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(4u32);
+pub const EMBED_PREVIEWPRINT: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(1u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EMR {
@@ -5950,2056 +5990,6 @@ impl Default for EMRTRANSPARENTBLT {
 impl windows_core::TypeKind for EMRTRANSPARENTBLT {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ENHMETAHEADER {
-    pub iType: u32,
-    pub nSize: u32,
-    pub rclBounds: super::super::Foundation::RECTL,
-    pub rclFrame: super::super::Foundation::RECTL,
-    pub dSignature: u32,
-    pub nVersion: u32,
-    pub nBytes: u32,
-    pub nRecords: u32,
-    pub nHandles: u16,
-    pub sReserved: u16,
-    pub nDescription: u32,
-    pub offDescription: u32,
-    pub nPalEntries: u32,
-    pub szlDevice: super::super::Foundation::SIZE,
-    pub szlMillimeters: super::super::Foundation::SIZE,
-    pub cbPixelFormat: u32,
-    pub offPixelFormat: u32,
-    pub bOpenGL: u32,
-    pub szlMicrometers: super::super::Foundation::SIZE,
-}
-impl Default for ENHMETAHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ENHMETAHEADER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ENHMETARECORD {
-    pub iType: ENHANCED_METAFILE_RECORD_TYPE,
-    pub nSize: u32,
-    pub dParm: [u32; 1],
-}
-impl Default for ENHMETARECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ENHMETARECORD {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ENUMLOGFONTA {
-    pub elfLogFont: LOGFONTA,
-    pub elfFullName: [u8; 64],
-    pub elfStyle: [u8; 32],
-}
-impl Default for ENUMLOGFONTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ENUMLOGFONTA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ENUMLOGFONTEXA {
-    pub elfLogFont: LOGFONTA,
-    pub elfFullName: [u8; 64],
-    pub elfStyle: [u8; 32],
-    pub elfScript: [u8; 32],
-}
-impl Default for ENUMLOGFONTEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ENUMLOGFONTEXA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ENUMLOGFONTEXDVA {
-    pub elfEnumLogfontEx: ENUMLOGFONTEXA,
-    pub elfDesignVector: DESIGNVECTOR,
-}
-impl Default for ENUMLOGFONTEXDVA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ENUMLOGFONTEXDVA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ENUMLOGFONTEXDVW {
-    pub elfEnumLogfontEx: ENUMLOGFONTEXW,
-    pub elfDesignVector: DESIGNVECTOR,
-}
-impl Default for ENUMLOGFONTEXDVW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ENUMLOGFONTEXDVW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ENUMLOGFONTEXW {
-    pub elfLogFont: LOGFONTW,
-    pub elfFullName: [u16; 64],
-    pub elfStyle: [u16; 32],
-    pub elfScript: [u16; 32],
-}
-impl Default for ENUMLOGFONTEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ENUMLOGFONTEXW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ENUMLOGFONTW {
-    pub elfLogFont: LOGFONTW,
-    pub elfFullName: [u16; 64],
-    pub elfStyle: [u16; 32],
-}
-impl Default for ENUMLOGFONTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ENUMLOGFONTW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct EXTLOGFONTA {
-    pub elfLogFont: LOGFONTA,
-    pub elfFullName: [u8; 64],
-    pub elfStyle: [u8; 32],
-    pub elfVersion: u32,
-    pub elfStyleSize: u32,
-    pub elfMatch: u32,
-    pub elfReserved: u32,
-    pub elfVendorId: [u8; 4],
-    pub elfCulture: u32,
-    pub elfPanose: PANOSE,
-}
-impl Default for EXTLOGFONTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for EXTLOGFONTA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct EXTLOGFONTW {
-    pub elfLogFont: LOGFONTW,
-    pub elfFullName: [u16; 64],
-    pub elfStyle: [u16; 32],
-    pub elfVersion: u32,
-    pub elfStyleSize: u32,
-    pub elfMatch: u32,
-    pub elfReserved: u32,
-    pub elfVendorId: [u8; 4],
-    pub elfCulture: u32,
-    pub elfPanose: PANOSE,
-}
-impl Default for EXTLOGFONTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for EXTLOGFONTW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct EXTLOGPEN {
-    pub elpPenStyle: u32,
-    pub elpWidth: u32,
-    pub elpBrushStyle: u32,
-    pub elpColor: super::super::Foundation::COLORREF,
-    pub elpHatch: usize,
-    pub elpNumEntries: u32,
-    pub elpStyleEntry: [u32; 1],
-}
-impl Default for EXTLOGPEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for EXTLOGPEN {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct EXTLOGPEN32 {
-    pub elpPenStyle: u32,
-    pub elpWidth: u32,
-    pub elpBrushStyle: u32,
-    pub elpColor: super::super::Foundation::COLORREF,
-    pub elpHatch: u32,
-    pub elpNumEntries: u32,
-    pub elpStyleEntry: [u32; 1],
-}
-impl Default for EXTLOGPEN32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for EXTLOGPEN32 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FIXED {
-    pub fract: u16,
-    pub value: i16,
-}
-impl Default for FIXED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FIXED {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct GCP_RESULTSA {
-    pub lStructSize: u32,
-    pub lpOutString: windows_core::PSTR,
-    pub lpOrder: *mut u32,
-    pub lpDx: *mut i32,
-    pub lpCaretPos: *mut i32,
-    pub lpClass: windows_core::PSTR,
-    pub lpGlyphs: windows_core::PWSTR,
-    pub nGlyphs: u32,
-    pub nMaxFit: i32,
-}
-impl Default for GCP_RESULTSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for GCP_RESULTSA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct GCP_RESULTSW {
-    pub lStructSize: u32,
-    pub lpOutString: windows_core::PWSTR,
-    pub lpOrder: *mut u32,
-    pub lpDx: *mut i32,
-    pub lpCaretPos: *mut i32,
-    pub lpClass: windows_core::PSTR,
-    pub lpGlyphs: windows_core::PWSTR,
-    pub nGlyphs: u32,
-    pub nMaxFit: i32,
-}
-impl Default for GCP_RESULTSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for GCP_RESULTSW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct GLYPHMETRICS {
-    pub gmBlackBoxX: u32,
-    pub gmBlackBoxY: u32,
-    pub gmptGlyphOrigin: super::super::Foundation::POINT,
-    pub gmCellIncX: i16,
-    pub gmCellIncY: i16,
-}
-impl Default for GLYPHMETRICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for GLYPHMETRICS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct GLYPHSET {
-    pub cbThis: u32,
-    pub flAccel: u32,
-    pub cGlyphsSupported: u32,
-    pub cRanges: u32,
-    pub ranges: [WCRANGE; 1],
-}
-impl Default for GLYPHSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for GLYPHSET {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct GRADIENT_RECT {
-    pub UpperLeft: u32,
-    pub LowerRight: u32,
-}
-impl Default for GRADIENT_RECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for GRADIENT_RECT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct GRADIENT_TRIANGLE {
-    pub Vertex1: u32,
-    pub Vertex2: u32,
-    pub Vertex3: u32,
-}
-impl Default for GRADIENT_TRIANGLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for GRADIENT_TRIANGLE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HANDLETABLE {
-    pub objectHandle: [HGDIOBJ; 1],
-}
-impl Default for HANDLETABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HANDLETABLE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HBITMAP(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HBITMAP {
-    type TypeKind = windows_core::CopyType;
-}
-impl HBITMAP {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HBITMAP {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("gdi32.dll" "system" fn DeleteObject(ho : *mut core::ffi::c_void) -> i32);
-            DeleteObject(self.0);
-        }
-    }
-}
-impl Default for HBITMAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::imp::CanInto<HGDIOBJ> for HBITMAP {}
-impl From<HBITMAP> for HGDIOBJ {
-    fn from(value: HBITMAP) -> Self {
-        Self(value.0)
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HBRUSH(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HBRUSH {
-    type TypeKind = windows_core::CopyType;
-}
-impl HBRUSH {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HBRUSH {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("gdi32.dll" "system" fn DeleteObject(ho : *mut core::ffi::c_void) -> i32);
-            DeleteObject(self.0);
-        }
-    }
-}
-impl Default for HBRUSH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::imp::CanInto<HGDIOBJ> for HBRUSH {}
-impl From<HBRUSH> for HGDIOBJ {
-    fn from(value: HBRUSH) -> Self {
-        Self(value.0)
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HDC(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDC {
-    type TypeKind = windows_core::CopyType;
-}
-impl HDC {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl Default for HDC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HENHMETAFILE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HENHMETAFILE {
-    type TypeKind = windows_core::CopyType;
-}
-impl HENHMETAFILE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HENHMETAFILE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("gdi32.dll" "system" fn DeleteEnhMetaFile(hmf : *mut core::ffi::c_void) -> i32);
-            DeleteEnhMetaFile(self.0);
-        }
-    }
-}
-impl Default for HENHMETAFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HFONT(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HFONT {
-    type TypeKind = windows_core::CopyType;
-}
-impl HFONT {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HFONT {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("gdi32.dll" "system" fn DeleteObject(ho : *mut core::ffi::c_void) -> i32);
-            DeleteObject(self.0);
-        }
-    }
-}
-impl Default for HFONT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::imp::CanInto<HGDIOBJ> for HFONT {}
-impl From<HFONT> for HGDIOBJ {
-    fn from(value: HFONT) -> Self {
-        Self(value.0)
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HGDIOBJ(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HGDIOBJ {
-    type TypeKind = windows_core::CopyType;
-}
-impl HGDIOBJ {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HGDIOBJ {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("gdi32.dll" "system" fn DeleteObject(ho : *mut core::ffi::c_void) -> i32);
-            DeleteObject(self.0);
-        }
-    }
-}
-impl Default for HGDIOBJ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HMETAFILE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HMETAFILE {
-    type TypeKind = windows_core::CopyType;
-}
-impl HMETAFILE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HMETAFILE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("gdi32.dll" "system" fn DeleteMetaFile(hmf : *mut core::ffi::c_void) -> i32);
-            DeleteMetaFile(self.0);
-        }
-    }
-}
-impl Default for HMETAFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HMONITOR(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HMONITOR {
-    type TypeKind = windows_core::CopyType;
-}
-impl HMONITOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl Default for HMONITOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HPALETTE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HPALETTE {
-    type TypeKind = windows_core::CopyType;
-}
-impl HPALETTE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HPALETTE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("gdi32.dll" "system" fn DeleteObject(ho : *mut core::ffi::c_void) -> i32);
-            DeleteObject(self.0);
-        }
-    }
-}
-impl Default for HPALETTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::imp::CanInto<HGDIOBJ> for HPALETTE {}
-impl From<HPALETTE> for HGDIOBJ {
-    fn from(value: HPALETTE) -> Self {
-        Self(value.0)
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HPEN(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HPEN {
-    type TypeKind = windows_core::CopyType;
-}
-impl HPEN {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HPEN {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("gdi32.dll" "system" fn DeleteObject(ho : *mut core::ffi::c_void) -> i32);
-            DeleteObject(self.0);
-        }
-    }
-}
-impl Default for HPEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::imp::CanInto<HGDIOBJ> for HPEN {}
-impl From<HPEN> for HGDIOBJ {
-    fn from(value: HPEN) -> Self {
-        Self(value.0)
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HRGN(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HRGN {
-    type TypeKind = windows_core::CopyType;
-}
-impl HRGN {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HRGN {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("gdi32.dll" "system" fn DeleteObject(ho : *mut core::ffi::c_void) -> i32);
-            DeleteObject(self.0);
-        }
-    }
-}
-impl Default for HRGN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::imp::CanInto<HGDIOBJ> for HRGN {}
-impl From<HRGN> for HGDIOBJ {
-    fn from(value: HRGN) -> Self {
-        Self(value.0)
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct KERNINGPAIR {
-    pub wFirst: u16,
-    pub wSecond: u16,
-    pub iKernAmount: i32,
-}
-impl Default for KERNINGPAIR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for KERNINGPAIR {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LOGBRUSH {
-    pub lbStyle: BRUSH_STYLE,
-    pub lbColor: super::super::Foundation::COLORREF,
-    pub lbHatch: usize,
-}
-impl Default for LOGBRUSH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LOGBRUSH {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LOGBRUSH32 {
-    pub lbStyle: BRUSH_STYLE,
-    pub lbColor: super::super::Foundation::COLORREF,
-    pub lbHatch: u32,
-}
-impl Default for LOGBRUSH32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LOGBRUSH32 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LOGFONTA {
-    pub lfHeight: i32,
-    pub lfWidth: i32,
-    pub lfEscapement: i32,
-    pub lfOrientation: i32,
-    pub lfWeight: i32,
-    pub lfItalic: u8,
-    pub lfUnderline: u8,
-    pub lfStrikeOut: u8,
-    pub lfCharSet: FONT_CHARSET,
-    pub lfOutPrecision: FONT_OUTPUT_PRECISION,
-    pub lfClipPrecision: FONT_CLIP_PRECISION,
-    pub lfQuality: FONT_QUALITY,
-    pub lfPitchAndFamily: u8,
-    pub lfFaceName: [i8; 32],
-}
-impl Default for LOGFONTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LOGFONTA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LOGFONTW {
-    pub lfHeight: i32,
-    pub lfWidth: i32,
-    pub lfEscapement: i32,
-    pub lfOrientation: i32,
-    pub lfWeight: i32,
-    pub lfItalic: u8,
-    pub lfUnderline: u8,
-    pub lfStrikeOut: u8,
-    pub lfCharSet: FONT_CHARSET,
-    pub lfOutPrecision: FONT_OUTPUT_PRECISION,
-    pub lfClipPrecision: FONT_CLIP_PRECISION,
-    pub lfQuality: FONT_QUALITY,
-    pub lfPitchAndFamily: u8,
-    pub lfFaceName: [u16; 32],
-}
-impl Default for LOGFONTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LOGFONTW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LOGPALETTE {
-    pub palVersion: u16,
-    pub palNumEntries: u16,
-    pub palPalEntry: [PALETTEENTRY; 1],
-}
-impl Default for LOGPALETTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LOGPALETTE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LOGPEN {
-    pub lopnStyle: u32,
-    pub lopnWidth: super::super::Foundation::POINT,
-    pub lopnColor: super::super::Foundation::COLORREF,
-}
-impl Default for LOGPEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LOGPEN {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MAT2 {
-    pub eM11: FIXED,
-    pub eM12: FIXED,
-    pub eM21: FIXED,
-    pub eM22: FIXED,
-}
-impl Default for MAT2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MAT2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct METAHEADER {
-    pub mtType: u16,
-    pub mtHeaderSize: u16,
-    pub mtVersion: u16,
-    pub mtSize: u32,
-    pub mtNoObjects: u16,
-    pub mtMaxRecord: u32,
-    pub mtNoParameters: u16,
-}
-impl Default for METAHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for METAHEADER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct METARECORD {
-    pub rdSize: u32,
-    pub rdFunction: u16,
-    pub rdParm: [u16; 1],
-}
-impl Default for METARECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for METARECORD {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MONITORINFO {
-    pub cbSize: u32,
-    pub rcMonitor: super::super::Foundation::RECT,
-    pub rcWork: super::super::Foundation::RECT,
-    pub dwFlags: u32,
-}
-impl Default for MONITORINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MONITORINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MONITORINFOEXA {
-    pub monitorInfo: MONITORINFO,
-    pub szDevice: [i8; 32],
-}
-impl Default for MONITORINFOEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MONITORINFOEXA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MONITORINFOEXW {
-    pub monitorInfo: MONITORINFO,
-    pub szDevice: [u16; 32],
-}
-impl Default for MONITORINFOEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MONITORINFOEXW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct NEWTEXTMETRICA {
-    pub tmHeight: i32,
-    pub tmAscent: i32,
-    pub tmDescent: i32,
-    pub tmInternalLeading: i32,
-    pub tmExternalLeading: i32,
-    pub tmAveCharWidth: i32,
-    pub tmMaxCharWidth: i32,
-    pub tmWeight: i32,
-    pub tmOverhang: i32,
-    pub tmDigitizedAspectX: i32,
-    pub tmDigitizedAspectY: i32,
-    pub tmFirstChar: u8,
-    pub tmLastChar: u8,
-    pub tmDefaultChar: u8,
-    pub tmBreakChar: u8,
-    pub tmItalic: u8,
-    pub tmUnderlined: u8,
-    pub tmStruckOut: u8,
-    pub tmPitchAndFamily: TMPF_FLAGS,
-    pub tmCharSet: u8,
-    pub ntmFlags: u32,
-    pub ntmSizeEM: u32,
-    pub ntmCellHeight: u32,
-    pub ntmAvgWidth: u32,
-}
-impl Default for NEWTEXTMETRICA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for NEWTEXTMETRICA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct NEWTEXTMETRICW {
-    pub tmHeight: i32,
-    pub tmAscent: i32,
-    pub tmDescent: i32,
-    pub tmInternalLeading: i32,
-    pub tmExternalLeading: i32,
-    pub tmAveCharWidth: i32,
-    pub tmMaxCharWidth: i32,
-    pub tmWeight: i32,
-    pub tmOverhang: i32,
-    pub tmDigitizedAspectX: i32,
-    pub tmDigitizedAspectY: i32,
-    pub tmFirstChar: u16,
-    pub tmLastChar: u16,
-    pub tmDefaultChar: u16,
-    pub tmBreakChar: u16,
-    pub tmItalic: u8,
-    pub tmUnderlined: u8,
-    pub tmStruckOut: u8,
-    pub tmPitchAndFamily: TMPF_FLAGS,
-    pub tmCharSet: u8,
-    pub ntmFlags: u32,
-    pub ntmSizeEM: u32,
-    pub ntmCellHeight: u32,
-    pub ntmAvgWidth: u32,
-}
-impl Default for NEWTEXTMETRICW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for NEWTEXTMETRICW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct OUTLINETEXTMETRICA {
-    pub otmSize: u32,
-    pub otmTextMetrics: TEXTMETRICA,
-    pub otmFiller: u8,
-    pub otmPanoseNumber: PANOSE,
-    pub otmfsSelection: u32,
-    pub otmfsType: u32,
-    pub otmsCharSlopeRise: i32,
-    pub otmsCharSlopeRun: i32,
-    pub otmItalicAngle: i32,
-    pub otmEMSquare: u32,
-    pub otmAscent: i32,
-    pub otmDescent: i32,
-    pub otmLineGap: u32,
-    pub otmsCapEmHeight: u32,
-    pub otmsXHeight: u32,
-    pub otmrcFontBox: super::super::Foundation::RECT,
-    pub otmMacAscent: i32,
-    pub otmMacDescent: i32,
-    pub otmMacLineGap: u32,
-    pub otmusMinimumPPEM: u32,
-    pub otmptSubscriptSize: super::super::Foundation::POINT,
-    pub otmptSubscriptOffset: super::super::Foundation::POINT,
-    pub otmptSuperscriptSize: super::super::Foundation::POINT,
-    pub otmptSuperscriptOffset: super::super::Foundation::POINT,
-    pub otmsStrikeoutSize: u32,
-    pub otmsStrikeoutPosition: i32,
-    pub otmsUnderscoreSize: i32,
-    pub otmsUnderscorePosition: i32,
-    pub otmpFamilyName: windows_core::PSTR,
-    pub otmpFaceName: windows_core::PSTR,
-    pub otmpStyleName: windows_core::PSTR,
-    pub otmpFullName: windows_core::PSTR,
-}
-impl Default for OUTLINETEXTMETRICA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for OUTLINETEXTMETRICA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct OUTLINETEXTMETRICW {
-    pub otmSize: u32,
-    pub otmTextMetrics: TEXTMETRICW,
-    pub otmFiller: u8,
-    pub otmPanoseNumber: PANOSE,
-    pub otmfsSelection: u32,
-    pub otmfsType: u32,
-    pub otmsCharSlopeRise: i32,
-    pub otmsCharSlopeRun: i32,
-    pub otmItalicAngle: i32,
-    pub otmEMSquare: u32,
-    pub otmAscent: i32,
-    pub otmDescent: i32,
-    pub otmLineGap: u32,
-    pub otmsCapEmHeight: u32,
-    pub otmsXHeight: u32,
-    pub otmrcFontBox: super::super::Foundation::RECT,
-    pub otmMacAscent: i32,
-    pub otmMacDescent: i32,
-    pub otmMacLineGap: u32,
-    pub otmusMinimumPPEM: u32,
-    pub otmptSubscriptSize: super::super::Foundation::POINT,
-    pub otmptSubscriptOffset: super::super::Foundation::POINT,
-    pub otmptSuperscriptSize: super::super::Foundation::POINT,
-    pub otmptSuperscriptOffset: super::super::Foundation::POINT,
-    pub otmsStrikeoutSize: u32,
-    pub otmsStrikeoutPosition: i32,
-    pub otmsUnderscoreSize: i32,
-    pub otmsUnderscorePosition: i32,
-    pub otmpFamilyName: windows_core::PSTR,
-    pub otmpFaceName: windows_core::PSTR,
-    pub otmpStyleName: windows_core::PSTR,
-    pub otmpFullName: windows_core::PSTR,
-}
-impl Default for OUTLINETEXTMETRICW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for OUTLINETEXTMETRICW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PAINTSTRUCT {
-    pub hdc: HDC,
-    pub fErase: super::super::Foundation::BOOL,
-    pub rcPaint: super::super::Foundation::RECT,
-    pub fRestore: super::super::Foundation::BOOL,
-    pub fIncUpdate: super::super::Foundation::BOOL,
-    pub rgbReserved: [u8; 32],
-}
-impl Default for PAINTSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PAINTSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PALETTEENTRY {
-    pub peRed: u8,
-    pub peGreen: u8,
-    pub peBlue: u8,
-    pub peFlags: u8,
-}
-impl Default for PALETTEENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PALETTEENTRY {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PANOSE {
-    pub bFamilyType: PAN_FAMILY_TYPE,
-    pub bSerifStyle: PAN_SERIF_STYLE,
-    pub bWeight: PAN_WEIGHT,
-    pub bProportion: PAN_PROPORTION,
-    pub bContrast: PAN_CONTRAST,
-    pub bStrokeVariation: PAN_STROKE_VARIATION,
-    pub bArmStyle: PAN_ARM_STYLE,
-    pub bLetterform: PAN_LETT_FORM,
-    pub bMidline: PAN_MIDLINE,
-    pub bXHeight: PAN_XHEIGHT,
-}
-impl Default for PANOSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PANOSE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PELARRAY {
-    pub paXCount: i32,
-    pub paYCount: i32,
-    pub paXExt: i32,
-    pub paYExt: i32,
-    pub paRGBs: u8,
-}
-impl Default for PELARRAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PELARRAY {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct POINTFX {
-    pub x: FIXED,
-    pub y: FIXED,
-}
-impl Default for POINTFX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for POINTFX {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct POLYTEXTA {
-    pub x: i32,
-    pub y: i32,
-    pub n: u32,
-    pub lpstr: windows_core::PCSTR,
-    pub uiFlags: u32,
-    pub rcl: super::super::Foundation::RECT,
-    pub pdx: *mut i32,
-}
-impl Default for POLYTEXTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for POLYTEXTA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct POLYTEXTW {
-    pub x: i32,
-    pub y: i32,
-    pub n: u32,
-    pub lpstr: windows_core::PCWSTR,
-    pub uiFlags: u32,
-    pub rcl: super::super::Foundation::RECT,
-    pub pdx: *mut i32,
-}
-impl Default for POLYTEXTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for POLYTEXTW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct RASTERIZER_STATUS {
-    pub nSize: i16,
-    pub wFlags: i16,
-    pub nLanguageID: i16,
-}
-impl Default for RASTERIZER_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for RASTERIZER_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct RGBQUAD {
-    pub rgbBlue: u8,
-    pub rgbGreen: u8,
-    pub rgbRed: u8,
-    pub rgbReserved: u8,
-}
-impl Default for RGBQUAD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for RGBQUAD {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct RGBTRIPLE {
-    pub rgbtBlue: u8,
-    pub rgbtGreen: u8,
-    pub rgbtRed: u8,
-}
-impl Default for RGBTRIPLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for RGBTRIPLE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct RGNDATA {
-    pub rdh: RGNDATAHEADER,
-    pub Buffer: [i8; 1],
-}
-impl Default for RGNDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for RGNDATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct RGNDATAHEADER {
-    pub dwSize: u32,
-    pub iType: u32,
-    pub nCount: u32,
-    pub nRgnSize: u32,
-    pub rcBound: super::super::Foundation::RECT,
-}
-impl Default for RGNDATAHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for RGNDATAHEADER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TEXTMETRICA {
-    pub tmHeight: i32,
-    pub tmAscent: i32,
-    pub tmDescent: i32,
-    pub tmInternalLeading: i32,
-    pub tmExternalLeading: i32,
-    pub tmAveCharWidth: i32,
-    pub tmMaxCharWidth: i32,
-    pub tmWeight: i32,
-    pub tmOverhang: i32,
-    pub tmDigitizedAspectX: i32,
-    pub tmDigitizedAspectY: i32,
-    pub tmFirstChar: u8,
-    pub tmLastChar: u8,
-    pub tmDefaultChar: u8,
-    pub tmBreakChar: u8,
-    pub tmItalic: u8,
-    pub tmUnderlined: u8,
-    pub tmStruckOut: u8,
-    pub tmPitchAndFamily: TMPF_FLAGS,
-    pub tmCharSet: u8,
-}
-impl Default for TEXTMETRICA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TEXTMETRICA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TEXTMETRICW {
-    pub tmHeight: i32,
-    pub tmAscent: i32,
-    pub tmDescent: i32,
-    pub tmInternalLeading: i32,
-    pub tmExternalLeading: i32,
-    pub tmAveCharWidth: i32,
-    pub tmMaxCharWidth: i32,
-    pub tmWeight: i32,
-    pub tmOverhang: i32,
-    pub tmDigitizedAspectX: i32,
-    pub tmDigitizedAspectY: i32,
-    pub tmFirstChar: u16,
-    pub tmLastChar: u16,
-    pub tmDefaultChar: u16,
-    pub tmBreakChar: u16,
-    pub tmItalic: u8,
-    pub tmUnderlined: u8,
-    pub tmStruckOut: u8,
-    pub tmPitchAndFamily: TMPF_FLAGS,
-    pub tmCharSet: u8,
-}
-impl Default for TEXTMETRICW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TEXTMETRICW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TRIVERTEX {
-    pub x: i32,
-    pub y: i32,
-    pub Red: u16,
-    pub Green: u16,
-    pub Blue: u16,
-    pub Alpha: u16,
-}
-impl Default for TRIVERTEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TRIVERTEX {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TTEMBEDINFO {
-    pub usStructSize: u16,
-    pub usRootStrSize: u16,
-    pub pusRootStr: *mut u16,
-}
-impl Default for TTEMBEDINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TTEMBEDINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TTLOADINFO {
-    pub usStructSize: u16,
-    pub usRefStrSize: u16,
-    pub pusRefStr: *mut u16,
-}
-impl Default for TTLOADINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TTLOADINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TTPOLYCURVE {
-    pub wType: u16,
-    pub cpfx: u16,
-    pub apfx: [POINTFX; 1],
-}
-impl Default for TTPOLYCURVE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TTPOLYCURVE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TTPOLYGONHEADER {
-    pub cb: u32,
-    pub dwType: u32,
-    pub pfxStart: POINTFX,
-}
-impl Default for TTPOLYGONHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TTPOLYGONHEADER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TTVALIDATIONTESTSPARAMS {
-    pub ulStructSize: u32,
-    pub lTestFromSize: i32,
-    pub lTestToSize: i32,
-    pub ulCharSet: u32,
-    pub usReserved1: u16,
-    pub usCharCodeCount: u16,
-    pub pusCharCodeSet: *mut u16,
-}
-impl Default for TTVALIDATIONTESTSPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TTVALIDATIONTESTSPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TTVALIDATIONTESTSPARAMSEX {
-    pub ulStructSize: u32,
-    pub lTestFromSize: i32,
-    pub lTestToSize: i32,
-    pub ulCharSet: u32,
-    pub usReserved1: u16,
-    pub usCharCodeCount: u16,
-    pub pulCharCodeSet: *mut u32,
-}
-impl Default for TTVALIDATIONTESTSPARAMSEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TTVALIDATIONTESTSPARAMSEX {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WCRANGE {
-    pub wcLow: u16,
-    pub cGlyphs: u16,
-}
-impl Default for WCRANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WCRANGE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WGLSWAP {
-    pub hdc: HDC,
-    pub uiFlags: u32,
-}
-impl Default for WGLSWAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WGLSWAP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct XFORM {
-    pub eM11: f32,
-    pub eM12: f32,
-    pub eM21: f32,
-    pub eM22: f32,
-    pub eDx: f32,
-    pub eDy: f32,
-}
-impl Default for XFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for XFORM {
-    type TypeKind = windows_core::CopyType;
-}
-pub const ABORTDOC: u32 = 2u32;
-pub const ABSOLUTE: u32 = 1u32;
-pub const AC_SRC_ALPHA: u32 = 1u32;
-pub const AC_SRC_OVER: u32 = 0u32;
-pub const AD_CLOCKWISE: ARC_DIRECTION = ARC_DIRECTION(2i32);
-pub const AD_COUNTERCLOCKWISE: ARC_DIRECTION = ARC_DIRECTION(1i32);
-pub const ALTERNATE: CREATE_POLYGON_RGN_MODE = CREATE_POLYGON_RGN_MODE(1i32);
-pub const ANSI_CHARSET: FONT_CHARSET = FONT_CHARSET(0u8);
-pub const ANSI_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(11i32);
-pub const ANSI_VAR_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(12i32);
-pub const ANTIALIASED_QUALITY: FONT_QUALITY = FONT_QUALITY(4u8);
-pub const ARABIC_CHARSET: FONT_CHARSET = FONT_CHARSET(178u8);
-pub const ASPECTX: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(40u32);
-pub const ASPECTXY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(44u32);
-pub const ASPECTY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(42u32);
-pub const ASPECT_FILTERING: u32 = 1u32;
-pub const BALTIC_CHARSET: FONT_CHARSET = FONT_CHARSET(186u8);
-pub const BANDINFO: u32 = 24u32;
-pub const BDR_INNER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(12u32);
-pub const BDR_OUTER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(3u32);
-pub const BDR_RAISED: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(5u32);
-pub const BDR_RAISEDINNER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(4u32);
-pub const BDR_RAISEDOUTER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(1u32);
-pub const BDR_SUNKEN: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(10u32);
-pub const BDR_SUNKENINNER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(8u32);
-pub const BDR_SUNKENOUTER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(2u32);
-pub const BEGIN_PATH: u32 = 4096u32;
-pub const BF_ADJUST: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(8192u32);
-pub const BF_BOTTOM: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(8u32);
-pub const BF_BOTTOMLEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(9u32);
-pub const BF_BOTTOMRIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(12u32);
-pub const BF_DIAGONAL: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(16u32);
-pub const BF_DIAGONAL_ENDBOTTOMLEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(25u32);
-pub const BF_DIAGONAL_ENDBOTTOMRIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(28u32);
-pub const BF_DIAGONAL_ENDTOPLEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(19u32);
-pub const BF_DIAGONAL_ENDTOPRIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(22u32);
-pub const BF_FLAT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(16384u32);
-pub const BF_LEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(1u32);
-pub const BF_MIDDLE: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(2048u32);
-pub const BF_MONO: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(32768u32);
-pub const BF_RECT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(15u32);
-pub const BF_RIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(4u32);
-pub const BF_SOFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(4096u32);
-pub const BF_TOP: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(2u32);
-pub const BF_TOPLEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(3u32);
-pub const BF_TOPRIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(6u32);
-pub const BITSPIXEL: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(12u32);
-pub const BI_BITFIELDS: BI_COMPRESSION = BI_COMPRESSION(3u32);
-pub const BI_JPEG: BI_COMPRESSION = BI_COMPRESSION(4u32);
-pub const BI_PNG: BI_COMPRESSION = BI_COMPRESSION(5u32);
-pub const BI_RGB: BI_COMPRESSION = BI_COMPRESSION(0u32);
-pub const BI_RLE4: BI_COMPRESSION = BI_COMPRESSION(2u32);
-pub const BI_RLE8: BI_COMPRESSION = BI_COMPRESSION(1u32);
-pub const BKMODE_LAST: u32 = 2u32;
-pub const BLACKNESS: ROP_CODE = ROP_CODE(66u32);
-pub const BLACKONWHITE: STRETCH_BLT_MODE = STRETCH_BLT_MODE(1i32);
-pub const BLACK_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(4i32);
-pub const BLACK_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(7i32);
-pub const BLTALIGNMENT: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(119u32);
-pub const BS_DIBPATTERN: BRUSH_STYLE = BRUSH_STYLE(5u32);
-pub const BS_DIBPATTERN8X8: BRUSH_STYLE = BRUSH_STYLE(8u32);
-pub const BS_DIBPATTERNPT: BRUSH_STYLE = BRUSH_STYLE(6u32);
-pub const BS_HATCHED: BRUSH_STYLE = BRUSH_STYLE(2u32);
-pub const BS_HOLLOW: BRUSH_STYLE = BRUSH_STYLE(1u32);
-pub const BS_INDEXED: BRUSH_STYLE = BRUSH_STYLE(4u32);
-pub const BS_MONOPATTERN: BRUSH_STYLE = BRUSH_STYLE(9u32);
-pub const BS_NULL: BRUSH_STYLE = BRUSH_STYLE(1u32);
-pub const BS_PATTERN: BRUSH_STYLE = BRUSH_STYLE(3u32);
-pub const BS_PATTERN8X8: BRUSH_STYLE = BRUSH_STYLE(7u32);
-pub const BS_SOLID: BRUSH_STYLE = BRUSH_STYLE(0u32);
-pub const CAPTUREBLT: ROP_CODE = ROP_CODE(1073741824u32);
-pub const CA_LOG_FILTER: u32 = 2u32;
-pub const CA_NEGATIVE: u32 = 1u32;
-pub const CBM_INIT: i32 = 4i32;
-pub const CCHFORMNAME: u32 = 32u32;
-pub const CC_CHORD: u32 = 4u32;
-pub const CC_CIRCLES: u32 = 1u32;
-pub const CC_ELLIPSES: u32 = 8u32;
-pub const CC_INTERIORS: u32 = 128u32;
-pub const CC_NONE: u32 = 0u32;
-pub const CC_PIE: u32 = 2u32;
-pub const CC_ROUNDRECT: u32 = 256u32;
-pub const CC_STYLED: u32 = 32u32;
-pub const CC_WIDE: u32 = 16u32;
-pub const CC_WIDESTYLED: u32 = 64u32;
-pub const CDS_DISABLE_UNSAFE_MODES: CDS_TYPE = CDS_TYPE(512u32);
-pub const CDS_ENABLE_UNSAFE_MODES: CDS_TYPE = CDS_TYPE(256u32);
-pub const CDS_FULLSCREEN: CDS_TYPE = CDS_TYPE(4u32);
-pub const CDS_GLOBAL: CDS_TYPE = CDS_TYPE(8u32);
-pub const CDS_NORESET: CDS_TYPE = CDS_TYPE(268435456u32);
-pub const CDS_RESET: CDS_TYPE = CDS_TYPE(1073741824u32);
-pub const CDS_RESET_EX: CDS_TYPE = CDS_TYPE(536870912u32);
-pub const CDS_SET_PRIMARY: CDS_TYPE = CDS_TYPE(16u32);
-pub const CDS_TEST: CDS_TYPE = CDS_TYPE(2u32);
-pub const CDS_UPDATEREGISTRY: CDS_TYPE = CDS_TYPE(1u32);
-pub const CDS_VIDEOPARAMETERS: CDS_TYPE = CDS_TYPE(32u32);
-pub const CHARSET_DEFAULT: u32 = 1u32;
-pub const CHARSET_GLYPHIDX: u32 = 3u32;
-pub const CHARSET_SYMBOL: EMBED_FONT_CHARSET = EMBED_FONT_CHARSET(2u32);
-pub const CHARSET_UNICODE: EMBED_FONT_CHARSET = EMBED_FONT_CHARSET(1u32);
-pub const CHECKJPEGFORMAT: u32 = 4119u32;
-pub const CHECKPNGFORMAT: u32 = 4120u32;
-pub const CHINESEBIG5_CHARSET: FONT_CHARSET = FONT_CHARSET(136u8);
-pub const CLEARTYPE_NATURAL_QUALITY: u32 = 6u32;
-pub const CLEARTYPE_QUALITY: FONT_QUALITY = FONT_QUALITY(5u8);
-pub const CLIPCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(36u32);
-pub const CLIP_CHARACTER_PRECIS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(1u8);
-pub const CLIP_DEFAULT_PRECIS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(0u8);
-pub const CLIP_DFA_DISABLE: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(64u8);
-pub const CLIP_DFA_OVERRIDE: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(64u8);
-pub const CLIP_EMBEDDED: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(128u8);
-pub const CLIP_LH_ANGLES: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(16u8);
-pub const CLIP_MASK: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(15u8);
-pub const CLIP_STROKE_PRECIS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(2u8);
-pub const CLIP_TO_PATH: u32 = 4097u32;
-pub const CLIP_TT_ALWAYS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(32u8);
-pub const CLOSECHANNEL: u32 = 4112u32;
-pub const CLR_INVALID: u32 = 4294967295u32;
-pub const CM_CMYK_COLOR: u32 = 4u32;
-pub const CM_DEVICE_ICM: u32 = 1u32;
-pub const CM_GAMMA_RAMP: u32 = 2u32;
-pub const CM_IN_GAMUT: u32 = 0u32;
-pub const CM_NONE: u32 = 0u32;
-pub const CM_OUT_OF_GAMUT: u32 = 255u32;
-pub const COLORMATCHTOTARGET_EMBEDED: u32 = 1u32;
-pub const COLORMGMTCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(121u32);
-pub const COLORONCOLOR: STRETCH_BLT_MODE = STRETCH_BLT_MODE(3i32);
-pub const COLORRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(108u32);
-pub const COLOR_3DDKSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(21i32);
-pub const COLOR_3DFACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(15i32);
-pub const COLOR_3DHIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20i32);
-pub const COLOR_3DHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20i32);
-pub const COLOR_3DLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(22i32);
-pub const COLOR_3DSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(16i32);
-pub const COLOR_ACTIVEBORDER: SYS_COLOR_INDEX = SYS_COLOR_INDEX(10i32);
-pub const COLOR_ACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(2i32);
-pub const COLOR_APPWORKSPACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(12i32);
-pub const COLOR_BACKGROUND: SYS_COLOR_INDEX = SYS_COLOR_INDEX(1i32);
-pub const COLOR_BTNFACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(15i32);
-pub const COLOR_BTNHIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20i32);
-pub const COLOR_BTNHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20i32);
-pub const COLOR_BTNSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(16i32);
-pub const COLOR_BTNTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(18i32);
-pub const COLOR_CAPTIONTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(9i32);
-pub const COLOR_DESKTOP: SYS_COLOR_INDEX = SYS_COLOR_INDEX(1i32);
-pub const COLOR_GRADIENTACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(27i32);
-pub const COLOR_GRADIENTINACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(28i32);
-pub const COLOR_GRAYTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(17i32);
-pub const COLOR_HIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(13i32);
-pub const COLOR_HIGHLIGHTTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(14i32);
-pub const COLOR_HOTLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(26i32);
-pub const COLOR_INACTIVEBORDER: SYS_COLOR_INDEX = SYS_COLOR_INDEX(11i32);
-pub const COLOR_INACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(3i32);
-pub const COLOR_INACTIVECAPTIONTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(19i32);
-pub const COLOR_INFOBK: SYS_COLOR_INDEX = SYS_COLOR_INDEX(24i32);
-pub const COLOR_INFOTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(23i32);
-pub const COLOR_MENU: SYS_COLOR_INDEX = SYS_COLOR_INDEX(4i32);
-pub const COLOR_MENUBAR: SYS_COLOR_INDEX = SYS_COLOR_INDEX(30i32);
-pub const COLOR_MENUHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(29i32);
-pub const COLOR_MENUTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(7i32);
-pub const COLOR_SCROLLBAR: SYS_COLOR_INDEX = SYS_COLOR_INDEX(0i32);
-pub const COLOR_WINDOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(5i32);
-pub const COLOR_WINDOWFRAME: SYS_COLOR_INDEX = SYS_COLOR_INDEX(6i32);
-pub const COLOR_WINDOWTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(8i32);
-pub const COMPLEXREGION: GDI_REGION_TYPE = GDI_REGION_TYPE(3i32);
-pub const CP_NONE: u32 = 0u32;
-pub const CP_RECTANGLE: u32 = 1u32;
-pub const CP_REGION: u32 = 2u32;
-pub const CREATECOLORSPACE_EMBEDED: u32 = 1u32;
-pub const CURVECAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(28u32);
-pub const DCBA_FACEDOWNCENTER: u32 = 257u32;
-pub const DCBA_FACEDOWNLEFT: u32 = 258u32;
-pub const DCBA_FACEDOWNNONE: u32 = 256u32;
-pub const DCBA_FACEDOWNRIGHT: u32 = 259u32;
-pub const DCBA_FACEUPCENTER: u32 = 1u32;
-pub const DCBA_FACEUPLEFT: u32 = 2u32;
-pub const DCBA_FACEUPNONE: u32 = 0u32;
-pub const DCBA_FACEUPRIGHT: u32 = 3u32;
-pub const DCB_ACCUMULATE: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(2u32);
-pub const DCB_DISABLE: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(8u32);
-pub const DCB_ENABLE: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(4u32);
-pub const DCB_RESET: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(1u32);
-pub const DCTT_BITMAP: i32 = 1i32;
-pub const DCTT_DOWNLOAD: i32 = 2i32;
-pub const DCTT_DOWNLOAD_OUTLINE: i32 = 8i32;
-pub const DCTT_SUBDEV: i32 = 4i32;
-pub const DCX_CACHE: GET_DCX_FLAGS = GET_DCX_FLAGS(2u32);
-pub const DCX_CLIPCHILDREN: GET_DCX_FLAGS = GET_DCX_FLAGS(8u32);
-pub const DCX_CLIPSIBLINGS: GET_DCX_FLAGS = GET_DCX_FLAGS(16u32);
-pub const DCX_EXCLUDERGN: GET_DCX_FLAGS = GET_DCX_FLAGS(64u32);
-pub const DCX_INTERSECTRGN: GET_DCX_FLAGS = GET_DCX_FLAGS(128u32);
-pub const DCX_INTERSECTUPDATE: GET_DCX_FLAGS = GET_DCX_FLAGS(512u32);
-pub const DCX_LOCKWINDOWUPDATE: GET_DCX_FLAGS = GET_DCX_FLAGS(1024u32);
-pub const DCX_NORESETATTRS: GET_DCX_FLAGS = GET_DCX_FLAGS(4u32);
-pub const DCX_PARENTCLIP: GET_DCX_FLAGS = GET_DCX_FLAGS(32u32);
-pub const DCX_VALIDATE: GET_DCX_FLAGS = GET_DCX_FLAGS(2097152u32);
-pub const DCX_WINDOW: GET_DCX_FLAGS = GET_DCX_FLAGS(1u32);
-pub const DC_ACTIVE: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(1u32);
-pub const DC_BINADJUST: u32 = 19u32;
-pub const DC_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(18i32);
-pub const DC_BUTTONS: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(4096u32);
-pub const DC_DATATYPE_PRODUCED: u32 = 21u32;
-pub const DC_EMF_COMPLIANT: u32 = 20u32;
-pub const DC_GRADIENT: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(32u32);
-pub const DC_ICON: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(4u32);
-pub const DC_INBUTTON: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(16u32);
-pub const DC_MANUFACTURER: u32 = 23u32;
-pub const DC_MODEL: u32 = 24u32;
-pub const DC_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(19i32);
-pub const DC_SMALLCAP: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(2u32);
-pub const DC_TEXT: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(8u32);
-pub const DEFAULT_CHARSET: FONT_CHARSET = FONT_CHARSET(1u8);
-pub const DEFAULT_GUI_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(17i32);
-pub const DEFAULT_PALETTE: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(15i32);
-pub const DEFAULT_PITCH: FONT_PITCH = FONT_PITCH(0u8);
-pub const DEFAULT_QUALITY: FONT_QUALITY = FONT_QUALITY(0u8);
-pub const DESKTOPHORZRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(118u32);
-pub const DESKTOPVERTRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(117u32);
-pub const DEVICEDATA: u32 = 19u32;
-pub const DEVICE_DEFAULT_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(14i32);
-pub const DEVICE_FONTTYPE: u32 = 2u32;
-pub const DFCS_ADJUSTRECT: DFCS_STATE = DFCS_STATE(8192u32);
-pub const DFCS_BUTTON3STATE: DFCS_STATE = DFCS_STATE(8u32);
-pub const DFCS_BUTTONCHECK: DFCS_STATE = DFCS_STATE(0u32);
-pub const DFCS_BUTTONPUSH: DFCS_STATE = DFCS_STATE(16u32);
-pub const DFCS_BUTTONRADIO: DFCS_STATE = DFCS_STATE(4u32);
-pub const DFCS_BUTTONRADIOIMAGE: DFCS_STATE = DFCS_STATE(1u32);
-pub const DFCS_BUTTONRADIOMASK: DFCS_STATE = DFCS_STATE(2u32);
-pub const DFCS_CAPTIONCLOSE: DFCS_STATE = DFCS_STATE(0u32);
-pub const DFCS_CAPTIONHELP: DFCS_STATE = DFCS_STATE(4u32);
-pub const DFCS_CAPTIONMAX: DFCS_STATE = DFCS_STATE(2u32);
-pub const DFCS_CAPTIONMIN: DFCS_STATE = DFCS_STATE(1u32);
-pub const DFCS_CAPTIONRESTORE: DFCS_STATE = DFCS_STATE(3u32);
-pub const DFCS_CHECKED: DFCS_STATE = DFCS_STATE(1024u32);
-pub const DFCS_FLAT: DFCS_STATE = DFCS_STATE(16384u32);
-pub const DFCS_HOT: DFCS_STATE = DFCS_STATE(4096u32);
-pub const DFCS_INACTIVE: DFCS_STATE = DFCS_STATE(256u32);
-pub const DFCS_MENUARROW: DFCS_STATE = DFCS_STATE(0u32);
-pub const DFCS_MENUARROWRIGHT: DFCS_STATE = DFCS_STATE(4u32);
-pub const DFCS_MENUBULLET: DFCS_STATE = DFCS_STATE(2u32);
-pub const DFCS_MENUCHECK: DFCS_STATE = DFCS_STATE(1u32);
-pub const DFCS_MONO: DFCS_STATE = DFCS_STATE(32768u32);
-pub const DFCS_PUSHED: DFCS_STATE = DFCS_STATE(512u32);
-pub const DFCS_SCROLLCOMBOBOX: DFCS_STATE = DFCS_STATE(5u32);
-pub const DFCS_SCROLLDOWN: DFCS_STATE = DFCS_STATE(1u32);
-pub const DFCS_SCROLLLEFT: DFCS_STATE = DFCS_STATE(2u32);
-pub const DFCS_SCROLLRIGHT: DFCS_STATE = DFCS_STATE(3u32);
-pub const DFCS_SCROLLSIZEGRIP: DFCS_STATE = DFCS_STATE(8u32);
-pub const DFCS_SCROLLSIZEGRIPRIGHT: DFCS_STATE = DFCS_STATE(16u32);
-pub const DFCS_SCROLLUP: DFCS_STATE = DFCS_STATE(0u32);
-pub const DFCS_TRANSPARENT: DFCS_STATE = DFCS_STATE(2048u32);
-pub const DFC_BUTTON: DFC_TYPE = DFC_TYPE(4u32);
-pub const DFC_CAPTION: DFC_TYPE = DFC_TYPE(1u32);
-pub const DFC_MENU: DFC_TYPE = DFC_TYPE(2u32);
-pub const DFC_POPUPMENU: DFC_TYPE = DFC_TYPE(5u32);
-pub const DFC_SCROLL: DFC_TYPE = DFC_TYPE(3u32);
-pub const DIB_PAL_COLORS: DIB_USAGE = DIB_USAGE(1u32);
-pub const DIB_RGB_COLORS: DIB_USAGE = DIB_USAGE(0u32);
-pub const DISPLAYCONFIG_COLOR_ENCODING_INTENSITY: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(4i32);
-pub const DISPLAYCONFIG_COLOR_ENCODING_RGB: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(0i32);
-pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR420: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(3i32);
-pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR422: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(2i32);
-pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR444: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(1i32);
-pub const DISPLAYCONFIG_MAXPATH: u32 = 1024u32;
-pub const DISPLAYCONFIG_PATH_ACTIVE: u32 = 1u32;
-pub const DISPLAYCONFIG_PATH_CLONE_GROUP_INVALID: u32 = 65535u32;
-pub const DISPLAYCONFIG_PATH_DESKTOP_IMAGE_IDX_INVALID: u32 = 65535u32;
-pub const DISPLAYCONFIG_PATH_MODE_IDX_INVALID: u32 = 4294967295u32;
-pub const DISPLAYCONFIG_PATH_PREFERRED_UNSCALED: u32 = 4u32;
-pub const DISPLAYCONFIG_PATH_SOURCE_MODE_IDX_INVALID: u32 = 65535u32;
-pub const DISPLAYCONFIG_PATH_SUPPORT_VIRTUAL_MODE: u32 = 8u32;
-pub const DISPLAYCONFIG_PATH_TARGET_MODE_IDX_INVALID: u32 = 65535u32;
-pub const DISPLAYCONFIG_PATH_VALID_FLAGS: u32 = 29u32;
-pub const DISPLAYCONFIG_SOURCE_IN_USE: u32 = 1u32;
-pub const DISPLAYCONFIG_TARGET_FORCED_AVAILABILITY_BOOT: u32 = 4u32;
-pub const DISPLAYCONFIG_TARGET_FORCED_AVAILABILITY_PATH: u32 = 8u32;
-pub const DISPLAYCONFIG_TARGET_FORCED_AVAILABILITY_SYSTEM: u32 = 16u32;
-pub const DISPLAYCONFIG_TARGET_FORCIBLE: u32 = 2u32;
-pub const DISPLAYCONFIG_TARGET_IN_USE: u32 = 1u32;
-pub const DISPLAYCONFIG_TARGET_IS_HMD: u32 = 32u32;
-pub const DISPLAY_DEVICE_ACC_DRIVER: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(64u32);
-pub const DISPLAY_DEVICE_ACTIVE: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(1u32);
-pub const DISPLAY_DEVICE_ATTACHED: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(2u32);
-pub const DISPLAY_DEVICE_ATTACHED_TO_DESKTOP: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(1u32);
-pub const DISPLAY_DEVICE_DISCONNECT: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(33554432u32);
-pub const DISPLAY_DEVICE_MIRRORING_DRIVER: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(8u32);
-pub const DISPLAY_DEVICE_MODESPRUNED: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(134217728u32);
-pub const DISPLAY_DEVICE_MULTI_DRIVER: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(2u32);
-pub const DISPLAY_DEVICE_PRIMARY_DEVICE: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(4u32);
-pub const DISPLAY_DEVICE_RDPUDD: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(16777216u32);
-pub const DISPLAY_DEVICE_REMOTE: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(67108864u32);
-pub const DISPLAY_DEVICE_REMOVABLE: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(32u32);
-pub const DISPLAY_DEVICE_TS_COMPATIBLE: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(2097152u32);
-pub const DISPLAY_DEVICE_UNSAFE_MODES_ON: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(524288u32);
-pub const DISPLAY_DEVICE_VGA_COMPATIBLE: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(16u32);
-pub const DISP_CHANGE_BADDUALVIEW: DISP_CHANGE = DISP_CHANGE(-6i32);
-pub const DISP_CHANGE_BADFLAGS: DISP_CHANGE = DISP_CHANGE(-4i32);
-pub const DISP_CHANGE_BADMODE: DISP_CHANGE = DISP_CHANGE(-2i32);
-pub const DISP_CHANGE_BADPARAM: DISP_CHANGE = DISP_CHANGE(-5i32);
-pub const DISP_CHANGE_FAILED: DISP_CHANGE = DISP_CHANGE(-1i32);
-pub const DISP_CHANGE_NOTUPDATED: DISP_CHANGE = DISP_CHANGE(-3i32);
-pub const DISP_CHANGE_RESTART: DISP_CHANGE = DISP_CHANGE(1i32);
-pub const DISP_CHANGE_SUCCESSFUL: DISP_CHANGE = DISP_CHANGE(0i32);
-pub const DI_APPBANDING: u32 = 1u32;
-pub const DI_ROPS_READ_DESTINATION: u32 = 2u32;
-pub const DKGRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(3i32);
-pub const DMBIN_AUTO: u32 = 7u32;
-pub const DMBIN_CASSETTE: u32 = 14u32;
-pub const DMBIN_ENVELOPE: u32 = 5u32;
-pub const DMBIN_ENVMANUAL: u32 = 6u32;
-pub const DMBIN_FORMSOURCE: u32 = 15u32;
-pub const DMBIN_LARGECAPACITY: u32 = 11u32;
-pub const DMBIN_LARGEFMT: u32 = 10u32;
-pub const DMBIN_LAST: u32 = 15u32;
-pub const DMBIN_LOWER: u32 = 2u32;
-pub const DMBIN_MANUAL: u32 = 4u32;
-pub const DMBIN_MIDDLE: u32 = 3u32;
-pub const DMBIN_ONLYONE: u32 = 1u32;
-pub const DMBIN_SMALLFMT: u32 = 9u32;
-pub const DMBIN_TRACTOR: u32 = 8u32;
-pub const DMBIN_UPPER: u32 = 1u32;
-pub const DMBIN_USER: u32 = 256u32;
-pub const DMCOLLATE_FALSE: DEVMODE_COLLATE = DEVMODE_COLLATE(0i16);
-pub const DMCOLLATE_TRUE: DEVMODE_COLLATE = DEVMODE_COLLATE(1i16);
-pub const DMCOLOR_COLOR: DEVMODE_COLOR = DEVMODE_COLOR(2i16);
-pub const DMCOLOR_MONOCHROME: DEVMODE_COLOR = DEVMODE_COLOR(1i16);
-pub const DMDFO_CENTER: DEVMODE_DISPLAY_FIXED_OUTPUT = DEVMODE_DISPLAY_FIXED_OUTPUT(2u32);
-pub const DMDFO_DEFAULT: DEVMODE_DISPLAY_FIXED_OUTPUT = DEVMODE_DISPLAY_FIXED_OUTPUT(0u32);
-pub const DMDFO_STRETCH: DEVMODE_DISPLAY_FIXED_OUTPUT = DEVMODE_DISPLAY_FIXED_OUTPUT(1u32);
-pub const DMDISPLAYFLAGS_TEXTMODE: u32 = 4u32;
-pub const DMDITHER_COARSE: u32 = 2u32;
-pub const DMDITHER_ERRORDIFFUSION: u32 = 5u32;
-pub const DMDITHER_FINE: u32 = 3u32;
-pub const DMDITHER_GRAYSCALE: u32 = 10u32;
-pub const DMDITHER_LINEART: u32 = 4u32;
-pub const DMDITHER_NONE: u32 = 1u32;
-pub const DMDITHER_RESERVED6: u32 = 6u32;
-pub const DMDITHER_RESERVED7: u32 = 7u32;
-pub const DMDITHER_RESERVED8: u32 = 8u32;
-pub const DMDITHER_RESERVED9: u32 = 9u32;
-pub const DMDITHER_USER: u32 = 256u32;
-pub const DMDO_180: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(2u32);
-pub const DMDO_270: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(3u32);
-pub const DMDO_90: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(1u32);
-pub const DMDO_DEFAULT: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(0u32);
-pub const DMDUP_HORIZONTAL: DEVMODE_DUPLEX = DEVMODE_DUPLEX(3i16);
-pub const DMDUP_SIMPLEX: DEVMODE_DUPLEX = DEVMODE_DUPLEX(1i16);
-pub const DMDUP_VERTICAL: DEVMODE_DUPLEX = DEVMODE_DUPLEX(2i16);
-pub const DMICMMETHOD_DEVICE: u32 = 4u32;
-pub const DMICMMETHOD_DRIVER: u32 = 3u32;
-pub const DMICMMETHOD_NONE: u32 = 1u32;
-pub const DMICMMETHOD_SYSTEM: u32 = 2u32;
-pub const DMICMMETHOD_USER: u32 = 256u32;
-pub const DMICM_ABS_COLORIMETRIC: u32 = 4u32;
-pub const DMICM_COLORIMETRIC: u32 = 3u32;
-pub const DMICM_CONTRAST: u32 = 2u32;
-pub const DMICM_SATURATE: u32 = 1u32;
-pub const DMICM_USER: u32 = 256u32;
-pub const DMMEDIA_GLOSSY: u32 = 3u32;
-pub const DMMEDIA_STANDARD: u32 = 1u32;
-pub const DMMEDIA_TRANSPARENCY: u32 = 2u32;
-pub const DMMEDIA_USER: u32 = 256u32;
-pub const DMNUP_ONEUP: u32 = 2u32;
-pub const DMNUP_SYSTEM: u32 = 1u32;
-pub const DMORIENT_LANDSCAPE: u32 = 2u32;
-pub const DMORIENT_PORTRAIT: u32 = 1u32;
-pub const DMPAPER_10X11: u32 = 45u32;
-pub const DMPAPER_10X14: u32 = 16u32;
-pub const DMPAPER_11X17: u32 = 17u32;
-pub const DMPAPER_12X11: u32 = 90u32;
-pub const DMPAPER_15X11: u32 = 46u32;
-pub const DMPAPER_9X11: u32 = 44u32;
-pub const DMPAPER_A2: u32 = 66u32;
-pub const DMPAPER_A3: u32 = 8u32;
-pub const DMPAPER_A3_EXTRA: u32 = 63u32;
-pub const DMPAPER_A3_EXTRA_TRANSVERSE: u32 = 68u32;
-pub const DMPAPER_A3_ROTATED: u32 = 76u32;
-pub const DMPAPER_A3_TRANSVERSE: u32 = 67u32;
-pub const DMPAPER_A4: u32 = 9u32;
-pub const DMPAPER_A4SMALL: u32 = 10u32;
-pub const DMPAPER_A4_EXTRA: u32 = 53u32;
-pub const DMPAPER_A4_PLUS: u32 = 60u32;
-pub const DMPAPER_A4_ROTATED: u32 = 77u32;
-pub const DMPAPER_A4_TRANSVERSE: u32 = 55u32;
-pub const DMPAPER_A5: u32 = 11u32;
-pub const DMPAPER_A5_EXTRA: u32 = 64u32;
-pub const DMPAPER_A5_ROTATED: u32 = 78u32;
-pub const DMPAPER_A5_TRANSVERSE: u32 = 61u32;
-pub const DMPAPER_A6: u32 = 70u32;
-pub const DMPAPER_A6_ROTATED: u32 = 83u32;
-pub const DMPAPER_A_PLUS: u32 = 57u32;
-pub const DMPAPER_B4: u32 = 12u32;
-pub const DMPAPER_B4_JIS_ROTATED: u32 = 79u32;
-pub const DMPAPER_B5: u32 = 13u32;
-pub const DMPAPER_B5_EXTRA: u32 = 65u32;
-pub const DMPAPER_B5_JIS_ROTATED: u32 = 80u32;
-pub const DMPAPER_B5_TRANSVERSE: u32 = 62u32;
-pub const DMPAPER_B6_JIS: u32 = 88u32;
-pub const DMPAPER_B6_JIS_ROTATED: u32 = 89u32;
-pub const DMPAPER_B_PLUS: u32 = 58u32;
-pub const DMPAPER_CSHEET: u32 = 24u32;
-pub const DMPAPER_DBL_JAPANESE_POSTCARD: u32 = 69u32;
-pub const DMPAPER_DBL_JAPANESE_POSTCARD_ROTATED: u32 = 82u32;
-pub const DMPAPER_DSHEET: u32 = 25u32;
-pub const DMPAPER_ENV_10: u32 = 20u32;
-pub const DMPAPER_ENV_11: u32 = 21u32;
-pub const DMPAPER_ENV_12: u32 = 22u32;
-pub const DMPAPER_ENV_14: u32 = 23u32;
-pub const DMPAPER_ENV_9: u32 = 19u32;
-pub const DMPAPER_ENV_B4: u32 = 33u32;
-pub const DMPAPER_ENV_B5: u32 = 34u32;
-pub const DMPAPER_ENV_B6: u32 = 35u32;
-pub const DMPAPER_ENV_C3: u32 = 29u32;
-pub const DMPAPER_ENV_C4: u32 = 30u32;
-pub const DMPAPER_ENV_C5: u32 = 28u32;
-pub const DMPAPER_ENV_C6: u32 = 31u32;
-pub const DMPAPER_ENV_C65: u32 = 32u32;
-pub const DMPAPER_ENV_DL: u32 = 27u32;
-pub const DMPAPER_ENV_INVITE: u32 = 47u32;
-pub const DMPAPER_ENV_ITALY: u32 = 36u32;
-pub const DMPAPER_ENV_MONARCH: u32 = 37u32;
-pub const DMPAPER_ENV_PERSONAL: u32 = 38u32;
-pub const DMPAPER_ESHEET: u32 = 26u32;
-pub const DMPAPER_EXECUTIVE: u32 = 7u32;
-pub const DMPAPER_FANFOLD_LGL_GERMAN: u32 = 41u32;
-pub const DMPAPER_FANFOLD_STD_GERMAN: u32 = 40u32;
-pub const DMPAPER_FANFOLD_US: u32 = 39u32;
-pub const DMPAPER_FOLIO: u32 = 14u32;
-pub const DMPAPER_ISO_B4: u32 = 42u32;
-pub const DMPAPER_JAPANESE_POSTCARD: u32 = 43u32;
-pub const DMPAPER_JAPANESE_POSTCARD_ROTATED: u32 = 81u32;
-pub const DMPAPER_JENV_CHOU3: u32 = 73u32;
-pub const DMPAPER_JENV_CHOU3_ROTATED: u32 = 86u32;
-pub const DMPAPER_JENV_CHOU4: u32 = 74u32;
-pub const DMPAPER_JENV_CHOU4_ROTATED: u32 = 87u32;
-pub const DMPAPER_JENV_KAKU2: u32 = 71u32;
-pub const DMPAPER_JENV_KAKU2_ROTATED: u32 = 84u32;
-pub const DMPAPER_JENV_KAKU3: u32 = 72u32;
-pub const DMPAPER_JENV_KAKU3_ROTATED: u32 = 85u32;
-pub const DMPAPER_JENV_YOU4: u32 = 91u32;
-pub const DMPAPER_JENV_YOU4_ROTATED: u32 = 92u32;
-pub const DMPAPER_LAST: u32 = 118u32;
-pub const DMPAPER_LEDGER: u32 = 4u32;
-pub const DMPAPER_LEGAL: u32 = 5u32;
-pub const DMPAPER_LEGAL_EXTRA: u32 = 51u32;
-pub const DMPAPER_LETTER: u32 = 1u32;
-pub const DMPAPER_LETTERSMALL: u32 = 2u32;
-pub const DMPAPER_LETTER_EXTRA: u32 = 50u32;
-pub const DMPAPER_LETTER_EXTRA_TRANSVERSE: u32 = 56u32;
-pub const DMPAPER_LETTER_PLUS: u32 = 59u32;
-pub const DMPAPER_LETTER_ROTATED: u32 = 75u32;
-pub const DMPAPER_LETTER_TRANSVERSE: u32 = 54u32;
-pub const DMPAPER_NOTE: u32 = 18u32;
-pub const DMPAPER_P16K: u32 = 93u32;
-pub const DMPAPER_P16K_ROTATED: u32 = 106u32;
-pub const DMPAPER_P32K: u32 = 94u32;
-pub const DMPAPER_P32KBIG: u32 = 95u32;
-pub const DMPAPER_P32KBIG_ROTATED: u32 = 108u32;
-pub const DMPAPER_P32K_ROTATED: u32 = 107u32;
-pub const DMPAPER_PENV_1: u32 = 96u32;
-pub const DMPAPER_PENV_10: u32 = 105u32;
-pub const DMPAPER_PENV_10_ROTATED: u32 = 118u32;
-pub const DMPAPER_PENV_1_ROTATED: u32 = 109u32;
-pub const DMPAPER_PENV_2: u32 = 97u32;
-pub const DMPAPER_PENV_2_ROTATED: u32 = 110u32;
-pub const DMPAPER_PENV_3: u32 = 98u32;
-pub const DMPAPER_PENV_3_ROTATED: u32 = 111u32;
-pub const DMPAPER_PENV_4: u32 = 99u32;
-pub const DMPAPER_PENV_4_ROTATED: u32 = 112u32;
-pub const DMPAPER_PENV_5: u32 = 100u32;
-pub const DMPAPER_PENV_5_ROTATED: u32 = 113u32;
-pub const DMPAPER_PENV_6: u32 = 101u32;
-pub const DMPAPER_PENV_6_ROTATED: u32 = 114u32;
-pub const DMPAPER_PENV_7: u32 = 102u32;
-pub const DMPAPER_PENV_7_ROTATED: u32 = 115u32;
-pub const DMPAPER_PENV_8: u32 = 103u32;
-pub const DMPAPER_PENV_8_ROTATED: u32 = 116u32;
-pub const DMPAPER_PENV_9: u32 = 104u32;
-pub const DMPAPER_PENV_9_ROTATED: u32 = 117u32;
-pub const DMPAPER_QUARTO: u32 = 15u32;
-pub const DMPAPER_RESERVED_48: u32 = 48u32;
-pub const DMPAPER_RESERVED_49: u32 = 49u32;
-pub const DMPAPER_STATEMENT: u32 = 6u32;
-pub const DMPAPER_TABLOID: u32 = 3u32;
-pub const DMPAPER_TABLOID_EXTRA: u32 = 52u32;
-pub const DMPAPER_USER: u32 = 256u32;
-pub const DMRES_DRAFT: i32 = -1i32;
-pub const DMRES_HIGH: i32 = -4i32;
-pub const DMRES_LOW: i32 = -2i32;
-pub const DMRES_MEDIUM: i32 = -3i32;
-pub const DMTT_BITMAP: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(1i16);
-pub const DMTT_DOWNLOAD: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(2i16);
-pub const DMTT_DOWNLOAD_OUTLINE: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(4i16);
-pub const DMTT_SUBDEV: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(3i16);
-pub const DM_BITSPERPEL: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(262144u32);
-pub const DM_COLLATE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(32768u32);
-pub const DM_COLOR: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2048u32);
-pub const DM_COPIES: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(256u32);
-pub const DM_COPY: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2u32);
-pub const DM_DEFAULTSOURCE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(512u32);
-pub const DM_DISPLAYFIXEDOUTPUT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(536870912u32);
-pub const DM_DISPLAYFLAGS: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2097152u32);
-pub const DM_DISPLAYFREQUENCY: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(4194304u32);
-pub const DM_DISPLAYORIENTATION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(128u32);
-pub const DM_DITHERTYPE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(67108864u32);
-pub const DM_DUPLEX: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(4096u32);
-pub const DM_FORMNAME: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(65536u32);
-pub const DM_ICMINTENT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(16777216u32);
-pub const DM_ICMMETHOD: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(8388608u32);
-pub const DM_INTERLACED: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2u32);
-pub const DM_IN_BUFFER: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(8u32);
-pub const DM_IN_PROMPT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(4u32);
-pub const DM_LOGPIXELS: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(131072u32);
-pub const DM_MEDIATYPE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(33554432u32);
-pub const DM_MODIFY: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(8u32);
-pub const DM_NUP: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(64u32);
-pub const DM_ORIENTATION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1u32);
-pub const DM_OUT_BUFFER: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2u32);
-pub const DM_OUT_DEFAULT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1u32);
-pub const DM_PANNINGHEIGHT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(268435456u32);
-pub const DM_PANNINGWIDTH: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(134217728u32);
-pub const DM_PAPERLENGTH: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(4u32);
-pub const DM_PAPERSIZE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2u32);
-pub const DM_PAPERWIDTH: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(8u32);
-pub const DM_PELSHEIGHT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1048576u32);
-pub const DM_PELSWIDTH: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(524288u32);
-pub const DM_POSITION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(32u32);
-pub const DM_PRINTQUALITY: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1024u32);
-pub const DM_PROMPT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(4u32);
-pub const DM_SCALE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(16u32);
-pub const DM_SPECVERSION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1025u32);
-pub const DM_TTOPTION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(16384u32);
-pub const DM_UPDATE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1u32);
-pub const DM_YRESOLUTION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(8192u32);
-pub const DOWNLOADFACE: u32 = 514u32;
-pub const DOWNLOADHEADER: u32 = 4111u32;
-pub const DRAFTMODE: u32 = 7u32;
-pub const DRAFT_QUALITY: FONT_QUALITY = FONT_QUALITY(1u8);
-pub const DRAWPATTERNRECT: u32 = 25u32;
-pub const DRIVERVERSION: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(0u32);
-pub const DSS_DISABLED: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(32u32);
-pub const DSS_HIDEPREFIX: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(512u32);
-pub const DSS_MONO: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(128u32);
-pub const DSS_NORMAL: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(0u32);
-pub const DSS_PREFIXONLY: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(1024u32);
-pub const DSS_RIGHT: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(32768u32);
-pub const DSS_UNION: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(16u32);
-pub const DSTINVERT: ROP_CODE = ROP_CODE(5570569u32);
-pub const DST_BITMAP: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(4u32);
-pub const DST_COMPLEX: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(0u32);
-pub const DST_ICON: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(3u32);
-pub const DST_PREFIXTEXT: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(2u32);
-pub const DST_TEXT: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(1u32);
-pub const DT_BOTTOM: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(8u32);
-pub const DT_CALCRECT: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(1024u32);
-pub const DT_CENTER: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(1u32);
-pub const DT_CHARSTREAM: u32 = 4u32;
-pub const DT_DISPFILE: u32 = 6u32;
-pub const DT_EDITCONTROL: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(8192u32);
-pub const DT_END_ELLIPSIS: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(32768u32);
-pub const DT_EXPANDTABS: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(64u32);
-pub const DT_EXTERNALLEADING: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(512u32);
-pub const DT_HIDEPREFIX: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(1048576u32);
-pub const DT_INTERNAL: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(4096u32);
-pub const DT_LEFT: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(0u32);
-pub const DT_METAFILE: u32 = 5u32;
-pub const DT_MODIFYSTRING: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(65536u32);
-pub const DT_NOCLIP: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(256u32);
-pub const DT_NOFULLWIDTHCHARBREAK: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(524288u32);
-pub const DT_NOPREFIX: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(2048u32);
-pub const DT_PATH_ELLIPSIS: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(16384u32);
-pub const DT_PLOTTER: u32 = 0u32;
-pub const DT_PREFIXONLY: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(2097152u32);
-pub const DT_RASCAMERA: u32 = 3u32;
-pub const DT_RASDISPLAY: u32 = 1u32;
-pub const DT_RASPRINTER: u32 = 2u32;
-pub const DT_RIGHT: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(2u32);
-pub const DT_RTLREADING: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(131072u32);
-pub const DT_SINGLELINE: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(32u32);
-pub const DT_TABSTOP: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(128u32);
-pub const DT_TOP: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(0u32);
-pub const DT_VCENTER: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(4u32);
-pub const DT_WORDBREAK: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(16u32);
-pub const DT_WORD_ELLIPSIS: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(262144u32);
-pub const EASTEUROPE_CHARSET: FONT_CHARSET = FONT_CHARSET(238u8);
-pub const EDGE_BUMP: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(9u32);
-pub const EDGE_ETCHED: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(6u32);
-pub const EDGE_RAISED: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(5u32);
-pub const EDGE_SUNKEN: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(10u32);
-pub const EDS_RAWMODE: ENUM_DISPLAY_SETTINGS_FLAGS = ENUM_DISPLAY_SETTINGS_FLAGS(2u32);
-pub const EDS_ROTATEDMODE: ENUM_DISPLAY_SETTINGS_FLAGS = ENUM_DISPLAY_SETTINGS_FLAGS(4u32);
-pub const ELF_CULTURE_LATIN: u32 = 0u32;
-pub const ELF_VENDOR_SIZE: u32 = 4u32;
-pub const ELF_VERSION: u32 = 0u32;
-pub const EMBED_EDITABLE: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(2u32);
-pub const EMBED_INSTALLABLE: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(3u32);
-pub const EMBED_NOEMBEDDING: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(4u32);
-pub const EMBED_PREVIEWPRINT: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(1u32);
 pub const EMR_ABORTPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(68u32);
 pub const EMR_ALPHABLEND: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(114u32);
 pub const EMR_ANGLEARC: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(41u32);
@@ -8129,11 +6119,190 @@ pub const ENABLERELATIVEWIDTHS: u32 = 768u32;
 pub const ENCAPSULATED_POSTSCRIPT: u32 = 4116u32;
 pub const ENDDOC: u32 = 11u32;
 pub const END_PATH: u32 = 4098u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ENHANCED_METAFILE_RECORD_TYPE(pub u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENHMETAHEADER {
+    pub iType: u32,
+    pub nSize: u32,
+    pub rclBounds: super::super::Foundation::RECTL,
+    pub rclFrame: super::super::Foundation::RECTL,
+    pub dSignature: u32,
+    pub nVersion: u32,
+    pub nBytes: u32,
+    pub nRecords: u32,
+    pub nHandles: u16,
+    pub sReserved: u16,
+    pub nDescription: u32,
+    pub offDescription: u32,
+    pub nPalEntries: u32,
+    pub szlDevice: super::super::Foundation::SIZE,
+    pub szlMillimeters: super::super::Foundation::SIZE,
+    pub cbPixelFormat: u32,
+    pub offPixelFormat: u32,
+    pub bOpenGL: u32,
+    pub szlMicrometers: super::super::Foundation::SIZE,
+}
+impl Default for ENHMETAHEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ENHMETAHEADER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENHMETARECORD {
+    pub iType: ENHANCED_METAFILE_RECORD_TYPE,
+    pub nSize: u32,
+    pub dParm: [u32; 1],
+}
+impl Default for ENHMETARECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ENHMETARECORD {
+    type TypeKind = windows_core::CopyType;
+}
 pub const ENHMETA_SIGNATURE: u32 = 1179469088u32;
 pub const ENHMETA_STOCK_OBJECT: u32 = 2147483648u32;
+pub type ENHMFENUMPROC = Option<unsafe extern "system" fn(hdc: HDC, lpht: *const HANDLETABLE, lpmr: *const ENHMETARECORD, nhandles: i32, data: super::super::Foundation::LPARAM) -> i32>;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENUMLOGFONTA {
+    pub elfLogFont: LOGFONTA,
+    pub elfFullName: [u8; 64],
+    pub elfStyle: [u8; 32],
+}
+impl Default for ENUMLOGFONTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ENUMLOGFONTA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENUMLOGFONTEXA {
+    pub elfLogFont: LOGFONTA,
+    pub elfFullName: [u8; 64],
+    pub elfStyle: [u8; 32],
+    pub elfScript: [u8; 32],
+}
+impl Default for ENUMLOGFONTEXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ENUMLOGFONTEXA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENUMLOGFONTEXDVA {
+    pub elfEnumLogfontEx: ENUMLOGFONTEXA,
+    pub elfDesignVector: DESIGNVECTOR,
+}
+impl Default for ENUMLOGFONTEXDVA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ENUMLOGFONTEXDVA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENUMLOGFONTEXDVW {
+    pub elfEnumLogfontEx: ENUMLOGFONTEXW,
+    pub elfDesignVector: DESIGNVECTOR,
+}
+impl Default for ENUMLOGFONTEXDVW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ENUMLOGFONTEXDVW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENUMLOGFONTEXW {
+    pub elfLogFont: LOGFONTW,
+    pub elfFullName: [u16; 64],
+    pub elfStyle: [u16; 32],
+    pub elfScript: [u16; 32],
+}
+impl Default for ENUMLOGFONTEXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ENUMLOGFONTEXW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ENUMLOGFONTW {
+    pub elfLogFont: LOGFONTW,
+    pub elfFullName: [u16; 64],
+    pub elfStyle: [u16; 32],
+}
+impl Default for ENUMLOGFONTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ENUMLOGFONTW {
+    type TypeKind = windows_core::CopyType;
+}
 pub const ENUMPAPERBINS: u32 = 31u32;
 pub const ENUMPAPERMETRICS: u32 = 34u32;
 pub const ENUM_CURRENT_SETTINGS: ENUM_DISPLAY_SETTINGS_MODE = ENUM_DISPLAY_SETTINGS_MODE(4294967295u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ENUM_DISPLAY_SETTINGS_FLAGS(pub u32);
+impl ENUM_DISPLAY_SETTINGS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for ENUM_DISPLAY_SETTINGS_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for ENUM_DISPLAY_SETTINGS_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for ENUM_DISPLAY_SETTINGS_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for ENUM_DISPLAY_SETTINGS_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for ENUM_DISPLAY_SETTINGS_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ENUM_DISPLAY_SETTINGS_MODE(pub u32);
 pub const ENUM_REGISTRY_SETTINGS: ENUM_DISPLAY_SETTINGS_MODE = ENUM_DISPLAY_SETTINGS_MODE(4294967294u32);
 pub const EPSPRINTING: u32 = 33u32;
 pub const EPS_SIGNATURE: u32 = 1179865157u32;
@@ -8216,11 +6385,132 @@ pub const ETO_IGNORELANGUAGE: ETO_OPTIONS = ETO_OPTIONS(4096u32);
 pub const ETO_NUMERICSLATIN: ETO_OPTIONS = ETO_OPTIONS(2048u32);
 pub const ETO_NUMERICSLOCAL: ETO_OPTIONS = ETO_OPTIONS(1024u32);
 pub const ETO_OPAQUE: ETO_OPTIONS = ETO_OPTIONS(2u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ETO_OPTIONS(pub u32);
+impl ETO_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for ETO_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for ETO_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for ETO_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for ETO_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for ETO_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const ETO_PDY: ETO_OPTIONS = ETO_OPTIONS(8192u32);
 pub const ETO_REVERSE_INDEX_MAP: ETO_OPTIONS = ETO_OPTIONS(65536u32);
 pub const ETO_RTLREADING: ETO_OPTIONS = ETO_OPTIONS(128u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EXTLOGFONTA {
+    pub elfLogFont: LOGFONTA,
+    pub elfFullName: [u8; 64],
+    pub elfStyle: [u8; 32],
+    pub elfVersion: u32,
+    pub elfStyleSize: u32,
+    pub elfMatch: u32,
+    pub elfReserved: u32,
+    pub elfVendorId: [u8; 4],
+    pub elfCulture: u32,
+    pub elfPanose: PANOSE,
+}
+impl Default for EXTLOGFONTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for EXTLOGFONTA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EXTLOGFONTW {
+    pub elfLogFont: LOGFONTW,
+    pub elfFullName: [u16; 64],
+    pub elfStyle: [u16; 32],
+    pub elfVersion: u32,
+    pub elfStyleSize: u32,
+    pub elfMatch: u32,
+    pub elfReserved: u32,
+    pub elfVendorId: [u8; 4],
+    pub elfCulture: u32,
+    pub elfPanose: PANOSE,
+}
+impl Default for EXTLOGFONTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for EXTLOGFONTW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EXTLOGPEN {
+    pub elpPenStyle: u32,
+    pub elpWidth: u32,
+    pub elpBrushStyle: u32,
+    pub elpColor: super::super::Foundation::COLORREF,
+    pub elpHatch: usize,
+    pub elpNumEntries: u32,
+    pub elpStyleEntry: [u32; 1],
+}
+impl Default for EXTLOGPEN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for EXTLOGPEN {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EXTLOGPEN32 {
+    pub elpPenStyle: u32,
+    pub elpWidth: u32,
+    pub elpBrushStyle: u32,
+    pub elpColor: super::super::Foundation::COLORREF,
+    pub elpHatch: u32,
+    pub elpNumEntries: u32,
+    pub elpStyleEntry: [u32; 1],
+}
+impl Default for EXTLOGPEN32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for EXTLOGPEN32 {
+    type TypeKind = windows_core::CopyType;
+}
 pub const EXTTEXTOUT: u32 = 512u32;
 pub const EXT_DEVICE_CAPS: u32 = 4099u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EXT_FLOOD_FILL_TYPE(pub u32);
 pub const E_ADDFONTFAILED: i32 = 512i32;
 pub const E_API_NOTIMPL: i32 = 1i32;
 pub const E_CHARCODECOUNTINVALID: i32 = 2i32;
@@ -8293,13 +6583,89 @@ pub const FF_MODERN: FONT_FAMILY = FONT_FAMILY(48u8);
 pub const FF_ROMAN: FONT_FAMILY = FONT_FAMILY(16u8);
 pub const FF_SCRIPT: FONT_FAMILY = FONT_FAMILY(64u8);
 pub const FF_SWISS: FONT_FAMILY = FONT_FAMILY(32u8);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FIXED {
+    pub fract: u16,
+    pub value: i16,
+}
+impl Default for FIXED {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FIXED {
+    type TypeKind = windows_core::CopyType;
+}
 pub const FIXED_PITCH: FONT_PITCH = FONT_PITCH(1u8);
 pub const FLI_GLYPHS: i32 = 262144i32;
 pub const FLI_MASK: u32 = 4155u32;
 pub const FLOODFILLBORDER: EXT_FLOOD_FILL_TYPE = EXT_FLOOD_FILL_TYPE(0u32);
 pub const FLOODFILLSURFACE: EXT_FLOOD_FILL_TYPE = EXT_FLOOD_FILL_TYPE(1u32);
 pub const FLUSHOUTPUT: u32 = 6u32;
+pub type FONTENUMPROCA = Option<unsafe extern "system" fn(param0: *const LOGFONTA, param1: *const TEXTMETRICA, param2: u32, param3: super::super::Foundation::LPARAM) -> i32>;
+pub type FONTENUMPROCW = Option<unsafe extern "system" fn(param0: *const LOGFONTW, param1: *const TEXTMETRICW, param2: u32, param3: super::super::Foundation::LPARAM) -> i32>;
 pub const FONTMAPPER_MAX: u32 = 10u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FONT_CHARSET(pub u8);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FONT_CLIP_PRECISION(pub u8);
+impl FONT_CLIP_PRECISION {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for FONT_CLIP_PRECISION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for FONT_CLIP_PRECISION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for FONT_CLIP_PRECISION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for FONT_CLIP_PRECISION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for FONT_CLIP_PRECISION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FONT_FAMILY(pub u8);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FONT_LICENSE_PRIVS(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FONT_OUTPUT_PRECISION(pub u8);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FONT_PITCH(pub u8);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FONT_QUALITY(pub u8);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FONT_RESOURCE_CHARACTERISTICS(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FONT_WEIGHT(pub u32);
 pub const FR_NOT_ENUM: FONT_RESOURCE_CHARACTERISTICS = FONT_RESOURCE_CHARACTERISTICS(32u32);
 pub const FR_PRIVATE: FONT_RESOURCE_CHARACTERISTICS = FONT_RESOURCE_CHARACTERISTICS(16u32);
 pub const FS_ARABIC: i32 = 64i32;
@@ -8365,6 +6731,48 @@ pub const GCP_NUMERICOVERRIDE: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLA
 pub const GCP_NUMERICSLATIN: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(67108864u32);
 pub const GCP_NUMERICSLOCAL: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(134217728u32);
 pub const GCP_REORDER: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(2u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GCP_RESULTSA {
+    pub lStructSize: u32,
+    pub lpOutString: windows_core::PSTR,
+    pub lpOrder: *mut u32,
+    pub lpDx: *mut i32,
+    pub lpCaretPos: *mut i32,
+    pub lpClass: windows_core::PSTR,
+    pub lpGlyphs: windows_core::PWSTR,
+    pub nGlyphs: u32,
+    pub nMaxFit: i32,
+}
+impl Default for GCP_RESULTSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for GCP_RESULTSA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GCP_RESULTSW {
+    pub lStructSize: u32,
+    pub lpOutString: windows_core::PWSTR,
+    pub lpOrder: *mut u32,
+    pub lpDx: *mut i32,
+    pub lpCaretPos: *mut i32,
+    pub lpClass: windows_core::PSTR,
+    pub lpGlyphs: windows_core::PWSTR,
+    pub nGlyphs: u32,
+    pub nMaxFit: i32,
+}
+impl Default for GCP_RESULTSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for GCP_RESULTSW {
+    type TypeKind = windows_core::CopyType;
+}
 pub const GCP_SYMSWAPOFF: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(8388608u32);
 pub const GCP_USEKERNING: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(8u32);
 pub const GDICOMMENT_BEGINGROUP: u32 = 2u32;
@@ -8378,6 +6786,9 @@ pub const GDIPLUS_TS_QUERYVER: u32 = 4122u32;
 pub const GDIPLUS_TS_RECORD: u32 = 4123u32;
 pub const GDIREGISTERDDRAWPACKETVERSION: u32 = 1u32;
 pub const GDI_ERROR: i32 = -1i32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GDI_REGION_TYPE(pub i32);
 pub const GETCOLORTABLE: u32 = 5u32;
 pub const GETDEVICEUNITS: u32 = 42u32;
 pub const GETEXTENDEDTEXTMETRICS: u32 = 256u32;
@@ -8397,7 +6808,88 @@ pub const GETTECHNOLOGY: u32 = 20u32;
 pub const GETTRACKKERNTABLE: u32 = 259u32;
 pub const GETVECTORBRUSHSIZE: u32 = 27u32;
 pub const GETVECTORPENSIZE: u32 = 26u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GET_CHARACTER_PLACEMENT_FLAGS(pub u32);
+impl GET_CHARACTER_PLACEMENT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for GET_CHARACTER_PLACEMENT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for GET_CHARACTER_PLACEMENT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for GET_CHARACTER_PLACEMENT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for GET_CHARACTER_PLACEMENT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for GET_CHARACTER_PLACEMENT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GET_DCX_FLAGS(pub u32);
+impl GET_DCX_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for GET_DCX_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for GET_DCX_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for GET_DCX_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for GET_DCX_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for GET_DCX_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GET_DEVICE_CAPS_INDEX(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GET_GLYPH_OUTLINE_FORMAT(pub u32);
 pub const GET_PS_FEATURESETTING: u32 = 4121u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GET_STOCK_OBJECT_FLAGS(pub i32);
 pub const GGI_MARK_NONEXISTING_GLYPHS: u32 = 1u32;
 pub const GGO_BEZIER: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(3u32);
 pub const GGO_BITMAP: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(1u32);
@@ -8408,23 +6900,406 @@ pub const GGO_GRAY8_BITMAP: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(
 pub const GGO_METRICS: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(0u32);
 pub const GGO_NATIVE: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(2u32);
 pub const GGO_UNHINTED: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(256u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GLYPHMETRICS {
+    pub gmBlackBoxX: u32,
+    pub gmBlackBoxY: u32,
+    pub gmptGlyphOrigin: super::super::Foundation::POINT,
+    pub gmCellIncX: i16,
+    pub gmCellIncY: i16,
+}
+impl Default for GLYPHMETRICS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for GLYPHMETRICS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GLYPHSET {
+    pub cbThis: u32,
+    pub flAccel: u32,
+    pub cGlyphsSupported: u32,
+    pub cRanges: u32,
+    pub ranges: [WCRANGE; 1],
+}
+impl Default for GLYPHSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for GLYPHSET {
+    type TypeKind = windows_core::CopyType;
+}
 pub const GM_ADVANCED: GRAPHICS_MODE = GRAPHICS_MODE(2i32);
 pub const GM_COMPATIBLE: GRAPHICS_MODE = GRAPHICS_MODE(1i32);
 pub const GM_LAST: u32 = 2u32;
+pub type GOBJENUMPROC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: super::super::Foundation::LPARAM) -> i32>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GRADIENT_FILL(pub u32);
 pub const GRADIENT_FILL_OP_FLAG: u32 = 255u32;
 pub const GRADIENT_FILL_RECT_H: GRADIENT_FILL = GRADIENT_FILL(0u32);
 pub const GRADIENT_FILL_RECT_V: GRADIENT_FILL = GRADIENT_FILL(1u32);
 pub const GRADIENT_FILL_TRIANGLE: GRADIENT_FILL = GRADIENT_FILL(2u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GRADIENT_RECT {
+    pub UpperLeft: u32,
+    pub LowerRight: u32,
+}
+impl Default for GRADIENT_RECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for GRADIENT_RECT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GRADIENT_TRIANGLE {
+    pub Vertex1: u32,
+    pub Vertex2: u32,
+    pub Vertex3: u32,
+}
+impl Default for GRADIENT_TRIANGLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for GRADIENT_TRIANGLE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GRAPHICS_MODE(pub i32);
+pub type GRAYSTRINGPROC = Option<unsafe extern "system" fn(param0: HDC, param1: super::super::Foundation::LPARAM, param2: i32) -> super::super::Foundation::BOOL>;
 pub const GRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(2i32);
 pub const GREEK_CHARSET: FONT_CHARSET = FONT_CHARSET(161u8);
 pub const GS_8BIT_INDICES: u32 = 1u32;
 pub const HALFTONE: STRETCH_BLT_MODE = STRETCH_BLT_MODE(4i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HANDLETABLE {
+    pub objectHandle: [HGDIOBJ; 1],
+}
+impl Default for HANDLETABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HANDLETABLE {
+    type TypeKind = windows_core::CopyType;
+}
 pub const HANGEUL_CHARSET: FONT_CHARSET = FONT_CHARSET(129u8);
 pub const HANGUL_CHARSET: FONT_CHARSET = FONT_CHARSET(129u8);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HATCH_BRUSH_STYLE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HBITMAP(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HBITMAP {
+    type TypeKind = windows_core::CopyType;
+}
+impl HBITMAP {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HBITMAP {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("gdi32.dll" "system" fn DeleteObject(ho : *mut core::ffi::c_void) -> i32);
+            DeleteObject(self.0);
+        }
+    }
+}
+impl Default for HBITMAP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::imp::CanInto<HGDIOBJ> for HBITMAP {}
+impl From<HBITMAP> for HGDIOBJ {
+    fn from(value: HBITMAP) -> Self {
+        Self(value.0)
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HBRUSH(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HBRUSH {
+    type TypeKind = windows_core::CopyType;
+}
+impl HBRUSH {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HBRUSH {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("gdi32.dll" "system" fn DeleteObject(ho : *mut core::ffi::c_void) -> i32);
+            DeleteObject(self.0);
+        }
+    }
+}
+impl Default for HBRUSH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::imp::CanInto<HGDIOBJ> for HBRUSH {}
+impl From<HBRUSH> for HGDIOBJ {
+    fn from(value: HBRUSH) -> Self {
+        Self(value.0)
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HDC(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HDC {
+    type TypeKind = windows_core::CopyType;
+}
+impl HDC {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl Default for HDC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HDC_MAP_MODE(pub i32);
 pub const HEBREW_CHARSET: FONT_CHARSET = FONT_CHARSET(177u8);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HENHMETAFILE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HENHMETAFILE {
+    type TypeKind = windows_core::CopyType;
+}
+impl HENHMETAFILE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HENHMETAFILE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("gdi32.dll" "system" fn DeleteEnhMetaFile(hmf : *mut core::ffi::c_void) -> i32);
+            DeleteEnhMetaFile(self.0);
+        }
+    }
+}
+impl Default for HENHMETAFILE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HFONT(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HFONT {
+    type TypeKind = windows_core::CopyType;
+}
+impl HFONT {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HFONT {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("gdi32.dll" "system" fn DeleteObject(ho : *mut core::ffi::c_void) -> i32);
+            DeleteObject(self.0);
+        }
+    }
+}
+impl Default for HFONT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::imp::CanInto<HGDIOBJ> for HFONT {}
+impl From<HFONT> for HGDIOBJ {
+    fn from(value: HFONT) -> Self {
+        Self(value.0)
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HGDIOBJ(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HGDIOBJ {
+    type TypeKind = windows_core::CopyType;
+}
+impl HGDIOBJ {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HGDIOBJ {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("gdi32.dll" "system" fn DeleteObject(ho : *mut core::ffi::c_void) -> i32);
+            DeleteObject(self.0);
+        }
+    }
+}
+impl Default for HGDIOBJ {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HMETAFILE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HMETAFILE {
+    type TypeKind = windows_core::CopyType;
+}
+impl HMETAFILE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HMETAFILE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("gdi32.dll" "system" fn DeleteMetaFile(hmf : *mut core::ffi::c_void) -> i32);
+            DeleteMetaFile(self.0);
+        }
+    }
+}
+impl Default for HMETAFILE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HMONITOR(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HMONITOR {
+    type TypeKind = windows_core::CopyType;
+}
+impl HMONITOR {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl Default for HMONITOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const HOLLOW_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(5i32);
 pub const HORZRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(8u32);
 pub const HORZSIZE: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(4u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HPALETTE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HPALETTE {
+    type TypeKind = windows_core::CopyType;
+}
+impl HPALETTE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HPALETTE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("gdi32.dll" "system" fn DeleteObject(ho : *mut core::ffi::c_void) -> i32);
+            DeleteObject(self.0);
+        }
+    }
+}
+impl Default for HPALETTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::imp::CanInto<HGDIOBJ> for HPALETTE {}
+impl From<HPALETTE> for HGDIOBJ {
+    fn from(value: HPALETTE) -> Self {
+        Self(value.0)
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HPEN(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HPEN {
+    type TypeKind = windows_core::CopyType;
+}
+impl HPEN {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HPEN {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("gdi32.dll" "system" fn DeleteObject(ho : *mut core::ffi::c_void) -> i32);
+            DeleteObject(self.0);
+        }
+    }
+}
+impl Default for HPEN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::imp::CanInto<HGDIOBJ> for HPEN {}
+impl From<HPEN> for HGDIOBJ {
+    fn from(value: HPEN) -> Self {
+        Self(value.0)
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HRGN(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HRGN {
+    type TypeKind = windows_core::CopyType;
+}
+impl HRGN {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HRGN {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("gdi32.dll" "system" fn DeleteObject(ho : *mut core::ffi::c_void) -> i32);
+            DeleteObject(self.0);
+        }
+    }
+}
+impl Default for HRGN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::imp::CanInto<HGDIOBJ> for HRGN {}
+impl From<HRGN> for HGDIOBJ {
+    fn from(value: HRGN) -> Self {
+        Self(value.0)
+    }
+}
 pub const HS_API_MAX: u32 = 12u32;
 pub const HS_BDIAGONAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(3i32);
 pub const HS_CROSS: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(4i32);
@@ -8447,6 +7322,21 @@ pub const ILLUMINANT_MAX_INDEX: u32 = 8u32;
 pub const ILLUMINANT_NTSC: u32 = 3u32;
 pub const ILLUMINANT_TUNGSTEN: u32 = 1u32;
 pub const JOHAB_CHARSET: FONT_CHARSET = FONT_CHARSET(130u8);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct KERNINGPAIR {
+    pub wFirst: u16,
+    pub wSecond: u16,
+    pub iKernAmount: i32,
+}
+impl Default for KERNINGPAIR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for KERNINGPAIR {
+    type TypeKind = windows_core::CopyType;
+}
 pub const LAYOUT_BITMAPORIENTATIONPRESERVED: DC_LAYOUT = DC_LAYOUT(8u32);
 pub const LAYOUT_BTT: u32 = 2u32;
 pub const LAYOUT_RTL: DC_LAYOUT = DC_LAYOUT(1u32);
@@ -8471,6 +7361,119 @@ pub const LICENSE_INSTALLABLE: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(0u32);
 pub const LICENSE_NOEMBEDDING: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(2u32);
 pub const LICENSE_PREVIEWPRINT: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(4u32);
 pub const LINECAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(30u32);
+pub type LINEDDAPROC = Option<unsafe extern "system" fn(param0: i32, param1: i32, param2: super::super::Foundation::LPARAM)>;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LOGBRUSH {
+    pub lbStyle: BRUSH_STYLE,
+    pub lbColor: super::super::Foundation::COLORREF,
+    pub lbHatch: usize,
+}
+impl Default for LOGBRUSH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LOGBRUSH {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LOGBRUSH32 {
+    pub lbStyle: BRUSH_STYLE,
+    pub lbColor: super::super::Foundation::COLORREF,
+    pub lbHatch: u32,
+}
+impl Default for LOGBRUSH32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LOGBRUSH32 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LOGFONTA {
+    pub lfHeight: i32,
+    pub lfWidth: i32,
+    pub lfEscapement: i32,
+    pub lfOrientation: i32,
+    pub lfWeight: i32,
+    pub lfItalic: u8,
+    pub lfUnderline: u8,
+    pub lfStrikeOut: u8,
+    pub lfCharSet: FONT_CHARSET,
+    pub lfOutPrecision: FONT_OUTPUT_PRECISION,
+    pub lfClipPrecision: FONT_CLIP_PRECISION,
+    pub lfQuality: FONT_QUALITY,
+    pub lfPitchAndFamily: u8,
+    pub lfFaceName: [i8; 32],
+}
+impl Default for LOGFONTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LOGFONTA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LOGFONTW {
+    pub lfHeight: i32,
+    pub lfWidth: i32,
+    pub lfEscapement: i32,
+    pub lfOrientation: i32,
+    pub lfWeight: i32,
+    pub lfItalic: u8,
+    pub lfUnderline: u8,
+    pub lfStrikeOut: u8,
+    pub lfCharSet: FONT_CHARSET,
+    pub lfOutPrecision: FONT_OUTPUT_PRECISION,
+    pub lfClipPrecision: FONT_CLIP_PRECISION,
+    pub lfQuality: FONT_QUALITY,
+    pub lfPitchAndFamily: u8,
+    pub lfFaceName: [u16; 32],
+}
+impl Default for LOGFONTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LOGFONTW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LOGPALETTE {
+    pub palVersion: u16,
+    pub palNumEntries: u16,
+    pub palPalEntry: [PALETTEENTRY; 1],
+}
+impl Default for LOGPALETTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LOGPALETTE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LOGPEN {
+    pub lopnStyle: u32,
+    pub lopnWidth: super::super::Foundation::POINT,
+    pub lopnColor: super::super::Foundation::COLORREF,
+}
+impl Default for LOGPEN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LOGPEN {
+    type TypeKind = windows_core::CopyType;
+}
 pub const LOGPIXELSX: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(88u32);
 pub const LOGPIXELSY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(90u32);
 pub const LPD_DOUBLEBUFFER: u32 = 1u32;
@@ -8485,12 +7488,64 @@ pub const LPD_SWAP_EXCHANGE: u32 = 512u32;
 pub const LPD_TRANSPARENT: u32 = 4096u32;
 pub const LPD_TYPE_COLORINDEX: u32 = 1u32;
 pub const LPD_TYPE_RGBA: u32 = 0u32;
+pub type LPFNDEVCAPS = Option<unsafe extern "system" fn(param0: windows_core::PCSTR, param1: windows_core::PCSTR, param2: u32, param3: windows_core::PCSTR, param4: *mut DEVMODEA) -> u32>;
+pub type LPFNDEVMODE = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::HMODULE, param2: *mut DEVMODEA, param3: windows_core::PCSTR, param4: windows_core::PCSTR, param5: *mut DEVMODEA, param6: windows_core::PCSTR, param7: u32) -> u32>;
 pub const LTGRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(1i32);
 pub const MAC_CHARSET: FONT_CHARSET = FONT_CHARSET(77u8);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MAT2 {
+    pub eM11: FIXED,
+    pub eM12: FIXED,
+    pub eM21: FIXED,
+    pub eM22: FIXED,
+}
+impl Default for MAT2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MAT2 {
+    type TypeKind = windows_core::CopyType;
+}
 pub const MAXSTRETCHBLTMODE: u32 = 4u32;
 pub const MERGECOPY: ROP_CODE = ROP_CODE(12583114u32);
 pub const MERGEPAINT: ROP_CODE = ROP_CODE(12255782u32);
 pub const METAFILE_DRIVER: u32 = 2049u32;
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct METAHEADER {
+    pub mtType: u16,
+    pub mtHeaderSize: u16,
+    pub mtVersion: u16,
+    pub mtSize: u32,
+    pub mtNoObjects: u16,
+    pub mtMaxRecord: u32,
+    pub mtNoParameters: u16,
+}
+impl Default for METAHEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for METAHEADER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct METARECORD {
+    pub rdSize: u32,
+    pub rdFunction: u16,
+    pub rdParm: [u16; 1],
+}
+impl Default for METARECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for METARECORD {
+    type TypeKind = windows_core::CopyType;
+}
 pub const META_ANIMATEPALETTE: u32 = 1078u32;
 pub const META_ARC: u32 = 2071u32;
 pub const META_BITBLT: u32 = 2338u32;
@@ -8561,6 +7616,7 @@ pub const META_STRETCHBLT: u32 = 2851u32;
 pub const META_STRETCHDIB: u32 = 3907u32;
 pub const META_TEXTOUT: u32 = 1313u32;
 pub const MFCOMMENT: u32 = 15u32;
+pub type MFENUMPROC = Option<unsafe extern "system" fn(hdc: HDC, lpht: *const HANDLETABLE, lpmr: *const METARECORD, nobj: i32, param4: super::super::Foundation::LPARAM) -> i32>;
 pub const MILCORE_TS_QUERYVER_RESULT_FALSE: u32 = 0u32;
 pub const MILCORE_TS_QUERYVER_RESULT_TRUE: u32 = 2147483647u32;
 pub const MM_ANISOTROPIC: HDC_MAP_MODE = HDC_MAP_MODE(8i32);
@@ -8573,15 +7629,138 @@ pub const MM_MAX_AXES_NAMELEN: u32 = 16u32;
 pub const MM_MAX_NUMAXES: u32 = 16u32;
 pub const MM_TEXT: HDC_MAP_MODE = HDC_MAP_MODE(1i32);
 pub const MM_TWIPS: HDC_MAP_MODE = HDC_MAP_MODE(6i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MODIFY_WORLD_TRANSFORM_MODE(pub u32);
+pub type MONITORENUMPROC = Option<unsafe extern "system" fn(param0: HMONITOR, param1: HDC, param2: *mut super::super::Foundation::RECT, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MONITORINFO {
+    pub cbSize: u32,
+    pub rcMonitor: super::super::Foundation::RECT,
+    pub rcWork: super::super::Foundation::RECT,
+    pub dwFlags: u32,
+}
+impl Default for MONITORINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MONITORINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MONITORINFOEXA {
+    pub monitorInfo: MONITORINFO,
+    pub szDevice: [i8; 32],
+}
+impl Default for MONITORINFOEXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MONITORINFOEXA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MONITORINFOEXW {
+    pub monitorInfo: MONITORINFO,
+    pub szDevice: [u16; 32],
+}
+impl Default for MONITORINFOEXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MONITORINFOEXW {
+    type TypeKind = windows_core::CopyType;
+}
 pub const MONITOR_DEFAULTTONEAREST: MONITOR_FROM_FLAGS = MONITOR_FROM_FLAGS(2u32);
 pub const MONITOR_DEFAULTTONULL: MONITOR_FROM_FLAGS = MONITOR_FROM_FLAGS(0u32);
 pub const MONITOR_DEFAULTTOPRIMARY: MONITOR_FROM_FLAGS = MONITOR_FROM_FLAGS(1u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MONITOR_FROM_FLAGS(pub u32);
 pub const MONO_FONT: u32 = 8u32;
 pub const MOUSETRAILS: u32 = 39u32;
 pub const MWT_IDENTITY: MODIFY_WORLD_TRANSFORM_MODE = MODIFY_WORLD_TRANSFORM_MODE(1u32);
 pub const MWT_LEFTMULTIPLY: MODIFY_WORLD_TRANSFORM_MODE = MODIFY_WORLD_TRANSFORM_MODE(2u32);
 pub const MWT_RIGHTMULTIPLY: MODIFY_WORLD_TRANSFORM_MODE = MODIFY_WORLD_TRANSFORM_MODE(3u32);
 pub const NEWFRAME: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NEWTEXTMETRICA {
+    pub tmHeight: i32,
+    pub tmAscent: i32,
+    pub tmDescent: i32,
+    pub tmInternalLeading: i32,
+    pub tmExternalLeading: i32,
+    pub tmAveCharWidth: i32,
+    pub tmMaxCharWidth: i32,
+    pub tmWeight: i32,
+    pub tmOverhang: i32,
+    pub tmDigitizedAspectX: i32,
+    pub tmDigitizedAspectY: i32,
+    pub tmFirstChar: u8,
+    pub tmLastChar: u8,
+    pub tmDefaultChar: u8,
+    pub tmBreakChar: u8,
+    pub tmItalic: u8,
+    pub tmUnderlined: u8,
+    pub tmStruckOut: u8,
+    pub tmPitchAndFamily: TMPF_FLAGS,
+    pub tmCharSet: u8,
+    pub ntmFlags: u32,
+    pub ntmSizeEM: u32,
+    pub ntmCellHeight: u32,
+    pub ntmAvgWidth: u32,
+}
+impl Default for NEWTEXTMETRICA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NEWTEXTMETRICA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NEWTEXTMETRICW {
+    pub tmHeight: i32,
+    pub tmAscent: i32,
+    pub tmDescent: i32,
+    pub tmInternalLeading: i32,
+    pub tmExternalLeading: i32,
+    pub tmAveCharWidth: i32,
+    pub tmMaxCharWidth: i32,
+    pub tmWeight: i32,
+    pub tmOverhang: i32,
+    pub tmDigitizedAspectX: i32,
+    pub tmDigitizedAspectY: i32,
+    pub tmFirstChar: u16,
+    pub tmLastChar: u16,
+    pub tmDefaultChar: u16,
+    pub tmBreakChar: u16,
+    pub tmItalic: u8,
+    pub tmUnderlined: u8,
+    pub tmStruckOut: u8,
+    pub tmPitchAndFamily: TMPF_FLAGS,
+    pub tmCharSet: u8,
+    pub ntmFlags: u32,
+    pub ntmSizeEM: u32,
+    pub ntmCellHeight: u32,
+    pub ntmAvgWidth: u32,
+}
+impl Default for NEWTEXTMETRICW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NEWTEXTMETRICW {
+    type TypeKind = windows_core::CopyType;
+}
 pub const NEWTRANSPARENT: u32 = 3u32;
 pub const NEXTBAND: u32 = 3u32;
 pub const NOMIRRORBITMAP: ROP_CODE = ROP_CODE(2147483648u32);
@@ -8620,10 +7799,101 @@ pub const OBJ_METAFILE: OBJ_TYPE = OBJ_TYPE(9i32);
 pub const OBJ_PAL: OBJ_TYPE = OBJ_TYPE(5i32);
 pub const OBJ_PEN: OBJ_TYPE = OBJ_TYPE(1i32);
 pub const OBJ_REGION: OBJ_TYPE = OBJ_TYPE(8i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OBJ_TYPE(pub i32);
 pub const OEM_CHARSET: FONT_CHARSET = FONT_CHARSET(255u8);
 pub const OEM_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(10i32);
 pub const OPAQUE: BACKGROUND_MODE = BACKGROUND_MODE(2u32);
 pub const OPENCHANNEL: u32 = 4110u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct OUTLINETEXTMETRICA {
+    pub otmSize: u32,
+    pub otmTextMetrics: TEXTMETRICA,
+    pub otmFiller: u8,
+    pub otmPanoseNumber: PANOSE,
+    pub otmfsSelection: u32,
+    pub otmfsType: u32,
+    pub otmsCharSlopeRise: i32,
+    pub otmsCharSlopeRun: i32,
+    pub otmItalicAngle: i32,
+    pub otmEMSquare: u32,
+    pub otmAscent: i32,
+    pub otmDescent: i32,
+    pub otmLineGap: u32,
+    pub otmsCapEmHeight: u32,
+    pub otmsXHeight: u32,
+    pub otmrcFontBox: super::super::Foundation::RECT,
+    pub otmMacAscent: i32,
+    pub otmMacDescent: i32,
+    pub otmMacLineGap: u32,
+    pub otmusMinimumPPEM: u32,
+    pub otmptSubscriptSize: super::super::Foundation::POINT,
+    pub otmptSubscriptOffset: super::super::Foundation::POINT,
+    pub otmptSuperscriptSize: super::super::Foundation::POINT,
+    pub otmptSuperscriptOffset: super::super::Foundation::POINT,
+    pub otmsStrikeoutSize: u32,
+    pub otmsStrikeoutPosition: i32,
+    pub otmsUnderscoreSize: i32,
+    pub otmsUnderscorePosition: i32,
+    pub otmpFamilyName: windows_core::PSTR,
+    pub otmpFaceName: windows_core::PSTR,
+    pub otmpStyleName: windows_core::PSTR,
+    pub otmpFullName: windows_core::PSTR,
+}
+impl Default for OUTLINETEXTMETRICA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for OUTLINETEXTMETRICA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct OUTLINETEXTMETRICW {
+    pub otmSize: u32,
+    pub otmTextMetrics: TEXTMETRICW,
+    pub otmFiller: u8,
+    pub otmPanoseNumber: PANOSE,
+    pub otmfsSelection: u32,
+    pub otmfsType: u32,
+    pub otmsCharSlopeRise: i32,
+    pub otmsCharSlopeRun: i32,
+    pub otmItalicAngle: i32,
+    pub otmEMSquare: u32,
+    pub otmAscent: i32,
+    pub otmDescent: i32,
+    pub otmLineGap: u32,
+    pub otmsCapEmHeight: u32,
+    pub otmsXHeight: u32,
+    pub otmrcFontBox: super::super::Foundation::RECT,
+    pub otmMacAscent: i32,
+    pub otmMacDescent: i32,
+    pub otmMacLineGap: u32,
+    pub otmusMinimumPPEM: u32,
+    pub otmptSubscriptSize: super::super::Foundation::POINT,
+    pub otmptSubscriptOffset: super::super::Foundation::POINT,
+    pub otmptSuperscriptSize: super::super::Foundation::POINT,
+    pub otmptSuperscriptOffset: super::super::Foundation::POINT,
+    pub otmsStrikeoutSize: u32,
+    pub otmsStrikeoutPosition: i32,
+    pub otmsUnderscoreSize: i32,
+    pub otmsUnderscorePosition: i32,
+    pub otmpFamilyName: windows_core::PSTR,
+    pub otmpFaceName: windows_core::PSTR,
+    pub otmpStyleName: windows_core::PSTR,
+    pub otmpFullName: windows_core::PSTR,
+}
+impl Default for OUTLINETEXTMETRICW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for OUTLINETEXTMETRICW {
+    type TypeKind = windows_core::CopyType;
+}
 pub const OUT_CHARACTER_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(2u8);
 pub const OUT_DEFAULT_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(0u8);
 pub const OUT_DEVICE_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(5u8);
@@ -8635,16 +7905,78 @@ pub const OUT_STRING_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(1u8);
 pub const OUT_STROKE_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(3u8);
 pub const OUT_TT_ONLY_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(7u8);
 pub const OUT_TT_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(4u8);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PAINTSTRUCT {
+    pub hdc: HDC,
+    pub fErase: super::super::Foundation::BOOL,
+    pub rcPaint: super::super::Foundation::RECT,
+    pub fRestore: super::super::Foundation::BOOL,
+    pub fIncUpdate: super::super::Foundation::BOOL,
+    pub rgbReserved: [u8; 32],
+}
+impl Default for PAINTSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PAINTSTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PALETTEENTRY {
+    pub peRed: u8,
+    pub peGreen: u8,
+    pub peBlue: u8,
+    pub peFlags: u8,
+}
+impl Default for PALETTEENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PALETTEENTRY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PANOSE {
+    pub bFamilyType: PAN_FAMILY_TYPE,
+    pub bSerifStyle: PAN_SERIF_STYLE,
+    pub bWeight: PAN_WEIGHT,
+    pub bProportion: PAN_PROPORTION,
+    pub bContrast: PAN_CONTRAST,
+    pub bStrokeVariation: PAN_STROKE_VARIATION,
+    pub bArmStyle: PAN_ARM_STYLE,
+    pub bLetterform: PAN_LETT_FORM,
+    pub bMidline: PAN_MIDLINE,
+    pub bXHeight: PAN_XHEIGHT,
+}
+impl Default for PANOSE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PANOSE {
+    type TypeKind = windows_core::CopyType;
+}
 pub const PANOSE_COUNT: u32 = 10u32;
 pub const PAN_ANY: u32 = 0u32;
 pub const PAN_ARMSTYLE_INDEX: u32 = 6u32;
 pub const PAN_ARM_ANY: PAN_ARM_STYLE = PAN_ARM_STYLE(0u8);
 pub const PAN_ARM_NO_FIT: PAN_ARM_STYLE = PAN_ARM_STYLE(1u8);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PAN_ARM_STYLE(pub u8);
 pub const PAN_BENT_ARMS_DOUBLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(11u8);
 pub const PAN_BENT_ARMS_HORZ: PAN_ARM_STYLE = PAN_ARM_STYLE(7u8);
 pub const PAN_BENT_ARMS_SINGLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(10u8);
 pub const PAN_BENT_ARMS_VERT: PAN_ARM_STYLE = PAN_ARM_STYLE(9u8);
 pub const PAN_BENT_ARMS_WEDGE: PAN_ARM_STYLE = PAN_ARM_STYLE(8u8);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PAN_CONTRAST(pub u8);
 pub const PAN_CONTRAST_ANY: PAN_CONTRAST = PAN_CONTRAST(0u8);
 pub const PAN_CONTRAST_HIGH: PAN_CONTRAST = PAN_CONTRAST(8u8);
 pub const PAN_CONTRAST_INDEX: PAN_CONTRAST = PAN_CONTRAST(4u8);
@@ -8664,7 +7996,13 @@ pub const PAN_FAMILY_NO_FIT: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(1u8);
 pub const PAN_FAMILY_PICTORIAL: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(5u8);
 pub const PAN_FAMILY_SCRIPT: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(3u8);
 pub const PAN_FAMILY_TEXT_DISPLAY: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(2u8);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PAN_FAMILY_TYPE(pub u8);
 pub const PAN_LETTERFORM_INDEX: u32 = 7u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PAN_LETT_FORM(pub u8);
 pub const PAN_LETT_FORM_ANY: PAN_LETT_FORM = PAN_LETT_FORM(0u8);
 pub const PAN_LETT_FORM_NO_FIT: PAN_LETT_FORM = PAN_LETT_FORM(1u8);
 pub const PAN_LETT_NORMAL_BOXED: PAN_LETT_FORM = PAN_LETT_FORM(4u8);
@@ -8681,6 +8019,9 @@ pub const PAN_LETT_OBLIQUE_OFF_CENTER: PAN_LETT_FORM = PAN_LETT_FORM(14u8);
 pub const PAN_LETT_OBLIQUE_ROUNDED: PAN_LETT_FORM = PAN_LETT_FORM(13u8);
 pub const PAN_LETT_OBLIQUE_SQUARE: PAN_LETT_FORM = PAN_LETT_FORM(15u8);
 pub const PAN_LETT_OBLIQUE_WEIGHTED: PAN_LETT_FORM = PAN_LETT_FORM(10u8);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PAN_MIDLINE(pub u8);
 pub const PAN_MIDLINE_ANY: PAN_MIDLINE = PAN_MIDLINE(0u8);
 pub const PAN_MIDLINE_CONSTANT_POINTED: PAN_MIDLINE = PAN_MIDLINE(9u8);
 pub const PAN_MIDLINE_CONSTANT_SERIFED: PAN_MIDLINE = PAN_MIDLINE(10u8);
@@ -8697,6 +8038,9 @@ pub const PAN_MIDLINE_STANDARD_POINTED: PAN_MIDLINE = PAN_MIDLINE(3u8);
 pub const PAN_MIDLINE_STANDARD_SERIFED: PAN_MIDLINE = PAN_MIDLINE(4u8);
 pub const PAN_MIDLINE_STANDARD_TRIMMED: PAN_MIDLINE = PAN_MIDLINE(2u8);
 pub const PAN_NO_FIT: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PAN_PROPORTION(pub u8);
 pub const PAN_PROPORTION_INDEX: u32 = 3u32;
 pub const PAN_PROP_ANY: PAN_PROPORTION = PAN_PROPORTION(0u8);
 pub const PAN_PROP_CONDENSED: PAN_PROPORTION = PAN_PROPORTION(6u8);
@@ -8723,6 +8067,9 @@ pub const PAN_SERIF_PERP_SANS: PAN_SERIF_STYLE = PAN_SERIF_STYLE(13u8);
 pub const PAN_SERIF_ROUNDED: PAN_SERIF_STYLE = PAN_SERIF_STYLE(15u8);
 pub const PAN_SERIF_SQUARE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(6u8);
 pub const PAN_SERIF_SQUARE_COVE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(4u8);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PAN_SERIF_STYLE(pub u8);
 pub const PAN_SERIF_THIN: PAN_SERIF_STYLE = PAN_SERIF_STYLE(7u8);
 pub const PAN_SERIF_TRIANGLE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(10u8);
 pub const PAN_STRAIGHT_ARMS_DOUBLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(6u8);
@@ -8740,6 +8087,12 @@ pub const PAN_STROKE_INSTANT_VERT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(8
 pub const PAN_STROKE_NO_FIT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(1u8);
 pub const PAN_STROKE_RAPID_HORZ: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(7u8);
 pub const PAN_STROKE_RAPID_VERT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(6u8);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PAN_STROKE_VARIATION(pub u8);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PAN_WEIGHT(pub u8);
 pub const PAN_WEIGHT_ANY: PAN_WEIGHT = PAN_WEIGHT(0u8);
 pub const PAN_WEIGHT_BLACK: PAN_WEIGHT = PAN_WEIGHT(10u8);
 pub const PAN_WEIGHT_BOLD: PAN_WEIGHT = PAN_WEIGHT(8u8);
@@ -8753,6 +8106,9 @@ pub const PAN_WEIGHT_NORD: PAN_WEIGHT = PAN_WEIGHT(11u8);
 pub const PAN_WEIGHT_NO_FIT: PAN_WEIGHT = PAN_WEIGHT(1u8);
 pub const PAN_WEIGHT_THIN: PAN_WEIGHT = PAN_WEIGHT(4u8);
 pub const PAN_WEIGHT_VERY_LIGHT: PAN_WEIGHT = PAN_WEIGHT(2u8);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PAN_XHEIGHT(pub u8);
 pub const PAN_XHEIGHT_ANY: PAN_XHEIGHT = PAN_XHEIGHT(0u8);
 pub const PAN_XHEIGHT_CONSTANT_LARGE: PAN_XHEIGHT = PAN_XHEIGHT(4u8);
 pub const PAN_XHEIGHT_CONSTANT_SMALL: PAN_XHEIGHT = PAN_XHEIGHT(2u8);
@@ -8782,13 +8138,118 @@ pub const PC_WIDE: u32 = 16u32;
 pub const PC_WIDESTYLED: u32 = 64u32;
 pub const PC_WINDPOLYGON: u32 = 4u32;
 pub const PDEVICESIZE: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(26u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PELARRAY {
+    pub paXCount: i32,
+    pub paYCount: i32,
+    pub paXExt: i32,
+    pub paYExt: i32,
+    pub paRGBs: u8,
+}
+impl Default for PELARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PELARRAY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PEN_STYLE(pub i32);
+impl PEN_STYLE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for PEN_STYLE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for PEN_STYLE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for PEN_STYLE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for PEN_STYLE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for PEN_STYLE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const PHYSICALHEIGHT: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(111u32);
 pub const PHYSICALOFFSETX: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(112u32);
 pub const PHYSICALOFFSETY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(113u32);
 pub const PHYSICALWIDTH: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(110u32);
 pub const PLANES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(14u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct POINTFX {
+    pub x: FIXED,
+    pub y: FIXED,
+}
+impl Default for POINTFX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for POINTFX {
+    type TypeKind = windows_core::CopyType;
+}
 pub const POLYFILL_LAST: u32 = 2u32;
 pub const POLYGONALCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(32u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct POLYTEXTA {
+    pub x: i32,
+    pub y: i32,
+    pub n: u32,
+    pub lpstr: windows_core::PCSTR,
+    pub uiFlags: u32,
+    pub rcl: super::super::Foundation::RECT,
+    pub pdx: *mut i32,
+}
+impl Default for POLYTEXTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for POLYTEXTA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct POLYTEXTW {
+    pub x: i32,
+    pub y: i32,
+    pub n: u32,
+    pub lpstr: windows_core::PCWSTR,
+    pub uiFlags: u32,
+    pub rcl: super::super::Foundation::RECT,
+    pub pdx: *mut i32,
+}
+impl Default for POLYTEXTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for POLYTEXTW {
+    type TypeKind = windows_core::CopyType;
+}
 pub const POSTSCRIPT_DATA: u32 = 37u32;
 pub const POSTSCRIPT_IDENTIFY: u32 = 4117u32;
 pub const POSTSCRIPT_IGNORE: u32 = 38u32;
@@ -8848,6 +8309,9 @@ pub const R2_MASKPENNOT: R2_MODE = R2_MODE(5i32);
 pub const R2_MERGENOTPEN: R2_MODE = R2_MODE(12i32);
 pub const R2_MERGEPEN: R2_MODE = R2_MODE(15i32);
 pub const R2_MERGEPENNOT: R2_MODE = R2_MODE(14i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct R2_MODE(pub i32);
 pub const R2_NOP: R2_MODE = R2_MODE(11i32);
 pub const R2_NOT: R2_MODE = R2_MODE(6i32);
 pub const R2_NOTCOPYPEN: R2_MODE = R2_MODE(4i32);
@@ -8857,6 +8321,21 @@ pub const R2_NOTXORPEN: R2_MODE = R2_MODE(10i32);
 pub const R2_WHITE: R2_MODE = R2_MODE(16i32);
 pub const R2_XORPEN: R2_MODE = R2_MODE(7i32);
 pub const RASTERCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(38u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RASTERIZER_STATUS {
+    pub nSize: i16,
+    pub wFlags: i16,
+    pub nLanguageID: i16,
+}
+impl Default for RASTERIZER_STATUS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RASTERIZER_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 pub const RASTER_FONTTYPE: u32 = 1u32;
 pub const RC_BANDING: u32 = 2u32;
 pub const RC_BIGFONT: u32 = 1024u32;
@@ -8887,9 +8366,111 @@ pub const RDW_NOFRAME: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(2048u32);
 pub const RDW_NOINTERNALPAINT: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(16u32);
 pub const RDW_UPDATENOW: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(256u32);
 pub const RDW_VALIDATE: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(8u32);
+pub type READEMBEDPROC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut core::ffi::c_void, param2: u32) -> u32>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REDRAW_WINDOW_FLAGS(pub u32);
+impl REDRAW_WINDOW_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for REDRAW_WINDOW_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for REDRAW_WINDOW_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for REDRAW_WINDOW_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for REDRAW_WINDOW_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for REDRAW_WINDOW_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const RELATIVE: u32 = 2u32;
 pub const RESTORE_CTM: u32 = 4100u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RGBQUAD {
+    pub rgbBlue: u8,
+    pub rgbGreen: u8,
+    pub rgbRed: u8,
+    pub rgbReserved: u8,
+}
+impl Default for RGBQUAD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RGBQUAD {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RGBTRIPLE {
+    pub rgbtBlue: u8,
+    pub rgbtGreen: u8,
+    pub rgbtRed: u8,
+}
+impl Default for RGBTRIPLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RGBTRIPLE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RGNDATA {
+    pub rdh: RGNDATAHEADER,
+    pub Buffer: [i8; 1],
+}
+impl Default for RGNDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RGNDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RGNDATAHEADER {
+    pub dwSize: u32,
+    pub iType: u32,
+    pub nCount: u32,
+    pub nRgnSize: u32,
+    pub rcBound: super::super::Foundation::RECT,
+}
+impl Default for RGNDATAHEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for RGNDATAHEADER {
+    type TypeKind = windows_core::CopyType;
+}
 pub const RGN_AND: RGN_COMBINE_MODE = RGN_COMBINE_MODE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RGN_COMBINE_MODE(pub i32);
 pub const RGN_COPY: RGN_COMBINE_MODE = RGN_COMBINE_MODE(5i32);
 pub const RGN_DIFF: RGN_COMBINE_MODE = RGN_COMBINE_MODE(4i32);
 pub const RGN_ERROR: GDI_REGION_TYPE = GDI_REGION_TYPE(0i32);
@@ -8897,6 +8478,42 @@ pub const RGN_MAX: RGN_COMBINE_MODE = RGN_COMBINE_MODE(5i32);
 pub const RGN_MIN: RGN_COMBINE_MODE = RGN_COMBINE_MODE(1i32);
 pub const RGN_OR: RGN_COMBINE_MODE = RGN_COMBINE_MODE(2i32);
 pub const RGN_XOR: RGN_COMBINE_MODE = RGN_COMBINE_MODE(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ROP_CODE(pub u32);
+impl ROP_CODE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for ROP_CODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for ROP_CODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for ROP_CODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for ROP_CODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for ROP_CODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const RUSSIAN_CHARSET: FONT_CHARSET = FONT_CHARSET(204u8);
 pub const SAVE_CTM: u32 = 4101u32;
 pub const SB_CONST_ALPHA: u32 = 1u32;
@@ -8924,6 +8541,9 @@ pub const SETMITERLIMIT: u32 = 23u32;
 pub const SET_ARC_DIRECTION: u32 = 4102u32;
 pub const SET_BACKGROUND_COLOR: u32 = 4103u32;
 pub const SET_BOUNDS: u32 = 4109u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SET_BOUNDS_RECT_FLAGS(pub u32);
 pub const SET_CLIP_BOX: u32 = 4108u32;
 pub const SET_MIRROR_MODE: u32 = 4110u32;
 pub const SET_POLY_MODE: u32 = 4104u32;
@@ -8949,6 +8569,9 @@ pub const STARTDOC: u32 = 10u32;
 pub const STOCK_LAST: u32 = 19u32;
 pub const STRETCHBLT: u32 = 2048u32;
 pub const STRETCH_ANDSCANS: STRETCH_BLT_MODE = STRETCH_BLT_MODE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STRETCH_BLT_MODE(pub i32);
 pub const STRETCH_DELETESCANS: STRETCH_BLT_MODE = STRETCH_BLT_MODE(3i32);
 pub const STRETCH_HALFTONE: STRETCH_BLT_MODE = STRETCH_BLT_MODE(4i32);
 pub const STRETCH_ORSCANS: STRETCH_BLT_MODE = STRETCH_BLT_MODE(2i32);
@@ -8960,6 +8583,12 @@ pub const SYSPAL_STATIC: SYSTEM_PALETTE_USE = SYSTEM_PALETTE_USE(1u32);
 pub const SYSRGN: u32 = 4u32;
 pub const SYSTEM_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(16i32);
 pub const SYSTEM_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(13i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYSTEM_PALETTE_USE(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYS_COLOR_INDEX(pub i32);
 pub const TA_BASELINE: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(24u32);
 pub const TA_BOTTOM: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(8u32);
 pub const TA_CENTER: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(6u32);
@@ -8989,18 +8618,223 @@ pub const TC_UA_ABLE: u32 = 2048u32;
 pub const TC_VA_ABLE: u32 = 16384u32;
 pub const TECHNOLOGY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(2u32);
 pub const TEXTCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(34u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TEXTMETRICA {
+    pub tmHeight: i32,
+    pub tmAscent: i32,
+    pub tmDescent: i32,
+    pub tmInternalLeading: i32,
+    pub tmExternalLeading: i32,
+    pub tmAveCharWidth: i32,
+    pub tmMaxCharWidth: i32,
+    pub tmWeight: i32,
+    pub tmOverhang: i32,
+    pub tmDigitizedAspectX: i32,
+    pub tmDigitizedAspectY: i32,
+    pub tmFirstChar: u8,
+    pub tmLastChar: u8,
+    pub tmDefaultChar: u8,
+    pub tmBreakChar: u8,
+    pub tmItalic: u8,
+    pub tmUnderlined: u8,
+    pub tmStruckOut: u8,
+    pub tmPitchAndFamily: TMPF_FLAGS,
+    pub tmCharSet: u8,
+}
+impl Default for TEXTMETRICA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TEXTMETRICA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TEXTMETRICW {
+    pub tmHeight: i32,
+    pub tmAscent: i32,
+    pub tmDescent: i32,
+    pub tmInternalLeading: i32,
+    pub tmExternalLeading: i32,
+    pub tmAveCharWidth: i32,
+    pub tmMaxCharWidth: i32,
+    pub tmWeight: i32,
+    pub tmOverhang: i32,
+    pub tmDigitizedAspectX: i32,
+    pub tmDigitizedAspectY: i32,
+    pub tmFirstChar: u16,
+    pub tmLastChar: u16,
+    pub tmDefaultChar: u16,
+    pub tmBreakChar: u16,
+    pub tmItalic: u8,
+    pub tmUnderlined: u8,
+    pub tmStruckOut: u8,
+    pub tmPitchAndFamily: TMPF_FLAGS,
+    pub tmCharSet: u8,
+}
+impl Default for TEXTMETRICW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TEXTMETRICW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TEXT_ALIGN_OPTIONS(pub u32);
+impl TEXT_ALIGN_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for TEXT_ALIGN_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for TEXT_ALIGN_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for TEXT_ALIGN_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for TEXT_ALIGN_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for TEXT_ALIGN_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const THAI_CHARSET: FONT_CHARSET = FONT_CHARSET(222u8);
 pub const TMPF_DEVICE: TMPF_FLAGS = TMPF_FLAGS(8u8);
 pub const TMPF_FIXED_PITCH: TMPF_FLAGS = TMPF_FLAGS(1u8);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TMPF_FLAGS(pub u8);
+impl TMPF_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for TMPF_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for TMPF_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for TMPF_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for TMPF_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for TMPF_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const TMPF_TRUETYPE: TMPF_FLAGS = TMPF_FLAGS(4u8);
 pub const TMPF_VECTOR: TMPF_FLAGS = TMPF_FLAGS(2u8);
 pub const TRANSFORM_CTM: u32 = 4107u32;
 pub const TRANSPARENT: BACKGROUND_MODE = BACKGROUND_MODE(1u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TRIVERTEX {
+    pub x: i32,
+    pub y: i32,
+    pub Red: u16,
+    pub Green: u16,
+    pub Blue: u16,
+    pub Alpha: u16,
+}
+impl Default for TRIVERTEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TRIVERTEX {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TRUETYPE_FONTTYPE: u32 = 4u32;
 pub const TTDELETE_DONTREMOVEFONT: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TTEMBEDINFO {
+    pub usStructSize: u16,
+    pub usRootStrSize: u16,
+    pub pusRootStr: *mut u16,
+}
+impl Default for TTEMBEDINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TTEMBEDINFO {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TTEMBED_EMBEDEUDC: TTEMBED_FLAGS = TTEMBED_FLAGS(32u32);
 pub const TTEMBED_EUDCEMBEDDED: u32 = 2u32;
 pub const TTEMBED_FAILIFVARIATIONSIMULATED: u32 = 16u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TTEMBED_FLAGS(pub u32);
+impl TTEMBED_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for TTEMBED_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for TTEMBED_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for TTEMBED_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for TTEMBED_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for TTEMBED_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const TTEMBED_RAW: TTEMBED_FLAGS = TTEMBED_FLAGS(0u32);
 pub const TTEMBED_SUBSET: TTEMBED_FLAGS = TTEMBED_FLAGS(1u32);
 pub const TTEMBED_SUBSETCANCEL: u32 = 4u32;
@@ -9027,11 +8861,130 @@ pub const TTFCFP_UNICODE_PLATFORMID: CREATE_FONT_PACKAGE_SUBSET_PLATFORM = CREAT
 pub const TTFMFP_DELTA: u32 = 2u32;
 pub const TTFMFP_SUBSET: u32 = 0u32;
 pub const TTFMFP_SUBSET1: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TTLOADINFO {
+    pub usStructSize: u16,
+    pub usRefStrSize: u16,
+    pub pusRefStr: *mut u16,
+}
+impl Default for TTLOADINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TTLOADINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TTLOAD_EMBEDDED_FONT_STATUS(pub u32);
+impl TTLOAD_EMBEDDED_FONT_STATUS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for TTLOAD_EMBEDDED_FONT_STATUS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for TTLOAD_EMBEDDED_FONT_STATUS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for TTLOAD_EMBEDDED_FONT_STATUS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for TTLOAD_EMBEDDED_FONT_STATUS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for TTLOAD_EMBEDDED_FONT_STATUS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const TTLOAD_EUDC_OVERWRITE: u32 = 2u32;
 pub const TTLOAD_EUDC_SET: u32 = 4u32;
 pub const TTLOAD_FONT_IN_SYSSTARTUP: TTLOAD_EMBEDDED_FONT_STATUS = TTLOAD_EMBEDDED_FONT_STATUS(2u32);
 pub const TTLOAD_FONT_SUBSETTED: TTLOAD_EMBEDDED_FONT_STATUS = TTLOAD_EMBEDDED_FONT_STATUS(1u32);
 pub const TTLOAD_PRIVATE: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TTPOLYCURVE {
+    pub wType: u16,
+    pub cpfx: u16,
+    pub apfx: [POINTFX; 1],
+}
+impl Default for TTPOLYCURVE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TTPOLYCURVE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TTPOLYGONHEADER {
+    pub cb: u32,
+    pub dwType: u32,
+    pub pfxStart: POINTFX,
+}
+impl Default for TTPOLYGONHEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TTPOLYGONHEADER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TTVALIDATIONTESTSPARAMS {
+    pub ulStructSize: u32,
+    pub lTestFromSize: i32,
+    pub lTestToSize: i32,
+    pub ulCharSet: u32,
+    pub usReserved1: u16,
+    pub usCharCodeCount: u16,
+    pub pusCharCodeSet: *mut u16,
+}
+impl Default for TTVALIDATIONTESTSPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TTVALIDATIONTESTSPARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TTVALIDATIONTESTSPARAMSEX {
+    pub ulStructSize: u32,
+    pub lTestFromSize: i32,
+    pub lTestToSize: i32,
+    pub ulCharSet: u32,
+    pub usReserved1: u16,
+    pub usCharCodeCount: u16,
+    pub pulCharCodeSet: *mut u32,
+}
+impl Default for TTVALIDATIONTESTSPARAMSEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TTVALIDATIONTESTSPARAMSEX {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TT_AVAILABLE: u32 = 1u32;
 pub const TT_ENABLED: u32 = 2u32;
 pub const TT_POLYGON_TYPE: u32 = 24u32;
@@ -9050,6 +9003,34 @@ pub const VTA_CENTER: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(6u32);
 pub const VTA_LEFT: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(8u32);
 pub const VTA_RIGHT: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(0u32);
 pub const VTA_TOP: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(0u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WCRANGE {
+    pub wcLow: u16,
+    pub cGlyphs: u16,
+}
+impl Default for WCRANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WCRANGE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WGLSWAP {
+    pub hdc: HDC,
+    pub uiFlags: u32,
+}
+impl Default for WGLSWAP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WGLSWAP {
+    type TypeKind = windows_core::CopyType;
+}
 pub const WGL_FONT_LINES: u32 = 0u32;
 pub const WGL_FONT_POLYGONS: u32 = 1u32;
 pub const WGL_SWAPMULTIPLE_MAX: u32 = 16u32;
@@ -9089,3 +9070,22 @@ pub const WHITEONBLACK: STRETCH_BLT_MODE = STRETCH_BLT_MODE(2i32);
 pub const WHITE_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(0i32);
 pub const WHITE_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(6i32);
 pub const WINDING: CREATE_POLYGON_RGN_MODE = CREATE_POLYGON_RGN_MODE(2i32);
+pub type WRITEEMBEDPROC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *const core::ffi::c_void, param2: u32) -> u32>;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct XFORM {
+    pub eM11: f32,
+    pub eM12: f32,
+    pub eM21: f32,
+    pub eM22: f32,
+    pub eDx: f32,
+    pub eDy: f32,
+}
+impl Default for XFORM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for XFORM {
+    type TypeKind = windows_core::CopyType;
+}

@@ -14,15 +14,6 @@ impl ApplicationProfile {
 impl windows_core::RuntimeName for ApplicationProfile {
     const NAME: &'static str = "Windows.Phone.ApplicationModel.ApplicationProfile";
 }
-windows_core::imp::define_interface!(IApplicationProfileStatics, IApplicationProfileStatics_Vtbl, 0xd5008ab4_7e7a_11e1_a7f2_b0a14824019b);
-impl windows_core::RuntimeType for IApplicationProfileStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IApplicationProfileStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Modes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ApplicationProfileModes) -> windows_core::HRESULT,
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ApplicationProfileModes(pub u32);
@@ -68,4 +59,13 @@ impl core::ops::Not for ApplicationProfileModes {
     fn not(self) -> Self {
         Self(self.0.not())
     }
+}
+windows_core::imp::define_interface!(IApplicationProfileStatics, IApplicationProfileStatics_Vtbl, 0xd5008ab4_7e7a_11e1_a7f2_b0a14824019b);
+impl windows_core::RuntimeType for IApplicationProfileStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IApplicationProfileStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Modes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ApplicationProfileModes) -> windows_core::HRESULT,
 }

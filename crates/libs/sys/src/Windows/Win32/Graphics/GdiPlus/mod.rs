@@ -667,76 +667,18 @@ windows_targets::link!("gdiplus.dll" "system" fn GdiplusNotificationHook(token :
 windows_targets::link!("gdiplus.dll" "system" fn GdiplusNotificationUnhook(token : usize));
 windows_targets::link!("gdiplus.dll" "system" fn GdiplusShutdown(token : usize));
 windows_targets::link!("gdiplus.dll" "system" fn GdiplusStartup(token : *mut usize, input : *const GdiplusStartupInput, output : *mut GdiplusStartupOutput) -> Status);
-pub type DebugEventProc = Option<unsafe extern "system" fn(level: DebugEventLevel, message: windows_sys::core::PCSTR)>;
-pub type DrawImageAbort = Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
-pub type EnumerateMetafileProc = Option<unsafe extern "system" fn(param0: EmfPlusRecordType, param1: u32, param2: u32, param3: *const u8, param4: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type GetThumbnailImageAbort = Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
-pub type ImageAbort = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type NotificationHookProc = Option<unsafe extern "system" fn(token: *mut usize) -> Status>;
-pub type NotificationUnhookProc = Option<unsafe extern "system" fn(token: usize)>;
-pub type BrushType = i32;
-pub type ColorAdjustType = i32;
-pub type ColorChannelFlags = i32;
-pub type ColorMatrixFlags = i32;
-pub type ColorMode = i32;
-pub type CombineMode = i32;
-pub type CompositingMode = i32;
-pub type CompositingQuality = i32;
-pub type ConvertToEmfPlusFlags = i32;
-pub type CoordinateSpace = i32;
-pub type CurveAdjustments = i32;
-pub type CurveChannel = i32;
-pub type CustomLineCapType = i32;
-pub type DashCap = i32;
-pub type DashStyle = i32;
-pub type DebugEventLevel = i32;
-pub type DitherType = i32;
-pub type DriverStringOptions = i32;
-pub type EmfPlusRecordType = i32;
-pub type EmfToWmfBitsFlags = i32;
-pub type EmfType = i32;
-pub type EncoderParameterValueType = i32;
-pub type EncoderValue = i32;
-pub type FillMode = i32;
-pub type FlushIntention = i32;
-pub type FontStyle = i32;
-pub type GdiplusStartupParams = i32;
-pub type GenericFontFamily = i32;
-pub type GpTestControlEnum = i32;
-pub type HatchStyle = i32;
-pub type HistogramFormat = i32;
-pub type HotkeyPrefix = i32;
-pub type ImageCodecFlags = i32;
-pub type ImageFlags = i32;
-pub type ImageLockMode = i32;
-pub type ImageType = i32;
-pub type InterpolationMode = i32;
-pub type ItemDataPosition = i32;
-pub type LineCap = i32;
-pub type LineJoin = i32;
-pub type LinearGradientMode = i32;
-pub type MatrixOrder = i32;
-pub type MetafileFrameUnit = i32;
-pub type MetafileType = i32;
-pub type ObjectType = i32;
-pub type PaletteFlags = i32;
-pub type PaletteType = i32;
-pub type PathPointType = i32;
-pub type PenAlignment = i32;
-pub type PenType = i32;
-pub type PixelOffsetMode = i32;
-pub type QualityMode = i32;
-pub type RotateFlipType = i32;
-pub type SmoothingMode = i32;
-pub type Status = i32;
-pub type StringAlignment = i32;
-pub type StringDigitSubstitute = i32;
-pub type StringFormatFlags = i32;
-pub type StringTrimming = i32;
-pub type TextRenderingHint = i32;
-pub type Unit = i32;
-pub type WarpMode = i32;
-pub type WrapMode = i32;
+pub const ALPHA_SHIFT: u32 = 24u32;
+pub const Aborted: Status = 9i32;
+pub const AccessDenied: Status = 12i32;
+pub const AdjustBlackSaturation: CurveAdjustments = 7i32;
+pub const AdjustContrast: CurveAdjustments = 2i32;
+pub const AdjustDensity: CurveAdjustments = 1i32;
+pub const AdjustExposure: CurveAdjustments = 0i32;
+pub const AdjustHighlight: CurveAdjustments = 3i32;
+pub const AdjustMidtone: CurveAdjustments = 5i32;
+pub const AdjustShadow: CurveAdjustments = 4i32;
+pub const AdjustWhiteSaturation: CurveAdjustments = 6i32;
+pub const BLUE_SHIFT: u32 = 0u32;
 pub type Bitmap = isize;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -753,6 +695,7 @@ pub struct BitmapData {
 pub struct Blur {
     pub Base: Effect,
 }
+pub const BlurEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x633c80a4_1843_482b_9ef2_be2834c5fdd4);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BlurParams {
@@ -764,12 +707,19 @@ pub struct BlurParams {
 pub struct BrightnessContrast {
     pub Base: Effect,
 }
+pub const BrightnessContrastEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd3a1dbe1_8ec4_4c17_9f4c_ea97ad1c343d);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BrightnessContrastParams {
     pub brightnessLevel: i32,
     pub contrastLevel: i32,
 }
+pub type BrushType = i32;
+pub const BrushTypeHatchFill: BrushType = 1i32;
+pub const BrushTypeLinearGradient: BrushType = 4i32;
+pub const BrushTypePathGradient: BrushType = 3i32;
+pub const BrushTypeSolidColor: BrushType = 0i32;
+pub const BrushTypeTextureFill: BrushType = 2i32;
 pub type CGpEffect = isize;
 pub type CachedBitmap = isize;
 #[repr(C)]
@@ -778,6 +728,7 @@ pub struct CharacterRange {
     pub First: i32,
     pub Length: i32,
 }
+pub const CodecIImageBytes: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x025d1823_6c7d_447b_bbdb_a3cbc3dfa2fc);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct Color {
@@ -934,11 +885,20 @@ impl Color {
     pub const GreenMask: i32 = 65280i32;
     pub const BlueMask: i32 = 255i32;
 }
+pub type ColorAdjustType = i32;
+pub const ColorAdjustTypeAny: ColorAdjustType = 6i32;
+pub const ColorAdjustTypeBitmap: ColorAdjustType = 1i32;
+pub const ColorAdjustTypeBrush: ColorAdjustType = 2i32;
+pub const ColorAdjustTypeCount: ColorAdjustType = 5i32;
+pub const ColorAdjustTypeDefault: ColorAdjustType = 0i32;
+pub const ColorAdjustTypePen: ColorAdjustType = 3i32;
+pub const ColorAdjustTypeText: ColorAdjustType = 4i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ColorBalance {
     pub Base: Effect,
 }
+pub const ColorBalanceEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x537e597d_251e_48da_9664_29ca496b70f8);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ColorBalanceParams {
@@ -946,11 +906,18 @@ pub struct ColorBalanceParams {
     pub magentaGreen: i32,
     pub yellowBlue: i32,
 }
+pub type ColorChannelFlags = i32;
+pub const ColorChannelFlagsC: ColorChannelFlags = 0i32;
+pub const ColorChannelFlagsK: ColorChannelFlags = 3i32;
+pub const ColorChannelFlagsLast: ColorChannelFlags = 4i32;
+pub const ColorChannelFlagsM: ColorChannelFlags = 1i32;
+pub const ColorChannelFlagsY: ColorChannelFlags = 2i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ColorCurve {
     pub Base: Effect,
 }
+pub const ColorCurveEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdd6a0022_58e4_4a67_9d9b_d48eb881a53d);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ColorCurveParams {
@@ -963,6 +930,7 @@ pub struct ColorCurveParams {
 pub struct ColorLUT {
     pub Base: Effect,
 }
+pub const ColorLUTEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa7ce72a9_0f7f_40d7_b3cc_d0c02d5c3212);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ColorLUTParams {
@@ -987,6 +955,14 @@ pub struct ColorMatrix {
 pub struct ColorMatrixEffect {
     pub Base: Effect,
 }
+pub const ColorMatrixEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x718f2615_7933_40e3_a511_5f68fe14dd74);
+pub type ColorMatrixFlags = i32;
+pub const ColorMatrixFlagsAltGray: ColorMatrixFlags = 2i32;
+pub const ColorMatrixFlagsDefault: ColorMatrixFlags = 0i32;
+pub const ColorMatrixFlagsSkipGrays: ColorMatrixFlags = 1i32;
+pub type ColorMode = i32;
+pub const ColorModeARGB32: ColorMode = 0i32;
+pub const ColorModeARGB64: ColorMode = 1i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ColorPalette {
@@ -994,7 +970,75 @@ pub struct ColorPalette {
     pub Count: u32,
     pub Entries: [u32; 1],
 }
+pub type CombineMode = i32;
+pub const CombineModeComplement: CombineMode = 5i32;
+pub const CombineModeExclude: CombineMode = 4i32;
+pub const CombineModeIntersect: CombineMode = 1i32;
+pub const CombineModeReplace: CombineMode = 0i32;
+pub const CombineModeUnion: CombineMode = 2i32;
+pub const CombineModeXor: CombineMode = 3i32;
+pub type CompositingMode = i32;
+pub const CompositingModeSourceCopy: CompositingMode = 1i32;
+pub const CompositingModeSourceOver: CompositingMode = 0i32;
+pub type CompositingQuality = i32;
+pub const CompositingQualityAssumeLinear: CompositingQuality = 4i32;
+pub const CompositingQualityDefault: CompositingQuality = 0i32;
+pub const CompositingQualityGammaCorrected: CompositingQuality = 3i32;
+pub const CompositingQualityHighQuality: CompositingQuality = 2i32;
+pub const CompositingQualityHighSpeed: CompositingQuality = 1i32;
+pub const CompositingQualityInvalid: CompositingQuality = -1i32;
+pub type ConvertToEmfPlusFlags = i32;
+pub const ConvertToEmfPlusFlagsDefault: ConvertToEmfPlusFlags = 0i32;
+pub const ConvertToEmfPlusFlagsInvalidRecord: ConvertToEmfPlusFlags = 4i32;
+pub const ConvertToEmfPlusFlagsRopUsed: ConvertToEmfPlusFlags = 1i32;
+pub const ConvertToEmfPlusFlagsText: ConvertToEmfPlusFlags = 2i32;
+pub type CoordinateSpace = i32;
+pub const CoordinateSpaceDevice: CoordinateSpace = 2i32;
+pub const CoordinateSpacePage: CoordinateSpace = 1i32;
+pub const CoordinateSpaceWorld: CoordinateSpace = 0i32;
+pub type CurveAdjustments = i32;
+pub type CurveChannel = i32;
+pub const CurveChannelAll: CurveChannel = 0i32;
+pub const CurveChannelBlue: CurveChannel = 3i32;
+pub const CurveChannelGreen: CurveChannel = 2i32;
+pub const CurveChannelRed: CurveChannel = 1i32;
 pub type CustomLineCap = isize;
+pub type CustomLineCapType = i32;
+pub const CustomLineCapTypeAdjustableArrow: CustomLineCapType = 1i32;
+pub const CustomLineCapTypeDefault: CustomLineCapType = 0i32;
+pub type DashCap = i32;
+pub const DashCapFlat: DashCap = 0i32;
+pub const DashCapRound: DashCap = 2i32;
+pub const DashCapTriangle: DashCap = 3i32;
+pub type DashStyle = i32;
+pub const DashStyleCustom: DashStyle = 5i32;
+pub const DashStyleDash: DashStyle = 1i32;
+pub const DashStyleDashDot: DashStyle = 3i32;
+pub const DashStyleDashDotDot: DashStyle = 4i32;
+pub const DashStyleDot: DashStyle = 2i32;
+pub const DashStyleSolid: DashStyle = 0i32;
+pub type DebugEventLevel = i32;
+pub const DebugEventLevelFatal: DebugEventLevel = 0i32;
+pub const DebugEventLevelWarning: DebugEventLevel = 1i32;
+pub type DebugEventProc = Option<unsafe extern "system" fn(level: DebugEventLevel, message: windows_sys::core::PCSTR)>;
+pub type DitherType = i32;
+pub const DitherTypeDualSpiral4x4: DitherType = 7i32;
+pub const DitherTypeDualSpiral8x8: DitherType = 8i32;
+pub const DitherTypeErrorDiffusion: DitherType = 9i32;
+pub const DitherTypeMax: DitherType = 10i32;
+pub const DitherTypeNone: DitherType = 0i32;
+pub const DitherTypeOrdered16x16: DitherType = 4i32;
+pub const DitherTypeOrdered4x4: DitherType = 2i32;
+pub const DitherTypeOrdered8x8: DitherType = 3i32;
+pub const DitherTypeSolid: DitherType = 1i32;
+pub const DitherTypeSpiral4x4: DitherType = 5i32;
+pub const DitherTypeSpiral8x8: DitherType = 6i32;
+pub type DrawImageAbort = Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
+pub type DriverStringOptions = i32;
+pub const DriverStringOptionsCmapLookup: DriverStringOptions = 1i32;
+pub const DriverStringOptionsLimitSubpixel: DriverStringOptions = 8i32;
+pub const DriverStringOptionsRealizedAdvance: DriverStringOptions = 4i32;
+pub const DriverStringOptionsVertical: DriverStringOptions = 2i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ENHMETAHEADER3 {
@@ -1023,394 +1067,8 @@ pub struct Effect {
     pub auxData: *mut core::ffi::c_void,
     pub useAuxData: super::super::Foundation::BOOL,
 }
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EncoderParameter {
-    pub Guid: windows_sys::core::GUID,
-    pub NumberOfValues: u32,
-    pub Type: u32,
-    pub Value: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EncoderParameters {
-    pub Count: u32,
-    pub Parameter: [EncoderParameter; 1],
-}
-pub type Font = isize;
-pub type FontCollection = isize;
-pub type FontFamily = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GdiplusStartupInput {
-    pub GdiplusVersion: u32,
-    pub DebugEventCallback: isize,
-    pub SuppressBackgroundThread: super::super::Foundation::BOOL,
-    pub SuppressExternalCodecs: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GdiplusStartupInputEx {
-    pub Base: GdiplusStartupInput,
-    pub StartupParameters: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GdiplusStartupOutput {
-    pub NotificationHook: isize,
-    pub NotificationUnhook: isize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpAdjustableArrowCap(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpBitmap(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpBrush(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpCachedBitmap(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpCustomLineCap(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpFont(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpFontCollection(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpFontFamily(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpGraphics(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpHatch(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpImage(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpImageAttributes(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpInstalledFontCollection(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpLineGradient(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpMetafile(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpPath(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpPathGradient(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpPathIterator(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpPen(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpPrivateFontCollection(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpRegion(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpSolidFill(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpStringFormat(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GpTexture(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HueSaturationLightness {
-    pub Base: Effect,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HueSaturationLightnessParams {
-    pub hueLevel: i32,
-    pub saturationLevel: i32,
-    pub lightnessLevel: i32,
-}
-pub type Image = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ImageCodecInfo {
-    pub Clsid: windows_sys::core::GUID,
-    pub FormatID: windows_sys::core::GUID,
-    pub CodecName: windows_sys::core::PCWSTR,
-    pub DllName: windows_sys::core::PCWSTR,
-    pub FormatDescription: windows_sys::core::PCWSTR,
-    pub FilenameExtension: windows_sys::core::PCWSTR,
-    pub MimeType: windows_sys::core::PCWSTR,
-    pub Flags: u32,
-    pub Version: u32,
-    pub SigCount: u32,
-    pub SigSize: u32,
-    pub SigPattern: *const u8,
-    pub SigMask: *const u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ImageItemData {
-    pub Size: u32,
-    pub Position: u32,
-    pub Desc: *mut core::ffi::c_void,
-    pub DescSize: u32,
-    pub Data: *mut core::ffi::c_void,
-    pub DataSize: u32,
-    pub Cookie: u32,
-}
-pub type InstalledFontCollection = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct Levels {
-    pub Base: Effect,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LevelsParams {
-    pub highlight: i32,
-    pub midtone: i32,
-    pub shadow: i32,
-}
-pub type Matrix = isize;
-pub type Metafile = isize;
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct MetafileHeader {
-    pub Type: MetafileType,
-    pub Size: u32,
-    pub Version: u32,
-    pub EmfPlusFlags: u32,
-    pub DpiX: f32,
-    pub DpiY: f32,
-    pub X: i32,
-    pub Y: i32,
-    pub Width: i32,
-    pub Height: i32,
-    pub Anonymous: MetafileHeader_0,
-    pub EmfPlusHeaderSize: i32,
-    pub LogicalDpiX: i32,
-    pub LogicalDpiY: i32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub union MetafileHeader_0 {
-    pub WmfHeader: super::Gdi::METAHEADER,
-    pub EmfHeader: ENHMETAHEADER3,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PWMFRect16 {
-    pub Left: i16,
-    pub Top: i16,
-    pub Right: i16,
-    pub Bottom: i16,
-}
-pub type PathData = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct Point {
-    pub X: i32,
-    pub Y: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PointF {
-    pub X: f32,
-    pub Y: f32,
-}
-pub type PrivateFontCollection = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PropertyItem {
-    pub id: u32,
-    pub length: u32,
-    pub r#type: u16,
-    pub value: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct Rect {
-    pub X: i32,
-    pub Y: i32,
-    pub Width: i32,
-    pub Height: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RectF {
-    pub X: f32,
-    pub Y: f32,
-    pub Width: f32,
-    pub Height: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RedEyeCorrection {
-    pub Base: Effect,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RedEyeCorrectionParams {
-    pub numberOfAreas: u32,
-    pub areas: *mut super::super::Foundation::RECT,
-}
-pub type Region = isize;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct Sharpen {
-    pub Base: Effect,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SharpenParams {
-    pub radius: f32,
-    pub amount: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct Size {
-    pub Width: i32,
-    pub Height: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SizeF {
-    pub Width: f32,
-    pub Height: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct Tint {
-    pub Base: Effect,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TintParams {
-    pub hue: i32,
-    pub amount: i32,
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct WmfPlaceableFileHeader {
-    pub Key: u32,
-    pub Hmf: i16,
-    pub BoundingBox: PWMFRect16,
-    pub Inch: i16,
-    pub Reserved: u32,
-    pub Checksum: i16,
-}
-pub const ALPHA_SHIFT: u32 = 24u32;
-pub const Aborted: Status = 9i32;
-pub const AccessDenied: Status = 12i32;
-pub const AdjustBlackSaturation: CurveAdjustments = 7i32;
-pub const AdjustContrast: CurveAdjustments = 2i32;
-pub const AdjustDensity: CurveAdjustments = 1i32;
-pub const AdjustExposure: CurveAdjustments = 0i32;
-pub const AdjustHighlight: CurveAdjustments = 3i32;
-pub const AdjustMidtone: CurveAdjustments = 5i32;
-pub const AdjustShadow: CurveAdjustments = 4i32;
-pub const AdjustWhiteSaturation: CurveAdjustments = 6i32;
-pub const BLUE_SHIFT: u32 = 0u32;
-pub const BlurEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x633c80a4_1843_482b_9ef2_be2834c5fdd4);
-pub const BrightnessContrastEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd3a1dbe1_8ec4_4c17_9f4c_ea97ad1c343d);
-pub const BrushTypeHatchFill: BrushType = 1i32;
-pub const BrushTypeLinearGradient: BrushType = 4i32;
-pub const BrushTypePathGradient: BrushType = 3i32;
-pub const BrushTypeSolidColor: BrushType = 0i32;
-pub const BrushTypeTextureFill: BrushType = 2i32;
-pub const CodecIImageBytes: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x025d1823_6c7d_447b_bbdb_a3cbc3dfa2fc);
-pub const ColorAdjustTypeAny: ColorAdjustType = 6i32;
-pub const ColorAdjustTypeBitmap: ColorAdjustType = 1i32;
-pub const ColorAdjustTypeBrush: ColorAdjustType = 2i32;
-pub const ColorAdjustTypeCount: ColorAdjustType = 5i32;
-pub const ColorAdjustTypeDefault: ColorAdjustType = 0i32;
-pub const ColorAdjustTypePen: ColorAdjustType = 3i32;
-pub const ColorAdjustTypeText: ColorAdjustType = 4i32;
-pub const ColorBalanceEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x537e597d_251e_48da_9664_29ca496b70f8);
-pub const ColorChannelFlagsC: ColorChannelFlags = 0i32;
-pub const ColorChannelFlagsK: ColorChannelFlags = 3i32;
-pub const ColorChannelFlagsLast: ColorChannelFlags = 4i32;
-pub const ColorChannelFlagsM: ColorChannelFlags = 1i32;
-pub const ColorChannelFlagsY: ColorChannelFlags = 2i32;
-pub const ColorCurveEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdd6a0022_58e4_4a67_9d9b_d48eb881a53d);
-pub const ColorLUTEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa7ce72a9_0f7f_40d7_b3cc_d0c02d5c3212);
-pub const ColorMatrixEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x718f2615_7933_40e3_a511_5f68fe14dd74);
-pub const ColorMatrixFlagsAltGray: ColorMatrixFlags = 2i32;
-pub const ColorMatrixFlagsDefault: ColorMatrixFlags = 0i32;
-pub const ColorMatrixFlagsSkipGrays: ColorMatrixFlags = 1i32;
-pub const ColorModeARGB32: ColorMode = 0i32;
-pub const ColorModeARGB64: ColorMode = 1i32;
-pub const CombineModeComplement: CombineMode = 5i32;
-pub const CombineModeExclude: CombineMode = 4i32;
-pub const CombineModeIntersect: CombineMode = 1i32;
-pub const CombineModeReplace: CombineMode = 0i32;
-pub const CombineModeUnion: CombineMode = 2i32;
-pub const CombineModeXor: CombineMode = 3i32;
-pub const CompositingModeSourceCopy: CompositingMode = 1i32;
-pub const CompositingModeSourceOver: CompositingMode = 0i32;
-pub const CompositingQualityAssumeLinear: CompositingQuality = 4i32;
-pub const CompositingQualityDefault: CompositingQuality = 0i32;
-pub const CompositingQualityGammaCorrected: CompositingQuality = 3i32;
-pub const CompositingQualityHighQuality: CompositingQuality = 2i32;
-pub const CompositingQualityHighSpeed: CompositingQuality = 1i32;
-pub const CompositingQualityInvalid: CompositingQuality = -1i32;
-pub const ConvertToEmfPlusFlagsDefault: ConvertToEmfPlusFlags = 0i32;
-pub const ConvertToEmfPlusFlagsInvalidRecord: ConvertToEmfPlusFlags = 4i32;
-pub const ConvertToEmfPlusFlagsRopUsed: ConvertToEmfPlusFlags = 1i32;
-pub const ConvertToEmfPlusFlagsText: ConvertToEmfPlusFlags = 2i32;
-pub const CoordinateSpaceDevice: CoordinateSpace = 2i32;
-pub const CoordinateSpacePage: CoordinateSpace = 1i32;
-pub const CoordinateSpaceWorld: CoordinateSpace = 0i32;
-pub const CurveChannelAll: CurveChannel = 0i32;
-pub const CurveChannelBlue: CurveChannel = 3i32;
-pub const CurveChannelGreen: CurveChannel = 2i32;
-pub const CurveChannelRed: CurveChannel = 1i32;
-pub const CustomLineCapTypeAdjustableArrow: CustomLineCapType = 1i32;
-pub const CustomLineCapTypeDefault: CustomLineCapType = 0i32;
-pub const DashCapFlat: DashCap = 0i32;
-pub const DashCapRound: DashCap = 2i32;
-pub const DashCapTriangle: DashCap = 3i32;
-pub const DashStyleCustom: DashStyle = 5i32;
-pub const DashStyleDash: DashStyle = 1i32;
-pub const DashStyleDashDot: DashStyle = 3i32;
-pub const DashStyleDashDotDot: DashStyle = 4i32;
-pub const DashStyleDot: DashStyle = 2i32;
-pub const DashStyleSolid: DashStyle = 0i32;
-pub const DebugEventLevelFatal: DebugEventLevel = 0i32;
-pub const DebugEventLevelWarning: DebugEventLevel = 1i32;
-pub const DitherTypeDualSpiral4x4: DitherType = 7i32;
-pub const DitherTypeDualSpiral8x8: DitherType = 8i32;
-pub const DitherTypeErrorDiffusion: DitherType = 9i32;
-pub const DitherTypeMax: DitherType = 10i32;
-pub const DitherTypeNone: DitherType = 0i32;
-pub const DitherTypeOrdered16x16: DitherType = 4i32;
-pub const DitherTypeOrdered4x4: DitherType = 2i32;
-pub const DitherTypeOrdered8x8: DitherType = 3i32;
-pub const DitherTypeSolid: DitherType = 1i32;
-pub const DitherTypeSpiral4x4: DitherType = 5i32;
-pub const DitherTypeSpiral8x8: DitherType = 6i32;
-pub const DriverStringOptionsCmapLookup: DriverStringOptions = 1i32;
-pub const DriverStringOptionsLimitSubpixel: DriverStringOptions = 8i32;
-pub const DriverStringOptionsRealizedAdvance: DriverStringOptions = 4i32;
-pub const DriverStringOptionsVertical: DriverStringOptions = 2i32;
 pub const EmfPlusRecordTotal: EmfPlusRecordType = 16443i32;
+pub type EmfPlusRecordType = i32;
 pub const EmfPlusRecordTypeBeginContainer: EmfPlusRecordType = 16423i32;
 pub const EmfPlusRecordTypeBeginContainerNoParams: EmfPlusRecordType = 16424i32;
 pub const EmfPlusRecordTypeClear: EmfPlusRecordType = 16393i32;
@@ -1596,10 +1254,12 @@ pub const EmfRecordTypeStrokeAndFillPath: EmfPlusRecordType = 63i32;
 pub const EmfRecordTypeStrokePath: EmfPlusRecordType = 64i32;
 pub const EmfRecordTypeTransparentBlt: EmfPlusRecordType = 116i32;
 pub const EmfRecordTypeWidenPath: EmfPlusRecordType = 66i32;
+pub type EmfToWmfBitsFlags = i32;
 pub const EmfToWmfBitsFlagsDefault: EmfToWmfBitsFlags = 0i32;
 pub const EmfToWmfBitsFlagsEmbedEmf: EmfToWmfBitsFlags = 1i32;
 pub const EmfToWmfBitsFlagsIncludePlaceable: EmfToWmfBitsFlags = 2i32;
 pub const EmfToWmfBitsFlagsNoXORClip: EmfToWmfBitsFlags = 4i32;
+pub type EmfType = i32;
 pub const EmfTypeEmfOnly: EmfType = 3i32;
 pub const EmfTypeEmfPlusDual: EmfType = 5i32;
 pub const EmfTypeEmfPlusOnly: EmfType = 4i32;
@@ -1609,6 +1269,15 @@ pub const EncoderColorSpace: windows_sys::core::GUID = windows_sys::core::GUID::
 pub const EncoderCompression: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe09d739d_ccd4_44ee_8eba_3fbf8be4fc58);
 pub const EncoderImageItems: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x63875e13_1f1d_45ab_9195_a29b6066a650);
 pub const EncoderLuminanceTable: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xedb33bce_0266_4a77_b904_27216099e717);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EncoderParameter {
+    pub Guid: windows_sys::core::GUID,
+    pub NumberOfValues: u32,
+    pub Type: u32,
+    pub Value: *mut core::ffi::c_void,
+}
+pub type EncoderParameterValueType = i32;
 pub const EncoderParameterValueTypeASCII: EncoderParameterValueType = 2i32;
 pub const EncoderParameterValueTypeByte: EncoderParameterValueType = 1i32;
 pub const EncoderParameterValueTypeLong: EncoderParameterValueType = 4i32;
@@ -1618,12 +1287,19 @@ pub const EncoderParameterValueTypeRational: EncoderParameterValueType = 5i32;
 pub const EncoderParameterValueTypeRationalRange: EncoderParameterValueType = 8i32;
 pub const EncoderParameterValueTypeShort: EncoderParameterValueType = 3i32;
 pub const EncoderParameterValueTypeUndefined: EncoderParameterValueType = 7i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EncoderParameters {
+    pub Count: u32,
+    pub Parameter: [EncoderParameter; 1],
+}
 pub const EncoderQuality: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1d5be4b5_fa4a_452d_9cdd_5db35105e7eb);
 pub const EncoderRenderMethod: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6d42c53a_229a_4825_8bb7_5c99e2b9a8b8);
 pub const EncoderSaveAsCMYK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa219bbc9_0a9d_4005_a3ee_3a421b8bb06c);
 pub const EncoderSaveFlag: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x292266fc_ac40_47bf_8cfc_a85b89a655de);
 pub const EncoderScanMethod: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3a4e2661_3109_4e56_8536_42c156e7dcfa);
 pub const EncoderTransformation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8d0eb2d1_a58e_4ea8_aa14_108074b7b6f9);
+pub type EncoderValue = i32;
 pub const EncoderValueColorTypeCMYK: EncoderValue = 0i32;
 pub const EncoderValueColorTypeGray: EncoderValue = 24i32;
 pub const EncoderValueColorTypeRGB: EncoderValue = 25i32;
@@ -1651,13 +1327,20 @@ pub const EncoderValueTransformRotate90: EncoderValue = 13i32;
 pub const EncoderValueVersionGif87: EncoderValue = 9i32;
 pub const EncoderValueVersionGif89: EncoderValue = 10i32;
 pub const EncoderVersion: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x24d18c76_814a_41a4_bf53_1c219cccf797);
+pub type EnumerateMetafileProc = Option<unsafe extern "system" fn(param0: EmfPlusRecordType, param1: u32, param2: u32, param3: *const u8, param4: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub const FileNotFound: Status = 10i32;
+pub type FillMode = i32;
 pub const FillModeAlternate: FillMode = 0i32;
 pub const FillModeWinding: FillMode = 1i32;
 pub const FlatnessDefault: f32 = 0.25f32;
+pub type FlushIntention = i32;
 pub const FlushIntentionFlush: FlushIntention = 0i32;
 pub const FlushIntentionSync: FlushIntention = 1i32;
+pub type Font = isize;
+pub type FontCollection = isize;
+pub type FontFamily = isize;
 pub const FontFamilyNotFound: Status = 14i32;
+pub type FontStyle = i32;
 pub const FontStyleBold: FontStyle = 1i32;
 pub const FontStyleBoldItalic: FontStyle = 3i32;
 pub const FontStyleItalic: FontStyle = 2i32;
@@ -1676,13 +1359,110 @@ pub const GDIP_WMF_RECORD_BASE: u32 = 65536u32;
 pub const GREEN_SHIFT: u32 = 8u32;
 pub const GdiplusNotInitialized: Status = 18i32;
 pub const GdiplusStartupDefault: GdiplusStartupParams = 0i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GdiplusStartupInput {
+    pub GdiplusVersion: u32,
+    pub DebugEventCallback: isize,
+    pub SuppressBackgroundThread: super::super::Foundation::BOOL,
+    pub SuppressExternalCodecs: super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GdiplusStartupInputEx {
+    pub Base: GdiplusStartupInput,
+    pub StartupParameters: i32,
+}
 pub const GdiplusStartupNoSetRound: GdiplusStartupParams = 1i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GdiplusStartupOutput {
+    pub NotificationHook: isize,
+    pub NotificationUnhook: isize,
+}
+pub type GdiplusStartupParams = i32;
 pub const GdiplusStartupSetPSValue: GdiplusStartupParams = 2i32;
 pub const GdiplusStartupTransparencyMask: GdiplusStartupParams = -16777216i32;
 pub const GenericError: Status = 1i32;
+pub type GenericFontFamily = i32;
 pub const GenericFontFamilyMonospace: GenericFontFamily = 2i32;
 pub const GenericFontFamilySansSerif: GenericFontFamily = 1i32;
 pub const GenericFontFamilySerif: GenericFontFamily = 0i32;
+pub type GetThumbnailImageAbort = Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpAdjustableArrowCap(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpBitmap(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpBrush(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpCachedBitmap(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpCustomLineCap(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpFont(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpFontCollection(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpFontFamily(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpGraphics(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpHatch(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpImage(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpImageAttributes(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpInstalledFontCollection(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpLineGradient(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpMetafile(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpPath(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpPathGradient(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpPathIterator(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpPen(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpPrivateFontCollection(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpRegion(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpSolidFill(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpStringFormat(pub u8);
+pub type GpTestControlEnum = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpTexture(pub u8);
+pub type HatchStyle = i32;
 pub const HatchStyle05Percent: HatchStyle = 6i32;
 pub const HatchStyle10Percent: HatchStyle = 7i32;
 pub const HatchStyle20Percent: HatchStyle = 8i32;
@@ -1740,6 +1520,7 @@ pub const HatchStyleWeave: HatchStyle = 40i32;
 pub const HatchStyleWideDownwardDiagonal: HatchStyle = 22i32;
 pub const HatchStyleWideUpwardDiagonal: HatchStyle = 23i32;
 pub const HatchStyleZigZag: HatchStyle = 36i32;
+pub type HistogramFormat = i32;
 pub const HistogramFormatA: HistogramFormat = 7i32;
 pub const HistogramFormatARGB: HistogramFormat = 0i32;
 pub const HistogramFormatB: HistogramFormat = 4i32;
@@ -1748,10 +1529,26 @@ pub const HistogramFormatGray: HistogramFormat = 3i32;
 pub const HistogramFormatPARGB: HistogramFormat = 1i32;
 pub const HistogramFormatR: HistogramFormat = 6i32;
 pub const HistogramFormatRGB: HistogramFormat = 2i32;
+pub type HotkeyPrefix = i32;
 pub const HotkeyPrefixHide: HotkeyPrefix = 2i32;
 pub const HotkeyPrefixNone: HotkeyPrefix = 0i32;
 pub const HotkeyPrefixShow: HotkeyPrefix = 1i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HueSaturationLightness {
+    pub Base: Effect,
+}
 pub const HueSaturationLightnessEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8b2dd6c3_eb07_4d87_a5f0_7108e26a9c5f);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HueSaturationLightnessParams {
+    pub hueLevel: i32,
+    pub saturationLevel: i32,
+    pub lightnessLevel: i32,
+}
+pub type Image = isize;
+pub type ImageAbort = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type ImageCodecFlags = i32;
 pub const ImageCodecFlagsBlockingDecode: ImageCodecFlags = 32i32;
 pub const ImageCodecFlagsBuiltin: ImageCodecFlags = 65536i32;
 pub const ImageCodecFlagsDecoder: ImageCodecFlags = 2i32;
@@ -1761,6 +1558,24 @@ pub const ImageCodecFlagsSupportBitmap: ImageCodecFlags = 4i32;
 pub const ImageCodecFlagsSupportVector: ImageCodecFlags = 8i32;
 pub const ImageCodecFlagsSystem: ImageCodecFlags = 131072i32;
 pub const ImageCodecFlagsUser: ImageCodecFlags = 262144i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ImageCodecInfo {
+    pub Clsid: windows_sys::core::GUID,
+    pub FormatID: windows_sys::core::GUID,
+    pub CodecName: windows_sys::core::PCWSTR,
+    pub DllName: windows_sys::core::PCWSTR,
+    pub FormatDescription: windows_sys::core::PCWSTR,
+    pub FilenameExtension: windows_sys::core::PCWSTR,
+    pub MimeType: windows_sys::core::PCWSTR,
+    pub Flags: u32,
+    pub Version: u32,
+    pub SigCount: u32,
+    pub SigSize: u32,
+    pub SigPattern: *const u8,
+    pub SigMask: *const u8,
+}
+pub type ImageFlags = i32;
 pub const ImageFlagsCaching: ImageFlags = 131072i32;
 pub const ImageFlagsColorSpaceCMYK: ImageFlags = 32i32;
 pub const ImageFlagsColorSpaceGRAY: ImageFlags = 64i32;
@@ -1788,13 +1603,28 @@ pub const ImageFormatTIFF: windows_sys::core::GUID = windows_sys::core::GUID::fr
 pub const ImageFormatUndefined: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb96b3ca9_0728_11d3_9d7b_0000f81ef32e);
 pub const ImageFormatWEBP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb96b3cb7_0728_11d3_9d7b_0000f81ef32e);
 pub const ImageFormatWMF: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb96b3cad_0728_11d3_9d7b_0000f81ef32e);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ImageItemData {
+    pub Size: u32,
+    pub Position: u32,
+    pub Desc: *mut core::ffi::c_void,
+    pub DescSize: u32,
+    pub Data: *mut core::ffi::c_void,
+    pub DataSize: u32,
+    pub Cookie: u32,
+}
+pub type ImageLockMode = i32;
 pub const ImageLockModeRead: ImageLockMode = 1i32;
 pub const ImageLockModeUserInputBuf: ImageLockMode = 4i32;
 pub const ImageLockModeWrite: ImageLockMode = 2i32;
+pub type ImageType = i32;
 pub const ImageTypeBitmap: ImageType = 1i32;
 pub const ImageTypeMetafile: ImageType = 2i32;
 pub const ImageTypeUnknown: ImageType = 0i32;
+pub type InstalledFontCollection = isize;
 pub const InsufficientBuffer: Status = 5i32;
+pub type InterpolationMode = i32;
 pub const InterpolationModeBicubic: InterpolationMode = 4i32;
 pub const InterpolationModeBilinear: InterpolationMode = 3i32;
 pub const InterpolationModeDefault: InterpolationMode = 0i32;
@@ -1805,10 +1635,24 @@ pub const InterpolationModeInvalid: InterpolationMode = -1i32;
 pub const InterpolationModeLowQuality: InterpolationMode = 1i32;
 pub const InterpolationModeNearestNeighbor: InterpolationMode = 5i32;
 pub const InvalidParameter: Status = 2i32;
+pub type ItemDataPosition = i32;
 pub const ItemDataPositionAfterBits: ItemDataPosition = 2i32;
 pub const ItemDataPositionAfterHeader: ItemDataPosition = 0i32;
 pub const ItemDataPositionAfterPalette: ItemDataPosition = 1i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct Levels {
+    pub Base: Effect,
+}
 pub const LevelsEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x99c354ec_2a31_4f3a_8c34_17a803b33a25);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LevelsParams {
+    pub highlight: i32,
+    pub midtone: i32,
+    pub shadow: i32,
+}
+pub type LineCap = i32;
 pub const LineCapAnchorMask: LineCap = 240i32;
 pub const LineCapArrowAnchor: LineCap = 20i32;
 pub const LineCapCustom: LineCap = 255i32;
@@ -1820,22 +1664,55 @@ pub const LineCapRoundAnchor: LineCap = 18i32;
 pub const LineCapSquare: LineCap = 1i32;
 pub const LineCapSquareAnchor: LineCap = 17i32;
 pub const LineCapTriangle: LineCap = 3i32;
+pub type LineJoin = i32;
 pub const LineJoinBevel: LineJoin = 1i32;
 pub const LineJoinMiter: LineJoin = 0i32;
 pub const LineJoinMiterClipped: LineJoin = 3i32;
 pub const LineJoinRound: LineJoin = 2i32;
+pub type LinearGradientMode = i32;
 pub const LinearGradientModeBackwardDiagonal: LinearGradientMode = 3i32;
 pub const LinearGradientModeForwardDiagonal: LinearGradientMode = 2i32;
 pub const LinearGradientModeHorizontal: LinearGradientMode = 0i32;
 pub const LinearGradientModeVertical: LinearGradientMode = 1i32;
+pub type Matrix = isize;
+pub type MatrixOrder = i32;
 pub const MatrixOrderAppend: MatrixOrder = 1i32;
 pub const MatrixOrderPrepend: MatrixOrder = 0i32;
+pub type Metafile = isize;
+pub type MetafileFrameUnit = i32;
 pub const MetafileFrameUnitDocument: MetafileFrameUnit = 5i32;
 pub const MetafileFrameUnitGdi: MetafileFrameUnit = 7i32;
 pub const MetafileFrameUnitInch: MetafileFrameUnit = 4i32;
 pub const MetafileFrameUnitMillimeter: MetafileFrameUnit = 6i32;
 pub const MetafileFrameUnitPixel: MetafileFrameUnit = 2i32;
 pub const MetafileFrameUnitPoint: MetafileFrameUnit = 3i32;
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct MetafileHeader {
+    pub Type: MetafileType,
+    pub Size: u32,
+    pub Version: u32,
+    pub EmfPlusFlags: u32,
+    pub DpiX: f32,
+    pub DpiY: f32,
+    pub X: i32,
+    pub Y: i32,
+    pub Width: i32,
+    pub Height: i32,
+    pub Anonymous: MetafileHeader_0,
+    pub EmfPlusHeaderSize: i32,
+    pub LogicalDpiX: i32,
+    pub LogicalDpiY: i32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub union MetafileHeader_0 {
+    pub WmfHeader: super::Gdi::METAHEADER,
+    pub EmfHeader: ENHMETAHEADER3,
+}
+pub type MetafileType = i32;
 pub const MetafileTypeEmf: MetafileType = 3i32;
 pub const MetafileTypeEmfPlusDual: MetafileType = 5i32;
 pub const MetafileTypeEmfPlusOnly: MetafileType = 4i32;
@@ -1844,7 +1721,10 @@ pub const MetafileTypeWmf: MetafileType = 1i32;
 pub const MetafileTypeWmfPlaceable: MetafileType = 2i32;
 pub const NotImplemented: Status = 6i32;
 pub const NotTrueTypeFont: Status = 16i32;
+pub type NotificationHookProc = Option<unsafe extern "system" fn(token: *mut usize) -> Status>;
+pub type NotificationUnhookProc = Option<unsafe extern "system" fn(token: usize)>;
 pub const ObjectBusy: Status = 4i32;
+pub type ObjectType = i32;
 pub const ObjectTypeBrush: ObjectType = 1i32;
 pub const ObjectTypeCustomLineCap: ObjectType = 9i32;
 pub const ObjectTypeFont: ObjectType = 6i32;
@@ -1860,9 +1740,19 @@ pub const ObjectTypeRegion: ObjectType = 4i32;
 pub const ObjectTypeStringFormat: ObjectType = 7i32;
 pub const Ok: Status = 0i32;
 pub const OutOfMemory: Status = 3i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PWMFRect16 {
+    pub Left: i16,
+    pub Top: i16,
+    pub Right: i16,
+    pub Bottom: i16,
+}
+pub type PaletteFlags = i32;
 pub const PaletteFlagsGrayScale: PaletteFlags = 2i32;
 pub const PaletteFlagsHalftone: PaletteFlags = 4i32;
 pub const PaletteFlagsHasAlpha: PaletteFlags = 1i32;
+pub type PaletteType = i32;
 pub const PaletteTypeCustom: PaletteType = 0i32;
 pub const PaletteTypeFixedBW: PaletteType = 2i32;
 pub const PaletteTypeFixedHalftone125: PaletteType = 6i32;
@@ -1873,6 +1763,8 @@ pub const PaletteTypeFixedHalftone27: PaletteType = 4i32;
 pub const PaletteTypeFixedHalftone64: PaletteType = 5i32;
 pub const PaletteTypeFixedHalftone8: PaletteType = 3i32;
 pub const PaletteTypeOptimal: PaletteType = 1i32;
+pub type PathData = isize;
+pub type PathPointType = i32;
 pub const PathPointTypeBezier: PathPointType = 3i32;
 pub const PathPointTypeBezier3: PathPointType = 3i32;
 pub const PathPointTypeCloseSubpath: PathPointType = 128i32;
@@ -1881,8 +1773,10 @@ pub const PathPointTypeLine: PathPointType = 1i32;
 pub const PathPointTypePathMarker: PathPointType = 32i32;
 pub const PathPointTypePathTypeMask: PathPointType = 7i32;
 pub const PathPointTypeStart: PathPointType = 0i32;
+pub type PenAlignment = i32;
 pub const PenAlignmentCenter: PenAlignment = 0i32;
 pub const PenAlignmentInset: PenAlignment = 1i32;
+pub type PenType = i32;
 pub const PenTypeHatchFill: PenType = 1i32;
 pub const PenTypeLinearGradient: PenType = 4i32;
 pub const PenTypePathGradient: PenType = 3i32;
@@ -1898,13 +1792,35 @@ pub const PixelFormatIndexed: u32 = 65536u32;
 pub const PixelFormatMax: u32 = 16u32;
 pub const PixelFormatPAlpha: u32 = 524288u32;
 pub const PixelFormatUndefined: u32 = 0u32;
+pub type PixelOffsetMode = i32;
 pub const PixelOffsetModeDefault: PixelOffsetMode = 0i32;
 pub const PixelOffsetModeHalf: PixelOffsetMode = 4i32;
 pub const PixelOffsetModeHighQuality: PixelOffsetMode = 2i32;
 pub const PixelOffsetModeHighSpeed: PixelOffsetMode = 1i32;
 pub const PixelOffsetModeInvalid: PixelOffsetMode = -1i32;
 pub const PixelOffsetModeNone: PixelOffsetMode = 3i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct Point {
+    pub X: i32,
+    pub Y: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PointF {
+    pub X: f32,
+    pub Y: f32,
+}
+pub type PrivateFontCollection = isize;
 pub const ProfileNotFound: Status = 21i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PropertyItem {
+    pub id: u32,
+    pub length: u32,
+    pub r#type: u16,
+    pub value: *mut core::ffi::c_void,
+}
 pub const PropertyNotFound: Status = 19i32;
 pub const PropertyNotSupported: Status = 20i32;
 pub const PropertyTagArtist: u32 = 315u32;
@@ -2150,12 +2066,41 @@ pub const PropertyTagYCbCrPositioning: u32 = 531u32;
 pub const PropertyTagYCbCrSubsampling: u32 = 530u32;
 pub const PropertyTagYPosition: u32 = 287u32;
 pub const PropertyTagYResolution: u32 = 283u32;
+pub type QualityMode = i32;
 pub const QualityModeDefault: QualityMode = 0i32;
 pub const QualityModeHigh: QualityMode = 2i32;
 pub const QualityModeInvalid: QualityMode = -1i32;
 pub const QualityModeLow: QualityMode = 1i32;
 pub const RED_SHIFT: u32 = 16u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct Rect {
+    pub X: i32,
+    pub Y: i32,
+    pub Width: i32,
+    pub Height: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RectF {
+    pub X: f32,
+    pub Y: f32,
+    pub Width: f32,
+    pub Height: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RedEyeCorrection {
+    pub Base: Effect,
+}
 pub const RedEyeCorrectionEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x74d29d05_69a4_4266_9549_3cc52836b632);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RedEyeCorrectionParams {
+    pub numberOfAreas: u32,
+    pub areas: *mut super::super::Foundation::RECT,
+}
+pub type Region = isize;
 pub const Rotate180FlipNone: RotateFlipType = 2i32;
 pub const Rotate180FlipX: RotateFlipType = 6i32;
 pub const Rotate180FlipXY: RotateFlipType = 0i32;
@@ -2168,11 +2113,36 @@ pub const Rotate90FlipNone: RotateFlipType = 1i32;
 pub const Rotate90FlipX: RotateFlipType = 5i32;
 pub const Rotate90FlipXY: RotateFlipType = 3i32;
 pub const Rotate90FlipY: RotateFlipType = 7i32;
+pub type RotateFlipType = i32;
 pub const RotateNoneFlipNone: RotateFlipType = 0i32;
 pub const RotateNoneFlipX: RotateFlipType = 4i32;
 pub const RotateNoneFlipXY: RotateFlipType = 2i32;
 pub const RotateNoneFlipY: RotateFlipType = 6i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct Sharpen {
+    pub Base: Effect,
+}
 pub const SharpenEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x63cbf3ee_c526_402c_8f71_62c540bf5142);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SharpenParams {
+    pub radius: f32,
+    pub amount: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct Size {
+    pub Width: i32,
+    pub Height: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SizeF {
+    pub Width: f32,
+    pub Height: f32,
+}
+pub type SmoothingMode = i32;
 pub const SmoothingModeAntiAlias: SmoothingMode = 4i32;
 pub const SmoothingModeAntiAlias8x4: SmoothingMode = 4i32;
 pub const SmoothingModeAntiAlias8x8: SmoothingMode = 5i32;
@@ -2181,13 +2151,17 @@ pub const SmoothingModeHighQuality: SmoothingMode = 2i32;
 pub const SmoothingModeHighSpeed: SmoothingMode = 1i32;
 pub const SmoothingModeInvalid: SmoothingMode = -1i32;
 pub const SmoothingModeNone: SmoothingMode = 3i32;
+pub type Status = i32;
+pub type StringAlignment = i32;
 pub const StringAlignmentCenter: StringAlignment = 1i32;
 pub const StringAlignmentFar: StringAlignment = 2i32;
 pub const StringAlignmentNear: StringAlignment = 0i32;
+pub type StringDigitSubstitute = i32;
 pub const StringDigitSubstituteNational: StringDigitSubstitute = 2i32;
 pub const StringDigitSubstituteNone: StringDigitSubstitute = 1i32;
 pub const StringDigitSubstituteTraditional: StringDigitSubstitute = 3i32;
 pub const StringDigitSubstituteUser: StringDigitSubstitute = 0i32;
+pub type StringFormatFlags = i32;
 pub const StringFormatFlagsBypassGDI: StringFormatFlags = -2147483648i32;
 pub const StringFormatFlagsDirectionRightToLeft: StringFormatFlags = 1i32;
 pub const StringFormatFlagsDirectionVertical: StringFormatFlags = 2i32;
@@ -2198,6 +2172,7 @@ pub const StringFormatFlagsNoClip: StringFormatFlags = 16384i32;
 pub const StringFormatFlagsNoFitBlackBox: StringFormatFlags = 4i32;
 pub const StringFormatFlagsNoFontFallback: StringFormatFlags = 1024i32;
 pub const StringFormatFlagsNoWrap: StringFormatFlags = 4096i32;
+pub type StringTrimming = i32;
 pub const StringTrimmingCharacter: StringTrimming = 1i32;
 pub const StringTrimmingEllipsisCharacter: StringTrimming = 3i32;
 pub const StringTrimmingEllipsisPath: StringTrimming = 5i32;
@@ -2207,13 +2182,26 @@ pub const StringTrimmingWord: StringTrimming = 2i32;
 pub const TestControlForceBilinear: GpTestControlEnum = 0i32;
 pub const TestControlGetBuildNumber: GpTestControlEnum = 2i32;
 pub const TestControlNoICM: GpTestControlEnum = 1i32;
+pub type TextRenderingHint = i32;
 pub const TextRenderingHintAntiAlias: TextRenderingHint = 4i32;
 pub const TextRenderingHintAntiAliasGridFit: TextRenderingHint = 3i32;
 pub const TextRenderingHintClearTypeGridFit: TextRenderingHint = 5i32;
 pub const TextRenderingHintSingleBitPerPixel: TextRenderingHint = 2i32;
 pub const TextRenderingHintSingleBitPerPixelGridFit: TextRenderingHint = 1i32;
 pub const TextRenderingHintSystemDefault: TextRenderingHint = 0i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct Tint {
+    pub Base: Effect,
+}
 pub const TintEffectGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1077af00_2848_4441_9489_44ad4c2d7a2c);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TintParams {
+    pub hue: i32,
+    pub amount: i32,
+}
+pub type Unit = i32;
 pub const UnitDisplay: Unit = 1i32;
 pub const UnitDocument: Unit = 5i32;
 pub const UnitInch: Unit = 4i32;
@@ -2224,9 +2212,20 @@ pub const UnitWorld: Unit = 0i32;
 pub const UnknownImageFormat: Status = 13i32;
 pub const UnsupportedGdiplusVersion: Status = 17i32;
 pub const ValueOverflow: Status = 11i32;
+pub type WarpMode = i32;
 pub const WarpModeBilinear: WarpMode = 1i32;
 pub const WarpModePerspective: WarpMode = 0i32;
 pub const Win32Error: Status = 7i32;
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct WmfPlaceableFileHeader {
+    pub Key: u32,
+    pub Hmf: i16,
+    pub BoundingBox: PWMFRect16,
+    pub Inch: i16,
+    pub Reserved: u32,
+    pub Checksum: i16,
+}
 pub const WmfRecordTypeAbortDoc: EmfPlusRecordType = 65618i32;
 pub const WmfRecordTypeAnimatePalette: EmfPlusRecordType = 66614i32;
 pub const WmfRecordTypeArc: EmfPlusRecordType = 67607i32;
@@ -2306,6 +2305,7 @@ pub const WmfRecordTypeStartPage: EmfPlusRecordType = 65615i32;
 pub const WmfRecordTypeStretchBlt: EmfPlusRecordType = 68387i32;
 pub const WmfRecordTypeStretchDIB: EmfPlusRecordType = 69443i32;
 pub const WmfRecordTypeTextOut: EmfPlusRecordType = 66849i32;
+pub type WrapMode = i32;
 pub const WrapModeClamp: WrapMode = 4i32;
 pub const WrapModeTile: WrapMode = 0i32;
 pub const WrapModeTileFlipX: WrapMode = 1i32;

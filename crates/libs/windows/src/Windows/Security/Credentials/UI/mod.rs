@@ -1,3 +1,21 @@
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AuthenticationProtocol(pub i32);
+impl AuthenticationProtocol {
+    pub const Basic: Self = Self(0i32);
+    pub const Digest: Self = Self(1i32);
+    pub const Ntlm: Self = Self(2i32);
+    pub const Kerberos: Self = Self(3i32);
+    pub const Negotiate: Self = Self(4i32);
+    pub const CredSsp: Self = Self(5i32);
+    pub const Custom: Self = Self(6i32);
+}
+impl windows_core::TypeKind for AuthenticationProtocol {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AuthenticationProtocol {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.AuthenticationProtocol;i4)");
+}
 pub struct CredentialPicker;
 impl CredentialPicker {
     pub fn PickWithOptionsAsync<P0>(options: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>
@@ -233,27 +251,19 @@ unsafe impl windows_core::Interface for CredentialPickerResults {
 impl windows_core::RuntimeName for CredentialPickerResults {
     const NAME: &'static str = "Windows.Security.Credentials.UI.CredentialPickerResults";
 }
-pub struct UserConsentVerifier;
-impl UserConsentVerifier {
-    pub fn CheckAvailabilityAsync() -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<UserConsentVerifierAvailability>> {
-        Self::IUserConsentVerifierStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CheckAvailabilityAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn RequestVerificationAsync(message: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<UserConsentVerificationResult>> {
-        Self::IUserConsentVerifierStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestVerificationAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(message), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IUserConsentVerifierStatics<R, F: FnOnce(&IUserConsentVerifierStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<UserConsentVerifier, IUserConsentVerifierStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CredentialSaveOption(pub i32);
+impl CredentialSaveOption {
+    pub const Unselected: Self = Self(0i32);
+    pub const Selected: Self = Self(1i32);
+    pub const Hidden: Self = Self(2i32);
 }
-impl windows_core::RuntimeName for UserConsentVerifier {
-    const NAME: &'static str = "Windows.Security.Credentials.UI.UserConsentVerifier";
+impl windows_core::TypeKind for CredentialSaveOption {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for CredentialSaveOption {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.CredentialSaveOption;i4)");
 }
 windows_core::imp::define_interface!(ICredentialPickerOptions, ICredentialPickerOptions_Vtbl, 0x965a0b4c_95fa_467f_992b_0b22e5859bf6);
 impl windows_core::RuntimeType for ICredentialPickerOptions {
@@ -330,38 +340,6 @@ pub struct IUserConsentVerifierStatics_Vtbl {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AuthenticationProtocol(pub i32);
-impl AuthenticationProtocol {
-    pub const Basic: Self = Self(0i32);
-    pub const Digest: Self = Self(1i32);
-    pub const Ntlm: Self = Self(2i32);
-    pub const Kerberos: Self = Self(3i32);
-    pub const Negotiate: Self = Self(4i32);
-    pub const CredSsp: Self = Self(5i32);
-    pub const Custom: Self = Self(6i32);
-}
-impl windows_core::TypeKind for AuthenticationProtocol {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AuthenticationProtocol {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.AuthenticationProtocol;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CredentialSaveOption(pub i32);
-impl CredentialSaveOption {
-    pub const Unselected: Self = Self(0i32);
-    pub const Selected: Self = Self(1i32);
-    pub const Hidden: Self = Self(2i32);
-}
-impl windows_core::TypeKind for CredentialSaveOption {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for CredentialSaveOption {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.CredentialSaveOption;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserConsentVerificationResult(pub i32);
 impl UserConsentVerificationResult {
     pub const Verified: Self = Self(0i32);
@@ -377,6 +355,28 @@ impl windows_core::TypeKind for UserConsentVerificationResult {
 }
 impl windows_core::RuntimeType for UserConsentVerificationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.UserConsentVerificationResult;i4)");
+}
+pub struct UserConsentVerifier;
+impl UserConsentVerifier {
+    pub fn CheckAvailabilityAsync() -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<UserConsentVerifierAvailability>> {
+        Self::IUserConsentVerifierStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CheckAvailabilityAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn RequestVerificationAsync(message: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<UserConsentVerificationResult>> {
+        Self::IUserConsentVerifierStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestVerificationAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(message), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IUserConsentVerifierStatics<R, F: FnOnce(&IUserConsentVerifierStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<UserConsentVerifier, IUserConsentVerifierStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeName for UserConsentVerifier {
+    const NAME: &'static str = "Windows.Security.Credentials.UI.UserConsentVerifier";
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

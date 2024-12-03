@@ -7,6 +7,103 @@ where
     let mut result__ = core::ptr::null_mut();
     DXCoreCreateAdapterFactory(&T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
+pub const AcgCompatible: DXCoreAdapterProperty = DXCoreAdapterProperty(10u32);
+pub const AdapterBudgetChange: DXCoreNotificationType = DXCoreNotificationType(2u32);
+pub const AdapterHardwareContentProtectionTeardown: DXCoreNotificationType = DXCoreNotificationType(3u32);
+pub const AdapterListStale: DXCoreNotificationType = DXCoreNotificationType(0u32);
+pub const AdapterMemoryBudget: DXCoreAdapterState = DXCoreAdapterState(1u32);
+pub const AdapterNoLongerValid: DXCoreNotificationType = DXCoreNotificationType(1u32);
+pub const ComputePreemptionGranularity: DXCoreAdapterProperty = DXCoreAdapterProperty(5u32);
+pub const DXCORE_ADAPTER_ATTRIBUTE_D3D11_GRAPHICS: windows_core::GUID = windows_core::GUID::from_u128(0x8c47866b_7583_450d_f0f0_6bada895af4b);
+pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_CORE_COMPUTE: windows_core::GUID = windows_core::GUID::from_u128(0x248e2800_a793_4724_abaa_23a6de1be090);
+pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_GRAPHICS: windows_core::GUID = windows_core::GUID::from_u128(0x0c9ece4d_2f6e_4f01_8c96_e89e331b47b1);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DXCoreAdapterMemoryBudget {
+    pub budget: u64,
+    pub currentUsage: u64,
+    pub availableForReservation: u64,
+    pub currentReservation: u64,
+}
+impl Default for DXCoreAdapterMemoryBudget {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DXCoreAdapterMemoryBudget {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DXCoreAdapterMemoryBudgetNodeSegmentGroup {
+    pub nodeIndex: u32,
+    pub segmentGroup: DXCoreSegmentGroup,
+}
+impl Default for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXCoreAdapterPreference(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXCoreAdapterProperty(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXCoreAdapterState(pub u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DXCoreHardwareID {
+    pub vendorID: u32,
+    pub deviceID: u32,
+    pub subSysID: u32,
+    pub revision: u32,
+}
+impl Default for DXCoreHardwareID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DXCoreHardwareID {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DXCoreHardwareIDParts {
+    pub vendorID: u32,
+    pub deviceID: u32,
+    pub subSystemID: u32,
+    pub subVendorID: u32,
+    pub revisionID: u32,
+}
+impl Default for DXCoreHardwareIDParts {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DXCoreHardwareIDParts {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXCoreNotificationType(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DXCoreSegmentGroup(pub u32);
+pub const DedicatedAdapterMemory: DXCoreAdapterProperty = DXCoreAdapterProperty(7u32);
+pub const DedicatedSystemMemory: DXCoreAdapterProperty = DXCoreAdapterProperty(8u32);
+pub const DriverDescription: DXCoreAdapterProperty = DXCoreAdapterProperty(2u32);
+pub const DriverVersion: DXCoreAdapterProperty = DXCoreAdapterProperty(1u32);
+pub const GraphicsPreemptionGranularity: DXCoreAdapterProperty = DXCoreAdapterProperty(6u32);
+pub const Hardware: DXCoreAdapterPreference = DXCoreAdapterPreference(0u32);
+pub const HardwareID: DXCoreAdapterProperty = DXCoreAdapterProperty(3u32);
+pub const HardwareIDParts: DXCoreAdapterProperty = DXCoreAdapterProperty(14u32);
+pub const HighPerformance: DXCoreAdapterPreference = DXCoreAdapterPreference(2u32);
 windows_core::imp::define_interface!(IDXCoreAdapter, IDXCoreAdapter_Vtbl, 0xf0db4c7f_fe5a_42a2_bd62_f2a6cf6fc83e);
 windows_core::imp::interface_hierarchy!(IDXCoreAdapter, windows_core::IUnknown);
 impl IDXCoreAdapter {
@@ -317,104 +414,6 @@ impl IDXCoreAdapterList_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXCoreAdapterList {}
-pub type PFN_DXCORE_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(notificationtype: DXCoreNotificationType, object: Option<windows_core::IUnknown>, context: *const core::ffi::c_void)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXCoreAdapterPreference(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXCoreAdapterProperty(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXCoreAdapterState(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXCoreNotificationType(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXCoreSegmentGroup(pub u32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DXCoreAdapterMemoryBudget {
-    pub budget: u64,
-    pub currentUsage: u64,
-    pub availableForReservation: u64,
-    pub currentReservation: u64,
-}
-impl Default for DXCoreAdapterMemoryBudget {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DXCoreAdapterMemoryBudget {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DXCoreAdapterMemoryBudgetNodeSegmentGroup {
-    pub nodeIndex: u32,
-    pub segmentGroup: DXCoreSegmentGroup,
-}
-impl Default for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DXCoreHardwareID {
-    pub vendorID: u32,
-    pub deviceID: u32,
-    pub subSysID: u32,
-    pub revision: u32,
-}
-impl Default for DXCoreHardwareID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DXCoreHardwareID {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DXCoreHardwareIDParts {
-    pub vendorID: u32,
-    pub deviceID: u32,
-    pub subSystemID: u32,
-    pub subVendorID: u32,
-    pub revisionID: u32,
-}
-impl Default for DXCoreHardwareIDParts {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DXCoreHardwareIDParts {
-    type TypeKind = windows_core::CopyType;
-}
-pub const AcgCompatible: DXCoreAdapterProperty = DXCoreAdapterProperty(10u32);
-pub const AdapterBudgetChange: DXCoreNotificationType = DXCoreNotificationType(2u32);
-pub const AdapterHardwareContentProtectionTeardown: DXCoreNotificationType = DXCoreNotificationType(3u32);
-pub const AdapterListStale: DXCoreNotificationType = DXCoreNotificationType(0u32);
-pub const AdapterMemoryBudget: DXCoreAdapterState = DXCoreAdapterState(1u32);
-pub const AdapterNoLongerValid: DXCoreNotificationType = DXCoreNotificationType(1u32);
-pub const ComputePreemptionGranularity: DXCoreAdapterProperty = DXCoreAdapterProperty(5u32);
-pub const DXCORE_ADAPTER_ATTRIBUTE_D3D11_GRAPHICS: windows_core::GUID = windows_core::GUID::from_u128(0x8c47866b_7583_450d_f0f0_6bada895af4b);
-pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_CORE_COMPUTE: windows_core::GUID = windows_core::GUID::from_u128(0x248e2800_a793_4724_abaa_23a6de1be090);
-pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_GRAPHICS: windows_core::GUID = windows_core::GUID::from_u128(0x0c9ece4d_2f6e_4f01_8c96_e89e331b47b1);
-pub const DedicatedAdapterMemory: DXCoreAdapterProperty = DXCoreAdapterProperty(7u32);
-pub const DedicatedSystemMemory: DXCoreAdapterProperty = DXCoreAdapterProperty(8u32);
-pub const DriverDescription: DXCoreAdapterProperty = DXCoreAdapterProperty(2u32);
-pub const DriverVersion: DXCoreAdapterProperty = DXCoreAdapterProperty(1u32);
-pub const GraphicsPreemptionGranularity: DXCoreAdapterProperty = DXCoreAdapterProperty(6u32);
-pub const Hardware: DXCoreAdapterPreference = DXCoreAdapterPreference(0u32);
-pub const HardwareID: DXCoreAdapterProperty = DXCoreAdapterProperty(3u32);
-pub const HardwareIDParts: DXCoreAdapterProperty = DXCoreAdapterProperty(14u32);
-pub const HighPerformance: DXCoreAdapterPreference = DXCoreAdapterPreference(2u32);
 pub const InstanceLuid: DXCoreAdapterProperty = DXCoreAdapterProperty(0u32);
 pub const IsDetachable: DXCoreAdapterProperty = DXCoreAdapterProperty(13u32);
 pub const IsDriverUpdateInProgress: DXCoreAdapterState = DXCoreAdapterState(0u32);
@@ -424,5 +423,6 @@ pub const KmdModelVersion: DXCoreAdapterProperty = DXCoreAdapterProperty(4u32);
 pub const Local: DXCoreSegmentGroup = DXCoreSegmentGroup(0u32);
 pub const MinimumPower: DXCoreAdapterPreference = DXCoreAdapterPreference(1u32);
 pub const NonLocal: DXCoreSegmentGroup = DXCoreSegmentGroup(1u32);
+pub type PFN_DXCORE_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(notificationtype: DXCoreNotificationType, object: Option<windows_core::IUnknown>, context: *const core::ffi::c_void)>;
 pub const SharedSystemMemory: DXCoreAdapterProperty = DXCoreAdapterProperty(9u32);
 pub const _FACDXCORE: u32 = 2176u32;

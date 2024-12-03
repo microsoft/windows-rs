@@ -159,6 +159,75 @@ impl windows_core::RuntimeName for ArcadeStick {
 unsafe impl Send for ArcadeStick {}
 unsafe impl Sync for ArcadeStick {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ArcadeStickButtons(pub u32);
+impl ArcadeStickButtons {
+    pub const None: Self = Self(0u32);
+    pub const StickUp: Self = Self(1u32);
+    pub const StickDown: Self = Self(2u32);
+    pub const StickLeft: Self = Self(4u32);
+    pub const StickRight: Self = Self(8u32);
+    pub const Action1: Self = Self(16u32);
+    pub const Action2: Self = Self(32u32);
+    pub const Action3: Self = Self(64u32);
+    pub const Action4: Self = Self(128u32);
+    pub const Action5: Self = Self(256u32);
+    pub const Action6: Self = Self(512u32);
+    pub const Special1: Self = Self(1024u32);
+    pub const Special2: Self = Self(2048u32);
+}
+impl windows_core::TypeKind for ArcadeStickButtons {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ArcadeStickButtons {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ArcadeStickButtons;u4)");
+}
+impl ArcadeStickButtons {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for ArcadeStickButtons {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for ArcadeStickButtons {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for ArcadeStickButtons {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for ArcadeStickButtons {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for ArcadeStickButtons {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct ArcadeStickReading {
+    pub Timestamp: u64,
+    pub Buttons: ArcadeStickButtons,
+}
+impl windows_core::TypeKind for ArcadeStickReading {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ArcadeStickReading {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.ArcadeStickReading;u8;enum(Windows.Gaming.Input.ArcadeStickButtons;u4))");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FlightStick(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FlightStick, windows_core::IUnknown, windows_core::IInspectable);
@@ -315,6 +384,184 @@ impl windows_core::RuntimeName for FlightStick {
 }
 unsafe impl Send for FlightStick {}
 unsafe impl Sync for FlightStick {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FlightStickButtons(pub u32);
+impl FlightStickButtons {
+    pub const None: Self = Self(0u32);
+    pub const FirePrimary: Self = Self(1u32);
+    pub const FireSecondary: Self = Self(2u32);
+}
+impl windows_core::TypeKind for FlightStickButtons {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for FlightStickButtons {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.FlightStickButtons;u4)");
+}
+impl FlightStickButtons {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for FlightStickButtons {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for FlightStickButtons {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for FlightStickButtons {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for FlightStickButtons {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for FlightStickButtons {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct FlightStickReading {
+    pub Timestamp: u64,
+    pub Buttons: FlightStickButtons,
+    pub HatSwitch: GameControllerSwitchPosition,
+    pub Roll: f64,
+    pub Pitch: f64,
+    pub Yaw: f64,
+    pub Throttle: f64,
+}
+impl windows_core::TypeKind for FlightStickReading {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for FlightStickReading {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.FlightStickReading;u8;enum(Windows.Gaming.Input.FlightStickButtons;u4);enum(Windows.Gaming.Input.GameControllerSwitchPosition;i4);f8;f8;f8;f8)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GameControllerButtonLabel(pub i32);
+impl GameControllerButtonLabel {
+    pub const None: Self = Self(0i32);
+    pub const XboxBack: Self = Self(1i32);
+    pub const XboxStart: Self = Self(2i32);
+    pub const XboxMenu: Self = Self(3i32);
+    pub const XboxView: Self = Self(4i32);
+    pub const XboxUp: Self = Self(5i32);
+    pub const XboxDown: Self = Self(6i32);
+    pub const XboxLeft: Self = Self(7i32);
+    pub const XboxRight: Self = Self(8i32);
+    pub const XboxA: Self = Self(9i32);
+    pub const XboxB: Self = Self(10i32);
+    pub const XboxX: Self = Self(11i32);
+    pub const XboxY: Self = Self(12i32);
+    pub const XboxLeftBumper: Self = Self(13i32);
+    pub const XboxLeftTrigger: Self = Self(14i32);
+    pub const XboxLeftStickButton: Self = Self(15i32);
+    pub const XboxRightBumper: Self = Self(16i32);
+    pub const XboxRightTrigger: Self = Self(17i32);
+    pub const XboxRightStickButton: Self = Self(18i32);
+    pub const XboxPaddle1: Self = Self(19i32);
+    pub const XboxPaddle2: Self = Self(20i32);
+    pub const XboxPaddle3: Self = Self(21i32);
+    pub const XboxPaddle4: Self = Self(22i32);
+    pub const Mode: Self = Self(23i32);
+    pub const Select: Self = Self(24i32);
+    pub const Menu: Self = Self(25i32);
+    pub const View: Self = Self(26i32);
+    pub const Back: Self = Self(27i32);
+    pub const Start: Self = Self(28i32);
+    pub const Options: Self = Self(29i32);
+    pub const Share: Self = Self(30i32);
+    pub const Up: Self = Self(31i32);
+    pub const Down: Self = Self(32i32);
+    pub const Left: Self = Self(33i32);
+    pub const Right: Self = Self(34i32);
+    pub const LetterA: Self = Self(35i32);
+    pub const LetterB: Self = Self(36i32);
+    pub const LetterC: Self = Self(37i32);
+    pub const LetterL: Self = Self(38i32);
+    pub const LetterR: Self = Self(39i32);
+    pub const LetterX: Self = Self(40i32);
+    pub const LetterY: Self = Self(41i32);
+    pub const LetterZ: Self = Self(42i32);
+    pub const Cross: Self = Self(43i32);
+    pub const Circle: Self = Self(44i32);
+    pub const Square: Self = Self(45i32);
+    pub const Triangle: Self = Self(46i32);
+    pub const LeftBumper: Self = Self(47i32);
+    pub const LeftTrigger: Self = Self(48i32);
+    pub const LeftStickButton: Self = Self(49i32);
+    pub const Left1: Self = Self(50i32);
+    pub const Left2: Self = Self(51i32);
+    pub const Left3: Self = Self(52i32);
+    pub const RightBumper: Self = Self(53i32);
+    pub const RightTrigger: Self = Self(54i32);
+    pub const RightStickButton: Self = Self(55i32);
+    pub const Right1: Self = Self(56i32);
+    pub const Right2: Self = Self(57i32);
+    pub const Right3: Self = Self(58i32);
+    pub const Paddle1: Self = Self(59i32);
+    pub const Paddle2: Self = Self(60i32);
+    pub const Paddle3: Self = Self(61i32);
+    pub const Paddle4: Self = Self(62i32);
+    pub const Plus: Self = Self(63i32);
+    pub const Minus: Self = Self(64i32);
+    pub const DownLeftArrow: Self = Self(65i32);
+    pub const DialLeft: Self = Self(66i32);
+    pub const DialRight: Self = Self(67i32);
+    pub const Suspension: Self = Self(68i32);
+}
+impl windows_core::TypeKind for GameControllerButtonLabel {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GameControllerButtonLabel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerButtonLabel;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GameControllerSwitchKind(pub i32);
+impl GameControllerSwitchKind {
+    pub const TwoWay: Self = Self(0i32);
+    pub const FourWay: Self = Self(1i32);
+    pub const EightWay: Self = Self(2i32);
+}
+impl windows_core::TypeKind for GameControllerSwitchKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GameControllerSwitchKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerSwitchKind;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GameControllerSwitchPosition(pub i32);
+impl GameControllerSwitchPosition {
+    pub const Center: Self = Self(0i32);
+    pub const Up: Self = Self(1i32);
+    pub const UpRight: Self = Self(2i32);
+    pub const Right: Self = Self(3i32);
+    pub const DownRight: Self = Self(4i32);
+    pub const Down: Self = Self(5i32);
+    pub const DownLeft: Self = Self(6i32);
+    pub const Left: Self = Self(7i32);
+    pub const UpLeft: Self = Self(8i32);
+}
+impl windows_core::TypeKind for GameControllerSwitchPosition {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GameControllerSwitchPosition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerSwitchPosition;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Gamepad(windows_core::IUnknown);
@@ -481,6 +728,101 @@ impl windows_core::RuntimeName for Gamepad {
 unsafe impl Send for Gamepad {}
 unsafe impl Sync for Gamepad {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GamepadButtons(pub u32);
+impl GamepadButtons {
+    pub const None: Self = Self(0u32);
+    pub const Menu: Self = Self(1u32);
+    pub const View: Self = Self(2u32);
+    pub const A: Self = Self(4u32);
+    pub const B: Self = Self(8u32);
+    pub const X: Self = Self(16u32);
+    pub const Y: Self = Self(32u32);
+    pub const DPadUp: Self = Self(64u32);
+    pub const DPadDown: Self = Self(128u32);
+    pub const DPadLeft: Self = Self(256u32);
+    pub const DPadRight: Self = Self(512u32);
+    pub const LeftShoulder: Self = Self(1024u32);
+    pub const RightShoulder: Self = Self(2048u32);
+    pub const LeftThumbstick: Self = Self(4096u32);
+    pub const RightThumbstick: Self = Self(8192u32);
+    pub const Paddle1: Self = Self(16384u32);
+    pub const Paddle2: Self = Self(32768u32);
+    pub const Paddle3: Self = Self(65536u32);
+    pub const Paddle4: Self = Self(131072u32);
+}
+impl windows_core::TypeKind for GamepadButtons {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GamepadButtons {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GamepadButtons;u4)");
+}
+impl GamepadButtons {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for GamepadButtons {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for GamepadButtons {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for GamepadButtons {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for GamepadButtons {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for GamepadButtons {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct GamepadReading {
+    pub Timestamp: u64,
+    pub Buttons: GamepadButtons,
+    pub LeftTrigger: f64,
+    pub RightTrigger: f64,
+    pub LeftThumbstickX: f64,
+    pub LeftThumbstickY: f64,
+    pub RightThumbstickX: f64,
+    pub RightThumbstickY: f64,
+}
+impl windows_core::TypeKind for GamepadReading {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GamepadReading {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.GamepadReading;u8;enum(Windows.Gaming.Input.GamepadButtons;u4);f8;f8;f8;f8;f8;f8)");
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct GamepadVibration {
+    pub LeftMotor: f64,
+    pub RightMotor: f64,
+    pub LeftTrigger: f64,
+    pub RightTrigger: f64,
+}
+impl windows_core::TypeKind for GamepadVibration {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GamepadVibration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.GamepadVibration;f8;f8;f8;f8)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Headset(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Headset, windows_core::IUnknown, windows_core::IInspectable);
@@ -521,586 +863,6 @@ impl windows_core::RuntimeName for Headset {
 }
 unsafe impl Send for Headset {}
 unsafe impl Sync for Headset {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct RacingWheel(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(RacingWheel, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(RacingWheel, IGameController, IGameControllerBatteryInfo);
-impl RacingWheel {
-    pub fn HeadsetConnected<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IGameController, Headset>>,
-    {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HeadsetConnected)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveHeadsetConnected(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveHeadsetConnected)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn HeadsetDisconnected<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IGameController, Headset>>,
-    {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HeadsetDisconnected)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveHeadsetDisconnected(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveHeadsetDisconnected)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    #[cfg(feature = "System")]
-    pub fn UserChanged<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IGameController, super::super::System::UserChangedEventArgs>>,
-    {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UserChanged)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveUserChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveUserChanged)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn Headset(&self) -> windows_core::Result<Headset> {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Headset)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn IsWireless(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsWireless)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Devices_Power")]
-    pub fn TryGetBatteryReport(&self) -> windows_core::Result<super::super::Devices::Power::BatteryReport> {
-        let this = &windows_core::Interface::cast::<IGameControllerBatteryInfo>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetBatteryReport)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn HasClutch(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HasClutch)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn HasHandbrake(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HasHandbrake)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn HasPatternShifter(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HasPatternShifter)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn MaxPatternShifterGear(&self) -> windows_core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MaxPatternShifterGear)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn MaxWheelAngle(&self) -> windows_core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MaxWheelAngle)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Gaming_Input_ForceFeedback")]
-    pub fn WheelMotor(&self) -> windows_core::Result<ForceFeedback::ForceFeedbackMotor> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WheelMotor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetButtonLabel(&self, button: RacingWheelButtons) -> windows_core::Result<GameControllerButtonLabel> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetButtonLabel)(windows_core::Interface::as_raw(this), button, &mut result__).map(|| result__)
-        }
-    }
-    pub fn GetCurrentReading(&self) -> windows_core::Result<RacingWheelReading> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetCurrentReading)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RacingWheelAdded<P0>(value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::EventHandler<RacingWheel>>,
-    {
-        Self::IRacingWheelStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RacingWheelAdded)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn RemoveRacingWheelAdded(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        Self::IRacingWheelStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveRacingWheelAdded)(windows_core::Interface::as_raw(this), token).ok() })
-    }
-    pub fn RacingWheelRemoved<P0>(value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::EventHandler<RacingWheel>>,
-    {
-        Self::IRacingWheelStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RacingWheelRemoved)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn RemoveRacingWheelRemoved(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        Self::IRacingWheelStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveRacingWheelRemoved)(windows_core::Interface::as_raw(this), token).ok() })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RacingWheels() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<RacingWheel>> {
-        Self::IRacingWheelStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RacingWheels)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn FromGameController<P0>(gamecontroller: P0) -> windows_core::Result<RacingWheel>
-    where
-        P0: windows_core::Param<IGameController>,
-    {
-        Self::IRacingWheelStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromGameController)(windows_core::Interface::as_raw(this), gamecontroller.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IRacingWheelStatics<R, F: FnOnce(&IRacingWheelStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<RacingWheel, IRacingWheelStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn IRacingWheelStatics2<R, F: FnOnce(&IRacingWheelStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<RacingWheel, IRacingWheelStatics2> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for RacingWheel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRacingWheel>();
-}
-unsafe impl windows_core::Interface for RacingWheel {
-    type Vtable = <IRacingWheel as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IRacingWheel as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for RacingWheel {
-    const NAME: &'static str = "Windows.Gaming.Input.RacingWheel";
-}
-unsafe impl Send for RacingWheel {}
-unsafe impl Sync for RacingWheel {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct RawGameController(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(RawGameController, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(RawGameController, IGameController, IGameControllerBatteryInfo);
-impl RawGameController {
-    pub fn HeadsetConnected<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IGameController, Headset>>,
-    {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HeadsetConnected)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveHeadsetConnected(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveHeadsetConnected)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn HeadsetDisconnected<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IGameController, Headset>>,
-    {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HeadsetDisconnected)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveHeadsetDisconnected(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveHeadsetDisconnected)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    #[cfg(feature = "System")]
-    pub fn UserChanged<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IGameController, super::super::System::UserChangedEventArgs>>,
-    {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UserChanged)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveUserChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveUserChanged)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn Headset(&self) -> windows_core::Result<Headset> {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Headset)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn IsWireless(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsWireless)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Devices_Power")]
-    pub fn TryGetBatteryReport(&self) -> windows_core::Result<super::super::Devices::Power::BatteryReport> {
-        let this = &windows_core::Interface::cast::<IGameControllerBatteryInfo>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetBatteryReport)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn AxisCount(&self) -> windows_core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AxisCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn ButtonCount(&self) -> windows_core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ButtonCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Gaming_Input_ForceFeedback"))]
-    pub fn ForceFeedbackMotors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ForceFeedback::ForceFeedbackMotor>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ForceFeedbackMotors)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn HardwareProductId(&self) -> windows_core::Result<u16> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HardwareProductId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn HardwareVendorId(&self) -> windows_core::Result<u16> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HardwareVendorId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SwitchCount(&self) -> windows_core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SwitchCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn GetButtonLabel(&self, buttonindex: i32) -> windows_core::Result<GameControllerButtonLabel> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetButtonLabel)(windows_core::Interface::as_raw(this), buttonindex, &mut result__).map(|| result__)
-        }
-    }
-    pub fn GetCurrentReading(&self, buttonarray: &mut [bool], switcharray: &mut [GameControllerSwitchPosition], axisarray: &mut [f64]) -> windows_core::Result<u64> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetCurrentReading)(windows_core::Interface::as_raw(this), buttonarray.len().try_into().unwrap(), buttonarray.as_mut_ptr(), switcharray.len().try_into().unwrap(), switcharray.as_mut_ptr(), axisarray.len().try_into().unwrap(), axisarray.as_mut_ptr(), &mut result__).map(|| result__)
-        }
-    }
-    pub fn GetSwitchKind(&self, switchindex: i32) -> windows_core::Result<GameControllerSwitchKind> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetSwitchKind)(windows_core::Interface::as_raw(this), switchindex, &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(all(feature = "Devices_Haptics", feature = "Foundation_Collections"))]
-    pub fn SimpleHapticsControllers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Devices::Haptics::SimpleHapticsController>> {
-        let this = &windows_core::Interface::cast::<IRawGameController2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SimpleHapticsControllers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn NonRoamableId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IRawGameController2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NonRoamableId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IRawGameController2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RawGameControllerAdded<P0>(value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::EventHandler<RawGameController>>,
-    {
-        Self::IRawGameControllerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RawGameControllerAdded)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn RemoveRawGameControllerAdded(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        Self::IRawGameControllerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveRawGameControllerAdded)(windows_core::Interface::as_raw(this), token).ok() })
-    }
-    pub fn RawGameControllerRemoved<P0>(value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::EventHandler<RawGameController>>,
-    {
-        Self::IRawGameControllerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RawGameControllerRemoved)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn RemoveRawGameControllerRemoved(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        Self::IRawGameControllerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveRawGameControllerRemoved)(windows_core::Interface::as_raw(this), token).ok() })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RawGameControllers() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<RawGameController>> {
-        Self::IRawGameControllerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RawGameControllers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn FromGameController<P0>(gamecontroller: P0) -> windows_core::Result<RawGameController>
-    where
-        P0: windows_core::Param<IGameController>,
-    {
-        Self::IRawGameControllerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromGameController)(windows_core::Interface::as_raw(this), gamecontroller.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IRawGameControllerStatics<R, F: FnOnce(&IRawGameControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<RawGameController, IRawGameControllerStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for RawGameController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRawGameController>();
-}
-unsafe impl windows_core::Interface for RawGameController {
-    type Vtable = <IRawGameController as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IRawGameController as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for RawGameController {
-    const NAME: &'static str = "Windows.Gaming.Input.RawGameController";
-}
-unsafe impl Send for RawGameController {}
-unsafe impl Sync for RawGameController {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct UINavigationController(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(UINavigationController, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(UINavigationController, IGameController, IGameControllerBatteryInfo);
-impl UINavigationController {
-    pub fn HeadsetConnected<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IGameController, Headset>>,
-    {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HeadsetConnected)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveHeadsetConnected(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveHeadsetConnected)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn HeadsetDisconnected<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IGameController, Headset>>,
-    {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HeadsetDisconnected)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveHeadsetDisconnected(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveHeadsetDisconnected)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    #[cfg(feature = "System")]
-    pub fn UserChanged<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IGameController, super::super::System::UserChangedEventArgs>>,
-    {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UserChanged)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveUserChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveUserChanged)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn Headset(&self) -> windows_core::Result<Headset> {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Headset)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn IsWireless(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsWireless)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
-        let this = &windows_core::Interface::cast::<IGameController>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Devices_Power")]
-    pub fn TryGetBatteryReport(&self) -> windows_core::Result<super::super::Devices::Power::BatteryReport> {
-        let this = &windows_core::Interface::cast::<IGameControllerBatteryInfo>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetBatteryReport)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetCurrentReading(&self) -> windows_core::Result<UINavigationReading> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetCurrentReading)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn GetOptionalButtonLabel(&self, button: OptionalUINavigationButtons) -> windows_core::Result<GameControllerButtonLabel> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetOptionalButtonLabel)(windows_core::Interface::as_raw(this), button, &mut result__).map(|| result__)
-        }
-    }
-    pub fn GetRequiredButtonLabel(&self, button: RequiredUINavigationButtons) -> windows_core::Result<GameControllerButtonLabel> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetRequiredButtonLabel)(windows_core::Interface::as_raw(this), button, &mut result__).map(|| result__)
-        }
-    }
-    pub fn UINavigationControllerAdded<P0>(value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::EventHandler<UINavigationController>>,
-    {
-        Self::IUINavigationControllerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UINavigationControllerAdded)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn RemoveUINavigationControllerAdded(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        Self::IUINavigationControllerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveUINavigationControllerAdded)(windows_core::Interface::as_raw(this), token).ok() })
-    }
-    pub fn UINavigationControllerRemoved<P0>(value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::EventHandler<UINavigationController>>,
-    {
-        Self::IUINavigationControllerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UINavigationControllerRemoved)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn RemoveUINavigationControllerRemoved(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        Self::IUINavigationControllerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveUINavigationControllerRemoved)(windows_core::Interface::as_raw(this), token).ok() })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn UINavigationControllers() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<UINavigationController>> {
-        Self::IUINavigationControllerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UINavigationControllers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn FromGameController<P0>(gamecontroller: P0) -> windows_core::Result<UINavigationController>
-    where
-        P0: windows_core::Param<IGameController>,
-    {
-        Self::IUINavigationControllerStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromGameController)(windows_core::Interface::as_raw(this), gamecontroller.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IUINavigationControllerStatics<R, F: FnOnce(&IUINavigationControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<UINavigationController, IUINavigationControllerStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn IUINavigationControllerStatics2<R, F: FnOnce(&IUINavigationControllerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<UINavigationController, IUINavigationControllerStatics2> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for UINavigationController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUINavigationController>();
-}
-unsafe impl windows_core::Interface for UINavigationController {
-    type Vtable = <IUINavigationController as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IUINavigationController as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for UINavigationController {
-    const NAME: &'static str = "Windows.Gaming.Input.UINavigationController";
-}
-unsafe impl Send for UINavigationController {}
-unsafe impl Sync for UINavigationController {}
 windows_core::imp::define_interface!(IArcadeStick, IArcadeStick_Vtbl, 0xb14a539d_befb_4c81_8051_15ecf3b13036);
 impl windows_core::RuntimeType for IArcadeStick {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1607,287 +1369,6 @@ pub struct IUINavigationControllerStatics2_Vtbl {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ArcadeStickButtons(pub u32);
-impl ArcadeStickButtons {
-    pub const None: Self = Self(0u32);
-    pub const StickUp: Self = Self(1u32);
-    pub const StickDown: Self = Self(2u32);
-    pub const StickLeft: Self = Self(4u32);
-    pub const StickRight: Self = Self(8u32);
-    pub const Action1: Self = Self(16u32);
-    pub const Action2: Self = Self(32u32);
-    pub const Action3: Self = Self(64u32);
-    pub const Action4: Self = Self(128u32);
-    pub const Action5: Self = Self(256u32);
-    pub const Action6: Self = Self(512u32);
-    pub const Special1: Self = Self(1024u32);
-    pub const Special2: Self = Self(2048u32);
-}
-impl windows_core::TypeKind for ArcadeStickButtons {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ArcadeStickButtons {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ArcadeStickButtons;u4)");
-}
-impl ArcadeStickButtons {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for ArcadeStickButtons {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for ArcadeStickButtons {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for ArcadeStickButtons {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for ArcadeStickButtons {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for ArcadeStickButtons {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FlightStickButtons(pub u32);
-impl FlightStickButtons {
-    pub const None: Self = Self(0u32);
-    pub const FirePrimary: Self = Self(1u32);
-    pub const FireSecondary: Self = Self(2u32);
-}
-impl windows_core::TypeKind for FlightStickButtons {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for FlightStickButtons {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.FlightStickButtons;u4)");
-}
-impl FlightStickButtons {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for FlightStickButtons {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for FlightStickButtons {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for FlightStickButtons {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for FlightStickButtons {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for FlightStickButtons {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GameControllerButtonLabel(pub i32);
-impl GameControllerButtonLabel {
-    pub const None: Self = Self(0i32);
-    pub const XboxBack: Self = Self(1i32);
-    pub const XboxStart: Self = Self(2i32);
-    pub const XboxMenu: Self = Self(3i32);
-    pub const XboxView: Self = Self(4i32);
-    pub const XboxUp: Self = Self(5i32);
-    pub const XboxDown: Self = Self(6i32);
-    pub const XboxLeft: Self = Self(7i32);
-    pub const XboxRight: Self = Self(8i32);
-    pub const XboxA: Self = Self(9i32);
-    pub const XboxB: Self = Self(10i32);
-    pub const XboxX: Self = Self(11i32);
-    pub const XboxY: Self = Self(12i32);
-    pub const XboxLeftBumper: Self = Self(13i32);
-    pub const XboxLeftTrigger: Self = Self(14i32);
-    pub const XboxLeftStickButton: Self = Self(15i32);
-    pub const XboxRightBumper: Self = Self(16i32);
-    pub const XboxRightTrigger: Self = Self(17i32);
-    pub const XboxRightStickButton: Self = Self(18i32);
-    pub const XboxPaddle1: Self = Self(19i32);
-    pub const XboxPaddle2: Self = Self(20i32);
-    pub const XboxPaddle3: Self = Self(21i32);
-    pub const XboxPaddle4: Self = Self(22i32);
-    pub const Mode: Self = Self(23i32);
-    pub const Select: Self = Self(24i32);
-    pub const Menu: Self = Self(25i32);
-    pub const View: Self = Self(26i32);
-    pub const Back: Self = Self(27i32);
-    pub const Start: Self = Self(28i32);
-    pub const Options: Self = Self(29i32);
-    pub const Share: Self = Self(30i32);
-    pub const Up: Self = Self(31i32);
-    pub const Down: Self = Self(32i32);
-    pub const Left: Self = Self(33i32);
-    pub const Right: Self = Self(34i32);
-    pub const LetterA: Self = Self(35i32);
-    pub const LetterB: Self = Self(36i32);
-    pub const LetterC: Self = Self(37i32);
-    pub const LetterL: Self = Self(38i32);
-    pub const LetterR: Self = Self(39i32);
-    pub const LetterX: Self = Self(40i32);
-    pub const LetterY: Self = Self(41i32);
-    pub const LetterZ: Self = Self(42i32);
-    pub const Cross: Self = Self(43i32);
-    pub const Circle: Self = Self(44i32);
-    pub const Square: Self = Self(45i32);
-    pub const Triangle: Self = Self(46i32);
-    pub const LeftBumper: Self = Self(47i32);
-    pub const LeftTrigger: Self = Self(48i32);
-    pub const LeftStickButton: Self = Self(49i32);
-    pub const Left1: Self = Self(50i32);
-    pub const Left2: Self = Self(51i32);
-    pub const Left3: Self = Self(52i32);
-    pub const RightBumper: Self = Self(53i32);
-    pub const RightTrigger: Self = Self(54i32);
-    pub const RightStickButton: Self = Self(55i32);
-    pub const Right1: Self = Self(56i32);
-    pub const Right2: Self = Self(57i32);
-    pub const Right3: Self = Self(58i32);
-    pub const Paddle1: Self = Self(59i32);
-    pub const Paddle2: Self = Self(60i32);
-    pub const Paddle3: Self = Self(61i32);
-    pub const Paddle4: Self = Self(62i32);
-    pub const Plus: Self = Self(63i32);
-    pub const Minus: Self = Self(64i32);
-    pub const DownLeftArrow: Self = Self(65i32);
-    pub const DialLeft: Self = Self(66i32);
-    pub const DialRight: Self = Self(67i32);
-    pub const Suspension: Self = Self(68i32);
-}
-impl windows_core::TypeKind for GameControllerButtonLabel {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GameControllerButtonLabel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerButtonLabel;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GameControllerSwitchKind(pub i32);
-impl GameControllerSwitchKind {
-    pub const TwoWay: Self = Self(0i32);
-    pub const FourWay: Self = Self(1i32);
-    pub const EightWay: Self = Self(2i32);
-}
-impl windows_core::TypeKind for GameControllerSwitchKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GameControllerSwitchKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerSwitchKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GameControllerSwitchPosition(pub i32);
-impl GameControllerSwitchPosition {
-    pub const Center: Self = Self(0i32);
-    pub const Up: Self = Self(1i32);
-    pub const UpRight: Self = Self(2i32);
-    pub const Right: Self = Self(3i32);
-    pub const DownRight: Self = Self(4i32);
-    pub const Down: Self = Self(5i32);
-    pub const DownLeft: Self = Self(6i32);
-    pub const Left: Self = Self(7i32);
-    pub const UpLeft: Self = Self(8i32);
-}
-impl windows_core::TypeKind for GameControllerSwitchPosition {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GameControllerSwitchPosition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerSwitchPosition;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GamepadButtons(pub u32);
-impl GamepadButtons {
-    pub const None: Self = Self(0u32);
-    pub const Menu: Self = Self(1u32);
-    pub const View: Self = Self(2u32);
-    pub const A: Self = Self(4u32);
-    pub const B: Self = Self(8u32);
-    pub const X: Self = Self(16u32);
-    pub const Y: Self = Self(32u32);
-    pub const DPadUp: Self = Self(64u32);
-    pub const DPadDown: Self = Self(128u32);
-    pub const DPadLeft: Self = Self(256u32);
-    pub const DPadRight: Self = Self(512u32);
-    pub const LeftShoulder: Self = Self(1024u32);
-    pub const RightShoulder: Self = Self(2048u32);
-    pub const LeftThumbstick: Self = Self(4096u32);
-    pub const RightThumbstick: Self = Self(8192u32);
-    pub const Paddle1: Self = Self(16384u32);
-    pub const Paddle2: Self = Self(32768u32);
-    pub const Paddle3: Self = Self(65536u32);
-    pub const Paddle4: Self = Self(131072u32);
-}
-impl windows_core::TypeKind for GamepadButtons {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GamepadButtons {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GamepadButtons;u4)");
-}
-impl GamepadButtons {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for GamepadButtons {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for GamepadButtons {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for GamepadButtons {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for GamepadButtons {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for GamepadButtons {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OptionalUINavigationButtons(pub u32);
 impl OptionalUINavigationButtons {
     pub const None: Self = Self(0u32);
@@ -1943,6 +1424,203 @@ impl core::ops::Not for OptionalUINavigationButtons {
         Self(self.0.not())
     }
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct RacingWheel(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(RacingWheel, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(RacingWheel, IGameController, IGameControllerBatteryInfo);
+impl RacingWheel {
+    pub fn HeadsetConnected<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IGameController, Headset>>,
+    {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HeadsetConnected)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveHeadsetConnected(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveHeadsetConnected)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn HeadsetDisconnected<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IGameController, Headset>>,
+    {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HeadsetDisconnected)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveHeadsetDisconnected(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveHeadsetDisconnected)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    #[cfg(feature = "System")]
+    pub fn UserChanged<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IGameController, super::super::System::UserChangedEventArgs>>,
+    {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UserChanged)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveUserChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveUserChanged)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn Headset(&self) -> windows_core::Result<Headset> {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Headset)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn IsWireless(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsWireless)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Devices_Power")]
+    pub fn TryGetBatteryReport(&self) -> windows_core::Result<super::super::Devices::Power::BatteryReport> {
+        let this = &windows_core::Interface::cast::<IGameControllerBatteryInfo>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TryGetBatteryReport)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn HasClutch(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HasClutch)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn HasHandbrake(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HasHandbrake)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn HasPatternShifter(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HasPatternShifter)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn MaxPatternShifterGear(&self) -> windows_core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MaxPatternShifterGear)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn MaxWheelAngle(&self) -> windows_core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MaxWheelAngle)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Gaming_Input_ForceFeedback")]
+    pub fn WheelMotor(&self) -> windows_core::Result<ForceFeedback::ForceFeedbackMotor> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).WheelMotor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetButtonLabel(&self, button: RacingWheelButtons) -> windows_core::Result<GameControllerButtonLabel> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetButtonLabel)(windows_core::Interface::as_raw(this), button, &mut result__).map(|| result__)
+        }
+    }
+    pub fn GetCurrentReading(&self) -> windows_core::Result<RacingWheelReading> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetCurrentReading)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RacingWheelAdded<P0>(value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::EventHandler<RacingWheel>>,
+    {
+        Self::IRacingWheelStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RacingWheelAdded)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn RemoveRacingWheelAdded(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        Self::IRacingWheelStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveRacingWheelAdded)(windows_core::Interface::as_raw(this), token).ok() })
+    }
+    pub fn RacingWheelRemoved<P0>(value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::EventHandler<RacingWheel>>,
+    {
+        Self::IRacingWheelStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RacingWheelRemoved)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn RemoveRacingWheelRemoved(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        Self::IRacingWheelStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveRacingWheelRemoved)(windows_core::Interface::as_raw(this), token).ok() })
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn RacingWheels() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<RacingWheel>> {
+        Self::IRacingWheelStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RacingWheels)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn FromGameController<P0>(gamecontroller: P0) -> windows_core::Result<RacingWheel>
+    where
+        P0: windows_core::Param<IGameController>,
+    {
+        Self::IRacingWheelStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FromGameController)(windows_core::Interface::as_raw(this), gamecontroller.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IRacingWheelStatics<R, F: FnOnce(&IRacingWheelStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<RacingWheel, IRacingWheelStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IRacingWheelStatics2<R, F: FnOnce(&IRacingWheelStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<RacingWheel, IRacingWheelStatics2> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for RacingWheel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRacingWheel>();
+}
+unsafe impl windows_core::Interface for RacingWheel {
+    type Vtable = <IRacingWheel as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IRacingWheel as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for RacingWheel {
+    const NAME: &'static str = "Windows.Gaming.Input.RacingWheel";
+}
+unsafe impl Send for RacingWheel {}
+unsafe impl Sync for RacingWheel {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RacingWheelButtons(pub u32);
@@ -2010,6 +1688,246 @@ impl core::ops::Not for RacingWheelButtons {
         Self(self.0.not())
     }
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct RacingWheelReading {
+    pub Timestamp: u64,
+    pub Buttons: RacingWheelButtons,
+    pub PatternShifterGear: i32,
+    pub Wheel: f64,
+    pub Throttle: f64,
+    pub Brake: f64,
+    pub Clutch: f64,
+    pub Handbrake: f64,
+}
+impl windows_core::TypeKind for RacingWheelReading {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for RacingWheelReading {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.RacingWheelReading;u8;enum(Windows.Gaming.Input.RacingWheelButtons;u4);i4;f8;f8;f8;f8;f8)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct RawGameController(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(RawGameController, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(RawGameController, IGameController, IGameControllerBatteryInfo);
+impl RawGameController {
+    pub fn HeadsetConnected<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IGameController, Headset>>,
+    {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HeadsetConnected)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveHeadsetConnected(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveHeadsetConnected)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn HeadsetDisconnected<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IGameController, Headset>>,
+    {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HeadsetDisconnected)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveHeadsetDisconnected(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveHeadsetDisconnected)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    #[cfg(feature = "System")]
+    pub fn UserChanged<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IGameController, super::super::System::UserChangedEventArgs>>,
+    {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UserChanged)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveUserChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveUserChanged)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn Headset(&self) -> windows_core::Result<Headset> {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Headset)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn IsWireless(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsWireless)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Devices_Power")]
+    pub fn TryGetBatteryReport(&self) -> windows_core::Result<super::super::Devices::Power::BatteryReport> {
+        let this = &windows_core::Interface::cast::<IGameControllerBatteryInfo>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TryGetBatteryReport)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn AxisCount(&self) -> windows_core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AxisCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ButtonCount(&self) -> windows_core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ButtonCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "Gaming_Input_ForceFeedback"))]
+    pub fn ForceFeedbackMotors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ForceFeedback::ForceFeedbackMotor>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ForceFeedbackMotors)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn HardwareProductId(&self) -> windows_core::Result<u16> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HardwareProductId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn HardwareVendorId(&self) -> windows_core::Result<u16> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HardwareVendorId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SwitchCount(&self) -> windows_core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SwitchCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn GetButtonLabel(&self, buttonindex: i32) -> windows_core::Result<GameControllerButtonLabel> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetButtonLabel)(windows_core::Interface::as_raw(this), buttonindex, &mut result__).map(|| result__)
+        }
+    }
+    pub fn GetCurrentReading(&self, buttonarray: &mut [bool], switcharray: &mut [GameControllerSwitchPosition], axisarray: &mut [f64]) -> windows_core::Result<u64> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetCurrentReading)(windows_core::Interface::as_raw(this), buttonarray.len().try_into().unwrap(), buttonarray.as_mut_ptr(), switcharray.len().try_into().unwrap(), switcharray.as_mut_ptr(), axisarray.len().try_into().unwrap(), axisarray.as_mut_ptr(), &mut result__).map(|| result__)
+        }
+    }
+    pub fn GetSwitchKind(&self, switchindex: i32) -> windows_core::Result<GameControllerSwitchKind> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetSwitchKind)(windows_core::Interface::as_raw(this), switchindex, &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(all(feature = "Devices_Haptics", feature = "Foundation_Collections"))]
+    pub fn SimpleHapticsControllers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Devices::Haptics::SimpleHapticsController>> {
+        let this = &windows_core::Interface::cast::<IRawGameController2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SimpleHapticsControllers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn NonRoamableId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IRawGameController2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NonRoamableId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IRawGameController2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RawGameControllerAdded<P0>(value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::EventHandler<RawGameController>>,
+    {
+        Self::IRawGameControllerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RawGameControllerAdded)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn RemoveRawGameControllerAdded(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        Self::IRawGameControllerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveRawGameControllerAdded)(windows_core::Interface::as_raw(this), token).ok() })
+    }
+    pub fn RawGameControllerRemoved<P0>(value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::EventHandler<RawGameController>>,
+    {
+        Self::IRawGameControllerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RawGameControllerRemoved)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn RemoveRawGameControllerRemoved(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        Self::IRawGameControllerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveRawGameControllerRemoved)(windows_core::Interface::as_raw(this), token).ok() })
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn RawGameControllers() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<RawGameController>> {
+        Self::IRawGameControllerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RawGameControllers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn FromGameController<P0>(gamecontroller: P0) -> windows_core::Result<RawGameController>
+    where
+        P0: windows_core::Param<IGameController>,
+    {
+        Self::IRawGameControllerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FromGameController)(windows_core::Interface::as_raw(this), gamecontroller.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IRawGameControllerStatics<R, F: FnOnce(&IRawGameControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<RawGameController, IRawGameControllerStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for RawGameController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRawGameController>();
+}
+unsafe impl windows_core::Interface for RawGameController {
+    type Vtable = <IRawGameController as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IRawGameController as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for RawGameController {
+    const NAME: &'static str = "Windows.Gaming.Input.RawGameController";
+}
+unsafe impl Send for RawGameController {}
+unsafe impl Sync for RawGameController {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RequiredUINavigationButtons(pub u32);
@@ -2063,85 +1981,167 @@ impl core::ops::Not for RequiredUINavigationButtons {
         Self(self.0.not())
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct ArcadeStickReading {
-    pub Timestamp: u64,
-    pub Buttons: ArcadeStickButtons,
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct UINavigationController(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(UINavigationController, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(UINavigationController, IGameController, IGameControllerBatteryInfo);
+impl UINavigationController {
+    pub fn HeadsetConnected<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IGameController, Headset>>,
+    {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HeadsetConnected)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveHeadsetConnected(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveHeadsetConnected)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn HeadsetDisconnected<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IGameController, Headset>>,
+    {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HeadsetDisconnected)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveHeadsetDisconnected(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveHeadsetDisconnected)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    #[cfg(feature = "System")]
+    pub fn UserChanged<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IGameController, super::super::System::UserChangedEventArgs>>,
+    {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UserChanged)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveUserChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveUserChanged)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn Headset(&self) -> windows_core::Result<Headset> {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Headset)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn IsWireless(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsWireless)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+        let this = &windows_core::Interface::cast::<IGameController>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Devices_Power")]
+    pub fn TryGetBatteryReport(&self) -> windows_core::Result<super::super::Devices::Power::BatteryReport> {
+        let this = &windows_core::Interface::cast::<IGameControllerBatteryInfo>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TryGetBatteryReport)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetCurrentReading(&self) -> windows_core::Result<UINavigationReading> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetCurrentReading)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn GetOptionalButtonLabel(&self, button: OptionalUINavigationButtons) -> windows_core::Result<GameControllerButtonLabel> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetOptionalButtonLabel)(windows_core::Interface::as_raw(this), button, &mut result__).map(|| result__)
+        }
+    }
+    pub fn GetRequiredButtonLabel(&self, button: RequiredUINavigationButtons) -> windows_core::Result<GameControllerButtonLabel> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetRequiredButtonLabel)(windows_core::Interface::as_raw(this), button, &mut result__).map(|| result__)
+        }
+    }
+    pub fn UINavigationControllerAdded<P0>(value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::EventHandler<UINavigationController>>,
+    {
+        Self::IUINavigationControllerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UINavigationControllerAdded)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn RemoveUINavigationControllerAdded(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        Self::IUINavigationControllerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveUINavigationControllerAdded)(windows_core::Interface::as_raw(this), token).ok() })
+    }
+    pub fn UINavigationControllerRemoved<P0>(value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::EventHandler<UINavigationController>>,
+    {
+        Self::IUINavigationControllerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UINavigationControllerRemoved)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn RemoveUINavigationControllerRemoved(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        Self::IUINavigationControllerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveUINavigationControllerRemoved)(windows_core::Interface::as_raw(this), token).ok() })
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn UINavigationControllers() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<UINavigationController>> {
+        Self::IUINavigationControllerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UINavigationControllers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn FromGameController<P0>(gamecontroller: P0) -> windows_core::Result<UINavigationController>
+    where
+        P0: windows_core::Param<IGameController>,
+    {
+        Self::IUINavigationControllerStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FromGameController)(windows_core::Interface::as_raw(this), gamecontroller.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IUINavigationControllerStatics<R, F: FnOnce(&IUINavigationControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<UINavigationController, IUINavigationControllerStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IUINavigationControllerStatics2<R, F: FnOnce(&IUINavigationControllerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<UINavigationController, IUINavigationControllerStatics2> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
 }
-impl windows_core::TypeKind for ArcadeStickReading {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::RuntimeType for UINavigationController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUINavigationController>();
 }
-impl windows_core::RuntimeType for ArcadeStickReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.ArcadeStickReading;u8;enum(Windows.Gaming.Input.ArcadeStickButtons;u4))");
+unsafe impl windows_core::Interface for UINavigationController {
+    type Vtable = <IUINavigationController as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IUINavigationController as windows_core::Interface>::IID;
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct FlightStickReading {
-    pub Timestamp: u64,
-    pub Buttons: FlightStickButtons,
-    pub HatSwitch: GameControllerSwitchPosition,
-    pub Roll: f64,
-    pub Pitch: f64,
-    pub Yaw: f64,
-    pub Throttle: f64,
+impl windows_core::RuntimeName for UINavigationController {
+    const NAME: &'static str = "Windows.Gaming.Input.UINavigationController";
 }
-impl windows_core::TypeKind for FlightStickReading {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for FlightStickReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.FlightStickReading;u8;enum(Windows.Gaming.Input.FlightStickButtons;u4);enum(Windows.Gaming.Input.GameControllerSwitchPosition;i4);f8;f8;f8;f8)");
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct GamepadReading {
-    pub Timestamp: u64,
-    pub Buttons: GamepadButtons,
-    pub LeftTrigger: f64,
-    pub RightTrigger: f64,
-    pub LeftThumbstickX: f64,
-    pub LeftThumbstickY: f64,
-    pub RightThumbstickX: f64,
-    pub RightThumbstickY: f64,
-}
-impl windows_core::TypeKind for GamepadReading {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GamepadReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.GamepadReading;u8;enum(Windows.Gaming.Input.GamepadButtons;u4);f8;f8;f8;f8;f8;f8)");
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct GamepadVibration {
-    pub LeftMotor: f64,
-    pub RightMotor: f64,
-    pub LeftTrigger: f64,
-    pub RightTrigger: f64,
-}
-impl windows_core::TypeKind for GamepadVibration {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GamepadVibration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.GamepadVibration;f8;f8;f8;f8)");
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct RacingWheelReading {
-    pub Timestamp: u64,
-    pub Buttons: RacingWheelButtons,
-    pub PatternShifterGear: i32,
-    pub Wheel: f64,
-    pub Throttle: f64,
-    pub Brake: f64,
-    pub Clutch: f64,
-    pub Handbrake: f64,
-}
-impl windows_core::TypeKind for RacingWheelReading {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for RacingWheelReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.RacingWheelReading;u8;enum(Windows.Gaming.Input.RacingWheelButtons;u4);i4;f8;f8;f8;f8;f8)");
-}
+unsafe impl Send for UINavigationController {}
+unsafe impl Sync for UINavigationController {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UINavigationReading {

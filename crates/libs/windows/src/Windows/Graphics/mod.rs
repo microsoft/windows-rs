@@ -14,27 +14,6 @@ pub mod Imaging;
 pub mod Printing;
 #[cfg(feature = "Graphics_Printing3D")]
 pub mod Printing3D;
-windows_core::imp::define_interface!(IGeometrySource2D, IGeometrySource2D_Vtbl, 0xcaff7902_670c_4181_a624_da977203b845);
-impl windows_core::RuntimeType for IGeometrySource2D {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-windows_core::imp::interface_hierarchy!(IGeometrySource2D, windows_core::IUnknown, windows_core::IInspectable);
-impl windows_core::RuntimeName for IGeometrySource2D {
-    const NAME: &'static str = "Windows.Graphics.IGeometrySource2D";
-}
-pub trait IGeometrySource2D_Impl: windows_core::IUnknownImpl {}
-impl IGeometrySource2D_Vtbl {
-    pub const fn new<Identity: IGeometrySource2D_Impl, const OFFSET: isize>() -> Self {
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IGeometrySource2D, OFFSET>() }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IGeometrySource2D as windows_core::Interface>::IID
-    }
-}
-#[repr(C)]
-pub struct IGeometrySource2D_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DisplayAdapterId {
@@ -57,6 +36,27 @@ impl windows_core::TypeKind for DisplayId {
 }
 impl windows_core::RuntimeType for DisplayId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.DisplayId;u8)");
+}
+windows_core::imp::define_interface!(IGeometrySource2D, IGeometrySource2D_Vtbl, 0xcaff7902_670c_4181_a624_da977203b845);
+impl windows_core::RuntimeType for IGeometrySource2D {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+windows_core::imp::interface_hierarchy!(IGeometrySource2D, windows_core::IUnknown, windows_core::IInspectable);
+impl windows_core::RuntimeName for IGeometrySource2D {
+    const NAME: &'static str = "Windows.Graphics.IGeometrySource2D";
+}
+pub trait IGeometrySource2D_Impl: windows_core::IUnknownImpl {}
+impl IGeometrySource2D_Vtbl {
+    pub const fn new<Identity: IGeometrySource2D_Impl, const OFFSET: isize>() -> Self {
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IGeometrySource2D, OFFSET>() }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IGeometrySource2D as windows_core::Interface>::IID
+    }
+}
+#[repr(C)]
+pub struct IGeometrySource2D_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]

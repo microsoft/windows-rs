@@ -80,6 +80,39 @@ pub unsafe fn SwMemFree(pmem: *const core::ffi::c_void) {
     windows_targets::link!("cfgmgr32.dll" "system" fn SwMemFree(pmem : *const core::ffi::c_void));
     SwMemFree(core::mem::transmute(pmem))
 }
+pub const ADDRESS_FAMILY_VALUE_NAME: windows_core::PCWSTR = windows_core::w!("AddressFamily");
+pub const FAULT_ACTION_SPECIFIC_BASE: u32 = 600u32;
+pub const FAULT_ACTION_SPECIFIC_MAX: u32 = 899u32;
+pub const FAULT_DEVICE_INTERNAL_ERROR: u32 = 501u32;
+pub const FAULT_INVALID_ACTION: u32 = 401u32;
+pub const FAULT_INVALID_ARG: u32 = 402u32;
+pub const FAULT_INVALID_SEQUENCE_NUMBER: u32 = 403u32;
+pub const FAULT_INVALID_VARIABLE: u32 = 404u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HSWDEVICE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HSWDEVICE {
+    type TypeKind = windows_core::CopyType;
+}
+impl HSWDEVICE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HSWDEVICE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceClose(hswdevice : *mut core::ffi::c_void));
+            SwDeviceClose(self.0);
+        }
+    }
+}
+impl Default for HSWDEVICE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 windows_core::imp::define_interface!(IUPnPAddressFamilyControl, IUPnPAddressFamilyControl_Vtbl, 0xe3bf6178_694e_459f_a5a6_191ea0ffa1c7);
 windows_core::imp::interface_hierarchy!(IUPnPAddressFamilyControl, windows_core::IUnknown);
 impl IUPnPAddressFamilyControl {
@@ -2055,38 +2088,19 @@ impl IUPnPServices_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUPnPServices {}
-pub type SW_DEVICE_CREATE_CALLBACK = Option<unsafe extern "system" fn(hswdevice: HSWDEVICE, createresult: windows_core::HRESULT, pcontext: *const core::ffi::c_void, pszdeviceinstanceid: windows_core::PCWSTR)>;
+pub const REMOTE_ADDRESS_VALUE_NAME: windows_core::PCWSTR = windows_core::w!("RemoteAddress");
+pub const SWDeviceCapabilitiesDriverRequired: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(8i32);
+pub const SWDeviceCapabilitiesNoDisplayInUI: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(4i32);
+pub const SWDeviceCapabilitiesNone: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(0i32);
+pub const SWDeviceCapabilitiesRemovable: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(1i32);
+pub const SWDeviceCapabilitiesSilentInstall: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(2i32);
+pub const SWDeviceLifetimeHandle: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(0i32);
+pub const SWDeviceLifetimeMax: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(2i32);
+pub const SWDeviceLifetimeParentPresent: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SW_DEVICE_CAPABILITIES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SW_DEVICE_LIFETIME(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HSWDEVICE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HSWDEVICE {
-    type TypeKind = windows_core::CopyType;
-}
-impl HSWDEVICE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HSWDEVICE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceClose(hswdevice : *mut core::ffi::c_void));
-            SwDeviceClose(self.0);
-        }
-    }
-}
-impl Default for HSWDEVICE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type SW_DEVICE_CREATE_CALLBACK = Option<unsafe extern "system" fn(hswdevice: HSWDEVICE, createresult: windows_core::HRESULT, pcontext: *const core::ffi::c_void, pszdeviceinstanceid: windows_core::PCWSTR)>;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2111,33 +2125,9 @@ impl Default for SW_DEVICE_CREATE_INFO {
 impl windows_core::TypeKind for SW_DEVICE_CREATE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-pub const UPnPDescriptionDocument: windows_core::GUID = windows_core::GUID::from_u128(0x1d8a9b47_3a28_4ce2_8a4b_bd34e45bceeb);
-pub const UPnPDescriptionDocumentEx: windows_core::GUID = windows_core::GUID::from_u128(0x33fd0563_d81a_4393_83cc_0195b1da2f91);
-pub const UPnPDevice: windows_core::GUID = windows_core::GUID::from_u128(0xa32552c5_ba61_457a_b59a_a2561e125e33);
-pub const UPnPDeviceFinder: windows_core::GUID = windows_core::GUID::from_u128(0xe2085f28_feb7_404a_b8e7_e659bdeaaa02);
-pub const UPnPDeviceFinderEx: windows_core::GUID = windows_core::GUID::from_u128(0x181b54fc_380b_4a75_b3f1_4ac45e9605b0);
-pub const UPnPDevices: windows_core::GUID = windows_core::GUID::from_u128(0xb9e84ffd_ad3c_40a4_b835_0882ebcbaaa8);
-pub const UPnPRegistrar: windows_core::GUID = windows_core::GUID::from_u128(0x204810b9_73b2_11d4_bf42_00b0d0118b56);
-pub const UPnPRemoteEndpointInfo: windows_core::GUID = windows_core::GUID::from_u128(0x2e5e84e9_4049_4244_b728_2d24227157c7);
-pub const UPnPService: windows_core::GUID = windows_core::GUID::from_u128(0xc624ba95_fbcb_4409_8c03_8cceec533ef1);
-pub const UPnPServices: windows_core::GUID = windows_core::GUID::from_u128(0xc0bc4b4a_a406_4efc_932f_b8546b8100cc);
-pub const ADDRESS_FAMILY_VALUE_NAME: windows_core::PCWSTR = windows_core::w!("AddressFamily");
-pub const FAULT_ACTION_SPECIFIC_BASE: u32 = 600u32;
-pub const FAULT_ACTION_SPECIFIC_MAX: u32 = 899u32;
-pub const FAULT_DEVICE_INTERNAL_ERROR: u32 = 501u32;
-pub const FAULT_INVALID_ACTION: u32 = 401u32;
-pub const FAULT_INVALID_ARG: u32 = 402u32;
-pub const FAULT_INVALID_SEQUENCE_NUMBER: u32 = 403u32;
-pub const FAULT_INVALID_VARIABLE: u32 = 404u32;
-pub const REMOTE_ADDRESS_VALUE_NAME: windows_core::PCWSTR = windows_core::w!("RemoteAddress");
-pub const SWDeviceCapabilitiesDriverRequired: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(8i32);
-pub const SWDeviceCapabilitiesNoDisplayInUI: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(4i32);
-pub const SWDeviceCapabilitiesNone: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(0i32);
-pub const SWDeviceCapabilitiesRemovable: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(1i32);
-pub const SWDeviceCapabilitiesSilentInstall: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(2i32);
-pub const SWDeviceLifetimeHandle: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(0i32);
-pub const SWDeviceLifetimeMax: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(2i32);
-pub const SWDeviceLifetimeParentPresent: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SW_DEVICE_LIFETIME(pub i32);
 pub const UPNP_ADDRESSFAMILY_BOTH: u32 = 3u32;
 pub const UPNP_ADDRESSFAMILY_IPv4: u32 = 1u32;
 pub const UPNP_ADDRESSFAMILY_IPv6: u32 = 2u32;
@@ -2176,3 +2166,13 @@ pub const UPNP_E_URLBASE_PRESENT: windows_core::HRESULT = windows_core::HRESULT(
 pub const UPNP_E_VALUE_TOO_LONG: windows_core::HRESULT = windows_core::HRESULT(0x8004A030_u32 as _);
 pub const UPNP_E_VARIABLE_VALUE_UNKNOWN: windows_core::HRESULT = windows_core::HRESULT(0x80040212_u32 as _);
 pub const UPNP_SERVICE_DELAY_SCPD_AND_SUBSCRIPTION: u32 = 1u32;
+pub const UPnPDescriptionDocument: windows_core::GUID = windows_core::GUID::from_u128(0x1d8a9b47_3a28_4ce2_8a4b_bd34e45bceeb);
+pub const UPnPDescriptionDocumentEx: windows_core::GUID = windows_core::GUID::from_u128(0x33fd0563_d81a_4393_83cc_0195b1da2f91);
+pub const UPnPDevice: windows_core::GUID = windows_core::GUID::from_u128(0xa32552c5_ba61_457a_b59a_a2561e125e33);
+pub const UPnPDeviceFinder: windows_core::GUID = windows_core::GUID::from_u128(0xe2085f28_feb7_404a_b8e7_e659bdeaaa02);
+pub const UPnPDeviceFinderEx: windows_core::GUID = windows_core::GUID::from_u128(0x181b54fc_380b_4a75_b3f1_4ac45e9605b0);
+pub const UPnPDevices: windows_core::GUID = windows_core::GUID::from_u128(0xb9e84ffd_ad3c_40a4_b835_0882ebcbaaa8);
+pub const UPnPRegistrar: windows_core::GUID = windows_core::GUID::from_u128(0x204810b9_73b2_11d4_bf42_00b0d0118b56);
+pub const UPnPRemoteEndpointInfo: windows_core::GUID = windows_core::GUID::from_u128(0x2e5e84e9_4049_4244_b728_2d24227157c7);
+pub const UPnPService: windows_core::GUID = windows_core::GUID::from_u128(0xc624ba95_fbcb_4409_8c03_8cceec533ef1);
+pub const UPnPServices: windows_core::GUID = windows_core::GUID::from_u128(0xc0bc4b4a_a406_4efc_932f_b8546b8100cc);

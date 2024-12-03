@@ -79,17 +79,12 @@ windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiTunnelModeOuterAddress
 windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiTunnelModeOuterAddressW(initiatorname : windows_sys::core::PCWSTR, initiatorportnumber : u32, destinationaddress : windows_sys::core::PCWSTR, outermodeaddress : windows_sys::core::PCWSTR, persist : super::super::Foundation:: BOOLEAN) -> u32);
 windows_targets::link!("iscsidsc.dll" "system" fn SetupPersistentIScsiDevices() -> u32);
 windows_targets::link!("iscsidsc.dll" "system" fn SetupPersistentIScsiVolumes() -> u32);
-pub type PDUMP_DEVICE_POWERON_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> i32>;
-pub type IKE_AUTHENTICATION_METHOD = i32;
-pub type ISCSI_AUTH_TYPES = i32;
-pub type ISCSI_DIGEST_TYPES = i32;
-pub type MP_STORAGE_DIAGNOSTIC_LEVEL = i32;
-pub type MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = i32;
-pub type NVCACHE_STATUS = i32;
-pub type NVCACHE_TYPE = i32;
-pub type NV_SEP_WRITE_CACHE_TYPE = i32;
-pub type TARGETPROTOCOLTYPE = i32;
-pub type TARGET_INFORMATION_CLASS = i32;
+pub const ATA_FLAGS_48BIT_COMMAND: u32 = 8u32;
+pub const ATA_FLAGS_DATA_IN: u32 = 2u32;
+pub const ATA_FLAGS_DATA_OUT: u32 = 4u32;
+pub const ATA_FLAGS_DRDY_REQUIRED: u32 = 1u32;
+pub const ATA_FLAGS_NO_MULTIPLE: u32 = 32u32;
+pub const ATA_FLAGS_USE_DMA: u32 = 16u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ATA_PASS_THROUGH_DIRECT {
@@ -156,6 +151,7 @@ pub struct ATA_PASS_THROUGH_EX32 {
     pub PreviousTaskFile: [u8; 8],
     pub CurrentTaskFile: [u8; 8],
 }
+pub const DD_SCSI_DEVICE_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("\\Device\\ScsiPort");
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DSM_NOTIFICATION_REQUEST_BLOCK {
@@ -182,6 +178,11 @@ pub struct DUMP_DRIVER_EX {
     pub BaseName: [u16; 15],
     pub DriverFullPath: NTSCSI_UNICODE_STRING,
 }
+pub const DUMP_DRIVER_NAME_LENGTH: u32 = 15u32;
+pub const DUMP_EX_FLAG_DRIVER_FULL_PATH_SUPPORT: u32 = 8u32;
+pub const DUMP_EX_FLAG_RESUME_SUPPORT: u32 = 4u32;
+pub const DUMP_EX_FLAG_SUPPORT_64BITMEMORY: u32 = 1u32;
+pub const DUMP_EX_FLAG_SUPPORT_DD_TELEMETRY: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DUMP_POINTERS {
@@ -222,6 +223,15 @@ pub struct DUMP_POINTERS_VERSION {
     pub Version: u32,
     pub Size: u32,
 }
+pub const DUMP_POINTERS_VERSION_1: u32 = 1u32;
+pub const DUMP_POINTERS_VERSION_2: u32 = 2u32;
+pub const DUMP_POINTERS_VERSION_3: u32 = 3u32;
+pub const DUMP_POINTERS_VERSION_4: u32 = 4u32;
+pub const DiscoveryMechanisms: TARGET_INFORMATION_CLASS = 2i32;
+pub const FILE_DEVICE_SCSI: u32 = 27u32;
+pub const FIRMWARE_FUNCTION_ACTIVATE: u32 = 3u32;
+pub const FIRMWARE_FUNCTION_DOWNLOAD: u32 = 2u32;
+pub const FIRMWARE_FUNCTION_GET_INFO: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FIRMWARE_REQUEST_BLOCK {
@@ -232,6 +242,31 @@ pub struct FIRMWARE_REQUEST_BLOCK {
     pub DataBufferOffset: u32,
     pub DataBufferLength: u32,
 }
+pub const FIRMWARE_REQUEST_BLOCK_STRUCTURE_VERSION: u32 = 1u32;
+pub const FIRMWARE_REQUEST_FLAG_CONTROLLER: u32 = 1u32;
+pub const FIRMWARE_REQUEST_FLAG_FIRST_SEGMENT: u32 = 4u32;
+pub const FIRMWARE_REQUEST_FLAG_LAST_SEGMENT: u32 = 2u32;
+pub const FIRMWARE_REQUEST_FLAG_REPLACE_EXISTING_IMAGE: u32 = 1073741824u32;
+pub const FIRMWARE_REQUEST_FLAG_SWITCH_TO_EXISTING_FIRMWARE: u32 = 2147483648u32;
+pub const FIRMWARE_STATUS_COMMAND_ABORT: u32 = 133u32;
+pub const FIRMWARE_STATUS_CONTROLLER_ERROR: u32 = 16u32;
+pub const FIRMWARE_STATUS_DEVICE_ERROR: u32 = 64u32;
+pub const FIRMWARE_STATUS_END_OF_MEDIA: u32 = 134u32;
+pub const FIRMWARE_STATUS_ERROR: u32 = 1u32;
+pub const FIRMWARE_STATUS_ID_NOT_FOUND: u32 = 131u32;
+pub const FIRMWARE_STATUS_ILLEGAL_LENGTH: u32 = 135u32;
+pub const FIRMWARE_STATUS_ILLEGAL_REQUEST: u32 = 2u32;
+pub const FIRMWARE_STATUS_INPUT_BUFFER_TOO_BIG: u32 = 4u32;
+pub const FIRMWARE_STATUS_INTERFACE_CRC_ERROR: u32 = 128u32;
+pub const FIRMWARE_STATUS_INVALID_IMAGE: u32 = 7u32;
+pub const FIRMWARE_STATUS_INVALID_PARAMETER: u32 = 3u32;
+pub const FIRMWARE_STATUS_INVALID_SLOT: u32 = 6u32;
+pub const FIRMWARE_STATUS_MEDIA_CHANGE: u32 = 130u32;
+pub const FIRMWARE_STATUS_MEDIA_CHANGE_REQUEST: u32 = 132u32;
+pub const FIRMWARE_STATUS_OUTPUT_BUFFER_TOO_SMALL: u32 = 5u32;
+pub const FIRMWARE_STATUS_POWER_CYCLE_REQUIRED: u32 = 32u32;
+pub const FIRMWARE_STATUS_SUCCESS: u32 = 0u32;
+pub const FIRMWARE_STATUS_UNCORRECTABLE_DATA_ERROR: u32 = 129u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HYBRID_DEMOTE_BY_SIZE {
@@ -251,6 +286,11 @@ pub struct HYBRID_DIRTY_THRESHOLDS {
     pub DirtyLowThreshold: u32,
     pub DirtyHighThreshold: u32,
 }
+pub const HYBRID_FUNCTION_DEMOTE_BY_SIZE: u32 = 19u32;
+pub const HYBRID_FUNCTION_DISABLE_CACHING_MEDIUM: u32 = 16u32;
+pub const HYBRID_FUNCTION_ENABLE_CACHING_MEDIUM: u32 = 17u32;
+pub const HYBRID_FUNCTION_GET_INFO: u32 = 1u32;
+pub const HYBRID_FUNCTION_SET_DIRTY_THRESHOLD: u32 = 18u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HYBRID_INFORMATION {
@@ -300,6 +340,13 @@ pub struct HYBRID_REQUEST_BLOCK {
     pub DataBufferOffset: u32,
     pub DataBufferLength: u32,
 }
+pub const HYBRID_REQUEST_BLOCK_STRUCTURE_VERSION: u32 = 1u32;
+pub const HYBRID_REQUEST_INFO_STRUCTURE_VERSION: u32 = 1u32;
+pub const HYBRID_STATUS_ENABLE_REFCOUNT_HOLD: u32 = 16u32;
+pub const HYBRID_STATUS_ILLEGAL_REQUEST: u32 = 1u32;
+pub const HYBRID_STATUS_INVALID_PARAMETER: u32 = 2u32;
+pub const HYBRID_STATUS_OUTPUT_BUFFER_TOO_SMALL: u32 = 3u32;
+pub const HYBRID_STATUS_SUCCESS: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IDE_IO_CONTROL {
@@ -310,6 +357,10 @@ pub struct IDE_IO_CONTROL {
     pub ReturnStatus: u32,
     pub DataLength: u32,
 }
+pub const ID_FQDN: windows_sys::core::PCSTR = windows_sys::core::s!("2");
+pub const ID_IPV4_ADDR: windows_sys::core::PCSTR = windows_sys::core::s!("1");
+pub const ID_IPV6_ADDR: windows_sys::core::PCSTR = windows_sys::core::s!("5");
+pub const ID_USER_FQDN: windows_sys::core::PCSTR = windows_sys::core::s!("3");
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IKE_AUTHENTICATION_INFORMATION {
@@ -321,6 +372,7 @@ pub struct IKE_AUTHENTICATION_INFORMATION {
 pub union IKE_AUTHENTICATION_INFORMATION_0 {
     pub PsKey: IKE_AUTHENTICATION_PRESHARED_KEY,
 }
+pub type IKE_AUTHENTICATION_METHOD = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IKE_AUTHENTICATION_PRESHARED_KEY {
@@ -331,6 +383,39 @@ pub struct IKE_AUTHENTICATION_PRESHARED_KEY {
     pub KeyLengthInBytes: u32,
     pub Key: *mut u8,
 }
+pub const IKE_AUTHENTICATION_PRESHARED_KEY_METHOD: IKE_AUTHENTICATION_METHOD = 1i32;
+pub const IOCTL_ATA_MINIPORT: u32 = 315444u32;
+pub const IOCTL_ATA_PASS_THROUGH: u32 = 315436u32;
+pub const IOCTL_ATA_PASS_THROUGH_DIRECT: u32 = 315440u32;
+pub const IOCTL_IDE_PASS_THROUGH: u32 = 315432u32;
+pub const IOCTL_MINIPORT_PROCESS_SERVICE_IRP: u32 = 315448u32;
+pub const IOCTL_MINIPORT_SIGNATURE_DSM_GENERAL: windows_sys::core::PCSTR = windows_sys::core::s!("MPDSMGEN");
+pub const IOCTL_MINIPORT_SIGNATURE_DSM_NOTIFICATION: windows_sys::core::PCSTR = windows_sys::core::s!("MPDSM   ");
+pub const IOCTL_MINIPORT_SIGNATURE_ENDURANCE_INFO: windows_sys::core::PCSTR = windows_sys::core::s!("ENDURINF");
+pub const IOCTL_MINIPORT_SIGNATURE_FIRMWARE: windows_sys::core::PCSTR = windows_sys::core::s!("FIRMWARE");
+pub const IOCTL_MINIPORT_SIGNATURE_HYBRDISK: windows_sys::core::PCSTR = windows_sys::core::s!("HYBRDISK");
+pub const IOCTL_MINIPORT_SIGNATURE_QUERY_PHYSICAL_TOPOLOGY: windows_sys::core::PCSTR = windows_sys::core::s!("TOPOLOGY");
+pub const IOCTL_MINIPORT_SIGNATURE_QUERY_PROTOCOL: windows_sys::core::PCSTR = windows_sys::core::s!("PROTOCOL");
+pub const IOCTL_MINIPORT_SIGNATURE_QUERY_TEMPERATURE: windows_sys::core::PCSTR = windows_sys::core::s!("TEMPERAT");
+pub const IOCTL_MINIPORT_SIGNATURE_SCSIDISK: windows_sys::core::PCSTR = windows_sys::core::s!("SCSIDISK");
+pub const IOCTL_MINIPORT_SIGNATURE_SET_PROTOCOL: windows_sys::core::PCSTR = windows_sys::core::s!("SETPROTO");
+pub const IOCTL_MINIPORT_SIGNATURE_SET_TEMPERATURE_THRESHOLD: windows_sys::core::PCSTR = windows_sys::core::s!("SETTEMPT");
+pub const IOCTL_MPIO_PASS_THROUGH_PATH: u32 = 315452u32;
+pub const IOCTL_MPIO_PASS_THROUGH_PATH_DIRECT: u32 = 315456u32;
+pub const IOCTL_MPIO_PASS_THROUGH_PATH_DIRECT_EX: u32 = 315472u32;
+pub const IOCTL_MPIO_PASS_THROUGH_PATH_EX: u32 = 315468u32;
+pub const IOCTL_SCSI_BASE: u32 = 4u32;
+pub const IOCTL_SCSI_FREE_DUMP_POINTERS: u32 = 266276u32;
+pub const IOCTL_SCSI_GET_ADDRESS: u32 = 266264u32;
+pub const IOCTL_SCSI_GET_CAPABILITIES: u32 = 266256u32;
+pub const IOCTL_SCSI_GET_DUMP_POINTERS: u32 = 266272u32;
+pub const IOCTL_SCSI_GET_INQUIRY_DATA: u32 = 266252u32;
+pub const IOCTL_SCSI_MINIPORT: u32 = 315400u32;
+pub const IOCTL_SCSI_PASS_THROUGH: u32 = 315396u32;
+pub const IOCTL_SCSI_PASS_THROUGH_DIRECT: u32 = 315412u32;
+pub const IOCTL_SCSI_PASS_THROUGH_DIRECT_EX: u32 = 315464u32;
+pub const IOCTL_SCSI_PASS_THROUGH_EX: u32 = 315460u32;
+pub const IOCTL_SCSI_RESCAN_BUS: u32 = 266268u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IO_SCSI_CAPABILITIES {
@@ -343,6 +428,8 @@ pub struct IO_SCSI_CAPABILITIES {
     pub AdapterScansDown: super::super::Foundation::BOOLEAN,
     pub AdapterUsesPio: super::super::Foundation::BOOLEAN,
 }
+pub type ISCSI_AUTH_TYPES = i32;
+pub const ISCSI_CHAP_AUTH_TYPE: ISCSI_AUTH_TYPES = 1i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ISCSI_CONNECTION_INFOA {
@@ -402,6 +489,15 @@ pub struct ISCSI_DEVICE_ON_SESSIONW {
     pub StorageDeviceNumber: super::super::System::Ioctl::STORAGE_DEVICE_NUMBER,
     pub DeviceInstance: u32,
 }
+pub type ISCSI_DIGEST_TYPES = i32;
+pub const ISCSI_DIGEST_TYPE_CRC32C: ISCSI_DIGEST_TYPES = 1i32;
+pub const ISCSI_DIGEST_TYPE_NONE: ISCSI_DIGEST_TYPES = 0i32;
+pub const ISCSI_LOGIN_FLAG_ALLOW_PORTAL_HOPPING: u32 = 8u32;
+pub const ISCSI_LOGIN_FLAG_MULTIPATH_ENABLED: u32 = 2u32;
+pub const ISCSI_LOGIN_FLAG_REQUIRE_IPSEC: u32 = 1u32;
+pub const ISCSI_LOGIN_FLAG_RESERVED1: u32 = 4u32;
+pub const ISCSI_LOGIN_FLAG_USE_RADIUS_RESPONSE: u32 = 16u32;
+pub const ISCSI_LOGIN_FLAG_USE_RADIUS_VERIFICATION: u32 = 32u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ISCSI_LOGIN_OPTIONS {
@@ -419,6 +515,24 @@ pub struct ISCSI_LOGIN_OPTIONS {
     pub Username: *mut u8,
     pub Password: *mut u8,
 }
+pub const ISCSI_LOGIN_OPTIONS_AUTH_TYPE: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000080");
+pub const ISCSI_LOGIN_OPTIONS_DATA_DIGEST: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000002");
+pub const ISCSI_LOGIN_OPTIONS_DEFAULT_TIME_2_RETAIN: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000010");
+pub const ISCSI_LOGIN_OPTIONS_DEFAULT_TIME_2_WAIT: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000008");
+pub const ISCSI_LOGIN_OPTIONS_HEADER_DIGEST: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000001");
+pub const ISCSI_LOGIN_OPTIONS_MAXIMUM_CONNECTIONS: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000004");
+pub const ISCSI_LOGIN_OPTIONS_PASSWORD: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000040");
+pub const ISCSI_LOGIN_OPTIONS_USERNAME: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000020");
+pub const ISCSI_LOGIN_OPTIONS_VERSION: u32 = 0u32;
+pub const ISCSI_MUTUAL_CHAP_AUTH_TYPE: ISCSI_AUTH_TYPES = 2i32;
+pub const ISCSI_NO_AUTH_TYPE: ISCSI_AUTH_TYPES = 0i32;
+pub const ISCSI_SECURITY_FLAG_AGGRESSIVE_MODE_ENABLED: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000008");
+pub const ISCSI_SECURITY_FLAG_IKE_IPSEC_ENABLED: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000002");
+pub const ISCSI_SECURITY_FLAG_MAIN_MODE_ENABLED: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000004");
+pub const ISCSI_SECURITY_FLAG_PFS_ENABLED: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000010");
+pub const ISCSI_SECURITY_FLAG_TRANSPORT_MODE_PREFERRED: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000020");
+pub const ISCSI_SECURITY_FLAG_TUNNEL_MODE_PREFERRED: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000040");
+pub const ISCSI_SECURITY_FLAG_VALID: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000001");
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ISCSI_SESSION_INFOA {
@@ -460,6 +574,8 @@ pub struct ISCSI_SESSION_INFO_EX {
     pub ConnectionCount: u32,
     pub Connections: *mut ISCSI_CONNECTION_INFO_EX,
 }
+pub const ISCSI_TARGET_FLAG_HIDE_STATIC_TARGET: u32 = 2u32;
+pub const ISCSI_TARGET_FLAG_MERGE_TARGET_INFORMATION: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ISCSI_TARGET_MAPPINGA {
@@ -550,6 +666,7 @@ pub struct ISCSI_TARGET_PORTAL_INFO_EXW {
     pub SecurityFlags: u64,
     pub LoginOptions: ISCSI_LOGIN_OPTIONS,
 }
+pub const ISCSI_TCP_PROTOCOL_TYPE: TARGETPROTOCOLTYPE = 0i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ISCSI_UNIQUE_SESSION_ID {
@@ -563,6 +680,28 @@ pub struct ISCSI_VERSION_INFO {
     pub MinorVersion: u32,
     pub BuildNumber: u32,
 }
+pub const InitiatorName: TARGET_INFORMATION_CLASS = 5i32;
+pub const LoginOptions: TARGET_INFORMATION_CLASS = 7i32;
+pub const MAX_ISCSI_ALIAS_LEN: u32 = 255u32;
+pub const MAX_ISCSI_DISCOVERY_DOMAIN_LEN: u32 = 256u32;
+pub const MAX_ISCSI_HBANAME_LEN: u32 = 256u32;
+pub const MAX_ISCSI_NAME_LEN: u32 = 223u32;
+pub const MAX_ISCSI_PORTAL_ADDRESS_LEN: u32 = 256u32;
+pub const MAX_ISCSI_PORTAL_ALIAS_LEN: u32 = 256u32;
+pub const MAX_ISCSI_PORTAL_NAME_LEN: u32 = 256u32;
+pub const MAX_ISCSI_TEXT_ADDRESS_LEN: u32 = 256u32;
+pub const MAX_RADIUS_ADDRESS_LEN: u32 = 41u32;
+pub const MINIPORT_DSM_NOTIFICATION_VERSION: u32 = 1u32;
+pub const MINIPORT_DSM_NOTIFICATION_VERSION_1: u32 = 1u32;
+pub const MINIPORT_DSM_NOTIFY_FLAG_BEGIN: u32 = 1u32;
+pub const MINIPORT_DSM_NOTIFY_FLAG_END: u32 = 2u32;
+pub const MINIPORT_DSM_PROFILE_CRASHDUMP_FILE: u32 = 3u32;
+pub const MINIPORT_DSM_PROFILE_HIBERNATION_FILE: u32 = 2u32;
+pub const MINIPORT_DSM_PROFILE_PAGE_FILE: u32 = 1u32;
+pub const MINIPORT_DSM_PROFILE_UNKNOWN: u32 = 0u32;
+pub const MPIO_IOCTL_FLAG_INVOLVE_DSM: u32 = 4u32;
+pub const MPIO_IOCTL_FLAG_USE_PATHID: u32 = 1u32;
+pub const MPIO_IOCTL_FLAG_USE_SCSIADDRESS: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MPIO_PASS_THROUGH_PATH {
@@ -653,6 +792,37 @@ pub struct MP_DEVICE_DATA_SET_RANGE {
     pub StartingOffset: i64,
     pub LengthInBytes: u64,
 }
+pub type MP_STORAGE_DIAGNOSTIC_LEVEL = i32;
+pub type MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = i32;
+pub const MpStorageDiagnosticLevelDefault: MP_STORAGE_DIAGNOSTIC_LEVEL = 0i32;
+pub const MpStorageDiagnosticLevelMax: MP_STORAGE_DIAGNOSTIC_LEVEL = 1i32;
+pub const MpStorageDiagnosticTargetTypeHbaFirmware: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = 3i32;
+pub const MpStorageDiagnosticTargetTypeMax: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = 4i32;
+pub const MpStorageDiagnosticTargetTypeMiniport: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = 2i32;
+pub const MpStorageDiagnosticTargetTypeUndefined: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = 0i32;
+pub const NRB_FUNCTION_ADD_LBAS_PINNED_SET: u32 = 16u32;
+pub const NRB_FUNCTION_FLUSH_NVCACHE: u32 = 20u32;
+pub const NRB_FUNCTION_NVCACHE_INFO: u32 = 236u32;
+pub const NRB_FUNCTION_NVCACHE_POWER_MODE_RETURN: u32 = 1u32;
+pub const NRB_FUNCTION_NVCACHE_POWER_MODE_SET: u32 = 0u32;
+pub const NRB_FUNCTION_NVSEPARATED_FLUSH: u32 = 193u32;
+pub const NRB_FUNCTION_NVSEPARATED_INFO: u32 = 192u32;
+pub const NRB_FUNCTION_NVSEPARATED_WB_DISABLE: u32 = 194u32;
+pub const NRB_FUNCTION_NVSEPARATED_WB_REVERT_DEFAULT: u32 = 195u32;
+pub const NRB_FUNCTION_PASS_HINT_PAYLOAD: u32 = 224u32;
+pub const NRB_FUNCTION_QUERY_ASCENDER_STATUS: u32 = 208u32;
+pub const NRB_FUNCTION_QUERY_CACHE_MISS: u32 = 19u32;
+pub const NRB_FUNCTION_QUERY_HYBRID_DISK_STATUS: u32 = 209u32;
+pub const NRB_FUNCTION_QUERY_PINNED_SET: u32 = 18u32;
+pub const NRB_FUNCTION_REMOVE_LBAS_PINNED_SET: u32 = 17u32;
+pub const NRB_FUNCTION_SPINDLE_STATUS: u32 = 229u32;
+pub const NRB_ILLEGAL_REQUEST: u32 = 1u32;
+pub const NRB_INPUT_DATA_OVERRUN: u32 = 3u32;
+pub const NRB_INPUT_DATA_UNDERRUN: u32 = 4u32;
+pub const NRB_INVALID_PARAMETER: u32 = 2u32;
+pub const NRB_OUTPUT_DATA_OVERRUN: u32 = 5u32;
+pub const NRB_OUTPUT_DATA_UNDERRUN: u32 = 6u32;
+pub const NRB_SUCCESS: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NTSCSI_UNICODE_STRING {
@@ -701,6 +871,12 @@ pub struct NVCACHE_REQUEST_BLOCK {
     pub NVCacheStatus: u32,
     pub NVCacheSubStatus: u32,
 }
+pub type NVCACHE_STATUS = i32;
+pub type NVCACHE_TYPE = i32;
+pub const NVSEPWriteCacheTypeNone: NV_SEP_WRITE_CACHE_TYPE = 1i32;
+pub const NVSEPWriteCacheTypeUnknown: NV_SEP_WRITE_CACHE_TYPE = 0i32;
+pub const NVSEPWriteCacheTypeWriteBack: NV_SEP_WRITE_CACHE_TYPE = 2i32;
+pub const NVSEPWriteCacheTypeWriteThrough: NV_SEP_WRITE_CACHE_TYPE = 3i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NV_FEATURE_PARAMETER {
@@ -736,6 +912,18 @@ pub union NV_SEP_CACHE_PARAMETER_0 {
 pub struct NV_SEP_CACHE_PARAMETER_0_0 {
     pub _bitfield: u8,
 }
+pub const NV_SEP_CACHE_PARAMETER_VERSION: u32 = 1u32;
+pub const NV_SEP_CACHE_PARAMETER_VERSION_1: u32 = 1u32;
+pub type NV_SEP_WRITE_CACHE_TYPE = i32;
+pub const NvCacheStatusDisabled: NVCACHE_STATUS = 2i32;
+pub const NvCacheStatusDisabling: NVCACHE_STATUS = 1i32;
+pub const NvCacheStatusEnabled: NVCACHE_STATUS = 3i32;
+pub const NvCacheStatusUnknown: NVCACHE_STATUS = 0i32;
+pub const NvCacheTypeNone: NVCACHE_TYPE = 1i32;
+pub const NvCacheTypeUnknown: NVCACHE_TYPE = 0i32;
+pub const NvCacheTypeWriteBack: NVCACHE_TYPE = 2i32;
+pub const NvCacheTypeWriteThrough: NVCACHE_TYPE = 3i32;
+pub type PDUMP_DEVICE_POWERON_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> i32>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PERSISTENT_ISCSI_LOGIN_INFOA {
@@ -760,6 +948,9 @@ pub struct PERSISTENT_ISCSI_LOGIN_INFOW {
     pub Mappings: *mut ISCSI_TARGET_MAPPINGW,
     pub LoginOptions: ISCSI_LOGIN_OPTIONS,
 }
+pub const PersistentTargetMappings: TARGET_INFORMATION_CLASS = 4i32;
+pub const PortalGroups: TARGET_INFORMATION_CLASS = 3i32;
+pub const ProtocolType: TARGET_INFORMATION_CLASS = 0i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SCSI_ADAPTER_BUS_INFO {
@@ -793,6 +984,10 @@ pub struct SCSI_INQUIRY_DATA {
     pub NextInquiryDataOffset: u32,
     pub InquiryData: [u8; 1],
 }
+pub const SCSI_IOCTL_DATA_BIDIRECTIONAL: u32 = 3u32;
+pub const SCSI_IOCTL_DATA_IN: u32 = 1u32;
+pub const SCSI_IOCTL_DATA_OUT: u32 = 0u32;
+pub const SCSI_IOCTL_DATA_UNSPECIFIED: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SCSI_LUN_LIST {
@@ -973,6 +1168,13 @@ pub struct STORAGE_DIAGNOSTIC_MP_REQUEST {
     pub Reserved: u32,
     pub DataBuffer: [u8; 1],
 }
+pub const STORAGE_DIAGNOSTIC_STATUS_BUFFER_TOO_SMALL: u32 = 1u32;
+pub const STORAGE_DIAGNOSTIC_STATUS_INVALID_PARAMETER: u32 = 3u32;
+pub const STORAGE_DIAGNOSTIC_STATUS_INVALID_SIGNATURE: u32 = 4u32;
+pub const STORAGE_DIAGNOSTIC_STATUS_INVALID_TARGET_TYPE: u32 = 5u32;
+pub const STORAGE_DIAGNOSTIC_STATUS_MORE_DATA: u32 = 6u32;
+pub const STORAGE_DIAGNOSTIC_STATUS_SUCCESS: u32 = 0u32;
+pub const STORAGE_DIAGNOSTIC_STATUS_UNSUPPORTED_VERSION: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_ENDURANCE_DATA_DESCRIPTOR {
@@ -1003,6 +1205,7 @@ pub struct STORAGE_FIRMWARE_ACTIVATE {
     pub SlotToActivate: u8,
     pub Reserved0: [u8; 3],
 }
+pub const STORAGE_FIRMWARE_ACTIVATE_STRUCTURE_VERSION: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_FIRMWARE_DOWNLOAD {
@@ -1012,6 +1215,8 @@ pub struct STORAGE_FIRMWARE_DOWNLOAD {
     pub BufferSize: u64,
     pub ImageBuffer: [u8; 1],
 }
+pub const STORAGE_FIRMWARE_DOWNLOAD_STRUCTURE_VERSION: u32 = 1u32;
+pub const STORAGE_FIRMWARE_DOWNLOAD_STRUCTURE_VERSION_V2: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_FIRMWARE_DOWNLOAD_V2 {
@@ -1036,6 +1241,9 @@ pub struct STORAGE_FIRMWARE_INFO {
     pub Reserved: u32,
     pub Slot: [STORAGE_FIRMWARE_SLOT_INFO; 1],
 }
+pub const STORAGE_FIRMWARE_INFO_INVALID_SLOT: u32 = 255u32;
+pub const STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION: u32 = 1u32;
+pub const STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION_V2: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_FIRMWARE_INFO_V2 {
@@ -1073,219 +1281,11 @@ pub struct STORAGE_FIRMWARE_SLOT_INFO_V2 {
     pub Reserved: [u8; 6],
     pub Revision: [u8; 16],
 }
-pub type _ADAPTER_OBJECT = isize;
-pub const ATA_FLAGS_48BIT_COMMAND: u32 = 8u32;
-pub const ATA_FLAGS_DATA_IN: u32 = 2u32;
-pub const ATA_FLAGS_DATA_OUT: u32 = 4u32;
-pub const ATA_FLAGS_DRDY_REQUIRED: u32 = 1u32;
-pub const ATA_FLAGS_NO_MULTIPLE: u32 = 32u32;
-pub const ATA_FLAGS_USE_DMA: u32 = 16u32;
-pub const DD_SCSI_DEVICE_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("\\Device\\ScsiPort");
-pub const DUMP_DRIVER_NAME_LENGTH: u32 = 15u32;
-pub const DUMP_EX_FLAG_DRIVER_FULL_PATH_SUPPORT: u32 = 8u32;
-pub const DUMP_EX_FLAG_RESUME_SUPPORT: u32 = 4u32;
-pub const DUMP_EX_FLAG_SUPPORT_64BITMEMORY: u32 = 1u32;
-pub const DUMP_EX_FLAG_SUPPORT_DD_TELEMETRY: u32 = 2u32;
-pub const DUMP_POINTERS_VERSION_1: u32 = 1u32;
-pub const DUMP_POINTERS_VERSION_2: u32 = 2u32;
-pub const DUMP_POINTERS_VERSION_3: u32 = 3u32;
-pub const DUMP_POINTERS_VERSION_4: u32 = 4u32;
-pub const DiscoveryMechanisms: TARGET_INFORMATION_CLASS = 2i32;
-pub const FILE_DEVICE_SCSI: u32 = 27u32;
-pub const FIRMWARE_FUNCTION_ACTIVATE: u32 = 3u32;
-pub const FIRMWARE_FUNCTION_DOWNLOAD: u32 = 2u32;
-pub const FIRMWARE_FUNCTION_GET_INFO: u32 = 1u32;
-pub const FIRMWARE_REQUEST_BLOCK_STRUCTURE_VERSION: u32 = 1u32;
-pub const FIRMWARE_REQUEST_FLAG_CONTROLLER: u32 = 1u32;
-pub const FIRMWARE_REQUEST_FLAG_FIRST_SEGMENT: u32 = 4u32;
-pub const FIRMWARE_REQUEST_FLAG_LAST_SEGMENT: u32 = 2u32;
-pub const FIRMWARE_REQUEST_FLAG_REPLACE_EXISTING_IMAGE: u32 = 1073741824u32;
-pub const FIRMWARE_REQUEST_FLAG_SWITCH_TO_EXISTING_FIRMWARE: u32 = 2147483648u32;
-pub const FIRMWARE_STATUS_COMMAND_ABORT: u32 = 133u32;
-pub const FIRMWARE_STATUS_CONTROLLER_ERROR: u32 = 16u32;
-pub const FIRMWARE_STATUS_DEVICE_ERROR: u32 = 64u32;
-pub const FIRMWARE_STATUS_END_OF_MEDIA: u32 = 134u32;
-pub const FIRMWARE_STATUS_ERROR: u32 = 1u32;
-pub const FIRMWARE_STATUS_ID_NOT_FOUND: u32 = 131u32;
-pub const FIRMWARE_STATUS_ILLEGAL_LENGTH: u32 = 135u32;
-pub const FIRMWARE_STATUS_ILLEGAL_REQUEST: u32 = 2u32;
-pub const FIRMWARE_STATUS_INPUT_BUFFER_TOO_BIG: u32 = 4u32;
-pub const FIRMWARE_STATUS_INTERFACE_CRC_ERROR: u32 = 128u32;
-pub const FIRMWARE_STATUS_INVALID_IMAGE: u32 = 7u32;
-pub const FIRMWARE_STATUS_INVALID_PARAMETER: u32 = 3u32;
-pub const FIRMWARE_STATUS_INVALID_SLOT: u32 = 6u32;
-pub const FIRMWARE_STATUS_MEDIA_CHANGE: u32 = 130u32;
-pub const FIRMWARE_STATUS_MEDIA_CHANGE_REQUEST: u32 = 132u32;
-pub const FIRMWARE_STATUS_OUTPUT_BUFFER_TOO_SMALL: u32 = 5u32;
-pub const FIRMWARE_STATUS_POWER_CYCLE_REQUIRED: u32 = 32u32;
-pub const FIRMWARE_STATUS_SUCCESS: u32 = 0u32;
-pub const FIRMWARE_STATUS_UNCORRECTABLE_DATA_ERROR: u32 = 129u32;
-pub const HYBRID_FUNCTION_DEMOTE_BY_SIZE: u32 = 19u32;
-pub const HYBRID_FUNCTION_DISABLE_CACHING_MEDIUM: u32 = 16u32;
-pub const HYBRID_FUNCTION_ENABLE_CACHING_MEDIUM: u32 = 17u32;
-pub const HYBRID_FUNCTION_GET_INFO: u32 = 1u32;
-pub const HYBRID_FUNCTION_SET_DIRTY_THRESHOLD: u32 = 18u32;
-pub const HYBRID_REQUEST_BLOCK_STRUCTURE_VERSION: u32 = 1u32;
-pub const HYBRID_REQUEST_INFO_STRUCTURE_VERSION: u32 = 1u32;
-pub const HYBRID_STATUS_ENABLE_REFCOUNT_HOLD: u32 = 16u32;
-pub const HYBRID_STATUS_ILLEGAL_REQUEST: u32 = 1u32;
-pub const HYBRID_STATUS_INVALID_PARAMETER: u32 = 2u32;
-pub const HYBRID_STATUS_OUTPUT_BUFFER_TOO_SMALL: u32 = 3u32;
-pub const HYBRID_STATUS_SUCCESS: u32 = 0u32;
-pub const ID_FQDN: windows_sys::core::PCSTR = windows_sys::core::s!("2");
-pub const ID_IPV4_ADDR: windows_sys::core::PCSTR = windows_sys::core::s!("1");
-pub const ID_IPV6_ADDR: windows_sys::core::PCSTR = windows_sys::core::s!("5");
-pub const ID_USER_FQDN: windows_sys::core::PCSTR = windows_sys::core::s!("3");
-pub const IKE_AUTHENTICATION_PRESHARED_KEY_METHOD: IKE_AUTHENTICATION_METHOD = 1i32;
-pub const IOCTL_ATA_MINIPORT: u32 = 315444u32;
-pub const IOCTL_ATA_PASS_THROUGH: u32 = 315436u32;
-pub const IOCTL_ATA_PASS_THROUGH_DIRECT: u32 = 315440u32;
-pub const IOCTL_IDE_PASS_THROUGH: u32 = 315432u32;
-pub const IOCTL_MINIPORT_PROCESS_SERVICE_IRP: u32 = 315448u32;
-pub const IOCTL_MINIPORT_SIGNATURE_DSM_GENERAL: windows_sys::core::PCSTR = windows_sys::core::s!("MPDSMGEN");
-pub const IOCTL_MINIPORT_SIGNATURE_DSM_NOTIFICATION: windows_sys::core::PCSTR = windows_sys::core::s!("MPDSM   ");
-pub const IOCTL_MINIPORT_SIGNATURE_ENDURANCE_INFO: windows_sys::core::PCSTR = windows_sys::core::s!("ENDURINF");
-pub const IOCTL_MINIPORT_SIGNATURE_FIRMWARE: windows_sys::core::PCSTR = windows_sys::core::s!("FIRMWARE");
-pub const IOCTL_MINIPORT_SIGNATURE_HYBRDISK: windows_sys::core::PCSTR = windows_sys::core::s!("HYBRDISK");
-pub const IOCTL_MINIPORT_SIGNATURE_QUERY_PHYSICAL_TOPOLOGY: windows_sys::core::PCSTR = windows_sys::core::s!("TOPOLOGY");
-pub const IOCTL_MINIPORT_SIGNATURE_QUERY_PROTOCOL: windows_sys::core::PCSTR = windows_sys::core::s!("PROTOCOL");
-pub const IOCTL_MINIPORT_SIGNATURE_QUERY_TEMPERATURE: windows_sys::core::PCSTR = windows_sys::core::s!("TEMPERAT");
-pub const IOCTL_MINIPORT_SIGNATURE_SCSIDISK: windows_sys::core::PCSTR = windows_sys::core::s!("SCSIDISK");
-pub const IOCTL_MINIPORT_SIGNATURE_SET_PROTOCOL: windows_sys::core::PCSTR = windows_sys::core::s!("SETPROTO");
-pub const IOCTL_MINIPORT_SIGNATURE_SET_TEMPERATURE_THRESHOLD: windows_sys::core::PCSTR = windows_sys::core::s!("SETTEMPT");
-pub const IOCTL_MPIO_PASS_THROUGH_PATH: u32 = 315452u32;
-pub const IOCTL_MPIO_PASS_THROUGH_PATH_DIRECT: u32 = 315456u32;
-pub const IOCTL_MPIO_PASS_THROUGH_PATH_DIRECT_EX: u32 = 315472u32;
-pub const IOCTL_MPIO_PASS_THROUGH_PATH_EX: u32 = 315468u32;
-pub const IOCTL_SCSI_BASE: u32 = 4u32;
-pub const IOCTL_SCSI_FREE_DUMP_POINTERS: u32 = 266276u32;
-pub const IOCTL_SCSI_GET_ADDRESS: u32 = 266264u32;
-pub const IOCTL_SCSI_GET_CAPABILITIES: u32 = 266256u32;
-pub const IOCTL_SCSI_GET_DUMP_POINTERS: u32 = 266272u32;
-pub const IOCTL_SCSI_GET_INQUIRY_DATA: u32 = 266252u32;
-pub const IOCTL_SCSI_MINIPORT: u32 = 315400u32;
-pub const IOCTL_SCSI_PASS_THROUGH: u32 = 315396u32;
-pub const IOCTL_SCSI_PASS_THROUGH_DIRECT: u32 = 315412u32;
-pub const IOCTL_SCSI_PASS_THROUGH_DIRECT_EX: u32 = 315464u32;
-pub const IOCTL_SCSI_PASS_THROUGH_EX: u32 = 315460u32;
-pub const IOCTL_SCSI_RESCAN_BUS: u32 = 266268u32;
-pub const ISCSI_CHAP_AUTH_TYPE: ISCSI_AUTH_TYPES = 1i32;
-pub const ISCSI_DIGEST_TYPE_CRC32C: ISCSI_DIGEST_TYPES = 1i32;
-pub const ISCSI_DIGEST_TYPE_NONE: ISCSI_DIGEST_TYPES = 0i32;
-pub const ISCSI_LOGIN_FLAG_ALLOW_PORTAL_HOPPING: u32 = 8u32;
-pub const ISCSI_LOGIN_FLAG_MULTIPATH_ENABLED: u32 = 2u32;
-pub const ISCSI_LOGIN_FLAG_REQUIRE_IPSEC: u32 = 1u32;
-pub const ISCSI_LOGIN_FLAG_RESERVED1: u32 = 4u32;
-pub const ISCSI_LOGIN_FLAG_USE_RADIUS_RESPONSE: u32 = 16u32;
-pub const ISCSI_LOGIN_FLAG_USE_RADIUS_VERIFICATION: u32 = 32u32;
-pub const ISCSI_LOGIN_OPTIONS_AUTH_TYPE: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000080");
-pub const ISCSI_LOGIN_OPTIONS_DATA_DIGEST: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000002");
-pub const ISCSI_LOGIN_OPTIONS_DEFAULT_TIME_2_RETAIN: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000010");
-pub const ISCSI_LOGIN_OPTIONS_DEFAULT_TIME_2_WAIT: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000008");
-pub const ISCSI_LOGIN_OPTIONS_HEADER_DIGEST: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000001");
-pub const ISCSI_LOGIN_OPTIONS_MAXIMUM_CONNECTIONS: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000004");
-pub const ISCSI_LOGIN_OPTIONS_PASSWORD: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000040");
-pub const ISCSI_LOGIN_OPTIONS_USERNAME: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000020");
-pub const ISCSI_LOGIN_OPTIONS_VERSION: u32 = 0u32;
-pub const ISCSI_MUTUAL_CHAP_AUTH_TYPE: ISCSI_AUTH_TYPES = 2i32;
-pub const ISCSI_NO_AUTH_TYPE: ISCSI_AUTH_TYPES = 0i32;
-pub const ISCSI_SECURITY_FLAG_AGGRESSIVE_MODE_ENABLED: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000008");
-pub const ISCSI_SECURITY_FLAG_IKE_IPSEC_ENABLED: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000002");
-pub const ISCSI_SECURITY_FLAG_MAIN_MODE_ENABLED: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000004");
-pub const ISCSI_SECURITY_FLAG_PFS_ENABLED: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000010");
-pub const ISCSI_SECURITY_FLAG_TRANSPORT_MODE_PREFERRED: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000020");
-pub const ISCSI_SECURITY_FLAG_TUNNEL_MODE_PREFERRED: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000040");
-pub const ISCSI_SECURITY_FLAG_VALID: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000001");
-pub const ISCSI_TARGET_FLAG_HIDE_STATIC_TARGET: u32 = 2u32;
-pub const ISCSI_TARGET_FLAG_MERGE_TARGET_INFORMATION: u32 = 4u32;
-pub const ISCSI_TCP_PROTOCOL_TYPE: TARGETPROTOCOLTYPE = 0i32;
-pub const InitiatorName: TARGET_INFORMATION_CLASS = 5i32;
-pub const LoginOptions: TARGET_INFORMATION_CLASS = 7i32;
-pub const MAX_ISCSI_ALIAS_LEN: u32 = 255u32;
-pub const MAX_ISCSI_DISCOVERY_DOMAIN_LEN: u32 = 256u32;
-pub const MAX_ISCSI_HBANAME_LEN: u32 = 256u32;
-pub const MAX_ISCSI_NAME_LEN: u32 = 223u32;
-pub const MAX_ISCSI_PORTAL_ADDRESS_LEN: u32 = 256u32;
-pub const MAX_ISCSI_PORTAL_ALIAS_LEN: u32 = 256u32;
-pub const MAX_ISCSI_PORTAL_NAME_LEN: u32 = 256u32;
-pub const MAX_ISCSI_TEXT_ADDRESS_LEN: u32 = 256u32;
-pub const MAX_RADIUS_ADDRESS_LEN: u32 = 41u32;
-pub const MINIPORT_DSM_NOTIFICATION_VERSION: u32 = 1u32;
-pub const MINIPORT_DSM_NOTIFICATION_VERSION_1: u32 = 1u32;
-pub const MINIPORT_DSM_NOTIFY_FLAG_BEGIN: u32 = 1u32;
-pub const MINIPORT_DSM_NOTIFY_FLAG_END: u32 = 2u32;
-pub const MINIPORT_DSM_PROFILE_CRASHDUMP_FILE: u32 = 3u32;
-pub const MINIPORT_DSM_PROFILE_HIBERNATION_FILE: u32 = 2u32;
-pub const MINIPORT_DSM_PROFILE_PAGE_FILE: u32 = 1u32;
-pub const MINIPORT_DSM_PROFILE_UNKNOWN: u32 = 0u32;
-pub const MPIO_IOCTL_FLAG_INVOLVE_DSM: u32 = 4u32;
-pub const MPIO_IOCTL_FLAG_USE_PATHID: u32 = 1u32;
-pub const MPIO_IOCTL_FLAG_USE_SCSIADDRESS: u32 = 2u32;
-pub const MpStorageDiagnosticLevelDefault: MP_STORAGE_DIAGNOSTIC_LEVEL = 0i32;
-pub const MpStorageDiagnosticLevelMax: MP_STORAGE_DIAGNOSTIC_LEVEL = 1i32;
-pub const MpStorageDiagnosticTargetTypeHbaFirmware: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = 3i32;
-pub const MpStorageDiagnosticTargetTypeMax: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = 4i32;
-pub const MpStorageDiagnosticTargetTypeMiniport: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = 2i32;
-pub const MpStorageDiagnosticTargetTypeUndefined: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = 0i32;
-pub const NRB_FUNCTION_ADD_LBAS_PINNED_SET: u32 = 16u32;
-pub const NRB_FUNCTION_FLUSH_NVCACHE: u32 = 20u32;
-pub const NRB_FUNCTION_NVCACHE_INFO: u32 = 236u32;
-pub const NRB_FUNCTION_NVCACHE_POWER_MODE_RETURN: u32 = 1u32;
-pub const NRB_FUNCTION_NVCACHE_POWER_MODE_SET: u32 = 0u32;
-pub const NRB_FUNCTION_NVSEPARATED_FLUSH: u32 = 193u32;
-pub const NRB_FUNCTION_NVSEPARATED_INFO: u32 = 192u32;
-pub const NRB_FUNCTION_NVSEPARATED_WB_DISABLE: u32 = 194u32;
-pub const NRB_FUNCTION_NVSEPARATED_WB_REVERT_DEFAULT: u32 = 195u32;
-pub const NRB_FUNCTION_PASS_HINT_PAYLOAD: u32 = 224u32;
-pub const NRB_FUNCTION_QUERY_ASCENDER_STATUS: u32 = 208u32;
-pub const NRB_FUNCTION_QUERY_CACHE_MISS: u32 = 19u32;
-pub const NRB_FUNCTION_QUERY_HYBRID_DISK_STATUS: u32 = 209u32;
-pub const NRB_FUNCTION_QUERY_PINNED_SET: u32 = 18u32;
-pub const NRB_FUNCTION_REMOVE_LBAS_PINNED_SET: u32 = 17u32;
-pub const NRB_FUNCTION_SPINDLE_STATUS: u32 = 229u32;
-pub const NRB_ILLEGAL_REQUEST: u32 = 1u32;
-pub const NRB_INPUT_DATA_OVERRUN: u32 = 3u32;
-pub const NRB_INPUT_DATA_UNDERRUN: u32 = 4u32;
-pub const NRB_INVALID_PARAMETER: u32 = 2u32;
-pub const NRB_OUTPUT_DATA_OVERRUN: u32 = 5u32;
-pub const NRB_OUTPUT_DATA_UNDERRUN: u32 = 6u32;
-pub const NRB_SUCCESS: u32 = 0u32;
-pub const NVSEPWriteCacheTypeNone: NV_SEP_WRITE_CACHE_TYPE = 1i32;
-pub const NVSEPWriteCacheTypeUnknown: NV_SEP_WRITE_CACHE_TYPE = 0i32;
-pub const NVSEPWriteCacheTypeWriteBack: NV_SEP_WRITE_CACHE_TYPE = 2i32;
-pub const NVSEPWriteCacheTypeWriteThrough: NV_SEP_WRITE_CACHE_TYPE = 3i32;
-pub const NV_SEP_CACHE_PARAMETER_VERSION: u32 = 1u32;
-pub const NV_SEP_CACHE_PARAMETER_VERSION_1: u32 = 1u32;
-pub const NvCacheStatusDisabled: NVCACHE_STATUS = 2i32;
-pub const NvCacheStatusDisabling: NVCACHE_STATUS = 1i32;
-pub const NvCacheStatusEnabled: NVCACHE_STATUS = 3i32;
-pub const NvCacheStatusUnknown: NVCACHE_STATUS = 0i32;
-pub const NvCacheTypeNone: NVCACHE_TYPE = 1i32;
-pub const NvCacheTypeUnknown: NVCACHE_TYPE = 0i32;
-pub const NvCacheTypeWriteBack: NVCACHE_TYPE = 2i32;
-pub const NvCacheTypeWriteThrough: NVCACHE_TYPE = 3i32;
-pub const PersistentTargetMappings: TARGET_INFORMATION_CLASS = 4i32;
-pub const PortalGroups: TARGET_INFORMATION_CLASS = 3i32;
-pub const ProtocolType: TARGET_INFORMATION_CLASS = 0i32;
-pub const SCSI_IOCTL_DATA_BIDIRECTIONAL: u32 = 3u32;
-pub const SCSI_IOCTL_DATA_IN: u32 = 1u32;
-pub const SCSI_IOCTL_DATA_OUT: u32 = 0u32;
-pub const SCSI_IOCTL_DATA_UNSPECIFIED: u32 = 2u32;
-pub const STORAGE_DIAGNOSTIC_STATUS_BUFFER_TOO_SMALL: u32 = 1u32;
-pub const STORAGE_DIAGNOSTIC_STATUS_INVALID_PARAMETER: u32 = 3u32;
-pub const STORAGE_DIAGNOSTIC_STATUS_INVALID_SIGNATURE: u32 = 4u32;
-pub const STORAGE_DIAGNOSTIC_STATUS_INVALID_TARGET_TYPE: u32 = 5u32;
-pub const STORAGE_DIAGNOSTIC_STATUS_MORE_DATA: u32 = 6u32;
-pub const STORAGE_DIAGNOSTIC_STATUS_SUCCESS: u32 = 0u32;
-pub const STORAGE_DIAGNOSTIC_STATUS_UNSUPPORTED_VERSION: u32 = 2u32;
-pub const STORAGE_FIRMWARE_ACTIVATE_STRUCTURE_VERSION: u32 = 1u32;
-pub const STORAGE_FIRMWARE_DOWNLOAD_STRUCTURE_VERSION: u32 = 1u32;
-pub const STORAGE_FIRMWARE_DOWNLOAD_STRUCTURE_VERSION_V2: u32 = 2u32;
-pub const STORAGE_FIRMWARE_INFO_INVALID_SLOT: u32 = 255u32;
-pub const STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION: u32 = 1u32;
-pub const STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION_V2: u32 = 2u32;
 pub const STORAGE_FIRMWARE_SLOT_INFO_V2_REVISION_LENGTH: u32 = 16u32;
 pub const ScsiRawInterfaceGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x53f56309_b6bf_11d0_94f2_00a0c91efb8b);
+pub type TARGETPROTOCOLTYPE = i32;
+pub type TARGET_INFORMATION_CLASS = i32;
 pub const TargetAlias: TARGET_INFORMATION_CLASS = 1i32;
 pub const TargetFlags: TARGET_INFORMATION_CLASS = 6i32;
 pub const WmiScsiAddressGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x53f5630f_b6bf_11d0_94f2_00a0c91efb8b);
+pub type _ADAPTER_OBJECT = isize;

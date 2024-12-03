@@ -278,7 +278,38 @@ where
     windows_targets::link!("wintrust.dll" "system" fn IsCatalogFile(hfile : super::super::super::Foundation:: HANDLE, pwszfilename : windows_core::PCWSTR) -> super::super::super::Foundation:: BOOL);
     IsCatalogFile(hfile.param().abi(), pwszfilename.param().abi())
 }
-pub type PFN_CDF_PARSE_ERROR_CALLBACK = Option<unsafe extern "system" fn(dwerrorarea: u32, dwlocalerror: u32, pwszline: windows_core::PCWSTR)>;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CATALOG_INFO {
+    pub cbStruct: u32,
+    pub wszCatalogFile: [u16; 260],
+}
+impl Default for CATALOG_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CATALOG_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CRYPTCATATTRIBUTE {
+    pub cbStruct: u32,
+    pub pwszReferenceTag: windows_core::PWSTR,
+    pub dwAttrTypeAndAction: CRYPTCATATTRIBUTE_FLAGS,
+    pub cbValue: u32,
+    pub pbValue: *mut u8,
+    pub dwReserved: u32,
+}
+impl Default for CRYPTCATATTRIBUTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CRYPTCATATTRIBUTE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTCATATTRIBUTE_FLAGS(pub u32);
@@ -314,77 +345,6 @@ impl core::ops::Not for CRYPTCATATTRIBUTE_FLAGS {
     fn not(self) -> Self {
         Self(self.0.not())
     }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CRYPTCAT_OPEN_FLAGS(pub u32);
-impl CRYPTCAT_OPEN_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for CRYPTCAT_OPEN_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for CRYPTCAT_OPEN_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for CRYPTCAT_OPEN_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for CRYPTCAT_OPEN_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for CRYPTCAT_OPEN_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CRYPTCAT_VERSION(pub u32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CATALOG_INFO {
-    pub cbStruct: u32,
-    pub wszCatalogFile: [u16; 260],
-}
-impl Default for CATALOG_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CATALOG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CRYPTCATATTRIBUTE {
-    pub cbStruct: u32,
-    pub pwszReferenceTag: windows_core::PWSTR,
-    pub dwAttrTypeAndAction: CRYPTCATATTRIBUTE_FLAGS,
-    pub cbValue: u32,
-    pub pbValue: *mut u8,
-    pub dwReserved: u32,
-}
-impl Default for CRYPTCATATTRIBUTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CRYPTCATATTRIBUTE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -453,24 +413,6 @@ impl Default for CRYPTCATSTORE {
 impl windows_core::TypeKind for CRYPTCATSTORE {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(C)]
-#[cfg(feature = "Win32_Security_Cryptography_Sip")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MS_ADDINFO_CATALOGMEMBER {
-    pub cbStruct: u32,
-    pub pStore: *mut CRYPTCATSTORE,
-    pub pMember: *mut CRYPTCATMEMBER,
-}
-#[cfg(feature = "Win32_Security_Cryptography_Sip")]
-impl Default for MS_ADDINFO_CATALOGMEMBER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography_Sip")]
-impl windows_core::TypeKind for MS_ADDINFO_CATALOGMEMBER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CRYPTCAT_ADDCATALOG_HARDLINK: u32 = 1u32;
 pub const CRYPTCAT_ADDCATALOG_NONE: u32 = 0u32;
 pub const CRYPTCAT_ATTR_AUTHENTICATED: CRYPTCATATTRIBUTE_FLAGS = CRYPTCATATTRIBUTE_FLAGS(268435456u32);
@@ -500,13 +442,71 @@ pub const CRYPTCAT_OPEN_ALWAYS: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(2u32);
 pub const CRYPTCAT_OPEN_CREATENEW: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(1u32);
 pub const CRYPTCAT_OPEN_EXCLUDE_PAGE_HASHES: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(65536u32);
 pub const CRYPTCAT_OPEN_EXISTING: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(4u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CRYPTCAT_OPEN_FLAGS(pub u32);
+impl CRYPTCAT_OPEN_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for CRYPTCAT_OPEN_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for CRYPTCAT_OPEN_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for CRYPTCAT_OPEN_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for CRYPTCAT_OPEN_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for CRYPTCAT_OPEN_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const CRYPTCAT_OPEN_FLAGS_MASK: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(4294901760u32);
 pub const CRYPTCAT_OPEN_INCLUDE_PAGE_HASHES: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(131072u32);
 pub const CRYPTCAT_OPEN_NO_CONTENT_HCRYPTMSG: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(536870912u32);
 pub const CRYPTCAT_OPEN_SORTED: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(1073741824u32);
 pub const CRYPTCAT_OPEN_VERIFYSIGHASH: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(268435456u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CRYPTCAT_VERSION(pub u32);
 pub const CRYPTCAT_VERSION_1: CRYPTCAT_VERSION = CRYPTCAT_VERSION(256u32);
 pub const CRYPTCAT_VERSION_2: CRYPTCAT_VERSION = CRYPTCAT_VERSION(512u32);
+#[repr(C)]
+#[cfg(feature = "Win32_Security_Cryptography_Sip")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MS_ADDINFO_CATALOGMEMBER {
+    pub cbStruct: u32,
+    pub pStore: *mut CRYPTCATSTORE,
+    pub pMember: *mut CRYPTCATMEMBER,
+}
+#[cfg(feature = "Win32_Security_Cryptography_Sip")]
+impl Default for MS_ADDINFO_CATALOGMEMBER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security_Cryptography_Sip")]
+impl windows_core::TypeKind for MS_ADDINFO_CATALOGMEMBER {
+    type TypeKind = windows_core::CopyType;
+}
+pub type PFN_CDF_PARSE_ERROR_CALLBACK = Option<unsafe extern "system" fn(dwerrorarea: u32, dwlocalerror: u32, pwszline: windows_core::PCWSTR)>;
 pub const szOID_CATALOG_LIST: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.12.1.1");
 pub const szOID_CATALOG_LIST_MEMBER: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.12.1.2");
 pub const szOID_CATALOG_LIST_MEMBER2: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.12.1.3");

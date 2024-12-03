@@ -18,6 +18,17 @@ pub unsafe fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, notificationtype: u3
     windows_targets::link!("rpcproxy.dll" "system" fn HttpFilterProc(pfc : *mut HTTP_FILTER_CONTEXT, notificationtype : u32, pvnotification : *mut core::ffi::c_void) -> u32);
     HttpFilterProc(core::mem::transmute(pfc), core::mem::transmute(notificationtype), core::mem::transmute(pvnotification))
 }
+pub const ADMINDATA_MAX_NAME_LEN: u32 = 256u32;
+pub const ALL_METADATA: METADATATYPES = METADATATYPES(0i32);
+pub const APPCTR_MD_ID_BEGIN_RESERVED: u32 = 57344u32;
+pub const APPCTR_MD_ID_END_RESERVED: u32 = 61439u32;
+pub const APPSTATUS_NOTDEFINED: u32 = 2u32;
+pub const APPSTATUS_RUNNING: u32 = 1u32;
+pub const APPSTATUS_STOPPED: u32 = 0u32;
+pub const ASP_MD_ID_BEGIN_RESERVED: u32 = 28672u32;
+pub const ASP_MD_ID_END_RESERVED: u32 = 29951u32;
+pub const ASP_MD_SERVER_BASE: u32 = 7000u32;
+pub const ASP_MD_UT_APP: u32 = 101u32;
 windows_core::imp::define_interface!(AsyncIFtpAuthenticationProvider, AsyncIFtpAuthenticationProvider_Vtbl, 0xc24efb65_9f3e_4996_8fb1_ce166916bab5);
 windows_core::imp::interface_hierarchy!(AsyncIFtpAuthenticationProvider, windows_core::IUnknown);
 impl AsyncIFtpAuthenticationProvider {
@@ -424,6 +435,728 @@ impl AsyncIMSAdminBaseSinkW_Vtbl {
     }
 }
 impl windows_core::RuntimeName for AsyncIMSAdminBaseSinkW {}
+pub const BINARY_METADATA: METADATATYPES = METADATATYPES(3i32);
+#[repr(C)]
+#[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CERT_CONTEXT_EX {
+    pub CertContext: super::super::Security::Cryptography::CERT_CONTEXT,
+    pub cbAllocated: u32,
+    pub dwCertificateFlags: u32,
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl Default for CERT_CONTEXT_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl windows_core::TypeKind for CERT_CONTEXT_EX {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CLSID_IImgCtx: windows_core::GUID = windows_core::GUID::from_u128(0x3050f3d6_98b5_11cf_bb82_00aa00bdce0b);
+pub const CLSID_IisServiceControl: windows_core::GUID = windows_core::GUID::from_u128(0xe8fb8621_588f_11d2_9d61_00c04f79c5fe);
+pub const CLSID_MSAdminBase_W: windows_core::GUID = windows_core::GUID::from_u128(0xa9e69610_b80d_11d0_b9b9_00a0c922e750);
+pub const CLSID_Request: windows_core::GUID = windows_core::GUID::from_u128(0x920c25d0_25d9_11d0_a55f_00a0c90c2091);
+pub const CLSID_Response: windows_core::GUID = windows_core::GUID::from_u128(0x46e19ba0_25dd_11d0_a55f_00a0c90c2091);
+pub const CLSID_ScriptingContext: windows_core::GUID = windows_core::GUID::from_u128(0xd97a6da0_a868_11cf_83ae_11b0c90c2bd8);
+pub const CLSID_Server: windows_core::GUID = windows_core::GUID::from_u128(0xa506d160_25e0_11d0_a55f_00a0c90c2091);
+pub const CLSID_Session: windows_core::GUID = windows_core::GUID::from_u128(0x509f8f20_25de_11d0_a55f_00a0c90c2091);
+pub const CLSID_WamAdmin: windows_core::GUID = windows_core::GUID::from_u128(0x61738644_f196_11d0_9953_00c04fd919c1);
+#[repr(C)]
+#[derive(Clone, Debug, PartialEq)]
+pub struct CONFIGURATION_ENTRY {
+    pub bstrKey: core::mem::ManuallyDrop<windows_core::BSTR>,
+    pub bstrValue: core::mem::ManuallyDrop<windows_core::BSTR>,
+}
+impl Default for CONFIGURATION_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CONFIGURATION_ENTRY {
+    type TypeKind = windows_core::CloneType;
+}
+pub const DISPID_HTTPREQUEST_ABORT: u32 = 12u32;
+pub const DISPID_HTTPREQUEST_BASE: u32 = 1u32;
+pub const DISPID_HTTPREQUEST_GETALLRESPONSEHEADERS: u32 = 4u32;
+pub const DISPID_HTTPREQUEST_GETRESPONSEHEADER: u32 = 3u32;
+pub const DISPID_HTTPREQUEST_OPEN: u32 = 1u32;
+pub const DISPID_HTTPREQUEST_OPTION: u32 = 6u32;
+pub const DISPID_HTTPREQUEST_RESPONSEBODY: u32 = 10u32;
+pub const DISPID_HTTPREQUEST_RESPONSESTREAM: u32 = 11u32;
+pub const DISPID_HTTPREQUEST_RESPONSETEXT: u32 = 9u32;
+pub const DISPID_HTTPREQUEST_SEND: u32 = 5u32;
+pub const DISPID_HTTPREQUEST_SETAUTOLOGONPOLICY: u32 = 18u32;
+pub const DISPID_HTTPREQUEST_SETCLIENTCERTIFICATE: u32 = 17u32;
+pub const DISPID_HTTPREQUEST_SETCREDENTIALS: u32 = 14u32;
+pub const DISPID_HTTPREQUEST_SETPROXY: u32 = 13u32;
+pub const DISPID_HTTPREQUEST_SETREQUESTHEADER: u32 = 2u32;
+pub const DISPID_HTTPREQUEST_SETTIMEOUTS: u32 = 16u32;
+pub const DISPID_HTTPREQUEST_STATUS: u32 = 7u32;
+pub const DISPID_HTTPREQUEST_STATUSTEXT: u32 = 8u32;
+pub const DISPID_HTTPREQUEST_WAITFORRESPONSE: u32 = 15u32;
+pub const DWN_COLORMODE: u32 = 63u32;
+pub const DWN_DOWNLOADONLY: u32 = 64u32;
+pub const DWN_FORCEDITHER: u32 = 128u32;
+pub const DWN_MIRRORIMAGE: u32 = 512u32;
+pub const DWN_RAWIMAGE: u32 = 256u32;
+pub const DWORD_METADATA: METADATATYPES = METADATATYPES(1i32);
+pub const EXPANDSZ_METADATA: METADATATYPES = METADATATYPES(4i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EXTENSION_CONTROL_BLOCK {
+    pub cbSize: u32,
+    pub dwVersion: u32,
+    pub ConnID: HCONN,
+    pub dwHttpStatusCode: u32,
+    pub lpszLogData: [i8; 80],
+    pub lpszMethod: windows_core::PSTR,
+    pub lpszQueryString: windows_core::PSTR,
+    pub lpszPathInfo: windows_core::PSTR,
+    pub lpszPathTranslated: windows_core::PSTR,
+    pub cbTotalBytes: u32,
+    pub cbAvailable: u32,
+    pub lpbData: *mut u8,
+    pub lpszContentType: windows_core::PSTR,
+    pub GetServerVariable: PFN_IIS_GETSERVERVARIABLE,
+    pub WriteClient: PFN_IIS_WRITECLIENT,
+    pub ReadClient: PFN_IIS_READCLIENT,
+    pub ServerSupportFunction: PFN_IIS_SERVERSUPPORTFUNCTION,
+}
+impl Default for EXTENSION_CONTROL_BLOCK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for EXTENSION_CONTROL_BLOCK {
+    type TypeKind = windows_core::CopyType;
+}
+pub const FP_MD_ID_BEGIN_RESERVED: u32 = 32768u32;
+pub const FP_MD_ID_END_RESERVED: u32 = 36863u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FTP_ACCESS(pub i32);
+pub const FTP_ACCESS_NONE: FTP_ACCESS = FTP_ACCESS(0i32);
+pub const FTP_ACCESS_READ: FTP_ACCESS = FTP_ACCESS(1i32);
+pub const FTP_ACCESS_READ_WRITE: FTP_ACCESS = FTP_ACCESS(3i32);
+pub const FTP_ACCESS_WRITE: FTP_ACCESS = FTP_ACCESS(2i32);
+pub const FTP_PROCESS_CLOSE_SESSION: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(1i32);
+pub const FTP_PROCESS_CONTINUE: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(0i32);
+pub const FTP_PROCESS_REJECT_COMMAND: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FTP_PROCESS_STATUS(pub i32);
+pub const FTP_PROCESS_TERMINATE_SESSION: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(2i32);
+pub const FtpProvider: windows_core::GUID = windows_core::GUID::from_u128(0x70bdc667_33b2_45f0_ac52_c3ca46f7a656);
+pub const GUID_IIS_ALL_TRACE_PROVIDERS: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+pub const GUID_IIS_ASPNET_TRACE_PROVIDER: windows_core::GUID = windows_core::GUID::from_u128(0xaff081fe_0247_4275_9c4e_021f3dc1da35);
+pub const GUID_IIS_ASP_TRACE_TRACE_PROVIDER: windows_core::GUID = windows_core::GUID::from_u128(0x06b94d9a_b15e_456e_a4ef_37c984a2cb4b);
+pub const GUID_IIS_ISAPI_TRACE_PROVIDER: windows_core::GUID = windows_core::GUID::from_u128(0xa1c2040e_8840_4c31_ba11_9871031a19ea);
+pub const GUID_IIS_WWW_GLOBAL_TRACE_PROVIDER: windows_core::GUID = windows_core::GUID::from_u128(0xd55d3bc9_cba9_44df_827e_132d3a4596c2);
+pub const GUID_IIS_WWW_SERVER_TRACE_PROVIDER: windows_core::GUID = windows_core::GUID::from_u128(0x3a2a4e84_4c21_4981_ae10_3fda0d9b0f83);
+pub const GUID_IIS_WWW_SERVER_V2_TRACE_PROVIDER: windows_core::GUID = windows_core::GUID::from_u128(0xde4649c9_15e8_4fea_9d85_1cdda520c334);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HCONN(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HCONN {
+    type TypeKind = windows_core::CopyType;
+}
+impl HCONN {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for HCONN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const HSE_APPEND_LOG_PARAMETER: u32 = 1003u32;
+pub const HSE_APP_FLAG_IN_PROCESS: u32 = 0u32;
+pub const HSE_APP_FLAG_ISOLATED_OOP: u32 = 1u32;
+pub const HSE_APP_FLAG_POOLED_OOP: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HSE_CUSTOM_ERROR_INFO {
+    pub pszStatus: windows_core::PSTR,
+    pub uHttpSubError: u16,
+    pub fAsync: super::super::Foundation::BOOL,
+}
+impl Default for HSE_CUSTOM_ERROR_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HSE_CUSTOM_ERROR_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HSE_EXEC_UNICODE_URL_INFO {
+    pub pszUrl: windows_core::PWSTR,
+    pub pszMethod: windows_core::PSTR,
+    pub pszChildHeaders: windows_core::PSTR,
+    pub pUserInfo: *mut HSE_EXEC_UNICODE_URL_USER_INFO,
+    pub pEntity: *mut HSE_EXEC_URL_ENTITY_INFO,
+    pub dwExecUrlFlags: u32,
+}
+impl Default for HSE_EXEC_UNICODE_URL_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HSE_EXEC_UNICODE_URL_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HSE_EXEC_UNICODE_URL_USER_INFO {
+    pub hImpersonationToken: super::super::Foundation::HANDLE,
+    pub pszCustomUserName: windows_core::PWSTR,
+    pub pszCustomAuthType: windows_core::PSTR,
+}
+impl Default for HSE_EXEC_UNICODE_URL_USER_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HSE_EXEC_UNICODE_URL_USER_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const HSE_EXEC_URL_DISABLE_CUSTOM_ERROR: u32 = 32u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HSE_EXEC_URL_ENTITY_INFO {
+    pub cbAvailable: u32,
+    pub lpbData: *mut core::ffi::c_void,
+}
+impl Default for HSE_EXEC_URL_ENTITY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HSE_EXEC_URL_ENTITY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const HSE_EXEC_URL_HTTP_CACHE_ELIGIBLE: u32 = 128u32;
+pub const HSE_EXEC_URL_IGNORE_CURRENT_INTERCEPTOR: u32 = 4u32;
+pub const HSE_EXEC_URL_IGNORE_VALIDATION_AND_RANGE: u32 = 16u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HSE_EXEC_URL_INFO {
+    pub pszUrl: windows_core::PSTR,
+    pub pszMethod: windows_core::PSTR,
+    pub pszChildHeaders: windows_core::PSTR,
+    pub pUserInfo: *mut HSE_EXEC_URL_USER_INFO,
+    pub pEntity: *mut HSE_EXEC_URL_ENTITY_INFO,
+    pub dwExecUrlFlags: u32,
+}
+impl Default for HSE_EXEC_URL_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HSE_EXEC_URL_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const HSE_EXEC_URL_NO_HEADERS: u32 = 2u32;
+pub const HSE_EXEC_URL_SSI_CMD: u32 = 64u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HSE_EXEC_URL_STATUS {
+    pub uHttpStatusCode: u16,
+    pub uHttpSubStatus: u16,
+    pub dwWin32Error: u32,
+}
+impl Default for HSE_EXEC_URL_STATUS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HSE_EXEC_URL_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HSE_EXEC_URL_USER_INFO {
+    pub hImpersonationToken: super::super::Foundation::HANDLE,
+    pub pszCustomUserName: windows_core::PSTR,
+    pub pszCustomAuthType: windows_core::PSTR,
+}
+impl Default for HSE_EXEC_URL_USER_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HSE_EXEC_URL_USER_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const HSE_IO_ASYNC: u32 = 2u32;
+pub const HSE_IO_CACHE_RESPONSE: u32 = 32u32;
+pub const HSE_IO_DISCONNECT_AFTER_SEND: u32 = 4u32;
+pub const HSE_IO_FINAL_SEND: u32 = 16u32;
+pub const HSE_IO_NODELAY: u32 = 4096u32;
+pub const HSE_IO_SEND_HEADERS: u32 = 8u32;
+pub const HSE_IO_SYNC: u32 = 1u32;
+pub const HSE_IO_TRY_SKIP_CUSTOM_ERRORS: u32 = 64u32;
+pub const HSE_LOG_BUFFER_LEN: u32 = 80u32;
+pub const HSE_MAX_EXT_DLL_NAME_LEN: u32 = 256u32;
+pub const HSE_REQ_ABORTIVE_CLOSE: u32 = 1014u32;
+pub const HSE_REQ_ASYNC_READ_CLIENT: u32 = 1010u32;
+pub const HSE_REQ_BASE: u32 = 0u32;
+pub const HSE_REQ_CANCEL_IO: u32 = 1049u32;
+pub const HSE_REQ_CLOSE_CONNECTION: u32 = 1017u32;
+pub const HSE_REQ_DONE_WITH_SESSION: u32 = 4u32;
+pub const HSE_REQ_END_RESERVED: u32 = 1000u32;
+pub const HSE_REQ_EXEC_UNICODE_URL: u32 = 1025u32;
+pub const HSE_REQ_EXEC_URL: u32 = 1026u32;
+pub const HSE_REQ_GET_ANONYMOUS_TOKEN: u32 = 1038u32;
+pub const HSE_REQ_GET_CACHE_INVALIDATION_CALLBACK: u32 = 1040u32;
+pub const HSE_REQ_GET_CERT_INFO_EX: u32 = 1015u32;
+pub const HSE_REQ_GET_CHANNEL_BINDING_TOKEN: u32 = 1050u32;
+pub const HSE_REQ_GET_CONFIG_OBJECT: u32 = 1046u32;
+pub const HSE_REQ_GET_EXEC_URL_STATUS: u32 = 1027u32;
+pub const HSE_REQ_GET_IMPERSONATION_TOKEN: u32 = 1011u32;
+pub const HSE_REQ_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK: u32 = 1048u32;
+pub const HSE_REQ_GET_SSPI_INFO: u32 = 1002u32;
+pub const HSE_REQ_GET_TRACE_INFO: u32 = 1042u32;
+pub const HSE_REQ_GET_TRACE_INFO_EX: u32 = 1044u32;
+pub const HSE_REQ_GET_UNICODE_ANONYMOUS_TOKEN: u32 = 1041u32;
+pub const HSE_REQ_GET_WORKER_PROCESS_SETTINGS: u32 = 1047u32;
+pub const HSE_REQ_IO_COMPLETION: u32 = 1005u32;
+pub const HSE_REQ_IS_CONNECTED: u32 = 1018u32;
+pub const HSE_REQ_IS_IN_PROCESS: u32 = 1030u32;
+pub const HSE_REQ_IS_KEEP_CONN: u32 = 1008u32;
+pub const HSE_REQ_MAP_UNICODE_URL_TO_PATH: u32 = 1023u32;
+pub const HSE_REQ_MAP_UNICODE_URL_TO_PATH_EX: u32 = 1024u32;
+pub const HSE_REQ_MAP_URL_TO_PATH: u32 = 1001u32;
+pub const HSE_REQ_MAP_URL_TO_PATH_EX: u32 = 1012u32;
+pub const HSE_REQ_NORMALIZE_URL: u32 = 1033u32;
+pub const HSE_REQ_RAISE_TRACE_EVENT: u32 = 1045u32;
+pub const HSE_REQ_REFRESH_ISAPI_ACL: u32 = 1007u32;
+pub const HSE_REQ_REPORT_UNHEALTHY: u32 = 1032u32;
+pub const HSE_REQ_SEND_CUSTOM_ERROR: u32 = 1028u32;
+pub const HSE_REQ_SEND_RESPONSE_HEADER: u32 = 3u32;
+pub const HSE_REQ_SEND_RESPONSE_HEADER_EX: u32 = 1016u32;
+pub const HSE_REQ_SEND_URL: u32 = 2u32;
+pub const HSE_REQ_SEND_URL_REDIRECT_RESP: u32 = 1u32;
+pub const HSE_REQ_SET_FLUSH_FLAG: u32 = 1043u32;
+pub const HSE_REQ_TRANSMIT_FILE: u32 = 1006u32;
+pub const HSE_REQ_VECTOR_SEND: u32 = 1037u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HSE_RESPONSE_VECTOR {
+    pub dwFlags: u32,
+    pub pszStatus: windows_core::PSTR,
+    pub pszHeaders: windows_core::PSTR,
+    pub nElementCount: u32,
+    pub lpElementArray: *mut HSE_VECTOR_ELEMENT,
+}
+impl Default for HSE_RESPONSE_VECTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HSE_RESPONSE_VECTOR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HSE_SEND_HEADER_EX_INFO {
+    pub pszStatus: windows_core::PCSTR,
+    pub pszHeader: windows_core::PCSTR,
+    pub cchStatus: u32,
+    pub cchHeader: u32,
+    pub fKeepConn: super::super::Foundation::BOOL,
+}
+impl Default for HSE_SEND_HEADER_EX_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HSE_SEND_HEADER_EX_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const HSE_STATUS_ERROR: u32 = 4u32;
+pub const HSE_STATUS_PENDING: u32 = 3u32;
+pub const HSE_STATUS_SUCCESS: u32 = 1u32;
+pub const HSE_STATUS_SUCCESS_AND_KEEP_CONN: u32 = 2u32;
+pub const HSE_TERM_ADVISORY_UNLOAD: u32 = 1u32;
+pub const HSE_TERM_MUST_UNLOAD: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HSE_TF_INFO {
+    pub pfnHseIO: PFN_HSE_IO_COMPLETION,
+    pub pContext: *mut core::ffi::c_void,
+    pub hFile: super::super::Foundation::HANDLE,
+    pub pszStatusCode: windows_core::PCSTR,
+    pub BytesToWrite: u32,
+    pub Offset: u32,
+    pub pHead: *mut core::ffi::c_void,
+    pub HeadLength: u32,
+    pub pTail: *mut core::ffi::c_void,
+    pub TailLength: u32,
+    pub dwFlags: u32,
+}
+impl Default for HSE_TF_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HSE_TF_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HSE_TRACE_INFO {
+    pub fTraceRequest: super::super::Foundation::BOOL,
+    pub TraceContextId: [u8; 16],
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+}
+impl Default for HSE_TRACE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HSE_TRACE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HSE_UNICODE_URL_MAPEX_INFO {
+    pub lpszPath: [u16; 260],
+    pub dwFlags: u32,
+    pub cchMatchingPath: u32,
+    pub cchMatchingURL: u32,
+}
+impl Default for HSE_UNICODE_URL_MAPEX_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HSE_UNICODE_URL_MAPEX_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const HSE_URL_FLAGS_DONT_CACHE: u32 = 16u32;
+pub const HSE_URL_FLAGS_EXECUTE: u32 = 4u32;
+pub const HSE_URL_FLAGS_MAP_CERT: u32 = 128u32;
+pub const HSE_URL_FLAGS_MASK: u32 = 1023u32;
+pub const HSE_URL_FLAGS_NEGO_CERT: u32 = 32u32;
+pub const HSE_URL_FLAGS_READ: u32 = 1u32;
+pub const HSE_URL_FLAGS_REQUIRE_CERT: u32 = 64u32;
+pub const HSE_URL_FLAGS_SCRIPT: u32 = 512u32;
+pub const HSE_URL_FLAGS_SSL: u32 = 8u32;
+pub const HSE_URL_FLAGS_SSL128: u32 = 256u32;
+pub const HSE_URL_FLAGS_WRITE: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HSE_URL_MAPEX_INFO {
+    pub lpszPath: [i8; 260],
+    pub dwFlags: u32,
+    pub cchMatchingPath: u32,
+    pub cchMatchingURL: u32,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+}
+impl Default for HSE_URL_MAPEX_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HSE_URL_MAPEX_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HSE_VECTOR_ELEMENT {
+    pub ElementType: u32,
+    pub pvContext: *mut core::ffi::c_void,
+    pub cbOffset: u64,
+    pub cbSize: u64,
+}
+impl Default for HSE_VECTOR_ELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HSE_VECTOR_ELEMENT {
+    type TypeKind = windows_core::CopyType;
+}
+pub const HSE_VECTOR_ELEMENT_TYPE_FILE_HANDLE: u32 = 1u32;
+pub const HSE_VECTOR_ELEMENT_TYPE_MEMORY_BUFFER: u32 = 0u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HSE_VERSION_INFO {
+    pub dwExtensionVersion: u32,
+    pub lpszExtensionDesc: [i8; 256],
+}
+impl Default for HSE_VERSION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HSE_VERSION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const HSE_VERSION_MAJOR: u32 = 8u32;
+pub const HSE_VERSION_MINOR: u32 = 0u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HTTP_FILTER_ACCESS_DENIED {
+    pub pszURL: windows_core::PCSTR,
+    pub pszPhysicalPath: windows_core::PCSTR,
+    pub dwReason: u32,
+}
+impl Default for HTTP_FILTER_ACCESS_DENIED {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HTTP_FILTER_ACCESS_DENIED {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HTTP_FILTER_AUTHENT {
+    pub pszUser: windows_core::PSTR,
+    pub cbUserBuff: u32,
+    pub pszPassword: windows_core::PSTR,
+    pub cbPasswordBuff: u32,
+}
+impl Default for HTTP_FILTER_AUTHENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HTTP_FILTER_AUTHENT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HTTP_FILTER_AUTH_COMPLETE_INFO {
+    pub GetHeader: isize,
+    pub SetHeader: isize,
+    pub AddHeader: isize,
+    pub GetUserToken: isize,
+    pub HttpStatus: u32,
+    pub fResetAuth: super::super::Foundation::BOOL,
+    pub dwReserved: u32,
+}
+impl Default for HTTP_FILTER_AUTH_COMPLETE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HTTP_FILTER_AUTH_COMPLETE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HTTP_FILTER_CONTEXT {
+    pub cbSize: u32,
+    pub Revision: u32,
+    pub ServerContext: *mut core::ffi::c_void,
+    pub ulReserved: u32,
+    pub fIsSecurePort: super::super::Foundation::BOOL,
+    pub pFilterContext: *mut core::ffi::c_void,
+    pub GetServerVariable: isize,
+    pub AddResponseHeaders: isize,
+    pub WriteClient: isize,
+    pub AllocMem: isize,
+    pub ServerSupportFunction: isize,
+}
+impl Default for HTTP_FILTER_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HTTP_FILTER_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HTTP_FILTER_LOG {
+    pub pszClientHostName: windows_core::PCSTR,
+    pub pszClientUserName: windows_core::PCSTR,
+    pub pszServerName: windows_core::PCSTR,
+    pub pszOperation: windows_core::PCSTR,
+    pub pszTarget: windows_core::PCSTR,
+    pub pszParameters: windows_core::PCSTR,
+    pub dwHttpStatus: u32,
+    pub dwWin32Status: u32,
+    pub dwBytesSent: u32,
+    pub dwBytesRecvd: u32,
+    pub msTimeForProcessing: u32,
+}
+impl Default for HTTP_FILTER_LOG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HTTP_FILTER_LOG {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HTTP_FILTER_PREPROC_HEADERS {
+    pub GetHeader: isize,
+    pub SetHeader: isize,
+    pub AddHeader: isize,
+    pub HttpStatus: u32,
+    pub dwReserved: u32,
+}
+impl Default for HTTP_FILTER_PREPROC_HEADERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HTTP_FILTER_PREPROC_HEADERS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HTTP_FILTER_RAW_DATA {
+    pub pvInData: *mut core::ffi::c_void,
+    pub cbInData: u32,
+    pub cbInBuffer: u32,
+    pub dwReserved: u32,
+}
+impl Default for HTTP_FILTER_RAW_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HTTP_FILTER_RAW_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HTTP_FILTER_URL_MAP {
+    pub pszURL: windows_core::PCSTR,
+    pub pszPhysicalPath: windows_core::PSTR,
+    pub cbPathBuff: u32,
+}
+impl Default for HTTP_FILTER_URL_MAP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HTTP_FILTER_URL_MAP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HTTP_FILTER_URL_MAP_EX {
+    pub pszURL: windows_core::PCSTR,
+    pub pszPhysicalPath: windows_core::PSTR,
+    pub cbPathBuff: u32,
+    pub dwFlags: u32,
+    pub cchMatchingPath: u32,
+    pub cchMatchingURL: u32,
+    pub pszScriptMapEntry: windows_core::PCSTR,
+}
+impl Default for HTTP_FILTER_URL_MAP_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HTTP_FILTER_URL_MAP_EX {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HTTP_FILTER_VERSION {
+    pub dwServerFilterVersion: u32,
+    pub dwFilterVersion: u32,
+    pub lpszFilterDesc: [i8; 257],
+    pub dwFlags: u32,
+}
+impl Default for HTTP_FILTER_VERSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HTTP_FILTER_VERSION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HTTP_TRACE_CONFIGURATION {
+    pub pProviderGuid: *const windows_core::GUID,
+    pub dwAreas: u32,
+    pub dwVerbosity: u32,
+    pub fProviderEnabled: super::super::Foundation::BOOL,
+}
+impl Default for HTTP_TRACE_CONFIGURATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HTTP_TRACE_CONFIGURATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HTTP_TRACE_EVENT {
+    pub pProviderGuid: *const windows_core::GUID,
+    pub dwArea: u32,
+    pub pAreaGuid: *const windows_core::GUID,
+    pub dwEvent: u32,
+    pub pszEventName: windows_core::PCWSTR,
+    pub dwEventVersion: u32,
+    pub dwVerbosity: u32,
+    pub pActivityGuid: *const windows_core::GUID,
+    pub pRelatedActivityGuid: *const windows_core::GUID,
+    pub dwTimeStamp: u32,
+    pub dwFlags: u32,
+    pub cEventItems: u32,
+    pub pEventItems: *mut HTTP_TRACE_EVENT_ITEM,
+}
+impl Default for HTTP_TRACE_EVENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HTTP_TRACE_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
+pub const HTTP_TRACE_EVENT_FLAG_STATIC_DESCRIPTIVE_FIELDS: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HTTP_TRACE_EVENT_ITEM {
+    pub pszName: windows_core::PCWSTR,
+    pub dwDataType: HTTP_TRACE_TYPE,
+    pub pbData: *mut u8,
+    pub cbData: u32,
+    pub pszDataDescription: windows_core::PCWSTR,
+}
+impl Default for HTTP_TRACE_EVENT_ITEM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HTTP_TRACE_EVENT_ITEM {
+    type TypeKind = windows_core::CopyType;
+}
+pub const HTTP_TRACE_LEVEL_END: u32 = 7u32;
+pub const HTTP_TRACE_LEVEL_START: u32 = 6u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HTTP_TRACE_TYPE(pub i32);
+pub const HTTP_TRACE_TYPE_BOOL: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(11i32);
+pub const HTTP_TRACE_TYPE_BYTE: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(17i32);
+pub const HTTP_TRACE_TYPE_CHAR: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(16i32);
+pub const HTTP_TRACE_TYPE_LONG: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(3i32);
+pub const HTTP_TRACE_TYPE_LONGLONG: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(20i32);
+pub const HTTP_TRACE_TYPE_LPCGUID: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(72i32);
+pub const HTTP_TRACE_TYPE_LPCSTR: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(30i32);
+pub const HTTP_TRACE_TYPE_LPCWSTR: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(31i32);
+pub const HTTP_TRACE_TYPE_SHORT: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(2i32);
+pub const HTTP_TRACE_TYPE_ULONG: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(19i32);
+pub const HTTP_TRACE_TYPE_ULONGLONG: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(21i32);
+pub const HTTP_TRACE_TYPE_USHORT: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(18i32);
 windows_core::imp::define_interface!(IADMEXT, IADMEXT_Vtbl, 0x51dfe970_f6f2_11d0_b9bd_00a0c922e750);
 windows_core::imp::interface_hierarchy!(IADMEXT, windows_core::IUnknown);
 impl IADMEXT {
@@ -764,6 +1497,99 @@ impl IFtpRoleProvider_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IFtpRoleProvider {}
+pub const IISADMIN_EXTENSIONS_CLSID_MD_KEY: windows_core::PCWSTR = windows_core::w!("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS");
+pub const IISADMIN_EXTENSIONS_CLSID_MD_KEYA: windows_core::PCSTR = windows_core::s!("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS");
+pub const IISADMIN_EXTENSIONS_CLSID_MD_KEYW: windows_core::PCWSTR = windows_core::w!("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS");
+pub const IISADMIN_EXTENSIONS_REG_KEY: windows_core::PCWSTR = windows_core::w!("SOFTWARE\\Microsoft\\InetStp\\Extensions");
+pub const IISADMIN_EXTENSIONS_REG_KEYA: windows_core::PCSTR = windows_core::s!("SOFTWARE\\Microsoft\\InetStp\\Extensions");
+pub const IISADMIN_EXTENSIONS_REG_KEYW: windows_core::PCWSTR = windows_core::w!("SOFTWARE\\Microsoft\\InetStp\\Extensions");
+pub const IIS_CLASS_CERTMAPPER: windows_core::PCSTR = windows_core::s!("IIsCertMapper");
+pub const IIS_CLASS_CERTMAPPER_W: windows_core::PCWSTR = windows_core::w!("IIsCertMapper");
+pub const IIS_CLASS_COMPRESS_SCHEME: windows_core::PCSTR = windows_core::s!("IIsCompressionScheme");
+pub const IIS_CLASS_COMPRESS_SCHEMES: windows_core::PCSTR = windows_core::s!("IIsCompressionSchemes");
+pub const IIS_CLASS_COMPRESS_SCHEMES_W: windows_core::PCWSTR = windows_core::w!("IIsCompressionSchemes");
+pub const IIS_CLASS_COMPRESS_SCHEME_W: windows_core::PCWSTR = windows_core::w!("IIsCompressionScheme");
+pub const IIS_CLASS_COMPUTER: windows_core::PCSTR = windows_core::s!("IIsComputer");
+pub const IIS_CLASS_COMPUTER_W: windows_core::PCWSTR = windows_core::w!("IIsComputer");
+pub const IIS_CLASS_FILTER: windows_core::PCSTR = windows_core::s!("IIsFilter");
+pub const IIS_CLASS_FILTERS: windows_core::PCSTR = windows_core::s!("IIsFilters");
+pub const IIS_CLASS_FILTERS_W: windows_core::PCWSTR = windows_core::w!("IIsFilters");
+pub const IIS_CLASS_FILTER_W: windows_core::PCWSTR = windows_core::w!("IIsFilter");
+pub const IIS_CLASS_FTP_INFO: windows_core::PCSTR = windows_core::s!("IIsFtpInfo");
+pub const IIS_CLASS_FTP_INFO_W: windows_core::PCWSTR = windows_core::w!("IIsFtpInfo");
+pub const IIS_CLASS_FTP_SERVER: windows_core::PCSTR = windows_core::s!("IIsFtpServer");
+pub const IIS_CLASS_FTP_SERVER_W: windows_core::PCWSTR = windows_core::w!("IIsFtpServer");
+pub const IIS_CLASS_FTP_SERVICE: windows_core::PCSTR = windows_core::s!("IIsFtpService");
+pub const IIS_CLASS_FTP_SERVICE_W: windows_core::PCWSTR = windows_core::w!("IIsFtpService");
+pub const IIS_CLASS_FTP_VDIR: windows_core::PCSTR = windows_core::s!("IIsFtpVirtualDir");
+pub const IIS_CLASS_FTP_VDIR_W: windows_core::PCWSTR = windows_core::w!("IIsFtpVirtualDir");
+pub const IIS_CLASS_LOG_MODULE: windows_core::PCSTR = windows_core::s!("IIsLogModule");
+pub const IIS_CLASS_LOG_MODULES: windows_core::PCSTR = windows_core::s!("IIsLogModules");
+pub const IIS_CLASS_LOG_MODULES_W: windows_core::PCWSTR = windows_core::w!("IIsLogModules");
+pub const IIS_CLASS_LOG_MODULE_W: windows_core::PCWSTR = windows_core::w!("IIsLogModule");
+pub const IIS_CLASS_MIMEMAP: windows_core::PCSTR = windows_core::s!("IIsMimeMap");
+pub const IIS_CLASS_MIMEMAP_W: windows_core::PCWSTR = windows_core::w!("IIsMimeMap");
+pub const IIS_CLASS_WEB_DIR: windows_core::PCSTR = windows_core::s!("IIsWebDirectory");
+pub const IIS_CLASS_WEB_DIR_W: windows_core::PCWSTR = windows_core::w!("IIsWebDirectory");
+pub const IIS_CLASS_WEB_FILE: windows_core::PCSTR = windows_core::s!("IIsWebFile");
+pub const IIS_CLASS_WEB_FILE_W: windows_core::PCWSTR = windows_core::w!("IIsWebFile");
+pub const IIS_CLASS_WEB_INFO: windows_core::PCSTR = windows_core::s!("IIsWebInfo");
+pub const IIS_CLASS_WEB_INFO_W: windows_core::PCWSTR = windows_core::w!("IIsWebInfo");
+pub const IIS_CLASS_WEB_SERVER: windows_core::PCSTR = windows_core::s!("IIsWebServer");
+pub const IIS_CLASS_WEB_SERVER_W: windows_core::PCWSTR = windows_core::w!("IIsWebServer");
+pub const IIS_CLASS_WEB_SERVICE: windows_core::PCSTR = windows_core::s!("IIsWebService");
+pub const IIS_CLASS_WEB_SERVICE_W: windows_core::PCWSTR = windows_core::w!("IIsWebService");
+pub const IIS_CLASS_WEB_VDIR: windows_core::PCSTR = windows_core::s!("IIsWebVirtualDir");
+pub const IIS_CLASS_WEB_VDIR_W: windows_core::PCWSTR = windows_core::w!("IIsWebVirtualDir");
+pub const IIS_MD_ADSI_METAID_BEGIN: u32 = 130000u32;
+pub const IIS_MD_ADSI_SCHEMA_PATH_A: windows_core::PCSTR = windows_core::s!("/Schema");
+pub const IIS_MD_ADSI_SCHEMA_PATH_W: windows_core::PCWSTR = windows_core::w!("/Schema");
+pub const IIS_MD_APPPOOL_BASE: u32 = 9000u32;
+pub const IIS_MD_APP_BASE: u32 = 9100u32;
+pub const IIS_MD_FILE_PROP_BASE: u32 = 6000u32;
+pub const IIS_MD_FTP_BASE: u32 = 5000u32;
+pub const IIS_MD_GLOBAL_BASE: u32 = 9200u32;
+pub const IIS_MD_HTTP_BASE: u32 = 2000u32;
+pub const IIS_MD_ID_BEGIN_RESERVED: u32 = 1u32;
+pub const IIS_MD_ID_END_RESERVED: u32 = 32767u32;
+pub const IIS_MD_INSTANCE_ROOT: windows_core::PCSTR = windows_core::s!("Root");
+pub const IIS_MD_ISAPI_FILTERS: windows_core::PCSTR = windows_core::s!("/Filters");
+pub const IIS_MD_LOCAL_MACHINE_PATH: windows_core::PCSTR = windows_core::s!("LM");
+pub const IIS_MD_LOGCUSTOM_BASE: u32 = 4500u32;
+pub const IIS_MD_LOGCUSTOM_LAST: u32 = 4508u32;
+pub const IIS_MD_LOG_BASE: u32 = 4000u32;
+pub const IIS_MD_LOG_LAST: u32 = 4015u32;
+pub const IIS_MD_SERVER_BASE: u32 = 1000u32;
+pub const IIS_MD_SSL_BASE: u32 = 5500u32;
+pub const IIS_MD_SVC_INFO_PATH: windows_core::PCSTR = windows_core::s!("Info");
+pub const IIS_MD_UT_END_RESERVED: u32 = 2000u32;
+pub const IIS_MD_UT_FILE: u32 = 2u32;
+pub const IIS_MD_UT_SERVER: u32 = 1u32;
+pub const IIS_MD_UT_WAM: u32 = 100u32;
+pub const IIS_MD_VR_BASE: u32 = 3000u32;
+pub const IIS_WEBSOCKET: windows_core::PCWSTR = windows_core::w!("websockets");
+pub const IIS_WEBSOCKET_SERVER_VARIABLE: windows_core::PCSTR = windows_core::s!("IIS_WEBSOCK");
+pub const IMAP_MD_ID_BEGIN_RESERVED: u32 = 49152u32;
+pub const IMAP_MD_ID_END_RESERVED: u32 = 53247u32;
+pub const IMGANIM_ANIMATED: u32 = 268435456u32;
+pub const IMGANIM_MASK: u32 = 268435456u32;
+pub const IMGBITS_MASK: u32 = 234881024u32;
+pub const IMGBITS_NONE: u32 = 33554432u32;
+pub const IMGBITS_PARTIAL: u32 = 67108864u32;
+pub const IMGBITS_TOTAL: u32 = 134217728u32;
+pub const IMGCHG_ANIMATE: u32 = 8u32;
+pub const IMGCHG_COMPLETE: u32 = 4u32;
+pub const IMGCHG_MASK: u32 = 15u32;
+pub const IMGCHG_SIZE: u32 = 1u32;
+pub const IMGCHG_VIEW: u32 = 2u32;
+pub const IMGLOAD_COMPLETE: u32 = 16777216u32;
+pub const IMGLOAD_ERROR: u32 = 8388608u32;
+pub const IMGLOAD_LOADING: u32 = 2097152u32;
+pub const IMGLOAD_MASK: u32 = 32505856u32;
+pub const IMGLOAD_NOTLOADED: u32 = 1048576u32;
+pub const IMGLOAD_STOPPED: u32 = 4194304u32;
+pub const IMGTRANS_MASK: u32 = 536870912u32;
+pub const IMGTRANS_OPAQUE: u32 = 536870912u32;
 windows_core::imp::define_interface!(IMSAdminBase2W, IMSAdminBase2W_Vtbl, 0x8298d101_f992_43b7_8eca_5052d885b995);
 impl core::ops::Deref for IMSAdminBase2W {
     type Target = IMSAdminBaseW;
@@ -1420,602 +2246,10 @@ impl IMSImpExpHelpW_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IMSImpExpHelpW {}
-pub type PFN_GETEXTENSIONVERSION = Option<unsafe extern "system" fn(pver: *mut HSE_VERSION_INFO) -> super::super::Foundation::BOOL>;
-pub type PFN_HSE_CACHE_INVALIDATION_CALLBACK = Option<unsafe extern "system" fn(pszurl: windows_core::PCWSTR) -> windows_core::HRESULT>;
-pub type PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK = Option<unsafe extern "system" fn(pszprotocolmanagerdll: windows_core::PCWSTR, pszprotocolmanagerdllinitfunction: windows_core::PCWSTR, dwcustominterfaceid: u32, ppcustominterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
-pub type PFN_HSE_IO_COMPLETION = Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK, pcontext: *mut core::ffi::c_void, cbio: u32, dwerror: u32)>;
-pub type PFN_HTTPEXTENSIONPROC = Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK) -> u32>;
-pub type PFN_IIS_GETSERVERVARIABLE = Option<unsafe extern "system" fn(param0: HCONN, param1: windows_core::PCSTR, param2: *mut core::ffi::c_void, param3: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_IIS_READCLIENT = Option<unsafe extern "system" fn(param0: HCONN, param1: *mut core::ffi::c_void, param2: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_IIS_SERVERSUPPORTFUNCTION = Option<unsafe extern "system" fn(param0: HCONN, param1: u32, param2: *mut core::ffi::c_void, param3: *mut u32, param4: *mut u32) -> super::super::Foundation::BOOL>;
-pub type PFN_IIS_WRITECLIENT = Option<unsafe extern "system" fn(param0: HCONN, param1: *mut core::ffi::c_void, param2: *mut u32, param3: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_TERMINATEEXTENSION = Option<unsafe extern "system" fn(dwflags: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_WEB_CORE_ACTIVATE = Option<unsafe extern "system" fn(pszapphostconfigfile: windows_core::PCWSTR, pszrootwebconfigfile: windows_core::PCWSTR, pszinstancename: windows_core::PCWSTR) -> windows_core::HRESULT>;
-pub type PFN_WEB_CORE_SET_METADATA_DLL_ENTRY = Option<unsafe extern "system" fn(pszmetadatatype: windows_core::PCWSTR, pszvalue: windows_core::PCWSTR) -> windows_core::HRESULT>;
-pub type PFN_WEB_CORE_SHUTDOWN = Option<unsafe extern "system" fn(fimmediate: u32) -> windows_core::HRESULT>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FTP_ACCESS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FTP_PROCESS_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HTTP_TRACE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct METADATATYPES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SF_PROPERTY_IIS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SF_REQ_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SF_STATUS_TYPE(pub i32);
-#[repr(C)]
-#[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CERT_CONTEXT_EX {
-    pub CertContext: super::super::Security::Cryptography::CERT_CONTEXT,
-    pub cbAllocated: u32,
-    pub dwCertificateFlags: u32,
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Default for CERT_CONTEXT_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for CERT_CONTEXT_EX {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
-pub struct CONFIGURATION_ENTRY {
-    pub bstrKey: core::mem::ManuallyDrop<windows_core::BSTR>,
-    pub bstrValue: core::mem::ManuallyDrop<windows_core::BSTR>,
-}
-impl Default for CONFIGURATION_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CONFIGURATION_ENTRY {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct EXTENSION_CONTROL_BLOCK {
-    pub cbSize: u32,
-    pub dwVersion: u32,
-    pub ConnID: HCONN,
-    pub dwHttpStatusCode: u32,
-    pub lpszLogData: [i8; 80],
-    pub lpszMethod: windows_core::PSTR,
-    pub lpszQueryString: windows_core::PSTR,
-    pub lpszPathInfo: windows_core::PSTR,
-    pub lpszPathTranslated: windows_core::PSTR,
-    pub cbTotalBytes: u32,
-    pub cbAvailable: u32,
-    pub lpbData: *mut u8,
-    pub lpszContentType: windows_core::PSTR,
-    pub GetServerVariable: PFN_IIS_GETSERVERVARIABLE,
-    pub WriteClient: PFN_IIS_WRITECLIENT,
-    pub ReadClient: PFN_IIS_READCLIENT,
-    pub ServerSupportFunction: PFN_IIS_SERVERSUPPORTFUNCTION,
-}
-impl Default for EXTENSION_CONTROL_BLOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for EXTENSION_CONTROL_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
-pub const FtpProvider: windows_core::GUID = windows_core::GUID::from_u128(0x70bdc667_33b2_45f0_ac52_c3ca46f7a656);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HCONN(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HCONN {
-    type TypeKind = windows_core::CopyType;
-}
-impl HCONN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for HCONN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HSE_CUSTOM_ERROR_INFO {
-    pub pszStatus: windows_core::PSTR,
-    pub uHttpSubError: u16,
-    pub fAsync: super::super::Foundation::BOOL,
-}
-impl Default for HSE_CUSTOM_ERROR_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HSE_CUSTOM_ERROR_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HSE_EXEC_UNICODE_URL_INFO {
-    pub pszUrl: windows_core::PWSTR,
-    pub pszMethod: windows_core::PSTR,
-    pub pszChildHeaders: windows_core::PSTR,
-    pub pUserInfo: *mut HSE_EXEC_UNICODE_URL_USER_INFO,
-    pub pEntity: *mut HSE_EXEC_URL_ENTITY_INFO,
-    pub dwExecUrlFlags: u32,
-}
-impl Default for HSE_EXEC_UNICODE_URL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HSE_EXEC_UNICODE_URL_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HSE_EXEC_UNICODE_URL_USER_INFO {
-    pub hImpersonationToken: super::super::Foundation::HANDLE,
-    pub pszCustomUserName: windows_core::PWSTR,
-    pub pszCustomAuthType: windows_core::PSTR,
-}
-impl Default for HSE_EXEC_UNICODE_URL_USER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HSE_EXEC_UNICODE_URL_USER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HSE_EXEC_URL_ENTITY_INFO {
-    pub cbAvailable: u32,
-    pub lpbData: *mut core::ffi::c_void,
-}
-impl Default for HSE_EXEC_URL_ENTITY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HSE_EXEC_URL_ENTITY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HSE_EXEC_URL_INFO {
-    pub pszUrl: windows_core::PSTR,
-    pub pszMethod: windows_core::PSTR,
-    pub pszChildHeaders: windows_core::PSTR,
-    pub pUserInfo: *mut HSE_EXEC_URL_USER_INFO,
-    pub pEntity: *mut HSE_EXEC_URL_ENTITY_INFO,
-    pub dwExecUrlFlags: u32,
-}
-impl Default for HSE_EXEC_URL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HSE_EXEC_URL_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HSE_EXEC_URL_STATUS {
-    pub uHttpStatusCode: u16,
-    pub uHttpSubStatus: u16,
-    pub dwWin32Error: u32,
-}
-impl Default for HSE_EXEC_URL_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HSE_EXEC_URL_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HSE_EXEC_URL_USER_INFO {
-    pub hImpersonationToken: super::super::Foundation::HANDLE,
-    pub pszCustomUserName: windows_core::PSTR,
-    pub pszCustomAuthType: windows_core::PSTR,
-}
-impl Default for HSE_EXEC_URL_USER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HSE_EXEC_URL_USER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HSE_RESPONSE_VECTOR {
-    pub dwFlags: u32,
-    pub pszStatus: windows_core::PSTR,
-    pub pszHeaders: windows_core::PSTR,
-    pub nElementCount: u32,
-    pub lpElementArray: *mut HSE_VECTOR_ELEMENT,
-}
-impl Default for HSE_RESPONSE_VECTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HSE_RESPONSE_VECTOR {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HSE_SEND_HEADER_EX_INFO {
-    pub pszStatus: windows_core::PCSTR,
-    pub pszHeader: windows_core::PCSTR,
-    pub cchStatus: u32,
-    pub cchHeader: u32,
-    pub fKeepConn: super::super::Foundation::BOOL,
-}
-impl Default for HSE_SEND_HEADER_EX_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HSE_SEND_HEADER_EX_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HSE_TF_INFO {
-    pub pfnHseIO: PFN_HSE_IO_COMPLETION,
-    pub pContext: *mut core::ffi::c_void,
-    pub hFile: super::super::Foundation::HANDLE,
-    pub pszStatusCode: windows_core::PCSTR,
-    pub BytesToWrite: u32,
-    pub Offset: u32,
-    pub pHead: *mut core::ffi::c_void,
-    pub HeadLength: u32,
-    pub pTail: *mut core::ffi::c_void,
-    pub TailLength: u32,
-    pub dwFlags: u32,
-}
-impl Default for HSE_TF_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HSE_TF_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HSE_TRACE_INFO {
-    pub fTraceRequest: super::super::Foundation::BOOL,
-    pub TraceContextId: [u8; 16],
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-}
-impl Default for HSE_TRACE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HSE_TRACE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HSE_UNICODE_URL_MAPEX_INFO {
-    pub lpszPath: [u16; 260],
-    pub dwFlags: u32,
-    pub cchMatchingPath: u32,
-    pub cchMatchingURL: u32,
-}
-impl Default for HSE_UNICODE_URL_MAPEX_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HSE_UNICODE_URL_MAPEX_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HSE_URL_MAPEX_INFO {
-    pub lpszPath: [i8; 260],
-    pub dwFlags: u32,
-    pub cchMatchingPath: u32,
-    pub cchMatchingURL: u32,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-}
-impl Default for HSE_URL_MAPEX_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HSE_URL_MAPEX_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HSE_VECTOR_ELEMENT {
-    pub ElementType: u32,
-    pub pvContext: *mut core::ffi::c_void,
-    pub cbOffset: u64,
-    pub cbSize: u64,
-}
-impl Default for HSE_VECTOR_ELEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HSE_VECTOR_ELEMENT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HSE_VERSION_INFO {
-    pub dwExtensionVersion: u32,
-    pub lpszExtensionDesc: [i8; 256],
-}
-impl Default for HSE_VERSION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HSE_VERSION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HTTP_FILTER_ACCESS_DENIED {
-    pub pszURL: windows_core::PCSTR,
-    pub pszPhysicalPath: windows_core::PCSTR,
-    pub dwReason: u32,
-}
-impl Default for HTTP_FILTER_ACCESS_DENIED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HTTP_FILTER_ACCESS_DENIED {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HTTP_FILTER_AUTHENT {
-    pub pszUser: windows_core::PSTR,
-    pub cbUserBuff: u32,
-    pub pszPassword: windows_core::PSTR,
-    pub cbPasswordBuff: u32,
-}
-impl Default for HTTP_FILTER_AUTHENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HTTP_FILTER_AUTHENT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HTTP_FILTER_AUTH_COMPLETE_INFO {
-    pub GetHeader: isize,
-    pub SetHeader: isize,
-    pub AddHeader: isize,
-    pub GetUserToken: isize,
-    pub HttpStatus: u32,
-    pub fResetAuth: super::super::Foundation::BOOL,
-    pub dwReserved: u32,
-}
-impl Default for HTTP_FILTER_AUTH_COMPLETE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HTTP_FILTER_AUTH_COMPLETE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HTTP_FILTER_CONTEXT {
-    pub cbSize: u32,
-    pub Revision: u32,
-    pub ServerContext: *mut core::ffi::c_void,
-    pub ulReserved: u32,
-    pub fIsSecurePort: super::super::Foundation::BOOL,
-    pub pFilterContext: *mut core::ffi::c_void,
-    pub GetServerVariable: isize,
-    pub AddResponseHeaders: isize,
-    pub WriteClient: isize,
-    pub AllocMem: isize,
-    pub ServerSupportFunction: isize,
-}
-impl Default for HTTP_FILTER_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HTTP_FILTER_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HTTP_FILTER_LOG {
-    pub pszClientHostName: windows_core::PCSTR,
-    pub pszClientUserName: windows_core::PCSTR,
-    pub pszServerName: windows_core::PCSTR,
-    pub pszOperation: windows_core::PCSTR,
-    pub pszTarget: windows_core::PCSTR,
-    pub pszParameters: windows_core::PCSTR,
-    pub dwHttpStatus: u32,
-    pub dwWin32Status: u32,
-    pub dwBytesSent: u32,
-    pub dwBytesRecvd: u32,
-    pub msTimeForProcessing: u32,
-}
-impl Default for HTTP_FILTER_LOG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HTTP_FILTER_LOG {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HTTP_FILTER_PREPROC_HEADERS {
-    pub GetHeader: isize,
-    pub SetHeader: isize,
-    pub AddHeader: isize,
-    pub HttpStatus: u32,
-    pub dwReserved: u32,
-}
-impl Default for HTTP_FILTER_PREPROC_HEADERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HTTP_FILTER_PREPROC_HEADERS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HTTP_FILTER_RAW_DATA {
-    pub pvInData: *mut core::ffi::c_void,
-    pub cbInData: u32,
-    pub cbInBuffer: u32,
-    pub dwReserved: u32,
-}
-impl Default for HTTP_FILTER_RAW_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HTTP_FILTER_RAW_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HTTP_FILTER_URL_MAP {
-    pub pszURL: windows_core::PCSTR,
-    pub pszPhysicalPath: windows_core::PSTR,
-    pub cbPathBuff: u32,
-}
-impl Default for HTTP_FILTER_URL_MAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HTTP_FILTER_URL_MAP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HTTP_FILTER_URL_MAP_EX {
-    pub pszURL: windows_core::PCSTR,
-    pub pszPhysicalPath: windows_core::PSTR,
-    pub cbPathBuff: u32,
-    pub dwFlags: u32,
-    pub cchMatchingPath: u32,
-    pub cchMatchingURL: u32,
-    pub pszScriptMapEntry: windows_core::PCSTR,
-}
-impl Default for HTTP_FILTER_URL_MAP_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HTTP_FILTER_URL_MAP_EX {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HTTP_FILTER_VERSION {
-    pub dwServerFilterVersion: u32,
-    pub dwFilterVersion: u32,
-    pub lpszFilterDesc: [i8; 257],
-    pub dwFlags: u32,
-}
-impl Default for HTTP_FILTER_VERSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HTTP_FILTER_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HTTP_TRACE_CONFIGURATION {
-    pub pProviderGuid: *const windows_core::GUID,
-    pub dwAreas: u32,
-    pub dwVerbosity: u32,
-    pub fProviderEnabled: super::super::Foundation::BOOL,
-}
-impl Default for HTTP_TRACE_CONFIGURATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HTTP_TRACE_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HTTP_TRACE_EVENT {
-    pub pProviderGuid: *const windows_core::GUID,
-    pub dwArea: u32,
-    pub pAreaGuid: *const windows_core::GUID,
-    pub dwEvent: u32,
-    pub pszEventName: windows_core::PCWSTR,
-    pub dwEventVersion: u32,
-    pub dwVerbosity: u32,
-    pub pActivityGuid: *const windows_core::GUID,
-    pub pRelatedActivityGuid: *const windows_core::GUID,
-    pub dwTimeStamp: u32,
-    pub dwFlags: u32,
-    pub cEventItems: u32,
-    pub pEventItems: *mut HTTP_TRACE_EVENT_ITEM,
-}
-impl Default for HTTP_TRACE_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HTTP_TRACE_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HTTP_TRACE_EVENT_ITEM {
-    pub pszName: windows_core::PCWSTR,
-    pub dwDataType: HTTP_TRACE_TYPE,
-    pub pbData: *mut u8,
-    pub cbData: u32,
-    pub pszDataDescription: windows_core::PCWSTR,
-}
-impl Default for HTTP_TRACE_EVENT_ITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HTTP_TRACE_EVENT_ITEM {
-    type TypeKind = windows_core::CopyType;
-}
+pub const INVALID_END_METADATA: METADATATYPES = METADATATYPES(6i32);
+pub const LIBID_ASPTypeLibrary: windows_core::GUID = windows_core::GUID::from_u128(0xd97a6da0_a85c_11cf_83ae_00a0c90c2bd8);
+pub const LIBID_IISRSTALib: windows_core::GUID = windows_core::GUID::from_u128(0xe8fb8614_588f_11d2_9d61_00c04f79c5fe);
+pub const LIBID_WAMREGLib: windows_core::GUID = windows_core::GUID::from_u128(0x29822aa8_f302_11d0_9953_00c04fd919c1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LOGGING_PARAMETERS {
@@ -2046,423 +2280,6 @@ impl Default for LOGGING_PARAMETERS {
 impl windows_core::TypeKind for LOGGING_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MD_CHANGE_OBJECT_W {
-    pub pszMDPath: windows_core::PWSTR,
-    pub dwMDChangeType: u32,
-    pub dwMDNumDataIDs: u32,
-    pub pdwMDDataIDs: *mut u32,
-}
-impl Default for MD_CHANGE_OBJECT_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MD_CHANGE_OBJECT_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct METADATA_GETALL_INTERNAL_RECORD {
-    pub dwMDIdentifier: u32,
-    pub dwMDAttributes: u32,
-    pub dwMDUserType: u32,
-    pub dwMDDataType: u32,
-    pub dwMDDataLen: u32,
-    pub Anonymous: METADATA_GETALL_INTERNAL_RECORD_0,
-    pub dwMDDataTag: u32,
-}
-impl Default for METADATA_GETALL_INTERNAL_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for METADATA_GETALL_INTERNAL_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union METADATA_GETALL_INTERNAL_RECORD_0 {
-    pub dwMDDataOffset: usize,
-    pub pbMDData: *mut u8,
-}
-impl Default for METADATA_GETALL_INTERNAL_RECORD_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for METADATA_GETALL_INTERNAL_RECORD_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct METADATA_GETALL_RECORD {
-    pub dwMDIdentifier: u32,
-    pub dwMDAttributes: u32,
-    pub dwMDUserType: u32,
-    pub dwMDDataType: u32,
-    pub dwMDDataLen: u32,
-    pub dwMDDataOffset: u32,
-    pub dwMDDataTag: u32,
-}
-impl Default for METADATA_GETALL_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for METADATA_GETALL_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct METADATA_HANDLE_INFO {
-    pub dwMDPermissions: u32,
-    pub dwMDSystemChangeNumber: u32,
-}
-impl Default for METADATA_HANDLE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for METADATA_HANDLE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct METADATA_RECORD {
-    pub dwMDIdentifier: u32,
-    pub dwMDAttributes: u32,
-    pub dwMDUserType: u32,
-    pub dwMDDataType: u32,
-    pub dwMDDataLen: u32,
-    pub pbMDData: *mut u8,
-    pub dwMDDataTag: u32,
-}
-impl Default for METADATA_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for METADATA_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct POST_PROCESS_PARAMETERS {
-    pub pszSessionId: windows_core::PCWSTR,
-    pub pszSiteName: windows_core::PCWSTR,
-    pub pszUserName: windows_core::PCWSTR,
-    pub pszHostName: windows_core::PCWSTR,
-    pub pszRemoteIpAddress: windows_core::PCWSTR,
-    pub dwRemoteIpPort: u32,
-    pub pszLocalIpAddress: windows_core::PCWSTR,
-    pub dwLocalIpPort: u32,
-    pub BytesSent: u64,
-    pub BytesReceived: u64,
-    pub pszCommand: windows_core::PCWSTR,
-    pub pszCommandParameters: windows_core::PCWSTR,
-    pub pszFullPath: windows_core::PCWSTR,
-    pub pszPhysicalPath: windows_core::PCWSTR,
-    pub FtpStatus: u32,
-    pub FtpSubStatus: u32,
-    pub hrStatus: windows_core::HRESULT,
-    pub SessionStartTime: super::super::Foundation::FILETIME,
-    pub BytesSentPerSession: u64,
-    pub BytesReceivedPerSession: u64,
-}
-impl Default for POST_PROCESS_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for POST_PROCESS_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PRE_PROCESS_PARAMETERS {
-    pub pszSessionId: windows_core::PCWSTR,
-    pub pszSiteName: windows_core::PCWSTR,
-    pub pszUserName: windows_core::PCWSTR,
-    pub pszHostName: windows_core::PCWSTR,
-    pub pszRemoteIpAddress: windows_core::PCWSTR,
-    pub dwRemoteIpPort: u32,
-    pub pszLocalIpAddress: windows_core::PCWSTR,
-    pub dwLocalIpPort: u32,
-    pub pszCommand: windows_core::PCWSTR,
-    pub pszCommandParameters: windows_core::PCWSTR,
-    pub SessionStartTime: super::super::Foundation::FILETIME,
-    pub BytesSentPerSession: u64,
-    pub BytesReceivedPerSession: u64,
-}
-impl Default for PRE_PROCESS_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PRE_PROCESS_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
-pub const ADMINDATA_MAX_NAME_LEN: u32 = 256u32;
-pub const ALL_METADATA: METADATATYPES = METADATATYPES(0i32);
-pub const APPCTR_MD_ID_BEGIN_RESERVED: u32 = 57344u32;
-pub const APPCTR_MD_ID_END_RESERVED: u32 = 61439u32;
-pub const APPSTATUS_NOTDEFINED: u32 = 2u32;
-pub const APPSTATUS_RUNNING: u32 = 1u32;
-pub const APPSTATUS_STOPPED: u32 = 0u32;
-pub const ASP_MD_ID_BEGIN_RESERVED: u32 = 28672u32;
-pub const ASP_MD_ID_END_RESERVED: u32 = 29951u32;
-pub const ASP_MD_SERVER_BASE: u32 = 7000u32;
-pub const ASP_MD_UT_APP: u32 = 101u32;
-pub const BINARY_METADATA: METADATATYPES = METADATATYPES(3i32);
-pub const CLSID_IImgCtx: windows_core::GUID = windows_core::GUID::from_u128(0x3050f3d6_98b5_11cf_bb82_00aa00bdce0b);
-pub const CLSID_IisServiceControl: windows_core::GUID = windows_core::GUID::from_u128(0xe8fb8621_588f_11d2_9d61_00c04f79c5fe);
-pub const CLSID_MSAdminBase_W: windows_core::GUID = windows_core::GUID::from_u128(0xa9e69610_b80d_11d0_b9b9_00a0c922e750);
-pub const CLSID_Request: windows_core::GUID = windows_core::GUID::from_u128(0x920c25d0_25d9_11d0_a55f_00a0c90c2091);
-pub const CLSID_Response: windows_core::GUID = windows_core::GUID::from_u128(0x46e19ba0_25dd_11d0_a55f_00a0c90c2091);
-pub const CLSID_ScriptingContext: windows_core::GUID = windows_core::GUID::from_u128(0xd97a6da0_a868_11cf_83ae_11b0c90c2bd8);
-pub const CLSID_Server: windows_core::GUID = windows_core::GUID::from_u128(0xa506d160_25e0_11d0_a55f_00a0c90c2091);
-pub const CLSID_Session: windows_core::GUID = windows_core::GUID::from_u128(0x509f8f20_25de_11d0_a55f_00a0c90c2091);
-pub const CLSID_WamAdmin: windows_core::GUID = windows_core::GUID::from_u128(0x61738644_f196_11d0_9953_00c04fd919c1);
-pub const DISPID_HTTPREQUEST_ABORT: u32 = 12u32;
-pub const DISPID_HTTPREQUEST_BASE: u32 = 1u32;
-pub const DISPID_HTTPREQUEST_GETALLRESPONSEHEADERS: u32 = 4u32;
-pub const DISPID_HTTPREQUEST_GETRESPONSEHEADER: u32 = 3u32;
-pub const DISPID_HTTPREQUEST_OPEN: u32 = 1u32;
-pub const DISPID_HTTPREQUEST_OPTION: u32 = 6u32;
-pub const DISPID_HTTPREQUEST_RESPONSEBODY: u32 = 10u32;
-pub const DISPID_HTTPREQUEST_RESPONSESTREAM: u32 = 11u32;
-pub const DISPID_HTTPREQUEST_RESPONSETEXT: u32 = 9u32;
-pub const DISPID_HTTPREQUEST_SEND: u32 = 5u32;
-pub const DISPID_HTTPREQUEST_SETAUTOLOGONPOLICY: u32 = 18u32;
-pub const DISPID_HTTPREQUEST_SETCLIENTCERTIFICATE: u32 = 17u32;
-pub const DISPID_HTTPREQUEST_SETCREDENTIALS: u32 = 14u32;
-pub const DISPID_HTTPREQUEST_SETPROXY: u32 = 13u32;
-pub const DISPID_HTTPREQUEST_SETREQUESTHEADER: u32 = 2u32;
-pub const DISPID_HTTPREQUEST_SETTIMEOUTS: u32 = 16u32;
-pub const DISPID_HTTPREQUEST_STATUS: u32 = 7u32;
-pub const DISPID_HTTPREQUEST_STATUSTEXT: u32 = 8u32;
-pub const DISPID_HTTPREQUEST_WAITFORRESPONSE: u32 = 15u32;
-pub const DWN_COLORMODE: u32 = 63u32;
-pub const DWN_DOWNLOADONLY: u32 = 64u32;
-pub const DWN_FORCEDITHER: u32 = 128u32;
-pub const DWN_MIRRORIMAGE: u32 = 512u32;
-pub const DWN_RAWIMAGE: u32 = 256u32;
-pub const DWORD_METADATA: METADATATYPES = METADATATYPES(1i32);
-pub const EXPANDSZ_METADATA: METADATATYPES = METADATATYPES(4i32);
-pub const FP_MD_ID_BEGIN_RESERVED: u32 = 32768u32;
-pub const FP_MD_ID_END_RESERVED: u32 = 36863u32;
-pub const FTP_ACCESS_NONE: FTP_ACCESS = FTP_ACCESS(0i32);
-pub const FTP_ACCESS_READ: FTP_ACCESS = FTP_ACCESS(1i32);
-pub const FTP_ACCESS_READ_WRITE: FTP_ACCESS = FTP_ACCESS(3i32);
-pub const FTP_ACCESS_WRITE: FTP_ACCESS = FTP_ACCESS(2i32);
-pub const FTP_PROCESS_CLOSE_SESSION: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(1i32);
-pub const FTP_PROCESS_CONTINUE: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(0i32);
-pub const FTP_PROCESS_REJECT_COMMAND: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(3i32);
-pub const FTP_PROCESS_TERMINATE_SESSION: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(2i32);
-pub const GUID_IIS_ALL_TRACE_PROVIDERS: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
-pub const GUID_IIS_ASPNET_TRACE_PROVIDER: windows_core::GUID = windows_core::GUID::from_u128(0xaff081fe_0247_4275_9c4e_021f3dc1da35);
-pub const GUID_IIS_ASP_TRACE_TRACE_PROVIDER: windows_core::GUID = windows_core::GUID::from_u128(0x06b94d9a_b15e_456e_a4ef_37c984a2cb4b);
-pub const GUID_IIS_ISAPI_TRACE_PROVIDER: windows_core::GUID = windows_core::GUID::from_u128(0xa1c2040e_8840_4c31_ba11_9871031a19ea);
-pub const GUID_IIS_WWW_GLOBAL_TRACE_PROVIDER: windows_core::GUID = windows_core::GUID::from_u128(0xd55d3bc9_cba9_44df_827e_132d3a4596c2);
-pub const GUID_IIS_WWW_SERVER_TRACE_PROVIDER: windows_core::GUID = windows_core::GUID::from_u128(0x3a2a4e84_4c21_4981_ae10_3fda0d9b0f83);
-pub const GUID_IIS_WWW_SERVER_V2_TRACE_PROVIDER: windows_core::GUID = windows_core::GUID::from_u128(0xde4649c9_15e8_4fea_9d85_1cdda520c334);
-pub const HSE_APPEND_LOG_PARAMETER: u32 = 1003u32;
-pub const HSE_APP_FLAG_IN_PROCESS: u32 = 0u32;
-pub const HSE_APP_FLAG_ISOLATED_OOP: u32 = 1u32;
-pub const HSE_APP_FLAG_POOLED_OOP: u32 = 2u32;
-pub const HSE_EXEC_URL_DISABLE_CUSTOM_ERROR: u32 = 32u32;
-pub const HSE_EXEC_URL_HTTP_CACHE_ELIGIBLE: u32 = 128u32;
-pub const HSE_EXEC_URL_IGNORE_CURRENT_INTERCEPTOR: u32 = 4u32;
-pub const HSE_EXEC_URL_IGNORE_VALIDATION_AND_RANGE: u32 = 16u32;
-pub const HSE_EXEC_URL_NO_HEADERS: u32 = 2u32;
-pub const HSE_EXEC_URL_SSI_CMD: u32 = 64u32;
-pub const HSE_IO_ASYNC: u32 = 2u32;
-pub const HSE_IO_CACHE_RESPONSE: u32 = 32u32;
-pub const HSE_IO_DISCONNECT_AFTER_SEND: u32 = 4u32;
-pub const HSE_IO_FINAL_SEND: u32 = 16u32;
-pub const HSE_IO_NODELAY: u32 = 4096u32;
-pub const HSE_IO_SEND_HEADERS: u32 = 8u32;
-pub const HSE_IO_SYNC: u32 = 1u32;
-pub const HSE_IO_TRY_SKIP_CUSTOM_ERRORS: u32 = 64u32;
-pub const HSE_LOG_BUFFER_LEN: u32 = 80u32;
-pub const HSE_MAX_EXT_DLL_NAME_LEN: u32 = 256u32;
-pub const HSE_REQ_ABORTIVE_CLOSE: u32 = 1014u32;
-pub const HSE_REQ_ASYNC_READ_CLIENT: u32 = 1010u32;
-pub const HSE_REQ_BASE: u32 = 0u32;
-pub const HSE_REQ_CANCEL_IO: u32 = 1049u32;
-pub const HSE_REQ_CLOSE_CONNECTION: u32 = 1017u32;
-pub const HSE_REQ_DONE_WITH_SESSION: u32 = 4u32;
-pub const HSE_REQ_END_RESERVED: u32 = 1000u32;
-pub const HSE_REQ_EXEC_UNICODE_URL: u32 = 1025u32;
-pub const HSE_REQ_EXEC_URL: u32 = 1026u32;
-pub const HSE_REQ_GET_ANONYMOUS_TOKEN: u32 = 1038u32;
-pub const HSE_REQ_GET_CACHE_INVALIDATION_CALLBACK: u32 = 1040u32;
-pub const HSE_REQ_GET_CERT_INFO_EX: u32 = 1015u32;
-pub const HSE_REQ_GET_CHANNEL_BINDING_TOKEN: u32 = 1050u32;
-pub const HSE_REQ_GET_CONFIG_OBJECT: u32 = 1046u32;
-pub const HSE_REQ_GET_EXEC_URL_STATUS: u32 = 1027u32;
-pub const HSE_REQ_GET_IMPERSONATION_TOKEN: u32 = 1011u32;
-pub const HSE_REQ_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK: u32 = 1048u32;
-pub const HSE_REQ_GET_SSPI_INFO: u32 = 1002u32;
-pub const HSE_REQ_GET_TRACE_INFO: u32 = 1042u32;
-pub const HSE_REQ_GET_TRACE_INFO_EX: u32 = 1044u32;
-pub const HSE_REQ_GET_UNICODE_ANONYMOUS_TOKEN: u32 = 1041u32;
-pub const HSE_REQ_GET_WORKER_PROCESS_SETTINGS: u32 = 1047u32;
-pub const HSE_REQ_IO_COMPLETION: u32 = 1005u32;
-pub const HSE_REQ_IS_CONNECTED: u32 = 1018u32;
-pub const HSE_REQ_IS_IN_PROCESS: u32 = 1030u32;
-pub const HSE_REQ_IS_KEEP_CONN: u32 = 1008u32;
-pub const HSE_REQ_MAP_UNICODE_URL_TO_PATH: u32 = 1023u32;
-pub const HSE_REQ_MAP_UNICODE_URL_TO_PATH_EX: u32 = 1024u32;
-pub const HSE_REQ_MAP_URL_TO_PATH: u32 = 1001u32;
-pub const HSE_REQ_MAP_URL_TO_PATH_EX: u32 = 1012u32;
-pub const HSE_REQ_NORMALIZE_URL: u32 = 1033u32;
-pub const HSE_REQ_RAISE_TRACE_EVENT: u32 = 1045u32;
-pub const HSE_REQ_REFRESH_ISAPI_ACL: u32 = 1007u32;
-pub const HSE_REQ_REPORT_UNHEALTHY: u32 = 1032u32;
-pub const HSE_REQ_SEND_CUSTOM_ERROR: u32 = 1028u32;
-pub const HSE_REQ_SEND_RESPONSE_HEADER: u32 = 3u32;
-pub const HSE_REQ_SEND_RESPONSE_HEADER_EX: u32 = 1016u32;
-pub const HSE_REQ_SEND_URL: u32 = 2u32;
-pub const HSE_REQ_SEND_URL_REDIRECT_RESP: u32 = 1u32;
-pub const HSE_REQ_SET_FLUSH_FLAG: u32 = 1043u32;
-pub const HSE_REQ_TRANSMIT_FILE: u32 = 1006u32;
-pub const HSE_REQ_VECTOR_SEND: u32 = 1037u32;
-pub const HSE_STATUS_ERROR: u32 = 4u32;
-pub const HSE_STATUS_PENDING: u32 = 3u32;
-pub const HSE_STATUS_SUCCESS: u32 = 1u32;
-pub const HSE_STATUS_SUCCESS_AND_KEEP_CONN: u32 = 2u32;
-pub const HSE_TERM_ADVISORY_UNLOAD: u32 = 1u32;
-pub const HSE_TERM_MUST_UNLOAD: u32 = 2u32;
-pub const HSE_URL_FLAGS_DONT_CACHE: u32 = 16u32;
-pub const HSE_URL_FLAGS_EXECUTE: u32 = 4u32;
-pub const HSE_URL_FLAGS_MAP_CERT: u32 = 128u32;
-pub const HSE_URL_FLAGS_MASK: u32 = 1023u32;
-pub const HSE_URL_FLAGS_NEGO_CERT: u32 = 32u32;
-pub const HSE_URL_FLAGS_READ: u32 = 1u32;
-pub const HSE_URL_FLAGS_REQUIRE_CERT: u32 = 64u32;
-pub const HSE_URL_FLAGS_SCRIPT: u32 = 512u32;
-pub const HSE_URL_FLAGS_SSL: u32 = 8u32;
-pub const HSE_URL_FLAGS_SSL128: u32 = 256u32;
-pub const HSE_URL_FLAGS_WRITE: u32 = 2u32;
-pub const HSE_VECTOR_ELEMENT_TYPE_FILE_HANDLE: u32 = 1u32;
-pub const HSE_VECTOR_ELEMENT_TYPE_MEMORY_BUFFER: u32 = 0u32;
-pub const HSE_VERSION_MAJOR: u32 = 8u32;
-pub const HSE_VERSION_MINOR: u32 = 0u32;
-pub const HTTP_TRACE_EVENT_FLAG_STATIC_DESCRIPTIVE_FIELDS: u32 = 1u32;
-pub const HTTP_TRACE_LEVEL_END: u32 = 7u32;
-pub const HTTP_TRACE_LEVEL_START: u32 = 6u32;
-pub const HTTP_TRACE_TYPE_BOOL: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(11i32);
-pub const HTTP_TRACE_TYPE_BYTE: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(17i32);
-pub const HTTP_TRACE_TYPE_CHAR: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(16i32);
-pub const HTTP_TRACE_TYPE_LONG: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(3i32);
-pub const HTTP_TRACE_TYPE_LONGLONG: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(20i32);
-pub const HTTP_TRACE_TYPE_LPCGUID: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(72i32);
-pub const HTTP_TRACE_TYPE_LPCSTR: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(30i32);
-pub const HTTP_TRACE_TYPE_LPCWSTR: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(31i32);
-pub const HTTP_TRACE_TYPE_SHORT: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(2i32);
-pub const HTTP_TRACE_TYPE_ULONG: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(19i32);
-pub const HTTP_TRACE_TYPE_ULONGLONG: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(21i32);
-pub const HTTP_TRACE_TYPE_USHORT: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(18i32);
-pub const IISADMIN_EXTENSIONS_CLSID_MD_KEY: windows_core::PCWSTR = windows_core::w!("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS");
-pub const IISADMIN_EXTENSIONS_CLSID_MD_KEYA: windows_core::PCSTR = windows_core::s!("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS");
-pub const IISADMIN_EXTENSIONS_CLSID_MD_KEYW: windows_core::PCWSTR = windows_core::w!("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS");
-pub const IISADMIN_EXTENSIONS_REG_KEY: windows_core::PCWSTR = windows_core::w!("SOFTWARE\\Microsoft\\InetStp\\Extensions");
-pub const IISADMIN_EXTENSIONS_REG_KEYA: windows_core::PCSTR = windows_core::s!("SOFTWARE\\Microsoft\\InetStp\\Extensions");
-pub const IISADMIN_EXTENSIONS_REG_KEYW: windows_core::PCWSTR = windows_core::w!("SOFTWARE\\Microsoft\\InetStp\\Extensions");
-pub const IIS_CLASS_CERTMAPPER: windows_core::PCSTR = windows_core::s!("IIsCertMapper");
-pub const IIS_CLASS_CERTMAPPER_W: windows_core::PCWSTR = windows_core::w!("IIsCertMapper");
-pub const IIS_CLASS_COMPRESS_SCHEME: windows_core::PCSTR = windows_core::s!("IIsCompressionScheme");
-pub const IIS_CLASS_COMPRESS_SCHEMES: windows_core::PCSTR = windows_core::s!("IIsCompressionSchemes");
-pub const IIS_CLASS_COMPRESS_SCHEMES_W: windows_core::PCWSTR = windows_core::w!("IIsCompressionSchemes");
-pub const IIS_CLASS_COMPRESS_SCHEME_W: windows_core::PCWSTR = windows_core::w!("IIsCompressionScheme");
-pub const IIS_CLASS_COMPUTER: windows_core::PCSTR = windows_core::s!("IIsComputer");
-pub const IIS_CLASS_COMPUTER_W: windows_core::PCWSTR = windows_core::w!("IIsComputer");
-pub const IIS_CLASS_FILTER: windows_core::PCSTR = windows_core::s!("IIsFilter");
-pub const IIS_CLASS_FILTERS: windows_core::PCSTR = windows_core::s!("IIsFilters");
-pub const IIS_CLASS_FILTERS_W: windows_core::PCWSTR = windows_core::w!("IIsFilters");
-pub const IIS_CLASS_FILTER_W: windows_core::PCWSTR = windows_core::w!("IIsFilter");
-pub const IIS_CLASS_FTP_INFO: windows_core::PCSTR = windows_core::s!("IIsFtpInfo");
-pub const IIS_CLASS_FTP_INFO_W: windows_core::PCWSTR = windows_core::w!("IIsFtpInfo");
-pub const IIS_CLASS_FTP_SERVER: windows_core::PCSTR = windows_core::s!("IIsFtpServer");
-pub const IIS_CLASS_FTP_SERVER_W: windows_core::PCWSTR = windows_core::w!("IIsFtpServer");
-pub const IIS_CLASS_FTP_SERVICE: windows_core::PCSTR = windows_core::s!("IIsFtpService");
-pub const IIS_CLASS_FTP_SERVICE_W: windows_core::PCWSTR = windows_core::w!("IIsFtpService");
-pub const IIS_CLASS_FTP_VDIR: windows_core::PCSTR = windows_core::s!("IIsFtpVirtualDir");
-pub const IIS_CLASS_FTP_VDIR_W: windows_core::PCWSTR = windows_core::w!("IIsFtpVirtualDir");
-pub const IIS_CLASS_LOG_MODULE: windows_core::PCSTR = windows_core::s!("IIsLogModule");
-pub const IIS_CLASS_LOG_MODULES: windows_core::PCSTR = windows_core::s!("IIsLogModules");
-pub const IIS_CLASS_LOG_MODULES_W: windows_core::PCWSTR = windows_core::w!("IIsLogModules");
-pub const IIS_CLASS_LOG_MODULE_W: windows_core::PCWSTR = windows_core::w!("IIsLogModule");
-pub const IIS_CLASS_MIMEMAP: windows_core::PCSTR = windows_core::s!("IIsMimeMap");
-pub const IIS_CLASS_MIMEMAP_W: windows_core::PCWSTR = windows_core::w!("IIsMimeMap");
-pub const IIS_CLASS_WEB_DIR: windows_core::PCSTR = windows_core::s!("IIsWebDirectory");
-pub const IIS_CLASS_WEB_DIR_W: windows_core::PCWSTR = windows_core::w!("IIsWebDirectory");
-pub const IIS_CLASS_WEB_FILE: windows_core::PCSTR = windows_core::s!("IIsWebFile");
-pub const IIS_CLASS_WEB_FILE_W: windows_core::PCWSTR = windows_core::w!("IIsWebFile");
-pub const IIS_CLASS_WEB_INFO: windows_core::PCSTR = windows_core::s!("IIsWebInfo");
-pub const IIS_CLASS_WEB_INFO_W: windows_core::PCWSTR = windows_core::w!("IIsWebInfo");
-pub const IIS_CLASS_WEB_SERVER: windows_core::PCSTR = windows_core::s!("IIsWebServer");
-pub const IIS_CLASS_WEB_SERVER_W: windows_core::PCWSTR = windows_core::w!("IIsWebServer");
-pub const IIS_CLASS_WEB_SERVICE: windows_core::PCSTR = windows_core::s!("IIsWebService");
-pub const IIS_CLASS_WEB_SERVICE_W: windows_core::PCWSTR = windows_core::w!("IIsWebService");
-pub const IIS_CLASS_WEB_VDIR: windows_core::PCSTR = windows_core::s!("IIsWebVirtualDir");
-pub const IIS_CLASS_WEB_VDIR_W: windows_core::PCWSTR = windows_core::w!("IIsWebVirtualDir");
-pub const IIS_MD_ADSI_METAID_BEGIN: u32 = 130000u32;
-pub const IIS_MD_ADSI_SCHEMA_PATH_A: windows_core::PCSTR = windows_core::s!("/Schema");
-pub const IIS_MD_ADSI_SCHEMA_PATH_W: windows_core::PCWSTR = windows_core::w!("/Schema");
-pub const IIS_MD_APPPOOL_BASE: u32 = 9000u32;
-pub const IIS_MD_APP_BASE: u32 = 9100u32;
-pub const IIS_MD_FILE_PROP_BASE: u32 = 6000u32;
-pub const IIS_MD_FTP_BASE: u32 = 5000u32;
-pub const IIS_MD_GLOBAL_BASE: u32 = 9200u32;
-pub const IIS_MD_HTTP_BASE: u32 = 2000u32;
-pub const IIS_MD_ID_BEGIN_RESERVED: u32 = 1u32;
-pub const IIS_MD_ID_END_RESERVED: u32 = 32767u32;
-pub const IIS_MD_INSTANCE_ROOT: windows_core::PCSTR = windows_core::s!("Root");
-pub const IIS_MD_ISAPI_FILTERS: windows_core::PCSTR = windows_core::s!("/Filters");
-pub const IIS_MD_LOCAL_MACHINE_PATH: windows_core::PCSTR = windows_core::s!("LM");
-pub const IIS_MD_LOGCUSTOM_BASE: u32 = 4500u32;
-pub const IIS_MD_LOGCUSTOM_LAST: u32 = 4508u32;
-pub const IIS_MD_LOG_BASE: u32 = 4000u32;
-pub const IIS_MD_LOG_LAST: u32 = 4015u32;
-pub const IIS_MD_SERVER_BASE: u32 = 1000u32;
-pub const IIS_MD_SSL_BASE: u32 = 5500u32;
-pub const IIS_MD_SVC_INFO_PATH: windows_core::PCSTR = windows_core::s!("Info");
-pub const IIS_MD_UT_END_RESERVED: u32 = 2000u32;
-pub const IIS_MD_UT_FILE: u32 = 2u32;
-pub const IIS_MD_UT_SERVER: u32 = 1u32;
-pub const IIS_MD_UT_WAM: u32 = 100u32;
-pub const IIS_MD_VR_BASE: u32 = 3000u32;
-pub const IIS_WEBSOCKET: windows_core::PCWSTR = windows_core::w!("websockets");
-pub const IIS_WEBSOCKET_SERVER_VARIABLE: windows_core::PCSTR = windows_core::s!("IIS_WEBSOCK");
-pub const IMAP_MD_ID_BEGIN_RESERVED: u32 = 49152u32;
-pub const IMAP_MD_ID_END_RESERVED: u32 = 53247u32;
-pub const IMGANIM_ANIMATED: u32 = 268435456u32;
-pub const IMGANIM_MASK: u32 = 268435456u32;
-pub const IMGBITS_MASK: u32 = 234881024u32;
-pub const IMGBITS_NONE: u32 = 33554432u32;
-pub const IMGBITS_PARTIAL: u32 = 67108864u32;
-pub const IMGBITS_TOTAL: u32 = 134217728u32;
-pub const IMGCHG_ANIMATE: u32 = 8u32;
-pub const IMGCHG_COMPLETE: u32 = 4u32;
-pub const IMGCHG_MASK: u32 = 15u32;
-pub const IMGCHG_SIZE: u32 = 1u32;
-pub const IMGCHG_VIEW: u32 = 2u32;
-pub const IMGLOAD_COMPLETE: u32 = 16777216u32;
-pub const IMGLOAD_ERROR: u32 = 8388608u32;
-pub const IMGLOAD_LOADING: u32 = 2097152u32;
-pub const IMGLOAD_MASK: u32 = 32505856u32;
-pub const IMGLOAD_NOTLOADED: u32 = 1048576u32;
-pub const IMGLOAD_STOPPED: u32 = 4194304u32;
-pub const IMGTRANS_MASK: u32 = 536870912u32;
-pub const IMGTRANS_OPAQUE: u32 = 536870912u32;
-pub const INVALID_END_METADATA: METADATATYPES = METADATATYPES(6i32);
-pub const LIBID_ASPTypeLibrary: windows_core::GUID = windows_core::GUID::from_u128(0xd97a6da0_a85c_11cf_83ae_00a0c90c2bd8);
-pub const LIBID_IISRSTALib: windows_core::GUID = windows_core::GUID::from_u128(0xe8fb8614_588f_11d2_9d61_00c04f79c5fe);
-pub const LIBID_WAMREGLib: windows_core::GUID = windows_core::GUID::from_u128(0x29822aa8_f302_11d0_9953_00c04fd919c1);
 pub const MB_DONT_IMPERSONATE: u32 = 9033u32;
 pub const MD_ACCESS_EXECUTE: u32 = 4u32;
 pub const MD_ACCESS_MAP_CERT: u32 = 128u32;
@@ -2669,6 +2486,22 @@ pub const MD_CERT_CHECK_REVOCATION_FRESHNESS_TIME: u32 = 4u32;
 pub const MD_CERT_NO_REVOC_CHECK: u32 = 1u32;
 pub const MD_CERT_NO_USAGE_CHECK: u32 = 65536u32;
 pub const MD_CGI_RESTRICTION_LIST: u32 = 2164u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MD_CHANGE_OBJECT_W {
+    pub pszMDPath: windows_core::PWSTR,
+    pub dwMDChangeType: u32,
+    pub dwMDNumDataIDs: u32,
+    pub pdwMDDataIDs: *mut u32,
+}
+impl Default for MD_CHANGE_OBJECT_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MD_CHANGE_OBJECT_W {
+    type TypeKind = windows_core::CopyType;
+}
 pub const MD_CHANGE_TYPE_ADD_OBJECT: u32 = 2u32;
 pub const MD_CHANGE_TYPE_DELETE_DATA: u32 = 8u32;
 pub const MD_CHANGE_TYPE_DELETE_OBJECT: u32 = 1u32;
@@ -3101,7 +2934,76 @@ pub const MD_WARNING_SAVE_FAILED: i32 = 837641i32;
 pub const MD_WEBDAV_MAX_ATTRIBUTES_PER_ELEMENT: u32 = 8501u32;
 pub const MD_WEB_SVC_EXT_RESTRICTION_LIST: u32 = 2168u32;
 pub const MD_WIN32_ERROR: u32 = 1099u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct METADATATYPES(pub i32);
 pub const METADATA_DONT_EXPAND: u32 = 512u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct METADATA_GETALL_INTERNAL_RECORD {
+    pub dwMDIdentifier: u32,
+    pub dwMDAttributes: u32,
+    pub dwMDUserType: u32,
+    pub dwMDDataType: u32,
+    pub dwMDDataLen: u32,
+    pub Anonymous: METADATA_GETALL_INTERNAL_RECORD_0,
+    pub dwMDDataTag: u32,
+}
+impl Default for METADATA_GETALL_INTERNAL_RECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for METADATA_GETALL_INTERNAL_RECORD {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union METADATA_GETALL_INTERNAL_RECORD_0 {
+    pub dwMDDataOffset: usize,
+    pub pbMDData: *mut u8,
+}
+impl Default for METADATA_GETALL_INTERNAL_RECORD_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for METADATA_GETALL_INTERNAL_RECORD_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct METADATA_GETALL_RECORD {
+    pub dwMDIdentifier: u32,
+    pub dwMDAttributes: u32,
+    pub dwMDUserType: u32,
+    pub dwMDDataType: u32,
+    pub dwMDDataLen: u32,
+    pub dwMDDataOffset: u32,
+    pub dwMDDataTag: u32,
+}
+impl Default for METADATA_GETALL_RECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for METADATA_GETALL_RECORD {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct METADATA_HANDLE_INFO {
+    pub dwMDPermissions: u32,
+    pub dwMDSystemChangeNumber: u32,
+}
+impl Default for METADATA_HANDLE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for METADATA_HANDLE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 pub const METADATA_INHERIT: u32 = 1u32;
 pub const METADATA_INSERT_PATH: u32 = 64u32;
 pub const METADATA_ISINHERITED: u32 = 32u32;
@@ -3113,6 +3015,25 @@ pub const METADATA_NO_ATTRIBUTES: u32 = 0u32;
 pub const METADATA_PARTIAL_PATH: u32 = 2u32;
 pub const METADATA_PERMISSION_READ: u32 = 1u32;
 pub const METADATA_PERMISSION_WRITE: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct METADATA_RECORD {
+    pub dwMDIdentifier: u32,
+    pub dwMDAttributes: u32,
+    pub dwMDUserType: u32,
+    pub dwMDDataType: u32,
+    pub dwMDDataLen: u32,
+    pub pbMDData: *mut u8,
+    pub dwMDDataTag: u32,
+}
+impl Default for METADATA_RECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for METADATA_RECORD {
+    type TypeKind = windows_core::CopyType;
+}
 pub const METADATA_REFERENCE: u32 = 8u32;
 pub const METADATA_SECURE: u32 = 4u32;
 pub const METADATA_VOLATILE: u32 = 16u32;
@@ -3121,8 +3042,78 @@ pub const MSCS_MD_ID_END_RESERVED: u32 = 57343u32;
 pub const MULTISZ_METADATA: METADATATYPES = METADATATYPES(5i32);
 pub const NNTP_MD_ID_BEGIN_RESERVED: u32 = 45056u32;
 pub const NNTP_MD_ID_END_RESERVED: u32 = 49151u32;
+pub type PFN_GETEXTENSIONVERSION = Option<unsafe extern "system" fn(pver: *mut HSE_VERSION_INFO) -> super::super::Foundation::BOOL>;
+pub type PFN_HSE_CACHE_INVALIDATION_CALLBACK = Option<unsafe extern "system" fn(pszurl: windows_core::PCWSTR) -> windows_core::HRESULT>;
+pub type PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK = Option<unsafe extern "system" fn(pszprotocolmanagerdll: windows_core::PCWSTR, pszprotocolmanagerdllinitfunction: windows_core::PCWSTR, dwcustominterfaceid: u32, ppcustominterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub type PFN_HSE_IO_COMPLETION = Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK, pcontext: *mut core::ffi::c_void, cbio: u32, dwerror: u32)>;
+pub type PFN_HTTPEXTENSIONPROC = Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK) -> u32>;
+pub type PFN_IIS_GETSERVERVARIABLE = Option<unsafe extern "system" fn(param0: HCONN, param1: windows_core::PCSTR, param2: *mut core::ffi::c_void, param3: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFN_IIS_READCLIENT = Option<unsafe extern "system" fn(param0: HCONN, param1: *mut core::ffi::c_void, param2: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFN_IIS_SERVERSUPPORTFUNCTION = Option<unsafe extern "system" fn(param0: HCONN, param1: u32, param2: *mut core::ffi::c_void, param3: *mut u32, param4: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFN_IIS_WRITECLIENT = Option<unsafe extern "system" fn(param0: HCONN, param1: *mut core::ffi::c_void, param2: *mut u32, param3: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_TERMINATEEXTENSION = Option<unsafe extern "system" fn(dwflags: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_WEB_CORE_ACTIVATE = Option<unsafe extern "system" fn(pszapphostconfigfile: windows_core::PCWSTR, pszrootwebconfigfile: windows_core::PCWSTR, pszinstancename: windows_core::PCWSTR) -> windows_core::HRESULT>;
+pub type PFN_WEB_CORE_SET_METADATA_DLL_ENTRY = Option<unsafe extern "system" fn(pszmetadatatype: windows_core::PCWSTR, pszvalue: windows_core::PCWSTR) -> windows_core::HRESULT>;
+pub type PFN_WEB_CORE_SHUTDOWN = Option<unsafe extern "system" fn(fimmediate: u32) -> windows_core::HRESULT>;
 pub const POP3_MD_ID_BEGIN_RESERVED: u32 = 40960u32;
 pub const POP3_MD_ID_END_RESERVED: u32 = 45055u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct POST_PROCESS_PARAMETERS {
+    pub pszSessionId: windows_core::PCWSTR,
+    pub pszSiteName: windows_core::PCWSTR,
+    pub pszUserName: windows_core::PCWSTR,
+    pub pszHostName: windows_core::PCWSTR,
+    pub pszRemoteIpAddress: windows_core::PCWSTR,
+    pub dwRemoteIpPort: u32,
+    pub pszLocalIpAddress: windows_core::PCWSTR,
+    pub dwLocalIpPort: u32,
+    pub BytesSent: u64,
+    pub BytesReceived: u64,
+    pub pszCommand: windows_core::PCWSTR,
+    pub pszCommandParameters: windows_core::PCWSTR,
+    pub pszFullPath: windows_core::PCWSTR,
+    pub pszPhysicalPath: windows_core::PCWSTR,
+    pub FtpStatus: u32,
+    pub FtpSubStatus: u32,
+    pub hrStatus: windows_core::HRESULT,
+    pub SessionStartTime: super::super::Foundation::FILETIME,
+    pub BytesSentPerSession: u64,
+    pub BytesReceivedPerSession: u64,
+}
+impl Default for POST_PROCESS_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for POST_PROCESS_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PRE_PROCESS_PARAMETERS {
+    pub pszSessionId: windows_core::PCWSTR,
+    pub pszSiteName: windows_core::PCWSTR,
+    pub pszUserName: windows_core::PCWSTR,
+    pub pszHostName: windows_core::PCWSTR,
+    pub pszRemoteIpAddress: windows_core::PCWSTR,
+    pub dwRemoteIpPort: u32,
+    pub pszLocalIpAddress: windows_core::PCWSTR,
+    pub dwLocalIpPort: u32,
+    pub pszCommand: windows_core::PCWSTR,
+    pub pszCommandParameters: windows_core::PCWSTR,
+    pub SessionStartTime: super::super::Foundation::FILETIME,
+    pub BytesSentPerSession: u64,
+    pub BytesReceivedPerSession: u64,
+}
+impl Default for PRE_PROCESS_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PRE_PROCESS_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SF_DENIED_APPLICATION: u32 = 8u32;
 pub const SF_DENIED_BY_CONFIG: u32 = 65536u32;
 pub const SF_DENIED_FILTER: u32 = 4u32;
@@ -3149,6 +3140,9 @@ pub const SF_NOTIFY_SECURE_PORT: u32 = 1u32;
 pub const SF_NOTIFY_SEND_RAW_DATA: u32 = 1024u32;
 pub const SF_NOTIFY_SEND_RESPONSE: u32 = 64u32;
 pub const SF_NOTIFY_URL_MAP: u32 = 4096u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SF_PROPERTY_IIS(pub i32);
 pub const SF_PROPERTY_INSTANCE_NUM_ID: SF_PROPERTY_IIS = SF_PROPERTY_IIS(1i32);
 pub const SF_PROPERTY_SSL_CTXT: SF_PROPERTY_IIS = SF_PROPERTY_IIS(0i32);
 pub const SF_REQ_ADD_HEADERS_ON_DENIAL: SF_REQ_TYPE = SF_REQ_TYPE(1i32);
@@ -3160,12 +3154,18 @@ pub const SF_REQ_SEND_RESPONSE_HEADER: SF_REQ_TYPE = SF_REQ_TYPE(0i32);
 pub const SF_REQ_SET_CERTIFICATE_INFO: SF_REQ_TYPE = SF_REQ_TYPE(5i32);
 pub const SF_REQ_SET_NEXT_READ_SIZE: SF_REQ_TYPE = SF_REQ_TYPE(2i32);
 pub const SF_REQ_SET_PROXY_INFO: SF_REQ_TYPE = SF_REQ_TYPE(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SF_REQ_TYPE(pub i32);
 pub const SF_STATUS_REQ_ERROR: SF_STATUS_TYPE = SF_STATUS_TYPE(134217732i32);
 pub const SF_STATUS_REQ_FINISHED: SF_STATUS_TYPE = SF_STATUS_TYPE(134217728i32);
 pub const SF_STATUS_REQ_FINISHED_KEEP_CONN: SF_STATUS_TYPE = SF_STATUS_TYPE(134217729i32);
 pub const SF_STATUS_REQ_HANDLED_NOTIFICATION: SF_STATUS_TYPE = SF_STATUS_TYPE(134217731i32);
 pub const SF_STATUS_REQ_NEXT_NOTIFICATION: SF_STATUS_TYPE = SF_STATUS_TYPE(134217730i32);
 pub const SF_STATUS_REQ_READ_NEXT: SF_STATUS_TYPE = SF_STATUS_TYPE(134217733i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SF_STATUS_TYPE(pub i32);
 pub const SMTP_MD_ID_BEGIN_RESERVED: u32 = 36864u32;
 pub const SMTP_MD_ID_END_RESERVED: u32 = 40959u32;
 pub const STRING_METADATA: METADATATYPES = METADATATYPES(2i32);

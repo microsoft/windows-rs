@@ -1,3 +1,4 @@
+pub const CLSID_XMLGraphBuilder: windows_core::GUID = windows_core::GUID::from_u128(0x1bb05961_5fbf_11d2_a521_44df07c10000);
 windows_core::imp::define_interface!(IXMLGraphBuilder, IXMLGraphBuilder_Vtbl, 0x1bb05960_5fbf_11d2_a521_44df07c10000);
 windows_core::imp::interface_hierarchy!(IXMLGraphBuilder, windows_core::IUnknown);
 impl IXMLGraphBuilder {
@@ -68,4 +69,3 @@ impl IXMLGraphBuilder_Vtbl {
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IXMLGraphBuilder {}
-pub const CLSID_XMLGraphBuilder: windows_core::GUID = windows_core::GUID::from_u128(0x1bb05961_5fbf_11d2_a521_44df07c10000);

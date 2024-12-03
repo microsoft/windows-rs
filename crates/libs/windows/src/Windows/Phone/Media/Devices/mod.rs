@@ -1,4 +1,23 @@
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AudioRoutingEndpoint(pub i32);
+impl AudioRoutingEndpoint {
+    pub const Default: Self = Self(0i32);
+    pub const Earpiece: Self = Self(1i32);
+    pub const Speakerphone: Self = Self(2i32);
+    pub const Bluetooth: Self = Self(3i32);
+    pub const WiredHeadset: Self = Self(4i32);
+    pub const WiredHeadsetSpeakerOnly: Self = Self(5i32);
+    pub const BluetoothWithNoiseAndEchoCancellation: Self = Self(6i32);
+    pub const BluetoothPreferred: Self = Self(7i32);
+}
+impl windows_core::TypeKind for AudioRoutingEndpoint {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AudioRoutingEndpoint {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Media.Devices.AudioRoutingEndpoint;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AudioRoutingManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioRoutingManager, windows_core::IUnknown, windows_core::IInspectable);
@@ -58,47 +77,6 @@ impl windows_core::RuntimeName for AudioRoutingManager {
 }
 unsafe impl Send for AudioRoutingManager {}
 unsafe impl Sync for AudioRoutingManager {}
-windows_core::imp::define_interface!(IAudioRoutingManager, IAudioRoutingManager_Vtbl, 0x79340d20_71cc_4526_9f29_fc8d2486418b);
-impl windows_core::RuntimeType for IAudioRoutingManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IAudioRoutingManager_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetAudioEndpoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioRoutingEndpoint) -> windows_core::HRESULT,
-    pub SetAudioEndpoint: unsafe extern "system" fn(*mut core::ffi::c_void, AudioRoutingEndpoint) -> windows_core::HRESULT,
-    pub AudioEndpointChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveAudioEndpointChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub AvailableAudioEndpoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AvailableAudioRoutingEndpoints) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IAudioRoutingManagerStatics, IAudioRoutingManagerStatics_Vtbl, 0x977fb2a4_5590_4a6f_adde_6a3d0ad58250);
-impl windows_core::RuntimeType for IAudioRoutingManagerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IAudioRoutingManagerStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AudioRoutingEndpoint(pub i32);
-impl AudioRoutingEndpoint {
-    pub const Default: Self = Self(0i32);
-    pub const Earpiece: Self = Self(1i32);
-    pub const Speakerphone: Self = Self(2i32);
-    pub const Bluetooth: Self = Self(3i32);
-    pub const WiredHeadset: Self = Self(4i32);
-    pub const WiredHeadsetSpeakerOnly: Self = Self(5i32);
-    pub const BluetoothWithNoiseAndEchoCancellation: Self = Self(6i32);
-    pub const BluetoothPreferred: Self = Self(7i32);
-}
-impl windows_core::TypeKind for AudioRoutingEndpoint {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AudioRoutingEndpoint {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Media.Devices.AudioRoutingEndpoint;i4)");
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AvailableAudioRoutingEndpoints(pub u32);
@@ -146,4 +124,26 @@ impl core::ops::Not for AvailableAudioRoutingEndpoints {
     fn not(self) -> Self {
         Self(self.0.not())
     }
+}
+windows_core::imp::define_interface!(IAudioRoutingManager, IAudioRoutingManager_Vtbl, 0x79340d20_71cc_4526_9f29_fc8d2486418b);
+impl windows_core::RuntimeType for IAudioRoutingManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IAudioRoutingManager_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetAudioEndpoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioRoutingEndpoint) -> windows_core::HRESULT,
+    pub SetAudioEndpoint: unsafe extern "system" fn(*mut core::ffi::c_void, AudioRoutingEndpoint) -> windows_core::HRESULT,
+    pub AudioEndpointChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveAudioEndpointChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub AvailableAudioEndpoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AvailableAudioRoutingEndpoints) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IAudioRoutingManagerStatics, IAudioRoutingManagerStatics_Vtbl, 0x977fb2a4_5590_4a6f_adde_6a3d0ad58250);
+impl windows_core::RuntimeType for IAudioRoutingManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IAudioRoutingManagerStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }

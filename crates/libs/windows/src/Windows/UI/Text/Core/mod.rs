@@ -413,6 +413,126 @@ impl windows_core::RuntimeName for CoreTextFormatUpdatingEventArgs {
 unsafe impl Send for CoreTextFormatUpdatingEventArgs {}
 unsafe impl Sync for CoreTextFormatUpdatingEventArgs {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CoreTextFormatUpdatingReason(pub i32);
+impl CoreTextFormatUpdatingReason {
+    pub const None: Self = Self(0i32);
+    pub const CompositionUnconverted: Self = Self(1i32);
+    pub const CompositionConverted: Self = Self(2i32);
+    pub const CompositionTargetUnconverted: Self = Self(3i32);
+    pub const CompositionTargetConverted: Self = Self(4i32);
+}
+impl windows_core::TypeKind for CoreTextFormatUpdatingReason {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for CoreTextFormatUpdatingReason {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextFormatUpdatingReason;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CoreTextFormatUpdatingResult(pub i32);
+impl CoreTextFormatUpdatingResult {
+    pub const Succeeded: Self = Self(0i32);
+    pub const Failed: Self = Self(1i32);
+}
+impl windows_core::TypeKind for CoreTextFormatUpdatingResult {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for CoreTextFormatUpdatingResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextFormatUpdatingResult;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CoreTextInputPaneDisplayPolicy(pub i32);
+impl CoreTextInputPaneDisplayPolicy {
+    pub const Automatic: Self = Self(0i32);
+    pub const Manual: Self = Self(1i32);
+}
+impl windows_core::TypeKind for CoreTextInputPaneDisplayPolicy {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for CoreTextInputPaneDisplayPolicy {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextInputPaneDisplayPolicy;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CoreTextInputScope(pub i32);
+impl CoreTextInputScope {
+    pub const Default: Self = Self(0i32);
+    pub const Url: Self = Self(1i32);
+    pub const FilePath: Self = Self(2i32);
+    pub const FileName: Self = Self(3i32);
+    pub const EmailUserName: Self = Self(4i32);
+    pub const EmailAddress: Self = Self(5i32);
+    pub const UserName: Self = Self(6i32);
+    pub const PersonalFullName: Self = Self(7i32);
+    pub const PersonalNamePrefix: Self = Self(8i32);
+    pub const PersonalGivenName: Self = Self(9i32);
+    pub const PersonalMiddleName: Self = Self(10i32);
+    pub const PersonalSurname: Self = Self(11i32);
+    pub const PersonalNameSuffix: Self = Self(12i32);
+    pub const Address: Self = Self(13i32);
+    pub const AddressPostalCode: Self = Self(14i32);
+    pub const AddressStreet: Self = Self(15i32);
+    pub const AddressStateOrProvince: Self = Self(16i32);
+    pub const AddressCity: Self = Self(17i32);
+    pub const AddressCountryName: Self = Self(18i32);
+    pub const AddressCountryShortName: Self = Self(19i32);
+    pub const CurrencyAmountAndSymbol: Self = Self(20i32);
+    pub const CurrencyAmount: Self = Self(21i32);
+    pub const Date: Self = Self(22i32);
+    pub const DateMonth: Self = Self(23i32);
+    pub const DateDay: Self = Self(24i32);
+    pub const DateYear: Self = Self(25i32);
+    pub const DateMonthName: Self = Self(26i32);
+    pub const DateDayName: Self = Self(27i32);
+    pub const Number: Self = Self(29i32);
+    pub const SingleCharacter: Self = Self(30i32);
+    pub const Password: Self = Self(31i32);
+    pub const TelephoneNumber: Self = Self(32i32);
+    pub const TelephoneCountryCode: Self = Self(33i32);
+    pub const TelephoneAreaCode: Self = Self(34i32);
+    pub const TelephoneLocalNumber: Self = Self(35i32);
+    pub const Time: Self = Self(36i32);
+    pub const TimeHour: Self = Self(37i32);
+    pub const TimeMinuteOrSecond: Self = Self(38i32);
+    pub const NumberFullWidth: Self = Self(39i32);
+    pub const AlphanumericHalfWidth: Self = Self(40i32);
+    pub const AlphanumericFullWidth: Self = Self(41i32);
+    pub const CurrencyChinese: Self = Self(42i32);
+    pub const Bopomofo: Self = Self(43i32);
+    pub const Hiragana: Self = Self(44i32);
+    pub const KatakanaHalfWidth: Self = Self(45i32);
+    pub const KatakanaFullWidth: Self = Self(46i32);
+    pub const Hanja: Self = Self(47i32);
+    pub const HangulHalfWidth: Self = Self(48i32);
+    pub const HangulFullWidth: Self = Self(49i32);
+    pub const Search: Self = Self(50i32);
+    pub const Formula: Self = Self(51i32);
+    pub const SearchIncremental: Self = Self(52i32);
+    pub const ChineseHalfWidth: Self = Self(53i32);
+    pub const ChineseFullWidth: Self = Self(54i32);
+    pub const NativeScript: Self = Self(55i32);
+    pub const Text: Self = Self(57i32);
+    pub const Chat: Self = Self(58i32);
+    pub const NameOrPhoneNumber: Self = Self(59i32);
+    pub const EmailUserNameOrAddress: Self = Self(60i32);
+    pub const Private: Self = Self(61i32);
+    pub const Maps: Self = Self(62i32);
+    pub const PasswordNumeric: Self = Self(63i32);
+    pub const FormulaNumber: Self = Self(67i32);
+    pub const ChatWithoutEmoji: Self = Self(68i32);
+    pub const Digits: Self = Self(28i32);
+    pub const PinNumeric: Self = Self(64i32);
+    pub const PinAlphanumeric: Self = Self(65i32);
+}
+impl windows_core::TypeKind for CoreTextInputScope {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for CoreTextInputScope {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextInputScope;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CoreTextLayoutBounds(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextLayoutBounds, windows_core::IUnknown, windows_core::IInspectable);
@@ -530,6 +650,18 @@ impl windows_core::RuntimeName for CoreTextLayoutRequestedEventArgs {
 }
 unsafe impl Send for CoreTextLayoutRequestedEventArgs {}
 unsafe impl Sync for CoreTextLayoutRequestedEventArgs {}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct CoreTextRange {
+    pub StartCaretPosition: i32,
+    pub EndCaretPosition: i32,
+}
+impl windows_core::TypeKind for CoreTextRange {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for CoreTextRange {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Text.Core.CoreTextRange;i4;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CoreTextSelectionRequest(windows_core::IUnknown);
@@ -648,6 +780,19 @@ impl windows_core::RuntimeName for CoreTextSelectionUpdatingEventArgs {
 }
 unsafe impl Send for CoreTextSelectionUpdatingEventArgs {}
 unsafe impl Sync for CoreTextSelectionUpdatingEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CoreTextSelectionUpdatingResult(pub i32);
+impl CoreTextSelectionUpdatingResult {
+    pub const Succeeded: Self = Self(0i32);
+    pub const Failed: Self = Self(1i32);
+}
+impl windows_core::TypeKind for CoreTextSelectionUpdatingResult {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for CoreTextSelectionUpdatingResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextSelectionUpdatingResult;i4)");
+}
 pub struct CoreTextServicesConstants;
 impl CoreTextServicesConstants {
     pub fn HiddenCharacter() -> windows_core::Result<u16> {
@@ -868,6 +1013,19 @@ impl windows_core::RuntimeName for CoreTextTextUpdatingEventArgs {
 }
 unsafe impl Send for CoreTextTextUpdatingEventArgs {}
 unsafe impl Sync for CoreTextTextUpdatingEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CoreTextTextUpdatingResult(pub i32);
+impl CoreTextTextUpdatingResult {
+    pub const Succeeded: Self = Self(0i32);
+    pub const Failed: Self = Self(1i32);
+}
+impl windows_core::TypeKind for CoreTextTextUpdatingResult {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for CoreTextTextUpdatingResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextTextUpdatingResult;i4)");
+}
 windows_core::imp::define_interface!(ICoreTextCompositionCompletedEventArgs, ICoreTextCompositionCompletedEventArgs_Vtbl, 0x1f34ebb6_b79f_4121_a5e7_fda9b8616e30);
 impl windows_core::RuntimeType for ICoreTextCompositionCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1127,162 +1285,4 @@ pub struct ICoreTextTextUpdatingEventArgs_Vtbl {
     pub SetResult: unsafe extern "system" fn(*mut core::ffi::c_void, CoreTextTextUpdatingResult) -> windows_core::HRESULT,
     pub IsCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CoreTextFormatUpdatingReason(pub i32);
-impl CoreTextFormatUpdatingReason {
-    pub const None: Self = Self(0i32);
-    pub const CompositionUnconverted: Self = Self(1i32);
-    pub const CompositionConverted: Self = Self(2i32);
-    pub const CompositionTargetUnconverted: Self = Self(3i32);
-    pub const CompositionTargetConverted: Self = Self(4i32);
-}
-impl windows_core::TypeKind for CoreTextFormatUpdatingReason {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for CoreTextFormatUpdatingReason {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextFormatUpdatingReason;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CoreTextFormatUpdatingResult(pub i32);
-impl CoreTextFormatUpdatingResult {
-    pub const Succeeded: Self = Self(0i32);
-    pub const Failed: Self = Self(1i32);
-}
-impl windows_core::TypeKind for CoreTextFormatUpdatingResult {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for CoreTextFormatUpdatingResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextFormatUpdatingResult;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CoreTextInputPaneDisplayPolicy(pub i32);
-impl CoreTextInputPaneDisplayPolicy {
-    pub const Automatic: Self = Self(0i32);
-    pub const Manual: Self = Self(1i32);
-}
-impl windows_core::TypeKind for CoreTextInputPaneDisplayPolicy {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for CoreTextInputPaneDisplayPolicy {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextInputPaneDisplayPolicy;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CoreTextInputScope(pub i32);
-impl CoreTextInputScope {
-    pub const Default: Self = Self(0i32);
-    pub const Url: Self = Self(1i32);
-    pub const FilePath: Self = Self(2i32);
-    pub const FileName: Self = Self(3i32);
-    pub const EmailUserName: Self = Self(4i32);
-    pub const EmailAddress: Self = Self(5i32);
-    pub const UserName: Self = Self(6i32);
-    pub const PersonalFullName: Self = Self(7i32);
-    pub const PersonalNamePrefix: Self = Self(8i32);
-    pub const PersonalGivenName: Self = Self(9i32);
-    pub const PersonalMiddleName: Self = Self(10i32);
-    pub const PersonalSurname: Self = Self(11i32);
-    pub const PersonalNameSuffix: Self = Self(12i32);
-    pub const Address: Self = Self(13i32);
-    pub const AddressPostalCode: Self = Self(14i32);
-    pub const AddressStreet: Self = Self(15i32);
-    pub const AddressStateOrProvince: Self = Self(16i32);
-    pub const AddressCity: Self = Self(17i32);
-    pub const AddressCountryName: Self = Self(18i32);
-    pub const AddressCountryShortName: Self = Self(19i32);
-    pub const CurrencyAmountAndSymbol: Self = Self(20i32);
-    pub const CurrencyAmount: Self = Self(21i32);
-    pub const Date: Self = Self(22i32);
-    pub const DateMonth: Self = Self(23i32);
-    pub const DateDay: Self = Self(24i32);
-    pub const DateYear: Self = Self(25i32);
-    pub const DateMonthName: Self = Self(26i32);
-    pub const DateDayName: Self = Self(27i32);
-    pub const Number: Self = Self(29i32);
-    pub const SingleCharacter: Self = Self(30i32);
-    pub const Password: Self = Self(31i32);
-    pub const TelephoneNumber: Self = Self(32i32);
-    pub const TelephoneCountryCode: Self = Self(33i32);
-    pub const TelephoneAreaCode: Self = Self(34i32);
-    pub const TelephoneLocalNumber: Self = Self(35i32);
-    pub const Time: Self = Self(36i32);
-    pub const TimeHour: Self = Self(37i32);
-    pub const TimeMinuteOrSecond: Self = Self(38i32);
-    pub const NumberFullWidth: Self = Self(39i32);
-    pub const AlphanumericHalfWidth: Self = Self(40i32);
-    pub const AlphanumericFullWidth: Self = Self(41i32);
-    pub const CurrencyChinese: Self = Self(42i32);
-    pub const Bopomofo: Self = Self(43i32);
-    pub const Hiragana: Self = Self(44i32);
-    pub const KatakanaHalfWidth: Self = Self(45i32);
-    pub const KatakanaFullWidth: Self = Self(46i32);
-    pub const Hanja: Self = Self(47i32);
-    pub const HangulHalfWidth: Self = Self(48i32);
-    pub const HangulFullWidth: Self = Self(49i32);
-    pub const Search: Self = Self(50i32);
-    pub const Formula: Self = Self(51i32);
-    pub const SearchIncremental: Self = Self(52i32);
-    pub const ChineseHalfWidth: Self = Self(53i32);
-    pub const ChineseFullWidth: Self = Self(54i32);
-    pub const NativeScript: Self = Self(55i32);
-    pub const Text: Self = Self(57i32);
-    pub const Chat: Self = Self(58i32);
-    pub const NameOrPhoneNumber: Self = Self(59i32);
-    pub const EmailUserNameOrAddress: Self = Self(60i32);
-    pub const Private: Self = Self(61i32);
-    pub const Maps: Self = Self(62i32);
-    pub const PasswordNumeric: Self = Self(63i32);
-    pub const FormulaNumber: Self = Self(67i32);
-    pub const ChatWithoutEmoji: Self = Self(68i32);
-    pub const Digits: Self = Self(28i32);
-    pub const PinNumeric: Self = Self(64i32);
-    pub const PinAlphanumeric: Self = Self(65i32);
-}
-impl windows_core::TypeKind for CoreTextInputScope {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for CoreTextInputScope {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextInputScope;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CoreTextSelectionUpdatingResult(pub i32);
-impl CoreTextSelectionUpdatingResult {
-    pub const Succeeded: Self = Self(0i32);
-    pub const Failed: Self = Self(1i32);
-}
-impl windows_core::TypeKind for CoreTextSelectionUpdatingResult {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for CoreTextSelectionUpdatingResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextSelectionUpdatingResult;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CoreTextTextUpdatingResult(pub i32);
-impl CoreTextTextUpdatingResult {
-    pub const Succeeded: Self = Self(0i32);
-    pub const Failed: Self = Self(1i32);
-}
-impl windows_core::TypeKind for CoreTextTextUpdatingResult {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for CoreTextTextUpdatingResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextTextUpdatingResult;i4)");
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CoreTextRange {
-    pub StartCaretPosition: i32,
-    pub EndCaretPosition: i32,
-}
-impl windows_core::TypeKind for CoreTextRange {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for CoreTextRange {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Text.Core.CoreTextRange;i4;i4)");
 }

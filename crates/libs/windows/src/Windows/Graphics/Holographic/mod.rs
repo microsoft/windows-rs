@@ -1,3 +1,15 @@
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct HolographicAdapterId {
+    pub LowPart: u32,
+    pub HighPart: i32,
+}
+impl windows_core::TypeKind for HolographicAdapterId {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HolographicAdapterId {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicAdapterId;u4;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HolographicCamera(windows_core::IUnknown);
@@ -373,6 +385,19 @@ impl windows_core::RuntimeName for HolographicCameraViewportParameters {
 unsafe impl Send for HolographicCameraViewportParameters {}
 unsafe impl Sync for HolographicCameraViewportParameters {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HolographicDepthReprojectionMethod(pub i32);
+impl HolographicDepthReprojectionMethod {
+    pub const DepthReprojection: Self = Self(0i32);
+    pub const AutoPlanar: Self = Self(1i32);
+}
+impl windows_core::TypeKind for HolographicDepthReprojectionMethod {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HolographicDepthReprojectionMethod {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicDepthReprojectionMethod;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HolographicDisplay(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicDisplay, windows_core::IUnknown, windows_core::IInspectable);
@@ -554,6 +579,17 @@ impl windows_core::RuntimeName for HolographicFrame {
 }
 unsafe impl Send for HolographicFrame {}
 unsafe impl Sync for HolographicFrame {}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct HolographicFrameId {
+    pub Value: u64,
+}
+impl windows_core::TypeKind for HolographicFrameId {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HolographicFrameId {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicFrameId;u8)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HolographicFramePrediction(windows_core::IUnknown);
@@ -588,6 +624,32 @@ impl windows_core::RuntimeName for HolographicFramePrediction {
 }
 unsafe impl Send for HolographicFramePrediction {}
 unsafe impl Sync for HolographicFramePrediction {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HolographicFramePresentResult(pub i32);
+impl HolographicFramePresentResult {
+    pub const Success: Self = Self(0i32);
+    pub const DeviceRemoved: Self = Self(1i32);
+}
+impl windows_core::TypeKind for HolographicFramePresentResult {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HolographicFramePresentResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicFramePresentResult;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HolographicFramePresentWaitBehavior(pub i32);
+impl HolographicFramePresentWaitBehavior {
+    pub const WaitForFrameToFinish: Self = Self(0i32);
+    pub const DoNotWaitForFrameToFinish: Self = Self(1i32);
+}
+impl windows_core::TypeKind for HolographicFramePresentWaitBehavior {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HolographicFramePresentWaitBehavior {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicFramePresentWaitBehavior;i4)");
+}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -955,6 +1017,20 @@ impl windows_core::RuntimeName for HolographicQuadLayerUpdateParameters {
 unsafe impl Send for HolographicQuadLayerUpdateParameters {}
 unsafe impl Sync for HolographicQuadLayerUpdateParameters {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HolographicReprojectionMode(pub i32);
+impl HolographicReprojectionMode {
+    pub const PositionAndOrientation: Self = Self(0i32);
+    pub const OrientationOnly: Self = Self(1i32);
+    pub const Disabled: Self = Self(2i32);
+}
+impl windows_core::TypeKind for HolographicReprojectionMode {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HolographicReprojectionMode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicReprojectionMode;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HolographicSpace(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicSpace, windows_core::IUnknown, windows_core::IInspectable);
@@ -1175,6 +1251,32 @@ impl windows_core::RuntimeName for HolographicSpaceCameraRemovedEventArgs {
 unsafe impl Send for HolographicSpaceCameraRemovedEventArgs {}
 unsafe impl Sync for HolographicSpaceCameraRemovedEventArgs {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HolographicSpaceUserPresence(pub i32);
+impl HolographicSpaceUserPresence {
+    pub const Absent: Self = Self(0i32);
+    pub const PresentPassive: Self = Self(1i32);
+    pub const PresentActive: Self = Self(2i32);
+}
+impl windows_core::TypeKind for HolographicSpaceUserPresence {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HolographicSpaceUserPresence {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicSpaceUserPresence;i4)");
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct HolographicStereoTransform {
+    pub Left: super::super::Foundation::Numerics::Matrix4x4,
+    pub Right: super::super::Foundation::Numerics::Matrix4x4,
+}
+impl windows_core::TypeKind for HolographicStereoTransform {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HolographicStereoTransform {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicStereoTransform;struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4);struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4))");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HolographicViewConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicViewConfiguration, windows_core::IUnknown, windows_core::IInspectable);
@@ -1281,6 +1383,19 @@ impl windows_core::RuntimeName for HolographicViewConfiguration {
 }
 unsafe impl Send for HolographicViewConfiguration {}
 unsafe impl Sync for HolographicViewConfiguration {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HolographicViewConfigurationKind(pub i32);
+impl HolographicViewConfigurationKind {
+    pub const Display: Self = Self(0i32);
+    pub const PhotoVideoCamera: Self = Self(1i32);
+}
+impl windows_core::TypeKind for HolographicViewConfigurationKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HolographicViewConfigurationKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicViewConfigurationKind;i4)");
+}
 windows_core::imp::define_interface!(IHolographicCamera, IHolographicCamera_Vtbl, 0xe4e98445_9bed_4980_9ba0_e87680d1cb74);
 impl windows_core::RuntimeType for IHolographicCamera {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1857,119 +1972,4 @@ pub struct IHolographicViewConfiguration2_Vtbl {
     pub SupportedDepthReprojectionMethods: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     SupportedDepthReprojectionMethods: usize,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HolographicDepthReprojectionMethod(pub i32);
-impl HolographicDepthReprojectionMethod {
-    pub const DepthReprojection: Self = Self(0i32);
-    pub const AutoPlanar: Self = Self(1i32);
-}
-impl windows_core::TypeKind for HolographicDepthReprojectionMethod {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HolographicDepthReprojectionMethod {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicDepthReprojectionMethod;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HolographicFramePresentResult(pub i32);
-impl HolographicFramePresentResult {
-    pub const Success: Self = Self(0i32);
-    pub const DeviceRemoved: Self = Self(1i32);
-}
-impl windows_core::TypeKind for HolographicFramePresentResult {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HolographicFramePresentResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicFramePresentResult;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HolographicFramePresentWaitBehavior(pub i32);
-impl HolographicFramePresentWaitBehavior {
-    pub const WaitForFrameToFinish: Self = Self(0i32);
-    pub const DoNotWaitForFrameToFinish: Self = Self(1i32);
-}
-impl windows_core::TypeKind for HolographicFramePresentWaitBehavior {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HolographicFramePresentWaitBehavior {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicFramePresentWaitBehavior;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HolographicReprojectionMode(pub i32);
-impl HolographicReprojectionMode {
-    pub const PositionAndOrientation: Self = Self(0i32);
-    pub const OrientationOnly: Self = Self(1i32);
-    pub const Disabled: Self = Self(2i32);
-}
-impl windows_core::TypeKind for HolographicReprojectionMode {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HolographicReprojectionMode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicReprojectionMode;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HolographicSpaceUserPresence(pub i32);
-impl HolographicSpaceUserPresence {
-    pub const Absent: Self = Self(0i32);
-    pub const PresentPassive: Self = Self(1i32);
-    pub const PresentActive: Self = Self(2i32);
-}
-impl windows_core::TypeKind for HolographicSpaceUserPresence {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HolographicSpaceUserPresence {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicSpaceUserPresence;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HolographicViewConfigurationKind(pub i32);
-impl HolographicViewConfigurationKind {
-    pub const Display: Self = Self(0i32);
-    pub const PhotoVideoCamera: Self = Self(1i32);
-}
-impl windows_core::TypeKind for HolographicViewConfigurationKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HolographicViewConfigurationKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicViewConfigurationKind;i4)");
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct HolographicAdapterId {
-    pub LowPart: u32,
-    pub HighPart: i32,
-}
-impl windows_core::TypeKind for HolographicAdapterId {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HolographicAdapterId {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicAdapterId;u4;i4)");
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct HolographicFrameId {
-    pub Value: u64,
-}
-impl windows_core::TypeKind for HolographicFrameId {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HolographicFrameId {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicFrameId;u8)");
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct HolographicStereoTransform {
-    pub Left: super::super::Foundation::Numerics::Matrix4x4,
-    pub Right: super::super::Foundation::Numerics::Matrix4x4,
-}
-impl windows_core::TypeKind for HolographicStereoTransform {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HolographicStereoTransform {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicStereoTransform;struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4);struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4))");
 }

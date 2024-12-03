@@ -4,6 +4,20 @@ pub mod Certificates;
 pub mod Core;
 #[cfg(feature = "Security_Cryptography_DataProtection")]
 pub mod DataProtection;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BinaryStringEncoding(pub i32);
+impl BinaryStringEncoding {
+    pub const Utf8: Self = Self(0i32);
+    pub const Utf16LE: Self = Self(1i32);
+    pub const Utf16BE: Self = Self(2i32);
+}
+impl windows_core::TypeKind for BinaryStringEncoding {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for BinaryStringEncoding {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.BinaryStringEncoding;i4)");
+}
 pub struct CryptographicBuffer;
 impl CryptographicBuffer {
     #[cfg(feature = "Storage_Streams")]
@@ -151,18 +165,4 @@ pub struct ICryptographicBufferStatics_Vtbl {
     pub ConvertBinaryToString: unsafe extern "system" fn(*mut core::ffi::c_void, BinaryStringEncoding, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     ConvertBinaryToString: usize,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BinaryStringEncoding(pub i32);
-impl BinaryStringEncoding {
-    pub const Utf8: Self = Self(0i32);
-    pub const Utf16LE: Self = Self(1i32);
-    pub const Utf16BE: Self = Self(2i32);
-}
-impl windows_core::TypeKind for BinaryStringEncoding {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for BinaryStringEncoding {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.BinaryStringEncoding;i4)");
 }

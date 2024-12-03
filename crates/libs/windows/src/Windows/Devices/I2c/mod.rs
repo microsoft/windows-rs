@@ -1,6 +1,19 @@
 #[cfg(feature = "Devices_I2c_Provider")]
 pub mod Provider;
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct I2cBusSpeed(pub i32);
+impl I2cBusSpeed {
+    pub const StandardMode: Self = Self(0i32);
+    pub const FastMode: Self = Self(1i32);
+}
+impl windows_core::TypeKind for I2cBusSpeed {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for I2cBusSpeed {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.I2cBusSpeed;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct I2cConnectionSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(I2cConnectionSettings, windows_core::IUnknown, windows_core::IInspectable);
@@ -204,6 +217,47 @@ impl windows_core::RuntimeName for I2cDevice {
 }
 unsafe impl Send for I2cDevice {}
 unsafe impl Sync for I2cDevice {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct I2cSharingMode(pub i32);
+impl I2cSharingMode {
+    pub const Exclusive: Self = Self(0i32);
+    pub const Shared: Self = Self(1i32);
+}
+impl windows_core::TypeKind for I2cSharingMode {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for I2cSharingMode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.I2cSharingMode;i4)");
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct I2cTransferResult {
+    pub Status: I2cTransferStatus,
+    pub BytesTransferred: u32,
+}
+impl windows_core::TypeKind for I2cTransferResult {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for I2cTransferResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.I2c.I2cTransferResult;enum(Windows.Devices.I2c.I2cTransferStatus;i4);u4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct I2cTransferStatus(pub i32);
+impl I2cTransferStatus {
+    pub const FullTransfer: Self = Self(0i32);
+    pub const PartialTransfer: Self = Self(1i32);
+    pub const SlaveAddressNotAcknowledged: Self = Self(2i32);
+    pub const ClockStretchTimeout: Self = Self(3i32);
+    pub const UnknownError: Self = Self(4i32);
+}
+impl windows_core::TypeKind for I2cTransferStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for I2cTransferStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.I2cTransferStatus;i4)");
+}
 windows_core::imp::define_interface!(II2cConnectionSettings, II2cConnectionSettings_Vtbl, 0xf2db1307_ab6f_4639_a767_54536dc3460f);
 impl windows_core::RuntimeType for II2cConnectionSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -356,58 +410,4 @@ pub struct II2cDeviceStatics_Vtbl {
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceSelectorFromFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct I2cBusSpeed(pub i32);
-impl I2cBusSpeed {
-    pub const StandardMode: Self = Self(0i32);
-    pub const FastMode: Self = Self(1i32);
-}
-impl windows_core::TypeKind for I2cBusSpeed {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for I2cBusSpeed {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.I2cBusSpeed;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct I2cSharingMode(pub i32);
-impl I2cSharingMode {
-    pub const Exclusive: Self = Self(0i32);
-    pub const Shared: Self = Self(1i32);
-}
-impl windows_core::TypeKind for I2cSharingMode {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for I2cSharingMode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.I2cSharingMode;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct I2cTransferStatus(pub i32);
-impl I2cTransferStatus {
-    pub const FullTransfer: Self = Self(0i32);
-    pub const PartialTransfer: Self = Self(1i32);
-    pub const SlaveAddressNotAcknowledged: Self = Self(2i32);
-    pub const ClockStretchTimeout: Self = Self(3i32);
-    pub const UnknownError: Self = Self(4i32);
-}
-impl windows_core::TypeKind for I2cTransferStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for I2cTransferStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.I2cTransferStatus;i4)");
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct I2cTransferResult {
-    pub Status: I2cTransferStatus,
-    pub BytesTransferred: u32,
-}
-impl windows_core::TypeKind for I2cTransferResult {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for I2cTransferResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.I2c.I2cTransferResult;enum(Windows.Devices.I2c.I2cTransferStatus;i4);u4)");
 }

@@ -1,3 +1,332 @@
+windows_core::imp::define_interface!(IPrintSupportCommunicationErrorDetectedEventArgs, IPrintSupportCommunicationErrorDetectedEventArgs_Vtbl, 0x9c90151e_ad1b_5081_a491_4a2d94244f2d);
+impl windows_core::RuntimeType for IPrintSupportCommunicationErrorDetectedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPrintSupportCommunicationErrorDetectedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ErrorKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IppCommunicationErrorKind) -> windows_core::HRESULT,
+    pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
+    pub CommunicationConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPrintSupportExtensionSession, IPrintSupportExtensionSession_Vtbl, 0xeea45f1a_f4c6_54b3_a0b8_a559839aa4c3);
+impl windows_core::RuntimeType for IPrintSupportExtensionSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPrintSupportExtensionSession_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Devices_Printers")]
+    pub Printer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Printers"))]
+    Printer: usize,
+    pub PrintTicketValidationRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePrintTicketValidationRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub PrintDeviceCapabilitiesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePrintDeviceCapabilitiesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPrintSupportExtensionSession2, IPrintSupportExtensionSession2_Vtbl, 0x10fa8c11_6de8_5765_8fcf_e716e0f27ed1);
+impl windows_core::RuntimeType for IPrintSupportExtensionSession2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPrintSupportExtensionSession2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub PrinterSelected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePrinterSelected: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPrintSupportExtensionSession3, IPrintSupportExtensionSession3_Vtbl, 0x0d1b755d_1273_5e14_81d3_b6bb582b9ed8);
+impl windows_core::RuntimeType for IPrintSupportExtensionSession3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPrintSupportExtensionSession3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CommunicationErrorDetected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveCommunicationErrorDetected: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPrintSupportExtensionTriggerDetails, IPrintSupportExtensionTriggerDetails_Vtbl, 0xae083711_9b09_55d1_a0ae_2a14c5f83d6a);
+impl windows_core::RuntimeType for IPrintSupportExtensionTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPrintSupportExtensionTriggerDetails_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Session: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPrintSupportIppCommunicationConfiguration, IPrintSupportIppCommunicationConfiguration_Vtbl, 0xdbc36e0b_2d90_53b9_90d2_93faf30dafdd);
+impl windows_core::RuntimeType for IPrintSupportIppCommunicationConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPrintSupportIppCommunicationConfiguration_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CommunicationKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IppPrinterCommunicationKind) -> windows_core::HRESULT,
+    pub CanModifyTimeouts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IppAttributeTimeouts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub IppJobTimeouts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPrintSupportIppCommunicationTimeouts, IPrintSupportIppCommunicationTimeouts_Vtbl, 0xa3b2de71_564c_5806_a1a9_c6043ca5d373);
+impl windows_core::RuntimeType for IPrintSupportIppCommunicationTimeouts {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPrintSupportIppCommunicationTimeouts_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ConnectTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SetConnectTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SendTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SetSendTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub ReceiveTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SetReceiveTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPrintSupportMxdcImageQualityConfiguration, IPrintSupportMxdcImageQualityConfiguration_Vtbl, 0x0e0d0b86_d202_58a3_a1ed_2ef9dbc0f291);
+impl windows_core::RuntimeType for IPrintSupportMxdcImageQualityConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPrintSupportMxdcImageQualityConfiguration_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub NormalOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XpsImageQuality) -> windows_core::HRESULT,
+    pub SetNormalOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, XpsImageQuality) -> windows_core::HRESULT,
+    pub DraftOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XpsImageQuality) -> windows_core::HRESULT,
+    pub SetDraftOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, XpsImageQuality) -> windows_core::HRESULT,
+    pub HighOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XpsImageQuality) -> windows_core::HRESULT,
+    pub SetHighOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, XpsImageQuality) -> windows_core::HRESULT,
+    pub PhotographicOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XpsImageQuality) -> windows_core::HRESULT,
+    pub SetPhotographicOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, XpsImageQuality) -> windows_core::HRESULT,
+    pub TextOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XpsImageQuality) -> windows_core::HRESULT,
+    pub SetTextOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, XpsImageQuality) -> windows_core::HRESULT,
+    pub AutomaticOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XpsImageQuality) -> windows_core::HRESULT,
+    pub SetAutomaticOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, XpsImageQuality) -> windows_core::HRESULT,
+    pub FaxOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XpsImageQuality) -> windows_core::HRESULT,
+    pub SetFaxOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, XpsImageQuality) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPrintSupportPrintDeviceCapabilitiesChangedEventArgs, IPrintSupportPrintDeviceCapabilitiesChangedEventArgs_Vtbl, 0x15969bf0_9028_5722_8a37_7d7c34b41dd6);
+impl windows_core::RuntimeType for IPrintSupportPrintDeviceCapabilitiesChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Data_Xml_Dom")]
+    pub GetCurrentPrintDeviceCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Data_Xml_Dom"))]
+    GetCurrentPrintDeviceCapabilities: usize,
+    #[cfg(feature = "Data_Xml_Dom")]
+    pub UpdatePrintDeviceCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Data_Xml_Dom"))]
+    UpdatePrintDeviceCapabilities: usize,
+    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2, IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2_Vtbl, 0x469df9e7_fd07_5eeb_a07d_9fcc67f089ba);
+impl windows_core::RuntimeType for IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SetSupportedPdlPassthroughContentTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SetSupportedPdlPassthroughContentTypes: usize,
+    pub ResourceLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Data_Xml_Dom")]
+    pub GetCurrentPrintDeviceResources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Data_Xml_Dom"))]
+    GetCurrentPrintDeviceResources: usize,
+    #[cfg(feature = "Data_Xml_Dom")]
+    pub UpdatePrintDeviceResources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Data_Xml_Dom"))]
+    UpdatePrintDeviceResources: usize,
+    pub SetPrintDeviceCapabilitiesUpdatePolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPrintSupportPrintDeviceCapabilitiesChangedEventArgs3, IPrintSupportPrintDeviceCapabilitiesChangedEventArgs3_Vtbl, 0xd4e9b3fc_8094_5cb6_a343_ce7a97187b45);
+impl windows_core::RuntimeType for IPrintSupportPrintDeviceCapabilitiesChangedEventArgs3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CommunicationConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPrintSupportPrintDeviceCapabilitiesChangedEventArgs4, IPrintSupportPrintDeviceCapabilitiesChangedEventArgs4_Vtbl, 0x31734ad5_9bfb_5bfb_bdef_8476258e3390);
+impl windows_core::RuntimeType for IPrintSupportPrintDeviceCapabilitiesChangedEventArgs4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs4_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub MxdcImageQualityConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPrintSupportPrintDeviceCapabilitiesUpdatePolicy, IPrintSupportPrintDeviceCapabilitiesUpdatePolicy_Vtbl, 0x5f5fc025_8c35_5529_8038_8cdc3634bbcd);
+impl windows_core::RuntimeType for IPrintSupportPrintDeviceCapabilitiesUpdatePolicy {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPrintSupportPrintDeviceCapabilitiesUpdatePolicy_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics, IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics_Vtbl, 0x3d9e1a70_7c39_551f_aa1f_f8ca35b3119e);
+impl windows_core::RuntimeType for IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreatePeriodicRefresh: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreatePrintJobRefresh: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPrintSupportPrintTicketElement, IPrintSupportPrintTicketElement_Vtbl, 0x4b2a4489_730d_5be7_80e6_8332941abf13);
+impl windows_core::RuntimeType for IPrintSupportPrintTicketElement {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPrintSupportPrintTicketElement_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub LocalName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetLocalName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub NamespaceUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetNamespaceUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPrintSupportPrintTicketValidationRequestedEventArgs, IPrintSupportPrintTicketValidationRequestedEventArgs_Vtbl, 0x338e4e69_db55_55c7_8338_ef64680a8f90);
+impl windows_core::RuntimeType for IPrintSupportPrintTicketValidationRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPrintSupportPrintTicketValidationRequestedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Graphics_Printing_PrintTicket")]
+    pub PrintTicket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_Printing_PrintTicket"))]
+    PrintTicket: usize,
+    pub SetPrintTicketValidationStatus: unsafe extern "system" fn(*mut core::ffi::c_void, WorkflowPrintTicketValidationStatus) -> windows_core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPrintSupportPrinterSelectedEventArgs, IPrintSupportPrinterSelectedEventArgs_Vtbl, 0x7b1cb7d9_a8a4_5c09_adb2_66165f817977);
+impl windows_core::RuntimeType for IPrintSupportPrinterSelectedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPrintSupportPrinterSelectedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "ApplicationModel")]
+    pub SourceAppInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel"))]
+    SourceAppInfo: usize,
+    #[cfg(feature = "Graphics_Printing_PrintTicket")]
+    pub PrintTicket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_Printing_PrintTicket"))]
+    PrintTicket: usize,
+    #[cfg(feature = "Graphics_Printing_PrintTicket")]
+    pub SetPrintTicket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_Printing_PrintTicket"))]
+    SetPrintTicket: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SetAdditionalFeatures: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SetAdditionalFeatures: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SetAdditionalParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SetAdditionalParameters: usize,
+    pub AllowedAdditionalFeaturesAndParametersCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "UI_Shell")]
+    pub SetAdaptiveCard: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "UI_Shell"))]
+    SetAdaptiveCard: usize,
+    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPrintSupportSessionInfo, IPrintSupportSessionInfo_Vtbl, 0x852149af_777d_53e9_9ee9_45d3f4b5be9c);
+impl windows_core::RuntimeType for IPrintSupportSessionInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPrintSupportSessionInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "ApplicationModel")]
+    pub SourceAppInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel"))]
+    SourceAppInfo: usize,
+    #[cfg(feature = "Devices_Printers")]
+    pub Printer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Printers"))]
+    Printer: usize,
+}
+windows_core::imp::define_interface!(IPrintSupportSettingsActivatedEventArgs, IPrintSupportSettingsActivatedEventArgs_Vtbl, 0x1e1b565e_a013_55ea_9b8c_eea39d9fb6c1);
+impl windows_core::RuntimeType for IPrintSupportSettingsActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPrintSupportSettingsActivatedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Session: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPrintSupportSettingsActivatedEventArgs2, IPrintSupportSettingsActivatedEventArgs2_Vtbl, 0xabe45f6e_dc9d_5403_8107_c864d9276367);
+impl windows_core::RuntimeType for IPrintSupportSettingsActivatedEventArgs2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPrintSupportSettingsActivatedEventArgs2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "UI")]
+    pub OwnerWindowId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::UI::WindowId) -> windows_core::HRESULT,
+    #[cfg(not(feature = "UI"))]
+    OwnerWindowId: usize,
+}
+windows_core::imp::define_interface!(IPrintSupportSettingsUISession, IPrintSupportSettingsUISession_Vtbl, 0xc6da2251_83c3_55e4_a0f8_5de8b062adbf);
+impl windows_core::RuntimeType for IPrintSupportSettingsUISession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPrintSupportSettingsUISession_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Graphics_Printing_PrintTicket")]
+    pub SessionPrintTicket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_Printing_PrintTicket"))]
+    SessionPrintTicket: usize,
+    pub DocumentTitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LaunchKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SettingsLaunchKind) -> windows_core::HRESULT,
+    #[cfg(feature = "Graphics_Printing_PrintTicket")]
+    pub UpdatePrintTicket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_Printing_PrintTicket"))]
+    UpdatePrintTicket: usize,
+    pub SessionInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IppCommunicationErrorKind(pub i32);
+impl IppCommunicationErrorKind {
+    pub const Other: Self = Self(0i32);
+    pub const Timeout: Self = Self(1i32);
+    pub const ConnectionError: Self = Self(2i32);
+    pub const AccessDenied: Self = Self(3i32);
+}
+impl windows_core::TypeKind for IppCommunicationErrorKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for IppCommunicationErrorKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.IppCommunicationErrorKind;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IppPrinterCommunicationKind(pub i32);
+impl IppPrinterCommunicationKind {
+    pub const Network: Self = Self(0i32);
+    pub const Usb: Self = Self(1i32);
+    pub const PrinterConnection: Self = Self(2i32);
+    pub const UniversalPrint: Self = Self(3i32);
+    pub const VirtualPrinter: Self = Self(4i32);
+}
+impl windows_core::TypeKind for IppPrinterCommunicationKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for IppPrinterCommunicationKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.IppPrinterCommunicationKind;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintSupportCommunicationErrorDetectedEventArgs(windows_core::IUnknown);
@@ -809,335 +1138,6 @@ impl windows_core::RuntimeName for PrintSupportSettingsUISession {
 }
 unsafe impl Send for PrintSupportSettingsUISession {}
 unsafe impl Sync for PrintSupportSettingsUISession {}
-windows_core::imp::define_interface!(IPrintSupportCommunicationErrorDetectedEventArgs, IPrintSupportCommunicationErrorDetectedEventArgs_Vtbl, 0x9c90151e_ad1b_5081_a491_4a2d94244f2d);
-impl windows_core::RuntimeType for IPrintSupportCommunicationErrorDetectedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPrintSupportCommunicationErrorDetectedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ErrorKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IppCommunicationErrorKind) -> windows_core::HRESULT,
-    pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
-    pub CommunicationConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPrintSupportExtensionSession, IPrintSupportExtensionSession_Vtbl, 0xeea45f1a_f4c6_54b3_a0b8_a559839aa4c3);
-impl windows_core::RuntimeType for IPrintSupportExtensionSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPrintSupportExtensionSession_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Devices_Printers")]
-    pub Printer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Devices_Printers"))]
-    Printer: usize,
-    pub PrintTicketValidationRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePrintTicketValidationRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub PrintDeviceCapabilitiesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePrintDeviceCapabilitiesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPrintSupportExtensionSession2, IPrintSupportExtensionSession2_Vtbl, 0x10fa8c11_6de8_5765_8fcf_e716e0f27ed1);
-impl windows_core::RuntimeType for IPrintSupportExtensionSession2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPrintSupportExtensionSession2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub PrinterSelected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemovePrinterSelected: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPrintSupportExtensionSession3, IPrintSupportExtensionSession3_Vtbl, 0x0d1b755d_1273_5e14_81d3_b6bb582b9ed8);
-impl windows_core::RuntimeType for IPrintSupportExtensionSession3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPrintSupportExtensionSession3_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CommunicationErrorDetected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveCommunicationErrorDetected: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPrintSupportExtensionTriggerDetails, IPrintSupportExtensionTriggerDetails_Vtbl, 0xae083711_9b09_55d1_a0ae_2a14c5f83d6a);
-impl windows_core::RuntimeType for IPrintSupportExtensionTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPrintSupportExtensionTriggerDetails_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Session: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPrintSupportIppCommunicationConfiguration, IPrintSupportIppCommunicationConfiguration_Vtbl, 0xdbc36e0b_2d90_53b9_90d2_93faf30dafdd);
-impl windows_core::RuntimeType for IPrintSupportIppCommunicationConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPrintSupportIppCommunicationConfiguration_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CommunicationKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IppPrinterCommunicationKind) -> windows_core::HRESULT,
-    pub CanModifyTimeouts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IppAttributeTimeouts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IppJobTimeouts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPrintSupportIppCommunicationTimeouts, IPrintSupportIppCommunicationTimeouts_Vtbl, 0xa3b2de71_564c_5806_a1a9_c6043ca5d373);
-impl windows_core::RuntimeType for IPrintSupportIppCommunicationTimeouts {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPrintSupportIppCommunicationTimeouts_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ConnectTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetConnectTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SendTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetSendTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub ReceiveTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetReceiveTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPrintSupportMxdcImageQualityConfiguration, IPrintSupportMxdcImageQualityConfiguration_Vtbl, 0x0e0d0b86_d202_58a3_a1ed_2ef9dbc0f291);
-impl windows_core::RuntimeType for IPrintSupportMxdcImageQualityConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPrintSupportMxdcImageQualityConfiguration_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub NormalOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XpsImageQuality) -> windows_core::HRESULT,
-    pub SetNormalOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, XpsImageQuality) -> windows_core::HRESULT,
-    pub DraftOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XpsImageQuality) -> windows_core::HRESULT,
-    pub SetDraftOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, XpsImageQuality) -> windows_core::HRESULT,
-    pub HighOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XpsImageQuality) -> windows_core::HRESULT,
-    pub SetHighOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, XpsImageQuality) -> windows_core::HRESULT,
-    pub PhotographicOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XpsImageQuality) -> windows_core::HRESULT,
-    pub SetPhotographicOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, XpsImageQuality) -> windows_core::HRESULT,
-    pub TextOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XpsImageQuality) -> windows_core::HRESULT,
-    pub SetTextOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, XpsImageQuality) -> windows_core::HRESULT,
-    pub AutomaticOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XpsImageQuality) -> windows_core::HRESULT,
-    pub SetAutomaticOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, XpsImageQuality) -> windows_core::HRESULT,
-    pub FaxOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XpsImageQuality) -> windows_core::HRESULT,
-    pub SetFaxOutputQuality: unsafe extern "system" fn(*mut core::ffi::c_void, XpsImageQuality) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPrintSupportPrintDeviceCapabilitiesChangedEventArgs, IPrintSupportPrintDeviceCapabilitiesChangedEventArgs_Vtbl, 0x15969bf0_9028_5722_8a37_7d7c34b41dd6);
-impl windows_core::RuntimeType for IPrintSupportPrintDeviceCapabilitiesChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Data_Xml_Dom")]
-    pub GetCurrentPrintDeviceCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Data_Xml_Dom"))]
-    GetCurrentPrintDeviceCapabilities: usize,
-    #[cfg(feature = "Data_Xml_Dom")]
-    pub UpdatePrintDeviceCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Data_Xml_Dom"))]
-    UpdatePrintDeviceCapabilities: usize,
-    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2, IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2_Vtbl, 0x469df9e7_fd07_5eeb_a07d_9fcc67f089ba);
-impl windows_core::RuntimeType for IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SetSupportedPdlPassthroughContentTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetSupportedPdlPassthroughContentTypes: usize,
-    pub ResourceLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Data_Xml_Dom")]
-    pub GetCurrentPrintDeviceResources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Data_Xml_Dom"))]
-    GetCurrentPrintDeviceResources: usize,
-    #[cfg(feature = "Data_Xml_Dom")]
-    pub UpdatePrintDeviceResources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Data_Xml_Dom"))]
-    UpdatePrintDeviceResources: usize,
-    pub SetPrintDeviceCapabilitiesUpdatePolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPrintSupportPrintDeviceCapabilitiesChangedEventArgs3, IPrintSupportPrintDeviceCapabilitiesChangedEventArgs3_Vtbl, 0xd4e9b3fc_8094_5cb6_a343_ce7a97187b45);
-impl windows_core::RuntimeType for IPrintSupportPrintDeviceCapabilitiesChangedEventArgs3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs3_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CommunicationConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPrintSupportPrintDeviceCapabilitiesChangedEventArgs4, IPrintSupportPrintDeviceCapabilitiesChangedEventArgs4_Vtbl, 0x31734ad5_9bfb_5bfb_bdef_8476258e3390);
-impl windows_core::RuntimeType for IPrintSupportPrintDeviceCapabilitiesChangedEventArgs4 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs4_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub MxdcImageQualityConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPrintSupportPrintDeviceCapabilitiesUpdatePolicy, IPrintSupportPrintDeviceCapabilitiesUpdatePolicy_Vtbl, 0x5f5fc025_8c35_5529_8038_8cdc3634bbcd);
-impl windows_core::RuntimeType for IPrintSupportPrintDeviceCapabilitiesUpdatePolicy {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPrintSupportPrintDeviceCapabilitiesUpdatePolicy_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
-windows_core::imp::define_interface!(IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics, IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics_Vtbl, 0x3d9e1a70_7c39_551f_aa1f_f8ca35b3119e);
-impl windows_core::RuntimeType for IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CreatePeriodicRefresh: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreatePrintJobRefresh: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPrintSupportPrintTicketElement, IPrintSupportPrintTicketElement_Vtbl, 0x4b2a4489_730d_5be7_80e6_8332941abf13);
-impl windows_core::RuntimeType for IPrintSupportPrintTicketElement {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPrintSupportPrintTicketElement_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub LocalName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetLocalName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub NamespaceUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetNamespaceUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPrintSupportPrintTicketValidationRequestedEventArgs, IPrintSupportPrintTicketValidationRequestedEventArgs_Vtbl, 0x338e4e69_db55_55c7_8338_ef64680a8f90);
-impl windows_core::RuntimeType for IPrintSupportPrintTicketValidationRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPrintSupportPrintTicketValidationRequestedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub PrintTicket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Graphics_Printing_PrintTicket"))]
-    PrintTicket: usize,
-    pub SetPrintTicketValidationStatus: unsafe extern "system" fn(*mut core::ffi::c_void, WorkflowPrintTicketValidationStatus) -> windows_core::HRESULT,
-    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPrintSupportPrinterSelectedEventArgs, IPrintSupportPrinterSelectedEventArgs_Vtbl, 0x7b1cb7d9_a8a4_5c09_adb2_66165f817977);
-impl windows_core::RuntimeType for IPrintSupportPrinterSelectedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPrintSupportPrinterSelectedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "ApplicationModel")]
-    pub SourceAppInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel"))]
-    SourceAppInfo: usize,
-    #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub PrintTicket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Graphics_Printing_PrintTicket"))]
-    PrintTicket: usize,
-    #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub SetPrintTicket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Graphics_Printing_PrintTicket"))]
-    SetPrintTicket: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SetAdditionalFeatures: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetAdditionalFeatures: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SetAdditionalParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetAdditionalParameters: usize,
-    pub AllowedAdditionalFeaturesAndParametersCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "UI_Shell")]
-    pub SetAdaptiveCard: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI_Shell"))]
-    SetAdaptiveCard: usize,
-    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPrintSupportSessionInfo, IPrintSupportSessionInfo_Vtbl, 0x852149af_777d_53e9_9ee9_45d3f4b5be9c);
-impl windows_core::RuntimeType for IPrintSupportSessionInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPrintSupportSessionInfo_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "ApplicationModel")]
-    pub SourceAppInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel"))]
-    SourceAppInfo: usize,
-    #[cfg(feature = "Devices_Printers")]
-    pub Printer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Devices_Printers"))]
-    Printer: usize,
-}
-windows_core::imp::define_interface!(IPrintSupportSettingsActivatedEventArgs, IPrintSupportSettingsActivatedEventArgs_Vtbl, 0x1e1b565e_a013_55ea_9b8c_eea39d9fb6c1);
-impl windows_core::RuntimeType for IPrintSupportSettingsActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPrintSupportSettingsActivatedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Session: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPrintSupportSettingsActivatedEventArgs2, IPrintSupportSettingsActivatedEventArgs2_Vtbl, 0xabe45f6e_dc9d_5403_8107_c864d9276367);
-impl windows_core::RuntimeType for IPrintSupportSettingsActivatedEventArgs2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPrintSupportSettingsActivatedEventArgs2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "UI")]
-    pub OwnerWindowId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::UI::WindowId) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI"))]
-    OwnerWindowId: usize,
-}
-windows_core::imp::define_interface!(IPrintSupportSettingsUISession, IPrintSupportSettingsUISession_Vtbl, 0xc6da2251_83c3_55e4_a0f8_5de8b062adbf);
-impl windows_core::RuntimeType for IPrintSupportSettingsUISession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPrintSupportSettingsUISession_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub SessionPrintTicket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Graphics_Printing_PrintTicket"))]
-    SessionPrintTicket: usize,
-    pub DocumentTitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub LaunchKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SettingsLaunchKind) -> windows_core::HRESULT,
-    #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub UpdatePrintTicket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Graphics_Printing_PrintTicket"))]
-    UpdatePrintTicket: usize,
-    pub SessionInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IppCommunicationErrorKind(pub i32);
-impl IppCommunicationErrorKind {
-    pub const Other: Self = Self(0i32);
-    pub const Timeout: Self = Self(1i32);
-    pub const ConnectionError: Self = Self(2i32);
-    pub const AccessDenied: Self = Self(3i32);
-}
-impl windows_core::TypeKind for IppCommunicationErrorKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for IppCommunicationErrorKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.IppCommunicationErrorKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IppPrinterCommunicationKind(pub i32);
-impl IppPrinterCommunicationKind {
-    pub const Network: Self = Self(0i32);
-    pub const Usb: Self = Self(1i32);
-    pub const PrinterConnection: Self = Self(2i32);
-    pub const UniversalPrint: Self = Self(3i32);
-    pub const VirtualPrinter: Self = Self(4i32);
-}
-impl windows_core::TypeKind for IppPrinterCommunicationKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for IppPrinterCommunicationKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.IppPrinterCommunicationKind;i4)");
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SettingsLaunchKind(pub i32);

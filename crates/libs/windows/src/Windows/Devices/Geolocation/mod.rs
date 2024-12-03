@@ -3,6 +3,35 @@ pub mod Geofencing;
 #[cfg(feature = "Devices_Geolocation_Provider")]
 pub mod Provider;
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AltitudeReferenceSystem(pub i32);
+impl AltitudeReferenceSystem {
+    pub const Unspecified: Self = Self(0i32);
+    pub const Terrain: Self = Self(1i32);
+    pub const Ellipsoid: Self = Self(2i32);
+    pub const Geoid: Self = Self(3i32);
+    pub const Surface: Self = Self(4i32);
+}
+impl windows_core::TypeKind for AltitudeReferenceSystem {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AltitudeReferenceSystem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.AltitudeReferenceSystem;i4)");
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct BasicGeoposition {
+    pub Latitude: f64,
+    pub Longitude: f64,
+    pub Altitude: f64,
+}
+impl windows_core::TypeKind for BasicGeoposition {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for BasicGeoposition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Geolocation.BasicGeoposition;f8;f8;f8)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CivicAddress(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CivicAddress, windows_core::IUnknown, windows_core::IInspectable);
@@ -425,6 +454,20 @@ impl windows_core::RuntimeName for GeocoordinateSatelliteData {
 unsafe impl Send for GeocoordinateSatelliteData {}
 unsafe impl Sync for GeocoordinateSatelliteData {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GeolocationAccessStatus(pub i32);
+impl GeolocationAccessStatus {
+    pub const Unspecified: Self = Self(0i32);
+    pub const Allowed: Self = Self(1i32);
+    pub const Denied: Self = Self(2i32);
+}
+impl windows_core::TypeKind for GeolocationAccessStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GeolocationAccessStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.GeolocationAccessStatus;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Geolocator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Geolocator, windows_core::IUnknown, windows_core::IInspectable);
@@ -786,6 +829,21 @@ impl windows_core::RuntimeName for Geoposition {
 unsafe impl Send for Geoposition {}
 unsafe impl Sync for Geoposition {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GeoshapeType(pub i32);
+impl GeoshapeType {
+    pub const Geopoint: Self = Self(0i32);
+    pub const Geocircle: Self = Self(1i32);
+    pub const Geopath: Self = Self(2i32);
+    pub const GeoboundingBox: Self = Self(3i32);
+}
+impl windows_core::TypeKind for GeoshapeType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GeoshapeType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.GeoshapeType;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Geovisit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Geovisit, windows_core::IUnknown, windows_core::IInspectable);
@@ -939,88 +997,6 @@ impl windows_core::RuntimeName for GeovisitTriggerDetails {
 }
 unsafe impl Send for GeovisitTriggerDetails {}
 unsafe impl Sync for GeovisitTriggerDetails {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PositionChangedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PositionChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl PositionChangedEventArgs {
-    pub fn Position(&self) -> windows_core::Result<Geoposition> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for PositionChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPositionChangedEventArgs>();
-}
-unsafe impl windows_core::Interface for PositionChangedEventArgs {
-    type Vtable = <IPositionChangedEventArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IPositionChangedEventArgs as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for PositionChangedEventArgs {
-    const NAME: &'static str = "Windows.Devices.Geolocation.PositionChangedEventArgs";
-}
-unsafe impl Send for PositionChangedEventArgs {}
-unsafe impl Sync for PositionChangedEventArgs {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct StatusChangedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(StatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl StatusChangedEventArgs {
-    pub fn Status(&self) -> windows_core::Result<PositionStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for StatusChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStatusChangedEventArgs>();
-}
-unsafe impl windows_core::Interface for StatusChangedEventArgs {
-    type Vtable = <IStatusChangedEventArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IStatusChangedEventArgs as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for StatusChangedEventArgs {
-    const NAME: &'static str = "Windows.Devices.Geolocation.StatusChangedEventArgs";
-}
-unsafe impl Send for StatusChangedEventArgs {}
-unsafe impl Sync for StatusChangedEventArgs {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VenueData(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VenueData, windows_core::IUnknown, windows_core::IInspectable);
-impl VenueData {
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Level(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Level)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for VenueData {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVenueData>();
-}
-unsafe impl windows_core::Interface for VenueData {
-    type Vtable = <IVenueData as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVenueData as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VenueData {
-    const NAME: &'static str = "Windows.Devices.Geolocation.VenueData";
-}
-unsafe impl Send for VenueData {}
-unsafe impl Sync for VenueData {}
 windows_core::imp::define_interface!(ICivicAddress, ICivicAddress_Vtbl, 0xa8567a1a_64f4_4d48_bcea_f6b008eca34c);
 impl windows_core::RuntimeType for ICivicAddress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1482,51 +1458,6 @@ pub struct IVenueData_Vtbl {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AltitudeReferenceSystem(pub i32);
-impl AltitudeReferenceSystem {
-    pub const Unspecified: Self = Self(0i32);
-    pub const Terrain: Self = Self(1i32);
-    pub const Ellipsoid: Self = Self(2i32);
-    pub const Geoid: Self = Self(3i32);
-    pub const Surface: Self = Self(4i32);
-}
-impl windows_core::TypeKind for AltitudeReferenceSystem {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AltitudeReferenceSystem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.AltitudeReferenceSystem;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GeolocationAccessStatus(pub i32);
-impl GeolocationAccessStatus {
-    pub const Unspecified: Self = Self(0i32);
-    pub const Allowed: Self = Self(1i32);
-    pub const Denied: Self = Self(2i32);
-}
-impl windows_core::TypeKind for GeolocationAccessStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GeolocationAccessStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.GeolocationAccessStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GeoshapeType(pub i32);
-impl GeoshapeType {
-    pub const Geopoint: Self = Self(0i32);
-    pub const Geocircle: Self = Self(1i32);
-    pub const Geopath: Self = Self(2i32);
-    pub const GeoboundingBox: Self = Self(3i32);
-}
-impl windows_core::TypeKind for GeoshapeType {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GeoshapeType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.GeoshapeType;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PositionAccuracy(pub i32);
 impl PositionAccuracy {
     pub const Default: Self = Self(0i32);
@@ -1538,6 +1469,31 @@ impl windows_core::TypeKind for PositionAccuracy {
 impl windows_core::RuntimeType for PositionAccuracy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.PositionAccuracy;i4)");
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PositionChangedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PositionChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl PositionChangedEventArgs {
+    pub fn Position(&self) -> windows_core::Result<Geoposition> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for PositionChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPositionChangedEventArgs>();
+}
+unsafe impl windows_core::Interface for PositionChangedEventArgs {
+    type Vtable = <IPositionChangedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPositionChangedEventArgs as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PositionChangedEventArgs {
+    const NAME: &'static str = "Windows.Devices.Geolocation.PositionChangedEventArgs";
+}
+unsafe impl Send for PositionChangedEventArgs {}
+unsafe impl Sync for PositionChangedEventArgs {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PositionSource(pub i32);
@@ -1574,6 +1530,63 @@ impl windows_core::RuntimeType for PositionStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.PositionStatus;i4)");
 }
 #[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct StatusChangedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(StatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl StatusChangedEventArgs {
+    pub fn Status(&self) -> windows_core::Result<PositionStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for StatusChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStatusChangedEventArgs>();
+}
+unsafe impl windows_core::Interface for StatusChangedEventArgs {
+    type Vtable = <IStatusChangedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IStatusChangedEventArgs as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for StatusChangedEventArgs {
+    const NAME: &'static str = "Windows.Devices.Geolocation.StatusChangedEventArgs";
+}
+unsafe impl Send for StatusChangedEventArgs {}
+unsafe impl Sync for StatusChangedEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VenueData(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VenueData, windows_core::IUnknown, windows_core::IInspectable);
+impl VenueData {
+    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Level(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Level)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for VenueData {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVenueData>();
+}
+unsafe impl windows_core::Interface for VenueData {
+    type Vtable = <IVenueData as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVenueData as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VenueData {
+    const NAME: &'static str = "Windows.Devices.Geolocation.VenueData";
+}
+unsafe impl Send for VenueData {}
+unsafe impl Sync for VenueData {}
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VisitMonitoringScope(pub i32);
 impl VisitMonitoringScope {
@@ -1600,17 +1613,4 @@ impl windows_core::TypeKind for VisitStateChange {
 }
 impl windows_core::RuntimeType for VisitStateChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.VisitStateChange;i4)");
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct BasicGeoposition {
-    pub Latitude: f64,
-    pub Longitude: f64,
-    pub Altitude: f64,
-}
-impl windows_core::TypeKind for BasicGeoposition {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for BasicGeoposition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Geolocation.BasicGeoposition;f8;f8;f8)");
 }

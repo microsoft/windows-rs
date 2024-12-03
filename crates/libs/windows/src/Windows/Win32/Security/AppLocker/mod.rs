@@ -70,51 +70,6 @@ where
     windows_targets::link!("advapi32.dll" "system" fn SaferiIsExecutableFileType(szfullpathname : windows_core::PCWSTR, bfromshellexecute : super::super::Foundation:: BOOLEAN) -> super::super::Foundation:: BOOL);
     SaferiIsExecutableFileType(szfullpathname.param().abi(), bfromshellexecute.param().abi())
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(pub u32);
-impl SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SAFER_IDENTIFICATION_TYPES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SAFER_OBJECT_INFO_CLASS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SAFER_POLICY_INFO_CLASS(pub i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -174,6 +129,49 @@ impl Default for SAFER_CODE_PROPERTIES_V2 {
 impl windows_core::TypeKind for SAFER_CODE_PROPERTIES_V2 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(pub u32);
+impl SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const SAFER_CRITERIA_APPX_PACKAGE: u32 = 32u32;
+pub const SAFER_CRITERIA_AUTHENTICODE: u32 = 8u32;
+pub const SAFER_CRITERIA_IMAGEHASH: u32 = 4u32;
+pub const SAFER_CRITERIA_IMAGEPATH: u32 = 1u32;
+pub const SAFER_CRITERIA_IMAGEPATH_NT: u32 = 4096u32;
+pub const SAFER_CRITERIA_NOSIGNEDHASH: u32 = 2u32;
+pub const SAFER_CRITERIA_URLZONE: u32 = 16u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -232,6 +230,21 @@ impl Default for SAFER_IDENTIFICATION_HEADER {
 impl windows_core::TypeKind for SAFER_IDENTIFICATION_HEADER {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SAFER_IDENTIFICATION_TYPES(pub i32);
+pub const SAFER_LEVELID_CONSTRAINED: u32 = 65536u32;
+pub const SAFER_LEVELID_DISALLOWED: u32 = 0u32;
+pub const SAFER_LEVELID_FULLYTRUSTED: u32 = 262144u32;
+pub const SAFER_LEVELID_NORMALUSER: u32 = 131072u32;
+pub const SAFER_LEVELID_UNTRUSTED: u32 = 4096u32;
+pub const SAFER_LEVEL_OPEN: u32 = 1u32;
+pub const SAFER_MAX_DESCRIPTION_SIZE: u32 = 256u32;
+pub const SAFER_MAX_FRIENDLYNAME_SIZE: u32 = 256u32;
+pub const SAFER_MAX_HASH_SIZE: u32 = 64u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SAFER_OBJECT_INFO_CLASS(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SAFER_PATHNAME_IDENTIFICATION {
@@ -248,39 +261,11 @@ impl Default for SAFER_PATHNAME_IDENTIFICATION {
 impl windows_core::TypeKind for SAFER_PATHNAME_IDENTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SAFER_URLZONE_IDENTIFICATION {
-    pub header: SAFER_IDENTIFICATION_HEADER,
-    pub UrlZoneId: u32,
-    pub dwSaferFlags: u32,
-}
-impl Default for SAFER_URLZONE_IDENTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SAFER_URLZONE_IDENTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
-pub const SAFER_CRITERIA_APPX_PACKAGE: u32 = 32u32;
-pub const SAFER_CRITERIA_AUTHENTICODE: u32 = 8u32;
-pub const SAFER_CRITERIA_IMAGEHASH: u32 = 4u32;
-pub const SAFER_CRITERIA_IMAGEPATH: u32 = 1u32;
-pub const SAFER_CRITERIA_IMAGEPATH_NT: u32 = 4096u32;
-pub const SAFER_CRITERIA_NOSIGNEDHASH: u32 = 2u32;
-pub const SAFER_CRITERIA_URLZONE: u32 = 16u32;
-pub const SAFER_LEVELID_CONSTRAINED: u32 = 65536u32;
-pub const SAFER_LEVELID_DISALLOWED: u32 = 0u32;
-pub const SAFER_LEVELID_FULLYTRUSTED: u32 = 262144u32;
-pub const SAFER_LEVELID_NORMALUSER: u32 = 131072u32;
-pub const SAFER_LEVELID_UNTRUSTED: u32 = 4096u32;
-pub const SAFER_LEVEL_OPEN: u32 = 1u32;
-pub const SAFER_MAX_DESCRIPTION_SIZE: u32 = 256u32;
-pub const SAFER_MAX_FRIENDLYNAME_SIZE: u32 = 256u32;
-pub const SAFER_MAX_HASH_SIZE: u32 = 64u32;
 pub const SAFER_POLICY_BLOCK_CLIENT_UI: u32 = 8192u32;
 pub const SAFER_POLICY_HASH_DUPLICATE: u32 = 262144u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SAFER_POLICY_INFO_CLASS(pub i32);
 pub const SAFER_POLICY_JOBID_CONSTRAINED: u32 = 67108864u32;
 pub const SAFER_POLICY_JOBID_MASK: u32 = 4278190080u32;
 pub const SAFER_POLICY_JOBID_UNTRUSTED: u32 = 50331648u32;
@@ -297,6 +282,21 @@ pub const SAFER_TOKEN_COMPARE_ONLY: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER
 pub const SAFER_TOKEN_MAKE_INERT: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(4u32);
 pub const SAFER_TOKEN_NULL_IF_EQUAL: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(1u32);
 pub const SAFER_TOKEN_WANT_FLAGS: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(8u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SAFER_URLZONE_IDENTIFICATION {
+    pub header: SAFER_IDENTIFICATION_HEADER,
+    pub UrlZoneId: u32,
+    pub dwSaferFlags: u32,
+}
+impl Default for SAFER_URLZONE_IDENTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SAFER_URLZONE_IDENTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SRP_POLICY_APPX: windows_core::PCWSTR = windows_core::w!("APPX");
 pub const SRP_POLICY_DLL: windows_core::PCWSTR = windows_core::w!("DLL");
 pub const SRP_POLICY_EXE: windows_core::PCWSTR = windows_core::w!("EXE");

@@ -167,6 +167,6 @@ windows_targets::link!("ole32.dll" "system" fn STGMEDIUM_UserSize64(param0 : *co
 windows_targets::link!("ole32.dll" "system" fn STGMEDIUM_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut super:: STGMEDIUM) -> *mut u8);
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 windows_targets::link!("ole32.dll" "system" fn STGMEDIUM_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut super:: STGMEDIUM) -> *mut u8);
-pub type STDMSHLFLAGS = i32;
 pub const SMEXF_HANDLER: STDMSHLFLAGS = 2i32;
 pub const SMEXF_SERVER: STDMSHLFLAGS = 1i32;
+pub type STDMSHLFLAGS = i32;

@@ -1025,6 +1025,19 @@ impl windows_core::RuntimeName for BarcodeScannerStopSoftwareTriggerRequestEvent
 unsafe impl Send for BarcodeScannerStopSoftwareTriggerRequestEventArgs {}
 unsafe impl Sync for BarcodeScannerStopSoftwareTriggerRequestEventArgs {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BarcodeScannerTriggerState(pub i32);
+impl BarcodeScannerTriggerState {
+    pub const Released: Self = Self(0i32);
+    pub const Pressed: Self = Self(1i32);
+}
+impl windows_core::TypeKind for BarcodeScannerTriggerState {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for BarcodeScannerTriggerState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.Provider.BarcodeScannerTriggerState;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BarcodeScannerVideoFrame(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerVideoFrame, windows_core::IUnknown, windows_core::IInspectable);
@@ -1511,17 +1524,4 @@ pub struct IBarcodeSymbologyAttributesBuilder_Vtbl {
     pub IsDecodeLengthSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsDecodeLengthSupported: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub CreateAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BarcodeScannerTriggerState(pub i32);
-impl BarcodeScannerTriggerState {
-    pub const Released: Self = Self(0i32);
-    pub const Pressed: Self = Self(1i32);
-}
-impl windows_core::TypeKind for BarcodeScannerTriggerState {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for BarcodeScannerTriggerState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.Provider.BarcodeScannerTriggerState;i4)");
 }

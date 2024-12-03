@@ -33,12 +33,6 @@ impl IWaaSAssessor_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWaaSAssessor {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct UpdateAssessmentStatus(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct UpdateImpactLevel(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OSUpdateAssessment {
@@ -76,7 +70,9 @@ impl Default for UpdateAssessment {
 impl windows_core::TypeKind for UpdateAssessment {
     type TypeKind = windows_core::CopyType;
 }
-pub const WaaSAssessor: windows_core::GUID = windows_core::GUID::from_u128(0x098ef871_fa9f_46af_8958_c083515d7c9c);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct UpdateAssessmentStatus(pub i32);
 pub const UpdateAssessmentStatus_Latest: UpdateAssessmentStatus = UpdateAssessmentStatus(0i32);
 pub const UpdateAssessmentStatus_NotLatestDeferredFeature: UpdateAssessmentStatus = UpdateAssessmentStatus(5i32);
 pub const UpdateAssessmentStatus_NotLatestDeferredQuality: UpdateAssessmentStatus = UpdateAssessmentStatus(6i32);
@@ -89,7 +85,11 @@ pub const UpdateAssessmentStatus_NotLatestServicingTrain: UpdateAssessmentStatus
 pub const UpdateAssessmentStatus_NotLatestSoftRestriction: UpdateAssessmentStatus = UpdateAssessmentStatus(1i32);
 pub const UpdateAssessmentStatus_NotLatestTargetedVersion: UpdateAssessmentStatus = UpdateAssessmentStatus(11i32);
 pub const UpdateAssessmentStatus_NotLatestUnknown: UpdateAssessmentStatus = UpdateAssessmentStatus(10i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct UpdateImpactLevel(pub i32);
 pub const UpdateImpactLevel_High: UpdateImpactLevel = UpdateImpactLevel(3i32);
 pub const UpdateImpactLevel_Low: UpdateImpactLevel = UpdateImpactLevel(1i32);
 pub const UpdateImpactLevel_Medium: UpdateImpactLevel = UpdateImpactLevel(2i32);
 pub const UpdateImpactLevel_None: UpdateImpactLevel = UpdateImpactLevel(0i32);
+pub const WaaSAssessor: windows_core::GUID = windows_core::GUID::from_u128(0x098ef871_fa9f_46af_8958_c083515d7c9c);

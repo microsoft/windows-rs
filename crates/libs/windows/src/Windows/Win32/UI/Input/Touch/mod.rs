@@ -78,6 +78,153 @@ where
     windows_targets::link!("user32.dll" "system" fn UnregisterTouchWindow(hwnd : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: BOOL);
     UnregisterTouchWindow(hwnd.param().abi()).ok()
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GESTURECONFIG {
+    pub dwID: GESTURECONFIG_ID,
+    pub dwWant: u32,
+    pub dwBlock: u32,
+}
+impl Default for GESTURECONFIG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for GESTURECONFIG {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GESTURECONFIG_ID(pub u32);
+impl GESTURECONFIG_ID {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for GESTURECONFIG_ID {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for GESTURECONFIG_ID {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for GESTURECONFIG_ID {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for GESTURECONFIG_ID {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for GESTURECONFIG_ID {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GESTUREINFO {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub dwID: u32,
+    pub hwndTarget: super::super::super::Foundation::HWND,
+    pub ptsLocation: super::super::super::Foundation::POINTS,
+    pub dwInstanceID: u32,
+    pub dwSequenceID: u32,
+    pub ullArguments: u64,
+    pub cbExtraArgs: u32,
+}
+impl Default for GESTUREINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for GESTUREINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GESTURENOTIFYSTRUCT {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub hwndTarget: super::super::super::Foundation::HWND,
+    pub ptsLocation: super::super::super::Foundation::POINTS,
+    pub dwInstanceID: u32,
+}
+impl Default for GESTURENOTIFYSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for GESTURENOTIFYSTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
+pub const GID_BEGIN: GESTURECONFIG_ID = GESTURECONFIG_ID(1u32);
+pub const GID_END: GESTURECONFIG_ID = GESTURECONFIG_ID(2u32);
+pub const GID_PAN: GESTURECONFIG_ID = GESTURECONFIG_ID(4u32);
+pub const GID_PRESSANDTAP: GESTURECONFIG_ID = GESTURECONFIG_ID(7u32);
+pub const GID_ROLLOVER: GESTURECONFIG_ID = GESTURECONFIG_ID(7u32);
+pub const GID_ROTATE: GESTURECONFIG_ID = GESTURECONFIG_ID(5u32);
+pub const GID_TWOFINGERTAP: GESTURECONFIG_ID = GESTURECONFIG_ID(6u32);
+pub const GID_ZOOM: GESTURECONFIG_ID = GESTURECONFIG_ID(3u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HGESTUREINFO(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HGESTUREINFO {
+    type TypeKind = windows_core::CopyType;
+}
+impl HGESTUREINFO {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HGESTUREINFO {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("user32.dll" "system" fn CloseGestureInfoHandle(hgestureinfo : *mut core::ffi::c_void) -> i32);
+            CloseGestureInfoHandle(self.0);
+        }
+    }
+}
+impl Default for HGESTUREINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HTOUCHINPUT(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HTOUCHINPUT {
+    type TypeKind = windows_core::CopyType;
+}
+impl HTOUCHINPUT {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HTOUCHINPUT {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("user32.dll" "system" fn CloseTouchInputHandle(htouchinput : *mut core::ffi::c_void) -> i32);
+            CloseTouchInputHandle(self.0);
+        }
+    }
+}
+impl Default for HTOUCHINPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 windows_core::imp::define_interface!(IInertiaProcessor, IInertiaProcessor_Vtbl, 0x18b00c6d_c5ee_41b1_90a9_9d4a929095ad);
 windows_core::imp::interface_hierarchy!(IInertiaProcessor, windows_core::IUnknown);
 impl IInertiaProcessor {
@@ -1051,6 +1198,160 @@ impl IManipulationProcessor_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IManipulationProcessor {}
+pub const InertiaProcessor: windows_core::GUID = windows_core::GUID::from_u128(0xabb27087_4ce0_4e58_a0cb_e24df96814be);
+pub const MANIPULATION_ALL: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(15i32);
+pub const MANIPULATION_NONE: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MANIPULATION_PROCESSOR_MANIPULATIONS(pub i32);
+impl MANIPULATION_PROCESSOR_MANIPULATIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for MANIPULATION_PROCESSOR_MANIPULATIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for MANIPULATION_PROCESSOR_MANIPULATIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for MANIPULATION_PROCESSOR_MANIPULATIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for MANIPULATION_PROCESSOR_MANIPULATIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for MANIPULATION_PROCESSOR_MANIPULATIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const MANIPULATION_ROTATE: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(8i32);
+pub const MANIPULATION_SCALE: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(4i32);
+pub const MANIPULATION_TRANSLATE_X: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(1i32);
+pub const MANIPULATION_TRANSLATE_Y: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(2i32);
+pub const ManipulationProcessor: windows_core::GUID = windows_core::GUID::from_u128(0x597d4fb0_47fd_4aff_89b9_c6cfae8cf08e);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REGISTER_TOUCH_WINDOW_FLAGS(pub u32);
+pub const TOUCHEVENTF_DOWN: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(2u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TOUCHEVENTF_FLAGS(pub u32);
+impl TOUCHEVENTF_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for TOUCHEVENTF_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for TOUCHEVENTF_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for TOUCHEVENTF_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for TOUCHEVENTF_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for TOUCHEVENTF_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const TOUCHEVENTF_INRANGE: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(8u32);
+pub const TOUCHEVENTF_MOVE: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(1u32);
+pub const TOUCHEVENTF_NOCOALESCE: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(32u32);
+pub const TOUCHEVENTF_PALM: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(128u32);
+pub const TOUCHEVENTF_PEN: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(64u32);
+pub const TOUCHEVENTF_PRIMARY: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(16u32);
+pub const TOUCHEVENTF_UP: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(4u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TOUCHINPUT {
+    pub x: i32,
+    pub y: i32,
+    pub hSource: super::super::super::Foundation::HANDLE,
+    pub dwID: u32,
+    pub dwFlags: TOUCHEVENTF_FLAGS,
+    pub dwMask: TOUCHINPUTMASKF_MASK,
+    pub dwTime: u32,
+    pub dwExtraInfo: usize,
+    pub cxContact: u32,
+    pub cyContact: u32,
+}
+impl Default for TOUCHINPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TOUCHINPUT {
+    type TypeKind = windows_core::CopyType;
+}
+pub const TOUCHINPUTMASKF_CONTACTAREA: TOUCHINPUTMASKF_MASK = TOUCHINPUTMASKF_MASK(4u32);
+pub const TOUCHINPUTMASKF_EXTRAINFO: TOUCHINPUTMASKF_MASK = TOUCHINPUTMASKF_MASK(2u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TOUCHINPUTMASKF_MASK(pub u32);
+impl TOUCHINPUTMASKF_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for TOUCHINPUTMASKF_MASK {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for TOUCHINPUTMASKF_MASK {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for TOUCHINPUTMASKF_MASK {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for TOUCHINPUTMASKF_MASK {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for TOUCHINPUTMASKF_MASK {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const TOUCHINPUTMASKF_TIMEFROMSYSTEM: TOUCHINPUTMASKF_MASK = TOUCHINPUTMASKF_MASK(1u32);
+pub const TWF_FINETOUCH: REGISTER_TOUCH_WINDOW_FLAGS = REGISTER_TOUCH_WINDOW_FLAGS(1u32);
+pub const TWF_WANTPALM: REGISTER_TOUCH_WINDOW_FLAGS = REGISTER_TOUCH_WINDOW_FLAGS(2u32);
 windows_core::imp::define_interface!(_IManipulationEvents, _IManipulationEvents_Vtbl, 0x4f62c8da_9c53_4b22_93df_927a862bbb03);
 windows_core::imp::interface_hierarchy!(_IManipulationEvents, windows_core::IUnknown);
 impl _IManipulationEvents {
@@ -1132,304 +1433,3 @@ impl _IManipulationEvents_Vtbl {
     }
 }
 impl windows_core::RuntimeName for _IManipulationEvents {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GESTURECONFIG_ID(pub u32);
-impl GESTURECONFIG_ID {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for GESTURECONFIG_ID {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for GESTURECONFIG_ID {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for GESTURECONFIG_ID {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for GESTURECONFIG_ID {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for GESTURECONFIG_ID {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MANIPULATION_PROCESSOR_MANIPULATIONS(pub i32);
-impl MANIPULATION_PROCESSOR_MANIPULATIONS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for MANIPULATION_PROCESSOR_MANIPULATIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for MANIPULATION_PROCESSOR_MANIPULATIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for MANIPULATION_PROCESSOR_MANIPULATIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for MANIPULATION_PROCESSOR_MANIPULATIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for MANIPULATION_PROCESSOR_MANIPULATIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct REGISTER_TOUCH_WINDOW_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TOUCHEVENTF_FLAGS(pub u32);
-impl TOUCHEVENTF_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for TOUCHEVENTF_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for TOUCHEVENTF_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for TOUCHEVENTF_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for TOUCHEVENTF_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for TOUCHEVENTF_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TOUCHINPUTMASKF_MASK(pub u32);
-impl TOUCHINPUTMASKF_MASK {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for TOUCHINPUTMASKF_MASK {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for TOUCHINPUTMASKF_MASK {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for TOUCHINPUTMASKF_MASK {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for TOUCHINPUTMASKF_MASK {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for TOUCHINPUTMASKF_MASK {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct GESTURECONFIG {
-    pub dwID: GESTURECONFIG_ID,
-    pub dwWant: u32,
-    pub dwBlock: u32,
-}
-impl Default for GESTURECONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for GESTURECONFIG {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct GESTUREINFO {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub dwID: u32,
-    pub hwndTarget: super::super::super::Foundation::HWND,
-    pub ptsLocation: super::super::super::Foundation::POINTS,
-    pub dwInstanceID: u32,
-    pub dwSequenceID: u32,
-    pub ullArguments: u64,
-    pub cbExtraArgs: u32,
-}
-impl Default for GESTUREINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for GESTUREINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct GESTURENOTIFYSTRUCT {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub hwndTarget: super::super::super::Foundation::HWND,
-    pub ptsLocation: super::super::super::Foundation::POINTS,
-    pub dwInstanceID: u32,
-}
-impl Default for GESTURENOTIFYSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for GESTURENOTIFYSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HGESTUREINFO(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HGESTUREINFO {
-    type TypeKind = windows_core::CopyType;
-}
-impl HGESTUREINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HGESTUREINFO {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("user32.dll" "system" fn CloseGestureInfoHandle(hgestureinfo : *mut core::ffi::c_void) -> i32);
-            CloseGestureInfoHandle(self.0);
-        }
-    }
-}
-impl Default for HGESTUREINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HTOUCHINPUT(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HTOUCHINPUT {
-    type TypeKind = windows_core::CopyType;
-}
-impl HTOUCHINPUT {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HTOUCHINPUT {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("user32.dll" "system" fn CloseTouchInputHandle(htouchinput : *mut core::ffi::c_void) -> i32);
-            CloseTouchInputHandle(self.0);
-        }
-    }
-}
-impl Default for HTOUCHINPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-pub const InertiaProcessor: windows_core::GUID = windows_core::GUID::from_u128(0xabb27087_4ce0_4e58_a0cb_e24df96814be);
-pub const ManipulationProcessor: windows_core::GUID = windows_core::GUID::from_u128(0x597d4fb0_47fd_4aff_89b9_c6cfae8cf08e);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TOUCHINPUT {
-    pub x: i32,
-    pub y: i32,
-    pub hSource: super::super::super::Foundation::HANDLE,
-    pub dwID: u32,
-    pub dwFlags: TOUCHEVENTF_FLAGS,
-    pub dwMask: TOUCHINPUTMASKF_MASK,
-    pub dwTime: u32,
-    pub dwExtraInfo: usize,
-    pub cxContact: u32,
-    pub cyContact: u32,
-}
-impl Default for TOUCHINPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TOUCHINPUT {
-    type TypeKind = windows_core::CopyType;
-}
-pub const GID_BEGIN: GESTURECONFIG_ID = GESTURECONFIG_ID(1u32);
-pub const GID_END: GESTURECONFIG_ID = GESTURECONFIG_ID(2u32);
-pub const GID_PAN: GESTURECONFIG_ID = GESTURECONFIG_ID(4u32);
-pub const GID_PRESSANDTAP: GESTURECONFIG_ID = GESTURECONFIG_ID(7u32);
-pub const GID_ROLLOVER: GESTURECONFIG_ID = GESTURECONFIG_ID(7u32);
-pub const GID_ROTATE: GESTURECONFIG_ID = GESTURECONFIG_ID(5u32);
-pub const GID_TWOFINGERTAP: GESTURECONFIG_ID = GESTURECONFIG_ID(6u32);
-pub const GID_ZOOM: GESTURECONFIG_ID = GESTURECONFIG_ID(3u32);
-pub const MANIPULATION_ALL: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(15i32);
-pub const MANIPULATION_NONE: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(0i32);
-pub const MANIPULATION_ROTATE: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(8i32);
-pub const MANIPULATION_SCALE: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(4i32);
-pub const MANIPULATION_TRANSLATE_X: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(1i32);
-pub const MANIPULATION_TRANSLATE_Y: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(2i32);
-pub const TOUCHEVENTF_DOWN: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(2u32);
-pub const TOUCHEVENTF_INRANGE: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(8u32);
-pub const TOUCHEVENTF_MOVE: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(1u32);
-pub const TOUCHEVENTF_NOCOALESCE: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(32u32);
-pub const TOUCHEVENTF_PALM: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(128u32);
-pub const TOUCHEVENTF_PEN: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(64u32);
-pub const TOUCHEVENTF_PRIMARY: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(16u32);
-pub const TOUCHEVENTF_UP: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(4u32);
-pub const TOUCHINPUTMASKF_CONTACTAREA: TOUCHINPUTMASKF_MASK = TOUCHINPUTMASKF_MASK(4u32);
-pub const TOUCHINPUTMASKF_EXTRAINFO: TOUCHINPUTMASKF_MASK = TOUCHINPUTMASKF_MASK(2u32);
-pub const TOUCHINPUTMASKF_TIMEFROMSYSTEM: TOUCHINPUTMASKF_MASK = TOUCHINPUTMASKF_MASK(1u32);
-pub const TWF_FINETOUCH: REGISTER_TOUCH_WINDOW_FLAGS = REGISTER_TOUCH_WINDOW_FLAGS(1u32);
-pub const TWF_WANTPALM: REGISTER_TOUCH_WINDOW_FLAGS = REGISTER_TOUCH_WINDOW_FLAGS(2u32);

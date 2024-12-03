@@ -1,5 +1,471 @@
 #[cfg(feature = "ApplicationModel_Search_Core")]
 pub mod Core;
+windows_core::imp::define_interface!(ILocalContentSuggestionSettings, ILocalContentSuggestionSettings_Vtbl, 0xeeaeb062_743d_456e_84a3_23f06f2d15d7);
+impl windows_core::RuntimeType for ILocalContentSuggestionSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ILocalContentSuggestionSettings_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
+    pub Locations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Search")))]
+    Locations: usize,
+    pub SetAqsFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AqsFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub PropertiesToMatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    PropertiesToMatch: usize,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(ISearchPane, ISearchPane_Vtbl, 0xfdacec38_3700_4d73_91a1_2f998674238a);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISearchPane {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct ISearchPane_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub SetSearchHistoryEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SetSearchHistoryEnabled: usize,
+    #[cfg(feature = "deprecated")]
+    pub SearchHistoryEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SearchHistoryEnabled: usize,
+    #[cfg(feature = "deprecated")]
+    pub SetSearchHistoryContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SetSearchHistoryContext: usize,
+    #[cfg(feature = "deprecated")]
+    pub SearchHistoryContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SearchHistoryContext: usize,
+    #[cfg(feature = "deprecated")]
+    pub SetPlaceholderText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SetPlaceholderText: usize,
+    #[cfg(feature = "deprecated")]
+    pub PlaceholderText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    PlaceholderText: usize,
+    #[cfg(feature = "deprecated")]
+    pub QueryText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    QueryText: usize,
+    #[cfg(feature = "deprecated")]
+    pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Language: usize,
+    #[cfg(feature = "deprecated")]
+    pub Visible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Visible: usize,
+    #[cfg(feature = "deprecated")]
+    pub VisibilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    VisibilityChanged: usize,
+    #[cfg(feature = "deprecated")]
+    pub RemoveVisibilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    RemoveVisibilityChanged: usize,
+    #[cfg(feature = "deprecated")]
+    pub QueryChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    QueryChanged: usize,
+    #[cfg(feature = "deprecated")]
+    pub RemoveQueryChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    RemoveQueryChanged: usize,
+    #[cfg(feature = "deprecated")]
+    pub SuggestionsRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SuggestionsRequested: usize,
+    #[cfg(feature = "deprecated")]
+    pub RemoveSuggestionsRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    RemoveSuggestionsRequested: usize,
+    #[cfg(feature = "deprecated")]
+    pub QuerySubmitted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    QuerySubmitted: usize,
+    #[cfg(feature = "deprecated")]
+    pub RemoveQuerySubmitted: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    RemoveQuerySubmitted: usize,
+    #[cfg(feature = "deprecated")]
+    pub ResultSuggestionChosen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    ResultSuggestionChosen: usize,
+    #[cfg(feature = "deprecated")]
+    pub RemoveResultSuggestionChosen: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    RemoveResultSuggestionChosen: usize,
+    #[cfg(feature = "deprecated")]
+    pub SetLocalContentSuggestionSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SetLocalContentSuggestionSettings: usize,
+    #[cfg(feature = "deprecated")]
+    pub ShowOverloadDefault: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    ShowOverloadDefault: usize,
+    #[cfg(feature = "deprecated")]
+    pub ShowOverloadWithQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    ShowOverloadWithQuery: usize,
+    #[cfg(feature = "deprecated")]
+    pub SetShowOnKeyboardInput: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SetShowOnKeyboardInput: usize,
+    #[cfg(feature = "deprecated")]
+    pub ShowOnKeyboardInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    ShowOnKeyboardInput: usize,
+    #[cfg(feature = "deprecated")]
+    pub TrySetQueryText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    TrySetQueryText: usize,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(ISearchPaneQueryChangedEventArgs, ISearchPaneQueryChangedEventArgs_Vtbl, 0x3c064fe9_2351_4248_a529_7110f464a785);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISearchPaneQueryChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::interface_hierarchy!(ISearchPaneQueryChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+impl ISearchPaneQueryChangedEventArgs {
+    #[cfg(feature = "deprecated")]
+    pub fn QueryText(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).QueryText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn Language(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Language)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn LinguisticDetails(&self) -> windows_core::Result<SearchPaneQueryLinguisticDetails> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LinguisticDetails)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeName for ISearchPaneQueryChangedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchPaneQueryChangedEventArgs";
+}
+#[cfg(feature = "deprecated")]
+pub trait ISearchPaneQueryChangedEventArgs_Impl: windows_core::IUnknownImpl {
+    fn QueryText(&self) -> windows_core::Result<windows_core::HSTRING>;
+    fn Language(&self) -> windows_core::Result<windows_core::HSTRING>;
+    fn LinguisticDetails(&self) -> windows_core::Result<SearchPaneQueryLinguisticDetails>;
+}
+#[cfg(feature = "deprecated")]
+impl ISearchPaneQueryChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn QueryText<Identity: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match ISearchPaneQueryChangedEventArgs_Impl::QueryText(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Language<Identity: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match ISearchPaneQueryChangedEventArgs_Impl::Language(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn LinguisticDetails<Identity: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match ISearchPaneQueryChangedEventArgs_Impl::LinguisticDetails(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, ISearchPaneQueryChangedEventArgs, OFFSET>(),
+            QueryText: QueryText::<Identity, OFFSET>,
+            Language: Language::<Identity, OFFSET>,
+            LinguisticDetails: LinguisticDetails::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ISearchPaneQueryChangedEventArgs as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct ISearchPaneQueryChangedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub QueryText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    QueryText: usize,
+    #[cfg(feature = "deprecated")]
+    pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Language: usize,
+    #[cfg(feature = "deprecated")]
+    pub LinguisticDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    LinguisticDetails: usize,
+}
+windows_core::imp::define_interface!(ISearchPaneQueryLinguisticDetails, ISearchPaneQueryLinguisticDetails_Vtbl, 0x82fb460e_0940_4b6d_b8d0_642b30989e15);
+impl windows_core::RuntimeType for ISearchPaneQueryLinguisticDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISearchPaneQueryLinguisticDetails_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub QueryTextAlternatives: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    QueryTextAlternatives: usize,
+    pub QueryTextCompositionStart: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub QueryTextCompositionLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(ISearchPaneQuerySubmittedEventArgs, ISearchPaneQuerySubmittedEventArgs_Vtbl, 0x143ba4fc_e9c5_4736_91b2_e8eb9cb88356);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISearchPaneQuerySubmittedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct ISearchPaneQuerySubmittedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub QueryText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    QueryText: usize,
+    #[cfg(feature = "deprecated")]
+    pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Language: usize,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails, ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails_Vtbl, 0x460c92e5_4c32_4538_a4d4_b6b4400d140f);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub LinguisticDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    LinguisticDetails: usize,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(ISearchPaneResultSuggestionChosenEventArgs, ISearchPaneResultSuggestionChosenEventArgs_Vtbl, 0xc8316cc0_aed2_41e0_bce0_c26ca74f85ec);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISearchPaneResultSuggestionChosenEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct ISearchPaneResultSuggestionChosenEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub Tag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Tag: usize,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(ISearchPaneStatics, ISearchPaneStatics_Vtbl, 0x9572adf1_8f1d_481f_a15b_c61655f16a0e);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISearchPaneStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct ISearchPaneStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    GetForCurrentView: usize,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(ISearchPaneStaticsWithHideThisApplication, ISearchPaneStaticsWithHideThisApplication_Vtbl, 0x00732830_50f1_4d03_99ac_c6644c8ed8b5);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISearchPaneStaticsWithHideThisApplication {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct ISearchPaneStaticsWithHideThisApplication_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub HideThisApplication: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    HideThisApplication: usize,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(ISearchPaneSuggestionsRequest, ISearchPaneSuggestionsRequest_Vtbl, 0x81b10b1c_e561_4093_9b4d_2ad482794a53);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISearchPaneSuggestionsRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct ISearchPaneSuggestionsRequest_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub IsCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    IsCanceled: usize,
+    #[cfg(feature = "deprecated")]
+    pub SearchSuggestionCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SearchSuggestionCollection: usize,
+    #[cfg(feature = "deprecated")]
+    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    GetDeferral: usize,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(ISearchPaneSuggestionsRequestDeferral, ISearchPaneSuggestionsRequestDeferral_Vtbl, 0xa0d009f7_8748_4ee2_ad44_afa6be997c51);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISearchPaneSuggestionsRequestDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct ISearchPaneSuggestionsRequestDeferral_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Complete: usize,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(ISearchPaneSuggestionsRequestedEventArgs, ISearchPaneSuggestionsRequestedEventArgs_Vtbl, 0xc89b8a2f_ac56_4460_8d2f_80023bec4fc5);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISearchPaneSuggestionsRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct ISearchPaneSuggestionsRequestedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Request: usize,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(ISearchPaneVisibilityChangedEventArgs, ISearchPaneVisibilityChangedEventArgs_Vtbl, 0x3c4d3046_ac4b_49f2_97d6_020e6182cb9c);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISearchPaneVisibilityChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct ISearchPaneVisibilityChangedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub Visible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Visible: usize,
+}
+windows_core::imp::define_interface!(ISearchQueryLinguisticDetails, ISearchQueryLinguisticDetails_Vtbl, 0x46a1205b_69c9_4745_b72f_a8a4fc8f24ae);
+impl windows_core::RuntimeType for ISearchQueryLinguisticDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISearchQueryLinguisticDetails_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub QueryTextAlternatives: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    QueryTextAlternatives: usize,
+    pub QueryTextCompositionStart: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub QueryTextCompositionLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISearchQueryLinguisticDetailsFactory, ISearchQueryLinguisticDetailsFactory_Vtbl, 0xcac6c3b8_3c64_4dfd_ad9f_479e4d4065a4);
+impl windows_core::RuntimeType for ISearchQueryLinguisticDetailsFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISearchQueryLinguisticDetailsFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateInstance: usize,
+}
+windows_core::imp::define_interface!(ISearchSuggestionCollection, ISearchSuggestionCollection_Vtbl, 0x323a8a4b_fbea_4446_abbc_3da7915fdd3a);
+impl windows_core::RuntimeType for ISearchSuggestionCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISearchSuggestionCollection_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub AppendQuerySuggestion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub AppendQuerySuggestions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    AppendQuerySuggestions: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub AppendResultSuggestion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    AppendResultSuggestion: usize,
+    pub AppendSearchSeparator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISearchSuggestionsRequest, ISearchSuggestionsRequest_Vtbl, 0x4e4e26a7_44e5_4039_9099_6000ead1f0c6);
+impl windows_core::RuntimeType for ISearchSuggestionsRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISearchSuggestionsRequest_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SearchSuggestionCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISearchSuggestionsRequestDeferral, ISearchSuggestionsRequestDeferral_Vtbl, 0xb71598a9_c065_456d_a845_1eccec5dc28b);
+impl windows_core::RuntimeType for ISearchSuggestionsRequestDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISearchSuggestionsRequestDeferral_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LocalContentSuggestionSettings(windows_core::IUnknown);
@@ -797,469 +1263,3 @@ impl windows_core::RuntimeName for SearchSuggestionsRequestDeferral {
 }
 unsafe impl Send for SearchSuggestionsRequestDeferral {}
 unsafe impl Sync for SearchSuggestionsRequestDeferral {}
-windows_core::imp::define_interface!(ILocalContentSuggestionSettings, ILocalContentSuggestionSettings_Vtbl, 0xeeaeb062_743d_456e_84a3_23f06f2d15d7);
-impl windows_core::RuntimeType for ILocalContentSuggestionSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ILocalContentSuggestionSettings_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
-    pub Locations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Search")))]
-    Locations: usize,
-    pub SetAqsFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AqsFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub PropertiesToMatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PropertiesToMatch: usize,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(ISearchPane, ISearchPane_Vtbl, 0xfdacec38_3700_4d73_91a1_2f998674238a);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for ISearchPane {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct ISearchPane_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub SetSearchHistoryEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetSearchHistoryEnabled: usize,
-    #[cfg(feature = "deprecated")]
-    pub SearchHistoryEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SearchHistoryEnabled: usize,
-    #[cfg(feature = "deprecated")]
-    pub SetSearchHistoryContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetSearchHistoryContext: usize,
-    #[cfg(feature = "deprecated")]
-    pub SearchHistoryContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SearchHistoryContext: usize,
-    #[cfg(feature = "deprecated")]
-    pub SetPlaceholderText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetPlaceholderText: usize,
-    #[cfg(feature = "deprecated")]
-    pub PlaceholderText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    PlaceholderText: usize,
-    #[cfg(feature = "deprecated")]
-    pub QueryText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    QueryText: usize,
-    #[cfg(feature = "deprecated")]
-    pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Language: usize,
-    #[cfg(feature = "deprecated")]
-    pub Visible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Visible: usize,
-    #[cfg(feature = "deprecated")]
-    pub VisibilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    VisibilityChanged: usize,
-    #[cfg(feature = "deprecated")]
-    pub RemoveVisibilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveVisibilityChanged: usize,
-    #[cfg(feature = "deprecated")]
-    pub QueryChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    QueryChanged: usize,
-    #[cfg(feature = "deprecated")]
-    pub RemoveQueryChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveQueryChanged: usize,
-    #[cfg(feature = "deprecated")]
-    pub SuggestionsRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SuggestionsRequested: usize,
-    #[cfg(feature = "deprecated")]
-    pub RemoveSuggestionsRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveSuggestionsRequested: usize,
-    #[cfg(feature = "deprecated")]
-    pub QuerySubmitted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    QuerySubmitted: usize,
-    #[cfg(feature = "deprecated")]
-    pub RemoveQuerySubmitted: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveQuerySubmitted: usize,
-    #[cfg(feature = "deprecated")]
-    pub ResultSuggestionChosen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    ResultSuggestionChosen: usize,
-    #[cfg(feature = "deprecated")]
-    pub RemoveResultSuggestionChosen: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveResultSuggestionChosen: usize,
-    #[cfg(feature = "deprecated")]
-    pub SetLocalContentSuggestionSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetLocalContentSuggestionSettings: usize,
-    #[cfg(feature = "deprecated")]
-    pub ShowOverloadDefault: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    ShowOverloadDefault: usize,
-    #[cfg(feature = "deprecated")]
-    pub ShowOverloadWithQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    ShowOverloadWithQuery: usize,
-    #[cfg(feature = "deprecated")]
-    pub SetShowOnKeyboardInput: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetShowOnKeyboardInput: usize,
-    #[cfg(feature = "deprecated")]
-    pub ShowOnKeyboardInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    ShowOnKeyboardInput: usize,
-    #[cfg(feature = "deprecated")]
-    pub TrySetQueryText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    TrySetQueryText: usize,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(ISearchPaneQueryChangedEventArgs, ISearchPaneQueryChangedEventArgs_Vtbl, 0x3c064fe9_2351_4248_a529_7110f464a785);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for ISearchPaneQueryChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::interface_hierarchy!(ISearchPaneQueryChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-impl ISearchPaneQueryChangedEventArgs {
-    #[cfg(feature = "deprecated")]
-    pub fn QueryText(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).QueryText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn Language(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Language)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn LinguisticDetails(&self) -> windows_core::Result<SearchPaneQueryLinguisticDetails> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LinguisticDetails)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeName for ISearchPaneQueryChangedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchPaneQueryChangedEventArgs";
-}
-#[cfg(feature = "deprecated")]
-pub trait ISearchPaneQueryChangedEventArgs_Impl: windows_core::IUnknownImpl {
-    fn QueryText(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn Language(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn LinguisticDetails(&self) -> windows_core::Result<SearchPaneQueryLinguisticDetails>;
-}
-#[cfg(feature = "deprecated")]
-impl ISearchPaneQueryChangedEventArgs_Vtbl {
-    pub const fn new<Identity: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryText<Identity: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ISearchPaneQueryChangedEventArgs_Impl::QueryText(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn Language<Identity: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ISearchPaneQueryChangedEventArgs_Impl::Language(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn LinguisticDetails<Identity: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match ISearchPaneQueryChangedEventArgs_Impl::LinguisticDetails(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ISearchPaneQueryChangedEventArgs, OFFSET>(),
-            QueryText: QueryText::<Identity, OFFSET>,
-            Language: Language::<Identity, OFFSET>,
-            LinguisticDetails: LinguisticDetails::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISearchPaneQueryChangedEventArgs as windows_core::Interface>::IID
-    }
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct ISearchPaneQueryChangedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub QueryText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    QueryText: usize,
-    #[cfg(feature = "deprecated")]
-    pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Language: usize,
-    #[cfg(feature = "deprecated")]
-    pub LinguisticDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    LinguisticDetails: usize,
-}
-windows_core::imp::define_interface!(ISearchPaneQueryLinguisticDetails, ISearchPaneQueryLinguisticDetails_Vtbl, 0x82fb460e_0940_4b6d_b8d0_642b30989e15);
-impl windows_core::RuntimeType for ISearchPaneQueryLinguisticDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISearchPaneQueryLinguisticDetails_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub QueryTextAlternatives: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    QueryTextAlternatives: usize,
-    pub QueryTextCompositionStart: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub QueryTextCompositionLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(ISearchPaneQuerySubmittedEventArgs, ISearchPaneQuerySubmittedEventArgs_Vtbl, 0x143ba4fc_e9c5_4736_91b2_e8eb9cb88356);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for ISearchPaneQuerySubmittedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct ISearchPaneQuerySubmittedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub QueryText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    QueryText: usize,
-    #[cfg(feature = "deprecated")]
-    pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Language: usize,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails, ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails_Vtbl, 0x460c92e5_4c32_4538_a4d4_b6b4400d140f);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub LinguisticDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    LinguisticDetails: usize,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(ISearchPaneResultSuggestionChosenEventArgs, ISearchPaneResultSuggestionChosenEventArgs_Vtbl, 0xc8316cc0_aed2_41e0_bce0_c26ca74f85ec);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for ISearchPaneResultSuggestionChosenEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct ISearchPaneResultSuggestionChosenEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub Tag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Tag: usize,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(ISearchPaneStatics, ISearchPaneStatics_Vtbl, 0x9572adf1_8f1d_481f_a15b_c61655f16a0e);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for ISearchPaneStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct ISearchPaneStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    GetForCurrentView: usize,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(ISearchPaneStaticsWithHideThisApplication, ISearchPaneStaticsWithHideThisApplication_Vtbl, 0x00732830_50f1_4d03_99ac_c6644c8ed8b5);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for ISearchPaneStaticsWithHideThisApplication {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct ISearchPaneStaticsWithHideThisApplication_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub HideThisApplication: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    HideThisApplication: usize,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(ISearchPaneSuggestionsRequest, ISearchPaneSuggestionsRequest_Vtbl, 0x81b10b1c_e561_4093_9b4d_2ad482794a53);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for ISearchPaneSuggestionsRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct ISearchPaneSuggestionsRequest_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub IsCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    IsCanceled: usize,
-    #[cfg(feature = "deprecated")]
-    pub SearchSuggestionCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SearchSuggestionCollection: usize,
-    #[cfg(feature = "deprecated")]
-    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    GetDeferral: usize,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(ISearchPaneSuggestionsRequestDeferral, ISearchPaneSuggestionsRequestDeferral_Vtbl, 0xa0d009f7_8748_4ee2_ad44_afa6be997c51);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for ISearchPaneSuggestionsRequestDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct ISearchPaneSuggestionsRequestDeferral_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Complete: usize,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(ISearchPaneSuggestionsRequestedEventArgs, ISearchPaneSuggestionsRequestedEventArgs_Vtbl, 0xc89b8a2f_ac56_4460_8d2f_80023bec4fc5);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for ISearchPaneSuggestionsRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct ISearchPaneSuggestionsRequestedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Request: usize,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(ISearchPaneVisibilityChangedEventArgs, ISearchPaneVisibilityChangedEventArgs_Vtbl, 0x3c4d3046_ac4b_49f2_97d6_020e6182cb9c);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for ISearchPaneVisibilityChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct ISearchPaneVisibilityChangedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub Visible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Visible: usize,
-}
-windows_core::imp::define_interface!(ISearchQueryLinguisticDetails, ISearchQueryLinguisticDetails_Vtbl, 0x46a1205b_69c9_4745_b72f_a8a4fc8f24ae);
-impl windows_core::RuntimeType for ISearchQueryLinguisticDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISearchQueryLinguisticDetails_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub QueryTextAlternatives: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    QueryTextAlternatives: usize,
-    pub QueryTextCompositionStart: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub QueryTextCompositionLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISearchQueryLinguisticDetailsFactory, ISearchQueryLinguisticDetailsFactory_Vtbl, 0xcac6c3b8_3c64_4dfd_ad9f_479e4d4065a4);
-impl windows_core::RuntimeType for ISearchQueryLinguisticDetailsFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISearchQueryLinguisticDetailsFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CreateInstance: usize,
-}
-windows_core::imp::define_interface!(ISearchSuggestionCollection, ISearchSuggestionCollection_Vtbl, 0x323a8a4b_fbea_4446_abbc_3da7915fdd3a);
-impl windows_core::RuntimeType for ISearchSuggestionCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISearchSuggestionCollection_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub AppendQuerySuggestion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub AppendQuerySuggestions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AppendQuerySuggestions: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub AppendResultSuggestion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    AppendResultSuggestion: usize,
-    pub AppendSearchSeparator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISearchSuggestionsRequest, ISearchSuggestionsRequest_Vtbl, 0x4e4e26a7_44e5_4039_9099_6000ead1f0c6);
-impl windows_core::RuntimeType for ISearchSuggestionsRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISearchSuggestionsRequest_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub IsCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SearchSuggestionCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISearchSuggestionsRequestDeferral, ISearchSuggestionsRequestDeferral_Vtbl, 0xb71598a9_c065_456d_a845_1eccec5dc28b);
-impl windows_core::RuntimeType for ISearchSuggestionsRequestDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISearchSuggestionsRequestDeferral_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}

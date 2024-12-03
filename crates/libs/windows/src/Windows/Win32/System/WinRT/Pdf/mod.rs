@@ -68,8 +68,6 @@ impl IPdfRendererNative_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi"))]
 impl windows_core::RuntimeName for IPdfRendererNative {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-pub type PFN_PDF_CREATE_RENDERER = Option<unsafe extern "system" fn(param0: Option<super::super::super::Graphics::Dxgi::IDXGIDevice>, param1: *mut Option<IPdfRendererNative>) -> windows_core::HRESULT>;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -90,3 +88,5 @@ impl Default for PDF_RENDER_PARAMS {
 impl windows_core::TypeKind for PDF_RENDER_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
+pub type PFN_PDF_CREATE_RENDERER = Option<unsafe extern "system" fn(param0: Option<super::super::super::Graphics::Dxgi::IDXGIDevice>, param1: *mut Option<IPdfRendererNative>) -> windows_core::HRESULT>;

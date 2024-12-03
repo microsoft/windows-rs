@@ -41,30 +41,25 @@ windows_targets::link!("kernel32.dll" "system" fn WerUnregisterExcludedMemoryBlo
 windows_targets::link!("kernel32.dll" "system" fn WerUnregisterFile(pwzfilepath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("kernel32.dll" "system" fn WerUnregisterMemoryBlock(pvaddress : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("kernel32.dll" "system" fn WerUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll : windows_sys::core::PCWSTR, pcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+pub const APPCRASH_EVENT: windows_sys::core::PCWSTR = windows_sys::core::w!("APPCRASH");
+pub type EFaultRepRetVal = i32;
+pub const E_STORE_INVALID: REPORT_STORE_TYPES = 4i32;
+pub const E_STORE_MACHINE_ARCHIVE: REPORT_STORE_TYPES = 2i32;
+pub const E_STORE_MACHINE_QUEUE: REPORT_STORE_TYPES = 3i32;
+pub const E_STORE_USER_ARCHIVE: REPORT_STORE_TYPES = 0i32;
+pub const E_STORE_USER_QUEUE: REPORT_STORE_TYPES = 1i32;
+pub type HREPORT = *mut core::ffi::c_void;
+pub type HREPORTSTORE = *mut core::ffi::c_void;
+pub const PACKAGED_APPCRASH_EVENT: windows_sys::core::PCWSTR = windows_sys::core::w!("MoAppCrash");
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbiscustomdebugger: *mut super::super::Foundation::BOOL, pwszdebuggerlaunch: windows_sys::core::PWSTR, pchdebuggerlaunch: *mut u32, pbisdebuggerautolaunch: *mut super::super::Foundation::BOOL) -> windows_sys::core::HRESULT>;
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_EVENT = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbownershipclaimed: *mut super::super::Foundation::BOOL, pwszeventname: windows_sys::core::PWSTR, pchsize: *mut u32, pdwsignaturecount: *mut u32) -> windows_sys::core::HRESULT>;
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, dwindex: u32, pwszname: windows_sys::core::PWSTR, pchname: *mut u32, pwszvalue: windows_sys::core::PWSTR, pchvalue: *mut u32) -> windows_sys::core::HRESULT>;
-pub type pfn_ADDEREXCLUDEDAPPLICATIONA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR) -> EFaultRepRetVal>;
-pub type pfn_ADDEREXCLUDEDAPPLICATIONW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR) -> EFaultRepRetVal>;
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-pub type pfn_REPORTFAULT = Option<unsafe extern "system" fn(param0: *const super::Diagnostics::Debug::EXCEPTION_POINTERS, param1: u32) -> EFaultRepRetVal>;
-pub type EFaultRepRetVal = i32;
 pub type REPORT_STORE_TYPES = i32;
 pub type WER_CONSENT = i32;
-pub type WER_DUMP_TYPE = i32;
-pub type WER_FAULT_REPORTING = u32;
-pub type WER_FILE = u32;
-pub type WER_FILE_TYPE = i32;
-pub type WER_REGISTER_FILE_TYPE = i32;
-pub type WER_REPORT_TYPE = i32;
-pub type WER_REPORT_UI = i32;
-pub type WER_SUBMIT_FLAGS = u32;
-pub type WER_SUBMIT_RESULT = i32;
-pub type HREPORT = *mut core::ffi::c_void;
-pub type HREPORTSTORE = *mut core::ffi::c_void;
+pub const WER_DUMP_AUXILIARY: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WER_DUMP_CUSTOM_OPTIONS {
@@ -117,6 +112,9 @@ pub struct WER_DUMP_CUSTOM_OPTIONS_V3 {
     pub hSnapshot: super::super::Foundation::HANDLE,
     pub dwThreadID: u32,
 }
+pub const WER_DUMP_MASK_START: u32 = 1u32;
+pub const WER_DUMP_NOHEAP_ONQUEUE: u32 = 1u32;
+pub type WER_DUMP_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
@@ -124,6 +122,52 @@ pub struct WER_EXCEPTION_INFORMATION {
     pub pExceptionPointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS,
     pub bClientPointers: super::super::Foundation::BOOL,
 }
+pub type WER_FAULT_REPORTING = u32;
+pub const WER_FAULT_REPORTING_ALWAYS_SHOW_UI: WER_FAULT_REPORTING = 16u32;
+pub const WER_FAULT_REPORTING_CRITICAL: u32 = 512u32;
+pub const WER_FAULT_REPORTING_DISABLE_SNAPSHOT_CRASH: u32 = 128u32;
+pub const WER_FAULT_REPORTING_DISABLE_SNAPSHOT_HANG: u32 = 256u32;
+pub const WER_FAULT_REPORTING_DURABLE: u32 = 1024u32;
+pub const WER_FAULT_REPORTING_FLAG_DISABLE_THREAD_SUSPENSION: WER_FAULT_REPORTING = 4u32;
+pub const WER_FAULT_REPORTING_FLAG_NOHEAP: WER_FAULT_REPORTING = 1u32;
+pub const WER_FAULT_REPORTING_FLAG_NO_HEAP_ON_QUEUE: u32 = 64u32;
+pub const WER_FAULT_REPORTING_FLAG_QUEUE: WER_FAULT_REPORTING = 2u32;
+pub const WER_FAULT_REPORTING_FLAG_QUEUE_UPLOAD: WER_FAULT_REPORTING = 8u32;
+pub const WER_FAULT_REPORTING_NO_UI: u32 = 32u32;
+pub type WER_FILE = u32;
+pub const WER_FILE_ANONYMOUS_DATA: WER_FILE = 2u32;
+pub const WER_FILE_COMPRESSED: u32 = 4u32;
+pub const WER_FILE_DELETE_WHEN_DONE: WER_FILE = 1u32;
+pub type WER_FILE_TYPE = i32;
+pub const WER_MAX_APPLICATION_NAME_LENGTH: u32 = 128u32;
+pub const WER_MAX_BUCKET_ID_STRING_LENGTH: u32 = 260u32;
+pub const WER_MAX_DESCRIPTION_LENGTH: u32 = 512u32;
+pub const WER_MAX_EVENT_NAME_LENGTH: u32 = 64u32;
+pub const WER_MAX_FRIENDLY_EVENT_NAME_LENGTH: u32 = 128u32;
+pub const WER_MAX_LOCAL_DUMP_SUBPATH_LENGTH: u32 = 64u32;
+pub const WER_MAX_PARAM_COUNT: u32 = 10u32;
+pub const WER_MAX_PARAM_LENGTH: u32 = 260u32;
+pub const WER_MAX_PREFERRED_MODULES: u32 = 128u32;
+pub const WER_MAX_PREFERRED_MODULES_BUFFER: u32 = 256u32;
+pub const WER_MAX_REGISTERED_DUMPCOLLECTION: u32 = 4u32;
+pub const WER_MAX_REGISTERED_ENTRIES: u32 = 512u32;
+pub const WER_MAX_REGISTERED_METADATA: u32 = 8u32;
+pub const WER_MAX_REGISTERED_RUNTIME_EXCEPTION_MODULES: u32 = 16u32;
+pub const WER_MAX_SIGNATURE_NAME_LENGTH: u32 = 128u32;
+pub const WER_MAX_TOTAL_PARAM_LENGTH: u32 = 1720u32;
+pub const WER_METADATA_KEY_MAX_LENGTH: u32 = 64u32;
+pub const WER_METADATA_VALUE_MAX_LENGTH: u32 = 128u32;
+pub const WER_P0: u32 = 0u32;
+pub const WER_P1: u32 = 1u32;
+pub const WER_P2: u32 = 2u32;
+pub const WER_P3: u32 = 3u32;
+pub const WER_P4: u32 = 4u32;
+pub const WER_P5: u32 = 5u32;
+pub const WER_P6: u32 = 6u32;
+pub const WER_P7: u32 = 7u32;
+pub const WER_P8: u32 = 8u32;
+pub const WER_P9: u32 = 9u32;
+pub type WER_REGISTER_FILE_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WER_REPORT_INFORMATION {
@@ -242,6 +286,11 @@ pub struct WER_REPORT_SIGNATURE {
     pub EventName: [u16; 65],
     pub Parameters: [WER_REPORT_PARAMETER; 10],
 }
+pub type WER_REPORT_TYPE = i32;
+pub type WER_REPORT_UI = i32;
+pub const WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH: windows_sys::core::PCSTR = windows_sys::core::s!("OutOfProcessExceptionEventDebuggerLaunchCallback");
+pub const WER_RUNTIME_EXCEPTION_EVENT_FUNCTION: windows_sys::core::PCSTR = windows_sys::core::s!("OutOfProcessExceptionEventCallback");
+pub const WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE_FUNCTION: windows_sys::core::PCSTR = windows_sys::core::s!("OutOfProcessExceptionEventSignatureCallback");
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
@@ -255,66 +304,12 @@ pub struct WER_RUNTIME_EXCEPTION_INFORMATION {
     pub bIsFatal: super::super::Foundation::BOOL,
     pub dwReserved: u32,
 }
-pub const APPCRASH_EVENT: windows_sys::core::PCWSTR = windows_sys::core::w!("APPCRASH");
-pub const E_STORE_INVALID: REPORT_STORE_TYPES = 4i32;
-pub const E_STORE_MACHINE_ARCHIVE: REPORT_STORE_TYPES = 2i32;
-pub const E_STORE_MACHINE_QUEUE: REPORT_STORE_TYPES = 3i32;
-pub const E_STORE_USER_ARCHIVE: REPORT_STORE_TYPES = 0i32;
-pub const E_STORE_USER_QUEUE: REPORT_STORE_TYPES = 1i32;
-pub const PACKAGED_APPCRASH_EVENT: windows_sys::core::PCWSTR = windows_sys::core::w!("MoAppCrash");
-pub const WER_DUMP_AUXILIARY: u32 = 2u32;
-pub const WER_DUMP_MASK_START: u32 = 1u32;
-pub const WER_DUMP_NOHEAP_ONQUEUE: u32 = 1u32;
-pub const WER_FAULT_REPORTING_ALWAYS_SHOW_UI: WER_FAULT_REPORTING = 16u32;
-pub const WER_FAULT_REPORTING_CRITICAL: u32 = 512u32;
-pub const WER_FAULT_REPORTING_DISABLE_SNAPSHOT_CRASH: u32 = 128u32;
-pub const WER_FAULT_REPORTING_DISABLE_SNAPSHOT_HANG: u32 = 256u32;
-pub const WER_FAULT_REPORTING_DURABLE: u32 = 1024u32;
-pub const WER_FAULT_REPORTING_FLAG_DISABLE_THREAD_SUSPENSION: WER_FAULT_REPORTING = 4u32;
-pub const WER_FAULT_REPORTING_FLAG_NOHEAP: WER_FAULT_REPORTING = 1u32;
-pub const WER_FAULT_REPORTING_FLAG_NO_HEAP_ON_QUEUE: u32 = 64u32;
-pub const WER_FAULT_REPORTING_FLAG_QUEUE: WER_FAULT_REPORTING = 2u32;
-pub const WER_FAULT_REPORTING_FLAG_QUEUE_UPLOAD: WER_FAULT_REPORTING = 8u32;
-pub const WER_FAULT_REPORTING_NO_UI: u32 = 32u32;
-pub const WER_FILE_ANONYMOUS_DATA: WER_FILE = 2u32;
-pub const WER_FILE_COMPRESSED: u32 = 4u32;
-pub const WER_FILE_DELETE_WHEN_DONE: WER_FILE = 1u32;
-pub const WER_MAX_APPLICATION_NAME_LENGTH: u32 = 128u32;
-pub const WER_MAX_BUCKET_ID_STRING_LENGTH: u32 = 260u32;
-pub const WER_MAX_DESCRIPTION_LENGTH: u32 = 512u32;
-pub const WER_MAX_EVENT_NAME_LENGTH: u32 = 64u32;
-pub const WER_MAX_FRIENDLY_EVENT_NAME_LENGTH: u32 = 128u32;
-pub const WER_MAX_LOCAL_DUMP_SUBPATH_LENGTH: u32 = 64u32;
-pub const WER_MAX_PARAM_COUNT: u32 = 10u32;
-pub const WER_MAX_PARAM_LENGTH: u32 = 260u32;
-pub const WER_MAX_PREFERRED_MODULES: u32 = 128u32;
-pub const WER_MAX_PREFERRED_MODULES_BUFFER: u32 = 256u32;
-pub const WER_MAX_REGISTERED_DUMPCOLLECTION: u32 = 4u32;
-pub const WER_MAX_REGISTERED_ENTRIES: u32 = 512u32;
-pub const WER_MAX_REGISTERED_METADATA: u32 = 8u32;
-pub const WER_MAX_REGISTERED_RUNTIME_EXCEPTION_MODULES: u32 = 16u32;
-pub const WER_MAX_SIGNATURE_NAME_LENGTH: u32 = 128u32;
-pub const WER_MAX_TOTAL_PARAM_LENGTH: u32 = 1720u32;
-pub const WER_METADATA_KEY_MAX_LENGTH: u32 = 64u32;
-pub const WER_METADATA_VALUE_MAX_LENGTH: u32 = 128u32;
-pub const WER_P0: u32 = 0u32;
-pub const WER_P1: u32 = 1u32;
-pub const WER_P2: u32 = 2u32;
-pub const WER_P3: u32 = 3u32;
-pub const WER_P4: u32 = 4u32;
-pub const WER_P5: u32 = 5u32;
-pub const WER_P6: u32 = 6u32;
-pub const WER_P7: u32 = 7u32;
-pub const WER_P8: u32 = 8u32;
-pub const WER_P9: u32 = 9u32;
-pub const WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH: windows_sys::core::PCSTR = windows_sys::core::s!("OutOfProcessExceptionEventDebuggerLaunchCallback");
-pub const WER_RUNTIME_EXCEPTION_EVENT_FUNCTION: windows_sys::core::PCSTR = windows_sys::core::s!("OutOfProcessExceptionEventCallback");
-pub const WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE_FUNCTION: windows_sys::core::PCSTR = windows_sys::core::s!("OutOfProcessExceptionEventSignatureCallback");
 pub const WER_SUBMIT_ADD_REGISTERED_DATA: WER_SUBMIT_FLAGS = 16u32;
 pub const WER_SUBMIT_ARCHIVE_PARAMETERS_ONLY: WER_SUBMIT_FLAGS = 4096u32;
 pub const WER_SUBMIT_BYPASS_DATA_THROTTLING: WER_SUBMIT_FLAGS = 2048u32;
 pub const WER_SUBMIT_BYPASS_NETWORK_COST_THROTTLING: u32 = 32768u32;
 pub const WER_SUBMIT_BYPASS_POWER_THROTTLING: u32 = 16384u32;
+pub type WER_SUBMIT_FLAGS = u32;
 pub const WER_SUBMIT_HONOR_RECOVERY: WER_SUBMIT_FLAGS = 1u32;
 pub const WER_SUBMIT_HONOR_RESTART: WER_SUBMIT_FLAGS = 2u32;
 pub const WER_SUBMIT_NO_ARCHIVE: WER_SUBMIT_FLAGS = 256u32;
@@ -324,6 +319,7 @@ pub const WER_SUBMIT_OUTOFPROCESS: WER_SUBMIT_FLAGS = 32u32;
 pub const WER_SUBMIT_OUTOFPROCESS_ASYNC: WER_SUBMIT_FLAGS = 1024u32;
 pub const WER_SUBMIT_QUEUE: WER_SUBMIT_FLAGS = 4u32;
 pub const WER_SUBMIT_REPORT_MACHINE_ID: WER_SUBMIT_FLAGS = 8192u32;
+pub type WER_SUBMIT_RESULT = i32;
 pub const WER_SUBMIT_SHOW_DEBUG: WER_SUBMIT_FLAGS = 8u32;
 pub const WER_SUBMIT_START_MINIMIZED: WER_SUBMIT_FLAGS = 512u32;
 pub const WerConsentAlwaysPrompt: WER_CONSENT = 4i32;
@@ -391,3 +387,7 @@ pub const frrvOk: EFaultRepRetVal = 0i32;
 pub const frrvOkHeadless: EFaultRepRetVal = 7i32;
 pub const frrvOkManifest: EFaultRepRetVal = 1i32;
 pub const frrvOkQueued: EFaultRepRetVal = 2i32;
+pub type pfn_ADDEREXCLUDEDAPPLICATIONA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR) -> EFaultRepRetVal>;
+pub type pfn_ADDEREXCLUDEDAPPLICATIONW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR) -> EFaultRepRetVal>;
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+pub type pfn_REPORTFAULT = Option<unsafe extern "system" fn(param0: *const super::Diagnostics::Debug::EXCEPTION_POINTERS, param1: u32) -> EFaultRepRetVal>;

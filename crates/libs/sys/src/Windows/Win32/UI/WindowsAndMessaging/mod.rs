@@ -460,90 +460,6 @@ windows_targets::link!("user32.dll" "cdecl" fn wsprintfA(param0 : windows_sys::c
 windows_targets::link!("user32.dll" "cdecl" fn wsprintfW(param0 : windows_sys::core::PWSTR, param1 : windows_sys::core::PCWSTR, ...) -> i32);
 windows_targets::link!("user32.dll" "system" fn wvsprintfA(param0 : windows_sys::core::PSTR, param1 : windows_sys::core::PCSTR, arglist : *const i8) -> i32);
 windows_targets::link!("user32.dll" "system" fn wvsprintfW(param0 : windows_sys::core::PWSTR, param1 : windows_sys::core::PCWSTR, arglist : *const i8) -> i32);
-pub type DLGPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> isize>;
-pub type HOOKPROC = Option<unsafe extern "system" fn(code: i32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
-#[cfg(feature = "Win32_UI_Shell")]
-pub type MSGBOXCALLBACK = Option<unsafe extern "system" fn(lphelpinfo: *mut super::Shell::HELPINFO)>;
-pub type NAMEENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-pub type NAMEENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-pub type PREGISTERCLASSNAMEW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOLEAN>;
-pub type PROPENUMPROCA = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_sys::core::PCSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
-pub type PROPENUMPROCEXA = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_sys::core::PCSTR, param2: super::super::Foundation::HANDLE, param3: usize) -> super::super::Foundation::BOOL>;
-pub type PROPENUMPROCEXW = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_sys::core::PCWSTR, param2: super::super::Foundation::HANDLE, param3: usize) -> super::super::Foundation::BOOL>;
-pub type PROPENUMPROCW = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_sys::core::PCWSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
-pub type SENDASYNCPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: super::super::Foundation::LRESULT)>;
-pub type TIMERPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: u32)>;
-pub type WNDENUMPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-pub type WNDPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
-pub type ACCEL_VIRT_FLAGS = u8;
-pub type ANIMATE_WINDOW_FLAGS = u32;
-pub type CASCADE_WINDOWS_HOW = u32;
-pub type CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = u32;
-pub type CURSORINFO_FLAGS = u32;
-pub type CWP_FLAGS = u32;
-pub type DEV_BROADCAST_HDR_DEVICE_TYPE = u32;
-pub type DEV_BROADCAST_VOLUME_FLAGS = u16;
-pub type DI_FLAGS = u32;
-pub type EDIT_CONTROL_FEATURE = i32;
-pub type FLASHWINFO_FLAGS = u32;
-pub type FOREGROUND_WINDOW_LOCK_CODE = u32;
-pub type GDI_IMAGE_TYPE = u32;
-pub type GET_ANCESTOR_FLAGS = u32;
-pub type GET_CLASS_LONG_INDEX = i32;
-pub type GET_MENU_DEFAULT_ITEM_FLAGS = u32;
-pub type GET_WINDOW_CMD = u32;
-pub type GUITHREADINFO_FLAGS = u32;
-pub type HANDEDNESS = i32;
-pub type IMAGE_FLAGS = u32;
-pub type KBDLLHOOKSTRUCT_FLAGS = u32;
-pub type LAYERED_WINDOW_ATTRIBUTES_FLAGS = u32;
-pub type MENUGETOBJECTINFO_FLAGS = u32;
-pub type MENUINFO_MASK = u32;
-pub type MENUINFO_STYLE = u32;
-pub type MENU_ITEM_FLAGS = u32;
-pub type MENU_ITEM_MASK = u32;
-pub type MENU_ITEM_STATE = u32;
-pub type MENU_ITEM_TYPE = u32;
-pub type MESSAGEBOX_RESULT = i32;
-pub type MESSAGEBOX_STYLE = u32;
-pub type MINIMIZEDMETRICS_ARRANGE = i32;
-pub type MSGFLTINFO_STATUS = u32;
-pub type MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = u32;
-pub type MrmDumpType = i32;
-pub type MrmIndexerFlags = i32;
-pub type MrmPackagingMode = i32;
-pub type MrmPackagingOptions = i32;
-pub type MrmPlatformVersion = i32;
-pub type MrmResourceIndexerMessageSeverity = i32;
-pub type OBJECT_IDENTIFIER = i32;
-pub type PEEK_MESSAGE_REMOVE_TYPE = u32;
-pub type POINTER_INPUT_TYPE = i32;
-pub type QUEUE_STATUS_FLAGS = u32;
-pub type REGISTER_NOTIFICATION_FLAGS = u32;
-pub type SCROLLBAR_COMMAND = i32;
-pub type SCROLLBAR_CONSTANTS = i32;
-pub type SCROLLINFO_MASK = u32;
-pub type SCROLL_WINDOW_FLAGS = u32;
-pub type SEND_MESSAGE_TIMEOUT_FLAGS = u32;
-pub type SET_WINDOW_POS_FLAGS = u32;
-pub type SHOW_WINDOW_CMD = i32;
-pub type SHOW_WINDOW_STATUS = u32;
-pub type SYSTEM_CURSOR_ID = u32;
-pub type SYSTEM_METRICS_INDEX = i32;
-pub type SYSTEM_PARAMETERS_INFO_ACTION = u32;
-pub type SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = u32;
-pub type TILE_WINDOWS_HOW = u32;
-pub type TOOLTIP_DISMISS_FLAGS = i32;
-pub type TRACK_POPUP_MENU_FLAGS = u32;
-pub type UPDATE_LAYERED_WINDOW_FLAGS = u32;
-pub type WINDOWPLACEMENT_FLAGS = u32;
-pub type WINDOWS_HOOK_ID = i32;
-pub type WINDOW_DISPLAY_AFFINITY = u32;
-pub type WINDOW_EX_STYLE = u32;
-pub type WINDOW_LONG_PTR_INDEX = i32;
-pub type WINDOW_MESSAGE_FILTER_ACTION = u32;
-pub type WINDOW_STYLE = u32;
-pub type WNDCLASS_STYLES = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACCEL {
@@ -551,6 +467,7 @@ pub struct ACCEL {
     pub key: u16,
     pub cmd: u16,
 }
+pub type ACCEL_VIRT_FLAGS = u8;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ALTTABINFO {
@@ -564,12 +481,26 @@ pub struct ALTTABINFO {
     pub cyItem: i32,
     pub ptStart: super::super::Foundation::POINT,
 }
+pub type ANIMATE_WINDOW_FLAGS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ANIMATIONINFO {
     pub cbSize: u32,
     pub iMinAnimate: i32,
 }
+pub const ARW_BOTTOMLEFT: MINIMIZEDMETRICS_ARRANGE = 0i32;
+pub const ARW_BOTTOMRIGHT: MINIMIZEDMETRICS_ARRANGE = 1i32;
+pub const ARW_DOWN: i32 = 4i32;
+pub const ARW_HIDE: i32 = 8i32;
+pub const ARW_LEFT: i32 = 0i32;
+pub const ARW_RIGHT: i32 = 0i32;
+pub const ARW_STARTMASK: i32 = 3i32;
+pub const ARW_STARTRIGHT: i32 = 1i32;
+pub const ARW_STARTTOP: i32 = 2i32;
+pub const ARW_TOPLEFT: MINIMIZEDMETRICS_ARRANGE = 2i32;
+pub const ARW_TOPRIGHT: MINIMIZEDMETRICS_ARRANGE = 3i32;
+pub const ARW_UP: i32 = 4i32;
+pub const ASFW_ANY: u32 = 4294967295u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AUDIODESCRIPTION {
@@ -577,6 +508,97 @@ pub struct AUDIODESCRIPTION {
     pub Enabled: super::super::Foundation::BOOL,
     pub Locale: u32,
 }
+pub const AW_ACTIVATE: ANIMATE_WINDOW_FLAGS = 131072u32;
+pub const AW_BLEND: ANIMATE_WINDOW_FLAGS = 524288u32;
+pub const AW_CENTER: ANIMATE_WINDOW_FLAGS = 16u32;
+pub const AW_HIDE: ANIMATE_WINDOW_FLAGS = 65536u32;
+pub const AW_HOR_NEGATIVE: ANIMATE_WINDOW_FLAGS = 2u32;
+pub const AW_HOR_POSITIVE: ANIMATE_WINDOW_FLAGS = 1u32;
+pub const AW_SLIDE: ANIMATE_WINDOW_FLAGS = 262144u32;
+pub const AW_VER_NEGATIVE: ANIMATE_WINDOW_FLAGS = 8u32;
+pub const AW_VER_POSITIVE: ANIMATE_WINDOW_FLAGS = 4u32;
+pub const BM_CLICK: u32 = 245u32;
+pub const BM_GETCHECK: u32 = 240u32;
+pub const BM_GETIMAGE: u32 = 246u32;
+pub const BM_GETSTATE: u32 = 242u32;
+pub const BM_SETCHECK: u32 = 241u32;
+pub const BM_SETDONTCLICK: u32 = 248u32;
+pub const BM_SETIMAGE: u32 = 247u32;
+pub const BM_SETSTATE: u32 = 243u32;
+pub const BM_SETSTYLE: u32 = 244u32;
+pub const BN_CLICKED: u32 = 0u32;
+pub const BN_DBLCLK: u32 = 5u32;
+pub const BN_DISABLE: u32 = 4u32;
+pub const BN_DOUBLECLICKED: u32 = 5u32;
+pub const BN_HILITE: u32 = 2u32;
+pub const BN_KILLFOCUS: u32 = 7u32;
+pub const BN_PAINT: u32 = 1u32;
+pub const BN_PUSHED: u32 = 2u32;
+pub const BN_SETFOCUS: u32 = 6u32;
+pub const BN_UNHILITE: u32 = 3u32;
+pub const BN_UNPUSHED: u32 = 3u32;
+pub const BROADCAST_QUERY_DENY: u32 = 1112363332u32;
+pub const BSF_MSGSRV32ISOK: u32 = 2147483648u32;
+pub const BSF_MSGSRV32ISOK_BIT: u32 = 31u32;
+pub const BSM_INSTALLABLEDRIVERS: u32 = 4u32;
+pub const BSM_NETDRIVER: u32 = 2u32;
+pub const BSM_VXDS: u32 = 1u32;
+pub const BST_FOCUS: u32 = 8u32;
+pub const BST_PUSHED: u32 = 4u32;
+pub const BS_3STATE: i32 = 5i32;
+pub const BS_AUTO3STATE: i32 = 6i32;
+pub const BS_AUTOCHECKBOX: i32 = 3i32;
+pub const BS_AUTORADIOBUTTON: i32 = 9i32;
+pub const BS_BITMAP: i32 = 128i32;
+pub const BS_BOTTOM: i32 = 2048i32;
+pub const BS_CENTER: i32 = 768i32;
+pub const BS_CHECKBOX: i32 = 2i32;
+pub const BS_DEFPUSHBUTTON: i32 = 1i32;
+pub const BS_FLAT: i32 = 32768i32;
+pub const BS_GROUPBOX: i32 = 7i32;
+pub const BS_ICON: i32 = 64i32;
+pub const BS_LEFT: i32 = 256i32;
+pub const BS_LEFTTEXT: i32 = 32i32;
+pub const BS_MULTILINE: i32 = 8192i32;
+pub const BS_NOTIFY: i32 = 16384i32;
+pub const BS_OWNERDRAW: i32 = 11i32;
+pub const BS_PUSHBOX: i32 = 10i32;
+pub const BS_PUSHBUTTON: i32 = 0i32;
+pub const BS_PUSHLIKE: i32 = 4096i32;
+pub const BS_RADIOBUTTON: i32 = 4i32;
+pub const BS_RIGHT: i32 = 512i32;
+pub const BS_RIGHTBUTTON: i32 = 32i32;
+pub const BS_TEXT: i32 = 0i32;
+pub const BS_TOP: i32 = 1024i32;
+pub const BS_TYPEMASK: i32 = 15i32;
+pub const BS_USERBUTTON: i32 = 8i32;
+pub const BS_VCENTER: i32 = 3072i32;
+pub const CALERT_SYSTEM: u32 = 6u32;
+pub type CASCADE_WINDOWS_HOW = u32;
+pub const CBN_CLOSEUP: u32 = 8u32;
+pub const CBN_DBLCLK: u32 = 2u32;
+pub const CBN_DROPDOWN: u32 = 7u32;
+pub const CBN_EDITCHANGE: u32 = 5u32;
+pub const CBN_EDITUPDATE: u32 = 6u32;
+pub const CBN_ERRSPACE: i32 = -1i32;
+pub const CBN_KILLFOCUS: u32 = 4u32;
+pub const CBN_SELCHANGE: u32 = 1u32;
+pub const CBN_SELENDCANCEL: u32 = 10u32;
+pub const CBN_SELENDOK: u32 = 9u32;
+pub const CBN_SETFOCUS: u32 = 3u32;
+pub const CBS_AUTOHSCROLL: i32 = 64i32;
+pub const CBS_DISABLENOSCROLL: i32 = 2048i32;
+pub const CBS_DROPDOWN: i32 = 2i32;
+pub const CBS_DROPDOWNLIST: i32 = 3i32;
+pub const CBS_HASSTRINGS: i32 = 512i32;
+pub const CBS_LOWERCASE: i32 = 16384i32;
+pub const CBS_NOINTEGRALHEIGHT: i32 = 1024i32;
+pub const CBS_OEMCONVERT: i32 = 128i32;
+pub const CBS_OWNERDRAWFIXED: i32 = 16i32;
+pub const CBS_OWNERDRAWVARIABLE: i32 = 32i32;
+pub const CBS_SIMPLE: i32 = 1i32;
+pub const CBS_SORT: i32 = 256i32;
+pub const CBS_UPPERCASE: i32 = 8192i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CBTACTIVATESTRUCT {
@@ -595,18 +617,69 @@ pub struct CBT_CREATEWNDW {
     pub lpcs: *mut CREATESTRUCTW,
     pub hwndInsertAfter: super::super::Foundation::HWND,
 }
+pub const CB_ADDSTRING: u32 = 323u32;
+pub const CB_DELETESTRING: u32 = 324u32;
+pub const CB_DIR: u32 = 325u32;
+pub const CB_ERR: i32 = -1i32;
+pub const CB_ERRSPACE: i32 = -2i32;
+pub const CB_FINDSTRING: u32 = 332u32;
+pub const CB_FINDSTRINGEXACT: u32 = 344u32;
+pub const CB_GETCOMBOBOXINFO: u32 = 356u32;
+pub const CB_GETCOUNT: u32 = 326u32;
+pub const CB_GETCURSEL: u32 = 327u32;
+pub const CB_GETDROPPEDCONTROLRECT: u32 = 338u32;
+pub const CB_GETDROPPEDSTATE: u32 = 343u32;
+pub const CB_GETDROPPEDWIDTH: u32 = 351u32;
+pub const CB_GETEDITSEL: u32 = 320u32;
+pub const CB_GETEXTENDEDUI: u32 = 342u32;
+pub const CB_GETHORIZONTALEXTENT: u32 = 349u32;
+pub const CB_GETITEMDATA: u32 = 336u32;
+pub const CB_GETITEMHEIGHT: u32 = 340u32;
+pub const CB_GETLBTEXT: u32 = 328u32;
+pub const CB_GETLBTEXTLEN: u32 = 329u32;
+pub const CB_GETLOCALE: u32 = 346u32;
+pub const CB_GETTOPINDEX: u32 = 347u32;
+pub const CB_INITSTORAGE: u32 = 353u32;
+pub const CB_INSERTSTRING: u32 = 330u32;
+pub const CB_LIMITTEXT: u32 = 321u32;
+pub const CB_MSGMAX: u32 = 357u32;
+pub const CB_MULTIPLEADDSTRING: u32 = 355u32;
+pub const CB_OKAY: u32 = 0u32;
+pub const CB_RESETCONTENT: u32 = 331u32;
+pub const CB_SELECTSTRING: u32 = 333u32;
+pub const CB_SETCURSEL: u32 = 334u32;
+pub const CB_SETDROPPEDWIDTH: u32 = 352u32;
+pub const CB_SETEDITSEL: u32 = 322u32;
+pub const CB_SETEXTENDEDUI: u32 = 341u32;
+pub const CB_SETHORIZONTALEXTENT: u32 = 350u32;
+pub const CB_SETITEMDATA: u32 = 337u32;
+pub const CB_SETITEMHEIGHT: u32 = 339u32;
+pub const CB_SETLOCALE: u32 = 345u32;
+pub const CB_SETTOPINDEX: u32 = 348u32;
+pub const CB_SHOWDROPDOWN: u32 = 335u32;
+pub const CCHILDREN_SCROLLBAR: u32 = 5u32;
+pub const CCHILDREN_TITLEBAR: u32 = 5u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CHANGEFILTERSTRUCT {
     pub cbSize: u32,
     pub ExtStatus: MSGFLTINFO_STATUS,
 }
+pub type CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = u32;
+pub const CHILDID_SELF: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CLIENTCREATESTRUCT {
     pub hWindowMenu: super::super::Foundation::HANDLE,
     pub idFirstChild: u32,
 }
+pub const CONSOLE_APPLICATION_16BIT: u32 = 0u32;
+pub const CONSOLE_CARET_SELECTION: u32 = 1u32;
+pub const CONSOLE_CARET_VISIBLE: u32 = 2u32;
+pub const CONTACTVISUALIZATION_OFF: u32 = 0u32;
+pub const CONTACTVISUALIZATION_ON: u32 = 1u32;
+pub const CONTACTVISUALIZATION_PRESENTATIONMODE: u32 = 2u32;
+pub const CREATEPROCESS_MANIFEST_RESOURCE_ID: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CREATESTRUCTA {
@@ -639,6 +712,28 @@ pub struct CREATESTRUCTW {
     pub lpszClass: windows_sys::core::PCWSTR,
     pub dwExStyle: WINDOW_EX_STYLE,
 }
+pub const CSOUND_SYSTEM: u32 = 16u32;
+pub const CS_BYTEALIGNCLIENT: WNDCLASS_STYLES = 4096u32;
+pub const CS_BYTEALIGNWINDOW: WNDCLASS_STYLES = 8192u32;
+pub const CS_CLASSDC: WNDCLASS_STYLES = 64u32;
+pub const CS_DBLCLKS: WNDCLASS_STYLES = 8u32;
+pub const CS_DROPSHADOW: WNDCLASS_STYLES = 131072u32;
+pub const CS_GLOBALCLASS: WNDCLASS_STYLES = 16384u32;
+pub const CS_HREDRAW: WNDCLASS_STYLES = 2u32;
+pub const CS_IME: WNDCLASS_STYLES = 65536u32;
+pub const CS_NOCLOSE: WNDCLASS_STYLES = 512u32;
+pub const CS_OWNDC: WNDCLASS_STYLES = 32u32;
+pub const CS_PARENTDC: WNDCLASS_STYLES = 128u32;
+pub const CS_SAVEBITS: WNDCLASS_STYLES = 2048u32;
+pub const CS_VREDRAW: WNDCLASS_STYLES = 1u32;
+pub const CTLCOLOR_BTN: u32 = 3u32;
+pub const CTLCOLOR_DLG: u32 = 4u32;
+pub const CTLCOLOR_EDIT: u32 = 1u32;
+pub const CTLCOLOR_LISTBOX: u32 = 2u32;
+pub const CTLCOLOR_MAX: u32 = 7u32;
+pub const CTLCOLOR_MSGBOX: u32 = 0u32;
+pub const CTLCOLOR_SCROLLBAR: u32 = 5u32;
+pub const CTLCOLOR_STATIC: u32 = 6u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CURSORINFO {
@@ -647,6 +742,7 @@ pub struct CURSORINFO {
     pub hCursor: HCURSOR,
     pub ptScreenPos: super::super::Foundation::POINT,
 }
+pub type CURSORINFO_FLAGS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CURSORSHAPE {
@@ -658,6 +754,11 @@ pub struct CURSORSHAPE {
     pub Planes: u8,
     pub BitsPixel: u8,
 }
+pub const CURSOR_CREATION_SCALING_DEFAULT: u32 = 2u32;
+pub const CURSOR_CREATION_SCALING_NONE: u32 = 1u32;
+pub const CURSOR_SHOWING: CURSORINFO_FLAGS = 1u32;
+pub const CURSOR_SUPPRESSED: CURSORINFO_FLAGS = 2u32;
+pub const CWF_CREATE_ONLY: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CWPRETSTRUCT {
@@ -675,6 +776,54 @@ pub struct CWPSTRUCT {
     pub message: u32,
     pub hwnd: super::super::Foundation::HWND,
 }
+pub const CWP_ALL: CWP_FLAGS = 0u32;
+pub type CWP_FLAGS = u32;
+pub const CWP_SKIPDISABLED: CWP_FLAGS = 2u32;
+pub const CWP_SKIPINVISIBLE: CWP_FLAGS = 1u32;
+pub const CWP_SKIPTRANSPARENT: CWP_FLAGS = 4u32;
+pub const CW_USEDEFAULT: i32 = -2147483648i32;
+pub const DBTF_MEDIA: DEV_BROADCAST_VOLUME_FLAGS = 1u16;
+pub const DBTF_NET: DEV_BROADCAST_VOLUME_FLAGS = 2u16;
+pub const DBTF_RESOURCE: u32 = 1u32;
+pub const DBTF_SLOWNET: u32 = 4u32;
+pub const DBTF_XPORT: u32 = 2u32;
+pub const DBT_APPYBEGIN: u32 = 0u32;
+pub const DBT_APPYEND: u32 = 1u32;
+pub const DBT_CONFIGCHANGECANCELED: u32 = 25u32;
+pub const DBT_CONFIGCHANGED: u32 = 24u32;
+pub const DBT_CONFIGMGAPI32: u32 = 34u32;
+pub const DBT_CONFIGMGPRIVATE: u32 = 32767u32;
+pub const DBT_CUSTOMEVENT: u32 = 32774u32;
+pub const DBT_DEVICEARRIVAL: u32 = 32768u32;
+pub const DBT_DEVICEQUERYREMOVE: u32 = 32769u32;
+pub const DBT_DEVICEQUERYREMOVEFAILED: u32 = 32770u32;
+pub const DBT_DEVICEREMOVECOMPLETE: u32 = 32772u32;
+pub const DBT_DEVICEREMOVEPENDING: u32 = 32771u32;
+pub const DBT_DEVICETYPESPECIFIC: u32 = 32773u32;
+pub const DBT_DEVNODES_CHANGED: u32 = 7u32;
+pub const DBT_DEVTYP_DEVICEINTERFACE: DEV_BROADCAST_HDR_DEVICE_TYPE = 5u32;
+pub const DBT_DEVTYP_DEVNODE: u32 = 1u32;
+pub const DBT_DEVTYP_HANDLE: DEV_BROADCAST_HDR_DEVICE_TYPE = 6u32;
+pub const DBT_DEVTYP_NET: u32 = 4u32;
+pub const DBT_DEVTYP_OEM: DEV_BROADCAST_HDR_DEVICE_TYPE = 0u32;
+pub const DBT_DEVTYP_PORT: DEV_BROADCAST_HDR_DEVICE_TYPE = 3u32;
+pub const DBT_DEVTYP_VOLUME: DEV_BROADCAST_HDR_DEVICE_TYPE = 2u32;
+pub const DBT_LOW_DISK_SPACE: u32 = 72u32;
+pub const DBT_MONITORCHANGE: u32 = 27u32;
+pub const DBT_NO_DISK_SPACE: u32 = 71u32;
+pub const DBT_QUERYCHANGECONFIG: u32 = 23u32;
+pub const DBT_SHELLLOGGEDON: u32 = 32u32;
+pub const DBT_USERDEFINED: u32 = 65535u32;
+pub const DBT_VOLLOCKLOCKFAILED: u32 = 32835u32;
+pub const DBT_VOLLOCKLOCKRELEASED: u32 = 32837u32;
+pub const DBT_VOLLOCKLOCKTAKEN: u32 = 32834u32;
+pub const DBT_VOLLOCKQUERYLOCK: u32 = 32833u32;
+pub const DBT_VOLLOCKQUERYUNLOCK: u32 = 32836u32;
+pub const DBT_VOLLOCKUNLOCKFAILED: u32 = 32838u32;
+pub const DBT_VPOWERDAPI: u32 = 33024u32;
+pub const DBT_VXDINITCOMPLETE: u32 = 35u32;
+pub const DCX_EXCLUDEUPDATE: i32 = 256i32;
+pub const DC_HASDEFID: u32 = 21323u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEBUGHOOKINFO {
@@ -723,6 +872,10 @@ pub struct DEVICE_EVENT_RBC_DATA {
     pub Reserved: u8,
     pub Information: u32,
 }
+pub const DEVICE_NOTIFY_ALL_INTERFACE_CLASSES: REGISTER_NOTIFICATION_FLAGS = 4u32;
+pub const DEVICE_NOTIFY_CALLBACK: REGISTER_NOTIFICATION_FLAGS = 2u32;
+pub const DEVICE_NOTIFY_SERVICE_HANDLE: REGISTER_NOTIFICATION_FLAGS = 1u32;
+pub const DEVICE_NOTIFY_WINDOW_HANDLE: REGISTER_NOTIFICATION_FLAGS = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEV_BROADCAST_DEVICEINTERFACE_A {
@@ -792,6 +945,7 @@ pub struct DEV_BROADCAST_HDR {
     pub dbch_devicetype: DEV_BROADCAST_HDR_DEVICE_TYPE,
     pub dbch_reserved: u32,
 }
+pub type DEV_BROADCAST_HDR_DEVICE_TYPE = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEV_BROADCAST_NET {
@@ -835,918 +989,16 @@ pub struct DEV_BROADCAST_VOLUME {
     pub dbcv_unitmask: u32,
     pub dbcv_flags: DEV_BROADCAST_VOLUME_FLAGS,
 }
+pub type DEV_BROADCAST_VOLUME_FLAGS = u16;
+pub const DIFFERENCE: u32 = 11u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DISK_HEALTH_NOTIFICATION_DATA {
     pub DeviceGuid: windows_sys::core::GUID,
 }
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct DLGITEMTEMPLATE {
-    pub style: u32,
-    pub dwExtendedStyle: u32,
-    pub x: i16,
-    pub y: i16,
-    pub cx: i16,
-    pub cy: i16,
-    pub id: u16,
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct DLGTEMPLATE {
-    pub style: u32,
-    pub dwExtendedStyle: u32,
-    pub cdit: u16,
-    pub x: i16,
-    pub y: i16,
-    pub cx: i16,
-    pub cy: i16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DROPSTRUCT {
-    pub hwndSource: super::super::Foundation::HWND,
-    pub hwndSink: super::super::Foundation::HWND,
-    pub wFmt: u32,
-    pub dwData: usize,
-    pub ptDrop: super::super::Foundation::POINT,
-    pub dwControlData: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct EVENTMSG {
-    pub message: u32,
-    pub paramL: u32,
-    pub paramH: u32,
-    pub time: u32,
-    pub hwnd: super::super::Foundation::HWND,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FLASHWINFO {
-    pub cbSize: u32,
-    pub hwnd: super::super::Foundation::HWND,
-    pub dwFlags: FLASHWINFO_FLAGS,
-    pub uCount: u32,
-    pub dwTimeout: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GETCLIPBMETADATA {
-    pub Version: u32,
-    pub IsDelayRendered: super::super::Foundation::BOOL,
-    pub IsSynthetic: super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
-    pub DiskNumber: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GUITHREADINFO {
-    pub cbSize: u32,
-    pub flags: GUITHREADINFO_FLAGS,
-    pub hwndActive: super::super::Foundation::HWND,
-    pub hwndFocus: super::super::Foundation::HWND,
-    pub hwndCapture: super::super::Foundation::HWND,
-    pub hwndMenuOwner: super::super::Foundation::HWND,
-    pub hwndMoveSize: super::super::Foundation::HWND,
-    pub hwndCaret: super::super::Foundation::HWND,
-    pub rcCaret: super::super::Foundation::RECT,
-}
-pub type HACCEL = *mut core::ffi::c_void;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HARDWAREHOOKSTRUCT {
-    pub hwnd: super::super::Foundation::HWND,
-    pub message: u32,
-    pub wParam: super::super::Foundation::WPARAM,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-pub type HCURSOR = *mut core::ffi::c_void;
-pub type HDEVNOTIFY = *mut core::ffi::c_void;
-pub type HDWP = *mut core::ffi::c_void;
-pub type HHOOK = *mut core::ffi::c_void;
-pub type HICON = *mut core::ffi::c_void;
-pub type HMENU = *mut core::ffi::c_void;
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct ICONINFO {
-    pub fIcon: super::super::Foundation::BOOL,
-    pub xHotspot: u32,
-    pub yHotspot: u32,
-    pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
-    pub hbmColor: super::super::Graphics::Gdi::HBITMAP,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct ICONINFOEXA {
-    pub cbSize: u32,
-    pub fIcon: super::super::Foundation::BOOL,
-    pub xHotspot: u32,
-    pub yHotspot: u32,
-    pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
-    pub hbmColor: super::super::Graphics::Gdi::HBITMAP,
-    pub wResID: u16,
-    pub szModName: [i8; 260],
-    pub szResName: [i8; 260],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct ICONINFOEXW {
-    pub cbSize: u32,
-    pub fIcon: super::super::Foundation::BOOL,
-    pub xHotspot: u32,
-    pub yHotspot: u32,
-    pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
-    pub hbmColor: super::super::Graphics::Gdi::HBITMAP,
-    pub wResID: u16,
-    pub szModName: [u16; 260],
-    pub szResName: [u16; 260],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct ICONMETRICSA {
-    pub cbSize: u32,
-    pub iHorzSpacing: i32,
-    pub iVertSpacing: i32,
-    pub iTitleWrap: i32,
-    pub lfFont: super::super::Graphics::Gdi::LOGFONTA,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct ICONMETRICSW {
-    pub cbSize: u32,
-    pub iHorzSpacing: i32,
-    pub iVertSpacing: i32,
-    pub iTitleWrap: i32,
-    pub lfFont: super::super::Graphics::Gdi::LOGFONTW,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IndexedResourceQualifier {
-    pub name: windows_sys::core::PWSTR,
-    pub value: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct KBDLLHOOKSTRUCT {
-    pub vkCode: u32,
-    pub scanCode: u32,
-    pub flags: KBDLLHOOKSTRUCT_FLAGS,
-    pub time: u32,
-    pub dwExtraInfo: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MDICREATESTRUCTA {
-    pub szClass: windows_sys::core::PCSTR,
-    pub szTitle: windows_sys::core::PCSTR,
-    pub hOwner: super::super::Foundation::HANDLE,
-    pub x: i32,
-    pub y: i32,
-    pub cx: i32,
-    pub cy: i32,
-    pub style: WINDOW_STYLE,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MDICREATESTRUCTW {
-    pub szClass: windows_sys::core::PCWSTR,
-    pub szTitle: windows_sys::core::PCWSTR,
-    pub hOwner: super::super::Foundation::HANDLE,
-    pub x: i32,
-    pub y: i32,
-    pub cx: i32,
-    pub cy: i32,
-    pub style: WINDOW_STYLE,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MDINEXTMENU {
-    pub hmenuIn: HMENU,
-    pub hmenuNext: HMENU,
-    pub hwndNext: super::super::Foundation::HWND,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MENUBARINFO {
-    pub cbSize: u32,
-    pub rcBar: super::super::Foundation::RECT,
-    pub hMenu: HMENU,
-    pub hwndMenu: super::super::Foundation::HWND,
-    pub _bitfield: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MENUEX_TEMPLATE_HEADER {
-    pub wVersion: u16,
-    pub wOffset: u16,
-    pub dwHelpId: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MENUEX_TEMPLATE_ITEM {
-    pub dwType: u32,
-    pub dwState: u32,
-    pub uId: u32,
-    pub wFlags: u16,
-    pub szText: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MENUGETOBJECTINFO {
-    pub dwFlags: MENUGETOBJECTINFO_FLAGS,
-    pub uPos: u32,
-    pub hmenu: HMENU,
-    pub riid: *mut core::ffi::c_void,
-    pub pvObj: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct MENUINFO {
-    pub cbSize: u32,
-    pub fMask: MENUINFO_MASK,
-    pub dwStyle: MENUINFO_STYLE,
-    pub cyMax: u32,
-    pub hbrBack: super::super::Graphics::Gdi::HBRUSH,
-    pub dwContextHelpID: u32,
-    pub dwMenuData: usize,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct MENUITEMINFOA {
-    pub cbSize: u32,
-    pub fMask: MENU_ITEM_MASK,
-    pub fType: MENU_ITEM_TYPE,
-    pub fState: MENU_ITEM_STATE,
-    pub wID: u32,
-    pub hSubMenu: HMENU,
-    pub hbmpChecked: super::super::Graphics::Gdi::HBITMAP,
-    pub hbmpUnchecked: super::super::Graphics::Gdi::HBITMAP,
-    pub dwItemData: usize,
-    pub dwTypeData: windows_sys::core::PSTR,
-    pub cch: u32,
-    pub hbmpItem: super::super::Graphics::Gdi::HBITMAP,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct MENUITEMINFOW {
-    pub cbSize: u32,
-    pub fMask: MENU_ITEM_MASK,
-    pub fType: MENU_ITEM_TYPE,
-    pub fState: MENU_ITEM_STATE,
-    pub wID: u32,
-    pub hSubMenu: HMENU,
-    pub hbmpChecked: super::super::Graphics::Gdi::HBITMAP,
-    pub hbmpUnchecked: super::super::Graphics::Gdi::HBITMAP,
-    pub dwItemData: usize,
-    pub dwTypeData: windows_sys::core::PWSTR,
-    pub cch: u32,
-    pub hbmpItem: super::super::Graphics::Gdi::HBITMAP,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MENUITEMTEMPLATE {
-    pub mtOption: u16,
-    pub mtID: u16,
-    pub mtString: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MENUITEMTEMPLATEHEADER {
-    pub versionNumber: u16,
-    pub offset: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MENUTEMPLATEEX {
-    pub Anonymous: MENUTEMPLATEEX_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union MENUTEMPLATEEX_0 {
-    pub Menu: MENUTEMPLATEEX_0_0,
-    pub MenuEx: MENUTEMPLATEEX_0_1,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MENUTEMPLATEEX_0_1 {
-    pub mexHeader: MENUEX_TEMPLATE_HEADER,
-    pub mexItem: [MENUEX_TEMPLATE_ITEM; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MENUTEMPLATEEX_0_0 {
-    pub mitHeader: MENUITEMTEMPLATEHEADER,
-    pub miTemplate: [MENUITEMTEMPLATE; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MESSAGE_RESOURCE_BLOCK {
-    pub LowId: u32,
-    pub HighId: u32,
-    pub OffsetToEntries: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MESSAGE_RESOURCE_DATA {
-    pub NumberOfBlocks: u32,
-    pub Blocks: [MESSAGE_RESOURCE_BLOCK; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MESSAGE_RESOURCE_ENTRY {
-    pub Length: u16,
-    pub Flags: u16,
-    pub Text: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MINIMIZEDMETRICS {
-    pub cbSize: u32,
-    pub iWidth: i32,
-    pub iHorzGap: i32,
-    pub iVertGap: i32,
-    pub iArrange: MINIMIZEDMETRICS_ARRANGE,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MINMAXINFO {
-    pub ptReserved: super::super::Foundation::POINT,
-    pub ptMaxSize: super::super::Foundation::POINT,
-    pub ptMaxPosition: super::super::Foundation::POINT,
-    pub ptMinTrackSize: super::super::Foundation::POINT,
-    pub ptMaxTrackSize: super::super::Foundation::POINT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MOUSEHOOKSTRUCT {
-    pub pt: super::super::Foundation::POINT,
-    pub hwnd: super::super::Foundation::HWND,
-    pub wHitTestCode: u32,
-    pub dwExtraInfo: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MOUSEHOOKSTRUCTEX {
-    pub Base: MOUSEHOOKSTRUCT,
-    pub mouseData: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MSG {
-    pub hwnd: super::super::Foundation::HWND,
-    pub message: u32,
-    pub wParam: super::super::Foundation::WPARAM,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub time: u32,
-    pub pt: super::super::Foundation::POINT,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_Shell")]
-#[derive(Clone, Copy)]
-pub struct MSGBOXPARAMSA {
-    pub cbSize: u32,
-    pub hwndOwner: super::super::Foundation::HWND,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub lpszText: windows_sys::core::PCSTR,
-    pub lpszCaption: windows_sys::core::PCSTR,
-    pub dwStyle: MESSAGEBOX_STYLE,
-    pub lpszIcon: windows_sys::core::PCSTR,
-    pub dwContextHelpId: usize,
-    pub lpfnMsgBoxCallback: MSGBOXCALLBACK,
-    pub dwLanguageId: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_Shell")]
-#[derive(Clone, Copy)]
-pub struct MSGBOXPARAMSW {
-    pub cbSize: u32,
-    pub hwndOwner: super::super::Foundation::HWND,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub lpszText: windows_sys::core::PCWSTR,
-    pub lpszCaption: windows_sys::core::PCWSTR,
-    pub dwStyle: MESSAGEBOX_STYLE,
-    pub lpszIcon: windows_sys::core::PCWSTR,
-    pub dwContextHelpId: usize,
-    pub lpfnMsgBoxCallback: MSGBOXCALLBACK,
-    pub dwLanguageId: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MSLLHOOKSTRUCT {
-    pub pt: super::super::Foundation::POINT,
-    pub mouseData: u32,
-    pub flags: u32,
-    pub time: u32,
-    pub dwExtraInfo: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MrmResourceIndexerHandle {
-    pub handle: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MrmResourceIndexerMessage {
-    pub severity: MrmResourceIndexerMessageSeverity,
-    pub id: u32,
-    pub text: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NCCALCSIZE_PARAMS {
-    pub rgrc: [super::super::Foundation::RECT; 3],
-    pub lppos: *mut WINDOWPOS,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct NONCLIENTMETRICSA {
-    pub cbSize: u32,
-    pub iBorderWidth: i32,
-    pub iScrollWidth: i32,
-    pub iScrollHeight: i32,
-    pub iCaptionWidth: i32,
-    pub iCaptionHeight: i32,
-    pub lfCaptionFont: super::super::Graphics::Gdi::LOGFONTA,
-    pub iSmCaptionWidth: i32,
-    pub iSmCaptionHeight: i32,
-    pub lfSmCaptionFont: super::super::Graphics::Gdi::LOGFONTA,
-    pub iMenuWidth: i32,
-    pub iMenuHeight: i32,
-    pub lfMenuFont: super::super::Graphics::Gdi::LOGFONTA,
-    pub lfStatusFont: super::super::Graphics::Gdi::LOGFONTA,
-    pub lfMessageFont: super::super::Graphics::Gdi::LOGFONTA,
-    pub iPaddedBorderWidth: i32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct NONCLIENTMETRICSW {
-    pub cbSize: u32,
-    pub iBorderWidth: i32,
-    pub iScrollWidth: i32,
-    pub iScrollHeight: i32,
-    pub iCaptionWidth: i32,
-    pub iCaptionHeight: i32,
-    pub lfCaptionFont: super::super::Graphics::Gdi::LOGFONTW,
-    pub iSmCaptionWidth: i32,
-    pub iSmCaptionHeight: i32,
-    pub lfSmCaptionFont: super::super::Graphics::Gdi::LOGFONTW,
-    pub iMenuWidth: i32,
-    pub iMenuHeight: i32,
-    pub lfMenuFont: super::super::Graphics::Gdi::LOGFONTW,
-    pub lfStatusFont: super::super::Graphics::Gdi::LOGFONTW,
-    pub lfMessageFont: super::super::Graphics::Gdi::LOGFONTW,
-    pub iPaddedBorderWidth: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SCROLLBARINFO {
-    pub cbSize: u32,
-    pub rcScrollBar: super::super::Foundation::RECT,
-    pub dxyLineButton: i32,
-    pub xyThumbTop: i32,
-    pub xyThumbBottom: i32,
-    pub reserved: i32,
-    pub rgstate: [u32; 6],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SCROLLINFO {
-    pub cbSize: u32,
-    pub fMask: SCROLLINFO_MASK,
-    pub nMin: i32,
-    pub nMax: i32,
-    pub nPage: u32,
-    pub nPos: i32,
-    pub nTrackPos: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SHELLHOOKINFO {
-    pub hwnd: super::super::Foundation::HWND,
-    pub rc: super::super::Foundation::RECT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct STYLESTRUCT {
-    pub styleOld: u32,
-    pub styleNew: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TITLEBARINFO {
-    pub cbSize: u32,
-    pub rcTitleBar: super::super::Foundation::RECT,
-    pub rgstate: [u32; 6],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TITLEBARINFOEX {
-    pub cbSize: u32,
-    pub rcTitleBar: super::super::Foundation::RECT,
-    pub rgstate: [u32; 6],
-    pub rgrect: [super::super::Foundation::RECT; 6],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TOUCHPREDICTIONPARAMETERS {
-    pub cbSize: u32,
-    pub dwLatency: u32,
-    pub dwSampleTime: u32,
-    pub bUseHWTimeStamp: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TPMPARAMS {
-    pub cbSize: u32,
-    pub rcExclude: super::super::Foundation::RECT,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct UPDATELAYEREDWINDOWINFO {
-    pub cbSize: u32,
-    pub hdcDst: super::super::Graphics::Gdi::HDC,
-    pub pptDst: *const super::super::Foundation::POINT,
-    pub psize: *const super::super::Foundation::SIZE,
-    pub hdcSrc: super::super::Graphics::Gdi::HDC,
-    pub pptSrc: *const super::super::Foundation::POINT,
-    pub crKey: super::super::Foundation::COLORREF,
-    pub pblend: *const super::super::Graphics::Gdi::BLENDFUNCTION,
-    pub dwFlags: UPDATE_LAYERED_WINDOW_FLAGS,
-    pub prcDirty: *const super::super::Foundation::RECT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VolLockBroadcast {
-    pub vlb_dbh: DEV_BROADCAST_HDR,
-    pub vlb_owner: u32,
-    pub vlb_perms: u8,
-    pub vlb_lockType: u8,
-    pub vlb_drive: u8,
-    pub vlb_flags: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WINDOWINFO {
-    pub cbSize: u32,
-    pub rcWindow: super::super::Foundation::RECT,
-    pub rcClient: super::super::Foundation::RECT,
-    pub dwStyle: WINDOW_STYLE,
-    pub dwExStyle: WINDOW_EX_STYLE,
-    pub dwWindowStatus: u32,
-    pub cxWindowBorders: u32,
-    pub cyWindowBorders: u32,
-    pub atomWindowType: u16,
-    pub wCreatorVersion: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WINDOWPLACEMENT {
-    pub length: u32,
-    pub flags: WINDOWPLACEMENT_FLAGS,
-    pub showCmd: u32,
-    pub ptMinPosition: super::super::Foundation::POINT,
-    pub ptMaxPosition: super::super::Foundation::POINT,
-    pub rcNormalPosition: super::super::Foundation::RECT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WINDOWPOS {
-    pub hwnd: super::super::Foundation::HWND,
-    pub hwndInsertAfter: super::super::Foundation::HWND,
-    pub x: i32,
-    pub y: i32,
-    pub cx: i32,
-    pub cy: i32,
-    pub flags: SET_WINDOW_POS_FLAGS,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct WNDCLASSA {
-    pub style: WNDCLASS_STYLES,
-    pub lpfnWndProc: WNDPROC,
-    pub cbClsExtra: i32,
-    pub cbWndExtra: i32,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub hIcon: HICON,
-    pub hCursor: HCURSOR,
-    pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
-    pub lpszMenuName: windows_sys::core::PCSTR,
-    pub lpszClassName: windows_sys::core::PCSTR,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct WNDCLASSEXA {
-    pub cbSize: u32,
-    pub style: WNDCLASS_STYLES,
-    pub lpfnWndProc: WNDPROC,
-    pub cbClsExtra: i32,
-    pub cbWndExtra: i32,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub hIcon: HICON,
-    pub hCursor: HCURSOR,
-    pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
-    pub lpszMenuName: windows_sys::core::PCSTR,
-    pub lpszClassName: windows_sys::core::PCSTR,
-    pub hIconSm: HICON,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct WNDCLASSEXW {
-    pub cbSize: u32,
-    pub style: WNDCLASS_STYLES,
-    pub lpfnWndProc: WNDPROC,
-    pub cbClsExtra: i32,
-    pub cbWndExtra: i32,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub hIcon: HICON,
-    pub hCursor: HCURSOR,
-    pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
-    pub lpszMenuName: windows_sys::core::PCWSTR,
-    pub lpszClassName: windows_sys::core::PCWSTR,
-    pub hIconSm: HICON,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct WNDCLASSW {
-    pub style: WNDCLASS_STYLES,
-    pub lpfnWndProc: WNDPROC,
-    pub cbClsExtra: i32,
-    pub cbWndExtra: i32,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub hIcon: HICON,
-    pub hCursor: HCURSOR,
-    pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
-    pub lpszMenuName: windows_sys::core::PCWSTR,
-    pub lpszClassName: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct _DEV_BROADCAST_HEADER {
-    pub dbcd_size: u32,
-    pub dbcd_devicetype: u32,
-    pub dbcd_reserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct _DEV_BROADCAST_USERDEFINED {
-    pub dbud_dbh: DEV_BROADCAST_HDR,
-    pub dbud_szName: [i8; 1],
-}
-pub const ARW_BOTTOMLEFT: MINIMIZEDMETRICS_ARRANGE = 0i32;
-pub const ARW_BOTTOMRIGHT: MINIMIZEDMETRICS_ARRANGE = 1i32;
-pub const ARW_DOWN: i32 = 4i32;
-pub const ARW_HIDE: i32 = 8i32;
-pub const ARW_LEFT: i32 = 0i32;
-pub const ARW_RIGHT: i32 = 0i32;
-pub const ARW_STARTMASK: i32 = 3i32;
-pub const ARW_STARTRIGHT: i32 = 1i32;
-pub const ARW_STARTTOP: i32 = 2i32;
-pub const ARW_TOPLEFT: MINIMIZEDMETRICS_ARRANGE = 2i32;
-pub const ARW_TOPRIGHT: MINIMIZEDMETRICS_ARRANGE = 3i32;
-pub const ARW_UP: i32 = 4i32;
-pub const ASFW_ANY: u32 = 4294967295u32;
-pub const AW_ACTIVATE: ANIMATE_WINDOW_FLAGS = 131072u32;
-pub const AW_BLEND: ANIMATE_WINDOW_FLAGS = 524288u32;
-pub const AW_CENTER: ANIMATE_WINDOW_FLAGS = 16u32;
-pub const AW_HIDE: ANIMATE_WINDOW_FLAGS = 65536u32;
-pub const AW_HOR_NEGATIVE: ANIMATE_WINDOW_FLAGS = 2u32;
-pub const AW_HOR_POSITIVE: ANIMATE_WINDOW_FLAGS = 1u32;
-pub const AW_SLIDE: ANIMATE_WINDOW_FLAGS = 262144u32;
-pub const AW_VER_NEGATIVE: ANIMATE_WINDOW_FLAGS = 8u32;
-pub const AW_VER_POSITIVE: ANIMATE_WINDOW_FLAGS = 4u32;
-pub const BM_CLICK: u32 = 245u32;
-pub const BM_GETCHECK: u32 = 240u32;
-pub const BM_GETIMAGE: u32 = 246u32;
-pub const BM_GETSTATE: u32 = 242u32;
-pub const BM_SETCHECK: u32 = 241u32;
-pub const BM_SETDONTCLICK: u32 = 248u32;
-pub const BM_SETIMAGE: u32 = 247u32;
-pub const BM_SETSTATE: u32 = 243u32;
-pub const BM_SETSTYLE: u32 = 244u32;
-pub const BN_CLICKED: u32 = 0u32;
-pub const BN_DBLCLK: u32 = 5u32;
-pub const BN_DISABLE: u32 = 4u32;
-pub const BN_DOUBLECLICKED: u32 = 5u32;
-pub const BN_HILITE: u32 = 2u32;
-pub const BN_KILLFOCUS: u32 = 7u32;
-pub const BN_PAINT: u32 = 1u32;
-pub const BN_PUSHED: u32 = 2u32;
-pub const BN_SETFOCUS: u32 = 6u32;
-pub const BN_UNHILITE: u32 = 3u32;
-pub const BN_UNPUSHED: u32 = 3u32;
-pub const BROADCAST_QUERY_DENY: u32 = 1112363332u32;
-pub const BSF_MSGSRV32ISOK: u32 = 2147483648u32;
-pub const BSF_MSGSRV32ISOK_BIT: u32 = 31u32;
-pub const BSM_INSTALLABLEDRIVERS: u32 = 4u32;
-pub const BSM_NETDRIVER: u32 = 2u32;
-pub const BSM_VXDS: u32 = 1u32;
-pub const BST_FOCUS: u32 = 8u32;
-pub const BST_PUSHED: u32 = 4u32;
-pub const BS_3STATE: i32 = 5i32;
-pub const BS_AUTO3STATE: i32 = 6i32;
-pub const BS_AUTOCHECKBOX: i32 = 3i32;
-pub const BS_AUTORADIOBUTTON: i32 = 9i32;
-pub const BS_BITMAP: i32 = 128i32;
-pub const BS_BOTTOM: i32 = 2048i32;
-pub const BS_CENTER: i32 = 768i32;
-pub const BS_CHECKBOX: i32 = 2i32;
-pub const BS_DEFPUSHBUTTON: i32 = 1i32;
-pub const BS_FLAT: i32 = 32768i32;
-pub const BS_GROUPBOX: i32 = 7i32;
-pub const BS_ICON: i32 = 64i32;
-pub const BS_LEFT: i32 = 256i32;
-pub const BS_LEFTTEXT: i32 = 32i32;
-pub const BS_MULTILINE: i32 = 8192i32;
-pub const BS_NOTIFY: i32 = 16384i32;
-pub const BS_OWNERDRAW: i32 = 11i32;
-pub const BS_PUSHBOX: i32 = 10i32;
-pub const BS_PUSHBUTTON: i32 = 0i32;
-pub const BS_PUSHLIKE: i32 = 4096i32;
-pub const BS_RADIOBUTTON: i32 = 4i32;
-pub const BS_RIGHT: i32 = 512i32;
-pub const BS_RIGHTBUTTON: i32 = 32i32;
-pub const BS_TEXT: i32 = 0i32;
-pub const BS_TOP: i32 = 1024i32;
-pub const BS_TYPEMASK: i32 = 15i32;
-pub const BS_USERBUTTON: i32 = 8i32;
-pub const BS_VCENTER: i32 = 3072i32;
-pub const CALERT_SYSTEM: u32 = 6u32;
-pub const CBN_CLOSEUP: u32 = 8u32;
-pub const CBN_DBLCLK: u32 = 2u32;
-pub const CBN_DROPDOWN: u32 = 7u32;
-pub const CBN_EDITCHANGE: u32 = 5u32;
-pub const CBN_EDITUPDATE: u32 = 6u32;
-pub const CBN_ERRSPACE: i32 = -1i32;
-pub const CBN_KILLFOCUS: u32 = 4u32;
-pub const CBN_SELCHANGE: u32 = 1u32;
-pub const CBN_SELENDCANCEL: u32 = 10u32;
-pub const CBN_SELENDOK: u32 = 9u32;
-pub const CBN_SETFOCUS: u32 = 3u32;
-pub const CBS_AUTOHSCROLL: i32 = 64i32;
-pub const CBS_DISABLENOSCROLL: i32 = 2048i32;
-pub const CBS_DROPDOWN: i32 = 2i32;
-pub const CBS_DROPDOWNLIST: i32 = 3i32;
-pub const CBS_HASSTRINGS: i32 = 512i32;
-pub const CBS_LOWERCASE: i32 = 16384i32;
-pub const CBS_NOINTEGRALHEIGHT: i32 = 1024i32;
-pub const CBS_OEMCONVERT: i32 = 128i32;
-pub const CBS_OWNERDRAWFIXED: i32 = 16i32;
-pub const CBS_OWNERDRAWVARIABLE: i32 = 32i32;
-pub const CBS_SIMPLE: i32 = 1i32;
-pub const CBS_SORT: i32 = 256i32;
-pub const CBS_UPPERCASE: i32 = 8192i32;
-pub const CB_ADDSTRING: u32 = 323u32;
-pub const CB_DELETESTRING: u32 = 324u32;
-pub const CB_DIR: u32 = 325u32;
-pub const CB_ERR: i32 = -1i32;
-pub const CB_ERRSPACE: i32 = -2i32;
-pub const CB_FINDSTRING: u32 = 332u32;
-pub const CB_FINDSTRINGEXACT: u32 = 344u32;
-pub const CB_GETCOMBOBOXINFO: u32 = 356u32;
-pub const CB_GETCOUNT: u32 = 326u32;
-pub const CB_GETCURSEL: u32 = 327u32;
-pub const CB_GETDROPPEDCONTROLRECT: u32 = 338u32;
-pub const CB_GETDROPPEDSTATE: u32 = 343u32;
-pub const CB_GETDROPPEDWIDTH: u32 = 351u32;
-pub const CB_GETEDITSEL: u32 = 320u32;
-pub const CB_GETEXTENDEDUI: u32 = 342u32;
-pub const CB_GETHORIZONTALEXTENT: u32 = 349u32;
-pub const CB_GETITEMDATA: u32 = 336u32;
-pub const CB_GETITEMHEIGHT: u32 = 340u32;
-pub const CB_GETLBTEXT: u32 = 328u32;
-pub const CB_GETLBTEXTLEN: u32 = 329u32;
-pub const CB_GETLOCALE: u32 = 346u32;
-pub const CB_GETTOPINDEX: u32 = 347u32;
-pub const CB_INITSTORAGE: u32 = 353u32;
-pub const CB_INSERTSTRING: u32 = 330u32;
-pub const CB_LIMITTEXT: u32 = 321u32;
-pub const CB_MSGMAX: u32 = 357u32;
-pub const CB_MULTIPLEADDSTRING: u32 = 355u32;
-pub const CB_OKAY: u32 = 0u32;
-pub const CB_RESETCONTENT: u32 = 331u32;
-pub const CB_SELECTSTRING: u32 = 333u32;
-pub const CB_SETCURSEL: u32 = 334u32;
-pub const CB_SETDROPPEDWIDTH: u32 = 352u32;
-pub const CB_SETEDITSEL: u32 = 322u32;
-pub const CB_SETEXTENDEDUI: u32 = 341u32;
-pub const CB_SETHORIZONTALEXTENT: u32 = 350u32;
-pub const CB_SETITEMDATA: u32 = 337u32;
-pub const CB_SETITEMHEIGHT: u32 = 339u32;
-pub const CB_SETLOCALE: u32 = 345u32;
-pub const CB_SETTOPINDEX: u32 = 348u32;
-pub const CB_SHOWDROPDOWN: u32 = 335u32;
-pub const CCHILDREN_SCROLLBAR: u32 = 5u32;
-pub const CCHILDREN_TITLEBAR: u32 = 5u32;
-pub const CHILDID_SELF: u32 = 0u32;
-pub const CONSOLE_APPLICATION_16BIT: u32 = 0u32;
-pub const CONSOLE_CARET_SELECTION: u32 = 1u32;
-pub const CONSOLE_CARET_VISIBLE: u32 = 2u32;
-pub const CONTACTVISUALIZATION_OFF: u32 = 0u32;
-pub const CONTACTVISUALIZATION_ON: u32 = 1u32;
-pub const CONTACTVISUALIZATION_PRESENTATIONMODE: u32 = 2u32;
-pub const CREATEPROCESS_MANIFEST_RESOURCE_ID: u32 = 1u32;
-pub const CSOUND_SYSTEM: u32 = 16u32;
-pub const CS_BYTEALIGNCLIENT: WNDCLASS_STYLES = 4096u32;
-pub const CS_BYTEALIGNWINDOW: WNDCLASS_STYLES = 8192u32;
-pub const CS_CLASSDC: WNDCLASS_STYLES = 64u32;
-pub const CS_DBLCLKS: WNDCLASS_STYLES = 8u32;
-pub const CS_DROPSHADOW: WNDCLASS_STYLES = 131072u32;
-pub const CS_GLOBALCLASS: WNDCLASS_STYLES = 16384u32;
-pub const CS_HREDRAW: WNDCLASS_STYLES = 2u32;
-pub const CS_IME: WNDCLASS_STYLES = 65536u32;
-pub const CS_NOCLOSE: WNDCLASS_STYLES = 512u32;
-pub const CS_OWNDC: WNDCLASS_STYLES = 32u32;
-pub const CS_PARENTDC: WNDCLASS_STYLES = 128u32;
-pub const CS_SAVEBITS: WNDCLASS_STYLES = 2048u32;
-pub const CS_VREDRAW: WNDCLASS_STYLES = 1u32;
-pub const CTLCOLOR_BTN: u32 = 3u32;
-pub const CTLCOLOR_DLG: u32 = 4u32;
-pub const CTLCOLOR_EDIT: u32 = 1u32;
-pub const CTLCOLOR_LISTBOX: u32 = 2u32;
-pub const CTLCOLOR_MAX: u32 = 7u32;
-pub const CTLCOLOR_MSGBOX: u32 = 0u32;
-pub const CTLCOLOR_SCROLLBAR: u32 = 5u32;
-pub const CTLCOLOR_STATIC: u32 = 6u32;
-pub const CURSOR_CREATION_SCALING_DEFAULT: u32 = 2u32;
-pub const CURSOR_CREATION_SCALING_NONE: u32 = 1u32;
-pub const CURSOR_SHOWING: CURSORINFO_FLAGS = 1u32;
-pub const CURSOR_SUPPRESSED: CURSORINFO_FLAGS = 2u32;
-pub const CWF_CREATE_ONLY: u32 = 1u32;
-pub const CWP_ALL: CWP_FLAGS = 0u32;
-pub const CWP_SKIPDISABLED: CWP_FLAGS = 2u32;
-pub const CWP_SKIPINVISIBLE: CWP_FLAGS = 1u32;
-pub const CWP_SKIPTRANSPARENT: CWP_FLAGS = 4u32;
-pub const CW_USEDEFAULT: i32 = -2147483648i32;
-pub const DBTF_MEDIA: DEV_BROADCAST_VOLUME_FLAGS = 1u16;
-pub const DBTF_NET: DEV_BROADCAST_VOLUME_FLAGS = 2u16;
-pub const DBTF_RESOURCE: u32 = 1u32;
-pub const DBTF_SLOWNET: u32 = 4u32;
-pub const DBTF_XPORT: u32 = 2u32;
-pub const DBT_APPYBEGIN: u32 = 0u32;
-pub const DBT_APPYEND: u32 = 1u32;
-pub const DBT_CONFIGCHANGECANCELED: u32 = 25u32;
-pub const DBT_CONFIGCHANGED: u32 = 24u32;
-pub const DBT_CONFIGMGAPI32: u32 = 34u32;
-pub const DBT_CONFIGMGPRIVATE: u32 = 32767u32;
-pub const DBT_CUSTOMEVENT: u32 = 32774u32;
-pub const DBT_DEVICEARRIVAL: u32 = 32768u32;
-pub const DBT_DEVICEQUERYREMOVE: u32 = 32769u32;
-pub const DBT_DEVICEQUERYREMOVEFAILED: u32 = 32770u32;
-pub const DBT_DEVICEREMOVECOMPLETE: u32 = 32772u32;
-pub const DBT_DEVICEREMOVEPENDING: u32 = 32771u32;
-pub const DBT_DEVICETYPESPECIFIC: u32 = 32773u32;
-pub const DBT_DEVNODES_CHANGED: u32 = 7u32;
-pub const DBT_DEVTYP_DEVICEINTERFACE: DEV_BROADCAST_HDR_DEVICE_TYPE = 5u32;
-pub const DBT_DEVTYP_DEVNODE: u32 = 1u32;
-pub const DBT_DEVTYP_HANDLE: DEV_BROADCAST_HDR_DEVICE_TYPE = 6u32;
-pub const DBT_DEVTYP_NET: u32 = 4u32;
-pub const DBT_DEVTYP_OEM: DEV_BROADCAST_HDR_DEVICE_TYPE = 0u32;
-pub const DBT_DEVTYP_PORT: DEV_BROADCAST_HDR_DEVICE_TYPE = 3u32;
-pub const DBT_DEVTYP_VOLUME: DEV_BROADCAST_HDR_DEVICE_TYPE = 2u32;
-pub const DBT_LOW_DISK_SPACE: u32 = 72u32;
-pub const DBT_MONITORCHANGE: u32 = 27u32;
-pub const DBT_NO_DISK_SPACE: u32 = 71u32;
-pub const DBT_QUERYCHANGECONFIG: u32 = 23u32;
-pub const DBT_SHELLLOGGEDON: u32 = 32u32;
-pub const DBT_USERDEFINED: u32 = 65535u32;
-pub const DBT_VOLLOCKLOCKFAILED: u32 = 32835u32;
-pub const DBT_VOLLOCKLOCKRELEASED: u32 = 32837u32;
-pub const DBT_VOLLOCKLOCKTAKEN: u32 = 32834u32;
-pub const DBT_VOLLOCKQUERYLOCK: u32 = 32833u32;
-pub const DBT_VOLLOCKQUERYUNLOCK: u32 = 32836u32;
-pub const DBT_VOLLOCKUNLOCKFAILED: u32 = 32838u32;
-pub const DBT_VPOWERDAPI: u32 = 33024u32;
-pub const DBT_VXDINITCOMPLETE: u32 = 35u32;
-pub const DCX_EXCLUDEUPDATE: i32 = 256i32;
-pub const DC_HASDEFID: u32 = 21323u32;
-pub const DEVICE_NOTIFY_ALL_INTERFACE_CLASSES: REGISTER_NOTIFICATION_FLAGS = 4u32;
-pub const DEVICE_NOTIFY_CALLBACK: REGISTER_NOTIFICATION_FLAGS = 2u32;
-pub const DEVICE_NOTIFY_SERVICE_HANDLE: REGISTER_NOTIFICATION_FLAGS = 1u32;
-pub const DEVICE_NOTIFY_WINDOW_HANDLE: REGISTER_NOTIFICATION_FLAGS = 0u32;
-pub const DIFFERENCE: u32 = 11u32;
 pub const DI_COMPAT: DI_FLAGS = 4u32;
 pub const DI_DEFAULTSIZE: DI_FLAGS = 8u32;
+pub type DI_FLAGS = u32;
 pub const DI_IMAGE: DI_FLAGS = 2u32;
 pub const DI_MASK: DI_FLAGS = 1u32;
 pub const DI_NOMIRROR: DI_FLAGS = 16u32;
@@ -1762,6 +1014,29 @@ pub const DLGC_WANTARROWS: u32 = 1u32;
 pub const DLGC_WANTCHARS: u32 = 128u32;
 pub const DLGC_WANTMESSAGE: u32 = 4u32;
 pub const DLGC_WANTTAB: u32 = 2u32;
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct DLGITEMTEMPLATE {
+    pub style: u32,
+    pub dwExtendedStyle: u32,
+    pub x: i16,
+    pub y: i16,
+    pub cx: i16,
+    pub cy: i16,
+    pub id: u16,
+}
+pub type DLGPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> isize>;
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct DLGTEMPLATE {
+    pub style: u32,
+    pub dwExtendedStyle: u32,
+    pub cdit: u16,
+    pub x: i16,
+    pub y: i16,
+    pub cx: i16,
+    pub cy: i16,
+}
 pub const DLGWINDOWEXTRA: u32 = 30u32;
 pub const DM_GETDEFID: u32 = 1024u32;
 pub const DM_POINTERHITTEST: u32 = 592u32;
@@ -1775,6 +1050,16 @@ pub const DOF_PROGMAN: u32 = 1u32;
 pub const DOF_SHELLDATA: u32 = 2u32;
 pub const DO_DROPFILE: i32 = 1162627398i32;
 pub const DO_PRINTFILE: i32 = 1414419024i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DROPSTRUCT {
+    pub hwndSource: super::super::Foundation::HWND,
+    pub hwndSink: super::super::Foundation::HWND,
+    pub wFmt: u32,
+    pub dwData: usize,
+    pub ptDrop: super::super::Foundation::POINT,
+    pub dwControlData: u32,
+}
 pub const DS_3DLOOK: i32 = 4i32;
 pub const DS_ABSALIGN: i32 = 1i32;
 pub const DS_CENTER: i32 = 2048i32;
@@ -1798,6 +1083,7 @@ pub const EC_LEFTMARGIN: u32 = 1u32;
 pub const EC_RIGHTMARGIN: u32 = 2u32;
 pub const EC_USEFONTINFO: u32 = 65535u32;
 pub const EDD_GET_DEVICE_INTERFACE_NAME: u32 = 1u32;
+pub type EDIT_CONTROL_FEATURE = i32;
 pub const EDIT_CONTROL_FEATURE_ENTERPRISE_DATA_PROTECTION_PASTE_SUPPORT: EDIT_CONTROL_FEATURE = 0i32;
 pub const EDIT_CONTROL_FEATURE_PASTE_NOTIFICATIONS: EDIT_CONTROL_FEATURE = 1i32;
 pub const EIMES_CANCELCOMPSTRINFOCUS: u32 = 2u32;
@@ -1833,6 +1119,15 @@ pub const ES_READONLY: i32 = 2048i32;
 pub const ES_RIGHT: i32 = 2i32;
 pub const ES_UPPERCASE: i32 = 8i32;
 pub const ES_WANTRETURN: i32 = 4096i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct EVENTMSG {
+    pub message: u32,
+    pub paramL: u32,
+    pub paramH: u32,
+    pub time: u32,
+    pub hwnd: super::super::Foundation::HWND,
+}
 pub const EVENT_AIA_END: u32 = 45055u32;
 pub const EVENT_AIA_START: u32 = 40960u32;
 pub const EVENT_CONSOLE_CARET: u32 = 16385u32;
@@ -1936,6 +1231,16 @@ pub const FKF_FILTERKEYSON: u32 = 1u32;
 pub const FKF_HOTKEYACTIVE: u32 = 4u32;
 pub const FKF_HOTKEYSOUND: u32 = 16u32;
 pub const FKF_INDICATOR: u32 = 32u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FLASHWINFO {
+    pub cbSize: u32,
+    pub hwnd: super::super::Foundation::HWND,
+    pub dwFlags: FLASHWINFO_FLAGS,
+    pub uCount: u32,
+    pub dwTimeout: u32,
+}
+pub type FLASHWINFO_FLAGS = u32;
 pub const FLASHW_ALL: FLASHWINFO_FLAGS = 3u32;
 pub const FLASHW_CAPTION: FLASHWINFO_FLAGS = 1u32;
 pub const FLASHW_STOP: FLASHWINFO_FLAGS = 0u32;
@@ -1943,6 +1248,7 @@ pub const FLASHW_TIMER: FLASHWINFO_FLAGS = 4u32;
 pub const FLASHW_TIMERNOFG: FLASHWINFO_FLAGS = 12u32;
 pub const FLASHW_TRAY: FLASHWINFO_FLAGS = 2u32;
 pub const FNOINVERT: ACCEL_VIRT_FLAGS = 2u8;
+pub type FOREGROUND_WINDOW_LOCK_CODE = u32;
 pub const FSHIFT: ACCEL_VIRT_FLAGS = 4u8;
 pub const FVIRTKEY: ACCEL_VIRT_FLAGS = 1u8;
 pub const GA_PARENT: GET_ANCESTOR_FLAGS = 1u32;
@@ -1967,6 +1273,7 @@ pub const GCL_MENUNAME: GET_CLASS_LONG_INDEX = -8i32;
 pub const GCL_STYLE: GET_CLASS_LONG_INDEX = -26i32;
 pub const GCL_WNDPROC: GET_CLASS_LONG_INDEX = -24i32;
 pub const GCW_ATOM: GET_CLASS_LONG_INDEX = -32i32;
+pub type GDI_IMAGE_TYPE = u32;
 pub const GESTURECONFIGMAXCOUNT: u32 = 256u32;
 pub const GESTUREVISUALIZATION_DOUBLETAP: u32 = 2u32;
 pub const GESTUREVISUALIZATION_OFF: u32 = 0u32;
@@ -1975,6 +1282,17 @@ pub const GESTUREVISUALIZATION_PRESSANDHOLD: u32 = 8u32;
 pub const GESTUREVISUALIZATION_PRESSANDTAP: u32 = 4u32;
 pub const GESTUREVISUALIZATION_RIGHTTAP: u32 = 16u32;
 pub const GESTUREVISUALIZATION_TAP: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GETCLIPBMETADATA {
+    pub Version: u32,
+    pub IsDelayRendered: super::super::Foundation::BOOL,
+    pub IsSynthetic: super::super::Foundation::BOOL,
+}
+pub type GET_ANCESTOR_FLAGS = u32;
+pub type GET_CLASS_LONG_INDEX = i32;
+pub type GET_MENU_DEFAULT_ITEM_FLAGS = u32;
+pub type GET_WINDOW_CMD = u32;
 pub const GF_BEGIN: u32 = 1u32;
 pub const GF_END: u32 = 4u32;
 pub const GF_INERTIA: u32 = 2u32;
@@ -1988,6 +1306,11 @@ pub const GUID_IO_CDROM_EXCLUSIVE_UNLOCK: windows_sys::core::GUID = windows_sys:
 pub const GUID_IO_DEVICE_BECOMING_READY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd07433f0_a98e_11d2_917a_00a0c9068ff3);
 pub const GUID_IO_DEVICE_EXTERNAL_REQUEST: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd07433d0_a98e_11d2_917a_00a0c9068ff3);
 pub const GUID_IO_DISK_CLONE_ARRIVAL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a61885b_7c39_43dd_9b56_b8ac22a549aa);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
+    pub DiskNumber: u32,
+}
 pub const GUID_IO_DISK_HEALTH_NOTIFICATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0f1bd644_3916_49c5_b063_991940118fb2);
 pub const GUID_IO_DISK_LAYOUT_CHANGE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x11dff54c_8469_41f9_b3de_ef836487c54a);
 pub const GUID_IO_DRIVE_REQUIRES_CLEANING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7207877c_90ed_44e5_a000_81428d4c79bb);
@@ -2015,6 +1338,20 @@ pub const GUID_IO_VOLUME_UNIQUE_ID_CHANGE: windows_sys::core::GUID = windows_sys
 pub const GUID_IO_VOLUME_UNLOCK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9a8c3d68_d0cb_11d1_8fef_00a0c9a06d32);
 pub const GUID_IO_VOLUME_WEARING_OUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x873113ca_1486_4508_82ac_c3b2e5297aaa);
 pub const GUID_IO_VOLUME_WORM_NEAR_FULL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf3bfff82_f3de_48d2_af95_457f80b763f2);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GUITHREADINFO {
+    pub cbSize: u32,
+    pub flags: GUITHREADINFO_FLAGS,
+    pub hwndActive: super::super::Foundation::HWND,
+    pub hwndFocus: super::super::Foundation::HWND,
+    pub hwndCapture: super::super::Foundation::HWND,
+    pub hwndMenuOwner: super::super::Foundation::HWND,
+    pub hwndMoveSize: super::super::Foundation::HWND,
+    pub hwndCaret: super::super::Foundation::HWND,
+    pub rcCaret: super::super::Foundation::RECT,
+}
+pub type GUITHREADINFO_FLAGS = u32;
 pub const GUI_16BITTASK: u32 = 0u32;
 pub const GUI_CARETBLINKING: GUITHREADINFO_FLAGS = 1u32;
 pub const GUI_INMENUMODE: GUITHREADINFO_FLAGS = 4u32;
@@ -2042,8 +1379,18 @@ pub const GW_HWNDNEXT: GET_WINDOW_CMD = 2u32;
 pub const GW_HWNDPREV: GET_WINDOW_CMD = 3u32;
 pub const GW_MAX: u32 = 5u32;
 pub const GW_OWNER: GET_WINDOW_CMD = 4u32;
+pub type HACCEL = *mut core::ffi::c_void;
+pub type HANDEDNESS = i32;
 pub const HANDEDNESS_LEFT: HANDEDNESS = 0i32;
 pub const HANDEDNESS_RIGHT: HANDEDNESS = 1i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HARDWAREHOOKSTRUCT {
+    pub hwnd: super::super::Foundation::HWND,
+    pub message: u32,
+    pub wParam: super::super::Foundation::WPARAM,
+    pub lParam: super::super::Foundation::LPARAM,
+}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub const HBMMENU_CALLBACK: super::super::Graphics::Gdi::HBITMAP = -1i32 as _;
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2078,6 +1425,7 @@ pub const HCBT_SETFOCUS: u32 = 9u32;
 pub const HCBT_SYSCOMMAND: u32 = 8u32;
 pub const HCF_DEFAULTDESKTOP: u32 = 512u32;
 pub const HCF_LOGONDESKTOP: u32 = 256u32;
+pub type HCURSOR = *mut core::ffi::c_void;
 pub const HC_ACTION: u32 = 0u32;
 pub const HC_GETNEXT: u32 = 1u32;
 pub const HC_NOREM: u32 = 3u32;
@@ -2085,6 +1433,8 @@ pub const HC_NOREMOVE: u32 = 3u32;
 pub const HC_SKIP: u32 = 2u32;
 pub const HC_SYSMODALOFF: u32 = 5u32;
 pub const HC_SYSMODALON: u32 = 4u32;
+pub type HDEVNOTIFY = *mut core::ffi::c_void;
+pub type HDWP = *mut core::ffi::c_void;
 pub const HELP_COMMAND: i32 = 258i32;
 pub const HELP_CONTENTS: i32 = 3i32;
 pub const HELP_CONTEXT: i32 = 1i32;
@@ -2106,9 +1456,13 @@ pub const HELP_TCARD: u32 = 32768u32;
 pub const HELP_TCARD_DATA: u32 = 16u32;
 pub const HELP_TCARD_OTHER_CALLER: u32 = 17u32;
 pub const HELP_WM_HELP: u32 = 12u32;
+pub type HHOOK = *mut core::ffi::c_void;
+pub type HICON = *mut core::ffi::c_void;
 pub const HIDE_WINDOW: u32 = 0u32;
 pub const HKL_NEXT: u32 = 1u32;
 pub const HKL_PREV: u32 = 0u32;
+pub type HMENU = *mut core::ffi::c_void;
+pub type HOOKPROC = Option<unsafe extern "system" fn(code: i32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
 pub const HSHELL_ACCESSIBILITYSTATE: u32 = 11u32;
 pub const HSHELL_ACTIVATESHELLWINDOW: u32 = 3u32;
 pub const HSHELL_APPCOMMAND: u32 = 12u32;
@@ -2161,6 +1515,64 @@ pub const HWND_MESSAGE: super::super::Foundation::HWND = -3i32 as _;
 pub const HWND_NOTOPMOST: super::super::Foundation::HWND = -2i32 as _;
 pub const HWND_TOP: super::super::Foundation::HWND = 0i32 as _;
 pub const HWND_TOPMOST: super::super::Foundation::HWND = -1i32 as _;
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct ICONINFO {
+    pub fIcon: super::super::Foundation::BOOL,
+    pub xHotspot: u32,
+    pub yHotspot: u32,
+    pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
+    pub hbmColor: super::super::Graphics::Gdi::HBITMAP,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct ICONINFOEXA {
+    pub cbSize: u32,
+    pub fIcon: super::super::Foundation::BOOL,
+    pub xHotspot: u32,
+    pub yHotspot: u32,
+    pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
+    pub hbmColor: super::super::Graphics::Gdi::HBITMAP,
+    pub wResID: u16,
+    pub szModName: [i8; 260],
+    pub szResName: [i8; 260],
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct ICONINFOEXW {
+    pub cbSize: u32,
+    pub fIcon: super::super::Foundation::BOOL,
+    pub xHotspot: u32,
+    pub yHotspot: u32,
+    pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
+    pub hbmColor: super::super::Graphics::Gdi::HBITMAP,
+    pub wResID: u16,
+    pub szModName: [u16; 260],
+    pub szResName: [u16; 260],
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct ICONMETRICSA {
+    pub cbSize: u32,
+    pub iHorzSpacing: i32,
+    pub iVertSpacing: i32,
+    pub iTitleWrap: i32,
+    pub lfFont: super::super::Graphics::Gdi::LOGFONTA,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct ICONMETRICSW {
+    pub cbSize: u32,
+    pub iHorzSpacing: i32,
+    pub iVertSpacing: i32,
+    pub iTitleWrap: i32,
+    pub lfFont: super::super::Graphics::Gdi::LOGFONTW,
+}
 pub const ICON_BIG: u32 = 1u32;
 pub const ICON_SMALL: u32 = 0u32;
 pub const ICON_SMALL2: u32 = 2u32;
@@ -2219,6 +1631,7 @@ pub const IDYES: MESSAGEBOX_RESULT = 6i32;
 pub const IMAGE_BITMAP: GDI_IMAGE_TYPE = 0u32;
 pub const IMAGE_CURSOR: GDI_IMAGE_TYPE = 2u32;
 pub const IMAGE_ENHMETAFILE: u32 = 3u32;
+pub type IMAGE_FLAGS = u32;
 pub const IMAGE_ICON: GDI_IMAGE_TYPE = 1u32;
 pub const INDEXID_CONTAINER: u32 = 0u32;
 pub const INDEXID_OBJECT: u32 = 0u32;
@@ -2234,6 +1647,22 @@ pub const ISOLATIONAWARE_MANIFEST_RESOURCE_ID: u32 = 2u32;
 pub const ISOLATIONAWARE_NOSTATICIMPORT_MANIFEST_RESOURCE_ID: u32 = 3u32;
 pub const ISOLATIONPOLICY_BROWSER_MANIFEST_RESOURCE_ID: u32 = 5u32;
 pub const ISOLATIONPOLICY_MANIFEST_RESOURCE_ID: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IndexedResourceQualifier {
+    pub name: windows_sys::core::PWSTR,
+    pub value: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KBDLLHOOKSTRUCT {
+    pub vkCode: u32,
+    pub scanCode: u32,
+    pub flags: KBDLLHOOKSTRUCT_FLAGS,
+    pub time: u32,
+    pub dwExtraInfo: usize,
+}
+pub type KBDLLHOOKSTRUCT_FLAGS = u32;
 pub const KF_ALTDOWN: u32 = 8192u32;
 pub const KF_DLGMODE: u32 = 2048u32;
 pub const KF_EXTENDED: u32 = 256u32;
@@ -2241,6 +1670,7 @@ pub const KF_MENUMODE: u32 = 4096u32;
 pub const KF_REPEAT: u32 = 16384u32;
 pub const KF_UP: u32 = 32768u32;
 pub const KL_NAMELENGTH: u32 = 9u32;
+pub type LAYERED_WINDOW_ATTRIBUTES_FLAGS = u32;
 pub const LBN_DBLCLK: u32 = 2u32;
 pub const LBN_ERRSPACE: i32 = -2i32;
 pub const LBN_KILLFOCUS: u32 = 5u32;
@@ -2389,11 +1819,189 @@ pub const MB_TYPEMASK: MESSAGEBOX_STYLE = 15u32;
 pub const MB_USERICON: MESSAGEBOX_STYLE = 128u32;
 pub const MB_YESNO: MESSAGEBOX_STYLE = 4u32;
 pub const MB_YESNOCANCEL: MESSAGEBOX_STYLE = 3u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MDICREATESTRUCTA {
+    pub szClass: windows_sys::core::PCSTR,
+    pub szTitle: windows_sys::core::PCSTR,
+    pub hOwner: super::super::Foundation::HANDLE,
+    pub x: i32,
+    pub y: i32,
+    pub cx: i32,
+    pub cy: i32,
+    pub style: WINDOW_STYLE,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MDICREATESTRUCTW {
+    pub szClass: windows_sys::core::PCWSTR,
+    pub szTitle: windows_sys::core::PCWSTR,
+    pub hOwner: super::super::Foundation::HANDLE,
+    pub x: i32,
+    pub y: i32,
+    pub cx: i32,
+    pub cy: i32,
+    pub style: WINDOW_STYLE,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MDINEXTMENU {
+    pub hmenuIn: HMENU,
+    pub hmenuNext: HMENU,
+    pub hwndNext: super::super::Foundation::HWND,
+}
 pub const MDIS_ALLCHILDSTYLES: u32 = 1u32;
 pub const MDITILE_HORIZONTAL: TILE_WINDOWS_HOW = 1u32;
 pub const MDITILE_SKIPDISABLED: CASCADE_WINDOWS_HOW = 2u32;
 pub const MDITILE_VERTICAL: TILE_WINDOWS_HOW = 0u32;
 pub const MDITILE_ZORDER: CASCADE_WINDOWS_HOW = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MENUBARINFO {
+    pub cbSize: u32,
+    pub rcBar: super::super::Foundation::RECT,
+    pub hMenu: HMENU,
+    pub hwndMenu: super::super::Foundation::HWND,
+    pub _bitfield: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MENUEX_TEMPLATE_HEADER {
+    pub wVersion: u16,
+    pub wOffset: u16,
+    pub dwHelpId: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MENUEX_TEMPLATE_ITEM {
+    pub dwType: u32,
+    pub dwState: u32,
+    pub uId: u32,
+    pub wFlags: u16,
+    pub szText: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MENUGETOBJECTINFO {
+    pub dwFlags: MENUGETOBJECTINFO_FLAGS,
+    pub uPos: u32,
+    pub hmenu: HMENU,
+    pub riid: *mut core::ffi::c_void,
+    pub pvObj: *mut core::ffi::c_void,
+}
+pub type MENUGETOBJECTINFO_FLAGS = u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct MENUINFO {
+    pub cbSize: u32,
+    pub fMask: MENUINFO_MASK,
+    pub dwStyle: MENUINFO_STYLE,
+    pub cyMax: u32,
+    pub hbrBack: super::super::Graphics::Gdi::HBRUSH,
+    pub dwContextHelpID: u32,
+    pub dwMenuData: usize,
+}
+pub type MENUINFO_MASK = u32;
+pub type MENUINFO_STYLE = u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct MENUITEMINFOA {
+    pub cbSize: u32,
+    pub fMask: MENU_ITEM_MASK,
+    pub fType: MENU_ITEM_TYPE,
+    pub fState: MENU_ITEM_STATE,
+    pub wID: u32,
+    pub hSubMenu: HMENU,
+    pub hbmpChecked: super::super::Graphics::Gdi::HBITMAP,
+    pub hbmpUnchecked: super::super::Graphics::Gdi::HBITMAP,
+    pub dwItemData: usize,
+    pub dwTypeData: windows_sys::core::PSTR,
+    pub cch: u32,
+    pub hbmpItem: super::super::Graphics::Gdi::HBITMAP,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct MENUITEMINFOW {
+    pub cbSize: u32,
+    pub fMask: MENU_ITEM_MASK,
+    pub fType: MENU_ITEM_TYPE,
+    pub fState: MENU_ITEM_STATE,
+    pub wID: u32,
+    pub hSubMenu: HMENU,
+    pub hbmpChecked: super::super::Graphics::Gdi::HBITMAP,
+    pub hbmpUnchecked: super::super::Graphics::Gdi::HBITMAP,
+    pub dwItemData: usize,
+    pub dwTypeData: windows_sys::core::PWSTR,
+    pub cch: u32,
+    pub hbmpItem: super::super::Graphics::Gdi::HBITMAP,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MENUITEMTEMPLATE {
+    pub mtOption: u16,
+    pub mtID: u16,
+    pub mtString: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MENUITEMTEMPLATEHEADER {
+    pub versionNumber: u16,
+    pub offset: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MENUTEMPLATEEX {
+    pub Anonymous: MENUTEMPLATEEX_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union MENUTEMPLATEEX_0 {
+    pub Menu: MENUTEMPLATEEX_0_0,
+    pub MenuEx: MENUTEMPLATEEX_0_1,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MENUTEMPLATEEX_0_1 {
+    pub mexHeader: MENUEX_TEMPLATE_HEADER,
+    pub mexItem: [MENUEX_TEMPLATE_ITEM; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MENUTEMPLATEEX_0_0 {
+    pub mitHeader: MENUITEMTEMPLATEHEADER,
+    pub miTemplate: [MENUITEMTEMPLATE; 1],
+}
+pub type MENU_ITEM_FLAGS = u32;
+pub type MENU_ITEM_MASK = u32;
+pub type MENU_ITEM_STATE = u32;
+pub type MENU_ITEM_TYPE = u32;
+pub type MESSAGEBOX_RESULT = i32;
+pub type MESSAGEBOX_STYLE = u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MESSAGE_RESOURCE_BLOCK {
+    pub LowId: u32,
+    pub HighId: u32,
+    pub OffsetToEntries: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MESSAGE_RESOURCE_DATA {
+    pub NumberOfBlocks: u32,
+    pub Blocks: [MESSAGE_RESOURCE_BLOCK; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MESSAGE_RESOURCE_ENTRY {
+    pub Length: u16,
+    pub Flags: u16,
+    pub Text: [u8; 1],
+}
 pub const METRICS_USEDEFAULT: i32 = -1i32;
 pub const MFS_CHECKED: MENU_ITEM_STATE = 8u32;
 pub const MFS_DEFAULT: MENU_ITEM_STATE = 4096u32;
@@ -2455,7 +2063,26 @@ pub const MIM_HELPID: MENUINFO_MASK = 4u32;
 pub const MIM_MAXHEIGHT: MENUINFO_MASK = 1u32;
 pub const MIM_MENUDATA: MENUINFO_MASK = 8u32;
 pub const MIM_STYLE: MENUINFO_MASK = 16u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MINIMIZEDMETRICS {
+    pub cbSize: u32,
+    pub iWidth: i32,
+    pub iHorzGap: i32,
+    pub iVertGap: i32,
+    pub iArrange: MINIMIZEDMETRICS_ARRANGE,
+}
+pub type MINIMIZEDMETRICS_ARRANGE = i32;
 pub const MINIMUM_RESERVED_MANIFEST_RESOURCE_ID: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MINMAXINFO {
+    pub ptReserved: super::super::Foundation::POINT,
+    pub ptMaxSize: super::super::Foundation::POINT,
+    pub ptMaxPosition: super::super::Foundation::POINT,
+    pub ptMinTrackSize: super::super::Foundation::POINT,
+    pub ptMaxTrackSize: super::super::Foundation::POINT,
+}
 pub const MIN_LOGICALDPIOVERRIDE: i32 = -2i32;
 pub const MKF_AVAILABLE: u32 = 2u32;
 pub const MKF_CONFIRMHOTKEY: u32 = 8u32;
@@ -2488,13 +2115,70 @@ pub const MNS_NOCHECK: MENUINFO_STYLE = 2147483648u32;
 pub const MNS_NOTIFYBYPOS: MENUINFO_STYLE = 134217728u32;
 pub const MN_GETHMENU: u32 = 481u32;
 pub const MONITORINFOF_PRIMARY: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MOUSEHOOKSTRUCT {
+    pub pt: super::super::Foundation::POINT,
+    pub hwnd: super::super::Foundation::HWND,
+    pub wHitTestCode: u32,
+    pub dwExtraInfo: usize,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MOUSEHOOKSTRUCTEX {
+    pub Base: MOUSEHOOKSTRUCT,
+    pub mouseData: u32,
+}
 pub const MOUSEWHEEL_ROUTING_FOCUS: u32 = 0u32;
 pub const MOUSEWHEEL_ROUTING_HYBRID: u32 = 1u32;
 pub const MOUSEWHEEL_ROUTING_MOUSE_POS: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MSG {
+    pub hwnd: super::super::Foundation::HWND,
+    pub message: u32,
+    pub wParam: super::super::Foundation::WPARAM,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub time: u32,
+    pub pt: super::super::Foundation::POINT,
+}
+#[cfg(feature = "Win32_UI_Shell")]
+pub type MSGBOXCALLBACK = Option<unsafe extern "system" fn(lphelpinfo: *mut super::Shell::HELPINFO)>;
+#[repr(C)]
+#[cfg(feature = "Win32_UI_Shell")]
+#[derive(Clone, Copy)]
+pub struct MSGBOXPARAMSA {
+    pub cbSize: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub lpszText: windows_sys::core::PCSTR,
+    pub lpszCaption: windows_sys::core::PCSTR,
+    pub dwStyle: MESSAGEBOX_STYLE,
+    pub lpszIcon: windows_sys::core::PCSTR,
+    pub dwContextHelpId: usize,
+    pub lpfnMsgBoxCallback: MSGBOXCALLBACK,
+    pub dwLanguageId: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_Shell")]
+#[derive(Clone, Copy)]
+pub struct MSGBOXPARAMSW {
+    pub cbSize: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub lpszText: windows_sys::core::PCWSTR,
+    pub lpszCaption: windows_sys::core::PCWSTR,
+    pub dwStyle: MESSAGEBOX_STYLE,
+    pub lpszIcon: windows_sys::core::PCWSTR,
+    pub dwContextHelpId: usize,
+    pub lpfnMsgBoxCallback: MSGBOXCALLBACK,
+    pub dwLanguageId: u32,
+}
 pub const MSGFLTINFO_ALLOWED_HIGHER: MSGFLTINFO_STATUS = 3u32;
 pub const MSGFLTINFO_ALREADYALLOWED_FORWND: MSGFLTINFO_STATUS = 1u32;
 pub const MSGFLTINFO_ALREADYDISALLOWED_FORWND: MSGFLTINFO_STATUS = 2u32;
 pub const MSGFLTINFO_NONE: MSGFLTINFO_STATUS = 0u32;
+pub type MSGFLTINFO_STATUS = u32;
 pub const MSGFLT_ADD: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = 1u32;
 pub const MSGFLT_ALLOW: WINDOW_MESSAGE_FILTER_ACTION = 1u32;
 pub const MSGFLT_DISALLOW: WINDOW_MESSAGE_FILTER_ACTION = 2u32;
@@ -2507,29 +2191,65 @@ pub const MSGF_MESSAGEBOX: u32 = 1u32;
 pub const MSGF_NEXTWINDOW: u32 = 6u32;
 pub const MSGF_SCROLLBAR: u32 = 5u32;
 pub const MSGF_USER: u32 = 4096u32;
+pub type MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MSLLHOOKSTRUCT {
+    pub pt: super::super::Foundation::POINT,
+    pub mouseData: u32,
+    pub flags: u32,
+    pub time: u32,
+    pub dwExtraInfo: usize,
+}
 pub const MWMO_ALERTABLE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = 2u32;
 pub const MWMO_INPUTAVAILABLE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = 4u32;
 pub const MWMO_NONE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = 0u32;
 pub const MWMO_WAITALL: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = 1u32;
+pub type MrmDumpType = i32;
 pub const MrmDumpType_Basic: MrmDumpType = 0i32;
 pub const MrmDumpType_Detailed: MrmDumpType = 1i32;
 pub const MrmDumpType_Schema: MrmDumpType = 2i32;
+pub type MrmIndexerFlags = i32;
 pub const MrmIndexerFlagsAutoMerge: MrmIndexerFlags = 1i32;
 pub const MrmIndexerFlagsCreateContentChecksum: MrmIndexerFlags = 2i32;
 pub const MrmIndexerFlagsNone: MrmIndexerFlags = 0i32;
+pub type MrmPackagingMode = i32;
 pub const MrmPackagingModeAutoSplit: MrmPackagingMode = 1i32;
 pub const MrmPackagingModeResourcePack: MrmPackagingMode = 2i32;
 pub const MrmPackagingModeStandaloneFile: MrmPackagingMode = 0i32;
+pub type MrmPackagingOptions = i32;
 pub const MrmPackagingOptionsNone: MrmPackagingOptions = 0i32;
 pub const MrmPackagingOptionsOmitSchemaFromResourcePacks: MrmPackagingOptions = 1i32;
 pub const MrmPackagingOptionsSplitLanguageVariants: MrmPackagingOptions = 2i32;
+pub type MrmPlatformVersion = i32;
 pub const MrmPlatformVersion_Default: MrmPlatformVersion = 0i32;
 pub const MrmPlatformVersion_Windows10_0_0_0: MrmPlatformVersion = 17432576i32;
 pub const MrmPlatformVersion_Windows10_0_0_5: MrmPlatformVersion = 17432581i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MrmResourceIndexerHandle {
+    pub handle: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MrmResourceIndexerMessage {
+    pub severity: MrmResourceIndexerMessageSeverity,
+    pub id: u32,
+    pub text: windows_sys::core::PCWSTR,
+}
+pub type MrmResourceIndexerMessageSeverity = i32;
 pub const MrmResourceIndexerMessageSeverityError: MrmResourceIndexerMessageSeverity = 3i32;
 pub const MrmResourceIndexerMessageSeverityInfo: MrmResourceIndexerMessageSeverity = 1i32;
 pub const MrmResourceIndexerMessageSeverityVerbose: MrmResourceIndexerMessageSeverity = 0i32;
 pub const MrmResourceIndexerMessageSeverityWarning: MrmResourceIndexerMessageSeverity = 2i32;
+pub type NAMEENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub type NAMEENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NCCALCSIZE_PARAMS {
+    pub rgrc: [super::super::Foundation::RECT; 3],
+    pub lppos: *mut WINDOWPOS,
+}
 pub const NFR_ANSI: u32 = 1u32;
 pub const NFR_UNICODE: u32 = 2u32;
 pub const NF_QUERY: u32 = 3u32;
@@ -2540,6 +2260,49 @@ pub const NID_INTEGRATED_PEN: u32 = 4u32;
 pub const NID_INTEGRATED_TOUCH: u32 = 1u32;
 pub const NID_MULTI_INPUT: u32 = 64u32;
 pub const NID_READY: u32 = 128u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct NONCLIENTMETRICSA {
+    pub cbSize: u32,
+    pub iBorderWidth: i32,
+    pub iScrollWidth: i32,
+    pub iScrollHeight: i32,
+    pub iCaptionWidth: i32,
+    pub iCaptionHeight: i32,
+    pub lfCaptionFont: super::super::Graphics::Gdi::LOGFONTA,
+    pub iSmCaptionWidth: i32,
+    pub iSmCaptionHeight: i32,
+    pub lfSmCaptionFont: super::super::Graphics::Gdi::LOGFONTA,
+    pub iMenuWidth: i32,
+    pub iMenuHeight: i32,
+    pub lfMenuFont: super::super::Graphics::Gdi::LOGFONTA,
+    pub lfStatusFont: super::super::Graphics::Gdi::LOGFONTA,
+    pub lfMessageFont: super::super::Graphics::Gdi::LOGFONTA,
+    pub iPaddedBorderWidth: i32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct NONCLIENTMETRICSW {
+    pub cbSize: u32,
+    pub iBorderWidth: i32,
+    pub iScrollWidth: i32,
+    pub iScrollHeight: i32,
+    pub iCaptionWidth: i32,
+    pub iCaptionHeight: i32,
+    pub lfCaptionFont: super::super::Graphics::Gdi::LOGFONTW,
+    pub iSmCaptionWidth: i32,
+    pub iSmCaptionHeight: i32,
+    pub lfSmCaptionFont: super::super::Graphics::Gdi::LOGFONTW,
+    pub iMenuWidth: i32,
+    pub iMenuHeight: i32,
+    pub lfMenuFont: super::super::Graphics::Gdi::LOGFONTW,
+    pub lfStatusFont: super::super::Graphics::Gdi::LOGFONTW,
+    pub lfMessageFont: super::super::Graphics::Gdi::LOGFONTW,
+    pub iPaddedBorderWidth: i32,
+}
+pub type OBJECT_IDENTIFIER = i32;
 pub const OBJID_ALERT: OBJECT_IDENTIFIER = -10i32;
 pub const OBJID_CARET: OBJECT_IDENTIFIER = -8i32;
 pub const OBJID_CLIENT: OBJECT_IDENTIFIER = -4i32;
@@ -2645,6 +2408,7 @@ pub const PDC_ORIENTATION_90: u32 = 8u32;
 pub const PDC_ORIGIN: u32 = 1024u32;
 pub const PDC_REMOVAL: u32 = 2u32;
 pub const PDC_RESOLUTION: u32 = 512u32;
+pub type PEEK_MESSAGE_REMOVE_TYPE = u32;
 pub const PENARBITRATIONTYPE_FIS: u32 = 2u32;
 pub const PENARBITRATIONTYPE_MAX: u32 = 4u32;
 pub const PENARBITRATIONTYPE_NONE: u32 = 0u32;
@@ -2673,6 +2437,7 @@ pub const PM_QS_POSTMESSAGE: PEEK_MESSAGE_REMOVE_TYPE = 9961472u32;
 pub const PM_QS_SENDMESSAGE: PEEK_MESSAGE_REMOVE_TYPE = 4194304u32;
 pub const PM_REMOVE: PEEK_MESSAGE_REMOVE_TYPE = 1u32;
 pub const POINTER_DEVICE_PRODUCT_STRING_MAX: u32 = 520u32;
+pub type POINTER_INPUT_TYPE = i32;
 pub const POINTER_MESSAGE_FLAG_CANCELED: u32 = 32768u32;
 pub const POINTER_MESSAGE_FLAG_CONFIDENCE: u32 = 16384u32;
 pub const POINTER_MESSAGE_FLAG_FIFTHBUTTON: u32 = 256u32;
@@ -2686,12 +2451,17 @@ pub const POINTER_MESSAGE_FLAG_SECONDBUTTON: u32 = 32u32;
 pub const POINTER_MESSAGE_FLAG_THIRDBUTTON: u32 = 64u32;
 pub const POINTER_MOD_CTRL: u32 = 8u32;
 pub const POINTER_MOD_SHIFT: u32 = 4u32;
+pub type PREGISTERCLASSNAMEW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOLEAN>;
 pub const PRF_CHECKVISIBLE: i32 = 1i32;
 pub const PRF_CHILDREN: i32 = 16i32;
 pub const PRF_CLIENT: i32 = 4i32;
 pub const PRF_ERASEBKGND: i32 = 8i32;
 pub const PRF_NONCLIENT: i32 = 2i32;
 pub const PRF_OWNED: i32 = 32i32;
+pub type PROPENUMPROCA = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_sys::core::PCSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+pub type PROPENUMPROCEXA = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_sys::core::PCSTR, param2: super::super::Foundation::HANDLE, param3: usize) -> super::super::Foundation::BOOL>;
+pub type PROPENUMPROCEXW = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_sys::core::PCWSTR, param2: super::super::Foundation::HANDLE, param3: usize) -> super::super::Foundation::BOOL>;
+pub type PROPENUMPROCW = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_sys::core::PCWSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
 pub const PT_MOUSE: POINTER_INPUT_TYPE = 4i32;
 pub const PT_PEN: POINTER_INPUT_TYPE = 3i32;
 pub const PT_POINTER: POINTER_INPUT_TYPE = 1i32;
@@ -2719,6 +2489,8 @@ pub const QS_RAWINPUT: QUEUE_STATUS_FLAGS = 1024u32;
 pub const QS_SENDMESSAGE: QUEUE_STATUS_FLAGS = 64u32;
 pub const QS_TIMER: QUEUE_STATUS_FLAGS = 16u32;
 pub const QS_TOUCH: u32 = 2048u32;
+pub type QUEUE_STATUS_FLAGS = u32;
+pub type REGISTER_NOTIFICATION_FLAGS = u32;
 pub const RES_CURSOR: u32 = 2u32;
 pub const RES_ICON: u32 = 1u32;
 pub const RIDEV_EXMODEMASK: u32 = 240u32;
@@ -2807,6 +2579,32 @@ pub const SB_THUMBTRACK: SCROLLBAR_COMMAND = 5i32;
 pub const SB_TOP: SCROLLBAR_COMMAND = 6i32;
 pub const SB_VERT: SCROLLBAR_CONSTANTS = 1i32;
 pub const SCF_ISSECURE: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SCROLLBARINFO {
+    pub cbSize: u32,
+    pub rcScrollBar: super::super::Foundation::RECT,
+    pub dxyLineButton: i32,
+    pub xyThumbTop: i32,
+    pub xyThumbBottom: i32,
+    pub reserved: i32,
+    pub rgstate: [u32; 6],
+}
+pub type SCROLLBAR_COMMAND = i32;
+pub type SCROLLBAR_CONSTANTS = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SCROLLINFO {
+    pub cbSize: u32,
+    pub fMask: SCROLLINFO_MASK,
+    pub nMin: i32,
+    pub nMax: i32,
+    pub nPage: u32,
+    pub nPos: i32,
+    pub nTrackPos: i32,
+}
+pub type SCROLLINFO_MASK = u32;
+pub type SCROLL_WINDOW_FLAGS = u32;
 pub const SC_ARRANGE: u32 = 61712u32;
 pub const SC_CLOSE: u32 = 61536u32;
 pub const SC_CONTEXTHELP: u32 = 61824u32;
@@ -2828,10 +2626,21 @@ pub const SC_SIZE: u32 = 61440u32;
 pub const SC_TASKLIST: u32 = 61744u32;
 pub const SC_VSCROLL: u32 = 61552u32;
 pub const SC_ZOOM: u32 = 61488u32;
+pub type SENDASYNCPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: super::super::Foundation::LRESULT)>;
+pub type SEND_MESSAGE_TIMEOUT_FLAGS = u32;
+pub type SET_WINDOW_POS_FLAGS = u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SHELLHOOKINFO {
+    pub hwnd: super::super::Foundation::HWND,
+    pub rc: super::super::Foundation::RECT,
+}
 pub const SHOW_FULLSCREEN: u32 = 3u32;
 pub const SHOW_ICONWINDOW: u32 = 2u32;
 pub const SHOW_OPENNOACTIVATE: u32 = 4u32;
 pub const SHOW_OPENWINDOW: u32 = 1u32;
+pub type SHOW_WINDOW_CMD = i32;
+pub type SHOW_WINDOW_STATUS = u32;
 pub const SIF_ALL: SCROLLINFO_MASK = 23u32;
 pub const SIF_DISABLENOSCROLL: SCROLLINFO_MASK = 8u32;
 pub const SIF_PAGE: SCROLLINFO_MASK = 2u32;
@@ -3261,6 +3070,12 @@ pub const STRSAFE_MAX_LENGTH: u32 = 2147483646u32;
 pub const STRSAFE_NO_TRUNCATION: u32 = 4096u32;
 pub const STRSAFE_NULL_ON_FAILURE: u32 = 2048u32;
 pub const STRSAFE_USE_SECURE_CRT: u32 = 0u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct STYLESTRUCT {
+    pub styleOld: u32,
+    pub styleNew: u32,
+}
 pub const SWP_ASYNCWINDOWPOS: SET_WINDOW_POS_FLAGS = 16384u32;
 pub const SWP_DEFERERASE: SET_WINDOW_POS_FLAGS = 8192u32;
 pub const SWP_DRAWFRAME: SET_WINDOW_POS_FLAGS = 32u32;
@@ -3299,18 +3114,48 @@ pub const SW_SHOWNA: SHOW_WINDOW_CMD = 8i32;
 pub const SW_SHOWNOACTIVATE: SHOW_WINDOW_CMD = 4i32;
 pub const SW_SHOWNORMAL: SHOW_WINDOW_CMD = 1i32;
 pub const SW_SMOOTHSCROLL: SCROLL_WINDOW_FLAGS = 16u32;
+pub type SYSTEM_CURSOR_ID = u32;
+pub type SYSTEM_METRICS_INDEX = i32;
+pub type SYSTEM_PARAMETERS_INFO_ACTION = u32;
+pub type SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = u32;
 pub const TDF_REGISTER: TOOLTIP_DISMISS_FLAGS = 1i32;
 pub const TDF_UNREGISTER: TOOLTIP_DISMISS_FLAGS = 2i32;
+pub type TILE_WINDOWS_HOW = u32;
+pub type TIMERPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: u32)>;
 pub const TIMERV_COALESCING_MAX: u32 = 2147483637u32;
 pub const TIMERV_COALESCING_MIN: u32 = 1u32;
 pub const TIMERV_DEFAULT_COALESCING: u32 = 0u32;
 pub const TIMERV_NO_COALESCING: u32 = 4294967295u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TITLEBARINFO {
+    pub cbSize: u32,
+    pub rcTitleBar: super::super::Foundation::RECT,
+    pub rgstate: [u32; 6],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TITLEBARINFOEX {
+    pub cbSize: u32,
+    pub rcTitleBar: super::super::Foundation::RECT,
+    pub rgstate: [u32; 6],
+    pub rgrect: [super::super::Foundation::RECT; 6],
+}
 pub const TKF_AVAILABLE: u32 = 2u32;
 pub const TKF_CONFIRMHOTKEY: u32 = 8u32;
 pub const TKF_HOTKEYACTIVE: u32 = 4u32;
 pub const TKF_HOTKEYSOUND: u32 = 16u32;
 pub const TKF_INDICATOR: u32 = 32u32;
 pub const TKF_TOGGLEKEYSON: u32 = 1u32;
+pub type TOOLTIP_DISMISS_FLAGS = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TOUCHPREDICTIONPARAMETERS {
+    pub cbSize: u32,
+    pub dwLatency: u32,
+    pub dwSampleTime: u32,
+    pub bUseHWTimeStamp: u32,
+}
 pub const TOUCHPREDICTIONPARAMETERS_DEFAULT_LATENCY: u32 = 8u32;
 pub const TOUCHPREDICTIONPARAMETERS_DEFAULT_RLS_DELTA: f32 = 0.001f32;
 pub const TOUCHPREDICTIONPARAMETERS_DEFAULT_RLS_EXPO_SMOOTH_ALPHA: f32 = 0.99f32;
@@ -3329,6 +3174,12 @@ pub const TOUCH_MASK_CONTACTAREA: u32 = 1u32;
 pub const TOUCH_MASK_NONE: u32 = 0u32;
 pub const TOUCH_MASK_ORIENTATION: u32 = 2u32;
 pub const TOUCH_MASK_PRESSURE: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TPMPARAMS {
+    pub cbSize: u32,
+    pub rcExclude: super::super::Foundation::RECT,
+}
 pub const TPM_BOTTOMALIGN: TRACK_POPUP_MENU_FLAGS = 32u32;
 pub const TPM_CENTERALIGN: TRACK_POPUP_MENU_FLAGS = 4u32;
 pub const TPM_HORIZONTAL: TRACK_POPUP_MENU_FLAGS = 0u32;
@@ -3349,6 +3200,7 @@ pub const TPM_VERNEGANIMATION: TRACK_POPUP_MENU_FLAGS = 8192u32;
 pub const TPM_VERPOSANIMATION: TRACK_POPUP_MENU_FLAGS = 4096u32;
 pub const TPM_VERTICAL: TRACK_POPUP_MENU_FLAGS = 64u32;
 pub const TPM_WORKAREA: TRACK_POPUP_MENU_FLAGS = 65536u32;
+pub type TRACK_POPUP_MENU_FLAGS = u32;
 pub const UISF_ACTIVE: u32 = 4u32;
 pub const UISF_HIDEACCEL: u32 = 2u32;
 pub const UISF_HIDEFOCUS: u32 = 1u32;
@@ -3361,9 +3213,35 @@ pub const ULW_EX_NORESIZE: UPDATE_LAYERED_WINDOW_FLAGS = 8u32;
 pub const ULW_OPAQUE: UPDATE_LAYERED_WINDOW_FLAGS = 4u32;
 pub const UNICODE_NOCHAR: u32 = 65535u32;
 pub const UOI_TIMERPROC_EXCEPTION_SUPPRESSION: u32 = 7u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct UPDATELAYEREDWINDOWINFO {
+    pub cbSize: u32,
+    pub hdcDst: super::super::Graphics::Gdi::HDC,
+    pub pptDst: *const super::super::Foundation::POINT,
+    pub psize: *const super::super::Foundation::SIZE,
+    pub hdcSrc: super::super::Graphics::Gdi::HDC,
+    pub pptSrc: *const super::super::Foundation::POINT,
+    pub crKey: super::super::Foundation::COLORREF,
+    pub pblend: *const super::super::Graphics::Gdi::BLENDFUNCTION,
+    pub dwFlags: UPDATE_LAYERED_WINDOW_FLAGS,
+    pub prcDirty: *const super::super::Foundation::RECT,
+}
+pub type UPDATE_LAYERED_WINDOW_FLAGS = u32;
 pub const USER_DEFAULT_SCREEN_DPI: u32 = 96u32;
 pub const USER_TIMER_MAXIMUM: u32 = 2147483647u32;
 pub const USER_TIMER_MINIMUM: u32 = 10u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VolLockBroadcast {
+    pub vlb_dbh: DEV_BROADCAST_HDR,
+    pub vlb_owner: u32,
+    pub vlb_perms: u8,
+    pub vlb_lockType: u8,
+    pub vlb_drive: u8,
+    pub vlb_flags: u8,
+}
 pub const WA_ACTIVE: u32 = 1u32;
 pub const WA_CLICKACTIVE: u32 = 2u32;
 pub const WA_INACTIVE: u32 = 0u32;
@@ -3391,6 +3269,48 @@ pub const WH_MOUSE_LL: WINDOWS_HOOK_ID = 14i32;
 pub const WH_MSGFILTER: WINDOWS_HOOK_ID = -1i32;
 pub const WH_SHELL: WINDOWS_HOOK_ID = 10i32;
 pub const WH_SYSMSGFILTER: WINDOWS_HOOK_ID = 6i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WINDOWINFO {
+    pub cbSize: u32,
+    pub rcWindow: super::super::Foundation::RECT,
+    pub rcClient: super::super::Foundation::RECT,
+    pub dwStyle: WINDOW_STYLE,
+    pub dwExStyle: WINDOW_EX_STYLE,
+    pub dwWindowStatus: u32,
+    pub cxWindowBorders: u32,
+    pub cyWindowBorders: u32,
+    pub atomWindowType: u16,
+    pub wCreatorVersion: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WINDOWPLACEMENT {
+    pub length: u32,
+    pub flags: WINDOWPLACEMENT_FLAGS,
+    pub showCmd: u32,
+    pub ptMinPosition: super::super::Foundation::POINT,
+    pub ptMaxPosition: super::super::Foundation::POINT,
+    pub rcNormalPosition: super::super::Foundation::RECT,
+}
+pub type WINDOWPLACEMENT_FLAGS = u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WINDOWPOS {
+    pub hwnd: super::super::Foundation::HWND,
+    pub hwndInsertAfter: super::super::Foundation::HWND,
+    pub x: i32,
+    pub y: i32,
+    pub cx: i32,
+    pub cy: i32,
+    pub flags: SET_WINDOW_POS_FLAGS,
+}
+pub type WINDOWS_HOOK_ID = i32;
+pub type WINDOW_DISPLAY_AFFINITY = u32;
+pub type WINDOW_EX_STYLE = u32;
+pub type WINDOW_LONG_PTR_INDEX = i32;
+pub type WINDOW_MESSAGE_FILTER_ACTION = u32;
+pub type WINDOW_STYLE = u32;
 pub const WINEVENT_INCONTEXT: u32 = 4u32;
 pub const WINEVENT_OUTOFCONTEXT: u32 = 0u32;
 pub const WINEVENT_SKIPOWNPROCESS: u32 = 2u32;
@@ -3668,6 +3588,73 @@ pub const WM_WTSSESSION_CHANGE: u32 = 689u32;
 pub const WM_XBUTTONDBLCLK: u32 = 525u32;
 pub const WM_XBUTTONDOWN: u32 = 523u32;
 pub const WM_XBUTTONUP: u32 = 524u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct WNDCLASSA {
+    pub style: WNDCLASS_STYLES,
+    pub lpfnWndProc: WNDPROC,
+    pub cbClsExtra: i32,
+    pub cbWndExtra: i32,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hIcon: HICON,
+    pub hCursor: HCURSOR,
+    pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
+    pub lpszMenuName: windows_sys::core::PCSTR,
+    pub lpszClassName: windows_sys::core::PCSTR,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct WNDCLASSEXA {
+    pub cbSize: u32,
+    pub style: WNDCLASS_STYLES,
+    pub lpfnWndProc: WNDPROC,
+    pub cbClsExtra: i32,
+    pub cbWndExtra: i32,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hIcon: HICON,
+    pub hCursor: HCURSOR,
+    pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
+    pub lpszMenuName: windows_sys::core::PCSTR,
+    pub lpszClassName: windows_sys::core::PCSTR,
+    pub hIconSm: HICON,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct WNDCLASSEXW {
+    pub cbSize: u32,
+    pub style: WNDCLASS_STYLES,
+    pub lpfnWndProc: WNDPROC,
+    pub cbClsExtra: i32,
+    pub cbWndExtra: i32,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hIcon: HICON,
+    pub hCursor: HCURSOR,
+    pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
+    pub lpszMenuName: windows_sys::core::PCWSTR,
+    pub lpszClassName: windows_sys::core::PCWSTR,
+    pub hIconSm: HICON,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct WNDCLASSW {
+    pub style: WNDCLASS_STYLES,
+    pub lpfnWndProc: WNDPROC,
+    pub cbClsExtra: i32,
+    pub cbWndExtra: i32,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hIcon: HICON,
+    pub hCursor: HCURSOR,
+    pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
+    pub lpszMenuName: windows_sys::core::PCWSTR,
+    pub lpszClassName: windows_sys::core::PCWSTR,
+}
+pub type WNDCLASS_STYLES = u32;
+pub type WNDENUMPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub type WNDPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
 pub const WPF_ASYNCWINDOWPLACEMENT: WINDOWPLACEMENT_FLAGS = 4u32;
 pub const WPF_RESTORETOMAXIMIZED: WINDOWPLACEMENT_FLAGS = 2u32;
 pub const WPF_SETMINPOSITION: WINDOWPLACEMENT_FLAGS = 1u32;
@@ -3748,6 +3735,19 @@ pub const WVR_VALIDRECTS: u32 = 1024u32;
 pub const WVR_VREDRAW: u32 = 512u32;
 pub const XBUTTON1: u16 = 1u16;
 pub const XBUTTON2: u16 = 2u16;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct _DEV_BROADCAST_HEADER {
+    pub dbcd_size: u32,
+    pub dbcd_devicetype: u32,
+    pub dbcd_reserved: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct _DEV_BROADCAST_USERDEFINED {
+    pub dbud_dbh: DEV_BROADCAST_HDR,
+    pub dbud_szName: [i8; 1],
+}
 pub const __WARNING_BANNED_API_USAGE: u32 = 28719u32;
 pub const __WARNING_CYCLOMATIC_COMPLEXITY: u32 = 28734u32;
 pub const __WARNING_DEREF_NULL_PTR: u32 = 6011u32;

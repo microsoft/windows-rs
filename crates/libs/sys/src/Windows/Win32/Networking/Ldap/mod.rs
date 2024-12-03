@@ -241,20 +241,20 @@ windows_targets::link!("wldap32.dll" "cdecl" fn ldap_value_free(vals : *const wi
 windows_targets::link!("wldap32.dll" "cdecl" fn ldap_value_freeA(vals : *const windows_sys::core::PCSTR) -> u32);
 windows_targets::link!("wldap32.dll" "cdecl" fn ldap_value_freeW(vals : *const windows_sys::core::PCWSTR) -> u32);
 windows_targets::link!("wldap32.dll" "cdecl" fn ldap_value_free_len(vals : *mut *mut LDAP_BERVAL) -> u32);
-pub type DBGPRINT = Option<unsafe extern "system" fn(format: windows_sys::core::PCSTR) -> u32>;
-pub type DEREFERENCECONNECTION = Option<unsafe extern "system" fn(primaryconnection: *mut LDAP, connectiontodereference: *mut LDAP) -> u32>;
-pub type NOTIFYOFNEWCONNECTION = Option<unsafe extern "system" fn(primaryconnection: *mut LDAP, referralfromconnection: *mut LDAP, newdn: windows_sys::core::PCWSTR, hostname: windows_sys::core::PCSTR, newconnection: *mut LDAP, portnumber: u32, secauthidentity: *mut core::ffi::c_void, currentuser: *mut core::ffi::c_void, errorcodefrombind: u32) -> super::super::Foundation::BOOLEAN>;
-#[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-pub type QUERYCLIENTCERT = Option<unsafe extern "system" fn(connection: *mut LDAP, trusted_cas: *mut super::super::Security::Authentication::Identity::SecPkgContext_IssuerListInfoEx, ppcertificate: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT) -> super::super::Foundation::BOOLEAN>;
-pub type QUERYFORCONNECTION = Option<unsafe extern "system" fn(primaryconnection: *mut LDAP, referralfromconnection: *mut LDAP, newdn: windows_sys::core::PCWSTR, hostname: windows_sys::core::PCSTR, portnumber: u32, secauthidentity: *mut core::ffi::c_void, currentusertoken: *mut core::ffi::c_void, connectiontouse: *mut *mut LDAP) -> u32>;
-#[cfg(feature = "Win32_Security_Cryptography")]
-pub type VERIFYSERVERCERT = Option<unsafe extern "system" fn(connection: *mut LDAP, pservercert: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT) -> super::super::Foundation::BOOLEAN>;
-pub type LDAP_RETCODE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BerElement {
     pub opaque: windows_sys::core::PSTR,
 }
+pub type DBGPRINT = Option<unsafe extern "system" fn(format: windows_sys::core::PCSTR) -> u32>;
+pub type DEREFERENCECONNECTION = Option<unsafe extern "system" fn(primaryconnection: *mut LDAP, connectiontodereference: *mut LDAP) -> u32>;
+pub const LAPI_MAJOR_VER1: u32 = 1u32;
+pub const LAPI_MINOR_VER1: u32 = 1u32;
+pub const LBER_DEFAULT: i32 = -1i32;
+pub const LBER_ERROR: i32 = -1i32;
+pub const LBER_TRANSLATE_STRINGS: u32 = 4u32;
+pub const LBER_USE_DER: u32 = 1u32;
+pub const LBER_USE_INDEFINITE_LEN: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LDAP {
@@ -400,41 +400,6 @@ pub struct LDAPVLVInfo {
     pub ldvlv_context: *mut LDAP_BERVAL,
     pub ldvlv_extradata: *mut core::ffi::c_void,
 }
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LDAP_BERVAL {
-    pub bv_len: u32,
-    pub bv_val: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LDAP_REFERRAL_CALLBACK {
-    pub SizeOfCallbacks: u32,
-    pub QueryForConnection: QUERYFORCONNECTION,
-    pub NotifyRoutine: NOTIFYOFNEWCONNECTION,
-    pub DereferenceRoutine: DEREFERENCECONNECTION,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LDAP_TIMEVAL {
-    pub tv_sec: i32,
-    pub tv_usec: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LDAP_VERSION_INFO {
-    pub lv_size: u32,
-    pub lv_major: u32,
-    pub lv_minor: u32,
-}
-pub type PLDAPSearch = isize;
-pub const LAPI_MAJOR_VER1: u32 = 1u32;
-pub const LAPI_MINOR_VER1: u32 = 1u32;
-pub const LBER_DEFAULT: i32 = -1i32;
-pub const LBER_ERROR: i32 = -1i32;
-pub const LBER_TRANSLATE_STRINGS: u32 = 4u32;
-pub const LBER_USE_DER: u32 = 1u32;
-pub const LBER_USE_INDEFINITE_LEN: u32 = 2u32;
 pub const LDAP_ABANDON_CMD: i32 = 80i32;
 pub const LDAP_ADD_CMD: i32 = 104i32;
 pub const LDAP_ADMIN_LIMIT_EXCEEDED: LDAP_RETCODE = 11i32;
@@ -451,6 +416,12 @@ pub const LDAP_AUTH_OTHERKIND: i32 = 134i32;
 pub const LDAP_AUTH_SASL: i32 = 131i32;
 pub const LDAP_AUTH_SIMPLE: i32 = 128i32;
 pub const LDAP_AUTH_UNKNOWN: LDAP_RETCODE = 86i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LDAP_BERVAL {
+    pub bv_len: u32,
+    pub bv_val: windows_sys::core::PSTR,
+}
 pub const LDAP_BIND_CMD: i32 = 96i32;
 pub const LDAP_BUSY: LDAP_RETCODE = 51i32;
 pub const LDAP_CAP_ACTIVE_DIRECTORY_ADAM_OID: windows_sys::core::PCSTR = windows_sys::core::s!("1.2.840.113556.1.4.1851");
@@ -674,6 +645,14 @@ pub const LDAP_POLICYHINT_APPLY_FULLPWDPOLICY: u32 = 1u32;
 pub const LDAP_PORT: u32 = 389u32;
 pub const LDAP_PROTOCOL_ERROR: LDAP_RETCODE = 2i32;
 pub const LDAP_REFERRAL: LDAP_RETCODE = 10i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LDAP_REFERRAL_CALLBACK {
+    pub SizeOfCallbacks: u32,
+    pub QueryForConnection: QUERYFORCONNECTION,
+    pub NotifyRoutine: NOTIFYOFNEWCONNECTION,
+    pub DereferenceRoutine: DEREFERENCECONNECTION,
+}
 pub const LDAP_REFERRAL_LIMIT_EXCEEDED: LDAP_RETCODE = 97i32;
 pub const LDAP_REFERRAL_V2: LDAP_RETCODE = 9i32;
 pub const LDAP_RESULTS_TOO_LARGE: LDAP_RETCODE = 70i32;
@@ -689,6 +668,7 @@ pub const LDAP_RES_REFERRAL: i32 = 115i32;
 pub const LDAP_RES_SEARCH_ENTRY: i32 = 100i32;
 pub const LDAP_RES_SEARCH_RESULT: i32 = 101i32;
 pub const LDAP_RES_SESSION: i32 = 114i32;
+pub type LDAP_RETCODE = i32;
 pub const LDAP_SASL_BIND_IN_PROGRESS: LDAP_RETCODE = 14i32;
 pub const LDAP_SCOPE_BASE: u32 = 0u32;
 pub const LDAP_SCOPE_ONELEVEL: u32 = 1u32;
@@ -789,6 +769,12 @@ pub const LDAP_SUBSTRING_INITIAL: i32 = 128i32;
 pub const LDAP_SUCCESS: LDAP_RETCODE = 0i32;
 pub const LDAP_TIMELIMIT_EXCEEDED: LDAP_RETCODE = 3i32;
 pub const LDAP_TIMEOUT: LDAP_RETCODE = 85i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LDAP_TIMEVAL {
+    pub tv_sec: i32,
+    pub tv_usec: i32,
+}
 pub const LDAP_TTL_EXTENDED_OP_OID: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.1466.101.119.1");
 pub const LDAP_TTL_EXTENDED_OP_OID_W: windows_sys::core::PCWSTR = windows_sys::core::w!("1.3.6.1.4.1.1466.101.119.1");
 pub const LDAP_UNAVAILABLE: LDAP_RETCODE = 52i32;
@@ -809,9 +795,23 @@ pub const LDAP_VERSION: u32 = 2u32;
 pub const LDAP_VERSION1: u32 = 1u32;
 pub const LDAP_VERSION2: u32 = 2u32;
 pub const LDAP_VERSION3: u32 = 3u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LDAP_VERSION_INFO {
+    pub lv_size: u32,
+    pub lv_major: u32,
+    pub lv_minor: u32,
+}
 pub const LDAP_VERSION_MAX: u32 = 3u32;
 pub const LDAP_VERSION_MIN: u32 = 2u32;
 pub const LDAP_VIRTUAL_LIST_VIEW_ERROR: LDAP_RETCODE = 76i32;
 pub const LDAP_VLVINFO_VERSION: u32 = 1u32;
+pub type NOTIFYOFNEWCONNECTION = Option<unsafe extern "system" fn(primaryconnection: *mut LDAP, referralfromconnection: *mut LDAP, newdn: windows_sys::core::PCWSTR, hostname: windows_sys::core::PCSTR, newconnection: *mut LDAP, portnumber: u32, secauthidentity: *mut core::ffi::c_void, currentuser: *mut core::ffi::c_void, errorcodefrombind: u32) -> super::super::Foundation::BOOLEAN>;
+pub type PLDAPSearch = isize;
+#[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
+pub type QUERYCLIENTCERT = Option<unsafe extern "system" fn(connection: *mut LDAP, trusted_cas: *mut super::super::Security::Authentication::Identity::SecPkgContext_IssuerListInfoEx, ppcertificate: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT) -> super::super::Foundation::BOOLEAN>;
+pub type QUERYFORCONNECTION = Option<unsafe extern "system" fn(primaryconnection: *mut LDAP, referralfromconnection: *mut LDAP, newdn: windows_sys::core::PCWSTR, hostname: windows_sys::core::PCSTR, portnumber: u32, secauthidentity: *mut core::ffi::c_void, currentusertoken: *mut core::ffi::c_void, connectiontouse: *mut *mut LDAP) -> u32>;
 pub const SERVER_SEARCH_FLAG_DOMAIN_SCOPE: u32 = 1u32;
 pub const SERVER_SEARCH_FLAG_PHANTOM_ROOT: u32 = 2u32;
+#[cfg(feature = "Win32_Security_Cryptography")]
+pub type VERIFYSERVERCERT = Option<unsafe extern "system" fn(connection: *mut LDAP, pservercert: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT) -> super::super::Foundation::BOOLEAN>;

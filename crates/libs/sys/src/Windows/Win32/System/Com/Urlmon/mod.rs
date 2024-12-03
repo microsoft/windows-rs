@@ -75,162 +75,11 @@ windows_targets::link!("urlmon.dll" "system" fn UrlMkGetSessionOption(dwoption :
 windows_targets::link!("urlmon.dll" "system" fn UrlMkSetSessionOption(dwoption : u32, pbuffer : *const core::ffi::c_void, dwbufferlength : u32, dwreserved : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("urlmon.dll" "system" fn WriteHitLogging(lplogginginfo : *const HIT_LOGGING_INFO) -> super::super::super::Foundation:: BOOL);
 pub type AUTHENTICATEF = i32;
-pub type BINDF = i32;
-pub type BINDF2 = i32;
-pub type BINDHANDLETYPES = i32;
-pub type BINDINFO_OPTIONS = i32;
-pub type BINDSTATUS = i32;
-pub type BINDSTRING = i32;
-pub type BINDVERB = i32;
-pub type BSCF = i32;
-pub type CIP_STATUS = i32;
-pub type IEObjectType = i32;
-pub type INET_ZONE_MANAGER_CONSTANTS = i32;
-pub type INTERNETFEATURELIST = i32;
-pub type MONIKERPROPERTY = i32;
-pub type OIBDG_FLAGS = i32;
-pub type PARSEACTION = i32;
-pub type PI_FLAGS = i32;
-pub type PSUACTION = i32;
-pub type PUAF = i32;
-pub type PUAFOUT = i32;
-pub type QUERYOPTION = i32;
-pub type SZM_FLAGS = i32;
-pub type URLTEMPLATE = i32;
-pub type URLZONE = i32;
-pub type URLZONEREG = i32;
-pub type URL_ENCODING = i32;
-pub type Uri_HOST_TYPE = i32;
-pub type ZAFLAGS = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CODEBASEHOLD {
-    pub cbSize: u32,
-    pub szDistUnit: windows_sys::core::PWSTR,
-    pub szCodeBase: windows_sys::core::PWSTR,
-    pub dwVersionMS: u32,
-    pub dwVersionLS: u32,
-    pub dwStyle: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CONFIRMSAFETY {
-    pub clsid: windows_sys::core::GUID,
-    pub pUnk: *mut core::ffi::c_void,
-    pub dwFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DATAINFO {
-    pub ulTotalSize: u32,
-    pub ulavrPacketSize: u32,
-    pub ulConnectSpeed: u32,
-    pub ulProcessorSpeed: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct HIT_LOGGING_INFO {
-    pub dwStructSize: u32,
-    pub lpszLoggedUrlName: windows_sys::core::PSTR,
-    pub StartTime: super::super::super::Foundation::SYSTEMTIME,
-    pub EndTime: super::super::super::Foundation::SYSTEMTIME,
-    pub lpszExtendedInfo: windows_sys::core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROTOCOLDATA {
-    pub grfFlags: u32,
-    pub dwState: u32,
-    pub pData: *mut core::ffi::c_void,
-    pub cbData: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROTOCOLFILTERDATA {
-    pub cbSize: u32,
-    pub pProtocolSink: *mut core::ffi::c_void,
-    pub pProtocol: *mut core::ffi::c_void,
-    pub pUnk: *mut core::ffi::c_void,
-    pub dwFilterFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROTOCOL_ARGUMENT {
-    pub szMethod: windows_sys::core::PCWSTR,
-    pub szTargetUrl: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct REMSECURITY_ATTRIBUTES {
-    pub nLength: u32,
-    pub lpSecurityDescriptor: u32,
-    pub bInheritHandle: super::super::super::Foundation::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RemBINDINFO {
-    pub cbSize: u32,
-    pub szExtraInfo: windows_sys::core::PWSTR,
-    pub grfBindInfoF: u32,
-    pub dwBindVerb: u32,
-    pub szCustomVerb: windows_sys::core::PWSTR,
-    pub cbstgmedData: u32,
-    pub dwOptions: u32,
-    pub dwOptionsFlags: u32,
-    pub dwCodePage: u32,
-    pub securityAttributes: REMSECURITY_ATTRIBUTES,
-    pub iid: windows_sys::core::GUID,
-    pub pUnk: *mut core::ffi::c_void,
-    pub dwReserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct RemFORMATETC {
-    pub cfFormat: u32,
-    pub ptd: u32,
-    pub dwAspect: u32,
-    pub lindex: i32,
-    pub tymed: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SOFTDISTINFO {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub dwAdState: u32,
-    pub szTitle: windows_sys::core::PWSTR,
-    pub szAbstract: windows_sys::core::PWSTR,
-    pub szHREF: windows_sys::core::PWSTR,
-    pub dwInstalledVersionMS: u32,
-    pub dwInstalledVersionLS: u32,
-    pub dwUpdateVersionMS: u32,
-    pub dwUpdateVersionLS: u32,
-    pub dwAdvertisedVersionMS: u32,
-    pub dwAdvertisedVersionLS: u32,
-    pub dwReserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct StartParam {
-    pub iid: windows_sys::core::GUID,
-    pub pIBindCtx: *mut core::ffi::c_void,
-    pub pItf: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ZONEATTRIBUTES {
-    pub cbSize: u32,
-    pub szDisplayName: [u16; 260],
-    pub szDescription: [u16; 200],
-    pub szIconPath: [u16; 260],
-    pub dwTemplateMinLevel: u32,
-    pub dwTemplateRecommended: u32,
-    pub dwTemplateCurrentLevel: u32,
-    pub dwFlags: u32,
-}
 pub const AUTHENTICATEF_BASIC: AUTHENTICATEF = 2i32;
 pub const AUTHENTICATEF_HTTP: AUTHENTICATEF = 4i32;
 pub const AUTHENTICATEF_PROXY: AUTHENTICATEF = 1i32;
+pub type BINDF = i32;
+pub type BINDF2 = i32;
 pub const BINDF2_ALLOW_PROXY_CRED_PROMPT: BINDF2 = 256i32;
 pub const BINDF2_DISABLEAUTOCOOKIEHANDLING: BINDF2 = 2i32;
 pub const BINDF2_DISABLEBASICOVERHTTP: BINDF2 = 1i32;
@@ -293,9 +142,11 @@ pub const BINDF_RESERVED_7: BINDF = 1073741824i32;
 pub const BINDF_RESERVED_8: BINDF = 536870912i32;
 pub const BINDF_RESYNCHRONIZE: BINDF = 512i32;
 pub const BINDF_SILENTOPERATION: BINDF = 4096i32;
+pub type BINDHANDLETYPES = i32;
 pub const BINDHANDLETYPES_APPCACHE: BINDHANDLETYPES = 0i32;
 pub const BINDHANDLETYPES_COUNT: BINDHANDLETYPES = 2i32;
 pub const BINDHANDLETYPES_DEPENDENCY: BINDHANDLETYPES = 1i32;
+pub type BINDINFO_OPTIONS = i32;
 pub const BINDINFO_OPTIONS_ALLOWCONNECTDATA: BINDINFO_OPTIONS = 536870912i32;
 pub const BINDINFO_OPTIONS_BINDTOOBJECT: BINDINFO_OPTIONS = 1048576i32;
 pub const BINDINFO_OPTIONS_DISABLEAUTOREDIRECTS: BINDINFO_OPTIONS = 1073741824i32;
@@ -311,6 +162,7 @@ pub const BINDINFO_OPTIONS_USE_IE_ENCODING: BINDINFO_OPTIONS = 524288i32;
 pub const BINDINFO_OPTIONS_WININETFLAG: BINDINFO_OPTIONS = 65536i32;
 pub const BINDINFO_WPC_DOWNLOADBLOCKED: BINDINFO_OPTIONS = 134217728i32;
 pub const BINDINFO_WPC_LOGGING_ENABLED: BINDINFO_OPTIONS = 268435456i32;
+pub type BINDSTATUS = i32;
 pub const BINDSTATUS_64BIT_PROGRESS: BINDSTATUS = 56i32;
 pub const BINDSTATUS_ACCEPTRANGES: BINDSTATUS = 33i32;
 pub const BINDSTATUS_BEGINDOWNLOADCOMPONENTS: BINDSTATUS = 7i32;
@@ -390,6 +242,7 @@ pub const BINDSTATUS_SSLUX_NAVBLOCKED: BINDSTATUS = 53i32;
 pub const BINDSTATUS_UPLOADINGDATA: BINDSTATUS = 18i32;
 pub const BINDSTATUS_USINGCACHEDCOPY: BINDSTATUS = 10i32;
 pub const BINDSTATUS_VERIFIEDMIMETYPEAVAILABLE: BINDSTATUS = 22i32;
+pub type BINDSTRING = i32;
 pub const BINDSTRING_ACCEPT_ENCODINGS: BINDSTRING = 11i32;
 pub const BINDSTRING_ACCEPT_MIMES: BINDSTRING = 2i32;
 pub const BINDSTRING_DOC_URL: BINDSTRING = 25i32;
@@ -416,11 +269,13 @@ pub const BINDSTRING_URL: BINDSTRING = 14i32;
 pub const BINDSTRING_USERNAME: BINDSTRING = 5i32;
 pub const BINDSTRING_USER_AGENT: BINDSTRING = 10i32;
 pub const BINDSTRING_XDR_ORIGIN: BINDSTRING = 18i32;
+pub type BINDVERB = i32;
 pub const BINDVERB_CUSTOM: BINDVERB = 3i32;
 pub const BINDVERB_GET: BINDVERB = 0i32;
 pub const BINDVERB_POST: BINDVERB = 1i32;
 pub const BINDVERB_PUT: BINDVERB = 2i32;
 pub const BINDVERB_RESERVED1: BINDVERB = 4i32;
+pub type BSCF = i32;
 pub const BSCF_64BITLENGTHDOWNLOAD: BSCF = 64i32;
 pub const BSCF_AVAILABLEDATASIZEUNKNOWN: BSCF = 16i32;
 pub const BSCF_DATAFULLYAVAILABLE: BSCF = 8i32;
@@ -437,10 +292,36 @@ pub const CIP_NEED_REBOOT: CIP_STATUS = 8i32;
 pub const CIP_NEED_REBOOT_UI_PERMISSION: CIP_STATUS = 9i32;
 pub const CIP_NEWER_VERSION_EXISTS: CIP_STATUS = 2i32;
 pub const CIP_OLDER_VERSION_EXISTS: CIP_STATUS = 3i32;
+pub type CIP_STATUS = i32;
 pub const CIP_TRUST_VERIFICATION_COMPONENT_MISSING: CIP_STATUS = 5i32;
 pub const CIP_UNSAFE_TO_ABORT: CIP_STATUS = 7i32;
 pub const CLASSIDPROP: MONIKERPROPERTY = 2i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CODEBASEHOLD {
+    pub cbSize: u32,
+    pub szDistUnit: windows_sys::core::PWSTR,
+    pub szCodeBase: windows_sys::core::PWSTR,
+    pub dwVersionMS: u32,
+    pub dwVersionLS: u32,
+    pub dwStyle: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CONFIRMSAFETY {
+    pub clsid: windows_sys::core::GUID,
+    pub pUnk: *mut core::ffi::c_void,
+    pub dwFlags: u32,
+}
 pub const CONFIRMSAFETYACTION_LOADOBJECT: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DATAINFO {
+    pub ulTotalSize: u32,
+    pub ulavrPacketSize: u32,
+    pub ulConnectSpeed: u32,
+    pub ulProcessorSpeed: u32,
+}
 pub const E_PENDING: windows_sys::core::HRESULT = 0x8000000A_u32 as _;
 pub const FEATURE_ADDON_MANAGEMENT: INTERNETFEATURELIST = 13i32;
 pub const FEATURE_BEHAVIORS: INTERNETFEATURELIST = 6i32;
@@ -492,6 +373,16 @@ pub const GET_FEATURE_FROM_THREAD_INTRANET: u32 = 16u32;
 pub const GET_FEATURE_FROM_THREAD_LOCALMACHINE: u32 = 8u32;
 pub const GET_FEATURE_FROM_THREAD_RESTRICTED: u32 = 128u32;
 pub const GET_FEATURE_FROM_THREAD_TRUSTED: u32 = 32u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct HIT_LOGGING_INFO {
+    pub dwStructSize: u32,
+    pub lpszLoggedUrlName: windows_sys::core::PSTR,
+    pub StartTime: super::super::super::Foundation::SYSTEMTIME,
+    pub EndTime: super::super::super::Foundation::SYSTEMTIME,
+    pub lpszExtendedInfo: windows_sys::core::PSTR,
+}
+pub type IEObjectType = i32;
 pub const IE_EPM_OBJECT_EVENT: IEObjectType = 0i32;
 pub const IE_EPM_OBJECT_FILE: IEObjectType = 5i32;
 pub const IE_EPM_OBJECT_MUTEX: IEObjectType = 1i32;
@@ -550,12 +441,15 @@ pub const INET_E_USE_DEFAULT_PROTOCOLHANDLER: windows_sys::core::HRESULT = 0x800
 pub const INET_E_USE_DEFAULT_SETTING: windows_sys::core::HRESULT = 0x800C0012_u32 as _;
 pub const INET_E_USE_EXTEND_BINDING: windows_sys::core::HRESULT = 0x800C0017_u32 as _;
 pub const INET_E_VTAB_SWITCH_FORCE_ENGINE: windows_sys::core::HRESULT = 0x800C001D_u32 as _;
+pub type INET_ZONE_MANAGER_CONSTANTS = i32;
+pub type INTERNETFEATURELIST = i32;
 pub const MAX_SIZE_SECURITY_ID: u32 = 512u32;
 pub const MAX_ZONE_DESCRIPTION: INET_ZONE_MANAGER_CONSTANTS = 200i32;
 pub const MAX_ZONE_PATH: INET_ZONE_MANAGER_CONSTANTS = 260i32;
 pub const MIMETYPEPROP: MONIKERPROPERTY = 0i32;
 pub const MKSYS_URLMONIKER: u32 = 6u32;
 pub const MK_S_ASYNCHRONOUS: windows_sys::core::HRESULT = 0x401E8_u32 as _;
+pub type MONIKERPROPERTY = i32;
 pub const MUTZ_ACCEPT_WILDCARD_SCHEME: u32 = 128u32;
 pub const MUTZ_DONT_UNESCAPE: u32 = 2048u32;
 pub const MUTZ_DONT_USE_CACHE: u32 = 4096u32;
@@ -568,6 +462,8 @@ pub const MUTZ_REQUIRESAVEDFILECHECK: u32 = 1024u32;
 pub const MUTZ_RESERVED: u32 = 512u32;
 pub const OIBDG_APARTMENTTHREADED: OIBDG_FLAGS = 256i32;
 pub const OIBDG_DATAONLY: OIBDG_FLAGS = 4096i32;
+pub type OIBDG_FLAGS = i32;
+pub type PARSEACTION = i32;
 pub const PARSE_ANCHOR: PARSEACTION = 6i32;
 pub const PARSE_CANONICALIZE: PARSEACTION = 1i32;
 pub const PARSE_DECODE_IS_ESCAPE: PARSEACTION = 8i32;
@@ -593,6 +489,7 @@ pub const PI_CLASSINSTALL: PI_FLAGS = 512i32;
 pub const PI_CLSIDLOOKUP: PI_FLAGS = 32i32;
 pub const PI_DATAPROGRESS: PI_FLAGS = 64i32;
 pub const PI_FILTER_MODE: PI_FLAGS = 2i32;
+pub type PI_FLAGS = i32;
 pub const PI_FORCE_ASYNC: PI_FLAGS = 4i32;
 pub const PI_LOADAPPDIRECT: PI_FLAGS = 16384i32;
 pub const PI_MIMEVERIFICATION: PI_FLAGS = 16i32;
@@ -603,9 +500,35 @@ pub const PI_PREFERDEFAULTHANDLER: PI_FLAGS = 131072i32;
 pub const PI_SYNCHRONOUS: PI_FLAGS = 128i32;
 pub const PI_USE_WORKERTHREAD: PI_FLAGS = 8i32;
 pub const POPUPLEVELPROP: MONIKERPROPERTY = 4i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROTOCOLDATA {
+    pub grfFlags: u32,
+    pub dwState: u32,
+    pub pData: *mut core::ffi::c_void,
+    pub cbData: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROTOCOLFILTERDATA {
+    pub cbSize: u32,
+    pub pProtocolSink: *mut core::ffi::c_void,
+    pub pProtocol: *mut core::ffi::c_void,
+    pub pUnk: *mut core::ffi::c_void,
+    pub dwFilterFlags: u32,
+}
 pub const PROTOCOLFLAG_NO_PICS_CHECK: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROTOCOL_ARGUMENT {
+    pub szMethod: windows_sys::core::PCWSTR,
+    pub szTargetUrl: windows_sys::core::PCWSTR,
+}
+pub type PSUACTION = i32;
 pub const PSU_DEFAULT: PSUACTION = 1i32;
 pub const PSU_SECURITY_URL_ONLY: PSUACTION = 2i32;
+pub type PUAF = i32;
+pub type PUAFOUT = i32;
 pub const PUAFOUT_DEFAULT: PUAFOUT = 0i32;
 pub const PUAFOUT_ISLOCKZONEPOLICY: PUAFOUT = 1i32;
 pub const PUAF_ACCEPT_WILDCARD_SCHEME: PUAF = 128i32;
@@ -629,6 +552,7 @@ pub const PUAF_RESERVED1: PUAF = 8192i32;
 pub const PUAF_RESERVED2: PUAF = 16384i32;
 pub const PUAF_TRUSTED: PUAF = 64i32;
 pub const PUAF_WARN_IF_DENIED: PUAF = 4i32;
+pub type QUERYOPTION = i32;
 pub const QUERY_CAN_NAVIGATE: QUERYOPTION = 7i32;
 pub const QUERY_CONTENT_ENCODING: QUERYOPTION = 3i32;
 pub const QUERY_CONTENT_TYPE: QUERYOPTION = 4i32;
@@ -645,6 +569,39 @@ pub const QUERY_TIME_OF_LAST_CHANGE: QUERYOPTION = 2i32;
 pub const QUERY_USES_CACHE: QUERYOPTION = 12i32;
 pub const QUERY_USES_HISTORYFOLDER: QUERYOPTION = 15i32;
 pub const QUERY_USES_NETWORK: QUERYOPTION = 8i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct REMSECURITY_ATTRIBUTES {
+    pub nLength: u32,
+    pub lpSecurityDescriptor: u32,
+    pub bInheritHandle: super::super::super::Foundation::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RemBINDINFO {
+    pub cbSize: u32,
+    pub szExtraInfo: windows_sys::core::PWSTR,
+    pub grfBindInfoF: u32,
+    pub dwBindVerb: u32,
+    pub szCustomVerb: windows_sys::core::PWSTR,
+    pub cbstgmedData: u32,
+    pub dwOptions: u32,
+    pub dwOptionsFlags: u32,
+    pub dwCodePage: u32,
+    pub securityAttributes: REMSECURITY_ATTRIBUTES,
+    pub iid: windows_sys::core::GUID,
+    pub pUnk: *mut core::ffi::c_void,
+    pub dwReserved: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RemFORMATETC {
+    pub cfFormat: u32,
+    pub ptd: u32,
+    pub dwAspect: u32,
+    pub lindex: i32,
+    pub tymed: u32,
+}
 pub const SECURITY_IE_STATE_GREEN: u32 = 0u32;
 pub const SECURITY_IE_STATE_RED: u32 = 1u32;
 pub const SET_FEATURE_IN_REGISTRY: u32 = 4u32;
@@ -655,6 +612,23 @@ pub const SET_FEATURE_ON_THREAD_INTRANET: u32 = 16u32;
 pub const SET_FEATURE_ON_THREAD_LOCALMACHINE: u32 = 8u32;
 pub const SET_FEATURE_ON_THREAD_RESTRICTED: u32 = 128u32;
 pub const SET_FEATURE_ON_THREAD_TRUSTED: u32 = 32u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SOFTDISTINFO {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub dwAdState: u32,
+    pub szTitle: windows_sys::core::PWSTR,
+    pub szAbstract: windows_sys::core::PWSTR,
+    pub szHREF: windows_sys::core::PWSTR,
+    pub dwInstalledVersionMS: u32,
+    pub dwInstalledVersionLS: u32,
+    pub dwUpdateVersionMS: u32,
+    pub dwUpdateVersionLS: u32,
+    pub dwAdvertisedVersionMS: u32,
+    pub dwAdvertisedVersionLS: u32,
+    pub dwReserved: u32,
+}
 pub const SOFTDIST_ADSTATE_AVAILABLE: u32 = 1u32;
 pub const SOFTDIST_ADSTATE_DOWNLOADED: u32 = 2u32;
 pub const SOFTDIST_ADSTATE_INSTALLED: u32 = 3u32;
@@ -665,7 +639,15 @@ pub const SOFTDIST_FLAG_USAGE_EMAIL: u32 = 1u32;
 pub const SOFTDIST_FLAG_USAGE_PRECACHE: u32 = 2u32;
 pub const SZM_CREATE: SZM_FLAGS = 0i32;
 pub const SZM_DELETE: SZM_FLAGS = 1i32;
+pub type SZM_FLAGS = i32;
 pub const S_ASYNCHRONOUS: i32 = 262632i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct StartParam {
+    pub iid: windows_sys::core::GUID,
+    pub pIBindCtx: *mut core::ffi::c_void,
+    pub pItf: *mut core::ffi::c_void,
+}
 pub const TRUSTEDDOWNLOADPROP: MONIKERPROPERTY = 3i32;
 pub const UAS_EXACTLEGACY: u32 = 4096u32;
 pub const URLACTION_ACTIVEX_ALLOW_TDC: u32 = 4620u32;
@@ -844,6 +826,7 @@ pub const URLPOLICY_MASK_PERMISSIONS: u32 = 15u32;
 pub const URLPOLICY_NOTIFY_ON_ALLOW: u32 = 16u32;
 pub const URLPOLICY_NOTIFY_ON_DISALLOW: u32 = 32u32;
 pub const URLPOLICY_QUERY: u32 = 1u32;
+pub type URLTEMPLATE = i32;
 pub const URLTEMPLATE_CUSTOM: URLTEMPLATE = 0i32;
 pub const URLTEMPLATE_HIGH: URLTEMPLATE = 73728i32;
 pub const URLTEMPLATE_LOW: URLTEMPLATE = 65536i32;
@@ -852,6 +835,8 @@ pub const URLTEMPLATE_MEDIUM: URLTEMPLATE = 69632i32;
 pub const URLTEMPLATE_MEDLOW: URLTEMPLATE = 66816i32;
 pub const URLTEMPLATE_PREDEFINED_MAX: URLTEMPLATE = 131072i32;
 pub const URLTEMPLATE_PREDEFINED_MIN: URLTEMPLATE = 65536i32;
+pub type URLZONE = i32;
+pub type URLZONEREG = i32;
 pub const URLZONEREG_DEFAULT: URLZONEREG = 0i32;
 pub const URLZONEREG_HKCU: URLZONEREG = 2i32;
 pub const URLZONEREG_HKLM: URLZONEREG = 1i32;
@@ -866,6 +851,7 @@ pub const URLZONE_TRUSTED: URLZONE = 2i32;
 pub const URLZONE_UNTRUSTED: URLZONE = 4i32;
 pub const URLZONE_USER_MAX: URLZONE = 10000i32;
 pub const URLZONE_USER_MIN: URLZONE = 1000i32;
+pub type URL_ENCODING = i32;
 pub const URL_ENCODING_DISABLE_UTF8: URL_ENCODING = 536870912i32;
 pub const URL_ENCODING_ENABLE_UTF8: URL_ENCODING = 268435456i32;
 pub const URL_ENCODING_NONE: URL_ENCODING = 0i32;
@@ -888,9 +874,11 @@ pub const Uri_HOST_DNS: Uri_HOST_TYPE = 1i32;
 pub const Uri_HOST_IDN: Uri_HOST_TYPE = 4i32;
 pub const Uri_HOST_IPV4: Uri_HOST_TYPE = 2i32;
 pub const Uri_HOST_IPV6: Uri_HOST_TYPE = 3i32;
+pub type Uri_HOST_TYPE = i32;
 pub const Uri_HOST_UNKNOWN: Uri_HOST_TYPE = 0i32;
 pub const Uri_PUNYCODE_IDN_HOST: u32 = 2u32;
 pub const WININETINFO_OPTION_LOCK_HANDLE: u32 = 65534u32;
+pub type ZAFLAGS = i32;
 pub const ZAFLAGS_ADD_SITES: ZAFLAGS = 2i32;
 pub const ZAFLAGS_CUSTOM_EDIT: ZAFLAGS = 1i32;
 pub const ZAFLAGS_DETECT_INTRANET: ZAFLAGS = 256i32;
@@ -903,3 +891,15 @@ pub const ZAFLAGS_SUPPORTS_VERIFICATION: ZAFLAGS = 64i32;
 pub const ZAFLAGS_UNC_AS_INTRANET: ZAFLAGS = 128i32;
 pub const ZAFLAGS_USE_LOCKED_ZONES: ZAFLAGS = 65536i32;
 pub const ZAFLAGS_VERIFY_TEMPLATE_SETTINGS: ZAFLAGS = 131072i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ZONEATTRIBUTES {
+    pub cbSize: u32,
+    pub szDisplayName: [u16; 260],
+    pub szDescription: [u16; 200],
+    pub szIconPath: [u16; 260],
+    pub dwTemplateMinLevel: u32,
+    pub dwTemplateRecommended: u32,
+    pub dwTemplateCurrentLevel: u32,
+    pub dwFlags: u32,
+}

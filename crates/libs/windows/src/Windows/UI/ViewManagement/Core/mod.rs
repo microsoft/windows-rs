@@ -402,6 +402,24 @@ impl windows_core::RuntimeName for CoreInputViewHidingEventArgs {
 unsafe impl Send for CoreInputViewHidingEventArgs {}
 unsafe impl Sync for CoreInputViewHidingEventArgs {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CoreInputViewKind(pub i32);
+impl CoreInputViewKind {
+    pub const Default: Self = Self(0i32);
+    pub const Keyboard: Self = Self(1i32);
+    pub const Handwriting: Self = Self(2i32);
+    pub const Emoji: Self = Self(3i32);
+    pub const Symbols: Self = Self(4i32);
+    pub const Clipboard: Self = Self(5i32);
+    pub const Dictation: Self = Self(6i32);
+}
+impl windows_core::TypeKind for CoreInputViewKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for CoreInputViewKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewKind;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CoreInputViewOcclusion(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreInputViewOcclusion, windows_core::IUnknown, windows_core::IInspectable);
@@ -433,6 +451,20 @@ impl windows_core::RuntimeName for CoreInputViewOcclusion {
 }
 unsafe impl Send for CoreInputViewOcclusion {}
 unsafe impl Sync for CoreInputViewOcclusion {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CoreInputViewOcclusionKind(pub i32);
+impl CoreInputViewOcclusionKind {
+    pub const Docked: Self = Self(0i32);
+    pub const Floating: Self = Self(1i32);
+    pub const Overlay: Self = Self(2i32);
+}
+impl windows_core::TypeKind for CoreInputViewOcclusionKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for CoreInputViewOcclusionKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewOcclusionKind;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CoreInputViewOcclusionsChangedEventArgs(windows_core::IUnknown);
@@ -550,53 +582,20 @@ impl windows_core::RuntimeName for CoreInputViewTransferringXYFocusEventArgs {
 unsafe impl Send for CoreInputViewTransferringXYFocusEventArgs {}
 unsafe impl Sync for CoreInputViewTransferringXYFocusEventArgs {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct UISettingsController(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(UISettingsController, windows_core::IUnknown, windows_core::IInspectable);
-impl UISettingsController {
-    pub fn SetAdvancedEffectsEnabled(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAdvancedEffectsEnabled)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn SetAnimationsEnabled(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAnimationsEnabled)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn SetAutoHideScrollBars(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAutoHideScrollBars)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn SetMessageDuration(&self, value: u32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMessageDuration)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn SetTextScaleFactor(&self, value: f64) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTextScaleFactor)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn RequestDefaultAsync() -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<UISettingsController>> {
-        Self::IUISettingsControllerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IUISettingsControllerStatics<R, F: FnOnce(&IUISettingsControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<UISettingsController, IUISettingsControllerStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CoreInputViewXYFocusTransferDirection(pub i32);
+impl CoreInputViewXYFocusTransferDirection {
+    pub const Up: Self = Self(0i32);
+    pub const Right: Self = Self(1i32);
+    pub const Down: Self = Self(2i32);
+    pub const Left: Self = Self(3i32);
 }
-impl windows_core::RuntimeType for UISettingsController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUISettingsController>();
+impl windows_core::TypeKind for CoreInputViewXYFocusTransferDirection {
+    type TypeKind = windows_core::CopyType;
 }
-unsafe impl windows_core::Interface for UISettingsController {
-    type Vtable = <IUISettingsController as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IUISettingsController as windows_core::Interface>::IID;
+impl windows_core::RuntimeType for CoreInputViewXYFocusTransferDirection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewXYFocusTransferDirection;i4)");
 }
-impl windows_core::RuntimeName for UISettingsController {
-    const NAME: &'static str = "Windows.UI.ViewManagement.Core.UISettingsController";
-}
-unsafe impl Send for UISettingsController {}
-unsafe impl Sync for UISettingsController {}
 windows_core::imp::define_interface!(ICoreFrameworkInputView, ICoreFrameworkInputView_Vtbl, 0xd77c94ae_46b8_5d4a_9489_8ddec3d639a6);
 impl windows_core::RuntimeType for ICoreFrameworkInputView {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -823,49 +822,50 @@ pub struct IUISettingsControllerStatics_Vtbl {
     pub RequestDefaultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CoreInputViewKind(pub i32);
-impl CoreInputViewKind {
-    pub const Default: Self = Self(0i32);
-    pub const Keyboard: Self = Self(1i32);
-    pub const Handwriting: Self = Self(2i32);
-    pub const Emoji: Self = Self(3i32);
-    pub const Symbols: Self = Self(4i32);
-    pub const Clipboard: Self = Self(5i32);
-    pub const Dictation: Self = Self(6i32);
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct UISettingsController(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(UISettingsController, windows_core::IUnknown, windows_core::IInspectable);
+impl UISettingsController {
+    pub fn SetAdvancedEffectsEnabled(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetAdvancedEffectsEnabled)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn SetAnimationsEnabled(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetAnimationsEnabled)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn SetAutoHideScrollBars(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetAutoHideScrollBars)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn SetMessageDuration(&self, value: u32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetMessageDuration)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn SetTextScaleFactor(&self, value: f64) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetTextScaleFactor)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn RequestDefaultAsync() -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<UISettingsController>> {
+        Self::IUISettingsControllerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IUISettingsControllerStatics<R, F: FnOnce(&IUISettingsControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<UISettingsController, IUISettingsControllerStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
 }
-impl windows_core::TypeKind for CoreInputViewKind {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::RuntimeType for UISettingsController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUISettingsController>();
 }
-impl windows_core::RuntimeType for CoreInputViewKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewKind;i4)");
+unsafe impl windows_core::Interface for UISettingsController {
+    type Vtable = <IUISettingsController as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IUISettingsController as windows_core::Interface>::IID;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CoreInputViewOcclusionKind(pub i32);
-impl CoreInputViewOcclusionKind {
-    pub const Docked: Self = Self(0i32);
-    pub const Floating: Self = Self(1i32);
-    pub const Overlay: Self = Self(2i32);
+impl windows_core::RuntimeName for UISettingsController {
+    const NAME: &'static str = "Windows.UI.ViewManagement.Core.UISettingsController";
 }
-impl windows_core::TypeKind for CoreInputViewOcclusionKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for CoreInputViewOcclusionKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewOcclusionKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CoreInputViewXYFocusTransferDirection(pub i32);
-impl CoreInputViewXYFocusTransferDirection {
-    pub const Up: Self = Self(0i32);
-    pub const Right: Self = Self(1i32);
-    pub const Down: Self = Self(2i32);
-    pub const Left: Self = Self(3i32);
-}
-impl windows_core::TypeKind for CoreInputViewXYFocusTransferDirection {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for CoreInputViewXYFocusTransferDirection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewXYFocusTransferDirection;i4)");
-}
+unsafe impl Send for UISettingsController {}
+unsafe impl Sync for UISettingsController {}

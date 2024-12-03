@@ -68,24 +68,6 @@ impl ApiInformation {
 impl windows_core::RuntimeName for ApiInformation {
     const NAME: &'static str = "Windows.Foundation.Metadata.ApiInformation";
 }
-windows_core::imp::define_interface!(IApiInformationStatics, IApiInformationStatics_Vtbl, 0x997439fe_f681_4a11_b416_c13a47e8ba36);
-impl windows_core::RuntimeType for IApiInformationStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IApiInformationStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub IsTypePresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsMethodPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsMethodPresentWithArity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut bool) -> windows_core::HRESULT,
-    pub IsEventPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsPropertyPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsReadOnlyPropertyPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsWriteablePropertyPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsEnumNamedValuePresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsApiContractPresentByMajor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u16, *mut bool) -> windows_core::HRESULT,
-    pub IsApiContractPresentByMajorAndMinor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u16, u16, *mut bool) -> windows_core::HRESULT,
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AttributeTargets(pub u32);
@@ -197,6 +179,24 @@ impl windows_core::TypeKind for GCPressureAmount {
 }
 impl windows_core::RuntimeType for GCPressureAmount {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.GCPressureAmount;i4)");
+}
+windows_core::imp::define_interface!(IApiInformationStatics, IApiInformationStatics_Vtbl, 0x997439fe_f681_4a11_b416_c13a47e8ba36);
+impl windows_core::RuntimeType for IApiInformationStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IApiInformationStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsTypePresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsMethodPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsMethodPresentWithArity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut bool) -> windows_core::HRESULT,
+    pub IsEventPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsPropertyPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsReadOnlyPropertyPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsWriteablePropertyPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsEnumNamedValuePresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsApiContractPresentByMajor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u16, *mut bool) -> windows_core::HRESULT,
+    pub IsApiContractPresentByMajorAndMinor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u16, u16, *mut bool) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

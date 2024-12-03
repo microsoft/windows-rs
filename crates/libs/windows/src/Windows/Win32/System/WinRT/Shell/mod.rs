@@ -1,3 +1,9 @@
+pub const CpAicLaunchAdminProcess: CreateProcessMethod = CreateProcessMethod(2i32);
+pub const CpCreateProcess: CreateProcessMethod = CreateProcessMethod(0i32);
+pub const CpCreateProcessAsUser: CreateProcessMethod = CreateProcessMethod(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CreateProcessMethod(pub i32);
 windows_core::imp::define_interface!(IDDEInitializer, IDDEInitializer_Vtbl, 0x30dc931f_33fc_4ffd_a168_942258cf3ca4);
 windows_core::imp::interface_hierarchy!(IDDEInitializer, windows_core::IUnknown);
 impl IDDEInitializer {
@@ -43,9 +49,3 @@ impl IDDEInitializer_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell")]
 impl windows_core::RuntimeName for IDDEInitializer {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CreateProcessMethod(pub i32);
-pub const CpAicLaunchAdminProcess: CreateProcessMethod = CreateProcessMethod(2i32);
-pub const CpCreateProcess: CreateProcessMethod = CreateProcessMethod(0i32);
-pub const CpCreateProcessAsUser: CreateProcessMethod = CreateProcessMethod(1i32);

@@ -1,21 +1,3 @@
-pub type DEVPROPSTORE = i32;
-pub type DEVPROPTYPE = u32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEVPROPCOMPKEY {
-    pub Key: super::super::Foundation::DEVPROPKEY,
-    pub Store: DEVPROPSTORE,
-    pub LocaleName: windows_sys::core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DEVPROPERTY {
-    pub CompKey: DEVPROPCOMPKEY,
-    pub Type: DEVPROPTYPE,
-    pub BufferSize: u32,
-    pub Buffer: *mut core::ffi::c_void,
-}
-pub type DEVPROP_BOOLEAN = u8;
 pub const DEVPKEY_DevQuery_ObjectType: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x13673f42_a3d6_49f6_b4da_ae46e0c5237c), pid: 2 };
 pub const DEVPKEY_DeviceClass_Characteristics: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x4321918b_f69e_470d_a5de_4d88c75ad24b), pid: 29 };
 pub const DEVPKEY_DeviceClass_ClassCoInstallers: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x713d1703_a2e2_49f5_9214_56472ef3da5c), pid: 2 };
@@ -214,7 +196,25 @@ pub const DEVPKEY_DrvPkg_Icon: super::super::Foundation::DEVPROPKEY = super::sup
 pub const DEVPKEY_DrvPkg_Model: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xcf73bb51_3abf_44a2_85e0_9a3dc7a12132), pid: 2 };
 pub const DEVPKEY_DrvPkg_VendorWebSite: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xcf73bb51_3abf_44a2_85e0_9a3dc7a12132), pid: 3 };
 pub const DEVPKEY_NAME: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xb725f130_47ef_101a_a5f1_02608c9eebac), pid: 10 };
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEVPROPCOMPKEY {
+    pub Key: super::super::Foundation::DEVPROPKEY,
+    pub Store: DEVPROPSTORE,
+    pub LocaleName: windows_sys::core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEVPROPERTY {
+    pub CompKey: DEVPROPCOMPKEY,
+    pub Type: DEVPROPTYPE,
+    pub BufferSize: u32,
+    pub Buffer: *mut core::ffi::c_void,
+}
 pub const DEVPROPID_FIRST_USABLE: u32 = 2u32;
+pub type DEVPROPSTORE = i32;
+pub type DEVPROPTYPE = u32;
+pub type DEVPROP_BOOLEAN = u8;
 pub const DEVPROP_FALSE: DEVPROP_BOOLEAN = 0u8;
 pub const DEVPROP_MASK_TYPE: u32 = 4095u32;
 pub const DEVPROP_MASK_TYPEMOD: u32 = 61440u32;

@@ -3153,6 +3153,737 @@ pub unsafe fn VectorFromBstr(bstr: &windows_core::BSTR) -> windows_core::Result<
     let mut result__ = core::mem::zeroed();
     VectorFromBstr(core::mem::transmute_copy(bstr), &mut result__).map(|| core::mem::transmute(result__))
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ACTIVATEFLAGS(pub i32);
+pub const ACTIVATE_WINDOWLESS: ACTIVATEFLAGS = ACTIVATEFLAGS(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ACTIVEOBJECT_FLAGS(pub u32);
+impl ACTIVEOBJECT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for ACTIVEOBJECT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for ACTIVEOBJECT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for ACTIVEOBJECT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for ACTIVEOBJECT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for ACTIVEOBJECT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const ACTIVEOBJECT_STRONG: ACTIVEOBJECT_FLAGS = ACTIVEOBJECT_FLAGS(0u32);
+pub const ACTIVEOBJECT_WEAK: ACTIVEOBJECT_FLAGS = ACTIVEOBJECT_FLAGS(1u32);
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct ARRAYDESC {
+    pub tdescElem: super::Com::TYPEDESC,
+    pub cDims: u16,
+    pub rgbounds: [super::Com::SAFEARRAYBOUND; 1],
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl Default for ARRAYDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for ARRAYDESC {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BINDSPEED(pub i32);
+pub const BINDSPEED_IMMEDIATE: BINDSPEED = BINDSPEED(3i32);
+pub const BINDSPEED_INDEFINITE: BINDSPEED = BINDSPEED(1i32);
+pub const BINDSPEED_MODERATE: BINDSPEED = BINDSPEED(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BUSY_DIALOG_FLAGS(pub u32);
+impl BUSY_DIALOG_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for BUSY_DIALOG_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for BUSY_DIALOG_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for BUSY_DIALOG_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for BUSY_DIALOG_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for BUSY_DIALOG_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const BZ_DISABLECANCELBUTTON: BUSY_DIALOG_FLAGS = BUSY_DIALOG_FLAGS(1u32);
+pub const BZ_DISABLERETRYBUTTON: BUSY_DIALOG_FLAGS = BUSY_DIALOG_FLAGS(4u32);
+pub const BZ_DISABLESWITCHTOBUTTON: BUSY_DIALOG_FLAGS = BUSY_DIALOG_FLAGS(2u32);
+pub const BZ_NOTRESPONDINGDIALOG: BUSY_DIALOG_FLAGS = BUSY_DIALOG_FLAGS(8u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CADWORD {
+    pub cElems: u32,
+    pub pElems: *mut u32,
+}
+impl Default for CADWORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CADWORD {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CALPOLESTR {
+    pub cElems: u32,
+    pub pElems: *mut windows_core::PWSTR,
+}
+impl Default for CALPOLESTR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CALPOLESTR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CAUUID {
+    pub cElems: u32,
+    pub pElems: *mut windows_core::GUID,
+}
+impl Default for CAUUID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CAUUID {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CF_BITMAP: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(2u16);
+pub const CF_CONVERTONLY: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(256u32);
+pub const CF_DIB: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(8u16);
+pub const CF_DIBV5: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(17u16);
+pub const CF_DIF: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(5u16);
+pub const CF_DISABLEACTIVATEAS: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(64u32);
+pub const CF_DISABLEDISPLAYASICON: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(32u32);
+pub const CF_DSPBITMAP: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(130u16);
+pub const CF_DSPENHMETAFILE: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(142u16);
+pub const CF_DSPMETAFILEPICT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(131u16);
+pub const CF_DSPTEXT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(129u16);
+pub const CF_ENHMETAFILE: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(14u16);
+pub const CF_GDIOBJFIRST: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(768u16);
+pub const CF_GDIOBJLAST: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(1023u16);
+pub const CF_HDROP: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(15u16);
+pub const CF_HIDECHANGEICON: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(128u32);
+pub const CF_LOCALE: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(16u16);
+pub const CF_MAX: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(18u16);
+pub const CF_METAFILEPICT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(3u16);
+pub const CF_OEMTEXT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(7u16);
+pub const CF_OWNERDISPLAY: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(128u16);
+pub const CF_PALETTE: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(9u16);
+pub const CF_PENDATA: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(10u16);
+pub const CF_PRIVATEFIRST: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(512u16);
+pub const CF_PRIVATELAST: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(767u16);
+pub const CF_RIFF: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(11u16);
+pub const CF_SELECTACTIVATEAS: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(16u32);
+pub const CF_SELECTCONVERTTO: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(8u32);
+pub const CF_SETACTIVATEDEFAULT: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(4u32);
+pub const CF_SETCONVERTDEFAULT: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(2u32);
+pub const CF_SHOWHELPBUTTON: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(1u32);
+pub const CF_SYLK: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(4u16);
+pub const CF_TEXT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(1u16);
+pub const CF_TIFF: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(6u16);
+pub const CF_UNICODETEXT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(13u16);
+pub const CF_WAVE: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(12u16);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CHANGEKIND(pub i32);
+pub const CHANGEKIND_ADDMEMBER: CHANGEKIND = CHANGEKIND(0i32);
+pub const CHANGEKIND_CHANGEFAILED: CHANGEKIND = CHANGEKIND(6i32);
+pub const CHANGEKIND_DELETEMEMBER: CHANGEKIND = CHANGEKIND(1i32);
+pub const CHANGEKIND_GENERAL: CHANGEKIND = CHANGEKIND(4i32);
+pub const CHANGEKIND_INVALIDATE: CHANGEKIND = CHANGEKIND(5i32);
+pub const CHANGEKIND_MAX: CHANGEKIND = CHANGEKIND(7i32);
+pub const CHANGEKIND_SETDOCUMENTATION: CHANGEKIND = CHANGEKIND(3i32);
+pub const CHANGEKIND_SETNAMES: CHANGEKIND = CHANGEKIND(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CHANGE_ICON_FLAGS(pub u32);
+impl CHANGE_ICON_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for CHANGE_ICON_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for CHANGE_ICON_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for CHANGE_ICON_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for CHANGE_ICON_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for CHANGE_ICON_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CHANGE_SOURCE_FLAGS(pub u32);
+impl CHANGE_SOURCE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for CHANGE_SOURCE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for CHANGE_SOURCE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for CHANGE_SOURCE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for CHANGE_SOURCE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for CHANGE_SOURCE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const CIF_SELECTCURRENT: CHANGE_ICON_FLAGS = CHANGE_ICON_FLAGS(2u32);
+pub const CIF_SELECTDEFAULT: CHANGE_ICON_FLAGS = CHANGE_ICON_FLAGS(4u32);
+pub const CIF_SELECTFROMFILE: CHANGE_ICON_FLAGS = CHANGE_ICON_FLAGS(8u32);
+pub const CIF_SHOWHELP: CHANGE_ICON_FLAGS = CHANGE_ICON_FLAGS(1u32);
+pub const CIF_USEICONEXE: CHANGE_ICON_FLAGS = CHANGE_ICON_FLAGS(16u32);
+#[repr(C)]
+#[derive(Clone, Debug, PartialEq)]
+pub struct CLEANLOCALSTORAGE {
+    pub pInterface: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub pStorage: *mut core::ffi::c_void,
+    pub flags: u32,
+}
+impl Default for CLEANLOCALSTORAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLEANLOCALSTORAGE {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CLIPBOARD_FORMAT(pub u16);
+pub const CLSID_CColorPropPage: windows_core::GUID = windows_core::GUID::from_u128(0x0be35201_8f91_11ce_9de3_00aa004bb851);
+pub const CLSID_CFontPropPage: windows_core::GUID = windows_core::GUID::from_u128(0x0be35200_8f91_11ce_9de3_00aa004bb851);
+pub const CLSID_CPicturePropPage: windows_core::GUID = windows_core::GUID::from_u128(0x0be35202_8f91_11ce_9de3_00aa004bb851);
+pub const CLSID_ConvertVBX: windows_core::GUID = windows_core::GUID::from_u128(0xfb8f0822_0164_101b_84ed_08002b2ec713);
+pub const CLSID_PersistPropset: windows_core::GUID = windows_core::GUID::from_u128(0xfb8f0821_0164_101b_84ed_08002b2ec713);
+pub const CLSID_StdFont: windows_core::GUID = windows_core::GUID::from_u128(0x0be35203_8f91_11ce_9de3_00aa004bb851);
+pub const CLSID_StdPicture: windows_core::GUID = windows_core::GUID::from_u128(0x0be35204_8f91_11ce_9de3_00aa004bb851);
+pub const CONNECT_E_ADVISELIMIT: windows_core::HRESULT = windows_core::HRESULT(0x80040201_u32 as _);
+pub const CONNECT_E_CANNOTCONNECT: windows_core::HRESULT = windows_core::HRESULT(0x80040202_u32 as _);
+pub const CONNECT_E_FIRST: i32 = -2147220992i32;
+pub const CONNECT_E_LAST: windows_core::HRESULT = windows_core::HRESULT(0x8004020F_u32 as _);
+pub const CONNECT_E_NOCONNECTION: windows_core::HRESULT = windows_core::HRESULT(0x80040200_u32 as _);
+pub const CONNECT_E_OVERRIDDEN: windows_core::HRESULT = windows_core::HRESULT(0x80040203_u32 as _);
+pub const CONNECT_S_FIRST: windows_core::HRESULT = windows_core::HRESULT(0x40200_u32 as _);
+pub const CONNECT_S_LAST: windows_core::HRESULT = windows_core::HRESULT(0x4020F_u32 as _);
+#[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CONTROLINFO {
+    pub cb: u32,
+    pub hAccel: super::super::UI::WindowsAndMessaging::HACCEL,
+    pub cAccel: u16,
+    pub dwFlags: u32,
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for CONTROLINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::TypeKind for CONTROLINFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CSF_EXPLORER: CHANGE_SOURCE_FLAGS = CHANGE_SOURCE_FLAGS(8u32);
+pub const CSF_ONLYGETSOURCE: CHANGE_SOURCE_FLAGS = CHANGE_SOURCE_FLAGS(4u32);
+pub const CSF_SHOWHELP: CHANGE_SOURCE_FLAGS = CHANGE_SOURCE_FLAGS(1u32);
+pub const CSF_VALIDSOURCE: CHANGE_SOURCE_FLAGS = CHANGE_SOURCE_FLAGS(2u32);
+pub const CTL_E_ILLEGALFUNCTIONCALL: i32 = -2146828283i32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CTRLINFO(pub i32);
+pub const CTRLINFO_EATS_ESCAPE: CTRLINFO = CTRLINFO(2i32);
+pub const CTRLINFO_EATS_RETURN: CTRLINFO = CTRLINFO(1i32);
+pub const DD_DEFDRAGDELAY: u32 = 200u32;
+pub const DD_DEFDRAGMINDIST: u32 = 2u32;
+pub const DD_DEFSCROLLDELAY: u32 = 50u32;
+pub const DD_DEFSCROLLINSET: u32 = 11u32;
+pub const DD_DEFSCROLLINTERVAL: u32 = 50u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISCARDCACHE(pub i32);
+pub const DISCARDCACHE_NOSAVE: DISCARDCACHE = DISCARDCACHE(1i32);
+pub const DISCARDCACHE_SAVEIFDIRTY: DISCARDCACHE = DISCARDCACHE(0i32);
+pub const DISPATCH_CONSTRUCT: u32 = 16384u32;
+pub const DISPID_ABOUTBOX: i32 = -552i32;
+pub const DISPID_ACCELERATOR: i32 = -543i32;
+pub const DISPID_ADDITEM: i32 = -553i32;
+pub const DISPID_AMBIENT_APPEARANCE: i32 = -716i32;
+pub const DISPID_AMBIENT_AUTOCLIP: i32 = -715i32;
+pub const DISPID_AMBIENT_BACKCOLOR: i32 = -701i32;
+pub const DISPID_AMBIENT_CHARSET: i32 = -727i32;
+pub const DISPID_AMBIENT_CODEPAGE: i32 = -725i32;
+pub const DISPID_AMBIENT_DISPLAYASDEFAULT: i32 = -713i32;
+pub const DISPID_AMBIENT_DISPLAYNAME: i32 = -702i32;
+pub const DISPID_AMBIENT_FONT: i32 = -703i32;
+pub const DISPID_AMBIENT_FORECOLOR: i32 = -704i32;
+pub const DISPID_AMBIENT_LOCALEID: i32 = -705i32;
+pub const DISPID_AMBIENT_MESSAGEREFLECT: i32 = -706i32;
+pub const DISPID_AMBIENT_PALETTE: i32 = -726i32;
+pub const DISPID_AMBIENT_RIGHTTOLEFT: i32 = -732i32;
+pub const DISPID_AMBIENT_SCALEUNITS: i32 = -707i32;
+pub const DISPID_AMBIENT_SHOWGRABHANDLES: i32 = -711i32;
+pub const DISPID_AMBIENT_SHOWHATCHING: i32 = -712i32;
+pub const DISPID_AMBIENT_SUPPORTSMNEMONICS: i32 = -714i32;
+pub const DISPID_AMBIENT_TEXTALIGN: i32 = -708i32;
+pub const DISPID_AMBIENT_TOPTOBOTTOM: i32 = -733i32;
+pub const DISPID_AMBIENT_TRANSFERPRIORITY: i32 = -728i32;
+pub const DISPID_AMBIENT_UIDEAD: i32 = -710i32;
+pub const DISPID_AMBIENT_USERMODE: i32 = -709i32;
+pub const DISPID_APPEARANCE: i32 = -520i32;
+pub const DISPID_AUTOSIZE: i32 = -500i32;
+pub const DISPID_BACKCOLOR: i32 = -501i32;
+pub const DISPID_BACKSTYLE: i32 = -502i32;
+pub const DISPID_BORDERCOLOR: i32 = -503i32;
+pub const DISPID_BORDERSTYLE: i32 = -504i32;
+pub const DISPID_BORDERVISIBLE: i32 = -519i32;
+pub const DISPID_BORDERWIDTH: i32 = -505i32;
+pub const DISPID_CAPTION: i32 = -518i32;
+pub const DISPID_CLEAR: i32 = -554i32;
+pub const DISPID_CLICK: i32 = -600i32;
+pub const DISPID_CLICK_VALUE: i32 = -610i32;
+pub const DISPID_COLLECT: i32 = -8i32;
+pub const DISPID_COLUMN: i32 = -529i32;
+pub const DISPID_CONSTRUCTOR: i32 = -6i32;
+pub const DISPID_DBLCLICK: i32 = -601i32;
+pub const DISPID_DESTRUCTOR: i32 = -7i32;
+pub const DISPID_DISPLAYSTYLE: i32 = -540i32;
+pub const DISPID_DOCLICK: i32 = -551i32;
+pub const DISPID_DRAWMODE: i32 = -507i32;
+pub const DISPID_DRAWSTYLE: i32 = -508i32;
+pub const DISPID_DRAWWIDTH: i32 = -509i32;
+pub const DISPID_Delete: i32 = -801i32;
+pub const DISPID_ENABLED: i32 = -514i32;
+pub const DISPID_ENTERKEYBEHAVIOR: i32 = -544i32;
+pub const DISPID_ERROREVENT: i32 = -608i32;
+pub const DISPID_EVALUATE: i32 = -5i32;
+pub const DISPID_FILLCOLOR: i32 = -510i32;
+pub const DISPID_FILLSTYLE: i32 = -511i32;
+pub const DISPID_FONT: i32 = -512i32;
+pub const DISPID_FONT_BOLD: u32 = 3u32;
+pub const DISPID_FONT_CHANGED: u32 = 9u32;
+pub const DISPID_FONT_CHARSET: u32 = 8u32;
+pub const DISPID_FONT_ITALIC: u32 = 4u32;
+pub const DISPID_FONT_NAME: u32 = 0u32;
+pub const DISPID_FONT_SIZE: u32 = 2u32;
+pub const DISPID_FONT_STRIKE: u32 = 6u32;
+pub const DISPID_FONT_UNDER: u32 = 5u32;
+pub const DISPID_FONT_WEIGHT: u32 = 7u32;
+pub const DISPID_FORECOLOR: i32 = -513i32;
+pub const DISPID_GROUPNAME: i32 = -541i32;
+pub const DISPID_HWND: i32 = -515i32;
+pub const DISPID_IMEMODE: i32 = -542i32;
+pub const DISPID_KEYDOWN: i32 = -602i32;
+pub const DISPID_KEYPRESS: i32 = -603i32;
+pub const DISPID_KEYUP: i32 = -604i32;
+pub const DISPID_LIST: i32 = -528i32;
+pub const DISPID_LISTCOUNT: i32 = -531i32;
+pub const DISPID_LISTINDEX: i32 = -526i32;
+pub const DISPID_MAXLENGTH: i32 = -533i32;
+pub const DISPID_MOUSEDOWN: i32 = -605i32;
+pub const DISPID_MOUSEICON: i32 = -522i32;
+pub const DISPID_MOUSEMOVE: i32 = -606i32;
+pub const DISPID_MOUSEPOINTER: i32 = -521i32;
+pub const DISPID_MOUSEUP: i32 = -607i32;
+pub const DISPID_MULTILINE: i32 = -537i32;
+pub const DISPID_MULTISELECT: i32 = -532i32;
+pub const DISPID_NEWENUM: i32 = -4i32;
+pub const DISPID_NUMBEROFCOLUMNS: i32 = -539i32;
+pub const DISPID_NUMBEROFROWS: i32 = -538i32;
+pub const DISPID_Name: i32 = -800i32;
+pub const DISPID_Object: i32 = -802i32;
+pub const DISPID_PASSWORDCHAR: i32 = -534i32;
+pub const DISPID_PICTURE: i32 = -523i32;
+pub const DISPID_PICT_HANDLE: u32 = 0u32;
+pub const DISPID_PICT_HEIGHT: u32 = 5u32;
+pub const DISPID_PICT_HPAL: u32 = 2u32;
+pub const DISPID_PICT_RENDER: u32 = 6u32;
+pub const DISPID_PICT_TYPE: u32 = 3u32;
+pub const DISPID_PICT_WIDTH: u32 = 4u32;
+pub const DISPID_PROPERTYPUT: i32 = -3i32;
+pub const DISPID_Parent: i32 = -803i32;
+pub const DISPID_READYSTATE: i32 = -525i32;
+pub const DISPID_READYSTATECHANGE: i32 = -609i32;
+pub const DISPID_REFRESH: i32 = -550i32;
+pub const DISPID_REMOVEITEM: i32 = -555i32;
+pub const DISPID_RIGHTTOLEFT: i32 = -611i32;
+pub const DISPID_SCROLLBARS: i32 = -535i32;
+pub const DISPID_SELECTED: i32 = -527i32;
+pub const DISPID_SELLENGTH: i32 = -548i32;
+pub const DISPID_SELSTART: i32 = -547i32;
+pub const DISPID_SELTEXT: i32 = -546i32;
+pub const DISPID_STARTENUM: i32 = -1i32;
+pub const DISPID_TABKEYBEHAVIOR: i32 = -545i32;
+pub const DISPID_TABSTOP: i32 = -516i32;
+pub const DISPID_TEXT: i32 = -517i32;
+pub const DISPID_THIS: i32 = -613i32;
+pub const DISPID_TOPTOBOTTOM: i32 = -612i32;
+pub const DISPID_UNKNOWN: i32 = -1i32;
+pub const DISPID_VALID: i32 = -524i32;
+pub const DISPID_VALUE: u32 = 0u32;
+pub const DISPID_WORDWRAP: i32 = -536i32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DOCMISC(pub i32);
+pub const DOCMISC_CANCREATEMULTIPLEVIEWS: DOCMISC = DOCMISC(1i32);
+pub const DOCMISC_CANTOPENEDIT: DOCMISC = DOCMISC(4i32);
+pub const DOCMISC_NOFILESUPPORT: DOCMISC = DOCMISC(8i32);
+pub const DOCMISC_SUPPORTCOMPLEXRECTANGLES: DOCMISC = DOCMISC(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DROPEFFECT(pub u32);
+impl DROPEFFECT {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DROPEFFECT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DROPEFFECT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DROPEFFECT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DROPEFFECT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DROPEFFECT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const DROPEFFECT_COPY: DROPEFFECT = DROPEFFECT(1u32);
+pub const DROPEFFECT_LINK: DROPEFFECT = DROPEFFECT(4u32);
+pub const DROPEFFECT_MOVE: DROPEFFECT = DROPEFFECT(2u32);
+pub const DROPEFFECT_NONE: DROPEFFECT = DROPEFFECT(0u32);
+pub const DROPEFFECT_SCROLL: DROPEFFECT = DROPEFFECT(2147483648u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DVASPECTINFO {
+    pub cb: u32,
+    pub dwFlags: u32,
+}
+impl Default for DVASPECTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DVASPECTINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DVASPECTINFOFLAG(pub i32);
+pub const DVASPECTINFOFLAG_CANOPTIMIZE: DVASPECTINFOFLAG = DVASPECTINFOFLAG(1i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DVEXTENTINFO {
+    pub cb: u32,
+    pub dwExtentMode: u32,
+    pub sizelProposed: super::super::Foundation::SIZE,
+}
+impl Default for DVEXTENTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DVEXTENTINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DVEXTENTMODE(pub i32);
+pub const DVEXTENT_CONTENT: DVEXTENTMODE = DVEXTENTMODE(0i32);
+pub const DVEXTENT_INTEGRAL: DVEXTENTMODE = DVEXTENTMODE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EDIT_LINKS_FLAGS(pub u32);
+impl EDIT_LINKS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for EDIT_LINKS_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for EDIT_LINKS_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for EDIT_LINKS_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for EDIT_LINKS_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for EDIT_LINKS_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const ELF_DISABLECANCELLINK: EDIT_LINKS_FLAGS = EDIT_LINKS_FLAGS(16u32);
+pub const ELF_DISABLECHANGESOURCE: EDIT_LINKS_FLAGS = EDIT_LINKS_FLAGS(8u32);
+pub const ELF_DISABLEOPENSOURCE: EDIT_LINKS_FLAGS = EDIT_LINKS_FLAGS(4u32);
+pub const ELF_DISABLEUPDATENOW: EDIT_LINKS_FLAGS = EDIT_LINKS_FLAGS(2u32);
+pub const ELF_SHOWHELP: EDIT_LINKS_FLAGS = EDIT_LINKS_FLAGS(1u32);
+pub const EMBDHLP_CREATENOW: EMBDHLP_FLAGS = EMBDHLP_FLAGS(0u32);
+pub const EMBDHLP_DELAYCREATE: EMBDHLP_FLAGS = EMBDHLP_FLAGS(65536u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EMBDHLP_FLAGS(pub u32);
+impl EMBDHLP_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for EMBDHLP_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for EMBDHLP_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for EMBDHLP_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for EMBDHLP_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for EMBDHLP_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const EMBDHLP_INPROC_HANDLER: EMBDHLP_FLAGS = EMBDHLP_FLAGS(0u32);
+pub const EMBDHLP_INPROC_SERVER: EMBDHLP_FLAGS = EMBDHLP_FLAGS(1u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ENUM_CONTROLS_WHICH_FLAGS(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FDEX_PROP_FLAGS(pub u32);
+impl FDEX_PROP_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for FDEX_PROP_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for FDEX_PROP_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for FDEX_PROP_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for FDEX_PROP_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for FDEX_PROP_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct FONTDESC {
+    pub cbSizeofstruct: u32,
+    pub lpstrName: windows_core::PWSTR,
+    pub cySize: super::Com::CY,
+    pub sWeight: i16,
+    pub sCharset: i16,
+    pub fItalic: super::super::Foundation::BOOL,
+    pub fUnderline: super::super::Foundation::BOOL,
+    pub fStrikethrough: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for FONTDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for FONTDESC {
+    type TypeKind = windows_core::CopyType;
+}
+pub const GCW_WCH_SIBLING: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(1u32);
+pub const GC_WCH_ALL: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(4u32);
+pub const GC_WCH_CONTAINED: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(3u32);
+pub const GC_WCH_CONTAINER: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(2u32);
+pub const GC_WCH_FONLYAFTER: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(268435456u32);
+pub const GC_WCH_FONLYBEFORE: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(536870912u32);
+pub const GC_WCH_FREVERSEDIR: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(134217728u32);
+pub const GC_WCH_FSELECTED: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(1073741824u32);
+pub const GC_WCH_SIBLING: i32 = 1i32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GUIDKIND(pub i32);
+pub const GUIDKIND_DEFAULT_SOURCE_DISP_IID: GUIDKIND = GUIDKIND(1i32);
+pub const GUID_CHECKVALUEEXCLUSIVE: windows_core::GUID = windows_core::GUID::from_u128(0x6650430c_be0f_101a_8bbb_00aa00300cab);
+pub const GUID_COLOR: windows_core::GUID = windows_core::GUID::from_u128(0x66504301_be0f_101a_8bbb_00aa00300cab);
+pub const GUID_FONTBOLD: windows_core::GUID = windows_core::GUID::from_u128(0x6650430f_be0f_101a_8bbb_00aa00300cab);
+pub const GUID_FONTITALIC: windows_core::GUID = windows_core::GUID::from_u128(0x66504310_be0f_101a_8bbb_00aa00300cab);
+pub const GUID_FONTNAME: windows_core::GUID = windows_core::GUID::from_u128(0x6650430d_be0f_101a_8bbb_00aa00300cab);
+pub const GUID_FONTSIZE: windows_core::GUID = windows_core::GUID::from_u128(0x6650430e_be0f_101a_8bbb_00aa00300cab);
+pub const GUID_FONTSTRIKETHROUGH: windows_core::GUID = windows_core::GUID::from_u128(0x66504312_be0f_101a_8bbb_00aa00300cab);
+pub const GUID_FONTUNDERSCORE: windows_core::GUID = windows_core::GUID::from_u128(0x66504311_be0f_101a_8bbb_00aa00300cab);
+pub const GUID_HANDLE: windows_core::GUID = windows_core::GUID::from_u128(0x66504313_be0f_101a_8bbb_00aa00300cab);
+pub const GUID_HIMETRIC: windows_core::GUID = windows_core::GUID::from_u128(0x66504300_be0f_101a_8bbb_00aa00300cab);
+pub const GUID_OPTIONVALUEEXCLUSIVE: windows_core::GUID = windows_core::GUID::from_u128(0x6650430b_be0f_101a_8bbb_00aa00300cab);
+pub const GUID_TRISTATE: windows_core::GUID = windows_core::GUID::from_u128(0x6650430a_be0f_101a_8bbb_00aa00300cab);
+pub const GUID_XPOS: windows_core::GUID = windows_core::GUID::from_u128(0x66504306_be0f_101a_8bbb_00aa00300cab);
+pub const GUID_XPOSPIXEL: windows_core::GUID = windows_core::GUID::from_u128(0x66504302_be0f_101a_8bbb_00aa00300cab);
+pub const GUID_XSIZE: windows_core::GUID = windows_core::GUID::from_u128(0x66504308_be0f_101a_8bbb_00aa00300cab);
+pub const GUID_XSIZEPIXEL: windows_core::GUID = windows_core::GUID::from_u128(0x66504304_be0f_101a_8bbb_00aa00300cab);
+pub const GUID_YPOS: windows_core::GUID = windows_core::GUID::from_u128(0x66504307_be0f_101a_8bbb_00aa00300cab);
+pub const GUID_YPOSPIXEL: windows_core::GUID = windows_core::GUID::from_u128(0x66504303_be0f_101a_8bbb_00aa00300cab);
+pub const GUID_YSIZE: windows_core::GUID = windows_core::GUID::from_u128(0x66504309_be0f_101a_8bbb_00aa00300cab);
+pub const GUID_YSIZEPIXEL: windows_core::GUID = windows_core::GUID::from_u128(0x66504305_be0f_101a_8bbb_00aa00300cab);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HITRESULT(pub i32);
+pub const HITRESULT_CLOSE: HITRESULT = HITRESULT(2i32);
+pub const HITRESULT_HIT: HITRESULT = HITRESULT(3i32);
+pub const HITRESULT_OUTSIDE: HITRESULT = HITRESULT(0i32);
+pub const HITRESULT_TRANSPARENT: HITRESULT = HITRESULT(1i32);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAdviseSinkEx, IAdviseSinkEx_Vtbl, 0x3af24290_0c96_11ce_a0cf_00aa00600ab8);
 #[cfg(feature = "Win32_System_Com")]
@@ -4194,6 +4925,140 @@ impl ICreateTypeLib2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICreateTypeLib2 {}
+pub const IDC_BZ_ICON: u32 = 601u32;
+pub const IDC_BZ_MESSAGE1: u32 = 602u32;
+pub const IDC_BZ_RETRY: u32 = 600u32;
+pub const IDC_BZ_SWITCHTO: u32 = 604u32;
+pub const IDC_CI_BROWSE: u32 = 130u32;
+pub const IDC_CI_CURRENT: u32 = 121u32;
+pub const IDC_CI_CURRENTICON: u32 = 122u32;
+pub const IDC_CI_DEFAULT: u32 = 123u32;
+pub const IDC_CI_DEFAULTICON: u32 = 124u32;
+pub const IDC_CI_FROMFILE: u32 = 125u32;
+pub const IDC_CI_FROMFILEEDIT: u32 = 126u32;
+pub const IDC_CI_GROUP: u32 = 120u32;
+pub const IDC_CI_ICONDISPLAY: u32 = 131u32;
+pub const IDC_CI_ICONLIST: u32 = 127u32;
+pub const IDC_CI_LABEL: u32 = 128u32;
+pub const IDC_CI_LABELEDIT: u32 = 129u32;
+pub const IDC_CV_ACTIVATEAS: u32 = 156u32;
+pub const IDC_CV_ACTIVATELIST: u32 = 154u32;
+pub const IDC_CV_CHANGEICON: u32 = 153u32;
+pub const IDC_CV_CONVERTLIST: u32 = 158u32;
+pub const IDC_CV_CONVERTTO: u32 = 155u32;
+pub const IDC_CV_DISPLAYASICON: u32 = 152u32;
+pub const IDC_CV_ICONDISPLAY: u32 = 165u32;
+pub const IDC_CV_OBJECTTYPE: u32 = 150u32;
+pub const IDC_CV_RESULTTEXT: u32 = 157u32;
+pub const IDC_EL_AUTOMATIC: u32 = 202u32;
+pub const IDC_EL_CANCELLINK: u32 = 209u32;
+pub const IDC_EL_CHANGESOURCE: u32 = 201u32;
+pub const IDC_EL_COL1: u32 = 220u32;
+pub const IDC_EL_COL2: u32 = 221u32;
+pub const IDC_EL_COL3: u32 = 222u32;
+pub const IDC_EL_LINKSLISTBOX: u32 = 206u32;
+pub const IDC_EL_LINKSOURCE: u32 = 216u32;
+pub const IDC_EL_LINKTYPE: u32 = 217u32;
+pub const IDC_EL_MANUAL: u32 = 212u32;
+pub const IDC_EL_OPENSOURCE: u32 = 211u32;
+pub const IDC_EL_UPDATENOW: u32 = 210u32;
+pub const IDC_GP_CONVERT: u32 = 1013u32;
+pub const IDC_GP_OBJECTICON: u32 = 1014u32;
+pub const IDC_GP_OBJECTLOCATION: u32 = 1022u32;
+pub const IDC_GP_OBJECTNAME: u32 = 1009u32;
+pub const IDC_GP_OBJECTSIZE: u32 = 1011u32;
+pub const IDC_GP_OBJECTTYPE: u32 = 1010u32;
+pub const IDC_IO_ADDCONTROL: u32 = 2115u32;
+pub const IDC_IO_CHANGEICON: u32 = 2105u32;
+pub const IDC_IO_CONTROLTYPELIST: u32 = 2116u32;
+pub const IDC_IO_CREATEFROMFILE: u32 = 2101u32;
+pub const IDC_IO_CREATENEW: u32 = 2100u32;
+pub const IDC_IO_DISPLAYASICON: u32 = 2104u32;
+pub const IDC_IO_FILE: u32 = 2106u32;
+pub const IDC_IO_FILEDISPLAY: u32 = 2107u32;
+pub const IDC_IO_FILETEXT: u32 = 2112u32;
+pub const IDC_IO_FILETYPE: u32 = 2113u32;
+pub const IDC_IO_ICONDISPLAY: u32 = 2110u32;
+pub const IDC_IO_INSERTCONTROL: u32 = 2114u32;
+pub const IDC_IO_LINKFILE: u32 = 2102u32;
+pub const IDC_IO_OBJECTTYPELIST: u32 = 2103u32;
+pub const IDC_IO_OBJECTTYPETEXT: u32 = 2111u32;
+pub const IDC_IO_RESULTIMAGE: u32 = 2108u32;
+pub const IDC_IO_RESULTTEXT: u32 = 2109u32;
+pub const IDC_LP_AUTOMATIC: u32 = 1016u32;
+pub const IDC_LP_BREAKLINK: u32 = 1008u32;
+pub const IDC_LP_CHANGESOURCE: u32 = 1015u32;
+pub const IDC_LP_DATE: u32 = 1018u32;
+pub const IDC_LP_LINKSOURCE: u32 = 1012u32;
+pub const IDC_LP_MANUAL: u32 = 1017u32;
+pub const IDC_LP_OPENSOURCE: u32 = 1006u32;
+pub const IDC_LP_TIME: u32 = 1019u32;
+pub const IDC_LP_UPDATENOW: u32 = 1007u32;
+pub const IDC_OLEUIHELP: u32 = 99u32;
+pub const IDC_PS_CHANGEICON: u32 = 508u32;
+pub const IDC_PS_DISPLAYASICON: u32 = 506u32;
+pub const IDC_PS_DISPLAYLIST: u32 = 505u32;
+pub const IDC_PS_ICONDISPLAY: u32 = 507u32;
+pub const IDC_PS_PASTE: u32 = 500u32;
+pub const IDC_PS_PASTELINK: u32 = 501u32;
+pub const IDC_PS_PASTELINKLIST: u32 = 504u32;
+pub const IDC_PS_PASTELIST: u32 = 503u32;
+pub const IDC_PS_RESULTIMAGE: u32 = 509u32;
+pub const IDC_PS_RESULTTEXT: u32 = 510u32;
+pub const IDC_PS_SOURCETEXT: u32 = 502u32;
+pub const IDC_PU_CONVERT: u32 = 902u32;
+pub const IDC_PU_ICON: u32 = 908u32;
+pub const IDC_PU_LINKS: u32 = 900u32;
+pub const IDC_PU_TEXT: u32 = 901u32;
+pub const IDC_UL_METER: u32 = 1029u32;
+pub const IDC_UL_PERCENT: u32 = 1031u32;
+pub const IDC_UL_PROGRESS: u32 = 1032u32;
+pub const IDC_UL_STOP: u32 = 1030u32;
+pub const IDC_VP_ASICON: u32 = 1003u32;
+pub const IDC_VP_CHANGEICON: u32 = 1001u32;
+pub const IDC_VP_EDITABLE: u32 = 1002u32;
+pub const IDC_VP_ICONDISPLAY: u32 = 1021u32;
+pub const IDC_VP_PERCENT: u32 = 1000u32;
+pub const IDC_VP_RELATIVE: u32 = 1005u32;
+pub const IDC_VP_RESULTIMAGE: u32 = 1033u32;
+pub const IDC_VP_SCALETXT: u32 = 1034u32;
+pub const IDC_VP_SPIN: u32 = 1006u32;
+pub const IDD_BUSY: u32 = 1006u32;
+pub const IDD_CANNOTUPDATELINK: u32 = 1008u32;
+pub const IDD_CHANGEICON: u32 = 1001u32;
+pub const IDD_CHANGEICONBROWSE: u32 = 1011u32;
+pub const IDD_CHANGESOURCE: u32 = 1009u32;
+pub const IDD_CHANGESOURCE4: u32 = 1013u32;
+pub const IDD_CONVERT: u32 = 1002u32;
+pub const IDD_CONVERT4: u32 = 1103u32;
+pub const IDD_CONVERTONLY: u32 = 1012u32;
+pub const IDD_CONVERTONLY4: u32 = 1104u32;
+pub const IDD_EDITLINKS: u32 = 1004u32;
+pub const IDD_EDITLINKS4: u32 = 1105u32;
+pub const IDD_GNRLPROPS: u32 = 1100u32;
+pub const IDD_GNRLPROPS4: u32 = 1106u32;
+pub const IDD_INSERTFILEBROWSE: u32 = 1010u32;
+pub const IDD_INSERTOBJECT: u32 = 1000u32;
+pub const IDD_LINKPROPS: u32 = 1102u32;
+pub const IDD_LINKPROPS4: u32 = 1107u32;
+pub const IDD_LINKSOURCEUNAVAILABLE: u32 = 1020u32;
+pub const IDD_LINKTYPECHANGED: u32 = 1022u32;
+pub const IDD_LINKTYPECHANGEDA: u32 = 1026u32;
+pub const IDD_LINKTYPECHANGEDW: u32 = 1022u32;
+pub const IDD_OUTOFMEMORY: u32 = 1024u32;
+pub const IDD_PASTESPECIAL: u32 = 1003u32;
+pub const IDD_PASTESPECIAL4: u32 = 1108u32;
+pub const IDD_SERVERNOTFOUND: u32 = 1023u32;
+pub const IDD_SERVERNOTREG: u32 = 1021u32;
+pub const IDD_SERVERNOTREGA: u32 = 1025u32;
+pub const IDD_SERVERNOTREGW: u32 = 1021u32;
+pub const IDD_UPDATELINKS: u32 = 1007u32;
+pub const IDD_VIEWPROPS: u32 = 1101u32;
+pub const ID_BROWSE_ADDCONTROL: u32 = 3u32;
+pub const ID_BROWSE_CHANGEICON: u32 = 1u32;
+pub const ID_BROWSE_CHANGESOURCE: u32 = 4u32;
+pub const ID_BROWSE_INSERTFILE: u32 = 2u32;
+pub const ID_DEFAULTINST: i32 = -2i32;
 windows_core::imp::define_interface!(IDispError, IDispError_Vtbl, 0xa6ef9861_c720_11d0_9337_00a0c90dcaa9);
 windows_core::imp::interface_hierarchy!(IDispError, windows_core::IUnknown);
 impl IDispError {
@@ -5425,6 +6290,11 @@ impl IFontEventsDisp_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFontEventsDisp {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IGNOREMIME(pub i32);
+pub const IGNOREMIME_PROMPT: IGNOREMIME = IGNOREMIME(1i32);
+pub const IGNOREMIME_TEXT: IGNOREMIME = IGNOREMIME(2i32);
 windows_core::imp::define_interface!(IGetOleObject, IGetOleObject_Vtbl, 0x8a701da0_4feb_101b_a82e_08002b2b2337);
 windows_core::imp::interface_hierarchy!(IGetOleObject, windows_core::IUnknown);
 impl IGetOleObject {
@@ -5481,6 +6351,76 @@ impl IGetVBAObject_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IGetVBAObject {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct INSERT_OBJECT_FLAGS(pub u32);
+impl INSERT_OBJECT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for INSERT_OBJECT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for INSERT_OBJECT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for INSERT_OBJECT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for INSERT_OBJECT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for INSERT_OBJECT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const INSTALL_SCOPE_INVALID: u32 = 0u32;
+pub const INSTALL_SCOPE_MACHINE: u32 = 1u32;
+pub const INSTALL_SCOPE_USER: u32 = 2u32;
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct INTERFACEDATA {
+    pub pmethdata: *mut METHODDATA,
+    pub cMembers: u32,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl Default for INTERFACEDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for INTERFACEDATA {
+    type TypeKind = windows_core::CopyType;
+}
+pub const IOF_CHECKDISPLAYASICON: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(16u32);
+pub const IOF_CHECKLINK: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(8u32);
+pub const IOF_CREATEFILEOBJECT: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(64u32);
+pub const IOF_CREATELINKOBJECT: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(128u32);
+pub const IOF_CREATENEWOBJECT: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(32u32);
+pub const IOF_DISABLEDISPLAYASICON: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(1024u32);
+pub const IOF_DISABLELINK: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(256u32);
+pub const IOF_HIDECHANGEICON: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(2048u32);
+pub const IOF_SELECTCREATECONTROL: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(8192u32);
+pub const IOF_SELECTCREATEFROMFILE: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(4u32);
+pub const IOF_SELECTCREATENEW: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(2u32);
+pub const IOF_SHOWHELP: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(1u32);
+pub const IOF_SHOWINSERTCONTROL: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(4096u32);
+pub const IOF_VERIFYSERVERSEXIST: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(512u32);
 windows_core::imp::define_interface!(IObjectIdentity, IObjectIdentity_Vtbl, 0xca04b7e6_0d21_11d1_8cc5_00c04fc2b085);
 windows_core::imp::interface_hierarchy!(IObjectIdentity, windows_core::IUnknown);
 impl IObjectIdentity {
@@ -11537,371 +12477,6 @@ impl IZoomEvents_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IZoomEvents {}
-pub type LPFNOLEUIHOOK = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> u32>;
-pub type OLESTREAMQUERYCONVERTOLELINKCALLBACK = Option<unsafe extern "system" fn(pclsid: *const windows_core::GUID, szclass: windows_core::PCWSTR, sztopicname: windows_core::PCWSTR, szitemname: windows_core::PCWSTR, szuncname: windows_core::PCWSTR, linkupdatingoption: u32, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ACTIVATEFLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ACTIVEOBJECT_FLAGS(pub u32);
-impl ACTIVEOBJECT_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for ACTIVEOBJECT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for ACTIVEOBJECT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for ACTIVEOBJECT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for ACTIVEOBJECT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for ACTIVEOBJECT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BINDSPEED(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BUSY_DIALOG_FLAGS(pub u32);
-impl BUSY_DIALOG_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for BUSY_DIALOG_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for BUSY_DIALOG_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for BUSY_DIALOG_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for BUSY_DIALOG_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for BUSY_DIALOG_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CHANGEKIND(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CHANGE_ICON_FLAGS(pub u32);
-impl CHANGE_ICON_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for CHANGE_ICON_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for CHANGE_ICON_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for CHANGE_ICON_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for CHANGE_ICON_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for CHANGE_ICON_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CHANGE_SOURCE_FLAGS(pub u32);
-impl CHANGE_SOURCE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for CHANGE_SOURCE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for CHANGE_SOURCE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for CHANGE_SOURCE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for CHANGE_SOURCE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for CHANGE_SOURCE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CLIPBOARD_FORMAT(pub u16);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CTRLINFO(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISCARDCACHE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DOCMISC(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DROPEFFECT(pub u32);
-impl DROPEFFECT {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DROPEFFECT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DROPEFFECT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DROPEFFECT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DROPEFFECT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DROPEFFECT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DVASPECTINFOFLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DVEXTENTMODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EDIT_LINKS_FLAGS(pub u32);
-impl EDIT_LINKS_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for EDIT_LINKS_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for EDIT_LINKS_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for EDIT_LINKS_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for EDIT_LINKS_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for EDIT_LINKS_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EMBDHLP_FLAGS(pub u32);
-impl EMBDHLP_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for EMBDHLP_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for EMBDHLP_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for EMBDHLP_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for EMBDHLP_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for EMBDHLP_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ENUM_CONTROLS_WHICH_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FDEX_PROP_FLAGS(pub u32);
-impl FDEX_PROP_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for FDEX_PROP_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for FDEX_PROP_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for FDEX_PROP_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for FDEX_PROP_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for FDEX_PROP_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GUIDKIND(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct HITRESULT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IGNOREMIME(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct INSERT_OBJECT_FLAGS(pub u32);
-impl INSERT_OBJECT_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for INSERT_OBJECT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for INSERT_OBJECT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for INSERT_OBJECT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for INSERT_OBJECT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for INSERT_OBJECT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEYMODIFIERS(pub u32);
@@ -11938,9 +12513,31 @@ impl core::ops::Not for KEYMODIFIERS {
         Self(self.0.not())
     }
 }
+pub const KEYMOD_ALT: KEYMODIFIERS = KEYMODIFIERS(4u32);
+pub const KEYMOD_CONTROL: KEYMODIFIERS = KEYMODIFIERS(2u32);
+pub const KEYMOD_SHIFT: KEYMODIFIERS = KEYMODIFIERS(1u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LIBFLAGS(pub i32);
+pub const LIBFLAG_FCONTROL: LIBFLAGS = LIBFLAGS(2i32);
+pub const LIBFLAG_FHASDISKIMAGE: LIBFLAGS = LIBFLAGS(8i32);
+pub const LIBFLAG_FHIDDEN: LIBFLAGS = LIBFLAGS(4i32);
+pub const LIBFLAG_FRESTRICTED: LIBFLAGS = LIBFLAGS(1i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LICINFO {
+    pub cbLicInfo: i32,
+    pub fRuntimeKeyAvail: super::super::Foundation::BOOL,
+    pub fLicVerified: super::super::Foundation::BOOL,
+}
+impl Default for LICINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for LICINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOAD_PICTURE_FLAGS(pub u32);
@@ -11977,12 +12574,77 @@ impl core::ops::Not for LOAD_PICTURE_FLAGS {
         Self(self.0.not())
     }
 }
+pub const LOAD_TLB_AS_32BIT: u32 = 32u32;
+pub const LOAD_TLB_AS_64BIT: u32 = 64u32;
+pub const LOCALE_USE_NLS: u32 = 268435456u32;
+pub type LPFNOLEUIHOOK = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> u32>;
+pub const LP_COLOR: LOAD_PICTURE_FLAGS = LOAD_PICTURE_FLAGS(4u32);
+pub const LP_DEFAULT: LOAD_PICTURE_FLAGS = LOAD_PICTURE_FLAGS(0u32);
+pub const LP_MONOCHROME: LOAD_PICTURE_FLAGS = LOAD_PICTURE_FLAGS(1u32);
+pub const LP_VGACOLOR: LOAD_PICTURE_FLAGS = LOAD_PICTURE_FLAGS(2u32);
+pub const MEDIAPLAYBACK_PAUSE: MEDIAPLAYBACK_STATE = MEDIAPLAYBACK_STATE(1i32);
+pub const MEDIAPLAYBACK_PAUSE_AND_SUSPEND: MEDIAPLAYBACK_STATE = MEDIAPLAYBACK_STATE(2i32);
+pub const MEDIAPLAYBACK_RESUME: MEDIAPLAYBACK_STATE = MEDIAPLAYBACK_STATE(0i32);
+pub const MEDIAPLAYBACK_RESUME_FROM_SUSPEND: MEDIAPLAYBACK_STATE = MEDIAPLAYBACK_STATE(3i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEDIAPLAYBACK_STATE(pub i32);
+pub const MEMBERID_NIL: i32 = -1i32;
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct METHODDATA {
+    pub szName: windows_core::PWSTR,
+    pub ppdata: *mut PARAMDATA,
+    pub dispid: i32,
+    pub iMeth: u32,
+    pub cc: super::Com::CALLCONV,
+    pub cArgs: u32,
+    pub wFlags: u16,
+    pub vtReturn: super::Variant::VARENUM,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl Default for METHODDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for METHODDATA {
+    type TypeKind = windows_core::CopyType;
+}
+pub const MK_ALT: u32 = 32u32;
+pub const MSOCMDERR_E_CANCELED: i32 = -2147221245i32;
+pub const MSOCMDERR_E_DISABLED: i32 = -2147221247i32;
+pub const MSOCMDERR_E_FIRST: i32 = -2147221248i32;
+pub const MSOCMDERR_E_NOHELP: i32 = -2147221246i32;
+pub const MSOCMDERR_E_NOTSUPPORTED: i32 = -2147221248i32;
+pub const MSOCMDERR_E_UNKNOWNGROUP: i32 = -2147221244i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MULTICLASSINFO_FLAGS(pub u32);
+pub const MULTICLASSINFO_GETIIDPRIMARY: MULTICLASSINFO_FLAGS = MULTICLASSINFO_FLAGS(4u32);
+pub const MULTICLASSINFO_GETIIDSOURCE: MULTICLASSINFO_FLAGS = MULTICLASSINFO_FLAGS(8u32);
+pub const MULTICLASSINFO_GETNUMRESERVEDDISPIDS: MULTICLASSINFO_FLAGS = MULTICLASSINFO_FLAGS(2u32);
+pub const MULTICLASSINFO_GETTYPEINFO: MULTICLASSINFO_FLAGS = MULTICLASSINFO_FLAGS(1u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NUMPARSE {
+    pub cDig: i32,
+    pub dwInFlags: NUMPARSE_FLAGS,
+    pub dwOutFlags: NUMPARSE_FLAGS,
+    pub cchUsed: i32,
+    pub nBaseShift: i32,
+    pub nPwr10: i32,
+}
+impl Default for NUMPARSE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NUMPARSE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NUMPARSE_FLAGS(pub u32);
@@ -12018,6 +12680,42 @@ impl core::ops::Not for NUMPARSE_FLAGS {
     fn not(self) -> Self {
         Self(self.0.not())
     }
+}
+pub const NUMPRS_CURRENCY: NUMPARSE_FLAGS = NUMPARSE_FLAGS(1024u32);
+pub const NUMPRS_DECIMAL: NUMPARSE_FLAGS = NUMPARSE_FLAGS(256u32);
+pub const NUMPRS_EXPONENT: NUMPARSE_FLAGS = NUMPARSE_FLAGS(2048u32);
+pub const NUMPRS_HEX_OCT: NUMPARSE_FLAGS = NUMPARSE_FLAGS(64u32);
+pub const NUMPRS_INEXACT: NUMPARSE_FLAGS = NUMPARSE_FLAGS(131072u32);
+pub const NUMPRS_LEADING_MINUS: NUMPARSE_FLAGS = NUMPARSE_FLAGS(16u32);
+pub const NUMPRS_LEADING_PLUS: NUMPARSE_FLAGS = NUMPARSE_FLAGS(4u32);
+pub const NUMPRS_LEADING_WHITE: NUMPARSE_FLAGS = NUMPARSE_FLAGS(1u32);
+pub const NUMPRS_NEG: NUMPARSE_FLAGS = NUMPARSE_FLAGS(65536u32);
+pub const NUMPRS_PARENS: NUMPARSE_FLAGS = NUMPARSE_FLAGS(128u32);
+pub const NUMPRS_STD: NUMPARSE_FLAGS = NUMPARSE_FLAGS(8191u32);
+pub const NUMPRS_THOUSANDS: NUMPARSE_FLAGS = NUMPARSE_FLAGS(512u32);
+pub const NUMPRS_TRAILING_MINUS: NUMPARSE_FLAGS = NUMPARSE_FLAGS(32u32);
+pub const NUMPRS_TRAILING_PLUS: NUMPARSE_FLAGS = NUMPARSE_FLAGS(8u32);
+pub const NUMPRS_TRAILING_WHITE: NUMPARSE_FLAGS = NUMPARSE_FLAGS(2u32);
+pub const NUMPRS_USE_ALL: NUMPARSE_FLAGS = NUMPARSE_FLAGS(4096u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct OBJECTDESCRIPTOR {
+    pub cbSize: u32,
+    pub clsid: windows_core::GUID,
+    pub dwDrawAspect: u32,
+    pub sizel: super::super::Foundation::SIZE,
+    pub pointl: super::super::Foundation::POINTL,
+    pub dwStatus: u32,
+    pub dwFullUserTypeName: u32,
+    pub dwSrcOfCopy: u32,
+}
+impl Default for OBJECTDESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for OBJECTDESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -12055,602 +12753,7 @@ impl core::ops::Not for OBJECT_PROPERTIES_FLAGS {
         Self(self.0.not())
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OLECLOSE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OLECMDEXECOPT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OLECMDF(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OLECMDID(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OLECMDID_BROWSERSTATEFLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OLECMDID_OPTICAL_ZOOMFLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OLECMDID_PAGEACTIONFLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OLECMDID_REFRESHFLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OLECMDID_VIEWPORT_MODE_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OLECMDID_WINDOWSTATE_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OLECMDTEXTF(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OLECONTF(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OLECREATE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OLEDCFLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OLEGETMONIKER(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OLEIVERB(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OLELINKBIND(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OLEMISC(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OLERENDER(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OLEUIPASTEFLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OLEUPDATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OLEVERBATTRIB(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OLEWHICHMK(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OLE_TRISTATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PAGEACTION_UI(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PARAMFLAGS(pub u16);
-impl PARAMFLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for PARAMFLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for PARAMFLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for PARAMFLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for PARAMFLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for PARAMFLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PASTE_SPECIAL_FLAGS(pub u32);
-impl PASTE_SPECIAL_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for PASTE_SPECIAL_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for PASTE_SPECIAL_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for PASTE_SPECIAL_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for PASTE_SPECIAL_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for PASTE_SPECIAL_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PICTUREATTRIBUTES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PICTYPE(pub i16);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct POINTERINACTIVE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PRINTFLAG(pub i32);
-impl PRINTFLAG {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for PRINTFLAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for PRINTFLAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for PRINTFLAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for PRINTFLAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for PRINTFLAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROPBAG2_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROPPAGESTATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct QACONTAINERFLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct READYSTATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct REGKIND(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SF_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TYPEFLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct UASFLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct UI_CONVERT_FLAGS(pub u32);
-impl UI_CONVERT_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for UI_CONVERT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for UI_CONVERT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for UI_CONVERT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for UI_CONVERT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for UI_CONVERT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct UPDFCACHE_FLAGS(pub u32);
-impl UPDFCACHE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for UPDFCACHE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for UPDFCACHE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for UPDFCACHE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for UPDFCACHE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for UPDFCACHE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct USERCLASSTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VARCMP(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VARFORMAT_FIRST_DAY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VARFORMAT_FIRST_WEEK(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VARFORMAT_GROUP(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VARFORMAT_LEADING_DIGIT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VARFORMAT_NAMED_FORMAT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VARFORMAT_PARENTHESES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VIEWSTATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VIEW_OBJECT_PROPERTIES_FLAGS(pub u32);
-impl VIEW_OBJECT_PROPERTIES_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for VIEW_OBJECT_PROPERTIES_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for VIEW_OBJECT_PROPERTIES_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for VIEW_OBJECT_PROPERTIES_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for VIEW_OBJECT_PROPERTIES_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for VIEW_OBJECT_PROPERTIES_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WPCSETTING(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct XFORMCOORDS(pub i32);
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct ARRAYDESC {
-    pub tdescElem: super::Com::TYPEDESC,
-    pub cDims: u16,
-    pub rgbounds: [super::Com::SAFEARRAYBOUND; 1],
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl Default for ARRAYDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for ARRAYDESC {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CADWORD {
-    pub cElems: u32,
-    pub pElems: *mut u32,
-}
-impl Default for CADWORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CADWORD {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CALPOLESTR {
-    pub cElems: u32,
-    pub pElems: *mut windows_core::PWSTR,
-}
-impl Default for CALPOLESTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CALPOLESTR {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CAUUID {
-    pub cElems: u32,
-    pub pElems: *mut windows_core::GUID,
-}
-impl Default for CAUUID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CAUUID {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
-pub struct CLEANLOCALSTORAGE {
-    pub pInterface: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-    pub pStorage: *mut core::ffi::c_void,
-    pub flags: u32,
-}
-impl Default for CLEANLOCALSTORAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLEANLOCALSTORAGE {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CONTROLINFO {
-    pub cb: u32,
-    pub hAccel: super::super::UI::WindowsAndMessaging::HACCEL,
-    pub cAccel: u16,
-    pub dwFlags: u32,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Default for CONTROLINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for CONTROLINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DVASPECTINFO {
-    pub cb: u32,
-    pub dwFlags: u32,
-}
-impl Default for DVASPECTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DVASPECTINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DVEXTENTINFO {
-    pub cb: u32,
-    pub dwExtentMode: u32,
-    pub sizelProposed: super::super::Foundation::SIZE,
-}
-impl Default for DVEXTENTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DVEXTENTINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct FONTDESC {
-    pub cbSizeofstruct: u32,
-    pub lpstrName: windows_core::PWSTR,
-    pub cySize: super::Com::CY,
-    pub sWeight: i16,
-    pub sCharset: i16,
-    pub fItalic: super::super::Foundation::BOOL,
-    pub fUnderline: super::super::Foundation::BOOL,
-    pub fStrikethrough: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for FONTDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for FONTDESC {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct INTERFACEDATA {
-    pub pmethdata: *mut METHODDATA,
-    pub cMembers: u32,
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl Default for INTERFACEDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for INTERFACEDATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LICINFO {
-    pub cbLicInfo: i32,
-    pub fRuntimeKeyAvail: super::super::Foundation::BOOL,
-    pub fLicVerified: super::super::Foundation::BOOL,
-}
-impl Default for LICINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LICINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct METHODDATA {
-    pub szName: windows_core::PWSTR,
-    pub ppdata: *mut PARAMDATA,
-    pub dispid: i32,
-    pub iMeth: u32,
-    pub cc: super::Com::CALLCONV,
-    pub cArgs: u32,
-    pub wFlags: u16,
-    pub vtReturn: super::Variant::VARENUM,
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl Default for METHODDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for METHODDATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct NUMPARSE {
-    pub cDig: i32,
-    pub dwInFlags: NUMPARSE_FLAGS,
-    pub dwOutFlags: NUMPARSE_FLAGS,
-    pub cchUsed: i32,
-    pub nBaseShift: i32,
-    pub nPwr10: i32,
-}
-impl Default for NUMPARSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for NUMPARSE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct OBJECTDESCRIPTOR {
-    pub cbSize: u32,
-    pub clsid: windows_core::GUID,
-    pub dwDrawAspect: u32,
-    pub sizel: super::super::Foundation::SIZE,
-    pub pointl: super::super::Foundation::POINTL,
-    pub dwStatus: u32,
-    pub dwFullUserTypeName: u32,
-    pub dwSrcOfCopy: u32,
-}
-impl Default for OBJECTDESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for OBJECTDESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
+pub const OCM__BASE: u32 = 8192u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OCPFIPARAMS {
@@ -12674,6 +12777,15 @@ impl Default for OCPFIPARAMS {
 impl windows_core::TypeKind for OCPFIPARAMS {
     type TypeKind = windows_core::CopyType;
 }
+pub const OF_GET: u32 = 2u32;
+pub const OF_HANDLER: u32 = 4u32;
+pub const OF_SET: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OLECLOSE(pub i32);
+pub const OLECLOSE_NOSAVE: OLECLOSE = OLECLOSE(1i32);
+pub const OLECLOSE_PROMPTSAVE: OLECLOSE = OLECLOSE(2i32);
+pub const OLECLOSE_SAVEIFDIRTY: OLECLOSE = OLECLOSE(0i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OLECMD {
@@ -12688,6 +12800,215 @@ impl Default for OLECMD {
 impl windows_core::TypeKind for OLECMD {
     type TypeKind = windows_core::CopyType;
 }
+pub const OLECMDARGINDEX_ACTIVEXINSTALL_CLSID: u32 = 2u32;
+pub const OLECMDARGINDEX_ACTIVEXINSTALL_DISPLAYNAME: u32 = 1u32;
+pub const OLECMDARGINDEX_ACTIVEXINSTALL_INSTALLSCOPE: u32 = 3u32;
+pub const OLECMDARGINDEX_ACTIVEXINSTALL_PUBLISHER: u32 = 0u32;
+pub const OLECMDARGINDEX_ACTIVEXINSTALL_SOURCEURL: u32 = 4u32;
+pub const OLECMDARGINDEX_SHOWPAGEACTIONMENU_HWND: u32 = 0u32;
+pub const OLECMDARGINDEX_SHOWPAGEACTIONMENU_X: u32 = 1u32;
+pub const OLECMDARGINDEX_SHOWPAGEACTIONMENU_Y: u32 = 2u32;
+pub const OLECMDERR_E_CANCELED: windows_core::HRESULT = windows_core::HRESULT(0x80040103_u32 as _);
+pub const OLECMDERR_E_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x80040101_u32 as _);
+pub const OLECMDERR_E_FIRST: windows_core::HRESULT = windows_core::HRESULT(0x80040100_u32 as _);
+pub const OLECMDERR_E_NOHELP: windows_core::HRESULT = windows_core::HRESULT(0x80040102_u32 as _);
+pub const OLECMDERR_E_NOTSUPPORTED: i32 = -2147221248i32;
+pub const OLECMDERR_E_UNKNOWNGROUP: windows_core::HRESULT = windows_core::HRESULT(0x80040104_u32 as _);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OLECMDEXECOPT(pub i32);
+pub const OLECMDEXECOPT_DODEFAULT: OLECMDEXECOPT = OLECMDEXECOPT(0i32);
+pub const OLECMDEXECOPT_DONTPROMPTUSER: OLECMDEXECOPT = OLECMDEXECOPT(2i32);
+pub const OLECMDEXECOPT_PROMPTUSER: OLECMDEXECOPT = OLECMDEXECOPT(1i32);
+pub const OLECMDEXECOPT_SHOWHELP: OLECMDEXECOPT = OLECMDEXECOPT(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OLECMDF(pub i32);
+pub const OLECMDF_DEFHIDEONCTXTMENU: OLECMDF = OLECMDF(32i32);
+pub const OLECMDF_ENABLED: OLECMDF = OLECMDF(2i32);
+pub const OLECMDF_INVISIBLE: OLECMDF = OLECMDF(16i32);
+pub const OLECMDF_LATCHED: OLECMDF = OLECMDF(4i32);
+pub const OLECMDF_NINCHED: OLECMDF = OLECMDF(8i32);
+pub const OLECMDF_SUPPORTED: OLECMDF = OLECMDF(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OLECMDID(pub i32);
+pub const OLECMDIDF_BROWSERSTATE_BLOCKEDVERSION: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(64i32);
+pub const OLECMDIDF_BROWSERSTATE_DESKTOPHTMLDIALOG: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(32i32);
+pub const OLECMDIDF_BROWSERSTATE_EXTENSIONSOFF: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(1i32);
+pub const OLECMDIDF_BROWSERSTATE_IESECURITY: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(2i32);
+pub const OLECMDIDF_BROWSERSTATE_PROTECTEDMODE_OFF: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(4i32);
+pub const OLECMDIDF_BROWSERSTATE_REQUIRESACTIVEX: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(16i32);
+pub const OLECMDIDF_BROWSERSTATE_RESET: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(8i32);
+pub const OLECMDIDF_OPTICAL_ZOOM_NOLAYOUT: OLECMDID_OPTICAL_ZOOMFLAG = OLECMDID_OPTICAL_ZOOMFLAG(16i32);
+pub const OLECMDIDF_OPTICAL_ZOOM_NOPERSIST: OLECMDID_OPTICAL_ZOOMFLAG = OLECMDID_OPTICAL_ZOOMFLAG(1i32);
+pub const OLECMDIDF_OPTICAL_ZOOM_NOTRANSIENT: OLECMDID_OPTICAL_ZOOMFLAG = OLECMDID_OPTICAL_ZOOMFLAG(32i32);
+pub const OLECMDIDF_OPTICAL_ZOOM_RELOADFORNEWTAB: OLECMDID_OPTICAL_ZOOMFLAG = OLECMDID_OPTICAL_ZOOMFLAG(64i32);
+pub const OLECMDIDF_PAGEACTION_ACTIVEXDISALLOW: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(16i32);
+pub const OLECMDIDF_PAGEACTION_ACTIVEXINSTALL: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(2i32);
+pub const OLECMDIDF_PAGEACTION_ACTIVEXTRUSTFAIL: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(4i32);
+pub const OLECMDIDF_PAGEACTION_ACTIVEXUNSAFE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(32i32);
+pub const OLECMDIDF_PAGEACTION_ACTIVEXUSERAPPROVAL: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(262144i32);
+pub const OLECMDIDF_PAGEACTION_ACTIVEXUSERDISABLE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(8i32);
+pub const OLECMDIDF_PAGEACTION_ACTIVEX_EPM_INCOMPATIBLE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(16777216i32);
+pub const OLECMDIDF_PAGEACTION_EXTENSION_COMPAT_BLOCKED: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(268435456i32);
+pub const OLECMDIDF_PAGEACTION_FILEDOWNLOAD: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(1i32);
+pub const OLECMDIDF_PAGEACTION_GENERIC_STATE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(1073741824i32);
+pub const OLECMDIDF_PAGEACTION_INTRANETZONEREQUEST: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(2097152i32);
+pub const OLECMDIDF_PAGEACTION_INVALID_CERT: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(1048576i32);
+pub const OLECMDIDF_PAGEACTION_LOCALMACHINE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(128i32);
+pub const OLECMDIDF_PAGEACTION_MIMETEXTPLAIN: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(256i32);
+pub const OLECMDIDF_PAGEACTION_MIXEDCONTENT: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(524288i32);
+pub const OLECMDIDF_PAGEACTION_NORESETACTIVEX: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(536870912i32);
+pub const OLECMDIDF_PAGEACTION_POPUPALLOWED: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(65536i32);
+pub const OLECMDIDF_PAGEACTION_POPUPWINDOW: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(64i32);
+pub const OLECMDIDF_PAGEACTION_PROTLOCKDOWNDENY: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(32768i32);
+pub const OLECMDIDF_PAGEACTION_PROTLOCKDOWNINTERNET: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(8192i32);
+pub const OLECMDIDF_PAGEACTION_PROTLOCKDOWNINTRANET: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(4096i32);
+pub const OLECMDIDF_PAGEACTION_PROTLOCKDOWNLOCALMACHINE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(1024i32);
+pub const OLECMDIDF_PAGEACTION_PROTLOCKDOWNRESTRICTED: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(16384i32);
+pub const OLECMDIDF_PAGEACTION_PROTLOCKDOWNTRUSTED: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(2048i32);
+pub const OLECMDIDF_PAGEACTION_RESET: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(-2147483648i32);
+pub const OLECMDIDF_PAGEACTION_SCRIPTNAVIGATE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(512i32);
+pub const OLECMDIDF_PAGEACTION_SCRIPTNAVIGATE_ACTIVEXINSTALL: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(512i32);
+pub const OLECMDIDF_PAGEACTION_SCRIPTNAVIGATE_ACTIVEXUSERAPPROVAL: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(33554432i32);
+pub const OLECMDIDF_PAGEACTION_SCRIPTPROMPT: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(131072i32);
+pub const OLECMDIDF_PAGEACTION_SPOOFABLEIDNHOST: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(8388608i32);
+pub const OLECMDIDF_PAGEACTION_WPCBLOCKED: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(67108864i32);
+pub const OLECMDIDF_PAGEACTION_WPCBLOCKED_ACTIVEX: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(134217728i32);
+pub const OLECMDIDF_PAGEACTION_XSSFILTERED: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(4194304i32);
+pub const OLECMDIDF_REFRESH_CLEARUSERINPUT: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(4096i32);
+pub const OLECMDIDF_REFRESH_COMPLETELY: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(3i32);
+pub const OLECMDIDF_REFRESH_CONTINUE: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(2i32);
+pub const OLECMDIDF_REFRESH_IFEXPIRED: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(1i32);
+pub const OLECMDIDF_REFRESH_LEVELMASK: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(255i32);
+pub const OLECMDIDF_REFRESH_NORMAL: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(0i32);
+pub const OLECMDIDF_REFRESH_NO_CACHE: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(4i32);
+pub const OLECMDIDF_REFRESH_PAGEACTION_ACTIVEXINSTALL: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(65536i32);
+pub const OLECMDIDF_REFRESH_PAGEACTION_ALLOW_VERSION: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(134217728i32);
+pub const OLECMDIDF_REFRESH_PAGEACTION_FILEDOWNLOAD: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(131072i32);
+pub const OLECMDIDF_REFRESH_PAGEACTION_INVALID_CERT: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(67108864i32);
+pub const OLECMDIDF_REFRESH_PAGEACTION_LOCALMACHINE: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(262144i32);
+pub const OLECMDIDF_REFRESH_PAGEACTION_MIXEDCONTENT: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(33554432i32);
+pub const OLECMDIDF_REFRESH_PAGEACTION_POPUPWINDOW: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(524288i32);
+pub const OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNINTERNET: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(8388608i32);
+pub const OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNINTRANET: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(4194304i32);
+pub const OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNLOCALMACHINE: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(1048576i32);
+pub const OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNRESTRICTED: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(16777216i32);
+pub const OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNTRUSTED: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(2097152i32);
+pub const OLECMDIDF_REFRESH_PROMPTIFOFFLINE: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(8192i32);
+pub const OLECMDIDF_REFRESH_RELOAD: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(5i32);
+pub const OLECMDIDF_REFRESH_SKIPBEFOREUNLOADEVENT: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(32768i32);
+pub const OLECMDIDF_REFRESH_THROUGHSCRIPT: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(16384i32);
+pub const OLECMDIDF_VIEWPORTMODE_EXCLUDE_VISUAL_BOTTOM: OLECMDID_VIEWPORT_MODE_FLAG = OLECMDID_VIEWPORT_MODE_FLAG(2i32);
+pub const OLECMDIDF_VIEWPORTMODE_EXCLUDE_VISUAL_BOTTOM_VALID: OLECMDID_VIEWPORT_MODE_FLAG = OLECMDID_VIEWPORT_MODE_FLAG(131072i32);
+pub const OLECMDIDF_VIEWPORTMODE_FIXED_LAYOUT_WIDTH: OLECMDID_VIEWPORT_MODE_FLAG = OLECMDID_VIEWPORT_MODE_FLAG(1i32);
+pub const OLECMDIDF_VIEWPORTMODE_FIXED_LAYOUT_WIDTH_VALID: OLECMDID_VIEWPORT_MODE_FLAG = OLECMDID_VIEWPORT_MODE_FLAG(65536i32);
+pub const OLECMDIDF_WINDOWSTATE_ENABLED: OLECMDID_WINDOWSTATE_FLAG = OLECMDID_WINDOWSTATE_FLAG(2i32);
+pub const OLECMDIDF_WINDOWSTATE_ENABLED_VALID: OLECMDID_WINDOWSTATE_FLAG = OLECMDID_WINDOWSTATE_FLAG(131072i32);
+pub const OLECMDIDF_WINDOWSTATE_USERVISIBLE: OLECMDID_WINDOWSTATE_FLAG = OLECMDID_WINDOWSTATE_FLAG(1i32);
+pub const OLECMDIDF_WINDOWSTATE_USERVISIBLE_VALID: OLECMDID_WINDOWSTATE_FLAG = OLECMDID_WINDOWSTATE_FLAG(65536i32);
+pub const OLECMDID_ACTIVEXINSTALLSCOPE: OLECMDID = OLECMDID(66i32);
+pub const OLECMDID_ADDTRAVELENTRY: OLECMDID = OLECMDID(60i32);
+pub const OLECMDID_ALLOWUILESSSAVEAS: OLECMDID = OLECMDID(46i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OLECMDID_BROWSERSTATEFLAG(pub i32);
+pub const OLECMDID_CLEARSELECTION: OLECMDID = OLECMDID(18i32);
+pub const OLECMDID_CLOSE: OLECMDID = OLECMDID(45i32);
+pub const OLECMDID_COPY: OLECMDID = OLECMDID(12i32);
+pub const OLECMDID_CUT: OLECMDID = OLECMDID(11i32);
+pub const OLECMDID_DELETE: OLECMDID = OLECMDID(33i32);
+pub const OLECMDID_DONTDOWNLOADCSS: OLECMDID = OLECMDID(47i32);
+pub const OLECMDID_ENABLE_INTERACTION: OLECMDID = OLECMDID(36i32);
+pub const OLECMDID_ENABLE_VISIBILITY: OLECMDID = OLECMDID(77i32);
+pub const OLECMDID_EXITFULLSCREEN: OLECMDID = OLECMDID(81i32);
+pub const OLECMDID_FIND: OLECMDID = OLECMDID(32i32);
+pub const OLECMDID_FOCUSVIEWCONTROLS: OLECMDID = OLECMDID(57i32);
+pub const OLECMDID_FOCUSVIEWCONTROLSQUERY: OLECMDID = OLECMDID(58i32);
+pub const OLECMDID_GETPRINTTEMPLATE: OLECMDID = OLECMDID(52i32);
+pub const OLECMDID_GETUSERSCALABLE: OLECMDID = OLECMDID(75i32);
+pub const OLECMDID_GETZOOMRANGE: OLECMDID = OLECMDID(20i32);
+pub const OLECMDID_HIDETOOLBARS: OLECMDID = OLECMDID(24i32);
+pub const OLECMDID_HTTPEQUIV: OLECMDID = OLECMDID(34i32);
+pub const OLECMDID_HTTPEQUIV_DONE: OLECMDID = OLECMDID(35i32);
+pub const OLECMDID_LAYOUT_VIEWPORT_WIDTH: OLECMDID = OLECMDID(71i32);
+pub const OLECMDID_MEDIA_PLAYBACK: OLECMDID = OLECMDID(78i32);
+pub const OLECMDID_NEW: OLECMDID = OLECMDID(2i32);
+pub const OLECMDID_ONBEFOREUNLOAD: OLECMDID = OLECMDID(83i32);
+pub const OLECMDID_ONTOOLBARACTIVATED: OLECMDID = OLECMDID(31i32);
+pub const OLECMDID_ONUNLOAD: OLECMDID = OLECMDID(37i32);
+pub const OLECMDID_OPEN: OLECMDID = OLECMDID(1i32);
+pub const OLECMDID_OPTICAL_GETZOOMRANGE: OLECMDID = OLECMDID(64i32);
+pub const OLECMDID_OPTICAL_ZOOM: OLECMDID = OLECMDID(63i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OLECMDID_OPTICAL_ZOOMFLAG(pub i32);
+pub const OLECMDID_PAGEACTIONBLOCKED: OLECMDID = OLECMDID(55i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OLECMDID_PAGEACTIONFLAG(pub i32);
+pub const OLECMDID_PAGEACTIONUIQUERY: OLECMDID = OLECMDID(56i32);
+pub const OLECMDID_PAGEAVAILABLE: OLECMDID = OLECMDID(74i32);
+pub const OLECMDID_PAGESETUP: OLECMDID = OLECMDID(8i32);
+pub const OLECMDID_PASTE: OLECMDID = OLECMDID(13i32);
+pub const OLECMDID_PASTESPECIAL: OLECMDID = OLECMDID(14i32);
+pub const OLECMDID_POPSTATEEVENT: OLECMDID = OLECMDID(69i32);
+pub const OLECMDID_PREREFRESH: OLECMDID = OLECMDID(39i32);
+pub const OLECMDID_PRINT: OLECMDID = OLECMDID(6i32);
+pub const OLECMDID_PRINT2: OLECMDID = OLECMDID(49i32);
+pub const OLECMDID_PRINTPREVIEW: OLECMDID = OLECMDID(7i32);
+pub const OLECMDID_PRINTPREVIEW2: OLECMDID = OLECMDID(50i32);
+pub const OLECMDID_PROPERTIES: OLECMDID = OLECMDID(10i32);
+pub const OLECMDID_PROPERTYBAG2: OLECMDID = OLECMDID(38i32);
+pub const OLECMDID_REDO: OLECMDID = OLECMDID(16i32);
+pub const OLECMDID_REFRESH: OLECMDID = OLECMDID(22i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OLECMDID_REFRESHFLAG(pub i32);
+pub const OLECMDID_SAVE: OLECMDID = OLECMDID(3i32);
+pub const OLECMDID_SAVEAS: OLECMDID = OLECMDID(4i32);
+pub const OLECMDID_SAVECOPYAS: OLECMDID = OLECMDID(5i32);
+pub const OLECMDID_SCROLLCOMPLETE: OLECMDID = OLECMDID(82i32);
+pub const OLECMDID_SELECTALL: OLECMDID = OLECMDID(17i32);
+pub const OLECMDID_SETDOWNLOADSTATE: OLECMDID = OLECMDID(29i32);
+pub const OLECMDID_SETFAVICON: OLECMDID = OLECMDID(79i32);
+pub const OLECMDID_SETPRINTTEMPLATE: OLECMDID = OLECMDID(51i32);
+pub const OLECMDID_SETPROGRESSMAX: OLECMDID = OLECMDID(25i32);
+pub const OLECMDID_SETPROGRESSPOS: OLECMDID = OLECMDID(26i32);
+pub const OLECMDID_SETPROGRESSTEXT: OLECMDID = OLECMDID(27i32);
+pub const OLECMDID_SETTITLE: OLECMDID = OLECMDID(28i32);
+pub const OLECMDID_SET_HOST_FULLSCREENMODE: OLECMDID = OLECMDID(80i32);
+pub const OLECMDID_SHOWFIND: OLECMDID = OLECMDID(42i32);
+pub const OLECMDID_SHOWMESSAGE: OLECMDID = OLECMDID(41i32);
+pub const OLECMDID_SHOWMESSAGE_BLOCKABLE: OLECMDID = OLECMDID(84i32);
+pub const OLECMDID_SHOWPAGEACTIONMENU: OLECMDID = OLECMDID(59i32);
+pub const OLECMDID_SHOWPAGESETUP: OLECMDID = OLECMDID(43i32);
+pub const OLECMDID_SHOWPRINT: OLECMDID = OLECMDID(44i32);
+pub const OLECMDID_SHOWSCRIPTERROR: OLECMDID = OLECMDID(40i32);
+pub const OLECMDID_SHOWTASKDLG: OLECMDID = OLECMDID(68i32);
+pub const OLECMDID_SHOWTASKDLG_BLOCKABLE: OLECMDID = OLECMDID(85i32);
+pub const OLECMDID_SPELL: OLECMDID = OLECMDID(9i32);
+pub const OLECMDID_STOP: OLECMDID = OLECMDID(23i32);
+pub const OLECMDID_STOPDOWNLOAD: OLECMDID = OLECMDID(30i32);
+pub const OLECMDID_UNDO: OLECMDID = OLECMDID(15i32);
+pub const OLECMDID_UPDATEBACKFORWARDSTATE: OLECMDID = OLECMDID(62i32);
+pub const OLECMDID_UPDATECOMMANDS: OLECMDID = OLECMDID(21i32);
+pub const OLECMDID_UPDATEPAGESTATUS: OLECMDID = OLECMDID(48i32);
+pub const OLECMDID_UPDATETRAVELENTRY: OLECMDID = OLECMDID(61i32);
+pub const OLECMDID_UPDATETRAVELENTRY_DATARECOVERY: OLECMDID = OLECMDID(67i32);
+pub const OLECMDID_UPDATE_CARET: OLECMDID = OLECMDID(76i32);
+pub const OLECMDID_USER_OPTICAL_ZOOM: OLECMDID = OLECMDID(73i32);
+pub const OLECMDID_VIEWPORT_MODE: OLECMDID = OLECMDID(70i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OLECMDID_VIEWPORT_MODE_FLAG(pub i32);
+pub const OLECMDID_VISUAL_VIEWPORT_EXCLUDE_BOTTOM: OLECMDID = OLECMDID(72i32);
+pub const OLECMDID_WINDOWSTATECHANGED: OLECMDID = OLECMDID(65i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OLECMDID_WINDOWSTATE_FLAG(pub i32);
+pub const OLECMDID_ZOOM: OLECMDID = OLECMDID(19i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OLECMDTEXT {
@@ -12704,6 +13025,39 @@ impl Default for OLECMDTEXT {
 impl windows_core::TypeKind for OLECMDTEXT {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OLECMDTEXTF(pub i32);
+pub const OLECMDTEXTF_NAME: OLECMDTEXTF = OLECMDTEXTF(1i32);
+pub const OLECMDTEXTF_NONE: OLECMDTEXTF = OLECMDTEXTF(0i32);
+pub const OLECMDTEXTF_STATUS: OLECMDTEXTF = OLECMDTEXTF(2i32);
+pub const OLECMD_TASKDLGID_ONBEFOREUNLOAD: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OLECONTF(pub i32);
+pub const OLECONTF_EMBEDDINGS: OLECONTF = OLECONTF(1i32);
+pub const OLECONTF_LINKS: OLECONTF = OLECONTF(2i32);
+pub const OLECONTF_ONLYIFRUNNING: OLECONTF = OLECONTF(16i32);
+pub const OLECONTF_ONLYUSER: OLECONTF = OLECONTF(8i32);
+pub const OLECONTF_OTHERS: OLECONTF = OLECONTF(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OLECREATE(pub u32);
+pub const OLECREATE_LEAVERUNNING: OLECREATE = OLECREATE(1u32);
+pub const OLECREATE_ZERO: OLECREATE = OLECREATE(0u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OLEDCFLAGS(pub i32);
+pub const OLEDC_NODRAW: OLEDCFLAGS = OLEDCFLAGS(1i32);
+pub const OLEDC_OFFSCREEN: OLEDCFLAGS = OLEDCFLAGS(4i32);
+pub const OLEDC_PAINTBKGND: OLEDCFLAGS = OLEDCFLAGS(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OLEGETMONIKER(pub i32);
+pub const OLEGETMONIKER_FORCEASSIGN: OLEGETMONIKER = OLEGETMONIKER(2i32);
+pub const OLEGETMONIKER_ONLYIFTHERE: OLEGETMONIKER = OLEGETMONIKER(1i32);
+pub const OLEGETMONIKER_TEMPFORUSER: OLEGETMONIKER = OLEGETMONIKER(4i32);
+pub const OLEGETMONIKER_UNASSIGN: OLEGETMONIKER = OLEGETMONIKER(3i32);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -12724,6 +13078,21 @@ impl Default for OLEINPLACEFRAMEINFO {
 impl windows_core::TypeKind for OLEINPLACEFRAMEINFO {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OLEIVERB(pub i32);
+pub const OLEIVERB_DISCARDUNDOSTATE: OLEIVERB = OLEIVERB(-6i32);
+pub const OLEIVERB_HIDE: OLEIVERB = OLEIVERB(-3i32);
+pub const OLEIVERB_INPLACEACTIVATE: OLEIVERB = OLEIVERB(-5i32);
+pub const OLEIVERB_OPEN: OLEIVERB = OLEIVERB(-2i32);
+pub const OLEIVERB_PRIMARY: OLEIVERB = OLEIVERB(0i32);
+pub const OLEIVERB_PROPERTIES: i32 = -7i32;
+pub const OLEIVERB_SHOW: OLEIVERB = OLEIVERB(-1i32);
+pub const OLEIVERB_UIACTIVATE: OLEIVERB = OLEIVERB(-4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OLELINKBIND(pub i32);
+pub const OLELINKBIND_EVENIFCLASSDIFF: OLELINKBIND = OLELINKBIND(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OLEMENUGROUPWIDTHS {
@@ -12737,6 +13106,42 @@ impl Default for OLEMENUGROUPWIDTHS {
 impl windows_core::TypeKind for OLEMENUGROUPWIDTHS {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OLEMISC(pub i32);
+pub const OLEMISC_ACTIVATEWHENVISIBLE: OLEMISC = OLEMISC(256i32);
+pub const OLEMISC_ACTSLIKEBUTTON: OLEMISC = OLEMISC(4096i32);
+pub const OLEMISC_ACTSLIKELABEL: OLEMISC = OLEMISC(8192i32);
+pub const OLEMISC_ALIGNABLE: OLEMISC = OLEMISC(32768i32);
+pub const OLEMISC_ALWAYSRUN: OLEMISC = OLEMISC(2048i32);
+pub const OLEMISC_CANLINKBYOLE1: OLEMISC = OLEMISC(32i32);
+pub const OLEMISC_CANTLINKINSIDE: OLEMISC = OLEMISC(16i32);
+pub const OLEMISC_IGNOREACTIVATEWHENVISIBLE: OLEMISC = OLEMISC(524288i32);
+pub const OLEMISC_IMEMODE: OLEMISC = OLEMISC(262144i32);
+pub const OLEMISC_INSERTNOTREPLACE: OLEMISC = OLEMISC(4i32);
+pub const OLEMISC_INSIDEOUT: OLEMISC = OLEMISC(128i32);
+pub const OLEMISC_INVISIBLEATRUNTIME: OLEMISC = OLEMISC(1024i32);
+pub const OLEMISC_ISLINKOBJECT: OLEMISC = OLEMISC(64i32);
+pub const OLEMISC_NOUIACTIVATE: OLEMISC = OLEMISC(16384i32);
+pub const OLEMISC_ONLYICONIC: OLEMISC = OLEMISC(2i32);
+pub const OLEMISC_RECOMPOSEONRESIZE: OLEMISC = OLEMISC(1i32);
+pub const OLEMISC_RENDERINGISDEVICEINDEPENDENT: OLEMISC = OLEMISC(512i32);
+pub const OLEMISC_SETCLIENTSITEFIRST: OLEMISC = OLEMISC(131072i32);
+pub const OLEMISC_SIMPLEFRAME: OLEMISC = OLEMISC(65536i32);
+pub const OLEMISC_STATIC: OLEMISC = OLEMISC(8i32);
+pub const OLEMISC_SUPPORTSMULTILEVELUNDO: OLEMISC = OLEMISC(2097152i32);
+pub const OLEMISC_WANTSTOMENUMERGE: OLEMISC = OLEMISC(1048576i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OLERENDER(pub i32);
+pub const OLERENDER_ASIS: OLERENDER = OLERENDER(3i32);
+pub const OLERENDER_DRAW: OLERENDER = OLERENDER(1i32);
+pub const OLERENDER_FORMAT: OLERENDER = OLERENDER(2i32);
+pub const OLERENDER_NONE: OLERENDER = OLERENDER(0i32);
+pub const OLESTDDELIM: windows_core::PCWSTR = windows_core::w!("\\");
+pub type OLESTREAMQUERYCONVERTOLELINKCALLBACK = Option<unsafe extern "system" fn(pclsid: *const windows_core::GUID, szclass: windows_core::PCWSTR, sztopicname: windows_core::PCWSTR, szitemname: windows_core::PCWSTR, szuncname: windows_core::PCWSTR, linkupdatingoption: u32, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT>;
+pub const OLESTREAM_CONVERSION_DEFAULT: i32 = 0i32;
+pub const OLESTREAM_CONVERSION_DISABLEOLELINK: i32 = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Media")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13267,6 +13672,9 @@ impl Default for OLEUIPASTEENTRYW {
 impl windows_core::TypeKind for OLEUIPASTEENTRYW {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OLEUIPASTEFLAG(pub i32);
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Debug, PartialEq)]
@@ -13337,6 +13745,18 @@ impl Default for OLEUIPASTESPECIALW {
 impl windows_core::TypeKind for OLEUIPASTESPECIALW {
     type TypeKind = windows_core::CloneType;
 }
+pub const OLEUIPASTE_ENABLEICON: OLEUIPASTEFLAG = OLEUIPASTEFLAG(2048i32);
+pub const OLEUIPASTE_LINKANYTYPE: OLEUIPASTEFLAG = OLEUIPASTEFLAG(1024i32);
+pub const OLEUIPASTE_LINKTYPE1: OLEUIPASTEFLAG = OLEUIPASTEFLAG(1i32);
+pub const OLEUIPASTE_LINKTYPE2: OLEUIPASTEFLAG = OLEUIPASTEFLAG(2i32);
+pub const OLEUIPASTE_LINKTYPE3: OLEUIPASTEFLAG = OLEUIPASTEFLAG(4i32);
+pub const OLEUIPASTE_LINKTYPE4: OLEUIPASTEFLAG = OLEUIPASTEFLAG(8i32);
+pub const OLEUIPASTE_LINKTYPE5: OLEUIPASTEFLAG = OLEUIPASTEFLAG(16i32);
+pub const OLEUIPASTE_LINKTYPE6: OLEUIPASTEFLAG = OLEUIPASTEFLAG(32i32);
+pub const OLEUIPASTE_LINKTYPE7: OLEUIPASTEFLAG = OLEUIPASTEFLAG(64i32);
+pub const OLEUIPASTE_LINKTYPE8: OLEUIPASTEFLAG = OLEUIPASTEFLAG(128i32);
+pub const OLEUIPASTE_PASTE: OLEUIPASTEFLAG = OLEUIPASTEFLAG(512i32);
+pub const OLEUIPASTE_PASTEONLY: OLEUIPASTEFLAG = OLEUIPASTEFLAG(0i32);
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13385,6 +13805,94 @@ impl Default for OLEUIVIEWPROPSW {
 impl windows_core::TypeKind for OLEUIVIEWPROPSW {
     type TypeKind = windows_core::CopyType;
 }
+pub const OLEUI_BZERR_HTASKINVALID: u32 = 116u32;
+pub const OLEUI_BZ_CALLUNBLOCKED: u32 = 119u32;
+pub const OLEUI_BZ_RETRYSELECTED: u32 = 118u32;
+pub const OLEUI_BZ_SWITCHTOSELECTED: u32 = 117u32;
+pub const OLEUI_CANCEL: u32 = 2u32;
+pub const OLEUI_CIERR_MUSTHAVECLSID: u32 = 116u32;
+pub const OLEUI_CIERR_MUSTHAVECURRENTMETAFILE: u32 = 117u32;
+pub const OLEUI_CIERR_SZICONEXEINVALID: u32 = 118u32;
+pub const OLEUI_CSERR_FROMNOTNULL: u32 = 118u32;
+pub const OLEUI_CSERR_LINKCNTRINVALID: u32 = 117u32;
+pub const OLEUI_CSERR_LINKCNTRNULL: u32 = 116u32;
+pub const OLEUI_CSERR_SOURCEINVALID: u32 = 121u32;
+pub const OLEUI_CSERR_SOURCENULL: u32 = 120u32;
+pub const OLEUI_CSERR_SOURCEPARSEERROR: u32 = 122u32;
+pub const OLEUI_CSERR_SOURCEPARSERROR: u32 = 122u32;
+pub const OLEUI_CSERR_TONOTNULL: u32 = 119u32;
+pub const OLEUI_CTERR_CBFORMATINVALID: u32 = 119u32;
+pub const OLEUI_CTERR_CLASSIDINVALID: u32 = 117u32;
+pub const OLEUI_CTERR_DVASPECTINVALID: u32 = 118u32;
+pub const OLEUI_CTERR_HMETAPICTINVALID: u32 = 120u32;
+pub const OLEUI_CTERR_STRINGINVALID: u32 = 121u32;
+pub const OLEUI_ELERR_LINKCNTRINVALID: u32 = 117u32;
+pub const OLEUI_ELERR_LINKCNTRNULL: u32 = 116u32;
+pub const OLEUI_ERR_CBSTRUCTINCORRECT: u32 = 103u32;
+pub const OLEUI_ERR_DIALOGFAILURE: u32 = 112u32;
+pub const OLEUI_ERR_FINDTEMPLATEFAILURE: u32 = 110u32;
+pub const OLEUI_ERR_GLOBALMEMALLOC: u32 = 114u32;
+pub const OLEUI_ERR_HINSTANCEINVALID: u32 = 107u32;
+pub const OLEUI_ERR_HRESOURCEINVALID: u32 = 109u32;
+pub const OLEUI_ERR_HWNDOWNERINVALID: u32 = 104u32;
+pub const OLEUI_ERR_LOADSTRING: u32 = 115u32;
+pub const OLEUI_ERR_LOADTEMPLATEFAILURE: u32 = 111u32;
+pub const OLEUI_ERR_LOCALMEMALLOC: u32 = 113u32;
+pub const OLEUI_ERR_LPFNHOOKINVALID: u32 = 106u32;
+pub const OLEUI_ERR_LPSZCAPTIONINVALID: u32 = 105u32;
+pub const OLEUI_ERR_LPSZTEMPLATEINVALID: u32 = 108u32;
+pub const OLEUI_ERR_OLEMEMALLOC: u32 = 100u32;
+pub const OLEUI_ERR_STANDARDMAX: u32 = 116u32;
+pub const OLEUI_ERR_STANDARDMIN: u32 = 100u32;
+pub const OLEUI_ERR_STRUCTUREINVALID: u32 = 102u32;
+pub const OLEUI_ERR_STRUCTURENULL: u32 = 101u32;
+pub const OLEUI_FALSE: u32 = 0u32;
+pub const OLEUI_GPERR_CBFORMATINVALID: u32 = 130u32;
+pub const OLEUI_GPERR_CLASSIDINVALID: u32 = 128u32;
+pub const OLEUI_GPERR_LPCLSIDEXCLUDEINVALID: u32 = 129u32;
+pub const OLEUI_GPERR_STRINGINVALID: u32 = 127u32;
+pub const OLEUI_IOERR_ARRLINKTYPESINVALID: u32 = 118u32;
+pub const OLEUI_IOERR_ARRPASTEENTRIESINVALID: u32 = 117u32;
+pub const OLEUI_IOERR_CCHFILEINVALID: u32 = 125u32;
+pub const OLEUI_IOERR_HICONINVALID: u32 = 118u32;
+pub const OLEUI_IOERR_LPCLSIDEXCLUDEINVALID: u32 = 124u32;
+pub const OLEUI_IOERR_LPFORMATETCINVALID: u32 = 119u32;
+pub const OLEUI_IOERR_LPIOLECLIENTSITEINVALID: u32 = 121u32;
+pub const OLEUI_IOERR_LPISTORAGEINVALID: u32 = 122u32;
+pub const OLEUI_IOERR_LPSZFILEINVALID: u32 = 116u32;
+pub const OLEUI_IOERR_LPSZLABELINVALID: u32 = 117u32;
+pub const OLEUI_IOERR_PPVOBJINVALID: u32 = 120u32;
+pub const OLEUI_IOERR_SCODEHASERROR: u32 = 123u32;
+pub const OLEUI_IOERR_SRCDATAOBJECTINVALID: u32 = 116u32;
+pub const OLEUI_LPERR_LINKCNTRINVALID: u32 = 134u32;
+pub const OLEUI_LPERR_LINKCNTRNULL: u32 = 133u32;
+pub const OLEUI_OK: u32 = 1u32;
+pub const OLEUI_OPERR_DLGPROCNOTNULL: u32 = 125u32;
+pub const OLEUI_OPERR_INVALIDPAGES: u32 = 123u32;
+pub const OLEUI_OPERR_LINKINFOINVALID: u32 = 137u32;
+pub const OLEUI_OPERR_LPARAMNOTZERO: u32 = 126u32;
+pub const OLEUI_OPERR_NOTSUPPORTED: u32 = 124u32;
+pub const OLEUI_OPERR_OBJINFOINVALID: u32 = 136u32;
+pub const OLEUI_OPERR_PAGESINCORRECT: u32 = 122u32;
+pub const OLEUI_OPERR_PROPERTYSHEET: u32 = 135u32;
+pub const OLEUI_OPERR_PROPSHEETINVALID: u32 = 119u32;
+pub const OLEUI_OPERR_PROPSHEETNULL: u32 = 118u32;
+pub const OLEUI_OPERR_PROPSINVALID: u32 = 121u32;
+pub const OLEUI_OPERR_SUBPROPINVALID: u32 = 117u32;
+pub const OLEUI_OPERR_SUBPROPNULL: u32 = 116u32;
+pub const OLEUI_OPERR_SUPPROP: u32 = 120u32;
+pub const OLEUI_PSERR_CLIPBOARDCHANGED: u32 = 119u32;
+pub const OLEUI_PSERR_GETCLIPBOARDFAILED: u32 = 120u32;
+pub const OLEUI_QUERY_GETCLASSID: u32 = 65280u32;
+pub const OLEUI_QUERY_LINKBROKEN: u32 = 65281u32;
+pub const OLEUI_SUCCESS: u32 = 1u32;
+pub const OLEUI_VPERR_DVASPECTINVALID: u32 = 132u32;
+pub const OLEUI_VPERR_METAPICTINVALID: u32 = 131u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OLEUPDATE(pub i32);
+pub const OLEUPDATE_ALWAYS: OLEUPDATE = OLEUPDATE(1i32);
+pub const OLEUPDATE_ONCALL: OLEUPDATE = OLEUPDATE(3i32);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13405,6 +13913,18 @@ impl windows_core::TypeKind for OLEVERB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OLEVERBATTRIB(pub i32);
+pub const OLEVERBATTRIB_NEVERDIRTIES: OLEVERBATTRIB = OLEVERBATTRIB(1i32);
+pub const OLEVERBATTRIB_ONCONTAINERMENU: OLEVERBATTRIB = OLEVERBATTRIB(2i32);
+pub const OLEVERB_PRIMARY: u32 = 0u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OLEWHICHMK(pub i32);
+pub const OLEWHICHMK_CONTAINER: OLEWHICHMK = OLEWHICHMK(1i32);
+pub const OLEWHICHMK_OBJFULL: OLEWHICHMK = OLEWHICHMK(3i32);
+pub const OLEWHICHMK_OBJREL: OLEWHICHMK = OLEWHICHMK(2i32);
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct OLE_HANDLE(pub u32);
 impl windows_core::TypeKind for OLE_HANDLE {
@@ -13415,6 +13935,23 @@ impl OLE_HANDLE {
         self.0 == 0
     }
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OLE_TRISTATE(pub i32);
+pub const OPF_DISABLECONVERT: OBJECT_PROPERTIES_FLAGS = OBJECT_PROPERTIES_FLAGS(8u32);
+pub const OPF_NOFILLDEFAULT: OBJECT_PROPERTIES_FLAGS = OBJECT_PROPERTIES_FLAGS(2u32);
+pub const OPF_OBJECTISLINK: OBJECT_PROPERTIES_FLAGS = OBJECT_PROPERTIES_FLAGS(1u32);
+pub const OPF_SHOWHELP: OBJECT_PROPERTIES_FLAGS = OBJECT_PROPERTIES_FLAGS(4u32);
+pub const OT_EMBEDDED: i32 = 2i32;
+pub const OT_LINK: i32 = 1i32;
+pub const OT_STATIC: i32 = 3i32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PAGEACTION_UI(pub i32);
+pub const PAGEACTION_UI_DEFAULT: PAGEACTION_UI = PAGEACTION_UI(0i32);
+pub const PAGEACTION_UI_MODAL: PAGEACTION_UI = PAGEACTION_UI(1i32);
+pub const PAGEACTION_UI_MODELESS: PAGEACTION_UI = PAGEACTION_UI(2i32);
+pub const PAGEACTION_UI_SILENT: PAGEACTION_UI = PAGEACTION_UI(3i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PAGERANGE {
@@ -13502,6 +14039,91 @@ impl Default for PARAMDESCEX {
 impl windows_core::TypeKind for PARAMDESCEX {
     type TypeKind = windows_core::CloneType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PARAMFLAGS(pub u16);
+impl PARAMFLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for PARAMFLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for PARAMFLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for PARAMFLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for PARAMFLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for PARAMFLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const PARAMFLAG_FHASCUSTDATA: PARAMFLAGS = PARAMFLAGS(64u16);
+pub const PARAMFLAG_FHASDEFAULT: PARAMFLAGS = PARAMFLAGS(32u16);
+pub const PARAMFLAG_FIN: PARAMFLAGS = PARAMFLAGS(1u16);
+pub const PARAMFLAG_FLCID: PARAMFLAGS = PARAMFLAGS(4u16);
+pub const PARAMFLAG_FOPT: PARAMFLAGS = PARAMFLAGS(16u16);
+pub const PARAMFLAG_FOUT: PARAMFLAGS = PARAMFLAGS(2u16);
+pub const PARAMFLAG_FRETVAL: PARAMFLAGS = PARAMFLAGS(8u16);
+pub const PARAMFLAG_NONE: PARAMFLAGS = PARAMFLAGS(0u16);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PASTE_SPECIAL_FLAGS(pub u32);
+impl PASTE_SPECIAL_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for PASTE_SPECIAL_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for PASTE_SPECIAL_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for PASTE_SPECIAL_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for PASTE_SPECIAL_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for PASTE_SPECIAL_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const PERPROP_E_FIRST: i32 = -2147220992i32;
+pub const PERPROP_E_LAST: windows_core::HRESULT = windows_core::HRESULT(0x8004020F_u32 as _);
+pub const PERPROP_E_NOPAGEAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x80040200_u32 as _);
+pub const PERPROP_S_FIRST: windows_core::HRESULT = windows_core::HRESULT(0x40200_u32 as _);
+pub const PERPROP_S_LAST: windows_core::HRESULT = windows_core::HRESULT(0x4020F_u32 as _);
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
@@ -13606,6 +14228,26 @@ impl Default for PICTDESC_0_1 {
 impl windows_core::TypeKind for PICTDESC_0_1 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PICTUREATTRIBUTES(pub i32);
+pub const PICTURE_SCALABLE: PICTUREATTRIBUTES = PICTUREATTRIBUTES(1i32);
+pub const PICTURE_TRANSPARENT: PICTUREATTRIBUTES = PICTUREATTRIBUTES(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PICTYPE(pub i16);
+pub const PICTYPE_BITMAP: PICTYPE = PICTYPE(1i16);
+pub const PICTYPE_ENHMETAFILE: PICTYPE = PICTYPE(4i16);
+pub const PICTYPE_ICON: PICTYPE = PICTYPE(3i16);
+pub const PICTYPE_METAFILE: PICTYPE = PICTYPE(2i16);
+pub const PICTYPE_NONE: PICTYPE = PICTYPE(0i16);
+pub const PICTYPE_UNINITIALIZED: PICTYPE = PICTYPE(-1i16);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct POINTERINACTIVE(pub i32);
+pub const POINTERINACTIVE_ACTIVATEONDRAG: POINTERINACTIVE = POINTERINACTIVE(4i32);
+pub const POINTERINACTIVE_ACTIVATEONENTRY: POINTERINACTIVE = POINTERINACTIVE(1i32);
+pub const POINTERINACTIVE_DEACTIVATEONLEAVE: POINTERINACTIVE = POINTERINACTIVE(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POINTF {
@@ -13620,6 +14262,59 @@ impl Default for POINTF {
 impl windows_core::TypeKind for POINTF {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PRINTFLAG(pub i32);
+impl PRINTFLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for PRINTFLAG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for PRINTFLAG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for PRINTFLAG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for PRINTFLAG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for PRINTFLAG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const PRINTFLAG_DONTACTUALLYPRINT: PRINTFLAG = PRINTFLAG(16i32);
+pub const PRINTFLAG_FORCEPROPERTIES: PRINTFLAG = PRINTFLAG(32i32);
+pub const PRINTFLAG_MAYBOTHERUSER: PRINTFLAG = PRINTFLAG(1i32);
+pub const PRINTFLAG_PRINTTOFILE: PRINTFLAG = PRINTFLAG(64i32);
+pub const PRINTFLAG_PROMPTUSER: PRINTFLAG = PRINTFLAG(2i32);
+pub const PRINTFLAG_RECOMPOSETODEVICE: PRINTFLAG = PRINTFLAG(8i32);
+pub const PRINTFLAG_USERMAYCHANGEPRINTER: PRINTFLAG = PRINTFLAG(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PROPBAG2_TYPE(pub i32);
+pub const PROPBAG2_TYPE_DATA: PROPBAG2_TYPE = PROPBAG2_TYPE(1i32);
+pub const PROPBAG2_TYPE_MONIKER: PROPBAG2_TYPE = PROPBAG2_TYPE(6i32);
+pub const PROPBAG2_TYPE_OBJECT: PROPBAG2_TYPE = PROPBAG2_TYPE(3i32);
+pub const PROPBAG2_TYPE_STORAGE: PROPBAG2_TYPE = PROPBAG2_TYPE(5i32);
+pub const PROPBAG2_TYPE_STREAM: PROPBAG2_TYPE = PROPBAG2_TYPE(4i32);
+pub const PROPBAG2_TYPE_UNDEFINED: PROPBAG2_TYPE = PROPBAG2_TYPE(0i32);
+pub const PROPBAG2_TYPE_URL: PROPBAG2_TYPE = PROPBAG2_TYPE(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROPPAGEINFO {
@@ -13638,6 +14333,22 @@ impl Default for PROPPAGEINFO {
 impl windows_core::TypeKind for PROPPAGEINFO {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PROPPAGESTATUS(pub i32);
+pub const PROPPAGESTATUS_CLEAN: PROPPAGESTATUS = PROPPAGESTATUS(4i32);
+pub const PROPPAGESTATUS_DIRTY: PROPPAGESTATUS = PROPPAGESTATUS(1i32);
+pub const PROPPAGESTATUS_VALIDATE: PROPPAGESTATUS = PROPPAGESTATUS(2i32);
+pub const PROP_HWND_CHGICONDLG: windows_core::PCWSTR = windows_core::w!("HWND_CIDLG");
+pub const PSF_CHECKDISPLAYASICON: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(8u32);
+pub const PSF_DISABLEDISPLAYASICON: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(16u32);
+pub const PSF_HIDECHANGEICON: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(32u32);
+pub const PSF_NOREFRESHDATAOBJECT: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(128u32);
+pub const PSF_SELECTPASTE: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(2u32);
+pub const PSF_SELECTPASTELINK: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(4u32);
+pub const PSF_SHOWHELP: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(1u32);
+pub const PSF_STAYONCLIPBOARDCHANGE: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(64u32);
+pub const PS_MAXLINKTYPES: u32 = 8u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 #[derive(Clone, Debug, PartialEq)]
@@ -13669,6 +14380,17 @@ impl Default for QACONTAINER {
 impl windows_core::TypeKind for QACONTAINER {
     type TypeKind = windows_core::CloneType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QACONTAINERFLAGS(pub i32);
+pub const QACONTAINER_AUTOCLIP: QACONTAINERFLAGS = QACONTAINERFLAGS(32i32);
+pub const QACONTAINER_DISPLAYASDEFAULT: QACONTAINERFLAGS = QACONTAINERFLAGS(8i32);
+pub const QACONTAINER_MESSAGEREFLECT: QACONTAINERFLAGS = QACONTAINERFLAGS(64i32);
+pub const QACONTAINER_SHOWGRABHANDLES: QACONTAINERFLAGS = QACONTAINERFLAGS(2i32);
+pub const QACONTAINER_SHOWHATCHING: QACONTAINERFLAGS = QACONTAINERFLAGS(1i32);
+pub const QACONTAINER_SUPPORTSMNEMONICS: QACONTAINERFLAGS = QACONTAINERFLAGS(128i32);
+pub const QACONTAINER_UIDEAD: QACONTAINERFLAGS = QACONTAINERFLAGS(16i32);
+pub const QACONTAINER_USERMODE: QACONTAINERFLAGS = QACONTAINERFLAGS(4i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct QACONTROL {
@@ -13687,6 +14409,20 @@ impl Default for QACONTROL {
 impl windows_core::TypeKind for QACONTROL {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct READYSTATE(pub i32);
+pub const READYSTATE_COMPLETE: READYSTATE = READYSTATE(4i32);
+pub const READYSTATE_INTERACTIVE: READYSTATE = READYSTATE(3i32);
+pub const READYSTATE_LOADED: READYSTATE = READYSTATE(2i32);
+pub const READYSTATE_LOADING: READYSTATE = READYSTATE(1i32);
+pub const READYSTATE_UNINITIALIZED: READYSTATE = READYSTATE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REGKIND(pub i32);
+pub const REGKIND_DEFAULT: REGKIND = REGKIND(0i32);
+pub const REGKIND_NONE: REGKIND = REGKIND(2i32);
+pub const REGKIND_REGISTER: REGKIND = REGKIND(1i32);
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -13823,6 +14559,72 @@ impl Default for SAFEARR_VARIANT {
 impl windows_core::TypeKind for SAFEARR_VARIANT {
     type TypeKind = windows_core::CopyType;
 }
+pub const SELFREG_E_CLASS: windows_core::HRESULT = windows_core::HRESULT(0x80040201_u32 as _);
+pub const SELFREG_E_FIRST: i32 = -2147220992i32;
+pub const SELFREG_E_LAST: windows_core::HRESULT = windows_core::HRESULT(0x8004020F_u32 as _);
+pub const SELFREG_E_TYPELIB: windows_core::HRESULT = windows_core::HRESULT(0x80040200_u32 as _);
+pub const SELFREG_S_FIRST: windows_core::HRESULT = windows_core::HRESULT(0x40200_u32 as _);
+pub const SELFREG_S_LAST: windows_core::HRESULT = windows_core::HRESULT(0x4020F_u32 as _);
+pub const SF_BSTR: SF_TYPE = SF_TYPE(8i32);
+pub const SF_DISPATCH: SF_TYPE = SF_TYPE(9i32);
+pub const SF_ERROR: SF_TYPE = SF_TYPE(10i32);
+pub const SF_HAVEIID: SF_TYPE = SF_TYPE(32781i32);
+pub const SF_I1: SF_TYPE = SF_TYPE(16i32);
+pub const SF_I2: SF_TYPE = SF_TYPE(2i32);
+pub const SF_I4: SF_TYPE = SF_TYPE(3i32);
+pub const SF_I8: SF_TYPE = SF_TYPE(20i32);
+pub const SF_RECORD: SF_TYPE = SF_TYPE(36i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SF_TYPE(pub i32);
+pub const SF_UNKNOWN: SF_TYPE = SF_TYPE(13i32);
+pub const SF_VARIANT: SF_TYPE = SF_TYPE(12i32);
+pub const SID_GetCaller: windows_core::GUID = windows_core::GUID::from_u128(0x4717cc40_bcb9_11d0_9336_00a0c90dcaa9);
+pub const SID_ProvideRuntimeContext: windows_core::GUID = windows_core::GUID::from_u128(0x74a5040c_dd0c_48f0_ac85_194c3259180a);
+pub const SID_VariantConversion: windows_core::GUID = windows_core::GUID::from_u128(0x1f101481_bccd_11d0_9336_00a0c90dcaa9);
+pub const STDOLE2_LCID: u32 = 0u32;
+pub const STDOLE2_MAJORVERNUM: u32 = 2u32;
+pub const STDOLE2_MINORVERNUM: u32 = 0u32;
+pub const STDOLE_LCID: u32 = 0u32;
+pub const STDOLE_MAJORVERNUM: u32 = 1u32;
+pub const STDOLE_MINORVERNUM: u32 = 0u32;
+pub const STDOLE_TLB: windows_core::PCSTR = windows_core::s!("stdole2.tlb");
+pub const STDTYPE_TLB: windows_core::PCSTR = windows_core::s!("stdole2.tlb");
+pub const SZOLEUI_MSG_ADDCONTROL: windows_core::PCWSTR = windows_core::w!("OLEUI_MSG_ADDCONTROL");
+pub const SZOLEUI_MSG_BROWSE: windows_core::PCWSTR = windows_core::w!("OLEUI_MSG_BROWSE");
+pub const SZOLEUI_MSG_BROWSE_OFN: windows_core::PCWSTR = windows_core::w!("OLEUI_MSG_BROWSE_OFN");
+pub const SZOLEUI_MSG_CHANGEICON: windows_core::PCWSTR = windows_core::w!("OLEUI_MSG_CHANGEICON");
+pub const SZOLEUI_MSG_CHANGESOURCE: windows_core::PCWSTR = windows_core::w!("OLEUI_MSG_CHANGESOURCE");
+pub const SZOLEUI_MSG_CLOSEBUSYDIALOG: windows_core::PCWSTR = windows_core::w!("OLEUI_MSG_CLOSEBUSYDIALOG");
+pub const SZOLEUI_MSG_CONVERT: windows_core::PCWSTR = windows_core::w!("OLEUI_MSG_CONVERT");
+pub const SZOLEUI_MSG_ENDDIALOG: windows_core::PCWSTR = windows_core::w!("OLEUI_MSG_ENDDIALOG");
+pub const SZOLEUI_MSG_HELP: windows_core::PCWSTR = windows_core::w!("OLEUI_MSG_HELP");
+pub const TIFLAGS_EXTENDDISPATCHONLY: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TYPEFLAGS(pub i32);
+pub const TYPEFLAG_FAGGREGATABLE: TYPEFLAGS = TYPEFLAGS(1024i32);
+pub const TYPEFLAG_FAPPOBJECT: TYPEFLAGS = TYPEFLAGS(1i32);
+pub const TYPEFLAG_FCANCREATE: TYPEFLAGS = TYPEFLAGS(2i32);
+pub const TYPEFLAG_FCONTROL: TYPEFLAGS = TYPEFLAGS(32i32);
+pub const TYPEFLAG_FDISPATCHABLE: TYPEFLAGS = TYPEFLAGS(4096i32);
+pub const TYPEFLAG_FDUAL: TYPEFLAGS = TYPEFLAGS(64i32);
+pub const TYPEFLAG_FHIDDEN: TYPEFLAGS = TYPEFLAGS(16i32);
+pub const TYPEFLAG_FLICENSED: TYPEFLAGS = TYPEFLAGS(4i32);
+pub const TYPEFLAG_FNONEXTENSIBLE: TYPEFLAGS = TYPEFLAGS(128i32);
+pub const TYPEFLAG_FOLEAUTOMATION: TYPEFLAGS = TYPEFLAGS(256i32);
+pub const TYPEFLAG_FPREDECLID: TYPEFLAGS = TYPEFLAGS(8i32);
+pub const TYPEFLAG_FPROXY: TYPEFLAGS = TYPEFLAGS(16384i32);
+pub const TYPEFLAG_FREPLACEABLE: TYPEFLAGS = TYPEFLAGS(2048i32);
+pub const TYPEFLAG_FRESTRICTED: TYPEFLAGS = TYPEFLAGS(512i32);
+pub const TYPEFLAG_FREVERSEBIND: TYPEFLAGS = TYPEFLAGS(8192i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct UASFLAGS(pub i32);
+pub const UAS_BLOCKED: UASFLAGS = UASFLAGS(1i32);
+pub const UAS_MASK: UASFLAGS = UASFLAGS(3i32);
+pub const UAS_NOPARENTENABLE: UASFLAGS = UASFLAGS(2i32);
+pub const UAS_NORMAL: UASFLAGS = UASFLAGS(0i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UDATE {
@@ -13837,6 +14639,221 @@ impl Default for UDATE {
 impl windows_core::TypeKind for UDATE {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct UI_CONVERT_FLAGS(pub u32);
+impl UI_CONVERT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for UI_CONVERT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for UI_CONVERT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for UI_CONVERT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for UI_CONVERT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for UI_CONVERT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const UPDFCACHE_ALL: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(2147483647u32);
+pub const UPDFCACHE_ALLBUTNODATACACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(2147483646u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct UPDFCACHE_FLAGS(pub u32);
+impl UPDFCACHE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for UPDFCACHE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for UPDFCACHE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for UPDFCACHE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for UPDFCACHE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for UPDFCACHE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const UPDFCACHE_IFBLANK: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(16u32);
+pub const UPDFCACHE_IFBLANKORONSAVECACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(18u32);
+pub const UPDFCACHE_NODATACACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(1u32);
+pub const UPDFCACHE_NORMALCACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(8u32);
+pub const UPDFCACHE_ONLYIFBLANK: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(2147483648u32);
+pub const UPDFCACHE_ONSAVECACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(2u32);
+pub const UPDFCACHE_ONSTOPCACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(4u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct USERCLASSTYPE(pub i32);
+pub const USERCLASSTYPE_APPNAME: USERCLASSTYPE = USERCLASSTYPE(3i32);
+pub const USERCLASSTYPE_FULL: USERCLASSTYPE = USERCLASSTYPE(1i32);
+pub const USERCLASSTYPE_SHORT: USERCLASSTYPE = USERCLASSTYPE(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VARCMP(pub u32);
+pub const VARCMP_EQ: VARCMP = VARCMP(1u32);
+pub const VARCMP_GT: VARCMP = VARCMP(2u32);
+pub const VARCMP_LT: VARCMP = VARCMP(0u32);
+pub const VARCMP_NULL: VARCMP = VARCMP(3u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VARFORMAT_FIRST_DAY(pub i32);
+pub const VARFORMAT_FIRST_DAY_FRIDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(5i32);
+pub const VARFORMAT_FIRST_DAY_MONDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(1i32);
+pub const VARFORMAT_FIRST_DAY_SATURDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(6i32);
+pub const VARFORMAT_FIRST_DAY_SUNDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(7i32);
+pub const VARFORMAT_FIRST_DAY_SYSTEMDEFAULT: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(0i32);
+pub const VARFORMAT_FIRST_DAY_THURSDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(4i32);
+pub const VARFORMAT_FIRST_DAY_TUESDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(2i32);
+pub const VARFORMAT_FIRST_DAY_WEDNESDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VARFORMAT_FIRST_WEEK(pub i32);
+pub const VARFORMAT_FIRST_WEEK_CONTAINS_JANUARY_FIRST: VARFORMAT_FIRST_WEEK = VARFORMAT_FIRST_WEEK(1i32);
+pub const VARFORMAT_FIRST_WEEK_HAS_SEVEN_DAYS: VARFORMAT_FIRST_WEEK = VARFORMAT_FIRST_WEEK(3i32);
+pub const VARFORMAT_FIRST_WEEK_LARGER_HALF_IN_CURRENT_YEAR: VARFORMAT_FIRST_WEEK = VARFORMAT_FIRST_WEEK(2i32);
+pub const VARFORMAT_FIRST_WEEK_SYSTEMDEFAULT: VARFORMAT_FIRST_WEEK = VARFORMAT_FIRST_WEEK(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VARFORMAT_GROUP(pub i32);
+pub const VARFORMAT_GROUP_NOTTHOUSANDS: VARFORMAT_GROUP = VARFORMAT_GROUP(0i32);
+pub const VARFORMAT_GROUP_SYSTEMDEFAULT: VARFORMAT_GROUP = VARFORMAT_GROUP(-2i32);
+pub const VARFORMAT_GROUP_THOUSANDS: VARFORMAT_GROUP = VARFORMAT_GROUP(-1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VARFORMAT_LEADING_DIGIT(pub i32);
+pub const VARFORMAT_LEADING_DIGIT_INCLUDED: VARFORMAT_LEADING_DIGIT = VARFORMAT_LEADING_DIGIT(-1i32);
+pub const VARFORMAT_LEADING_DIGIT_NOTINCLUDED: VARFORMAT_LEADING_DIGIT = VARFORMAT_LEADING_DIGIT(0i32);
+pub const VARFORMAT_LEADING_DIGIT_SYSTEMDEFAULT: VARFORMAT_LEADING_DIGIT = VARFORMAT_LEADING_DIGIT(-2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VARFORMAT_NAMED_FORMAT(pub i32);
+pub const VARFORMAT_NAMED_FORMAT_GENERALDATE: VARFORMAT_NAMED_FORMAT = VARFORMAT_NAMED_FORMAT(0i32);
+pub const VARFORMAT_NAMED_FORMAT_LONGDATE: VARFORMAT_NAMED_FORMAT = VARFORMAT_NAMED_FORMAT(1i32);
+pub const VARFORMAT_NAMED_FORMAT_LONGTIME: VARFORMAT_NAMED_FORMAT = VARFORMAT_NAMED_FORMAT(3i32);
+pub const VARFORMAT_NAMED_FORMAT_SHORTDATE: VARFORMAT_NAMED_FORMAT = VARFORMAT_NAMED_FORMAT(2i32);
+pub const VARFORMAT_NAMED_FORMAT_SHORTTIME: VARFORMAT_NAMED_FORMAT = VARFORMAT_NAMED_FORMAT(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VARFORMAT_PARENTHESES(pub i32);
+pub const VARFORMAT_PARENTHESES_NOTUSED: VARFORMAT_PARENTHESES = VARFORMAT_PARENTHESES(0i32);
+pub const VARFORMAT_PARENTHESES_SYSTEMDEFAULT: VARFORMAT_PARENTHESES = VARFORMAT_PARENTHESES(-2i32);
+pub const VARFORMAT_PARENTHESES_USED: VARFORMAT_PARENTHESES = VARFORMAT_PARENTHESES(-1i32);
+pub const VAR_CALENDAR_GREGORIAN: u32 = 256u32;
+pub const VAR_CALENDAR_HIJRI: u32 = 8u32;
+pub const VAR_CALENDAR_THAI: u32 = 128u32;
+pub const VAR_DATEVALUEONLY: u32 = 2u32;
+pub const VAR_FORMAT_NOSUBSTITUTE: u32 = 32u32;
+pub const VAR_FOURDIGITYEARS: u32 = 64u32;
+pub const VAR_LOCALBOOL: u32 = 16u32;
+pub const VAR_TIMEVALUEONLY: u32 = 1u32;
+pub const VAR_VALIDDATE: u32 = 4u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VIEWSTATUS(pub i32);
+pub const VIEWSTATUS_3DSURFACE: VIEWSTATUS = VIEWSTATUS(32i32);
+pub const VIEWSTATUS_DVASPECTOPAQUE: VIEWSTATUS = VIEWSTATUS(4i32);
+pub const VIEWSTATUS_DVASPECTTRANSPARENT: VIEWSTATUS = VIEWSTATUS(8i32);
+pub const VIEWSTATUS_OPAQUE: VIEWSTATUS = VIEWSTATUS(1i32);
+pub const VIEWSTATUS_SOLIDBKGND: VIEWSTATUS = VIEWSTATUS(2i32);
+pub const VIEWSTATUS_SURFACE: VIEWSTATUS = VIEWSTATUS(16i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VIEW_OBJECT_PROPERTIES_FLAGS(pub u32);
+impl VIEW_OBJECT_PROPERTIES_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for VIEW_OBJECT_PROPERTIES_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for VIEW_OBJECT_PROPERTIES_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for VIEW_OBJECT_PROPERTIES_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for VIEW_OBJECT_PROPERTIES_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for VIEW_OBJECT_PROPERTIES_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const VPF_DISABLERELATIVE: VIEW_OBJECT_PROPERTIES_FLAGS = VIEW_OBJECT_PROPERTIES_FLAGS(2u32);
+pub const VPF_DISABLESCALE: VIEW_OBJECT_PROPERTIES_FLAGS = VIEW_OBJECT_PROPERTIES_FLAGS(4u32);
+pub const VPF_SELECTRELATIVE: VIEW_OBJECT_PROPERTIES_FLAGS = VIEW_OBJECT_PROPERTIES_FLAGS(1u32);
+pub const VTDATEGRE_MAX: u32 = 2958465u32;
+pub const VTDATEGRE_MIN: i32 = -657434i32;
+pub const VT_BLOB_PROPSET: u32 = 75u32;
+pub const VT_STORED_PROPSET: u32 = 74u32;
+pub const VT_STREAMED_PROPSET: u32 = 73u32;
+pub const VT_VERBOSE_ENUM: u32 = 76u32;
+pub const WIN32: u32 = 100u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WPCSETTING(pub i32);
+pub const WPCSETTING_FILEDOWNLOAD_BLOCKED: WPCSETTING = WPCSETTING(2i32);
+pub const WPCSETTING_LOGGING_ENABLED: WPCSETTING = WPCSETTING(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct XFORMCOORDS(pub i32);
+pub const XFORMCOORDS_CONTAINERTOHIMETRIC: XFORMCOORDS = XFORMCOORDS(8i32);
+pub const XFORMCOORDS_EVENTCOMPAT: XFORMCOORDS = XFORMCOORDS(16i32);
+pub const XFORMCOORDS_HIMETRICTOCONTAINER: XFORMCOORDS = XFORMCOORDS(4i32);
+pub const XFORMCOORDS_POSITION: XFORMCOORDS = XFORMCOORDS(1i32);
+pub const XFORMCOORDS_SIZE: XFORMCOORDS = XFORMCOORDS(2i32);
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct _wireBRECORD {
@@ -13965,1023 +14982,6 @@ impl Default for _wireVARIANT_0 {
 impl windows_core::TypeKind for _wireVARIANT_0 {
     type TypeKind = windows_core::CloneType;
 }
-pub const ACTIVATE_WINDOWLESS: ACTIVATEFLAGS = ACTIVATEFLAGS(1i32);
-pub const ACTIVEOBJECT_STRONG: ACTIVEOBJECT_FLAGS = ACTIVEOBJECT_FLAGS(0u32);
-pub const ACTIVEOBJECT_WEAK: ACTIVEOBJECT_FLAGS = ACTIVEOBJECT_FLAGS(1u32);
-pub const BINDSPEED_IMMEDIATE: BINDSPEED = BINDSPEED(3i32);
-pub const BINDSPEED_INDEFINITE: BINDSPEED = BINDSPEED(1i32);
-pub const BINDSPEED_MODERATE: BINDSPEED = BINDSPEED(2i32);
-pub const BZ_DISABLECANCELBUTTON: BUSY_DIALOG_FLAGS = BUSY_DIALOG_FLAGS(1u32);
-pub const BZ_DISABLERETRYBUTTON: BUSY_DIALOG_FLAGS = BUSY_DIALOG_FLAGS(4u32);
-pub const BZ_DISABLESWITCHTOBUTTON: BUSY_DIALOG_FLAGS = BUSY_DIALOG_FLAGS(2u32);
-pub const BZ_NOTRESPONDINGDIALOG: BUSY_DIALOG_FLAGS = BUSY_DIALOG_FLAGS(8u32);
-pub const CF_BITMAP: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(2u16);
-pub const CF_CONVERTONLY: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(256u32);
-pub const CF_DIB: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(8u16);
-pub const CF_DIBV5: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(17u16);
-pub const CF_DIF: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(5u16);
-pub const CF_DISABLEACTIVATEAS: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(64u32);
-pub const CF_DISABLEDISPLAYASICON: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(32u32);
-pub const CF_DSPBITMAP: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(130u16);
-pub const CF_DSPENHMETAFILE: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(142u16);
-pub const CF_DSPMETAFILEPICT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(131u16);
-pub const CF_DSPTEXT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(129u16);
-pub const CF_ENHMETAFILE: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(14u16);
-pub const CF_GDIOBJFIRST: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(768u16);
-pub const CF_GDIOBJLAST: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(1023u16);
-pub const CF_HDROP: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(15u16);
-pub const CF_HIDECHANGEICON: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(128u32);
-pub const CF_LOCALE: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(16u16);
-pub const CF_MAX: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(18u16);
-pub const CF_METAFILEPICT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(3u16);
-pub const CF_OEMTEXT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(7u16);
-pub const CF_OWNERDISPLAY: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(128u16);
-pub const CF_PALETTE: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(9u16);
-pub const CF_PENDATA: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(10u16);
-pub const CF_PRIVATEFIRST: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(512u16);
-pub const CF_PRIVATELAST: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(767u16);
-pub const CF_RIFF: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(11u16);
-pub const CF_SELECTACTIVATEAS: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(16u32);
-pub const CF_SELECTCONVERTTO: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(8u32);
-pub const CF_SETACTIVATEDEFAULT: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(4u32);
-pub const CF_SETCONVERTDEFAULT: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(2u32);
-pub const CF_SHOWHELPBUTTON: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(1u32);
-pub const CF_SYLK: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(4u16);
-pub const CF_TEXT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(1u16);
-pub const CF_TIFF: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(6u16);
-pub const CF_UNICODETEXT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(13u16);
-pub const CF_WAVE: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(12u16);
-pub const CHANGEKIND_ADDMEMBER: CHANGEKIND = CHANGEKIND(0i32);
-pub const CHANGEKIND_CHANGEFAILED: CHANGEKIND = CHANGEKIND(6i32);
-pub const CHANGEKIND_DELETEMEMBER: CHANGEKIND = CHANGEKIND(1i32);
-pub const CHANGEKIND_GENERAL: CHANGEKIND = CHANGEKIND(4i32);
-pub const CHANGEKIND_INVALIDATE: CHANGEKIND = CHANGEKIND(5i32);
-pub const CHANGEKIND_MAX: CHANGEKIND = CHANGEKIND(7i32);
-pub const CHANGEKIND_SETDOCUMENTATION: CHANGEKIND = CHANGEKIND(3i32);
-pub const CHANGEKIND_SETNAMES: CHANGEKIND = CHANGEKIND(2i32);
-pub const CIF_SELECTCURRENT: CHANGE_ICON_FLAGS = CHANGE_ICON_FLAGS(2u32);
-pub const CIF_SELECTDEFAULT: CHANGE_ICON_FLAGS = CHANGE_ICON_FLAGS(4u32);
-pub const CIF_SELECTFROMFILE: CHANGE_ICON_FLAGS = CHANGE_ICON_FLAGS(8u32);
-pub const CIF_SHOWHELP: CHANGE_ICON_FLAGS = CHANGE_ICON_FLAGS(1u32);
-pub const CIF_USEICONEXE: CHANGE_ICON_FLAGS = CHANGE_ICON_FLAGS(16u32);
-pub const CLSID_CColorPropPage: windows_core::GUID = windows_core::GUID::from_u128(0x0be35201_8f91_11ce_9de3_00aa004bb851);
-pub const CLSID_CFontPropPage: windows_core::GUID = windows_core::GUID::from_u128(0x0be35200_8f91_11ce_9de3_00aa004bb851);
-pub const CLSID_CPicturePropPage: windows_core::GUID = windows_core::GUID::from_u128(0x0be35202_8f91_11ce_9de3_00aa004bb851);
-pub const CLSID_ConvertVBX: windows_core::GUID = windows_core::GUID::from_u128(0xfb8f0822_0164_101b_84ed_08002b2ec713);
-pub const CLSID_PersistPropset: windows_core::GUID = windows_core::GUID::from_u128(0xfb8f0821_0164_101b_84ed_08002b2ec713);
-pub const CLSID_StdFont: windows_core::GUID = windows_core::GUID::from_u128(0x0be35203_8f91_11ce_9de3_00aa004bb851);
-pub const CLSID_StdPicture: windows_core::GUID = windows_core::GUID::from_u128(0x0be35204_8f91_11ce_9de3_00aa004bb851);
-pub const CONNECT_E_ADVISELIMIT: windows_core::HRESULT = windows_core::HRESULT(0x80040201_u32 as _);
-pub const CONNECT_E_CANNOTCONNECT: windows_core::HRESULT = windows_core::HRESULT(0x80040202_u32 as _);
-pub const CONNECT_E_FIRST: i32 = -2147220992i32;
-pub const CONNECT_E_LAST: windows_core::HRESULT = windows_core::HRESULT(0x8004020F_u32 as _);
-pub const CONNECT_E_NOCONNECTION: windows_core::HRESULT = windows_core::HRESULT(0x80040200_u32 as _);
-pub const CONNECT_E_OVERRIDDEN: windows_core::HRESULT = windows_core::HRESULT(0x80040203_u32 as _);
-pub const CONNECT_S_FIRST: windows_core::HRESULT = windows_core::HRESULT(0x40200_u32 as _);
-pub const CONNECT_S_LAST: windows_core::HRESULT = windows_core::HRESULT(0x4020F_u32 as _);
-pub const CSF_EXPLORER: CHANGE_SOURCE_FLAGS = CHANGE_SOURCE_FLAGS(8u32);
-pub const CSF_ONLYGETSOURCE: CHANGE_SOURCE_FLAGS = CHANGE_SOURCE_FLAGS(4u32);
-pub const CSF_SHOWHELP: CHANGE_SOURCE_FLAGS = CHANGE_SOURCE_FLAGS(1u32);
-pub const CSF_VALIDSOURCE: CHANGE_SOURCE_FLAGS = CHANGE_SOURCE_FLAGS(2u32);
-pub const CTL_E_ILLEGALFUNCTIONCALL: i32 = -2146828283i32;
-pub const CTRLINFO_EATS_ESCAPE: CTRLINFO = CTRLINFO(2i32);
-pub const CTRLINFO_EATS_RETURN: CTRLINFO = CTRLINFO(1i32);
-pub const DD_DEFDRAGDELAY: u32 = 200u32;
-pub const DD_DEFDRAGMINDIST: u32 = 2u32;
-pub const DD_DEFSCROLLDELAY: u32 = 50u32;
-pub const DD_DEFSCROLLINSET: u32 = 11u32;
-pub const DD_DEFSCROLLINTERVAL: u32 = 50u32;
-pub const DISCARDCACHE_NOSAVE: DISCARDCACHE = DISCARDCACHE(1i32);
-pub const DISCARDCACHE_SAVEIFDIRTY: DISCARDCACHE = DISCARDCACHE(0i32);
-pub const DISPATCH_CONSTRUCT: u32 = 16384u32;
-pub const DISPID_ABOUTBOX: i32 = -552i32;
-pub const DISPID_ACCELERATOR: i32 = -543i32;
-pub const DISPID_ADDITEM: i32 = -553i32;
-pub const DISPID_AMBIENT_APPEARANCE: i32 = -716i32;
-pub const DISPID_AMBIENT_AUTOCLIP: i32 = -715i32;
-pub const DISPID_AMBIENT_BACKCOLOR: i32 = -701i32;
-pub const DISPID_AMBIENT_CHARSET: i32 = -727i32;
-pub const DISPID_AMBIENT_CODEPAGE: i32 = -725i32;
-pub const DISPID_AMBIENT_DISPLAYASDEFAULT: i32 = -713i32;
-pub const DISPID_AMBIENT_DISPLAYNAME: i32 = -702i32;
-pub const DISPID_AMBIENT_FONT: i32 = -703i32;
-pub const DISPID_AMBIENT_FORECOLOR: i32 = -704i32;
-pub const DISPID_AMBIENT_LOCALEID: i32 = -705i32;
-pub const DISPID_AMBIENT_MESSAGEREFLECT: i32 = -706i32;
-pub const DISPID_AMBIENT_PALETTE: i32 = -726i32;
-pub const DISPID_AMBIENT_RIGHTTOLEFT: i32 = -732i32;
-pub const DISPID_AMBIENT_SCALEUNITS: i32 = -707i32;
-pub const DISPID_AMBIENT_SHOWGRABHANDLES: i32 = -711i32;
-pub const DISPID_AMBIENT_SHOWHATCHING: i32 = -712i32;
-pub const DISPID_AMBIENT_SUPPORTSMNEMONICS: i32 = -714i32;
-pub const DISPID_AMBIENT_TEXTALIGN: i32 = -708i32;
-pub const DISPID_AMBIENT_TOPTOBOTTOM: i32 = -733i32;
-pub const DISPID_AMBIENT_TRANSFERPRIORITY: i32 = -728i32;
-pub const DISPID_AMBIENT_UIDEAD: i32 = -710i32;
-pub const DISPID_AMBIENT_USERMODE: i32 = -709i32;
-pub const DISPID_APPEARANCE: i32 = -520i32;
-pub const DISPID_AUTOSIZE: i32 = -500i32;
-pub const DISPID_BACKCOLOR: i32 = -501i32;
-pub const DISPID_BACKSTYLE: i32 = -502i32;
-pub const DISPID_BORDERCOLOR: i32 = -503i32;
-pub const DISPID_BORDERSTYLE: i32 = -504i32;
-pub const DISPID_BORDERVISIBLE: i32 = -519i32;
-pub const DISPID_BORDERWIDTH: i32 = -505i32;
-pub const DISPID_CAPTION: i32 = -518i32;
-pub const DISPID_CLEAR: i32 = -554i32;
-pub const DISPID_CLICK: i32 = -600i32;
-pub const DISPID_CLICK_VALUE: i32 = -610i32;
-pub const DISPID_COLLECT: i32 = -8i32;
-pub const DISPID_COLUMN: i32 = -529i32;
-pub const DISPID_CONSTRUCTOR: i32 = -6i32;
-pub const DISPID_DBLCLICK: i32 = -601i32;
-pub const DISPID_DESTRUCTOR: i32 = -7i32;
-pub const DISPID_DISPLAYSTYLE: i32 = -540i32;
-pub const DISPID_DOCLICK: i32 = -551i32;
-pub const DISPID_DRAWMODE: i32 = -507i32;
-pub const DISPID_DRAWSTYLE: i32 = -508i32;
-pub const DISPID_DRAWWIDTH: i32 = -509i32;
-pub const DISPID_Delete: i32 = -801i32;
-pub const DISPID_ENABLED: i32 = -514i32;
-pub const DISPID_ENTERKEYBEHAVIOR: i32 = -544i32;
-pub const DISPID_ERROREVENT: i32 = -608i32;
-pub const DISPID_EVALUATE: i32 = -5i32;
-pub const DISPID_FILLCOLOR: i32 = -510i32;
-pub const DISPID_FILLSTYLE: i32 = -511i32;
-pub const DISPID_FONT: i32 = -512i32;
-pub const DISPID_FONT_BOLD: u32 = 3u32;
-pub const DISPID_FONT_CHANGED: u32 = 9u32;
-pub const DISPID_FONT_CHARSET: u32 = 8u32;
-pub const DISPID_FONT_ITALIC: u32 = 4u32;
-pub const DISPID_FONT_NAME: u32 = 0u32;
-pub const DISPID_FONT_SIZE: u32 = 2u32;
-pub const DISPID_FONT_STRIKE: u32 = 6u32;
-pub const DISPID_FONT_UNDER: u32 = 5u32;
-pub const DISPID_FONT_WEIGHT: u32 = 7u32;
-pub const DISPID_FORECOLOR: i32 = -513i32;
-pub const DISPID_GROUPNAME: i32 = -541i32;
-pub const DISPID_HWND: i32 = -515i32;
-pub const DISPID_IMEMODE: i32 = -542i32;
-pub const DISPID_KEYDOWN: i32 = -602i32;
-pub const DISPID_KEYPRESS: i32 = -603i32;
-pub const DISPID_KEYUP: i32 = -604i32;
-pub const DISPID_LIST: i32 = -528i32;
-pub const DISPID_LISTCOUNT: i32 = -531i32;
-pub const DISPID_LISTINDEX: i32 = -526i32;
-pub const DISPID_MAXLENGTH: i32 = -533i32;
-pub const DISPID_MOUSEDOWN: i32 = -605i32;
-pub const DISPID_MOUSEICON: i32 = -522i32;
-pub const DISPID_MOUSEMOVE: i32 = -606i32;
-pub const DISPID_MOUSEPOINTER: i32 = -521i32;
-pub const DISPID_MOUSEUP: i32 = -607i32;
-pub const DISPID_MULTILINE: i32 = -537i32;
-pub const DISPID_MULTISELECT: i32 = -532i32;
-pub const DISPID_NEWENUM: i32 = -4i32;
-pub const DISPID_NUMBEROFCOLUMNS: i32 = -539i32;
-pub const DISPID_NUMBEROFROWS: i32 = -538i32;
-pub const DISPID_Name: i32 = -800i32;
-pub const DISPID_Object: i32 = -802i32;
-pub const DISPID_PASSWORDCHAR: i32 = -534i32;
-pub const DISPID_PICTURE: i32 = -523i32;
-pub const DISPID_PICT_HANDLE: u32 = 0u32;
-pub const DISPID_PICT_HEIGHT: u32 = 5u32;
-pub const DISPID_PICT_HPAL: u32 = 2u32;
-pub const DISPID_PICT_RENDER: u32 = 6u32;
-pub const DISPID_PICT_TYPE: u32 = 3u32;
-pub const DISPID_PICT_WIDTH: u32 = 4u32;
-pub const DISPID_PROPERTYPUT: i32 = -3i32;
-pub const DISPID_Parent: i32 = -803i32;
-pub const DISPID_READYSTATE: i32 = -525i32;
-pub const DISPID_READYSTATECHANGE: i32 = -609i32;
-pub const DISPID_REFRESH: i32 = -550i32;
-pub const DISPID_REMOVEITEM: i32 = -555i32;
-pub const DISPID_RIGHTTOLEFT: i32 = -611i32;
-pub const DISPID_SCROLLBARS: i32 = -535i32;
-pub const DISPID_SELECTED: i32 = -527i32;
-pub const DISPID_SELLENGTH: i32 = -548i32;
-pub const DISPID_SELSTART: i32 = -547i32;
-pub const DISPID_SELTEXT: i32 = -546i32;
-pub const DISPID_STARTENUM: i32 = -1i32;
-pub const DISPID_TABKEYBEHAVIOR: i32 = -545i32;
-pub const DISPID_TABSTOP: i32 = -516i32;
-pub const DISPID_TEXT: i32 = -517i32;
-pub const DISPID_THIS: i32 = -613i32;
-pub const DISPID_TOPTOBOTTOM: i32 = -612i32;
-pub const DISPID_UNKNOWN: i32 = -1i32;
-pub const DISPID_VALID: i32 = -524i32;
-pub const DISPID_VALUE: u32 = 0u32;
-pub const DISPID_WORDWRAP: i32 = -536i32;
-pub const DOCMISC_CANCREATEMULTIPLEVIEWS: DOCMISC = DOCMISC(1i32);
-pub const DOCMISC_CANTOPENEDIT: DOCMISC = DOCMISC(4i32);
-pub const DOCMISC_NOFILESUPPORT: DOCMISC = DOCMISC(8i32);
-pub const DOCMISC_SUPPORTCOMPLEXRECTANGLES: DOCMISC = DOCMISC(2i32);
-pub const DROPEFFECT_COPY: DROPEFFECT = DROPEFFECT(1u32);
-pub const DROPEFFECT_LINK: DROPEFFECT = DROPEFFECT(4u32);
-pub const DROPEFFECT_MOVE: DROPEFFECT = DROPEFFECT(2u32);
-pub const DROPEFFECT_NONE: DROPEFFECT = DROPEFFECT(0u32);
-pub const DROPEFFECT_SCROLL: DROPEFFECT = DROPEFFECT(2147483648u32);
-pub const DVASPECTINFOFLAG_CANOPTIMIZE: DVASPECTINFOFLAG = DVASPECTINFOFLAG(1i32);
-pub const DVEXTENT_CONTENT: DVEXTENTMODE = DVEXTENTMODE(0i32);
-pub const DVEXTENT_INTEGRAL: DVEXTENTMODE = DVEXTENTMODE(1i32);
-pub const ELF_DISABLECANCELLINK: EDIT_LINKS_FLAGS = EDIT_LINKS_FLAGS(16u32);
-pub const ELF_DISABLECHANGESOURCE: EDIT_LINKS_FLAGS = EDIT_LINKS_FLAGS(8u32);
-pub const ELF_DISABLEOPENSOURCE: EDIT_LINKS_FLAGS = EDIT_LINKS_FLAGS(4u32);
-pub const ELF_DISABLEUPDATENOW: EDIT_LINKS_FLAGS = EDIT_LINKS_FLAGS(2u32);
-pub const ELF_SHOWHELP: EDIT_LINKS_FLAGS = EDIT_LINKS_FLAGS(1u32);
-pub const EMBDHLP_CREATENOW: EMBDHLP_FLAGS = EMBDHLP_FLAGS(0u32);
-pub const EMBDHLP_DELAYCREATE: EMBDHLP_FLAGS = EMBDHLP_FLAGS(65536u32);
-pub const EMBDHLP_INPROC_HANDLER: EMBDHLP_FLAGS = EMBDHLP_FLAGS(0u32);
-pub const EMBDHLP_INPROC_SERVER: EMBDHLP_FLAGS = EMBDHLP_FLAGS(1u32);
-pub const GCW_WCH_SIBLING: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(1u32);
-pub const GC_WCH_ALL: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(4u32);
-pub const GC_WCH_CONTAINED: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(3u32);
-pub const GC_WCH_CONTAINER: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(2u32);
-pub const GC_WCH_FONLYAFTER: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(268435456u32);
-pub const GC_WCH_FONLYBEFORE: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(536870912u32);
-pub const GC_WCH_FREVERSEDIR: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(134217728u32);
-pub const GC_WCH_FSELECTED: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(1073741824u32);
-pub const GC_WCH_SIBLING: i32 = 1i32;
-pub const GUIDKIND_DEFAULT_SOURCE_DISP_IID: GUIDKIND = GUIDKIND(1i32);
-pub const GUID_CHECKVALUEEXCLUSIVE: windows_core::GUID = windows_core::GUID::from_u128(0x6650430c_be0f_101a_8bbb_00aa00300cab);
-pub const GUID_COLOR: windows_core::GUID = windows_core::GUID::from_u128(0x66504301_be0f_101a_8bbb_00aa00300cab);
-pub const GUID_FONTBOLD: windows_core::GUID = windows_core::GUID::from_u128(0x6650430f_be0f_101a_8bbb_00aa00300cab);
-pub const GUID_FONTITALIC: windows_core::GUID = windows_core::GUID::from_u128(0x66504310_be0f_101a_8bbb_00aa00300cab);
-pub const GUID_FONTNAME: windows_core::GUID = windows_core::GUID::from_u128(0x6650430d_be0f_101a_8bbb_00aa00300cab);
-pub const GUID_FONTSIZE: windows_core::GUID = windows_core::GUID::from_u128(0x6650430e_be0f_101a_8bbb_00aa00300cab);
-pub const GUID_FONTSTRIKETHROUGH: windows_core::GUID = windows_core::GUID::from_u128(0x66504312_be0f_101a_8bbb_00aa00300cab);
-pub const GUID_FONTUNDERSCORE: windows_core::GUID = windows_core::GUID::from_u128(0x66504311_be0f_101a_8bbb_00aa00300cab);
-pub const GUID_HANDLE: windows_core::GUID = windows_core::GUID::from_u128(0x66504313_be0f_101a_8bbb_00aa00300cab);
-pub const GUID_HIMETRIC: windows_core::GUID = windows_core::GUID::from_u128(0x66504300_be0f_101a_8bbb_00aa00300cab);
-pub const GUID_OPTIONVALUEEXCLUSIVE: windows_core::GUID = windows_core::GUID::from_u128(0x6650430b_be0f_101a_8bbb_00aa00300cab);
-pub const GUID_TRISTATE: windows_core::GUID = windows_core::GUID::from_u128(0x6650430a_be0f_101a_8bbb_00aa00300cab);
-pub const GUID_XPOS: windows_core::GUID = windows_core::GUID::from_u128(0x66504306_be0f_101a_8bbb_00aa00300cab);
-pub const GUID_XPOSPIXEL: windows_core::GUID = windows_core::GUID::from_u128(0x66504302_be0f_101a_8bbb_00aa00300cab);
-pub const GUID_XSIZE: windows_core::GUID = windows_core::GUID::from_u128(0x66504308_be0f_101a_8bbb_00aa00300cab);
-pub const GUID_XSIZEPIXEL: windows_core::GUID = windows_core::GUID::from_u128(0x66504304_be0f_101a_8bbb_00aa00300cab);
-pub const GUID_YPOS: windows_core::GUID = windows_core::GUID::from_u128(0x66504307_be0f_101a_8bbb_00aa00300cab);
-pub const GUID_YPOSPIXEL: windows_core::GUID = windows_core::GUID::from_u128(0x66504303_be0f_101a_8bbb_00aa00300cab);
-pub const GUID_YSIZE: windows_core::GUID = windows_core::GUID::from_u128(0x66504309_be0f_101a_8bbb_00aa00300cab);
-pub const GUID_YSIZEPIXEL: windows_core::GUID = windows_core::GUID::from_u128(0x66504305_be0f_101a_8bbb_00aa00300cab);
-pub const HITRESULT_CLOSE: HITRESULT = HITRESULT(2i32);
-pub const HITRESULT_HIT: HITRESULT = HITRESULT(3i32);
-pub const HITRESULT_OUTSIDE: HITRESULT = HITRESULT(0i32);
-pub const HITRESULT_TRANSPARENT: HITRESULT = HITRESULT(1i32);
-pub const IDC_BZ_ICON: u32 = 601u32;
-pub const IDC_BZ_MESSAGE1: u32 = 602u32;
-pub const IDC_BZ_RETRY: u32 = 600u32;
-pub const IDC_BZ_SWITCHTO: u32 = 604u32;
-pub const IDC_CI_BROWSE: u32 = 130u32;
-pub const IDC_CI_CURRENT: u32 = 121u32;
-pub const IDC_CI_CURRENTICON: u32 = 122u32;
-pub const IDC_CI_DEFAULT: u32 = 123u32;
-pub const IDC_CI_DEFAULTICON: u32 = 124u32;
-pub const IDC_CI_FROMFILE: u32 = 125u32;
-pub const IDC_CI_FROMFILEEDIT: u32 = 126u32;
-pub const IDC_CI_GROUP: u32 = 120u32;
-pub const IDC_CI_ICONDISPLAY: u32 = 131u32;
-pub const IDC_CI_ICONLIST: u32 = 127u32;
-pub const IDC_CI_LABEL: u32 = 128u32;
-pub const IDC_CI_LABELEDIT: u32 = 129u32;
-pub const IDC_CV_ACTIVATEAS: u32 = 156u32;
-pub const IDC_CV_ACTIVATELIST: u32 = 154u32;
-pub const IDC_CV_CHANGEICON: u32 = 153u32;
-pub const IDC_CV_CONVERTLIST: u32 = 158u32;
-pub const IDC_CV_CONVERTTO: u32 = 155u32;
-pub const IDC_CV_DISPLAYASICON: u32 = 152u32;
-pub const IDC_CV_ICONDISPLAY: u32 = 165u32;
-pub const IDC_CV_OBJECTTYPE: u32 = 150u32;
-pub const IDC_CV_RESULTTEXT: u32 = 157u32;
-pub const IDC_EL_AUTOMATIC: u32 = 202u32;
-pub const IDC_EL_CANCELLINK: u32 = 209u32;
-pub const IDC_EL_CHANGESOURCE: u32 = 201u32;
-pub const IDC_EL_COL1: u32 = 220u32;
-pub const IDC_EL_COL2: u32 = 221u32;
-pub const IDC_EL_COL3: u32 = 222u32;
-pub const IDC_EL_LINKSLISTBOX: u32 = 206u32;
-pub const IDC_EL_LINKSOURCE: u32 = 216u32;
-pub const IDC_EL_LINKTYPE: u32 = 217u32;
-pub const IDC_EL_MANUAL: u32 = 212u32;
-pub const IDC_EL_OPENSOURCE: u32 = 211u32;
-pub const IDC_EL_UPDATENOW: u32 = 210u32;
-pub const IDC_GP_CONVERT: u32 = 1013u32;
-pub const IDC_GP_OBJECTICON: u32 = 1014u32;
-pub const IDC_GP_OBJECTLOCATION: u32 = 1022u32;
-pub const IDC_GP_OBJECTNAME: u32 = 1009u32;
-pub const IDC_GP_OBJECTSIZE: u32 = 1011u32;
-pub const IDC_GP_OBJECTTYPE: u32 = 1010u32;
-pub const IDC_IO_ADDCONTROL: u32 = 2115u32;
-pub const IDC_IO_CHANGEICON: u32 = 2105u32;
-pub const IDC_IO_CONTROLTYPELIST: u32 = 2116u32;
-pub const IDC_IO_CREATEFROMFILE: u32 = 2101u32;
-pub const IDC_IO_CREATENEW: u32 = 2100u32;
-pub const IDC_IO_DISPLAYASICON: u32 = 2104u32;
-pub const IDC_IO_FILE: u32 = 2106u32;
-pub const IDC_IO_FILEDISPLAY: u32 = 2107u32;
-pub const IDC_IO_FILETEXT: u32 = 2112u32;
-pub const IDC_IO_FILETYPE: u32 = 2113u32;
-pub const IDC_IO_ICONDISPLAY: u32 = 2110u32;
-pub const IDC_IO_INSERTCONTROL: u32 = 2114u32;
-pub const IDC_IO_LINKFILE: u32 = 2102u32;
-pub const IDC_IO_OBJECTTYPELIST: u32 = 2103u32;
-pub const IDC_IO_OBJECTTYPETEXT: u32 = 2111u32;
-pub const IDC_IO_RESULTIMAGE: u32 = 2108u32;
-pub const IDC_IO_RESULTTEXT: u32 = 2109u32;
-pub const IDC_LP_AUTOMATIC: u32 = 1016u32;
-pub const IDC_LP_BREAKLINK: u32 = 1008u32;
-pub const IDC_LP_CHANGESOURCE: u32 = 1015u32;
-pub const IDC_LP_DATE: u32 = 1018u32;
-pub const IDC_LP_LINKSOURCE: u32 = 1012u32;
-pub const IDC_LP_MANUAL: u32 = 1017u32;
-pub const IDC_LP_OPENSOURCE: u32 = 1006u32;
-pub const IDC_LP_TIME: u32 = 1019u32;
-pub const IDC_LP_UPDATENOW: u32 = 1007u32;
-pub const IDC_OLEUIHELP: u32 = 99u32;
-pub const IDC_PS_CHANGEICON: u32 = 508u32;
-pub const IDC_PS_DISPLAYASICON: u32 = 506u32;
-pub const IDC_PS_DISPLAYLIST: u32 = 505u32;
-pub const IDC_PS_ICONDISPLAY: u32 = 507u32;
-pub const IDC_PS_PASTE: u32 = 500u32;
-pub const IDC_PS_PASTELINK: u32 = 501u32;
-pub const IDC_PS_PASTELINKLIST: u32 = 504u32;
-pub const IDC_PS_PASTELIST: u32 = 503u32;
-pub const IDC_PS_RESULTIMAGE: u32 = 509u32;
-pub const IDC_PS_RESULTTEXT: u32 = 510u32;
-pub const IDC_PS_SOURCETEXT: u32 = 502u32;
-pub const IDC_PU_CONVERT: u32 = 902u32;
-pub const IDC_PU_ICON: u32 = 908u32;
-pub const IDC_PU_LINKS: u32 = 900u32;
-pub const IDC_PU_TEXT: u32 = 901u32;
-pub const IDC_UL_METER: u32 = 1029u32;
-pub const IDC_UL_PERCENT: u32 = 1031u32;
-pub const IDC_UL_PROGRESS: u32 = 1032u32;
-pub const IDC_UL_STOP: u32 = 1030u32;
-pub const IDC_VP_ASICON: u32 = 1003u32;
-pub const IDC_VP_CHANGEICON: u32 = 1001u32;
-pub const IDC_VP_EDITABLE: u32 = 1002u32;
-pub const IDC_VP_ICONDISPLAY: u32 = 1021u32;
-pub const IDC_VP_PERCENT: u32 = 1000u32;
-pub const IDC_VP_RELATIVE: u32 = 1005u32;
-pub const IDC_VP_RESULTIMAGE: u32 = 1033u32;
-pub const IDC_VP_SCALETXT: u32 = 1034u32;
-pub const IDC_VP_SPIN: u32 = 1006u32;
-pub const IDD_BUSY: u32 = 1006u32;
-pub const IDD_CANNOTUPDATELINK: u32 = 1008u32;
-pub const IDD_CHANGEICON: u32 = 1001u32;
-pub const IDD_CHANGEICONBROWSE: u32 = 1011u32;
-pub const IDD_CHANGESOURCE: u32 = 1009u32;
-pub const IDD_CHANGESOURCE4: u32 = 1013u32;
-pub const IDD_CONVERT: u32 = 1002u32;
-pub const IDD_CONVERT4: u32 = 1103u32;
-pub const IDD_CONVERTONLY: u32 = 1012u32;
-pub const IDD_CONVERTONLY4: u32 = 1104u32;
-pub const IDD_EDITLINKS: u32 = 1004u32;
-pub const IDD_EDITLINKS4: u32 = 1105u32;
-pub const IDD_GNRLPROPS: u32 = 1100u32;
-pub const IDD_GNRLPROPS4: u32 = 1106u32;
-pub const IDD_INSERTFILEBROWSE: u32 = 1010u32;
-pub const IDD_INSERTOBJECT: u32 = 1000u32;
-pub const IDD_LINKPROPS: u32 = 1102u32;
-pub const IDD_LINKPROPS4: u32 = 1107u32;
-pub const IDD_LINKSOURCEUNAVAILABLE: u32 = 1020u32;
-pub const IDD_LINKTYPECHANGED: u32 = 1022u32;
-pub const IDD_LINKTYPECHANGEDA: u32 = 1026u32;
-pub const IDD_LINKTYPECHANGEDW: u32 = 1022u32;
-pub const IDD_OUTOFMEMORY: u32 = 1024u32;
-pub const IDD_PASTESPECIAL: u32 = 1003u32;
-pub const IDD_PASTESPECIAL4: u32 = 1108u32;
-pub const IDD_SERVERNOTFOUND: u32 = 1023u32;
-pub const IDD_SERVERNOTREG: u32 = 1021u32;
-pub const IDD_SERVERNOTREGA: u32 = 1025u32;
-pub const IDD_SERVERNOTREGW: u32 = 1021u32;
-pub const IDD_UPDATELINKS: u32 = 1007u32;
-pub const IDD_VIEWPROPS: u32 = 1101u32;
-pub const ID_BROWSE_ADDCONTROL: u32 = 3u32;
-pub const ID_BROWSE_CHANGEICON: u32 = 1u32;
-pub const ID_BROWSE_CHANGESOURCE: u32 = 4u32;
-pub const ID_BROWSE_INSERTFILE: u32 = 2u32;
-pub const ID_DEFAULTINST: i32 = -2i32;
-pub const IGNOREMIME_PROMPT: IGNOREMIME = IGNOREMIME(1i32);
-pub const IGNOREMIME_TEXT: IGNOREMIME = IGNOREMIME(2i32);
-pub const INSTALL_SCOPE_INVALID: u32 = 0u32;
-pub const INSTALL_SCOPE_MACHINE: u32 = 1u32;
-pub const INSTALL_SCOPE_USER: u32 = 2u32;
-pub const IOF_CHECKDISPLAYASICON: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(16u32);
-pub const IOF_CHECKLINK: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(8u32);
-pub const IOF_CREATEFILEOBJECT: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(64u32);
-pub const IOF_CREATELINKOBJECT: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(128u32);
-pub const IOF_CREATENEWOBJECT: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(32u32);
-pub const IOF_DISABLEDISPLAYASICON: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(1024u32);
-pub const IOF_DISABLELINK: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(256u32);
-pub const IOF_HIDECHANGEICON: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(2048u32);
-pub const IOF_SELECTCREATECONTROL: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(8192u32);
-pub const IOF_SELECTCREATEFROMFILE: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(4u32);
-pub const IOF_SELECTCREATENEW: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(2u32);
-pub const IOF_SHOWHELP: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(1u32);
-pub const IOF_SHOWINSERTCONTROL: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(4096u32);
-pub const IOF_VERIFYSERVERSEXIST: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(512u32);
-pub const KEYMOD_ALT: KEYMODIFIERS = KEYMODIFIERS(4u32);
-pub const KEYMOD_CONTROL: KEYMODIFIERS = KEYMODIFIERS(2u32);
-pub const KEYMOD_SHIFT: KEYMODIFIERS = KEYMODIFIERS(1u32);
-pub const LIBFLAG_FCONTROL: LIBFLAGS = LIBFLAGS(2i32);
-pub const LIBFLAG_FHASDISKIMAGE: LIBFLAGS = LIBFLAGS(8i32);
-pub const LIBFLAG_FHIDDEN: LIBFLAGS = LIBFLAGS(4i32);
-pub const LIBFLAG_FRESTRICTED: LIBFLAGS = LIBFLAGS(1i32);
-pub const LOAD_TLB_AS_32BIT: u32 = 32u32;
-pub const LOAD_TLB_AS_64BIT: u32 = 64u32;
-pub const LOCALE_USE_NLS: u32 = 268435456u32;
-pub const LP_COLOR: LOAD_PICTURE_FLAGS = LOAD_PICTURE_FLAGS(4u32);
-pub const LP_DEFAULT: LOAD_PICTURE_FLAGS = LOAD_PICTURE_FLAGS(0u32);
-pub const LP_MONOCHROME: LOAD_PICTURE_FLAGS = LOAD_PICTURE_FLAGS(1u32);
-pub const LP_VGACOLOR: LOAD_PICTURE_FLAGS = LOAD_PICTURE_FLAGS(2u32);
-pub const MEDIAPLAYBACK_PAUSE: MEDIAPLAYBACK_STATE = MEDIAPLAYBACK_STATE(1i32);
-pub const MEDIAPLAYBACK_PAUSE_AND_SUSPEND: MEDIAPLAYBACK_STATE = MEDIAPLAYBACK_STATE(2i32);
-pub const MEDIAPLAYBACK_RESUME: MEDIAPLAYBACK_STATE = MEDIAPLAYBACK_STATE(0i32);
-pub const MEDIAPLAYBACK_RESUME_FROM_SUSPEND: MEDIAPLAYBACK_STATE = MEDIAPLAYBACK_STATE(3i32);
-pub const MEMBERID_NIL: i32 = -1i32;
-pub const MK_ALT: u32 = 32u32;
-pub const MSOCMDERR_E_CANCELED: i32 = -2147221245i32;
-pub const MSOCMDERR_E_DISABLED: i32 = -2147221247i32;
-pub const MSOCMDERR_E_FIRST: i32 = -2147221248i32;
-pub const MSOCMDERR_E_NOHELP: i32 = -2147221246i32;
-pub const MSOCMDERR_E_NOTSUPPORTED: i32 = -2147221248i32;
-pub const MSOCMDERR_E_UNKNOWNGROUP: i32 = -2147221244i32;
-pub const MULTICLASSINFO_GETIIDPRIMARY: MULTICLASSINFO_FLAGS = MULTICLASSINFO_FLAGS(4u32);
-pub const MULTICLASSINFO_GETIIDSOURCE: MULTICLASSINFO_FLAGS = MULTICLASSINFO_FLAGS(8u32);
-pub const MULTICLASSINFO_GETNUMRESERVEDDISPIDS: MULTICLASSINFO_FLAGS = MULTICLASSINFO_FLAGS(2u32);
-pub const MULTICLASSINFO_GETTYPEINFO: MULTICLASSINFO_FLAGS = MULTICLASSINFO_FLAGS(1u32);
-pub const NUMPRS_CURRENCY: NUMPARSE_FLAGS = NUMPARSE_FLAGS(1024u32);
-pub const NUMPRS_DECIMAL: NUMPARSE_FLAGS = NUMPARSE_FLAGS(256u32);
-pub const NUMPRS_EXPONENT: NUMPARSE_FLAGS = NUMPARSE_FLAGS(2048u32);
-pub const NUMPRS_HEX_OCT: NUMPARSE_FLAGS = NUMPARSE_FLAGS(64u32);
-pub const NUMPRS_INEXACT: NUMPARSE_FLAGS = NUMPARSE_FLAGS(131072u32);
-pub const NUMPRS_LEADING_MINUS: NUMPARSE_FLAGS = NUMPARSE_FLAGS(16u32);
-pub const NUMPRS_LEADING_PLUS: NUMPARSE_FLAGS = NUMPARSE_FLAGS(4u32);
-pub const NUMPRS_LEADING_WHITE: NUMPARSE_FLAGS = NUMPARSE_FLAGS(1u32);
-pub const NUMPRS_NEG: NUMPARSE_FLAGS = NUMPARSE_FLAGS(65536u32);
-pub const NUMPRS_PARENS: NUMPARSE_FLAGS = NUMPARSE_FLAGS(128u32);
-pub const NUMPRS_STD: NUMPARSE_FLAGS = NUMPARSE_FLAGS(8191u32);
-pub const NUMPRS_THOUSANDS: NUMPARSE_FLAGS = NUMPARSE_FLAGS(512u32);
-pub const NUMPRS_TRAILING_MINUS: NUMPARSE_FLAGS = NUMPARSE_FLAGS(32u32);
-pub const NUMPRS_TRAILING_PLUS: NUMPARSE_FLAGS = NUMPARSE_FLAGS(8u32);
-pub const NUMPRS_TRAILING_WHITE: NUMPARSE_FLAGS = NUMPARSE_FLAGS(2u32);
-pub const NUMPRS_USE_ALL: NUMPARSE_FLAGS = NUMPARSE_FLAGS(4096u32);
-pub const OCM__BASE: u32 = 8192u32;
-pub const OF_GET: u32 = 2u32;
-pub const OF_HANDLER: u32 = 4u32;
-pub const OF_SET: u32 = 1u32;
-pub const OLECLOSE_NOSAVE: OLECLOSE = OLECLOSE(1i32);
-pub const OLECLOSE_PROMPTSAVE: OLECLOSE = OLECLOSE(2i32);
-pub const OLECLOSE_SAVEIFDIRTY: OLECLOSE = OLECLOSE(0i32);
-pub const OLECMDARGINDEX_ACTIVEXINSTALL_CLSID: u32 = 2u32;
-pub const OLECMDARGINDEX_ACTIVEXINSTALL_DISPLAYNAME: u32 = 1u32;
-pub const OLECMDARGINDEX_ACTIVEXINSTALL_INSTALLSCOPE: u32 = 3u32;
-pub const OLECMDARGINDEX_ACTIVEXINSTALL_PUBLISHER: u32 = 0u32;
-pub const OLECMDARGINDEX_ACTIVEXINSTALL_SOURCEURL: u32 = 4u32;
-pub const OLECMDARGINDEX_SHOWPAGEACTIONMENU_HWND: u32 = 0u32;
-pub const OLECMDARGINDEX_SHOWPAGEACTIONMENU_X: u32 = 1u32;
-pub const OLECMDARGINDEX_SHOWPAGEACTIONMENU_Y: u32 = 2u32;
-pub const OLECMDERR_E_CANCELED: windows_core::HRESULT = windows_core::HRESULT(0x80040103_u32 as _);
-pub const OLECMDERR_E_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x80040101_u32 as _);
-pub const OLECMDERR_E_FIRST: windows_core::HRESULT = windows_core::HRESULT(0x80040100_u32 as _);
-pub const OLECMDERR_E_NOHELP: windows_core::HRESULT = windows_core::HRESULT(0x80040102_u32 as _);
-pub const OLECMDERR_E_NOTSUPPORTED: i32 = -2147221248i32;
-pub const OLECMDERR_E_UNKNOWNGROUP: windows_core::HRESULT = windows_core::HRESULT(0x80040104_u32 as _);
-pub const OLECMDEXECOPT_DODEFAULT: OLECMDEXECOPT = OLECMDEXECOPT(0i32);
-pub const OLECMDEXECOPT_DONTPROMPTUSER: OLECMDEXECOPT = OLECMDEXECOPT(2i32);
-pub const OLECMDEXECOPT_PROMPTUSER: OLECMDEXECOPT = OLECMDEXECOPT(1i32);
-pub const OLECMDEXECOPT_SHOWHELP: OLECMDEXECOPT = OLECMDEXECOPT(3i32);
-pub const OLECMDF_DEFHIDEONCTXTMENU: OLECMDF = OLECMDF(32i32);
-pub const OLECMDF_ENABLED: OLECMDF = OLECMDF(2i32);
-pub const OLECMDF_INVISIBLE: OLECMDF = OLECMDF(16i32);
-pub const OLECMDF_LATCHED: OLECMDF = OLECMDF(4i32);
-pub const OLECMDF_NINCHED: OLECMDF = OLECMDF(8i32);
-pub const OLECMDF_SUPPORTED: OLECMDF = OLECMDF(1i32);
-pub const OLECMDIDF_BROWSERSTATE_BLOCKEDVERSION: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(64i32);
-pub const OLECMDIDF_BROWSERSTATE_DESKTOPHTMLDIALOG: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(32i32);
-pub const OLECMDIDF_BROWSERSTATE_EXTENSIONSOFF: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(1i32);
-pub const OLECMDIDF_BROWSERSTATE_IESECURITY: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(2i32);
-pub const OLECMDIDF_BROWSERSTATE_PROTECTEDMODE_OFF: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(4i32);
-pub const OLECMDIDF_BROWSERSTATE_REQUIRESACTIVEX: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(16i32);
-pub const OLECMDIDF_BROWSERSTATE_RESET: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(8i32);
-pub const OLECMDIDF_OPTICAL_ZOOM_NOLAYOUT: OLECMDID_OPTICAL_ZOOMFLAG = OLECMDID_OPTICAL_ZOOMFLAG(16i32);
-pub const OLECMDIDF_OPTICAL_ZOOM_NOPERSIST: OLECMDID_OPTICAL_ZOOMFLAG = OLECMDID_OPTICAL_ZOOMFLAG(1i32);
-pub const OLECMDIDF_OPTICAL_ZOOM_NOTRANSIENT: OLECMDID_OPTICAL_ZOOMFLAG = OLECMDID_OPTICAL_ZOOMFLAG(32i32);
-pub const OLECMDIDF_OPTICAL_ZOOM_RELOADFORNEWTAB: OLECMDID_OPTICAL_ZOOMFLAG = OLECMDID_OPTICAL_ZOOMFLAG(64i32);
-pub const OLECMDIDF_PAGEACTION_ACTIVEXDISALLOW: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(16i32);
-pub const OLECMDIDF_PAGEACTION_ACTIVEXINSTALL: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(2i32);
-pub const OLECMDIDF_PAGEACTION_ACTIVEXTRUSTFAIL: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(4i32);
-pub const OLECMDIDF_PAGEACTION_ACTIVEXUNSAFE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(32i32);
-pub const OLECMDIDF_PAGEACTION_ACTIVEXUSERAPPROVAL: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(262144i32);
-pub const OLECMDIDF_PAGEACTION_ACTIVEXUSERDISABLE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(8i32);
-pub const OLECMDIDF_PAGEACTION_ACTIVEX_EPM_INCOMPATIBLE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(16777216i32);
-pub const OLECMDIDF_PAGEACTION_EXTENSION_COMPAT_BLOCKED: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(268435456i32);
-pub const OLECMDIDF_PAGEACTION_FILEDOWNLOAD: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(1i32);
-pub const OLECMDIDF_PAGEACTION_GENERIC_STATE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(1073741824i32);
-pub const OLECMDIDF_PAGEACTION_INTRANETZONEREQUEST: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(2097152i32);
-pub const OLECMDIDF_PAGEACTION_INVALID_CERT: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(1048576i32);
-pub const OLECMDIDF_PAGEACTION_LOCALMACHINE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(128i32);
-pub const OLECMDIDF_PAGEACTION_MIMETEXTPLAIN: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(256i32);
-pub const OLECMDIDF_PAGEACTION_MIXEDCONTENT: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(524288i32);
-pub const OLECMDIDF_PAGEACTION_NORESETACTIVEX: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(536870912i32);
-pub const OLECMDIDF_PAGEACTION_POPUPALLOWED: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(65536i32);
-pub const OLECMDIDF_PAGEACTION_POPUPWINDOW: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(64i32);
-pub const OLECMDIDF_PAGEACTION_PROTLOCKDOWNDENY: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(32768i32);
-pub const OLECMDIDF_PAGEACTION_PROTLOCKDOWNINTERNET: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(8192i32);
-pub const OLECMDIDF_PAGEACTION_PROTLOCKDOWNINTRANET: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(4096i32);
-pub const OLECMDIDF_PAGEACTION_PROTLOCKDOWNLOCALMACHINE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(1024i32);
-pub const OLECMDIDF_PAGEACTION_PROTLOCKDOWNRESTRICTED: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(16384i32);
-pub const OLECMDIDF_PAGEACTION_PROTLOCKDOWNTRUSTED: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(2048i32);
-pub const OLECMDIDF_PAGEACTION_RESET: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(-2147483648i32);
-pub const OLECMDIDF_PAGEACTION_SCRIPTNAVIGATE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(512i32);
-pub const OLECMDIDF_PAGEACTION_SCRIPTNAVIGATE_ACTIVEXINSTALL: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(512i32);
-pub const OLECMDIDF_PAGEACTION_SCRIPTNAVIGATE_ACTIVEXUSERAPPROVAL: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(33554432i32);
-pub const OLECMDIDF_PAGEACTION_SCRIPTPROMPT: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(131072i32);
-pub const OLECMDIDF_PAGEACTION_SPOOFABLEIDNHOST: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(8388608i32);
-pub const OLECMDIDF_PAGEACTION_WPCBLOCKED: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(67108864i32);
-pub const OLECMDIDF_PAGEACTION_WPCBLOCKED_ACTIVEX: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(134217728i32);
-pub const OLECMDIDF_PAGEACTION_XSSFILTERED: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(4194304i32);
-pub const OLECMDIDF_REFRESH_CLEARUSERINPUT: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(4096i32);
-pub const OLECMDIDF_REFRESH_COMPLETELY: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(3i32);
-pub const OLECMDIDF_REFRESH_CONTINUE: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(2i32);
-pub const OLECMDIDF_REFRESH_IFEXPIRED: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(1i32);
-pub const OLECMDIDF_REFRESH_LEVELMASK: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(255i32);
-pub const OLECMDIDF_REFRESH_NORMAL: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(0i32);
-pub const OLECMDIDF_REFRESH_NO_CACHE: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(4i32);
-pub const OLECMDIDF_REFRESH_PAGEACTION_ACTIVEXINSTALL: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(65536i32);
-pub const OLECMDIDF_REFRESH_PAGEACTION_ALLOW_VERSION: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(134217728i32);
-pub const OLECMDIDF_REFRESH_PAGEACTION_FILEDOWNLOAD: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(131072i32);
-pub const OLECMDIDF_REFRESH_PAGEACTION_INVALID_CERT: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(67108864i32);
-pub const OLECMDIDF_REFRESH_PAGEACTION_LOCALMACHINE: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(262144i32);
-pub const OLECMDIDF_REFRESH_PAGEACTION_MIXEDCONTENT: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(33554432i32);
-pub const OLECMDIDF_REFRESH_PAGEACTION_POPUPWINDOW: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(524288i32);
-pub const OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNINTERNET: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(8388608i32);
-pub const OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNINTRANET: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(4194304i32);
-pub const OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNLOCALMACHINE: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(1048576i32);
-pub const OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNRESTRICTED: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(16777216i32);
-pub const OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNTRUSTED: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(2097152i32);
-pub const OLECMDIDF_REFRESH_PROMPTIFOFFLINE: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(8192i32);
-pub const OLECMDIDF_REFRESH_RELOAD: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(5i32);
-pub const OLECMDIDF_REFRESH_SKIPBEFOREUNLOADEVENT: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(32768i32);
-pub const OLECMDIDF_REFRESH_THROUGHSCRIPT: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(16384i32);
-pub const OLECMDIDF_VIEWPORTMODE_EXCLUDE_VISUAL_BOTTOM: OLECMDID_VIEWPORT_MODE_FLAG = OLECMDID_VIEWPORT_MODE_FLAG(2i32);
-pub const OLECMDIDF_VIEWPORTMODE_EXCLUDE_VISUAL_BOTTOM_VALID: OLECMDID_VIEWPORT_MODE_FLAG = OLECMDID_VIEWPORT_MODE_FLAG(131072i32);
-pub const OLECMDIDF_VIEWPORTMODE_FIXED_LAYOUT_WIDTH: OLECMDID_VIEWPORT_MODE_FLAG = OLECMDID_VIEWPORT_MODE_FLAG(1i32);
-pub const OLECMDIDF_VIEWPORTMODE_FIXED_LAYOUT_WIDTH_VALID: OLECMDID_VIEWPORT_MODE_FLAG = OLECMDID_VIEWPORT_MODE_FLAG(65536i32);
-pub const OLECMDIDF_WINDOWSTATE_ENABLED: OLECMDID_WINDOWSTATE_FLAG = OLECMDID_WINDOWSTATE_FLAG(2i32);
-pub const OLECMDIDF_WINDOWSTATE_ENABLED_VALID: OLECMDID_WINDOWSTATE_FLAG = OLECMDID_WINDOWSTATE_FLAG(131072i32);
-pub const OLECMDIDF_WINDOWSTATE_USERVISIBLE: OLECMDID_WINDOWSTATE_FLAG = OLECMDID_WINDOWSTATE_FLAG(1i32);
-pub const OLECMDIDF_WINDOWSTATE_USERVISIBLE_VALID: OLECMDID_WINDOWSTATE_FLAG = OLECMDID_WINDOWSTATE_FLAG(65536i32);
-pub const OLECMDID_ACTIVEXINSTALLSCOPE: OLECMDID = OLECMDID(66i32);
-pub const OLECMDID_ADDTRAVELENTRY: OLECMDID = OLECMDID(60i32);
-pub const OLECMDID_ALLOWUILESSSAVEAS: OLECMDID = OLECMDID(46i32);
-pub const OLECMDID_CLEARSELECTION: OLECMDID = OLECMDID(18i32);
-pub const OLECMDID_CLOSE: OLECMDID = OLECMDID(45i32);
-pub const OLECMDID_COPY: OLECMDID = OLECMDID(12i32);
-pub const OLECMDID_CUT: OLECMDID = OLECMDID(11i32);
-pub const OLECMDID_DELETE: OLECMDID = OLECMDID(33i32);
-pub const OLECMDID_DONTDOWNLOADCSS: OLECMDID = OLECMDID(47i32);
-pub const OLECMDID_ENABLE_INTERACTION: OLECMDID = OLECMDID(36i32);
-pub const OLECMDID_ENABLE_VISIBILITY: OLECMDID = OLECMDID(77i32);
-pub const OLECMDID_EXITFULLSCREEN: OLECMDID = OLECMDID(81i32);
-pub const OLECMDID_FIND: OLECMDID = OLECMDID(32i32);
-pub const OLECMDID_FOCUSVIEWCONTROLS: OLECMDID = OLECMDID(57i32);
-pub const OLECMDID_FOCUSVIEWCONTROLSQUERY: OLECMDID = OLECMDID(58i32);
-pub const OLECMDID_GETPRINTTEMPLATE: OLECMDID = OLECMDID(52i32);
-pub const OLECMDID_GETUSERSCALABLE: OLECMDID = OLECMDID(75i32);
-pub const OLECMDID_GETZOOMRANGE: OLECMDID = OLECMDID(20i32);
-pub const OLECMDID_HIDETOOLBARS: OLECMDID = OLECMDID(24i32);
-pub const OLECMDID_HTTPEQUIV: OLECMDID = OLECMDID(34i32);
-pub const OLECMDID_HTTPEQUIV_DONE: OLECMDID = OLECMDID(35i32);
-pub const OLECMDID_LAYOUT_VIEWPORT_WIDTH: OLECMDID = OLECMDID(71i32);
-pub const OLECMDID_MEDIA_PLAYBACK: OLECMDID = OLECMDID(78i32);
-pub const OLECMDID_NEW: OLECMDID = OLECMDID(2i32);
-pub const OLECMDID_ONBEFOREUNLOAD: OLECMDID = OLECMDID(83i32);
-pub const OLECMDID_ONTOOLBARACTIVATED: OLECMDID = OLECMDID(31i32);
-pub const OLECMDID_ONUNLOAD: OLECMDID = OLECMDID(37i32);
-pub const OLECMDID_OPEN: OLECMDID = OLECMDID(1i32);
-pub const OLECMDID_OPTICAL_GETZOOMRANGE: OLECMDID = OLECMDID(64i32);
-pub const OLECMDID_OPTICAL_ZOOM: OLECMDID = OLECMDID(63i32);
-pub const OLECMDID_PAGEACTIONBLOCKED: OLECMDID = OLECMDID(55i32);
-pub const OLECMDID_PAGEACTIONUIQUERY: OLECMDID = OLECMDID(56i32);
-pub const OLECMDID_PAGEAVAILABLE: OLECMDID = OLECMDID(74i32);
-pub const OLECMDID_PAGESETUP: OLECMDID = OLECMDID(8i32);
-pub const OLECMDID_PASTE: OLECMDID = OLECMDID(13i32);
-pub const OLECMDID_PASTESPECIAL: OLECMDID = OLECMDID(14i32);
-pub const OLECMDID_POPSTATEEVENT: OLECMDID = OLECMDID(69i32);
-pub const OLECMDID_PREREFRESH: OLECMDID = OLECMDID(39i32);
-pub const OLECMDID_PRINT: OLECMDID = OLECMDID(6i32);
-pub const OLECMDID_PRINT2: OLECMDID = OLECMDID(49i32);
-pub const OLECMDID_PRINTPREVIEW: OLECMDID = OLECMDID(7i32);
-pub const OLECMDID_PRINTPREVIEW2: OLECMDID = OLECMDID(50i32);
-pub const OLECMDID_PROPERTIES: OLECMDID = OLECMDID(10i32);
-pub const OLECMDID_PROPERTYBAG2: OLECMDID = OLECMDID(38i32);
-pub const OLECMDID_REDO: OLECMDID = OLECMDID(16i32);
-pub const OLECMDID_REFRESH: OLECMDID = OLECMDID(22i32);
-pub const OLECMDID_SAVE: OLECMDID = OLECMDID(3i32);
-pub const OLECMDID_SAVEAS: OLECMDID = OLECMDID(4i32);
-pub const OLECMDID_SAVECOPYAS: OLECMDID = OLECMDID(5i32);
-pub const OLECMDID_SCROLLCOMPLETE: OLECMDID = OLECMDID(82i32);
-pub const OLECMDID_SELECTALL: OLECMDID = OLECMDID(17i32);
-pub const OLECMDID_SETDOWNLOADSTATE: OLECMDID = OLECMDID(29i32);
-pub const OLECMDID_SETFAVICON: OLECMDID = OLECMDID(79i32);
-pub const OLECMDID_SETPRINTTEMPLATE: OLECMDID = OLECMDID(51i32);
-pub const OLECMDID_SETPROGRESSMAX: OLECMDID = OLECMDID(25i32);
-pub const OLECMDID_SETPROGRESSPOS: OLECMDID = OLECMDID(26i32);
-pub const OLECMDID_SETPROGRESSTEXT: OLECMDID = OLECMDID(27i32);
-pub const OLECMDID_SETTITLE: OLECMDID = OLECMDID(28i32);
-pub const OLECMDID_SET_HOST_FULLSCREENMODE: OLECMDID = OLECMDID(80i32);
-pub const OLECMDID_SHOWFIND: OLECMDID = OLECMDID(42i32);
-pub const OLECMDID_SHOWMESSAGE: OLECMDID = OLECMDID(41i32);
-pub const OLECMDID_SHOWMESSAGE_BLOCKABLE: OLECMDID = OLECMDID(84i32);
-pub const OLECMDID_SHOWPAGEACTIONMENU: OLECMDID = OLECMDID(59i32);
-pub const OLECMDID_SHOWPAGESETUP: OLECMDID = OLECMDID(43i32);
-pub const OLECMDID_SHOWPRINT: OLECMDID = OLECMDID(44i32);
-pub const OLECMDID_SHOWSCRIPTERROR: OLECMDID = OLECMDID(40i32);
-pub const OLECMDID_SHOWTASKDLG: OLECMDID = OLECMDID(68i32);
-pub const OLECMDID_SHOWTASKDLG_BLOCKABLE: OLECMDID = OLECMDID(85i32);
-pub const OLECMDID_SPELL: OLECMDID = OLECMDID(9i32);
-pub const OLECMDID_STOP: OLECMDID = OLECMDID(23i32);
-pub const OLECMDID_STOPDOWNLOAD: OLECMDID = OLECMDID(30i32);
-pub const OLECMDID_UNDO: OLECMDID = OLECMDID(15i32);
-pub const OLECMDID_UPDATEBACKFORWARDSTATE: OLECMDID = OLECMDID(62i32);
-pub const OLECMDID_UPDATECOMMANDS: OLECMDID = OLECMDID(21i32);
-pub const OLECMDID_UPDATEPAGESTATUS: OLECMDID = OLECMDID(48i32);
-pub const OLECMDID_UPDATETRAVELENTRY: OLECMDID = OLECMDID(61i32);
-pub const OLECMDID_UPDATETRAVELENTRY_DATARECOVERY: OLECMDID = OLECMDID(67i32);
-pub const OLECMDID_UPDATE_CARET: OLECMDID = OLECMDID(76i32);
-pub const OLECMDID_USER_OPTICAL_ZOOM: OLECMDID = OLECMDID(73i32);
-pub const OLECMDID_VIEWPORT_MODE: OLECMDID = OLECMDID(70i32);
-pub const OLECMDID_VISUAL_VIEWPORT_EXCLUDE_BOTTOM: OLECMDID = OLECMDID(72i32);
-pub const OLECMDID_WINDOWSTATECHANGED: OLECMDID = OLECMDID(65i32);
-pub const OLECMDID_ZOOM: OLECMDID = OLECMDID(19i32);
-pub const OLECMDTEXTF_NAME: OLECMDTEXTF = OLECMDTEXTF(1i32);
-pub const OLECMDTEXTF_NONE: OLECMDTEXTF = OLECMDTEXTF(0i32);
-pub const OLECMDTEXTF_STATUS: OLECMDTEXTF = OLECMDTEXTF(2i32);
-pub const OLECMD_TASKDLGID_ONBEFOREUNLOAD: u32 = 1u32;
-pub const OLECONTF_EMBEDDINGS: OLECONTF = OLECONTF(1i32);
-pub const OLECONTF_LINKS: OLECONTF = OLECONTF(2i32);
-pub const OLECONTF_ONLYIFRUNNING: OLECONTF = OLECONTF(16i32);
-pub const OLECONTF_ONLYUSER: OLECONTF = OLECONTF(8i32);
-pub const OLECONTF_OTHERS: OLECONTF = OLECONTF(4i32);
-pub const OLECREATE_LEAVERUNNING: OLECREATE = OLECREATE(1u32);
-pub const OLECREATE_ZERO: OLECREATE = OLECREATE(0u32);
-pub const OLEDC_NODRAW: OLEDCFLAGS = OLEDCFLAGS(1i32);
-pub const OLEDC_OFFSCREEN: OLEDCFLAGS = OLEDCFLAGS(4i32);
-pub const OLEDC_PAINTBKGND: OLEDCFLAGS = OLEDCFLAGS(2i32);
-pub const OLEGETMONIKER_FORCEASSIGN: OLEGETMONIKER = OLEGETMONIKER(2i32);
-pub const OLEGETMONIKER_ONLYIFTHERE: OLEGETMONIKER = OLEGETMONIKER(1i32);
-pub const OLEGETMONIKER_TEMPFORUSER: OLEGETMONIKER = OLEGETMONIKER(4i32);
-pub const OLEGETMONIKER_UNASSIGN: OLEGETMONIKER = OLEGETMONIKER(3i32);
-pub const OLEIVERB_DISCARDUNDOSTATE: OLEIVERB = OLEIVERB(-6i32);
-pub const OLEIVERB_HIDE: OLEIVERB = OLEIVERB(-3i32);
-pub const OLEIVERB_INPLACEACTIVATE: OLEIVERB = OLEIVERB(-5i32);
-pub const OLEIVERB_OPEN: OLEIVERB = OLEIVERB(-2i32);
-pub const OLEIVERB_PRIMARY: OLEIVERB = OLEIVERB(0i32);
-pub const OLEIVERB_PROPERTIES: i32 = -7i32;
-pub const OLEIVERB_SHOW: OLEIVERB = OLEIVERB(-1i32);
-pub const OLEIVERB_UIACTIVATE: OLEIVERB = OLEIVERB(-4i32);
-pub const OLELINKBIND_EVENIFCLASSDIFF: OLELINKBIND = OLELINKBIND(1i32);
-pub const OLEMISC_ACTIVATEWHENVISIBLE: OLEMISC = OLEMISC(256i32);
-pub const OLEMISC_ACTSLIKEBUTTON: OLEMISC = OLEMISC(4096i32);
-pub const OLEMISC_ACTSLIKELABEL: OLEMISC = OLEMISC(8192i32);
-pub const OLEMISC_ALIGNABLE: OLEMISC = OLEMISC(32768i32);
-pub const OLEMISC_ALWAYSRUN: OLEMISC = OLEMISC(2048i32);
-pub const OLEMISC_CANLINKBYOLE1: OLEMISC = OLEMISC(32i32);
-pub const OLEMISC_CANTLINKINSIDE: OLEMISC = OLEMISC(16i32);
-pub const OLEMISC_IGNOREACTIVATEWHENVISIBLE: OLEMISC = OLEMISC(524288i32);
-pub const OLEMISC_IMEMODE: OLEMISC = OLEMISC(262144i32);
-pub const OLEMISC_INSERTNOTREPLACE: OLEMISC = OLEMISC(4i32);
-pub const OLEMISC_INSIDEOUT: OLEMISC = OLEMISC(128i32);
-pub const OLEMISC_INVISIBLEATRUNTIME: OLEMISC = OLEMISC(1024i32);
-pub const OLEMISC_ISLINKOBJECT: OLEMISC = OLEMISC(64i32);
-pub const OLEMISC_NOUIACTIVATE: OLEMISC = OLEMISC(16384i32);
-pub const OLEMISC_ONLYICONIC: OLEMISC = OLEMISC(2i32);
-pub const OLEMISC_RECOMPOSEONRESIZE: OLEMISC = OLEMISC(1i32);
-pub const OLEMISC_RENDERINGISDEVICEINDEPENDENT: OLEMISC = OLEMISC(512i32);
-pub const OLEMISC_SETCLIENTSITEFIRST: OLEMISC = OLEMISC(131072i32);
-pub const OLEMISC_SIMPLEFRAME: OLEMISC = OLEMISC(65536i32);
-pub const OLEMISC_STATIC: OLEMISC = OLEMISC(8i32);
-pub const OLEMISC_SUPPORTSMULTILEVELUNDO: OLEMISC = OLEMISC(2097152i32);
-pub const OLEMISC_WANTSTOMENUMERGE: OLEMISC = OLEMISC(1048576i32);
-pub const OLERENDER_ASIS: OLERENDER = OLERENDER(3i32);
-pub const OLERENDER_DRAW: OLERENDER = OLERENDER(1i32);
-pub const OLERENDER_FORMAT: OLERENDER = OLERENDER(2i32);
-pub const OLERENDER_NONE: OLERENDER = OLERENDER(0i32);
-pub const OLESTDDELIM: windows_core::PCWSTR = windows_core::w!("\\");
-pub const OLESTREAM_CONVERSION_DEFAULT: i32 = 0i32;
-pub const OLESTREAM_CONVERSION_DISABLEOLELINK: i32 = 1i32;
-pub const OLEUIPASTE_ENABLEICON: OLEUIPASTEFLAG = OLEUIPASTEFLAG(2048i32);
-pub const OLEUIPASTE_LINKANYTYPE: OLEUIPASTEFLAG = OLEUIPASTEFLAG(1024i32);
-pub const OLEUIPASTE_LINKTYPE1: OLEUIPASTEFLAG = OLEUIPASTEFLAG(1i32);
-pub const OLEUIPASTE_LINKTYPE2: OLEUIPASTEFLAG = OLEUIPASTEFLAG(2i32);
-pub const OLEUIPASTE_LINKTYPE3: OLEUIPASTEFLAG = OLEUIPASTEFLAG(4i32);
-pub const OLEUIPASTE_LINKTYPE4: OLEUIPASTEFLAG = OLEUIPASTEFLAG(8i32);
-pub const OLEUIPASTE_LINKTYPE5: OLEUIPASTEFLAG = OLEUIPASTEFLAG(16i32);
-pub const OLEUIPASTE_LINKTYPE6: OLEUIPASTEFLAG = OLEUIPASTEFLAG(32i32);
-pub const OLEUIPASTE_LINKTYPE7: OLEUIPASTEFLAG = OLEUIPASTEFLAG(64i32);
-pub const OLEUIPASTE_LINKTYPE8: OLEUIPASTEFLAG = OLEUIPASTEFLAG(128i32);
-pub const OLEUIPASTE_PASTE: OLEUIPASTEFLAG = OLEUIPASTEFLAG(512i32);
-pub const OLEUIPASTE_PASTEONLY: OLEUIPASTEFLAG = OLEUIPASTEFLAG(0i32);
-pub const OLEUI_BZERR_HTASKINVALID: u32 = 116u32;
-pub const OLEUI_BZ_CALLUNBLOCKED: u32 = 119u32;
-pub const OLEUI_BZ_RETRYSELECTED: u32 = 118u32;
-pub const OLEUI_BZ_SWITCHTOSELECTED: u32 = 117u32;
-pub const OLEUI_CANCEL: u32 = 2u32;
-pub const OLEUI_CIERR_MUSTHAVECLSID: u32 = 116u32;
-pub const OLEUI_CIERR_MUSTHAVECURRENTMETAFILE: u32 = 117u32;
-pub const OLEUI_CIERR_SZICONEXEINVALID: u32 = 118u32;
-pub const OLEUI_CSERR_FROMNOTNULL: u32 = 118u32;
-pub const OLEUI_CSERR_LINKCNTRINVALID: u32 = 117u32;
-pub const OLEUI_CSERR_LINKCNTRNULL: u32 = 116u32;
-pub const OLEUI_CSERR_SOURCEINVALID: u32 = 121u32;
-pub const OLEUI_CSERR_SOURCENULL: u32 = 120u32;
-pub const OLEUI_CSERR_SOURCEPARSEERROR: u32 = 122u32;
-pub const OLEUI_CSERR_SOURCEPARSERROR: u32 = 122u32;
-pub const OLEUI_CSERR_TONOTNULL: u32 = 119u32;
-pub const OLEUI_CTERR_CBFORMATINVALID: u32 = 119u32;
-pub const OLEUI_CTERR_CLASSIDINVALID: u32 = 117u32;
-pub const OLEUI_CTERR_DVASPECTINVALID: u32 = 118u32;
-pub const OLEUI_CTERR_HMETAPICTINVALID: u32 = 120u32;
-pub const OLEUI_CTERR_STRINGINVALID: u32 = 121u32;
-pub const OLEUI_ELERR_LINKCNTRINVALID: u32 = 117u32;
-pub const OLEUI_ELERR_LINKCNTRNULL: u32 = 116u32;
-pub const OLEUI_ERR_CBSTRUCTINCORRECT: u32 = 103u32;
-pub const OLEUI_ERR_DIALOGFAILURE: u32 = 112u32;
-pub const OLEUI_ERR_FINDTEMPLATEFAILURE: u32 = 110u32;
-pub const OLEUI_ERR_GLOBALMEMALLOC: u32 = 114u32;
-pub const OLEUI_ERR_HINSTANCEINVALID: u32 = 107u32;
-pub const OLEUI_ERR_HRESOURCEINVALID: u32 = 109u32;
-pub const OLEUI_ERR_HWNDOWNERINVALID: u32 = 104u32;
-pub const OLEUI_ERR_LOADSTRING: u32 = 115u32;
-pub const OLEUI_ERR_LOADTEMPLATEFAILURE: u32 = 111u32;
-pub const OLEUI_ERR_LOCALMEMALLOC: u32 = 113u32;
-pub const OLEUI_ERR_LPFNHOOKINVALID: u32 = 106u32;
-pub const OLEUI_ERR_LPSZCAPTIONINVALID: u32 = 105u32;
-pub const OLEUI_ERR_LPSZTEMPLATEINVALID: u32 = 108u32;
-pub const OLEUI_ERR_OLEMEMALLOC: u32 = 100u32;
-pub const OLEUI_ERR_STANDARDMAX: u32 = 116u32;
-pub const OLEUI_ERR_STANDARDMIN: u32 = 100u32;
-pub const OLEUI_ERR_STRUCTUREINVALID: u32 = 102u32;
-pub const OLEUI_ERR_STRUCTURENULL: u32 = 101u32;
-pub const OLEUI_FALSE: u32 = 0u32;
-pub const OLEUI_GPERR_CBFORMATINVALID: u32 = 130u32;
-pub const OLEUI_GPERR_CLASSIDINVALID: u32 = 128u32;
-pub const OLEUI_GPERR_LPCLSIDEXCLUDEINVALID: u32 = 129u32;
-pub const OLEUI_GPERR_STRINGINVALID: u32 = 127u32;
-pub const OLEUI_IOERR_ARRLINKTYPESINVALID: u32 = 118u32;
-pub const OLEUI_IOERR_ARRPASTEENTRIESINVALID: u32 = 117u32;
-pub const OLEUI_IOERR_CCHFILEINVALID: u32 = 125u32;
-pub const OLEUI_IOERR_HICONINVALID: u32 = 118u32;
-pub const OLEUI_IOERR_LPCLSIDEXCLUDEINVALID: u32 = 124u32;
-pub const OLEUI_IOERR_LPFORMATETCINVALID: u32 = 119u32;
-pub const OLEUI_IOERR_LPIOLECLIENTSITEINVALID: u32 = 121u32;
-pub const OLEUI_IOERR_LPISTORAGEINVALID: u32 = 122u32;
-pub const OLEUI_IOERR_LPSZFILEINVALID: u32 = 116u32;
-pub const OLEUI_IOERR_LPSZLABELINVALID: u32 = 117u32;
-pub const OLEUI_IOERR_PPVOBJINVALID: u32 = 120u32;
-pub const OLEUI_IOERR_SCODEHASERROR: u32 = 123u32;
-pub const OLEUI_IOERR_SRCDATAOBJECTINVALID: u32 = 116u32;
-pub const OLEUI_LPERR_LINKCNTRINVALID: u32 = 134u32;
-pub const OLEUI_LPERR_LINKCNTRNULL: u32 = 133u32;
-pub const OLEUI_OK: u32 = 1u32;
-pub const OLEUI_OPERR_DLGPROCNOTNULL: u32 = 125u32;
-pub const OLEUI_OPERR_INVALIDPAGES: u32 = 123u32;
-pub const OLEUI_OPERR_LINKINFOINVALID: u32 = 137u32;
-pub const OLEUI_OPERR_LPARAMNOTZERO: u32 = 126u32;
-pub const OLEUI_OPERR_NOTSUPPORTED: u32 = 124u32;
-pub const OLEUI_OPERR_OBJINFOINVALID: u32 = 136u32;
-pub const OLEUI_OPERR_PAGESINCORRECT: u32 = 122u32;
-pub const OLEUI_OPERR_PROPERTYSHEET: u32 = 135u32;
-pub const OLEUI_OPERR_PROPSHEETINVALID: u32 = 119u32;
-pub const OLEUI_OPERR_PROPSHEETNULL: u32 = 118u32;
-pub const OLEUI_OPERR_PROPSINVALID: u32 = 121u32;
-pub const OLEUI_OPERR_SUBPROPINVALID: u32 = 117u32;
-pub const OLEUI_OPERR_SUBPROPNULL: u32 = 116u32;
-pub const OLEUI_OPERR_SUPPROP: u32 = 120u32;
-pub const OLEUI_PSERR_CLIPBOARDCHANGED: u32 = 119u32;
-pub const OLEUI_PSERR_GETCLIPBOARDFAILED: u32 = 120u32;
-pub const OLEUI_QUERY_GETCLASSID: u32 = 65280u32;
-pub const OLEUI_QUERY_LINKBROKEN: u32 = 65281u32;
-pub const OLEUI_SUCCESS: u32 = 1u32;
-pub const OLEUI_VPERR_DVASPECTINVALID: u32 = 132u32;
-pub const OLEUI_VPERR_METAPICTINVALID: u32 = 131u32;
-pub const OLEUPDATE_ALWAYS: OLEUPDATE = OLEUPDATE(1i32);
-pub const OLEUPDATE_ONCALL: OLEUPDATE = OLEUPDATE(3i32);
-pub const OLEVERBATTRIB_NEVERDIRTIES: OLEVERBATTRIB = OLEVERBATTRIB(1i32);
-pub const OLEVERBATTRIB_ONCONTAINERMENU: OLEVERBATTRIB = OLEVERBATTRIB(2i32);
-pub const OLEVERB_PRIMARY: u32 = 0u32;
-pub const OLEWHICHMK_CONTAINER: OLEWHICHMK = OLEWHICHMK(1i32);
-pub const OLEWHICHMK_OBJFULL: OLEWHICHMK = OLEWHICHMK(3i32);
-pub const OLEWHICHMK_OBJREL: OLEWHICHMK = OLEWHICHMK(2i32);
-pub const OPF_DISABLECONVERT: OBJECT_PROPERTIES_FLAGS = OBJECT_PROPERTIES_FLAGS(8u32);
-pub const OPF_NOFILLDEFAULT: OBJECT_PROPERTIES_FLAGS = OBJECT_PROPERTIES_FLAGS(2u32);
-pub const OPF_OBJECTISLINK: OBJECT_PROPERTIES_FLAGS = OBJECT_PROPERTIES_FLAGS(1u32);
-pub const OPF_SHOWHELP: OBJECT_PROPERTIES_FLAGS = OBJECT_PROPERTIES_FLAGS(4u32);
-pub const OT_EMBEDDED: i32 = 2i32;
-pub const OT_LINK: i32 = 1i32;
-pub const OT_STATIC: i32 = 3i32;
-pub const PAGEACTION_UI_DEFAULT: PAGEACTION_UI = PAGEACTION_UI(0i32);
-pub const PAGEACTION_UI_MODAL: PAGEACTION_UI = PAGEACTION_UI(1i32);
-pub const PAGEACTION_UI_MODELESS: PAGEACTION_UI = PAGEACTION_UI(2i32);
-pub const PAGEACTION_UI_SILENT: PAGEACTION_UI = PAGEACTION_UI(3i32);
-pub const PARAMFLAG_FHASCUSTDATA: PARAMFLAGS = PARAMFLAGS(64u16);
-pub const PARAMFLAG_FHASDEFAULT: PARAMFLAGS = PARAMFLAGS(32u16);
-pub const PARAMFLAG_FIN: PARAMFLAGS = PARAMFLAGS(1u16);
-pub const PARAMFLAG_FLCID: PARAMFLAGS = PARAMFLAGS(4u16);
-pub const PARAMFLAG_FOPT: PARAMFLAGS = PARAMFLAGS(16u16);
-pub const PARAMFLAG_FOUT: PARAMFLAGS = PARAMFLAGS(2u16);
-pub const PARAMFLAG_FRETVAL: PARAMFLAGS = PARAMFLAGS(8u16);
-pub const PARAMFLAG_NONE: PARAMFLAGS = PARAMFLAGS(0u16);
-pub const PERPROP_E_FIRST: i32 = -2147220992i32;
-pub const PERPROP_E_LAST: windows_core::HRESULT = windows_core::HRESULT(0x8004020F_u32 as _);
-pub const PERPROP_E_NOPAGEAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x80040200_u32 as _);
-pub const PERPROP_S_FIRST: windows_core::HRESULT = windows_core::HRESULT(0x40200_u32 as _);
-pub const PERPROP_S_LAST: windows_core::HRESULT = windows_core::HRESULT(0x4020F_u32 as _);
-pub const PICTURE_SCALABLE: PICTUREATTRIBUTES = PICTUREATTRIBUTES(1i32);
-pub const PICTURE_TRANSPARENT: PICTUREATTRIBUTES = PICTUREATTRIBUTES(2i32);
-pub const PICTYPE_BITMAP: PICTYPE = PICTYPE(1i16);
-pub const PICTYPE_ENHMETAFILE: PICTYPE = PICTYPE(4i16);
-pub const PICTYPE_ICON: PICTYPE = PICTYPE(3i16);
-pub const PICTYPE_METAFILE: PICTYPE = PICTYPE(2i16);
-pub const PICTYPE_NONE: PICTYPE = PICTYPE(0i16);
-pub const PICTYPE_UNINITIALIZED: PICTYPE = PICTYPE(-1i16);
-pub const POINTERINACTIVE_ACTIVATEONDRAG: POINTERINACTIVE = POINTERINACTIVE(4i32);
-pub const POINTERINACTIVE_ACTIVATEONENTRY: POINTERINACTIVE = POINTERINACTIVE(1i32);
-pub const POINTERINACTIVE_DEACTIVATEONLEAVE: POINTERINACTIVE = POINTERINACTIVE(2i32);
-pub const PRINTFLAG_DONTACTUALLYPRINT: PRINTFLAG = PRINTFLAG(16i32);
-pub const PRINTFLAG_FORCEPROPERTIES: PRINTFLAG = PRINTFLAG(32i32);
-pub const PRINTFLAG_MAYBOTHERUSER: PRINTFLAG = PRINTFLAG(1i32);
-pub const PRINTFLAG_PRINTTOFILE: PRINTFLAG = PRINTFLAG(64i32);
-pub const PRINTFLAG_PROMPTUSER: PRINTFLAG = PRINTFLAG(2i32);
-pub const PRINTFLAG_RECOMPOSETODEVICE: PRINTFLAG = PRINTFLAG(8i32);
-pub const PRINTFLAG_USERMAYCHANGEPRINTER: PRINTFLAG = PRINTFLAG(4i32);
-pub const PROPBAG2_TYPE_DATA: PROPBAG2_TYPE = PROPBAG2_TYPE(1i32);
-pub const PROPBAG2_TYPE_MONIKER: PROPBAG2_TYPE = PROPBAG2_TYPE(6i32);
-pub const PROPBAG2_TYPE_OBJECT: PROPBAG2_TYPE = PROPBAG2_TYPE(3i32);
-pub const PROPBAG2_TYPE_STORAGE: PROPBAG2_TYPE = PROPBAG2_TYPE(5i32);
-pub const PROPBAG2_TYPE_STREAM: PROPBAG2_TYPE = PROPBAG2_TYPE(4i32);
-pub const PROPBAG2_TYPE_UNDEFINED: PROPBAG2_TYPE = PROPBAG2_TYPE(0i32);
-pub const PROPBAG2_TYPE_URL: PROPBAG2_TYPE = PROPBAG2_TYPE(2i32);
-pub const PROPPAGESTATUS_CLEAN: PROPPAGESTATUS = PROPPAGESTATUS(4i32);
-pub const PROPPAGESTATUS_DIRTY: PROPPAGESTATUS = PROPPAGESTATUS(1i32);
-pub const PROPPAGESTATUS_VALIDATE: PROPPAGESTATUS = PROPPAGESTATUS(2i32);
-pub const PROP_HWND_CHGICONDLG: windows_core::PCWSTR = windows_core::w!("HWND_CIDLG");
-pub const PSF_CHECKDISPLAYASICON: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(8u32);
-pub const PSF_DISABLEDISPLAYASICON: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(16u32);
-pub const PSF_HIDECHANGEICON: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(32u32);
-pub const PSF_NOREFRESHDATAOBJECT: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(128u32);
-pub const PSF_SELECTPASTE: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(2u32);
-pub const PSF_SELECTPASTELINK: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(4u32);
-pub const PSF_SHOWHELP: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(1u32);
-pub const PSF_STAYONCLIPBOARDCHANGE: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(64u32);
-pub const PS_MAXLINKTYPES: u32 = 8u32;
-pub const QACONTAINER_AUTOCLIP: QACONTAINERFLAGS = QACONTAINERFLAGS(32i32);
-pub const QACONTAINER_DISPLAYASDEFAULT: QACONTAINERFLAGS = QACONTAINERFLAGS(8i32);
-pub const QACONTAINER_MESSAGEREFLECT: QACONTAINERFLAGS = QACONTAINERFLAGS(64i32);
-pub const QACONTAINER_SHOWGRABHANDLES: QACONTAINERFLAGS = QACONTAINERFLAGS(2i32);
-pub const QACONTAINER_SHOWHATCHING: QACONTAINERFLAGS = QACONTAINERFLAGS(1i32);
-pub const QACONTAINER_SUPPORTSMNEMONICS: QACONTAINERFLAGS = QACONTAINERFLAGS(128i32);
-pub const QACONTAINER_UIDEAD: QACONTAINERFLAGS = QACONTAINERFLAGS(16i32);
-pub const QACONTAINER_USERMODE: QACONTAINERFLAGS = QACONTAINERFLAGS(4i32);
-pub const READYSTATE_COMPLETE: READYSTATE = READYSTATE(4i32);
-pub const READYSTATE_INTERACTIVE: READYSTATE = READYSTATE(3i32);
-pub const READYSTATE_LOADED: READYSTATE = READYSTATE(2i32);
-pub const READYSTATE_LOADING: READYSTATE = READYSTATE(1i32);
-pub const READYSTATE_UNINITIALIZED: READYSTATE = READYSTATE(0i32);
-pub const REGKIND_DEFAULT: REGKIND = REGKIND(0i32);
-pub const REGKIND_NONE: REGKIND = REGKIND(2i32);
-pub const REGKIND_REGISTER: REGKIND = REGKIND(1i32);
-pub const SELFREG_E_CLASS: windows_core::HRESULT = windows_core::HRESULT(0x80040201_u32 as _);
-pub const SELFREG_E_FIRST: i32 = -2147220992i32;
-pub const SELFREG_E_LAST: windows_core::HRESULT = windows_core::HRESULT(0x8004020F_u32 as _);
-pub const SELFREG_E_TYPELIB: windows_core::HRESULT = windows_core::HRESULT(0x80040200_u32 as _);
-pub const SELFREG_S_FIRST: windows_core::HRESULT = windows_core::HRESULT(0x40200_u32 as _);
-pub const SELFREG_S_LAST: windows_core::HRESULT = windows_core::HRESULT(0x4020F_u32 as _);
-pub const SF_BSTR: SF_TYPE = SF_TYPE(8i32);
-pub const SF_DISPATCH: SF_TYPE = SF_TYPE(9i32);
-pub const SF_ERROR: SF_TYPE = SF_TYPE(10i32);
-pub const SF_HAVEIID: SF_TYPE = SF_TYPE(32781i32);
-pub const SF_I1: SF_TYPE = SF_TYPE(16i32);
-pub const SF_I2: SF_TYPE = SF_TYPE(2i32);
-pub const SF_I4: SF_TYPE = SF_TYPE(3i32);
-pub const SF_I8: SF_TYPE = SF_TYPE(20i32);
-pub const SF_RECORD: SF_TYPE = SF_TYPE(36i32);
-pub const SF_UNKNOWN: SF_TYPE = SF_TYPE(13i32);
-pub const SF_VARIANT: SF_TYPE = SF_TYPE(12i32);
-pub const SID_GetCaller: windows_core::GUID = windows_core::GUID::from_u128(0x4717cc40_bcb9_11d0_9336_00a0c90dcaa9);
-pub const SID_ProvideRuntimeContext: windows_core::GUID = windows_core::GUID::from_u128(0x74a5040c_dd0c_48f0_ac85_194c3259180a);
-pub const SID_VariantConversion: windows_core::GUID = windows_core::GUID::from_u128(0x1f101481_bccd_11d0_9336_00a0c90dcaa9);
-pub const STDOLE2_LCID: u32 = 0u32;
-pub const STDOLE2_MAJORVERNUM: u32 = 2u32;
-pub const STDOLE2_MINORVERNUM: u32 = 0u32;
-pub const STDOLE_LCID: u32 = 0u32;
-pub const STDOLE_MAJORVERNUM: u32 = 1u32;
-pub const STDOLE_MINORVERNUM: u32 = 0u32;
-pub const STDOLE_TLB: windows_core::PCSTR = windows_core::s!("stdole2.tlb");
-pub const STDTYPE_TLB: windows_core::PCSTR = windows_core::s!("stdole2.tlb");
-pub const SZOLEUI_MSG_ADDCONTROL: windows_core::PCWSTR = windows_core::w!("OLEUI_MSG_ADDCONTROL");
-pub const SZOLEUI_MSG_BROWSE: windows_core::PCWSTR = windows_core::w!("OLEUI_MSG_BROWSE");
-pub const SZOLEUI_MSG_BROWSE_OFN: windows_core::PCWSTR = windows_core::w!("OLEUI_MSG_BROWSE_OFN");
-pub const SZOLEUI_MSG_CHANGEICON: windows_core::PCWSTR = windows_core::w!("OLEUI_MSG_CHANGEICON");
-pub const SZOLEUI_MSG_CHANGESOURCE: windows_core::PCWSTR = windows_core::w!("OLEUI_MSG_CHANGESOURCE");
-pub const SZOLEUI_MSG_CLOSEBUSYDIALOG: windows_core::PCWSTR = windows_core::w!("OLEUI_MSG_CLOSEBUSYDIALOG");
-pub const SZOLEUI_MSG_CONVERT: windows_core::PCWSTR = windows_core::w!("OLEUI_MSG_CONVERT");
-pub const SZOLEUI_MSG_ENDDIALOG: windows_core::PCWSTR = windows_core::w!("OLEUI_MSG_ENDDIALOG");
-pub const SZOLEUI_MSG_HELP: windows_core::PCWSTR = windows_core::w!("OLEUI_MSG_HELP");
-pub const TIFLAGS_EXTENDDISPATCHONLY: u32 = 1u32;
-pub const TYPEFLAG_FAGGREGATABLE: TYPEFLAGS = TYPEFLAGS(1024i32);
-pub const TYPEFLAG_FAPPOBJECT: TYPEFLAGS = TYPEFLAGS(1i32);
-pub const TYPEFLAG_FCANCREATE: TYPEFLAGS = TYPEFLAGS(2i32);
-pub const TYPEFLAG_FCONTROL: TYPEFLAGS = TYPEFLAGS(32i32);
-pub const TYPEFLAG_FDISPATCHABLE: TYPEFLAGS = TYPEFLAGS(4096i32);
-pub const TYPEFLAG_FDUAL: TYPEFLAGS = TYPEFLAGS(64i32);
-pub const TYPEFLAG_FHIDDEN: TYPEFLAGS = TYPEFLAGS(16i32);
-pub const TYPEFLAG_FLICENSED: TYPEFLAGS = TYPEFLAGS(4i32);
-pub const TYPEFLAG_FNONEXTENSIBLE: TYPEFLAGS = TYPEFLAGS(128i32);
-pub const TYPEFLAG_FOLEAUTOMATION: TYPEFLAGS = TYPEFLAGS(256i32);
-pub const TYPEFLAG_FPREDECLID: TYPEFLAGS = TYPEFLAGS(8i32);
-pub const TYPEFLAG_FPROXY: TYPEFLAGS = TYPEFLAGS(16384i32);
-pub const TYPEFLAG_FREPLACEABLE: TYPEFLAGS = TYPEFLAGS(2048i32);
-pub const TYPEFLAG_FRESTRICTED: TYPEFLAGS = TYPEFLAGS(512i32);
-pub const TYPEFLAG_FREVERSEBIND: TYPEFLAGS = TYPEFLAGS(8192i32);
-pub const UAS_BLOCKED: UASFLAGS = UASFLAGS(1i32);
-pub const UAS_MASK: UASFLAGS = UASFLAGS(3i32);
-pub const UAS_NOPARENTENABLE: UASFLAGS = UASFLAGS(2i32);
-pub const UAS_NORMAL: UASFLAGS = UASFLAGS(0i32);
-pub const UPDFCACHE_ALL: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(2147483647u32);
-pub const UPDFCACHE_ALLBUTNODATACACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(2147483646u32);
-pub const UPDFCACHE_IFBLANK: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(16u32);
-pub const UPDFCACHE_IFBLANKORONSAVECACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(18u32);
-pub const UPDFCACHE_NODATACACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(1u32);
-pub const UPDFCACHE_NORMALCACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(8u32);
-pub const UPDFCACHE_ONLYIFBLANK: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(2147483648u32);
-pub const UPDFCACHE_ONSAVECACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(2u32);
-pub const UPDFCACHE_ONSTOPCACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(4u32);
-pub const USERCLASSTYPE_APPNAME: USERCLASSTYPE = USERCLASSTYPE(3i32);
-pub const USERCLASSTYPE_FULL: USERCLASSTYPE = USERCLASSTYPE(1i32);
-pub const USERCLASSTYPE_SHORT: USERCLASSTYPE = USERCLASSTYPE(2i32);
-pub const VARCMP_EQ: VARCMP = VARCMP(1u32);
-pub const VARCMP_GT: VARCMP = VARCMP(2u32);
-pub const VARCMP_LT: VARCMP = VARCMP(0u32);
-pub const VARCMP_NULL: VARCMP = VARCMP(3u32);
-pub const VARFORMAT_FIRST_DAY_FRIDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(5i32);
-pub const VARFORMAT_FIRST_DAY_MONDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(1i32);
-pub const VARFORMAT_FIRST_DAY_SATURDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(6i32);
-pub const VARFORMAT_FIRST_DAY_SUNDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(7i32);
-pub const VARFORMAT_FIRST_DAY_SYSTEMDEFAULT: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(0i32);
-pub const VARFORMAT_FIRST_DAY_THURSDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(4i32);
-pub const VARFORMAT_FIRST_DAY_TUESDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(2i32);
-pub const VARFORMAT_FIRST_DAY_WEDNESDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(3i32);
-pub const VARFORMAT_FIRST_WEEK_CONTAINS_JANUARY_FIRST: VARFORMAT_FIRST_WEEK = VARFORMAT_FIRST_WEEK(1i32);
-pub const VARFORMAT_FIRST_WEEK_HAS_SEVEN_DAYS: VARFORMAT_FIRST_WEEK = VARFORMAT_FIRST_WEEK(3i32);
-pub const VARFORMAT_FIRST_WEEK_LARGER_HALF_IN_CURRENT_YEAR: VARFORMAT_FIRST_WEEK = VARFORMAT_FIRST_WEEK(2i32);
-pub const VARFORMAT_FIRST_WEEK_SYSTEMDEFAULT: VARFORMAT_FIRST_WEEK = VARFORMAT_FIRST_WEEK(0i32);
-pub const VARFORMAT_GROUP_NOTTHOUSANDS: VARFORMAT_GROUP = VARFORMAT_GROUP(0i32);
-pub const VARFORMAT_GROUP_SYSTEMDEFAULT: VARFORMAT_GROUP = VARFORMAT_GROUP(-2i32);
-pub const VARFORMAT_GROUP_THOUSANDS: VARFORMAT_GROUP = VARFORMAT_GROUP(-1i32);
-pub const VARFORMAT_LEADING_DIGIT_INCLUDED: VARFORMAT_LEADING_DIGIT = VARFORMAT_LEADING_DIGIT(-1i32);
-pub const VARFORMAT_LEADING_DIGIT_NOTINCLUDED: VARFORMAT_LEADING_DIGIT = VARFORMAT_LEADING_DIGIT(0i32);
-pub const VARFORMAT_LEADING_DIGIT_SYSTEMDEFAULT: VARFORMAT_LEADING_DIGIT = VARFORMAT_LEADING_DIGIT(-2i32);
-pub const VARFORMAT_NAMED_FORMAT_GENERALDATE: VARFORMAT_NAMED_FORMAT = VARFORMAT_NAMED_FORMAT(0i32);
-pub const VARFORMAT_NAMED_FORMAT_LONGDATE: VARFORMAT_NAMED_FORMAT = VARFORMAT_NAMED_FORMAT(1i32);
-pub const VARFORMAT_NAMED_FORMAT_LONGTIME: VARFORMAT_NAMED_FORMAT = VARFORMAT_NAMED_FORMAT(3i32);
-pub const VARFORMAT_NAMED_FORMAT_SHORTDATE: VARFORMAT_NAMED_FORMAT = VARFORMAT_NAMED_FORMAT(2i32);
-pub const VARFORMAT_NAMED_FORMAT_SHORTTIME: VARFORMAT_NAMED_FORMAT = VARFORMAT_NAMED_FORMAT(4i32);
-pub const VARFORMAT_PARENTHESES_NOTUSED: VARFORMAT_PARENTHESES = VARFORMAT_PARENTHESES(0i32);
-pub const VARFORMAT_PARENTHESES_SYSTEMDEFAULT: VARFORMAT_PARENTHESES = VARFORMAT_PARENTHESES(-2i32);
-pub const VARFORMAT_PARENTHESES_USED: VARFORMAT_PARENTHESES = VARFORMAT_PARENTHESES(-1i32);
-pub const VAR_CALENDAR_GREGORIAN: u32 = 256u32;
-pub const VAR_CALENDAR_HIJRI: u32 = 8u32;
-pub const VAR_CALENDAR_THAI: u32 = 128u32;
-pub const VAR_DATEVALUEONLY: u32 = 2u32;
-pub const VAR_FORMAT_NOSUBSTITUTE: u32 = 32u32;
-pub const VAR_FOURDIGITYEARS: u32 = 64u32;
-pub const VAR_LOCALBOOL: u32 = 16u32;
-pub const VAR_TIMEVALUEONLY: u32 = 1u32;
-pub const VAR_VALIDDATE: u32 = 4u32;
-pub const VIEWSTATUS_3DSURFACE: VIEWSTATUS = VIEWSTATUS(32i32);
-pub const VIEWSTATUS_DVASPECTOPAQUE: VIEWSTATUS = VIEWSTATUS(4i32);
-pub const VIEWSTATUS_DVASPECTTRANSPARENT: VIEWSTATUS = VIEWSTATUS(8i32);
-pub const VIEWSTATUS_OPAQUE: VIEWSTATUS = VIEWSTATUS(1i32);
-pub const VIEWSTATUS_SOLIDBKGND: VIEWSTATUS = VIEWSTATUS(2i32);
-pub const VIEWSTATUS_SURFACE: VIEWSTATUS = VIEWSTATUS(16i32);
-pub const VPF_DISABLERELATIVE: VIEW_OBJECT_PROPERTIES_FLAGS = VIEW_OBJECT_PROPERTIES_FLAGS(2u32);
-pub const VPF_DISABLESCALE: VIEW_OBJECT_PROPERTIES_FLAGS = VIEW_OBJECT_PROPERTIES_FLAGS(4u32);
-pub const VPF_SELECTRELATIVE: VIEW_OBJECT_PROPERTIES_FLAGS = VIEW_OBJECT_PROPERTIES_FLAGS(1u32);
-pub const VTDATEGRE_MAX: u32 = 2958465u32;
-pub const VTDATEGRE_MIN: i32 = -657434i32;
-pub const VT_BLOB_PROPSET: u32 = 75u32;
-pub const VT_STORED_PROPSET: u32 = 74u32;
-pub const VT_STREAMED_PROPSET: u32 = 73u32;
-pub const VT_VERBOSE_ENUM: u32 = 76u32;
-pub const WIN32: u32 = 100u32;
-pub const WPCSETTING_FILEDOWNLOAD_BLOCKED: WPCSETTING = WPCSETTING(2i32);
-pub const WPCSETTING_LOGGING_ENABLED: WPCSETTING = WPCSETTING(1i32);
-pub const XFORMCOORDS_CONTAINERTOHIMETRIC: XFORMCOORDS = XFORMCOORDS(8i32);
-pub const XFORMCOORDS_EVENTCOMPAT: XFORMCOORDS = XFORMCOORDS(16i32);
-pub const XFORMCOORDS_HIMETRICTOCONTAINER: XFORMCOORDS = XFORMCOORDS(4i32);
-pub const XFORMCOORDS_POSITION: XFORMCOORDS = XFORMCOORDS(1i32);
-pub const XFORMCOORDS_SIZE: XFORMCOORDS = XFORMCOORDS(2i32);
 pub const fdexEnumAll: i32 = 2i32;
 pub const fdexEnumDefault: i32 = 1i32;
 pub const fdexNameCaseInsensitive: i32 = 8i32;

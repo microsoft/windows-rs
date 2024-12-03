@@ -1,3 +1,57 @@
+windows_core::imp::define_interface!(IOemSupportInfo, IOemSupportInfo_Vtbl, 0x8d2eae55_87ef_4266_86d0_c4afbeb29bb9);
+impl windows_core::RuntimeType for IOemSupportInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IOemSupportInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SupportLink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SupportAppLink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SupportProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISmbiosInformationStatics, ISmbiosInformationStatics_Vtbl, 0x080cca7c_637c_48c4_b728_f9273812db8e);
+impl windows_core::RuntimeType for ISmbiosInformationStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISmbiosInformationStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SerialNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISystemSupportDeviceInfo, ISystemSupportDeviceInfo_Vtbl, 0x05880b99_8247_441b_a996_a1784bab79a8);
+impl windows_core::RuntimeType for ISystemSupportDeviceInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISystemSupportDeviceInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub OperatingSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SystemManufacturer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SystemProductName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SystemSku: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SystemHardwareVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SystemFirmwareVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISystemSupportInfoStatics, ISystemSupportInfoStatics_Vtbl, 0xef750974_c422_45d7_a44d_5c1c0043a2b3);
+impl windows_core::RuntimeType for ISystemSupportInfoStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISystemSupportInfoStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub LocalSystemEdition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OemSupportInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ISystemSupportInfoStatics2, ISystemSupportInfoStatics2_Vtbl, 0x33f349a4_3fa1_4986_aa4b_057420455e6d);
+impl windows_core::RuntimeType for ISystemSupportInfoStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISystemSupportInfoStatics2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub LocalDeviceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct OemSupportInfo(windows_core::IUnknown);
@@ -151,58 +205,4 @@ impl SystemSupportInfo {
 }
 impl windows_core::RuntimeName for SystemSupportInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.SystemSupportInfo";
-}
-windows_core::imp::define_interface!(IOemSupportInfo, IOemSupportInfo_Vtbl, 0x8d2eae55_87ef_4266_86d0_c4afbeb29bb9);
-impl windows_core::RuntimeType for IOemSupportInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IOemSupportInfo_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SupportLink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SupportAppLink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SupportProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISmbiosInformationStatics, ISmbiosInformationStatics_Vtbl, 0x080cca7c_637c_48c4_b728_f9273812db8e);
-impl windows_core::RuntimeType for ISmbiosInformationStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISmbiosInformationStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SerialNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISystemSupportDeviceInfo, ISystemSupportDeviceInfo_Vtbl, 0x05880b99_8247_441b_a996_a1784bab79a8);
-impl windows_core::RuntimeType for ISystemSupportDeviceInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISystemSupportDeviceInfo_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub OperatingSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SystemManufacturer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SystemProductName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SystemSku: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SystemHardwareVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SystemFirmwareVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISystemSupportInfoStatics, ISystemSupportInfoStatics_Vtbl, 0xef750974_c422_45d7_a44d_5c1c0043a2b3);
-impl windows_core::RuntimeType for ISystemSupportInfoStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISystemSupportInfoStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub LocalSystemEdition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub OemSupportInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ISystemSupportInfoStatics2, ISystemSupportInfoStatics2_Vtbl, 0x33f349a4_3fa1_4986_aa4b_057420455e6d);
-impl windows_core::RuntimeType for ISystemSupportInfoStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISystemSupportInfoStatics2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub LocalDeviceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }

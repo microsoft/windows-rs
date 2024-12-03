@@ -1304,6 +1304,2887 @@ where
     windows_targets::link!("activeds.dll" "system" fn SecurityDescriptorToBinarySD(vvarsecdes : super::super::System::Variant:: VARIANT, ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR, pdwsdlength : *mut u32, pszservername : windows_core::PCWSTR, username : windows_core::PCWSTR, password : windows_core::PCWSTR, dwflags : u32) -> windows_core::HRESULT);
     SecurityDescriptorToBinarySD(core::mem::transmute_copy(vvarsecdes), core::mem::transmute(ppsecuritydescriptor), core::mem::transmute(pdwsdlength), pszservername.param().abi(), username.param().abi(), password.param().abi(), core::mem::transmute(dwflags)).ok()
 }
+pub const ACTRL_DS_CONTROL_ACCESS: u32 = 256u32;
+pub const ACTRL_DS_CREATE_CHILD: u32 = 1u32;
+pub const ACTRL_DS_DELETE_CHILD: u32 = 2u32;
+pub const ACTRL_DS_DELETE_TREE: u32 = 64u32;
+pub const ACTRL_DS_LIST: u32 = 4u32;
+pub const ACTRL_DS_LIST_OBJECT: u32 = 128u32;
+pub const ACTRL_DS_OPEN: u32 = 0u32;
+pub const ACTRL_DS_READ_PROP: u32 = 16u32;
+pub const ACTRL_DS_SELF: u32 = 8u32;
+pub const ACTRL_DS_WRITE_PROP: u32 = 32u32;
+pub const ADAM_REPL_AUTHENTICATION_MODE_MUTUAL_AUTH_REQUIRED: u32 = 2u32;
+pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE: u32 = 1u32;
+pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE_PASS_THROUGH: u32 = 0u32;
+pub const ADAM_SCP_FSMO_NAMING_STRING: windows_core::PCSTR = windows_core::s!("naming");
+pub const ADAM_SCP_FSMO_NAMING_STRING_W: windows_core::PCWSTR = windows_core::w!("naming");
+pub const ADAM_SCP_FSMO_SCHEMA_STRING: windows_core::PCSTR = windows_core::s!("schema");
+pub const ADAM_SCP_FSMO_SCHEMA_STRING_W: windows_core::PCWSTR = windows_core::w!("schema");
+pub const ADAM_SCP_FSMO_STRING: windows_core::PCSTR = windows_core::s!("fsmo:");
+pub const ADAM_SCP_FSMO_STRING_W: windows_core::PCWSTR = windows_core::w!("fsmo:");
+pub const ADAM_SCP_INSTANCE_NAME_STRING: windows_core::PCSTR = windows_core::s!("instance:");
+pub const ADAM_SCP_INSTANCE_NAME_STRING_W: windows_core::PCWSTR = windows_core::w!("instance:");
+pub const ADAM_SCP_PARTITION_STRING: windows_core::PCSTR = windows_core::s!("partition:");
+pub const ADAM_SCP_PARTITION_STRING_W: windows_core::PCWSTR = windows_core::w!("partition:");
+pub const ADAM_SCP_SITE_NAME_STRING: windows_core::PCSTR = windows_core::s!("site:");
+pub const ADAM_SCP_SITE_NAME_STRING_W: windows_core::PCWSTR = windows_core::w!("site:");
+pub const ADSIPROP_ADSIFLAG: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(12i32);
+pub const ADSIPROP_ASYNCHRONOUS: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(0i32);
+pub const ADSIPROP_ATTRIBTYPES_ONLY: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(4i32);
+pub const ADSIPROP_CACHE_RESULTS: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(11i32);
+pub const ADSIPROP_CHASE_REFERRALS: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(9i32);
+pub const ADSIPROP_DEREF_ALIASES: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(1i32);
+pub const ADSIPROP_PAGED_TIME_LIMIT: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(8i32);
+pub const ADSIPROP_PAGESIZE: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(7i32);
+pub const ADSIPROP_SEARCH_SCOPE: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(5i32);
+pub const ADSIPROP_SIZE_LIMIT: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(2i32);
+pub const ADSIPROP_SORT_ON: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(10i32);
+pub const ADSIPROP_TIMEOUT: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(6i32);
+pub const ADSIPROP_TIME_LIMIT: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADSI_DIALECT_ENUM(pub i32);
+pub const ADSI_DIALECT_LDAP: ADSI_DIALECT_ENUM = ADSI_DIALECT_ENUM(0i32);
+pub const ADSI_DIALECT_SQL: ADSI_DIALECT_ENUM = ADSI_DIALECT_ENUM(1i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADSPROPERROR {
+    pub hwndPage: super::super::Foundation::HWND,
+    pub pszPageTitle: windows_core::PWSTR,
+    pub pszObjPath: windows_core::PWSTR,
+    pub pszObjClass: windows_core::PWSTR,
+    pub hr: windows_core::HRESULT,
+    pub pszError: windows_core::PWSTR,
+}
+impl Default for ADSPROPERROR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADSPROPERROR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Debug, PartialEq)]
+pub struct ADSPROPINITPARAMS {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub hr: windows_core::HRESULT,
+    pub pDsObj: core::mem::ManuallyDrop<Option<IDirectoryObject>>,
+    pub pwzCN: windows_core::PWSTR,
+    pub pWritableAttrs: *mut ADS_ATTR_INFO,
+}
+impl Default for ADSPROPINITPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADSPROPINITPARAMS {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADSTYPE(pub i32);
+pub const ADSTYPE_BACKLINK: ADSTYPE = ADSTYPE(18i32);
+pub const ADSTYPE_BOOLEAN: ADSTYPE = ADSTYPE(6i32);
+pub const ADSTYPE_CASEIGNORE_LIST: ADSTYPE = ADSTYPE(13i32);
+pub const ADSTYPE_CASE_EXACT_STRING: ADSTYPE = ADSTYPE(2i32);
+pub const ADSTYPE_CASE_IGNORE_STRING: ADSTYPE = ADSTYPE(3i32);
+pub const ADSTYPE_DN_STRING: ADSTYPE = ADSTYPE(1i32);
+pub const ADSTYPE_DN_WITH_BINARY: ADSTYPE = ADSTYPE(27i32);
+pub const ADSTYPE_DN_WITH_STRING: ADSTYPE = ADSTYPE(28i32);
+pub const ADSTYPE_EMAIL: ADSTYPE = ADSTYPE(24i32);
+pub const ADSTYPE_FAXNUMBER: ADSTYPE = ADSTYPE(23i32);
+pub const ADSTYPE_HOLD: ADSTYPE = ADSTYPE(20i32);
+pub const ADSTYPE_INTEGER: ADSTYPE = ADSTYPE(7i32);
+pub const ADSTYPE_INVALID: ADSTYPE = ADSTYPE(0i32);
+pub const ADSTYPE_LARGE_INTEGER: ADSTYPE = ADSTYPE(10i32);
+pub const ADSTYPE_NETADDRESS: ADSTYPE = ADSTYPE(21i32);
+pub const ADSTYPE_NT_SECURITY_DESCRIPTOR: ADSTYPE = ADSTYPE(25i32);
+pub const ADSTYPE_NUMERIC_STRING: ADSTYPE = ADSTYPE(5i32);
+pub const ADSTYPE_OBJECT_CLASS: ADSTYPE = ADSTYPE(12i32);
+pub const ADSTYPE_OCTET_LIST: ADSTYPE = ADSTYPE(14i32);
+pub const ADSTYPE_OCTET_STRING: ADSTYPE = ADSTYPE(8i32);
+pub const ADSTYPE_PATH: ADSTYPE = ADSTYPE(15i32);
+pub const ADSTYPE_POSTALADDRESS: ADSTYPE = ADSTYPE(16i32);
+pub const ADSTYPE_PRINTABLE_STRING: ADSTYPE = ADSTYPE(4i32);
+pub const ADSTYPE_PROV_SPECIFIC: ADSTYPE = ADSTYPE(11i32);
+pub const ADSTYPE_REPLICAPOINTER: ADSTYPE = ADSTYPE(22i32);
+pub const ADSTYPE_TIMESTAMP: ADSTYPE = ADSTYPE(17i32);
+pub const ADSTYPE_TYPEDNAME: ADSTYPE = ADSTYPE(19i32);
+pub const ADSTYPE_UNKNOWN: ADSTYPE = ADSTYPE(26i32);
+pub const ADSTYPE_UTC_TIME: ADSTYPE = ADSTYPE(9i32);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ADSVALUE {
+    pub dwType: ADSTYPE,
+    pub Anonymous: ADSVALUE_0,
+}
+impl Default for ADSVALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADSVALUE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union ADSVALUE_0 {
+    pub DNString: *mut u16,
+    pub CaseExactString: *mut u16,
+    pub CaseIgnoreString: *mut u16,
+    pub PrintableString: *mut u16,
+    pub NumericString: *mut u16,
+    pub Boolean: u32,
+    pub Integer: u32,
+    pub OctetString: ADS_OCTET_STRING,
+    pub UTCTime: super::super::Foundation::SYSTEMTIME,
+    pub LargeInteger: i64,
+    pub ClassName: *mut u16,
+    pub ProviderSpecific: ADS_PROV_SPECIFIC,
+    pub pCaseIgnoreList: *mut ADS_CASEIGNORE_LIST,
+    pub pOctetList: *mut ADS_OCTET_LIST,
+    pub pPath: *mut ADS_PATH,
+    pub pPostalAddress: *mut ADS_POSTALADDRESS,
+    pub Timestamp: ADS_TIMESTAMP,
+    pub BackLink: ADS_BACKLINK,
+    pub pTypedName: *mut ADS_TYPEDNAME,
+    pub Hold: ADS_HOLD,
+    pub pNetAddress: *mut ADS_NETADDRESS,
+    pub pReplicaPointer: *mut ADS_REPLICAPOINTER,
+    pub pFaxNumber: *mut ADS_FAXNUMBER,
+    pub Email: ADS_EMAIL,
+    pub SecurityDescriptor: ADS_NT_SECURITY_DESCRIPTOR,
+    pub pDNWithBinary: *mut ADS_DN_WITH_BINARY,
+    pub pDNWithString: *mut ADS_DN_WITH_STRING,
+}
+impl Default for ADSVALUE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADSVALUE_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_ACEFLAG_ENUM(pub i32);
+pub const ADS_ACEFLAG_FAILED_ACCESS: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(128i32);
+pub const ADS_ACEFLAG_INHERITED_ACE: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(16i32);
+pub const ADS_ACEFLAG_INHERIT_ACE: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(2i32);
+pub const ADS_ACEFLAG_INHERIT_ONLY_ACE: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(8i32);
+pub const ADS_ACEFLAG_NO_PROPAGATE_INHERIT_ACE: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(4i32);
+pub const ADS_ACEFLAG_SUCCESSFUL_ACCESS: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(64i32);
+pub const ADS_ACEFLAG_VALID_INHERIT_FLAGS: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(31i32);
+pub const ADS_ACETYPE_ACCESS_ALLOWED: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(0i32);
+pub const ADS_ACETYPE_ACCESS_ALLOWED_CALLBACK: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(9i32);
+pub const ADS_ACETYPE_ACCESS_ALLOWED_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(11i32);
+pub const ADS_ACETYPE_ACCESS_ALLOWED_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(5i32);
+pub const ADS_ACETYPE_ACCESS_DENIED: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(1i32);
+pub const ADS_ACETYPE_ACCESS_DENIED_CALLBACK: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(10i32);
+pub const ADS_ACETYPE_ACCESS_DENIED_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(12i32);
+pub const ADS_ACETYPE_ACCESS_DENIED_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(6i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_ACETYPE_ENUM(pub i32);
+pub const ADS_ACETYPE_SYSTEM_ALARM_CALLBACK: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(14i32);
+pub const ADS_ACETYPE_SYSTEM_ALARM_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(16i32);
+pub const ADS_ACETYPE_SYSTEM_ALARM_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(8i32);
+pub const ADS_ACETYPE_SYSTEM_AUDIT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(2i32);
+pub const ADS_ACETYPE_SYSTEM_AUDIT_CALLBACK: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(13i32);
+pub const ADS_ACETYPE_SYSTEM_AUDIT_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(15i32);
+pub const ADS_ACETYPE_SYSTEM_AUDIT_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(7i32);
+pub const ADS_ATTR_APPEND: u32 = 3u32;
+pub const ADS_ATTR_CLEAR: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADS_ATTR_DEF {
+    pub pszAttrName: windows_core::PWSTR,
+    pub dwADsType: ADSTYPE,
+    pub dwMinRange: u32,
+    pub dwMaxRange: u32,
+    pub fMultiValued: super::super::Foundation::BOOL,
+}
+impl Default for ADS_ATTR_DEF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADS_ATTR_DEF {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ADS_ATTR_DELETE: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADS_ATTR_INFO {
+    pub pszAttrName: windows_core::PWSTR,
+    pub dwControlCode: u32,
+    pub dwADsType: ADSTYPE,
+    pub pADsValues: *mut ADSVALUE,
+    pub dwNumValues: u32,
+}
+impl Default for ADS_ATTR_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADS_ATTR_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ADS_ATTR_UPDATE: u32 = 2u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_AUTHENTICATION_ENUM(pub u32);
+pub const ADS_AUTH_RESERVED: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(2147483648u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADS_BACKLINK {
+    pub RemoteID: u32,
+    pub ObjectName: windows_core::PWSTR,
+}
+impl Default for ADS_BACKLINK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADS_BACKLINK {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADS_CASEIGNORE_LIST {
+    pub Next: *mut ADS_CASEIGNORE_LIST,
+    pub String: windows_core::PWSTR,
+}
+impl Default for ADS_CASEIGNORE_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADS_CASEIGNORE_LIST {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ADS_CHASE_REFERRALS_ALWAYS: ADS_CHASE_REFERRALS_ENUM = ADS_CHASE_REFERRALS_ENUM(96i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_CHASE_REFERRALS_ENUM(pub i32);
+pub const ADS_CHASE_REFERRALS_EXTERNAL: ADS_CHASE_REFERRALS_ENUM = ADS_CHASE_REFERRALS_ENUM(64i32);
+pub const ADS_CHASE_REFERRALS_NEVER: ADS_CHASE_REFERRALS_ENUM = ADS_CHASE_REFERRALS_ENUM(0i32);
+pub const ADS_CHASE_REFERRALS_SUBORDINATE: ADS_CHASE_REFERRALS_ENUM = ADS_CHASE_REFERRALS_ENUM(32i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADS_CLASS_DEF {
+    pub pszClassName: windows_core::PWSTR,
+    pub dwMandatoryAttrs: u32,
+    pub ppszMandatoryAttrs: *mut windows_core::PWSTR,
+    pub optionalAttrs: u32,
+    pub ppszOptionalAttrs: *mut *mut windows_core::PWSTR,
+    pub dwNamingAttrs: u32,
+    pub ppszNamingAttrs: *mut *mut windows_core::PWSTR,
+    pub dwSuperClasses: u32,
+    pub ppszSuperClasses: *mut *mut windows_core::PWSTR,
+    pub fIsContainer: super::super::Foundation::BOOL,
+}
+impl Default for ADS_CLASS_DEF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADS_CLASS_DEF {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_DEREFENUM(pub i32);
+pub const ADS_DEREF_ALWAYS: ADS_DEREFENUM = ADS_DEREFENUM(3i32);
+pub const ADS_DEREF_FINDING: ADS_DEREFENUM = ADS_DEREFENUM(2i32);
+pub const ADS_DEREF_NEVER: ADS_DEREFENUM = ADS_DEREFENUM(0i32);
+pub const ADS_DEREF_SEARCHING: ADS_DEREFENUM = ADS_DEREFENUM(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_DISPLAY_ENUM(pub i32);
+pub const ADS_DISPLAY_FULL: ADS_DISPLAY_ENUM = ADS_DISPLAY_ENUM(1i32);
+pub const ADS_DISPLAY_VALUE_ONLY: ADS_DISPLAY_ENUM = ADS_DISPLAY_ENUM(2i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADS_DN_WITH_BINARY {
+    pub dwLength: u32,
+    pub lpBinaryValue: *mut u8,
+    pub pszDNString: windows_core::PWSTR,
+}
+impl Default for ADS_DN_WITH_BINARY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADS_DN_WITH_BINARY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADS_DN_WITH_STRING {
+    pub pszStringValue: windows_core::PWSTR,
+    pub pszDNString: windows_core::PWSTR,
+}
+impl Default for ADS_DN_WITH_STRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADS_DN_WITH_STRING {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADS_EMAIL {
+    pub Address: windows_core::PWSTR,
+    pub Type: u32,
+}
+impl Default for ADS_EMAIL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADS_EMAIL {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ADS_ESCAPEDMODE_DEFAULT: ADS_ESCAPE_MODE_ENUM = ADS_ESCAPE_MODE_ENUM(1i32);
+pub const ADS_ESCAPEDMODE_OFF: ADS_ESCAPE_MODE_ENUM = ADS_ESCAPE_MODE_ENUM(3i32);
+pub const ADS_ESCAPEDMODE_OFF_EX: ADS_ESCAPE_MODE_ENUM = ADS_ESCAPE_MODE_ENUM(4i32);
+pub const ADS_ESCAPEDMODE_ON: ADS_ESCAPE_MODE_ENUM = ADS_ESCAPE_MODE_ENUM(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_ESCAPE_MODE_ENUM(pub i32);
+pub const ADS_EXT_INITCREDENTIALS: u32 = 1u32;
+pub const ADS_EXT_INITIALIZE_COMPLETE: u32 = 2u32;
+pub const ADS_EXT_MAXEXTDISPID: u32 = 16777215u32;
+pub const ADS_EXT_MINEXTDISPID: u32 = 1u32;
+pub const ADS_FAST_BIND: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(32u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADS_FAXNUMBER {
+    pub TelephoneNumber: windows_core::PWSTR,
+    pub NumberOfBits: u32,
+    pub Parameters: *mut u8,
+}
+impl Default for ADS_FAXNUMBER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADS_FAXNUMBER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_FLAGTYPE_ENUM(pub i32);
+pub const ADS_FLAG_INHERITED_OBJECT_TYPE_PRESENT: ADS_FLAGTYPE_ENUM = ADS_FLAGTYPE_ENUM(2i32);
+pub const ADS_FLAG_OBJECT_TYPE_PRESENT: ADS_FLAGTYPE_ENUM = ADS_FLAGTYPE_ENUM(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_FORMAT_ENUM(pub i32);
+pub const ADS_FORMAT_LEAF: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(11i32);
+pub const ADS_FORMAT_PROVIDER: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(10i32);
+pub const ADS_FORMAT_SERVER: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(9i32);
+pub const ADS_FORMAT_WINDOWS: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(1i32);
+pub const ADS_FORMAT_WINDOWS_DN: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(3i32);
+pub const ADS_FORMAT_WINDOWS_NO_SERVER: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(2i32);
+pub const ADS_FORMAT_WINDOWS_PARENT: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(4i32);
+pub const ADS_FORMAT_X500: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(5i32);
+pub const ADS_FORMAT_X500_DN: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(7i32);
+pub const ADS_FORMAT_X500_NO_SERVER: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(6i32);
+pub const ADS_FORMAT_X500_PARENT: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(8i32);
+pub const ADS_GROUP_TYPE_DOMAIN_LOCAL_GROUP: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_GROUP_TYPE_ENUM(pub i32);
+pub const ADS_GROUP_TYPE_GLOBAL_GROUP: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(2i32);
+pub const ADS_GROUP_TYPE_LOCAL_GROUP: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(4i32);
+pub const ADS_GROUP_TYPE_SECURITY_ENABLED: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(-2147483648i32);
+pub const ADS_GROUP_TYPE_UNIVERSAL_GROUP: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(8i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADS_HOLD {
+    pub ObjectName: windows_core::PWSTR,
+    pub Amount: u32,
+}
+impl Default for ADS_HOLD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADS_HOLD {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ADS_NAME_INITTYPE_DOMAIN: ADS_NAME_INITTYPE_ENUM = ADS_NAME_INITTYPE_ENUM(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_NAME_INITTYPE_ENUM(pub i32);
+pub const ADS_NAME_INITTYPE_GC: ADS_NAME_INITTYPE_ENUM = ADS_NAME_INITTYPE_ENUM(3i32);
+pub const ADS_NAME_INITTYPE_SERVER: ADS_NAME_INITTYPE_ENUM = ADS_NAME_INITTYPE_ENUM(2i32);
+pub const ADS_NAME_TYPE_1779: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(1i32);
+pub const ADS_NAME_TYPE_CANONICAL: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(2i32);
+pub const ADS_NAME_TYPE_CANONICAL_EX: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(10i32);
+pub const ADS_NAME_TYPE_DISPLAY: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(4i32);
+pub const ADS_NAME_TYPE_DOMAIN_SIMPLE: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(5i32);
+pub const ADS_NAME_TYPE_ENTERPRISE_SIMPLE: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(6i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_NAME_TYPE_ENUM(pub i32);
+pub const ADS_NAME_TYPE_GUID: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(7i32);
+pub const ADS_NAME_TYPE_NT4: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(3i32);
+pub const ADS_NAME_TYPE_SERVICE_PRINCIPAL_NAME: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(11i32);
+pub const ADS_NAME_TYPE_SID_OR_SID_HISTORY_NAME: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(12i32);
+pub const ADS_NAME_TYPE_UNKNOWN: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(8i32);
+pub const ADS_NAME_TYPE_USER_PRINCIPAL_NAME: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(9i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADS_NETADDRESS {
+    pub AddressType: u32,
+    pub AddressLength: u32,
+    pub Address: *mut u8,
+}
+impl Default for ADS_NETADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADS_NETADDRESS {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ADS_NO_AUTHENTICATION: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(16u32);
+pub const ADS_NO_REFERRAL_CHASING: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(1024u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADS_NT_SECURITY_DESCRIPTOR {
+    pub dwLength: u32,
+    pub lpValue: *mut u8,
+}
+impl Default for ADS_NT_SECURITY_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADS_NT_SECURITY_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADS_OBJECT_INFO {
+    pub pszRDN: windows_core::PWSTR,
+    pub pszObjectDN: windows_core::PWSTR,
+    pub pszParentDN: windows_core::PWSTR,
+    pub pszSchemaDN: windows_core::PWSTR,
+    pub pszClassName: windows_core::PWSTR,
+}
+impl Default for ADS_OBJECT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADS_OBJECT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADS_OCTET_LIST {
+    pub Next: *mut ADS_OCTET_LIST,
+    pub Length: u32,
+    pub Data: *mut u8,
+}
+impl Default for ADS_OCTET_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADS_OCTET_LIST {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADS_OCTET_STRING {
+    pub dwLength: u32,
+    pub lpValue: *mut u8,
+}
+impl Default for ADS_OCTET_STRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADS_OCTET_STRING {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ADS_OPTION_ACCUMULATIVE_MODIFICATION: ADS_OPTION_ENUM = ADS_OPTION_ENUM(8i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_OPTION_ENUM(pub i32);
+pub const ADS_OPTION_MUTUAL_AUTH_STATUS: ADS_OPTION_ENUM = ADS_OPTION_ENUM(4i32);
+pub const ADS_OPTION_PAGE_SIZE: ADS_OPTION_ENUM = ADS_OPTION_ENUM(2i32);
+pub const ADS_OPTION_PASSWORD_METHOD: ADS_OPTION_ENUM = ADS_OPTION_ENUM(7i32);
+pub const ADS_OPTION_PASSWORD_PORTNUMBER: ADS_OPTION_ENUM = ADS_OPTION_ENUM(6i32);
+pub const ADS_OPTION_QUOTA: ADS_OPTION_ENUM = ADS_OPTION_ENUM(5i32);
+pub const ADS_OPTION_REFERRALS: ADS_OPTION_ENUM = ADS_OPTION_ENUM(1i32);
+pub const ADS_OPTION_SECURITY_MASK: ADS_OPTION_ENUM = ADS_OPTION_ENUM(3i32);
+pub const ADS_OPTION_SERVERNAME: ADS_OPTION_ENUM = ADS_OPTION_ENUM(0i32);
+pub const ADS_OPTION_SKIP_SID_LOOKUP: ADS_OPTION_ENUM = ADS_OPTION_ENUM(9i32);
+pub const ADS_PASSWORD_ENCODE_CLEAR: ADS_PASSWORD_ENCODING_ENUM = ADS_PASSWORD_ENCODING_ENUM(1i32);
+pub const ADS_PASSWORD_ENCODE_REQUIRE_SSL: ADS_PASSWORD_ENCODING_ENUM = ADS_PASSWORD_ENCODING_ENUM(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_PASSWORD_ENCODING_ENUM(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADS_PATH {
+    pub Type: u32,
+    pub VolumeName: windows_core::PWSTR,
+    pub Path: windows_core::PWSTR,
+}
+impl Default for ADS_PATH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADS_PATH {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_PATHTYPE_ENUM(pub i32);
+pub const ADS_PATH_FILE: ADS_PATHTYPE_ENUM = ADS_PATHTYPE_ENUM(1i32);
+pub const ADS_PATH_FILESHARE: ADS_PATHTYPE_ENUM = ADS_PATHTYPE_ENUM(2i32);
+pub const ADS_PATH_REGISTRY: ADS_PATHTYPE_ENUM = ADS_PATHTYPE_ENUM(3i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADS_POSTALADDRESS {
+    pub PostalAddress: [windows_core::PWSTR; 6],
+}
+impl Default for ADS_POSTALADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADS_POSTALADDRESS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_PREFERENCES_ENUM(pub i32);
+pub const ADS_PROMPT_CREDENTIALS: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(8u32);
+pub const ADS_PROPERTY_APPEND: ADS_PROPERTY_OPERATION_ENUM = ADS_PROPERTY_OPERATION_ENUM(3i32);
+pub const ADS_PROPERTY_CLEAR: ADS_PROPERTY_OPERATION_ENUM = ADS_PROPERTY_OPERATION_ENUM(1i32);
+pub const ADS_PROPERTY_DELETE: ADS_PROPERTY_OPERATION_ENUM = ADS_PROPERTY_OPERATION_ENUM(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_PROPERTY_OPERATION_ENUM(pub i32);
+pub const ADS_PROPERTY_UPDATE: ADS_PROPERTY_OPERATION_ENUM = ADS_PROPERTY_OPERATION_ENUM(2i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADS_PROV_SPECIFIC {
+    pub dwLength: u32,
+    pub lpValue: *mut u8,
+}
+impl Default for ADS_PROV_SPECIFIC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADS_PROV_SPECIFIC {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ADS_READONLY_SERVER: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(4u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADS_REPLICAPOINTER {
+    pub ServerName: windows_core::PWSTR,
+    pub ReplicaType: u32,
+    pub ReplicaNumber: u32,
+    pub Count: u32,
+    pub ReplicaAddressHints: *mut ADS_NETADDRESS,
+}
+impl Default for ADS_REPLICAPOINTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADS_REPLICAPOINTER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_RIGHTS_ENUM(pub i32);
+pub const ADS_RIGHT_ACCESS_SYSTEM_SECURITY: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(16777216i32);
+pub const ADS_RIGHT_ACTRL_DS_LIST: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(4i32);
+pub const ADS_RIGHT_DELETE: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(65536i32);
+pub const ADS_RIGHT_DS_CONTROL_ACCESS: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(256i32);
+pub const ADS_RIGHT_DS_CREATE_CHILD: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(1i32);
+pub const ADS_RIGHT_DS_DELETE_CHILD: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(2i32);
+pub const ADS_RIGHT_DS_DELETE_TREE: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(64i32);
+pub const ADS_RIGHT_DS_LIST_OBJECT: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(128i32);
+pub const ADS_RIGHT_DS_READ_PROP: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(16i32);
+pub const ADS_RIGHT_DS_SELF: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(8i32);
+pub const ADS_RIGHT_DS_WRITE_PROP: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(32i32);
+pub const ADS_RIGHT_GENERIC_ALL: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(268435456i32);
+pub const ADS_RIGHT_GENERIC_EXECUTE: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(536870912i32);
+pub const ADS_RIGHT_GENERIC_READ: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(-2147483648i32);
+pub const ADS_RIGHT_GENERIC_WRITE: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(1073741824i32);
+pub const ADS_RIGHT_READ_CONTROL: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(131072i32);
+pub const ADS_RIGHT_SYNCHRONIZE: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(1048576i32);
+pub const ADS_RIGHT_WRITE_DAC: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(262144i32);
+pub const ADS_RIGHT_WRITE_OWNER: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(524288i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_SCOPEENUM(pub i32);
+pub const ADS_SCOPE_BASE: ADS_SCOPEENUM = ADS_SCOPEENUM(0i32);
+pub const ADS_SCOPE_ONELEVEL: ADS_SCOPEENUM = ADS_SCOPEENUM(1i32);
+pub const ADS_SCOPE_SUBTREE: ADS_SCOPEENUM = ADS_SCOPEENUM(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_SD_CONTROL_ENUM(pub i32);
+pub const ADS_SD_CONTROL_SE_DACL_AUTO_INHERITED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(1024i32);
+pub const ADS_SD_CONTROL_SE_DACL_AUTO_INHERIT_REQ: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(256i32);
+pub const ADS_SD_CONTROL_SE_DACL_DEFAULTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(8i32);
+pub const ADS_SD_CONTROL_SE_DACL_PRESENT: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(4i32);
+pub const ADS_SD_CONTROL_SE_DACL_PROTECTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(4096i32);
+pub const ADS_SD_CONTROL_SE_GROUP_DEFAULTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(2i32);
+pub const ADS_SD_CONTROL_SE_OWNER_DEFAULTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(1i32);
+pub const ADS_SD_CONTROL_SE_SACL_AUTO_INHERITED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(2048i32);
+pub const ADS_SD_CONTROL_SE_SACL_AUTO_INHERIT_REQ: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(512i32);
+pub const ADS_SD_CONTROL_SE_SACL_DEFAULTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(32i32);
+pub const ADS_SD_CONTROL_SE_SACL_PRESENT: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(16i32);
+pub const ADS_SD_CONTROL_SE_SACL_PROTECTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(8192i32);
+pub const ADS_SD_CONTROL_SE_SELF_RELATIVE: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(32768i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_SD_FORMAT_ENUM(pub i32);
+pub const ADS_SD_FORMAT_HEXSTRING: ADS_SD_FORMAT_ENUM = ADS_SD_FORMAT_ENUM(3i32);
+pub const ADS_SD_FORMAT_IID: ADS_SD_FORMAT_ENUM = ADS_SD_FORMAT_ENUM(1i32);
+pub const ADS_SD_FORMAT_RAW: ADS_SD_FORMAT_ENUM = ADS_SD_FORMAT_ENUM(2i32);
+pub const ADS_SD_REVISION_DS: ADS_SD_REVISION_ENUM = ADS_SD_REVISION_ENUM(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_SD_REVISION_ENUM(pub i32);
+pub const ADS_SEARCHPREF_ASYNCHRONOUS: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(0i32);
+pub const ADS_SEARCHPREF_ATTRIBTYPES_ONLY: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(4i32);
+pub const ADS_SEARCHPREF_ATTRIBUTE_QUERY: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(15i32);
+pub const ADS_SEARCHPREF_CACHE_RESULTS: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(11i32);
+pub const ADS_SEARCHPREF_CHASE_REFERRALS: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(9i32);
+pub const ADS_SEARCHPREF_DEREF_ALIASES: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(1i32);
+pub const ADS_SEARCHPREF_DIRSYNC: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(12i32);
+pub const ADS_SEARCHPREF_DIRSYNC_FLAG: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(17i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_SEARCHPREF_ENUM(pub i32);
+pub const ADS_SEARCHPREF_EXTENDED_DN: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(18i32);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ADS_SEARCHPREF_INFO {
+    pub dwSearchPref: ADS_SEARCHPREF_ENUM,
+    pub vValue: ADSVALUE,
+    pub dwStatus: ADS_STATUSENUM,
+}
+impl Default for ADS_SEARCHPREF_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADS_SEARCHPREF_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ADS_SEARCHPREF_PAGED_TIME_LIMIT: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(8i32);
+pub const ADS_SEARCHPREF_PAGESIZE: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(7i32);
+pub const ADS_SEARCHPREF_SEARCH_SCOPE: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(5i32);
+pub const ADS_SEARCHPREF_SECURITY_MASK: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(16i32);
+pub const ADS_SEARCHPREF_SIZE_LIMIT: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(2i32);
+pub const ADS_SEARCHPREF_SORT_ON: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(10i32);
+pub const ADS_SEARCHPREF_TIMEOUT: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(6i32);
+pub const ADS_SEARCHPREF_TIME_LIMIT: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(3i32);
+pub const ADS_SEARCHPREF_TOMBSTONE: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(13i32);
+pub const ADS_SEARCHPREF_VLV: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(14i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADS_SEARCH_COLUMN {
+    pub pszAttrName: windows_core::PWSTR,
+    pub dwADsType: ADSTYPE,
+    pub pADsValues: *mut ADSVALUE,
+    pub dwNumValues: u32,
+    pub hReserved: super::super::Foundation::HANDLE,
+}
+impl Default for ADS_SEARCH_COLUMN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADS_SEARCH_COLUMN {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct ADS_SEARCH_HANDLE(pub isize);
+impl windows_core::TypeKind for ADS_SEARCH_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
+impl ADS_SEARCH_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+pub const ADS_SECURE_AUTHENTICATION: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(1u32);
+pub const ADS_SECURITY_INFO_DACL: ADS_SECURITY_INFO_ENUM = ADS_SECURITY_INFO_ENUM(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_SECURITY_INFO_ENUM(pub i32);
+pub const ADS_SECURITY_INFO_GROUP: ADS_SECURITY_INFO_ENUM = ADS_SECURITY_INFO_ENUM(2i32);
+pub const ADS_SECURITY_INFO_OWNER: ADS_SECURITY_INFO_ENUM = ADS_SECURITY_INFO_ENUM(1i32);
+pub const ADS_SECURITY_INFO_SACL: ADS_SECURITY_INFO_ENUM = ADS_SECURITY_INFO_ENUM(8i32);
+pub const ADS_SERVER_BIND: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(512u32);
+pub const ADS_SETTYPE_DN: ADS_SETTYPE_ENUM = ADS_SETTYPE_ENUM(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_SETTYPE_ENUM(pub i32);
+pub const ADS_SETTYPE_FULL: ADS_SETTYPE_ENUM = ADS_SETTYPE_ENUM(1i32);
+pub const ADS_SETTYPE_PROVIDER: ADS_SETTYPE_ENUM = ADS_SETTYPE_ENUM(2i32);
+pub const ADS_SETTYPE_SERVER: ADS_SETTYPE_ENUM = ADS_SETTYPE_ENUM(3i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADS_SORTKEY {
+    pub pszAttrType: windows_core::PWSTR,
+    pub pszReserved: windows_core::PWSTR,
+    pub fReverseorder: super::super::Foundation::BOOLEAN,
+}
+impl Default for ADS_SORTKEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADS_SORTKEY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_STATUSENUM(pub i32);
+pub const ADS_STATUS_INVALID_SEARCHPREF: ADS_STATUSENUM = ADS_STATUSENUM(1i32);
+pub const ADS_STATUS_INVALID_SEARCHPREFVALUE: ADS_STATUSENUM = ADS_STATUSENUM(2i32);
+pub const ADS_STATUS_S_OK: ADS_STATUSENUM = ADS_STATUSENUM(0i32);
+pub const ADS_SYSTEMFLAG_ATTR_IS_CONSTRUCTED: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(4i32);
+pub const ADS_SYSTEMFLAG_ATTR_NOT_REPLICATED: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(1i32);
+pub const ADS_SYSTEMFLAG_CONFIG_ALLOW_LIMITED_MOVE: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(268435456i32);
+pub const ADS_SYSTEMFLAG_CONFIG_ALLOW_MOVE: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(536870912i32);
+pub const ADS_SYSTEMFLAG_CONFIG_ALLOW_RENAME: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(1073741824i32);
+pub const ADS_SYSTEMFLAG_CR_NTDS_DOMAIN: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(2i32);
+pub const ADS_SYSTEMFLAG_CR_NTDS_NC: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(1i32);
+pub const ADS_SYSTEMFLAG_DISALLOW_DELETE: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(-2147483648i32);
+pub const ADS_SYSTEMFLAG_DOMAIN_DISALLOW_MOVE: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(67108864i32);
+pub const ADS_SYSTEMFLAG_DOMAIN_DISALLOW_RENAME: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(134217728i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_SYSTEMFLAG_ENUM(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADS_TIMESTAMP {
+    pub WholeSeconds: u32,
+    pub EventID: u32,
+}
+impl Default for ADS_TIMESTAMP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADS_TIMESTAMP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADS_TYPEDNAME {
+    pub ObjectName: windows_core::PWSTR,
+    pub Level: u32,
+    pub Interval: u32,
+}
+impl Default for ADS_TYPEDNAME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADS_TYPEDNAME {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ADS_UF_ACCOUNTDISABLE: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(2i32);
+pub const ADS_UF_DONT_EXPIRE_PASSWD: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(65536i32);
+pub const ADS_UF_DONT_REQUIRE_PREAUTH: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(4194304i32);
+pub const ADS_UF_ENCRYPTED_TEXT_PASSWORD_ALLOWED: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(128i32);
+pub const ADS_UF_HOMEDIR_REQUIRED: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(8i32);
+pub const ADS_UF_INTERDOMAIN_TRUST_ACCOUNT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(2048i32);
+pub const ADS_UF_LOCKOUT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(16i32);
+pub const ADS_UF_MNS_LOGON_ACCOUNT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(131072i32);
+pub const ADS_UF_NORMAL_ACCOUNT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(512i32);
+pub const ADS_UF_NOT_DELEGATED: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(1048576i32);
+pub const ADS_UF_PASSWD_CANT_CHANGE: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(64i32);
+pub const ADS_UF_PASSWD_NOTREQD: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(32i32);
+pub const ADS_UF_PASSWORD_EXPIRED: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(8388608i32);
+pub const ADS_UF_SCRIPT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(1i32);
+pub const ADS_UF_SERVER_TRUST_ACCOUNT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(8192i32);
+pub const ADS_UF_SMARTCARD_REQUIRED: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(262144i32);
+pub const ADS_UF_TEMP_DUPLICATE_ACCOUNT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(256i32);
+pub const ADS_UF_TRUSTED_FOR_DELEGATION: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(524288i32);
+pub const ADS_UF_TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(16777216i32);
+pub const ADS_UF_USE_DES_KEY_ONLY: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(2097152i32);
+pub const ADS_UF_WORKSTATION_TRUST_ACCOUNT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(4096i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADS_USER_FLAG_ENUM(pub i32);
+pub const ADS_USE_DELEGATION: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(256u32);
+pub const ADS_USE_ENCRYPTION: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(2u32);
+pub const ADS_USE_SEALING: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(128u32);
+pub const ADS_USE_SIGNING: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(64u32);
+pub const ADS_USE_SSL: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(2u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ADS_VLV {
+    pub dwBeforeCount: u32,
+    pub dwAfterCount: u32,
+    pub dwOffset: u32,
+    pub dwContentCount: u32,
+    pub pszTarget: windows_core::PWSTR,
+    pub dwContextIDLength: u32,
+    pub lpContextID: *mut u8,
+}
+impl Default for ADS_VLV {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ADS_VLV {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ADSystemInfo: windows_core::GUID = windows_core::GUID::from_u128(0x50b6327f_afd1_11d2_9cb9_0000f87a369e);
+pub const ADsSecurityUtility: windows_core::GUID = windows_core::GUID::from_u128(0xf270c64a_ffb8_4ae4_85fe_3a75e5347966);
+pub const AccessControlEntry: windows_core::GUID = windows_core::GUID::from_u128(0xb75ac000_9bdd_11d0_852c_00c04fd8d503);
+pub const AccessControlList: windows_core::GUID = windows_core::GUID::from_u128(0xb85ea052_9bdd_11d0_852c_00c04fd8d503);
+pub const BackLink: windows_core::GUID = windows_core::GUID::from_u128(0xfcbf906f_4080_11d1_a3ac_00c04fb950dc);
+pub const CFSTR_DSDISPLAYSPECOPTIONS: windows_core::PCWSTR = windows_core::w!("DsDisplaySpecOptions");
+pub const CFSTR_DSOBJECTNAMES: windows_core::PCWSTR = windows_core::w!("DsObjectNames");
+pub const CFSTR_DSOP_DS_SELECTION_LIST: windows_core::PCWSTR = windows_core::w!("CFSTR_DSOP_DS_SELECTION_LIST");
+pub const CFSTR_DSPROPERTYPAGEINFO: windows_core::PCWSTR = windows_core::w!("DsPropPageInfo");
+pub const CFSTR_DSQUERYPARAMS: windows_core::PCWSTR = windows_core::w!("DsQueryParameters");
+pub const CFSTR_DSQUERYSCOPE: windows_core::PCWSTR = windows_core::w!("DsQueryScope");
+pub const CFSTR_DS_DISPLAY_SPEC_OPTIONS: windows_core::PCWSTR = windows_core::w!("DsDisplaySpecOptions");
+pub const CLSID_CommonQuery: windows_core::GUID = windows_core::GUID::from_u128(0x83bc5ec0_6f2a_11d0_a1c4_00aa00c16e65);
+pub const CLSID_DsAdminCreateObj: windows_core::GUID = windows_core::GUID::from_u128(0xe301a009_f901_11d2_82b9_00c04f68928b);
+pub const CLSID_DsDisplaySpecifier: windows_core::GUID = windows_core::GUID::from_u128(0x1ab4a8c0_6a0b_11d2_ad49_00c04fa31a86);
+pub const CLSID_DsDomainTreeBrowser: windows_core::GUID = windows_core::GUID::from_u128(0x1698790a_e2b4_11d0_b0b1_00c04fd8dca6);
+pub const CLSID_DsFindAdvanced: windows_core::GUID = windows_core::GUID::from_u128(0x83ee3fe3_57d9_11d0_b932_00a024ab2dbb);
+pub const CLSID_DsFindComputer: windows_core::GUID = windows_core::GUID::from_u128(0x16006700_87ad_11d0_9140_00aa00c16e65);
+pub const CLSID_DsFindContainer: windows_core::GUID = windows_core::GUID::from_u128(0xc1b3cbf2_886a_11d0_9140_00aa00c16e65);
+pub const CLSID_DsFindDomainController: windows_core::GUID = windows_core::GUID::from_u128(0x538c7b7e_d25e_11d0_9742_00a0c906af45);
+pub const CLSID_DsFindFrsMembers: windows_core::GUID = windows_core::GUID::from_u128(0x94ce4b18_b3d3_11d1_b9b4_00c04fd8d5b0);
+pub const CLSID_DsFindObjects: windows_core::GUID = windows_core::GUID::from_u128(0x83ee3fe1_57d9_11d0_b932_00a024ab2dbb);
+pub const CLSID_DsFindPeople: windows_core::GUID = windows_core::GUID::from_u128(0x83ee3fe2_57d9_11d0_b932_00a024ab2dbb);
+pub const CLSID_DsFindPrinter: windows_core::GUID = windows_core::GUID::from_u128(0xb577f070_7ee2_11d0_913f_00aa00c16e65);
+pub const CLSID_DsFindVolume: windows_core::GUID = windows_core::GUID::from_u128(0xc1b3cbf1_886a_11d0_9140_00aa00c16e65);
+pub const CLSID_DsFindWriteableDomainController: windows_core::GUID = windows_core::GUID::from_u128(0x7cbef079_aa84_444b_bc70_68e41283eabc);
+pub const CLSID_DsFolderProperties: windows_core::GUID = windows_core::GUID::from_u128(0x9e51e0d0_6e0f_11d2_9601_00c04fa31a86);
+pub const CLSID_DsObjectPicker: windows_core::GUID = windows_core::GUID::from_u128(0x17d6ccd8_3b7b_11d2_b9e0_00c04fd8dbf7);
+pub const CLSID_DsPropertyPages: windows_core::GUID = windows_core::GUID::from_u128(0x0d45d530_764b_11d0_a1ca_00aa00c16e65);
+pub const CLSID_DsQuery: windows_core::GUID = windows_core::GUID::from_u128(0x8a23e65e_31c2_11d0_891c_00a024ab2dbb);
+pub const CLSID_MicrosoftDS: windows_core::GUID = windows_core::GUID::from_u128(0xfe1290f0_cfbd_11cf_a330_00aa00c16e65);
+pub const CQFF_ISOPTIONAL: u32 = 2u32;
+pub const CQFF_NOGLOBALPAGES: u32 = 1u32;
+#[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CQFORM {
+    pub cbStruct: u32,
+    pub dwFlags: u32,
+    pub clsid: windows_core::GUID,
+    pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
+    pub pszTitle: windows_core::PCWSTR,
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for CQFORM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::TypeKind for CQFORM {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CQPAGE {
+    pub cbStruct: u32,
+    pub dwFlags: u32,
+    pub pPageProc: LPCQPAGEPROC,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub idPageName: i32,
+    pub idPageTemplate: i32,
+    pub pDlgProc: super::super::UI::WindowsAndMessaging::DLGPROC,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for CQPAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::TypeKind for CQPAGE {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CQPM_CLEARFORM: u32 = 6u32;
+pub const CQPM_ENABLE: u32 = 3u32;
+pub const CQPM_GETPARAMETERS: u32 = 5u32;
+pub const CQPM_HANDLERSPECIFIC: u32 = 268435456u32;
+pub const CQPM_HELP: u32 = 8u32;
+pub const CQPM_INITIALIZE: u32 = 1u32;
+pub const CQPM_PERSIST: u32 = 7u32;
+pub const CQPM_RELEASE: u32 = 2u32;
+pub const CQPM_SETDEFAULTPARAMETERS: u32 = 9u32;
+pub const CaseIgnoreList: windows_core::GUID = windows_core::GUID::from_u128(0x15f88a55_4680_11d1_a3b4_00c04fb950dc);
+pub const DBDTF_RETURNEXTERNAL: u32 = 4u32;
+pub const DBDTF_RETURNFQDN: u32 = 1u32;
+pub const DBDTF_RETURNINBOUND: u32 = 8u32;
+pub const DBDTF_RETURNINOUTBOUND: u32 = 16u32;
+pub const DBDTF_RETURNMIXEDDOMAINS: u32 = 2u32;
+pub const DNWithBinary: windows_core::GUID = windows_core::GUID::from_u128(0x7e99c0a3_f935_11d2_ba96_00c04fb6d0d1);
+pub const DNWithString: windows_core::GUID = windows_core::GUID::from_u128(0x334857cc_f934_11d2_ba96_00c04fb6d0d1);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DOMAINDESC {
+    pub pszName: windows_core::PWSTR,
+    pub pszPath: windows_core::PWSTR,
+    pub pszNCName: windows_core::PWSTR,
+    pub pszTrustParent: windows_core::PWSTR,
+    pub pszObjectClass: windows_core::PWSTR,
+    pub ulFlags: u32,
+    pub fDownLevel: super::super::Foundation::BOOL,
+    pub pdChildList: *mut DOMAINDESC,
+    pub pdNextSibling: *mut DOMAINDESC,
+}
+impl Default for DOMAINDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DOMAINDESC {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DOMAIN_CONTROLLER_INFOA {
+    pub DomainControllerName: windows_core::PSTR,
+    pub DomainControllerAddress: windows_core::PSTR,
+    pub DomainControllerAddressType: u32,
+    pub DomainGuid: windows_core::GUID,
+    pub DomainName: windows_core::PSTR,
+    pub DnsForestName: windows_core::PSTR,
+    pub Flags: u32,
+    pub DcSiteName: windows_core::PSTR,
+    pub ClientSiteName: windows_core::PSTR,
+}
+impl Default for DOMAIN_CONTROLLER_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DOMAIN_CONTROLLER_INFOA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DOMAIN_CONTROLLER_INFOW {
+    pub DomainControllerName: windows_core::PWSTR,
+    pub DomainControllerAddress: windows_core::PWSTR,
+    pub DomainControllerAddressType: u32,
+    pub DomainGuid: windows_core::GUID,
+    pub DomainName: windows_core::PWSTR,
+    pub DnsForestName: windows_core::PWSTR,
+    pub Flags: u32,
+    pub DcSiteName: windows_core::PWSTR,
+    pub ClientSiteName: windows_core::PWSTR,
+}
+impl Default for DOMAIN_CONTROLLER_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DOMAIN_CONTROLLER_INFOW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DOMAIN_TREE {
+    pub dsSize: u32,
+    pub dwCount: u32,
+    pub aDomains: [DOMAINDESC; 1],
+}
+impl Default for DOMAIN_TREE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DOMAIN_TREE {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DSA_NEWOBJ_CTX_CLEANUP: u32 = 4u32;
+pub const DSA_NEWOBJ_CTX_COMMIT: u32 = 2u32;
+pub const DSA_NEWOBJ_CTX_POSTCOMMIT: u32 = 3u32;
+pub const DSA_NEWOBJ_CTX_PRECOMMIT: u32 = 1u32;
+#[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DSA_NEWOBJ_DISPINFO {
+    pub dwSize: u32,
+    pub hObjClassIcon: super::super::UI::WindowsAndMessaging::HICON,
+    pub lpszWizTitle: windows_core::PWSTR,
+    pub lpszContDisplayName: windows_core::PWSTR,
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for DSA_NEWOBJ_DISPINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::TypeKind for DSA_NEWOBJ_DISPINFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DSA_NOTIFY_DEL: u32 = 1u32;
+pub const DSA_NOTIFY_FLAG_ADDITIONAL_DATA: u32 = 2u32;
+pub const DSA_NOTIFY_FLAG_FORCE_ADDITIONAL_DATA: u32 = 1u32;
+pub const DSA_NOTIFY_MOV: u32 = 4u32;
+pub const DSA_NOTIFY_PROP: u32 = 8u32;
+pub const DSA_NOTIFY_REN: u32 = 2u32;
+pub const DSBF_DISPLAYNAME: u32 = 4u32;
+pub const DSBF_ICONLOCATION: u32 = 2u32;
+pub const DSBF_STATE: u32 = 1u32;
+pub const DSBID_BANNER: u32 = 256u32;
+pub const DSBID_CONTAINERLIST: u32 = 257u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DSBITEMA {
+    pub cbStruct: u32,
+    pub pszADsPath: windows_core::PCWSTR,
+    pub pszClass: windows_core::PCWSTR,
+    pub dwMask: u32,
+    pub dwState: u32,
+    pub dwStateMask: u32,
+    pub szDisplayName: [i8; 64],
+    pub szIconLocation: [i8; 260],
+    pub iIconResID: i32,
+}
+impl Default for DSBITEMA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DSBITEMA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DSBITEMW {
+    pub cbStruct: u32,
+    pub pszADsPath: windows_core::PCWSTR,
+    pub pszClass: windows_core::PCWSTR,
+    pub dwMask: u32,
+    pub dwState: u32,
+    pub dwStateMask: u32,
+    pub szDisplayName: [u16; 64],
+    pub szIconLocation: [u16; 260],
+    pub iIconResID: i32,
+}
+impl Default for DSBITEMW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DSBITEMW {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DSBI_CHECKBOXES: u32 = 256u32;
+pub const DSBI_DONTSIGNSEAL: u32 = 33554432u32;
+pub const DSBI_ENTIREDIRECTORY: u32 = 589824u32;
+pub const DSBI_EXPANDONOPEN: u32 = 262144u32;
+pub const DSBI_HASCREDENTIALS: u32 = 2097152u32;
+pub const DSBI_IGNORETREATASLEAF: u32 = 4194304u32;
+pub const DSBI_INCLUDEHIDDEN: u32 = 131072u32;
+pub const DSBI_NOBUTTONS: u32 = 1u32;
+pub const DSBI_NOLINES: u32 = 2u32;
+pub const DSBI_NOLINESATROOT: u32 = 4u32;
+pub const DSBI_NOROOT: u32 = 65536u32;
+pub const DSBI_RETURNOBJECTCLASS: u32 = 16777216u32;
+pub const DSBI_RETURN_FORMAT: u32 = 1048576u32;
+pub const DSBI_SIMPLEAUTHENTICATE: u32 = 8388608u32;
+pub const DSBM_CHANGEIMAGESTATE: u32 = 102u32;
+pub const DSBM_CONTEXTMENU: u32 = 104u32;
+pub const DSBM_HELP: u32 = 103u32;
+pub const DSBM_QUERYINSERT: u32 = 100u32;
+pub const DSBM_QUERYINSERTA: u32 = 101u32;
+pub const DSBM_QUERYINSERTW: u32 = 100u32;
+#[repr(C)]
+#[cfg(feature = "Win32_UI_Shell")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DSBROWSEINFOA {
+    pub cbStruct: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub pszCaption: windows_core::PCSTR,
+    pub pszTitle: windows_core::PCSTR,
+    pub pszRoot: windows_core::PCWSTR,
+    pub pszPath: windows_core::PWSTR,
+    pub cchPath: u32,
+    pub dwFlags: u32,
+    pub pfnCallback: super::super::UI::Shell::BFFCALLBACK,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub dwReturnFormat: u32,
+    pub pUserName: windows_core::PCWSTR,
+    pub pPassword: windows_core::PCWSTR,
+    pub pszObjectClass: windows_core::PWSTR,
+    pub cchObjectClass: u32,
+}
+#[cfg(feature = "Win32_UI_Shell")]
+impl Default for DSBROWSEINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_UI_Shell")]
+impl windows_core::TypeKind for DSBROWSEINFOA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_Shell")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DSBROWSEINFOW {
+    pub cbStruct: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub pszCaption: windows_core::PCWSTR,
+    pub pszTitle: windows_core::PCWSTR,
+    pub pszRoot: windows_core::PCWSTR,
+    pub pszPath: windows_core::PWSTR,
+    pub cchPath: u32,
+    pub dwFlags: u32,
+    pub pfnCallback: super::super::UI::Shell::BFFCALLBACK,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub dwReturnFormat: u32,
+    pub pUserName: windows_core::PCWSTR,
+    pub pPassword: windows_core::PCWSTR,
+    pub pszObjectClass: windows_core::PWSTR,
+    pub cchObjectClass: u32,
+}
+#[cfg(feature = "Win32_UI_Shell")]
+impl Default for DSBROWSEINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_UI_Shell")]
+impl windows_core::TypeKind for DSBROWSEINFOW {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DSBS_CHECKED: u32 = 1u32;
+pub const DSBS_HIDDEN: u32 = 2u32;
+pub const DSBS_ROOT: u32 = 4u32;
+pub const DSB_MAX_DISPLAYNAME_CHARS: u32 = 64u32;
+pub const DSCCIF_HASWIZARDDIALOG: u32 = 1u32;
+pub const DSCCIF_HASWIZARDPRIMARYPAGE: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DSCLASSCREATIONINFO {
+    pub dwFlags: u32,
+    pub clsidWizardDialog: windows_core::GUID,
+    pub clsidWizardPrimaryPage: windows_core::GUID,
+    pub cWizardExtensions: u32,
+    pub aWizardExtensions: [windows_core::GUID; 1],
+}
+impl Default for DSCLASSCREATIONINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DSCLASSCREATIONINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DSCOLUMN {
+    pub dwFlags: u32,
+    pub fmt: i32,
+    pub cx: i32,
+    pub idsName: i32,
+    pub offsetProperty: i32,
+    pub dwReserved: u32,
+}
+impl Default for DSCOLUMN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DSCOLUMN {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DSDISPLAYSPECOPTIONS {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub offsetAttribPrefix: u32,
+    pub offsetUserName: u32,
+    pub offsetPassword: u32,
+    pub offsetServer: u32,
+    pub offsetServerConfigPath: u32,
+}
+impl Default for DSDISPLAYSPECOPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DSDISPLAYSPECOPTIONS {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DSDSOF_DONTSIGNSEAL: u32 = 4u32;
+pub const DSDSOF_DSAVAILABLE: u32 = 1073741824u32;
+pub const DSDSOF_HASUSERANDSERVERINFO: u32 = 1u32;
+pub const DSDSOF_SIMPLEAUTHENTICATE: u32 = 2u32;
+pub const DSECAF_NOTLISTED: u32 = 1u32;
+pub const DSGIF_DEFAULTISCONTAINER: u32 = 32u32;
+pub const DSGIF_GETDEFAULTICON: u32 = 16u32;
+pub const DSGIF_ISDISABLED: u32 = 2u32;
+pub const DSGIF_ISMASK: u32 = 15u32;
+pub const DSGIF_ISNORMAL: u32 = 0u32;
+pub const DSGIF_ISOPEN: u32 = 1u32;
+pub const DSICCF_IGNORETREATASLEAF: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DSOBJECT {
+    pub dwFlags: u32,
+    pub dwProviderFlags: u32,
+    pub offsetName: u32,
+    pub offsetClass: u32,
+}
+impl Default for DSOBJECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DSOBJECT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DSOBJECTNAMES {
+    pub clsidNamespace: windows_core::GUID,
+    pub cItems: u32,
+    pub aObjects: [DSOBJECT; 1],
+}
+impl Default for DSOBJECTNAMES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DSOBJECTNAMES {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DSOBJECT_ISCONTAINER: u32 = 1u32;
+pub const DSOBJECT_READONLYPAGES: u32 = 2147483648u32;
+pub const DSOP_DOWNLEVEL_FILTER_ALL_APP_PACKAGES: u32 = 2281701376u32;
+pub const DSOP_DOWNLEVEL_FILTER_ALL_WELLKNOWN_SIDS: u32 = 2147614720u32;
+pub const DSOP_DOWNLEVEL_FILTER_ANONYMOUS: u32 = 2147483712u32;
+pub const DSOP_DOWNLEVEL_FILTER_AUTHENTICATED_USER: u32 = 2147483680u32;
+pub const DSOP_DOWNLEVEL_FILTER_BATCH: u32 = 2147483776u32;
+pub const DSOP_DOWNLEVEL_FILTER_COMPUTERS: u32 = 2147483656u32;
+pub const DSOP_DOWNLEVEL_FILTER_CREATOR_GROUP: u32 = 2147484160u32;
+pub const DSOP_DOWNLEVEL_FILTER_CREATOR_OWNER: u32 = 2147483904u32;
+pub const DSOP_DOWNLEVEL_FILTER_DIALUP: u32 = 2147484672u32;
+pub const DSOP_DOWNLEVEL_FILTER_EXCLUDE_BUILTIN_GROUPS: u32 = 2147516416u32;
+pub const DSOP_DOWNLEVEL_FILTER_GLOBAL_GROUPS: u32 = 2147483652u32;
+pub const DSOP_DOWNLEVEL_FILTER_IIS_APP_POOL: u32 = 2214592512u32;
+pub const DSOP_DOWNLEVEL_FILTER_INTERACTIVE: u32 = 2147485696u32;
+pub const DSOP_DOWNLEVEL_FILTER_INTERNET_USER: u32 = 2149580800u32;
+pub const DSOP_DOWNLEVEL_FILTER_LOCAL_ACCOUNTS: u32 = 2415919104u32;
+pub const DSOP_DOWNLEVEL_FILTER_LOCAL_GROUPS: u32 = 2147483650u32;
+pub const DSOP_DOWNLEVEL_FILTER_LOCAL_LOGON: u32 = 2164260864u32;
+pub const DSOP_DOWNLEVEL_FILTER_LOCAL_SERVICE: u32 = 2147745792u32;
+pub const DSOP_DOWNLEVEL_FILTER_NETWORK: u32 = 2147487744u32;
+pub const DSOP_DOWNLEVEL_FILTER_NETWORK_SERVICE: u32 = 2148007936u32;
+pub const DSOP_DOWNLEVEL_FILTER_OWNER_RIGHTS: u32 = 2151677952u32;
+pub const DSOP_DOWNLEVEL_FILTER_REMOTE_LOGON: u32 = 2148532224u32;
+pub const DSOP_DOWNLEVEL_FILTER_SERVICE: u32 = 2147491840u32;
+pub const DSOP_DOWNLEVEL_FILTER_SERVICES: u32 = 2155872256u32;
+pub const DSOP_DOWNLEVEL_FILTER_SYSTEM: u32 = 2147500032u32;
+pub const DSOP_DOWNLEVEL_FILTER_TERMINAL_SERVER: u32 = 2147549184u32;
+pub const DSOP_DOWNLEVEL_FILTER_THIS_ORG_CERT: u32 = 2181038080u32;
+pub const DSOP_DOWNLEVEL_FILTER_USERS: u32 = 2147483649u32;
+pub const DSOP_DOWNLEVEL_FILTER_WORLD: u32 = 2147483664u32;
+pub const DSOP_FILTER_BUILTIN_GROUPS: u32 = 4u32;
+pub const DSOP_FILTER_COMPUTERS: u32 = 2048u32;
+pub const DSOP_FILTER_CONTACTS: u32 = 1024u32;
+pub const DSOP_FILTER_DOMAIN_LOCAL_GROUPS_DL: u32 = 256u32;
+pub const DSOP_FILTER_DOMAIN_LOCAL_GROUPS_SE: u32 = 512u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DSOP_FILTER_FLAGS {
+    pub Uplevel: DSOP_UPLEVEL_FILTER_FLAGS,
+    pub flDownlevel: u32,
+}
+impl Default for DSOP_FILTER_FLAGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DSOP_FILTER_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DSOP_FILTER_GLOBAL_GROUPS_DL: u32 = 64u32;
+pub const DSOP_FILTER_GLOBAL_GROUPS_SE: u32 = 128u32;
+pub const DSOP_FILTER_INCLUDE_ADVANCED_VIEW: u32 = 1u32;
+pub const DSOP_FILTER_PASSWORDSETTINGS_OBJECTS: u32 = 8192u32;
+pub const DSOP_FILTER_SERVICE_ACCOUNTS: u32 = 4096u32;
+pub const DSOP_FILTER_UNIVERSAL_GROUPS_DL: u32 = 16u32;
+pub const DSOP_FILTER_UNIVERSAL_GROUPS_SE: u32 = 32u32;
+pub const DSOP_FILTER_USERS: u32 = 2u32;
+pub const DSOP_FILTER_WELL_KNOWN_PRINCIPALS: u32 = 8u32;
+pub const DSOP_FLAG_MULTISELECT: u32 = 1u32;
+pub const DSOP_FLAG_SKIP_TARGET_COMPUTER_DC_CHECK: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DSOP_INIT_INFO {
+    pub cbSize: u32,
+    pub pwzTargetComputer: windows_core::PCWSTR,
+    pub cDsScopeInfos: u32,
+    pub aDsScopeInfos: *mut DSOP_SCOPE_INIT_INFO,
+    pub flOptions: u32,
+    pub cAttributesToFetch: u32,
+    pub apwzAttributeNames: *const windows_core::PCWSTR,
+}
+impl Default for DSOP_INIT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DSOP_INIT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_COMPUTERS: u32 = 256u32;
+pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_CONTACTS: u32 = 512u32;
+pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_GROUPS: u32 = 128u32;
+pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_PASSWORDSETTINGS_OBJECTS: u32 = 2048u32;
+pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_SERVICE_ACCOUNTS: u32 = 1024u32;
+pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_USERS: u32 = 64u32;
+pub const DSOP_SCOPE_FLAG_STARTING_SCOPE: u32 = 1u32;
+pub const DSOP_SCOPE_FLAG_WANT_DOWNLEVEL_BUILTIN_PATH: u32 = 32u32;
+pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_GC: u32 = 8u32;
+pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_LDAP: u32 = 4u32;
+pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_WINNT: u32 = 2u32;
+pub const DSOP_SCOPE_FLAG_WANT_SID_PATH: u32 = 16u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DSOP_SCOPE_INIT_INFO {
+    pub cbSize: u32,
+    pub flType: u32,
+    pub flScope: u32,
+    pub FilterFlags: DSOP_FILTER_FLAGS,
+    pub pwzDcName: windows_core::PCWSTR,
+    pub pwzADsPath: windows_core::PCWSTR,
+    pub hr: windows_core::HRESULT,
+}
+impl Default for DSOP_SCOPE_INIT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DSOP_SCOPE_INIT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DSOP_SCOPE_TYPE_DOWNLEVEL_JOINED_DOMAIN: u32 = 4u32;
+pub const DSOP_SCOPE_TYPE_ENTERPRISE_DOMAIN: u32 = 8u32;
+pub const DSOP_SCOPE_TYPE_EXTERNAL_DOWNLEVEL_DOMAIN: u32 = 64u32;
+pub const DSOP_SCOPE_TYPE_EXTERNAL_UPLEVEL_DOMAIN: u32 = 32u32;
+pub const DSOP_SCOPE_TYPE_GLOBAL_CATALOG: u32 = 16u32;
+pub const DSOP_SCOPE_TYPE_TARGET_COMPUTER: u32 = 1u32;
+pub const DSOP_SCOPE_TYPE_UPLEVEL_JOINED_DOMAIN: u32 = 2u32;
+pub const DSOP_SCOPE_TYPE_USER_ENTERED_DOWNLEVEL_SCOPE: u32 = 512u32;
+pub const DSOP_SCOPE_TYPE_USER_ENTERED_UPLEVEL_SCOPE: u32 = 256u32;
+pub const DSOP_SCOPE_TYPE_WORKGROUP: u32 = 128u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DSOP_UPLEVEL_FILTER_FLAGS {
+    pub flBothModes: u32,
+    pub flMixedModeOnly: u32,
+    pub flNativeModeOnly: u32,
+}
+impl Default for DSOP_UPLEVEL_FILTER_FLAGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DSOP_UPLEVEL_FILTER_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DSPROPERTYPAGEINFO {
+    pub offsetString: u32,
+}
+impl Default for DSPROPERTYPAGEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DSPROPERTYPAGEINFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DSPROP_ATTRCHANGED_MSG: windows_core::PCWSTR = windows_core::w!("DsPropAttrChanged");
+pub const DSPROVIDER_ADVANCED: u32 = 16u32;
+pub const DSPROVIDER_AD_LDS: u32 = 32u32;
+pub const DSPROVIDER_UNUSED_0: u32 = 1u32;
+pub const DSPROVIDER_UNUSED_1: u32 = 2u32;
+pub const DSPROVIDER_UNUSED_2: u32 = 4u32;
+pub const DSPROVIDER_UNUSED_3: u32 = 8u32;
+pub const DSQPF_ENABLEADMINFEATURES: u32 = 8u32;
+pub const DSQPF_ENABLEADVANCEDFEATURES: u32 = 16u32;
+pub const DSQPF_HASCREDENTIALS: u32 = 32u32;
+pub const DSQPF_NOCHOOSECOLUMNS: u32 = 64u32;
+pub const DSQPF_NOSAVE: u32 = 1u32;
+pub const DSQPF_SAVELOCATION: u32 = 2u32;
+pub const DSQPF_SHOWHIDDENOBJECTS: u32 = 4u32;
+pub const DSQPM_GETCLASSLIST: u32 = 268435456u32;
+pub const DSQPM_HELPTOPICS: u32 = 268435457u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DSQUERYCLASSLIST {
+    pub cbStruct: u32,
+    pub cClasses: i32,
+    pub offsetClass: [u32; 1],
+}
+impl Default for DSQUERYCLASSLIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DSQUERYCLASSLIST {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DSQUERYINITPARAMS {
+    pub cbStruct: u32,
+    pub dwFlags: u32,
+    pub pDefaultScope: windows_core::PWSTR,
+    pub pDefaultSaveLocation: windows_core::PWSTR,
+    pub pUserName: windows_core::PWSTR,
+    pub pPassword: windows_core::PWSTR,
+    pub pServer: windows_core::PWSTR,
+}
+impl Default for DSQUERYINITPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DSQUERYINITPARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DSQUERYPARAMS {
+    pub cbStruct: u32,
+    pub dwFlags: u32,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub offsetQuery: i32,
+    pub iColumns: i32,
+    pub dwReserved: u32,
+    pub aColumns: [DSCOLUMN; 1],
+}
+impl Default for DSQUERYPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DSQUERYPARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DSROLE_MACHINE_ROLE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DSROLE_OPERATION_STATE(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DSROLE_OPERATION_STATE_INFO {
+    pub OperationState: DSROLE_OPERATION_STATE,
+}
+impl Default for DSROLE_OPERATION_STATE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DSROLE_OPERATION_STATE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DSROLE_PRIMARY_DOMAIN_GUID_PRESENT: u32 = 16777216u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
+    pub MachineRole: DSROLE_MACHINE_ROLE,
+    pub Flags: u32,
+    pub DomainNameFlat: windows_core::PWSTR,
+    pub DomainNameDns: windows_core::PWSTR,
+    pub DomainForestName: windows_core::PWSTR,
+    pub DomainGuid: windows_core::GUID,
+}
+impl Default for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DSROLE_PRIMARY_DOMAIN_INFO_LEVEL(pub i32);
+pub const DSROLE_PRIMARY_DS_MIXED_MODE: u32 = 2u32;
+pub const DSROLE_PRIMARY_DS_READONLY: u32 = 8u32;
+pub const DSROLE_PRIMARY_DS_RUNNING: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DSROLE_SERVER_STATE(pub i32);
+pub const DSROLE_UPGRADE_IN_PROGRESS: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DSROLE_UPGRADE_STATUS_INFO {
+    pub OperationState: u32,
+    pub PreviousServerState: DSROLE_SERVER_STATE,
+}
+impl Default for DSROLE_UPGRADE_STATUS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DSROLE_UPGRADE_STATUS_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DSSSF_DONTSIGNSEAL: u32 = 2u32;
+pub const DSSSF_DSAVAILABLE: u32 = 2147483648u32;
+pub const DSSSF_SIMPLEAUTHENTICATE: u32 = 1u32;
+pub const DS_AVOID_SELF: u32 = 16384u32;
+pub const DS_BACKGROUND_ONLY: u32 = 256u32;
+pub const DS_BEHAVIOR_LONGHORN: u32 = 3u32;
+pub const DS_BEHAVIOR_WIN2000: u32 = 0u32;
+pub const DS_BEHAVIOR_WIN2003: u32 = 2u32;
+pub const DS_BEHAVIOR_WIN2003_WITH_MIXED_DOMAINS: u32 = 1u32;
+pub const DS_BEHAVIOR_WIN2008: u32 = 3u32;
+pub const DS_BEHAVIOR_WIN2008R2: u32 = 4u32;
+pub const DS_BEHAVIOR_WIN2012: u32 = 5u32;
+pub const DS_BEHAVIOR_WIN2012R2: u32 = 6u32;
+pub const DS_BEHAVIOR_WIN2016: u32 = 7u32;
+pub const DS_BEHAVIOR_WIN7: u32 = 4u32;
+pub const DS_BEHAVIOR_WIN8: u32 = 5u32;
+pub const DS_BEHAVIOR_WINBLUE: u32 = 6u32;
+pub const DS_BEHAVIOR_WINTHRESHOLD: u32 = 7u32;
+pub const DS_CANONICAL_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(7i32);
+pub const DS_CANONICAL_NAME_EX: DS_NAME_FORMAT = DS_NAME_FORMAT(9i32);
+pub const DS_CLOSEST_FLAG: u32 = 128u32;
+pub const DS_DIRECTORY_SERVICE_10_REQUIRED: u32 = 8388608u32;
+pub const DS_DIRECTORY_SERVICE_6_REQUIRED: u32 = 524288u32;
+pub const DS_DIRECTORY_SERVICE_8_REQUIRED: u32 = 2097152u32;
+pub const DS_DIRECTORY_SERVICE_9_REQUIRED: u32 = 4194304u32;
+pub const DS_DIRECTORY_SERVICE_PREFERRED: u32 = 32u32;
+pub const DS_DIRECTORY_SERVICE_REQUIRED: u32 = 16u32;
+pub const DS_DISPLAY_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(3i32);
+pub const DS_DNS_CONTROLLER_FLAG: u32 = 536870912u32;
+pub const DS_DNS_DOMAIN_FLAG: u32 = 1073741824u32;
+pub const DS_DNS_DOMAIN_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(12i32);
+pub const DS_DNS_FOREST_FLAG: u32 = 2147483648u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_DOMAIN_CONTROLLER_INFO_1A {
+    pub NetbiosName: windows_core::PSTR,
+    pub DnsHostName: windows_core::PSTR,
+    pub SiteName: windows_core::PSTR,
+    pub ComputerObjectName: windows_core::PSTR,
+    pub ServerObjectName: windows_core::PSTR,
+    pub fIsPdc: super::super::Foundation::BOOL,
+    pub fDsEnabled: super::super::Foundation::BOOL,
+}
+impl Default for DS_DOMAIN_CONTROLLER_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_DOMAIN_CONTROLLER_INFO_1A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_DOMAIN_CONTROLLER_INFO_1W {
+    pub NetbiosName: windows_core::PWSTR,
+    pub DnsHostName: windows_core::PWSTR,
+    pub SiteName: windows_core::PWSTR,
+    pub ComputerObjectName: windows_core::PWSTR,
+    pub ServerObjectName: windows_core::PWSTR,
+    pub fIsPdc: super::super::Foundation::BOOL,
+    pub fDsEnabled: super::super::Foundation::BOOL,
+}
+impl Default for DS_DOMAIN_CONTROLLER_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_DOMAIN_CONTROLLER_INFO_1W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_DOMAIN_CONTROLLER_INFO_2A {
+    pub NetbiosName: windows_core::PSTR,
+    pub DnsHostName: windows_core::PSTR,
+    pub SiteName: windows_core::PSTR,
+    pub SiteObjectName: windows_core::PSTR,
+    pub ComputerObjectName: windows_core::PSTR,
+    pub ServerObjectName: windows_core::PSTR,
+    pub NtdsDsaObjectName: windows_core::PSTR,
+    pub fIsPdc: super::super::Foundation::BOOL,
+    pub fDsEnabled: super::super::Foundation::BOOL,
+    pub fIsGc: super::super::Foundation::BOOL,
+    pub SiteObjectGuid: windows_core::GUID,
+    pub ComputerObjectGuid: windows_core::GUID,
+    pub ServerObjectGuid: windows_core::GUID,
+    pub NtdsDsaObjectGuid: windows_core::GUID,
+}
+impl Default for DS_DOMAIN_CONTROLLER_INFO_2A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_DOMAIN_CONTROLLER_INFO_2A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_DOMAIN_CONTROLLER_INFO_2W {
+    pub NetbiosName: windows_core::PWSTR,
+    pub DnsHostName: windows_core::PWSTR,
+    pub SiteName: windows_core::PWSTR,
+    pub SiteObjectName: windows_core::PWSTR,
+    pub ComputerObjectName: windows_core::PWSTR,
+    pub ServerObjectName: windows_core::PWSTR,
+    pub NtdsDsaObjectName: windows_core::PWSTR,
+    pub fIsPdc: super::super::Foundation::BOOL,
+    pub fDsEnabled: super::super::Foundation::BOOL,
+    pub fIsGc: super::super::Foundation::BOOL,
+    pub SiteObjectGuid: windows_core::GUID,
+    pub ComputerObjectGuid: windows_core::GUID,
+    pub ServerObjectGuid: windows_core::GUID,
+    pub NtdsDsaObjectGuid: windows_core::GUID,
+}
+impl Default for DS_DOMAIN_CONTROLLER_INFO_2W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_DOMAIN_CONTROLLER_INFO_2W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_DOMAIN_CONTROLLER_INFO_3A {
+    pub NetbiosName: windows_core::PSTR,
+    pub DnsHostName: windows_core::PSTR,
+    pub SiteName: windows_core::PSTR,
+    pub SiteObjectName: windows_core::PSTR,
+    pub ComputerObjectName: windows_core::PSTR,
+    pub ServerObjectName: windows_core::PSTR,
+    pub NtdsDsaObjectName: windows_core::PSTR,
+    pub fIsPdc: super::super::Foundation::BOOL,
+    pub fDsEnabled: super::super::Foundation::BOOL,
+    pub fIsGc: super::super::Foundation::BOOL,
+    pub fIsRodc: super::super::Foundation::BOOL,
+    pub SiteObjectGuid: windows_core::GUID,
+    pub ComputerObjectGuid: windows_core::GUID,
+    pub ServerObjectGuid: windows_core::GUID,
+    pub NtdsDsaObjectGuid: windows_core::GUID,
+}
+impl Default for DS_DOMAIN_CONTROLLER_INFO_3A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_DOMAIN_CONTROLLER_INFO_3A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_DOMAIN_CONTROLLER_INFO_3W {
+    pub NetbiosName: windows_core::PWSTR,
+    pub DnsHostName: windows_core::PWSTR,
+    pub SiteName: windows_core::PWSTR,
+    pub SiteObjectName: windows_core::PWSTR,
+    pub ComputerObjectName: windows_core::PWSTR,
+    pub ServerObjectName: windows_core::PWSTR,
+    pub NtdsDsaObjectName: windows_core::PWSTR,
+    pub fIsPdc: super::super::Foundation::BOOL,
+    pub fDsEnabled: super::super::Foundation::BOOL,
+    pub fIsGc: super::super::Foundation::BOOL,
+    pub fIsRodc: super::super::Foundation::BOOL,
+    pub SiteObjectGuid: windows_core::GUID,
+    pub ComputerObjectGuid: windows_core::GUID,
+    pub ServerObjectGuid: windows_core::GUID,
+    pub NtdsDsaObjectGuid: windows_core::GUID,
+}
+impl Default for DS_DOMAIN_CONTROLLER_INFO_3W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_DOMAIN_CONTROLLER_INFO_3W {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DS_DOMAIN_DIRECT_INBOUND: u32 = 32u32;
+pub const DS_DOMAIN_DIRECT_OUTBOUND: u32 = 2u32;
+pub const DS_DOMAIN_IN_FOREST: u32 = 1u32;
+pub const DS_DOMAIN_NATIVE_MODE: u32 = 16u32;
+pub const DS_DOMAIN_PRIMARY: u32 = 8u32;
+pub const DS_DOMAIN_TREE_ROOT: u32 = 4u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_DOMAIN_TRUSTSA {
+    pub NetbiosDomainName: windows_core::PSTR,
+    pub DnsDomainName: windows_core::PSTR,
+    pub Flags: u32,
+    pub ParentIndex: u32,
+    pub TrustType: u32,
+    pub TrustAttributes: u32,
+    pub DomainSid: super::super::Security::PSID,
+    pub DomainGuid: windows_core::GUID,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for DS_DOMAIN_TRUSTSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for DS_DOMAIN_TRUSTSA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_DOMAIN_TRUSTSW {
+    pub NetbiosDomainName: windows_core::PWSTR,
+    pub DnsDomainName: windows_core::PWSTR,
+    pub Flags: u32,
+    pub ParentIndex: u32,
+    pub TrustType: u32,
+    pub TrustAttributes: u32,
+    pub DomainSid: super::super::Security::PSID,
+    pub DomainGuid: windows_core::GUID,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for DS_DOMAIN_TRUSTSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for DS_DOMAIN_TRUSTSW {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DS_DS_10_FLAG: u32 = 65536u32;
+pub const DS_DS_8_FLAG: u32 = 16384u32;
+pub const DS_DS_9_FLAG: u32 = 32768u32;
+pub const DS_DS_FLAG: u32 = 16u32;
+pub const DS_EXIST_ADVISORY_MODE: u32 = 1u32;
+pub const DS_FORCE_REDISCOVERY: u32 = 1u32;
+pub const DS_FQDN_1779_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(1i32);
+pub const DS_FULL_SECRET_DOMAIN_6_FLAG: u32 = 4096u32;
+pub const DS_GC_FLAG: u32 = 4u32;
+pub const DS_GC_SERVER_REQUIRED: u32 = 64u32;
+pub const DS_GFTI_UPDATE_TDO: u32 = 1u32;
+pub const DS_GFTI_VALID_FLAGS: u32 = 1u32;
+pub const DS_GOOD_TIMESERV_FLAG: u32 = 512u32;
+pub const DS_GOOD_TIMESERV_PREFERRED: u32 = 8192u32;
+pub const DS_INSTANCETYPE_IS_NC_HEAD: u32 = 1u32;
+pub const DS_INSTANCETYPE_NC_COMING: u32 = 16u32;
+pub const DS_INSTANCETYPE_NC_GOING: u32 = 32u32;
+pub const DS_INSTANCETYPE_NC_IS_WRITEABLE: u32 = 4u32;
+pub const DS_IP_REQUIRED: u32 = 512u32;
+pub const DS_IS_DNS_NAME: u32 = 131072u32;
+pub const DS_IS_FLAT_NAME: u32 = 65536u32;
+pub const DS_KCC_FLAG_ASYNC_OP: u32 = 1u32;
+pub const DS_KCC_FLAG_DAMPED: u32 = 2u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DS_KCC_TASKID(pub i32);
+pub const DS_KCC_TASKID_UPDATE_TOPOLOGY: DS_KCC_TASKID = DS_KCC_TASKID(0i32);
+pub const DS_KDC_FLAG: u32 = 32u32;
+pub const DS_KDC_REQUIRED: u32 = 1024u32;
+pub const DS_KEY_LIST_FLAG: u32 = 131072u32;
+pub const DS_KEY_LIST_SUPPORT_REQUIRED: u32 = 16777216u32;
+pub const DS_LDAP_FLAG: u32 = 8u32;
+pub const DS_LIST_ACCOUNT_OBJECT_FOR_SERVER: u32 = 2u32;
+pub const DS_LIST_DNS_HOST_NAME_FOR_SERVER: u32 = 1u32;
+pub const DS_LIST_DSA_OBJECT_FOR_SERVER: u32 = 0u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DS_MANGLE_FOR(pub i32);
+pub const DS_MANGLE_OBJECT_RDN_FOR_DELETION: DS_MANGLE_FOR = DS_MANGLE_FOR(1i32);
+pub const DS_MANGLE_OBJECT_RDN_FOR_NAME_CONFLICT: DS_MANGLE_FOR = DS_MANGLE_FOR(2i32);
+pub const DS_MANGLE_UNKNOWN: DS_MANGLE_FOR = DS_MANGLE_FOR(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DS_NAME_ERROR(pub i32);
+pub const DS_NAME_ERROR_DOMAIN_ONLY: DS_NAME_ERROR = DS_NAME_ERROR(5i32);
+pub const DS_NAME_ERROR_NOT_FOUND: DS_NAME_ERROR = DS_NAME_ERROR(2i32);
+pub const DS_NAME_ERROR_NOT_UNIQUE: DS_NAME_ERROR = DS_NAME_ERROR(3i32);
+pub const DS_NAME_ERROR_NO_MAPPING: DS_NAME_ERROR = DS_NAME_ERROR(4i32);
+pub const DS_NAME_ERROR_NO_SYNTACTICAL_MAPPING: DS_NAME_ERROR = DS_NAME_ERROR(6i32);
+pub const DS_NAME_ERROR_RESOLVING: DS_NAME_ERROR = DS_NAME_ERROR(1i32);
+pub const DS_NAME_ERROR_TRUST_REFERRAL: DS_NAME_ERROR = DS_NAME_ERROR(7i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DS_NAME_FLAGS(pub i32);
+pub const DS_NAME_FLAG_EVAL_AT_DC: DS_NAME_FLAGS = DS_NAME_FLAGS(2i32);
+pub const DS_NAME_FLAG_GCVERIFY: DS_NAME_FLAGS = DS_NAME_FLAGS(4i32);
+pub const DS_NAME_FLAG_SYNTACTICAL_ONLY: DS_NAME_FLAGS = DS_NAME_FLAGS(1i32);
+pub const DS_NAME_FLAG_TRUST_REFERRAL: DS_NAME_FLAGS = DS_NAME_FLAGS(8i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DS_NAME_FORMAT(pub i32);
+pub const DS_NAME_NO_ERROR: DS_NAME_ERROR = DS_NAME_ERROR(0i32);
+pub const DS_NAME_NO_FLAGS: DS_NAME_FLAGS = DS_NAME_FLAGS(0i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_NAME_RESULTA {
+    pub cItems: u32,
+    pub rItems: *mut DS_NAME_RESULT_ITEMA,
+}
+impl Default for DS_NAME_RESULTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_NAME_RESULTA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_NAME_RESULTW {
+    pub cItems: u32,
+    pub rItems: *mut DS_NAME_RESULT_ITEMW,
+}
+impl Default for DS_NAME_RESULTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_NAME_RESULTW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_NAME_RESULT_ITEMA {
+    pub status: u32,
+    pub pDomain: windows_core::PSTR,
+    pub pName: windows_core::PSTR,
+}
+impl Default for DS_NAME_RESULT_ITEMA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_NAME_RESULT_ITEMA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_NAME_RESULT_ITEMW {
+    pub status: u32,
+    pub pDomain: windows_core::PWSTR,
+    pub pName: windows_core::PWSTR,
+}
+impl Default for DS_NAME_RESULT_ITEMW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_NAME_RESULT_ITEMW {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DS_NDNC_FLAG: u32 = 1024u32;
+pub const DS_NOTIFY_AFTER_SITE_RECORDS: u32 = 2u32;
+pub const DS_NT4_ACCOUNT_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(2i32);
+pub const DS_ONLY_DO_SITE_NAME: u32 = 1u32;
+pub const DS_ONLY_LDAP_NEEDED: u32 = 32768u32;
+pub const DS_PDC_FLAG: u32 = 1u32;
+pub const DS_PDC_REQUIRED: u32 = 128u32;
+pub const DS_PING_FLAGS: u32 = 1048575u32;
+pub const DS_PROP_ADMIN_PREFIX: windows_core::PCWSTR = windows_core::w!("admin");
+pub const DS_PROP_SHELL_PREFIX: windows_core::PCWSTR = windows_core::w!("shell");
+pub const DS_REPADD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
+pub const DS_REPADD_ASYNCHRONOUS_REPLICA: u32 = 32u32;
+pub const DS_REPADD_CRITICAL: u32 = 2048u32;
+pub const DS_REPADD_DISABLE_NOTIFICATION: u32 = 64u32;
+pub const DS_REPADD_DISABLE_PERIODIC: u32 = 128u32;
+pub const DS_REPADD_INITIAL: u32 = 4u32;
+pub const DS_REPADD_INTERSITE_MESSAGING: u32 = 16u32;
+pub const DS_REPADD_NEVER_NOTIFY: u32 = 512u32;
+pub const DS_REPADD_NONGC_RO_REPLICA: u32 = 16777216u32;
+pub const DS_REPADD_PERIODIC: u32 = 8u32;
+pub const DS_REPADD_SELECT_SECRETS: u32 = 4096u32;
+pub const DS_REPADD_TWO_WAY: u32 = 1024u32;
+pub const DS_REPADD_USE_COMPRESSION: u32 = 256u32;
+pub const DS_REPADD_WRITEABLE: u32 = 2u32;
+pub const DS_REPDEL_ASYNCHRONOUS_OPERATION: u32 = 1u32;
+pub const DS_REPDEL_IGNORE_ERRORS: u32 = 8u32;
+pub const DS_REPDEL_INTERSITE_MESSAGING: u32 = 4u32;
+pub const DS_REPDEL_LOCAL_ONLY: u32 = 16u32;
+pub const DS_REPDEL_NO_SOURCE: u32 = 32u32;
+pub const DS_REPDEL_REF_OK: u32 = 64u32;
+pub const DS_REPDEL_WRITEABLE: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_ATTR_META_DATA {
+    pub pszAttributeName: windows_core::PWSTR,
+    pub dwVersion: u32,
+    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
+    pub uuidLastOriginatingDsaInvocationID: windows_core::GUID,
+    pub usnOriginatingChange: i64,
+    pub usnLocalChange: i64,
+}
+impl Default for DS_REPL_ATTR_META_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_ATTR_META_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_ATTR_META_DATA_2 {
+    pub pszAttributeName: windows_core::PWSTR,
+    pub dwVersion: u32,
+    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
+    pub uuidLastOriginatingDsaInvocationID: windows_core::GUID,
+    pub usnOriginatingChange: i64,
+    pub usnLocalChange: i64,
+    pub pszLastOriginatingDsaDN: windows_core::PWSTR,
+}
+impl Default for DS_REPL_ATTR_META_DATA_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_ATTR_META_DATA_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_ATTR_META_DATA_BLOB {
+    pub oszAttributeName: u32,
+    pub dwVersion: u32,
+    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
+    pub uuidLastOriginatingDsaInvocationID: windows_core::GUID,
+    pub usnOriginatingChange: i64,
+    pub usnLocalChange: i64,
+    pub oszLastOriginatingDsaDN: u32,
+}
+impl Default for DS_REPL_ATTR_META_DATA_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_ATTR_META_DATA_BLOB {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_ATTR_VALUE_META_DATA {
+    pub cNumEntries: u32,
+    pub dwEnumerationContext: u32,
+    pub rgMetaData: [DS_REPL_VALUE_META_DATA; 1],
+}
+impl Default for DS_REPL_ATTR_VALUE_META_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_ATTR_VALUE_META_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_ATTR_VALUE_META_DATA_2 {
+    pub cNumEntries: u32,
+    pub dwEnumerationContext: u32,
+    pub rgMetaData: [DS_REPL_VALUE_META_DATA_2; 1],
+}
+impl Default for DS_REPL_ATTR_VALUE_META_DATA_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_ATTR_VALUE_META_DATA_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_ATTR_VALUE_META_DATA_EXT {
+    pub cNumEntries: u32,
+    pub dwEnumerationContext: u32,
+    pub rgMetaData: [DS_REPL_VALUE_META_DATA_EXT; 1],
+}
+impl Default for DS_REPL_ATTR_VALUE_META_DATA_EXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_ATTR_VALUE_META_DATA_EXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_CURSOR {
+    pub uuidSourceDsaInvocationID: windows_core::GUID,
+    pub usnAttributeFilter: i64,
+}
+impl Default for DS_REPL_CURSOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_CURSOR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_CURSORS {
+    pub cNumCursors: u32,
+    pub dwReserved: u32,
+    pub rgCursor: [DS_REPL_CURSOR; 1],
+}
+impl Default for DS_REPL_CURSORS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_CURSORS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_CURSORS_2 {
+    pub cNumCursors: u32,
+    pub dwEnumerationContext: u32,
+    pub rgCursor: [DS_REPL_CURSOR_2; 1],
+}
+impl Default for DS_REPL_CURSORS_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_CURSORS_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_CURSORS_3W {
+    pub cNumCursors: u32,
+    pub dwEnumerationContext: u32,
+    pub rgCursor: [DS_REPL_CURSOR_3W; 1],
+}
+impl Default for DS_REPL_CURSORS_3W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_CURSORS_3W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_CURSOR_2 {
+    pub uuidSourceDsaInvocationID: windows_core::GUID,
+    pub usnAttributeFilter: i64,
+    pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
+}
+impl Default for DS_REPL_CURSOR_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_CURSOR_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_CURSOR_3W {
+    pub uuidSourceDsaInvocationID: windows_core::GUID,
+    pub usnAttributeFilter: i64,
+    pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
+    pub pszSourceDsaDN: windows_core::PWSTR,
+}
+impl Default for DS_REPL_CURSOR_3W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_CURSOR_3W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_CURSOR_BLOB {
+    pub uuidSourceDsaInvocationID: windows_core::GUID,
+    pub usnAttributeFilter: i64,
+    pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
+    pub oszSourceDsaDN: u32,
+}
+impl Default for DS_REPL_CURSOR_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_CURSOR_BLOB {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DS_REPL_INFO_CURSORS_2_FOR_NC: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(7i32);
+pub const DS_REPL_INFO_CURSORS_3_FOR_NC: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(8i32);
+pub const DS_REPL_INFO_CURSORS_FOR_NC: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(1i32);
+pub const DS_REPL_INFO_FLAG_IMPROVE_LINKED_ATTRS: u32 = 1u32;
+pub const DS_REPL_INFO_KCC_DSA_CONNECT_FAILURES: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(3i32);
+pub const DS_REPL_INFO_KCC_DSA_LINK_FAILURES: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(4i32);
+pub const DS_REPL_INFO_METADATA_2_FOR_ATTR_VALUE: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(10i32);
+pub const DS_REPL_INFO_METADATA_2_FOR_OBJ: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(9i32);
+pub const DS_REPL_INFO_METADATA_EXT_FOR_ATTR_VALUE: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(11i32);
+pub const DS_REPL_INFO_METADATA_FOR_ATTR_VALUE: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(6i32);
+pub const DS_REPL_INFO_METADATA_FOR_OBJ: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(2i32);
+pub const DS_REPL_INFO_NEIGHBORS: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(0i32);
+pub const DS_REPL_INFO_PENDING_OPS: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(5i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DS_REPL_INFO_TYPE(pub i32);
+pub const DS_REPL_INFO_TYPE_MAX: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(12i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_KCC_DSA_FAILURESW {
+    pub cNumEntries: u32,
+    pub dwReserved: u32,
+    pub rgDsaFailure: [DS_REPL_KCC_DSA_FAILUREW; 1],
+}
+impl Default for DS_REPL_KCC_DSA_FAILURESW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_KCC_DSA_FAILURESW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_KCC_DSA_FAILUREW {
+    pub pszDsaDN: windows_core::PWSTR,
+    pub uuidDsaObjGuid: windows_core::GUID,
+    pub ftimeFirstFailure: super::super::Foundation::FILETIME,
+    pub cNumFailures: u32,
+    pub dwLastResult: u32,
+}
+impl Default for DS_REPL_KCC_DSA_FAILUREW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_KCC_DSA_FAILUREW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_KCC_DSA_FAILUREW_BLOB {
+    pub oszDsaDN: u32,
+    pub uuidDsaObjGuid: windows_core::GUID,
+    pub ftimeFirstFailure: super::super::Foundation::FILETIME,
+    pub cNumFailures: u32,
+    pub dwLastResult: u32,
+}
+impl Default for DS_REPL_KCC_DSA_FAILUREW_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_KCC_DSA_FAILUREW_BLOB {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DS_REPL_NBR_COMPRESS_CHANGES: u32 = 268435456u32;
+pub const DS_REPL_NBR_DISABLE_SCHEDULED_SYNC: u32 = 134217728u32;
+pub const DS_REPL_NBR_DO_SCHEDULED_SYNCS: u32 = 64u32;
+pub const DS_REPL_NBR_FULL_SYNC_IN_PROGRESS: u32 = 65536u32;
+pub const DS_REPL_NBR_FULL_SYNC_NEXT_PACKET: u32 = 131072u32;
+pub const DS_REPL_NBR_GCSPN: u32 = 1048576u32;
+pub const DS_REPL_NBR_IGNORE_CHANGE_NOTIFICATIONS: u32 = 67108864u32;
+pub const DS_REPL_NBR_NEVER_SYNCED: u32 = 2097152u32;
+pub const DS_REPL_NBR_NONGC_RO_REPLICA: u32 = 1024u32;
+pub const DS_REPL_NBR_NO_CHANGE_NOTIFICATIONS: u32 = 536870912u32;
+pub const DS_REPL_NBR_PARTIAL_ATTRIBUTE_SET: u32 = 1073741824u32;
+pub const DS_REPL_NBR_PREEMPTED: u32 = 16777216u32;
+pub const DS_REPL_NBR_RETURN_OBJECT_PARENTS: u32 = 2048u32;
+pub const DS_REPL_NBR_SELECT_SECRETS: u32 = 4096u32;
+pub const DS_REPL_NBR_SYNC_ON_STARTUP: u32 = 32u32;
+pub const DS_REPL_NBR_TWO_WAY_SYNC: u32 = 512u32;
+pub const DS_REPL_NBR_USE_ASYNC_INTERSITE_TRANSPORT: u32 = 128u32;
+pub const DS_REPL_NBR_WRITEABLE: u32 = 16u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_NEIGHBORSW {
+    pub cNumNeighbors: u32,
+    pub dwReserved: u32,
+    pub rgNeighbor: [DS_REPL_NEIGHBORW; 1],
+}
+impl Default for DS_REPL_NEIGHBORSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_NEIGHBORSW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_NEIGHBORW {
+    pub pszNamingContext: windows_core::PWSTR,
+    pub pszSourceDsaDN: windows_core::PWSTR,
+    pub pszSourceDsaAddress: windows_core::PWSTR,
+    pub pszAsyncIntersiteTransportDN: windows_core::PWSTR,
+    pub dwReplicaFlags: u32,
+    pub dwReserved: u32,
+    pub uuidNamingContextObjGuid: windows_core::GUID,
+    pub uuidSourceDsaObjGuid: windows_core::GUID,
+    pub uuidSourceDsaInvocationID: windows_core::GUID,
+    pub uuidAsyncIntersiteTransportObjGuid: windows_core::GUID,
+    pub usnLastObjChangeSynced: i64,
+    pub usnAttributeFilter: i64,
+    pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
+    pub ftimeLastSyncAttempt: super::super::Foundation::FILETIME,
+    pub dwLastSyncResult: u32,
+    pub cNumConsecutiveSyncFailures: u32,
+}
+impl Default for DS_REPL_NEIGHBORW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_NEIGHBORW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_NEIGHBORW_BLOB {
+    pub oszNamingContext: u32,
+    pub oszSourceDsaDN: u32,
+    pub oszSourceDsaAddress: u32,
+    pub oszAsyncIntersiteTransportDN: u32,
+    pub dwReplicaFlags: u32,
+    pub dwReserved: u32,
+    pub uuidNamingContextObjGuid: windows_core::GUID,
+    pub uuidSourceDsaObjGuid: windows_core::GUID,
+    pub uuidSourceDsaInvocationID: windows_core::GUID,
+    pub uuidAsyncIntersiteTransportObjGuid: windows_core::GUID,
+    pub usnLastObjChangeSynced: i64,
+    pub usnAttributeFilter: i64,
+    pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
+    pub ftimeLastSyncAttempt: super::super::Foundation::FILETIME,
+    pub dwLastSyncResult: u32,
+    pub cNumConsecutiveSyncFailures: u32,
+}
+impl Default for DS_REPL_NEIGHBORW_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_NEIGHBORW_BLOB {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_OBJ_META_DATA {
+    pub cNumEntries: u32,
+    pub dwReserved: u32,
+    pub rgMetaData: [DS_REPL_ATTR_META_DATA; 1],
+}
+impl Default for DS_REPL_OBJ_META_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_OBJ_META_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_OBJ_META_DATA_2 {
+    pub cNumEntries: u32,
+    pub dwReserved: u32,
+    pub rgMetaData: [DS_REPL_ATTR_META_DATA_2; 1],
+}
+impl Default for DS_REPL_OBJ_META_DATA_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_OBJ_META_DATA_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_OPW {
+    pub ftimeEnqueued: super::super::Foundation::FILETIME,
+    pub ulSerialNumber: u32,
+    pub ulPriority: u32,
+    pub OpType: DS_REPL_OP_TYPE,
+    pub ulOptions: u32,
+    pub pszNamingContext: windows_core::PWSTR,
+    pub pszDsaDN: windows_core::PWSTR,
+    pub pszDsaAddress: windows_core::PWSTR,
+    pub uuidNamingContextObjGuid: windows_core::GUID,
+    pub uuidDsaObjGuid: windows_core::GUID,
+}
+impl Default for DS_REPL_OPW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_OPW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_OPW_BLOB {
+    pub ftimeEnqueued: super::super::Foundation::FILETIME,
+    pub ulSerialNumber: u32,
+    pub ulPriority: u32,
+    pub OpType: DS_REPL_OP_TYPE,
+    pub ulOptions: u32,
+    pub oszNamingContext: u32,
+    pub oszDsaDN: u32,
+    pub oszDsaAddress: u32,
+    pub uuidNamingContextObjGuid: windows_core::GUID,
+    pub uuidDsaObjGuid: windows_core::GUID,
+}
+impl Default for DS_REPL_OPW_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_OPW_BLOB {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DS_REPL_OP_TYPE(pub i32);
+pub const DS_REPL_OP_TYPE_ADD: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(1i32);
+pub const DS_REPL_OP_TYPE_DELETE: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(2i32);
+pub const DS_REPL_OP_TYPE_MODIFY: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(3i32);
+pub const DS_REPL_OP_TYPE_SYNC: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(0i32);
+pub const DS_REPL_OP_TYPE_UPDATE_REFS: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(4i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_PENDING_OPSW {
+    pub ftimeCurrentOpStarted: super::super::Foundation::FILETIME,
+    pub cNumPendingOps: u32,
+    pub rgPendingOp: [DS_REPL_OPW; 1],
+}
+impl Default for DS_REPL_PENDING_OPSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_PENDING_OPSW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_QUEUE_STATISTICSW {
+    pub ftimeCurrentOpStarted: super::super::Foundation::FILETIME,
+    pub cNumPendingOps: u32,
+    pub ftimeOldestSync: super::super::Foundation::FILETIME,
+    pub ftimeOldestAdd: super::super::Foundation::FILETIME,
+    pub ftimeOldestMod: super::super::Foundation::FILETIME,
+    pub ftimeOldestDel: super::super::Foundation::FILETIME,
+    pub ftimeOldestUpdRefs: super::super::Foundation::FILETIME,
+}
+impl Default for DS_REPL_QUEUE_STATISTICSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_QUEUE_STATISTICSW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_VALUE_META_DATA {
+    pub pszAttributeName: windows_core::PWSTR,
+    pub pszObjectDn: windows_core::PWSTR,
+    pub cbData: u32,
+    pub pbData: *mut u8,
+    pub ftimeDeleted: super::super::Foundation::FILETIME,
+    pub ftimeCreated: super::super::Foundation::FILETIME,
+    pub dwVersion: u32,
+    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
+    pub uuidLastOriginatingDsaInvocationID: windows_core::GUID,
+    pub usnOriginatingChange: i64,
+    pub usnLocalChange: i64,
+}
+impl Default for DS_REPL_VALUE_META_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_VALUE_META_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_VALUE_META_DATA_2 {
+    pub pszAttributeName: windows_core::PWSTR,
+    pub pszObjectDn: windows_core::PWSTR,
+    pub cbData: u32,
+    pub pbData: *mut u8,
+    pub ftimeDeleted: super::super::Foundation::FILETIME,
+    pub ftimeCreated: super::super::Foundation::FILETIME,
+    pub dwVersion: u32,
+    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
+    pub uuidLastOriginatingDsaInvocationID: windows_core::GUID,
+    pub usnOriginatingChange: i64,
+    pub usnLocalChange: i64,
+    pub pszLastOriginatingDsaDN: windows_core::PWSTR,
+}
+impl Default for DS_REPL_VALUE_META_DATA_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_VALUE_META_DATA_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_VALUE_META_DATA_BLOB {
+    pub oszAttributeName: u32,
+    pub oszObjectDn: u32,
+    pub cbData: u32,
+    pub obData: u32,
+    pub ftimeDeleted: super::super::Foundation::FILETIME,
+    pub ftimeCreated: super::super::Foundation::FILETIME,
+    pub dwVersion: u32,
+    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
+    pub uuidLastOriginatingDsaInvocationID: windows_core::GUID,
+    pub usnOriginatingChange: i64,
+    pub usnLocalChange: i64,
+    pub oszLastOriginatingDsaDN: u32,
+}
+impl Default for DS_REPL_VALUE_META_DATA_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_VALUE_META_DATA_BLOB {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_VALUE_META_DATA_BLOB_EXT {
+    pub oszAttributeName: u32,
+    pub oszObjectDn: u32,
+    pub cbData: u32,
+    pub obData: u32,
+    pub ftimeDeleted: super::super::Foundation::FILETIME,
+    pub ftimeCreated: super::super::Foundation::FILETIME,
+    pub dwVersion: u32,
+    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
+    pub uuidLastOriginatingDsaInvocationID: windows_core::GUID,
+    pub usnOriginatingChange: i64,
+    pub usnLocalChange: i64,
+    pub oszLastOriginatingDsaDN: u32,
+    pub dwUserIdentifier: u32,
+    pub dwPriorLinkState: u32,
+    pub dwCurrentLinkState: u32,
+}
+impl Default for DS_REPL_VALUE_META_DATA_BLOB_EXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_VALUE_META_DATA_BLOB_EXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPL_VALUE_META_DATA_EXT {
+    pub pszAttributeName: windows_core::PWSTR,
+    pub pszObjectDn: windows_core::PWSTR,
+    pub cbData: u32,
+    pub pbData: *mut u8,
+    pub ftimeDeleted: super::super::Foundation::FILETIME,
+    pub ftimeCreated: super::super::Foundation::FILETIME,
+    pub dwVersion: u32,
+    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
+    pub uuidLastOriginatingDsaInvocationID: windows_core::GUID,
+    pub usnOriginatingChange: i64,
+    pub usnLocalChange: i64,
+    pub pszLastOriginatingDsaDN: windows_core::PWSTR,
+    pub dwUserIdentifier: u32,
+    pub dwPriorLinkState: u32,
+    pub dwCurrentLinkState: u32,
+}
+impl Default for DS_REPL_VALUE_META_DATA_EXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPL_VALUE_META_DATA_EXT {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DS_REPMOD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
+pub const DS_REPMOD_UPDATE_ADDRESS: u32 = 2u32;
+pub const DS_REPMOD_UPDATE_FLAGS: u32 = 1u32;
+pub const DS_REPMOD_UPDATE_INSTANCE: u32 = 2u32;
+pub const DS_REPMOD_UPDATE_RESULT: u32 = 8u32;
+pub const DS_REPMOD_UPDATE_SCHEDULE: u32 = 4u32;
+pub const DS_REPMOD_UPDATE_TRANSPORT: u32 = 16u32;
+pub const DS_REPMOD_WRITEABLE: u32 = 2u32;
+pub const DS_REPSYNCALL_ABORT_IF_SERVER_UNAVAILABLE: u32 = 1u32;
+pub const DS_REPSYNCALL_CROSS_SITE_BOUNDARIES: u32 = 64u32;
+pub const DS_REPSYNCALL_DO_NOT_SYNC: u32 = 8u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPSYNCALL_ERRINFOA {
+    pub pszSvrId: windows_core::PSTR,
+    pub error: DS_REPSYNCALL_ERROR,
+    pub dwWin32Err: u32,
+    pub pszSrcId: windows_core::PSTR,
+}
+impl Default for DS_REPSYNCALL_ERRINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPSYNCALL_ERRINFOA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPSYNCALL_ERRINFOW {
+    pub pszSvrId: windows_core::PWSTR,
+    pub error: DS_REPSYNCALL_ERROR,
+    pub dwWin32Err: u32,
+    pub pszSrcId: windows_core::PWSTR,
+}
+impl Default for DS_REPSYNCALL_ERRINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPSYNCALL_ERRINFOW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DS_REPSYNCALL_ERROR(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DS_REPSYNCALL_EVENT(pub i32);
+pub const DS_REPSYNCALL_EVENT_ERROR: DS_REPSYNCALL_EVENT = DS_REPSYNCALL_EVENT(0i32);
+pub const DS_REPSYNCALL_EVENT_FINISHED: DS_REPSYNCALL_EVENT = DS_REPSYNCALL_EVENT(3i32);
+pub const DS_REPSYNCALL_EVENT_SYNC_COMPLETED: DS_REPSYNCALL_EVENT = DS_REPSYNCALL_EVENT(2i32);
+pub const DS_REPSYNCALL_EVENT_SYNC_STARTED: DS_REPSYNCALL_EVENT = DS_REPSYNCALL_EVENT(1i32);
+pub const DS_REPSYNCALL_ID_SERVERS_BY_DN: u32 = 4u32;
+pub const DS_REPSYNCALL_NO_OPTIONS: u32 = 0u32;
+pub const DS_REPSYNCALL_PUSH_CHANGES_OUTWARD: u32 = 32u32;
+pub const DS_REPSYNCALL_SERVER_UNREACHABLE: DS_REPSYNCALL_ERROR = DS_REPSYNCALL_ERROR(2i32);
+pub const DS_REPSYNCALL_SKIP_INITIAL_CHECK: u32 = 16u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPSYNCALL_SYNCA {
+    pub pszSrcId: windows_core::PSTR,
+    pub pszDstId: windows_core::PSTR,
+    pub pszNC: windows_core::PSTR,
+    pub pguidSrc: *mut windows_core::GUID,
+    pub pguidDst: *mut windows_core::GUID,
+}
+impl Default for DS_REPSYNCALL_SYNCA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPSYNCALL_SYNCA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPSYNCALL_SYNCW {
+    pub pszSrcId: windows_core::PWSTR,
+    pub pszDstId: windows_core::PWSTR,
+    pub pszNC: windows_core::PWSTR,
+    pub pguidSrc: *mut windows_core::GUID,
+    pub pguidDst: *mut windows_core::GUID,
+}
+impl Default for DS_REPSYNCALL_SYNCW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPSYNCALL_SYNCW {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DS_REPSYNCALL_SYNC_ADJACENT_SERVERS_ONLY: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPSYNCALL_UPDATEA {
+    pub event: DS_REPSYNCALL_EVENT,
+    pub pErrInfo: *mut DS_REPSYNCALL_ERRINFOA,
+    pub pSync: *mut DS_REPSYNCALL_SYNCA,
+}
+impl Default for DS_REPSYNCALL_UPDATEA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPSYNCALL_UPDATEA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_REPSYNCALL_UPDATEW {
+    pub event: DS_REPSYNCALL_EVENT,
+    pub pErrInfo: *mut DS_REPSYNCALL_ERRINFOW,
+    pub pSync: *mut DS_REPSYNCALL_SYNCW,
+}
+impl Default for DS_REPSYNCALL_UPDATEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_REPSYNCALL_UPDATEW {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DS_REPSYNCALL_WIN32_ERROR_CONTACTING_SERVER: DS_REPSYNCALL_ERROR = DS_REPSYNCALL_ERROR(0i32);
+pub const DS_REPSYNCALL_WIN32_ERROR_REPLICATING: DS_REPSYNCALL_ERROR = DS_REPSYNCALL_ERROR(1i32);
+pub const DS_REPSYNC_ABANDONED: u32 = 32768u32;
+pub const DS_REPSYNC_ADD_REFERENCE: u32 = 512u32;
+pub const DS_REPSYNC_ASYNCHRONOUS_OPERATION: u32 = 1u32;
+pub const DS_REPSYNC_ASYNCHRONOUS_REPLICA: u32 = 1048576u32;
+pub const DS_REPSYNC_CRITICAL: u32 = 2097152u32;
+pub const DS_REPSYNC_FORCE: u32 = 256u32;
+pub const DS_REPSYNC_FULL: u32 = 32u32;
+pub const DS_REPSYNC_FULL_IN_PROGRESS: u32 = 4194304u32;
+pub const DS_REPSYNC_INITIAL: u32 = 8192u32;
+pub const DS_REPSYNC_INITIAL_IN_PROGRESS: u32 = 65536u32;
+pub const DS_REPSYNC_INTERSITE_MESSAGING: u32 = 8u32;
+pub const DS_REPSYNC_NEVER_COMPLETED: u32 = 1024u32;
+pub const DS_REPSYNC_NEVER_NOTIFY: u32 = 4096u32;
+pub const DS_REPSYNC_NONGC_RO_REPLICA: u32 = 16777216u32;
+pub const DS_REPSYNC_NOTIFICATION: u32 = 524288u32;
+pub const DS_REPSYNC_NO_DISCARD: u32 = 128u32;
+pub const DS_REPSYNC_PARTIAL_ATTRIBUTE_SET: u32 = 131072u32;
+pub const DS_REPSYNC_PERIODIC: u32 = 4u32;
+pub const DS_REPSYNC_PREEMPTED: u32 = 8388608u32;
+pub const DS_REPSYNC_REQUEUE: u32 = 262144u32;
+pub const DS_REPSYNC_SELECT_SECRETS: u32 = 32768u32;
+pub const DS_REPSYNC_TWO_WAY: u32 = 2048u32;
+pub const DS_REPSYNC_URGENT: u32 = 64u32;
+pub const DS_REPSYNC_USE_COMPRESSION: u32 = 16384u32;
+pub const DS_REPSYNC_WRITEABLE: u32 = 2u32;
+pub const DS_REPUPD_ADD_REFERENCE: u32 = 4u32;
+pub const DS_REPUPD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
+pub const DS_REPUPD_DELETE_REFERENCE: u32 = 8u32;
+pub const DS_REPUPD_REFERENCE_GCSPN: u32 = 16u32;
+pub const DS_REPUPD_WRITEABLE: u32 = 2u32;
+pub const DS_RETURN_DNS_NAME: u32 = 1073741824u32;
+pub const DS_RETURN_FLAT_NAME: u32 = 2147483648u32;
+pub const DS_ROLE_DOMAIN_OWNER: u32 = 1u32;
+pub const DS_ROLE_INFRASTRUCTURE_OWNER: u32 = 4u32;
+pub const DS_ROLE_PDC_OWNER: u32 = 2u32;
+pub const DS_ROLE_RID_OWNER: u32 = 3u32;
+pub const DS_ROLE_SCHEMA_OWNER: u32 = 0u32;
+pub const DS_SCHEMA_GUID_ATTR: u32 = 1u32;
+pub const DS_SCHEMA_GUID_ATTR_SET: u32 = 2u32;
+pub const DS_SCHEMA_GUID_CLASS: u32 = 3u32;
+pub const DS_SCHEMA_GUID_CONTROL_RIGHT: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_SCHEMA_GUID_MAPA {
+    pub guid: windows_core::GUID,
+    pub guidType: u32,
+    pub pName: windows_core::PSTR,
+}
+impl Default for DS_SCHEMA_GUID_MAPA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_SCHEMA_GUID_MAPA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_SCHEMA_GUID_MAPW {
+    pub guid: windows_core::GUID,
+    pub guidType: u32,
+    pub pName: windows_core::PWSTR,
+}
+impl Default for DS_SCHEMA_GUID_MAPW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_SCHEMA_GUID_MAPW {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DS_SCHEMA_GUID_NOT_FOUND: u32 = 0u32;
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_SELECTION {
+    pub pwzName: windows_core::PWSTR,
+    pub pwzADsPath: windows_core::PWSTR,
+    pub pwzClass: windows_core::PWSTR,
+    pub pwzUPN: windows_core::PWSTR,
+    pub pvarFetchedAttributes: *mut super::super::System::Variant::VARIANT,
+    pub flScopeType: u32,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DS_SELECTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for DS_SELECTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_SELECTION_LIST {
+    pub cItems: u32,
+    pub cFetchedAttributes: u32,
+    pub aDsSelection: [DS_SELECTION; 1],
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DS_SELECTION_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for DS_SELECTION_LIST {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DS_SELECT_SECRET_DOMAIN_6_FLAG: u32 = 2048u32;
+pub const DS_SERVICE_PRINCIPAL_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(10i32);
+pub const DS_SID_OR_SID_HISTORY_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(11i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DS_SITE_COST_INFO {
+    pub errorCode: u32,
+    pub cost: u32,
+}
+impl Default for DS_SITE_COST_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DS_SITE_COST_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DS_SPN_ADD_SPN_OP: DS_SPN_WRITE_OP = DS_SPN_WRITE_OP(0i32);
+pub const DS_SPN_DELETE_SPN_OP: DS_SPN_WRITE_OP = DS_SPN_WRITE_OP(2i32);
+pub const DS_SPN_DNS_HOST: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(0i32);
+pub const DS_SPN_DN_HOST: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(1i32);
+pub const DS_SPN_DOMAIN: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DS_SPN_NAME_TYPE(pub i32);
+pub const DS_SPN_NB_DOMAIN: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(4i32);
+pub const DS_SPN_NB_HOST: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(2i32);
+pub const DS_SPN_REPLACE_SPN_OP: DS_SPN_WRITE_OP = DS_SPN_WRITE_OP(1i32);
+pub const DS_SPN_SERVICE: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(5i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DS_SPN_WRITE_OP(pub i32);
+pub const DS_SYNCED_EVENT_NAME: windows_core::PCSTR = windows_core::s!("NTDSInitialSyncsCompleted");
+pub const DS_SYNCED_EVENT_NAME_W: windows_core::PCWSTR = windows_core::w!("NTDSInitialSyncsCompleted");
+pub const DS_TIMESERV_FLAG: u32 = 64u32;
+pub const DS_TIMESERV_REQUIRED: u32 = 2048u32;
+pub const DS_TRY_NEXTCLOSEST_SITE: u32 = 262144u32;
+pub const DS_UNIQUE_ID_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(6i32);
+pub const DS_UNKNOWN_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(0i32);
+pub const DS_USER_PRINCIPAL_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(8i32);
+pub const DS_WEB_SERVICE_REQUIRED: u32 = 1048576u32;
+pub const DS_WRITABLE_FLAG: u32 = 256u32;
+pub const DS_WRITABLE_REQUIRED: u32 = 4096u32;
+pub const DS_WS_FLAG: u32 = 8192u32;
+pub const DsRoleOperationActive: DSROLE_OPERATION_STATE = DSROLE_OPERATION_STATE(1i32);
+pub const DsRoleOperationIdle: DSROLE_OPERATION_STATE = DSROLE_OPERATION_STATE(0i32);
+pub const DsRoleOperationNeedReboot: DSROLE_OPERATION_STATE = DSROLE_OPERATION_STATE(2i32);
+pub const DsRoleOperationState: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL = DSROLE_PRIMARY_DOMAIN_INFO_LEVEL(3i32);
+pub const DsRolePrimaryDomainInfoBasic: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL = DSROLE_PRIMARY_DOMAIN_INFO_LEVEL(1i32);
+pub const DsRoleServerBackup: DSROLE_SERVER_STATE = DSROLE_SERVER_STATE(2i32);
+pub const DsRoleServerPrimary: DSROLE_SERVER_STATE = DSROLE_SERVER_STATE(1i32);
+pub const DsRoleServerUnknown: DSROLE_SERVER_STATE = DSROLE_SERVER_STATE(0i32);
+pub const DsRoleUpgradeStatus: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL = DSROLE_PRIMARY_DOMAIN_INFO_LEVEL(2i32);
+pub const DsRole_RoleBackupDomainController: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(4i32);
+pub const DsRole_RoleMemberServer: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(3i32);
+pub const DsRole_RoleMemberWorkstation: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(1i32);
+pub const DsRole_RolePrimaryDomainController: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(5i32);
+pub const DsRole_RoleStandaloneServer: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(2i32);
+pub const DsRole_RoleStandaloneWorkstation: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(0i32);
+pub const Email: windows_core::GUID = windows_core::GUID::from_u128(0x8f92a857_478e_11d1_a3b4_00c04fb950dc);
+pub const FACILITY_BACKUP: u32 = 2047u32;
+pub const FACILITY_NTDSB: u32 = 2048u32;
+pub const FACILITY_SYSTEM: u32 = 0u32;
+pub const FLAG_DISABLABLE_OPTIONAL_FEATURE: u32 = 4u32;
+pub const FLAG_DOMAIN_OPTIONAL_FEATURE: u32 = 2u32;
+pub const FLAG_FOREST_OPTIONAL_FEATURE: u32 = 1u32;
+pub const FLAG_SERVER_OPTIONAL_FEATURE: u32 = 8u32;
+pub const FRSCONN_MAX_PRIORITY: u32 = 8u32;
+pub const FRSCONN_PRIORITY_MASK: u32 = 1879048192u32;
+pub const FaxNumber: windows_core::GUID = windows_core::GUID::from_u128(0xa5062215_4681_11d1_a3b4_00c04fb950dc);
+pub const GUID_COMPUTRS_CONTAINER_A: windows_core::PCSTR = windows_core::s!("aa312825768811d1aded00c04fd8d5cd");
+pub const GUID_COMPUTRS_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("aa312825768811d1aded00c04fd8d5cd");
+pub const GUID_DELETED_OBJECTS_CONTAINER_A: windows_core::PCSTR = windows_core::s!("18e2ea80684f11d2b9aa00c04f79f805");
+pub const GUID_DELETED_OBJECTS_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("18e2ea80684f11d2b9aa00c04f79f805");
+pub const GUID_DOMAIN_CONTROLLERS_CONTAINER_A: windows_core::PCSTR = windows_core::s!("a361b2ffffd211d1aa4b00c04fd7d83a");
+pub const GUID_DOMAIN_CONTROLLERS_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("a361b2ffffd211d1aa4b00c04fd7d83a");
+pub const GUID_FOREIGNSECURITYPRINCIPALS_CONTAINER_A: windows_core::PCSTR = windows_core::s!("22b70c67d56e4efb91e9300fca3dc1aa");
+pub const GUID_FOREIGNSECURITYPRINCIPALS_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("22b70c67d56e4efb91e9300fca3dc1aa");
+pub const GUID_INFRASTRUCTURE_CONTAINER_A: windows_core::PCSTR = windows_core::s!("2fbac1870ade11d297c400c04fd8d5cd");
+pub const GUID_INFRASTRUCTURE_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("2fbac1870ade11d297c400c04fd8d5cd");
+pub const GUID_KEYS_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("683A24E2E8164BD3AF86AC3C2CF3F981");
+pub const GUID_LOSTANDFOUND_CONTAINER_A: windows_core::PCSTR = windows_core::s!("ab8153b7768811d1aded00c04fd8d5cd");
+pub const GUID_LOSTANDFOUND_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("ab8153b7768811d1aded00c04fd8d5cd");
+pub const GUID_MANAGED_SERVICE_ACCOUNTS_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("1EB93889E40C45DF9F0C64D23BBB6237");
+pub const GUID_MICROSOFT_PROGRAM_DATA_CONTAINER_A: windows_core::PCSTR = windows_core::s!("f4be92a4c777485e878e9421d53087db");
+pub const GUID_MICROSOFT_PROGRAM_DATA_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("f4be92a4c777485e878e9421d53087db");
+pub const GUID_NTDS_QUOTAS_CONTAINER_A: windows_core::PCSTR = windows_core::s!("6227f0af1fc2410d8e3bb10615bb5b0f");
+pub const GUID_NTDS_QUOTAS_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("6227f0af1fc2410d8e3bb10615bb5b0f");
+pub const GUID_PRIVILEGED_ACCESS_MANAGEMENT_OPTIONAL_FEATURE_A: windows_core::PCSTR = windows_core::s!("73e843ece8cc4046b4ab07ffe4ab5bcd");
+pub const GUID_PRIVILEGED_ACCESS_MANAGEMENT_OPTIONAL_FEATURE_W: windows_core::PCWSTR = windows_core::w!("73e843ece8cc4046b4ab07ffe4ab5bcd");
+pub const GUID_PROGRAM_DATA_CONTAINER_A: windows_core::PCSTR = windows_core::s!("09460c08ae1e4a4ea0f64aee7daa1e5a");
+pub const GUID_PROGRAM_DATA_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("09460c08ae1e4a4ea0f64aee7daa1e5a");
+pub const GUID_RECYCLE_BIN_OPTIONAL_FEATURE_A: windows_core::PCSTR = windows_core::s!("d8dc6d76d0ac5e44f3b9a7f9b6744f2a");
+pub const GUID_RECYCLE_BIN_OPTIONAL_FEATURE_W: windows_core::PCWSTR = windows_core::w!("d8dc6d76d0ac5e44f3b9a7f9b6744f2a");
+pub const GUID_SYSTEMS_CONTAINER_A: windows_core::PCSTR = windows_core::s!("ab1d30f3768811d1aded00c04fd8d5cd");
+pub const GUID_SYSTEMS_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("ab1d30f3768811d1aded00c04fd8d5cd");
+pub const GUID_USERS_CONTAINER_A: windows_core::PCSTR = windows_core::s!("a9d1ca15768811d1aded00c04fd8d5cd");
+pub const GUID_USERS_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("a9d1ca15768811d1aded00c04fd8d5cd");
+pub const Hold: windows_core::GUID = windows_core::GUID::from_u128(0xb3ad3e13_4080_11d1_a3ac_00c04fb950dc);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IADs, IADs_Vtbl, 0xfd8256d0_fd15_11ce_abc4_02608c9e7553);
 #[cfg(feature = "Win32_System_Com")]
@@ -13313,2980 +16194,7 @@ pub type LPCQADDPAGESPROC = Option<unsafe extern "system" fn(lparam: super::supe
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub type LPCQPAGEPROC = Option<unsafe extern "system" fn(ppage: *mut CQPAGE, hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::HRESULT>;
 pub type LPDSENUMATTRIBUTES = Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pszattributename: windows_core::PCWSTR, pszdisplayname: windows_core::PCWSTR, dwflags: u32) -> windows_core::HRESULT>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADSI_DIALECT_ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADSTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_ACEFLAG_ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_ACETYPE_ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_AUTHENTICATION_ENUM(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_CHASE_REFERRALS_ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_DEREFENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_DISPLAY_ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_ESCAPE_MODE_ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_FLAGTYPE_ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_FORMAT_ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_GROUP_TYPE_ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_NAME_INITTYPE_ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_NAME_TYPE_ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_OPTION_ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_PASSWORD_ENCODING_ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_PATHTYPE_ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_PREFERENCES_ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_PROPERTY_OPERATION_ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_RIGHTS_ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_SCOPEENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_SD_CONTROL_ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_SD_FORMAT_ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_SD_REVISION_ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_SEARCHPREF_ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_SECURITY_INFO_ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_SETTYPE_ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_STATUSENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_SYSTEMFLAG_ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADS_USER_FLAG_ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DSROLE_MACHINE_ROLE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DSROLE_OPERATION_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DSROLE_PRIMARY_DOMAIN_INFO_LEVEL(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DSROLE_SERVER_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DS_KCC_TASKID(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DS_MANGLE_FOR(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DS_NAME_ERROR(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DS_NAME_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DS_NAME_FORMAT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DS_REPL_INFO_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DS_REPL_OP_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DS_REPSYNCALL_ERROR(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DS_REPSYNCALL_EVENT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DS_SPN_NAME_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DS_SPN_WRITE_OP(pub i32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADSPROPERROR {
-    pub hwndPage: super::super::Foundation::HWND,
-    pub pszPageTitle: windows_core::PWSTR,
-    pub pszObjPath: windows_core::PWSTR,
-    pub pszObjClass: windows_core::PWSTR,
-    pub hr: windows_core::HRESULT,
-    pub pszError: windows_core::PWSTR,
-}
-impl Default for ADSPROPERROR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADSPROPERROR {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
-pub struct ADSPROPINITPARAMS {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub hr: windows_core::HRESULT,
-    pub pDsObj: core::mem::ManuallyDrop<Option<IDirectoryObject>>,
-    pub pwzCN: windows_core::PWSTR,
-    pub pWritableAttrs: *mut ADS_ATTR_INFO,
-}
-impl Default for ADSPROPINITPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADSPROPINITPARAMS {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ADSVALUE {
-    pub dwType: ADSTYPE,
-    pub Anonymous: ADSVALUE_0,
-}
-impl Default for ADSVALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADSVALUE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union ADSVALUE_0 {
-    pub DNString: *mut u16,
-    pub CaseExactString: *mut u16,
-    pub CaseIgnoreString: *mut u16,
-    pub PrintableString: *mut u16,
-    pub NumericString: *mut u16,
-    pub Boolean: u32,
-    pub Integer: u32,
-    pub OctetString: ADS_OCTET_STRING,
-    pub UTCTime: super::super::Foundation::SYSTEMTIME,
-    pub LargeInteger: i64,
-    pub ClassName: *mut u16,
-    pub ProviderSpecific: ADS_PROV_SPECIFIC,
-    pub pCaseIgnoreList: *mut ADS_CASEIGNORE_LIST,
-    pub pOctetList: *mut ADS_OCTET_LIST,
-    pub pPath: *mut ADS_PATH,
-    pub pPostalAddress: *mut ADS_POSTALADDRESS,
-    pub Timestamp: ADS_TIMESTAMP,
-    pub BackLink: ADS_BACKLINK,
-    pub pTypedName: *mut ADS_TYPEDNAME,
-    pub Hold: ADS_HOLD,
-    pub pNetAddress: *mut ADS_NETADDRESS,
-    pub pReplicaPointer: *mut ADS_REPLICAPOINTER,
-    pub pFaxNumber: *mut ADS_FAXNUMBER,
-    pub Email: ADS_EMAIL,
-    pub SecurityDescriptor: ADS_NT_SECURITY_DESCRIPTOR,
-    pub pDNWithBinary: *mut ADS_DN_WITH_BINARY,
-    pub pDNWithString: *mut ADS_DN_WITH_STRING,
-}
-impl Default for ADSVALUE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADSVALUE_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADS_ATTR_DEF {
-    pub pszAttrName: windows_core::PWSTR,
-    pub dwADsType: ADSTYPE,
-    pub dwMinRange: u32,
-    pub dwMaxRange: u32,
-    pub fMultiValued: super::super::Foundation::BOOL,
-}
-impl Default for ADS_ATTR_DEF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADS_ATTR_DEF {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADS_ATTR_INFO {
-    pub pszAttrName: windows_core::PWSTR,
-    pub dwControlCode: u32,
-    pub dwADsType: ADSTYPE,
-    pub pADsValues: *mut ADSVALUE,
-    pub dwNumValues: u32,
-}
-impl Default for ADS_ATTR_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADS_ATTR_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADS_BACKLINK {
-    pub RemoteID: u32,
-    pub ObjectName: windows_core::PWSTR,
-}
-impl Default for ADS_BACKLINK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADS_BACKLINK {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADS_CASEIGNORE_LIST {
-    pub Next: *mut ADS_CASEIGNORE_LIST,
-    pub String: windows_core::PWSTR,
-}
-impl Default for ADS_CASEIGNORE_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADS_CASEIGNORE_LIST {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADS_CLASS_DEF {
-    pub pszClassName: windows_core::PWSTR,
-    pub dwMandatoryAttrs: u32,
-    pub ppszMandatoryAttrs: *mut windows_core::PWSTR,
-    pub optionalAttrs: u32,
-    pub ppszOptionalAttrs: *mut *mut windows_core::PWSTR,
-    pub dwNamingAttrs: u32,
-    pub ppszNamingAttrs: *mut *mut windows_core::PWSTR,
-    pub dwSuperClasses: u32,
-    pub ppszSuperClasses: *mut *mut windows_core::PWSTR,
-    pub fIsContainer: super::super::Foundation::BOOL,
-}
-impl Default for ADS_CLASS_DEF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADS_CLASS_DEF {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADS_DN_WITH_BINARY {
-    pub dwLength: u32,
-    pub lpBinaryValue: *mut u8,
-    pub pszDNString: windows_core::PWSTR,
-}
-impl Default for ADS_DN_WITH_BINARY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADS_DN_WITH_BINARY {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADS_DN_WITH_STRING {
-    pub pszStringValue: windows_core::PWSTR,
-    pub pszDNString: windows_core::PWSTR,
-}
-impl Default for ADS_DN_WITH_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADS_DN_WITH_STRING {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADS_EMAIL {
-    pub Address: windows_core::PWSTR,
-    pub Type: u32,
-}
-impl Default for ADS_EMAIL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADS_EMAIL {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADS_FAXNUMBER {
-    pub TelephoneNumber: windows_core::PWSTR,
-    pub NumberOfBits: u32,
-    pub Parameters: *mut u8,
-}
-impl Default for ADS_FAXNUMBER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADS_FAXNUMBER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADS_HOLD {
-    pub ObjectName: windows_core::PWSTR,
-    pub Amount: u32,
-}
-impl Default for ADS_HOLD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADS_HOLD {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADS_NETADDRESS {
-    pub AddressType: u32,
-    pub AddressLength: u32,
-    pub Address: *mut u8,
-}
-impl Default for ADS_NETADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADS_NETADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADS_NT_SECURITY_DESCRIPTOR {
-    pub dwLength: u32,
-    pub lpValue: *mut u8,
-}
-impl Default for ADS_NT_SECURITY_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADS_NT_SECURITY_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADS_OBJECT_INFO {
-    pub pszRDN: windows_core::PWSTR,
-    pub pszObjectDN: windows_core::PWSTR,
-    pub pszParentDN: windows_core::PWSTR,
-    pub pszSchemaDN: windows_core::PWSTR,
-    pub pszClassName: windows_core::PWSTR,
-}
-impl Default for ADS_OBJECT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADS_OBJECT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADS_OCTET_LIST {
-    pub Next: *mut ADS_OCTET_LIST,
-    pub Length: u32,
-    pub Data: *mut u8,
-}
-impl Default for ADS_OCTET_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADS_OCTET_LIST {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADS_OCTET_STRING {
-    pub dwLength: u32,
-    pub lpValue: *mut u8,
-}
-impl Default for ADS_OCTET_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADS_OCTET_STRING {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADS_PATH {
-    pub Type: u32,
-    pub VolumeName: windows_core::PWSTR,
-    pub Path: windows_core::PWSTR,
-}
-impl Default for ADS_PATH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADS_PATH {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADS_POSTALADDRESS {
-    pub PostalAddress: [windows_core::PWSTR; 6],
-}
-impl Default for ADS_POSTALADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADS_POSTALADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADS_PROV_SPECIFIC {
-    pub dwLength: u32,
-    pub lpValue: *mut u8,
-}
-impl Default for ADS_PROV_SPECIFIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADS_PROV_SPECIFIC {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADS_REPLICAPOINTER {
-    pub ServerName: windows_core::PWSTR,
-    pub ReplicaType: u32,
-    pub ReplicaNumber: u32,
-    pub Count: u32,
-    pub ReplicaAddressHints: *mut ADS_NETADDRESS,
-}
-impl Default for ADS_REPLICAPOINTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADS_REPLICAPOINTER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ADS_SEARCHPREF_INFO {
-    pub dwSearchPref: ADS_SEARCHPREF_ENUM,
-    pub vValue: ADSVALUE,
-    pub dwStatus: ADS_STATUSENUM,
-}
-impl Default for ADS_SEARCHPREF_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADS_SEARCHPREF_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADS_SEARCH_COLUMN {
-    pub pszAttrName: windows_core::PWSTR,
-    pub dwADsType: ADSTYPE,
-    pub pADsValues: *mut ADSVALUE,
-    pub dwNumValues: u32,
-    pub hReserved: super::super::Foundation::HANDLE,
-}
-impl Default for ADS_SEARCH_COLUMN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADS_SEARCH_COLUMN {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ADS_SEARCH_HANDLE(pub isize);
-impl windows_core::TypeKind for ADS_SEARCH_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
-impl ADS_SEARCH_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADS_SORTKEY {
-    pub pszAttrType: windows_core::PWSTR,
-    pub pszReserved: windows_core::PWSTR,
-    pub fReverseorder: super::super::Foundation::BOOLEAN,
-}
-impl Default for ADS_SORTKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADS_SORTKEY {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADS_TIMESTAMP {
-    pub WholeSeconds: u32,
-    pub EventID: u32,
-}
-impl Default for ADS_TIMESTAMP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADS_TIMESTAMP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADS_TYPEDNAME {
-    pub ObjectName: windows_core::PWSTR,
-    pub Level: u32,
-    pub Interval: u32,
-}
-impl Default for ADS_TYPEDNAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADS_TYPEDNAME {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ADS_VLV {
-    pub dwBeforeCount: u32,
-    pub dwAfterCount: u32,
-    pub dwOffset: u32,
-    pub dwContentCount: u32,
-    pub pszTarget: windows_core::PWSTR,
-    pub dwContextIDLength: u32,
-    pub lpContextID: *mut u8,
-}
-impl Default for ADS_VLV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ADS_VLV {
-    type TypeKind = windows_core::CopyType;
-}
-pub const ADSystemInfo: windows_core::GUID = windows_core::GUID::from_u128(0x50b6327f_afd1_11d2_9cb9_0000f87a369e);
-pub const ADsSecurityUtility: windows_core::GUID = windows_core::GUID::from_u128(0xf270c64a_ffb8_4ae4_85fe_3a75e5347966);
-pub const AccessControlEntry: windows_core::GUID = windows_core::GUID::from_u128(0xb75ac000_9bdd_11d0_852c_00c04fd8d503);
-pub const AccessControlList: windows_core::GUID = windows_core::GUID::from_u128(0xb85ea052_9bdd_11d0_852c_00c04fd8d503);
-pub const BackLink: windows_core::GUID = windows_core::GUID::from_u128(0xfcbf906f_4080_11d1_a3ac_00c04fb950dc);
-#[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CQFORM {
-    pub cbStruct: u32,
-    pub dwFlags: u32,
-    pub clsid: windows_core::GUID,
-    pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
-    pub pszTitle: windows_core::PCWSTR,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Default for CQFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for CQFORM {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CQPAGE {
-    pub cbStruct: u32,
-    pub dwFlags: u32,
-    pub pPageProc: LPCQPAGEPROC,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub idPageName: i32,
-    pub idPageTemplate: i32,
-    pub pDlgProc: super::super::UI::WindowsAndMessaging::DLGPROC,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Default for CQPAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for CQPAGE {
-    type TypeKind = windows_core::CopyType;
-}
-pub const CaseIgnoreList: windows_core::GUID = windows_core::GUID::from_u128(0x15f88a55_4680_11d1_a3b4_00c04fb950dc);
-pub const DNWithBinary: windows_core::GUID = windows_core::GUID::from_u128(0x7e99c0a3_f935_11d2_ba96_00c04fb6d0d1);
-pub const DNWithString: windows_core::GUID = windows_core::GUID::from_u128(0x334857cc_f934_11d2_ba96_00c04fb6d0d1);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DOMAINDESC {
-    pub pszName: windows_core::PWSTR,
-    pub pszPath: windows_core::PWSTR,
-    pub pszNCName: windows_core::PWSTR,
-    pub pszTrustParent: windows_core::PWSTR,
-    pub pszObjectClass: windows_core::PWSTR,
-    pub ulFlags: u32,
-    pub fDownLevel: super::super::Foundation::BOOL,
-    pub pdChildList: *mut DOMAINDESC,
-    pub pdNextSibling: *mut DOMAINDESC,
-}
-impl Default for DOMAINDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DOMAINDESC {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DOMAIN_CONTROLLER_INFOA {
-    pub DomainControllerName: windows_core::PSTR,
-    pub DomainControllerAddress: windows_core::PSTR,
-    pub DomainControllerAddressType: u32,
-    pub DomainGuid: windows_core::GUID,
-    pub DomainName: windows_core::PSTR,
-    pub DnsForestName: windows_core::PSTR,
-    pub Flags: u32,
-    pub DcSiteName: windows_core::PSTR,
-    pub ClientSiteName: windows_core::PSTR,
-}
-impl Default for DOMAIN_CONTROLLER_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DOMAIN_CONTROLLER_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DOMAIN_CONTROLLER_INFOW {
-    pub DomainControllerName: windows_core::PWSTR,
-    pub DomainControllerAddress: windows_core::PWSTR,
-    pub DomainControllerAddressType: u32,
-    pub DomainGuid: windows_core::GUID,
-    pub DomainName: windows_core::PWSTR,
-    pub DnsForestName: windows_core::PWSTR,
-    pub Flags: u32,
-    pub DcSiteName: windows_core::PWSTR,
-    pub ClientSiteName: windows_core::PWSTR,
-}
-impl Default for DOMAIN_CONTROLLER_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DOMAIN_CONTROLLER_INFOW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DOMAIN_TREE {
-    pub dsSize: u32,
-    pub dwCount: u32,
-    pub aDomains: [DOMAINDESC; 1],
-}
-impl Default for DOMAIN_TREE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DOMAIN_TREE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DSA_NEWOBJ_DISPINFO {
-    pub dwSize: u32,
-    pub hObjClassIcon: super::super::UI::WindowsAndMessaging::HICON,
-    pub lpszWizTitle: windows_core::PWSTR,
-    pub lpszContDisplayName: windows_core::PWSTR,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Default for DSA_NEWOBJ_DISPINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for DSA_NEWOBJ_DISPINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DSBITEMA {
-    pub cbStruct: u32,
-    pub pszADsPath: windows_core::PCWSTR,
-    pub pszClass: windows_core::PCWSTR,
-    pub dwMask: u32,
-    pub dwState: u32,
-    pub dwStateMask: u32,
-    pub szDisplayName: [i8; 64],
-    pub szIconLocation: [i8; 260],
-    pub iIconResID: i32,
-}
-impl Default for DSBITEMA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DSBITEMA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DSBITEMW {
-    pub cbStruct: u32,
-    pub pszADsPath: windows_core::PCWSTR,
-    pub pszClass: windows_core::PCWSTR,
-    pub dwMask: u32,
-    pub dwState: u32,
-    pub dwStateMask: u32,
-    pub szDisplayName: [u16; 64],
-    pub szIconLocation: [u16; 260],
-    pub iIconResID: i32,
-}
-impl Default for DSBITEMW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DSBITEMW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_Shell")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DSBROWSEINFOA {
-    pub cbStruct: u32,
-    pub hwndOwner: super::super::Foundation::HWND,
-    pub pszCaption: windows_core::PCSTR,
-    pub pszTitle: windows_core::PCSTR,
-    pub pszRoot: windows_core::PCWSTR,
-    pub pszPath: windows_core::PWSTR,
-    pub cchPath: u32,
-    pub dwFlags: u32,
-    pub pfnCallback: super::super::UI::Shell::BFFCALLBACK,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub dwReturnFormat: u32,
-    pub pUserName: windows_core::PCWSTR,
-    pub pPassword: windows_core::PCWSTR,
-    pub pszObjectClass: windows_core::PWSTR,
-    pub cchObjectClass: u32,
-}
-#[cfg(feature = "Win32_UI_Shell")]
-impl Default for DSBROWSEINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_UI_Shell")]
-impl windows_core::TypeKind for DSBROWSEINFOA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_Shell")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DSBROWSEINFOW {
-    pub cbStruct: u32,
-    pub hwndOwner: super::super::Foundation::HWND,
-    pub pszCaption: windows_core::PCWSTR,
-    pub pszTitle: windows_core::PCWSTR,
-    pub pszRoot: windows_core::PCWSTR,
-    pub pszPath: windows_core::PWSTR,
-    pub cchPath: u32,
-    pub dwFlags: u32,
-    pub pfnCallback: super::super::UI::Shell::BFFCALLBACK,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub dwReturnFormat: u32,
-    pub pUserName: windows_core::PCWSTR,
-    pub pPassword: windows_core::PCWSTR,
-    pub pszObjectClass: windows_core::PWSTR,
-    pub cchObjectClass: u32,
-}
-#[cfg(feature = "Win32_UI_Shell")]
-impl Default for DSBROWSEINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_UI_Shell")]
-impl windows_core::TypeKind for DSBROWSEINFOW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DSCLASSCREATIONINFO {
-    pub dwFlags: u32,
-    pub clsidWizardDialog: windows_core::GUID,
-    pub clsidWizardPrimaryPage: windows_core::GUID,
-    pub cWizardExtensions: u32,
-    pub aWizardExtensions: [windows_core::GUID; 1],
-}
-impl Default for DSCLASSCREATIONINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DSCLASSCREATIONINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DSCOLUMN {
-    pub dwFlags: u32,
-    pub fmt: i32,
-    pub cx: i32,
-    pub idsName: i32,
-    pub offsetProperty: i32,
-    pub dwReserved: u32,
-}
-impl Default for DSCOLUMN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DSCOLUMN {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DSDISPLAYSPECOPTIONS {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub offsetAttribPrefix: u32,
-    pub offsetUserName: u32,
-    pub offsetPassword: u32,
-    pub offsetServer: u32,
-    pub offsetServerConfigPath: u32,
-}
-impl Default for DSDISPLAYSPECOPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DSDISPLAYSPECOPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DSOBJECT {
-    pub dwFlags: u32,
-    pub dwProviderFlags: u32,
-    pub offsetName: u32,
-    pub offsetClass: u32,
-}
-impl Default for DSOBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DSOBJECT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DSOBJECTNAMES {
-    pub clsidNamespace: windows_core::GUID,
-    pub cItems: u32,
-    pub aObjects: [DSOBJECT; 1],
-}
-impl Default for DSOBJECTNAMES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DSOBJECTNAMES {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DSOP_FILTER_FLAGS {
-    pub Uplevel: DSOP_UPLEVEL_FILTER_FLAGS,
-    pub flDownlevel: u32,
-}
-impl Default for DSOP_FILTER_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DSOP_FILTER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DSOP_INIT_INFO {
-    pub cbSize: u32,
-    pub pwzTargetComputer: windows_core::PCWSTR,
-    pub cDsScopeInfos: u32,
-    pub aDsScopeInfos: *mut DSOP_SCOPE_INIT_INFO,
-    pub flOptions: u32,
-    pub cAttributesToFetch: u32,
-    pub apwzAttributeNames: *const windows_core::PCWSTR,
-}
-impl Default for DSOP_INIT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DSOP_INIT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DSOP_SCOPE_INIT_INFO {
-    pub cbSize: u32,
-    pub flType: u32,
-    pub flScope: u32,
-    pub FilterFlags: DSOP_FILTER_FLAGS,
-    pub pwzDcName: windows_core::PCWSTR,
-    pub pwzADsPath: windows_core::PCWSTR,
-    pub hr: windows_core::HRESULT,
-}
-impl Default for DSOP_SCOPE_INIT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DSOP_SCOPE_INIT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DSOP_UPLEVEL_FILTER_FLAGS {
-    pub flBothModes: u32,
-    pub flMixedModeOnly: u32,
-    pub flNativeModeOnly: u32,
-}
-impl Default for DSOP_UPLEVEL_FILTER_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DSOP_UPLEVEL_FILTER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DSPROPERTYPAGEINFO {
-    pub offsetString: u32,
-}
-impl Default for DSPROPERTYPAGEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DSPROPERTYPAGEINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DSQUERYCLASSLIST {
-    pub cbStruct: u32,
-    pub cClasses: i32,
-    pub offsetClass: [u32; 1],
-}
-impl Default for DSQUERYCLASSLIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DSQUERYCLASSLIST {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DSQUERYINITPARAMS {
-    pub cbStruct: u32,
-    pub dwFlags: u32,
-    pub pDefaultScope: windows_core::PWSTR,
-    pub pDefaultSaveLocation: windows_core::PWSTR,
-    pub pUserName: windows_core::PWSTR,
-    pub pPassword: windows_core::PWSTR,
-    pub pServer: windows_core::PWSTR,
-}
-impl Default for DSQUERYINITPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DSQUERYINITPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DSQUERYPARAMS {
-    pub cbStruct: u32,
-    pub dwFlags: u32,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub offsetQuery: i32,
-    pub iColumns: i32,
-    pub dwReserved: u32,
-    pub aColumns: [DSCOLUMN; 1],
-}
-impl Default for DSQUERYPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DSQUERYPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DSROLE_OPERATION_STATE_INFO {
-    pub OperationState: DSROLE_OPERATION_STATE,
-}
-impl Default for DSROLE_OPERATION_STATE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DSROLE_OPERATION_STATE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
-    pub MachineRole: DSROLE_MACHINE_ROLE,
-    pub Flags: u32,
-    pub DomainNameFlat: windows_core::PWSTR,
-    pub DomainNameDns: windows_core::PWSTR,
-    pub DomainForestName: windows_core::PWSTR,
-    pub DomainGuid: windows_core::GUID,
-}
-impl Default for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DSROLE_UPGRADE_STATUS_INFO {
-    pub OperationState: u32,
-    pub PreviousServerState: DSROLE_SERVER_STATE,
-}
-impl Default for DSROLE_UPGRADE_STATUS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DSROLE_UPGRADE_STATUS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_DOMAIN_CONTROLLER_INFO_1A {
-    pub NetbiosName: windows_core::PSTR,
-    pub DnsHostName: windows_core::PSTR,
-    pub SiteName: windows_core::PSTR,
-    pub ComputerObjectName: windows_core::PSTR,
-    pub ServerObjectName: windows_core::PSTR,
-    pub fIsPdc: super::super::Foundation::BOOL,
-    pub fDsEnabled: super::super::Foundation::BOOL,
-}
-impl Default for DS_DOMAIN_CONTROLLER_INFO_1A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_DOMAIN_CONTROLLER_INFO_1A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_DOMAIN_CONTROLLER_INFO_1W {
-    pub NetbiosName: windows_core::PWSTR,
-    pub DnsHostName: windows_core::PWSTR,
-    pub SiteName: windows_core::PWSTR,
-    pub ComputerObjectName: windows_core::PWSTR,
-    pub ServerObjectName: windows_core::PWSTR,
-    pub fIsPdc: super::super::Foundation::BOOL,
-    pub fDsEnabled: super::super::Foundation::BOOL,
-}
-impl Default for DS_DOMAIN_CONTROLLER_INFO_1W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_DOMAIN_CONTROLLER_INFO_1W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_DOMAIN_CONTROLLER_INFO_2A {
-    pub NetbiosName: windows_core::PSTR,
-    pub DnsHostName: windows_core::PSTR,
-    pub SiteName: windows_core::PSTR,
-    pub SiteObjectName: windows_core::PSTR,
-    pub ComputerObjectName: windows_core::PSTR,
-    pub ServerObjectName: windows_core::PSTR,
-    pub NtdsDsaObjectName: windows_core::PSTR,
-    pub fIsPdc: super::super::Foundation::BOOL,
-    pub fDsEnabled: super::super::Foundation::BOOL,
-    pub fIsGc: super::super::Foundation::BOOL,
-    pub SiteObjectGuid: windows_core::GUID,
-    pub ComputerObjectGuid: windows_core::GUID,
-    pub ServerObjectGuid: windows_core::GUID,
-    pub NtdsDsaObjectGuid: windows_core::GUID,
-}
-impl Default for DS_DOMAIN_CONTROLLER_INFO_2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_DOMAIN_CONTROLLER_INFO_2A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_DOMAIN_CONTROLLER_INFO_2W {
-    pub NetbiosName: windows_core::PWSTR,
-    pub DnsHostName: windows_core::PWSTR,
-    pub SiteName: windows_core::PWSTR,
-    pub SiteObjectName: windows_core::PWSTR,
-    pub ComputerObjectName: windows_core::PWSTR,
-    pub ServerObjectName: windows_core::PWSTR,
-    pub NtdsDsaObjectName: windows_core::PWSTR,
-    pub fIsPdc: super::super::Foundation::BOOL,
-    pub fDsEnabled: super::super::Foundation::BOOL,
-    pub fIsGc: super::super::Foundation::BOOL,
-    pub SiteObjectGuid: windows_core::GUID,
-    pub ComputerObjectGuid: windows_core::GUID,
-    pub ServerObjectGuid: windows_core::GUID,
-    pub NtdsDsaObjectGuid: windows_core::GUID,
-}
-impl Default for DS_DOMAIN_CONTROLLER_INFO_2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_DOMAIN_CONTROLLER_INFO_2W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_DOMAIN_CONTROLLER_INFO_3A {
-    pub NetbiosName: windows_core::PSTR,
-    pub DnsHostName: windows_core::PSTR,
-    pub SiteName: windows_core::PSTR,
-    pub SiteObjectName: windows_core::PSTR,
-    pub ComputerObjectName: windows_core::PSTR,
-    pub ServerObjectName: windows_core::PSTR,
-    pub NtdsDsaObjectName: windows_core::PSTR,
-    pub fIsPdc: super::super::Foundation::BOOL,
-    pub fDsEnabled: super::super::Foundation::BOOL,
-    pub fIsGc: super::super::Foundation::BOOL,
-    pub fIsRodc: super::super::Foundation::BOOL,
-    pub SiteObjectGuid: windows_core::GUID,
-    pub ComputerObjectGuid: windows_core::GUID,
-    pub ServerObjectGuid: windows_core::GUID,
-    pub NtdsDsaObjectGuid: windows_core::GUID,
-}
-impl Default for DS_DOMAIN_CONTROLLER_INFO_3A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_DOMAIN_CONTROLLER_INFO_3A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_DOMAIN_CONTROLLER_INFO_3W {
-    pub NetbiosName: windows_core::PWSTR,
-    pub DnsHostName: windows_core::PWSTR,
-    pub SiteName: windows_core::PWSTR,
-    pub SiteObjectName: windows_core::PWSTR,
-    pub ComputerObjectName: windows_core::PWSTR,
-    pub ServerObjectName: windows_core::PWSTR,
-    pub NtdsDsaObjectName: windows_core::PWSTR,
-    pub fIsPdc: super::super::Foundation::BOOL,
-    pub fDsEnabled: super::super::Foundation::BOOL,
-    pub fIsGc: super::super::Foundation::BOOL,
-    pub fIsRodc: super::super::Foundation::BOOL,
-    pub SiteObjectGuid: windows_core::GUID,
-    pub ComputerObjectGuid: windows_core::GUID,
-    pub ServerObjectGuid: windows_core::GUID,
-    pub NtdsDsaObjectGuid: windows_core::GUID,
-}
-impl Default for DS_DOMAIN_CONTROLLER_INFO_3W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_DOMAIN_CONTROLLER_INFO_3W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_DOMAIN_TRUSTSA {
-    pub NetbiosDomainName: windows_core::PSTR,
-    pub DnsDomainName: windows_core::PSTR,
-    pub Flags: u32,
-    pub ParentIndex: u32,
-    pub TrustType: u32,
-    pub TrustAttributes: u32,
-    pub DomainSid: super::super::Security::PSID,
-    pub DomainGuid: windows_core::GUID,
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for DS_DOMAIN_TRUSTSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for DS_DOMAIN_TRUSTSA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_DOMAIN_TRUSTSW {
-    pub NetbiosDomainName: windows_core::PWSTR,
-    pub DnsDomainName: windows_core::PWSTR,
-    pub Flags: u32,
-    pub ParentIndex: u32,
-    pub TrustType: u32,
-    pub TrustAttributes: u32,
-    pub DomainSid: super::super::Security::PSID,
-    pub DomainGuid: windows_core::GUID,
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for DS_DOMAIN_TRUSTSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for DS_DOMAIN_TRUSTSW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_NAME_RESULTA {
-    pub cItems: u32,
-    pub rItems: *mut DS_NAME_RESULT_ITEMA,
-}
-impl Default for DS_NAME_RESULTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_NAME_RESULTA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_NAME_RESULTW {
-    pub cItems: u32,
-    pub rItems: *mut DS_NAME_RESULT_ITEMW,
-}
-impl Default for DS_NAME_RESULTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_NAME_RESULTW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_NAME_RESULT_ITEMA {
-    pub status: u32,
-    pub pDomain: windows_core::PSTR,
-    pub pName: windows_core::PSTR,
-}
-impl Default for DS_NAME_RESULT_ITEMA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_NAME_RESULT_ITEMA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_NAME_RESULT_ITEMW {
-    pub status: u32,
-    pub pDomain: windows_core::PWSTR,
-    pub pName: windows_core::PWSTR,
-}
-impl Default for DS_NAME_RESULT_ITEMW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_NAME_RESULT_ITEMW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_ATTR_META_DATA {
-    pub pszAttributeName: windows_core::PWSTR,
-    pub dwVersion: u32,
-    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
-    pub uuidLastOriginatingDsaInvocationID: windows_core::GUID,
-    pub usnOriginatingChange: i64,
-    pub usnLocalChange: i64,
-}
-impl Default for DS_REPL_ATTR_META_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_ATTR_META_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_ATTR_META_DATA_2 {
-    pub pszAttributeName: windows_core::PWSTR,
-    pub dwVersion: u32,
-    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
-    pub uuidLastOriginatingDsaInvocationID: windows_core::GUID,
-    pub usnOriginatingChange: i64,
-    pub usnLocalChange: i64,
-    pub pszLastOriginatingDsaDN: windows_core::PWSTR,
-}
-impl Default for DS_REPL_ATTR_META_DATA_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_ATTR_META_DATA_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_ATTR_META_DATA_BLOB {
-    pub oszAttributeName: u32,
-    pub dwVersion: u32,
-    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
-    pub uuidLastOriginatingDsaInvocationID: windows_core::GUID,
-    pub usnOriginatingChange: i64,
-    pub usnLocalChange: i64,
-    pub oszLastOriginatingDsaDN: u32,
-}
-impl Default for DS_REPL_ATTR_META_DATA_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_ATTR_META_DATA_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_ATTR_VALUE_META_DATA {
-    pub cNumEntries: u32,
-    pub dwEnumerationContext: u32,
-    pub rgMetaData: [DS_REPL_VALUE_META_DATA; 1],
-}
-impl Default for DS_REPL_ATTR_VALUE_META_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_ATTR_VALUE_META_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_ATTR_VALUE_META_DATA_2 {
-    pub cNumEntries: u32,
-    pub dwEnumerationContext: u32,
-    pub rgMetaData: [DS_REPL_VALUE_META_DATA_2; 1],
-}
-impl Default for DS_REPL_ATTR_VALUE_META_DATA_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_ATTR_VALUE_META_DATA_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_ATTR_VALUE_META_DATA_EXT {
-    pub cNumEntries: u32,
-    pub dwEnumerationContext: u32,
-    pub rgMetaData: [DS_REPL_VALUE_META_DATA_EXT; 1],
-}
-impl Default for DS_REPL_ATTR_VALUE_META_DATA_EXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_ATTR_VALUE_META_DATA_EXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_CURSOR {
-    pub uuidSourceDsaInvocationID: windows_core::GUID,
-    pub usnAttributeFilter: i64,
-}
-impl Default for DS_REPL_CURSOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_CURSOR {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_CURSORS {
-    pub cNumCursors: u32,
-    pub dwReserved: u32,
-    pub rgCursor: [DS_REPL_CURSOR; 1],
-}
-impl Default for DS_REPL_CURSORS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_CURSORS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_CURSORS_2 {
-    pub cNumCursors: u32,
-    pub dwEnumerationContext: u32,
-    pub rgCursor: [DS_REPL_CURSOR_2; 1],
-}
-impl Default for DS_REPL_CURSORS_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_CURSORS_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_CURSORS_3W {
-    pub cNumCursors: u32,
-    pub dwEnumerationContext: u32,
-    pub rgCursor: [DS_REPL_CURSOR_3W; 1],
-}
-impl Default for DS_REPL_CURSORS_3W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_CURSORS_3W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_CURSOR_2 {
-    pub uuidSourceDsaInvocationID: windows_core::GUID,
-    pub usnAttributeFilter: i64,
-    pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
-}
-impl Default for DS_REPL_CURSOR_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_CURSOR_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_CURSOR_3W {
-    pub uuidSourceDsaInvocationID: windows_core::GUID,
-    pub usnAttributeFilter: i64,
-    pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
-    pub pszSourceDsaDN: windows_core::PWSTR,
-}
-impl Default for DS_REPL_CURSOR_3W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_CURSOR_3W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_CURSOR_BLOB {
-    pub uuidSourceDsaInvocationID: windows_core::GUID,
-    pub usnAttributeFilter: i64,
-    pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
-    pub oszSourceDsaDN: u32,
-}
-impl Default for DS_REPL_CURSOR_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_CURSOR_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_KCC_DSA_FAILURESW {
-    pub cNumEntries: u32,
-    pub dwReserved: u32,
-    pub rgDsaFailure: [DS_REPL_KCC_DSA_FAILUREW; 1],
-}
-impl Default for DS_REPL_KCC_DSA_FAILURESW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_KCC_DSA_FAILURESW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_KCC_DSA_FAILUREW {
-    pub pszDsaDN: windows_core::PWSTR,
-    pub uuidDsaObjGuid: windows_core::GUID,
-    pub ftimeFirstFailure: super::super::Foundation::FILETIME,
-    pub cNumFailures: u32,
-    pub dwLastResult: u32,
-}
-impl Default for DS_REPL_KCC_DSA_FAILUREW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_KCC_DSA_FAILUREW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_KCC_DSA_FAILUREW_BLOB {
-    pub oszDsaDN: u32,
-    pub uuidDsaObjGuid: windows_core::GUID,
-    pub ftimeFirstFailure: super::super::Foundation::FILETIME,
-    pub cNumFailures: u32,
-    pub dwLastResult: u32,
-}
-impl Default for DS_REPL_KCC_DSA_FAILUREW_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_KCC_DSA_FAILUREW_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_NEIGHBORSW {
-    pub cNumNeighbors: u32,
-    pub dwReserved: u32,
-    pub rgNeighbor: [DS_REPL_NEIGHBORW; 1],
-}
-impl Default for DS_REPL_NEIGHBORSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_NEIGHBORSW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_NEIGHBORW {
-    pub pszNamingContext: windows_core::PWSTR,
-    pub pszSourceDsaDN: windows_core::PWSTR,
-    pub pszSourceDsaAddress: windows_core::PWSTR,
-    pub pszAsyncIntersiteTransportDN: windows_core::PWSTR,
-    pub dwReplicaFlags: u32,
-    pub dwReserved: u32,
-    pub uuidNamingContextObjGuid: windows_core::GUID,
-    pub uuidSourceDsaObjGuid: windows_core::GUID,
-    pub uuidSourceDsaInvocationID: windows_core::GUID,
-    pub uuidAsyncIntersiteTransportObjGuid: windows_core::GUID,
-    pub usnLastObjChangeSynced: i64,
-    pub usnAttributeFilter: i64,
-    pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
-    pub ftimeLastSyncAttempt: super::super::Foundation::FILETIME,
-    pub dwLastSyncResult: u32,
-    pub cNumConsecutiveSyncFailures: u32,
-}
-impl Default for DS_REPL_NEIGHBORW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_NEIGHBORW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_NEIGHBORW_BLOB {
-    pub oszNamingContext: u32,
-    pub oszSourceDsaDN: u32,
-    pub oszSourceDsaAddress: u32,
-    pub oszAsyncIntersiteTransportDN: u32,
-    pub dwReplicaFlags: u32,
-    pub dwReserved: u32,
-    pub uuidNamingContextObjGuid: windows_core::GUID,
-    pub uuidSourceDsaObjGuid: windows_core::GUID,
-    pub uuidSourceDsaInvocationID: windows_core::GUID,
-    pub uuidAsyncIntersiteTransportObjGuid: windows_core::GUID,
-    pub usnLastObjChangeSynced: i64,
-    pub usnAttributeFilter: i64,
-    pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
-    pub ftimeLastSyncAttempt: super::super::Foundation::FILETIME,
-    pub dwLastSyncResult: u32,
-    pub cNumConsecutiveSyncFailures: u32,
-}
-impl Default for DS_REPL_NEIGHBORW_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_NEIGHBORW_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_OBJ_META_DATA {
-    pub cNumEntries: u32,
-    pub dwReserved: u32,
-    pub rgMetaData: [DS_REPL_ATTR_META_DATA; 1],
-}
-impl Default for DS_REPL_OBJ_META_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_OBJ_META_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_OBJ_META_DATA_2 {
-    pub cNumEntries: u32,
-    pub dwReserved: u32,
-    pub rgMetaData: [DS_REPL_ATTR_META_DATA_2; 1],
-}
-impl Default for DS_REPL_OBJ_META_DATA_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_OBJ_META_DATA_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_OPW {
-    pub ftimeEnqueued: super::super::Foundation::FILETIME,
-    pub ulSerialNumber: u32,
-    pub ulPriority: u32,
-    pub OpType: DS_REPL_OP_TYPE,
-    pub ulOptions: u32,
-    pub pszNamingContext: windows_core::PWSTR,
-    pub pszDsaDN: windows_core::PWSTR,
-    pub pszDsaAddress: windows_core::PWSTR,
-    pub uuidNamingContextObjGuid: windows_core::GUID,
-    pub uuidDsaObjGuid: windows_core::GUID,
-}
-impl Default for DS_REPL_OPW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_OPW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_OPW_BLOB {
-    pub ftimeEnqueued: super::super::Foundation::FILETIME,
-    pub ulSerialNumber: u32,
-    pub ulPriority: u32,
-    pub OpType: DS_REPL_OP_TYPE,
-    pub ulOptions: u32,
-    pub oszNamingContext: u32,
-    pub oszDsaDN: u32,
-    pub oszDsaAddress: u32,
-    pub uuidNamingContextObjGuid: windows_core::GUID,
-    pub uuidDsaObjGuid: windows_core::GUID,
-}
-impl Default for DS_REPL_OPW_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_OPW_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_PENDING_OPSW {
-    pub ftimeCurrentOpStarted: super::super::Foundation::FILETIME,
-    pub cNumPendingOps: u32,
-    pub rgPendingOp: [DS_REPL_OPW; 1],
-}
-impl Default for DS_REPL_PENDING_OPSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_PENDING_OPSW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_QUEUE_STATISTICSW {
-    pub ftimeCurrentOpStarted: super::super::Foundation::FILETIME,
-    pub cNumPendingOps: u32,
-    pub ftimeOldestSync: super::super::Foundation::FILETIME,
-    pub ftimeOldestAdd: super::super::Foundation::FILETIME,
-    pub ftimeOldestMod: super::super::Foundation::FILETIME,
-    pub ftimeOldestDel: super::super::Foundation::FILETIME,
-    pub ftimeOldestUpdRefs: super::super::Foundation::FILETIME,
-}
-impl Default for DS_REPL_QUEUE_STATISTICSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_QUEUE_STATISTICSW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_VALUE_META_DATA {
-    pub pszAttributeName: windows_core::PWSTR,
-    pub pszObjectDn: windows_core::PWSTR,
-    pub cbData: u32,
-    pub pbData: *mut u8,
-    pub ftimeDeleted: super::super::Foundation::FILETIME,
-    pub ftimeCreated: super::super::Foundation::FILETIME,
-    pub dwVersion: u32,
-    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
-    pub uuidLastOriginatingDsaInvocationID: windows_core::GUID,
-    pub usnOriginatingChange: i64,
-    pub usnLocalChange: i64,
-}
-impl Default for DS_REPL_VALUE_META_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_VALUE_META_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_VALUE_META_DATA_2 {
-    pub pszAttributeName: windows_core::PWSTR,
-    pub pszObjectDn: windows_core::PWSTR,
-    pub cbData: u32,
-    pub pbData: *mut u8,
-    pub ftimeDeleted: super::super::Foundation::FILETIME,
-    pub ftimeCreated: super::super::Foundation::FILETIME,
-    pub dwVersion: u32,
-    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
-    pub uuidLastOriginatingDsaInvocationID: windows_core::GUID,
-    pub usnOriginatingChange: i64,
-    pub usnLocalChange: i64,
-    pub pszLastOriginatingDsaDN: windows_core::PWSTR,
-}
-impl Default for DS_REPL_VALUE_META_DATA_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_VALUE_META_DATA_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_VALUE_META_DATA_BLOB {
-    pub oszAttributeName: u32,
-    pub oszObjectDn: u32,
-    pub cbData: u32,
-    pub obData: u32,
-    pub ftimeDeleted: super::super::Foundation::FILETIME,
-    pub ftimeCreated: super::super::Foundation::FILETIME,
-    pub dwVersion: u32,
-    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
-    pub uuidLastOriginatingDsaInvocationID: windows_core::GUID,
-    pub usnOriginatingChange: i64,
-    pub usnLocalChange: i64,
-    pub oszLastOriginatingDsaDN: u32,
-}
-impl Default for DS_REPL_VALUE_META_DATA_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_VALUE_META_DATA_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_VALUE_META_DATA_BLOB_EXT {
-    pub oszAttributeName: u32,
-    pub oszObjectDn: u32,
-    pub cbData: u32,
-    pub obData: u32,
-    pub ftimeDeleted: super::super::Foundation::FILETIME,
-    pub ftimeCreated: super::super::Foundation::FILETIME,
-    pub dwVersion: u32,
-    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
-    pub uuidLastOriginatingDsaInvocationID: windows_core::GUID,
-    pub usnOriginatingChange: i64,
-    pub usnLocalChange: i64,
-    pub oszLastOriginatingDsaDN: u32,
-    pub dwUserIdentifier: u32,
-    pub dwPriorLinkState: u32,
-    pub dwCurrentLinkState: u32,
-}
-impl Default for DS_REPL_VALUE_META_DATA_BLOB_EXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_VALUE_META_DATA_BLOB_EXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPL_VALUE_META_DATA_EXT {
-    pub pszAttributeName: windows_core::PWSTR,
-    pub pszObjectDn: windows_core::PWSTR,
-    pub cbData: u32,
-    pub pbData: *mut u8,
-    pub ftimeDeleted: super::super::Foundation::FILETIME,
-    pub ftimeCreated: super::super::Foundation::FILETIME,
-    pub dwVersion: u32,
-    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
-    pub uuidLastOriginatingDsaInvocationID: windows_core::GUID,
-    pub usnOriginatingChange: i64,
-    pub usnLocalChange: i64,
-    pub pszLastOriginatingDsaDN: windows_core::PWSTR,
-    pub dwUserIdentifier: u32,
-    pub dwPriorLinkState: u32,
-    pub dwCurrentLinkState: u32,
-}
-impl Default for DS_REPL_VALUE_META_DATA_EXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPL_VALUE_META_DATA_EXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPSYNCALL_ERRINFOA {
-    pub pszSvrId: windows_core::PSTR,
-    pub error: DS_REPSYNCALL_ERROR,
-    pub dwWin32Err: u32,
-    pub pszSrcId: windows_core::PSTR,
-}
-impl Default for DS_REPSYNCALL_ERRINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPSYNCALL_ERRINFOA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPSYNCALL_ERRINFOW {
-    pub pszSvrId: windows_core::PWSTR,
-    pub error: DS_REPSYNCALL_ERROR,
-    pub dwWin32Err: u32,
-    pub pszSrcId: windows_core::PWSTR,
-}
-impl Default for DS_REPSYNCALL_ERRINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPSYNCALL_ERRINFOW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPSYNCALL_SYNCA {
-    pub pszSrcId: windows_core::PSTR,
-    pub pszDstId: windows_core::PSTR,
-    pub pszNC: windows_core::PSTR,
-    pub pguidSrc: *mut windows_core::GUID,
-    pub pguidDst: *mut windows_core::GUID,
-}
-impl Default for DS_REPSYNCALL_SYNCA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPSYNCALL_SYNCA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPSYNCALL_SYNCW {
-    pub pszSrcId: windows_core::PWSTR,
-    pub pszDstId: windows_core::PWSTR,
-    pub pszNC: windows_core::PWSTR,
-    pub pguidSrc: *mut windows_core::GUID,
-    pub pguidDst: *mut windows_core::GUID,
-}
-impl Default for DS_REPSYNCALL_SYNCW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPSYNCALL_SYNCW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPSYNCALL_UPDATEA {
-    pub event: DS_REPSYNCALL_EVENT,
-    pub pErrInfo: *mut DS_REPSYNCALL_ERRINFOA,
-    pub pSync: *mut DS_REPSYNCALL_SYNCA,
-}
-impl Default for DS_REPSYNCALL_UPDATEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPSYNCALL_UPDATEA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_REPSYNCALL_UPDATEW {
-    pub event: DS_REPSYNCALL_EVENT,
-    pub pErrInfo: *mut DS_REPSYNCALL_ERRINFOW,
-    pub pSync: *mut DS_REPSYNCALL_SYNCW,
-}
-impl Default for DS_REPSYNCALL_UPDATEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_REPSYNCALL_UPDATEW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_SCHEMA_GUID_MAPA {
-    pub guid: windows_core::GUID,
-    pub guidType: u32,
-    pub pName: windows_core::PSTR,
-}
-impl Default for DS_SCHEMA_GUID_MAPA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_SCHEMA_GUID_MAPA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_SCHEMA_GUID_MAPW {
-    pub guid: windows_core::GUID,
-    pub guidType: u32,
-    pub pName: windows_core::PWSTR,
-}
-impl Default for DS_SCHEMA_GUID_MAPW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_SCHEMA_GUID_MAPW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_SELECTION {
-    pub pwzName: windows_core::PWSTR,
-    pub pwzADsPath: windows_core::PWSTR,
-    pub pwzClass: windows_core::PWSTR,
-    pub pwzUPN: windows_core::PWSTR,
-    pub pvarFetchedAttributes: *mut super::super::System::Variant::VARIANT,
-    pub flScopeType: u32,
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for DS_SELECTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DS_SELECTION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_SELECTION_LIST {
-    pub cItems: u32,
-    pub cFetchedAttributes: u32,
-    pub aDsSelection: [DS_SELECTION; 1],
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for DS_SELECTION_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DS_SELECTION_LIST {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DS_SITE_COST_INFO {
-    pub errorCode: u32,
-    pub cost: u32,
-}
-impl Default for DS_SITE_COST_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DS_SITE_COST_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-pub const Email: windows_core::GUID = windows_core::GUID::from_u128(0x8f92a857_478e_11d1_a3b4_00c04fb950dc);
-pub const FaxNumber: windows_core::GUID = windows_core::GUID::from_u128(0xa5062215_4681_11d1_a3b4_00c04fb950dc);
-pub const Hold: windows_core::GUID = windows_core::GUID::from_u128(0xb3ad3e13_4080_11d1_a3ac_00c04fb950dc);
 pub const LargeInteger: windows_core::GUID = windows_core::GUID::from_u128(0x927971f5_0939_11d1_8be1_00c04fd8d503);
-pub const NameTranslate: windows_core::GUID = windows_core::GUID::from_u128(0x274fae1f_3626_11d1_a3a4_00c04fb950dc);
-pub const NetAddress: windows_core::GUID = windows_core::GUID::from_u128(0xb0b71247_4080_11d1_a3ac_00c04fb950dc);
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-pub struct OPENQUERYWINDOW {
-    pub cbStruct: u32,
-    pub dwFlags: u32,
-    pub clsidHandler: windows_core::GUID,
-    pub pHandlerParameters: *mut core::ffi::c_void,
-    pub clsidDefaultForm: windows_core::GUID,
-    pub pPersistQuery: core::mem::ManuallyDrop<Option<IPersistQuery>>,
-    pub Anonymous: OPENQUERYWINDOW_0,
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl Clone for OPENQUERYWINDOW {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl Default for OPENQUERYWINDOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl windows_core::TypeKind for OPENQUERYWINDOW {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-pub union OPENQUERYWINDOW_0 {
-    pub pFormParameters: *mut core::ffi::c_void,
-    pub ppbFormParameters: core::mem::ManuallyDrop<Option<super::super::System::Com::StructuredStorage::IPropertyBag>>,
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl Clone for OPENQUERYWINDOW_0 {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl Default for OPENQUERYWINDOW_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl windows_core::TypeKind for OPENQUERYWINDOW_0 {
-    type TypeKind = windows_core::CloneType;
-}
-pub const OctetList: windows_core::GUID = windows_core::GUID::from_u128(0x1241400f_4680_11d1_a3b4_00c04fb950dc);
-pub const Path: windows_core::GUID = windows_core::GUID::from_u128(0xb2538919_4080_11d1_a3ac_00c04fb950dc);
-pub const Pathname: windows_core::GUID = windows_core::GUID::from_u128(0x080d0d78_f421_11d0_a36e_00c04fb950dc);
-pub const PostalAddress: windows_core::GUID = windows_core::GUID::from_u128(0x0a75afcd_4680_11d1_a3b4_00c04fb950dc);
-pub const PropertyEntry: windows_core::GUID = windows_core::GUID::from_u128(0x72d3edc2_a4c4_11d0_8533_00c04fd8d503);
-pub const PropertyValue: windows_core::GUID = windows_core::GUID::from_u128(0x7b9e38b0_a97c_11d0_8534_00c04fd8d503);
-pub const ReplicaPointer: windows_core::GUID = windows_core::GUID::from_u128(0xf5d1badf_4080_11d1_a3ac_00c04fb950dc);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SCHEDULE {
-    pub Size: u32,
-    pub Bandwidth: u32,
-    pub NumberOfSchedules: u32,
-    pub Schedules: [SCHEDULE_HEADER; 1],
-}
-impl Default for SCHEDULE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SCHEDULE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SCHEDULE_HEADER {
-    pub Type: u32,
-    pub Offset: u32,
-}
-impl Default for SCHEDULE_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SCHEDULE_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
-pub const SecurityDescriptor: windows_core::GUID = windows_core::GUID::from_u128(0xb958f73c_9bdd_11d0_852c_00c04fd8d503);
-pub const Timestamp: windows_core::GUID = windows_core::GUID::from_u128(0xb2bed2eb_4080_11d1_a3ac_00c04fb950dc);
-pub const TypedName: windows_core::GUID = windows_core::GUID::from_u128(0xb33143cb_4080_11d1_a3ac_00c04fb950dc);
-pub const WinNTSystemInfo: windows_core::GUID = windows_core::GUID::from_u128(0x66182ec4_afd1_11d2_9cb9_0000f87a369e);
-pub const ACTRL_DS_CONTROL_ACCESS: u32 = 256u32;
-pub const ACTRL_DS_CREATE_CHILD: u32 = 1u32;
-pub const ACTRL_DS_DELETE_CHILD: u32 = 2u32;
-pub const ACTRL_DS_DELETE_TREE: u32 = 64u32;
-pub const ACTRL_DS_LIST: u32 = 4u32;
-pub const ACTRL_DS_LIST_OBJECT: u32 = 128u32;
-pub const ACTRL_DS_OPEN: u32 = 0u32;
-pub const ACTRL_DS_READ_PROP: u32 = 16u32;
-pub const ACTRL_DS_SELF: u32 = 8u32;
-pub const ACTRL_DS_WRITE_PROP: u32 = 32u32;
-pub const ADAM_REPL_AUTHENTICATION_MODE_MUTUAL_AUTH_REQUIRED: u32 = 2u32;
-pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE: u32 = 1u32;
-pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE_PASS_THROUGH: u32 = 0u32;
-pub const ADAM_SCP_FSMO_NAMING_STRING: windows_core::PCSTR = windows_core::s!("naming");
-pub const ADAM_SCP_FSMO_NAMING_STRING_W: windows_core::PCWSTR = windows_core::w!("naming");
-pub const ADAM_SCP_FSMO_SCHEMA_STRING: windows_core::PCSTR = windows_core::s!("schema");
-pub const ADAM_SCP_FSMO_SCHEMA_STRING_W: windows_core::PCWSTR = windows_core::w!("schema");
-pub const ADAM_SCP_FSMO_STRING: windows_core::PCSTR = windows_core::s!("fsmo:");
-pub const ADAM_SCP_FSMO_STRING_W: windows_core::PCWSTR = windows_core::w!("fsmo:");
-pub const ADAM_SCP_INSTANCE_NAME_STRING: windows_core::PCSTR = windows_core::s!("instance:");
-pub const ADAM_SCP_INSTANCE_NAME_STRING_W: windows_core::PCWSTR = windows_core::w!("instance:");
-pub const ADAM_SCP_PARTITION_STRING: windows_core::PCSTR = windows_core::s!("partition:");
-pub const ADAM_SCP_PARTITION_STRING_W: windows_core::PCWSTR = windows_core::w!("partition:");
-pub const ADAM_SCP_SITE_NAME_STRING: windows_core::PCSTR = windows_core::s!("site:");
-pub const ADAM_SCP_SITE_NAME_STRING_W: windows_core::PCWSTR = windows_core::w!("site:");
-pub const ADSIPROP_ADSIFLAG: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(12i32);
-pub const ADSIPROP_ASYNCHRONOUS: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(0i32);
-pub const ADSIPROP_ATTRIBTYPES_ONLY: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(4i32);
-pub const ADSIPROP_CACHE_RESULTS: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(11i32);
-pub const ADSIPROP_CHASE_REFERRALS: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(9i32);
-pub const ADSIPROP_DEREF_ALIASES: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(1i32);
-pub const ADSIPROP_PAGED_TIME_LIMIT: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(8i32);
-pub const ADSIPROP_PAGESIZE: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(7i32);
-pub const ADSIPROP_SEARCH_SCOPE: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(5i32);
-pub const ADSIPROP_SIZE_LIMIT: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(2i32);
-pub const ADSIPROP_SORT_ON: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(10i32);
-pub const ADSIPROP_TIMEOUT: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(6i32);
-pub const ADSIPROP_TIME_LIMIT: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(3i32);
-pub const ADSI_DIALECT_LDAP: ADSI_DIALECT_ENUM = ADSI_DIALECT_ENUM(0i32);
-pub const ADSI_DIALECT_SQL: ADSI_DIALECT_ENUM = ADSI_DIALECT_ENUM(1i32);
-pub const ADSTYPE_BACKLINK: ADSTYPE = ADSTYPE(18i32);
-pub const ADSTYPE_BOOLEAN: ADSTYPE = ADSTYPE(6i32);
-pub const ADSTYPE_CASEIGNORE_LIST: ADSTYPE = ADSTYPE(13i32);
-pub const ADSTYPE_CASE_EXACT_STRING: ADSTYPE = ADSTYPE(2i32);
-pub const ADSTYPE_CASE_IGNORE_STRING: ADSTYPE = ADSTYPE(3i32);
-pub const ADSTYPE_DN_STRING: ADSTYPE = ADSTYPE(1i32);
-pub const ADSTYPE_DN_WITH_BINARY: ADSTYPE = ADSTYPE(27i32);
-pub const ADSTYPE_DN_WITH_STRING: ADSTYPE = ADSTYPE(28i32);
-pub const ADSTYPE_EMAIL: ADSTYPE = ADSTYPE(24i32);
-pub const ADSTYPE_FAXNUMBER: ADSTYPE = ADSTYPE(23i32);
-pub const ADSTYPE_HOLD: ADSTYPE = ADSTYPE(20i32);
-pub const ADSTYPE_INTEGER: ADSTYPE = ADSTYPE(7i32);
-pub const ADSTYPE_INVALID: ADSTYPE = ADSTYPE(0i32);
-pub const ADSTYPE_LARGE_INTEGER: ADSTYPE = ADSTYPE(10i32);
-pub const ADSTYPE_NETADDRESS: ADSTYPE = ADSTYPE(21i32);
-pub const ADSTYPE_NT_SECURITY_DESCRIPTOR: ADSTYPE = ADSTYPE(25i32);
-pub const ADSTYPE_NUMERIC_STRING: ADSTYPE = ADSTYPE(5i32);
-pub const ADSTYPE_OBJECT_CLASS: ADSTYPE = ADSTYPE(12i32);
-pub const ADSTYPE_OCTET_LIST: ADSTYPE = ADSTYPE(14i32);
-pub const ADSTYPE_OCTET_STRING: ADSTYPE = ADSTYPE(8i32);
-pub const ADSTYPE_PATH: ADSTYPE = ADSTYPE(15i32);
-pub const ADSTYPE_POSTALADDRESS: ADSTYPE = ADSTYPE(16i32);
-pub const ADSTYPE_PRINTABLE_STRING: ADSTYPE = ADSTYPE(4i32);
-pub const ADSTYPE_PROV_SPECIFIC: ADSTYPE = ADSTYPE(11i32);
-pub const ADSTYPE_REPLICAPOINTER: ADSTYPE = ADSTYPE(22i32);
-pub const ADSTYPE_TIMESTAMP: ADSTYPE = ADSTYPE(17i32);
-pub const ADSTYPE_TYPEDNAME: ADSTYPE = ADSTYPE(19i32);
-pub const ADSTYPE_UNKNOWN: ADSTYPE = ADSTYPE(26i32);
-pub const ADSTYPE_UTC_TIME: ADSTYPE = ADSTYPE(9i32);
-pub const ADS_ACEFLAG_FAILED_ACCESS: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(128i32);
-pub const ADS_ACEFLAG_INHERITED_ACE: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(16i32);
-pub const ADS_ACEFLAG_INHERIT_ACE: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(2i32);
-pub const ADS_ACEFLAG_INHERIT_ONLY_ACE: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(8i32);
-pub const ADS_ACEFLAG_NO_PROPAGATE_INHERIT_ACE: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(4i32);
-pub const ADS_ACEFLAG_SUCCESSFUL_ACCESS: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(64i32);
-pub const ADS_ACEFLAG_VALID_INHERIT_FLAGS: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(31i32);
-pub const ADS_ACETYPE_ACCESS_ALLOWED: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(0i32);
-pub const ADS_ACETYPE_ACCESS_ALLOWED_CALLBACK: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(9i32);
-pub const ADS_ACETYPE_ACCESS_ALLOWED_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(11i32);
-pub const ADS_ACETYPE_ACCESS_ALLOWED_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(5i32);
-pub const ADS_ACETYPE_ACCESS_DENIED: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(1i32);
-pub const ADS_ACETYPE_ACCESS_DENIED_CALLBACK: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(10i32);
-pub const ADS_ACETYPE_ACCESS_DENIED_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(12i32);
-pub const ADS_ACETYPE_ACCESS_DENIED_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(6i32);
-pub const ADS_ACETYPE_SYSTEM_ALARM_CALLBACK: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(14i32);
-pub const ADS_ACETYPE_SYSTEM_ALARM_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(16i32);
-pub const ADS_ACETYPE_SYSTEM_ALARM_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(8i32);
-pub const ADS_ACETYPE_SYSTEM_AUDIT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(2i32);
-pub const ADS_ACETYPE_SYSTEM_AUDIT_CALLBACK: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(13i32);
-pub const ADS_ACETYPE_SYSTEM_AUDIT_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(15i32);
-pub const ADS_ACETYPE_SYSTEM_AUDIT_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(7i32);
-pub const ADS_ATTR_APPEND: u32 = 3u32;
-pub const ADS_ATTR_CLEAR: u32 = 1u32;
-pub const ADS_ATTR_DELETE: u32 = 4u32;
-pub const ADS_ATTR_UPDATE: u32 = 2u32;
-pub const ADS_AUTH_RESERVED: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(2147483648u32);
-pub const ADS_CHASE_REFERRALS_ALWAYS: ADS_CHASE_REFERRALS_ENUM = ADS_CHASE_REFERRALS_ENUM(96i32);
-pub const ADS_CHASE_REFERRALS_EXTERNAL: ADS_CHASE_REFERRALS_ENUM = ADS_CHASE_REFERRALS_ENUM(64i32);
-pub const ADS_CHASE_REFERRALS_NEVER: ADS_CHASE_REFERRALS_ENUM = ADS_CHASE_REFERRALS_ENUM(0i32);
-pub const ADS_CHASE_REFERRALS_SUBORDINATE: ADS_CHASE_REFERRALS_ENUM = ADS_CHASE_REFERRALS_ENUM(32i32);
-pub const ADS_DEREF_ALWAYS: ADS_DEREFENUM = ADS_DEREFENUM(3i32);
-pub const ADS_DEREF_FINDING: ADS_DEREFENUM = ADS_DEREFENUM(2i32);
-pub const ADS_DEREF_NEVER: ADS_DEREFENUM = ADS_DEREFENUM(0i32);
-pub const ADS_DEREF_SEARCHING: ADS_DEREFENUM = ADS_DEREFENUM(1i32);
-pub const ADS_DISPLAY_FULL: ADS_DISPLAY_ENUM = ADS_DISPLAY_ENUM(1i32);
-pub const ADS_DISPLAY_VALUE_ONLY: ADS_DISPLAY_ENUM = ADS_DISPLAY_ENUM(2i32);
-pub const ADS_ESCAPEDMODE_DEFAULT: ADS_ESCAPE_MODE_ENUM = ADS_ESCAPE_MODE_ENUM(1i32);
-pub const ADS_ESCAPEDMODE_OFF: ADS_ESCAPE_MODE_ENUM = ADS_ESCAPE_MODE_ENUM(3i32);
-pub const ADS_ESCAPEDMODE_OFF_EX: ADS_ESCAPE_MODE_ENUM = ADS_ESCAPE_MODE_ENUM(4i32);
-pub const ADS_ESCAPEDMODE_ON: ADS_ESCAPE_MODE_ENUM = ADS_ESCAPE_MODE_ENUM(2i32);
-pub const ADS_EXT_INITCREDENTIALS: u32 = 1u32;
-pub const ADS_EXT_INITIALIZE_COMPLETE: u32 = 2u32;
-pub const ADS_EXT_MAXEXTDISPID: u32 = 16777215u32;
-pub const ADS_EXT_MINEXTDISPID: u32 = 1u32;
-pub const ADS_FAST_BIND: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(32u32);
-pub const ADS_FLAG_INHERITED_OBJECT_TYPE_PRESENT: ADS_FLAGTYPE_ENUM = ADS_FLAGTYPE_ENUM(2i32);
-pub const ADS_FLAG_OBJECT_TYPE_PRESENT: ADS_FLAGTYPE_ENUM = ADS_FLAGTYPE_ENUM(1i32);
-pub const ADS_FORMAT_LEAF: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(11i32);
-pub const ADS_FORMAT_PROVIDER: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(10i32);
-pub const ADS_FORMAT_SERVER: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(9i32);
-pub const ADS_FORMAT_WINDOWS: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(1i32);
-pub const ADS_FORMAT_WINDOWS_DN: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(3i32);
-pub const ADS_FORMAT_WINDOWS_NO_SERVER: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(2i32);
-pub const ADS_FORMAT_WINDOWS_PARENT: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(4i32);
-pub const ADS_FORMAT_X500: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(5i32);
-pub const ADS_FORMAT_X500_DN: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(7i32);
-pub const ADS_FORMAT_X500_NO_SERVER: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(6i32);
-pub const ADS_FORMAT_X500_PARENT: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(8i32);
-pub const ADS_GROUP_TYPE_DOMAIN_LOCAL_GROUP: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(4i32);
-pub const ADS_GROUP_TYPE_GLOBAL_GROUP: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(2i32);
-pub const ADS_GROUP_TYPE_LOCAL_GROUP: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(4i32);
-pub const ADS_GROUP_TYPE_SECURITY_ENABLED: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(-2147483648i32);
-pub const ADS_GROUP_TYPE_UNIVERSAL_GROUP: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(8i32);
-pub const ADS_NAME_INITTYPE_DOMAIN: ADS_NAME_INITTYPE_ENUM = ADS_NAME_INITTYPE_ENUM(1i32);
-pub const ADS_NAME_INITTYPE_GC: ADS_NAME_INITTYPE_ENUM = ADS_NAME_INITTYPE_ENUM(3i32);
-pub const ADS_NAME_INITTYPE_SERVER: ADS_NAME_INITTYPE_ENUM = ADS_NAME_INITTYPE_ENUM(2i32);
-pub const ADS_NAME_TYPE_1779: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(1i32);
-pub const ADS_NAME_TYPE_CANONICAL: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(2i32);
-pub const ADS_NAME_TYPE_CANONICAL_EX: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(10i32);
-pub const ADS_NAME_TYPE_DISPLAY: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(4i32);
-pub const ADS_NAME_TYPE_DOMAIN_SIMPLE: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(5i32);
-pub const ADS_NAME_TYPE_ENTERPRISE_SIMPLE: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(6i32);
-pub const ADS_NAME_TYPE_GUID: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(7i32);
-pub const ADS_NAME_TYPE_NT4: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(3i32);
-pub const ADS_NAME_TYPE_SERVICE_PRINCIPAL_NAME: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(11i32);
-pub const ADS_NAME_TYPE_SID_OR_SID_HISTORY_NAME: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(12i32);
-pub const ADS_NAME_TYPE_UNKNOWN: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(8i32);
-pub const ADS_NAME_TYPE_USER_PRINCIPAL_NAME: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(9i32);
-pub const ADS_NO_AUTHENTICATION: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(16u32);
-pub const ADS_NO_REFERRAL_CHASING: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(1024u32);
-pub const ADS_OPTION_ACCUMULATIVE_MODIFICATION: ADS_OPTION_ENUM = ADS_OPTION_ENUM(8i32);
-pub const ADS_OPTION_MUTUAL_AUTH_STATUS: ADS_OPTION_ENUM = ADS_OPTION_ENUM(4i32);
-pub const ADS_OPTION_PAGE_SIZE: ADS_OPTION_ENUM = ADS_OPTION_ENUM(2i32);
-pub const ADS_OPTION_PASSWORD_METHOD: ADS_OPTION_ENUM = ADS_OPTION_ENUM(7i32);
-pub const ADS_OPTION_PASSWORD_PORTNUMBER: ADS_OPTION_ENUM = ADS_OPTION_ENUM(6i32);
-pub const ADS_OPTION_QUOTA: ADS_OPTION_ENUM = ADS_OPTION_ENUM(5i32);
-pub const ADS_OPTION_REFERRALS: ADS_OPTION_ENUM = ADS_OPTION_ENUM(1i32);
-pub const ADS_OPTION_SECURITY_MASK: ADS_OPTION_ENUM = ADS_OPTION_ENUM(3i32);
-pub const ADS_OPTION_SERVERNAME: ADS_OPTION_ENUM = ADS_OPTION_ENUM(0i32);
-pub const ADS_OPTION_SKIP_SID_LOOKUP: ADS_OPTION_ENUM = ADS_OPTION_ENUM(9i32);
-pub const ADS_PASSWORD_ENCODE_CLEAR: ADS_PASSWORD_ENCODING_ENUM = ADS_PASSWORD_ENCODING_ENUM(1i32);
-pub const ADS_PASSWORD_ENCODE_REQUIRE_SSL: ADS_PASSWORD_ENCODING_ENUM = ADS_PASSWORD_ENCODING_ENUM(0i32);
-pub const ADS_PATH_FILE: ADS_PATHTYPE_ENUM = ADS_PATHTYPE_ENUM(1i32);
-pub const ADS_PATH_FILESHARE: ADS_PATHTYPE_ENUM = ADS_PATHTYPE_ENUM(2i32);
-pub const ADS_PATH_REGISTRY: ADS_PATHTYPE_ENUM = ADS_PATHTYPE_ENUM(3i32);
-pub const ADS_PROMPT_CREDENTIALS: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(8u32);
-pub const ADS_PROPERTY_APPEND: ADS_PROPERTY_OPERATION_ENUM = ADS_PROPERTY_OPERATION_ENUM(3i32);
-pub const ADS_PROPERTY_CLEAR: ADS_PROPERTY_OPERATION_ENUM = ADS_PROPERTY_OPERATION_ENUM(1i32);
-pub const ADS_PROPERTY_DELETE: ADS_PROPERTY_OPERATION_ENUM = ADS_PROPERTY_OPERATION_ENUM(4i32);
-pub const ADS_PROPERTY_UPDATE: ADS_PROPERTY_OPERATION_ENUM = ADS_PROPERTY_OPERATION_ENUM(2i32);
-pub const ADS_READONLY_SERVER: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(4u32);
-pub const ADS_RIGHT_ACCESS_SYSTEM_SECURITY: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(16777216i32);
-pub const ADS_RIGHT_ACTRL_DS_LIST: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(4i32);
-pub const ADS_RIGHT_DELETE: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(65536i32);
-pub const ADS_RIGHT_DS_CONTROL_ACCESS: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(256i32);
-pub const ADS_RIGHT_DS_CREATE_CHILD: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(1i32);
-pub const ADS_RIGHT_DS_DELETE_CHILD: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(2i32);
-pub const ADS_RIGHT_DS_DELETE_TREE: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(64i32);
-pub const ADS_RIGHT_DS_LIST_OBJECT: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(128i32);
-pub const ADS_RIGHT_DS_READ_PROP: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(16i32);
-pub const ADS_RIGHT_DS_SELF: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(8i32);
-pub const ADS_RIGHT_DS_WRITE_PROP: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(32i32);
-pub const ADS_RIGHT_GENERIC_ALL: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(268435456i32);
-pub const ADS_RIGHT_GENERIC_EXECUTE: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(536870912i32);
-pub const ADS_RIGHT_GENERIC_READ: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(-2147483648i32);
-pub const ADS_RIGHT_GENERIC_WRITE: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(1073741824i32);
-pub const ADS_RIGHT_READ_CONTROL: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(131072i32);
-pub const ADS_RIGHT_SYNCHRONIZE: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(1048576i32);
-pub const ADS_RIGHT_WRITE_DAC: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(262144i32);
-pub const ADS_RIGHT_WRITE_OWNER: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(524288i32);
-pub const ADS_SCOPE_BASE: ADS_SCOPEENUM = ADS_SCOPEENUM(0i32);
-pub const ADS_SCOPE_ONELEVEL: ADS_SCOPEENUM = ADS_SCOPEENUM(1i32);
-pub const ADS_SCOPE_SUBTREE: ADS_SCOPEENUM = ADS_SCOPEENUM(2i32);
-pub const ADS_SD_CONTROL_SE_DACL_AUTO_INHERITED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(1024i32);
-pub const ADS_SD_CONTROL_SE_DACL_AUTO_INHERIT_REQ: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(256i32);
-pub const ADS_SD_CONTROL_SE_DACL_DEFAULTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(8i32);
-pub const ADS_SD_CONTROL_SE_DACL_PRESENT: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(4i32);
-pub const ADS_SD_CONTROL_SE_DACL_PROTECTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(4096i32);
-pub const ADS_SD_CONTROL_SE_GROUP_DEFAULTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(2i32);
-pub const ADS_SD_CONTROL_SE_OWNER_DEFAULTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(1i32);
-pub const ADS_SD_CONTROL_SE_SACL_AUTO_INHERITED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(2048i32);
-pub const ADS_SD_CONTROL_SE_SACL_AUTO_INHERIT_REQ: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(512i32);
-pub const ADS_SD_CONTROL_SE_SACL_DEFAULTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(32i32);
-pub const ADS_SD_CONTROL_SE_SACL_PRESENT: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(16i32);
-pub const ADS_SD_CONTROL_SE_SACL_PROTECTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(8192i32);
-pub const ADS_SD_CONTROL_SE_SELF_RELATIVE: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(32768i32);
-pub const ADS_SD_FORMAT_HEXSTRING: ADS_SD_FORMAT_ENUM = ADS_SD_FORMAT_ENUM(3i32);
-pub const ADS_SD_FORMAT_IID: ADS_SD_FORMAT_ENUM = ADS_SD_FORMAT_ENUM(1i32);
-pub const ADS_SD_FORMAT_RAW: ADS_SD_FORMAT_ENUM = ADS_SD_FORMAT_ENUM(2i32);
-pub const ADS_SD_REVISION_DS: ADS_SD_REVISION_ENUM = ADS_SD_REVISION_ENUM(4i32);
-pub const ADS_SEARCHPREF_ASYNCHRONOUS: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(0i32);
-pub const ADS_SEARCHPREF_ATTRIBTYPES_ONLY: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(4i32);
-pub const ADS_SEARCHPREF_ATTRIBUTE_QUERY: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(15i32);
-pub const ADS_SEARCHPREF_CACHE_RESULTS: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(11i32);
-pub const ADS_SEARCHPREF_CHASE_REFERRALS: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(9i32);
-pub const ADS_SEARCHPREF_DEREF_ALIASES: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(1i32);
-pub const ADS_SEARCHPREF_DIRSYNC: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(12i32);
-pub const ADS_SEARCHPREF_DIRSYNC_FLAG: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(17i32);
-pub const ADS_SEARCHPREF_EXTENDED_DN: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(18i32);
-pub const ADS_SEARCHPREF_PAGED_TIME_LIMIT: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(8i32);
-pub const ADS_SEARCHPREF_PAGESIZE: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(7i32);
-pub const ADS_SEARCHPREF_SEARCH_SCOPE: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(5i32);
-pub const ADS_SEARCHPREF_SECURITY_MASK: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(16i32);
-pub const ADS_SEARCHPREF_SIZE_LIMIT: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(2i32);
-pub const ADS_SEARCHPREF_SORT_ON: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(10i32);
-pub const ADS_SEARCHPREF_TIMEOUT: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(6i32);
-pub const ADS_SEARCHPREF_TIME_LIMIT: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(3i32);
-pub const ADS_SEARCHPREF_TOMBSTONE: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(13i32);
-pub const ADS_SEARCHPREF_VLV: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(14i32);
-pub const ADS_SECURE_AUTHENTICATION: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(1u32);
-pub const ADS_SECURITY_INFO_DACL: ADS_SECURITY_INFO_ENUM = ADS_SECURITY_INFO_ENUM(4i32);
-pub const ADS_SECURITY_INFO_GROUP: ADS_SECURITY_INFO_ENUM = ADS_SECURITY_INFO_ENUM(2i32);
-pub const ADS_SECURITY_INFO_OWNER: ADS_SECURITY_INFO_ENUM = ADS_SECURITY_INFO_ENUM(1i32);
-pub const ADS_SECURITY_INFO_SACL: ADS_SECURITY_INFO_ENUM = ADS_SECURITY_INFO_ENUM(8i32);
-pub const ADS_SERVER_BIND: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(512u32);
-pub const ADS_SETTYPE_DN: ADS_SETTYPE_ENUM = ADS_SETTYPE_ENUM(4i32);
-pub const ADS_SETTYPE_FULL: ADS_SETTYPE_ENUM = ADS_SETTYPE_ENUM(1i32);
-pub const ADS_SETTYPE_PROVIDER: ADS_SETTYPE_ENUM = ADS_SETTYPE_ENUM(2i32);
-pub const ADS_SETTYPE_SERVER: ADS_SETTYPE_ENUM = ADS_SETTYPE_ENUM(3i32);
-pub const ADS_STATUS_INVALID_SEARCHPREF: ADS_STATUSENUM = ADS_STATUSENUM(1i32);
-pub const ADS_STATUS_INVALID_SEARCHPREFVALUE: ADS_STATUSENUM = ADS_STATUSENUM(2i32);
-pub const ADS_STATUS_S_OK: ADS_STATUSENUM = ADS_STATUSENUM(0i32);
-pub const ADS_SYSTEMFLAG_ATTR_IS_CONSTRUCTED: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(4i32);
-pub const ADS_SYSTEMFLAG_ATTR_NOT_REPLICATED: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(1i32);
-pub const ADS_SYSTEMFLAG_CONFIG_ALLOW_LIMITED_MOVE: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(268435456i32);
-pub const ADS_SYSTEMFLAG_CONFIG_ALLOW_MOVE: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(536870912i32);
-pub const ADS_SYSTEMFLAG_CONFIG_ALLOW_RENAME: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(1073741824i32);
-pub const ADS_SYSTEMFLAG_CR_NTDS_DOMAIN: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(2i32);
-pub const ADS_SYSTEMFLAG_CR_NTDS_NC: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(1i32);
-pub const ADS_SYSTEMFLAG_DISALLOW_DELETE: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(-2147483648i32);
-pub const ADS_SYSTEMFLAG_DOMAIN_DISALLOW_MOVE: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(67108864i32);
-pub const ADS_SYSTEMFLAG_DOMAIN_DISALLOW_RENAME: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(134217728i32);
-pub const ADS_UF_ACCOUNTDISABLE: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(2i32);
-pub const ADS_UF_DONT_EXPIRE_PASSWD: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(65536i32);
-pub const ADS_UF_DONT_REQUIRE_PREAUTH: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(4194304i32);
-pub const ADS_UF_ENCRYPTED_TEXT_PASSWORD_ALLOWED: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(128i32);
-pub const ADS_UF_HOMEDIR_REQUIRED: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(8i32);
-pub const ADS_UF_INTERDOMAIN_TRUST_ACCOUNT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(2048i32);
-pub const ADS_UF_LOCKOUT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(16i32);
-pub const ADS_UF_MNS_LOGON_ACCOUNT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(131072i32);
-pub const ADS_UF_NORMAL_ACCOUNT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(512i32);
-pub const ADS_UF_NOT_DELEGATED: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(1048576i32);
-pub const ADS_UF_PASSWD_CANT_CHANGE: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(64i32);
-pub const ADS_UF_PASSWD_NOTREQD: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(32i32);
-pub const ADS_UF_PASSWORD_EXPIRED: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(8388608i32);
-pub const ADS_UF_SCRIPT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(1i32);
-pub const ADS_UF_SERVER_TRUST_ACCOUNT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(8192i32);
-pub const ADS_UF_SMARTCARD_REQUIRED: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(262144i32);
-pub const ADS_UF_TEMP_DUPLICATE_ACCOUNT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(256i32);
-pub const ADS_UF_TRUSTED_FOR_DELEGATION: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(524288i32);
-pub const ADS_UF_TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(16777216i32);
-pub const ADS_UF_USE_DES_KEY_ONLY: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(2097152i32);
-pub const ADS_UF_WORKSTATION_TRUST_ACCOUNT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(4096i32);
-pub const ADS_USE_DELEGATION: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(256u32);
-pub const ADS_USE_ENCRYPTION: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(2u32);
-pub const ADS_USE_SEALING: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(128u32);
-pub const ADS_USE_SIGNING: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(64u32);
-pub const ADS_USE_SSL: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(2u32);
-pub const CFSTR_DSDISPLAYSPECOPTIONS: windows_core::PCWSTR = windows_core::w!("DsDisplaySpecOptions");
-pub const CFSTR_DSOBJECTNAMES: windows_core::PCWSTR = windows_core::w!("DsObjectNames");
-pub const CFSTR_DSOP_DS_SELECTION_LIST: windows_core::PCWSTR = windows_core::w!("CFSTR_DSOP_DS_SELECTION_LIST");
-pub const CFSTR_DSPROPERTYPAGEINFO: windows_core::PCWSTR = windows_core::w!("DsPropPageInfo");
-pub const CFSTR_DSQUERYPARAMS: windows_core::PCWSTR = windows_core::w!("DsQueryParameters");
-pub const CFSTR_DSQUERYSCOPE: windows_core::PCWSTR = windows_core::w!("DsQueryScope");
-pub const CFSTR_DS_DISPLAY_SPEC_OPTIONS: windows_core::PCWSTR = windows_core::w!("DsDisplaySpecOptions");
-pub const CLSID_CommonQuery: windows_core::GUID = windows_core::GUID::from_u128(0x83bc5ec0_6f2a_11d0_a1c4_00aa00c16e65);
-pub const CLSID_DsAdminCreateObj: windows_core::GUID = windows_core::GUID::from_u128(0xe301a009_f901_11d2_82b9_00c04f68928b);
-pub const CLSID_DsDisplaySpecifier: windows_core::GUID = windows_core::GUID::from_u128(0x1ab4a8c0_6a0b_11d2_ad49_00c04fa31a86);
-pub const CLSID_DsDomainTreeBrowser: windows_core::GUID = windows_core::GUID::from_u128(0x1698790a_e2b4_11d0_b0b1_00c04fd8dca6);
-pub const CLSID_DsFindAdvanced: windows_core::GUID = windows_core::GUID::from_u128(0x83ee3fe3_57d9_11d0_b932_00a024ab2dbb);
-pub const CLSID_DsFindComputer: windows_core::GUID = windows_core::GUID::from_u128(0x16006700_87ad_11d0_9140_00aa00c16e65);
-pub const CLSID_DsFindContainer: windows_core::GUID = windows_core::GUID::from_u128(0xc1b3cbf2_886a_11d0_9140_00aa00c16e65);
-pub const CLSID_DsFindDomainController: windows_core::GUID = windows_core::GUID::from_u128(0x538c7b7e_d25e_11d0_9742_00a0c906af45);
-pub const CLSID_DsFindFrsMembers: windows_core::GUID = windows_core::GUID::from_u128(0x94ce4b18_b3d3_11d1_b9b4_00c04fd8d5b0);
-pub const CLSID_DsFindObjects: windows_core::GUID = windows_core::GUID::from_u128(0x83ee3fe1_57d9_11d0_b932_00a024ab2dbb);
-pub const CLSID_DsFindPeople: windows_core::GUID = windows_core::GUID::from_u128(0x83ee3fe2_57d9_11d0_b932_00a024ab2dbb);
-pub const CLSID_DsFindPrinter: windows_core::GUID = windows_core::GUID::from_u128(0xb577f070_7ee2_11d0_913f_00aa00c16e65);
-pub const CLSID_DsFindVolume: windows_core::GUID = windows_core::GUID::from_u128(0xc1b3cbf1_886a_11d0_9140_00aa00c16e65);
-pub const CLSID_DsFindWriteableDomainController: windows_core::GUID = windows_core::GUID::from_u128(0x7cbef079_aa84_444b_bc70_68e41283eabc);
-pub const CLSID_DsFolderProperties: windows_core::GUID = windows_core::GUID::from_u128(0x9e51e0d0_6e0f_11d2_9601_00c04fa31a86);
-pub const CLSID_DsObjectPicker: windows_core::GUID = windows_core::GUID::from_u128(0x17d6ccd8_3b7b_11d2_b9e0_00c04fd8dbf7);
-pub const CLSID_DsPropertyPages: windows_core::GUID = windows_core::GUID::from_u128(0x0d45d530_764b_11d0_a1ca_00aa00c16e65);
-pub const CLSID_DsQuery: windows_core::GUID = windows_core::GUID::from_u128(0x8a23e65e_31c2_11d0_891c_00a024ab2dbb);
-pub const CLSID_MicrosoftDS: windows_core::GUID = windows_core::GUID::from_u128(0xfe1290f0_cfbd_11cf_a330_00aa00c16e65);
-pub const CQFF_ISOPTIONAL: u32 = 2u32;
-pub const CQFF_NOGLOBALPAGES: u32 = 1u32;
-pub const CQPM_CLEARFORM: u32 = 6u32;
-pub const CQPM_ENABLE: u32 = 3u32;
-pub const CQPM_GETPARAMETERS: u32 = 5u32;
-pub const CQPM_HANDLERSPECIFIC: u32 = 268435456u32;
-pub const CQPM_HELP: u32 = 8u32;
-pub const CQPM_INITIALIZE: u32 = 1u32;
-pub const CQPM_PERSIST: u32 = 7u32;
-pub const CQPM_RELEASE: u32 = 2u32;
-pub const CQPM_SETDEFAULTPARAMETERS: u32 = 9u32;
-pub const DBDTF_RETURNEXTERNAL: u32 = 4u32;
-pub const DBDTF_RETURNFQDN: u32 = 1u32;
-pub const DBDTF_RETURNINBOUND: u32 = 8u32;
-pub const DBDTF_RETURNINOUTBOUND: u32 = 16u32;
-pub const DBDTF_RETURNMIXEDDOMAINS: u32 = 2u32;
-pub const DSA_NEWOBJ_CTX_CLEANUP: u32 = 4u32;
-pub const DSA_NEWOBJ_CTX_COMMIT: u32 = 2u32;
-pub const DSA_NEWOBJ_CTX_POSTCOMMIT: u32 = 3u32;
-pub const DSA_NEWOBJ_CTX_PRECOMMIT: u32 = 1u32;
-pub const DSA_NOTIFY_DEL: u32 = 1u32;
-pub const DSA_NOTIFY_FLAG_ADDITIONAL_DATA: u32 = 2u32;
-pub const DSA_NOTIFY_FLAG_FORCE_ADDITIONAL_DATA: u32 = 1u32;
-pub const DSA_NOTIFY_MOV: u32 = 4u32;
-pub const DSA_NOTIFY_PROP: u32 = 8u32;
-pub const DSA_NOTIFY_REN: u32 = 2u32;
-pub const DSBF_DISPLAYNAME: u32 = 4u32;
-pub const DSBF_ICONLOCATION: u32 = 2u32;
-pub const DSBF_STATE: u32 = 1u32;
-pub const DSBID_BANNER: u32 = 256u32;
-pub const DSBID_CONTAINERLIST: u32 = 257u32;
-pub const DSBI_CHECKBOXES: u32 = 256u32;
-pub const DSBI_DONTSIGNSEAL: u32 = 33554432u32;
-pub const DSBI_ENTIREDIRECTORY: u32 = 589824u32;
-pub const DSBI_EXPANDONOPEN: u32 = 262144u32;
-pub const DSBI_HASCREDENTIALS: u32 = 2097152u32;
-pub const DSBI_IGNORETREATASLEAF: u32 = 4194304u32;
-pub const DSBI_INCLUDEHIDDEN: u32 = 131072u32;
-pub const DSBI_NOBUTTONS: u32 = 1u32;
-pub const DSBI_NOLINES: u32 = 2u32;
-pub const DSBI_NOLINESATROOT: u32 = 4u32;
-pub const DSBI_NOROOT: u32 = 65536u32;
-pub const DSBI_RETURNOBJECTCLASS: u32 = 16777216u32;
-pub const DSBI_RETURN_FORMAT: u32 = 1048576u32;
-pub const DSBI_SIMPLEAUTHENTICATE: u32 = 8388608u32;
-pub const DSBM_CHANGEIMAGESTATE: u32 = 102u32;
-pub const DSBM_CONTEXTMENU: u32 = 104u32;
-pub const DSBM_HELP: u32 = 103u32;
-pub const DSBM_QUERYINSERT: u32 = 100u32;
-pub const DSBM_QUERYINSERTA: u32 = 101u32;
-pub const DSBM_QUERYINSERTW: u32 = 100u32;
-pub const DSBS_CHECKED: u32 = 1u32;
-pub const DSBS_HIDDEN: u32 = 2u32;
-pub const DSBS_ROOT: u32 = 4u32;
-pub const DSB_MAX_DISPLAYNAME_CHARS: u32 = 64u32;
-pub const DSCCIF_HASWIZARDDIALOG: u32 = 1u32;
-pub const DSCCIF_HASWIZARDPRIMARYPAGE: u32 = 2u32;
-pub const DSDSOF_DONTSIGNSEAL: u32 = 4u32;
-pub const DSDSOF_DSAVAILABLE: u32 = 1073741824u32;
-pub const DSDSOF_HASUSERANDSERVERINFO: u32 = 1u32;
-pub const DSDSOF_SIMPLEAUTHENTICATE: u32 = 2u32;
-pub const DSECAF_NOTLISTED: u32 = 1u32;
-pub const DSGIF_DEFAULTISCONTAINER: u32 = 32u32;
-pub const DSGIF_GETDEFAULTICON: u32 = 16u32;
-pub const DSGIF_ISDISABLED: u32 = 2u32;
-pub const DSGIF_ISMASK: u32 = 15u32;
-pub const DSGIF_ISNORMAL: u32 = 0u32;
-pub const DSGIF_ISOPEN: u32 = 1u32;
-pub const DSICCF_IGNORETREATASLEAF: u32 = 1u32;
-pub const DSOBJECT_ISCONTAINER: u32 = 1u32;
-pub const DSOBJECT_READONLYPAGES: u32 = 2147483648u32;
-pub const DSOP_DOWNLEVEL_FILTER_ALL_APP_PACKAGES: u32 = 2281701376u32;
-pub const DSOP_DOWNLEVEL_FILTER_ALL_WELLKNOWN_SIDS: u32 = 2147614720u32;
-pub const DSOP_DOWNLEVEL_FILTER_ANONYMOUS: u32 = 2147483712u32;
-pub const DSOP_DOWNLEVEL_FILTER_AUTHENTICATED_USER: u32 = 2147483680u32;
-pub const DSOP_DOWNLEVEL_FILTER_BATCH: u32 = 2147483776u32;
-pub const DSOP_DOWNLEVEL_FILTER_COMPUTERS: u32 = 2147483656u32;
-pub const DSOP_DOWNLEVEL_FILTER_CREATOR_GROUP: u32 = 2147484160u32;
-pub const DSOP_DOWNLEVEL_FILTER_CREATOR_OWNER: u32 = 2147483904u32;
-pub const DSOP_DOWNLEVEL_FILTER_DIALUP: u32 = 2147484672u32;
-pub const DSOP_DOWNLEVEL_FILTER_EXCLUDE_BUILTIN_GROUPS: u32 = 2147516416u32;
-pub const DSOP_DOWNLEVEL_FILTER_GLOBAL_GROUPS: u32 = 2147483652u32;
-pub const DSOP_DOWNLEVEL_FILTER_IIS_APP_POOL: u32 = 2214592512u32;
-pub const DSOP_DOWNLEVEL_FILTER_INTERACTIVE: u32 = 2147485696u32;
-pub const DSOP_DOWNLEVEL_FILTER_INTERNET_USER: u32 = 2149580800u32;
-pub const DSOP_DOWNLEVEL_FILTER_LOCAL_ACCOUNTS: u32 = 2415919104u32;
-pub const DSOP_DOWNLEVEL_FILTER_LOCAL_GROUPS: u32 = 2147483650u32;
-pub const DSOP_DOWNLEVEL_FILTER_LOCAL_LOGON: u32 = 2164260864u32;
-pub const DSOP_DOWNLEVEL_FILTER_LOCAL_SERVICE: u32 = 2147745792u32;
-pub const DSOP_DOWNLEVEL_FILTER_NETWORK: u32 = 2147487744u32;
-pub const DSOP_DOWNLEVEL_FILTER_NETWORK_SERVICE: u32 = 2148007936u32;
-pub const DSOP_DOWNLEVEL_FILTER_OWNER_RIGHTS: u32 = 2151677952u32;
-pub const DSOP_DOWNLEVEL_FILTER_REMOTE_LOGON: u32 = 2148532224u32;
-pub const DSOP_DOWNLEVEL_FILTER_SERVICE: u32 = 2147491840u32;
-pub const DSOP_DOWNLEVEL_FILTER_SERVICES: u32 = 2155872256u32;
-pub const DSOP_DOWNLEVEL_FILTER_SYSTEM: u32 = 2147500032u32;
-pub const DSOP_DOWNLEVEL_FILTER_TERMINAL_SERVER: u32 = 2147549184u32;
-pub const DSOP_DOWNLEVEL_FILTER_THIS_ORG_CERT: u32 = 2181038080u32;
-pub const DSOP_DOWNLEVEL_FILTER_USERS: u32 = 2147483649u32;
-pub const DSOP_DOWNLEVEL_FILTER_WORLD: u32 = 2147483664u32;
-pub const DSOP_FILTER_BUILTIN_GROUPS: u32 = 4u32;
-pub const DSOP_FILTER_COMPUTERS: u32 = 2048u32;
-pub const DSOP_FILTER_CONTACTS: u32 = 1024u32;
-pub const DSOP_FILTER_DOMAIN_LOCAL_GROUPS_DL: u32 = 256u32;
-pub const DSOP_FILTER_DOMAIN_LOCAL_GROUPS_SE: u32 = 512u32;
-pub const DSOP_FILTER_GLOBAL_GROUPS_DL: u32 = 64u32;
-pub const DSOP_FILTER_GLOBAL_GROUPS_SE: u32 = 128u32;
-pub const DSOP_FILTER_INCLUDE_ADVANCED_VIEW: u32 = 1u32;
-pub const DSOP_FILTER_PASSWORDSETTINGS_OBJECTS: u32 = 8192u32;
-pub const DSOP_FILTER_SERVICE_ACCOUNTS: u32 = 4096u32;
-pub const DSOP_FILTER_UNIVERSAL_GROUPS_DL: u32 = 16u32;
-pub const DSOP_FILTER_UNIVERSAL_GROUPS_SE: u32 = 32u32;
-pub const DSOP_FILTER_USERS: u32 = 2u32;
-pub const DSOP_FILTER_WELL_KNOWN_PRINCIPALS: u32 = 8u32;
-pub const DSOP_FLAG_MULTISELECT: u32 = 1u32;
-pub const DSOP_FLAG_SKIP_TARGET_COMPUTER_DC_CHECK: u32 = 2u32;
-pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_COMPUTERS: u32 = 256u32;
-pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_CONTACTS: u32 = 512u32;
-pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_GROUPS: u32 = 128u32;
-pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_PASSWORDSETTINGS_OBJECTS: u32 = 2048u32;
-pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_SERVICE_ACCOUNTS: u32 = 1024u32;
-pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_USERS: u32 = 64u32;
-pub const DSOP_SCOPE_FLAG_STARTING_SCOPE: u32 = 1u32;
-pub const DSOP_SCOPE_FLAG_WANT_DOWNLEVEL_BUILTIN_PATH: u32 = 32u32;
-pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_GC: u32 = 8u32;
-pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_LDAP: u32 = 4u32;
-pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_WINNT: u32 = 2u32;
-pub const DSOP_SCOPE_FLAG_WANT_SID_PATH: u32 = 16u32;
-pub const DSOP_SCOPE_TYPE_DOWNLEVEL_JOINED_DOMAIN: u32 = 4u32;
-pub const DSOP_SCOPE_TYPE_ENTERPRISE_DOMAIN: u32 = 8u32;
-pub const DSOP_SCOPE_TYPE_EXTERNAL_DOWNLEVEL_DOMAIN: u32 = 64u32;
-pub const DSOP_SCOPE_TYPE_EXTERNAL_UPLEVEL_DOMAIN: u32 = 32u32;
-pub const DSOP_SCOPE_TYPE_GLOBAL_CATALOG: u32 = 16u32;
-pub const DSOP_SCOPE_TYPE_TARGET_COMPUTER: u32 = 1u32;
-pub const DSOP_SCOPE_TYPE_UPLEVEL_JOINED_DOMAIN: u32 = 2u32;
-pub const DSOP_SCOPE_TYPE_USER_ENTERED_DOWNLEVEL_SCOPE: u32 = 512u32;
-pub const DSOP_SCOPE_TYPE_USER_ENTERED_UPLEVEL_SCOPE: u32 = 256u32;
-pub const DSOP_SCOPE_TYPE_WORKGROUP: u32 = 128u32;
-pub const DSPROP_ATTRCHANGED_MSG: windows_core::PCWSTR = windows_core::w!("DsPropAttrChanged");
-pub const DSPROVIDER_ADVANCED: u32 = 16u32;
-pub const DSPROVIDER_AD_LDS: u32 = 32u32;
-pub const DSPROVIDER_UNUSED_0: u32 = 1u32;
-pub const DSPROVIDER_UNUSED_1: u32 = 2u32;
-pub const DSPROVIDER_UNUSED_2: u32 = 4u32;
-pub const DSPROVIDER_UNUSED_3: u32 = 8u32;
-pub const DSQPF_ENABLEADMINFEATURES: u32 = 8u32;
-pub const DSQPF_ENABLEADVANCEDFEATURES: u32 = 16u32;
-pub const DSQPF_HASCREDENTIALS: u32 = 32u32;
-pub const DSQPF_NOCHOOSECOLUMNS: u32 = 64u32;
-pub const DSQPF_NOSAVE: u32 = 1u32;
-pub const DSQPF_SAVELOCATION: u32 = 2u32;
-pub const DSQPF_SHOWHIDDENOBJECTS: u32 = 4u32;
-pub const DSQPM_GETCLASSLIST: u32 = 268435456u32;
-pub const DSQPM_HELPTOPICS: u32 = 268435457u32;
-pub const DSROLE_PRIMARY_DOMAIN_GUID_PRESENT: u32 = 16777216u32;
-pub const DSROLE_PRIMARY_DS_MIXED_MODE: u32 = 2u32;
-pub const DSROLE_PRIMARY_DS_READONLY: u32 = 8u32;
-pub const DSROLE_PRIMARY_DS_RUNNING: u32 = 1u32;
-pub const DSROLE_UPGRADE_IN_PROGRESS: u32 = 4u32;
-pub const DSSSF_DONTSIGNSEAL: u32 = 2u32;
-pub const DSSSF_DSAVAILABLE: u32 = 2147483648u32;
-pub const DSSSF_SIMPLEAUTHENTICATE: u32 = 1u32;
-pub const DS_AVOID_SELF: u32 = 16384u32;
-pub const DS_BACKGROUND_ONLY: u32 = 256u32;
-pub const DS_BEHAVIOR_LONGHORN: u32 = 3u32;
-pub const DS_BEHAVIOR_WIN2000: u32 = 0u32;
-pub const DS_BEHAVIOR_WIN2003: u32 = 2u32;
-pub const DS_BEHAVIOR_WIN2003_WITH_MIXED_DOMAINS: u32 = 1u32;
-pub const DS_BEHAVIOR_WIN2008: u32 = 3u32;
-pub const DS_BEHAVIOR_WIN2008R2: u32 = 4u32;
-pub const DS_BEHAVIOR_WIN2012: u32 = 5u32;
-pub const DS_BEHAVIOR_WIN2012R2: u32 = 6u32;
-pub const DS_BEHAVIOR_WIN2016: u32 = 7u32;
-pub const DS_BEHAVIOR_WIN7: u32 = 4u32;
-pub const DS_BEHAVIOR_WIN8: u32 = 5u32;
-pub const DS_BEHAVIOR_WINBLUE: u32 = 6u32;
-pub const DS_BEHAVIOR_WINTHRESHOLD: u32 = 7u32;
-pub const DS_CANONICAL_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(7i32);
-pub const DS_CANONICAL_NAME_EX: DS_NAME_FORMAT = DS_NAME_FORMAT(9i32);
-pub const DS_CLOSEST_FLAG: u32 = 128u32;
-pub const DS_DIRECTORY_SERVICE_10_REQUIRED: u32 = 8388608u32;
-pub const DS_DIRECTORY_SERVICE_6_REQUIRED: u32 = 524288u32;
-pub const DS_DIRECTORY_SERVICE_8_REQUIRED: u32 = 2097152u32;
-pub const DS_DIRECTORY_SERVICE_9_REQUIRED: u32 = 4194304u32;
-pub const DS_DIRECTORY_SERVICE_PREFERRED: u32 = 32u32;
-pub const DS_DIRECTORY_SERVICE_REQUIRED: u32 = 16u32;
-pub const DS_DISPLAY_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(3i32);
-pub const DS_DNS_CONTROLLER_FLAG: u32 = 536870912u32;
-pub const DS_DNS_DOMAIN_FLAG: u32 = 1073741824u32;
-pub const DS_DNS_DOMAIN_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(12i32);
-pub const DS_DNS_FOREST_FLAG: u32 = 2147483648u32;
-pub const DS_DOMAIN_DIRECT_INBOUND: u32 = 32u32;
-pub const DS_DOMAIN_DIRECT_OUTBOUND: u32 = 2u32;
-pub const DS_DOMAIN_IN_FOREST: u32 = 1u32;
-pub const DS_DOMAIN_NATIVE_MODE: u32 = 16u32;
-pub const DS_DOMAIN_PRIMARY: u32 = 8u32;
-pub const DS_DOMAIN_TREE_ROOT: u32 = 4u32;
-pub const DS_DS_10_FLAG: u32 = 65536u32;
-pub const DS_DS_8_FLAG: u32 = 16384u32;
-pub const DS_DS_9_FLAG: u32 = 32768u32;
-pub const DS_DS_FLAG: u32 = 16u32;
-pub const DS_EXIST_ADVISORY_MODE: u32 = 1u32;
-pub const DS_FORCE_REDISCOVERY: u32 = 1u32;
-pub const DS_FQDN_1779_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(1i32);
-pub const DS_FULL_SECRET_DOMAIN_6_FLAG: u32 = 4096u32;
-pub const DS_GC_FLAG: u32 = 4u32;
-pub const DS_GC_SERVER_REQUIRED: u32 = 64u32;
-pub const DS_GFTI_UPDATE_TDO: u32 = 1u32;
-pub const DS_GFTI_VALID_FLAGS: u32 = 1u32;
-pub const DS_GOOD_TIMESERV_FLAG: u32 = 512u32;
-pub const DS_GOOD_TIMESERV_PREFERRED: u32 = 8192u32;
-pub const DS_INSTANCETYPE_IS_NC_HEAD: u32 = 1u32;
-pub const DS_INSTANCETYPE_NC_COMING: u32 = 16u32;
-pub const DS_INSTANCETYPE_NC_GOING: u32 = 32u32;
-pub const DS_INSTANCETYPE_NC_IS_WRITEABLE: u32 = 4u32;
-pub const DS_IP_REQUIRED: u32 = 512u32;
-pub const DS_IS_DNS_NAME: u32 = 131072u32;
-pub const DS_IS_FLAT_NAME: u32 = 65536u32;
-pub const DS_KCC_FLAG_ASYNC_OP: u32 = 1u32;
-pub const DS_KCC_FLAG_DAMPED: u32 = 2u32;
-pub const DS_KCC_TASKID_UPDATE_TOPOLOGY: DS_KCC_TASKID = DS_KCC_TASKID(0i32);
-pub const DS_KDC_FLAG: u32 = 32u32;
-pub const DS_KDC_REQUIRED: u32 = 1024u32;
-pub const DS_KEY_LIST_FLAG: u32 = 131072u32;
-pub const DS_KEY_LIST_SUPPORT_REQUIRED: u32 = 16777216u32;
-pub const DS_LDAP_FLAG: u32 = 8u32;
-pub const DS_LIST_ACCOUNT_OBJECT_FOR_SERVER: u32 = 2u32;
-pub const DS_LIST_DNS_HOST_NAME_FOR_SERVER: u32 = 1u32;
-pub const DS_LIST_DSA_OBJECT_FOR_SERVER: u32 = 0u32;
-pub const DS_MANGLE_OBJECT_RDN_FOR_DELETION: DS_MANGLE_FOR = DS_MANGLE_FOR(1i32);
-pub const DS_MANGLE_OBJECT_RDN_FOR_NAME_CONFLICT: DS_MANGLE_FOR = DS_MANGLE_FOR(2i32);
-pub const DS_MANGLE_UNKNOWN: DS_MANGLE_FOR = DS_MANGLE_FOR(0i32);
-pub const DS_NAME_ERROR_DOMAIN_ONLY: DS_NAME_ERROR = DS_NAME_ERROR(5i32);
-pub const DS_NAME_ERROR_NOT_FOUND: DS_NAME_ERROR = DS_NAME_ERROR(2i32);
-pub const DS_NAME_ERROR_NOT_UNIQUE: DS_NAME_ERROR = DS_NAME_ERROR(3i32);
-pub const DS_NAME_ERROR_NO_MAPPING: DS_NAME_ERROR = DS_NAME_ERROR(4i32);
-pub const DS_NAME_ERROR_NO_SYNTACTICAL_MAPPING: DS_NAME_ERROR = DS_NAME_ERROR(6i32);
-pub const DS_NAME_ERROR_RESOLVING: DS_NAME_ERROR = DS_NAME_ERROR(1i32);
-pub const DS_NAME_ERROR_TRUST_REFERRAL: DS_NAME_ERROR = DS_NAME_ERROR(7i32);
-pub const DS_NAME_FLAG_EVAL_AT_DC: DS_NAME_FLAGS = DS_NAME_FLAGS(2i32);
-pub const DS_NAME_FLAG_GCVERIFY: DS_NAME_FLAGS = DS_NAME_FLAGS(4i32);
-pub const DS_NAME_FLAG_SYNTACTICAL_ONLY: DS_NAME_FLAGS = DS_NAME_FLAGS(1i32);
-pub const DS_NAME_FLAG_TRUST_REFERRAL: DS_NAME_FLAGS = DS_NAME_FLAGS(8i32);
-pub const DS_NAME_NO_ERROR: DS_NAME_ERROR = DS_NAME_ERROR(0i32);
-pub const DS_NAME_NO_FLAGS: DS_NAME_FLAGS = DS_NAME_FLAGS(0i32);
-pub const DS_NDNC_FLAG: u32 = 1024u32;
-pub const DS_NOTIFY_AFTER_SITE_RECORDS: u32 = 2u32;
-pub const DS_NT4_ACCOUNT_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(2i32);
-pub const DS_ONLY_DO_SITE_NAME: u32 = 1u32;
-pub const DS_ONLY_LDAP_NEEDED: u32 = 32768u32;
-pub const DS_PDC_FLAG: u32 = 1u32;
-pub const DS_PDC_REQUIRED: u32 = 128u32;
-pub const DS_PING_FLAGS: u32 = 1048575u32;
-pub const DS_PROP_ADMIN_PREFIX: windows_core::PCWSTR = windows_core::w!("admin");
-pub const DS_PROP_SHELL_PREFIX: windows_core::PCWSTR = windows_core::w!("shell");
-pub const DS_REPADD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
-pub const DS_REPADD_ASYNCHRONOUS_REPLICA: u32 = 32u32;
-pub const DS_REPADD_CRITICAL: u32 = 2048u32;
-pub const DS_REPADD_DISABLE_NOTIFICATION: u32 = 64u32;
-pub const DS_REPADD_DISABLE_PERIODIC: u32 = 128u32;
-pub const DS_REPADD_INITIAL: u32 = 4u32;
-pub const DS_REPADD_INTERSITE_MESSAGING: u32 = 16u32;
-pub const DS_REPADD_NEVER_NOTIFY: u32 = 512u32;
-pub const DS_REPADD_NONGC_RO_REPLICA: u32 = 16777216u32;
-pub const DS_REPADD_PERIODIC: u32 = 8u32;
-pub const DS_REPADD_SELECT_SECRETS: u32 = 4096u32;
-pub const DS_REPADD_TWO_WAY: u32 = 1024u32;
-pub const DS_REPADD_USE_COMPRESSION: u32 = 256u32;
-pub const DS_REPADD_WRITEABLE: u32 = 2u32;
-pub const DS_REPDEL_ASYNCHRONOUS_OPERATION: u32 = 1u32;
-pub const DS_REPDEL_IGNORE_ERRORS: u32 = 8u32;
-pub const DS_REPDEL_INTERSITE_MESSAGING: u32 = 4u32;
-pub const DS_REPDEL_LOCAL_ONLY: u32 = 16u32;
-pub const DS_REPDEL_NO_SOURCE: u32 = 32u32;
-pub const DS_REPDEL_REF_OK: u32 = 64u32;
-pub const DS_REPDEL_WRITEABLE: u32 = 2u32;
-pub const DS_REPL_INFO_CURSORS_2_FOR_NC: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(7i32);
-pub const DS_REPL_INFO_CURSORS_3_FOR_NC: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(8i32);
-pub const DS_REPL_INFO_CURSORS_FOR_NC: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(1i32);
-pub const DS_REPL_INFO_FLAG_IMPROVE_LINKED_ATTRS: u32 = 1u32;
-pub const DS_REPL_INFO_KCC_DSA_CONNECT_FAILURES: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(3i32);
-pub const DS_REPL_INFO_KCC_DSA_LINK_FAILURES: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(4i32);
-pub const DS_REPL_INFO_METADATA_2_FOR_ATTR_VALUE: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(10i32);
-pub const DS_REPL_INFO_METADATA_2_FOR_OBJ: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(9i32);
-pub const DS_REPL_INFO_METADATA_EXT_FOR_ATTR_VALUE: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(11i32);
-pub const DS_REPL_INFO_METADATA_FOR_ATTR_VALUE: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(6i32);
-pub const DS_REPL_INFO_METADATA_FOR_OBJ: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(2i32);
-pub const DS_REPL_INFO_NEIGHBORS: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(0i32);
-pub const DS_REPL_INFO_PENDING_OPS: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(5i32);
-pub const DS_REPL_INFO_TYPE_MAX: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(12i32);
-pub const DS_REPL_NBR_COMPRESS_CHANGES: u32 = 268435456u32;
-pub const DS_REPL_NBR_DISABLE_SCHEDULED_SYNC: u32 = 134217728u32;
-pub const DS_REPL_NBR_DO_SCHEDULED_SYNCS: u32 = 64u32;
-pub const DS_REPL_NBR_FULL_SYNC_IN_PROGRESS: u32 = 65536u32;
-pub const DS_REPL_NBR_FULL_SYNC_NEXT_PACKET: u32 = 131072u32;
-pub const DS_REPL_NBR_GCSPN: u32 = 1048576u32;
-pub const DS_REPL_NBR_IGNORE_CHANGE_NOTIFICATIONS: u32 = 67108864u32;
-pub const DS_REPL_NBR_NEVER_SYNCED: u32 = 2097152u32;
-pub const DS_REPL_NBR_NONGC_RO_REPLICA: u32 = 1024u32;
-pub const DS_REPL_NBR_NO_CHANGE_NOTIFICATIONS: u32 = 536870912u32;
-pub const DS_REPL_NBR_PARTIAL_ATTRIBUTE_SET: u32 = 1073741824u32;
-pub const DS_REPL_NBR_PREEMPTED: u32 = 16777216u32;
-pub const DS_REPL_NBR_RETURN_OBJECT_PARENTS: u32 = 2048u32;
-pub const DS_REPL_NBR_SELECT_SECRETS: u32 = 4096u32;
-pub const DS_REPL_NBR_SYNC_ON_STARTUP: u32 = 32u32;
-pub const DS_REPL_NBR_TWO_WAY_SYNC: u32 = 512u32;
-pub const DS_REPL_NBR_USE_ASYNC_INTERSITE_TRANSPORT: u32 = 128u32;
-pub const DS_REPL_NBR_WRITEABLE: u32 = 16u32;
-pub const DS_REPL_OP_TYPE_ADD: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(1i32);
-pub const DS_REPL_OP_TYPE_DELETE: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(2i32);
-pub const DS_REPL_OP_TYPE_MODIFY: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(3i32);
-pub const DS_REPL_OP_TYPE_SYNC: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(0i32);
-pub const DS_REPL_OP_TYPE_UPDATE_REFS: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(4i32);
-pub const DS_REPMOD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
-pub const DS_REPMOD_UPDATE_ADDRESS: u32 = 2u32;
-pub const DS_REPMOD_UPDATE_FLAGS: u32 = 1u32;
-pub const DS_REPMOD_UPDATE_INSTANCE: u32 = 2u32;
-pub const DS_REPMOD_UPDATE_RESULT: u32 = 8u32;
-pub const DS_REPMOD_UPDATE_SCHEDULE: u32 = 4u32;
-pub const DS_REPMOD_UPDATE_TRANSPORT: u32 = 16u32;
-pub const DS_REPMOD_WRITEABLE: u32 = 2u32;
-pub const DS_REPSYNCALL_ABORT_IF_SERVER_UNAVAILABLE: u32 = 1u32;
-pub const DS_REPSYNCALL_CROSS_SITE_BOUNDARIES: u32 = 64u32;
-pub const DS_REPSYNCALL_DO_NOT_SYNC: u32 = 8u32;
-pub const DS_REPSYNCALL_EVENT_ERROR: DS_REPSYNCALL_EVENT = DS_REPSYNCALL_EVENT(0i32);
-pub const DS_REPSYNCALL_EVENT_FINISHED: DS_REPSYNCALL_EVENT = DS_REPSYNCALL_EVENT(3i32);
-pub const DS_REPSYNCALL_EVENT_SYNC_COMPLETED: DS_REPSYNCALL_EVENT = DS_REPSYNCALL_EVENT(2i32);
-pub const DS_REPSYNCALL_EVENT_SYNC_STARTED: DS_REPSYNCALL_EVENT = DS_REPSYNCALL_EVENT(1i32);
-pub const DS_REPSYNCALL_ID_SERVERS_BY_DN: u32 = 4u32;
-pub const DS_REPSYNCALL_NO_OPTIONS: u32 = 0u32;
-pub const DS_REPSYNCALL_PUSH_CHANGES_OUTWARD: u32 = 32u32;
-pub const DS_REPSYNCALL_SERVER_UNREACHABLE: DS_REPSYNCALL_ERROR = DS_REPSYNCALL_ERROR(2i32);
-pub const DS_REPSYNCALL_SKIP_INITIAL_CHECK: u32 = 16u32;
-pub const DS_REPSYNCALL_SYNC_ADJACENT_SERVERS_ONLY: u32 = 2u32;
-pub const DS_REPSYNCALL_WIN32_ERROR_CONTACTING_SERVER: DS_REPSYNCALL_ERROR = DS_REPSYNCALL_ERROR(0i32);
-pub const DS_REPSYNCALL_WIN32_ERROR_REPLICATING: DS_REPSYNCALL_ERROR = DS_REPSYNCALL_ERROR(1i32);
-pub const DS_REPSYNC_ABANDONED: u32 = 32768u32;
-pub const DS_REPSYNC_ADD_REFERENCE: u32 = 512u32;
-pub const DS_REPSYNC_ASYNCHRONOUS_OPERATION: u32 = 1u32;
-pub const DS_REPSYNC_ASYNCHRONOUS_REPLICA: u32 = 1048576u32;
-pub const DS_REPSYNC_CRITICAL: u32 = 2097152u32;
-pub const DS_REPSYNC_FORCE: u32 = 256u32;
-pub const DS_REPSYNC_FULL: u32 = 32u32;
-pub const DS_REPSYNC_FULL_IN_PROGRESS: u32 = 4194304u32;
-pub const DS_REPSYNC_INITIAL: u32 = 8192u32;
-pub const DS_REPSYNC_INITIAL_IN_PROGRESS: u32 = 65536u32;
-pub const DS_REPSYNC_INTERSITE_MESSAGING: u32 = 8u32;
-pub const DS_REPSYNC_NEVER_COMPLETED: u32 = 1024u32;
-pub const DS_REPSYNC_NEVER_NOTIFY: u32 = 4096u32;
-pub const DS_REPSYNC_NONGC_RO_REPLICA: u32 = 16777216u32;
-pub const DS_REPSYNC_NOTIFICATION: u32 = 524288u32;
-pub const DS_REPSYNC_NO_DISCARD: u32 = 128u32;
-pub const DS_REPSYNC_PARTIAL_ATTRIBUTE_SET: u32 = 131072u32;
-pub const DS_REPSYNC_PERIODIC: u32 = 4u32;
-pub const DS_REPSYNC_PREEMPTED: u32 = 8388608u32;
-pub const DS_REPSYNC_REQUEUE: u32 = 262144u32;
-pub const DS_REPSYNC_SELECT_SECRETS: u32 = 32768u32;
-pub const DS_REPSYNC_TWO_WAY: u32 = 2048u32;
-pub const DS_REPSYNC_URGENT: u32 = 64u32;
-pub const DS_REPSYNC_USE_COMPRESSION: u32 = 16384u32;
-pub const DS_REPSYNC_WRITEABLE: u32 = 2u32;
-pub const DS_REPUPD_ADD_REFERENCE: u32 = 4u32;
-pub const DS_REPUPD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
-pub const DS_REPUPD_DELETE_REFERENCE: u32 = 8u32;
-pub const DS_REPUPD_REFERENCE_GCSPN: u32 = 16u32;
-pub const DS_REPUPD_WRITEABLE: u32 = 2u32;
-pub const DS_RETURN_DNS_NAME: u32 = 1073741824u32;
-pub const DS_RETURN_FLAT_NAME: u32 = 2147483648u32;
-pub const DS_ROLE_DOMAIN_OWNER: u32 = 1u32;
-pub const DS_ROLE_INFRASTRUCTURE_OWNER: u32 = 4u32;
-pub const DS_ROLE_PDC_OWNER: u32 = 2u32;
-pub const DS_ROLE_RID_OWNER: u32 = 3u32;
-pub const DS_ROLE_SCHEMA_OWNER: u32 = 0u32;
-pub const DS_SCHEMA_GUID_ATTR: u32 = 1u32;
-pub const DS_SCHEMA_GUID_ATTR_SET: u32 = 2u32;
-pub const DS_SCHEMA_GUID_CLASS: u32 = 3u32;
-pub const DS_SCHEMA_GUID_CONTROL_RIGHT: u32 = 4u32;
-pub const DS_SCHEMA_GUID_NOT_FOUND: u32 = 0u32;
-pub const DS_SELECT_SECRET_DOMAIN_6_FLAG: u32 = 2048u32;
-pub const DS_SERVICE_PRINCIPAL_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(10i32);
-pub const DS_SID_OR_SID_HISTORY_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(11i32);
-pub const DS_SPN_ADD_SPN_OP: DS_SPN_WRITE_OP = DS_SPN_WRITE_OP(0i32);
-pub const DS_SPN_DELETE_SPN_OP: DS_SPN_WRITE_OP = DS_SPN_WRITE_OP(2i32);
-pub const DS_SPN_DNS_HOST: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(0i32);
-pub const DS_SPN_DN_HOST: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(1i32);
-pub const DS_SPN_DOMAIN: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(3i32);
-pub const DS_SPN_NB_DOMAIN: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(4i32);
-pub const DS_SPN_NB_HOST: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(2i32);
-pub const DS_SPN_REPLACE_SPN_OP: DS_SPN_WRITE_OP = DS_SPN_WRITE_OP(1i32);
-pub const DS_SPN_SERVICE: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(5i32);
-pub const DS_SYNCED_EVENT_NAME: windows_core::PCSTR = windows_core::s!("NTDSInitialSyncsCompleted");
-pub const DS_SYNCED_EVENT_NAME_W: windows_core::PCWSTR = windows_core::w!("NTDSInitialSyncsCompleted");
-pub const DS_TIMESERV_FLAG: u32 = 64u32;
-pub const DS_TIMESERV_REQUIRED: u32 = 2048u32;
-pub const DS_TRY_NEXTCLOSEST_SITE: u32 = 262144u32;
-pub const DS_UNIQUE_ID_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(6i32);
-pub const DS_UNKNOWN_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(0i32);
-pub const DS_USER_PRINCIPAL_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(8i32);
-pub const DS_WEB_SERVICE_REQUIRED: u32 = 1048576u32;
-pub const DS_WRITABLE_FLAG: u32 = 256u32;
-pub const DS_WRITABLE_REQUIRED: u32 = 4096u32;
-pub const DS_WS_FLAG: u32 = 8192u32;
-pub const DsRoleOperationActive: DSROLE_OPERATION_STATE = DSROLE_OPERATION_STATE(1i32);
-pub const DsRoleOperationIdle: DSROLE_OPERATION_STATE = DSROLE_OPERATION_STATE(0i32);
-pub const DsRoleOperationNeedReboot: DSROLE_OPERATION_STATE = DSROLE_OPERATION_STATE(2i32);
-pub const DsRoleOperationState: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL = DSROLE_PRIMARY_DOMAIN_INFO_LEVEL(3i32);
-pub const DsRolePrimaryDomainInfoBasic: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL = DSROLE_PRIMARY_DOMAIN_INFO_LEVEL(1i32);
-pub const DsRoleServerBackup: DSROLE_SERVER_STATE = DSROLE_SERVER_STATE(2i32);
-pub const DsRoleServerPrimary: DSROLE_SERVER_STATE = DSROLE_SERVER_STATE(1i32);
-pub const DsRoleServerUnknown: DSROLE_SERVER_STATE = DSROLE_SERVER_STATE(0i32);
-pub const DsRoleUpgradeStatus: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL = DSROLE_PRIMARY_DOMAIN_INFO_LEVEL(2i32);
-pub const DsRole_RoleBackupDomainController: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(4i32);
-pub const DsRole_RoleMemberServer: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(3i32);
-pub const DsRole_RoleMemberWorkstation: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(1i32);
-pub const DsRole_RolePrimaryDomainController: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(5i32);
-pub const DsRole_RoleStandaloneServer: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(2i32);
-pub const DsRole_RoleStandaloneWorkstation: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(0i32);
-pub const FACILITY_BACKUP: u32 = 2047u32;
-pub const FACILITY_NTDSB: u32 = 2048u32;
-pub const FACILITY_SYSTEM: u32 = 0u32;
-pub const FLAG_DISABLABLE_OPTIONAL_FEATURE: u32 = 4u32;
-pub const FLAG_DOMAIN_OPTIONAL_FEATURE: u32 = 2u32;
-pub const FLAG_FOREST_OPTIONAL_FEATURE: u32 = 1u32;
-pub const FLAG_SERVER_OPTIONAL_FEATURE: u32 = 8u32;
-pub const FRSCONN_MAX_PRIORITY: u32 = 8u32;
-pub const FRSCONN_PRIORITY_MASK: u32 = 1879048192u32;
-pub const GUID_COMPUTRS_CONTAINER_A: windows_core::PCSTR = windows_core::s!("aa312825768811d1aded00c04fd8d5cd");
-pub const GUID_COMPUTRS_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("aa312825768811d1aded00c04fd8d5cd");
-pub const GUID_DELETED_OBJECTS_CONTAINER_A: windows_core::PCSTR = windows_core::s!("18e2ea80684f11d2b9aa00c04f79f805");
-pub const GUID_DELETED_OBJECTS_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("18e2ea80684f11d2b9aa00c04f79f805");
-pub const GUID_DOMAIN_CONTROLLERS_CONTAINER_A: windows_core::PCSTR = windows_core::s!("a361b2ffffd211d1aa4b00c04fd7d83a");
-pub const GUID_DOMAIN_CONTROLLERS_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("a361b2ffffd211d1aa4b00c04fd7d83a");
-pub const GUID_FOREIGNSECURITYPRINCIPALS_CONTAINER_A: windows_core::PCSTR = windows_core::s!("22b70c67d56e4efb91e9300fca3dc1aa");
-pub const GUID_FOREIGNSECURITYPRINCIPALS_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("22b70c67d56e4efb91e9300fca3dc1aa");
-pub const GUID_INFRASTRUCTURE_CONTAINER_A: windows_core::PCSTR = windows_core::s!("2fbac1870ade11d297c400c04fd8d5cd");
-pub const GUID_INFRASTRUCTURE_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("2fbac1870ade11d297c400c04fd8d5cd");
-pub const GUID_KEYS_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("683A24E2E8164BD3AF86AC3C2CF3F981");
-pub const GUID_LOSTANDFOUND_CONTAINER_A: windows_core::PCSTR = windows_core::s!("ab8153b7768811d1aded00c04fd8d5cd");
-pub const GUID_LOSTANDFOUND_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("ab8153b7768811d1aded00c04fd8d5cd");
-pub const GUID_MANAGED_SERVICE_ACCOUNTS_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("1EB93889E40C45DF9F0C64D23BBB6237");
-pub const GUID_MICROSOFT_PROGRAM_DATA_CONTAINER_A: windows_core::PCSTR = windows_core::s!("f4be92a4c777485e878e9421d53087db");
-pub const GUID_MICROSOFT_PROGRAM_DATA_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("f4be92a4c777485e878e9421d53087db");
-pub const GUID_NTDS_QUOTAS_CONTAINER_A: windows_core::PCSTR = windows_core::s!("6227f0af1fc2410d8e3bb10615bb5b0f");
-pub const GUID_NTDS_QUOTAS_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("6227f0af1fc2410d8e3bb10615bb5b0f");
-pub const GUID_PRIVILEGED_ACCESS_MANAGEMENT_OPTIONAL_FEATURE_A: windows_core::PCSTR = windows_core::s!("73e843ece8cc4046b4ab07ffe4ab5bcd");
-pub const GUID_PRIVILEGED_ACCESS_MANAGEMENT_OPTIONAL_FEATURE_W: windows_core::PCWSTR = windows_core::w!("73e843ece8cc4046b4ab07ffe4ab5bcd");
-pub const GUID_PROGRAM_DATA_CONTAINER_A: windows_core::PCSTR = windows_core::s!("09460c08ae1e4a4ea0f64aee7daa1e5a");
-pub const GUID_PROGRAM_DATA_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("09460c08ae1e4a4ea0f64aee7daa1e5a");
-pub const GUID_RECYCLE_BIN_OPTIONAL_FEATURE_A: windows_core::PCSTR = windows_core::s!("d8dc6d76d0ac5e44f3b9a7f9b6744f2a");
-pub const GUID_RECYCLE_BIN_OPTIONAL_FEATURE_W: windows_core::PCWSTR = windows_core::w!("d8dc6d76d0ac5e44f3b9a7f9b6744f2a");
-pub const GUID_SYSTEMS_CONTAINER_A: windows_core::PCSTR = windows_core::s!("ab1d30f3768811d1aded00c04fd8d5cd");
-pub const GUID_SYSTEMS_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("ab1d30f3768811d1aded00c04fd8d5cd");
-pub const GUID_USERS_CONTAINER_A: windows_core::PCSTR = windows_core::s!("a9d1ca15768811d1aded00c04fd8d5cd");
-pub const GUID_USERS_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("a9d1ca15768811d1aded00c04fd8d5cd");
 pub const NTDSAPI_BIND_ALLOW_DELEGATION: u32 = 1u32;
 pub const NTDSAPI_BIND_FIND_BINDING: u32 = 2u32;
 pub const NTDSAPI_BIND_FORCE_KERBEROS: u32 = 4u32;
@@ -16338,6 +16246,57 @@ pub const NTDSSITELINK_OPT_TWOWAY_SYNC: u32 = 2u32;
 pub const NTDSSITELINK_OPT_USE_NOTIFY: u32 = 1u32;
 pub const NTDSTRANSPORT_OPT_BRIDGES_REQUIRED: u32 = 2u32;
 pub const NTDSTRANSPORT_OPT_IGNORE_SCHEDULES: u32 = 1u32;
+pub const NameTranslate: windows_core::GUID = windows_core::GUID::from_u128(0x274fae1f_3626_11d1_a3a4_00c04fb950dc);
+pub const NetAddress: windows_core::GUID = windows_core::GUID::from_u128(0xb0b71247_4080_11d1_a3ac_00c04fb950dc);
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+pub struct OPENQUERYWINDOW {
+    pub cbStruct: u32,
+    pub dwFlags: u32,
+    pub clsidHandler: windows_core::GUID,
+    pub pHandlerParameters: *mut core::ffi::c_void,
+    pub clsidDefaultForm: windows_core::GUID,
+    pub pPersistQuery: core::mem::ManuallyDrop<Option<IPersistQuery>>,
+    pub Anonymous: OPENQUERYWINDOW_0,
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl Clone for OPENQUERYWINDOW {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl Default for OPENQUERYWINDOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl windows_core::TypeKind for OPENQUERYWINDOW {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+pub union OPENQUERYWINDOW_0 {
+    pub pFormParameters: *mut core::ffi::c_void,
+    pub ppbFormParameters: core::mem::ManuallyDrop<Option<super::super::System::Com::StructuredStorage::IPropertyBag>>,
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl Clone for OPENQUERYWINDOW_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl Default for OPENQUERYWINDOW_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl windows_core::TypeKind for OPENQUERYWINDOW_0 {
+    type TypeKind = windows_core::CloneType;
+}
 pub const OQWF_DEFAULTFORM: u32 = 2u32;
 pub const OQWF_HIDEMENUS: u32 = 1024u32;
 pub const OQWF_HIDESEARCHUI: u32 = 2048u32;
@@ -16350,11 +16309,51 @@ pub const OQWF_REMOVESCOPES: u32 = 16u32;
 pub const OQWF_SAVEQUERYONOK: u32 = 512u32;
 pub const OQWF_SHOWOPTIONAL: u32 = 128u32;
 pub const OQWF_SINGLESELECT: u32 = 4u32;
+pub const OctetList: windows_core::GUID = windows_core::GUID::from_u128(0x1241400f_4680_11d1_a3b4_00c04fb950dc);
+pub const Path: windows_core::GUID = windows_core::GUID::from_u128(0xb2538919_4080_11d1_a3ac_00c04fb950dc);
+pub const Pathname: windows_core::GUID = windows_core::GUID::from_u128(0x080d0d78_f421_11d0_a36e_00c04fb950dc);
+pub const PostalAddress: windows_core::GUID = windows_core::GUID::from_u128(0x0a75afcd_4680_11d1_a3b4_00c04fb950dc);
+pub const PropertyEntry: windows_core::GUID = windows_core::GUID::from_u128(0x72d3edc2_a4c4_11d0_8533_00c04fd8d503);
+pub const PropertyValue: windows_core::GUID = windows_core::GUID::from_u128(0x7b9e38b0_a97c_11d0_8534_00c04fd8d503);
 pub const QUERYFORM_CHANGESFORMLIST: u64 = 1u64;
 pub const QUERYFORM_CHANGESOPTFORMLIST: u64 = 2u64;
+pub const ReplicaPointer: windows_core::GUID = windows_core::GUID::from_u128(0xf5d1badf_4080_11d1_a3ac_00c04fb950dc);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SCHEDULE {
+    pub Size: u32,
+    pub Bandwidth: u32,
+    pub NumberOfSchedules: u32,
+    pub Schedules: [SCHEDULE_HEADER; 1],
+}
+impl Default for SCHEDULE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SCHEDULE {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SCHEDULE_BANDWIDTH: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SCHEDULE_HEADER {
+    pub Type: u32,
+    pub Offset: u32,
+}
+impl Default for SCHEDULE_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SCHEDULE_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SCHEDULE_INTERVAL: u32 = 0u32;
 pub const SCHEDULE_PRIORITY: u32 = 2u32;
+pub const SecurityDescriptor: windows_core::GUID = windows_core::GUID::from_u128(0xb958f73c_9bdd_11d0_852c_00c04fd8d503);
+pub const Timestamp: windows_core::GUID = windows_core::GUID::from_u128(0xb2bed2eb_4080_11d1_a3ac_00c04fb950dc);
+pub const TypedName: windows_core::GUID = windows_core::GUID::from_u128(0xb33143cb_4080_11d1_a3ac_00c04fb950dc);
 pub const WM_ADSPROP_NOTIFY_APPLY: u32 = 2128u32;
 pub const WM_ADSPROP_NOTIFY_CHANGE: u32 = 2127u32;
 pub const WM_ADSPROP_NOTIFY_ERROR: u32 = 2134u32;
@@ -16363,6 +16362,7 @@ pub const WM_ADSPROP_NOTIFY_FOREGROUND: u32 = 2130u32;
 pub const WM_ADSPROP_NOTIFY_PAGEHWND: u32 = 2126u32;
 pub const WM_ADSPROP_NOTIFY_PAGEINIT: u32 = 2125u32;
 pub const WM_ADSPROP_NOTIFY_SETFOCUS: u32 = 2129u32;
+pub const WinNTSystemInfo: windows_core::GUID = windows_core::GUID::from_u128(0x66182ec4_afd1_11d2_9cb9_0000f87a369e);
 pub const hrAccessDenied: windows_core::HRESULT = windows_core::HRESULT(0xC8000773_u32 as _);
 pub const hrAfterInitialization: windows_core::HRESULT = windows_core::HRESULT(0xC800073A_u32 as _);
 pub const hrAlreadyInitialized: windows_core::HRESULT = windows_core::HRESULT(0xC8000406_u32 as _);

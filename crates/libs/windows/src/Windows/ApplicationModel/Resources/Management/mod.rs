@@ -1,3 +1,82 @@
+windows_core::imp::define_interface!(IIndexedResourceCandidate, IIndexedResourceCandidate_Vtbl, 0x0e619ef3_faec_4414_a9d7_54acd5953f29);
+impl windows_core::RuntimeType for IIndexedResourceCandidate {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IIndexedResourceCandidate_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IndexedResourceType) -> windows_core::HRESULT,
+    pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Metadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Metadata: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Qualifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Qualifiers: usize,
+    pub ValueAsString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetQualifierValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IIndexedResourceQualifier, IIndexedResourceQualifier_Vtbl, 0xdae3bb9b_d304_497f_a168_a340042c8adb);
+impl windows_core::RuntimeType for IIndexedResourceQualifier {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IIndexedResourceQualifier_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub QualifierName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub QualifierValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(IResourceIndexer, IResourceIndexer_Vtbl, 0x2d4cf9a5_e32f_4ab2_8748_96350a016da3);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IResourceIndexer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct IResourceIndexer_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub IndexFilePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    IndexFilePath: usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    pub IndexFileContentsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    IndexFileContentsAsync: usize,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(IResourceIndexerFactory, IResourceIndexerFactory_Vtbl, 0xb8de3f09_31cd_4d97_bd30_8d39f742bc61);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IResourceIndexerFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct IResourceIndexerFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub CreateResourceIndexer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    CreateResourceIndexer: usize,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(IResourceIndexerFactory2, IResourceIndexerFactory2_Vtbl, 0x6040f18d_d5e5_4b60_9201_cd279cbcfed9);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IResourceIndexerFactory2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct IResourceIndexerFactory2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub CreateResourceIndexerWithExtension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    CreateResourceIndexerWithExtension: usize,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IndexedResourceCandidate(windows_core::IUnknown);
@@ -92,6 +171,20 @@ impl windows_core::RuntimeName for IndexedResourceQualifier {
 }
 unsafe impl Send for IndexedResourceQualifier {}
 unsafe impl Sync for IndexedResourceQualifier {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IndexedResourceType(pub i32);
+impl IndexedResourceType {
+    pub const String: Self = Self(0i32);
+    pub const Path: Self = Self(1i32);
+    pub const EmbeddedData: Self = Self(2i32);
+}
+impl windows_core::TypeKind for IndexedResourceType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for IndexedResourceType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Management.IndexedResourceType;i4)");
+}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -169,96 +262,3 @@ impl windows_core::RuntimeName for ResourceIndexer {
 unsafe impl Send for ResourceIndexer {}
 #[cfg(feature = "deprecated")]
 unsafe impl Sync for ResourceIndexer {}
-windows_core::imp::define_interface!(IIndexedResourceCandidate, IIndexedResourceCandidate_Vtbl, 0x0e619ef3_faec_4414_a9d7_54acd5953f29);
-impl windows_core::RuntimeType for IIndexedResourceCandidate {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IIndexedResourceCandidate_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IndexedResourceType) -> windows_core::HRESULT,
-    pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Metadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Metadata: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Qualifiers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Qualifiers: usize,
-    pub ValueAsString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetQualifierValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IIndexedResourceQualifier, IIndexedResourceQualifier_Vtbl, 0xdae3bb9b_d304_497f_a168_a340042c8adb);
-impl windows_core::RuntimeType for IIndexedResourceQualifier {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IIndexedResourceQualifier_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub QualifierName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub QualifierValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(IResourceIndexer, IResourceIndexer_Vtbl, 0x2d4cf9a5_e32f_4ab2_8748_96350a016da3);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IResourceIndexer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct IResourceIndexer_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub IndexFilePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    IndexFilePath: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub IndexFileContentsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
-    IndexFileContentsAsync: usize,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(IResourceIndexerFactory, IResourceIndexerFactory_Vtbl, 0xb8de3f09_31cd_4d97_bd30_8d39f742bc61);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IResourceIndexerFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct IResourceIndexerFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub CreateResourceIndexer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    CreateResourceIndexer: usize,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(IResourceIndexerFactory2, IResourceIndexerFactory2_Vtbl, 0x6040f18d_d5e5_4b60_9201_cd279cbcfed9);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IResourceIndexerFactory2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct IResourceIndexerFactory2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub CreateResourceIndexerWithExtension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    CreateResourceIndexerWithExtension: usize,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IndexedResourceType(pub i32);
-impl IndexedResourceType {
-    pub const String: Self = Self(0i32);
-    pub const Path: Self = Self(1i32);
-    pub const EmbeddedData: Self = Self(2i32);
-}
-impl windows_core::TypeKind for IndexedResourceType {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for IndexedResourceType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Management.IndexedResourceType;i4)");
-}

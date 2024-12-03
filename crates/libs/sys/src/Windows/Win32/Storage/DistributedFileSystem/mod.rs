@@ -26,8 +26,8 @@ windows_targets::link!("netapi32.dll" "system" fn NetDfsSetInfo(dfsentrypath : w
 windows_targets::link!("netapi32.dll" "system" fn NetDfsSetSecurity(dfsentrypath : windows_sys::core::PCWSTR, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
 #[cfg(feature = "Win32_Security")]
 windows_targets::link!("netapi32.dll" "system" fn NetDfsSetStdContainerSecurity(machinename : windows_sys::core::PCWSTR, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
-pub type DFS_NAMESPACE_VERSION_ORIGIN = i32;
-pub type DFS_TARGET_PRIORITY_CLASS = i32;
+pub const DFS_ADD_VOLUME: u32 = 1u32;
+pub const DFS_FORCE_REMOVE: u32 = 2147483648u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DFS_GET_PKT_ENTRY_STATE_ARG {
@@ -246,6 +246,18 @@ pub struct DFS_INFO_9 {
     pub NumberOfStorages: u32,
     pub Storage: *mut DFS_STORAGE_INFO_1,
 }
+pub const DFS_MOVE_FLAG_REPLACE_IF_EXISTS: u32 = 1u32;
+pub type DFS_NAMESPACE_VERSION_ORIGIN = i32;
+pub const DFS_NAMESPACE_VERSION_ORIGIN_COMBINED: DFS_NAMESPACE_VERSION_ORIGIN = 0i32;
+pub const DFS_NAMESPACE_VERSION_ORIGIN_DOMAIN: DFS_NAMESPACE_VERSION_ORIGIN = 2i32;
+pub const DFS_NAMESPACE_VERSION_ORIGIN_SERVER: DFS_NAMESPACE_VERSION_ORIGIN = 1i32;
+pub const DFS_PROPERTY_FLAG_ABDE: u32 = 32u32;
+pub const DFS_PROPERTY_FLAG_CLUSTER_ENABLED: u32 = 16u32;
+pub const DFS_PROPERTY_FLAG_INSITE_REFERRALS: u32 = 1u32;
+pub const DFS_PROPERTY_FLAG_ROOT_SCALABILITY: u32 = 2u32;
+pub const DFS_PROPERTY_FLAG_SITE_COSTING: u32 = 4u32;
+pub const DFS_PROPERTY_FLAG_TARGET_FAILBACK: u32 = 8u32;
+pub const DFS_RESTORE_VOLUME: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DFS_SITELIST_INFO {
@@ -258,6 +270,8 @@ pub struct DFS_SITENAME_INFO {
     pub SiteFlags: u32,
     pub SiteName: windows_sys::core::PWSTR,
 }
+pub const DFS_SITE_PRIMARY: u32 = 1u32;
+pub const DFS_STORAGE_FLAVOR_UNUSED2: u32 = 768u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DFS_STORAGE_INFO {
@@ -281,6 +295,10 @@ pub struct DFS_STORAGE_INFO_1 {
     pub ShareName: windows_sys::core::PWSTR,
     pub TargetPriority: DFS_TARGET_PRIORITY,
 }
+pub const DFS_STORAGE_STATES: u32 = 15u32;
+pub const DFS_STORAGE_STATE_ACTIVE: u32 = 4u32;
+pub const DFS_STORAGE_STATE_OFFLINE: u32 = 1u32;
+pub const DFS_STORAGE_STATE_ONLINE: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
@@ -298,25 +316,7 @@ pub struct DFS_TARGET_PRIORITY {
     pub TargetPriorityRank: u16,
     pub Reserved: u16,
 }
-pub const DFS_ADD_VOLUME: u32 = 1u32;
-pub const DFS_FORCE_REMOVE: u32 = 2147483648u32;
-pub const DFS_MOVE_FLAG_REPLACE_IF_EXISTS: u32 = 1u32;
-pub const DFS_NAMESPACE_VERSION_ORIGIN_COMBINED: DFS_NAMESPACE_VERSION_ORIGIN = 0i32;
-pub const DFS_NAMESPACE_VERSION_ORIGIN_DOMAIN: DFS_NAMESPACE_VERSION_ORIGIN = 2i32;
-pub const DFS_NAMESPACE_VERSION_ORIGIN_SERVER: DFS_NAMESPACE_VERSION_ORIGIN = 1i32;
-pub const DFS_PROPERTY_FLAG_ABDE: u32 = 32u32;
-pub const DFS_PROPERTY_FLAG_CLUSTER_ENABLED: u32 = 16u32;
-pub const DFS_PROPERTY_FLAG_INSITE_REFERRALS: u32 = 1u32;
-pub const DFS_PROPERTY_FLAG_ROOT_SCALABILITY: u32 = 2u32;
-pub const DFS_PROPERTY_FLAG_SITE_COSTING: u32 = 4u32;
-pub const DFS_PROPERTY_FLAG_TARGET_FAILBACK: u32 = 8u32;
-pub const DFS_RESTORE_VOLUME: u32 = 2u32;
-pub const DFS_SITE_PRIMARY: u32 = 1u32;
-pub const DFS_STORAGE_FLAVOR_UNUSED2: u32 = 768u32;
-pub const DFS_STORAGE_STATES: u32 = 15u32;
-pub const DFS_STORAGE_STATE_ACTIVE: u32 = 4u32;
-pub const DFS_STORAGE_STATE_OFFLINE: u32 = 1u32;
-pub const DFS_STORAGE_STATE_ONLINE: u32 = 2u32;
+pub type DFS_TARGET_PRIORITY_CLASS = i32;
 pub const DFS_VOLUME_FLAVORS: u32 = 768u32;
 pub const DFS_VOLUME_FLAVOR_AD_BLOB: u32 = 512u32;
 pub const DFS_VOLUME_FLAVOR_STANDALONE: u32 = 256u32;

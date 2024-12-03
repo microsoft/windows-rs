@@ -1683,86 +1683,17 @@ where
     windows_targets::link!("dhcpcsvc6.dll" "system" fn Dhcpv6RequestPrefix(adaptername : windows_core::PCWSTR, pclassid : *mut DHCPV6CAPI_CLASSID, prefixleaseinfo : *mut DHCPV6PrefixLeaseInformation, pdwtimetowait : *mut u32) -> u32);
     Dhcpv6RequestPrefix(adaptername.param().abi(), core::mem::transmute(pclassid), core::mem::transmute(prefixleaseinfo), core::mem::transmute(pdwtimetowait))
 }
-pub type LPDHCP_CONTROL = Option<unsafe extern "system" fn(dwcontrolcode: u32, lpreserved: *mut core::ffi::c_void) -> u32>;
-pub type LPDHCP_DELETE_CLIENT = Option<unsafe extern "system" fn(ipaddress: u32, hwaddress: *mut u8, hwaddresslength: u32, reserved: u32, clienttype: u32) -> u32>;
-pub type LPDHCP_DROP_SEND = Option<unsafe extern "system" fn(packet: *mut *mut u8, packetsize: *mut u32, controlcode: u32, ipaddress: u32, reserved: *mut core::ffi::c_void, pktcontext: *mut core::ffi::c_void) -> u32>;
-pub type LPDHCP_ENTRY_POINT_FUNC = Option<unsafe extern "system" fn(chaindlls: windows_core::PCWSTR, calloutversion: u32, callouttbl: *mut DHCP_CALLOUT_TABLE) -> u32>;
-pub type LPDHCP_GIVE_ADDRESS = Option<unsafe extern "system" fn(packet: *mut u8, packetsize: u32, controlcode: u32, ipaddress: u32, altaddress: u32, addrtype: u32, leasetime: u32, reserved: *mut core::ffi::c_void, pktcontext: *mut core::ffi::c_void) -> u32>;
-pub type LPDHCP_HANDLE_OPTIONS = Option<unsafe extern "system" fn(packet: *mut u8, packetsize: u32, reserved: *mut core::ffi::c_void, pktcontext: *mut core::ffi::c_void, serveroptions: *mut DHCP_SERVER_OPTIONS) -> u32>;
-pub type LPDHCP_NEWPKT = Option<unsafe extern "system" fn(packet: *mut *mut u8, packetsize: *mut u32, ipaddress: u32, reserved: *mut core::ffi::c_void, pktcontext: *mut *mut core::ffi::c_void, processit: *mut super::super::Foundation::BOOL) -> u32>;
-pub type LPDHCP_PROB = Option<unsafe extern "system" fn(packet: *mut u8, packetsize: u32, controlcode: u32, ipaddress: u32, altaddress: u32, reserved: *mut core::ffi::c_void, pktcontext: *mut core::ffi::c_void) -> u32>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DHCPV6_STATELESS_PARAM_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DHCP_FAILOVER_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DHCP_FAILOVER_SERVER(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DHCP_FILTER_LIST_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DHCP_FORCE_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DHCP_OPTION_DATA_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DHCP_OPTION_SCOPE_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DHCP_OPTION_SCOPE_TYPE6(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DHCP_OPTION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DHCP_POLICY_FIELDS_TO_UPDATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DHCP_POL_ATTR_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DHCP_POL_COMPARATOR(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DHCP_POL_LOGIC_OPER(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DHCP_PROPERTY_ID(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DHCP_PROPERTY_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DHCP_SCAN_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DHCP_SEARCH_INFO_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DHCP_SEARCH_INFO_TYPE_V6(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DHCP_SUBNET_ELEMENT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DHCP_SUBNET_ELEMENT_TYPE_V6(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DHCP_SUBNET_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FSM_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct QuarantineStatus(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct StatusCode(pub i32);
+pub const ADDRESS_TYPE_IANA: u32 = 0u32;
+pub const ADDRESS_TYPE_IATA: u32 = 1u32;
+pub const Allow: DHCP_FILTER_LIST_TYPE = DHCP_FILTER_LIST_TYPE(1i32);
+pub const CHANGESTATE: u32 = 4u32;
+pub const CLIENT_TYPE_BOOTP: u32 = 2u32;
+pub const CLIENT_TYPE_DHCP: u32 = 1u32;
+pub const CLIENT_TYPE_NONE: u32 = 100u32;
+pub const CLIENT_TYPE_RESERVATION_FLAG: u32 = 4u32;
+pub const CLIENT_TYPE_UNSPECIFIED: u32 = 0u32;
+pub const COMMUNICATION_INT: FSM_STATE = FSM_STATE(4i32);
+pub const CONFLICT_DONE: FSM_STATE = FSM_STATE(7i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DATE_TIME {
@@ -1777,6 +1708,7 @@ impl Default for DATE_TIME {
 impl windows_core::TypeKind for DATE_TIME {
     type TypeKind = windows_core::CopyType;
 }
+pub const DEFAULTQUARSETTING: QuarantineStatus = QuarantineStatus(5i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPAPI_PARAMS {
@@ -1809,6 +1741,7 @@ impl Default for DHCPCAPI_CLASSID {
 impl windows_core::TypeKind for DHCPCAPI_CLASSID {
     type TypeKind = windows_core::CopyType;
 }
+pub const DHCPCAPI_DEREGISTER_HANDLE_EVENT: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPCAPI_PARAMS_ARRAY {
@@ -1823,6 +1756,12 @@ impl Default for DHCPCAPI_PARAMS_ARRAY {
 impl windows_core::TypeKind for DHCPCAPI_PARAMS_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
+pub const DHCPCAPI_REGISTER_HANDLE_EVENT: u32 = 1u32;
+pub const DHCPCAPI_REQUEST_ASYNCHRONOUS: u32 = 4u32;
+pub const DHCPCAPI_REQUEST_CANCEL: u32 = 8u32;
+pub const DHCPCAPI_REQUEST_MASK: u32 = 15u32;
+pub const DHCPCAPI_REQUEST_PERSISTENT: u32 = 1u32;
+pub const DHCPCAPI_REQUEST_SYNCHRONOUS: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPDS_SERVER {
@@ -2071,6 +2010,27 @@ impl Default for DHCPV6_IP_ARRAY {
 impl windows_core::TypeKind for DHCPV6_IP_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
+pub const DHCPV6_OPTION_CLIENTID: u32 = 1u32;
+pub const DHCPV6_OPTION_DNS_SERVERS: u32 = 23u32;
+pub const DHCPV6_OPTION_DOMAIN_LIST: u32 = 24u32;
+pub const DHCPV6_OPTION_IA_NA: u32 = 3u32;
+pub const DHCPV6_OPTION_IA_PD: u32 = 25u32;
+pub const DHCPV6_OPTION_IA_TA: u32 = 4u32;
+pub const DHCPV6_OPTION_NISP_DOMAIN_NAME: u32 = 30u32;
+pub const DHCPV6_OPTION_NISP_SERVERS: u32 = 28u32;
+pub const DHCPV6_OPTION_NIS_DOMAIN_NAME: u32 = 29u32;
+pub const DHCPV6_OPTION_NIS_SERVERS: u32 = 27u32;
+pub const DHCPV6_OPTION_ORO: u32 = 6u32;
+pub const DHCPV6_OPTION_PREFERENCE: u32 = 7u32;
+pub const DHCPV6_OPTION_RAPID_COMMIT: u32 = 14u32;
+pub const DHCPV6_OPTION_RECONF_MSG: u32 = 19u32;
+pub const DHCPV6_OPTION_SERVERID: u32 = 2u32;
+pub const DHCPV6_OPTION_SIP_SERVERS_ADDRS: u32 = 22u32;
+pub const DHCPV6_OPTION_SIP_SERVERS_NAMES: u32 = 21u32;
+pub const DHCPV6_OPTION_UNICAST: u32 = 12u32;
+pub const DHCPV6_OPTION_USER_CLASS: u32 = 15u32;
+pub const DHCPV6_OPTION_VENDOR_CLASS: u32 = 16u32;
+pub const DHCPV6_OPTION_VENDOR_OPTS: u32 = 17u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPV6_STATELESS_PARAMS {
@@ -2085,6 +2045,9 @@ impl Default for DHCPV6_STATELESS_PARAMS {
 impl windows_core::TypeKind for DHCPV6_STATELESS_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DHCPV6_STATELESS_PARAM_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPV6_STATELESS_SCOPE_STATS {
@@ -2267,6 +2230,14 @@ impl Default for DHCP_ATTRIB_ARRAY {
 impl windows_core::TypeKind for DHCP_ATTRIB_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
+pub const DHCP_ATTRIB_BOOL_IS_ADMIN: u32 = 5u32;
+pub const DHCP_ATTRIB_BOOL_IS_BINDING_AWARE: u32 = 4u32;
+pub const DHCP_ATTRIB_BOOL_IS_DYNBOOTP: u32 = 2u32;
+pub const DHCP_ATTRIB_BOOL_IS_PART_OF_DSDC: u32 = 3u32;
+pub const DHCP_ATTRIB_BOOL_IS_ROGUE: u32 = 1u32;
+pub const DHCP_ATTRIB_TYPE_BOOL: u32 = 1u32;
+pub const DHCP_ATTRIB_TYPE_ULONG: u32 = 2u32;
+pub const DHCP_ATTRIB_ULONG_RESTORE_STATUS: u32 = 6u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_BINARY_DATA {
@@ -2330,6 +2301,9 @@ impl Default for DHCP_BOOTP_IP_RANGE {
 impl windows_core::TypeKind for DHCP_BOOTP_IP_RANGE {
     type TypeKind = windows_core::CopyType;
 }
+pub const DHCP_CALLOUT_ENTRY_POINT: windows_core::PCSTR = windows_core::s!("DhcpServerCalloutEntry");
+pub const DHCP_CALLOUT_LIST_KEY: windows_core::PCWSTR = windows_core::w!("System\\CurrentControlSet\\Services\\DHCPServer\\Parameters");
+pub const DHCP_CALLOUT_LIST_VALUE: windows_core::PCWSTR = windows_core::w!("CalloutDlls");
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CALLOUT_TABLE {
@@ -2417,6 +2391,8 @@ impl Default for DHCP_CLASS_INFO_V6 {
 impl windows_core::TypeKind for DHCP_CLASS_INFO_V6 {
     type TypeKind = windows_core::CopyType;
 }
+pub const DHCP_CLIENT_BOOTP: u32 = 805306371u32;
+pub const DHCP_CLIENT_DHCP: u32 = 805306372u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLIENT_FILTER_STATUS_INFO {
@@ -2712,6 +2688,29 @@ impl Default for DHCP_CLIENT_INFO_VQ {
 impl windows_core::TypeKind for DHCP_CLIENT_INFO_VQ {
     type TypeKind = windows_core::CopyType;
 }
+pub const DHCP_CONTROL_CONTINUE: u32 = 4u32;
+pub const DHCP_CONTROL_PAUSE: u32 = 3u32;
+pub const DHCP_CONTROL_START: u32 = 1u32;
+pub const DHCP_CONTROL_STOP: u32 = 2u32;
+pub const DHCP_DROP_DUPLICATE: u32 = 1u32;
+pub const DHCP_DROP_GEN_FAILURE: u32 = 256u32;
+pub const DHCP_DROP_INTERNAL_ERROR: u32 = 3u32;
+pub const DHCP_DROP_INVALID: u32 = 8u32;
+pub const DHCP_DROP_NOADDRESS: u32 = 10u32;
+pub const DHCP_DROP_NOMEM: u32 = 2u32;
+pub const DHCP_DROP_NO_SUBNETS: u32 = 7u32;
+pub const DHCP_DROP_PAUSED: u32 = 6u32;
+pub const DHCP_DROP_PROCESSED: u32 = 11u32;
+pub const DHCP_DROP_TIMEOUT: u32 = 4u32;
+pub const DHCP_DROP_UNAUTH: u32 = 5u32;
+pub const DHCP_DROP_WRONG_SERVER: u32 = 9u32;
+pub const DHCP_ENDPOINT_FLAG_CANT_MODIFY: u32 = 1u32;
+pub const DHCP_FAILOVER_DELETE_SCOPES: u32 = 1u32;
+pub const DHCP_FAILOVER_MAX_NUM_ADD_SCOPES: u32 = 400u32;
+pub const DHCP_FAILOVER_MAX_NUM_REL: u32 = 31u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DHCP_FAILOVER_MODE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_FAILOVER_RELATIONSHIP {
@@ -2752,6 +2751,9 @@ impl Default for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
 impl windows_core::TypeKind for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DHCP_FAILOVER_SERVER(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_FAILOVER_STATISTICS {
@@ -2814,6 +2816,9 @@ impl Default for DHCP_FILTER_GLOBAL_INFO {
 impl windows_core::TypeKind for DHCP_FILTER_GLOBAL_INFO {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DHCP_FILTER_LIST_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_FILTER_RECORD {
@@ -2828,6 +2833,14 @@ impl Default for DHCP_FILTER_RECORD {
 impl windows_core::TypeKind for DHCP_FILTER_RECORD {
     type TypeKind = windows_core::CopyType;
 }
+pub const DHCP_FLAGS_DONT_ACCESS_DS: u32 = 1u32;
+pub const DHCP_FLAGS_DONT_DO_RPC: u32 = 2u32;
+pub const DHCP_FLAGS_OPTION_IS_VENDOR: u32 = 3u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DHCP_FORCE_FLAG(pub i32);
+pub const DHCP_GIVE_ADDRESS_NEW: u32 = 805306369u32;
+pub const DHCP_GIVE_ADDRESS_OLD: u32 = 805306370u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_HOST_INFO {
@@ -3004,6 +3017,7 @@ impl Default for DHCP_IP_RESERVATION_V6 {
 impl windows_core::TypeKind for DHCP_IP_RESERVATION_V6 {
     type TypeKind = windows_core::CopyType;
 }
+pub const DHCP_MAX_DELAY: u32 = 1000u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_MIB_INFO {
@@ -3111,6 +3125,7 @@ impl Default for DHCP_MIB_INFO_VQ {
 impl windows_core::TypeKind for DHCP_MIB_INFO_VQ {
     type TypeKind = windows_core::CopyType;
 }
+pub const DHCP_MIN_DELAY: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_OPTION {
@@ -3191,6 +3206,9 @@ impl Default for DHCP_OPTION_DATA_ELEMENT_0 {
 impl windows_core::TypeKind for DHCP_OPTION_DATA_ELEMENT_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DHCP_OPTION_DATA_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_OPTION_LIST {
@@ -3265,6 +3283,15 @@ impl Default for DHCP_OPTION_SCOPE_INFO6_0 {
 impl windows_core::TypeKind for DHCP_OPTION_SCOPE_INFO6_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DHCP_OPTION_SCOPE_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DHCP_OPTION_SCOPE_TYPE6(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DHCP_OPTION_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_OPTION_VALUE {
@@ -3293,6 +3320,8 @@ impl Default for DHCP_OPTION_VALUE_ARRAY {
 impl windows_core::TypeKind for DHCP_OPTION_VALUE_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
+pub const DHCP_OPT_ENUM_IGNORE_VENDOR: u32 = 1u32;
+pub const DHCP_OPT_ENUM_USE_CLASSNAME: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_PERF_STATS {
@@ -3395,6 +3424,15 @@ impl Default for DHCP_POLICY_EX_ARRAY {
 impl windows_core::TypeKind for DHCP_POLICY_EX_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DHCP_POLICY_FIELDS_TO_UPDATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DHCP_POL_ATTR_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DHCP_POL_COMPARATOR(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_POL_COND {
@@ -3457,6 +3495,13 @@ impl Default for DHCP_POL_EXPR_ARRAY {
 impl windows_core::TypeKind for DHCP_POL_EXPR_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DHCP_POL_LOGIC_OPER(pub i32);
+pub const DHCP_PROB_CONFLICT: u32 = 536870913u32;
+pub const DHCP_PROB_DECLINE: u32 = 536870914u32;
+pub const DHCP_PROB_NACKED: u32 = 536870916u32;
+pub const DHCP_PROB_RELEASE: u32 = 536870915u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_PROPERTY {
@@ -3503,6 +3548,12 @@ impl Default for DHCP_PROPERTY_ARRAY {
 impl windows_core::TypeKind for DHCP_PROPERTY_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DHCP_PROPERTY_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DHCP_PROPERTY_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_RESERVATION_INFO_ARRAY {
@@ -3545,6 +3596,9 @@ impl Default for DHCP_RESERVED_SCOPE6 {
 impl windows_core::TypeKind for DHCP_RESERVED_SCOPE6 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DHCP_SCAN_FLAG(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SCAN_ITEM {
@@ -3602,6 +3656,12 @@ impl Default for DHCP_SEARCH_INFO_0 {
 impl windows_core::TypeKind for DHCP_SEARCH_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DHCP_SEARCH_INFO_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DHCP_SEARCH_INFO_TYPE_V6(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DHCP_SEARCH_INFO_V6 {
@@ -3631,6 +3691,7 @@ impl Default for DHCP_SEARCH_INFO_V6_0 {
 impl windows_core::TypeKind for DHCP_SEARCH_INFO_V6_0 {
     type TypeKind = windows_core::CopyType;
 }
+pub const DHCP_SEND_PACKET: u32 = 268435456u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SERVER_CONFIG_INFO {
@@ -3955,6 +4016,12 @@ impl Default for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
 impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DHCP_SUBNET_ELEMENT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DHCP_SUBNET_ELEMENT_TYPE_V6(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SUBNET_INFO {
@@ -4015,6 +4082,10 @@ impl Default for DHCP_SUBNET_INFO_VQ {
 impl windows_core::TypeKind for DHCP_SUBNET_INFO_VQ {
     type TypeKind = windows_core::CopyType;
 }
+pub const DHCP_SUBNET_INFO_VQ_FLAG_QUARANTINE: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DHCP_SUBNET_STATE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SUPER_SCOPE_TABLE {
@@ -4045,6 +4116,14 @@ impl Default for DHCP_SUPER_SCOPE_TABLE_ENTRY {
 impl windows_core::TypeKind for DHCP_SUPER_SCOPE_TABLE_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
+pub const DNS_FLAG_CLEANUP_EXPIRED: u32 = 4u32;
+pub const DNS_FLAG_DISABLE_PTR_UPDATE: u32 = 64u32;
+pub const DNS_FLAG_ENABLED: u32 = 1u32;
+pub const DNS_FLAG_HAS_DNS_SUFFIX: u32 = 128u32;
+pub const DNS_FLAG_UPDATE_BOTH_ALWAYS: u32 = 16u32;
+pub const DNS_FLAG_UPDATE_DHCID: u32 = 32u32;
+pub const DNS_FLAG_UPDATE_DOWNLEVEL: u32 = 2u32;
+pub const DROPPACKET: QuarantineStatus = QuarantineStatus(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWORD_DWORD {
@@ -4059,172 +4138,6 @@ impl Default for DWORD_DWORD {
 impl windows_core::TypeKind for DWORD_DWORD {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SCOPE_MIB_INFO {
-    pub Subnet: u32,
-    pub NumAddressesInuse: u32,
-    pub NumAddressesFree: u32,
-    pub NumPendingOffers: u32,
-}
-impl Default for SCOPE_MIB_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SCOPE_MIB_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SCOPE_MIB_INFO_V5 {
-    pub Subnet: u32,
-    pub NumAddressesInuse: u32,
-    pub NumAddressesFree: u32,
-    pub NumPendingOffers: u32,
-}
-impl Default for SCOPE_MIB_INFO_V5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SCOPE_MIB_INFO_V5 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SCOPE_MIB_INFO_V6 {
-    pub Subnet: DHCP_IPV6_ADDRESS,
-    pub NumAddressesInuse: u64,
-    pub NumAddressesFree: u64,
-    pub NumPendingAdvertises: u64,
-}
-impl Default for SCOPE_MIB_INFO_V6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SCOPE_MIB_INFO_V6 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SCOPE_MIB_INFO_VQ {
-    pub Subnet: u32,
-    pub NumAddressesInuse: u32,
-    pub NumAddressesFree: u32,
-    pub NumPendingOffers: u32,
-    pub QtnNumLeases: u32,
-    pub QtnPctQtnLeases: u32,
-    pub QtnProbationLeases: u32,
-    pub QtnNonQtnLeases: u32,
-    pub QtnExemptLeases: u32,
-    pub QtnCapableClients: u32,
-}
-impl Default for SCOPE_MIB_INFO_VQ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SCOPE_MIB_INFO_VQ {
-    type TypeKind = windows_core::CopyType;
-}
-pub const ADDRESS_TYPE_IANA: u32 = 0u32;
-pub const ADDRESS_TYPE_IATA: u32 = 1u32;
-pub const Allow: DHCP_FILTER_LIST_TYPE = DHCP_FILTER_LIST_TYPE(1i32);
-pub const CHANGESTATE: u32 = 4u32;
-pub const CLIENT_TYPE_BOOTP: u32 = 2u32;
-pub const CLIENT_TYPE_DHCP: u32 = 1u32;
-pub const CLIENT_TYPE_NONE: u32 = 100u32;
-pub const CLIENT_TYPE_RESERVATION_FLAG: u32 = 4u32;
-pub const CLIENT_TYPE_UNSPECIFIED: u32 = 0u32;
-pub const COMMUNICATION_INT: FSM_STATE = FSM_STATE(4i32);
-pub const CONFLICT_DONE: FSM_STATE = FSM_STATE(7i32);
-pub const DEFAULTQUARSETTING: QuarantineStatus = QuarantineStatus(5i32);
-pub const DHCPCAPI_DEREGISTER_HANDLE_EVENT: u32 = 1u32;
-pub const DHCPCAPI_REGISTER_HANDLE_EVENT: u32 = 1u32;
-pub const DHCPCAPI_REQUEST_ASYNCHRONOUS: u32 = 4u32;
-pub const DHCPCAPI_REQUEST_CANCEL: u32 = 8u32;
-pub const DHCPCAPI_REQUEST_MASK: u32 = 15u32;
-pub const DHCPCAPI_REQUEST_PERSISTENT: u32 = 1u32;
-pub const DHCPCAPI_REQUEST_SYNCHRONOUS: u32 = 2u32;
-pub const DHCPV6_OPTION_CLIENTID: u32 = 1u32;
-pub const DHCPV6_OPTION_DNS_SERVERS: u32 = 23u32;
-pub const DHCPV6_OPTION_DOMAIN_LIST: u32 = 24u32;
-pub const DHCPV6_OPTION_IA_NA: u32 = 3u32;
-pub const DHCPV6_OPTION_IA_PD: u32 = 25u32;
-pub const DHCPV6_OPTION_IA_TA: u32 = 4u32;
-pub const DHCPV6_OPTION_NISP_DOMAIN_NAME: u32 = 30u32;
-pub const DHCPV6_OPTION_NISP_SERVERS: u32 = 28u32;
-pub const DHCPV6_OPTION_NIS_DOMAIN_NAME: u32 = 29u32;
-pub const DHCPV6_OPTION_NIS_SERVERS: u32 = 27u32;
-pub const DHCPV6_OPTION_ORO: u32 = 6u32;
-pub const DHCPV6_OPTION_PREFERENCE: u32 = 7u32;
-pub const DHCPV6_OPTION_RAPID_COMMIT: u32 = 14u32;
-pub const DHCPV6_OPTION_RECONF_MSG: u32 = 19u32;
-pub const DHCPV6_OPTION_SERVERID: u32 = 2u32;
-pub const DHCPV6_OPTION_SIP_SERVERS_ADDRS: u32 = 22u32;
-pub const DHCPV6_OPTION_SIP_SERVERS_NAMES: u32 = 21u32;
-pub const DHCPV6_OPTION_UNICAST: u32 = 12u32;
-pub const DHCPV6_OPTION_USER_CLASS: u32 = 15u32;
-pub const DHCPV6_OPTION_VENDOR_CLASS: u32 = 16u32;
-pub const DHCPV6_OPTION_VENDOR_OPTS: u32 = 17u32;
-pub const DHCP_ATTRIB_BOOL_IS_ADMIN: u32 = 5u32;
-pub const DHCP_ATTRIB_BOOL_IS_BINDING_AWARE: u32 = 4u32;
-pub const DHCP_ATTRIB_BOOL_IS_DYNBOOTP: u32 = 2u32;
-pub const DHCP_ATTRIB_BOOL_IS_PART_OF_DSDC: u32 = 3u32;
-pub const DHCP_ATTRIB_BOOL_IS_ROGUE: u32 = 1u32;
-pub const DHCP_ATTRIB_TYPE_BOOL: u32 = 1u32;
-pub const DHCP_ATTRIB_TYPE_ULONG: u32 = 2u32;
-pub const DHCP_ATTRIB_ULONG_RESTORE_STATUS: u32 = 6u32;
-pub const DHCP_CALLOUT_ENTRY_POINT: windows_core::PCSTR = windows_core::s!("DhcpServerCalloutEntry");
-pub const DHCP_CALLOUT_LIST_KEY: windows_core::PCWSTR = windows_core::w!("System\\CurrentControlSet\\Services\\DHCPServer\\Parameters");
-pub const DHCP_CALLOUT_LIST_VALUE: windows_core::PCWSTR = windows_core::w!("CalloutDlls");
-pub const DHCP_CLIENT_BOOTP: u32 = 805306371u32;
-pub const DHCP_CLIENT_DHCP: u32 = 805306372u32;
-pub const DHCP_CONTROL_CONTINUE: u32 = 4u32;
-pub const DHCP_CONTROL_PAUSE: u32 = 3u32;
-pub const DHCP_CONTROL_START: u32 = 1u32;
-pub const DHCP_CONTROL_STOP: u32 = 2u32;
-pub const DHCP_DROP_DUPLICATE: u32 = 1u32;
-pub const DHCP_DROP_GEN_FAILURE: u32 = 256u32;
-pub const DHCP_DROP_INTERNAL_ERROR: u32 = 3u32;
-pub const DHCP_DROP_INVALID: u32 = 8u32;
-pub const DHCP_DROP_NOADDRESS: u32 = 10u32;
-pub const DHCP_DROP_NOMEM: u32 = 2u32;
-pub const DHCP_DROP_NO_SUBNETS: u32 = 7u32;
-pub const DHCP_DROP_PAUSED: u32 = 6u32;
-pub const DHCP_DROP_PROCESSED: u32 = 11u32;
-pub const DHCP_DROP_TIMEOUT: u32 = 4u32;
-pub const DHCP_DROP_UNAUTH: u32 = 5u32;
-pub const DHCP_DROP_WRONG_SERVER: u32 = 9u32;
-pub const DHCP_ENDPOINT_FLAG_CANT_MODIFY: u32 = 1u32;
-pub const DHCP_FAILOVER_DELETE_SCOPES: u32 = 1u32;
-pub const DHCP_FAILOVER_MAX_NUM_ADD_SCOPES: u32 = 400u32;
-pub const DHCP_FAILOVER_MAX_NUM_REL: u32 = 31u32;
-pub const DHCP_FLAGS_DONT_ACCESS_DS: u32 = 1u32;
-pub const DHCP_FLAGS_DONT_DO_RPC: u32 = 2u32;
-pub const DHCP_FLAGS_OPTION_IS_VENDOR: u32 = 3u32;
-pub const DHCP_GIVE_ADDRESS_NEW: u32 = 805306369u32;
-pub const DHCP_GIVE_ADDRESS_OLD: u32 = 805306370u32;
-pub const DHCP_MAX_DELAY: u32 = 1000u32;
-pub const DHCP_MIN_DELAY: u32 = 0u32;
-pub const DHCP_OPT_ENUM_IGNORE_VENDOR: u32 = 1u32;
-pub const DHCP_OPT_ENUM_USE_CLASSNAME: u32 = 2u32;
-pub const DHCP_PROB_CONFLICT: u32 = 536870913u32;
-pub const DHCP_PROB_DECLINE: u32 = 536870914u32;
-pub const DHCP_PROB_NACKED: u32 = 536870916u32;
-pub const DHCP_PROB_RELEASE: u32 = 536870915u32;
-pub const DHCP_SEND_PACKET: u32 = 268435456u32;
-pub const DHCP_SUBNET_INFO_VQ_FLAG_QUARANTINE: u32 = 1u32;
-pub const DNS_FLAG_CLEANUP_EXPIRED: u32 = 4u32;
-pub const DNS_FLAG_DISABLE_PTR_UPDATE: u32 = 64u32;
-pub const DNS_FLAG_ENABLED: u32 = 1u32;
-pub const DNS_FLAG_HAS_DNS_SUFFIX: u32 = 128u32;
-pub const DNS_FLAG_UPDATE_BOTH_ALWAYS: u32 = 16u32;
-pub const DNS_FLAG_UPDATE_DHCID: u32 = 32u32;
-pub const DNS_FLAG_UPDATE_DOWNLEVEL: u32 = 2u32;
-pub const DROPPACKET: QuarantineStatus = QuarantineStatus(2i32);
 pub const Deny: DHCP_FILTER_LIST_TYPE = DHCP_FILTER_LIST_TYPE(0i32);
 pub const DhcpArrayTypeOption: DHCP_OPTION_TYPE = DHCP_OPTION_TYPE(1i32);
 pub const DhcpAttrFqdn: DHCP_POL_ATTR_TYPE = DHCP_POL_ATTR_TYPE(3i32);
@@ -4426,9 +4339,20 @@ pub const FILTER_STATUS_FULL_MATCH_IN_DENY_LIST: u32 = 4u32;
 pub const FILTER_STATUS_NONE: u32 = 1u32;
 pub const FILTER_STATUS_WILDCARD_MATCH_IN_ALLOW_LIST: u32 = 8u32;
 pub const FILTER_STATUS_WILDCARD_MATCH_IN_DENY_LIST: u32 = 16u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FSM_STATE(pub i32);
 pub const HWTYPE_ETHERNET_10MB: u32 = 1u32;
 pub const HotStandby: DHCP_FAILOVER_MODE = DHCP_FAILOVER_MODE(1i32);
 pub const INIT: FSM_STATE = FSM_STATE(1i32);
+pub type LPDHCP_CONTROL = Option<unsafe extern "system" fn(dwcontrolcode: u32, lpreserved: *mut core::ffi::c_void) -> u32>;
+pub type LPDHCP_DELETE_CLIENT = Option<unsafe extern "system" fn(ipaddress: u32, hwaddress: *mut u8, hwaddresslength: u32, reserved: u32, clienttype: u32) -> u32>;
+pub type LPDHCP_DROP_SEND = Option<unsafe extern "system" fn(packet: *mut *mut u8, packetsize: *mut u32, controlcode: u32, ipaddress: u32, reserved: *mut core::ffi::c_void, pktcontext: *mut core::ffi::c_void) -> u32>;
+pub type LPDHCP_ENTRY_POINT_FUNC = Option<unsafe extern "system" fn(chaindlls: windows_core::PCWSTR, calloutversion: u32, callouttbl: *mut DHCP_CALLOUT_TABLE) -> u32>;
+pub type LPDHCP_GIVE_ADDRESS = Option<unsafe extern "system" fn(packet: *mut u8, packetsize: u32, controlcode: u32, ipaddress: u32, altaddress: u32, addrtype: u32, leasetime: u32, reserved: *mut core::ffi::c_void, pktcontext: *mut core::ffi::c_void) -> u32>;
+pub type LPDHCP_HANDLE_OPTIONS = Option<unsafe extern "system" fn(packet: *mut u8, packetsize: u32, reserved: *mut core::ffi::c_void, pktcontext: *mut core::ffi::c_void, serveroptions: *mut DHCP_SERVER_OPTIONS) -> u32>;
+pub type LPDHCP_NEWPKT = Option<unsafe extern "system" fn(packet: *mut *mut u8, packetsize: *mut u32, ipaddress: u32, reserved: *mut core::ffi::c_void, pktcontext: *mut *mut core::ffi::c_void, processit: *mut super::super::Foundation::BOOL) -> u32>;
+pub type LPDHCP_PROB = Option<unsafe extern "system" fn(packet: *mut u8, packetsize: u32, controlcode: u32, ipaddress: u32, altaddress: u32, reserved: *mut core::ffi::c_void, pktcontext: *mut core::ffi::c_void) -> u32>;
 pub const LoadBalance: DHCP_FAILOVER_MODE = DHCP_FAILOVER_MODE(0i32);
 pub const MAC_ADDRESS_LENGTH: u32 = 6u32;
 pub const MAX_PATTERN_LENGTH: u32 = 255u32;
@@ -4514,12 +4438,85 @@ pub const PrimaryServer: DHCP_FAILOVER_SERVER = DHCP_FAILOVER_SERVER(0i32);
 pub const QUARANTINE_CONFIG_OPTION: u32 = 43222u32;
 pub const QUARANTINE_SCOPE_QUARPROFILE_OPTION: u32 = 43221u32;
 pub const QUARANTIN_OPTION_BASE: u32 = 43220u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QuarantineStatus(pub i32);
 pub const RECOVER: FSM_STATE = FSM_STATE(9i32);
 pub const RECOVER_DONE: FSM_STATE = FSM_STATE(11i32);
 pub const RECOVER_WAIT: FSM_STATE = FSM_STATE(10i32);
 pub const RESOLUTION_INT: FSM_STATE = FSM_STATE(8i32);
 pub const RESTRICTEDACCESS: QuarantineStatus = QuarantineStatus(1i32);
 pub const SAFEPERIOD: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SCOPE_MIB_INFO {
+    pub Subnet: u32,
+    pub NumAddressesInuse: u32,
+    pub NumAddressesFree: u32,
+    pub NumPendingOffers: u32,
+}
+impl Default for SCOPE_MIB_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SCOPE_MIB_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SCOPE_MIB_INFO_V5 {
+    pub Subnet: u32,
+    pub NumAddressesInuse: u32,
+    pub NumAddressesFree: u32,
+    pub NumPendingOffers: u32,
+}
+impl Default for SCOPE_MIB_INFO_V5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SCOPE_MIB_INFO_V5 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SCOPE_MIB_INFO_V6 {
+    pub Subnet: DHCP_IPV6_ADDRESS,
+    pub NumAddressesInuse: u64,
+    pub NumAddressesFree: u64,
+    pub NumPendingAdvertises: u64,
+}
+impl Default for SCOPE_MIB_INFO_V6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SCOPE_MIB_INFO_V6 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SCOPE_MIB_INFO_VQ {
+    pub Subnet: u32,
+    pub NumAddressesInuse: u32,
+    pub NumAddressesFree: u32,
+    pub NumPendingOffers: u32,
+    pub QtnNumLeases: u32,
+    pub QtnPctQtnLeases: u32,
+    pub QtnProbationLeases: u32,
+    pub QtnNonQtnLeases: u32,
+    pub QtnExemptLeases: u32,
+    pub QtnCapableClients: u32,
+}
+impl Default for SCOPE_MIB_INFO_VQ {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SCOPE_MIB_INFO_VQ {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SHAREDSECRET: u32 = 64u32;
 pub const SHUTDOWN: FSM_STATE = FSM_STATE(13i32);
 pub const STARTUP: FSM_STATE = FSM_STATE(2i32);
@@ -4550,6 +4547,9 @@ pub const Set_T2: u32 = 32u32;
 pub const Set_UnicastFlag: u32 = 1u32;
 pub const Set_ValidLifetime: u32 = 8u32;
 pub const Set_ValidLifetimeIATA: u32 = 128u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct StatusCode(pub i32);
 pub const V5_ADDRESS_BIT_BOTH_REC: u32 = 32u32;
 pub const V5_ADDRESS_BIT_DELETED: u32 = 128u32;
 pub const V5_ADDRESS_BIT_UNREGISTERED: u32 = 64u32;

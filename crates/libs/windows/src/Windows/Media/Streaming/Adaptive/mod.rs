@@ -451,6 +451,24 @@ impl windows_core::RuntimeName for AdaptiveMediaSourceCreationResult {
 unsafe impl Send for AdaptiveMediaSourceCreationResult {}
 unsafe impl Sync for AdaptiveMediaSourceCreationResult {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AdaptiveMediaSourceCreationStatus(pub i32);
+impl AdaptiveMediaSourceCreationStatus {
+    pub const Success: Self = Self(0i32);
+    pub const ManifestDownloadFailure: Self = Self(1i32);
+    pub const ManifestParseFailure: Self = Self(2i32);
+    pub const UnsupportedManifestContentType: Self = Self(3i32);
+    pub const UnsupportedManifestVersion: Self = Self(4i32);
+    pub const UnsupportedManifestProfile: Self = Self(5i32);
+    pub const UnknownFailure: Self = Self(6i32);
+}
+impl windows_core::TypeKind for AdaptiveMediaSourceCreationStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AdaptiveMediaSourceCreationStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCreationStatus;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AdaptiveMediaSourceDiagnosticAvailableEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdaptiveMediaSourceDiagnosticAvailableEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -553,6 +571,26 @@ impl windows_core::RuntimeName for AdaptiveMediaSourceDiagnosticAvailableEventAr
 unsafe impl Send for AdaptiveMediaSourceDiagnosticAvailableEventArgs {}
 unsafe impl Sync for AdaptiveMediaSourceDiagnosticAvailableEventArgs {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AdaptiveMediaSourceDiagnosticType(pub i32);
+impl AdaptiveMediaSourceDiagnosticType {
+    pub const ManifestUnchangedUponReload: Self = Self(0i32);
+    pub const ManifestMismatchUponReload: Self = Self(1i32);
+    pub const ManifestSignaledEndOfLiveEventUponReload: Self = Self(2i32);
+    pub const MediaSegmentSkipped: Self = Self(3i32);
+    pub const ResourceNotFound: Self = Self(4i32);
+    pub const ResourceTimedOut: Self = Self(5i32);
+    pub const ResourceParsingError: Self = Self(6i32);
+    pub const BitrateDisabled: Self = Self(7i32);
+    pub const FatalMediaSourceError: Self = Self(8i32);
+}
+impl windows_core::TypeKind for AdaptiveMediaSourceDiagnosticType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AdaptiveMediaSourceDiagnosticType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnosticType;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AdaptiveMediaSourceDiagnostics(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdaptiveMediaSourceDiagnostics, windows_core::IUnknown, windows_core::IInspectable);
@@ -623,6 +661,24 @@ impl windows_core::RuntimeName for AdaptiveMediaSourceDownloadBitrateChangedEven
 }
 unsafe impl Send for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {}
 unsafe impl Sync for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AdaptiveMediaSourceDownloadBitrateChangedReason(pub i32);
+impl AdaptiveMediaSourceDownloadBitrateChangedReason {
+    pub const SufficientInboundBitsPerSecond: Self = Self(0i32);
+    pub const InsufficientInboundBitsPerSecond: Self = Self(1i32);
+    pub const LowBufferLevel: Self = Self(2i32);
+    pub const PositionChanged: Self = Self(3i32);
+    pub const TrackSelectionChanged: Self = Self(4i32);
+    pub const DesiredBitratesChanged: Self = Self(5i32);
+    pub const ErrorInPreviousBitrate: Self = Self(6i32);
+}
+impl windows_core::TypeKind for AdaptiveMediaSourceDownloadBitrateChangedReason {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AdaptiveMediaSourceDownloadBitrateChangedReason {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadBitrateChangedReason;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AdaptiveMediaSourceDownloadCompletedEventArgs(windows_core::IUnknown);
@@ -1117,6 +1173,23 @@ impl windows_core::RuntimeName for AdaptiveMediaSourcePlaybackBitrateChangedEven
 }
 unsafe impl Send for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {}
 unsafe impl Sync for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AdaptiveMediaSourceResourceType(pub i32);
+impl AdaptiveMediaSourceResourceType {
+    pub const Manifest: Self = Self(0i32);
+    pub const InitializationSegment: Self = Self(1i32);
+    pub const MediaSegment: Self = Self(2i32);
+    pub const Key: Self = Self(3i32);
+    pub const InitializationVector: Self = Self(4i32);
+    pub const MediaSegmentIndex: Self = Self(5i32);
+}
+impl windows_core::TypeKind for AdaptiveMediaSourceResourceType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AdaptiveMediaSourceResourceType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceResourceType;i4)");
+}
 #[cfg(feature = "Media_Core")]
 windows_core::imp::define_interface!(IAdaptiveMediaSource, IAdaptiveMediaSource_Vtbl, 0x4c7332ef_d39f_4396_b4d9_043957a7c964);
 #[cfg(feature = "Media_Core")]
@@ -1500,77 +1573,4 @@ pub struct IAdaptiveMediaSourceStatics_Vtbl {
     pub CreateFromStreamWithDownloaderAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Storage_Streams", feature = "Web_Http")))]
     CreateFromStreamWithDownloaderAsync: usize,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AdaptiveMediaSourceCreationStatus(pub i32);
-impl AdaptiveMediaSourceCreationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const ManifestDownloadFailure: Self = Self(1i32);
-    pub const ManifestParseFailure: Self = Self(2i32);
-    pub const UnsupportedManifestContentType: Self = Self(3i32);
-    pub const UnsupportedManifestVersion: Self = Self(4i32);
-    pub const UnsupportedManifestProfile: Self = Self(5i32);
-    pub const UnknownFailure: Self = Self(6i32);
-}
-impl windows_core::TypeKind for AdaptiveMediaSourceCreationStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AdaptiveMediaSourceCreationStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCreationStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AdaptiveMediaSourceDiagnosticType(pub i32);
-impl AdaptiveMediaSourceDiagnosticType {
-    pub const ManifestUnchangedUponReload: Self = Self(0i32);
-    pub const ManifestMismatchUponReload: Self = Self(1i32);
-    pub const ManifestSignaledEndOfLiveEventUponReload: Self = Self(2i32);
-    pub const MediaSegmentSkipped: Self = Self(3i32);
-    pub const ResourceNotFound: Self = Self(4i32);
-    pub const ResourceTimedOut: Self = Self(5i32);
-    pub const ResourceParsingError: Self = Self(6i32);
-    pub const BitrateDisabled: Self = Self(7i32);
-    pub const FatalMediaSourceError: Self = Self(8i32);
-}
-impl windows_core::TypeKind for AdaptiveMediaSourceDiagnosticType {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AdaptiveMediaSourceDiagnosticType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnosticType;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AdaptiveMediaSourceDownloadBitrateChangedReason(pub i32);
-impl AdaptiveMediaSourceDownloadBitrateChangedReason {
-    pub const SufficientInboundBitsPerSecond: Self = Self(0i32);
-    pub const InsufficientInboundBitsPerSecond: Self = Self(1i32);
-    pub const LowBufferLevel: Self = Self(2i32);
-    pub const PositionChanged: Self = Self(3i32);
-    pub const TrackSelectionChanged: Self = Self(4i32);
-    pub const DesiredBitratesChanged: Self = Self(5i32);
-    pub const ErrorInPreviousBitrate: Self = Self(6i32);
-}
-impl windows_core::TypeKind for AdaptiveMediaSourceDownloadBitrateChangedReason {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AdaptiveMediaSourceDownloadBitrateChangedReason {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadBitrateChangedReason;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AdaptiveMediaSourceResourceType(pub i32);
-impl AdaptiveMediaSourceResourceType {
-    pub const Manifest: Self = Self(0i32);
-    pub const InitializationSegment: Self = Self(1i32);
-    pub const MediaSegment: Self = Self(2i32);
-    pub const Key: Self = Self(3i32);
-    pub const InitializationVector: Self = Self(4i32);
-    pub const MediaSegmentIndex: Self = Self(5i32);
-}
-impl windows_core::TypeKind for AdaptiveMediaSourceResourceType {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AdaptiveMediaSourceResourceType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceResourceType;i4)");
 }

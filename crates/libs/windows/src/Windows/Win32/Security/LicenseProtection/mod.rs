@@ -15,11 +15,11 @@ where
     windows_targets::link!("licenseprotection.dll" "system" fn ValidateLicenseKeyProtection(licensekey : windows_core::PCWSTR, notvalidbefore : *mut super::super::Foundation:: FILETIME, notvalidafter : *mut super::super::Foundation:: FILETIME, status : *mut LicenseProtectionStatus) -> windows_core::HRESULT);
     ValidateLicenseKeyProtection(licensekey.param().abi(), core::mem::transmute(notvalidbefore), core::mem::transmute(notvalidafter), core::mem::transmute(status)).ok()
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct LicenseProtectionStatus(pub i32);
 pub const LicenseKeyAlreadyExists: LicenseProtectionStatus = LicenseProtectionStatus(4i32);
 pub const LicenseKeyCorrupted: LicenseProtectionStatus = LicenseProtectionStatus(3i32);
 pub const LicenseKeyNotFound: LicenseProtectionStatus = LicenseProtectionStatus(1i32);
 pub const LicenseKeyUnprotected: LicenseProtectionStatus = LicenseProtectionStatus(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct LicenseProtectionStatus(pub i32);
 pub const Success: LicenseProtectionStatus = LicenseProtectionStatus(0i32);

@@ -16,6 +16,177 @@ pub unsafe fn UninitLocalMsCtfMonitor() -> windows_core::Result<()> {
     windows_targets::link!("msctfmonitor.dll" "system" fn UninitLocalMsCtfMonitor() -> windows_core::HRESULT);
     UninitLocalMsCtfMonitor().ok()
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ANCHOR_CHANGE_HISTORY_FLAGS(pub u32);
+impl ANCHOR_CHANGE_HISTORY_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for ANCHOR_CHANGE_HISTORY_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for ANCHOR_CHANGE_HISTORY_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for ANCHOR_CHANGE_HISTORY_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for ANCHOR_CHANGE_HISTORY_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for ANCHOR_CHANGE_HISTORY_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const AccClientDocMgr: windows_core::GUID = windows_core::GUID::from_u128(0xfc48cc30_4f3e_4fa1_803b_ad0e196a83b1);
+pub const AccDictionary: windows_core::GUID = windows_core::GUID::from_u128(0x6572ee16_5fe5_4331_bb6d_76a49c56e423);
+pub const AccServerDocMgr: windows_core::GUID = windows_core::GUID::from_u128(0x6089a37e_eb8a_482d_bd6f_f9f46904d16d);
+pub const AccStore: windows_core::GUID = windows_core::GUID::from_u128(0x5440837f_4bff_4ae5_a1b1_7722ecc6332a);
+pub const CAND_CANCELED: TfCandidateResult = TfCandidateResult(2i32);
+pub const CAND_FINALIZED: TfCandidateResult = TfCandidateResult(0i32);
+pub const CAND_SELECTED: TfCandidateResult = TfCandidateResult(1i32);
+pub const CLSID_TF_CategoryMgr: windows_core::GUID = windows_core::GUID::from_u128(0xa4b544a1_438d_4b41_9325_869523e2d6c7);
+pub const CLSID_TF_ClassicLangBar: windows_core::GUID = windows_core::GUID::from_u128(0x3318360c_1afc_4d09_a86b_9f9cb6dceb9c);
+pub const CLSID_TF_DisplayAttributeMgr: windows_core::GUID = windows_core::GUID::from_u128(0x3ce74de4_53d3_4d74_8b83_431b3828ba53);
+pub const CLSID_TF_InputProcessorProfiles: windows_core::GUID = windows_core::GUID::from_u128(0x33c53a50_f456_4884_b049_85fd643ecfed);
+pub const CLSID_TF_LangBarItemMgr: windows_core::GUID = windows_core::GUID::from_u128(0xb9931692_a2b3_4fab_bf33_9ec6f9fb96ac);
+pub const CLSID_TF_LangBarMgr: windows_core::GUID = windows_core::GUID::from_u128(0xebb08c45_6c4a_4fdc_ae53_4eb8c4c7db8e);
+pub const CLSID_TF_ThreadMgr: windows_core::GUID = windows_core::GUID::from_u128(0x529a9e6b_6587_4f23_ab9e_9c7d683e3c50);
+pub const CLSID_TF_TransitoryExtensionUIEntry: windows_core::GUID = windows_core::GUID::from_u128(0xae6be008_07fb_400d_8beb_337a64f7051f);
+pub const CLSID_TsfServices: windows_core::GUID = windows_core::GUID::from_u128(0x39aedc00_6b60_46db_8d31_3642be0e4373);
+pub const DCM_FLAGS_CTFMON: u32 = 2u32;
+pub const DCM_FLAGS_LOCALTHREADTSF: u32 = 4u32;
+pub const DCM_FLAGS_TASKENG: u32 = 1u32;
+pub const DocWrap: windows_core::GUID = windows_core::GUID::from_u128(0xbf426f7e_7a5e_44d6_830c_a390ea9462a3);
+pub const GETIF_DICTGRAM: TfSapiObject = TfSapiObject(4i32);
+pub const GETIF_RECOCONTEXT: TfSapiObject = TfSapiObject(1i32);
+pub const GETIF_RECOGNIZER: TfSapiObject = TfSapiObject(2i32);
+pub const GETIF_RECOGNIZERNOINIT: TfSapiObject = TfSapiObject(5i32);
+pub const GETIF_RESMGR: TfSapiObject = TfSapiObject(0i32);
+pub const GETIF_VOICE: TfSapiObject = TfSapiObject(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(pub u32);
+impl GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const GUID_APP_FUNCTIONPROVIDER: windows_core::GUID = windows_core::GUID::from_u128(0x4caef01e_12af_4b0e_9db1_a6ec5b881208);
+pub const GUID_COMPARTMENT_CONVERSIONMODEBIAS: windows_core::GUID = windows_core::GUID::from_u128(0x5497f516_ee91_436e_b946_aa2c05f1ac5b);
+pub const GUID_COMPARTMENT_EMPTYCONTEXT: windows_core::GUID = windows_core::GUID::from_u128(0xd7487dbf_804e_41c5_894d_ad96fd4eea13);
+pub const GUID_COMPARTMENT_ENABLED_PROFILES_UPDATED: windows_core::GUID = windows_core::GUID::from_u128(0x92c1fd48_a9ae_4a7c_be08_4329e4723817);
+pub const GUID_COMPARTMENT_HANDWRITING_OPENCLOSE: windows_core::GUID = windows_core::GUID::from_u128(0xf9ae2c6b_1866_4361_af72_7aa30948890e);
+pub const GUID_COMPARTMENT_KEYBOARD_DISABLED: windows_core::GUID = windows_core::GUID::from_u128(0x71a5b253_1951_466b_9fbc_9c8808fa84f2);
+pub const GUID_COMPARTMENT_KEYBOARD_INPUTMODE: windows_core::GUID = windows_core::GUID::from_u128(0xb6592511_bcee_4122_a7c4_09f4b3fa4396);
+pub const GUID_COMPARTMENT_KEYBOARD_INPUTMODE_CONVERSION: windows_core::GUID = windows_core::GUID::from_u128(0xccf05dd8_4a87_11d7_a6e2_00065b84435c);
+pub const GUID_COMPARTMENT_KEYBOARD_INPUTMODE_SENTENCE: windows_core::GUID = windows_core::GUID::from_u128(0xccf05dd9_4a87_11d7_a6e2_00065b84435c);
+pub const GUID_COMPARTMENT_KEYBOARD_OPENCLOSE: windows_core::GUID = windows_core::GUID::from_u128(0x58273aad_01bb_4164_95c6_755ba0b5162d);
+pub const GUID_COMPARTMENT_SAPI_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0x51af2086_cc6b_457d_b5aa_8b19dc290ab4);
+pub const GUID_COMPARTMENT_SPEECH_CFGMENU: windows_core::GUID = windows_core::GUID::from_u128(0xfb6c5c2d_4e83_4bb6_91a2_e019bff6762d);
+pub const GUID_COMPARTMENT_SPEECH_DISABLED: windows_core::GUID = windows_core::GUID::from_u128(0x56c5c607_0703_4e59_8e52_cbc84e8bbe35);
+pub const GUID_COMPARTMENT_SPEECH_GLOBALSTATE: windows_core::GUID = windows_core::GUID::from_u128(0x2a54fe8e_0d08_460c_a75d_87035ff436c5);
+pub const GUID_COMPARTMENT_SPEECH_OPENCLOSE: windows_core::GUID = windows_core::GUID::from_u128(0x544d6a63_e2e8_4752_bbd1_000960bca083);
+pub const GUID_COMPARTMENT_SPEECH_UI_STATUS: windows_core::GUID = windows_core::GUID::from_u128(0xd92016f0_9367_4fe7_9abf_bc59dacbe0e3);
+pub const GUID_COMPARTMENT_TIPUISTATUS: windows_core::GUID = windows_core::GUID::from_u128(0x148ca3ec_0366_401c_8d75_ed978d85fbc9);
+pub const GUID_COMPARTMENT_TRANSITORYEXTENSION: windows_core::GUID = windows_core::GUID::from_u128(0x8be347f5_c7a0_11d7_b408_00065b84435c);
+pub const GUID_COMPARTMENT_TRANSITORYEXTENSION_DOCUMENTMANAGER: windows_core::GUID = windows_core::GUID::from_u128(0x8be347f7_c7a0_11d7_b408_00065b84435c);
+pub const GUID_COMPARTMENT_TRANSITORYEXTENSION_PARENT: windows_core::GUID = windows_core::GUID::from_u128(0x8be347f8_c7a0_11d7_b408_00065b84435c);
+pub const GUID_INTEGRATIONSTYLE_SEARCHBOX: windows_core::GUID = windows_core::GUID::from_u128(0xe6d1bd11_82f7_4903_ae21_1a6397cde2eb);
+pub const GUID_LBI_INPUTMODE: windows_core::GUID = windows_core::GUID::from_u128(0x2c77a81e_41cc_4178_a3a7_5f8a987568e6);
+pub const GUID_LBI_SAPILAYR_CFGMENUBUTTON: windows_core::GUID = windows_core::GUID::from_u128(0xd02f24a1_942d_422e_8d99_b4f2addee999);
+pub const GUID_MODEBIAS_CHINESE: windows_core::GUID = windows_core::GUID::from_u128(0x7add26de_4328_489b_83ae_6493750cad5c);
+pub const GUID_MODEBIAS_CONVERSATION: windows_core::GUID = windows_core::GUID::from_u128(0x0f4ec104_1790_443b_95f1_e10f939d6546);
+pub const GUID_MODEBIAS_DATETIME: windows_core::GUID = windows_core::GUID::from_u128(0xf2bdb372_7f61_4039_92ef_1c35599f0222);
+pub const GUID_MODEBIAS_FILENAME: windows_core::GUID = windows_core::GUID::from_u128(0xd7f707fe_44c6_4fca_8e76_86ab50c7931b);
+pub const GUID_MODEBIAS_FULLWIDTHALPHANUMERIC: windows_core::GUID = windows_core::GUID::from_u128(0x81489fb8_b36a_473d_8146_e4a2258b24ae);
+pub const GUID_MODEBIAS_FULLWIDTHHANGUL: windows_core::GUID = windows_core::GUID::from_u128(0xc01ae6c9_45b5_4fd0_9cb1_9f4cebc39fea);
+pub const GUID_MODEBIAS_HALFWIDTHKATAKANA: windows_core::GUID = windows_core::GUID::from_u128(0x005f6b63_78d4_41cc_8859_485ca821a795);
+pub const GUID_MODEBIAS_HANGUL: windows_core::GUID = windows_core::GUID::from_u128(0x76ef0541_23b3_4d77_a074_691801ccea17);
+pub const GUID_MODEBIAS_HIRAGANA: windows_core::GUID = windows_core::GUID::from_u128(0xd73d316e_9b91_46f1_a280_31597f52c694);
+pub const GUID_MODEBIAS_KATAKANA: windows_core::GUID = windows_core::GUID::from_u128(0x2e0eeddd_3a1a_499e_8543_3c7ee7949811);
+pub const GUID_MODEBIAS_NAME: windows_core::GUID = windows_core::GUID::from_u128(0xfddc10f0_d239_49bf_b8fc_5410caaa427e);
+pub const GUID_MODEBIAS_NONE: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+pub const GUID_MODEBIAS_NUMERIC: windows_core::GUID = windows_core::GUID::from_u128(0x4021766c_e872_48fd_9cee_4ec5c75e16c3);
+pub const GUID_MODEBIAS_READING: windows_core::GUID = windows_core::GUID::from_u128(0xe31643a3_6466_4cbf_8d8b_0bd4d8545461);
+pub const GUID_MODEBIAS_URLHISTORY: windows_core::GUID = windows_core::GUID::from_u128(0x8b0e54d9_63f2_4c68_84d4_79aee7a59f09);
+pub const GUID_PROP_ATTRIBUTE: windows_core::GUID = windows_core::GUID::from_u128(0x34b45670_7526_11d2_a147_00105a2799b5);
+pub const GUID_PROP_COMPOSING: windows_core::GUID = windows_core::GUID::from_u128(0xe12ac060_af15_11d2_afc5_00105a2799b5);
+pub const GUID_PROP_INPUTSCOPE: windows_core::GUID = windows_core::GUID::from_u128(0x1713dd5a_68e7_4a5b_9af6_592a595c778d);
+pub const GUID_PROP_LANGID: windows_core::GUID = windows_core::GUID::from_u128(0x3280ce20_8032_11d2_b603_00105a2799b5);
+pub const GUID_PROP_MODEBIAS: windows_core::GUID = windows_core::GUID::from_u128(0x372e0716_974f_40ac_a088_08cdc92ebfbc);
+pub const GUID_PROP_READING: windows_core::GUID = windows_core::GUID::from_u128(0x5463f7c0_8e31_11d2_bf46_00105a2799b5);
+pub const GUID_PROP_TEXTOWNER: windows_core::GUID = windows_core::GUID::from_u128(0xf1e2d520_0969_11d3_8df0_00105a2799b5);
+pub const GUID_PROP_TKB_ALTERNATES: windows_core::GUID = windows_core::GUID::from_u128(0x70b2a803_968d_462e_b93b_2164c91517f7);
+pub const GUID_SYSTEM_FUNCTIONPROVIDER: windows_core::GUID = windows_core::GUID::from_u128(0x9a698bb0_0f21_11d3_8df1_00105a2799b5);
+pub const GUID_TFCAT_CATEGORY_OF_TIP: windows_core::GUID = windows_core::GUID::from_u128(0x534c48c1_0607_4098_a521_4fc899c73e90);
+pub const GUID_TFCAT_DISPLAYATTRIBUTEPROPERTY: windows_core::GUID = windows_core::GUID::from_u128(0xb95f181b_ea4c_4af1_8056_7c321abbb091);
+pub const GUID_TFCAT_DISPLAYATTRIBUTEPROVIDER: windows_core::GUID = windows_core::GUID::from_u128(0x046b8c80_1647_40f7_9b21_b93b81aabc1b);
+pub const GUID_TFCAT_PROPSTYLE_STATIC: windows_core::GUID = windows_core::GUID::from_u128(0x565fb8d8_6bd4_4ca1_b223_0f2ccb8f4f96);
+pub const GUID_TFCAT_PROP_AUDIODATA: windows_core::GUID = windows_core::GUID::from_u128(0x9b7be3a9_e8ab_4d47_a8fe_254fa423436d);
+pub const GUID_TFCAT_PROP_INKDATA: windows_core::GUID = windows_core::GUID::from_u128(0x7c6a82ae_b0d7_4f14_a745_14f28b009d61);
+pub const GUID_TFCAT_TIPCAP_COMLESS: windows_core::GUID = windows_core::GUID::from_u128(0x364215d9_75bc_11d7_a6ef_00065b84435c);
+pub const GUID_TFCAT_TIPCAP_DUALMODE: windows_core::GUID = windows_core::GUID::from_u128(0x3af314a2_d79f_4b1b_9992_15086d339b05);
+pub const GUID_TFCAT_TIPCAP_IMMERSIVEONLY: windows_core::GUID = windows_core::GUID::from_u128(0x3a4259ac_640d_4ad4_89f7_1eb67e7c4ee8);
+pub const GUID_TFCAT_TIPCAP_IMMERSIVESUPPORT: windows_core::GUID = windows_core::GUID::from_u128(0x13a016df_560b_46cd_947a_4c3af1e0e35d);
+pub const GUID_TFCAT_TIPCAP_INPUTMODECOMPARTMENT: windows_core::GUID = windows_core::GUID::from_u128(0xccf05dd7_4a87_11d7_a6e2_00065b84435c);
+pub const GUID_TFCAT_TIPCAP_LOCALSERVER: windows_core::GUID = windows_core::GUID::from_u128(0x74769ee9_4a66_4f9d_90d6_bf8b7c3eb461);
+pub const GUID_TFCAT_TIPCAP_SECUREMODE: windows_core::GUID = windows_core::GUID::from_u128(0x49d2f9ce_1f5e_11d7_a6d3_00065b84435c);
+pub const GUID_TFCAT_TIPCAP_SYSTRAYSUPPORT: windows_core::GUID = windows_core::GUID::from_u128(0x25504fb4_7bab_4bc1_9c69_cf81890f0ef5);
+pub const GUID_TFCAT_TIPCAP_TSF3: windows_core::GUID = windows_core::GUID::from_u128(0x07dcb4af_98de_4548_bef7_25bd45979a1f);
+pub const GUID_TFCAT_TIPCAP_UIELEMENTENABLED: windows_core::GUID = windows_core::GUID::from_u128(0x49d2f9cf_1f5e_11d7_a6d3_00065b84435c);
+pub const GUID_TFCAT_TIPCAP_WOW16: windows_core::GUID = windows_core::GUID::from_u128(0x364215da_75bc_11d7_a6ef_00065b84435c);
+pub const GUID_TFCAT_TIP_HANDWRITING: windows_core::GUID = windows_core::GUID::from_u128(0x246ecb87_c2f2_4abe_905b_c8b38add2c43);
+pub const GUID_TFCAT_TIP_KEYBOARD: windows_core::GUID = windows_core::GUID::from_u128(0x34745c63_b2f0_4784_8b67_5e12c8701a31);
+pub const GUID_TFCAT_TIP_SPEECH: windows_core::GUID = windows_core::GUID::from_u128(0xb5a73cd1_8355_426b_a161_259808f26b14);
+pub const GUID_TFCAT_TRANSITORYEXTENSIONUI: windows_core::GUID = windows_core::GUID::from_u128(0x6302de22_a5cf_4b02_bfe8_4d72b2bed3c6);
+pub const GUID_TS_SERVICE_ACCESSIBLE: windows_core::GUID = windows_core::GUID::from_u128(0xf9786200_a5bf_4a0f_8c24_fb16f5d1aabb);
+pub const GUID_TS_SERVICE_ACTIVEX: windows_core::GUID = windows_core::GUID::from_u128(0xea937a50_c9a6_4b7d_894a_49d99b784834);
+pub const GUID_TS_SERVICE_DATAOBJECT: windows_core::GUID = windows_core::GUID::from_u128(0x6086fbb5_e225_46ce_a770_c1bbd3e05d7b);
+pub const GXFPF_NEAREST: u32 = 2u32;
+pub const GXFPF_ROUND_NEAREST: u32 = 1u32;
 windows_core::imp::define_interface!(IAccClientDocMgr, IAccClientDocMgr_Vtbl, 0x4c896039_7b6d_49e6_a8c1_45116a98292b);
 windows_core::imp::interface_hierarchy!(IAccClientDocMgr, windows_core::IUnknown);
 impl IAccClientDocMgr {
@@ -1887,6 +2058,85 @@ impl IInternalDocWrap_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IInternalDocWrap {}
+pub const ILMCM_CHECKLAYOUTANDTIPENABLED: u32 = 1u32;
+pub const ILMCM_LANGUAGEBAROFF: u32 = 2u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct INSERT_TEXT_AT_SELECTION_FLAGS(pub u32);
+pub const IS_ADDRESS_CITY: InputScope = InputScope(17i32);
+pub const IS_ADDRESS_COUNTRYNAME: InputScope = InputScope(18i32);
+pub const IS_ADDRESS_COUNTRYSHORTNAME: InputScope = InputScope(19i32);
+pub const IS_ADDRESS_FULLPOSTALADDRESS: InputScope = InputScope(13i32);
+pub const IS_ADDRESS_POSTALCODE: InputScope = InputScope(14i32);
+pub const IS_ADDRESS_STATEORPROVINCE: InputScope = InputScope(16i32);
+pub const IS_ADDRESS_STREET: InputScope = InputScope(15i32);
+pub const IS_ALPHANUMERIC_FULLWIDTH: InputScope = InputScope(41i32);
+pub const IS_ALPHANUMERIC_HALFWIDTH: InputScope = InputScope(40i32);
+pub const IS_ALPHANUMERIC_PIN: InputScope = InputScope(65i32);
+pub const IS_ALPHANUMERIC_PIN_SET: InputScope = InputScope(66i32);
+pub const IS_BOPOMOFO: InputScope = InputScope(43i32);
+pub const IS_CHAT: InputScope = InputScope(58i32);
+pub const IS_CHAT_WITHOUT_EMOJI: InputScope = InputScope(68i32);
+pub const IS_CHINESE_FULLWIDTH: InputScope = InputScope(54i32);
+pub const IS_CHINESE_HALFWIDTH: InputScope = InputScope(53i32);
+pub const IS_CURRENCY_AMOUNT: InputScope = InputScope(21i32);
+pub const IS_CURRENCY_AMOUNTANDSYMBOL: InputScope = InputScope(20i32);
+pub const IS_CURRENCY_CHINESE: InputScope = InputScope(42i32);
+pub const IS_DATE_DAY: InputScope = InputScope(24i32);
+pub const IS_DATE_DAYNAME: InputScope = InputScope(27i32);
+pub const IS_DATE_FULLDATE: InputScope = InputScope(22i32);
+pub const IS_DATE_MONTH: InputScope = InputScope(23i32);
+pub const IS_DATE_MONTHNAME: InputScope = InputScope(26i32);
+pub const IS_DATE_YEAR: InputScope = InputScope(25i32);
+pub const IS_DEFAULT: InputScope = InputScope(0i32);
+pub const IS_DIGITS: InputScope = InputScope(28i32);
+pub const IS_EMAILNAME_OR_ADDRESS: InputScope = InputScope(60i32);
+pub const IS_EMAIL_SMTPEMAILADDRESS: InputScope = InputScope(5i32);
+pub const IS_EMAIL_USERNAME: InputScope = InputScope(4i32);
+pub const IS_ENUMSTRING: InputScope = InputScope(-5i32);
+pub const IS_FILE_FILENAME: InputScope = InputScope(3i32);
+pub const IS_FILE_FULLFILEPATH: InputScope = InputScope(2i32);
+pub const IS_FORMULA: InputScope = InputScope(51i32);
+pub const IS_FORMULA_NUMBER: InputScope = InputScope(67i32);
+pub const IS_HANGUL_FULLWIDTH: InputScope = InputScope(49i32);
+pub const IS_HANGUL_HALFWIDTH: InputScope = InputScope(48i32);
+pub const IS_HANJA: InputScope = InputScope(47i32);
+pub const IS_HIRAGANA: InputScope = InputScope(44i32);
+pub const IS_KATAKANA_FULLWIDTH: InputScope = InputScope(46i32);
+pub const IS_KATAKANA_HALFWIDTH: InputScope = InputScope(45i32);
+pub const IS_LOGINNAME: InputScope = InputScope(6i32);
+pub const IS_MAPS: InputScope = InputScope(62i32);
+pub const IS_NAME_OR_PHONENUMBER: InputScope = InputScope(59i32);
+pub const IS_NATIVE_SCRIPT: InputScope = InputScope(55i32);
+pub const IS_NUMBER: InputScope = InputScope(29i32);
+pub const IS_NUMBER_FULLWIDTH: InputScope = InputScope(39i32);
+pub const IS_NUMERIC_PASSWORD: InputScope = InputScope(63i32);
+pub const IS_NUMERIC_PIN: InputScope = InputScope(64i32);
+pub const IS_ONECHAR: InputScope = InputScope(30i32);
+pub const IS_PASSWORD: InputScope = InputScope(31i32);
+pub const IS_PERSONALNAME_FULLNAME: InputScope = InputScope(7i32);
+pub const IS_PERSONALNAME_GIVENNAME: InputScope = InputScope(9i32);
+pub const IS_PERSONALNAME_MIDDLENAME: InputScope = InputScope(10i32);
+pub const IS_PERSONALNAME_PREFIX: InputScope = InputScope(8i32);
+pub const IS_PERSONALNAME_SUFFIX: InputScope = InputScope(12i32);
+pub const IS_PERSONALNAME_SURNAME: InputScope = InputScope(11i32);
+pub const IS_PHRASELIST: InputScope = InputScope(-1i32);
+pub const IS_PRIVATE: InputScope = InputScope(61i32);
+pub const IS_REGULAREXPRESSION: InputScope = InputScope(-2i32);
+pub const IS_SEARCH: InputScope = InputScope(50i32);
+pub const IS_SEARCH_INCREMENTAL: InputScope = InputScope(52i32);
+pub const IS_SRGS: InputScope = InputScope(-3i32);
+pub const IS_TELEPHONE_AREACODE: InputScope = InputScope(34i32);
+pub const IS_TELEPHONE_COUNTRYCODE: InputScope = InputScope(33i32);
+pub const IS_TELEPHONE_FULLTELEPHONENUMBER: InputScope = InputScope(32i32);
+pub const IS_TELEPHONE_LOCALNUMBER: InputScope = InputScope(35i32);
+pub const IS_TEXT: InputScope = InputScope(57i32);
+pub const IS_TIME_FULLTIME: InputScope = InputScope(36i32);
+pub const IS_TIME_HOUR: InputScope = InputScope(37i32);
+pub const IS_TIME_MINORSEC: InputScope = InputScope(38i32);
+pub const IS_URL: InputScope = InputScope(1i32);
+pub const IS_XML: InputScope = InputScope(-4i32);
+pub const IS_YOMI: InputScope = InputScope(56i32);
 windows_core::imp::define_interface!(ISpeechCommandProvider, ISpeechCommandProvider_Vtbl, 0x38e09d4c_586d_435a_b592_c8a86691dec6);
 windows_core::imp::interface_hierarchy!(ISpeechCommandProvider, windows_core::IUnknown);
 impl ISpeechCommandProvider {
@@ -12425,85 +12675,14 @@ impl IVersionInfo_Vtbl {
 impl windows_core::RuntimeName for IVersionInfo {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ANCHOR_CHANGE_HISTORY_FLAGS(pub u32);
-impl ANCHOR_CHANGE_HISTORY_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for ANCHOR_CHANGE_HISTORY_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for ANCHOR_CHANGE_HISTORY_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for ANCHOR_CHANGE_HISTORY_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for ANCHOR_CHANGE_HISTORY_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for ANCHOR_CHANGE_HISTORY_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(pub u32);
-impl GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct INSERT_TEXT_AT_SELECTION_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InputScope(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LANG_BAR_ITEM_ICON_MODE_FLAGS(pub u32);
+pub const LIBID_MSAATEXTLib: windows_core::GUID = windows_core::GUID::from_u128(0x150e2d7a_dac1_4582_947d_2a8fd78b82cd);
+pub const MSAAControl: windows_core::GUID = windows_core::GUID::from_u128(0x08cd963f_7a3e_4f5c_9bd8_d692bb043c5b);
+pub const STYLE_ACTIVE_SELECTION: TfIntegratableCandidateListSelectionStyle = TfIntegratableCandidateListSelectionStyle(0i32);
+pub const STYLE_IMPLIED_SELECTION: TfIntegratableCandidateListSelectionStyle = TfIntegratableCandidateListSelectionStyle(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TEXT_STORE_CHANGE_FLAGS(pub u32);
@@ -12579,6 +12758,27 @@ impl core::ops::Not for TEXT_STORE_TEXT_CHANGE_FLAGS {
         Self(self.0.not())
     }
 }
+pub const TF_AE_END: TfActiveSelEnd = TfActiveSelEnd(2i32);
+pub const TF_AE_NONE: TfActiveSelEnd = TfActiveSelEnd(0i32);
+pub const TF_AE_START: TfActiveSelEnd = TfActiveSelEnd(1i32);
+pub const TF_ANCHOR_END: TfAnchor = TfAnchor(1i32);
+pub const TF_ANCHOR_START: TfAnchor = TfAnchor(0i32);
+pub const TF_ATTR_CONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(2i32);
+pub const TF_ATTR_FIXEDCONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(5i32);
+pub const TF_ATTR_INPUT: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(0i32);
+pub const TF_ATTR_INPUT_ERROR: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(4i32);
+pub const TF_ATTR_OTHER: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(-1i32);
+pub const TF_ATTR_TARGET_CONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(1i32);
+pub const TF_ATTR_TARGET_NOTCONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(3i32);
+pub const TF_CHAR_EMBEDDED: u32 = 65532u32;
+pub const TF_CLUIE_COUNT: u32 = 2u32;
+pub const TF_CLUIE_CURRENTPAGE: u32 = 32u32;
+pub const TF_CLUIE_DOCUMENTMGR: u32 = 1u32;
+pub const TF_CLUIE_PAGEINDEX: u32 = 16u32;
+pub const TF_CLUIE_SELECTION: u32 = 4u32;
+pub const TF_CLUIE_STRING: u32 = 8u32;
+pub const TF_COMMANDING_ENABLED: u32 = 4u32;
+pub const TF_COMMANDING_ON: u32 = 8u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TF_CONTEXT_EDIT_CONTEXT_FLAGS(pub u32);
@@ -12615,69 +12815,23 @@ impl core::ops::Not for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
         Self(self.0.not())
     }
 }
+pub const TF_CONVERSIONMODE_ALPHANUMERIC: u32 = 0u32;
+pub const TF_CONVERSIONMODE_CHARCODE: u32 = 32u32;
+pub const TF_CONVERSIONMODE_EUDC: u32 = 512u32;
+pub const TF_CONVERSIONMODE_FIXED: u32 = 2048u32;
+pub const TF_CONVERSIONMODE_FULLSHAPE: u32 = 8u32;
+pub const TF_CONVERSIONMODE_KATAKANA: u32 = 2u32;
+pub const TF_CONVERSIONMODE_NATIVE: u32 = 1u32;
+pub const TF_CONVERSIONMODE_NOCONVERSION: u32 = 256u32;
+pub const TF_CONVERSIONMODE_ROMAN: u32 = 16u32;
+pub const TF_CONVERSIONMODE_SOFTKEYBOARD: u32 = 128u32;
+pub const TF_CONVERSIONMODE_SYMBOL: u32 = 1024u32;
+pub const TF_CT_COLORREF: TF_DA_COLORTYPE = TF_DA_COLORTYPE(2i32);
+pub const TF_CT_NONE: TF_DA_COLORTYPE = TF_DA_COLORTYPE(0i32);
+pub const TF_CT_SYSCOLOR: TF_DA_COLORTYPE = TF_DA_COLORTYPE(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TF_DA_ATTR_INFO(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TF_DA_COLORTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TF_DA_LINESTYLE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TKBLayoutType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TfActiveSelEnd(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TfAnchor(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TfCandidateResult(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TfGravity(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TfIntegratableCandidateListSelectionStyle(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TfLBBalloonStyle(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TfLBIClick(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TfLayoutCode(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TfSapiObject(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TfShiftDir(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TsActiveSelEnd(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TsGravity(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TsLayoutCode(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TsRunType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TsShiftDir(pub i32);
-pub const AccClientDocMgr: windows_core::GUID = windows_core::GUID::from_u128(0xfc48cc30_4f3e_4fa1_803b_ad0e196a83b1);
-pub const AccDictionary: windows_core::GUID = windows_core::GUID::from_u128(0x6572ee16_5fe5_4331_bb6d_76a49c56e423);
-pub const AccServerDocMgr: windows_core::GUID = windows_core::GUID::from_u128(0x6089a37e_eb8a_482d_bd6f_f9f46904d16d);
-pub const AccStore: windows_core::GUID = windows_core::GUID::from_u128(0x5440837f_4bff_4ae5_a1b1_7722ecc6332a);
-pub const DocWrap: windows_core::GUID = windows_core::GUID::from_u128(0xbf426f7e_7a5e_44d6_830c_a390ea9462a3);
-pub const MSAAControl: windows_core::GUID = windows_core::GUID::from_u128(0x08cd963f_7a3e_4f5c_9bd8_d692bb043c5b);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TF_DA_COLOR {
@@ -12706,6 +12860,19 @@ impl Default for TF_DA_COLOR_0 {
 impl windows_core::TypeKind for TF_DA_COLOR_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TF_DA_COLORTYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TF_DA_LINESTYLE(pub i32);
+pub const TF_DEFAULT_SELECTION: u32 = 4294967295u32;
+pub const TF_DICTATION_ENABLED: u32 = 2u32;
+pub const TF_DICTATION_ON: u32 = 1u32;
+pub const TF_DISABLE_BALLOON: u32 = 2u32;
+pub const TF_DISABLE_COMMANDING: u32 = 4u32;
+pub const TF_DISABLE_DICTATION: u32 = 2u32;
+pub const TF_DISABLE_SPEECH: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TF_DISPLAYATTRIBUTE {
@@ -12724,6 +12891,43 @@ impl Default for TF_DISPLAYATTRIBUTE {
 impl windows_core::TypeKind for TF_DISPLAYATTRIBUTE {
     type TypeKind = windows_core::CopyType;
 }
+pub const TF_DTLBI_NONE: LANG_BAR_ITEM_ICON_MODE_FLAGS = LANG_BAR_ITEM_ICON_MODE_FLAGS(0u32);
+pub const TF_DTLBI_USEPROFILEICON: LANG_BAR_ITEM_ICON_MODE_FLAGS = LANG_BAR_ITEM_ICON_MODE_FLAGS(1u32);
+pub const TF_ENABLE_PROCESS_ATOM: windows_core::PCWSTR = windows_core::w!("_CTF_ENABLE_PROCESS_ATOM_");
+pub const TF_ES_ASYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(8u32);
+pub const TF_ES_ASYNCDONTCARE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(0u32);
+pub const TF_ES_READ: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(2u32);
+pub const TF_ES_READWRITE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(6u32);
+pub const TF_ES_SYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(1u32);
+pub const TF_E_ALREADY_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x80040506_u32 as _);
+pub const TF_E_COMPOSITION_REJECTED: windows_core::HRESULT = windows_core::HRESULT(0x80040508_u32 as _);
+pub const TF_E_DISCONNECTED: windows_core::HRESULT = windows_core::HRESULT(0x80040504_u32 as _);
+pub const TF_E_EMPTYCONTEXT: windows_core::HRESULT = windows_core::HRESULT(0x80040509_u32 as _);
+pub const TF_E_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0x8004020A_u32 as _);
+pub const TF_E_INVALIDPOINT: windows_core::HRESULT = windows_core::HRESULT(0x80040207_u32 as _);
+pub const TF_E_INVALIDPOS: windows_core::HRESULT = windows_core::HRESULT(0x80040200_u32 as _);
+pub const TF_E_INVALIDVIEW: windows_core::HRESULT = windows_core::HRESULT(0x80040505_u32 as _);
+pub const TF_E_LOCKED: windows_core::HRESULT = windows_core::HRESULT(0x80040500_u32 as _);
+pub const TF_E_NOCONVERSION: windows_core::HRESULT = windows_core::HRESULT(0x80040600_u32 as _);
+pub const TF_E_NOINTERFACE: windows_core::HRESULT = windows_core::HRESULT(0x80040204_u32 as _);
+pub const TF_E_NOLAYOUT: windows_core::HRESULT = windows_core::HRESULT(0x80040206_u32 as _);
+pub const TF_E_NOLOCK: windows_core::HRESULT = windows_core::HRESULT(0x80040201_u32 as _);
+pub const TF_E_NOOBJECT: windows_core::HRESULT = windows_core::HRESULT(0x80040202_u32 as _);
+pub const TF_E_NOPROVIDER: windows_core::HRESULT = windows_core::HRESULT(0x80040503_u32 as _);
+pub const TF_E_NOSELECTION: windows_core::HRESULT = windows_core::HRESULT(0x80040205_u32 as _);
+pub const TF_E_NOSERVICE: windows_core::HRESULT = windows_core::HRESULT(0x80040203_u32 as _);
+pub const TF_E_NOTOWNEDRANGE: windows_core::HRESULT = windows_core::HRESULT(0x80040502_u32 as _);
+pub const TF_E_RANGE_NOT_COVERED: windows_core::HRESULT = windows_core::HRESULT(0x80040507_u32 as _);
+pub const TF_E_READONLY: windows_core::HRESULT = windows_core::HRESULT(0x80040209_u32 as _);
+pub const TF_E_STACKFULL: windows_core::HRESULT = windows_core::HRESULT(0x80040501_u32 as _);
+pub const TF_E_SYNCHRONOUS: windows_core::HRESULT = windows_core::HRESULT(0x80040208_u32 as _);
+pub const TF_FLOATINGLANGBAR_WNDTITLE: windows_core::PCWSTR = windows_core::w!("TF_FloatingLangBar_WndTitle");
+pub const TF_FLOATINGLANGBAR_WNDTITLEA: windows_core::PCSTR = windows_core::s!("TF_FloatingLangBar_WndTitle");
+pub const TF_FLOATINGLANGBAR_WNDTITLEW: windows_core::PCWSTR = windows_core::w!("TF_FloatingLangBar_WndTitle");
+pub const TF_GRAVITY_BACKWARD: TfGravity = TfGravity(0i32);
+pub const TF_GRAVITY_FORWARD: TfGravity = TfGravity(1i32);
+pub const TF_GTP_INCL_TEXT: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(1u32);
+pub const TF_GTP_NONE: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(0u32);
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct TF_HALTCOND {
@@ -12739,6 +12943,11 @@ impl Default for TF_HALTCOND {
 impl windows_core::TypeKind for TF_HALTCOND {
     type TypeKind = windows_core::CloneType;
 }
+pub const TF_HF_OBJECT: u32 = 1u32;
+pub const TF_IAS_NOQUERY: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(1u32);
+pub const TF_IAS_NO_DEFAULT_COMPOSITION: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(2147483648u32);
+pub const TF_IAS_QUERYONLY: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(2u32);
+pub const TF_IE_CORRECTION: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -12763,6 +12972,25 @@ impl Default for TF_INPUTPROCESSORPROFILE {
 impl windows_core::TypeKind for TF_INPUTPROCESSORPROFILE {
     type TypeKind = windows_core::CopyType;
 }
+pub const TF_INVALID_COOKIE: u32 = 4294967295u32;
+pub const TF_INVALID_EDIT_COOKIE: u32 = 0u32;
+pub const TF_IPPMF_DISABLEPROFILE: u32 = 2u32;
+pub const TF_IPPMF_DONTCARECURRENTINPUTLANGUAGE: u32 = 4u32;
+pub const TF_IPPMF_ENABLEPROFILE: u32 = 1u32;
+pub const TF_IPPMF_FORPROCESS: u32 = 268435456u32;
+pub const TF_IPPMF_FORSESSION: u32 = 536870912u32;
+pub const TF_IPPMF_FORSYSTEMALL: u32 = 1073741824u32;
+pub const TF_IPP_CAPS_COMLESSSUPPORT: u32 = 8u32;
+pub const TF_IPP_CAPS_DISABLEONTRANSITORY: u32 = 1u32;
+pub const TF_IPP_CAPS_IMMERSIVESUPPORT: u32 = 65536u32;
+pub const TF_IPP_CAPS_SECUREMODESUPPORT: u32 = 2u32;
+pub const TF_IPP_CAPS_SYSTRAYSUPPORT: u32 = 131072u32;
+pub const TF_IPP_CAPS_UIELEMENTENABLED: u32 = 4u32;
+pub const TF_IPP_CAPS_WOW16SUPPORT: u32 = 16u32;
+pub const TF_IPP_FLAG_ACTIVE: u32 = 1u32;
+pub const TF_IPP_FLAG_ENABLED: u32 = 2u32;
+pub const TF_IPP_FLAG_SUBSTITUTEDBYINPUTPROCESSOR: u32 = 4u32;
+pub const TF_IPSINK_FLAG_ACTIVE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TF_LANGBARITEMINFO {
@@ -12811,508 +13039,6 @@ impl Default for TF_LBBALLOONINFO {
 impl windows_core::TypeKind for TF_LBBALLOONINFO {
     type TypeKind = windows_core::CloneType;
 }
-#[repr(C)]
-pub struct TF_LMLATTELEMENT {
-    pub dwFrameStart: u32,
-    pub dwFrameLen: u32,
-    pub dwFlags: u32,
-    pub Anonymous: TF_LMLATTELEMENT_0,
-    pub bstrText: core::mem::ManuallyDrop<windows_core::BSTR>,
-}
-impl Clone for TF_LMLATTELEMENT {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-impl Default for TF_LMLATTELEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TF_LMLATTELEMENT {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union TF_LMLATTELEMENT_0 {
-    pub iCost: i32,
-}
-impl Default for TF_LMLATTELEMENT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TF_LMLATTELEMENT_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
-    pub guidType: windows_core::GUID,
-    pub ichStart: i32,
-    pub cch: i32,
-    pub cb: u32,
-    pub dwPrivate: u32,
-    pub clsidTIP: windows_core::GUID,
-}
-impl Default for TF_PERSISTENT_PROPERTY_HEADER_ACP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TF_PERSISTENT_PROPERTY_HEADER_ACP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TF_PRESERVEDKEY {
-    pub uVKey: u32,
-    pub uModifiers: u32,
-}
-impl Default for TF_PRESERVEDKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TF_PRESERVEDKEY {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub struct TF_PROPERTYVAL {
-    pub guidId: windows_core::GUID,
-    pub varValue: super::super::System::Variant::VARIANT,
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Clone for TF_PROPERTYVAL {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for TF_PROPERTYVAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for TF_PROPERTYVAL {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
-pub struct TF_SELECTION {
-    pub range: core::mem::ManuallyDrop<Option<ITfRange>>,
-    pub style: TF_SELECTIONSTYLE,
-}
-impl Default for TF_SELECTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TF_SELECTION {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TF_SELECTIONSTYLE {
-    pub ase: TfActiveSelEnd,
-    pub fInterimChar: super::super::Foundation::BOOL,
-}
-impl Default for TF_SELECTIONSTYLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TF_SELECTIONSTYLE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub struct TS_ATTRVAL {
-    pub idAttr: windows_core::GUID,
-    pub dwOverlapId: u32,
-    pub varValue: super::super::System::Variant::VARIANT,
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Clone for TS_ATTRVAL {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for TS_ATTRVAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for TS_ATTRVAL {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TS_RUNINFO {
-    pub uCount: u32,
-    pub r#type: TsRunType,
-}
-impl Default for TS_RUNINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TS_RUNINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TS_SELECTIONSTYLE {
-    pub ase: TsActiveSelEnd,
-    pub fInterimChar: super::super::Foundation::BOOL,
-}
-impl Default for TS_SELECTIONSTYLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TS_SELECTIONSTYLE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TS_SELECTION_ACP {
-    pub acpStart: i32,
-    pub acpEnd: i32,
-    pub style: TS_SELECTIONSTYLE,
-}
-impl Default for TS_SELECTION_ACP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TS_SELECTION_ACP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
-pub struct TS_SELECTION_ANCHOR {
-    pub paStart: core::mem::ManuallyDrop<Option<IAnchor>>,
-    pub paEnd: core::mem::ManuallyDrop<Option<IAnchor>>,
-    pub style: TS_SELECTIONSTYLE,
-}
-impl Default for TS_SELECTION_ANCHOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TS_SELECTION_ANCHOR {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TS_STATUS {
-    pub dwDynamicFlags: u32,
-    pub dwStaticFlags: u32,
-}
-impl Default for TS_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TS_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TS_TEXTCHANGE {
-    pub acpStart: i32,
-    pub acpOldEnd: i32,
-    pub acpNewEnd: i32,
-}
-impl Default for TS_TEXTCHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TS_TEXTCHANGE {
-    type TypeKind = windows_core::CopyType;
-}
-pub const CAND_CANCELED: TfCandidateResult = TfCandidateResult(2i32);
-pub const CAND_FINALIZED: TfCandidateResult = TfCandidateResult(0i32);
-pub const CAND_SELECTED: TfCandidateResult = TfCandidateResult(1i32);
-pub const CLSID_TF_CategoryMgr: windows_core::GUID = windows_core::GUID::from_u128(0xa4b544a1_438d_4b41_9325_869523e2d6c7);
-pub const CLSID_TF_ClassicLangBar: windows_core::GUID = windows_core::GUID::from_u128(0x3318360c_1afc_4d09_a86b_9f9cb6dceb9c);
-pub const CLSID_TF_DisplayAttributeMgr: windows_core::GUID = windows_core::GUID::from_u128(0x3ce74de4_53d3_4d74_8b83_431b3828ba53);
-pub const CLSID_TF_InputProcessorProfiles: windows_core::GUID = windows_core::GUID::from_u128(0x33c53a50_f456_4884_b049_85fd643ecfed);
-pub const CLSID_TF_LangBarItemMgr: windows_core::GUID = windows_core::GUID::from_u128(0xb9931692_a2b3_4fab_bf33_9ec6f9fb96ac);
-pub const CLSID_TF_LangBarMgr: windows_core::GUID = windows_core::GUID::from_u128(0xebb08c45_6c4a_4fdc_ae53_4eb8c4c7db8e);
-pub const CLSID_TF_ThreadMgr: windows_core::GUID = windows_core::GUID::from_u128(0x529a9e6b_6587_4f23_ab9e_9c7d683e3c50);
-pub const CLSID_TF_TransitoryExtensionUIEntry: windows_core::GUID = windows_core::GUID::from_u128(0xae6be008_07fb_400d_8beb_337a64f7051f);
-pub const CLSID_TsfServices: windows_core::GUID = windows_core::GUID::from_u128(0x39aedc00_6b60_46db_8d31_3642be0e4373);
-pub const DCM_FLAGS_CTFMON: u32 = 2u32;
-pub const DCM_FLAGS_LOCALTHREADTSF: u32 = 4u32;
-pub const DCM_FLAGS_TASKENG: u32 = 1u32;
-pub const GETIF_DICTGRAM: TfSapiObject = TfSapiObject(4i32);
-pub const GETIF_RECOCONTEXT: TfSapiObject = TfSapiObject(1i32);
-pub const GETIF_RECOGNIZER: TfSapiObject = TfSapiObject(2i32);
-pub const GETIF_RECOGNIZERNOINIT: TfSapiObject = TfSapiObject(5i32);
-pub const GETIF_RESMGR: TfSapiObject = TfSapiObject(0i32);
-pub const GETIF_VOICE: TfSapiObject = TfSapiObject(3i32);
-pub const GUID_APP_FUNCTIONPROVIDER: windows_core::GUID = windows_core::GUID::from_u128(0x4caef01e_12af_4b0e_9db1_a6ec5b881208);
-pub const GUID_COMPARTMENT_CONVERSIONMODEBIAS: windows_core::GUID = windows_core::GUID::from_u128(0x5497f516_ee91_436e_b946_aa2c05f1ac5b);
-pub const GUID_COMPARTMENT_EMPTYCONTEXT: windows_core::GUID = windows_core::GUID::from_u128(0xd7487dbf_804e_41c5_894d_ad96fd4eea13);
-pub const GUID_COMPARTMENT_ENABLED_PROFILES_UPDATED: windows_core::GUID = windows_core::GUID::from_u128(0x92c1fd48_a9ae_4a7c_be08_4329e4723817);
-pub const GUID_COMPARTMENT_HANDWRITING_OPENCLOSE: windows_core::GUID = windows_core::GUID::from_u128(0xf9ae2c6b_1866_4361_af72_7aa30948890e);
-pub const GUID_COMPARTMENT_KEYBOARD_DISABLED: windows_core::GUID = windows_core::GUID::from_u128(0x71a5b253_1951_466b_9fbc_9c8808fa84f2);
-pub const GUID_COMPARTMENT_KEYBOARD_INPUTMODE: windows_core::GUID = windows_core::GUID::from_u128(0xb6592511_bcee_4122_a7c4_09f4b3fa4396);
-pub const GUID_COMPARTMENT_KEYBOARD_INPUTMODE_CONVERSION: windows_core::GUID = windows_core::GUID::from_u128(0xccf05dd8_4a87_11d7_a6e2_00065b84435c);
-pub const GUID_COMPARTMENT_KEYBOARD_INPUTMODE_SENTENCE: windows_core::GUID = windows_core::GUID::from_u128(0xccf05dd9_4a87_11d7_a6e2_00065b84435c);
-pub const GUID_COMPARTMENT_KEYBOARD_OPENCLOSE: windows_core::GUID = windows_core::GUID::from_u128(0x58273aad_01bb_4164_95c6_755ba0b5162d);
-pub const GUID_COMPARTMENT_SAPI_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0x51af2086_cc6b_457d_b5aa_8b19dc290ab4);
-pub const GUID_COMPARTMENT_SPEECH_CFGMENU: windows_core::GUID = windows_core::GUID::from_u128(0xfb6c5c2d_4e83_4bb6_91a2_e019bff6762d);
-pub const GUID_COMPARTMENT_SPEECH_DISABLED: windows_core::GUID = windows_core::GUID::from_u128(0x56c5c607_0703_4e59_8e52_cbc84e8bbe35);
-pub const GUID_COMPARTMENT_SPEECH_GLOBALSTATE: windows_core::GUID = windows_core::GUID::from_u128(0x2a54fe8e_0d08_460c_a75d_87035ff436c5);
-pub const GUID_COMPARTMENT_SPEECH_OPENCLOSE: windows_core::GUID = windows_core::GUID::from_u128(0x544d6a63_e2e8_4752_bbd1_000960bca083);
-pub const GUID_COMPARTMENT_SPEECH_UI_STATUS: windows_core::GUID = windows_core::GUID::from_u128(0xd92016f0_9367_4fe7_9abf_bc59dacbe0e3);
-pub const GUID_COMPARTMENT_TIPUISTATUS: windows_core::GUID = windows_core::GUID::from_u128(0x148ca3ec_0366_401c_8d75_ed978d85fbc9);
-pub const GUID_COMPARTMENT_TRANSITORYEXTENSION: windows_core::GUID = windows_core::GUID::from_u128(0x8be347f5_c7a0_11d7_b408_00065b84435c);
-pub const GUID_COMPARTMENT_TRANSITORYEXTENSION_DOCUMENTMANAGER: windows_core::GUID = windows_core::GUID::from_u128(0x8be347f7_c7a0_11d7_b408_00065b84435c);
-pub const GUID_COMPARTMENT_TRANSITORYEXTENSION_PARENT: windows_core::GUID = windows_core::GUID::from_u128(0x8be347f8_c7a0_11d7_b408_00065b84435c);
-pub const GUID_INTEGRATIONSTYLE_SEARCHBOX: windows_core::GUID = windows_core::GUID::from_u128(0xe6d1bd11_82f7_4903_ae21_1a6397cde2eb);
-pub const GUID_LBI_INPUTMODE: windows_core::GUID = windows_core::GUID::from_u128(0x2c77a81e_41cc_4178_a3a7_5f8a987568e6);
-pub const GUID_LBI_SAPILAYR_CFGMENUBUTTON: windows_core::GUID = windows_core::GUID::from_u128(0xd02f24a1_942d_422e_8d99_b4f2addee999);
-pub const GUID_MODEBIAS_CHINESE: windows_core::GUID = windows_core::GUID::from_u128(0x7add26de_4328_489b_83ae_6493750cad5c);
-pub const GUID_MODEBIAS_CONVERSATION: windows_core::GUID = windows_core::GUID::from_u128(0x0f4ec104_1790_443b_95f1_e10f939d6546);
-pub const GUID_MODEBIAS_DATETIME: windows_core::GUID = windows_core::GUID::from_u128(0xf2bdb372_7f61_4039_92ef_1c35599f0222);
-pub const GUID_MODEBIAS_FILENAME: windows_core::GUID = windows_core::GUID::from_u128(0xd7f707fe_44c6_4fca_8e76_86ab50c7931b);
-pub const GUID_MODEBIAS_FULLWIDTHALPHANUMERIC: windows_core::GUID = windows_core::GUID::from_u128(0x81489fb8_b36a_473d_8146_e4a2258b24ae);
-pub const GUID_MODEBIAS_FULLWIDTHHANGUL: windows_core::GUID = windows_core::GUID::from_u128(0xc01ae6c9_45b5_4fd0_9cb1_9f4cebc39fea);
-pub const GUID_MODEBIAS_HALFWIDTHKATAKANA: windows_core::GUID = windows_core::GUID::from_u128(0x005f6b63_78d4_41cc_8859_485ca821a795);
-pub const GUID_MODEBIAS_HANGUL: windows_core::GUID = windows_core::GUID::from_u128(0x76ef0541_23b3_4d77_a074_691801ccea17);
-pub const GUID_MODEBIAS_HIRAGANA: windows_core::GUID = windows_core::GUID::from_u128(0xd73d316e_9b91_46f1_a280_31597f52c694);
-pub const GUID_MODEBIAS_KATAKANA: windows_core::GUID = windows_core::GUID::from_u128(0x2e0eeddd_3a1a_499e_8543_3c7ee7949811);
-pub const GUID_MODEBIAS_NAME: windows_core::GUID = windows_core::GUID::from_u128(0xfddc10f0_d239_49bf_b8fc_5410caaa427e);
-pub const GUID_MODEBIAS_NONE: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
-pub const GUID_MODEBIAS_NUMERIC: windows_core::GUID = windows_core::GUID::from_u128(0x4021766c_e872_48fd_9cee_4ec5c75e16c3);
-pub const GUID_MODEBIAS_READING: windows_core::GUID = windows_core::GUID::from_u128(0xe31643a3_6466_4cbf_8d8b_0bd4d8545461);
-pub const GUID_MODEBIAS_URLHISTORY: windows_core::GUID = windows_core::GUID::from_u128(0x8b0e54d9_63f2_4c68_84d4_79aee7a59f09);
-pub const GUID_PROP_ATTRIBUTE: windows_core::GUID = windows_core::GUID::from_u128(0x34b45670_7526_11d2_a147_00105a2799b5);
-pub const GUID_PROP_COMPOSING: windows_core::GUID = windows_core::GUID::from_u128(0xe12ac060_af15_11d2_afc5_00105a2799b5);
-pub const GUID_PROP_INPUTSCOPE: windows_core::GUID = windows_core::GUID::from_u128(0x1713dd5a_68e7_4a5b_9af6_592a595c778d);
-pub const GUID_PROP_LANGID: windows_core::GUID = windows_core::GUID::from_u128(0x3280ce20_8032_11d2_b603_00105a2799b5);
-pub const GUID_PROP_MODEBIAS: windows_core::GUID = windows_core::GUID::from_u128(0x372e0716_974f_40ac_a088_08cdc92ebfbc);
-pub const GUID_PROP_READING: windows_core::GUID = windows_core::GUID::from_u128(0x5463f7c0_8e31_11d2_bf46_00105a2799b5);
-pub const GUID_PROP_TEXTOWNER: windows_core::GUID = windows_core::GUID::from_u128(0xf1e2d520_0969_11d3_8df0_00105a2799b5);
-pub const GUID_PROP_TKB_ALTERNATES: windows_core::GUID = windows_core::GUID::from_u128(0x70b2a803_968d_462e_b93b_2164c91517f7);
-pub const GUID_SYSTEM_FUNCTIONPROVIDER: windows_core::GUID = windows_core::GUID::from_u128(0x9a698bb0_0f21_11d3_8df1_00105a2799b5);
-pub const GUID_TFCAT_CATEGORY_OF_TIP: windows_core::GUID = windows_core::GUID::from_u128(0x534c48c1_0607_4098_a521_4fc899c73e90);
-pub const GUID_TFCAT_DISPLAYATTRIBUTEPROPERTY: windows_core::GUID = windows_core::GUID::from_u128(0xb95f181b_ea4c_4af1_8056_7c321abbb091);
-pub const GUID_TFCAT_DISPLAYATTRIBUTEPROVIDER: windows_core::GUID = windows_core::GUID::from_u128(0x046b8c80_1647_40f7_9b21_b93b81aabc1b);
-pub const GUID_TFCAT_PROPSTYLE_STATIC: windows_core::GUID = windows_core::GUID::from_u128(0x565fb8d8_6bd4_4ca1_b223_0f2ccb8f4f96);
-pub const GUID_TFCAT_PROP_AUDIODATA: windows_core::GUID = windows_core::GUID::from_u128(0x9b7be3a9_e8ab_4d47_a8fe_254fa423436d);
-pub const GUID_TFCAT_PROP_INKDATA: windows_core::GUID = windows_core::GUID::from_u128(0x7c6a82ae_b0d7_4f14_a745_14f28b009d61);
-pub const GUID_TFCAT_TIPCAP_COMLESS: windows_core::GUID = windows_core::GUID::from_u128(0x364215d9_75bc_11d7_a6ef_00065b84435c);
-pub const GUID_TFCAT_TIPCAP_DUALMODE: windows_core::GUID = windows_core::GUID::from_u128(0x3af314a2_d79f_4b1b_9992_15086d339b05);
-pub const GUID_TFCAT_TIPCAP_IMMERSIVEONLY: windows_core::GUID = windows_core::GUID::from_u128(0x3a4259ac_640d_4ad4_89f7_1eb67e7c4ee8);
-pub const GUID_TFCAT_TIPCAP_IMMERSIVESUPPORT: windows_core::GUID = windows_core::GUID::from_u128(0x13a016df_560b_46cd_947a_4c3af1e0e35d);
-pub const GUID_TFCAT_TIPCAP_INPUTMODECOMPARTMENT: windows_core::GUID = windows_core::GUID::from_u128(0xccf05dd7_4a87_11d7_a6e2_00065b84435c);
-pub const GUID_TFCAT_TIPCAP_LOCALSERVER: windows_core::GUID = windows_core::GUID::from_u128(0x74769ee9_4a66_4f9d_90d6_bf8b7c3eb461);
-pub const GUID_TFCAT_TIPCAP_SECUREMODE: windows_core::GUID = windows_core::GUID::from_u128(0x49d2f9ce_1f5e_11d7_a6d3_00065b84435c);
-pub const GUID_TFCAT_TIPCAP_SYSTRAYSUPPORT: windows_core::GUID = windows_core::GUID::from_u128(0x25504fb4_7bab_4bc1_9c69_cf81890f0ef5);
-pub const GUID_TFCAT_TIPCAP_TSF3: windows_core::GUID = windows_core::GUID::from_u128(0x07dcb4af_98de_4548_bef7_25bd45979a1f);
-pub const GUID_TFCAT_TIPCAP_UIELEMENTENABLED: windows_core::GUID = windows_core::GUID::from_u128(0x49d2f9cf_1f5e_11d7_a6d3_00065b84435c);
-pub const GUID_TFCAT_TIPCAP_WOW16: windows_core::GUID = windows_core::GUID::from_u128(0x364215da_75bc_11d7_a6ef_00065b84435c);
-pub const GUID_TFCAT_TIP_HANDWRITING: windows_core::GUID = windows_core::GUID::from_u128(0x246ecb87_c2f2_4abe_905b_c8b38add2c43);
-pub const GUID_TFCAT_TIP_KEYBOARD: windows_core::GUID = windows_core::GUID::from_u128(0x34745c63_b2f0_4784_8b67_5e12c8701a31);
-pub const GUID_TFCAT_TIP_SPEECH: windows_core::GUID = windows_core::GUID::from_u128(0xb5a73cd1_8355_426b_a161_259808f26b14);
-pub const GUID_TFCAT_TRANSITORYEXTENSIONUI: windows_core::GUID = windows_core::GUID::from_u128(0x6302de22_a5cf_4b02_bfe8_4d72b2bed3c6);
-pub const GUID_TS_SERVICE_ACCESSIBLE: windows_core::GUID = windows_core::GUID::from_u128(0xf9786200_a5bf_4a0f_8c24_fb16f5d1aabb);
-pub const GUID_TS_SERVICE_ACTIVEX: windows_core::GUID = windows_core::GUID::from_u128(0xea937a50_c9a6_4b7d_894a_49d99b784834);
-pub const GUID_TS_SERVICE_DATAOBJECT: windows_core::GUID = windows_core::GUID::from_u128(0x6086fbb5_e225_46ce_a770_c1bbd3e05d7b);
-pub const GXFPF_NEAREST: u32 = 2u32;
-pub const GXFPF_ROUND_NEAREST: u32 = 1u32;
-pub const ILMCM_CHECKLAYOUTANDTIPENABLED: u32 = 1u32;
-pub const ILMCM_LANGUAGEBAROFF: u32 = 2u32;
-pub const IS_ADDRESS_CITY: InputScope = InputScope(17i32);
-pub const IS_ADDRESS_COUNTRYNAME: InputScope = InputScope(18i32);
-pub const IS_ADDRESS_COUNTRYSHORTNAME: InputScope = InputScope(19i32);
-pub const IS_ADDRESS_FULLPOSTALADDRESS: InputScope = InputScope(13i32);
-pub const IS_ADDRESS_POSTALCODE: InputScope = InputScope(14i32);
-pub const IS_ADDRESS_STATEORPROVINCE: InputScope = InputScope(16i32);
-pub const IS_ADDRESS_STREET: InputScope = InputScope(15i32);
-pub const IS_ALPHANUMERIC_FULLWIDTH: InputScope = InputScope(41i32);
-pub const IS_ALPHANUMERIC_HALFWIDTH: InputScope = InputScope(40i32);
-pub const IS_ALPHANUMERIC_PIN: InputScope = InputScope(65i32);
-pub const IS_ALPHANUMERIC_PIN_SET: InputScope = InputScope(66i32);
-pub const IS_BOPOMOFO: InputScope = InputScope(43i32);
-pub const IS_CHAT: InputScope = InputScope(58i32);
-pub const IS_CHAT_WITHOUT_EMOJI: InputScope = InputScope(68i32);
-pub const IS_CHINESE_FULLWIDTH: InputScope = InputScope(54i32);
-pub const IS_CHINESE_HALFWIDTH: InputScope = InputScope(53i32);
-pub const IS_CURRENCY_AMOUNT: InputScope = InputScope(21i32);
-pub const IS_CURRENCY_AMOUNTANDSYMBOL: InputScope = InputScope(20i32);
-pub const IS_CURRENCY_CHINESE: InputScope = InputScope(42i32);
-pub const IS_DATE_DAY: InputScope = InputScope(24i32);
-pub const IS_DATE_DAYNAME: InputScope = InputScope(27i32);
-pub const IS_DATE_FULLDATE: InputScope = InputScope(22i32);
-pub const IS_DATE_MONTH: InputScope = InputScope(23i32);
-pub const IS_DATE_MONTHNAME: InputScope = InputScope(26i32);
-pub const IS_DATE_YEAR: InputScope = InputScope(25i32);
-pub const IS_DEFAULT: InputScope = InputScope(0i32);
-pub const IS_DIGITS: InputScope = InputScope(28i32);
-pub const IS_EMAILNAME_OR_ADDRESS: InputScope = InputScope(60i32);
-pub const IS_EMAIL_SMTPEMAILADDRESS: InputScope = InputScope(5i32);
-pub const IS_EMAIL_USERNAME: InputScope = InputScope(4i32);
-pub const IS_ENUMSTRING: InputScope = InputScope(-5i32);
-pub const IS_FILE_FILENAME: InputScope = InputScope(3i32);
-pub const IS_FILE_FULLFILEPATH: InputScope = InputScope(2i32);
-pub const IS_FORMULA: InputScope = InputScope(51i32);
-pub const IS_FORMULA_NUMBER: InputScope = InputScope(67i32);
-pub const IS_HANGUL_FULLWIDTH: InputScope = InputScope(49i32);
-pub const IS_HANGUL_HALFWIDTH: InputScope = InputScope(48i32);
-pub const IS_HANJA: InputScope = InputScope(47i32);
-pub const IS_HIRAGANA: InputScope = InputScope(44i32);
-pub const IS_KATAKANA_FULLWIDTH: InputScope = InputScope(46i32);
-pub const IS_KATAKANA_HALFWIDTH: InputScope = InputScope(45i32);
-pub const IS_LOGINNAME: InputScope = InputScope(6i32);
-pub const IS_MAPS: InputScope = InputScope(62i32);
-pub const IS_NAME_OR_PHONENUMBER: InputScope = InputScope(59i32);
-pub const IS_NATIVE_SCRIPT: InputScope = InputScope(55i32);
-pub const IS_NUMBER: InputScope = InputScope(29i32);
-pub const IS_NUMBER_FULLWIDTH: InputScope = InputScope(39i32);
-pub const IS_NUMERIC_PASSWORD: InputScope = InputScope(63i32);
-pub const IS_NUMERIC_PIN: InputScope = InputScope(64i32);
-pub const IS_ONECHAR: InputScope = InputScope(30i32);
-pub const IS_PASSWORD: InputScope = InputScope(31i32);
-pub const IS_PERSONALNAME_FULLNAME: InputScope = InputScope(7i32);
-pub const IS_PERSONALNAME_GIVENNAME: InputScope = InputScope(9i32);
-pub const IS_PERSONALNAME_MIDDLENAME: InputScope = InputScope(10i32);
-pub const IS_PERSONALNAME_PREFIX: InputScope = InputScope(8i32);
-pub const IS_PERSONALNAME_SUFFIX: InputScope = InputScope(12i32);
-pub const IS_PERSONALNAME_SURNAME: InputScope = InputScope(11i32);
-pub const IS_PHRASELIST: InputScope = InputScope(-1i32);
-pub const IS_PRIVATE: InputScope = InputScope(61i32);
-pub const IS_REGULAREXPRESSION: InputScope = InputScope(-2i32);
-pub const IS_SEARCH: InputScope = InputScope(50i32);
-pub const IS_SEARCH_INCREMENTAL: InputScope = InputScope(52i32);
-pub const IS_SRGS: InputScope = InputScope(-3i32);
-pub const IS_TELEPHONE_AREACODE: InputScope = InputScope(34i32);
-pub const IS_TELEPHONE_COUNTRYCODE: InputScope = InputScope(33i32);
-pub const IS_TELEPHONE_FULLTELEPHONENUMBER: InputScope = InputScope(32i32);
-pub const IS_TELEPHONE_LOCALNUMBER: InputScope = InputScope(35i32);
-pub const IS_TEXT: InputScope = InputScope(57i32);
-pub const IS_TIME_FULLTIME: InputScope = InputScope(36i32);
-pub const IS_TIME_HOUR: InputScope = InputScope(37i32);
-pub const IS_TIME_MINORSEC: InputScope = InputScope(38i32);
-pub const IS_URL: InputScope = InputScope(1i32);
-pub const IS_XML: InputScope = InputScope(-4i32);
-pub const IS_YOMI: InputScope = InputScope(56i32);
-pub const LIBID_MSAATEXTLib: windows_core::GUID = windows_core::GUID::from_u128(0x150e2d7a_dac1_4582_947d_2a8fd78b82cd);
-pub const STYLE_ACTIVE_SELECTION: TfIntegratableCandidateListSelectionStyle = TfIntegratableCandidateListSelectionStyle(0i32);
-pub const STYLE_IMPLIED_SELECTION: TfIntegratableCandidateListSelectionStyle = TfIntegratableCandidateListSelectionStyle(1i32);
-pub const TF_AE_END: TfActiveSelEnd = TfActiveSelEnd(2i32);
-pub const TF_AE_NONE: TfActiveSelEnd = TfActiveSelEnd(0i32);
-pub const TF_AE_START: TfActiveSelEnd = TfActiveSelEnd(1i32);
-pub const TF_ANCHOR_END: TfAnchor = TfAnchor(1i32);
-pub const TF_ANCHOR_START: TfAnchor = TfAnchor(0i32);
-pub const TF_ATTR_CONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(2i32);
-pub const TF_ATTR_FIXEDCONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(5i32);
-pub const TF_ATTR_INPUT: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(0i32);
-pub const TF_ATTR_INPUT_ERROR: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(4i32);
-pub const TF_ATTR_OTHER: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(-1i32);
-pub const TF_ATTR_TARGET_CONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(1i32);
-pub const TF_ATTR_TARGET_NOTCONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(3i32);
-pub const TF_CHAR_EMBEDDED: u32 = 65532u32;
-pub const TF_CLUIE_COUNT: u32 = 2u32;
-pub const TF_CLUIE_CURRENTPAGE: u32 = 32u32;
-pub const TF_CLUIE_DOCUMENTMGR: u32 = 1u32;
-pub const TF_CLUIE_PAGEINDEX: u32 = 16u32;
-pub const TF_CLUIE_SELECTION: u32 = 4u32;
-pub const TF_CLUIE_STRING: u32 = 8u32;
-pub const TF_COMMANDING_ENABLED: u32 = 4u32;
-pub const TF_COMMANDING_ON: u32 = 8u32;
-pub const TF_CONVERSIONMODE_ALPHANUMERIC: u32 = 0u32;
-pub const TF_CONVERSIONMODE_CHARCODE: u32 = 32u32;
-pub const TF_CONVERSIONMODE_EUDC: u32 = 512u32;
-pub const TF_CONVERSIONMODE_FIXED: u32 = 2048u32;
-pub const TF_CONVERSIONMODE_FULLSHAPE: u32 = 8u32;
-pub const TF_CONVERSIONMODE_KATAKANA: u32 = 2u32;
-pub const TF_CONVERSIONMODE_NATIVE: u32 = 1u32;
-pub const TF_CONVERSIONMODE_NOCONVERSION: u32 = 256u32;
-pub const TF_CONVERSIONMODE_ROMAN: u32 = 16u32;
-pub const TF_CONVERSIONMODE_SOFTKEYBOARD: u32 = 128u32;
-pub const TF_CONVERSIONMODE_SYMBOL: u32 = 1024u32;
-pub const TF_CT_COLORREF: TF_DA_COLORTYPE = TF_DA_COLORTYPE(2i32);
-pub const TF_CT_NONE: TF_DA_COLORTYPE = TF_DA_COLORTYPE(0i32);
-pub const TF_CT_SYSCOLOR: TF_DA_COLORTYPE = TF_DA_COLORTYPE(1i32);
-pub const TF_DEFAULT_SELECTION: u32 = 4294967295u32;
-pub const TF_DICTATION_ENABLED: u32 = 2u32;
-pub const TF_DICTATION_ON: u32 = 1u32;
-pub const TF_DISABLE_BALLOON: u32 = 2u32;
-pub const TF_DISABLE_COMMANDING: u32 = 4u32;
-pub const TF_DISABLE_DICTATION: u32 = 2u32;
-pub const TF_DISABLE_SPEECH: u32 = 1u32;
-pub const TF_DTLBI_NONE: LANG_BAR_ITEM_ICON_MODE_FLAGS = LANG_BAR_ITEM_ICON_MODE_FLAGS(0u32);
-pub const TF_DTLBI_USEPROFILEICON: LANG_BAR_ITEM_ICON_MODE_FLAGS = LANG_BAR_ITEM_ICON_MODE_FLAGS(1u32);
-pub const TF_ENABLE_PROCESS_ATOM: windows_core::PCWSTR = windows_core::w!("_CTF_ENABLE_PROCESS_ATOM_");
-pub const TF_ES_ASYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(8u32);
-pub const TF_ES_ASYNCDONTCARE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(0u32);
-pub const TF_ES_READ: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(2u32);
-pub const TF_ES_READWRITE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(6u32);
-pub const TF_ES_SYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(1u32);
-pub const TF_E_ALREADY_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x80040506_u32 as _);
-pub const TF_E_COMPOSITION_REJECTED: windows_core::HRESULT = windows_core::HRESULT(0x80040508_u32 as _);
-pub const TF_E_DISCONNECTED: windows_core::HRESULT = windows_core::HRESULT(0x80040504_u32 as _);
-pub const TF_E_EMPTYCONTEXT: windows_core::HRESULT = windows_core::HRESULT(0x80040509_u32 as _);
-pub const TF_E_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0x8004020A_u32 as _);
-pub const TF_E_INVALIDPOINT: windows_core::HRESULT = windows_core::HRESULT(0x80040207_u32 as _);
-pub const TF_E_INVALIDPOS: windows_core::HRESULT = windows_core::HRESULT(0x80040200_u32 as _);
-pub const TF_E_INVALIDVIEW: windows_core::HRESULT = windows_core::HRESULT(0x80040505_u32 as _);
-pub const TF_E_LOCKED: windows_core::HRESULT = windows_core::HRESULT(0x80040500_u32 as _);
-pub const TF_E_NOCONVERSION: windows_core::HRESULT = windows_core::HRESULT(0x80040600_u32 as _);
-pub const TF_E_NOINTERFACE: windows_core::HRESULT = windows_core::HRESULT(0x80040204_u32 as _);
-pub const TF_E_NOLAYOUT: windows_core::HRESULT = windows_core::HRESULT(0x80040206_u32 as _);
-pub const TF_E_NOLOCK: windows_core::HRESULT = windows_core::HRESULT(0x80040201_u32 as _);
-pub const TF_E_NOOBJECT: windows_core::HRESULT = windows_core::HRESULT(0x80040202_u32 as _);
-pub const TF_E_NOPROVIDER: windows_core::HRESULT = windows_core::HRESULT(0x80040503_u32 as _);
-pub const TF_E_NOSELECTION: windows_core::HRESULT = windows_core::HRESULT(0x80040205_u32 as _);
-pub const TF_E_NOSERVICE: windows_core::HRESULT = windows_core::HRESULT(0x80040203_u32 as _);
-pub const TF_E_NOTOWNEDRANGE: windows_core::HRESULT = windows_core::HRESULT(0x80040502_u32 as _);
-pub const TF_E_RANGE_NOT_COVERED: windows_core::HRESULT = windows_core::HRESULT(0x80040507_u32 as _);
-pub const TF_E_READONLY: windows_core::HRESULT = windows_core::HRESULT(0x80040209_u32 as _);
-pub const TF_E_STACKFULL: windows_core::HRESULT = windows_core::HRESULT(0x80040501_u32 as _);
-pub const TF_E_SYNCHRONOUS: windows_core::HRESULT = windows_core::HRESULT(0x80040208_u32 as _);
-pub const TF_FLOATINGLANGBAR_WNDTITLE: windows_core::PCWSTR = windows_core::w!("TF_FloatingLangBar_WndTitle");
-pub const TF_FLOATINGLANGBAR_WNDTITLEA: windows_core::PCSTR = windows_core::s!("TF_FloatingLangBar_WndTitle");
-pub const TF_FLOATINGLANGBAR_WNDTITLEW: windows_core::PCWSTR = windows_core::w!("TF_FloatingLangBar_WndTitle");
-pub const TF_GRAVITY_BACKWARD: TfGravity = TfGravity(0i32);
-pub const TF_GRAVITY_FORWARD: TfGravity = TfGravity(1i32);
-pub const TF_GTP_INCL_TEXT: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(1u32);
-pub const TF_GTP_NONE: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(0u32);
-pub const TF_HF_OBJECT: u32 = 1u32;
-pub const TF_IAS_NOQUERY: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(1u32);
-pub const TF_IAS_NO_DEFAULT_COMPOSITION: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(2147483648u32);
-pub const TF_IAS_QUERYONLY: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(2u32);
-pub const TF_IE_CORRECTION: u32 = 1u32;
-pub const TF_INVALID_COOKIE: u32 = 4294967295u32;
-pub const TF_INVALID_EDIT_COOKIE: u32 = 0u32;
-pub const TF_IPPMF_DISABLEPROFILE: u32 = 2u32;
-pub const TF_IPPMF_DONTCARECURRENTINPUTLANGUAGE: u32 = 4u32;
-pub const TF_IPPMF_ENABLEPROFILE: u32 = 1u32;
-pub const TF_IPPMF_FORPROCESS: u32 = 268435456u32;
-pub const TF_IPPMF_FORSESSION: u32 = 536870912u32;
-pub const TF_IPPMF_FORSYSTEMALL: u32 = 1073741824u32;
-pub const TF_IPP_CAPS_COMLESSSUPPORT: u32 = 8u32;
-pub const TF_IPP_CAPS_DISABLEONTRANSITORY: u32 = 1u32;
-pub const TF_IPP_CAPS_IMMERSIVESUPPORT: u32 = 65536u32;
-pub const TF_IPP_CAPS_SECUREMODESUPPORT: u32 = 2u32;
-pub const TF_IPP_CAPS_SYSTRAYSUPPORT: u32 = 131072u32;
-pub const TF_IPP_CAPS_UIELEMENTENABLED: u32 = 4u32;
-pub const TF_IPP_CAPS_WOW16SUPPORT: u32 = 16u32;
-pub const TF_IPP_FLAG_ACTIVE: u32 = 1u32;
-pub const TF_IPP_FLAG_ENABLED: u32 = 2u32;
-pub const TF_IPP_FLAG_SUBSTITUTEDBYINPUTPROCESSOR: u32 = 4u32;
-pub const TF_IPSINK_FLAG_ACTIVE: u32 = 1u32;
 pub const TF_LBI_BALLOON: u32 = 16u32;
 pub const TF_LBI_BITMAP: u32 = 8u32;
 pub const TF_LBI_BMPF_VERTICAL: u32 = 1u32;
@@ -13347,6 +13073,40 @@ pub const TF_LB_BALLOON_SHOW: TfLBBalloonStyle = TfLBBalloonStyle(1i32);
 pub const TF_LC_CHANGE: TfLayoutCode = TfLayoutCode(1i32);
 pub const TF_LC_CREATE: TfLayoutCode = TfLayoutCode(0i32);
 pub const TF_LC_DESTROY: TfLayoutCode = TfLayoutCode(2i32);
+#[repr(C)]
+pub struct TF_LMLATTELEMENT {
+    pub dwFrameStart: u32,
+    pub dwFrameLen: u32,
+    pub dwFlags: u32,
+    pub Anonymous: TF_LMLATTELEMENT_0,
+    pub bstrText: core::mem::ManuallyDrop<windows_core::BSTR>,
+}
+impl Clone for TF_LMLATTELEMENT {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+impl Default for TF_LMLATTELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TF_LMLATTELEMENT {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union TF_LMLATTELEMENT_0 {
+    pub iCost: i32,
+}
+impl Default for TF_LMLATTELEMENT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TF_LMLATTELEMENT_0 {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TF_LS_DASH: TF_DA_LINESTYLE = TF_DA_LINESTYLE(3i32);
 pub const TF_LS_DOT: TF_DA_LINESTYLE = TF_DA_LINESTYLE(2i32);
 pub const TF_LS_NONE: TF_DA_LINESTYLE = TF_DA_LINESTYLE(0i32);
@@ -13364,7 +13124,39 @@ pub const TF_MOD_RALT: u32 = 8u32;
 pub const TF_MOD_RCONTROL: u32 = 16u32;
 pub const TF_MOD_RSHIFT: u32 = 32u32;
 pub const TF_MOD_SHIFT: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
+    pub guidType: windows_core::GUID,
+    pub ichStart: i32,
+    pub cch: i32,
+    pub cb: u32,
+    pub dwPrivate: u32,
+    pub clsidTIP: windows_core::GUID,
+}
+impl Default for TF_PERSISTENT_PROPERTY_HEADER_ACP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TF_PERSISTENT_PROPERTY_HEADER_ACP {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TF_POPF_ALL: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TF_PRESERVEDKEY {
+    pub uVKey: u32,
+    pub uModifiers: u32,
+}
+impl Default for TF_PRESERVEDKEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TF_PRESERVEDKEY {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TF_PROCESS_ATOM: windows_core::PCWSTR = windows_core::w!("_CTF_PROCESS_ATOM_");
 pub const TF_PROFILETYPE_INPUTPROCESSOR: u32 = 1u32;
 pub const TF_PROFILETYPE_KEYBOARDLAYOUT: u32 = 2u32;
@@ -13382,6 +13174,28 @@ pub const TF_PROFILE_SIMPLEFAST: windows_core::GUID = windows_core::GUID::from_u
 pub const TF_PROFILE_TIGRINYA: windows_core::GUID = windows_core::GUID::from_u128(0x3cab88b7_cc3e_46a6_9765_b772ad7761ff);
 pub const TF_PROFILE_WUBI: windows_core::GUID = windows_core::GUID::from_u128(0x82590c13_f4dd_44f4_ba1d_8667246fdf8e);
 pub const TF_PROFILE_YI: windows_core::GUID = windows_core::GUID::from_u128(0x409c8376_007b_4357_ae8e_26316ee3fb0d);
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub struct TF_PROPERTYVAL {
+    pub guidId: windows_core::GUID,
+    pub varValue: super::super::System::Variant::VARIANT,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for TF_PROPERTYVAL {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for TF_PROPERTYVAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for TF_PROPERTYVAL {
+    type TypeKind = windows_core::CloneType;
+}
 pub const TF_PROPUI_STATUS_SAVETOFILE: u32 = 1u32;
 pub const TF_RCM_COMLESS: u32 = 1u32;
 pub const TF_RCM_HINT_COLLISION: u32 = 8u32;
@@ -13401,6 +13215,34 @@ pub const TF_SD_BACKWARD: TfShiftDir = TfShiftDir(0i32);
 pub const TF_SD_FORWARD: TfShiftDir = TfShiftDir(1i32);
 pub const TF_SD_LOADING: u32 = 2u32;
 pub const TF_SD_READONLY: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Debug, PartialEq)]
+pub struct TF_SELECTION {
+    pub range: core::mem::ManuallyDrop<Option<ITfRange>>,
+    pub style: TF_SELECTIONSTYLE,
+}
+impl Default for TF_SELECTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TF_SELECTION {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TF_SELECTIONSTYLE {
+    pub ase: TfActiveSelEnd,
+    pub fInterimChar: super::super::Foundation::BOOL,
+}
+impl Default for TF_SELECTIONSTYLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TF_SELECTIONSTYLE {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TF_SENTENCEMODE_AUTOMATIC: u32 = 4u32;
 pub const TF_SENTENCEMODE_CONVERSATION: u32 = 16u32;
 pub const TF_SENTENCEMODE_NONE: u32 = 0u32;
@@ -13464,6 +13306,9 @@ pub const TKBL_OPT_KOREAN_HANGUL_2_BULSIK: u32 = 1042u32;
 pub const TKBL_OPT_SIMPLIFIED_CHINESE_PINYIN: u32 = 2052u32;
 pub const TKBL_OPT_TRADITIONAL_CHINESE_PHONETIC: u32 = 1028u32;
 pub const TKBL_UNDEFINED: u32 = 0u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TKBLayoutType(pub i32);
 pub const TKB_ALTERNATES_AUTOCORRECTION_APPLIED: u32 = 4u32;
 pub const TKB_ALTERNATES_FOR_AUTOCORRECTION: u32 = 2u32;
 pub const TKB_ALTERNATES_FOR_PREDICTION: u32 = 3u32;
@@ -13560,6 +13405,29 @@ pub const TS_AS_LAYOUT_CHANGE: u32 = 4u32;
 pub const TS_AS_SEL_CHANGE: u32 = 2u32;
 pub const TS_AS_STATUS_CHANGE: u32 = 16u32;
 pub const TS_AS_TEXT_CHANGE: u32 = 1u32;
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub struct TS_ATTRVAL {
+    pub idAttr: windows_core::GUID,
+    pub dwOverlapId: u32,
+    pub varValue: super::super::System::Variant::VARIANT,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for TS_ATTRVAL {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for TS_ATTRVAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for TS_ATTRVAL {
+    type TypeKind = windows_core::CloneType;
+}
 pub const TS_ATTR_FIND_BACKWARDS: u32 = 1u32;
 pub const TS_ATTR_FIND_HIDDEN: u32 = 32u32;
 pub const TS_ATTR_FIND_UPDATESTART: u32 = 4u32;
@@ -13600,6 +13468,20 @@ pub const TS_LF_SYNC: u32 = 1u32;
 pub const TS_RT_HIDDEN: TsRunType = TsRunType(1i32);
 pub const TS_RT_OPAQUE: TsRunType = TsRunType(2i32);
 pub const TS_RT_PLAIN: TsRunType = TsRunType(0i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TS_RUNINFO {
+    pub uCount: u32,
+    pub r#type: TsRunType,
+}
+impl Default for TS_RUNINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TS_RUNINFO {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TS_SD_BACKWARD: TsShiftDir = TsShiftDir(0i32);
 pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_ENABLED: u32 = 128u32;
 pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_VISIBLE: u32 = 256u32;
@@ -13611,6 +13493,50 @@ pub const TS_SD_RESERVED: u32 = 4u32;
 pub const TS_SD_TKBAUTOCORRECTENABLE: u32 = 8u32;
 pub const TS_SD_TKBPREDICTIONENABLE: u32 = 16u32;
 pub const TS_SD_UIINTEGRATIONENABLE: u32 = 32u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TS_SELECTIONSTYLE {
+    pub ase: TsActiveSelEnd,
+    pub fInterimChar: super::super::Foundation::BOOL,
+}
+impl Default for TS_SELECTIONSTYLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TS_SELECTIONSTYLE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TS_SELECTION_ACP {
+    pub acpStart: i32,
+    pub acpEnd: i32,
+    pub style: TS_SELECTIONSTYLE,
+}
+impl Default for TS_SELECTION_ACP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TS_SELECTION_ACP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Debug, PartialEq)]
+pub struct TS_SELECTION_ANCHOR {
+    pub paStart: core::mem::ManuallyDrop<Option<IAnchor>>,
+    pub paEnd: core::mem::ManuallyDrop<Option<IAnchor>>,
+    pub style: TS_SELECTIONSTYLE,
+}
+impl Default for TS_SELECTION_ANCHOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TS_SELECTION_ANCHOR {
+    type TypeKind = windows_core::CloneType;
+}
 pub const TS_SHIFT_COUNT_HIDDEN: u32 = 1u32;
 pub const TS_SHIFT_COUNT_ONLY: u32 = 8u32;
 pub const TS_SHIFT_HALT_HIDDEN: u32 = 2u32;
@@ -13622,6 +13548,20 @@ pub const TS_SS_TKBAUTOCORRECTENABLE: u32 = 16u32;
 pub const TS_SS_TKBPREDICTIONENABLE: u32 = 32u32;
 pub const TS_SS_TRANSITORY: u32 = 4u32;
 pub const TS_SS_UWPCONTROL: u32 = 64u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TS_STATUS {
+    pub dwDynamicFlags: u32,
+    pub dwStaticFlags: u32,
+}
+impl Default for TS_STATUS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TS_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TS_STRF_END: u32 = 2u32;
 pub const TS_STRF_MID: u32 = 1u32;
 pub const TS_STRF_START: u32 = 0u32;
@@ -13630,4 +13570,64 @@ pub const TS_ST_NONE: TEXT_STORE_TEXT_CHANGE_FLAGS = TEXT_STORE_TEXT_CHANGE_FLAG
 pub const TS_S_ASYNC: windows_core::HRESULT = windows_core::HRESULT(0x40300_u32 as _);
 pub const TS_TC_CORRECTION: TEXT_STORE_CHANGE_FLAGS = TEXT_STORE_CHANGE_FLAGS(1u32);
 pub const TS_TC_NONE: TEXT_STORE_CHANGE_FLAGS = TEXT_STORE_CHANGE_FLAGS(0u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TS_TEXTCHANGE {
+    pub acpStart: i32,
+    pub acpOldEnd: i32,
+    pub acpNewEnd: i32,
+}
+impl Default for TS_TEXTCHANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TS_TEXTCHANGE {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TS_VCOOKIE_NUL: u32 = 4294967295u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TfActiveSelEnd(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TfAnchor(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TfCandidateResult(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TfGravity(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TfIntegratableCandidateListSelectionStyle(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TfLBBalloonStyle(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TfLBIClick(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TfLayoutCode(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TfSapiObject(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TfShiftDir(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TsActiveSelEnd(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TsGravity(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TsLayoutCode(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TsRunType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TsShiftDir(pub i32);

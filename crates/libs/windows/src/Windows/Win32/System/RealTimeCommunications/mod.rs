@@ -1,3 +1,6 @@
+pub const FACILITY_PINT_STATUS_CODE: u32 = 240u32;
+pub const FACILITY_RTC_INTERFACE: u32 = 238u32;
+pub const FACILITY_SIP_STATUS_CODE: u32 = 239u32;
 windows_core::imp::define_interface!(INetworkTransportSettings, INetworkTransportSettings_Vtbl, 0x5e7abb2c_f2c1_4a61_bd35_deb7a08ab0f1);
 windows_core::imp::interface_hierarchy!(INetworkTransportSettings, windows_core::IUnknown);
 impl INetworkTransportSettings {
@@ -6991,145 +6994,6 @@ impl ITransportSettingsInternal_Vtbl {
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::RuntimeName for ITransportSettingsInternal {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_ACE_SCOPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_ANSWER_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_AUDIO_DEVICE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_BUDDY_EVENT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_BUDDY_SUBSCRIPTION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_CLIENT_EVENT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_DTMF(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_EVENT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_GROUP_EVENT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_LISTEN_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_MEDIA_EVENT_REASON(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_MEDIA_EVENT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_MESSAGING_EVENT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_MESSAGING_USER_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_OFFER_WATCHER_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_PARTICIPANT_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_PORT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_PRESENCE_PROPERTY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_PRESENCE_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_PRIVACY_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_PROFILE_EVENT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_PROVIDER_URI(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_REGISTRATION_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_REINVITE_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_RING_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_ROAMING_EVENT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_SECURITY_LEVEL(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_SECURITY_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_SESSION_REFER_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_SESSION_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_SESSION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_T120_APPLET(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_TERMINATE_REASON(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_USER_SEARCH_COLUMN(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_USER_SEARCH_PREFERENCE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_VIDEO_DEVICE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_WATCHER_EVENT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_WATCHER_MATCH_MODE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTC_WATCHER_STATE(pub i32);
-pub const RTCClient: windows_core::GUID = windows_core::GUID::from_u128(0x7a42ea29_a2b7_40c4_b091_f6f024aa89be);
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TRANSPORT_SETTING {
-    pub SettingId: super::super::Networking::WinSock::TRANSPORT_SETTING_ID,
-    pub Length: *mut u32,
-    pub Value: *mut u8,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for TRANSPORT_SETTING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for TRANSPORT_SETTING {
-    type TypeKind = windows_core::CopyType;
-}
-pub const FACILITY_PINT_STATUS_CODE: u32 = 240u32;
-pub const FACILITY_RTC_INTERFACE: u32 = 238u32;
-pub const FACILITY_SIP_STATUS_CODE: u32 = 239u32;
 pub const RTCAD_MICROPHONE: RTC_AUDIO_DEVICE = RTC_AUDIO_DEVICE(1i32);
 pub const RTCAD_SPEAKER: RTC_AUDIO_DEVICE = RTC_AUDIO_DEVICE(0i32);
 pub const RTCAM_AUTOMATICALLY_ACCEPT: RTC_ANSWER_MODE = RTC_ANSWER_MODE(1i32);
@@ -7160,6 +7024,7 @@ pub const RTCCET_NETWORK_QUALITY_CHANGE: RTC_CLIENT_EVENT_TYPE = RTC_CLIENT_EVEN
 pub const RTCCET_VOLUME_CHANGE: RTC_CLIENT_EVENT_TYPE = RTC_CLIENT_EVENT_TYPE(0i32);
 pub const RTCCS_FAIL_ON_REDIRECT: u32 = 2u32;
 pub const RTCCS_FORCE_PROFILE: u32 = 1u32;
+pub const RTCClient: windows_core::GUID = windows_core::GUID::from_u128(0x7a42ea29_a2b7_40c4_b091_f6f024aa89be);
 pub const RTCEF_ALL: u32 = 33554431u32;
 pub const RTCEF_BUDDY: u32 = 256u32;
 pub const RTCEF_BUDDY2: u32 = 262144u32;
@@ -7378,6 +7243,27 @@ pub const RTCXS_PRESENCE_OFFLINE: RTC_PRESENCE_STATUS = RTC_PRESENCE_STATUS(0i32
 pub const RTCXS_PRESENCE_ONLINE: RTC_PRESENCE_STATUS = RTC_PRESENCE_STATUS(1i32);
 pub const RTCXS_PRESENCE_ON_THE_PHONE: RTC_PRESENCE_STATUS = RTC_PRESENCE_STATUS(6i32);
 pub const RTCXS_PRESENCE_OUT_TO_LUNCH: RTC_PRESENCE_STATUS = RTC_PRESENCE_STATUS(7i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_ACE_SCOPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_ANSWER_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_AUDIO_DEVICE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_BUDDY_EVENT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_BUDDY_SUBSCRIPTION_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_CLIENT_EVENT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_DTMF(pub i32);
 pub const RTC_DTMF_0: RTC_DTMF = RTC_DTMF(0i32);
 pub const RTC_DTMF_1: RTC_DTMF = RTC_DTMF(1i32);
 pub const RTC_DTMF_2: RTC_DTMF = RTC_DTMF(2i32);
@@ -7395,6 +7281,9 @@ pub const RTC_DTMF_D: RTC_DTMF = RTC_DTMF(15i32);
 pub const RTC_DTMF_FLASH: RTC_DTMF = RTC_DTMF(16i32);
 pub const RTC_DTMF_POUND: RTC_DTMF = RTC_DTMF(11i32);
 pub const RTC_DTMF_STAR: RTC_DTMF = RTC_DTMF(10i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_EVENT(pub i32);
 pub const RTC_E_ANOTHER_MEDIA_SESSION_ACTIVE: windows_core::HRESULT = windows_core::HRESULT(0x80EE0077_u32 as _);
 pub const RTC_E_BASIC_AUTH_SET_TLS: windows_core::HRESULT = windows_core::HRESULT(0x80EE003F_u32 as _);
 pub const RTC_E_CLIENT_ALREADY_INITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x80EE0026_u32 as _);
@@ -7582,5 +7471,116 @@ pub const RTC_E_TOO_MANY_GROUPS: windows_core::HRESULT = windows_core::HRESULT(0
 pub const RTC_E_TOO_MANY_RETRIES: windows_core::HRESULT = windows_core::HRESULT(0x80EE005B_u32 as _);
 pub const RTC_E_TOO_SMALL_EXPIRES_VALUE: windows_core::HRESULT = windows_core::HRESULT(0x80EE0068_u32 as _);
 pub const RTC_E_UDP_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80EE007E_u32 as _);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_GROUP_EVENT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_LISTEN_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_MEDIA_EVENT_REASON(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_MEDIA_EVENT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_MESSAGING_EVENT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_MESSAGING_USER_STATUS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_OFFER_WATCHER_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_PARTICIPANT_STATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_PORT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_PRESENCE_PROPERTY(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_PRESENCE_STATUS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_PRIVACY_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_PROFILE_EVENT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_PROVIDER_URI(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_REGISTRATION_STATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_REINVITE_STATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_RING_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_ROAMING_EVENT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_SECURITY_LEVEL(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_SECURITY_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_SESSION_REFER_STATUS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_SESSION_STATE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_SESSION_TYPE(pub i32);
 pub const RTC_S_ROAMING_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xEE0041_u32 as _);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_T120_APPLET(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_TERMINATE_REASON(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_USER_SEARCH_COLUMN(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_USER_SEARCH_PREFERENCE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_VIDEO_DEVICE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_WATCHER_EVENT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_WATCHER_MATCH_MODE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RTC_WATCHER_STATE(pub i32);
 pub const STATUS_SEVERITY_RTC_ERROR: u32 = 2u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TRANSPORT_SETTING {
+    pub SettingId: super::super::Networking::WinSock::TRANSPORT_SETTING_ID,
+    pub Length: *mut u32,
+    pub Value: *mut u8,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for TRANSPORT_SETTING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for TRANSPORT_SETTING {
+    type TypeKind = windows_core::CopyType;
+}

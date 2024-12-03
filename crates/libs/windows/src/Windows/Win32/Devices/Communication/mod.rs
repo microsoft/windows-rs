@@ -235,6 +235,11 @@ where
     windows_targets::link!("kernel32.dll" "system" fn WaitCommEvent(hfile : super::super::Foundation:: HANDLE, lpevtmask : *mut COMM_EVENT_MASK, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     WaitCommEvent(hfile.param().abi(), core::mem::transmute(lpevtmask), core::mem::transmute(lpoverlapped.unwrap_or(core::ptr::null_mut()))).ok()
 }
+pub const CE_BREAK: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(16u32);
+pub const CE_FRAME: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(8u32);
+pub const CE_OVERRUN: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(2u32);
+pub const CE_RXOVER: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(1u32);
+pub const CE_RXPARITY: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(4u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLEAR_COMM_ERROR_FLAGS(pub u32);
@@ -271,273 +276,9 @@ impl core::ops::Not for CLEAR_COMM_ERROR_FLAGS {
         Self(self.0.not())
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COMMPROP_STOP_PARITY(pub u16);
-impl COMMPROP_STOP_PARITY {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for COMMPROP_STOP_PARITY {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for COMMPROP_STOP_PARITY {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for COMMPROP_STOP_PARITY {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for COMMPROP_STOP_PARITY {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for COMMPROP_STOP_PARITY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COMM_EVENT_MASK(pub u32);
-impl COMM_EVENT_MASK {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for COMM_EVENT_MASK {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for COMM_EVENT_MASK {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for COMM_EVENT_MASK {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for COMM_EVENT_MASK {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for COMM_EVENT_MASK {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DCB_PARITY(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DCB_STOP_BITS(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ESCAPE_COMM_FUNCTION(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MODEMDEVCAPS_DIAL_OPTIONS(pub u32);
-impl MODEMDEVCAPS_DIAL_OPTIONS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for MODEMDEVCAPS_DIAL_OPTIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for MODEMDEVCAPS_DIAL_OPTIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for MODEMDEVCAPS_DIAL_OPTIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for MODEMDEVCAPS_DIAL_OPTIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for MODEMDEVCAPS_DIAL_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MODEMDEVCAPS_SPEAKER_MODE(pub u32);
-impl MODEMDEVCAPS_SPEAKER_MODE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for MODEMDEVCAPS_SPEAKER_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for MODEMDEVCAPS_SPEAKER_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for MODEMDEVCAPS_SPEAKER_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for MODEMDEVCAPS_SPEAKER_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for MODEMDEVCAPS_SPEAKER_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MODEMDEVCAPS_SPEAKER_VOLUME(pub u32);
-impl MODEMDEVCAPS_SPEAKER_VOLUME {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for MODEMDEVCAPS_SPEAKER_VOLUME {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for MODEMDEVCAPS_SPEAKER_VOLUME {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for MODEMDEVCAPS_SPEAKER_VOLUME {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for MODEMDEVCAPS_SPEAKER_VOLUME {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for MODEMDEVCAPS_SPEAKER_VOLUME {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MODEMSETTINGS_SPEAKER_MODE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MODEM_SPEAKER_VOLUME(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MODEM_STATUS_FLAGS(pub u32);
-impl MODEM_STATUS_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for MODEM_STATUS_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for MODEM_STATUS_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for MODEM_STATUS_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for MODEM_STATUS_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for MODEM_STATUS_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PURGE_COMM_FLAGS(pub u32);
-impl PURGE_COMM_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for PURGE_COMM_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for PURGE_COMM_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for PURGE_COMM_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for PURGE_COMM_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for PURGE_COMM_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub const CLRBREAK: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(9u32);
+pub const CLRDTR: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(6u32);
+pub const CLRRTS: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(4u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COMMCONFIG {
@@ -588,6 +329,42 @@ impl Default for COMMPROP {
 impl windows_core::TypeKind for COMMPROP {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COMMPROP_STOP_PARITY(pub u16);
+impl COMMPROP_STOP_PARITY {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for COMMPROP_STOP_PARITY {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for COMMPROP_STOP_PARITY {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for COMMPROP_STOP_PARITY {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for COMMPROP_STOP_PARITY {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for COMMPROP_STOP_PARITY {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COMMTIMEOUTS {
@@ -604,6 +381,42 @@ impl Default for COMMTIMEOUTS {
 }
 impl windows_core::TypeKind for COMMTIMEOUTS {
     type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COMM_EVENT_MASK(pub u32);
+impl COMM_EVENT_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for COMM_EVENT_MASK {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for COMM_EVENT_MASK {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for COMM_EVENT_MASK {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for COMM_EVENT_MASK {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for COMM_EVENT_MASK {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -647,73 +460,18 @@ impl Default for DCB {
 impl windows_core::TypeKind for DCB {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MODEMDEVCAPS {
-    pub dwActualSize: u32,
-    pub dwRequiredSize: u32,
-    pub dwDevSpecificOffset: u32,
-    pub dwDevSpecificSize: u32,
-    pub dwModemProviderVersion: u32,
-    pub dwModemManufacturerOffset: u32,
-    pub dwModemManufacturerSize: u32,
-    pub dwModemModelOffset: u32,
-    pub dwModemModelSize: u32,
-    pub dwModemVersionOffset: u32,
-    pub dwModemVersionSize: u32,
-    pub dwDialOptions: MODEMDEVCAPS_DIAL_OPTIONS,
-    pub dwCallSetupFailTimer: u32,
-    pub dwInactivityTimeout: u32,
-    pub dwSpeakerVolume: MODEMDEVCAPS_SPEAKER_VOLUME,
-    pub dwSpeakerMode: MODEMDEVCAPS_SPEAKER_MODE,
-    pub dwModemOptions: u32,
-    pub dwMaxDTERate: u32,
-    pub dwMaxDCERate: u32,
-    pub abVariablePortion: [u8; 1],
-}
-impl Default for MODEMDEVCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MODEMDEVCAPS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MODEMSETTINGS {
-    pub dwActualSize: u32,
-    pub dwRequiredSize: u32,
-    pub dwDevSpecificOffset: u32,
-    pub dwDevSpecificSize: u32,
-    pub dwCallSetupFailTimer: u32,
-    pub dwInactivityTimeout: u32,
-    pub dwSpeakerVolume: MODEM_SPEAKER_VOLUME,
-    pub dwSpeakerMode: MODEMSETTINGS_SPEAKER_MODE,
-    pub dwPreferredModemOptions: u32,
-    pub dwNegotiatedModemOptions: u32,
-    pub dwNegotiatedDCERate: u32,
-    pub abVariablePortion: [u8; 1],
-}
-impl Default for MODEMSETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MODEMSETTINGS {
-    type TypeKind = windows_core::CopyType;
-}
-pub const CE_BREAK: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(16u32);
-pub const CE_FRAME: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(8u32);
-pub const CE_OVERRUN: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(2u32);
-pub const CE_RXOVER: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(1u32);
-pub const CE_RXPARITY: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(4u32);
-pub const CLRBREAK: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(9u32);
-pub const CLRDTR: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(6u32);
-pub const CLRRTS: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(4u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DCB_PARITY(pub u8);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DCB_STOP_BITS(pub u8);
 pub const DIALOPTION_BILLING: MODEMDEVCAPS_DIAL_OPTIONS = MODEMDEVCAPS_DIAL_OPTIONS(64u32);
 pub const DIALOPTION_DIALTONE: MODEMDEVCAPS_DIAL_OPTIONS = MODEMDEVCAPS_DIAL_OPTIONS(256u32);
 pub const DIALOPTION_QUIET: MODEMDEVCAPS_DIAL_OPTIONS = MODEMDEVCAPS_DIAL_OPTIONS(128u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ESCAPE_COMM_FUNCTION(pub u32);
 pub const EVENPARITY: DCB_PARITY = DCB_PARITY(2u8);
 pub const EV_BREAK: COMM_EVENT_MASK = COMM_EVENT_MASK(64u32);
 pub const EV_CTS: COMM_EVENT_MASK = COMM_EVENT_MASK(8u32);
@@ -834,6 +592,212 @@ pub const MDM_X75_DATA_64K: u32 = 1u32;
 pub const MDM_X75_DATA_BTX: u32 = 4u32;
 pub const MDM_X75_DATA_DEFAULT: u32 = 0u32;
 pub const MDM_X75_DATA_T_70: u32 = 3u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MODEMDEVCAPS {
+    pub dwActualSize: u32,
+    pub dwRequiredSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwModemProviderVersion: u32,
+    pub dwModemManufacturerOffset: u32,
+    pub dwModemManufacturerSize: u32,
+    pub dwModemModelOffset: u32,
+    pub dwModemModelSize: u32,
+    pub dwModemVersionOffset: u32,
+    pub dwModemVersionSize: u32,
+    pub dwDialOptions: MODEMDEVCAPS_DIAL_OPTIONS,
+    pub dwCallSetupFailTimer: u32,
+    pub dwInactivityTimeout: u32,
+    pub dwSpeakerVolume: MODEMDEVCAPS_SPEAKER_VOLUME,
+    pub dwSpeakerMode: MODEMDEVCAPS_SPEAKER_MODE,
+    pub dwModemOptions: u32,
+    pub dwMaxDTERate: u32,
+    pub dwMaxDCERate: u32,
+    pub abVariablePortion: [u8; 1],
+}
+impl Default for MODEMDEVCAPS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MODEMDEVCAPS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MODEMDEVCAPS_DIAL_OPTIONS(pub u32);
+impl MODEMDEVCAPS_DIAL_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for MODEMDEVCAPS_DIAL_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for MODEMDEVCAPS_DIAL_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for MODEMDEVCAPS_DIAL_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for MODEMDEVCAPS_DIAL_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for MODEMDEVCAPS_DIAL_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MODEMDEVCAPS_SPEAKER_MODE(pub u32);
+impl MODEMDEVCAPS_SPEAKER_MODE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for MODEMDEVCAPS_SPEAKER_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for MODEMDEVCAPS_SPEAKER_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for MODEMDEVCAPS_SPEAKER_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for MODEMDEVCAPS_SPEAKER_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for MODEMDEVCAPS_SPEAKER_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MODEMDEVCAPS_SPEAKER_VOLUME(pub u32);
+impl MODEMDEVCAPS_SPEAKER_VOLUME {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for MODEMDEVCAPS_SPEAKER_VOLUME {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for MODEMDEVCAPS_SPEAKER_VOLUME {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for MODEMDEVCAPS_SPEAKER_VOLUME {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for MODEMDEVCAPS_SPEAKER_VOLUME {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for MODEMDEVCAPS_SPEAKER_VOLUME {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MODEMSETTINGS {
+    pub dwActualSize: u32,
+    pub dwRequiredSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwCallSetupFailTimer: u32,
+    pub dwInactivityTimeout: u32,
+    pub dwSpeakerVolume: MODEM_SPEAKER_VOLUME,
+    pub dwSpeakerMode: MODEMSETTINGS_SPEAKER_MODE,
+    pub dwPreferredModemOptions: u32,
+    pub dwNegotiatedModemOptions: u32,
+    pub dwNegotiatedDCERate: u32,
+    pub abVariablePortion: [u8; 1],
+}
+impl Default for MODEMSETTINGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MODEMSETTINGS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MODEMSETTINGS_SPEAKER_MODE(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MODEM_SPEAKER_VOLUME(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MODEM_STATUS_FLAGS(pub u32);
+impl MODEM_STATUS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for MODEM_STATUS_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for MODEM_STATUS_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for MODEM_STATUS_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for MODEM_STATUS_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for MODEM_STATUS_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const MS_CTS_ON: MODEM_STATUS_FLAGS = MODEM_STATUS_FLAGS(16u32);
 pub const MS_DSR_ON: MODEM_STATUS_FLAGS = MODEM_STATUS_FLAGS(32u32);
 pub const MS_RING_ON: MODEM_STATUS_FLAGS = MODEM_STATUS_FLAGS(64u32);
@@ -847,6 +811,42 @@ pub const PARITY_MARK: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(2048u16);
 pub const PARITY_NONE: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(256u16);
 pub const PARITY_ODD: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(512u16);
 pub const PARITY_SPACE: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(4096u16);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PURGE_COMM_FLAGS(pub u32);
+impl PURGE_COMM_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for PURGE_COMM_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for PURGE_COMM_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for PURGE_COMM_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for PURGE_COMM_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for PURGE_COMM_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const PURGE_RXABORT: PURGE_COMM_FLAGS = PURGE_COMM_FLAGS(2u32);
 pub const PURGE_RXCLEAR: PURGE_COMM_FLAGS = PURGE_COMM_FLAGS(8u32);
 pub const PURGE_TXABORT: PURGE_COMM_FLAGS = PURGE_COMM_FLAGS(1u32);

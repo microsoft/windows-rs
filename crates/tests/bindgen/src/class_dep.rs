@@ -8,157 +8,6 @@
 
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub struct WwwFormUrlDecoder(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(
-    WwwFormUrlDecoder,
-    windows_core::IUnknown,
-    windows_core::IInspectable
-);
-windows_core::imp::required_hierarchy!(
-    WwwFormUrlDecoder,
-    IIterable<IWwwFormUrlDecoderEntry>,
-    IVectorView<IWwwFormUrlDecoderEntry>
-);
-impl WwwFormUrlDecoder {
-    pub fn First(&self) -> windows_core::Result<IIterator<IWwwFormUrlDecoderEntry>> {
-        let this = &windows_core::Interface::cast::<IIterable<IWwwFormUrlDecoderEntry>>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).First)(
-                windows_core::Interface::as_raw(this),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetAt(&self, index: u32) -> windows_core::Result<IWwwFormUrlDecoderEntry> {
-        let this = &windows_core::Interface::cast::<IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetAt)(
-                windows_core::Interface::as_raw(this),
-                index,
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Size)(
-                windows_core::Interface::as_raw(this),
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
-    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
-    where
-        P0: windows_core::Param<IWwwFormUrlDecoderEntry>,
-    {
-        let this = &windows_core::Interface::cast::<IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(
-                windows_core::Interface::as_raw(this),
-                value.param().abi(),
-                index,
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
-    pub fn GetMany(
-        &self,
-        startindex: u32,
-        items: &mut [Option<IWwwFormUrlDecoderEntry>],
-    ) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetMany)(
-                windows_core::Interface::as_raw(this),
-                startindex,
-                items.len().try_into().unwrap(),
-                core::mem::transmute_copy(&items),
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
-    pub fn GetFirstValueByName(
-        &self,
-        name: &windows_core::HSTRING,
-    ) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFirstValueByName)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(name),
-                &mut result__,
-            )
-            .map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn CreateWwwFormUrlDecoder(
-        query: &windows_core::HSTRING,
-    ) -> windows_core::Result<WwwFormUrlDecoder> {
-        Self::IWwwFormUrlDecoderRuntimeClassFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWwwFormUrlDecoder)(
-                windows_core::Interface::as_raw(this),
-                core::mem::transmute_copy(query),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IWwwFormUrlDecoderRuntimeClassFactory<
-        R,
-        F: FnOnce(&IWwwFormUrlDecoderRuntimeClassFactory) -> windows_core::Result<R>,
-    >(
-        callback: F,
-    ) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<
-            WwwFormUrlDecoder,
-            IWwwFormUrlDecoderRuntimeClassFactory,
-        > = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for WwwFormUrlDecoder {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_class::<Self, IWwwFormUrlDecoderRuntimeClass>();
-}
-unsafe impl windows_core::Interface for WwwFormUrlDecoder {
-    type Vtable = <IWwwFormUrlDecoderRuntimeClass as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID =
-        <IWwwFormUrlDecoderRuntimeClass as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for WwwFormUrlDecoder {
-    const NAME: &'static str = "Windows.Foundation.WwwFormUrlDecoder";
-}
-unsafe impl Send for WwwFormUrlDecoder {}
-unsafe impl Sync for WwwFormUrlDecoder {}
-impl IntoIterator for WwwFormUrlDecoder {
-    type Item = IWwwFormUrlDecoderEntry;
-    type IntoIter = IIterator<Self::Item>;
-    fn into_iter(self) -> Self::IntoIter {
-        IntoIterator::into_iter(&self)
-    }
-}
-impl IntoIterator for &WwwFormUrlDecoder {
-    type Item = IWwwFormUrlDecoderEntry;
-    type IntoIter = IIterator<Self::Item>;
-    fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IIterable<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
@@ -876,4 +725,155 @@ pub struct IWwwFormUrlDecoderRuntimeClassFactory_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WwwFormUrlDecoder(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    WwwFormUrlDecoder,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(
+    WwwFormUrlDecoder,
+    IIterable<IWwwFormUrlDecoderEntry>,
+    IVectorView<IWwwFormUrlDecoderEntry>
+);
+impl WwwFormUrlDecoder {
+    pub fn First(&self) -> windows_core::Result<IIterator<IWwwFormUrlDecoderEntry>> {
+        let this = &windows_core::Interface::cast::<IIterable<IWwwFormUrlDecoderEntry>>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).First)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetAt(&self, index: u32) -> windows_core::Result<IWwwFormUrlDecoderEntry> {
+        let this = &windows_core::Interface::cast::<IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetAt)(
+                windows_core::Interface::as_raw(this),
+                index,
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Size(&self) -> windows_core::Result<u32> {
+        let this = &windows_core::Interface::cast::<IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Size)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
+    where
+        P0: windows_core::Param<IWwwFormUrlDecoderEntry>,
+    {
+        let this = &windows_core::Interface::cast::<IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IndexOf)(
+                windows_core::Interface::as_raw(this),
+                value.param().abi(),
+                index,
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub fn GetMany(
+        &self,
+        startindex: u32,
+        items: &mut [Option<IWwwFormUrlDecoderEntry>],
+    ) -> windows_core::Result<u32> {
+        let this = &windows_core::Interface::cast::<IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetMany)(
+                windows_core::Interface::as_raw(this),
+                startindex,
+                items.len().try_into().unwrap(),
+                core::mem::transmute_copy(&items),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub fn GetFirstValueByName(
+        &self,
+        name: &windows_core::HSTRING,
+    ) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetFirstValueByName)(
+                windows_core::Interface::as_raw(this),
+                core::mem::transmute_copy(name),
+                &mut result__,
+            )
+            .map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn CreateWwwFormUrlDecoder(
+        query: &windows_core::HSTRING,
+    ) -> windows_core::Result<WwwFormUrlDecoder> {
+        Self::IWwwFormUrlDecoderRuntimeClassFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateWwwFormUrlDecoder)(
+                windows_core::Interface::as_raw(this),
+                core::mem::transmute_copy(query),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWwwFormUrlDecoderRuntimeClassFactory<
+        R,
+        F: FnOnce(&IWwwFormUrlDecoderRuntimeClassFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            WwwFormUrlDecoder,
+            IWwwFormUrlDecoderRuntimeClassFactory,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for WwwFormUrlDecoder {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IWwwFormUrlDecoderRuntimeClass>();
+}
+unsafe impl windows_core::Interface for WwwFormUrlDecoder {
+    type Vtable = <IWwwFormUrlDecoderRuntimeClass as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID =
+        <IWwwFormUrlDecoderRuntimeClass as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WwwFormUrlDecoder {
+    const NAME: &'static str = "Windows.Foundation.WwwFormUrlDecoder";
+}
+unsafe impl Send for WwwFormUrlDecoder {}
+unsafe impl Sync for WwwFormUrlDecoder {}
+impl IntoIterator for WwwFormUrlDecoder {
+    type Item = IWwwFormUrlDecoderEntry;
+    type IntoIter = IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+impl IntoIterator for &WwwFormUrlDecoder {
+    type Item = IWwwFormUrlDecoderEntry;
+    type IntoIter = IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
 }

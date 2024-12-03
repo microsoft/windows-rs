@@ -55,6 +55,21 @@ impl windows_core::RuntimeName for AppListEntry {
 }
 unsafe impl Send for AppListEntry {}
 unsafe impl Sync for AppListEntry {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AppRestartFailureReason(pub i32);
+impl AppRestartFailureReason {
+    pub const RestartPending: Self = Self(0i32);
+    pub const NotInForeground: Self = Self(1i32);
+    pub const InvalidUser: Self = Self(2i32);
+    pub const Other: Self = Self(3i32);
+}
+impl windows_core::TypeKind for AppRestartFailureReason {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AppRestartFailureReason {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Core.AppRestartFailureReason;i4)");
+}
 pub struct CoreApplication;
 impl CoreApplication {
     pub fn Id() -> windows_core::Result<windows_core::HSTRING> {
@@ -488,60 +503,6 @@ impl windows_core::RuntimeName for HostedViewClosingEventArgs {
 }
 unsafe impl Send for HostedViewClosingEventArgs {}
 unsafe impl Sync for HostedViewClosingEventArgs {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct UnhandledError(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(UnhandledError, windows_core::IUnknown, windows_core::IInspectable);
-impl UnhandledError {
-    pub fn Handled(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Propagate(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Propagate)(windows_core::Interface::as_raw(this)).ok() }
-    }
-}
-impl windows_core::RuntimeType for UnhandledError {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUnhandledError>();
-}
-unsafe impl windows_core::Interface for UnhandledError {
-    type Vtable = <IUnhandledError as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IUnhandledError as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for UnhandledError {
-    const NAME: &'static str = "Windows.ApplicationModel.Core.UnhandledError";
-}
-unsafe impl Send for UnhandledError {}
-unsafe impl Sync for UnhandledError {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct UnhandledErrorDetectedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(UnhandledErrorDetectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl UnhandledErrorDetectedEventArgs {
-    pub fn UnhandledError(&self) -> windows_core::Result<UnhandledError> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UnhandledError)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for UnhandledErrorDetectedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUnhandledErrorDetectedEventArgs>();
-}
-unsafe impl windows_core::Interface for UnhandledErrorDetectedEventArgs {
-    type Vtable = <IUnhandledErrorDetectedEventArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IUnhandledErrorDetectedEventArgs as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for UnhandledErrorDetectedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Core.UnhandledErrorDetectedEventArgs";
-}
-unsafe impl Send for UnhandledErrorDetectedEventArgs {}
-unsafe impl Sync for UnhandledErrorDetectedEventArgs {}
 windows_core::imp::define_interface!(IAppListEntry, IAppListEntry_Vtbl, 0xef00f07f_2108_490a_877a_8a9f17c25fad);
 impl windows_core::RuntimeType for IAppListEntry {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -998,17 +959,56 @@ pub struct IUnhandledErrorDetectedEventArgs_Vtbl {
     pub UnhandledError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AppRestartFailureReason(pub i32);
-impl AppRestartFailureReason {
-    pub const RestartPending: Self = Self(0i32);
-    pub const NotInForeground: Self = Self(1i32);
-    pub const InvalidUser: Self = Self(2i32);
-    pub const Other: Self = Self(3i32);
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct UnhandledError(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(UnhandledError, windows_core::IUnknown, windows_core::IInspectable);
+impl UnhandledError {
+    pub fn Handled(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Propagate(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Propagate)(windows_core::Interface::as_raw(this)).ok() }
+    }
 }
-impl windows_core::TypeKind for AppRestartFailureReason {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::RuntimeType for UnhandledError {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUnhandledError>();
 }
-impl windows_core::RuntimeType for AppRestartFailureReason {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Core.AppRestartFailureReason;i4)");
+unsafe impl windows_core::Interface for UnhandledError {
+    type Vtable = <IUnhandledError as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IUnhandledError as windows_core::Interface>::IID;
 }
+impl windows_core::RuntimeName for UnhandledError {
+    const NAME: &'static str = "Windows.ApplicationModel.Core.UnhandledError";
+}
+unsafe impl Send for UnhandledError {}
+unsafe impl Sync for UnhandledError {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct UnhandledErrorDetectedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(UnhandledErrorDetectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl UnhandledErrorDetectedEventArgs {
+    pub fn UnhandledError(&self) -> windows_core::Result<UnhandledError> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UnhandledError)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for UnhandledErrorDetectedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUnhandledErrorDetectedEventArgs>();
+}
+unsafe impl windows_core::Interface for UnhandledErrorDetectedEventArgs {
+    type Vtable = <IUnhandledErrorDetectedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IUnhandledErrorDetectedEventArgs as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for UnhandledErrorDetectedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Core.UnhandledErrorDetectedEventArgs";
+}
+unsafe impl Send for UnhandledErrorDetectedEventArgs {}
+unsafe impl Sync for UnhandledErrorDetectedEventArgs {}

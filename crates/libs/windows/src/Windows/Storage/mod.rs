@@ -584,6 +584,95 @@ impl IntoIterator for &ApplicationDataContainerSettings {
         self.First().unwrap()
     }
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ApplicationDataCreateDisposition(pub i32);
+impl ApplicationDataCreateDisposition {
+    pub const Always: Self = Self(0i32);
+    pub const Existing: Self = Self(1i32);
+}
+impl windows_core::TypeKind for ApplicationDataCreateDisposition {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ApplicationDataCreateDisposition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.ApplicationDataCreateDisposition;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ApplicationDataLocality(pub i32);
+impl ApplicationDataLocality {
+    pub const Local: Self = Self(0i32);
+    pub const Roaming: Self = Self(1i32);
+    pub const Temporary: Self = Self(2i32);
+    pub const LocalCache: Self = Self(3i32);
+    pub const SharedLocal: Self = Self(4i32);
+}
+impl windows_core::TypeKind for ApplicationDataLocality {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ApplicationDataLocality {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.ApplicationDataLocality;i4)");
+}
+windows_core::imp::define_interface!(ApplicationDataSetVersionHandler, ApplicationDataSetVersionHandler_Vtbl, 0xa05791e6_cc9f_4687_acab_a364fd785463);
+impl windows_core::RuntimeType for ApplicationDataSetVersionHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl ApplicationDataSetVersionHandler {
+    pub fn new<F: FnMut(Option<&SetVersionRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = ApplicationDataSetVersionHandlerBox { vtable: &ApplicationDataSetVersionHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
+    pub fn Invoke<P0>(&self, setversionrequest: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<SetVersionRequest>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), setversionrequest.param().abi()).ok() }
+    }
+}
+#[repr(C)]
+pub struct ApplicationDataSetVersionHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, setversionrequest: *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[repr(C)]
+struct ApplicationDataSetVersionHandlerBox<F: FnMut(Option<&SetVersionRequest>) -> windows_core::Result<()> + Send + 'static> {
+    vtable: *const ApplicationDataSetVersionHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+impl<F: FnMut(Option<&SetVersionRequest>) -> windows_core::Result<()> + Send + 'static> ApplicationDataSetVersionHandlerBox<F> {
+    const VTABLE: ApplicationDataSetVersionHandler_Vtbl = ApplicationDataSetVersionHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <ApplicationDataSetVersionHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+        if (*interface).is_null() {
+            windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, setversionrequest: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&setversionrequest)).into()
+    }
+}
 pub struct CachedFileManager;
 impl CachedFileManager {
     #[cfg(feature = "Storage_Streams")]
@@ -610,6 +699,21 @@ impl CachedFileManager {
 }
 impl windows_core::RuntimeName for CachedFileManager {
     const NAME: &'static str = "Windows.Storage.CachedFileManager";
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CreationCollisionOption(pub i32);
+impl CreationCollisionOption {
+    pub const GenerateUniqueName: Self = Self(0i32);
+    pub const ReplaceExisting: Self = Self(1i32);
+    pub const FailIfExists: Self = Self(2i32);
+    pub const OpenIfExists: Self = Self(3i32);
+}
+impl windows_core::TypeKind for CreationCollisionOption {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for CreationCollisionOption {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.CreationCollisionOption;i4)");
 }
 pub struct DownloadsFolder;
 impl DownloadsFolder {
@@ -692,6 +796,69 @@ impl DownloadsFolder {
 }
 impl windows_core::RuntimeName for DownloadsFolder {
     const NAME: &'static str = "Windows.Storage.DownloadsFolder";
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FileAccessMode(pub i32);
+impl FileAccessMode {
+    pub const Read: Self = Self(0i32);
+    pub const ReadWrite: Self = Self(1i32);
+}
+impl windows_core::TypeKind for FileAccessMode {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for FileAccessMode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.FileAccessMode;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FileAttributes(pub u32);
+impl FileAttributes {
+    pub const Normal: Self = Self(0u32);
+    pub const ReadOnly: Self = Self(1u32);
+    pub const Directory: Self = Self(16u32);
+    pub const Archive: Self = Self(32u32);
+    pub const Temporary: Self = Self(256u32);
+    pub const LocallyIncomplete: Self = Self(512u32);
+}
+impl windows_core::TypeKind for FileAttributes {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for FileAttributes {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.FileAttributes;u4)");
+}
+impl FileAttributes {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for FileAttributes {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for FileAttributes {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for FileAttributes {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for FileAttributes {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for FileAttributes {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
 }
 pub struct FileIO;
 impl FileIO {
@@ -858,2385 +1025,6 @@ impl FileIO {
 impl windows_core::RuntimeName for FileIO {
     const NAME: &'static str = "Windows.Storage.FileIO";
 }
-pub struct KnownFolders;
-impl KnownFolders {
-    #[cfg(feature = "Storage_Search")]
-    pub fn CameraRoll() -> windows_core::Result<StorageFolder> {
-        Self::IKnownFoldersCameraRollStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CameraRoll)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn Playlists() -> windows_core::Result<StorageFolder> {
-        Self::IKnownFoldersPlaylistsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Playlists)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn SavedPictures() -> windows_core::Result<StorageFolder> {
-        Self::IKnownFoldersSavedPicturesStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SavedPictures)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn MusicLibrary() -> windows_core::Result<StorageFolder> {
-        Self::IKnownFoldersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MusicLibrary)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn PicturesLibrary() -> windows_core::Result<StorageFolder> {
-        Self::IKnownFoldersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PicturesLibrary)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn VideosLibrary() -> windows_core::Result<StorageFolder> {
-        Self::IKnownFoldersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).VideosLibrary)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn DocumentsLibrary() -> windows_core::Result<StorageFolder> {
-        Self::IKnownFoldersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DocumentsLibrary)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn HomeGroup() -> windows_core::Result<StorageFolder> {
-        Self::IKnownFoldersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HomeGroup)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn RemovableDevices() -> windows_core::Result<StorageFolder> {
-        Self::IKnownFoldersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemovableDevices)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn MediaServerDevices() -> windows_core::Result<StorageFolder> {
-        Self::IKnownFoldersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MediaServerDevices)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn Objects3D() -> windows_core::Result<StorageFolder> {
-        Self::IKnownFoldersStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Objects3D)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn AppCaptures() -> windows_core::Result<StorageFolder> {
-        Self::IKnownFoldersStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppCaptures)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn RecordedCalls() -> windows_core::Result<StorageFolder> {
-        Self::IKnownFoldersStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RecordedCalls)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(all(feature = "Storage_Search", feature = "System"))]
-    pub fn GetFolderForUserAsync<P0>(user: P0, folderid: KnownFolderId) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFolder>>
-    where
-        P0: windows_core::Param<super::System::User>,
-    {
-        Self::IKnownFoldersStatics3(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFolderForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), folderid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn RequestAccessAsync(folderid: KnownFolderId) -> windows_core::Result<super::Foundation::IAsyncOperation<KnownFoldersAccessStatus>> {
-        Self::IKnownFoldersStatics4(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), folderid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "System")]
-    pub fn RequestAccessForUserAsync<P0>(user: P0, folderid: KnownFolderId) -> windows_core::Result<super::Foundation::IAsyncOperation<KnownFoldersAccessStatus>>
-    where
-        P0: windows_core::Param<super::System::User>,
-    {
-        Self::IKnownFoldersStatics4(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestAccessForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), folderid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn GetFolderAsync(folderid: KnownFolderId) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFolder>> {
-        Self::IKnownFoldersStatics4(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFolderAsync)(windows_core::Interface::as_raw(this), folderid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IKnownFoldersCameraRollStatics<R, F: FnOnce(&IKnownFoldersCameraRollStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<KnownFolders, IKnownFoldersCameraRollStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn IKnownFoldersPlaylistsStatics<R, F: FnOnce(&IKnownFoldersPlaylistsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<KnownFolders, IKnownFoldersPlaylistsStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn IKnownFoldersSavedPicturesStatics<R, F: FnOnce(&IKnownFoldersSavedPicturesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<KnownFolders, IKnownFoldersSavedPicturesStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn IKnownFoldersStatics<R, F: FnOnce(&IKnownFoldersStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<KnownFolders, IKnownFoldersStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn IKnownFoldersStatics2<R, F: FnOnce(&IKnownFoldersStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<KnownFolders, IKnownFoldersStatics2> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn IKnownFoldersStatics3<R, F: FnOnce(&IKnownFoldersStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<KnownFolders, IKnownFoldersStatics3> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn IKnownFoldersStatics4<R, F: FnOnce(&IKnownFoldersStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<KnownFolders, IKnownFoldersStatics4> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeName for KnownFolders {
-    const NAME: &'static str = "Windows.Storage.KnownFolders";
-}
-pub struct PathIO;
-impl PathIO {
-    pub fn ReadTextAsync(absolutepath: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
-        Self::IPathIOStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadTextAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn ReadTextWithEncodingAsync(absolutepath: &windows_core::HSTRING, encoding: Streams::UnicodeEncoding) -> windows_core::Result<super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
-        Self::IPathIOStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadTextWithEncodingAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn WriteTextAsync(absolutepath: &windows_core::HSTRING, contents: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncAction> {
-        Self::IPathIOStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteTextAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), core::mem::transmute_copy(contents), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn WriteTextWithEncodingAsync(absolutepath: &windows_core::HSTRING, contents: &windows_core::HSTRING, encoding: Streams::UnicodeEncoding) -> windows_core::Result<super::Foundation::IAsyncAction> {
-        Self::IPathIOStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteTextWithEncodingAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), core::mem::transmute_copy(contents), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn AppendTextAsync(absolutepath: &windows_core::HSTRING, contents: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncAction> {
-        Self::IPathIOStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppendTextAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), core::mem::transmute_copy(contents), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn AppendTextWithEncodingAsync(absolutepath: &windows_core::HSTRING, contents: &windows_core::HSTRING, encoding: Streams::UnicodeEncoding) -> windows_core::Result<super::Foundation::IAsyncAction> {
-        Self::IPathIOStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppendTextWithEncodingAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), core::mem::transmute_copy(contents), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ReadLinesAsync(absolutepath: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<windows_core::HSTRING>>> {
-        Self::IPathIOStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadLinesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn ReadLinesWithEncodingAsync(absolutepath: &windows_core::HSTRING, encoding: Streams::UnicodeEncoding) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<windows_core::HSTRING>>> {
-        Self::IPathIOStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadLinesWithEncodingAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn WriteLinesAsync<P1>(absolutepath: &windows_core::HSTRING, lines: P1) -> windows_core::Result<super::Foundation::IAsyncAction>
-    where
-        P1: windows_core::Param<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-    {
-        Self::IPathIOStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteLinesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), lines.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn WriteLinesWithEncodingAsync<P1>(absolutepath: &windows_core::HSTRING, lines: P1, encoding: Streams::UnicodeEncoding) -> windows_core::Result<super::Foundation::IAsyncAction>
-    where
-        P1: windows_core::Param<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-    {
-        Self::IPathIOStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteLinesWithEncodingAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), lines.param().abi(), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AppendLinesAsync<P1>(absolutepath: &windows_core::HSTRING, lines: P1) -> windows_core::Result<super::Foundation::IAsyncAction>
-    where
-        P1: windows_core::Param<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-    {
-        Self::IPathIOStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppendLinesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), lines.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn AppendLinesWithEncodingAsync<P1>(absolutepath: &windows_core::HSTRING, lines: P1, encoding: Streams::UnicodeEncoding) -> windows_core::Result<super::Foundation::IAsyncAction>
-    where
-        P1: windows_core::Param<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-    {
-        Self::IPathIOStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppendLinesWithEncodingAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), lines.param().abi(), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn ReadBufferAsync(absolutepath: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<Streams::IBuffer>> {
-        Self::IPathIOStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadBufferAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn WriteBufferAsync<P1>(absolutepath: &windows_core::HSTRING, buffer: P1) -> windows_core::Result<super::Foundation::IAsyncAction>
-    where
-        P1: windows_core::Param<Streams::IBuffer>,
-    {
-        Self::IPathIOStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteBufferAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn WriteBytesAsync(absolutepath: &windows_core::HSTRING, buffer: &[u8]) -> windows_core::Result<super::Foundation::IAsyncAction> {
-        Self::IPathIOStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteBytesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), buffer.len().try_into().unwrap(), buffer.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IPathIOStatics<R, F: FnOnce(&IPathIOStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<PathIO, IPathIOStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeName for PathIO {
-    const NAME: &'static str = "Windows.Storage.PathIO";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct SetVersionDeferral(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SetVersionDeferral, windows_core::IUnknown, windows_core::IInspectable);
-impl SetVersionDeferral {
-    pub fn Complete(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
-    }
-}
-impl windows_core::RuntimeType for SetVersionDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISetVersionDeferral>();
-}
-unsafe impl windows_core::Interface for SetVersionDeferral {
-    type Vtable = <ISetVersionDeferral as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ISetVersionDeferral as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for SetVersionDeferral {
-    const NAME: &'static str = "Windows.Storage.SetVersionDeferral";
-}
-unsafe impl Send for SetVersionDeferral {}
-unsafe impl Sync for SetVersionDeferral {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct SetVersionRequest(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SetVersionRequest, windows_core::IUnknown, windows_core::IInspectable);
-impl SetVersionRequest {
-    pub fn CurrentVersion(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CurrentVersion)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn DesiredVersion(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DesiredVersion)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn GetDeferral(&self) -> windows_core::Result<SetVersionDeferral> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for SetVersionRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISetVersionRequest>();
-}
-unsafe impl windows_core::Interface for SetVersionRequest {
-    type Vtable = <ISetVersionRequest as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ISetVersionRequest as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for SetVersionRequest {
-    const NAME: &'static str = "Windows.Storage.SetVersionRequest";
-}
-unsafe impl Send for SetVersionRequest {}
-unsafe impl Sync for SetVersionRequest {}
-#[cfg(feature = "Storage_Streams")]
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct StorageFile(windows_core::IUnknown);
-#[cfg(feature = "Storage_Streams")]
-windows_core::imp::interface_hierarchy!(StorageFile, windows_core::IUnknown, windows_core::IInspectable, IStorageFile);
-#[cfg(feature = "Storage_Streams")]
-windows_core::imp::required_hierarchy!(StorageFile, Streams::IInputStreamReference, Streams::IRandomAccessStreamReference, IStorageFile2, IStorageFilePropertiesWithAvailability, IStorageItem, IStorageItem2, IStorageItemProperties, IStorageItemProperties2, IStorageItemPropertiesWithProvider);
-#[cfg(feature = "Storage_Streams")]
-impl StorageFile {
-    #[cfg(feature = "Storage_Streams")]
-    pub fn OpenSequentialReadAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<Streams::IInputStream>> {
-        let this = &windows_core::Interface::cast::<Streams::IInputStreamReference>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OpenSequentialReadAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn OpenReadAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<Streams::IRandomAccessStreamWithContentType>> {
-        let this = &windows_core::Interface::cast::<Streams::IRandomAccessStreamReference>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OpenReadAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn FileType(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FileType)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn ContentType(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContentType)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn OpenAsync(&self, accessmode: FileAccessMode) -> windows_core::Result<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OpenAsync)(windows_core::Interface::as_raw(this), accessmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn OpenTransactedWriteAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageStreamTransaction>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OpenTransactedWriteAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn CopyOverloadDefaultNameAndOptions<P0>(&self, destinationfolder: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>>
-    where
-        P0: windows_core::Param<IStorageFolder>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CopyOverloadDefaultNameAndOptions)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn CopyOverloadDefaultOptions<P0>(&self, destinationfolder: P0, desirednewname: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>>
-    where
-        P0: windows_core::Param<IStorageFolder>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CopyOverloadDefaultOptions)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), core::mem::transmute_copy(desirednewname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn CopyOverload<P0>(&self, destinationfolder: P0, desirednewname: &windows_core::HSTRING, option: NameCollisionOption) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>>
-    where
-        P0: windows_core::Param<IStorageFolder>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CopyOverload)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), core::mem::transmute_copy(desirednewname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn CopyAndReplaceAsync<P0>(&self, filetoreplace: P0) -> windows_core::Result<super::Foundation::IAsyncAction>
-    where
-        P0: windows_core::Param<IStorageFile>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CopyAndReplaceAsync)(windows_core::Interface::as_raw(this), filetoreplace.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn MoveOverloadDefaultNameAndOptions<P0>(&self, destinationfolder: P0) -> windows_core::Result<super::Foundation::IAsyncAction>
-    where
-        P0: windows_core::Param<IStorageFolder>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MoveOverloadDefaultNameAndOptions)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn MoveOverloadDefaultOptions<P0>(&self, destinationfolder: P0, desirednewname: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncAction>
-    where
-        P0: windows_core::Param<IStorageFolder>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MoveOverloadDefaultOptions)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), core::mem::transmute_copy(desirednewname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn MoveOverload<P0>(&self, destinationfolder: P0, desirednewname: &windows_core::HSTRING, option: NameCollisionOption) -> windows_core::Result<super::Foundation::IAsyncAction>
-    where
-        P0: windows_core::Param<IStorageFolder>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MoveOverload)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), core::mem::transmute_copy(desirednewname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn MoveAndReplaceAsync<P0>(&self, filetoreplace: P0) -> windows_core::Result<super::Foundation::IAsyncAction>
-    where
-        P0: windows_core::Param<IStorageFile>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MoveAndReplaceAsync)(windows_core::Interface::as_raw(this), filetoreplace.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn OpenWithOptionsAsync(&self, accessmode: FileAccessMode, options: StorageOpenOptions) -> windows_core::Result<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>> {
-        let this = &windows_core::Interface::cast::<IStorageFile2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OpenWithOptionsAsync)(windows_core::Interface::as_raw(this), accessmode, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn OpenTransactedWriteWithOptionsAsync(&self, options: StorageOpenOptions) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageStreamTransaction>> {
-        let this = &windows_core::Interface::cast::<IStorageFile2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OpenTransactedWriteWithOptionsAsync)(windows_core::Interface::as_raw(this), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn IsAvailable(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IStorageFilePropertiesWithAvailability>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsAvailable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn GetFileFromPathAsync(path: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>> {
-        Self::IStorageFileStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFileFromPathAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn GetFileFromApplicationUriAsync<P0>(uri: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>>
-    where
-        P0: windows_core::Param<super::Foundation::Uri>,
-    {
-        Self::IStorageFileStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFileFromApplicationUriAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn CreateStreamedFileAsync<P1, P2>(displaynamewithextension: &windows_core::HSTRING, datarequested: P1, thumbnail: P2) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>>
-    where
-        P1: windows_core::Param<StreamedFileDataRequestedHandler>,
-        P2: windows_core::Param<Streams::IRandomAccessStreamReference>,
-    {
-        Self::IStorageFileStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateStreamedFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displaynamewithextension), datarequested.param().abi(), thumbnail.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn ReplaceWithStreamedFileAsync<P0, P1, P2>(filetoreplace: P0, datarequested: P1, thumbnail: P2) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>>
-    where
-        P0: windows_core::Param<IStorageFile>,
-        P1: windows_core::Param<StreamedFileDataRequestedHandler>,
-        P2: windows_core::Param<Streams::IRandomAccessStreamReference>,
-    {
-        Self::IStorageFileStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReplaceWithStreamedFileAsync)(windows_core::Interface::as_raw(this), filetoreplace.param().abi(), datarequested.param().abi(), thumbnail.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateStreamedFileFromUriAsync<P1, P2>(displaynamewithextension: &windows_core::HSTRING, uri: P1, thumbnail: P2) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>>
-    where
-        P1: windows_core::Param<super::Foundation::Uri>,
-        P2: windows_core::Param<Streams::IRandomAccessStreamReference>,
-    {
-        Self::IStorageFileStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateStreamedFileFromUriAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displaynamewithextension), uri.param().abi(), thumbnail.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn ReplaceWithStreamedFileFromUriAsync<P0, P1, P2>(filetoreplace: P0, uri: P1, thumbnail: P2) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>>
-    where
-        P0: windows_core::Param<IStorageFile>,
-        P1: windows_core::Param<super::Foundation::Uri>,
-        P2: windows_core::Param<Streams::IRandomAccessStreamReference>,
-    {
-        Self::IStorageFileStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReplaceWithStreamedFileFromUriAsync)(windows_core::Interface::as_raw(this), filetoreplace.param().abi(), uri.param().abi(), thumbnail.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "System")]
-    pub fn GetFileFromPathForUserAsync<P0>(user: P0, path: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>>
-    where
-        P0: windows_core::Param<super::System::User>,
-    {
-        Self::IStorageFileStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFileFromPathForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn RenameAsyncOverloadDefaultOptions(&self, desiredname: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncAction> {
-        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RenameAsyncOverloadDefaultOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(desiredname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn RenameAsync(&self, desiredname: &windows_core::HSTRING, option: NameCollisionOption) -> windows_core::Result<super::Foundation::IAsyncAction> {
-        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RenameAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(desiredname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn DeleteAsyncOverloadDefaultOptions(&self) -> windows_core::Result<super::Foundation::IAsyncAction> {
-        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeleteAsyncOverloadDefaultOptions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn DeleteAsync(&self, option: StorageDeleteOption) -> windows_core::Result<super::Foundation::IAsyncAction> {
-        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeleteAsync)(windows_core::Interface::as_raw(this), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Storage_FileProperties")]
-    pub fn GetBasicPropertiesAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::BasicProperties>> {
-        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetBasicPropertiesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Path(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Path)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Attributes(&self) -> windows_core::Result<FileAttributes> {
-        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Attributes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn DateCreated(&self) -> windows_core::Result<super::Foundation::DateTime> {
-        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DateCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn IsOfType(&self, r#type: StorageItemTypes) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsOfType)(windows_core::Interface::as_raw(this), r#type, &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn GetParentAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFolder>> {
-        let this = &windows_core::Interface::cast::<IStorageItem2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetParentAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn IsEqual<P0>(&self, item: P0) -> windows_core::Result<bool>
-    where
-        P0: windows_core::Param<IStorageItem>,
-    {
-        let this = &windows_core::Interface::cast::<IStorageItem2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsEqual)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetThumbnailAsyncOverloadDefaultSizeDefaultOptions(&self, mode: FileProperties::ThumbnailMode) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
-        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultSizeDefaultOptions)(windows_core::Interface::as_raw(this), mode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetThumbnailAsyncOverloadDefaultOptions(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
-        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultOptions)(windows_core::Interface::as_raw(this), mode, requestedsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32, options: FileProperties::ThumbnailOptions) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
-        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetThumbnailAsync)(windows_core::Interface::as_raw(this), mode, requestedsize, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn DisplayType(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayType)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn FolderRelativeId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FolderRelativeId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "Storage_FileProperties")]
-    pub fn Properties(&self) -> windows_core::Result<FileProperties::StorageItemContentProperties> {
-        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions(&self, mode: FileProperties::ThumbnailMode) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
-        let this = &windows_core::Interface::cast::<IStorageItemProperties2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions)(windows_core::Interface::as_raw(this), mode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetScaledImageAsThumbnailAsyncOverloadDefaultOptions(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
-        let this = &windows_core::Interface::cast::<IStorageItemProperties2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetScaledImageAsThumbnailAsyncOverloadDefaultOptions)(windows_core::Interface::as_raw(this), mode, requestedsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetScaledImageAsThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32, options: FileProperties::ThumbnailOptions) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
-        let this = &windows_core::Interface::cast::<IStorageItemProperties2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetScaledImageAsThumbnailAsync)(windows_core::Interface::as_raw(this), mode, requestedsize, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Provider(&self) -> windows_core::Result<StorageProvider> {
-        let this = &windows_core::Interface::cast::<IStorageItemPropertiesWithProvider>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Provider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    fn IStorageFileStatics<R, F: FnOnce(&IStorageFileStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<StorageFile, IStorageFileStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn IStorageFileStatics2<R, F: FnOnce(&IStorageFileStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<StorageFile, IStorageFileStatics2> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl windows_core::RuntimeType for StorageFile {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageFile>();
-}
-#[cfg(feature = "Storage_Streams")]
-unsafe impl windows_core::Interface for StorageFile {
-    type Vtable = <IStorageFile as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IStorageFile as windows_core::Interface>::IID;
-}
-#[cfg(feature = "Storage_Streams")]
-impl windows_core::RuntimeName for StorageFile {
-    const NAME: &'static str = "Windows.Storage.StorageFile";
-}
-#[cfg(feature = "Storage_Search")]
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct StorageFolder(windows_core::IUnknown);
-#[cfg(feature = "Storage_Search")]
-windows_core::imp::interface_hierarchy!(StorageFolder, windows_core::IUnknown, windows_core::IInspectable, IStorageFolder);
-#[cfg(feature = "Storage_Search")]
-windows_core::imp::required_hierarchy!(StorageFolder, IStorageFolder2, Search::IStorageFolderQueryOperations, IStorageItem, IStorageItem2, IStorageItemProperties, IStorageItemProperties2, IStorageItemPropertiesWithProvider);
-#[cfg(feature = "Storage_Search")]
-impl StorageFolder {
-    #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFileAsyncOverloadDefaultOptions(&self, desiredname: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFileAsyncOverloadDefaultOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(desiredname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFileAsync(&self, desiredname: &windows_core::HSTRING, options: CreationCollisionOption) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(desiredname), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn CreateFolderAsyncOverloadDefaultOptions(&self, desiredname: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFolder>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFolderAsyncOverloadDefaultOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(desiredname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn CreateFolderAsync(&self, desiredname: &windows_core::HSTRING, options: CreationCollisionOption) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFolder>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFolderAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(desiredname), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn GetFileAsync(&self, name: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetFolderAsync(&self, name: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFolder>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFolderAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetItemAsync(&self, name: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<IStorageItem>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetItemAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn GetFilesAsyncOverloadDefaultOptionsStartAndCount(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFile>>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFilesAsyncOverloadDefaultOptionsStartAndCount)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetFoldersAsyncOverloadDefaultOptionsStartAndCount(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFolder>>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFoldersAsyncOverloadDefaultOptionsStartAndCount)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetItemsAsyncOverloadDefaultStartAndCount(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<IStorageItem>>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetItemsAsyncOverloadDefaultStartAndCount)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn TryGetItemAsync(&self, name: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<IStorageItem>> {
-        let this = &windows_core::Interface::cast::<IStorageFolder2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetItemAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn TryGetChangeTracker(&self) -> windows_core::Result<StorageLibraryChangeTracker> {
-        let this = &windows_core::Interface::cast::<IStorageFolder3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetChangeTracker)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn GetIndexedStateAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<Search::IndexedState>> {
-        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetIndexedStateAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn CreateFileQueryOverloadDefault(&self) -> windows_core::Result<Search::StorageFileQueryResult> {
-        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFileQueryOverloadDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn CreateFileQuery(&self, query: Search::CommonFileQuery) -> windows_core::Result<Search::StorageFileQueryResult> {
-        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFileQuery)(windows_core::Interface::as_raw(this), query, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn CreateFileQueryWithOptions<P0>(&self, queryoptions: P0) -> windows_core::Result<Search::StorageFileQueryResult>
-    where
-        P0: windows_core::Param<Search::QueryOptions>,
-    {
-        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFileQueryWithOptions)(windows_core::Interface::as_raw(this), queryoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn CreateFolderQueryOverloadDefault(&self) -> windows_core::Result<Search::StorageFolderQueryResult> {
-        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFolderQueryOverloadDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn CreateFolderQuery(&self, query: Search::CommonFolderQuery) -> windows_core::Result<Search::StorageFolderQueryResult> {
-        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFolderQuery)(windows_core::Interface::as_raw(this), query, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn CreateFolderQueryWithOptions<P0>(&self, queryoptions: P0) -> windows_core::Result<Search::StorageFolderQueryResult>
-    where
-        P0: windows_core::Param<Search::QueryOptions>,
-    {
-        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFolderQueryWithOptions)(windows_core::Interface::as_raw(this), queryoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn CreateItemQuery(&self) -> windows_core::Result<Search::StorageItemQueryResult> {
-        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateItemQuery)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn CreateItemQueryWithOptions<P0>(&self, queryoptions: P0) -> windows_core::Result<Search::StorageItemQueryResult>
-    where
-        P0: windows_core::Param<Search::QueryOptions>,
-    {
-        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateItemQueryWithOptions)(windows_core::Interface::as_raw(this), queryoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search", feature = "Storage_Streams"))]
-    pub fn GetFilesAsync(&self, query: Search::CommonFileQuery, startindex: u32, maxitemstoretrieve: u32) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFile>>> {
-        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFilesAsync)(windows_core::Interface::as_raw(this), query, startindex, maxitemstoretrieve, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search", feature = "Storage_Streams"))]
-    pub fn GetFilesAsyncOverloadDefaultStartAndCount(&self, query: Search::CommonFileQuery) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFile>>> {
-        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFilesAsyncOverloadDefaultStartAndCount)(windows_core::Interface::as_raw(this), query, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
-    pub fn GetFoldersAsync(&self, query: Search::CommonFolderQuery, startindex: u32, maxitemstoretrieve: u32) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFolder>>> {
-        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFoldersAsync)(windows_core::Interface::as_raw(this), query, startindex, maxitemstoretrieve, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
-    pub fn GetFoldersAsyncOverloadDefaultStartAndCount(&self, query: Search::CommonFolderQuery) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFolder>>> {
-        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFoldersAsyncOverloadDefaultStartAndCount)(windows_core::Interface::as_raw(this), query, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetItemsAsync(&self, startindex: u32, maxitemstoretrieve: u32) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<IStorageItem>>> {
-        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetItemsAsync)(windows_core::Interface::as_raw(this), startindex, maxitemstoretrieve, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn AreQueryOptionsSupported<P0>(&self, queryoptions: P0) -> windows_core::Result<bool>
-    where
-        P0: windows_core::Param<Search::QueryOptions>,
-    {
-        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AreQueryOptionsSupported)(windows_core::Interface::as_raw(this), queryoptions.param().abi(), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn IsCommonFolderQuerySupported(&self, query: Search::CommonFolderQuery) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsCommonFolderQuerySupported)(windows_core::Interface::as_raw(this), query, &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn IsCommonFileQuerySupported(&self, query: Search::CommonFileQuery) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsCommonFileQuerySupported)(windows_core::Interface::as_raw(this), query, &mut result__).map(|| result__)
-        }
-    }
-    pub fn GetFolderFromPathAsync(path: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFolder>> {
-        Self::IStorageFolderStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFolderFromPathAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "System")]
-    pub fn GetFolderFromPathForUserAsync<P0>(user: P0, path: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFolder>>
-    where
-        P0: windows_core::Param<super::System::User>,
-    {
-        Self::IStorageFolderStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFolderFromPathForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn RenameAsyncOverloadDefaultOptions(&self, desiredname: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncAction> {
-        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RenameAsyncOverloadDefaultOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(desiredname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn RenameAsync(&self, desiredname: &windows_core::HSTRING, option: NameCollisionOption) -> windows_core::Result<super::Foundation::IAsyncAction> {
-        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RenameAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(desiredname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn DeleteAsyncOverloadDefaultOptions(&self) -> windows_core::Result<super::Foundation::IAsyncAction> {
-        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeleteAsyncOverloadDefaultOptions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn DeleteAsync(&self, option: StorageDeleteOption) -> windows_core::Result<super::Foundation::IAsyncAction> {
-        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeleteAsync)(windows_core::Interface::as_raw(this), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Storage_FileProperties")]
-    pub fn GetBasicPropertiesAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::BasicProperties>> {
-        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetBasicPropertiesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Path(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Path)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Attributes(&self) -> windows_core::Result<FileAttributes> {
-        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Attributes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn DateCreated(&self) -> windows_core::Result<super::Foundation::DateTime> {
-        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DateCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn IsOfType(&self, r#type: StorageItemTypes) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsOfType)(windows_core::Interface::as_raw(this), r#type, &mut result__).map(|| result__)
-        }
-    }
-    pub fn GetParentAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFolder>> {
-        let this = &windows_core::Interface::cast::<IStorageItem2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetParentAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn IsEqual<P0>(&self, item: P0) -> windows_core::Result<bool>
-    where
-        P0: windows_core::Param<IStorageItem>,
-    {
-        let this = &windows_core::Interface::cast::<IStorageItem2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsEqual)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetThumbnailAsyncOverloadDefaultSizeDefaultOptions(&self, mode: FileProperties::ThumbnailMode) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
-        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultSizeDefaultOptions)(windows_core::Interface::as_raw(this), mode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetThumbnailAsyncOverloadDefaultOptions(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
-        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultOptions)(windows_core::Interface::as_raw(this), mode, requestedsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32, options: FileProperties::ThumbnailOptions) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
-        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetThumbnailAsync)(windows_core::Interface::as_raw(this), mode, requestedsize, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn DisplayType(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayType)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn FolderRelativeId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FolderRelativeId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "Storage_FileProperties")]
-    pub fn Properties(&self) -> windows_core::Result<FileProperties::StorageItemContentProperties> {
-        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions(&self, mode: FileProperties::ThumbnailMode) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
-        let this = &windows_core::Interface::cast::<IStorageItemProperties2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions)(windows_core::Interface::as_raw(this), mode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetScaledImageAsThumbnailAsyncOverloadDefaultOptions(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
-        let this = &windows_core::Interface::cast::<IStorageItemProperties2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetScaledImageAsThumbnailAsyncOverloadDefaultOptions)(windows_core::Interface::as_raw(this), mode, requestedsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetScaledImageAsThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32, options: FileProperties::ThumbnailOptions) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
-        let this = &windows_core::Interface::cast::<IStorageItemProperties2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetScaledImageAsThumbnailAsync)(windows_core::Interface::as_raw(this), mode, requestedsize, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Provider(&self) -> windows_core::Result<StorageProvider> {
-        let this = &windows_core::Interface::cast::<IStorageItemPropertiesWithProvider>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Provider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    fn IStorageFolderStatics<R, F: FnOnce(&IStorageFolderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<StorageFolder, IStorageFolderStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn IStorageFolderStatics2<R, F: FnOnce(&IStorageFolderStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<StorageFolder, IStorageFolderStatics2> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-#[cfg(feature = "Storage_Search")]
-impl windows_core::RuntimeType for StorageFolder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageFolder>();
-}
-#[cfg(feature = "Storage_Search")]
-unsafe impl windows_core::Interface for StorageFolder {
-    type Vtable = <IStorageFolder as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IStorageFolder as windows_core::Interface>::IID;
-}
-#[cfg(feature = "Storage_Search")]
-impl windows_core::RuntimeName for StorageFolder {
-    const NAME: &'static str = "Windows.Storage.StorageFolder";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct StorageLibrary(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(StorageLibrary, windows_core::IUnknown, windows_core::IInspectable);
-impl StorageLibrary {
-    #[cfg(feature = "Storage_Search")]
-    pub fn RequestAddFolderAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFolder>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestAddFolderAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn RequestRemoveFolderAsync<P0>(&self, folder: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: windows_core::Param<StorageFolder>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestRemoveFolderAsync)(windows_core::Interface::as_raw(this), folder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
-    pub fn Folders(&self) -> windows_core::Result<super::Foundation::Collections::IObservableVector<StorageFolder>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Folders)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Storage_Search")]
-    pub fn SaveFolder(&self) -> windows_core::Result<StorageFolder> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SaveFolder)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn DefinitionChanged<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<StorageLibrary, windows_core::IInspectable>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DefinitionChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveDefinitionChanged(&self, eventcookie: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveDefinitionChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() }
-    }
-    pub fn ChangeTracker(&self) -> windows_core::Result<StorageLibraryChangeTracker> {
-        let this = &windows_core::Interface::cast::<IStorageLibrary2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ChangeTracker)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn AreFolderSuggestionsAvailableAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>> {
-        let this = &windows_core::Interface::cast::<IStorageLibrary3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AreFolderSuggestionsAvailableAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetLibraryAsync(libraryid: KnownLibraryId) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageLibrary>> {
-        Self::IStorageLibraryStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetLibraryAsync)(windows_core::Interface::as_raw(this), libraryid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "System")]
-    pub fn GetLibraryForUserAsync<P0>(user: P0, libraryid: KnownLibraryId) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageLibrary>>
-    where
-        P0: windows_core::Param<super::System::User>,
-    {
-        Self::IStorageLibraryStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetLibraryForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), libraryid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IStorageLibraryStatics<R, F: FnOnce(&IStorageLibraryStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<StorageLibrary, IStorageLibraryStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn IStorageLibraryStatics2<R, F: FnOnce(&IStorageLibraryStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<StorageLibrary, IStorageLibraryStatics2> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for StorageLibrary {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageLibrary>();
-}
-unsafe impl windows_core::Interface for StorageLibrary {
-    type Vtable = <IStorageLibrary as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IStorageLibrary as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for StorageLibrary {
-    const NAME: &'static str = "Windows.Storage.StorageLibrary";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct StorageLibraryChange(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(StorageLibraryChange, windows_core::IUnknown, windows_core::IInspectable);
-impl StorageLibraryChange {
-    pub fn ChangeType(&self) -> windows_core::Result<StorageLibraryChangeType> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ChangeType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Path(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Path)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn PreviousPath(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PreviousPath)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn IsOfType(&self, r#type: StorageItemTypes) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsOfType)(windows_core::Interface::as_raw(this), r#type, &mut result__).map(|| result__)
-        }
-    }
-    pub fn GetStorageItemAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<IStorageItem>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetStorageItemAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for StorageLibraryChange {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageLibraryChange>();
-}
-unsafe impl windows_core::Interface for StorageLibraryChange {
-    type Vtable = <IStorageLibraryChange as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IStorageLibraryChange as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for StorageLibraryChange {
-    const NAME: &'static str = "Windows.Storage.StorageLibraryChange";
-}
-unsafe impl Send for StorageLibraryChange {}
-unsafe impl Sync for StorageLibraryChange {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct StorageLibraryChangeReader(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(StorageLibraryChangeReader, windows_core::IUnknown, windows_core::IInspectable);
-impl StorageLibraryChangeReader {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ReadBatchAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageLibraryChange>>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadBatchAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn AcceptChangesAsync(&self) -> windows_core::Result<super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AcceptChangesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetLastChangeId(&self) -> windows_core::Result<u64> {
-        let this = &windows_core::Interface::cast::<IStorageLibraryChangeReader2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetLastChangeId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for StorageLibraryChangeReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageLibraryChangeReader>();
-}
-unsafe impl windows_core::Interface for StorageLibraryChangeReader {
-    type Vtable = <IStorageLibraryChangeReader as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IStorageLibraryChangeReader as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for StorageLibraryChangeReader {
-    const NAME: &'static str = "Windows.Storage.StorageLibraryChangeReader";
-}
-unsafe impl Send for StorageLibraryChangeReader {}
-unsafe impl Sync for StorageLibraryChangeReader {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct StorageLibraryChangeTracker(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(StorageLibraryChangeTracker, windows_core::IUnknown, windows_core::IInspectable);
-impl StorageLibraryChangeTracker {
-    pub fn GetChangeReader(&self) -> windows_core::Result<StorageLibraryChangeReader> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetChangeReader)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Enable(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Enable)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn Reset(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Reset)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn EnableWithOptions<P0>(&self, options: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<StorageLibraryChangeTrackerOptions>,
-    {
-        let this = &windows_core::Interface::cast::<IStorageLibraryChangeTracker2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).EnableWithOptions)(windows_core::Interface::as_raw(this), options.param().abi()).ok() }
-    }
-    pub fn Disable(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IStorageLibraryChangeTracker2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Disable)(windows_core::Interface::as_raw(this)).ok() }
-    }
-}
-impl windows_core::RuntimeType for StorageLibraryChangeTracker {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageLibraryChangeTracker>();
-}
-unsafe impl windows_core::Interface for StorageLibraryChangeTracker {
-    type Vtable = <IStorageLibraryChangeTracker as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IStorageLibraryChangeTracker as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for StorageLibraryChangeTracker {
-    const NAME: &'static str = "Windows.Storage.StorageLibraryChangeTracker";
-}
-unsafe impl Send for StorageLibraryChangeTracker {}
-unsafe impl Sync for StorageLibraryChangeTracker {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct StorageLibraryChangeTrackerOptions(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(StorageLibraryChangeTrackerOptions, windows_core::IUnknown, windows_core::IInspectable);
-impl StorageLibraryChangeTrackerOptions {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<StorageLibraryChangeTrackerOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn TrackChangeDetails(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrackChangeDetails)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetTrackChangeDetails(&self, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTrackChangeDetails)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-}
-impl windows_core::RuntimeType for StorageLibraryChangeTrackerOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageLibraryChangeTrackerOptions>();
-}
-unsafe impl windows_core::Interface for StorageLibraryChangeTrackerOptions {
-    type Vtable = <IStorageLibraryChangeTrackerOptions as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IStorageLibraryChangeTrackerOptions as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for StorageLibraryChangeTrackerOptions {
-    const NAME: &'static str = "Windows.Storage.StorageLibraryChangeTrackerOptions";
-}
-unsafe impl Send for StorageLibraryChangeTrackerOptions {}
-unsafe impl Sync for StorageLibraryChangeTrackerOptions {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct StorageLibraryLastChangeId(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(StorageLibraryLastChangeId, windows_core::IUnknown, windows_core::IInspectable);
-impl StorageLibraryLastChangeId {
-    pub fn Unknown() -> windows_core::Result<u64> {
-        Self::IStorageLibraryLastChangeIdStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Unknown)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        })
-    }
-    fn IStorageLibraryLastChangeIdStatics<R, F: FnOnce(&IStorageLibraryLastChangeIdStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<StorageLibraryLastChangeId, IStorageLibraryLastChangeIdStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for StorageLibraryLastChangeId {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageLibraryLastChangeId>();
-}
-unsafe impl windows_core::Interface for StorageLibraryLastChangeId {
-    type Vtable = <IStorageLibraryLastChangeId as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IStorageLibraryLastChangeId as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for StorageLibraryLastChangeId {
-    const NAME: &'static str = "Windows.Storage.StorageLibraryLastChangeId";
-}
-unsafe impl Send for StorageLibraryLastChangeId {}
-unsafe impl Sync for StorageLibraryLastChangeId {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct StorageProvider(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(StorageProvider, windows_core::IUnknown, windows_core::IInspectable);
-impl StorageProvider {
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn IsPropertySupportedForPartialFileAsync(&self, propertycanonicalname: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>> {
-        let this = &windows_core::Interface::cast::<IStorageProvider2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsPropertySupportedForPartialFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertycanonicalname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for StorageProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageProvider>();
-}
-unsafe impl windows_core::Interface for StorageProvider {
-    type Vtable = <IStorageProvider as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IStorageProvider as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for StorageProvider {
-    const NAME: &'static str = "Windows.Storage.StorageProvider";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct StorageStreamTransaction(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(StorageStreamTransaction, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(StorageStreamTransaction, super::Foundation::IClosable);
-impl StorageStreamTransaction {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn Stream(&self) -> windows_core::Result<Streams::IRandomAccessStream> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Stream)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn CommitAsync(&self) -> windows_core::Result<super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CommitAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for StorageStreamTransaction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageStreamTransaction>();
-}
-unsafe impl windows_core::Interface for StorageStreamTransaction {
-    type Vtable = <IStorageStreamTransaction as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IStorageStreamTransaction as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for StorageStreamTransaction {
-    const NAME: &'static str = "Windows.Storage.StorageStreamTransaction";
-}
-#[cfg(feature = "Storage_Streams")]
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct StreamedFileDataRequest(windows_core::IUnknown);
-#[cfg(feature = "Storage_Streams")]
-windows_core::imp::interface_hierarchy!(StreamedFileDataRequest, windows_core::IUnknown, windows_core::IInspectable, Streams::IOutputStream);
-#[cfg(feature = "Storage_Streams")]
-windows_core::imp::required_hierarchy!(StreamedFileDataRequest, super::Foundation::IClosable, IStreamedFileDataRequest);
-#[cfg(feature = "Storage_Streams")]
-impl StreamedFileDataRequest {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn WriteAsync<P0>(&self, buffer: P0) -> windows_core::Result<super::Foundation::IAsyncOperationWithProgress<u32, u32>>
-    where
-        P0: windows_core::Param<Streams::IBuffer>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn FlushAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FlushAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn FailAndClose(&self, failuremode: StreamedFileFailureMode) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IStreamedFileDataRequest>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).FailAndClose)(windows_core::Interface::as_raw(this), failuremode).ok() }
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl windows_core::RuntimeType for StreamedFileDataRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, Streams::IOutputStream>();
-}
-#[cfg(feature = "Storage_Streams")]
-unsafe impl windows_core::Interface for StreamedFileDataRequest {
-    type Vtable = <Streams::IOutputStream as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <Streams::IOutputStream as windows_core::Interface>::IID;
-}
-#[cfg(feature = "Storage_Streams")]
-impl windows_core::RuntimeName for StreamedFileDataRequest {
-    const NAME: &'static str = "Windows.Storage.StreamedFileDataRequest";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct SystemAudioProperties(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SystemAudioProperties, windows_core::IUnknown, windows_core::IInspectable);
-impl SystemAudioProperties {
-    pub fn EncodingBitrate(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EncodingBitrate)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for SystemAudioProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemAudioProperties>();
-}
-unsafe impl windows_core::Interface for SystemAudioProperties {
-    type Vtable = <ISystemAudioProperties as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ISystemAudioProperties as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for SystemAudioProperties {
-    const NAME: &'static str = "Windows.Storage.SystemAudioProperties";
-}
-unsafe impl Send for SystemAudioProperties {}
-unsafe impl Sync for SystemAudioProperties {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct SystemDataPaths(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SystemDataPaths, windows_core::IUnknown, windows_core::IInspectable);
-impl SystemDataPaths {
-    pub fn Fonts(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Fonts)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn ProgramData(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProgramData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Public(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Public)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn PublicDesktop(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PublicDesktop)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn PublicDocuments(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PublicDocuments)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn PublicDownloads(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PublicDownloads)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn PublicMusic(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PublicMusic)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn PublicPictures(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PublicPictures)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn PublicVideos(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PublicVideos)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn System(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).System)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SystemHost(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemHost)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SystemX86(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemX86)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SystemX64(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemX64)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SystemArm(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemArm)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn UserProfiles(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UserProfiles)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Windows(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Windows)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn GetDefault() -> windows_core::Result<SystemDataPaths> {
-        Self::ISystemDataPathsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn ISystemDataPathsStatics<R, F: FnOnce(&ISystemDataPathsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<SystemDataPaths, ISystemDataPathsStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for SystemDataPaths {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemDataPaths>();
-}
-unsafe impl windows_core::Interface for SystemDataPaths {
-    type Vtable = <ISystemDataPaths as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ISystemDataPaths as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for SystemDataPaths {
-    const NAME: &'static str = "Windows.Storage.SystemDataPaths";
-}
-unsafe impl Send for SystemDataPaths {}
-unsafe impl Sync for SystemDataPaths {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct SystemGPSProperties(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SystemGPSProperties, windows_core::IUnknown, windows_core::IInspectable);
-impl SystemGPSProperties {
-    pub fn LatitudeDecimal(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LatitudeDecimal)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn LongitudeDecimal(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LongitudeDecimal)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for SystemGPSProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemGPSProperties>();
-}
-unsafe impl windows_core::Interface for SystemGPSProperties {
-    type Vtable = <ISystemGPSProperties as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ISystemGPSProperties as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for SystemGPSProperties {
-    const NAME: &'static str = "Windows.Storage.SystemGPSProperties";
-}
-unsafe impl Send for SystemGPSProperties {}
-unsafe impl Sync for SystemGPSProperties {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct SystemImageProperties(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SystemImageProperties, windows_core::IUnknown, windows_core::IInspectable);
-impl SystemImageProperties {
-    pub fn HorizontalSize(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HorizontalSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn VerticalSize(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).VerticalSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for SystemImageProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemImageProperties>();
-}
-unsafe impl windows_core::Interface for SystemImageProperties {
-    type Vtable = <ISystemImageProperties as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ISystemImageProperties as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for SystemImageProperties {
-    const NAME: &'static str = "Windows.Storage.SystemImageProperties";
-}
-unsafe impl Send for SystemImageProperties {}
-unsafe impl Sync for SystemImageProperties {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct SystemMediaProperties(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SystemMediaProperties, windows_core::IUnknown, windows_core::IInspectable);
-impl SystemMediaProperties {
-    pub fn Duration(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Producer(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Producer)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Publisher(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Publisher)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SubTitle(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SubTitle)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Writer(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Writer)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Year(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Year)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for SystemMediaProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemMediaProperties>();
-}
-unsafe impl windows_core::Interface for SystemMediaProperties {
-    type Vtable = <ISystemMediaProperties as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ISystemMediaProperties as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for SystemMediaProperties {
-    const NAME: &'static str = "Windows.Storage.SystemMediaProperties";
-}
-unsafe impl Send for SystemMediaProperties {}
-unsafe impl Sync for SystemMediaProperties {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct SystemMusicProperties(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SystemMusicProperties, windows_core::IUnknown, windows_core::IInspectable);
-impl SystemMusicProperties {
-    pub fn AlbumArtist(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AlbumArtist)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn AlbumTitle(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AlbumTitle)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Artist(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Artist)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Composer(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Composer)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Conductor(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Conductor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn DisplayArtist(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayArtist)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Genre(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Genre)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn TrackNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrackNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for SystemMusicProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemMusicProperties>();
-}
-unsafe impl windows_core::Interface for SystemMusicProperties {
-    type Vtable = <ISystemMusicProperties as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ISystemMusicProperties as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for SystemMusicProperties {
-    const NAME: &'static str = "Windows.Storage.SystemMusicProperties";
-}
-unsafe impl Send for SystemMusicProperties {}
-unsafe impl Sync for SystemMusicProperties {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct SystemPhotoProperties(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SystemPhotoProperties, windows_core::IUnknown, windows_core::IInspectable);
-impl SystemPhotoProperties {
-    pub fn CameraManufacturer(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CameraManufacturer)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn CameraModel(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CameraModel)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn DateTaken(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DateTaken)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Orientation(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Orientation)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn PeopleNames(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PeopleNames)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for SystemPhotoProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemPhotoProperties>();
-}
-unsafe impl windows_core::Interface for SystemPhotoProperties {
-    type Vtable = <ISystemPhotoProperties as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ISystemPhotoProperties as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for SystemPhotoProperties {
-    const NAME: &'static str = "Windows.Storage.SystemPhotoProperties";
-}
-unsafe impl Send for SystemPhotoProperties {}
-unsafe impl Sync for SystemPhotoProperties {}
-pub struct SystemProperties;
-impl SystemProperties {
-    pub fn Author() -> windows_core::Result<windows_core::HSTRING> {
-        Self::ISystemProperties(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Author)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Comment() -> windows_core::Result<windows_core::HSTRING> {
-        Self::ISystemProperties(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Comment)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn ItemNameDisplay() -> windows_core::Result<windows_core::HSTRING> {
-        Self::ISystemProperties(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ItemNameDisplay)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Keywords() -> windows_core::Result<windows_core::HSTRING> {
-        Self::ISystemProperties(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Keywords)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Rating() -> windows_core::Result<windows_core::HSTRING> {
-        Self::ISystemProperties(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Rating)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Title() -> windows_core::Result<windows_core::HSTRING> {
-        Self::ISystemProperties(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Title)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Audio() -> windows_core::Result<SystemAudioProperties> {
-        Self::ISystemProperties(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Audio)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn GPS() -> windows_core::Result<SystemGPSProperties> {
-        Self::ISystemProperties(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GPS)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn Media() -> windows_core::Result<SystemMediaProperties> {
-        Self::ISystemProperties(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Media)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn Music() -> windows_core::Result<SystemMusicProperties> {
-        Self::ISystemProperties(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Music)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn Photo() -> windows_core::Result<SystemPhotoProperties> {
-        Self::ISystemProperties(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Photo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn Video() -> windows_core::Result<SystemVideoProperties> {
-        Self::ISystemProperties(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Video)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn Image() -> windows_core::Result<SystemImageProperties> {
-        Self::ISystemProperties(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Image)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn ISystemProperties<R, F: FnOnce(&ISystemProperties) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<SystemProperties, ISystemProperties> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeName for SystemProperties {
-    const NAME: &'static str = "Windows.Storage.SystemProperties";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct SystemVideoProperties(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SystemVideoProperties, windows_core::IUnknown, windows_core::IInspectable);
-impl SystemVideoProperties {
-    pub fn Director(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Director)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn FrameHeight(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FrameHeight)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn FrameWidth(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FrameWidth)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Orientation(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Orientation)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn TotalBitrate(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TotalBitrate)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for SystemVideoProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemVideoProperties>();
-}
-unsafe impl windows_core::Interface for SystemVideoProperties {
-    type Vtable = <ISystemVideoProperties as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ISystemVideoProperties as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for SystemVideoProperties {
-    const NAME: &'static str = "Windows.Storage.SystemVideoProperties";
-}
-unsafe impl Send for SystemVideoProperties {}
-unsafe impl Sync for SystemVideoProperties {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct UserDataPaths(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(UserDataPaths, windows_core::IUnknown, windows_core::IInspectable);
-impl UserDataPaths {
-    pub fn CameraRoll(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CameraRoll)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Cookies(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Cookies)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Desktop(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Desktop)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Documents(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Documents)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Downloads(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Downloads)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Favorites(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Favorites)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn History(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).History)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn InternetCache(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InternetCache)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn LocalAppData(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LocalAppData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn LocalAppDataLow(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LocalAppDataLow)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Music(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Music)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Pictures(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Pictures)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Profile(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Profile)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Recent(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Recent)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RoamingAppData(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RoamingAppData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SavedPictures(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SavedPictures)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Screenshots(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Screenshots)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Templates(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Templates)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Videos(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Videos)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "System")]
-    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<UserDataPaths>
-    where
-        P0: windows_core::Param<super::System::User>,
-    {
-        Self::IUserDataPathsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn GetDefault() -> windows_core::Result<UserDataPaths> {
-        Self::IUserDataPathsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IUserDataPathsStatics<R, F: FnOnce(&IUserDataPathsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<UserDataPaths, IUserDataPathsStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for UserDataPaths {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataPaths>();
-}
-unsafe impl windows_core::Interface for UserDataPaths {
-    type Vtable = <IUserDataPaths as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IUserDataPaths as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for UserDataPaths {
-    const NAME: &'static str = "Windows.Storage.UserDataPaths";
-}
-unsafe impl Send for UserDataPaths {}
-unsafe impl Sync for UserDataPaths {}
 windows_core::imp::define_interface!(IAppDataPaths, IAppDataPaths_Vtbl, 0x7301d60a_79a2_48c9_9ec0_3fda092f79e1);
 impl windows_core::RuntimeType for IAppDataPaths {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -5921,65 +3709,1858 @@ pub struct IUserDataPathsStatics_Vtbl {
     GetForUser: usize,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ApplicationDataSetVersionHandler, ApplicationDataSetVersionHandler_Vtbl, 0xa05791e6_cc9f_4687_acab_a364fd785463);
-impl windows_core::RuntimeType for ApplicationDataSetVersionHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KnownFolderId(pub i32);
+impl KnownFolderId {
+    pub const AppCaptures: Self = Self(0i32);
+    pub const CameraRoll: Self = Self(1i32);
+    pub const DocumentsLibrary: Self = Self(2i32);
+    pub const HomeGroup: Self = Self(3i32);
+    pub const MediaServerDevices: Self = Self(4i32);
+    pub const MusicLibrary: Self = Self(5i32);
+    pub const Objects3D: Self = Self(6i32);
+    pub const PicturesLibrary: Self = Self(7i32);
+    pub const Playlists: Self = Self(8i32);
+    pub const RecordedCalls: Self = Self(9i32);
+    pub const RemovableDevices: Self = Self(10i32);
+    pub const SavedPictures: Self = Self(11i32);
+    pub const Screenshots: Self = Self(12i32);
+    pub const VideosLibrary: Self = Self(13i32);
+    pub const AllAppMods: Self = Self(14i32);
+    pub const CurrentAppMods: Self = Self(15i32);
+    pub const DownloadsFolder: Self = Self(16i32);
 }
-impl ApplicationDataSetVersionHandler {
-    pub fn new<F: FnMut(Option<&SetVersionRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = ApplicationDataSetVersionHandlerBox { vtable: &ApplicationDataSetVersionHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+impl windows_core::TypeKind for KnownFolderId {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for KnownFolderId {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownFolderId;i4)");
+}
+pub struct KnownFolders;
+impl KnownFolders {
+    #[cfg(feature = "Storage_Search")]
+    pub fn CameraRoll() -> windows_core::Result<StorageFolder> {
+        Self::IKnownFoldersCameraRollStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CameraRoll)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
     }
-    pub fn Invoke<P0>(&self, setversionrequest: P0) -> windows_core::Result<()>
+    #[cfg(feature = "Storage_Search")]
+    pub fn Playlists() -> windows_core::Result<StorageFolder> {
+        Self::IKnownFoldersPlaylistsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Playlists)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn SavedPictures() -> windows_core::Result<StorageFolder> {
+        Self::IKnownFoldersSavedPicturesStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SavedPictures)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn MusicLibrary() -> windows_core::Result<StorageFolder> {
+        Self::IKnownFoldersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MusicLibrary)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn PicturesLibrary() -> windows_core::Result<StorageFolder> {
+        Self::IKnownFoldersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PicturesLibrary)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn VideosLibrary() -> windows_core::Result<StorageFolder> {
+        Self::IKnownFoldersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).VideosLibrary)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn DocumentsLibrary() -> windows_core::Result<StorageFolder> {
+        Self::IKnownFoldersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DocumentsLibrary)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn HomeGroup() -> windows_core::Result<StorageFolder> {
+        Self::IKnownFoldersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HomeGroup)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn RemovableDevices() -> windows_core::Result<StorageFolder> {
+        Self::IKnownFoldersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RemovableDevices)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn MediaServerDevices() -> windows_core::Result<StorageFolder> {
+        Self::IKnownFoldersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MediaServerDevices)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn Objects3D() -> windows_core::Result<StorageFolder> {
+        Self::IKnownFoldersStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Objects3D)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn AppCaptures() -> windows_core::Result<StorageFolder> {
+        Self::IKnownFoldersStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AppCaptures)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn RecordedCalls() -> windows_core::Result<StorageFolder> {
+        Self::IKnownFoldersStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RecordedCalls)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(all(feature = "Storage_Search", feature = "System"))]
+    pub fn GetFolderForUserAsync<P0>(user: P0, folderid: KnownFolderId) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFolder>>
     where
-        P0: windows_core::Param<SetVersionRequest>,
+        P0: windows_core::Param<super::System::User>,
+    {
+        Self::IKnownFoldersStatics3(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetFolderForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), folderid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn RequestAccessAsync(folderid: KnownFolderId) -> windows_core::Result<super::Foundation::IAsyncOperation<KnownFoldersAccessStatus>> {
+        Self::IKnownFoldersStatics4(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), folderid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "System")]
+    pub fn RequestAccessForUserAsync<P0>(user: P0, folderid: KnownFolderId) -> windows_core::Result<super::Foundation::IAsyncOperation<KnownFoldersAccessStatus>>
+    where
+        P0: windows_core::Param<super::System::User>,
+    {
+        Self::IKnownFoldersStatics4(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestAccessForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), folderid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn GetFolderAsync(folderid: KnownFolderId) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFolder>> {
+        Self::IKnownFoldersStatics4(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetFolderAsync)(windows_core::Interface::as_raw(this), folderid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IKnownFoldersCameraRollStatics<R, F: FnOnce(&IKnownFoldersCameraRollStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<KnownFolders, IKnownFoldersCameraRollStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IKnownFoldersPlaylistsStatics<R, F: FnOnce(&IKnownFoldersPlaylistsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<KnownFolders, IKnownFoldersPlaylistsStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IKnownFoldersSavedPicturesStatics<R, F: FnOnce(&IKnownFoldersSavedPicturesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<KnownFolders, IKnownFoldersSavedPicturesStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IKnownFoldersStatics<R, F: FnOnce(&IKnownFoldersStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<KnownFolders, IKnownFoldersStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IKnownFoldersStatics2<R, F: FnOnce(&IKnownFoldersStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<KnownFolders, IKnownFoldersStatics2> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IKnownFoldersStatics3<R, F: FnOnce(&IKnownFoldersStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<KnownFolders, IKnownFoldersStatics3> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IKnownFoldersStatics4<R, F: FnOnce(&IKnownFoldersStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<KnownFolders, IKnownFoldersStatics4> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeName for KnownFolders {
+    const NAME: &'static str = "Windows.Storage.KnownFolders";
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KnownFoldersAccessStatus(pub i32);
+impl KnownFoldersAccessStatus {
+    pub const DeniedBySystem: Self = Self(0i32);
+    pub const NotDeclaredByApp: Self = Self(1i32);
+    pub const DeniedByUser: Self = Self(2i32);
+    pub const UserPromptRequired: Self = Self(3i32);
+    pub const Allowed: Self = Self(4i32);
+    pub const AllowedPerAppFolder: Self = Self(5i32);
+}
+impl windows_core::TypeKind for KnownFoldersAccessStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for KnownFoldersAccessStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownFoldersAccessStatus;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KnownLibraryId(pub i32);
+impl KnownLibraryId {
+    pub const Music: Self = Self(0i32);
+    pub const Pictures: Self = Self(1i32);
+    pub const Videos: Self = Self(2i32);
+    pub const Documents: Self = Self(3i32);
+}
+impl windows_core::TypeKind for KnownLibraryId {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for KnownLibraryId {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownLibraryId;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NameCollisionOption(pub i32);
+impl NameCollisionOption {
+    pub const GenerateUniqueName: Self = Self(0i32);
+    pub const ReplaceExisting: Self = Self(1i32);
+    pub const FailIfExists: Self = Self(2i32);
+}
+impl windows_core::TypeKind for NameCollisionOption {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for NameCollisionOption {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.NameCollisionOption;i4)");
+}
+pub struct PathIO;
+impl PathIO {
+    pub fn ReadTextAsync(absolutepath: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
+        Self::IPathIOStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ReadTextAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn ReadTextWithEncodingAsync(absolutepath: &windows_core::HSTRING, encoding: Streams::UnicodeEncoding) -> windows_core::Result<super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
+        Self::IPathIOStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ReadTextWithEncodingAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn WriteTextAsync(absolutepath: &windows_core::HSTRING, contents: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncAction> {
+        Self::IPathIOStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).WriteTextAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), core::mem::transmute_copy(contents), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn WriteTextWithEncodingAsync(absolutepath: &windows_core::HSTRING, contents: &windows_core::HSTRING, encoding: Streams::UnicodeEncoding) -> windows_core::Result<super::Foundation::IAsyncAction> {
+        Self::IPathIOStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).WriteTextWithEncodingAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), core::mem::transmute_copy(contents), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn AppendTextAsync(absolutepath: &windows_core::HSTRING, contents: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncAction> {
+        Self::IPathIOStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AppendTextAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), core::mem::transmute_copy(contents), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn AppendTextWithEncodingAsync(absolutepath: &windows_core::HSTRING, contents: &windows_core::HSTRING, encoding: Streams::UnicodeEncoding) -> windows_core::Result<super::Foundation::IAsyncAction> {
+        Self::IPathIOStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AppendTextWithEncodingAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), core::mem::transmute_copy(contents), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ReadLinesAsync(absolutepath: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<windows_core::HSTRING>>> {
+        Self::IPathIOStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ReadLinesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    pub fn ReadLinesWithEncodingAsync(absolutepath: &windows_core::HSTRING, encoding: Streams::UnicodeEncoding) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<windows_core::HSTRING>>> {
+        Self::IPathIOStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ReadLinesWithEncodingAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn WriteLinesAsync<P1>(absolutepath: &windows_core::HSTRING, lines: P1) -> windows_core::Result<super::Foundation::IAsyncAction>
+    where
+        P1: windows_core::Param<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+    {
+        Self::IPathIOStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).WriteLinesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), lines.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    pub fn WriteLinesWithEncodingAsync<P1>(absolutepath: &windows_core::HSTRING, lines: P1, encoding: Streams::UnicodeEncoding) -> windows_core::Result<super::Foundation::IAsyncAction>
+    where
+        P1: windows_core::Param<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+    {
+        Self::IPathIOStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).WriteLinesWithEncodingAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), lines.param().abi(), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn AppendLinesAsync<P1>(absolutepath: &windows_core::HSTRING, lines: P1) -> windows_core::Result<super::Foundation::IAsyncAction>
+    where
+        P1: windows_core::Param<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+    {
+        Self::IPathIOStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AppendLinesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), lines.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    pub fn AppendLinesWithEncodingAsync<P1>(absolutepath: &windows_core::HSTRING, lines: P1, encoding: Streams::UnicodeEncoding) -> windows_core::Result<super::Foundation::IAsyncAction>
+    where
+        P1: windows_core::Param<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+    {
+        Self::IPathIOStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AppendLinesWithEncodingAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), lines.param().abi(), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn ReadBufferAsync(absolutepath: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<Streams::IBuffer>> {
+        Self::IPathIOStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ReadBufferAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn WriteBufferAsync<P1>(absolutepath: &windows_core::HSTRING, buffer: P1) -> windows_core::Result<super::Foundation::IAsyncAction>
+    where
+        P1: windows_core::Param<Streams::IBuffer>,
+    {
+        Self::IPathIOStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).WriteBufferAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn WriteBytesAsync(absolutepath: &windows_core::HSTRING, buffer: &[u8]) -> windows_core::Result<super::Foundation::IAsyncAction> {
+        Self::IPathIOStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).WriteBytesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), buffer.len().try_into().unwrap(), buffer.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IPathIOStatics<R, F: FnOnce(&IPathIOStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<PathIO, IPathIOStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeName for PathIO {
+    const NAME: &'static str = "Windows.Storage.PathIO";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SetVersionDeferral(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(SetVersionDeferral, windows_core::IUnknown, windows_core::IInspectable);
+impl SetVersionDeferral {
+    pub fn Complete(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
+    }
+}
+impl windows_core::RuntimeType for SetVersionDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISetVersionDeferral>();
+}
+unsafe impl windows_core::Interface for SetVersionDeferral {
+    type Vtable = <ISetVersionDeferral as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ISetVersionDeferral as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for SetVersionDeferral {
+    const NAME: &'static str = "Windows.Storage.SetVersionDeferral";
+}
+unsafe impl Send for SetVersionDeferral {}
+unsafe impl Sync for SetVersionDeferral {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SetVersionRequest(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(SetVersionRequest, windows_core::IUnknown, windows_core::IInspectable);
+impl SetVersionRequest {
+    pub fn CurrentVersion(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CurrentVersion)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn DesiredVersion(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DesiredVersion)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn GetDeferral(&self) -> windows_core::Result<SetVersionDeferral> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for SetVersionRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISetVersionRequest>();
+}
+unsafe impl windows_core::Interface for SetVersionRequest {
+    type Vtable = <ISetVersionRequest as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ISetVersionRequest as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for SetVersionRequest {
+    const NAME: &'static str = "Windows.Storage.SetVersionRequest";
+}
+unsafe impl Send for SetVersionRequest {}
+unsafe impl Sync for SetVersionRequest {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct StorageDeleteOption(pub i32);
+impl StorageDeleteOption {
+    pub const Default: Self = Self(0i32);
+    pub const PermanentDelete: Self = Self(1i32);
+}
+impl windows_core::TypeKind for StorageDeleteOption {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for StorageDeleteOption {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageDeleteOption;i4)");
+}
+#[cfg(feature = "Storage_Streams")]
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct StorageFile(windows_core::IUnknown);
+#[cfg(feature = "Storage_Streams")]
+windows_core::imp::interface_hierarchy!(StorageFile, windows_core::IUnknown, windows_core::IInspectable, IStorageFile);
+#[cfg(feature = "Storage_Streams")]
+windows_core::imp::required_hierarchy!(StorageFile, Streams::IInputStreamReference, Streams::IRandomAccessStreamReference, IStorageFile2, IStorageFilePropertiesWithAvailability, IStorageItem, IStorageItem2, IStorageItemProperties, IStorageItemProperties2, IStorageItemPropertiesWithProvider);
+#[cfg(feature = "Storage_Streams")]
+impl StorageFile {
+    #[cfg(feature = "Storage_Streams")]
+    pub fn OpenSequentialReadAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<Streams::IInputStream>> {
+        let this = &windows_core::Interface::cast::<Streams::IInputStreamReference>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OpenSequentialReadAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn OpenReadAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<Streams::IRandomAccessStreamWithContentType>> {
+        let this = &windows_core::Interface::cast::<Streams::IRandomAccessStreamReference>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OpenReadAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn FileType(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FileType)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn ContentType(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ContentType)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn OpenAsync(&self, accessmode: FileAccessMode) -> windows_core::Result<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OpenAsync)(windows_core::Interface::as_raw(this), accessmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn OpenTransactedWriteAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageStreamTransaction>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OpenTransactedWriteAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CopyOverloadDefaultNameAndOptions<P0>(&self, destinationfolder: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>>
+    where
+        P0: windows_core::Param<IStorageFolder>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), setversionrequest.param().abi()).ok() }
-    }
-}
-#[repr(C)]
-pub struct ApplicationDataSetVersionHandler_Vtbl {
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, setversionrequest: *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(C)]
-struct ApplicationDataSetVersionHandlerBox<F: FnMut(Option<&SetVersionRequest>) -> windows_core::Result<()> + Send + 'static> {
-    vtable: *const ApplicationDataSetVersionHandler_Vtbl,
-    invoke: F,
-    count: windows_core::imp::RefCount,
-}
-impl<F: FnMut(Option<&SetVersionRequest>) -> windows_core::Result<()> + Send + 'static> ApplicationDataSetVersionHandlerBox<F> {
-    const VTABLE: ApplicationDataSetVersionHandler_Vtbl = ApplicationDataSetVersionHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261);
-        }
-        *interface = if *iid == <ApplicationDataSetVersionHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
-        if (*interface).is_null() {
-            windows_core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            windows_core::HRESULT(0)
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CopyOverloadDefaultNameAndOptions)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = Box::from_raw(this);
+    pub fn CopyOverloadDefaultOptions<P0>(&self, destinationfolder: P0, desirednewname: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>>
+    where
+        P0: windows_core::Param<IStorageFolder>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CopyOverloadDefaultOptions)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), core::mem::transmute_copy(desirednewname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
-        remaining
     }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, setversionrequest: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&setversionrequest)).into()
+    pub fn CopyOverload<P0>(&self, destinationfolder: P0, desirednewname: &windows_core::HSTRING, option: NameCollisionOption) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>>
+    where
+        P0: windows_core::Param<IStorageFolder>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CopyOverload)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), core::mem::transmute_copy(desirednewname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
+    pub fn CopyAndReplaceAsync<P0>(&self, filetoreplace: P0) -> windows_core::Result<super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<IStorageFile>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CopyAndReplaceAsync)(windows_core::Interface::as_raw(this), filetoreplace.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn MoveOverloadDefaultNameAndOptions<P0>(&self, destinationfolder: P0) -> windows_core::Result<super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<IStorageFolder>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MoveOverloadDefaultNameAndOptions)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn MoveOverloadDefaultOptions<P0>(&self, destinationfolder: P0, desirednewname: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<IStorageFolder>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MoveOverloadDefaultOptions)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), core::mem::transmute_copy(desirednewname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn MoveOverload<P0>(&self, destinationfolder: P0, desirednewname: &windows_core::HSTRING, option: NameCollisionOption) -> windows_core::Result<super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<IStorageFolder>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MoveOverload)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), core::mem::transmute_copy(desirednewname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn MoveAndReplaceAsync<P0>(&self, filetoreplace: P0) -> windows_core::Result<super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<IStorageFile>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MoveAndReplaceAsync)(windows_core::Interface::as_raw(this), filetoreplace.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn OpenWithOptionsAsync(&self, accessmode: FileAccessMode, options: StorageOpenOptions) -> windows_core::Result<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>> {
+        let this = &windows_core::Interface::cast::<IStorageFile2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OpenWithOptionsAsync)(windows_core::Interface::as_raw(this), accessmode, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn OpenTransactedWriteWithOptionsAsync(&self, options: StorageOpenOptions) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageStreamTransaction>> {
+        let this = &windows_core::Interface::cast::<IStorageFile2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OpenTransactedWriteWithOptionsAsync)(windows_core::Interface::as_raw(this), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn IsAvailable(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IStorageFilePropertiesWithAvailability>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsAvailable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn GetFileFromPathAsync(path: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>> {
+        Self::IStorageFileStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetFileFromPathAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn GetFileFromApplicationUriAsync<P0>(uri: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>>
+    where
+        P0: windows_core::Param<super::Foundation::Uri>,
+    {
+        Self::IStorageFileStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetFileFromApplicationUriAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn CreateStreamedFileAsync<P1, P2>(displaynamewithextension: &windows_core::HSTRING, datarequested: P1, thumbnail: P2) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>>
+    where
+        P1: windows_core::Param<StreamedFileDataRequestedHandler>,
+        P2: windows_core::Param<Streams::IRandomAccessStreamReference>,
+    {
+        Self::IStorageFileStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateStreamedFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displaynamewithextension), datarequested.param().abi(), thumbnail.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn ReplaceWithStreamedFileAsync<P0, P1, P2>(filetoreplace: P0, datarequested: P1, thumbnail: P2) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>>
+    where
+        P0: windows_core::Param<IStorageFile>,
+        P1: windows_core::Param<StreamedFileDataRequestedHandler>,
+        P2: windows_core::Param<Streams::IRandomAccessStreamReference>,
+    {
+        Self::IStorageFileStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ReplaceWithStreamedFileAsync)(windows_core::Interface::as_raw(this), filetoreplace.param().abi(), datarequested.param().abi(), thumbnail.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateStreamedFileFromUriAsync<P1, P2>(displaynamewithextension: &windows_core::HSTRING, uri: P1, thumbnail: P2) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>>
+    where
+        P1: windows_core::Param<super::Foundation::Uri>,
+        P2: windows_core::Param<Streams::IRandomAccessStreamReference>,
+    {
+        Self::IStorageFileStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateStreamedFileFromUriAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displaynamewithextension), uri.param().abi(), thumbnail.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn ReplaceWithStreamedFileFromUriAsync<P0, P1, P2>(filetoreplace: P0, uri: P1, thumbnail: P2) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>>
+    where
+        P0: windows_core::Param<IStorageFile>,
+        P1: windows_core::Param<super::Foundation::Uri>,
+        P2: windows_core::Param<Streams::IRandomAccessStreamReference>,
+    {
+        Self::IStorageFileStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ReplaceWithStreamedFileFromUriAsync)(windows_core::Interface::as_raw(this), filetoreplace.param().abi(), uri.param().abi(), thumbnail.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "System")]
+    pub fn GetFileFromPathForUserAsync<P0>(user: P0, path: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>>
+    where
+        P0: windows_core::Param<super::System::User>,
+    {
+        Self::IStorageFileStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetFileFromPathForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn RenameAsyncOverloadDefaultOptions(&self, desiredname: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncAction> {
+        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RenameAsyncOverloadDefaultOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(desiredname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn RenameAsync(&self, desiredname: &windows_core::HSTRING, option: NameCollisionOption) -> windows_core::Result<super::Foundation::IAsyncAction> {
+        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RenameAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(desiredname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn DeleteAsyncOverloadDefaultOptions(&self) -> windows_core::Result<super::Foundation::IAsyncAction> {
+        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeleteAsyncOverloadDefaultOptions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn DeleteAsync(&self, option: StorageDeleteOption) -> windows_core::Result<super::Foundation::IAsyncAction> {
+        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeleteAsync)(windows_core::Interface::as_raw(this), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Storage_FileProperties")]
+    pub fn GetBasicPropertiesAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::BasicProperties>> {
+        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetBasicPropertiesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Path(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Path)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Attributes(&self) -> windows_core::Result<FileAttributes> {
+        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Attributes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn DateCreated(&self) -> windows_core::Result<super::Foundation::DateTime> {
+        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DateCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn IsOfType(&self, r#type: StorageItemTypes) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsOfType)(windows_core::Interface::as_raw(this), r#type, &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn GetParentAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFolder>> {
+        let this = &windows_core::Interface::cast::<IStorageItem2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetParentAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn IsEqual<P0>(&self, item: P0) -> windows_core::Result<bool>
+    where
+        P0: windows_core::Param<IStorageItem>,
+    {
+        let this = &windows_core::Interface::cast::<IStorageItem2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsEqual)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+    pub fn GetThumbnailAsyncOverloadDefaultSizeDefaultOptions(&self, mode: FileProperties::ThumbnailMode) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
+        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultSizeDefaultOptions)(windows_core::Interface::as_raw(this), mode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+    pub fn GetThumbnailAsyncOverloadDefaultOptions(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
+        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultOptions)(windows_core::Interface::as_raw(this), mode, requestedsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+    pub fn GetThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32, options: FileProperties::ThumbnailOptions) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
+        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetThumbnailAsync)(windows_core::Interface::as_raw(this), mode, requestedsize, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn DisplayType(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayType)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn FolderRelativeId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FolderRelativeId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "Storage_FileProperties")]
+    pub fn Properties(&self) -> windows_core::Result<FileProperties::StorageItemContentProperties> {
+        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+    pub fn GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions(&self, mode: FileProperties::ThumbnailMode) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
+        let this = &windows_core::Interface::cast::<IStorageItemProperties2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions)(windows_core::Interface::as_raw(this), mode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+    pub fn GetScaledImageAsThumbnailAsyncOverloadDefaultOptions(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
+        let this = &windows_core::Interface::cast::<IStorageItemProperties2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetScaledImageAsThumbnailAsyncOverloadDefaultOptions)(windows_core::Interface::as_raw(this), mode, requestedsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+    pub fn GetScaledImageAsThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32, options: FileProperties::ThumbnailOptions) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
+        let this = &windows_core::Interface::cast::<IStorageItemProperties2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetScaledImageAsThumbnailAsync)(windows_core::Interface::as_raw(this), mode, requestedsize, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Provider(&self) -> windows_core::Result<StorageProvider> {
+        let this = &windows_core::Interface::cast::<IStorageItemPropertiesWithProvider>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Provider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    fn IStorageFileStatics<R, F: FnOnce(&IStorageFileStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<StorageFile, IStorageFileStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IStorageFileStatics2<R, F: FnOnce(&IStorageFileStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<StorageFile, IStorageFileStatics2> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+#[cfg(feature = "Storage_Streams")]
+impl windows_core::RuntimeType for StorageFile {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageFile>();
+}
+#[cfg(feature = "Storage_Streams")]
+unsafe impl windows_core::Interface for StorageFile {
+    type Vtable = <IStorageFile as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IStorageFile as windows_core::Interface>::IID;
+}
+#[cfg(feature = "Storage_Streams")]
+impl windows_core::RuntimeName for StorageFile {
+    const NAME: &'static str = "Windows.Storage.StorageFile";
+}
+#[cfg(feature = "Storage_Search")]
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct StorageFolder(windows_core::IUnknown);
+#[cfg(feature = "Storage_Search")]
+windows_core::imp::interface_hierarchy!(StorageFolder, windows_core::IUnknown, windows_core::IInspectable, IStorageFolder);
+#[cfg(feature = "Storage_Search")]
+windows_core::imp::required_hierarchy!(StorageFolder, IStorageFolder2, Search::IStorageFolderQueryOperations, IStorageItem, IStorageItem2, IStorageItemProperties, IStorageItemProperties2, IStorageItemPropertiesWithProvider);
+#[cfg(feature = "Storage_Search")]
+impl StorageFolder {
+    #[cfg(feature = "Storage_Streams")]
+    pub fn CreateFileAsyncOverloadDefaultOptions(&self, desiredname: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateFileAsyncOverloadDefaultOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(desiredname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn CreateFileAsync(&self, desiredname: &windows_core::HSTRING, options: CreationCollisionOption) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(desiredname), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CreateFolderAsyncOverloadDefaultOptions(&self, desiredname: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFolder>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateFolderAsyncOverloadDefaultOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(desiredname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CreateFolderAsync(&self, desiredname: &windows_core::HSTRING, options: CreationCollisionOption) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFolder>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateFolderAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(desiredname), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn GetFileAsync(&self, name: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetFolderAsync(&self, name: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFolder>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetFolderAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetItemAsync(&self, name: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<IStorageItem>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetItemAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    pub fn GetFilesAsyncOverloadDefaultOptionsStartAndCount(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFile>>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetFilesAsyncOverloadDefaultOptionsStartAndCount)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetFoldersAsyncOverloadDefaultOptionsStartAndCount(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFolder>>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetFoldersAsyncOverloadDefaultOptionsStartAndCount)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetItemsAsyncOverloadDefaultStartAndCount(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<IStorageItem>>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetItemsAsyncOverloadDefaultStartAndCount)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn TryGetItemAsync(&self, name: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<IStorageItem>> {
+        let this = &windows_core::Interface::cast::<IStorageFolder2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TryGetItemAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn TryGetChangeTracker(&self) -> windows_core::Result<StorageLibraryChangeTracker> {
+        let this = &windows_core::Interface::cast::<IStorageFolder3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TryGetChangeTracker)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn GetIndexedStateAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<Search::IndexedState>> {
+        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetIndexedStateAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn CreateFileQueryOverloadDefault(&self) -> windows_core::Result<Search::StorageFileQueryResult> {
+        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateFileQueryOverloadDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn CreateFileQuery(&self, query: Search::CommonFileQuery) -> windows_core::Result<Search::StorageFileQueryResult> {
+        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateFileQuery)(windows_core::Interface::as_raw(this), query, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn CreateFileQueryWithOptions<P0>(&self, queryoptions: P0) -> windows_core::Result<Search::StorageFileQueryResult>
+    where
+        P0: windows_core::Param<Search::QueryOptions>,
+    {
+        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateFileQueryWithOptions)(windows_core::Interface::as_raw(this), queryoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn CreateFolderQueryOverloadDefault(&self) -> windows_core::Result<Search::StorageFolderQueryResult> {
+        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateFolderQueryOverloadDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn CreateFolderQuery(&self, query: Search::CommonFolderQuery) -> windows_core::Result<Search::StorageFolderQueryResult> {
+        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateFolderQuery)(windows_core::Interface::as_raw(this), query, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn CreateFolderQueryWithOptions<P0>(&self, queryoptions: P0) -> windows_core::Result<Search::StorageFolderQueryResult>
+    where
+        P0: windows_core::Param<Search::QueryOptions>,
+    {
+        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateFolderQueryWithOptions)(windows_core::Interface::as_raw(this), queryoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn CreateItemQuery(&self) -> windows_core::Result<Search::StorageItemQueryResult> {
+        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateItemQuery)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn CreateItemQueryWithOptions<P0>(&self, queryoptions: P0) -> windows_core::Result<Search::StorageItemQueryResult>
+    where
+        P0: windows_core::Param<Search::QueryOptions>,
+    {
+        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateItemQueryWithOptions)(windows_core::Interface::as_raw(this), queryoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search", feature = "Storage_Streams"))]
+    pub fn GetFilesAsync(&self, query: Search::CommonFileQuery, startindex: u32, maxitemstoretrieve: u32) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFile>>> {
+        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetFilesAsync)(windows_core::Interface::as_raw(this), query, startindex, maxitemstoretrieve, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search", feature = "Storage_Streams"))]
+    pub fn GetFilesAsyncOverloadDefaultStartAndCount(&self, query: Search::CommonFileQuery) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFile>>> {
+        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetFilesAsyncOverloadDefaultStartAndCount)(windows_core::Interface::as_raw(this), query, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
+    pub fn GetFoldersAsync(&self, query: Search::CommonFolderQuery, startindex: u32, maxitemstoretrieve: u32) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFolder>>> {
+        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetFoldersAsync)(windows_core::Interface::as_raw(this), query, startindex, maxitemstoretrieve, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
+    pub fn GetFoldersAsyncOverloadDefaultStartAndCount(&self, query: Search::CommonFolderQuery) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFolder>>> {
+        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetFoldersAsyncOverloadDefaultStartAndCount)(windows_core::Interface::as_raw(this), query, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetItemsAsync(&self, startindex: u32, maxitemstoretrieve: u32) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<IStorageItem>>> {
+        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetItemsAsync)(windows_core::Interface::as_raw(this), startindex, maxitemstoretrieve, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn AreQueryOptionsSupported<P0>(&self, queryoptions: P0) -> windows_core::Result<bool>
+    where
+        P0: windows_core::Param<Search::QueryOptions>,
+    {
+        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AreQueryOptionsSupported)(windows_core::Interface::as_raw(this), queryoptions.param().abi(), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn IsCommonFolderQuerySupported(&self, query: Search::CommonFolderQuery) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsCommonFolderQuerySupported)(windows_core::Interface::as_raw(this), query, &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn IsCommonFileQuerySupported(&self, query: Search::CommonFileQuery) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsCommonFileQuerySupported)(windows_core::Interface::as_raw(this), query, &mut result__).map(|| result__)
+        }
+    }
+    pub fn GetFolderFromPathAsync(path: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFolder>> {
+        Self::IStorageFolderStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetFolderFromPathAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "System")]
+    pub fn GetFolderFromPathForUserAsync<P0>(user: P0, path: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFolder>>
+    where
+        P0: windows_core::Param<super::System::User>,
+    {
+        Self::IStorageFolderStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetFolderFromPathForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn RenameAsyncOverloadDefaultOptions(&self, desiredname: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncAction> {
+        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RenameAsyncOverloadDefaultOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(desiredname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn RenameAsync(&self, desiredname: &windows_core::HSTRING, option: NameCollisionOption) -> windows_core::Result<super::Foundation::IAsyncAction> {
+        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RenameAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(desiredname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn DeleteAsyncOverloadDefaultOptions(&self) -> windows_core::Result<super::Foundation::IAsyncAction> {
+        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeleteAsyncOverloadDefaultOptions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn DeleteAsync(&self, option: StorageDeleteOption) -> windows_core::Result<super::Foundation::IAsyncAction> {
+        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeleteAsync)(windows_core::Interface::as_raw(this), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Storage_FileProperties")]
+    pub fn GetBasicPropertiesAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::BasicProperties>> {
+        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetBasicPropertiesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Path(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Path)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Attributes(&self) -> windows_core::Result<FileAttributes> {
+        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Attributes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn DateCreated(&self) -> windows_core::Result<super::Foundation::DateTime> {
+        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DateCreated)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn IsOfType(&self, r#type: StorageItemTypes) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsOfType)(windows_core::Interface::as_raw(this), r#type, &mut result__).map(|| result__)
+        }
+    }
+    pub fn GetParentAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFolder>> {
+        let this = &windows_core::Interface::cast::<IStorageItem2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetParentAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn IsEqual<P0>(&self, item: P0) -> windows_core::Result<bool>
+    where
+        P0: windows_core::Param<IStorageItem>,
+    {
+        let this = &windows_core::Interface::cast::<IStorageItem2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsEqual)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+    pub fn GetThumbnailAsyncOverloadDefaultSizeDefaultOptions(&self, mode: FileProperties::ThumbnailMode) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
+        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultSizeDefaultOptions)(windows_core::Interface::as_raw(this), mode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+    pub fn GetThumbnailAsyncOverloadDefaultOptions(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
+        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultOptions)(windows_core::Interface::as_raw(this), mode, requestedsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+    pub fn GetThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32, options: FileProperties::ThumbnailOptions) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
+        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetThumbnailAsync)(windows_core::Interface::as_raw(this), mode, requestedsize, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn DisplayType(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayType)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn FolderRelativeId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FolderRelativeId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "Storage_FileProperties")]
+    pub fn Properties(&self) -> windows_core::Result<FileProperties::StorageItemContentProperties> {
+        let this = &windows_core::Interface::cast::<IStorageItemProperties>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+    pub fn GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions(&self, mode: FileProperties::ThumbnailMode) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
+        let this = &windows_core::Interface::cast::<IStorageItemProperties2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions)(windows_core::Interface::as_raw(this), mode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+    pub fn GetScaledImageAsThumbnailAsyncOverloadDefaultOptions(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
+        let this = &windows_core::Interface::cast::<IStorageItemProperties2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetScaledImageAsThumbnailAsyncOverloadDefaultOptions)(windows_core::Interface::as_raw(this), mode, requestedsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+    pub fn GetScaledImageAsThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32, options: FileProperties::ThumbnailOptions) -> windows_core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
+        let this = &windows_core::Interface::cast::<IStorageItemProperties2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetScaledImageAsThumbnailAsync)(windows_core::Interface::as_raw(this), mode, requestedsize, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Provider(&self) -> windows_core::Result<StorageProvider> {
+        let this = &windows_core::Interface::cast::<IStorageItemPropertiesWithProvider>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Provider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    fn IStorageFolderStatics<R, F: FnOnce(&IStorageFolderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<StorageFolder, IStorageFolderStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IStorageFolderStatics2<R, F: FnOnce(&IStorageFolderStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<StorageFolder, IStorageFolderStatics2> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+#[cfg(feature = "Storage_Search")]
+impl windows_core::RuntimeType for StorageFolder {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageFolder>();
+}
+#[cfg(feature = "Storage_Search")]
+unsafe impl windows_core::Interface for StorageFolder {
+    type Vtable = <IStorageFolder as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IStorageFolder as windows_core::Interface>::IID;
+}
+#[cfg(feature = "Storage_Search")]
+impl windows_core::RuntimeName for StorageFolder {
+    const NAME: &'static str = "Windows.Storage.StorageFolder";
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct StorageItemTypes(pub u32);
+impl StorageItemTypes {
+    pub const None: Self = Self(0u32);
+    pub const File: Self = Self(1u32);
+    pub const Folder: Self = Self(2u32);
+}
+impl windows_core::TypeKind for StorageItemTypes {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for StorageItemTypes {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageItemTypes;u4)");
+}
+impl StorageItemTypes {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for StorageItemTypes {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for StorageItemTypes {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for StorageItemTypes {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for StorageItemTypes {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for StorageItemTypes {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct StorageLibrary(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(StorageLibrary, windows_core::IUnknown, windows_core::IInspectable);
+impl StorageLibrary {
+    #[cfg(feature = "Storage_Search")]
+    pub fn RequestAddFolderAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFolder>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestAddFolderAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn RequestRemoveFolderAsync<P0>(&self, folder: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: windows_core::Param<StorageFolder>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestRemoveFolderAsync)(windows_core::Interface::as_raw(this), folder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
+    pub fn Folders(&self) -> windows_core::Result<super::Foundation::Collections::IObservableVector<StorageFolder>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Folders)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Storage_Search")]
+    pub fn SaveFolder(&self) -> windows_core::Result<StorageFolder> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SaveFolder)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn DefinitionChanged<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<StorageLibrary, windows_core::IInspectable>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DefinitionChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveDefinitionChanged(&self, eventcookie: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveDefinitionChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() }
+    }
+    pub fn ChangeTracker(&self) -> windows_core::Result<StorageLibraryChangeTracker> {
+        let this = &windows_core::Interface::cast::<IStorageLibrary2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ChangeTracker)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn AreFolderSuggestionsAvailableAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>> {
+        let this = &windows_core::Interface::cast::<IStorageLibrary3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AreFolderSuggestionsAvailableAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetLibraryAsync(libraryid: KnownLibraryId) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageLibrary>> {
+        Self::IStorageLibraryStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetLibraryAsync)(windows_core::Interface::as_raw(this), libraryid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "System")]
+    pub fn GetLibraryForUserAsync<P0>(user: P0, libraryid: KnownLibraryId) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageLibrary>>
+    where
+        P0: windows_core::Param<super::System::User>,
+    {
+        Self::IStorageLibraryStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetLibraryForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), libraryid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IStorageLibraryStatics<R, F: FnOnce(&IStorageLibraryStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<StorageLibrary, IStorageLibraryStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IStorageLibraryStatics2<R, F: FnOnce(&IStorageLibraryStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<StorageLibrary, IStorageLibraryStatics2> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for StorageLibrary {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageLibrary>();
+}
+unsafe impl windows_core::Interface for StorageLibrary {
+    type Vtable = <IStorageLibrary as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IStorageLibrary as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for StorageLibrary {
+    const NAME: &'static str = "Windows.Storage.StorageLibrary";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct StorageLibraryChange(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(StorageLibraryChange, windows_core::IUnknown, windows_core::IInspectable);
+impl StorageLibraryChange {
+    pub fn ChangeType(&self) -> windows_core::Result<StorageLibraryChangeType> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ChangeType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Path(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Path)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn PreviousPath(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PreviousPath)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn IsOfType(&self, r#type: StorageItemTypes) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsOfType)(windows_core::Interface::as_raw(this), r#type, &mut result__).map(|| result__)
+        }
+    }
+    pub fn GetStorageItemAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<IStorageItem>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetStorageItemAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for StorageLibraryChange {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageLibraryChange>();
+}
+unsafe impl windows_core::Interface for StorageLibraryChange {
+    type Vtable = <IStorageLibraryChange as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IStorageLibraryChange as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for StorageLibraryChange {
+    const NAME: &'static str = "Windows.Storage.StorageLibraryChange";
+}
+unsafe impl Send for StorageLibraryChange {}
+unsafe impl Sync for StorageLibraryChange {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct StorageLibraryChangeReader(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(StorageLibraryChangeReader, windows_core::IUnknown, windows_core::IInspectable);
+impl StorageLibraryChangeReader {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ReadBatchAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageLibraryChange>>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ReadBatchAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn AcceptChangesAsync(&self) -> windows_core::Result<super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AcceptChangesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetLastChangeId(&self) -> windows_core::Result<u64> {
+        let this = &windows_core::Interface::cast::<IStorageLibraryChangeReader2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetLastChangeId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for StorageLibraryChangeReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageLibraryChangeReader>();
+}
+unsafe impl windows_core::Interface for StorageLibraryChangeReader {
+    type Vtable = <IStorageLibraryChangeReader as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IStorageLibraryChangeReader as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for StorageLibraryChangeReader {
+    const NAME: &'static str = "Windows.Storage.StorageLibraryChangeReader";
+}
+unsafe impl Send for StorageLibraryChangeReader {}
+unsafe impl Sync for StorageLibraryChangeReader {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct StorageLibraryChangeTracker(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(StorageLibraryChangeTracker, windows_core::IUnknown, windows_core::IInspectable);
+impl StorageLibraryChangeTracker {
+    pub fn GetChangeReader(&self) -> windows_core::Result<StorageLibraryChangeReader> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetChangeReader)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Enable(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Enable)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn Reset(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Reset)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn EnableWithOptions<P0>(&self, options: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<StorageLibraryChangeTrackerOptions>,
+    {
+        let this = &windows_core::Interface::cast::<IStorageLibraryChangeTracker2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).EnableWithOptions)(windows_core::Interface::as_raw(this), options.param().abi()).ok() }
+    }
+    pub fn Disable(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IStorageLibraryChangeTracker2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Disable)(windows_core::Interface::as_raw(this)).ok() }
+    }
+}
+impl windows_core::RuntimeType for StorageLibraryChangeTracker {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageLibraryChangeTracker>();
+}
+unsafe impl windows_core::Interface for StorageLibraryChangeTracker {
+    type Vtable = <IStorageLibraryChangeTracker as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IStorageLibraryChangeTracker as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for StorageLibraryChangeTracker {
+    const NAME: &'static str = "Windows.Storage.StorageLibraryChangeTracker";
+}
+unsafe impl Send for StorageLibraryChangeTracker {}
+unsafe impl Sync for StorageLibraryChangeTracker {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct StorageLibraryChangeTrackerOptions(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(StorageLibraryChangeTrackerOptions, windows_core::IUnknown, windows_core::IInspectable);
+impl StorageLibraryChangeTrackerOptions {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<StorageLibraryChangeTrackerOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn TrackChangeDetails(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TrackChangeDetails)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetTrackChangeDetails(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetTrackChangeDetails)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl windows_core::RuntimeType for StorageLibraryChangeTrackerOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageLibraryChangeTrackerOptions>();
+}
+unsafe impl windows_core::Interface for StorageLibraryChangeTrackerOptions {
+    type Vtable = <IStorageLibraryChangeTrackerOptions as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IStorageLibraryChangeTrackerOptions as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for StorageLibraryChangeTrackerOptions {
+    const NAME: &'static str = "Windows.Storage.StorageLibraryChangeTrackerOptions";
+}
+unsafe impl Send for StorageLibraryChangeTrackerOptions {}
+unsafe impl Sync for StorageLibraryChangeTrackerOptions {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct StorageLibraryChangeType(pub i32);
+impl StorageLibraryChangeType {
+    pub const Created: Self = Self(0i32);
+    pub const Deleted: Self = Self(1i32);
+    pub const MovedOrRenamed: Self = Self(2i32);
+    pub const ContentsChanged: Self = Self(3i32);
+    pub const MovedOutOfLibrary: Self = Self(4i32);
+    pub const MovedIntoLibrary: Self = Self(5i32);
+    pub const ContentsReplaced: Self = Self(6i32);
+    pub const IndexingStatusChanged: Self = Self(7i32);
+    pub const EncryptionChanged: Self = Self(8i32);
+    pub const ChangeTrackingLost: Self = Self(9i32);
+}
+impl windows_core::TypeKind for StorageLibraryChangeType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for StorageLibraryChangeType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageLibraryChangeType;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct StorageLibraryLastChangeId(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(StorageLibraryLastChangeId, windows_core::IUnknown, windows_core::IInspectable);
+impl StorageLibraryLastChangeId {
+    pub fn Unknown() -> windows_core::Result<u64> {
+        Self::IStorageLibraryLastChangeIdStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Unknown)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    fn IStorageLibraryLastChangeIdStatics<R, F: FnOnce(&IStorageLibraryLastChangeIdStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<StorageLibraryLastChangeId, IStorageLibraryLastChangeIdStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for StorageLibraryLastChangeId {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageLibraryLastChangeId>();
+}
+unsafe impl windows_core::Interface for StorageLibraryLastChangeId {
+    type Vtable = <IStorageLibraryLastChangeId as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IStorageLibraryLastChangeId as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for StorageLibraryLastChangeId {
+    const NAME: &'static str = "Windows.Storage.StorageLibraryLastChangeId";
+}
+unsafe impl Send for StorageLibraryLastChangeId {}
+unsafe impl Sync for StorageLibraryLastChangeId {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct StorageOpenOptions(pub u32);
+impl StorageOpenOptions {
+    pub const None: Self = Self(0u32);
+    pub const AllowOnlyReaders: Self = Self(1u32);
+    pub const AllowReadersAndWriters: Self = Self(2u32);
+}
+impl windows_core::TypeKind for StorageOpenOptions {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for StorageOpenOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageOpenOptions;u4)");
+}
+impl StorageOpenOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for StorageOpenOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for StorageOpenOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for StorageOpenOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for StorageOpenOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for StorageOpenOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct StorageProvider(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(StorageProvider, windows_core::IUnknown, windows_core::IInspectable);
+impl StorageProvider {
+    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn IsPropertySupportedForPartialFileAsync(&self, propertycanonicalname: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>> {
+        let this = &windows_core::Interface::cast::<IStorageProvider2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsPropertySupportedForPartialFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertycanonicalname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for StorageProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageProvider>();
+}
+unsafe impl windows_core::Interface for StorageProvider {
+    type Vtable = <IStorageProvider as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IStorageProvider as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for StorageProvider {
+    const NAME: &'static str = "Windows.Storage.StorageProvider";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct StorageStreamTransaction(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(StorageStreamTransaction, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(StorageStreamTransaction, super::Foundation::IClosable);
+impl StorageStreamTransaction {
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn Stream(&self) -> windows_core::Result<Streams::IRandomAccessStream> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Stream)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CommitAsync(&self) -> windows_core::Result<super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CommitAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for StorageStreamTransaction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageStreamTransaction>();
+}
+unsafe impl windows_core::Interface for StorageStreamTransaction {
+    type Vtable = <IStorageStreamTransaction as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IStorageStreamTransaction as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for StorageStreamTransaction {
+    const NAME: &'static str = "Windows.Storage.StorageStreamTransaction";
+}
+#[cfg(feature = "Storage_Streams")]
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct StreamedFileDataRequest(windows_core::IUnknown);
+#[cfg(feature = "Storage_Streams")]
+windows_core::imp::interface_hierarchy!(StreamedFileDataRequest, windows_core::IUnknown, windows_core::IInspectable, Streams::IOutputStream);
+#[cfg(feature = "Storage_Streams")]
+windows_core::imp::required_hierarchy!(StreamedFileDataRequest, super::Foundation::IClosable, IStreamedFileDataRequest);
+#[cfg(feature = "Storage_Streams")]
+impl StreamedFileDataRequest {
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn WriteAsync<P0>(&self, buffer: P0) -> windows_core::Result<super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    where
+        P0: windows_core::Param<Streams::IBuffer>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn FlushAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FlushAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn FailAndClose(&self, failuremode: StreamedFileFailureMode) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IStreamedFileDataRequest>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).FailAndClose)(windows_core::Interface::as_raw(this), failuremode).ok() }
+    }
+}
+#[cfg(feature = "Storage_Streams")]
+impl windows_core::RuntimeType for StreamedFileDataRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, Streams::IOutputStream>();
+}
+#[cfg(feature = "Storage_Streams")]
+unsafe impl windows_core::Interface for StreamedFileDataRequest {
+    type Vtable = <Streams::IOutputStream as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <Streams::IOutputStream as windows_core::Interface>::IID;
+}
+#[cfg(feature = "Storage_Streams")]
+impl windows_core::RuntimeName for StreamedFileDataRequest {
+    const NAME: &'static str = "Windows.Storage.StreamedFileDataRequest";
 }
 #[cfg(feature = "Storage_Streams")]
 windows_core::imp::define_interface!(StreamedFileDataRequestedHandler, StreamedFileDataRequestedHandler_Vtbl, 0xfef6a824_2fe1_4d07_a35b_b77c50b5f4cc);
@@ -6049,315 +5630,6 @@ impl<F: FnMut(Option<&StreamedFileDataRequest>) -> windows_core::Result<()> + Se
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ApplicationDataCreateDisposition(pub i32);
-impl ApplicationDataCreateDisposition {
-    pub const Always: Self = Self(0i32);
-    pub const Existing: Self = Self(1i32);
-}
-impl windows_core::TypeKind for ApplicationDataCreateDisposition {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ApplicationDataCreateDisposition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.ApplicationDataCreateDisposition;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ApplicationDataLocality(pub i32);
-impl ApplicationDataLocality {
-    pub const Local: Self = Self(0i32);
-    pub const Roaming: Self = Self(1i32);
-    pub const Temporary: Self = Self(2i32);
-    pub const LocalCache: Self = Self(3i32);
-    pub const SharedLocal: Self = Self(4i32);
-}
-impl windows_core::TypeKind for ApplicationDataLocality {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ApplicationDataLocality {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.ApplicationDataLocality;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CreationCollisionOption(pub i32);
-impl CreationCollisionOption {
-    pub const GenerateUniqueName: Self = Self(0i32);
-    pub const ReplaceExisting: Self = Self(1i32);
-    pub const FailIfExists: Self = Self(2i32);
-    pub const OpenIfExists: Self = Self(3i32);
-}
-impl windows_core::TypeKind for CreationCollisionOption {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for CreationCollisionOption {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.CreationCollisionOption;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FileAccessMode(pub i32);
-impl FileAccessMode {
-    pub const Read: Self = Self(0i32);
-    pub const ReadWrite: Self = Self(1i32);
-}
-impl windows_core::TypeKind for FileAccessMode {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for FileAccessMode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.FileAccessMode;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FileAttributes(pub u32);
-impl FileAttributes {
-    pub const Normal: Self = Self(0u32);
-    pub const ReadOnly: Self = Self(1u32);
-    pub const Directory: Self = Self(16u32);
-    pub const Archive: Self = Self(32u32);
-    pub const Temporary: Self = Self(256u32);
-    pub const LocallyIncomplete: Self = Self(512u32);
-}
-impl windows_core::TypeKind for FileAttributes {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for FileAttributes {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.FileAttributes;u4)");
-}
-impl FileAttributes {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for FileAttributes {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for FileAttributes {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for FileAttributes {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for FileAttributes {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for FileAttributes {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KnownFolderId(pub i32);
-impl KnownFolderId {
-    pub const AppCaptures: Self = Self(0i32);
-    pub const CameraRoll: Self = Self(1i32);
-    pub const DocumentsLibrary: Self = Self(2i32);
-    pub const HomeGroup: Self = Self(3i32);
-    pub const MediaServerDevices: Self = Self(4i32);
-    pub const MusicLibrary: Self = Self(5i32);
-    pub const Objects3D: Self = Self(6i32);
-    pub const PicturesLibrary: Self = Self(7i32);
-    pub const Playlists: Self = Self(8i32);
-    pub const RecordedCalls: Self = Self(9i32);
-    pub const RemovableDevices: Self = Self(10i32);
-    pub const SavedPictures: Self = Self(11i32);
-    pub const Screenshots: Self = Self(12i32);
-    pub const VideosLibrary: Self = Self(13i32);
-    pub const AllAppMods: Self = Self(14i32);
-    pub const CurrentAppMods: Self = Self(15i32);
-    pub const DownloadsFolder: Self = Self(16i32);
-}
-impl windows_core::TypeKind for KnownFolderId {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for KnownFolderId {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownFolderId;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KnownFoldersAccessStatus(pub i32);
-impl KnownFoldersAccessStatus {
-    pub const DeniedBySystem: Self = Self(0i32);
-    pub const NotDeclaredByApp: Self = Self(1i32);
-    pub const DeniedByUser: Self = Self(2i32);
-    pub const UserPromptRequired: Self = Self(3i32);
-    pub const Allowed: Self = Self(4i32);
-    pub const AllowedPerAppFolder: Self = Self(5i32);
-}
-impl windows_core::TypeKind for KnownFoldersAccessStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for KnownFoldersAccessStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownFoldersAccessStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KnownLibraryId(pub i32);
-impl KnownLibraryId {
-    pub const Music: Self = Self(0i32);
-    pub const Pictures: Self = Self(1i32);
-    pub const Videos: Self = Self(2i32);
-    pub const Documents: Self = Self(3i32);
-}
-impl windows_core::TypeKind for KnownLibraryId {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for KnownLibraryId {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownLibraryId;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NameCollisionOption(pub i32);
-impl NameCollisionOption {
-    pub const GenerateUniqueName: Self = Self(0i32);
-    pub const ReplaceExisting: Self = Self(1i32);
-    pub const FailIfExists: Self = Self(2i32);
-}
-impl windows_core::TypeKind for NameCollisionOption {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for NameCollisionOption {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.NameCollisionOption;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct StorageDeleteOption(pub i32);
-impl StorageDeleteOption {
-    pub const Default: Self = Self(0i32);
-    pub const PermanentDelete: Self = Self(1i32);
-}
-impl windows_core::TypeKind for StorageDeleteOption {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for StorageDeleteOption {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageDeleteOption;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct StorageItemTypes(pub u32);
-impl StorageItemTypes {
-    pub const None: Self = Self(0u32);
-    pub const File: Self = Self(1u32);
-    pub const Folder: Self = Self(2u32);
-}
-impl windows_core::TypeKind for StorageItemTypes {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for StorageItemTypes {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageItemTypes;u4)");
-}
-impl StorageItemTypes {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for StorageItemTypes {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for StorageItemTypes {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for StorageItemTypes {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for StorageItemTypes {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for StorageItemTypes {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct StorageLibraryChangeType(pub i32);
-impl StorageLibraryChangeType {
-    pub const Created: Self = Self(0i32);
-    pub const Deleted: Self = Self(1i32);
-    pub const MovedOrRenamed: Self = Self(2i32);
-    pub const ContentsChanged: Self = Self(3i32);
-    pub const MovedOutOfLibrary: Self = Self(4i32);
-    pub const MovedIntoLibrary: Self = Self(5i32);
-    pub const ContentsReplaced: Self = Self(6i32);
-    pub const IndexingStatusChanged: Self = Self(7i32);
-    pub const EncryptionChanged: Self = Self(8i32);
-    pub const ChangeTrackingLost: Self = Self(9i32);
-}
-impl windows_core::TypeKind for StorageLibraryChangeType {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for StorageLibraryChangeType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageLibraryChangeType;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct StorageOpenOptions(pub u32);
-impl StorageOpenOptions {
-    pub const None: Self = Self(0u32);
-    pub const AllowOnlyReaders: Self = Self(1u32);
-    pub const AllowReadersAndWriters: Self = Self(2u32);
-}
-impl windows_core::TypeKind for StorageOpenOptions {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for StorageOpenOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageOpenOptions;u4)");
-}
-impl StorageOpenOptions {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for StorageOpenOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for StorageOpenOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for StorageOpenOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for StorageOpenOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for StorageOpenOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StreamedFileFailureMode(pub i32);
 impl StreamedFileFailureMode {
     pub const Failed: Self = Self(0i32);
@@ -6370,3 +5642,731 @@ impl windows_core::TypeKind for StreamedFileFailureMode {
 impl windows_core::RuntimeType for StreamedFileFailureMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.StreamedFileFailureMode;i4)");
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SystemAudioProperties(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(SystemAudioProperties, windows_core::IUnknown, windows_core::IInspectable);
+impl SystemAudioProperties {
+    pub fn EncodingBitrate(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EncodingBitrate)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for SystemAudioProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemAudioProperties>();
+}
+unsafe impl windows_core::Interface for SystemAudioProperties {
+    type Vtable = <ISystemAudioProperties as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ISystemAudioProperties as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for SystemAudioProperties {
+    const NAME: &'static str = "Windows.Storage.SystemAudioProperties";
+}
+unsafe impl Send for SystemAudioProperties {}
+unsafe impl Sync for SystemAudioProperties {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SystemDataPaths(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(SystemDataPaths, windows_core::IUnknown, windows_core::IInspectable);
+impl SystemDataPaths {
+    pub fn Fonts(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Fonts)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn ProgramData(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ProgramData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Public(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Public)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn PublicDesktop(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PublicDesktop)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn PublicDocuments(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PublicDocuments)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn PublicDownloads(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PublicDownloads)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn PublicMusic(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PublicMusic)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn PublicPictures(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PublicPictures)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn PublicVideos(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PublicVideos)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn System(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).System)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SystemHost(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SystemHost)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SystemX86(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SystemX86)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SystemX64(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SystemX64)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SystemArm(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SystemArm)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn UserProfiles(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UserProfiles)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Windows(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Windows)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn GetDefault() -> windows_core::Result<SystemDataPaths> {
+        Self::ISystemDataPathsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn ISystemDataPathsStatics<R, F: FnOnce(&ISystemDataPathsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<SystemDataPaths, ISystemDataPathsStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for SystemDataPaths {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemDataPaths>();
+}
+unsafe impl windows_core::Interface for SystemDataPaths {
+    type Vtable = <ISystemDataPaths as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ISystemDataPaths as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for SystemDataPaths {
+    const NAME: &'static str = "Windows.Storage.SystemDataPaths";
+}
+unsafe impl Send for SystemDataPaths {}
+unsafe impl Sync for SystemDataPaths {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SystemGPSProperties(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(SystemGPSProperties, windows_core::IUnknown, windows_core::IInspectable);
+impl SystemGPSProperties {
+    pub fn LatitudeDecimal(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LatitudeDecimal)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn LongitudeDecimal(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LongitudeDecimal)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for SystemGPSProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemGPSProperties>();
+}
+unsafe impl windows_core::Interface for SystemGPSProperties {
+    type Vtable = <ISystemGPSProperties as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ISystemGPSProperties as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for SystemGPSProperties {
+    const NAME: &'static str = "Windows.Storage.SystemGPSProperties";
+}
+unsafe impl Send for SystemGPSProperties {}
+unsafe impl Sync for SystemGPSProperties {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SystemImageProperties(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(SystemImageProperties, windows_core::IUnknown, windows_core::IInspectable);
+impl SystemImageProperties {
+    pub fn HorizontalSize(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HorizontalSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn VerticalSize(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).VerticalSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for SystemImageProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemImageProperties>();
+}
+unsafe impl windows_core::Interface for SystemImageProperties {
+    type Vtable = <ISystemImageProperties as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ISystemImageProperties as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for SystemImageProperties {
+    const NAME: &'static str = "Windows.Storage.SystemImageProperties";
+}
+unsafe impl Send for SystemImageProperties {}
+unsafe impl Sync for SystemImageProperties {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SystemMediaProperties(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(SystemMediaProperties, windows_core::IUnknown, windows_core::IInspectable);
+impl SystemMediaProperties {
+    pub fn Duration(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Producer(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Producer)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Publisher(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Publisher)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SubTitle(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SubTitle)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Writer(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Writer)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Year(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Year)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for SystemMediaProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemMediaProperties>();
+}
+unsafe impl windows_core::Interface for SystemMediaProperties {
+    type Vtable = <ISystemMediaProperties as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ISystemMediaProperties as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for SystemMediaProperties {
+    const NAME: &'static str = "Windows.Storage.SystemMediaProperties";
+}
+unsafe impl Send for SystemMediaProperties {}
+unsafe impl Sync for SystemMediaProperties {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SystemMusicProperties(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(SystemMusicProperties, windows_core::IUnknown, windows_core::IInspectable);
+impl SystemMusicProperties {
+    pub fn AlbumArtist(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AlbumArtist)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn AlbumTitle(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AlbumTitle)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Artist(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Artist)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Composer(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Composer)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Conductor(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Conductor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn DisplayArtist(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayArtist)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Genre(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Genre)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn TrackNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TrackNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for SystemMusicProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemMusicProperties>();
+}
+unsafe impl windows_core::Interface for SystemMusicProperties {
+    type Vtable = <ISystemMusicProperties as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ISystemMusicProperties as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for SystemMusicProperties {
+    const NAME: &'static str = "Windows.Storage.SystemMusicProperties";
+}
+unsafe impl Send for SystemMusicProperties {}
+unsafe impl Sync for SystemMusicProperties {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SystemPhotoProperties(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(SystemPhotoProperties, windows_core::IUnknown, windows_core::IInspectable);
+impl SystemPhotoProperties {
+    pub fn CameraManufacturer(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CameraManufacturer)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn CameraModel(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CameraModel)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn DateTaken(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DateTaken)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Orientation(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Orientation)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn PeopleNames(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PeopleNames)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for SystemPhotoProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemPhotoProperties>();
+}
+unsafe impl windows_core::Interface for SystemPhotoProperties {
+    type Vtable = <ISystemPhotoProperties as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ISystemPhotoProperties as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for SystemPhotoProperties {
+    const NAME: &'static str = "Windows.Storage.SystemPhotoProperties";
+}
+unsafe impl Send for SystemPhotoProperties {}
+unsafe impl Sync for SystemPhotoProperties {}
+pub struct SystemProperties;
+impl SystemProperties {
+    pub fn Author() -> windows_core::Result<windows_core::HSTRING> {
+        Self::ISystemProperties(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Author)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Comment() -> windows_core::Result<windows_core::HSTRING> {
+        Self::ISystemProperties(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Comment)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn ItemNameDisplay() -> windows_core::Result<windows_core::HSTRING> {
+        Self::ISystemProperties(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ItemNameDisplay)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Keywords() -> windows_core::Result<windows_core::HSTRING> {
+        Self::ISystemProperties(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Keywords)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Rating() -> windows_core::Result<windows_core::HSTRING> {
+        Self::ISystemProperties(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Rating)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Title() -> windows_core::Result<windows_core::HSTRING> {
+        Self::ISystemProperties(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Title)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Audio() -> windows_core::Result<SystemAudioProperties> {
+        Self::ISystemProperties(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Audio)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn GPS() -> windows_core::Result<SystemGPSProperties> {
+        Self::ISystemProperties(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GPS)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn Media() -> windows_core::Result<SystemMediaProperties> {
+        Self::ISystemProperties(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Media)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn Music() -> windows_core::Result<SystemMusicProperties> {
+        Self::ISystemProperties(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Music)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn Photo() -> windows_core::Result<SystemPhotoProperties> {
+        Self::ISystemProperties(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Photo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn Video() -> windows_core::Result<SystemVideoProperties> {
+        Self::ISystemProperties(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Video)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn Image() -> windows_core::Result<SystemImageProperties> {
+        Self::ISystemProperties(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Image)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn ISystemProperties<R, F: FnOnce(&ISystemProperties) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<SystemProperties, ISystemProperties> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeName for SystemProperties {
+    const NAME: &'static str = "Windows.Storage.SystemProperties";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SystemVideoProperties(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(SystemVideoProperties, windows_core::IUnknown, windows_core::IInspectable);
+impl SystemVideoProperties {
+    pub fn Director(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Director)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn FrameHeight(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FrameHeight)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn FrameWidth(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FrameWidth)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Orientation(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Orientation)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn TotalBitrate(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TotalBitrate)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for SystemVideoProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemVideoProperties>();
+}
+unsafe impl windows_core::Interface for SystemVideoProperties {
+    type Vtable = <ISystemVideoProperties as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ISystemVideoProperties as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for SystemVideoProperties {
+    const NAME: &'static str = "Windows.Storage.SystemVideoProperties";
+}
+unsafe impl Send for SystemVideoProperties {}
+unsafe impl Sync for SystemVideoProperties {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct UserDataPaths(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(UserDataPaths, windows_core::IUnknown, windows_core::IInspectable);
+impl UserDataPaths {
+    pub fn CameraRoll(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CameraRoll)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Cookies(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Cookies)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Desktop(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Desktop)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Documents(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Documents)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Downloads(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Downloads)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Favorites(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Favorites)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn History(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).History)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn InternetCache(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).InternetCache)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn LocalAppData(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LocalAppData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn LocalAppDataLow(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LocalAppDataLow)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Music(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Music)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Pictures(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Pictures)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Profile(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Profile)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Recent(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Recent)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RoamingAppData(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RoamingAppData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SavedPictures(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SavedPictures)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Screenshots(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Screenshots)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Templates(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Templates)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Videos(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Videos)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "System")]
+    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<UserDataPaths>
+    where
+        P0: windows_core::Param<super::System::User>,
+    {
+        Self::IUserDataPathsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn GetDefault() -> windows_core::Result<UserDataPaths> {
+        Self::IUserDataPathsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IUserDataPathsStatics<R, F: FnOnce(&IUserDataPathsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<UserDataPaths, IUserDataPathsStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for UserDataPaths {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataPaths>();
+}
+unsafe impl windows_core::Interface for UserDataPaths {
+    type Vtable = <IUserDataPaths as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IUserDataPaths as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for UserDataPaths {
+    const NAME: &'static str = "Windows.Storage.UserDataPaths";
+}
+unsafe impl Send for UserDataPaths {}
+unsafe impl Sync for UserDataPaths {}

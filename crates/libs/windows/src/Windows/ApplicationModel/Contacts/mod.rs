@@ -573,6 +573,20 @@ impl windows_core::RuntimeName for ContactAddress {
 unsafe impl Send for ContactAddress {}
 unsafe impl Sync for ContactAddress {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ContactAddressKind(pub i32);
+impl ContactAddressKind {
+    pub const Home: Self = Self(0i32);
+    pub const Work: Self = Self(1i32);
+    pub const Other: Self = Self(2i32);
+}
+impl windows_core::TypeKind for ContactAddressKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ContactAddressKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAddressKind;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactAnnotation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactAnnotation, windows_core::IUnknown, windows_core::IInspectable);
@@ -760,6 +774,57 @@ impl windows_core::RuntimeName for ContactAnnotationList {
 unsafe impl Send for ContactAnnotationList {}
 unsafe impl Sync for ContactAnnotationList {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ContactAnnotationOperations(pub u32);
+impl ContactAnnotationOperations {
+    pub const None: Self = Self(0u32);
+    pub const ContactProfile: Self = Self(1u32);
+    pub const Message: Self = Self(2u32);
+    pub const AudioCall: Self = Self(4u32);
+    pub const VideoCall: Self = Self(8u32);
+    pub const SocialFeeds: Self = Self(16u32);
+    pub const Share: Self = Self(32u32);
+}
+impl windows_core::TypeKind for ContactAnnotationOperations {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ContactAnnotationOperations {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAnnotationOperations;u4)");
+}
+impl ContactAnnotationOperations {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for ContactAnnotationOperations {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for ContactAnnotationOperations {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for ContactAnnotationOperations {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for ContactAnnotationOperations {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for ContactAnnotationOperations {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactAnnotationStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactAnnotationStore, windows_core::IUnknown, windows_core::IInspectable);
@@ -852,6 +917,19 @@ impl windows_core::RuntimeName for ContactAnnotationStore {
 unsafe impl Send for ContactAnnotationStore {}
 unsafe impl Sync for ContactAnnotationStore {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ContactAnnotationStoreAccessType(pub i32);
+impl ContactAnnotationStoreAccessType {
+    pub const AppAnnotationsReadWrite: Self = Self(0i32);
+    pub const AllAnnotationsReadWrite: Self = Self(1i32);
+}
+impl windows_core::TypeKind for ContactAnnotationStoreAccessType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ContactAnnotationStoreAccessType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAnnotationStoreAccessType;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactBatch(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactBatch, windows_core::IUnknown, windows_core::IInspectable);
@@ -885,6 +963,20 @@ impl windows_core::RuntimeName for ContactBatch {
 unsafe impl Send for ContactBatch {}
 unsafe impl Sync for ContactBatch {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ContactBatchStatus(pub i32);
+impl ContactBatchStatus {
+    pub const Success: Self = Self(0i32);
+    pub const ServerSearchSyncManagerError: Self = Self(1i32);
+    pub const ServerSearchUnknownError: Self = Self(2i32);
+}
+impl windows_core::TypeKind for ContactBatchStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ContactBatchStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactBatchStatus;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactCardDelayedDataLoader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactCardDelayedDataLoader, windows_core::IUnknown, windows_core::IInspectable);
@@ -914,6 +1006,20 @@ impl windows_core::RuntimeName for ContactCardDelayedDataLoader {
 }
 unsafe impl Send for ContactCardDelayedDataLoader {}
 unsafe impl Sync for ContactCardDelayedDataLoader {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ContactCardHeaderKind(pub i32);
+impl ContactCardHeaderKind {
+    pub const Default: Self = Self(0i32);
+    pub const Basic: Self = Self(1i32);
+    pub const Enterprise: Self = Self(2i32);
+}
+impl windows_core::TypeKind for ContactCardHeaderKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ContactCardHeaderKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactCardHeaderKind;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactCardOptions(windows_core::IUnknown);
@@ -969,6 +1075,23 @@ impl windows_core::RuntimeName for ContactCardOptions {
 }
 unsafe impl Send for ContactCardOptions {}
 unsafe impl Sync for ContactCardOptions {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ContactCardTabKind(pub i32);
+impl ContactCardTabKind {
+    pub const Default: Self = Self(0i32);
+    pub const Email: Self = Self(1i32);
+    pub const Messaging: Self = Self(2i32);
+    pub const Phone: Self = Self(3i32);
+    pub const Video: Self = Self(4i32);
+    pub const OrganizationalHierarchy: Self = Self(5i32);
+}
+impl windows_core::TypeKind for ContactCardTabKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ContactCardTabKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactCardTabKind;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactChange(windows_core::IUnknown);
@@ -1078,6 +1201,21 @@ impl windows_core::RuntimeName for ContactChangeTracker {
 }
 unsafe impl Send for ContactChangeTracker {}
 unsafe impl Sync for ContactChangeTracker {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ContactChangeType(pub i32);
+impl ContactChangeType {
+    pub const Created: Self = Self(0i32);
+    pub const Modified: Self = Self(1i32);
+    pub const Deleted: Self = Self(2i32);
+    pub const ChangeTrackingLost: Self = Self(3i32);
+}
+impl windows_core::TypeKind for ContactChangeType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ContactChangeType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactChangeType;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactChangedDeferral(windows_core::IUnknown);
@@ -1262,6 +1400,20 @@ impl windows_core::RuntimeName for ContactDate {
 unsafe impl Send for ContactDate {}
 unsafe impl Sync for ContactDate {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ContactDateKind(pub i32);
+impl ContactDateKind {
+    pub const Birthday: Self = Self(0i32);
+    pub const Anniversary: Self = Self(1i32);
+    pub const Other: Self = Self(2i32);
+}
+impl windows_core::TypeKind for ContactDateKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ContactDateKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactDateKind;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactEmail(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactEmail, windows_core::IUnknown, windows_core::IInspectable);
@@ -1319,6 +1471,20 @@ impl windows_core::RuntimeName for ContactEmail {
 }
 unsafe impl Send for ContactEmail {}
 unsafe impl Sync for ContactEmail {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ContactEmailKind(pub i32);
+impl ContactEmailKind {
+    pub const Personal: Self = Self(0i32);
+    pub const Work: Self = Self(1i32);
+    pub const Other: Self = Self(2i32);
+}
+impl windows_core::TypeKind for ContactEmailKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ContactEmailKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactEmailKind;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactField(windows_core::IUnknown);
@@ -1388,6 +1554,22 @@ impl windows_core::RuntimeName for ContactField {
 }
 unsafe impl Send for ContactField {}
 unsafe impl Sync for ContactField {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ContactFieldCategory(pub i32);
+impl ContactFieldCategory {
+    pub const None: Self = Self(0i32);
+    pub const Home: Self = Self(1i32);
+    pub const Work: Self = Self(2i32);
+    pub const Mobile: Self = Self(3i32);
+    pub const Other: Self = Self(4i32);
+}
+impl windows_core::TypeKind for ContactFieldCategory {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ContactFieldCategory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactFieldCategory;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactFieldFactory(windows_core::IUnknown);
@@ -1480,6 +1662,29 @@ impl windows_core::RuntimeName for ContactFieldFactory {
 }
 unsafe impl Send for ContactFieldFactory {}
 unsafe impl Sync for ContactFieldFactory {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ContactFieldType(pub i32);
+impl ContactFieldType {
+    pub const Email: Self = Self(0i32);
+    pub const PhoneNumber: Self = Self(1i32);
+    pub const Location: Self = Self(2i32);
+    pub const InstantMessage: Self = Self(3i32);
+    pub const Custom: Self = Self(4i32);
+    pub const ConnectedServiceAccount: Self = Self(5i32);
+    pub const ImportantDate: Self = Self(6i32);
+    pub const Address: Self = Self(7i32);
+    pub const SignificantOther: Self = Self(8i32);
+    pub const Notes: Self = Self(9i32);
+    pub const Website: Self = Self(10i32);
+    pub const JobInfo: Self = Self(11i32);
+}
+impl windows_core::TypeKind for ContactFieldType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ContactFieldType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactFieldType;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactGroup(windows_core::IUnknown);
@@ -2087,6 +2292,35 @@ impl windows_core::RuntimeName for ContactListLimitedWriteOperations {
 unsafe impl Send for ContactListLimitedWriteOperations {}
 unsafe impl Sync for ContactListLimitedWriteOperations {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ContactListOtherAppReadAccess(pub i32);
+impl ContactListOtherAppReadAccess {
+    pub const SystemOnly: Self = Self(0i32);
+    pub const Limited: Self = Self(1i32);
+    pub const Full: Self = Self(2i32);
+    pub const None: Self = Self(3i32);
+}
+impl windows_core::TypeKind for ContactListOtherAppReadAccess {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ContactListOtherAppReadAccess {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListOtherAppReadAccess;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ContactListOtherAppWriteAccess(pub i32);
+impl ContactListOtherAppWriteAccess {
+    pub const None: Self = Self(0i32);
+    pub const SystemOnly: Self = Self(1i32);
+    pub const Limited: Self = Self(2i32);
+}
+impl windows_core::TypeKind for ContactListOtherAppWriteAccess {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ContactListOtherAppWriteAccess {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListOtherAppWriteAccess;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactListSyncConstraints(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactListSyncConstraints, windows_core::IUnknown, windows_core::IInspectable);
@@ -2566,6 +2800,24 @@ impl windows_core::RuntimeName for ContactListSyncManager {
 unsafe impl Send for ContactListSyncManager {}
 unsafe impl Sync for ContactListSyncManager {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ContactListSyncStatus(pub i32);
+impl ContactListSyncStatus {
+    pub const Idle: Self = Self(0i32);
+    pub const Syncing: Self = Self(1i32);
+    pub const UpToDate: Self = Self(2i32);
+    pub const AuthenticationError: Self = Self(3i32);
+    pub const PolicyError: Self = Self(4i32);
+    pub const UnknownError: Self = Self(5i32);
+    pub const ManualAccountRemovalRequired: Self = Self(6i32);
+}
+impl windows_core::TypeKind for ContactListSyncStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ContactListSyncStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListSyncStatus;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactLocationField(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactLocationField, windows_core::IUnknown, windows_core::IInspectable);
@@ -2998,6 +3250,36 @@ impl windows_core::RuntimeName for ContactMatchReason {
 unsafe impl Send for ContactMatchReason {}
 unsafe impl Sync for ContactMatchReason {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ContactMatchReasonKind(pub i32);
+impl ContactMatchReasonKind {
+    pub const Name: Self = Self(0i32);
+    pub const EmailAddress: Self = Self(1i32);
+    pub const PhoneNumber: Self = Self(2i32);
+    pub const JobInfo: Self = Self(3i32);
+    pub const YomiName: Self = Self(4i32);
+    pub const Other: Self = Self(5i32);
+}
+impl windows_core::TypeKind for ContactMatchReasonKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ContactMatchReasonKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactMatchReasonKind;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ContactNameOrder(pub i32);
+impl ContactNameOrder {
+    pub const FirstNameLastName: Self = Self(0i32);
+    pub const LastNameFirstName: Self = Self(1i32);
+}
+impl windows_core::TypeKind for ContactNameOrder {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ContactNameOrder {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactNameOrder;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactPanel(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactPanel, windows_core::IUnknown, windows_core::IInspectable);
@@ -3176,6 +3458,27 @@ impl windows_core::RuntimeName for ContactPhone {
 unsafe impl Send for ContactPhone {}
 unsafe impl Sync for ContactPhone {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ContactPhoneKind(pub i32);
+impl ContactPhoneKind {
+    pub const Home: Self = Self(0i32);
+    pub const Mobile: Self = Self(1i32);
+    pub const Work: Self = Self(2i32);
+    pub const Other: Self = Self(3i32);
+    pub const Pager: Self = Self(4i32);
+    pub const BusinessFax: Self = Self(5i32);
+    pub const HomeFax: Self = Self(6i32);
+    pub const Company: Self = Self(7i32);
+    pub const Assistant: Self = Self(8i32);
+    pub const Radio: Self = Self(9i32);
+}
+impl windows_core::TypeKind for ContactPhoneKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ContactPhoneKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactPhoneKind;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactPicker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactPicker, windows_core::IUnknown, windows_core::IInspectable);
@@ -3295,6 +3598,54 @@ impl windows_core::RuntimeName for ContactPicker {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactPicker";
 }
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ContactQueryDesiredFields(pub u32);
+impl ContactQueryDesiredFields {
+    pub const None: Self = Self(0u32);
+    pub const PhoneNumber: Self = Self(1u32);
+    pub const EmailAddress: Self = Self(2u32);
+    pub const PostalAddress: Self = Self(4u32);
+}
+impl windows_core::TypeKind for ContactQueryDesiredFields {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ContactQueryDesiredFields {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQueryDesiredFields;u4)");
+}
+impl ContactQueryDesiredFields {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for ContactQueryDesiredFields {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for ContactQueryDesiredFields {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for ContactQueryDesiredFields {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for ContactQueryDesiredFields {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for ContactQueryDesiredFields {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactQueryOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactQueryOptions, windows_core::IUnknown, windows_core::IInspectable);
@@ -3392,6 +3743,68 @@ impl windows_core::RuntimeName for ContactQueryOptions {
 unsafe impl Send for ContactQueryOptions {}
 unsafe impl Sync for ContactQueryOptions {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ContactQuerySearchFields(pub u32);
+impl ContactQuerySearchFields {
+    pub const None: Self = Self(0u32);
+    pub const Name: Self = Self(1u32);
+    pub const Email: Self = Self(2u32);
+    pub const Phone: Self = Self(4u32);
+    pub const All: Self = Self(4294967295u32);
+}
+impl windows_core::TypeKind for ContactQuerySearchFields {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ContactQuerySearchFields {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQuerySearchFields;u4)");
+}
+impl ContactQuerySearchFields {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for ContactQuerySearchFields {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for ContactQuerySearchFields {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for ContactQuerySearchFields {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for ContactQuerySearchFields {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for ContactQuerySearchFields {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ContactQuerySearchScope(pub i32);
+impl ContactQuerySearchScope {
+    pub const Local: Self = Self(0i32);
+    pub const Server: Self = Self(1i32);
+}
+impl windows_core::TypeKind for ContactQuerySearchScope {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ContactQuerySearchScope {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQuerySearchScope;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactQueryTextSearch(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactQueryTextSearch, windows_core::IUnknown, windows_core::IInspectable);
@@ -3478,6 +3891,36 @@ impl windows_core::RuntimeName for ContactReader {
 }
 unsafe impl Send for ContactReader {}
 unsafe impl Sync for ContactReader {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ContactRelationship(pub i32);
+impl ContactRelationship {
+    pub const Other: Self = Self(0i32);
+    pub const Spouse: Self = Self(1i32);
+    pub const Partner: Self = Self(2i32);
+    pub const Sibling: Self = Self(3i32);
+    pub const Parent: Self = Self(4i32);
+    pub const Child: Self = Self(5i32);
+}
+impl windows_core::TypeKind for ContactRelationship {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ContactRelationship {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactRelationship;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ContactSelectionMode(pub i32);
+impl ContactSelectionMode {
+    pub const Contacts: Self = Self(0i32);
+    pub const Fields: Self = Self(1i32);
+}
+impl windows_core::TypeKind for ContactSelectionMode {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ContactSelectionMode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactSelectionMode;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactSignificantOther(windows_core::IUnknown);
@@ -3666,6 +4109,20 @@ impl windows_core::RuntimeName for ContactStore {
 unsafe impl Send for ContactStore {}
 unsafe impl Sync for ContactStore {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ContactStoreAccessType(pub i32);
+impl ContactStoreAccessType {
+    pub const AppContactsReadWrite: Self = Self(0i32);
+    pub const AllContactsReadOnly: Self = Self(1i32);
+    pub const AllContactsReadWrite: Self = Self(2i32);
+}
+impl windows_core::TypeKind for ContactStoreAccessType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ContactStoreAccessType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactStoreAccessType;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactStoreNotificationTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactStoreNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
@@ -3781,201 +4238,6 @@ impl windows_core::RuntimeName for FullContactCardOptions {
 }
 unsafe impl Send for FullContactCardOptions {}
 unsafe impl Sync for FullContactCardOptions {}
-#[cfg(feature = "deprecated")]
-pub struct KnownContactField;
-#[cfg(feature = "deprecated")]
-impl KnownContactField {
-    #[cfg(feature = "deprecated")]
-    pub fn Email() -> windows_core::Result<windows_core::HSTRING> {
-        Self::IKnownContactFieldStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Email)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn PhoneNumber() -> windows_core::Result<windows_core::HSTRING> {
-        Self::IKnownContactFieldStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PhoneNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn Location() -> windows_core::Result<windows_core::HSTRING> {
-        Self::IKnownContactFieldStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Location)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn InstantMessage() -> windows_core::Result<windows_core::HSTRING> {
-        Self::IKnownContactFieldStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InstantMessage)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn ConvertNameToType(name: &windows_core::HSTRING) -> windows_core::Result<ContactFieldType> {
-        Self::IKnownContactFieldStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConvertNameToType)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).map(|| result__)
-        })
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn ConvertTypeToName(r#type: ContactFieldType) -> windows_core::Result<windows_core::HSTRING> {
-        Self::IKnownContactFieldStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConvertTypeToName)(windows_core::Interface::as_raw(this), r#type, &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    fn IKnownContactFieldStatics<R, F: FnOnce(&IKnownContactFieldStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<KnownContactField, IKnownContactFieldStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeName for KnownContactField {
-    const NAME: &'static str = "Windows.ApplicationModel.Contacts.KnownContactField";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PinnedContactIdsQueryResult(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PinnedContactIdsQueryResult, windows_core::IUnknown, windows_core::IInspectable);
-impl PinnedContactIdsQueryResult {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ContactIds(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContactIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for PinnedContactIdsQueryResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPinnedContactIdsQueryResult>();
-}
-unsafe impl windows_core::Interface for PinnedContactIdsQueryResult {
-    type Vtable = <IPinnedContactIdsQueryResult as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IPinnedContactIdsQueryResult as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for PinnedContactIdsQueryResult {
-    const NAME: &'static str = "Windows.ApplicationModel.Contacts.PinnedContactIdsQueryResult";
-}
-unsafe impl Send for PinnedContactIdsQueryResult {}
-unsafe impl Sync for PinnedContactIdsQueryResult {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct PinnedContactManager(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PinnedContactManager, windows_core::IUnknown, windows_core::IInspectable);
-impl PinnedContactManager {
-    #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn IsPinSurfaceSupported(&self, surface: PinnedContactSurface) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsPinSurfaceSupported)(windows_core::Interface::as_raw(this), surface, &mut result__).map(|| result__)
-        }
-    }
-    pub fn IsContactPinned<P0>(&self, contact: P0, surface: PinnedContactSurface) -> windows_core::Result<bool>
-    where
-        P0: windows_core::Param<Contact>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsContactPinned)(windows_core::Interface::as_raw(this), contact.param().abi(), surface, &mut result__).map(|| result__)
-        }
-    }
-    pub fn RequestPinContactAsync<P0>(&self, contact: P0, surface: PinnedContactSurface) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: windows_core::Param<Contact>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestPinContactAsync)(windows_core::Interface::as_raw(this), contact.param().abi(), surface, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RequestPinContactsAsync<P0>(&self, contacts: P0, surface: PinnedContactSurface) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<Contact>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestPinContactsAsync)(windows_core::Interface::as_raw(this), contacts.param().abi(), surface, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn RequestUnpinContactAsync<P0>(&self, contact: P0, surface: PinnedContactSurface) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: windows_core::Param<Contact>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestUnpinContactAsync)(windows_core::Interface::as_raw(this), contact.param().abi(), surface, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SignalContactActivity<P0>(&self, contact: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<Contact>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SignalContactActivity)(windows_core::Interface::as_raw(this), contact.param().abi()).ok() }
-    }
-    pub fn GetPinnedContactIdsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PinnedContactIdsQueryResult>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPinnedContactIdsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetDefault() -> windows_core::Result<PinnedContactManager> {
-        Self::IPinnedContactManagerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "System")]
-    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<PinnedContactManager>
-    where
-        P0: windows_core::Param<super::super::System::User>,
-    {
-        Self::IPinnedContactManagerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn IsSupported() -> windows_core::Result<bool> {
-        Self::IPinnedContactManagerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        })
-    }
-    fn IPinnedContactManagerStatics<R, F: FnOnce(&IPinnedContactManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<PinnedContactManager, IPinnedContactManagerStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for PinnedContactManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPinnedContactManager>();
-}
-unsafe impl windows_core::Interface for PinnedContactManager {
-    type Vtable = <IPinnedContactManager as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IPinnedContactManager as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for PinnedContactManager {
-    const NAME: &'static str = "Windows.ApplicationModel.Contacts.PinnedContactManager";
-}
-unsafe impl Send for PinnedContactManager {}
-unsafe impl Sync for PinnedContactManager {}
 windows_core::imp::define_interface!(IAggregateContactManager, IAggregateContactManager_Vtbl, 0x0379d5dd_db5a_4fd3_b54e_4df17917a212);
 impl windows_core::RuntimeType for IAggregateContactManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -5563,463 +5825,201 @@ pub struct IPinnedContactManagerStatics_Vtbl {
     GetForUser: usize,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ContactAddressKind(pub i32);
-impl ContactAddressKind {
-    pub const Home: Self = Self(0i32);
-    pub const Work: Self = Self(1i32);
-    pub const Other: Self = Self(2i32);
-}
-impl windows_core::TypeKind for ContactAddressKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ContactAddressKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAddressKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ContactAnnotationOperations(pub u32);
-impl ContactAnnotationOperations {
-    pub const None: Self = Self(0u32);
-    pub const ContactProfile: Self = Self(1u32);
-    pub const Message: Self = Self(2u32);
-    pub const AudioCall: Self = Self(4u32);
-    pub const VideoCall: Self = Self(8u32);
-    pub const SocialFeeds: Self = Self(16u32);
-    pub const Share: Self = Self(32u32);
-}
-impl windows_core::TypeKind for ContactAnnotationOperations {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ContactAnnotationOperations {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAnnotationOperations;u4)");
-}
-impl ContactAnnotationOperations {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
+#[cfg(feature = "deprecated")]
+pub struct KnownContactField;
+#[cfg(feature = "deprecated")]
+impl KnownContactField {
+    #[cfg(feature = "deprecated")]
+    pub fn Email() -> windows_core::Result<windows_core::HSTRING> {
+        Self::IKnownContactFieldStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Email)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn PhoneNumber() -> windows_core::Result<windows_core::HSTRING> {
+        Self::IKnownContactFieldStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PhoneNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn Location() -> windows_core::Result<windows_core::HSTRING> {
+        Self::IKnownContactFieldStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Location)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn InstantMessage() -> windows_core::Result<windows_core::HSTRING> {
+        Self::IKnownContactFieldStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).InstantMessage)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn ConvertNameToType(name: &windows_core::HSTRING) -> windows_core::Result<ContactFieldType> {
+        Self::IKnownContactFieldStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ConvertNameToType)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).map(|| result__)
+        })
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn ConvertTypeToName(r#type: ContactFieldType) -> windows_core::Result<windows_core::HSTRING> {
+        Self::IKnownContactFieldStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ConvertTypeToName)(windows_core::Interface::as_raw(this), r#type, &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    fn IKnownContactFieldStatics<R, F: FnOnce(&IKnownContactFieldStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<KnownContactField, IKnownContactFieldStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
-impl core::ops::BitOr for ContactAnnotationOperations {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeName for KnownContactField {
+    const NAME: &'static str = "Windows.ApplicationModel.Contacts.KnownContactField";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PinnedContactIdsQueryResult(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PinnedContactIdsQueryResult, windows_core::IUnknown, windows_core::IInspectable);
+impl PinnedContactIdsQueryResult {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ContactIds(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ContactIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
-impl core::ops::BitAnd for ContactAnnotationOperations {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
+impl windows_core::RuntimeType for PinnedContactIdsQueryResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPinnedContactIdsQueryResult>();
+}
+unsafe impl windows_core::Interface for PinnedContactIdsQueryResult {
+    type Vtable = <IPinnedContactIdsQueryResult as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPinnedContactIdsQueryResult as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PinnedContactIdsQueryResult {
+    const NAME: &'static str = "Windows.ApplicationModel.Contacts.PinnedContactIdsQueryResult";
+}
+unsafe impl Send for PinnedContactIdsQueryResult {}
+unsafe impl Sync for PinnedContactIdsQueryResult {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PinnedContactManager(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PinnedContactManager, windows_core::IUnknown, windows_core::IInspectable);
+impl PinnedContactManager {
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn IsPinSurfaceSupported(&self, surface: PinnedContactSurface) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsPinSurfaceSupported)(windows_core::Interface::as_raw(this), surface, &mut result__).map(|| result__)
+        }
+    }
+    pub fn IsContactPinned<P0>(&self, contact: P0, surface: PinnedContactSurface) -> windows_core::Result<bool>
+    where
+        P0: windows_core::Param<Contact>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsContactPinned)(windows_core::Interface::as_raw(this), contact.param().abi(), surface, &mut result__).map(|| result__)
+        }
+    }
+    pub fn RequestPinContactAsync<P0>(&self, contact: P0, surface: PinnedContactSurface) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: windows_core::Param<Contact>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestPinContactAsync)(windows_core::Interface::as_raw(this), contact.param().abi(), surface, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn RequestPinContactsAsync<P0>(&self, contacts: P0, surface: PinnedContactSurface) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<Contact>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestPinContactsAsync)(windows_core::Interface::as_raw(this), contacts.param().abi(), surface, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn RequestUnpinContactAsync<P0>(&self, contact: P0, surface: PinnedContactSurface) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: windows_core::Param<Contact>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RequestUnpinContactAsync)(windows_core::Interface::as_raw(this), contact.param().abi(), surface, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SignalContactActivity<P0>(&self, contact: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<Contact>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SignalContactActivity)(windows_core::Interface::as_raw(this), contact.param().abi()).ok() }
+    }
+    pub fn GetPinnedContactIdsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PinnedContactIdsQueryResult>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetPinnedContactIdsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetDefault() -> windows_core::Result<PinnedContactManager> {
+        Self::IPinnedContactManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "System")]
+    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<PinnedContactManager>
+    where
+        P0: windows_core::Param<super::super::System::User>,
+    {
+        Self::IPinnedContactManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn IsSupported() -> windows_core::Result<bool> {
+        Self::IPinnedContactManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    fn IPinnedContactManagerStatics<R, F: FnOnce(&IPinnedContactManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<PinnedContactManager, IPinnedContactManagerStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
-impl core::ops::BitOrAssign for ContactAnnotationOperations {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
+impl windows_core::RuntimeType for PinnedContactManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPinnedContactManager>();
 }
-impl core::ops::BitAndAssign for ContactAnnotationOperations {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
+unsafe impl windows_core::Interface for PinnedContactManager {
+    type Vtable = <IPinnedContactManager as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPinnedContactManager as windows_core::Interface>::IID;
 }
-impl core::ops::Not for ContactAnnotationOperations {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
+impl windows_core::RuntimeName for PinnedContactManager {
+    const NAME: &'static str = "Windows.ApplicationModel.Contacts.PinnedContactManager";
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ContactAnnotationStoreAccessType(pub i32);
-impl ContactAnnotationStoreAccessType {
-    pub const AppAnnotationsReadWrite: Self = Self(0i32);
-    pub const AllAnnotationsReadWrite: Self = Self(1i32);
-}
-impl windows_core::TypeKind for ContactAnnotationStoreAccessType {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ContactAnnotationStoreAccessType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAnnotationStoreAccessType;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ContactBatchStatus(pub i32);
-impl ContactBatchStatus {
-    pub const Success: Self = Self(0i32);
-    pub const ServerSearchSyncManagerError: Self = Self(1i32);
-    pub const ServerSearchUnknownError: Self = Self(2i32);
-}
-impl windows_core::TypeKind for ContactBatchStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ContactBatchStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactBatchStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ContactCardHeaderKind(pub i32);
-impl ContactCardHeaderKind {
-    pub const Default: Self = Self(0i32);
-    pub const Basic: Self = Self(1i32);
-    pub const Enterprise: Self = Self(2i32);
-}
-impl windows_core::TypeKind for ContactCardHeaderKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ContactCardHeaderKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactCardHeaderKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ContactCardTabKind(pub i32);
-impl ContactCardTabKind {
-    pub const Default: Self = Self(0i32);
-    pub const Email: Self = Self(1i32);
-    pub const Messaging: Self = Self(2i32);
-    pub const Phone: Self = Self(3i32);
-    pub const Video: Self = Self(4i32);
-    pub const OrganizationalHierarchy: Self = Self(5i32);
-}
-impl windows_core::TypeKind for ContactCardTabKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ContactCardTabKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactCardTabKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ContactChangeType(pub i32);
-impl ContactChangeType {
-    pub const Created: Self = Self(0i32);
-    pub const Modified: Self = Self(1i32);
-    pub const Deleted: Self = Self(2i32);
-    pub const ChangeTrackingLost: Self = Self(3i32);
-}
-impl windows_core::TypeKind for ContactChangeType {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ContactChangeType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactChangeType;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ContactDateKind(pub i32);
-impl ContactDateKind {
-    pub const Birthday: Self = Self(0i32);
-    pub const Anniversary: Self = Self(1i32);
-    pub const Other: Self = Self(2i32);
-}
-impl windows_core::TypeKind for ContactDateKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ContactDateKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactDateKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ContactEmailKind(pub i32);
-impl ContactEmailKind {
-    pub const Personal: Self = Self(0i32);
-    pub const Work: Self = Self(1i32);
-    pub const Other: Self = Self(2i32);
-}
-impl windows_core::TypeKind for ContactEmailKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ContactEmailKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactEmailKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ContactFieldCategory(pub i32);
-impl ContactFieldCategory {
-    pub const None: Self = Self(0i32);
-    pub const Home: Self = Self(1i32);
-    pub const Work: Self = Self(2i32);
-    pub const Mobile: Self = Self(3i32);
-    pub const Other: Self = Self(4i32);
-}
-impl windows_core::TypeKind for ContactFieldCategory {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ContactFieldCategory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactFieldCategory;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ContactFieldType(pub i32);
-impl ContactFieldType {
-    pub const Email: Self = Self(0i32);
-    pub const PhoneNumber: Self = Self(1i32);
-    pub const Location: Self = Self(2i32);
-    pub const InstantMessage: Self = Self(3i32);
-    pub const Custom: Self = Self(4i32);
-    pub const ConnectedServiceAccount: Self = Self(5i32);
-    pub const ImportantDate: Self = Self(6i32);
-    pub const Address: Self = Self(7i32);
-    pub const SignificantOther: Self = Self(8i32);
-    pub const Notes: Self = Self(9i32);
-    pub const Website: Self = Self(10i32);
-    pub const JobInfo: Self = Self(11i32);
-}
-impl windows_core::TypeKind for ContactFieldType {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ContactFieldType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactFieldType;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ContactListOtherAppReadAccess(pub i32);
-impl ContactListOtherAppReadAccess {
-    pub const SystemOnly: Self = Self(0i32);
-    pub const Limited: Self = Self(1i32);
-    pub const Full: Self = Self(2i32);
-    pub const None: Self = Self(3i32);
-}
-impl windows_core::TypeKind for ContactListOtherAppReadAccess {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ContactListOtherAppReadAccess {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListOtherAppReadAccess;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ContactListOtherAppWriteAccess(pub i32);
-impl ContactListOtherAppWriteAccess {
-    pub const None: Self = Self(0i32);
-    pub const SystemOnly: Self = Self(1i32);
-    pub const Limited: Self = Self(2i32);
-}
-impl windows_core::TypeKind for ContactListOtherAppWriteAccess {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ContactListOtherAppWriteAccess {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListOtherAppWriteAccess;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ContactListSyncStatus(pub i32);
-impl ContactListSyncStatus {
-    pub const Idle: Self = Self(0i32);
-    pub const Syncing: Self = Self(1i32);
-    pub const UpToDate: Self = Self(2i32);
-    pub const AuthenticationError: Self = Self(3i32);
-    pub const PolicyError: Self = Self(4i32);
-    pub const UnknownError: Self = Self(5i32);
-    pub const ManualAccountRemovalRequired: Self = Self(6i32);
-}
-impl windows_core::TypeKind for ContactListSyncStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ContactListSyncStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListSyncStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ContactMatchReasonKind(pub i32);
-impl ContactMatchReasonKind {
-    pub const Name: Self = Self(0i32);
-    pub const EmailAddress: Self = Self(1i32);
-    pub const PhoneNumber: Self = Self(2i32);
-    pub const JobInfo: Self = Self(3i32);
-    pub const YomiName: Self = Self(4i32);
-    pub const Other: Self = Self(5i32);
-}
-impl windows_core::TypeKind for ContactMatchReasonKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ContactMatchReasonKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactMatchReasonKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ContactNameOrder(pub i32);
-impl ContactNameOrder {
-    pub const FirstNameLastName: Self = Self(0i32);
-    pub const LastNameFirstName: Self = Self(1i32);
-}
-impl windows_core::TypeKind for ContactNameOrder {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ContactNameOrder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactNameOrder;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ContactPhoneKind(pub i32);
-impl ContactPhoneKind {
-    pub const Home: Self = Self(0i32);
-    pub const Mobile: Self = Self(1i32);
-    pub const Work: Self = Self(2i32);
-    pub const Other: Self = Self(3i32);
-    pub const Pager: Self = Self(4i32);
-    pub const BusinessFax: Self = Self(5i32);
-    pub const HomeFax: Self = Self(6i32);
-    pub const Company: Self = Self(7i32);
-    pub const Assistant: Self = Self(8i32);
-    pub const Radio: Self = Self(9i32);
-}
-impl windows_core::TypeKind for ContactPhoneKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ContactPhoneKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactPhoneKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ContactQueryDesiredFields(pub u32);
-impl ContactQueryDesiredFields {
-    pub const None: Self = Self(0u32);
-    pub const PhoneNumber: Self = Self(1u32);
-    pub const EmailAddress: Self = Self(2u32);
-    pub const PostalAddress: Self = Self(4u32);
-}
-impl windows_core::TypeKind for ContactQueryDesiredFields {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ContactQueryDesiredFields {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQueryDesiredFields;u4)");
-}
-impl ContactQueryDesiredFields {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for ContactQueryDesiredFields {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for ContactQueryDesiredFields {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for ContactQueryDesiredFields {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for ContactQueryDesiredFields {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for ContactQueryDesiredFields {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ContactQuerySearchFields(pub u32);
-impl ContactQuerySearchFields {
-    pub const None: Self = Self(0u32);
-    pub const Name: Self = Self(1u32);
-    pub const Email: Self = Self(2u32);
-    pub const Phone: Self = Self(4u32);
-    pub const All: Self = Self(4294967295u32);
-}
-impl windows_core::TypeKind for ContactQuerySearchFields {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ContactQuerySearchFields {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQuerySearchFields;u4)");
-}
-impl ContactQuerySearchFields {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for ContactQuerySearchFields {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for ContactQuerySearchFields {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for ContactQuerySearchFields {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for ContactQuerySearchFields {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for ContactQuerySearchFields {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ContactQuerySearchScope(pub i32);
-impl ContactQuerySearchScope {
-    pub const Local: Self = Self(0i32);
-    pub const Server: Self = Self(1i32);
-}
-impl windows_core::TypeKind for ContactQuerySearchScope {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ContactQuerySearchScope {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQuerySearchScope;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ContactRelationship(pub i32);
-impl ContactRelationship {
-    pub const Other: Self = Self(0i32);
-    pub const Spouse: Self = Self(1i32);
-    pub const Partner: Self = Self(2i32);
-    pub const Sibling: Self = Self(3i32);
-    pub const Parent: Self = Self(4i32);
-    pub const Child: Self = Self(5i32);
-}
-impl windows_core::TypeKind for ContactRelationship {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ContactRelationship {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactRelationship;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ContactSelectionMode(pub i32);
-impl ContactSelectionMode {
-    pub const Contacts: Self = Self(0i32);
-    pub const Fields: Self = Self(1i32);
-}
-impl windows_core::TypeKind for ContactSelectionMode {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ContactSelectionMode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactSelectionMode;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ContactStoreAccessType(pub i32);
-impl ContactStoreAccessType {
-    pub const AppContactsReadWrite: Self = Self(0i32);
-    pub const AllContactsReadOnly: Self = Self(1i32);
-    pub const AllContactsReadWrite: Self = Self(2i32);
-}
-impl windows_core::TypeKind for ContactStoreAccessType {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ContactStoreAccessType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactStoreAccessType;i4)");
-}
+unsafe impl Send for PinnedContactManager {}
+unsafe impl Sync for PinnedContactManager {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PinnedContactSurface(pub i32);

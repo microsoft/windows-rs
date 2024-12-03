@@ -800,6 +800,105 @@ pub unsafe fn StringFromIID(rclsid: *const windows_core::GUID) -> windows_core::
     let mut result__ = core::mem::zeroed();
     StringFromIID(core::mem::transmute(rclsid), &mut result__).map(|| core::mem::transmute(result__))
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADVANCED_FEATURE_FLAGS(pub u16);
+impl ADVANCED_FEATURE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for ADVANCED_FEATURE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for ADVANCED_FEATURE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for ADVANCED_FEATURE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for ADVANCED_FEATURE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for ADVANCED_FEATURE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADVF(pub i32);
+pub const ADVFCACHE_FORCEBUILTIN: ADVF = ADVF(16i32);
+pub const ADVFCACHE_NOHANDLER: ADVF = ADVF(8i32);
+pub const ADVFCACHE_ONSAVE: ADVF = ADVF(32i32);
+pub const ADVF_DATAONSTOP: ADVF = ADVF(64i32);
+pub const ADVF_NODATA: ADVF = ADVF(1i32);
+pub const ADVF_ONLYONCE: ADVF = ADVF(4i32);
+pub const ADVF_PRIMEFIRST: ADVF = ADVF(2i32);
+pub const APPIDREGFLAGS_AAA_NO_IMPLICIT_ACTIVATE_AS_IU: u32 = 2048u32;
+pub const APPIDREGFLAGS_ACTIVATE_IUSERVER_INDESKTOP: u32 = 1u32;
+pub const APPIDREGFLAGS_ISSUE_ACTIVATION_RPC_AT_IDENTIFY: u32 = 4u32;
+pub const APPIDREGFLAGS_IUSERVER_ACTIVATE_IN_CLIENT_SESSION_ONLY: u32 = 32u32;
+pub const APPIDREGFLAGS_IUSERVER_SELF_SID_IN_LAUNCH_PERMISSION: u32 = 16u32;
+pub const APPIDREGFLAGS_IUSERVER_UNMODIFIED_LOGON_TOKEN: u32 = 8u32;
+pub const APPIDREGFLAGS_RESERVED1: u32 = 64u32;
+pub const APPIDREGFLAGS_RESERVED2: u32 = 128u32;
+pub const APPIDREGFLAGS_RESERVED3: u32 = 256u32;
+pub const APPIDREGFLAGS_RESERVED4: u32 = 512u32;
+pub const APPIDREGFLAGS_RESERVED5: u32 = 1024u32;
+pub const APPIDREGFLAGS_RESERVED7: u32 = 4096u32;
+pub const APPIDREGFLAGS_RESERVED8: u32 = 8192u32;
+pub const APPIDREGFLAGS_RESERVED9: u32 = 16384u32;
+pub const APPIDREGFLAGS_SECURE_SERVER_PROCESS_SD_AND_BIND: u32 = 2u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct APTTYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct APTTYPEQUALIFIER(pub i32);
+pub const APTTYPEQUALIFIER_APPLICATION_STA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(6i32);
+pub const APTTYPEQUALIFIER_IMPLICIT_MTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(1i32);
+pub const APTTYPEQUALIFIER_NA_ON_IMPLICIT_MTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(4i32);
+pub const APTTYPEQUALIFIER_NA_ON_MAINSTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(5i32);
+pub const APTTYPEQUALIFIER_NA_ON_MTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(2i32);
+pub const APTTYPEQUALIFIER_NA_ON_STA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(3i32);
+pub const APTTYPEQUALIFIER_NONE: APTTYPEQUALIFIER = APTTYPEQUALIFIER(0i32);
+pub const APTTYPEQUALIFIER_RESERVED_1: APTTYPEQUALIFIER = APTTYPEQUALIFIER(7i32);
+pub const APTTYPE_CURRENT: APTTYPE = APTTYPE(-1i32);
+pub const APTTYPE_MAINSTA: APTTYPE = APTTYPE(3i32);
+pub const APTTYPE_MTA: APTTYPE = APTTYPE(1i32);
+pub const APTTYPE_NA: APTTYPE = APTTYPE(2i32);
+pub const APTTYPE_STA: APTTYPE = APTTYPE(0i32);
+pub const ASYNC_MODE_COMPATIBILITY: i32 = 1i32;
+pub const ASYNC_MODE_DEFAULT: i32 = 0i32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct AUTHENTICATEINFO {
+    pub dwFlags: u32,
+    pub dwReserved: u32,
+}
+impl Default for AUTHENTICATEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for AUTHENTICATEINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ApplicationType(pub i32);
 windows_core::imp::define_interface!(AsyncIAdviseSink, AsyncIAdviseSink_Vtbl, 0x00000150_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(AsyncIAdviseSink, windows_core::IUnknown);
 impl AsyncIAdviseSink {
@@ -1289,6 +1388,1110 @@ impl AsyncIUnknown_Vtbl {
     }
 }
 impl windows_core::RuntimeName for AsyncIUnknown {}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+pub struct BINDINFO {
+    pub cbSize: u32,
+    pub szExtraInfo: windows_core::PWSTR,
+    pub stgmedData: STGMEDIUM,
+    pub grfBindInfoF: u32,
+    pub dwBindVerb: u32,
+    pub szCustomVerb: windows_core::PWSTR,
+    pub cbstgmedData: u32,
+    pub dwOptions: u32,
+    pub dwOptionsFlags: u32,
+    pub dwCodePage: u32,
+    pub securityAttributes: super::super::Security::SECURITY_ATTRIBUTES,
+    pub iid: windows_core::GUID,
+    pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub dwReserved: u32,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+impl Clone for BINDINFO {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+impl Default for BINDINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+impl windows_core::TypeKind for BINDINFO {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BINDINFOF(pub i32);
+pub const BINDINFOF_URLENCODEDEXTRAINFO: BINDINFOF = BINDINFOF(2i32);
+pub const BINDINFOF_URLENCODESTGMEDDATA: BINDINFOF = BINDINFOF(1i32);
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub union BINDPTR {
+    pub lpfuncdesc: *mut FUNCDESC,
+    pub lpvardesc: *mut VARDESC,
+    pub lptcomp: core::mem::ManuallyDrop<Option<ITypeComp>>,
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for BINDPTR {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for BINDPTR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for BINDPTR {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct BIND_FLAGS(pub i32);
+pub const BIND_JUSTTESTEXISTENCE: BIND_FLAGS = BIND_FLAGS(2i32);
+pub const BIND_MAYBOTHERUSER: BIND_FLAGS = BIND_FLAGS(1i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct BIND_OPTS {
+    pub cbStruct: u32,
+    pub grfFlags: u32,
+    pub grfMode: u32,
+    pub dwTickCountDeadline: u32,
+}
+impl Default for BIND_OPTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for BIND_OPTS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct BIND_OPTS2 {
+    pub Base: BIND_OPTS,
+    pub dwTrackFlags: u32,
+    pub dwClassContext: u32,
+    pub locale: u32,
+    pub pServerInfo: *mut COSERVERINFO,
+}
+impl Default for BIND_OPTS2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for BIND_OPTS2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct BIND_OPTS3 {
+    pub Base: BIND_OPTS2,
+    pub hwnd: super::super::Foundation::HWND,
+}
+impl Default for BIND_OPTS3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for BIND_OPTS3 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct BLOB {
+    pub cbSize: u32,
+    pub pBlobData: *mut u8,
+}
+impl Default for BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for BLOB {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct BYTE_BLOB {
+    pub clSize: u32,
+    pub abData: [u8; 1],
+}
+impl Default for BYTE_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for BYTE_BLOB {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct BYTE_SIZEDARR {
+    pub clSize: u32,
+    pub pData: *mut u8,
+}
+impl Default for BYTE_SIZEDARR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for BYTE_SIZEDARR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CALLCONV(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CALLTYPE(pub i32);
+pub const CALLTYPE_ASYNC: CALLTYPE = CALLTYPE(3i32);
+pub const CALLTYPE_ASYNC_CALLPENDING: CALLTYPE = CALLTYPE(5i32);
+pub const CALLTYPE_NESTED: CALLTYPE = CALLTYPE(2i32);
+pub const CALLTYPE_TOPLEVEL: CALLTYPE = CALLTYPE(1i32);
+pub const CALLTYPE_TOPLEVEL_CALLPENDING: CALLTYPE = CALLTYPE(4i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CATEGORYINFO {
+    pub catid: windows_core::GUID,
+    pub lcid: u32,
+    pub szDescription: [u16; 128],
+}
+impl Default for CATEGORYINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CATEGORYINFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CC_CDECL: CALLCONV = CALLCONV(1i32);
+pub const CC_FASTCALL: CALLCONV = CALLCONV(0i32);
+pub const CC_FPFASTCALL: CALLCONV = CALLCONV(5i32);
+pub const CC_MACPASCAL: CALLCONV = CALLCONV(3i32);
+pub const CC_MAX: CALLCONV = CALLCONV(9i32);
+pub const CC_MPWCDECL: CALLCONV = CALLCONV(7i32);
+pub const CC_MPWPASCAL: CALLCONV = CALLCONV(8i32);
+pub const CC_MSCPASCAL: CALLCONV = CALLCONV(2i32);
+pub const CC_PASCAL: CALLCONV = CALLCONV(2i32);
+pub const CC_STDCALL: CALLCONV = CALLCONV(4i32);
+pub const CC_SYSCALL: CALLCONV = CALLCONV(6i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CLSCTX(pub u32);
+impl CLSCTX {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for CLSCTX {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for CLSCTX {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for CLSCTX {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for CLSCTX {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for CLSCTX {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const CLSCTX_ACTIVATE_32_BIT_SERVER: CLSCTX = CLSCTX(262144u32);
+pub const CLSCTX_ACTIVATE_64_BIT_SERVER: CLSCTX = CLSCTX(524288u32);
+pub const CLSCTX_ACTIVATE_AAA_AS_IU: CLSCTX = CLSCTX(8388608u32);
+pub const CLSCTX_ACTIVATE_ARM32_SERVER: CLSCTX = CLSCTX(33554432u32);
+pub const CLSCTX_ACTIVATE_X86_SERVER: CLSCTX = CLSCTX(262144u32);
+pub const CLSCTX_ALL: CLSCTX = CLSCTX(23u32);
+pub const CLSCTX_ALLOW_LOWER_TRUST_REGISTRATION: CLSCTX = CLSCTX(67108864u32);
+pub const CLSCTX_APPCONTAINER: CLSCTX = CLSCTX(4194304u32);
+pub const CLSCTX_DISABLE_AAA: CLSCTX = CLSCTX(32768u32);
+pub const CLSCTX_ENABLE_AAA: CLSCTX = CLSCTX(65536u32);
+pub const CLSCTX_ENABLE_CLOAKING: CLSCTX = CLSCTX(1048576u32);
+pub const CLSCTX_ENABLE_CODE_DOWNLOAD: CLSCTX = CLSCTX(8192u32);
+pub const CLSCTX_FROM_DEFAULT_CONTEXT: CLSCTX = CLSCTX(131072u32);
+pub const CLSCTX_INPROC_HANDLER: CLSCTX = CLSCTX(2u32);
+pub const CLSCTX_INPROC_HANDLER16: CLSCTX = CLSCTX(32u32);
+pub const CLSCTX_INPROC_SERVER: CLSCTX = CLSCTX(1u32);
+pub const CLSCTX_INPROC_SERVER16: CLSCTX = CLSCTX(8u32);
+pub const CLSCTX_LOCAL_SERVER: CLSCTX = CLSCTX(4u32);
+pub const CLSCTX_NO_CODE_DOWNLOAD: CLSCTX = CLSCTX(1024u32);
+pub const CLSCTX_NO_CUSTOM_MARSHAL: CLSCTX = CLSCTX(4096u32);
+pub const CLSCTX_NO_FAILURE_LOG: CLSCTX = CLSCTX(16384u32);
+pub const CLSCTX_PS_DLL: CLSCTX = CLSCTX(2147483648u32);
+pub const CLSCTX_REMOTE_SERVER: CLSCTX = CLSCTX(16u32);
+pub const CLSCTX_RESERVED1: CLSCTX = CLSCTX(64u32);
+pub const CLSCTX_RESERVED2: CLSCTX = CLSCTX(128u32);
+pub const CLSCTX_RESERVED3: CLSCTX = CLSCTX(256u32);
+pub const CLSCTX_RESERVED4: CLSCTX = CLSCTX(512u32);
+pub const CLSCTX_RESERVED5: CLSCTX = CLSCTX(2048u32);
+pub const CLSCTX_RESERVED6: CLSCTX = CLSCTX(16777216u32);
+pub const CLSCTX_SERVER: CLSCTX = CLSCTX(21u32);
+pub const CLSID_GlobalOptions: windows_core::GUID = windows_core::GUID::from_u128(0x0000034b_0000_0000_c000_000000000046);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COAUTHIDENTITY {
+    pub User: *mut u16,
+    pub UserLength: u32,
+    pub Domain: *mut u16,
+    pub DomainLength: u32,
+    pub Password: *mut u16,
+    pub PasswordLength: u32,
+    pub Flags: u32,
+}
+impl Default for COAUTHIDENTITY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COAUTHIDENTITY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COAUTHINFO {
+    pub dwAuthnSvc: u32,
+    pub dwAuthzSvc: u32,
+    pub pwszServerPrincName: windows_core::PWSTR,
+    pub dwAuthnLevel: u32,
+    pub dwImpersonationLevel: u32,
+    pub pAuthIdentityData: *mut COAUTHIDENTITY,
+    pub dwCapabilities: u32,
+}
+impl Default for COAUTHINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COAUTHINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COINIT(pub i32);
+impl COINIT {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for COINIT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for COINIT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for COINIT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for COINIT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for COINIT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COINITBASE(pub i32);
+pub const COINITBASE_MULTITHREADED: COINITBASE = COINITBASE(0i32);
+pub const COINIT_APARTMENTTHREADED: COINIT = COINIT(2i32);
+pub const COINIT_DISABLE_OLE1DDE: COINIT = COINIT(4i32);
+pub const COINIT_MULTITHREADED: COINIT = COINIT(0i32);
+pub const COINIT_SPEED_OVER_MEMORY: COINIT = COINIT(8i32);
+pub const COLE_DEFAULT_AUTHINFO: i32 = -1i32;
+pub const COLE_DEFAULT_PRINCIPAL: windows_core::PCWSTR = windows_core::PCWSTR(-1i32 as _);
+pub const COMBND_RESERVED1: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(4i32);
+pub const COMBND_RESERVED2: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(5i32);
+pub const COMBND_RESERVED3: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(8i32);
+pub const COMBND_RESERVED4: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(16i32);
+pub const COMBND_RPCTIMEOUT: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(1i32);
+pub const COMBND_SERVER_LOCALITY: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(2i32);
+pub const COMGLB_APPID: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(2i32);
+pub const COMGLB_EXCEPTION_DONOT_HANDLE: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(1i32);
+pub const COMGLB_EXCEPTION_DONOT_HANDLE_ANY: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(2i32);
+pub const COMGLB_EXCEPTION_DONOT_HANDLE_FATAL: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(1i32);
+pub const COMGLB_EXCEPTION_HANDLE: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(0i32);
+pub const COMGLB_EXCEPTION_HANDLING: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(1i32);
+pub const COMGLB_FAST_RUNDOWN: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(8i32);
+pub const COMGLB_PROPERTIES_RESERVED1: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(6i32);
+pub const COMGLB_PROPERTIES_RESERVED2: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(7i32);
+pub const COMGLB_PROPERTIES_RESERVED3: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(8i32);
+pub const COMGLB_RESERVED1: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(16i32);
+pub const COMGLB_RESERVED2: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(32i32);
+pub const COMGLB_RESERVED3: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(64i32);
+pub const COMGLB_RESERVED4: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(256i32);
+pub const COMGLB_RESERVED5: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(512i32);
+pub const COMGLB_RESERVED6: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(1024i32);
+pub const COMGLB_RO_SETTINGS: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(4i32);
+pub const COMGLB_RPC_THREADPOOL_SETTING: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(3i32);
+pub const COMGLB_RPC_THREADPOOL_SETTING_DEFAULT_POOL: GLOBALOPT_RPCTP_VALUES = GLOBALOPT_RPCTP_VALUES(0i32);
+pub const COMGLB_RPC_THREADPOOL_SETTING_PRIVATE_POOL: GLOBALOPT_RPCTP_VALUES = GLOBALOPT_RPCTP_VALUES(1i32);
+pub const COMGLB_STA_MODALLOOP_REMOVE_TOUCH_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(1i32);
+pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_DONOT_REMOVE_INPUT_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(4i32);
+pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_REMOVE_INPUT_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(2i32);
+pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_REORDER_POINTER_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(128i32);
+pub const COMGLB_UNMARSHALING_POLICY: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(5i32);
+pub const COMGLB_UNMARSHALING_POLICY_HYBRID: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(2i32);
+pub const COMGLB_UNMARSHALING_POLICY_NORMAL: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(0i32);
+pub const COMGLB_UNMARSHALING_POLICY_STRONG: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COMSD(pub i32);
+pub const COM_RIGHTS_ACTIVATE_LOCAL: u32 = 8u32;
+pub const COM_RIGHTS_ACTIVATE_REMOTE: u32 = 16u32;
+pub const COM_RIGHTS_EXECUTE: u32 = 1u32;
+pub const COM_RIGHTS_EXECUTE_LOCAL: u32 = 2u32;
+pub const COM_RIGHTS_EXECUTE_REMOTE: u32 = 4u32;
+pub const COM_RIGHTS_RESERVED1: u32 = 32u32;
+pub const COM_RIGHTS_RESERVED2: u32 = 64u32;
+#[repr(C)]
+#[derive(Clone, Debug, PartialEq)]
+pub struct CONNECTDATA {
+    pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub dwCookie: u32,
+}
+impl Default for CONNECTDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CONNECTDATA {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COSERVERINFO {
+    pub dwReserved1: u32,
+    pub pwszName: windows_core::PWSTR,
+    pub pAuthInfo: *mut COAUTHINFO,
+    pub dwReserved2: u32,
+}
+impl Default for COSERVERINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for COSERVERINFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const COWAIT_ALERTABLE: COWAIT_FLAGS = COWAIT_FLAGS(2i32);
+pub const COWAIT_DEFAULT: COWAIT_FLAGS = COWAIT_FLAGS(0i32);
+pub const COWAIT_DISPATCH_CALLS: COWAIT_FLAGS = COWAIT_FLAGS(8i32);
+pub const COWAIT_DISPATCH_WINDOW_MESSAGES: COWAIT_FLAGS = COWAIT_FLAGS(16i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COWAIT_FLAGS(pub i32);
+impl COWAIT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for COWAIT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for COWAIT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for COWAIT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for COWAIT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for COWAIT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const COWAIT_INPUTAVAILABLE: COWAIT_FLAGS = COWAIT_FLAGS(4i32);
+pub const COWAIT_WAITALL: COWAIT_FLAGS = COWAIT_FLAGS(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct CO_DEVICE_CATALOG_COOKIE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for CO_DEVICE_CATALOG_COOKIE {
+    type TypeKind = windows_core::CopyType;
+}
+impl CO_DEVICE_CATALOG_COOKIE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for CO_DEVICE_CATALOG_COOKIE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("ole32.dll" "system" fn CoRevokeDeviceCatalog(cookie : *mut core::ffi::c_void) -> i32);
+            CoRevokeDeviceCatalog(self.0);
+        }
+    }
+}
+impl Default for CO_DEVICE_CATALOG_COOKIE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CO_MARSHALING_CONTEXT_ATTRIBUTES(pub i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_1: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483648i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_10: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483639i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_11: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483638i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_12: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483637i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_13: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483636i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_14: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483635i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_15: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483634i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_16: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483633i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_17: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483632i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_18: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483631i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_2: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483647i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_3: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483646i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_4: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483645i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_5: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483644i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_6: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483643i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_7: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483642i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_8: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483641i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_9: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483640i32);
+pub const CO_MARSHALING_SOURCE_IS_APP_CONTAINER: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct CO_MTA_USAGE_COOKIE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for CO_MTA_USAGE_COOKIE {
+    type TypeKind = windows_core::CopyType;
+}
+impl CO_MTA_USAGE_COOKIE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for CO_MTA_USAGE_COOKIE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("ole32.dll" "system" fn CoDecrementMTAUsage(cookie : *mut core::ffi::c_void) -> i32);
+            CoDecrementMTAUsage(self.0);
+        }
+    }
+}
+impl Default for CO_MTA_USAGE_COOKIE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CSPLATFORM {
+    pub dwPlatformId: u32,
+    pub dwVersionHi: u32,
+    pub dwVersionLo: u32,
+    pub dwProcessorArch: u32,
+}
+impl Default for CSPLATFORM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CSPLATFORM {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CUSTDATA {
+    pub cCustData: u32,
+    pub prgCustData: *mut CUSTDATAITEM,
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for CUSTDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for CUSTDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub struct CUSTDATAITEM {
+    pub guid: windows_core::GUID,
+    pub varValue: super::Variant::VARIANT,
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for CUSTDATAITEM {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for CUSTDATAITEM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for CUSTDATAITEM {
+    type TypeKind = windows_core::CloneType;
+}
+pub const CWMO_DEFAULT: CWMO_FLAGS = CWMO_FLAGS(0i32);
+pub const CWMO_DISPATCH_CALLS: CWMO_FLAGS = CWMO_FLAGS(1i32);
+pub const CWMO_DISPATCH_WINDOW_MESSAGES: CWMO_FLAGS = CWMO_FLAGS(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CWMO_FLAGS(pub i32);
+impl CWMO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for CWMO_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for CWMO_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for CWMO_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for CWMO_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for CWMO_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const CWMO_MAX_HANDLES: u32 = 56u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union CY {
+    pub Anonymous: CY_0,
+    pub int64: i64,
+}
+impl Default for CY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CY_0 {
+    pub Lo: u32,
+    pub Hi: i32,
+}
+impl Default for CY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CY_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ComCallData {
+    pub dwDispid: u32,
+    pub dwReserved: u32,
+    pub pUserDefined: *mut core::ffi::c_void,
+}
+impl Default for ComCallData {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ComCallData {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Debug, PartialEq)]
+pub struct ContextProperty {
+    pub policyId: windows_core::GUID,
+    pub flags: u32,
+    pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+}
+impl Default for ContextProperty {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ContextProperty {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DATADIR(pub i32);
+pub const DATADIR_GET: DATADIR = DATADIR(1i32);
+pub const DATADIR_SET: DATADIR = DATADIR(2i32);
+pub const DCOMSCM_ACTIVATION_DISALLOW_UNSECURE_CALL: u32 = 2u32;
+pub const DCOMSCM_ACTIVATION_USE_ALL_AUTHNSERVICES: u32 = 1u32;
+pub const DCOMSCM_PING_DISALLOW_UNSECURE_CALL: u32 = 32u32;
+pub const DCOMSCM_PING_USE_MID_AUTHNSERVICE: u32 = 16u32;
+pub const DCOMSCM_RESOLVE_DISALLOW_UNSECURE_CALL: u32 = 8u32;
+pub const DCOMSCM_RESOLVE_USE_ALL_AUTHNSERVICES: u32 = 4u32;
+pub const DCOM_CALL_CANCELED: DCOM_CALL_STATE = DCOM_CALL_STATE(2i32);
+pub const DCOM_CALL_COMPLETE: DCOM_CALL_STATE = DCOM_CALL_STATE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DCOM_CALL_STATE(pub i32);
+pub const DCOM_NONE: DCOM_CALL_STATE = DCOM_CALL_STATE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DESCKIND(pub i32);
+pub const DESCKIND_FUNCDESC: DESCKIND = DESCKIND(1i32);
+pub const DESCKIND_IMPLICITAPPOBJ: DESCKIND = DESCKIND(4i32);
+pub const DESCKIND_MAX: DESCKIND = DESCKIND(5i32);
+pub const DESCKIND_NONE: DESCKIND = DESCKIND(0i32);
+pub const DESCKIND_TYPECOMP: DESCKIND = DESCKIND(3i32);
+pub const DESCKIND_VARDESC: DESCKIND = DESCKIND(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPATCH_FLAGS(pub u16);
+impl DISPATCH_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DISPATCH_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DISPATCH_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DISPATCH_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DISPATCH_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DISPATCH_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const DISPATCH_METHOD: DISPATCH_FLAGS = DISPATCH_FLAGS(1u16);
+pub const DISPATCH_PROPERTYGET: DISPATCH_FLAGS = DISPATCH_FLAGS(2u16);
+pub const DISPATCH_PROPERTYPUT: DISPATCH_FLAGS = DISPATCH_FLAGS(4u16);
+pub const DISPATCH_PROPERTYPUTREF: DISPATCH_FLAGS = DISPATCH_FLAGS(8u16);
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DISPPARAMS {
+    pub rgvarg: *mut super::Variant::VARIANT,
+    pub rgdispidNamedArgs: *mut i32,
+    pub cArgs: u32,
+    pub cNamedArgs: u32,
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DISPPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for DISPPARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DMUS_ERRBASE: u32 = 4096u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DVASPECT(pub u32);
+pub const DVASPECT_CONTENT: DVASPECT = DVASPECT(1u32);
+pub const DVASPECT_DOCPRINT: DVASPECT = DVASPECT(8u32);
+pub const DVASPECT_ICON: DVASPECT = DVASPECT(4u32);
+pub const DVASPECT_OPAQUE: DVASPECT = DVASPECT(16u32);
+pub const DVASPECT_THUMBNAIL: DVASPECT = DVASPECT(2u32);
+pub const DVASPECT_TRANSPARENT: DVASPECT = DVASPECT(32u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DVTARGETDEVICE {
+    pub tdSize: u32,
+    pub tdDriverNameOffset: u16,
+    pub tdDeviceNameOffset: u16,
+    pub tdPortNameOffset: u16,
+    pub tdExtDevmodeOffset: u16,
+    pub tdData: [u8; 1],
+}
+impl Default for DVTARGETDEVICE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DVTARGETDEVICE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DWORD_BLOB {
+    pub clSize: u32,
+    pub alData: [u32; 1],
+}
+impl Default for DWORD_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DWORD_BLOB {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DWORD_SIZEDARR {
+    pub clSize: u32,
+    pub pData: *mut u32,
+}
+impl Default for DWORD_SIZEDARR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DWORD_SIZEDARR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct ELEMDESC {
+    pub tdesc: TYPEDESC,
+    pub Anonymous: ELEMDESC_0,
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for ELEMDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for ELEMDESC {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub union ELEMDESC_0 {
+    pub idldesc: IDLDESC,
+    pub paramdesc: super::Ole::PARAMDESC,
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for ELEMDESC_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for ELEMDESC_0 {
+    type TypeKind = windows_core::CopyType;
+}
+pub const EOAC_ACCESS_CONTROL: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(4i32);
+pub const EOAC_ANY_AUTHORITY: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(128i32);
+pub const EOAC_APPID: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(8i32);
+pub const EOAC_AUTO_IMPERSONATE: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(1024i32);
+pub const EOAC_DEFAULT: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(2048i32);
+pub const EOAC_DISABLE_AAA: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(4096i32);
+pub const EOAC_DYNAMIC: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(16i32);
+pub const EOAC_DYNAMIC_CLOAKING: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(64i32);
+pub const EOAC_MAKE_FULLSIC: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(256i32);
+pub const EOAC_MUTUAL_AUTH: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(1i32);
+pub const EOAC_NONE: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(0i32);
+pub const EOAC_NO_CUSTOM_MARSHAL: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(8192i32);
+pub const EOAC_REQUIRE_FULLSIC: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(512i32);
+pub const EOAC_RESERVED1: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(16384i32);
+pub const EOAC_SECURE_REFS: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(2i32);
+pub const EOAC_STATIC_CLOAKING: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(32i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EOLE_AUTHENTICATION_CAPABILITIES(pub i32);
+#[repr(C)]
+#[derive(Clone, Debug, PartialEq)]
+pub struct EXCEPINFO {
+    pub wCode: u16,
+    pub wReserved: u16,
+    pub bstrSource: core::mem::ManuallyDrop<windows_core::BSTR>,
+    pub bstrDescription: core::mem::ManuallyDrop<windows_core::BSTR>,
+    pub bstrHelpFile: core::mem::ManuallyDrop<windows_core::BSTR>,
+    pub dwHelpContext: u32,
+    pub pvReserved: *mut core::ffi::c_void,
+    pub pfnDeferredFillIn: LPEXCEPFINO_DEFERRED_FILLIN,
+    pub scode: i32,
+}
+impl Default for EXCEPINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for EXCEPINFO {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EXTCONN(pub i32);
+pub const EXTCONN_CALLABLE: EXTCONN = EXTCONN(4i32);
+pub const EXTCONN_STRONG: EXTCONN = EXTCONN(1i32);
+pub const EXTCONN_WEAK: EXTCONN = EXTCONN(2i32);
+pub const FADF_AUTO: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(1u16);
+pub const FADF_BSTR: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(256u16);
+pub const FADF_DISPATCH: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(1024u16);
+pub const FADF_EMBEDDED: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(4u16);
+pub const FADF_FIXEDSIZE: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(16u16);
+pub const FADF_HAVEIID: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(64u16);
+pub const FADF_HAVEVARTYPE: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(128u16);
+pub const FADF_RECORD: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(32u16);
+pub const FADF_RESERVED: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(61448u16);
+pub const FADF_STATIC: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(2u16);
+pub const FADF_UNKNOWN: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(512u16);
+pub const FADF_VARIANT: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(2048u16);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FLAGGED_BYTE_BLOB {
+    pub fFlags: u32,
+    pub clSize: u32,
+    pub abData: [u8; 1],
+}
+impl Default for FLAGGED_BYTE_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FLAGGED_BYTE_BLOB {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FLAGGED_WORD_BLOB {
+    pub fFlags: u32,
+    pub clSize: u32,
+    pub asData: [u16; 1],
+}
+impl Default for FLAGGED_WORD_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FLAGGED_WORD_BLOB {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+pub struct FLAG_STGMEDIUM {
+    pub ContextFlags: i32,
+    pub fPassOwnership: i32,
+    pub Stgmed: STGMEDIUM,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl Clone for FLAG_STGMEDIUM {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl Default for FLAG_STGMEDIUM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl windows_core::TypeKind for FLAG_STGMEDIUM {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FORMATETC {
+    pub cfFormat: u16,
+    pub ptd: *mut DVTARGETDEVICE,
+    pub dwAspect: u32,
+    pub lindex: i32,
+    pub tymed: u32,
+}
+impl Default for FORMATETC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FORMATETC {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct FUNCDESC {
+    pub memid: i32,
+    pub lprgscode: *mut i32,
+    pub lprgelemdescParam: *mut ELEMDESC,
+    pub funckind: FUNCKIND,
+    pub invkind: INVOKEKIND,
+    pub callconv: CALLCONV,
+    pub cParams: i16,
+    pub cParamsOpt: i16,
+    pub oVft: i16,
+    pub cScodes: i16,
+    pub elemdescFunc: ELEMDESC,
+    pub wFuncFlags: FUNCFLAGS,
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for FUNCDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for FUNCDESC {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FUNCFLAGS(pub u16);
+pub const FUNCFLAG_FBINDABLE: FUNCFLAGS = FUNCFLAGS(4u16);
+pub const FUNCFLAG_FDEFAULTBIND: FUNCFLAGS = FUNCFLAGS(32u16);
+pub const FUNCFLAG_FDEFAULTCOLLELEM: FUNCFLAGS = FUNCFLAGS(256u16);
+pub const FUNCFLAG_FDISPLAYBIND: FUNCFLAGS = FUNCFLAGS(16u16);
+pub const FUNCFLAG_FHIDDEN: FUNCFLAGS = FUNCFLAGS(64u16);
+pub const FUNCFLAG_FIMMEDIATEBIND: FUNCFLAGS = FUNCFLAGS(4096u16);
+pub const FUNCFLAG_FNONBROWSABLE: FUNCFLAGS = FUNCFLAGS(1024u16);
+pub const FUNCFLAG_FREPLACEABLE: FUNCFLAGS = FUNCFLAGS(2048u16);
+pub const FUNCFLAG_FREQUESTEDIT: FUNCFLAGS = FUNCFLAGS(8u16);
+pub const FUNCFLAG_FRESTRICTED: FUNCFLAGS = FUNCFLAGS(1u16);
+pub const FUNCFLAG_FSOURCE: FUNCFLAGS = FUNCFLAGS(2u16);
+pub const FUNCFLAG_FUIDEFAULT: FUNCFLAGS = FUNCFLAGS(512u16);
+pub const FUNCFLAG_FUSESGETLASTERROR: FUNCFLAGS = FUNCFLAGS(128u16);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FUNCKIND(pub i32);
+pub const FUNC_DISPATCH: FUNCKIND = FUNCKIND(4i32);
+pub const FUNC_NONVIRTUAL: FUNCKIND = FUNCKIND(2i32);
+pub const FUNC_PUREVIRTUAL: FUNCKIND = FUNCKIND(1i32);
+pub const FUNC_STATIC: FUNCKIND = FUNCKIND(3i32);
+pub const FUNC_VIRTUAL: FUNCKIND = FUNCKIND(0i32);
+pub const ForcedShutdown: ShutdownType = ShutdownType(1i32);
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+#[derive(Clone, Copy)]
+pub struct GDI_OBJECT {
+    pub ObjectType: u32,
+    pub u: GDI_OBJECT_0,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+impl Default for GDI_OBJECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+impl windows_core::TypeKind for GDI_OBJECT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+#[derive(Clone, Copy)]
+pub union GDI_OBJECT_0 {
+    pub hBitmap: *mut super::SystemServices::userHBITMAP,
+    pub hPalette: *mut super::SystemServices::userHPALETTE,
+    pub hGeneric: *mut super::SystemServices::userHGLOBAL,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+impl Default for GDI_OBJECT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+impl windows_core::TypeKind for GDI_OBJECT_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GLOBALOPT_EH_VALUES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GLOBALOPT_PROPERTIES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GLOBALOPT_RO_FLAGS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GLOBALOPT_RPCTP_VALUES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GLOBALOPT_UNMARSHALING_POLICY_VALUES(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HYPER_SIZEDARR {
+    pub clSize: u32,
+    pub pData: *mut i64,
+}
+impl Default for HYPER_SIZEDARR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HYPER_SIZEDARR {
+    type TypeKind = windows_core::CopyType;
+}
 windows_core::imp::define_interface!(IActivationFilter, IActivationFilter_Vtbl, 0x00000017_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IActivationFilter, windows_core::IUnknown);
 impl IActivationFilter {
@@ -3093,6 +4296,61 @@ impl IContextCallback_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IContextCallback {}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IDLDESC {
+    pub dwReserved: usize,
+    pub wIDLFlags: IDLFLAGS,
+}
+impl Default for IDLDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IDLDESC {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IDLFLAGS(pub u16);
+impl IDLFLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for IDLFLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for IDLFLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for IDLFLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for IDLFLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for IDLFLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const IDLFLAG_FIN: IDLFLAGS = IDLFLAGS(1u16);
+pub const IDLFLAG_FLCID: IDLFLAGS = IDLFLAGS(4u16);
+pub const IDLFLAG_FOUT: IDLFLAGS = IDLFLAGS(2u16);
+pub const IDLFLAG_FRETVAL: IDLFLAGS = IDLFLAGS(8u16);
+pub const IDLFLAG_NONE: IDLFLAGS = IDLFLAGS(0u16);
 windows_core::imp::define_interface!(IDataAdviseHolder, IDataAdviseHolder_Vtbl, 0x00000110_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IDataAdviseHolder, windows_core::IUnknown);
 impl IDataAdviseHolder {
@@ -4540,6 +5798,46 @@ impl IInternalUnknown_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IInternalUnknown {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IMPLTYPEFLAGS(pub i32);
+impl IMPLTYPEFLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for IMPLTYPEFLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for IMPLTYPEFLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for IMPLTYPEFLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for IMPLTYPEFLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for IMPLTYPEFLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const IMPLTYPEFLAG_FDEFAULT: IMPLTYPEFLAGS = IMPLTYPEFLAGS(1i32);
+pub const IMPLTYPEFLAG_FDEFAULTVTABLE: IMPLTYPEFLAGS = IMPLTYPEFLAGS(8i32);
+pub const IMPLTYPEFLAG_FRESTRICTED: IMPLTYPEFLAGS = IMPLTYPEFLAGS(4i32);
+pub const IMPLTYPEFLAG_FSOURCE: IMPLTYPEFLAGS = IMPLTYPEFLAGS(2i32);
 windows_core::imp::define_interface!(IMachineGlobalObjectTable, IMachineGlobalObjectTable_Vtbl, 0x26d709ac_f70b_4421_a96f_d2878fafb00d);
 windows_core::imp::interface_hierarchy!(IMachineGlobalObjectTable, windows_core::IUnknown);
 impl IMachineGlobalObjectTable {
@@ -5173,6 +6471,28 @@ impl IMultiQI_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IMultiQI {}
+#[repr(C)]
+#[derive(Clone, Debug, PartialEq)]
+pub struct INTERFACEINFO {
+    pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub iid: windows_core::GUID,
+    pub wMethod: u16,
+}
+impl Default for INTERFACEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for INTERFACEINFO {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct INVOKEKIND(pub i32);
+pub const INVOKE_FUNC: INVOKEKIND = INVOKEKIND(1i32);
+pub const INVOKE_PROPERTYGET: INVOKEKIND = INVOKEKIND(2i32);
+pub const INVOKE_PROPERTYPUT: INVOKEKIND = INVOKEKIND(4i32);
+pub const INVOKE_PROPERTYPUTREF: INVOKEKIND = INVOKEKIND(8i32);
 windows_core::imp::define_interface!(INoMarshal, INoMarshal_Vtbl, 0xecc8691b_c1db_4dc0_855e_65f6c551af49);
 windows_core::imp::interface_hierarchy!(INoMarshal, windows_core::IUnknown);
 #[repr(C)]
@@ -9297,397 +10617,127 @@ impl IWaitMultiple_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWaitMultiple {}
-pub type LPEXCEPFINO_DEFERRED_FILLIN = Option<unsafe extern "system" fn(pexcepinfo: *mut EXCEPINFO) -> windows_core::HRESULT>;
-pub type LPFNCANUNLOADNOW = Option<unsafe extern "system" fn() -> windows_core::HRESULT>;
-pub type LPFNGETCLASSOBJECT = Option<unsafe extern "system" fn(param0: *const windows_core::GUID, param1: *const windows_core::GUID, param2: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
-pub type PFNCONTEXTCALL = Option<unsafe extern "system" fn(pparam: *mut ComCallData) -> windows_core::HRESULT>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADVANCED_FEATURE_FLAGS(pub u16);
-impl ADVANCED_FEATURE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for ADVANCED_FEATURE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for ADVANCED_FEATURE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for ADVANCED_FEATURE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for ADVANCED_FEATURE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for ADVANCED_FEATURE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADVF(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct APTTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct APTTYPEQUALIFIER(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ApplicationType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BINDINFOF(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct BIND_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CALLCONV(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CALLTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CLSCTX(pub u32);
-impl CLSCTX {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for CLSCTX {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for CLSCTX {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for CLSCTX {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for CLSCTX {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for CLSCTX {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COINIT(pub i32);
-impl COINIT {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for COINIT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for COINIT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for COINIT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for COINIT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for COINIT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COINITBASE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COMSD(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COWAIT_FLAGS(pub i32);
-impl COWAIT_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for COWAIT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for COWAIT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for COWAIT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for COWAIT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for COWAIT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CO_MARSHALING_CONTEXT_ATTRIBUTES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CWMO_FLAGS(pub i32);
-impl CWMO_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for CWMO_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for CWMO_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for CWMO_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for CWMO_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for CWMO_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DATADIR(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DCOM_CALL_STATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DESCKIND(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DISPATCH_FLAGS(pub u16);
-impl DISPATCH_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for DISPATCH_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for DISPATCH_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for DISPATCH_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for DISPATCH_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for DISPATCH_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DVASPECT(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EOLE_AUTHENTICATION_CAPABILITIES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EXTCONN(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FUNCFLAGS(pub u16);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FUNCKIND(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GLOBALOPT_EH_VALUES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GLOBALOPT_PROPERTIES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GLOBALOPT_RO_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GLOBALOPT_RPCTP_VALUES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GLOBALOPT_UNMARSHALING_POLICY_VALUES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IDLFLAGS(pub u16);
-impl IDLFLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for IDLFLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for IDLFLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for IDLFLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for IDLFLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for IDLFLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IMPLTYPEFLAGS(pub i32);
-impl IMPLTYPEFLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for IMPLTYPEFLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for IMPLTYPEFLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for IMPLTYPEFLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for IMPLTYPEFLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for IMPLTYPEFLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct INVOKEKIND(pub i32);
+pub const IdleShutdown: ShutdownType = ShutdownType(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOCKTYPE(pub i32);
+pub const LOCK_EXCLUSIVE: LOCKTYPE = LOCKTYPE(2i32);
+pub const LOCK_ONLYONCE: LOCKTYPE = LOCKTYPE(4i32);
+pub const LOCK_WRITE: LOCKTYPE = LOCKTYPE(1i32);
+pub type LPEXCEPFINO_DEFERRED_FILLIN = Option<unsafe extern "system" fn(pexcepinfo: *mut EXCEPINFO) -> windows_core::HRESULT>;
+pub type LPFNCANUNLOADNOW = Option<unsafe extern "system" fn() -> windows_core::HRESULT>;
+pub type LPFNGETCLASSOBJECT = Option<unsafe extern "system" fn(param0: *const windows_core::GUID, param1: *const windows_core::GUID, param2: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub const LibraryApplication: ApplicationType = ApplicationType(1i32);
+pub const MARSHALINTERFACE_MIN: u32 = 500u32;
+pub const MAXLSN: u64 = 9223372036854775807u64;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMCTX(pub i32);
+pub const MEMCTX_MACSYSTEM: MEMCTX = MEMCTX(3i32);
+pub const MEMCTX_SAME: MEMCTX = MEMCTX(-2i32);
+pub const MEMCTX_SHARED: MEMCTX = MEMCTX(2i32);
+pub const MEMCTX_TASK: MEMCTX = MEMCTX(1i32);
+pub const MEMCTX_UNKNOWN: MEMCTX = MEMCTX(-1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MKRREDUCE(pub i32);
+pub const MKRREDUCE_ALL: MKRREDUCE = MKRREDUCE(0i32);
+pub const MKRREDUCE_ONE: MKRREDUCE = MKRREDUCE(196608i32);
+pub const MKRREDUCE_THROUGHUSER: MKRREDUCE = MKRREDUCE(65536i32);
+pub const MKRREDUCE_TOUSER: MKRREDUCE = MKRREDUCE(131072i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MKSYS(pub i32);
+pub const MKSYS_ANTIMONIKER: MKSYS = MKSYS(3i32);
+pub const MKSYS_CLASSMONIKER: MKSYS = MKSYS(7i32);
+pub const MKSYS_FILEMONIKER: MKSYS = MKSYS(2i32);
+pub const MKSYS_GENERICCOMPOSITE: MKSYS = MKSYS(1i32);
+pub const MKSYS_ITEMMONIKER: MKSYS = MKSYS(4i32);
+pub const MKSYS_LUAMONIKER: MKSYS = MKSYS(10i32);
+pub const MKSYS_NONE: MKSYS = MKSYS(0i32);
+pub const MKSYS_OBJREFMONIKER: MKSYS = MKSYS(8i32);
+pub const MKSYS_POINTERMONIKER: MKSYS = MKSYS(5i32);
+pub const MKSYS_SESSIONMONIKER: MKSYS = MKSYS(9i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSHCTX(pub i32);
+pub const MSHCTX_CONTAINER: MSHCTX = MSHCTX(5i32);
+pub const MSHCTX_CROSSCTX: MSHCTX = MSHCTX(4i32);
+pub const MSHCTX_DIFFERENTMACHINE: MSHCTX = MSHCTX(2i32);
+pub const MSHCTX_INPROC: MSHCTX = MSHCTX(3i32);
+pub const MSHCTX_LOCAL: MSHCTX = MSHCTX(0i32);
+pub const MSHCTX_NOSHAREDMEM: MSHCTX = MSHCTX(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSHLFLAGS(pub i32);
+pub const MSHLFLAGS_NOPING: MSHLFLAGS = MSHLFLAGS(4i32);
+pub const MSHLFLAGS_NORMAL: MSHLFLAGS = MSHLFLAGS(0i32);
+pub const MSHLFLAGS_RESERVED1: MSHLFLAGS = MSHLFLAGS(8i32);
+pub const MSHLFLAGS_RESERVED2: MSHLFLAGS = MSHLFLAGS(16i32);
+pub const MSHLFLAGS_RESERVED3: MSHLFLAGS = MSHLFLAGS(32i32);
+pub const MSHLFLAGS_RESERVED4: MSHLFLAGS = MSHLFLAGS(64i32);
+pub const MSHLFLAGS_TABLESTRONG: MSHLFLAGS = MSHLFLAGS(1i32);
+pub const MSHLFLAGS_TABLEWEAK: MSHLFLAGS = MSHLFLAGS(2i32);
+#[repr(C)]
+#[derive(Clone, Debug, PartialEq)]
+pub struct MULTI_QI {
+    pub pIID: *const windows_core::GUID,
+    pub pItf: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub hr: windows_core::HRESULT,
+}
+impl Default for MULTI_QI {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MULTI_QI {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct MachineGlobalObjectTableRegistrationToken(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for MachineGlobalObjectTableRegistrationToken {
+    type TypeKind = windows_core::CopyType;
+}
+impl MachineGlobalObjectTableRegistrationToken {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for MachineGlobalObjectTableRegistrationToken {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PENDINGMSG(pub i32);
+pub const PENDINGMSG_CANCELCALL: PENDINGMSG = PENDINGMSG(0i32);
+pub const PENDINGMSG_WAITDEFPROCESS: PENDINGMSG = PENDINGMSG(2i32);
+pub const PENDINGMSG_WAITNOPROCESS: PENDINGMSG = PENDINGMSG(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PENDINGTYPE(pub i32);
+pub const PENDINGTYPE_NESTED: PENDINGTYPE = PENDINGTYPE(2i32);
+pub const PENDINGTYPE_TOPLEVEL: PENDINGTYPE = PENDINGTYPE(1i32);
+pub type PFNCONTEXTCALL = Option<unsafe extern "system" fn(pparam: *mut ComCallData) -> windows_core::HRESULT>;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct QUERYCONTEXT {
+    pub dwContext: u32,
+    pub Platform: CSPLATFORM,
+    pub Locale: u32,
+    pub dwVersionHi: u32,
+    pub dwVersionLo: u32,
+}
+impl Default for QUERYCONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for QUERYCONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REGCLS(pub i32);
@@ -9724,6 +10774,15 @@ impl core::ops::Not for REGCLS {
         Self(self.0.not())
     }
 }
+pub const REGCLS_AGILE: REGCLS = REGCLS(16i32);
+pub const REGCLS_MULTIPLEUSE: REGCLS = REGCLS(1i32);
+pub const REGCLS_MULTI_SEPARATE: REGCLS = REGCLS(2i32);
+pub const REGCLS_SINGLEUSE: REGCLS = REGCLS(0i32);
+pub const REGCLS_SURROGATE: REGCLS = REGCLS(8i32);
+pub const REGCLS_SUSPENDED: REGCLS = REGCLS(4i32);
+pub const ROTFLAGS_ALLOWANYCLIENT: ROT_FLAGS = ROT_FLAGS(2u32);
+pub const ROTFLAGS_REGISTRATIONKEEPSALIVE: ROT_FLAGS = ROT_FLAGS(1u32);
+pub const ROTREGFLAGS_ALLOWANYCLIENT: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ROT_FLAGS(pub u32);
@@ -9760,914 +10819,6 @@ impl core::ops::Not for ROT_FLAGS {
         Self(self.0.not())
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RPCOPT_PROPERTIES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RPCOPT_SERVER_LOCALITY_VALUES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RPC_C_AUTHN_LEVEL(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RPC_C_IMP_LEVEL(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SERVERCALL(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STATFLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STGC(pub i32);
-impl STGC {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for STGC {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for STGC {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for STGC {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for STGC {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for STGC {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STGM(pub u32);
-impl STGM {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for STGM {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for STGM {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for STGM {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for STGM {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for STGM {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STGTY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STREAM_SEEK(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SYSKIND(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ShutdownType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct THDTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TYMED(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TYPEKIND(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TYSPEC(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct URI_CREATE_FLAGS(pub u32);
-impl URI_CREATE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for URI_CREATE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for URI_CREATE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for URI_CREATE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for URI_CREATE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for URI_CREATE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct Uri_PROPERTY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VARFLAGS(pub u16);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VARKIND(pub i32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct AUTHENTICATEINFO {
-    pub dwFlags: u32,
-    pub dwReserved: u32,
-}
-impl Default for AUTHENTICATEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for AUTHENTICATEINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
-pub struct BINDINFO {
-    pub cbSize: u32,
-    pub szExtraInfo: windows_core::PWSTR,
-    pub stgmedData: STGMEDIUM,
-    pub grfBindInfoF: u32,
-    pub dwBindVerb: u32,
-    pub szCustomVerb: windows_core::PWSTR,
-    pub cbstgmedData: u32,
-    pub dwOptions: u32,
-    pub dwOptionsFlags: u32,
-    pub dwCodePage: u32,
-    pub securityAttributes: super::super::Security::SECURITY_ATTRIBUTES,
-    pub iid: windows_core::GUID,
-    pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-    pub dwReserved: u32,
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
-impl Clone for BINDINFO {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
-impl Default for BINDINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
-impl windows_core::TypeKind for BINDINFO {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub union BINDPTR {
-    pub lpfuncdesc: *mut FUNCDESC,
-    pub lpvardesc: *mut VARDESC,
-    pub lptcomp: core::mem::ManuallyDrop<Option<ITypeComp>>,
-}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Clone for BINDPTR {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for BINDPTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for BINDPTR {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct BIND_OPTS {
-    pub cbStruct: u32,
-    pub grfFlags: u32,
-    pub grfMode: u32,
-    pub dwTickCountDeadline: u32,
-}
-impl Default for BIND_OPTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for BIND_OPTS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct BIND_OPTS2 {
-    pub Base: BIND_OPTS,
-    pub dwTrackFlags: u32,
-    pub dwClassContext: u32,
-    pub locale: u32,
-    pub pServerInfo: *mut COSERVERINFO,
-}
-impl Default for BIND_OPTS2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for BIND_OPTS2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct BIND_OPTS3 {
-    pub Base: BIND_OPTS2,
-    pub hwnd: super::super::Foundation::HWND,
-}
-impl Default for BIND_OPTS3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for BIND_OPTS3 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct BLOB {
-    pub cbSize: u32,
-    pub pBlobData: *mut u8,
-}
-impl Default for BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for BLOB {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct BYTE_BLOB {
-    pub clSize: u32,
-    pub abData: [u8; 1],
-}
-impl Default for BYTE_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for BYTE_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct BYTE_SIZEDARR {
-    pub clSize: u32,
-    pub pData: *mut u8,
-}
-impl Default for BYTE_SIZEDARR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for BYTE_SIZEDARR {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CATEGORYINFO {
-    pub catid: windows_core::GUID,
-    pub lcid: u32,
-    pub szDescription: [u16; 128],
-}
-impl Default for CATEGORYINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CATEGORYINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct COAUTHIDENTITY {
-    pub User: *mut u16,
-    pub UserLength: u32,
-    pub Domain: *mut u16,
-    pub DomainLength: u32,
-    pub Password: *mut u16,
-    pub PasswordLength: u32,
-    pub Flags: u32,
-}
-impl Default for COAUTHIDENTITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for COAUTHIDENTITY {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct COAUTHINFO {
-    pub dwAuthnSvc: u32,
-    pub dwAuthzSvc: u32,
-    pub pwszServerPrincName: windows_core::PWSTR,
-    pub dwAuthnLevel: u32,
-    pub dwImpersonationLevel: u32,
-    pub pAuthIdentityData: *mut COAUTHIDENTITY,
-    pub dwCapabilities: u32,
-}
-impl Default for COAUTHINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for COAUTHINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
-pub struct CONNECTDATA {
-    pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-    pub dwCookie: u32,
-}
-impl Default for CONNECTDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CONNECTDATA {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct COSERVERINFO {
-    pub dwReserved1: u32,
-    pub pwszName: windows_core::PWSTR,
-    pub pAuthInfo: *mut COAUTHINFO,
-    pub dwReserved2: u32,
-}
-impl Default for COSERVERINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for COSERVERINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct CO_DEVICE_CATALOG_COOKIE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for CO_DEVICE_CATALOG_COOKIE {
-    type TypeKind = windows_core::CopyType;
-}
-impl CO_DEVICE_CATALOG_COOKIE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for CO_DEVICE_CATALOG_COOKIE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("ole32.dll" "system" fn CoRevokeDeviceCatalog(cookie : *mut core::ffi::c_void) -> i32);
-            CoRevokeDeviceCatalog(self.0);
-        }
-    }
-}
-impl Default for CO_DEVICE_CATALOG_COOKIE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct CO_MTA_USAGE_COOKIE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for CO_MTA_USAGE_COOKIE {
-    type TypeKind = windows_core::CopyType;
-}
-impl CO_MTA_USAGE_COOKIE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for CO_MTA_USAGE_COOKIE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("ole32.dll" "system" fn CoDecrementMTAUsage(cookie : *mut core::ffi::c_void) -> i32);
-            CoDecrementMTAUsage(self.0);
-        }
-    }
-}
-impl Default for CO_MTA_USAGE_COOKIE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CSPLATFORM {
-    pub dwPlatformId: u32,
-    pub dwVersionHi: u32,
-    pub dwVersionLo: u32,
-    pub dwProcessorArch: u32,
-}
-impl Default for CSPLATFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CSPLATFORM {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CUSTDATA {
-    pub cCustData: u32,
-    pub prgCustData: *mut CUSTDATAITEM,
-}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for CUSTDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for CUSTDATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub struct CUSTDATAITEM {
-    pub guid: windows_core::GUID,
-    pub varValue: super::Variant::VARIANT,
-}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Clone for CUSTDATAITEM {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for CUSTDATAITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for CUSTDATAITEM {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union CY {
-    pub Anonymous: CY_0,
-    pub int64: i64,
-}
-impl Default for CY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CY {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CY_0 {
-    pub Lo: u32,
-    pub Hi: i32,
-}
-impl Default for CY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CY_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ComCallData {
-    pub dwDispid: u32,
-    pub dwReserved: u32,
-    pub pUserDefined: *mut core::ffi::c_void,
-}
-impl Default for ComCallData {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ComCallData {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
-pub struct ContextProperty {
-    pub policyId: windows_core::GUID,
-    pub flags: u32,
-    pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-}
-impl Default for ContextProperty {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ContextProperty {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DISPPARAMS {
-    pub rgvarg: *mut super::Variant::VARIANT,
-    pub rgdispidNamedArgs: *mut i32,
-    pub cArgs: u32,
-    pub cNamedArgs: u32,
-}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for DISPPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DISPPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DVTARGETDEVICE {
-    pub tdSize: u32,
-    pub tdDriverNameOffset: u16,
-    pub tdDeviceNameOffset: u16,
-    pub tdPortNameOffset: u16,
-    pub tdExtDevmodeOffset: u16,
-    pub tdData: [u8; 1],
-}
-impl Default for DVTARGETDEVICE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DVTARGETDEVICE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DWORD_BLOB {
-    pub clSize: u32,
-    pub alData: [u32; 1],
-}
-impl Default for DWORD_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DWORD_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DWORD_SIZEDARR {
-    pub clSize: u32,
-    pub pData: *mut u32,
-}
-impl Default for DWORD_SIZEDARR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DWORD_SIZEDARR {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct ELEMDESC {
-    pub tdesc: TYPEDESC,
-    pub Anonymous: ELEMDESC_0,
-}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for ELEMDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for ELEMDESC {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub union ELEMDESC_0 {
-    pub idldesc: IDLDESC,
-    pub paramdesc: super::Ole::PARAMDESC,
-}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for ELEMDESC_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for ELEMDESC_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
-pub struct EXCEPINFO {
-    pub wCode: u16,
-    pub wReserved: u16,
-    pub bstrSource: core::mem::ManuallyDrop<windows_core::BSTR>,
-    pub bstrDescription: core::mem::ManuallyDrop<windows_core::BSTR>,
-    pub bstrHelpFile: core::mem::ManuallyDrop<windows_core::BSTR>,
-    pub dwHelpContext: u32,
-    pub pvReserved: *mut core::ffi::c_void,
-    pub pfnDeferredFillIn: LPEXCEPFINO_DEFERRED_FILLIN,
-    pub scode: i32,
-}
-impl Default for EXCEPINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for EXCEPINFO {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FLAGGED_BYTE_BLOB {
-    pub fFlags: u32,
-    pub clSize: u32,
-    pub abData: [u8; 1],
-}
-impl Default for FLAGGED_BYTE_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FLAGGED_BYTE_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FLAGGED_WORD_BLOB {
-    pub fFlags: u32,
-    pub clSize: u32,
-    pub asData: [u16; 1],
-}
-impl Default for FLAGGED_WORD_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FLAGGED_WORD_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-pub struct FLAG_STGMEDIUM {
-    pub ContextFlags: i32,
-    pub fPassOwnership: i32,
-    pub Stgmed: STGMEDIUM,
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-impl Clone for FLAG_STGMEDIUM {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-impl Default for FLAG_STGMEDIUM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-impl windows_core::TypeKind for FLAG_STGMEDIUM {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FORMATETC {
-    pub cfFormat: u16,
-    pub ptd: *mut DVTARGETDEVICE,
-    pub dwAspect: u32,
-    pub lindex: i32,
-    pub tymed: u32,
-}
-impl Default for FORMATETC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FORMATETC {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct FUNCDESC {
-    pub memid: i32,
-    pub lprgscode: *mut i32,
-    pub lprgelemdescParam: *mut ELEMDESC,
-    pub funckind: FUNCKIND,
-    pub invkind: INVOKEKIND,
-    pub callconv: CALLCONV,
-    pub cParams: i16,
-    pub cParamsOpt: i16,
-    pub oVft: i16,
-    pub cScodes: i16,
-    pub elemdescFunc: ELEMDESC,
-    pub wFuncFlags: FUNCFLAGS,
-}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for FUNCDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for FUNCDESC {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-#[derive(Clone, Copy)]
-pub struct GDI_OBJECT {
-    pub ObjectType: u32,
-    pub u: GDI_OBJECT_0,
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl Default for GDI_OBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl windows_core::TypeKind for GDI_OBJECT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-#[derive(Clone, Copy)]
-pub union GDI_OBJECT_0 {
-    pub hBitmap: *mut super::SystemServices::userHBITMAP,
-    pub hPalette: *mut super::SystemServices::userHPALETTE,
-    pub hGeneric: *mut super::SystemServices::userHGLOBAL,
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl Default for GDI_OBJECT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl windows_core::TypeKind for GDI_OBJECT_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HYPER_SIZEDARR {
-    pub clSize: u32,
-    pub pData: *mut i64,
-}
-impl Default for HYPER_SIZEDARR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HYPER_SIZEDARR {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct IDLDESC {
-    pub dwReserved: usize,
-    pub wIDLFlags: IDLFLAGS,
-}
-impl Default for IDLDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IDLDESC {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
-pub struct INTERFACEINFO {
-    pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-    pub iid: windows_core::GUID,
-    pub wMethod: u16,
-}
-impl Default for INTERFACEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for INTERFACEINFO {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
-pub struct MULTI_QI {
-    pub pIID: *const windows_core::GUID,
-    pub pItf: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-    pub hr: windows_core::HRESULT,
-}
-impl Default for MULTI_QI {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MULTI_QI {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct MachineGlobalObjectTableRegistrationToken(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for MachineGlobalObjectTableRegistrationToken {
-    type TypeKind = windows_core::CopyType;
-}
-impl MachineGlobalObjectTableRegistrationToken {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for MachineGlobalObjectTableRegistrationToken {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct QUERYCONTEXT {
-    pub dwContext: u32,
-    pub Platform: CSPLATFORM,
-    pub Locale: u32,
-    pub dwVersionHi: u32,
-    pub dwVersionLo: u32,
-}
-impl Default for QUERYCONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for QUERYCONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RPCOLEMESSAGE {
@@ -10687,6 +10838,30 @@ impl Default for RPCOLEMESSAGE {
 impl windows_core::TypeKind for RPCOLEMESSAGE {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RPCOPT_PROPERTIES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RPCOPT_SERVER_LOCALITY_VALUES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RPC_C_AUTHN_LEVEL(pub u32);
+pub const RPC_C_AUTHN_LEVEL_CALL: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(3u32);
+pub const RPC_C_AUTHN_LEVEL_CONNECT: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(2u32);
+pub const RPC_C_AUTHN_LEVEL_DEFAULT: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(0u32);
+pub const RPC_C_AUTHN_LEVEL_NONE: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(1u32);
+pub const RPC_C_AUTHN_LEVEL_PKT: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(4u32);
+pub const RPC_C_AUTHN_LEVEL_PKT_INTEGRITY: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(5u32);
+pub const RPC_C_AUTHN_LEVEL_PKT_PRIVACY: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(6u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RPC_C_IMP_LEVEL(pub u32);
+pub const RPC_C_IMP_LEVEL_ANONYMOUS: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(1u32);
+pub const RPC_C_IMP_LEVEL_DEFAULT: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(0u32);
+pub const RPC_C_IMP_LEVEL_DELEGATE: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(4u32);
+pub const RPC_C_IMP_LEVEL_IDENTIFY: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(2u32);
+pub const RPC_C_IMP_LEVEL_IMPERSONATE: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(3u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RemSTGMEDIUM {
@@ -10755,6 +10930,19 @@ impl Default for SChannelHookCallInfo {
 impl windows_core::TypeKind for SChannelHookCallInfo {
     type TypeKind = windows_core::CopyType;
 }
+pub const SD_ACCESSPERMISSIONS: COMSD = COMSD(1i32);
+pub const SD_ACCESSRESTRICTIONS: COMSD = COMSD(3i32);
+pub const SD_LAUNCHPERMISSIONS: COMSD = COMSD(0i32);
+pub const SD_LAUNCHRESTRICTIONS: COMSD = COMSD(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SERVERCALL(pub i32);
+pub const SERVERCALL_ISHANDLED: SERVERCALL = SERVERCALL(0i32);
+pub const SERVERCALL_REJECTED: SERVERCALL = SERVERCALL(1i32);
+pub const SERVERCALL_RETRYLATER: SERVERCALL = SERVERCALL(2i32);
+pub const SERVER_LOCALITY_MACHINE_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = RPCOPT_SERVER_LOCALITY_VALUES(1i32);
+pub const SERVER_LOCALITY_PROCESS_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = RPCOPT_SERVER_LOCALITY_VALUES(0i32);
+pub const SERVER_LOCALITY_REMOTE: RPCOPT_SERVER_LOCALITY_VALUES = RPCOPT_SERVER_LOCALITY_VALUES(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOLE_AUTHENTICATION_INFO {
@@ -10816,6 +11004,12 @@ impl Default for STATDATA {
 impl windows_core::TypeKind for STATDATA {
     type TypeKind = windows_core::CloneType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STATFLAG(pub i32);
+pub const STATFLAG_DEFAULT: STATFLAG = STATFLAG(0i32);
+pub const STATFLAG_NONAME: STATFLAG = STATFLAG(1i32);
+pub const STATFLAG_NOOPEN: STATFLAG = STATFLAG(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STATSTG {
@@ -10838,6 +11032,83 @@ impl Default for STATSTG {
 }
 impl windows_core::TypeKind for STATSTG {
     type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STGC(pub i32);
+impl STGC {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for STGC {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for STGC {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for STGC {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for STGC {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for STGC {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const STGC_CONSOLIDATE: STGC = STGC(8i32);
+pub const STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE: STGC = STGC(4i32);
+pub const STGC_DEFAULT: STGC = STGC(0i32);
+pub const STGC_ONLYIFCURRENT: STGC = STGC(2i32);
+pub const STGC_OVERWRITE: STGC = STGC(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STGM(pub u32);
+impl STGM {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for STGM {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for STGM {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for STGM {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for STGM {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for STGM {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
@@ -10889,6 +11160,52 @@ impl Default for STGMEDIUM_0 {
 impl windows_core::TypeKind for STGMEDIUM_0 {
     type TypeKind = windows_core::CloneType;
 }
+pub const STGM_CONVERT: STGM = STGM(131072u32);
+pub const STGM_CREATE: STGM = STGM(4096u32);
+pub const STGM_DELETEONRELEASE: STGM = STGM(67108864u32);
+pub const STGM_DIRECT: STGM = STGM(0u32);
+pub const STGM_DIRECT_SWMR: STGM = STGM(4194304u32);
+pub const STGM_FAILIFTHERE: STGM = STGM(0u32);
+pub const STGM_NOSCRATCH: STGM = STGM(1048576u32);
+pub const STGM_NOSNAPSHOT: STGM = STGM(2097152u32);
+pub const STGM_PRIORITY: STGM = STGM(262144u32);
+pub const STGM_READ: STGM = STGM(0u32);
+pub const STGM_READWRITE: STGM = STGM(2u32);
+pub const STGM_SHARE_DENY_NONE: STGM = STGM(64u32);
+pub const STGM_SHARE_DENY_READ: STGM = STGM(48u32);
+pub const STGM_SHARE_DENY_WRITE: STGM = STGM(32u32);
+pub const STGM_SHARE_EXCLUSIVE: STGM = STGM(16u32);
+pub const STGM_SIMPLE: STGM = STGM(134217728u32);
+pub const STGM_TRANSACTED: STGM = STGM(65536u32);
+pub const STGM_WRITE: STGM = STGM(1u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STGTY(pub i32);
+pub const STGTY_LOCKBYTES: STGTY = STGTY(3i32);
+pub const STGTY_PROPERTY: STGTY = STGTY(4i32);
+pub const STGTY_REPEAT: i32 = 256i32;
+pub const STGTY_STORAGE: STGTY = STGTY(1i32);
+pub const STGTY_STREAM: STGTY = STGTY(2i32);
+pub const STG_LAYOUT_INTERLEAVED: i32 = 1i32;
+pub const STG_LAYOUT_SEQUENTIAL: i32 = 0i32;
+pub const STG_TOEND: i32 = -1i32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STREAM_SEEK(pub u32);
+pub const STREAM_SEEK_CUR: STREAM_SEEK = STREAM_SEEK(1u32);
+pub const STREAM_SEEK_END: STREAM_SEEK = STREAM_SEEK(2u32);
+pub const STREAM_SEEK_SET: STREAM_SEEK = STREAM_SEEK(0u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYSKIND(pub i32);
+pub const SYS_MAC: SYSKIND = SYSKIND(2i32);
+pub const SYS_WIN16: SYSKIND = SYSKIND(0i32);
+pub const SYS_WIN32: SYSKIND = SYSKIND(1i32);
+pub const SYS_WIN64: SYSKIND = SYSKIND(3i32);
+pub const ServerApplication: ApplicationType = ApplicationType(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ShutdownType(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct StorageLayout {
@@ -10905,6 +11222,20 @@ impl Default for StorageLayout {
 impl windows_core::TypeKind for StorageLayout {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct THDTYPE(pub i32);
+pub const THDTYPE_BLOCKMESSAGES: THDTYPE = THDTYPE(0i32);
+pub const THDTYPE_PROCESSMESSAGES: THDTYPE = THDTYPE(1i32);
+pub const TKIND_ALIAS: TYPEKIND = TYPEKIND(6i32);
+pub const TKIND_COCLASS: TYPEKIND = TYPEKIND(5i32);
+pub const TKIND_DISPATCH: TYPEKIND = TYPEKIND(4i32);
+pub const TKIND_ENUM: TYPEKIND = TYPEKIND(0i32);
+pub const TKIND_INTERFACE: TYPEKIND = TYPEKIND(3i32);
+pub const TKIND_MAX: TYPEKIND = TYPEKIND(8i32);
+pub const TKIND_MODULE: TYPEKIND = TYPEKIND(2i32);
+pub const TKIND_RECORD: TYPEKIND = TYPEKIND(1i32);
+pub const TKIND_UNION: TYPEKIND = TYPEKIND(7i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TLIBATTR {
@@ -10923,6 +11254,17 @@ impl Default for TLIBATTR {
 impl windows_core::TypeKind for TLIBATTR {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TYMED(pub i32);
+pub const TYMED_ENHMF: TYMED = TYMED(64i32);
+pub const TYMED_FILE: TYMED = TYMED(2i32);
+pub const TYMED_GDI: TYMED = TYMED(16i32);
+pub const TYMED_HGLOBAL: TYMED = TYMED(1i32);
+pub const TYMED_ISTORAGE: TYMED = TYMED(8i32);
+pub const TYMED_ISTREAM: TYMED = TYMED(4i32);
+pub const TYMED_MFPICT: TYMED = TYMED(32i32);
+pub const TYMED_NULL: TYMED = TYMED(0i32);
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
@@ -10991,6 +11333,99 @@ impl Default for TYPEDESC_0 {
 impl windows_core::TypeKind for TYPEDESC_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TYPEKIND(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TYSPEC(pub i32);
+pub const TYSPEC_CLSID: TYSPEC = TYSPEC(0i32);
+pub const TYSPEC_FILEEXT: TYSPEC = TYSPEC(1i32);
+pub const TYSPEC_FILENAME: TYSPEC = TYSPEC(3i32);
+pub const TYSPEC_MIMETYPE: TYSPEC = TYSPEC(2i32);
+pub const TYSPEC_OBJECTID: TYSPEC = TYSPEC(6i32);
+pub const TYSPEC_PACKAGENAME: TYSPEC = TYSPEC(5i32);
+pub const TYSPEC_PROGID: TYSPEC = TYSPEC(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct URI_CREATE_FLAGS(pub u32);
+impl URI_CREATE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for URI_CREATE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for URI_CREATE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for URI_CREATE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for URI_CREATE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for URI_CREATE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const Uri_CREATE_ALLOW_IMPLICIT_FILE_SCHEME: URI_CREATE_FLAGS = URI_CREATE_FLAGS(4u32);
+pub const Uri_CREATE_ALLOW_IMPLICIT_WILDCARD_SCHEME: URI_CREATE_FLAGS = URI_CREATE_FLAGS(2u32);
+pub const Uri_CREATE_ALLOW_RELATIVE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(1u32);
+pub const Uri_CREATE_CANONICALIZE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(256u32);
+pub const Uri_CREATE_CANONICALIZE_ABSOLUTE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(131072u32);
+pub const Uri_CREATE_CRACK_UNKNOWN_SCHEMES: URI_CREATE_FLAGS = URI_CREATE_FLAGS(512u32);
+pub const Uri_CREATE_DECODE_EXTRA_INFO: URI_CREATE_FLAGS = URI_CREATE_FLAGS(64u32);
+pub const Uri_CREATE_FILE_USE_DOS_PATH: URI_CREATE_FLAGS = URI_CREATE_FLAGS(32u32);
+pub const Uri_CREATE_IE_SETTINGS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(8192u32);
+pub const Uri_CREATE_NOFRAG: URI_CREATE_FLAGS = URI_CREATE_FLAGS(8u32);
+pub const Uri_CREATE_NORMALIZE_INTL_CHARACTERS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(65536u32);
+pub const Uri_CREATE_NO_CANONICALIZE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(16u32);
+pub const Uri_CREATE_NO_CRACK_UNKNOWN_SCHEMES: URI_CREATE_FLAGS = URI_CREATE_FLAGS(1024u32);
+pub const Uri_CREATE_NO_DECODE_EXTRA_INFO: URI_CREATE_FLAGS = URI_CREATE_FLAGS(128u32);
+pub const Uri_CREATE_NO_ENCODE_FORBIDDEN_CHARACTERS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(32768u32);
+pub const Uri_CREATE_NO_IE_SETTINGS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(16384u32);
+pub const Uri_CREATE_NO_PRE_PROCESS_HTML_URI: URI_CREATE_FLAGS = URI_CREATE_FLAGS(4096u32);
+pub const Uri_CREATE_PRE_PROCESS_HTML_URI: URI_CREATE_FLAGS = URI_CREATE_FLAGS(2048u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct Uri_PROPERTY(pub i32);
+pub const Uri_PROPERTY_ABSOLUTE_URI: Uri_PROPERTY = Uri_PROPERTY(0i32);
+pub const Uri_PROPERTY_AUTHORITY: Uri_PROPERTY = Uri_PROPERTY(1i32);
+pub const Uri_PROPERTY_DISPLAY_URI: Uri_PROPERTY = Uri_PROPERTY(2i32);
+pub const Uri_PROPERTY_DOMAIN: Uri_PROPERTY = Uri_PROPERTY(3i32);
+pub const Uri_PROPERTY_DWORD_LAST: Uri_PROPERTY = Uri_PROPERTY(18i32);
+pub const Uri_PROPERTY_DWORD_START: Uri_PROPERTY = Uri_PROPERTY(15i32);
+pub const Uri_PROPERTY_EXTENSION: Uri_PROPERTY = Uri_PROPERTY(4i32);
+pub const Uri_PROPERTY_FRAGMENT: Uri_PROPERTY = Uri_PROPERTY(5i32);
+pub const Uri_PROPERTY_HOST: Uri_PROPERTY = Uri_PROPERTY(6i32);
+pub const Uri_PROPERTY_HOST_TYPE: Uri_PROPERTY = Uri_PROPERTY(15i32);
+pub const Uri_PROPERTY_PASSWORD: Uri_PROPERTY = Uri_PROPERTY(7i32);
+pub const Uri_PROPERTY_PATH: Uri_PROPERTY = Uri_PROPERTY(8i32);
+pub const Uri_PROPERTY_PATH_AND_QUERY: Uri_PROPERTY = Uri_PROPERTY(9i32);
+pub const Uri_PROPERTY_PORT: Uri_PROPERTY = Uri_PROPERTY(16i32);
+pub const Uri_PROPERTY_QUERY: Uri_PROPERTY = Uri_PROPERTY(10i32);
+pub const Uri_PROPERTY_RAW_URI: Uri_PROPERTY = Uri_PROPERTY(11i32);
+pub const Uri_PROPERTY_SCHEME: Uri_PROPERTY = Uri_PROPERTY(17i32);
+pub const Uri_PROPERTY_SCHEME_NAME: Uri_PROPERTY = Uri_PROPERTY(12i32);
+pub const Uri_PROPERTY_STRING_LAST: Uri_PROPERTY = Uri_PROPERTY(14i32);
+pub const Uri_PROPERTY_STRING_START: Uri_PROPERTY = Uri_PROPERTY(0i32);
+pub const Uri_PROPERTY_USER_INFO: Uri_PROPERTY = Uri_PROPERTY(13i32);
+pub const Uri_PROPERTY_USER_NAME: Uri_PROPERTY = Uri_PROPERTY(14i32);
+pub const Uri_PROPERTY_ZONE: Uri_PROPERTY = Uri_PROPERTY(18i32);
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
@@ -11029,6 +11464,29 @@ impl Default for VARDESC_0 {
 impl windows_core::TypeKind for VARDESC_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VARFLAGS(pub u16);
+pub const VARFLAG_FBINDABLE: VARFLAGS = VARFLAGS(4u16);
+pub const VARFLAG_FDEFAULTBIND: VARFLAGS = VARFLAGS(32u16);
+pub const VARFLAG_FDEFAULTCOLLELEM: VARFLAGS = VARFLAGS(256u16);
+pub const VARFLAG_FDISPLAYBIND: VARFLAGS = VARFLAGS(16u16);
+pub const VARFLAG_FHIDDEN: VARFLAGS = VARFLAGS(64u16);
+pub const VARFLAG_FIMMEDIATEBIND: VARFLAGS = VARFLAGS(4096u16);
+pub const VARFLAG_FNONBROWSABLE: VARFLAGS = VARFLAGS(1024u16);
+pub const VARFLAG_FREADONLY: VARFLAGS = VARFLAGS(1u16);
+pub const VARFLAG_FREPLACEABLE: VARFLAGS = VARFLAGS(2048u16);
+pub const VARFLAG_FREQUESTEDIT: VARFLAGS = VARFLAGS(8u16);
+pub const VARFLAG_FRESTRICTED: VARFLAGS = VARFLAGS(128u16);
+pub const VARFLAG_FSOURCE: VARFLAGS = VARFLAGS(2u16);
+pub const VARFLAG_FUIDEFAULT: VARFLAGS = VARFLAGS(512u16);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VARKIND(pub i32);
+pub const VAR_CONST: VARKIND = VARKIND(2i32);
+pub const VAR_DISPATCH: VARKIND = VARKIND(3i32);
+pub const VAR_PERINSTANCE: VARKIND = VARKIND(0i32);
+pub const VAR_STATIC: VARKIND = VARKIND(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WORD_BLOB {
@@ -11202,461 +11660,3 @@ impl Default for userSTGMEDIUM_0_0 {
 impl windows_core::TypeKind for userSTGMEDIUM_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-pub const ADVFCACHE_FORCEBUILTIN: ADVF = ADVF(16i32);
-pub const ADVFCACHE_NOHANDLER: ADVF = ADVF(8i32);
-pub const ADVFCACHE_ONSAVE: ADVF = ADVF(32i32);
-pub const ADVF_DATAONSTOP: ADVF = ADVF(64i32);
-pub const ADVF_NODATA: ADVF = ADVF(1i32);
-pub const ADVF_ONLYONCE: ADVF = ADVF(4i32);
-pub const ADVF_PRIMEFIRST: ADVF = ADVF(2i32);
-pub const APPIDREGFLAGS_AAA_NO_IMPLICIT_ACTIVATE_AS_IU: u32 = 2048u32;
-pub const APPIDREGFLAGS_ACTIVATE_IUSERVER_INDESKTOP: u32 = 1u32;
-pub const APPIDREGFLAGS_ISSUE_ACTIVATION_RPC_AT_IDENTIFY: u32 = 4u32;
-pub const APPIDREGFLAGS_IUSERVER_ACTIVATE_IN_CLIENT_SESSION_ONLY: u32 = 32u32;
-pub const APPIDREGFLAGS_IUSERVER_SELF_SID_IN_LAUNCH_PERMISSION: u32 = 16u32;
-pub const APPIDREGFLAGS_IUSERVER_UNMODIFIED_LOGON_TOKEN: u32 = 8u32;
-pub const APPIDREGFLAGS_RESERVED1: u32 = 64u32;
-pub const APPIDREGFLAGS_RESERVED2: u32 = 128u32;
-pub const APPIDREGFLAGS_RESERVED3: u32 = 256u32;
-pub const APPIDREGFLAGS_RESERVED4: u32 = 512u32;
-pub const APPIDREGFLAGS_RESERVED5: u32 = 1024u32;
-pub const APPIDREGFLAGS_RESERVED7: u32 = 4096u32;
-pub const APPIDREGFLAGS_RESERVED8: u32 = 8192u32;
-pub const APPIDREGFLAGS_RESERVED9: u32 = 16384u32;
-pub const APPIDREGFLAGS_SECURE_SERVER_PROCESS_SD_AND_BIND: u32 = 2u32;
-pub const APTTYPEQUALIFIER_APPLICATION_STA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(6i32);
-pub const APTTYPEQUALIFIER_IMPLICIT_MTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(1i32);
-pub const APTTYPEQUALIFIER_NA_ON_IMPLICIT_MTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(4i32);
-pub const APTTYPEQUALIFIER_NA_ON_MAINSTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(5i32);
-pub const APTTYPEQUALIFIER_NA_ON_MTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(2i32);
-pub const APTTYPEQUALIFIER_NA_ON_STA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(3i32);
-pub const APTTYPEQUALIFIER_NONE: APTTYPEQUALIFIER = APTTYPEQUALIFIER(0i32);
-pub const APTTYPEQUALIFIER_RESERVED_1: APTTYPEQUALIFIER = APTTYPEQUALIFIER(7i32);
-pub const APTTYPE_CURRENT: APTTYPE = APTTYPE(-1i32);
-pub const APTTYPE_MAINSTA: APTTYPE = APTTYPE(3i32);
-pub const APTTYPE_MTA: APTTYPE = APTTYPE(1i32);
-pub const APTTYPE_NA: APTTYPE = APTTYPE(2i32);
-pub const APTTYPE_STA: APTTYPE = APTTYPE(0i32);
-pub const ASYNC_MODE_COMPATIBILITY: i32 = 1i32;
-pub const ASYNC_MODE_DEFAULT: i32 = 0i32;
-pub const BINDINFOF_URLENCODEDEXTRAINFO: BINDINFOF = BINDINFOF(2i32);
-pub const BINDINFOF_URLENCODESTGMEDDATA: BINDINFOF = BINDINFOF(1i32);
-pub const BIND_JUSTTESTEXISTENCE: BIND_FLAGS = BIND_FLAGS(2i32);
-pub const BIND_MAYBOTHERUSER: BIND_FLAGS = BIND_FLAGS(1i32);
-pub const CALLTYPE_ASYNC: CALLTYPE = CALLTYPE(3i32);
-pub const CALLTYPE_ASYNC_CALLPENDING: CALLTYPE = CALLTYPE(5i32);
-pub const CALLTYPE_NESTED: CALLTYPE = CALLTYPE(2i32);
-pub const CALLTYPE_TOPLEVEL: CALLTYPE = CALLTYPE(1i32);
-pub const CALLTYPE_TOPLEVEL_CALLPENDING: CALLTYPE = CALLTYPE(4i32);
-pub const CC_CDECL: CALLCONV = CALLCONV(1i32);
-pub const CC_FASTCALL: CALLCONV = CALLCONV(0i32);
-pub const CC_FPFASTCALL: CALLCONV = CALLCONV(5i32);
-pub const CC_MACPASCAL: CALLCONV = CALLCONV(3i32);
-pub const CC_MAX: CALLCONV = CALLCONV(9i32);
-pub const CC_MPWCDECL: CALLCONV = CALLCONV(7i32);
-pub const CC_MPWPASCAL: CALLCONV = CALLCONV(8i32);
-pub const CC_MSCPASCAL: CALLCONV = CALLCONV(2i32);
-pub const CC_PASCAL: CALLCONV = CALLCONV(2i32);
-pub const CC_STDCALL: CALLCONV = CALLCONV(4i32);
-pub const CC_SYSCALL: CALLCONV = CALLCONV(6i32);
-pub const CLSCTX_ACTIVATE_32_BIT_SERVER: CLSCTX = CLSCTX(262144u32);
-pub const CLSCTX_ACTIVATE_64_BIT_SERVER: CLSCTX = CLSCTX(524288u32);
-pub const CLSCTX_ACTIVATE_AAA_AS_IU: CLSCTX = CLSCTX(8388608u32);
-pub const CLSCTX_ACTIVATE_ARM32_SERVER: CLSCTX = CLSCTX(33554432u32);
-pub const CLSCTX_ACTIVATE_X86_SERVER: CLSCTX = CLSCTX(262144u32);
-pub const CLSCTX_ALL: CLSCTX = CLSCTX(23u32);
-pub const CLSCTX_ALLOW_LOWER_TRUST_REGISTRATION: CLSCTX = CLSCTX(67108864u32);
-pub const CLSCTX_APPCONTAINER: CLSCTX = CLSCTX(4194304u32);
-pub const CLSCTX_DISABLE_AAA: CLSCTX = CLSCTX(32768u32);
-pub const CLSCTX_ENABLE_AAA: CLSCTX = CLSCTX(65536u32);
-pub const CLSCTX_ENABLE_CLOAKING: CLSCTX = CLSCTX(1048576u32);
-pub const CLSCTX_ENABLE_CODE_DOWNLOAD: CLSCTX = CLSCTX(8192u32);
-pub const CLSCTX_FROM_DEFAULT_CONTEXT: CLSCTX = CLSCTX(131072u32);
-pub const CLSCTX_INPROC_HANDLER: CLSCTX = CLSCTX(2u32);
-pub const CLSCTX_INPROC_HANDLER16: CLSCTX = CLSCTX(32u32);
-pub const CLSCTX_INPROC_SERVER: CLSCTX = CLSCTX(1u32);
-pub const CLSCTX_INPROC_SERVER16: CLSCTX = CLSCTX(8u32);
-pub const CLSCTX_LOCAL_SERVER: CLSCTX = CLSCTX(4u32);
-pub const CLSCTX_NO_CODE_DOWNLOAD: CLSCTX = CLSCTX(1024u32);
-pub const CLSCTX_NO_CUSTOM_MARSHAL: CLSCTX = CLSCTX(4096u32);
-pub const CLSCTX_NO_FAILURE_LOG: CLSCTX = CLSCTX(16384u32);
-pub const CLSCTX_PS_DLL: CLSCTX = CLSCTX(2147483648u32);
-pub const CLSCTX_REMOTE_SERVER: CLSCTX = CLSCTX(16u32);
-pub const CLSCTX_RESERVED1: CLSCTX = CLSCTX(64u32);
-pub const CLSCTX_RESERVED2: CLSCTX = CLSCTX(128u32);
-pub const CLSCTX_RESERVED3: CLSCTX = CLSCTX(256u32);
-pub const CLSCTX_RESERVED4: CLSCTX = CLSCTX(512u32);
-pub const CLSCTX_RESERVED5: CLSCTX = CLSCTX(2048u32);
-pub const CLSCTX_RESERVED6: CLSCTX = CLSCTX(16777216u32);
-pub const CLSCTX_SERVER: CLSCTX = CLSCTX(21u32);
-pub const CLSID_GlobalOptions: windows_core::GUID = windows_core::GUID::from_u128(0x0000034b_0000_0000_c000_000000000046);
-pub const COINITBASE_MULTITHREADED: COINITBASE = COINITBASE(0i32);
-pub const COINIT_APARTMENTTHREADED: COINIT = COINIT(2i32);
-pub const COINIT_DISABLE_OLE1DDE: COINIT = COINIT(4i32);
-pub const COINIT_MULTITHREADED: COINIT = COINIT(0i32);
-pub const COINIT_SPEED_OVER_MEMORY: COINIT = COINIT(8i32);
-pub const COLE_DEFAULT_AUTHINFO: i32 = -1i32;
-pub const COLE_DEFAULT_PRINCIPAL: windows_core::PCWSTR = windows_core::PCWSTR(-1i32 as _);
-pub const COMBND_RESERVED1: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(4i32);
-pub const COMBND_RESERVED2: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(5i32);
-pub const COMBND_RESERVED3: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(8i32);
-pub const COMBND_RESERVED4: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(16i32);
-pub const COMBND_RPCTIMEOUT: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(1i32);
-pub const COMBND_SERVER_LOCALITY: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(2i32);
-pub const COMGLB_APPID: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(2i32);
-pub const COMGLB_EXCEPTION_DONOT_HANDLE: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(1i32);
-pub const COMGLB_EXCEPTION_DONOT_HANDLE_ANY: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(2i32);
-pub const COMGLB_EXCEPTION_DONOT_HANDLE_FATAL: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(1i32);
-pub const COMGLB_EXCEPTION_HANDLE: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(0i32);
-pub const COMGLB_EXCEPTION_HANDLING: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(1i32);
-pub const COMGLB_FAST_RUNDOWN: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(8i32);
-pub const COMGLB_PROPERTIES_RESERVED1: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(6i32);
-pub const COMGLB_PROPERTIES_RESERVED2: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(7i32);
-pub const COMGLB_PROPERTIES_RESERVED3: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(8i32);
-pub const COMGLB_RESERVED1: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(16i32);
-pub const COMGLB_RESERVED2: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(32i32);
-pub const COMGLB_RESERVED3: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(64i32);
-pub const COMGLB_RESERVED4: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(256i32);
-pub const COMGLB_RESERVED5: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(512i32);
-pub const COMGLB_RESERVED6: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(1024i32);
-pub const COMGLB_RO_SETTINGS: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(4i32);
-pub const COMGLB_RPC_THREADPOOL_SETTING: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(3i32);
-pub const COMGLB_RPC_THREADPOOL_SETTING_DEFAULT_POOL: GLOBALOPT_RPCTP_VALUES = GLOBALOPT_RPCTP_VALUES(0i32);
-pub const COMGLB_RPC_THREADPOOL_SETTING_PRIVATE_POOL: GLOBALOPT_RPCTP_VALUES = GLOBALOPT_RPCTP_VALUES(1i32);
-pub const COMGLB_STA_MODALLOOP_REMOVE_TOUCH_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(1i32);
-pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_DONOT_REMOVE_INPUT_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(4i32);
-pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_REMOVE_INPUT_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(2i32);
-pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_REORDER_POINTER_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(128i32);
-pub const COMGLB_UNMARSHALING_POLICY: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(5i32);
-pub const COMGLB_UNMARSHALING_POLICY_HYBRID: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(2i32);
-pub const COMGLB_UNMARSHALING_POLICY_NORMAL: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(0i32);
-pub const COMGLB_UNMARSHALING_POLICY_STRONG: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(1i32);
-pub const COM_RIGHTS_ACTIVATE_LOCAL: u32 = 8u32;
-pub const COM_RIGHTS_ACTIVATE_REMOTE: u32 = 16u32;
-pub const COM_RIGHTS_EXECUTE: u32 = 1u32;
-pub const COM_RIGHTS_EXECUTE_LOCAL: u32 = 2u32;
-pub const COM_RIGHTS_EXECUTE_REMOTE: u32 = 4u32;
-pub const COM_RIGHTS_RESERVED1: u32 = 32u32;
-pub const COM_RIGHTS_RESERVED2: u32 = 64u32;
-pub const COWAIT_ALERTABLE: COWAIT_FLAGS = COWAIT_FLAGS(2i32);
-pub const COWAIT_DEFAULT: COWAIT_FLAGS = COWAIT_FLAGS(0i32);
-pub const COWAIT_DISPATCH_CALLS: COWAIT_FLAGS = COWAIT_FLAGS(8i32);
-pub const COWAIT_DISPATCH_WINDOW_MESSAGES: COWAIT_FLAGS = COWAIT_FLAGS(16i32);
-pub const COWAIT_INPUTAVAILABLE: COWAIT_FLAGS = COWAIT_FLAGS(4i32);
-pub const COWAIT_WAITALL: COWAIT_FLAGS = COWAIT_FLAGS(1i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_1: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483648i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_10: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483639i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_11: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483638i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_12: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483637i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_13: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483636i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_14: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483635i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_15: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483634i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_16: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483633i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_17: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483632i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_18: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483631i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_2: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483647i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_3: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483646i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_4: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483645i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_5: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483644i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_6: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483643i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_7: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483642i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_8: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483641i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_9: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483640i32);
-pub const CO_MARSHALING_SOURCE_IS_APP_CONTAINER: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(0i32);
-pub const CWMO_DEFAULT: CWMO_FLAGS = CWMO_FLAGS(0i32);
-pub const CWMO_DISPATCH_CALLS: CWMO_FLAGS = CWMO_FLAGS(1i32);
-pub const CWMO_DISPATCH_WINDOW_MESSAGES: CWMO_FLAGS = CWMO_FLAGS(2i32);
-pub const CWMO_MAX_HANDLES: u32 = 56u32;
-pub const DATADIR_GET: DATADIR = DATADIR(1i32);
-pub const DATADIR_SET: DATADIR = DATADIR(2i32);
-pub const DCOMSCM_ACTIVATION_DISALLOW_UNSECURE_CALL: u32 = 2u32;
-pub const DCOMSCM_ACTIVATION_USE_ALL_AUTHNSERVICES: u32 = 1u32;
-pub const DCOMSCM_PING_DISALLOW_UNSECURE_CALL: u32 = 32u32;
-pub const DCOMSCM_PING_USE_MID_AUTHNSERVICE: u32 = 16u32;
-pub const DCOMSCM_RESOLVE_DISALLOW_UNSECURE_CALL: u32 = 8u32;
-pub const DCOMSCM_RESOLVE_USE_ALL_AUTHNSERVICES: u32 = 4u32;
-pub const DCOM_CALL_CANCELED: DCOM_CALL_STATE = DCOM_CALL_STATE(2i32);
-pub const DCOM_CALL_COMPLETE: DCOM_CALL_STATE = DCOM_CALL_STATE(1i32);
-pub const DCOM_NONE: DCOM_CALL_STATE = DCOM_CALL_STATE(0i32);
-pub const DESCKIND_FUNCDESC: DESCKIND = DESCKIND(1i32);
-pub const DESCKIND_IMPLICITAPPOBJ: DESCKIND = DESCKIND(4i32);
-pub const DESCKIND_MAX: DESCKIND = DESCKIND(5i32);
-pub const DESCKIND_NONE: DESCKIND = DESCKIND(0i32);
-pub const DESCKIND_TYPECOMP: DESCKIND = DESCKIND(3i32);
-pub const DESCKIND_VARDESC: DESCKIND = DESCKIND(2i32);
-pub const DISPATCH_METHOD: DISPATCH_FLAGS = DISPATCH_FLAGS(1u16);
-pub const DISPATCH_PROPERTYGET: DISPATCH_FLAGS = DISPATCH_FLAGS(2u16);
-pub const DISPATCH_PROPERTYPUT: DISPATCH_FLAGS = DISPATCH_FLAGS(4u16);
-pub const DISPATCH_PROPERTYPUTREF: DISPATCH_FLAGS = DISPATCH_FLAGS(8u16);
-pub const DMUS_ERRBASE: u32 = 4096u32;
-pub const DVASPECT_CONTENT: DVASPECT = DVASPECT(1u32);
-pub const DVASPECT_DOCPRINT: DVASPECT = DVASPECT(8u32);
-pub const DVASPECT_ICON: DVASPECT = DVASPECT(4u32);
-pub const DVASPECT_OPAQUE: DVASPECT = DVASPECT(16u32);
-pub const DVASPECT_THUMBNAIL: DVASPECT = DVASPECT(2u32);
-pub const DVASPECT_TRANSPARENT: DVASPECT = DVASPECT(32u32);
-pub const EOAC_ACCESS_CONTROL: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(4i32);
-pub const EOAC_ANY_AUTHORITY: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(128i32);
-pub const EOAC_APPID: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(8i32);
-pub const EOAC_AUTO_IMPERSONATE: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(1024i32);
-pub const EOAC_DEFAULT: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(2048i32);
-pub const EOAC_DISABLE_AAA: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(4096i32);
-pub const EOAC_DYNAMIC: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(16i32);
-pub const EOAC_DYNAMIC_CLOAKING: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(64i32);
-pub const EOAC_MAKE_FULLSIC: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(256i32);
-pub const EOAC_MUTUAL_AUTH: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(1i32);
-pub const EOAC_NONE: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(0i32);
-pub const EOAC_NO_CUSTOM_MARSHAL: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(8192i32);
-pub const EOAC_REQUIRE_FULLSIC: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(512i32);
-pub const EOAC_RESERVED1: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(16384i32);
-pub const EOAC_SECURE_REFS: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(2i32);
-pub const EOAC_STATIC_CLOAKING: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(32i32);
-pub const EXTCONN_CALLABLE: EXTCONN = EXTCONN(4i32);
-pub const EXTCONN_STRONG: EXTCONN = EXTCONN(1i32);
-pub const EXTCONN_WEAK: EXTCONN = EXTCONN(2i32);
-pub const FADF_AUTO: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(1u16);
-pub const FADF_BSTR: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(256u16);
-pub const FADF_DISPATCH: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(1024u16);
-pub const FADF_EMBEDDED: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(4u16);
-pub const FADF_FIXEDSIZE: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(16u16);
-pub const FADF_HAVEIID: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(64u16);
-pub const FADF_HAVEVARTYPE: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(128u16);
-pub const FADF_RECORD: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(32u16);
-pub const FADF_RESERVED: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(61448u16);
-pub const FADF_STATIC: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(2u16);
-pub const FADF_UNKNOWN: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(512u16);
-pub const FADF_VARIANT: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(2048u16);
-pub const FUNCFLAG_FBINDABLE: FUNCFLAGS = FUNCFLAGS(4u16);
-pub const FUNCFLAG_FDEFAULTBIND: FUNCFLAGS = FUNCFLAGS(32u16);
-pub const FUNCFLAG_FDEFAULTCOLLELEM: FUNCFLAGS = FUNCFLAGS(256u16);
-pub const FUNCFLAG_FDISPLAYBIND: FUNCFLAGS = FUNCFLAGS(16u16);
-pub const FUNCFLAG_FHIDDEN: FUNCFLAGS = FUNCFLAGS(64u16);
-pub const FUNCFLAG_FIMMEDIATEBIND: FUNCFLAGS = FUNCFLAGS(4096u16);
-pub const FUNCFLAG_FNONBROWSABLE: FUNCFLAGS = FUNCFLAGS(1024u16);
-pub const FUNCFLAG_FREPLACEABLE: FUNCFLAGS = FUNCFLAGS(2048u16);
-pub const FUNCFLAG_FREQUESTEDIT: FUNCFLAGS = FUNCFLAGS(8u16);
-pub const FUNCFLAG_FRESTRICTED: FUNCFLAGS = FUNCFLAGS(1u16);
-pub const FUNCFLAG_FSOURCE: FUNCFLAGS = FUNCFLAGS(2u16);
-pub const FUNCFLAG_FUIDEFAULT: FUNCFLAGS = FUNCFLAGS(512u16);
-pub const FUNCFLAG_FUSESGETLASTERROR: FUNCFLAGS = FUNCFLAGS(128u16);
-pub const FUNC_DISPATCH: FUNCKIND = FUNCKIND(4i32);
-pub const FUNC_NONVIRTUAL: FUNCKIND = FUNCKIND(2i32);
-pub const FUNC_PUREVIRTUAL: FUNCKIND = FUNCKIND(1i32);
-pub const FUNC_STATIC: FUNCKIND = FUNCKIND(3i32);
-pub const FUNC_VIRTUAL: FUNCKIND = FUNCKIND(0i32);
-pub const ForcedShutdown: ShutdownType = ShutdownType(1i32);
-pub const IDLFLAG_FIN: IDLFLAGS = IDLFLAGS(1u16);
-pub const IDLFLAG_FLCID: IDLFLAGS = IDLFLAGS(4u16);
-pub const IDLFLAG_FOUT: IDLFLAGS = IDLFLAGS(2u16);
-pub const IDLFLAG_FRETVAL: IDLFLAGS = IDLFLAGS(8u16);
-pub const IDLFLAG_NONE: IDLFLAGS = IDLFLAGS(0u16);
-pub const IMPLTYPEFLAG_FDEFAULT: IMPLTYPEFLAGS = IMPLTYPEFLAGS(1i32);
-pub const IMPLTYPEFLAG_FDEFAULTVTABLE: IMPLTYPEFLAGS = IMPLTYPEFLAGS(8i32);
-pub const IMPLTYPEFLAG_FRESTRICTED: IMPLTYPEFLAGS = IMPLTYPEFLAGS(4i32);
-pub const IMPLTYPEFLAG_FSOURCE: IMPLTYPEFLAGS = IMPLTYPEFLAGS(2i32);
-pub const INVOKE_FUNC: INVOKEKIND = INVOKEKIND(1i32);
-pub const INVOKE_PROPERTYGET: INVOKEKIND = INVOKEKIND(2i32);
-pub const INVOKE_PROPERTYPUT: INVOKEKIND = INVOKEKIND(4i32);
-pub const INVOKE_PROPERTYPUTREF: INVOKEKIND = INVOKEKIND(8i32);
-pub const IdleShutdown: ShutdownType = ShutdownType(0i32);
-pub const LOCK_EXCLUSIVE: LOCKTYPE = LOCKTYPE(2i32);
-pub const LOCK_ONLYONCE: LOCKTYPE = LOCKTYPE(4i32);
-pub const LOCK_WRITE: LOCKTYPE = LOCKTYPE(1i32);
-pub const LibraryApplication: ApplicationType = ApplicationType(1i32);
-pub const MARSHALINTERFACE_MIN: u32 = 500u32;
-pub const MAXLSN: u64 = 9223372036854775807u64;
-pub const MEMCTX_MACSYSTEM: MEMCTX = MEMCTX(3i32);
-pub const MEMCTX_SAME: MEMCTX = MEMCTX(-2i32);
-pub const MEMCTX_SHARED: MEMCTX = MEMCTX(2i32);
-pub const MEMCTX_TASK: MEMCTX = MEMCTX(1i32);
-pub const MEMCTX_UNKNOWN: MEMCTX = MEMCTX(-1i32);
-pub const MKRREDUCE_ALL: MKRREDUCE = MKRREDUCE(0i32);
-pub const MKRREDUCE_ONE: MKRREDUCE = MKRREDUCE(196608i32);
-pub const MKRREDUCE_THROUGHUSER: MKRREDUCE = MKRREDUCE(65536i32);
-pub const MKRREDUCE_TOUSER: MKRREDUCE = MKRREDUCE(131072i32);
-pub const MKSYS_ANTIMONIKER: MKSYS = MKSYS(3i32);
-pub const MKSYS_CLASSMONIKER: MKSYS = MKSYS(7i32);
-pub const MKSYS_FILEMONIKER: MKSYS = MKSYS(2i32);
-pub const MKSYS_GENERICCOMPOSITE: MKSYS = MKSYS(1i32);
-pub const MKSYS_ITEMMONIKER: MKSYS = MKSYS(4i32);
-pub const MKSYS_LUAMONIKER: MKSYS = MKSYS(10i32);
-pub const MKSYS_NONE: MKSYS = MKSYS(0i32);
-pub const MKSYS_OBJREFMONIKER: MKSYS = MKSYS(8i32);
-pub const MKSYS_POINTERMONIKER: MKSYS = MKSYS(5i32);
-pub const MKSYS_SESSIONMONIKER: MKSYS = MKSYS(9i32);
-pub const MSHCTX_CONTAINER: MSHCTX = MSHCTX(5i32);
-pub const MSHCTX_CROSSCTX: MSHCTX = MSHCTX(4i32);
-pub const MSHCTX_DIFFERENTMACHINE: MSHCTX = MSHCTX(2i32);
-pub const MSHCTX_INPROC: MSHCTX = MSHCTX(3i32);
-pub const MSHCTX_LOCAL: MSHCTX = MSHCTX(0i32);
-pub const MSHCTX_NOSHAREDMEM: MSHCTX = MSHCTX(1i32);
-pub const MSHLFLAGS_NOPING: MSHLFLAGS = MSHLFLAGS(4i32);
-pub const MSHLFLAGS_NORMAL: MSHLFLAGS = MSHLFLAGS(0i32);
-pub const MSHLFLAGS_RESERVED1: MSHLFLAGS = MSHLFLAGS(8i32);
-pub const MSHLFLAGS_RESERVED2: MSHLFLAGS = MSHLFLAGS(16i32);
-pub const MSHLFLAGS_RESERVED3: MSHLFLAGS = MSHLFLAGS(32i32);
-pub const MSHLFLAGS_RESERVED4: MSHLFLAGS = MSHLFLAGS(64i32);
-pub const MSHLFLAGS_TABLESTRONG: MSHLFLAGS = MSHLFLAGS(1i32);
-pub const MSHLFLAGS_TABLEWEAK: MSHLFLAGS = MSHLFLAGS(2i32);
-pub const PENDINGMSG_CANCELCALL: PENDINGMSG = PENDINGMSG(0i32);
-pub const PENDINGMSG_WAITDEFPROCESS: PENDINGMSG = PENDINGMSG(2i32);
-pub const PENDINGMSG_WAITNOPROCESS: PENDINGMSG = PENDINGMSG(1i32);
-pub const PENDINGTYPE_NESTED: PENDINGTYPE = PENDINGTYPE(2i32);
-pub const PENDINGTYPE_TOPLEVEL: PENDINGTYPE = PENDINGTYPE(1i32);
-pub const REGCLS_AGILE: REGCLS = REGCLS(16i32);
-pub const REGCLS_MULTIPLEUSE: REGCLS = REGCLS(1i32);
-pub const REGCLS_MULTI_SEPARATE: REGCLS = REGCLS(2i32);
-pub const REGCLS_SINGLEUSE: REGCLS = REGCLS(0i32);
-pub const REGCLS_SURROGATE: REGCLS = REGCLS(8i32);
-pub const REGCLS_SUSPENDED: REGCLS = REGCLS(4i32);
-pub const ROTFLAGS_ALLOWANYCLIENT: ROT_FLAGS = ROT_FLAGS(2u32);
-pub const ROTFLAGS_REGISTRATIONKEEPSALIVE: ROT_FLAGS = ROT_FLAGS(1u32);
-pub const ROTREGFLAGS_ALLOWANYCLIENT: u32 = 1u32;
-pub const RPC_C_AUTHN_LEVEL_CALL: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(3u32);
-pub const RPC_C_AUTHN_LEVEL_CONNECT: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(2u32);
-pub const RPC_C_AUTHN_LEVEL_DEFAULT: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(0u32);
-pub const RPC_C_AUTHN_LEVEL_NONE: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(1u32);
-pub const RPC_C_AUTHN_LEVEL_PKT: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(4u32);
-pub const RPC_C_AUTHN_LEVEL_PKT_INTEGRITY: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(5u32);
-pub const RPC_C_AUTHN_LEVEL_PKT_PRIVACY: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(6u32);
-pub const RPC_C_IMP_LEVEL_ANONYMOUS: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(1u32);
-pub const RPC_C_IMP_LEVEL_DEFAULT: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(0u32);
-pub const RPC_C_IMP_LEVEL_DELEGATE: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(4u32);
-pub const RPC_C_IMP_LEVEL_IDENTIFY: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(2u32);
-pub const RPC_C_IMP_LEVEL_IMPERSONATE: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(3u32);
-pub const SD_ACCESSPERMISSIONS: COMSD = COMSD(1i32);
-pub const SD_ACCESSRESTRICTIONS: COMSD = COMSD(3i32);
-pub const SD_LAUNCHPERMISSIONS: COMSD = COMSD(0i32);
-pub const SD_LAUNCHRESTRICTIONS: COMSD = COMSD(2i32);
-pub const SERVERCALL_ISHANDLED: SERVERCALL = SERVERCALL(0i32);
-pub const SERVERCALL_REJECTED: SERVERCALL = SERVERCALL(1i32);
-pub const SERVERCALL_RETRYLATER: SERVERCALL = SERVERCALL(2i32);
-pub const SERVER_LOCALITY_MACHINE_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = RPCOPT_SERVER_LOCALITY_VALUES(1i32);
-pub const SERVER_LOCALITY_PROCESS_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = RPCOPT_SERVER_LOCALITY_VALUES(0i32);
-pub const SERVER_LOCALITY_REMOTE: RPCOPT_SERVER_LOCALITY_VALUES = RPCOPT_SERVER_LOCALITY_VALUES(2i32);
-pub const STATFLAG_DEFAULT: STATFLAG = STATFLAG(0i32);
-pub const STATFLAG_NONAME: STATFLAG = STATFLAG(1i32);
-pub const STATFLAG_NOOPEN: STATFLAG = STATFLAG(2i32);
-pub const STGC_CONSOLIDATE: STGC = STGC(8i32);
-pub const STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE: STGC = STGC(4i32);
-pub const STGC_DEFAULT: STGC = STGC(0i32);
-pub const STGC_ONLYIFCURRENT: STGC = STGC(2i32);
-pub const STGC_OVERWRITE: STGC = STGC(1i32);
-pub const STGM_CONVERT: STGM = STGM(131072u32);
-pub const STGM_CREATE: STGM = STGM(4096u32);
-pub const STGM_DELETEONRELEASE: STGM = STGM(67108864u32);
-pub const STGM_DIRECT: STGM = STGM(0u32);
-pub const STGM_DIRECT_SWMR: STGM = STGM(4194304u32);
-pub const STGM_FAILIFTHERE: STGM = STGM(0u32);
-pub const STGM_NOSCRATCH: STGM = STGM(1048576u32);
-pub const STGM_NOSNAPSHOT: STGM = STGM(2097152u32);
-pub const STGM_PRIORITY: STGM = STGM(262144u32);
-pub const STGM_READ: STGM = STGM(0u32);
-pub const STGM_READWRITE: STGM = STGM(2u32);
-pub const STGM_SHARE_DENY_NONE: STGM = STGM(64u32);
-pub const STGM_SHARE_DENY_READ: STGM = STGM(48u32);
-pub const STGM_SHARE_DENY_WRITE: STGM = STGM(32u32);
-pub const STGM_SHARE_EXCLUSIVE: STGM = STGM(16u32);
-pub const STGM_SIMPLE: STGM = STGM(134217728u32);
-pub const STGM_TRANSACTED: STGM = STGM(65536u32);
-pub const STGM_WRITE: STGM = STGM(1u32);
-pub const STGTY_LOCKBYTES: STGTY = STGTY(3i32);
-pub const STGTY_PROPERTY: STGTY = STGTY(4i32);
-pub const STGTY_REPEAT: i32 = 256i32;
-pub const STGTY_STORAGE: STGTY = STGTY(1i32);
-pub const STGTY_STREAM: STGTY = STGTY(2i32);
-pub const STG_LAYOUT_INTERLEAVED: i32 = 1i32;
-pub const STG_LAYOUT_SEQUENTIAL: i32 = 0i32;
-pub const STG_TOEND: i32 = -1i32;
-pub const STREAM_SEEK_CUR: STREAM_SEEK = STREAM_SEEK(1u32);
-pub const STREAM_SEEK_END: STREAM_SEEK = STREAM_SEEK(2u32);
-pub const STREAM_SEEK_SET: STREAM_SEEK = STREAM_SEEK(0u32);
-pub const SYS_MAC: SYSKIND = SYSKIND(2i32);
-pub const SYS_WIN16: SYSKIND = SYSKIND(0i32);
-pub const SYS_WIN32: SYSKIND = SYSKIND(1i32);
-pub const SYS_WIN64: SYSKIND = SYSKIND(3i32);
-pub const ServerApplication: ApplicationType = ApplicationType(0i32);
-pub const THDTYPE_BLOCKMESSAGES: THDTYPE = THDTYPE(0i32);
-pub const THDTYPE_PROCESSMESSAGES: THDTYPE = THDTYPE(1i32);
-pub const TKIND_ALIAS: TYPEKIND = TYPEKIND(6i32);
-pub const TKIND_COCLASS: TYPEKIND = TYPEKIND(5i32);
-pub const TKIND_DISPATCH: TYPEKIND = TYPEKIND(4i32);
-pub const TKIND_ENUM: TYPEKIND = TYPEKIND(0i32);
-pub const TKIND_INTERFACE: TYPEKIND = TYPEKIND(3i32);
-pub const TKIND_MAX: TYPEKIND = TYPEKIND(8i32);
-pub const TKIND_MODULE: TYPEKIND = TYPEKIND(2i32);
-pub const TKIND_RECORD: TYPEKIND = TYPEKIND(1i32);
-pub const TKIND_UNION: TYPEKIND = TYPEKIND(7i32);
-pub const TYMED_ENHMF: TYMED = TYMED(64i32);
-pub const TYMED_FILE: TYMED = TYMED(2i32);
-pub const TYMED_GDI: TYMED = TYMED(16i32);
-pub const TYMED_HGLOBAL: TYMED = TYMED(1i32);
-pub const TYMED_ISTORAGE: TYMED = TYMED(8i32);
-pub const TYMED_ISTREAM: TYMED = TYMED(4i32);
-pub const TYMED_MFPICT: TYMED = TYMED(32i32);
-pub const TYMED_NULL: TYMED = TYMED(0i32);
-pub const TYSPEC_CLSID: TYSPEC = TYSPEC(0i32);
-pub const TYSPEC_FILEEXT: TYSPEC = TYSPEC(1i32);
-pub const TYSPEC_FILENAME: TYSPEC = TYSPEC(3i32);
-pub const TYSPEC_MIMETYPE: TYSPEC = TYSPEC(2i32);
-pub const TYSPEC_OBJECTID: TYSPEC = TYSPEC(6i32);
-pub const TYSPEC_PACKAGENAME: TYSPEC = TYSPEC(5i32);
-pub const TYSPEC_PROGID: TYSPEC = TYSPEC(4i32);
-pub const Uri_CREATE_ALLOW_IMPLICIT_FILE_SCHEME: URI_CREATE_FLAGS = URI_CREATE_FLAGS(4u32);
-pub const Uri_CREATE_ALLOW_IMPLICIT_WILDCARD_SCHEME: URI_CREATE_FLAGS = URI_CREATE_FLAGS(2u32);
-pub const Uri_CREATE_ALLOW_RELATIVE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(1u32);
-pub const Uri_CREATE_CANONICALIZE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(256u32);
-pub const Uri_CREATE_CANONICALIZE_ABSOLUTE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(131072u32);
-pub const Uri_CREATE_CRACK_UNKNOWN_SCHEMES: URI_CREATE_FLAGS = URI_CREATE_FLAGS(512u32);
-pub const Uri_CREATE_DECODE_EXTRA_INFO: URI_CREATE_FLAGS = URI_CREATE_FLAGS(64u32);
-pub const Uri_CREATE_FILE_USE_DOS_PATH: URI_CREATE_FLAGS = URI_CREATE_FLAGS(32u32);
-pub const Uri_CREATE_IE_SETTINGS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(8192u32);
-pub const Uri_CREATE_NOFRAG: URI_CREATE_FLAGS = URI_CREATE_FLAGS(8u32);
-pub const Uri_CREATE_NORMALIZE_INTL_CHARACTERS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(65536u32);
-pub const Uri_CREATE_NO_CANONICALIZE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(16u32);
-pub const Uri_CREATE_NO_CRACK_UNKNOWN_SCHEMES: URI_CREATE_FLAGS = URI_CREATE_FLAGS(1024u32);
-pub const Uri_CREATE_NO_DECODE_EXTRA_INFO: URI_CREATE_FLAGS = URI_CREATE_FLAGS(128u32);
-pub const Uri_CREATE_NO_ENCODE_FORBIDDEN_CHARACTERS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(32768u32);
-pub const Uri_CREATE_NO_IE_SETTINGS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(16384u32);
-pub const Uri_CREATE_NO_PRE_PROCESS_HTML_URI: URI_CREATE_FLAGS = URI_CREATE_FLAGS(4096u32);
-pub const Uri_CREATE_PRE_PROCESS_HTML_URI: URI_CREATE_FLAGS = URI_CREATE_FLAGS(2048u32);
-pub const Uri_PROPERTY_ABSOLUTE_URI: Uri_PROPERTY = Uri_PROPERTY(0i32);
-pub const Uri_PROPERTY_AUTHORITY: Uri_PROPERTY = Uri_PROPERTY(1i32);
-pub const Uri_PROPERTY_DISPLAY_URI: Uri_PROPERTY = Uri_PROPERTY(2i32);
-pub const Uri_PROPERTY_DOMAIN: Uri_PROPERTY = Uri_PROPERTY(3i32);
-pub const Uri_PROPERTY_DWORD_LAST: Uri_PROPERTY = Uri_PROPERTY(18i32);
-pub const Uri_PROPERTY_DWORD_START: Uri_PROPERTY = Uri_PROPERTY(15i32);
-pub const Uri_PROPERTY_EXTENSION: Uri_PROPERTY = Uri_PROPERTY(4i32);
-pub const Uri_PROPERTY_FRAGMENT: Uri_PROPERTY = Uri_PROPERTY(5i32);
-pub const Uri_PROPERTY_HOST: Uri_PROPERTY = Uri_PROPERTY(6i32);
-pub const Uri_PROPERTY_HOST_TYPE: Uri_PROPERTY = Uri_PROPERTY(15i32);
-pub const Uri_PROPERTY_PASSWORD: Uri_PROPERTY = Uri_PROPERTY(7i32);
-pub const Uri_PROPERTY_PATH: Uri_PROPERTY = Uri_PROPERTY(8i32);
-pub const Uri_PROPERTY_PATH_AND_QUERY: Uri_PROPERTY = Uri_PROPERTY(9i32);
-pub const Uri_PROPERTY_PORT: Uri_PROPERTY = Uri_PROPERTY(16i32);
-pub const Uri_PROPERTY_QUERY: Uri_PROPERTY = Uri_PROPERTY(10i32);
-pub const Uri_PROPERTY_RAW_URI: Uri_PROPERTY = Uri_PROPERTY(11i32);
-pub const Uri_PROPERTY_SCHEME: Uri_PROPERTY = Uri_PROPERTY(17i32);
-pub const Uri_PROPERTY_SCHEME_NAME: Uri_PROPERTY = Uri_PROPERTY(12i32);
-pub const Uri_PROPERTY_STRING_LAST: Uri_PROPERTY = Uri_PROPERTY(14i32);
-pub const Uri_PROPERTY_STRING_START: Uri_PROPERTY = Uri_PROPERTY(0i32);
-pub const Uri_PROPERTY_USER_INFO: Uri_PROPERTY = Uri_PROPERTY(13i32);
-pub const Uri_PROPERTY_USER_NAME: Uri_PROPERTY = Uri_PROPERTY(14i32);
-pub const Uri_PROPERTY_ZONE: Uri_PROPERTY = Uri_PROPERTY(18i32);
-pub const VARFLAG_FBINDABLE: VARFLAGS = VARFLAGS(4u16);
-pub const VARFLAG_FDEFAULTBIND: VARFLAGS = VARFLAGS(32u16);
-pub const VARFLAG_FDEFAULTCOLLELEM: VARFLAGS = VARFLAGS(256u16);
-pub const VARFLAG_FDISPLAYBIND: VARFLAGS = VARFLAGS(16u16);
-pub const VARFLAG_FHIDDEN: VARFLAGS = VARFLAGS(64u16);
-pub const VARFLAG_FIMMEDIATEBIND: VARFLAGS = VARFLAGS(4096u16);
-pub const VARFLAG_FNONBROWSABLE: VARFLAGS = VARFLAGS(1024u16);
-pub const VARFLAG_FREADONLY: VARFLAGS = VARFLAGS(1u16);
-pub const VARFLAG_FREPLACEABLE: VARFLAGS = VARFLAGS(2048u16);
-pub const VARFLAG_FREQUESTEDIT: VARFLAGS = VARFLAGS(8u16);
-pub const VARFLAG_FRESTRICTED: VARFLAGS = VARFLAGS(128u16);
-pub const VARFLAG_FSOURCE: VARFLAGS = VARFLAGS(2u16);
-pub const VARFLAG_FUIDEFAULT: VARFLAGS = VARFLAGS(512u16);
-pub const VAR_CONST: VARKIND = VARKIND(2i32);
-pub const VAR_DISPATCH: VARKIND = VARKIND(3i32);
-pub const VAR_PERINSTANCE: VARKIND = VARKIND(0i32);
-pub const VAR_STATIC: VARKIND = VARKIND(1i32);

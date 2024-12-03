@@ -217,6 +217,61 @@ impl windows_core::RuntimeName for GattCharacteristic {
 }
 unsafe impl Send for GattCharacteristic {}
 unsafe impl Sync for GattCharacteristic {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GattCharacteristicProperties(pub u32);
+impl GattCharacteristicProperties {
+    pub const None: Self = Self(0u32);
+    pub const Broadcast: Self = Self(1u32);
+    pub const Read: Self = Self(2u32);
+    pub const WriteWithoutResponse: Self = Self(4u32);
+    pub const Write: Self = Self(8u32);
+    pub const Notify: Self = Self(16u32);
+    pub const Indicate: Self = Self(32u32);
+    pub const AuthenticatedSignedWrites: Self = Self(64u32);
+    pub const ExtendedProperties: Self = Self(128u32);
+    pub const ReliableWrites: Self = Self(256u32);
+    pub const WritableAuxiliaries: Self = Self(512u32);
+}
+impl windows_core::TypeKind for GattCharacteristicProperties {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GattCharacteristicProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicProperties;u4)");
+}
+impl GattCharacteristicProperties {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for GattCharacteristicProperties {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for GattCharacteristicProperties {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for GattCharacteristicProperties {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for GattCharacteristicProperties {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for GattCharacteristicProperties {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub struct GattCharacteristicUuids;
 impl GattCharacteristicUuids {
     pub fn BatteryLevel() -> windows_core::Result<windows_core::GUID> {
@@ -758,6 +813,20 @@ impl windows_core::RuntimeName for GattCharacteristicsResult {
 unsafe impl Send for GattCharacteristicsResult {}
 unsafe impl Sync for GattCharacteristicsResult {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GattClientCharacteristicConfigurationDescriptorValue(pub i32);
+impl GattClientCharacteristicConfigurationDescriptorValue {
+    pub const None: Self = Self(0i32);
+    pub const Notify: Self = Self(1i32);
+    pub const Indicate: Self = Self(2i32);
+}
+impl windows_core::TypeKind for GattClientCharacteristicConfigurationDescriptorValue {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GattClientCharacteristicConfigurationDescriptorValue {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientCharacteristicConfigurationDescriptorValue;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattClientNotificationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattClientNotificationResult, windows_core::IUnknown, windows_core::IInspectable);
@@ -803,6 +872,21 @@ impl windows_core::RuntimeName for GattClientNotificationResult {
 }
 unsafe impl Send for GattClientNotificationResult {}
 unsafe impl Sync for GattClientNotificationResult {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GattCommunicationStatus(pub i32);
+impl GattCommunicationStatus {
+    pub const Success: Self = Self(0i32);
+    pub const Unreachable: Self = Self(1i32);
+    pub const ProtocolError: Self = Self(2i32);
+    pub const AccessDenied: Self = Self(3i32);
+}
+impl windows_core::TypeKind for GattCommunicationStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GattCommunicationStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattCommunicationStatus;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattDescriptor(windows_core::IUnknown);
@@ -1775,6 +1859,23 @@ impl windows_core::RuntimeName for GattLocalService {
 unsafe impl Send for GattLocalService {}
 unsafe impl Sync for GattLocalService {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GattOpenStatus(pub i32);
+impl GattOpenStatus {
+    pub const Unspecified: Self = Self(0i32);
+    pub const Success: Self = Self(1i32);
+    pub const AlreadyOpened: Self = Self(2i32);
+    pub const NotFound: Self = Self(3i32);
+    pub const SharingViolation: Self = Self(4i32);
+    pub const AccessDenied: Self = Self(5i32);
+}
+impl windows_core::TypeKind for GattOpenStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GattOpenStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattOpenStatus;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattPresentationFormat(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattPresentationFormat, windows_core::IUnknown, windows_core::IInspectable);
@@ -2018,6 +2119,21 @@ impl GattPresentationFormatTypes {
 }
 impl windows_core::RuntimeName for GattPresentationFormatTypes {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes";
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GattProtectionLevel(pub i32);
+impl GattProtectionLevel {
+    pub const Plain: Self = Self(0i32);
+    pub const AuthenticationRequired: Self = Self(1i32);
+    pub const EncryptionRequired: Self = Self(2i32);
+    pub const EncryptionAndAuthenticationRequired: Self = Self(3i32);
+}
+impl windows_core::TypeKind for GattProtectionLevel {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GattProtectionLevel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtectionLevel;i4)");
 }
 pub struct GattProtocolError;
 impl GattProtocolError {
@@ -2363,6 +2479,20 @@ impl windows_core::RuntimeName for GattReliableWriteTransaction {
 unsafe impl Send for GattReliableWriteTransaction {}
 unsafe impl Sync for GattReliableWriteTransaction {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GattRequestState(pub i32);
+impl GattRequestState {
+    pub const Pending: Self = Self(0i32);
+    pub const Completed: Self = Self(1i32);
+    pub const Canceled: Self = Self(2i32);
+}
+impl windows_core::TypeKind for GattRequestState {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GattRequestState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattRequestState;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattRequestStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattRequestStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2465,6 +2595,22 @@ impl windows_core::RuntimeName for GattServiceProvider {
 }
 unsafe impl Send for GattServiceProvider {}
 unsafe impl Sync for GattServiceProvider {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GattServiceProviderAdvertisementStatus(pub i32);
+impl GattServiceProviderAdvertisementStatus {
+    pub const Created: Self = Self(0i32);
+    pub const Stopped: Self = Self(1i32);
+    pub const Started: Self = Self(2i32);
+    pub const Aborted: Self = Self(3i32);
+    pub const StartedWithoutAllAdvertisementData: Self = Self(4i32);
+}
+impl windows_core::TypeKind for GattServiceProviderAdvertisementStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GattServiceProviderAdvertisementStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatus;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattServiceProviderAdvertisementStatusChangedEventArgs(windows_core::IUnknown);
@@ -2842,6 +2988,19 @@ impl windows_core::RuntimeName for GattSession {
 unsafe impl Send for GattSession {}
 unsafe impl Sync for GattSession {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GattSessionStatus(pub i32);
+impl GattSessionStatus {
+    pub const Closed: Self = Self(0i32);
+    pub const Active: Self = Self(1i32);
+}
+impl windows_core::TypeKind for GattSessionStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GattSessionStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSessionStatus;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattSessionStatusChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattSessionStatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2873,6 +3032,21 @@ impl windows_core::RuntimeName for GattSessionStatusChangedEventArgs {
 }
 unsafe impl Send for GattSessionStatusChangedEventArgs {}
 unsafe impl Sync for GattSessionStatusChangedEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GattSharingMode(pub i32);
+impl GattSharingMode {
+    pub const Unspecified: Self = Self(0i32);
+    pub const Exclusive: Self = Self(1i32);
+    pub const SharedReadOnly: Self = Self(2i32);
+    pub const SharedReadAndWrite: Self = Self(3i32);
+}
+impl windows_core::TypeKind for GattSharingMode {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GattSharingMode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSharingMode;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattSubscribedClient(windows_core::IUnknown);
@@ -2952,6 +3126,19 @@ impl windows_core::RuntimeName for GattValueChangedEventArgs {
 }
 unsafe impl Send for GattValueChangedEventArgs {}
 unsafe impl Sync for GattValueChangedEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GattWriteOption(pub i32);
+impl GattWriteOption {
+    pub const WriteWithResponse: Self = Self(0i32);
+    pub const WriteWithoutResponse: Self = Self(1i32);
+}
+impl windows_core::TypeKind for GattWriteOption {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GattWriteOption {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteOption;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattWriteRequest(windows_core::IUnknown);
@@ -4024,191 +4211,4 @@ pub struct IGattWriteResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GattCommunicationStatus) -> windows_core::HRESULT,
     pub ProtocolError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GattCharacteristicProperties(pub u32);
-impl GattCharacteristicProperties {
-    pub const None: Self = Self(0u32);
-    pub const Broadcast: Self = Self(1u32);
-    pub const Read: Self = Self(2u32);
-    pub const WriteWithoutResponse: Self = Self(4u32);
-    pub const Write: Self = Self(8u32);
-    pub const Notify: Self = Self(16u32);
-    pub const Indicate: Self = Self(32u32);
-    pub const AuthenticatedSignedWrites: Self = Self(64u32);
-    pub const ExtendedProperties: Self = Self(128u32);
-    pub const ReliableWrites: Self = Self(256u32);
-    pub const WritableAuxiliaries: Self = Self(512u32);
-}
-impl windows_core::TypeKind for GattCharacteristicProperties {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GattCharacteristicProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicProperties;u4)");
-}
-impl GattCharacteristicProperties {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for GattCharacteristicProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for GattCharacteristicProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for GattCharacteristicProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for GattCharacteristicProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for GattCharacteristicProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GattClientCharacteristicConfigurationDescriptorValue(pub i32);
-impl GattClientCharacteristicConfigurationDescriptorValue {
-    pub const None: Self = Self(0i32);
-    pub const Notify: Self = Self(1i32);
-    pub const Indicate: Self = Self(2i32);
-}
-impl windows_core::TypeKind for GattClientCharacteristicConfigurationDescriptorValue {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GattClientCharacteristicConfigurationDescriptorValue {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientCharacteristicConfigurationDescriptorValue;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GattCommunicationStatus(pub i32);
-impl GattCommunicationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const Unreachable: Self = Self(1i32);
-    pub const ProtocolError: Self = Self(2i32);
-    pub const AccessDenied: Self = Self(3i32);
-}
-impl windows_core::TypeKind for GattCommunicationStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GattCommunicationStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattCommunicationStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GattOpenStatus(pub i32);
-impl GattOpenStatus {
-    pub const Unspecified: Self = Self(0i32);
-    pub const Success: Self = Self(1i32);
-    pub const AlreadyOpened: Self = Self(2i32);
-    pub const NotFound: Self = Self(3i32);
-    pub const SharingViolation: Self = Self(4i32);
-    pub const AccessDenied: Self = Self(5i32);
-}
-impl windows_core::TypeKind for GattOpenStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GattOpenStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattOpenStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GattProtectionLevel(pub i32);
-impl GattProtectionLevel {
-    pub const Plain: Self = Self(0i32);
-    pub const AuthenticationRequired: Self = Self(1i32);
-    pub const EncryptionRequired: Self = Self(2i32);
-    pub const EncryptionAndAuthenticationRequired: Self = Self(3i32);
-}
-impl windows_core::TypeKind for GattProtectionLevel {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GattProtectionLevel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtectionLevel;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GattRequestState(pub i32);
-impl GattRequestState {
-    pub const Pending: Self = Self(0i32);
-    pub const Completed: Self = Self(1i32);
-    pub const Canceled: Self = Self(2i32);
-}
-impl windows_core::TypeKind for GattRequestState {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GattRequestState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattRequestState;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GattServiceProviderAdvertisementStatus(pub i32);
-impl GattServiceProviderAdvertisementStatus {
-    pub const Created: Self = Self(0i32);
-    pub const Stopped: Self = Self(1i32);
-    pub const Started: Self = Self(2i32);
-    pub const Aborted: Self = Self(3i32);
-    pub const StartedWithoutAllAdvertisementData: Self = Self(4i32);
-}
-impl windows_core::TypeKind for GattServiceProviderAdvertisementStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GattServiceProviderAdvertisementStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GattSessionStatus(pub i32);
-impl GattSessionStatus {
-    pub const Closed: Self = Self(0i32);
-    pub const Active: Self = Self(1i32);
-}
-impl windows_core::TypeKind for GattSessionStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GattSessionStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSessionStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GattSharingMode(pub i32);
-impl GattSharingMode {
-    pub const Unspecified: Self = Self(0i32);
-    pub const Exclusive: Self = Self(1i32);
-    pub const SharedReadOnly: Self = Self(2i32);
-    pub const SharedReadAndWrite: Self = Self(3i32);
-}
-impl windows_core::TypeKind for GattSharingMode {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GattSharingMode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSharingMode;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GattWriteOption(pub i32);
-impl GattWriteOption {
-    pub const WriteWithResponse: Self = Self(0i32);
-    pub const WriteWithoutResponse: Self = Self(1i32);
-}
-impl windows_core::TypeKind for GattWriteOption {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GattWriteOption {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteOption;i4)");
 }

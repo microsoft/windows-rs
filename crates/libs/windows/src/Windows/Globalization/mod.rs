@@ -1918,6 +1918,24 @@ impl windows_core::RuntimeName for CurrencyIdentifiers {
     const NAME: &'static str = "Windows.Globalization.CurrencyIdentifiers";
 }
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DayOfWeek(pub i32);
+impl DayOfWeek {
+    pub const Sunday: Self = Self(0i32);
+    pub const Monday: Self = Self(1i32);
+    pub const Tuesday: Self = Self(2i32);
+    pub const Wednesday: Self = Self(3i32);
+    pub const Thursday: Self = Self(4i32);
+    pub const Friday: Self = Self(5i32);
+    pub const Saturday: Self = Self(6i32);
+}
+impl windows_core::TypeKind for DayOfWeek {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for DayOfWeek {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DayOfWeek;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GeographicRegion(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GeographicRegion, windows_core::IUnknown, windows_core::IInspectable);
@@ -2012,487 +2030,6 @@ impl windows_core::RuntimeName for GeographicRegion {
 }
 unsafe impl Send for GeographicRegion {}
 unsafe impl Sync for GeographicRegion {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct JapanesePhoneme(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(JapanesePhoneme, windows_core::IUnknown, windows_core::IInspectable);
-impl JapanesePhoneme {
-    pub fn DisplayText(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn YomiText(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).YomiText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn IsPhraseStart(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsPhraseStart)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for JapanesePhoneme {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IJapanesePhoneme>();
-}
-unsafe impl windows_core::Interface for JapanesePhoneme {
-    type Vtable = <IJapanesePhoneme as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IJapanesePhoneme as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for JapanesePhoneme {
-    const NAME: &'static str = "Windows.Globalization.JapanesePhoneme";
-}
-pub struct JapanesePhoneticAnalyzer;
-impl JapanesePhoneticAnalyzer {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetWords(input: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::Collections::IVectorView<JapanesePhoneme>> {
-        Self::IJapanesePhoneticAnalyzerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetWords)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetWordsWithMonoRubyOption(input: &windows_core::HSTRING, monoruby: bool) -> windows_core::Result<super::Foundation::Collections::IVectorView<JapanesePhoneme>> {
-        Self::IJapanesePhoneticAnalyzerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetWordsWithMonoRubyOption)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), monoruby, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IJapanesePhoneticAnalyzerStatics<R, F: FnOnce(&IJapanesePhoneticAnalyzerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<JapanesePhoneticAnalyzer, IJapanesePhoneticAnalyzerStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeName for JapanesePhoneticAnalyzer {
-    const NAME: &'static str = "Windows.Globalization.JapanesePhoneticAnalyzer";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct Language(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(Language, windows_core::IUnknown, windows_core::IInspectable);
-impl Language {
-    pub fn LanguageTag(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LanguageTag)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn NativeName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NativeName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Script(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Script)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn LayoutDirection(&self) -> windows_core::Result<LanguageLayoutDirection> {
-        let this = &windows_core::Interface::cast::<ILanguage2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LayoutDirection)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn AbbreviatedName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<ILanguage3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AbbreviatedName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetExtensionSubtags(&self, singleton: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
-        let this = &windows_core::Interface::cast::<ILanguageExtensionSubtags>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetExtensionSubtags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(singleton), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn CreateLanguage(languagetag: &windows_core::HSTRING) -> windows_core::Result<Language> {
-        Self::ILanguageFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(languagetag), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn IsWellFormed(languagetag: &windows_core::HSTRING) -> windows_core::Result<bool> {
-        Self::ILanguageStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsWellFormed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(languagetag), &mut result__).map(|| result__)
-        })
-    }
-    pub fn CurrentInputMethodLanguageTag() -> windows_core::Result<windows_core::HSTRING> {
-        Self::ILanguageStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CurrentInputMethodLanguageTag)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn TrySetInputMethodLanguageTag(languagetag: &windows_core::HSTRING) -> windows_core::Result<bool> {
-        Self::ILanguageStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetInputMethodLanguageTag)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(languagetag), &mut result__).map(|| result__)
-        })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMuiCompatibleLanguageListFromLanguageTags<P0>(languagetags: P0) -> windows_core::Result<super::Foundation::Collections::IVector<windows_core::HSTRING>>
-    where
-        P0: windows_core::Param<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-    {
-        Self::ILanguageStatics3(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetMuiCompatibleLanguageListFromLanguageTags)(windows_core::Interface::as_raw(this), languagetags.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn ILanguageFactory<R, F: FnOnce(&ILanguageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<Language, ILanguageFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn ILanguageStatics<R, F: FnOnce(&ILanguageStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<Language, ILanguageStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn ILanguageStatics2<R, F: FnOnce(&ILanguageStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<Language, ILanguageStatics2> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn ILanguageStatics3<R, F: FnOnce(&ILanguageStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<Language, ILanguageStatics3> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for Language {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILanguage>();
-}
-unsafe impl windows_core::Interface for Language {
-    type Vtable = <ILanguage as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ILanguage as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for Language {
-    const NAME: &'static str = "Windows.Globalization.Language";
-}
-unsafe impl Send for Language {}
-unsafe impl Sync for Language {}
-pub struct NumeralSystemIdentifiers;
-impl NumeralSystemIdentifiers {
-    pub fn Arab() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Arab)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn ArabExt() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ArabExt)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Bali() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Bali)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Beng() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Beng)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Cham() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Cham)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Deva() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Deva)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn FullWide() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FullWide)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Gujr() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Gujr)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Guru() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Guru)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn HaniDec() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HaniDec)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Java() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Java)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Kali() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Kali)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Khmr() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Khmr)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Knda() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Knda)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Lana() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Lana)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn LanaTham() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LanaTham)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Laoo() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Laoo)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Latn() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Latn)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Lepc() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Lepc)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Limb() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Limb)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Mlym() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Mlym)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Mong() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Mong)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Mtei() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Mtei)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Mymr() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Mymr)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn MymrShan() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MymrShan)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Nkoo() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Nkoo)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Olck() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Olck)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Orya() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Orya)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Saur() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Saur)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Sund() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Sund)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Talu() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Talu)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn TamlDec() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TamlDec)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Telu() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Telu)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Thai() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Thai)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Tibt() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Tibt)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Vaii() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Vaii)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Brah() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Brah)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn Osma() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Osma)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn MathBold() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MathBold)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn MathDbl() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MathDbl)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn MathSans() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MathSans)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn MathSanb() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MathSanb)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn MathMono() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MathMono)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn ZmthBold() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ZmthBold)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn ZmthDbl() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ZmthDbl)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn ZmthSans() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ZmthSans)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn ZmthSanb() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ZmthSanb)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    pub fn ZmthMono() -> windows_core::Result<windows_core::HSTRING> {
-        Self::INumeralSystemIdentifiersStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ZmthMono)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        })
-    }
-    fn INumeralSystemIdentifiersStatics<R, F: FnOnce(&INumeralSystemIdentifiersStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<NumeralSystemIdentifiers, INumeralSystemIdentifiersStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn INumeralSystemIdentifiersStatics2<R, F: FnOnce(&INumeralSystemIdentifiersStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<NumeralSystemIdentifiers, INumeralSystemIdentifiersStatics2> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeName for NumeralSystemIdentifiers {
-    const NAME: &'static str = "Windows.Globalization.NumeralSystemIdentifiers";
-}
 windows_core::imp::define_interface!(IApplicationLanguagesStatics, IApplicationLanguagesStatics_Vtbl, 0x75b40847_0a4c_4a92_9565_fd63c95f7aed);
 impl windows_core::RuntimeType for IApplicationLanguagesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -3136,23 +2673,184 @@ pub struct ITimeZoneOnCalendar_Vtbl {
     pub TimeZoneAsString: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DayOfWeek(pub i32);
-impl DayOfWeek {
-    pub const Sunday: Self = Self(0i32);
-    pub const Monday: Self = Self(1i32);
-    pub const Tuesday: Self = Self(2i32);
-    pub const Wednesday: Self = Self(3i32);
-    pub const Thursday: Self = Self(4i32);
-    pub const Friday: Self = Self(5i32);
-    pub const Saturday: Self = Self(6i32);
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct JapanesePhoneme(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(JapanesePhoneme, windows_core::IUnknown, windows_core::IInspectable);
+impl JapanesePhoneme {
+    pub fn DisplayText(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn YomiText(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).YomiText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn IsPhraseStart(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsPhraseStart)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
 }
-impl windows_core::TypeKind for DayOfWeek {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::RuntimeType for JapanesePhoneme {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IJapanesePhoneme>();
 }
-impl windows_core::RuntimeType for DayOfWeek {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DayOfWeek;i4)");
+unsafe impl windows_core::Interface for JapanesePhoneme {
+    type Vtable = <IJapanesePhoneme as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IJapanesePhoneme as windows_core::Interface>::IID;
 }
+impl windows_core::RuntimeName for JapanesePhoneme {
+    const NAME: &'static str = "Windows.Globalization.JapanesePhoneme";
+}
+pub struct JapanesePhoneticAnalyzer;
+impl JapanesePhoneticAnalyzer {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetWords(input: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::Collections::IVectorView<JapanesePhoneme>> {
+        Self::IJapanesePhoneticAnalyzerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetWords)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetWordsWithMonoRubyOption(input: &windows_core::HSTRING, monoruby: bool) -> windows_core::Result<super::Foundation::Collections::IVectorView<JapanesePhoneme>> {
+        Self::IJapanesePhoneticAnalyzerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetWordsWithMonoRubyOption)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), monoruby, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IJapanesePhoneticAnalyzerStatics<R, F: FnOnce(&IJapanesePhoneticAnalyzerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<JapanesePhoneticAnalyzer, IJapanesePhoneticAnalyzerStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeName for JapanesePhoneticAnalyzer {
+    const NAME: &'static str = "Windows.Globalization.JapanesePhoneticAnalyzer";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct Language(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(Language, windows_core::IUnknown, windows_core::IInspectable);
+impl Language {
+    pub fn LanguageTag(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LanguageTag)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn NativeName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).NativeName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Script(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Script)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn LayoutDirection(&self) -> windows_core::Result<LanguageLayoutDirection> {
+        let this = &windows_core::Interface::cast::<ILanguage2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LayoutDirection)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn AbbreviatedName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<ILanguage3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AbbreviatedName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetExtensionSubtags(&self, singleton: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+        let this = &windows_core::Interface::cast::<ILanguageExtensionSubtags>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetExtensionSubtags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(singleton), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CreateLanguage(languagetag: &windows_core::HSTRING) -> windows_core::Result<Language> {
+        Self::ILanguageFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(languagetag), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn IsWellFormed(languagetag: &windows_core::HSTRING) -> windows_core::Result<bool> {
+        Self::ILanguageStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsWellFormed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(languagetag), &mut result__).map(|| result__)
+        })
+    }
+    pub fn CurrentInputMethodLanguageTag() -> windows_core::Result<windows_core::HSTRING> {
+        Self::ILanguageStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CurrentInputMethodLanguageTag)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn TrySetInputMethodLanguageTag(languagetag: &windows_core::HSTRING) -> windows_core::Result<bool> {
+        Self::ILanguageStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TrySetInputMethodLanguageTag)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(languagetag), &mut result__).map(|| result__)
+        })
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetMuiCompatibleLanguageListFromLanguageTags<P0>(languagetags: P0) -> windows_core::Result<super::Foundation::Collections::IVector<windows_core::HSTRING>>
+    where
+        P0: windows_core::Param<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+    {
+        Self::ILanguageStatics3(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetMuiCompatibleLanguageListFromLanguageTags)(windows_core::Interface::as_raw(this), languagetags.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn ILanguageFactory<R, F: FnOnce(&ILanguageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<Language, ILanguageFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn ILanguageStatics<R, F: FnOnce(&ILanguageStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<Language, ILanguageStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn ILanguageStatics2<R, F: FnOnce(&ILanguageStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<Language, ILanguageStatics2> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn ILanguageStatics3<R, F: FnOnce(&ILanguageStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<Language, ILanguageStatics3> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for Language {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILanguage>();
+}
+unsafe impl windows_core::Interface for Language {
+    type Vtable = <ILanguage as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ILanguage as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for Language {
+    const NAME: &'static str = "Windows.Globalization.Language";
+}
+unsafe impl Send for Language {}
+unsafe impl Sync for Language {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LanguageLayoutDirection(pub i32);
@@ -3167,4 +2865,306 @@ impl windows_core::TypeKind for LanguageLayoutDirection {
 }
 impl windows_core::RuntimeType for LanguageLayoutDirection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.LanguageLayoutDirection;i4)");
+}
+pub struct NumeralSystemIdentifiers;
+impl NumeralSystemIdentifiers {
+    pub fn Arab() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Arab)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn ArabExt() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ArabExt)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Bali() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Bali)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Beng() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Beng)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Cham() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Cham)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Deva() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Deva)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn FullWide() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FullWide)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Gujr() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Gujr)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Guru() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Guru)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn HaniDec() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HaniDec)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Java() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Java)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Kali() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Kali)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Khmr() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Khmr)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Knda() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Knda)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Lana() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Lana)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn LanaTham() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LanaTham)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Laoo() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Laoo)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Latn() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Latn)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Lepc() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Lepc)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Limb() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Limb)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Mlym() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Mlym)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Mong() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Mong)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Mtei() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Mtei)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Mymr() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Mymr)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn MymrShan() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MymrShan)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Nkoo() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Nkoo)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Olck() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Olck)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Orya() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Orya)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Saur() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Saur)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Sund() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Sund)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Talu() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Talu)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn TamlDec() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TamlDec)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Telu() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Telu)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Thai() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Thai)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Tibt() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Tibt)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Vaii() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Vaii)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Brah() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Brah)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn Osma() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Osma)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn MathBold() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MathBold)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn MathDbl() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MathDbl)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn MathSans() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MathSans)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn MathSanb() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MathSanb)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn MathMono() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MathMono)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn ZmthBold() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ZmthBold)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn ZmthDbl() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ZmthDbl)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn ZmthSans() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ZmthSans)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn ZmthSanb() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ZmthSanb)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    pub fn ZmthMono() -> windows_core::Result<windows_core::HSTRING> {
+        Self::INumeralSystemIdentifiersStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ZmthMono)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
+    fn INumeralSystemIdentifiersStatics<R, F: FnOnce(&INumeralSystemIdentifiersStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<NumeralSystemIdentifiers, INumeralSystemIdentifiersStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn INumeralSystemIdentifiersStatics2<R, F: FnOnce(&INumeralSystemIdentifiersStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<NumeralSystemIdentifiers, INumeralSystemIdentifiersStatics2> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeName for NumeralSystemIdentifiers {
+    const NAME: &'static str = "Windows.Globalization.NumeralSystemIdentifiers";
 }

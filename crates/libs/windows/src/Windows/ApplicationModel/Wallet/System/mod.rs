@@ -1,4 +1,83 @@
 #[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(IWalletItemSystemStore, IWalletItemSystemStore_Vtbl, 0x522e2bff_96a2_4a17_8d19_fe1d9f837561);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IWalletItemSystemStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct IWalletItemSystemStore_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    pub GetItemsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    GetItemsAsync: usize,
+    #[cfg(feature = "deprecated")]
+    pub DeleteAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    DeleteAsync: usize,
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    pub ImportItemAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
+    ImportItemAsync: usize,
+    #[cfg(feature = "deprecated")]
+    pub GetAppStatusForItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut WalletItemAppAssociation) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    GetAppStatusForItem: usize,
+    #[cfg(feature = "deprecated")]
+    pub LaunchAppForItemAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    LaunchAppForItemAsync: usize,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(IWalletItemSystemStore2, IWalletItemSystemStore2_Vtbl, 0xf98d3a4e_be00_4fdd_9734_6c113c1ac1cb);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IWalletItemSystemStore2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct IWalletItemSystemStore2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub ItemsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    ItemsChanged: usize,
+    #[cfg(feature = "deprecated")]
+    pub RemoveItemsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    RemoveItemsChanged: usize,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(IWalletManagerSystemStatics, IWalletManagerSystemStatics_Vtbl, 0xbee8eb89_2634_4b9a_8b23_ee8903c91fe0);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IWalletManagerSystemStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct IWalletManagerSystemStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub RequestStoreAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    RequestStoreAsync: usize,
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WalletItemAppAssociation(pub i32);
+impl WalletItemAppAssociation {
+    pub const None: Self = Self(0i32);
+    pub const AppInstalled: Self = Self(1i32);
+    pub const AppNotInstalled: Self = Self(2i32);
+}
+impl windows_core::TypeKind for WalletItemAppAssociation {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for WalletItemAppAssociation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.System.WalletItemAppAssociation;i4)");
+}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WalletItemSystemStore(windows_core::IUnknown);
@@ -111,83 +190,4 @@ impl WalletManagerSystem {
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for WalletManagerSystem {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.System.WalletManagerSystem";
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(IWalletItemSystemStore, IWalletItemSystemStore_Vtbl, 0x522e2bff_96a2_4a17_8d19_fe1d9f837561);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IWalletItemSystemStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct IWalletItemSystemStore_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub GetItemsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
-    GetItemsAsync: usize,
-    #[cfg(feature = "deprecated")]
-    pub DeleteAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    DeleteAsync: usize,
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub ImportItemAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
-    ImportItemAsync: usize,
-    #[cfg(feature = "deprecated")]
-    pub GetAppStatusForItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut WalletItemAppAssociation) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    GetAppStatusForItem: usize,
-    #[cfg(feature = "deprecated")]
-    pub LaunchAppForItemAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    LaunchAppForItemAsync: usize,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(IWalletItemSystemStore2, IWalletItemSystemStore2_Vtbl, 0xf98d3a4e_be00_4fdd_9734_6c113c1ac1cb);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IWalletItemSystemStore2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct IWalletItemSystemStore2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub ItemsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    ItemsChanged: usize,
-    #[cfg(feature = "deprecated")]
-    pub RemoveItemsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RemoveItemsChanged: usize,
-}
-#[cfg(feature = "deprecated")]
-windows_core::imp::define_interface!(IWalletManagerSystemStatics, IWalletManagerSystemStatics_Vtbl, 0xbee8eb89_2634_4b9a_8b23_ee8903c91fe0);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IWalletManagerSystemStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-pub struct IWalletManagerSystemStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
-    pub RequestStoreAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    RequestStoreAsync: usize,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WalletItemAppAssociation(pub i32);
-impl WalletItemAppAssociation {
-    pub const None: Self = Self(0i32);
-    pub const AppInstalled: Self = Self(1i32);
-    pub const AppNotInstalled: Self = Self(2i32);
-}
-impl windows_core::TypeKind for WalletItemAppAssociation {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for WalletItemAppAssociation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.System.WalletItemAppAssociation;i4)");
 }

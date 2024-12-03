@@ -3346,21 +3346,21 @@ where
     windows_targets::link!("user32.dll" "system" fn wvsprintfW(param0 : windows_core::PWSTR, param1 : windows_core::PCWSTR, arglist : *const i8) -> i32);
     wvsprintfW(core::mem::transmute(param0), param1.param().abi(), core::mem::transmute(arglist))
 }
-pub type DLGPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> isize>;
-pub type HOOKPROC = Option<unsafe extern "system" fn(code: i32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
-#[cfg(feature = "Win32_UI_Shell")]
-pub type MSGBOXCALLBACK = Option<unsafe extern "system" fn(lphelpinfo: *mut super::Shell::HELPINFO)>;
-pub type NAMEENUMPROCA = Option<unsafe extern "system" fn(param0: windows_core::PCSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-pub type NAMEENUMPROCW = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-pub type PREGISTERCLASSNAMEW = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR) -> super::super::Foundation::BOOLEAN>;
-pub type PROPENUMPROCA = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_core::PCSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
-pub type PROPENUMPROCEXA = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_core::PCSTR, param2: super::super::Foundation::HANDLE, param3: usize) -> super::super::Foundation::BOOL>;
-pub type PROPENUMPROCEXW = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_core::PCWSTR, param2: super::super::Foundation::HANDLE, param3: usize) -> super::super::Foundation::BOOL>;
-pub type PROPENUMPROCW = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_core::PCWSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
-pub type SENDASYNCPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: super::super::Foundation::LRESULT)>;
-pub type TIMERPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: u32)>;
-pub type WNDENUMPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-pub type WNDPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ACCEL {
+    pub fVirt: ACCEL_VIRT_FLAGS,
+    pub key: u16,
+    pub cmd: u16,
+}
+impl Default for ACCEL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ACCEL {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCEL_VIRT_FLAGS(pub u8);
@@ -3396,6 +3396,27 @@ impl core::ops::Not for ACCEL_VIRT_FLAGS {
     fn not(self) -> Self {
         Self(self.0.not())
     }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ALTTABINFO {
+    pub cbSize: u32,
+    pub cItems: i32,
+    pub cColumns: i32,
+    pub cRows: i32,
+    pub iColFocus: i32,
+    pub iRowFocus: i32,
+    pub cxItem: i32,
+    pub cyItem: i32,
+    pub ptStart: super::super::Foundation::POINT,
+}
+impl Default for ALTTABINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ALTTABINFO {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3433,6 +3454,114 @@ impl core::ops::Not for ANIMATE_WINDOW_FLAGS {
         Self(self.0.not())
     }
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ANIMATIONINFO {
+    pub cbSize: u32,
+    pub iMinAnimate: i32,
+}
+impl Default for ANIMATIONINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ANIMATIONINFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ARW_BOTTOMLEFT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(0i32);
+pub const ARW_BOTTOMRIGHT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(1i32);
+pub const ARW_DOWN: i32 = 4i32;
+pub const ARW_HIDE: i32 = 8i32;
+pub const ARW_LEFT: i32 = 0i32;
+pub const ARW_RIGHT: i32 = 0i32;
+pub const ARW_STARTMASK: i32 = 3i32;
+pub const ARW_STARTRIGHT: i32 = 1i32;
+pub const ARW_STARTTOP: i32 = 2i32;
+pub const ARW_TOPLEFT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(2i32);
+pub const ARW_TOPRIGHT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(3i32);
+pub const ARW_UP: i32 = 4i32;
+pub const ASFW_ANY: u32 = 4294967295u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct AUDIODESCRIPTION {
+    pub cbSize: u32,
+    pub Enabled: super::super::Foundation::BOOL,
+    pub Locale: u32,
+}
+impl Default for AUDIODESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for AUDIODESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+pub const AW_ACTIVATE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(131072u32);
+pub const AW_BLEND: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(524288u32);
+pub const AW_CENTER: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(16u32);
+pub const AW_HIDE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(65536u32);
+pub const AW_HOR_NEGATIVE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(2u32);
+pub const AW_HOR_POSITIVE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(1u32);
+pub const AW_SLIDE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(262144u32);
+pub const AW_VER_NEGATIVE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(8u32);
+pub const AW_VER_POSITIVE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(4u32);
+pub const BM_CLICK: u32 = 245u32;
+pub const BM_GETCHECK: u32 = 240u32;
+pub const BM_GETIMAGE: u32 = 246u32;
+pub const BM_GETSTATE: u32 = 242u32;
+pub const BM_SETCHECK: u32 = 241u32;
+pub const BM_SETDONTCLICK: u32 = 248u32;
+pub const BM_SETIMAGE: u32 = 247u32;
+pub const BM_SETSTATE: u32 = 243u32;
+pub const BM_SETSTYLE: u32 = 244u32;
+pub const BN_CLICKED: u32 = 0u32;
+pub const BN_DBLCLK: u32 = 5u32;
+pub const BN_DISABLE: u32 = 4u32;
+pub const BN_DOUBLECLICKED: u32 = 5u32;
+pub const BN_HILITE: u32 = 2u32;
+pub const BN_KILLFOCUS: u32 = 7u32;
+pub const BN_PAINT: u32 = 1u32;
+pub const BN_PUSHED: u32 = 2u32;
+pub const BN_SETFOCUS: u32 = 6u32;
+pub const BN_UNHILITE: u32 = 3u32;
+pub const BN_UNPUSHED: u32 = 3u32;
+pub const BROADCAST_QUERY_DENY: u32 = 1112363332u32;
+pub const BSF_MSGSRV32ISOK: u32 = 2147483648u32;
+pub const BSF_MSGSRV32ISOK_BIT: u32 = 31u32;
+pub const BSM_INSTALLABLEDRIVERS: u32 = 4u32;
+pub const BSM_NETDRIVER: u32 = 2u32;
+pub const BSM_VXDS: u32 = 1u32;
+pub const BST_FOCUS: u32 = 8u32;
+pub const BST_PUSHED: u32 = 4u32;
+pub const BS_3STATE: i32 = 5i32;
+pub const BS_AUTO3STATE: i32 = 6i32;
+pub const BS_AUTOCHECKBOX: i32 = 3i32;
+pub const BS_AUTORADIOBUTTON: i32 = 9i32;
+pub const BS_BITMAP: i32 = 128i32;
+pub const BS_BOTTOM: i32 = 2048i32;
+pub const BS_CENTER: i32 = 768i32;
+pub const BS_CHECKBOX: i32 = 2i32;
+pub const BS_DEFPUSHBUTTON: i32 = 1i32;
+pub const BS_FLAT: i32 = 32768i32;
+pub const BS_GROUPBOX: i32 = 7i32;
+pub const BS_ICON: i32 = 64i32;
+pub const BS_LEFT: i32 = 256i32;
+pub const BS_LEFTTEXT: i32 = 32i32;
+pub const BS_MULTILINE: i32 = 8192i32;
+pub const BS_NOTIFY: i32 = 16384i32;
+pub const BS_OWNERDRAW: i32 = 11i32;
+pub const BS_PUSHBOX: i32 = 10i32;
+pub const BS_PUSHBUTTON: i32 = 0i32;
+pub const BS_PUSHLIKE: i32 = 4096i32;
+pub const BS_RADIOBUTTON: i32 = 4i32;
+pub const BS_RIGHT: i32 = 512i32;
+pub const BS_RIGHTBUTTON: i32 = 32i32;
+pub const BS_TEXT: i32 = 0i32;
+pub const BS_TOP: i32 = 1024i32;
+pub const BS_TYPEMASK: i32 = 15i32;
+pub const BS_USERBUTTON: i32 = 8i32;
+pub const BS_VCENTER: i32 = 3072i32;
+pub const CALERT_SYSTEM: u32 = 6u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CASCADE_WINDOWS_HOW(pub u32);
@@ -3469,12 +3598,300 @@ impl core::ops::Not for CASCADE_WINDOWS_HOW {
         Self(self.0.not())
     }
 }
+pub const CBN_CLOSEUP: u32 = 8u32;
+pub const CBN_DBLCLK: u32 = 2u32;
+pub const CBN_DROPDOWN: u32 = 7u32;
+pub const CBN_EDITCHANGE: u32 = 5u32;
+pub const CBN_EDITUPDATE: u32 = 6u32;
+pub const CBN_ERRSPACE: i32 = -1i32;
+pub const CBN_KILLFOCUS: u32 = 4u32;
+pub const CBN_SELCHANGE: u32 = 1u32;
+pub const CBN_SELENDCANCEL: u32 = 10u32;
+pub const CBN_SELENDOK: u32 = 9u32;
+pub const CBN_SETFOCUS: u32 = 3u32;
+pub const CBS_AUTOHSCROLL: i32 = 64i32;
+pub const CBS_DISABLENOSCROLL: i32 = 2048i32;
+pub const CBS_DROPDOWN: i32 = 2i32;
+pub const CBS_DROPDOWNLIST: i32 = 3i32;
+pub const CBS_HASSTRINGS: i32 = 512i32;
+pub const CBS_LOWERCASE: i32 = 16384i32;
+pub const CBS_NOINTEGRALHEIGHT: i32 = 1024i32;
+pub const CBS_OEMCONVERT: i32 = 128i32;
+pub const CBS_OWNERDRAWFIXED: i32 = 16i32;
+pub const CBS_OWNERDRAWVARIABLE: i32 = 32i32;
+pub const CBS_SIMPLE: i32 = 1i32;
+pub const CBS_SORT: i32 = 256i32;
+pub const CBS_UPPERCASE: i32 = 8192i32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CBTACTIVATESTRUCT {
+    pub fMouse: super::super::Foundation::BOOL,
+    pub hWndActive: super::super::Foundation::HWND,
+}
+impl Default for CBTACTIVATESTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CBTACTIVATESTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CBT_CREATEWNDA {
+    pub lpcs: *mut CREATESTRUCTA,
+    pub hwndInsertAfter: super::super::Foundation::HWND,
+}
+impl Default for CBT_CREATEWNDA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CBT_CREATEWNDA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CBT_CREATEWNDW {
+    pub lpcs: *mut CREATESTRUCTW,
+    pub hwndInsertAfter: super::super::Foundation::HWND,
+}
+impl Default for CBT_CREATEWNDW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CBT_CREATEWNDW {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CB_ADDSTRING: u32 = 323u32;
+pub const CB_DELETESTRING: u32 = 324u32;
+pub const CB_DIR: u32 = 325u32;
+pub const CB_ERR: i32 = -1i32;
+pub const CB_ERRSPACE: i32 = -2i32;
+pub const CB_FINDSTRING: u32 = 332u32;
+pub const CB_FINDSTRINGEXACT: u32 = 344u32;
+pub const CB_GETCOMBOBOXINFO: u32 = 356u32;
+pub const CB_GETCOUNT: u32 = 326u32;
+pub const CB_GETCURSEL: u32 = 327u32;
+pub const CB_GETDROPPEDCONTROLRECT: u32 = 338u32;
+pub const CB_GETDROPPEDSTATE: u32 = 343u32;
+pub const CB_GETDROPPEDWIDTH: u32 = 351u32;
+pub const CB_GETEDITSEL: u32 = 320u32;
+pub const CB_GETEXTENDEDUI: u32 = 342u32;
+pub const CB_GETHORIZONTALEXTENT: u32 = 349u32;
+pub const CB_GETITEMDATA: u32 = 336u32;
+pub const CB_GETITEMHEIGHT: u32 = 340u32;
+pub const CB_GETLBTEXT: u32 = 328u32;
+pub const CB_GETLBTEXTLEN: u32 = 329u32;
+pub const CB_GETLOCALE: u32 = 346u32;
+pub const CB_GETTOPINDEX: u32 = 347u32;
+pub const CB_INITSTORAGE: u32 = 353u32;
+pub const CB_INSERTSTRING: u32 = 330u32;
+pub const CB_LIMITTEXT: u32 = 321u32;
+pub const CB_MSGMAX: u32 = 357u32;
+pub const CB_MULTIPLEADDSTRING: u32 = 355u32;
+pub const CB_OKAY: u32 = 0u32;
+pub const CB_RESETCONTENT: u32 = 331u32;
+pub const CB_SELECTSTRING: u32 = 333u32;
+pub const CB_SETCURSEL: u32 = 334u32;
+pub const CB_SETDROPPEDWIDTH: u32 = 352u32;
+pub const CB_SETEDITSEL: u32 = 322u32;
+pub const CB_SETEXTENDEDUI: u32 = 341u32;
+pub const CB_SETHORIZONTALEXTENT: u32 = 350u32;
+pub const CB_SETITEMDATA: u32 = 337u32;
+pub const CB_SETITEMHEIGHT: u32 = 339u32;
+pub const CB_SETLOCALE: u32 = 345u32;
+pub const CB_SETTOPINDEX: u32 = 348u32;
+pub const CB_SHOWDROPDOWN: u32 = 335u32;
+pub const CCHILDREN_SCROLLBAR: u32 = 5u32;
+pub const CCHILDREN_TITLEBAR: u32 = 5u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CHANGEFILTERSTRUCT {
+    pub cbSize: u32,
+    pub ExtStatus: MSGFLTINFO_STATUS,
+}
+impl Default for CHANGEFILTERSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CHANGEFILTERSTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGE_WINDOW_MESSAGE_FILTER_FLAGS(pub u32);
+pub const CHILDID_SELF: u32 = 0u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CLIENTCREATESTRUCT {
+    pub hWindowMenu: super::super::Foundation::HANDLE,
+    pub idFirstChild: u32,
+}
+impl Default for CLIENTCREATESTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CLIENTCREATESTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CONSOLE_APPLICATION_16BIT: u32 = 0u32;
+pub const CONSOLE_CARET_SELECTION: u32 = 1u32;
+pub const CONSOLE_CARET_VISIBLE: u32 = 2u32;
+pub const CONTACTVISUALIZATION_OFF: u32 = 0u32;
+pub const CONTACTVISUALIZATION_ON: u32 = 1u32;
+pub const CONTACTVISUALIZATION_PRESENTATIONMODE: u32 = 2u32;
+pub const CREATEPROCESS_MANIFEST_RESOURCE_ID: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CREATESTRUCTA {
+    pub lpCreateParams: *mut core::ffi::c_void,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hMenu: HMENU,
+    pub hwndParent: super::super::Foundation::HWND,
+    pub cy: i32,
+    pub cx: i32,
+    pub y: i32,
+    pub x: i32,
+    pub style: i32,
+    pub lpszName: windows_core::PCSTR,
+    pub lpszClass: windows_core::PCSTR,
+    pub dwExStyle: WINDOW_EX_STYLE,
+}
+impl Default for CREATESTRUCTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CREATESTRUCTA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CREATESTRUCTW {
+    pub lpCreateParams: *mut core::ffi::c_void,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hMenu: HMENU,
+    pub hwndParent: super::super::Foundation::HWND,
+    pub cy: i32,
+    pub cx: i32,
+    pub y: i32,
+    pub x: i32,
+    pub style: i32,
+    pub lpszName: windows_core::PCWSTR,
+    pub lpszClass: windows_core::PCWSTR,
+    pub dwExStyle: WINDOW_EX_STYLE,
+}
+impl Default for CREATESTRUCTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CREATESTRUCTW {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CSOUND_SYSTEM: u32 = 16u32;
+pub const CS_BYTEALIGNCLIENT: WNDCLASS_STYLES = WNDCLASS_STYLES(4096u32);
+pub const CS_BYTEALIGNWINDOW: WNDCLASS_STYLES = WNDCLASS_STYLES(8192u32);
+pub const CS_CLASSDC: WNDCLASS_STYLES = WNDCLASS_STYLES(64u32);
+pub const CS_DBLCLKS: WNDCLASS_STYLES = WNDCLASS_STYLES(8u32);
+pub const CS_DROPSHADOW: WNDCLASS_STYLES = WNDCLASS_STYLES(131072u32);
+pub const CS_GLOBALCLASS: WNDCLASS_STYLES = WNDCLASS_STYLES(16384u32);
+pub const CS_HREDRAW: WNDCLASS_STYLES = WNDCLASS_STYLES(2u32);
+pub const CS_IME: WNDCLASS_STYLES = WNDCLASS_STYLES(65536u32);
+pub const CS_NOCLOSE: WNDCLASS_STYLES = WNDCLASS_STYLES(512u32);
+pub const CS_OWNDC: WNDCLASS_STYLES = WNDCLASS_STYLES(32u32);
+pub const CS_PARENTDC: WNDCLASS_STYLES = WNDCLASS_STYLES(128u32);
+pub const CS_SAVEBITS: WNDCLASS_STYLES = WNDCLASS_STYLES(2048u32);
+pub const CS_VREDRAW: WNDCLASS_STYLES = WNDCLASS_STYLES(1u32);
+pub const CTLCOLOR_BTN: u32 = 3u32;
+pub const CTLCOLOR_DLG: u32 = 4u32;
+pub const CTLCOLOR_EDIT: u32 = 1u32;
+pub const CTLCOLOR_LISTBOX: u32 = 2u32;
+pub const CTLCOLOR_MAX: u32 = 7u32;
+pub const CTLCOLOR_MSGBOX: u32 = 0u32;
+pub const CTLCOLOR_SCROLLBAR: u32 = 5u32;
+pub const CTLCOLOR_STATIC: u32 = 6u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CURSORINFO {
+    pub cbSize: u32,
+    pub flags: CURSORINFO_FLAGS,
+    pub hCursor: HCURSOR,
+    pub ptScreenPos: super::super::Foundation::POINT,
+}
+impl Default for CURSORINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CURSORINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CURSORINFO_FLAGS(pub u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CURSORSHAPE {
+    pub xHotSpot: i32,
+    pub yHotSpot: i32,
+    pub cx: i32,
+    pub cy: i32,
+    pub cbWidth: i32,
+    pub Planes: u8,
+    pub BitsPixel: u8,
+}
+impl Default for CURSORSHAPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CURSORSHAPE {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CURSOR_CREATION_SCALING_DEFAULT: u32 = 2u32;
+pub const CURSOR_CREATION_SCALING_NONE: u32 = 1u32;
+pub const CURSOR_SHOWING: CURSORINFO_FLAGS = CURSORINFO_FLAGS(1u32);
+pub const CURSOR_SUPPRESSED: CURSORINFO_FLAGS = CURSORINFO_FLAGS(2u32);
+pub const CWF_CREATE_ONLY: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CWPRETSTRUCT {
+    pub lResult: super::super::Foundation::LRESULT,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub wParam: super::super::Foundation::WPARAM,
+    pub message: u32,
+    pub hwnd: super::super::Foundation::HWND,
+}
+impl Default for CWPRETSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CWPRETSTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CWPSTRUCT {
+    pub lParam: super::super::Foundation::LPARAM,
+    pub wParam: super::super::Foundation::WPARAM,
+    pub message: u32,
+    pub hwnd: super::super::Foundation::HWND,
+}
+impl Default for CWPSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CWPSTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CWP_ALL: CWP_FLAGS = CWP_FLAGS(0u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CWP_FLAGS(pub u32);
@@ -3511,12 +3928,382 @@ impl core::ops::Not for CWP_FLAGS {
         Self(self.0.not())
     }
 }
+pub const CWP_SKIPDISABLED: CWP_FLAGS = CWP_FLAGS(2u32);
+pub const CWP_SKIPINVISIBLE: CWP_FLAGS = CWP_FLAGS(1u32);
+pub const CWP_SKIPTRANSPARENT: CWP_FLAGS = CWP_FLAGS(4u32);
+pub const CW_USEDEFAULT: i32 = -2147483648i32;
+pub const DBTF_MEDIA: DEV_BROADCAST_VOLUME_FLAGS = DEV_BROADCAST_VOLUME_FLAGS(1u16);
+pub const DBTF_NET: DEV_BROADCAST_VOLUME_FLAGS = DEV_BROADCAST_VOLUME_FLAGS(2u16);
+pub const DBTF_RESOURCE: u32 = 1u32;
+pub const DBTF_SLOWNET: u32 = 4u32;
+pub const DBTF_XPORT: u32 = 2u32;
+pub const DBT_APPYBEGIN: u32 = 0u32;
+pub const DBT_APPYEND: u32 = 1u32;
+pub const DBT_CONFIGCHANGECANCELED: u32 = 25u32;
+pub const DBT_CONFIGCHANGED: u32 = 24u32;
+pub const DBT_CONFIGMGAPI32: u32 = 34u32;
+pub const DBT_CONFIGMGPRIVATE: u32 = 32767u32;
+pub const DBT_CUSTOMEVENT: u32 = 32774u32;
+pub const DBT_DEVICEARRIVAL: u32 = 32768u32;
+pub const DBT_DEVICEQUERYREMOVE: u32 = 32769u32;
+pub const DBT_DEVICEQUERYREMOVEFAILED: u32 = 32770u32;
+pub const DBT_DEVICEREMOVECOMPLETE: u32 = 32772u32;
+pub const DBT_DEVICEREMOVEPENDING: u32 = 32771u32;
+pub const DBT_DEVICETYPESPECIFIC: u32 = 32773u32;
+pub const DBT_DEVNODES_CHANGED: u32 = 7u32;
+pub const DBT_DEVTYP_DEVICEINTERFACE: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(5u32);
+pub const DBT_DEVTYP_DEVNODE: u32 = 1u32;
+pub const DBT_DEVTYP_HANDLE: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(6u32);
+pub const DBT_DEVTYP_NET: u32 = 4u32;
+pub const DBT_DEVTYP_OEM: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(0u32);
+pub const DBT_DEVTYP_PORT: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(3u32);
+pub const DBT_DEVTYP_VOLUME: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(2u32);
+pub const DBT_LOW_DISK_SPACE: u32 = 72u32;
+pub const DBT_MONITORCHANGE: u32 = 27u32;
+pub const DBT_NO_DISK_SPACE: u32 = 71u32;
+pub const DBT_QUERYCHANGECONFIG: u32 = 23u32;
+pub const DBT_SHELLLOGGEDON: u32 = 32u32;
+pub const DBT_USERDEFINED: u32 = 65535u32;
+pub const DBT_VOLLOCKLOCKFAILED: u32 = 32835u32;
+pub const DBT_VOLLOCKLOCKRELEASED: u32 = 32837u32;
+pub const DBT_VOLLOCKLOCKTAKEN: u32 = 32834u32;
+pub const DBT_VOLLOCKQUERYLOCK: u32 = 32833u32;
+pub const DBT_VOLLOCKQUERYUNLOCK: u32 = 32836u32;
+pub const DBT_VOLLOCKUNLOCKFAILED: u32 = 32838u32;
+pub const DBT_VPOWERDAPI: u32 = 33024u32;
+pub const DBT_VXDINITCOMPLETE: u32 = 35u32;
+pub const DCX_EXCLUDEUPDATE: i32 = 256i32;
+pub const DC_HASDEFID: u32 = 21323u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DEBUGHOOKINFO {
+    pub idThread: u32,
+    pub idThreadInstaller: u32,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub wParam: super::super::Foundation::WPARAM,
+    pub code: i32,
+}
+impl Default for DEBUGHOOKINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DEBUGHOOKINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DEVICE_EVENT_BECOMING_READY {
+    pub Version: u32,
+    pub Reason: u32,
+    pub Estimated100msToReady: u32,
+}
+impl Default for DEVICE_EVENT_BECOMING_READY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DEVICE_EVENT_BECOMING_READY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DEVICE_EVENT_EXTERNAL_REQUEST {
+    pub Version: u32,
+    pub DeviceClass: u32,
+    pub ButtonStatus: u16,
+    pub Request: u16,
+    pub SystemTime: i64,
+}
+impl Default for DEVICE_EVENT_EXTERNAL_REQUEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DEVICE_EVENT_EXTERNAL_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DEVICE_EVENT_GENERIC_DATA {
+    pub EventNumber: u32,
+}
+impl Default for DEVICE_EVENT_GENERIC_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DEVICE_EVENT_GENERIC_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DEVICE_EVENT_MOUNT {
+    pub Version: u32,
+    pub Flags: u32,
+    pub FileSystemNameLength: u32,
+    pub FileSystemNameOffset: u32,
+}
+impl Default for DEVICE_EVENT_MOUNT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DEVICE_EVENT_MOUNT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DEVICE_EVENT_RBC_DATA {
+    pub EventNumber: u32,
+    pub SenseQualifier: u8,
+    pub SenseCode: u8,
+    pub SenseKey: u8,
+    pub Reserved: u8,
+    pub Information: u32,
+}
+impl Default for DEVICE_EVENT_RBC_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DEVICE_EVENT_RBC_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DEVICE_NOTIFY_ALL_INTERFACE_CLASSES: REGISTER_NOTIFICATION_FLAGS = REGISTER_NOTIFICATION_FLAGS(4u32);
+pub const DEVICE_NOTIFY_CALLBACK: REGISTER_NOTIFICATION_FLAGS = REGISTER_NOTIFICATION_FLAGS(2u32);
+pub const DEVICE_NOTIFY_SERVICE_HANDLE: REGISTER_NOTIFICATION_FLAGS = REGISTER_NOTIFICATION_FLAGS(1u32);
+pub const DEVICE_NOTIFY_WINDOW_HANDLE: REGISTER_NOTIFICATION_FLAGS = REGISTER_NOTIFICATION_FLAGS(0u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DEV_BROADCAST_DEVICEINTERFACE_A {
+    pub dbcc_size: u32,
+    pub dbcc_devicetype: u32,
+    pub dbcc_reserved: u32,
+    pub dbcc_classguid: windows_core::GUID,
+    pub dbcc_name: [i8; 1],
+}
+impl Default for DEV_BROADCAST_DEVICEINTERFACE_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DEV_BROADCAST_DEVICEINTERFACE_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DEV_BROADCAST_DEVICEINTERFACE_W {
+    pub dbcc_size: u32,
+    pub dbcc_devicetype: u32,
+    pub dbcc_reserved: u32,
+    pub dbcc_classguid: windows_core::GUID,
+    pub dbcc_name: [u16; 1],
+}
+impl Default for DEV_BROADCAST_DEVICEINTERFACE_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DEV_BROADCAST_DEVICEINTERFACE_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DEV_BROADCAST_DEVNODE {
+    pub dbcd_size: u32,
+    pub dbcd_devicetype: u32,
+    pub dbcd_reserved: u32,
+    pub dbcd_devnode: u32,
+}
+impl Default for DEV_BROADCAST_DEVNODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DEV_BROADCAST_DEVNODE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DEV_BROADCAST_HANDLE {
+    pub dbch_size: u32,
+    pub dbch_devicetype: u32,
+    pub dbch_reserved: u32,
+    pub dbch_handle: super::super::Foundation::HANDLE,
+    pub dbch_hdevnotify: HDEVNOTIFY,
+    pub dbch_eventguid: windows_core::GUID,
+    pub dbch_nameoffset: i32,
+    pub dbch_data: [u8; 1],
+}
+impl Default for DEV_BROADCAST_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DEV_BROADCAST_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DEV_BROADCAST_HANDLE32 {
+    pub dbch_size: u32,
+    pub dbch_devicetype: u32,
+    pub dbch_reserved: u32,
+    pub dbch_handle: u32,
+    pub dbch_hdevnotify: u32,
+    pub dbch_eventguid: windows_core::GUID,
+    pub dbch_nameoffset: i32,
+    pub dbch_data: [u8; 1],
+}
+impl Default for DEV_BROADCAST_HANDLE32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DEV_BROADCAST_HANDLE32 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DEV_BROADCAST_HANDLE64 {
+    pub dbch_size: u32,
+    pub dbch_devicetype: u32,
+    pub dbch_reserved: u32,
+    pub dbch_handle: u64,
+    pub dbch_hdevnotify: u64,
+    pub dbch_eventguid: windows_core::GUID,
+    pub dbch_nameoffset: i32,
+    pub dbch_data: [u8; 1],
+}
+impl Default for DEV_BROADCAST_HANDLE64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DEV_BROADCAST_HANDLE64 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DEV_BROADCAST_HDR {
+    pub dbch_size: u32,
+    pub dbch_devicetype: DEV_BROADCAST_HDR_DEVICE_TYPE,
+    pub dbch_reserved: u32,
+}
+impl Default for DEV_BROADCAST_HDR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DEV_BROADCAST_HDR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEV_BROADCAST_HDR_DEVICE_TYPE(pub u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DEV_BROADCAST_NET {
+    pub dbcn_size: u32,
+    pub dbcn_devicetype: u32,
+    pub dbcn_reserved: u32,
+    pub dbcn_resource: u32,
+    pub dbcn_flags: u32,
+}
+impl Default for DEV_BROADCAST_NET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DEV_BROADCAST_NET {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DEV_BROADCAST_OEM {
+    pub dbco_size: u32,
+    pub dbco_devicetype: u32,
+    pub dbco_reserved: u32,
+    pub dbco_identifier: u32,
+    pub dbco_suppfunc: u32,
+}
+impl Default for DEV_BROADCAST_OEM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DEV_BROADCAST_OEM {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DEV_BROADCAST_PORT_A {
+    pub dbcp_size: u32,
+    pub dbcp_devicetype: u32,
+    pub dbcp_reserved: u32,
+    pub dbcp_name: [i8; 1],
+}
+impl Default for DEV_BROADCAST_PORT_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DEV_BROADCAST_PORT_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DEV_BROADCAST_PORT_W {
+    pub dbcp_size: u32,
+    pub dbcp_devicetype: u32,
+    pub dbcp_reserved: u32,
+    pub dbcp_name: [u16; 1],
+}
+impl Default for DEV_BROADCAST_PORT_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DEV_BROADCAST_PORT_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DEV_BROADCAST_VOLUME {
+    pub dbcv_size: u32,
+    pub dbcv_devicetype: u32,
+    pub dbcv_reserved: u32,
+    pub dbcv_unitmask: u32,
+    pub dbcv_flags: DEV_BROADCAST_VOLUME_FLAGS,
+}
+impl Default for DEV_BROADCAST_VOLUME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DEV_BROADCAST_VOLUME {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEV_BROADCAST_VOLUME_FLAGS(pub u16);
+pub const DIFFERENCE: u32 = 11u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DISK_HEALTH_NOTIFICATION_DATA {
+    pub DeviceGuid: windows_core::GUID,
+}
+impl Default for DISK_HEALTH_NOTIFICATION_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DISK_HEALTH_NOTIFICATION_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DI_COMPAT: DI_FLAGS = DI_FLAGS(4u32);
+pub const DI_DEFAULTSIZE: DI_FLAGS = DI_FLAGS(8u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DI_FLAGS(pub u32);
@@ -3553,9 +4340,289 @@ impl core::ops::Not for DI_FLAGS {
         Self(self.0.not())
     }
 }
+pub const DI_IMAGE: DI_FLAGS = DI_FLAGS(2u32);
+pub const DI_MASK: DI_FLAGS = DI_FLAGS(1u32);
+pub const DI_NOMIRROR: DI_FLAGS = DI_FLAGS(16u32);
+pub const DI_NORMAL: DI_FLAGS = DI_FLAGS(3u32);
+pub const DLGC_BUTTON: u32 = 8192u32;
+pub const DLGC_DEFPUSHBUTTON: u32 = 16u32;
+pub const DLGC_HASSETSEL: u32 = 8u32;
+pub const DLGC_RADIOBUTTON: u32 = 64u32;
+pub const DLGC_STATIC: u32 = 256u32;
+pub const DLGC_UNDEFPUSHBUTTON: u32 = 32u32;
+pub const DLGC_WANTALLKEYS: u32 = 4u32;
+pub const DLGC_WANTARROWS: u32 = 1u32;
+pub const DLGC_WANTCHARS: u32 = 128u32;
+pub const DLGC_WANTMESSAGE: u32 = 4u32;
+pub const DLGC_WANTTAB: u32 = 2u32;
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct DLGITEMTEMPLATE {
+    pub style: u32,
+    pub dwExtendedStyle: u32,
+    pub x: i16,
+    pub y: i16,
+    pub cx: i16,
+    pub cy: i16,
+    pub id: u16,
+}
+impl Default for DLGITEMTEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DLGITEMTEMPLATE {
+    type TypeKind = windows_core::CopyType;
+}
+pub type DLGPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> isize>;
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct DLGTEMPLATE {
+    pub style: u32,
+    pub dwExtendedStyle: u32,
+    pub cdit: u16,
+    pub x: i16,
+    pub y: i16,
+    pub cx: i16,
+    pub cy: i16,
+}
+impl Default for DLGTEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DLGTEMPLATE {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DLGWINDOWEXTRA: u32 = 30u32;
+pub const DM_GETDEFID: u32 = 1024u32;
+pub const DM_POINTERHITTEST: u32 = 592u32;
+pub const DM_REPOSITION: u32 = 1026u32;
+pub const DM_SETDEFID: u32 = 1025u32;
+pub const DOF_DIRECTORY: u32 = 32771u32;
+pub const DOF_DOCUMENT: u32 = 32770u32;
+pub const DOF_EXECUTABLE: u32 = 32769u32;
+pub const DOF_MULTIPLE: u32 = 32772u32;
+pub const DOF_PROGMAN: u32 = 1u32;
+pub const DOF_SHELLDATA: u32 = 2u32;
+pub const DO_DROPFILE: i32 = 1162627398i32;
+pub const DO_PRINTFILE: i32 = 1414419024i32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DROPSTRUCT {
+    pub hwndSource: super::super::Foundation::HWND,
+    pub hwndSink: super::super::Foundation::HWND,
+    pub wFmt: u32,
+    pub dwData: usize,
+    pub ptDrop: super::super::Foundation::POINT,
+    pub dwControlData: u32,
+}
+impl Default for DROPSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DROPSTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DS_3DLOOK: i32 = 4i32;
+pub const DS_ABSALIGN: i32 = 1i32;
+pub const DS_CENTER: i32 = 2048i32;
+pub const DS_CENTERMOUSE: i32 = 4096i32;
+pub const DS_CONTEXTHELP: i32 = 8192i32;
+pub const DS_CONTROL: i32 = 1024i32;
+pub const DS_FIXEDSYS: i32 = 8i32;
+pub const DS_LOCALEDIT: i32 = 32i32;
+pub const DS_MODALFRAME: i32 = 128i32;
+pub const DS_NOFAILCREATE: i32 = 16i32;
+pub const DS_NOIDLEMSG: i32 = 256i32;
+pub const DS_SETFONT: i32 = 64i32;
+pub const DS_SETFOREGROUND: i32 = 512i32;
+pub const DS_SYSMODAL: i32 = 2i32;
+pub const DS_USEPIXELS: i32 = 32768i32;
+pub const DWLP_MSGRESULT: u32 = 0u32;
+pub const DWL_DLGPROC: u32 = 4u32;
+pub const DWL_MSGRESULT: u32 = 0u32;
+pub const DWL_USER: u32 = 8u32;
+pub const EC_LEFTMARGIN: u32 = 1u32;
+pub const EC_RIGHTMARGIN: u32 = 2u32;
+pub const EC_USEFONTINFO: u32 = 65535u32;
+pub const EDD_GET_DEVICE_INTERFACE_NAME: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EDIT_CONTROL_FEATURE(pub i32);
+pub const EDIT_CONTROL_FEATURE_ENTERPRISE_DATA_PROTECTION_PASTE_SUPPORT: EDIT_CONTROL_FEATURE = EDIT_CONTROL_FEATURE(0i32);
+pub const EDIT_CONTROL_FEATURE_PASTE_NOTIFICATIONS: EDIT_CONTROL_FEATURE = EDIT_CONTROL_FEATURE(1i32);
+pub const EIMES_CANCELCOMPSTRINFOCUS: u32 = 2u32;
+pub const EIMES_COMPLETECOMPSTRKILLFOCUS: u32 = 4u32;
+pub const EIMES_GETCOMPSTRATONCE: u32 = 1u32;
+pub const EMSIS_COMPOSITIONSTRING: u32 = 1u32;
+pub const ENDSESSION_CLOSEAPP: u32 = 1u32;
+pub const ENDSESSION_CRITICAL: u32 = 1073741824u32;
+pub const ENDSESSION_LOGOFF: u32 = 2147483648u32;
+pub const EN_AFTER_PASTE: u32 = 2049u32;
+pub const EN_ALIGN_LTR_EC: u32 = 1792u32;
+pub const EN_ALIGN_RTL_EC: u32 = 1793u32;
+pub const EN_BEFORE_PASTE: u32 = 2048u32;
+pub const EN_CHANGE: u32 = 768u32;
+pub const EN_ERRSPACE: u32 = 1280u32;
+pub const EN_HSCROLL: u32 = 1537u32;
+pub const EN_KILLFOCUS: u32 = 512u32;
+pub const EN_MAXTEXT: u32 = 1281u32;
+pub const EN_SETFOCUS: u32 = 256u32;
+pub const EN_UPDATE: u32 = 1024u32;
+pub const EN_VSCROLL: u32 = 1538u32;
+pub const ES_AUTOHSCROLL: i32 = 128i32;
+pub const ES_AUTOVSCROLL: i32 = 64i32;
+pub const ES_CENTER: i32 = 1i32;
+pub const ES_LEFT: i32 = 0i32;
+pub const ES_LOWERCASE: i32 = 16i32;
+pub const ES_MULTILINE: i32 = 4i32;
+pub const ES_NOHIDESEL: i32 = 256i32;
+pub const ES_NUMBER: i32 = 8192i32;
+pub const ES_OEMCONVERT: i32 = 1024i32;
+pub const ES_PASSWORD: i32 = 32i32;
+pub const ES_READONLY: i32 = 2048i32;
+pub const ES_RIGHT: i32 = 2i32;
+pub const ES_UPPERCASE: i32 = 8i32;
+pub const ES_WANTRETURN: i32 = 4096i32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EVENTMSG {
+    pub message: u32,
+    pub paramL: u32,
+    pub paramH: u32,
+    pub time: u32,
+    pub hwnd: super::super::Foundation::HWND,
+}
+impl Default for EVENTMSG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for EVENTMSG {
+    type TypeKind = windows_core::CopyType;
+}
+pub const EVENT_AIA_END: u32 = 45055u32;
+pub const EVENT_AIA_START: u32 = 40960u32;
+pub const EVENT_CONSOLE_CARET: u32 = 16385u32;
+pub const EVENT_CONSOLE_END: u32 = 16639u32;
+pub const EVENT_CONSOLE_END_APPLICATION: u32 = 16391u32;
+pub const EVENT_CONSOLE_LAYOUT: u32 = 16389u32;
+pub const EVENT_CONSOLE_START_APPLICATION: u32 = 16390u32;
+pub const EVENT_CONSOLE_UPDATE_REGION: u32 = 16386u32;
+pub const EVENT_CONSOLE_UPDATE_SCROLL: u32 = 16388u32;
+pub const EVENT_CONSOLE_UPDATE_SIMPLE: u32 = 16387u32;
+pub const EVENT_MAX: u32 = 2147483647u32;
+pub const EVENT_MIN: u32 = 1u32;
+pub const EVENT_OBJECT_ACCELERATORCHANGE: u32 = 32786u32;
+pub const EVENT_OBJECT_CLOAKED: u32 = 32791u32;
+pub const EVENT_OBJECT_CONTENTSCROLLED: u32 = 32789u32;
+pub const EVENT_OBJECT_CREATE: u32 = 32768u32;
+pub const EVENT_OBJECT_DEFACTIONCHANGE: u32 = 32785u32;
+pub const EVENT_OBJECT_DESCRIPTIONCHANGE: u32 = 32781u32;
+pub const EVENT_OBJECT_DESTROY: u32 = 32769u32;
+pub const EVENT_OBJECT_DRAGCANCEL: u32 = 32802u32;
+pub const EVENT_OBJECT_DRAGCOMPLETE: u32 = 32803u32;
+pub const EVENT_OBJECT_DRAGDROPPED: u32 = 32806u32;
+pub const EVENT_OBJECT_DRAGENTER: u32 = 32804u32;
+pub const EVENT_OBJECT_DRAGLEAVE: u32 = 32805u32;
+pub const EVENT_OBJECT_DRAGSTART: u32 = 32801u32;
+pub const EVENT_OBJECT_END: u32 = 33023u32;
+pub const EVENT_OBJECT_FOCUS: u32 = 32773u32;
+pub const EVENT_OBJECT_HELPCHANGE: u32 = 32784u32;
+pub const EVENT_OBJECT_HIDE: u32 = 32771u32;
+pub const EVENT_OBJECT_HOSTEDOBJECTSINVALIDATED: u32 = 32800u32;
+pub const EVENT_OBJECT_IME_CHANGE: u32 = 32809u32;
+pub const EVENT_OBJECT_IME_HIDE: u32 = 32808u32;
+pub const EVENT_OBJECT_IME_SHOW: u32 = 32807u32;
+pub const EVENT_OBJECT_INVOKED: u32 = 32787u32;
+pub const EVENT_OBJECT_LIVEREGIONCHANGED: u32 = 32793u32;
+pub const EVENT_OBJECT_LOCATIONCHANGE: u32 = 32779u32;
+pub const EVENT_OBJECT_NAMECHANGE: u32 = 32780u32;
+pub const EVENT_OBJECT_PARENTCHANGE: u32 = 32783u32;
+pub const EVENT_OBJECT_REORDER: u32 = 32772u32;
+pub const EVENT_OBJECT_SELECTION: u32 = 32774u32;
+pub const EVENT_OBJECT_SELECTIONADD: u32 = 32775u32;
+pub const EVENT_OBJECT_SELECTIONREMOVE: u32 = 32776u32;
+pub const EVENT_OBJECT_SELECTIONWITHIN: u32 = 32777u32;
+pub const EVENT_OBJECT_SHOW: u32 = 32770u32;
+pub const EVENT_OBJECT_STATECHANGE: u32 = 32778u32;
+pub const EVENT_OBJECT_TEXTEDIT_CONVERSIONTARGETCHANGED: u32 = 32816u32;
+pub const EVENT_OBJECT_TEXTSELECTIONCHANGED: u32 = 32788u32;
+pub const EVENT_OBJECT_UNCLOAKED: u32 = 32792u32;
+pub const EVENT_OBJECT_VALUECHANGE: u32 = 32782u32;
+pub const EVENT_OEM_DEFINED_END: u32 = 511u32;
+pub const EVENT_OEM_DEFINED_START: u32 = 257u32;
+pub const EVENT_SYSTEM_ALERT: u32 = 2u32;
+pub const EVENT_SYSTEM_ARRANGMENTPREVIEW: u32 = 32790u32;
+pub const EVENT_SYSTEM_CAPTUREEND: u32 = 9u32;
+pub const EVENT_SYSTEM_CAPTURESTART: u32 = 8u32;
+pub const EVENT_SYSTEM_CONTEXTHELPEND: u32 = 13u32;
+pub const EVENT_SYSTEM_CONTEXTHELPSTART: u32 = 12u32;
+pub const EVENT_SYSTEM_DESKTOPSWITCH: u32 = 32u32;
+pub const EVENT_SYSTEM_DIALOGEND: u32 = 17u32;
+pub const EVENT_SYSTEM_DIALOGSTART: u32 = 16u32;
+pub const EVENT_SYSTEM_DRAGDROPEND: u32 = 15u32;
+pub const EVENT_SYSTEM_DRAGDROPSTART: u32 = 14u32;
+pub const EVENT_SYSTEM_END: u32 = 255u32;
+pub const EVENT_SYSTEM_FOREGROUND: u32 = 3u32;
+pub const EVENT_SYSTEM_IME_KEY_NOTIFICATION: u32 = 41u32;
+pub const EVENT_SYSTEM_MENUEND: u32 = 5u32;
+pub const EVENT_SYSTEM_MENUPOPUPEND: u32 = 7u32;
+pub const EVENT_SYSTEM_MENUPOPUPSTART: u32 = 6u32;
+pub const EVENT_SYSTEM_MENUSTART: u32 = 4u32;
+pub const EVENT_SYSTEM_MINIMIZEEND: u32 = 23u32;
+pub const EVENT_SYSTEM_MINIMIZESTART: u32 = 22u32;
+pub const EVENT_SYSTEM_MOVESIZEEND: u32 = 11u32;
+pub const EVENT_SYSTEM_MOVESIZESTART: u32 = 10u32;
+pub const EVENT_SYSTEM_SCROLLINGEND: u32 = 19u32;
+pub const EVENT_SYSTEM_SCROLLINGSTART: u32 = 18u32;
+pub const EVENT_SYSTEM_SOUND: u32 = 1u32;
+pub const EVENT_SYSTEM_SWITCHEND: u32 = 21u32;
+pub const EVENT_SYSTEM_SWITCHER_APPDROPPED: u32 = 38u32;
+pub const EVENT_SYSTEM_SWITCHER_APPGRABBED: u32 = 36u32;
+pub const EVENT_SYSTEM_SWITCHER_APPOVERTARGET: u32 = 37u32;
+pub const EVENT_SYSTEM_SWITCHER_CANCELLED: u32 = 39u32;
+pub const EVENT_SYSTEM_SWITCHSTART: u32 = 20u32;
+pub const EVENT_UIA_EVENTID_END: u32 = 20223u32;
+pub const EVENT_UIA_EVENTID_START: u32 = 19968u32;
+pub const EVENT_UIA_PROPID_END: u32 = 30207u32;
+pub const EVENT_UIA_PROPID_START: u32 = 29952u32;
+pub const FALT: ACCEL_VIRT_FLAGS = ACCEL_VIRT_FLAGS(16u8);
+pub const FAPPCOMMAND_KEY: u32 = 0u32;
+pub const FAPPCOMMAND_MASK: u32 = 61440u32;
+pub const FAPPCOMMAND_MOUSE: u32 = 32768u32;
+pub const FAPPCOMMAND_OEM: u32 = 4096u32;
+pub const FCONTROL: ACCEL_VIRT_FLAGS = ACCEL_VIRT_FLAGS(8u8);
+pub const FE_FONTSMOOTHINGCLEARTYPE: u32 = 2u32;
+pub const FE_FONTSMOOTHINGORIENTATIONBGR: u32 = 0u32;
+pub const FE_FONTSMOOTHINGORIENTATIONRGB: u32 = 1u32;
+pub const FE_FONTSMOOTHINGSTANDARD: u32 = 1u32;
+pub const FKF_AVAILABLE: u32 = 2u32;
+pub const FKF_CLICKON: u32 = 64u32;
+pub const FKF_CONFIRMHOTKEY: u32 = 8u32;
+pub const FKF_FILTERKEYSON: u32 = 1u32;
+pub const FKF_HOTKEYACTIVE: u32 = 4u32;
+pub const FKF_HOTKEYSOUND: u32 = 16u32;
+pub const FKF_INDICATOR: u32 = 32u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FLASHWINFO {
+    pub cbSize: u32,
+    pub hwnd: super::super::Foundation::HWND,
+    pub dwFlags: FLASHWINFO_FLAGS,
+    pub uCount: u32,
+    pub dwTimeout: u32,
+}
+impl Default for FLASHWINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FLASHWINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FLASHWINFO_FLAGS(pub u32);
@@ -3592,12 +4659,66 @@ impl core::ops::Not for FLASHWINFO_FLAGS {
         Self(self.0.not())
     }
 }
+pub const FLASHW_ALL: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(3u32);
+pub const FLASHW_CAPTION: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(1u32);
+pub const FLASHW_STOP: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(0u32);
+pub const FLASHW_TIMER: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(4u32);
+pub const FLASHW_TIMERNOFG: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(12u32);
+pub const FLASHW_TRAY: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(2u32);
+pub const FNOINVERT: ACCEL_VIRT_FLAGS = ACCEL_VIRT_FLAGS(2u8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FOREGROUND_WINDOW_LOCK_CODE(pub u32);
+pub const FSHIFT: ACCEL_VIRT_FLAGS = ACCEL_VIRT_FLAGS(4u8);
+pub const FVIRTKEY: ACCEL_VIRT_FLAGS = ACCEL_VIRT_FLAGS(1u8);
+pub const GA_PARENT: GET_ANCESTOR_FLAGS = GET_ANCESTOR_FLAGS(1u32);
+pub const GA_ROOT: GET_ANCESTOR_FLAGS = GET_ANCESTOR_FLAGS(2u32);
+pub const GA_ROOTOWNER: GET_ANCESTOR_FLAGS = GET_ANCESTOR_FLAGS(3u32);
+pub const GCF_INCLUDE_ANCESTORS: u32 = 1u32;
+pub const GCLP_HBRBACKGROUND: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-10i32);
+pub const GCLP_HCURSOR: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-12i32);
+pub const GCLP_HICON: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-14i32);
+pub const GCLP_HICONSM: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-34i32);
+pub const GCLP_HMODULE: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-16i32);
+pub const GCLP_MENUNAME: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-8i32);
+pub const GCLP_WNDPROC: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-24i32);
+pub const GCL_CBCLSEXTRA: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-20i32);
+pub const GCL_CBWNDEXTRA: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-18i32);
+pub const GCL_HBRBACKGROUND: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-10i32);
+pub const GCL_HCURSOR: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-12i32);
+pub const GCL_HICON: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-14i32);
+pub const GCL_HICONSM: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-34i32);
+pub const GCL_HMODULE: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-16i32);
+pub const GCL_MENUNAME: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-8i32);
+pub const GCL_STYLE: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-26i32);
+pub const GCL_WNDPROC: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-24i32);
+pub const GCW_ATOM: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-32i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GDI_IMAGE_TYPE(pub u32);
+pub const GESTURECONFIGMAXCOUNT: u32 = 256u32;
+pub const GESTUREVISUALIZATION_DOUBLETAP: u32 = 2u32;
+pub const GESTUREVISUALIZATION_OFF: u32 = 0u32;
+pub const GESTUREVISUALIZATION_ON: u32 = 31u32;
+pub const GESTUREVISUALIZATION_PRESSANDHOLD: u32 = 8u32;
+pub const GESTUREVISUALIZATION_PRESSANDTAP: u32 = 4u32;
+pub const GESTUREVISUALIZATION_RIGHTTAP: u32 = 16u32;
+pub const GESTUREVISUALIZATION_TAP: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GETCLIPBMETADATA {
+    pub Version: u32,
+    pub IsDelayRendered: super::super::Foundation::BOOL,
+    pub IsSynthetic: super::super::Foundation::BOOL,
+}
+impl Default for GETCLIPBMETADATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for GETCLIPBMETADATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_ANCESTOR_FLAGS(pub u32);
@@ -3643,6 +4764,80 @@ impl core::ops::Not for GET_MENU_DEFAULT_ITEM_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_WINDOW_CMD(pub u32);
+pub const GF_BEGIN: u32 = 1u32;
+pub const GF_END: u32 = 4u32;
+pub const GF_INERTIA: u32 = 2u32;
+pub const GIDC_ARRIVAL: u32 = 1u32;
+pub const GIDC_REMOVAL: u32 = 2u32;
+pub const GMDI_GOINTOPOPUPS: GET_MENU_DEFAULT_ITEM_FLAGS = GET_MENU_DEFAULT_ITEM_FLAGS(2u32);
+pub const GMDI_USEDISABLED: GET_MENU_DEFAULT_ITEM_FLAGS = GET_MENU_DEFAULT_ITEM_FLAGS(1u32);
+pub const GUID_DEVICE_EVENT_RBC: windows_core::GUID = windows_core::GUID::from_u128(0xd0744792_a98e_11d2_917a_00a0c9068ff3);
+pub const GUID_IO_CDROM_EXCLUSIVE_LOCK: windows_core::GUID = windows_core::GUID::from_u128(0xbc56c139_7a10_47ee_a294_4c6a38f0149a);
+pub const GUID_IO_CDROM_EXCLUSIVE_UNLOCK: windows_core::GUID = windows_core::GUID::from_u128(0xa3b6d27d_5e35_4885_81e5_ee18c00ed779);
+pub const GUID_IO_DEVICE_BECOMING_READY: windows_core::GUID = windows_core::GUID::from_u128(0xd07433f0_a98e_11d2_917a_00a0c9068ff3);
+pub const GUID_IO_DEVICE_EXTERNAL_REQUEST: windows_core::GUID = windows_core::GUID::from_u128(0xd07433d0_a98e_11d2_917a_00a0c9068ff3);
+pub const GUID_IO_DISK_CLONE_ARRIVAL: windows_core::GUID = windows_core::GUID::from_u128(0x6a61885b_7c39_43dd_9b56_b8ac22a549aa);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
+    pub DiskNumber: u32,
+}
+impl Default for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+pub const GUID_IO_DISK_HEALTH_NOTIFICATION: windows_core::GUID = windows_core::GUID::from_u128(0x0f1bd644_3916_49c5_b063_991940118fb2);
+pub const GUID_IO_DISK_LAYOUT_CHANGE: windows_core::GUID = windows_core::GUID::from_u128(0x11dff54c_8469_41f9_b3de_ef836487c54a);
+pub const GUID_IO_DRIVE_REQUIRES_CLEANING: windows_core::GUID = windows_core::GUID::from_u128(0x7207877c_90ed_44e5_a000_81428d4c79bb);
+pub const GUID_IO_MEDIA_ARRIVAL: windows_core::GUID = windows_core::GUID::from_u128(0xd07433c0_a98e_11d2_917a_00a0c9068ff3);
+pub const GUID_IO_MEDIA_EJECT_REQUEST: windows_core::GUID = windows_core::GUID::from_u128(0xd07433d1_a98e_11d2_917a_00a0c9068ff3);
+pub const GUID_IO_MEDIA_REMOVAL: windows_core::GUID = windows_core::GUID::from_u128(0xd07433c1_a98e_11d2_917a_00a0c9068ff3);
+pub const GUID_IO_TAPE_ERASE: windows_core::GUID = windows_core::GUID::from_u128(0x852d11eb_4bb8_4507_9d9b_417cc2b1b438);
+pub const GUID_IO_VOLUME_BACKGROUND_FORMAT: windows_core::GUID = windows_core::GUID::from_u128(0xa2e5fc86_d5cd_4038_b2e3_4445065c2377);
+pub const GUID_IO_VOLUME_CHANGE: windows_core::GUID = windows_core::GUID::from_u128(0x7373654a_812a_11d0_bec7_08002be2092f);
+pub const GUID_IO_VOLUME_CHANGE_SIZE: windows_core::GUID = windows_core::GUID::from_u128(0x3a1625be_ad03_49f1_8ef8_6bbac182d1fd);
+pub const GUID_IO_VOLUME_DEVICE_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x53f5630d_b6bf_11d0_94f2_00a0c91efb8b);
+pub const GUID_IO_VOLUME_DISMOUNT: windows_core::GUID = windows_core::GUID::from_u128(0xd16a55e8_1059_11d2_8ffd_00a0c9a06d32);
+pub const GUID_IO_VOLUME_DISMOUNT_FAILED: windows_core::GUID = windows_core::GUID::from_u128(0xe3c5b178_105d_11d2_8ffd_00a0c9a06d32);
+pub const GUID_IO_VOLUME_FORCE_CLOSED: windows_core::GUID = windows_core::GUID::from_u128(0x411ad84f_433e_4dc2_a5ae_4a2d1a2de654);
+pub const GUID_IO_VOLUME_FVE_STATUS_CHANGE: windows_core::GUID = windows_core::GUID::from_u128(0x062998b2_ee1f_4b6a_b857_e76cbbe9a6da);
+pub const GUID_IO_VOLUME_INFO_MAKE_COMPAT: windows_core::GUID = windows_core::GUID::from_u128(0x3ab9a0d2_ef80_45cf_8cdc_cbe02a212906);
+pub const GUID_IO_VOLUME_LOCK: windows_core::GUID = windows_core::GUID::from_u128(0x50708874_c9af_11d1_8fef_00a0c9a06d32);
+pub const GUID_IO_VOLUME_LOCK_FAILED: windows_core::GUID = windows_core::GUID::from_u128(0xae2eed10_0ba8_11d2_8ffb_00a0c9a06d32);
+pub const GUID_IO_VOLUME_MOUNT: windows_core::GUID = windows_core::GUID::from_u128(0xb5804878_1a96_11d2_8ffd_00a0c9a06d32);
+pub const GUID_IO_VOLUME_NAME_CHANGE: windows_core::GUID = windows_core::GUID::from_u128(0x2de97f83_4c06_11d2_a532_00609713055a);
+pub const GUID_IO_VOLUME_NEED_CHKDSK: windows_core::GUID = windows_core::GUID::from_u128(0x799a0960_0a0b_4e03_ad88_2fa7c6ce748a);
+pub const GUID_IO_VOLUME_PHYSICAL_CONFIGURATION_CHANGE: windows_core::GUID = windows_core::GUID::from_u128(0x2de97f84_4c06_11d2_a532_00609713055a);
+pub const GUID_IO_VOLUME_PREPARING_EJECT: windows_core::GUID = windows_core::GUID::from_u128(0xc79eb16e_0dac_4e7a_a86c_b25ceeaa88f6);
+pub const GUID_IO_VOLUME_UNIQUE_ID_CHANGE: windows_core::GUID = windows_core::GUID::from_u128(0xaf39da42_6622_41f5_970b_139d092fa3d9);
+pub const GUID_IO_VOLUME_UNLOCK: windows_core::GUID = windows_core::GUID::from_u128(0x9a8c3d68_d0cb_11d1_8fef_00a0c9a06d32);
+pub const GUID_IO_VOLUME_WEARING_OUT: windows_core::GUID = windows_core::GUID::from_u128(0x873113ca_1486_4508_82ac_c3b2e5297aaa);
+pub const GUID_IO_VOLUME_WORM_NEAR_FULL: windows_core::GUID = windows_core::GUID::from_u128(0xf3bfff82_f3de_48d2_af95_457f80b763f2);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GUITHREADINFO {
+    pub cbSize: u32,
+    pub flags: GUITHREADINFO_FLAGS,
+    pub hwndActive: super::super::Foundation::HWND,
+    pub hwndFocus: super::super::Foundation::HWND,
+    pub hwndCapture: super::super::Foundation::HWND,
+    pub hwndMenuOwner: super::super::Foundation::HWND,
+    pub hwndMoveSize: super::super::Foundation::HWND,
+    pub hwndCaret: super::super::Foundation::HWND,
+    pub rcCaret: super::super::Foundation::RECT,
+}
+impl Default for GUITHREADINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for GUITHREADINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GUITHREADINFO_FLAGS(pub u32);
@@ -3679,9 +4874,510 @@ impl core::ops::Not for GUITHREADINFO_FLAGS {
         Self(self.0.not())
     }
 }
+pub const GUI_16BITTASK: u32 = 0u32;
+pub const GUI_CARETBLINKING: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(1u32);
+pub const GUI_INMENUMODE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(4u32);
+pub const GUI_INMOVESIZE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(2u32);
+pub const GUI_POPUPMENUMODE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(16u32);
+pub const GUI_SYSTEMMENUMODE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(8u32);
+pub const GWFS_INCLUDE_ANCESTORS: u32 = 1u32;
+pub const GWLP_HINSTANCE: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-6i32);
+pub const GWLP_HWNDPARENT: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-8i32);
+pub const GWLP_ID: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-12i32);
+pub const GWLP_USERDATA: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-21i32);
+pub const GWLP_WNDPROC: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-4i32);
+pub const GWL_EXSTYLE: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-20i32);
+pub const GWL_HINSTANCE: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-6i32);
+pub const GWL_HWNDPARENT: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-8i32);
+pub const GWL_ID: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-12i32);
+pub const GWL_STYLE: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-16i32);
+pub const GWL_USERDATA: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-21i32);
+pub const GWL_WNDPROC: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-4i32);
+pub const GW_CHILD: GET_WINDOW_CMD = GET_WINDOW_CMD(5u32);
+pub const GW_ENABLEDPOPUP: GET_WINDOW_CMD = GET_WINDOW_CMD(6u32);
+pub const GW_HWNDFIRST: GET_WINDOW_CMD = GET_WINDOW_CMD(0u32);
+pub const GW_HWNDLAST: GET_WINDOW_CMD = GET_WINDOW_CMD(1u32);
+pub const GW_HWNDNEXT: GET_WINDOW_CMD = GET_WINDOW_CMD(2u32);
+pub const GW_HWNDPREV: GET_WINDOW_CMD = GET_WINDOW_CMD(3u32);
+pub const GW_MAX: u32 = 5u32;
+pub const GW_OWNER: GET_WINDOW_CMD = GET_WINDOW_CMD(4u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HACCEL(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HACCEL {
+    type TypeKind = windows_core::CopyType;
+}
+impl HACCEL {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HACCEL {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("user32.dll" "system" fn DestroyAcceleratorTable(haccel : *mut core::ffi::c_void) -> i32);
+            DestroyAcceleratorTable(self.0);
+        }
+    }
+}
+impl Default for HACCEL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HANDEDNESS(pub i32);
+pub const HANDEDNESS_LEFT: HANDEDNESS = HANDEDNESS(0i32);
+pub const HANDEDNESS_RIGHT: HANDEDNESS = HANDEDNESS(1i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HARDWAREHOOKSTRUCT {
+    pub hwnd: super::super::Foundation::HWND,
+    pub message: u32,
+    pub wParam: super::super::Foundation::WPARAM,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+impl Default for HARDWAREHOOKSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HARDWAREHOOKSTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub const HBMMENU_CALLBACK: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(-1i32 as _);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub const HBMMENU_MBAR_CLOSE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(5i32 as _);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub const HBMMENU_MBAR_CLOSE_D: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(6i32 as _);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub const HBMMENU_MBAR_MINIMIZE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(3i32 as _);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub const HBMMENU_MBAR_MINIMIZE_D: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(7i32 as _);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub const HBMMENU_MBAR_RESTORE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(2i32 as _);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub const HBMMENU_POPUP_CLOSE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(8i32 as _);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub const HBMMENU_POPUP_MAXIMIZE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(10i32 as _);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub const HBMMENU_POPUP_MINIMIZE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(11i32 as _);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub const HBMMENU_POPUP_RESTORE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(9i32 as _);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub const HBMMENU_SYSTEM: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(1i32 as _);
+pub const HCBT_ACTIVATE: u32 = 5u32;
+pub const HCBT_CLICKSKIPPED: u32 = 6u32;
+pub const HCBT_CREATEWND: u32 = 3u32;
+pub const HCBT_DESTROYWND: u32 = 4u32;
+pub const HCBT_KEYSKIPPED: u32 = 7u32;
+pub const HCBT_MINMAX: u32 = 1u32;
+pub const HCBT_MOVESIZE: u32 = 0u32;
+pub const HCBT_QS: u32 = 2u32;
+pub const HCBT_SETFOCUS: u32 = 9u32;
+pub const HCBT_SYSCOMMAND: u32 = 8u32;
+pub const HCF_DEFAULTDESKTOP: u32 = 512u32;
+pub const HCF_LOGONDESKTOP: u32 = 256u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HCURSOR(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HCURSOR {
+    type TypeKind = windows_core::CopyType;
+}
+impl HCURSOR {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HCURSOR {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("user32.dll" "system" fn DestroyCursor(hcursor : *mut core::ffi::c_void) -> i32);
+            DestroyCursor(self.0);
+        }
+    }
+}
+impl Default for HCURSOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::imp::CanInto<HICON> for HCURSOR {}
+impl From<HCURSOR> for HICON {
+    fn from(value: HCURSOR) -> Self {
+        Self(value.0)
+    }
+}
+pub const HC_ACTION: u32 = 0u32;
+pub const HC_GETNEXT: u32 = 1u32;
+pub const HC_NOREM: u32 = 3u32;
+pub const HC_NOREMOVE: u32 = 3u32;
+pub const HC_SKIP: u32 = 2u32;
+pub const HC_SYSMODALOFF: u32 = 5u32;
+pub const HC_SYSMODALON: u32 = 4u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HDEVNOTIFY(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HDEVNOTIFY {
+    type TypeKind = windows_core::CopyType;
+}
+impl HDEVNOTIFY {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HDEVNOTIFY {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("user32.dll" "system" fn UnregisterDeviceNotification(handle : *mut core::ffi::c_void) -> i32);
+            UnregisterDeviceNotification(self.0);
+        }
+    }
+}
+impl Default for HDEVNOTIFY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HDWP(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HDWP {
+    type TypeKind = windows_core::CopyType;
+}
+impl HDWP {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for HDWP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const HELP_COMMAND: i32 = 258i32;
+pub const HELP_CONTENTS: i32 = 3i32;
+pub const HELP_CONTEXT: i32 = 1i32;
+pub const HELP_CONTEXTMENU: u32 = 10u32;
+pub const HELP_CONTEXTPOPUP: i32 = 8i32;
+pub const HELP_FINDER: u32 = 11u32;
+pub const HELP_FORCEFILE: i32 = 9i32;
+pub const HELP_HELPONHELP: i32 = 4i32;
+pub const HELP_INDEX: i32 = 3i32;
+pub const HELP_KEY: i32 = 257i32;
+pub const HELP_MULTIKEY: i32 = 513i32;
+pub const HELP_PARTIALKEY: i32 = 261i32;
+pub const HELP_QUIT: i32 = 2i32;
+pub const HELP_SETCONTENTS: i32 = 5i32;
+pub const HELP_SETINDEX: i32 = 5i32;
+pub const HELP_SETPOPUP_POS: u32 = 13u32;
+pub const HELP_SETWINPOS: i32 = 515i32;
+pub const HELP_TCARD: u32 = 32768u32;
+pub const HELP_TCARD_DATA: u32 = 16u32;
+pub const HELP_TCARD_OTHER_CALLER: u32 = 17u32;
+pub const HELP_WM_HELP: u32 = 12u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HHOOK(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HHOOK {
+    type TypeKind = windows_core::CopyType;
+}
+impl HHOOK {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HHOOK {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("user32.dll" "system" fn UnhookWindowsHookEx(hhk : *mut core::ffi::c_void) -> i32);
+            UnhookWindowsHookEx(self.0);
+        }
+    }
+}
+impl Default for HHOOK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HICON(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HICON {
+    type TypeKind = windows_core::CopyType;
+}
+impl HICON {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HICON {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("user32.dll" "system" fn DestroyIcon(hicon : *mut core::ffi::c_void) -> i32);
+            DestroyIcon(self.0);
+        }
+    }
+}
+impl Default for HICON {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const HIDE_WINDOW: u32 = 0u32;
+pub const HKL_NEXT: u32 = 1u32;
+pub const HKL_PREV: u32 = 0u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HMENU(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HMENU {
+    type TypeKind = windows_core::CopyType;
+}
+impl HMENU {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HMENU {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("user32.dll" "system" fn DestroyMenu(hmenu : *mut core::ffi::c_void) -> i32);
+            DestroyMenu(self.0);
+        }
+    }
+}
+impl Default for HMENU {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type HOOKPROC = Option<unsafe extern "system" fn(code: i32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
+pub const HSHELL_ACCESSIBILITYSTATE: u32 = 11u32;
+pub const HSHELL_ACTIVATESHELLWINDOW: u32 = 3u32;
+pub const HSHELL_APPCOMMAND: u32 = 12u32;
+pub const HSHELL_ENDTASK: u32 = 10u32;
+pub const HSHELL_GETMINRECT: u32 = 5u32;
+pub const HSHELL_HIGHBIT: u32 = 32768u32;
+pub const HSHELL_LANGUAGE: u32 = 8u32;
+pub const HSHELL_MONITORCHANGED: u32 = 16u32;
+pub const HSHELL_REDRAW: u32 = 6u32;
+pub const HSHELL_SYSMENU: u32 = 9u32;
+pub const HSHELL_TASKMAN: u32 = 7u32;
+pub const HSHELL_WINDOWACTIVATED: u32 = 4u32;
+pub const HSHELL_WINDOWCREATED: u32 = 1u32;
+pub const HSHELL_WINDOWDESTROYED: u32 = 2u32;
+pub const HSHELL_WINDOWREPLACED: u32 = 13u32;
+pub const HSHELL_WINDOWREPLACING: u32 = 14u32;
+pub const HTBORDER: u32 = 18u32;
+pub const HTBOTTOM: u32 = 15u32;
+pub const HTBOTTOMLEFT: u32 = 16u32;
+pub const HTBOTTOMRIGHT: u32 = 17u32;
+pub const HTCAPTION: u32 = 2u32;
+pub const HTCLIENT: u32 = 1u32;
+pub const HTCLOSE: u32 = 20u32;
+pub const HTERROR: i32 = -2i32;
+pub const HTGROWBOX: u32 = 4u32;
+pub const HTHELP: u32 = 21u32;
+pub const HTHSCROLL: u32 = 6u32;
+pub const HTLEFT: u32 = 10u32;
+pub const HTMAXBUTTON: u32 = 9u32;
+pub const HTMENU: u32 = 5u32;
+pub const HTMINBUTTON: u32 = 8u32;
+pub const HTNOWHERE: u32 = 0u32;
+pub const HTOBJECT: u32 = 19u32;
+pub const HTREDUCE: u32 = 8u32;
+pub const HTRIGHT: u32 = 11u32;
+pub const HTSIZE: u32 = 4u32;
+pub const HTSIZEFIRST: u32 = 10u32;
+pub const HTSIZELAST: u32 = 17u32;
+pub const HTSYSMENU: u32 = 3u32;
+pub const HTTOP: u32 = 12u32;
+pub const HTTOPLEFT: u32 = 13u32;
+pub const HTTOPRIGHT: u32 = 14u32;
+pub const HTTRANSPARENT: i32 = -1i32;
+pub const HTVSCROLL: u32 = 7u32;
+pub const HTZOOM: u32 = 9u32;
+pub const HWND_BOTTOM: super::super::Foundation::HWND = super::super::Foundation::HWND(1i32 as _);
+pub const HWND_BROADCAST: super::super::Foundation::HWND = super::super::Foundation::HWND(65535i32 as _);
+pub const HWND_DESKTOP: super::super::Foundation::HWND = super::super::Foundation::HWND(0i32 as _);
+pub const HWND_MESSAGE: super::super::Foundation::HWND = super::super::Foundation::HWND(-3i32 as _);
+pub const HWND_NOTOPMOST: super::super::Foundation::HWND = super::super::Foundation::HWND(-2i32 as _);
+pub const HWND_TOP: super::super::Foundation::HWND = super::super::Foundation::HWND(0i32 as _);
+pub const HWND_TOPMOST: super::super::Foundation::HWND = super::super::Foundation::HWND(-1i32 as _);
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ICONINFO {
+    pub fIcon: super::super::Foundation::BOOL,
+    pub xHotspot: u32,
+    pub yHotspot: u32,
+    pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
+    pub hbmColor: super::super::Graphics::Gdi::HBITMAP,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for ICONINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for ICONINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ICONINFOEXA {
+    pub cbSize: u32,
+    pub fIcon: super::super::Foundation::BOOL,
+    pub xHotspot: u32,
+    pub yHotspot: u32,
+    pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
+    pub hbmColor: super::super::Graphics::Gdi::HBITMAP,
+    pub wResID: u16,
+    pub szModName: [i8; 260],
+    pub szResName: [i8; 260],
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for ICONINFOEXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for ICONINFOEXA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ICONINFOEXW {
+    pub cbSize: u32,
+    pub fIcon: super::super::Foundation::BOOL,
+    pub xHotspot: u32,
+    pub yHotspot: u32,
+    pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
+    pub hbmColor: super::super::Graphics::Gdi::HBITMAP,
+    pub wResID: u16,
+    pub szModName: [u16; 260],
+    pub szResName: [u16; 260],
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for ICONINFOEXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for ICONINFOEXW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ICONMETRICSA {
+    pub cbSize: u32,
+    pub iHorzSpacing: i32,
+    pub iVertSpacing: i32,
+    pub iTitleWrap: i32,
+    pub lfFont: super::super::Graphics::Gdi::LOGFONTA,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for ICONMETRICSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for ICONMETRICSA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ICONMETRICSW {
+    pub cbSize: u32,
+    pub iHorzSpacing: i32,
+    pub iVertSpacing: i32,
+    pub iTitleWrap: i32,
+    pub lfFont: super::super::Graphics::Gdi::LOGFONTW,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for ICONMETRICSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for ICONMETRICSW {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ICON_BIG: u32 = 1u32;
+pub const ICON_SMALL: u32 = 0u32;
+pub const ICON_SMALL2: u32 = 2u32;
+pub const IDABORT: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(3i32);
+pub const IDANI_CAPTION: u32 = 3u32;
+pub const IDANI_OPEN: u32 = 1u32;
+pub const IDASYNC: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(32001i32);
+pub const IDCANCEL: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(2i32);
+pub const IDCLOSE: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(8i32);
+pub const IDCONTINUE: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(11i32);
+pub const IDC_APPSTARTING: windows_core::PCWSTR = windows_core::PCWSTR(32650u16 as _);
+pub const IDC_ARROW: windows_core::PCWSTR = windows_core::PCWSTR(32512u16 as _);
+pub const IDC_CROSS: windows_core::PCWSTR = windows_core::PCWSTR(32515u16 as _);
+pub const IDC_HAND: windows_core::PCWSTR = windows_core::PCWSTR(32649u16 as _);
+pub const IDC_HELP: windows_core::PCWSTR = windows_core::PCWSTR(32651u16 as _);
+pub const IDC_IBEAM: windows_core::PCWSTR = windows_core::PCWSTR(32513u16 as _);
+pub const IDC_ICON: windows_core::PCWSTR = windows_core::PCWSTR(32641u16 as _);
+pub const IDC_NO: windows_core::PCWSTR = windows_core::PCWSTR(32648u16 as _);
+pub const IDC_PERSON: windows_core::PCWSTR = windows_core::PCWSTR(32672u16 as _);
+pub const IDC_PIN: windows_core::PCWSTR = windows_core::PCWSTR(32671u16 as _);
+pub const IDC_SIZE: windows_core::PCWSTR = windows_core::PCWSTR(32640u16 as _);
+pub const IDC_SIZEALL: windows_core::PCWSTR = windows_core::PCWSTR(32646u16 as _);
+pub const IDC_SIZENESW: windows_core::PCWSTR = windows_core::PCWSTR(32643u16 as _);
+pub const IDC_SIZENS: windows_core::PCWSTR = windows_core::PCWSTR(32645u16 as _);
+pub const IDC_SIZENWSE: windows_core::PCWSTR = windows_core::PCWSTR(32642u16 as _);
+pub const IDC_SIZEWE: windows_core::PCWSTR = windows_core::PCWSTR(32644u16 as _);
+pub const IDC_STATIC: i32 = -1i32;
+pub const IDC_UPARROW: windows_core::PCWSTR = windows_core::PCWSTR(32516u16 as _);
+pub const IDC_WAIT: windows_core::PCWSTR = windows_core::PCWSTR(32514u16 as _);
+pub const IDHELP: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(9i32);
+pub const IDHOT_SNAPDESKTOP: i32 = -2i32;
+pub const IDHOT_SNAPWINDOW: i32 = -1i32;
+pub const IDH_CANCEL: u32 = 28444u32;
+pub const IDH_GENERIC_HELP_BUTTON: u32 = 28442u32;
+pub const IDH_HELP: u32 = 28445u32;
+pub const IDH_MISSING_CONTEXT: u32 = 28441u32;
+pub const IDH_NO_HELP: u32 = 28440u32;
+pub const IDH_OK: u32 = 28443u32;
+pub const IDIGNORE: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(5i32);
+pub const IDI_APPLICATION: windows_core::PCWSTR = windows_core::PCWSTR(32512u32 as _);
+pub const IDI_ASTERISK: windows_core::PCWSTR = windows_core::PCWSTR(32516u32 as _);
+pub const IDI_ERROR: windows_core::PCWSTR = windows_core::PCWSTR(32513u32 as _);
+pub const IDI_EXCLAMATION: windows_core::PCWSTR = windows_core::PCWSTR(32515u32 as _);
+pub const IDI_HAND: windows_core::PCWSTR = windows_core::PCWSTR(32513u32 as _);
+pub const IDI_INFORMATION: windows_core::PCWSTR = windows_core::PCWSTR(32516u32 as _);
+pub const IDI_QUESTION: windows_core::PCWSTR = windows_core::PCWSTR(32514u32 as _);
+pub const IDI_SHIELD: windows_core::PCWSTR = windows_core::PCWSTR(32518u32 as _);
+pub const IDI_WARNING: windows_core::PCWSTR = windows_core::PCWSTR(32515u32 as _);
+pub const IDI_WINLOGO: windows_core::PCWSTR = windows_core::PCWSTR(32517u32 as _);
+pub const IDNO: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(7i32);
+pub const IDOK: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(1i32);
+pub const IDRETRY: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(4i32);
+pub const IDTIMEOUT: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(32000i32);
+pub const IDTRYAGAIN: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(10i32);
+pub const IDYES: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(6i32);
+pub const IMAGE_BITMAP: GDI_IMAGE_TYPE = GDI_IMAGE_TYPE(0u32);
+pub const IMAGE_CURSOR: GDI_IMAGE_TYPE = GDI_IMAGE_TYPE(2u32);
+pub const IMAGE_ENHMETAFILE: u32 = 3u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_FLAGS(pub u32);
@@ -3717,6 +5413,52 @@ impl core::ops::Not for IMAGE_FLAGS {
     fn not(self) -> Self {
         Self(self.0.not())
     }
+}
+pub const IMAGE_ICON: GDI_IMAGE_TYPE = GDI_IMAGE_TYPE(1u32);
+pub const INDEXID_CONTAINER: u32 = 0u32;
+pub const INDEXID_OBJECT: u32 = 0u32;
+pub const INPUTLANGCHANGE_BACKWARD: u32 = 4u32;
+pub const INPUTLANGCHANGE_FORWARD: u32 = 2u32;
+pub const INPUTLANGCHANGE_SYSCHARSET: u32 = 1u32;
+pub const ISMEX_CALLBACK: u32 = 4u32;
+pub const ISMEX_NOSEND: u32 = 0u32;
+pub const ISMEX_NOTIFY: u32 = 2u32;
+pub const ISMEX_REPLIED: u32 = 8u32;
+pub const ISMEX_SEND: u32 = 1u32;
+pub const ISOLATIONAWARE_MANIFEST_RESOURCE_ID: u32 = 2u32;
+pub const ISOLATIONAWARE_NOSTATICIMPORT_MANIFEST_RESOURCE_ID: u32 = 3u32;
+pub const ISOLATIONPOLICY_BROWSER_MANIFEST_RESOURCE_ID: u32 = 5u32;
+pub const ISOLATIONPOLICY_MANIFEST_RESOURCE_ID: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IndexedResourceQualifier {
+    pub name: windows_core::PWSTR,
+    pub value: windows_core::PWSTR,
+}
+impl Default for IndexedResourceQualifier {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IndexedResourceQualifier {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct KBDLLHOOKSTRUCT {
+    pub vkCode: u32,
+    pub scanCode: u32,
+    pub flags: KBDLLHOOKSTRUCT_FLAGS,
+    pub time: u32,
+    pub dwExtraInfo: usize,
+}
+impl Default for KBDLLHOOKSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for KBDLLHOOKSTRUCT {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3754,6 +5496,13 @@ impl core::ops::Not for KBDLLHOOKSTRUCT_FLAGS {
         Self(self.0.not())
     }
 }
+pub const KF_ALTDOWN: u32 = 8192u32;
+pub const KF_DLGMODE: u32 = 2048u32;
+pub const KF_EXTENDED: u32 = 256u32;
+pub const KF_MENUMODE: u32 = 4096u32;
+pub const KF_REPEAT: u32 = 16384u32;
+pub const KF_UP: u32 = 32768u32;
+pub const KL_NAMELENGTH: u32 = 9u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LAYERED_WINDOW_ATTRIBUTES_FLAGS(pub u32);
@@ -3790,9 +5539,307 @@ impl core::ops::Not for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
         Self(self.0.not())
     }
 }
+pub const LBN_DBLCLK: u32 = 2u32;
+pub const LBN_ERRSPACE: i32 = -2i32;
+pub const LBN_KILLFOCUS: u32 = 5u32;
+pub const LBN_SELCANCEL: u32 = 3u32;
+pub const LBN_SELCHANGE: u32 = 1u32;
+pub const LBN_SETFOCUS: u32 = 4u32;
+pub const LBS_COMBOBOX: i32 = 32768i32;
+pub const LBS_DISABLENOSCROLL: i32 = 4096i32;
+pub const LBS_EXTENDEDSEL: i32 = 2048i32;
+pub const LBS_HASSTRINGS: i32 = 64i32;
+pub const LBS_MULTICOLUMN: i32 = 512i32;
+pub const LBS_MULTIPLESEL: i32 = 8i32;
+pub const LBS_NODATA: i32 = 8192i32;
+pub const LBS_NOINTEGRALHEIGHT: i32 = 256i32;
+pub const LBS_NOREDRAW: i32 = 4i32;
+pub const LBS_NOSEL: i32 = 16384i32;
+pub const LBS_NOTIFY: i32 = 1i32;
+pub const LBS_OWNERDRAWFIXED: i32 = 16i32;
+pub const LBS_OWNERDRAWVARIABLE: i32 = 32i32;
+pub const LBS_SORT: i32 = 2i32;
+pub const LBS_STANDARD: i32 = 10485763i32;
+pub const LBS_USETABSTOPS: i32 = 128i32;
+pub const LBS_WANTKEYBOARDINPUT: i32 = 1024i32;
+pub const LB_ADDFILE: u32 = 406u32;
+pub const LB_ADDSTRING: u32 = 384u32;
+pub const LB_CTLCODE: i32 = 0i32;
+pub const LB_DELETESTRING: u32 = 386u32;
+pub const LB_DIR: u32 = 397u32;
+pub const LB_ERR: i32 = -1i32;
+pub const LB_ERRSPACE: i32 = -2i32;
+pub const LB_FINDSTRING: u32 = 399u32;
+pub const LB_FINDSTRINGEXACT: u32 = 418u32;
+pub const LB_GETANCHORINDEX: u32 = 413u32;
+pub const LB_GETCARETINDEX: u32 = 415u32;
+pub const LB_GETCOUNT: u32 = 395u32;
+pub const LB_GETCURSEL: u32 = 392u32;
+pub const LB_GETHORIZONTALEXTENT: u32 = 403u32;
+pub const LB_GETITEMDATA: u32 = 409u32;
+pub const LB_GETITEMHEIGHT: u32 = 417u32;
+pub const LB_GETITEMRECT: u32 = 408u32;
+pub const LB_GETLISTBOXINFO: u32 = 434u32;
+pub const LB_GETLOCALE: u32 = 422u32;
+pub const LB_GETSEL: u32 = 391u32;
+pub const LB_GETSELCOUNT: u32 = 400u32;
+pub const LB_GETSELITEMS: u32 = 401u32;
+pub const LB_GETTEXT: u32 = 393u32;
+pub const LB_GETTEXTLEN: u32 = 394u32;
+pub const LB_GETTOPINDEX: u32 = 398u32;
+pub const LB_INITSTORAGE: u32 = 424u32;
+pub const LB_INSERTSTRING: u32 = 385u32;
+pub const LB_ITEMFROMPOINT: u32 = 425u32;
+pub const LB_MSGMAX: u32 = 435u32;
+pub const LB_MULTIPLEADDSTRING: u32 = 433u32;
+pub const LB_OKAY: u32 = 0u32;
+pub const LB_RESETCONTENT: u32 = 388u32;
+pub const LB_SELECTSTRING: u32 = 396u32;
+pub const LB_SELITEMRANGE: u32 = 411u32;
+pub const LB_SELITEMRANGEEX: u32 = 387u32;
+pub const LB_SETANCHORINDEX: u32 = 412u32;
+pub const LB_SETCARETINDEX: u32 = 414u32;
+pub const LB_SETCOLUMNWIDTH: u32 = 405u32;
+pub const LB_SETCOUNT: u32 = 423u32;
+pub const LB_SETCURSEL: u32 = 390u32;
+pub const LB_SETHORIZONTALEXTENT: u32 = 404u32;
+pub const LB_SETITEMDATA: u32 = 410u32;
+pub const LB_SETITEMHEIGHT: u32 = 416u32;
+pub const LB_SETLOCALE: u32 = 421u32;
+pub const LB_SETSEL: u32 = 389u32;
+pub const LB_SETTABSTOPS: u32 = 402u32;
+pub const LB_SETTOPINDEX: u32 = 407u32;
+pub const LLKHF_ALTDOWN: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(32u32);
+pub const LLKHF_EXTENDED: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(1u32);
+pub const LLKHF_INJECTED: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(16u32);
+pub const LLKHF_LOWER_IL_INJECTED: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(2u32);
+pub const LLKHF_UP: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(128u32);
+pub const LLMHF_INJECTED: u32 = 1u32;
+pub const LLMHF_LOWER_IL_INJECTED: u32 = 2u32;
+pub const LOCKF_LOGICAL_LOCK: u32 = 0u32;
+pub const LOCKF_PHYSICAL_LOCK: u32 = 1u32;
+pub const LOCKP_ALLOW_MEM_MAPPING: u32 = 0u32;
+pub const LOCKP_ALLOW_WRITES: u32 = 1u32;
+pub const LOCKP_FAIL_MEM_MAPPING: u32 = 2u32;
+pub const LOCKP_FAIL_WRITES: u32 = 0u32;
+pub const LOCKP_LOCK_FOR_FORMAT: u32 = 4u32;
+pub const LOCKP_USER_MASK: u32 = 3u32;
+pub const LR_COLOR: u32 = 2u32;
+pub const LR_COPYDELETEORG: IMAGE_FLAGS = IMAGE_FLAGS(8u32);
+pub const LR_COPYFROMRESOURCE: IMAGE_FLAGS = IMAGE_FLAGS(16384u32);
+pub const LR_COPYRETURNORG: IMAGE_FLAGS = IMAGE_FLAGS(4u32);
+pub const LR_CREATEDIBSECTION: IMAGE_FLAGS = IMAGE_FLAGS(8192u32);
+pub const LR_DEFAULTCOLOR: IMAGE_FLAGS = IMAGE_FLAGS(0u32);
+pub const LR_DEFAULTSIZE: IMAGE_FLAGS = IMAGE_FLAGS(64u32);
+pub const LR_LOADFROMFILE: IMAGE_FLAGS = IMAGE_FLAGS(16u32);
+pub const LR_LOADMAP3DCOLORS: IMAGE_FLAGS = IMAGE_FLAGS(4096u32);
+pub const LR_LOADTRANSPARENT: IMAGE_FLAGS = IMAGE_FLAGS(32u32);
+pub const LR_MONOCHROME: IMAGE_FLAGS = IMAGE_FLAGS(1u32);
+pub const LR_SHARED: IMAGE_FLAGS = IMAGE_FLAGS(32768u32);
+pub const LR_VGACOLOR: IMAGE_FLAGS = IMAGE_FLAGS(128u32);
+pub const LSFW_LOCK: FOREGROUND_WINDOW_LOCK_CODE = FOREGROUND_WINDOW_LOCK_CODE(1u32);
+pub const LSFW_UNLOCK: FOREGROUND_WINDOW_LOCK_CODE = FOREGROUND_WINDOW_LOCK_CODE(2u32);
+pub const LWA_ALPHA: LAYERED_WINDOW_ATTRIBUTES_FLAGS = LAYERED_WINDOW_ATTRIBUTES_FLAGS(2u32);
+pub const LWA_COLORKEY: LAYERED_WINDOW_ATTRIBUTES_FLAGS = LAYERED_WINDOW_ATTRIBUTES_FLAGS(1u32);
+pub const MAXIMUM_RESERVED_MANIFEST_RESOURCE_ID: u32 = 16u32;
+pub const MAX_LOGICALDPIOVERRIDE: u32 = 2u32;
+pub const MAX_STR_BLOCKREASON: u32 = 256u32;
+pub const MAX_TOUCH_COUNT: u32 = 256u32;
+pub const MAX_TOUCH_PREDICTION_FILTER_TAPS: u32 = 3u32;
+pub const MA_ACTIVATE: u32 = 1u32;
+pub const MA_ACTIVATEANDEAT: u32 = 2u32;
+pub const MA_NOACTIVATE: u32 = 3u32;
+pub const MA_NOACTIVATEANDEAT: u32 = 4u32;
+pub const MB_ABORTRETRYIGNORE: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(2u32);
+pub const MB_APPLMODAL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(0u32);
+pub const MB_CANCELTRYCONTINUE: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(6u32);
+pub const MB_DEFAULT_DESKTOP_ONLY: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(131072u32);
+pub const MB_DEFBUTTON1: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(0u32);
+pub const MB_DEFBUTTON2: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(256u32);
+pub const MB_DEFBUTTON3: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(512u32);
+pub const MB_DEFBUTTON4: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(768u32);
+pub const MB_DEFMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(3840u32);
+pub const MB_HELP: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(16384u32);
+pub const MB_ICONASTERISK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(64u32);
+pub const MB_ICONERROR: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(16u32);
+pub const MB_ICONEXCLAMATION: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(48u32);
+pub const MB_ICONHAND: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(16u32);
+pub const MB_ICONINFORMATION: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(64u32);
+pub const MB_ICONMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(240u32);
+pub const MB_ICONQUESTION: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(32u32);
+pub const MB_ICONSTOP: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(16u32);
+pub const MB_ICONWARNING: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(48u32);
+pub const MB_MISCMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(49152u32);
+pub const MB_MODEMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(12288u32);
+pub const MB_NOFOCUS: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(32768u32);
+pub const MB_OK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(0u32);
+pub const MB_OKCANCEL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(1u32);
+pub const MB_RETRYCANCEL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(5u32);
+pub const MB_RIGHT: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(524288u32);
+pub const MB_RTLREADING: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(1048576u32);
+pub const MB_SERVICE_NOTIFICATION: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(2097152u32);
+pub const MB_SERVICE_NOTIFICATION_NT3X: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(262144u32);
+pub const MB_SETFOREGROUND: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(65536u32);
+pub const MB_SYSTEMMODAL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(4096u32);
+pub const MB_TASKMODAL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(8192u32);
+pub const MB_TOPMOST: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(262144u32);
+pub const MB_TYPEMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(15u32);
+pub const MB_USERICON: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(128u32);
+pub const MB_YESNO: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(4u32);
+pub const MB_YESNOCANCEL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(3u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MDICREATESTRUCTA {
+    pub szClass: windows_core::PCSTR,
+    pub szTitle: windows_core::PCSTR,
+    pub hOwner: super::super::Foundation::HANDLE,
+    pub x: i32,
+    pub y: i32,
+    pub cx: i32,
+    pub cy: i32,
+    pub style: WINDOW_STYLE,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+impl Default for MDICREATESTRUCTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MDICREATESTRUCTA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MDICREATESTRUCTW {
+    pub szClass: windows_core::PCWSTR,
+    pub szTitle: windows_core::PCWSTR,
+    pub hOwner: super::super::Foundation::HANDLE,
+    pub x: i32,
+    pub y: i32,
+    pub cx: i32,
+    pub cy: i32,
+    pub style: WINDOW_STYLE,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+impl Default for MDICREATESTRUCTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MDICREATESTRUCTW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MDINEXTMENU {
+    pub hmenuIn: HMENU,
+    pub hmenuNext: HMENU,
+    pub hwndNext: super::super::Foundation::HWND,
+}
+impl Default for MDINEXTMENU {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MDINEXTMENU {
+    type TypeKind = windows_core::CopyType;
+}
+pub const MDIS_ALLCHILDSTYLES: u32 = 1u32;
+pub const MDITILE_HORIZONTAL: TILE_WINDOWS_HOW = TILE_WINDOWS_HOW(1u32);
+pub const MDITILE_SKIPDISABLED: CASCADE_WINDOWS_HOW = CASCADE_WINDOWS_HOW(2u32);
+pub const MDITILE_VERTICAL: TILE_WINDOWS_HOW = TILE_WINDOWS_HOW(0u32);
+pub const MDITILE_ZORDER: CASCADE_WINDOWS_HOW = CASCADE_WINDOWS_HOW(4u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MENUBARINFO {
+    pub cbSize: u32,
+    pub rcBar: super::super::Foundation::RECT,
+    pub hMenu: HMENU,
+    pub hwndMenu: super::super::Foundation::HWND,
+    pub _bitfield: i32,
+}
+impl Default for MENUBARINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MENUBARINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MENUEX_TEMPLATE_HEADER {
+    pub wVersion: u16,
+    pub wOffset: u16,
+    pub dwHelpId: u32,
+}
+impl Default for MENUEX_TEMPLATE_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MENUEX_TEMPLATE_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MENUEX_TEMPLATE_ITEM {
+    pub dwType: u32,
+    pub dwState: u32,
+    pub uId: u32,
+    pub wFlags: u16,
+    pub szText: [u16; 1],
+}
+impl Default for MENUEX_TEMPLATE_ITEM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MENUEX_TEMPLATE_ITEM {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MENUGETOBJECTINFO {
+    pub dwFlags: MENUGETOBJECTINFO_FLAGS,
+    pub uPos: u32,
+    pub hmenu: HMENU,
+    pub riid: *mut core::ffi::c_void,
+    pub pvObj: *mut core::ffi::c_void,
+}
+impl Default for MENUGETOBJECTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MENUGETOBJECTINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MENUGETOBJECTINFO_FLAGS(pub u32);
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MENUINFO {
+    pub cbSize: u32,
+    pub fMask: MENUINFO_MASK,
+    pub dwStyle: MENUINFO_STYLE,
+    pub cyMax: u32,
+    pub hbrBack: super::super::Graphics::Gdi::HBRUSH,
+    pub dwContextHelpID: u32,
+    pub dwMenuData: usize,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for MENUINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for MENUINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MENUINFO_MASK(pub u32);
@@ -3864,6 +5911,144 @@ impl core::ops::Not for MENUINFO_STYLE {
     fn not(self) -> Self {
         Self(self.0.not())
     }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MENUITEMINFOA {
+    pub cbSize: u32,
+    pub fMask: MENU_ITEM_MASK,
+    pub fType: MENU_ITEM_TYPE,
+    pub fState: MENU_ITEM_STATE,
+    pub wID: u32,
+    pub hSubMenu: HMENU,
+    pub hbmpChecked: super::super::Graphics::Gdi::HBITMAP,
+    pub hbmpUnchecked: super::super::Graphics::Gdi::HBITMAP,
+    pub dwItemData: usize,
+    pub dwTypeData: windows_core::PSTR,
+    pub cch: u32,
+    pub hbmpItem: super::super::Graphics::Gdi::HBITMAP,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for MENUITEMINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for MENUITEMINFOA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MENUITEMINFOW {
+    pub cbSize: u32,
+    pub fMask: MENU_ITEM_MASK,
+    pub fType: MENU_ITEM_TYPE,
+    pub fState: MENU_ITEM_STATE,
+    pub wID: u32,
+    pub hSubMenu: HMENU,
+    pub hbmpChecked: super::super::Graphics::Gdi::HBITMAP,
+    pub hbmpUnchecked: super::super::Graphics::Gdi::HBITMAP,
+    pub dwItemData: usize,
+    pub dwTypeData: windows_core::PWSTR,
+    pub cch: u32,
+    pub hbmpItem: super::super::Graphics::Gdi::HBITMAP,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for MENUITEMINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for MENUITEMINFOW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MENUITEMTEMPLATE {
+    pub mtOption: u16,
+    pub mtID: u16,
+    pub mtString: [u16; 1],
+}
+impl Default for MENUITEMTEMPLATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MENUITEMTEMPLATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MENUITEMTEMPLATEHEADER {
+    pub versionNumber: u16,
+    pub offset: u16,
+}
+impl Default for MENUITEMTEMPLATEHEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MENUITEMTEMPLATEHEADER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MENUTEMPLATEEX {
+    pub Anonymous: MENUTEMPLATEEX_0,
+}
+impl Default for MENUTEMPLATEEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MENUTEMPLATEEX {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union MENUTEMPLATEEX_0 {
+    pub Menu: MENUTEMPLATEEX_0_0,
+    pub MenuEx: MENUTEMPLATEEX_0_1,
+}
+impl Default for MENUTEMPLATEEX_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MENUTEMPLATEEX_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MENUTEMPLATEEX_0_1 {
+    pub mexHeader: MENUEX_TEMPLATE_HEADER,
+    pub mexItem: [MENUEX_TEMPLATE_ITEM; 1],
+}
+impl Default for MENUTEMPLATEEX_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MENUTEMPLATEEX_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MENUTEMPLATEEX_0_0 {
+    pub mitHeader: MENUITEMTEMPLATEHEADER,
+    pub miTemplate: [MENUITEMTEMPLATE; 1],
+}
+impl Default for MENUTEMPLATEEX_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for MENUTEMPLATEEX_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4048,1965 +6233,6 @@ impl core::ops::Not for MESSAGEBOX_STYLE {
         Self(self.0.not())
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MINIMIZEDMETRICS_ARRANGE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MSGFLTINFO_STATUS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(pub u32);
-impl MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MrmDumpType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MrmIndexerFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MrmPackagingMode(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MrmPackagingOptions(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MrmPlatformVersion(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MrmResourceIndexerMessageSeverity(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OBJECT_IDENTIFIER(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PEEK_MESSAGE_REMOVE_TYPE(pub u32);
-impl PEEK_MESSAGE_REMOVE_TYPE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for PEEK_MESSAGE_REMOVE_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for PEEK_MESSAGE_REMOVE_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for PEEK_MESSAGE_REMOVE_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for PEEK_MESSAGE_REMOVE_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for PEEK_MESSAGE_REMOVE_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct POINTER_INPUT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct QUEUE_STATUS_FLAGS(pub u32);
-impl QUEUE_STATUS_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for QUEUE_STATUS_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for QUEUE_STATUS_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for QUEUE_STATUS_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for QUEUE_STATUS_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for QUEUE_STATUS_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct REGISTER_NOTIFICATION_FLAGS(pub u32);
-impl REGISTER_NOTIFICATION_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for REGISTER_NOTIFICATION_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for REGISTER_NOTIFICATION_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for REGISTER_NOTIFICATION_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for REGISTER_NOTIFICATION_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for REGISTER_NOTIFICATION_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCROLLBAR_COMMAND(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCROLLBAR_CONSTANTS(pub i32);
-impl SCROLLBAR_CONSTANTS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for SCROLLBAR_CONSTANTS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for SCROLLBAR_CONSTANTS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for SCROLLBAR_CONSTANTS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for SCROLLBAR_CONSTANTS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for SCROLLBAR_CONSTANTS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCROLLINFO_MASK(pub u32);
-impl SCROLLINFO_MASK {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for SCROLLINFO_MASK {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for SCROLLINFO_MASK {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for SCROLLINFO_MASK {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for SCROLLINFO_MASK {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for SCROLLINFO_MASK {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCROLL_WINDOW_FLAGS(pub u32);
-impl SCROLL_WINDOW_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for SCROLL_WINDOW_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for SCROLL_WINDOW_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for SCROLL_WINDOW_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for SCROLL_WINDOW_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for SCROLL_WINDOW_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SEND_MESSAGE_TIMEOUT_FLAGS(pub u32);
-impl SEND_MESSAGE_TIMEOUT_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for SEND_MESSAGE_TIMEOUT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for SEND_MESSAGE_TIMEOUT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for SEND_MESSAGE_TIMEOUT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for SEND_MESSAGE_TIMEOUT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for SEND_MESSAGE_TIMEOUT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SET_WINDOW_POS_FLAGS(pub u32);
-impl SET_WINDOW_POS_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for SET_WINDOW_POS_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for SET_WINDOW_POS_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for SET_WINDOW_POS_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for SET_WINDOW_POS_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for SET_WINDOW_POS_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SHOW_WINDOW_CMD(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SHOW_WINDOW_STATUS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SYSTEM_CURSOR_ID(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SYSTEM_METRICS_INDEX(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SYSTEM_PARAMETERS_INFO_ACTION(pub u32);
-impl SYSTEM_PARAMETERS_INFO_ACTION {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for SYSTEM_PARAMETERS_INFO_ACTION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for SYSTEM_PARAMETERS_INFO_ACTION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for SYSTEM_PARAMETERS_INFO_ACTION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for SYSTEM_PARAMETERS_INFO_ACTION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for SYSTEM_PARAMETERS_INFO_ACTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(pub u32);
-impl SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TILE_WINDOWS_HOW(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TOOLTIP_DISMISS_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TRACK_POPUP_MENU_FLAGS(pub u32);
-impl TRACK_POPUP_MENU_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for TRACK_POPUP_MENU_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for TRACK_POPUP_MENU_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for TRACK_POPUP_MENU_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for TRACK_POPUP_MENU_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for TRACK_POPUP_MENU_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct UPDATE_LAYERED_WINDOW_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WINDOWPLACEMENT_FLAGS(pub u32);
-impl WINDOWPLACEMENT_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for WINDOWPLACEMENT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for WINDOWPLACEMENT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for WINDOWPLACEMENT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for WINDOWPLACEMENT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for WINDOWPLACEMENT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WINDOWS_HOOK_ID(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WINDOW_DISPLAY_AFFINITY(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WINDOW_EX_STYLE(pub u32);
-impl WINDOW_EX_STYLE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for WINDOW_EX_STYLE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for WINDOW_EX_STYLE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for WINDOW_EX_STYLE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for WINDOW_EX_STYLE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for WINDOW_EX_STYLE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WINDOW_LONG_PTR_INDEX(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WINDOW_MESSAGE_FILTER_ACTION(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WINDOW_STYLE(pub u32);
-impl WINDOW_STYLE {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for WINDOW_STYLE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for WINDOW_STYLE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for WINDOW_STYLE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for WINDOW_STYLE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for WINDOW_STYLE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WNDCLASS_STYLES(pub u32);
-impl WNDCLASS_STYLES {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for WNDCLASS_STYLES {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for WNDCLASS_STYLES {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for WNDCLASS_STYLES {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for WNDCLASS_STYLES {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for WNDCLASS_STYLES {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ACCEL {
-    pub fVirt: ACCEL_VIRT_FLAGS,
-    pub key: u16,
-    pub cmd: u16,
-}
-impl Default for ACCEL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ACCEL {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ALTTABINFO {
-    pub cbSize: u32,
-    pub cItems: i32,
-    pub cColumns: i32,
-    pub cRows: i32,
-    pub iColFocus: i32,
-    pub iRowFocus: i32,
-    pub cxItem: i32,
-    pub cyItem: i32,
-    pub ptStart: super::super::Foundation::POINT,
-}
-impl Default for ALTTABINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ALTTABINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ANIMATIONINFO {
-    pub cbSize: u32,
-    pub iMinAnimate: i32,
-}
-impl Default for ANIMATIONINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ANIMATIONINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct AUDIODESCRIPTION {
-    pub cbSize: u32,
-    pub Enabled: super::super::Foundation::BOOL,
-    pub Locale: u32,
-}
-impl Default for AUDIODESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for AUDIODESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CBTACTIVATESTRUCT {
-    pub fMouse: super::super::Foundation::BOOL,
-    pub hWndActive: super::super::Foundation::HWND,
-}
-impl Default for CBTACTIVATESTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CBTACTIVATESTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CBT_CREATEWNDA {
-    pub lpcs: *mut CREATESTRUCTA,
-    pub hwndInsertAfter: super::super::Foundation::HWND,
-}
-impl Default for CBT_CREATEWNDA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CBT_CREATEWNDA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CBT_CREATEWNDW {
-    pub lpcs: *mut CREATESTRUCTW,
-    pub hwndInsertAfter: super::super::Foundation::HWND,
-}
-impl Default for CBT_CREATEWNDW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CBT_CREATEWNDW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CHANGEFILTERSTRUCT {
-    pub cbSize: u32,
-    pub ExtStatus: MSGFLTINFO_STATUS,
-}
-impl Default for CHANGEFILTERSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CHANGEFILTERSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CLIENTCREATESTRUCT {
-    pub hWindowMenu: super::super::Foundation::HANDLE,
-    pub idFirstChild: u32,
-}
-impl Default for CLIENTCREATESTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CLIENTCREATESTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CREATESTRUCTA {
-    pub lpCreateParams: *mut core::ffi::c_void,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub hMenu: HMENU,
-    pub hwndParent: super::super::Foundation::HWND,
-    pub cy: i32,
-    pub cx: i32,
-    pub y: i32,
-    pub x: i32,
-    pub style: i32,
-    pub lpszName: windows_core::PCSTR,
-    pub lpszClass: windows_core::PCSTR,
-    pub dwExStyle: WINDOW_EX_STYLE,
-}
-impl Default for CREATESTRUCTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CREATESTRUCTA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CREATESTRUCTW {
-    pub lpCreateParams: *mut core::ffi::c_void,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub hMenu: HMENU,
-    pub hwndParent: super::super::Foundation::HWND,
-    pub cy: i32,
-    pub cx: i32,
-    pub y: i32,
-    pub x: i32,
-    pub style: i32,
-    pub lpszName: windows_core::PCWSTR,
-    pub lpszClass: windows_core::PCWSTR,
-    pub dwExStyle: WINDOW_EX_STYLE,
-}
-impl Default for CREATESTRUCTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CREATESTRUCTW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CURSORINFO {
-    pub cbSize: u32,
-    pub flags: CURSORINFO_FLAGS,
-    pub hCursor: HCURSOR,
-    pub ptScreenPos: super::super::Foundation::POINT,
-}
-impl Default for CURSORINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CURSORINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CURSORSHAPE {
-    pub xHotSpot: i32,
-    pub yHotSpot: i32,
-    pub cx: i32,
-    pub cy: i32,
-    pub cbWidth: i32,
-    pub Planes: u8,
-    pub BitsPixel: u8,
-}
-impl Default for CURSORSHAPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CURSORSHAPE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CWPRETSTRUCT {
-    pub lResult: super::super::Foundation::LRESULT,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub wParam: super::super::Foundation::WPARAM,
-    pub message: u32,
-    pub hwnd: super::super::Foundation::HWND,
-}
-impl Default for CWPRETSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CWPRETSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CWPSTRUCT {
-    pub lParam: super::super::Foundation::LPARAM,
-    pub wParam: super::super::Foundation::WPARAM,
-    pub message: u32,
-    pub hwnd: super::super::Foundation::HWND,
-}
-impl Default for CWPSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CWPSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DEBUGHOOKINFO {
-    pub idThread: u32,
-    pub idThreadInstaller: u32,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub wParam: super::super::Foundation::WPARAM,
-    pub code: i32,
-}
-impl Default for DEBUGHOOKINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DEBUGHOOKINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DEVICE_EVENT_BECOMING_READY {
-    pub Version: u32,
-    pub Reason: u32,
-    pub Estimated100msToReady: u32,
-}
-impl Default for DEVICE_EVENT_BECOMING_READY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DEVICE_EVENT_BECOMING_READY {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DEVICE_EVENT_EXTERNAL_REQUEST {
-    pub Version: u32,
-    pub DeviceClass: u32,
-    pub ButtonStatus: u16,
-    pub Request: u16,
-    pub SystemTime: i64,
-}
-impl Default for DEVICE_EVENT_EXTERNAL_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DEVICE_EVENT_EXTERNAL_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DEVICE_EVENT_GENERIC_DATA {
-    pub EventNumber: u32,
-}
-impl Default for DEVICE_EVENT_GENERIC_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DEVICE_EVENT_GENERIC_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DEVICE_EVENT_MOUNT {
-    pub Version: u32,
-    pub Flags: u32,
-    pub FileSystemNameLength: u32,
-    pub FileSystemNameOffset: u32,
-}
-impl Default for DEVICE_EVENT_MOUNT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DEVICE_EVENT_MOUNT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DEVICE_EVENT_RBC_DATA {
-    pub EventNumber: u32,
-    pub SenseQualifier: u8,
-    pub SenseCode: u8,
-    pub SenseKey: u8,
-    pub Reserved: u8,
-    pub Information: u32,
-}
-impl Default for DEVICE_EVENT_RBC_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DEVICE_EVENT_RBC_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DEV_BROADCAST_DEVICEINTERFACE_A {
-    pub dbcc_size: u32,
-    pub dbcc_devicetype: u32,
-    pub dbcc_reserved: u32,
-    pub dbcc_classguid: windows_core::GUID,
-    pub dbcc_name: [i8; 1],
-}
-impl Default for DEV_BROADCAST_DEVICEINTERFACE_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DEV_BROADCAST_DEVICEINTERFACE_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DEV_BROADCAST_DEVICEINTERFACE_W {
-    pub dbcc_size: u32,
-    pub dbcc_devicetype: u32,
-    pub dbcc_reserved: u32,
-    pub dbcc_classguid: windows_core::GUID,
-    pub dbcc_name: [u16; 1],
-}
-impl Default for DEV_BROADCAST_DEVICEINTERFACE_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DEV_BROADCAST_DEVICEINTERFACE_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DEV_BROADCAST_DEVNODE {
-    pub dbcd_size: u32,
-    pub dbcd_devicetype: u32,
-    pub dbcd_reserved: u32,
-    pub dbcd_devnode: u32,
-}
-impl Default for DEV_BROADCAST_DEVNODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DEV_BROADCAST_DEVNODE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DEV_BROADCAST_HANDLE {
-    pub dbch_size: u32,
-    pub dbch_devicetype: u32,
-    pub dbch_reserved: u32,
-    pub dbch_handle: super::super::Foundation::HANDLE,
-    pub dbch_hdevnotify: HDEVNOTIFY,
-    pub dbch_eventguid: windows_core::GUID,
-    pub dbch_nameoffset: i32,
-    pub dbch_data: [u8; 1],
-}
-impl Default for DEV_BROADCAST_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DEV_BROADCAST_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DEV_BROADCAST_HANDLE32 {
-    pub dbch_size: u32,
-    pub dbch_devicetype: u32,
-    pub dbch_reserved: u32,
-    pub dbch_handle: u32,
-    pub dbch_hdevnotify: u32,
-    pub dbch_eventguid: windows_core::GUID,
-    pub dbch_nameoffset: i32,
-    pub dbch_data: [u8; 1],
-}
-impl Default for DEV_BROADCAST_HANDLE32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DEV_BROADCAST_HANDLE32 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DEV_BROADCAST_HANDLE64 {
-    pub dbch_size: u32,
-    pub dbch_devicetype: u32,
-    pub dbch_reserved: u32,
-    pub dbch_handle: u64,
-    pub dbch_hdevnotify: u64,
-    pub dbch_eventguid: windows_core::GUID,
-    pub dbch_nameoffset: i32,
-    pub dbch_data: [u8; 1],
-}
-impl Default for DEV_BROADCAST_HANDLE64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DEV_BROADCAST_HANDLE64 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DEV_BROADCAST_HDR {
-    pub dbch_size: u32,
-    pub dbch_devicetype: DEV_BROADCAST_HDR_DEVICE_TYPE,
-    pub dbch_reserved: u32,
-}
-impl Default for DEV_BROADCAST_HDR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DEV_BROADCAST_HDR {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DEV_BROADCAST_NET {
-    pub dbcn_size: u32,
-    pub dbcn_devicetype: u32,
-    pub dbcn_reserved: u32,
-    pub dbcn_resource: u32,
-    pub dbcn_flags: u32,
-}
-impl Default for DEV_BROADCAST_NET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DEV_BROADCAST_NET {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DEV_BROADCAST_OEM {
-    pub dbco_size: u32,
-    pub dbco_devicetype: u32,
-    pub dbco_reserved: u32,
-    pub dbco_identifier: u32,
-    pub dbco_suppfunc: u32,
-}
-impl Default for DEV_BROADCAST_OEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DEV_BROADCAST_OEM {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DEV_BROADCAST_PORT_A {
-    pub dbcp_size: u32,
-    pub dbcp_devicetype: u32,
-    pub dbcp_reserved: u32,
-    pub dbcp_name: [i8; 1],
-}
-impl Default for DEV_BROADCAST_PORT_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DEV_BROADCAST_PORT_A {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DEV_BROADCAST_PORT_W {
-    pub dbcp_size: u32,
-    pub dbcp_devicetype: u32,
-    pub dbcp_reserved: u32,
-    pub dbcp_name: [u16; 1],
-}
-impl Default for DEV_BROADCAST_PORT_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DEV_BROADCAST_PORT_W {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DEV_BROADCAST_VOLUME {
-    pub dbcv_size: u32,
-    pub dbcv_devicetype: u32,
-    pub dbcv_reserved: u32,
-    pub dbcv_unitmask: u32,
-    pub dbcv_flags: DEV_BROADCAST_VOLUME_FLAGS,
-}
-impl Default for DEV_BROADCAST_VOLUME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DEV_BROADCAST_VOLUME {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DISK_HEALTH_NOTIFICATION_DATA {
-    pub DeviceGuid: windows_core::GUID,
-}
-impl Default for DISK_HEALTH_NOTIFICATION_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DISK_HEALTH_NOTIFICATION_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct DLGITEMTEMPLATE {
-    pub style: u32,
-    pub dwExtendedStyle: u32,
-    pub x: i16,
-    pub y: i16,
-    pub cx: i16,
-    pub cy: i16,
-    pub id: u16,
-}
-impl Default for DLGITEMTEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DLGITEMTEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct DLGTEMPLATE {
-    pub style: u32,
-    pub dwExtendedStyle: u32,
-    pub cdit: u16,
-    pub x: i16,
-    pub y: i16,
-    pub cx: i16,
-    pub cy: i16,
-}
-impl Default for DLGTEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DLGTEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DROPSTRUCT {
-    pub hwndSource: super::super::Foundation::HWND,
-    pub hwndSink: super::super::Foundation::HWND,
-    pub wFmt: u32,
-    pub dwData: usize,
-    pub ptDrop: super::super::Foundation::POINT,
-    pub dwControlData: u32,
-}
-impl Default for DROPSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DROPSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct EVENTMSG {
-    pub message: u32,
-    pub paramL: u32,
-    pub paramH: u32,
-    pub time: u32,
-    pub hwnd: super::super::Foundation::HWND,
-}
-impl Default for EVENTMSG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for EVENTMSG {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FLASHWINFO {
-    pub cbSize: u32,
-    pub hwnd: super::super::Foundation::HWND,
-    pub dwFlags: FLASHWINFO_FLAGS,
-    pub uCount: u32,
-    pub dwTimeout: u32,
-}
-impl Default for FLASHWINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FLASHWINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct GETCLIPBMETADATA {
-    pub Version: u32,
-    pub IsDelayRendered: super::super::Foundation::BOOL,
-    pub IsSynthetic: super::super::Foundation::BOOL,
-}
-impl Default for GETCLIPBMETADATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for GETCLIPBMETADATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
-    pub DiskNumber: u32,
-}
-impl Default for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct GUITHREADINFO {
-    pub cbSize: u32,
-    pub flags: GUITHREADINFO_FLAGS,
-    pub hwndActive: super::super::Foundation::HWND,
-    pub hwndFocus: super::super::Foundation::HWND,
-    pub hwndCapture: super::super::Foundation::HWND,
-    pub hwndMenuOwner: super::super::Foundation::HWND,
-    pub hwndMoveSize: super::super::Foundation::HWND,
-    pub hwndCaret: super::super::Foundation::HWND,
-    pub rcCaret: super::super::Foundation::RECT,
-}
-impl Default for GUITHREADINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for GUITHREADINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HACCEL(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HACCEL {
-    type TypeKind = windows_core::CopyType;
-}
-impl HACCEL {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HACCEL {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("user32.dll" "system" fn DestroyAcceleratorTable(haccel : *mut core::ffi::c_void) -> i32);
-            DestroyAcceleratorTable(self.0);
-        }
-    }
-}
-impl Default for HACCEL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HARDWAREHOOKSTRUCT {
-    pub hwnd: super::super::Foundation::HWND,
-    pub message: u32,
-    pub wParam: super::super::Foundation::WPARAM,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-impl Default for HARDWAREHOOKSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HARDWAREHOOKSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HCURSOR(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HCURSOR {
-    type TypeKind = windows_core::CopyType;
-}
-impl HCURSOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HCURSOR {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("user32.dll" "system" fn DestroyCursor(hcursor : *mut core::ffi::c_void) -> i32);
-            DestroyCursor(self.0);
-        }
-    }
-}
-impl Default for HCURSOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::imp::CanInto<HICON> for HCURSOR {}
-impl From<HCURSOR> for HICON {
-    fn from(value: HCURSOR) -> Self {
-        Self(value.0)
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HDEVNOTIFY(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDEVNOTIFY {
-    type TypeKind = windows_core::CopyType;
-}
-impl HDEVNOTIFY {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HDEVNOTIFY {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("user32.dll" "system" fn UnregisterDeviceNotification(handle : *mut core::ffi::c_void) -> i32);
-            UnregisterDeviceNotification(self.0);
-        }
-    }
-}
-impl Default for HDEVNOTIFY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HDWP(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDWP {
-    type TypeKind = windows_core::CopyType;
-}
-impl HDWP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for HDWP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HHOOK(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HHOOK {
-    type TypeKind = windows_core::CopyType;
-}
-impl HHOOK {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HHOOK {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("user32.dll" "system" fn UnhookWindowsHookEx(hhk : *mut core::ffi::c_void) -> i32);
-            UnhookWindowsHookEx(self.0);
-        }
-    }
-}
-impl Default for HHOOK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HICON(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HICON {
-    type TypeKind = windows_core::CopyType;
-}
-impl HICON {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HICON {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("user32.dll" "system" fn DestroyIcon(hicon : *mut core::ffi::c_void) -> i32);
-            DestroyIcon(self.0);
-        }
-    }
-}
-impl Default for HICON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HMENU(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HMENU {
-    type TypeKind = windows_core::CopyType;
-}
-impl HMENU {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HMENU {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_targets::link!("user32.dll" "system" fn DestroyMenu(hmenu : *mut core::ffi::c_void) -> i32);
-            DestroyMenu(self.0);
-        }
-    }
-}
-impl Default for HMENU {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ICONINFO {
-    pub fIcon: super::super::Foundation::BOOL,
-    pub xHotspot: u32,
-    pub yHotspot: u32,
-    pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
-    pub hbmColor: super::super::Graphics::Gdi::HBITMAP,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for ICONINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICONINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ICONINFOEXA {
-    pub cbSize: u32,
-    pub fIcon: super::super::Foundation::BOOL,
-    pub xHotspot: u32,
-    pub yHotspot: u32,
-    pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
-    pub hbmColor: super::super::Graphics::Gdi::HBITMAP,
-    pub wResID: u16,
-    pub szModName: [i8; 260],
-    pub szResName: [i8; 260],
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for ICONINFOEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICONINFOEXA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ICONINFOEXW {
-    pub cbSize: u32,
-    pub fIcon: super::super::Foundation::BOOL,
-    pub xHotspot: u32,
-    pub yHotspot: u32,
-    pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
-    pub hbmColor: super::super::Graphics::Gdi::HBITMAP,
-    pub wResID: u16,
-    pub szModName: [u16; 260],
-    pub szResName: [u16; 260],
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for ICONINFOEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICONINFOEXW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ICONMETRICSA {
-    pub cbSize: u32,
-    pub iHorzSpacing: i32,
-    pub iVertSpacing: i32,
-    pub iTitleWrap: i32,
-    pub lfFont: super::super::Graphics::Gdi::LOGFONTA,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for ICONMETRICSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICONMETRICSA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ICONMETRICSW {
-    pub cbSize: u32,
-    pub iHorzSpacing: i32,
-    pub iVertSpacing: i32,
-    pub iTitleWrap: i32,
-    pub lfFont: super::super::Graphics::Gdi::LOGFONTW,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for ICONMETRICSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICONMETRICSW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct IndexedResourceQualifier {
-    pub name: windows_core::PWSTR,
-    pub value: windows_core::PWSTR,
-}
-impl Default for IndexedResourceQualifier {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IndexedResourceQualifier {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct KBDLLHOOKSTRUCT {
-    pub vkCode: u32,
-    pub scanCode: u32,
-    pub flags: KBDLLHOOKSTRUCT_FLAGS,
-    pub time: u32,
-    pub dwExtraInfo: usize,
-}
-impl Default for KBDLLHOOKSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for KBDLLHOOKSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MDICREATESTRUCTA {
-    pub szClass: windows_core::PCSTR,
-    pub szTitle: windows_core::PCSTR,
-    pub hOwner: super::super::Foundation::HANDLE,
-    pub x: i32,
-    pub y: i32,
-    pub cx: i32,
-    pub cy: i32,
-    pub style: WINDOW_STYLE,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-impl Default for MDICREATESTRUCTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MDICREATESTRUCTA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MDICREATESTRUCTW {
-    pub szClass: windows_core::PCWSTR,
-    pub szTitle: windows_core::PCWSTR,
-    pub hOwner: super::super::Foundation::HANDLE,
-    pub x: i32,
-    pub y: i32,
-    pub cx: i32,
-    pub cy: i32,
-    pub style: WINDOW_STYLE,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-impl Default for MDICREATESTRUCTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MDICREATESTRUCTW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MDINEXTMENU {
-    pub hmenuIn: HMENU,
-    pub hmenuNext: HMENU,
-    pub hwndNext: super::super::Foundation::HWND,
-}
-impl Default for MDINEXTMENU {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MDINEXTMENU {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MENUBARINFO {
-    pub cbSize: u32,
-    pub rcBar: super::super::Foundation::RECT,
-    pub hMenu: HMENU,
-    pub hwndMenu: super::super::Foundation::HWND,
-    pub _bitfield: i32,
-}
-impl Default for MENUBARINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MENUBARINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MENUEX_TEMPLATE_HEADER {
-    pub wVersion: u16,
-    pub wOffset: u16,
-    pub dwHelpId: u32,
-}
-impl Default for MENUEX_TEMPLATE_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MENUEX_TEMPLATE_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MENUEX_TEMPLATE_ITEM {
-    pub dwType: u32,
-    pub dwState: u32,
-    pub uId: u32,
-    pub wFlags: u16,
-    pub szText: [u16; 1],
-}
-impl Default for MENUEX_TEMPLATE_ITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MENUEX_TEMPLATE_ITEM {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MENUGETOBJECTINFO {
-    pub dwFlags: MENUGETOBJECTINFO_FLAGS,
-    pub uPos: u32,
-    pub hmenu: HMENU,
-    pub riid: *mut core::ffi::c_void,
-    pub pvObj: *mut core::ffi::c_void,
-}
-impl Default for MENUGETOBJECTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MENUGETOBJECTINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MENUINFO {
-    pub cbSize: u32,
-    pub fMask: MENUINFO_MASK,
-    pub dwStyle: MENUINFO_STYLE,
-    pub cyMax: u32,
-    pub hbrBack: super::super::Graphics::Gdi::HBRUSH,
-    pub dwContextHelpID: u32,
-    pub dwMenuData: usize,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for MENUINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for MENUINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MENUITEMINFOA {
-    pub cbSize: u32,
-    pub fMask: MENU_ITEM_MASK,
-    pub fType: MENU_ITEM_TYPE,
-    pub fState: MENU_ITEM_STATE,
-    pub wID: u32,
-    pub hSubMenu: HMENU,
-    pub hbmpChecked: super::super::Graphics::Gdi::HBITMAP,
-    pub hbmpUnchecked: super::super::Graphics::Gdi::HBITMAP,
-    pub dwItemData: usize,
-    pub dwTypeData: windows_core::PSTR,
-    pub cch: u32,
-    pub hbmpItem: super::super::Graphics::Gdi::HBITMAP,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for MENUITEMINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for MENUITEMINFOA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MENUITEMINFOW {
-    pub cbSize: u32,
-    pub fMask: MENU_ITEM_MASK,
-    pub fType: MENU_ITEM_TYPE,
-    pub fState: MENU_ITEM_STATE,
-    pub wID: u32,
-    pub hSubMenu: HMENU,
-    pub hbmpChecked: super::super::Graphics::Gdi::HBITMAP,
-    pub hbmpUnchecked: super::super::Graphics::Gdi::HBITMAP,
-    pub dwItemData: usize,
-    pub dwTypeData: windows_core::PWSTR,
-    pub cch: u32,
-    pub hbmpItem: super::super::Graphics::Gdi::HBITMAP,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for MENUITEMINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for MENUITEMINFOW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MENUITEMTEMPLATE {
-    pub mtOption: u16,
-    pub mtID: u16,
-    pub mtString: [u16; 1],
-}
-impl Default for MENUITEMTEMPLATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MENUITEMTEMPLATE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MENUITEMTEMPLATEHEADER {
-    pub versionNumber: u16,
-    pub offset: u16,
-}
-impl Default for MENUITEMTEMPLATEHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MENUITEMTEMPLATEHEADER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MENUTEMPLATEEX {
-    pub Anonymous: MENUTEMPLATEEX_0,
-}
-impl Default for MENUTEMPLATEEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MENUTEMPLATEEX {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union MENUTEMPLATEEX_0 {
-    pub Menu: MENUTEMPLATEEX_0_0,
-    pub MenuEx: MENUTEMPLATEEX_0_1,
-}
-impl Default for MENUTEMPLATEEX_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MENUTEMPLATEEX_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MENUTEMPLATEEX_0_1 {
-    pub mexHeader: MENUEX_TEMPLATE_HEADER,
-    pub mexItem: [MENUEX_TEMPLATE_ITEM; 1],
-}
-impl Default for MENUTEMPLATEEX_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MENUTEMPLATEEX_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MENUTEMPLATEEX_0_0 {
-    pub mitHeader: MENUITEMTEMPLATEHEADER,
-    pub miTemplate: [MENUITEMTEMPLATE; 1],
-}
-impl Default for MENUTEMPLATEEX_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for MENUTEMPLATEEX_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MESSAGE_RESOURCE_BLOCK {
@@ -6051,6 +6277,67 @@ impl Default for MESSAGE_RESOURCE_ENTRY {
 impl windows_core::TypeKind for MESSAGE_RESOURCE_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
+pub const METRICS_USEDEFAULT: i32 = -1i32;
+pub const MFS_CHECKED: MENU_ITEM_STATE = MENU_ITEM_STATE(8u32);
+pub const MFS_DEFAULT: MENU_ITEM_STATE = MENU_ITEM_STATE(4096u32);
+pub const MFS_DISABLED: MENU_ITEM_STATE = MENU_ITEM_STATE(3u32);
+pub const MFS_ENABLED: MENU_ITEM_STATE = MENU_ITEM_STATE(0u32);
+pub const MFS_GRAYED: MENU_ITEM_STATE = MENU_ITEM_STATE(3u32);
+pub const MFS_HILITE: MENU_ITEM_STATE = MENU_ITEM_STATE(128u32);
+pub const MFS_UNCHECKED: MENU_ITEM_STATE = MENU_ITEM_STATE(0u32);
+pub const MFS_UNHILITE: MENU_ITEM_STATE = MENU_ITEM_STATE(0u32);
+pub const MFT_BITMAP: MENU_ITEM_TYPE = MENU_ITEM_TYPE(4u32);
+pub const MFT_MENUBARBREAK: MENU_ITEM_TYPE = MENU_ITEM_TYPE(32u32);
+pub const MFT_MENUBREAK: MENU_ITEM_TYPE = MENU_ITEM_TYPE(64u32);
+pub const MFT_OWNERDRAW: MENU_ITEM_TYPE = MENU_ITEM_TYPE(256u32);
+pub const MFT_RADIOCHECK: MENU_ITEM_TYPE = MENU_ITEM_TYPE(512u32);
+pub const MFT_RIGHTJUSTIFY: MENU_ITEM_TYPE = MENU_ITEM_TYPE(16384u32);
+pub const MFT_RIGHTORDER: MENU_ITEM_TYPE = MENU_ITEM_TYPE(8192u32);
+pub const MFT_SEPARATOR: MENU_ITEM_TYPE = MENU_ITEM_TYPE(2048u32);
+pub const MFT_STRING: MENU_ITEM_TYPE = MENU_ITEM_TYPE(0u32);
+pub const MF_APPEND: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(256u32);
+pub const MF_BITMAP: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(4u32);
+pub const MF_BYCOMMAND: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
+pub const MF_BYPOSITION: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(1024u32);
+pub const MF_CHANGE: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(128u32);
+pub const MF_CHECKED: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(8u32);
+pub const MF_DEFAULT: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(4096u32);
+pub const MF_DELETE: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(512u32);
+pub const MF_DISABLED: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(2u32);
+pub const MF_ENABLED: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
+pub const MF_END: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(128u32);
+pub const MF_GRAYED: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(1u32);
+pub const MF_HELP: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(16384u32);
+pub const MF_HILITE: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(128u32);
+pub const MF_INSERT: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
+pub const MF_MENUBARBREAK: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(32u32);
+pub const MF_MENUBREAK: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(64u32);
+pub const MF_MOUSESELECT: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(32768u32);
+pub const MF_OWNERDRAW: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(256u32);
+pub const MF_POPUP: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(16u32);
+pub const MF_REMOVE: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(4096u32);
+pub const MF_RIGHTJUSTIFY: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(16384u32);
+pub const MF_SEPARATOR: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(2048u32);
+pub const MF_STRING: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
+pub const MF_SYSMENU: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(8192u32);
+pub const MF_UNCHECKED: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
+pub const MF_UNHILITE: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
+pub const MF_USECHECKBITMAPS: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(512u32);
+pub const MIIM_BITMAP: MENU_ITEM_MASK = MENU_ITEM_MASK(128u32);
+pub const MIIM_CHECKMARKS: MENU_ITEM_MASK = MENU_ITEM_MASK(8u32);
+pub const MIIM_DATA: MENU_ITEM_MASK = MENU_ITEM_MASK(32u32);
+pub const MIIM_FTYPE: MENU_ITEM_MASK = MENU_ITEM_MASK(256u32);
+pub const MIIM_ID: MENU_ITEM_MASK = MENU_ITEM_MASK(2u32);
+pub const MIIM_STATE: MENU_ITEM_MASK = MENU_ITEM_MASK(1u32);
+pub const MIIM_STRING: MENU_ITEM_MASK = MENU_ITEM_MASK(64u32);
+pub const MIIM_SUBMENU: MENU_ITEM_MASK = MENU_ITEM_MASK(4u32);
+pub const MIIM_TYPE: MENU_ITEM_MASK = MENU_ITEM_MASK(16u32);
+pub const MIM_APPLYTOSUBMENUS: MENUINFO_MASK = MENUINFO_MASK(2147483648u32);
+pub const MIM_BACKGROUND: MENUINFO_MASK = MENUINFO_MASK(2u32);
+pub const MIM_HELPID: MENUINFO_MASK = MENUINFO_MASK(4u32);
+pub const MIM_MAXHEIGHT: MENUINFO_MASK = MENUINFO_MASK(1u32);
+pub const MIM_MENUDATA: MENUINFO_MASK = MENUINFO_MASK(8u32);
+pub const MIM_STYLE: MENUINFO_MASK = MENUINFO_MASK(16u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MINIMIZEDMETRICS {
@@ -6068,6 +6355,10 @@ impl Default for MINIMIZEDMETRICS {
 impl windows_core::TypeKind for MINIMIZEDMETRICS {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MINIMIZEDMETRICS_ARRANGE(pub i32);
+pub const MINIMUM_RESERVED_MANIFEST_RESOURCE_ID: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MINMAXINFO {
@@ -6085,6 +6376,38 @@ impl Default for MINMAXINFO {
 impl windows_core::TypeKind for MINMAXINFO {
     type TypeKind = windows_core::CopyType;
 }
+pub const MIN_LOGICALDPIOVERRIDE: i32 = -2i32;
+pub const MKF_AVAILABLE: u32 = 2u32;
+pub const MKF_CONFIRMHOTKEY: u32 = 8u32;
+pub const MKF_HOTKEYACTIVE: u32 = 4u32;
+pub const MKF_HOTKEYSOUND: u32 = 16u32;
+pub const MKF_INDICATOR: u32 = 32u32;
+pub const MKF_LEFTBUTTONDOWN: u32 = 16777216u32;
+pub const MKF_LEFTBUTTONSEL: u32 = 268435456u32;
+pub const MKF_MODIFIERS: u32 = 64u32;
+pub const MKF_MOUSEKEYSON: u32 = 1u32;
+pub const MKF_MOUSEMODE: u32 = 2147483648u32;
+pub const MKF_REPLACENUMBERS: u32 = 128u32;
+pub const MKF_RIGHTBUTTONDOWN: u32 = 33554432u32;
+pub const MKF_RIGHTBUTTONSEL: u32 = 536870912u32;
+pub const MNC_CLOSE: u32 = 1u32;
+pub const MNC_EXECUTE: u32 = 2u32;
+pub const MNC_IGNORE: u32 = 0u32;
+pub const MNC_SELECT: u32 = 3u32;
+pub const MND_CONTINUE: u32 = 0u32;
+pub const MND_ENDMENU: u32 = 1u32;
+pub const MNGOF_BOTTOMGAP: MENUGETOBJECTINFO_FLAGS = MENUGETOBJECTINFO_FLAGS(2u32);
+pub const MNGOF_TOPGAP: MENUGETOBJECTINFO_FLAGS = MENUGETOBJECTINFO_FLAGS(1u32);
+pub const MNGO_NOERROR: u32 = 1u32;
+pub const MNGO_NOINTERFACE: u32 = 0u32;
+pub const MNS_AUTODISMISS: MENUINFO_STYLE = MENUINFO_STYLE(268435456u32);
+pub const MNS_CHECKORBMP: MENUINFO_STYLE = MENUINFO_STYLE(67108864u32);
+pub const MNS_DRAGDROP: MENUINFO_STYLE = MENUINFO_STYLE(536870912u32);
+pub const MNS_MODELESS: MENUINFO_STYLE = MENUINFO_STYLE(1073741824u32);
+pub const MNS_NOCHECK: MENUINFO_STYLE = MENUINFO_STYLE(2147483648u32);
+pub const MNS_NOTIFYBYPOS: MENUINFO_STYLE = MENUINFO_STYLE(134217728u32);
+pub const MN_GETHMENU: u32 = 481u32;
+pub const MONITORINFOF_PRIMARY: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MOUSEHOOKSTRUCT {
@@ -6115,6 +6438,9 @@ impl Default for MOUSEHOOKSTRUCTEX {
 impl windows_core::TypeKind for MOUSEHOOKSTRUCTEX {
     type TypeKind = windows_core::CopyType;
 }
+pub const MOUSEWHEEL_ROUTING_FOCUS: u32 = 0u32;
+pub const MOUSEWHEEL_ROUTING_HYBRID: u32 = 1u32;
+pub const MOUSEWHEEL_ROUTING_MOUSE_POS: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MSG {
@@ -6133,6 +6459,8 @@ impl Default for MSG {
 impl windows_core::TypeKind for MSG {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(feature = "Win32_UI_Shell")]
+pub type MSGBOXCALLBACK = Option<unsafe extern "system" fn(lphelpinfo: *mut super::Shell::HELPINFO)>;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6183,6 +6511,61 @@ impl Default for MSGBOXPARAMSW {
 impl windows_core::TypeKind for MSGBOXPARAMSW {
     type TypeKind = windows_core::CopyType;
 }
+pub const MSGFLTINFO_ALLOWED_HIGHER: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(3u32);
+pub const MSGFLTINFO_ALREADYALLOWED_FORWND: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(1u32);
+pub const MSGFLTINFO_ALREADYDISALLOWED_FORWND: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(2u32);
+pub const MSGFLTINFO_NONE: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(0u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MSGFLTINFO_STATUS(pub u32);
+pub const MSGFLT_ADD: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = CHANGE_WINDOW_MESSAGE_FILTER_FLAGS(1u32);
+pub const MSGFLT_ALLOW: WINDOW_MESSAGE_FILTER_ACTION = WINDOW_MESSAGE_FILTER_ACTION(1u32);
+pub const MSGFLT_DISALLOW: WINDOW_MESSAGE_FILTER_ACTION = WINDOW_MESSAGE_FILTER_ACTION(2u32);
+pub const MSGFLT_REMOVE: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = CHANGE_WINDOW_MESSAGE_FILTER_FLAGS(2u32);
+pub const MSGFLT_RESET: WINDOW_MESSAGE_FILTER_ACTION = WINDOW_MESSAGE_FILTER_ACTION(0u32);
+pub const MSGF_DIALOGBOX: u32 = 0u32;
+pub const MSGF_MAX: u32 = 8u32;
+pub const MSGF_MENU: u32 = 2u32;
+pub const MSGF_MESSAGEBOX: u32 = 1u32;
+pub const MSGF_NEXTWINDOW: u32 = 6u32;
+pub const MSGF_SCROLLBAR: u32 = 5u32;
+pub const MSGF_USER: u32 = 4096u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(pub u32);
+impl MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MSLLHOOKSTRUCT {
@@ -6200,6 +6583,40 @@ impl Default for MSLLHOOKSTRUCT {
 impl windows_core::TypeKind for MSLLHOOKSTRUCT {
     type TypeKind = windows_core::CopyType;
 }
+pub const MWMO_ALERTABLE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(2u32);
+pub const MWMO_INPUTAVAILABLE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(4u32);
+pub const MWMO_NONE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(0u32);
+pub const MWMO_WAITALL: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(1u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MrmDumpType(pub i32);
+pub const MrmDumpType_Basic: MrmDumpType = MrmDumpType(0i32);
+pub const MrmDumpType_Detailed: MrmDumpType = MrmDumpType(1i32);
+pub const MrmDumpType_Schema: MrmDumpType = MrmDumpType(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MrmIndexerFlags(pub i32);
+pub const MrmIndexerFlagsAutoMerge: MrmIndexerFlags = MrmIndexerFlags(1i32);
+pub const MrmIndexerFlagsCreateContentChecksum: MrmIndexerFlags = MrmIndexerFlags(2i32);
+pub const MrmIndexerFlagsNone: MrmIndexerFlags = MrmIndexerFlags(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MrmPackagingMode(pub i32);
+pub const MrmPackagingModeAutoSplit: MrmPackagingMode = MrmPackagingMode(1i32);
+pub const MrmPackagingModeResourcePack: MrmPackagingMode = MrmPackagingMode(2i32);
+pub const MrmPackagingModeStandaloneFile: MrmPackagingMode = MrmPackagingMode(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MrmPackagingOptions(pub i32);
+pub const MrmPackagingOptionsNone: MrmPackagingOptions = MrmPackagingOptions(0i32);
+pub const MrmPackagingOptionsOmitSchemaFromResourcePacks: MrmPackagingOptions = MrmPackagingOptions(1i32);
+pub const MrmPackagingOptionsSplitLanguageVariants: MrmPackagingOptions = MrmPackagingOptions(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MrmPlatformVersion(pub i32);
+pub const MrmPlatformVersion_Default: MrmPlatformVersion = MrmPlatformVersion(0i32);
+pub const MrmPlatformVersion_Windows10_0_0_0: MrmPlatformVersion = MrmPlatformVersion(17432576i32);
+pub const MrmPlatformVersion_Windows10_0_0_5: MrmPlatformVersion = MrmPlatformVersion(17432581i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MrmResourceIndexerHandle {
@@ -6228,6 +6645,15 @@ impl Default for MrmResourceIndexerMessage {
 impl windows_core::TypeKind for MrmResourceIndexerMessage {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MrmResourceIndexerMessageSeverity(pub i32);
+pub const MrmResourceIndexerMessageSeverityError: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(3i32);
+pub const MrmResourceIndexerMessageSeverityInfo: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(1i32);
+pub const MrmResourceIndexerMessageSeverityVerbose: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(0i32);
+pub const MrmResourceIndexerMessageSeverityWarning: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(2i32);
+pub type NAMEENUMPROCA = Option<unsafe extern "system" fn(param0: windows_core::PCSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub type NAMEENUMPROCW = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NCCALCSIZE_PARAMS {
@@ -6242,6 +6668,16 @@ impl Default for NCCALCSIZE_PARAMS {
 impl windows_core::TypeKind for NCCALCSIZE_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
+pub const NFR_ANSI: u32 = 1u32;
+pub const NFR_UNICODE: u32 = 2u32;
+pub const NF_QUERY: u32 = 3u32;
+pub const NF_REQUERY: u32 = 4u32;
+pub const NID_EXTERNAL_PEN: u32 = 8u32;
+pub const NID_EXTERNAL_TOUCH: u32 = 2u32;
+pub const NID_INTEGRATED_PEN: u32 = 4u32;
+pub const NID_INTEGRATED_TOUCH: u32 = 1u32;
+pub const NID_MULTI_INPUT: u32 = 64u32;
+pub const NID_READY: u32 = 128u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6304,1395 +6740,9 @@ impl Default for NONCLIENTMETRICSW {
 impl windows_core::TypeKind for NONCLIENTMETRICSW {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SCROLLBARINFO {
-    pub cbSize: u32,
-    pub rcScrollBar: super::super::Foundation::RECT,
-    pub dxyLineButton: i32,
-    pub xyThumbTop: i32,
-    pub xyThumbBottom: i32,
-    pub reserved: i32,
-    pub rgstate: [u32; 6],
-}
-impl Default for SCROLLBARINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SCROLLBARINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SCROLLINFO {
-    pub cbSize: u32,
-    pub fMask: SCROLLINFO_MASK,
-    pub nMin: i32,
-    pub nMax: i32,
-    pub nPage: u32,
-    pub nPos: i32,
-    pub nTrackPos: i32,
-}
-impl Default for SCROLLINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SCROLLINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SHELLHOOKINFO {
-    pub hwnd: super::super::Foundation::HWND,
-    pub rc: super::super::Foundation::RECT,
-}
-impl Default for SHELLHOOKINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SHELLHOOKINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct STYLESTRUCT {
-    pub styleOld: u32,
-    pub styleNew: u32,
-}
-impl Default for STYLESTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for STYLESTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TITLEBARINFO {
-    pub cbSize: u32,
-    pub rcTitleBar: super::super::Foundation::RECT,
-    pub rgstate: [u32; 6],
-}
-impl Default for TITLEBARINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TITLEBARINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TITLEBARINFOEX {
-    pub cbSize: u32,
-    pub rcTitleBar: super::super::Foundation::RECT,
-    pub rgstate: [u32; 6],
-    pub rgrect: [super::super::Foundation::RECT; 6],
-}
-impl Default for TITLEBARINFOEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TITLEBARINFOEX {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TOUCHPREDICTIONPARAMETERS {
-    pub cbSize: u32,
-    pub dwLatency: u32,
-    pub dwSampleTime: u32,
-    pub bUseHWTimeStamp: u32,
-}
-impl Default for TOUCHPREDICTIONPARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TOUCHPREDICTIONPARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TPMPARAMS {
-    pub cbSize: u32,
-    pub rcExclude: super::super::Foundation::RECT,
-}
-impl Default for TPMPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TPMPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct UPDATELAYEREDWINDOWINFO {
-    pub cbSize: u32,
-    pub hdcDst: super::super::Graphics::Gdi::HDC,
-    pub pptDst: *const super::super::Foundation::POINT,
-    pub psize: *const super::super::Foundation::SIZE,
-    pub hdcSrc: super::super::Graphics::Gdi::HDC,
-    pub pptSrc: *const super::super::Foundation::POINT,
-    pub crKey: super::super::Foundation::COLORREF,
-    pub pblend: *const super::super::Graphics::Gdi::BLENDFUNCTION,
-    pub dwFlags: UPDATE_LAYERED_WINDOW_FLAGS,
-    pub prcDirty: *const super::super::Foundation::RECT,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for UPDATELAYEREDWINDOWINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for UPDATELAYEREDWINDOWINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VolLockBroadcast {
-    pub vlb_dbh: DEV_BROADCAST_HDR,
-    pub vlb_owner: u32,
-    pub vlb_perms: u8,
-    pub vlb_lockType: u8,
-    pub vlb_drive: u8,
-    pub vlb_flags: u8,
-}
-impl Default for VolLockBroadcast {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VolLockBroadcast {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINDOWINFO {
-    pub cbSize: u32,
-    pub rcWindow: super::super::Foundation::RECT,
-    pub rcClient: super::super::Foundation::RECT,
-    pub dwStyle: WINDOW_STYLE,
-    pub dwExStyle: WINDOW_EX_STYLE,
-    pub dwWindowStatus: u32,
-    pub cxWindowBorders: u32,
-    pub cyWindowBorders: u32,
-    pub atomWindowType: u16,
-    pub wCreatorVersion: u16,
-}
-impl Default for WINDOWINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WINDOWINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINDOWPLACEMENT {
-    pub length: u32,
-    pub flags: WINDOWPLACEMENT_FLAGS,
-    pub showCmd: u32,
-    pub ptMinPosition: super::super::Foundation::POINT,
-    pub ptMaxPosition: super::super::Foundation::POINT,
-    pub rcNormalPosition: super::super::Foundation::RECT,
-}
-impl Default for WINDOWPLACEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WINDOWPLACEMENT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINDOWPOS {
-    pub hwnd: super::super::Foundation::HWND,
-    pub hwndInsertAfter: super::super::Foundation::HWND,
-    pub x: i32,
-    pub y: i32,
-    pub cx: i32,
-    pub cy: i32,
-    pub flags: SET_WINDOW_POS_FLAGS,
-}
-impl Default for WINDOWPOS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WINDOWPOS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WNDCLASSA {
-    pub style: WNDCLASS_STYLES,
-    pub lpfnWndProc: WNDPROC,
-    pub cbClsExtra: i32,
-    pub cbWndExtra: i32,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub hIcon: HICON,
-    pub hCursor: HCURSOR,
-    pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
-    pub lpszMenuName: windows_core::PCSTR,
-    pub lpszClassName: windows_core::PCSTR,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for WNDCLASSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for WNDCLASSA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WNDCLASSEXA {
-    pub cbSize: u32,
-    pub style: WNDCLASS_STYLES,
-    pub lpfnWndProc: WNDPROC,
-    pub cbClsExtra: i32,
-    pub cbWndExtra: i32,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub hIcon: HICON,
-    pub hCursor: HCURSOR,
-    pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
-    pub lpszMenuName: windows_core::PCSTR,
-    pub lpszClassName: windows_core::PCSTR,
-    pub hIconSm: HICON,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for WNDCLASSEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for WNDCLASSEXA {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WNDCLASSEXW {
-    pub cbSize: u32,
-    pub style: WNDCLASS_STYLES,
-    pub lpfnWndProc: WNDPROC,
-    pub cbClsExtra: i32,
-    pub cbWndExtra: i32,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub hIcon: HICON,
-    pub hCursor: HCURSOR,
-    pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
-    pub lpszMenuName: windows_core::PCWSTR,
-    pub lpszClassName: windows_core::PCWSTR,
-    pub hIconSm: HICON,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for WNDCLASSEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for WNDCLASSEXW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WNDCLASSW {
-    pub style: WNDCLASS_STYLES,
-    pub lpfnWndProc: WNDPROC,
-    pub cbClsExtra: i32,
-    pub cbWndExtra: i32,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub hIcon: HICON,
-    pub hCursor: HCURSOR,
-    pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
-    pub lpszMenuName: windows_core::PCWSTR,
-    pub lpszClassName: windows_core::PCWSTR,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for WNDCLASSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for WNDCLASSW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct _DEV_BROADCAST_HEADER {
-    pub dbcd_size: u32,
-    pub dbcd_devicetype: u32,
-    pub dbcd_reserved: u32,
-}
-impl Default for _DEV_BROADCAST_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for _DEV_BROADCAST_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct _DEV_BROADCAST_USERDEFINED {
-    pub dbud_dbh: DEV_BROADCAST_HDR,
-    pub dbud_szName: [i8; 1],
-}
-impl Default for _DEV_BROADCAST_USERDEFINED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for _DEV_BROADCAST_USERDEFINED {
-    type TypeKind = windows_core::CopyType;
-}
-pub const ARW_BOTTOMLEFT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(0i32);
-pub const ARW_BOTTOMRIGHT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(1i32);
-pub const ARW_DOWN: i32 = 4i32;
-pub const ARW_HIDE: i32 = 8i32;
-pub const ARW_LEFT: i32 = 0i32;
-pub const ARW_RIGHT: i32 = 0i32;
-pub const ARW_STARTMASK: i32 = 3i32;
-pub const ARW_STARTRIGHT: i32 = 1i32;
-pub const ARW_STARTTOP: i32 = 2i32;
-pub const ARW_TOPLEFT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(2i32);
-pub const ARW_TOPRIGHT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(3i32);
-pub const ARW_UP: i32 = 4i32;
-pub const ASFW_ANY: u32 = 4294967295u32;
-pub const AW_ACTIVATE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(131072u32);
-pub const AW_BLEND: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(524288u32);
-pub const AW_CENTER: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(16u32);
-pub const AW_HIDE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(65536u32);
-pub const AW_HOR_NEGATIVE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(2u32);
-pub const AW_HOR_POSITIVE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(1u32);
-pub const AW_SLIDE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(262144u32);
-pub const AW_VER_NEGATIVE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(8u32);
-pub const AW_VER_POSITIVE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(4u32);
-pub const BM_CLICK: u32 = 245u32;
-pub const BM_GETCHECK: u32 = 240u32;
-pub const BM_GETIMAGE: u32 = 246u32;
-pub const BM_GETSTATE: u32 = 242u32;
-pub const BM_SETCHECK: u32 = 241u32;
-pub const BM_SETDONTCLICK: u32 = 248u32;
-pub const BM_SETIMAGE: u32 = 247u32;
-pub const BM_SETSTATE: u32 = 243u32;
-pub const BM_SETSTYLE: u32 = 244u32;
-pub const BN_CLICKED: u32 = 0u32;
-pub const BN_DBLCLK: u32 = 5u32;
-pub const BN_DISABLE: u32 = 4u32;
-pub const BN_DOUBLECLICKED: u32 = 5u32;
-pub const BN_HILITE: u32 = 2u32;
-pub const BN_KILLFOCUS: u32 = 7u32;
-pub const BN_PAINT: u32 = 1u32;
-pub const BN_PUSHED: u32 = 2u32;
-pub const BN_SETFOCUS: u32 = 6u32;
-pub const BN_UNHILITE: u32 = 3u32;
-pub const BN_UNPUSHED: u32 = 3u32;
-pub const BROADCAST_QUERY_DENY: u32 = 1112363332u32;
-pub const BSF_MSGSRV32ISOK: u32 = 2147483648u32;
-pub const BSF_MSGSRV32ISOK_BIT: u32 = 31u32;
-pub const BSM_INSTALLABLEDRIVERS: u32 = 4u32;
-pub const BSM_NETDRIVER: u32 = 2u32;
-pub const BSM_VXDS: u32 = 1u32;
-pub const BST_FOCUS: u32 = 8u32;
-pub const BST_PUSHED: u32 = 4u32;
-pub const BS_3STATE: i32 = 5i32;
-pub const BS_AUTO3STATE: i32 = 6i32;
-pub const BS_AUTOCHECKBOX: i32 = 3i32;
-pub const BS_AUTORADIOBUTTON: i32 = 9i32;
-pub const BS_BITMAP: i32 = 128i32;
-pub const BS_BOTTOM: i32 = 2048i32;
-pub const BS_CENTER: i32 = 768i32;
-pub const BS_CHECKBOX: i32 = 2i32;
-pub const BS_DEFPUSHBUTTON: i32 = 1i32;
-pub const BS_FLAT: i32 = 32768i32;
-pub const BS_GROUPBOX: i32 = 7i32;
-pub const BS_ICON: i32 = 64i32;
-pub const BS_LEFT: i32 = 256i32;
-pub const BS_LEFTTEXT: i32 = 32i32;
-pub const BS_MULTILINE: i32 = 8192i32;
-pub const BS_NOTIFY: i32 = 16384i32;
-pub const BS_OWNERDRAW: i32 = 11i32;
-pub const BS_PUSHBOX: i32 = 10i32;
-pub const BS_PUSHBUTTON: i32 = 0i32;
-pub const BS_PUSHLIKE: i32 = 4096i32;
-pub const BS_RADIOBUTTON: i32 = 4i32;
-pub const BS_RIGHT: i32 = 512i32;
-pub const BS_RIGHTBUTTON: i32 = 32i32;
-pub const BS_TEXT: i32 = 0i32;
-pub const BS_TOP: i32 = 1024i32;
-pub const BS_TYPEMASK: i32 = 15i32;
-pub const BS_USERBUTTON: i32 = 8i32;
-pub const BS_VCENTER: i32 = 3072i32;
-pub const CALERT_SYSTEM: u32 = 6u32;
-pub const CBN_CLOSEUP: u32 = 8u32;
-pub const CBN_DBLCLK: u32 = 2u32;
-pub const CBN_DROPDOWN: u32 = 7u32;
-pub const CBN_EDITCHANGE: u32 = 5u32;
-pub const CBN_EDITUPDATE: u32 = 6u32;
-pub const CBN_ERRSPACE: i32 = -1i32;
-pub const CBN_KILLFOCUS: u32 = 4u32;
-pub const CBN_SELCHANGE: u32 = 1u32;
-pub const CBN_SELENDCANCEL: u32 = 10u32;
-pub const CBN_SELENDOK: u32 = 9u32;
-pub const CBN_SETFOCUS: u32 = 3u32;
-pub const CBS_AUTOHSCROLL: i32 = 64i32;
-pub const CBS_DISABLENOSCROLL: i32 = 2048i32;
-pub const CBS_DROPDOWN: i32 = 2i32;
-pub const CBS_DROPDOWNLIST: i32 = 3i32;
-pub const CBS_HASSTRINGS: i32 = 512i32;
-pub const CBS_LOWERCASE: i32 = 16384i32;
-pub const CBS_NOINTEGRALHEIGHT: i32 = 1024i32;
-pub const CBS_OEMCONVERT: i32 = 128i32;
-pub const CBS_OWNERDRAWFIXED: i32 = 16i32;
-pub const CBS_OWNERDRAWVARIABLE: i32 = 32i32;
-pub const CBS_SIMPLE: i32 = 1i32;
-pub const CBS_SORT: i32 = 256i32;
-pub const CBS_UPPERCASE: i32 = 8192i32;
-pub const CB_ADDSTRING: u32 = 323u32;
-pub const CB_DELETESTRING: u32 = 324u32;
-pub const CB_DIR: u32 = 325u32;
-pub const CB_ERR: i32 = -1i32;
-pub const CB_ERRSPACE: i32 = -2i32;
-pub const CB_FINDSTRING: u32 = 332u32;
-pub const CB_FINDSTRINGEXACT: u32 = 344u32;
-pub const CB_GETCOMBOBOXINFO: u32 = 356u32;
-pub const CB_GETCOUNT: u32 = 326u32;
-pub const CB_GETCURSEL: u32 = 327u32;
-pub const CB_GETDROPPEDCONTROLRECT: u32 = 338u32;
-pub const CB_GETDROPPEDSTATE: u32 = 343u32;
-pub const CB_GETDROPPEDWIDTH: u32 = 351u32;
-pub const CB_GETEDITSEL: u32 = 320u32;
-pub const CB_GETEXTENDEDUI: u32 = 342u32;
-pub const CB_GETHORIZONTALEXTENT: u32 = 349u32;
-pub const CB_GETITEMDATA: u32 = 336u32;
-pub const CB_GETITEMHEIGHT: u32 = 340u32;
-pub const CB_GETLBTEXT: u32 = 328u32;
-pub const CB_GETLBTEXTLEN: u32 = 329u32;
-pub const CB_GETLOCALE: u32 = 346u32;
-pub const CB_GETTOPINDEX: u32 = 347u32;
-pub const CB_INITSTORAGE: u32 = 353u32;
-pub const CB_INSERTSTRING: u32 = 330u32;
-pub const CB_LIMITTEXT: u32 = 321u32;
-pub const CB_MSGMAX: u32 = 357u32;
-pub const CB_MULTIPLEADDSTRING: u32 = 355u32;
-pub const CB_OKAY: u32 = 0u32;
-pub const CB_RESETCONTENT: u32 = 331u32;
-pub const CB_SELECTSTRING: u32 = 333u32;
-pub const CB_SETCURSEL: u32 = 334u32;
-pub const CB_SETDROPPEDWIDTH: u32 = 352u32;
-pub const CB_SETEDITSEL: u32 = 322u32;
-pub const CB_SETEXTENDEDUI: u32 = 341u32;
-pub const CB_SETHORIZONTALEXTENT: u32 = 350u32;
-pub const CB_SETITEMDATA: u32 = 337u32;
-pub const CB_SETITEMHEIGHT: u32 = 339u32;
-pub const CB_SETLOCALE: u32 = 345u32;
-pub const CB_SETTOPINDEX: u32 = 348u32;
-pub const CB_SHOWDROPDOWN: u32 = 335u32;
-pub const CCHILDREN_SCROLLBAR: u32 = 5u32;
-pub const CCHILDREN_TITLEBAR: u32 = 5u32;
-pub const CHILDID_SELF: u32 = 0u32;
-pub const CONSOLE_APPLICATION_16BIT: u32 = 0u32;
-pub const CONSOLE_CARET_SELECTION: u32 = 1u32;
-pub const CONSOLE_CARET_VISIBLE: u32 = 2u32;
-pub const CONTACTVISUALIZATION_OFF: u32 = 0u32;
-pub const CONTACTVISUALIZATION_ON: u32 = 1u32;
-pub const CONTACTVISUALIZATION_PRESENTATIONMODE: u32 = 2u32;
-pub const CREATEPROCESS_MANIFEST_RESOURCE_ID: u32 = 1u32;
-pub const CSOUND_SYSTEM: u32 = 16u32;
-pub const CS_BYTEALIGNCLIENT: WNDCLASS_STYLES = WNDCLASS_STYLES(4096u32);
-pub const CS_BYTEALIGNWINDOW: WNDCLASS_STYLES = WNDCLASS_STYLES(8192u32);
-pub const CS_CLASSDC: WNDCLASS_STYLES = WNDCLASS_STYLES(64u32);
-pub const CS_DBLCLKS: WNDCLASS_STYLES = WNDCLASS_STYLES(8u32);
-pub const CS_DROPSHADOW: WNDCLASS_STYLES = WNDCLASS_STYLES(131072u32);
-pub const CS_GLOBALCLASS: WNDCLASS_STYLES = WNDCLASS_STYLES(16384u32);
-pub const CS_HREDRAW: WNDCLASS_STYLES = WNDCLASS_STYLES(2u32);
-pub const CS_IME: WNDCLASS_STYLES = WNDCLASS_STYLES(65536u32);
-pub const CS_NOCLOSE: WNDCLASS_STYLES = WNDCLASS_STYLES(512u32);
-pub const CS_OWNDC: WNDCLASS_STYLES = WNDCLASS_STYLES(32u32);
-pub const CS_PARENTDC: WNDCLASS_STYLES = WNDCLASS_STYLES(128u32);
-pub const CS_SAVEBITS: WNDCLASS_STYLES = WNDCLASS_STYLES(2048u32);
-pub const CS_VREDRAW: WNDCLASS_STYLES = WNDCLASS_STYLES(1u32);
-pub const CTLCOLOR_BTN: u32 = 3u32;
-pub const CTLCOLOR_DLG: u32 = 4u32;
-pub const CTLCOLOR_EDIT: u32 = 1u32;
-pub const CTLCOLOR_LISTBOX: u32 = 2u32;
-pub const CTLCOLOR_MAX: u32 = 7u32;
-pub const CTLCOLOR_MSGBOX: u32 = 0u32;
-pub const CTLCOLOR_SCROLLBAR: u32 = 5u32;
-pub const CTLCOLOR_STATIC: u32 = 6u32;
-pub const CURSOR_CREATION_SCALING_DEFAULT: u32 = 2u32;
-pub const CURSOR_CREATION_SCALING_NONE: u32 = 1u32;
-pub const CURSOR_SHOWING: CURSORINFO_FLAGS = CURSORINFO_FLAGS(1u32);
-pub const CURSOR_SUPPRESSED: CURSORINFO_FLAGS = CURSORINFO_FLAGS(2u32);
-pub const CWF_CREATE_ONLY: u32 = 1u32;
-pub const CWP_ALL: CWP_FLAGS = CWP_FLAGS(0u32);
-pub const CWP_SKIPDISABLED: CWP_FLAGS = CWP_FLAGS(2u32);
-pub const CWP_SKIPINVISIBLE: CWP_FLAGS = CWP_FLAGS(1u32);
-pub const CWP_SKIPTRANSPARENT: CWP_FLAGS = CWP_FLAGS(4u32);
-pub const CW_USEDEFAULT: i32 = -2147483648i32;
-pub const DBTF_MEDIA: DEV_BROADCAST_VOLUME_FLAGS = DEV_BROADCAST_VOLUME_FLAGS(1u16);
-pub const DBTF_NET: DEV_BROADCAST_VOLUME_FLAGS = DEV_BROADCAST_VOLUME_FLAGS(2u16);
-pub const DBTF_RESOURCE: u32 = 1u32;
-pub const DBTF_SLOWNET: u32 = 4u32;
-pub const DBTF_XPORT: u32 = 2u32;
-pub const DBT_APPYBEGIN: u32 = 0u32;
-pub const DBT_APPYEND: u32 = 1u32;
-pub const DBT_CONFIGCHANGECANCELED: u32 = 25u32;
-pub const DBT_CONFIGCHANGED: u32 = 24u32;
-pub const DBT_CONFIGMGAPI32: u32 = 34u32;
-pub const DBT_CONFIGMGPRIVATE: u32 = 32767u32;
-pub const DBT_CUSTOMEVENT: u32 = 32774u32;
-pub const DBT_DEVICEARRIVAL: u32 = 32768u32;
-pub const DBT_DEVICEQUERYREMOVE: u32 = 32769u32;
-pub const DBT_DEVICEQUERYREMOVEFAILED: u32 = 32770u32;
-pub const DBT_DEVICEREMOVECOMPLETE: u32 = 32772u32;
-pub const DBT_DEVICEREMOVEPENDING: u32 = 32771u32;
-pub const DBT_DEVICETYPESPECIFIC: u32 = 32773u32;
-pub const DBT_DEVNODES_CHANGED: u32 = 7u32;
-pub const DBT_DEVTYP_DEVICEINTERFACE: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(5u32);
-pub const DBT_DEVTYP_DEVNODE: u32 = 1u32;
-pub const DBT_DEVTYP_HANDLE: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(6u32);
-pub const DBT_DEVTYP_NET: u32 = 4u32;
-pub const DBT_DEVTYP_OEM: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(0u32);
-pub const DBT_DEVTYP_PORT: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(3u32);
-pub const DBT_DEVTYP_VOLUME: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(2u32);
-pub const DBT_LOW_DISK_SPACE: u32 = 72u32;
-pub const DBT_MONITORCHANGE: u32 = 27u32;
-pub const DBT_NO_DISK_SPACE: u32 = 71u32;
-pub const DBT_QUERYCHANGECONFIG: u32 = 23u32;
-pub const DBT_SHELLLOGGEDON: u32 = 32u32;
-pub const DBT_USERDEFINED: u32 = 65535u32;
-pub const DBT_VOLLOCKLOCKFAILED: u32 = 32835u32;
-pub const DBT_VOLLOCKLOCKRELEASED: u32 = 32837u32;
-pub const DBT_VOLLOCKLOCKTAKEN: u32 = 32834u32;
-pub const DBT_VOLLOCKQUERYLOCK: u32 = 32833u32;
-pub const DBT_VOLLOCKQUERYUNLOCK: u32 = 32836u32;
-pub const DBT_VOLLOCKUNLOCKFAILED: u32 = 32838u32;
-pub const DBT_VPOWERDAPI: u32 = 33024u32;
-pub const DBT_VXDINITCOMPLETE: u32 = 35u32;
-pub const DCX_EXCLUDEUPDATE: i32 = 256i32;
-pub const DC_HASDEFID: u32 = 21323u32;
-pub const DEVICE_NOTIFY_ALL_INTERFACE_CLASSES: REGISTER_NOTIFICATION_FLAGS = REGISTER_NOTIFICATION_FLAGS(4u32);
-pub const DEVICE_NOTIFY_CALLBACK: REGISTER_NOTIFICATION_FLAGS = REGISTER_NOTIFICATION_FLAGS(2u32);
-pub const DEVICE_NOTIFY_SERVICE_HANDLE: REGISTER_NOTIFICATION_FLAGS = REGISTER_NOTIFICATION_FLAGS(1u32);
-pub const DEVICE_NOTIFY_WINDOW_HANDLE: REGISTER_NOTIFICATION_FLAGS = REGISTER_NOTIFICATION_FLAGS(0u32);
-pub const DIFFERENCE: u32 = 11u32;
-pub const DI_COMPAT: DI_FLAGS = DI_FLAGS(4u32);
-pub const DI_DEFAULTSIZE: DI_FLAGS = DI_FLAGS(8u32);
-pub const DI_IMAGE: DI_FLAGS = DI_FLAGS(2u32);
-pub const DI_MASK: DI_FLAGS = DI_FLAGS(1u32);
-pub const DI_NOMIRROR: DI_FLAGS = DI_FLAGS(16u32);
-pub const DI_NORMAL: DI_FLAGS = DI_FLAGS(3u32);
-pub const DLGC_BUTTON: u32 = 8192u32;
-pub const DLGC_DEFPUSHBUTTON: u32 = 16u32;
-pub const DLGC_HASSETSEL: u32 = 8u32;
-pub const DLGC_RADIOBUTTON: u32 = 64u32;
-pub const DLGC_STATIC: u32 = 256u32;
-pub const DLGC_UNDEFPUSHBUTTON: u32 = 32u32;
-pub const DLGC_WANTALLKEYS: u32 = 4u32;
-pub const DLGC_WANTARROWS: u32 = 1u32;
-pub const DLGC_WANTCHARS: u32 = 128u32;
-pub const DLGC_WANTMESSAGE: u32 = 4u32;
-pub const DLGC_WANTTAB: u32 = 2u32;
-pub const DLGWINDOWEXTRA: u32 = 30u32;
-pub const DM_GETDEFID: u32 = 1024u32;
-pub const DM_POINTERHITTEST: u32 = 592u32;
-pub const DM_REPOSITION: u32 = 1026u32;
-pub const DM_SETDEFID: u32 = 1025u32;
-pub const DOF_DIRECTORY: u32 = 32771u32;
-pub const DOF_DOCUMENT: u32 = 32770u32;
-pub const DOF_EXECUTABLE: u32 = 32769u32;
-pub const DOF_MULTIPLE: u32 = 32772u32;
-pub const DOF_PROGMAN: u32 = 1u32;
-pub const DOF_SHELLDATA: u32 = 2u32;
-pub const DO_DROPFILE: i32 = 1162627398i32;
-pub const DO_PRINTFILE: i32 = 1414419024i32;
-pub const DS_3DLOOK: i32 = 4i32;
-pub const DS_ABSALIGN: i32 = 1i32;
-pub const DS_CENTER: i32 = 2048i32;
-pub const DS_CENTERMOUSE: i32 = 4096i32;
-pub const DS_CONTEXTHELP: i32 = 8192i32;
-pub const DS_CONTROL: i32 = 1024i32;
-pub const DS_FIXEDSYS: i32 = 8i32;
-pub const DS_LOCALEDIT: i32 = 32i32;
-pub const DS_MODALFRAME: i32 = 128i32;
-pub const DS_NOFAILCREATE: i32 = 16i32;
-pub const DS_NOIDLEMSG: i32 = 256i32;
-pub const DS_SETFONT: i32 = 64i32;
-pub const DS_SETFOREGROUND: i32 = 512i32;
-pub const DS_SYSMODAL: i32 = 2i32;
-pub const DS_USEPIXELS: i32 = 32768i32;
-pub const DWLP_MSGRESULT: u32 = 0u32;
-pub const DWL_DLGPROC: u32 = 4u32;
-pub const DWL_MSGRESULT: u32 = 0u32;
-pub const DWL_USER: u32 = 8u32;
-pub const EC_LEFTMARGIN: u32 = 1u32;
-pub const EC_RIGHTMARGIN: u32 = 2u32;
-pub const EC_USEFONTINFO: u32 = 65535u32;
-pub const EDD_GET_DEVICE_INTERFACE_NAME: u32 = 1u32;
-pub const EDIT_CONTROL_FEATURE_ENTERPRISE_DATA_PROTECTION_PASTE_SUPPORT: EDIT_CONTROL_FEATURE = EDIT_CONTROL_FEATURE(0i32);
-pub const EDIT_CONTROL_FEATURE_PASTE_NOTIFICATIONS: EDIT_CONTROL_FEATURE = EDIT_CONTROL_FEATURE(1i32);
-pub const EIMES_CANCELCOMPSTRINFOCUS: u32 = 2u32;
-pub const EIMES_COMPLETECOMPSTRKILLFOCUS: u32 = 4u32;
-pub const EIMES_GETCOMPSTRATONCE: u32 = 1u32;
-pub const EMSIS_COMPOSITIONSTRING: u32 = 1u32;
-pub const ENDSESSION_CLOSEAPP: u32 = 1u32;
-pub const ENDSESSION_CRITICAL: u32 = 1073741824u32;
-pub const ENDSESSION_LOGOFF: u32 = 2147483648u32;
-pub const EN_AFTER_PASTE: u32 = 2049u32;
-pub const EN_ALIGN_LTR_EC: u32 = 1792u32;
-pub const EN_ALIGN_RTL_EC: u32 = 1793u32;
-pub const EN_BEFORE_PASTE: u32 = 2048u32;
-pub const EN_CHANGE: u32 = 768u32;
-pub const EN_ERRSPACE: u32 = 1280u32;
-pub const EN_HSCROLL: u32 = 1537u32;
-pub const EN_KILLFOCUS: u32 = 512u32;
-pub const EN_MAXTEXT: u32 = 1281u32;
-pub const EN_SETFOCUS: u32 = 256u32;
-pub const EN_UPDATE: u32 = 1024u32;
-pub const EN_VSCROLL: u32 = 1538u32;
-pub const ES_AUTOHSCROLL: i32 = 128i32;
-pub const ES_AUTOVSCROLL: i32 = 64i32;
-pub const ES_CENTER: i32 = 1i32;
-pub const ES_LEFT: i32 = 0i32;
-pub const ES_LOWERCASE: i32 = 16i32;
-pub const ES_MULTILINE: i32 = 4i32;
-pub const ES_NOHIDESEL: i32 = 256i32;
-pub const ES_NUMBER: i32 = 8192i32;
-pub const ES_OEMCONVERT: i32 = 1024i32;
-pub const ES_PASSWORD: i32 = 32i32;
-pub const ES_READONLY: i32 = 2048i32;
-pub const ES_RIGHT: i32 = 2i32;
-pub const ES_UPPERCASE: i32 = 8i32;
-pub const ES_WANTRETURN: i32 = 4096i32;
-pub const EVENT_AIA_END: u32 = 45055u32;
-pub const EVENT_AIA_START: u32 = 40960u32;
-pub const EVENT_CONSOLE_CARET: u32 = 16385u32;
-pub const EVENT_CONSOLE_END: u32 = 16639u32;
-pub const EVENT_CONSOLE_END_APPLICATION: u32 = 16391u32;
-pub const EVENT_CONSOLE_LAYOUT: u32 = 16389u32;
-pub const EVENT_CONSOLE_START_APPLICATION: u32 = 16390u32;
-pub const EVENT_CONSOLE_UPDATE_REGION: u32 = 16386u32;
-pub const EVENT_CONSOLE_UPDATE_SCROLL: u32 = 16388u32;
-pub const EVENT_CONSOLE_UPDATE_SIMPLE: u32 = 16387u32;
-pub const EVENT_MAX: u32 = 2147483647u32;
-pub const EVENT_MIN: u32 = 1u32;
-pub const EVENT_OBJECT_ACCELERATORCHANGE: u32 = 32786u32;
-pub const EVENT_OBJECT_CLOAKED: u32 = 32791u32;
-pub const EVENT_OBJECT_CONTENTSCROLLED: u32 = 32789u32;
-pub const EVENT_OBJECT_CREATE: u32 = 32768u32;
-pub const EVENT_OBJECT_DEFACTIONCHANGE: u32 = 32785u32;
-pub const EVENT_OBJECT_DESCRIPTIONCHANGE: u32 = 32781u32;
-pub const EVENT_OBJECT_DESTROY: u32 = 32769u32;
-pub const EVENT_OBJECT_DRAGCANCEL: u32 = 32802u32;
-pub const EVENT_OBJECT_DRAGCOMPLETE: u32 = 32803u32;
-pub const EVENT_OBJECT_DRAGDROPPED: u32 = 32806u32;
-pub const EVENT_OBJECT_DRAGENTER: u32 = 32804u32;
-pub const EVENT_OBJECT_DRAGLEAVE: u32 = 32805u32;
-pub const EVENT_OBJECT_DRAGSTART: u32 = 32801u32;
-pub const EVENT_OBJECT_END: u32 = 33023u32;
-pub const EVENT_OBJECT_FOCUS: u32 = 32773u32;
-pub const EVENT_OBJECT_HELPCHANGE: u32 = 32784u32;
-pub const EVENT_OBJECT_HIDE: u32 = 32771u32;
-pub const EVENT_OBJECT_HOSTEDOBJECTSINVALIDATED: u32 = 32800u32;
-pub const EVENT_OBJECT_IME_CHANGE: u32 = 32809u32;
-pub const EVENT_OBJECT_IME_HIDE: u32 = 32808u32;
-pub const EVENT_OBJECT_IME_SHOW: u32 = 32807u32;
-pub const EVENT_OBJECT_INVOKED: u32 = 32787u32;
-pub const EVENT_OBJECT_LIVEREGIONCHANGED: u32 = 32793u32;
-pub const EVENT_OBJECT_LOCATIONCHANGE: u32 = 32779u32;
-pub const EVENT_OBJECT_NAMECHANGE: u32 = 32780u32;
-pub const EVENT_OBJECT_PARENTCHANGE: u32 = 32783u32;
-pub const EVENT_OBJECT_REORDER: u32 = 32772u32;
-pub const EVENT_OBJECT_SELECTION: u32 = 32774u32;
-pub const EVENT_OBJECT_SELECTIONADD: u32 = 32775u32;
-pub const EVENT_OBJECT_SELECTIONREMOVE: u32 = 32776u32;
-pub const EVENT_OBJECT_SELECTIONWITHIN: u32 = 32777u32;
-pub const EVENT_OBJECT_SHOW: u32 = 32770u32;
-pub const EVENT_OBJECT_STATECHANGE: u32 = 32778u32;
-pub const EVENT_OBJECT_TEXTEDIT_CONVERSIONTARGETCHANGED: u32 = 32816u32;
-pub const EVENT_OBJECT_TEXTSELECTIONCHANGED: u32 = 32788u32;
-pub const EVENT_OBJECT_UNCLOAKED: u32 = 32792u32;
-pub const EVENT_OBJECT_VALUECHANGE: u32 = 32782u32;
-pub const EVENT_OEM_DEFINED_END: u32 = 511u32;
-pub const EVENT_OEM_DEFINED_START: u32 = 257u32;
-pub const EVENT_SYSTEM_ALERT: u32 = 2u32;
-pub const EVENT_SYSTEM_ARRANGMENTPREVIEW: u32 = 32790u32;
-pub const EVENT_SYSTEM_CAPTUREEND: u32 = 9u32;
-pub const EVENT_SYSTEM_CAPTURESTART: u32 = 8u32;
-pub const EVENT_SYSTEM_CONTEXTHELPEND: u32 = 13u32;
-pub const EVENT_SYSTEM_CONTEXTHELPSTART: u32 = 12u32;
-pub const EVENT_SYSTEM_DESKTOPSWITCH: u32 = 32u32;
-pub const EVENT_SYSTEM_DIALOGEND: u32 = 17u32;
-pub const EVENT_SYSTEM_DIALOGSTART: u32 = 16u32;
-pub const EVENT_SYSTEM_DRAGDROPEND: u32 = 15u32;
-pub const EVENT_SYSTEM_DRAGDROPSTART: u32 = 14u32;
-pub const EVENT_SYSTEM_END: u32 = 255u32;
-pub const EVENT_SYSTEM_FOREGROUND: u32 = 3u32;
-pub const EVENT_SYSTEM_IME_KEY_NOTIFICATION: u32 = 41u32;
-pub const EVENT_SYSTEM_MENUEND: u32 = 5u32;
-pub const EVENT_SYSTEM_MENUPOPUPEND: u32 = 7u32;
-pub const EVENT_SYSTEM_MENUPOPUPSTART: u32 = 6u32;
-pub const EVENT_SYSTEM_MENUSTART: u32 = 4u32;
-pub const EVENT_SYSTEM_MINIMIZEEND: u32 = 23u32;
-pub const EVENT_SYSTEM_MINIMIZESTART: u32 = 22u32;
-pub const EVENT_SYSTEM_MOVESIZEEND: u32 = 11u32;
-pub const EVENT_SYSTEM_MOVESIZESTART: u32 = 10u32;
-pub const EVENT_SYSTEM_SCROLLINGEND: u32 = 19u32;
-pub const EVENT_SYSTEM_SCROLLINGSTART: u32 = 18u32;
-pub const EVENT_SYSTEM_SOUND: u32 = 1u32;
-pub const EVENT_SYSTEM_SWITCHEND: u32 = 21u32;
-pub const EVENT_SYSTEM_SWITCHER_APPDROPPED: u32 = 38u32;
-pub const EVENT_SYSTEM_SWITCHER_APPGRABBED: u32 = 36u32;
-pub const EVENT_SYSTEM_SWITCHER_APPOVERTARGET: u32 = 37u32;
-pub const EVENT_SYSTEM_SWITCHER_CANCELLED: u32 = 39u32;
-pub const EVENT_SYSTEM_SWITCHSTART: u32 = 20u32;
-pub const EVENT_UIA_EVENTID_END: u32 = 20223u32;
-pub const EVENT_UIA_EVENTID_START: u32 = 19968u32;
-pub const EVENT_UIA_PROPID_END: u32 = 30207u32;
-pub const EVENT_UIA_PROPID_START: u32 = 29952u32;
-pub const FALT: ACCEL_VIRT_FLAGS = ACCEL_VIRT_FLAGS(16u8);
-pub const FAPPCOMMAND_KEY: u32 = 0u32;
-pub const FAPPCOMMAND_MASK: u32 = 61440u32;
-pub const FAPPCOMMAND_MOUSE: u32 = 32768u32;
-pub const FAPPCOMMAND_OEM: u32 = 4096u32;
-pub const FCONTROL: ACCEL_VIRT_FLAGS = ACCEL_VIRT_FLAGS(8u8);
-pub const FE_FONTSMOOTHINGCLEARTYPE: u32 = 2u32;
-pub const FE_FONTSMOOTHINGORIENTATIONBGR: u32 = 0u32;
-pub const FE_FONTSMOOTHINGORIENTATIONRGB: u32 = 1u32;
-pub const FE_FONTSMOOTHINGSTANDARD: u32 = 1u32;
-pub const FKF_AVAILABLE: u32 = 2u32;
-pub const FKF_CLICKON: u32 = 64u32;
-pub const FKF_CONFIRMHOTKEY: u32 = 8u32;
-pub const FKF_FILTERKEYSON: u32 = 1u32;
-pub const FKF_HOTKEYACTIVE: u32 = 4u32;
-pub const FKF_HOTKEYSOUND: u32 = 16u32;
-pub const FKF_INDICATOR: u32 = 32u32;
-pub const FLASHW_ALL: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(3u32);
-pub const FLASHW_CAPTION: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(1u32);
-pub const FLASHW_STOP: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(0u32);
-pub const FLASHW_TIMER: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(4u32);
-pub const FLASHW_TIMERNOFG: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(12u32);
-pub const FLASHW_TRAY: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(2u32);
-pub const FNOINVERT: ACCEL_VIRT_FLAGS = ACCEL_VIRT_FLAGS(2u8);
-pub const FSHIFT: ACCEL_VIRT_FLAGS = ACCEL_VIRT_FLAGS(4u8);
-pub const FVIRTKEY: ACCEL_VIRT_FLAGS = ACCEL_VIRT_FLAGS(1u8);
-pub const GA_PARENT: GET_ANCESTOR_FLAGS = GET_ANCESTOR_FLAGS(1u32);
-pub const GA_ROOT: GET_ANCESTOR_FLAGS = GET_ANCESTOR_FLAGS(2u32);
-pub const GA_ROOTOWNER: GET_ANCESTOR_FLAGS = GET_ANCESTOR_FLAGS(3u32);
-pub const GCF_INCLUDE_ANCESTORS: u32 = 1u32;
-pub const GCLP_HBRBACKGROUND: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-10i32);
-pub const GCLP_HCURSOR: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-12i32);
-pub const GCLP_HICON: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-14i32);
-pub const GCLP_HICONSM: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-34i32);
-pub const GCLP_HMODULE: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-16i32);
-pub const GCLP_MENUNAME: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-8i32);
-pub const GCLP_WNDPROC: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-24i32);
-pub const GCL_CBCLSEXTRA: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-20i32);
-pub const GCL_CBWNDEXTRA: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-18i32);
-pub const GCL_HBRBACKGROUND: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-10i32);
-pub const GCL_HCURSOR: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-12i32);
-pub const GCL_HICON: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-14i32);
-pub const GCL_HICONSM: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-34i32);
-pub const GCL_HMODULE: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-16i32);
-pub const GCL_MENUNAME: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-8i32);
-pub const GCL_STYLE: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-26i32);
-pub const GCL_WNDPROC: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-24i32);
-pub const GCW_ATOM: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-32i32);
-pub const GESTURECONFIGMAXCOUNT: u32 = 256u32;
-pub const GESTUREVISUALIZATION_DOUBLETAP: u32 = 2u32;
-pub const GESTUREVISUALIZATION_OFF: u32 = 0u32;
-pub const GESTUREVISUALIZATION_ON: u32 = 31u32;
-pub const GESTUREVISUALIZATION_PRESSANDHOLD: u32 = 8u32;
-pub const GESTUREVISUALIZATION_PRESSANDTAP: u32 = 4u32;
-pub const GESTUREVISUALIZATION_RIGHTTAP: u32 = 16u32;
-pub const GESTUREVISUALIZATION_TAP: u32 = 1u32;
-pub const GF_BEGIN: u32 = 1u32;
-pub const GF_END: u32 = 4u32;
-pub const GF_INERTIA: u32 = 2u32;
-pub const GIDC_ARRIVAL: u32 = 1u32;
-pub const GIDC_REMOVAL: u32 = 2u32;
-pub const GMDI_GOINTOPOPUPS: GET_MENU_DEFAULT_ITEM_FLAGS = GET_MENU_DEFAULT_ITEM_FLAGS(2u32);
-pub const GMDI_USEDISABLED: GET_MENU_DEFAULT_ITEM_FLAGS = GET_MENU_DEFAULT_ITEM_FLAGS(1u32);
-pub const GUID_DEVICE_EVENT_RBC: windows_core::GUID = windows_core::GUID::from_u128(0xd0744792_a98e_11d2_917a_00a0c9068ff3);
-pub const GUID_IO_CDROM_EXCLUSIVE_LOCK: windows_core::GUID = windows_core::GUID::from_u128(0xbc56c139_7a10_47ee_a294_4c6a38f0149a);
-pub const GUID_IO_CDROM_EXCLUSIVE_UNLOCK: windows_core::GUID = windows_core::GUID::from_u128(0xa3b6d27d_5e35_4885_81e5_ee18c00ed779);
-pub const GUID_IO_DEVICE_BECOMING_READY: windows_core::GUID = windows_core::GUID::from_u128(0xd07433f0_a98e_11d2_917a_00a0c9068ff3);
-pub const GUID_IO_DEVICE_EXTERNAL_REQUEST: windows_core::GUID = windows_core::GUID::from_u128(0xd07433d0_a98e_11d2_917a_00a0c9068ff3);
-pub const GUID_IO_DISK_CLONE_ARRIVAL: windows_core::GUID = windows_core::GUID::from_u128(0x6a61885b_7c39_43dd_9b56_b8ac22a549aa);
-pub const GUID_IO_DISK_HEALTH_NOTIFICATION: windows_core::GUID = windows_core::GUID::from_u128(0x0f1bd644_3916_49c5_b063_991940118fb2);
-pub const GUID_IO_DISK_LAYOUT_CHANGE: windows_core::GUID = windows_core::GUID::from_u128(0x11dff54c_8469_41f9_b3de_ef836487c54a);
-pub const GUID_IO_DRIVE_REQUIRES_CLEANING: windows_core::GUID = windows_core::GUID::from_u128(0x7207877c_90ed_44e5_a000_81428d4c79bb);
-pub const GUID_IO_MEDIA_ARRIVAL: windows_core::GUID = windows_core::GUID::from_u128(0xd07433c0_a98e_11d2_917a_00a0c9068ff3);
-pub const GUID_IO_MEDIA_EJECT_REQUEST: windows_core::GUID = windows_core::GUID::from_u128(0xd07433d1_a98e_11d2_917a_00a0c9068ff3);
-pub const GUID_IO_MEDIA_REMOVAL: windows_core::GUID = windows_core::GUID::from_u128(0xd07433c1_a98e_11d2_917a_00a0c9068ff3);
-pub const GUID_IO_TAPE_ERASE: windows_core::GUID = windows_core::GUID::from_u128(0x852d11eb_4bb8_4507_9d9b_417cc2b1b438);
-pub const GUID_IO_VOLUME_BACKGROUND_FORMAT: windows_core::GUID = windows_core::GUID::from_u128(0xa2e5fc86_d5cd_4038_b2e3_4445065c2377);
-pub const GUID_IO_VOLUME_CHANGE: windows_core::GUID = windows_core::GUID::from_u128(0x7373654a_812a_11d0_bec7_08002be2092f);
-pub const GUID_IO_VOLUME_CHANGE_SIZE: windows_core::GUID = windows_core::GUID::from_u128(0x3a1625be_ad03_49f1_8ef8_6bbac182d1fd);
-pub const GUID_IO_VOLUME_DEVICE_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x53f5630d_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_IO_VOLUME_DISMOUNT: windows_core::GUID = windows_core::GUID::from_u128(0xd16a55e8_1059_11d2_8ffd_00a0c9a06d32);
-pub const GUID_IO_VOLUME_DISMOUNT_FAILED: windows_core::GUID = windows_core::GUID::from_u128(0xe3c5b178_105d_11d2_8ffd_00a0c9a06d32);
-pub const GUID_IO_VOLUME_FORCE_CLOSED: windows_core::GUID = windows_core::GUID::from_u128(0x411ad84f_433e_4dc2_a5ae_4a2d1a2de654);
-pub const GUID_IO_VOLUME_FVE_STATUS_CHANGE: windows_core::GUID = windows_core::GUID::from_u128(0x062998b2_ee1f_4b6a_b857_e76cbbe9a6da);
-pub const GUID_IO_VOLUME_INFO_MAKE_COMPAT: windows_core::GUID = windows_core::GUID::from_u128(0x3ab9a0d2_ef80_45cf_8cdc_cbe02a212906);
-pub const GUID_IO_VOLUME_LOCK: windows_core::GUID = windows_core::GUID::from_u128(0x50708874_c9af_11d1_8fef_00a0c9a06d32);
-pub const GUID_IO_VOLUME_LOCK_FAILED: windows_core::GUID = windows_core::GUID::from_u128(0xae2eed10_0ba8_11d2_8ffb_00a0c9a06d32);
-pub const GUID_IO_VOLUME_MOUNT: windows_core::GUID = windows_core::GUID::from_u128(0xb5804878_1a96_11d2_8ffd_00a0c9a06d32);
-pub const GUID_IO_VOLUME_NAME_CHANGE: windows_core::GUID = windows_core::GUID::from_u128(0x2de97f83_4c06_11d2_a532_00609713055a);
-pub const GUID_IO_VOLUME_NEED_CHKDSK: windows_core::GUID = windows_core::GUID::from_u128(0x799a0960_0a0b_4e03_ad88_2fa7c6ce748a);
-pub const GUID_IO_VOLUME_PHYSICAL_CONFIGURATION_CHANGE: windows_core::GUID = windows_core::GUID::from_u128(0x2de97f84_4c06_11d2_a532_00609713055a);
-pub const GUID_IO_VOLUME_PREPARING_EJECT: windows_core::GUID = windows_core::GUID::from_u128(0xc79eb16e_0dac_4e7a_a86c_b25ceeaa88f6);
-pub const GUID_IO_VOLUME_UNIQUE_ID_CHANGE: windows_core::GUID = windows_core::GUID::from_u128(0xaf39da42_6622_41f5_970b_139d092fa3d9);
-pub const GUID_IO_VOLUME_UNLOCK: windows_core::GUID = windows_core::GUID::from_u128(0x9a8c3d68_d0cb_11d1_8fef_00a0c9a06d32);
-pub const GUID_IO_VOLUME_WEARING_OUT: windows_core::GUID = windows_core::GUID::from_u128(0x873113ca_1486_4508_82ac_c3b2e5297aaa);
-pub const GUID_IO_VOLUME_WORM_NEAR_FULL: windows_core::GUID = windows_core::GUID::from_u128(0xf3bfff82_f3de_48d2_af95_457f80b763f2);
-pub const GUI_16BITTASK: u32 = 0u32;
-pub const GUI_CARETBLINKING: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(1u32);
-pub const GUI_INMENUMODE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(4u32);
-pub const GUI_INMOVESIZE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(2u32);
-pub const GUI_POPUPMENUMODE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(16u32);
-pub const GUI_SYSTEMMENUMODE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(8u32);
-pub const GWFS_INCLUDE_ANCESTORS: u32 = 1u32;
-pub const GWLP_HINSTANCE: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-6i32);
-pub const GWLP_HWNDPARENT: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-8i32);
-pub const GWLP_ID: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-12i32);
-pub const GWLP_USERDATA: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-21i32);
-pub const GWLP_WNDPROC: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-4i32);
-pub const GWL_EXSTYLE: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-20i32);
-pub const GWL_HINSTANCE: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-6i32);
-pub const GWL_HWNDPARENT: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-8i32);
-pub const GWL_ID: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-12i32);
-pub const GWL_STYLE: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-16i32);
-pub const GWL_USERDATA: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-21i32);
-pub const GWL_WNDPROC: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-4i32);
-pub const GW_CHILD: GET_WINDOW_CMD = GET_WINDOW_CMD(5u32);
-pub const GW_ENABLEDPOPUP: GET_WINDOW_CMD = GET_WINDOW_CMD(6u32);
-pub const GW_HWNDFIRST: GET_WINDOW_CMD = GET_WINDOW_CMD(0u32);
-pub const GW_HWNDLAST: GET_WINDOW_CMD = GET_WINDOW_CMD(1u32);
-pub const GW_HWNDNEXT: GET_WINDOW_CMD = GET_WINDOW_CMD(2u32);
-pub const GW_HWNDPREV: GET_WINDOW_CMD = GET_WINDOW_CMD(3u32);
-pub const GW_MAX: u32 = 5u32;
-pub const GW_OWNER: GET_WINDOW_CMD = GET_WINDOW_CMD(4u32);
-pub const HANDEDNESS_LEFT: HANDEDNESS = HANDEDNESS(0i32);
-pub const HANDEDNESS_RIGHT: HANDEDNESS = HANDEDNESS(1i32);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_CALLBACK: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(-1i32 as _);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_MBAR_CLOSE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(5i32 as _);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_MBAR_CLOSE_D: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(6i32 as _);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_MBAR_MINIMIZE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(3i32 as _);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_MBAR_MINIMIZE_D: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(7i32 as _);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_MBAR_RESTORE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(2i32 as _);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_POPUP_CLOSE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(8i32 as _);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_POPUP_MAXIMIZE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(10i32 as _);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_POPUP_MINIMIZE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(11i32 as _);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_POPUP_RESTORE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(9i32 as _);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_SYSTEM: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(1i32 as _);
-pub const HCBT_ACTIVATE: u32 = 5u32;
-pub const HCBT_CLICKSKIPPED: u32 = 6u32;
-pub const HCBT_CREATEWND: u32 = 3u32;
-pub const HCBT_DESTROYWND: u32 = 4u32;
-pub const HCBT_KEYSKIPPED: u32 = 7u32;
-pub const HCBT_MINMAX: u32 = 1u32;
-pub const HCBT_MOVESIZE: u32 = 0u32;
-pub const HCBT_QS: u32 = 2u32;
-pub const HCBT_SETFOCUS: u32 = 9u32;
-pub const HCBT_SYSCOMMAND: u32 = 8u32;
-pub const HCF_DEFAULTDESKTOP: u32 = 512u32;
-pub const HCF_LOGONDESKTOP: u32 = 256u32;
-pub const HC_ACTION: u32 = 0u32;
-pub const HC_GETNEXT: u32 = 1u32;
-pub const HC_NOREM: u32 = 3u32;
-pub const HC_NOREMOVE: u32 = 3u32;
-pub const HC_SKIP: u32 = 2u32;
-pub const HC_SYSMODALOFF: u32 = 5u32;
-pub const HC_SYSMODALON: u32 = 4u32;
-pub const HELP_COMMAND: i32 = 258i32;
-pub const HELP_CONTENTS: i32 = 3i32;
-pub const HELP_CONTEXT: i32 = 1i32;
-pub const HELP_CONTEXTMENU: u32 = 10u32;
-pub const HELP_CONTEXTPOPUP: i32 = 8i32;
-pub const HELP_FINDER: u32 = 11u32;
-pub const HELP_FORCEFILE: i32 = 9i32;
-pub const HELP_HELPONHELP: i32 = 4i32;
-pub const HELP_INDEX: i32 = 3i32;
-pub const HELP_KEY: i32 = 257i32;
-pub const HELP_MULTIKEY: i32 = 513i32;
-pub const HELP_PARTIALKEY: i32 = 261i32;
-pub const HELP_QUIT: i32 = 2i32;
-pub const HELP_SETCONTENTS: i32 = 5i32;
-pub const HELP_SETINDEX: i32 = 5i32;
-pub const HELP_SETPOPUP_POS: u32 = 13u32;
-pub const HELP_SETWINPOS: i32 = 515i32;
-pub const HELP_TCARD: u32 = 32768u32;
-pub const HELP_TCARD_DATA: u32 = 16u32;
-pub const HELP_TCARD_OTHER_CALLER: u32 = 17u32;
-pub const HELP_WM_HELP: u32 = 12u32;
-pub const HIDE_WINDOW: u32 = 0u32;
-pub const HKL_NEXT: u32 = 1u32;
-pub const HKL_PREV: u32 = 0u32;
-pub const HSHELL_ACCESSIBILITYSTATE: u32 = 11u32;
-pub const HSHELL_ACTIVATESHELLWINDOW: u32 = 3u32;
-pub const HSHELL_APPCOMMAND: u32 = 12u32;
-pub const HSHELL_ENDTASK: u32 = 10u32;
-pub const HSHELL_GETMINRECT: u32 = 5u32;
-pub const HSHELL_HIGHBIT: u32 = 32768u32;
-pub const HSHELL_LANGUAGE: u32 = 8u32;
-pub const HSHELL_MONITORCHANGED: u32 = 16u32;
-pub const HSHELL_REDRAW: u32 = 6u32;
-pub const HSHELL_SYSMENU: u32 = 9u32;
-pub const HSHELL_TASKMAN: u32 = 7u32;
-pub const HSHELL_WINDOWACTIVATED: u32 = 4u32;
-pub const HSHELL_WINDOWCREATED: u32 = 1u32;
-pub const HSHELL_WINDOWDESTROYED: u32 = 2u32;
-pub const HSHELL_WINDOWREPLACED: u32 = 13u32;
-pub const HSHELL_WINDOWREPLACING: u32 = 14u32;
-pub const HTBORDER: u32 = 18u32;
-pub const HTBOTTOM: u32 = 15u32;
-pub const HTBOTTOMLEFT: u32 = 16u32;
-pub const HTBOTTOMRIGHT: u32 = 17u32;
-pub const HTCAPTION: u32 = 2u32;
-pub const HTCLIENT: u32 = 1u32;
-pub const HTCLOSE: u32 = 20u32;
-pub const HTERROR: i32 = -2i32;
-pub const HTGROWBOX: u32 = 4u32;
-pub const HTHELP: u32 = 21u32;
-pub const HTHSCROLL: u32 = 6u32;
-pub const HTLEFT: u32 = 10u32;
-pub const HTMAXBUTTON: u32 = 9u32;
-pub const HTMENU: u32 = 5u32;
-pub const HTMINBUTTON: u32 = 8u32;
-pub const HTNOWHERE: u32 = 0u32;
-pub const HTOBJECT: u32 = 19u32;
-pub const HTREDUCE: u32 = 8u32;
-pub const HTRIGHT: u32 = 11u32;
-pub const HTSIZE: u32 = 4u32;
-pub const HTSIZEFIRST: u32 = 10u32;
-pub const HTSIZELAST: u32 = 17u32;
-pub const HTSYSMENU: u32 = 3u32;
-pub const HTTOP: u32 = 12u32;
-pub const HTTOPLEFT: u32 = 13u32;
-pub const HTTOPRIGHT: u32 = 14u32;
-pub const HTTRANSPARENT: i32 = -1i32;
-pub const HTVSCROLL: u32 = 7u32;
-pub const HTZOOM: u32 = 9u32;
-pub const HWND_BOTTOM: super::super::Foundation::HWND = super::super::Foundation::HWND(1i32 as _);
-pub const HWND_BROADCAST: super::super::Foundation::HWND = super::super::Foundation::HWND(65535i32 as _);
-pub const HWND_DESKTOP: super::super::Foundation::HWND = super::super::Foundation::HWND(0i32 as _);
-pub const HWND_MESSAGE: super::super::Foundation::HWND = super::super::Foundation::HWND(-3i32 as _);
-pub const HWND_NOTOPMOST: super::super::Foundation::HWND = super::super::Foundation::HWND(-2i32 as _);
-pub const HWND_TOP: super::super::Foundation::HWND = super::super::Foundation::HWND(0i32 as _);
-pub const HWND_TOPMOST: super::super::Foundation::HWND = super::super::Foundation::HWND(-1i32 as _);
-pub const ICON_BIG: u32 = 1u32;
-pub const ICON_SMALL: u32 = 0u32;
-pub const ICON_SMALL2: u32 = 2u32;
-pub const IDABORT: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(3i32);
-pub const IDANI_CAPTION: u32 = 3u32;
-pub const IDANI_OPEN: u32 = 1u32;
-pub const IDASYNC: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(32001i32);
-pub const IDCANCEL: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(2i32);
-pub const IDCLOSE: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(8i32);
-pub const IDCONTINUE: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(11i32);
-pub const IDC_APPSTARTING: windows_core::PCWSTR = windows_core::PCWSTR(32650u16 as _);
-pub const IDC_ARROW: windows_core::PCWSTR = windows_core::PCWSTR(32512u16 as _);
-pub const IDC_CROSS: windows_core::PCWSTR = windows_core::PCWSTR(32515u16 as _);
-pub const IDC_HAND: windows_core::PCWSTR = windows_core::PCWSTR(32649u16 as _);
-pub const IDC_HELP: windows_core::PCWSTR = windows_core::PCWSTR(32651u16 as _);
-pub const IDC_IBEAM: windows_core::PCWSTR = windows_core::PCWSTR(32513u16 as _);
-pub const IDC_ICON: windows_core::PCWSTR = windows_core::PCWSTR(32641u16 as _);
-pub const IDC_NO: windows_core::PCWSTR = windows_core::PCWSTR(32648u16 as _);
-pub const IDC_PERSON: windows_core::PCWSTR = windows_core::PCWSTR(32672u16 as _);
-pub const IDC_PIN: windows_core::PCWSTR = windows_core::PCWSTR(32671u16 as _);
-pub const IDC_SIZE: windows_core::PCWSTR = windows_core::PCWSTR(32640u16 as _);
-pub const IDC_SIZEALL: windows_core::PCWSTR = windows_core::PCWSTR(32646u16 as _);
-pub const IDC_SIZENESW: windows_core::PCWSTR = windows_core::PCWSTR(32643u16 as _);
-pub const IDC_SIZENS: windows_core::PCWSTR = windows_core::PCWSTR(32645u16 as _);
-pub const IDC_SIZENWSE: windows_core::PCWSTR = windows_core::PCWSTR(32642u16 as _);
-pub const IDC_SIZEWE: windows_core::PCWSTR = windows_core::PCWSTR(32644u16 as _);
-pub const IDC_STATIC: i32 = -1i32;
-pub const IDC_UPARROW: windows_core::PCWSTR = windows_core::PCWSTR(32516u16 as _);
-pub const IDC_WAIT: windows_core::PCWSTR = windows_core::PCWSTR(32514u16 as _);
-pub const IDHELP: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(9i32);
-pub const IDHOT_SNAPDESKTOP: i32 = -2i32;
-pub const IDHOT_SNAPWINDOW: i32 = -1i32;
-pub const IDH_CANCEL: u32 = 28444u32;
-pub const IDH_GENERIC_HELP_BUTTON: u32 = 28442u32;
-pub const IDH_HELP: u32 = 28445u32;
-pub const IDH_MISSING_CONTEXT: u32 = 28441u32;
-pub const IDH_NO_HELP: u32 = 28440u32;
-pub const IDH_OK: u32 = 28443u32;
-pub const IDIGNORE: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(5i32);
-pub const IDI_APPLICATION: windows_core::PCWSTR = windows_core::PCWSTR(32512u32 as _);
-pub const IDI_ASTERISK: windows_core::PCWSTR = windows_core::PCWSTR(32516u32 as _);
-pub const IDI_ERROR: windows_core::PCWSTR = windows_core::PCWSTR(32513u32 as _);
-pub const IDI_EXCLAMATION: windows_core::PCWSTR = windows_core::PCWSTR(32515u32 as _);
-pub const IDI_HAND: windows_core::PCWSTR = windows_core::PCWSTR(32513u32 as _);
-pub const IDI_INFORMATION: windows_core::PCWSTR = windows_core::PCWSTR(32516u32 as _);
-pub const IDI_QUESTION: windows_core::PCWSTR = windows_core::PCWSTR(32514u32 as _);
-pub const IDI_SHIELD: windows_core::PCWSTR = windows_core::PCWSTR(32518u32 as _);
-pub const IDI_WARNING: windows_core::PCWSTR = windows_core::PCWSTR(32515u32 as _);
-pub const IDI_WINLOGO: windows_core::PCWSTR = windows_core::PCWSTR(32517u32 as _);
-pub const IDNO: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(7i32);
-pub const IDOK: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(1i32);
-pub const IDRETRY: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(4i32);
-pub const IDTIMEOUT: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(32000i32);
-pub const IDTRYAGAIN: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(10i32);
-pub const IDYES: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(6i32);
-pub const IMAGE_BITMAP: GDI_IMAGE_TYPE = GDI_IMAGE_TYPE(0u32);
-pub const IMAGE_CURSOR: GDI_IMAGE_TYPE = GDI_IMAGE_TYPE(2u32);
-pub const IMAGE_ENHMETAFILE: u32 = 3u32;
-pub const IMAGE_ICON: GDI_IMAGE_TYPE = GDI_IMAGE_TYPE(1u32);
-pub const INDEXID_CONTAINER: u32 = 0u32;
-pub const INDEXID_OBJECT: u32 = 0u32;
-pub const INPUTLANGCHANGE_BACKWARD: u32 = 4u32;
-pub const INPUTLANGCHANGE_FORWARD: u32 = 2u32;
-pub const INPUTLANGCHANGE_SYSCHARSET: u32 = 1u32;
-pub const ISMEX_CALLBACK: u32 = 4u32;
-pub const ISMEX_NOSEND: u32 = 0u32;
-pub const ISMEX_NOTIFY: u32 = 2u32;
-pub const ISMEX_REPLIED: u32 = 8u32;
-pub const ISMEX_SEND: u32 = 1u32;
-pub const ISOLATIONAWARE_MANIFEST_RESOURCE_ID: u32 = 2u32;
-pub const ISOLATIONAWARE_NOSTATICIMPORT_MANIFEST_RESOURCE_ID: u32 = 3u32;
-pub const ISOLATIONPOLICY_BROWSER_MANIFEST_RESOURCE_ID: u32 = 5u32;
-pub const ISOLATIONPOLICY_MANIFEST_RESOURCE_ID: u32 = 4u32;
-pub const KF_ALTDOWN: u32 = 8192u32;
-pub const KF_DLGMODE: u32 = 2048u32;
-pub const KF_EXTENDED: u32 = 256u32;
-pub const KF_MENUMODE: u32 = 4096u32;
-pub const KF_REPEAT: u32 = 16384u32;
-pub const KF_UP: u32 = 32768u32;
-pub const KL_NAMELENGTH: u32 = 9u32;
-pub const LBN_DBLCLK: u32 = 2u32;
-pub const LBN_ERRSPACE: i32 = -2i32;
-pub const LBN_KILLFOCUS: u32 = 5u32;
-pub const LBN_SELCANCEL: u32 = 3u32;
-pub const LBN_SELCHANGE: u32 = 1u32;
-pub const LBN_SETFOCUS: u32 = 4u32;
-pub const LBS_COMBOBOX: i32 = 32768i32;
-pub const LBS_DISABLENOSCROLL: i32 = 4096i32;
-pub const LBS_EXTENDEDSEL: i32 = 2048i32;
-pub const LBS_HASSTRINGS: i32 = 64i32;
-pub const LBS_MULTICOLUMN: i32 = 512i32;
-pub const LBS_MULTIPLESEL: i32 = 8i32;
-pub const LBS_NODATA: i32 = 8192i32;
-pub const LBS_NOINTEGRALHEIGHT: i32 = 256i32;
-pub const LBS_NOREDRAW: i32 = 4i32;
-pub const LBS_NOSEL: i32 = 16384i32;
-pub const LBS_NOTIFY: i32 = 1i32;
-pub const LBS_OWNERDRAWFIXED: i32 = 16i32;
-pub const LBS_OWNERDRAWVARIABLE: i32 = 32i32;
-pub const LBS_SORT: i32 = 2i32;
-pub const LBS_STANDARD: i32 = 10485763i32;
-pub const LBS_USETABSTOPS: i32 = 128i32;
-pub const LBS_WANTKEYBOARDINPUT: i32 = 1024i32;
-pub const LB_ADDFILE: u32 = 406u32;
-pub const LB_ADDSTRING: u32 = 384u32;
-pub const LB_CTLCODE: i32 = 0i32;
-pub const LB_DELETESTRING: u32 = 386u32;
-pub const LB_DIR: u32 = 397u32;
-pub const LB_ERR: i32 = -1i32;
-pub const LB_ERRSPACE: i32 = -2i32;
-pub const LB_FINDSTRING: u32 = 399u32;
-pub const LB_FINDSTRINGEXACT: u32 = 418u32;
-pub const LB_GETANCHORINDEX: u32 = 413u32;
-pub const LB_GETCARETINDEX: u32 = 415u32;
-pub const LB_GETCOUNT: u32 = 395u32;
-pub const LB_GETCURSEL: u32 = 392u32;
-pub const LB_GETHORIZONTALEXTENT: u32 = 403u32;
-pub const LB_GETITEMDATA: u32 = 409u32;
-pub const LB_GETITEMHEIGHT: u32 = 417u32;
-pub const LB_GETITEMRECT: u32 = 408u32;
-pub const LB_GETLISTBOXINFO: u32 = 434u32;
-pub const LB_GETLOCALE: u32 = 422u32;
-pub const LB_GETSEL: u32 = 391u32;
-pub const LB_GETSELCOUNT: u32 = 400u32;
-pub const LB_GETSELITEMS: u32 = 401u32;
-pub const LB_GETTEXT: u32 = 393u32;
-pub const LB_GETTEXTLEN: u32 = 394u32;
-pub const LB_GETTOPINDEX: u32 = 398u32;
-pub const LB_INITSTORAGE: u32 = 424u32;
-pub const LB_INSERTSTRING: u32 = 385u32;
-pub const LB_ITEMFROMPOINT: u32 = 425u32;
-pub const LB_MSGMAX: u32 = 435u32;
-pub const LB_MULTIPLEADDSTRING: u32 = 433u32;
-pub const LB_OKAY: u32 = 0u32;
-pub const LB_RESETCONTENT: u32 = 388u32;
-pub const LB_SELECTSTRING: u32 = 396u32;
-pub const LB_SELITEMRANGE: u32 = 411u32;
-pub const LB_SELITEMRANGEEX: u32 = 387u32;
-pub const LB_SETANCHORINDEX: u32 = 412u32;
-pub const LB_SETCARETINDEX: u32 = 414u32;
-pub const LB_SETCOLUMNWIDTH: u32 = 405u32;
-pub const LB_SETCOUNT: u32 = 423u32;
-pub const LB_SETCURSEL: u32 = 390u32;
-pub const LB_SETHORIZONTALEXTENT: u32 = 404u32;
-pub const LB_SETITEMDATA: u32 = 410u32;
-pub const LB_SETITEMHEIGHT: u32 = 416u32;
-pub const LB_SETLOCALE: u32 = 421u32;
-pub const LB_SETSEL: u32 = 389u32;
-pub const LB_SETTABSTOPS: u32 = 402u32;
-pub const LB_SETTOPINDEX: u32 = 407u32;
-pub const LLKHF_ALTDOWN: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(32u32);
-pub const LLKHF_EXTENDED: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(1u32);
-pub const LLKHF_INJECTED: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(16u32);
-pub const LLKHF_LOWER_IL_INJECTED: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(2u32);
-pub const LLKHF_UP: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(128u32);
-pub const LLMHF_INJECTED: u32 = 1u32;
-pub const LLMHF_LOWER_IL_INJECTED: u32 = 2u32;
-pub const LOCKF_LOGICAL_LOCK: u32 = 0u32;
-pub const LOCKF_PHYSICAL_LOCK: u32 = 1u32;
-pub const LOCKP_ALLOW_MEM_MAPPING: u32 = 0u32;
-pub const LOCKP_ALLOW_WRITES: u32 = 1u32;
-pub const LOCKP_FAIL_MEM_MAPPING: u32 = 2u32;
-pub const LOCKP_FAIL_WRITES: u32 = 0u32;
-pub const LOCKP_LOCK_FOR_FORMAT: u32 = 4u32;
-pub const LOCKP_USER_MASK: u32 = 3u32;
-pub const LR_COLOR: u32 = 2u32;
-pub const LR_COPYDELETEORG: IMAGE_FLAGS = IMAGE_FLAGS(8u32);
-pub const LR_COPYFROMRESOURCE: IMAGE_FLAGS = IMAGE_FLAGS(16384u32);
-pub const LR_COPYRETURNORG: IMAGE_FLAGS = IMAGE_FLAGS(4u32);
-pub const LR_CREATEDIBSECTION: IMAGE_FLAGS = IMAGE_FLAGS(8192u32);
-pub const LR_DEFAULTCOLOR: IMAGE_FLAGS = IMAGE_FLAGS(0u32);
-pub const LR_DEFAULTSIZE: IMAGE_FLAGS = IMAGE_FLAGS(64u32);
-pub const LR_LOADFROMFILE: IMAGE_FLAGS = IMAGE_FLAGS(16u32);
-pub const LR_LOADMAP3DCOLORS: IMAGE_FLAGS = IMAGE_FLAGS(4096u32);
-pub const LR_LOADTRANSPARENT: IMAGE_FLAGS = IMAGE_FLAGS(32u32);
-pub const LR_MONOCHROME: IMAGE_FLAGS = IMAGE_FLAGS(1u32);
-pub const LR_SHARED: IMAGE_FLAGS = IMAGE_FLAGS(32768u32);
-pub const LR_VGACOLOR: IMAGE_FLAGS = IMAGE_FLAGS(128u32);
-pub const LSFW_LOCK: FOREGROUND_WINDOW_LOCK_CODE = FOREGROUND_WINDOW_LOCK_CODE(1u32);
-pub const LSFW_UNLOCK: FOREGROUND_WINDOW_LOCK_CODE = FOREGROUND_WINDOW_LOCK_CODE(2u32);
-pub const LWA_ALPHA: LAYERED_WINDOW_ATTRIBUTES_FLAGS = LAYERED_WINDOW_ATTRIBUTES_FLAGS(2u32);
-pub const LWA_COLORKEY: LAYERED_WINDOW_ATTRIBUTES_FLAGS = LAYERED_WINDOW_ATTRIBUTES_FLAGS(1u32);
-pub const MAXIMUM_RESERVED_MANIFEST_RESOURCE_ID: u32 = 16u32;
-pub const MAX_LOGICALDPIOVERRIDE: u32 = 2u32;
-pub const MAX_STR_BLOCKREASON: u32 = 256u32;
-pub const MAX_TOUCH_COUNT: u32 = 256u32;
-pub const MAX_TOUCH_PREDICTION_FILTER_TAPS: u32 = 3u32;
-pub const MA_ACTIVATE: u32 = 1u32;
-pub const MA_ACTIVATEANDEAT: u32 = 2u32;
-pub const MA_NOACTIVATE: u32 = 3u32;
-pub const MA_NOACTIVATEANDEAT: u32 = 4u32;
-pub const MB_ABORTRETRYIGNORE: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(2u32);
-pub const MB_APPLMODAL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(0u32);
-pub const MB_CANCELTRYCONTINUE: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(6u32);
-pub const MB_DEFAULT_DESKTOP_ONLY: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(131072u32);
-pub const MB_DEFBUTTON1: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(0u32);
-pub const MB_DEFBUTTON2: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(256u32);
-pub const MB_DEFBUTTON3: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(512u32);
-pub const MB_DEFBUTTON4: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(768u32);
-pub const MB_DEFMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(3840u32);
-pub const MB_HELP: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(16384u32);
-pub const MB_ICONASTERISK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(64u32);
-pub const MB_ICONERROR: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(16u32);
-pub const MB_ICONEXCLAMATION: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(48u32);
-pub const MB_ICONHAND: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(16u32);
-pub const MB_ICONINFORMATION: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(64u32);
-pub const MB_ICONMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(240u32);
-pub const MB_ICONQUESTION: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(32u32);
-pub const MB_ICONSTOP: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(16u32);
-pub const MB_ICONWARNING: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(48u32);
-pub const MB_MISCMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(49152u32);
-pub const MB_MODEMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(12288u32);
-pub const MB_NOFOCUS: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(32768u32);
-pub const MB_OK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(0u32);
-pub const MB_OKCANCEL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(1u32);
-pub const MB_RETRYCANCEL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(5u32);
-pub const MB_RIGHT: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(524288u32);
-pub const MB_RTLREADING: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(1048576u32);
-pub const MB_SERVICE_NOTIFICATION: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(2097152u32);
-pub const MB_SERVICE_NOTIFICATION_NT3X: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(262144u32);
-pub const MB_SETFOREGROUND: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(65536u32);
-pub const MB_SYSTEMMODAL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(4096u32);
-pub const MB_TASKMODAL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(8192u32);
-pub const MB_TOPMOST: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(262144u32);
-pub const MB_TYPEMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(15u32);
-pub const MB_USERICON: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(128u32);
-pub const MB_YESNO: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(4u32);
-pub const MB_YESNOCANCEL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(3u32);
-pub const MDIS_ALLCHILDSTYLES: u32 = 1u32;
-pub const MDITILE_HORIZONTAL: TILE_WINDOWS_HOW = TILE_WINDOWS_HOW(1u32);
-pub const MDITILE_SKIPDISABLED: CASCADE_WINDOWS_HOW = CASCADE_WINDOWS_HOW(2u32);
-pub const MDITILE_VERTICAL: TILE_WINDOWS_HOW = TILE_WINDOWS_HOW(0u32);
-pub const MDITILE_ZORDER: CASCADE_WINDOWS_HOW = CASCADE_WINDOWS_HOW(4u32);
-pub const METRICS_USEDEFAULT: i32 = -1i32;
-pub const MFS_CHECKED: MENU_ITEM_STATE = MENU_ITEM_STATE(8u32);
-pub const MFS_DEFAULT: MENU_ITEM_STATE = MENU_ITEM_STATE(4096u32);
-pub const MFS_DISABLED: MENU_ITEM_STATE = MENU_ITEM_STATE(3u32);
-pub const MFS_ENABLED: MENU_ITEM_STATE = MENU_ITEM_STATE(0u32);
-pub const MFS_GRAYED: MENU_ITEM_STATE = MENU_ITEM_STATE(3u32);
-pub const MFS_HILITE: MENU_ITEM_STATE = MENU_ITEM_STATE(128u32);
-pub const MFS_UNCHECKED: MENU_ITEM_STATE = MENU_ITEM_STATE(0u32);
-pub const MFS_UNHILITE: MENU_ITEM_STATE = MENU_ITEM_STATE(0u32);
-pub const MFT_BITMAP: MENU_ITEM_TYPE = MENU_ITEM_TYPE(4u32);
-pub const MFT_MENUBARBREAK: MENU_ITEM_TYPE = MENU_ITEM_TYPE(32u32);
-pub const MFT_MENUBREAK: MENU_ITEM_TYPE = MENU_ITEM_TYPE(64u32);
-pub const MFT_OWNERDRAW: MENU_ITEM_TYPE = MENU_ITEM_TYPE(256u32);
-pub const MFT_RADIOCHECK: MENU_ITEM_TYPE = MENU_ITEM_TYPE(512u32);
-pub const MFT_RIGHTJUSTIFY: MENU_ITEM_TYPE = MENU_ITEM_TYPE(16384u32);
-pub const MFT_RIGHTORDER: MENU_ITEM_TYPE = MENU_ITEM_TYPE(8192u32);
-pub const MFT_SEPARATOR: MENU_ITEM_TYPE = MENU_ITEM_TYPE(2048u32);
-pub const MFT_STRING: MENU_ITEM_TYPE = MENU_ITEM_TYPE(0u32);
-pub const MF_APPEND: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(256u32);
-pub const MF_BITMAP: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(4u32);
-pub const MF_BYCOMMAND: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
-pub const MF_BYPOSITION: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(1024u32);
-pub const MF_CHANGE: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(128u32);
-pub const MF_CHECKED: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(8u32);
-pub const MF_DEFAULT: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(4096u32);
-pub const MF_DELETE: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(512u32);
-pub const MF_DISABLED: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(2u32);
-pub const MF_ENABLED: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
-pub const MF_END: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(128u32);
-pub const MF_GRAYED: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(1u32);
-pub const MF_HELP: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(16384u32);
-pub const MF_HILITE: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(128u32);
-pub const MF_INSERT: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
-pub const MF_MENUBARBREAK: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(32u32);
-pub const MF_MENUBREAK: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(64u32);
-pub const MF_MOUSESELECT: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(32768u32);
-pub const MF_OWNERDRAW: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(256u32);
-pub const MF_POPUP: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(16u32);
-pub const MF_REMOVE: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(4096u32);
-pub const MF_RIGHTJUSTIFY: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(16384u32);
-pub const MF_SEPARATOR: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(2048u32);
-pub const MF_STRING: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
-pub const MF_SYSMENU: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(8192u32);
-pub const MF_UNCHECKED: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
-pub const MF_UNHILITE: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
-pub const MF_USECHECKBITMAPS: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(512u32);
-pub const MIIM_BITMAP: MENU_ITEM_MASK = MENU_ITEM_MASK(128u32);
-pub const MIIM_CHECKMARKS: MENU_ITEM_MASK = MENU_ITEM_MASK(8u32);
-pub const MIIM_DATA: MENU_ITEM_MASK = MENU_ITEM_MASK(32u32);
-pub const MIIM_FTYPE: MENU_ITEM_MASK = MENU_ITEM_MASK(256u32);
-pub const MIIM_ID: MENU_ITEM_MASK = MENU_ITEM_MASK(2u32);
-pub const MIIM_STATE: MENU_ITEM_MASK = MENU_ITEM_MASK(1u32);
-pub const MIIM_STRING: MENU_ITEM_MASK = MENU_ITEM_MASK(64u32);
-pub const MIIM_SUBMENU: MENU_ITEM_MASK = MENU_ITEM_MASK(4u32);
-pub const MIIM_TYPE: MENU_ITEM_MASK = MENU_ITEM_MASK(16u32);
-pub const MIM_APPLYTOSUBMENUS: MENUINFO_MASK = MENUINFO_MASK(2147483648u32);
-pub const MIM_BACKGROUND: MENUINFO_MASK = MENUINFO_MASK(2u32);
-pub const MIM_HELPID: MENUINFO_MASK = MENUINFO_MASK(4u32);
-pub const MIM_MAXHEIGHT: MENUINFO_MASK = MENUINFO_MASK(1u32);
-pub const MIM_MENUDATA: MENUINFO_MASK = MENUINFO_MASK(8u32);
-pub const MIM_STYLE: MENUINFO_MASK = MENUINFO_MASK(16u32);
-pub const MINIMUM_RESERVED_MANIFEST_RESOURCE_ID: u32 = 1u32;
-pub const MIN_LOGICALDPIOVERRIDE: i32 = -2i32;
-pub const MKF_AVAILABLE: u32 = 2u32;
-pub const MKF_CONFIRMHOTKEY: u32 = 8u32;
-pub const MKF_HOTKEYACTIVE: u32 = 4u32;
-pub const MKF_HOTKEYSOUND: u32 = 16u32;
-pub const MKF_INDICATOR: u32 = 32u32;
-pub const MKF_LEFTBUTTONDOWN: u32 = 16777216u32;
-pub const MKF_LEFTBUTTONSEL: u32 = 268435456u32;
-pub const MKF_MODIFIERS: u32 = 64u32;
-pub const MKF_MOUSEKEYSON: u32 = 1u32;
-pub const MKF_MOUSEMODE: u32 = 2147483648u32;
-pub const MKF_REPLACENUMBERS: u32 = 128u32;
-pub const MKF_RIGHTBUTTONDOWN: u32 = 33554432u32;
-pub const MKF_RIGHTBUTTONSEL: u32 = 536870912u32;
-pub const MNC_CLOSE: u32 = 1u32;
-pub const MNC_EXECUTE: u32 = 2u32;
-pub const MNC_IGNORE: u32 = 0u32;
-pub const MNC_SELECT: u32 = 3u32;
-pub const MND_CONTINUE: u32 = 0u32;
-pub const MND_ENDMENU: u32 = 1u32;
-pub const MNGOF_BOTTOMGAP: MENUGETOBJECTINFO_FLAGS = MENUGETOBJECTINFO_FLAGS(2u32);
-pub const MNGOF_TOPGAP: MENUGETOBJECTINFO_FLAGS = MENUGETOBJECTINFO_FLAGS(1u32);
-pub const MNGO_NOERROR: u32 = 1u32;
-pub const MNGO_NOINTERFACE: u32 = 0u32;
-pub const MNS_AUTODISMISS: MENUINFO_STYLE = MENUINFO_STYLE(268435456u32);
-pub const MNS_CHECKORBMP: MENUINFO_STYLE = MENUINFO_STYLE(67108864u32);
-pub const MNS_DRAGDROP: MENUINFO_STYLE = MENUINFO_STYLE(536870912u32);
-pub const MNS_MODELESS: MENUINFO_STYLE = MENUINFO_STYLE(1073741824u32);
-pub const MNS_NOCHECK: MENUINFO_STYLE = MENUINFO_STYLE(2147483648u32);
-pub const MNS_NOTIFYBYPOS: MENUINFO_STYLE = MENUINFO_STYLE(134217728u32);
-pub const MN_GETHMENU: u32 = 481u32;
-pub const MONITORINFOF_PRIMARY: u32 = 1u32;
-pub const MOUSEWHEEL_ROUTING_FOCUS: u32 = 0u32;
-pub const MOUSEWHEEL_ROUTING_HYBRID: u32 = 1u32;
-pub const MOUSEWHEEL_ROUTING_MOUSE_POS: u32 = 2u32;
-pub const MSGFLTINFO_ALLOWED_HIGHER: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(3u32);
-pub const MSGFLTINFO_ALREADYALLOWED_FORWND: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(1u32);
-pub const MSGFLTINFO_ALREADYDISALLOWED_FORWND: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(2u32);
-pub const MSGFLTINFO_NONE: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(0u32);
-pub const MSGFLT_ADD: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = CHANGE_WINDOW_MESSAGE_FILTER_FLAGS(1u32);
-pub const MSGFLT_ALLOW: WINDOW_MESSAGE_FILTER_ACTION = WINDOW_MESSAGE_FILTER_ACTION(1u32);
-pub const MSGFLT_DISALLOW: WINDOW_MESSAGE_FILTER_ACTION = WINDOW_MESSAGE_FILTER_ACTION(2u32);
-pub const MSGFLT_REMOVE: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = CHANGE_WINDOW_MESSAGE_FILTER_FLAGS(2u32);
-pub const MSGFLT_RESET: WINDOW_MESSAGE_FILTER_ACTION = WINDOW_MESSAGE_FILTER_ACTION(0u32);
-pub const MSGF_DIALOGBOX: u32 = 0u32;
-pub const MSGF_MAX: u32 = 8u32;
-pub const MSGF_MENU: u32 = 2u32;
-pub const MSGF_MESSAGEBOX: u32 = 1u32;
-pub const MSGF_NEXTWINDOW: u32 = 6u32;
-pub const MSGF_SCROLLBAR: u32 = 5u32;
-pub const MSGF_USER: u32 = 4096u32;
-pub const MWMO_ALERTABLE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(2u32);
-pub const MWMO_INPUTAVAILABLE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(4u32);
-pub const MWMO_NONE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(0u32);
-pub const MWMO_WAITALL: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(1u32);
-pub const MrmDumpType_Basic: MrmDumpType = MrmDumpType(0i32);
-pub const MrmDumpType_Detailed: MrmDumpType = MrmDumpType(1i32);
-pub const MrmDumpType_Schema: MrmDumpType = MrmDumpType(2i32);
-pub const MrmIndexerFlagsAutoMerge: MrmIndexerFlags = MrmIndexerFlags(1i32);
-pub const MrmIndexerFlagsCreateContentChecksum: MrmIndexerFlags = MrmIndexerFlags(2i32);
-pub const MrmIndexerFlagsNone: MrmIndexerFlags = MrmIndexerFlags(0i32);
-pub const MrmPackagingModeAutoSplit: MrmPackagingMode = MrmPackagingMode(1i32);
-pub const MrmPackagingModeResourcePack: MrmPackagingMode = MrmPackagingMode(2i32);
-pub const MrmPackagingModeStandaloneFile: MrmPackagingMode = MrmPackagingMode(0i32);
-pub const MrmPackagingOptionsNone: MrmPackagingOptions = MrmPackagingOptions(0i32);
-pub const MrmPackagingOptionsOmitSchemaFromResourcePacks: MrmPackagingOptions = MrmPackagingOptions(1i32);
-pub const MrmPackagingOptionsSplitLanguageVariants: MrmPackagingOptions = MrmPackagingOptions(2i32);
-pub const MrmPlatformVersion_Default: MrmPlatformVersion = MrmPlatformVersion(0i32);
-pub const MrmPlatformVersion_Windows10_0_0_0: MrmPlatformVersion = MrmPlatformVersion(17432576i32);
-pub const MrmPlatformVersion_Windows10_0_0_5: MrmPlatformVersion = MrmPlatformVersion(17432581i32);
-pub const MrmResourceIndexerMessageSeverityError: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(3i32);
-pub const MrmResourceIndexerMessageSeverityInfo: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(1i32);
-pub const MrmResourceIndexerMessageSeverityVerbose: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(0i32);
-pub const MrmResourceIndexerMessageSeverityWarning: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(2i32);
-pub const NFR_ANSI: u32 = 1u32;
-pub const NFR_UNICODE: u32 = 2u32;
-pub const NF_QUERY: u32 = 3u32;
-pub const NF_REQUERY: u32 = 4u32;
-pub const NID_EXTERNAL_PEN: u32 = 8u32;
-pub const NID_EXTERNAL_TOUCH: u32 = 2u32;
-pub const NID_INTEGRATED_PEN: u32 = 4u32;
-pub const NID_INTEGRATED_TOUCH: u32 = 1u32;
-pub const NID_MULTI_INPUT: u32 = 64u32;
-pub const NID_READY: u32 = 128u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OBJECT_IDENTIFIER(pub i32);
 pub const OBJID_ALERT: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-10i32);
 pub const OBJID_CARET: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-8i32);
 pub const OBJID_CLIENT: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-4i32);
@@ -7798,6 +6848,42 @@ pub const PDC_ORIENTATION_90: u32 = 8u32;
 pub const PDC_ORIGIN: u32 = 1024u32;
 pub const PDC_REMOVAL: u32 = 2u32;
 pub const PDC_RESOLUTION: u32 = 512u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PEEK_MESSAGE_REMOVE_TYPE(pub u32);
+impl PEEK_MESSAGE_REMOVE_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for PEEK_MESSAGE_REMOVE_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for PEEK_MESSAGE_REMOVE_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for PEEK_MESSAGE_REMOVE_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for PEEK_MESSAGE_REMOVE_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for PEEK_MESSAGE_REMOVE_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const PENARBITRATIONTYPE_FIS: u32 = 2u32;
 pub const PENARBITRATIONTYPE_MAX: u32 = 4u32;
 pub const PENARBITRATIONTYPE_NONE: u32 = 0u32;
@@ -7826,6 +6912,9 @@ pub const PM_QS_POSTMESSAGE: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE
 pub const PM_QS_SENDMESSAGE: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(4194304u32);
 pub const PM_REMOVE: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(1u32);
 pub const POINTER_DEVICE_PRODUCT_STRING_MAX: u32 = 520u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct POINTER_INPUT_TYPE(pub i32);
 pub const POINTER_MESSAGE_FLAG_CANCELED: u32 = 32768u32;
 pub const POINTER_MESSAGE_FLAG_CONFIDENCE: u32 = 16384u32;
 pub const POINTER_MESSAGE_FLAG_FIFTHBUTTON: u32 = 256u32;
@@ -7839,12 +6928,17 @@ pub const POINTER_MESSAGE_FLAG_SECONDBUTTON: u32 = 32u32;
 pub const POINTER_MESSAGE_FLAG_THIRDBUTTON: u32 = 64u32;
 pub const POINTER_MOD_CTRL: u32 = 8u32;
 pub const POINTER_MOD_SHIFT: u32 = 4u32;
+pub type PREGISTERCLASSNAMEW = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR) -> super::super::Foundation::BOOLEAN>;
 pub const PRF_CHECKVISIBLE: i32 = 1i32;
 pub const PRF_CHILDREN: i32 = 16i32;
 pub const PRF_CLIENT: i32 = 4i32;
 pub const PRF_ERASEBKGND: i32 = 8i32;
 pub const PRF_NONCLIENT: i32 = 2i32;
 pub const PRF_OWNED: i32 = 32i32;
+pub type PROPENUMPROCA = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_core::PCSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+pub type PROPENUMPROCEXA = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_core::PCSTR, param2: super::super::Foundation::HANDLE, param3: usize) -> super::super::Foundation::BOOL>;
+pub type PROPENUMPROCEXW = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_core::PCWSTR, param2: super::super::Foundation::HANDLE, param3: usize) -> super::super::Foundation::BOOL>;
+pub type PROPENUMPROCW = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_core::PCWSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
 pub const PT_MOUSE: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(4i32);
 pub const PT_PEN: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(3i32);
 pub const PT_POINTER: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(1i32);
@@ -7872,6 +6966,78 @@ pub const QS_RAWINPUT: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(1024u32);
 pub const QS_SENDMESSAGE: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(64u32);
 pub const QS_TIMER: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(16u32);
 pub const QS_TOUCH: u32 = 2048u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QUEUE_STATUS_FLAGS(pub u32);
+impl QUEUE_STATUS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for QUEUE_STATUS_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for QUEUE_STATUS_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for QUEUE_STATUS_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for QUEUE_STATUS_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for QUEUE_STATUS_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REGISTER_NOTIFICATION_FLAGS(pub u32);
+impl REGISTER_NOTIFICATION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for REGISTER_NOTIFICATION_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for REGISTER_NOTIFICATION_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for REGISTER_NOTIFICATION_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for REGISTER_NOTIFICATION_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for REGISTER_NOTIFICATION_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const RES_CURSOR: u32 = 2u32;
 pub const RES_ICON: u32 = 1u32;
 pub const RIDEV_EXMODEMASK: u32 = 240u32;
@@ -7960,6 +7126,155 @@ pub const SB_THUMBTRACK: SCROLLBAR_COMMAND = SCROLLBAR_COMMAND(5i32);
 pub const SB_TOP: SCROLLBAR_COMMAND = SCROLLBAR_COMMAND(6i32);
 pub const SB_VERT: SCROLLBAR_CONSTANTS = SCROLLBAR_CONSTANTS(1i32);
 pub const SCF_ISSECURE: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SCROLLBARINFO {
+    pub cbSize: u32,
+    pub rcScrollBar: super::super::Foundation::RECT,
+    pub dxyLineButton: i32,
+    pub xyThumbTop: i32,
+    pub xyThumbBottom: i32,
+    pub reserved: i32,
+    pub rgstate: [u32; 6],
+}
+impl Default for SCROLLBARINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SCROLLBARINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCROLLBAR_COMMAND(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCROLLBAR_CONSTANTS(pub i32);
+impl SCROLLBAR_CONSTANTS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for SCROLLBAR_CONSTANTS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for SCROLLBAR_CONSTANTS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for SCROLLBAR_CONSTANTS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for SCROLLBAR_CONSTANTS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for SCROLLBAR_CONSTANTS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SCROLLINFO {
+    pub cbSize: u32,
+    pub fMask: SCROLLINFO_MASK,
+    pub nMin: i32,
+    pub nMax: i32,
+    pub nPage: u32,
+    pub nPos: i32,
+    pub nTrackPos: i32,
+}
+impl Default for SCROLLINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SCROLLINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCROLLINFO_MASK(pub u32);
+impl SCROLLINFO_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for SCROLLINFO_MASK {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for SCROLLINFO_MASK {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for SCROLLINFO_MASK {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for SCROLLINFO_MASK {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for SCROLLINFO_MASK {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCROLL_WINDOW_FLAGS(pub u32);
+impl SCROLL_WINDOW_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for SCROLL_WINDOW_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for SCROLL_WINDOW_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for SCROLL_WINDOW_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for SCROLL_WINDOW_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for SCROLL_WINDOW_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const SC_ARRANGE: u32 = 61712u32;
 pub const SC_CLOSE: u32 = 61536u32;
 pub const SC_CONTEXTHELP: u32 = 61824u32;
@@ -7981,10 +7296,103 @@ pub const SC_SIZE: u32 = 61440u32;
 pub const SC_TASKLIST: u32 = 61744u32;
 pub const SC_VSCROLL: u32 = 61552u32;
 pub const SC_ZOOM: u32 = 61488u32;
+pub type SENDASYNCPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: super::super::Foundation::LRESULT)>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SEND_MESSAGE_TIMEOUT_FLAGS(pub u32);
+impl SEND_MESSAGE_TIMEOUT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for SEND_MESSAGE_TIMEOUT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for SEND_MESSAGE_TIMEOUT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for SEND_MESSAGE_TIMEOUT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for SEND_MESSAGE_TIMEOUT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for SEND_MESSAGE_TIMEOUT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SET_WINDOW_POS_FLAGS(pub u32);
+impl SET_WINDOW_POS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for SET_WINDOW_POS_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for SET_WINDOW_POS_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for SET_WINDOW_POS_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for SET_WINDOW_POS_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for SET_WINDOW_POS_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SHELLHOOKINFO {
+    pub hwnd: super::super::Foundation::HWND,
+    pub rc: super::super::Foundation::RECT,
+}
+impl Default for SHELLHOOKINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SHELLHOOKINFO {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SHOW_FULLSCREEN: u32 = 3u32;
 pub const SHOW_ICONWINDOW: u32 = 2u32;
 pub const SHOW_OPENNOACTIVATE: u32 = 4u32;
 pub const SHOW_OPENWINDOW: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SHOW_WINDOW_CMD(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SHOW_WINDOW_STATUS(pub u32);
 pub const SIF_ALL: SCROLLINFO_MASK = SCROLLINFO_MASK(23u32);
 pub const SIF_DISABLENOSCROLL: SCROLLINFO_MASK = SCROLLINFO_MASK(8u32);
 pub const SIF_PAGE: SCROLLINFO_MASK = SCROLLINFO_MASK(2u32);
@@ -8414,6 +7822,20 @@ pub const STRSAFE_MAX_LENGTH: u32 = 2147483646u32;
 pub const STRSAFE_NO_TRUNCATION: u32 = 4096u32;
 pub const STRSAFE_NULL_ON_FAILURE: u32 = 2048u32;
 pub const STRSAFE_USE_SECURE_CRT: u32 = 0u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct STYLESTRUCT {
+    pub styleOld: u32,
+    pub styleNew: u32,
+}
+impl Default for STYLESTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for STYLESTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SWP_ASYNCWINDOWPOS: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(16384u32);
 pub const SWP_DEFERERASE: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(8192u32);
 pub const SWP_DRAWFRAME: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(32u32);
@@ -8452,18 +7874,150 @@ pub const SW_SHOWNA: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(8i32);
 pub const SW_SHOWNOACTIVATE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(4i32);
 pub const SW_SHOWNORMAL: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(1i32);
 pub const SW_SMOOTHSCROLL: SCROLL_WINDOW_FLAGS = SCROLL_WINDOW_FLAGS(16u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYSTEM_CURSOR_ID(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYSTEM_METRICS_INDEX(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYSTEM_PARAMETERS_INFO_ACTION(pub u32);
+impl SYSTEM_PARAMETERS_INFO_ACTION {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for SYSTEM_PARAMETERS_INFO_ACTION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for SYSTEM_PARAMETERS_INFO_ACTION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for SYSTEM_PARAMETERS_INFO_ACTION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for SYSTEM_PARAMETERS_INFO_ACTION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for SYSTEM_PARAMETERS_INFO_ACTION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(pub u32);
+impl SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const TDF_REGISTER: TOOLTIP_DISMISS_FLAGS = TOOLTIP_DISMISS_FLAGS(1i32);
 pub const TDF_UNREGISTER: TOOLTIP_DISMISS_FLAGS = TOOLTIP_DISMISS_FLAGS(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TILE_WINDOWS_HOW(pub u32);
+pub type TIMERPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: u32)>;
 pub const TIMERV_COALESCING_MAX: u32 = 2147483637u32;
 pub const TIMERV_COALESCING_MIN: u32 = 1u32;
 pub const TIMERV_DEFAULT_COALESCING: u32 = 0u32;
 pub const TIMERV_NO_COALESCING: u32 = 4294967295u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TITLEBARINFO {
+    pub cbSize: u32,
+    pub rcTitleBar: super::super::Foundation::RECT,
+    pub rgstate: [u32; 6],
+}
+impl Default for TITLEBARINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TITLEBARINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TITLEBARINFOEX {
+    pub cbSize: u32,
+    pub rcTitleBar: super::super::Foundation::RECT,
+    pub rgstate: [u32; 6],
+    pub rgrect: [super::super::Foundation::RECT; 6],
+}
+impl Default for TITLEBARINFOEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TITLEBARINFOEX {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TKF_AVAILABLE: u32 = 2u32;
 pub const TKF_CONFIRMHOTKEY: u32 = 8u32;
 pub const TKF_HOTKEYACTIVE: u32 = 4u32;
 pub const TKF_HOTKEYSOUND: u32 = 16u32;
 pub const TKF_INDICATOR: u32 = 32u32;
 pub const TKF_TOGGLEKEYSON: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TOOLTIP_DISMISS_FLAGS(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TOUCHPREDICTIONPARAMETERS {
+    pub cbSize: u32,
+    pub dwLatency: u32,
+    pub dwSampleTime: u32,
+    pub bUseHWTimeStamp: u32,
+}
+impl Default for TOUCHPREDICTIONPARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TOUCHPREDICTIONPARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TOUCHPREDICTIONPARAMETERS_DEFAULT_LATENCY: u32 = 8u32;
 pub const TOUCHPREDICTIONPARAMETERS_DEFAULT_RLS_DELTA: f32 = 0.001f32;
 pub const TOUCHPREDICTIONPARAMETERS_DEFAULT_RLS_EXPO_SMOOTH_ALPHA: f32 = 0.99f32;
@@ -8482,6 +8036,20 @@ pub const TOUCH_MASK_CONTACTAREA: u32 = 1u32;
 pub const TOUCH_MASK_NONE: u32 = 0u32;
 pub const TOUCH_MASK_ORIENTATION: u32 = 2u32;
 pub const TOUCH_MASK_PRESSURE: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TPMPARAMS {
+    pub cbSize: u32,
+    pub rcExclude: super::super::Foundation::RECT,
+}
+impl Default for TPMPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TPMPARAMS {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TPM_BOTTOMALIGN: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(32u32);
 pub const TPM_CENTERALIGN: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(4u32);
 pub const TPM_HORIZONTAL: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(0u32);
@@ -8502,6 +8070,42 @@ pub const TPM_VERNEGANIMATION: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(8
 pub const TPM_VERPOSANIMATION: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(4096u32);
 pub const TPM_VERTICAL: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(64u32);
 pub const TPM_WORKAREA: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(65536u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TRACK_POPUP_MENU_FLAGS(pub u32);
+impl TRACK_POPUP_MENU_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for TRACK_POPUP_MENU_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for TRACK_POPUP_MENU_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for TRACK_POPUP_MENU_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for TRACK_POPUP_MENU_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for TRACK_POPUP_MENU_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const UISF_ACTIVE: u32 = 4u32;
 pub const UISF_HIDEACCEL: u32 = 2u32;
 pub const UISF_HIDEFOCUS: u32 = 1u32;
@@ -8514,9 +8118,55 @@ pub const ULW_EX_NORESIZE: UPDATE_LAYERED_WINDOW_FLAGS = UPDATE_LAYERED_WINDOW_F
 pub const ULW_OPAQUE: UPDATE_LAYERED_WINDOW_FLAGS = UPDATE_LAYERED_WINDOW_FLAGS(4u32);
 pub const UNICODE_NOCHAR: u32 = 65535u32;
 pub const UOI_TIMERPROC_EXCEPTION_SUPPRESSION: u32 = 7u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct UPDATELAYEREDWINDOWINFO {
+    pub cbSize: u32,
+    pub hdcDst: super::super::Graphics::Gdi::HDC,
+    pub pptDst: *const super::super::Foundation::POINT,
+    pub psize: *const super::super::Foundation::SIZE,
+    pub hdcSrc: super::super::Graphics::Gdi::HDC,
+    pub pptSrc: *const super::super::Foundation::POINT,
+    pub crKey: super::super::Foundation::COLORREF,
+    pub pblend: *const super::super::Graphics::Gdi::BLENDFUNCTION,
+    pub dwFlags: UPDATE_LAYERED_WINDOW_FLAGS,
+    pub prcDirty: *const super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for UPDATELAYEREDWINDOWINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for UPDATELAYEREDWINDOWINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct UPDATE_LAYERED_WINDOW_FLAGS(pub u32);
 pub const USER_DEFAULT_SCREEN_DPI: u32 = 96u32;
 pub const USER_TIMER_MAXIMUM: u32 = 2147483647u32;
 pub const USER_TIMER_MINIMUM: u32 = 10u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VolLockBroadcast {
+    pub vlb_dbh: DEV_BROADCAST_HDR,
+    pub vlb_owner: u32,
+    pub vlb_perms: u8,
+    pub vlb_lockType: u8,
+    pub vlb_drive: u8,
+    pub vlb_flags: u8,
+}
+impl Default for VolLockBroadcast {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for VolLockBroadcast {
+    type TypeKind = windows_core::CopyType;
+}
 pub const WA_ACTIVE: u32 = 1u32;
 pub const WA_CLICKACTIVE: u32 = 2u32;
 pub const WA_INACTIVE: u32 = 0u32;
@@ -8544,6 +8194,185 @@ pub const WH_MOUSE_LL: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(14i32);
 pub const WH_MSGFILTER: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(-1i32);
 pub const WH_SHELL: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(10i32);
 pub const WH_SYSMSGFILTER: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(6i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINDOWINFO {
+    pub cbSize: u32,
+    pub rcWindow: super::super::Foundation::RECT,
+    pub rcClient: super::super::Foundation::RECT,
+    pub dwStyle: WINDOW_STYLE,
+    pub dwExStyle: WINDOW_EX_STYLE,
+    pub dwWindowStatus: u32,
+    pub cxWindowBorders: u32,
+    pub cyWindowBorders: u32,
+    pub atomWindowType: u16,
+    pub wCreatorVersion: u16,
+}
+impl Default for WINDOWINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WINDOWINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINDOWPLACEMENT {
+    pub length: u32,
+    pub flags: WINDOWPLACEMENT_FLAGS,
+    pub showCmd: u32,
+    pub ptMinPosition: super::super::Foundation::POINT,
+    pub ptMaxPosition: super::super::Foundation::POINT,
+    pub rcNormalPosition: super::super::Foundation::RECT,
+}
+impl Default for WINDOWPLACEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WINDOWPLACEMENT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WINDOWPLACEMENT_FLAGS(pub u32);
+impl WINDOWPLACEMENT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for WINDOWPLACEMENT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for WINDOWPLACEMENT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for WINDOWPLACEMENT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for WINDOWPLACEMENT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for WINDOWPLACEMENT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINDOWPOS {
+    pub hwnd: super::super::Foundation::HWND,
+    pub hwndInsertAfter: super::super::Foundation::HWND,
+    pub x: i32,
+    pub y: i32,
+    pub cx: i32,
+    pub cy: i32,
+    pub flags: SET_WINDOW_POS_FLAGS,
+}
+impl Default for WINDOWPOS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WINDOWPOS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WINDOWS_HOOK_ID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WINDOW_DISPLAY_AFFINITY(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WINDOW_EX_STYLE(pub u32);
+impl WINDOW_EX_STYLE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for WINDOW_EX_STYLE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for WINDOW_EX_STYLE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for WINDOW_EX_STYLE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for WINDOW_EX_STYLE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for WINDOW_EX_STYLE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WINDOW_LONG_PTR_INDEX(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WINDOW_MESSAGE_FILTER_ACTION(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WINDOW_STYLE(pub u32);
+impl WINDOW_STYLE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for WINDOW_STYLE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for WINDOW_STYLE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for WINDOW_STYLE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for WINDOW_STYLE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for WINDOW_STYLE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const WINEVENT_INCONTEXT: u32 = 4u32;
 pub const WINEVENT_OUTOFCONTEXT: u32 = 0u32;
 pub const WINEVENT_SKIPOWNPROCESS: u32 = 2u32;
@@ -8821,6 +8650,148 @@ pub const WM_WTSSESSION_CHANGE: u32 = 689u32;
 pub const WM_XBUTTONDBLCLK: u32 = 525u32;
 pub const WM_XBUTTONDOWN: u32 = 523u32;
 pub const WM_XBUTTONUP: u32 = 524u32;
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WNDCLASSA {
+    pub style: WNDCLASS_STYLES,
+    pub lpfnWndProc: WNDPROC,
+    pub cbClsExtra: i32,
+    pub cbWndExtra: i32,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hIcon: HICON,
+    pub hCursor: HCURSOR,
+    pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
+    pub lpszMenuName: windows_core::PCSTR,
+    pub lpszClassName: windows_core::PCSTR,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for WNDCLASSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for WNDCLASSA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WNDCLASSEXA {
+    pub cbSize: u32,
+    pub style: WNDCLASS_STYLES,
+    pub lpfnWndProc: WNDPROC,
+    pub cbClsExtra: i32,
+    pub cbWndExtra: i32,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hIcon: HICON,
+    pub hCursor: HCURSOR,
+    pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
+    pub lpszMenuName: windows_core::PCSTR,
+    pub lpszClassName: windows_core::PCSTR,
+    pub hIconSm: HICON,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for WNDCLASSEXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for WNDCLASSEXA {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WNDCLASSEXW {
+    pub cbSize: u32,
+    pub style: WNDCLASS_STYLES,
+    pub lpfnWndProc: WNDPROC,
+    pub cbClsExtra: i32,
+    pub cbWndExtra: i32,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hIcon: HICON,
+    pub hCursor: HCURSOR,
+    pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
+    pub lpszMenuName: windows_core::PCWSTR,
+    pub lpszClassName: windows_core::PCWSTR,
+    pub hIconSm: HICON,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for WNDCLASSEXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for WNDCLASSEXW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WNDCLASSW {
+    pub style: WNDCLASS_STYLES,
+    pub lpfnWndProc: WNDPROC,
+    pub cbClsExtra: i32,
+    pub cbWndExtra: i32,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hIcon: HICON,
+    pub hCursor: HCURSOR,
+    pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
+    pub lpszMenuName: windows_core::PCWSTR,
+    pub lpszClassName: windows_core::PCWSTR,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for WNDCLASSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for WNDCLASSW {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WNDCLASS_STYLES(pub u32);
+impl WNDCLASS_STYLES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for WNDCLASS_STYLES {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for WNDCLASS_STYLES {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for WNDCLASS_STYLES {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for WNDCLASS_STYLES {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for WNDCLASS_STYLES {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub type WNDENUMPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub type WNDPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
 pub const WPF_ASYNCWINDOWPLACEMENT: WINDOWPLACEMENT_FLAGS = WINDOWPLACEMENT_FLAGS(4u32);
 pub const WPF_RESTORETOMAXIMIZED: WINDOWPLACEMENT_FLAGS = WINDOWPLACEMENT_FLAGS(2u32);
 pub const WPF_SETMINPOSITION: WINDOWPLACEMENT_FLAGS = WINDOWPLACEMENT_FLAGS(1u32);
@@ -8901,6 +8872,35 @@ pub const WVR_VALIDRECTS: u32 = 1024u32;
 pub const WVR_VREDRAW: u32 = 512u32;
 pub const XBUTTON1: u16 = 1u16;
 pub const XBUTTON2: u16 = 2u16;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct _DEV_BROADCAST_HEADER {
+    pub dbcd_size: u32,
+    pub dbcd_devicetype: u32,
+    pub dbcd_reserved: u32,
+}
+impl Default for _DEV_BROADCAST_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for _DEV_BROADCAST_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct _DEV_BROADCAST_USERDEFINED {
+    pub dbud_dbh: DEV_BROADCAST_HDR,
+    pub dbud_szName: [i8; 1],
+}
+impl Default for _DEV_BROADCAST_USERDEFINED {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for _DEV_BROADCAST_USERDEFINED {
+    type TypeKind = windows_core::CopyType;
+}
 pub const __WARNING_BANNED_API_USAGE: u32 = 28719u32;
 pub const __WARNING_CYCLOMATIC_COMPLEXITY: u32 = 28734u32;
 pub const __WARNING_DEREF_NULL_PTR: u32 = 6011u32;

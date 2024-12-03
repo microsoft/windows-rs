@@ -298,9 +298,8 @@ where
     windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqSetTranscriptConfiguration(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, desiredconfig : *const DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION) -> windows_core::HRESULT);
     DdqSetTranscriptConfiguration(hsession.param().abi(), core::mem::transmute(desiredconfig)).ok()
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DdqAccessLevel(pub i32);
+pub const AllUserData: DdqAccessLevel = DdqAccessLevel(2i32);
+pub const CurrentUserData: DdqAccessLevel = DdqAccessLevel(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
@@ -509,6 +508,9 @@ impl windows_core::TypeKind for DIAGNOSTIC_REPORT_SIGNATURE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DdqAccessLevel(pub i32);
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDIAGNOSTIC_DATA_QUERY_SESSION(pub *mut core::ffi::c_void);
 impl windows_core::TypeKind for HDIAGNOSTIC_DATA_QUERY_SESSION {
@@ -658,6 +660,4 @@ impl Default for HDIAGNOSTIC_REPORT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const AllUserData: DdqAccessLevel = DdqAccessLevel(2i32);
-pub const CurrentUserData: DdqAccessLevel = DdqAccessLevel(1i32);
 pub const NoData: DdqAccessLevel = DdqAccessLevel(0i32);

@@ -1,3 +1,36 @@
+windows_core::imp::define_interface!(IPlaylist, IPlaylist_Vtbl, 0x803736f5_cf44_4d97_83b3_7a089e9ab663);
+impl windows_core::RuntimeType for IPlaylist {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPlaylist_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    pub Files: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    Files: usize,
+    pub SaveAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub SaveAsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Storage::NameCollisionOption, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    SaveAsAsync: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub SaveAsWithFormatAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Storage::NameCollisionOption, PlaylistFormat, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    SaveAsWithFormatAsync: usize,
+}
+windows_core::imp::define_interface!(IPlaylistStatics, IPlaylistStatics_Vtbl, 0xc5c331cd_81f9_4ff3_95b9_70b6ff046b68);
+impl windows_core::RuntimeType for IPlaylistStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPlaylistStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Storage_Streams")]
+    pub LoadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    LoadAsync: usize,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Playlist(windows_core::IUnknown);
@@ -71,39 +104,6 @@ unsafe impl windows_core::Interface for Playlist {
 }
 impl windows_core::RuntimeName for Playlist {
     const NAME: &'static str = "Windows.Media.Playlists.Playlist";
-}
-windows_core::imp::define_interface!(IPlaylist, IPlaylist_Vtbl, 0x803736f5_cf44_4d97_83b3_7a089e9ab663);
-impl windows_core::RuntimeType for IPlaylist {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPlaylist_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub Files: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
-    Files: usize,
-    pub SaveAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub SaveAsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Storage::NameCollisionOption, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    SaveAsAsync: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub SaveAsWithFormatAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Storage::NameCollisionOption, PlaylistFormat, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    SaveAsWithFormatAsync: usize,
-}
-windows_core::imp::define_interface!(IPlaylistStatics, IPlaylistStatics_Vtbl, 0xc5c331cd_81f9_4ff3_95b9_70b6ff046b68);
-impl windows_core::RuntimeType for IPlaylistStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPlaylistStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage_Streams")]
-    pub LoadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    LoadAsync: usize,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

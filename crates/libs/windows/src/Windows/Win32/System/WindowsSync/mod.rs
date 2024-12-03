@@ -1,3 +1,26 @@
+pub const CCR_COLLISION: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(1i32);
+pub const CCR_IDENTITY: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(3i32);
+pub const CCR_NOPARENT: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(2i32);
+pub const CCR_OTHER: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CONFLICT_RESOLUTION_POLICY(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CONSTRAINT_CONFLICT_REASON(pub i32);
+pub const CRP_DESTINATION_PROVIDER_WINS: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(1i32);
+pub const CRP_LAST: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(3i32);
+pub const CRP_NONE: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(0i32);
+pub const CRP_SOURCE_PROVIDER_WINS: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(2i32);
+pub const FCT_INTERSECTION: FILTER_COMBINATION_TYPE = FILTER_COMBINATION_TYPE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILTERING_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FILTER_COMBINATION_TYPE(pub i32);
+pub const FT_CURRENT_ITEMS_AND_VERSIONS_FOR_MOVED_OUT_ITEMS: FILTERING_TYPE = FILTERING_TYPE(1i32);
+pub const FT_CURRENT_ITEMS_ONLY: FILTERING_TYPE = FILTERING_TYPE(0i32);
 windows_core::imp::define_interface!(IAsynchronousDataRetriever, IAsynchronousDataRetriever_Vtbl, 0x9fc7e470_61ea_4a88_9be4_df56a27cfef2);
 windows_core::imp::interface_hierarchy!(IAsynchronousDataRetriever, windows_core::IUnknown);
 impl IAsynchronousDataRetriever {
@@ -827,6 +850,36 @@ impl ICustomFilterInfo_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICustomFilterInfo {}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ID_PARAMETERS {
+    pub dwSize: u32,
+    pub replicaId: ID_PARAMETER_PAIR,
+    pub itemId: ID_PARAMETER_PAIR,
+    pub changeUnitId: ID_PARAMETER_PAIR,
+}
+impl Default for ID_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ID_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ID_PARAMETER_PAIR {
+    pub fIsVariable: super::super::Foundation::BOOL,
+    pub cbIdSize: u16,
+}
+impl Default for ID_PARAMETER_PAIR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ID_PARAMETER_PAIR {
+    type TypeKind = windows_core::CopyType;
+}
 windows_core::imp::define_interface!(IDataRetrieverCallback, IDataRetrieverCallback_Vtbl, 0x71b4863b_f969_4676_bbc3_3d9fdc3fb2c7);
 windows_core::imp::interface_hierarchy!(IDataRetrieverCallback, windows_core::IUnknown);
 impl IDataRetrieverCallback {
@@ -5633,199 +5686,13 @@ impl ISynchronousDataRetriever_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISynchronousDataRetriever {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CONFLICT_RESOLUTION_POLICY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CONSTRAINT_CONFLICT_REASON(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FILTERING_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FILTER_COMBINATION_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KNOWLEDGE_COOKIE_COMPARISON_RESULT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SYNC_CONSTRAINT_RESOLVE_ACTION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SYNC_FULL_ENUMERATION_ACTION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SYNC_PROGRESS_STAGE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SYNC_PROVIDER_ROLE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SYNC_REGISTRATION_EVENT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SYNC_RESOLVE_ACTION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SYNC_SERIALIZATION_VERSION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SYNC_STATISTICS(pub i32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ID_PARAMETERS {
-    pub dwSize: u32,
-    pub replicaId: ID_PARAMETER_PAIR,
-    pub itemId: ID_PARAMETER_PAIR,
-    pub changeUnitId: ID_PARAMETER_PAIR,
-}
-impl Default for ID_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ID_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ID_PARAMETER_PAIR {
-    pub fIsVariable: super::super::Foundation::BOOL,
-    pub cbIdSize: u16,
-}
-impl Default for ID_PARAMETER_PAIR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ID_PARAMETER_PAIR {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SYNC_FILTER_CHANGE {
-    pub fMoveIn: super::super::Foundation::BOOL,
-    pub moveVersion: SYNC_VERSION,
-}
-impl Default for SYNC_FILTER_CHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SYNC_FILTER_CHANGE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SYNC_RANGE {
-    pub pbClosedLowerBound: *mut u8,
-    pub pbClosedUpperBound: *mut u8,
-}
-impl Default for SYNC_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SYNC_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SYNC_SESSION_STATISTICS {
-    pub dwChangesApplied: u32,
-    pub dwChangesFailed: u32,
-}
-impl Default for SYNC_SESSION_STATISTICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SYNC_SESSION_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SYNC_TIME {
-    pub dwDate: u32,
-    pub dwTime: u32,
-}
-impl Default for SYNC_TIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SYNC_TIME {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SYNC_VERSION {
-    pub dwLastUpdatingReplicaKey: u32,
-    pub ullTickCount: u64,
-}
-impl Default for SYNC_VERSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SYNC_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SyncProviderConfigUIConfiguration {
-    pub dwVersion: u32,
-    pub guidInstanceId: windows_core::GUID,
-    pub clsidConfigUI: windows_core::GUID,
-    pub guidContentType: windows_core::GUID,
-    pub dwCapabilities: u32,
-    pub dwSupportedArchitecture: u32,
-    pub fIsGlobal: super::super::Foundation::BOOL,
-}
-impl Default for SyncProviderConfigUIConfiguration {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SyncProviderConfigUIConfiguration {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SyncProviderConfiguration {
-    pub dwVersion: u32,
-    pub guidInstanceId: windows_core::GUID,
-    pub clsidProvider: windows_core::GUID,
-    pub guidConfigUIInstanceId: windows_core::GUID,
-    pub guidContentType: windows_core::GUID,
-    pub dwCapabilities: u32,
-    pub dwSupportedArchitecture: u32,
-}
-impl Default for SyncProviderConfiguration {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SyncProviderConfiguration {
-    type TypeKind = windows_core::CopyType;
-}
-pub const SyncProviderRegistration: windows_core::GUID = windows_core::GUID::from_u128(0xf82b4ef1_93a9_4dde_8015_f7950a1a6e31);
-pub const CCR_COLLISION: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(1i32);
-pub const CCR_IDENTITY: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(3i32);
-pub const CCR_NOPARENT: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(2i32);
-pub const CCR_OTHER: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(0i32);
-pub const CRP_DESTINATION_PROVIDER_WINS: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(1i32);
-pub const CRP_LAST: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(3i32);
-pub const CRP_NONE: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(0i32);
-pub const CRP_SOURCE_PROVIDER_WINS: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(2i32);
-pub const FCT_INTERSECTION: FILTER_COMBINATION_TYPE = FILTER_COMBINATION_TYPE(0i32);
-pub const FT_CURRENT_ITEMS_AND_VERSIONS_FOR_MOVED_OUT_ITEMS: FILTERING_TYPE = FILTERING_TYPE(1i32);
-pub const FT_CURRENT_ITEMS_ONLY: FILTERING_TYPE = FILTERING_TYPE(0i32);
 pub const KCCR_COOKIE_KNOWLEDGE_CONTAINED: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(1i32);
 pub const KCCR_COOKIE_KNOWLEDGE_CONTAINS: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(2i32);
 pub const KCCR_COOKIE_KNOWLEDGE_EQUAL: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(0i32);
 pub const KCCR_COOKIE_KNOWLEDGE_NOT_COMPARABLE: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KNOWLEDGE_COOKIE_COMPARISON_RESULT(pub i32);
 pub const PKEY_CONFIGUI_CAPABILITIES: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4), pid: 5 };
 pub const PKEY_CONFIGUI_CLSID: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4), pid: 3 };
 pub const PKEY_CONFIGUI_CONTENTTYPE: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4), pid: 4 };
@@ -5887,18 +5754,151 @@ pub const SYNC_64_BIT_SUPPORTED: u32 = 2u32;
 pub const SYNC_CHANGE_FLAG_DELETED: u32 = 1u32;
 pub const SYNC_CHANGE_FLAG_DOES_NOT_EXIST: u32 = 2u32;
 pub const SYNC_CHANGE_FLAG_GHOST: u32 = 4u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYNC_CONSTRAINT_RESOLVE_ACTION(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SYNC_FILTER_CHANGE {
+    pub fMoveIn: super::super::Foundation::BOOL,
+    pub moveVersion: SYNC_VERSION,
+}
+impl Default for SYNC_FILTER_CHANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SYNC_FILTER_CHANGE {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SYNC_FILTER_INFO_COMBINED: u32 = 8u32;
 pub const SYNC_FILTER_INFO_FLAG_CHANGE_UNIT_LIST: u32 = 2u32;
 pub const SYNC_FILTER_INFO_FLAG_CUSTOM: u32 = 4u32;
 pub const SYNC_FILTER_INFO_FLAG_ITEM_LIST: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYNC_FULL_ENUMERATION_ACTION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYNC_PROGRESS_STAGE(pub i32);
 pub const SYNC_PROVIDER_CONFIGUI_CONFIGURATION_VERSION: u32 = 1u32;
 pub const SYNC_PROVIDER_CONFIGURATION_VERSION: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYNC_PROVIDER_ROLE(pub i32);
 pub const SYNC_PROVIDER_STATE_DIRTY: u32 = 2u32;
 pub const SYNC_PROVIDER_STATE_ENABLED: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SYNC_RANGE {
+    pub pbClosedLowerBound: *mut u8,
+    pub pbClosedUpperBound: *mut u8,
+}
+impl Default for SYNC_RANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SYNC_RANGE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYNC_REGISTRATION_EVENT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYNC_RESOLVE_ACTION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYNC_SERIALIZATION_VERSION(pub i32);
 pub const SYNC_SERIALIZATION_VERSION_V1: SYNC_SERIALIZATION_VERSION = SYNC_SERIALIZATION_VERSION(1i32);
 pub const SYNC_SERIALIZATION_VERSION_V2: SYNC_SERIALIZATION_VERSION = SYNC_SERIALIZATION_VERSION(4i32);
 pub const SYNC_SERIALIZATION_VERSION_V3: SYNC_SERIALIZATION_VERSION = SYNC_SERIALIZATION_VERSION(5i32);
 pub const SYNC_SERIALIZE_REPLICA_KEY_MAP: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SYNC_SESSION_STATISTICS {
+    pub dwChangesApplied: u32,
+    pub dwChangesFailed: u32,
+}
+impl Default for SYNC_SESSION_STATISTICS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SYNC_SESSION_STATISTICS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SYNC_STATISTICS(pub i32);
 pub const SYNC_STATISTICS_RANGE_COUNT: SYNC_STATISTICS = SYNC_STATISTICS(0i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SYNC_TIME {
+    pub dwDate: u32,
+    pub dwTime: u32,
+}
+impl Default for SYNC_TIME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SYNC_TIME {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SYNC_VERSION {
+    pub dwLastUpdatingReplicaKey: u32,
+    pub ullTickCount: u64,
+}
+impl Default for SYNC_VERSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SYNC_VERSION {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SYNC_VERSION_FLAG_FROM_FEED: u32 = 1u32;
 pub const SYNC_VERSION_FLAG_HAS_BY: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SyncProviderConfigUIConfiguration {
+    pub dwVersion: u32,
+    pub guidInstanceId: windows_core::GUID,
+    pub clsidConfigUI: windows_core::GUID,
+    pub guidContentType: windows_core::GUID,
+    pub dwCapabilities: u32,
+    pub dwSupportedArchitecture: u32,
+    pub fIsGlobal: super::super::Foundation::BOOL,
+}
+impl Default for SyncProviderConfigUIConfiguration {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SyncProviderConfigUIConfiguration {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SyncProviderConfiguration {
+    pub dwVersion: u32,
+    pub guidInstanceId: windows_core::GUID,
+    pub clsidProvider: windows_core::GUID,
+    pub guidConfigUIInstanceId: windows_core::GUID,
+    pub guidContentType: windows_core::GUID,
+    pub dwCapabilities: u32,
+    pub dwSupportedArchitecture: u32,
+}
+impl Default for SyncProviderConfiguration {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SyncProviderConfiguration {
+    type TypeKind = windows_core::CopyType;
+}
+pub const SyncProviderRegistration: windows_core::GUID = windows_core::GUID::from_u128(0xf82b4ef1_93a9_4dde_8015_f7950a1a6e31);

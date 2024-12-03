@@ -127,6 +127,40 @@ impl windows_core::RuntimeName for CastingConnectionErrorOccurredEventArgs {
 unsafe impl Send for CastingConnectionErrorOccurredEventArgs {}
 unsafe impl Sync for CastingConnectionErrorOccurredEventArgs {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CastingConnectionErrorStatus(pub i32);
+impl CastingConnectionErrorStatus {
+    pub const Succeeded: Self = Self(0i32);
+    pub const DeviceDidNotRespond: Self = Self(1i32);
+    pub const DeviceError: Self = Self(2i32);
+    pub const DeviceLocked: Self = Self(3i32);
+    pub const ProtectedPlaybackFailed: Self = Self(4i32);
+    pub const InvalidCastingSource: Self = Self(5i32);
+    pub const Unknown: Self = Self(6i32);
+}
+impl windows_core::TypeKind for CastingConnectionErrorStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for CastingConnectionErrorStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingConnectionErrorStatus;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CastingConnectionState(pub i32);
+impl CastingConnectionState {
+    pub const Disconnected: Self = Self(0i32);
+    pub const Connected: Self = Self(1i32);
+    pub const Rendering: Self = Self(2i32);
+    pub const Disconnecting: Self = Self(3i32);
+    pub const Connecting: Self = Self(4i32);
+}
+impl windows_core::TypeKind for CastingConnectionState {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for CastingConnectionState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingConnectionState;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CastingDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CastingDevice, windows_core::IUnknown, windows_core::IInspectable);
@@ -381,6 +415,54 @@ impl windows_core::RuntimeName for CastingDeviceSelectedEventArgs {
 unsafe impl Send for CastingDeviceSelectedEventArgs {}
 unsafe impl Sync for CastingDeviceSelectedEventArgs {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CastingPlaybackTypes(pub u32);
+impl CastingPlaybackTypes {
+    pub const None: Self = Self(0u32);
+    pub const Audio: Self = Self(1u32);
+    pub const Video: Self = Self(2u32);
+    pub const Picture: Self = Self(4u32);
+}
+impl windows_core::TypeKind for CastingPlaybackTypes {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for CastingPlaybackTypes {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingPlaybackTypes;u4)");
+}
+impl CastingPlaybackTypes {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for CastingPlaybackTypes {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for CastingPlaybackTypes {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for CastingPlaybackTypes {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for CastingPlaybackTypes {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for CastingPlaybackTypes {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CastingSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CastingSource, windows_core::IUnknown, windows_core::IInspectable);
@@ -530,86 +612,4 @@ pub struct ICastingSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PreferredSourceUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetPreferredSourceUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CastingConnectionErrorStatus(pub i32);
-impl CastingConnectionErrorStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const DeviceDidNotRespond: Self = Self(1i32);
-    pub const DeviceError: Self = Self(2i32);
-    pub const DeviceLocked: Self = Self(3i32);
-    pub const ProtectedPlaybackFailed: Self = Self(4i32);
-    pub const InvalidCastingSource: Self = Self(5i32);
-    pub const Unknown: Self = Self(6i32);
-}
-impl windows_core::TypeKind for CastingConnectionErrorStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for CastingConnectionErrorStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingConnectionErrorStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CastingConnectionState(pub i32);
-impl CastingConnectionState {
-    pub const Disconnected: Self = Self(0i32);
-    pub const Connected: Self = Self(1i32);
-    pub const Rendering: Self = Self(2i32);
-    pub const Disconnecting: Self = Self(3i32);
-    pub const Connecting: Self = Self(4i32);
-}
-impl windows_core::TypeKind for CastingConnectionState {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for CastingConnectionState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingConnectionState;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CastingPlaybackTypes(pub u32);
-impl CastingPlaybackTypes {
-    pub const None: Self = Self(0u32);
-    pub const Audio: Self = Self(1u32);
-    pub const Video: Self = Self(2u32);
-    pub const Picture: Self = Self(4u32);
-}
-impl windows_core::TypeKind for CastingPlaybackTypes {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for CastingPlaybackTypes {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingPlaybackTypes;u4)");
-}
-impl CastingPlaybackTypes {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for CastingPlaybackTypes {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for CastingPlaybackTypes {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for CastingPlaybackTypes {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for CastingPlaybackTypes {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for CastingPlaybackTypes {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }

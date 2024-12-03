@@ -322,6 +322,146 @@ where
     windows_targets::link!("winhttp.dll" "system" fn WinHttpWriteProxySettings(hsession : *const core::ffi::c_void, fforceupdate : super::super::Foundation:: BOOL, pwinhttpproxysettings : *const WINHTTP_PROXY_SETTINGS) -> u32);
     WinHttpWriteProxySettings(core::mem::transmute(hsession), fforceupdate.param().abi(), core::mem::transmute(pwinhttpproxysettings))
 }
+pub const API_GET_PROXY_FOR_URL: u32 = 6u32;
+pub const API_GET_PROXY_SETTINGS: u32 = 7u32;
+pub const API_QUERY_DATA_AVAILABLE: u32 = 2u32;
+pub const API_READ_DATA: u32 = 3u32;
+pub const API_RECEIVE_RESPONSE: u32 = 1u32;
+pub const API_SEND_REQUEST: u32 = 5u32;
+pub const API_WRITE_DATA: u32 = 4u32;
+pub const AutoLogonPolicy_Always: WinHttpRequestAutoLogonPolicy = WinHttpRequestAutoLogonPolicy(0i32);
+pub const AutoLogonPolicy_Never: WinHttpRequestAutoLogonPolicy = WinHttpRequestAutoLogonPolicy(2i32);
+pub const AutoLogonPolicy_OnlyIfBypassProxy: WinHttpRequestAutoLogonPolicy = WinHttpRequestAutoLogonPolicy(1i32);
+pub const ERROR_WINHTTP_AUTODETECTION_FAILED: u32 = 12180u32;
+pub const ERROR_WINHTTP_AUTO_PROXY_SERVICE_ERROR: u32 = 12178u32;
+pub const ERROR_WINHTTP_BAD_AUTO_PROXY_SCRIPT: u32 = 12166u32;
+pub const ERROR_WINHTTP_CANNOT_CALL_AFTER_OPEN: u32 = 12103u32;
+pub const ERROR_WINHTTP_CANNOT_CALL_AFTER_SEND: u32 = 12102u32;
+pub const ERROR_WINHTTP_CANNOT_CALL_BEFORE_OPEN: u32 = 12100u32;
+pub const ERROR_WINHTTP_CANNOT_CALL_BEFORE_SEND: u32 = 12101u32;
+pub const ERROR_WINHTTP_CANNOT_CONNECT: u32 = 12029u32;
+pub const ERROR_WINHTTP_CHUNKED_ENCODING_HEADER_SIZE_OVERFLOW: u32 = 12183u32;
+pub const ERROR_WINHTTP_CLIENT_AUTH_CERT_NEEDED: u32 = 12044u32;
+pub const ERROR_WINHTTP_CLIENT_AUTH_CERT_NEEDED_PROXY: u32 = 12187u32;
+pub const ERROR_WINHTTP_CLIENT_CERT_NO_ACCESS_PRIVATE_KEY: u32 = 12186u32;
+pub const ERROR_WINHTTP_CLIENT_CERT_NO_PRIVATE_KEY: u32 = 12185u32;
+pub const ERROR_WINHTTP_CONNECTION_ERROR: u32 = 12030u32;
+pub const ERROR_WINHTTP_FEATURE_DISABLED: u32 = 12192u32;
+pub const ERROR_WINHTTP_GLOBAL_CALLBACK_FAILED: u32 = 12191u32;
+pub const ERROR_WINHTTP_HEADER_ALREADY_EXISTS: u32 = 12155u32;
+pub const ERROR_WINHTTP_HEADER_COUNT_EXCEEDED: u32 = 12181u32;
+pub const ERROR_WINHTTP_HEADER_NOT_FOUND: u32 = 12150u32;
+pub const ERROR_WINHTTP_HEADER_SIZE_OVERFLOW: u32 = 12182u32;
+pub const ERROR_WINHTTP_HTTP_PROTOCOL_MISMATCH: u32 = 12190u32;
+pub const ERROR_WINHTTP_INCORRECT_HANDLE_STATE: u32 = 12019u32;
+pub const ERROR_WINHTTP_INCORRECT_HANDLE_TYPE: u32 = 12018u32;
+pub const ERROR_WINHTTP_INTERNAL_ERROR: u32 = 12004u32;
+pub const ERROR_WINHTTP_INVALID_HEADER: u32 = 12153u32;
+pub const ERROR_WINHTTP_INVALID_OPTION: u32 = 12009u32;
+pub const ERROR_WINHTTP_INVALID_QUERY_REQUEST: u32 = 12154u32;
+pub const ERROR_WINHTTP_INVALID_SERVER_RESPONSE: u32 = 12152u32;
+pub const ERROR_WINHTTP_INVALID_URL: u32 = 12005u32;
+pub const ERROR_WINHTTP_LOGIN_FAILURE: u32 = 12015u32;
+pub const ERROR_WINHTTP_NAME_NOT_RESOLVED: u32 = 12007u32;
+pub const ERROR_WINHTTP_NOT_INITIALIZED: u32 = 12172u32;
+pub const ERROR_WINHTTP_OPERATION_CANCELLED: u32 = 12017u32;
+pub const ERROR_WINHTTP_OPTION_NOT_SETTABLE: u32 = 12011u32;
+pub const ERROR_WINHTTP_OUT_OF_HANDLES: u32 = 12001u32;
+pub const ERROR_WINHTTP_REDIRECT_FAILED: u32 = 12156u32;
+pub const ERROR_WINHTTP_RESEND_REQUEST: u32 = 12032u32;
+pub const ERROR_WINHTTP_RESERVED_189: u32 = 12189u32;
+pub const ERROR_WINHTTP_RESPONSE_DRAIN_OVERFLOW: u32 = 12184u32;
+pub const ERROR_WINHTTP_SCRIPT_EXECUTION_ERROR: u32 = 12177u32;
+pub const ERROR_WINHTTP_SECURE_CERT_CN_INVALID: u32 = 12038u32;
+pub const ERROR_WINHTTP_SECURE_CERT_DATE_INVALID: u32 = 12037u32;
+pub const ERROR_WINHTTP_SECURE_CERT_REVOKED: u32 = 12170u32;
+pub const ERROR_WINHTTP_SECURE_CERT_REV_FAILED: u32 = 12057u32;
+pub const ERROR_WINHTTP_SECURE_CERT_WRONG_USAGE: u32 = 12179u32;
+pub const ERROR_WINHTTP_SECURE_CHANNEL_ERROR: u32 = 12157u32;
+pub const ERROR_WINHTTP_SECURE_FAILURE: u32 = 12175u32;
+pub const ERROR_WINHTTP_SECURE_FAILURE_PROXY: u32 = 12188u32;
+pub const ERROR_WINHTTP_SECURE_INVALID_CA: u32 = 12045u32;
+pub const ERROR_WINHTTP_SECURE_INVALID_CERT: u32 = 12169u32;
+pub const ERROR_WINHTTP_SHUTDOWN: u32 = 12012u32;
+pub const ERROR_WINHTTP_TIMEOUT: u32 = 12002u32;
+pub const ERROR_WINHTTP_UNABLE_TO_DOWNLOAD_SCRIPT: u32 = 12167u32;
+pub const ERROR_WINHTTP_UNHANDLED_SCRIPT_TYPE: u32 = 12176u32;
+pub const ERROR_WINHTTP_UNRECOGNIZED_SCHEME: u32 = 12006u32;
+pub const HTTPREQUEST_PROXYSETTING_DEFAULT: u32 = 0u32;
+pub const HTTPREQUEST_PROXYSETTING_DIRECT: u32 = 1u32;
+pub const HTTPREQUEST_PROXYSETTING_PRECONFIG: u32 = 0u32;
+pub const HTTPREQUEST_PROXYSETTING_PROXY: u32 = 2u32;
+pub const HTTPREQUEST_SETCREDENTIALS_FOR_PROXY: u32 = 1u32;
+pub const HTTPREQUEST_SETCREDENTIALS_FOR_SERVER: u32 = 0u32;
+pub const HTTP_STATUS_ACCEPTED: u32 = 202u32;
+pub const HTTP_STATUS_AMBIGUOUS: u32 = 300u32;
+pub const HTTP_STATUS_BAD_GATEWAY: u32 = 502u32;
+pub const HTTP_STATUS_BAD_METHOD: u32 = 405u32;
+pub const HTTP_STATUS_BAD_REQUEST: u32 = 400u32;
+pub const HTTP_STATUS_CONFLICT: u32 = 409u32;
+pub const HTTP_STATUS_CONTINUE: u32 = 100u32;
+pub const HTTP_STATUS_CREATED: u32 = 201u32;
+pub const HTTP_STATUS_DENIED: u32 = 401u32;
+pub const HTTP_STATUS_FIRST: u32 = 100u32;
+pub const HTTP_STATUS_FORBIDDEN: u32 = 403u32;
+pub const HTTP_STATUS_GATEWAY_TIMEOUT: u32 = 504u32;
+pub const HTTP_STATUS_GONE: u32 = 410u32;
+pub const HTTP_STATUS_LAST: u32 = 505u32;
+pub const HTTP_STATUS_LENGTH_REQUIRED: u32 = 411u32;
+pub const HTTP_STATUS_MOVED: u32 = 301u32;
+pub const HTTP_STATUS_NONE_ACCEPTABLE: u32 = 406u32;
+pub const HTTP_STATUS_NOT_FOUND: u32 = 404u32;
+pub const HTTP_STATUS_NOT_MODIFIED: u32 = 304u32;
+pub const HTTP_STATUS_NOT_SUPPORTED: u32 = 501u32;
+pub const HTTP_STATUS_NO_CONTENT: u32 = 204u32;
+pub const HTTP_STATUS_OK: u32 = 200u32;
+pub const HTTP_STATUS_PARTIAL: u32 = 203u32;
+pub const HTTP_STATUS_PARTIAL_CONTENT: u32 = 206u32;
+pub const HTTP_STATUS_PAYMENT_REQ: u32 = 402u32;
+pub const HTTP_STATUS_PERMANENT_REDIRECT: u32 = 308u32;
+pub const HTTP_STATUS_PRECOND_FAILED: u32 = 412u32;
+pub const HTTP_STATUS_PROXY_AUTH_REQ: u32 = 407u32;
+pub const HTTP_STATUS_REDIRECT: u32 = 302u32;
+pub const HTTP_STATUS_REDIRECT_KEEP_VERB: u32 = 307u32;
+pub const HTTP_STATUS_REDIRECT_METHOD: u32 = 303u32;
+pub const HTTP_STATUS_REQUEST_TIMEOUT: u32 = 408u32;
+pub const HTTP_STATUS_REQUEST_TOO_LARGE: u32 = 413u32;
+pub const HTTP_STATUS_RESET_CONTENT: u32 = 205u32;
+pub const HTTP_STATUS_RETRY_WITH: u32 = 449u32;
+pub const HTTP_STATUS_SERVER_ERROR: u32 = 500u32;
+pub const HTTP_STATUS_SERVICE_UNAVAIL: u32 = 503u32;
+pub const HTTP_STATUS_SWITCH_PROTOCOLS: u32 = 101u32;
+pub const HTTP_STATUS_UNSUPPORTED_MEDIA: u32 = 415u32;
+pub const HTTP_STATUS_URI_TOO_LONG: u32 = 414u32;
+pub const HTTP_STATUS_USE_PROXY: u32 = 305u32;
+pub const HTTP_STATUS_VERSION_NOT_SUP: u32 = 505u32;
+pub const HTTP_STATUS_WEBDAV_MULTI_STATUS: u32 = 207u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HTTP_VERSION_INFO {
+    pub dwMajorVersion: u32,
+    pub dwMinorVersion: u32,
+}
+impl Default for HTTP_VERSION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HTTP_VERSION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ICU_BROWSER_MODE: u32 = 33554432u32;
+pub const ICU_DECODE: WIN_HTTP_CREATE_URL_FLAGS = WIN_HTTP_CREATE_URL_FLAGS(268435456u32);
+pub const ICU_ENCODE_PERCENT: u32 = 4096u32;
+pub const ICU_ENCODE_SPACES_ONLY: u32 = 67108864u32;
+pub const ICU_ESCAPE: WIN_HTTP_CREATE_URL_FLAGS = WIN_HTTP_CREATE_URL_FLAGS(2147483648u32);
+pub const ICU_ESCAPE_AUTHORITY: u32 = 8192u32;
+pub const ICU_NO_ENCODE: u32 = 536870912u32;
+pub const ICU_NO_META: u32 = 134217728u32;
+pub const ICU_REJECT_USERPWD: WIN_HTTP_CREATE_URL_FLAGS = WIN_HTTP_CREATE_URL_FLAGS(16384u32);
+pub const INTERNET_DEFAULT_HTTPS_PORT: u16 = 443u16;
+pub const INTERNET_DEFAULT_HTTP_PORT: u16 = 80u16;
+pub const INTERNET_DEFAULT_PORT: u16 = 0u16;
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWinHttpRequest, IWinHttpRequest_Vtbl, 0x016fe2ec_b2c8_45f8_b23b_39e53a75396b);
 #[cfg(feature = "Win32_System_Com")]
@@ -710,103 +850,26 @@ impl IWinHttpRequestEvents_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IWinHttpRequestEvents {}
-pub type WINHTTP_PROXY_CHANGE_CALLBACK = Option<unsafe extern "system" fn(ullflags: u64, pvcontext: *const core::ffi::c_void)>;
-pub type WINHTTP_STATUS_CALLBACK = Option<unsafe extern "system" fn(hinternet: *mut core::ffi::c_void, dwcontext: usize, dwinternetstatus: u32, lpvstatusinformation: *mut core::ffi::c_void, dwstatusinformationlength: u32)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WINHTTP_ACCESS_TYPE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WINHTTP_CREDS_AUTHSCHEME(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WINHTTP_INTERNET_SCHEME(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WINHTTP_OPEN_REQUEST_FLAGS(pub u32);
-impl WINHTTP_OPEN_REQUEST_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for WINHTTP_OPEN_REQUEST_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for WINHTTP_OPEN_REQUEST_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for WINHTTP_OPEN_REQUEST_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for WINHTTP_OPEN_REQUEST_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for WINHTTP_OPEN_REQUEST_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WINHTTP_PROXY_SETTINGS_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WINHTTP_REQUEST_STAT_ENTRY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WINHTTP_REQUEST_TIME_ENTRY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WINHTTP_SECURE_DNS_SETTING(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WINHTTP_WEB_SOCKET_BUFFER_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WINHTTP_WEB_SOCKET_CLOSE_STATUS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WINHTTP_WEB_SOCKET_OPERATION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WIN_HTTP_CREATE_URL_FLAGS(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WinHttpRequestAutoLogonPolicy(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WinHttpRequestOption(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WinHttpRequestSecureProtocols(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WinHttpRequestSslErrorFlags(pub i32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HTTP_VERSION_INFO {
-    pub dwMajorVersion: u32,
-    pub dwMinorVersion: u32,
-}
-impl Default for HTTP_VERSION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HTTP_VERSION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
+pub const NETWORKING_KEY_BUFSIZE: u32 = 128u32;
+pub const SECURITY_FLAG_IGNORE_CERT_CN_INVALID: u32 = 4096u32;
+pub const SECURITY_FLAG_IGNORE_CERT_DATE_INVALID: u32 = 8192u32;
+pub const SECURITY_FLAG_IGNORE_CERT_WRONG_USAGE: u32 = 512u32;
+pub const SECURITY_FLAG_IGNORE_UNKNOWN_CA: u32 = 256u32;
+pub const SECURITY_FLAG_SECURE: u32 = 1u32;
+pub const SECURITY_FLAG_STRENGTH_MEDIUM: u32 = 1073741824u32;
+pub const SECURITY_FLAG_STRENGTH_STRONG: u32 = 536870912u32;
+pub const SECURITY_FLAG_STRENGTH_WEAK: u32 = 268435456u32;
+pub const SecureProtocol_ALL: WinHttpRequestSecureProtocols = WinHttpRequestSecureProtocols(168i32);
+pub const SecureProtocol_SSL2: WinHttpRequestSecureProtocols = WinHttpRequestSecureProtocols(8i32);
+pub const SecureProtocol_SSL3: WinHttpRequestSecureProtocols = WinHttpRequestSecureProtocols(32i32);
+pub const SecureProtocol_TLS1: WinHttpRequestSecureProtocols = WinHttpRequestSecureProtocols(128i32);
+pub const SecureProtocol_TLS1_1: WinHttpRequestSecureProtocols = WinHttpRequestSecureProtocols(512i32);
+pub const SecureProtocol_TLS1_2: WinHttpRequestSecureProtocols = WinHttpRequestSecureProtocols(2048i32);
+pub const SslErrorFlag_CertCNInvalid: WinHttpRequestSslErrorFlags = WinHttpRequestSslErrorFlags(4096i32);
+pub const SslErrorFlag_CertDateInvalid: WinHttpRequestSslErrorFlags = WinHttpRequestSslErrorFlags(8192i32);
+pub const SslErrorFlag_CertWrongUsage: WinHttpRequestSslErrorFlags = WinHttpRequestSslErrorFlags(512i32);
+pub const SslErrorFlag_Ignore_All: WinHttpRequestSslErrorFlags = WinHttpRequestSslErrorFlags(13056i32);
+pub const SslErrorFlag_UnknownCA: WinHttpRequestSslErrorFlags = WinHttpRequestSslErrorFlags(256i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct URL_COMPONENTS {
@@ -834,6 +897,21 @@ impl Default for URL_COMPONENTS {
 impl windows_core::TypeKind for URL_COMPONENTS {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WINHTTP_ACCESS_TYPE(pub u32);
+pub const WINHTTP_ACCESS_TYPE_AUTOMATIC_PROXY: WINHTTP_ACCESS_TYPE = WINHTTP_ACCESS_TYPE(4u32);
+pub const WINHTTP_ACCESS_TYPE_DEFAULT_PROXY: WINHTTP_ACCESS_TYPE = WINHTTP_ACCESS_TYPE(0u32);
+pub const WINHTTP_ACCESS_TYPE_NAMED_PROXY: WINHTTP_ACCESS_TYPE = WINHTTP_ACCESS_TYPE(3u32);
+pub const WINHTTP_ACCESS_TYPE_NO_PROXY: WINHTTP_ACCESS_TYPE = WINHTTP_ACCESS_TYPE(1u32);
+pub const WINHTTP_ADDREQ_FLAGS_MASK: u32 = 4294901760u32;
+pub const WINHTTP_ADDREQ_FLAG_ADD: u32 = 536870912u32;
+pub const WINHTTP_ADDREQ_FLAG_ADD_IF_NEW: u32 = 268435456u32;
+pub const WINHTTP_ADDREQ_FLAG_COALESCE: u32 = 1073741824u32;
+pub const WINHTTP_ADDREQ_FLAG_COALESCE_WITH_COMMA: u32 = 1073741824u32;
+pub const WINHTTP_ADDREQ_FLAG_COALESCE_WITH_SEMICOLON: u32 = 16777216u32;
+pub const WINHTTP_ADDREQ_FLAG_REPLACE: u32 = 2147483648u32;
+pub const WINHTTP_ADDREQ_INDEX_MASK: u32 = 65535u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINHTTP_ASYNC_RESULT {
@@ -848,788 +926,6 @@ impl Default for WINHTTP_ASYNC_RESULT {
 impl windows_core::TypeKind for WINHTTP_ASYNC_RESULT {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINHTTP_AUTOPROXY_OPTIONS {
-    pub dwFlags: u32,
-    pub dwAutoDetectFlags: u32,
-    pub lpszAutoConfigUrl: windows_core::PCWSTR,
-    pub lpvReserved: *mut core::ffi::c_void,
-    pub dwReserved: u32,
-    pub fAutoLogonIfChallenged: super::super::Foundation::BOOL,
-}
-impl Default for WINHTTP_AUTOPROXY_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WINHTTP_AUTOPROXY_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINHTTP_CERTIFICATE_INFO {
-    pub ftExpiry: super::super::Foundation::FILETIME,
-    pub ftStart: super::super::Foundation::FILETIME,
-    pub lpszSubjectInfo: windows_core::PWSTR,
-    pub lpszIssuerInfo: windows_core::PWSTR,
-    pub lpszProtocolName: windows_core::PWSTR,
-    pub lpszSignatureAlgName: windows_core::PWSTR,
-    pub lpszEncryptionAlgName: windows_core::PWSTR,
-    pub dwKeySize: u32,
-}
-impl Default for WINHTTP_CERTIFICATE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WINHTTP_CERTIFICATE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINHTTP_CONNECTION_GROUP {
-    pub cConnections: u32,
-    pub guidGroup: windows_core::GUID,
-}
-impl Default for WINHTTP_CONNECTION_GROUP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WINHTTP_CONNECTION_GROUP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINHTTP_CONNECTION_INFO {
-    pub cbSize: u32,
-    pub LocalAddress: super::WinSock::SOCKADDR_STORAGE,
-    pub RemoteAddress: super::WinSock::SOCKADDR_STORAGE,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for WINHTTP_CONNECTION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for WINHTTP_CONNECTION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(4))]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct WINHTTP_CONNECTION_INFO {
-    pub cbSize: u32,
-    pub LocalAddress: super::WinSock::SOCKADDR_STORAGE,
-    pub RemoteAddress: super::WinSock::SOCKADDR_STORAGE,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for WINHTTP_CONNECTION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for WINHTTP_CONNECTION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINHTTP_CREDS {
-    pub lpszUserName: windows_core::PSTR,
-    pub lpszPassword: windows_core::PSTR,
-    pub lpszRealm: windows_core::PSTR,
-    pub dwAuthScheme: WINHTTP_CREDS_AUTHSCHEME,
-    pub lpszHostName: windows_core::PSTR,
-    pub dwPort: u32,
-}
-impl Default for WINHTTP_CREDS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WINHTTP_CREDS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINHTTP_CREDS_EX {
-    pub lpszUserName: windows_core::PSTR,
-    pub lpszPassword: windows_core::PSTR,
-    pub lpszRealm: windows_core::PSTR,
-    pub dwAuthScheme: WINHTTP_CREDS_AUTHSCHEME,
-    pub lpszHostName: windows_core::PSTR,
-    pub dwPort: u32,
-    pub lpszUrl: windows_core::PSTR,
-}
-impl Default for WINHTTP_CREDS_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WINHTTP_CREDS_EX {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
-    pub fAutoDetect: super::super::Foundation::BOOL,
-    pub lpszAutoConfigUrl: windows_core::PWSTR,
-    pub lpszProxy: windows_core::PWSTR,
-    pub lpszProxyBypass: windows_core::PWSTR,
-}
-impl Default for WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WINHTTP_EXTENDED_HEADER {
-    pub Anonymous1: WINHTTP_EXTENDED_HEADER_0,
-    pub Anonymous2: WINHTTP_EXTENDED_HEADER_1,
-}
-impl Default for WINHTTP_EXTENDED_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WINHTTP_EXTENDED_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union WINHTTP_EXTENDED_HEADER_0 {
-    pub pwszName: windows_core::PCWSTR,
-    pub pszName: windows_core::PCSTR,
-}
-impl Default for WINHTTP_EXTENDED_HEADER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WINHTTP_EXTENDED_HEADER_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union WINHTTP_EXTENDED_HEADER_1 {
-    pub pwszValue: windows_core::PCWSTR,
-    pub pszValue: windows_core::PCSTR,
-}
-impl Default for WINHTTP_EXTENDED_HEADER_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WINHTTP_EXTENDED_HEADER_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINHTTP_FAILED_CONNECTION_RETRIES {
-    pub dwMaxRetries: u32,
-    pub dwAllowedRetryConditions: u32,
-}
-impl Default for WINHTTP_FAILED_CONNECTION_RETRIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WINHTTP_FAILED_CONNECTION_RETRIES {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union WINHTTP_HEADER_NAME {
-    pub pwszName: windows_core::PCWSTR,
-    pub pszName: windows_core::PCSTR,
-}
-impl Default for WINHTTP_HEADER_NAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WINHTTP_HEADER_NAME {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINHTTP_HOST_CONNECTION_GROUP {
-    pub pwszHost: windows_core::PCWSTR,
-    pub cConnectionGroups: u32,
-    pub pConnectionGroups: *mut WINHTTP_CONNECTION_GROUP,
-}
-impl Default for WINHTTP_HOST_CONNECTION_GROUP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WINHTTP_HOST_CONNECTION_GROUP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINHTTP_HTTP2_RECEIVE_WINDOW {
-    pub ulStreamWindow: u32,
-    pub ulStreamWindowUpdateDelta: u32,
-}
-impl Default for WINHTTP_HTTP2_RECEIVE_WINDOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WINHTTP_HTTP2_RECEIVE_WINDOW {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINHTTP_MATCH_CONNECTION_GUID {
-    pub ConnectionGuid: windows_core::GUID,
-    pub ullFlags: u64,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for WINHTTP_MATCH_CONNECTION_GUID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for WINHTTP_MATCH_CONNECTION_GUID {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(4))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct WINHTTP_MATCH_CONNECTION_GUID {
-    pub ConnectionGuid: windows_core::GUID,
-    pub ullFlags: u64,
-}
-#[cfg(target_arch = "x86")]
-impl Default for WINHTTP_MATCH_CONNECTION_GUID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for WINHTTP_MATCH_CONNECTION_GUID {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINHTTP_PROXY_INFO {
-    pub dwAccessType: WINHTTP_ACCESS_TYPE,
-    pub lpszProxy: windows_core::PWSTR,
-    pub lpszProxyBypass: windows_core::PWSTR,
-}
-impl Default for WINHTTP_PROXY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WINHTTP_PROXY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINHTTP_PROXY_NETWORKING_KEY {
-    pub pbBuffer: [u8; 128],
-}
-impl Default for WINHTTP_PROXY_NETWORKING_KEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WINHTTP_PROXY_NETWORKING_KEY {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINHTTP_PROXY_RESULT {
-    pub cEntries: u32,
-    pub pEntries: *mut WINHTTP_PROXY_RESULT_ENTRY,
-}
-impl Default for WINHTTP_PROXY_RESULT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WINHTTP_PROXY_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINHTTP_PROXY_RESULT_ENTRY {
-    pub fProxy: super::super::Foundation::BOOL,
-    pub fBypass: super::super::Foundation::BOOL,
-    pub ProxyScheme: WINHTTP_INTERNET_SCHEME,
-    pub pwszProxy: windows_core::PWSTR,
-    pub ProxyPort: u16,
-}
-impl Default for WINHTTP_PROXY_RESULT_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WINHTTP_PROXY_RESULT_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINHTTP_PROXY_RESULT_EX {
-    pub cEntries: u32,
-    pub pEntries: *mut WINHTTP_PROXY_RESULT_ENTRY,
-    pub hProxyDetectionHandle: super::super::Foundation::HANDLE,
-    pub dwProxyInterfaceAffinity: u32,
-}
-impl Default for WINHTTP_PROXY_RESULT_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WINHTTP_PROXY_RESULT_EX {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINHTTP_PROXY_SETTINGS {
-    pub dwStructSize: u32,
-    pub dwFlags: u32,
-    pub dwCurrentSettingsVersion: u32,
-    pub pwszConnectionName: windows_core::PWSTR,
-    pub pwszProxy: windows_core::PWSTR,
-    pub pwszProxyBypass: windows_core::PWSTR,
-    pub pwszAutoconfigUrl: windows_core::PWSTR,
-    pub pwszAutoconfigSecondaryUrl: windows_core::PWSTR,
-    pub dwAutoDiscoveryFlags: u32,
-    pub pwszLastKnownGoodAutoConfigUrl: windows_core::PWSTR,
-    pub dwAutoconfigReloadDelayMins: u32,
-    pub ftLastKnownDetectTime: super::super::Foundation::FILETIME,
-    pub dwDetectedInterfaceIpCount: u32,
-    pub pdwDetectedInterfaceIp: *mut u32,
-    pub cNetworkKeys: u32,
-    pub pNetworkKeys: *mut WINHTTP_PROXY_NETWORKING_KEY,
-}
-impl Default for WINHTTP_PROXY_SETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WINHTTP_PROXY_SETTINGS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINHTTP_PROXY_SETTINGS_EX {
-    pub ullGenerationId: u64,
-    pub ullFlags: u64,
-    pub pcwszAutoconfigUrl: windows_core::PCWSTR,
-    pub pcwszProxy: windows_core::PCWSTR,
-    pub pcwszSecureProxy: windows_core::PCWSTR,
-    pub cProxyBypasses: u32,
-    pub rgpcwszProxyBypasses: *const windows_core::PCWSTR,
-    pub dwInterfaceIndex: u32,
-    pub pcwszConnectionName: windows_core::PCWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for WINHTTP_PROXY_SETTINGS_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for WINHTTP_PROXY_SETTINGS_EX {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(4))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct WINHTTP_PROXY_SETTINGS_EX {
-    pub ullGenerationId: u64,
-    pub ullFlags: u64,
-    pub pcwszAutoconfigUrl: windows_core::PCWSTR,
-    pub pcwszProxy: windows_core::PCWSTR,
-    pub pcwszSecureProxy: windows_core::PCWSTR,
-    pub cProxyBypasses: u32,
-    pub rgpcwszProxyBypasses: *const windows_core::PCWSTR,
-    pub dwInterfaceIndex: u32,
-    pub pcwszConnectionName: windows_core::PCWSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Default for WINHTTP_PROXY_SETTINGS_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for WINHTTP_PROXY_SETTINGS_EX {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINHTTP_PROXY_SETTINGS_PARAM {
-    pub ullFlags: u64,
-    pub pcwszConnectionName: windows_core::PCWSTR,
-    pub pcwszProbeHost: windows_core::PCWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for WINHTTP_PROXY_SETTINGS_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for WINHTTP_PROXY_SETTINGS_PARAM {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(4))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct WINHTTP_PROXY_SETTINGS_PARAM {
-    pub ullFlags: u64,
-    pub pcwszConnectionName: windows_core::PCWSTR,
-    pub pcwszProbeHost: windows_core::PCWSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Default for WINHTTP_PROXY_SETTINGS_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for WINHTTP_PROXY_SETTINGS_PARAM {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
-    pub cHosts: u32,
-    pub pHostConnectionGroups: *mut WINHTTP_HOST_CONNECTION_GROUP,
-}
-impl Default for WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINHTTP_REQUEST_STATS {
-    pub ullFlags: u64,
-    pub ulIndex: u32,
-    pub cStats: u32,
-    pub rgullStats: [u64; 32],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for WINHTTP_REQUEST_STATS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for WINHTTP_REQUEST_STATS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(4))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct WINHTTP_REQUEST_STATS {
-    pub ullFlags: u64,
-    pub ulIndex: u32,
-    pub cStats: u32,
-    pub rgullStats: [u64; 32],
-}
-#[cfg(target_arch = "x86")]
-impl Default for WINHTTP_REQUEST_STATS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for WINHTTP_REQUEST_STATS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINHTTP_REQUEST_TIMES {
-    pub cTimes: u32,
-    pub rgullTimes: [u64; 64],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for WINHTTP_REQUEST_TIMES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for WINHTTP_REQUEST_TIMES {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(4))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct WINHTTP_REQUEST_TIMES {
-    pub cTimes: u32,
-    pub rgullTimes: [u64; 64],
-}
-#[cfg(target_arch = "x86")]
-impl Default for WINHTTP_REQUEST_TIMES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for WINHTTP_REQUEST_TIMES {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINHTTP_RESOLVER_CACHE_CONFIG {
-    pub ulMaxResolverCacheEntries: u32,
-    pub ulMaxCacheEntryAge: u32,
-    pub ulMinCacheEntryTtl: u32,
-    pub SecureDnsSetting: WINHTTP_SECURE_DNS_SETTING,
-    pub ullConnResolutionWaitTime: u64,
-    pub ullFlags: u64,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for WINHTTP_RESOLVER_CACHE_CONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for WINHTTP_RESOLVER_CACHE_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(4))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct WINHTTP_RESOLVER_CACHE_CONFIG {
-    pub ulMaxResolverCacheEntries: u32,
-    pub ulMaxCacheEntryAge: u32,
-    pub ulMinCacheEntryTtl: u32,
-    pub SecureDnsSetting: WINHTTP_SECURE_DNS_SETTING,
-    pub ullConnResolutionWaitTime: u64,
-    pub ullFlags: u64,
-}
-#[cfg(target_arch = "x86")]
-impl Default for WINHTTP_RESOLVER_CACHE_CONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for WINHTTP_RESOLVER_CACHE_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINHTTP_WEB_SOCKET_ASYNC_RESULT {
-    pub AsyncResult: WINHTTP_ASYNC_RESULT,
-    pub Operation: WINHTTP_WEB_SOCKET_OPERATION,
-}
-impl Default for WINHTTP_WEB_SOCKET_ASYNC_RESULT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WINHTTP_WEB_SOCKET_ASYNC_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINHTTP_WEB_SOCKET_STATUS {
-    pub dwBytesTransferred: u32,
-    pub eBufferType: WINHTTP_WEB_SOCKET_BUFFER_TYPE,
-}
-impl Default for WINHTTP_WEB_SOCKET_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for WINHTTP_WEB_SOCKET_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
-pub const WinHttpRequest: windows_core::GUID = windows_core::GUID::from_u128(0x2087c2f4_2cef_4953_a8ab_66779b670495);
-pub const API_GET_PROXY_FOR_URL: u32 = 6u32;
-pub const API_GET_PROXY_SETTINGS: u32 = 7u32;
-pub const API_QUERY_DATA_AVAILABLE: u32 = 2u32;
-pub const API_READ_DATA: u32 = 3u32;
-pub const API_RECEIVE_RESPONSE: u32 = 1u32;
-pub const API_SEND_REQUEST: u32 = 5u32;
-pub const API_WRITE_DATA: u32 = 4u32;
-pub const AutoLogonPolicy_Always: WinHttpRequestAutoLogonPolicy = WinHttpRequestAutoLogonPolicy(0i32);
-pub const AutoLogonPolicy_Never: WinHttpRequestAutoLogonPolicy = WinHttpRequestAutoLogonPolicy(2i32);
-pub const AutoLogonPolicy_OnlyIfBypassProxy: WinHttpRequestAutoLogonPolicy = WinHttpRequestAutoLogonPolicy(1i32);
-pub const ERROR_WINHTTP_AUTODETECTION_FAILED: u32 = 12180u32;
-pub const ERROR_WINHTTP_AUTO_PROXY_SERVICE_ERROR: u32 = 12178u32;
-pub const ERROR_WINHTTP_BAD_AUTO_PROXY_SCRIPT: u32 = 12166u32;
-pub const ERROR_WINHTTP_CANNOT_CALL_AFTER_OPEN: u32 = 12103u32;
-pub const ERROR_WINHTTP_CANNOT_CALL_AFTER_SEND: u32 = 12102u32;
-pub const ERROR_WINHTTP_CANNOT_CALL_BEFORE_OPEN: u32 = 12100u32;
-pub const ERROR_WINHTTP_CANNOT_CALL_BEFORE_SEND: u32 = 12101u32;
-pub const ERROR_WINHTTP_CANNOT_CONNECT: u32 = 12029u32;
-pub const ERROR_WINHTTP_CHUNKED_ENCODING_HEADER_SIZE_OVERFLOW: u32 = 12183u32;
-pub const ERROR_WINHTTP_CLIENT_AUTH_CERT_NEEDED: u32 = 12044u32;
-pub const ERROR_WINHTTP_CLIENT_AUTH_CERT_NEEDED_PROXY: u32 = 12187u32;
-pub const ERROR_WINHTTP_CLIENT_CERT_NO_ACCESS_PRIVATE_KEY: u32 = 12186u32;
-pub const ERROR_WINHTTP_CLIENT_CERT_NO_PRIVATE_KEY: u32 = 12185u32;
-pub const ERROR_WINHTTP_CONNECTION_ERROR: u32 = 12030u32;
-pub const ERROR_WINHTTP_FEATURE_DISABLED: u32 = 12192u32;
-pub const ERROR_WINHTTP_GLOBAL_CALLBACK_FAILED: u32 = 12191u32;
-pub const ERROR_WINHTTP_HEADER_ALREADY_EXISTS: u32 = 12155u32;
-pub const ERROR_WINHTTP_HEADER_COUNT_EXCEEDED: u32 = 12181u32;
-pub const ERROR_WINHTTP_HEADER_NOT_FOUND: u32 = 12150u32;
-pub const ERROR_WINHTTP_HEADER_SIZE_OVERFLOW: u32 = 12182u32;
-pub const ERROR_WINHTTP_HTTP_PROTOCOL_MISMATCH: u32 = 12190u32;
-pub const ERROR_WINHTTP_INCORRECT_HANDLE_STATE: u32 = 12019u32;
-pub const ERROR_WINHTTP_INCORRECT_HANDLE_TYPE: u32 = 12018u32;
-pub const ERROR_WINHTTP_INTERNAL_ERROR: u32 = 12004u32;
-pub const ERROR_WINHTTP_INVALID_HEADER: u32 = 12153u32;
-pub const ERROR_WINHTTP_INVALID_OPTION: u32 = 12009u32;
-pub const ERROR_WINHTTP_INVALID_QUERY_REQUEST: u32 = 12154u32;
-pub const ERROR_WINHTTP_INVALID_SERVER_RESPONSE: u32 = 12152u32;
-pub const ERROR_WINHTTP_INVALID_URL: u32 = 12005u32;
-pub const ERROR_WINHTTP_LOGIN_FAILURE: u32 = 12015u32;
-pub const ERROR_WINHTTP_NAME_NOT_RESOLVED: u32 = 12007u32;
-pub const ERROR_WINHTTP_NOT_INITIALIZED: u32 = 12172u32;
-pub const ERROR_WINHTTP_OPERATION_CANCELLED: u32 = 12017u32;
-pub const ERROR_WINHTTP_OPTION_NOT_SETTABLE: u32 = 12011u32;
-pub const ERROR_WINHTTP_OUT_OF_HANDLES: u32 = 12001u32;
-pub const ERROR_WINHTTP_REDIRECT_FAILED: u32 = 12156u32;
-pub const ERROR_WINHTTP_RESEND_REQUEST: u32 = 12032u32;
-pub const ERROR_WINHTTP_RESERVED_189: u32 = 12189u32;
-pub const ERROR_WINHTTP_RESPONSE_DRAIN_OVERFLOW: u32 = 12184u32;
-pub const ERROR_WINHTTP_SCRIPT_EXECUTION_ERROR: u32 = 12177u32;
-pub const ERROR_WINHTTP_SECURE_CERT_CN_INVALID: u32 = 12038u32;
-pub const ERROR_WINHTTP_SECURE_CERT_DATE_INVALID: u32 = 12037u32;
-pub const ERROR_WINHTTP_SECURE_CERT_REVOKED: u32 = 12170u32;
-pub const ERROR_WINHTTP_SECURE_CERT_REV_FAILED: u32 = 12057u32;
-pub const ERROR_WINHTTP_SECURE_CERT_WRONG_USAGE: u32 = 12179u32;
-pub const ERROR_WINHTTP_SECURE_CHANNEL_ERROR: u32 = 12157u32;
-pub const ERROR_WINHTTP_SECURE_FAILURE: u32 = 12175u32;
-pub const ERROR_WINHTTP_SECURE_FAILURE_PROXY: u32 = 12188u32;
-pub const ERROR_WINHTTP_SECURE_INVALID_CA: u32 = 12045u32;
-pub const ERROR_WINHTTP_SECURE_INVALID_CERT: u32 = 12169u32;
-pub const ERROR_WINHTTP_SHUTDOWN: u32 = 12012u32;
-pub const ERROR_WINHTTP_TIMEOUT: u32 = 12002u32;
-pub const ERROR_WINHTTP_UNABLE_TO_DOWNLOAD_SCRIPT: u32 = 12167u32;
-pub const ERROR_WINHTTP_UNHANDLED_SCRIPT_TYPE: u32 = 12176u32;
-pub const ERROR_WINHTTP_UNRECOGNIZED_SCHEME: u32 = 12006u32;
-pub const HTTPREQUEST_PROXYSETTING_DEFAULT: u32 = 0u32;
-pub const HTTPREQUEST_PROXYSETTING_DIRECT: u32 = 1u32;
-pub const HTTPREQUEST_PROXYSETTING_PRECONFIG: u32 = 0u32;
-pub const HTTPREQUEST_PROXYSETTING_PROXY: u32 = 2u32;
-pub const HTTPREQUEST_SETCREDENTIALS_FOR_PROXY: u32 = 1u32;
-pub const HTTPREQUEST_SETCREDENTIALS_FOR_SERVER: u32 = 0u32;
-pub const HTTP_STATUS_ACCEPTED: u32 = 202u32;
-pub const HTTP_STATUS_AMBIGUOUS: u32 = 300u32;
-pub const HTTP_STATUS_BAD_GATEWAY: u32 = 502u32;
-pub const HTTP_STATUS_BAD_METHOD: u32 = 405u32;
-pub const HTTP_STATUS_BAD_REQUEST: u32 = 400u32;
-pub const HTTP_STATUS_CONFLICT: u32 = 409u32;
-pub const HTTP_STATUS_CONTINUE: u32 = 100u32;
-pub const HTTP_STATUS_CREATED: u32 = 201u32;
-pub const HTTP_STATUS_DENIED: u32 = 401u32;
-pub const HTTP_STATUS_FIRST: u32 = 100u32;
-pub const HTTP_STATUS_FORBIDDEN: u32 = 403u32;
-pub const HTTP_STATUS_GATEWAY_TIMEOUT: u32 = 504u32;
-pub const HTTP_STATUS_GONE: u32 = 410u32;
-pub const HTTP_STATUS_LAST: u32 = 505u32;
-pub const HTTP_STATUS_LENGTH_REQUIRED: u32 = 411u32;
-pub const HTTP_STATUS_MOVED: u32 = 301u32;
-pub const HTTP_STATUS_NONE_ACCEPTABLE: u32 = 406u32;
-pub const HTTP_STATUS_NOT_FOUND: u32 = 404u32;
-pub const HTTP_STATUS_NOT_MODIFIED: u32 = 304u32;
-pub const HTTP_STATUS_NOT_SUPPORTED: u32 = 501u32;
-pub const HTTP_STATUS_NO_CONTENT: u32 = 204u32;
-pub const HTTP_STATUS_OK: u32 = 200u32;
-pub const HTTP_STATUS_PARTIAL: u32 = 203u32;
-pub const HTTP_STATUS_PARTIAL_CONTENT: u32 = 206u32;
-pub const HTTP_STATUS_PAYMENT_REQ: u32 = 402u32;
-pub const HTTP_STATUS_PERMANENT_REDIRECT: u32 = 308u32;
-pub const HTTP_STATUS_PRECOND_FAILED: u32 = 412u32;
-pub const HTTP_STATUS_PROXY_AUTH_REQ: u32 = 407u32;
-pub const HTTP_STATUS_REDIRECT: u32 = 302u32;
-pub const HTTP_STATUS_REDIRECT_KEEP_VERB: u32 = 307u32;
-pub const HTTP_STATUS_REDIRECT_METHOD: u32 = 303u32;
-pub const HTTP_STATUS_REQUEST_TIMEOUT: u32 = 408u32;
-pub const HTTP_STATUS_REQUEST_TOO_LARGE: u32 = 413u32;
-pub const HTTP_STATUS_RESET_CONTENT: u32 = 205u32;
-pub const HTTP_STATUS_RETRY_WITH: u32 = 449u32;
-pub const HTTP_STATUS_SERVER_ERROR: u32 = 500u32;
-pub const HTTP_STATUS_SERVICE_UNAVAIL: u32 = 503u32;
-pub const HTTP_STATUS_SWITCH_PROTOCOLS: u32 = 101u32;
-pub const HTTP_STATUS_UNSUPPORTED_MEDIA: u32 = 415u32;
-pub const HTTP_STATUS_URI_TOO_LONG: u32 = 414u32;
-pub const HTTP_STATUS_USE_PROXY: u32 = 305u32;
-pub const HTTP_STATUS_VERSION_NOT_SUP: u32 = 505u32;
-pub const HTTP_STATUS_WEBDAV_MULTI_STATUS: u32 = 207u32;
-pub const ICU_BROWSER_MODE: u32 = 33554432u32;
-pub const ICU_DECODE: WIN_HTTP_CREATE_URL_FLAGS = WIN_HTTP_CREATE_URL_FLAGS(268435456u32);
-pub const ICU_ENCODE_PERCENT: u32 = 4096u32;
-pub const ICU_ENCODE_SPACES_ONLY: u32 = 67108864u32;
-pub const ICU_ESCAPE: WIN_HTTP_CREATE_URL_FLAGS = WIN_HTTP_CREATE_URL_FLAGS(2147483648u32);
-pub const ICU_ESCAPE_AUTHORITY: u32 = 8192u32;
-pub const ICU_NO_ENCODE: u32 = 536870912u32;
-pub const ICU_NO_META: u32 = 134217728u32;
-pub const ICU_REJECT_USERPWD: WIN_HTTP_CREATE_URL_FLAGS = WIN_HTTP_CREATE_URL_FLAGS(16384u32);
-pub const INTERNET_DEFAULT_HTTPS_PORT: u16 = 443u16;
-pub const INTERNET_DEFAULT_HTTP_PORT: u16 = 80u16;
-pub const INTERNET_DEFAULT_PORT: u16 = 0u16;
-pub const NETWORKING_KEY_BUFSIZE: u32 = 128u32;
-pub const SECURITY_FLAG_IGNORE_CERT_CN_INVALID: u32 = 4096u32;
-pub const SECURITY_FLAG_IGNORE_CERT_DATE_INVALID: u32 = 8192u32;
-pub const SECURITY_FLAG_IGNORE_CERT_WRONG_USAGE: u32 = 512u32;
-pub const SECURITY_FLAG_IGNORE_UNKNOWN_CA: u32 = 256u32;
-pub const SECURITY_FLAG_SECURE: u32 = 1u32;
-pub const SECURITY_FLAG_STRENGTH_MEDIUM: u32 = 1073741824u32;
-pub const SECURITY_FLAG_STRENGTH_STRONG: u32 = 536870912u32;
-pub const SECURITY_FLAG_STRENGTH_WEAK: u32 = 268435456u32;
-pub const SecureProtocol_ALL: WinHttpRequestSecureProtocols = WinHttpRequestSecureProtocols(168i32);
-pub const SecureProtocol_SSL2: WinHttpRequestSecureProtocols = WinHttpRequestSecureProtocols(8i32);
-pub const SecureProtocol_SSL3: WinHttpRequestSecureProtocols = WinHttpRequestSecureProtocols(32i32);
-pub const SecureProtocol_TLS1: WinHttpRequestSecureProtocols = WinHttpRequestSecureProtocols(128i32);
-pub const SecureProtocol_TLS1_1: WinHttpRequestSecureProtocols = WinHttpRequestSecureProtocols(512i32);
-pub const SecureProtocol_TLS1_2: WinHttpRequestSecureProtocols = WinHttpRequestSecureProtocols(2048i32);
-pub const SslErrorFlag_CertCNInvalid: WinHttpRequestSslErrorFlags = WinHttpRequestSslErrorFlags(4096i32);
-pub const SslErrorFlag_CertDateInvalid: WinHttpRequestSslErrorFlags = WinHttpRequestSslErrorFlags(8192i32);
-pub const SslErrorFlag_CertWrongUsage: WinHttpRequestSslErrorFlags = WinHttpRequestSslErrorFlags(512i32);
-pub const SslErrorFlag_Ignore_All: WinHttpRequestSslErrorFlags = WinHttpRequestSslErrorFlags(13056i32);
-pub const SslErrorFlag_UnknownCA: WinHttpRequestSslErrorFlags = WinHttpRequestSslErrorFlags(256i32);
-pub const WINHTTP_ACCESS_TYPE_AUTOMATIC_PROXY: WINHTTP_ACCESS_TYPE = WINHTTP_ACCESS_TYPE(4u32);
-pub const WINHTTP_ACCESS_TYPE_DEFAULT_PROXY: WINHTTP_ACCESS_TYPE = WINHTTP_ACCESS_TYPE(0u32);
-pub const WINHTTP_ACCESS_TYPE_NAMED_PROXY: WINHTTP_ACCESS_TYPE = WINHTTP_ACCESS_TYPE(3u32);
-pub const WINHTTP_ACCESS_TYPE_NO_PROXY: WINHTTP_ACCESS_TYPE = WINHTTP_ACCESS_TYPE(1u32);
-pub const WINHTTP_ADDREQ_FLAGS_MASK: u32 = 4294901760u32;
-pub const WINHTTP_ADDREQ_FLAG_ADD: u32 = 536870912u32;
-pub const WINHTTP_ADDREQ_FLAG_ADD_IF_NEW: u32 = 268435456u32;
-pub const WINHTTP_ADDREQ_FLAG_COALESCE: u32 = 1073741824u32;
-pub const WINHTTP_ADDREQ_FLAG_COALESCE_WITH_COMMA: u32 = 1073741824u32;
-pub const WINHTTP_ADDREQ_FLAG_COALESCE_WITH_SEMICOLON: u32 = 16777216u32;
-pub const WINHTTP_ADDREQ_FLAG_REPLACE: u32 = 2147483648u32;
-pub const WINHTTP_ADDREQ_INDEX_MASK: u32 = 65535u32;
 pub const WINHTTP_AUTH_SCHEME_BASIC: WINHTTP_CREDS_AUTHSCHEME = WINHTTP_CREDS_AUTHSCHEME(1u32);
 pub const WINHTTP_AUTH_SCHEME_DIGEST: u32 = 8u32;
 pub const WINHTTP_AUTH_SCHEME_NEGOTIATE: WINHTTP_CREDS_AUTHSCHEME = WINHTTP_CREDS_AUTHSCHEME(16u32);
@@ -1653,6 +949,24 @@ pub const WINHTTP_AUTOPROXY_HOST_LOWERCASE: u32 = 8u32;
 pub const WINHTTP_AUTOPROXY_NO_CACHE_CLIENT: u32 = 524288u32;
 pub const WINHTTP_AUTOPROXY_NO_CACHE_SVC: u32 = 1048576u32;
 pub const WINHTTP_AUTOPROXY_NO_DIRECTACCESS: u32 = 262144u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINHTTP_AUTOPROXY_OPTIONS {
+    pub dwFlags: u32,
+    pub dwAutoDetectFlags: u32,
+    pub lpszAutoConfigUrl: windows_core::PCWSTR,
+    pub lpvReserved: *mut core::ffi::c_void,
+    pub dwReserved: u32,
+    pub fAutoLogonIfChallenged: super::super::Foundation::BOOL,
+}
+impl Default for WINHTTP_AUTOPROXY_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WINHTTP_AUTOPROXY_OPTIONS {
+    type TypeKind = windows_core::CopyType;
+}
 pub const WINHTTP_AUTOPROXY_RUN_INPROCESS: u32 = 65536u32;
 pub const WINHTTP_AUTOPROXY_RUN_OUTPROCESS_ONLY: u32 = 131072u32;
 pub const WINHTTP_AUTOPROXY_SORT_RESULTS: u32 = 4194304u32;
@@ -1708,10 +1022,142 @@ pub const WINHTTP_CALLBACK_STATUS_SETTINGS_READ_COMPLETE: u32 = 536870912u32;
 pub const WINHTTP_CALLBACK_STATUS_SETTINGS_WRITE_COMPLETE: u32 = 268435456u32;
 pub const WINHTTP_CALLBACK_STATUS_SHUTDOWN_COMPLETE: u32 = 67108864u32;
 pub const WINHTTP_CALLBACK_STATUS_WRITE_COMPLETE: u32 = 1048576u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINHTTP_CERTIFICATE_INFO {
+    pub ftExpiry: super::super::Foundation::FILETIME,
+    pub ftStart: super::super::Foundation::FILETIME,
+    pub lpszSubjectInfo: windows_core::PWSTR,
+    pub lpszIssuerInfo: windows_core::PWSTR,
+    pub lpszProtocolName: windows_core::PWSTR,
+    pub lpszSignatureAlgName: windows_core::PWSTR,
+    pub lpszEncryptionAlgName: windows_core::PWSTR,
+    pub dwKeySize: u32,
+}
+impl Default for WINHTTP_CERTIFICATE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WINHTTP_CERTIFICATE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINHTTP_CONNECTION_GROUP {
+    pub cConnections: u32,
+    pub guidGroup: windows_core::GUID,
+}
+impl Default for WINHTTP_CONNECTION_GROUP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WINHTTP_CONNECTION_GROUP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct WINHTTP_CONNECTION_INFO {
+    pub cbSize: u32,
+    pub LocalAddress: super::WinSock::SOCKADDR_STORAGE,
+    pub RemoteAddress: super::WinSock::SOCKADDR_STORAGE,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for WINHTTP_CONNECTION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for WINHTTP_CONNECTION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINHTTP_CONNECTION_INFO {
+    pub cbSize: u32,
+    pub LocalAddress: super::WinSock::SOCKADDR_STORAGE,
+    pub RemoteAddress: super::WinSock::SOCKADDR_STORAGE,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for WINHTTP_CONNECTION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for WINHTTP_CONNECTION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 pub const WINHTTP_CONNECTION_RETRY_CONDITION_408: u32 = 1u32;
 pub const WINHTTP_CONNECTION_RETRY_CONDITION_SSL_HANDSHAKE: u32 = 2u32;
 pub const WINHTTP_CONNECTION_RETRY_CONDITION_STALE_CONNECTION: u32 = 4u32;
 pub const WINHTTP_CONNS_PER_SERVER_UNLIMITED: u32 = 4294967295u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINHTTP_CREDS {
+    pub lpszUserName: windows_core::PSTR,
+    pub lpszPassword: windows_core::PSTR,
+    pub lpszRealm: windows_core::PSTR,
+    pub dwAuthScheme: WINHTTP_CREDS_AUTHSCHEME,
+    pub lpszHostName: windows_core::PSTR,
+    pub dwPort: u32,
+}
+impl Default for WINHTTP_CREDS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WINHTTP_CREDS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WINHTTP_CREDS_AUTHSCHEME(pub u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINHTTP_CREDS_EX {
+    pub lpszUserName: windows_core::PSTR,
+    pub lpszPassword: windows_core::PSTR,
+    pub lpszRealm: windows_core::PSTR,
+    pub dwAuthScheme: WINHTTP_CREDS_AUTHSCHEME,
+    pub lpszHostName: windows_core::PSTR,
+    pub dwPort: u32,
+    pub lpszUrl: windows_core::PSTR,
+}
+impl Default for WINHTTP_CREDS_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WINHTTP_CREDS_EX {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
+    pub fAutoDetect: super::super::Foundation::BOOL,
+    pub lpszAutoConfigUrl: windows_core::PWSTR,
+    pub lpszProxy: windows_core::PWSTR,
+    pub lpszProxyBypass: windows_core::PWSTR,
+}
+impl Default for WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
+    type TypeKind = windows_core::CopyType;
+}
 pub const WINHTTP_DECOMPRESSION_FLAG_DEFLATE: u32 = 2u32;
 pub const WINHTTP_DECOMPRESSION_FLAG_GZIP: u32 = 1u32;
 pub const WINHTTP_DISABLE_AUTHENTICATION: u32 = 4u32;
@@ -1728,7 +1174,63 @@ pub const WINHTTP_ENABLE_SSL_REVERT_IMPERSONATION: u32 = 2u32;
 pub const WINHTTP_ENABLE_SSL_REVOCATION: u32 = 1u32;
 pub const WINHTTP_ERROR_BASE: u32 = 12000u32;
 pub const WINHTTP_ERROR_LAST: u32 = 12192u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WINHTTP_EXTENDED_HEADER {
+    pub Anonymous1: WINHTTP_EXTENDED_HEADER_0,
+    pub Anonymous2: WINHTTP_EXTENDED_HEADER_1,
+}
+impl Default for WINHTTP_EXTENDED_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WINHTTP_EXTENDED_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union WINHTTP_EXTENDED_HEADER_0 {
+    pub pwszName: windows_core::PCWSTR,
+    pub pszName: windows_core::PCSTR,
+}
+impl Default for WINHTTP_EXTENDED_HEADER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WINHTTP_EXTENDED_HEADER_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union WINHTTP_EXTENDED_HEADER_1 {
+    pub pwszValue: windows_core::PCWSTR,
+    pub pszValue: windows_core::PCSTR,
+}
+impl Default for WINHTTP_EXTENDED_HEADER_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WINHTTP_EXTENDED_HEADER_1 {
+    type TypeKind = windows_core::CopyType;
+}
 pub const WINHTTP_EXTENDED_HEADER_FLAG_UNICODE: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINHTTP_FAILED_CONNECTION_RETRIES {
+    pub dwMaxRetries: u32,
+    pub dwAllowedRetryConditions: u32,
+}
+impl Default for WINHTTP_FAILED_CONNECTION_RETRIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WINHTTP_FAILED_CONNECTION_RETRIES {
+    type TypeKind = windows_core::CopyType;
+}
 pub const WINHTTP_FEATURE_ADD_REQUEST_HEADERS_EX: u32 = 46u32;
 pub const WINHTTP_FEATURE_BACKGROUND_CONNECTIONS: u32 = 34u32;
 pub const WINHTTP_FEATURE_CONNECTION_GUID: u32 = 38u32;
@@ -1813,14 +1315,130 @@ pub const WINHTTP_HANDLE_TYPE_PROXY_RESOLVER: u32 = 4u32;
 pub const WINHTTP_HANDLE_TYPE_REQUEST: u32 = 3u32;
 pub const WINHTTP_HANDLE_TYPE_SESSION: u32 = 1u32;
 pub const WINHTTP_HANDLE_TYPE_WEBSOCKET: u32 = 5u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union WINHTTP_HEADER_NAME {
+    pub pwszName: windows_core::PCWSTR,
+    pub pszName: windows_core::PCSTR,
+}
+impl Default for WINHTTP_HEADER_NAME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WINHTTP_HEADER_NAME {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINHTTP_HOST_CONNECTION_GROUP {
+    pub pwszHost: windows_core::PCWSTR,
+    pub cConnectionGroups: u32,
+    pub pConnectionGroups: *mut WINHTTP_CONNECTION_GROUP,
+}
+impl Default for WINHTTP_HOST_CONNECTION_GROUP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WINHTTP_HOST_CONNECTION_GROUP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINHTTP_HTTP2_RECEIVE_WINDOW {
+    pub ulStreamWindow: u32,
+    pub ulStreamWindowUpdateDelta: u32,
+}
+impl Default for WINHTTP_HTTP2_RECEIVE_WINDOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WINHTTP_HTTP2_RECEIVE_WINDOW {
+    type TypeKind = windows_core::CopyType;
+}
 pub const WINHTTP_IGNORE_REQUEST_TOTAL_LENGTH: u32 = 0u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WINHTTP_INTERNET_SCHEME(pub i32);
 pub const WINHTTP_INTERNET_SCHEME_FTP: WINHTTP_INTERNET_SCHEME = WINHTTP_INTERNET_SCHEME(3i32);
 pub const WINHTTP_INTERNET_SCHEME_HTTP: WINHTTP_INTERNET_SCHEME = WINHTTP_INTERNET_SCHEME(1i32);
 pub const WINHTTP_INTERNET_SCHEME_HTTPS: WINHTTP_INTERNET_SCHEME = WINHTTP_INTERNET_SCHEME(2i32);
 pub const WINHTTP_INTERNET_SCHEME_SOCKS: WINHTTP_INTERNET_SCHEME = WINHTTP_INTERNET_SCHEME(4i32);
 pub const WINHTTP_LAST_OPTION: u32 = 196u32;
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct WINHTTP_MATCH_CONNECTION_GUID {
+    pub ConnectionGuid: windows_core::GUID,
+    pub ullFlags: u64,
+}
+#[cfg(target_arch = "x86")]
+impl Default for WINHTTP_MATCH_CONNECTION_GUID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for WINHTTP_MATCH_CONNECTION_GUID {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINHTTP_MATCH_CONNECTION_GUID {
+    pub ConnectionGuid: windows_core::GUID,
+    pub ullFlags: u64,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for WINHTTP_MATCH_CONNECTION_GUID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for WINHTTP_MATCH_CONNECTION_GUID {
+    type TypeKind = windows_core::CopyType;
+}
 pub const WINHTTP_MATCH_CONNECTION_GUID_FLAGS_MASK: u32 = 1u32;
 pub const WINHTTP_MATCH_CONNECTION_GUID_FLAG_REQUIRE_MARKED_CONNECTION: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WINHTTP_OPEN_REQUEST_FLAGS(pub u32);
+impl WINHTTP_OPEN_REQUEST_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for WINHTTP_OPEN_REQUEST_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for WINHTTP_OPEN_REQUEST_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for WINHTTP_OPEN_REQUEST_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for WINHTTP_OPEN_REQUEST_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for WINHTTP_OPEN_REQUEST_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const WINHTTP_OPTION_ASSURED_NON_BLOCKING_CALLBACKS: u32 = 111u32;
 pub const WINHTTP_OPTION_AUTOLOGON_POLICY: u32 = 77u32;
 pub const WINHTTP_OPTION_BACKGROUND_CONNECTIONS: u32 = 172u32;
@@ -1951,13 +1569,204 @@ pub const WINHTTP_OPTION_WORKER_THREAD_COUNT: u32 = 80u32;
 pub const WINHTTP_OPTION_WRITE_BUFFER_SIZE: u32 = 13u32;
 pub const WINHTTP_PROTOCOL_FLAG_HTTP2: u32 = 1u32;
 pub const WINHTTP_PROTOCOL_FLAG_HTTP3: u32 = 2u32;
+pub type WINHTTP_PROXY_CHANGE_CALLBACK = Option<unsafe extern "system" fn(ullflags: u64, pvcontext: *const core::ffi::c_void)>;
 pub const WINHTTP_PROXY_DISABLE_AUTH_LOCAL_SERVICE: u32 = 256u32;
 pub const WINHTTP_PROXY_DISABLE_SCHEME_BASIC: u32 = 1u32;
 pub const WINHTTP_PROXY_DISABLE_SCHEME_DIGEST: u32 = 2u32;
 pub const WINHTTP_PROXY_DISABLE_SCHEME_KERBEROS: u32 = 8u32;
 pub const WINHTTP_PROXY_DISABLE_SCHEME_NEGOTIATE: u32 = 16u32;
 pub const WINHTTP_PROXY_DISABLE_SCHEME_NTLM: u32 = 4u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINHTTP_PROXY_INFO {
+    pub dwAccessType: WINHTTP_ACCESS_TYPE,
+    pub lpszProxy: windows_core::PWSTR,
+    pub lpszProxyBypass: windows_core::PWSTR,
+}
+impl Default for WINHTTP_PROXY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WINHTTP_PROXY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINHTTP_PROXY_NETWORKING_KEY {
+    pub pbBuffer: [u8; 128],
+}
+impl Default for WINHTTP_PROXY_NETWORKING_KEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WINHTTP_PROXY_NETWORKING_KEY {
+    type TypeKind = windows_core::CopyType;
+}
 pub const WINHTTP_PROXY_NOTIFY_CHANGE: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINHTTP_PROXY_RESULT {
+    pub cEntries: u32,
+    pub pEntries: *mut WINHTTP_PROXY_RESULT_ENTRY,
+}
+impl Default for WINHTTP_PROXY_RESULT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WINHTTP_PROXY_RESULT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINHTTP_PROXY_RESULT_ENTRY {
+    pub fProxy: super::super::Foundation::BOOL,
+    pub fBypass: super::super::Foundation::BOOL,
+    pub ProxyScheme: WINHTTP_INTERNET_SCHEME,
+    pub pwszProxy: windows_core::PWSTR,
+    pub ProxyPort: u16,
+}
+impl Default for WINHTTP_PROXY_RESULT_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WINHTTP_PROXY_RESULT_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINHTTP_PROXY_RESULT_EX {
+    pub cEntries: u32,
+    pub pEntries: *mut WINHTTP_PROXY_RESULT_ENTRY,
+    pub hProxyDetectionHandle: super::super::Foundation::HANDLE,
+    pub dwProxyInterfaceAffinity: u32,
+}
+impl Default for WINHTTP_PROXY_RESULT_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WINHTTP_PROXY_RESULT_EX {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINHTTP_PROXY_SETTINGS {
+    pub dwStructSize: u32,
+    pub dwFlags: u32,
+    pub dwCurrentSettingsVersion: u32,
+    pub pwszConnectionName: windows_core::PWSTR,
+    pub pwszProxy: windows_core::PWSTR,
+    pub pwszProxyBypass: windows_core::PWSTR,
+    pub pwszAutoconfigUrl: windows_core::PWSTR,
+    pub pwszAutoconfigSecondaryUrl: windows_core::PWSTR,
+    pub dwAutoDiscoveryFlags: u32,
+    pub pwszLastKnownGoodAutoConfigUrl: windows_core::PWSTR,
+    pub dwAutoconfigReloadDelayMins: u32,
+    pub ftLastKnownDetectTime: super::super::Foundation::FILETIME,
+    pub dwDetectedInterfaceIpCount: u32,
+    pub pdwDetectedInterfaceIp: *mut u32,
+    pub cNetworkKeys: u32,
+    pub pNetworkKeys: *mut WINHTTP_PROXY_NETWORKING_KEY,
+}
+impl Default for WINHTTP_PROXY_SETTINGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WINHTTP_PROXY_SETTINGS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct WINHTTP_PROXY_SETTINGS_EX {
+    pub ullGenerationId: u64,
+    pub ullFlags: u64,
+    pub pcwszAutoconfigUrl: windows_core::PCWSTR,
+    pub pcwszProxy: windows_core::PCWSTR,
+    pub pcwszSecureProxy: windows_core::PCWSTR,
+    pub cProxyBypasses: u32,
+    pub rgpcwszProxyBypasses: *const windows_core::PCWSTR,
+    pub dwInterfaceIndex: u32,
+    pub pcwszConnectionName: windows_core::PCWSTR,
+}
+#[cfg(target_arch = "x86")]
+impl Default for WINHTTP_PROXY_SETTINGS_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for WINHTTP_PROXY_SETTINGS_EX {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINHTTP_PROXY_SETTINGS_EX {
+    pub ullGenerationId: u64,
+    pub ullFlags: u64,
+    pub pcwszAutoconfigUrl: windows_core::PCWSTR,
+    pub pcwszProxy: windows_core::PCWSTR,
+    pub pcwszSecureProxy: windows_core::PCWSTR,
+    pub cProxyBypasses: u32,
+    pub rgpcwszProxyBypasses: *const windows_core::PCWSTR,
+    pub dwInterfaceIndex: u32,
+    pub pcwszConnectionName: windows_core::PCWSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for WINHTTP_PROXY_SETTINGS_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for WINHTTP_PROXY_SETTINGS_EX {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct WINHTTP_PROXY_SETTINGS_PARAM {
+    pub ullFlags: u64,
+    pub pcwszConnectionName: windows_core::PCWSTR,
+    pub pcwszProbeHost: windows_core::PCWSTR,
+}
+#[cfg(target_arch = "x86")]
+impl Default for WINHTTP_PROXY_SETTINGS_PARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for WINHTTP_PROXY_SETTINGS_PARAM {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINHTTP_PROXY_SETTINGS_PARAM {
+    pub ullFlags: u64,
+    pub pcwszConnectionName: windows_core::PCWSTR,
+    pub pcwszProbeHost: windows_core::PCWSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for WINHTTP_PROXY_SETTINGS_PARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for WINHTTP_PROXY_SETTINGS_PARAM {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WINHTTP_PROXY_SETTINGS_TYPE(pub i32);
 pub const WINHTTP_PROXY_TYPE_AUTO_DETECT: u32 = 8u32;
 pub const WINHTTP_PROXY_TYPE_AUTO_PROXY_URL: u32 = 4u32;
 pub const WINHTTP_PROXY_TYPE_DIRECT: u32 = 1u32;
@@ -1973,6 +1782,20 @@ pub const WINHTTP_QUERY_AUTHENTICATION_INFO: u32 = 76u32;
 pub const WINHTTP_QUERY_AUTHORIZATION: u32 = 28u32;
 pub const WINHTTP_QUERY_CACHE_CONTROL: u32 = 49u32;
 pub const WINHTTP_QUERY_CONNECTION: u32 = 23u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
+    pub cHosts: u32,
+    pub pHostConnectionGroups: *mut WINHTTP_HOST_CONNECTION_GROUP,
+}
+impl Default for WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
+    type TypeKind = windows_core::CopyType;
+}
 pub const WINHTTP_QUERY_CONTENT_BASE: u32 = 50u32;
 pub const WINHTTP_QUERY_CONTENT_DESCRIPTION: u32 = 4u32;
 pub const WINHTTP_QUERY_CONTENT_DISPOSITION: u32 = 47u32;
@@ -2046,12 +1869,90 @@ pub const WINHTTP_QUERY_VERSION: u32 = 18u32;
 pub const WINHTTP_QUERY_VIA: u32 = 66u32;
 pub const WINHTTP_QUERY_WARNING: u32 = 67u32;
 pub const WINHTTP_QUERY_WWW_AUTHENTICATE: u32 = 40u32;
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct WINHTTP_REQUEST_STATS {
+    pub ullFlags: u64,
+    pub ulIndex: u32,
+    pub cStats: u32,
+    pub rgullStats: [u64; 32],
+}
+#[cfg(target_arch = "x86")]
+impl Default for WINHTTP_REQUEST_STATS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for WINHTTP_REQUEST_STATS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINHTTP_REQUEST_STATS {
+    pub ullFlags: u64,
+    pub ulIndex: u32,
+    pub cStats: u32,
+    pub rgullStats: [u64; 32],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for WINHTTP_REQUEST_STATS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for WINHTTP_REQUEST_STATS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WINHTTP_REQUEST_STAT_ENTRY(pub i32);
 pub const WINHTTP_REQUEST_STAT_FLAG_FIRST_REQUEST: u32 = 32u32;
 pub const WINHTTP_REQUEST_STAT_FLAG_PROXY_TLS_FALSE_START: u32 = 16u32;
 pub const WINHTTP_REQUEST_STAT_FLAG_PROXY_TLS_SESSION_RESUMPTION: u32 = 8u32;
 pub const WINHTTP_REQUEST_STAT_FLAG_TCP_FAST_OPEN: u32 = 1u32;
 pub const WINHTTP_REQUEST_STAT_FLAG_TLS_FALSE_START: u32 = 4u32;
 pub const WINHTTP_REQUEST_STAT_FLAG_TLS_SESSION_RESUMPTION: u32 = 2u32;
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct WINHTTP_REQUEST_TIMES {
+    pub cTimes: u32,
+    pub rgullTimes: [u64; 64],
+}
+#[cfg(target_arch = "x86")]
+impl Default for WINHTTP_REQUEST_TIMES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for WINHTTP_REQUEST_TIMES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINHTTP_REQUEST_TIMES {
+    pub cTimes: u32,
+    pub rgullTimes: [u64; 64],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for WINHTTP_REQUEST_TIMES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for WINHTTP_REQUEST_TIMES {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WINHTTP_REQUEST_TIME_ENTRY(pub i32);
 pub const WINHTTP_RESET_ALL: u32 = 65535u32;
 pub const WINHTTP_RESET_DISCARD_RESOLVERS: u32 = 262144u32;
 pub const WINHTTP_RESET_NOTIFY_NETWORK_CHANGED: u32 = 65536u32;
@@ -2060,16 +1961,82 @@ pub const WINHTTP_RESET_SCRIPT_CACHE: u32 = 8u32;
 pub const WINHTTP_RESET_STATE: u32 = 1u32;
 pub const WINHTTP_RESET_SWPAD_ALL: u32 = 4u32;
 pub const WINHTTP_RESET_SWPAD_CURRENT_NETWORK: u32 = 2u32;
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct WINHTTP_RESOLVER_CACHE_CONFIG {
+    pub ulMaxResolverCacheEntries: u32,
+    pub ulMaxCacheEntryAge: u32,
+    pub ulMinCacheEntryTtl: u32,
+    pub SecureDnsSetting: WINHTTP_SECURE_DNS_SETTING,
+    pub ullConnResolutionWaitTime: u64,
+    pub ullFlags: u64,
+}
+#[cfg(target_arch = "x86")]
+impl Default for WINHTTP_RESOLVER_CACHE_CONFIG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for WINHTTP_RESOLVER_CACHE_CONFIG {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINHTTP_RESOLVER_CACHE_CONFIG {
+    pub ulMaxResolverCacheEntries: u32,
+    pub ulMaxCacheEntryAge: u32,
+    pub ulMinCacheEntryTtl: u32,
+    pub SecureDnsSetting: WINHTTP_SECURE_DNS_SETTING,
+    pub ullConnResolutionWaitTime: u64,
+    pub ullFlags: u64,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for WINHTTP_RESOLVER_CACHE_CONFIG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for WINHTTP_RESOLVER_CACHE_CONFIG {
+    type TypeKind = windows_core::CopyType;
+}
 pub const WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_BYPASS_CACHE: u32 = 2u32;
 pub const WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_CONN_USE_TTL: u32 = 8u32;
 pub const WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_SOFT_LIMIT: u32 = 1u32;
 pub const WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_USE_DNS_TTL: u32 = 4u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WINHTTP_SECURE_DNS_SETTING(pub i32);
+pub type WINHTTP_STATUS_CALLBACK = Option<unsafe extern "system" fn(hinternet: *mut core::ffi::c_void, dwcontext: usize, dwinternetstatus: u32, lpvstatusinformation: *mut core::ffi::c_void, dwstatusinformationlength: u32)>;
 pub const WINHTTP_TIME_FORMAT_BUFSIZE: u32 = 62u32;
 pub const WINHTTP_WEB_SOCKET_ABORTED_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1006i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINHTTP_WEB_SOCKET_ASYNC_RESULT {
+    pub AsyncResult: WINHTTP_ASYNC_RESULT,
+    pub Operation: WINHTTP_WEB_SOCKET_OPERATION,
+}
+impl Default for WINHTTP_WEB_SOCKET_ASYNC_RESULT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WINHTTP_WEB_SOCKET_ASYNC_RESULT {
+    type TypeKind = windows_core::CopyType;
+}
 pub const WINHTTP_WEB_SOCKET_BINARY_FRAGMENT_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = WINHTTP_WEB_SOCKET_BUFFER_TYPE(1i32);
 pub const WINHTTP_WEB_SOCKET_BINARY_MESSAGE_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = WINHTTP_WEB_SOCKET_BUFFER_TYPE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WINHTTP_WEB_SOCKET_BUFFER_TYPE(pub i32);
 pub const WINHTTP_WEB_SOCKET_CLOSE_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = WINHTTP_WEB_SOCKET_BUFFER_TYPE(4i32);
 pub const WINHTTP_WEB_SOCKET_CLOSE_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = WINHTTP_WEB_SOCKET_OPERATION(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WINHTTP_WEB_SOCKET_CLOSE_STATUS(pub i32);
 pub const WINHTTP_WEB_SOCKET_EMPTY_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1005i32);
 pub const WINHTTP_WEB_SOCKET_ENDPOINT_TERMINATED_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1001i32);
 pub const WINHTTP_WEB_SOCKET_INVALID_DATA_TYPE_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1003i32);
@@ -2077,6 +2044,9 @@ pub const WINHTTP_WEB_SOCKET_INVALID_PAYLOAD_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CL
 pub const WINHTTP_WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123u32;
 pub const WINHTTP_WEB_SOCKET_MESSAGE_TOO_BIG_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1009i32);
 pub const WINHTTP_WEB_SOCKET_MIN_KEEPALIVE_VALUE: u32 = 15000u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WINHTTP_WEB_SOCKET_OPERATION(pub i32);
 pub const WINHTTP_WEB_SOCKET_POLICY_VIOLATION_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1008i32);
 pub const WINHTTP_WEB_SOCKET_PROTOCOL_ERROR_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1002i32);
 pub const WINHTTP_WEB_SOCKET_RECEIVE_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = WINHTTP_WEB_SOCKET_OPERATION(1i32);
@@ -2084,10 +2054,27 @@ pub const WINHTTP_WEB_SOCKET_SECURE_HANDSHAKE_ERROR_CLOSE_STATUS: WINHTTP_WEB_SO
 pub const WINHTTP_WEB_SOCKET_SEND_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = WINHTTP_WEB_SOCKET_OPERATION(0i32);
 pub const WINHTTP_WEB_SOCKET_SERVER_ERROR_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1011i32);
 pub const WINHTTP_WEB_SOCKET_SHUTDOWN_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = WINHTTP_WEB_SOCKET_OPERATION(3i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINHTTP_WEB_SOCKET_STATUS {
+    pub dwBytesTransferred: u32,
+    pub eBufferType: WINHTTP_WEB_SOCKET_BUFFER_TYPE,
+}
+impl Default for WINHTTP_WEB_SOCKET_STATUS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for WINHTTP_WEB_SOCKET_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 pub const WINHTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1000i32);
 pub const WINHTTP_WEB_SOCKET_UNSUPPORTED_EXTENSIONS_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1010i32);
 pub const WINHTTP_WEB_SOCKET_UTF8_FRAGMENT_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = WINHTTP_WEB_SOCKET_BUFFER_TYPE(3i32);
 pub const WINHTTP_WEB_SOCKET_UTF8_MESSAGE_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = WINHTTP_WEB_SOCKET_BUFFER_TYPE(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WIN_HTTP_CREATE_URL_FLAGS(pub u32);
 pub const WinHttpConnectFailureCount: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(0i32);
 pub const WinHttpConnectionAcquireEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(4i32);
 pub const WinHttpConnectionAcquireStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(2i32);
@@ -2120,8 +2107,15 @@ pub const WinHttpReceiveResponseHeadersDecompressionEnd: WINHTTP_REQUEST_TIME_EN
 pub const WinHttpReceiveResponseHeadersDecompressionStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(23i32);
 pub const WinHttpReceiveResponseHeadersEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(25i32);
 pub const WinHttpReceiveResponseStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(22i32);
+pub const WinHttpRequest: windows_core::GUID = windows_core::GUID::from_u128(0x2087c2f4_2cef_4953_a8ab_66779b670495);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WinHttpRequestAutoLogonPolicy(pub i32);
 pub const WinHttpRequestHeadersCompressedSize: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(7i32);
 pub const WinHttpRequestHeadersSize: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(6i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WinHttpRequestOption(pub i32);
 pub const WinHttpRequestOption_EnableCertificateRevocationCheck: WinHttpRequestOption = WinHttpRequestOption(18i32);
 pub const WinHttpRequestOption_EnableHttp1_1: WinHttpRequestOption = WinHttpRequestOption(17i32);
 pub const WinHttpRequestOption_EnableHttpsToHttpRedirects: WinHttpRequestOption = WinHttpRequestOption(12i32);
@@ -2142,6 +2136,12 @@ pub const WinHttpRequestOption_URLCodePage: WinHttpRequestOption = WinHttpReques
 pub const WinHttpRequestOption_UrlEscapeDisable: WinHttpRequestOption = WinHttpRequestOption(7i32);
 pub const WinHttpRequestOption_UrlEscapeDisableQuery: WinHttpRequestOption = WinHttpRequestOption(8i32);
 pub const WinHttpRequestOption_UserAgentString: WinHttpRequestOption = WinHttpRequestOption(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WinHttpRequestSecureProtocols(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WinHttpRequestSslErrorFlags(pub i32);
 pub const WinHttpRequestStatLast: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(16i32);
 pub const WinHttpRequestStatMax: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(32i32);
 pub const WinHttpRequestTimeLast: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(36i32);

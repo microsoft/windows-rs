@@ -36,6 +36,64 @@ impl windows_core::RuntimeName for AsyncCausalityTracer {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.AsyncCausalityTracer";
 }
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CausalityRelation(pub i32);
+impl CausalityRelation {
+    pub const AssignDelegate: Self = Self(0i32);
+    pub const Join: Self = Self(1i32);
+    pub const Choice: Self = Self(2i32);
+    pub const Cancel: Self = Self(3i32);
+    pub const Error: Self = Self(4i32);
+}
+impl windows_core::TypeKind for CausalityRelation {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for CausalityRelation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalityRelation;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CausalitySource(pub i32);
+impl CausalitySource {
+    pub const Application: Self = Self(0i32);
+    pub const Library: Self = Self(1i32);
+    pub const System: Self = Self(2i32);
+}
+impl windows_core::TypeKind for CausalitySource {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for CausalitySource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalitySource;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CausalitySynchronousWork(pub i32);
+impl CausalitySynchronousWork {
+    pub const CompletionNotification: Self = Self(0i32);
+    pub const ProgressNotification: Self = Self(1i32);
+    pub const Execution: Self = Self(2i32);
+}
+impl windows_core::TypeKind for CausalitySynchronousWork {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for CausalitySynchronousWork {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalitySynchronousWork;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CausalityTraceLevel(pub i32);
+impl CausalityTraceLevel {
+    pub const Required: Self = Self(0i32);
+    pub const Important: Self = Self(1i32);
+    pub const Verbose: Self = Self(2i32);
+}
+impl windows_core::TypeKind for CausalityTraceLevel {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for CausalityTraceLevel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalityTraceLevel;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ErrorDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ErrorDetails, windows_core::IUnknown, windows_core::IInspectable);
@@ -84,6 +142,55 @@ impl windows_core::RuntimeName for ErrorDetails {
 }
 unsafe impl Send for ErrorDetails {}
 unsafe impl Sync for ErrorDetails {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ErrorOptions(pub u32);
+impl ErrorOptions {
+    pub const None: Self = Self(0u32);
+    pub const SuppressExceptions: Self = Self(1u32);
+    pub const ForceExceptions: Self = Self(2u32);
+    pub const UseSetErrorInfo: Self = Self(4u32);
+    pub const SuppressSetErrorInfo: Self = Self(8u32);
+}
+impl windows_core::TypeKind for ErrorOptions {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ErrorOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.ErrorOptions;u4)");
+}
+impl ErrorOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for ErrorOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for ErrorOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for ErrorOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for ErrorOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for ErrorOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FileLoggingSession(windows_core::IUnknown);
@@ -167,1172 +274,6 @@ impl windows_core::RuntimeName for FileLoggingSession {
 }
 unsafe impl Send for FileLoggingSession {}
 unsafe impl Sync for FileLoggingSession {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct LogFileGeneratedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(LogFileGeneratedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl LogFileGeneratedEventArgs {
-    #[cfg(feature = "Storage_Streams")]
-    pub fn File(&self) -> windows_core::Result<super::super::Storage::StorageFile> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).File)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for LogFileGeneratedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILogFileGeneratedEventArgs>();
-}
-unsafe impl windows_core::Interface for LogFileGeneratedEventArgs {
-    type Vtable = <ILogFileGeneratedEventArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ILogFileGeneratedEventArgs as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for LogFileGeneratedEventArgs {
-    const NAME: &'static str = "Windows.Foundation.Diagnostics.LogFileGeneratedEventArgs";
-}
-unsafe impl Send for LogFileGeneratedEventArgs {}
-unsafe impl Sync for LogFileGeneratedEventArgs {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct LoggingActivity(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(LoggingActivity, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(LoggingActivity, super::IClosable, ILoggingTarget);
-impl LoggingActivity {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Id(&self) -> windows_core::Result<windows_core::GUID> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Channel(&self) -> windows_core::Result<LoggingChannel> {
-        let this = &windows_core::Interface::cast::<ILoggingActivity2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Channel)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn StopActivity(&self, stopeventname: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<ILoggingActivity2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StopActivity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(stopeventname)).ok() }
-    }
-    pub fn StopActivityWithFields<P1>(&self, stopeventname: &windows_core::HSTRING, fields: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<LoggingFields>,
-    {
-        let this = &windows_core::Interface::cast::<ILoggingActivity2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StopActivityWithFields)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(stopeventname), fields.param().abi()).ok() }
-    }
-    pub fn StopActivityWithFieldsAndOptions<P1, P2>(&self, stopeventname: &windows_core::HSTRING, fields: P1, options: P2) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<LoggingFields>,
-        P2: windows_core::Param<LoggingOptions>,
-    {
-        let this = &windows_core::Interface::cast::<ILoggingActivity2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StopActivityWithFieldsAndOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(stopeventname), fields.param().abi(), options.param().abi()).ok() }
-    }
-    pub fn CreateLoggingActivity<P1>(activityname: &windows_core::HSTRING, loggingchannel: P1) -> windows_core::Result<LoggingActivity>
-    where
-        P1: windows_core::Param<ILoggingChannel>,
-    {
-        Self::ILoggingActivityFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateLoggingActivity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activityname), loggingchannel.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateLoggingActivityWithLevel<P1>(activityname: &windows_core::HSTRING, loggingchannel: P1, level: LoggingLevel) -> windows_core::Result<LoggingActivity>
-    where
-        P1: windows_core::Param<ILoggingChannel>,
-    {
-        Self::ILoggingActivityFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateLoggingActivityWithLevel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activityname), loggingchannel.param().abi(), level, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn IsEnabled(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn IsEnabledWithLevel(&self, level: LoggingLevel) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsEnabledWithLevel)(windows_core::Interface::as_raw(this), level, &mut result__).map(|| result__)
-        }
-    }
-    pub fn IsEnabledWithLevelAndKeywords(&self, level: LoggingLevel, keywords: i64) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsEnabledWithLevelAndKeywords)(windows_core::Interface::as_raw(this), level, keywords, &mut result__).map(|| result__)
-        }
-    }
-    pub fn LogEvent(&self, eventname: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).LogEvent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(eventname)).ok() }
-    }
-    pub fn LogEventWithFields<P1>(&self, eventname: &windows_core::HSTRING, fields: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<LoggingFields>,
-    {
-        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).LogEventWithFields)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(eventname), fields.param().abi()).ok() }
-    }
-    pub fn LogEventWithFieldsAndLevel<P1>(&self, eventname: &windows_core::HSTRING, fields: P1, level: LoggingLevel) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<LoggingFields>,
-    {
-        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).LogEventWithFieldsAndLevel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(eventname), fields.param().abi(), level).ok() }
-    }
-    pub fn LogEventWithFieldsAndOptions<P1, P3>(&self, eventname: &windows_core::HSTRING, fields: P1, level: LoggingLevel, options: P3) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<LoggingFields>,
-        P3: windows_core::Param<LoggingOptions>,
-    {
-        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).LogEventWithFieldsAndOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(eventname), fields.param().abi(), level, options.param().abi()).ok() }
-    }
-    pub fn StartActivity(&self, starteventname: &windows_core::HSTRING) -> windows_core::Result<LoggingActivity> {
-        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartActivity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn StartActivityWithFields<P1>(&self, starteventname: &windows_core::HSTRING, fields: P1) -> windows_core::Result<LoggingActivity>
-    where
-        P1: windows_core::Param<LoggingFields>,
-    {
-        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartActivityWithFields)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), fields.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn StartActivityWithFieldsAndLevel<P1>(&self, starteventname: &windows_core::HSTRING, fields: P1, level: LoggingLevel) -> windows_core::Result<LoggingActivity>
-    where
-        P1: windows_core::Param<LoggingFields>,
-    {
-        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartActivityWithFieldsAndLevel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), fields.param().abi(), level, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn StartActivityWithFieldsAndOptions<P1, P3>(&self, starteventname: &windows_core::HSTRING, fields: P1, level: LoggingLevel, options: P3) -> windows_core::Result<LoggingActivity>
-    where
-        P1: windows_core::Param<LoggingFields>,
-        P3: windows_core::Param<LoggingOptions>,
-    {
-        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartActivityWithFieldsAndOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), fields.param().abi(), level, options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    fn ILoggingActivityFactory<R, F: FnOnce(&ILoggingActivityFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<LoggingActivity, ILoggingActivityFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for LoggingActivity {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILoggingActivity>();
-}
-unsafe impl windows_core::Interface for LoggingActivity {
-    type Vtable = <ILoggingActivity as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ILoggingActivity as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for LoggingActivity {
-    const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingActivity";
-}
-unsafe impl Send for LoggingActivity {}
-unsafe impl Sync for LoggingActivity {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct LoggingChannel(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(LoggingChannel, windows_core::IUnknown, windows_core::IInspectable, ILoggingChannel);
-windows_core::imp::required_hierarchy!(LoggingChannel, super::IClosable, ILoggingTarget);
-impl LoggingChannel {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Enabled(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Enabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Level(&self) -> windows_core::Result<LoggingLevel> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Level)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn LogMessage(&self, eventstring: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).LogMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(eventstring)).ok() }
-    }
-    pub fn LogMessageWithLevel(&self, eventstring: &windows_core::HSTRING, level: LoggingLevel) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).LogMessageWithLevel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(eventstring), level).ok() }
-    }
-    pub fn LogValuePair(&self, value1: &windows_core::HSTRING, value2: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).LogValuePair)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value1), value2).ok() }
-    }
-    pub fn LogValuePairWithLevel(&self, value1: &windows_core::HSTRING, value2: i32, level: LoggingLevel) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).LogValuePairWithLevel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value1), value2, level).ok() }
-    }
-    pub fn LoggingEnabled<P0>(&self, handler: P0) -> windows_core::Result<super::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::TypedEventHandler<ILoggingChannel, windows_core::IInspectable>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoggingEnabled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveLoggingEnabled(&self, token: super::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveLoggingEnabled)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn Id(&self) -> windows_core::Result<windows_core::GUID> {
-        let this = &windows_core::Interface::cast::<ILoggingChannel2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Create(name: &windows_core::HSTRING) -> windows_core::Result<LoggingChannel> {
-        Self::ILoggingChannelFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateWithOptions<P1>(name: &windows_core::HSTRING, options: P1) -> windows_core::Result<LoggingChannel>
-    where
-        P1: windows_core::Param<LoggingChannelOptions>,
-    {
-        Self::ILoggingChannelFactory2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn CreateWithOptionsAndId<P1>(name: &windows_core::HSTRING, options: P1, id: windows_core::GUID) -> windows_core::Result<LoggingChannel>
-    where
-        P1: windows_core::Param<LoggingChannelOptions>,
-    {
-        Self::ILoggingChannelFactory2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithOptionsAndId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), options.param().abi(), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn IsEnabled(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn IsEnabledWithLevel(&self, level: LoggingLevel) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsEnabledWithLevel)(windows_core::Interface::as_raw(this), level, &mut result__).map(|| result__)
-        }
-    }
-    pub fn IsEnabledWithLevelAndKeywords(&self, level: LoggingLevel, keywords: i64) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsEnabledWithLevelAndKeywords)(windows_core::Interface::as_raw(this), level, keywords, &mut result__).map(|| result__)
-        }
-    }
-    pub fn LogEvent(&self, eventname: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).LogEvent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(eventname)).ok() }
-    }
-    pub fn LogEventWithFields<P1>(&self, eventname: &windows_core::HSTRING, fields: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<LoggingFields>,
-    {
-        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).LogEventWithFields)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(eventname), fields.param().abi()).ok() }
-    }
-    pub fn LogEventWithFieldsAndLevel<P1>(&self, eventname: &windows_core::HSTRING, fields: P1, level: LoggingLevel) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<LoggingFields>,
-    {
-        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).LogEventWithFieldsAndLevel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(eventname), fields.param().abi(), level).ok() }
-    }
-    pub fn LogEventWithFieldsAndOptions<P1, P3>(&self, eventname: &windows_core::HSTRING, fields: P1, level: LoggingLevel, options: P3) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<LoggingFields>,
-        P3: windows_core::Param<LoggingOptions>,
-    {
-        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).LogEventWithFieldsAndOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(eventname), fields.param().abi(), level, options.param().abi()).ok() }
-    }
-    pub fn StartActivity(&self, starteventname: &windows_core::HSTRING) -> windows_core::Result<LoggingActivity> {
-        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartActivity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn StartActivityWithFields<P1>(&self, starteventname: &windows_core::HSTRING, fields: P1) -> windows_core::Result<LoggingActivity>
-    where
-        P1: windows_core::Param<LoggingFields>,
-    {
-        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartActivityWithFields)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), fields.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn StartActivityWithFieldsAndLevel<P1>(&self, starteventname: &windows_core::HSTRING, fields: P1, level: LoggingLevel) -> windows_core::Result<LoggingActivity>
-    where
-        P1: windows_core::Param<LoggingFields>,
-    {
-        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartActivityWithFieldsAndLevel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), fields.param().abi(), level, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn StartActivityWithFieldsAndOptions<P1, P3>(&self, starteventname: &windows_core::HSTRING, fields: P1, level: LoggingLevel, options: P3) -> windows_core::Result<LoggingActivity>
-    where
-        P1: windows_core::Param<LoggingFields>,
-        P3: windows_core::Param<LoggingOptions>,
-    {
-        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartActivityWithFieldsAndOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), fields.param().abi(), level, options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    fn ILoggingChannelFactory<R, F: FnOnce(&ILoggingChannelFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<LoggingChannel, ILoggingChannelFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn ILoggingChannelFactory2<R, F: FnOnce(&ILoggingChannelFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<LoggingChannel, ILoggingChannelFactory2> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for LoggingChannel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILoggingChannel>();
-}
-unsafe impl windows_core::Interface for LoggingChannel {
-    type Vtable = <ILoggingChannel as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ILoggingChannel as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for LoggingChannel {
-    const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingChannel";
-}
-unsafe impl Send for LoggingChannel {}
-unsafe impl Sync for LoggingChannel {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct LoggingChannelOptions(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(LoggingChannelOptions, windows_core::IUnknown, windows_core::IInspectable);
-impl LoggingChannelOptions {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<LoggingChannelOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn Group(&self) -> windows_core::Result<windows_core::GUID> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Group)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetGroup(&self, value: windows_core::GUID) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetGroup)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Create(group: windows_core::GUID) -> windows_core::Result<LoggingChannelOptions> {
-        Self::ILoggingChannelOptionsFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), group, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn ILoggingChannelOptionsFactory<R, F: FnOnce(&ILoggingChannelOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<LoggingChannelOptions, ILoggingChannelOptionsFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for LoggingChannelOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILoggingChannelOptions>();
-}
-unsafe impl windows_core::Interface for LoggingChannelOptions {
-    type Vtable = <ILoggingChannelOptions as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ILoggingChannelOptions as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for LoggingChannelOptions {
-    const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingChannelOptions";
-}
-unsafe impl Send for LoggingChannelOptions {}
-unsafe impl Sync for LoggingChannelOptions {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct LoggingFields(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(LoggingFields, windows_core::IUnknown, windows_core::IInspectable);
-impl LoggingFields {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<LoggingFields, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn Clear(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn BeginStruct(&self, name: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).BeginStruct)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name)).ok() }
-    }
-    pub fn BeginStructWithTags(&self, name: &windows_core::HSTRING, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).BeginStructWithTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), tags).ok() }
-    }
-    pub fn EndStruct(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).EndStruct)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn AddEmpty(&self, name: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddEmpty)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name)).ok() }
-    }
-    pub fn AddEmptyWithFormat(&self, name: &windows_core::HSTRING, format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddEmptyWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), format).ok() }
-    }
-    pub fn AddEmptyWithFormatAndTags(&self, name: &windows_core::HSTRING, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddEmptyWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), format, tags).ok() }
-    }
-    pub fn AddUInt8(&self, name: &windows_core::HSTRING, value: u8) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddUInt8)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
-    }
-    pub fn AddUInt8WithFormat(&self, name: &windows_core::HSTRING, value: u8, format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddUInt8WithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
-    }
-    pub fn AddUInt8WithFormatAndTags(&self, name: &windows_core::HSTRING, value: u8, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddUInt8WithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
-    }
-    pub fn AddUInt8Array(&self, name: &windows_core::HSTRING, value: &[u8]) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddUInt8Array)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
-    }
-    pub fn AddUInt8ArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[u8], format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddUInt8ArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
-    }
-    pub fn AddUInt8ArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[u8], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddUInt8ArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
-    }
-    pub fn AddInt16(&self, name: &windows_core::HSTRING, value: i16) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddInt16)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
-    }
-    pub fn AddInt16WithFormat(&self, name: &windows_core::HSTRING, value: i16, format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddInt16WithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
-    }
-    pub fn AddInt16WithFormatAndTags(&self, name: &windows_core::HSTRING, value: i16, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddInt16WithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
-    }
-    pub fn AddInt16Array(&self, name: &windows_core::HSTRING, value: &[i16]) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddInt16Array)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
-    }
-    pub fn AddInt16ArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[i16], format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddInt16ArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
-    }
-    pub fn AddInt16ArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[i16], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddInt16ArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
-    }
-    pub fn AddUInt16(&self, name: &windows_core::HSTRING, value: u16) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddUInt16)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
-    }
-    pub fn AddUInt16WithFormat(&self, name: &windows_core::HSTRING, value: u16, format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddUInt16WithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
-    }
-    pub fn AddUInt16WithFormatAndTags(&self, name: &windows_core::HSTRING, value: u16, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddUInt16WithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
-    }
-    pub fn AddUInt16Array(&self, name: &windows_core::HSTRING, value: &[u16]) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddUInt16Array)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
-    }
-    pub fn AddUInt16ArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[u16], format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddUInt16ArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
-    }
-    pub fn AddUInt16ArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[u16], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddUInt16ArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
-    }
-    pub fn AddInt32(&self, name: &windows_core::HSTRING, value: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddInt32)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
-    }
-    pub fn AddInt32WithFormat(&self, name: &windows_core::HSTRING, value: i32, format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddInt32WithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
-    }
-    pub fn AddInt32WithFormatAndTags(&self, name: &windows_core::HSTRING, value: i32, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddInt32WithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
-    }
-    pub fn AddInt32Array(&self, name: &windows_core::HSTRING, value: &[i32]) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddInt32Array)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
-    }
-    pub fn AddInt32ArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[i32], format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddInt32ArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
-    }
-    pub fn AddInt32ArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[i32], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddInt32ArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
-    }
-    pub fn AddUInt32(&self, name: &windows_core::HSTRING, value: u32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddUInt32)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
-    }
-    pub fn AddUInt32WithFormat(&self, name: &windows_core::HSTRING, value: u32, format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddUInt32WithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
-    }
-    pub fn AddUInt32WithFormatAndTags(&self, name: &windows_core::HSTRING, value: u32, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddUInt32WithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
-    }
-    pub fn AddUInt32Array(&self, name: &windows_core::HSTRING, value: &[u32]) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddUInt32Array)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
-    }
-    pub fn AddUInt32ArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[u32], format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddUInt32ArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
-    }
-    pub fn AddUInt32ArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[u32], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddUInt32ArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
-    }
-    pub fn AddInt64(&self, name: &windows_core::HSTRING, value: i64) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddInt64)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
-    }
-    pub fn AddInt64WithFormat(&self, name: &windows_core::HSTRING, value: i64, format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddInt64WithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
-    }
-    pub fn AddInt64WithFormatAndTags(&self, name: &windows_core::HSTRING, value: i64, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddInt64WithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
-    }
-    pub fn AddInt64Array(&self, name: &windows_core::HSTRING, value: &[i64]) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddInt64Array)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
-    }
-    pub fn AddInt64ArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[i64], format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddInt64ArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
-    }
-    pub fn AddInt64ArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[i64], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddInt64ArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
-    }
-    pub fn AddUInt64(&self, name: &windows_core::HSTRING, value: u64) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddUInt64)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
-    }
-    pub fn AddUInt64WithFormat(&self, name: &windows_core::HSTRING, value: u64, format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddUInt64WithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
-    }
-    pub fn AddUInt64WithFormatAndTags(&self, name: &windows_core::HSTRING, value: u64, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddUInt64WithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
-    }
-    pub fn AddUInt64Array(&self, name: &windows_core::HSTRING, value: &[u64]) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddUInt64Array)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
-    }
-    pub fn AddUInt64ArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[u64], format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddUInt64ArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
-    }
-    pub fn AddUInt64ArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[u64], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddUInt64ArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
-    }
-    pub fn AddSingle(&self, name: &windows_core::HSTRING, value: f32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddSingle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
-    }
-    pub fn AddSingleWithFormat(&self, name: &windows_core::HSTRING, value: f32, format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddSingleWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
-    }
-    pub fn AddSingleWithFormatAndTags(&self, name: &windows_core::HSTRING, value: f32, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddSingleWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
-    }
-    pub fn AddSingleArray(&self, name: &windows_core::HSTRING, value: &[f32]) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddSingleArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
-    }
-    pub fn AddSingleArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[f32], format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddSingleArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
-    }
-    pub fn AddSingleArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[f32], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddSingleArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
-    }
-    pub fn AddDouble(&self, name: &windows_core::HSTRING, value: f64) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddDouble)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
-    }
-    pub fn AddDoubleWithFormat(&self, name: &windows_core::HSTRING, value: f64, format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddDoubleWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
-    }
-    pub fn AddDoubleWithFormatAndTags(&self, name: &windows_core::HSTRING, value: f64, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddDoubleWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
-    }
-    pub fn AddDoubleArray(&self, name: &windows_core::HSTRING, value: &[f64]) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddDoubleArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
-    }
-    pub fn AddDoubleArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[f64], format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddDoubleArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
-    }
-    pub fn AddDoubleArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[f64], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddDoubleArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
-    }
-    pub fn AddChar16(&self, name: &windows_core::HSTRING, value: u16) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddChar16)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
-    }
-    pub fn AddChar16WithFormat(&self, name: &windows_core::HSTRING, value: u16, format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddChar16WithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
-    }
-    pub fn AddChar16WithFormatAndTags(&self, name: &windows_core::HSTRING, value: u16, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddChar16WithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
-    }
-    pub fn AddChar16Array(&self, name: &windows_core::HSTRING, value: &[u16]) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddChar16Array)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
-    }
-    pub fn AddChar16ArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[u16], format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddChar16ArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
-    }
-    pub fn AddChar16ArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[u16], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddChar16ArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
-    }
-    pub fn AddBoolean(&self, name: &windows_core::HSTRING, value: bool) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddBoolean)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
-    }
-    pub fn AddBooleanWithFormat(&self, name: &windows_core::HSTRING, value: bool, format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddBooleanWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
-    }
-    pub fn AddBooleanWithFormatAndTags(&self, name: &windows_core::HSTRING, value: bool, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddBooleanWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
-    }
-    pub fn AddBooleanArray(&self, name: &windows_core::HSTRING, value: &[bool]) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddBooleanArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
-    }
-    pub fn AddBooleanArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[bool], format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddBooleanArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
-    }
-    pub fn AddBooleanArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[bool], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddBooleanArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
-    }
-    pub fn AddString(&self, name: &windows_core::HSTRING, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddString)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn AddStringWithFormat(&self, name: &windows_core::HSTRING, value: &windows_core::HSTRING, format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddStringWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(value), format).ok() }
-    }
-    pub fn AddStringWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &windows_core::HSTRING, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddStringWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(value), format, tags).ok() }
-    }
-    pub fn AddStringArray(&self, name: &windows_core::HSTRING, value: &[windows_core::HSTRING]) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddStringArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), core::mem::transmute(value.as_ptr())).ok() }
-    }
-    pub fn AddStringArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[windows_core::HSTRING], format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddStringArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), core::mem::transmute(value.as_ptr()), format).ok() }
-    }
-    pub fn AddStringArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[windows_core::HSTRING], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddStringArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), core::mem::transmute(value.as_ptr()), format, tags).ok() }
-    }
-    pub fn AddGuid(&self, name: &windows_core::HSTRING, value: windows_core::GUID) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddGuid)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
-    }
-    pub fn AddGuidWithFormat(&self, name: &windows_core::HSTRING, value: windows_core::GUID, format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddGuidWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
-    }
-    pub fn AddGuidWithFormatAndTags(&self, name: &windows_core::HSTRING, value: windows_core::GUID, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddGuidWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
-    }
-    pub fn AddGuidArray(&self, name: &windows_core::HSTRING, value: &[windows_core::GUID]) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddGuidArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
-    }
-    pub fn AddGuidArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[windows_core::GUID], format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddGuidArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
-    }
-    pub fn AddGuidArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[windows_core::GUID], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddGuidArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
-    }
-    pub fn AddDateTime(&self, name: &windows_core::HSTRING, value: super::DateTime) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddDateTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
-    }
-    pub fn AddDateTimeWithFormat(&self, name: &windows_core::HSTRING, value: super::DateTime, format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddDateTimeWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
-    }
-    pub fn AddDateTimeWithFormatAndTags(&self, name: &windows_core::HSTRING, value: super::DateTime, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddDateTimeWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
-    }
-    pub fn AddDateTimeArray(&self, name: &windows_core::HSTRING, value: &[super::DateTime]) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddDateTimeArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
-    }
-    pub fn AddDateTimeArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[super::DateTime], format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddDateTimeArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
-    }
-    pub fn AddDateTimeArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[super::DateTime], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddDateTimeArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
-    }
-    pub fn AddTimeSpan(&self, name: &windows_core::HSTRING, value: super::TimeSpan) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddTimeSpan)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
-    }
-    pub fn AddTimeSpanWithFormat(&self, name: &windows_core::HSTRING, value: super::TimeSpan, format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddTimeSpanWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
-    }
-    pub fn AddTimeSpanWithFormatAndTags(&self, name: &windows_core::HSTRING, value: super::TimeSpan, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddTimeSpanWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
-    }
-    pub fn AddTimeSpanArray(&self, name: &windows_core::HSTRING, value: &[super::TimeSpan]) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddTimeSpanArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
-    }
-    pub fn AddTimeSpanArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[super::TimeSpan], format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddTimeSpanArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
-    }
-    pub fn AddTimeSpanArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[super::TimeSpan], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddTimeSpanArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
-    }
-    pub fn AddPoint(&self, name: &windows_core::HSTRING, value: super::Point) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddPoint)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
-    }
-    pub fn AddPointWithFormat(&self, name: &windows_core::HSTRING, value: super::Point, format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddPointWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
-    }
-    pub fn AddPointWithFormatAndTags(&self, name: &windows_core::HSTRING, value: super::Point, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddPointWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
-    }
-    pub fn AddPointArray(&self, name: &windows_core::HSTRING, value: &[super::Point]) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddPointArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
-    }
-    pub fn AddPointArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[super::Point], format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddPointArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
-    }
-    pub fn AddPointArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[super::Point], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddPointArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
-    }
-    pub fn AddSize(&self, name: &windows_core::HSTRING, value: super::Size) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddSize)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
-    }
-    pub fn AddSizeWithFormat(&self, name: &windows_core::HSTRING, value: super::Size, format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddSizeWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
-    }
-    pub fn AddSizeWithFormatAndTags(&self, name: &windows_core::HSTRING, value: super::Size, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddSizeWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
-    }
-    pub fn AddSizeArray(&self, name: &windows_core::HSTRING, value: &[super::Size]) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddSizeArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
-    }
-    pub fn AddSizeArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[super::Size], format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddSizeArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
-    }
-    pub fn AddSizeArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[super::Size], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddSizeArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
-    }
-    pub fn AddRect(&self, name: &windows_core::HSTRING, value: super::Rect) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddRect)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
-    }
-    pub fn AddRectWithFormat(&self, name: &windows_core::HSTRING, value: super::Rect, format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddRectWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
-    }
-    pub fn AddRectWithFormatAndTags(&self, name: &windows_core::HSTRING, value: super::Rect, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddRectWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
-    }
-    pub fn AddRectArray(&self, name: &windows_core::HSTRING, value: &[super::Rect]) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddRectArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
-    }
-    pub fn AddRectArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[super::Rect], format: LoggingFieldFormat) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddRectArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
-    }
-    pub fn AddRectArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[super::Rect], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddRectArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
-    }
-}
-impl windows_core::RuntimeType for LoggingFields {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILoggingFields>();
-}
-unsafe impl windows_core::Interface for LoggingFields {
-    type Vtable = <ILoggingFields as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ILoggingFields as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for LoggingFields {
-    const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingFields";
-}
-unsafe impl Send for LoggingFields {}
-unsafe impl Sync for LoggingFields {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct LoggingOptions(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(LoggingOptions, windows_core::IUnknown, windows_core::IInspectable);
-impl LoggingOptions {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<LoggingOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn Keywords(&self) -> windows_core::Result<i64> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Keywords)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetKeywords(&self, value: i64) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetKeywords)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Tags(&self) -> windows_core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Tags)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetTags(&self, value: i32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTags)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Task(&self) -> windows_core::Result<i16> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Task)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetTask(&self, value: i16) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTask)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Opcode(&self) -> windows_core::Result<LoggingOpcode> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Opcode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetOpcode(&self, value: LoggingOpcode) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetOpcode)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ActivityId(&self) -> windows_core::Result<windows_core::GUID> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivityId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetActivityId(&self, value: windows_core::GUID) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetActivityId)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn RelatedActivityId(&self) -> windows_core::Result<windows_core::GUID> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RelatedActivityId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetRelatedActivityId(&self, value: windows_core::GUID) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetRelatedActivityId)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn CreateWithKeywords(keywords: i64) -> windows_core::Result<LoggingOptions> {
-        Self::ILoggingOptionsFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithKeywords)(windows_core::Interface::as_raw(this), keywords, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn ILoggingOptionsFactory<R, F: FnOnce(&ILoggingOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<LoggingOptions, ILoggingOptionsFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for LoggingOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILoggingOptions>();
-}
-unsafe impl windows_core::Interface for LoggingOptions {
-    type Vtable = <ILoggingOptions as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ILoggingOptions as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for LoggingOptions {
-    const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingOptions";
-}
-unsafe impl Send for LoggingOptions {}
-unsafe impl Sync for LoggingOptions {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct LoggingSession(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(LoggingSession, windows_core::IUnknown, windows_core::IInspectable, ILoggingSession);
-windows_core::imp::required_hierarchy!(LoggingSession, super::IClosable);
-impl LoggingSession {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn SaveToFileAsync<P0>(&self, folder: P0, filename: &windows_core::HSTRING) -> windows_core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>>
-    where
-        P0: windows_core::Param<super::super::Storage::IStorageFolder>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SaveToFileAsync)(windows_core::Interface::as_raw(this), folder.param().abi(), core::mem::transmute_copy(filename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn AddLoggingChannel<P0>(&self, loggingchannel: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<ILoggingChannel>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddLoggingChannel)(windows_core::Interface::as_raw(this), loggingchannel.param().abi()).ok() }
-    }
-    pub fn AddLoggingChannelWithLevel<P0>(&self, loggingchannel: P0, maxlevel: LoggingLevel) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<ILoggingChannel>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddLoggingChannelWithLevel)(windows_core::Interface::as_raw(this), loggingchannel.param().abi(), maxlevel).ok() }
-    }
-    pub fn RemoveLoggingChannel<P0>(&self, loggingchannel: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<ILoggingChannel>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveLoggingChannel)(windows_core::Interface::as_raw(this), loggingchannel.param().abi()).ok() }
-    }
-    pub fn Create(name: &windows_core::HSTRING) -> windows_core::Result<LoggingSession> {
-        Self::ILoggingSessionFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn ILoggingSessionFactory<R, F: FnOnce(&ILoggingSessionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<LoggingSession, ILoggingSessionFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for LoggingSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILoggingSession>();
-}
-unsafe impl windows_core::Interface for LoggingSession {
-    type Vtable = <ILoggingSession as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ILoggingSession as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for LoggingSession {
-    const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingSession";
-}
-unsafe impl Send for LoggingSession {}
-unsafe impl Sync for LoggingSession {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct RuntimeBrokerErrorSettings(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(RuntimeBrokerErrorSettings, windows_core::IUnknown, windows_core::IInspectable, IErrorReportingSettings);
-impl RuntimeBrokerErrorSettings {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<RuntimeBrokerErrorSettings, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn SetErrorOptions(&self, value: ErrorOptions) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetErrorOptions)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn GetErrorOptions(&self) -> windows_core::Result<ErrorOptions> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetErrorOptions)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for RuntimeBrokerErrorSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IErrorReportingSettings>();
-}
-unsafe impl windows_core::Interface for RuntimeBrokerErrorSettings {
-    type Vtable = <IErrorReportingSettings as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IErrorReportingSettings as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for RuntimeBrokerErrorSettings {
-    const NAME: &'static str = "Windows.Foundation.Diagnostics.RuntimeBrokerErrorSettings";
-}
-unsafe impl Send for RuntimeBrokerErrorSettings {}
-unsafe impl Sync for RuntimeBrokerErrorSettings {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct TracingStatusChangedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(TracingStatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl TracingStatusChangedEventArgs {
-    pub fn Enabled(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Enabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn TraceLevel(&self) -> windows_core::Result<CausalityTraceLevel> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TraceLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for TracingStatusChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITracingStatusChangedEventArgs>();
-}
-unsafe impl windows_core::Interface for TracingStatusChangedEventArgs {
-    type Vtable = <ITracingStatusChangedEventArgs as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ITracingStatusChangedEventArgs as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for TracingStatusChangedEventArgs {
-    const NAME: &'static str = "Windows.Foundation.Diagnostics.TracingStatusChangedEventArgs";
-}
-unsafe impl Send for TracingStatusChangedEventArgs {}
-unsafe impl Sync for TracingStatusChangedEventArgs {}
 windows_core::imp::define_interface!(IAsyncCausalityTracerStatics, IAsyncCausalityTracerStatics_Vtbl, 0x50850b26_267e_451b_a890_ab6a370245ee);
 impl windows_core::RuntimeType for IAsyncCausalityTracerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -2382,112 +1323,445 @@ pub struct ITracingStatusChangedEventArgs_Vtbl {
     pub TraceLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CausalityTraceLevel) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CausalityRelation(pub i32);
-impl CausalityRelation {
-    pub const AssignDelegate: Self = Self(0i32);
-    pub const Join: Self = Self(1i32);
-    pub const Choice: Self = Self(2i32);
-    pub const Cancel: Self = Self(3i32);
-    pub const Error: Self = Self(4i32);
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct LogFileGeneratedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(LogFileGeneratedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl LogFileGeneratedEventArgs {
+    #[cfg(feature = "Storage_Streams")]
+    pub fn File(&self) -> windows_core::Result<super::super::Storage::StorageFile> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).File)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
-impl windows_core::TypeKind for CausalityRelation {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::RuntimeType for LogFileGeneratedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILogFileGeneratedEventArgs>();
 }
-impl windows_core::RuntimeType for CausalityRelation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalityRelation;i4)");
+unsafe impl windows_core::Interface for LogFileGeneratedEventArgs {
+    type Vtable = <ILogFileGeneratedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ILogFileGeneratedEventArgs as windows_core::Interface>::IID;
 }
+impl windows_core::RuntimeName for LogFileGeneratedEventArgs {
+    const NAME: &'static str = "Windows.Foundation.Diagnostics.LogFileGeneratedEventArgs";
+}
+unsafe impl Send for LogFileGeneratedEventArgs {}
+unsafe impl Sync for LogFileGeneratedEventArgs {}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CausalitySource(pub i32);
-impl CausalitySource {
-    pub const Application: Self = Self(0i32);
-    pub const Library: Self = Self(1i32);
-    pub const System: Self = Self(2i32);
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct LoggingActivity(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(LoggingActivity, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(LoggingActivity, super::IClosable, ILoggingTarget);
+impl LoggingActivity {
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Id(&self) -> windows_core::Result<windows_core::GUID> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Channel(&self) -> windows_core::Result<LoggingChannel> {
+        let this = &windows_core::Interface::cast::<ILoggingActivity2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Channel)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn StopActivity(&self, stopeventname: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<ILoggingActivity2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StopActivity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(stopeventname)).ok() }
+    }
+    pub fn StopActivityWithFields<P1>(&self, stopeventname: &windows_core::HSTRING, fields: P1) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<LoggingFields>,
+    {
+        let this = &windows_core::Interface::cast::<ILoggingActivity2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StopActivityWithFields)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(stopeventname), fields.param().abi()).ok() }
+    }
+    pub fn StopActivityWithFieldsAndOptions<P1, P2>(&self, stopeventname: &windows_core::HSTRING, fields: P1, options: P2) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<LoggingFields>,
+        P2: windows_core::Param<LoggingOptions>,
+    {
+        let this = &windows_core::Interface::cast::<ILoggingActivity2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StopActivityWithFieldsAndOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(stopeventname), fields.param().abi(), options.param().abi()).ok() }
+    }
+    pub fn CreateLoggingActivity<P1>(activityname: &windows_core::HSTRING, loggingchannel: P1) -> windows_core::Result<LoggingActivity>
+    where
+        P1: windows_core::Param<ILoggingChannel>,
+    {
+        Self::ILoggingActivityFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateLoggingActivity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activityname), loggingchannel.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateLoggingActivityWithLevel<P1>(activityname: &windows_core::HSTRING, loggingchannel: P1, level: LoggingLevel) -> windows_core::Result<LoggingActivity>
+    where
+        P1: windows_core::Param<ILoggingChannel>,
+    {
+        Self::ILoggingActivityFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateLoggingActivityWithLevel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activityname), loggingchannel.param().abi(), level, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn IsEnabled(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn IsEnabledWithLevel(&self, level: LoggingLevel) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsEnabledWithLevel)(windows_core::Interface::as_raw(this), level, &mut result__).map(|| result__)
+        }
+    }
+    pub fn IsEnabledWithLevelAndKeywords(&self, level: LoggingLevel, keywords: i64) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsEnabledWithLevelAndKeywords)(windows_core::Interface::as_raw(this), level, keywords, &mut result__).map(|| result__)
+        }
+    }
+    pub fn LogEvent(&self, eventname: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).LogEvent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(eventname)).ok() }
+    }
+    pub fn LogEventWithFields<P1>(&self, eventname: &windows_core::HSTRING, fields: P1) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<LoggingFields>,
+    {
+        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).LogEventWithFields)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(eventname), fields.param().abi()).ok() }
+    }
+    pub fn LogEventWithFieldsAndLevel<P1>(&self, eventname: &windows_core::HSTRING, fields: P1, level: LoggingLevel) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<LoggingFields>,
+    {
+        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).LogEventWithFieldsAndLevel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(eventname), fields.param().abi(), level).ok() }
+    }
+    pub fn LogEventWithFieldsAndOptions<P1, P3>(&self, eventname: &windows_core::HSTRING, fields: P1, level: LoggingLevel, options: P3) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<LoggingFields>,
+        P3: windows_core::Param<LoggingOptions>,
+    {
+        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).LogEventWithFieldsAndOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(eventname), fields.param().abi(), level, options.param().abi()).ok() }
+    }
+    pub fn StartActivity(&self, starteventname: &windows_core::HSTRING) -> windows_core::Result<LoggingActivity> {
+        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).StartActivity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn StartActivityWithFields<P1>(&self, starteventname: &windows_core::HSTRING, fields: P1) -> windows_core::Result<LoggingActivity>
+    where
+        P1: windows_core::Param<LoggingFields>,
+    {
+        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).StartActivityWithFields)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), fields.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn StartActivityWithFieldsAndLevel<P1>(&self, starteventname: &windows_core::HSTRING, fields: P1, level: LoggingLevel) -> windows_core::Result<LoggingActivity>
+    where
+        P1: windows_core::Param<LoggingFields>,
+    {
+        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).StartActivityWithFieldsAndLevel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), fields.param().abi(), level, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn StartActivityWithFieldsAndOptions<P1, P3>(&self, starteventname: &windows_core::HSTRING, fields: P1, level: LoggingLevel, options: P3) -> windows_core::Result<LoggingActivity>
+    where
+        P1: windows_core::Param<LoggingFields>,
+        P3: windows_core::Param<LoggingOptions>,
+    {
+        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).StartActivityWithFieldsAndOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), fields.param().abi(), level, options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    fn ILoggingActivityFactory<R, F: FnOnce(&ILoggingActivityFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<LoggingActivity, ILoggingActivityFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
 }
-impl windows_core::TypeKind for CausalitySource {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::RuntimeType for LoggingActivity {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILoggingActivity>();
 }
-impl windows_core::RuntimeType for CausalitySource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalitySource;i4)");
+unsafe impl windows_core::Interface for LoggingActivity {
+    type Vtable = <ILoggingActivity as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ILoggingActivity as windows_core::Interface>::IID;
 }
+impl windows_core::RuntimeName for LoggingActivity {
+    const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingActivity";
+}
+unsafe impl Send for LoggingActivity {}
+unsafe impl Sync for LoggingActivity {}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CausalitySynchronousWork(pub i32);
-impl CausalitySynchronousWork {
-    pub const CompletionNotification: Self = Self(0i32);
-    pub const ProgressNotification: Self = Self(1i32);
-    pub const Execution: Self = Self(2i32);
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct LoggingChannel(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(LoggingChannel, windows_core::IUnknown, windows_core::IInspectable, ILoggingChannel);
+windows_core::imp::required_hierarchy!(LoggingChannel, super::IClosable, ILoggingTarget);
+impl LoggingChannel {
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Enabled(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Enabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Level(&self) -> windows_core::Result<LoggingLevel> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Level)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn LogMessage(&self, eventstring: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).LogMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(eventstring)).ok() }
+    }
+    pub fn LogMessageWithLevel(&self, eventstring: &windows_core::HSTRING, level: LoggingLevel) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).LogMessageWithLevel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(eventstring), level).ok() }
+    }
+    pub fn LogValuePair(&self, value1: &windows_core::HSTRING, value2: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).LogValuePair)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value1), value2).ok() }
+    }
+    pub fn LogValuePairWithLevel(&self, value1: &windows_core::HSTRING, value2: i32, level: LoggingLevel) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).LogValuePairWithLevel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value1), value2, level).ok() }
+    }
+    pub fn LoggingEnabled<P0>(&self, handler: P0) -> windows_core::Result<super::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::TypedEventHandler<ILoggingChannel, windows_core::IInspectable>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LoggingEnabled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveLoggingEnabled(&self, token: super::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveLoggingEnabled)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn Id(&self) -> windows_core::Result<windows_core::GUID> {
+        let this = &windows_core::Interface::cast::<ILoggingChannel2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Create(name: &windows_core::HSTRING) -> windows_core::Result<LoggingChannel> {
+        Self::ILoggingChannelFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateWithOptions<P1>(name: &windows_core::HSTRING, options: P1) -> windows_core::Result<LoggingChannel>
+    where
+        P1: windows_core::Param<LoggingChannelOptions>,
+    {
+        Self::ILoggingChannelFactory2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateWithOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateWithOptionsAndId<P1>(name: &windows_core::HSTRING, options: P1, id: windows_core::GUID) -> windows_core::Result<LoggingChannel>
+    where
+        P1: windows_core::Param<LoggingChannelOptions>,
+    {
+        Self::ILoggingChannelFactory2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateWithOptionsAndId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), options.param().abi(), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn IsEnabled(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn IsEnabledWithLevel(&self, level: LoggingLevel) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsEnabledWithLevel)(windows_core::Interface::as_raw(this), level, &mut result__).map(|| result__)
+        }
+    }
+    pub fn IsEnabledWithLevelAndKeywords(&self, level: LoggingLevel, keywords: i64) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsEnabledWithLevelAndKeywords)(windows_core::Interface::as_raw(this), level, keywords, &mut result__).map(|| result__)
+        }
+    }
+    pub fn LogEvent(&self, eventname: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).LogEvent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(eventname)).ok() }
+    }
+    pub fn LogEventWithFields<P1>(&self, eventname: &windows_core::HSTRING, fields: P1) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<LoggingFields>,
+    {
+        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).LogEventWithFields)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(eventname), fields.param().abi()).ok() }
+    }
+    pub fn LogEventWithFieldsAndLevel<P1>(&self, eventname: &windows_core::HSTRING, fields: P1, level: LoggingLevel) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<LoggingFields>,
+    {
+        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).LogEventWithFieldsAndLevel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(eventname), fields.param().abi(), level).ok() }
+    }
+    pub fn LogEventWithFieldsAndOptions<P1, P3>(&self, eventname: &windows_core::HSTRING, fields: P1, level: LoggingLevel, options: P3) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<LoggingFields>,
+        P3: windows_core::Param<LoggingOptions>,
+    {
+        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).LogEventWithFieldsAndOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(eventname), fields.param().abi(), level, options.param().abi()).ok() }
+    }
+    pub fn StartActivity(&self, starteventname: &windows_core::HSTRING) -> windows_core::Result<LoggingActivity> {
+        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).StartActivity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn StartActivityWithFields<P1>(&self, starteventname: &windows_core::HSTRING, fields: P1) -> windows_core::Result<LoggingActivity>
+    where
+        P1: windows_core::Param<LoggingFields>,
+    {
+        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).StartActivityWithFields)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), fields.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn StartActivityWithFieldsAndLevel<P1>(&self, starteventname: &windows_core::HSTRING, fields: P1, level: LoggingLevel) -> windows_core::Result<LoggingActivity>
+    where
+        P1: windows_core::Param<LoggingFields>,
+    {
+        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).StartActivityWithFieldsAndLevel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), fields.param().abi(), level, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn StartActivityWithFieldsAndOptions<P1, P3>(&self, starteventname: &windows_core::HSTRING, fields: P1, level: LoggingLevel, options: P3) -> windows_core::Result<LoggingActivity>
+    where
+        P1: windows_core::Param<LoggingFields>,
+        P3: windows_core::Param<LoggingOptions>,
+    {
+        let this = &windows_core::Interface::cast::<ILoggingTarget>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).StartActivityWithFieldsAndOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), fields.param().abi(), level, options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    fn ILoggingChannelFactory<R, F: FnOnce(&ILoggingChannelFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<LoggingChannel, ILoggingChannelFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn ILoggingChannelFactory2<R, F: FnOnce(&ILoggingChannelFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<LoggingChannel, ILoggingChannelFactory2> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
 }
-impl windows_core::TypeKind for CausalitySynchronousWork {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::RuntimeType for LoggingChannel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILoggingChannel>();
 }
-impl windows_core::RuntimeType for CausalitySynchronousWork {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalitySynchronousWork;i4)");
+unsafe impl windows_core::Interface for LoggingChannel {
+    type Vtable = <ILoggingChannel as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ILoggingChannel as windows_core::Interface>::IID;
 }
+impl windows_core::RuntimeName for LoggingChannel {
+    const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingChannel";
+}
+unsafe impl Send for LoggingChannel {}
+unsafe impl Sync for LoggingChannel {}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CausalityTraceLevel(pub i32);
-impl CausalityTraceLevel {
-    pub const Required: Self = Self(0i32);
-    pub const Important: Self = Self(1i32);
-    pub const Verbose: Self = Self(2i32);
-}
-impl windows_core::TypeKind for CausalityTraceLevel {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for CausalityTraceLevel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalityTraceLevel;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ErrorOptions(pub u32);
-impl ErrorOptions {
-    pub const None: Self = Self(0u32);
-    pub const SuppressExceptions: Self = Self(1u32);
-    pub const ForceExceptions: Self = Self(2u32);
-    pub const UseSetErrorInfo: Self = Self(4u32);
-    pub const SuppressSetErrorInfo: Self = Self(8u32);
-}
-impl windows_core::TypeKind for ErrorOptions {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for ErrorOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.ErrorOptions;u4)");
-}
-impl ErrorOptions {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct LoggingChannelOptions(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(LoggingChannelOptions, windows_core::IUnknown, windows_core::IInspectable);
+impl LoggingChannelOptions {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<LoggingChannelOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn Group(&self) -> windows_core::Result<windows_core::GUID> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Group)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetGroup(&self, value: windows_core::GUID) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetGroup)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Create(group: windows_core::GUID) -> windows_core::Result<LoggingChannelOptions> {
+        Self::ILoggingChannelOptionsFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), group, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn ILoggingChannelOptionsFactory<R, F: FnOnce(&ILoggingChannelOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<LoggingChannelOptions, ILoggingChannelOptionsFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
-impl core::ops::BitOr for ErrorOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
+impl windows_core::RuntimeType for LoggingChannelOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILoggingChannelOptions>();
 }
-impl core::ops::BitAnd for ErrorOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
+unsafe impl windows_core::Interface for LoggingChannelOptions {
+    type Vtable = <ILoggingChannelOptions as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ILoggingChannelOptions as windows_core::Interface>::IID;
 }
-impl core::ops::BitOrAssign for ErrorOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
+impl windows_core::RuntimeName for LoggingChannelOptions {
+    const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingChannelOptions";
 }
-impl core::ops::BitAndAssign for ErrorOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for ErrorOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+unsafe impl Send for LoggingChannelOptions {}
+unsafe impl Sync for LoggingChannelOptions {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LoggingFieldFormat(pub i32);
@@ -2518,6 +1792,491 @@ impl windows_core::TypeKind for LoggingFieldFormat {
 impl windows_core::RuntimeType for LoggingFieldFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.LoggingFieldFormat;i4)");
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct LoggingFields(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(LoggingFields, windows_core::IUnknown, windows_core::IInspectable);
+impl LoggingFields {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<LoggingFields, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn Clear(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn BeginStruct(&self, name: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).BeginStruct)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name)).ok() }
+    }
+    pub fn BeginStructWithTags(&self, name: &windows_core::HSTRING, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).BeginStructWithTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), tags).ok() }
+    }
+    pub fn EndStruct(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).EndStruct)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn AddEmpty(&self, name: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddEmpty)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name)).ok() }
+    }
+    pub fn AddEmptyWithFormat(&self, name: &windows_core::HSTRING, format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddEmptyWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), format).ok() }
+    }
+    pub fn AddEmptyWithFormatAndTags(&self, name: &windows_core::HSTRING, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddEmptyWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), format, tags).ok() }
+    }
+    pub fn AddUInt8(&self, name: &windows_core::HSTRING, value: u8) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddUInt8)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
+    }
+    pub fn AddUInt8WithFormat(&self, name: &windows_core::HSTRING, value: u8, format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddUInt8WithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
+    }
+    pub fn AddUInt8WithFormatAndTags(&self, name: &windows_core::HSTRING, value: u8, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddUInt8WithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
+    }
+    pub fn AddUInt8Array(&self, name: &windows_core::HSTRING, value: &[u8]) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddUInt8Array)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
+    }
+    pub fn AddUInt8ArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[u8], format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddUInt8ArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
+    }
+    pub fn AddUInt8ArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[u8], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddUInt8ArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
+    }
+    pub fn AddInt16(&self, name: &windows_core::HSTRING, value: i16) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddInt16)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
+    }
+    pub fn AddInt16WithFormat(&self, name: &windows_core::HSTRING, value: i16, format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddInt16WithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
+    }
+    pub fn AddInt16WithFormatAndTags(&self, name: &windows_core::HSTRING, value: i16, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddInt16WithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
+    }
+    pub fn AddInt16Array(&self, name: &windows_core::HSTRING, value: &[i16]) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddInt16Array)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
+    }
+    pub fn AddInt16ArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[i16], format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddInt16ArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
+    }
+    pub fn AddInt16ArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[i16], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddInt16ArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
+    }
+    pub fn AddUInt16(&self, name: &windows_core::HSTRING, value: u16) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddUInt16)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
+    }
+    pub fn AddUInt16WithFormat(&self, name: &windows_core::HSTRING, value: u16, format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddUInt16WithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
+    }
+    pub fn AddUInt16WithFormatAndTags(&self, name: &windows_core::HSTRING, value: u16, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddUInt16WithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
+    }
+    pub fn AddUInt16Array(&self, name: &windows_core::HSTRING, value: &[u16]) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddUInt16Array)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
+    }
+    pub fn AddUInt16ArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[u16], format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddUInt16ArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
+    }
+    pub fn AddUInt16ArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[u16], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddUInt16ArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
+    }
+    pub fn AddInt32(&self, name: &windows_core::HSTRING, value: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddInt32)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
+    }
+    pub fn AddInt32WithFormat(&self, name: &windows_core::HSTRING, value: i32, format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddInt32WithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
+    }
+    pub fn AddInt32WithFormatAndTags(&self, name: &windows_core::HSTRING, value: i32, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddInt32WithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
+    }
+    pub fn AddInt32Array(&self, name: &windows_core::HSTRING, value: &[i32]) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddInt32Array)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
+    }
+    pub fn AddInt32ArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[i32], format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddInt32ArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
+    }
+    pub fn AddInt32ArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[i32], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddInt32ArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
+    }
+    pub fn AddUInt32(&self, name: &windows_core::HSTRING, value: u32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddUInt32)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
+    }
+    pub fn AddUInt32WithFormat(&self, name: &windows_core::HSTRING, value: u32, format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddUInt32WithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
+    }
+    pub fn AddUInt32WithFormatAndTags(&self, name: &windows_core::HSTRING, value: u32, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddUInt32WithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
+    }
+    pub fn AddUInt32Array(&self, name: &windows_core::HSTRING, value: &[u32]) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddUInt32Array)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
+    }
+    pub fn AddUInt32ArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[u32], format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddUInt32ArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
+    }
+    pub fn AddUInt32ArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[u32], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddUInt32ArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
+    }
+    pub fn AddInt64(&self, name: &windows_core::HSTRING, value: i64) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddInt64)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
+    }
+    pub fn AddInt64WithFormat(&self, name: &windows_core::HSTRING, value: i64, format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddInt64WithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
+    }
+    pub fn AddInt64WithFormatAndTags(&self, name: &windows_core::HSTRING, value: i64, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddInt64WithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
+    }
+    pub fn AddInt64Array(&self, name: &windows_core::HSTRING, value: &[i64]) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddInt64Array)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
+    }
+    pub fn AddInt64ArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[i64], format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddInt64ArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
+    }
+    pub fn AddInt64ArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[i64], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddInt64ArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
+    }
+    pub fn AddUInt64(&self, name: &windows_core::HSTRING, value: u64) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddUInt64)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
+    }
+    pub fn AddUInt64WithFormat(&self, name: &windows_core::HSTRING, value: u64, format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddUInt64WithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
+    }
+    pub fn AddUInt64WithFormatAndTags(&self, name: &windows_core::HSTRING, value: u64, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddUInt64WithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
+    }
+    pub fn AddUInt64Array(&self, name: &windows_core::HSTRING, value: &[u64]) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddUInt64Array)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
+    }
+    pub fn AddUInt64ArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[u64], format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddUInt64ArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
+    }
+    pub fn AddUInt64ArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[u64], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddUInt64ArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
+    }
+    pub fn AddSingle(&self, name: &windows_core::HSTRING, value: f32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddSingle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
+    }
+    pub fn AddSingleWithFormat(&self, name: &windows_core::HSTRING, value: f32, format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddSingleWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
+    }
+    pub fn AddSingleWithFormatAndTags(&self, name: &windows_core::HSTRING, value: f32, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddSingleWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
+    }
+    pub fn AddSingleArray(&self, name: &windows_core::HSTRING, value: &[f32]) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddSingleArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
+    }
+    pub fn AddSingleArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[f32], format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddSingleArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
+    }
+    pub fn AddSingleArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[f32], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddSingleArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
+    }
+    pub fn AddDouble(&self, name: &windows_core::HSTRING, value: f64) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddDouble)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
+    }
+    pub fn AddDoubleWithFormat(&self, name: &windows_core::HSTRING, value: f64, format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddDoubleWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
+    }
+    pub fn AddDoubleWithFormatAndTags(&self, name: &windows_core::HSTRING, value: f64, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddDoubleWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
+    }
+    pub fn AddDoubleArray(&self, name: &windows_core::HSTRING, value: &[f64]) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddDoubleArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
+    }
+    pub fn AddDoubleArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[f64], format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddDoubleArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
+    }
+    pub fn AddDoubleArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[f64], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddDoubleArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
+    }
+    pub fn AddChar16(&self, name: &windows_core::HSTRING, value: u16) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddChar16)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
+    }
+    pub fn AddChar16WithFormat(&self, name: &windows_core::HSTRING, value: u16, format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddChar16WithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
+    }
+    pub fn AddChar16WithFormatAndTags(&self, name: &windows_core::HSTRING, value: u16, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddChar16WithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
+    }
+    pub fn AddChar16Array(&self, name: &windows_core::HSTRING, value: &[u16]) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddChar16Array)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
+    }
+    pub fn AddChar16ArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[u16], format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddChar16ArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
+    }
+    pub fn AddChar16ArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[u16], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddChar16ArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
+    }
+    pub fn AddBoolean(&self, name: &windows_core::HSTRING, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddBoolean)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
+    }
+    pub fn AddBooleanWithFormat(&self, name: &windows_core::HSTRING, value: bool, format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddBooleanWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
+    }
+    pub fn AddBooleanWithFormatAndTags(&self, name: &windows_core::HSTRING, value: bool, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddBooleanWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
+    }
+    pub fn AddBooleanArray(&self, name: &windows_core::HSTRING, value: &[bool]) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddBooleanArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
+    }
+    pub fn AddBooleanArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[bool], format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddBooleanArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
+    }
+    pub fn AddBooleanArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[bool], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddBooleanArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
+    }
+    pub fn AddString(&self, name: &windows_core::HSTRING, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddString)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn AddStringWithFormat(&self, name: &windows_core::HSTRING, value: &windows_core::HSTRING, format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddStringWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(value), format).ok() }
+    }
+    pub fn AddStringWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &windows_core::HSTRING, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddStringWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(value), format, tags).ok() }
+    }
+    pub fn AddStringArray(&self, name: &windows_core::HSTRING, value: &[windows_core::HSTRING]) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddStringArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), core::mem::transmute(value.as_ptr())).ok() }
+    }
+    pub fn AddStringArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[windows_core::HSTRING], format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddStringArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), core::mem::transmute(value.as_ptr()), format).ok() }
+    }
+    pub fn AddStringArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[windows_core::HSTRING], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddStringArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), core::mem::transmute(value.as_ptr()), format, tags).ok() }
+    }
+    pub fn AddGuid(&self, name: &windows_core::HSTRING, value: windows_core::GUID) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddGuid)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
+    }
+    pub fn AddGuidWithFormat(&self, name: &windows_core::HSTRING, value: windows_core::GUID, format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddGuidWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
+    }
+    pub fn AddGuidWithFormatAndTags(&self, name: &windows_core::HSTRING, value: windows_core::GUID, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddGuidWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
+    }
+    pub fn AddGuidArray(&self, name: &windows_core::HSTRING, value: &[windows_core::GUID]) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddGuidArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
+    }
+    pub fn AddGuidArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[windows_core::GUID], format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddGuidArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
+    }
+    pub fn AddGuidArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[windows_core::GUID], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddGuidArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
+    }
+    pub fn AddDateTime(&self, name: &windows_core::HSTRING, value: super::DateTime) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddDateTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
+    }
+    pub fn AddDateTimeWithFormat(&self, name: &windows_core::HSTRING, value: super::DateTime, format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddDateTimeWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
+    }
+    pub fn AddDateTimeWithFormatAndTags(&self, name: &windows_core::HSTRING, value: super::DateTime, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddDateTimeWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
+    }
+    pub fn AddDateTimeArray(&self, name: &windows_core::HSTRING, value: &[super::DateTime]) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddDateTimeArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
+    }
+    pub fn AddDateTimeArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[super::DateTime], format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddDateTimeArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
+    }
+    pub fn AddDateTimeArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[super::DateTime], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddDateTimeArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
+    }
+    pub fn AddTimeSpan(&self, name: &windows_core::HSTRING, value: super::TimeSpan) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddTimeSpan)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
+    }
+    pub fn AddTimeSpanWithFormat(&self, name: &windows_core::HSTRING, value: super::TimeSpan, format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddTimeSpanWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
+    }
+    pub fn AddTimeSpanWithFormatAndTags(&self, name: &windows_core::HSTRING, value: super::TimeSpan, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddTimeSpanWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
+    }
+    pub fn AddTimeSpanArray(&self, name: &windows_core::HSTRING, value: &[super::TimeSpan]) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddTimeSpanArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
+    }
+    pub fn AddTimeSpanArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[super::TimeSpan], format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddTimeSpanArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
+    }
+    pub fn AddTimeSpanArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[super::TimeSpan], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddTimeSpanArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
+    }
+    pub fn AddPoint(&self, name: &windows_core::HSTRING, value: super::Point) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddPoint)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
+    }
+    pub fn AddPointWithFormat(&self, name: &windows_core::HSTRING, value: super::Point, format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddPointWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
+    }
+    pub fn AddPointWithFormatAndTags(&self, name: &windows_core::HSTRING, value: super::Point, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddPointWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
+    }
+    pub fn AddPointArray(&self, name: &windows_core::HSTRING, value: &[super::Point]) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddPointArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
+    }
+    pub fn AddPointArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[super::Point], format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddPointArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
+    }
+    pub fn AddPointArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[super::Point], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddPointArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
+    }
+    pub fn AddSize(&self, name: &windows_core::HSTRING, value: super::Size) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddSize)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
+    }
+    pub fn AddSizeWithFormat(&self, name: &windows_core::HSTRING, value: super::Size, format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddSizeWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
+    }
+    pub fn AddSizeWithFormatAndTags(&self, name: &windows_core::HSTRING, value: super::Size, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddSizeWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
+    }
+    pub fn AddSizeArray(&self, name: &windows_core::HSTRING, value: &[super::Size]) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddSizeArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
+    }
+    pub fn AddSizeArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[super::Size], format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddSizeArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
+    }
+    pub fn AddSizeArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[super::Size], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddSizeArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
+    }
+    pub fn AddRect(&self, name: &windows_core::HSTRING, value: super::Rect) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddRect)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value).ok() }
+    }
+    pub fn AddRectWithFormat(&self, name: &windows_core::HSTRING, value: super::Rect, format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddRectWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format).ok() }
+    }
+    pub fn AddRectWithFormatAndTags(&self, name: &windows_core::HSTRING, value: super::Rect, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddRectWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value, format, tags).ok() }
+    }
+    pub fn AddRectArray(&self, name: &windows_core::HSTRING, value: &[super::Rect]) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddRectArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
+    }
+    pub fn AddRectArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[super::Rect], format: LoggingFieldFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddRectArrayWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
+    }
+    pub fn AddRectArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[super::Rect], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddRectArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
+    }
+}
+impl windows_core::RuntimeType for LoggingFields {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILoggingFields>();
+}
+unsafe impl windows_core::Interface for LoggingFields {
+    type Vtable = <ILoggingFields as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ILoggingFields as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for LoggingFields {
+    const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingFields";
+}
+unsafe impl Send for LoggingFields {}
+unsafe impl Sync for LoggingFields {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LoggingLevel(pub i32);
@@ -2552,3 +2311,244 @@ impl windows_core::TypeKind for LoggingOpcode {
 impl windows_core::RuntimeType for LoggingOpcode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.LoggingOpcode;i4)");
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct LoggingOptions(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(LoggingOptions, windows_core::IUnknown, windows_core::IInspectable);
+impl LoggingOptions {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<LoggingOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn Keywords(&self) -> windows_core::Result<i64> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Keywords)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetKeywords(&self, value: i64) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetKeywords)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Tags(&self) -> windows_core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Tags)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetTags(&self, value: i32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetTags)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Task(&self) -> windows_core::Result<i16> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Task)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetTask(&self, value: i16) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetTask)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Opcode(&self) -> windows_core::Result<LoggingOpcode> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Opcode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetOpcode(&self, value: LoggingOpcode) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetOpcode)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn ActivityId(&self) -> windows_core::Result<windows_core::GUID> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivityId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetActivityId(&self, value: windows_core::GUID) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetActivityId)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn RelatedActivityId(&self) -> windows_core::Result<windows_core::GUID> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RelatedActivityId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetRelatedActivityId(&self, value: windows_core::GUID) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetRelatedActivityId)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn CreateWithKeywords(keywords: i64) -> windows_core::Result<LoggingOptions> {
+        Self::ILoggingOptionsFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateWithKeywords)(windows_core::Interface::as_raw(this), keywords, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn ILoggingOptionsFactory<R, F: FnOnce(&ILoggingOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<LoggingOptions, ILoggingOptionsFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for LoggingOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILoggingOptions>();
+}
+unsafe impl windows_core::Interface for LoggingOptions {
+    type Vtable = <ILoggingOptions as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ILoggingOptions as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for LoggingOptions {
+    const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingOptions";
+}
+unsafe impl Send for LoggingOptions {}
+unsafe impl Sync for LoggingOptions {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct LoggingSession(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(LoggingSession, windows_core::IUnknown, windows_core::IInspectable, ILoggingSession);
+windows_core::imp::required_hierarchy!(LoggingSession, super::IClosable);
+impl LoggingSession {
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn SaveToFileAsync<P0>(&self, folder: P0, filename: &windows_core::HSTRING) -> windows_core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>>
+    where
+        P0: windows_core::Param<super::super::Storage::IStorageFolder>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SaveToFileAsync)(windows_core::Interface::as_raw(this), folder.param().abi(), core::mem::transmute_copy(filename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn AddLoggingChannel<P0>(&self, loggingchannel: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<ILoggingChannel>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddLoggingChannel)(windows_core::Interface::as_raw(this), loggingchannel.param().abi()).ok() }
+    }
+    pub fn AddLoggingChannelWithLevel<P0>(&self, loggingchannel: P0, maxlevel: LoggingLevel) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<ILoggingChannel>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).AddLoggingChannelWithLevel)(windows_core::Interface::as_raw(this), loggingchannel.param().abi(), maxlevel).ok() }
+    }
+    pub fn RemoveLoggingChannel<P0>(&self, loggingchannel: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<ILoggingChannel>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveLoggingChannel)(windows_core::Interface::as_raw(this), loggingchannel.param().abi()).ok() }
+    }
+    pub fn Create(name: &windows_core::HSTRING) -> windows_core::Result<LoggingSession> {
+        Self::ILoggingSessionFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn ILoggingSessionFactory<R, F: FnOnce(&ILoggingSessionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<LoggingSession, ILoggingSessionFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for LoggingSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILoggingSession>();
+}
+unsafe impl windows_core::Interface for LoggingSession {
+    type Vtable = <ILoggingSession as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ILoggingSession as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for LoggingSession {
+    const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingSession";
+}
+unsafe impl Send for LoggingSession {}
+unsafe impl Sync for LoggingSession {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct RuntimeBrokerErrorSettings(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(RuntimeBrokerErrorSettings, windows_core::IUnknown, windows_core::IInspectable, IErrorReportingSettings);
+impl RuntimeBrokerErrorSettings {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<RuntimeBrokerErrorSettings, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn SetErrorOptions(&self, value: ErrorOptions) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetErrorOptions)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn GetErrorOptions(&self) -> windows_core::Result<ErrorOptions> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetErrorOptions)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for RuntimeBrokerErrorSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IErrorReportingSettings>();
+}
+unsafe impl windows_core::Interface for RuntimeBrokerErrorSettings {
+    type Vtable = <IErrorReportingSettings as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IErrorReportingSettings as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for RuntimeBrokerErrorSettings {
+    const NAME: &'static str = "Windows.Foundation.Diagnostics.RuntimeBrokerErrorSettings";
+}
+unsafe impl Send for RuntimeBrokerErrorSettings {}
+unsafe impl Sync for RuntimeBrokerErrorSettings {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct TracingStatusChangedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(TracingStatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl TracingStatusChangedEventArgs {
+    pub fn Enabled(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Enabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn TraceLevel(&self) -> windows_core::Result<CausalityTraceLevel> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TraceLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for TracingStatusChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITracingStatusChangedEventArgs>();
+}
+unsafe impl windows_core::Interface for TracingStatusChangedEventArgs {
+    type Vtable = <ITracingStatusChangedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ITracingStatusChangedEventArgs as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for TracingStatusChangedEventArgs {
+    const NAME: &'static str = "Windows.Foundation.Diagnostics.TracingStatusChangedEventArgs";
+}
+unsafe impl Send for TracingStatusChangedEventArgs {}
+unsafe impl Sync for TracingStatusChangedEventArgs {}

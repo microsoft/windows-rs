@@ -122,6 +122,19 @@ impl windows_core::RuntimeName for AppRecordingResult {
 unsafe impl Send for AppRecordingResult {}
 unsafe impl Sync for AppRecordingResult {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AppRecordingSaveScreenshotOption(pub i32);
+impl AppRecordingSaveScreenshotOption {
+    pub const None: Self = Self(0i32);
+    pub const HdrContentVisible: Self = Self(1i32);
+}
+impl windows_core::TypeKind for AppRecordingSaveScreenshotOption {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AppRecordingSaveScreenshotOption {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.AppRecording.AppRecordingSaveScreenshotOption;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppRecordingSaveScreenshotResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppRecordingSaveScreenshotResult, windows_core::IUnknown, windows_core::IInspectable);
@@ -422,17 +435,4 @@ pub struct IAppRecordingStatusDetails_Vtbl {
     pub IsBlockedForApp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsDisabledByUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsDisabledBySystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AppRecordingSaveScreenshotOption(pub i32);
-impl AppRecordingSaveScreenshotOption {
-    pub const None: Self = Self(0i32);
-    pub const HdrContentVisible: Self = Self(1i32);
-}
-impl windows_core::TypeKind for AppRecordingSaveScreenshotOption {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AppRecordingSaveScreenshotOption {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.AppRecording.AppRecordingSaveScreenshotOption;i4)");
 }

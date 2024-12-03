@@ -166,10 +166,17 @@ windows_targets::link!("propsys.dll" "system" fn VariantToUInt64Array(var : *con
 windows_targets::link!("propsys.dll" "system" fn VariantToUInt64ArrayAlloc(var : *const VARIANT, pprgn : *mut *mut u64, pcelem : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_targets::link!("propsys.dll" "system" fn VariantToUInt64WithDefault(varin : *const VARIANT, ulldefault : u64) -> u64);
+pub const DPF_ERROR: DRAWPROGRESSFLAGS = 4i32;
+pub const DPF_MARQUEE: DRAWPROGRESSFLAGS = 1i32;
+pub const DPF_MARQUEE_COMPLETE: DRAWPROGRESSFLAGS = 2i32;
+pub const DPF_NONE: DRAWPROGRESSFLAGS = 0i32;
+pub const DPF_STOPPED: DRAWPROGRESSFLAGS = 16i32;
+pub const DPF_WARNING: DRAWPROGRESSFLAGS = 8i32;
 pub type DRAWPROGRESSFLAGS = i32;
+pub const PSTF_LOCAL: PSTIME_FLAGS = 1i32;
+pub const PSTF_UTC: PSTIME_FLAGS = 0i32;
 pub type PSTIME_FLAGS = i32;
 pub type VARENUM = u16;
-pub type VAR_CHANGE_FLAGS = u16;
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[derive(Clone, Copy)]
@@ -251,14 +258,6 @@ pub struct VARIANT_0_0_0_0 {
     pub pvRecord: *mut core::ffi::c_void,
     pub pRecInfo: *mut core::ffi::c_void,
 }
-pub const DPF_ERROR: DRAWPROGRESSFLAGS = 4i32;
-pub const DPF_MARQUEE: DRAWPROGRESSFLAGS = 1i32;
-pub const DPF_MARQUEE_COMPLETE: DRAWPROGRESSFLAGS = 2i32;
-pub const DPF_NONE: DRAWPROGRESSFLAGS = 0i32;
-pub const DPF_STOPPED: DRAWPROGRESSFLAGS = 16i32;
-pub const DPF_WARNING: DRAWPROGRESSFLAGS = 8i32;
-pub const PSTF_LOCAL: PSTIME_FLAGS = 1i32;
-pub const PSTF_UTC: PSTIME_FLAGS = 0i32;
 pub const VARIANT_ALPHABOOL: VAR_CHANGE_FLAGS = 2u16;
 pub const VARIANT_CALENDAR_GREGORIAN: VAR_CHANGE_FLAGS = 64u16;
 pub const VARIANT_CALENDAR_HIJRI: VAR_CHANGE_FLAGS = 8u16;
@@ -267,6 +266,7 @@ pub const VARIANT_LOCALBOOL: VAR_CHANGE_FLAGS = 16u16;
 pub const VARIANT_NOUSEROVERRIDE: VAR_CHANGE_FLAGS = 4u16;
 pub const VARIANT_NOVALUEPROP: VAR_CHANGE_FLAGS = 1u16;
 pub const VARIANT_USE_NLS: VAR_CHANGE_FLAGS = 128u16;
+pub type VAR_CHANGE_FLAGS = u16;
 pub const VT_ARRAY: VARENUM = 8192u16;
 pub const VT_BLOB: VARENUM = 65u16;
 pub const VT_BLOB_OBJECT: VARENUM = 70u16;

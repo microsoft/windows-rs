@@ -6,6 +6,19 @@
     clippy::all
 )]
 
+#[repr(C)]
+#[derive(Clone, Debug, PartialEq)]
+pub struct D3D12_RESOURCE_UAV_BARRIER {
+    pub pResource: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+}
+impl Default for D3D12_RESOURCE_UAV_BARRIER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for D3D12_RESOURCE_UAV_BARRIER {
+    type TypeKind = windows_core::CloneType;
+}
 windows_core::imp::define_interface!(
     ID3D12DeviceChild,
     ID3D12DeviceChild_Vtbl,
@@ -368,16 +381,3 @@ impl ID3D12Resource_Vtbl {
 impl windows_core::RuntimeName for ID3D12Resource {}
 unsafe impl Send for ID3D12Resource {}
 unsafe impl Sync for ID3D12Resource {}
-#[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
-pub struct D3D12_RESOURCE_UAV_BARRIER {
-    pub pResource: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
-}
-impl Default for D3D12_RESOURCE_UAV_BARRIER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for D3D12_RESOURCE_UAV_BARRIER {
-    type TypeKind = windows_core::CloneType;
-}

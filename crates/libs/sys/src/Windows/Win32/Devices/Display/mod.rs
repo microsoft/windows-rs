@@ -130,150 +130,16 @@ windows_targets::link!("gdi32.dll" "system" fn XLATEOBJ_cGetPalette(pxlo : *mut 
 windows_targets::link!("gdi32.dll" "system" fn XLATEOBJ_hGetColorTransform(pxlo : *mut XLATEOBJ) -> super::super::Foundation:: HANDLE);
 windows_targets::link!("gdi32.dll" "system" fn XLATEOBJ_iXlate(pxlo : *mut XLATEOBJ, icolor : u32) -> u32);
 windows_targets::link!("gdi32.dll" "system" fn XLATEOBJ_piVector(pxlo : *mut XLATEOBJ) -> *mut u32);
-pub type FREEOBJPROC = Option<unsafe extern "system" fn(pdriverobj: *mut DRIVEROBJ) -> super::super::Foundation::BOOL>;
-pub type PFN = Option<unsafe extern "system" fn() -> isize>;
-pub type PFN_DrvAccumulateD3DDirtyRect = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CDDDXGK_REDIRBITMAPPRESENTINFO) -> super::super::Foundation::BOOL>;
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFN_DrvAlphaBlend = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut CLIPOBJ, param3: *mut XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::RECTL, param6: *mut BLENDOBJ) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvAssertMode = Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvAssociateSharedSurface = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: super::super::Foundation::HANDLE, param2: super::super::Foundation::HANDLE, param3: super::super::Foundation::SIZE) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvBitBlt = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Foundation::RECTL, param6: *mut super::super::Foundation::POINTL, param7: *mut super::super::Foundation::POINTL, param8: *mut BRUSHOBJ, param9: *mut super::super::Foundation::POINTL, param10: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvCompletePDEV = Option<unsafe extern "system" fn(param0: DHPDEV, param1: HDEV)>;
-pub type PFN_DrvCopyBits = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut CLIPOBJ, param3: *mut XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL>;
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFN_DrvCreateDeviceBitmap = Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::SIZE, param2: u32) -> super::super::Graphics::Gdi::HBITMAP>;
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFN_DrvCreateDeviceBitmapEx = Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::SIZE, param2: u32, param3: u32, param4: DHSURF, param5: u32, param6: u32, param7: *mut super::super::Foundation::HANDLE) -> super::super::Graphics::Gdi::HBITMAP>;
-pub type PFN_DrvDeleteDeviceBitmap = Option<unsafe extern "system" fn(param0: DHSURF)>;
-pub type PFN_DrvDeleteDeviceBitmapEx = Option<unsafe extern "system" fn(param0: DHSURF)>;
-#[cfg(feature = "Win32_Graphics_OpenGL")]
-pub type PFN_DrvDescribePixelFormat = Option<unsafe extern "system" fn(param0: DHPDEV, param1: i32, param2: u32, param3: *mut super::super::Graphics::OpenGL::PIXELFORMATDESCRIPTOR) -> i32>;
-pub type PFN_DrvDestroyFont = Option<unsafe extern "system" fn(param0: *mut FONTOBJ)>;
-pub type PFN_DrvDisableDirectDraw = Option<unsafe extern "system" fn(param0: DHPDEV)>;
-pub type PFN_DrvDisableDriver = Option<unsafe extern "system" fn()>;
-pub type PFN_DrvDisablePDEV = Option<unsafe extern "system" fn(param0: DHPDEV)>;
-pub type PFN_DrvDisableSurface = Option<unsafe extern "system" fn(param0: DHPDEV)>;
-pub type PFN_DrvDitherColor = Option<unsafe extern "system" fn(param0: DHPDEV, param1: u32, param2: u32, param3: *mut u32) -> u32>;
-pub type PFN_DrvDrawEscape = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: *mut CLIPOBJ, param3: *mut super::super::Foundation::RECTL, param4: u32, param5: *mut core::ffi::c_void) -> u32>;
-pub type PFN_DrvEnableDriver = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: *mut DRVENABLEDATA) -> super::super::Foundation::BOOL>;
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFN_DrvEnablePDEV = Option<unsafe extern "system" fn(param0: *mut super::super::Graphics::Gdi::DEVMODEW, param1: windows_sys::core::PCWSTR, param2: u32, param3: *mut HSURF, param4: u32, param5: *mut GDIINFO, param6: u32, param7: *mut DEVINFO, param8: HDEV, param9: windows_sys::core::PCWSTR, param10: super::super::Foundation::HANDLE) -> DHPDEV>;
-pub type PFN_DrvEnableSurface = Option<unsafe extern "system" fn(param0: DHPDEV) -> HSURF>;
-pub type PFN_DrvEndDoc = Option<unsafe extern "system" fn(pso: *mut SURFOBJ, fl: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvEndDxInterop = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: super::super::Foundation::BOOL, param2: *mut super::super::Foundation::BOOL, kernelmodedevicehandle: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvEscape = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: u32, param3: *mut core::ffi::c_void, param4: u32, param5: *mut core::ffi::c_void) -> u32>;
-pub type PFN_DrvFillPath = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut PATHOBJ, param2: *mut CLIPOBJ, param3: *mut BRUSHOBJ, param4: *mut super::super::Foundation::POINTL, param5: u32, param6: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvFontManagement = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut FONTOBJ, param2: u32, param3: u32, param4: *mut core::ffi::c_void, param5: u32, param6: *mut core::ffi::c_void) -> u32>;
-pub type PFN_DrvFree = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: usize)>;
-pub type PFN_DrvGetGlyphMode = Option<unsafe extern "system" fn(dhpdev: DHPDEV, pfo: *mut FONTOBJ) -> u32>;
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFN_DrvGetModes = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: *mut super::super::Graphics::Gdi::DEVMODEW) -> u32>;
-pub type PFN_DrvGetTrueTypeFile = Option<unsafe extern "system" fn(param0: usize, param1: *mut u32) -> *mut core::ffi::c_void>;
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFN_DrvGradientFill = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CLIPOBJ, param2: *mut XLATEOBJ, param3: *mut super::super::Graphics::Gdi::TRIVERTEX, param4: u32, param5: *mut core::ffi::c_void, param6: u32, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::POINTL, param9: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvIcmCheckBitmapBits = Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE, param2: *mut SURFOBJ, param3: *mut u8) -> super::super::Foundation::BOOL>;
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_ColorSystem"))]
-pub type PFN_DrvIcmCreateColorTransform = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::UI::ColorSystem::LOGCOLORSPACEW, param2: *mut core::ffi::c_void, param3: u32, param4: *mut core::ffi::c_void, param5: u32, param6: *mut core::ffi::c_void, param7: u32, param8: u32) -> super::super::Foundation::HANDLE>;
-pub type PFN_DrvIcmDeleteColorTransform = Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvIcmSetDeviceGammaRamp = Option<unsafe extern "system" fn(param0: DHPDEV, param1: u32, param2: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvLineTo = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CLIPOBJ, param2: *mut BRUSHOBJ, param3: i32, param4: i32, param5: i32, param6: i32, param7: *mut super::super::Foundation::RECTL, param8: u32) -> super::super::Foundation::BOOL>;
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFN_DrvLoadFontFile = Option<unsafe extern "system" fn(param0: u32, param1: *mut usize, param2: *mut *mut core::ffi::c_void, param3: *mut u32, param4: *mut super::super::Graphics::Gdi::DESIGNVECTOR, param5: u32, param6: u32) -> usize>;
-pub type PFN_DrvLockDisplayArea = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL)>;
-pub type PFN_DrvMovePointer = Option<unsafe extern "system" fn(pso: *mut SURFOBJ, x: i32, y: i32, prcl: *mut super::super::Foundation::RECTL)>;
-pub type PFN_DrvNextBand = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, ppointl: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvNotify = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: *mut core::ffi::c_void)>;
-pub type PFN_DrvPaint = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CLIPOBJ, param2: *mut BRUSHOBJ, param3: *mut super::super::Foundation::POINTL, param4: u32) -> super::super::Foundation::BOOL>;
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFN_DrvPlgBlt = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, param6: *mut super::super::Foundation::POINTL, param7: *mut POINTFIX, param8: *mut super::super::Foundation::RECTL, param9: *mut super::super::Foundation::POINTL, param10: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvQueryAdvanceWidths = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut FONTOBJ, param2: u32, param3: *mut u32, param4: *mut core::ffi::c_void, param5: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvQueryDeviceSupport = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut XLATEOBJ, param2: *mut XFORMOBJ, param3: u32, param4: u32, param5: *mut core::ffi::c_void, param6: u32, param7: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFN_DrvQueryFont = Option<unsafe extern "system" fn(param0: DHPDEV, param1: usize, param2: u32, param3: *mut usize) -> *mut IFIMETRICS>;
-pub type PFN_DrvQueryFontCaps = Option<unsafe extern "system" fn(param0: u32, param1: *mut u32) -> i32>;
-pub type PFN_DrvQueryFontData = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut FONTOBJ, param2: u32, param3: u32, param4: *mut GLYPHDATA, param5: *mut core::ffi::c_void, param6: u32) -> i32>;
-pub type PFN_DrvQueryFontFile = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: u32, param3: *mut u32) -> i32>;
-pub type PFN_DrvQueryFontTree = Option<unsafe extern "system" fn(param0: DHPDEV, param1: usize, param2: u32, param3: u32, param4: *mut usize) -> *mut core::ffi::c_void>;
-pub type PFN_DrvQueryGlyphAttrs = Option<unsafe extern "system" fn(param0: *mut FONTOBJ, param1: u32) -> *mut FD_GLYPHATTR>;
-pub type PFN_DrvQueryPerBandInfo = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut PERBANDINFO) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvQuerySpoolType = Option<unsafe extern "system" fn(dhpdev: DHPDEV, pwchtype: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFN_DrvQueryTrueTypeOutline = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut FONTOBJ, param2: u32, param3: super::super::Foundation::BOOL, param4: *mut GLYPHDATA, param5: u32, param6: *mut super::super::Graphics::Gdi::TTPOLYGONHEADER) -> i32>;
-pub type PFN_DrvQueryTrueTypeSection = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: u32, param3: *mut super::super::Foundation::HANDLE, param4: *mut i32) -> i32>;
-pub type PFN_DrvQueryTrueTypeTable = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: u32, param3: i32, param4: u32, param5: *mut u8, param6: *mut *mut u8, param7: *mut u32) -> i32>;
-pub type PFN_DrvRealizeBrush = Option<unsafe extern "system" fn(param0: *mut BRUSHOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut SURFOBJ, param4: *mut XLATEOBJ, param5: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvRenderHint = Option<unsafe extern "system" fn(dhpdev: DHPDEV, notifycode: u32, length: usize, data: *const core::ffi::c_void) -> i32>;
-pub type PFN_DrvResetDevice = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut core::ffi::c_void) -> u32>;
-pub type PFN_DrvResetPDEV = Option<unsafe extern "system" fn(dhpdevold: DHPDEV, dhpdevnew: DHPDEV) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvSaveScreenBits = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: usize, param3: *mut super::super::Foundation::RECTL) -> usize>;
-pub type PFN_DrvSendPage = Option<unsafe extern "system" fn(param0: *mut SURFOBJ) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvSetPalette = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut PALOBJ, param2: u32, param3: u32, param4: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvSetPixelFormat = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: i32, param2: super::super::Foundation::HWND) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvSetPointerShape = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut XLATEOBJ, param4: i32, param5: i32, param6: i32, param7: i32, param8: *mut super::super::Foundation::RECTL, param9: u32) -> u32>;
-pub type PFN_DrvStartBanding = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, ppointl: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvStartDoc = Option<unsafe extern "system" fn(pso: *mut SURFOBJ, pwszdocname: windows_sys::core::PCWSTR, dwjobid: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvStartDxInterop = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: super::super::Foundation::BOOL, kernelmodedevicehandle: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvStartPage = Option<unsafe extern "system" fn(pso: *mut SURFOBJ) -> super::super::Foundation::BOOL>;
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFN_DrvStretchBlt = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, param6: *mut super::super::Foundation::POINTL, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::RECTL, param9: *mut super::super::Foundation::POINTL, param10: u32) -> super::super::Foundation::BOOL>;
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFN_DrvStretchBltROP = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, param6: *mut super::super::Foundation::POINTL, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::RECTL, param9: *mut super::super::Foundation::POINTL, param10: u32, param11: *mut BRUSHOBJ, param12: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvStrokeAndFillPath = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut PATHOBJ, param2: *mut CLIPOBJ, param3: *mut XFORMOBJ, param4: *mut BRUSHOBJ, param5: *mut LINEATTRS, param6: *mut BRUSHOBJ, param7: *mut super::super::Foundation::POINTL, param8: u32, param9: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvStrokePath = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut PATHOBJ, param2: *mut CLIPOBJ, param3: *mut XFORMOBJ, param4: *mut BRUSHOBJ, param5: *mut super::super::Foundation::POINTL, param6: *mut LINEATTRS, param7: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvSurfaceComplete = Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvSwapBuffers = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut WNDOBJ) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvSynchronize = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL)>;
-pub type PFN_DrvSynchronizeRedirectionBitmaps = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut u64) -> super::super::Foundation::NTSTATUS>;
-pub type PFN_DrvSynchronizeSurface = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut super::super::Foundation::RECTL, param2: u32)>;
-pub type PFN_DrvTextOut = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut STROBJ, param2: *mut FONTOBJ, param3: *mut CLIPOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::RECTL, param6: *mut BRUSHOBJ, param7: *mut BRUSHOBJ, param8: *mut super::super::Foundation::POINTL, param9: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvTransparentBlt = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut CLIPOBJ, param3: *mut XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::RECTL, param6: u32, param7: u32) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvUnloadFontFile = Option<unsafe extern "system" fn(param0: usize) -> super::super::Foundation::BOOL>;
-pub type PFN_DrvUnlockDisplayArea = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL)>;
-pub type PFN_EngCombineRgn = Option<unsafe extern "system" fn(hrgntrg: super::super::Foundation::HANDLE, hrgnsrc1: super::super::Foundation::HANDLE, hrgnsrc2: super::super::Foundation::HANDLE, imode: i32) -> i32>;
-pub type PFN_EngCopyRgn = Option<unsafe extern "system" fn(hrgndst: super::super::Foundation::HANDLE, hrgnsrc: super::super::Foundation::HANDLE) -> i32>;
-pub type PFN_EngCreateRectRgn = Option<unsafe extern "system" fn(left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::HANDLE>;
-pub type PFN_EngDeleteRgn = Option<unsafe extern "system" fn(hrgn: super::super::Foundation::HANDLE)>;
-pub type PFN_EngIntersectRgn = Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
-pub type PFN_EngSubtractRgn = Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
-pub type PFN_EngUnionRgn = Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
-pub type PFN_EngXorRgn = Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
-pub type PVIDEO_WIN32K_CALLOUT = Option<unsafe extern "system" fn(params: *const core::ffi::c_void)>;
-pub type SORTCOMP = Option<unsafe extern "system" fn(pv1: *const core::ffi::c_void, pv2: *const core::ffi::c_void) -> i32>;
-pub type WNDOBJCHANGEPROC = Option<unsafe extern "system" fn(pwo: *mut WNDOBJ, fl: u32)>;
+pub const AR_DISABLED: AR_STATE = 1i32;
+pub const AR_DOCKED: AR_STATE = 64i32;
+pub const AR_ENABLED: AR_STATE = 0i32;
+pub const AR_LAPTOP: AR_STATE = 128i32;
+pub const AR_MULTIMON: AR_STATE = 8i32;
+pub const AR_NOSENSOR: AR_STATE = 16i32;
+pub const AR_NOT_SUPPORTED: AR_STATE = 32i32;
+pub const AR_REMOTESESSION: AR_STATE = 4i32;
 pub type AR_STATE = i32;
-pub type BACKLIGHT_OPTIMIZATION_LEVEL = i32;
-pub type BRIGHTNESS_INTERFACE_VERSION = i32;
-pub type BlackScreenDiagnosticsCalloutParam = i32;
-pub type COLORSPACE_TRANSFORM_DATA_TYPE = i32;
-pub type COLORSPACE_TRANSFORM_STAGE_CONTROL = i32;
-pub type COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = i32;
-pub type COLORSPACE_TRANSFORM_TYPE = i32;
-pub type DISPLAYCONFIG_DEVICE_INFO_TYPE = i32;
-pub type DISPLAYCONFIG_MODE_INFO_TYPE = i32;
-pub type DISPLAYCONFIG_PIXELFORMAT = i32;
-pub type DISPLAYCONFIG_ROTATION = i32;
-pub type DISPLAYCONFIG_SCALING = i32;
-pub type DISPLAYCONFIG_SCANLINE_ORDERING = i32;
-pub type DISPLAYCONFIG_TOPOLOGY_ID = i32;
-pub type DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = i32;
-pub type DSI_CONTROL_TRANSMISSION_MODE = i32;
-pub type ENG_DEVICE_ATTRIBUTE = i32;
-pub type ENG_SYSTEM_ATTRIBUTE = i32;
-pub type MC_COLOR_TEMPERATURE = i32;
-pub type MC_DISPLAY_TECHNOLOGY_TYPE = i32;
-pub type MC_DRIVE_TYPE = i32;
-pub type MC_GAIN_TYPE = i32;
-pub type MC_POSITION_TYPE = i32;
-pub type MC_SIZE_TYPE = i32;
-pub type MC_VCP_CODE_TYPE = i32;
-pub type ORIENTATION_PREFERENCE = i32;
-pub type OUTPUT_COLOR_ENCODING = i32;
-pub type OUTPUT_WIRE_COLOR_SPACE_TYPE = i32;
-pub type QUERY_DISPLAY_CONFIG_FLAGS = u32;
-pub type SET_DISPLAY_CONFIG_FLAGS = u32;
-pub type VIDEO_BANK_TYPE = i32;
-pub type VIDEO_POWER_STATE = i32;
-pub type VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = i32;
+pub const AR_SUPPRESSED: AR_STATE = 2i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct Adapter {
@@ -287,6 +153,7 @@ pub struct Adapters {
     pub numAdapters: i32,
     pub adapter: [Adapter; 1],
 }
+pub type BACKLIGHT_OPTIMIZATION_LEVEL = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BACKLIGHT_REDUCTION_GAMMA_RAMP {
@@ -300,18 +167,51 @@ pub struct BANK_POSITION {
     pub ReadBankPosition: u32,
     pub WriteBankPosition: u32,
 }
+pub const BITMAP_ARRAY_BYTE: u32 = 3u32;
+pub const BITMAP_BITS_BYTE_ALIGN: u32 = 8u32;
+pub const BITMAP_BITS_PIXEL: u32 = 1u32;
+pub const BITMAP_BITS_WORD_ALIGN: u32 = 16u32;
+pub const BITMAP_PLANES: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
 pub struct BLENDOBJ {
     pub BlendFunction: super::super::Graphics::Gdi::BLENDFUNCTION,
 }
+pub const BMF_16BPP: i32 = 4i32;
+pub const BMF_1BPP: i32 = 1i32;
+pub const BMF_24BPP: i32 = 5i32;
+pub const BMF_32BPP: i32 = 6i32;
+pub const BMF_4BPP: i32 = 2i32;
+pub const BMF_4RLE: i32 = 7i32;
+pub const BMF_8BPP: i32 = 3i32;
+pub const BMF_8RLE: i32 = 8i32;
+pub const BMF_ACC_NOTIFY: u32 = 32768u32;
+pub const BMF_DONTCACHE: u32 = 4u32;
+pub const BMF_JPEG: i32 = 9i32;
+pub const BMF_KMSECTION: u32 = 16u32;
+pub const BMF_NOTSYSMEM: u32 = 32u32;
+pub const BMF_NOZEROINIT: u32 = 2u32;
+pub const BMF_PNG: i32 = 10i32;
+pub const BMF_RESERVED: u32 = 15872u32;
+pub const BMF_RMT_ENTER: u32 = 16384u32;
+pub const BMF_TEMP_ALPHA: u32 = 256u32;
+pub const BMF_TOPDOWN: u32 = 1u32;
+pub const BMF_UMPDMEM: u32 = 128u32;
+pub const BMF_USERMEM: u32 = 8u32;
+pub const BMF_WINDOW_BLT: u32 = 64u32;
+pub type BRIGHTNESS_INTERFACE_VERSION = i32;
+pub const BRIGHTNESS_INTERFACE_VERSION_1: BRIGHTNESS_INTERFACE_VERSION = 1i32;
+pub const BRIGHTNESS_INTERFACE_VERSION_2: BRIGHTNESS_INTERFACE_VERSION = 2i32;
+pub const BRIGHTNESS_INTERFACE_VERSION_3: BRIGHTNESS_INTERFACE_VERSION = 3i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BRIGHTNESS_LEVEL {
     pub Count: u8,
     pub Level: [u8; 103],
 }
+pub const BRIGHTNESS_MAX_LEVEL_COUNT: u32 = 103u32;
+pub const BRIGHTNESS_MAX_NIT_RANGE_COUNT: u32 = 16u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BRIGHTNESS_NIT_RANGE {
@@ -334,6 +234,23 @@ pub struct BRUSHOBJ {
     pub pvRbrush: *mut core::ffi::c_void,
     pub flColorType: u32,
 }
+pub const BR_CMYKCOLOR: u32 = 4u32;
+pub const BR_DEVICE_ICM: u32 = 1u32;
+pub const BR_HOST_ICM: u32 = 2u32;
+pub const BR_ORIGCOLOR: u32 = 8u32;
+pub const BacklightOptimizationDesktop: BACKLIGHT_OPTIMIZATION_LEVEL = 1i32;
+pub const BacklightOptimizationDimmed: BACKLIGHT_OPTIMIZATION_LEVEL = 3i32;
+pub const BacklightOptimizationDisable: BACKLIGHT_OPTIMIZATION_LEVEL = 0i32;
+pub const BacklightOptimizationDynamic: BACKLIGHT_OPTIMIZATION_LEVEL = 2i32;
+pub const BacklightOptimizationEDR: BACKLIGHT_OPTIMIZATION_LEVEL = 4i32;
+pub type BlackScreenDiagnosticsCalloutParam = i32;
+pub const BlackScreenDiagnosticsData: BlackScreenDiagnosticsCalloutParam = 1i32;
+pub const BlackScreenDisplayRecovery: BlackScreenDiagnosticsCalloutParam = 2i32;
+pub const CDBEX_CROSSADAPTER: u32 = 8u32;
+pub const CDBEX_DXINTEROP: u32 = 2u32;
+pub const CDBEX_NTSHAREDSURFACEHANDLE: u32 = 4u32;
+pub const CDBEX_REDIRECTION: u32 = 1u32;
+pub const CDBEX_REUSE: u32 = 16u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CDDDXGK_REDIRBITMAPPRESENTINFO {
@@ -343,6 +260,13 @@ pub struct CDDDXGK_REDIRBITMAPPRESENTINFO {
     pub hContext: [super::super::Foundation::HANDLE; 65],
     pub bDoNotSynchronizeWithDxContent: super::super::Foundation::BOOLEAN,
 }
+pub const CD_ANY: i32 = 4i32;
+pub const CD_LEFTDOWN: i32 = 1i32;
+pub const CD_LEFTUP: i32 = 3i32;
+pub const CD_LEFTWARDS: i32 = 1i32;
+pub const CD_RIGHTDOWN: i32 = 0i32;
+pub const CD_RIGHTUP: i32 = 2i32;
+pub const CD_UPWARDS: i32 = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Console")]
 #[derive(Clone, Copy)]
@@ -350,6 +274,9 @@ pub struct CHAR_IMAGE_INFO {
     pub CharInfo: super::super::System::Console::CHAR_INFO,
     pub FontImageInfo: FONT_IMAGE_INFO,
 }
+pub const CHAR_TYPE_LEADING: u32 = 2u32;
+pub const CHAR_TYPE_SBCS: u32 = 0u32;
+pub const CHAR_TYPE_TRAILING: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CHROMATICITY_COORDINATE {
@@ -454,6 +381,9 @@ pub struct COLORSPACE_TRANSFORM_DATA_CAP_0_0 {
 pub struct COLORSPACE_TRANSFORM_DATA_CAP_0_1 {
     pub _bitfield: u32,
 }
+pub type COLORSPACE_TRANSFORM_DATA_TYPE = i32;
+pub const COLORSPACE_TRANSFORM_DATA_TYPE_FIXED_POINT: COLORSPACE_TRANSFORM_DATA_TYPE = 0i32;
+pub const COLORSPACE_TRANSFORM_DATA_TYPE_FLOAT: COLORSPACE_TRANSFORM_DATA_TYPE = 1i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct COLORSPACE_TRANSFORM_MATRIX_CAP {
@@ -488,6 +418,7 @@ pub struct COLORSPACE_TRANSFORM_SET_INPUT {
     pub OutputWireFormatExpected: OUTPUT_WIRE_FORMAT,
     pub ColorSpaceTransform: COLORSPACE_TRANSFORM,
 }
+pub type COLORSPACE_TRANSFORM_STAGE_CONTROL = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct COLORSPACE_TRANSFORM_TARGET_CAPS {
@@ -496,6 +427,37 @@ pub struct COLORSPACE_TRANSFORM_TARGET_CAPS {
     pub ColorMatrix3x3Cap: COLORSPACE_TRANSFORM_MATRIX_CAP,
     pub LookupTable1DRegammaCap: COLORSPACE_TRANSFORM_1DLUT_CAP,
 }
+pub type COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = i32;
+pub type COLORSPACE_TRANSFORM_TYPE = i32;
+pub const COLORSPACE_TRANSFORM_TYPE_DEFAULT: COLORSPACE_TRANSFORM_TYPE = 1i32;
+pub const COLORSPACE_TRANSFORM_TYPE_DXGI_1: COLORSPACE_TRANSFORM_TYPE = 3i32;
+pub const COLORSPACE_TRANSFORM_TYPE_MATRIX_3x4: COLORSPACE_TRANSFORM_TYPE = 4i32;
+pub const COLORSPACE_TRANSFORM_TYPE_MATRIX_V2: COLORSPACE_TRANSFORM_TYPE = 5i32;
+pub const COLORSPACE_TRANSFORM_TYPE_RGB256x3x16: COLORSPACE_TRANSFORM_TYPE = 2i32;
+pub const COLORSPACE_TRANSFORM_TYPE_UNINITIALIZED: COLORSPACE_TRANSFORM_TYPE = 0i32;
+pub const COLORSPACE_TRANSFORM_VERSION_1: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = 1i32;
+pub const COLORSPACE_TRANSFORM_VERSION_DEFAULT: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = 0i32;
+pub const COLORSPACE_TRANSFORM_VERSION_NOT_SUPPORTED: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = 0i32;
+pub const CT_RECTANGLES: i32 = 0i32;
+pub const ColorSpaceTransformStageControl_Bypass: COLORSPACE_TRANSFORM_STAGE_CONTROL = 2i32;
+pub const ColorSpaceTransformStageControl_Enable: COLORSPACE_TRANSFORM_STAGE_CONTROL = 1i32;
+pub const ColorSpaceTransformStageControl_No_Change: COLORSPACE_TRANSFORM_STAGE_CONTROL = 0i32;
+pub const DCR_DRIVER: u32 = 1u32;
+pub const DCR_HALFTONE: u32 = 2u32;
+pub const DCR_SOLID: u32 = 0u32;
+pub const DCT_DEFAULT: DSI_CONTROL_TRANSMISSION_MODE = 0i32;
+pub const DCT_FORCE_HIGH_PERFORMANCE: DSI_CONTROL_TRANSMISSION_MODE = 2i32;
+pub const DCT_FORCE_LOW_POWER: DSI_CONTROL_TRANSMISSION_MODE = 1i32;
+pub const DC_COMPLEX: u32 = 3u32;
+pub const DC_RECT: u32 = 1u32;
+pub const DC_TRIVIAL: u32 = 0u32;
+pub const DDI_DRIVER_VERSION_NT4: u32 = 131072u32;
+pub const DDI_DRIVER_VERSION_NT5: u32 = 196608u32;
+pub const DDI_DRIVER_VERSION_NT5_01: u32 = 196864u32;
+pub const DDI_DRIVER_VERSION_NT5_01_SP1: u32 = 196865u32;
+pub const DDI_DRIVER_VERSION_SP3: u32 = 131075u32;
+pub const DDI_ERROR: u32 = 4294967295u32;
+pub const DD_FULLSCREEN_VIDEO_DEVICE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Device\\FSVideo");
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEVHTADJDATA {
@@ -505,6 +467,8 @@ pub struct DEVHTADJDATA {
     pub pDefHTInfo: *mut DEVHTINFO,
     pub pAdjHTInfo: *mut DEVHTINFO,
 }
+pub const DEVHTADJF_ADDITIVE_DEVICE: u32 = 2u32;
+pub const DEVHTADJF_COLOR_DEVICE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEVHTINFO {
@@ -528,6 +492,10 @@ pub struct DEVINFO {
     pub hpalDefault: super::super::Graphics::Gdi::HPALETTE,
     pub flGraphicsCaps2: u32,
 }
+pub const DEVPKEY_Device_ActivityId: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 4 };
+pub const DEVPKEY_Device_AdapterLuid: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 3 };
+pub const DEVPKEY_Device_TerminalLuid: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 2 };
+pub const DEVPKEY_IndirectDisplay: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 1 };
 pub type DHPDEV = *mut core::ffi::c_void;
 pub type DHSURF = *mut core::ffi::c_void;
 #[repr(C)]
@@ -549,6 +517,15 @@ pub struct DISPLAYCONFIG_DESKTOP_IMAGE_INFO {
     pub DesktopImageRegion: super::super::Foundation::RECTL,
     pub DesktopImageClip: super::super::Foundation::RECTL,
 }
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_ADAPTER_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = 4i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_ADVANCED_COLOR_INFO: DISPLAYCONFIG_DEVICE_INFO_TYPE = 9i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_MONITOR_SPECIALIZATION: DISPLAYCONFIG_DEVICE_INFO_TYPE = 12i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_SDR_WHITE_LEVEL: DISPLAYCONFIG_DEVICE_INFO_TYPE = 11i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_SOURCE_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = 1i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_SUPPORT_VIRTUAL_RESOLUTION: DISPLAYCONFIG_DEVICE_INFO_TYPE = 7i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_BASE_TYPE: DISPLAYCONFIG_DEVICE_INFO_TYPE = 6i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = 2i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_PREFERRED_MODE: DISPLAYCONFIG_DEVICE_INFO_TYPE = 3i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_DEVICE_INFO_HEADER {
@@ -557,6 +534,11 @@ pub struct DISPLAYCONFIG_DEVICE_INFO_HEADER {
     pub adapterId: super::super::Foundation::LUID,
     pub id: u32,
 }
+pub const DISPLAYCONFIG_DEVICE_INFO_SET_ADVANCED_COLOR_STATE: DISPLAYCONFIG_DEVICE_INFO_TYPE = 10i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_SET_MONITOR_SPECIALIZATION: DISPLAYCONFIG_DEVICE_INFO_TYPE = 13i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_SET_SUPPORT_VIRTUAL_RESOLUTION: DISPLAYCONFIG_DEVICE_INFO_TYPE = 8i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_SET_TARGET_PERSISTENCE: DISPLAYCONFIG_DEVICE_INFO_TYPE = 5i32;
+pub type DISPLAYCONFIG_DEVICE_INFO_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -611,6 +593,30 @@ pub union DISPLAYCONFIG_MODE_INFO_0 {
     pub sourceMode: DISPLAYCONFIG_SOURCE_MODE,
     pub desktopImageInfo: DISPLAYCONFIG_DESKTOP_IMAGE_INFO,
 }
+pub type DISPLAYCONFIG_MODE_INFO_TYPE = i32;
+pub const DISPLAYCONFIG_MODE_INFO_TYPE_DESKTOP_IMAGE: DISPLAYCONFIG_MODE_INFO_TYPE = 3i32;
+pub const DISPLAYCONFIG_MODE_INFO_TYPE_SOURCE: DISPLAYCONFIG_MODE_INFO_TYPE = 1i32;
+pub const DISPLAYCONFIG_MODE_INFO_TYPE_TARGET: DISPLAYCONFIG_MODE_INFO_TYPE = 2i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_COMPONENT_VIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 3i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_COMPOSITE_VIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 2i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_EMBEDDED: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 11i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_EXTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 10i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_USB_TUNNEL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 18i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DVI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 4i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_D_JPN: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 8i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_HD15: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 0i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_HDMI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 5i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INDIRECT_VIRTUAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 17i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INDIRECT_WIRED: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 16i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = -2147483648i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_LVDS: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 6i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_MIRACAST: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 15i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_OTHER: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = -1i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SDI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 9i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SDTVDONGLE: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 14i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SVIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 1i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_UDI_EMBEDDED: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 13i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_UDI_EXTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 12i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_PATH_INFO {
@@ -662,12 +668,36 @@ pub union DISPLAYCONFIG_PATH_TARGET_INFO_0 {
 pub struct DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
     pub _bitfield: u32,
 }
+pub type DISPLAYCONFIG_PIXELFORMAT = i32;
+pub const DISPLAYCONFIG_PIXELFORMAT_16BPP: DISPLAYCONFIG_PIXELFORMAT = 2i32;
+pub const DISPLAYCONFIG_PIXELFORMAT_24BPP: DISPLAYCONFIG_PIXELFORMAT = 3i32;
+pub const DISPLAYCONFIG_PIXELFORMAT_32BPP: DISPLAYCONFIG_PIXELFORMAT = 4i32;
+pub const DISPLAYCONFIG_PIXELFORMAT_8BPP: DISPLAYCONFIG_PIXELFORMAT = 1i32;
+pub const DISPLAYCONFIG_PIXELFORMAT_NONGDI: DISPLAYCONFIG_PIXELFORMAT = 5i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_RATIONAL {
     pub Numerator: u32,
     pub Denominator: u32,
 }
+pub type DISPLAYCONFIG_ROTATION = i32;
+pub const DISPLAYCONFIG_ROTATION_IDENTITY: DISPLAYCONFIG_ROTATION = 1i32;
+pub const DISPLAYCONFIG_ROTATION_ROTATE180: DISPLAYCONFIG_ROTATION = 3i32;
+pub const DISPLAYCONFIG_ROTATION_ROTATE270: DISPLAYCONFIG_ROTATION = 4i32;
+pub const DISPLAYCONFIG_ROTATION_ROTATE90: DISPLAYCONFIG_ROTATION = 2i32;
+pub type DISPLAYCONFIG_SCALING = i32;
+pub const DISPLAYCONFIG_SCALING_ASPECTRATIOCENTEREDMAX: DISPLAYCONFIG_SCALING = 4i32;
+pub const DISPLAYCONFIG_SCALING_CENTERED: DISPLAYCONFIG_SCALING = 2i32;
+pub const DISPLAYCONFIG_SCALING_CUSTOM: DISPLAYCONFIG_SCALING = 5i32;
+pub const DISPLAYCONFIG_SCALING_IDENTITY: DISPLAYCONFIG_SCALING = 1i32;
+pub const DISPLAYCONFIG_SCALING_PREFERRED: DISPLAYCONFIG_SCALING = 128i32;
+pub const DISPLAYCONFIG_SCALING_STRETCHED: DISPLAYCONFIG_SCALING = 3i32;
+pub type DISPLAYCONFIG_SCANLINE_ORDERING = i32;
+pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED: DISPLAYCONFIG_SCANLINE_ORDERING = 2i32;
+pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED_LOWERFIELDFIRST: DISPLAYCONFIG_SCANLINE_ORDERING = 3i32;
+pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED_UPPERFIELDFIRST: DISPLAYCONFIG_SCANLINE_ORDERING = 2i32;
+pub const DISPLAYCONFIG_SCANLINE_ORDERING_PROGRESSIVE: DISPLAYCONFIG_SCANLINE_ORDERING = 1i32;
+pub const DISPLAYCONFIG_SCANLINE_ORDERING_UNSPECIFIED: DISPLAYCONFIG_SCANLINE_ORDERING = 0i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_SDR_WHITE_LEVEL {
@@ -806,6 +836,12 @@ pub struct DISPLAYCONFIG_TARGET_PREFERRED_MODE {
     pub height: u32,
     pub targetMode: DISPLAYCONFIG_TARGET_MODE,
 }
+pub const DISPLAYCONFIG_TOPOLOGY_CLONE: DISPLAYCONFIG_TOPOLOGY_ID = 2i32;
+pub const DISPLAYCONFIG_TOPOLOGY_EXTEND: DISPLAYCONFIG_TOPOLOGY_ID = 4i32;
+pub const DISPLAYCONFIG_TOPOLOGY_EXTERNAL: DISPLAYCONFIG_TOPOLOGY_ID = 8i32;
+pub type DISPLAYCONFIG_TOPOLOGY_ID = i32;
+pub const DISPLAYCONFIG_TOPOLOGY_INTERNAL: DISPLAYCONFIG_TOPOLOGY_ID = 1i32;
+pub type DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_VIDEO_SIGNAL_INFO {
@@ -828,6 +864,8 @@ pub union DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0 {
 pub struct DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {
     pub _bitfield: u32,
 }
+pub const DISPLAYPOLICY_AC: u32 = 1u32;
+pub const DISPLAYPOLICY_DC: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DISPLAY_BRIGHTNESS {
@@ -835,6 +873,19 @@ pub struct DISPLAY_BRIGHTNESS {
     pub ucACBrightness: u8,
     pub ucDCBrightness: u8,
 }
+pub const DM_DEFAULT: u32 = 1u32;
+pub const DM_MONOCHROME: u32 = 2u32;
+pub const DN_ACCELERATION_LEVEL: u32 = 1u32;
+pub const DN_ASSOCIATE_WINDOW: u32 = 5u32;
+pub const DN_COMPOSITION_CHANGED: u32 = 6u32;
+pub const DN_DEVICE_ORIGIN: u32 = 2u32;
+pub const DN_DRAWING_BEGIN: u32 = 4u32;
+pub const DN_DRAWING_BEGIN_APIBITMAP: u32 = 7u32;
+pub const DN_SLEEP_MODE: u32 = 3u32;
+pub const DN_SURFOBJ_DESTRUCTION: u32 = 8u32;
+pub const DRD_ERROR: u32 = 1u32;
+pub const DRD_SUCCESS: u32 = 0u32;
+pub const DRH_APIBITMAP: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DRH_APIBITMAPDATA {
@@ -862,6 +913,30 @@ pub struct DRVFN {
     pub iFunc: u32,
     pub pfn: PFN,
 }
+pub const DRVQUERY_USERMODE: u32 = 1u32;
+pub const DSI_CHECKSUM_ERROR_CORRECTED: u32 = 256u32;
+pub const DSI_CHECKSUM_ERROR_NOT_CORRECTED: u32 = 512u32;
+pub const DSI_CONTENTION_DETECTED: u32 = 128u32;
+pub type DSI_CONTROL_TRANSMISSION_MODE = i32;
+pub const DSI_DSI_DATA_TYPE_NOT_RECOGNIZED: u32 = 2048u32;
+pub const DSI_DSI_PROTOCOL_VIOLATION: u32 = 32768u32;
+pub const DSI_DSI_VC_ID_INVALID: u32 = 4096u32;
+pub const DSI_EOT_SYNC_ERROR: u32 = 4u32;
+pub const DSI_ESCAPE_MODE_ENTRY_COMMAND_ERROR: u32 = 8u32;
+pub const DSI_FALSE_CONTROL_ERROR: u32 = 64u32;
+pub const DSI_INVALID_PACKET_INDEX: u32 = 255u32;
+pub const DSI_INVALID_TRANSMISSION_LENGTH: u32 = 8192u32;
+pub const DSI_LONG_PACKET_PAYLOAD_CHECKSUM_ERROR: u32 = 1024u32;
+pub const DSI_LOW_POWER_TRANSMIT_SYNC_ERROR: u32 = 16u32;
+pub const DSI_PACKET_EMBEDDED_PAYLOAD_SIZE: u32 = 8u32;
+pub const DSI_PERIPHERAL_TIMEOUT_ERROR: u32 = 32u32;
+pub const DSI_SOT_ERROR: u32 = 1u32;
+pub const DSI_SOT_SYNC_ERROR: u32 = 2u32;
+pub const DSS_FLUSH_EVENT: u32 = 2u32;
+pub const DSS_RESERVED: u32 = 4u32;
+pub const DSS_RESERVED1: u32 = 8u32;
+pub const DSS_RESERVED2: u32 = 16u32;
+pub const DSS_TIMER_EVENT: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DXGK_WIN32K_PARAM_DATA {
@@ -871,6 +946,9 @@ pub struct DXGK_WIN32K_PARAM_DATA {
     pub NumModeArrayElements: u32,
     pub SDCFlags: u32,
 }
+pub const DXGK_WIN32K_PARAM_FLAG_DISABLEVIEW: u32 = 4u32;
+pub const DXGK_WIN32K_PARAM_FLAG_MODESWITCH: u32 = 2u32;
+pub const DXGK_WIN32K_PARAM_FLAG_UPDATEREGISTRY: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -885,6 +963,11 @@ pub struct DisplayModes {
     pub numDisplayModes: i32,
     pub displayMode: [DisplayMode; 1],
 }
+pub const ECS_REDRAW: u32 = 2u32;
+pub const ECS_TEARDOWN: u32 = 1u32;
+pub const ED_ABORTDOC: u32 = 1u32;
+pub const EHN_ERROR: u32 = 1u32;
+pub const EHN_RESTORED: u32 = 0u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -894,18 +977,25 @@ pub struct EMFINFO {
     pub pvEMF: *mut u8,
     pub pvCurrentRecord: *mut u8,
 }
+pub const ENDCAP_BUTT: i32 = 2i32;
+pub const ENDCAP_ROUND: i32 = 0i32;
+pub const ENDCAP_SQUARE: i32 = 1i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ENGSAFESEMAPHORE {
     pub hsem: HSEMAPHORE,
     pub lCount: i32,
 }
+pub type ENG_DEVICE_ATTRIBUTE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ENG_EVENT {
     pub pKEvent: *mut core::ffi::c_void,
     pub fFlags: u32,
 }
+pub const ENG_FNT_CACHE_READ_FAULT: u32 = 1u32;
+pub const ENG_FNT_CACHE_WRITE_FAULT: u32 = 2u32;
+pub type ENG_SYSTEM_ATTRIBUTE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ENG_TIME_FIELDS {
@@ -924,6 +1014,18 @@ pub struct ENUMRECTS {
     pub c: u32,
     pub arcl: [super::super::Foundation::RECTL; 1],
 }
+pub const EngNumberOfProcessors: ENG_SYSTEM_ATTRIBUTE = 2i32;
+pub const EngOptimumAvailableSystemMemory: ENG_SYSTEM_ATTRIBUTE = 4i32;
+pub const EngOptimumAvailableUserMemory: ENG_SYSTEM_ATTRIBUTE = 3i32;
+pub const EngProcessorFeature: ENG_SYSTEM_ATTRIBUTE = 1i32;
+pub const FC_COMPLEX: u32 = 3u32;
+pub const FC_RECT: u32 = 1u32;
+pub const FC_RECT4: u32 = 2u32;
+pub const FDM_TYPE_BM_SIDE_CONST: u32 = 1u32;
+pub const FDM_TYPE_CHAR_INC_EQUAL_BM_BASE: u32 = 4u32;
+pub const FDM_TYPE_CONST_BEARINGS: u32 = 16u32;
+pub const FDM_TYPE_MAXEXT_EQUAL_BM_SIDE: u32 = 2u32;
+pub const FDM_TYPE_ZERO_BEARINGS: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FD_DEVICEMETRICS {
@@ -950,6 +1052,7 @@ pub struct FD_DEVICEMETRICS {
     pub lMinD: i32,
     pub alReserved: [i32; 1],
 }
+pub const FD_ERROR: u32 = 4294967295u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FD_GLYPHATTR {
@@ -982,15 +1085,7 @@ pub struct FD_LIGATURE {
     pub cLigatures: u32,
     pub alig: [LIGATURE; 1],
 }
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct FD_XFORM {
-    pub eXX: f32,
-    pub eXY: f32,
-    pub eYX: f32,
-    pub eYY: f32,
-}
+pub const FD_NEGATIVE_FONT: i32 = 1i32;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -1001,22 +1096,22 @@ pub struct FD_XFORM {
     pub eYY: u32,
 }
 #[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct FD_XFORM {
+    pub eXX: f32,
+    pub eXY: f32,
+    pub eYX: f32,
+    pub eYY: f32,
+}
+pub const FF_IGNORED_SIGNATURE: u32 = 2u32;
+pub const FF_SIGNATURE_VERIFIED: u32 = 1u32;
+#[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub struct FLOATOBJ {
     pub ul1: u32,
     pub ul2: u32,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct FLOATOBJ_XFORM {
-    pub eM11: f32,
-    pub eM12: f32,
-    pub eM21: f32,
-    pub eM22: f32,
-    pub eDx: f32,
-    pub eDy: f32,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -1032,9 +1127,13 @@ pub struct FLOATOBJ_XFORM {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
-pub union FLOAT_LONG {
-    pub e: f32,
-    pub l: i32,
+pub struct FLOATOBJ_XFORM {
+    pub eM11: f32,
+    pub eM12: f32,
+    pub eM21: f32,
+    pub eM22: f32,
+    pub eDx: f32,
+    pub eDy: f32,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -1043,6 +1142,61 @@ pub union FLOAT_LONG {
     pub e: u32,
     pub l: i32,
 }
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub union FLOAT_LONG {
+    pub e: f32,
+    pub l: i32,
+}
+pub const FL_NONPAGED_MEMORY: u32 = 2u32;
+pub const FL_NON_SESSION: u32 = 4u32;
+pub const FL_ZERO_MEMORY: u32 = 1u32;
+pub const FM_EDITABLE_EMBED: u32 = 8u32;
+pub const FM_INFO_16BPP: u32 = 256u32;
+pub const FM_INFO_1BPP: u32 = 32u32;
+pub const FM_INFO_24BPP: u32 = 512u32;
+pub const FM_INFO_32BPP: u32 = 1024u32;
+pub const FM_INFO_4BPP: u32 = 64u32;
+pub const FM_INFO_8BPP: u32 = 128u32;
+pub const FM_INFO_90DEGREE_ROTATIONS: u32 = 2097152u32;
+pub const FM_INFO_ANISOTROPIC_SCALING_ONLY: u32 = 33554432u32;
+pub const FM_INFO_ARB_XFORMS: u32 = 16u32;
+pub const FM_INFO_CONSTANT_WIDTH: u32 = 4096u32;
+pub const FM_INFO_DBCS_FIXED_PITCH: u32 = 268435456u32;
+pub const FM_INFO_DO_NOT_ENUMERATE: u32 = 8388608u32;
+pub const FM_INFO_DSIG: u32 = 262144u32;
+pub const FM_INFO_FAMILY_EQUIV: u32 = 134217728u32;
+pub const FM_INFO_IGNORE_TC_RA_ABLE: u32 = 1073741824u32;
+pub const FM_INFO_INTEGER_WIDTH: u32 = 2048u32;
+pub const FM_INFO_INTEGRAL_SCALING: u32 = 1048576u32;
+pub const FM_INFO_ISOTROPIC_SCALING_ONLY: u32 = 16777216u32;
+pub const FM_INFO_NONNEGATIVE_AC: u32 = 536870912u32;
+pub const FM_INFO_NOT_CONTIGUOUS: u32 = 8192u32;
+pub const FM_INFO_OPTICALLY_FIXED_PITCH: u32 = 4194304u32;
+pub const FM_INFO_RETURNS_BITMAPS: u32 = 131072u32;
+pub const FM_INFO_RETURNS_OUTLINES: u32 = 32768u32;
+pub const FM_INFO_RETURNS_STROKES: u32 = 65536u32;
+pub const FM_INFO_RIGHT_HANDED: u32 = 524288u32;
+pub const FM_INFO_TECH_BITMAP: u32 = 2u32;
+pub const FM_INFO_TECH_CFF: u32 = 67108864u32;
+pub const FM_INFO_TECH_MM: u32 = 16384u32;
+pub const FM_INFO_TECH_OUTLINE_NOT_TRUETYPE: u32 = 8u32;
+pub const FM_INFO_TECH_STROKE: u32 = 4u32;
+pub const FM_INFO_TECH_TRUETYPE: u32 = 1u32;
+pub const FM_INFO_TECH_TYPE1: u32 = 2147483648u32;
+pub const FM_NO_EMBEDDING: u32 = 2u32;
+pub const FM_PANOSE_CULTURE_LATIN: u32 = 0u32;
+pub const FM_READONLY_EMBED: u32 = 4u32;
+pub const FM_SEL_BOLD: u32 = 32u32;
+pub const FM_SEL_ITALIC: u32 = 1u32;
+pub const FM_SEL_NEGATIVE: u32 = 4u32;
+pub const FM_SEL_OUTLINED: u32 = 8u32;
+pub const FM_SEL_REGULAR: u32 = 64u32;
+pub const FM_SEL_STRIKEOUT: u32 = 16u32;
+pub const FM_SEL_UNDERSCORE: u32 = 2u32;
+pub const FM_TYPE_LICENSED: u32 = 2u32;
+pub const FM_VERSION_NUMBER: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FONTDIFF {
@@ -1095,6 +1249,31 @@ pub struct FONT_IMAGE_INFO {
     pub FontSize: super::super::System::Console::COORD,
     pub ImageBits: *mut u8,
 }
+pub const FO_ATTR_MODE_ROTATE: u32 = 1u32;
+pub const FO_CFF: u32 = 1048576u32;
+pub const FO_CLEARTYPENATURAL_X: u32 = 1073741824u32;
+pub const FO_CLEARTYPE_X: u32 = 268435456u32;
+pub const FO_CLEARTYPE_Y: u32 = 536870912u32;
+pub const FO_DBCS_FONT: u32 = 16777216u32;
+pub const FO_DEVICE_FONT: i32 = 1i32;
+pub const FO_EM_HEIGHT: u32 = 32768u32;
+pub const FO_GLYPHBITS: i32 = 1i32;
+pub const FO_GRAY16: u32 = 65536u32;
+pub const FO_HGLYPHS: i32 = 0i32;
+pub const FO_MULTIPLEMASTER: u32 = 4194304u32;
+pub const FO_NOCLEARTYPE: u32 = 33554432u32;
+pub const FO_NOGRAY16: u32 = 131072u32;
+pub const FO_NOHINTS: u32 = 262144u32;
+pub const FO_NO_CHOICE: u32 = 524288u32;
+pub const FO_OUTLINE_CAPABLE: i32 = 2i32;
+pub const FO_PATHOBJ: i32 = 2i32;
+pub const FO_POSTSCRIPT: u32 = 2097152u32;
+pub const FO_SIM_BOLD: u32 = 8192u32;
+pub const FO_SIM_ITALIC: u32 = 16384u32;
+pub const FO_VERT_FACE: u32 = 8388608u32;
+pub const FP_ALTERNATEMODE: i32 = 1i32;
+pub const FP_WINDINGMODE: i32 = 2i32;
+pub type FREEOBJPROC = Option<unsafe extern "system" fn(pdriverobj: *mut DRIVEROBJ) -> super::super::Foundation::BOOL>;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Console")]
 #[derive(Clone, Copy)]
@@ -1171,6 +1350,53 @@ pub struct GAMMA_RAMP_RGB256x3x16 {
     pub Green: [u16; 256],
     pub Blue: [u16; 256],
 }
+pub const GCAPS2_ACC_DRIVER: u32 = 32768u32;
+pub const GCAPS2_ALPHACURSOR: u32 = 32u32;
+pub const GCAPS2_BITMAPEXREUSE: u32 = 65536u32;
+pub const GCAPS2_CHANGEGAMMARAMP: u32 = 16u32;
+pub const GCAPS2_CLEARTYPE: u32 = 16384u32;
+pub const GCAPS2_EXCLUDELAYERED: u32 = 2048u32;
+pub const GCAPS2_ICD_MULTIMON: u32 = 256u32;
+pub const GCAPS2_INCLUDEAPIBITMAPS: u32 = 4096u32;
+pub const GCAPS2_JPEGSRC: u32 = 1u32;
+pub const GCAPS2_MOUSETRAILS: u32 = 512u32;
+pub const GCAPS2_PNGSRC: u32 = 8u32;
+pub const GCAPS2_REMOTEDRIVER: u32 = 1024u32;
+pub const GCAPS2_RESERVED1: u32 = 1024u32;
+pub const GCAPS2_SHOWHIDDENPOINTER: u32 = 8192u32;
+pub const GCAPS2_SYNCFLUSH: u32 = 64u32;
+pub const GCAPS2_SYNCTIMER: u32 = 128u32;
+pub const GCAPS2_xxxx: u32 = 2u32;
+pub const GCAPS_ALTERNATEFILL: u32 = 4u32;
+pub const GCAPS_ARBRUSHOPAQUE: u32 = 32768u32;
+pub const GCAPS_ARBRUSHTEXT: u32 = 268435456u32;
+pub const GCAPS_ASYNCCHANGE: u32 = 2048u32;
+pub const GCAPS_ASYNCMOVE: u32 = 4096u32;
+pub const GCAPS_BEZIERS: u32 = 1u32;
+pub const GCAPS_CMYKCOLOR: u32 = 67108864u32;
+pub const GCAPS_COLOR_DITHER: u32 = 32u32;
+pub const GCAPS_DIRECTDRAW: u32 = 16384u32;
+pub const GCAPS_DITHERONREALIZE: u32 = 2097152u32;
+pub const GCAPS_DONTJOURNAL: u32 = 8192u32;
+pub const GCAPS_FONT_RASTERIZER: u32 = 1073741824u32;
+pub const GCAPS_FORCEDITHER: u32 = 8388608u32;
+pub const GCAPS_GEOMETRICWIDE: u32 = 2u32;
+pub const GCAPS_GRAY16: u32 = 16777216u32;
+pub const GCAPS_HALFTONE: u32 = 16u32;
+pub const GCAPS_HIGHRESTEXT: u32 = 262144u32;
+pub const GCAPS_HORIZSTRIKE: u32 = 64u32;
+pub const GCAPS_ICM: u32 = 33554432u32;
+pub const GCAPS_LAYERED: u32 = 134217728u32;
+pub const GCAPS_MONO_DITHER: u32 = 1024u32;
+pub const GCAPS_NO64BITMEMACCESS: u32 = 4194304u32;
+pub const GCAPS_NUP: u32 = 2147483648u32;
+pub const GCAPS_OPAQUERECT: u32 = 256u32;
+pub const GCAPS_PALMANAGED: u32 = 524288u32;
+pub const GCAPS_PANNING: u32 = 65536u32;
+pub const GCAPS_SCREENPRECISION: u32 = 536870912u32;
+pub const GCAPS_VECTORFONT: u32 = 512u32;
+pub const GCAPS_VERTSTRIKE: u32 = 128u32;
+pub const GCAPS_WINDINGFILL: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GDIINFO {
@@ -1220,6 +1446,9 @@ pub struct GDIINFO {
     pub ulPhysicalPixelCharacteristics: u32,
     pub ulPhysicalPixelGamma: u32,
 }
+pub const GDI_DRIVER_VERSION: u32 = 16384u32;
+pub const GETCONNECTEDIDS_SOURCE: u32 = 1u32;
+pub const GETCONNECTEDIDS_TARGET: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GLYPHBITS {
@@ -1253,12 +1482,104 @@ pub struct GLYPHPOS {
     pub pgdf: *mut GLYPHDEF,
     pub ptl: super::super::Foundation::POINTL,
 }
+pub const GS_16BIT_HANDLES: u32 = 4u32;
+pub const GS_8BIT_HANDLES: u32 = 2u32;
+pub const GS_UNICODE_HANDLES: u32 = 1u32;
+pub const GUID_DEVINTERFACE_DISPLAY_ADAPTER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5b45201d_f2f2_4f3b_85bb_30ff1f953599);
+pub const GUID_DEVINTERFACE_MONITOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe6f07b5f_ee97_4a90_b076_33f57bf4eaa7);
+pub const GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1ad9e4f0_f88d_4360_bab9_4c2d55e564cd);
+pub const GUID_DISPLAY_DEVICE_ARRIVAL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1ca05180_a699_450a_9a0c_de4fbe3ddd89);
+pub const GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf196c02f_f86f_4f9a_aa15_e9cebdfe3b96);
+pub const GX_GENERAL: i32 = 3i32;
+pub const GX_IDENTITY: i32 = 0i32;
+pub const GX_OFFSET: i32 = 1i32;
+pub const GX_SCALE: i32 = 2i32;
 pub type HBM = *mut core::ffi::c_void;
 pub type HDEV = *mut core::ffi::c_void;
 pub type HDRVOBJ = *mut core::ffi::c_void;
 pub type HFASTMUTEX = *mut core::ffi::c_void;
+pub const HOOK_ALPHABLEND: u32 = 65536u32;
+pub const HOOK_BITBLT: u32 = 1u32;
+pub const HOOK_COPYBITS: u32 = 1024u32;
+pub const HOOK_FILLPATH: u32 = 64u32;
+pub const HOOK_FLAGS: u32 = 243199u32;
+pub const HOOK_GRADIENTFILL: u32 = 131072u32;
+pub const HOOK_LINETO: u32 = 256u32;
+pub const HOOK_MOVEPANNING: u32 = 2048u32;
+pub const HOOK_PAINT: u32 = 16u32;
+pub const HOOK_PLGBLT: u32 = 4u32;
+pub const HOOK_STRETCHBLT: u32 = 2u32;
+pub const HOOK_STRETCHBLTROP: u32 = 8192u32;
+pub const HOOK_STROKEANDFILLPATH: u32 = 128u32;
+pub const HOOK_STROKEPATH: u32 = 32u32;
+pub const HOOK_SYNCHRONIZE: u32 = 4096u32;
+pub const HOOK_SYNCHRONIZEACCESS: u32 = 16384u32;
+pub const HOOK_TEXTOUT: u32 = 8u32;
+pub const HOOK_TRANSPARENTBLT: u32 = 32768u32;
+pub const HOST_DSI_BAD_TRANSMISSION_MODE: u32 = 4096u32;
+pub const HOST_DSI_DEVICE_NOT_READY: u32 = 1u32;
+pub const HOST_DSI_DEVICE_RESET: u32 = 4u32;
+pub const HOST_DSI_DRIVER_REJECTED_PACKET: u32 = 1024u32;
+pub const HOST_DSI_INTERFACE_RESET: u32 = 2u32;
+pub const HOST_DSI_INVALID_TRANSMISSION: u32 = 256u32;
+pub const HOST_DSI_OS_REJECTED_PACKET: u32 = 512u32;
+pub const HOST_DSI_TRANSMISSION_CANCELLED: u32 = 16u32;
+pub const HOST_DSI_TRANSMISSION_DROPPED: u32 = 32u32;
+pub const HOST_DSI_TRANSMISSION_TIMEOUT: u32 = 64u32;
 pub type HSEMAPHORE = *mut core::ffi::c_void;
 pub type HSURF = *mut core::ffi::c_void;
+pub const HS_DDI_MAX: u32 = 6u32;
+pub const HT_FLAG_8BPP_CMY332_MASK: u32 = 4278190080u32;
+pub const HT_FLAG_ADDITIVE_PRIMS: u32 = 4u32;
+pub const HT_FLAG_DO_DEVCLR_XFORM: u32 = 128u32;
+pub const HT_FLAG_HAS_BLACK_DYE: u32 = 2u32;
+pub const HT_FLAG_INK_ABSORPTION_IDX0: u32 = 0u32;
+pub const HT_FLAG_INK_ABSORPTION_IDX1: u32 = 32u32;
+pub const HT_FLAG_INK_ABSORPTION_IDX2: u32 = 64u32;
+pub const HT_FLAG_INK_ABSORPTION_IDX3: u32 = 96u32;
+pub const HT_FLAG_INK_ABSORPTION_INDICES: u32 = 96u32;
+pub const HT_FLAG_INK_HIGH_ABSORPTION: u32 = 16u32;
+pub const HT_FLAG_INVERT_8BPP_BITMASK_IDX: u32 = 1024u32;
+pub const HT_FLAG_LOWER_INK_ABSORPTION: u32 = 64u32;
+pub const HT_FLAG_LOWEST_INK_ABSORPTION: u32 = 96u32;
+pub const HT_FLAG_LOW_INK_ABSORPTION: u32 = 32u32;
+pub const HT_FLAG_NORMAL_INK_ABSORPTION: u32 = 0u32;
+pub const HT_FLAG_OUTPUT_CMY: u32 = 256u32;
+pub const HT_FLAG_PRINT_DRAFT_MODE: u32 = 512u32;
+pub const HT_FLAG_SQUARE_DEVICE_PEL: u32 = 1u32;
+pub const HT_FLAG_USE_8BPP_BITMASK: u32 = 8u32;
+pub const HT_FORMAT_16BPP: u32 = 5u32;
+pub const HT_FORMAT_1BPP: u32 = 0u32;
+pub const HT_FORMAT_24BPP: u32 = 6u32;
+pub const HT_FORMAT_32BPP: u32 = 7u32;
+pub const HT_FORMAT_4BPP: u32 = 2u32;
+pub const HT_FORMAT_4BPP_IRGB: u32 = 3u32;
+pub const HT_FORMAT_8BPP: u32 = 4u32;
+pub const HT_PATSIZE_10x10: u32 = 8u32;
+pub const HT_PATSIZE_10x10_M: u32 = 9u32;
+pub const HT_PATSIZE_12x12: u32 = 10u32;
+pub const HT_PATSIZE_12x12_M: u32 = 11u32;
+pub const HT_PATSIZE_14x14: u32 = 12u32;
+pub const HT_PATSIZE_14x14_M: u32 = 13u32;
+pub const HT_PATSIZE_16x16: u32 = 14u32;
+pub const HT_PATSIZE_16x16_M: u32 = 15u32;
+pub const HT_PATSIZE_2x2: u32 = 0u32;
+pub const HT_PATSIZE_2x2_M: u32 = 1u32;
+pub const HT_PATSIZE_4x4: u32 = 2u32;
+pub const HT_PATSIZE_4x4_M: u32 = 3u32;
+pub const HT_PATSIZE_6x6: u32 = 4u32;
+pub const HT_PATSIZE_6x6_M: u32 = 5u32;
+pub const HT_PATSIZE_8x8: u32 = 6u32;
+pub const HT_PATSIZE_8x8_M: u32 = 7u32;
+pub const HT_PATSIZE_DEFAULT: u32 = 17u32;
+pub const HT_PATSIZE_MAX_INDEX: u32 = 18u32;
+pub const HT_PATSIZE_SUPERCELL: u32 = 16u32;
+pub const HT_PATSIZE_SUPERCELL_M: u32 = 17u32;
+pub const HT_PATSIZE_USER: u32 = 18u32;
+pub const HT_USERPAT_CX_MAX: u32 = 256u32;
+pub const HT_USERPAT_CX_MIN: u32 = 4u32;
+pub const HT_USERPAT_CY_MAX: u32 = 256u32;
+pub const HT_USERPAT_CY_MIN: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IFIEXTRA {
@@ -1268,6 +1589,71 @@ pub struct IFIEXTRA {
     pub dpDesignVector: i32,
     pub dpAxesInfoW: i32,
     pub aulReserved: [u32; 1],
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct IFIMETRICS {
+    pub cjThis: u32,
+    pub cjIfiExtra: u32,
+    pub dpwszFamilyName: i32,
+    pub dpwszStyleName: i32,
+    pub dpwszFaceName: i32,
+    pub dpwszUniqueName: i32,
+    pub dpFontSim: i32,
+    pub lEmbedId: i32,
+    pub lItalicAngle: i32,
+    pub lCharBias: i32,
+    pub dpCharSets: i32,
+    pub jWinCharSet: u8,
+    pub jWinPitchAndFamily: u8,
+    pub usWinWeight: u16,
+    pub flInfo: u32,
+    pub fsSelection: u16,
+    pub fsType: u16,
+    pub fwdUnitsPerEm: i16,
+    pub fwdLowestPPEm: i16,
+    pub fwdWinAscender: i16,
+    pub fwdWinDescender: i16,
+    pub fwdMacAscender: i16,
+    pub fwdMacDescender: i16,
+    pub fwdMacLineGap: i16,
+    pub fwdTypoAscender: i16,
+    pub fwdTypoDescender: i16,
+    pub fwdTypoLineGap: i16,
+    pub fwdAveCharWidth: i16,
+    pub fwdMaxCharInc: i16,
+    pub fwdCapHeight: i16,
+    pub fwdXHeight: i16,
+    pub fwdSubscriptXSize: i16,
+    pub fwdSubscriptYSize: i16,
+    pub fwdSubscriptXOffset: i16,
+    pub fwdSubscriptYOffset: i16,
+    pub fwdSuperscriptXSize: i16,
+    pub fwdSuperscriptYSize: i16,
+    pub fwdSuperscriptXOffset: i16,
+    pub fwdSuperscriptYOffset: i16,
+    pub fwdUnderscoreSize: i16,
+    pub fwdUnderscorePosition: i16,
+    pub fwdStrikeoutSize: i16,
+    pub fwdStrikeoutPosition: i16,
+    pub chFirstChar: u8,
+    pub chLastChar: u8,
+    pub chDefaultChar: u8,
+    pub chBreakChar: u8,
+    pub wcFirstChar: u16,
+    pub wcLastChar: u16,
+    pub wcDefaultChar: u16,
+    pub wcBreakChar: u16,
+    pub ptlBaseline: super::super::Foundation::POINTL,
+    pub ptlAspect: super::super::Foundation::POINTL,
+    pub ptlCaret: super::super::Foundation::POINTL,
+    pub rclFontBox: super::super::Foundation::RECTL,
+    pub achVendId: [u8; 4],
+    pub cKerningPairs: u32,
+    pub ulPanoseCulture: u32,
+    pub panose: super::super::Graphics::Gdi::PANOSE,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -1335,71 +1721,108 @@ pub struct IFIMETRICS {
     pub panose: super::super::Graphics::Gdi::PANOSE,
     pub Align: *mut core::ffi::c_void,
 }
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct IFIMETRICS {
-    pub cjThis: u32,
-    pub cjIfiExtra: u32,
-    pub dpwszFamilyName: i32,
-    pub dpwszStyleName: i32,
-    pub dpwszFaceName: i32,
-    pub dpwszUniqueName: i32,
-    pub dpFontSim: i32,
-    pub lEmbedId: i32,
-    pub lItalicAngle: i32,
-    pub lCharBias: i32,
-    pub dpCharSets: i32,
-    pub jWinCharSet: u8,
-    pub jWinPitchAndFamily: u8,
-    pub usWinWeight: u16,
-    pub flInfo: u32,
-    pub fsSelection: u16,
-    pub fsType: u16,
-    pub fwdUnitsPerEm: i16,
-    pub fwdLowestPPEm: i16,
-    pub fwdWinAscender: i16,
-    pub fwdWinDescender: i16,
-    pub fwdMacAscender: i16,
-    pub fwdMacDescender: i16,
-    pub fwdMacLineGap: i16,
-    pub fwdTypoAscender: i16,
-    pub fwdTypoDescender: i16,
-    pub fwdTypoLineGap: i16,
-    pub fwdAveCharWidth: i16,
-    pub fwdMaxCharInc: i16,
-    pub fwdCapHeight: i16,
-    pub fwdXHeight: i16,
-    pub fwdSubscriptXSize: i16,
-    pub fwdSubscriptYSize: i16,
-    pub fwdSubscriptXOffset: i16,
-    pub fwdSubscriptYOffset: i16,
-    pub fwdSuperscriptXSize: i16,
-    pub fwdSuperscriptYSize: i16,
-    pub fwdSuperscriptXOffset: i16,
-    pub fwdSuperscriptYOffset: i16,
-    pub fwdUnderscoreSize: i16,
-    pub fwdUnderscorePosition: i16,
-    pub fwdStrikeoutSize: i16,
-    pub fwdStrikeoutPosition: i16,
-    pub chFirstChar: u8,
-    pub chLastChar: u8,
-    pub chDefaultChar: u8,
-    pub chBreakChar: u8,
-    pub wcFirstChar: u16,
-    pub wcLastChar: u16,
-    pub wcDefaultChar: u16,
-    pub wcBreakChar: u16,
-    pub ptlBaseline: super::super::Foundation::POINTL,
-    pub ptlAspect: super::super::Foundation::POINTL,
-    pub ptlCaret: super::super::Foundation::POINTL,
-    pub rclFontBox: super::super::Foundation::RECTL,
-    pub achVendId: [u8; 4],
-    pub cKerningPairs: u32,
-    pub ulPanoseCulture: u32,
-    pub panose: super::super::Graphics::Gdi::PANOSE,
-}
+pub const IGRF_RGB_256BYTES: u32 = 0u32;
+pub const IGRF_RGB_256WORDS: u32 = 1u32;
+pub const INDEX_DrvAccumulateD3DDirtyRect: i32 = 98i32;
+pub const INDEX_DrvAlphaBlend: i32 = 71i32;
+pub const INDEX_DrvAssertMode: i32 = 5i32;
+pub const INDEX_DrvAssociateSharedSurface: i32 = 96i32;
+pub const INDEX_DrvBitBlt: i32 = 18i32;
+pub const INDEX_DrvCompletePDEV: i32 = 1i32;
+pub const INDEX_DrvCopyBits: i32 = 19i32;
+pub const INDEX_DrvCreateDeviceBitmap: i32 = 10i32;
+pub const INDEX_DrvCreateDeviceBitmapEx: i32 = 94i32;
+pub const INDEX_DrvDeleteDeviceBitmap: i32 = 11i32;
+pub const INDEX_DrvDeleteDeviceBitmapEx: i32 = 95i32;
+pub const INDEX_DrvDeriveSurface: i32 = 85i32;
+pub const INDEX_DrvDescribePixelFormat: i32 = 55i32;
+pub const INDEX_DrvDestroyFont: i32 = 43i32;
+pub const INDEX_DrvDisableDirectDraw: i32 = 61i32;
+pub const INDEX_DrvDisableDriver: i32 = 8i32;
+pub const INDEX_DrvDisablePDEV: i32 = 2i32;
+pub const INDEX_DrvDisableSurface: i32 = 4i32;
+pub const INDEX_DrvDitherColor: i32 = 13i32;
+pub const INDEX_DrvDrawEscape: i32 = 25i32;
+pub const INDEX_DrvEnableDirectDraw: i32 = 60i32;
+pub const INDEX_DrvEnablePDEV: i32 = 0i32;
+pub const INDEX_DrvEnableSurface: i32 = 3i32;
+pub const INDEX_DrvEndDoc: i32 = 34i32;
+pub const INDEX_DrvEndDxInterop: i32 = 100i32;
+pub const INDEX_DrvEscape: i32 = 24i32;
+pub const INDEX_DrvFillPath: i32 = 15i32;
+pub const INDEX_DrvFontManagement: i32 = 47i32;
+pub const INDEX_DrvFree: i32 = 42i32;
+pub const INDEX_DrvGetDirectDrawInfo: i32 = 59i32;
+pub const INDEX_DrvGetGlyphMode: i32 = 37i32;
+pub const INDEX_DrvGetModes: i32 = 41i32;
+pub const INDEX_DrvGetSynthesizedFontFiles: i32 = 73i32;
+pub const INDEX_DrvGetTrueTypeFile: i32 = 50i32;
+pub const INDEX_DrvGradientFill: i32 = 68i32;
+pub const INDEX_DrvIcmCheckBitmapBits: i32 = 66i32;
+pub const INDEX_DrvIcmCreateColorTransform: i32 = 64i32;
+pub const INDEX_DrvIcmDeleteColorTransform: i32 = 65i32;
+pub const INDEX_DrvIcmSetDeviceGammaRamp: i32 = 67i32;
+pub const INDEX_DrvLineTo: i32 = 31i32;
+pub const INDEX_DrvLoadFontFile: i32 = 45i32;
+pub const INDEX_DrvLockDisplayArea: i32 = 101i32;
+pub const INDEX_DrvMovePanning: i32 = 52i32;
+pub const INDEX_DrvMovePointer: i32 = 30i32;
+pub const INDEX_DrvNextBand: i32 = 58i32;
+pub const INDEX_DrvNotify: i32 = 87i32;
+pub const INDEX_DrvOffset: i32 = 6i32;
+pub const INDEX_DrvPaint: i32 = 17i32;
+pub const INDEX_DrvPlgBlt: i32 = 70i32;
+pub const INDEX_DrvQueryAdvanceWidths: i32 = 53i32;
+pub const INDEX_DrvQueryDeviceSupport: i32 = 76i32;
+pub const INDEX_DrvQueryFont: i32 = 26i32;
+pub const INDEX_DrvQueryFontCaps: i32 = 44i32;
+pub const INDEX_DrvQueryFontData: i32 = 28i32;
+pub const INDEX_DrvQueryFontFile: i32 = 51i32;
+pub const INDEX_DrvQueryFontTree: i32 = 27i32;
+pub const INDEX_DrvQueryGlyphAttrs: i32 = 86i32;
+pub const INDEX_DrvQueryPerBandInfo: i32 = 75i32;
+pub const INDEX_DrvQuerySpoolType: i32 = 62i32;
+pub const INDEX_DrvQueryTrueTypeOutline: i32 = 49i32;
+pub const INDEX_DrvQueryTrueTypeTable: i32 = 48i32;
+pub const INDEX_DrvRealizeBrush: i32 = 12i32;
+pub const INDEX_DrvRenderHint: i32 = 93i32;
+pub const INDEX_DrvReserved1: i32 = 77i32;
+pub const INDEX_DrvReserved10: i32 = 91i32;
+pub const INDEX_DrvReserved11: i32 = 92i32;
+pub const INDEX_DrvReserved2: i32 = 78i32;
+pub const INDEX_DrvReserved3: i32 = 79i32;
+pub const INDEX_DrvReserved4: i32 = 80i32;
+pub const INDEX_DrvReserved5: i32 = 81i32;
+pub const INDEX_DrvReserved6: i32 = 82i32;
+pub const INDEX_DrvReserved7: i32 = 83i32;
+pub const INDEX_DrvReserved8: i32 = 84i32;
+pub const INDEX_DrvReserved9: i32 = 90i32;
+pub const INDEX_DrvResetDevice: i32 = 89i32;
+pub const INDEX_DrvResetPDEV: i32 = 7i32;
+pub const INDEX_DrvSaveScreenBits: i32 = 40i32;
+pub const INDEX_DrvSendPage: i32 = 32i32;
+pub const INDEX_DrvSetPalette: i32 = 22i32;
+pub const INDEX_DrvSetPixelFormat: i32 = 54i32;
+pub const INDEX_DrvSetPointerShape: i32 = 29i32;
+pub const INDEX_DrvStartBanding: i32 = 57i32;
+pub const INDEX_DrvStartDoc: i32 = 35i32;
+pub const INDEX_DrvStartDxInterop: i32 = 99i32;
+pub const INDEX_DrvStartPage: i32 = 33i32;
+pub const INDEX_DrvStretchBlt: i32 = 20i32;
+pub const INDEX_DrvStretchBltROP: i32 = 69i32;
+pub const INDEX_DrvStrokeAndFillPath: i32 = 16i32;
+pub const INDEX_DrvStrokePath: i32 = 14i32;
+pub const INDEX_DrvSurfaceComplete: i32 = 103i32;
+pub const INDEX_DrvSwapBuffers: i32 = 56i32;
+pub const INDEX_DrvSynchronize: i32 = 38i32;
+pub const INDEX_DrvSynchronizeRedirectionBitmaps: i32 = 97i32;
+pub const INDEX_DrvSynchronizeSurface: i32 = 88i32;
+pub const INDEX_DrvSynthesizeFont: i32 = 72i32;
+pub const INDEX_DrvTextOut: i32 = 23i32;
+pub const INDEX_DrvTransparentBlt: i32 = 74i32;
+pub const INDEX_DrvUnloadFontFile: i32 = 46i32;
+pub const INDEX_DrvUnlockDisplayArea: i32 = 102i32;
+pub const INDEX_LAST: i32 = 89i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct INDIRECT_DISPLAY_INFO {
@@ -1408,6 +1831,88 @@ pub struct INDIRECT_DISPLAY_INFO {
     pub NumMonitors: u32,
     pub DisplayAdapterTargetBase: u32,
 }
+pub const INDIRECT_DISPLAY_INFO_FLAGS_CREATED_IDDCX_ADAPTER: u32 = 1u32;
+pub const IOCTL_COLORSPACE_TRANSFORM_QUERY_TARGET_CAPS: u32 = 2297856u32;
+pub const IOCTL_COLORSPACE_TRANSFORM_SET: u32 = 2297860u32;
+pub const IOCTL_FSVIDEO_COPY_FRAME_BUFFER: u32 = 3409920u32;
+pub const IOCTL_FSVIDEO_REVERSE_MOUSE_POINTER: u32 = 3409928u32;
+pub const IOCTL_FSVIDEO_SET_CURRENT_MODE: u32 = 3409932u32;
+pub const IOCTL_FSVIDEO_SET_CURSOR_POSITION: u32 = 3409940u32;
+pub const IOCTL_FSVIDEO_SET_SCREEN_INFORMATION: u32 = 3409936u32;
+pub const IOCTL_FSVIDEO_WRITE_TO_FRAME_BUFFER: u32 = 3409924u32;
+pub const IOCTL_MIPI_DSI_QUERY_CAPS: u32 = 2298880u32;
+pub const IOCTL_MIPI_DSI_RESET: u32 = 2298888u32;
+pub const IOCTL_MIPI_DSI_TRANSMISSION: u32 = 2298884u32;
+pub const IOCTL_PANEL_GET_BACKLIGHT_REDUCTION: u32 = 2296856u32;
+pub const IOCTL_PANEL_GET_BRIGHTNESS: u32 = 2296840u32;
+pub const IOCTL_PANEL_GET_MANUFACTURING_MODE: u32 = 2296860u32;
+pub const IOCTL_PANEL_QUERY_BRIGHTNESS_CAPS: u32 = 2296832u32;
+pub const IOCTL_PANEL_QUERY_BRIGHTNESS_RANGES: u32 = 2296836u32;
+pub const IOCTL_PANEL_SET_BACKLIGHT_OPTIMIZATION: u32 = 2296852u32;
+pub const IOCTL_PANEL_SET_BRIGHTNESS: u32 = 2296844u32;
+pub const IOCTL_PANEL_SET_BRIGHTNESS_STATE: u32 = 2296848u32;
+pub const IOCTL_SET_ACTIVE_COLOR_PROFILE_NAME: u32 = 2297864u32;
+pub const IOCTL_VIDEO_DISABLE_CURSOR: u32 = 2294820u32;
+pub const IOCTL_VIDEO_DISABLE_POINTER: u32 = 2294844u32;
+pub const IOCTL_VIDEO_DISABLE_VDM: u32 = 2293764u32;
+pub const IOCTL_VIDEO_ENABLE_CURSOR: u32 = 2294816u32;
+pub const IOCTL_VIDEO_ENABLE_POINTER: u32 = 2294840u32;
+pub const IOCTL_VIDEO_ENABLE_VDM: u32 = 2293760u32;
+pub const IOCTL_VIDEO_ENUM_MONITOR_PDO: u32 = 2293784u32;
+pub const IOCTL_VIDEO_FREE_PUBLIC_ACCESS_RANGES: u32 = 2294884u32;
+pub const IOCTL_VIDEO_GET_BANK_SELECT_CODE: u32 = 2294868u32;
+pub const IOCTL_VIDEO_GET_CHILD_STATE: u32 = 2294912u32;
+pub const IOCTL_VIDEO_GET_OUTPUT_DEVICE_POWER_STATE: u32 = 2293776u32;
+pub const IOCTL_VIDEO_GET_POWER_MANAGEMENT: u32 = 2294896u32;
+pub const IOCTL_VIDEO_HANDLE_VIDEOPARAMETERS: u32 = 2293792u32;
+pub const IOCTL_VIDEO_INIT_WIN32K_CALLBACKS: u32 = 2293788u32;
+pub const IOCTL_VIDEO_IS_VGA_DEVICE: u32 = 2293796u32;
+pub const IOCTL_VIDEO_LOAD_AND_SET_FONT: u32 = 2294804u32;
+pub const IOCTL_VIDEO_MAP_VIDEO_MEMORY: u32 = 2294872u32;
+pub const IOCTL_VIDEO_MONITOR_DEVICE: u32 = 2293780u32;
+pub const IOCTL_VIDEO_PREPARE_FOR_EARECOVERY: u32 = 2293804u32;
+pub const IOCTL_VIDEO_QUERY_AVAIL_MODES: u32 = 2294784u32;
+pub const IOCTL_VIDEO_QUERY_COLOR_CAPABILITIES: u32 = 2294888u32;
+pub const IOCTL_VIDEO_QUERY_CURRENT_MODE: u32 = 2294792u32;
+pub const IOCTL_VIDEO_QUERY_CURSOR_ATTR: u32 = 2294828u32;
+pub const IOCTL_VIDEO_QUERY_CURSOR_POSITION: u32 = 2294836u32;
+pub const IOCTL_VIDEO_QUERY_DISPLAY_BRIGHTNESS: u32 = 2294936u32;
+pub const IOCTL_VIDEO_QUERY_NUM_AVAIL_MODES: u32 = 2294788u32;
+pub const IOCTL_VIDEO_QUERY_POINTER_ATTR: u32 = 2294852u32;
+pub const IOCTL_VIDEO_QUERY_POINTER_CAPABILITIES: u32 = 2294864u32;
+pub const IOCTL_VIDEO_QUERY_POINTER_POSITION: u32 = 2294860u32;
+pub const IOCTL_VIDEO_QUERY_PUBLIC_ACCESS_RANGES: u32 = 2294880u32;
+pub const IOCTL_VIDEO_QUERY_SUPPORTED_BRIGHTNESS: u32 = 2294932u32;
+pub const IOCTL_VIDEO_REGISTER_VDM: u32 = 2293768u32;
+pub const IOCTL_VIDEO_RESET_DEVICE: u32 = 2294800u32;
+pub const IOCTL_VIDEO_RESTORE_HARDWARE_STATE: u32 = 2294276u32;
+pub const IOCTL_VIDEO_SAVE_HARDWARE_STATE: u32 = 2294272u32;
+pub const IOCTL_VIDEO_SET_BANK_POSITION: u32 = 2294928u32;
+pub const IOCTL_VIDEO_SET_CHILD_STATE_CONFIGURATION: u32 = 2294920u32;
+pub const IOCTL_VIDEO_SET_COLOR_LUT_DATA: u32 = 2294908u32;
+pub const IOCTL_VIDEO_SET_COLOR_REGISTERS: u32 = 2294812u32;
+pub const IOCTL_VIDEO_SET_CURRENT_MODE: u32 = 2294796u32;
+pub const IOCTL_VIDEO_SET_CURSOR_ATTR: u32 = 2294824u32;
+pub const IOCTL_VIDEO_SET_CURSOR_POSITION: u32 = 2294832u32;
+pub const IOCTL_VIDEO_SET_DISPLAY_BRIGHTNESS: u32 = 2294940u32;
+pub const IOCTL_VIDEO_SET_OUTPUT_DEVICE_POWER_STATE: u32 = 2293772u32;
+pub const IOCTL_VIDEO_SET_PALETTE_REGISTERS: u32 = 2294808u32;
+pub const IOCTL_VIDEO_SET_POINTER_ATTR: u32 = 2294848u32;
+pub const IOCTL_VIDEO_SET_POINTER_POSITION: u32 = 2294856u32;
+pub const IOCTL_VIDEO_SET_POWER_MANAGEMENT: u32 = 2294892u32;
+pub const IOCTL_VIDEO_SHARE_VIDEO_MEMORY: u32 = 2294900u32;
+pub const IOCTL_VIDEO_SWITCH_DUALVIEW: u32 = 2294924u32;
+pub const IOCTL_VIDEO_UNMAP_VIDEO_MEMORY: u32 = 2294876u32;
+pub const IOCTL_VIDEO_UNSHARE_VIDEO_MEMORY: u32 = 2294904u32;
+pub const IOCTL_VIDEO_USE_DEVICE_IN_SESSION: u32 = 2293800u32;
+pub const IOCTL_VIDEO_VALIDATE_CHILD_STATE_CONFIGURATION: u32 = 2294916u32;
+pub const JOIN_BEVEL: i32 = 1i32;
+pub const JOIN_MITER: i32 = 2i32;
+pub const JOIN_ROUND: i32 = 0i32;
+pub const LA_ALTERNATE: u32 = 2u32;
+pub const LA_GEOMETRIC: u32 = 1u32;
+pub const LA_STARTGAP: u32 = 4u32;
+pub const LA_STYLED: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LIGATURE {
@@ -1415,19 +1920,6 @@ pub struct LIGATURE {
     pub pwsz: windows_sys::core::PWSTR,
     pub chglyph: u32,
     pub ahglyph: [u32; 1],
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct LINEATTRS {
-    pub fl: u32,
-    pub iJoin: u32,
-    pub iEndCap: u32,
-    pub elWidth: FLOAT_LONG,
-    pub eMiterLimit: f32,
-    pub cstyle: u32,
-    pub pstyle: *mut FLOAT_LONG,
-    pub elStyleState: FLOAT_LONG,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -1442,6 +1934,77 @@ pub struct LINEATTRS {
     pub pstyle: *mut FLOAT_LONG,
     pub elStyleState: FLOAT_LONG,
 }
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct LINEATTRS {
+    pub fl: u32,
+    pub iJoin: u32,
+    pub iEndCap: u32,
+    pub elWidth: FLOAT_LONG,
+    pub eMiterLimit: f32,
+    pub cstyle: u32,
+    pub pstyle: *mut FLOAT_LONG,
+    pub elStyleState: FLOAT_LONG,
+}
+pub const MAXCHARSETS: u32 = 16u32;
+pub const MAX_PACKET_COUNT: u32 = 128u32;
+pub const MC_APERTURE_GRILL_CATHODE_RAY_TUBE: MC_DISPLAY_TECHNOLOGY_TYPE = 1i32;
+pub const MC_BLUE_DRIVE: MC_DRIVE_TYPE = 2i32;
+pub const MC_BLUE_GAIN: MC_GAIN_TYPE = 2i32;
+pub const MC_CAPS_BRIGHTNESS: u32 = 2u32;
+pub const MC_CAPS_COLOR_TEMPERATURE: u32 = 8u32;
+pub const MC_CAPS_CONTRAST: u32 = 4u32;
+pub const MC_CAPS_DEGAUSS: u32 = 64u32;
+pub const MC_CAPS_DISPLAY_AREA_POSITION: u32 = 128u32;
+pub const MC_CAPS_DISPLAY_AREA_SIZE: u32 = 256u32;
+pub const MC_CAPS_MONITOR_TECHNOLOGY_TYPE: u32 = 1u32;
+pub const MC_CAPS_NONE: u32 = 0u32;
+pub const MC_CAPS_RED_GREEN_BLUE_DRIVE: u32 = 32u32;
+pub const MC_CAPS_RED_GREEN_BLUE_GAIN: u32 = 16u32;
+pub const MC_CAPS_RESTORE_FACTORY_COLOR_DEFAULTS: u32 = 2048u32;
+pub const MC_CAPS_RESTORE_FACTORY_DEFAULTS: u32 = 1024u32;
+pub type MC_COLOR_TEMPERATURE = i32;
+pub const MC_COLOR_TEMPERATURE_10000K: MC_COLOR_TEMPERATURE = 7i32;
+pub const MC_COLOR_TEMPERATURE_11500K: MC_COLOR_TEMPERATURE = 8i32;
+pub const MC_COLOR_TEMPERATURE_4000K: MC_COLOR_TEMPERATURE = 1i32;
+pub const MC_COLOR_TEMPERATURE_5000K: MC_COLOR_TEMPERATURE = 2i32;
+pub const MC_COLOR_TEMPERATURE_6500K: MC_COLOR_TEMPERATURE = 3i32;
+pub const MC_COLOR_TEMPERATURE_7500K: MC_COLOR_TEMPERATURE = 4i32;
+pub const MC_COLOR_TEMPERATURE_8200K: MC_COLOR_TEMPERATURE = 5i32;
+pub const MC_COLOR_TEMPERATURE_9300K: MC_COLOR_TEMPERATURE = 6i32;
+pub const MC_COLOR_TEMPERATURE_UNKNOWN: MC_COLOR_TEMPERATURE = 0i32;
+pub type MC_DISPLAY_TECHNOLOGY_TYPE = i32;
+pub type MC_DRIVE_TYPE = i32;
+pub const MC_ELECTROLUMINESCENT: MC_DISPLAY_TECHNOLOGY_TYPE = 6i32;
+pub const MC_FIELD_EMISSION_DEVICE: MC_DISPLAY_TECHNOLOGY_TYPE = 8i32;
+pub type MC_GAIN_TYPE = i32;
+pub const MC_GREEN_DRIVE: MC_DRIVE_TYPE = 1i32;
+pub const MC_GREEN_GAIN: MC_GAIN_TYPE = 1i32;
+pub const MC_HEIGHT: MC_SIZE_TYPE = 1i32;
+pub const MC_HORIZONTAL_POSITION: MC_POSITION_TYPE = 0i32;
+pub const MC_LIQUID_CRYSTAL_ON_SILICON: MC_DISPLAY_TECHNOLOGY_TYPE = 3i32;
+pub const MC_MICROELECTROMECHANICAL: MC_DISPLAY_TECHNOLOGY_TYPE = 7i32;
+pub const MC_MOMENTARY: MC_VCP_CODE_TYPE = 0i32;
+pub const MC_ORGANIC_LIGHT_EMITTING_DIODE: MC_DISPLAY_TECHNOLOGY_TYPE = 5i32;
+pub const MC_PLASMA: MC_DISPLAY_TECHNOLOGY_TYPE = 4i32;
+pub type MC_POSITION_TYPE = i32;
+pub const MC_RED_DRIVE: MC_DRIVE_TYPE = 0i32;
+pub const MC_RED_GAIN: MC_GAIN_TYPE = 0i32;
+pub const MC_RESTORE_FACTORY_DEFAULTS_ENABLES_MONITOR_SETTINGS: u32 = 4096u32;
+pub const MC_SET_PARAMETER: MC_VCP_CODE_TYPE = 1i32;
+pub const MC_SHADOW_MASK_CATHODE_RAY_TUBE: MC_DISPLAY_TECHNOLOGY_TYPE = 0i32;
+pub type MC_SIZE_TYPE = i32;
+pub const MC_SUPPORTED_COLOR_TEMPERATURE_10000K: u32 = 64u32;
+pub const MC_SUPPORTED_COLOR_TEMPERATURE_11500K: u32 = 128u32;
+pub const MC_SUPPORTED_COLOR_TEMPERATURE_4000K: u32 = 1u32;
+pub const MC_SUPPORTED_COLOR_TEMPERATURE_5000K: u32 = 2u32;
+pub const MC_SUPPORTED_COLOR_TEMPERATURE_6500K: u32 = 4u32;
+pub const MC_SUPPORTED_COLOR_TEMPERATURE_7500K: u32 = 8u32;
+pub const MC_SUPPORTED_COLOR_TEMPERATURE_8200K: u32 = 16u32;
+pub const MC_SUPPORTED_COLOR_TEMPERATURE_9300K: u32 = 32u32;
+pub const MC_SUPPORTED_COLOR_TEMPERATURE_NONE: u32 = 0u32;
+pub const MC_THIN_FILM_TRANSISTOR: MC_DISPLAY_TECHNOLOGY_TYPE = 2i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MC_TIMING_REPORT {
@@ -1449,6 +2012,9 @@ pub struct MC_TIMING_REPORT {
     pub dwVerticalFrequencyInHZ: u32,
     pub bTimingStatusByte: u8,
 }
+pub type MC_VCP_CODE_TYPE = i32;
+pub const MC_VERTICAL_POSITION: MC_POSITION_TYPE = 1i32;
+pub const MC_WIDTH: MC_SIZE_TYPE = 0i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIPI_DSI_CAPS {
@@ -1537,6 +2103,34 @@ pub struct MIPI_DSI_TRANSMISSION {
 pub struct MIPI_DSI_TRANSMISSION_0 {
     pub _bitfield: u16,
 }
+pub const MS_CDDDEVICEBITMAP: u32 = 4u32;
+pub const MS_NOTSYSTEMMEMORY: u32 = 1u32;
+pub const MS_REUSEDDEVICEBITMAP: u32 = 8u32;
+pub const MS_SHAREDACCESS: u32 = 2u32;
+pub const NumVideoBankTypes: VIDEO_BANK_TYPE = 4i32;
+pub const OC_BANK_CLIP: u32 = 1u32;
+pub const OPENGL_CMD: u32 = 4352u32;
+pub const OPENGL_GETINFO: u32 = 4353u32;
+pub type ORIENTATION_PREFERENCE = i32;
+pub const ORIENTATION_PREFERENCE_LANDSCAPE: ORIENTATION_PREFERENCE = 1i32;
+pub const ORIENTATION_PREFERENCE_LANDSCAPE_FLIPPED: ORIENTATION_PREFERENCE = 4i32;
+pub const ORIENTATION_PREFERENCE_NONE: ORIENTATION_PREFERENCE = 0i32;
+pub const ORIENTATION_PREFERENCE_PORTRAIT: ORIENTATION_PREFERENCE = 2i32;
+pub const ORIENTATION_PREFERENCE_PORTRAIT_FLIPPED: ORIENTATION_PREFERENCE = 8i32;
+pub type OUTPUT_COLOR_ENCODING = i32;
+pub const OUTPUT_COLOR_ENCODING_INTENSITY: OUTPUT_COLOR_ENCODING = 4i32;
+pub const OUTPUT_COLOR_ENCODING_RGB: OUTPUT_COLOR_ENCODING = 0i32;
+pub const OUTPUT_COLOR_ENCODING_YCBCR420: OUTPUT_COLOR_ENCODING = 3i32;
+pub const OUTPUT_COLOR_ENCODING_YCBCR422: OUTPUT_COLOR_ENCODING = 2i32;
+pub const OUTPUT_COLOR_ENCODING_YCBCR444: OUTPUT_COLOR_ENCODING = 1i32;
+pub const OUTPUT_WIRE_COLOR_SPACE_G2084_P2020: OUTPUT_WIRE_COLOR_SPACE_TYPE = 12i32;
+pub const OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_DVLL: OUTPUT_WIRE_COLOR_SPACE_TYPE = 33i32;
+pub const OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_HDR10PLUS: OUTPUT_WIRE_COLOR_SPACE_TYPE = 32i32;
+pub const OUTPUT_WIRE_COLOR_SPACE_G22_P2020: OUTPUT_WIRE_COLOR_SPACE_TYPE = 31i32;
+pub const OUTPUT_WIRE_COLOR_SPACE_G22_P709: OUTPUT_WIRE_COLOR_SPACE_TYPE = 0i32;
+pub const OUTPUT_WIRE_COLOR_SPACE_G22_P709_WCG: OUTPUT_WIRE_COLOR_SPACE_TYPE = 30i32;
+pub const OUTPUT_WIRE_COLOR_SPACE_RESERVED: OUTPUT_WIRE_COLOR_SPACE_TYPE = 4i32;
+pub type OUTPUT_WIRE_COLOR_SPACE_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OUTPUT_WIRE_FORMAT {
@@ -1548,6 +2142,11 @@ pub struct OUTPUT_WIRE_FORMAT {
 pub struct PALOBJ {
     pub ulReserved: u32,
 }
+pub const PAL_BGR: u32 = 8u32;
+pub const PAL_BITFIELDS: u32 = 2u32;
+pub const PAL_CMYK: u32 = 16u32;
+pub const PAL_INDEXED: u32 = 1u32;
+pub const PAL_RGB: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PANEL_BRIGHTNESS_SENSOR_DATA {
@@ -1674,6 +2273,11 @@ pub struct PATHOBJ {
     pub fl: u32,
     pub cCurves: u32,
 }
+pub const PD_BEGINSUBPATH: u32 = 1u32;
+pub const PD_BEZIERS: u32 = 16u32;
+pub const PD_CLOSEFIGURE: u32 = 8u32;
+pub const PD_ENDSUBPATH: u32 = 2u32;
+pub const PD_RESETSTYLE: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PERBANDINFO {
@@ -1682,11 +2286,126 @@ pub struct PERBANDINFO {
     pub ulHorzRes: u32,
     pub ulVertRes: u32,
 }
+pub type PFN = Option<unsafe extern "system" fn() -> isize>;
+pub type PFN_DrvAccumulateD3DDirtyRect = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CDDDXGK_REDIRBITMAPPRESENTINFO) -> super::super::Foundation::BOOL>;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type PFN_DrvAlphaBlend = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut CLIPOBJ, param3: *mut XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::RECTL, param6: *mut BLENDOBJ) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvAssertMode = Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvAssociateSharedSurface = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: super::super::Foundation::HANDLE, param2: super::super::Foundation::HANDLE, param3: super::super::Foundation::SIZE) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvBitBlt = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Foundation::RECTL, param6: *mut super::super::Foundation::POINTL, param7: *mut super::super::Foundation::POINTL, param8: *mut BRUSHOBJ, param9: *mut super::super::Foundation::POINTL, param10: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvCompletePDEV = Option<unsafe extern "system" fn(param0: DHPDEV, param1: HDEV)>;
+pub type PFN_DrvCopyBits = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut CLIPOBJ, param3: *mut XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL>;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type PFN_DrvCreateDeviceBitmap = Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::SIZE, param2: u32) -> super::super::Graphics::Gdi::HBITMAP>;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type PFN_DrvCreateDeviceBitmapEx = Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::SIZE, param2: u32, param3: u32, param4: DHSURF, param5: u32, param6: u32, param7: *mut super::super::Foundation::HANDLE) -> super::super::Graphics::Gdi::HBITMAP>;
+pub type PFN_DrvDeleteDeviceBitmap = Option<unsafe extern "system" fn(param0: DHSURF)>;
+pub type PFN_DrvDeleteDeviceBitmapEx = Option<unsafe extern "system" fn(param0: DHSURF)>;
+#[cfg(feature = "Win32_Graphics_OpenGL")]
+pub type PFN_DrvDescribePixelFormat = Option<unsafe extern "system" fn(param0: DHPDEV, param1: i32, param2: u32, param3: *mut super::super::Graphics::OpenGL::PIXELFORMATDESCRIPTOR) -> i32>;
+pub type PFN_DrvDestroyFont = Option<unsafe extern "system" fn(param0: *mut FONTOBJ)>;
+pub type PFN_DrvDisableDirectDraw = Option<unsafe extern "system" fn(param0: DHPDEV)>;
+pub type PFN_DrvDisableDriver = Option<unsafe extern "system" fn()>;
+pub type PFN_DrvDisablePDEV = Option<unsafe extern "system" fn(param0: DHPDEV)>;
+pub type PFN_DrvDisableSurface = Option<unsafe extern "system" fn(param0: DHPDEV)>;
+pub type PFN_DrvDitherColor = Option<unsafe extern "system" fn(param0: DHPDEV, param1: u32, param2: u32, param3: *mut u32) -> u32>;
+pub type PFN_DrvDrawEscape = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: *mut CLIPOBJ, param3: *mut super::super::Foundation::RECTL, param4: u32, param5: *mut core::ffi::c_void) -> u32>;
+pub type PFN_DrvEnableDriver = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: *mut DRVENABLEDATA) -> super::super::Foundation::BOOL>;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type PFN_DrvEnablePDEV = Option<unsafe extern "system" fn(param0: *mut super::super::Graphics::Gdi::DEVMODEW, param1: windows_sys::core::PCWSTR, param2: u32, param3: *mut HSURF, param4: u32, param5: *mut GDIINFO, param6: u32, param7: *mut DEVINFO, param8: HDEV, param9: windows_sys::core::PCWSTR, param10: super::super::Foundation::HANDLE) -> DHPDEV>;
+pub type PFN_DrvEnableSurface = Option<unsafe extern "system" fn(param0: DHPDEV) -> HSURF>;
+pub type PFN_DrvEndDoc = Option<unsafe extern "system" fn(pso: *mut SURFOBJ, fl: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvEndDxInterop = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: super::super::Foundation::BOOL, param2: *mut super::super::Foundation::BOOL, kernelmodedevicehandle: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvEscape = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: u32, param3: *mut core::ffi::c_void, param4: u32, param5: *mut core::ffi::c_void) -> u32>;
+pub type PFN_DrvFillPath = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut PATHOBJ, param2: *mut CLIPOBJ, param3: *mut BRUSHOBJ, param4: *mut super::super::Foundation::POINTL, param5: u32, param6: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvFontManagement = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut FONTOBJ, param2: u32, param3: u32, param4: *mut core::ffi::c_void, param5: u32, param6: *mut core::ffi::c_void) -> u32>;
+pub type PFN_DrvFree = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: usize)>;
+pub type PFN_DrvGetGlyphMode = Option<unsafe extern "system" fn(dhpdev: DHPDEV, pfo: *mut FONTOBJ) -> u32>;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type PFN_DrvGetModes = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: *mut super::super::Graphics::Gdi::DEVMODEW) -> u32>;
+pub type PFN_DrvGetTrueTypeFile = Option<unsafe extern "system" fn(param0: usize, param1: *mut u32) -> *mut core::ffi::c_void>;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type PFN_DrvGradientFill = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CLIPOBJ, param2: *mut XLATEOBJ, param3: *mut super::super::Graphics::Gdi::TRIVERTEX, param4: u32, param5: *mut core::ffi::c_void, param6: u32, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::POINTL, param9: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvIcmCheckBitmapBits = Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE, param2: *mut SURFOBJ, param3: *mut u8) -> super::super::Foundation::BOOL>;
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_ColorSystem"))]
+pub type PFN_DrvIcmCreateColorTransform = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::UI::ColorSystem::LOGCOLORSPACEW, param2: *mut core::ffi::c_void, param3: u32, param4: *mut core::ffi::c_void, param5: u32, param6: *mut core::ffi::c_void, param7: u32, param8: u32) -> super::super::Foundation::HANDLE>;
+pub type PFN_DrvIcmDeleteColorTransform = Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvIcmSetDeviceGammaRamp = Option<unsafe extern "system" fn(param0: DHPDEV, param1: u32, param2: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvLineTo = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CLIPOBJ, param2: *mut BRUSHOBJ, param3: i32, param4: i32, param5: i32, param6: i32, param7: *mut super::super::Foundation::RECTL, param8: u32) -> super::super::Foundation::BOOL>;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type PFN_DrvLoadFontFile = Option<unsafe extern "system" fn(param0: u32, param1: *mut usize, param2: *mut *mut core::ffi::c_void, param3: *mut u32, param4: *mut super::super::Graphics::Gdi::DESIGNVECTOR, param5: u32, param6: u32) -> usize>;
+pub type PFN_DrvLockDisplayArea = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL)>;
+pub type PFN_DrvMovePointer = Option<unsafe extern "system" fn(pso: *mut SURFOBJ, x: i32, y: i32, prcl: *mut super::super::Foundation::RECTL)>;
+pub type PFN_DrvNextBand = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, ppointl: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvNotify = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: *mut core::ffi::c_void)>;
+pub type PFN_DrvPaint = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CLIPOBJ, param2: *mut BRUSHOBJ, param3: *mut super::super::Foundation::POINTL, param4: u32) -> super::super::Foundation::BOOL>;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type PFN_DrvPlgBlt = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, param6: *mut super::super::Foundation::POINTL, param7: *mut POINTFIX, param8: *mut super::super::Foundation::RECTL, param9: *mut super::super::Foundation::POINTL, param10: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvQueryAdvanceWidths = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut FONTOBJ, param2: u32, param3: *mut u32, param4: *mut core::ffi::c_void, param5: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvQueryDeviceSupport = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut XLATEOBJ, param2: *mut XFORMOBJ, param3: u32, param4: u32, param5: *mut core::ffi::c_void, param6: u32, param7: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type PFN_DrvQueryFont = Option<unsafe extern "system" fn(param0: DHPDEV, param1: usize, param2: u32, param3: *mut usize) -> *mut IFIMETRICS>;
+pub type PFN_DrvQueryFontCaps = Option<unsafe extern "system" fn(param0: u32, param1: *mut u32) -> i32>;
+pub type PFN_DrvQueryFontData = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut FONTOBJ, param2: u32, param3: u32, param4: *mut GLYPHDATA, param5: *mut core::ffi::c_void, param6: u32) -> i32>;
+pub type PFN_DrvQueryFontFile = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: u32, param3: *mut u32) -> i32>;
+pub type PFN_DrvQueryFontTree = Option<unsafe extern "system" fn(param0: DHPDEV, param1: usize, param2: u32, param3: u32, param4: *mut usize) -> *mut core::ffi::c_void>;
+pub type PFN_DrvQueryGlyphAttrs = Option<unsafe extern "system" fn(param0: *mut FONTOBJ, param1: u32) -> *mut FD_GLYPHATTR>;
+pub type PFN_DrvQueryPerBandInfo = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut PERBANDINFO) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvQuerySpoolType = Option<unsafe extern "system" fn(dhpdev: DHPDEV, pwchtype: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type PFN_DrvQueryTrueTypeOutline = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut FONTOBJ, param2: u32, param3: super::super::Foundation::BOOL, param4: *mut GLYPHDATA, param5: u32, param6: *mut super::super::Graphics::Gdi::TTPOLYGONHEADER) -> i32>;
+pub type PFN_DrvQueryTrueTypeSection = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: u32, param3: *mut super::super::Foundation::HANDLE, param4: *mut i32) -> i32>;
+pub type PFN_DrvQueryTrueTypeTable = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: u32, param3: i32, param4: u32, param5: *mut u8, param6: *mut *mut u8, param7: *mut u32) -> i32>;
+pub type PFN_DrvRealizeBrush = Option<unsafe extern "system" fn(param0: *mut BRUSHOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut SURFOBJ, param4: *mut XLATEOBJ, param5: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvRenderHint = Option<unsafe extern "system" fn(dhpdev: DHPDEV, notifycode: u32, length: usize, data: *const core::ffi::c_void) -> i32>;
+pub type PFN_DrvResetDevice = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut core::ffi::c_void) -> u32>;
+pub type PFN_DrvResetPDEV = Option<unsafe extern "system" fn(dhpdevold: DHPDEV, dhpdevnew: DHPDEV) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvSaveScreenBits = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: usize, param3: *mut super::super::Foundation::RECTL) -> usize>;
+pub type PFN_DrvSendPage = Option<unsafe extern "system" fn(param0: *mut SURFOBJ) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvSetPalette = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut PALOBJ, param2: u32, param3: u32, param4: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvSetPixelFormat = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: i32, param2: super::super::Foundation::HWND) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvSetPointerShape = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut XLATEOBJ, param4: i32, param5: i32, param6: i32, param7: i32, param8: *mut super::super::Foundation::RECTL, param9: u32) -> u32>;
+pub type PFN_DrvStartBanding = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, ppointl: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvStartDoc = Option<unsafe extern "system" fn(pso: *mut SURFOBJ, pwszdocname: windows_sys::core::PCWSTR, dwjobid: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvStartDxInterop = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: super::super::Foundation::BOOL, kernelmodedevicehandle: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvStartPage = Option<unsafe extern "system" fn(pso: *mut SURFOBJ) -> super::super::Foundation::BOOL>;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type PFN_DrvStretchBlt = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, param6: *mut super::super::Foundation::POINTL, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::RECTL, param9: *mut super::super::Foundation::POINTL, param10: u32) -> super::super::Foundation::BOOL>;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type PFN_DrvStretchBltROP = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, param6: *mut super::super::Foundation::POINTL, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::RECTL, param9: *mut super::super::Foundation::POINTL, param10: u32, param11: *mut BRUSHOBJ, param12: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvStrokeAndFillPath = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut PATHOBJ, param2: *mut CLIPOBJ, param3: *mut XFORMOBJ, param4: *mut BRUSHOBJ, param5: *mut LINEATTRS, param6: *mut BRUSHOBJ, param7: *mut super::super::Foundation::POINTL, param8: u32, param9: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvStrokePath = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut PATHOBJ, param2: *mut CLIPOBJ, param3: *mut XFORMOBJ, param4: *mut BRUSHOBJ, param5: *mut super::super::Foundation::POINTL, param6: *mut LINEATTRS, param7: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvSurfaceComplete = Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvSwapBuffers = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut WNDOBJ) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvSynchronize = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL)>;
+pub type PFN_DrvSynchronizeRedirectionBitmaps = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut u64) -> super::super::Foundation::NTSTATUS>;
+pub type PFN_DrvSynchronizeSurface = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut super::super::Foundation::RECTL, param2: u32)>;
+pub type PFN_DrvTextOut = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut STROBJ, param2: *mut FONTOBJ, param3: *mut CLIPOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::RECTL, param6: *mut BRUSHOBJ, param7: *mut BRUSHOBJ, param8: *mut super::super::Foundation::POINTL, param9: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvTransparentBlt = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut CLIPOBJ, param3: *mut XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::RECTL, param6: u32, param7: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvUnloadFontFile = Option<unsafe extern "system" fn(param0: usize) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvUnlockDisplayArea = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL)>;
+pub type PFN_EngCombineRgn = Option<unsafe extern "system" fn(hrgntrg: super::super::Foundation::HANDLE, hrgnsrc1: super::super::Foundation::HANDLE, hrgnsrc2: super::super::Foundation::HANDLE, imode: i32) -> i32>;
+pub type PFN_EngCopyRgn = Option<unsafe extern "system" fn(hrgndst: super::super::Foundation::HANDLE, hrgnsrc: super::super::Foundation::HANDLE) -> i32>;
+pub type PFN_EngCreateRectRgn = Option<unsafe extern "system" fn(left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::HANDLE>;
+pub type PFN_EngDeleteRgn = Option<unsafe extern "system" fn(hrgn: super::super::Foundation::HANDLE)>;
+pub type PFN_EngIntersectRgn = Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
+pub type PFN_EngSubtractRgn = Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
+pub type PFN_EngUnionRgn = Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
+pub type PFN_EngXorRgn = Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct PHYSICAL_MONITOR {
     pub hPhysicalMonitor: super::super::Foundation::HANDLE,
     pub szPhysicalMonitorDescription: [u16; 128],
+}
+pub const PHYSICAL_MONITOR_DESCRIPTION_SIZE: u32 = 128u32;
+pub const PLANAR_HC: u32 = 1u32;
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct POINTE {
+    pub x: u32,
+    pub y: u32,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -1694,13 +2413,6 @@ pub struct PHYSICAL_MONITOR {
 pub struct POINTE {
     pub x: f32,
     pub y: f32,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct POINTE {
-    pub x: u32,
-    pub y: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1714,6 +2426,63 @@ pub struct POINTQF {
     pub x: i64,
     pub y: i64,
 }
+pub const PO_ALL_INTEGERS: u32 = 4u32;
+pub const PO_BEZIERS: u32 = 1u32;
+pub const PO_ELLIPSE: u32 = 2u32;
+pub const PO_ENUM_AS_INTEGERS: u32 = 8u32;
+pub const PO_WIDENED: u32 = 16u32;
+pub const PPC_BGR_ORDER_HORIZONTAL_STRIPES: u32 = 5u32;
+pub const PPC_BGR_ORDER_VERTICAL_STRIPES: u32 = 3u32;
+pub const PPC_DEFAULT: u32 = 0u32;
+pub const PPC_RGB_ORDER_HORIZONTAL_STRIPES: u32 = 4u32;
+pub const PPC_RGB_ORDER_VERTICAL_STRIPES: u32 = 2u32;
+pub const PPC_UNDEFINED: u32 = 1u32;
+pub const PPG_DEFAULT: u32 = 0u32;
+pub const PPG_SRGB: u32 = 1u32;
+pub const PRIMARY_ORDER_ABC: u32 = 0u32;
+pub const PRIMARY_ORDER_ACB: u32 = 1u32;
+pub const PRIMARY_ORDER_BAC: u32 = 2u32;
+pub const PRIMARY_ORDER_BCA: u32 = 3u32;
+pub const PRIMARY_ORDER_CAB: u32 = 5u32;
+pub const PRIMARY_ORDER_CBA: u32 = 4u32;
+pub type PVIDEO_WIN32K_CALLOUT = Option<unsafe extern "system" fn(params: *const core::ffi::c_void)>;
+pub const QAW_GETEASYWIDTHS: u32 = 1u32;
+pub const QAW_GETWIDTHS: u32 = 0u32;
+pub const QC_1BIT: u32 = 2u32;
+pub const QC_4BIT: u32 = 4u32;
+pub const QC_OUTLINES: u32 = 1u32;
+pub const QDA_ACCELERATION_LEVEL: ENG_DEVICE_ATTRIBUTE = 1i32;
+pub const QDA_RESERVED: ENG_DEVICE_ATTRIBUTE = 0i32;
+pub const QDC_ALL_PATHS: QUERY_DISPLAY_CONFIG_FLAGS = 1u32;
+pub const QDC_DATABASE_CURRENT: QUERY_DISPLAY_CONFIG_FLAGS = 4u32;
+pub const QDC_INCLUDE_HMD: QUERY_DISPLAY_CONFIG_FLAGS = 32u32;
+pub const QDC_ONLY_ACTIVE_PATHS: QUERY_DISPLAY_CONFIG_FLAGS = 2u32;
+pub const QDC_VIRTUAL_MODE_AWARE: QUERY_DISPLAY_CONFIG_FLAGS = 16u32;
+pub const QDC_VIRTUAL_REFRESH_RATE_AWARE: QUERY_DISPLAY_CONFIG_FLAGS = 64u32;
+pub const QDS_CHECKJPEGFORMAT: u32 = 0u32;
+pub const QDS_CHECKPNGFORMAT: u32 = 1u32;
+pub const QFD_GLYPHANDBITMAP: i32 = 1i32;
+pub const QFD_GLYPHANDOUTLINE: i32 = 2i32;
+pub const QFD_MAXEXTENTS: i32 = 3i32;
+pub const QFD_TT_GLYPHANDBITMAP: i32 = 4i32;
+pub const QFD_TT_GRAY1_BITMAP: i32 = 5i32;
+pub const QFD_TT_GRAY2_BITMAP: i32 = 6i32;
+pub const QFD_TT_GRAY4_BITMAP: i32 = 8i32;
+pub const QFD_TT_GRAY8_BITMAP: i32 = 9i32;
+pub const QFD_TT_MONO_BITMAP: i32 = 5i32;
+pub const QFF_DESCRIPTION: i32 = 1i32;
+pub const QFF_NUMFACES: i32 = 2i32;
+pub const QFT_GLYPHSET: i32 = 3i32;
+pub const QFT_KERNPAIRS: i32 = 2i32;
+pub const QFT_LIGATURES: i32 = 1i32;
+pub const QSA_3DNOW: u32 = 16384u32;
+pub const QSA_MMX: u32 = 256u32;
+pub const QSA_SSE: u32 = 8192u32;
+pub const QSA_SSE1: u32 = 8192u32;
+pub const QSA_SSE2: u32 = 65536u32;
+pub const QSA_SSE3: u32 = 524288u32;
+pub type QUERY_DISPLAY_CONFIG_FLAGS = u32;
+pub const RB_DITHERCOLOR: i32 = -2147483648i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RECTFX {
@@ -1728,11 +2497,65 @@ pub struct RUN {
     pub iStart: i32,
     pub iStop: i32,
 }
+pub const SDC_ALLOW_CHANGES: SET_DISPLAY_CONFIG_FLAGS = 1024u32;
+pub const SDC_ALLOW_PATH_ORDER_CHANGES: SET_DISPLAY_CONFIG_FLAGS = 8192u32;
+pub const SDC_APPLY: SET_DISPLAY_CONFIG_FLAGS = 128u32;
+pub const SDC_FORCE_MODE_ENUMERATION: SET_DISPLAY_CONFIG_FLAGS = 4096u32;
+pub const SDC_NO_OPTIMIZATION: SET_DISPLAY_CONFIG_FLAGS = 256u32;
+pub const SDC_PATH_PERSIST_IF_REQUIRED: SET_DISPLAY_CONFIG_FLAGS = 2048u32;
+pub const SDC_SAVE_TO_DATABASE: SET_DISPLAY_CONFIG_FLAGS = 512u32;
+pub const SDC_TOPOLOGY_CLONE: SET_DISPLAY_CONFIG_FLAGS = 2u32;
+pub const SDC_TOPOLOGY_EXTEND: SET_DISPLAY_CONFIG_FLAGS = 4u32;
+pub const SDC_TOPOLOGY_EXTERNAL: SET_DISPLAY_CONFIG_FLAGS = 8u32;
+pub const SDC_TOPOLOGY_INTERNAL: SET_DISPLAY_CONFIG_FLAGS = 1u32;
+pub const SDC_TOPOLOGY_SUPPLIED: SET_DISPLAY_CONFIG_FLAGS = 16u32;
+pub const SDC_USE_DATABASE_CURRENT: SET_DISPLAY_CONFIG_FLAGS = 15u32;
+pub const SDC_USE_SUPPLIED_DISPLAY_CONFIG: SET_DISPLAY_CONFIG_FLAGS = 32u32;
+pub const SDC_VALIDATE: SET_DISPLAY_CONFIG_FLAGS = 64u32;
+pub const SDC_VIRTUAL_MODE_AWARE: SET_DISPLAY_CONFIG_FLAGS = 32768u32;
+pub const SDC_VIRTUAL_REFRESH_RATE_AWARE: SET_DISPLAY_CONFIG_FLAGS = 131072u32;
+pub const SETCONFIGURATION_STATUS_ADDITIONAL: u32 = 1u32;
+pub const SETCONFIGURATION_STATUS_APPLIED: u32 = 0u32;
+pub const SETCONFIGURATION_STATUS_OVERRIDDEN: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SET_ACTIVE_COLOR_PROFILE_NAME {
     pub ColorProfileName: [u16; 1],
 }
+pub type SET_DISPLAY_CONFIG_FLAGS = u32;
+pub const SGI_EXTRASPACE: u32 = 0u32;
+pub type SORTCOMP = Option<unsafe extern "system" fn(pv1: *const core::ffi::c_void, pv2: *const core::ffi::c_void) -> i32>;
+pub const SO_BREAK_EXTRA: u32 = 4096u32;
+pub const SO_CHARACTER_EXTRA: u32 = 2048u32;
+pub const SO_CHAR_INC_EQUAL_BM_BASE: u32 = 32u32;
+pub const SO_DO_NOT_SUBSTITUTE_DEVICE_FONT: u32 = 128u32;
+pub const SO_DXDY: u32 = 1024u32;
+pub const SO_ESC_NOT_ORIENT: u32 = 512u32;
+pub const SO_FLAG_DEFAULT_PLACEMENT: u32 = 1u32;
+pub const SO_GLYPHINDEX_TEXTOUT: u32 = 256u32;
+pub const SO_HORIZONTAL: u32 = 2u32;
+pub const SO_MAXEXT_EQUAL_BM_SIDE: u32 = 64u32;
+pub const SO_REVERSED: u32 = 8u32;
+pub const SO_VERTICAL: u32 = 4u32;
+pub const SO_ZERO_BEARINGS: u32 = 16u32;
+pub const SPS_ACCEPT_EXCLUDE: u32 = 3u32;
+pub const SPS_ACCEPT_NOEXCLUDE: u32 = 2u32;
+pub const SPS_ACCEPT_SYNCHRONOUS: u32 = 4u32;
+pub const SPS_ALPHA: i32 = 16i32;
+pub const SPS_ANIMATESTART: i32 = 4i32;
+pub const SPS_ANIMATEUPDATE: i32 = 8i32;
+pub const SPS_ASYNCCHANGE: i32 = 2i32;
+pub const SPS_CHANGE: i32 = 1i32;
+pub const SPS_DECLINE: u32 = 1u32;
+pub const SPS_ERROR: u32 = 0u32;
+pub const SPS_FLAGSMASK: i32 = 255i32;
+pub const SPS_FREQMASK: i32 = 1044480i32;
+pub const SPS_LENGTHMASK: i32 = 3840i32;
+pub const SPS_RESERVED: i32 = 32i32;
+pub const SPS_RESERVED1: i32 = 64i32;
+pub const SS_FREE: u32 = 2u32;
+pub const SS_RESTORE: u32 = 1u32;
+pub const SS_SAVE: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STROBJ {
@@ -1743,6 +2566,8 @@ pub struct STROBJ {
     pub pgp: *mut GLYPHPOS,
     pub pwszOrg: windows_sys::core::PWSTR,
 }
+pub const STYPE_BITMAP: i32 = 0i32;
+pub const STYPE_DEVBITMAP: i32 = 3i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SURFOBJ {
@@ -1760,6 +2585,7 @@ pub struct SURFOBJ {
     pub iType: u16,
     pub fjBitmap: u16,
 }
+pub const S_INIT: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct Sources {
@@ -1767,6 +2593,11 @@ pub struct Sources {
     pub numTargets: i32,
     pub aTargets: [u32; 1],
 }
+pub const TC_PATHOBJ: u32 = 2u32;
+pub const TC_RECTANGLES: u32 = 0u32;
+pub const TTO_METRICS_ONLY: u32 = 1u32;
+pub const TTO_QUBICS: u32 = 2u32;
+pub const TTO_UNHINTED: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TYPE1_FONT {
@@ -1824,6 +2655,7 @@ pub struct VIDEO_BANK_SELECT {
     pub PlanarHCEnableCodeOffset: u32,
     pub PlanarHCDisableCodeOffset: u32,
 }
+pub type VIDEO_BANK_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VIDEO_BRIGHTNESS_POLICY {
@@ -1887,6 +2719,8 @@ pub struct VIDEO_COLOR_LUT_DATA {
     pub LutDataFormat: u32,
     pub LutData: [u8; 1],
 }
+pub const VIDEO_COLOR_LUT_DATA_FORMAT_PRIVATEFORMAT: u32 = 2147483648u32;
+pub const VIDEO_COLOR_LUT_DATA_FORMAT_RGB256WORDS: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VIDEO_CURSOR_ATTRIBUTES {
@@ -1903,12 +2737,18 @@ pub struct VIDEO_CURSOR_POSITION {
     pub Column: i16,
     pub Row: i16,
 }
+pub const VIDEO_DEVICE_COLOR: u32 = 1u32;
+pub const VIDEO_DEVICE_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("DISPLAY%d");
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VIDEO_DEVICE_SESSION_STATUS {
     pub bEnable: u32,
     pub bSuccess: u32,
 }
+pub const VIDEO_DUALVIEW_PRIMARY: u32 = 2147483648u32;
+pub const VIDEO_DUALVIEW_REMOVABLE: u32 = 1u32;
+pub const VIDEO_DUALVIEW_SECONDARY: u32 = 1073741824u32;
+pub const VIDEO_DUALVIEW_WDDM_VGA: u32 = 536870912u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VIDEO_HARDWARE_STATE {
@@ -1964,6 +2804,7 @@ pub struct VIDEO_LUT_RGB256WORDS {
     pub Green: [u16; 256],
     pub Blue: [u16; 256],
 }
+pub const VIDEO_MAX_REASON: u32 = 9u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VIDEO_MEMORY {
@@ -1982,6 +2823,13 @@ pub struct VIDEO_MEMORY_INFORMATION {
 pub struct VIDEO_MODE {
     pub RequestedMode: u32,
 }
+pub const VIDEO_MODE_ANIMATE_START: u32 = 8u32;
+pub const VIDEO_MODE_ANIMATE_UPDATE: u32 = 16u32;
+pub const VIDEO_MODE_ASYNC_POINTER: u32 = 1u32;
+pub const VIDEO_MODE_BANKED: u32 = 128u32;
+pub const VIDEO_MODE_COLOR: u32 = 1u32;
+pub const VIDEO_MODE_COLOR_POINTER: u32 = 4u32;
+pub const VIDEO_MODE_GRAPHICS: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VIDEO_MODE_INFORMATION {
@@ -2006,6 +2854,15 @@ pub struct VIDEO_MODE_INFORMATION {
     pub VideoMemoryBitmapHeight: u32,
     pub DriverSpecificAttributeFlags: u32,
 }
+pub const VIDEO_MODE_INTERLACED: u32 = 16u32;
+pub const VIDEO_MODE_LINEAR: u32 = 256u32;
+pub const VIDEO_MODE_MANAGED_PALETTE: u32 = 8u32;
+pub const VIDEO_MODE_MAP_MEM_LINEAR: u32 = 1073741824u32;
+pub const VIDEO_MODE_MONO_POINTER: u32 = 2u32;
+pub const VIDEO_MODE_NO_64_BIT_ACCESS: u32 = 64u32;
+pub const VIDEO_MODE_NO_OFF_SCREEN: u32 = 32u32;
+pub const VIDEO_MODE_NO_ZERO_MEMORY: u32 = 2147483648u32;
+pub const VIDEO_MODE_PALETTE_DRIVEN: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VIDEO_MONITOR_DESCRIPTOR {
@@ -2018,6 +2875,7 @@ pub struct VIDEO_NUM_MODES {
     pub NumModes: u32,
     pub ModeInformationLength: u32,
 }
+pub const VIDEO_OPTIONAL_GAMMET_TABLE: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VIDEO_PALETTE_DATA {
@@ -2084,6 +2942,7 @@ pub struct VIDEO_POWER_MANAGEMENT {
     pub DPMSVersion: u32,
     pub PowerState: u32,
 }
+pub type VIDEO_POWER_STATE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VIDEO_PUBLIC_ACCESS_RANGES {
@@ -2097,6 +2956,16 @@ pub struct VIDEO_QUERY_PERFORMANCE_COUNTER {
     pub BufferSize: u32,
     pub Buffer: *mut VIDEO_PERFORMANCE_COUNTER,
 }
+pub const VIDEO_REASON_ALLOCATION: u32 = 6u32;
+pub const VIDEO_REASON_CONFIGURATION: u32 = 9u32;
+pub const VIDEO_REASON_FAILED_ROTATION: u32 = 5u32;
+pub const VIDEO_REASON_LOCK: u32 = 5u32;
+pub const VIDEO_REASON_NONE: u32 = 0u32;
+pub const VIDEO_REASON_POLICY1: u32 = 1u32;
+pub const VIDEO_REASON_POLICY2: u32 = 2u32;
+pub const VIDEO_REASON_POLICY3: u32 = 3u32;
+pub const VIDEO_REASON_POLICY4: u32 = 4u32;
+pub const VIDEO_REASON_SCRATCH: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VIDEO_REGISTER_VDM {
@@ -2117,6 +2986,9 @@ pub struct VIDEO_SHARE_MEMORY_INFORMATION {
     pub SharedViewSize: u32,
     pub VirtualAddress: *mut core::ffi::c_void,
 }
+pub const VIDEO_STATE_NON_STANDARD_VGA: u32 = 1u32;
+pub const VIDEO_STATE_PACKED_CHAIN4_MODE: u32 = 4u32;
+pub const VIDEO_STATE_UNEMULATED_VGA_STATE: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VIDEO_VDM {
@@ -2143,932 +3015,7 @@ pub struct VIDEO_WIN32K_CALLBACKS_PARAMS {
     pub SurpriseRemoval: super::super::Foundation::BOOLEAN,
     pub WaitForQueueReady: super::super::Foundation::BOOLEAN,
 }
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WCRUN {
-    pub wcLow: u16,
-    pub cGlyphs: u16,
-    pub phg: *mut u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WNDOBJ {
-    pub coClient: CLIPOBJ,
-    pub pvConsumer: *mut core::ffi::c_void,
-    pub rclClient: super::super::Foundation::RECTL,
-    pub psoOwner: *mut SURFOBJ,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct XFORML {
-    pub eM11: f32,
-    pub eM12: f32,
-    pub eM21: f32,
-    pub eM22: f32,
-    pub eDx: f32,
-    pub eDy: f32,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct XFORML {
-    pub eM11: u32,
-    pub eM12: u32,
-    pub eM21: u32,
-    pub eM22: u32,
-    pub eDx: u32,
-    pub eDy: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct XFORMOBJ {
-    pub ulReserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct XLATEOBJ {
-    pub iUniq: u32,
-    pub flXlate: u32,
-    pub iSrcType: u16,
-    pub iDstType: u16,
-    pub cEntries: u32,
-    pub pulXlate: *mut u32,
-}
-pub const AR_DISABLED: AR_STATE = 1i32;
-pub const AR_DOCKED: AR_STATE = 64i32;
-pub const AR_ENABLED: AR_STATE = 0i32;
-pub const AR_LAPTOP: AR_STATE = 128i32;
-pub const AR_MULTIMON: AR_STATE = 8i32;
-pub const AR_NOSENSOR: AR_STATE = 16i32;
-pub const AR_NOT_SUPPORTED: AR_STATE = 32i32;
-pub const AR_REMOTESESSION: AR_STATE = 4i32;
-pub const AR_SUPPRESSED: AR_STATE = 2i32;
-pub const BITMAP_ARRAY_BYTE: u32 = 3u32;
-pub const BITMAP_BITS_BYTE_ALIGN: u32 = 8u32;
-pub const BITMAP_BITS_PIXEL: u32 = 1u32;
-pub const BITMAP_BITS_WORD_ALIGN: u32 = 16u32;
-pub const BITMAP_PLANES: u32 = 1u32;
-pub const BMF_16BPP: i32 = 4i32;
-pub const BMF_1BPP: i32 = 1i32;
-pub const BMF_24BPP: i32 = 5i32;
-pub const BMF_32BPP: i32 = 6i32;
-pub const BMF_4BPP: i32 = 2i32;
-pub const BMF_4RLE: i32 = 7i32;
-pub const BMF_8BPP: i32 = 3i32;
-pub const BMF_8RLE: i32 = 8i32;
-pub const BMF_ACC_NOTIFY: u32 = 32768u32;
-pub const BMF_DONTCACHE: u32 = 4u32;
-pub const BMF_JPEG: i32 = 9i32;
-pub const BMF_KMSECTION: u32 = 16u32;
-pub const BMF_NOTSYSMEM: u32 = 32u32;
-pub const BMF_NOZEROINIT: u32 = 2u32;
-pub const BMF_PNG: i32 = 10i32;
-pub const BMF_RESERVED: u32 = 15872u32;
-pub const BMF_RMT_ENTER: u32 = 16384u32;
-pub const BMF_TEMP_ALPHA: u32 = 256u32;
-pub const BMF_TOPDOWN: u32 = 1u32;
-pub const BMF_UMPDMEM: u32 = 128u32;
-pub const BMF_USERMEM: u32 = 8u32;
-pub const BMF_WINDOW_BLT: u32 = 64u32;
-pub const BRIGHTNESS_INTERFACE_VERSION_1: BRIGHTNESS_INTERFACE_VERSION = 1i32;
-pub const BRIGHTNESS_INTERFACE_VERSION_2: BRIGHTNESS_INTERFACE_VERSION = 2i32;
-pub const BRIGHTNESS_INTERFACE_VERSION_3: BRIGHTNESS_INTERFACE_VERSION = 3i32;
-pub const BRIGHTNESS_MAX_LEVEL_COUNT: u32 = 103u32;
-pub const BRIGHTNESS_MAX_NIT_RANGE_COUNT: u32 = 16u32;
-pub const BR_CMYKCOLOR: u32 = 4u32;
-pub const BR_DEVICE_ICM: u32 = 1u32;
-pub const BR_HOST_ICM: u32 = 2u32;
-pub const BR_ORIGCOLOR: u32 = 8u32;
-pub const BacklightOptimizationDesktop: BACKLIGHT_OPTIMIZATION_LEVEL = 1i32;
-pub const BacklightOptimizationDimmed: BACKLIGHT_OPTIMIZATION_LEVEL = 3i32;
-pub const BacklightOptimizationDisable: BACKLIGHT_OPTIMIZATION_LEVEL = 0i32;
-pub const BacklightOptimizationDynamic: BACKLIGHT_OPTIMIZATION_LEVEL = 2i32;
-pub const BacklightOptimizationEDR: BACKLIGHT_OPTIMIZATION_LEVEL = 4i32;
-pub const BlackScreenDiagnosticsData: BlackScreenDiagnosticsCalloutParam = 1i32;
-pub const BlackScreenDisplayRecovery: BlackScreenDiagnosticsCalloutParam = 2i32;
-pub const CDBEX_CROSSADAPTER: u32 = 8u32;
-pub const CDBEX_DXINTEROP: u32 = 2u32;
-pub const CDBEX_NTSHAREDSURFACEHANDLE: u32 = 4u32;
-pub const CDBEX_REDIRECTION: u32 = 1u32;
-pub const CDBEX_REUSE: u32 = 16u32;
-pub const CD_ANY: i32 = 4i32;
-pub const CD_LEFTDOWN: i32 = 1i32;
-pub const CD_LEFTUP: i32 = 3i32;
-pub const CD_LEFTWARDS: i32 = 1i32;
-pub const CD_RIGHTDOWN: i32 = 0i32;
-pub const CD_RIGHTUP: i32 = 2i32;
-pub const CD_UPWARDS: i32 = 2i32;
-pub const CHAR_TYPE_LEADING: u32 = 2u32;
-pub const CHAR_TYPE_SBCS: u32 = 0u32;
-pub const CHAR_TYPE_TRAILING: u32 = 3u32;
-pub const COLORSPACE_TRANSFORM_DATA_TYPE_FIXED_POINT: COLORSPACE_TRANSFORM_DATA_TYPE = 0i32;
-pub const COLORSPACE_TRANSFORM_DATA_TYPE_FLOAT: COLORSPACE_TRANSFORM_DATA_TYPE = 1i32;
-pub const COLORSPACE_TRANSFORM_TYPE_DEFAULT: COLORSPACE_TRANSFORM_TYPE = 1i32;
-pub const COLORSPACE_TRANSFORM_TYPE_DXGI_1: COLORSPACE_TRANSFORM_TYPE = 3i32;
-pub const COLORSPACE_TRANSFORM_TYPE_MATRIX_3x4: COLORSPACE_TRANSFORM_TYPE = 4i32;
-pub const COLORSPACE_TRANSFORM_TYPE_MATRIX_V2: COLORSPACE_TRANSFORM_TYPE = 5i32;
-pub const COLORSPACE_TRANSFORM_TYPE_RGB256x3x16: COLORSPACE_TRANSFORM_TYPE = 2i32;
-pub const COLORSPACE_TRANSFORM_TYPE_UNINITIALIZED: COLORSPACE_TRANSFORM_TYPE = 0i32;
-pub const COLORSPACE_TRANSFORM_VERSION_1: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = 1i32;
-pub const COLORSPACE_TRANSFORM_VERSION_DEFAULT: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = 0i32;
-pub const COLORSPACE_TRANSFORM_VERSION_NOT_SUPPORTED: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = 0i32;
-pub const CT_RECTANGLES: i32 = 0i32;
-pub const ColorSpaceTransformStageControl_Bypass: COLORSPACE_TRANSFORM_STAGE_CONTROL = 2i32;
-pub const ColorSpaceTransformStageControl_Enable: COLORSPACE_TRANSFORM_STAGE_CONTROL = 1i32;
-pub const ColorSpaceTransformStageControl_No_Change: COLORSPACE_TRANSFORM_STAGE_CONTROL = 0i32;
-pub const DCR_DRIVER: u32 = 1u32;
-pub const DCR_HALFTONE: u32 = 2u32;
-pub const DCR_SOLID: u32 = 0u32;
-pub const DCT_DEFAULT: DSI_CONTROL_TRANSMISSION_MODE = 0i32;
-pub const DCT_FORCE_HIGH_PERFORMANCE: DSI_CONTROL_TRANSMISSION_MODE = 2i32;
-pub const DCT_FORCE_LOW_POWER: DSI_CONTROL_TRANSMISSION_MODE = 1i32;
-pub const DC_COMPLEX: u32 = 3u32;
-pub const DC_RECT: u32 = 1u32;
-pub const DC_TRIVIAL: u32 = 0u32;
-pub const DDI_DRIVER_VERSION_NT4: u32 = 131072u32;
-pub const DDI_DRIVER_VERSION_NT5: u32 = 196608u32;
-pub const DDI_DRIVER_VERSION_NT5_01: u32 = 196864u32;
-pub const DDI_DRIVER_VERSION_NT5_01_SP1: u32 = 196865u32;
-pub const DDI_DRIVER_VERSION_SP3: u32 = 131075u32;
-pub const DDI_ERROR: u32 = 4294967295u32;
-pub const DD_FULLSCREEN_VIDEO_DEVICE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Device\\FSVideo");
-pub const DEVHTADJF_ADDITIVE_DEVICE: u32 = 2u32;
-pub const DEVHTADJF_COLOR_DEVICE: u32 = 1u32;
-pub const DEVPKEY_Device_ActivityId: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 4 };
-pub const DEVPKEY_Device_AdapterLuid: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 3 };
-pub const DEVPKEY_Device_TerminalLuid: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 2 };
-pub const DEVPKEY_IndirectDisplay: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 1 };
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_ADAPTER_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = 4i32;
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_ADVANCED_COLOR_INFO: DISPLAYCONFIG_DEVICE_INFO_TYPE = 9i32;
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_MONITOR_SPECIALIZATION: DISPLAYCONFIG_DEVICE_INFO_TYPE = 12i32;
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_SDR_WHITE_LEVEL: DISPLAYCONFIG_DEVICE_INFO_TYPE = 11i32;
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_SOURCE_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = 1i32;
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_SUPPORT_VIRTUAL_RESOLUTION: DISPLAYCONFIG_DEVICE_INFO_TYPE = 7i32;
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_BASE_TYPE: DISPLAYCONFIG_DEVICE_INFO_TYPE = 6i32;
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = 2i32;
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_PREFERRED_MODE: DISPLAYCONFIG_DEVICE_INFO_TYPE = 3i32;
-pub const DISPLAYCONFIG_DEVICE_INFO_SET_ADVANCED_COLOR_STATE: DISPLAYCONFIG_DEVICE_INFO_TYPE = 10i32;
-pub const DISPLAYCONFIG_DEVICE_INFO_SET_MONITOR_SPECIALIZATION: DISPLAYCONFIG_DEVICE_INFO_TYPE = 13i32;
-pub const DISPLAYCONFIG_DEVICE_INFO_SET_SUPPORT_VIRTUAL_RESOLUTION: DISPLAYCONFIG_DEVICE_INFO_TYPE = 8i32;
-pub const DISPLAYCONFIG_DEVICE_INFO_SET_TARGET_PERSISTENCE: DISPLAYCONFIG_DEVICE_INFO_TYPE = 5i32;
-pub const DISPLAYCONFIG_MODE_INFO_TYPE_DESKTOP_IMAGE: DISPLAYCONFIG_MODE_INFO_TYPE = 3i32;
-pub const DISPLAYCONFIG_MODE_INFO_TYPE_SOURCE: DISPLAYCONFIG_MODE_INFO_TYPE = 1i32;
-pub const DISPLAYCONFIG_MODE_INFO_TYPE_TARGET: DISPLAYCONFIG_MODE_INFO_TYPE = 2i32;
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_COMPONENT_VIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 3i32;
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_COMPOSITE_VIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 2i32;
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_EMBEDDED: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 11i32;
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_EXTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 10i32;
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_USB_TUNNEL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 18i32;
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DVI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 4i32;
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_D_JPN: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 8i32;
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_HD15: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 0i32;
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_HDMI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 5i32;
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INDIRECT_VIRTUAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 17i32;
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INDIRECT_WIRED: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 16i32;
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = -2147483648i32;
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_LVDS: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 6i32;
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_MIRACAST: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 15i32;
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_OTHER: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = -1i32;
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SDI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 9i32;
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SDTVDONGLE: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 14i32;
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SVIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 1i32;
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_UDI_EMBEDDED: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 13i32;
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_UDI_EXTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 12i32;
-pub const DISPLAYCONFIG_PIXELFORMAT_16BPP: DISPLAYCONFIG_PIXELFORMAT = 2i32;
-pub const DISPLAYCONFIG_PIXELFORMAT_24BPP: DISPLAYCONFIG_PIXELFORMAT = 3i32;
-pub const DISPLAYCONFIG_PIXELFORMAT_32BPP: DISPLAYCONFIG_PIXELFORMAT = 4i32;
-pub const DISPLAYCONFIG_PIXELFORMAT_8BPP: DISPLAYCONFIG_PIXELFORMAT = 1i32;
-pub const DISPLAYCONFIG_PIXELFORMAT_NONGDI: DISPLAYCONFIG_PIXELFORMAT = 5i32;
-pub const DISPLAYCONFIG_ROTATION_IDENTITY: DISPLAYCONFIG_ROTATION = 1i32;
-pub const DISPLAYCONFIG_ROTATION_ROTATE180: DISPLAYCONFIG_ROTATION = 3i32;
-pub const DISPLAYCONFIG_ROTATION_ROTATE270: DISPLAYCONFIG_ROTATION = 4i32;
-pub const DISPLAYCONFIG_ROTATION_ROTATE90: DISPLAYCONFIG_ROTATION = 2i32;
-pub const DISPLAYCONFIG_SCALING_ASPECTRATIOCENTEREDMAX: DISPLAYCONFIG_SCALING = 4i32;
-pub const DISPLAYCONFIG_SCALING_CENTERED: DISPLAYCONFIG_SCALING = 2i32;
-pub const DISPLAYCONFIG_SCALING_CUSTOM: DISPLAYCONFIG_SCALING = 5i32;
-pub const DISPLAYCONFIG_SCALING_IDENTITY: DISPLAYCONFIG_SCALING = 1i32;
-pub const DISPLAYCONFIG_SCALING_PREFERRED: DISPLAYCONFIG_SCALING = 128i32;
-pub const DISPLAYCONFIG_SCALING_STRETCHED: DISPLAYCONFIG_SCALING = 3i32;
-pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED: DISPLAYCONFIG_SCANLINE_ORDERING = 2i32;
-pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED_LOWERFIELDFIRST: DISPLAYCONFIG_SCANLINE_ORDERING = 3i32;
-pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED_UPPERFIELDFIRST: DISPLAYCONFIG_SCANLINE_ORDERING = 2i32;
-pub const DISPLAYCONFIG_SCANLINE_ORDERING_PROGRESSIVE: DISPLAYCONFIG_SCANLINE_ORDERING = 1i32;
-pub const DISPLAYCONFIG_SCANLINE_ORDERING_UNSPECIFIED: DISPLAYCONFIG_SCANLINE_ORDERING = 0i32;
-pub const DISPLAYCONFIG_TOPOLOGY_CLONE: DISPLAYCONFIG_TOPOLOGY_ID = 2i32;
-pub const DISPLAYCONFIG_TOPOLOGY_EXTEND: DISPLAYCONFIG_TOPOLOGY_ID = 4i32;
-pub const DISPLAYCONFIG_TOPOLOGY_EXTERNAL: DISPLAYCONFIG_TOPOLOGY_ID = 8i32;
-pub const DISPLAYCONFIG_TOPOLOGY_INTERNAL: DISPLAYCONFIG_TOPOLOGY_ID = 1i32;
-pub const DISPLAYPOLICY_AC: u32 = 1u32;
-pub const DISPLAYPOLICY_DC: u32 = 2u32;
-pub const DM_DEFAULT: u32 = 1u32;
-pub const DM_MONOCHROME: u32 = 2u32;
-pub const DN_ACCELERATION_LEVEL: u32 = 1u32;
-pub const DN_ASSOCIATE_WINDOW: u32 = 5u32;
-pub const DN_COMPOSITION_CHANGED: u32 = 6u32;
-pub const DN_DEVICE_ORIGIN: u32 = 2u32;
-pub const DN_DRAWING_BEGIN: u32 = 4u32;
-pub const DN_DRAWING_BEGIN_APIBITMAP: u32 = 7u32;
-pub const DN_SLEEP_MODE: u32 = 3u32;
-pub const DN_SURFOBJ_DESTRUCTION: u32 = 8u32;
-pub const DRD_ERROR: u32 = 1u32;
-pub const DRD_SUCCESS: u32 = 0u32;
-pub const DRH_APIBITMAP: u32 = 1u32;
-pub const DRVQUERY_USERMODE: u32 = 1u32;
-pub const DSI_CHECKSUM_ERROR_CORRECTED: u32 = 256u32;
-pub const DSI_CHECKSUM_ERROR_NOT_CORRECTED: u32 = 512u32;
-pub const DSI_CONTENTION_DETECTED: u32 = 128u32;
-pub const DSI_DSI_DATA_TYPE_NOT_RECOGNIZED: u32 = 2048u32;
-pub const DSI_DSI_PROTOCOL_VIOLATION: u32 = 32768u32;
-pub const DSI_DSI_VC_ID_INVALID: u32 = 4096u32;
-pub const DSI_EOT_SYNC_ERROR: u32 = 4u32;
-pub const DSI_ESCAPE_MODE_ENTRY_COMMAND_ERROR: u32 = 8u32;
-pub const DSI_FALSE_CONTROL_ERROR: u32 = 64u32;
-pub const DSI_INVALID_PACKET_INDEX: u32 = 255u32;
-pub const DSI_INVALID_TRANSMISSION_LENGTH: u32 = 8192u32;
-pub const DSI_LONG_PACKET_PAYLOAD_CHECKSUM_ERROR: u32 = 1024u32;
-pub const DSI_LOW_POWER_TRANSMIT_SYNC_ERROR: u32 = 16u32;
-pub const DSI_PACKET_EMBEDDED_PAYLOAD_SIZE: u32 = 8u32;
-pub const DSI_PERIPHERAL_TIMEOUT_ERROR: u32 = 32u32;
-pub const DSI_SOT_ERROR: u32 = 1u32;
-pub const DSI_SOT_SYNC_ERROR: u32 = 2u32;
-pub const DSS_FLUSH_EVENT: u32 = 2u32;
-pub const DSS_RESERVED: u32 = 4u32;
-pub const DSS_RESERVED1: u32 = 8u32;
-pub const DSS_RESERVED2: u32 = 16u32;
-pub const DSS_TIMER_EVENT: u32 = 1u32;
-pub const DXGK_WIN32K_PARAM_FLAG_DISABLEVIEW: u32 = 4u32;
-pub const DXGK_WIN32K_PARAM_FLAG_MODESWITCH: u32 = 2u32;
-pub const DXGK_WIN32K_PARAM_FLAG_UPDATEREGISTRY: u32 = 1u32;
-pub const ECS_REDRAW: u32 = 2u32;
-pub const ECS_TEARDOWN: u32 = 1u32;
-pub const ED_ABORTDOC: u32 = 1u32;
-pub const EHN_ERROR: u32 = 1u32;
-pub const EHN_RESTORED: u32 = 0u32;
-pub const ENDCAP_BUTT: i32 = 2i32;
-pub const ENDCAP_ROUND: i32 = 0i32;
-pub const ENDCAP_SQUARE: i32 = 1i32;
-pub const ENG_FNT_CACHE_READ_FAULT: u32 = 1u32;
-pub const ENG_FNT_CACHE_WRITE_FAULT: u32 = 2u32;
-pub const EngNumberOfProcessors: ENG_SYSTEM_ATTRIBUTE = 2i32;
-pub const EngOptimumAvailableSystemMemory: ENG_SYSTEM_ATTRIBUTE = 4i32;
-pub const EngOptimumAvailableUserMemory: ENG_SYSTEM_ATTRIBUTE = 3i32;
-pub const EngProcessorFeature: ENG_SYSTEM_ATTRIBUTE = 1i32;
-pub const FC_COMPLEX: u32 = 3u32;
-pub const FC_RECT: u32 = 1u32;
-pub const FC_RECT4: u32 = 2u32;
-pub const FDM_TYPE_BM_SIDE_CONST: u32 = 1u32;
-pub const FDM_TYPE_CHAR_INC_EQUAL_BM_BASE: u32 = 4u32;
-pub const FDM_TYPE_CONST_BEARINGS: u32 = 16u32;
-pub const FDM_TYPE_MAXEXT_EQUAL_BM_SIDE: u32 = 2u32;
-pub const FDM_TYPE_ZERO_BEARINGS: u32 = 8u32;
-pub const FD_ERROR: u32 = 4294967295u32;
-pub const FD_NEGATIVE_FONT: i32 = 1i32;
-pub const FF_IGNORED_SIGNATURE: u32 = 2u32;
-pub const FF_SIGNATURE_VERIFIED: u32 = 1u32;
-pub const FL_NONPAGED_MEMORY: u32 = 2u32;
-pub const FL_NON_SESSION: u32 = 4u32;
-pub const FL_ZERO_MEMORY: u32 = 1u32;
-pub const FM_EDITABLE_EMBED: u32 = 8u32;
-pub const FM_INFO_16BPP: u32 = 256u32;
-pub const FM_INFO_1BPP: u32 = 32u32;
-pub const FM_INFO_24BPP: u32 = 512u32;
-pub const FM_INFO_32BPP: u32 = 1024u32;
-pub const FM_INFO_4BPP: u32 = 64u32;
-pub const FM_INFO_8BPP: u32 = 128u32;
-pub const FM_INFO_90DEGREE_ROTATIONS: u32 = 2097152u32;
-pub const FM_INFO_ANISOTROPIC_SCALING_ONLY: u32 = 33554432u32;
-pub const FM_INFO_ARB_XFORMS: u32 = 16u32;
-pub const FM_INFO_CONSTANT_WIDTH: u32 = 4096u32;
-pub const FM_INFO_DBCS_FIXED_PITCH: u32 = 268435456u32;
-pub const FM_INFO_DO_NOT_ENUMERATE: u32 = 8388608u32;
-pub const FM_INFO_DSIG: u32 = 262144u32;
-pub const FM_INFO_FAMILY_EQUIV: u32 = 134217728u32;
-pub const FM_INFO_IGNORE_TC_RA_ABLE: u32 = 1073741824u32;
-pub const FM_INFO_INTEGER_WIDTH: u32 = 2048u32;
-pub const FM_INFO_INTEGRAL_SCALING: u32 = 1048576u32;
-pub const FM_INFO_ISOTROPIC_SCALING_ONLY: u32 = 16777216u32;
-pub const FM_INFO_NONNEGATIVE_AC: u32 = 536870912u32;
-pub const FM_INFO_NOT_CONTIGUOUS: u32 = 8192u32;
-pub const FM_INFO_OPTICALLY_FIXED_PITCH: u32 = 4194304u32;
-pub const FM_INFO_RETURNS_BITMAPS: u32 = 131072u32;
-pub const FM_INFO_RETURNS_OUTLINES: u32 = 32768u32;
-pub const FM_INFO_RETURNS_STROKES: u32 = 65536u32;
-pub const FM_INFO_RIGHT_HANDED: u32 = 524288u32;
-pub const FM_INFO_TECH_BITMAP: u32 = 2u32;
-pub const FM_INFO_TECH_CFF: u32 = 67108864u32;
-pub const FM_INFO_TECH_MM: u32 = 16384u32;
-pub const FM_INFO_TECH_OUTLINE_NOT_TRUETYPE: u32 = 8u32;
-pub const FM_INFO_TECH_STROKE: u32 = 4u32;
-pub const FM_INFO_TECH_TRUETYPE: u32 = 1u32;
-pub const FM_INFO_TECH_TYPE1: u32 = 2147483648u32;
-pub const FM_NO_EMBEDDING: u32 = 2u32;
-pub const FM_PANOSE_CULTURE_LATIN: u32 = 0u32;
-pub const FM_READONLY_EMBED: u32 = 4u32;
-pub const FM_SEL_BOLD: u32 = 32u32;
-pub const FM_SEL_ITALIC: u32 = 1u32;
-pub const FM_SEL_NEGATIVE: u32 = 4u32;
-pub const FM_SEL_OUTLINED: u32 = 8u32;
-pub const FM_SEL_REGULAR: u32 = 64u32;
-pub const FM_SEL_STRIKEOUT: u32 = 16u32;
-pub const FM_SEL_UNDERSCORE: u32 = 2u32;
-pub const FM_TYPE_LICENSED: u32 = 2u32;
-pub const FM_VERSION_NUMBER: u32 = 0u32;
-pub const FO_ATTR_MODE_ROTATE: u32 = 1u32;
-pub const FO_CFF: u32 = 1048576u32;
-pub const FO_CLEARTYPENATURAL_X: u32 = 1073741824u32;
-pub const FO_CLEARTYPE_X: u32 = 268435456u32;
-pub const FO_CLEARTYPE_Y: u32 = 536870912u32;
-pub const FO_DBCS_FONT: u32 = 16777216u32;
-pub const FO_DEVICE_FONT: i32 = 1i32;
-pub const FO_EM_HEIGHT: u32 = 32768u32;
-pub const FO_GLYPHBITS: i32 = 1i32;
-pub const FO_GRAY16: u32 = 65536u32;
-pub const FO_HGLYPHS: i32 = 0i32;
-pub const FO_MULTIPLEMASTER: u32 = 4194304u32;
-pub const FO_NOCLEARTYPE: u32 = 33554432u32;
-pub const FO_NOGRAY16: u32 = 131072u32;
-pub const FO_NOHINTS: u32 = 262144u32;
-pub const FO_NO_CHOICE: u32 = 524288u32;
-pub const FO_OUTLINE_CAPABLE: i32 = 2i32;
-pub const FO_PATHOBJ: i32 = 2i32;
-pub const FO_POSTSCRIPT: u32 = 2097152u32;
-pub const FO_SIM_BOLD: u32 = 8192u32;
-pub const FO_SIM_ITALIC: u32 = 16384u32;
-pub const FO_VERT_FACE: u32 = 8388608u32;
-pub const FP_ALTERNATEMODE: i32 = 1i32;
-pub const FP_WINDINGMODE: i32 = 2i32;
-pub const GCAPS2_ACC_DRIVER: u32 = 32768u32;
-pub const GCAPS2_ALPHACURSOR: u32 = 32u32;
-pub const GCAPS2_BITMAPEXREUSE: u32 = 65536u32;
-pub const GCAPS2_CHANGEGAMMARAMP: u32 = 16u32;
-pub const GCAPS2_CLEARTYPE: u32 = 16384u32;
-pub const GCAPS2_EXCLUDELAYERED: u32 = 2048u32;
-pub const GCAPS2_ICD_MULTIMON: u32 = 256u32;
-pub const GCAPS2_INCLUDEAPIBITMAPS: u32 = 4096u32;
-pub const GCAPS2_JPEGSRC: u32 = 1u32;
-pub const GCAPS2_MOUSETRAILS: u32 = 512u32;
-pub const GCAPS2_PNGSRC: u32 = 8u32;
-pub const GCAPS2_REMOTEDRIVER: u32 = 1024u32;
-pub const GCAPS2_RESERVED1: u32 = 1024u32;
-pub const GCAPS2_SHOWHIDDENPOINTER: u32 = 8192u32;
-pub const GCAPS2_SYNCFLUSH: u32 = 64u32;
-pub const GCAPS2_SYNCTIMER: u32 = 128u32;
-pub const GCAPS2_xxxx: u32 = 2u32;
-pub const GCAPS_ALTERNATEFILL: u32 = 4u32;
-pub const GCAPS_ARBRUSHOPAQUE: u32 = 32768u32;
-pub const GCAPS_ARBRUSHTEXT: u32 = 268435456u32;
-pub const GCAPS_ASYNCCHANGE: u32 = 2048u32;
-pub const GCAPS_ASYNCMOVE: u32 = 4096u32;
-pub const GCAPS_BEZIERS: u32 = 1u32;
-pub const GCAPS_CMYKCOLOR: u32 = 67108864u32;
-pub const GCAPS_COLOR_DITHER: u32 = 32u32;
-pub const GCAPS_DIRECTDRAW: u32 = 16384u32;
-pub const GCAPS_DITHERONREALIZE: u32 = 2097152u32;
-pub const GCAPS_DONTJOURNAL: u32 = 8192u32;
-pub const GCAPS_FONT_RASTERIZER: u32 = 1073741824u32;
-pub const GCAPS_FORCEDITHER: u32 = 8388608u32;
-pub const GCAPS_GEOMETRICWIDE: u32 = 2u32;
-pub const GCAPS_GRAY16: u32 = 16777216u32;
-pub const GCAPS_HALFTONE: u32 = 16u32;
-pub const GCAPS_HIGHRESTEXT: u32 = 262144u32;
-pub const GCAPS_HORIZSTRIKE: u32 = 64u32;
-pub const GCAPS_ICM: u32 = 33554432u32;
-pub const GCAPS_LAYERED: u32 = 134217728u32;
-pub const GCAPS_MONO_DITHER: u32 = 1024u32;
-pub const GCAPS_NO64BITMEMACCESS: u32 = 4194304u32;
-pub const GCAPS_NUP: u32 = 2147483648u32;
-pub const GCAPS_OPAQUERECT: u32 = 256u32;
-pub const GCAPS_PALMANAGED: u32 = 524288u32;
-pub const GCAPS_PANNING: u32 = 65536u32;
-pub const GCAPS_SCREENPRECISION: u32 = 536870912u32;
-pub const GCAPS_VECTORFONT: u32 = 512u32;
-pub const GCAPS_VERTSTRIKE: u32 = 128u32;
-pub const GCAPS_WINDINGFILL: u32 = 8u32;
-pub const GDI_DRIVER_VERSION: u32 = 16384u32;
-pub const GETCONNECTEDIDS_SOURCE: u32 = 1u32;
-pub const GETCONNECTEDIDS_TARGET: u32 = 0u32;
-pub const GS_16BIT_HANDLES: u32 = 4u32;
-pub const GS_8BIT_HANDLES: u32 = 2u32;
-pub const GS_UNICODE_HANDLES: u32 = 1u32;
-pub const GUID_DEVINTERFACE_DISPLAY_ADAPTER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5b45201d_f2f2_4f3b_85bb_30ff1f953599);
-pub const GUID_DEVINTERFACE_MONITOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe6f07b5f_ee97_4a90_b076_33f57bf4eaa7);
-pub const GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1ad9e4f0_f88d_4360_bab9_4c2d55e564cd);
-pub const GUID_DISPLAY_DEVICE_ARRIVAL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1ca05180_a699_450a_9a0c_de4fbe3ddd89);
-pub const GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf196c02f_f86f_4f9a_aa15_e9cebdfe3b96);
-pub const GX_GENERAL: i32 = 3i32;
-pub const GX_IDENTITY: i32 = 0i32;
-pub const GX_OFFSET: i32 = 1i32;
-pub const GX_SCALE: i32 = 2i32;
-pub const HOOK_ALPHABLEND: u32 = 65536u32;
-pub const HOOK_BITBLT: u32 = 1u32;
-pub const HOOK_COPYBITS: u32 = 1024u32;
-pub const HOOK_FILLPATH: u32 = 64u32;
-pub const HOOK_FLAGS: u32 = 243199u32;
-pub const HOOK_GRADIENTFILL: u32 = 131072u32;
-pub const HOOK_LINETO: u32 = 256u32;
-pub const HOOK_MOVEPANNING: u32 = 2048u32;
-pub const HOOK_PAINT: u32 = 16u32;
-pub const HOOK_PLGBLT: u32 = 4u32;
-pub const HOOK_STRETCHBLT: u32 = 2u32;
-pub const HOOK_STRETCHBLTROP: u32 = 8192u32;
-pub const HOOK_STROKEANDFILLPATH: u32 = 128u32;
-pub const HOOK_STROKEPATH: u32 = 32u32;
-pub const HOOK_SYNCHRONIZE: u32 = 4096u32;
-pub const HOOK_SYNCHRONIZEACCESS: u32 = 16384u32;
-pub const HOOK_TEXTOUT: u32 = 8u32;
-pub const HOOK_TRANSPARENTBLT: u32 = 32768u32;
-pub const HOST_DSI_BAD_TRANSMISSION_MODE: u32 = 4096u32;
-pub const HOST_DSI_DEVICE_NOT_READY: u32 = 1u32;
-pub const HOST_DSI_DEVICE_RESET: u32 = 4u32;
-pub const HOST_DSI_DRIVER_REJECTED_PACKET: u32 = 1024u32;
-pub const HOST_DSI_INTERFACE_RESET: u32 = 2u32;
-pub const HOST_DSI_INVALID_TRANSMISSION: u32 = 256u32;
-pub const HOST_DSI_OS_REJECTED_PACKET: u32 = 512u32;
-pub const HOST_DSI_TRANSMISSION_CANCELLED: u32 = 16u32;
-pub const HOST_DSI_TRANSMISSION_DROPPED: u32 = 32u32;
-pub const HOST_DSI_TRANSMISSION_TIMEOUT: u32 = 64u32;
-pub const HS_DDI_MAX: u32 = 6u32;
-pub const HT_FLAG_8BPP_CMY332_MASK: u32 = 4278190080u32;
-pub const HT_FLAG_ADDITIVE_PRIMS: u32 = 4u32;
-pub const HT_FLAG_DO_DEVCLR_XFORM: u32 = 128u32;
-pub const HT_FLAG_HAS_BLACK_DYE: u32 = 2u32;
-pub const HT_FLAG_INK_ABSORPTION_IDX0: u32 = 0u32;
-pub const HT_FLAG_INK_ABSORPTION_IDX1: u32 = 32u32;
-pub const HT_FLAG_INK_ABSORPTION_IDX2: u32 = 64u32;
-pub const HT_FLAG_INK_ABSORPTION_IDX3: u32 = 96u32;
-pub const HT_FLAG_INK_ABSORPTION_INDICES: u32 = 96u32;
-pub const HT_FLAG_INK_HIGH_ABSORPTION: u32 = 16u32;
-pub const HT_FLAG_INVERT_8BPP_BITMASK_IDX: u32 = 1024u32;
-pub const HT_FLAG_LOWER_INK_ABSORPTION: u32 = 64u32;
-pub const HT_FLAG_LOWEST_INK_ABSORPTION: u32 = 96u32;
-pub const HT_FLAG_LOW_INK_ABSORPTION: u32 = 32u32;
-pub const HT_FLAG_NORMAL_INK_ABSORPTION: u32 = 0u32;
-pub const HT_FLAG_OUTPUT_CMY: u32 = 256u32;
-pub const HT_FLAG_PRINT_DRAFT_MODE: u32 = 512u32;
-pub const HT_FLAG_SQUARE_DEVICE_PEL: u32 = 1u32;
-pub const HT_FLAG_USE_8BPP_BITMASK: u32 = 8u32;
-pub const HT_FORMAT_16BPP: u32 = 5u32;
-pub const HT_FORMAT_1BPP: u32 = 0u32;
-pub const HT_FORMAT_24BPP: u32 = 6u32;
-pub const HT_FORMAT_32BPP: u32 = 7u32;
-pub const HT_FORMAT_4BPP: u32 = 2u32;
-pub const HT_FORMAT_4BPP_IRGB: u32 = 3u32;
-pub const HT_FORMAT_8BPP: u32 = 4u32;
-pub const HT_PATSIZE_10x10: u32 = 8u32;
-pub const HT_PATSIZE_10x10_M: u32 = 9u32;
-pub const HT_PATSIZE_12x12: u32 = 10u32;
-pub const HT_PATSIZE_12x12_M: u32 = 11u32;
-pub const HT_PATSIZE_14x14: u32 = 12u32;
-pub const HT_PATSIZE_14x14_M: u32 = 13u32;
-pub const HT_PATSIZE_16x16: u32 = 14u32;
-pub const HT_PATSIZE_16x16_M: u32 = 15u32;
-pub const HT_PATSIZE_2x2: u32 = 0u32;
-pub const HT_PATSIZE_2x2_M: u32 = 1u32;
-pub const HT_PATSIZE_4x4: u32 = 2u32;
-pub const HT_PATSIZE_4x4_M: u32 = 3u32;
-pub const HT_PATSIZE_6x6: u32 = 4u32;
-pub const HT_PATSIZE_6x6_M: u32 = 5u32;
-pub const HT_PATSIZE_8x8: u32 = 6u32;
-pub const HT_PATSIZE_8x8_M: u32 = 7u32;
-pub const HT_PATSIZE_DEFAULT: u32 = 17u32;
-pub const HT_PATSIZE_MAX_INDEX: u32 = 18u32;
-pub const HT_PATSIZE_SUPERCELL: u32 = 16u32;
-pub const HT_PATSIZE_SUPERCELL_M: u32 = 17u32;
-pub const HT_PATSIZE_USER: u32 = 18u32;
-pub const HT_USERPAT_CX_MAX: u32 = 256u32;
-pub const HT_USERPAT_CX_MIN: u32 = 4u32;
-pub const HT_USERPAT_CY_MAX: u32 = 256u32;
-pub const HT_USERPAT_CY_MIN: u32 = 4u32;
-pub const IGRF_RGB_256BYTES: u32 = 0u32;
-pub const IGRF_RGB_256WORDS: u32 = 1u32;
-pub const INDEX_DrvAccumulateD3DDirtyRect: i32 = 98i32;
-pub const INDEX_DrvAlphaBlend: i32 = 71i32;
-pub const INDEX_DrvAssertMode: i32 = 5i32;
-pub const INDEX_DrvAssociateSharedSurface: i32 = 96i32;
-pub const INDEX_DrvBitBlt: i32 = 18i32;
-pub const INDEX_DrvCompletePDEV: i32 = 1i32;
-pub const INDEX_DrvCopyBits: i32 = 19i32;
-pub const INDEX_DrvCreateDeviceBitmap: i32 = 10i32;
-pub const INDEX_DrvCreateDeviceBitmapEx: i32 = 94i32;
-pub const INDEX_DrvDeleteDeviceBitmap: i32 = 11i32;
-pub const INDEX_DrvDeleteDeviceBitmapEx: i32 = 95i32;
-pub const INDEX_DrvDeriveSurface: i32 = 85i32;
-pub const INDEX_DrvDescribePixelFormat: i32 = 55i32;
-pub const INDEX_DrvDestroyFont: i32 = 43i32;
-pub const INDEX_DrvDisableDirectDraw: i32 = 61i32;
-pub const INDEX_DrvDisableDriver: i32 = 8i32;
-pub const INDEX_DrvDisablePDEV: i32 = 2i32;
-pub const INDEX_DrvDisableSurface: i32 = 4i32;
-pub const INDEX_DrvDitherColor: i32 = 13i32;
-pub const INDEX_DrvDrawEscape: i32 = 25i32;
-pub const INDEX_DrvEnableDirectDraw: i32 = 60i32;
-pub const INDEX_DrvEnablePDEV: i32 = 0i32;
-pub const INDEX_DrvEnableSurface: i32 = 3i32;
-pub const INDEX_DrvEndDoc: i32 = 34i32;
-pub const INDEX_DrvEndDxInterop: i32 = 100i32;
-pub const INDEX_DrvEscape: i32 = 24i32;
-pub const INDEX_DrvFillPath: i32 = 15i32;
-pub const INDEX_DrvFontManagement: i32 = 47i32;
-pub const INDEX_DrvFree: i32 = 42i32;
-pub const INDEX_DrvGetDirectDrawInfo: i32 = 59i32;
-pub const INDEX_DrvGetGlyphMode: i32 = 37i32;
-pub const INDEX_DrvGetModes: i32 = 41i32;
-pub const INDEX_DrvGetSynthesizedFontFiles: i32 = 73i32;
-pub const INDEX_DrvGetTrueTypeFile: i32 = 50i32;
-pub const INDEX_DrvGradientFill: i32 = 68i32;
-pub const INDEX_DrvIcmCheckBitmapBits: i32 = 66i32;
-pub const INDEX_DrvIcmCreateColorTransform: i32 = 64i32;
-pub const INDEX_DrvIcmDeleteColorTransform: i32 = 65i32;
-pub const INDEX_DrvIcmSetDeviceGammaRamp: i32 = 67i32;
-pub const INDEX_DrvLineTo: i32 = 31i32;
-pub const INDEX_DrvLoadFontFile: i32 = 45i32;
-pub const INDEX_DrvLockDisplayArea: i32 = 101i32;
-pub const INDEX_DrvMovePanning: i32 = 52i32;
-pub const INDEX_DrvMovePointer: i32 = 30i32;
-pub const INDEX_DrvNextBand: i32 = 58i32;
-pub const INDEX_DrvNotify: i32 = 87i32;
-pub const INDEX_DrvOffset: i32 = 6i32;
-pub const INDEX_DrvPaint: i32 = 17i32;
-pub const INDEX_DrvPlgBlt: i32 = 70i32;
-pub const INDEX_DrvQueryAdvanceWidths: i32 = 53i32;
-pub const INDEX_DrvQueryDeviceSupport: i32 = 76i32;
-pub const INDEX_DrvQueryFont: i32 = 26i32;
-pub const INDEX_DrvQueryFontCaps: i32 = 44i32;
-pub const INDEX_DrvQueryFontData: i32 = 28i32;
-pub const INDEX_DrvQueryFontFile: i32 = 51i32;
-pub const INDEX_DrvQueryFontTree: i32 = 27i32;
-pub const INDEX_DrvQueryGlyphAttrs: i32 = 86i32;
-pub const INDEX_DrvQueryPerBandInfo: i32 = 75i32;
-pub const INDEX_DrvQuerySpoolType: i32 = 62i32;
-pub const INDEX_DrvQueryTrueTypeOutline: i32 = 49i32;
-pub const INDEX_DrvQueryTrueTypeTable: i32 = 48i32;
-pub const INDEX_DrvRealizeBrush: i32 = 12i32;
-pub const INDEX_DrvRenderHint: i32 = 93i32;
-pub const INDEX_DrvReserved1: i32 = 77i32;
-pub const INDEX_DrvReserved10: i32 = 91i32;
-pub const INDEX_DrvReserved11: i32 = 92i32;
-pub const INDEX_DrvReserved2: i32 = 78i32;
-pub const INDEX_DrvReserved3: i32 = 79i32;
-pub const INDEX_DrvReserved4: i32 = 80i32;
-pub const INDEX_DrvReserved5: i32 = 81i32;
-pub const INDEX_DrvReserved6: i32 = 82i32;
-pub const INDEX_DrvReserved7: i32 = 83i32;
-pub const INDEX_DrvReserved8: i32 = 84i32;
-pub const INDEX_DrvReserved9: i32 = 90i32;
-pub const INDEX_DrvResetDevice: i32 = 89i32;
-pub const INDEX_DrvResetPDEV: i32 = 7i32;
-pub const INDEX_DrvSaveScreenBits: i32 = 40i32;
-pub const INDEX_DrvSendPage: i32 = 32i32;
-pub const INDEX_DrvSetPalette: i32 = 22i32;
-pub const INDEX_DrvSetPixelFormat: i32 = 54i32;
-pub const INDEX_DrvSetPointerShape: i32 = 29i32;
-pub const INDEX_DrvStartBanding: i32 = 57i32;
-pub const INDEX_DrvStartDoc: i32 = 35i32;
-pub const INDEX_DrvStartDxInterop: i32 = 99i32;
-pub const INDEX_DrvStartPage: i32 = 33i32;
-pub const INDEX_DrvStretchBlt: i32 = 20i32;
-pub const INDEX_DrvStretchBltROP: i32 = 69i32;
-pub const INDEX_DrvStrokeAndFillPath: i32 = 16i32;
-pub const INDEX_DrvStrokePath: i32 = 14i32;
-pub const INDEX_DrvSurfaceComplete: i32 = 103i32;
-pub const INDEX_DrvSwapBuffers: i32 = 56i32;
-pub const INDEX_DrvSynchronize: i32 = 38i32;
-pub const INDEX_DrvSynchronizeRedirectionBitmaps: i32 = 97i32;
-pub const INDEX_DrvSynchronizeSurface: i32 = 88i32;
-pub const INDEX_DrvSynthesizeFont: i32 = 72i32;
-pub const INDEX_DrvTextOut: i32 = 23i32;
-pub const INDEX_DrvTransparentBlt: i32 = 74i32;
-pub const INDEX_DrvUnloadFontFile: i32 = 46i32;
-pub const INDEX_DrvUnlockDisplayArea: i32 = 102i32;
-pub const INDEX_LAST: i32 = 89i32;
-pub const INDIRECT_DISPLAY_INFO_FLAGS_CREATED_IDDCX_ADAPTER: u32 = 1u32;
-pub const IOCTL_COLORSPACE_TRANSFORM_QUERY_TARGET_CAPS: u32 = 2297856u32;
-pub const IOCTL_COLORSPACE_TRANSFORM_SET: u32 = 2297860u32;
-pub const IOCTL_FSVIDEO_COPY_FRAME_BUFFER: u32 = 3409920u32;
-pub const IOCTL_FSVIDEO_REVERSE_MOUSE_POINTER: u32 = 3409928u32;
-pub const IOCTL_FSVIDEO_SET_CURRENT_MODE: u32 = 3409932u32;
-pub const IOCTL_FSVIDEO_SET_CURSOR_POSITION: u32 = 3409940u32;
-pub const IOCTL_FSVIDEO_SET_SCREEN_INFORMATION: u32 = 3409936u32;
-pub const IOCTL_FSVIDEO_WRITE_TO_FRAME_BUFFER: u32 = 3409924u32;
-pub const IOCTL_MIPI_DSI_QUERY_CAPS: u32 = 2298880u32;
-pub const IOCTL_MIPI_DSI_RESET: u32 = 2298888u32;
-pub const IOCTL_MIPI_DSI_TRANSMISSION: u32 = 2298884u32;
-pub const IOCTL_PANEL_GET_BACKLIGHT_REDUCTION: u32 = 2296856u32;
-pub const IOCTL_PANEL_GET_BRIGHTNESS: u32 = 2296840u32;
-pub const IOCTL_PANEL_GET_MANUFACTURING_MODE: u32 = 2296860u32;
-pub const IOCTL_PANEL_QUERY_BRIGHTNESS_CAPS: u32 = 2296832u32;
-pub const IOCTL_PANEL_QUERY_BRIGHTNESS_RANGES: u32 = 2296836u32;
-pub const IOCTL_PANEL_SET_BACKLIGHT_OPTIMIZATION: u32 = 2296852u32;
-pub const IOCTL_PANEL_SET_BRIGHTNESS: u32 = 2296844u32;
-pub const IOCTL_PANEL_SET_BRIGHTNESS_STATE: u32 = 2296848u32;
-pub const IOCTL_SET_ACTIVE_COLOR_PROFILE_NAME: u32 = 2297864u32;
-pub const IOCTL_VIDEO_DISABLE_CURSOR: u32 = 2294820u32;
-pub const IOCTL_VIDEO_DISABLE_POINTER: u32 = 2294844u32;
-pub const IOCTL_VIDEO_DISABLE_VDM: u32 = 2293764u32;
-pub const IOCTL_VIDEO_ENABLE_CURSOR: u32 = 2294816u32;
-pub const IOCTL_VIDEO_ENABLE_POINTER: u32 = 2294840u32;
-pub const IOCTL_VIDEO_ENABLE_VDM: u32 = 2293760u32;
-pub const IOCTL_VIDEO_ENUM_MONITOR_PDO: u32 = 2293784u32;
-pub const IOCTL_VIDEO_FREE_PUBLIC_ACCESS_RANGES: u32 = 2294884u32;
-pub const IOCTL_VIDEO_GET_BANK_SELECT_CODE: u32 = 2294868u32;
-pub const IOCTL_VIDEO_GET_CHILD_STATE: u32 = 2294912u32;
-pub const IOCTL_VIDEO_GET_OUTPUT_DEVICE_POWER_STATE: u32 = 2293776u32;
-pub const IOCTL_VIDEO_GET_POWER_MANAGEMENT: u32 = 2294896u32;
-pub const IOCTL_VIDEO_HANDLE_VIDEOPARAMETERS: u32 = 2293792u32;
-pub const IOCTL_VIDEO_INIT_WIN32K_CALLBACKS: u32 = 2293788u32;
-pub const IOCTL_VIDEO_IS_VGA_DEVICE: u32 = 2293796u32;
-pub const IOCTL_VIDEO_LOAD_AND_SET_FONT: u32 = 2294804u32;
-pub const IOCTL_VIDEO_MAP_VIDEO_MEMORY: u32 = 2294872u32;
-pub const IOCTL_VIDEO_MONITOR_DEVICE: u32 = 2293780u32;
-pub const IOCTL_VIDEO_PREPARE_FOR_EARECOVERY: u32 = 2293804u32;
-pub const IOCTL_VIDEO_QUERY_AVAIL_MODES: u32 = 2294784u32;
-pub const IOCTL_VIDEO_QUERY_COLOR_CAPABILITIES: u32 = 2294888u32;
-pub const IOCTL_VIDEO_QUERY_CURRENT_MODE: u32 = 2294792u32;
-pub const IOCTL_VIDEO_QUERY_CURSOR_ATTR: u32 = 2294828u32;
-pub const IOCTL_VIDEO_QUERY_CURSOR_POSITION: u32 = 2294836u32;
-pub const IOCTL_VIDEO_QUERY_DISPLAY_BRIGHTNESS: u32 = 2294936u32;
-pub const IOCTL_VIDEO_QUERY_NUM_AVAIL_MODES: u32 = 2294788u32;
-pub const IOCTL_VIDEO_QUERY_POINTER_ATTR: u32 = 2294852u32;
-pub const IOCTL_VIDEO_QUERY_POINTER_CAPABILITIES: u32 = 2294864u32;
-pub const IOCTL_VIDEO_QUERY_POINTER_POSITION: u32 = 2294860u32;
-pub const IOCTL_VIDEO_QUERY_PUBLIC_ACCESS_RANGES: u32 = 2294880u32;
-pub const IOCTL_VIDEO_QUERY_SUPPORTED_BRIGHTNESS: u32 = 2294932u32;
-pub const IOCTL_VIDEO_REGISTER_VDM: u32 = 2293768u32;
-pub const IOCTL_VIDEO_RESET_DEVICE: u32 = 2294800u32;
-pub const IOCTL_VIDEO_RESTORE_HARDWARE_STATE: u32 = 2294276u32;
-pub const IOCTL_VIDEO_SAVE_HARDWARE_STATE: u32 = 2294272u32;
-pub const IOCTL_VIDEO_SET_BANK_POSITION: u32 = 2294928u32;
-pub const IOCTL_VIDEO_SET_CHILD_STATE_CONFIGURATION: u32 = 2294920u32;
-pub const IOCTL_VIDEO_SET_COLOR_LUT_DATA: u32 = 2294908u32;
-pub const IOCTL_VIDEO_SET_COLOR_REGISTERS: u32 = 2294812u32;
-pub const IOCTL_VIDEO_SET_CURRENT_MODE: u32 = 2294796u32;
-pub const IOCTL_VIDEO_SET_CURSOR_ATTR: u32 = 2294824u32;
-pub const IOCTL_VIDEO_SET_CURSOR_POSITION: u32 = 2294832u32;
-pub const IOCTL_VIDEO_SET_DISPLAY_BRIGHTNESS: u32 = 2294940u32;
-pub const IOCTL_VIDEO_SET_OUTPUT_DEVICE_POWER_STATE: u32 = 2293772u32;
-pub const IOCTL_VIDEO_SET_PALETTE_REGISTERS: u32 = 2294808u32;
-pub const IOCTL_VIDEO_SET_POINTER_ATTR: u32 = 2294848u32;
-pub const IOCTL_VIDEO_SET_POINTER_POSITION: u32 = 2294856u32;
-pub const IOCTL_VIDEO_SET_POWER_MANAGEMENT: u32 = 2294892u32;
-pub const IOCTL_VIDEO_SHARE_VIDEO_MEMORY: u32 = 2294900u32;
-pub const IOCTL_VIDEO_SWITCH_DUALVIEW: u32 = 2294924u32;
-pub const IOCTL_VIDEO_UNMAP_VIDEO_MEMORY: u32 = 2294876u32;
-pub const IOCTL_VIDEO_UNSHARE_VIDEO_MEMORY: u32 = 2294904u32;
-pub const IOCTL_VIDEO_USE_DEVICE_IN_SESSION: u32 = 2293800u32;
-pub const IOCTL_VIDEO_VALIDATE_CHILD_STATE_CONFIGURATION: u32 = 2294916u32;
-pub const JOIN_BEVEL: i32 = 1i32;
-pub const JOIN_MITER: i32 = 2i32;
-pub const JOIN_ROUND: i32 = 0i32;
-pub const LA_ALTERNATE: u32 = 2u32;
-pub const LA_GEOMETRIC: u32 = 1u32;
-pub const LA_STARTGAP: u32 = 4u32;
-pub const LA_STYLED: u32 = 8u32;
-pub const MAXCHARSETS: u32 = 16u32;
-pub const MAX_PACKET_COUNT: u32 = 128u32;
-pub const MC_APERTURE_GRILL_CATHODE_RAY_TUBE: MC_DISPLAY_TECHNOLOGY_TYPE = 1i32;
-pub const MC_BLUE_DRIVE: MC_DRIVE_TYPE = 2i32;
-pub const MC_BLUE_GAIN: MC_GAIN_TYPE = 2i32;
-pub const MC_CAPS_BRIGHTNESS: u32 = 2u32;
-pub const MC_CAPS_COLOR_TEMPERATURE: u32 = 8u32;
-pub const MC_CAPS_CONTRAST: u32 = 4u32;
-pub const MC_CAPS_DEGAUSS: u32 = 64u32;
-pub const MC_CAPS_DISPLAY_AREA_POSITION: u32 = 128u32;
-pub const MC_CAPS_DISPLAY_AREA_SIZE: u32 = 256u32;
-pub const MC_CAPS_MONITOR_TECHNOLOGY_TYPE: u32 = 1u32;
-pub const MC_CAPS_NONE: u32 = 0u32;
-pub const MC_CAPS_RED_GREEN_BLUE_DRIVE: u32 = 32u32;
-pub const MC_CAPS_RED_GREEN_BLUE_GAIN: u32 = 16u32;
-pub const MC_CAPS_RESTORE_FACTORY_COLOR_DEFAULTS: u32 = 2048u32;
-pub const MC_CAPS_RESTORE_FACTORY_DEFAULTS: u32 = 1024u32;
-pub const MC_COLOR_TEMPERATURE_10000K: MC_COLOR_TEMPERATURE = 7i32;
-pub const MC_COLOR_TEMPERATURE_11500K: MC_COLOR_TEMPERATURE = 8i32;
-pub const MC_COLOR_TEMPERATURE_4000K: MC_COLOR_TEMPERATURE = 1i32;
-pub const MC_COLOR_TEMPERATURE_5000K: MC_COLOR_TEMPERATURE = 2i32;
-pub const MC_COLOR_TEMPERATURE_6500K: MC_COLOR_TEMPERATURE = 3i32;
-pub const MC_COLOR_TEMPERATURE_7500K: MC_COLOR_TEMPERATURE = 4i32;
-pub const MC_COLOR_TEMPERATURE_8200K: MC_COLOR_TEMPERATURE = 5i32;
-pub const MC_COLOR_TEMPERATURE_9300K: MC_COLOR_TEMPERATURE = 6i32;
-pub const MC_COLOR_TEMPERATURE_UNKNOWN: MC_COLOR_TEMPERATURE = 0i32;
-pub const MC_ELECTROLUMINESCENT: MC_DISPLAY_TECHNOLOGY_TYPE = 6i32;
-pub const MC_FIELD_EMISSION_DEVICE: MC_DISPLAY_TECHNOLOGY_TYPE = 8i32;
-pub const MC_GREEN_DRIVE: MC_DRIVE_TYPE = 1i32;
-pub const MC_GREEN_GAIN: MC_GAIN_TYPE = 1i32;
-pub const MC_HEIGHT: MC_SIZE_TYPE = 1i32;
-pub const MC_HORIZONTAL_POSITION: MC_POSITION_TYPE = 0i32;
-pub const MC_LIQUID_CRYSTAL_ON_SILICON: MC_DISPLAY_TECHNOLOGY_TYPE = 3i32;
-pub const MC_MICROELECTROMECHANICAL: MC_DISPLAY_TECHNOLOGY_TYPE = 7i32;
-pub const MC_MOMENTARY: MC_VCP_CODE_TYPE = 0i32;
-pub const MC_ORGANIC_LIGHT_EMITTING_DIODE: MC_DISPLAY_TECHNOLOGY_TYPE = 5i32;
-pub const MC_PLASMA: MC_DISPLAY_TECHNOLOGY_TYPE = 4i32;
-pub const MC_RED_DRIVE: MC_DRIVE_TYPE = 0i32;
-pub const MC_RED_GAIN: MC_GAIN_TYPE = 0i32;
-pub const MC_RESTORE_FACTORY_DEFAULTS_ENABLES_MONITOR_SETTINGS: u32 = 4096u32;
-pub const MC_SET_PARAMETER: MC_VCP_CODE_TYPE = 1i32;
-pub const MC_SHADOW_MASK_CATHODE_RAY_TUBE: MC_DISPLAY_TECHNOLOGY_TYPE = 0i32;
-pub const MC_SUPPORTED_COLOR_TEMPERATURE_10000K: u32 = 64u32;
-pub const MC_SUPPORTED_COLOR_TEMPERATURE_11500K: u32 = 128u32;
-pub const MC_SUPPORTED_COLOR_TEMPERATURE_4000K: u32 = 1u32;
-pub const MC_SUPPORTED_COLOR_TEMPERATURE_5000K: u32 = 2u32;
-pub const MC_SUPPORTED_COLOR_TEMPERATURE_6500K: u32 = 4u32;
-pub const MC_SUPPORTED_COLOR_TEMPERATURE_7500K: u32 = 8u32;
-pub const MC_SUPPORTED_COLOR_TEMPERATURE_8200K: u32 = 16u32;
-pub const MC_SUPPORTED_COLOR_TEMPERATURE_9300K: u32 = 32u32;
-pub const MC_SUPPORTED_COLOR_TEMPERATURE_NONE: u32 = 0u32;
-pub const MC_THIN_FILM_TRANSISTOR: MC_DISPLAY_TECHNOLOGY_TYPE = 2i32;
-pub const MC_VERTICAL_POSITION: MC_POSITION_TYPE = 1i32;
-pub const MC_WIDTH: MC_SIZE_TYPE = 0i32;
-pub const MS_CDDDEVICEBITMAP: u32 = 4u32;
-pub const MS_NOTSYSTEMMEMORY: u32 = 1u32;
-pub const MS_REUSEDDEVICEBITMAP: u32 = 8u32;
-pub const MS_SHAREDACCESS: u32 = 2u32;
-pub const NumVideoBankTypes: VIDEO_BANK_TYPE = 4i32;
-pub const OC_BANK_CLIP: u32 = 1u32;
-pub const OPENGL_CMD: u32 = 4352u32;
-pub const OPENGL_GETINFO: u32 = 4353u32;
-pub const ORIENTATION_PREFERENCE_LANDSCAPE: ORIENTATION_PREFERENCE = 1i32;
-pub const ORIENTATION_PREFERENCE_LANDSCAPE_FLIPPED: ORIENTATION_PREFERENCE = 4i32;
-pub const ORIENTATION_PREFERENCE_NONE: ORIENTATION_PREFERENCE = 0i32;
-pub const ORIENTATION_PREFERENCE_PORTRAIT: ORIENTATION_PREFERENCE = 2i32;
-pub const ORIENTATION_PREFERENCE_PORTRAIT_FLIPPED: ORIENTATION_PREFERENCE = 8i32;
-pub const OUTPUT_COLOR_ENCODING_INTENSITY: OUTPUT_COLOR_ENCODING = 4i32;
-pub const OUTPUT_COLOR_ENCODING_RGB: OUTPUT_COLOR_ENCODING = 0i32;
-pub const OUTPUT_COLOR_ENCODING_YCBCR420: OUTPUT_COLOR_ENCODING = 3i32;
-pub const OUTPUT_COLOR_ENCODING_YCBCR422: OUTPUT_COLOR_ENCODING = 2i32;
-pub const OUTPUT_COLOR_ENCODING_YCBCR444: OUTPUT_COLOR_ENCODING = 1i32;
-pub const OUTPUT_WIRE_COLOR_SPACE_G2084_P2020: OUTPUT_WIRE_COLOR_SPACE_TYPE = 12i32;
-pub const OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_DVLL: OUTPUT_WIRE_COLOR_SPACE_TYPE = 33i32;
-pub const OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_HDR10PLUS: OUTPUT_WIRE_COLOR_SPACE_TYPE = 32i32;
-pub const OUTPUT_WIRE_COLOR_SPACE_G22_P2020: OUTPUT_WIRE_COLOR_SPACE_TYPE = 31i32;
-pub const OUTPUT_WIRE_COLOR_SPACE_G22_P709: OUTPUT_WIRE_COLOR_SPACE_TYPE = 0i32;
-pub const OUTPUT_WIRE_COLOR_SPACE_G22_P709_WCG: OUTPUT_WIRE_COLOR_SPACE_TYPE = 30i32;
-pub const OUTPUT_WIRE_COLOR_SPACE_RESERVED: OUTPUT_WIRE_COLOR_SPACE_TYPE = 4i32;
-pub const PAL_BGR: u32 = 8u32;
-pub const PAL_BITFIELDS: u32 = 2u32;
-pub const PAL_CMYK: u32 = 16u32;
-pub const PAL_INDEXED: u32 = 1u32;
-pub const PAL_RGB: u32 = 4u32;
-pub const PD_BEGINSUBPATH: u32 = 1u32;
-pub const PD_BEZIERS: u32 = 16u32;
-pub const PD_CLOSEFIGURE: u32 = 8u32;
-pub const PD_ENDSUBPATH: u32 = 2u32;
-pub const PD_RESETSTYLE: u32 = 4u32;
-pub const PHYSICAL_MONITOR_DESCRIPTION_SIZE: u32 = 128u32;
-pub const PLANAR_HC: u32 = 1u32;
-pub const PO_ALL_INTEGERS: u32 = 4u32;
-pub const PO_BEZIERS: u32 = 1u32;
-pub const PO_ELLIPSE: u32 = 2u32;
-pub const PO_ENUM_AS_INTEGERS: u32 = 8u32;
-pub const PO_WIDENED: u32 = 16u32;
-pub const PPC_BGR_ORDER_HORIZONTAL_STRIPES: u32 = 5u32;
-pub const PPC_BGR_ORDER_VERTICAL_STRIPES: u32 = 3u32;
-pub const PPC_DEFAULT: u32 = 0u32;
-pub const PPC_RGB_ORDER_HORIZONTAL_STRIPES: u32 = 4u32;
-pub const PPC_RGB_ORDER_VERTICAL_STRIPES: u32 = 2u32;
-pub const PPC_UNDEFINED: u32 = 1u32;
-pub const PPG_DEFAULT: u32 = 0u32;
-pub const PPG_SRGB: u32 = 1u32;
-pub const PRIMARY_ORDER_ABC: u32 = 0u32;
-pub const PRIMARY_ORDER_ACB: u32 = 1u32;
-pub const PRIMARY_ORDER_BAC: u32 = 2u32;
-pub const PRIMARY_ORDER_BCA: u32 = 3u32;
-pub const PRIMARY_ORDER_CAB: u32 = 5u32;
-pub const PRIMARY_ORDER_CBA: u32 = 4u32;
-pub const QAW_GETEASYWIDTHS: u32 = 1u32;
-pub const QAW_GETWIDTHS: u32 = 0u32;
-pub const QC_1BIT: u32 = 2u32;
-pub const QC_4BIT: u32 = 4u32;
-pub const QC_OUTLINES: u32 = 1u32;
-pub const QDA_ACCELERATION_LEVEL: ENG_DEVICE_ATTRIBUTE = 1i32;
-pub const QDA_RESERVED: ENG_DEVICE_ATTRIBUTE = 0i32;
-pub const QDC_ALL_PATHS: QUERY_DISPLAY_CONFIG_FLAGS = 1u32;
-pub const QDC_DATABASE_CURRENT: QUERY_DISPLAY_CONFIG_FLAGS = 4u32;
-pub const QDC_INCLUDE_HMD: QUERY_DISPLAY_CONFIG_FLAGS = 32u32;
-pub const QDC_ONLY_ACTIVE_PATHS: QUERY_DISPLAY_CONFIG_FLAGS = 2u32;
-pub const QDC_VIRTUAL_MODE_AWARE: QUERY_DISPLAY_CONFIG_FLAGS = 16u32;
-pub const QDC_VIRTUAL_REFRESH_RATE_AWARE: QUERY_DISPLAY_CONFIG_FLAGS = 64u32;
-pub const QDS_CHECKJPEGFORMAT: u32 = 0u32;
-pub const QDS_CHECKPNGFORMAT: u32 = 1u32;
-pub const QFD_GLYPHANDBITMAP: i32 = 1i32;
-pub const QFD_GLYPHANDOUTLINE: i32 = 2i32;
-pub const QFD_MAXEXTENTS: i32 = 3i32;
-pub const QFD_TT_GLYPHANDBITMAP: i32 = 4i32;
-pub const QFD_TT_GRAY1_BITMAP: i32 = 5i32;
-pub const QFD_TT_GRAY2_BITMAP: i32 = 6i32;
-pub const QFD_TT_GRAY4_BITMAP: i32 = 8i32;
-pub const QFD_TT_GRAY8_BITMAP: i32 = 9i32;
-pub const QFD_TT_MONO_BITMAP: i32 = 5i32;
-pub const QFF_DESCRIPTION: i32 = 1i32;
-pub const QFF_NUMFACES: i32 = 2i32;
-pub const QFT_GLYPHSET: i32 = 3i32;
-pub const QFT_KERNPAIRS: i32 = 2i32;
-pub const QFT_LIGATURES: i32 = 1i32;
-pub const QSA_3DNOW: u32 = 16384u32;
-pub const QSA_MMX: u32 = 256u32;
-pub const QSA_SSE: u32 = 8192u32;
-pub const QSA_SSE1: u32 = 8192u32;
-pub const QSA_SSE2: u32 = 65536u32;
-pub const QSA_SSE3: u32 = 524288u32;
-pub const RB_DITHERCOLOR: i32 = -2147483648i32;
-pub const SDC_ALLOW_CHANGES: SET_DISPLAY_CONFIG_FLAGS = 1024u32;
-pub const SDC_ALLOW_PATH_ORDER_CHANGES: SET_DISPLAY_CONFIG_FLAGS = 8192u32;
-pub const SDC_APPLY: SET_DISPLAY_CONFIG_FLAGS = 128u32;
-pub const SDC_FORCE_MODE_ENUMERATION: SET_DISPLAY_CONFIG_FLAGS = 4096u32;
-pub const SDC_NO_OPTIMIZATION: SET_DISPLAY_CONFIG_FLAGS = 256u32;
-pub const SDC_PATH_PERSIST_IF_REQUIRED: SET_DISPLAY_CONFIG_FLAGS = 2048u32;
-pub const SDC_SAVE_TO_DATABASE: SET_DISPLAY_CONFIG_FLAGS = 512u32;
-pub const SDC_TOPOLOGY_CLONE: SET_DISPLAY_CONFIG_FLAGS = 2u32;
-pub const SDC_TOPOLOGY_EXTEND: SET_DISPLAY_CONFIG_FLAGS = 4u32;
-pub const SDC_TOPOLOGY_EXTERNAL: SET_DISPLAY_CONFIG_FLAGS = 8u32;
-pub const SDC_TOPOLOGY_INTERNAL: SET_DISPLAY_CONFIG_FLAGS = 1u32;
-pub const SDC_TOPOLOGY_SUPPLIED: SET_DISPLAY_CONFIG_FLAGS = 16u32;
-pub const SDC_USE_DATABASE_CURRENT: SET_DISPLAY_CONFIG_FLAGS = 15u32;
-pub const SDC_USE_SUPPLIED_DISPLAY_CONFIG: SET_DISPLAY_CONFIG_FLAGS = 32u32;
-pub const SDC_VALIDATE: SET_DISPLAY_CONFIG_FLAGS = 64u32;
-pub const SDC_VIRTUAL_MODE_AWARE: SET_DISPLAY_CONFIG_FLAGS = 32768u32;
-pub const SDC_VIRTUAL_REFRESH_RATE_AWARE: SET_DISPLAY_CONFIG_FLAGS = 131072u32;
-pub const SETCONFIGURATION_STATUS_ADDITIONAL: u32 = 1u32;
-pub const SETCONFIGURATION_STATUS_APPLIED: u32 = 0u32;
-pub const SETCONFIGURATION_STATUS_OVERRIDDEN: u32 = 2u32;
-pub const SGI_EXTRASPACE: u32 = 0u32;
-pub const SO_BREAK_EXTRA: u32 = 4096u32;
-pub const SO_CHARACTER_EXTRA: u32 = 2048u32;
-pub const SO_CHAR_INC_EQUAL_BM_BASE: u32 = 32u32;
-pub const SO_DO_NOT_SUBSTITUTE_DEVICE_FONT: u32 = 128u32;
-pub const SO_DXDY: u32 = 1024u32;
-pub const SO_ESC_NOT_ORIENT: u32 = 512u32;
-pub const SO_FLAG_DEFAULT_PLACEMENT: u32 = 1u32;
-pub const SO_GLYPHINDEX_TEXTOUT: u32 = 256u32;
-pub const SO_HORIZONTAL: u32 = 2u32;
-pub const SO_MAXEXT_EQUAL_BM_SIDE: u32 = 64u32;
-pub const SO_REVERSED: u32 = 8u32;
-pub const SO_VERTICAL: u32 = 4u32;
-pub const SO_ZERO_BEARINGS: u32 = 16u32;
-pub const SPS_ACCEPT_EXCLUDE: u32 = 3u32;
-pub const SPS_ACCEPT_NOEXCLUDE: u32 = 2u32;
-pub const SPS_ACCEPT_SYNCHRONOUS: u32 = 4u32;
-pub const SPS_ALPHA: i32 = 16i32;
-pub const SPS_ANIMATESTART: i32 = 4i32;
-pub const SPS_ANIMATEUPDATE: i32 = 8i32;
-pub const SPS_ASYNCCHANGE: i32 = 2i32;
-pub const SPS_CHANGE: i32 = 1i32;
-pub const SPS_DECLINE: u32 = 1u32;
-pub const SPS_ERROR: u32 = 0u32;
-pub const SPS_FLAGSMASK: i32 = 255i32;
-pub const SPS_FREQMASK: i32 = 1044480i32;
-pub const SPS_LENGTHMASK: i32 = 3840i32;
-pub const SPS_RESERVED: i32 = 32i32;
-pub const SPS_RESERVED1: i32 = 64i32;
-pub const SS_FREE: u32 = 2u32;
-pub const SS_RESTORE: u32 = 1u32;
-pub const SS_SAVE: u32 = 0u32;
-pub const STYPE_BITMAP: i32 = 0i32;
-pub const STYPE_DEVBITMAP: i32 = 3i32;
-pub const S_INIT: u32 = 2u32;
-pub const TC_PATHOBJ: u32 = 2u32;
-pub const TC_RECTANGLES: u32 = 0u32;
-pub const TTO_METRICS_ONLY: u32 = 1u32;
-pub const TTO_QUBICS: u32 = 2u32;
-pub const TTO_UNHINTED: u32 = 4u32;
-pub const VIDEO_COLOR_LUT_DATA_FORMAT_PRIVATEFORMAT: u32 = 2147483648u32;
-pub const VIDEO_COLOR_LUT_DATA_FORMAT_RGB256WORDS: u32 = 1u32;
-pub const VIDEO_DEVICE_COLOR: u32 = 1u32;
-pub const VIDEO_DEVICE_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("DISPLAY%d");
-pub const VIDEO_DUALVIEW_PRIMARY: u32 = 2147483648u32;
-pub const VIDEO_DUALVIEW_REMOVABLE: u32 = 1u32;
-pub const VIDEO_DUALVIEW_SECONDARY: u32 = 1073741824u32;
-pub const VIDEO_DUALVIEW_WDDM_VGA: u32 = 536870912u32;
-pub const VIDEO_MAX_REASON: u32 = 9u32;
-pub const VIDEO_MODE_ANIMATE_START: u32 = 8u32;
-pub const VIDEO_MODE_ANIMATE_UPDATE: u32 = 16u32;
-pub const VIDEO_MODE_ASYNC_POINTER: u32 = 1u32;
-pub const VIDEO_MODE_BANKED: u32 = 128u32;
-pub const VIDEO_MODE_COLOR: u32 = 1u32;
-pub const VIDEO_MODE_COLOR_POINTER: u32 = 4u32;
-pub const VIDEO_MODE_GRAPHICS: u32 = 2u32;
-pub const VIDEO_MODE_INTERLACED: u32 = 16u32;
-pub const VIDEO_MODE_LINEAR: u32 = 256u32;
-pub const VIDEO_MODE_MANAGED_PALETTE: u32 = 8u32;
-pub const VIDEO_MODE_MAP_MEM_LINEAR: u32 = 1073741824u32;
-pub const VIDEO_MODE_MONO_POINTER: u32 = 2u32;
-pub const VIDEO_MODE_NO_64_BIT_ACCESS: u32 = 64u32;
-pub const VIDEO_MODE_NO_OFF_SCREEN: u32 = 32u32;
-pub const VIDEO_MODE_NO_ZERO_MEMORY: u32 = 2147483648u32;
-pub const VIDEO_MODE_PALETTE_DRIVEN: u32 = 4u32;
-pub const VIDEO_OPTIONAL_GAMMET_TABLE: u32 = 2u32;
-pub const VIDEO_REASON_ALLOCATION: u32 = 6u32;
-pub const VIDEO_REASON_CONFIGURATION: u32 = 9u32;
-pub const VIDEO_REASON_FAILED_ROTATION: u32 = 5u32;
-pub const VIDEO_REASON_LOCK: u32 = 5u32;
-pub const VIDEO_REASON_NONE: u32 = 0u32;
-pub const VIDEO_REASON_POLICY1: u32 = 1u32;
-pub const VIDEO_REASON_POLICY2: u32 = 2u32;
-pub const VIDEO_REASON_POLICY3: u32 = 3u32;
-pub const VIDEO_REASON_POLICY4: u32 = 4u32;
-pub const VIDEO_REASON_SCRATCH: u32 = 8u32;
-pub const VIDEO_STATE_NON_STANDARD_VGA: u32 = 1u32;
-pub const VIDEO_STATE_PACKED_CHAIN4_MODE: u32 = 4u32;
-pub const VIDEO_STATE_UNEMULATED_VGA_STATE: u32 = 2u32;
+pub type VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = i32;
 pub const VideoBanked1R1W: VIDEO_BANK_TYPE = 2i32;
 pub const VideoBanked1RW: VIDEO_BANK_TYPE = 1i32;
 pub const VideoBanked2RW: VIDEO_BANK_TYPE = 3i32;
@@ -3093,9 +3040,25 @@ pub const VideoPowerSuspend: VIDEO_POWER_STATE = 3i32;
 pub const VideoPowerUnspecified: VIDEO_POWER_STATE = 0i32;
 pub const VideoRepaintDesktop: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 12i32;
 pub const VideoUpdateCursor: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 13i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WCRUN {
+    pub wcLow: u16,
+    pub cGlyphs: u16,
+    pub phg: *mut u32,
+}
 pub const WINDDI_MAXSETPALETTECOLORINDEX: u32 = 255u32;
 pub const WINDDI_MAXSETPALETTECOLORS: u32 = 256u32;
 pub const WINDDI_MAX_BROADCAST_CONTEXT: u32 = 64u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WNDOBJ {
+    pub coClient: CLIPOBJ,
+    pub pvConsumer: *mut core::ffi::c_void,
+    pub rclClient: super::super::Foundation::RECTL,
+    pub psoOwner: *mut SURFOBJ,
+}
+pub type WNDOBJCHANGEPROC = Option<unsafe extern "system" fn(pwo: *mut WNDOBJ, fl: u32)>;
 pub const WNDOBJ_SETUP: u32 = 4354u32;
 pub const WOC_CHANGED: u32 = 16u32;
 pub const WOC_DELETE: u32 = 32u32;
@@ -3118,10 +3081,47 @@ pub const WO_RGN_UPDATE_ALL: u32 = 16u32;
 pub const WO_RGN_WINDOW: u32 = 32u32;
 pub const WO_SPRITE_NOTIFY: u32 = 128u32;
 pub const WVIDEO_DEVICE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("DISPLAY%d");
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct XFORML {
+    pub eM11: u32,
+    pub eM12: u32,
+    pub eM21: u32,
+    pub eM22: u32,
+    pub eDx: u32,
+    pub eDy: u32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct XFORML {
+    pub eM11: f32,
+    pub eM12: f32,
+    pub eM21: f32,
+    pub eM22: f32,
+    pub eDx: f32,
+    pub eDy: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct XFORMOBJ {
+    pub ulReserved: u32,
+}
 pub const XF_INV_FXTOL: i32 = 3i32;
 pub const XF_INV_LTOL: i32 = 1i32;
 pub const XF_LTOFX: i32 = 2i32;
 pub const XF_LTOL: i32 = 0i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct XLATEOBJ {
+    pub iUniq: u32,
+    pub flXlate: u32,
+    pub iSrcType: u16,
+    pub iDstType: u16,
+    pub cEntries: u32,
+    pub pulXlate: *mut u32,
+}
 pub const XO_DESTBITFIELDS: u32 = 5u32;
 pub const XO_DESTDCPALETTE: u32 = 3u32;
 pub const XO_DESTPALETTE: u32 = 2u32;

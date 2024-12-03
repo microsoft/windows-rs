@@ -1,3 +1,238 @@
+windows_core::imp::define_interface!(ITargetedContentAction, ITargetedContentAction_Vtbl, 0xd75b691e_6cd6_4ca0_9d8f_4728b0b7e6b6);
+impl windows_core::RuntimeType for ITargetedContentAction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ITargetedContentAction_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub InvokeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ITargetedContentAvailabilityChangedEventArgs, ITargetedContentAvailabilityChangedEventArgs_Vtbl, 0xe0f59d26_5927_4450_965c_1ceb7becde65);
+impl windows_core::RuntimeType for ITargetedContentAvailabilityChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ITargetedContentAvailabilityChangedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ITargetedContentChangedEventArgs, ITargetedContentChangedEventArgs_Vtbl, 0x99d488c9_587e_4586_8ef7_b54ca9453a16);
+impl windows_core::RuntimeType for ITargetedContentChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ITargetedContentChangedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub HasPreviousContentExpired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ITargetedContentCollection, ITargetedContentCollection_Vtbl, 0x2d4b66c5_f163_44ba_9f6e_e1a4c2bb559d);
+impl windows_core::RuntimeType for ITargetedContentCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ITargetedContentCollection_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ReportInteraction: unsafe extern "system" fn(*mut core::ffi::c_void, TargetedContentInteraction) -> windows_core::HRESULT,
+    pub ReportCustomInteraction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Path: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Properties: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Collections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Collections: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Items: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Items: usize,
+}
+windows_core::imp::define_interface!(ITargetedContentContainer, ITargetedContentContainer_Vtbl, 0xbc2494c9_8837_47c2_850f_d79d64595926);
+impl windows_core::RuntimeType for ITargetedContentContainer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ITargetedContentContainer_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub Availability: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TargetedContentAvailability) -> windows_core::HRESULT,
+    pub Content: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SelectSingleObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ITargetedContentContainerStatics, ITargetedContentContainerStatics_Vtbl, 0x5b47e7fb_2140_4c1f_a736_c59583f227d8);
+impl windows_core::RuntimeType for ITargetedContentContainerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ITargetedContentContainerStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[cfg(feature = "Storage_Streams")]
+windows_core::imp::define_interface!(ITargetedContentImage, ITargetedContentImage_Vtbl, 0xa7a585d9_779f_4b1e_bbb1_8eaf53fbeab2);
+#[cfg(feature = "Storage_Streams")]
+impl windows_core::RuntimeType for ITargetedContentImage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "Storage_Streams")]
+#[repr(C)]
+pub struct ITargetedContentImage_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Height: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub Width: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ITargetedContentItem, ITargetedContentItem_Vtbl, 0x38168dc4_276c_4c32_96ba_565c6e406e74);
+impl windows_core::RuntimeType for ITargetedContentItem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ITargetedContentItem_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Path: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ReportInteraction: unsafe extern "system" fn(*mut core::ffi::c_void, TargetedContentInteraction) -> windows_core::HRESULT,
+    pub ReportCustomInteraction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Properties: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Collections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Collections: usize,
+}
+windows_core::imp::define_interface!(ITargetedContentItemState, ITargetedContentItemState_Vtbl, 0x73935454_4c65_4b47_a441_472de53c79b6);
+impl windows_core::RuntimeType for ITargetedContentItemState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ITargetedContentItemState_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ShouldDisplay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub AppInstallationState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TargetedContentAppInstallationState) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ITargetedContentObject, ITargetedContentObject_Vtbl, 0x041d7969_2212_42d1_9dfa_88a8e3033aa3);
+impl windows_core::RuntimeType for ITargetedContentObject {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ITargetedContentObject_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ObjectKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TargetedContentObjectKind) -> windows_core::HRESULT,
+    pub Collection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ITargetedContentStateChangedEventArgs, ITargetedContentStateChangedEventArgs_Vtbl, 0x9a1cef3d_8073_4416_8df2_546835a6414f);
+impl windows_core::RuntimeType for ITargetedContentStateChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ITargetedContentStateChangedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ITargetedContentSubscription, ITargetedContentSubscription_Vtbl, 0x882c2c49_c652_4c7a_acad_1f7fa2986c73);
+impl windows_core::RuntimeType for ITargetedContentSubscription {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ITargetedContentSubscription_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetContentContainerAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ContentChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveContentChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub AvailabilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveAvailabilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub StateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ITargetedContentSubscriptionOptions, ITargetedContentSubscriptionOptions_Vtbl, 0x61ee6ad0_2c83_421b_8467_413eaf1aeb97);
+impl windows_core::RuntimeType for ITargetedContentSubscriptionOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ITargetedContentSubscriptionOptions_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SubscriptionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AllowPartialContentAvailability: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetAllowPartialContentAvailability: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CloudQueryParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CloudQueryParameters: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub LocalFilters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    LocalFilters: usize,
+    pub Update: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ITargetedContentSubscriptionStatics, ITargetedContentSubscriptionStatics_Vtbl, 0xfaddfe80_360d_4916_b53c_7ea27090d02a);
+impl windows_core::RuntimeType for ITargetedContentSubscriptionStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ITargetedContentSubscriptionStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ITargetedContentValue, ITargetedContentValue_Vtbl, 0xaafde4b3_4215_4bf8_867f_43f04865f9bf);
+impl windows_core::RuntimeType for ITargetedContentValue {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ITargetedContentValue_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ValueKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TargetedContentValueKind) -> windows_core::HRESULT,
+    pub Path: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub String: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Number: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub Boolean: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub File: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    File: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub ImageFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    ImageFile: usize,
+    pub Action: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Strings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Strings: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Uris: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Uris: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Numbers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Numbers: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Booleans: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Booleans: usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    pub Files: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    Files: usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    pub ImageFiles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    ImageFiles: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Actions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Actions: usize,
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TargetedContentAction(windows_core::IUnknown);
@@ -23,6 +258,34 @@ impl windows_core::RuntimeName for TargetedContentAction {
 }
 unsafe impl Send for TargetedContentAction {}
 unsafe impl Sync for TargetedContentAction {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TargetedContentAppInstallationState(pub i32);
+impl TargetedContentAppInstallationState {
+    pub const NotApplicable: Self = Self(0i32);
+    pub const NotInstalled: Self = Self(1i32);
+    pub const Installed: Self = Self(2i32);
+}
+impl windows_core::TypeKind for TargetedContentAppInstallationState {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for TargetedContentAppInstallationState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentAppInstallationState;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TargetedContentAvailability(pub i32);
+impl TargetedContentAvailability {
+    pub const None: Self = Self(0i32);
+    pub const Partial: Self = Self(1i32);
+    pub const All: Self = Self(2i32);
+}
+impl windows_core::TypeKind for TargetedContentAvailability {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for TargetedContentAvailability {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentAvailability;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TargetedContentAvailabilityChangedEventArgs(windows_core::IUnknown);
@@ -292,6 +555,30 @@ unsafe impl Send for TargetedContentImage {}
 #[cfg(feature = "Storage_Streams")]
 unsafe impl Sync for TargetedContentImage {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TargetedContentInteraction(pub i32);
+impl TargetedContentInteraction {
+    pub const Impression: Self = Self(0i32);
+    pub const ClickThrough: Self = Self(1i32);
+    pub const Hover: Self = Self(2i32);
+    pub const Like: Self = Self(3i32);
+    pub const Dislike: Self = Self(4i32);
+    pub const Dismiss: Self = Self(5i32);
+    pub const Ineligible: Self = Self(6i32);
+    pub const Accept: Self = Self(7i32);
+    pub const Decline: Self = Self(8i32);
+    pub const Defer: Self = Self(9i32);
+    pub const Canceled: Self = Self(10i32);
+    pub const Conversion: Self = Self(11i32);
+    pub const Opportunity: Self = Self(12i32);
+}
+impl windows_core::TypeKind for TargetedContentInteraction {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for TargetedContentInteraction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentInteraction;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TargetedContentItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TargetedContentItem, windows_core::IUnknown, windows_core::IInspectable);
@@ -425,6 +712,20 @@ impl windows_core::RuntimeName for TargetedContentObject {
 }
 unsafe impl Send for TargetedContentObject {}
 unsafe impl Sync for TargetedContentObject {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TargetedContentObjectKind(pub i32);
+impl TargetedContentObjectKind {
+    pub const Collection: Self = Self(0i32);
+    pub const Item: Self = Self(1i32);
+    pub const Value: Self = Self(2i32);
+}
+impl windows_core::TypeKind for TargetedContentObjectKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for TargetedContentObjectKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentObjectKind;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TargetedContentStateChangedEventArgs(windows_core::IUnknown);
@@ -735,307 +1036,6 @@ impl windows_core::RuntimeName for TargetedContentValue {
 }
 unsafe impl Send for TargetedContentValue {}
 unsafe impl Sync for TargetedContentValue {}
-windows_core::imp::define_interface!(ITargetedContentAction, ITargetedContentAction_Vtbl, 0xd75b691e_6cd6_4ca0_9d8f_4728b0b7e6b6);
-impl windows_core::RuntimeType for ITargetedContentAction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ITargetedContentAction_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub InvokeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ITargetedContentAvailabilityChangedEventArgs, ITargetedContentAvailabilityChangedEventArgs_Vtbl, 0xe0f59d26_5927_4450_965c_1ceb7becde65);
-impl windows_core::RuntimeType for ITargetedContentAvailabilityChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ITargetedContentAvailabilityChangedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ITargetedContentChangedEventArgs, ITargetedContentChangedEventArgs_Vtbl, 0x99d488c9_587e_4586_8ef7_b54ca9453a16);
-impl windows_core::RuntimeType for ITargetedContentChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ITargetedContentChangedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub HasPreviousContentExpired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ITargetedContentCollection, ITargetedContentCollection_Vtbl, 0x2d4b66c5_f163_44ba_9f6e_e1a4c2bb559d);
-impl windows_core::RuntimeType for ITargetedContentCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ITargetedContentCollection_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReportInteraction: unsafe extern "system" fn(*mut core::ffi::c_void, TargetedContentInteraction) -> windows_core::HRESULT,
-    pub ReportCustomInteraction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Path: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Collections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Collections: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Items: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Items: usize,
-}
-windows_core::imp::define_interface!(ITargetedContentContainer, ITargetedContentContainer_Vtbl, 0xbc2494c9_8837_47c2_850f_d79d64595926);
-impl windows_core::RuntimeType for ITargetedContentContainer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ITargetedContentContainer_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    pub Availability: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TargetedContentAvailability) -> windows_core::HRESULT,
-    pub Content: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SelectSingleObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ITargetedContentContainerStatics, ITargetedContentContainerStatics_Vtbl, 0x5b47e7fb_2140_4c1f_a736_c59583f227d8);
-impl windows_core::RuntimeType for ITargetedContentContainerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ITargetedContentContainerStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[cfg(feature = "Storage_Streams")]
-windows_core::imp::define_interface!(ITargetedContentImage, ITargetedContentImage_Vtbl, 0xa7a585d9_779f_4b1e_bbb1_8eaf53fbeab2);
-#[cfg(feature = "Storage_Streams")]
-impl windows_core::RuntimeType for ITargetedContentImage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "Storage_Streams")]
-#[repr(C)]
-pub struct ITargetedContentImage_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Height: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub Width: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ITargetedContentItem, ITargetedContentItem_Vtbl, 0x38168dc4_276c_4c32_96ba_565c6e406e74);
-impl windows_core::RuntimeType for ITargetedContentItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ITargetedContentItem_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Path: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReportInteraction: unsafe extern "system" fn(*mut core::ffi::c_void, TargetedContentInteraction) -> windows_core::HRESULT,
-    pub ReportCustomInteraction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Collections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Collections: usize,
-}
-windows_core::imp::define_interface!(ITargetedContentItemState, ITargetedContentItemState_Vtbl, 0x73935454_4c65_4b47_a441_472de53c79b6);
-impl windows_core::RuntimeType for ITargetedContentItemState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ITargetedContentItemState_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ShouldDisplay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub AppInstallationState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TargetedContentAppInstallationState) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ITargetedContentObject, ITargetedContentObject_Vtbl, 0x041d7969_2212_42d1_9dfa_88a8e3033aa3);
-impl windows_core::RuntimeType for ITargetedContentObject {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ITargetedContentObject_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ObjectKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TargetedContentObjectKind) -> windows_core::HRESULT,
-    pub Collection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ITargetedContentStateChangedEventArgs, ITargetedContentStateChangedEventArgs_Vtbl, 0x9a1cef3d_8073_4416_8df2_546835a6414f);
-impl windows_core::RuntimeType for ITargetedContentStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ITargetedContentStateChangedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ITargetedContentSubscription, ITargetedContentSubscription_Vtbl, 0x882c2c49_c652_4c7a_acad_1f7fa2986c73);
-impl windows_core::RuntimeType for ITargetedContentSubscription {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ITargetedContentSubscription_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetContentContainerAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ContentChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveContentChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub AvailabilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveAvailabilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub StateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ITargetedContentSubscriptionOptions, ITargetedContentSubscriptionOptions_Vtbl, 0x61ee6ad0_2c83_421b_8467_413eaf1aeb97);
-impl windows_core::RuntimeType for ITargetedContentSubscriptionOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ITargetedContentSubscriptionOptions_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SubscriptionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AllowPartialContentAvailability: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetAllowPartialContentAvailability: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CloudQueryParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CloudQueryParameters: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub LocalFilters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    LocalFilters: usize,
-    pub Update: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ITargetedContentSubscriptionStatics, ITargetedContentSubscriptionStatics_Vtbl, 0xfaddfe80_360d_4916_b53c_7ea27090d02a);
-impl windows_core::RuntimeType for ITargetedContentSubscriptionStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ITargetedContentSubscriptionStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ITargetedContentValue, ITargetedContentValue_Vtbl, 0xaafde4b3_4215_4bf8_867f_43f04865f9bf);
-impl windows_core::RuntimeType for ITargetedContentValue {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ITargetedContentValue_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ValueKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TargetedContentValueKind) -> windows_core::HRESULT,
-    pub Path: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub String: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Number: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub Boolean: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub File: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    File: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub ImageFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    ImageFile: usize,
-    pub Action: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Strings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Strings: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Uris: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Uris: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Numbers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Numbers: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Booleans: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Booleans: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub Files: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
-    Files: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub ImageFiles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
-    ImageFiles: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Actions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Actions: usize,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TargetedContentAppInstallationState(pub i32);
-impl TargetedContentAppInstallationState {
-    pub const NotApplicable: Self = Self(0i32);
-    pub const NotInstalled: Self = Self(1i32);
-    pub const Installed: Self = Self(2i32);
-}
-impl windows_core::TypeKind for TargetedContentAppInstallationState {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for TargetedContentAppInstallationState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentAppInstallationState;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TargetedContentAvailability(pub i32);
-impl TargetedContentAvailability {
-    pub const None: Self = Self(0i32);
-    pub const Partial: Self = Self(1i32);
-    pub const All: Self = Self(2i32);
-}
-impl windows_core::TypeKind for TargetedContentAvailability {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for TargetedContentAvailability {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentAvailability;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TargetedContentInteraction(pub i32);
-impl TargetedContentInteraction {
-    pub const Impression: Self = Self(0i32);
-    pub const ClickThrough: Self = Self(1i32);
-    pub const Hover: Self = Self(2i32);
-    pub const Like: Self = Self(3i32);
-    pub const Dislike: Self = Self(4i32);
-    pub const Dismiss: Self = Self(5i32);
-    pub const Ineligible: Self = Self(6i32);
-    pub const Accept: Self = Self(7i32);
-    pub const Decline: Self = Self(8i32);
-    pub const Defer: Self = Self(9i32);
-    pub const Canceled: Self = Self(10i32);
-    pub const Conversion: Self = Self(11i32);
-    pub const Opportunity: Self = Self(12i32);
-}
-impl windows_core::TypeKind for TargetedContentInteraction {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for TargetedContentInteraction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentInteraction;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TargetedContentObjectKind(pub i32);
-impl TargetedContentObjectKind {
-    pub const Collection: Self = Self(0i32);
-    pub const Item: Self = Self(1i32);
-    pub const Value: Self = Self(2i32);
-}
-impl windows_core::TypeKind for TargetedContentObjectKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for TargetedContentObjectKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentObjectKind;i4)");
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TargetedContentValueKind(pub i32);

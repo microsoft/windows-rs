@@ -1,9 +1,9 @@
 windows_targets::link!("wnvapi.dll" "system" fn WnvOpen() -> super::super::Foundation:: HANDLE);
 #[cfg(feature = "Win32_System_IO")]
 windows_targets::link!("wnvapi.dll" "system" fn WnvRequestNotification(wnvhandle : super::super::Foundation:: HANDLE, notificationparam : *mut WNV_NOTIFICATION_PARAM, overlapped : *mut super::super::System::IO:: OVERLAPPED, bytestransferred : *mut u32) -> u32);
+pub const WNV_API_MAJOR_VERSION_1: u32 = 1u32;
+pub const WNV_API_MINOR_VERSION_0: u32 = 0u32;
 pub type WNV_CA_NOTIFICATION_TYPE = i32;
-pub type WNV_NOTIFICATION_TYPE = i32;
-pub type WNV_OBJECT_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -38,6 +38,7 @@ pub struct WNV_NOTIFICATION_PARAM {
     pub PendingNotifications: u32,
     pub Buffer: *mut u8,
 }
+pub type WNV_NOTIFICATION_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -59,6 +60,7 @@ pub struct WNV_OBJECT_HEADER {
     pub MinorVersion: u8,
     pub Size: u32,
 }
+pub type WNV_OBJECT_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -89,8 +91,6 @@ pub struct WNV_REDIRECT_PARAM {
     pub PA: WNV_IP_ADDRESS,
     pub NewPA: WNV_IP_ADDRESS,
 }
-pub const WNV_API_MAJOR_VERSION_1: u32 = 1u32;
-pub const WNV_API_MINOR_VERSION_0: u32 = 0u32;
 pub const WnvCustomerAddressAdded: WNV_CA_NOTIFICATION_TYPE = 0i32;
 pub const WnvCustomerAddressDeleted: WNV_CA_NOTIFICATION_TYPE = 1i32;
 pub const WnvCustomerAddressMax: WNV_CA_NOTIFICATION_TYPE = 3i32;

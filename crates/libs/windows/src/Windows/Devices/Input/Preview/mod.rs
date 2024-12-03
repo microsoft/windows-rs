@@ -1,4 +1,20 @@
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GazeDeviceConfigurationStatePreview(pub i32);
+impl GazeDeviceConfigurationStatePreview {
+    pub const Unknown: Self = Self(0i32);
+    pub const Ready: Self = Self(1i32);
+    pub const Configuring: Self = Self(2i32);
+    pub const ScreenSetupNeeded: Self = Self(3i32);
+    pub const UserCalibrationNeeded: Self = Self(4i32);
+}
+impl windows_core::TypeKind for GazeDeviceConfigurationStatePreview {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GazeDeviceConfigurationStatePreview {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Input.Preview.GazeDeviceConfigurationStatePreview;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GazeDevicePreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeDevicePreview, windows_core::IUnknown, windows_core::IInspectable);
@@ -612,20 +628,4 @@ pub struct IGazePointPreview_Vtbl {
     pub HidInputReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Devices_HumanInterfaceDevice"))]
     HidInputReport: usize,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GazeDeviceConfigurationStatePreview(pub i32);
-impl GazeDeviceConfigurationStatePreview {
-    pub const Unknown: Self = Self(0i32);
-    pub const Ready: Self = Self(1i32);
-    pub const Configuring: Self = Self(2i32);
-    pub const ScreenSetupNeeded: Self = Self(3i32);
-    pub const UserCalibrationNeeded: Self = Self(4i32);
-}
-impl windows_core::TypeKind for GazeDeviceConfigurationStatePreview {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GazeDeviceConfigurationStatePreview {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Input.Preview.GazeDeviceConfigurationStatePreview;i4)");
 }

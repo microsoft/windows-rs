@@ -278,6 +278,20 @@ impl windows_core::RuntimeName for CoreInkPresenterHost {
 unsafe impl Send for CoreInkPresenterHost {}
 unsafe impl Sync for CoreInkPresenterHost {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CoreWetStrokeDisposition(pub i32);
+impl CoreWetStrokeDisposition {
+    pub const Inking: Self = Self(0i32);
+    pub const Completed: Self = Self(1i32);
+    pub const Canceled: Self = Self(2i32);
+}
+impl windows_core::TypeKind for CoreWetStrokeDisposition {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for CoreWetStrokeDisposition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Core.CoreWetStrokeDisposition;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CoreWetStrokeUpdateEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreWetStrokeUpdateEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -588,18 +602,4 @@ impl windows_core::RuntimeType for ICoreWetStrokeUpdateSourceStatics {
 pub struct ICoreWetStrokeUpdateSourceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CoreWetStrokeDisposition(pub i32);
-impl CoreWetStrokeDisposition {
-    pub const Inking: Self = Self(0i32);
-    pub const Completed: Self = Self(1i32);
-    pub const Canceled: Self = Self(2i32);
-}
-impl windows_core::TypeKind for CoreWetStrokeDisposition {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for CoreWetStrokeDisposition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Core.CoreWetStrokeDisposition;i4)");
 }

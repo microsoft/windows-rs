@@ -40,6 +40,32 @@ impl GameControllerFactoryManager {
 impl windows_core::RuntimeName for GameControllerFactoryManager {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.GameControllerFactoryManager";
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct GameControllerVersionInfo {
+    pub Major: u16,
+    pub Minor: u16,
+    pub Build: u16,
+    pub Revision: u16,
+}
+impl windows_core::TypeKind for GameControllerVersionInfo {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GameControllerVersionInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.Custom.GameControllerVersionInfo;u2;u2;u2;u2)");
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct GipFirmwareUpdateProgress {
+    pub PercentCompleted: f64,
+    pub CurrentComponentId: u32,
+}
+impl windows_core::TypeKind for GipFirmwareUpdateProgress {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GipFirmwareUpdateProgress {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.Custom.GipFirmwareUpdateProgress;f8;u4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GipFirmwareUpdateResult(windows_core::IUnknown);
@@ -79,6 +105,20 @@ impl windows_core::RuntimeName for GipFirmwareUpdateResult {
 }
 unsafe impl Send for GipFirmwareUpdateResult {}
 unsafe impl Sync for GipFirmwareUpdateResult {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GipFirmwareUpdateStatus(pub i32);
+impl GipFirmwareUpdateStatus {
+    pub const Completed: Self = Self(0i32);
+    pub const UpToDate: Self = Self(1i32);
+    pub const Failed: Self = Self(2i32);
+}
+impl windows_core::TypeKind for GipFirmwareUpdateStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GipFirmwareUpdateStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.GipFirmwareUpdateStatus;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GipGameControllerProvider(windows_core::IUnknown);
@@ -152,6 +192,20 @@ impl windows_core::RuntimeName for GipGameControllerProvider {
 }
 unsafe impl Send for GipGameControllerProvider {}
 unsafe impl Sync for GipGameControllerProvider {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GipMessageClass(pub i32);
+impl GipMessageClass {
+    pub const Command: Self = Self(0i32);
+    pub const LowLatency: Self = Self(1i32);
+    pub const StandardLatency: Self = Self(2i32);
+}
+impl windows_core::TypeKind for GipMessageClass {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GipMessageClass {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.GipMessageClass;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HidGameControllerProvider(windows_core::IUnknown);
@@ -232,64 +286,6 @@ impl windows_core::RuntimeName for HidGameControllerProvider {
 }
 unsafe impl Send for HidGameControllerProvider {}
 unsafe impl Sync for HidGameControllerProvider {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct XusbGameControllerProvider(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(XusbGameControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(XusbGameControllerProvider, IGameControllerProvider);
-impl XusbGameControllerProvider {
-    pub fn FirmwareVersionInfo(&self) -> windows_core::Result<GameControllerVersionInfo> {
-        let this = &windows_core::Interface::cast::<IGameControllerProvider>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FirmwareVersionInfo)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn HardwareProductId(&self) -> windows_core::Result<u16> {
-        let this = &windows_core::Interface::cast::<IGameControllerProvider>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HardwareProductId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn HardwareVendorId(&self) -> windows_core::Result<u16> {
-        let this = &windows_core::Interface::cast::<IGameControllerProvider>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HardwareVendorId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn HardwareVersionInfo(&self) -> windows_core::Result<GameControllerVersionInfo> {
-        let this = &windows_core::Interface::cast::<IGameControllerProvider>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HardwareVersionInfo)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn IsConnected(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IGameControllerProvider>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsConnected)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetVibration(&self, lowfrequencymotorspeed: f64, highfrequencymotorspeed: f64) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetVibration)(windows_core::Interface::as_raw(this), lowfrequencymotorspeed, highfrequencymotorspeed).ok() }
-    }
-}
-impl windows_core::RuntimeType for XusbGameControllerProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXusbGameControllerProvider>();
-}
-unsafe impl windows_core::Interface for XusbGameControllerProvider {
-    type Vtable = <IXusbGameControllerProvider as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IXusbGameControllerProvider as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for XusbGameControllerProvider {
-    const NAME: &'static str = "Windows.Gaming.Input.Custom.XusbGameControllerProvider";
-}
-unsafe impl Send for XusbGameControllerProvider {}
-unsafe impl Sync for XusbGameControllerProvider {}
 windows_core::imp::define_interface!(ICustomGameControllerFactory, ICustomGameControllerFactory_Vtbl, 0x69a0ae5e_758e_4cbe_ace6_62155fe9126f);
 impl windows_core::RuntimeType for ICustomGameControllerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -760,34 +756,6 @@ pub struct IXusbGameControllerProvider_Vtbl {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GipFirmwareUpdateStatus(pub i32);
-impl GipFirmwareUpdateStatus {
-    pub const Completed: Self = Self(0i32);
-    pub const UpToDate: Self = Self(1i32);
-    pub const Failed: Self = Self(2i32);
-}
-impl windows_core::TypeKind for GipFirmwareUpdateStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GipFirmwareUpdateStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.GipFirmwareUpdateStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GipMessageClass(pub i32);
-impl GipMessageClass {
-    pub const Command: Self = Self(0i32);
-    pub const LowLatency: Self = Self(1i32);
-    pub const StandardLatency: Self = Self(2i32);
-}
-impl windows_core::TypeKind for GipMessageClass {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GipMessageClass {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.GipMessageClass;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XusbDeviceSubtype(pub i32);
 impl XusbDeviceSubtype {
     pub const Unknown: Self = Self(0i32);
@@ -821,29 +789,61 @@ impl windows_core::TypeKind for XusbDeviceType {
 impl windows_core::RuntimeType for XusbDeviceType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.XusbDeviceType;i4)");
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct GameControllerVersionInfo {
-    pub Major: u16,
-    pub Minor: u16,
-    pub Build: u16,
-    pub Revision: u16,
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct XusbGameControllerProvider(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(XusbGameControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(XusbGameControllerProvider, IGameControllerProvider);
+impl XusbGameControllerProvider {
+    pub fn FirmwareVersionInfo(&self) -> windows_core::Result<GameControllerVersionInfo> {
+        let this = &windows_core::Interface::cast::<IGameControllerProvider>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FirmwareVersionInfo)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn HardwareProductId(&self) -> windows_core::Result<u16> {
+        let this = &windows_core::Interface::cast::<IGameControllerProvider>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HardwareProductId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn HardwareVendorId(&self) -> windows_core::Result<u16> {
+        let this = &windows_core::Interface::cast::<IGameControllerProvider>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HardwareVendorId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn HardwareVersionInfo(&self) -> windows_core::Result<GameControllerVersionInfo> {
+        let this = &windows_core::Interface::cast::<IGameControllerProvider>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HardwareVersionInfo)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn IsConnected(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IGameControllerProvider>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsConnected)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetVibration(&self, lowfrequencymotorspeed: f64, highfrequencymotorspeed: f64) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetVibration)(windows_core::Interface::as_raw(this), lowfrequencymotorspeed, highfrequencymotorspeed).ok() }
+    }
 }
-impl windows_core::TypeKind for GameControllerVersionInfo {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::RuntimeType for XusbGameControllerProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXusbGameControllerProvider>();
 }
-impl windows_core::RuntimeType for GameControllerVersionInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.Custom.GameControllerVersionInfo;u2;u2;u2;u2)");
+unsafe impl windows_core::Interface for XusbGameControllerProvider {
+    type Vtable = <IXusbGameControllerProvider as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IXusbGameControllerProvider as windows_core::Interface>::IID;
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct GipFirmwareUpdateProgress {
-    pub PercentCompleted: f64,
-    pub CurrentComponentId: u32,
+impl windows_core::RuntimeName for XusbGameControllerProvider {
+    const NAME: &'static str = "Windows.Gaming.Input.Custom.XusbGameControllerProvider";
 }
-impl windows_core::TypeKind for GipFirmwareUpdateProgress {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for GipFirmwareUpdateProgress {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.Custom.GipFirmwareUpdateProgress;f8;u4)");
-}
+unsafe impl Send for XusbGameControllerProvider {}
+unsafe impl Sync for XusbGameControllerProvider {}

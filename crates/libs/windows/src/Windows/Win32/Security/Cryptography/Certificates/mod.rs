@@ -163,6 +163,838 @@ where
     windows_targets::link!("certpoleng.dll" "system" fn PstValidate(ptargetname : *const super::super::super::Foundation:: UNICODE_STRING, bisclient : super::super::super::Foundation:: BOOL, prequestedissuancepolicy : *const super:: CERT_USAGE_MATCH, phadditionalcertstore : *const super:: HCERTSTORE, pcert : *const super:: CERT_CONTEXT, pprovguid : *mut windows_core::GUID) -> super::super::super::Foundation:: NTSTATUS);
     PstValidate(core::mem::transmute(ptargetname.unwrap_or(core::ptr::null())), bisclient.param().abi(), core::mem::transmute(prequestedissuancepolicy.unwrap_or(core::ptr::null())), core::mem::transmute(phadditionalcertstore.unwrap_or(core::ptr::null())), core::mem::transmute(pcert), core::mem::transmute(pprovguid.unwrap_or(core::ptr::null_mut())))
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADDED_CERT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AlgorithmFlags(pub i32);
+pub const AlgorithmFlagsNone: AlgorithmFlags = AlgorithmFlags(0i32);
+pub const AlgorithmFlagsWrap: AlgorithmFlags = AlgorithmFlags(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AlgorithmOperationFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AlgorithmType(pub i32);
+pub const AllowNoOutstandingRequest: InstallResponseRestrictionFlags = InstallResponseRestrictionFlags(1i32);
+pub const AllowNone: InstallResponseRestrictionFlags = InstallResponseRestrictionFlags(0i32);
+pub const AllowUntrustedCertificate: InstallResponseRestrictionFlags = InstallResponseRestrictionFlags(2i32);
+pub const AllowUntrustedRoot: InstallResponseRestrictionFlags = InstallResponseRestrictionFlags(4i32);
+pub const AllowedKeySignature: Pkcs10AllowedSignatureTypes = Pkcs10AllowedSignatureTypes(1i32);
+pub const AllowedNullSignature: Pkcs10AllowedSignatureTypes = Pkcs10AllowedSignatureTypes(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AlternativeNameType(pub i32);
+pub const CAIF_DSENTRY: u32 = 1u32;
+pub const CAIF_LOCAL: u32 = 8u32;
+pub const CAIF_REGISTRY: u32 = 4u32;
+pub const CAIF_REGISTRYPARENT: u32 = 16u32;
+pub const CAIF_SHAREDFOLDERENTRY: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CAINFO {
+    pub cbSize: u32,
+    pub CAType: ENUM_CATYPES,
+    pub cCASignatureCerts: u32,
+    pub cCAExchangeCerts: u32,
+    pub cExitModules: u32,
+    pub lPropIdMax: i32,
+    pub lRoleSeparationEnabled: i32,
+    pub cKRACertUsedCount: u32,
+    pub cKRACertCount: u32,
+    pub fAdvancedServer: u32,
+}
+impl Default for CAINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CAINFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CAPATHLENGTH_INFINITE: u32 = 4294967295u32;
+pub const CAPropCertificate: EnrollmentCAProperty = EnrollmentCAProperty(7i32);
+pub const CAPropCertificateTypes: EnrollmentCAProperty = EnrollmentCAProperty(6i32);
+pub const CAPropCommonName: EnrollmentCAProperty = EnrollmentCAProperty(1i32);
+pub const CAPropDNSName: EnrollmentCAProperty = EnrollmentCAProperty(5i32);
+pub const CAPropDescription: EnrollmentCAProperty = EnrollmentCAProperty(8i32);
+pub const CAPropDistinguishedName: EnrollmentCAProperty = EnrollmentCAProperty(2i32);
+pub const CAPropRenewalOnly: EnrollmentCAProperty = EnrollmentCAProperty(12i32);
+pub const CAPropSanitizedName: EnrollmentCAProperty = EnrollmentCAProperty(3i32);
+pub const CAPropSanitizedShortName: EnrollmentCAProperty = EnrollmentCAProperty(4i32);
+pub const CAPropSecurity: EnrollmentCAProperty = EnrollmentCAProperty(11i32);
+pub const CAPropSiteName: EnrollmentCAProperty = EnrollmentCAProperty(10i32);
+pub const CAPropWebServers: EnrollmentCAProperty = EnrollmentCAProperty(9i32);
+pub const CA_ACCESS_ADMIN: CERTADMIN_GET_ROLES_FLAGS = CERTADMIN_GET_ROLES_FLAGS(1u32);
+pub const CA_ACCESS_AUDITOR: CERTADMIN_GET_ROLES_FLAGS = CERTADMIN_GET_ROLES_FLAGS(4u32);
+pub const CA_ACCESS_ENROLL: CERTADMIN_GET_ROLES_FLAGS = CERTADMIN_GET_ROLES_FLAGS(512u32);
+pub const CA_ACCESS_MASKROLES: u32 = 255u32;
+pub const CA_ACCESS_OFFICER: CERTADMIN_GET_ROLES_FLAGS = CERTADMIN_GET_ROLES_FLAGS(2u32);
+pub const CA_ACCESS_OPERATOR: CERTADMIN_GET_ROLES_FLAGS = CERTADMIN_GET_ROLES_FLAGS(8u32);
+pub const CA_ACCESS_READ: CERTADMIN_GET_ROLES_FLAGS = CERTADMIN_GET_ROLES_FLAGS(256u32);
+pub const CA_CRL_BASE: u32 = 1u32;
+pub const CA_CRL_DELTA: u32 = 2u32;
+pub const CA_CRL_REPUBLISH: u32 = 16u32;
+pub const CA_DISP_ERROR: u32 = 1u32;
+pub const CA_DISP_INCOMPLETE: u32 = 0u32;
+pub const CA_DISP_INVALID: u32 = 4u32;
+pub const CA_DISP_REVOKED: u32 = 2u32;
+pub const CA_DISP_UNDER_SUBMISSION: u32 = 5u32;
+pub const CA_DISP_VALID: u32 = 3u32;
+pub const CAlternativeName: windows_core::GUID = windows_core::GUID::from_u128(0x884e2013_217d_11da_b2a4_000e7bbb2b09);
+pub const CAlternativeNames: windows_core::GUID = windows_core::GUID::from_u128(0x884e2014_217d_11da_b2a4_000e7bbb2b09);
+pub const CBinaryConverter: windows_core::GUID = windows_core::GUID::from_u128(0x884e2002_217d_11da_b2a4_000e7bbb2b09);
+pub const CCLOCKSKEWMINUTESDEFAULT: u32 = 10u32;
+pub const CC_DEFAULTCONFIG: CERT_GET_CONFIG_FLAGS = CERT_GET_CONFIG_FLAGS(0i32);
+pub const CC_FIRSTCONFIG: CERT_GET_CONFIG_FLAGS = CERT_GET_CONFIG_FLAGS(2i32);
+pub const CC_LOCALACTIVECONFIG: CERT_GET_CONFIG_FLAGS = CERT_GET_CONFIG_FLAGS(4i32);
+pub const CC_LOCALCONFIG: CERT_GET_CONFIG_FLAGS = CERT_GET_CONFIG_FLAGS(3i32);
+pub const CC_UIPICKCONFIG: CERT_GET_CONFIG_FLAGS = CERT_GET_CONFIG_FLAGS(1i32);
+pub const CC_UIPICKCONFIGSKIPLOCALCA: CERT_GET_CONFIG_FLAGS = CERT_GET_CONFIG_FLAGS(5i32);
+pub const CCertAdmin: windows_core::GUID = windows_core::GUID::from_u128(0x37eabaf0_7fb6_11d0_8817_00a0c903b83c);
+pub const CCertConfig: windows_core::GUID = windows_core::GUID::from_u128(0x372fce38_4324_11d0_8810_00a0c903b83c);
+pub const CCertEncodeAltName: windows_core::GUID = windows_core::GUID::from_u128(0x1cfc4cda_1271_11d1_9bd4_00c04fb683fa);
+pub const CCertEncodeBitString: windows_core::GUID = windows_core::GUID::from_u128(0x6d6b3cd8_1278_11d1_9bd4_00c04fb683fa);
+pub const CCertEncodeCRLDistInfo: windows_core::GUID = windows_core::GUID::from_u128(0x01fa60a0_bbff_11d0_8825_00a0c903b83c);
+pub const CCertEncodeDateArray: windows_core::GUID = windows_core::GUID::from_u128(0x301f77b0_a470_11d0_8821_00a0c903b83c);
+pub const CCertEncodeLongArray: windows_core::GUID = windows_core::GUID::from_u128(0x4e0680a0_a0a2_11d0_8821_00a0c903b83c);
+pub const CCertEncodeStringArray: windows_core::GUID = windows_core::GUID::from_u128(0x19a76fe0_7494_11d0_8816_00a0c903b83c);
+pub const CCertGetConfig: windows_core::GUID = windows_core::GUID::from_u128(0xc6cc49b0_ce17_11d0_8833_00a0c903b83c);
+pub const CCertProperties: windows_core::GUID = windows_core::GUID::from_u128(0x884e202f_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertProperty: windows_core::GUID = windows_core::GUID::from_u128(0x884e202e_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertPropertyArchived: windows_core::GUID = windows_core::GUID::from_u128(0x884e2037_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertPropertyArchivedKeyHash: windows_core::GUID = windows_core::GUID::from_u128(0x884e203b_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertPropertyAutoEnroll: windows_core::GUID = windows_core::GUID::from_u128(0x884e2032_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertPropertyBackedUp: windows_core::GUID = windows_core::GUID::from_u128(0x884e2038_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertPropertyDescription: windows_core::GUID = windows_core::GUID::from_u128(0x884e2031_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertPropertyEnrollment: windows_core::GUID = windows_core::GUID::from_u128(0x884e2039_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertPropertyEnrollmentPolicyServer: windows_core::GUID = windows_core::GUID::from_u128(0x884e204c_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertPropertyFriendlyName: windows_core::GUID = windows_core::GUID::from_u128(0x884e2030_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertPropertyKeyProvInfo: windows_core::GUID = windows_core::GUID::from_u128(0x884e2036_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertPropertyRenewal: windows_core::GUID = windows_core::GUID::from_u128(0x884e203a_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertPropertyRequestOriginator: windows_core::GUID = windows_core::GUID::from_u128(0x884e2033_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertPropertySHA1Hash: windows_core::GUID = windows_core::GUID::from_u128(0x884e2034_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertRequest: windows_core::GUID = windows_core::GUID::from_u128(0x98aff3f0_5524_11d0_8812_00a0c903b83c);
+pub const CCertServerExit: windows_core::GUID = windows_core::GUID::from_u128(0x4c4a5e40_732c_11d0_8816_00a0c903b83c);
+pub const CCertServerPolicy: windows_core::GUID = windows_core::GUID::from_u128(0xaa000926_ffbe_11cf_8800_00a0c903b83c);
+pub const CCertView: windows_core::GUID = windows_core::GUID::from_u128(0xa12d0f7a_1e84_11d1_9bd6_00c04fb683fa);
+pub const CCertificateAttestationChallenge: windows_core::GUID = windows_core::GUID::from_u128(0x1362ada1_eb60_456a_b6e1_118050db741b);
+pub const CCertificatePolicies: windows_core::GUID = windows_core::GUID::from_u128(0x884e201f_217d_11da_b2a4_000e7bbb2b09);
+pub const CCertificatePolicy: windows_core::GUID = windows_core::GUID::from_u128(0x884e201e_217d_11da_b2a4_000e7bbb2b09);
+pub const CCryptAttribute: windows_core::GUID = windows_core::GUID::from_u128(0x884e202c_217d_11da_b2a4_000e7bbb2b09);
+pub const CCryptAttributes: windows_core::GUID = windows_core::GUID::from_u128(0x884e202d_217d_11da_b2a4_000e7bbb2b09);
+pub const CCspInformation: windows_core::GUID = windows_core::GUID::from_u128(0x884e2007_217d_11da_b2a4_000e7bbb2b09);
+pub const CCspInformations: windows_core::GUID = windows_core::GUID::from_u128(0x884e2008_217d_11da_b2a4_000e7bbb2b09);
+pub const CCspStatus: windows_core::GUID = windows_core::GUID::from_u128(0x884e2009_217d_11da_b2a4_000e7bbb2b09);
+pub const CDR_EXPIRED: CERT_DELETE_ROW_FLAGS = CERT_DELETE_ROW_FLAGS(1i32);
+pub const CDR_REQUEST_LAST_CHANGED: CERT_DELETE_ROW_FLAGS = CERT_DELETE_ROW_FLAGS(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CERTADMIN_GET_ROLES_FLAGS(pub u32);
+impl CERTADMIN_GET_ROLES_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for CERTADMIN_GET_ROLES_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for CERTADMIN_GET_ROLES_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for CERTADMIN_GET_ROLES_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for CERTADMIN_GET_ROLES_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for CERTADMIN_GET_ROLES_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const CERTENROLL_INDEX_BASE: u32 = 0u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CERTENROLL_OBJECTID(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CERTENROLL_PROPERTYID(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CERTTRANSBLOB {
+    pub cb: u32,
+    pub pb: *mut u8,
+}
+impl Default for CERTTRANSBLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CERTTRANSBLOB {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CERTVIEWRESTRICTION {
+    pub ColumnIndex: u32,
+    pub SeekOperator: i32,
+    pub SortOrder: i32,
+    pub pbValue: *mut u8,
+    pub cbValue: u32,
+}
+impl Default for CERTVIEWRESTRICTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CERTVIEWRESTRICTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CERT_ALT_NAME(pub i32);
+pub const CERT_ALT_NAME_DIRECTORY_NAME: CERT_ALT_NAME = CERT_ALT_NAME(5i32);
+pub const CERT_ALT_NAME_DNS_NAME: CERT_ALT_NAME = CERT_ALT_NAME(3i32);
+pub const CERT_ALT_NAME_IP_ADDRESS: CERT_ALT_NAME = CERT_ALT_NAME(8i32);
+pub const CERT_ALT_NAME_OTHER_NAME: CERT_ALT_NAME = CERT_ALT_NAME(1i32);
+pub const CERT_ALT_NAME_REGISTERED_ID: CERT_ALT_NAME = CERT_ALT_NAME(9i32);
+pub const CERT_ALT_NAME_RFC822_NAME: CERT_ALT_NAME = CERT_ALT_NAME(2i32);
+pub const CERT_ALT_NAME_URL: CERT_ALT_NAME = CERT_ALT_NAME(7i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CERT_CREATE_REQUEST_FLAGS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CERT_DELETE_ROW_FLAGS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CERT_EXIT_EVENT_MASK(pub u32);
+impl CERT_EXIT_EVENT_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for CERT_EXIT_EVENT_MASK {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for CERT_EXIT_EVENT_MASK {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for CERT_EXIT_EVENT_MASK {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for CERT_EXIT_EVENT_MASK {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for CERT_EXIT_EVENT_MASK {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CERT_GET_CONFIG_FLAGS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CERT_IMPORT_FLAGS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CERT_PROPERTY_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CERT_REQUEST_OUT_TYPE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CERT_VIEW_COLUMN_INDEX(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CERT_VIEW_SEEK_OPERATOR_FLAGS(pub i32);
+pub const CEnroll: windows_core::GUID = windows_core::GUID::from_u128(0x43f8f289_7a20_11d0_8f06_00c04fc295e1);
+pub const CEnroll2: windows_core::GUID = windows_core::GUID::from_u128(0x127698e4_e730_4e5c_a2b1_21490a70c8a1);
+pub const CMM_READONLY: u32 = 2u32;
+pub const CMM_REFRESHONLY: u32 = 1u32;
+pub const CObjectId: windows_core::GUID = windows_core::GUID::from_u128(0x884e2000_217d_11da_b2a4_000e7bbb2b09);
+pub const CObjectIds: windows_core::GUID = windows_core::GUID::from_u128(0x884e2001_217d_11da_b2a4_000e7bbb2b09);
+pub const CPF_BADURL_ERROR: u32 = 32u32;
+pub const CPF_BASE: u32 = 1u32;
+pub const CPF_CASTORE_ERROR: u32 = 16u32;
+pub const CPF_COMPLETE: u32 = 4u32;
+pub const CPF_DELTA: u32 = 2u32;
+pub const CPF_FILE_ERROR: u32 = 512u32;
+pub const CPF_FTP_ERROR: u32 = 1024u32;
+pub const CPF_HTTP_ERROR: u32 = 2048u32;
+pub const CPF_LDAP_ERROR: u32 = 256u32;
+pub const CPF_MANUAL: u32 = 64u32;
+pub const CPF_POSTPONED_BASE_FILE_ERROR: u32 = 8192u32;
+pub const CPF_POSTPONED_BASE_LDAP_ERROR: u32 = 4096u32;
+pub const CPF_SHADOW: u32 = 8u32;
+pub const CPF_SIGNATURE_ERROR: u32 = 128u32;
+pub const CPolicyQualifier: windows_core::GUID = windows_core::GUID::from_u128(0x884e201c_217d_11da_b2a4_000e7bbb2b09);
+pub const CPolicyQualifiers: windows_core::GUID = windows_core::GUID::from_u128(0x884e201d_217d_11da_b2a4_000e7bbb2b09);
+pub const CRLF_ALLOW_REQUEST_ATTRIBUTE_SUBJECT: u32 = 65536u32;
+pub const CRLF_BUILD_ROOTCA_CRLENTRIES_BASEDONKEY: u32 = 2097152u32;
+pub const CRLF_CRLNUMBER_CRITICAL: u32 = 4u32;
+pub const CRLF_DELETE_EXPIRED_CRLS: u32 = 2u32;
+pub const CRLF_DELTA_USE_OLDEST_UNEXPIRED_BASE: u32 = 1u32;
+pub const CRLF_DISABLE_CHAIN_VERIFICATION: u32 = 1048576u32;
+pub const CRLF_DISABLE_RDN_REORDER: u32 = 2048u32;
+pub const CRLF_DISABLE_ROOT_CROSS_CERTS: u32 = 4096u32;
+pub const CRLF_ENFORCE_ENROLLMENT_AGENT: u32 = 1024u32;
+pub const CRLF_IGNORE_CROSS_CERT_TRUST_ERROR: u32 = 256u32;
+pub const CRLF_IGNORE_INVALID_POLICIES: u32 = 16u32;
+pub const CRLF_IGNORE_UNKNOWN_CMC_ATTRIBUTES: u32 = 128u32;
+pub const CRLF_LOG_FULL_RESPONSE: u32 = 8192u32;
+pub const CRLF_PRESERVE_EXPIRED_CA_CERTS: u32 = 262144u32;
+pub const CRLF_PRESERVE_REVOKED_CA_CERTS: u32 = 524288u32;
+pub const CRLF_PUBLISH_EXPIRED_CERT_CRLS: u32 = 512u32;
+pub const CRLF_REBUILD_MODIFIED_SUBJECT_ONLY: u32 = 32u32;
+pub const CRLF_REVCHECK_IGNORE_NOREVCHECK: u32 = 131072u32;
+pub const CRLF_REVCHECK_IGNORE_OFFLINE: u32 = 8u32;
+pub const CRLF_SAVE_FAILED_CERTS: u32 = 64u32;
+pub const CRLF_USE_CROSS_CERT_TEMPLATE: u32 = 32768u32;
+pub const CRLF_USE_XCHG_CERT_TEMPLATE: u32 = 16384u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CRLRevocationReason(pub i32);
+pub const CRYPT_ENUM_ALL_PROVIDERS: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CR_DISP(pub u32);
+pub const CR_DISP_DENIED: CR_DISP = CR_DISP(2u32);
+pub const CR_DISP_ERROR: CR_DISP = CR_DISP(1u32);
+pub const CR_DISP_INCOMPLETE: CR_DISP = CR_DISP(0u32);
+pub const CR_DISP_ISSUED: CR_DISP = CR_DISP(3u32);
+pub const CR_DISP_ISSUED_OUT_OF_BAND: CR_DISP = CR_DISP(4u32);
+pub const CR_DISP_REVOKED: u32 = 6u32;
+pub const CR_DISP_UNDER_SUBMISSION: CR_DISP = CR_DISP(5u32);
+pub const CR_FLG_CACROSSCERT: u32 = 128u32;
+pub const CR_FLG_CAXCHGCERT: u32 = 8u32;
+pub const CR_FLG_CHALLENGEPENDING: u32 = 1024u32;
+pub const CR_FLG_CHALLENGESATISFIED: u32 = 2048u32;
+pub const CR_FLG_DEFINEDCACERT: u32 = 512u32;
+pub const CR_FLG_ENFORCEUTF8: u32 = 256u32;
+pub const CR_FLG_ENROLLONBEHALFOF: u32 = 16u32;
+pub const CR_FLG_FORCETELETEX: u32 = 1u32;
+pub const CR_FLG_FORCEUTF8: u32 = 4u32;
+pub const CR_FLG_PUBLISHERROR: u32 = 2147483648u32;
+pub const CR_FLG_RENEWAL: u32 = 2u32;
+pub const CR_FLG_SUBJECTUNMODIFIED: u32 = 32u32;
+pub const CR_FLG_TRUSTEKCERT: u32 = 8192u32;
+pub const CR_FLG_TRUSTEKKEY: u32 = 16384u32;
+pub const CR_FLG_TRUSTONUSE: u32 = 4096u32;
+pub const CR_FLG_VALIDENCRYPTEDKEYHASH: u32 = 64u32;
+pub const CR_GEMT_DEFAULT: u32 = 0u32;
+pub const CR_GEMT_HRESULT_STRING: u32 = 1u32;
+pub const CR_GEMT_HTTP_ERROR: u32 = 2u32;
+pub const CR_IN_BASE64: CERT_IMPORT_FLAGS = CERT_IMPORT_FLAGS(1i32);
+pub const CR_IN_BASE64HEADER: CERT_IMPORT_FLAGS = CERT_IMPORT_FLAGS(0i32);
+pub const CR_IN_BINARY: CERT_IMPORT_FLAGS = CERT_IMPORT_FLAGS(2i32);
+pub const CR_IN_CERTIFICATETRANSPARENCY: u32 = 67108864u32;
+pub const CR_IN_CHALLENGERESPONSE: u32 = 1280u32;
+pub const CR_IN_CLIENTIDNONE: u32 = 4194304u32;
+pub const CR_IN_CMC: u32 = 1024u32;
+pub const CR_IN_CONNECTONLY: u32 = 8388608u32;
+pub const CR_IN_CRLS: u32 = 524288u32;
+pub const CR_IN_ENCODEANY: u32 = 255u32;
+pub const CR_IN_ENCODEMASK: u32 = 255u32;
+pub const CR_IN_FORMATANY: u32 = 0u32;
+pub const CR_IN_FORMATMASK: u32 = 65280u32;
+pub const CR_IN_FULLRESPONSE: u32 = 262144u32;
+pub const CR_IN_HTTP: u32 = 196608u32;
+pub const CR_IN_KEYGEN: u32 = 512u32;
+pub const CR_IN_MACHINE: u32 = 1048576u32;
+pub const CR_IN_PKCS10: u32 = 256u32;
+pub const CR_IN_PKCS7: u32 = 768u32;
+pub const CR_IN_RETURNCHALLENGE: u32 = 16777216u32;
+pub const CR_IN_ROBO: u32 = 2097152u32;
+pub const CR_IN_RPC: u32 = 131072u32;
+pub const CR_IN_SCEP: u32 = 65536u32;
+pub const CR_IN_SCEPPOST: u32 = 33554432u32;
+pub const CR_IN_SIGNEDCERTIFICATETIMESTAMPLIST: u32 = 1536u32;
+pub const CR_OUT_BASE64: CERT_REQUEST_OUT_TYPE = CERT_REQUEST_OUT_TYPE(1i32);
+pub const CR_OUT_BASE64HEADER: CERT_REQUEST_OUT_TYPE = CERT_REQUEST_OUT_TYPE(0i32);
+pub const CR_OUT_BASE64REQUESTHEADER: u32 = 3u32;
+pub const CR_OUT_BASE64X509CRLHEADER: u32 = 9u32;
+pub const CR_OUT_BINARY: CERT_REQUEST_OUT_TYPE = CERT_REQUEST_OUT_TYPE(2i32);
+pub const CR_OUT_CHAIN: u32 = 256u32;
+pub const CR_OUT_CRLS: u32 = 512u32;
+pub const CR_OUT_ENCODEMASK: u32 = 255u32;
+pub const CR_OUT_HEX: u32 = 4u32;
+pub const CR_OUT_HEXADDR: u32 = 10u32;
+pub const CR_OUT_HEXASCII: u32 = 5u32;
+pub const CR_OUT_HEXASCIIADDR: u32 = 11u32;
+pub const CR_OUT_HEXRAW: u32 = 12u32;
+pub const CR_OUT_NOCR: u32 = 2147483648u32;
+pub const CR_OUT_NOCRLF: u32 = 1073741824u32;
+pub const CR_PROP_ADVANCEDSERVER: u32 = 28u32;
+pub const CR_PROP_BASECRL: u32 = 17u32;
+pub const CR_PROP_BASECRLPUBLISHSTATUS: u32 = 30u32;
+pub const CR_PROP_CABACKWARDCROSSCERT: u32 = 36u32;
+pub const CR_PROP_CABACKWARDCROSSCERTSTATE: u32 = 38u32;
+pub const CR_PROP_CACERTSTATE: u32 = 19u32;
+pub const CR_PROP_CACERTSTATUSCODE: u32 = 34u32;
+pub const CR_PROP_CACERTVERSION: u32 = 39u32;
+pub const CR_PROP_CAFORWARDCROSSCERT: u32 = 35u32;
+pub const CR_PROP_CAFORWARDCROSSCERTSTATE: u32 = 37u32;
+pub const CR_PROP_CANAME: u32 = 6u32;
+pub const CR_PROP_CAPROPIDMAX: u32 = 21u32;
+pub const CR_PROP_CASIGCERT: u32 = 12u32;
+pub const CR_PROP_CASIGCERTCHAIN: u32 = 13u32;
+pub const CR_PROP_CASIGCERTCOUNT: u32 = 11u32;
+pub const CR_PROP_CASIGCERTCRLCHAIN: u32 = 32u32;
+pub const CR_PROP_CATYPE: u32 = 10u32;
+pub const CR_PROP_CAXCHGCERT: u32 = 15u32;
+pub const CR_PROP_CAXCHGCERTCHAIN: u32 = 16u32;
+pub const CR_PROP_CAXCHGCERTCOUNT: u32 = 14u32;
+pub const CR_PROP_CAXCHGCERTCRLCHAIN: u32 = 33u32;
+pub const CR_PROP_CERTAIAOCSPURLS: u32 = 43u32;
+pub const CR_PROP_CERTAIAURLS: u32 = 42u32;
+pub const CR_PROP_CERTCDPURLS: u32 = 41u32;
+pub const CR_PROP_CRLSTATE: u32 = 20u32;
+pub const CR_PROP_DELTACRL: u32 = 18u32;
+pub const CR_PROP_DELTACRLPUBLISHSTATUS: u32 = 31u32;
+pub const CR_PROP_DNSNAME: u32 = 22u32;
+pub const CR_PROP_EXITCOUNT: u32 = 3u32;
+pub const CR_PROP_EXITDESCRIPTION: u32 = 4u32;
+pub const CR_PROP_FILEVERSION: u32 = 1u32;
+pub const CR_PROP_KRACERT: u32 = 26u32;
+pub const CR_PROP_KRACERTCOUNT: u32 = 25u32;
+pub const CR_PROP_KRACERTSTATE: u32 = 27u32;
+pub const CR_PROP_KRACERTUSEDCOUNT: u32 = 24u32;
+pub const CR_PROP_LOCALENAME: u32 = 44u32;
+pub const CR_PROP_NONE: u32 = 0u32;
+pub const CR_PROP_PARENTCA: u32 = 9u32;
+pub const CR_PROP_POLICYDESCRIPTION: u32 = 5u32;
+pub const CR_PROP_PRODUCTVERSION: u32 = 2u32;
+pub const CR_PROP_ROLESEPARATIONENABLED: u32 = 23u32;
+pub const CR_PROP_SANITIZEDCANAME: u32 = 7u32;
+pub const CR_PROP_SANITIZEDCASHORTNAME: u32 = 40u32;
+pub const CR_PROP_SCEPMAX: u32 = 1002u32;
+pub const CR_PROP_SCEPMIN: u32 = 1000u32;
+pub const CR_PROP_SCEPSERVERCAPABILITIES: u32 = 1001u32;
+pub const CR_PROP_SCEPSERVERCERTS: u32 = 1000u32;
+pub const CR_PROP_SCEPSERVERCERTSCHAIN: u32 = 1002u32;
+pub const CR_PROP_SHAREDFOLDER: u32 = 8u32;
+pub const CR_PROP_SUBJECTTEMPLATE_OIDS: u32 = 45u32;
+pub const CR_PROP_TEMPLATES: u32 = 29u32;
+pub const CSBACKUP_DISABLE_INCREMENTAL: u32 = 4294967295u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CSBACKUP_TYPE(pub u32);
+pub const CSBACKUP_TYPE_FULL: CSBACKUP_TYPE = CSBACKUP_TYPE(1u32);
+pub const CSBACKUP_TYPE_LOGS_ONLY: CSBACKUP_TYPE = CSBACKUP_TYPE(2u32);
+pub const CSBACKUP_TYPE_MASK: u32 = 3u32;
+pub const CSBFT_DATABASE_DIRECTORY: u32 = 64u32;
+pub const CSBFT_DIRECTORY: u32 = 128u32;
+pub const CSBFT_LOG_DIRECTORY: u32 = 32u32;
+pub const CSCONTROL_RESTART: u64 = 3u64;
+pub const CSCONTROL_SHUTDOWN: u64 = 1u64;
+pub const CSCONTROL_SUSPEND: u64 = 2u64;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CSEDB_RSTMAPW {
+    pub pwszDatabaseName: windows_core::PWSTR,
+    pub pwszNewDatabaseName: windows_core::PWSTR,
+}
+impl Default for CSEDB_RSTMAPW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for CSEDB_RSTMAPW {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CSRESTORE_TYPE_CATCHUP: u32 = 4u32;
+pub const CSRESTORE_TYPE_FULL: u32 = 1u32;
+pub const CSRESTORE_TYPE_MASK: u32 = 5u32;
+pub const CSRESTORE_TYPE_ONLINE: u32 = 2u32;
+pub const CSURL_ADDTOCERTCDP: u32 = 2u32;
+pub const CSURL_ADDTOCERTOCSP: u32 = 32u32;
+pub const CSURL_ADDTOCRLCDP: u32 = 8u32;
+pub const CSURL_ADDTOFRESHESTCRL: u32 = 4u32;
+pub const CSURL_ADDTOIDP: u32 = 128u32;
+pub const CSURL_PUBLISHRETRY: u32 = 16u32;
+pub const CSURL_SERVERPUBLISH: u32 = 1u32;
+pub const CSURL_SERVERPUBLISHDELTA: u32 = 64u32;
+pub const CSVER_MAJOR: u32 = 7u32;
+pub const CSVER_MAJOR_LONGHORN: u32 = 3u32;
+pub const CSVER_MAJOR_THRESHOLD: u32 = 7u32;
+pub const CSVER_MAJOR_WHISTLER: u32 = 2u32;
+pub const CSVER_MAJOR_WIN2K: u32 = 1u32;
+pub const CSVER_MAJOR_WIN7: u32 = 4u32;
+pub const CSVER_MAJOR_WIN8: u32 = 5u32;
+pub const CSVER_MAJOR_WINBLUE: u32 = 6u32;
+pub const CSVER_MINOR: u32 = 1u32;
+pub const CSVER_MINOR_LONGHORN_BETA1: u32 = 1u32;
+pub const CSVER_MINOR_THRESHOLD: u32 = 1u32;
+pub const CSVER_MINOR_WHISTLER_BETA2: u32 = 1u32;
+pub const CSVER_MINOR_WHISTLER_BETA3: u32 = 2u32;
+pub const CSVER_MINOR_WIN2K: u32 = 1u32;
+pub const CSVER_MINOR_WIN7: u32 = 1u32;
+pub const CSVER_MINOR_WIN8: u32 = 1u32;
+pub const CSVER_MINOR_WINBLUE: u32 = 1u32;
+pub const CSignerCertificate: windows_core::GUID = windows_core::GUID::from_u128(0x884e203d_217d_11da_b2a4_000e7bbb2b09);
+pub const CSmimeCapabilities: windows_core::GUID = windows_core::GUID::from_u128(0x884e201a_217d_11da_b2a4_000e7bbb2b09);
+pub const CSmimeCapability: windows_core::GUID = windows_core::GUID::from_u128(0x884e2019_217d_11da_b2a4_000e7bbb2b09);
+pub const CVIEWAGEMINUTESDEFAULT: u32 = 16u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CVRC_COLUMN(pub i32);
+pub const CVRC_COLUMN_MASK: CVRC_COLUMN = CVRC_COLUMN(4095i32);
+pub const CVRC_COLUMN_RESULT: CVRC_COLUMN = CVRC_COLUMN(1i32);
+pub const CVRC_COLUMN_SCHEMA: CVRC_COLUMN = CVRC_COLUMN(0i32);
+pub const CVRC_COLUMN_VALUE: CVRC_COLUMN = CVRC_COLUMN(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CVRC_TABLE(pub i32);
+pub const CVRC_TABLE_ATTRIBUTES: CVRC_TABLE = CVRC_TABLE(16384i32);
+pub const CVRC_TABLE_CRL: CVRC_TABLE = CVRC_TABLE(20480i32);
+pub const CVRC_TABLE_EXTENSIONS: CVRC_TABLE = CVRC_TABLE(12288i32);
+pub const CVRC_TABLE_MASK: u32 = 61440u32;
+pub const CVRC_TABLE_REQCERT: CVRC_TABLE = CVRC_TABLE(0i32);
+pub const CVRC_TABLE_SHIFT: u32 = 12u32;
+pub const CVR_SEEK_EQ: CERT_VIEW_SEEK_OPERATOR_FLAGS = CERT_VIEW_SEEK_OPERATOR_FLAGS(1i32);
+pub const CVR_SEEK_GE: CERT_VIEW_SEEK_OPERATOR_FLAGS = CERT_VIEW_SEEK_OPERATOR_FLAGS(8i32);
+pub const CVR_SEEK_GT: CERT_VIEW_SEEK_OPERATOR_FLAGS = CERT_VIEW_SEEK_OPERATOR_FLAGS(16i32);
+pub const CVR_SEEK_LE: CERT_VIEW_SEEK_OPERATOR_FLAGS = CERT_VIEW_SEEK_OPERATOR_FLAGS(4i32);
+pub const CVR_SEEK_LT: CERT_VIEW_SEEK_OPERATOR_FLAGS = CERT_VIEW_SEEK_OPERATOR_FLAGS(2i32);
+pub const CVR_SEEK_MASK: u32 = 255u32;
+pub const CVR_SEEK_NODELTA: u32 = 4096u32;
+pub const CVR_SEEK_NONE: u32 = 0u32;
+pub const CVR_SORT_ASCEND: u32 = 1u32;
+pub const CVR_SORT_DESCEND: u32 = 2u32;
+pub const CVR_SORT_NONE: u32 = 0u32;
+pub const CV_COLUMN_ATTRIBUTE_DEFAULT: i32 = -5i32;
+pub const CV_COLUMN_CRL_DEFAULT: i32 = -6i32;
+pub const CV_COLUMN_EXTENSION_DEFAULT: i32 = -4i32;
+pub const CV_COLUMN_LOG_DEFAULT: CERT_VIEW_COLUMN_INDEX = CERT_VIEW_COLUMN_INDEX(-2i32);
+pub const CV_COLUMN_LOG_FAILED_DEFAULT: CERT_VIEW_COLUMN_INDEX = CERT_VIEW_COLUMN_INDEX(-3i32);
+pub const CV_COLUMN_LOG_REVOKED_DEFAULT: i32 = -7i32;
+pub const CV_COLUMN_QUEUE_DEFAULT: CERT_VIEW_COLUMN_INDEX = CERT_VIEW_COLUMN_INDEX(-1i32);
+pub const CV_OUT_BASE64: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(1i32);
+pub const CV_OUT_BASE64HEADER: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(0i32);
+pub const CV_OUT_BASE64REQUESTHEADER: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(3i32);
+pub const CV_OUT_BASE64X509CRLHEADER: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(9i32);
+pub const CV_OUT_BINARY: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(2i32);
+pub const CV_OUT_ENCODEMASK: u32 = 255u32;
+pub const CV_OUT_HEX: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(4i32);
+pub const CV_OUT_HEXADDR: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(10i32);
+pub const CV_OUT_HEXASCII: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(5i32);
+pub const CV_OUT_HEXASCIIADDR: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(11i32);
+pub const CV_OUT_HEXRAW: u32 = 12u32;
+pub const CV_OUT_NOCR: u32 = 2147483648u32;
+pub const CV_OUT_NOCRLF: u32 = 1073741824u32;
+pub const CX500DistinguishedName: windows_core::GUID = windows_core::GUID::from_u128(0x884e2003_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509Attribute: windows_core::GUID = windows_core::GUID::from_u128(0x884e2022_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509AttributeArchiveKey: windows_core::GUID = windows_core::GUID::from_u128(0x884e2027_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509AttributeArchiveKeyHash: windows_core::GUID = windows_core::GUID::from_u128(0x884e2028_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509AttributeClientId: windows_core::GUID = windows_core::GUID::from_u128(0x884e2025_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509AttributeCspProvider: windows_core::GUID = windows_core::GUID::from_u128(0x884e202b_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509AttributeExtensions: windows_core::GUID = windows_core::GUID::from_u128(0x884e2024_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509AttributeOSVersion: windows_core::GUID = windows_core::GUID::from_u128(0x884e202a_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509AttributeRenewalCertificate: windows_core::GUID = windows_core::GUID::from_u128(0x884e2026_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509Attributes: windows_core::GUID = windows_core::GUID::from_u128(0x884e2023_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509CertificateRequestCertificate: windows_core::GUID = windows_core::GUID::from_u128(0x884e2043_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509CertificateRequestCmc: windows_core::GUID = windows_core::GUID::from_u128(0x884e2045_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509CertificateRequestPkcs10: windows_core::GUID = windows_core::GUID::from_u128(0x884e2042_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509CertificateRequestPkcs7: windows_core::GUID = windows_core::GUID::from_u128(0x884e2044_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509CertificateRevocationList: windows_core::GUID = windows_core::GUID::from_u128(0x884e2060_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509CertificateRevocationListEntries: windows_core::GUID = windows_core::GUID::from_u128(0x884e205f_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509CertificateRevocationListEntry: windows_core::GUID = windows_core::GUID::from_u128(0x884e205e_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509CertificateTemplateADWritable: windows_core::GUID = windows_core::GUID::from_u128(0x8336e323_2e6a_4a04_937c_548f681839b3);
+pub const CX509EndorsementKey: windows_core::GUID = windows_core::GUID::from_u128(0x11a25a1d_b9a3_4edd_af83_3b59adbed361);
+pub const CX509Enrollment: windows_core::GUID = windows_core::GUID::from_u128(0x884e2046_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509EnrollmentHelper: windows_core::GUID = windows_core::GUID::from_u128(0x884e2050_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509EnrollmentPolicyActiveDirectory: windows_core::GUID = windows_core::GUID::from_u128(0x91f39027_217f_11da_b2a4_000e7bbb2b09);
+pub const CX509EnrollmentPolicyWebService: windows_core::GUID = windows_core::GUID::from_u128(0x91f39028_217f_11da_b2a4_000e7bbb2b09);
+pub const CX509EnrollmentWebClassFactory: windows_core::GUID = windows_core::GUID::from_u128(0x884e2049_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509Extension: windows_core::GUID = windows_core::GUID::from_u128(0x884e200d_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509ExtensionAlternativeNames: windows_core::GUID = windows_core::GUID::from_u128(0x884e2015_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509ExtensionAuthorityKeyIdentifier: windows_core::GUID = windows_core::GUID::from_u128(0x884e2018_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509ExtensionBasicConstraints: windows_core::GUID = windows_core::GUID::from_u128(0x884e2016_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509ExtensionCertificatePolicies: windows_core::GUID = windows_core::GUID::from_u128(0x884e2020_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509ExtensionEnhancedKeyUsage: windows_core::GUID = windows_core::GUID::from_u128(0x884e2010_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509ExtensionKeyUsage: windows_core::GUID = windows_core::GUID::from_u128(0x884e200f_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509ExtensionMSApplicationPolicies: windows_core::GUID = windows_core::GUID::from_u128(0x884e2021_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509ExtensionSmimeCapabilities: windows_core::GUID = windows_core::GUID::from_u128(0x884e201b_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509ExtensionSubjectKeyIdentifier: windows_core::GUID = windows_core::GUID::from_u128(0x884e2017_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509ExtensionTemplate: windows_core::GUID = windows_core::GUID::from_u128(0x884e2012_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509ExtensionTemplateName: windows_core::GUID = windows_core::GUID::from_u128(0x884e2011_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509Extensions: windows_core::GUID = windows_core::GUID::from_u128(0x884e200e_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509MachineEnrollmentFactory: windows_core::GUID = windows_core::GUID::from_u128(0x884e2051_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509NameValuePair: windows_core::GUID = windows_core::GUID::from_u128(0x884e203f_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509PolicyServerListManager: windows_core::GUID = windows_core::GUID::from_u128(0x91f39029_217f_11da_b2a4_000e7bbb2b09);
+pub const CX509PolicyServerUrl: windows_core::GUID = windows_core::GUID::from_u128(0x91f3902a_217f_11da_b2a4_000e7bbb2b09);
+pub const CX509PrivateKey: windows_core::GUID = windows_core::GUID::from_u128(0x884e200c_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509PublicKey: windows_core::GUID = windows_core::GUID::from_u128(0x884e200b_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509SCEPEnrollment: windows_core::GUID = windows_core::GUID::from_u128(0x884e2061_217d_11da_b2a4_000e7bbb2b09);
+pub const CX509SCEPEnrollmentHelper: windows_core::GUID = windows_core::GUID::from_u128(0x884e2062_217d_11da_b2a4_000e7bbb2b09);
+pub const ClientIdAutoEnroll: RequestClientInfoClientId = RequestClientInfoClientId(6i32);
+pub const ClientIdAutoEnroll2003: RequestClientInfoClientId = RequestClientInfoClientId(2i32);
+pub const ClientIdCertReq: RequestClientInfoClientId = RequestClientInfoClientId(9i32);
+pub const ClientIdCertReq2003: RequestClientInfoClientId = RequestClientInfoClientId(4i32);
+pub const ClientIdDefaultRequest: RequestClientInfoClientId = RequestClientInfoClientId(5i32);
+pub const ClientIdEOBO: RequestClientInfoClientId = RequestClientInfoClientId(8i32);
+pub const ClientIdNone: RequestClientInfoClientId = RequestClientInfoClientId(0i32);
+pub const ClientIdRequestWizard: RequestClientInfoClientId = RequestClientInfoClientId(7i32);
+pub const ClientIdTest: RequestClientInfoClientId = RequestClientInfoClientId(10i32);
+pub const ClientIdUserStart: RequestClientInfoClientId = RequestClientInfoClientId(1000i32);
+pub const ClientIdWinRT: RequestClientInfoClientId = RequestClientInfoClientId(11i32);
+pub const ClientIdWizard2003: RequestClientInfoClientId = RequestClientInfoClientId(3i32);
+pub const ClientIdXEnroll2003: RequestClientInfoClientId = RequestClientInfoClientId(1i32);
+pub const CommitFlagDeleteTemplate: CommitTemplateFlags = CommitTemplateFlags(4i32);
+pub const CommitFlagSaveTemplateGenerateOID: CommitTemplateFlags = CommitTemplateFlags(1i32);
+pub const CommitFlagSaveTemplateOverwrite: CommitTemplateFlags = CommitTemplateFlags(3i32);
+pub const CommitFlagSaveTemplateUseCurrentOID: CommitTemplateFlags = CommitTemplateFlags(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CommitTemplateFlags(pub i32);
+pub const ContextAdministratorForceMachine: X509CertificateEnrollmentContext = X509CertificateEnrollmentContext(3i32);
+pub const ContextMachine: X509CertificateEnrollmentContext = X509CertificateEnrollmentContext(2i32);
+pub const ContextNone: X509CertificateEnrollmentContext = X509CertificateEnrollmentContext(0i32);
+pub const ContextUser: X509CertificateEnrollmentContext = X509CertificateEnrollmentContext(1i32);
+pub const DBFLAGS_CHECKPOINTDEPTH60MB: u32 = 32u32;
+pub const DBFLAGS_CIRCULARLOGGING: u32 = 4u32;
+pub const DBFLAGS_CREATEIFNEEDED: u32 = 2u32;
+pub const DBFLAGS_DISABLESNAPSHOTBACKUP: u32 = 1024u32;
+pub const DBFLAGS_ENABLEVOLATILEREQUESTS: u32 = 2048u32;
+pub const DBFLAGS_LAZYFLUSH: u32 = 8u32;
+pub const DBFLAGS_LOGBUFFERSHUGE: u32 = 128u32;
+pub const DBFLAGS_LOGBUFFERSLARGE: u32 = 64u32;
+pub const DBFLAGS_LOGFILESIZE16MB: u32 = 256u32;
+pub const DBFLAGS_MAXCACHESIZEX100: u32 = 16u32;
+pub const DBFLAGS_MULTITHREADTRANSACTIONS: u32 = 512u32;
+pub const DBFLAGS_READONLY: u32 = 1u32;
+pub const DBG_CERTSRV: u32 = 1u32;
+pub const DBSESSIONCOUNTDEFAULT: u32 = 100u32;
+pub const DB_DISP_ACTIVE: u32 = 8u32;
+pub const DB_DISP_CA_CERT: u32 = 15u32;
+pub const DB_DISP_CA_CERT_CHAIN: u32 = 16u32;
+pub const DB_DISP_DENIED: u32 = 31u32;
+pub const DB_DISP_ERROR: u32 = 30u32;
+pub const DB_DISP_FOREIGN: u32 = 12u32;
+pub const DB_DISP_ISSUED: u32 = 20u32;
+pub const DB_DISP_KRA_CERT: u32 = 17u32;
+pub const DB_DISP_LOG_FAILED_MIN: u32 = 30u32;
+pub const DB_DISP_LOG_MIN: u32 = 20u32;
+pub const DB_DISP_PENDING: u32 = 9u32;
+pub const DB_DISP_QUEUE_MAX: u32 = 9u32;
+pub const DB_DISP_REVOKED: u32 = 21u32;
+pub const DefaultNone: EnrollmentPolicyServerPropertyFlags = EnrollmentPolicyServerPropertyFlags(0i32);
+pub const DefaultPolicyServer: EnrollmentPolicyServerPropertyFlags = EnrollmentPolicyServerPropertyFlags(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DelayRetryAction(pub i32);
+pub const DelayRetryLong: DelayRetryAction = DelayRetryAction(3i32);
+pub const DelayRetryNone: DelayRetryAction = DelayRetryAction(1i32);
+pub const DelayRetryPastSuccess: DelayRetryAction = DelayRetryAction(5i32);
+pub const DelayRetryShort: DelayRetryAction = DelayRetryAction(2i32);
+pub const DelayRetrySuccess: DelayRetryAction = DelayRetryAction(4i32);
+pub const DelayRetryUnknown: DelayRetryAction = DelayRetryAction(0i32);
+pub const DisableGroupPolicyList: EnrollmentPolicyFlags = EnrollmentPolicyFlags(2i32);
+pub const DisableUserServerList: EnrollmentPolicyFlags = EnrollmentPolicyFlags(4i32);
+pub const DisplayNo: EnrollmentDisplayStatus = EnrollmentDisplayStatus(0i32);
+pub const DisplayYes: EnrollmentDisplayStatus = EnrollmentDisplayStatus(1i32);
+pub const EANR_SUPPRESS_IA5CONVERSION: u32 = 2147483648u32;
+pub const EAN_NAMEOBJECTID: u32 = 2147483648u32;
+pub const EDITF_ADDOLDCERTTYPE: u32 = 16u32;
+pub const EDITF_ADDOLDKEYUSAGE: u32 = 8u32;
+pub const EDITF_ATTRIBUTECA: u32 = 512u32;
+pub const EDITF_ATTRIBUTEEKU: u32 = 32768u32;
+pub const EDITF_ATTRIBUTEENDDATE: u32 = 32u32;
+pub const EDITF_ATTRIBUTESUBJECTALTNAME2: u32 = 262144u32;
+pub const EDITF_AUDITCERTTEMPLATELOAD: u32 = 2097152u32;
+pub const EDITF_BASICCONSTRAINTSCA: u32 = 128u32;
+pub const EDITF_BASICCONSTRAINTSCRITICAL: u32 = 64u32;
+pub const EDITF_DISABLEEXTENSIONLIST: u32 = 4u32;
+pub const EDITF_DISABLELDAPPACKAGELIST: u32 = 8388608u32;
+pub const EDITF_DISABLEOLDOSCNUPN: u32 = 4194304u32;
+pub const EDITF_EMAILOPTIONAL: u32 = 131072u32;
+pub const EDITF_ENABLEAKICRITICAL: u32 = 8192u32;
+pub const EDITF_ENABLEAKIISSUERNAME: u32 = 2048u32;
+pub const EDITF_ENABLEAKIISSUERSERIAL: u32 = 4096u32;
+pub const EDITF_ENABLEAKIKEYID: u32 = 256u32;
+pub const EDITF_ENABLECHASECLIENTDC: u32 = 1048576u32;
+pub const EDITF_ENABLEDEFAULTSMIME: u32 = 65536u32;
+pub const EDITF_ENABLEKEYENCIPHERMENTCACERT: u32 = 134217728u32;
+pub const EDITF_ENABLELDAPREFERRALS: u32 = 524288u32;
+pub const EDITF_ENABLEOCSPREVNOCHECK: u32 = 33554432u32;
+pub const EDITF_ENABLERENEWONBEHALFOF: u32 = 67108864u32;
+pub const EDITF_ENABLEREQUESTEXTENSIONS: u32 = 1u32;
+pub const EDITF_ENABLEUPNMAP: u32 = 16777216u32;
+pub const EDITF_IGNOREREQUESTERGROUP: u32 = 1024u32;
+pub const EDITF_REQUESTEXTENSIONLIST: u32 = 2u32;
+pub const EDITF_SERVERUPGRADED: u32 = 16384u32;
+pub const ENUMEXT_OBJECTID: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ENUM_CATYPES(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ENUM_CERT_COLUMN_VALUE_FLAGS(pub i32);
+pub const ENUM_ENTERPRISE_ROOTCA: ENUM_CATYPES = ENUM_CATYPES(0i32);
+pub const ENUM_ENTERPRISE_SUBCA: ENUM_CATYPES = ENUM_CATYPES(1i32);
+pub const ENUM_STANDALONE_ROOTCA: ENUM_CATYPES = ENUM_CATYPES(3i32);
+pub const ENUM_STANDALONE_SUBCA: ENUM_CATYPES = ENUM_CATYPES(4i32);
+pub const ENUM_UNKNOWN_CA: ENUM_CATYPES = ENUM_CATYPES(5i32);
+pub const EXITEVENT_CERTDENIED: CERT_EXIT_EVENT_MASK = CERT_EXIT_EVENT_MASK(4u32);
+pub const EXITEVENT_CERTIMPORTED: u32 = 512u32;
+pub const EXITEVENT_CERTISSUED: CERT_EXIT_EVENT_MASK = CERT_EXIT_EVENT_MASK(1u32);
+pub const EXITEVENT_CERTPENDING: CERT_EXIT_EVENT_MASK = CERT_EXIT_EVENT_MASK(2u32);
+pub const EXITEVENT_CERTRETRIEVEPENDING: CERT_EXIT_EVENT_MASK = CERT_EXIT_EVENT_MASK(16u32);
+pub const EXITEVENT_CERTREVOKED: CERT_EXIT_EVENT_MASK = CERT_EXIT_EVENT_MASK(8u32);
+pub const EXITEVENT_CRLISSUED: CERT_EXIT_EVENT_MASK = CERT_EXIT_EVENT_MASK(32u32);
+pub const EXITEVENT_INVALID: u32 = 0u32;
+pub const EXITEVENT_SHUTDOWN: CERT_EXIT_EVENT_MASK = CERT_EXIT_EVENT_MASK(64u32);
+pub const EXITEVENT_STARTUP: u32 = 128u32;
+pub const EXITPUB_ACTIVEDIRECTORY: u32 = 2u32;
+pub const EXITPUB_DEFAULT_ENTERPRISE: u32 = 2u32;
+pub const EXITPUB_DEFAULT_STANDALONE: u32 = 1u32;
+pub const EXITPUB_FILE: u32 = 1u32;
+pub const EXITPUB_REMOVEOLDCERTS: u32 = 16u32;
+pub const EXTENSION_CRITICAL_FLAG: u32 = 1u32;
+pub const EXTENSION_DELETE_FLAG: u32 = 4u32;
+pub const EXTENSION_DISABLE_FLAG: u32 = 2u32;
+pub const EXTENSION_ORIGIN_ADMIN: u32 = 196608u32;
+pub const EXTENSION_ORIGIN_CACERT: u32 = 589824u32;
+pub const EXTENSION_ORIGIN_CMC: u32 = 524288u32;
+pub const EXTENSION_ORIGIN_IMPORTEDCERT: u32 = 393216u32;
+pub const EXTENSION_ORIGIN_MASK: u32 = 983040u32;
+pub const EXTENSION_ORIGIN_PKCS7: u32 = 458752u32;
+pub const EXTENSION_ORIGIN_POLICY: u32 = 131072u32;
+pub const EXTENSION_ORIGIN_RENEWALCERT: u32 = 327680u32;
+pub const EXTENSION_ORIGIN_REQUEST: u32 = 65536u32;
+pub const EXTENSION_ORIGIN_SERVER: u32 = 262144u32;
+pub const EXTENSION_POLICY_MASK: u32 = 65535u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EncodingType(pub i32);
+pub const EnrollDenied: EnrollmentEnrollStatus = EnrollmentEnrollStatus(256i32);
+pub const EnrollError: EnrollmentEnrollStatus = EnrollmentEnrollStatus(16i32);
+pub const EnrollPended: EnrollmentEnrollStatus = EnrollmentEnrollStatus(2i32);
+pub const EnrollPrompt: WebEnrollmentFlags = WebEnrollmentFlags(1i32);
+pub const EnrollSkipped: EnrollmentEnrollStatus = EnrollmentEnrollStatus(64i32);
+pub const EnrollUIDeferredEnrollmentRequired: EnrollmentEnrollStatus = EnrollmentEnrollStatus(4i32);
+pub const EnrollUnknown: EnrollmentEnrollStatus = EnrollmentEnrollStatus(32i32);
+pub const Enrolled: EnrollmentEnrollStatus = EnrollmentEnrollStatus(1i32);
+pub const EnrollmentAddOCSPNoCheck: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(4096i32);
+pub const EnrollmentAddTemplateName: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(512i32);
+pub const EnrollmentAllowEnrollOnBehalfOf: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(2048i32);
+pub const EnrollmentAutoEnrollment: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(32i32);
+pub const EnrollmentAutoEnrollmentCheckUserDSCertificate: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(16i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EnrollmentCAProperty(pub i32);
+pub const EnrollmentCertificateIssuancePoliciesFromRequest: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(131072i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EnrollmentDisplayStatus(pub i32);
+pub const EnrollmentDomainAuthenticationNotRequired: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(128i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EnrollmentEnrollStatus(pub i32);
+pub const EnrollmentIncludeBasicConstraintsForEECerts: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(32768i32);
+pub const EnrollmentIncludeSymmetricAlgorithms: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(1i32);
+pub const EnrollmentNoRevocationInfoInCerts: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(16384i32);
+pub const EnrollmentPendAllRequests: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EnrollmentPolicyFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EnrollmentPolicyServerPropertyFlags(pub i32);
+pub const EnrollmentPreviousApprovalKeyBasedValidateReenrollment: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(65536i32);
+pub const EnrollmentPreviousApprovalValidateReenrollment: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(64i32);
+pub const EnrollmentPublishToDS: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(8i32);
+pub const EnrollmentPublishToKRAContainer: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(4i32);
+pub const EnrollmentRemoveInvalidCertificateFromPersonalStore: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(1024i32);
+pub const EnrollmentReuseKeyOnFullSmartCard: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(8192i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EnrollmentSelectionStatus(pub i32);
+pub const EnrollmentSkipAutoRenewal: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(262144i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EnrollmentTemplateProperty(pub i32);
+pub const EnrollmentUserInteractionRequired: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(256i32);
+pub const ExportCAs: X509EnrollmentPolicyExportFlags = X509EnrollmentPolicyExportFlags(4i32);
+pub const ExportOIDs: X509EnrollmentPolicyExportFlags = X509EnrollmentPolicyExportFlags(2i32);
+pub const ExportTemplates: X509EnrollmentPolicyExportFlags = X509EnrollmentPolicyExportFlags(1i32);
+pub type FNCERTSRVBACKUPCLOSE = Option<unsafe extern "system" fn(hbc: *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub type FNCERTSRVBACKUPEND = Option<unsafe extern "system" fn(hbc: *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub type FNCERTSRVBACKUPFREE = Option<unsafe extern "system" fn(pv: *mut core::ffi::c_void)>;
+pub type FNCERTSRVBACKUPGETBACKUPLOGSW = Option<unsafe extern "system" fn(hbc: *mut core::ffi::c_void, ppwszzbackuplogfiles: *mut *mut u16, pcbsize: *mut u32) -> windows_core::HRESULT>;
+pub type FNCERTSRVBACKUPGETDATABASENAMESW = Option<unsafe extern "system" fn(hbc: *mut core::ffi::c_void, ppwszzattachmentinformation: *mut *mut u16, pcbsize: *mut u32) -> windows_core::HRESULT>;
+pub type FNCERTSRVBACKUPGETDYNAMICFILELISTW = Option<unsafe extern "system" fn(hbc: *const core::ffi::c_void, ppwszzfilelist: *mut *mut u16, pcbsize: *mut u32) -> windows_core::HRESULT>;
+pub type FNCERTSRVBACKUPOPENFILEW = Option<unsafe extern "system" fn(hbc: *mut core::ffi::c_void, pwszattachmentname: windows_core::PCWSTR, cbreadhintsize: u32, plifilesize: *mut i64) -> windows_core::HRESULT>;
+pub type FNCERTSRVBACKUPPREPAREW = Option<unsafe extern "system" fn(pwszservername: windows_core::PCWSTR, grbitjet: u32, dwbackupflags: u32, phbc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub type FNCERTSRVBACKUPREAD = Option<unsafe extern "system" fn(hbc: *mut core::ffi::c_void, pvbuffer: *mut core::ffi::c_void, cbbuffer: u32, pcbread: *mut u32) -> windows_core::HRESULT>;
+pub type FNCERTSRVBACKUPTRUNCATELOGS = Option<unsafe extern "system" fn(hbc: *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub type FNCERTSRVISSERVERONLINEW = Option<unsafe extern "system" fn(pwszservername: windows_core::PCWSTR, pfserveronline: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT>;
+pub type FNCERTSRVRESTOREEND = Option<unsafe extern "system" fn(hbc: *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub type FNCERTSRVRESTOREGETDATABASELOCATIONSW = Option<unsafe extern "system" fn(hbc: *mut core::ffi::c_void, ppwszzdatabaselocationlist: *mut *mut u16, pcbsize: *mut u32) -> windows_core::HRESULT>;
+pub type FNCERTSRVRESTOREPREPAREW = Option<unsafe extern "system" fn(pwszservername: windows_core::PCWSTR, dwrestoreflags: u32, phbc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub type FNCERTSRVRESTOREREGISTERCOMPLETE = Option<unsafe extern "system" fn(hbc: *mut core::ffi::c_void, hrrestorestate: windows_core::HRESULT) -> windows_core::HRESULT>;
+pub type FNCERTSRVRESTOREREGISTERW = Option<unsafe extern "system" fn(hbc: *mut core::ffi::c_void, pwszcheckpointfilepath: windows_core::PCWSTR, pwszlogpath: windows_core::PCWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: windows_core::PCWSTR, genlow: u32, genhigh: u32) -> windows_core::HRESULT>;
+pub type FNCERTSRVSERVERCONTROLW = Option<unsafe extern "system" fn(pwszservername: windows_core::PCWSTR, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> windows_core::HRESULT>;
+pub type FNIMPORTPFXTOPROVIDER = Option<unsafe extern "system" fn(hwndparent: super::super::super::Foundation::HWND, pbpfx: *const u8, cbpfx: u32, importflags: ImportPFXFlags, pwszpassword: windows_core::PCWSTR, pwszprovidername: windows_core::PCWSTR, pwszreadername: windows_core::PCWSTR, pwszcontainernameprefix: windows_core::PCWSTR, pwszpin: windows_core::PCWSTR, pwszfriendlyname: windows_core::PCWSTR, pccertout: *mut u32, prgpcertout: *mut *mut *mut super::CERT_CONTEXT) -> windows_core::HRESULT>;
+pub type FNIMPORTPFXTOPROVIDERFREEDATA = Option<unsafe extern "system" fn(ccert: u32, rgpcert: *const *const super::CERT_CONTEXT)>;
+pub const FR_PROP_ATTESTATIONCHALLENGE: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(20i32);
+pub const FR_PROP_ATTESTATIONPROVIDERNAME: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(21i32);
+pub const FR_PROP_BODYPARTSTRING: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(3i32);
+pub const FR_PROP_CAEXCHANGECERTIFICATE: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(17i32);
+pub const FR_PROP_CAEXCHANGECERTIFICATECHAIN: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(18i32);
+pub const FR_PROP_CAEXCHANGECERTIFICATECRLCHAIN: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(19i32);
+pub const FR_PROP_CAEXCHANGECERTIFICATEHASH: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(16i32);
+pub const FR_PROP_CLAIMCHALLENGE: u32 = 22u32;
+pub const FR_PROP_ENCRYPTEDKEYHASH: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(14i32);
+pub const FR_PROP_FAILINFO: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(7i32);
+pub const FR_PROP_FULLRESPONSE: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(1i32);
+pub const FR_PROP_FULLRESPONSENOPKCS7: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(15i32);
+pub const FR_PROP_ISSUEDCERTIFICATE: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(11i32);
+pub const FR_PROP_ISSUEDCERTIFICATECHAIN: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(12i32);
+pub const FR_PROP_ISSUEDCERTIFICATECRLCHAIN: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(13i32);
+pub const FR_PROP_ISSUEDCERTIFICATEHASH: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(10i32);
+pub const FR_PROP_NONE: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(0i32);
+pub const FR_PROP_OTHERINFOCHOICE: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(6i32);
+pub const FR_PROP_PENDINFOTIME: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(9i32);
+pub const FR_PROP_PENDINFOTOKEN: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(8i32);
+pub const FR_PROP_STATUS: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(4i32);
+pub const FR_PROP_STATUSINFOCOUNT: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(2i32);
+pub const FR_PROP_STATUSSTRING: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(5i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FULL_RESPONSE_PROPERTY_ID(pub i32);
+pub const GeneralCA: X509CertificateTemplateGeneralFlag = X509CertificateTemplateGeneralFlag(128i32);
+pub const GeneralCrossCA: X509CertificateTemplateGeneralFlag = X509CertificateTemplateGeneralFlag(2048i32);
+pub const GeneralDefault: X509CertificateTemplateGeneralFlag = X509CertificateTemplateGeneralFlag(65536i32);
+pub const GeneralDonotPersist: X509CertificateTemplateGeneralFlag = X509CertificateTemplateGeneralFlag(4096i32);
+pub const GeneralMachineType: X509CertificateTemplateGeneralFlag = X509CertificateTemplateGeneralFlag(64i32);
+pub const GeneralModified: X509CertificateTemplateGeneralFlag = X509CertificateTemplateGeneralFlag(131072i32);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAlternativeName, IAlternativeName_Vtbl, 0x728ab313_217d_11da_b2a4_000e7bbb2b09);
 #[cfg(feature = "Win32_System_Com")]
@@ -2222,6 +3054,8 @@ impl ICEnroll4_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICEnroll4 {}
+pub const ICF_ALLOWFOREIGN: u32 = 65536u32;
+pub const ICF_EXISTINGROW: u32 = 131072u32;
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ICertAdmin, ICertAdmin_Vtbl, 0x34df6950_7fb6_11d0_8817_00a0c903b83c);
 #[cfg(feature = "Win32_System_Com")]
@@ -10675,6 +11509,20 @@ impl IEnumCERTVIEWROW_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IEnumCERTVIEWROW {}
+pub const IF_ENABLEADMINASAUDITOR: u32 = 4096u32;
+pub const IF_ENABLEEXITKEYRETRIEVAL: u32 = 2048u32;
+pub const IF_ENFORCEENCRYPTICERTADMIN: u32 = 1024u32;
+pub const IF_ENFORCEENCRYPTICERTREQUEST: u32 = 512u32;
+pub const IF_LOCKICERTREQUEST: u32 = 1u32;
+pub const IF_NOLOCALICERTADMIN: u32 = 32u32;
+pub const IF_NOLOCALICERTADMINBACKUP: u32 = 128u32;
+pub const IF_NOLOCALICERTREQUEST: u32 = 4u32;
+pub const IF_NOREMOTEICERTADMIN: u32 = 16u32;
+pub const IF_NOREMOTEICERTADMINBACKUP: u32 = 64u32;
+pub const IF_NOREMOTEICERTREQUEST: u32 = 2u32;
+pub const IF_NORPCICERTREQUEST: u32 = 8u32;
+pub const IF_NOSNAPSHOTBACKUP: u32 = 256u32;
+pub const IKF_OVERWRITE: u32 = 65536u32;
 windows_core::imp::define_interface!(INDESPolicy, INDESPolicy_Vtbl, 0x13ca515d_431d_46cc_8c2e_1da269bbd625);
 windows_core::imp::interface_hierarchy!(INDESPolicy, windows_core::IUnknown);
 impl INDESPolicy {
@@ -12301,6 +13149,14 @@ impl IPolicyQualifiers_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IPolicyQualifiers {}
+pub const ISSCERT_DEFAULT_DS: u32 = 256u32;
+pub const ISSCERT_DEFAULT_NODS: u32 = 256u32;
+pub const ISSCERT_ENABLE: u32 = 256u32;
+pub const ISSCERT_FILEURL_OLD: u32 = 8u32;
+pub const ISSCERT_FTPURL_OLD: u32 = 4u32;
+pub const ISSCERT_HTTPURL_OLD: u32 = 2u32;
+pub const ISSCERT_LDAPURL_OLD: u32 = 1u32;
+pub const ISSCERT_URLMASK_OLD: u32 = 255u32;
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISignerCertificate, ISignerCertificate_Vtbl, 0x728ab33d_217d_11da_b2a4_000e7bbb2b09);
 #[cfg(feature = "Win32_System_Com")]
@@ -22283,996 +23139,6 @@ impl IX509SignatureInformation_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509SignatureInformation {}
-pub type FNCERTSRVBACKUPCLOSE = Option<unsafe extern "system" fn(hbc: *mut core::ffi::c_void) -> windows_core::HRESULT>;
-pub type FNCERTSRVBACKUPEND = Option<unsafe extern "system" fn(hbc: *mut core::ffi::c_void) -> windows_core::HRESULT>;
-pub type FNCERTSRVBACKUPFREE = Option<unsafe extern "system" fn(pv: *mut core::ffi::c_void)>;
-pub type FNCERTSRVBACKUPGETBACKUPLOGSW = Option<unsafe extern "system" fn(hbc: *mut core::ffi::c_void, ppwszzbackuplogfiles: *mut *mut u16, pcbsize: *mut u32) -> windows_core::HRESULT>;
-pub type FNCERTSRVBACKUPGETDATABASENAMESW = Option<unsafe extern "system" fn(hbc: *mut core::ffi::c_void, ppwszzattachmentinformation: *mut *mut u16, pcbsize: *mut u32) -> windows_core::HRESULT>;
-pub type FNCERTSRVBACKUPGETDYNAMICFILELISTW = Option<unsafe extern "system" fn(hbc: *const core::ffi::c_void, ppwszzfilelist: *mut *mut u16, pcbsize: *mut u32) -> windows_core::HRESULT>;
-pub type FNCERTSRVBACKUPOPENFILEW = Option<unsafe extern "system" fn(hbc: *mut core::ffi::c_void, pwszattachmentname: windows_core::PCWSTR, cbreadhintsize: u32, plifilesize: *mut i64) -> windows_core::HRESULT>;
-pub type FNCERTSRVBACKUPPREPAREW = Option<unsafe extern "system" fn(pwszservername: windows_core::PCWSTR, grbitjet: u32, dwbackupflags: u32, phbc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
-pub type FNCERTSRVBACKUPREAD = Option<unsafe extern "system" fn(hbc: *mut core::ffi::c_void, pvbuffer: *mut core::ffi::c_void, cbbuffer: u32, pcbread: *mut u32) -> windows_core::HRESULT>;
-pub type FNCERTSRVBACKUPTRUNCATELOGS = Option<unsafe extern "system" fn(hbc: *mut core::ffi::c_void) -> windows_core::HRESULT>;
-pub type FNCERTSRVISSERVERONLINEW = Option<unsafe extern "system" fn(pwszservername: windows_core::PCWSTR, pfserveronline: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT>;
-pub type FNCERTSRVRESTOREEND = Option<unsafe extern "system" fn(hbc: *mut core::ffi::c_void) -> windows_core::HRESULT>;
-pub type FNCERTSRVRESTOREGETDATABASELOCATIONSW = Option<unsafe extern "system" fn(hbc: *mut core::ffi::c_void, ppwszzdatabaselocationlist: *mut *mut u16, pcbsize: *mut u32) -> windows_core::HRESULT>;
-pub type FNCERTSRVRESTOREPREPAREW = Option<unsafe extern "system" fn(pwszservername: windows_core::PCWSTR, dwrestoreflags: u32, phbc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
-pub type FNCERTSRVRESTOREREGISTERCOMPLETE = Option<unsafe extern "system" fn(hbc: *mut core::ffi::c_void, hrrestorestate: windows_core::HRESULT) -> windows_core::HRESULT>;
-pub type FNCERTSRVRESTOREREGISTERW = Option<unsafe extern "system" fn(hbc: *mut core::ffi::c_void, pwszcheckpointfilepath: windows_core::PCWSTR, pwszlogpath: windows_core::PCWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: windows_core::PCWSTR, genlow: u32, genhigh: u32) -> windows_core::HRESULT>;
-pub type FNCERTSRVSERVERCONTROLW = Option<unsafe extern "system" fn(pwszservername: windows_core::PCWSTR, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> windows_core::HRESULT>;
-pub type FNIMPORTPFXTOPROVIDER = Option<unsafe extern "system" fn(hwndparent: super::super::super::Foundation::HWND, pbpfx: *const u8, cbpfx: u32, importflags: ImportPFXFlags, pwszpassword: windows_core::PCWSTR, pwszprovidername: windows_core::PCWSTR, pwszreadername: windows_core::PCWSTR, pwszcontainernameprefix: windows_core::PCWSTR, pwszpin: windows_core::PCWSTR, pwszfriendlyname: windows_core::PCWSTR, pccertout: *mut u32, prgpcertout: *mut *mut *mut super::CERT_CONTEXT) -> windows_core::HRESULT>;
-pub type FNIMPORTPFXTOPROVIDERFREEDATA = Option<unsafe extern "system" fn(ccert: u32, rgpcert: *const *const super::CERT_CONTEXT)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADDED_CERT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AlgorithmFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AlgorithmOperationFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AlgorithmType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AlternativeNameType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CERTADMIN_GET_ROLES_FLAGS(pub u32);
-impl CERTADMIN_GET_ROLES_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for CERTADMIN_GET_ROLES_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for CERTADMIN_GET_ROLES_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for CERTADMIN_GET_ROLES_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for CERTADMIN_GET_ROLES_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for CERTADMIN_GET_ROLES_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CERTENROLL_OBJECTID(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CERTENROLL_PROPERTYID(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CERT_ALT_NAME(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CERT_CREATE_REQUEST_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CERT_DELETE_ROW_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CERT_EXIT_EVENT_MASK(pub u32);
-impl CERT_EXIT_EVENT_MASK {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for CERT_EXIT_EVENT_MASK {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for CERT_EXIT_EVENT_MASK {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for CERT_EXIT_EVENT_MASK {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for CERT_EXIT_EVENT_MASK {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for CERT_EXIT_EVENT_MASK {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CERT_GET_CONFIG_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CERT_IMPORT_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CERT_PROPERTY_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CERT_REQUEST_OUT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CERT_VIEW_COLUMN_INDEX(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CERT_VIEW_SEEK_OPERATOR_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CRLRevocationReason(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CR_DISP(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CSBACKUP_TYPE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CVRC_COLUMN(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CVRC_TABLE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CommitTemplateFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DelayRetryAction(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ENUM_CATYPES(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ENUM_CERT_COLUMN_VALUE_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EncodingType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EnrollmentCAProperty(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EnrollmentDisplayStatus(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EnrollmentEnrollStatus(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EnrollmentPolicyFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EnrollmentPolicyServerPropertyFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EnrollmentSelectionStatus(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EnrollmentTemplateProperty(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FULL_RESPONSE_PROPERTY_ID(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ImportPFXFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct InnerRequestLevel(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct InstallResponseRestrictionFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KeyAttestationClaimType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KeyIdentifierHashAlgorithm(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OCSPRequestFlag(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OCSPSigningFlag(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ObjectIdGroupId(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ObjectIdPublicKeyFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PENDING_REQUEST_DESIRED_PROPERTY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PFXExportOptions(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct Pkcs10AllowedSignatureTypes(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PolicyQualifierType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PolicyServerUrlFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PolicyServerUrlPropertyID(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RequestClientInfoClientId(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WebEnrollmentFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WebSecurityLevel(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct X500NameFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct X509CertificateEnrollmentContext(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct X509CertificateTemplateEnrollmentFlag(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct X509CertificateTemplateGeneralFlag(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct X509CertificateTemplatePrivateKeyFlag(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct X509CertificateTemplateSubjectNameFlag(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct X509EnrollmentAuthFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct X509EnrollmentPolicyExportFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct X509EnrollmentPolicyLoadOption(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct X509HardwareKeyUsageFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct X509KeyParametersExportType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct X509KeySpec(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct X509KeyUsageFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct X509PrivateKeyExportFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct X509PrivateKeyProtection(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct X509PrivateKeyUsageFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct X509PrivateKeyVerify(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct X509ProviderType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct X509RequestInheritOptions(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct X509RequestType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct X509SCEPDisposition(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct X509SCEPFailInfo(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct X509SCEPMessageType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct X509SCEPProcessMessageFlags(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct XEKL_KEYSIZE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct XEKL_KEYSPEC(pub i32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CAINFO {
-    pub cbSize: u32,
-    pub CAType: ENUM_CATYPES,
-    pub cCASignatureCerts: u32,
-    pub cCAExchangeCerts: u32,
-    pub cExitModules: u32,
-    pub lPropIdMax: i32,
-    pub lRoleSeparationEnabled: i32,
-    pub cKRACertUsedCount: u32,
-    pub cKRACertCount: u32,
-    pub fAdvancedServer: u32,
-}
-impl Default for CAINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CAINFO {
-    type TypeKind = windows_core::CopyType;
-}
-pub const CAlternativeName: windows_core::GUID = windows_core::GUID::from_u128(0x884e2013_217d_11da_b2a4_000e7bbb2b09);
-pub const CAlternativeNames: windows_core::GUID = windows_core::GUID::from_u128(0x884e2014_217d_11da_b2a4_000e7bbb2b09);
-pub const CBinaryConverter: windows_core::GUID = windows_core::GUID::from_u128(0x884e2002_217d_11da_b2a4_000e7bbb2b09);
-pub const CCertAdmin: windows_core::GUID = windows_core::GUID::from_u128(0x37eabaf0_7fb6_11d0_8817_00a0c903b83c);
-pub const CCertConfig: windows_core::GUID = windows_core::GUID::from_u128(0x372fce38_4324_11d0_8810_00a0c903b83c);
-pub const CCertEncodeAltName: windows_core::GUID = windows_core::GUID::from_u128(0x1cfc4cda_1271_11d1_9bd4_00c04fb683fa);
-pub const CCertEncodeBitString: windows_core::GUID = windows_core::GUID::from_u128(0x6d6b3cd8_1278_11d1_9bd4_00c04fb683fa);
-pub const CCertEncodeCRLDistInfo: windows_core::GUID = windows_core::GUID::from_u128(0x01fa60a0_bbff_11d0_8825_00a0c903b83c);
-pub const CCertEncodeDateArray: windows_core::GUID = windows_core::GUID::from_u128(0x301f77b0_a470_11d0_8821_00a0c903b83c);
-pub const CCertEncodeLongArray: windows_core::GUID = windows_core::GUID::from_u128(0x4e0680a0_a0a2_11d0_8821_00a0c903b83c);
-pub const CCertEncodeStringArray: windows_core::GUID = windows_core::GUID::from_u128(0x19a76fe0_7494_11d0_8816_00a0c903b83c);
-pub const CCertGetConfig: windows_core::GUID = windows_core::GUID::from_u128(0xc6cc49b0_ce17_11d0_8833_00a0c903b83c);
-pub const CCertProperties: windows_core::GUID = windows_core::GUID::from_u128(0x884e202f_217d_11da_b2a4_000e7bbb2b09);
-pub const CCertProperty: windows_core::GUID = windows_core::GUID::from_u128(0x884e202e_217d_11da_b2a4_000e7bbb2b09);
-pub const CCertPropertyArchived: windows_core::GUID = windows_core::GUID::from_u128(0x884e2037_217d_11da_b2a4_000e7bbb2b09);
-pub const CCertPropertyArchivedKeyHash: windows_core::GUID = windows_core::GUID::from_u128(0x884e203b_217d_11da_b2a4_000e7bbb2b09);
-pub const CCertPropertyAutoEnroll: windows_core::GUID = windows_core::GUID::from_u128(0x884e2032_217d_11da_b2a4_000e7bbb2b09);
-pub const CCertPropertyBackedUp: windows_core::GUID = windows_core::GUID::from_u128(0x884e2038_217d_11da_b2a4_000e7bbb2b09);
-pub const CCertPropertyDescription: windows_core::GUID = windows_core::GUID::from_u128(0x884e2031_217d_11da_b2a4_000e7bbb2b09);
-pub const CCertPropertyEnrollment: windows_core::GUID = windows_core::GUID::from_u128(0x884e2039_217d_11da_b2a4_000e7bbb2b09);
-pub const CCertPropertyEnrollmentPolicyServer: windows_core::GUID = windows_core::GUID::from_u128(0x884e204c_217d_11da_b2a4_000e7bbb2b09);
-pub const CCertPropertyFriendlyName: windows_core::GUID = windows_core::GUID::from_u128(0x884e2030_217d_11da_b2a4_000e7bbb2b09);
-pub const CCertPropertyKeyProvInfo: windows_core::GUID = windows_core::GUID::from_u128(0x884e2036_217d_11da_b2a4_000e7bbb2b09);
-pub const CCertPropertyRenewal: windows_core::GUID = windows_core::GUID::from_u128(0x884e203a_217d_11da_b2a4_000e7bbb2b09);
-pub const CCertPropertyRequestOriginator: windows_core::GUID = windows_core::GUID::from_u128(0x884e2033_217d_11da_b2a4_000e7bbb2b09);
-pub const CCertPropertySHA1Hash: windows_core::GUID = windows_core::GUID::from_u128(0x884e2034_217d_11da_b2a4_000e7bbb2b09);
-pub const CCertRequest: windows_core::GUID = windows_core::GUID::from_u128(0x98aff3f0_5524_11d0_8812_00a0c903b83c);
-pub const CCertServerExit: windows_core::GUID = windows_core::GUID::from_u128(0x4c4a5e40_732c_11d0_8816_00a0c903b83c);
-pub const CCertServerPolicy: windows_core::GUID = windows_core::GUID::from_u128(0xaa000926_ffbe_11cf_8800_00a0c903b83c);
-pub const CCertView: windows_core::GUID = windows_core::GUID::from_u128(0xa12d0f7a_1e84_11d1_9bd6_00c04fb683fa);
-pub const CCertificateAttestationChallenge: windows_core::GUID = windows_core::GUID::from_u128(0x1362ada1_eb60_456a_b6e1_118050db741b);
-pub const CCertificatePolicies: windows_core::GUID = windows_core::GUID::from_u128(0x884e201f_217d_11da_b2a4_000e7bbb2b09);
-pub const CCertificatePolicy: windows_core::GUID = windows_core::GUID::from_u128(0x884e201e_217d_11da_b2a4_000e7bbb2b09);
-pub const CCryptAttribute: windows_core::GUID = windows_core::GUID::from_u128(0x884e202c_217d_11da_b2a4_000e7bbb2b09);
-pub const CCryptAttributes: windows_core::GUID = windows_core::GUID::from_u128(0x884e202d_217d_11da_b2a4_000e7bbb2b09);
-pub const CCspInformation: windows_core::GUID = windows_core::GUID::from_u128(0x884e2007_217d_11da_b2a4_000e7bbb2b09);
-pub const CCspInformations: windows_core::GUID = windows_core::GUID::from_u128(0x884e2008_217d_11da_b2a4_000e7bbb2b09);
-pub const CCspStatus: windows_core::GUID = windows_core::GUID::from_u128(0x884e2009_217d_11da_b2a4_000e7bbb2b09);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CERTTRANSBLOB {
-    pub cb: u32,
-    pub pb: *mut u8,
-}
-impl Default for CERTTRANSBLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CERTTRANSBLOB {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CERTVIEWRESTRICTION {
-    pub ColumnIndex: u32,
-    pub SeekOperator: i32,
-    pub SortOrder: i32,
-    pub pbValue: *mut u8,
-    pub cbValue: u32,
-}
-impl Default for CERTVIEWRESTRICTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CERTVIEWRESTRICTION {
-    type TypeKind = windows_core::CopyType;
-}
-pub const CEnroll: windows_core::GUID = windows_core::GUID::from_u128(0x43f8f289_7a20_11d0_8f06_00c04fc295e1);
-pub const CEnroll2: windows_core::GUID = windows_core::GUID::from_u128(0x127698e4_e730_4e5c_a2b1_21490a70c8a1);
-pub const CObjectId: windows_core::GUID = windows_core::GUID::from_u128(0x884e2000_217d_11da_b2a4_000e7bbb2b09);
-pub const CObjectIds: windows_core::GUID = windows_core::GUID::from_u128(0x884e2001_217d_11da_b2a4_000e7bbb2b09);
-pub const CPolicyQualifier: windows_core::GUID = windows_core::GUID::from_u128(0x884e201c_217d_11da_b2a4_000e7bbb2b09);
-pub const CPolicyQualifiers: windows_core::GUID = windows_core::GUID::from_u128(0x884e201d_217d_11da_b2a4_000e7bbb2b09);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CSEDB_RSTMAPW {
-    pub pwszDatabaseName: windows_core::PWSTR,
-    pub pwszNewDatabaseName: windows_core::PWSTR,
-}
-impl Default for CSEDB_RSTMAPW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for CSEDB_RSTMAPW {
-    type TypeKind = windows_core::CopyType;
-}
-pub const CSignerCertificate: windows_core::GUID = windows_core::GUID::from_u128(0x884e203d_217d_11da_b2a4_000e7bbb2b09);
-pub const CSmimeCapabilities: windows_core::GUID = windows_core::GUID::from_u128(0x884e201a_217d_11da_b2a4_000e7bbb2b09);
-pub const CSmimeCapability: windows_core::GUID = windows_core::GUID::from_u128(0x884e2019_217d_11da_b2a4_000e7bbb2b09);
-pub const CX500DistinguishedName: windows_core::GUID = windows_core::GUID::from_u128(0x884e2003_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509Attribute: windows_core::GUID = windows_core::GUID::from_u128(0x884e2022_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509AttributeArchiveKey: windows_core::GUID = windows_core::GUID::from_u128(0x884e2027_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509AttributeArchiveKeyHash: windows_core::GUID = windows_core::GUID::from_u128(0x884e2028_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509AttributeClientId: windows_core::GUID = windows_core::GUID::from_u128(0x884e2025_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509AttributeCspProvider: windows_core::GUID = windows_core::GUID::from_u128(0x884e202b_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509AttributeExtensions: windows_core::GUID = windows_core::GUID::from_u128(0x884e2024_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509AttributeOSVersion: windows_core::GUID = windows_core::GUID::from_u128(0x884e202a_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509AttributeRenewalCertificate: windows_core::GUID = windows_core::GUID::from_u128(0x884e2026_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509Attributes: windows_core::GUID = windows_core::GUID::from_u128(0x884e2023_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509CertificateRequestCertificate: windows_core::GUID = windows_core::GUID::from_u128(0x884e2043_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509CertificateRequestCmc: windows_core::GUID = windows_core::GUID::from_u128(0x884e2045_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509CertificateRequestPkcs10: windows_core::GUID = windows_core::GUID::from_u128(0x884e2042_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509CertificateRequestPkcs7: windows_core::GUID = windows_core::GUID::from_u128(0x884e2044_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509CertificateRevocationList: windows_core::GUID = windows_core::GUID::from_u128(0x884e2060_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509CertificateRevocationListEntries: windows_core::GUID = windows_core::GUID::from_u128(0x884e205f_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509CertificateRevocationListEntry: windows_core::GUID = windows_core::GUID::from_u128(0x884e205e_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509CertificateTemplateADWritable: windows_core::GUID = windows_core::GUID::from_u128(0x8336e323_2e6a_4a04_937c_548f681839b3);
-pub const CX509EndorsementKey: windows_core::GUID = windows_core::GUID::from_u128(0x11a25a1d_b9a3_4edd_af83_3b59adbed361);
-pub const CX509Enrollment: windows_core::GUID = windows_core::GUID::from_u128(0x884e2046_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509EnrollmentHelper: windows_core::GUID = windows_core::GUID::from_u128(0x884e2050_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509EnrollmentPolicyActiveDirectory: windows_core::GUID = windows_core::GUID::from_u128(0x91f39027_217f_11da_b2a4_000e7bbb2b09);
-pub const CX509EnrollmentPolicyWebService: windows_core::GUID = windows_core::GUID::from_u128(0x91f39028_217f_11da_b2a4_000e7bbb2b09);
-pub const CX509EnrollmentWebClassFactory: windows_core::GUID = windows_core::GUID::from_u128(0x884e2049_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509Extension: windows_core::GUID = windows_core::GUID::from_u128(0x884e200d_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509ExtensionAlternativeNames: windows_core::GUID = windows_core::GUID::from_u128(0x884e2015_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509ExtensionAuthorityKeyIdentifier: windows_core::GUID = windows_core::GUID::from_u128(0x884e2018_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509ExtensionBasicConstraints: windows_core::GUID = windows_core::GUID::from_u128(0x884e2016_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509ExtensionCertificatePolicies: windows_core::GUID = windows_core::GUID::from_u128(0x884e2020_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509ExtensionEnhancedKeyUsage: windows_core::GUID = windows_core::GUID::from_u128(0x884e2010_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509ExtensionKeyUsage: windows_core::GUID = windows_core::GUID::from_u128(0x884e200f_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509ExtensionMSApplicationPolicies: windows_core::GUID = windows_core::GUID::from_u128(0x884e2021_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509ExtensionSmimeCapabilities: windows_core::GUID = windows_core::GUID::from_u128(0x884e201b_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509ExtensionSubjectKeyIdentifier: windows_core::GUID = windows_core::GUID::from_u128(0x884e2017_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509ExtensionTemplate: windows_core::GUID = windows_core::GUID::from_u128(0x884e2012_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509ExtensionTemplateName: windows_core::GUID = windows_core::GUID::from_u128(0x884e2011_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509Extensions: windows_core::GUID = windows_core::GUID::from_u128(0x884e200e_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509MachineEnrollmentFactory: windows_core::GUID = windows_core::GUID::from_u128(0x884e2051_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509NameValuePair: windows_core::GUID = windows_core::GUID::from_u128(0x884e203f_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509PolicyServerListManager: windows_core::GUID = windows_core::GUID::from_u128(0x91f39029_217f_11da_b2a4_000e7bbb2b09);
-pub const CX509PolicyServerUrl: windows_core::GUID = windows_core::GUID::from_u128(0x91f3902a_217f_11da_b2a4_000e7bbb2b09);
-pub const CX509PrivateKey: windows_core::GUID = windows_core::GUID::from_u128(0x884e200c_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509PublicKey: windows_core::GUID = windows_core::GUID::from_u128(0x884e200b_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509SCEPEnrollment: windows_core::GUID = windows_core::GUID::from_u128(0x884e2061_217d_11da_b2a4_000e7bbb2b09);
-pub const CX509SCEPEnrollmentHelper: windows_core::GUID = windows_core::GUID::from_u128(0x884e2062_217d_11da_b2a4_000e7bbb2b09);
-pub const OCSPAdmin: windows_core::GUID = windows_core::GUID::from_u128(0xd3f73511_92c9_47cb_8ff2_8d891a7c4de4);
-pub const OCSPPropertyCollection: windows_core::GUID = windows_core::GUID::from_u128(0xf935a528_ba8a_4dd9_ba79_f283275cb2de);
-pub const AlgorithmFlagsNone: AlgorithmFlags = AlgorithmFlags(0i32);
-pub const AlgorithmFlagsWrap: AlgorithmFlags = AlgorithmFlags(1i32);
-pub const AllowNoOutstandingRequest: InstallResponseRestrictionFlags = InstallResponseRestrictionFlags(1i32);
-pub const AllowNone: InstallResponseRestrictionFlags = InstallResponseRestrictionFlags(0i32);
-pub const AllowUntrustedCertificate: InstallResponseRestrictionFlags = InstallResponseRestrictionFlags(2i32);
-pub const AllowUntrustedRoot: InstallResponseRestrictionFlags = InstallResponseRestrictionFlags(4i32);
-pub const AllowedKeySignature: Pkcs10AllowedSignatureTypes = Pkcs10AllowedSignatureTypes(1i32);
-pub const AllowedNullSignature: Pkcs10AllowedSignatureTypes = Pkcs10AllowedSignatureTypes(2i32);
-pub const CAIF_DSENTRY: u32 = 1u32;
-pub const CAIF_LOCAL: u32 = 8u32;
-pub const CAIF_REGISTRY: u32 = 4u32;
-pub const CAIF_REGISTRYPARENT: u32 = 16u32;
-pub const CAIF_SHAREDFOLDERENTRY: u32 = 2u32;
-pub const CAPATHLENGTH_INFINITE: u32 = 4294967295u32;
-pub const CAPropCertificate: EnrollmentCAProperty = EnrollmentCAProperty(7i32);
-pub const CAPropCertificateTypes: EnrollmentCAProperty = EnrollmentCAProperty(6i32);
-pub const CAPropCommonName: EnrollmentCAProperty = EnrollmentCAProperty(1i32);
-pub const CAPropDNSName: EnrollmentCAProperty = EnrollmentCAProperty(5i32);
-pub const CAPropDescription: EnrollmentCAProperty = EnrollmentCAProperty(8i32);
-pub const CAPropDistinguishedName: EnrollmentCAProperty = EnrollmentCAProperty(2i32);
-pub const CAPropRenewalOnly: EnrollmentCAProperty = EnrollmentCAProperty(12i32);
-pub const CAPropSanitizedName: EnrollmentCAProperty = EnrollmentCAProperty(3i32);
-pub const CAPropSanitizedShortName: EnrollmentCAProperty = EnrollmentCAProperty(4i32);
-pub const CAPropSecurity: EnrollmentCAProperty = EnrollmentCAProperty(11i32);
-pub const CAPropSiteName: EnrollmentCAProperty = EnrollmentCAProperty(10i32);
-pub const CAPropWebServers: EnrollmentCAProperty = EnrollmentCAProperty(9i32);
-pub const CA_ACCESS_ADMIN: CERTADMIN_GET_ROLES_FLAGS = CERTADMIN_GET_ROLES_FLAGS(1u32);
-pub const CA_ACCESS_AUDITOR: CERTADMIN_GET_ROLES_FLAGS = CERTADMIN_GET_ROLES_FLAGS(4u32);
-pub const CA_ACCESS_ENROLL: CERTADMIN_GET_ROLES_FLAGS = CERTADMIN_GET_ROLES_FLAGS(512u32);
-pub const CA_ACCESS_MASKROLES: u32 = 255u32;
-pub const CA_ACCESS_OFFICER: CERTADMIN_GET_ROLES_FLAGS = CERTADMIN_GET_ROLES_FLAGS(2u32);
-pub const CA_ACCESS_OPERATOR: CERTADMIN_GET_ROLES_FLAGS = CERTADMIN_GET_ROLES_FLAGS(8u32);
-pub const CA_ACCESS_READ: CERTADMIN_GET_ROLES_FLAGS = CERTADMIN_GET_ROLES_FLAGS(256u32);
-pub const CA_CRL_BASE: u32 = 1u32;
-pub const CA_CRL_DELTA: u32 = 2u32;
-pub const CA_CRL_REPUBLISH: u32 = 16u32;
-pub const CA_DISP_ERROR: u32 = 1u32;
-pub const CA_DISP_INCOMPLETE: u32 = 0u32;
-pub const CA_DISP_INVALID: u32 = 4u32;
-pub const CA_DISP_REVOKED: u32 = 2u32;
-pub const CA_DISP_UNDER_SUBMISSION: u32 = 5u32;
-pub const CA_DISP_VALID: u32 = 3u32;
-pub const CCLOCKSKEWMINUTESDEFAULT: u32 = 10u32;
-pub const CC_DEFAULTCONFIG: CERT_GET_CONFIG_FLAGS = CERT_GET_CONFIG_FLAGS(0i32);
-pub const CC_FIRSTCONFIG: CERT_GET_CONFIG_FLAGS = CERT_GET_CONFIG_FLAGS(2i32);
-pub const CC_LOCALACTIVECONFIG: CERT_GET_CONFIG_FLAGS = CERT_GET_CONFIG_FLAGS(4i32);
-pub const CC_LOCALCONFIG: CERT_GET_CONFIG_FLAGS = CERT_GET_CONFIG_FLAGS(3i32);
-pub const CC_UIPICKCONFIG: CERT_GET_CONFIG_FLAGS = CERT_GET_CONFIG_FLAGS(1i32);
-pub const CC_UIPICKCONFIGSKIPLOCALCA: CERT_GET_CONFIG_FLAGS = CERT_GET_CONFIG_FLAGS(5i32);
-pub const CDR_EXPIRED: CERT_DELETE_ROW_FLAGS = CERT_DELETE_ROW_FLAGS(1i32);
-pub const CDR_REQUEST_LAST_CHANGED: CERT_DELETE_ROW_FLAGS = CERT_DELETE_ROW_FLAGS(2i32);
-pub const CERTENROLL_INDEX_BASE: u32 = 0u32;
-pub const CERT_ALT_NAME_DIRECTORY_NAME: CERT_ALT_NAME = CERT_ALT_NAME(5i32);
-pub const CERT_ALT_NAME_DNS_NAME: CERT_ALT_NAME = CERT_ALT_NAME(3i32);
-pub const CERT_ALT_NAME_IP_ADDRESS: CERT_ALT_NAME = CERT_ALT_NAME(8i32);
-pub const CERT_ALT_NAME_OTHER_NAME: CERT_ALT_NAME = CERT_ALT_NAME(1i32);
-pub const CERT_ALT_NAME_REGISTERED_ID: CERT_ALT_NAME = CERT_ALT_NAME(9i32);
-pub const CERT_ALT_NAME_RFC822_NAME: CERT_ALT_NAME = CERT_ALT_NAME(2i32);
-pub const CERT_ALT_NAME_URL: CERT_ALT_NAME = CERT_ALT_NAME(7i32);
-pub const CMM_READONLY: u32 = 2u32;
-pub const CMM_REFRESHONLY: u32 = 1u32;
-pub const CPF_BADURL_ERROR: u32 = 32u32;
-pub const CPF_BASE: u32 = 1u32;
-pub const CPF_CASTORE_ERROR: u32 = 16u32;
-pub const CPF_COMPLETE: u32 = 4u32;
-pub const CPF_DELTA: u32 = 2u32;
-pub const CPF_FILE_ERROR: u32 = 512u32;
-pub const CPF_FTP_ERROR: u32 = 1024u32;
-pub const CPF_HTTP_ERROR: u32 = 2048u32;
-pub const CPF_LDAP_ERROR: u32 = 256u32;
-pub const CPF_MANUAL: u32 = 64u32;
-pub const CPF_POSTPONED_BASE_FILE_ERROR: u32 = 8192u32;
-pub const CPF_POSTPONED_BASE_LDAP_ERROR: u32 = 4096u32;
-pub const CPF_SHADOW: u32 = 8u32;
-pub const CPF_SIGNATURE_ERROR: u32 = 128u32;
-pub const CRLF_ALLOW_REQUEST_ATTRIBUTE_SUBJECT: u32 = 65536u32;
-pub const CRLF_BUILD_ROOTCA_CRLENTRIES_BASEDONKEY: u32 = 2097152u32;
-pub const CRLF_CRLNUMBER_CRITICAL: u32 = 4u32;
-pub const CRLF_DELETE_EXPIRED_CRLS: u32 = 2u32;
-pub const CRLF_DELTA_USE_OLDEST_UNEXPIRED_BASE: u32 = 1u32;
-pub const CRLF_DISABLE_CHAIN_VERIFICATION: u32 = 1048576u32;
-pub const CRLF_DISABLE_RDN_REORDER: u32 = 2048u32;
-pub const CRLF_DISABLE_ROOT_CROSS_CERTS: u32 = 4096u32;
-pub const CRLF_ENFORCE_ENROLLMENT_AGENT: u32 = 1024u32;
-pub const CRLF_IGNORE_CROSS_CERT_TRUST_ERROR: u32 = 256u32;
-pub const CRLF_IGNORE_INVALID_POLICIES: u32 = 16u32;
-pub const CRLF_IGNORE_UNKNOWN_CMC_ATTRIBUTES: u32 = 128u32;
-pub const CRLF_LOG_FULL_RESPONSE: u32 = 8192u32;
-pub const CRLF_PRESERVE_EXPIRED_CA_CERTS: u32 = 262144u32;
-pub const CRLF_PRESERVE_REVOKED_CA_CERTS: u32 = 524288u32;
-pub const CRLF_PUBLISH_EXPIRED_CERT_CRLS: u32 = 512u32;
-pub const CRLF_REBUILD_MODIFIED_SUBJECT_ONLY: u32 = 32u32;
-pub const CRLF_REVCHECK_IGNORE_NOREVCHECK: u32 = 131072u32;
-pub const CRLF_REVCHECK_IGNORE_OFFLINE: u32 = 8u32;
-pub const CRLF_SAVE_FAILED_CERTS: u32 = 64u32;
-pub const CRLF_USE_CROSS_CERT_TEMPLATE: u32 = 32768u32;
-pub const CRLF_USE_XCHG_CERT_TEMPLATE: u32 = 16384u32;
-pub const CRYPT_ENUM_ALL_PROVIDERS: u32 = 1u32;
-pub const CR_DISP_DENIED: CR_DISP = CR_DISP(2u32);
-pub const CR_DISP_ERROR: CR_DISP = CR_DISP(1u32);
-pub const CR_DISP_INCOMPLETE: CR_DISP = CR_DISP(0u32);
-pub const CR_DISP_ISSUED: CR_DISP = CR_DISP(3u32);
-pub const CR_DISP_ISSUED_OUT_OF_BAND: CR_DISP = CR_DISP(4u32);
-pub const CR_DISP_REVOKED: u32 = 6u32;
-pub const CR_DISP_UNDER_SUBMISSION: CR_DISP = CR_DISP(5u32);
-pub const CR_FLG_CACROSSCERT: u32 = 128u32;
-pub const CR_FLG_CAXCHGCERT: u32 = 8u32;
-pub const CR_FLG_CHALLENGEPENDING: u32 = 1024u32;
-pub const CR_FLG_CHALLENGESATISFIED: u32 = 2048u32;
-pub const CR_FLG_DEFINEDCACERT: u32 = 512u32;
-pub const CR_FLG_ENFORCEUTF8: u32 = 256u32;
-pub const CR_FLG_ENROLLONBEHALFOF: u32 = 16u32;
-pub const CR_FLG_FORCETELETEX: u32 = 1u32;
-pub const CR_FLG_FORCEUTF8: u32 = 4u32;
-pub const CR_FLG_PUBLISHERROR: u32 = 2147483648u32;
-pub const CR_FLG_RENEWAL: u32 = 2u32;
-pub const CR_FLG_SUBJECTUNMODIFIED: u32 = 32u32;
-pub const CR_FLG_TRUSTEKCERT: u32 = 8192u32;
-pub const CR_FLG_TRUSTEKKEY: u32 = 16384u32;
-pub const CR_FLG_TRUSTONUSE: u32 = 4096u32;
-pub const CR_FLG_VALIDENCRYPTEDKEYHASH: u32 = 64u32;
-pub const CR_GEMT_DEFAULT: u32 = 0u32;
-pub const CR_GEMT_HRESULT_STRING: u32 = 1u32;
-pub const CR_GEMT_HTTP_ERROR: u32 = 2u32;
-pub const CR_IN_BASE64: CERT_IMPORT_FLAGS = CERT_IMPORT_FLAGS(1i32);
-pub const CR_IN_BASE64HEADER: CERT_IMPORT_FLAGS = CERT_IMPORT_FLAGS(0i32);
-pub const CR_IN_BINARY: CERT_IMPORT_FLAGS = CERT_IMPORT_FLAGS(2i32);
-pub const CR_IN_CERTIFICATETRANSPARENCY: u32 = 67108864u32;
-pub const CR_IN_CHALLENGERESPONSE: u32 = 1280u32;
-pub const CR_IN_CLIENTIDNONE: u32 = 4194304u32;
-pub const CR_IN_CMC: u32 = 1024u32;
-pub const CR_IN_CONNECTONLY: u32 = 8388608u32;
-pub const CR_IN_CRLS: u32 = 524288u32;
-pub const CR_IN_ENCODEANY: u32 = 255u32;
-pub const CR_IN_ENCODEMASK: u32 = 255u32;
-pub const CR_IN_FORMATANY: u32 = 0u32;
-pub const CR_IN_FORMATMASK: u32 = 65280u32;
-pub const CR_IN_FULLRESPONSE: u32 = 262144u32;
-pub const CR_IN_HTTP: u32 = 196608u32;
-pub const CR_IN_KEYGEN: u32 = 512u32;
-pub const CR_IN_MACHINE: u32 = 1048576u32;
-pub const CR_IN_PKCS10: u32 = 256u32;
-pub const CR_IN_PKCS7: u32 = 768u32;
-pub const CR_IN_RETURNCHALLENGE: u32 = 16777216u32;
-pub const CR_IN_ROBO: u32 = 2097152u32;
-pub const CR_IN_RPC: u32 = 131072u32;
-pub const CR_IN_SCEP: u32 = 65536u32;
-pub const CR_IN_SCEPPOST: u32 = 33554432u32;
-pub const CR_IN_SIGNEDCERTIFICATETIMESTAMPLIST: u32 = 1536u32;
-pub const CR_OUT_BASE64: CERT_REQUEST_OUT_TYPE = CERT_REQUEST_OUT_TYPE(1i32);
-pub const CR_OUT_BASE64HEADER: CERT_REQUEST_OUT_TYPE = CERT_REQUEST_OUT_TYPE(0i32);
-pub const CR_OUT_BASE64REQUESTHEADER: u32 = 3u32;
-pub const CR_OUT_BASE64X509CRLHEADER: u32 = 9u32;
-pub const CR_OUT_BINARY: CERT_REQUEST_OUT_TYPE = CERT_REQUEST_OUT_TYPE(2i32);
-pub const CR_OUT_CHAIN: u32 = 256u32;
-pub const CR_OUT_CRLS: u32 = 512u32;
-pub const CR_OUT_ENCODEMASK: u32 = 255u32;
-pub const CR_OUT_HEX: u32 = 4u32;
-pub const CR_OUT_HEXADDR: u32 = 10u32;
-pub const CR_OUT_HEXASCII: u32 = 5u32;
-pub const CR_OUT_HEXASCIIADDR: u32 = 11u32;
-pub const CR_OUT_HEXRAW: u32 = 12u32;
-pub const CR_OUT_NOCR: u32 = 2147483648u32;
-pub const CR_OUT_NOCRLF: u32 = 1073741824u32;
-pub const CR_PROP_ADVANCEDSERVER: u32 = 28u32;
-pub const CR_PROP_BASECRL: u32 = 17u32;
-pub const CR_PROP_BASECRLPUBLISHSTATUS: u32 = 30u32;
-pub const CR_PROP_CABACKWARDCROSSCERT: u32 = 36u32;
-pub const CR_PROP_CABACKWARDCROSSCERTSTATE: u32 = 38u32;
-pub const CR_PROP_CACERTSTATE: u32 = 19u32;
-pub const CR_PROP_CACERTSTATUSCODE: u32 = 34u32;
-pub const CR_PROP_CACERTVERSION: u32 = 39u32;
-pub const CR_PROP_CAFORWARDCROSSCERT: u32 = 35u32;
-pub const CR_PROP_CAFORWARDCROSSCERTSTATE: u32 = 37u32;
-pub const CR_PROP_CANAME: u32 = 6u32;
-pub const CR_PROP_CAPROPIDMAX: u32 = 21u32;
-pub const CR_PROP_CASIGCERT: u32 = 12u32;
-pub const CR_PROP_CASIGCERTCHAIN: u32 = 13u32;
-pub const CR_PROP_CASIGCERTCOUNT: u32 = 11u32;
-pub const CR_PROP_CASIGCERTCRLCHAIN: u32 = 32u32;
-pub const CR_PROP_CATYPE: u32 = 10u32;
-pub const CR_PROP_CAXCHGCERT: u32 = 15u32;
-pub const CR_PROP_CAXCHGCERTCHAIN: u32 = 16u32;
-pub const CR_PROP_CAXCHGCERTCOUNT: u32 = 14u32;
-pub const CR_PROP_CAXCHGCERTCRLCHAIN: u32 = 33u32;
-pub const CR_PROP_CERTAIAOCSPURLS: u32 = 43u32;
-pub const CR_PROP_CERTAIAURLS: u32 = 42u32;
-pub const CR_PROP_CERTCDPURLS: u32 = 41u32;
-pub const CR_PROP_CRLSTATE: u32 = 20u32;
-pub const CR_PROP_DELTACRL: u32 = 18u32;
-pub const CR_PROP_DELTACRLPUBLISHSTATUS: u32 = 31u32;
-pub const CR_PROP_DNSNAME: u32 = 22u32;
-pub const CR_PROP_EXITCOUNT: u32 = 3u32;
-pub const CR_PROP_EXITDESCRIPTION: u32 = 4u32;
-pub const CR_PROP_FILEVERSION: u32 = 1u32;
-pub const CR_PROP_KRACERT: u32 = 26u32;
-pub const CR_PROP_KRACERTCOUNT: u32 = 25u32;
-pub const CR_PROP_KRACERTSTATE: u32 = 27u32;
-pub const CR_PROP_KRACERTUSEDCOUNT: u32 = 24u32;
-pub const CR_PROP_LOCALENAME: u32 = 44u32;
-pub const CR_PROP_NONE: u32 = 0u32;
-pub const CR_PROP_PARENTCA: u32 = 9u32;
-pub const CR_PROP_POLICYDESCRIPTION: u32 = 5u32;
-pub const CR_PROP_PRODUCTVERSION: u32 = 2u32;
-pub const CR_PROP_ROLESEPARATIONENABLED: u32 = 23u32;
-pub const CR_PROP_SANITIZEDCANAME: u32 = 7u32;
-pub const CR_PROP_SANITIZEDCASHORTNAME: u32 = 40u32;
-pub const CR_PROP_SCEPMAX: u32 = 1002u32;
-pub const CR_PROP_SCEPMIN: u32 = 1000u32;
-pub const CR_PROP_SCEPSERVERCAPABILITIES: u32 = 1001u32;
-pub const CR_PROP_SCEPSERVERCERTS: u32 = 1000u32;
-pub const CR_PROP_SCEPSERVERCERTSCHAIN: u32 = 1002u32;
-pub const CR_PROP_SHAREDFOLDER: u32 = 8u32;
-pub const CR_PROP_SUBJECTTEMPLATE_OIDS: u32 = 45u32;
-pub const CR_PROP_TEMPLATES: u32 = 29u32;
-pub const CSBACKUP_DISABLE_INCREMENTAL: u32 = 4294967295u32;
-pub const CSBACKUP_TYPE_FULL: CSBACKUP_TYPE = CSBACKUP_TYPE(1u32);
-pub const CSBACKUP_TYPE_LOGS_ONLY: CSBACKUP_TYPE = CSBACKUP_TYPE(2u32);
-pub const CSBACKUP_TYPE_MASK: u32 = 3u32;
-pub const CSBFT_DATABASE_DIRECTORY: u32 = 64u32;
-pub const CSBFT_DIRECTORY: u32 = 128u32;
-pub const CSBFT_LOG_DIRECTORY: u32 = 32u32;
-pub const CSCONTROL_RESTART: u64 = 3u64;
-pub const CSCONTROL_SHUTDOWN: u64 = 1u64;
-pub const CSCONTROL_SUSPEND: u64 = 2u64;
-pub const CSRESTORE_TYPE_CATCHUP: u32 = 4u32;
-pub const CSRESTORE_TYPE_FULL: u32 = 1u32;
-pub const CSRESTORE_TYPE_MASK: u32 = 5u32;
-pub const CSRESTORE_TYPE_ONLINE: u32 = 2u32;
-pub const CSURL_ADDTOCERTCDP: u32 = 2u32;
-pub const CSURL_ADDTOCERTOCSP: u32 = 32u32;
-pub const CSURL_ADDTOCRLCDP: u32 = 8u32;
-pub const CSURL_ADDTOFRESHESTCRL: u32 = 4u32;
-pub const CSURL_ADDTOIDP: u32 = 128u32;
-pub const CSURL_PUBLISHRETRY: u32 = 16u32;
-pub const CSURL_SERVERPUBLISH: u32 = 1u32;
-pub const CSURL_SERVERPUBLISHDELTA: u32 = 64u32;
-pub const CSVER_MAJOR: u32 = 7u32;
-pub const CSVER_MAJOR_LONGHORN: u32 = 3u32;
-pub const CSVER_MAJOR_THRESHOLD: u32 = 7u32;
-pub const CSVER_MAJOR_WHISTLER: u32 = 2u32;
-pub const CSVER_MAJOR_WIN2K: u32 = 1u32;
-pub const CSVER_MAJOR_WIN7: u32 = 4u32;
-pub const CSVER_MAJOR_WIN8: u32 = 5u32;
-pub const CSVER_MAJOR_WINBLUE: u32 = 6u32;
-pub const CSVER_MINOR: u32 = 1u32;
-pub const CSVER_MINOR_LONGHORN_BETA1: u32 = 1u32;
-pub const CSVER_MINOR_THRESHOLD: u32 = 1u32;
-pub const CSVER_MINOR_WHISTLER_BETA2: u32 = 1u32;
-pub const CSVER_MINOR_WHISTLER_BETA3: u32 = 2u32;
-pub const CSVER_MINOR_WIN2K: u32 = 1u32;
-pub const CSVER_MINOR_WIN7: u32 = 1u32;
-pub const CSVER_MINOR_WIN8: u32 = 1u32;
-pub const CSVER_MINOR_WINBLUE: u32 = 1u32;
-pub const CVIEWAGEMINUTESDEFAULT: u32 = 16u32;
-pub const CVRC_COLUMN_MASK: CVRC_COLUMN = CVRC_COLUMN(4095i32);
-pub const CVRC_COLUMN_RESULT: CVRC_COLUMN = CVRC_COLUMN(1i32);
-pub const CVRC_COLUMN_SCHEMA: CVRC_COLUMN = CVRC_COLUMN(0i32);
-pub const CVRC_COLUMN_VALUE: CVRC_COLUMN = CVRC_COLUMN(2i32);
-pub const CVRC_TABLE_ATTRIBUTES: CVRC_TABLE = CVRC_TABLE(16384i32);
-pub const CVRC_TABLE_CRL: CVRC_TABLE = CVRC_TABLE(20480i32);
-pub const CVRC_TABLE_EXTENSIONS: CVRC_TABLE = CVRC_TABLE(12288i32);
-pub const CVRC_TABLE_MASK: u32 = 61440u32;
-pub const CVRC_TABLE_REQCERT: CVRC_TABLE = CVRC_TABLE(0i32);
-pub const CVRC_TABLE_SHIFT: u32 = 12u32;
-pub const CVR_SEEK_EQ: CERT_VIEW_SEEK_OPERATOR_FLAGS = CERT_VIEW_SEEK_OPERATOR_FLAGS(1i32);
-pub const CVR_SEEK_GE: CERT_VIEW_SEEK_OPERATOR_FLAGS = CERT_VIEW_SEEK_OPERATOR_FLAGS(8i32);
-pub const CVR_SEEK_GT: CERT_VIEW_SEEK_OPERATOR_FLAGS = CERT_VIEW_SEEK_OPERATOR_FLAGS(16i32);
-pub const CVR_SEEK_LE: CERT_VIEW_SEEK_OPERATOR_FLAGS = CERT_VIEW_SEEK_OPERATOR_FLAGS(4i32);
-pub const CVR_SEEK_LT: CERT_VIEW_SEEK_OPERATOR_FLAGS = CERT_VIEW_SEEK_OPERATOR_FLAGS(2i32);
-pub const CVR_SEEK_MASK: u32 = 255u32;
-pub const CVR_SEEK_NODELTA: u32 = 4096u32;
-pub const CVR_SEEK_NONE: u32 = 0u32;
-pub const CVR_SORT_ASCEND: u32 = 1u32;
-pub const CVR_SORT_DESCEND: u32 = 2u32;
-pub const CVR_SORT_NONE: u32 = 0u32;
-pub const CV_COLUMN_ATTRIBUTE_DEFAULT: i32 = -5i32;
-pub const CV_COLUMN_CRL_DEFAULT: i32 = -6i32;
-pub const CV_COLUMN_EXTENSION_DEFAULT: i32 = -4i32;
-pub const CV_COLUMN_LOG_DEFAULT: CERT_VIEW_COLUMN_INDEX = CERT_VIEW_COLUMN_INDEX(-2i32);
-pub const CV_COLUMN_LOG_FAILED_DEFAULT: CERT_VIEW_COLUMN_INDEX = CERT_VIEW_COLUMN_INDEX(-3i32);
-pub const CV_COLUMN_LOG_REVOKED_DEFAULT: i32 = -7i32;
-pub const CV_COLUMN_QUEUE_DEFAULT: CERT_VIEW_COLUMN_INDEX = CERT_VIEW_COLUMN_INDEX(-1i32);
-pub const CV_OUT_BASE64: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(1i32);
-pub const CV_OUT_BASE64HEADER: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(0i32);
-pub const CV_OUT_BASE64REQUESTHEADER: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(3i32);
-pub const CV_OUT_BASE64X509CRLHEADER: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(9i32);
-pub const CV_OUT_BINARY: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(2i32);
-pub const CV_OUT_ENCODEMASK: u32 = 255u32;
-pub const CV_OUT_HEX: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(4i32);
-pub const CV_OUT_HEXADDR: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(10i32);
-pub const CV_OUT_HEXASCII: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(5i32);
-pub const CV_OUT_HEXASCIIADDR: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(11i32);
-pub const CV_OUT_HEXRAW: u32 = 12u32;
-pub const CV_OUT_NOCR: u32 = 2147483648u32;
-pub const CV_OUT_NOCRLF: u32 = 1073741824u32;
-pub const ClientIdAutoEnroll: RequestClientInfoClientId = RequestClientInfoClientId(6i32);
-pub const ClientIdAutoEnroll2003: RequestClientInfoClientId = RequestClientInfoClientId(2i32);
-pub const ClientIdCertReq: RequestClientInfoClientId = RequestClientInfoClientId(9i32);
-pub const ClientIdCertReq2003: RequestClientInfoClientId = RequestClientInfoClientId(4i32);
-pub const ClientIdDefaultRequest: RequestClientInfoClientId = RequestClientInfoClientId(5i32);
-pub const ClientIdEOBO: RequestClientInfoClientId = RequestClientInfoClientId(8i32);
-pub const ClientIdNone: RequestClientInfoClientId = RequestClientInfoClientId(0i32);
-pub const ClientIdRequestWizard: RequestClientInfoClientId = RequestClientInfoClientId(7i32);
-pub const ClientIdTest: RequestClientInfoClientId = RequestClientInfoClientId(10i32);
-pub const ClientIdUserStart: RequestClientInfoClientId = RequestClientInfoClientId(1000i32);
-pub const ClientIdWinRT: RequestClientInfoClientId = RequestClientInfoClientId(11i32);
-pub const ClientIdWizard2003: RequestClientInfoClientId = RequestClientInfoClientId(3i32);
-pub const ClientIdXEnroll2003: RequestClientInfoClientId = RequestClientInfoClientId(1i32);
-pub const CommitFlagDeleteTemplate: CommitTemplateFlags = CommitTemplateFlags(4i32);
-pub const CommitFlagSaveTemplateGenerateOID: CommitTemplateFlags = CommitTemplateFlags(1i32);
-pub const CommitFlagSaveTemplateOverwrite: CommitTemplateFlags = CommitTemplateFlags(3i32);
-pub const CommitFlagSaveTemplateUseCurrentOID: CommitTemplateFlags = CommitTemplateFlags(2i32);
-pub const ContextAdministratorForceMachine: X509CertificateEnrollmentContext = X509CertificateEnrollmentContext(3i32);
-pub const ContextMachine: X509CertificateEnrollmentContext = X509CertificateEnrollmentContext(2i32);
-pub const ContextNone: X509CertificateEnrollmentContext = X509CertificateEnrollmentContext(0i32);
-pub const ContextUser: X509CertificateEnrollmentContext = X509CertificateEnrollmentContext(1i32);
-pub const DBFLAGS_CHECKPOINTDEPTH60MB: u32 = 32u32;
-pub const DBFLAGS_CIRCULARLOGGING: u32 = 4u32;
-pub const DBFLAGS_CREATEIFNEEDED: u32 = 2u32;
-pub const DBFLAGS_DISABLESNAPSHOTBACKUP: u32 = 1024u32;
-pub const DBFLAGS_ENABLEVOLATILEREQUESTS: u32 = 2048u32;
-pub const DBFLAGS_LAZYFLUSH: u32 = 8u32;
-pub const DBFLAGS_LOGBUFFERSHUGE: u32 = 128u32;
-pub const DBFLAGS_LOGBUFFERSLARGE: u32 = 64u32;
-pub const DBFLAGS_LOGFILESIZE16MB: u32 = 256u32;
-pub const DBFLAGS_MAXCACHESIZEX100: u32 = 16u32;
-pub const DBFLAGS_MULTITHREADTRANSACTIONS: u32 = 512u32;
-pub const DBFLAGS_READONLY: u32 = 1u32;
-pub const DBG_CERTSRV: u32 = 1u32;
-pub const DBSESSIONCOUNTDEFAULT: u32 = 100u32;
-pub const DB_DISP_ACTIVE: u32 = 8u32;
-pub const DB_DISP_CA_CERT: u32 = 15u32;
-pub const DB_DISP_CA_CERT_CHAIN: u32 = 16u32;
-pub const DB_DISP_DENIED: u32 = 31u32;
-pub const DB_DISP_ERROR: u32 = 30u32;
-pub const DB_DISP_FOREIGN: u32 = 12u32;
-pub const DB_DISP_ISSUED: u32 = 20u32;
-pub const DB_DISP_KRA_CERT: u32 = 17u32;
-pub const DB_DISP_LOG_FAILED_MIN: u32 = 30u32;
-pub const DB_DISP_LOG_MIN: u32 = 20u32;
-pub const DB_DISP_PENDING: u32 = 9u32;
-pub const DB_DISP_QUEUE_MAX: u32 = 9u32;
-pub const DB_DISP_REVOKED: u32 = 21u32;
-pub const DefaultNone: EnrollmentPolicyServerPropertyFlags = EnrollmentPolicyServerPropertyFlags(0i32);
-pub const DefaultPolicyServer: EnrollmentPolicyServerPropertyFlags = EnrollmentPolicyServerPropertyFlags(1i32);
-pub const DelayRetryLong: DelayRetryAction = DelayRetryAction(3i32);
-pub const DelayRetryNone: DelayRetryAction = DelayRetryAction(1i32);
-pub const DelayRetryPastSuccess: DelayRetryAction = DelayRetryAction(5i32);
-pub const DelayRetryShort: DelayRetryAction = DelayRetryAction(2i32);
-pub const DelayRetrySuccess: DelayRetryAction = DelayRetryAction(4i32);
-pub const DelayRetryUnknown: DelayRetryAction = DelayRetryAction(0i32);
-pub const DisableGroupPolicyList: EnrollmentPolicyFlags = EnrollmentPolicyFlags(2i32);
-pub const DisableUserServerList: EnrollmentPolicyFlags = EnrollmentPolicyFlags(4i32);
-pub const DisplayNo: EnrollmentDisplayStatus = EnrollmentDisplayStatus(0i32);
-pub const DisplayYes: EnrollmentDisplayStatus = EnrollmentDisplayStatus(1i32);
-pub const EANR_SUPPRESS_IA5CONVERSION: u32 = 2147483648u32;
-pub const EAN_NAMEOBJECTID: u32 = 2147483648u32;
-pub const EDITF_ADDOLDCERTTYPE: u32 = 16u32;
-pub const EDITF_ADDOLDKEYUSAGE: u32 = 8u32;
-pub const EDITF_ATTRIBUTECA: u32 = 512u32;
-pub const EDITF_ATTRIBUTEEKU: u32 = 32768u32;
-pub const EDITF_ATTRIBUTEENDDATE: u32 = 32u32;
-pub const EDITF_ATTRIBUTESUBJECTALTNAME2: u32 = 262144u32;
-pub const EDITF_AUDITCERTTEMPLATELOAD: u32 = 2097152u32;
-pub const EDITF_BASICCONSTRAINTSCA: u32 = 128u32;
-pub const EDITF_BASICCONSTRAINTSCRITICAL: u32 = 64u32;
-pub const EDITF_DISABLEEXTENSIONLIST: u32 = 4u32;
-pub const EDITF_DISABLELDAPPACKAGELIST: u32 = 8388608u32;
-pub const EDITF_DISABLEOLDOSCNUPN: u32 = 4194304u32;
-pub const EDITF_EMAILOPTIONAL: u32 = 131072u32;
-pub const EDITF_ENABLEAKICRITICAL: u32 = 8192u32;
-pub const EDITF_ENABLEAKIISSUERNAME: u32 = 2048u32;
-pub const EDITF_ENABLEAKIISSUERSERIAL: u32 = 4096u32;
-pub const EDITF_ENABLEAKIKEYID: u32 = 256u32;
-pub const EDITF_ENABLECHASECLIENTDC: u32 = 1048576u32;
-pub const EDITF_ENABLEDEFAULTSMIME: u32 = 65536u32;
-pub const EDITF_ENABLEKEYENCIPHERMENTCACERT: u32 = 134217728u32;
-pub const EDITF_ENABLELDAPREFERRALS: u32 = 524288u32;
-pub const EDITF_ENABLEOCSPREVNOCHECK: u32 = 33554432u32;
-pub const EDITF_ENABLERENEWONBEHALFOF: u32 = 67108864u32;
-pub const EDITF_ENABLEREQUESTEXTENSIONS: u32 = 1u32;
-pub const EDITF_ENABLEUPNMAP: u32 = 16777216u32;
-pub const EDITF_IGNOREREQUESTERGROUP: u32 = 1024u32;
-pub const EDITF_REQUESTEXTENSIONLIST: u32 = 2u32;
-pub const EDITF_SERVERUPGRADED: u32 = 16384u32;
-pub const ENUMEXT_OBJECTID: u32 = 1u32;
-pub const ENUM_ENTERPRISE_ROOTCA: ENUM_CATYPES = ENUM_CATYPES(0i32);
-pub const ENUM_ENTERPRISE_SUBCA: ENUM_CATYPES = ENUM_CATYPES(1i32);
-pub const ENUM_STANDALONE_ROOTCA: ENUM_CATYPES = ENUM_CATYPES(3i32);
-pub const ENUM_STANDALONE_SUBCA: ENUM_CATYPES = ENUM_CATYPES(4i32);
-pub const ENUM_UNKNOWN_CA: ENUM_CATYPES = ENUM_CATYPES(5i32);
-pub const EXITEVENT_CERTDENIED: CERT_EXIT_EVENT_MASK = CERT_EXIT_EVENT_MASK(4u32);
-pub const EXITEVENT_CERTIMPORTED: u32 = 512u32;
-pub const EXITEVENT_CERTISSUED: CERT_EXIT_EVENT_MASK = CERT_EXIT_EVENT_MASK(1u32);
-pub const EXITEVENT_CERTPENDING: CERT_EXIT_EVENT_MASK = CERT_EXIT_EVENT_MASK(2u32);
-pub const EXITEVENT_CERTRETRIEVEPENDING: CERT_EXIT_EVENT_MASK = CERT_EXIT_EVENT_MASK(16u32);
-pub const EXITEVENT_CERTREVOKED: CERT_EXIT_EVENT_MASK = CERT_EXIT_EVENT_MASK(8u32);
-pub const EXITEVENT_CRLISSUED: CERT_EXIT_EVENT_MASK = CERT_EXIT_EVENT_MASK(32u32);
-pub const EXITEVENT_INVALID: u32 = 0u32;
-pub const EXITEVENT_SHUTDOWN: CERT_EXIT_EVENT_MASK = CERT_EXIT_EVENT_MASK(64u32);
-pub const EXITEVENT_STARTUP: u32 = 128u32;
-pub const EXITPUB_ACTIVEDIRECTORY: u32 = 2u32;
-pub const EXITPUB_DEFAULT_ENTERPRISE: u32 = 2u32;
-pub const EXITPUB_DEFAULT_STANDALONE: u32 = 1u32;
-pub const EXITPUB_FILE: u32 = 1u32;
-pub const EXITPUB_REMOVEOLDCERTS: u32 = 16u32;
-pub const EXTENSION_CRITICAL_FLAG: u32 = 1u32;
-pub const EXTENSION_DELETE_FLAG: u32 = 4u32;
-pub const EXTENSION_DISABLE_FLAG: u32 = 2u32;
-pub const EXTENSION_ORIGIN_ADMIN: u32 = 196608u32;
-pub const EXTENSION_ORIGIN_CACERT: u32 = 589824u32;
-pub const EXTENSION_ORIGIN_CMC: u32 = 524288u32;
-pub const EXTENSION_ORIGIN_IMPORTEDCERT: u32 = 393216u32;
-pub const EXTENSION_ORIGIN_MASK: u32 = 983040u32;
-pub const EXTENSION_ORIGIN_PKCS7: u32 = 458752u32;
-pub const EXTENSION_ORIGIN_POLICY: u32 = 131072u32;
-pub const EXTENSION_ORIGIN_RENEWALCERT: u32 = 327680u32;
-pub const EXTENSION_ORIGIN_REQUEST: u32 = 65536u32;
-pub const EXTENSION_ORIGIN_SERVER: u32 = 262144u32;
-pub const EXTENSION_POLICY_MASK: u32 = 65535u32;
-pub const EnrollDenied: EnrollmentEnrollStatus = EnrollmentEnrollStatus(256i32);
-pub const EnrollError: EnrollmentEnrollStatus = EnrollmentEnrollStatus(16i32);
-pub const EnrollPended: EnrollmentEnrollStatus = EnrollmentEnrollStatus(2i32);
-pub const EnrollPrompt: WebEnrollmentFlags = WebEnrollmentFlags(1i32);
-pub const EnrollSkipped: EnrollmentEnrollStatus = EnrollmentEnrollStatus(64i32);
-pub const EnrollUIDeferredEnrollmentRequired: EnrollmentEnrollStatus = EnrollmentEnrollStatus(4i32);
-pub const EnrollUnknown: EnrollmentEnrollStatus = EnrollmentEnrollStatus(32i32);
-pub const Enrolled: EnrollmentEnrollStatus = EnrollmentEnrollStatus(1i32);
-pub const EnrollmentAddOCSPNoCheck: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(4096i32);
-pub const EnrollmentAddTemplateName: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(512i32);
-pub const EnrollmentAllowEnrollOnBehalfOf: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(2048i32);
-pub const EnrollmentAutoEnrollment: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(32i32);
-pub const EnrollmentAutoEnrollmentCheckUserDSCertificate: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(16i32);
-pub const EnrollmentCertificateIssuancePoliciesFromRequest: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(131072i32);
-pub const EnrollmentDomainAuthenticationNotRequired: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(128i32);
-pub const EnrollmentIncludeBasicConstraintsForEECerts: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(32768i32);
-pub const EnrollmentIncludeSymmetricAlgorithms: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(1i32);
-pub const EnrollmentNoRevocationInfoInCerts: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(16384i32);
-pub const EnrollmentPendAllRequests: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(2i32);
-pub const EnrollmentPreviousApprovalKeyBasedValidateReenrollment: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(65536i32);
-pub const EnrollmentPreviousApprovalValidateReenrollment: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(64i32);
-pub const EnrollmentPublishToDS: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(8i32);
-pub const EnrollmentPublishToKRAContainer: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(4i32);
-pub const EnrollmentRemoveInvalidCertificateFromPersonalStore: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(1024i32);
-pub const EnrollmentReuseKeyOnFullSmartCard: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(8192i32);
-pub const EnrollmentSkipAutoRenewal: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(262144i32);
-pub const EnrollmentUserInteractionRequired: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(256i32);
-pub const ExportCAs: X509EnrollmentPolicyExportFlags = X509EnrollmentPolicyExportFlags(4i32);
-pub const ExportOIDs: X509EnrollmentPolicyExportFlags = X509EnrollmentPolicyExportFlags(2i32);
-pub const ExportTemplates: X509EnrollmentPolicyExportFlags = X509EnrollmentPolicyExportFlags(1i32);
-pub const FR_PROP_ATTESTATIONCHALLENGE: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(20i32);
-pub const FR_PROP_ATTESTATIONPROVIDERNAME: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(21i32);
-pub const FR_PROP_BODYPARTSTRING: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(3i32);
-pub const FR_PROP_CAEXCHANGECERTIFICATE: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(17i32);
-pub const FR_PROP_CAEXCHANGECERTIFICATECHAIN: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(18i32);
-pub const FR_PROP_CAEXCHANGECERTIFICATECRLCHAIN: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(19i32);
-pub const FR_PROP_CAEXCHANGECERTIFICATEHASH: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(16i32);
-pub const FR_PROP_CLAIMCHALLENGE: u32 = 22u32;
-pub const FR_PROP_ENCRYPTEDKEYHASH: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(14i32);
-pub const FR_PROP_FAILINFO: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(7i32);
-pub const FR_PROP_FULLRESPONSE: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(1i32);
-pub const FR_PROP_FULLRESPONSENOPKCS7: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(15i32);
-pub const FR_PROP_ISSUEDCERTIFICATE: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(11i32);
-pub const FR_PROP_ISSUEDCERTIFICATECHAIN: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(12i32);
-pub const FR_PROP_ISSUEDCERTIFICATECRLCHAIN: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(13i32);
-pub const FR_PROP_ISSUEDCERTIFICATEHASH: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(10i32);
-pub const FR_PROP_NONE: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(0i32);
-pub const FR_PROP_OTHERINFOCHOICE: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(6i32);
-pub const FR_PROP_PENDINFOTIME: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(9i32);
-pub const FR_PROP_PENDINFOTOKEN: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(8i32);
-pub const FR_PROP_STATUS: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(4i32);
-pub const FR_PROP_STATUSINFOCOUNT: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(2i32);
-pub const FR_PROP_STATUSSTRING: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(5i32);
-pub const GeneralCA: X509CertificateTemplateGeneralFlag = X509CertificateTemplateGeneralFlag(128i32);
-pub const GeneralCrossCA: X509CertificateTemplateGeneralFlag = X509CertificateTemplateGeneralFlag(2048i32);
-pub const GeneralDefault: X509CertificateTemplateGeneralFlag = X509CertificateTemplateGeneralFlag(65536i32);
-pub const GeneralDonotPersist: X509CertificateTemplateGeneralFlag = X509CertificateTemplateGeneralFlag(4096i32);
-pub const GeneralMachineType: X509CertificateTemplateGeneralFlag = X509CertificateTemplateGeneralFlag(64i32);
-pub const GeneralModified: X509CertificateTemplateGeneralFlag = X509CertificateTemplateGeneralFlag(131072i32);
-pub const ICF_ALLOWFOREIGN: u32 = 65536u32;
-pub const ICF_EXISTINGROW: u32 = 131072u32;
-pub const IF_ENABLEADMINASAUDITOR: u32 = 4096u32;
-pub const IF_ENABLEEXITKEYRETRIEVAL: u32 = 2048u32;
-pub const IF_ENFORCEENCRYPTICERTADMIN: u32 = 1024u32;
-pub const IF_ENFORCEENCRYPTICERTREQUEST: u32 = 512u32;
-pub const IF_LOCKICERTREQUEST: u32 = 1u32;
-pub const IF_NOLOCALICERTADMIN: u32 = 32u32;
-pub const IF_NOLOCALICERTADMINBACKUP: u32 = 128u32;
-pub const IF_NOLOCALICERTREQUEST: u32 = 4u32;
-pub const IF_NOREMOTEICERTADMIN: u32 = 16u32;
-pub const IF_NOREMOTEICERTADMINBACKUP: u32 = 64u32;
-pub const IF_NOREMOTEICERTREQUEST: u32 = 2u32;
-pub const IF_NORPCICERTREQUEST: u32 = 8u32;
-pub const IF_NOSNAPSHOTBACKUP: u32 = 256u32;
-pub const IKF_OVERWRITE: u32 = 65536u32;
-pub const ISSCERT_DEFAULT_DS: u32 = 256u32;
-pub const ISSCERT_DEFAULT_NODS: u32 = 256u32;
-pub const ISSCERT_ENABLE: u32 = 256u32;
-pub const ISSCERT_FILEURL_OLD: u32 = 8u32;
-pub const ISSCERT_FTPURL_OLD: u32 = 4u32;
-pub const ISSCERT_HTTPURL_OLD: u32 = 2u32;
-pub const ISSCERT_LDAPURL_OLD: u32 = 1u32;
-pub const ISSCERT_URLMASK_OLD: u32 = 255u32;
 pub const ImportExportable: ImportPFXFlags = ImportPFXFlags(16i32);
 pub const ImportExportableEncrypted: ImportPFXFlags = ImportPFXFlags(32i32);
 pub const ImportForceOverwrite: ImportPFXFlags = ImportPFXFlags(2i32);
@@ -23282,6 +23148,9 @@ pub const ImportInstallChainAndRoot: ImportPFXFlags = ImportPFXFlags(2048i32);
 pub const ImportMachineContext: ImportPFXFlags = ImportPFXFlags(1i32);
 pub const ImportNoUserProtected: ImportPFXFlags = ImportPFXFlags(64i32);
 pub const ImportNone: ImportPFXFlags = ImportPFXFlags(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ImportPFXFlags(pub i32);
 pub const ImportSaveProperties: ImportPFXFlags = ImportPFXFlags(8i32);
 pub const ImportSilent: ImportPFXFlags = ImportPFXFlags(4i32);
 pub const ImportUserProtected: ImportPFXFlags = ImportPFXFlags(128i32);
@@ -23300,6 +23169,12 @@ pub const InheritSubjectAltNameFlag: X509RequestInheritOptions = X509RequestInhe
 pub const InheritSubjectFlag: X509RequestInheritOptions = X509RequestInheritOptions(128i32);
 pub const InheritTemplateFlag: X509RequestInheritOptions = X509RequestInheritOptions(64i32);
 pub const InheritValidityPeriodFlag: X509RequestInheritOptions = X509RequestInheritOptions(1024i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct InnerRequestLevel(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct InstallResponseRestrictionFlags(pub i32);
 pub const KRAF_DISABLEUSEDEFAULTPROVIDER: u32 = 8u32;
 pub const KRAF_ENABLEARCHIVEALL: u32 = 4u32;
 pub const KRAF_ENABLEFOREIGN: u32 = 1u32;
@@ -23313,6 +23188,12 @@ pub const KRA_DISP_UNTRUSTED: u32 = 5u32;
 pub const KRA_DISP_VALID: u32 = 3u32;
 pub const KR_ENABLE_MACHINE: u32 = 1u32;
 pub const KR_ENABLE_USER: u32 = 2u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KeyAttestationClaimType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KeyIdentifierHashAlgorithm(pub i32);
 pub const LDAPF_SIGNDISABLE: u32 = 2u32;
 pub const LDAPF_SSLENABLE: u32 = 1u32;
 pub const LevelInnermost: InnerRequestLevel = InnerRequestLevel(0i32);
@@ -23323,6 +23204,14 @@ pub const LoadOptionCacheOnly: X509EnrollmentPolicyLoadOption = X509EnrollmentPo
 pub const LoadOptionDefault: X509EnrollmentPolicyLoadOption = X509EnrollmentPolicyLoadOption(0i32);
 pub const LoadOptionRegisterForADChanges: X509EnrollmentPolicyLoadOption = X509EnrollmentPolicyLoadOption(4i32);
 pub const LoadOptionReload: X509EnrollmentPolicyLoadOption = X509EnrollmentPolicyLoadOption(2i32);
+pub const OCSPAdmin: windows_core::GUID = windows_core::GUID::from_u128(0xd3f73511_92c9_47cb_8ff2_8d891a7c4de4);
+pub const OCSPPropertyCollection: windows_core::GUID = windows_core::GUID::from_u128(0xf935a528_ba8a_4dd9_ba79_f283275cb2de);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OCSPRequestFlag(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OCSPSigningFlag(pub i32);
 pub const OCSP_RF_REJECT_SIGNED_REQUESTS: OCSPRequestFlag = OCSPRequestFlag(1i32);
 pub const OCSP_SF_ALLOW_NONCE_EXTENSION: OCSPSigningFlag = OCSPSigningFlag(256i32);
 pub const OCSP_SF_ALLOW_SIGNINGCERT_AUTOENROLLMENT: OCSPSigningFlag = OCSPSigningFlag(512i32);
@@ -23334,9 +23223,21 @@ pub const OCSP_SF_RESPONDER_ID_KEYHASH: OCSPSigningFlag = OCSPSigningFlag(64i32)
 pub const OCSP_SF_RESPONDER_ID_NAME: OCSPSigningFlag = OCSPSigningFlag(128i32);
 pub const OCSP_SF_SILENT: OCSPSigningFlag = OCSPSigningFlag(1i32);
 pub const OCSP_SF_USE_CACERT: OCSPSigningFlag = OCSPSigningFlag(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ObjectIdGroupId(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ObjectIdPublicKeyFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PENDING_REQUEST_DESIRED_PROPERTY(pub i32);
 pub const PFXExportChainNoRoot: PFXExportOptions = PFXExportOptions(1i32);
 pub const PFXExportChainWithRoot: PFXExportOptions = PFXExportOptions(2i32);
 pub const PFXExportEEOnly: PFXExportOptions = PFXExportOptions(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PFXExportOptions(pub i32);
 pub const PROCFLG_ENFORCEGOODKEYS: u32 = 1u32;
 pub const PROCFLG_NONE: u32 = 0u32;
 pub const PROPCALLER_ADMIN: u32 = 1024u32;
@@ -23351,10 +23252,22 @@ pub const PROPTYPE_DATE: CERT_PROPERTY_TYPE = CERT_PROPERTY_TYPE(2i32);
 pub const PROPTYPE_LONG: CERT_PROPERTY_TYPE = CERT_PROPERTY_TYPE(1i32);
 pub const PROPTYPE_MASK: u32 = 255u32;
 pub const PROPTYPE_STRING: CERT_PROPERTY_TYPE = CERT_PROPERTY_TYPE(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct Pkcs10AllowedSignatureTypes(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PolicyQualifierType(pub i32);
 pub const PolicyQualifierTypeFlags: PolicyQualifierType = PolicyQualifierType(3i32);
 pub const PolicyQualifierTypeUnknown: PolicyQualifierType = PolicyQualifierType(0i32);
 pub const PolicyQualifierTypeUrl: PolicyQualifierType = PolicyQualifierType(1i32);
 pub const PolicyQualifierTypeUserNotice: PolicyQualifierType = PolicyQualifierType(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PolicyServerUrlFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PolicyServerUrlPropertyID(pub i32);
 pub const PrivateKeyAttestMask: X509CertificateTemplatePrivateKeyFlag = X509CertificateTemplatePrivateKeyFlag(12288i32);
 pub const PrivateKeyAttestNone: X509CertificateTemplatePrivateKeyFlag = X509CertificateTemplatePrivateKeyFlag(0i32);
 pub const PrivateKeyAttestPreferred: X509CertificateTemplatePrivateKeyFlag = X509CertificateTemplatePrivateKeyFlag(4096i32);
@@ -23399,6 +23312,9 @@ pub const REVEXT_CDPLDAPURL_OLD: u32 = 1u32;
 pub const REVEXT_CDPURLMASK_OLD: u32 = 255u32;
 pub const REVEXT_DEFAULT_DS: u32 = 256u32;
 pub const REVEXT_DEFAULT_NODS: u32 = 256u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RequestClientInfoClientId(pub i32);
 pub const SCEPDispositionFailure: X509SCEPDisposition = X509SCEPDisposition(2i32);
 pub const SCEPDispositionPending: X509SCEPDisposition = X509SCEPDisposition(3i32);
 pub const SCEPDispositionPendingChallenge: X509SCEPDisposition = X509SCEPDisposition(11i32);
@@ -23499,11 +23415,89 @@ pub const VerifyNone: X509PrivateKeyVerify = X509PrivateKeyVerify(0i32);
 pub const VerifySilent: X509PrivateKeyVerify = X509PrivateKeyVerify(1i32);
 pub const VerifySmartCardNone: X509PrivateKeyVerify = X509PrivateKeyVerify(2i32);
 pub const VerifySmartCardSilent: X509PrivateKeyVerify = X509PrivateKeyVerify(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WebEnrollmentFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WebSecurityLevel(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct X500NameFlags(pub i32);
 pub const X509AuthAnonymous: X509EnrollmentAuthFlags = X509EnrollmentAuthFlags(1i32);
 pub const X509AuthCertificate: X509EnrollmentAuthFlags = X509EnrollmentAuthFlags(8i32);
 pub const X509AuthKerberos: X509EnrollmentAuthFlags = X509EnrollmentAuthFlags(2i32);
 pub const X509AuthNone: X509EnrollmentAuthFlags = X509EnrollmentAuthFlags(0i32);
 pub const X509AuthUsername: X509EnrollmentAuthFlags = X509EnrollmentAuthFlags(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct X509CertificateEnrollmentContext(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct X509CertificateTemplateEnrollmentFlag(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct X509CertificateTemplateGeneralFlag(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct X509CertificateTemplatePrivateKeyFlag(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct X509CertificateTemplateSubjectNameFlag(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct X509EnrollmentAuthFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct X509EnrollmentPolicyExportFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct X509EnrollmentPolicyLoadOption(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct X509HardwareKeyUsageFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct X509KeyParametersExportType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct X509KeySpec(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct X509KeyUsageFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct X509PrivateKeyExportFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct X509PrivateKeyProtection(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct X509PrivateKeyUsageFlags(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct X509PrivateKeyVerify(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct X509ProviderType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct X509RequestInheritOptions(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct X509RequestType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct X509SCEPDisposition(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct X509SCEPFailInfo(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct X509SCEPMessageType(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct X509SCEPProcessMessageFlags(pub i32);
 pub const XCN_AT_KEYEXCHANGE: X509KeySpec = X509KeySpec(1i32);
 pub const XCN_AT_NONE: X509KeySpec = X509KeySpec(0i32);
 pub const XCN_AT_SIGNATURE: X509KeySpec = X509KeySpec(2i32);
@@ -24226,10 +24220,16 @@ pub const XECR_PKCS10_V2_0: CERT_CREATE_REQUEST_FLAGS = CERT_CREATE_REQUEST_FLAG
 pub const XECR_PKCS7: CERT_CREATE_REQUEST_FLAGS = CERT_CREATE_REQUEST_FLAGS(2i32);
 pub const XECT_EXTENSION_V1: ADDED_CERT_TYPE = ADDED_CERT_TYPE(1i32);
 pub const XECT_EXTENSION_V2: ADDED_CERT_TYPE = ADDED_CERT_TYPE(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct XEKL_KEYSIZE(pub i32);
 pub const XEKL_KEYSIZE_DEFAULT: u32 = 4u32;
 pub const XEKL_KEYSIZE_INC: XEKL_KEYSIZE = XEKL_KEYSIZE(3i32);
 pub const XEKL_KEYSIZE_MAX: XEKL_KEYSIZE = XEKL_KEYSIZE(2i32);
 pub const XEKL_KEYSIZE_MIN: XEKL_KEYSIZE = XEKL_KEYSIZE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct XEKL_KEYSPEC(pub i32);
 pub const XEKL_KEYSPEC_KEYX: XEKL_KEYSPEC = XEKL_KEYSPEC(1i32);
 pub const XEKL_KEYSPEC_SIG: XEKL_KEYSPEC = XEKL_KEYSPEC(2i32);
 pub const XEPR_CADNS: PENDING_REQUEST_DESIRED_PROPERTY = PENDING_REQUEST_DESIRED_PROPERTY(1i32);

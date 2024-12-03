@@ -464,6 +464,277 @@ where
     windows_targets::link!("imgutil.dll" "system" fn SniffStream(pinstream : * mut core::ffi::c_void, pnformat : *mut u32, ppoutstream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     SniffStream(pinstream.param().abi(), core::mem::transmute(pnformat), core::mem::transmute(ppoutstream)).ok()
 }
+pub const ADDRESSBAND: u32 = 2u32;
+pub const ADDURL_ADDTOCACHE: ADDURL_FLAG = ADDURL_FLAG(1i32);
+pub const ADDURL_ADDTOHISTORYANDCACHE: ADDURL_FLAG = ADDURL_FLAG(0i32);
+pub const ADDURL_FIRST: ADDURL_FLAG = ADDURL_FLAG(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADDURL_FLAG(pub i32);
+pub const ADDURL_Max: ADDURL_FLAG = ADDURL_FLAG(2147483647i32);
+pub const ActivityContentCount: OpenServiceActivityContentType = OpenServiceActivityContentType(3i32);
+pub const ActivityContentDocument: OpenServiceActivityContentType = OpenServiceActivityContentType(0i32);
+pub const ActivityContentLink: OpenServiceActivityContentType = OpenServiceActivityContentType(2i32);
+pub const ActivityContentNone: OpenServiceActivityContentType = OpenServiceActivityContentType(-1i32);
+pub const ActivityContentSelection: OpenServiceActivityContentType = OpenServiceActivityContentType(1i32);
+pub const AnchorClick: windows_core::GUID = windows_core::GUID::from_u128(0x13d5413c_33b9_11d2_95a7_00c04f8ecb02);
+pub const CATID_MSOfficeAntiVirus: windows_core::GUID = windows_core::GUID::from_u128(0x56ffcc30_d398_11d0_b2ae_00a0c908fa49);
+pub const CDeviceRect: windows_core::GUID = windows_core::GUID::from_u128(0x3050f6d4_98b5_11cf_bb82_00aa00bdce0b);
+pub const CDownloadBehavior: windows_core::GUID = windows_core::GUID::from_u128(0x3050f5be_98b5_11cf_bb82_00aa00bdce0b);
+pub const CHeaderFooter: windows_core::GUID = windows_core::GUID::from_u128(0x3050f6cd_98b5_11cf_bb82_00aa00bdce0b);
+pub const CLayoutRect: windows_core::GUID = windows_core::GUID::from_u128(0x3050f664_98b5_11cf_bb82_00aa00bdce0b);
+pub const COLOR_NO_TRANSPARENT: u32 = 4294967295u32;
+pub const CPersistDataPeer: windows_core::GUID = windows_core::GUID::from_u128(0x3050f487_98b5_11cf_bb82_00aa00bdce0b);
+pub const CPersistHistory: windows_core::GUID = windows_core::GUID::from_u128(0x3050f4c8_98b5_11cf_bb82_00aa00bdce0b);
+pub const CPersistShortcut: windows_core::GUID = windows_core::GUID::from_u128(0x3050f4c6_98b5_11cf_bb82_00aa00bdce0b);
+pub const CPersistSnapshot: windows_core::GUID = windows_core::GUID::from_u128(0x3050f4c9_98b5_11cf_bb82_00aa00bdce0b);
+pub const CPersistUserData: windows_core::GUID = windows_core::GUID::from_u128(0x3050f48e_98b5_11cf_bb82_00aa00bdce0b);
+pub const CoDitherToRGB8: windows_core::GUID = windows_core::GUID::from_u128(0xa860ce50_3910_11d0_86fc_00a0c913f750);
+pub const CoMapMIMEToCLSID: windows_core::GUID = windows_core::GUID::from_u128(0x30c3b080_30fb_11d0_b724_00aa006c1a01);
+pub const CoSniffStream: windows_core::GUID = windows_core::GUID::from_u128(0x6a01fda0_30df_11d0_b724_00aa006c1a01);
+pub const DISPID_ACTIVEXFILTERINGENABLED: u32 = 61u32;
+pub const DISPID_ADDCHANNEL: u32 = 5u32;
+pub const DISPID_ADDDESKTOPCOMPONENT: u32 = 6u32;
+pub const DISPID_ADDFAVORITE: u32 = 4u32;
+pub const DISPID_ADDSEARCHPROVIDER: u32 = 14u32;
+pub const DISPID_ADDSERVICE: u32 = 30u32;
+pub const DISPID_ADDSITEMODE: u32 = 49u32;
+pub const DISPID_ADDTHUMBNAILBUTTONS: u32 = 48u32;
+pub const DISPID_ADDTOFAVORITESBAR: u32 = 32u32;
+pub const DISPID_ADDTRACKINGPROTECTIONLIST: u32 = 57u32;
+pub const DISPID_ADVANCEERROR: u32 = 10u32;
+pub const DISPID_AMBIENT_OFFLINEIFNOTCONNECTED: i32 = -5501i32;
+pub const DISPID_AMBIENT_SILENT: i32 = -5502i32;
+pub const DISPID_AUTOCOMPLETEATTACH: u32 = 12u32;
+pub const DISPID_AUTOCOMPLETESAVEFORM: u32 = 10u32;
+pub const DISPID_AUTOSCAN: u32 = 11u32;
+pub const DISPID_BEFORENAVIGATE: u32 = 100u32;
+pub const DISPID_BEFORENAVIGATE2: u32 = 250u32;
+pub const DISPID_BEFORESCRIPTEXECUTE: u32 = 290u32;
+pub const DISPID_BRANDIMAGEURI: u32 = 20u32;
+pub const DISPID_BUILDNEWTABPAGE: u32 = 33u32;
+pub const DISPID_CANADVANCEERROR: u32 = 12u32;
+pub const DISPID_CANRETREATERROR: u32 = 13u32;
+pub const DISPID_CHANGEDEFAULTBROWSER: u32 = 68u32;
+pub const DISPID_CLEARNOTIFICATION: u32 = 71u32;
+pub const DISPID_CLEARSITEMODEICONOVERLAY: u32 = 45u32;
+pub const DISPID_CLIENTTOHOSTWINDOW: u32 = 268u32;
+pub const DISPID_COMMANDSTATECHANGE: u32 = 105u32;
+pub const DISPID_CONTENTDISCOVERYRESET: u32 = 36u32;
+pub const DISPID_COUNTVIEWTYPES: u32 = 22u32;
+pub const DISPID_CREATESUBSCRIPTION: u32 = 11u32;
+pub const DISPID_CUSTOMIZECLEARTYPE: u32 = 23u32;
+pub const DISPID_CUSTOMIZESETTINGS: u32 = 17u32;
+pub const DISPID_DEFAULTSEARCHPROVIDER: u32 = 26u32;
+pub const DISPID_DELETESUBSCRIPTION: u32 = 12u32;
+pub const DISPID_DEPTH: u32 = 17u32;
+pub const DISPID_DIAGNOSECONNECTION: u32 = 22u32;
+pub const DISPID_DIAGNOSECONNECTIONUILESS: u32 = 66u32;
+pub const DISPID_DOCUMENTCOMPLETE: u32 = 259u32;
+pub const DISPID_DOUBLECLICK: u32 = 3u32;
+pub const DISPID_DOWNLOADBEGIN: u32 = 106u32;
+pub const DISPID_DOWNLOADCOMPLETE: u32 = 104u32;
+pub const DISPID_ENABLENOTIFICATIONQUEUE: u32 = 72u32;
+pub const DISPID_ENABLENOTIFICATIONQUEUELARGE: u32 = 78u32;
+pub const DISPID_ENABLENOTIFICATIONQUEUESQUARE: u32 = 76u32;
+pub const DISPID_ENABLENOTIFICATIONQUEUEWIDE: u32 = 77u32;
+pub const DISPID_ENABLESUGGESTEDSITES: u32 = 39u32;
+pub const DISPID_ENUMOPTIONS: u32 = 14u32;
+pub const DISPID_EXPAND: u32 = 25u32;
+pub const DISPID_EXPORT: u32 = 7u32;
+pub const DISPID_FAVSELECTIONCHANGE: u32 = 1u32;
+pub const DISPID_FILEDOWNLOAD: u32 = 270u32;
+pub const DISPID_FLAGS: u32 = 19u32;
+pub const DISPID_FRAMEBEFORENAVIGATE: u32 = 200u32;
+pub const DISPID_FRAMENAVIGATECOMPLETE: u32 = 201u32;
+pub const DISPID_FRAMENEWWINDOW: u32 = 204u32;
+pub const DISPID_GETALWAYSSHOWLOCKSTATE: u32 = 23u32;
+pub const DISPID_GETCVLISTDATA: u32 = 93u32;
+pub const DISPID_GETCVLISTLOCALDATA: u32 = 94u32;
+pub const DISPID_GETDETAILSSTATE: u32 = 19u32;
+pub const DISPID_GETEMIELISTDATA: u32 = 95u32;
+pub const DISPID_GETEMIELISTLOCALDATA: u32 = 96u32;
+pub const DISPID_GETERRORCHAR: u32 = 15u32;
+pub const DISPID_GETERRORCODE: u32 = 16u32;
+pub const DISPID_GETERRORLINE: u32 = 14u32;
+pub const DISPID_GETERRORMSG: u32 = 17u32;
+pub const DISPID_GETERRORURL: u32 = 18u32;
+pub const DISPID_GETEXPERIMENTALFLAG: u32 = 85u32;
+pub const DISPID_GETEXPERIMENTALVALUE: u32 = 87u32;
+pub const DISPID_GETNEEDHVSIAUTOLAUNCHFLAG: u32 = 100u32;
+pub const DISPID_GETNEEDIEAUTOLAUNCHFLAG: u32 = 89u32;
+pub const DISPID_GETOSSKU: u32 = 103u32;
+pub const DISPID_GETPERERRSTATE: u32 = 21u32;
+pub const DISPID_HASNEEDHVSIAUTOLAUNCHFLAG: u32 = 102u32;
+pub const DISPID_HASNEEDIEAUTOLAUNCHFLAG: u32 = 88u32;
+pub const DISPID_IMPORT: u32 = 6u32;
+pub const DISPID_IMPORTEXPORTFAVORITES: u32 = 9u32;
+pub const DISPID_INITIALIZED: u32 = 4u32;
+pub const DISPID_INPRIVATEFILTERINGENABLED: u32 = 37u32;
+pub const DISPID_INVOKECONTEXTMENU: u32 = 8u32;
+pub const DISPID_ISMETAREFERRERAVAILABLE: u32 = 83u32;
+pub const DISPID_ISSEARCHMIGRATED: u32 = 25u32;
+pub const DISPID_ISSEARCHPROVIDERINSTALLED: u32 = 24u32;
+pub const DISPID_ISSERVICEINSTALLED: u32 = 31u32;
+pub const DISPID_ISSITEMODE: u32 = 43u32;
+pub const DISPID_ISSITEMODEFIRSTRUN: u32 = 59u32;
+pub const DISPID_ISSUBSCRIBED: u32 = 7u32;
+pub const DISPID_LAUNCHIE: u32 = 91u32;
+pub const DISPID_LAUNCHINHVSI: u32 = 99u32;
+pub const DISPID_LAUNCHINTERNETOPTIONS: u32 = 74u32;
+pub const DISPID_LAUNCHNETWORKCLIENTHELP: u32 = 67u32;
+pub const DISPID_MODE: u32 = 18u32;
+pub const DISPID_MOVESELECTIONDOWN: u32 = 2u32;
+pub const DISPID_MOVESELECTIONTO: u32 = 9u32;
+pub const DISPID_MOVESELECTIONUP: u32 = 1u32;
+pub const DISPID_NAVIGATEANDFIND: u32 = 8u32;
+pub const DISPID_NAVIGATECOMPLETE: u32 = 101u32;
+pub const DISPID_NAVIGATECOMPLETE2: u32 = 252u32;
+pub const DISPID_NAVIGATEERROR: u32 = 271u32;
+pub const DISPID_NAVIGATETOSUGGESTEDSITES: u32 = 40u32;
+pub const DISPID_NEWFOLDER: u32 = 4u32;
+pub const DISPID_NEWPROCESS: u32 = 284u32;
+pub const DISPID_NEWWINDOW: u32 = 107u32;
+pub const DISPID_NEWWINDOW2: u32 = 251u32;
+pub const DISPID_NEWWINDOW3: u32 = 273u32;
+pub const DISPID_NSCOLUMNS: u32 = 21u32;
+pub const DISPID_ONADDRESSBAR: u32 = 261u32;
+pub const DISPID_ONFULLSCREEN: u32 = 258u32;
+pub const DISPID_ONMENUBAR: u32 = 256u32;
+pub const DISPID_ONQUIT: u32 = 253u32;
+pub const DISPID_ONSTATUSBAR: u32 = 257u32;
+pub const DISPID_ONTHEATERMODE: u32 = 260u32;
+pub const DISPID_ONTOOLBAR: u32 = 255u32;
+pub const DISPID_ONVISIBLE: u32 = 254u32;
+pub const DISPID_OPENFAVORITESPANE: u32 = 97u32;
+pub const DISPID_OPENFAVORITESSETTINGS: u32 = 98u32;
+pub const DISPID_PHISHINGENABLED: u32 = 19u32;
+pub const DISPID_PINNEDSITESTATE: u32 = 73u32;
+pub const DISPID_PRINTTEMPLATEINSTANTIATION: u32 = 225u32;
+pub const DISPID_PRINTTEMPLATETEARDOWN: u32 = 226u32;
+pub const DISPID_PRIVACYIMPACTEDSTATECHANGE: u32 = 272u32;
+pub const DISPID_PROGRESSCHANGE: u32 = 108u32;
+pub const DISPID_PROPERTYCHANGE: u32 = 112u32;
+pub const DISPID_PROVISIONNETWORKS: u32 = 62u32;
+pub const DISPID_QUIT: u32 = 103u32;
+pub const DISPID_REDIRECTXDOMAINBLOCKED: u32 = 286u32;
+pub const DISPID_REFRESHOFFLINEDESKTOP: u32 = 3u32;
+pub const DISPID_REMOVESCHEDULEDTILENOTIFICATION: u32 = 80u32;
+pub const DISPID_REPORTSAFEURL: u32 = 63u32;
+pub const DISPID_RESETEXPERIMENTALFLAGS: u32 = 92u32;
+pub const DISPID_RESETFIRSTBOOTMODE: u32 = 1u32;
+pub const DISPID_RESETSAFEMODE: u32 = 2u32;
+pub const DISPID_RESETSORT: u32 = 3u32;
+pub const DISPID_RETREATERROR: u32 = 11u32;
+pub const DISPID_ROOT: u32 = 16u32;
+pub const DISPID_RUNONCEHASSHOWN: u32 = 28u32;
+pub const DISPID_RUNONCEREQUIREDSETTINGSCOMPLETE: u32 = 27u32;
+pub const DISPID_RUNONCESHOWN: u32 = 15u32;
+pub const DISPID_SCHEDULEDTILENOTIFICATION: u32 = 79u32;
+pub const DISPID_SEARCHGUIDEURL: u32 = 29u32;
+pub const DISPID_SELECTEDITEM: u32 = 15u32;
+pub const DISPID_SELECTEDITEMS: u32 = 24u32;
+pub const DISPID_SELECTIONCHANGE: u32 = 2u32;
+pub const DISPID_SETACTIVITIESVISIBLE: u32 = 35u32;
+pub const DISPID_SETDETAILSSTATE: u32 = 20u32;
+pub const DISPID_SETEXPERIMENTALFLAG: u32 = 84u32;
+pub const DISPID_SETEXPERIMENTALVALUE: u32 = 86u32;
+pub const DISPID_SETMSDEFAULTS: u32 = 104u32;
+pub const DISPID_SETNEEDHVSIAUTOLAUNCHFLAG: u32 = 101u32;
+pub const DISPID_SETNEEDIEAUTOLAUNCHFLAG: u32 = 90u32;
+pub const DISPID_SETPERERRSTATE: u32 = 22u32;
+pub const DISPID_SETPHISHINGFILTERSTATUS: u32 = 282u32;
+pub const DISPID_SETRECENTLYCLOSEDVISIBLE: u32 = 34u32;
+pub const DISPID_SETROOT: u32 = 13u32;
+pub const DISPID_SETSECURELOCKICON: u32 = 269u32;
+pub const DISPID_SETSITEMODEICONOVERLAY: u32 = 44u32;
+pub const DISPID_SETSITEMODEPROPERTIES: u32 = 50u32;
+pub const DISPID_SETTHUMBNAILBUTTONS: u32 = 47u32;
+pub const DISPID_SETVIEWTYPE: u32 = 23u32;
+pub const DISPID_SHELLUIHELPERLAST: u32 = 105u32;
+pub const DISPID_SHOWBROWSERUI: u32 = 13u32;
+pub const DISPID_SHOWINPRIVATEHELP: u32 = 42u32;
+pub const DISPID_SHOWTABSHELP: u32 = 41u32;
+pub const DISPID_SITEMODEACTIVATE: u32 = 58u32;
+pub const DISPID_SITEMODEADDBUTTONSTYLE: u32 = 54u32;
+pub const DISPID_SITEMODEADDJUMPLISTITEM: u32 = 52u32;
+pub const DISPID_SITEMODECLEARBADGE: u32 = 65u32;
+pub const DISPID_SITEMODECLEARJUMPLIST: u32 = 53u32;
+pub const DISPID_SITEMODECREATEJUMPLIST: u32 = 51u32;
+pub const DISPID_SITEMODEREFRESHBADGE: u32 = 64u32;
+pub const DISPID_SITEMODESHOWBUTTONSTYLE: u32 = 55u32;
+pub const DISPID_SITEMODESHOWJUMPLIST: u32 = 56u32;
+pub const DISPID_SKIPRUNONCE: u32 = 16u32;
+pub const DISPID_SKIPTABSWELCOME: u32 = 21u32;
+pub const DISPID_SQMENABLED: u32 = 18u32;
+pub const DISPID_STARTBADGEUPDATE: u32 = 81u32;
+pub const DISPID_STARTPERIODICUPDATE: u32 = 70u32;
+pub const DISPID_STARTPERIODICUPDATEBATCH: u32 = 75u32;
+pub const DISPID_STATUSTEXTCHANGE: u32 = 102u32;
+pub const DISPID_STOPBADGEUPDATE: u32 = 82u32;
+pub const DISPID_STOPPERIODICUPDATE: u32 = 69u32;
+pub const DISPID_SUBSCRIPTIONSENABLED: u32 = 10u32;
+pub const DISPID_SUGGESTEDSITESENABLED: u32 = 38u32;
+pub const DISPID_SYNCHRONIZE: u32 = 5u32;
+pub const DISPID_THIRDPARTYURLBLOCKED: u32 = 285u32;
+pub const DISPID_TITLECHANGE: u32 = 113u32;
+pub const DISPID_TITLEICONCHANGE: u32 = 114u32;
+pub const DISPID_TRACKINGPROTECTIONENABLED: u32 = 60u32;
+pub const DISPID_TVFLAGS: u32 = 20u32;
+pub const DISPID_UNSELECTALL: u32 = 26u32;
+pub const DISPID_UPDATEPAGESTATUS: u32 = 227u32;
+pub const DISPID_UPDATETHUMBNAILBUTTON: u32 = 46u32;
+pub const DISPID_VIEWUPDATE: u32 = 281u32;
+pub const DISPID_WEBWORKERFINISHED: u32 = 289u32;
+pub const DISPID_WEBWORKERSTARTED: u32 = 288u32;
+pub const DISPID_WINDOWACTIVATE: u32 = 111u32;
+pub const DISPID_WINDOWCLOSING: u32 = 263u32;
+pub const DISPID_WINDOWMOVE: u32 = 109u32;
+pub const DISPID_WINDOWREGISTERED: u32 = 200u32;
+pub const DISPID_WINDOWRESIZE: u32 = 110u32;
+pub const DISPID_WINDOWREVOKED: u32 = 201u32;
+pub const DISPID_WINDOWSETHEIGHT: u32 = 267u32;
+pub const DISPID_WINDOWSETLEFT: u32 = 264u32;
+pub const DISPID_WINDOWSETRESIZABLE: u32 = 262u32;
+pub const DISPID_WINDOWSETTOP: u32 = 265u32;
+pub const DISPID_WINDOWSETWIDTH: u32 = 266u32;
+pub const DISPID_WINDOWSTATECHANGED: u32 = 283u32;
+pub const E_SURFACE_DISCARDED: i32 = -2147434493i32;
+pub const E_SURFACE_NODC: i32 = -2147434492i32;
+pub const E_SURFACE_NOSURFACE: i32 = -2147434496i32;
+pub const E_SURFACE_NOTMYDC: i32 = -2147434491i32;
+pub const E_SURFACE_NOTMYPOINTER: i32 = -2147434494i32;
+pub const E_SURFACE_UNKNOWN_FORMAT: i32 = -2147434495i32;
+pub const ExtensionValidationContextDynamic: ExtensionValidationContexts = ExtensionValidationContexts(1i32);
+pub const ExtensionValidationContextNone: ExtensionValidationContexts = ExtensionValidationContexts(0i32);
+pub const ExtensionValidationContextParsed: ExtensionValidationContexts = ExtensionValidationContexts(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ExtensionValidationContexts(pub i32);
+pub const ExtensionValidationResultArrestPageLoad: ExtensionValidationResults = ExtensionValidationResults(2i32);
+pub const ExtensionValidationResultDoNotInstantiate: ExtensionValidationResults = ExtensionValidationResults(1i32);
+pub const ExtensionValidationResultNone: ExtensionValidationResults = ExtensionValidationResults(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ExtensionValidationResults(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FINDFRAME_FLAGS(pub i32);
+pub const FINDFRAME_INTERNAL: FINDFRAME_FLAGS = FINDFRAME_FLAGS(-2147483648i32);
+pub const FINDFRAME_JUSTTESTEXISTENCE: FINDFRAME_FLAGS = FINDFRAME_FLAGS(1i32);
+pub const FINDFRAME_NONE: FINDFRAME_FLAGS = FINDFRAME_FLAGS(0i32);
+pub const FRAMEOPTIONS_BROWSERBAND: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(64i32);
+pub const FRAMEOPTIONS_DESKTOP: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(32i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FRAMEOPTIONS_FLAGS(pub i32);
+pub const FRAMEOPTIONS_NO3DBORDER: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(16i32);
+pub const FRAMEOPTIONS_NORESIZE: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(8i32);
+pub const FRAMEOPTIONS_SCROLL_AUTO: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(4i32);
+pub const FRAMEOPTIONS_SCROLL_NO: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(2i32);
+pub const FRAMEOPTIONS_SCROLL_YES: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(1i32);
+pub const HomePage: windows_core::GUID = windows_core::GUID::from_u128(0x766bf2ae_d650_11d1_9811_00c04fc31d2e);
+pub const HomePageSetting: windows_core::GUID = windows_core::GUID::from_u128(0x374cede0_873a_4c4f_bc86_bcc8cf5116a3);
 windows_core::imp::define_interface!(IActiveXUIHandlerSite, IActiveXUIHandlerSite_Vtbl, 0x30510853_98b5_11cf_bb82_00aa00bdce0b);
 windows_core::imp::interface_hierarchy!(IActiveXUIHandlerSite, windows_core::IUnknown);
 impl IActiveXUIHandlerSite {
@@ -1045,6 +1316,50 @@ impl IDownloadManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 impl windows_core::RuntimeName for IDownloadManager {}
+pub const IECMDID_ARG_CLEAR_FORMS_ALL: u32 = 0u32;
+pub const IECMDID_ARG_CLEAR_FORMS_ALL_BUT_PASSWORDS: u32 = 1u32;
+pub const IECMDID_ARG_CLEAR_FORMS_PASSWORDS_ONLY: u32 = 2u32;
+pub const IECMDID_BEFORENAVIGATE_DOEXTERNALBROWSE: u32 = 3u32;
+pub const IECMDID_BEFORENAVIGATE_GETIDLIST: u32 = 4u32;
+pub const IECMDID_BEFORENAVIGATE_GETSHELLBROWSE: u32 = 2u32;
+pub const IECMDID_CLEAR_AUTOCOMPLETE_FOR_FORMS: u32 = 0u32;
+pub const IECMDID_GET_INVOKE_DEFAULT_BROWSER_ON_NEW_WINDOW: u32 = 6u32;
+pub const IECMDID_SETID_AUTOCOMPLETE_FOR_FORMS: u32 = 1u32;
+pub const IECMDID_SET_INVOKE_DEFAULT_BROWSER_ON_NEW_WINDOW: u32 = 5u32;
+pub const IEGetProcessModule_PROC_NAME: windows_core::PCSTR = windows_core::s!("IEGetProcessModule");
+pub const IEGetTabWindowExports_PROC_NAME: windows_core::PCSTR = windows_core::s!("IEGetTabWindowExports");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IELAUNCHOPTION_FLAGS(pub i32);
+pub const IELAUNCHOPTION_FORCE_COMPAT: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(2i32);
+pub const IELAUNCHOPTION_FORCE_EDGE: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(4i32);
+pub const IELAUNCHOPTION_LOCK_ENGINE: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(8i32);
+pub const IELAUNCHOPTION_SCRIPTDEBUG: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(1i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IELAUNCHURLINFO {
+    pub cbSize: u32,
+    pub dwCreationFlags: u32,
+    pub dwLaunchOptionFlags: u32,
+}
+impl Default for IELAUNCHURLINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for IELAUNCHURLINFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const IEPROCESS_MODULE_NAME: windows_core::PCWSTR = windows_core::w!("IERtUtil.dll");
+pub const IEWebDriverManager: windows_core::GUID = windows_core::GUID::from_u128(0x90314af2_5250_47b3_89d8_6295fc23bc22);
+pub const IE_USE_OE_MAIL_HKEY: i32 = -2147483647i32;
+pub const IE_USE_OE_MAIL_KEY: windows_core::PCWSTR = windows_core::w!("Software\\Microsoft\\Internet Explorer\\Mail");
+pub const IE_USE_OE_MAIL_VALUE: windows_core::PCWSTR = windows_core::w!("Use Outlook Express");
+pub const IE_USE_OE_NEWS_HKEY: i32 = -2147483647i32;
+pub const IE_USE_OE_NEWS_KEY: windows_core::PCWSTR = windows_core::w!("Software\\Microsoft\\Internet Explorer\\News");
+pub const IE_USE_OE_NEWS_VALUE: windows_core::PCWSTR = windows_core::w!("Use Outlook Express");
+pub const IE_USE_OE_PRESENT_HKEY: i32 = -2147483646i32;
+pub const IE_USE_OE_PRESENT_KEY: windows_core::PCWSTR = windows_core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\app.paths\\msimn.exe");
 windows_core::imp::define_interface!(IEnumManagerFrames, IEnumManagerFrames_Vtbl, 0x3caa826a_9b1f_4a79_bc81_f0430ded1648);
 windows_core::imp::interface_hierarchy!(IEnumManagerFrames, windows_core::IUnknown);
 impl IEnumManagerFrames {
@@ -2905,6 +3220,14 @@ impl ILayoutRect_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ILayoutRect {}
+pub const IMGDECODE_EVENT_BEGINBITS: u32 = 4u32;
+pub const IMGDECODE_EVENT_BITSCOMPLETE: u32 = 8u32;
+pub const IMGDECODE_EVENT_PALETTE: u32 = 2u32;
+pub const IMGDECODE_EVENT_PROGRESS: u32 = 1u32;
+pub const IMGDECODE_EVENT_USEDDRAW: u32 = 16u32;
+pub const IMGDECODE_HINT_BOTTOMUP: u32 = 2u32;
+pub const IMGDECODE_HINT_FULLWIDTH: u32 = 4u32;
+pub const IMGDECODE_HINT_TOPDOWN: u32 = 1u32;
 windows_core::imp::define_interface!(IMapMIMEToCLSID, IMapMIMEToCLSID_Vtbl, 0xd9e89500_30fa_11d0_b724_00aa006c1a01);
 windows_core::imp::interface_hierarchy!(IMapMIMEToCLSID, windows_core::IUnknown);
 impl IMapMIMEToCLSID {
@@ -3006,6 +3329,12 @@ impl IMediaActivityNotifySite_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IMediaActivityNotifySite {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct INTERNETEXPLORERCONFIGURATION(pub i32);
+pub const INTERNETEXPLORERCONFIGURATION_HOST: INTERNETEXPLORERCONFIGURATION = INTERNETEXPLORERCONFIGURATION(1i32);
+pub const INTERNETEXPLORERCONFIGURATION_WEB_DRIVER: INTERNETEXPLORERCONFIGURATION = INTERNETEXPLORERCONFIGURATION(2i32);
+pub const INTERNETEXPLORERCONFIGURATION_WEB_DRIVER_EDGE: INTERNETEXPLORERCONFIGURATION = INTERNETEXPLORERCONFIGURATION(4i32);
 windows_core::imp::define_interface!(IOpenService, IOpenService_Vtbl, 0xc2952ed1_6a89_4606_925f_1ed8b4be0630);
 windows_core::imp::interface_hierarchy!(IOpenService, windows_core::IUnknown);
 impl IOpenService {
@@ -5908,6 +6237,8 @@ impl IWebBrowserEventsUrlService_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWebBrowserEventsUrlService {}
+pub const IntelliForms: windows_core::GUID = windows_core::GUID::from_u128(0x613ab92e_16bf_11d2_bca5_00c04fd929db);
+pub const InternetExplorerManager: windows_core::GUID = windows_core::GUID::from_u128(0xdf4fcc34_067a_4e0a_8352_4a1a5095346e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(Iwfolders, Iwfolders_Vtbl, 0xbae31f98_1b81_11d2_a97a_00c04f8ecb02);
 #[cfg(feature = "Win32_System_Com")]
@@ -5990,75 +6321,18 @@ impl Iwfolders_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for Iwfolders {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ADDURL_FLAG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ExtensionValidationContexts(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ExtensionValidationResults(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FINDFRAME_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FRAMEOPTIONS_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct IELAUNCHOPTION_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct INTERNETEXPLORERCONFIGURATION(pub i32);
+pub const LINKSBAND: u32 = 4u32;
+pub const MAPMIME_CLSID: u32 = 1u32;
+pub const MAPMIME_DEFAULT: u32 = 0u32;
+pub const MAPMIME_DEFAULT_ALWAYS: u32 = 3u32;
+pub const MAPMIME_DISABLE: u32 = 2u32;
+pub const MAX_SEARCH_FORMAT_STRING: u32 = 255u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEDIA_ACTIVITY_NOTIFY_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NAVIGATEFRAME_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OpenServiceActivityContentType(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OpenServiceErrors(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCROLLABLECONTEXTMENU_PLACEMENT(pub i32);
-pub const AnchorClick: windows_core::GUID = windows_core::GUID::from_u128(0x13d5413c_33b9_11d2_95a7_00c04f8ecb02);
-pub const CDeviceRect: windows_core::GUID = windows_core::GUID::from_u128(0x3050f6d4_98b5_11cf_bb82_00aa00bdce0b);
-pub const CDownloadBehavior: windows_core::GUID = windows_core::GUID::from_u128(0x3050f5be_98b5_11cf_bb82_00aa00bdce0b);
-pub const CHeaderFooter: windows_core::GUID = windows_core::GUID::from_u128(0x3050f6cd_98b5_11cf_bb82_00aa00bdce0b);
-pub const CLayoutRect: windows_core::GUID = windows_core::GUID::from_u128(0x3050f664_98b5_11cf_bb82_00aa00bdce0b);
-pub const CPersistDataPeer: windows_core::GUID = windows_core::GUID::from_u128(0x3050f487_98b5_11cf_bb82_00aa00bdce0b);
-pub const CPersistHistory: windows_core::GUID = windows_core::GUID::from_u128(0x3050f4c8_98b5_11cf_bb82_00aa00bdce0b);
-pub const CPersistShortcut: windows_core::GUID = windows_core::GUID::from_u128(0x3050f4c6_98b5_11cf_bb82_00aa00bdce0b);
-pub const CPersistSnapshot: windows_core::GUID = windows_core::GUID::from_u128(0x3050f4c9_98b5_11cf_bb82_00aa00bdce0b);
-pub const CPersistUserData: windows_core::GUID = windows_core::GUID::from_u128(0x3050f48e_98b5_11cf_bb82_00aa00bdce0b);
-pub const CoDitherToRGB8: windows_core::GUID = windows_core::GUID::from_u128(0xa860ce50_3910_11d0_86fc_00a0c913f750);
-pub const CoMapMIMEToCLSID: windows_core::GUID = windows_core::GUID::from_u128(0x30c3b080_30fb_11d0_b724_00aa006c1a01);
-pub const CoSniffStream: windows_core::GUID = windows_core::GUID::from_u128(0x6a01fda0_30df_11d0_b724_00aa006c1a01);
-pub const HomePage: windows_core::GUID = windows_core::GUID::from_u128(0x766bf2ae_d650_11d1_9811_00c04fc31d2e);
-pub const HomePageSetting: windows_core::GUID = windows_core::GUID::from_u128(0x374cede0_873a_4c4f_bc86_bcc8cf5116a3);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct IELAUNCHURLINFO {
-    pub cbSize: u32,
-    pub dwCreationFlags: u32,
-    pub dwLaunchOptionFlags: u32,
-}
-impl Default for IELAUNCHURLINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for IELAUNCHURLINFO {
-    type TypeKind = windows_core::CopyType;
-}
-pub const IEWebDriverManager: windows_core::GUID = windows_core::GUID::from_u128(0x90314af2_5250_47b3_89d8_6295fc23bc22);
-pub const IntelliForms: windows_core::GUID = windows_core::GUID::from_u128(0x613ab92e_16bf_11d2_bca5_00c04fd929db);
-pub const InternetExplorerManager: windows_core::GUID = windows_core::GUID::from_u128(0xdf4fcc34_067a_4e0a_8352_4a1a5095346e);
+pub const MediaCasting: MEDIA_ACTIVITY_NOTIFY_TYPE = MEDIA_ACTIVITY_NOTIFY_TYPE(2i32);
+pub const MediaPlayback: MEDIA_ACTIVITY_NOTIFY_TYPE = MEDIA_ACTIVITY_NOTIFY_TYPE(0i32);
+pub const MediaRecording: MEDIA_ACTIVITY_NOTIFY_TYPE = MEDIA_ACTIVITY_NOTIFY_TYPE(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NAVIGATEDATA {
@@ -6076,315 +6350,9 @@ impl Default for NAVIGATEDATA {
 impl windows_core::TypeKind for NAVIGATEDATA {
     type TypeKind = windows_core::CopyType;
 }
-pub const OpenServiceActivityManager: windows_core::GUID = windows_core::GUID::from_u128(0xc5efd803_50f8_43cd_9ab8_aafc1394c9e0);
-pub const OpenServiceManager: windows_core::GUID = windows_core::GUID::from_u128(0x098870b6_39ea_480b_b8b5_dd0167c4db59);
-pub const PeerFactory: windows_core::GUID = windows_core::GUID::from_u128(0x3050f4cf_98b5_11cf_bb82_00aa00bdce0b);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct STATURL {
-    pub cbSize: u32,
-    pub pwcsUrl: windows_core::PWSTR,
-    pub pwcsTitle: windows_core::PWSTR,
-    pub ftLastVisited: super::super::Foundation::FILETIME,
-    pub ftLastUpdated: super::super::Foundation::FILETIME,
-    pub ftExpires: super::super::Foundation::FILETIME,
-    pub dwFlags: u32,
-}
-impl Default for STATURL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for STATURL {
-    type TypeKind = windows_core::CopyType;
-}
-pub const wfolders: windows_core::GUID = windows_core::GUID::from_u128(0xbae31f9a_1b81_11d2_a97a_00c04f8ecb02);
-pub const ADDRESSBAND: u32 = 2u32;
-pub const ADDURL_ADDTOCACHE: ADDURL_FLAG = ADDURL_FLAG(1i32);
-pub const ADDURL_ADDTOHISTORYANDCACHE: ADDURL_FLAG = ADDURL_FLAG(0i32);
-pub const ADDURL_FIRST: ADDURL_FLAG = ADDURL_FLAG(0i32);
-pub const ADDURL_Max: ADDURL_FLAG = ADDURL_FLAG(2147483647i32);
-pub const ActivityContentCount: OpenServiceActivityContentType = OpenServiceActivityContentType(3i32);
-pub const ActivityContentDocument: OpenServiceActivityContentType = OpenServiceActivityContentType(0i32);
-pub const ActivityContentLink: OpenServiceActivityContentType = OpenServiceActivityContentType(2i32);
-pub const ActivityContentNone: OpenServiceActivityContentType = OpenServiceActivityContentType(-1i32);
-pub const ActivityContentSelection: OpenServiceActivityContentType = OpenServiceActivityContentType(1i32);
-pub const CATID_MSOfficeAntiVirus: windows_core::GUID = windows_core::GUID::from_u128(0x56ffcc30_d398_11d0_b2ae_00a0c908fa49);
-pub const COLOR_NO_TRANSPARENT: u32 = 4294967295u32;
-pub const DISPID_ACTIVEXFILTERINGENABLED: u32 = 61u32;
-pub const DISPID_ADDCHANNEL: u32 = 5u32;
-pub const DISPID_ADDDESKTOPCOMPONENT: u32 = 6u32;
-pub const DISPID_ADDFAVORITE: u32 = 4u32;
-pub const DISPID_ADDSEARCHPROVIDER: u32 = 14u32;
-pub const DISPID_ADDSERVICE: u32 = 30u32;
-pub const DISPID_ADDSITEMODE: u32 = 49u32;
-pub const DISPID_ADDTHUMBNAILBUTTONS: u32 = 48u32;
-pub const DISPID_ADDTOFAVORITESBAR: u32 = 32u32;
-pub const DISPID_ADDTRACKINGPROTECTIONLIST: u32 = 57u32;
-pub const DISPID_ADVANCEERROR: u32 = 10u32;
-pub const DISPID_AMBIENT_OFFLINEIFNOTCONNECTED: i32 = -5501i32;
-pub const DISPID_AMBIENT_SILENT: i32 = -5502i32;
-pub const DISPID_AUTOCOMPLETEATTACH: u32 = 12u32;
-pub const DISPID_AUTOCOMPLETESAVEFORM: u32 = 10u32;
-pub const DISPID_AUTOSCAN: u32 = 11u32;
-pub const DISPID_BEFORENAVIGATE: u32 = 100u32;
-pub const DISPID_BEFORENAVIGATE2: u32 = 250u32;
-pub const DISPID_BEFORESCRIPTEXECUTE: u32 = 290u32;
-pub const DISPID_BRANDIMAGEURI: u32 = 20u32;
-pub const DISPID_BUILDNEWTABPAGE: u32 = 33u32;
-pub const DISPID_CANADVANCEERROR: u32 = 12u32;
-pub const DISPID_CANRETREATERROR: u32 = 13u32;
-pub const DISPID_CHANGEDEFAULTBROWSER: u32 = 68u32;
-pub const DISPID_CLEARNOTIFICATION: u32 = 71u32;
-pub const DISPID_CLEARSITEMODEICONOVERLAY: u32 = 45u32;
-pub const DISPID_CLIENTTOHOSTWINDOW: u32 = 268u32;
-pub const DISPID_COMMANDSTATECHANGE: u32 = 105u32;
-pub const DISPID_CONTENTDISCOVERYRESET: u32 = 36u32;
-pub const DISPID_COUNTVIEWTYPES: u32 = 22u32;
-pub const DISPID_CREATESUBSCRIPTION: u32 = 11u32;
-pub const DISPID_CUSTOMIZECLEARTYPE: u32 = 23u32;
-pub const DISPID_CUSTOMIZESETTINGS: u32 = 17u32;
-pub const DISPID_DEFAULTSEARCHPROVIDER: u32 = 26u32;
-pub const DISPID_DELETESUBSCRIPTION: u32 = 12u32;
-pub const DISPID_DEPTH: u32 = 17u32;
-pub const DISPID_DIAGNOSECONNECTION: u32 = 22u32;
-pub const DISPID_DIAGNOSECONNECTIONUILESS: u32 = 66u32;
-pub const DISPID_DOCUMENTCOMPLETE: u32 = 259u32;
-pub const DISPID_DOUBLECLICK: u32 = 3u32;
-pub const DISPID_DOWNLOADBEGIN: u32 = 106u32;
-pub const DISPID_DOWNLOADCOMPLETE: u32 = 104u32;
-pub const DISPID_ENABLENOTIFICATIONQUEUE: u32 = 72u32;
-pub const DISPID_ENABLENOTIFICATIONQUEUELARGE: u32 = 78u32;
-pub const DISPID_ENABLENOTIFICATIONQUEUESQUARE: u32 = 76u32;
-pub const DISPID_ENABLENOTIFICATIONQUEUEWIDE: u32 = 77u32;
-pub const DISPID_ENABLESUGGESTEDSITES: u32 = 39u32;
-pub const DISPID_ENUMOPTIONS: u32 = 14u32;
-pub const DISPID_EXPAND: u32 = 25u32;
-pub const DISPID_EXPORT: u32 = 7u32;
-pub const DISPID_FAVSELECTIONCHANGE: u32 = 1u32;
-pub const DISPID_FILEDOWNLOAD: u32 = 270u32;
-pub const DISPID_FLAGS: u32 = 19u32;
-pub const DISPID_FRAMEBEFORENAVIGATE: u32 = 200u32;
-pub const DISPID_FRAMENAVIGATECOMPLETE: u32 = 201u32;
-pub const DISPID_FRAMENEWWINDOW: u32 = 204u32;
-pub const DISPID_GETALWAYSSHOWLOCKSTATE: u32 = 23u32;
-pub const DISPID_GETCVLISTDATA: u32 = 93u32;
-pub const DISPID_GETCVLISTLOCALDATA: u32 = 94u32;
-pub const DISPID_GETDETAILSSTATE: u32 = 19u32;
-pub const DISPID_GETEMIELISTDATA: u32 = 95u32;
-pub const DISPID_GETEMIELISTLOCALDATA: u32 = 96u32;
-pub const DISPID_GETERRORCHAR: u32 = 15u32;
-pub const DISPID_GETERRORCODE: u32 = 16u32;
-pub const DISPID_GETERRORLINE: u32 = 14u32;
-pub const DISPID_GETERRORMSG: u32 = 17u32;
-pub const DISPID_GETERRORURL: u32 = 18u32;
-pub const DISPID_GETEXPERIMENTALFLAG: u32 = 85u32;
-pub const DISPID_GETEXPERIMENTALVALUE: u32 = 87u32;
-pub const DISPID_GETNEEDHVSIAUTOLAUNCHFLAG: u32 = 100u32;
-pub const DISPID_GETNEEDIEAUTOLAUNCHFLAG: u32 = 89u32;
-pub const DISPID_GETOSSKU: u32 = 103u32;
-pub const DISPID_GETPERERRSTATE: u32 = 21u32;
-pub const DISPID_HASNEEDHVSIAUTOLAUNCHFLAG: u32 = 102u32;
-pub const DISPID_HASNEEDIEAUTOLAUNCHFLAG: u32 = 88u32;
-pub const DISPID_IMPORT: u32 = 6u32;
-pub const DISPID_IMPORTEXPORTFAVORITES: u32 = 9u32;
-pub const DISPID_INITIALIZED: u32 = 4u32;
-pub const DISPID_INPRIVATEFILTERINGENABLED: u32 = 37u32;
-pub const DISPID_INVOKECONTEXTMENU: u32 = 8u32;
-pub const DISPID_ISMETAREFERRERAVAILABLE: u32 = 83u32;
-pub const DISPID_ISSEARCHMIGRATED: u32 = 25u32;
-pub const DISPID_ISSEARCHPROVIDERINSTALLED: u32 = 24u32;
-pub const DISPID_ISSERVICEINSTALLED: u32 = 31u32;
-pub const DISPID_ISSITEMODE: u32 = 43u32;
-pub const DISPID_ISSITEMODEFIRSTRUN: u32 = 59u32;
-pub const DISPID_ISSUBSCRIBED: u32 = 7u32;
-pub const DISPID_LAUNCHIE: u32 = 91u32;
-pub const DISPID_LAUNCHINHVSI: u32 = 99u32;
-pub const DISPID_LAUNCHINTERNETOPTIONS: u32 = 74u32;
-pub const DISPID_LAUNCHNETWORKCLIENTHELP: u32 = 67u32;
-pub const DISPID_MODE: u32 = 18u32;
-pub const DISPID_MOVESELECTIONDOWN: u32 = 2u32;
-pub const DISPID_MOVESELECTIONTO: u32 = 9u32;
-pub const DISPID_MOVESELECTIONUP: u32 = 1u32;
-pub const DISPID_NAVIGATEANDFIND: u32 = 8u32;
-pub const DISPID_NAVIGATECOMPLETE: u32 = 101u32;
-pub const DISPID_NAVIGATECOMPLETE2: u32 = 252u32;
-pub const DISPID_NAVIGATEERROR: u32 = 271u32;
-pub const DISPID_NAVIGATETOSUGGESTEDSITES: u32 = 40u32;
-pub const DISPID_NEWFOLDER: u32 = 4u32;
-pub const DISPID_NEWPROCESS: u32 = 284u32;
-pub const DISPID_NEWWINDOW: u32 = 107u32;
-pub const DISPID_NEWWINDOW2: u32 = 251u32;
-pub const DISPID_NEWWINDOW3: u32 = 273u32;
-pub const DISPID_NSCOLUMNS: u32 = 21u32;
-pub const DISPID_ONADDRESSBAR: u32 = 261u32;
-pub const DISPID_ONFULLSCREEN: u32 = 258u32;
-pub const DISPID_ONMENUBAR: u32 = 256u32;
-pub const DISPID_ONQUIT: u32 = 253u32;
-pub const DISPID_ONSTATUSBAR: u32 = 257u32;
-pub const DISPID_ONTHEATERMODE: u32 = 260u32;
-pub const DISPID_ONTOOLBAR: u32 = 255u32;
-pub const DISPID_ONVISIBLE: u32 = 254u32;
-pub const DISPID_OPENFAVORITESPANE: u32 = 97u32;
-pub const DISPID_OPENFAVORITESSETTINGS: u32 = 98u32;
-pub const DISPID_PHISHINGENABLED: u32 = 19u32;
-pub const DISPID_PINNEDSITESTATE: u32 = 73u32;
-pub const DISPID_PRINTTEMPLATEINSTANTIATION: u32 = 225u32;
-pub const DISPID_PRINTTEMPLATETEARDOWN: u32 = 226u32;
-pub const DISPID_PRIVACYIMPACTEDSTATECHANGE: u32 = 272u32;
-pub const DISPID_PROGRESSCHANGE: u32 = 108u32;
-pub const DISPID_PROPERTYCHANGE: u32 = 112u32;
-pub const DISPID_PROVISIONNETWORKS: u32 = 62u32;
-pub const DISPID_QUIT: u32 = 103u32;
-pub const DISPID_REDIRECTXDOMAINBLOCKED: u32 = 286u32;
-pub const DISPID_REFRESHOFFLINEDESKTOP: u32 = 3u32;
-pub const DISPID_REMOVESCHEDULEDTILENOTIFICATION: u32 = 80u32;
-pub const DISPID_REPORTSAFEURL: u32 = 63u32;
-pub const DISPID_RESETEXPERIMENTALFLAGS: u32 = 92u32;
-pub const DISPID_RESETFIRSTBOOTMODE: u32 = 1u32;
-pub const DISPID_RESETSAFEMODE: u32 = 2u32;
-pub const DISPID_RESETSORT: u32 = 3u32;
-pub const DISPID_RETREATERROR: u32 = 11u32;
-pub const DISPID_ROOT: u32 = 16u32;
-pub const DISPID_RUNONCEHASSHOWN: u32 = 28u32;
-pub const DISPID_RUNONCEREQUIREDSETTINGSCOMPLETE: u32 = 27u32;
-pub const DISPID_RUNONCESHOWN: u32 = 15u32;
-pub const DISPID_SCHEDULEDTILENOTIFICATION: u32 = 79u32;
-pub const DISPID_SEARCHGUIDEURL: u32 = 29u32;
-pub const DISPID_SELECTEDITEM: u32 = 15u32;
-pub const DISPID_SELECTEDITEMS: u32 = 24u32;
-pub const DISPID_SELECTIONCHANGE: u32 = 2u32;
-pub const DISPID_SETACTIVITIESVISIBLE: u32 = 35u32;
-pub const DISPID_SETDETAILSSTATE: u32 = 20u32;
-pub const DISPID_SETEXPERIMENTALFLAG: u32 = 84u32;
-pub const DISPID_SETEXPERIMENTALVALUE: u32 = 86u32;
-pub const DISPID_SETMSDEFAULTS: u32 = 104u32;
-pub const DISPID_SETNEEDHVSIAUTOLAUNCHFLAG: u32 = 101u32;
-pub const DISPID_SETNEEDIEAUTOLAUNCHFLAG: u32 = 90u32;
-pub const DISPID_SETPERERRSTATE: u32 = 22u32;
-pub const DISPID_SETPHISHINGFILTERSTATUS: u32 = 282u32;
-pub const DISPID_SETRECENTLYCLOSEDVISIBLE: u32 = 34u32;
-pub const DISPID_SETROOT: u32 = 13u32;
-pub const DISPID_SETSECURELOCKICON: u32 = 269u32;
-pub const DISPID_SETSITEMODEICONOVERLAY: u32 = 44u32;
-pub const DISPID_SETSITEMODEPROPERTIES: u32 = 50u32;
-pub const DISPID_SETTHUMBNAILBUTTONS: u32 = 47u32;
-pub const DISPID_SETVIEWTYPE: u32 = 23u32;
-pub const DISPID_SHELLUIHELPERLAST: u32 = 105u32;
-pub const DISPID_SHOWBROWSERUI: u32 = 13u32;
-pub const DISPID_SHOWINPRIVATEHELP: u32 = 42u32;
-pub const DISPID_SHOWTABSHELP: u32 = 41u32;
-pub const DISPID_SITEMODEACTIVATE: u32 = 58u32;
-pub const DISPID_SITEMODEADDBUTTONSTYLE: u32 = 54u32;
-pub const DISPID_SITEMODEADDJUMPLISTITEM: u32 = 52u32;
-pub const DISPID_SITEMODECLEARBADGE: u32 = 65u32;
-pub const DISPID_SITEMODECLEARJUMPLIST: u32 = 53u32;
-pub const DISPID_SITEMODECREATEJUMPLIST: u32 = 51u32;
-pub const DISPID_SITEMODEREFRESHBADGE: u32 = 64u32;
-pub const DISPID_SITEMODESHOWBUTTONSTYLE: u32 = 55u32;
-pub const DISPID_SITEMODESHOWJUMPLIST: u32 = 56u32;
-pub const DISPID_SKIPRUNONCE: u32 = 16u32;
-pub const DISPID_SKIPTABSWELCOME: u32 = 21u32;
-pub const DISPID_SQMENABLED: u32 = 18u32;
-pub const DISPID_STARTBADGEUPDATE: u32 = 81u32;
-pub const DISPID_STARTPERIODICUPDATE: u32 = 70u32;
-pub const DISPID_STARTPERIODICUPDATEBATCH: u32 = 75u32;
-pub const DISPID_STATUSTEXTCHANGE: u32 = 102u32;
-pub const DISPID_STOPBADGEUPDATE: u32 = 82u32;
-pub const DISPID_STOPPERIODICUPDATE: u32 = 69u32;
-pub const DISPID_SUBSCRIPTIONSENABLED: u32 = 10u32;
-pub const DISPID_SUGGESTEDSITESENABLED: u32 = 38u32;
-pub const DISPID_SYNCHRONIZE: u32 = 5u32;
-pub const DISPID_THIRDPARTYURLBLOCKED: u32 = 285u32;
-pub const DISPID_TITLECHANGE: u32 = 113u32;
-pub const DISPID_TITLEICONCHANGE: u32 = 114u32;
-pub const DISPID_TRACKINGPROTECTIONENABLED: u32 = 60u32;
-pub const DISPID_TVFLAGS: u32 = 20u32;
-pub const DISPID_UNSELECTALL: u32 = 26u32;
-pub const DISPID_UPDATEPAGESTATUS: u32 = 227u32;
-pub const DISPID_UPDATETHUMBNAILBUTTON: u32 = 46u32;
-pub const DISPID_VIEWUPDATE: u32 = 281u32;
-pub const DISPID_WEBWORKERFINISHED: u32 = 289u32;
-pub const DISPID_WEBWORKERSTARTED: u32 = 288u32;
-pub const DISPID_WINDOWACTIVATE: u32 = 111u32;
-pub const DISPID_WINDOWCLOSING: u32 = 263u32;
-pub const DISPID_WINDOWMOVE: u32 = 109u32;
-pub const DISPID_WINDOWREGISTERED: u32 = 200u32;
-pub const DISPID_WINDOWRESIZE: u32 = 110u32;
-pub const DISPID_WINDOWREVOKED: u32 = 201u32;
-pub const DISPID_WINDOWSETHEIGHT: u32 = 267u32;
-pub const DISPID_WINDOWSETLEFT: u32 = 264u32;
-pub const DISPID_WINDOWSETRESIZABLE: u32 = 262u32;
-pub const DISPID_WINDOWSETTOP: u32 = 265u32;
-pub const DISPID_WINDOWSETWIDTH: u32 = 266u32;
-pub const DISPID_WINDOWSTATECHANGED: u32 = 283u32;
-pub const E_SURFACE_DISCARDED: i32 = -2147434493i32;
-pub const E_SURFACE_NODC: i32 = -2147434492i32;
-pub const E_SURFACE_NOSURFACE: i32 = -2147434496i32;
-pub const E_SURFACE_NOTMYDC: i32 = -2147434491i32;
-pub const E_SURFACE_NOTMYPOINTER: i32 = -2147434494i32;
-pub const E_SURFACE_UNKNOWN_FORMAT: i32 = -2147434495i32;
-pub const ExtensionValidationContextDynamic: ExtensionValidationContexts = ExtensionValidationContexts(1i32);
-pub const ExtensionValidationContextNone: ExtensionValidationContexts = ExtensionValidationContexts(0i32);
-pub const ExtensionValidationContextParsed: ExtensionValidationContexts = ExtensionValidationContexts(2i32);
-pub const ExtensionValidationResultArrestPageLoad: ExtensionValidationResults = ExtensionValidationResults(2i32);
-pub const ExtensionValidationResultDoNotInstantiate: ExtensionValidationResults = ExtensionValidationResults(1i32);
-pub const ExtensionValidationResultNone: ExtensionValidationResults = ExtensionValidationResults(0i32);
-pub const FINDFRAME_INTERNAL: FINDFRAME_FLAGS = FINDFRAME_FLAGS(-2147483648i32);
-pub const FINDFRAME_JUSTTESTEXISTENCE: FINDFRAME_FLAGS = FINDFRAME_FLAGS(1i32);
-pub const FINDFRAME_NONE: FINDFRAME_FLAGS = FINDFRAME_FLAGS(0i32);
-pub const FRAMEOPTIONS_BROWSERBAND: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(64i32);
-pub const FRAMEOPTIONS_DESKTOP: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(32i32);
-pub const FRAMEOPTIONS_NO3DBORDER: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(16i32);
-pub const FRAMEOPTIONS_NORESIZE: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(8i32);
-pub const FRAMEOPTIONS_SCROLL_AUTO: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(4i32);
-pub const FRAMEOPTIONS_SCROLL_NO: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(2i32);
-pub const FRAMEOPTIONS_SCROLL_YES: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(1i32);
-pub const IECMDID_ARG_CLEAR_FORMS_ALL: u32 = 0u32;
-pub const IECMDID_ARG_CLEAR_FORMS_ALL_BUT_PASSWORDS: u32 = 1u32;
-pub const IECMDID_ARG_CLEAR_FORMS_PASSWORDS_ONLY: u32 = 2u32;
-pub const IECMDID_BEFORENAVIGATE_DOEXTERNALBROWSE: u32 = 3u32;
-pub const IECMDID_BEFORENAVIGATE_GETIDLIST: u32 = 4u32;
-pub const IECMDID_BEFORENAVIGATE_GETSHELLBROWSE: u32 = 2u32;
-pub const IECMDID_CLEAR_AUTOCOMPLETE_FOR_FORMS: u32 = 0u32;
-pub const IECMDID_GET_INVOKE_DEFAULT_BROWSER_ON_NEW_WINDOW: u32 = 6u32;
-pub const IECMDID_SETID_AUTOCOMPLETE_FOR_FORMS: u32 = 1u32;
-pub const IECMDID_SET_INVOKE_DEFAULT_BROWSER_ON_NEW_WINDOW: u32 = 5u32;
-pub const IEGetProcessModule_PROC_NAME: windows_core::PCSTR = windows_core::s!("IEGetProcessModule");
-pub const IEGetTabWindowExports_PROC_NAME: windows_core::PCSTR = windows_core::s!("IEGetTabWindowExports");
-pub const IELAUNCHOPTION_FORCE_COMPAT: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(2i32);
-pub const IELAUNCHOPTION_FORCE_EDGE: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(4i32);
-pub const IELAUNCHOPTION_LOCK_ENGINE: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(8i32);
-pub const IELAUNCHOPTION_SCRIPTDEBUG: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(1i32);
-pub const IEPROCESS_MODULE_NAME: windows_core::PCWSTR = windows_core::w!("IERtUtil.dll");
-pub const IE_USE_OE_MAIL_HKEY: i32 = -2147483647i32;
-pub const IE_USE_OE_MAIL_KEY: windows_core::PCWSTR = windows_core::w!("Software\\Microsoft\\Internet Explorer\\Mail");
-pub const IE_USE_OE_MAIL_VALUE: windows_core::PCWSTR = windows_core::w!("Use Outlook Express");
-pub const IE_USE_OE_NEWS_HKEY: i32 = -2147483647i32;
-pub const IE_USE_OE_NEWS_KEY: windows_core::PCWSTR = windows_core::w!("Software\\Microsoft\\Internet Explorer\\News");
-pub const IE_USE_OE_NEWS_VALUE: windows_core::PCWSTR = windows_core::w!("Use Outlook Express");
-pub const IE_USE_OE_PRESENT_HKEY: i32 = -2147483646i32;
-pub const IE_USE_OE_PRESENT_KEY: windows_core::PCWSTR = windows_core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\app.paths\\msimn.exe");
-pub const IMGDECODE_EVENT_BEGINBITS: u32 = 4u32;
-pub const IMGDECODE_EVENT_BITSCOMPLETE: u32 = 8u32;
-pub const IMGDECODE_EVENT_PALETTE: u32 = 2u32;
-pub const IMGDECODE_EVENT_PROGRESS: u32 = 1u32;
-pub const IMGDECODE_EVENT_USEDDRAW: u32 = 16u32;
-pub const IMGDECODE_HINT_BOTTOMUP: u32 = 2u32;
-pub const IMGDECODE_HINT_FULLWIDTH: u32 = 4u32;
-pub const IMGDECODE_HINT_TOPDOWN: u32 = 1u32;
-pub const INTERNETEXPLORERCONFIGURATION_HOST: INTERNETEXPLORERCONFIGURATION = INTERNETEXPLORERCONFIGURATION(1i32);
-pub const INTERNETEXPLORERCONFIGURATION_WEB_DRIVER: INTERNETEXPLORERCONFIGURATION = INTERNETEXPLORERCONFIGURATION(2i32);
-pub const INTERNETEXPLORERCONFIGURATION_WEB_DRIVER_EDGE: INTERNETEXPLORERCONFIGURATION = INTERNETEXPLORERCONFIGURATION(4i32);
-pub const LINKSBAND: u32 = 4u32;
-pub const MAPMIME_CLSID: u32 = 1u32;
-pub const MAPMIME_DEFAULT: u32 = 0u32;
-pub const MAPMIME_DEFAULT_ALWAYS: u32 = 3u32;
-pub const MAPMIME_DISABLE: u32 = 2u32;
-pub const MAX_SEARCH_FORMAT_STRING: u32 = 255u32;
-pub const MediaCasting: MEDIA_ACTIVITY_NOTIFY_TYPE = MEDIA_ACTIVITY_NOTIFY_TYPE(2i32);
-pub const MediaPlayback: MEDIA_ACTIVITY_NOTIFY_TYPE = MEDIA_ACTIVITY_NOTIFY_TYPE(0i32);
-pub const MediaRecording: MEDIA_ACTIVITY_NOTIFY_TYPE = MEDIA_ACTIVITY_NOTIFY_TYPE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NAVIGATEFRAME_FLAGS(pub i32);
 pub const NAVIGATEFRAME_FL_AUTH_FAIL_CACHE_OK: NAVIGATEFRAME_FLAGS = NAVIGATEFRAME_FLAGS(16i32);
 pub const NAVIGATEFRAME_FL_NO_DOC_CACHE: NAVIGATEFRAME_FLAGS = NAVIGATEFRAME_FLAGS(4i32);
 pub const NAVIGATEFRAME_FL_NO_IMAGE_CACHE: NAVIGATEFRAME_FLAGS = NAVIGATEFRAME_FLAGS(8i32);
@@ -6396,6 +6364,15 @@ pub const OS_E_CANCELLED: OpenServiceErrors = OpenServiceErrors(-2147471631i32);
 pub const OS_E_GPDISABLED: OpenServiceErrors = OpenServiceErrors(-1072886820i32);
 pub const OS_E_NOTFOUND: OpenServiceErrors = OpenServiceErrors(-2147287038i32);
 pub const OS_E_NOTSUPPORTED: OpenServiceErrors = OpenServiceErrors(-2147467231i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OpenServiceActivityContentType(pub i32);
+pub const OpenServiceActivityManager: windows_core::GUID = windows_core::GUID::from_u128(0xc5efd803_50f8_43cd_9ab8_aafc1394c9e0);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OpenServiceErrors(pub i32);
+pub const OpenServiceManager: windows_core::GUID = windows_core::GUID::from_u128(0x098870b6_39ea_480b_b8b5_dd0167c4db59);
+pub const PeerFactory: windows_core::GUID = windows_core::GUID::from_u128(0x3050f4cf_98b5_11cf_bb82_00aa00bdce0b);
 pub const REGSTRA_VAL_STARTPAGE: windows_core::PCSTR = windows_core::s!("Start Page");
 pub const REGSTR_PATH_CURRENT: windows_core::PCWSTR = windows_core::w!("current");
 pub const REGSTR_PATH_DEFAULT: windows_core::PCWSTR = windows_core::w!("default");
@@ -6547,6 +6524,28 @@ pub const SCMP_FULL: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLA
 pub const SCMP_LEFT: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(2i32);
 pub const SCMP_RIGHT: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(3i32);
 pub const SCMP_TOP: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCROLLABLECONTEXTMENU_PLACEMENT(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct STATURL {
+    pub cbSize: u32,
+    pub pwcsUrl: windows_core::PWSTR,
+    pub pwcsTitle: windows_core::PWSTR,
+    pub ftLastVisited: super::super::Foundation::FILETIME,
+    pub ftLastUpdated: super::super::Foundation::FILETIME,
+    pub ftExpires: super::super::Foundation::FILETIME,
+    pub dwFlags: u32,
+}
+impl Default for STATURL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for STATURL {
+    type TypeKind = windows_core::CopyType;
+}
 pub const STATURLFLAG_ISCACHED: u32 = 1u32;
 pub const STATURLFLAG_ISTOPLEVEL: u32 = 2u32;
 pub const STATURL_QUERYFLAG_ISCACHED: u32 = 65536u32;
@@ -6599,3 +6598,4 @@ pub const msoslHigh: u32 = 3u32;
 pub const msoslMedium: u32 = 2u32;
 pub const msoslNone: u32 = 1u32;
 pub const msoslUndefined: u32 = 0u32;
+pub const wfolders: windows_core::GUID = windows_core::GUID::from_u128(0xbae31f9a_1b81_11d2_a97a_00c04f8ecb02);

@@ -1,3 +1,7 @@
+pub const DISPID_EVENT_ON_CONTEXT_DATA: u32 = 7u32;
+pub const DISPID_EVENT_ON_SEND_ERROR: u32 = 8u32;
+pub const DISPID_EVENT_ON_STATE_CHANGED: u32 = 5u32;
+pub const DISPID_EVENT_ON_TERMINATION: u32 = 6u32;
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DRendezvousSessionEvents, DRendezvousSessionEvents_Vtbl, 0x3fa19cf8_64c4_4f53_ae60_635b3806eca6);
 #[cfg(feature = "Win32_System_Com")]
@@ -156,11 +160,6 @@ pub struct RENDEZVOUS_SESSION_FLAGS(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RENDEZVOUS_SESSION_STATE(pub i32);
-pub const RendezvousApplication: windows_core::GUID = windows_core::GUID::from_u128(0x0b7e019a_b5de_47fa_8966_9082f82fb192);
-pub const DISPID_EVENT_ON_CONTEXT_DATA: u32 = 7u32;
-pub const DISPID_EVENT_ON_SEND_ERROR: u32 = 8u32;
-pub const DISPID_EVENT_ON_STATE_CHANGED: u32 = 5u32;
-pub const DISPID_EVENT_ON_TERMINATION: u32 = 6u32;
 pub const RSF_INVITEE: RENDEZVOUS_SESSION_FLAGS = RENDEZVOUS_SESSION_FLAGS(2i32);
 pub const RSF_INVITER: RENDEZVOUS_SESSION_FLAGS = RENDEZVOUS_SESSION_FLAGS(1i32);
 pub const RSF_NONE: RENDEZVOUS_SESSION_FLAGS = RENDEZVOUS_SESSION_FLAGS(0i32);
@@ -175,3 +174,4 @@ pub const RSS_INVITATION: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(2i
 pub const RSS_READY: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(1i32);
 pub const RSS_TERMINATED: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(7i32);
 pub const RSS_UNKNOWN: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(0i32);
+pub const RendezvousApplication: windows_core::GUID = windows_core::GUID::from_u128(0x0b7e019a_b5de_47fa_8966_9082f82fb192);

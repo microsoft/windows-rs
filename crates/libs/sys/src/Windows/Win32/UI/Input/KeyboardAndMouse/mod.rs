@@ -51,14 +51,13 @@ windows_targets::link!("comctl32.dll" "system" fn _TrackMouseEvent(lpeventtrack 
 windows_targets::link!("user32.dll" "system" fn keybd_event(bvk : u8, bscan : u8, dwflags : KEYBD_EVENT_FLAGS, dwextrainfo : usize));
 windows_targets::link!("user32.dll" "system" fn mouse_event(dwflags : MOUSE_EVENT_FLAGS, dx : i32, dy : i32, dwdata : i32, dwextrainfo : usize));
 pub type ACTIVATE_KEYBOARD_LAYOUT_FLAGS = u32;
-pub type GET_MOUSE_MOVE_POINTS_EX_RESOLUTION = u32;
-pub type HOT_KEY_MODIFIERS = u32;
-pub type INPUT_TYPE = u32;
-pub type KEYBD_EVENT_FLAGS = u32;
-pub type MAP_VIRTUAL_KEY_TYPE = u32;
-pub type MOUSE_EVENT_FLAGS = u32;
-pub type TRACKMOUSEEVENT_FLAGS = u32;
-pub type VIRTUAL_KEY = u16;
+pub const ACUTE: u32 = 769u32;
+pub const AX_KBD_DESKTOP_TYPE: u32 = 1u32;
+pub const BREVE: u32 = 774u32;
+pub const CAPLOK: u32 = 1u32;
+pub const CAPLOKALTGR: u32 = 4u32;
+pub const CEDILLA: u32 = 807u32;
+pub const CIRCUMFLEX: u32 = 770u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEADKEY {
@@ -66,6 +65,25 @@ pub struct DEADKEY {
     pub wchComposed: u16,
     pub uFlags: u16,
 }
+pub const DEC_KBD_ANSI_LAYOUT_TYPE: u32 = 1u32;
+pub const DEC_KBD_JIS_LAYOUT_TYPE: u32 = 2u32;
+pub const DIARESIS: u32 = 776u32;
+pub const DIARESIS_TONOS: u32 = 901u32;
+pub const DKF_DEAD: u32 = 1u32;
+pub const DONTCARE_BIT: u32 = 33554432u32;
+pub const DOT_ABOVE: u32 = 775u32;
+pub const DOUBLE_ACUTE: u32 = 779u32;
+pub const EXTENDED_BIT: u32 = 16777216u32;
+pub const FAKE_KEYSTROKE: u32 = 33554432u32;
+pub const FMR_KBD_JIS_TYPE: u32 = 0u32;
+pub const FMR_KBD_OASYS_TYPE: u32 = 1u32;
+pub const FMV_KBD_OASYS_TYPE: u32 = 2u32;
+pub type GET_MOUSE_MOVE_POINTS_EX_RESOLUTION = u32;
+pub const GMMP_USE_DISPLAY_POINTS: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION = 1u32;
+pub const GMMP_USE_HIGH_RESOLUTION_POINTS: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION = 2u32;
+pub const GRAVE: u32 = 768u32;
+pub const GRPSELTAP: u32 = 128u32;
+pub const HACEK: u32 = 780u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HARDWAREINPUT {
@@ -74,6 +92,8 @@ pub struct HARDWAREINPUT {
     pub wParamH: u16,
 }
 pub type HKL = *mut core::ffi::c_void;
+pub const HOOK_ABOVE: u32 = 777u32;
+pub type HOT_KEY_MODIFIERS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct INPUT {
@@ -87,6 +107,17 @@ pub union INPUT_0 {
     pub ki: KEYBDINPUT,
     pub hi: HARDWAREINPUT,
 }
+pub const INPUT_HARDWARE: INPUT_TYPE = 2u32;
+pub const INPUT_KEYBOARD: INPUT_TYPE = 1u32;
+pub const INPUT_MOUSE: INPUT_TYPE = 0u32;
+pub type INPUT_TYPE = u32;
+pub const KANALOK: u32 = 8u32;
+pub const KBDALT: u32 = 4u32;
+pub const KBDBASE: u32 = 0u32;
+pub const KBDCTRL: u32 = 2u32;
+pub const KBDGRPSELTAP: u32 = 128u32;
+pub const KBDKANA: u32 = 8u32;
+pub const KBDLOYA: u32 = 32u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KBDNLSTABLES {
@@ -97,6 +128,29 @@ pub struct KBDNLSTABLES {
     pub NumOfMouseVKey: i32,
     pub pusMouseVKey: *mut u16,
 }
+pub const KBDNLS_ALPHANUM: u32 = 5u32;
+pub const KBDNLS_CODEINPUT: u32 = 10u32;
+pub const KBDNLS_CONV_OR_NONCONV: u32 = 15u32;
+pub const KBDNLS_HELP_OR_END: u32 = 11u32;
+pub const KBDNLS_HIRAGANA: u32 = 6u32;
+pub const KBDNLS_HOME_OR_CLEAR: u32 = 12u32;
+pub const KBDNLS_INDEX_ALT: u32 = 2u32;
+pub const KBDNLS_INDEX_NORMAL: u32 = 1u32;
+pub const KBDNLS_KANAEVENT: u32 = 14u32;
+pub const KBDNLS_KANALOCK: u32 = 4u32;
+pub const KBDNLS_KATAKANA: u32 = 7u32;
+pub const KBDNLS_NOEVENT: u32 = 1u32;
+pub const KBDNLS_NULL: u32 = 0u32;
+pub const KBDNLS_NUMPAD: u32 = 13u32;
+pub const KBDNLS_ROMAN: u32 = 9u32;
+pub const KBDNLS_SBCSDBCS: u32 = 8u32;
+pub const KBDNLS_SEND_BASE_VK: u32 = 2u32;
+pub const KBDNLS_SEND_PARAM_VK: u32 = 3u32;
+pub const KBDNLS_TYPE_NORMAL: u32 = 1u32;
+pub const KBDNLS_TYPE_NULL: u32 = 0u32;
+pub const KBDNLS_TYPE_TOGGLE: u32 = 2u32;
+pub const KBDROYA: u32 = 16u32;
+pub const KBDSHIFT: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KBDTABLES {
@@ -130,6 +184,8 @@ pub struct KBDTABLE_MULTI {
     pub nTables: u32,
     pub aKbdTables: [KBDTABLE_DESC; 8],
 }
+pub const KBDTABLE_MULTI_MAX: u32 = 8u32;
+pub const KBD_TYPE: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KBD_TYPE_INFO {
@@ -137,6 +193,7 @@ pub struct KBD_TYPE_INFO {
     pub dwType: u32,
     pub dwSubType: u32,
 }
+pub const KBD_VERSION: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KEYBDINPUT {
@@ -146,6 +203,27 @@ pub struct KEYBDINPUT {
     pub time: u32,
     pub dwExtraInfo: usize,
 }
+pub type KEYBD_EVENT_FLAGS = u32;
+pub const KEYBOARD_TYPE_GENERIC_101: u32 = 4u32;
+pub const KEYBOARD_TYPE_JAPAN: u32 = 7u32;
+pub const KEYBOARD_TYPE_KOREA: u32 = 8u32;
+pub const KEYBOARD_TYPE_UNKNOWN: u32 = 81u32;
+pub const KEYEVENTF_EXTENDEDKEY: KEYBD_EVENT_FLAGS = 1u32;
+pub const KEYEVENTF_KEYUP: KEYBD_EVENT_FLAGS = 2u32;
+pub const KEYEVENTF_SCANCODE: KEYBD_EVENT_FLAGS = 8u32;
+pub const KEYEVENTF_UNICODE: KEYBD_EVENT_FLAGS = 4u32;
+pub const KLF_ACTIVATE: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = 1u32;
+pub const KLF_NOTELLSHELL: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = 128u32;
+pub const KLF_REORDER: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = 8u32;
+pub const KLF_REPLACELANG: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = 16u32;
+pub const KLF_RESET: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = 1073741824u32;
+pub const KLF_SETFORPROCESS: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = 256u32;
+pub const KLF_SHIFTLOCK: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = 65536u32;
+pub const KLF_SUBSTITUTE_OK: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = 2u32;
+pub const KLLF_ALTGR: u32 = 1u32;
+pub const KLLF_GLOBAL_ATTRS: u32 = 2u32;
+pub const KLLF_LRM_RLM: u32 = 4u32;
+pub const KLLF_SHIFTLOCK: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LASTINPUTINFO {
@@ -187,244 +265,13 @@ pub struct LIGATURE5 {
     pub ModificationNumber: u16,
     pub wch: [u16; 5],
 }
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MODIFIERS {
-    pub pVkToBit: *mut VK_TO_BIT,
-    pub wMaxModBits: u16,
-    pub ModNumber: [u8; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MOUSEINPUT {
-    pub dx: i32,
-    pub dy: i32,
-    pub mouseData: u32,
-    pub dwFlags: MOUSE_EVENT_FLAGS,
-    pub time: u32,
-    pub dwExtraInfo: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MOUSEMOVEPOINT {
-    pub x: i32,
-    pub y: i32,
-    pub time: u32,
-    pub dwExtraInfo: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct TRACKMOUSEEVENT {
-    pub cbSize: u32,
-    pub dwFlags: TRACKMOUSEEVENT_FLAGS,
-    pub hwndTrack: super::super::super::Foundation::HWND,
-    pub dwHoverTime: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_F {
-    pub Vk: u8,
-    pub NLSFEProcType: u8,
-    pub NLSFEProcCurrent: u8,
-    pub NLSFEProcSwitch: u8,
-    pub NLSFEProc: [VK_FPARAM; 8],
-    pub NLSFEProcAlt: [VK_FPARAM; 8],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_FPARAM {
-    pub NLSFEProcIndex: u8,
-    pub NLSFEProcParam: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_TO_BIT {
-    pub Vk: u8,
-    pub ModBits: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_TO_WCHARS1 {
-    pub VirtualKey: u8,
-    pub Attributes: u8,
-    pub wch: [u16; 1],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_TO_WCHARS10 {
-    pub VirtualKey: u8,
-    pub Attributes: u8,
-    pub wch: [u16; 10],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_TO_WCHARS2 {
-    pub VirtualKey: u8,
-    pub Attributes: u8,
-    pub wch: [u16; 2],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_TO_WCHARS3 {
-    pub VirtualKey: u8,
-    pub Attributes: u8,
-    pub wch: [u16; 3],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_TO_WCHARS4 {
-    pub VirtualKey: u8,
-    pub Attributes: u8,
-    pub wch: [u16; 4],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_TO_WCHARS5 {
-    pub VirtualKey: u8,
-    pub Attributes: u8,
-    pub wch: [u16; 5],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_TO_WCHARS6 {
-    pub VirtualKey: u8,
-    pub Attributes: u8,
-    pub wch: [u16; 6],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_TO_WCHARS7 {
-    pub VirtualKey: u8,
-    pub Attributes: u8,
-    pub wch: [u16; 7],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_TO_WCHARS8 {
-    pub VirtualKey: u8,
-    pub Attributes: u8,
-    pub wch: [u16; 8],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_TO_WCHARS9 {
-    pub VirtualKey: u8,
-    pub Attributes: u8,
-    pub wch: [u16; 9],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_TO_WCHAR_TABLE {
-    pub pVkToWchars: *mut VK_TO_WCHARS1,
-    pub nModifications: u8,
-    pub cbSize: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VK_VSC {
-    pub Vk: u8,
-    pub Vsc: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VSC_LPWSTR {
-    pub vsc: u8,
-    pub pwsz: windows_sys::core::PWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VSC_VK {
-    pub Vsc: u8,
-    pub Vk: u16,
-}
-pub const ACUTE: u32 = 769u32;
-pub const AX_KBD_DESKTOP_TYPE: u32 = 1u32;
-pub const BREVE: u32 = 774u32;
-pub const CAPLOK: u32 = 1u32;
-pub const CAPLOKALTGR: u32 = 4u32;
-pub const CEDILLA: u32 = 807u32;
-pub const CIRCUMFLEX: u32 = 770u32;
-pub const DEC_KBD_ANSI_LAYOUT_TYPE: u32 = 1u32;
-pub const DEC_KBD_JIS_LAYOUT_TYPE: u32 = 2u32;
-pub const DIARESIS: u32 = 776u32;
-pub const DIARESIS_TONOS: u32 = 901u32;
-pub const DKF_DEAD: u32 = 1u32;
-pub const DONTCARE_BIT: u32 = 33554432u32;
-pub const DOT_ABOVE: u32 = 775u32;
-pub const DOUBLE_ACUTE: u32 = 779u32;
-pub const EXTENDED_BIT: u32 = 16777216u32;
-pub const FAKE_KEYSTROKE: u32 = 33554432u32;
-pub const FMR_KBD_JIS_TYPE: u32 = 0u32;
-pub const FMR_KBD_OASYS_TYPE: u32 = 1u32;
-pub const FMV_KBD_OASYS_TYPE: u32 = 2u32;
-pub const GMMP_USE_DISPLAY_POINTS: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION = 1u32;
-pub const GMMP_USE_HIGH_RESOLUTION_POINTS: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION = 2u32;
-pub const GRAVE: u32 = 768u32;
-pub const GRPSELTAP: u32 = 128u32;
-pub const HACEK: u32 = 780u32;
-pub const HOOK_ABOVE: u32 = 777u32;
-pub const INPUT_HARDWARE: INPUT_TYPE = 2u32;
-pub const INPUT_KEYBOARD: INPUT_TYPE = 1u32;
-pub const INPUT_MOUSE: INPUT_TYPE = 0u32;
-pub const KANALOK: u32 = 8u32;
-pub const KBDALT: u32 = 4u32;
-pub const KBDBASE: u32 = 0u32;
-pub const KBDCTRL: u32 = 2u32;
-pub const KBDGRPSELTAP: u32 = 128u32;
-pub const KBDKANA: u32 = 8u32;
-pub const KBDLOYA: u32 = 32u32;
-pub const KBDNLS_ALPHANUM: u32 = 5u32;
-pub const KBDNLS_CODEINPUT: u32 = 10u32;
-pub const KBDNLS_CONV_OR_NONCONV: u32 = 15u32;
-pub const KBDNLS_HELP_OR_END: u32 = 11u32;
-pub const KBDNLS_HIRAGANA: u32 = 6u32;
-pub const KBDNLS_HOME_OR_CLEAR: u32 = 12u32;
-pub const KBDNLS_INDEX_ALT: u32 = 2u32;
-pub const KBDNLS_INDEX_NORMAL: u32 = 1u32;
-pub const KBDNLS_KANAEVENT: u32 = 14u32;
-pub const KBDNLS_KANALOCK: u32 = 4u32;
-pub const KBDNLS_KATAKANA: u32 = 7u32;
-pub const KBDNLS_NOEVENT: u32 = 1u32;
-pub const KBDNLS_NULL: u32 = 0u32;
-pub const KBDNLS_NUMPAD: u32 = 13u32;
-pub const KBDNLS_ROMAN: u32 = 9u32;
-pub const KBDNLS_SBCSDBCS: u32 = 8u32;
-pub const KBDNLS_SEND_BASE_VK: u32 = 2u32;
-pub const KBDNLS_SEND_PARAM_VK: u32 = 3u32;
-pub const KBDNLS_TYPE_NORMAL: u32 = 1u32;
-pub const KBDNLS_TYPE_NULL: u32 = 0u32;
-pub const KBDNLS_TYPE_TOGGLE: u32 = 2u32;
-pub const KBDROYA: u32 = 16u32;
-pub const KBDSHIFT: u32 = 1u32;
-pub const KBDTABLE_MULTI_MAX: u32 = 8u32;
-pub const KBD_TYPE: u32 = 4u32;
-pub const KBD_VERSION: u32 = 1u32;
-pub const KEYBOARD_TYPE_GENERIC_101: u32 = 4u32;
-pub const KEYBOARD_TYPE_JAPAN: u32 = 7u32;
-pub const KEYBOARD_TYPE_KOREA: u32 = 8u32;
-pub const KEYBOARD_TYPE_UNKNOWN: u32 = 81u32;
-pub const KEYEVENTF_EXTENDEDKEY: KEYBD_EVENT_FLAGS = 1u32;
-pub const KEYEVENTF_KEYUP: KEYBD_EVENT_FLAGS = 2u32;
-pub const KEYEVENTF_SCANCODE: KEYBD_EVENT_FLAGS = 8u32;
-pub const KEYEVENTF_UNICODE: KEYBD_EVENT_FLAGS = 4u32;
-pub const KLF_ACTIVATE: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = 1u32;
-pub const KLF_NOTELLSHELL: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = 128u32;
-pub const KLF_REORDER: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = 8u32;
-pub const KLF_REPLACELANG: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = 16u32;
-pub const KLF_RESET: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = 1073741824u32;
-pub const KLF_SETFORPROCESS: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = 256u32;
-pub const KLF_SHIFTLOCK: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = 65536u32;
-pub const KLF_SUBSTITUTE_OK: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = 2u32;
-pub const KLLF_ALTGR: u32 = 1u32;
-pub const KLLF_GLOBAL_ATTRS: u32 = 2u32;
-pub const KLLF_LRM_RLM: u32 = 4u32;
-pub const KLLF_SHIFTLOCK: u32 = 2u32;
 pub const MACRON: u32 = 772u32;
 pub const MAPVK_VK_TO_CHAR: MAP_VIRTUAL_KEY_TYPE = 2u32;
 pub const MAPVK_VK_TO_VSC: MAP_VIRTUAL_KEY_TYPE = 0u32;
 pub const MAPVK_VK_TO_VSC_EX: MAP_VIRTUAL_KEY_TYPE = 4u32;
 pub const MAPVK_VSC_TO_VK: MAP_VIRTUAL_KEY_TYPE = 1u32;
 pub const MAPVK_VSC_TO_VK_EX: MAP_VIRTUAL_KEY_TYPE = 3u32;
+pub type MAP_VIRTUAL_KEY_TYPE = u32;
 pub const MICROSOFT_KBD_001_TYPE: u32 = 4u32;
 pub const MICROSOFT_KBD_002_TYPE: u32 = 3u32;
 pub const MICROSOFT_KBD_101A_TYPE: u32 = 0u32;
@@ -435,6 +282,13 @@ pub const MICROSOFT_KBD_103_TYPE: u32 = 6u32;
 pub const MICROSOFT_KBD_106_TYPE: u32 = 2u32;
 pub const MICROSOFT_KBD_AX_TYPE: u32 = 1u32;
 pub const MICROSOFT_KBD_FUNC: u32 = 12u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MODIFIERS {
+    pub pVkToBit: *mut VK_TO_BIT,
+    pub wMaxModBits: u16,
+    pub ModNumber: [u8; 1],
+}
 pub const MOD_ALT: HOT_KEY_MODIFIERS = 1u32;
 pub const MOD_CONTROL: HOT_KEY_MODIFIERS = 2u32;
 pub const MOD_NOREPEAT: HOT_KEY_MODIFIERS = 16384u32;
@@ -454,6 +308,25 @@ pub const MOUSEEVENTF_VIRTUALDESK: MOUSE_EVENT_FLAGS = 16384u32;
 pub const MOUSEEVENTF_WHEEL: MOUSE_EVENT_FLAGS = 2048u32;
 pub const MOUSEEVENTF_XDOWN: MOUSE_EVENT_FLAGS = 128u32;
 pub const MOUSEEVENTF_XUP: MOUSE_EVENT_FLAGS = 256u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MOUSEINPUT {
+    pub dx: i32,
+    pub dy: i32,
+    pub mouseData: u32,
+    pub dwFlags: MOUSE_EVENT_FLAGS,
+    pub time: u32,
+    pub dwExtraInfo: usize,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MOUSEMOVEPOINT {
+    pub x: i32,
+    pub y: i32,
+    pub time: u32,
+    pub dwExtraInfo: usize,
+}
+pub type MOUSE_EVENT_FLAGS = u32;
 pub const NEC_KBD_106_TYPE: u32 = 5u32;
 pub const NEC_KBD_H_MODE_TYPE: u32 = 3u32;
 pub const NEC_KBD_LAPTOP_TYPE: u32 = 4u32;
@@ -495,7 +368,17 @@ pub const TME_QUERY: TRACKMOUSEEVENT_FLAGS = 1073741824u32;
 pub const TONOS: u32 = 900u32;
 pub const TOSHIBA_KBD_DESKTOP_TYPE: u32 = 13u32;
 pub const TOSHIBA_KBD_LAPTOP_TYPE: u32 = 15u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TRACKMOUSEEVENT {
+    pub cbSize: u32,
+    pub dwFlags: TRACKMOUSEEVENT_FLAGS,
+    pub hwndTrack: super::super::super::Foundation::HWND,
+    pub dwHoverTime: u32,
+}
+pub type TRACKMOUSEEVENT_FLAGS = u32;
 pub const UMLAUT: u32 = 776u32;
+pub type VIRTUAL_KEY = u16;
 pub const VK_0: VIRTUAL_KEY = 48u16;
 pub const VK_1: VIRTUAL_KEY = 49u16;
 pub const VK_2: VIRTUAL_KEY = 50u16;
@@ -554,6 +437,16 @@ pub const VK_EREOF: VIRTUAL_KEY = 249u16;
 pub const VK_ESCAPE: VIRTUAL_KEY = 27u16;
 pub const VK_EXECUTE: VIRTUAL_KEY = 43u16;
 pub const VK_EXSEL: VIRTUAL_KEY = 248u16;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_F {
+    pub Vk: u8,
+    pub NLSFEProcType: u8,
+    pub NLSFEProcCurrent: u8,
+    pub NLSFEProcSwitch: u8,
+    pub NLSFEProc: [VK_FPARAM; 8],
+    pub NLSFEProcAlt: [VK_FPARAM; 8],
+}
 pub const VK_F: VIRTUAL_KEY = 70u16;
 pub const VK_F1: VIRTUAL_KEY = 112u16;
 pub const VK_F10: VIRTUAL_KEY = 121u16;
@@ -580,6 +473,12 @@ pub const VK_F7: VIRTUAL_KEY = 118u16;
 pub const VK_F8: VIRTUAL_KEY = 119u16;
 pub const VK_F9: VIRTUAL_KEY = 120u16;
 pub const VK_FINAL: VIRTUAL_KEY = 24u16;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_FPARAM {
+    pub NLSFEProcIndex: u8,
+    pub NLSFEProcParam: u32,
+}
 pub const VK_G: VIRTUAL_KEY = 71u16;
 pub const VK_GAMEPAD_A: VIRTUAL_KEY = 195u16;
 pub const VK_GAMEPAD_B: VIRTUAL_KEY = 196u16;
@@ -729,12 +628,101 @@ pub const VK_SPACE: VIRTUAL_KEY = 32u16;
 pub const VK_SUBTRACT: VIRTUAL_KEY = 109u16;
 pub const VK_T: VIRTUAL_KEY = 84u16;
 pub const VK_TAB: VIRTUAL_KEY = 9u16;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_TO_BIT {
+    pub Vk: u8,
+    pub ModBits: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_TO_WCHARS1 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 1],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_TO_WCHARS10 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 10],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_TO_WCHARS2 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 2],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_TO_WCHARS3 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 3],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_TO_WCHARS4 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 4],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_TO_WCHARS5 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 5],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_TO_WCHARS6 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 6],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_TO_WCHARS7 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 7],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_TO_WCHARS8 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 8],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_TO_WCHARS9 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 9],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_TO_WCHAR_TABLE {
+    pub pVkToWchars: *mut VK_TO_WCHARS1,
+    pub nModifications: u8,
+    pub cbSize: u8,
+}
 pub const VK_U: VIRTUAL_KEY = 85u16;
 pub const VK_UP: VIRTUAL_KEY = 38u16;
 pub const VK_V: VIRTUAL_KEY = 86u16;
 pub const VK_VOLUME_DOWN: VIRTUAL_KEY = 174u16;
 pub const VK_VOLUME_MUTE: VIRTUAL_KEY = 173u16;
 pub const VK_VOLUME_UP: VIRTUAL_KEY = 175u16;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VK_VSC {
+    pub Vk: u8,
+    pub Vsc: u8,
+}
 pub const VK_W: VIRTUAL_KEY = 87u16;
 pub const VK_X: VIRTUAL_KEY = 88u16;
 pub const VK_XBUTTON1: VIRTUAL_KEY = 5u16;
@@ -743,6 +731,18 @@ pub const VK_Y: VIRTUAL_KEY = 89u16;
 pub const VK_Z: VIRTUAL_KEY = 90u16;
 pub const VK_ZOOM: VIRTUAL_KEY = 251u16;
 pub const VK__none_: VIRTUAL_KEY = 255u16;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VSC_LPWSTR {
+    pub vsc: u8,
+    pub pwsz: windows_sys::core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VSC_VK {
+    pub Vsc: u8,
+    pub Vk: u16,
+}
 pub const WCH_DEAD: u32 = 61441u32;
 pub const WCH_LGTR: u32 = 61442u32;
 pub const WCH_NONE: u32 = 61440u32;

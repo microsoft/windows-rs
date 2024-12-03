@@ -1,4 +1,18 @@
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AddContactResult(pub i32);
+impl AddContactResult {
+    pub const Added: Self = Self(0i32);
+    pub const AlreadyAdded: Self = Self(1i32);
+    pub const Unavailable: Self = Self(2i32);
+}
+impl windows_core::TypeKind for AddContactResult {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AddContactResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.Provider.AddContactResult;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactPickerUI(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactPickerUI, windows_core::IUnknown, windows_core::IInspectable);
@@ -144,18 +158,4 @@ impl windows_core::RuntimeType for IContactRemovedEventArgs {
 pub struct IContactRemovedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AddContactResult(pub i32);
-impl AddContactResult {
-    pub const Added: Self = Self(0i32);
-    pub const AlreadyAdded: Self = Self(1i32);
-    pub const Unavailable: Self = Self(2i32);
-}
-impl windows_core::TypeKind for AddContactResult {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AddContactResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.Provider.AddContactResult;i4)");
 }

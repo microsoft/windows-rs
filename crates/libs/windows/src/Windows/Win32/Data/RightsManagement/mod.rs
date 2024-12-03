@@ -643,34 +643,13 @@ where
     windows_targets::link!("msdrm.dll" "system" fn DRMVerify(wszdata : windows_core::PCWSTR, pcattesteddata : *mut u32, wszattesteddata : windows_core::PWSTR, petype : *mut DRMATTESTTYPE, pcprincipal : *mut u32, wszprincipal : windows_core::PWSTR, pcmanifest : *mut u32, wszmanifest : windows_core::PWSTR) -> windows_core::HRESULT);
     DRMVerify(wszdata.param().abi(), core::mem::transmute(pcattesteddata), core::mem::transmute(wszattesteddata), core::mem::transmute(petype), core::mem::transmute(pcprincipal), core::mem::transmute(wszprincipal), core::mem::transmute(pcmanifest), core::mem::transmute(wszmanifest)).ok()
 }
-pub type DRMCALLBACK = Option<unsafe extern "system" fn(param0: DRM_STATUS_MSG, param1: windows_core::HRESULT, param2: *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub const DRMACTSERVINFOVERSION: u32 = 0u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRMATTESTTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DRMENCODINGTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DRMGLOBALOPTIONS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DRMSECURITYPROVIDERTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DRMSPECTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DRMTIMETYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DRM_DISTRIBUTION_POINT_INFO(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DRM_STATUS_MSG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DRM_USAGEPOLICY_TYPE(pub i32);
+pub const DRMATTESTTYPE_FULLENVIRONMENT: DRMATTESTTYPE = DRMATTESTTYPE(0i32);
+pub const DRMATTESTTYPE_HASHONLY: DRMATTESTTYPE = DRMATTESTTYPE(1i32);
+pub const DRMBINDINGFLAGS_IGNORE_VALIDITY_INTERVALS: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRMBOUNDLICENSEPARAMS {
@@ -693,6 +672,27 @@ impl Default for DRMBOUNDLICENSEPARAMS {
 impl windows_core::TypeKind for DRMBOUNDLICENSEPARAMS {
     type TypeKind = windows_core::CopyType;
 }
+pub const DRMBOUNDLICENSEPARAMSVERSION: u32 = 1u32;
+pub type DRMCALLBACK = Option<unsafe extern "system" fn(param0: DRM_STATUS_MSG, param1: windows_core::HRESULT, param2: *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub const DRMCALLBACKVERSION: u32 = 1u32;
+pub const DRMCLIENTSTRUCTVERSION: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DRMENCODINGTYPE(pub i32);
+pub const DRMENCODINGTYPE_BASE64: DRMENCODINGTYPE = DRMENCODINGTYPE(0i32);
+pub const DRMENCODINGTYPE_LONG: DRMENCODINGTYPE = DRMENCODINGTYPE(2i32);
+pub const DRMENCODINGTYPE_RAW: DRMENCODINGTYPE = DRMENCODINGTYPE(5i32);
+pub const DRMENCODINGTYPE_STRING: DRMENCODINGTYPE = DRMENCODINGTYPE(1i32);
+pub const DRMENCODINGTYPE_TIME: DRMENCODINGTYPE = DRMENCODINGTYPE(3i32);
+pub const DRMENCODINGTYPE_UINT: DRMENCODINGTYPE = DRMENCODINGTYPE(4i32);
+pub const DRMENVHANDLE_INVALID: u32 = 0u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DRMGLOBALOPTIONS(pub i32);
+pub const DRMGLOBALOPTIONS_USE_SERVERSECURITYPROCESSOR: DRMGLOBALOPTIONS = DRMGLOBALOPTIONS(1i32);
+pub const DRMGLOBALOPTIONS_USE_WINHTTP: DRMGLOBALOPTIONS = DRMGLOBALOPTIONS(0i32);
+pub const DRMHANDLE_INVALID: u32 = 0u32;
+pub const DRMHSESSION_INVALID: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRMID {
@@ -708,6 +708,31 @@ impl Default for DRMID {
 impl windows_core::TypeKind for DRMID {
     type TypeKind = windows_core::CopyType;
 }
+pub const DRMIDVERSION: u32 = 0u32;
+pub const DRMLICENSEACQDATAVERSION: u32 = 0u32;
+pub const DRMPUBHANDLE_INVALID: u32 = 0u32;
+pub const DRMQUERYHANDLE_INVALID: u32 = 0u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DRMSECURITYPROVIDERTYPE(pub i32);
+pub const DRMSECURITYPROVIDERTYPE_SOFTWARESECREP: DRMSECURITYPROVIDERTYPE = DRMSECURITYPROVIDERTYPE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DRMSPECTYPE(pub i32);
+pub const DRMSPECTYPE_FILENAME: DRMSPECTYPE = DRMSPECTYPE(1i32);
+pub const DRMSPECTYPE_UNKNOWN: DRMSPECTYPE = DRMSPECTYPE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DRMTIMETYPE(pub i32);
+pub const DRMTIMETYPE_SYSTEMLOCAL: DRMTIMETYPE = DRMTIMETYPE(1i32);
+pub const DRMTIMETYPE_SYSTEMUTC: DRMTIMETYPE = DRMTIMETYPE(0i32);
+pub const DRM_ACTIVATE_CANCEL: u32 = 8u32;
+pub const DRM_ACTIVATE_DELAYED: u32 = 64u32;
+pub const DRM_ACTIVATE_GROUPIDENTITY: u32 = 2u32;
+pub const DRM_ACTIVATE_MACHINE: u32 = 1u32;
+pub const DRM_ACTIVATE_SHARED_GROUPIDENTITY: u32 = 32u32;
+pub const DRM_ACTIVATE_SILENT: u32 = 16u32;
+pub const DRM_ACTIVATE_TEMPORARY: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRM_ACTSERV_INFO {
@@ -723,6 +748,17 @@ impl Default for DRM_ACTSERV_INFO {
 impl windows_core::TypeKind for DRM_ACTSERV_INFO {
     type TypeKind = windows_core::CopyType;
 }
+pub const DRM_ADD_LICENSE_NOPERSIST: u32 = 0u32;
+pub const DRM_ADD_LICENSE_PERSIST: u32 = 1u32;
+pub const DRM_AILT_CANCEL: u32 = 4u32;
+pub const DRM_AILT_NONSILENT: u32 = 1u32;
+pub const DRM_AILT_OBTAIN_ALL: u32 = 2u32;
+pub const DRM_AL_CANCEL: u32 = 4u32;
+pub const DRM_AL_FETCHNOADVISORY: u32 = 8u32;
+pub const DRM_AL_NONSILENT: u32 = 1u32;
+pub const DRM_AL_NOPERSIST: u32 = 2u32;
+pub const DRM_AL_NOUI: u32 = 16u32;
+pub const DRM_AUTO_GENERATE_KEY: u32 = 16u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRM_CLIENT_VERSION_INFO {
@@ -740,71 +776,11 @@ impl Default for DRM_CLIENT_VERSION_INFO {
 impl windows_core::TypeKind for DRM_CLIENT_VERSION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DRM_LICENSE_ACQ_DATA {
-    pub uVersion: u32,
-    pub wszURL: windows_core::PWSTR,
-    pub wszLocalFilename: windows_core::PWSTR,
-    pub pbPostData: *mut u8,
-    pub dwPostDataSize: u32,
-    pub wszFriendlyName: windows_core::PWSTR,
-}
-impl Default for DRM_LICENSE_ACQ_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DRM_LICENSE_ACQ_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-pub const DRMACTSERVINFOVERSION: u32 = 0u32;
-pub const DRMATTESTTYPE_FULLENVIRONMENT: DRMATTESTTYPE = DRMATTESTTYPE(0i32);
-pub const DRMATTESTTYPE_HASHONLY: DRMATTESTTYPE = DRMATTESTTYPE(1i32);
-pub const DRMBINDINGFLAGS_IGNORE_VALIDITY_INTERVALS: u32 = 1u32;
-pub const DRMBOUNDLICENSEPARAMSVERSION: u32 = 1u32;
-pub const DRMCALLBACKVERSION: u32 = 1u32;
-pub const DRMCLIENTSTRUCTVERSION: u32 = 1u32;
-pub const DRMENCODINGTYPE_BASE64: DRMENCODINGTYPE = DRMENCODINGTYPE(0i32);
-pub const DRMENCODINGTYPE_LONG: DRMENCODINGTYPE = DRMENCODINGTYPE(2i32);
-pub const DRMENCODINGTYPE_RAW: DRMENCODINGTYPE = DRMENCODINGTYPE(5i32);
-pub const DRMENCODINGTYPE_STRING: DRMENCODINGTYPE = DRMENCODINGTYPE(1i32);
-pub const DRMENCODINGTYPE_TIME: DRMENCODINGTYPE = DRMENCODINGTYPE(3i32);
-pub const DRMENCODINGTYPE_UINT: DRMENCODINGTYPE = DRMENCODINGTYPE(4i32);
-pub const DRMENVHANDLE_INVALID: u32 = 0u32;
-pub const DRMGLOBALOPTIONS_USE_SERVERSECURITYPROCESSOR: DRMGLOBALOPTIONS = DRMGLOBALOPTIONS(1i32);
-pub const DRMGLOBALOPTIONS_USE_WINHTTP: DRMGLOBALOPTIONS = DRMGLOBALOPTIONS(0i32);
-pub const DRMHANDLE_INVALID: u32 = 0u32;
-pub const DRMHSESSION_INVALID: u32 = 0u32;
-pub const DRMIDVERSION: u32 = 0u32;
-pub const DRMLICENSEACQDATAVERSION: u32 = 0u32;
-pub const DRMPUBHANDLE_INVALID: u32 = 0u32;
-pub const DRMQUERYHANDLE_INVALID: u32 = 0u32;
-pub const DRMSECURITYPROVIDERTYPE_SOFTWARESECREP: DRMSECURITYPROVIDERTYPE = DRMSECURITYPROVIDERTYPE(0i32);
-pub const DRMSPECTYPE_FILENAME: DRMSPECTYPE = DRMSPECTYPE(1i32);
-pub const DRMSPECTYPE_UNKNOWN: DRMSPECTYPE = DRMSPECTYPE(0i32);
-pub const DRMTIMETYPE_SYSTEMLOCAL: DRMTIMETYPE = DRMTIMETYPE(1i32);
-pub const DRMTIMETYPE_SYSTEMUTC: DRMTIMETYPE = DRMTIMETYPE(0i32);
-pub const DRM_ACTIVATE_CANCEL: u32 = 8u32;
-pub const DRM_ACTIVATE_DELAYED: u32 = 64u32;
-pub const DRM_ACTIVATE_GROUPIDENTITY: u32 = 2u32;
-pub const DRM_ACTIVATE_MACHINE: u32 = 1u32;
-pub const DRM_ACTIVATE_SHARED_GROUPIDENTITY: u32 = 32u32;
-pub const DRM_ACTIVATE_SILENT: u32 = 16u32;
-pub const DRM_ACTIVATE_TEMPORARY: u32 = 4u32;
-pub const DRM_ADD_LICENSE_NOPERSIST: u32 = 0u32;
-pub const DRM_ADD_LICENSE_PERSIST: u32 = 1u32;
-pub const DRM_AILT_CANCEL: u32 = 4u32;
-pub const DRM_AILT_NONSILENT: u32 = 1u32;
-pub const DRM_AILT_OBTAIN_ALL: u32 = 2u32;
-pub const DRM_AL_CANCEL: u32 = 4u32;
-pub const DRM_AL_FETCHNOADVISORY: u32 = 8u32;
-pub const DRM_AL_NONSILENT: u32 = 1u32;
-pub const DRM_AL_NOPERSIST: u32 = 2u32;
-pub const DRM_AL_NOUI: u32 = 16u32;
-pub const DRM_AUTO_GENERATE_KEY: u32 = 16u32;
 pub const DRM_DEFAULTGROUPIDTYPE_PASSPORT: windows_core::PCWSTR = windows_core::w!("PassportAuthProvider");
 pub const DRM_DEFAULTGROUPIDTYPE_WINDOWSAUTH: windows_core::PCWSTR = windows_core::w!("WindowsAuthProvider");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DRM_DISTRIBUTION_POINT_INFO(pub i32);
 pub const DRM_DISTRIBUTION_POINT_LICENSE_ACQUISITION: DRM_DISTRIBUTION_POINT_INFO = DRM_DISTRIBUTION_POINT_INFO(0i32);
 pub const DRM_DISTRIBUTION_POINT_PUBLISHING: DRM_DISTRIBUTION_POINT_INFO = DRM_DISTRIBUTION_POINT_INFO(1i32);
 pub const DRM_DISTRIBUTION_POINT_REFERRAL_INFO: DRM_DISTRIBUTION_POINT_INFO = DRM_DISTRIBUTION_POINT_INFO(2i32);
@@ -824,6 +800,24 @@ pub const DRM_EL_REVOCATIONLIST: u32 = 1024u32;
 pub const DRM_EL_REVOCATIONLIST_LID: u32 = 2048u32;
 pub const DRM_EL_SPECIFIED_CLIENTLICENSOR: u32 = 512u32;
 pub const DRM_EL_SPECIFIED_GROUPIDENTITY: u32 = 16u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DRM_LICENSE_ACQ_DATA {
+    pub uVersion: u32,
+    pub wszURL: windows_core::PWSTR,
+    pub wszLocalFilename: windows_core::PWSTR,
+    pub pbPostData: *mut u8,
+    pub dwPostDataSize: u32,
+    pub wszFriendlyName: windows_core::PWSTR,
+}
+impl Default for DRM_LICENSE_ACQ_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DRM_LICENSE_ACQ_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 pub const DRM_LOCKBOXTYPE_BLACKBOX: u32 = 2u32;
 pub const DRM_LOCKBOXTYPE_DEFAULT: u32 = 2u32;
 pub const DRM_LOCKBOXTYPE_NONE: u32 = 0u32;
@@ -848,6 +842,12 @@ pub const DRM_SERVICE_TYPE_SILENT: u32 = 16u32;
 pub const DRM_SIGN_CANCEL: u32 = 4u32;
 pub const DRM_SIGN_OFFLINE: u32 = 2u32;
 pub const DRM_SIGN_ONLINE: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DRM_STATUS_MSG(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DRM_USAGEPOLICY_TYPE(pub i32);
 pub const DRM_USAGEPOLICY_TYPE_BYDIGEST: DRM_USAGEPOLICY_TYPE = DRM_USAGEPOLICY_TYPE(2i32);
 pub const DRM_USAGEPOLICY_TYPE_BYNAME: DRM_USAGEPOLICY_TYPE = DRM_USAGEPOLICY_TYPE(0i32);
 pub const DRM_USAGEPOLICY_TYPE_BYPUBLICKEY: DRM_USAGEPOLICY_TYPE = DRM_USAGEPOLICY_TYPE(1i32);

@@ -328,6 +328,22 @@ impl windows_core::RuntimeName for Appointment {
 unsafe impl Send for Appointment {}
 unsafe impl Sync for Appointment {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AppointmentBusyStatus(pub i32);
+impl AppointmentBusyStatus {
+    pub const Busy: Self = Self(0i32);
+    pub const Tentative: Self = Self(1i32);
+    pub const Free: Self = Self(2i32);
+    pub const OutOfOffice: Self = Self(3i32);
+    pub const WorkingElsewhere: Self = Self(4i32);
+}
+impl windows_core::TypeKind for AppointmentBusyStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AppointmentBusyStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentBusyStatus;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppointmentCalendar(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendar, windows_core::IUnknown, windows_core::IInspectable);
@@ -706,6 +722,35 @@ impl windows_core::RuntimeName for AppointmentCalendar {
 unsafe impl Send for AppointmentCalendar {}
 unsafe impl Sync for AppointmentCalendar {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AppointmentCalendarOtherAppReadAccess(pub i32);
+impl AppointmentCalendarOtherAppReadAccess {
+    pub const SystemOnly: Self = Self(0i32);
+    pub const Limited: Self = Self(1i32);
+    pub const Full: Self = Self(2i32);
+    pub const None: Self = Self(3i32);
+}
+impl windows_core::TypeKind for AppointmentCalendarOtherAppReadAccess {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AppointmentCalendarOtherAppReadAccess {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentCalendarOtherAppReadAccess;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AppointmentCalendarOtherAppWriteAccess(pub i32);
+impl AppointmentCalendarOtherAppWriteAccess {
+    pub const None: Self = Self(0i32);
+    pub const SystemOnly: Self = Self(1i32);
+    pub const Limited: Self = Self(2i32);
+}
+impl windows_core::TypeKind for AppointmentCalendarOtherAppWriteAccess {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AppointmentCalendarOtherAppWriteAccess {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentCalendarOtherAppWriteAccess;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppointmentCalendarSyncManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendarSyncManager, windows_core::IUnknown, windows_core::IInspectable);
@@ -778,6 +823,24 @@ impl windows_core::RuntimeName for AppointmentCalendarSyncManager {
 unsafe impl Send for AppointmentCalendarSyncManager {}
 unsafe impl Sync for AppointmentCalendarSyncManager {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AppointmentCalendarSyncStatus(pub i32);
+impl AppointmentCalendarSyncStatus {
+    pub const Idle: Self = Self(0i32);
+    pub const Syncing: Self = Self(1i32);
+    pub const UpToDate: Self = Self(2i32);
+    pub const AuthenticationError: Self = Self(3i32);
+    pub const PolicyError: Self = Self(4i32);
+    pub const UnknownError: Self = Self(5i32);
+    pub const ManualAccountRemovalRequired: Self = Self(6i32);
+}
+impl windows_core::TypeKind for AppointmentCalendarSyncStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AppointmentCalendarSyncStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentCalendarSyncStatus;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppointmentConflictResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentConflictResult, windows_core::IUnknown, windows_core::IInspectable);
@@ -809,6 +872,85 @@ impl windows_core::RuntimeName for AppointmentConflictResult {
 }
 unsafe impl Send for AppointmentConflictResult {}
 unsafe impl Sync for AppointmentConflictResult {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AppointmentConflictType(pub i32);
+impl AppointmentConflictType {
+    pub const None: Self = Self(0i32);
+    pub const Adjacent: Self = Self(1i32);
+    pub const Overlap: Self = Self(2i32);
+}
+impl windows_core::TypeKind for AppointmentConflictType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AppointmentConflictType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentConflictType;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AppointmentDaysOfWeek(pub u32);
+impl AppointmentDaysOfWeek {
+    pub const None: Self = Self(0u32);
+    pub const Sunday: Self = Self(1u32);
+    pub const Monday: Self = Self(2u32);
+    pub const Tuesday: Self = Self(4u32);
+    pub const Wednesday: Self = Self(8u32);
+    pub const Thursday: Self = Self(16u32);
+    pub const Friday: Self = Self(32u32);
+    pub const Saturday: Self = Self(64u32);
+}
+impl windows_core::TypeKind for AppointmentDaysOfWeek {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AppointmentDaysOfWeek {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentDaysOfWeek;u4)");
+}
+impl AppointmentDaysOfWeek {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for AppointmentDaysOfWeek {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for AppointmentDaysOfWeek {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for AppointmentDaysOfWeek {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for AppointmentDaysOfWeek {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for AppointmentDaysOfWeek {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AppointmentDetailsKind(pub i32);
+impl AppointmentDetailsKind {
+    pub const PlainText: Self = Self(0i32);
+    pub const Html: Self = Self(1i32);
+}
+impl windows_core::TypeKind for AppointmentDetailsKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AppointmentDetailsKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentDetailsKind;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppointmentException(windows_core::IUnknown);
@@ -1235,6 +1377,36 @@ impl windows_core::RuntimeName for AppointmentOrganizer {
 }
 unsafe impl Send for AppointmentOrganizer {}
 unsafe impl Sync for AppointmentOrganizer {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AppointmentParticipantResponse(pub i32);
+impl AppointmentParticipantResponse {
+    pub const None: Self = Self(0i32);
+    pub const Tentative: Self = Self(1i32);
+    pub const Accepted: Self = Self(2i32);
+    pub const Declined: Self = Self(3i32);
+    pub const Unknown: Self = Self(4i32);
+}
+impl windows_core::TypeKind for AppointmentParticipantResponse {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AppointmentParticipantResponse {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentParticipantResponse;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AppointmentParticipantRole(pub i32);
+impl AppointmentParticipantRole {
+    pub const RequiredAttendee: Self = Self(0i32);
+    pub const OptionalAttendee: Self = Self(1i32);
+    pub const Resource: Self = Self(2i32);
+}
+impl windows_core::TypeKind for AppointmentParticipantRole {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AppointmentParticipantRole {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentParticipantRole;i4)");
+}
 pub struct AppointmentProperties;
 impl AppointmentProperties {
     pub fn Subject() -> windows_core::Result<windows_core::HSTRING> {
@@ -1551,6 +1723,36 @@ impl windows_core::RuntimeName for AppointmentRecurrence {
 unsafe impl Send for AppointmentRecurrence {}
 unsafe impl Sync for AppointmentRecurrence {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AppointmentRecurrenceUnit(pub i32);
+impl AppointmentRecurrenceUnit {
+    pub const Daily: Self = Self(0i32);
+    pub const Weekly: Self = Self(1i32);
+    pub const Monthly: Self = Self(2i32);
+    pub const MonthlyOnDay: Self = Self(3i32);
+    pub const Yearly: Self = Self(4i32);
+    pub const YearlyOnDay: Self = Self(5i32);
+}
+impl windows_core::TypeKind for AppointmentRecurrenceUnit {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AppointmentRecurrenceUnit {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentRecurrenceUnit;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AppointmentSensitivity(pub i32);
+impl AppointmentSensitivity {
+    pub const Public: Self = Self(0i32);
+    pub const Private: Self = Self(1i32);
+}
+impl windows_core::TypeKind for AppointmentSensitivity {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AppointmentSensitivity {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentSensitivity;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppointmentStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentStore, windows_core::IUnknown, windows_core::IInspectable);
@@ -1776,6 +1978,20 @@ impl windows_core::RuntimeName for AppointmentStore {
 unsafe impl Send for AppointmentStore {}
 unsafe impl Sync for AppointmentStore {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AppointmentStoreAccessType(pub i32);
+impl AppointmentStoreAccessType {
+    pub const AppCalendarsReadWrite: Self = Self(0i32);
+    pub const AllCalendarsReadOnly: Self = Self(1i32);
+    pub const AllCalendarsReadWrite: Self = Self(2i32);
+}
+impl windows_core::TypeKind for AppointmentStoreAccessType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AppointmentStoreAccessType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentStoreAccessType;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppointmentStoreChange(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentStoreChange, windows_core::IUnknown, windows_core::IInspectable);
@@ -1892,6 +2108,24 @@ impl windows_core::RuntimeName for AppointmentStoreChangeTracker {
 unsafe impl Send for AppointmentStoreChangeTracker {}
 unsafe impl Sync for AppointmentStoreChangeTracker {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AppointmentStoreChangeType(pub i32);
+impl AppointmentStoreChangeType {
+    pub const AppointmentCreated: Self = Self(0i32);
+    pub const AppointmentModified: Self = Self(1i32);
+    pub const AppointmentDeleted: Self = Self(2i32);
+    pub const ChangeTrackingLost: Self = Self(3i32);
+    pub const CalendarCreated: Self = Self(4i32);
+    pub const CalendarModified: Self = Self(5i32);
+    pub const CalendarDeleted: Self = Self(6i32);
+}
+impl windows_core::TypeKind for AppointmentStoreChangeType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AppointmentStoreChangeType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentStoreChangeType;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppointmentStoreChangedDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentStoreChangedDeferral, windows_core::IUnknown, windows_core::IInspectable);
@@ -1955,6 +2189,81 @@ impl windows_core::RuntimeName for AppointmentStoreNotificationTriggerDetails {
 }
 unsafe impl Send for AppointmentStoreNotificationTriggerDetails {}
 unsafe impl Sync for AppointmentStoreNotificationTriggerDetails {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AppointmentSummaryCardView(pub i32);
+impl AppointmentSummaryCardView {
+    pub const System: Self = Self(0i32);
+    pub const App: Self = Self(1i32);
+}
+impl windows_core::TypeKind for AppointmentSummaryCardView {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AppointmentSummaryCardView {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentSummaryCardView;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AppointmentWeekOfMonth(pub i32);
+impl AppointmentWeekOfMonth {
+    pub const First: Self = Self(0i32);
+    pub const Second: Self = Self(1i32);
+    pub const Third: Self = Self(2i32);
+    pub const Fourth: Self = Self(3i32);
+    pub const Last: Self = Self(4i32);
+}
+impl windows_core::TypeKind for AppointmentWeekOfMonth {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AppointmentWeekOfMonth {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentWeekOfMonth;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FindAppointmentCalendarsOptions(pub u32);
+impl FindAppointmentCalendarsOptions {
+    pub const None: Self = Self(0u32);
+    pub const IncludeHidden: Self = Self(1u32);
+}
+impl windows_core::TypeKind for FindAppointmentCalendarsOptions {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for FindAppointmentCalendarsOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.FindAppointmentCalendarsOptions;u4)");
+}
+impl FindAppointmentCalendarsOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for FindAppointmentCalendarsOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for FindAppointmentCalendarsOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for FindAppointmentCalendarsOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for FindAppointmentCalendarsOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for FindAppointmentCalendarsOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FindAppointmentsOptions(windows_core::IUnknown);
@@ -2705,315 +3014,6 @@ pub struct IFindAppointmentsOptions_Vtbl {
     pub SetIncludeHidden: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub MaxCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetMaxCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AppointmentBusyStatus(pub i32);
-impl AppointmentBusyStatus {
-    pub const Busy: Self = Self(0i32);
-    pub const Tentative: Self = Self(1i32);
-    pub const Free: Self = Self(2i32);
-    pub const OutOfOffice: Self = Self(3i32);
-    pub const WorkingElsewhere: Self = Self(4i32);
-}
-impl windows_core::TypeKind for AppointmentBusyStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AppointmentBusyStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentBusyStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AppointmentCalendarOtherAppReadAccess(pub i32);
-impl AppointmentCalendarOtherAppReadAccess {
-    pub const SystemOnly: Self = Self(0i32);
-    pub const Limited: Self = Self(1i32);
-    pub const Full: Self = Self(2i32);
-    pub const None: Self = Self(3i32);
-}
-impl windows_core::TypeKind for AppointmentCalendarOtherAppReadAccess {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AppointmentCalendarOtherAppReadAccess {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentCalendarOtherAppReadAccess;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AppointmentCalendarOtherAppWriteAccess(pub i32);
-impl AppointmentCalendarOtherAppWriteAccess {
-    pub const None: Self = Self(0i32);
-    pub const SystemOnly: Self = Self(1i32);
-    pub const Limited: Self = Self(2i32);
-}
-impl windows_core::TypeKind for AppointmentCalendarOtherAppWriteAccess {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AppointmentCalendarOtherAppWriteAccess {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentCalendarOtherAppWriteAccess;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AppointmentCalendarSyncStatus(pub i32);
-impl AppointmentCalendarSyncStatus {
-    pub const Idle: Self = Self(0i32);
-    pub const Syncing: Self = Self(1i32);
-    pub const UpToDate: Self = Self(2i32);
-    pub const AuthenticationError: Self = Self(3i32);
-    pub const PolicyError: Self = Self(4i32);
-    pub const UnknownError: Self = Self(5i32);
-    pub const ManualAccountRemovalRequired: Self = Self(6i32);
-}
-impl windows_core::TypeKind for AppointmentCalendarSyncStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AppointmentCalendarSyncStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentCalendarSyncStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AppointmentConflictType(pub i32);
-impl AppointmentConflictType {
-    pub const None: Self = Self(0i32);
-    pub const Adjacent: Self = Self(1i32);
-    pub const Overlap: Self = Self(2i32);
-}
-impl windows_core::TypeKind for AppointmentConflictType {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AppointmentConflictType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentConflictType;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AppointmentDaysOfWeek(pub u32);
-impl AppointmentDaysOfWeek {
-    pub const None: Self = Self(0u32);
-    pub const Sunday: Self = Self(1u32);
-    pub const Monday: Self = Self(2u32);
-    pub const Tuesday: Self = Self(4u32);
-    pub const Wednesday: Self = Self(8u32);
-    pub const Thursday: Self = Self(16u32);
-    pub const Friday: Self = Self(32u32);
-    pub const Saturday: Self = Self(64u32);
-}
-impl windows_core::TypeKind for AppointmentDaysOfWeek {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AppointmentDaysOfWeek {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentDaysOfWeek;u4)");
-}
-impl AppointmentDaysOfWeek {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for AppointmentDaysOfWeek {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for AppointmentDaysOfWeek {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for AppointmentDaysOfWeek {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for AppointmentDaysOfWeek {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for AppointmentDaysOfWeek {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AppointmentDetailsKind(pub i32);
-impl AppointmentDetailsKind {
-    pub const PlainText: Self = Self(0i32);
-    pub const Html: Self = Self(1i32);
-}
-impl windows_core::TypeKind for AppointmentDetailsKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AppointmentDetailsKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentDetailsKind;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AppointmentParticipantResponse(pub i32);
-impl AppointmentParticipantResponse {
-    pub const None: Self = Self(0i32);
-    pub const Tentative: Self = Self(1i32);
-    pub const Accepted: Self = Self(2i32);
-    pub const Declined: Self = Self(3i32);
-    pub const Unknown: Self = Self(4i32);
-}
-impl windows_core::TypeKind for AppointmentParticipantResponse {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AppointmentParticipantResponse {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentParticipantResponse;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AppointmentParticipantRole(pub i32);
-impl AppointmentParticipantRole {
-    pub const RequiredAttendee: Self = Self(0i32);
-    pub const OptionalAttendee: Self = Self(1i32);
-    pub const Resource: Self = Self(2i32);
-}
-impl windows_core::TypeKind for AppointmentParticipantRole {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AppointmentParticipantRole {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentParticipantRole;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AppointmentRecurrenceUnit(pub i32);
-impl AppointmentRecurrenceUnit {
-    pub const Daily: Self = Self(0i32);
-    pub const Weekly: Self = Self(1i32);
-    pub const Monthly: Self = Self(2i32);
-    pub const MonthlyOnDay: Self = Self(3i32);
-    pub const Yearly: Self = Self(4i32);
-    pub const YearlyOnDay: Self = Self(5i32);
-}
-impl windows_core::TypeKind for AppointmentRecurrenceUnit {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AppointmentRecurrenceUnit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentRecurrenceUnit;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AppointmentSensitivity(pub i32);
-impl AppointmentSensitivity {
-    pub const Public: Self = Self(0i32);
-    pub const Private: Self = Self(1i32);
-}
-impl windows_core::TypeKind for AppointmentSensitivity {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AppointmentSensitivity {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentSensitivity;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AppointmentStoreAccessType(pub i32);
-impl AppointmentStoreAccessType {
-    pub const AppCalendarsReadWrite: Self = Self(0i32);
-    pub const AllCalendarsReadOnly: Self = Self(1i32);
-    pub const AllCalendarsReadWrite: Self = Self(2i32);
-}
-impl windows_core::TypeKind for AppointmentStoreAccessType {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AppointmentStoreAccessType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentStoreAccessType;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AppointmentStoreChangeType(pub i32);
-impl AppointmentStoreChangeType {
-    pub const AppointmentCreated: Self = Self(0i32);
-    pub const AppointmentModified: Self = Self(1i32);
-    pub const AppointmentDeleted: Self = Self(2i32);
-    pub const ChangeTrackingLost: Self = Self(3i32);
-    pub const CalendarCreated: Self = Self(4i32);
-    pub const CalendarModified: Self = Self(5i32);
-    pub const CalendarDeleted: Self = Self(6i32);
-}
-impl windows_core::TypeKind for AppointmentStoreChangeType {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AppointmentStoreChangeType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentStoreChangeType;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AppointmentSummaryCardView(pub i32);
-impl AppointmentSummaryCardView {
-    pub const System: Self = Self(0i32);
-    pub const App: Self = Self(1i32);
-}
-impl windows_core::TypeKind for AppointmentSummaryCardView {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AppointmentSummaryCardView {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentSummaryCardView;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AppointmentWeekOfMonth(pub i32);
-impl AppointmentWeekOfMonth {
-    pub const First: Self = Self(0i32);
-    pub const Second: Self = Self(1i32);
-    pub const Third: Self = Self(2i32);
-    pub const Fourth: Self = Self(3i32);
-    pub const Last: Self = Self(4i32);
-}
-impl windows_core::TypeKind for AppointmentWeekOfMonth {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for AppointmentWeekOfMonth {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentWeekOfMonth;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FindAppointmentCalendarsOptions(pub u32);
-impl FindAppointmentCalendarsOptions {
-    pub const None: Self = Self(0u32);
-    pub const IncludeHidden: Self = Self(1u32);
-}
-impl windows_core::TypeKind for FindAppointmentCalendarsOptions {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for FindAppointmentCalendarsOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.FindAppointmentCalendarsOptions;u4)");
-}
-impl FindAppointmentCalendarsOptions {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for FindAppointmentCalendarsOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for FindAppointmentCalendarsOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for FindAppointmentCalendarsOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for FindAppointmentCalendarsOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for FindAppointmentCalendarsOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

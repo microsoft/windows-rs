@@ -23,6 +23,9 @@ where
     windows_targets::link!("xpsprint.dll" "system" fn StartXpsPrintJob1(printername : windows_core::PCWSTR, jobname : windows_core::PCWSTR, outputfilename : windows_core::PCWSTR, progressevent : super::super::super::Foundation:: HANDLE, completionevent : super::super::super::Foundation:: HANDLE, xpsprintjob : *mut * mut core::ffi::c_void, printcontentreceiver : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     StartXpsPrintJob1(printername.param().abi(), jobname.param().abi(), outputfilename.param().abi(), progressevent.param().abi(), completionevent.param().abi(), core::mem::transmute(xpsprintjob), core::mem::transmute(printcontentreceiver)).ok()
 }
+pub const ID_DOCUMENTPACKAGETARGET_MSXPS: windows_core::GUID = windows_core::GUID::from_u128(0x9cae40a8_ded1_41c9_a9fd_d735ef33aeda);
+pub const ID_DOCUMENTPACKAGETARGET_OPENXPS: windows_core::GUID = windows_core::GUID::from_u128(0x0056bb72_8c9c_4612_bd0f_93012a87099d);
+pub const ID_DOCUMENTPACKAGETARGET_OPENXPS_WITH_3D: windows_core::GUID = windows_core::GUID::from_u128(0x63dbd720_8b14_4577_b074_7bb11b596d28);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IPrintDocumentPackageStatusEvent, IPrintDocumentPackageStatusEvent_Vtbl, 0xed90c8ad_5c34_4d05_a1ec_0e8a9b3ad7af);
 #[cfg(feature = "Win32_System_Com")]
@@ -312,9 +315,10 @@ impl windows_core::RuntimeName for IXpsPrintJobStream {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintDocumentPackageCompletion(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct XPS_JOB_COMPLETION(pub i32);
+pub const PrintDocumentPackageCompletion_Canceled: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(2i32);
+pub const PrintDocumentPackageCompletion_Completed: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(1i32);
+pub const PrintDocumentPackageCompletion_Failed: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(3i32);
+pub const PrintDocumentPackageCompletion_InProgress: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(0i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PrintDocumentPackageStatus {
@@ -335,6 +339,13 @@ impl windows_core::TypeKind for PrintDocumentPackageStatus {
 }
 pub const PrintDocumentPackageTarget: windows_core::GUID = windows_core::GUID::from_u128(0x4842669e_9947_46ea_8ba2_d8cce432c2ca);
 pub const PrintDocumentPackageTargetFactory: windows_core::GUID = windows_core::GUID::from_u128(0x348ef17d_6c81_4982_92b4_ee188a43867a);
+pub const XPS_JOB_CANCELLED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(2i32);
+pub const XPS_JOB_COMPLETED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct XPS_JOB_COMPLETION(pub i32);
+pub const XPS_JOB_FAILED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(3i32);
+pub const XPS_JOB_IN_PROGRESS: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(0i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XPS_JOB_STATUS {
@@ -353,14 +364,3 @@ impl Default for XPS_JOB_STATUS {
 impl windows_core::TypeKind for XPS_JOB_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-pub const ID_DOCUMENTPACKAGETARGET_MSXPS: windows_core::GUID = windows_core::GUID::from_u128(0x9cae40a8_ded1_41c9_a9fd_d735ef33aeda);
-pub const ID_DOCUMENTPACKAGETARGET_OPENXPS: windows_core::GUID = windows_core::GUID::from_u128(0x0056bb72_8c9c_4612_bd0f_93012a87099d);
-pub const ID_DOCUMENTPACKAGETARGET_OPENXPS_WITH_3D: windows_core::GUID = windows_core::GUID::from_u128(0x63dbd720_8b14_4577_b074_7bb11b596d28);
-pub const PrintDocumentPackageCompletion_Canceled: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(2i32);
-pub const PrintDocumentPackageCompletion_Completed: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(1i32);
-pub const PrintDocumentPackageCompletion_Failed: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(3i32);
-pub const PrintDocumentPackageCompletion_InProgress: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(0i32);
-pub const XPS_JOB_CANCELLED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(2i32);
-pub const XPS_JOB_COMPLETED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(1i32);
-pub const XPS_JOB_FAILED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(3i32);
-pub const XPS_JOB_IN_PROGRESS: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(0i32);

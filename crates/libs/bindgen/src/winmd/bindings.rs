@@ -7,13 +7,33 @@
 )]
 
 pub type CorElementType = u8;
-pub type IMAGE_DIRECTORY_ENTRY = u16;
-pub type IMAGE_DLL_CHARACTERISTICS = u16;
-pub type IMAGE_FILE_CHARACTERISTICS = u16;
-pub type IMAGE_FILE_MACHINE = u16;
-pub type IMAGE_OPTIONAL_HEADER_MAGIC = u16;
-pub type IMAGE_SECTION_CHARACTERISTICS = u32;
-pub type IMAGE_SUBSYSTEM = u16;
+pub const ELEMENT_TYPE_ARRAY: CorElementType = 20u8;
+pub const ELEMENT_TYPE_BOOLEAN: CorElementType = 2u8;
+pub const ELEMENT_TYPE_BYREF: CorElementType = 16u8;
+pub const ELEMENT_TYPE_CHAR: CorElementType = 3u8;
+pub const ELEMENT_TYPE_CLASS: CorElementType = 18u8;
+pub const ELEMENT_TYPE_CMOD_OPT: CorElementType = 32u8;
+pub const ELEMENT_TYPE_CMOD_REQD: CorElementType = 31u8;
+pub const ELEMENT_TYPE_GENERICINST: CorElementType = 21u8;
+pub const ELEMENT_TYPE_I: CorElementType = 24u8;
+pub const ELEMENT_TYPE_I1: CorElementType = 4u8;
+pub const ELEMENT_TYPE_I2: CorElementType = 6u8;
+pub const ELEMENT_TYPE_I4: CorElementType = 8u8;
+pub const ELEMENT_TYPE_I8: CorElementType = 10u8;
+pub const ELEMENT_TYPE_OBJECT: CorElementType = 28u8;
+pub const ELEMENT_TYPE_PTR: CorElementType = 15u8;
+pub const ELEMENT_TYPE_R4: CorElementType = 12u8;
+pub const ELEMENT_TYPE_R8: CorElementType = 13u8;
+pub const ELEMENT_TYPE_STRING: CorElementType = 14u8;
+pub const ELEMENT_TYPE_SZARRAY: CorElementType = 29u8;
+pub const ELEMENT_TYPE_U: CorElementType = 25u8;
+pub const ELEMENT_TYPE_U1: CorElementType = 5u8;
+pub const ELEMENT_TYPE_U2: CorElementType = 7u8;
+pub const ELEMENT_TYPE_U4: CorElementType = 9u8;
+pub const ELEMENT_TYPE_U8: CorElementType = 11u8;
+pub const ELEMENT_TYPE_VALUETYPE: CorElementType = 17u8;
+pub const ELEMENT_TYPE_VAR: CorElementType = 19u8;
+pub const ELEMENT_TYPE_VOID: CorElementType = 1u8;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGE_COR20_HEADER {
@@ -42,6 +62,12 @@ pub struct IMAGE_DATA_DIRECTORY {
     pub VirtualAddress: u32,
     pub Size: u32,
 }
+pub type IMAGE_DIRECTORY_ENTRY = u16;
+pub const IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR: IMAGE_DIRECTORY_ENTRY = 14u16;
+pub const IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE: IMAGE_DLL_CHARACTERISTICS = 64u16;
+pub const IMAGE_DLLCHARACTERISTICS_NO_SEH: IMAGE_DLL_CHARACTERISTICS = 1024u16;
+pub const IMAGE_DLLCHARACTERISTICS_NX_COMPAT: IMAGE_DLL_CHARACTERISTICS = 256u16;
+pub type IMAGE_DLL_CHARACTERISTICS = u16;
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub struct IMAGE_DOS_HEADER {
@@ -65,6 +91,11 @@ pub struct IMAGE_DOS_HEADER {
     pub e_res2: [u16; 10],
     pub e_lfanew: i32,
 }
+pub const IMAGE_DOS_SIGNATURE: u16 = 23117u16;
+pub const IMAGE_FILE_32BIT_MACHINE: IMAGE_FILE_CHARACTERISTICS = 256u16;
+pub type IMAGE_FILE_CHARACTERISTICS = u16;
+pub const IMAGE_FILE_DLL: IMAGE_FILE_CHARACTERISTICS = 8192u16;
+pub const IMAGE_FILE_EXECUTABLE_IMAGE: IMAGE_FILE_CHARACTERISTICS = 2u16;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGE_FILE_HEADER {
@@ -76,6 +107,11 @@ pub struct IMAGE_FILE_HEADER {
     pub SizeOfOptionalHeader: u16,
     pub Characteristics: IMAGE_FILE_CHARACTERISTICS,
 }
+pub type IMAGE_FILE_MACHINE = u16;
+pub const IMAGE_FILE_MACHINE_I386: IMAGE_FILE_MACHINE = 332u16;
+pub const IMAGE_NT_OPTIONAL_HDR32_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = 267u16;
+pub const IMAGE_NT_OPTIONAL_HDR64_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = 523u16;
+pub const IMAGE_NT_SIGNATURE: u32 = 17744u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGE_OPTIONAL_HEADER32 {
@@ -145,6 +181,8 @@ pub struct IMAGE_OPTIONAL_HEADER64 {
     pub NumberOfRvaAndSizes: u32,
     pub DataDirectory: [IMAGE_DATA_DIRECTORY; 16],
 }
+pub type IMAGE_OPTIONAL_HEADER_MAGIC = u16;
+pub type IMAGE_SECTION_CHARACTERISTICS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGE_SECTION_HEADER {
@@ -165,43 +203,5 @@ pub union IMAGE_SECTION_HEADER_0 {
     pub PhysicalAddress: u32,
     pub VirtualSize: u32,
 }
-pub const ELEMENT_TYPE_ARRAY: CorElementType = 20u8;
-pub const ELEMENT_TYPE_BOOLEAN: CorElementType = 2u8;
-pub const ELEMENT_TYPE_BYREF: CorElementType = 16u8;
-pub const ELEMENT_TYPE_CHAR: CorElementType = 3u8;
-pub const ELEMENT_TYPE_CLASS: CorElementType = 18u8;
-pub const ELEMENT_TYPE_CMOD_OPT: CorElementType = 32u8;
-pub const ELEMENT_TYPE_CMOD_REQD: CorElementType = 31u8;
-pub const ELEMENT_TYPE_GENERICINST: CorElementType = 21u8;
-pub const ELEMENT_TYPE_I: CorElementType = 24u8;
-pub const ELEMENT_TYPE_I1: CorElementType = 4u8;
-pub const ELEMENT_TYPE_I2: CorElementType = 6u8;
-pub const ELEMENT_TYPE_I4: CorElementType = 8u8;
-pub const ELEMENT_TYPE_I8: CorElementType = 10u8;
-pub const ELEMENT_TYPE_OBJECT: CorElementType = 28u8;
-pub const ELEMENT_TYPE_PTR: CorElementType = 15u8;
-pub const ELEMENT_TYPE_R4: CorElementType = 12u8;
-pub const ELEMENT_TYPE_R8: CorElementType = 13u8;
-pub const ELEMENT_TYPE_STRING: CorElementType = 14u8;
-pub const ELEMENT_TYPE_SZARRAY: CorElementType = 29u8;
-pub const ELEMENT_TYPE_U: CorElementType = 25u8;
-pub const ELEMENT_TYPE_U1: CorElementType = 5u8;
-pub const ELEMENT_TYPE_U2: CorElementType = 7u8;
-pub const ELEMENT_TYPE_U4: CorElementType = 9u8;
-pub const ELEMENT_TYPE_U8: CorElementType = 11u8;
-pub const ELEMENT_TYPE_VALUETYPE: CorElementType = 17u8;
-pub const ELEMENT_TYPE_VAR: CorElementType = 19u8;
-pub const ELEMENT_TYPE_VOID: CorElementType = 1u8;
-pub const IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR: IMAGE_DIRECTORY_ENTRY = 14u16;
-pub const IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE: IMAGE_DLL_CHARACTERISTICS = 64u16;
-pub const IMAGE_DLLCHARACTERISTICS_NO_SEH: IMAGE_DLL_CHARACTERISTICS = 1024u16;
-pub const IMAGE_DLLCHARACTERISTICS_NX_COMPAT: IMAGE_DLL_CHARACTERISTICS = 256u16;
-pub const IMAGE_DOS_SIGNATURE: u16 = 23117u16;
-pub const IMAGE_FILE_32BIT_MACHINE: IMAGE_FILE_CHARACTERISTICS = 256u16;
-pub const IMAGE_FILE_DLL: IMAGE_FILE_CHARACTERISTICS = 8192u16;
-pub const IMAGE_FILE_EXECUTABLE_IMAGE: IMAGE_FILE_CHARACTERISTICS = 2u16;
-pub const IMAGE_FILE_MACHINE_I386: IMAGE_FILE_MACHINE = 332u16;
-pub const IMAGE_NT_OPTIONAL_HDR32_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = 267u16;
-pub const IMAGE_NT_OPTIONAL_HDR64_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = 523u16;
-pub const IMAGE_NT_SIGNATURE: u32 = 17744u32;
+pub type IMAGE_SUBSYSTEM = u16;
 pub const IMAGE_SUBSYSTEM_WINDOWS_CUI: IMAGE_SUBSYSTEM = 3u16;

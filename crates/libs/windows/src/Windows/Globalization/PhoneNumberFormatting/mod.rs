@@ -1,3 +1,78 @@
+windows_core::imp::define_interface!(IPhoneNumberFormatter, IPhoneNumberFormatter_Vtbl, 0x1556b49e_bad4_4b4a_900d_4407adb7c981);
+impl windows_core::RuntimeType for IPhoneNumberFormatter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPhoneNumberFormatter_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Format: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FormatWithOutputFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PhoneNumberFormat, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FormatPartialString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FormatString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FormatStringWithLeftToRightMarkers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPhoneNumberFormatterStatics, IPhoneNumberFormatterStatics_Vtbl, 0x5ca6f931_84d9_414b_ab4e_a0552c878602);
+impl windows_core::RuntimeType for IPhoneNumberFormatterStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPhoneNumberFormatterStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub TryCreate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetCountryCodeForRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub GetNationalDirectDialingPrefixForRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub WrapWithLeftToRightMarkers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPhoneNumberInfo, IPhoneNumberInfo_Vtbl, 0x1c7ce4dd_c8b4_4ea3_9aef_b342e2c5b417);
+impl windows_core::RuntimeType for IPhoneNumberInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPhoneNumberInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CountryCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub PhoneNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetLengthOfGeographicalAreaCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub GetNationalSignificantNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetLengthOfNationalDestinationCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub PredictNumberKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PredictedPhoneNumberKind) -> windows_core::HRESULT,
+    pub GetGeographicRegionCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CheckNumberMatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut PhoneNumberMatchResult) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPhoneNumberInfoFactory, IPhoneNumberInfoFactory_Vtbl, 0x8202b964_adaa_4cff_8fcf_17e7516a28ff);
+impl windows_core::RuntimeType for IPhoneNumberInfoFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPhoneNumberInfoFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPhoneNumberInfoStatics, IPhoneNumberInfoStatics_Vtbl, 0x5b3f4f6a_86a9_40e9_8649_6d61161928d4);
+impl windows_core::RuntimeType for IPhoneNumberInfoStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPhoneNumberInfoStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub TryParse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut PhoneNumberParseResult) -> windows_core::HRESULT,
+    pub TryParseWithRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut PhoneNumberParseResult) -> windows_core::HRESULT,
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PhoneNumberFormat(pub i32);
+impl PhoneNumberFormat {
+    pub const E164: Self = Self(0i32);
+    pub const International: Self = Self(1i32);
+    pub const National: Self = Self(2i32);
+    pub const Rfc3966: Self = Self(3i32);
+}
+impl windows_core::TypeKind for PhoneNumberFormat {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for PhoneNumberFormat {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormat;i4)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PhoneNumberFormatter(windows_core::IUnknown);
@@ -200,81 +275,6 @@ impl windows_core::RuntimeName for PhoneNumberInfo {
 }
 unsafe impl Send for PhoneNumberInfo {}
 unsafe impl Sync for PhoneNumberInfo {}
-windows_core::imp::define_interface!(IPhoneNumberFormatter, IPhoneNumberFormatter_Vtbl, 0x1556b49e_bad4_4b4a_900d_4407adb7c981);
-impl windows_core::RuntimeType for IPhoneNumberFormatter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPhoneNumberFormatter_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Format: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FormatWithOutputFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PhoneNumberFormat, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FormatPartialString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FormatString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FormatStringWithLeftToRightMarkers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPhoneNumberFormatterStatics, IPhoneNumberFormatterStatics_Vtbl, 0x5ca6f931_84d9_414b_ab4e_a0552c878602);
-impl windows_core::RuntimeType for IPhoneNumberFormatterStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPhoneNumberFormatterStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub TryCreate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetCountryCodeForRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub GetNationalDirectDialingPrefixForRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub WrapWithLeftToRightMarkers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPhoneNumberInfo, IPhoneNumberInfo_Vtbl, 0x1c7ce4dd_c8b4_4ea3_9aef_b342e2c5b417);
-impl windows_core::RuntimeType for IPhoneNumberInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPhoneNumberInfo_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CountryCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub PhoneNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetLengthOfGeographicalAreaCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub GetNationalSignificantNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetLengthOfNationalDestinationCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub PredictNumberKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PredictedPhoneNumberKind) -> windows_core::HRESULT,
-    pub GetGeographicRegionCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CheckNumberMatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut PhoneNumberMatchResult) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPhoneNumberInfoFactory, IPhoneNumberInfoFactory_Vtbl, 0x8202b964_adaa_4cff_8fcf_17e7516a28ff);
-impl windows_core::RuntimeType for IPhoneNumberInfoFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPhoneNumberInfoFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IPhoneNumberInfoStatics, IPhoneNumberInfoStatics_Vtbl, 0x5b3f4f6a_86a9_40e9_8649_6d61161928d4);
-impl windows_core::RuntimeType for IPhoneNumberInfoStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IPhoneNumberInfoStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub TryParse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut PhoneNumberParseResult) -> windows_core::HRESULT,
-    pub TryParseWithRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut PhoneNumberParseResult) -> windows_core::HRESULT,
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PhoneNumberFormat(pub i32);
-impl PhoneNumberFormat {
-    pub const E164: Self = Self(0i32);
-    pub const International: Self = Self(1i32);
-    pub const National: Self = Self(2i32);
-    pub const Rfc3966: Self = Self(3i32);
-}
-impl windows_core::TypeKind for PhoneNumberFormat {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for PhoneNumberFormat {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormat;i4)");
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneNumberMatchResult(pub i32);

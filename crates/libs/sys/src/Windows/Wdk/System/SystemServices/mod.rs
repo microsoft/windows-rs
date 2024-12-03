@@ -1803,806 +1803,7 @@ windows_targets::link!("ntdll.dll" "system" fn ZwUnloadDriver(driverservicename 
 windows_targets::link!("ntdll.dll" "system" fn ZwWriteFile(filehandle : super::super::super::Win32::Foundation:: HANDLE, event : super::super::super::Win32::Foundation:: HANDLE, apcroutine : super::super::super::Win32::System::IO:: PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, buffer : *const core::ffi::c_void, length : u32, byteoffset : *const i64, key : *const u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
 windows_targets::link!("ntdll.dll" "system" fn vDbgPrintEx(componentid : u32, level : u32, format : windows_sys::core::PCSTR, arglist : *const i8) -> u32);
 windows_targets::link!("ntdll.dll" "system" fn vDbgPrintExWithPrefix(prefix : windows_sys::core::PCSTR, componentid : u32, level : u32, format : windows_sys::core::PCSTR, arglist : *const i8) -> u32);
-#[cfg(feature = "Wdk_Foundation")]
-pub type ALLOCATE_FUNCTION = Option<unsafe extern "system" fn(pooltype: super::super::Foundation::POOL_TYPE, numberofbytes: usize, tag: u32) -> *mut core::ffi::c_void>;
-pub type BOOT_DRIVER_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(callbackcontext: *const core::ffi::c_void, classification: BDCB_CALLBACK_TYPE, imageinformation: *mut BDCB_IMAGE_INFORMATION)>;
-pub type BOUND_CALLBACK = Option<unsafe extern "system" fn() -> BOUND_CALLBACK_STATUS>;
-pub type D3COLD_REQUEST_AUX_POWER = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, auxpowerinmilliwatts: u32, retryinseconds: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type D3COLD_REQUEST_CORE_POWER_RAIL = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, corepowerrailneeded: super::super::super::Win32::Foundation::BOOLEAN)>;
-pub type D3COLD_REQUEST_PERST_DELAY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, delayinmicroseconds: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type DEVICE_BUS_SPECIFIC_RESET_HANDLER = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void, bustype: *const windows_sys::core::GUID, resettypeselected: DEVICE_BUS_SPECIFIC_RESET_TYPE, flags: *const BUS_SPECIFIC_RESET_FLAGS, resetparameters: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type DEVICE_CHANGE_COMPLETE_CALLBACK = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
-pub type DEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void, resetinfocount: *mut u32, resetinfosupported: *mut DEVICE_BUS_SPECIFIC_RESET_INFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type DEVICE_RESET_COMPLETION = Option<unsafe extern "system" fn(status: super::super::super::Win32::Foundation::NTSTATUS, context: *mut core::ffi::c_void)>;
-pub type DEVICE_RESET_HANDLER = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void, resettype: DEVICE_RESET_TYPE, flags: u32, resetparameters: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type DMA_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, completioncontext: *const core::ffi::c_void, status: DMA_COMPLETION_STATUS)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type DRIVER_LIST_CONTROL = Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, irp: *const super::super::Foundation::IRP, scattergather: *const SCATTER_GATHER_LIST, context: *const core::ffi::c_void)>;
-pub type ENABLE_VIRTUALIZATION = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, numvfs: u16, enablevfmigration: super::super::super::Win32::Foundation::BOOLEAN, enablemigrationinterrupt: super::super::super::Win32::Foundation::BOOLEAN, enablevirtualization: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Win32_System_Diagnostics_Etw")]
-pub type ETWENABLECALLBACK = Option<unsafe extern "system" fn(sourceid: *const windows_sys::core::GUID, controlcode: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const super::super::super::Win32::System::Diagnostics::Etw::EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut core::ffi::c_void)>;
-pub type EXPAND_STACK_CALLOUT = Option<unsafe extern "system" fn(parameter: *const core::ffi::c_void)>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type EXT_CALLBACK = Option<unsafe extern "system" fn(timer: super::super::Foundation::PEX_TIMER, context: *const core::ffi::c_void)>;
-pub type EXT_DELETE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
-pub type EX_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(callbackcontext: *const core::ffi::c_void, argument1: *const core::ffi::c_void, argument2: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type FPGA_BUS_SCAN = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
-pub type FPGA_CONTROL_CONFIG_SPACE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, enable: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type FPGA_CONTROL_ERROR_REPORTING = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, uncorrectablemask: u32, correctablemask: u32, disableerrorreporting: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type FPGA_CONTROL_LINK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, enable: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type FREE_FUNCTION = Option<unsafe extern "system" fn(buffer: *const core::ffi::c_void)>;
-pub type FWMI_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(wnode: *mut core::ffi::c_void, context: *mut core::ffi::c_void)>;
-pub type GET_D3COLD_CAPABILITY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, d3coldsupported: *mut super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type GET_D3COLD_LAST_TRANSITION_STATUS = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, lasttransitionstatus: *mut D3COLD_LAST_TRANSITION_STATUS)>;
-pub type GET_DEVICE_RESET_STATUS = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void, isresetting: *mut super::super::super::Win32::Foundation::BOOLEAN, resettypeselected: *mut DEVICE_BUS_SPECIFIC_RESET_TYPE, flags: *mut DEVICE_RESET_STATUS_FLAGS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type GET_DMA_ADAPTER = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, devicedescriptor: *const DEVICE_DESCRIPTION, numberofmapregisters: *mut u32) -> *mut DMA_ADAPTER>;
-#[cfg(feature = "Win32_System_Power")]
-pub type GET_IDLE_WAKE_INFO = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, systempowerstate: super::super::super::Win32::System::Power::SYSTEM_POWER_STATE, deepestwakeabledstate: *mut DEVICE_WAKE_DEPTH) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type GET_SDEV_IDENTIFIER = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void) -> u64>;
-pub type GET_SET_DEVICE_DATA = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, datatype: u32, buffer: *mut core::ffi::c_void, offset: u32, length: u32) -> u32>;
-pub type GET_UPDATED_BUS_RESOURCE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, updatedresourcelist: *mut *mut CM_RESOURCE_LIST, updatedtranslatedresourcelist: *mut *mut CM_RESOURCE_LIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type GET_VIRTUAL_DEVICE_DATA = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, virtualfunction: u16, buffer: *mut core::ffi::c_void, offset: u32, length: u32) -> u32>;
-pub type GET_VIRTUAL_DEVICE_LOCATION = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, virtualfunction: u16, segmentnumber: *mut u16, busnumber: *mut u8, functionnumber: *mut u8) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type GET_VIRTUAL_DEVICE_RESOURCES = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, capturedbusnumbers: *mut u8)>;
-pub type GET_VIRTUAL_FUNCTION_PROBED_BARS = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, baseregistervalues: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type HVL_WHEA_ERROR_NOTIFICATION = Option<unsafe extern "system" fn(recoverycontext: *const WHEA_RECOVERY_CONTEXT, platformdirected: super::super::super::Win32::Foundation::BOOLEAN, poisoned: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type IOMMU_DEVICE_CREATE = Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, deviceconfig: *const IOMMU_DEVICE_CREATION_CONFIGURATION, dmadeviceout: *mut *mut super::super::Foundation::IOMMU_DMA_DEVICE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type IOMMU_DEVICE_DELETE = Option<unsafe extern "system" fn(dmadevice: *const super::super::Foundation::IOMMU_DMA_DEVICE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type IOMMU_DEVICE_FAULT_HANDLER = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, faultinformation: *mut FAULT_INFORMATION)>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type IOMMU_DEVICE_QUERY_DOMAIN_TYPES = Option<unsafe extern "system" fn(dmadevice: *const super::super::Foundation::IOMMU_DMA_DEVICE, availabledomains: *mut u32)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type IOMMU_DOMAIN_ATTACH_DEVICE = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, inputmappingidbase: u32, mappingcount: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type IOMMU_DOMAIN_ATTACH_DEVICE_EX = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, dmadevice: *const super::super::Foundation::IOMMU_DMA_DEVICE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type IOMMU_DOMAIN_CONFIGURE = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, configuration: *const DOMAIN_CONFIGURATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type IOMMU_DOMAIN_CREATE = Option<unsafe extern "system" fn(osmanagedpagetable: super::super::super::Win32::Foundation::BOOLEAN, domainout: *mut *mut super::super::Foundation::IOMMU_DMA_DOMAIN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type IOMMU_DOMAIN_CREATE_EX = Option<unsafe extern "system" fn(domaintype: IOMMU_DMA_DOMAIN_TYPE, flags: IOMMU_DMA_DOMAIN_CREATION_FLAGS, logicalallocatorconfig: *const IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG, reservedregions: *const IOMMU_DMA_RESERVED_REGION, domainout: *mut *mut super::super::Foundation::IOMMU_DMA_DOMAIN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type IOMMU_DOMAIN_DELETE = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type IOMMU_DOMAIN_DETACH_DEVICE = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, inputmappingid: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type IOMMU_DOMAIN_DETACH_DEVICE_EX = Option<unsafe extern "system" fn(dmadevice: *const super::super::Foundation::IOMMU_DMA_DEVICE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type IOMMU_FLUSH_DOMAIN = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type IOMMU_FLUSH_DOMAIN_VA_LIST = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, lastlevel: super::super::super::Win32::Foundation::BOOLEAN, number: u32, valist: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type IOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGE = Option<unsafe extern "system" fn(logicaladdresstoken: *const IOMMU_DMA_LOGICAL_ADDRESS_TOKEN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type IOMMU_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(statechange: *const IOMMU_INTERFACE_STATE_CHANGE, context: *const core::ffi::c_void)>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type IOMMU_MAP_IDENTITY_RANGE = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, permissions: u32, mdl: *const super::super::Foundation::MDL) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type IOMMU_MAP_IDENTITY_RANGE_EX = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, permissions: u32, physicaladdresstomap: *const IOMMU_MAP_PHYSICAL_ADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type IOMMU_MAP_LOGICAL_RANGE = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, permissions: u32, mdl: *const super::super::Foundation::MDL, logicaladdress: u64) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type IOMMU_MAP_LOGICAL_RANGE_EX = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, permissions: u32, physicaladdresstomap: *const IOMMU_MAP_PHYSICAL_ADDRESS, explicitlogicaladdress: *const u64, minlogicaladdress: *const u64, maxlogicaladdress: *const u64, logicaladdressout: *mut u64) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type IOMMU_MAP_RESERVED_LOGICAL_RANGE = Option<unsafe extern "system" fn(logicaladdresstoken: *mut IOMMU_DMA_LOGICAL_ADDRESS_TOKEN, offset: usize, permissions: u32, physicaladdresstomap: *const IOMMU_MAP_PHYSICAL_ADDRESS, mappedsegment: *mut IOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type IOMMU_QUERY_INPUT_MAPPINGS = Option<unsafe extern "system" fn(physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, buffer: *mut INPUT_MAPPING_ELEMENT, bufferlength: u32, returnlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type IOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(statechangecallback: PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK, context: *const core::ffi::c_void, dmadevice: *const super::super::Foundation::IOMMU_DMA_DEVICE, statefields: *const IOMMU_INTERFACE_STATE_CHANGE_FIELDS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type IOMMU_RESERVE_LOGICAL_ADDRESS_RANGE = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, size: usize, explicitlogicaladdress: *const u64, minlogicaladdress: *const u64, maxlogicaladdress: *const u64, logicaladdresstoken: *mut *mut IOMMU_DMA_LOGICAL_ADDRESS_TOKEN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type IOMMU_SET_DEVICE_FAULT_REPORTING = Option<unsafe extern "system" fn(physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, inputmappingidbase: u32, enable: super::super::super::Win32::Foundation::BOOLEAN, faultconfig: *const DEVICE_FAULT_CONFIGURATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type IOMMU_SET_DEVICE_FAULT_REPORTING_EX = Option<unsafe extern "system" fn(dmadevice: *const super::super::Foundation::IOMMU_DMA_DEVICE, inputmappingidbase: u32, enable: super::super::super::Win32::Foundation::BOOLEAN, faultconfig: *const DEVICE_FAULT_CONFIGURATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type IOMMU_UNMAP_IDENTITY_RANGE = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, mdl: *const super::super::Foundation::MDL) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type IOMMU_UNMAP_IDENTITY_RANGE_EX = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, mappedphysicaladdress: *const IOMMU_MAP_PHYSICAL_ADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type IOMMU_UNMAP_LOGICAL_RANGE = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, logicaladdress: u64, numberofpages: u64) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type IOMMU_UNMAP_RESERVED_LOGICAL_RANGE = Option<unsafe extern "system" fn(mappedsegment: *mut IOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type IOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(statechangecallback: PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK, dmadevice: *const super::super::Foundation::IOMMU_DMA_DEVICE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type IO_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, irp: *const super::super::Foundation::IRP, context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type IO_CSQ_ACQUIRE_LOCK = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irql: *mut u8)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type IO_CSQ_COMPLETE_CANCELED_IRP = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: *const super::super::Foundation::IRP)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type IO_CSQ_INSERT_IRP = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: *const super::super::Foundation::IRP)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type IO_CSQ_INSERT_IRP_EX = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: *const super::super::Foundation::IRP, insertcontext: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type IO_CSQ_PEEK_NEXT_IRP = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: *const super::super::Foundation::IRP, peekcontext: *const core::ffi::c_void) -> *mut super::super::Foundation::IRP>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type IO_CSQ_RELEASE_LOCK = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irql: u8)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type IO_CSQ_REMOVE_IRP = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: *const super::super::Foundation::IRP)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type IO_DPC_ROUTINE = Option<unsafe extern "system" fn(dpc: *const super::super::Foundation::KDPC, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, irp: *mut super::super::Foundation::IRP, context: *const core::ffi::c_void)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type IO_PERSISTED_MEMORY_ENUMERATION_CALLBACK = Option<unsafe extern "system" fn(driverobject: *const super::super::Foundation::DRIVER_OBJECT, physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, physicaldeviceid: *const super::super::super::Win32::Foundation::UNICODE_STRING, datatag: *const u16, dataversion: *const u32, context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type IO_SESSION_NOTIFICATION_FUNCTION = Option<unsafe extern "system" fn(sessionobject: *const core::ffi::c_void, ioobject: *const core::ffi::c_void, event: u32, context: *const core::ffi::c_void, notificationpayload: *const core::ffi::c_void, payloadlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type IO_TIMER_ROUTINE = Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, context: *const core::ffi::c_void)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type IO_WORKITEM_ROUTINE = Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, context: *const core::ffi::c_void)>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type IO_WORKITEM_ROUTINE_EX = Option<unsafe extern "system" fn(ioobject: *const core::ffi::c_void, context: *const core::ffi::c_void, ioworkitem: super::super::Foundation::PIO_WORKITEM)>;
-pub type KBUGCHECK_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(buffer: *mut core::ffi::c_void, length: u32)>;
-#[cfg(feature = "Win32_System_Kernel")]
-pub type KBUGCHECK_REASON_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(reason: KBUGCHECK_CALLBACK_REASON, record: *const KBUGCHECK_REASON_CALLBACK_RECORD, reasonspecificdata: *mut core::ffi::c_void, reasonspecificdatalength: u32)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-pub type KDEFERRED_ROUTINE = Option<unsafe extern "system" fn(dpc: *const super::super::Foundation::KDPC, deferredcontext: *const core::ffi::c_void, systemargument1: *const core::ffi::c_void, systemargument2: *const core::ffi::c_void)>;
-pub type KIPI_BROADCAST_WORKER = Option<unsafe extern "system" fn(argument: usize) -> usize>;
-pub type KMESSAGE_SERVICE_ROUTINE = Option<unsafe extern "system" fn(interrupt: *const isize, servicecontext: *const core::ffi::c_void, messageid: u32) -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type KSERVICE_ROUTINE = Option<unsafe extern "system" fn(interrupt: *const isize, servicecontext: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type KSTART_ROUTINE = Option<unsafe extern "system" fn(startcontext: *const core::ffi::c_void)>;
-pub type KSYNCHRONIZE_ROUTINE = Option<unsafe extern "system" fn(synchronizecontext: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type MM_MDL_ROUTINE = Option<unsafe extern "system" fn(drivercontext: *const core::ffi::c_void, mappedva: *const core::ffi::c_void)>;
-pub type NMI_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, handled: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type NPEM_CONTROL_ENABLE_DISABLE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, enablenpem: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type NPEM_CONTROL_QUERY_CONTROL = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> u32>;
-pub type NPEM_CONTROL_QUERY_STANDARD_CAPABILITIES = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, standardcapabilities: *mut NPEM_CAPABILITY_STANDARD) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type NPEM_CONTROL_SET_STANDARD_CONTROL = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, standardcontrol: NPEM_CONTROL_STANDARD_CONTROL_BIT, set: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Win32_Security")]
-pub type NTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = Option<unsafe extern "system" fn(vcb: *const core::ffi::c_void, securitydescriptor: super::super::super::Win32::Security::PSECURITY_DESCRIPTOR)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PALLOCATE_ADAPTER_CHANNEL = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, numberofmapregisters: u32, executionroutine: super::super::Foundation::DRIVER_CONTROL, context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PALLOCATE_ADAPTER_CHANNEL_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, dmatransfercontext: *const core::ffi::c_void, numberofmapregisters: u32, flags: u32, executionroutine: super::super::Foundation::DRIVER_CONTROL, executioncontext: *const core::ffi::c_void, mapregisterbase: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PALLOCATE_COMMON_BUFFER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, length: u32, logicaladdress: *mut i64, cacheenabled: super::super::super::Win32::Foundation::BOOLEAN) -> *mut core::ffi::c_void>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PALLOCATE_COMMON_BUFFER_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, maximumaddress: *const i64, length: u32, logicaladdress: *mut i64, cacheenabled: super::super::super::Win32::Foundation::BOOLEAN, preferrednode: u32) -> *mut core::ffi::c_void>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PALLOCATE_COMMON_BUFFER_VECTOR = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, lowaddress: i64, highaddress: i64, cachetype: MEMORY_CACHING_TYPE, idealnode: u32, flags: u32, numberofelements: u32, sizeofelements: u64, vectorout: *mut *mut super::super::Foundation::DMA_COMMON_BUFFER_VECTOR) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PALLOCATE_COMMON_BUFFER_WITH_BOUNDS = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, minimumaddress: *const i64, maximumaddress: *const i64, length: u32, flags: u32, cachetype: *const MEMORY_CACHING_TYPE, preferrednode: u32, logicaladdress: *mut i64) -> *mut core::ffi::c_void>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PALLOCATE_DOMAIN_COMMON_BUFFER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, domainhandle: super::super::super::Win32::Foundation::HANDLE, maximumaddress: *const i64, length: u32, flags: u32, cachetype: *const MEMORY_CACHING_TYPE, preferrednode: u32, logicaladdress: *mut i64, virtualaddress: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PALLOCATE_FUNCTION = Option<unsafe extern "system" fn() -> *mut core::ffi::c_void>;
-pub type PALLOCATE_FUNCTION_EX = Option<unsafe extern "system" fn() -> *mut core::ffi::c_void>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PARBITER_HANDLER = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, action: ARBITER_ACTION, parameters: *mut ARBITER_PARAMETERS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PBOOT_DRIVER_CALLBACK_FUNCTION = Option<unsafe extern "system" fn()>;
-pub type PBOUND_CALLBACK = Option<unsafe extern "system" fn() -> BOUND_CALLBACK_STATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PBUILD_MDL_FROM_SCATTER_GATHER_LIST = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, scattergather: *const SCATTER_GATHER_LIST, originalmdl: *const super::super::Foundation::MDL, targetmdl: *mut *mut super::super::Foundation::MDL) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PBUILD_SCATTER_GATHER_LIST = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, mdl: *const super::super::Foundation::MDL, currentva: *const core::ffi::c_void, length: u32, executionroutine: DRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: super::super::super::Win32::Foundation::BOOLEAN, scattergatherbuffer: *const core::ffi::c_void, scattergatherlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PBUILD_SCATTER_GATHER_LIST_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, dmatransfercontext: *const core::ffi::c_void, mdl: *const super::super::Foundation::MDL, offset: u64, length: u32, flags: u32, executionroutine: DRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: super::super::super::Win32::Foundation::BOOLEAN, scattergatherbuffer: *const core::ffi::c_void, scattergatherlength: u32, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: *const core::ffi::c_void, scattergatherlist: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PCALCULATE_SCATTER_GATHER_LIST_SIZE = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const super::super::Foundation::MDL, currentva: *const core::ffi::c_void, length: u32, scattergatherlistsize: *mut u32, pnumberofmapregisters: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PCALLBACK_FUNCTION = Option<unsafe extern "system" fn()>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PCANCEL_ADAPTER_CHANNEL = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, dmatransfercontext: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::BOOLEAN>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PCANCEL_MAPPED_TRANSFER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, dmatransfercontext: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PCI_ERROR_HANDLER_CALLBACK = Option<unsafe extern "system" fn()>;
-pub type PCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PCI_EXPRESS_WAKE_CONTROL = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, enablewake: super::super::super::Win32::Foundation::BOOLEAN)>;
-pub type PCI_IS_DEVICE_PRESENT = Option<unsafe extern "system" fn(vendorid: u16, deviceid: u16, revisionid: u8, subvendorid: u16, subsystemid: u16, flags: u32) -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type PCI_IS_DEVICE_PRESENT_EX = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, parameters: *const PCI_DEVICE_PRESENCE_PARAMETERS) -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type PCI_LINE_TO_PIN = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, pcinewdata: *const PCI_COMMON_CONFIG, pciolddata: *const PCI_COMMON_CONFIG)>;
-pub type PCI_MSIX_GET_ENTRY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, tableentry: u32, messagenumber: *mut u32, masked: *mut super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PCI_MSIX_GET_TABLE_SIZE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, tablesize: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PCI_MSIX_MASKUNMASK_ENTRY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, tableentry: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PCI_MSIX_SET_ENTRY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, tableentry: u32, messagenumber: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PCI_PIN_TO_LINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, pcidata: *const PCI_COMMON_CONFIG)>;
-pub type PCI_PREPARE_MULTISTAGE_RESUME = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
-pub type PCI_READ_WRITE_CONFIG = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, busoffset: u32, slot: u32, buffer: *const core::ffi::c_void, offset: u32, length: u32) -> u32>;
-pub type PCI_ROOT_BUS_CAPABILITY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, hardwarecapability: *mut PCI_ROOT_BUS_HARDWARE_CAPABILITY)>;
-pub type PCI_SET_ACS = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, enablesourcevalidation: PCI_ACS_BIT, enabletranslationblocking: PCI_ACS_BIT, enablep2prequestredirect: PCI_ACS_BIT, enablecompletionredirect: PCI_ACS_BIT, enableupstreamforwarding: PCI_ACS_BIT, enableegresscontrol: PCI_ACS_BIT, enabledirecttranslatedp2p: PCI_ACS_BIT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PCI_SET_ACS2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, scenariostomodify: u32, scenariostate: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PCI_SET_ATS = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, enableats: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PCLFS_CLIENT_ADVANCE_TAIL_CALLBACK = Option<unsafe extern "system" fn(logfile: *const super::super::Foundation::FILE_OBJECT, targetlsn: *const super::super::super::Win32::Storage::FileSystem::CLS_LSN, clientdata: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PCLFS_CLIENT_LFF_HANDLER_COMPLETE_CALLBACK = Option<unsafe extern "system" fn(logfile: *const super::super::Foundation::FILE_OBJECT, operationstatus: super::super::super::Win32::Foundation::NTSTATUS, logispinned: super::super::super::Win32::Foundation::BOOLEAN, clientdata: *const core::ffi::c_void)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PCLFS_CLIENT_LOG_UNPINNED_CALLBACK = Option<unsafe extern "system" fn(logfile: *const super::super::Foundation::FILE_OBJECT, clientdata: *const core::ffi::c_void)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PCLFS_SET_LOG_SIZE_COMPLETE_CALLBACK = Option<unsafe extern "system" fn(logfile: *const super::super::Foundation::FILE_OBJECT, operationstatus: super::super::super::Win32::Foundation::NTSTATUS, clientdata: *const core::ffi::c_void)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PCONFIGURE_ADAPTER_CHANNEL = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, functionnumber: u32, context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PCRASHDUMP_POWER_ON = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PCREATE_COMMON_BUFFER_FROM_MDL = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const super::super::Foundation::MDL, extendedconfigs: *const DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION, extendedconfigscount: u32, logicaladdress: *mut i64) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PCREATE_PROCESS_NOTIFY_ROUTINE = Option<unsafe extern "system" fn(parentid: super::super::super::Win32::Foundation::HANDLE, processid: super::super::super::Win32::Foundation::HANDLE, create: super::super::super::Win32::Foundation::BOOLEAN)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-pub type PCREATE_PROCESS_NOTIFY_ROUTINE_EX = Option<unsafe extern "system" fn(process: super::super::Foundation::PEPROCESS, processid: super::super::super::Win32::Foundation::HANDLE, createinfo: *mut PS_CREATE_NOTIFY_INFO)>;
-pub type PCREATE_THREAD_NOTIFY_ROUTINE = Option<unsafe extern "system" fn(processid: super::super::super::Win32::Foundation::HANDLE, threadid: super::super::super::Win32::Foundation::HANDLE, create: super::super::super::Win32::Foundation::BOOLEAN)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-pub type PCW_CALLBACK = Option<unsafe extern "system" fn(r#type: PCW_CALLBACK_TYPE, info: *const PCW_CALLBACK_INFORMATION, context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PD3COLD_REQUEST_AUX_POWER = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PD3COLD_REQUEST_CORE_POWER_RAIL = Option<unsafe extern "system" fn()>;
-pub type PD3COLD_REQUEST_PERST_DELAY = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PDEBUG_DEVICE_FOUND_FUNCTION = Option<unsafe extern "system" fn(device: *mut DEBUG_DEVICE_DESCRIPTOR) -> KD_CALLBACK_ACTION>;
-#[cfg(feature = "Win32_System_Kernel")]
-pub type PDEBUG_PRINT_CALLBACK = Option<unsafe extern "system" fn(output: *const super::super::super::Win32::System::Kernel::STRING, componentid: u32, level: u32)>;
-pub type PDEVICE_BUS_SPECIFIC_RESET_HANDLER = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PDEVICE_CHANGE_COMPLETE_CALLBACK = Option<unsafe extern "system" fn()>;
-pub type PDEVICE_NOTIFY_CALLBACK = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: u32)>;
-pub type PDEVICE_NOTIFY_CALLBACK2 = Option<unsafe extern "system" fn(notificationcontext: *mut core::ffi::c_void, notifycode: u32)>;
-pub type PDEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PDEVICE_RESET_COMPLETION = Option<unsafe extern "system" fn()>;
-pub type PDEVICE_RESET_HANDLER = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PDMA_COMPLETION_ROUTINE = Option<unsafe extern "system" fn()>;
-pub type PDRIVER_CMC_EXCEPTION_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, cmclog: *const MCA_EXCEPTION)>;
-pub type PDRIVER_CPE_EXCEPTION_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, cmclog: *const MCA_EXCEPTION)>;
-pub type PDRIVER_EXCPTN_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, banklog: *const MCA_EXCEPTION)>;
-pub type PDRIVER_VERIFIER_THUNK_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> usize>;
-pub type PENABLE_VIRTUALIZATION = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PETWENABLECALLBACK = Option<unsafe extern "system" fn()>;
-pub type PEXPAND_STACK_CALLOUT = Option<unsafe extern "system" fn()>;
-pub type PEXT_CALLBACK = Option<unsafe extern "system" fn()>;
-pub type PEXT_DELETE_CALLBACK = Option<unsafe extern "system" fn()>;
-pub type PEX_CALLBACK_FUNCTION = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PFLUSH_ADAPTER_BUFFERS = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const super::super::Foundation::MDL, mapregisterbase: *const core::ffi::c_void, currentva: *const core::ffi::c_void, length: u32, writetodevice: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::BOOLEAN>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PFLUSH_ADAPTER_BUFFERS_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const super::super::Foundation::MDL, mapregisterbase: *const core::ffi::c_void, offset: u64, length: u32, writetodevice: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PFLUSH_DMA_BUFFER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const super::super::Foundation::MDL, readoperation: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFNFTH = Option<unsafe extern "system" fn(systemfirmwaretableinfo: *mut SYSTEM_FIRMWARE_TABLE_INFORMATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFN_IN_USE_PAGE_OFFLINE_NOTIFY = Option<unsafe extern "system" fn(page: u32, flags: super::super::super::Win32::Foundation::BOOLEAN, poisoned: super::super::super::Win32::Foundation::BOOLEAN, context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type PFN_NT_COMMIT_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: super::super::super::Win32::Foundation::HANDLE, wait: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
-pub type PFN_NT_CREATE_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, uow: *const windows_sys::core::GUID, tmhandle: super::super::super::Win32::Foundation::HANDLE, createoptions: u32, isolationlevel: u32, isolationflags: u32, timeout: *const i64, description: *const super::super::super::Win32::Foundation::UNICODE_STRING) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
-pub type PFN_NT_OPEN_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, uow: *const windows_sys::core::GUID, tmhandle: super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Win32_System_SystemServices")]
-pub type PFN_NT_QUERY_INFORMATION_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: super::super::super::Win32::Foundation::HANDLE, transactioninformationclass: super::super::super::Win32::System::SystemServices::TRANSACTION_INFORMATION_CLASS, transactioninformation: *mut core::ffi::c_void, transactioninformationlength: u32, returnlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFN_NT_ROLLBACK_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: super::super::super::Win32::Foundation::HANDLE, wait: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Win32_System_SystemServices")]
-pub type PFN_NT_SET_INFORMATION_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: super::super::super::Win32::Foundation::HANDLE, transactioninformationclass: super::super::super::Win32::System::SystemServices::TRANSACTION_INFORMATION_CLASS, transactioninformation: *const core::ffi::c_void, transactioninformationlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFN_RTL_IS_NTDDI_VERSION_AVAILABLE = Option<unsafe extern "system" fn(version: u32) -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type PFN_RTL_IS_SERVICE_PACK_VERSION_INSTALLED = Option<unsafe extern "system" fn(version: u32) -> super::super::super::Win32::Foundation::BOOLEAN>;
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-pub type PFN_WHEA_HIGH_IRQL_LOG_SEL_EVENT_HANDLER = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, osselrecord: *const super::super::super::Win32::System::Diagnostics::Debug::IPMI_OS_SEL_RECORD) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFPGA_BUS_SCAN = Option<unsafe extern "system" fn()>;
-pub type PFPGA_CONTROL_CONFIG_SPACE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFPGA_CONTROL_ERROR_REPORTING = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PFPGA_CONTROL_LINK = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PFREE_ADAPTER_CHANNEL = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PFREE_ADAPTER_OBJECT = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, allocationaction: IO_ALLOCATION_ACTION)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PFREE_COMMON_BUFFER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, length: u32, logicaladdress: i64, virtualaddress: *const core::ffi::c_void, cacheenabled: super::super::super::Win32::Foundation::BOOLEAN)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PFREE_COMMON_BUFFER_FROM_VECTOR = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, vector: *const super::super::Foundation::DMA_COMMON_BUFFER_VECTOR, index: u32)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PFREE_COMMON_BUFFER_VECTOR = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, vector: *const super::super::Foundation::DMA_COMMON_BUFFER_VECTOR)>;
-pub type PFREE_FUNCTION_EX = Option<unsafe extern "system" fn()>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PFREE_MAP_REGISTERS = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mapregisterbase: *mut core::ffi::c_void, numberofmapregisters: u32)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PGET_COMMON_BUFFER_FROM_VECTOR_BY_INDEX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, vector: *const super::super::Foundation::DMA_COMMON_BUFFER_VECTOR, index: u32, virtualaddressout: *mut *mut core::ffi::c_void, logicaladdressout: *mut i64)>;
-pub type PGET_D3COLD_CAPABILITY = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PGET_D3COLD_LAST_TRANSITION_STATUS = Option<unsafe extern "system" fn()>;
-pub type PGET_DEVICE_RESET_STATUS = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PGET_DMA_ADAPTER = Option<unsafe extern "system" fn() -> *mut DMA_ADAPTER>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PGET_DMA_ADAPTER_INFO = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, adapterinfo: *mut DMA_ADAPTER_INFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PGET_DMA_ALIGNMENT = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER) -> u32>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PGET_DMA_DOMAIN = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER) -> super::super::super::Win32::Foundation::HANDLE>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PGET_DMA_TRANSFER_INFO = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const super::super::Foundation::MDL, offset: u64, length: u32, writeonly: super::super::super::Win32::Foundation::BOOLEAN, transferinfo: *mut DMA_TRANSFER_INFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PGET_IDLE_WAKE_INFO = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PGET_LOCATION_STRING = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, locationstrings: *mut windows_sys::core::PWSTR) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PGET_SCATTER_GATHER_LIST = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, mdl: *const super::super::Foundation::MDL, currentva: *const core::ffi::c_void, length: u32, executionroutine: DRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PGET_SCATTER_GATHER_LIST_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, dmatransfercontext: *const core::ffi::c_void, mdl: *const super::super::Foundation::MDL, offset: u64, length: u32, flags: u32, executionroutine: DRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: super::super::super::Win32::Foundation::BOOLEAN, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: *const core::ffi::c_void, scattergatherlist: *mut *mut SCATTER_GATHER_LIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PGET_SDEV_IDENTIFIER = Option<unsafe extern "system" fn() -> u64>;
-pub type PGET_SET_DEVICE_DATA = Option<unsafe extern "system" fn() -> u32>;
-pub type PGET_UPDATED_BUS_RESOURCE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PGET_VIRTUAL_DEVICE_DATA = Option<unsafe extern "system" fn() -> u32>;
-pub type PGET_VIRTUAL_DEVICE_LOCATION = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PGET_VIRTUAL_DEVICE_RESOURCES = Option<unsafe extern "system" fn()>;
-pub type PGET_VIRTUAL_FUNCTION_PROBED_BARS = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PGPE_CLEAR_STATUS = Option<unsafe extern "system" fn(param0: *mut super::super::Foundation::DEVICE_OBJECT, param1: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PGPE_CLEAR_STATUS2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, objectcontext: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PGPE_CONNECT_VECTOR = Option<unsafe extern "system" fn(param0: *mut super::super::Foundation::DEVICE_OBJECT, param1: u32, param2: KINTERRUPT_MODE, param3: super::super::super::Win32::Foundation::BOOLEAN, param4: PGPE_SERVICE_ROUTINE, param5: *mut core::ffi::c_void, param6: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PGPE_CONNECT_VECTOR2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, gpenumber: u32, mode: KINTERRUPT_MODE, shareable: super::super::super::Win32::Foundation::BOOLEAN, serviceroutine: PGPE_SERVICE_ROUTINE, servicecontext: *mut core::ffi::c_void, objectcontext: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PGPE_DISABLE_EVENT = Option<unsafe extern "system" fn(param0: *mut super::super::Foundation::DEVICE_OBJECT, param1: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PGPE_DISABLE_EVENT2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, objectcontext: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PGPE_DISCONNECT_VECTOR = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PGPE_DISCONNECT_VECTOR2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, objectcontext: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PGPE_ENABLE_EVENT = Option<unsafe extern "system" fn(param0: *mut super::super::Foundation::DEVICE_OBJECT, param1: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PGPE_ENABLE_EVENT2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, objectcontext: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PGPE_SERVICE_ROUTINE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type PGPE_SERVICE_ROUTINE2 = Option<unsafe extern "system" fn(objectcontext: *mut core::ffi::c_void, servicecontext: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type PHALIOREADWRITEHANDLER = Option<unsafe extern "system" fn(fread: super::super::super::Win32::Foundation::BOOLEAN, dwaddr: u32, dwsize: u32, pdwdata: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PHALMCAINTERFACELOCK = Option<unsafe extern "system" fn()>;
-pub type PHALMCAINTERFACEREADREGISTER = Option<unsafe extern "system" fn(banknumber: u8, exception: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PHALMCAINTERFACEUNLOCK = Option<unsafe extern "system" fn()>;
-pub type PHAL_RESET_DISPLAY_PARAMETERS = Option<unsafe extern "system" fn(columns: u32, rows: u32) -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type PHVL_WHEA_ERROR_NOTIFICATION = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PINITIALIZE_DMA_TRANSFER_CONTEXT = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, dmatransfercontext: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PINTERFACE_DEREFERENCE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
-pub type PINTERFACE_REFERENCE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
-pub type PIOMMU_DEVICE_CREATE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_DEVICE_DELETE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_DEVICE_FAULT_HANDLER = Option<unsafe extern "system" fn()>;
-pub type PIOMMU_DEVICE_QUERY_DOMAIN_TYPES = Option<unsafe extern "system" fn()>;
-pub type PIOMMU_DOMAIN_ATTACH_DEVICE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_DOMAIN_ATTACH_DEVICE_EX = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_DOMAIN_CONFIGURE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_DOMAIN_CREATE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_DOMAIN_CREATE_EX = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_DOMAIN_DELETE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_DOMAIN_DETACH_DEVICE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_DOMAIN_DETACH_DEVICE_EX = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_FLUSH_DOMAIN = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_FLUSH_DOMAIN_VA_LIST = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn()>;
-pub type PIOMMU_MAP_IDENTITY_RANGE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_MAP_IDENTITY_RANGE_EX = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_MAP_LOGICAL_RANGE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_MAP_LOGICAL_RANGE_EX = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_MAP_RESERVED_LOGICAL_RANGE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_QUERY_INPUT_MAPPINGS = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_RESERVE_LOGICAL_ADDRESS_RANGE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_SET_DEVICE_FAULT_REPORTING = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_SET_DEVICE_FAULT_REPORTING_EX = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_UNMAP_IDENTITY_RANGE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_UNMAP_IDENTITY_RANGE_EX = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_UNMAP_LOGICAL_RANGE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_UNMAP_RESERVED_LOGICAL_RANGE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIO_CONTAINER_NOTIFICATION_FUNCTION = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIO_CSQ_ACQUIRE_LOCK = Option<unsafe extern "system" fn()>;
-pub type PIO_CSQ_COMPLETE_CANCELED_IRP = Option<unsafe extern "system" fn()>;
-pub type PIO_CSQ_INSERT_IRP = Option<unsafe extern "system" fn()>;
-pub type PIO_CSQ_INSERT_IRP_EX = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PIO_CSQ_PEEK_NEXT_IRP = Option<unsafe extern "system" fn() -> *mut super::super::Foundation::IRP>;
-pub type PIO_CSQ_RELEASE_LOCK = Option<unsafe extern "system" fn()>;
-pub type PIO_CSQ_REMOVE_IRP = Option<unsafe extern "system" fn()>;
-pub type PIO_DEVICE_EJECT_CALLBACK = Option<unsafe extern "system" fn(status: super::super::super::Win32::Foundation::NTSTATUS, context: *mut core::ffi::c_void)>;
-pub type PIO_DPC_ROUTINE = Option<unsafe extern "system" fn()>;
-pub type PIO_PERSISTED_MEMORY_ENUMERATION_CALLBACK = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIO_QUERY_DEVICE_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, pathname: *const super::super::super::Win32::Foundation::UNICODE_STRING, bustype: INTERFACE_TYPE, busnumber: u32, businformation: *const *const KEY_VALUE_FULL_INFORMATION, controllertype: CONFIGURATION_TYPE, controllernumber: u32, controllerinformation: *const *const KEY_VALUE_FULL_INFORMATION, peripheraltype: CONFIGURATION_TYPE, peripheralnumber: u32, peripheralinformation: *const *const KEY_VALUE_FULL_INFORMATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIO_SESSION_NOTIFICATION_FUNCTION = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PIO_TIMER_ROUTINE = Option<unsafe extern "system" fn()>;
-pub type PIO_WORKITEM_ROUTINE = Option<unsafe extern "system" fn()>;
-pub type PIO_WORKITEM_ROUTINE_EX = Option<unsafe extern "system" fn()>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PJOIN_DMA_DOMAIN = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, domainhandle: super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PKBUGCHECK_CALLBACK_ROUTINE = Option<unsafe extern "system" fn()>;
-pub type PKBUGCHECK_REASON_CALLBACK_ROUTINE = Option<unsafe extern "system" fn()>;
-pub type PKIPI_BROADCAST_WORKER = Option<unsafe extern "system" fn() -> usize>;
-pub type PKMESSAGE_SERVICE_ROUTINE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type PKSERVICE_ROUTINE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type PKSTART_ROUTINE = Option<unsafe extern "system" fn()>;
-pub type PKSYNCHRONIZE_ROUTINE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PLEAVE_DMA_DOMAIN = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PLOAD_IMAGE_NOTIFY_ROUTINE = Option<unsafe extern "system" fn(fullimagename: *const super::super::super::Win32::Foundation::UNICODE_STRING, processid: super::super::super::Win32::Foundation::HANDLE, imageinfo: *const IMAGE_INFO)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PMAP_TRANSFER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const super::super::Foundation::MDL, mapregisterbase: *const core::ffi::c_void, currentva: *const core::ffi::c_void, length: *mut u32, writetodevice: super::super::super::Win32::Foundation::BOOLEAN) -> i64>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PMAP_TRANSFER_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const super::super::Foundation::MDL, mapregisterbase: *const core::ffi::c_void, offset: u64, deviceoffset: u32, length: *mut u32, writetodevice: super::super::super::Win32::Foundation::BOOLEAN, scattergatherbuffer: *mut SCATTER_GATHER_LIST, scattergatherbufferlength: u32, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PMM_DLL_INITIALIZE = Option<unsafe extern "system" fn(registrypath: *const super::super::super::Win32::Foundation::UNICODE_STRING) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PMM_DLL_UNLOAD = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PMM_GET_SYSTEM_ROUTINE_ADDRESS_EX = Option<unsafe extern "system" fn(modulename: *const super::super::super::Win32::Foundation::UNICODE_STRING, functionname: windows_sys::core::PCSTR) -> *mut core::ffi::c_void>;
-pub type PMM_MDL_ROUTINE = Option<unsafe extern "system" fn()>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type PMM_ROTATE_COPY_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(destinationmdl: *const super::super::Foundation::MDL, sourcemdl: *const super::super::Foundation::MDL, context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PNMI_CALLBACK = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type PNPEM_CONTROL_ENABLE_DISABLE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PNPEM_CONTROL_QUERY_CONTROL = Option<unsafe extern "system" fn() -> u32>;
-pub type PNPEM_CONTROL_QUERY_STANDARD_CAPABILITIES = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PNPEM_CONTROL_SET_STANDARD_CONTROL = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PNTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = Option<unsafe extern "system" fn()>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type POB_POST_OPERATION_CALLBACK = Option<unsafe extern "system" fn(registrationcontext: *const core::ffi::c_void, operationinformation: *const OB_POST_OPERATION_INFORMATION)>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type POB_PRE_OPERATION_CALLBACK = Option<unsafe extern "system" fn(registrationcontext: *const core::ffi::c_void, operationinformation: *mut OB_PRE_OPERATION_INFORMATION) -> OB_PREOP_CALLBACK_STATUS>;
-pub type POWER_SETTING_CALLBACK = Option<unsafe extern "system" fn(settingguid: *const windows_sys::core::GUID, value: *const core::ffi::c_void, valuelength: u32, context: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, component: u32)>;
-pub type PO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, component: u32, active: super::super::super::Win32::Foundation::BOOLEAN)>;
-pub type PO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, component: u32)>;
-pub type PO_FX_COMPONENT_IDLE_STATE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, component: u32, state: u32)>;
-pub type PO_FX_COMPONENT_PERF_STATE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, component: u32, succeeded: super::super::super::Win32::Foundation::BOOLEAN, requestcontext: *const core::ffi::c_void)>;
-pub type PO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
-pub type PO_FX_DEVICE_POWER_REQUIRED_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
-pub type PO_FX_DIRECTED_POWER_DOWN_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, flags: u32)>;
-pub type PO_FX_DIRECTED_POWER_UP_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, flags: u32)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PO_FX_DRIPS_WATCHDOG_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, uniqueid: u32)>;
-pub type PO_FX_POWER_CONTROL_CALLBACK = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void, powercontrolcode: *const windows_sys::core::GUID, inbuffer: *const core::ffi::c_void, inbuffersize: usize, outbuffer: *mut core::ffi::c_void, outbuffersize: usize, bytesreturned: *mut usize) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PPCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PPCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PPCI_EXPRESS_ROOT_PORT_READ_CONFIG_SPACE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, buffer: *mut core::ffi::c_void, offset: u32, length: u32) -> u32>;
-pub type PPCI_EXPRESS_ROOT_PORT_WRITE_CONFIG_SPACE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, buffer: *const core::ffi::c_void, offset: u32, length: u32) -> u32>;
-pub type PPCI_EXPRESS_WAKE_CONTROL = Option<unsafe extern "system" fn()>;
-pub type PPCI_IS_DEVICE_PRESENT = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type PPCI_IS_DEVICE_PRESENT_EX = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type PPCI_LINE_TO_PIN = Option<unsafe extern "system" fn()>;
-pub type PPCI_MSIX_GET_ENTRY = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PPCI_MSIX_GET_TABLE_SIZE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PPCI_MSIX_MASKUNMASK_ENTRY = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PPCI_MSIX_SET_ENTRY = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PPCI_PIN_TO_LINE = Option<unsafe extern "system" fn()>;
-pub type PPCI_PREPARE_MULTISTAGE_RESUME = Option<unsafe extern "system" fn()>;
-pub type PPCI_READ_WRITE_CONFIG = Option<unsafe extern "system" fn() -> u32>;
-pub type PPCI_ROOT_BUS_CAPABILITY = Option<unsafe extern "system" fn()>;
-pub type PPCI_SET_ACS = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PPCI_SET_ACS2 = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PPCI_SET_ATS = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PPCW_CALLBACK = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PPHYSICAL_COUNTER_EVENT_BUFFER_OVERFLOW_HANDLER = Option<unsafe extern "system" fn(eventbuffer: *const core::ffi::c_void, entrysize: usize, numberofentries: usize, owninghandle: super::super::super::Win32::Foundation::HANDLE)>;
-pub type PPHYSICAL_COUNTER_OVERFLOW_HANDLER = Option<unsafe extern "system" fn(overflowbits: u64, owninghandle: super::super::super::Win32::Foundation::HANDLE)>;
-pub type PPOWER_SETTING_CALLBACK = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PPO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK = Option<unsafe extern "system" fn()>;
-pub type PPO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = Option<unsafe extern "system" fn()>;
-pub type PPO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = Option<unsafe extern "system" fn()>;
-pub type PPO_FX_COMPONENT_IDLE_STATE_CALLBACK = Option<unsafe extern "system" fn()>;
-pub type PPO_FX_COMPONENT_PERF_STATE_CALLBACK = Option<unsafe extern "system" fn()>;
-pub type PPO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK = Option<unsafe extern "system" fn()>;
-pub type PPO_FX_DEVICE_POWER_REQUIRED_CALLBACK = Option<unsafe extern "system" fn()>;
-pub type PPO_FX_DIRECTED_POWER_DOWN_CALLBACK = Option<unsafe extern "system" fn()>;
-pub type PPO_FX_DIRECTED_POWER_UP_CALLBACK = Option<unsafe extern "system" fn()>;
-pub type PPO_FX_DRIPS_WATCHDOG_CALLBACK = Option<unsafe extern "system" fn()>;
-pub type PPO_FX_POWER_CONTROL_CALLBACK = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PPROCESSOR_CALLBACK_FUNCTION = Option<unsafe extern "system" fn()>;
-pub type PPROCESSOR_HALT_ROUTINE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PPTM_DEVICE_DISABLE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PPTM_DEVICE_ENABLE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PPTM_DEVICE_QUERY_GRANULARITY = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PPTM_DEVICE_QUERY_TIME_SOURCE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PPUT_DMA_ADAPTER = Option<unsafe extern "system" fn(dmaadapter: *mut DMA_ADAPTER)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PPUT_SCATTER_GATHER_LIST = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, scattergather: *const SCATTER_GATHER_LIST, writetodevice: super::super::super::Win32::Foundation::BOOLEAN)>;
-pub type PQUERYEXTENDEDADDRESS = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, extendedaddress: *mut u64)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PREAD_DMA_COUNTER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER) -> u32>;
-pub type PREENUMERATE_SELF = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PREGISTER_FOR_DEVICE_NOTIFICATIONS = Option<unsafe extern "system" fn(param0: *mut super::super::Foundation::DEVICE_OBJECT, param1: PDEVICE_NOTIFY_CALLBACK, param2: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PREGISTER_FOR_DEVICE_NOTIFICATIONS2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, notificationhandler: PDEVICE_NOTIFY_CALLBACK2, notificationcontext: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PREPLACE_BEGIN = Option<unsafe extern "system" fn(parameters: *const PNP_REPLACE_PARAMETERS, context: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PREPLACE_DRIVER_INIT = Option<unsafe extern "system" fn(interface: *mut PNP_REPLACE_DRIVER_INTERFACE, unused: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PREPLACE_ENABLE_DISABLE_HARDWARE_QUIESCE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, enable: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PREPLACE_END = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PREPLACE_GET_MEMORY_DESTINATION = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, sourceaddress: i64, destinationaddress: *mut i64) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PREPLACE_INITIATE_HARDWARE_MIRROR = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PREPLACE_MAP_MEMORY = Option<unsafe extern "system" fn(targetphysicaladdress: i64, sparephysicaladdress: i64, numberofbytes: *mut i64, targetaddress: *mut *mut core::ffi::c_void, spareaddress: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PREPLACE_MIRROR_PHYSICAL_MEMORY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, physicaladdress: i64, bytecount: i64) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PREPLACE_MIRROR_PLATFORM_MEMORY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PREPLACE_SET_PROCESSOR_ID = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, apicid: u32, target: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PREPLACE_SWAP = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PREPLACE_UNLOAD = Option<unsafe extern "system" fn()>;
-pub type PREQUEST_POWER_COMPLETE = Option<unsafe extern "system" fn()>;
-#[cfg(feature = "Win32_System_Kernel")]
-pub type PROCESSOR_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(callbackcontext: *const core::ffi::c_void, changecontext: *const KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT, operationstatus: *mut i32)>;
-pub type PROCESSOR_HALT_ROUTINE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PRTL_AVL_ALLOCATE_ROUTINE = Option<unsafe extern "system" fn() -> *mut core::ffi::c_void>;
-pub type PRTL_AVL_COMPARE_ROUTINE = Option<unsafe extern "system" fn() -> RTL_GENERIC_COMPARE_RESULTS>;
-pub type PRTL_AVL_FREE_ROUTINE = Option<unsafe extern "system" fn()>;
-pub type PRTL_AVL_MATCH_FUNCTION = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PRTL_GENERIC_ALLOCATE_ROUTINE = Option<unsafe extern "system" fn() -> *mut core::ffi::c_void>;
-pub type PRTL_GENERIC_COMPARE_ROUTINE = Option<unsafe extern "system" fn() -> RTL_GENERIC_COMPARE_RESULTS>;
-pub type PRTL_GENERIC_FREE_ROUTINE = Option<unsafe extern "system" fn()>;
-pub type PRTL_QUERY_REGISTRY_ROUTINE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PRTL_RUN_ONCE_INIT_FN = Option<unsafe extern "system" fn() -> u32>;
-pub type PSECURE_DRIVER_PROCESS_DEREFERENCE = Option<unsafe extern "system" fn()>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type PSECURE_DRIVER_PROCESS_REFERENCE = Option<unsafe extern "system" fn() -> super::super::Foundation::PEPROCESS>;
-pub type PSET_D3COLD_SUPPORT = Option<unsafe extern "system" fn()>;
-pub type PSET_VIRTUAL_DEVICE_DATA = Option<unsafe extern "system" fn() -> u32>;
-pub type PSE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = Option<unsafe extern "system" fn()>;
-pub type PSHED_PI_ATTEMPT_ERROR_RECOVERY = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, bufferlength: u32, errorrecord: *const WHEA_ERROR_RECORD) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PSHED_PI_CLEAR_ERROR_RECORD = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, flags: u32, errorrecordid: u64) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-pub type PSHED_PI_CLEAR_ERROR_STATUS = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, errorsource: *const super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR, bufferlength: u32, errorrecord: *const WHEA_ERROR_RECORD) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-pub type PSHED_PI_DISABLE_ERROR_SOURCE = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, errorsource: *const super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-pub type PSHED_PI_ENABLE_ERROR_SOURCE = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, errorsource: *const super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-pub type PSHED_PI_FINALIZE_ERROR_RECORD = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, errorsource: *const super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR, bufferlength: u32, errorrecord: *mut WHEA_ERROR_RECORD) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-pub type PSHED_PI_GET_ALL_ERROR_SOURCES = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, count: *mut u32, errorsrcs: *mut *mut super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR, length: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-pub type PSHED_PI_GET_ERROR_SOURCE_INFO = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, errorsource: *mut super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PSHED_PI_GET_INJECTION_CAPABILITIES = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, capabilities: *mut WHEA_ERROR_INJECTION_CAPABILITIES) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PSHED_PI_INJECT_ERROR = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, errortype: u64, parameter1: u64, parameter2: u64, parameter3: u64, parameter4: u64) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PSHED_PI_READ_ERROR_RECORD = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, flags: u32, errorrecordid: u64, nexterrorrecordid: *mut u64, recordlength: *mut u32, errorrecord: *mut WHEA_ERROR_RECORD) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-pub type PSHED_PI_RETRIEVE_ERROR_INFO = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, errorsource: *const super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR, bufferlength: u64, packet: *mut WHEA_ERROR_PACKET_V2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-pub type PSHED_PI_SET_ERROR_SOURCE_INFO = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, errorsource: *const super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PSHED_PI_WRITE_ERROR_RECORD = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, flags: u32, recordlength: u32, errorrecord: *const WHEA_ERROR_RECORD) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PTIMER_APC_ROUTINE = Option<unsafe extern "system" fn(timercontext: *const core::ffi::c_void, timerlowvalue: u32, timerhighvalue: i32)>;
-pub type PTM_DEVICE_DISABLE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PTM_DEVICE_ENABLE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PTM_DEVICE_QUERY_GRANULARITY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, granularity: *mut u8) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PTM_DEVICE_QUERY_TIME_SOURCE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, timesource: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PTM_PROPAGATE_ROUTINE = Option<unsafe extern "system" fn(propagationcookie: *const core::ffi::c_void, callbackdata: *const core::ffi::c_void, propagationstatus: super::super::super::Win32::Foundation::NTSTATUS, transactionguid: windows_sys::core::GUID) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type PTM_RM_NOTIFICATION = Option<unsafe extern "system" fn(enlistmentobject: *const super::super::Foundation::KENLISTMENT, rmcontext: *const core::ffi::c_void, transactioncontext: *const core::ffi::c_void, transactionnotification: u32, tmvirtualclock: *mut i64, argumentlength: u32, argument: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type PTRANSLATE_BUS_ADDRESS = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PTRANSLATE_RESOURCE_HANDLER = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, source: *const CM_PARTIAL_RESOURCE_DESCRIPTOR, direction: RESOURCE_TRANSLATION_DIRECTION, alternativescount: u32, alternatives: *const IO_RESOURCE_DESCRIPTOR, physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, target: *mut CM_PARTIAL_RESOURCE_DESCRIPTOR) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PTRANSLATE_RESOURCE_REQUIREMENTS_HANDLER = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, source: *const IO_RESOURCE_DESCRIPTOR, physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, targetcount: *mut u32, target: *mut *mut IO_RESOURCE_DESCRIPTOR) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PUNREGISTER_FOR_DEVICE_NOTIFICATIONS = Option<unsafe extern "system" fn(param0: *mut super::super::Foundation::DEVICE_OBJECT, param1: PDEVICE_NOTIFY_CALLBACK)>;
-pub type PUNREGISTER_FOR_DEVICE_NOTIFICATIONS2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
-pub type PciLine2Pin = Option<unsafe extern "system" fn(bushandler: *const isize, roothandler: *const isize, slotnumber: PCI_SLOT_NUMBER, pcinewdata: *const PCI_COMMON_CONFIG, pciolddata: *const PCI_COMMON_CONFIG)>;
-pub type PciPin2Line = Option<unsafe extern "system" fn(bushandler: *const isize, roothandler: *const isize, slotnumber: PCI_SLOT_NUMBER, pcidata: *const PCI_COMMON_CONFIG)>;
-pub type PciReadWriteConfig = Option<unsafe extern "system" fn(bushandler: *const isize, slot: PCI_SLOT_NUMBER, buffer: *const core::ffi::c_void, offset: u32, length: u32)>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type REQUEST_POWER_COMPLETE = Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, minorfunction: u8, powerstate: POWER_STATE, context: *const core::ffi::c_void, iostatus: *const super::super::super::Win32::System::IO::IO_STATUS_BLOCK)>;
-pub type RTL_AVL_ALLOCATE_ROUTINE = Option<unsafe extern "system" fn(table: *const RTL_AVL_TABLE, bytesize: u32) -> *mut core::ffi::c_void>;
-pub type RTL_AVL_COMPARE_ROUTINE = Option<unsafe extern "system" fn(table: *const RTL_AVL_TABLE, firststruct: *const core::ffi::c_void, secondstruct: *const core::ffi::c_void) -> RTL_GENERIC_COMPARE_RESULTS>;
-pub type RTL_AVL_FREE_ROUTINE = Option<unsafe extern "system" fn(table: *const RTL_AVL_TABLE, buffer: *const core::ffi::c_void)>;
-pub type RTL_AVL_MATCH_FUNCTION = Option<unsafe extern "system" fn(table: *const RTL_AVL_TABLE, userdata: *const core::ffi::c_void, matchdata: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-pub type RTL_GENERIC_ALLOCATE_ROUTINE = Option<unsafe extern "system" fn(table: *const RTL_GENERIC_TABLE, bytesize: u32) -> *mut core::ffi::c_void>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-pub type RTL_GENERIC_COMPARE_ROUTINE = Option<unsafe extern "system" fn(table: *const RTL_GENERIC_TABLE, firststruct: *const core::ffi::c_void, secondstruct: *const core::ffi::c_void) -> RTL_GENERIC_COMPARE_RESULTS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-pub type RTL_GENERIC_FREE_ROUTINE = Option<unsafe extern "system" fn(table: *const RTL_GENERIC_TABLE, buffer: *const core::ffi::c_void)>;
-pub type RTL_QUERY_REGISTRY_ROUTINE = Option<unsafe extern "system" fn(valuename: windows_sys::core::PCWSTR, valuetype: u32, valuedata: *const core::ffi::c_void, valuelength: u32, context: *const core::ffi::c_void, entrycontext: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Win32_System_Threading")]
-pub type RTL_RUN_ONCE_INIT_FN = Option<unsafe extern "system" fn(runonce: *mut super::super::super::Win32::System::Threading::INIT_ONCE, parameter: *mut core::ffi::c_void, context: *mut *mut core::ffi::c_void) -> u32>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type SECURE_DRIVER_PROCESS_DEREFERENCE = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void, process: super::super::Foundation::PEPROCESS)>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type SECURE_DRIVER_PROCESS_REFERENCE = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void) -> super::super::Foundation::PEPROCESS>;
-pub type SET_D3COLD_SUPPORT = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, d3coldsupport: super::super::super::Win32::Foundation::BOOLEAN)>;
-pub type SET_VIRTUAL_DEVICE_DATA = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, virtualfunction: u16, buffer: *const core::ffi::c_void, offset: u32, length: u32) -> u32>;
-pub type SE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(callbackcontext: *const core::ffi::c_void, imagetype: SE_IMAGE_TYPE, imageinformation: *mut BDCB_IMAGE_INFORMATION)>;
-pub type SILO_CONTEXT_CLEANUP_CALLBACK = Option<unsafe extern "system" fn(silocontext: *const core::ffi::c_void)>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type SILO_MONITOR_CREATE_CALLBACK = Option<unsafe extern "system" fn(silo: super::super::Foundation::PESILO) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type SILO_MONITOR_TERMINATE_CALLBACK = Option<unsafe extern "system" fn(silo: super::super::Foundation::PESILO)>;
-pub type TRANSLATE_BUS_ADDRESS = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, busaddress: i64, length: u32, addressspace: *mut u32, translatedaddress: *mut i64) -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type WHEA_ERROR_SOURCE_CORRECT = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type WHEA_ERROR_SOURCE_CREATE_RECORD = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type WHEA_ERROR_SOURCE_INITIALIZE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type WHEA_ERROR_SOURCE_RECOVER = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type WHEA_ERROR_SOURCE_UNINITIALIZE = Option<unsafe extern "system" fn()>;
-pub type WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACK = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type WMI_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn()>;
-pub type WORKER_THREAD_ROUTINE = Option<unsafe extern "system" fn(parameter: *const core::ffi::c_void)>;
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-pub type _WHEA_ERROR_SOURCE_CORRECT = Option<unsafe extern "system" fn(errorsource: *mut super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR, maximumsectionlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-pub type _WHEA_ERROR_SOURCE_CREATE_RECORD = Option<unsafe extern "system" fn(errorsource: *mut super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR, errorpacket: *mut WHEA_ERROR_PACKET_V2, errorrecord: *mut WHEA_ERROR_RECORD, buffersize: u32, context: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-pub type _WHEA_ERROR_SOURCE_INITIALIZE = Option<unsafe extern "system" fn(phase: u32, errorsource: *mut super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR, context: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type _WHEA_ERROR_SOURCE_RECOVER = Option<unsafe extern "system" fn(recoverycontext: *mut core::ffi::c_void, severity: *mut WHEA_ERROR_SEVERITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type _WHEA_ERROR_SOURCE_UNINITIALIZE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
-pub type _WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACK = Option<unsafe extern "system" fn(context: usize) -> super::super::super::Win32::Foundation::BOOLEAN>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type pHalAssignSlotResources = Option<unsafe extern "system" fn(registrypath: *const super::super::super::Win32::Foundation::UNICODE_STRING, driverclassname: *const super::super::super::Win32::Foundation::UNICODE_STRING, driverobject: *const super::super::Foundation::DRIVER_OBJECT, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, bustype: INTERFACE_TYPE, busnumber: u32, slotnumber: u32, allocatedresources: *mut *mut CM_RESOURCE_LIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type pHalEndMirroring = Option<unsafe extern "system" fn(passnumber: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type pHalEndOfBoot = Option<unsafe extern "system" fn()>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type pHalExamineMBR = Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, sectorsize: u32, mbrtypeidentifier: u32, buffer: *mut *mut core::ffi::c_void)>;
-pub type pHalFindBusAddressTranslation = Option<unsafe extern "system" fn(busaddress: i64, addressspace: *mut u32, translatedaddress: *mut i64, context: *mut usize, nextbus: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type pHalGetAcpiTable = Option<unsafe extern "system" fn(signature: u32, oemid: windows_sys::core::PCSTR, oemtableid: windows_sys::core::PCSTR) -> *mut core::ffi::c_void>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type pHalGetDmaAdapter = Option<unsafe extern "system" fn(physicaldeviceobject: *const core::ffi::c_void, devicedescriptor: *const DEVICE_DESCRIPTION, numberofmapregisters: *mut u32) -> *mut DMA_ADAPTER>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type pHalGetInterruptTranslator = Option<unsafe extern "system" fn(parentinterfacetype: INTERFACE_TYPE, parentbusnumber: u32, bridgeinterfacetype: INTERFACE_TYPE, size: u16, version: u16, translator: *mut TRANSLATOR_INTERFACE, bridgebusnumber: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Win32_System_Kernel")]
-pub type pHalGetPrmCache = Option<unsafe extern "system" fn(firmwarelist: *mut *mut super::super::super::Win32::System::Kernel::LIST_ENTRY, updatelist: *mut *mut super::super::super::Win32::System::Kernel::LIST_ENTRY)>;
-pub type pHalHaltSystem = Option<unsafe extern "system" fn()>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type pHalHandlerForBus = Option<unsafe extern "system" fn(interfacetype: INTERFACE_TYPE, busnumber: u32) -> super::super::Foundation::PBUS_HANDLER>;
-pub type pHalInitPnpDriver = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type pHalInitPowerManagement = Option<unsafe extern "system" fn(pmdriverdispatchtable: *const PM_DISPATCH_TABLE, pmhaldispatchtable: *mut *mut PM_DISPATCH_TABLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Ioctl", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type pHalIoReadPartitionTable = Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, sectorsize: u32, returnrecognizedpartitions: super::super::super::Win32::Foundation::BOOLEAN, partitionbuffer: *mut *mut super::super::super::Win32::System::Ioctl::DRIVE_LAYOUT_INFORMATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type pHalIoSetPartitionInformation = Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, sectorsize: u32, partitionnumber: u32, partitiontype: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Ioctl", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type pHalIoWritePartitionTable = Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, sectorsize: u32, sectorspertrack: u32, numberofheads: u32, partitionbuffer: *const super::super::super::Win32::System::Ioctl::DRIVE_LAYOUT_INFORMATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type pHalMirrorPhysicalMemory = Option<unsafe extern "system" fn(physicaladdress: i64, numberofbytes: i64) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type pHalMirrorVerify = Option<unsafe extern "system" fn(physicaladdress: i64, numberofbytes: i64) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type pHalQueryBusSlots = Option<unsafe extern "system" fn(bushandler: super::super::Foundation::PBUS_HANDLER, buffersize: u32, slotnumbers: *mut u32, returnedlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type pHalQuerySystemInformation = Option<unsafe extern "system" fn(informationclass: HAL_QUERY_INFORMATION_CLASS, buffersize: u32, buffer: *mut core::ffi::c_void, returnedlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
-pub type pHalReferenceBusHandler = Option<unsafe extern "system" fn(bushandler: super::super::Foundation::PBUS_HANDLER)>;
-pub type pHalResetDisplay = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type pHalSetPciErrorHandlerCallback = Option<unsafe extern "system" fn(callback: PCI_ERROR_HANDLER_CALLBACK)>;
-pub type pHalSetSystemInformation = Option<unsafe extern "system" fn(informationclass: HAL_SET_INFORMATION_CLASS, buffersize: u32, buffer: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type pHalStartMirroring = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type pHalTranslateBusAddress = Option<unsafe extern "system" fn(interfacetype: INTERFACE_TYPE, busnumber: u32, busaddress: i64, addressspace: *mut u32, translatedaddress: *mut i64) -> super::super::super::Win32::Foundation::BOOLEAN>;
-pub type pHalVectorToIDTEntry = Option<unsafe extern "system" fn(vector: u32) -> u8>;
-pub type pKdCheckPowerButton = Option<unsafe extern "system" fn()>;
-pub type pKdEnumerateDebuggingDevices = Option<unsafe extern "system" fn(loaderblock: *const core::ffi::c_void, device: *mut DEBUG_DEVICE_DESCRIPTOR, callback: PDEBUG_DEVICE_FOUND_FUNCTION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type pKdGetAcpiTablePhase0 = Option<unsafe extern "system" fn(loaderblock: *const isize, signature: u32) -> *mut core::ffi::c_void>;
-pub type pKdGetPciDataByOffset = Option<unsafe extern "system" fn(busnumber: u32, slotnumber: u32, buffer: *mut core::ffi::c_void, offset: u32, length: u32) -> u32>;
-pub type pKdMapPhysicalMemory64 = Option<unsafe extern "system" fn(physicaladdress: i64, numberpages: u32, flushcurrenttlb: super::super::super::Win32::Foundation::BOOLEAN) -> *mut core::ffi::c_void>;
-pub type pKdReleaseIntegratedDeviceForDebugging = Option<unsafe extern "system" fn(integrateddevice: *mut DEBUG_DEVICE_DESCRIPTOR) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type pKdReleasePciDeviceForDebugging = Option<unsafe extern "system" fn(pcidevice: *mut DEBUG_DEVICE_DESCRIPTOR) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type pKdSetPciDataByOffset = Option<unsafe extern "system" fn(busnumber: u32, slotnumber: u32, buffer: *const core::ffi::c_void, offset: u32, length: u32) -> u32>;
-pub type pKdSetupIntegratedDeviceForDebugging = Option<unsafe extern "system" fn(loaderblock: *const core::ffi::c_void, integrateddevice: *mut DEBUG_DEVICE_DESCRIPTOR) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type pKdSetupPciDeviceForDebugging = Option<unsafe extern "system" fn(loaderblock: *const core::ffi::c_void, pcidevice: *mut DEBUG_DEVICE_DESCRIPTOR) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type pKdUnmapVirtualAddress = Option<unsafe extern "system" fn(virtualaddress: *const core::ffi::c_void, numberpages: u32, flushcurrenttlb: super::super::super::Win32::Foundation::BOOLEAN)>;
-pub type ALTERNATIVE_ARCHITECTURE_TYPE = i32;
-pub type ARBITER_ACTION = i32;
-pub type ARBITER_REQUEST_SOURCE = i32;
-pub type ARBITER_RESULT = i32;
-pub type BDCB_CALLBACK_TYPE = i32;
-pub type BDCB_CLASSIFICATION = i32;
-pub type BDCB_STATUS_UPDATE_TYPE = i32;
-pub type BOUND_CALLBACK_STATUS = i32;
-pub type BUS_DATA_TYPE = i32;
-pub type BUS_QUERY_ID_TYPE = i32;
-pub type CM_SHARE_DISPOSITION = i32;
-pub type CONFIGURATION_TYPE = i32;
-pub type CREATE_FILE_TYPE = i32;
-pub type D3COLD_LAST_TRANSITION_STATUS = i32;
-pub type DEVICE_DIRECTORY_TYPE = i32;
-pub type DEVICE_INSTALL_STATE = i32;
-pub type DEVICE_REGISTRY_PROPERTY = i32;
-pub type DEVICE_RELATION_TYPE = i32;
-pub type DEVICE_REMOVAL_POLICY = i32;
-pub type DEVICE_RESET_TYPE = i32;
-pub type DEVICE_TEXT_TYPE = i32;
-pub type DEVICE_USAGE_NOTIFICATION_TYPE = i32;
-pub type DEVICE_WAKE_DEPTH = i32;
-pub type DIRECTORY_NOTIFY_INFORMATION_CLASS = i32;
-pub type DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = i32;
-pub type DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = i32;
-pub type DMA_COMPLETION_STATUS = i32;
-pub type DMA_SPEED = i32;
-pub type DMA_WIDTH = i32;
-pub type DOMAIN_CONFIGURATION_ARCH = i32;
-pub type DRIVER_DIRECTORY_TYPE = i32;
-pub type DRIVER_REGKEY_TYPE = i32;
-pub type DRIVER_RUNTIME_INIT_FLAGS = i32;
-pub type EXTENDED_AGP_REGISTER = i32;
-pub type EX_POOL_PRIORITY = i32;
-pub type FAULT_INFORMATION_ARCH = i32;
-pub type FAULT_INFORMATION_ARM64_TYPE = i32;
-pub type HAL_APIC_DESTINATION_MODE = i32;
-pub type HAL_DISPLAY_BIOS_INFORMATION = i32;
-pub type HAL_DMA_CRASH_DUMP_REGISTER_TYPE = i32;
-pub type HAL_QUERY_INFORMATION_CLASS = i32;
-pub type HAL_SET_INFORMATION_CLASS = i32;
-pub type HARDWARE_COUNTER_TYPE = i32;
-pub type INTEL_CACHE_TYPE = i32;
-pub type INTERFACE_TYPE = i32;
-pub type INTERLOCKED_RESULT = i32;
-pub type IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = i32;
-pub type IOMMU_DMA_DOMAIN_TYPE = i32;
-pub type IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = i32;
-pub type IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = i32;
-pub type IO_ACCESS_MODE = i32;
-pub type IO_ACCESS_TYPE = i32;
-pub type IO_ALLOCATION_ACTION = i32;
-pub type IO_COMPLETION_ROUTINE_RESULT = i32;
-pub type IO_CONTAINER_INFORMATION_CLASS = i32;
-pub type IO_CONTAINER_NOTIFICATION_CLASS = i32;
-pub type IO_NOTIFICATION_EVENT_CATEGORY = i32;
-pub type IO_PAGING_PRIORITY = i32;
-pub type IO_QUERY_DEVICE_DATA_FORMAT = i32;
-pub type IO_SESSION_EVENT = i32;
-pub type IO_SESSION_STATE = i32;
-pub type IRQ_DEVICE_POLICY = i32;
-pub type IRQ_GROUP_POLICY = i32;
-pub type IRQ_PRIORITY = i32;
-pub type KBUGCHECK_BUFFER_DUMP_STATE = i32;
-pub type KBUGCHECK_CALLBACK_REASON = i32;
-pub type KBUGCHECK_DUMP_IO_TYPE = i32;
-pub type KDPC_IMPORTANCE = i32;
-pub type KD_CALLBACK_ACTION = i32;
-pub type KD_NAMESPACE_ENUM = i32;
-pub type KD_OPTION = i32;
-pub type KE_PROCESSOR_CHANGE_NOTIFY_STATE = i32;
-pub type KINTERRUPT_MODE = i32;
-pub type KINTERRUPT_POLARITY = i32;
-pub type KPROFILE_SOURCE = i32;
-pub type KWAIT_REASON = i32;
-pub type LOCK_OPERATION = i32;
-pub type MCA_EXCEPTION_TYPE = i32;
-pub type MEMORY_CACHING_TYPE = i32;
-pub type MEMORY_CACHING_TYPE_ORIG = i32;
-pub type MEM_DEDICATED_ATTRIBUTE_TYPE = i32;
-pub type MEM_SECTION_EXTENDED_PARAMETER_TYPE = i32;
-pub type MM_MDL_PAGE_CONTENTS_STATE = i32;
-pub type MM_PAGE_PRIORITY = i32;
-pub type MM_ROTATE_DIRECTION = i32;
-pub type MM_SYSTEMSIZE = i32;
-pub type MODE = i32;
-pub type NPEM_CONTROL_STANDARD_CONTROL_BIT = i32;
-pub type OB_PREOP_CALLBACK_STATUS = i32;
-pub type PARTITION_INFORMATION_CLASS = i32;
-pub type PCI_ACS_BIT = i32;
-pub type PCI_BUS_WIDTH = i32;
-pub type PCI_DEVICE_D3COLD_STATE_REASON = i32;
-pub type PCI_EXPRESS_ASPM_CONTROL = i32;
-pub type PCI_EXPRESS_ASPM_SUPPORT = i32;
-pub type PCI_EXPRESS_CARD_PRESENCE = i32;
-pub type PCI_EXPRESS_DEVICE_TYPE = i32;
-pub type PCI_EXPRESS_INDICATOR_STATE = i32;
-pub type PCI_EXPRESS_L0s_EXIT_LATENCY = i32;
-pub type PCI_EXPRESS_L1_EXIT_LATENCY = i32;
-pub type PCI_EXPRESS_LINK_SUBSTATE = i32;
-pub type PCI_EXPRESS_MAX_PAYLOAD_SIZE = i32;
-pub type PCI_EXPRESS_MRL_STATE = i32;
-pub type PCI_EXPRESS_POWER_STATE = i32;
-pub type PCI_EXPRESS_RCB = i32;
-pub type PCI_HARDWARE_INTERFACE = i32;
-pub type PCW_CALLBACK_TYPE = i32;
-pub type PCW_REGISTRATION_FLAGS = i32;
-pub type PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = i32;
-pub type POOL_EXTENDED_PARAMETER_TYPE = i32;
-pub type POWER_MONITOR_REQUEST_REASON = i32;
-pub type POWER_MONITOR_REQUEST_TYPE = i32;
-pub type POWER_PLATFORM_ROLE = i32;
-pub type POWER_STATE_TYPE = i32;
-pub type POWER_USER_PRESENCE_TYPE = i32;
-pub type PO_FX_PERF_STATE_TYPE = i32;
-pub type PO_FX_PERF_STATE_UNIT = i32;
-pub type PO_THERMAL_REQUEST_TYPE = i32;
-pub type PSCREATEPROCESSNOTIFYTYPE = i32;
-pub type PSCREATETHREADNOTIFYTYPE = i32;
-pub type PSHED_PI_ERR_READING_PCIE_OVERRIDES = i32;
-pub type REG_NOTIFY_CLASS = i32;
-pub type RESOURCE_TRANSLATION_DIRECTION = i32;
-pub type RTL_GENERIC_COMPARE_RESULTS = i32;
-pub type SECURITY_OPERATION_CODE = i32;
-pub type SE_IMAGE_TYPE = i32;
-pub type SE_IMAGE_VERIFICATION_CALLBACK_TYPE = i32;
-pub type SOC_SUBSYSTEM_TYPE = i32;
-pub type STATE_LOCATION_TYPE = i32;
-pub type SUBSYSTEM_INFORMATION_TYPE = i32;
-pub type SYSTEM_FIRMWARE_TABLE_ACTION = i32;
-pub type SYSTEM_POWER_CONDITION = i32;
-pub type TABLE_SEARCH_RESULT = i32;
-pub type TRACE_INFORMATION_CLASS = i32;
-pub type WHEAP_DPC_ERROR_EVENT_TYPE = i32;
-pub type WHEAP_PFA_OFFLINE_DECISION_TYPE = i32;
-pub type WHEA_BUGCHECK_RECOVERY_LOG_TYPE = i32;
-pub type WHEA_CPU_VENDOR = i32;
-pub type WHEA_ERROR_PACKET_DATA_FORMAT = i32;
-pub type WHEA_ERROR_SEVERITY = i32;
-pub type WHEA_ERROR_TYPE = i32;
-pub type WHEA_EVENT_LOG_ENTRY_ID = i32;
-pub type WHEA_EVENT_LOG_ENTRY_TYPE = i32;
-pub type WHEA_PCIEXPRESS_DEVICE_TYPE = i32;
-pub type WHEA_PCI_RECOVERY_SIGNAL = i32;
-pub type WHEA_PCI_RECOVERY_STATUS = i32;
-pub type WHEA_PFA_REMOVE_TRIGGER = i32;
-pub type WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = i32;
-pub type WHEA_RAW_DATA_FORMAT = i32;
-pub type WHEA_RECOVERY_CONTEXT_ERROR_TYPE = i32;
-pub type WHEA_RECOVERY_FAILURE_REASON = i32;
-pub type WHEA_RECOVERY_TYPE = i32;
-pub type WHEA_THROTTLE_TYPE = i32;
-pub type WORK_QUEUE_TYPE = i32;
+pub const ACPIBus: INTERFACE_TYPE = 17i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACPI_DEBUGGING_DEVICE_IN_USE {
@@ -2642,6 +1843,8 @@ pub struct ACPI_INTERFACE_STANDARD2 {
     pub RegisterForDeviceNotifications: PREGISTER_FOR_DEVICE_NOTIFICATIONS2,
     pub UnregisterForDeviceNotifications: PUNREGISTER_FOR_DEVICE_NOTIFICATIONS2,
 }
+pub const ADAPTER_INFO_API_BYPASS: u32 = 2u32;
+pub const ADAPTER_INFO_SYNCHRONOUS_CALLBACK: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AGP_TARGET_BUS_INTERFACE_STANDARD {
@@ -2654,6 +1857,11 @@ pub struct AGP_TARGET_BUS_INTERFACE_STANDARD {
     pub GetBusData: PGET_SET_DEVICE_DATA,
     pub CapabilityID: u8,
 }
+#[cfg(feature = "Wdk_Foundation")]
+pub type ALLOCATE_FUNCTION = Option<unsafe extern "system" fn(pooltype: super::super::Foundation::POOL_TYPE, numberofbytes: usize, tag: u32) -> *mut core::ffi::c_void>;
+pub const ALLOC_DATA_PRAGMA: u32 = 1u32;
+pub const ALLOC_PRAGMA: u32 = 1u32;
+pub type ALTERNATIVE_ARCHITECTURE_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union AMD_L1_CACHE_INFO {
@@ -2694,6 +1902,9 @@ pub struct AMD_L3_CACHE_INFO_0 {
     pub _bitfield1: u8,
     pub _bitfield2: u16,
 }
+pub const ANY_SIZE: u32 = 1u32;
+pub const APC_LEVEL: u32 = 1u32;
+pub type ARBITER_ACTION = i32;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
@@ -2714,6 +1925,9 @@ pub struct ARBITER_CONFLICT_INFO {
     pub Start: u64,
     pub End: u64,
 }
+pub const ARBITER_FLAG_BOOT_CONFIG: u32 = 1u32;
+pub const ARBITER_FLAG_OTHER_ENUM: u32 = 4u32;
+pub const ARBITER_FLAG_ROOT_ENUM: u32 = 2u32;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
@@ -2762,6 +1976,7 @@ pub union ARBITER_PARAMETERS_0 {
     pub QueryArbitrate: ARBITER_QUERY_ARBITRATE_PARAMETERS,
     pub AddReserved: ARBITER_ADD_RESERVED_PARAMETERS,
 }
+pub const ARBITER_PARTIAL: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ARBITER_QUERY_ALLOCATED_RESOURCES_PARAMETERS {
@@ -2782,6 +1997,8 @@ pub struct ARBITER_QUERY_CONFLICT_PARAMETERS {
     pub ConflictCount: *mut u32,
     pub Conflicts: *mut *mut ARBITER_CONFLICT_INFO,
 }
+pub type ARBITER_REQUEST_SOURCE = i32;
+pub type ARBITER_RESULT = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
@@ -2858,6 +2075,44 @@ pub struct ARM64_NT_CONTEXT_0_0 {
     pub Fp: u64,
     pub Lr: u64,
 }
+pub const ARM64_PCR_RESERVED_MASK: u32 = 4095u32;
+pub const ARM_PROCESSOR_ERROR_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe19e3d16_bc11_11e4_9caa_c2051d5d46b0);
+pub const ATS_DEVICE_SVM_OPTOUT: u32 = 1u32;
+pub const AccessFlagFault: FAULT_INFORMATION_ARM64_TYPE = 5i32;
+pub const AddressSizeFault: FAULT_INFORMATION_ARM64_TYPE = 1i32;
+pub const AgpControl: EXTENDED_AGP_REGISTER = 1i32;
+pub const AllLoggerHandlesClass: TRACE_INFORMATION_CLASS = 6i32;
+pub const AperturePageSize: EXTENDED_AGP_REGISTER = 3i32;
+pub const ApertureSize: EXTENDED_AGP_REGISTER = 2i32;
+pub const ApicDestinationModeLogicalClustered: HAL_APIC_DESTINATION_MODE = 3i32;
+pub const ApicDestinationModeLogicalFlat: HAL_APIC_DESTINATION_MODE = 2i32;
+pub const ApicDestinationModePhysical: HAL_APIC_DESTINATION_MODE = 1i32;
+pub const ApicDestinationModeUnknown: HAL_APIC_DESTINATION_MODE = 4i32;
+pub const ArbiterActionAddReserved: ARBITER_ACTION = 8i32;
+pub const ArbiterActionBootAllocation: ARBITER_ACTION = 9i32;
+pub const ArbiterActionCommitAllocation: ARBITER_ACTION = 2i32;
+pub const ArbiterActionQueryAllocatedResources: ARBITER_ACTION = 4i32;
+pub const ArbiterActionQueryArbitrate: ARBITER_ACTION = 7i32;
+pub const ArbiterActionQueryConflict: ARBITER_ACTION = 6i32;
+pub const ArbiterActionRetestAllocation: ARBITER_ACTION = 1i32;
+pub const ArbiterActionRollbackAllocation: ARBITER_ACTION = 3i32;
+pub const ArbiterActionTestAllocation: ARBITER_ACTION = 0i32;
+pub const ArbiterActionWriteReservedResources: ARBITER_ACTION = 5i32;
+pub const ArbiterRequestHalReported: ARBITER_REQUEST_SOURCE = 1i32;
+pub const ArbiterRequestLegacyAssigned: ARBITER_REQUEST_SOURCE = 2i32;
+pub const ArbiterRequestLegacyReported: ARBITER_REQUEST_SOURCE = 0i32;
+pub const ArbiterRequestPnpDetected: ARBITER_REQUEST_SOURCE = 3i32;
+pub const ArbiterRequestPnpEnumerated: ARBITER_REQUEST_SOURCE = 4i32;
+pub const ArbiterRequestUndefined: ARBITER_REQUEST_SOURCE = -1i32;
+pub const ArbiterResultExternalConflict: ARBITER_RESULT = 1i32;
+pub const ArbiterResultNullRequest: ARBITER_RESULT = 2i32;
+pub const ArbiterResultSuccess: ARBITER_RESULT = 0i32;
+pub const ArbiterResultUndefined: ARBITER_RESULT = -1i32;
+pub const ArcSystem: CONFIGURATION_TYPE = 0i32;
+pub const AssignSecurityDescriptor: SECURITY_OPERATION_CODE = 3i32;
+pub const AudioController: CONFIGURATION_TYPE = 23i32;
+pub type BDCB_CALLBACK_TYPE = i32;
+pub type BDCB_CLASSIFICATION = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BDCB_IMAGE_INFORMATION {
@@ -2879,6 +2134,8 @@ pub struct BDCB_IMAGE_INFORMATION {
 pub struct BDCB_STATUS_UPDATE_CONTEXT {
     pub StatusType: BDCB_STATUS_UPDATE_TYPE,
 }
+pub type BDCB_STATUS_UPDATE_TYPE = i32;
+pub const BMC_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x487565ba_6494_4367_95ca_4eff893522f6);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BOOTDISK_INFORMATION {
@@ -2905,6 +2162,11 @@ pub struct BOOTDISK_INFORMATION_LITE {
     pub NumberEntries: u32,
     pub Entries: [LOADER_PARTITION_INFORMATION_EX; 1],
 }
+pub type BOOT_DRIVER_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(callbackcontext: *const core::ffi::c_void, classification: BDCB_CALLBACK_TYPE, imageinformation: *mut BDCB_IMAGE_INFORMATION)>;
+pub const BOOT_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3d61a466_ab40_409a_a698_f362d464b38f);
+pub type BOUND_CALLBACK = Option<unsafe extern "system" fn() -> BOUND_CALLBACK_STATUS>;
+pub type BOUND_CALLBACK_STATUS = i32;
+pub type BUS_DATA_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
@@ -2919,6 +2181,7 @@ pub struct BUS_INTERFACE_STANDARD {
     pub SetBusData: PGET_SET_DEVICE_DATA,
     pub GetBusData: PGET_SET_DEVICE_DATA,
 }
+pub type BUS_QUERY_ID_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BUS_RESOURCE_UPDATE_INTERFACE {
@@ -2940,6 +2203,37 @@ pub union BUS_SPECIFIC_RESET_FLAGS {
 pub struct BUS_SPECIFIC_RESET_FLAGS_0 {
     pub _bitfield: u64,
 }
+pub const BackgroundWorkQueue: WORK_QUEUE_TYPE = 4i32;
+pub const BdCbClassificationEnd: BDCB_CLASSIFICATION = 4i32;
+pub const BdCbClassificationKnownBadImage: BDCB_CLASSIFICATION = 2i32;
+pub const BdCbClassificationKnownBadImageBootCritical: BDCB_CLASSIFICATION = 3i32;
+pub const BdCbClassificationKnownGoodImage: BDCB_CLASSIFICATION = 1i32;
+pub const BdCbClassificationUnknownImage: BDCB_CLASSIFICATION = 0i32;
+pub const BdCbInitializeImage: BDCB_CALLBACK_TYPE = 1i32;
+pub const BdCbStatusPrepareForDependencyLoad: BDCB_STATUS_UPDATE_TYPE = 0i32;
+pub const BdCbStatusPrepareForDriverLoad: BDCB_STATUS_UPDATE_TYPE = 1i32;
+pub const BdCbStatusPrepareForUnload: BDCB_STATUS_UPDATE_TYPE = 2i32;
+pub const BdCbStatusUpdate: BDCB_CALLBACK_TYPE = 0i32;
+pub const BoundExceptionContinueSearch: BOUND_CALLBACK_STATUS = 0i32;
+pub const BoundExceptionError: BOUND_CALLBACK_STATUS = 2i32;
+pub const BoundExceptionHandled: BOUND_CALLBACK_STATUS = 1i32;
+pub const BoundExceptionMaximum: BOUND_CALLBACK_STATUS = 3i32;
+pub const BufferEmpty: KBUGCHECK_BUFFER_DUMP_STATE = 0i32;
+pub const BufferFinished: KBUGCHECK_BUFFER_DUMP_STATE = 3i32;
+pub const BufferIncomplete: KBUGCHECK_BUFFER_DUMP_STATE = 4i32;
+pub const BufferInserted: KBUGCHECK_BUFFER_DUMP_STATE = 1i32;
+pub const BufferStarted: KBUGCHECK_BUFFER_DUMP_STATE = 2i32;
+pub const BusQueryCompatibleIDs: BUS_QUERY_ID_TYPE = 2i32;
+pub const BusQueryContainerID: BUS_QUERY_ID_TYPE = 5i32;
+pub const BusQueryDeviceID: BUS_QUERY_ID_TYPE = 0i32;
+pub const BusQueryDeviceSerialNumber: BUS_QUERY_ID_TYPE = 4i32;
+pub const BusQueryHardwareIDs: BUS_QUERY_ID_TYPE = 1i32;
+pub const BusQueryInstanceID: BUS_QUERY_ID_TYPE = 3i32;
+pub const BusRelations: DEVICE_RELATION_TYPE = 0i32;
+pub const BusWidth32Bits: PCI_BUS_WIDTH = 0i32;
+pub const BusWidth64Bits: PCI_BUS_WIDTH = 1i32;
+pub const CBus: INTERFACE_TYPE = 9i32;
+pub const CLFS_MAX_CONTAINER_INFO: u32 = 256u32;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
@@ -2952,6 +2246,17 @@ pub struct CLFS_MGMT_CLIENT_REGISTRATION {
     pub LogUnpinnedCallback: PCLFS_CLIENT_LOG_UNPINNED_CALLBACK,
     pub LogUnpinnedCallbackData: *mut core::ffi::c_void,
 }
+pub const CLFS_SCAN_BACKWARD: u8 = 4u8;
+pub const CLFS_SCAN_BUFFERED: u8 = 32u8;
+pub const CLFS_SCAN_CLOSE: u8 = 8u8;
+pub const CLFS_SCAN_FORWARD: u8 = 2u8;
+pub const CLFS_SCAN_INIT: u8 = 1u8;
+pub const CLFS_SCAN_INITIALIZED: u8 = 16u8;
+pub const CLOCK1_LEVEL: u32 = 28u32;
+pub const CLOCK2_LEVEL: u32 = 28u32;
+pub const CLOCK_LEVEL: u32 = 28u32;
+pub const CMCI_LEVEL: u32 = 5u32;
+pub const CMCI_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x919448b2_3739_4b7f_a8f1_e0062805c2a3);
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy)]
@@ -2960,6 +2265,7 @@ pub struct CMC_DRIVER_INFO {
     pub DpcCallback: super::super::Foundation::PKDEFERRED_ROUTINE,
     pub DeviceContext: *mut core::ffi::c_void,
 }
+pub const CMC_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2dce8bb1_bdd7_450e_b9ad_9cf4ebd4f890);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CM_COMPONENT_INFORMATION {
@@ -3291,12 +2597,63 @@ pub struct CM_POWER_DATA {
     pub PD_PowerStateMapping: [super::super::super::Win32::System::Power::DEVICE_POWER_STATE; 7],
     pub PD_DeepestSystemWake: super::super::super::Win32::System::Power::SYSTEM_POWER_STATE,
 }
+pub const CM_RESOURCE_CONNECTION_CLASS_FUNCTION_CONFIG: u32 = 3u32;
+pub const CM_RESOURCE_CONNECTION_CLASS_GPIO: u32 = 1u32;
+pub const CM_RESOURCE_CONNECTION_CLASS_SERIAL: u32 = 2u32;
+pub const CM_RESOURCE_CONNECTION_TYPE_FUNCTION_CONFIG: u32 = 1u32;
+pub const CM_RESOURCE_CONNECTION_TYPE_GPIO_IO: u32 = 2u32;
+pub const CM_RESOURCE_CONNECTION_TYPE_SERIAL_I2C: u32 = 1u32;
+pub const CM_RESOURCE_CONNECTION_TYPE_SERIAL_SPI: u32 = 2u32;
+pub const CM_RESOURCE_CONNECTION_TYPE_SERIAL_UART: u32 = 3u32;
+pub const CM_RESOURCE_DMA_16: u32 = 1u32;
+pub const CM_RESOURCE_DMA_32: u32 = 2u32;
+pub const CM_RESOURCE_DMA_8: u32 = 0u32;
+pub const CM_RESOURCE_DMA_8_AND_16: u32 = 4u32;
+pub const CM_RESOURCE_DMA_BUS_MASTER: u32 = 8u32;
+pub const CM_RESOURCE_DMA_TYPE_A: u32 = 16u32;
+pub const CM_RESOURCE_DMA_TYPE_B: u32 = 32u32;
+pub const CM_RESOURCE_DMA_TYPE_F: u32 = 64u32;
+pub const CM_RESOURCE_DMA_V3: u32 = 128u32;
+pub const CM_RESOURCE_INTERRUPT_LATCHED: u32 = 1u32;
+pub const CM_RESOURCE_INTERRUPT_LEVEL_LATCHED_BITS: u32 = 1u32;
+pub const CM_RESOURCE_INTERRUPT_LEVEL_SENSITIVE: u32 = 0u32;
+pub const CM_RESOURCE_INTERRUPT_MESSAGE: u32 = 2u32;
+pub const CM_RESOURCE_INTERRUPT_POLICY_INCLUDED: u32 = 4u32;
+pub const CM_RESOURCE_INTERRUPT_SECONDARY_INTERRUPT: u32 = 16u32;
+pub const CM_RESOURCE_INTERRUPT_WAKE_HINT: u32 = 32u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CM_RESOURCE_LIST {
     pub Count: u32,
     pub List: [CM_FULL_RESOURCE_DESCRIPTOR; 1],
 }
+pub const CM_RESOURCE_MEMORY_24: u32 = 16u32;
+pub const CM_RESOURCE_MEMORY_BAR: u32 = 128u32;
+pub const CM_RESOURCE_MEMORY_CACHEABLE: u32 = 32u32;
+pub const CM_RESOURCE_MEMORY_COMBINEDWRITE: u32 = 8u32;
+pub const CM_RESOURCE_MEMORY_COMPAT_FOR_INACCESSIBLE_RANGE: u32 = 256u32;
+pub const CM_RESOURCE_MEMORY_LARGE: u32 = 3584u32;
+pub const CM_RESOURCE_MEMORY_LARGE_40: u32 = 512u32;
+pub const CM_RESOURCE_MEMORY_LARGE_40_MAXLEN: u64 = 1099511627520u64;
+pub const CM_RESOURCE_MEMORY_LARGE_48: u32 = 1024u32;
+pub const CM_RESOURCE_MEMORY_LARGE_48_MAXLEN: u64 = 281474976645120u64;
+pub const CM_RESOURCE_MEMORY_LARGE_64: u32 = 2048u32;
+pub const CM_RESOURCE_MEMORY_LARGE_64_MAXLEN: u64 = 18446744069414584320u64;
+pub const CM_RESOURCE_MEMORY_PREFETCHABLE: u32 = 4u32;
+pub const CM_RESOURCE_MEMORY_READ_ONLY: u32 = 1u32;
+pub const CM_RESOURCE_MEMORY_READ_WRITE: u32 = 0u32;
+pub const CM_RESOURCE_MEMORY_WINDOW_DECODE: u32 = 64u32;
+pub const CM_RESOURCE_MEMORY_WRITEABILITY_MASK: u32 = 3u32;
+pub const CM_RESOURCE_MEMORY_WRITE_ONLY: u32 = 2u32;
+pub const CM_RESOURCE_PORT_10_BIT_DECODE: u32 = 4u32;
+pub const CM_RESOURCE_PORT_12_BIT_DECODE: u32 = 8u32;
+pub const CM_RESOURCE_PORT_16_BIT_DECODE: u32 = 16u32;
+pub const CM_RESOURCE_PORT_BAR: u32 = 256u32;
+pub const CM_RESOURCE_PORT_IO: u32 = 1u32;
+pub const CM_RESOURCE_PORT_MEMORY: u32 = 0u32;
+pub const CM_RESOURCE_PORT_PASSIVE_DECODE: u32 = 64u32;
+pub const CM_RESOURCE_PORT_POSITIVE_DECODE: u32 = 32u32;
+pub const CM_RESOURCE_PORT_WINDOW_DECODE: u32 = 128u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CM_ROM_BLOCK {
@@ -3317,6 +2674,8 @@ pub struct CM_SERIAL_DEVICE_DATA {
     pub Revision: u16,
     pub BaudClock: u32,
 }
+pub const CM_SERVICE_MEASURED_BOOT_LOAD: u32 = 32u32;
+pub type CM_SHARE_DISPOSITION = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CM_SONIC_DEVICE_DATA {
@@ -3347,6 +2706,13 @@ pub struct CONFIGURATION_INFORMATION {
     pub Version: u32,
     pub MediumChangerCount: u32,
 }
+pub type CONFIGURATION_TYPE = i32;
+pub const CONNECT_CURRENT_VERSION: u32 = 5u32;
+pub const CONNECT_FULLY_SPECIFIED: u32 = 1u32;
+pub const CONNECT_FULLY_SPECIFIED_GROUP: u32 = 4u32;
+pub const CONNECT_LINE_BASED: u32 = 2u32;
+pub const CONNECT_MESSAGE_BASED: u32 = 3u32;
+pub const CONNECT_MESSAGE_BASED_PASSIVE: u32 = 5u32;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
@@ -3379,6 +2745,8 @@ pub struct COUNTED_REASON_CONTEXT_0_0 {
     pub StringCount: u32,
     pub ReasonStrings: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
 }
+pub const CP15_PCR_RESERVED_MASK: u32 = 4095u32;
+pub const CPER_EMPTY_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy)]
@@ -3387,6 +2755,10 @@ pub struct CPE_DRIVER_INFO {
     pub DpcCallback: super::super::Foundation::PKDEFERRED_ROUTINE,
     pub DeviceContext: *mut core::ffi::c_void,
 }
+pub const CPE_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4e292f96_d843_4a55_a8c2_d481f27ebeee);
+pub const CP_GET_ERROR: u32 = 2u32;
+pub const CP_GET_NODATA: u32 = 1u32;
+pub const CP_GET_SUCCESS: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CRASHDUMP_FUNCTIONS_INTERFACE {
@@ -3397,6 +2769,7 @@ pub struct CRASHDUMP_FUNCTIONS_INTERFACE {
     pub InterfaceDereference: PINTERFACE_DEREFERENCE,
     pub PowerOn: PCRASHDUMP_POWER_ON,
 }
+pub type CREATE_FILE_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CREATE_USER_PROCESS_ECP_CONTEXT {
@@ -3404,6 +2777,62 @@ pub struct CREATE_USER_PROCESS_ECP_CONTEXT {
     pub Reserved: u16,
     pub AccessToken: *mut core::ffi::c_void,
 }
+pub const CardPresent: PCI_EXPRESS_CARD_PRESENCE = 1i32;
+pub const CbusConfiguration: BUS_DATA_TYPE = 3i32;
+pub const CdromController: CONFIGURATION_TYPE = 15i32;
+pub const CentralProcessor: CONFIGURATION_TYPE = 1i32;
+pub const ClfsClientRecord: u8 = 3u8;
+pub const ClfsContainerActive: u32 = 4u32;
+pub const ClfsContainerActivePendingDelete: u32 = 8u32;
+pub const ClfsContainerInactive: u32 = 2u32;
+pub const ClfsContainerInitializing: u32 = 1u32;
+pub const ClfsContainerPendingArchive: u32 = 16u32;
+pub const ClfsContainerPendingArchiveAndDelete: u32 = 32u32;
+pub const ClfsDataRecord: u8 = 1u8;
+pub const ClfsNullRecord: u8 = 0u8;
+pub const ClfsRestartRecord: u8 = 2u8;
+pub const ClsContainerActive: u32 = 4u32;
+pub const ClsContainerActivePendingDelete: u32 = 8u32;
+pub const ClsContainerInactive: u32 = 2u32;
+pub const ClsContainerInitializing: u32 = 1u32;
+pub const ClsContainerPendingArchive: u32 = 16u32;
+pub const ClsContainerPendingArchiveAndDelete: u32 = 32u32;
+pub const CmResourceShareDeviceExclusive: CM_SHARE_DISPOSITION = 1i32;
+pub const CmResourceShareDriverExclusive: CM_SHARE_DISPOSITION = 2i32;
+pub const CmResourceShareShared: CM_SHARE_DISPOSITION = 3i32;
+pub const CmResourceShareUndetermined: CM_SHARE_DISPOSITION = 0i32;
+pub const CmResourceTypeBusNumber: u32 = 6u32;
+pub const CmResourceTypeConfigData: u32 = 128u32;
+pub const CmResourceTypeConnection: u32 = 132u32;
+pub const CmResourceTypeDevicePrivate: u32 = 129u32;
+pub const CmResourceTypeDeviceSpecific: u32 = 5u32;
+pub const CmResourceTypeDma: u32 = 4u32;
+pub const CmResourceTypeInterrupt: u32 = 2u32;
+pub const CmResourceTypeMaximum: u32 = 8u32;
+pub const CmResourceTypeMemory: u32 = 3u32;
+pub const CmResourceTypeMemoryLarge: u32 = 7u32;
+pub const CmResourceTypeMfCardConfig: u32 = 131u32;
+pub const CmResourceTypeNonArbitrated: u32 = 128u32;
+pub const CmResourceTypeNull: u32 = 0u32;
+pub const CmResourceTypePcCardConfig: u32 = 130u32;
+pub const CmResourceTypePort: u32 = 1u32;
+pub const Cmos: BUS_DATA_TYPE = 0i32;
+pub const CommonBufferConfigTypeHardwareAccessPermissions: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = 2i32;
+pub const CommonBufferConfigTypeLogicalAddressLimits: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = 0i32;
+pub const CommonBufferConfigTypeMax: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = 3i32;
+pub const CommonBufferConfigTypeSubSection: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = 1i32;
+pub const CommonBufferHardwareAccessMax: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = 3i32;
+pub const CommonBufferHardwareAccessReadOnly: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = 0i32;
+pub const CommonBufferHardwareAccessReadWrite: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = 2i32;
+pub const CommonBufferHardwareAccessWriteOnly: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = 1i32;
+pub const Compatible: DMA_SPEED = 0i32;
+pub const ConfigurationSpaceUndefined: BUS_DATA_TYPE = -1i32;
+pub const ContinueCompletion: IO_COMPLETION_ROUTINE_RESULT = 0i32;
+pub const CreateFileTypeMailslot: CREATE_FILE_TYPE = 2i32;
+pub const CreateFileTypeNamedPipe: CREATE_FILE_TYPE = 1i32;
+pub const CreateFileTypeNone: CREATE_FILE_TYPE = 0i32;
+pub const CriticalWorkQueue: WORK_QUEUE_TYPE = 0i32;
+pub const CustomPriorityWorkQueue: WORK_QUEUE_TYPE = 32i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3COLD_AUX_POWER_AND_TIMING_INTERFACE {
@@ -3416,6 +2845,10 @@ pub struct D3COLD_AUX_POWER_AND_TIMING_INTERFACE {
     pub RequestAuxPower: PD3COLD_REQUEST_AUX_POWER,
     pub RequestPerstDelay: PD3COLD_REQUEST_PERST_DELAY,
 }
+pub type D3COLD_LAST_TRANSITION_STATUS = i32;
+pub type D3COLD_REQUEST_AUX_POWER = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, auxpowerinmilliwatts: u32, retryinseconds: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type D3COLD_REQUEST_CORE_POWER_RAIL = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, corepowerrailneeded: super::super::super::Win32::Foundation::BOOLEAN)>;
+pub type D3COLD_REQUEST_PERST_DELAY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, delayinmicroseconds: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3COLD_SUPPORT_INTERFACE {
@@ -3430,6 +2863,20 @@ pub struct D3COLD_SUPPORT_INTERFACE {
     pub GetBusDriverD3ColdSupport: PGET_D3COLD_CAPABILITY,
     pub GetLastTransitionStatus: PGET_D3COLD_LAST_TRANSITION_STATUS,
 }
+pub const D3COLD_SUPPORT_INTERFACE_VERSION: u32 = 1u32;
+pub const DBG_DEVICE_FLAG_BARS_MAPPED: u32 = 2u32;
+pub const DBG_DEVICE_FLAG_HAL_SCRATCH_ALLOCATED: u32 = 1u32;
+pub const DBG_DEVICE_FLAG_HOST_VISIBLE_ALLOCATED: u32 = 32u32;
+pub const DBG_DEVICE_FLAG_SCRATCH_ALLOCATED: u32 = 4u32;
+pub const DBG_DEVICE_FLAG_SYNTHETIC: u32 = 16u32;
+pub const DBG_DEVICE_FLAG_UNCACHED_MEMORY: u32 = 8u32;
+pub const DBG_STATUS_BUGCHECK_FIRST: u32 = 3u32;
+pub const DBG_STATUS_BUGCHECK_SECOND: u32 = 4u32;
+pub const DBG_STATUS_CONTROL_C: u32 = 1u32;
+pub const DBG_STATUS_DEBUG_CONTROL: u32 = 6u32;
+pub const DBG_STATUS_FATAL: u32 = 5u32;
+pub const DBG_STATUS_SYSRQ: u32 = 2u32;
+pub const DBG_STATUS_WORKER: u32 = 7u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEBUGGING_DEVICE_IN_USE {
@@ -3534,6 +2981,8 @@ pub struct DEBUG_TRANSPORT_DATA {
     pub ValidUSBCoreId: super::super::super::Win32::Foundation::BOOLEAN,
     pub USBCoreId: u8,
 }
+pub const DEFAULT_DEVICE_DRIVER_CREATOR_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x57217c8d_5e66_44fb_8033_9b74cacedf5b);
+pub type DEVICE_BUS_SPECIFIC_RESET_HANDLER = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void, bustype: *const windows_sys::core::GUID, resettypeselected: DEVICE_BUS_SPECIFIC_RESET_TYPE, flags: *const BUS_SPECIFIC_RESET_FLAGS, resetparameters: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEVICE_BUS_SPECIFIC_RESET_INFO {
@@ -3573,6 +3022,7 @@ pub struct DEVICE_CAPABILITIES {
     pub D2Latency: u32,
     pub D3Latency: u32,
 }
+pub type DEVICE_CHANGE_COMPLETE_CALLBACK = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEVICE_DESCRIPTION {
@@ -3597,6 +3047,12 @@ pub struct DEVICE_DESCRIPTION {
     pub DmaRequestLine: u32,
     pub DeviceAddress: i64,
 }
+pub const DEVICE_DESCRIPTION_VERSION: u32 = 0u32;
+pub const DEVICE_DESCRIPTION_VERSION1: u32 = 1u32;
+pub const DEVICE_DESCRIPTION_VERSION2: u32 = 2u32;
+pub const DEVICE_DESCRIPTION_VERSION3: u32 = 3u32;
+pub type DEVICE_DIRECTORY_TYPE = i32;
+pub const DEVICE_DRIVER_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0033f803_2e70_4e88_992c_6f26daf3db7a);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEVICE_FAULT_CONFIGURATION {
@@ -3608,6 +3064,7 @@ pub struct DEVICE_FAULT_CONFIGURATION {
 pub struct DEVICE_FLAGS {
     pub _bitfield: u32,
 }
+pub type DEVICE_INSTALL_STATE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEVICE_INTERFACE_CHANGE_NOTIFICATION {
@@ -3617,6 +3074,9 @@ pub struct DEVICE_INTERFACE_CHANGE_NOTIFICATION {
     pub InterfaceClassGuid: windows_sys::core::GUID,
     pub SymbolicLinkName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
 }
+pub const DEVICE_INTERFACE_INCLUDE_NONACTIVE: u32 = 1u32;
+pub type DEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void, resetinfocount: *mut u32, resetinfosupported: *mut DEVICE_BUS_SPECIFIC_RESET_INFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type DEVICE_REGISTRY_PROPERTY = i32;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
@@ -3624,6 +3084,10 @@ pub struct DEVICE_RELATIONS {
     pub Count: u32,
     pub Objects: [*mut super::super::Foundation::DEVICE_OBJECT; 1],
 }
+pub type DEVICE_RELATION_TYPE = i32;
+pub type DEVICE_REMOVAL_POLICY = i32;
+pub type DEVICE_RESET_COMPLETION = Option<unsafe extern "system" fn(status: super::super::super::Win32::Foundation::NTSTATUS, context: *mut core::ffi::c_void)>;
+pub type DEVICE_RESET_HANDLER = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void, resettype: DEVICE_RESET_TYPE, flags: u32, resetparameters: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEVICE_RESET_INTERFACE_STANDARD {
@@ -3639,6 +3103,10 @@ pub struct DEVICE_RESET_INTERFACE_STANDARD {
     pub DeviceBusSpecificReset: PDEVICE_BUS_SPECIFIC_RESET_HANDLER,
     pub GetDeviceResetStatus: PGET_DEVICE_RESET_STATUS,
 }
+pub const DEVICE_RESET_INTERFACE_VERSION: u32 = 1u32;
+pub const DEVICE_RESET_INTERFACE_VERSION_1: u32 = 1u32;
+pub const DEVICE_RESET_INTERFACE_VERSION_2: u32 = 2u32;
+pub const DEVICE_RESET_INTERFACE_VERSION_3: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DEVICE_RESET_STATUS_FLAGS {
@@ -3650,6 +3118,15 @@ pub union DEVICE_RESET_STATUS_FLAGS {
 pub struct DEVICE_RESET_STATUS_FLAGS_0 {
     pub _bitfield: u64,
 }
+pub type DEVICE_RESET_TYPE = i32;
+pub type DEVICE_TEXT_TYPE = i32;
+pub type DEVICE_USAGE_NOTIFICATION_TYPE = i32;
+pub type DEVICE_WAKE_DEPTH = i32;
+pub const DIRECTORY_CREATE_OBJECT: u32 = 4u32;
+pub const DIRECTORY_CREATE_SUBDIRECTORY: u32 = 8u32;
+pub type DIRECTORY_NOTIFY_INFORMATION_CLASS = i32;
+pub const DIRECTORY_QUERY: u32 = 1u32;
+pub const DIRECTORY_TRAVERSE: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DISK_SIGNATURE {
@@ -3673,6 +3150,13 @@ pub struct DISK_SIGNATURE_0_0 {
     pub Signature: u32,
     pub CheckSum: u32,
 }
+pub const DISPATCH_LEVEL: u32 = 2u32;
+pub const DMAV3_TRANFER_WIDTH_128: u32 = 4u32;
+pub const DMAV3_TRANFER_WIDTH_16: u32 = 1u32;
+pub const DMAV3_TRANFER_WIDTH_256: u32 = 5u32;
+pub const DMAV3_TRANFER_WIDTH_32: u32 = 2u32;
+pub const DMAV3_TRANFER_WIDTH_64: u32 = 3u32;
+pub const DMAV3_TRANFER_WIDTH_8: u32 = 0u32;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
@@ -3709,6 +3193,7 @@ pub struct DMA_ADAPTER_INFO_V1 {
     pub Flags: u32,
     pub MinimumTransferUnit: u32,
 }
+pub const DMA_ADAPTER_INFO_VERSION1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION {
@@ -3735,6 +3220,11 @@ pub struct DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_1 {
     pub Offset: u64,
     pub Length: u32,
 }
+pub type DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = i32;
+pub type DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = i32;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type DMA_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, completioncontext: *const core::ffi::c_void, status: DMA_COMPLETION_STATUS)>;
+pub type DMA_COMPLETION_STATUS = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DMA_CONFIGURATION_BYTE0 {
@@ -3745,6 +3235,7 @@ pub struct DMA_CONFIGURATION_BYTE0 {
 pub struct DMA_CONFIGURATION_BYTE1 {
     pub _bitfield: u8,
 }
+pub const DMA_FAIL_ON_BOUNCE: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DMA_IOMMU_INTERFACE {
@@ -3776,6 +3267,11 @@ pub union DMA_IOMMU_INTERFACE_EX_0 {
     pub V1: DMA_IOMMU_INTERFACE_V1,
     pub V2: DMA_IOMMU_INTERFACE_V2,
 }
+pub const DMA_IOMMU_INTERFACE_EX_VERSION: u32 = 1u32;
+pub const DMA_IOMMU_INTERFACE_EX_VERSION_1: u32 = 1u32;
+pub const DMA_IOMMU_INTERFACE_EX_VERSION_2: u32 = 2u32;
+pub const DMA_IOMMU_INTERFACE_EX_VERSION_MAX: u32 = 2u32;
+pub const DMA_IOMMU_INTERFACE_EX_VERSION_MIN: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DMA_IOMMU_INTERFACE_V1 {
@@ -3819,6 +3315,8 @@ pub struct DMA_IOMMU_INTERFACE_V2 {
     pub CreateDevice: PIOMMU_DEVICE_CREATE,
     pub DeleteDevice: PIOMMU_DEVICE_DELETE,
 }
+pub const DMA_IOMMU_INTERFACE_VERSION: u32 = 1u32;
+pub const DMA_IOMMU_INTERFACE_VERSION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
@@ -3864,6 +3362,10 @@ pub struct DMA_OPERATIONS {
     pub FreeCommonBufferVector: PFREE_COMMON_BUFFER_VECTOR,
     pub CreateCommonBufferFromMdl: PCREATE_COMMON_BUFFER_FROM_MDL,
 }
+pub type DMA_SPEED = i32;
+pub const DMA_SYNCHRONOUS_CALLBACK: u32 = 1u32;
+pub const DMA_TRANSFER_CONTEXT_SIZE_V1: u32 = 128u32;
+pub const DMA_TRANSFER_CONTEXT_VERSION1: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DMA_TRANSFER_INFO {
@@ -3891,6 +3393,11 @@ pub struct DMA_TRANSFER_INFO_V2 {
     pub ScatterGatherListSize: u32,
     pub LogicalPageCount: u32,
 }
+pub const DMA_TRANSFER_INFO_VERSION1: u32 = 1u32;
+pub const DMA_TRANSFER_INFO_VERSION2: u32 = 2u32;
+pub type DMA_WIDTH = i32;
+pub const DMA_ZERO_BUFFERS: u32 = 2u32;
+pub const DOMAIN_COMMON_BUFFER_LARGE_PAGE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DOMAIN_CONFIGURATION {
@@ -3903,6 +3410,7 @@ pub union DOMAIN_CONFIGURATION_0 {
     pub Arm64: DOMAIN_CONFIGURATION_ARM64,
     pub X64: DOMAIN_CONFIGURATION_X64,
 }
+pub type DOMAIN_CONFIGURATION_ARCH = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DOMAIN_CONFIGURATION_ARM64 {
@@ -3921,6 +3429,8 @@ pub struct DOMAIN_CONFIGURATION_X64 {
     pub FirstLevelPageTableRoot: i64,
     pub TranslationEnabled: super::super::super::Win32::Foundation::BOOLEAN,
 }
+pub const DPC_NORMAL: u32 = 0u32;
+pub const DPC_THREADED: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK {
@@ -3930,12 +3440,108 @@ pub struct DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK {
     pub DpcWatchdogProfileOffset: u16,
     pub DpcWatchdogProfileLength: u32,
 }
+pub const DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK_REVISION_1: u32 = 1u32;
+pub const DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK_SIGNATURE: u32 = 2931740382u32;
+pub type DRIVER_DIRECTORY_TYPE = i32;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type DRIVER_LIST_CONTROL = Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, irp: *const super::super::Foundation::IRP, scattergather: *const SCATTER_GATHER_LIST, context: *const core::ffi::c_void)>;
+pub type DRIVER_REGKEY_TYPE = i32;
+pub type DRIVER_RUNTIME_INIT_FLAGS = i32;
+pub const DRIVER_VERIFIER_FORCE_IRQL_CHECKING: u32 = 2u32;
+pub const DRIVER_VERIFIER_INJECT_ALLOCATION_FAILURES: u32 = 4u32;
+pub const DRIVER_VERIFIER_IO_CHECKING: u32 = 16u32;
+pub const DRIVER_VERIFIER_SPECIAL_POOLING: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DRIVER_VERIFIER_THUNK_PAIRS {
     pub PristineRoutine: PDRIVER_VERIFIER_THUNK_ROUTINE,
     pub NewRoutine: PDRIVER_VERIFIER_THUNK_ROUTINE,
 }
+pub const DRIVER_VERIFIER_TRACK_POOL_ALLOCATIONS: u32 = 8u32;
+pub const DRS_LEVEL: u32 = 14u32;
+pub const DRVO_BOOTREINIT_REGISTERED: u32 = 32u32;
+pub const DRVO_BUILTIN_DRIVER: u32 = 4u32;
+pub const DRVO_INITIALIZED: u32 = 16u32;
+pub const DRVO_LEGACY_DRIVER: u32 = 2u32;
+pub const DRVO_LEGACY_RESOURCES: u32 = 64u32;
+pub const DRVO_REINIT_REGISTERED: u32 = 8u32;
+pub const DRVO_UNLOAD_INVOKED: u32 = 1u32;
+pub const DUPLICATE_SAME_ATTRIBUTES: u32 = 4u32;
+pub const DeallocateObject: IO_ALLOCATION_ACTION = 2i32;
+pub const DeallocateObjectKeepRegisters: IO_ALLOCATION_ACTION = 3i32;
+pub const DelayExecution: KWAIT_REASON = 4i32;
+pub const DelayedWorkQueue: WORK_QUEUE_TYPE = 1i32;
+pub const DeleteSecurityDescriptor: SECURITY_OPERATION_CODE = 2i32;
+pub const DeviceDirectoryData: DEVICE_DIRECTORY_TYPE = 0i32;
+pub const DevicePowerState: POWER_STATE_TYPE = 1i32;
+pub const DevicePropertyAddress: DEVICE_REGISTRY_PROPERTY = 16i32;
+pub const DevicePropertyAllocatedResources: DEVICE_REGISTRY_PROPERTY = 21i32;
+pub const DevicePropertyBootConfiguration: DEVICE_REGISTRY_PROPERTY = 3i32;
+pub const DevicePropertyBootConfigurationTranslated: DEVICE_REGISTRY_PROPERTY = 4i32;
+pub const DevicePropertyBusNumber: DEVICE_REGISTRY_PROPERTY = 14i32;
+pub const DevicePropertyBusTypeGuid: DEVICE_REGISTRY_PROPERTY = 8204i32;
+pub const DevicePropertyClassGuid: DEVICE_REGISTRY_PROPERTY = 4102i32;
+pub const DevicePropertyClassName: DEVICE_REGISTRY_PROPERTY = 4101i32;
+pub const DevicePropertyCompatibleIDs: DEVICE_REGISTRY_PROPERTY = 16386i32;
+pub const DevicePropertyContainerID: DEVICE_REGISTRY_PROPERTY = 4118i32;
+pub const DevicePropertyDeviceDescription: DEVICE_REGISTRY_PROPERTY = 4096i32;
+pub const DevicePropertyDriverKeyName: DEVICE_REGISTRY_PROPERTY = 4103i32;
+pub const DevicePropertyEnumeratorName: DEVICE_REGISTRY_PROPERTY = 4111i32;
+pub const DevicePropertyFriendlyName: DEVICE_REGISTRY_PROPERTY = 4105i32;
+pub const DevicePropertyHardwareID: DEVICE_REGISTRY_PROPERTY = 16385i32;
+pub const DevicePropertyInstallState: DEVICE_REGISTRY_PROPERTY = 18i32;
+pub const DevicePropertyLegacyBusType: DEVICE_REGISTRY_PROPERTY = 13i32;
+pub const DevicePropertyLocationInformation: DEVICE_REGISTRY_PROPERTY = 4106i32;
+pub const DevicePropertyManufacturer: DEVICE_REGISTRY_PROPERTY = 4104i32;
+pub const DevicePropertyPhysicalDeviceObjectName: DEVICE_REGISTRY_PROPERTY = 4107i32;
+pub const DevicePropertyRemovalPolicy: DEVICE_REGISTRY_PROPERTY = 19i32;
+pub const DevicePropertyResourceRequirements: DEVICE_REGISTRY_PROPERTY = 20i32;
+pub const DevicePropertyUINumber: DEVICE_REGISTRY_PROPERTY = 17i32;
+pub const DeviceTextDescription: DEVICE_TEXT_TYPE = 0i32;
+pub const DeviceTextLocationInformation: DEVICE_TEXT_TYPE = 1i32;
+pub const DeviceUsageTypeBoot: DEVICE_USAGE_NOTIFICATION_TYPE = 4i32;
+pub const DeviceUsageTypeDumpFile: DEVICE_USAGE_NOTIFICATION_TYPE = 3i32;
+pub const DeviceUsageTypeGuestAssigned: DEVICE_USAGE_NOTIFICATION_TYPE = 6i32;
+pub const DeviceUsageTypeHibernation: DEVICE_USAGE_NOTIFICATION_TYPE = 2i32;
+pub const DeviceUsageTypePaging: DEVICE_USAGE_NOTIFICATION_TYPE = 1i32;
+pub const DeviceUsageTypePostDisplay: DEVICE_USAGE_NOTIFICATION_TYPE = 5i32;
+pub const DeviceUsageTypeUndefined: DEVICE_USAGE_NOTIFICATION_TYPE = 0i32;
+pub const DeviceWakeDepthD0: DEVICE_WAKE_DEPTH = 1i32;
+pub const DeviceWakeDepthD1: DEVICE_WAKE_DEPTH = 2i32;
+pub const DeviceWakeDepthD2: DEVICE_WAKE_DEPTH = 3i32;
+pub const DeviceWakeDepthD3cold: DEVICE_WAKE_DEPTH = 5i32;
+pub const DeviceWakeDepthD3hot: DEVICE_WAKE_DEPTH = 4i32;
+pub const DeviceWakeDepthMaximum: DEVICE_WAKE_DEPTH = 6i32;
+pub const DeviceWakeDepthNotWakeable: DEVICE_WAKE_DEPTH = 0i32;
+pub const DirectoryNotifyExtendedInformation: DIRECTORY_NOTIFY_INFORMATION_CLASS = 2i32;
+pub const DirectoryNotifyFullInformation: DIRECTORY_NOTIFY_INFORMATION_CLASS = 3i32;
+pub const DirectoryNotifyInformation: DIRECTORY_NOTIFY_INFORMATION_CLASS = 1i32;
+pub const DirectoryNotifyMaximumInformation: DIRECTORY_NOTIFY_INFORMATION_CLASS = 4i32;
+pub const DisabledControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 11i32;
+pub const DiskController: CONFIGURATION_TYPE = 13i32;
+pub const DiskIoNotifyRoutinesClass: TRACE_INFORMATION_CLASS = 11i32;
+pub const DiskPeripheral: CONFIGURATION_TYPE = 25i32;
+pub const DisplayController: CONFIGURATION_TYPE = 19i32;
+pub const DmaAborted: DMA_COMPLETION_STATUS = 1i32;
+pub const DmaCancelled: DMA_COMPLETION_STATUS = 3i32;
+pub const DmaComplete: DMA_COMPLETION_STATUS = 0i32;
+pub const DmaError: DMA_COMPLETION_STATUS = 2i32;
+pub const DockingInformation: CONFIGURATION_TYPE = 38i32;
+pub const DomainConfigurationArm64: DOMAIN_CONFIGURATION_ARCH = 0i32;
+pub const DomainConfigurationInvalid: DOMAIN_CONFIGURATION_ARCH = 2i32;
+pub const DomainConfigurationX64: DOMAIN_CONFIGURATION_ARCH = 1i32;
+pub const DomainTypeMax: IOMMU_DMA_DOMAIN_TYPE = 3i32;
+pub const DomainTypePassThrough: IOMMU_DMA_DOMAIN_TYPE = 1i32;
+pub const DomainTypeTranslate: IOMMU_DMA_DOMAIN_TYPE = 0i32;
+pub const DomainTypeUnmanaged: IOMMU_DMA_DOMAIN_TYPE = 2i32;
+pub const DriverDirectoryData: DRIVER_DIRECTORY_TYPE = 1i32;
+pub const DriverDirectoryImage: DRIVER_DIRECTORY_TYPE = 0i32;
+pub const DriverDirectorySharedData: DRIVER_DIRECTORY_TYPE = 2i32;
+pub const DriverRegKeyParameters: DRIVER_REGKEY_TYPE = 0i32;
+pub const DriverRegKeyPersistentState: DRIVER_REGKEY_TYPE = 1i32;
+pub const DriverRegKeySharedPersistentState: DRIVER_REGKEY_TYPE = 2i32;
+pub const DrvRtPoolNxOptIn: DRIVER_RUNTIME_INIT_FLAGS = 1i32;
+pub const DtiAdapter: CONFIGURATION_TYPE = 11i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct EFI_ACPI_RAS_SIGNAL_TABLE {
@@ -3943,12 +3549,27 @@ pub struct EFI_ACPI_RAS_SIGNAL_TABLE {
     pub NumberRecord: u32,
     pub Entries: [SIGNAL_REG_VALUE; 1],
 }
+pub const EFLAG_SIGN: u32 = 32768u32;
+pub const EFLAG_ZERO: u32 = 16384u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EISA_DMA_CONFIGURATION {
     pub ConfigurationByte0: DMA_CONFIGURATION_BYTE0,
     pub ConfigurationByte1: DMA_CONFIGURATION_BYTE1,
 }
+pub const EISA_EMPTY_SLOT: u32 = 131u32;
+pub const EISA_FREE_FORM_DATA: u32 = 64u32;
+pub const EISA_FUNCTION_ENABLED: u32 = 128u32;
+pub const EISA_HAS_DMA_ENTRY: u32 = 8u32;
+pub const EISA_HAS_IRQ_ENTRY: u32 = 4u32;
+pub const EISA_HAS_MEMORY_ENTRY: u32 = 2u32;
+pub const EISA_HAS_PORT_INIT_ENTRY: u32 = 32u32;
+pub const EISA_HAS_PORT_RANGE: u32 = 16u32;
+pub const EISA_HAS_TYPE_ENTRY: u32 = 1u32;
+pub const EISA_INVALID_BIOS_CALL: u32 = 134u32;
+pub const EISA_INVALID_CONFIGURATION: u32 = 130u32;
+pub const EISA_INVALID_FUNCTION: u32 = 129u32;
+pub const EISA_INVALID_SLOT: u32 = 128u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EISA_IRQ_CONFIGURATION {
@@ -3974,6 +3595,8 @@ pub struct EISA_MEMORY_CONFIGURATION {
 pub struct EISA_MEMORY_TYPE {
     pub _bitfield: u8,
 }
+pub const EISA_MEMORY_TYPE_RAM: u32 = 1u32;
+pub const EISA_MORE_ENTRIES: u32 = 128u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct EISA_PORT_CONFIGURATION {
@@ -3985,6 +3608,51 @@ pub struct EISA_PORT_CONFIGURATION {
 pub struct EISA_PORT_DESCRIPTOR {
     pub _bitfield: u8,
 }
+pub const EISA_SYSTEM_MEMORY: u32 = 0u32;
+pub type ENABLE_VIRTUALIZATION = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, numvfs: u16, enablevfmigration: super::super::super::Win32::Foundation::BOOLEAN, enablemigrationinterrupt: super::super::super::Win32::Foundation::BOOLEAN, enablevirtualization: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub const ERROR_LOG_LIMIT_SIZE: u32 = 240u32;
+pub const ERROR_MAJOR_REVISION_SAL_03_00: u32 = 0u32;
+pub const ERROR_MEMORY_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe429faf2_3cb7_11d4_bca7_0080c73c8881);
+pub const ERROR_MINOR_REVISION_SAL_03_00: u32 = 2u32;
+pub const ERROR_PCI_BUS_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe429faf4_3cb7_11d4_bca7_0080c73c8881);
+pub const ERROR_PCI_COMPONENT_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe429faf6_3cb7_11d4_bca7_0080c73c8881);
+pub const ERROR_PLATFORM_BUS_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe429faf9_3cb7_11d4_bca7_0080c73c8881);
+pub const ERROR_PLATFORM_HOST_CONTROLLER_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe429faf8_3cb7_11d4_bca7_0080c73c8881);
+pub const ERROR_PLATFORM_SPECIFIC_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe429faf7_3cb7_11d4_bca7_0080c73c8881);
+pub const ERROR_PROCESSOR_STATE_PARAMETER_BUS_CHECK_MASK: u32 = 1u32;
+pub const ERROR_PROCESSOR_STATE_PARAMETER_BUS_CHECK_SHIFT: u32 = 61u32;
+pub const ERROR_PROCESSOR_STATE_PARAMETER_CACHE_CHECK_MASK: u32 = 1u32;
+pub const ERROR_PROCESSOR_STATE_PARAMETER_CACHE_CHECK_SHIFT: u32 = 59u32;
+pub const ERROR_PROCESSOR_STATE_PARAMETER_MICROARCH_CHECK_MASK: u32 = 1u32;
+pub const ERROR_PROCESSOR_STATE_PARAMETER_MICROARCH_CHECK_SHIFT: u32 = 63u32;
+pub const ERROR_PROCESSOR_STATE_PARAMETER_REG_CHECK_MASK: u32 = 1u32;
+pub const ERROR_PROCESSOR_STATE_PARAMETER_REG_CHECK_SHIFT: u32 = 62u32;
+pub const ERROR_PROCESSOR_STATE_PARAMETER_TLB_CHECK_MASK: u32 = 1u32;
+pub const ERROR_PROCESSOR_STATE_PARAMETER_TLB_CHECK_SHIFT: u32 = 60u32;
+pub const ERROR_PROCESSOR_STATE_PARAMETER_UNKNOWN_CHECK_MASK: u32 = 1u32;
+pub const ERROR_PROCESSOR_STATE_PARAMETER_UNKNOWN_CHECK_SHIFT: u32 = 63u32;
+pub const ERROR_SMBIOS_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe429faf5_3cb7_11d4_bca7_0080c73c8881);
+pub const ERROR_SYSTEM_EVENT_LOG_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe429faf3_3cb7_11d4_bca7_0080c73c8881);
+pub const ERRTYP_BUS: u32 = 16u32;
+pub const ERRTYP_CACHE: u32 = 6u32;
+pub const ERRTYP_FLOW: u32 = 9u32;
+pub const ERRTYP_FUNCTION: u32 = 7u32;
+pub const ERRTYP_IMPROPER: u32 = 18u32;
+pub const ERRTYP_INTERNAL: u32 = 1u32;
+pub const ERRTYP_LOSSOFLOCKSTEP: u32 = 20u32;
+pub const ERRTYP_MAP: u32 = 17u32;
+pub const ERRTYP_MEM: u32 = 4u32;
+pub const ERRTYP_PARITY: u32 = 22u32;
+pub const ERRTYP_PATHERROR: u32 = 24u32;
+pub const ERRTYP_POISONED: u32 = 26u32;
+pub const ERRTYP_PROTOCOL: u32 = 23u32;
+pub const ERRTYP_RESPONSE: u32 = 21u32;
+pub const ERRTYP_SELFTEST: u32 = 8u32;
+pub const ERRTYP_TIMEOUT: u32 = 25u32;
+pub const ERRTYP_TLB: u32 = 5u32;
+pub const ERRTYP_UNIMPL: u32 = 19u32;
+#[cfg(feature = "Win32_System_Diagnostics_Etw")]
+pub type ETWENABLECALLBACK = Option<unsafe extern "system" fn(sourceid: *const windows_sys::core::GUID, controlcode: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const super::super::super::Win32::System::Diagnostics::Etw::EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut core::ffi::c_void)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ETW_TRACE_SESSION_SETTINGS {
@@ -3997,6 +3665,29 @@ pub struct ETW_TRACE_SESSION_SETTINGS {
     pub FlushThreshold: u32,
     pub ClockType: u32,
 }
+pub const EVENT_QUERY_STATE: u32 = 1u32;
+pub const EXCEPTION_ALIGNMENT_CHECK: u32 = 17u32;
+pub const EXCEPTION_BOUND_CHECK: u32 = 5u32;
+pub const EXCEPTION_CP_FAULT: u32 = 21u32;
+pub const EXCEPTION_DEBUG: u32 = 1u32;
+pub const EXCEPTION_DIVIDED_BY_ZERO: u32 = 0u32;
+pub const EXCEPTION_DOUBLE_FAULT: u32 = 8u32;
+pub const EXCEPTION_GP_FAULT: u32 = 13u32;
+pub const EXCEPTION_INT3: u32 = 3u32;
+pub const EXCEPTION_INVALID_OPCODE: u32 = 6u32;
+pub const EXCEPTION_INVALID_TSS: u32 = 10u32;
+pub const EXCEPTION_NMI: u32 = 2u32;
+pub const EXCEPTION_NPX_ERROR: u32 = 16u32;
+pub const EXCEPTION_NPX_NOT_AVAILABLE: u32 = 7u32;
+pub const EXCEPTION_NPX_OVERRUN: u32 = 9u32;
+pub const EXCEPTION_RESERVED_TRAP: u32 = 15u32;
+pub const EXCEPTION_SEGMENT_NOT_PRESENT: u32 = 11u32;
+pub const EXCEPTION_SE_FAULT: u32 = 23u32;
+pub const EXCEPTION_SOFTWARE_ORIGINATE: u32 = 128u32;
+pub const EXCEPTION_STACK_FAULT: u32 = 12u32;
+pub const EXCEPTION_VIRTUALIZATION_FAULT: u32 = 32u32;
+pub type EXPAND_STACK_CALLOUT = Option<unsafe extern "system" fn(parameter: *const core::ffi::c_void)>;
+pub type EXTENDED_AGP_REGISTER = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EXTENDED_CREATE_INFORMATION {
@@ -4011,6 +3702,10 @@ pub struct EXTENDED_CREATE_INFORMATION_32 {
     pub EaBuffer: *mut core::ffi::c_void,
     pub EaLength: u32,
 }
+pub const EXTINT_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfe84086e_b557_43cf_ac1b_17982e078470);
+#[cfg(feature = "Wdk_Foundation")]
+pub type EXT_CALLBACK = Option<unsafe extern "system" fn(timer: super::super::Foundation::PEX_TIMER, context: *const core::ffi::c_void)>;
+pub type EXT_DELETE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EXT_DELETE_PARAMETERS {
@@ -4019,6 +3714,20 @@ pub struct EXT_DELETE_PARAMETERS {
     pub DeleteCallback: PEXT_DELETE_CALLBACK,
     pub DeleteContext: *mut core::ffi::c_void,
 }
+pub type EX_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(callbackcontext: *const core::ffi::c_void, argument1: *const core::ffi::c_void, argument2: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub const EX_CARR_ALLOCATE_NONPAGED_POOL: u32 = 1u32;
+pub const EX_CARR_ALLOCATE_PAGED_POOL: u32 = 0u32;
+pub const EX_CARR_DISABLE_EXPANSION: u32 = 2u32;
+pub const EX_CREATE_FLAG_FILE_DEST_OPEN_FOR_COPY: u32 = 2u32;
+pub const EX_CREATE_FLAG_FILE_SOURCE_OPEN_FOR_COPY: u32 = 1u32;
+pub const EX_DEFAULT_PUSH_LOCK_FLAGS: u32 = 0u32;
+pub const EX_LOOKASIDE_LIST_EX_FLAGS_FAIL_NO_RAISE: u32 = 2u32;
+pub const EX_LOOKASIDE_LIST_EX_FLAGS_RAISE_ON_FAIL: u32 = 1u32;
+pub const EX_MAXIMUM_LOOKASIDE_DEPTH_BASE: u32 = 256u32;
+pub const EX_MAXIMUM_LOOKASIDE_DEPTH_LIMIT: u32 = 1024u32;
+pub type EX_POOL_PRIORITY = i32;
+pub const EX_RUNDOWN_ACTIVE: u32 = 1u32;
+pub const EX_RUNDOWN_COUNT_SHIFT: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EX_RUNDOWN_REF {
@@ -4030,6 +3739,21 @@ pub union EX_RUNDOWN_REF_0 {
     pub Count: usize,
     pub Ptr: *mut core::ffi::c_void,
 }
+pub const EX_TIMER_HIGH_RESOLUTION: u32 = 4u32;
+pub const EX_TIMER_NO_WAKE: u32 = 8u32;
+pub const Eisa: INTERFACE_TYPE = 2i32;
+pub const EisaAdapter: CONFIGURATION_TYPE = 8i32;
+pub const EisaConfiguration: BUS_DATA_TYPE = 1i32;
+pub const EjectionRelations: DEVICE_RELATION_TYPE = 1i32;
+pub const EndAlternatives: ALTERNATIVE_ARCHITECTURE_TYPE = 2i32;
+pub const EventCategoryDeviceInterfaceChange: IO_NOTIFICATION_EVENT_CATEGORY = 2i32;
+pub const EventCategoryHardwareProfileChange: IO_NOTIFICATION_EVENT_CATEGORY = 1i32;
+pub const EventCategoryKernelSoftRestart: IO_NOTIFICATION_EVENT_CATEGORY = 4i32;
+pub const EventCategoryReserved: IO_NOTIFICATION_EVENT_CATEGORY = 0i32;
+pub const EventCategoryTargetDeviceChange: IO_NOTIFICATION_EVENT_CATEGORY = 3i32;
+pub const EventLoggerHandleClass: TRACE_INFORMATION_CLASS = 5i32;
+pub const Executive: KWAIT_REASON = 0i32;
+pub const ExternalFault: FAULT_INFORMATION_ARM64_TYPE = 3i32;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
@@ -4045,6 +3769,7 @@ pub union FAULT_INFORMATION_0 {
     pub Arm64: FAULT_INFORMATION_ARM64,
     pub X64: FAULT_INFORMATION_X64,
 }
+pub type FAULT_INFORMATION_ARCH = i32;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
@@ -4062,6 +3787,7 @@ pub struct FAULT_INFORMATION_ARM64 {
 pub struct FAULT_INFORMATION_ARM64_FLAGS {
     pub _bitfield: u32,
 }
+pub type FAULT_INFORMATION_ARM64_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FAULT_INFORMATION_X64 {
@@ -4077,17 +3803,45 @@ pub struct FAULT_INFORMATION_X64 {
 pub struct FAULT_INFORMATION_X64_FLAGS {
     pub _bitfield: u32,
 }
+pub const FILE_128_BYTE_ALIGNMENT: u32 = 127u32;
+pub const FILE_256_BYTE_ALIGNMENT: u32 = 255u32;
+pub const FILE_32_BYTE_ALIGNMENT: u32 = 31u32;
+pub const FILE_512_BYTE_ALIGNMENT: u32 = 511u32;
+pub const FILE_64_BYTE_ALIGNMENT: u32 = 63u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_ATTRIBUTE_TAG_INFORMATION {
     pub FileAttributes: u32,
     pub ReparseTag: u32,
 }
+pub const FILE_ATTRIBUTE_VALID_FLAGS: u32 = 32695u32;
+pub const FILE_ATTRIBUTE_VALID_KERNEL_SET_FLAGS: u32 = 5910951u32;
+pub const FILE_ATTRIBUTE_VALID_SET_FLAGS: u32 = 12711u32;
+pub const FILE_AUTOGENERATED_DEVICE_NAME: u32 = 128u32;
+pub const FILE_BYTE_ALIGNMENT: u32 = 0u32;
+pub const FILE_CHARACTERISTICS_EXPECT_ORDERLY_REMOVAL: u32 = 512u32;
+pub const FILE_CHARACTERISTICS_EXPECT_ORDERLY_REMOVAL_DEPRECATED: u32 = 512u32;
+pub const FILE_CHARACTERISTICS_EXPECT_ORDERLY_REMOVAL_EX: u32 = 16384u32;
+pub const FILE_CHARACTERISTICS_EXPECT_SURPRISE_REMOVAL: u32 = 768u32;
+pub const FILE_CHARACTERISTICS_EXPECT_SURPRISE_REMOVAL_DEPRECATED: u32 = 768u32;
+pub const FILE_CHARACTERISTICS_EXPECT_SURPRISE_REMOVAL_EX: u32 = 32768u32;
+pub const FILE_CHARACTERISTICS_REMOVAL_POLICY_MASK: u32 = 768u32;
+pub const FILE_CHARACTERISTICS_REMOVAL_POLICY_MASK_DEPRECATED: u32 = 768u32;
+pub const FILE_CHARACTERISTICS_REMOVAL_POLICY_MASK_EX: u32 = 768u32;
+pub const FILE_CHARACTERISTIC_CSV: u32 = 65536u32;
+pub const FILE_CHARACTERISTIC_PNP_DEVICE: u32 = 2048u32;
+pub const FILE_CHARACTERISTIC_TS_DEVICE: u32 = 4096u32;
+pub const FILE_CHARACTERISTIC_WEBDAV_DEVICE: u32 = 8192u32;
+pub const FILE_DEVICE_ALLOW_APPCONTAINER_TRAVERSAL: u32 = 131072u32;
+pub const FILE_DEVICE_IS_MOUNTED: u32 = 32u32;
+pub const FILE_DEVICE_REQUIRE_SECURITY_CHECK: u32 = 1048576u32;
+pub const FILE_DEVICE_SECURE_OPEN: u32 = 256u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_END_OF_FILE_INFORMATION {
     pub EndOfFile: i64,
 }
+pub const FILE_FLOPPY_DISKETTE: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_FS_DEVICE_INFORMATION {
@@ -4185,6 +3939,7 @@ pub struct FILE_IO_PRIORITY_HINT_INFORMATION_EX {
 pub struct FILE_IS_REMOTE_DEVICE_INFORMATION {
     pub IsRemote: super::super::super::Win32::Foundation::BOOLEAN,
 }
+pub const FILE_LONG_ALIGNMENT: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_MEMORY_PARTITION_INFORMATION {
@@ -4208,12 +3963,24 @@ pub struct FILE_MEMORY_PARTITION_INFORMATION_0_0 {
 pub struct FILE_NUMA_NODE_INFORMATION {
     pub NodeNumber: u16,
 }
+pub const FILE_OCTA_ALIGNMENT: u32 = 15u32;
+pub const FILE_PORTABLE_DEVICE: u32 = 262144u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_PROCESS_IDS_USING_FILE_INFORMATION {
     pub NumberOfProcessIdsInList: u32,
     pub ProcessIdList: [usize; 1],
 }
+pub const FILE_QUAD_ALIGNMENT: u32 = 7u32;
+pub const FILE_QUERY_INDEX_SPECIFIED: u32 = 4u32;
+pub const FILE_QUERY_NO_CURSOR_UPDATE: u32 = 16u32;
+pub const FILE_QUERY_RESTART_SCAN: u32 = 1u32;
+pub const FILE_QUERY_RETURN_ON_DISK_ENTRIES_ONLY: u32 = 8u32;
+pub const FILE_QUERY_RETURN_SINGLE_ENTRY: u32 = 2u32;
+pub const FILE_READ_ONLY_DEVICE: u32 = 2u32;
+pub const FILE_REMOTE_DEVICE: u32 = 16u32;
+pub const FILE_REMOTE_DEVICE_VSMB: u32 = 524288u32;
+pub const FILE_REMOVABLE_MEDIA: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_SFIO_RESERVE_INFORMATION {
@@ -4231,6 +3998,8 @@ pub struct FILE_SFIO_VOLUME_INFORMATION {
     pub MinimumPeriod: u32,
     pub MinimumTransferSize: u32,
 }
+pub const FILE_SHARE_VALID_FLAGS: u32 = 7u32;
+pub const FILE_SKIP_SET_USER_EVENT_ON_FAST_IO: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_STANDARD_INFORMATION_EX {
@@ -4242,11 +4011,19 @@ pub struct FILE_STANDARD_INFORMATION_EX {
     pub AlternateStream: super::super::super::Win32::Foundation::BOOLEAN,
     pub MetadataAttribute: super::super::super::Win32::Foundation::BOOLEAN,
 }
+pub const FILE_USE_FILE_POINTER_POSITION: u32 = 4294967294u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_VALID_DATA_LENGTH_INFORMATION {
     pub ValidDataLength: i64,
 }
+pub const FILE_VALID_EXTENDED_OPTION_FLAGS: u32 = 268435456u32;
+pub const FILE_VIRTUAL_VOLUME: u32 = 64u32;
+pub const FILE_WORD_ALIGNMENT: u32 = 1u32;
+pub const FILE_WRITE_ONCE_MEDIA: u32 = 8u32;
+pub const FILE_WRITE_TO_END_OF_FILE: u32 = 4294967295u32;
+pub const FIRMWARE_ERROR_RECORD_REFERENCE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x81212a96_09ed_4996_9471_8d729c8e69ed);
+pub const FLAG_OWNER_POINTER_IS_THREAD: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FLOATING_SAVE_AREA {
@@ -4260,6 +4037,72 @@ pub struct FLOATING_SAVE_AREA {
     pub RegisterArea: [u8; 80],
     pub Spare0: u32,
 }
+pub const FLUSH_MULTIPLE_MAXIMUM: u32 = 32u32;
+pub const FM_LOCK_BIT: u32 = 1u32;
+pub const FM_LOCK_BIT_V: u32 = 0u32;
+pub const FO_ALERTABLE_IO: u32 = 4u32;
+pub const FO_BYPASS_IO_ENABLED: u32 = 8388608u32;
+pub const FO_CACHE_SUPPORTED: u32 = 64u32;
+pub const FO_CLEANUP_COMPLETE: u32 = 16384u32;
+pub const FO_DELETE_ON_CLOSE: u32 = 65536u32;
+pub const FO_DIRECT_DEVICE_OPEN: u32 = 2048u32;
+pub const FO_DISALLOW_EXCLUSIVE: u32 = 33554432u32;
+pub const FO_FILE_FAST_IO_READ: u32 = 524288u32;
+pub const FO_FILE_MODIFIED: u32 = 4096u32;
+pub const FO_FILE_OPEN: u32 = 1u32;
+pub const FO_FILE_OPEN_CANCELLED: u32 = 2097152u32;
+pub const FO_FILE_SIZE_CHANGED: u32 = 8192u32;
+pub const FO_FLAGS_VALID_ONLY_DURING_CREATE: u32 = 33554432u32;
+pub const FO_GENERATE_AUDIT_ON_CLOSE: u32 = 1024u32;
+pub const FO_HANDLE_CREATED: u32 = 262144u32;
+pub const FO_INDIRECT_WAIT_OBJECT: u32 = 268435456u32;
+pub const FO_MAILSLOT: u32 = 512u32;
+pub const FO_NAMED_PIPE: u32 = 128u32;
+pub const FO_NO_INTERMEDIATE_BUFFERING: u32 = 8u32;
+pub const FO_OPENED_CASE_SENSITIVE: u32 = 131072u32;
+pub const FO_QUEUE_IRP_TO_THREAD: u32 = 1024u32;
+pub const FO_RANDOM_ACCESS: u32 = 1048576u32;
+pub const FO_REMOTE_ORIGIN: u32 = 16777216u32;
+pub const FO_SECTION_MINSTORE_TREATMENT: u32 = 536870912u32;
+pub const FO_SEQUENTIAL_ONLY: u32 = 32u32;
+pub const FO_SKIP_COMPLETION_PORT: u32 = 33554432u32;
+pub const FO_SKIP_SET_EVENT: u32 = 67108864u32;
+pub const FO_SKIP_SET_FAST_IO: u32 = 134217728u32;
+pub const FO_STREAM_FILE: u32 = 256u32;
+pub const FO_SYNCHRONOUS_IO: u32 = 2u32;
+pub const FO_TEMPORARY_FILE: u32 = 32768u32;
+pub const FO_VOLUME_OPEN: u32 = 4194304u32;
+pub const FO_WRITE_THROUGH: u32 = 16u32;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_16GB: u32 = 6u32;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_1GB: u32 = 2u32;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_1MB: u32 = 9u32;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_256MB: u32 = 0u32;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_2GB: u32 = 3u32;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_32GB: u32 = 7u32;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_4GB: u32 = 4u32;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_512MB: u32 = 1u32;
+pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_8GB: u32 = 5u32;
+pub const FPB_MEM_LOW_VECTOR_GRANULARITY_16MB: u32 = 4u32;
+pub const FPB_MEM_LOW_VECTOR_GRANULARITY_1MB: u32 = 0u32;
+pub const FPB_MEM_LOW_VECTOR_GRANULARITY_2MB: u32 = 1u32;
+pub const FPB_MEM_LOW_VECTOR_GRANULARITY_4MB: u32 = 2u32;
+pub const FPB_MEM_LOW_VECTOR_GRANULARITY_8MB: u32 = 3u32;
+pub const FPB_MEM_VECTOR_GRANULARITY_1B: u32 = 8u32;
+pub const FPB_RID_VECTOR_GRANULARITY_256RIDS: u32 = 5u32;
+pub const FPB_RID_VECTOR_GRANULARITY_64RIDS: u32 = 3u32;
+pub const FPB_RID_VECTOR_GRANULARITY_8RIDS: u32 = 0u32;
+pub const FPB_VECTOR_SELECT_MEM_HIGH: u32 = 2u32;
+pub const FPB_VECTOR_SELECT_MEM_LOW: u32 = 1u32;
+pub const FPB_VECTOR_SELECT_RID: u32 = 0u32;
+pub const FPB_VECTOR_SIZE_SUPPORTED_1KBITS: u32 = 2u32;
+pub const FPB_VECTOR_SIZE_SUPPORTED_256BITS: u32 = 0u32;
+pub const FPB_VECTOR_SIZE_SUPPORTED_2KBITS: u32 = 3u32;
+pub const FPB_VECTOR_SIZE_SUPPORTED_4KBITS: u32 = 4u32;
+pub const FPB_VECTOR_SIZE_SUPPORTED_512BITS: u32 = 1u32;
+pub const FPB_VECTOR_SIZE_SUPPORTED_8KBITS: u32 = 5u32;
+pub type FPGA_BUS_SCAN = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
+pub type FPGA_CONTROL_CONFIG_SPACE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, enable: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type FPGA_CONTROL_ERROR_REPORTING = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, uncorrectablemask: u32, correctablemask: u32, disableerrorreporting: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FPGA_CONTROL_INTERFACE {
@@ -4273,6 +4116,8 @@ pub struct FPGA_CONTROL_INTERFACE {
     pub ControlConfigSpace: PFPGA_CONTROL_CONFIG_SPACE,
     pub ControlErrorReporting: PFPGA_CONTROL_ERROR_REPORTING,
 }
+pub type FPGA_CONTROL_LINK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, enable: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type FREE_FUNCTION = Option<unsafe extern "system" fn(buffer: *const core::ffi::c_void)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FUNCTION_LEVEL_DEVICE_RESET_PARAMETERS {
@@ -4280,6 +4125,62 @@ pub struct FUNCTION_LEVEL_DEVICE_RESET_PARAMETERS {
     pub DeviceResetCompletion: PDEVICE_RESET_COMPLETION,
     pub CompletionContext: *mut core::ffi::c_void,
 }
+pub type FWMI_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(wnode: *mut core::ffi::c_void, context: *mut core::ffi::c_void)>;
+pub const FailControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 4i32;
+pub const FaultInformationArm64: FAULT_INFORMATION_ARCH = 1i32;
+pub const FaultInformationInvalid: FAULT_INFORMATION_ARCH = 0i32;
+pub const FaultInformationX64: FAULT_INFORMATION_ARCH = 2i32;
+pub const FloatingPointProcessor: CONFIGURATION_TYPE = 2i32;
+pub const FloppyDiskPeripheral: CONFIGURATION_TYPE = 26i32;
+pub const FltIoNotifyRoutinesClass: TRACE_INFORMATION_CLASS = 13i32;
+pub const FreePage: KWAIT_REASON = 1i32;
+pub const FunctionLevelDeviceReset: DEVICE_RESET_TYPE = 0i32;
+pub const GENERIC_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3e62a467_ab40_409a_a698_f362d464b38f);
+pub const GENERIC_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe71254e8_c1b9_4940_ab76_909703a4320f);
+pub const GENPROC_FLAGS_CORRECTED: u32 = 8u32;
+pub const GENPROC_FLAGS_OVERFLOW: u32 = 4u32;
+pub const GENPROC_FLAGS_PRECISEIP: u32 = 2u32;
+pub const GENPROC_FLAGS_RESTARTABLE: u32 = 1u32;
+pub const GENPROC_OP_DATAREAD: u32 = 1u32;
+pub const GENPROC_OP_DATAWRITE: u32 = 2u32;
+pub const GENPROC_OP_GENERIC: u32 = 0u32;
+pub const GENPROC_OP_INSTRUCTIONEXE: u32 = 3u32;
+pub const GENPROC_PROCERRTYPE_BUS: u32 = 4u32;
+pub const GENPROC_PROCERRTYPE_CACHE: u32 = 1u32;
+pub const GENPROC_PROCERRTYPE_MAE: u32 = 8u32;
+pub const GENPROC_PROCERRTYPE_TLB: u32 = 2u32;
+pub const GENPROC_PROCERRTYPE_UNKNOWN: u32 = 0u32;
+pub const GENPROC_PROCISA_ARM32: u32 = 4u32;
+pub const GENPROC_PROCISA_ARM64: u32 = 8u32;
+pub const GENPROC_PROCISA_IPF: u32 = 1u32;
+pub const GENPROC_PROCISA_X64: u32 = 2u32;
+pub const GENPROC_PROCISA_X86: u32 = 0u32;
+pub const GENPROC_PROCTYPE_ARM: u32 = 2u32;
+pub const GENPROC_PROCTYPE_IPF: u32 = 1u32;
+pub const GENPROC_PROCTYPE_XPF: u32 = 0u32;
+pub type GET_D3COLD_CAPABILITY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, d3coldsupported: *mut super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type GET_D3COLD_LAST_TRANSITION_STATUS = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, lasttransitionstatus: *mut D3COLD_LAST_TRANSITION_STATUS)>;
+pub type GET_DEVICE_RESET_STATUS = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void, isresetting: *mut super::super::super::Win32::Foundation::BOOLEAN, resettypeselected: *mut DEVICE_BUS_SPECIFIC_RESET_TYPE, flags: *mut DEVICE_RESET_STATUS_FLAGS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type GET_DMA_ADAPTER = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, devicedescriptor: *const DEVICE_DESCRIPTION, numberofmapregisters: *mut u32) -> *mut DMA_ADAPTER>;
+#[cfg(feature = "Win32_System_Power")]
+pub type GET_IDLE_WAKE_INFO = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, systempowerstate: super::super::super::Win32::System::Power::SYSTEM_POWER_STATE, deepestwakeabledstate: *mut DEVICE_WAKE_DEPTH) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type GET_SDEV_IDENTIFIER = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void) -> u64>;
+pub type GET_SET_DEVICE_DATA = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, datatype: u32, buffer: *mut core::ffi::c_void, offset: u32, length: u32) -> u32>;
+pub type GET_UPDATED_BUS_RESOURCE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, updatedresourcelist: *mut *mut CM_RESOURCE_LIST, updatedtranslatedresourcelist: *mut *mut CM_RESOURCE_LIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type GET_VIRTUAL_DEVICE_DATA = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, virtualfunction: u16, buffer: *mut core::ffi::c_void, offset: u32, length: u32) -> u32>;
+pub type GET_VIRTUAL_DEVICE_LOCATION = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, virtualfunction: u16, segmentnumber: *mut u16, busnumber: *mut u8, functionnumber: *mut u8) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type GET_VIRTUAL_DEVICE_RESOURCES = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, capturedbusnumbers: *mut u8)>;
+pub type GET_VIRTUAL_FUNCTION_PROBED_BARS = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, baseregistervalues: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub const GUID_ECP_CREATE_USER_PROCESS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe0e429ff_6ddc_4e65_aab6_45d05a038a08);
+pub const GartHigh: EXTENDED_AGP_REGISTER = 5i32;
+pub const GartLow: EXTENDED_AGP_REGISTER = 4i32;
+pub const GenericEqual: RTL_GENERIC_COMPARE_RESULTS = 2i32;
+pub const GenericGreaterThan: RTL_GENERIC_COMPARE_RESULTS = 1i32;
+pub const GenericLessThan: RTL_GENERIC_COMPARE_RESULTS = 0i32;
+pub const GlobalLoggerHandleClass: TRACE_INFORMATION_CLASS = 4i32;
+pub const GroupAffinityAllGroupZero: IRQ_GROUP_POLICY = 0i32;
+pub const GroupAffinityDontCare: IRQ_GROUP_POLICY = 1i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HAL_AMLI_BAD_IO_ADDRESS_LIST {
@@ -4288,6 +4189,7 @@ pub struct HAL_AMLI_BAD_IO_ADDRESS_LIST {
     pub OSVersionTrigger: u32,
     pub IOHandler: PHALIOREADWRITEHANDLER,
 }
+pub type HAL_APIC_DESTINATION_MODE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HAL_BUS_INFORMATION {
@@ -4332,6 +4234,10 @@ pub struct HAL_DISPATCH {
     pub HalSetPciErrorHandlerCallback: pHalSetPciErrorHandlerCallback,
     pub HalGetPrmCache: pHalGetPrmCache,
 }
+pub const HAL_DISPATCH_VERSION: u32 = 5u32;
+pub type HAL_DISPLAY_BIOS_INFORMATION = i32;
+pub const HAL_DMA_ADAPTER_VERSION_1: u32 = 1u32;
+pub type HAL_DMA_CRASH_DUMP_REGISTER_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HAL_ERROR_INFO {
@@ -4363,6 +4269,9 @@ pub struct HAL_ERROR_INFO {
     pub CpeLogId: u64,
     pub KernelReserved: [u64; 4],
 }
+pub const HAL_MASK_UNMASK_FLAGS_NONE: u32 = 0u32;
+pub const HAL_MASK_UNMASK_FLAGS_SERVICING_COMPLETE: u32 = 2u32;
+pub const HAL_MASK_UNMASK_FLAGS_SERVICING_DEFERRED: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HAL_MCA_INTERFACE {
@@ -4370,6 +4279,13 @@ pub struct HAL_MCA_INTERFACE {
     pub Unlock: PHALMCAINTERFACEUNLOCK,
     pub ReadRegister: PHALMCAINTERFACEREADREGISTER,
 }
+pub const HAL_MCA_RECORD: MCA_EXCEPTION_TYPE = 1i32;
+pub const HAL_MCE_RECORD: MCA_EXCEPTION_TYPE = 0i32;
+pub const HAL_PLATFORM_ACPI_TABLES_CACHED: i32 = 32i32;
+pub const HAL_PLATFORM_DISABLE_PTCG: i32 = 4i32;
+pub const HAL_PLATFORM_DISABLE_UC_MAIN_MEMORY: i32 = 8i32;
+pub const HAL_PLATFORM_DISABLE_WRITE_COMBINING: i32 = 1i32;
+pub const HAL_PLATFORM_ENABLE_WRITE_COMBINING_MMIO: i32 = 16i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HAL_PLATFORM_INFORMATION {
@@ -4390,6 +4306,8 @@ pub struct HAL_PROCESSOR_FEATURE {
 pub struct HAL_PROCESSOR_SPEED_INFORMATION {
     pub ProcessorSpeed: u32,
 }
+pub type HAL_QUERY_INFORMATION_CLASS = i32;
+pub type HAL_SET_INFORMATION_CLASS = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HARDWARE_COUNTER {
@@ -4397,6 +4315,13 @@ pub struct HARDWARE_COUNTER {
     pub Reserved: u32,
     pub Index: u64,
 }
+pub type HARDWARE_COUNTER_TYPE = i32;
+pub const HASH_STRING_ALGORITHM_DEFAULT: u32 = 0u32;
+pub const HASH_STRING_ALGORITHM_INVALID: u32 = 4294967295u32;
+pub const HASH_STRING_ALGORITHM_X65599: u32 = 1u32;
+pub const HIGH_LEVEL: u32 = 31u32;
+pub const HIGH_PRIORITY: u32 = 31u32;
+pub type HVL_WHEA_ERROR_NOTIFICATION = Option<unsafe extern "system" fn(recoverycontext: *const WHEA_RECOVERY_CONTEXT, platformdirected: super::super::super::Win32::Foundation::BOOLEAN, poisoned: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HWPROFILE_CHANGE_NOTIFICATION {
@@ -4404,6 +4329,97 @@ pub struct HWPROFILE_CHANGE_NOTIFICATION {
     pub Size: u16,
     pub Event: windows_sys::core::GUID,
 }
+pub const HalAcpiAuditInformation: HAL_QUERY_INFORMATION_CLASS = 26i32;
+pub const HalCallbackInformation: HAL_QUERY_INFORMATION_CLASS = 5i32;
+pub const HalChannelTopologyInformation: HAL_QUERY_INFORMATION_CLASS = 31i32;
+pub const HalCmcLog: HAL_SET_INFORMATION_CLASS = 7i32;
+pub const HalCmcLogInformation: HAL_QUERY_INFORMATION_CLASS = 13i32;
+pub const HalCmcRegisterDriver: HAL_SET_INFORMATION_CLASS = 4i32;
+pub const HalCpeLog: HAL_SET_INFORMATION_CLASS = 8i32;
+pub const HalCpeLogInformation: HAL_QUERY_INFORMATION_CLASS = 14i32;
+pub const HalCpeRegisterDriver: HAL_SET_INFORMATION_CLASS = 5i32;
+pub const HalDisplayBiosInformation: HAL_QUERY_INFORMATION_CLASS = 9i32;
+pub const HalDisplayEmulatedBios: HAL_DISPLAY_BIOS_INFORMATION = 1i32;
+pub const HalDisplayInt10Bios: HAL_DISPLAY_BIOS_INFORMATION = 0i32;
+pub const HalDisplayNoBios: HAL_DISPLAY_BIOS_INFORMATION = 2i32;
+pub const HalDmaCrashDumpRegisterSet1: HAL_DMA_CRASH_DUMP_REGISTER_TYPE = 0i32;
+pub const HalDmaCrashDumpRegisterSet2: HAL_DMA_CRASH_DUMP_REGISTER_TYPE = 1i32;
+pub const HalDmaCrashDumpRegisterSetMax: HAL_DMA_CRASH_DUMP_REGISTER_TYPE = 2i32;
+pub const HalDmaRemappingInformation: HAL_QUERY_INFORMATION_CLASS = 47i32;
+pub const HalEnlightenment: HAL_SET_INFORMATION_CLASS = 11i32;
+pub const HalErrorInformation: HAL_QUERY_INFORMATION_CLASS = 12i32;
+pub const HalExternalCacheInformation: HAL_QUERY_INFORMATION_CLASS = 32i32;
+pub const HalFrameBufferCachingInformation: HAL_QUERY_INFORMATION_CLASS = 8i32;
+pub const HalFrequencyInformation: HAL_QUERY_INFORMATION_CLASS = 22i32;
+pub const HalFwBootPerformanceInformation: HAL_QUERY_INFORMATION_CLASS = 34i32;
+pub const HalFwS3PerformanceInformation: HAL_QUERY_INFORMATION_CLASS = 35i32;
+pub const HalGenerateCmcInterrupt: HAL_SET_INFORMATION_CLASS = 9i32;
+pub const HalGetChannelPowerInformation: HAL_QUERY_INFORMATION_CLASS = 36i32;
+pub const HalHardwareWatchdogInformation: HAL_QUERY_INFORMATION_CLASS = 46i32;
+pub const HalHeterogeneousMemoryAttributesInterface: HAL_QUERY_INFORMATION_CLASS = 49i32;
+pub const HalHypervisorInformation: HAL_QUERY_INFORMATION_CLASS = 24i32;
+pub const HalI386ExceptionChainTerminatorInformation: HAL_SET_INFORMATION_CLASS = 15i32;
+pub const HalInformationClassUnused1: HAL_QUERY_INFORMATION_CLASS = 2i32;
+pub const HalInitLogInformation: HAL_QUERY_INFORMATION_CLASS = 21i32;
+pub const HalInstalledBusInformation: HAL_QUERY_INFORMATION_CLASS = 0i32;
+pub const HalInterruptControllerInformation: HAL_QUERY_INFORMATION_CLASS = 39i32;
+pub const HalIrtInformation: HAL_QUERY_INFORMATION_CLASS = 27i32;
+pub const HalKernelErrorHandler: HAL_SET_INFORMATION_CLASS = 3i32;
+pub const HalMapRegisterInformation: HAL_QUERY_INFORMATION_CLASS = 6i32;
+pub const HalMcaLog: HAL_SET_INFORMATION_CLASS = 6i32;
+pub const HalMcaLogInformation: HAL_QUERY_INFORMATION_CLASS = 7i32;
+pub const HalMcaRegisterDriver: HAL_SET_INFORMATION_CLASS = 2i32;
+pub const HalNumaRangeTableInformation: HAL_QUERY_INFORMATION_CLASS = 30i32;
+pub const HalNumaTopologyInterface: HAL_QUERY_INFORMATION_CLASS = 11i32;
+pub const HalParkingPageInformation: HAL_QUERY_INFORMATION_CLASS = 29i32;
+pub const HalPartitionIpiInterface: HAL_QUERY_INFORMATION_CLASS = 18i32;
+pub const HalPlatformInformation: HAL_QUERY_INFORMATION_CLASS = 19i32;
+pub const HalPlatformTimerInformation: HAL_QUERY_INFORMATION_CLASS = 25i32;
+pub const HalPowerInformation: HAL_QUERY_INFORMATION_CLASS = 3i32;
+pub const HalProcessorBrandString: HAL_QUERY_INFORMATION_CLASS = 23i32;
+pub const HalProcessorFeatureInformation: HAL_QUERY_INFORMATION_CLASS = 10i32;
+pub const HalProcessorSpeedInformation: HAL_QUERY_INFORMATION_CLASS = 4i32;
+pub const HalProfileDpgoSourceInterruptHandler: HAL_SET_INFORMATION_CLASS = 12i32;
+pub const HalProfileSourceAdd: HAL_SET_INFORMATION_CLASS = 20i32;
+pub const HalProfileSourceInformation: HAL_QUERY_INFORMATION_CLASS = 1i32;
+pub const HalProfileSourceInterruptHandler: HAL_SET_INFORMATION_CLASS = 1i32;
+pub const HalProfileSourceInterval: HAL_SET_INFORMATION_CLASS = 0i32;
+pub const HalProfileSourceRemove: HAL_SET_INFORMATION_CLASS = 21i32;
+pub const HalProfileSourceTimerHandler: HAL_SET_INFORMATION_CLASS = 10i32;
+pub const HalPsciInformation: HAL_QUERY_INFORMATION_CLASS = 38i32;
+pub const HalQueryAMLIIllegalIOPortAddresses: HAL_QUERY_INFORMATION_CLASS = 16i32;
+pub const HalQueryAcpiWakeAlarmSystemPowerStateInformation: HAL_QUERY_INFORMATION_CLASS = 43i32;
+pub const HalQueryArmErrataInformation: HAL_QUERY_INFORMATION_CLASS = 41i32;
+pub const HalQueryDebuggerInformation: HAL_QUERY_INFORMATION_CLASS = 33i32;
+pub const HalQueryHyperlaunchEntrypoint: HAL_QUERY_INFORMATION_CLASS = 45i32;
+pub const HalQueryIommuReservedRegionInformation: HAL_QUERY_INFORMATION_CLASS = 40i32;
+pub const HalQueryMaxHotPlugMemoryAddress: HAL_QUERY_INFORMATION_CLASS = 17i32;
+pub const HalQueryMcaInterface: HAL_QUERY_INFORMATION_CLASS = 15i32;
+pub const HalQueryPerDeviceMsiLimitInformation: HAL_QUERY_INFORMATION_CLASS = 50i32;
+pub const HalQueryProcessorEfficiencyInformation: HAL_QUERY_INFORMATION_CLASS = 42i32;
+pub const HalQueryProfileCorruptionStatus: HAL_QUERY_INFORMATION_CLASS = 51i32;
+pub const HalQueryProfileCounterOwnership: HAL_QUERY_INFORMATION_CLASS = 52i32;
+pub const HalQueryProfileNumberOfCounters: HAL_QUERY_INFORMATION_CLASS = 44i32;
+pub const HalQueryProfileSourceList: HAL_QUERY_INFORMATION_CLASS = 20i32;
+pub const HalQueryStateElementInformation: HAL_QUERY_INFORMATION_CLASS = 37i32;
+pub const HalQueryUnused0001: HAL_QUERY_INFORMATION_CLASS = 48i32;
+pub const HalRegisterSecondaryInterruptInterface: HAL_SET_INFORMATION_CLASS = 13i32;
+pub const HalSecondaryInterruptInformation: HAL_QUERY_INFORMATION_CLASS = 28i32;
+pub const HalSetChannelPowerInformation: HAL_SET_INFORMATION_CLASS = 14i32;
+pub const HalSetClockTimerMinimumInterval: HAL_SET_INFORMATION_CLASS = 23i32;
+pub const HalSetHvciEnabled: HAL_SET_INFORMATION_CLASS = 18i32;
+pub const HalSetProcessorTraceInterruptHandler: HAL_SET_INFORMATION_CLASS = 19i32;
+pub const HalSetPsciSuspendMode: HAL_SET_INFORMATION_CLASS = 17i32;
+pub const HalSetResetParkDisposition: HAL_SET_INFORMATION_CLASS = 16i32;
+pub const HalSetSwInterruptHandler: HAL_SET_INFORMATION_CLASS = 22i32;
+pub const HighImportance: KDPC_IMPORTANCE = 2i32;
+pub const HighPagePriority: MM_PAGE_PRIORITY = 32i32;
+pub const HighPoolPriority: EX_POOL_PRIORITY = 32i32;
+pub const HighPoolPrioritySpecialPoolOverrun: EX_POOL_PRIORITY = 40i32;
+pub const HighPoolPrioritySpecialPoolUnderrun: EX_POOL_PRIORITY = 41i32;
+pub const HotSpareControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 7i32;
+pub const HyperCriticalWorkQueue: WORK_QUEUE_TYPE = 2i32;
+pub const IMAGE_ADDRESSING_MODE_32BIT: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGE_INFO {
@@ -4432,6 +4448,7 @@ pub struct IMAGE_INFO_EX {
     pub ImageInfo: IMAGE_INFO,
     pub FileObject: *mut super::super::Foundation::FILE_OBJECT,
 }
+pub const INITIAL_PRIVILEGE_COUNT: u32 = 3u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -4440,6 +4457,19 @@ pub struct INITIAL_PRIVILEGE_SET {
     pub Control: u32,
     pub Privilege: [super::super::super::Win32::Security::LUID_AND_ATTRIBUTES; 3],
 }
+pub const INIT_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcc5263e8_9308_454a_89d0_340bd39bc98e);
+pub const INJECT_ERRTYPE_MEMORY_CORRECTABLE: u32 = 8u32;
+pub const INJECT_ERRTYPE_MEMORY_UNCORRECTABLEFATAL: u32 = 32u32;
+pub const INJECT_ERRTYPE_MEMORY_UNCORRECTABLENONFATAL: u32 = 16u32;
+pub const INJECT_ERRTYPE_PCIEXPRESS_CORRECTABLE: u32 = 64u32;
+pub const INJECT_ERRTYPE_PCIEXPRESS_UNCORRECTABLEFATAL: u32 = 256u32;
+pub const INJECT_ERRTYPE_PCIEXPRESS_UNCORRECTABLENONFATAL: u32 = 128u32;
+pub const INJECT_ERRTYPE_PLATFORM_CORRECTABLE: u32 = 512u32;
+pub const INJECT_ERRTYPE_PLATFORM_UNCORRECTABLEFATAL: u32 = 2048u32;
+pub const INJECT_ERRTYPE_PLATFORM_UNCORRECTABLENONFATAL: u32 = 1024u32;
+pub const INJECT_ERRTYPE_PROCESSOR_CORRECTABLE: u32 = 1u32;
+pub const INJECT_ERRTYPE_PROCESSOR_UNCORRECTABLEFATAL: u32 = 4u32;
+pub const INJECT_ERRTYPE_PROCESSOR_UNCORRECTABLENONFATAL: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct INPUT_MAPPING_ELEMENT {
@@ -4467,6 +4497,7 @@ pub union INTEL_CACHE_INFO_EBX {
 pub struct INTEL_CACHE_INFO_EBX_0 {
     pub _bitfield: u32,
 }
+pub type INTEL_CACHE_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct INTERFACE {
@@ -4476,6 +4507,16 @@ pub struct INTERFACE {
     pub InterfaceReference: PINTERFACE_REFERENCE,
     pub InterfaceDereference: PINTERFACE_DEREFERENCE,
 }
+pub type INTERFACE_TYPE = i32;
+pub type INTERLOCKED_RESULT = i32;
+pub const IOCTL_CANCEL_DEVICE_WAKE: u32 = 2719752u32;
+pub const IOCTL_QUERY_DEVICE_POWER_STATE: u32 = 2703360u32;
+pub const IOCTL_SET_DEVICE_WAKE: u32 = 2719748u32;
+pub const IOMMU_ACCESS_NONE: u32 = 0u32;
+pub const IOMMU_ACCESS_READ: u32 = 1u32;
+pub const IOMMU_ACCESS_WRITE: u32 = 2u32;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type IOMMU_DEVICE_CREATE = Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, deviceconfig: *const IOMMU_DEVICE_CREATION_CONFIGURATION, dmadeviceout: *mut *mut super::super::Foundation::IOMMU_DMA_DEVICE) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
@@ -4497,6 +4538,13 @@ pub struct IOMMU_DEVICE_CREATION_CONFIGURATION_ACPI {
     pub InputMappingBase: u32,
     pub MappingsCount: u32,
 }
+pub type IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = i32;
+#[cfg(feature = "Wdk_Foundation")]
+pub type IOMMU_DEVICE_DELETE = Option<unsafe extern "system" fn(dmadevice: *const super::super::Foundation::IOMMU_DMA_DEVICE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type IOMMU_DEVICE_FAULT_HANDLER = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, faultinformation: *mut FAULT_INFORMATION)>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type IOMMU_DEVICE_QUERY_DOMAIN_TYPES = Option<unsafe extern "system" fn(dmadevice: *const super::super::Foundation::IOMMU_DMA_DEVICE, availabledomains: *mut u32)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IOMMU_DMA_DOMAIN_CREATION_FLAGS {
@@ -4508,6 +4556,7 @@ pub union IOMMU_DMA_DOMAIN_CREATION_FLAGS {
 pub struct IOMMU_DMA_DOMAIN_CREATION_FLAGS_0 {
     pub _bitfield: u64,
 }
+pub type IOMMU_DMA_DOMAIN_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IOMMU_DMA_LOGICAL_ADDRESS_TOKEN {
@@ -4537,6 +4586,7 @@ pub union IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG_0 {
 pub struct IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG_0_0 {
     pub AddressWidth: u32,
 }
+pub type IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IOMMU_DMA_RESERVED_REGION {
@@ -4545,12 +4595,34 @@ pub struct IOMMU_DMA_RESERVED_REGION {
     pub NumberOfPages: usize,
     pub ShouldMap: super::super::super::Win32::Foundation::BOOLEAN,
 }
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type IOMMU_DOMAIN_ATTACH_DEVICE = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, inputmappingidbase: u32, mappingcount: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type IOMMU_DOMAIN_ATTACH_DEVICE_EX = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, dmadevice: *const super::super::Foundation::IOMMU_DMA_DEVICE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type IOMMU_DOMAIN_CONFIGURE = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, configuration: *const DOMAIN_CONFIGURATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type IOMMU_DOMAIN_CREATE = Option<unsafe extern "system" fn(osmanagedpagetable: super::super::super::Win32::Foundation::BOOLEAN, domainout: *mut *mut super::super::Foundation::IOMMU_DMA_DOMAIN) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type IOMMU_DOMAIN_CREATE_EX = Option<unsafe extern "system" fn(domaintype: IOMMU_DMA_DOMAIN_TYPE, flags: IOMMU_DMA_DOMAIN_CREATION_FLAGS, logicalallocatorconfig: *const IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG, reservedregions: *const IOMMU_DMA_RESERVED_REGION, domainout: *mut *mut super::super::Foundation::IOMMU_DMA_DOMAIN) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type IOMMU_DOMAIN_DELETE = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type IOMMU_DOMAIN_DETACH_DEVICE = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, inputmappingid: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type IOMMU_DOMAIN_DETACH_DEVICE_EX = Option<unsafe extern "system" fn(dmadevice: *const super::super::Foundation::IOMMU_DMA_DEVICE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type IOMMU_FLUSH_DOMAIN = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type IOMMU_FLUSH_DOMAIN_VA_LIST = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, lastlevel: super::super::super::Win32::Foundation::BOOLEAN, number: u32, valist: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type IOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGE = Option<unsafe extern "system" fn(logicaladdresstoken: *const IOMMU_DMA_LOGICAL_ADDRESS_TOKEN) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IOMMU_INTERFACE_STATE_CHANGE {
     pub PresentFields: IOMMU_INTERFACE_STATE_CHANGE_FIELDS,
     pub AvailableDomainTypes: u32,
 }
+pub type IOMMU_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(statechange: *const IOMMU_INTERFACE_STATE_CHANGE, context: *const core::ffi::c_void)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IOMMU_INTERFACE_STATE_CHANGE_FIELDS {
@@ -4562,6 +4634,14 @@ pub union IOMMU_INTERFACE_STATE_CHANGE_FIELDS {
 pub struct IOMMU_INTERFACE_STATE_CHANGE_FIELDS_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "Wdk_Foundation")]
+pub type IOMMU_MAP_IDENTITY_RANGE = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, permissions: u32, mdl: *const super::super::Foundation::MDL) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type IOMMU_MAP_IDENTITY_RANGE_EX = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, permissions: u32, physicaladdresstomap: *const IOMMU_MAP_PHYSICAL_ADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type IOMMU_MAP_LOGICAL_RANGE = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, permissions: u32, mdl: *const super::super::Foundation::MDL, logicaladdress: u64) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type IOMMU_MAP_LOGICAL_RANGE_EX = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, permissions: u32, physicaladdresstomap: *const IOMMU_MAP_PHYSICAL_ADDRESS, explicitlogicaladdress: *const u64, minlogicaladdress: *const u64, maxlogicaladdress: *const u64, logicaladdressout: *mut u64) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy)]
@@ -4597,6 +4677,32 @@ pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_2 {
     pub PageFrame: *mut u32,
     pub NumberOfPages: usize,
 }
+pub type IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = i32;
+#[cfg(feature = "Wdk_Foundation")]
+pub type IOMMU_MAP_RESERVED_LOGICAL_RANGE = Option<unsafe extern "system" fn(logicaladdresstoken: *mut IOMMU_DMA_LOGICAL_ADDRESS_TOKEN, offset: usize, permissions: u32, physicaladdresstomap: *const IOMMU_MAP_PHYSICAL_ADDRESS, mappedsegment: *mut IOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type IOMMU_QUERY_INPUT_MAPPINGS = Option<unsafe extern "system" fn(physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, buffer: *mut INPUT_MAPPING_ELEMENT, bufferlength: u32, returnlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type IOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(statechangecallback: PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK, context: *const core::ffi::c_void, dmadevice: *const super::super::Foundation::IOMMU_DMA_DEVICE, statefields: *const IOMMU_INTERFACE_STATE_CHANGE_FIELDS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type IOMMU_RESERVE_LOGICAL_ADDRESS_RANGE = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, size: usize, explicitlogicaladdress: *const u64, minlogicaladdress: *const u64, maxlogicaladdress: *const u64, logicaladdresstoken: *mut *mut IOMMU_DMA_LOGICAL_ADDRESS_TOKEN) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type IOMMU_SET_DEVICE_FAULT_REPORTING = Option<unsafe extern "system" fn(physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, inputmappingidbase: u32, enable: super::super::super::Win32::Foundation::BOOLEAN, faultconfig: *const DEVICE_FAULT_CONFIGURATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type IOMMU_SET_DEVICE_FAULT_REPORTING_EX = Option<unsafe extern "system" fn(dmadevice: *const super::super::Foundation::IOMMU_DMA_DEVICE, inputmappingidbase: u32, enable: super::super::super::Win32::Foundation::BOOLEAN, faultconfig: *const DEVICE_FAULT_CONFIGURATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type IOMMU_UNMAP_IDENTITY_RANGE = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, mdl: *const super::super::Foundation::MDL) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type IOMMU_UNMAP_IDENTITY_RANGE_EX = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, mappedphysicaladdress: *const IOMMU_MAP_PHYSICAL_ADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type IOMMU_UNMAP_LOGICAL_RANGE = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, logicaladdress: u64, numberofpages: u64) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type IOMMU_UNMAP_RESERVED_LOGICAL_RANGE = Option<unsafe extern "system" fn(mappedsegment: *mut IOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type IOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(statechangecallback: PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK, dmadevice: *const super::super::Foundation::IOMMU_DMA_DEVICE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type IO_ACCESS_MODE = i32;
+pub type IO_ACCESS_TYPE = i32;
+pub type IO_ALLOCATION_ACTION = i32;
+pub const IO_ATTACH_DEVICE: u32 = 1024u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IO_ATTRIBUTION_INFORMATION {
@@ -4617,6 +4723,18 @@ pub union IO_ATTRIBUTION_INFORMATION_0 {
 pub struct IO_ATTRIBUTION_INFORMATION_0_0 {
     pub _bitfield: u32,
 }
+pub const IO_ATTRIBUTION_INFO_V1: u32 = 1u32;
+pub const IO_CHECK_CREATE_PARAMETERS: u32 = 512u32;
+pub const IO_CHECK_SHARE_ACCESS_DONT_CHECK_DELETE: u32 = 16u32;
+pub const IO_CHECK_SHARE_ACCESS_DONT_CHECK_READ: u32 = 4u32;
+pub const IO_CHECK_SHARE_ACCESS_DONT_CHECK_WRITE: u32 = 8u32;
+pub const IO_CHECK_SHARE_ACCESS_DONT_UPDATE_FILE_OBJECT: u32 = 2u32;
+pub const IO_CHECK_SHARE_ACCESS_FORCE_CHECK: u32 = 32u32;
+pub const IO_CHECK_SHARE_ACCESS_FORCE_USING_SCB: u32 = 64u32;
+pub const IO_CHECK_SHARE_ACCESS_UPDATE_SHARE_ACCESS: u32 = 1u32;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type IO_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, irp: *const super::super::Foundation::IRP, context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type IO_COMPLETION_ROUTINE_RESULT = i32;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
@@ -4683,6 +4801,8 @@ pub union IO_CONNECT_INTERRUPT_PARAMETERS_0 {
     pub LineBased: IO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS,
     pub MessageBased: IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS,
 }
+pub type IO_CONTAINER_INFORMATION_CLASS = i32;
+pub type IO_CONTAINER_NOTIFICATION_CLASS = i32;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
@@ -4696,6 +4816,14 @@ pub struct IO_CSQ {
     pub CsqCompleteCanceledIrp: PIO_CSQ_COMPLETE_CANCELED_IRP,
     pub ReservePointer: *mut core::ffi::c_void,
 }
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type IO_CSQ_ACQUIRE_LOCK = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irql: *mut u8)>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type IO_CSQ_COMPLETE_CANCELED_IRP = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: *const super::super::Foundation::IRP)>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type IO_CSQ_INSERT_IRP = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: *const super::super::Foundation::IRP)>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type IO_CSQ_INSERT_IRP_EX = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: *const super::super::Foundation::IRP, insertcontext: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
@@ -4704,6 +4832,12 @@ pub struct IO_CSQ_IRP_CONTEXT {
     pub Irp: *mut super::super::Foundation::IRP,
     pub Csq: *mut IO_CSQ,
 }
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type IO_CSQ_PEEK_NEXT_IRP = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: *const super::super::Foundation::IRP, peekcontext: *const core::ffi::c_void) -> *mut super::super::Foundation::IRP>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type IO_CSQ_RELEASE_LOCK = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irql: u8)>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type IO_CSQ_REMOVE_IRP = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: *const super::super::Foundation::IRP)>;
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy)]
@@ -4719,6 +4853,8 @@ pub union IO_DISCONNECT_INTERRUPT_PARAMETERS_0 {
     pub InterruptObject: super::super::Foundation::PKINTERRUPT,
     pub InterruptMessageTable: *mut IO_INTERRUPT_MESSAGE_INFO,
 }
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type IO_DPC_ROUTINE = Option<unsafe extern "system" fn(dpc: *const super::super::Foundation::KDPC, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, irp: *mut super::super::Foundation::IRP, context: *const core::ffi::c_void)>;
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy)]
@@ -4784,6 +4920,8 @@ pub union IO_FOEXT_SILO_PARAMETERS_0 {
 pub struct IO_FOEXT_SILO_PARAMETERS_0_0 {
     pub _bitfield: u32,
 }
+pub const IO_FORCE_ACCESS_CHECK: u32 = 1u32;
+pub const IO_IGNORE_SHARE_ACCESS_CHECK: u32 = 2048u32;
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy)]
@@ -4805,6 +4943,16 @@ pub struct IO_INTERRUPT_MESSAGE_INFO_ENTRY {
     pub Mode: KINTERRUPT_MODE,
     pub Polarity: KINTERRUPT_POLARITY,
 }
+pub const IO_KEYBOARD_INCREMENT: u32 = 6u32;
+pub const IO_MOUSE_INCREMENT: u32 = 6u32;
+pub type IO_NOTIFICATION_EVENT_CATEGORY = i32;
+pub const IO_NO_PARAMETER_CHECKING: u32 = 256u32;
+pub type IO_PAGING_PRIORITY = i32;
+pub const IO_PARALLEL_INCREMENT: u32 = 1u32;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type IO_PERSISTED_MEMORY_ENUMERATION_CALLBACK = Option<unsafe extern "system" fn(driverobject: *const super::super::Foundation::DRIVER_OBJECT, physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, physicaldeviceid: *const super::super::super::Win32::Foundation::UNICODE_STRING, datatag: *const u16, dataversion: *const u32, context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type IO_QUERY_DEVICE_DATA_FORMAT = i32;
+pub const IO_REMOUNT: u32 = 1u32;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
@@ -4835,6 +4983,8 @@ pub struct IO_REMOVE_LOCK_DBG_BLOCK {
     pub Reserved2: *mut core::ffi::c_void,
     pub Blocks: super::super::Foundation::PIO_REMOVE_LOCK_TRACKING_BLOCK,
 }
+pub const IO_REPARSE: u32 = 0u32;
+pub const IO_REPARSE_GLOBAL: u32 = 2u32;
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy)]
@@ -4850,6 +5000,8 @@ pub union IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS_0 {
     pub InterruptObject: super::super::Foundation::PKINTERRUPT,
     pub InterruptMessageTable: *mut IO_INTERRUPT_MESSAGE_INFO,
 }
+pub const IO_RESOURCE_ALTERNATIVE: u32 = 8u32;
+pub const IO_RESOURCE_DEFAULT: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IO_RESOURCE_DESCRIPTOR {
@@ -4987,6 +5139,7 @@ pub struct IO_RESOURCE_LIST {
     pub Count: u32,
     pub Descriptors: [IO_RESOURCE_DESCRIPTOR; 1],
 }
+pub const IO_RESOURCE_PREFERRED: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IO_RESOURCE_REQUIREMENTS_LIST {
@@ -4998,12 +5151,21 @@ pub struct IO_RESOURCE_REQUIREMENTS_LIST {
     pub AlternativeLists: u32,
     pub List: [IO_RESOURCE_LIST; 1],
 }
+pub const IO_SERIAL_INCREMENT: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IO_SESSION_CONNECT_INFO {
     pub SessionId: u32,
     pub LocalSession: super::super::super::Win32::Foundation::BOOLEAN,
 }
+pub type IO_SESSION_EVENT = i32;
+pub const IO_SESSION_MAX_PAYLOAD_SIZE: i32 = 256i32;
+pub type IO_SESSION_NOTIFICATION_FUNCTION = Option<unsafe extern "system" fn(sessionobject: *const core::ffi::c_void, ioobject: *const core::ffi::c_void, event: u32, context: *const core::ffi::c_void, notificationpayload: *const core::ffi::c_void, payloadlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type IO_SESSION_STATE = i32;
+pub const IO_SESSION_STATE_ALL_EVENTS: u32 = 4294967295u32;
+pub const IO_SESSION_STATE_CONNECT_EVENT: u32 = 4u32;
+pub const IO_SESSION_STATE_CREATION_EVENT: u32 = 1u32;
+pub const IO_SESSION_STATE_DISCONNECT_EVENT: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IO_SESSION_STATE_INFORMATION {
@@ -5011,6 +5173,8 @@ pub struct IO_SESSION_STATE_INFORMATION {
     pub SessionState: IO_SESSION_STATE,
     pub LocalSession: super::super::super::Win32::Foundation::BOOLEAN,
 }
+pub const IO_SESSION_STATE_LOGOFF_EVENT: u32 = 32u32;
+pub const IO_SESSION_STATE_LOGON_EVENT: u32 = 16u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IO_SESSION_STATE_NOTIFICATION {
@@ -5020,6 +5184,14 @@ pub struct IO_SESSION_STATE_NOTIFICATION {
     pub EventMask: u32,
     pub Context: *mut core::ffi::c_void,
 }
+pub const IO_SESSION_STATE_TERMINATION_EVENT: u32 = 2u32;
+pub const IO_SESSION_STATE_VALID_EVENT_MASK: u32 = 63u32;
+pub const IO_SET_IRP_IO_ATTRIBUTION_FLAGS_MASK: u32 = 3u32;
+pub const IO_SET_IRP_IO_ATTRIBUTION_FROM_PROCESS: u32 = 2u32;
+pub const IO_SET_IRP_IO_ATTRIBUTION_FROM_THREAD: u32 = 1u32;
+pub const IO_SHARE_ACCESS_NON_PRIMARY_STREAM: u32 = 128u32;
+pub const IO_SHARE_ACCESS_NO_WRITE_PERMISSION: u32 = 2147483648u32;
+pub const IO_SOUND_INCREMENT: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IO_STATUS_BLOCK32 {
@@ -5038,6 +5210,234 @@ pub union IO_STATUS_BLOCK64_0 {
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
     pub Pointer: *mut core::ffi::c_void,
 }
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type IO_TIMER_ROUTINE = Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, context: *const core::ffi::c_void)>;
+pub const IO_TYPE_ADAPTER: u32 = 1u32;
+pub const IO_TYPE_CONTROLLER: u32 = 2u32;
+pub const IO_TYPE_CSQ: u32 = 2u32;
+pub const IO_TYPE_CSQ_EX: u32 = 3u32;
+pub const IO_TYPE_CSQ_IRP_CONTEXT: u32 = 1u32;
+pub const IO_TYPE_DEVICE: u32 = 3u32;
+pub const IO_TYPE_DEVICE_OBJECT_EXTENSION: u32 = 13u32;
+pub const IO_TYPE_DRIVER: u32 = 4u32;
+pub const IO_TYPE_ERROR_LOG: u32 = 11u32;
+pub const IO_TYPE_ERROR_MESSAGE: u32 = 12u32;
+pub const IO_TYPE_FILE: u32 = 5u32;
+pub const IO_TYPE_IORING: u32 = 14u32;
+pub const IO_TYPE_IRP: u32 = 6u32;
+pub const IO_TYPE_MASTER_ADAPTER: u32 = 7u32;
+pub const IO_TYPE_OPEN_PACKET: u32 = 8u32;
+pub const IO_TYPE_TIMER: u32 = 9u32;
+pub const IO_TYPE_VPB: u32 = 10u32;
+pub const IO_VIDEO_INCREMENT: u32 = 1u32;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type IO_WORKITEM_ROUTINE = Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, context: *const core::ffi::c_void)>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type IO_WORKITEM_ROUTINE_EX = Option<unsafe extern "system" fn(ioobject: *const core::ffi::c_void, context: *const core::ffi::c_void, ioworkitem: super::super::Foundation::PIO_WORKITEM)>;
+pub const IPF_SAL_RECORD_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f3380d1_6eb0_497f_a578_4d4c65a71617);
+pub const IPI_LEVEL: u32 = 29u32;
+pub const IPMI_MSR_DUMP_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1c15b445_9b06_4667_ac25_33c056b88803);
+pub const IRP_ALLOCATED_FIXED_SIZE: u32 = 4u32;
+pub const IRP_ALLOCATED_MUST_SUCCEED: u32 = 2u32;
+pub const IRP_ASSOCIATED_IRP: u32 = 8u32;
+pub const IRP_BUFFERED_IO: u32 = 16u32;
+pub const IRP_CLOSE_OPERATION: u32 = 1024u32;
+pub const IRP_CREATE_OPERATION: u32 = 128u32;
+pub const IRP_DEALLOCATE_BUFFER: u32 = 32u32;
+pub const IRP_DEFER_IO_COMPLETION: u32 = 2048u32;
+pub const IRP_HOLD_DEVICE_QUEUE: u32 = 8192u32;
+pub const IRP_INPUT_OPERATION: u32 = 64u32;
+pub const IRP_LOOKASIDE_ALLOCATION: u32 = 8u32;
+pub const IRP_MJ_CLEANUP: u32 = 18u32;
+pub const IRP_MJ_CLOSE: u32 = 2u32;
+pub const IRP_MJ_CREATE: u32 = 0u32;
+pub const IRP_MJ_CREATE_MAILSLOT: u32 = 19u32;
+pub const IRP_MJ_CREATE_NAMED_PIPE: u32 = 1u32;
+pub const IRP_MJ_DEVICE_CHANGE: u32 = 24u32;
+pub const IRP_MJ_DEVICE_CONTROL: u32 = 14u32;
+pub const IRP_MJ_DIRECTORY_CONTROL: u32 = 12u32;
+pub const IRP_MJ_FILE_SYSTEM_CONTROL: u32 = 13u32;
+pub const IRP_MJ_FLUSH_BUFFERS: u32 = 9u32;
+pub const IRP_MJ_INTERNAL_DEVICE_CONTROL: u32 = 15u32;
+pub const IRP_MJ_LOCK_CONTROL: u32 = 17u32;
+pub const IRP_MJ_MAXIMUM_FUNCTION: u32 = 27u32;
+pub const IRP_MJ_PNP: u32 = 27u32;
+pub const IRP_MJ_PNP_POWER: u32 = 27u32;
+pub const IRP_MJ_POWER: u32 = 22u32;
+pub const IRP_MJ_QUERY_EA: u32 = 7u32;
+pub const IRP_MJ_QUERY_INFORMATION: u32 = 5u32;
+pub const IRP_MJ_QUERY_QUOTA: u32 = 25u32;
+pub const IRP_MJ_QUERY_SECURITY: u32 = 20u32;
+pub const IRP_MJ_QUERY_VOLUME_INFORMATION: u32 = 10u32;
+pub const IRP_MJ_READ: u32 = 3u32;
+pub const IRP_MJ_SCSI: u32 = 15u32;
+pub const IRP_MJ_SET_EA: u32 = 8u32;
+pub const IRP_MJ_SET_INFORMATION: u32 = 6u32;
+pub const IRP_MJ_SET_QUOTA: u32 = 26u32;
+pub const IRP_MJ_SET_SECURITY: u32 = 21u32;
+pub const IRP_MJ_SET_VOLUME_INFORMATION: u32 = 11u32;
+pub const IRP_MJ_SHUTDOWN: u32 = 16u32;
+pub const IRP_MJ_SYSTEM_CONTROL: u32 = 23u32;
+pub const IRP_MJ_WRITE: u32 = 4u32;
+pub const IRP_MN_CANCEL_REMOVE_DEVICE: u32 = 3u32;
+pub const IRP_MN_CANCEL_STOP_DEVICE: u32 = 6u32;
+pub const IRP_MN_CHANGE_SINGLE_INSTANCE: u32 = 2u32;
+pub const IRP_MN_CHANGE_SINGLE_ITEM: u32 = 3u32;
+pub const IRP_MN_COMPLETE: u32 = 4u32;
+pub const IRP_MN_COMPRESSED: u32 = 8u32;
+pub const IRP_MN_DEVICE_ENUMERATED: u32 = 25u32;
+pub const IRP_MN_DEVICE_USAGE_NOTIFICATION: u32 = 22u32;
+pub const IRP_MN_DISABLE_COLLECTION: u32 = 7u32;
+pub const IRP_MN_DISABLE_EVENTS: u32 = 5u32;
+pub const IRP_MN_DPC: u32 = 1u32;
+pub const IRP_MN_EJECT: u32 = 17u32;
+pub const IRP_MN_ENABLE_COLLECTION: u32 = 6u32;
+pub const IRP_MN_ENABLE_EVENTS: u32 = 4u32;
+pub const IRP_MN_EXECUTE_METHOD: u32 = 9u32;
+pub const IRP_MN_FILTER_RESOURCE_REQUIREMENTS: u32 = 13u32;
+pub const IRP_MN_FLUSH_AND_PURGE: u32 = 1u32;
+pub const IRP_MN_FLUSH_DATA_ONLY: u32 = 2u32;
+pub const IRP_MN_FLUSH_DATA_SYNC_ONLY: u32 = 4u32;
+pub const IRP_MN_FLUSH_NO_SYNC: u32 = 3u32;
+pub const IRP_MN_KERNEL_CALL: u32 = 4u32;
+pub const IRP_MN_LOAD_FILE_SYSTEM: u32 = 3u32;
+pub const IRP_MN_LOCK: u32 = 1u32;
+pub const IRP_MN_MDL: u32 = 2u32;
+pub const IRP_MN_MOUNT_VOLUME: u32 = 1u32;
+pub const IRP_MN_NORMAL: u32 = 0u32;
+pub const IRP_MN_NOTIFY_CHANGE_DIRECTORY: u32 = 2u32;
+pub const IRP_MN_NOTIFY_CHANGE_DIRECTORY_EX: u32 = 3u32;
+pub const IRP_MN_POWER_SEQUENCE: u32 = 1u32;
+pub const IRP_MN_QUERY_ALL_DATA: u32 = 0u32;
+pub const IRP_MN_QUERY_BUS_INFORMATION: u32 = 21u32;
+pub const IRP_MN_QUERY_CAPABILITIES: u32 = 9u32;
+pub const IRP_MN_QUERY_DEVICE_RELATIONS: u32 = 7u32;
+pub const IRP_MN_QUERY_DEVICE_TEXT: u32 = 12u32;
+pub const IRP_MN_QUERY_DIRECTORY: u32 = 1u32;
+pub const IRP_MN_QUERY_ID: u32 = 19u32;
+pub const IRP_MN_QUERY_INTERFACE: u32 = 8u32;
+pub const IRP_MN_QUERY_LEGACY_BUS_INFORMATION: u32 = 24u32;
+pub const IRP_MN_QUERY_PNP_DEVICE_STATE: u32 = 20u32;
+pub const IRP_MN_QUERY_POWER: u32 = 3u32;
+pub const IRP_MN_QUERY_REMOVE_DEVICE: u32 = 1u32;
+pub const IRP_MN_QUERY_RESOURCES: u32 = 10u32;
+pub const IRP_MN_QUERY_RESOURCE_REQUIREMENTS: u32 = 11u32;
+pub const IRP_MN_QUERY_SINGLE_INSTANCE: u32 = 1u32;
+pub const IRP_MN_QUERY_STOP_DEVICE: u32 = 5u32;
+pub const IRP_MN_READ_CONFIG: u32 = 15u32;
+pub const IRP_MN_REGINFO: u32 = 8u32;
+pub const IRP_MN_REGINFO_EX: u32 = 11u32;
+pub const IRP_MN_REMOVE_DEVICE: u32 = 2u32;
+pub const IRP_MN_SCSI_CLASS: u32 = 1u32;
+pub const IRP_MN_SET_LOCK: u32 = 18u32;
+pub const IRP_MN_SET_POWER: u32 = 2u32;
+pub const IRP_MN_START_DEVICE: u32 = 0u32;
+pub const IRP_MN_STOP_DEVICE: u32 = 4u32;
+pub const IRP_MN_SURPRISE_REMOVAL: u32 = 23u32;
+pub const IRP_MN_TRACK_LINK: u32 = 4u32;
+pub const IRP_MN_UNLOCK_ALL: u32 = 3u32;
+pub const IRP_MN_UNLOCK_ALL_BY_KEY: u32 = 4u32;
+pub const IRP_MN_UNLOCK_SINGLE: u32 = 2u32;
+pub const IRP_MN_USER_FS_REQUEST: u32 = 0u32;
+pub const IRP_MN_VERIFY_VOLUME: u32 = 2u32;
+pub const IRP_MN_WAIT_WAKE: u32 = 0u32;
+pub const IRP_MN_WRITE_CONFIG: u32 = 16u32;
+pub const IRP_MOUNT_COMPLETION: u32 = 2u32;
+pub const IRP_NOCACHE: u32 = 1u32;
+pub const IRP_OB_QUERY_NAME: u32 = 4096u32;
+pub const IRP_PAGING_IO: u32 = 2u32;
+pub const IRP_QUOTA_CHARGED: u32 = 1u32;
+pub const IRP_READ_OPERATION: u32 = 256u32;
+pub const IRP_SYNCHRONOUS_API: u32 = 4u32;
+pub const IRP_SYNCHRONOUS_PAGING_IO: u32 = 64u32;
+pub const IRP_UM_DRIVER_INITIATED_IO: u32 = 4194304u32;
+pub const IRP_WRITE_OPERATION: u32 = 512u32;
+pub type IRQ_DEVICE_POLICY = i32;
+pub type IRQ_GROUP_POLICY = i32;
+pub type IRQ_PRIORITY = i32;
+pub const InACriticalArrayControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 8i32;
+pub const InAFailedArrayControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 9i32;
+pub const IndicatorBlink: PCI_EXPRESS_INDICATOR_STATE = 2i32;
+pub const IndicatorOff: PCI_EXPRESS_INDICATOR_STATE = 3i32;
+pub const IndicatorOn: PCI_EXPRESS_INDICATOR_STATE = 1i32;
+pub const InitiateReset: NPEM_CONTROL_STANDARD_CONTROL_BIT = 1i32;
+pub const InstallStateFailedInstall: DEVICE_INSTALL_STATE = 2i32;
+pub const InstallStateFinishInstall: DEVICE_INSTALL_STATE = 3i32;
+pub const InstallStateInstalled: DEVICE_INSTALL_STATE = 0i32;
+pub const InstallStateNeedsReinstall: DEVICE_INSTALL_STATE = 1i32;
+pub const IntelCacheData: INTEL_CACHE_TYPE = 1i32;
+pub const IntelCacheInstruction: INTEL_CACHE_TYPE = 2i32;
+pub const IntelCacheNull: INTEL_CACHE_TYPE = 0i32;
+pub const IntelCacheRam: INTEL_CACHE_TYPE = 4i32;
+pub const IntelCacheTrace: INTEL_CACHE_TYPE = 5i32;
+pub const IntelCacheUnified: INTEL_CACHE_TYPE = 3i32;
+pub const InterfaceTypeUndefined: INTERFACE_TYPE = -1i32;
+pub const Internal: INTERFACE_TYPE = 0i32;
+pub const InternalPowerBus: INTERFACE_TYPE = 13i32;
+pub const InterruptActiveBoth: KINTERRUPT_POLARITY = 3i32;
+pub const InterruptActiveBothTriggerHigh: KINTERRUPT_POLARITY = 4i32;
+pub const InterruptActiveBothTriggerLow: KINTERRUPT_POLARITY = 3i32;
+pub const InterruptActiveHigh: KINTERRUPT_POLARITY = 1i32;
+pub const InterruptActiveLow: KINTERRUPT_POLARITY = 2i32;
+pub const InterruptFallingEdge: KINTERRUPT_POLARITY = 2i32;
+pub const InterruptPolarityUnknown: KINTERRUPT_POLARITY = 0i32;
+pub const InterruptRisingEdge: KINTERRUPT_POLARITY = 1i32;
+pub const InvalidDeviceTypeControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 10i32;
+pub const IoMaxContainerInformationClass: IO_CONTAINER_INFORMATION_CLASS = 1i32;
+pub const IoMaxContainerNotificationClass: IO_CONTAINER_NOTIFICATION_CLASS = 1i32;
+pub const IoModifyAccess: LOCK_OPERATION = 2i32;
+pub const IoPagingPriorityHigh: IO_PAGING_PRIORITY = 2i32;
+pub const IoPagingPriorityInvalid: IO_PAGING_PRIORITY = 0i32;
+pub const IoPagingPriorityNormal: IO_PAGING_PRIORITY = 1i32;
+pub const IoPagingPriorityReserved1: IO_PAGING_PRIORITY = 3i32;
+pub const IoPagingPriorityReserved2: IO_PAGING_PRIORITY = 4i32;
+pub const IoQueryDeviceComponentInformation: IO_QUERY_DEVICE_DATA_FORMAT = 2i32;
+pub const IoQueryDeviceConfigurationData: IO_QUERY_DEVICE_DATA_FORMAT = 1i32;
+pub const IoQueryDeviceIdentifier: IO_QUERY_DEVICE_DATA_FORMAT = 0i32;
+pub const IoQueryDeviceMaxData: IO_QUERY_DEVICE_DATA_FORMAT = 3i32;
+pub const IoReadAccess: LOCK_OPERATION = 0i32;
+pub const IoSessionEventConnected: IO_SESSION_EVENT = 3i32;
+pub const IoSessionEventCreated: IO_SESSION_EVENT = 1i32;
+pub const IoSessionEventDisconnected: IO_SESSION_EVENT = 4i32;
+pub const IoSessionEventIgnore: IO_SESSION_EVENT = 0i32;
+pub const IoSessionEventLogoff: IO_SESSION_EVENT = 6i32;
+pub const IoSessionEventLogon: IO_SESSION_EVENT = 5i32;
+pub const IoSessionEventMax: IO_SESSION_EVENT = 7i32;
+pub const IoSessionEventTerminated: IO_SESSION_EVENT = 2i32;
+pub const IoSessionStateConnected: IO_SESSION_STATE = 3i32;
+pub const IoSessionStateCreated: IO_SESSION_STATE = 1i32;
+pub const IoSessionStateDisconnected: IO_SESSION_STATE = 4i32;
+pub const IoSessionStateDisconnectedLoggedOn: IO_SESSION_STATE = 5i32;
+pub const IoSessionStateInformation: IO_CONTAINER_INFORMATION_CLASS = 0i32;
+pub const IoSessionStateInitialized: IO_SESSION_STATE = 2i32;
+pub const IoSessionStateLoggedOff: IO_SESSION_STATE = 7i32;
+pub const IoSessionStateLoggedOn: IO_SESSION_STATE = 6i32;
+pub const IoSessionStateMax: IO_SESSION_STATE = 9i32;
+pub const IoSessionStateNotification: IO_CONTAINER_NOTIFICATION_CLASS = 0i32;
+pub const IoSessionStateTerminated: IO_SESSION_STATE = 8i32;
+pub const IoWriteAccess: LOCK_OPERATION = 1i32;
+pub const IommuDeviceCreationConfigTypeAcpi: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = 1i32;
+pub const IommuDeviceCreationConfigTypeDeviceId: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = 2i32;
+pub const IommuDeviceCreationConfigTypeMax: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = 3i32;
+pub const IommuDeviceCreationConfigTypeNone: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = 0i32;
+pub const IommuDmaLogicalAllocatorBuddy: IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = 1i32;
+pub const IommuDmaLogicalAllocatorMax: IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = 2i32;
+pub const IommuDmaLogicalAllocatorNone: IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = 0i32;
+pub const IrqPolicyAllCloseProcessors: IRQ_DEVICE_POLICY = 1i32;
+pub const IrqPolicyAllProcessorsInMachine: IRQ_DEVICE_POLICY = 3i32;
+pub const IrqPolicyAllProcessorsInMachineWhenSteered: IRQ_DEVICE_POLICY = 6i32;
+pub const IrqPolicyMachineDefault: IRQ_DEVICE_POLICY = 0i32;
+pub const IrqPolicyOneCloseProcessor: IRQ_DEVICE_POLICY = 2i32;
+pub const IrqPolicySpecifiedProcessors: IRQ_DEVICE_POLICY = 4i32;
+pub const IrqPolicySpreadMessagesAcrossAllProcessors: IRQ_DEVICE_POLICY = 5i32;
+pub const IrqPriorityHigh: IRQ_PRIORITY = 3i32;
+pub const IrqPriorityLow: IRQ_PRIORITY = 1i32;
+pub const IrqPriorityNormal: IRQ_PRIORITY = 2i32;
+pub const IrqPriorityUndefined: IRQ_PRIORITY = 0i32;
+pub const Isa: INTERFACE_TYPE = 1i32;
+pub const IsochCommand: EXTENDED_AGP_REGISTER = 6i32;
+pub const IsochStatus: EXTENDED_AGP_REGISTER = 0i32;
+pub const KADDRESS_BASE: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KADDRESS_RANGE {
@@ -5078,6 +5478,8 @@ pub struct KBUGCHECK_ADD_PAGES {
     pub Address: usize,
     pub Count: usize,
 }
+pub type KBUGCHECK_BUFFER_DUMP_STATE = i32;
+pub type KBUGCHECK_CALLBACK_REASON = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
@@ -5090,6 +5492,7 @@ pub struct KBUGCHECK_CALLBACK_RECORD {
     pub Checksum: usize,
     pub State: u8,
 }
+pub type KBUGCHECK_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(buffer: *mut core::ffi::c_void, length: u32)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KBUGCHECK_DUMP_IO {
@@ -5098,6 +5501,7 @@ pub struct KBUGCHECK_DUMP_IO {
     pub BufferLength: u32,
     pub Type: KBUGCHECK_DUMP_IO_TYPE,
 }
+pub type KBUGCHECK_DUMP_IO_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
@@ -5109,6 +5513,8 @@ pub struct KBUGCHECK_REASON_CALLBACK_RECORD {
     pub Reason: KBUGCHECK_CALLBACK_REASON,
     pub State: u8,
 }
+#[cfg(feature = "Win32_System_Kernel")]
+pub type KBUGCHECK_REASON_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(reason: KBUGCHECK_CALLBACK_REASON, record: *const KBUGCHECK_REASON_CALLBACK_RECORD, reasonspecificdata: *mut core::ffi::c_void, reasonspecificdatalength: u32)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KBUGCHECK_REMOVE_PAGES {
@@ -5159,6 +5565,17 @@ pub struct KBUGCHECK_TRIAGE_DUMP_DATA {
     pub BugCheckParameter3: usize,
     pub BugCheckParameter4: usize,
 }
+pub const KB_ADD_PAGES_FLAG_ADDITIONAL_RANGES_EXIST: u32 = 2147483648u32;
+pub const KB_ADD_PAGES_FLAG_PHYSICAL_ADDRESS: u32 = 2u32;
+pub const KB_ADD_PAGES_FLAG_VIRTUAL_ADDRESS: u32 = 1u32;
+pub const KB_REMOVE_PAGES_FLAG_ADDITIONAL_RANGES_EXIST: u32 = 2147483648u32;
+pub const KB_REMOVE_PAGES_FLAG_PHYSICAL_ADDRESS: u32 = 2u32;
+pub const KB_REMOVE_PAGES_FLAG_VIRTUAL_ADDRESS: u32 = 1u32;
+pub const KB_SECONDARY_DATA_FLAG_ADDITIONAL_DATA: u32 = 1u32;
+pub const KB_SECONDARY_DATA_FLAG_NO_DEVICE_ACCESS: u32 = 2u32;
+pub const KB_TRIAGE_DUMP_DATA_FLAG_BUGCHECK_ACTIVE: u32 = 1u32;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+pub type KDEFERRED_ROUTINE = Option<unsafe extern "system" fn(dpc: *const super::super::Foundation::KDPC, deferredcontext: *const core::ffi::c_void, systemargument1: *const core::ffi::c_void, systemargument2: *const core::ffi::c_void)>;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
@@ -5167,6 +5584,7 @@ pub struct KDEVICE_QUEUE_ENTRY {
     pub SortKey: u32,
     pub Inserted: super::super::super::Win32::Foundation::BOOLEAN,
 }
+pub type KDPC_IMPORTANCE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KDPC_WATCHDOG_INFORMATION {
@@ -5176,6 +5594,14 @@ pub struct KDPC_WATCHDOG_INFORMATION {
     pub DpcWatchdogCount: u32,
     pub Reserved: u32,
 }
+pub type KD_CALLBACK_ACTION = i32;
+pub type KD_NAMESPACE_ENUM = i32;
+pub type KD_OPTION = i32;
+pub const KD_OPTION_SET_BLOCK_ENABLE: KD_OPTION = 0i32;
+pub const KENCODED_TIMER_PROCESSOR: u32 = 1u32;
+pub const KERNEL_LARGE_STACK_COMMIT: u32 = 12288u32;
+pub const KERNEL_LARGE_STACK_SIZE: u32 = 61440u32;
+pub const KERNEL_MCA_EXCEPTION_STACK_SIZE: u32 = 8192u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KERNEL_SOFT_RESTART_NOTIFICATION {
@@ -5183,6 +5609,8 @@ pub struct KERNEL_SOFT_RESTART_NOTIFICATION {
     pub Size: u16,
     pub Event: windows_sys::core::GUID,
 }
+pub const KERNEL_SOFT_RESTART_NOTIFICATION_VERSION: u32 = 1u32;
+pub const KERNEL_STACK_SIZE: u32 = 12288u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KERNEL_USER_TIMES {
@@ -5315,6 +5743,8 @@ pub struct KEY_WOW64_FLAGS_INFORMATION {
 pub struct KEY_WRITE_TIME_INFORMATION {
     pub LastWriteTime: i64,
 }
+pub const KE_MAX_TRIAGE_DUMP_DATA_MEMORY_SIZE: u32 = 33554432u32;
+pub const KE_PROCESSOR_CHANGE_ADD_EXISTING: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
@@ -5324,6 +5754,7 @@ pub struct KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT {
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
     pub ProcNumber: super::super::super::Win32::System::Kernel::PROCESSOR_NUMBER,
 }
+pub type KE_PROCESSOR_CHANGE_NOTIFY_STATE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KFLOATING_SAVE {
@@ -5342,12 +5773,18 @@ pub struct KFLOATING_SAVE {
 pub struct KGATE {
     pub Header: super::super::Foundation::DISPATCHER_HEADER,
 }
+pub type KINTERRUPT_MODE = i32;
+pub type KINTERRUPT_POLARITY = i32;
+pub type KIPI_BROADCAST_WORKER = Option<unsafe extern "system" fn(argument: usize) -> usize>;
+pub const KI_USER_SHARED_DATA: u32 = 4292804608u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KLOCK_QUEUE_HANDLE {
     pub LockQueue: KSPIN_LOCK_QUEUE,
     pub OldIrql: u8,
 }
+pub type KMESSAGE_SERVICE_ROUTINE = Option<unsafe extern "system" fn(interrupt: *const isize, servicecontext: *const core::ffi::c_void, messageid: u32) -> super::super::super::Win32::Foundation::BOOLEAN>;
+pub type KPROFILE_SOURCE = i32;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
@@ -5355,12 +5792,15 @@ pub struct KSEMAPHORE {
     pub Header: super::super::Foundation::DISPATCHER_HEADER,
     pub Limit: i32,
 }
+pub type KSERVICE_ROUTINE = Option<unsafe extern "system" fn(interrupt: *const isize, servicecontext: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::BOOLEAN>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSPIN_LOCK_QUEUE {
     pub Next: *mut KSPIN_LOCK_QUEUE,
     pub Lock: *mut usize,
 }
+pub type KSTART_ROUTINE = Option<unsafe extern "system" fn(startcontext: *const core::ffi::c_void)>;
+pub type KSYNCHRONIZE_ROUTINE = Option<unsafe extern "system" fn(synchronizecontext: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::BOOLEAN>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSYSTEM_TIME {
@@ -5391,6 +5831,7 @@ pub struct KTRIAGE_DUMP_DATA_ARRAY {
     pub ComponentName: *mut u8,
     pub Blocks: [KADDRESS_RANGE; 1],
 }
+pub const KUMS_UCH_VOLATILE_BIT: u32 = 0u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
@@ -5542,6 +5983,60 @@ pub struct KUSER_SHARED_DATA_4_0 {
 pub struct KWAIT_CHAIN {
     pub Head: *mut core::ffi::c_void,
 }
+pub type KWAIT_REASON = i32;
+pub const KbCallbackAddPages: KBUGCHECK_CALLBACK_REASON = 4i32;
+pub const KbCallbackDumpIo: KBUGCHECK_CALLBACK_REASON = 3i32;
+pub const KbCallbackInvalid: KBUGCHECK_CALLBACK_REASON = 0i32;
+pub const KbCallbackRemovePages: KBUGCHECK_CALLBACK_REASON = 6i32;
+pub const KbCallbackReserved1: KBUGCHECK_CALLBACK_REASON = 1i32;
+pub const KbCallbackReserved2: KBUGCHECK_CALLBACK_REASON = 8i32;
+pub const KbCallbackSecondaryDumpData: KBUGCHECK_CALLBACK_REASON = 2i32;
+pub const KbCallbackSecondaryMultiPartDumpData: KBUGCHECK_CALLBACK_REASON = 5i32;
+pub const KbCallbackTriageDumpData: KBUGCHECK_CALLBACK_REASON = 7i32;
+pub const KbDumpIoBody: KBUGCHECK_DUMP_IO_TYPE = 2i32;
+pub const KbDumpIoComplete: KBUGCHECK_DUMP_IO_TYPE = 4i32;
+pub const KbDumpIoHeader: KBUGCHECK_DUMP_IO_TYPE = 1i32;
+pub const KbDumpIoInvalid: KBUGCHECK_DUMP_IO_TYPE = 0i32;
+pub const KbDumpIoSecondaryData: KBUGCHECK_DUMP_IO_TYPE = 3i32;
+pub const KdConfigureDeviceAndContinue: KD_CALLBACK_ACTION = 0i32;
+pub const KdConfigureDeviceAndStop: KD_CALLBACK_ACTION = 2i32;
+pub const KdNameSpaceACPI: KD_NAMESPACE_ENUM = 1i32;
+pub const KdNameSpaceAny: KD_NAMESPACE_ENUM = 2i32;
+pub const KdNameSpaceMax: KD_NAMESPACE_ENUM = 4i32;
+pub const KdNameSpaceNone: KD_NAMESPACE_ENUM = 3i32;
+pub const KdNameSpacePCI: KD_NAMESPACE_ENUM = 0i32;
+pub const KdSkipDeviceAndContinue: KD_CALLBACK_ACTION = 1i32;
+pub const KdSkipDeviceAndStop: KD_CALLBACK_ACTION = 3i32;
+pub const KeProcessorAddCompleteNotify: KE_PROCESSOR_CHANGE_NOTIFY_STATE = 1i32;
+pub const KeProcessorAddFailureNotify: KE_PROCESSOR_CHANGE_NOTIFY_STATE = 2i32;
+pub const KeProcessorAddStartNotify: KE_PROCESSOR_CHANGE_NOTIFY_STATE = 0i32;
+pub const KeepObject: IO_ALLOCATION_ACTION = 1i32;
+pub const KernelMode: MODE = 0i32;
+pub const KeyboardController: CONFIGURATION_TYPE = 22i32;
+pub const KeyboardPeripheral: CONFIGURATION_TYPE = 32i32;
+pub const L0sAndL1EntryDisabled: PCI_EXPRESS_ASPM_CONTROL = 0i32;
+pub const L0sAndL1EntryEnabled: PCI_EXPRESS_ASPM_CONTROL = 3i32;
+pub const L0sAndL1EntrySupport: PCI_EXPRESS_ASPM_SUPPORT = 3i32;
+pub const L0sEntryEnabled: PCI_EXPRESS_ASPM_CONTROL = 1i32;
+pub const L0sEntrySupport: PCI_EXPRESS_ASPM_SUPPORT = 1i32;
+pub const L0s_128ns_256ns: PCI_EXPRESS_L0s_EXIT_LATENCY = 2i32;
+pub const L0s_1us_2us: PCI_EXPRESS_L0s_EXIT_LATENCY = 5i32;
+pub const L0s_256ns_512ns: PCI_EXPRESS_L0s_EXIT_LATENCY = 3i32;
+pub const L0s_2us_4us: PCI_EXPRESS_L0s_EXIT_LATENCY = 6i32;
+pub const L0s_512ns_1us: PCI_EXPRESS_L0s_EXIT_LATENCY = 4i32;
+pub const L0s_64ns_128ns: PCI_EXPRESS_L0s_EXIT_LATENCY = 1i32;
+pub const L0s_Above4us: PCI_EXPRESS_L0s_EXIT_LATENCY = 7i32;
+pub const L0s_Below64ns: PCI_EXPRESS_L0s_EXIT_LATENCY = 0i32;
+pub const L1EntryEnabled: PCI_EXPRESS_ASPM_CONTROL = 2i32;
+pub const L1EntrySupport: PCI_EXPRESS_ASPM_SUPPORT = 2i32;
+pub const L1_16us_32us: PCI_EXPRESS_L1_EXIT_LATENCY = 5i32;
+pub const L1_1us_2us: PCI_EXPRESS_L1_EXIT_LATENCY = 1i32;
+pub const L1_2us_4us: PCI_EXPRESS_L1_EXIT_LATENCY = 2i32;
+pub const L1_32us_64us: PCI_EXPRESS_L1_EXIT_LATENCY = 6i32;
+pub const L1_4us_8us: PCI_EXPRESS_L1_EXIT_LATENCY = 3i32;
+pub const L1_8us_16us: PCI_EXPRESS_L1_EXIT_LATENCY = 4i32;
+pub const L1_Above64us: PCI_EXPRESS_L1_EXIT_LATENCY = 7i32;
+pub const L1_Below1us: PCI_EXPRESS_L1_EXIT_LATENCY = 0i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LEGACY_BUS_INFORMATION {
@@ -5570,6 +6065,39 @@ pub union LOADER_PARTITION_INFORMATION_EX_0 {
     pub Signature: u32,
     pub DeviceId: windows_sys::core::GUID,
 }
+pub type LOCK_OPERATION = i32;
+pub const LOCK_QUEUE_HALTED: u32 = 4u32;
+pub const LOCK_QUEUE_HALTED_BIT: u32 = 2u32;
+pub const LOCK_QUEUE_OWNER: u32 = 2u32;
+pub const LOCK_QUEUE_OWNER_BIT: u32 = 1u32;
+pub const LOCK_QUEUE_WAIT: u32 = 1u32;
+pub const LOCK_QUEUE_WAIT_BIT: u32 = 0u32;
+pub const LONG_2ND_MOST_SIGNIFICANT_BIT: u32 = 2u32;
+pub const LONG_3RD_MOST_SIGNIFICANT_BIT: u32 = 1u32;
+pub const LONG_LEAST_SIGNIFICANT_BIT: u32 = 0u32;
+pub const LONG_MOST_SIGNIFICANT_BIT: u32 = 3u32;
+pub const LOWBYTE_MASK: u32 = 255u32;
+pub const LOW_LEVEL: u32 = 0u32;
+pub const LOW_PRIORITY: u32 = 0u32;
+pub const LOW_REALTIME_PRIORITY: u32 = 16u32;
+pub const LastDStateTransitionD3cold: D3COLD_LAST_TRANSITION_STATUS = 2i32;
+pub const LastDStateTransitionD3hot: D3COLD_LAST_TRANSITION_STATUS = 1i32;
+pub const LastDStateTransitionStatusUnknown: D3COLD_LAST_TRANSITION_STATUS = 0i32;
+pub const LastDrvRtFlag: DRIVER_RUNTIME_INIT_FLAGS = 2i32;
+pub const Latched: KINTERRUPT_MODE = 1i32;
+pub const LevelSensitive: KINTERRUPT_MODE = 0i32;
+pub const LinePeripheral: CONFIGURATION_TYPE = 35i32;
+pub const LocateControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 3i32;
+pub const LocationTypeFileSystem: STATE_LOCATION_TYPE = 1i32;
+pub const LocationTypeMaximum: STATE_LOCATION_TYPE = 2i32;
+pub const LocationTypeRegistry: STATE_LOCATION_TYPE = 0i32;
+pub const LoggerEventsLoggedClass: TRACE_INFORMATION_CLASS = 10i32;
+pub const LoggerEventsLostClass: TRACE_INFORMATION_CLASS = 8i32;
+pub const LowImportance: KDPC_IMPORTANCE = 0i32;
+pub const LowPagePriority: MM_PAGE_PRIORITY = 0i32;
+pub const LowPoolPriority: EX_POOL_PRIORITY = 0i32;
+pub const LowPoolPrioritySpecialPoolOverrun: EX_POOL_PRIORITY = 8i32;
+pub const LowPoolPrioritySpecialPoolUnderrun: EX_POOL_PRIORITY = 9i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MAILSLOT_CREATE_PARAMETERS {
@@ -5584,6 +6112,10 @@ pub struct MAP_REGISTER_ENTRY {
     pub MapRegister: *mut core::ffi::c_void,
     pub WriteToDevice: super::super::super::Win32::Foundation::BOOLEAN,
 }
+pub const MAXIMUM_DEBUG_BARS: u32 = 6u32;
+pub const MAXIMUM_FILENAME_LENGTH: u32 = 256u32;
+pub const MAXIMUM_PRIORITY: u32 = 32u32;
+pub const MAX_EVENT_COUNTERS: u32 = 31u32;
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy)]
@@ -5626,6 +6158,9 @@ pub struct MCA_EXCEPTION_0_1 {
     pub Address: u64,
     pub Type: u64,
 }
+pub type MCA_EXCEPTION_TYPE = i32;
+pub const MCA_EXTREG_V2MAX: u32 = 24u32;
+pub const MCE_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe8f56ffe_919c_4cc5_ba88_65abe14913bb);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union MCG_CAP {
@@ -5697,6 +6232,16 @@ pub struct MCI_STATUS_BITS_COMMON {
 pub struct MCI_STATUS_INTEL_BITS {
     pub _bitfield: u64,
 }
+pub const MDL_ALLOCATED_FIXED_SIZE: u32 = 8u32;
+pub const MDL_DESCRIBES_AWE: u32 = 1024u32;
+pub const MDL_FREE_EXTRA_PTES: u32 = 512u32;
+pub const MDL_INTERNAL: u32 = 32768u32;
+pub const MDL_LOCKED_PAGE_TABLES: u32 = 256u32;
+pub const MDL_PAGE_CONTENTS_INVARIANT: u32 = 16384u32;
+pub type MEMORY_CACHING_TYPE = i32;
+pub type MEMORY_CACHING_TYPE_ORIG = i32;
+pub const MEMORY_CORRECTABLE_ERROR_SUMMARY_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0e36c93e_ca15_4a83_ba8a_cbe80f7f0017);
+pub const MEMORY_ERROR_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa5bc1114_6f64_4ede_b863_3e83ed7c83b1);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION {
@@ -5705,6 +6250,33 @@ pub struct MEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION {
     pub DesiredAccess: u32,
     pub DedicatedMemoryPartitionHandle: super::super::super::Win32::Foundation::HANDLE,
 }
+pub const MEM_COMMIT: u32 = 4096u32;
+pub const MEM_DECOMMIT: u32 = 16384u32;
+pub type MEM_DEDICATED_ATTRIBUTE_TYPE = i32;
+pub const MEM_EXTENDED_PARAMETER_EC_CODE: u32 = 64u32;
+pub const MEM_EXTENDED_PARAMETER_TYPE_BITS: u32 = 8u32;
+pub const MEM_LARGE_PAGES: u32 = 536870912u32;
+pub const MEM_MAPPED: u32 = 262144u32;
+pub const MEM_PRIVATE: u32 = 131072u32;
+pub const MEM_RELEASE: u32 = 32768u32;
+pub const MEM_RESERVE: u32 = 8192u32;
+pub const MEM_RESET: u32 = 524288u32;
+pub const MEM_RESET_UNDO: u32 = 16777216u32;
+pub type MEM_SECTION_EXTENDED_PARAMETER_TYPE = i32;
+pub const MEM_TOP_DOWN: u32 = 1048576u32;
+pub const MM_ADD_PHYSICAL_MEMORY_ALREADY_ZEROED: u32 = 1u32;
+pub const MM_ADD_PHYSICAL_MEMORY_HUGE_PAGES_ONLY: u32 = 4u32;
+pub const MM_ADD_PHYSICAL_MEMORY_LARGE_PAGES_ONLY: u32 = 2u32;
+pub const MM_ALLOCATE_AND_HOT_REMOVE: u32 = 256u32;
+pub const MM_ALLOCATE_CONTIGUOUS_MEMORY_FAST_ONLY: u32 = 1u32;
+pub const MM_ALLOCATE_FAST_LARGE_PAGES: u32 = 64u32;
+pub const MM_ALLOCATE_FROM_LOCAL_NODE_ONLY: u32 = 2u32;
+pub const MM_ALLOCATE_FULLY_REQUIRED: u32 = 4u32;
+pub const MM_ALLOCATE_NO_WAIT: u32 = 8u32;
+pub const MM_ALLOCATE_PREFER_CONTIGUOUS: u32 = 16u32;
+pub const MM_ALLOCATE_REQUIRE_CONTIGUOUS_CHUNKS: u32 = 32u32;
+pub const MM_ALLOCATE_TRIM_IF_NECESSARY: u32 = 128u32;
+pub const MM_ANY_NODE_OK: u32 = 2147483648u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MM_COPY_ADDRESS {
@@ -5716,12 +6288,45 @@ pub union MM_COPY_ADDRESS_0 {
     pub VirtualAddress: *mut core::ffi::c_void,
     pub PhysicalAddress: i64,
 }
+pub const MM_COPY_MEMORY_PHYSICAL: u32 = 1u32;
+pub const MM_COPY_MEMORY_VIRTUAL: u32 = 2u32;
+pub const MM_DONT_ZERO_ALLOCATION: u32 = 1u32;
+pub const MM_DUMP_MAP_CACHED: u32 = 1u32;
+pub const MM_DUMP_MAP_INVALIDATE: u32 = 2u32;
+pub const MM_FREE_MDL_PAGES_ZERO: u32 = 1u32;
+pub const MM_GET_CACHE_ATTRIBUTE_IO_SPACE: u32 = 1u32;
+pub const MM_GET_PHYSICAL_MEMORY_RANGES_INCLUDE_ALL_PARTITIONS: u32 = 2u32;
+pub const MM_GET_PHYSICAL_MEMORY_RANGES_INCLUDE_FILE_ONLY: u32 = 1u32;
+pub const MM_MAPPING_ADDRESS_DIVISIBLE: u32 = 1u32;
+pub const MM_MAXIMUM_DISK_IO_SIZE: u32 = 65536u32;
+pub type MM_MDL_PAGE_CONTENTS_STATE = i32;
+pub type MM_MDL_ROUTINE = Option<unsafe extern "system" fn(drivercontext: *const core::ffi::c_void, mappedva: *const core::ffi::c_void)>;
+pub type MM_PAGE_PRIORITY = i32;
+pub const MM_PERMANENT_ADDRESS_IS_IO_SPACE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MM_PHYSICAL_ADDRESS_LIST {
     pub PhysicalAddress: i64,
     pub NumberOfBytes: usize,
 }
+pub const MM_PROTECT_DRIVER_SECTION_ALLOW_UNLOAD: u32 = 1u32;
+pub const MM_PROTECT_DRIVER_SECTION_VALID_FLAGS: u32 = 1u32;
+pub const MM_REMOVE_PHYSICAL_MEMORY_BAD_ONLY: u32 = 1u32;
+pub type MM_ROTATE_DIRECTION = i32;
+pub const MM_SECURE_EXCLUSIVE: u32 = 1u32;
+pub const MM_SECURE_NO_CHANGE: u32 = 2u32;
+pub const MM_SECURE_NO_INHERIT: u32 = 8u32;
+pub const MM_SECURE_USER_MODE_ONLY: u32 = 4u32;
+pub type MM_SYSTEMSIZE = i32;
+pub const MM_SYSTEM_SPACE_END: u32 = 4294967295u32;
+pub const MM_SYSTEM_VIEW_EXCEPTIONS_FOR_INPAGE_ERRORS: u32 = 1u32;
+pub type MODE = i32;
+pub const MPIBus: INTERFACE_TYPE = 10i32;
+pub const MPIConfiguration: BUS_DATA_TYPE = 8i32;
+pub const MPSABus: INTERFACE_TYPE = 11i32;
+pub const MPSAConfiguration: BUS_DATA_TYPE = 9i32;
+pub const MRLClosed: PCI_EXPRESS_MRL_STATE = 0i32;
+pub const MRLOpen: PCI_EXPRESS_MRL_STATE = 1i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MU_TELEMETRY_SECTION {
@@ -5732,6 +6337,129 @@ pub struct MU_TELEMETRY_SECTION {
     pub AdditionalInfo1: u64,
     pub AdditionalInfo2: u64,
 }
+pub const MU_TELEMETRY_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x85183a8b_9c41_429c_939c_5c3c087ca280);
+pub const MapPhysicalAddressTypeContiguousRange: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = 1i32;
+pub const MapPhysicalAddressTypeMax: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = 3i32;
+pub const MapPhysicalAddressTypeMdl: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = 0i32;
+pub const MapPhysicalAddressTypePfn: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = 2i32;
+pub const MaxFaultType: FAULT_INFORMATION_ARM64_TYPE = 7i32;
+pub const MaxHardwareCounterType: HARDWARE_COUNTER_TYPE = 1i32;
+pub const MaxPayload1024Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = 3i32;
+pub const MaxPayload128Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = 0i32;
+pub const MaxPayload2048Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = 4i32;
+pub const MaxPayload256Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = 1i32;
+pub const MaxPayload4096Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = 5i32;
+pub const MaxPayload512Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = 2i32;
+pub const MaxRegNtNotifyClass: REG_NOTIFY_CLASS = 51i32;
+pub const MaxSubsystemInformationType: SUBSYSTEM_INFORMATION_TYPE = 2i32;
+pub const MaxTraceInformationClass: TRACE_INFORMATION_CLASS = 16i32;
+pub const MaximumBusDataType: BUS_DATA_TYPE = 12i32;
+pub const MaximumDmaSpeed: DMA_SPEED = 5i32;
+pub const MaximumDmaWidth: DMA_WIDTH = 5i32;
+pub const MaximumInterfaceType: INTERFACE_TYPE = 18i32;
+pub const MaximumMode: MODE = 2i32;
+pub const MaximumType: CONFIGURATION_TYPE = 41i32;
+pub const MaximumWaitReason: KWAIT_REASON = 42i32;
+pub const MaximumWorkQueue: WORK_QUEUE_TYPE = 7i32;
+pub const MdlMappingNoExecute: u32 = 1073741824u32;
+pub const MdlMappingNoWrite: u32 = 2147483648u32;
+pub const MdlMappingWithGuardPtes: u32 = 536870912u32;
+pub const MediumHighImportance: KDPC_IMPORTANCE = 3i32;
+pub const MediumImportance: KDPC_IMPORTANCE = 1i32;
+pub const MemDedicatedAttributeMax: MEM_DEDICATED_ATTRIBUTE_TYPE = 4i32;
+pub const MemDedicatedAttributeReadBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = 0i32;
+pub const MemDedicatedAttributeReadLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = 1i32;
+pub const MemDedicatedAttributeWriteBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = 2i32;
+pub const MemDedicatedAttributeWriteLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = 3i32;
+pub const MemSectionExtendedParameterInvalidType: MEM_SECTION_EXTENDED_PARAMETER_TYPE = 0i32;
+pub const MemSectionExtendedParameterMax: MEM_SECTION_EXTENDED_PARAMETER_TYPE = 4i32;
+pub const MemSectionExtendedParameterNumaNode: MEM_SECTION_EXTENDED_PARAMETER_TYPE = 2i32;
+pub const MemSectionExtendedParameterSigningLevel: MEM_SECTION_EXTENDED_PARAMETER_TYPE = 3i32;
+pub const MemSectionExtendedParameterUserPhysicalFlags: MEM_SECTION_EXTENDED_PARAMETER_TYPE = 1i32;
+pub const MicroChannel: INTERFACE_TYPE = 3i32;
+pub const MmCached: MEMORY_CACHING_TYPE = 1i32;
+pub const MmFrameBufferCached: MEMORY_CACHING_TYPE_ORIG = 2i32;
+pub const MmHardwareCoherentCached: MEMORY_CACHING_TYPE = 3i32;
+pub const MmLargeSystem: MM_SYSTEMSIZE = 2i32;
+pub const MmMaximumCacheType: MEMORY_CACHING_TYPE = 6i32;
+pub const MmMaximumRotateDirection: MM_ROTATE_DIRECTION = 4i32;
+pub const MmMdlPageContentsDynamic: MM_MDL_PAGE_CONTENTS_STATE = 0i32;
+pub const MmMdlPageContentsInvariant: MM_MDL_PAGE_CONTENTS_STATE = 1i32;
+pub const MmMdlPageContentsQuery: MM_MDL_PAGE_CONTENTS_STATE = 2i32;
+pub const MmMediumSystem: MM_SYSTEMSIZE = 1i32;
+pub const MmNonCached: MEMORY_CACHING_TYPE = 0i32;
+pub const MmNonCachedUnordered: MEMORY_CACHING_TYPE = 4i32;
+pub const MmNotMapped: MEMORY_CACHING_TYPE = -1i32;
+pub const MmSmallSystem: MM_SYSTEMSIZE = 0i32;
+pub const MmToFrameBuffer: MM_ROTATE_DIRECTION = 0i32;
+pub const MmToFrameBufferNoCopy: MM_ROTATE_DIRECTION = 1i32;
+pub const MmToRegularMemory: MM_ROTATE_DIRECTION = 2i32;
+pub const MmToRegularMemoryNoCopy: MM_ROTATE_DIRECTION = 3i32;
+pub const MmUSWCCached: MEMORY_CACHING_TYPE = 5i32;
+pub const MmWriteCombined: MEMORY_CACHING_TYPE = 2i32;
+pub const ModemPeripheral: CONFIGURATION_TYPE = 28i32;
+pub const ModifyAccess: IO_ACCESS_TYPE = 2i32;
+pub const MonitorPeripheral: CONFIGURATION_TYPE = 29i32;
+pub const MonitorRequestReasonAcDcDisplayBurst: POWER_MONITOR_REQUEST_REASON = 5i32;
+pub const MonitorRequestReasonAcDcDisplayBurstSuppressed: POWER_MONITOR_REQUEST_REASON = 28i32;
+pub const MonitorRequestReasonBatteryCountChange: POWER_MONITOR_REQUEST_REASON = 16i32;
+pub const MonitorRequestReasonBatteryCountChangeSuppressed: POWER_MONITOR_REQUEST_REASON = 49i32;
+pub const MonitorRequestReasonBatteryPreCritical: POWER_MONITOR_REQUEST_REASON = 53i32;
+pub const MonitorRequestReasonBuiltinPanel: POWER_MONITOR_REQUEST_REASON = 47i32;
+pub const MonitorRequestReasonDP: POWER_MONITOR_REQUEST_REASON = 19i32;
+pub const MonitorRequestReasonDim: POWER_MONITOR_REQUEST_REASON = 46i32;
+pub const MonitorRequestReasonDirectedDrips: POWER_MONITOR_REQUEST_REASON = 45i32;
+pub const MonitorRequestReasonDisplayRequiredUnDim: POWER_MONITOR_REQUEST_REASON = 48i32;
+pub const MonitorRequestReasonFullWake: POWER_MONITOR_REQUEST_REASON = 9i32;
+pub const MonitorRequestReasonGracePeriod: POWER_MONITOR_REQUEST_REASON = 17i32;
+pub const MonitorRequestReasonIdleTimeout: POWER_MONITOR_REQUEST_REASON = 12i32;
+pub const MonitorRequestReasonLid: POWER_MONITOR_REQUEST_REASON = 15i32;
+pub const MonitorRequestReasonMax: POWER_MONITOR_REQUEST_REASON = 55i32;
+pub const MonitorRequestReasonNearProximity: POWER_MONITOR_REQUEST_REASON = 22i32;
+pub const MonitorRequestReasonPdcSignal: POWER_MONITOR_REQUEST_REASON = 27i32;
+pub const MonitorRequestReasonPdcSignalFingerprint: POWER_MONITOR_REQUEST_REASON = 44i32;
+pub const MonitorRequestReasonPdcSignalHeyCortana: POWER_MONITOR_REQUEST_REASON = 42i32;
+pub const MonitorRequestReasonPdcSignalHolographicShell: POWER_MONITOR_REQUEST_REASON = 43i32;
+pub const MonitorRequestReasonPdcSignalSensorsHumanPresence: POWER_MONITOR_REQUEST_REASON = 52i32;
+pub const MonitorRequestReasonPdcSignalWindowsMobilePwrNotif: POWER_MONITOR_REQUEST_REASON = 40i32;
+pub const MonitorRequestReasonPdcSignalWindowsMobileShell: POWER_MONITOR_REQUEST_REASON = 41i32;
+pub const MonitorRequestReasonPnP: POWER_MONITOR_REQUEST_REASON = 18i32;
+pub const MonitorRequestReasonPoSetSystemState: POWER_MONITOR_REQUEST_REASON = 7i32;
+pub const MonitorRequestReasonPolicyChange: POWER_MONITOR_REQUEST_REASON = 13i32;
+pub const MonitorRequestReasonPowerButton: POWER_MONITOR_REQUEST_REASON = 1i32;
+pub const MonitorRequestReasonRemoteConnection: POWER_MONITOR_REQUEST_REASON = 2i32;
+pub const MonitorRequestReasonResumeModernStandby: POWER_MONITOR_REQUEST_REASON = 50i32;
+pub const MonitorRequestReasonResumePdc: POWER_MONITOR_REQUEST_REASON = 24i32;
+pub const MonitorRequestReasonResumeS4: POWER_MONITOR_REQUEST_REASON = 25i32;
+pub const MonitorRequestReasonScMonitorpower: POWER_MONITOR_REQUEST_REASON = 3i32;
+pub const MonitorRequestReasonScreenOffRequest: POWER_MONITOR_REQUEST_REASON = 11i32;
+pub const MonitorRequestReasonSessionUnlock: POWER_MONITOR_REQUEST_REASON = 10i32;
+pub const MonitorRequestReasonSetThreadExecutionState: POWER_MONITOR_REQUEST_REASON = 8i32;
+pub const MonitorRequestReasonSleepButton: POWER_MONITOR_REQUEST_REASON = 14i32;
+pub const MonitorRequestReasonSxTransition: POWER_MONITOR_REQUEST_REASON = 20i32;
+pub const MonitorRequestReasonSystemIdle: POWER_MONITOR_REQUEST_REASON = 21i32;
+pub const MonitorRequestReasonSystemStateEntered: POWER_MONITOR_REQUEST_REASON = 29i32;
+pub const MonitorRequestReasonTerminal: POWER_MONITOR_REQUEST_REASON = 26i32;
+pub const MonitorRequestReasonTerminalInit: POWER_MONITOR_REQUEST_REASON = 51i32;
+pub const MonitorRequestReasonThermalStandby: POWER_MONITOR_REQUEST_REASON = 23i32;
+pub const MonitorRequestReasonUnknown: POWER_MONITOR_REQUEST_REASON = 0i32;
+pub const MonitorRequestReasonUserDisplayBurst: POWER_MONITOR_REQUEST_REASON = 6i32;
+pub const MonitorRequestReasonUserInput: POWER_MONITOR_REQUEST_REASON = 4i32;
+pub const MonitorRequestReasonUserInputAccelerometer: POWER_MONITOR_REQUEST_REASON = 35i32;
+pub const MonitorRequestReasonUserInputHid: POWER_MONITOR_REQUEST_REASON = 36i32;
+pub const MonitorRequestReasonUserInputInitialization: POWER_MONITOR_REQUEST_REASON = 39i32;
+pub const MonitorRequestReasonUserInputKeyboard: POWER_MONITOR_REQUEST_REASON = 31i32;
+pub const MonitorRequestReasonUserInputMouse: POWER_MONITOR_REQUEST_REASON = 32i32;
+pub const MonitorRequestReasonUserInputPen: POWER_MONITOR_REQUEST_REASON = 34i32;
+pub const MonitorRequestReasonUserInputPoUserPresent: POWER_MONITOR_REQUEST_REASON = 37i32;
+pub const MonitorRequestReasonUserInputSessionSwitch: POWER_MONITOR_REQUEST_REASON = 38i32;
+pub const MonitorRequestReasonUserInputTouch: POWER_MONITOR_REQUEST_REASON = 54i32;
+pub const MonitorRequestReasonUserInputTouchpad: POWER_MONITOR_REQUEST_REASON = 33i32;
+pub const MonitorRequestReasonWinrt: POWER_MONITOR_REQUEST_REASON = 30i32;
+pub const MonitorRequestTypeOff: POWER_MONITOR_REQUEST_TYPE = 0i32;
+pub const MonitorRequestTypeOnAndPresent: POWER_MONITOR_REQUEST_TYPE = 1i32;
+pub const MonitorRequestTypeToggleOn: POWER_MONITOR_REQUEST_TYPE = 2i32;
+pub const MultiFunctionAdapter: CONFIGURATION_TYPE = 12i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NAMED_PIPE_CREATE_PARAMETERS {
@@ -5744,6 +6472,10 @@ pub struct NAMED_PIPE_CREATE_PARAMETERS {
     pub DefaultTimeout: i64,
     pub TimeoutSpecified: super::super::super::Win32::Foundation::BOOLEAN,
 }
+pub const NEC98x86: ALTERNATIVE_ARCHITECTURE_TYPE = 1i32;
+pub type NMI_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, handled: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::BOOLEAN>;
+pub const NMI_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5bad89ff_b7e6_42c9_814a_cf2485d6e98a);
+pub const NMI_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe71254e7_c1b9_4940_ab76_909703a4320f);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NPEM_CAPABILITY_STANDARD {
@@ -5755,6 +6487,7 @@ pub union NPEM_CAPABILITY_STANDARD {
 pub struct NPEM_CAPABILITY_STANDARD_0 {
     pub _bitfield: u32,
 }
+pub type NPEM_CONTROL_ENABLE_DISABLE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, enablenpem: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NPEM_CONTROL_INTERFACE {
@@ -5768,6 +6501,16 @@ pub struct NPEM_CONTROL_INTERFACE {
     pub SetStandardControl: PNPEM_CONTROL_SET_STANDARD_CONTROL,
     pub QueryNpemControl: PNPEM_CONTROL_QUERY_CONTROL,
 }
+pub const NPEM_CONTROL_INTERFACE_CURRENT_VERSION: u32 = 2u32;
+pub const NPEM_CONTROL_INTERFACE_VERSION1: u32 = 1u32;
+pub const NPEM_CONTROL_INTERFACE_VERSION2: u32 = 2u32;
+pub type NPEM_CONTROL_QUERY_CONTROL = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> u32>;
+pub type NPEM_CONTROL_QUERY_STANDARD_CAPABILITIES = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, standardcapabilities: *mut NPEM_CAPABILITY_STANDARD) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type NPEM_CONTROL_SET_STANDARD_CONTROL = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, standardcontrol: NPEM_CONTROL_STANDARD_CONTROL_BIT, set: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type NPEM_CONTROL_STANDARD_CONTROL_BIT = i32;
+#[cfg(feature = "Win32_Security")]
+pub type NTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = Option<unsafe extern "system" fn(vcb: *const core::ffi::c_void, securitydescriptor: super::super::super::Win32::Security::PSECURITY_DESCRIPTOR)>;
+pub const NT_PAGING_LEVELS: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NT_TIB32 {
@@ -5785,12 +6528,27 @@ pub union NT_TIB32_0 {
     pub FiberData: u32,
     pub Version: u32,
 }
+pub const NX_SUPPORT_POLICY_ALWAYSOFF: u32 = 0u32;
+pub const NX_SUPPORT_POLICY_ALWAYSON: u32 = 1u32;
+pub const NX_SUPPORT_POLICY_OPTIN: u32 = 2u32;
+pub const NX_SUPPORT_POLICY_OPTOUT: u32 = 3u32;
+pub const NetworkController: CONFIGURATION_TYPE = 18i32;
+pub const NetworkPeripheral: CONFIGURATION_TYPE = 36i32;
+pub const NoAspmSupport: PCI_EXPRESS_ASPM_SUPPORT = 0i32;
+pub const NormalPagePriority: MM_PAGE_PRIORITY = 16i32;
+pub const NormalPoolPriority: EX_POOL_PRIORITY = 16i32;
+pub const NormalPoolPrioritySpecialPoolOverrun: EX_POOL_PRIORITY = 24i32;
+pub const NormalPoolPrioritySpecialPoolUnderrun: EX_POOL_PRIORITY = 25i32;
+pub const NormalWorkQueue: WORK_QUEUE_TYPE = 3i32;
+pub const NuBus: INTERFACE_TYPE = 7i32;
+pub const NuBusConfiguration: BUS_DATA_TYPE = 6i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OBJECT_HANDLE_INFORMATION {
     pub HandleAttributes: u32,
     pub GrantedAccess: u32,
 }
+pub const OBJECT_TYPE_CREATE: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy)]
@@ -5801,6 +6559,10 @@ pub struct OB_CALLBACK_REGISTRATION {
     pub RegistrationContext: *mut core::ffi::c_void,
     pub OperationRegistration: *mut OB_OPERATION_REGISTRATION,
 }
+pub const OB_FLT_REGISTRATION_VERSION: u32 = 256u32;
+pub const OB_FLT_REGISTRATION_VERSION_0100: u32 = 256u32;
+pub const OB_OPERATION_HANDLE_CREATE: u32 = 1u32;
+pub const OB_OPERATION_HANDLE_DUPLICATE: u32 = 2u32;
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy)]
@@ -5851,6 +6613,8 @@ pub union OB_POST_OPERATION_PARAMETERS {
     pub CreateHandleInformation: OB_POST_CREATE_HANDLE_INFORMATION,
     pub DuplicateHandleInformation: OB_POST_DUPLICATE_HANDLE_INFORMATION,
 }
+pub type OB_PREOP_CALLBACK_STATUS = i32;
+pub const OB_PREOP_SUCCESS: OB_PREOP_CALLBACK_STATUS = 0i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct OB_PRE_CREATE_HANDLE_INFORMATION {
@@ -5895,11 +6659,94 @@ pub union OB_PRE_OPERATION_PARAMETERS {
     pub CreateHandleInformation: OB_PRE_CREATE_HANDLE_INFORMATION,
     pub DuplicateHandleInformation: OB_PRE_DUPLICATE_HANDLE_INFORMATION,
 }
+pub const OPLOCK_KEY_FLAG_PARENT_KEY: u32 = 1u32;
+pub const OPLOCK_KEY_FLAG_TARGET_KEY: u32 = 2u32;
+pub const OPLOCK_KEY_VERSION_WIN7: u32 = 1u32;
+pub const OPLOCK_KEY_VERSION_WIN8: u32 = 2u32;
+pub const OSC_CAPABILITIES_MASKED: u32 = 16u32;
+pub const OSC_FIRMWARE_FAILURE: u32 = 2u32;
+pub const OSC_UNRECOGNIZED_REVISION: u32 = 8u32;
+pub const OSC_UNRECOGNIZED_UUID: u32 = 4u32;
+pub const OkControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 2i32;
+pub const OtherController: CONFIGURATION_TYPE = 24i32;
+pub const OtherPeripheral: CONFIGURATION_TYPE = 34i32;
+pub const PAGE_ENCLAVE_NO_CHANGE: u32 = 536870912u32;
+pub const PAGE_ENCLAVE_THREAD_CONTROL: u32 = 2147483648u32;
+pub const PAGE_ENCLAVE_UNVALIDATED: u32 = 536870912u32;
+pub const PAGE_EXECUTE: u32 = 16u32;
+pub const PAGE_EXECUTE_READ: u32 = 32u32;
+pub const PAGE_EXECUTE_READWRITE: u32 = 64u32;
+pub const PAGE_EXECUTE_WRITECOPY: u32 = 128u32;
+pub const PAGE_GRAPHICS_COHERENT: u32 = 131072u32;
+pub const PAGE_GRAPHICS_EXECUTE: u32 = 16384u32;
+pub const PAGE_GRAPHICS_EXECUTE_READ: u32 = 32768u32;
+pub const PAGE_GRAPHICS_EXECUTE_READWRITE: u32 = 65536u32;
+pub const PAGE_GRAPHICS_NOACCESS: u32 = 2048u32;
+pub const PAGE_GRAPHICS_NOCACHE: u32 = 262144u32;
+pub const PAGE_GRAPHICS_READONLY: u32 = 4096u32;
+pub const PAGE_GRAPHICS_READWRITE: u32 = 8192u32;
+pub const PAGE_GUARD: u32 = 256u32;
+pub const PAGE_NOACCESS: u32 = 1u32;
+pub const PAGE_NOCACHE: u32 = 512u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PAGE_PRIORITY_INFORMATION {
     pub PagePriority: u32,
 }
+pub const PAGE_READONLY: u32 = 2u32;
+pub const PAGE_READWRITE: u32 = 4u32;
+pub const PAGE_REVERT_TO_FILE_MAP: u32 = 2147483648u32;
+pub const PAGE_SHIFT: i32 = 12i32;
+pub const PAGE_SIZE: u32 = 4096u32;
+pub const PAGE_TARGETS_INVALID: u32 = 1073741824u32;
+pub const PAGE_TARGETS_NO_UPDATE: u32 = 1073741824u32;
+pub const PAGE_WRITECOMBINE: u32 = 1024u32;
+pub const PAGE_WRITECOPY: u32 = 8u32;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PALLOCATE_ADAPTER_CHANNEL = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, numberofmapregisters: u32, executionroutine: super::super::Foundation::DRIVER_CONTROL, context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PALLOCATE_ADAPTER_CHANNEL_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, dmatransfercontext: *const core::ffi::c_void, numberofmapregisters: u32, flags: u32, executionroutine: super::super::Foundation::DRIVER_CONTROL, executioncontext: *const core::ffi::c_void, mapregisterbase: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PALLOCATE_COMMON_BUFFER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, length: u32, logicaladdress: *mut i64, cacheenabled: super::super::super::Win32::Foundation::BOOLEAN) -> *mut core::ffi::c_void>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PALLOCATE_COMMON_BUFFER_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, maximumaddress: *const i64, length: u32, logicaladdress: *mut i64, cacheenabled: super::super::super::Win32::Foundation::BOOLEAN, preferrednode: u32) -> *mut core::ffi::c_void>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PALLOCATE_COMMON_BUFFER_VECTOR = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, lowaddress: i64, highaddress: i64, cachetype: MEMORY_CACHING_TYPE, idealnode: u32, flags: u32, numberofelements: u32, sizeofelements: u64, vectorout: *mut *mut super::super::Foundation::DMA_COMMON_BUFFER_VECTOR) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PALLOCATE_COMMON_BUFFER_WITH_BOUNDS = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, minimumaddress: *const i64, maximumaddress: *const i64, length: u32, flags: u32, cachetype: *const MEMORY_CACHING_TYPE, preferrednode: u32, logicaladdress: *mut i64) -> *mut core::ffi::c_void>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PALLOCATE_DOMAIN_COMMON_BUFFER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, domainhandle: super::super::super::Win32::Foundation::HANDLE, maximumaddress: *const i64, length: u32, flags: u32, cachetype: *const MEMORY_CACHING_TYPE, preferrednode: u32, logicaladdress: *mut i64, virtualaddress: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PALLOCATE_FUNCTION = Option<unsafe extern "system" fn() -> *mut core::ffi::c_void>;
+pub type PALLOCATE_FUNCTION_EX = Option<unsafe extern "system" fn() -> *mut core::ffi::c_void>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PARBITER_HANDLER = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, action: ARBITER_ACTION, parameters: *mut ARBITER_PARAMETERS) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub const PARKING_TOPOLOGY_POLICY_DISABLED: u32 = 0u32;
+pub type PARTITION_INFORMATION_CLASS = i32;
+pub const PASSIVE_LEVEL: u32 = 0u32;
+pub type PBOOT_DRIVER_CALLBACK_FUNCTION = Option<unsafe extern "system" fn()>;
+pub type PBOUND_CALLBACK = Option<unsafe extern "system" fn() -> BOUND_CALLBACK_STATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PBUILD_MDL_FROM_SCATTER_GATHER_LIST = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, scattergather: *const SCATTER_GATHER_LIST, originalmdl: *const super::super::Foundation::MDL, targetmdl: *mut *mut super::super::Foundation::MDL) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PBUILD_SCATTER_GATHER_LIST = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, mdl: *const super::super::Foundation::MDL, currentva: *const core::ffi::c_void, length: u32, executionroutine: DRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: super::super::super::Win32::Foundation::BOOLEAN, scattergatherbuffer: *const core::ffi::c_void, scattergatherlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PBUILD_SCATTER_GATHER_LIST_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, dmatransfercontext: *const core::ffi::c_void, mdl: *const super::super::Foundation::MDL, offset: u64, length: u32, flags: u32, executionroutine: DRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: super::super::super::Win32::Foundation::BOOLEAN, scattergatherbuffer: *const core::ffi::c_void, scattergatherlength: u32, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: *const core::ffi::c_void, scattergatherlist: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PCALCULATE_SCATTER_GATHER_LIST_SIZE = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const super::super::Foundation::MDL, currentva: *const core::ffi::c_void, length: u32, scattergatherlistsize: *mut u32, pnumberofmapregisters: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PCALLBACK_FUNCTION = Option<unsafe extern "system" fn()>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PCANCEL_ADAPTER_CHANNEL = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, dmatransfercontext: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::BOOLEAN>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PCANCEL_MAPPED_TRANSFER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, dmatransfercontext: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub const PCCARD_DEVICE_PCI: u32 = 16u32;
+pub const PCCARD_DUP_LEGACY_BASE: u32 = 6u32;
+pub const PCCARD_MAP_ERROR: u32 = 1u32;
+pub const PCCARD_MAP_ZERO: u32 = 2u32;
+pub const PCCARD_NO_CONTROLLERS: u32 = 7u32;
+pub const PCCARD_NO_LEGACY_BASE: u32 = 5u32;
+pub const PCCARD_NO_PIC: u32 = 4u32;
+pub const PCCARD_NO_TIMER: u32 = 3u32;
+pub const PCCARD_SCAN_DISABLED: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCIBUSDATA {
@@ -5912,6 +6759,20 @@ pub struct PCIBUSDATA {
     pub ParentSlot: PCI_SLOT_NUMBER,
     pub Reserved: [*mut core::ffi::c_void; 4],
 }
+pub const PCIBus: INTERFACE_TYPE = 5i32;
+pub const PCIConfiguration: BUS_DATA_TYPE = 4i32;
+pub const PCIEXPRESS_ERROR_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd995e954_bbc1_430f_ad91_b44dcb3c6f35);
+pub const PCIE_CORRECTABLE_ERROR_SUMMARY_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe96eca99_53e2_4f52_9be7_d2dbe9508ed0);
+pub const PCIXBUS_ERROR_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc5753963_3b84_4095_bf78_eddad3f9c9dd);
+pub const PCIXBUS_ERRTYPE_ADDRESSPARITY: u32 = 6u32;
+pub const PCIXBUS_ERRTYPE_BUSTIMEOUT: u32 = 4u32;
+pub const PCIXBUS_ERRTYPE_COMMANDPARITY: u32 = 7u32;
+pub const PCIXBUS_ERRTYPE_DATAPARITY: u32 = 1u32;
+pub const PCIXBUS_ERRTYPE_MASTERABORT: u32 = 3u32;
+pub const PCIXBUS_ERRTYPE_MASTERDATAPARITY: u32 = 5u32;
+pub const PCIXBUS_ERRTYPE_SYSTEM: u32 = 2u32;
+pub const PCIXBUS_ERRTYPE_UNKNOWN: u32 = 0u32;
+pub const PCIXDEVICE_ERROR_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeb5e4685_ca66_4769_b6a2_26068b001326);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCIX_BRIDGE_CAPABILITY {
@@ -5960,6 +6821,29 @@ pub union PCIX_BRIDGE_CAPABILITY_0 {
 pub struct PCIX_BRIDGE_CAPABILITY_0_0 {
     pub _bitfield: u16,
 }
+pub const PCIX_MODE1_100MHZ: u32 = 2u32;
+pub const PCIX_MODE1_133MHZ: u32 = 3u32;
+pub const PCIX_MODE1_66MHZ: u32 = 1u32;
+pub const PCIX_MODE2_266_100MHZ: u32 = 10u32;
+pub const PCIX_MODE2_266_133MHZ: u32 = 11u32;
+pub const PCIX_MODE2_266_66MHZ: u32 = 9u32;
+pub const PCIX_MODE2_533_100MHZ: u32 = 14u32;
+pub const PCIX_MODE2_533_133MHZ: u32 = 15u32;
+pub const PCIX_MODE2_533_66MHZ: u32 = 13u32;
+pub const PCIX_MODE_CONVENTIONAL_PCI: u32 = 0u32;
+pub const PCIX_VERSION_DUAL_MODE_ECC: u32 = 2u32;
+pub const PCIX_VERSION_MODE1_ONLY: u32 = 0u32;
+pub const PCIX_VERSION_MODE2_ECC: u32 = 1u32;
+pub const PCI_ACS_ALLOWED: u32 = 0u32;
+pub type PCI_ACS_BIT = i32;
+pub const PCI_ACS_BLOCKED: u32 = 1u32;
+pub const PCI_ACS_REDIRECTED: u32 = 2u32;
+pub const PCI_ADDRESS_IO_ADDRESS_MASK: u32 = 4294967292u32;
+pub const PCI_ADDRESS_IO_SPACE: u32 = 1u32;
+pub const PCI_ADDRESS_MEMORY_ADDRESS_MASK: u32 = 4294967280u32;
+pub const PCI_ADDRESS_MEMORY_PREFETCHABLE: u32 = 8u32;
+pub const PCI_ADDRESS_MEMORY_TYPE_MASK: u32 = 6u32;
+pub const PCI_ADDRESS_ROM_ADDRESS_MASK: u32 = 4294965248u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_ADVANCED_FEATURES_CAPABILITY {
@@ -6051,6 +6935,9 @@ pub struct PCI_AGP_ISOCH_COMMAND {
 pub struct PCI_AGP_ISOCH_STATUS {
     pub _bitfield: u32,
 }
+pub const PCI_AGP_RATE_1X: u32 = 1u32;
+pub const PCI_AGP_RATE_2X: u32 = 2u32;
+pub const PCI_AGP_RATE_4X: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_ATS_INTERFACE {
@@ -6062,6 +6949,8 @@ pub struct PCI_ATS_INTERFACE {
     pub SetAddressTranslationServices: PPCI_SET_ATS,
     pub InvalidateQueueDepth: u8,
 }
+pub const PCI_ATS_INTERFACE_VERSION: u32 = 1u32;
+pub const PCI_BRIDGE_TYPE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_BUS_INTERFACE_STANDARD {
@@ -6078,12 +6967,54 @@ pub struct PCI_BUS_INTERFACE_STANDARD {
     pub ExpressWakeControl: PPCI_EXPRESS_WAKE_CONTROL,
     pub PrepareMultistageResume: PPCI_PREPARE_MULTISTAGE_RESUME,
 }
+pub const PCI_BUS_INTERFACE_STANDARD_VERSION: u32 = 2u32;
+pub type PCI_BUS_WIDTH = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_CAPABILITIES_HEADER {
     pub CapabilityID: u8,
     pub Next: u8,
 }
+pub const PCI_CAPABILITY_ID_ADVANCED_FEATURES: u32 = 19u32;
+pub const PCI_CAPABILITY_ID_AGP: u32 = 2u32;
+pub const PCI_CAPABILITY_ID_AGP_TARGET: u32 = 14u32;
+pub const PCI_CAPABILITY_ID_CPCI_HOTSWAP: u32 = 6u32;
+pub const PCI_CAPABILITY_ID_CPCI_RES_CTRL: u32 = 11u32;
+pub const PCI_CAPABILITY_ID_DEBUG_PORT: u32 = 10u32;
+pub const PCI_CAPABILITY_ID_FPB: u32 = 21u32;
+pub const PCI_CAPABILITY_ID_HYPERTRANSPORT: u32 = 8u32;
+pub const PCI_CAPABILITY_ID_MSI: u32 = 5u32;
+pub const PCI_CAPABILITY_ID_MSIX: u32 = 17u32;
+pub const PCI_CAPABILITY_ID_P2P_SSID: u32 = 13u32;
+pub const PCI_CAPABILITY_ID_PCIX: u32 = 7u32;
+pub const PCI_CAPABILITY_ID_PCI_EXPRESS: u32 = 16u32;
+pub const PCI_CAPABILITY_ID_POWER_MANAGEMENT: u32 = 1u32;
+pub const PCI_CAPABILITY_ID_SATA_CONFIG: u32 = 18u32;
+pub const PCI_CAPABILITY_ID_SECURE: u32 = 15u32;
+pub const PCI_CAPABILITY_ID_SHPC: u32 = 12u32;
+pub const PCI_CAPABILITY_ID_SLOT_ID: u32 = 4u32;
+pub const PCI_CAPABILITY_ID_VENDOR_SPECIFIC: u32 = 9u32;
+pub const PCI_CAPABILITY_ID_VPD: u32 = 3u32;
+pub const PCI_CARDBUS_BRIDGE_TYPE: u32 = 2u32;
+pub const PCI_CLASS_BASE_SYSTEM_DEV: u32 = 8u32;
+pub const PCI_CLASS_BRIDGE_DEV: u32 = 6u32;
+pub const PCI_CLASS_DATA_ACQ_SIGNAL_PROC: u32 = 17u32;
+pub const PCI_CLASS_DISPLAY_CTLR: u32 = 3u32;
+pub const PCI_CLASS_DOCKING_STATION: u32 = 10u32;
+pub const PCI_CLASS_ENCRYPTION_DECRYPTION: u32 = 16u32;
+pub const PCI_CLASS_INPUT_DEV: u32 = 9u32;
+pub const PCI_CLASS_INTELLIGENT_IO_CTLR: u32 = 14u32;
+pub const PCI_CLASS_MASS_STORAGE_CTLR: u32 = 1u32;
+pub const PCI_CLASS_MEMORY_CTLR: u32 = 5u32;
+pub const PCI_CLASS_MULTIMEDIA_DEV: u32 = 4u32;
+pub const PCI_CLASS_NETWORK_CTLR: u32 = 2u32;
+pub const PCI_CLASS_NOT_DEFINED: u32 = 255u32;
+pub const PCI_CLASS_PRE_20: u32 = 0u32;
+pub const PCI_CLASS_PROCESSOR: u32 = 11u32;
+pub const PCI_CLASS_SATELLITE_COMMS_CTLR: u32 = 15u32;
+pub const PCI_CLASS_SERIAL_BUS_CTLR: u32 = 12u32;
+pub const PCI_CLASS_SIMPLE_COMMS_CTLR: u32 = 7u32;
+pub const PCI_CLASS_WIRELESS_CTLR: u32 = 13u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_COMMON_CONFIG {
@@ -6178,6 +7109,7 @@ pub struct PCI_COMMON_HEADER_0_2_0 {
     pub Base: u32,
     pub Limit: u32,
 }
+pub const PCI_DATA_VERSION: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_DEBUGGING_DEVICE_IN_USE {
@@ -6185,6 +7117,7 @@ pub struct PCI_DEBUGGING_DEVICE_IN_USE {
     pub Bus: u32,
     pub Slot: u32,
 }
+pub type PCI_DEVICE_D3COLD_STATE_REASON = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_DEVICE_PRESENCE_PARAMETERS {
@@ -6210,6 +7143,21 @@ pub struct PCI_DEVICE_PRESENT_INTERFACE {
     pub IsDevicePresent: PPCI_IS_DEVICE_PRESENT,
     pub IsDevicePresentEx: PPCI_IS_DEVICE_PRESENT_EX,
 }
+pub const PCI_DEVICE_PRESENT_INTERFACE_VERSION: u32 = 1u32;
+pub const PCI_DEVICE_TYPE: u32 = 0u32;
+pub const PCI_DISABLE_LEVEL_INTERRUPT: u32 = 1024u32;
+pub const PCI_ENABLE_BUS_MASTER: u32 = 4u32;
+pub const PCI_ENABLE_FAST_BACK_TO_BACK: u32 = 512u32;
+pub const PCI_ENABLE_IO_SPACE: u32 = 1u32;
+pub const PCI_ENABLE_MEMORY_SPACE: u32 = 2u32;
+pub const PCI_ENABLE_PARITY: u32 = 64u32;
+pub const PCI_ENABLE_SERR: u32 = 256u32;
+pub const PCI_ENABLE_SPECIAL_CYCLES: u32 = 8u32;
+pub const PCI_ENABLE_VGA_COMPATIBLE_PALETTE: u32 = 32u32;
+pub const PCI_ENABLE_WAIT_CYCLE: u32 = 128u32;
+pub const PCI_ENABLE_WRITE_AND_INVALIDATE: u32 = 16u32;
+pub type PCI_ERROR_HANDLER_CALLBACK = Option<unsafe extern "system" fn()>;
+pub const PCI_EXPRESS_ACCESS_CONTROL_SERVICES_CAP_ID: u32 = 13u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_ACS_CAPABILITY {
@@ -6240,6 +7188,7 @@ pub union PCI_EXPRESS_ACS_CONTROL {
 pub struct PCI_EXPRESS_ACS_CONTROL_0 {
     pub _bitfield: u16,
 }
+pub const PCI_EXPRESS_ADVANCED_ERROR_REPORTING_CAP_ID: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_AER_CAPABILITIES {
@@ -6280,11 +7229,14 @@ pub struct PCI_EXPRESS_ARI_CAPABILITY {
 pub struct PCI_EXPRESS_ARI_CAPABILITY_REGISTER {
     pub _bitfield: u16,
 }
+pub const PCI_EXPRESS_ARI_CAP_ID: u32 = 14u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_ARI_CONTROL_REGISTER {
     pub _bitfield: u16,
 }
+pub type PCI_EXPRESS_ASPM_CONTROL = i32;
+pub type PCI_EXPRESS_ASPM_SUPPORT = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_ATS_CAPABILITY {
@@ -6297,6 +7249,7 @@ pub struct PCI_EXPRESS_ATS_CAPABILITY {
 pub struct PCI_EXPRESS_ATS_CAPABILITY_REGISTER {
     pub _bitfield: u16,
 }
+pub const PCI_EXPRESS_ATS_CAP_ID: u32 = 15u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_ATS_CONTROL_REGISTER {
@@ -6360,6 +7313,8 @@ pub struct PCI_EXPRESS_CAPABILITY {
     pub LinkControl2: PCI_EXPRESS_LINK_CONTROL_2_REGISTER,
     pub LinkStatus2: PCI_EXPRESS_LINK_STATUS_2_REGISTER,
 }
+pub type PCI_EXPRESS_CARD_PRESENCE = i32;
+pub const PCI_EXPRESS_CONFIGURATION_ACCESS_CORRELATION_CAP_ID: u32 = 12u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_CORRECTABLE_ERROR_MASK {
@@ -6496,6 +7451,7 @@ pub struct PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_CAPABILITY {
     pub DvsecHeader2: PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_2,
     pub DvsecRegisters: [u16; 1],
 }
+pub const PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_CAP_ID: u32 = 35u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1 {
@@ -6568,6 +7524,7 @@ pub struct PCI_EXPRESS_DEVICE_CONTROL_REGISTER_0 {
 pub struct PCI_EXPRESS_DEVICE_CONTROL_REGISTER_1 {
     pub _bitfield: u16,
 }
+pub const PCI_EXPRESS_DEVICE_SERIAL_NUMBER_CAP_ID: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DEVICE_STATUS_2_REGISTER {
@@ -6590,6 +7547,8 @@ pub union PCI_EXPRESS_DEVICE_STATUS_REGISTER {
 pub struct PCI_EXPRESS_DEVICE_STATUS_REGISTER_0 {
     pub _bitfield: u16,
 }
+pub type PCI_EXPRESS_DEVICE_TYPE = i32;
+pub const PCI_EXPRESS_DPA_CAP_ID: u32 = 22u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_DPC_CAPABILITY {
@@ -6618,6 +7577,7 @@ pub union PCI_EXPRESS_DPC_CAPS_REGISTER {
 pub struct PCI_EXPRESS_DPC_CAPS_REGISTER_0 {
     pub _bitfield: u16,
 }
+pub const PCI_EXPRESS_DPC_CAP_ID: u32 = 29u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DPC_CONTROL_REGISTER {
@@ -6727,6 +7687,7 @@ pub struct PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER {
     pub CapabilityID: u16,
     pub _bitfield: u16,
 }
+pub type PCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_ERROR_SOURCE_ID {
@@ -6745,6 +7706,11 @@ pub struct PCI_EXPRESS_EVENT_COLLECTOR_ENDPOINT_ASSOCIATION_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub AssociationBitmap: u32,
 }
+pub type PCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub const PCI_EXPRESS_FRS_QUEUEING_CAP_ID: u32 = 33u32;
+pub type PCI_EXPRESS_INDICATOR_STATE = i32;
+pub type PCI_EXPRESS_L0s_EXIT_LATENCY = i32;
+pub type PCI_EXPRESS_L1_EXIT_LATENCY = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER {
@@ -6764,6 +7730,7 @@ pub struct PCI_EXPRESS_L1_PM_SS_CAPABILITY {
     pub L1PmSsControl1: PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER,
     pub L1PmSsControl2: PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER,
 }
+pub const PCI_EXPRESS_L1_PM_SS_CAP_ID: u32 = 30u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER {
@@ -6862,6 +7829,7 @@ pub struct PCI_EXPRESS_LINK_QUIESCENT_INTERFACE {
     pub PciExpressEnterLinkQuiescentMode: PPCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE,
     pub PciExpressExitLinkQuiescentMode: PPCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE,
 }
+pub const PCI_EXPRESS_LINK_QUIESCENT_INTERFACE_VERSION: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_LINK_STATUS_2_REGISTER {
@@ -6884,12 +7852,15 @@ pub union PCI_EXPRESS_LINK_STATUS_REGISTER {
 pub struct PCI_EXPRESS_LINK_STATUS_REGISTER_0 {
     pub _bitfield: u16,
 }
+pub type PCI_EXPRESS_LINK_SUBSTATE = i32;
+pub const PCI_EXPRESS_LN_REQUESTER_CAP_ID: u32 = 28u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_LTR_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub Latency: PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER,
 }
+pub const PCI_EXPRESS_LTR_CAP_ID: u32 = 24u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER {
@@ -6901,6 +7872,12 @@ pub union PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER {
 pub struct PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER_0 {
     pub _bitfield: u32,
 }
+pub type PCI_EXPRESS_MAX_PAYLOAD_SIZE = i32;
+pub const PCI_EXPRESS_MFVC_CAP_ID: u32 = 8u32;
+pub const PCI_EXPRESS_MPCIE_CAP_ID: u32 = 32u32;
+pub type PCI_EXPRESS_MRL_STATE = i32;
+pub const PCI_EXPRESS_MULTICAST_CAP_ID: u32 = 18u32;
+pub const PCI_EXPRESS_MULTI_ROOT_IO_VIRTUALIZATION_CAP_ID: u32 = 17u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_NPEM_CAPABILITY {
@@ -6920,6 +7897,7 @@ pub union PCI_EXPRESS_NPEM_CAPABILITY_REGISTER {
 pub struct PCI_EXPRESS_NPEM_CAPABILITY_REGISTER_0 {
     pub _bitfield: u32,
 }
+pub const PCI_EXPRESS_NPEM_CAP_ID: u32 = 41u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_NPEM_CONTROL_REGISTER {
@@ -6942,6 +7920,7 @@ pub union PCI_EXPRESS_NPEM_STATUS_REGISTER {
 pub struct PCI_EXPRESS_NPEM_STATUS_REGISTER_0 {
     pub _bitfield: u32,
 }
+pub const PCI_EXPRESS_PAGE_REQUEST_CAP_ID: u32 = 19u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_PASID_CAPABILITY {
@@ -6960,6 +7939,7 @@ pub union PCI_EXPRESS_PASID_CAPABILITY_REGISTER {
 pub struct PCI_EXPRESS_PASID_CAPABILITY_REGISTER_0 {
     pub _bitfield: u16,
 }
+pub const PCI_EXPRESS_PASID_CAP_ID: u32 = 27u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_PASID_CONTROL_REGISTER {
@@ -6982,6 +7962,9 @@ pub union PCI_EXPRESS_PME_REQUESTOR_ID {
 pub struct PCI_EXPRESS_PME_REQUESTOR_ID_0 {
     pub _bitfield: u16,
 }
+pub const PCI_EXPRESS_PMUX_CAP_ID: u32 = 26u32;
+pub const PCI_EXPRESS_POWER_BUDGETING_CAP_ID: u32 = 4u32;
+pub type PCI_EXPRESS_POWER_STATE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_PRI_CAPABILITY {
@@ -7031,6 +8014,7 @@ pub union PCI_EXPRESS_PTM_CAPABILITY_REGISTER {
 pub struct PCI_EXPRESS_PTM_CAPABILITY_REGISTER_0 {
     pub _bitfield: u32,
 }
+pub const PCI_EXPRESS_PTM_CAP_ID: u32 = 31u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_PTM_CONTROL_REGISTER {
@@ -7042,6 +8026,13 @@ pub union PCI_EXPRESS_PTM_CONTROL_REGISTER {
 pub struct PCI_EXPRESS_PTM_CONTROL_REGISTER_0 {
     pub _bitfield: u32,
 }
+pub type PCI_EXPRESS_RCB = i32;
+pub const PCI_EXPRESS_RCRB_HEADER_CAP_ID: u32 = 10u32;
+pub const PCI_EXPRESS_RC_EVENT_COLLECTOR_ENDPOINT_ASSOCIATION_CAP_ID: u32 = 7u32;
+pub const PCI_EXPRESS_RC_INTERNAL_LINK_CONTROL_CAP_ID: u32 = 6u32;
+pub const PCI_EXPRESS_RC_LINK_DECLARATION_CAP_ID: u32 = 5u32;
+pub const PCI_EXPRESS_READINESS_TIME_REPORTING_CAP_ID: u32 = 34u32;
+pub const PCI_EXPRESS_RESERVED_FOR_AMD_CAP_ID: u32 = 20u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY {
@@ -7059,6 +8050,7 @@ pub union PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER {
 pub struct PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER_0 {
     pub _bitfield: u32,
 }
+pub const PCI_EXPRESS_RESIZABLE_BAR_CAP_ID: u32 = 21u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER {
@@ -7146,6 +8138,7 @@ pub struct PCI_EXPRESS_ROOT_PORT_INTERFACE {
     pub ReadConfigSpace: PPCI_EXPRESS_ROOT_PORT_READ_CONFIG_SPACE,
     pub WriteConfigSpace: PPCI_EXPRESS_ROOT_PORT_WRITE_CONFIG_SPACE,
 }
+pub const PCI_EXPRESS_ROOT_PORT_INTERFACE_VERSION: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_ROOT_STATUS_REGISTER {
@@ -7164,6 +8157,7 @@ pub struct PCI_EXPRESS_SECONDARY_CAPABILITY {
     pub LinkControl3: PCI_EXPRESS_LINK_CONTROL3,
     pub LaneErrorStatus: PCI_EXPRESS_LANE_ERROR_STATUS,
 }
+pub const PCI_EXPRESS_SECONDARY_PCI_EXPRESS_CAP_ID: u32 = 25u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SEC_AER_CAPABILITIES {
@@ -7215,6 +8209,7 @@ pub struct PCI_EXPRESS_SERIAL_NUMBER_CAPABILITY {
     pub LowSerialNumber: u32,
     pub HighSerialNumber: u32,
 }
+pub const PCI_EXPRESS_SINGLE_ROOT_IO_VIRTUALIZATION_CAP_ID: u32 = 16u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SLOT_CAPABILITIES_REGISTER {
@@ -7331,6 +8326,7 @@ pub union PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER {
 pub struct PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER_0 {
     pub _bitfield: u32,
 }
+pub const PCI_EXPRESS_TPH_REQUESTER_CAP_ID: u32 = 23u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER {
@@ -7342,6 +8338,10 @@ pub union PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER {
 pub struct PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER_0 {
     pub _bitfield: u32,
 }
+pub const PCI_EXPRESS_TPH_ST_LOCATION_MSIX_TABLE: u32 = 2u32;
+pub const PCI_EXPRESS_TPH_ST_LOCATION_NONE: u32 = 0u32;
+pub const PCI_EXPRESS_TPH_ST_LOCATION_RESERVED: u32 = 3u32;
+pub const PCI_EXPRESS_TPH_ST_LOCATION_TPH_CAPABILITY: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_TPH_ST_TABLE_ENTRY {
@@ -7386,6 +8386,7 @@ pub union PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS {
 pub struct PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS_0 {
     pub _bitfield: u32,
 }
+pub const PCI_EXPRESS_VC_AND_MFVC_CAP_ID: u32 = 9u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_VENDOR_SPECIFIC_CAPABILITY {
@@ -7393,6 +8394,7 @@ pub struct PCI_EXPRESS_VENDOR_SPECIFIC_CAPABILITY {
     pub VsecId: u16,
     pub _bitfield: u16,
 }
+pub const PCI_EXPRESS_VENDOR_SPECIFIC_CAP_ID: u32 = 11u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_VIRTUAL_CHANNEL_CAPABILITY {
@@ -7403,6 +8405,9 @@ pub struct PCI_EXPRESS_VIRTUAL_CHANNEL_CAPABILITY {
     pub Status: VIRTUAL_CHANNEL_STATUS,
     pub Resource: [VIRTUAL_RESOURCE; 8],
 }
+pub const PCI_EXPRESS_VIRTUAL_CHANNEL_CAP_ID: u32 = 2u32;
+pub type PCI_EXPRESS_WAKE_CONTROL = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, enablewake: super::super::super::Win32::Foundation::BOOLEAN)>;
+pub const PCI_EXTENDED_CONFIG_LENGTH: u32 = 4096u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_FIRMWARE_BUS_CAPS {
@@ -7523,6 +8528,20 @@ pub struct PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER_0 {
 pub struct PCI_FPB_VECTOR_ACCESS_DATA_REGISTER {
     pub VectorAccessData: u32,
 }
+pub type PCI_HARDWARE_INTERFACE = i32;
+pub const PCI_INVALID_ALTERNATE_FUNCTION_NUMBER: u32 = 255u32;
+pub const PCI_INVALID_VENDORID: u32 = 65535u32;
+pub type PCI_IS_DEVICE_PRESENT = Option<unsafe extern "system" fn(vendorid: u16, deviceid: u16, revisionid: u8, subvendorid: u16, subsystemid: u16, flags: u32) -> super::super::super::Win32::Foundation::BOOLEAN>;
+pub type PCI_IS_DEVICE_PRESENT_EX = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, parameters: *const PCI_DEVICE_PRESENCE_PARAMETERS) -> super::super::super::Win32::Foundation::BOOLEAN>;
+pub type PCI_LINE_TO_PIN = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, pcinewdata: *const PCI_COMMON_CONFIG, pciolddata: *const PCI_COMMON_CONFIG)>;
+pub const PCI_MAX_BRIDGE_NUMBER: u32 = 255u32;
+pub const PCI_MAX_DEVICES: u32 = 32u32;
+pub const PCI_MAX_FUNCTION: u32 = 8u32;
+pub const PCI_MAX_SEGMENT_NUMBER: u32 = 65535u32;
+pub type PCI_MSIX_GET_ENTRY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, tableentry: u32, messagenumber: *mut u32, masked: *mut super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PCI_MSIX_GET_TABLE_SIZE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, tablesize: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PCI_MSIX_MASKUNMASK_ENTRY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, tableentry: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PCI_MSIX_SET_ENTRY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, tableentry: u32, messagenumber: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_MSIX_TABLE_CONFIG_INTERFACE {
@@ -7537,6 +8556,9 @@ pub struct PCI_MSIX_TABLE_CONFIG_INTERFACE {
     pub GetTableEntry: PPCI_MSIX_GET_ENTRY,
     pub GetTableSize: PPCI_MSIX_GET_TABLE_SIZE,
 }
+pub const PCI_MSIX_TABLE_CONFIG_INTERFACE_VERSION: u32 = 1u32;
+pub const PCI_MULTIFUNCTION: u32 = 128u32;
+pub type PCI_PIN_TO_LINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, pcidata: *const PCI_COMMON_CONFIG)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_PMC {
@@ -7585,6 +8607,13 @@ pub union PCI_PM_CAPABILITY_0 {
     pub Capabilities: PCI_PMC,
     pub AsUSHORT: u16,
 }
+pub type PCI_PREPARE_MULTISTAGE_RESUME = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
+pub const PCI_PROGRAMMING_INTERFACE_MSC_NVM_EXPRESS: u32 = 2u32;
+pub const PCI_PTM_TIME_SOURCE_AUX: u32 = 4294967295u32;
+pub type PCI_READ_WRITE_CONFIG = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, busoffset: u32, slot: u32, buffer: *const core::ffi::c_void, offset: u32, length: u32) -> u32>;
+pub const PCI_RECOVERY_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdd060800_f6e1_4204_ac27_c4bca9568402);
+pub const PCI_ROMADDRESS_ENABLED: u32 = 1u32;
+pub type PCI_ROOT_BUS_CAPABILITY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, hardwarecapability: *mut PCI_ROOT_BUS_HARDWARE_CAPABILITY)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_ROOT_BUS_HARDWARE_CAPABILITY {
@@ -7619,6 +8648,7 @@ pub union PCI_ROOT_BUS_OSC_CONTROL_FIELD_0 {
 pub struct PCI_ROOT_BUS_OSC_CONTROL_FIELD_0_0 {
     pub _bitfield: u32,
 }
+pub const PCI_ROOT_BUS_OSC_METHOD_CAPABILITY_REVISION: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_ROOT_BUS_OSC_SUPPORT_FIELD {
@@ -7635,6 +8665,10 @@ pub union PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0 {
 pub struct PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0_0 {
     pub _bitfield: u32,
 }
+pub const PCI_SECURITY_DIRECT_TRANSLATED_P2P: u32 = 4u32;
+pub const PCI_SECURITY_ENHANCED: u32 = 2u32;
+pub const PCI_SECURITY_FULLY_SUPPORTED: u32 = 1u32;
+pub const PCI_SECURITY_GUEST_ASSIGNED: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_SECURITY_INTERFACE {
@@ -7657,6 +8691,9 @@ pub struct PCI_SECURITY_INTERFACE2 {
     pub SupportedScenarios: u32,
     pub SetAccessControlServices: PPCI_SET_ACS2,
 }
+pub const PCI_SECURITY_INTERFACE_VERSION: u32 = 1u32;
+pub const PCI_SECURITY_INTERFACE_VERSION2: u32 = 2u32;
+pub const PCI_SECURITY_SRIOV_DIRECT_TRANSLATED_P2P: u32 = 262144u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_SEGMENT_BUS_NUMBER {
@@ -7673,6 +8710,9 @@ pub union PCI_SEGMENT_BUS_NUMBER_0 {
 pub struct PCI_SEGMENT_BUS_NUMBER_0_0 {
     pub _bitfield: u32,
 }
+pub type PCI_SET_ACS = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, enablesourcevalidation: PCI_ACS_BIT, enabletranslationblocking: PCI_ACS_BIT, enablep2prequestredirect: PCI_ACS_BIT, enablecompletionredirect: PCI_ACS_BIT, enableupstreamforwarding: PCI_ACS_BIT, enableegresscontrol: PCI_ACS_BIT, enabledirecttranslatedp2p: PCI_ACS_BIT) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PCI_SET_ACS2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, scenariostomodify: u32, scenariostate: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PCI_SET_ATS = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, enableats: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_SLOT_NUMBER {
@@ -7689,6 +8729,104 @@ pub union PCI_SLOT_NUMBER_0 {
 pub struct PCI_SLOT_NUMBER_0_0 {
     pub _bitfield: u32,
 }
+pub const PCI_STATUS_66MHZ_CAPABLE: u32 = 32u32;
+pub const PCI_STATUS_CAPABILITIES_LIST: u32 = 16u32;
+pub const PCI_STATUS_DATA_PARITY_DETECTED: u32 = 256u32;
+pub const PCI_STATUS_DETECTED_PARITY_ERROR: u32 = 32768u32;
+pub const PCI_STATUS_DEVSEL: u32 = 1536u32;
+pub const PCI_STATUS_FAST_BACK_TO_BACK: u32 = 128u32;
+pub const PCI_STATUS_IMMEDIATE_READINESS: u32 = 1u32;
+pub const PCI_STATUS_INTERRUPT_PENDING: u32 = 8u32;
+pub const PCI_STATUS_RECEIVED_MASTER_ABORT: u32 = 8192u32;
+pub const PCI_STATUS_RECEIVED_TARGET_ABORT: u32 = 4096u32;
+pub const PCI_STATUS_SIGNALED_SYSTEM_ERROR: u32 = 16384u32;
+pub const PCI_STATUS_SIGNALED_TARGET_ABORT: u32 = 2048u32;
+pub const PCI_STATUS_UDF_SUPPORTED: u32 = 64u32;
+pub const PCI_SUBCLASS_BR_CARDBUS: u32 = 7u32;
+pub const PCI_SUBCLASS_BR_EISA: u32 = 2u32;
+pub const PCI_SUBCLASS_BR_HOST: u32 = 0u32;
+pub const PCI_SUBCLASS_BR_ISA: u32 = 1u32;
+pub const PCI_SUBCLASS_BR_MCA: u32 = 3u32;
+pub const PCI_SUBCLASS_BR_NUBUS: u32 = 6u32;
+pub const PCI_SUBCLASS_BR_OTHER: u32 = 128u32;
+pub const PCI_SUBCLASS_BR_PCI_TO_PCI: u32 = 4u32;
+pub const PCI_SUBCLASS_BR_PCMCIA: u32 = 5u32;
+pub const PCI_SUBCLASS_BR_RACEWAY: u32 = 8u32;
+pub const PCI_SUBCLASS_COM_MODEM: u32 = 3u32;
+pub const PCI_SUBCLASS_COM_MULTIPORT: u32 = 2u32;
+pub const PCI_SUBCLASS_COM_OTHER: u32 = 128u32;
+pub const PCI_SUBCLASS_COM_PARALLEL: u32 = 1u32;
+pub const PCI_SUBCLASS_COM_SERIAL: u32 = 0u32;
+pub const PCI_SUBCLASS_CRYPTO_ENTERTAINMENT: u32 = 16u32;
+pub const PCI_SUBCLASS_CRYPTO_NET_COMP: u32 = 0u32;
+pub const PCI_SUBCLASS_CRYPTO_OTHER: u32 = 128u32;
+pub const PCI_SUBCLASS_DASP_DPIO: u32 = 0u32;
+pub const PCI_SUBCLASS_DASP_OTHER: u32 = 128u32;
+pub const PCI_SUBCLASS_DOC_GENERIC: u32 = 0u32;
+pub const PCI_SUBCLASS_DOC_OTHER: u32 = 128u32;
+pub const PCI_SUBCLASS_INP_DIGITIZER: u32 = 1u32;
+pub const PCI_SUBCLASS_INP_GAMEPORT: u32 = 4u32;
+pub const PCI_SUBCLASS_INP_KEYBOARD: u32 = 0u32;
+pub const PCI_SUBCLASS_INP_MOUSE: u32 = 2u32;
+pub const PCI_SUBCLASS_INP_OTHER: u32 = 128u32;
+pub const PCI_SUBCLASS_INP_SCANNER: u32 = 3u32;
+pub const PCI_SUBCLASS_INTIO_I2O: u32 = 0u32;
+pub const PCI_SUBCLASS_MEM_FLASH: u32 = 1u32;
+pub const PCI_SUBCLASS_MEM_OTHER: u32 = 128u32;
+pub const PCI_SUBCLASS_MEM_RAM: u32 = 0u32;
+pub const PCI_SUBCLASS_MM_AUDIO_DEV: u32 = 1u32;
+pub const PCI_SUBCLASS_MM_OTHER: u32 = 128u32;
+pub const PCI_SUBCLASS_MM_TELEPHONY_DEV: u32 = 2u32;
+pub const PCI_SUBCLASS_MM_VIDEO_DEV: u32 = 0u32;
+pub const PCI_SUBCLASS_MSC_AHCI_CTLR: u32 = 6u32;
+pub const PCI_SUBCLASS_MSC_FLOPPY_CTLR: u32 = 2u32;
+pub const PCI_SUBCLASS_MSC_IDE_CTLR: u32 = 1u32;
+pub const PCI_SUBCLASS_MSC_IPI_CTLR: u32 = 3u32;
+pub const PCI_SUBCLASS_MSC_NVM_CTLR: u32 = 8u32;
+pub const PCI_SUBCLASS_MSC_OTHER: u32 = 128u32;
+pub const PCI_SUBCLASS_MSC_RAID_CTLR: u32 = 4u32;
+pub const PCI_SUBCLASS_MSC_SCSI_BUS_CTLR: u32 = 0u32;
+pub const PCI_SUBCLASS_NET_ATM_CTLR: u32 = 3u32;
+pub const PCI_SUBCLASS_NET_ETHERNET_CTLR: u32 = 0u32;
+pub const PCI_SUBCLASS_NET_FDDI_CTLR: u32 = 2u32;
+pub const PCI_SUBCLASS_NET_ISDN_CTLR: u32 = 4u32;
+pub const PCI_SUBCLASS_NET_OTHER: u32 = 128u32;
+pub const PCI_SUBCLASS_NET_TOKEN_RING_CTLR: u32 = 1u32;
+pub const PCI_SUBCLASS_PRE_20_NON_VGA: u32 = 0u32;
+pub const PCI_SUBCLASS_PRE_20_VGA: u32 = 1u32;
+pub const PCI_SUBCLASS_PROC_386: u32 = 0u32;
+pub const PCI_SUBCLASS_PROC_486: u32 = 1u32;
+pub const PCI_SUBCLASS_PROC_ALPHA: u32 = 16u32;
+pub const PCI_SUBCLASS_PROC_COPROCESSOR: u32 = 64u32;
+pub const PCI_SUBCLASS_PROC_PENTIUM: u32 = 2u32;
+pub const PCI_SUBCLASS_PROC_POWERPC: u32 = 32u32;
+pub const PCI_SUBCLASS_SAT_AUDIO: u32 = 2u32;
+pub const PCI_SUBCLASS_SAT_DATA: u32 = 4u32;
+pub const PCI_SUBCLASS_SAT_TV: u32 = 1u32;
+pub const PCI_SUBCLASS_SAT_VOICE: u32 = 3u32;
+pub const PCI_SUBCLASS_SB_ACCESS: u32 = 1u32;
+pub const PCI_SUBCLASS_SB_FIBRE_CHANNEL: u32 = 4u32;
+pub const PCI_SUBCLASS_SB_IEEE1394: u32 = 0u32;
+pub const PCI_SUBCLASS_SB_SMBUS: u32 = 5u32;
+pub const PCI_SUBCLASS_SB_SSA: u32 = 2u32;
+pub const PCI_SUBCLASS_SB_THUNDERBOLT: u32 = 10u32;
+pub const PCI_SUBCLASS_SB_USB: u32 = 3u32;
+pub const PCI_SUBCLASS_SYS_DMA_CTLR: u32 = 1u32;
+pub const PCI_SUBCLASS_SYS_GEN_HOTPLUG_CTLR: u32 = 4u32;
+pub const PCI_SUBCLASS_SYS_INTERRUPT_CTLR: u32 = 0u32;
+pub const PCI_SUBCLASS_SYS_OTHER: u32 = 128u32;
+pub const PCI_SUBCLASS_SYS_RCEC: u32 = 7u32;
+pub const PCI_SUBCLASS_SYS_REAL_TIME_CLOCK: u32 = 3u32;
+pub const PCI_SUBCLASS_SYS_SDIO_CTRL: u32 = 5u32;
+pub const PCI_SUBCLASS_SYS_SYSTEM_TIMER: u32 = 2u32;
+pub const PCI_SUBCLASS_VID_OTHER: u32 = 128u32;
+pub const PCI_SUBCLASS_VID_VGA_CTLR: u32 = 0u32;
+pub const PCI_SUBCLASS_VID_XGA_CTLR: u32 = 1u32;
+pub const PCI_SUBCLASS_WIRELESS_CON_IR: u32 = 1u32;
+pub const PCI_SUBCLASS_WIRELESS_IRDA: u32 = 0u32;
+pub const PCI_SUBCLASS_WIRELESS_OTHER: u32 = 128u32;
+pub const PCI_SUBCLASS_WIRELESS_RF: u32 = 16u32;
+pub const PCI_SUBLCASS_VID_3D_CTLR: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_SUBSYSTEM_IDS_CAPABILITY {
@@ -7697,6 +8835,19 @@ pub struct PCI_SUBSYSTEM_IDS_CAPABILITY {
     pub SubVendorID: u16,
     pub SubSystemID: u16,
 }
+pub const PCI_TYPE0_ADDRESSES: u32 = 6u32;
+pub const PCI_TYPE1_ADDRESSES: u32 = 2u32;
+pub const PCI_TYPE2_ADDRESSES: u32 = 5u32;
+pub const PCI_TYPE_20BIT: u32 = 2u32;
+pub const PCI_TYPE_32BIT: u32 = 0u32;
+pub const PCI_TYPE_64BIT: u32 = 4u32;
+pub const PCI_USE_CLASS_SUBCLASS: u32 = 8u32;
+pub const PCI_USE_LOCAL_BUS: u32 = 32u32;
+pub const PCI_USE_LOCAL_DEVICE: u32 = 64u32;
+pub const PCI_USE_PROGIF: u32 = 16u32;
+pub const PCI_USE_REVISION: u32 = 2u32;
+pub const PCI_USE_SUBSYSTEM_IDS: u32 = 1u32;
+pub const PCI_USE_VENDEV_IDS: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_VENDOR_SPECIFIC_CAPABILITY {
@@ -7719,6 +8870,8 @@ pub struct PCI_VIRTUALIZATION_INTERFACE {
     pub EnableVirtualization: PENABLE_VIRTUALIZATION,
     pub GetVirtualFunctionProbedBars: PGET_VIRTUAL_FUNCTION_PROBED_BARS,
 }
+pub const PCI_WHICHSPACE_CONFIG: u32 = 0u32;
+pub const PCI_WHICHSPACE_ROM: u32 = 1382638416u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_X_CAPABILITY {
@@ -7748,6 +8901,34 @@ pub union PCI_X_CAPABILITY_1 {
 pub struct PCI_X_CAPABILITY_1_0 {
     pub _bitfield: u32,
 }
+pub const PCIe_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcf93c01f_1a16_4dfc_b8bc_9c4daf67c104);
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PCLFS_CLIENT_ADVANCE_TAIL_CALLBACK = Option<unsafe extern "system" fn(logfile: *const super::super::Foundation::FILE_OBJECT, targetlsn: *const super::super::super::Win32::Storage::FileSystem::CLS_LSN, clientdata: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PCLFS_CLIENT_LFF_HANDLER_COMPLETE_CALLBACK = Option<unsafe extern "system" fn(logfile: *const super::super::Foundation::FILE_OBJECT, operationstatus: super::super::super::Win32::Foundation::NTSTATUS, logispinned: super::super::super::Win32::Foundation::BOOLEAN, clientdata: *const core::ffi::c_void)>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PCLFS_CLIENT_LOG_UNPINNED_CALLBACK = Option<unsafe extern "system" fn(logfile: *const super::super::Foundation::FILE_OBJECT, clientdata: *const core::ffi::c_void)>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PCLFS_SET_LOG_SIZE_COMPLETE_CALLBACK = Option<unsafe extern "system" fn(logfile: *const super::super::Foundation::FILE_OBJECT, operationstatus: super::super::super::Win32::Foundation::NTSTATUS, clientdata: *const core::ffi::c_void)>;
+pub const PCMCIABus: INTERFACE_TYPE = 8i32;
+pub const PCMCIAConfiguration: BUS_DATA_TYPE = 7i32;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PCONFIGURE_ADAPTER_CHANNEL = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, functionnumber: u32, context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PCRASHDUMP_POWER_ON = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PCREATE_COMMON_BUFFER_FROM_MDL = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const super::super::Foundation::MDL, extendedconfigs: *const DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION, extendedconfigscount: u32, logicaladdress: *mut i64) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PCREATE_PROCESS_NOTIFY_ROUTINE = Option<unsafe extern "system" fn(parentid: super::super::super::Win32::Foundation::HANDLE, processid: super::super::super::Win32::Foundation::HANDLE, create: super::super::super::Win32::Foundation::BOOLEAN)>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+pub type PCREATE_PROCESS_NOTIFY_ROUTINE_EX = Option<unsafe extern "system" fn(process: super::super::Foundation::PEPROCESS, processid: super::super::super::Win32::Foundation::HANDLE, createinfo: *mut PS_CREATE_NOTIFY_INFO)>;
+pub type PCREATE_THREAD_NOTIFY_ROUTINE = Option<unsafe extern "system" fn(processid: super::super::super::Win32::Foundation::HANDLE, threadid: super::super::super::Win32::Foundation::HANDLE, create: super::super::super::Win32::Foundation::BOOLEAN)>;
+pub const PCR_BTI_MITIGATION_CSWAP_HVC: u32 = 16u32;
+pub const PCR_BTI_MITIGATION_CSWAP_SMC: u32 = 32u32;
+pub const PCR_BTI_MITIGATION_NONE: u32 = 0u32;
+pub const PCR_BTI_MITIGATION_VBAR_MASK: u32 = 15u32;
+pub const PCR_MAJOR_VERSION: u32 = 1u32;
+pub const PCR_MINOR_VERSION: u32 = 1u32;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+pub type PCW_CALLBACK = Option<unsafe extern "system" fn(r#type: PCW_CALLBACK_TYPE, info: *const PCW_CALLBACK_INFORMATION, context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
@@ -7757,6 +8938,7 @@ pub union PCW_CALLBACK_INFORMATION {
     pub EnumerateInstances: PCW_MASK_INFORMATION,
     pub CollectData: PCW_MASK_INFORMATION,
 }
+pub type PCW_CALLBACK_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCW_COUNTER_DESCRIPTOR {
@@ -7771,6 +8953,7 @@ pub struct PCW_COUNTER_INFORMATION {
     pub CounterMask: u64,
     pub InstanceMask: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
 }
+pub const PCW_CURRENT_VERSION: u32 = 512u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCW_DATA {
@@ -7788,6 +8971,7 @@ pub struct PCW_MASK_INFORMATION {
     pub Buffer: super::super::Foundation::PPCW_BUFFER,
     pub CancelEvent: *mut super::super::Foundation::KEVENT,
 }
+pub type PCW_REGISTRATION_FLAGS = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCW_REGISTRATION_INFORMATION {
@@ -7799,6 +8983,127 @@ pub struct PCW_REGISTRATION_INFORMATION {
     pub CallbackContext: *mut core::ffi::c_void,
     pub Flags: PCW_REGISTRATION_FLAGS,
 }
+pub const PCW_VERSION_1: u32 = 256u32;
+pub const PCW_VERSION_2: u32 = 512u32;
+pub type PD3COLD_REQUEST_AUX_POWER = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PD3COLD_REQUEST_CORE_POWER_RAIL = Option<unsafe extern "system" fn()>;
+pub type PD3COLD_REQUEST_PERST_DELAY = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PDEBUG_DEVICE_FOUND_FUNCTION = Option<unsafe extern "system" fn(device: *mut DEBUG_DEVICE_DESCRIPTOR) -> KD_CALLBACK_ACTION>;
+#[cfg(feature = "Win32_System_Kernel")]
+pub type PDEBUG_PRINT_CALLBACK = Option<unsafe extern "system" fn(output: *const super::super::super::Win32::System::Kernel::STRING, componentid: u32, level: u32)>;
+pub type PDEVICE_BUS_SPECIFIC_RESET_HANDLER = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PDEVICE_CHANGE_COMPLETE_CALLBACK = Option<unsafe extern "system" fn()>;
+pub type PDEVICE_NOTIFY_CALLBACK = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: u32)>;
+pub type PDEVICE_NOTIFY_CALLBACK2 = Option<unsafe extern "system" fn(notificationcontext: *mut core::ffi::c_void, notifycode: u32)>;
+pub type PDEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PDEVICE_RESET_COMPLETION = Option<unsafe extern "system" fn()>;
+pub type PDEVICE_RESET_HANDLER = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub const PDE_BASE: u32 = 3224371200u32;
+pub const PDE_PER_PAGE: u32 = 512u32;
+pub const PDE_TOP: u32 = 3224375295u32;
+pub const PDI_SHIFT: u32 = 21u32;
+pub type PDMA_COMPLETION_ROUTINE = Option<unsafe extern "system" fn()>;
+pub type PDRIVER_CMC_EXCEPTION_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, cmclog: *const MCA_EXCEPTION)>;
+pub type PDRIVER_CPE_EXCEPTION_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, cmclog: *const MCA_EXCEPTION)>;
+pub type PDRIVER_EXCPTN_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, banklog: *const MCA_EXCEPTION)>;
+pub type PDRIVER_VERIFIER_THUNK_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> usize>;
+pub const PEI_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x09a9d5ac_5204_4214_96e5_94992e752bcd);
+pub type PENABLE_VIRTUALIZATION = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PETWENABLECALLBACK = Option<unsafe extern "system" fn()>;
+pub type PEXPAND_STACK_CALLOUT = Option<unsafe extern "system" fn()>;
+pub type PEXT_CALLBACK = Option<unsafe extern "system" fn()>;
+pub type PEXT_DELETE_CALLBACK = Option<unsafe extern "system" fn()>;
+pub type PEX_CALLBACK_FUNCTION = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub const PFAControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 6i32;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PFLUSH_ADAPTER_BUFFERS = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const super::super::Foundation::MDL, mapregisterbase: *const core::ffi::c_void, currentva: *const core::ffi::c_void, length: u32, writetodevice: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::BOOLEAN>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PFLUSH_ADAPTER_BUFFERS_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const super::super::Foundation::MDL, mapregisterbase: *const core::ffi::c_void, offset: u64, length: u32, writetodevice: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PFLUSH_DMA_BUFFER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const super::super::Foundation::MDL, readoperation: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFNFTH = Option<unsafe extern "system" fn(systemfirmwaretableinfo: *mut SYSTEM_FIRMWARE_TABLE_INFORMATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFN_IN_USE_PAGE_OFFLINE_NOTIFY = Option<unsafe extern "system" fn(page: u32, flags: super::super::super::Win32::Foundation::BOOLEAN, poisoned: super::super::super::Win32::Foundation::BOOLEAN, context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::BOOLEAN>;
+pub type PFN_NT_COMMIT_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: super::super::super::Win32::Foundation::HANDLE, wait: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
+pub type PFN_NT_CREATE_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, uow: *const windows_sys::core::GUID, tmhandle: super::super::super::Win32::Foundation::HANDLE, createoptions: u32, isolationlevel: u32, isolationflags: u32, timeout: *const i64, description: *const super::super::super::Win32::Foundation::UNICODE_STRING) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
+pub type PFN_NT_OPEN_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, uow: *const windows_sys::core::GUID, tmhandle: super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Win32_System_SystemServices")]
+pub type PFN_NT_QUERY_INFORMATION_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: super::super::super::Win32::Foundation::HANDLE, transactioninformationclass: super::super::super::Win32::System::SystemServices::TRANSACTION_INFORMATION_CLASS, transactioninformation: *mut core::ffi::c_void, transactioninformationlength: u32, returnlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFN_NT_ROLLBACK_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: super::super::super::Win32::Foundation::HANDLE, wait: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Win32_System_SystemServices")]
+pub type PFN_NT_SET_INFORMATION_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: super::super::super::Win32::Foundation::HANDLE, transactioninformationclass: super::super::super::Win32::System::SystemServices::TRANSACTION_INFORMATION_CLASS, transactioninformation: *const core::ffi::c_void, transactioninformationlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFN_RTL_IS_NTDDI_VERSION_AVAILABLE = Option<unsafe extern "system" fn(version: u32) -> super::super::super::Win32::Foundation::BOOLEAN>;
+pub type PFN_RTL_IS_SERVICE_PACK_VERSION_INSTALLED = Option<unsafe extern "system" fn(version: u32) -> super::super::super::Win32::Foundation::BOOLEAN>;
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+pub type PFN_WHEA_HIGH_IRQL_LOG_SEL_EVENT_HANDLER = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, osselrecord: *const super::super::super::Win32::System::Diagnostics::Debug::IPMI_OS_SEL_RECORD) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFPGA_BUS_SCAN = Option<unsafe extern "system" fn()>;
+pub type PFPGA_CONTROL_CONFIG_SPACE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFPGA_CONTROL_ERROR_REPORTING = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFPGA_CONTROL_LINK = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PFREE_ADAPTER_CHANNEL = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER)>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PFREE_ADAPTER_OBJECT = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, allocationaction: IO_ALLOCATION_ACTION)>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PFREE_COMMON_BUFFER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, length: u32, logicaladdress: i64, virtualaddress: *const core::ffi::c_void, cacheenabled: super::super::super::Win32::Foundation::BOOLEAN)>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PFREE_COMMON_BUFFER_FROM_VECTOR = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, vector: *const super::super::Foundation::DMA_COMMON_BUFFER_VECTOR, index: u32)>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PFREE_COMMON_BUFFER_VECTOR = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, vector: *const super::super::Foundation::DMA_COMMON_BUFFER_VECTOR)>;
+pub type PFREE_FUNCTION_EX = Option<unsafe extern "system" fn()>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PFREE_MAP_REGISTERS = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mapregisterbase: *mut core::ffi::c_void, numberofmapregisters: u32)>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PGET_COMMON_BUFFER_FROM_VECTOR_BY_INDEX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, vector: *const super::super::Foundation::DMA_COMMON_BUFFER_VECTOR, index: u32, virtualaddressout: *mut *mut core::ffi::c_void, logicaladdressout: *mut i64)>;
+pub type PGET_D3COLD_CAPABILITY = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PGET_D3COLD_LAST_TRANSITION_STATUS = Option<unsafe extern "system" fn()>;
+pub type PGET_DEVICE_RESET_STATUS = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PGET_DMA_ADAPTER = Option<unsafe extern "system" fn() -> *mut DMA_ADAPTER>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PGET_DMA_ADAPTER_INFO = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, adapterinfo: *mut DMA_ADAPTER_INFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PGET_DMA_ALIGNMENT = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER) -> u32>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PGET_DMA_DOMAIN = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER) -> super::super::super::Win32::Foundation::HANDLE>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PGET_DMA_TRANSFER_INFO = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const super::super::Foundation::MDL, offset: u64, length: u32, writeonly: super::super::super::Win32::Foundation::BOOLEAN, transferinfo: *mut DMA_TRANSFER_INFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PGET_IDLE_WAKE_INFO = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PGET_LOCATION_STRING = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, locationstrings: *mut windows_sys::core::PWSTR) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PGET_SCATTER_GATHER_LIST = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, mdl: *const super::super::Foundation::MDL, currentva: *const core::ffi::c_void, length: u32, executionroutine: DRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PGET_SCATTER_GATHER_LIST_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, dmatransfercontext: *const core::ffi::c_void, mdl: *const super::super::Foundation::MDL, offset: u64, length: u32, flags: u32, executionroutine: DRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: super::super::super::Win32::Foundation::BOOLEAN, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: *const core::ffi::c_void, scattergatherlist: *mut *mut SCATTER_GATHER_LIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PGET_SDEV_IDENTIFIER = Option<unsafe extern "system" fn() -> u64>;
+pub type PGET_SET_DEVICE_DATA = Option<unsafe extern "system" fn() -> u32>;
+pub type PGET_UPDATED_BUS_RESOURCE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PGET_VIRTUAL_DEVICE_DATA = Option<unsafe extern "system" fn() -> u32>;
+pub type PGET_VIRTUAL_DEVICE_LOCATION = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PGET_VIRTUAL_DEVICE_RESOURCES = Option<unsafe extern "system" fn()>;
+pub type PGET_VIRTUAL_FUNCTION_PROBED_BARS = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PGPE_CLEAR_STATUS = Option<unsafe extern "system" fn(param0: *mut super::super::Foundation::DEVICE_OBJECT, param1: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PGPE_CLEAR_STATUS2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, objectcontext: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PGPE_CONNECT_VECTOR = Option<unsafe extern "system" fn(param0: *mut super::super::Foundation::DEVICE_OBJECT, param1: u32, param2: KINTERRUPT_MODE, param3: super::super::super::Win32::Foundation::BOOLEAN, param4: PGPE_SERVICE_ROUTINE, param5: *mut core::ffi::c_void, param6: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PGPE_CONNECT_VECTOR2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, gpenumber: u32, mode: KINTERRUPT_MODE, shareable: super::super::super::Win32::Foundation::BOOLEAN, serviceroutine: PGPE_SERVICE_ROUTINE, servicecontext: *mut core::ffi::c_void, objectcontext: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PGPE_DISABLE_EVENT = Option<unsafe extern "system" fn(param0: *mut super::super::Foundation::DEVICE_OBJECT, param1: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PGPE_DISABLE_EVENT2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, objectcontext: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PGPE_DISCONNECT_VECTOR = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PGPE_DISCONNECT_VECTOR2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, objectcontext: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PGPE_ENABLE_EVENT = Option<unsafe extern "system" fn(param0: *mut super::super::Foundation::DEVICE_OBJECT, param1: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PGPE_ENABLE_EVENT2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, objectcontext: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PGPE_SERVICE_ROUTINE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::BOOLEAN>;
+pub type PGPE_SERVICE_ROUTINE2 = Option<unsafe extern "system" fn(objectcontext: *mut core::ffi::c_void, servicecontext: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::BOOLEAN>;
+pub type PHALIOREADWRITEHANDLER = Option<unsafe extern "system" fn(fread: super::super::super::Win32::Foundation::BOOLEAN, dwaddr: u32, dwsize: u32, pdwdata: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PHALMCAINTERFACELOCK = Option<unsafe extern "system" fn()>;
+pub type PHALMCAINTERFACEREADREGISTER = Option<unsafe extern "system" fn(banknumber: u8, exception: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PHALMCAINTERFACEUNLOCK = Option<unsafe extern "system" fn()>;
+pub type PHAL_RESET_DISPLAY_PARAMETERS = Option<unsafe extern "system" fn(columns: u32, rows: u32) -> super::super::super::Win32::Foundation::BOOLEAN>;
+pub type PHVL_WHEA_ERROR_NOTIFICATION = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PHYSICAL_COUNTER_EVENT_BUFFER_CONFIGURATION {
@@ -7828,6 +9133,7 @@ pub struct PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0_0 {
     pub Begin: u32,
     pub End: u32,
 }
+pub type PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PHYSICAL_COUNTER_RESOURCE_LIST {
@@ -7840,6 +9146,70 @@ pub struct PHYSICAL_MEMORY_RANGE {
     pub BaseAddress: i64,
     pub NumberOfBytes: i64,
 }
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PINITIALIZE_DMA_TRANSFER_CONTEXT = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, dmatransfercontext: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PINTERFACE_DEREFERENCE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
+pub type PINTERFACE_REFERENCE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
+pub type PIOMMU_DEVICE_CREATE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_DEVICE_DELETE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_DEVICE_FAULT_HANDLER = Option<unsafe extern "system" fn()>;
+pub type PIOMMU_DEVICE_QUERY_DOMAIN_TYPES = Option<unsafe extern "system" fn()>;
+pub type PIOMMU_DOMAIN_ATTACH_DEVICE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_DOMAIN_ATTACH_DEVICE_EX = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_DOMAIN_CONFIGURE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_DOMAIN_CREATE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_DOMAIN_CREATE_EX = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_DOMAIN_DELETE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_DOMAIN_DETACH_DEVICE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_DOMAIN_DETACH_DEVICE_EX = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_FLUSH_DOMAIN = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_FLUSH_DOMAIN_VA_LIST = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn()>;
+pub type PIOMMU_MAP_IDENTITY_RANGE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_MAP_IDENTITY_RANGE_EX = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_MAP_LOGICAL_RANGE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_MAP_LOGICAL_RANGE_EX = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_MAP_RESERVED_LOGICAL_RANGE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_QUERY_INPUT_MAPPINGS = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_RESERVE_LOGICAL_ADDRESS_RANGE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_SET_DEVICE_FAULT_REPORTING = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_SET_DEVICE_FAULT_REPORTING_EX = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_UNMAP_IDENTITY_RANGE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_UNMAP_IDENTITY_RANGE_EX = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_UNMAP_LOGICAL_RANGE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_UNMAP_RESERVED_LOGICAL_RANGE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIO_CONTAINER_NOTIFICATION_FUNCTION = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIO_CSQ_ACQUIRE_LOCK = Option<unsafe extern "system" fn()>;
+pub type PIO_CSQ_COMPLETE_CANCELED_IRP = Option<unsafe extern "system" fn()>;
+pub type PIO_CSQ_INSERT_IRP = Option<unsafe extern "system" fn()>;
+pub type PIO_CSQ_INSERT_IRP_EX = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PIO_CSQ_PEEK_NEXT_IRP = Option<unsafe extern "system" fn() -> *mut super::super::Foundation::IRP>;
+pub type PIO_CSQ_RELEASE_LOCK = Option<unsafe extern "system" fn()>;
+pub type PIO_CSQ_REMOVE_IRP = Option<unsafe extern "system" fn()>;
+pub type PIO_DEVICE_EJECT_CALLBACK = Option<unsafe extern "system" fn(status: super::super::super::Win32::Foundation::NTSTATUS, context: *mut core::ffi::c_void)>;
+pub type PIO_DPC_ROUTINE = Option<unsafe extern "system" fn()>;
+pub type PIO_PERSISTED_MEMORY_ENUMERATION_CALLBACK = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIO_QUERY_DEVICE_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, pathname: *const super::super::super::Win32::Foundation::UNICODE_STRING, bustype: INTERFACE_TYPE, busnumber: u32, businformation: *const *const KEY_VALUE_FULL_INFORMATION, controllertype: CONFIGURATION_TYPE, controllernumber: u32, controllerinformation: *const *const KEY_VALUE_FULL_INFORMATION, peripheraltype: CONFIGURATION_TYPE, peripheralnumber: u32, peripheralinformation: *const *const KEY_VALUE_FULL_INFORMATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIO_SESSION_NOTIFICATION_FUNCTION = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PIO_TIMER_ROUTINE = Option<unsafe extern "system" fn()>;
+pub type PIO_WORKITEM_ROUTINE = Option<unsafe extern "system" fn()>;
+pub type PIO_WORKITEM_ROUTINE_EX = Option<unsafe extern "system" fn()>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PJOIN_DMA_DOMAIN = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, domainhandle: super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PKBUGCHECK_CALLBACK_ROUTINE = Option<unsafe extern "system" fn()>;
+pub type PKBUGCHECK_REASON_CALLBACK_ROUTINE = Option<unsafe extern "system" fn()>;
+pub type PKIPI_BROADCAST_WORKER = Option<unsafe extern "system" fn() -> usize>;
+pub type PKMESSAGE_SERVICE_ROUTINE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
+pub type PKSERVICE_ROUTINE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
+pub type PKSTART_ROUTINE = Option<unsafe extern "system" fn()>;
+pub type PKSYNCHRONIZE_ROUTINE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PLEAVE_DMA_DOMAIN = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PLOAD_IMAGE_NOTIFY_ROUTINE = Option<unsafe extern "system" fn(fullimagename: *const super::super::super::Win32::Foundation::UNICODE_STRING, processid: super::super::super::Win32::Foundation::HANDLE, imageinfo: *const IMAGE_INFO)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PLUGPLAY_NOTIFICATION_HEADER {
@@ -7847,6 +9217,22 @@ pub struct PLUGPLAY_NOTIFICATION_HEADER {
     pub Size: u16,
     pub Event: windows_sys::core::GUID,
 }
+pub const PLUGPLAY_PROPERTY_PERSISTENT: u32 = 1u32;
+pub const PLUGPLAY_REGKEY_CURRENT_HWPROFILE: u32 = 4u32;
+pub const PLUGPLAY_REGKEY_DEVICE: u32 = 1u32;
+pub const PLUGPLAY_REGKEY_DRIVER: u32 = 2u32;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PMAP_TRANSFER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const super::super::Foundation::MDL, mapregisterbase: *const core::ffi::c_void, currentva: *const core::ffi::c_void, length: *mut u32, writetodevice: super::super::super::Win32::Foundation::BOOLEAN) -> i64>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PMAP_TRANSFER_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const super::super::Foundation::MDL, mapregisterbase: *const core::ffi::c_void, offset: u64, deviceoffset: u32, length: *mut u32, writetodevice: super::super::super::Win32::Foundation::BOOLEAN, scattergatherbuffer: *mut SCATTER_GATHER_LIST, scattergatherbufferlength: u32, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub const PMCCounter: HARDWARE_COUNTER_TYPE = 0i32;
+pub const PMEM_ERROR_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x81687003_dbfd_4728_9ffd_f0904f97597d);
+pub type PMM_DLL_INITIALIZE = Option<unsafe extern "system" fn(registrypath: *const super::super::super::Win32::Foundation::UNICODE_STRING) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PMM_DLL_UNLOAD = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PMM_GET_SYSTEM_ROUTINE_ADDRESS_EX = Option<unsafe extern "system" fn(modulename: *const super::super::super::Win32::Foundation::UNICODE_STRING, functionname: windows_sys::core::PCSTR) -> *mut core::ffi::c_void>;
+pub type PMM_MDL_ROUTINE = Option<unsafe extern "system" fn()>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type PMM_ROTATE_COPY_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(destinationmdl: *const super::super::Foundation::MDL, sourcemdl: *const super::super::Foundation::MDL, context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PM_DISPATCH_TABLE {
@@ -7854,6 +9240,15 @@ pub struct PM_DISPATCH_TABLE {
     pub Version: u32,
     pub Function: [*mut core::ffi::c_void; 1],
 }
+pub type PNMI_CALLBACK = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
+pub const PNPBus: INTERFACE_TYPE = 15i32;
+pub type PNPEM_CONTROL_ENABLE_DISABLE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PNPEM_CONTROL_QUERY_CONTROL = Option<unsafe extern "system" fn() -> u32>;
+pub type PNPEM_CONTROL_QUERY_STANDARD_CAPABILITIES = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PNPEM_CONTROL_SET_STANDARD_CONTROL = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub const PNPISABus: INTERFACE_TYPE = 14i32;
+pub const PNPISAConfiguration: BUS_DATA_TYPE = 10i32;
+pub const PNPNOTIFY_DEVICE_INTERFACE_INCLUDE_EXISTING_INTERFACES: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PNP_BUS_INFORMATION {
@@ -7861,6 +9256,15 @@ pub struct PNP_BUS_INFORMATION {
     pub LegacyBusType: INTERFACE_TYPE,
     pub BusNumber: u32,
 }
+pub const PNP_DEVICE_ASSIGNED_TO_GUEST: u32 = 256u32;
+pub const PNP_DEVICE_DISABLED: u32 = 1u32;
+pub const PNP_DEVICE_DISCONNECTED: u32 = 64u32;
+pub const PNP_DEVICE_DONT_DISPLAY_IN_UI: u32 = 2u32;
+pub const PNP_DEVICE_FAILED: u32 = 4u32;
+pub const PNP_DEVICE_NOT_DISABLEABLE: u32 = 32u32;
+pub const PNP_DEVICE_REMOVED: u32 = 8u32;
+pub const PNP_DEVICE_RESOURCE_REQUIREMENTS_CHANGED: u32 = 16u32;
+pub const PNP_DEVICE_RESOURCE_UPDATED: u32 = 128u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PNP_EXTENDED_ADDRESS_INTERFACE {
@@ -7871,6 +9275,7 @@ pub struct PNP_EXTENDED_ADDRESS_INTERFACE {
     pub InterfaceDereference: PINTERFACE_DEREFERENCE,
     pub QueryExtendedAddress: PQUERYEXTENDEDADDRESS,
 }
+pub const PNP_EXTENDED_ADDRESS_INTERFACE_VERSION: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PNP_LOCATION_INTERFACE {
@@ -7898,6 +9303,10 @@ pub struct PNP_REPLACE_DRIVER_INTERFACE {
     pub GetMemoryDestination: PREPLACE_GET_MEMORY_DESTINATION,
     pub EnableDisableHardwareQuiesce: PREPLACE_ENABLE_DISABLE_HARDWARE_QUIESCE,
 }
+pub const PNP_REPLACE_DRIVER_INTERFACE_VERSION: u32 = 1u32;
+pub const PNP_REPLACE_HARDWARE_MEMORY_MIRRORING: u32 = 4u32;
+pub const PNP_REPLACE_HARDWARE_PAGE_COPY: u32 = 8u32;
+pub const PNP_REPLACE_HARDWARE_QUIESCE: u32 = 16u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PNP_REPLACE_MEMORY_LIST {
@@ -7912,6 +9321,7 @@ pub struct PNP_REPLACE_MEMORY_LIST_0 {
     pub Address: i64,
     pub Length: u64,
 }
+pub const PNP_REPLACE_MEMORY_SUPPORTED: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PNP_REPLACE_PARAMETERS {
@@ -7925,6 +9335,7 @@ pub struct PNP_REPLACE_PARAMETERS {
     pub SpareMemory: *mut PNP_REPLACE_MEMORY_LIST,
     pub MapMemory: PREPLACE_MAP_MEMORY,
 }
+pub const PNP_REPLACE_PARAMETERS_VERSION: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PNP_REPLACE_PROCESSOR_LIST {
@@ -7942,6 +9353,12 @@ pub struct PNP_REPLACE_PROCESSOR_LIST_V1 {
     pub Count: u32,
     pub ApicIds: [u32; 1],
 }
+pub const PNP_REPLACE_PROCESSOR_SUPPORTED: u32 = 2u32;
+pub type PNTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = Option<unsafe extern "system" fn()>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type POB_POST_OPERATION_CALLBACK = Option<unsafe extern "system" fn(registrationcontext: *const core::ffi::c_void, operationinformation: *const OB_POST_OPERATION_INFORMATION)>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type POB_PRE_OPERATION_CALLBACK = Option<unsafe extern "system" fn(registrationcontext: *const core::ffi::c_void, operationinformation: *mut OB_PRE_OPERATION_INFORMATION) -> OB_PREOP_CALLBACK_STATUS>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct POOLED_USAGE_AND_LIMITS {
@@ -7955,11 +9372,15 @@ pub struct POOLED_USAGE_AND_LIMITS {
     pub PagefileUsage: usize,
     pub PagefileLimit: usize,
 }
+pub const POOL_COLD_ALLOCATION: u32 = 256u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct POOL_CREATE_EXTENDED_PARAMS {
     pub Version: u32,
 }
+pub const POOL_CREATE_FLG_SECURE_POOL: u32 = 1u32;
+pub const POOL_CREATE_FLG_USE_GLOBAL_POOL: u32 = 2u32;
+pub const POOL_CREATE_PARAMS_VERSION: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct POOL_EXTENDED_PARAMETER {
@@ -7980,6 +9401,9 @@ pub union POOL_EXTENDED_PARAMETER_1 {
     pub SecurePoolParams: *mut POOL_EXTENDED_PARAMS_SECURE_POOL,
     pub PreferredNode: u32,
 }
+pub const POOL_EXTENDED_PARAMETER_REQUIRED_FIELD_BITS: u32 = 1u32;
+pub type POOL_EXTENDED_PARAMETER_TYPE = i32;
+pub const POOL_EXTENDED_PARAMETER_TYPE_BITS: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct POOL_EXTENDED_PARAMS_SECURE_POOL {
@@ -7988,17 +9412,32 @@ pub struct POOL_EXTENDED_PARAMS_SECURE_POOL {
     pub Cookie: usize,
     pub SecurePoolFlags: u32,
 }
+pub const POOL_NX_ALLOCATION: u32 = 512u32;
+pub const POOL_NX_OPTIN_AUTO: u32 = 1u32;
+pub const POOL_QUOTA_FAIL_INSTEAD_OF_RAISE: u32 = 8u32;
+pub const POOL_RAISE_IF_ALLOCATION_FAILURE: u32 = 16u32;
+pub const POOL_TAGGING: u32 = 1u32;
+pub const POOL_ZEROING_INFORMATION: u32 = 227u32;
+pub const POOL_ZERO_ALLOCATION: u32 = 1024u32;
+pub const PORT_MAXIMUM_MESSAGE_LENGTH: u32 = 512u32;
+pub const POWER_LEVEL: u32 = 30u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct POWER_MONITOR_INVOCATION {
     pub Console: super::super::super::Win32::Foundation::BOOLEAN,
     pub RequestReason: POWER_MONITOR_REQUEST_REASON,
 }
+pub type POWER_MONITOR_REQUEST_REASON = i32;
+pub type POWER_MONITOR_REQUEST_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct POWER_PLATFORM_INFORMATION {
     pub AoAc: super::super::super::Win32::Foundation::BOOLEAN,
 }
+pub type POWER_PLATFORM_ROLE = i32;
+pub const POWER_PLATFORM_ROLE_V1: u32 = 1u32;
+pub const POWER_PLATFORM_ROLE_V2: u32 = 2u32;
+pub const POWER_PLATFORM_ROLE_VERSION: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct POWER_SEQUENCE {
@@ -8031,6 +9470,8 @@ pub struct POWER_SESSION_WINLOGON {
     pub Console: super::super::super::Win32::Foundation::BOOLEAN,
     pub Locked: super::super::super::Win32::Foundation::BOOLEAN,
 }
+pub type POWER_SETTING_CALLBACK = Option<unsafe extern "system" fn(settingguid: *const windows_sys::core::GUID, value: *const core::ffi::c_void, valuelength: u32, context: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub const POWER_SETTING_VALUE_VERSION: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Power")]
 #[derive(Clone, Copy)]
@@ -8038,6 +9479,11 @@ pub union POWER_STATE {
     pub SystemState: super::super::super::Win32::System::Power::SYSTEM_POWER_STATE,
     pub DeviceState: super::super::super::Win32::System::Power::DEVICE_POWER_STATE,
 }
+pub type POWER_STATE_TYPE = i32;
+pub const POWER_THROTTLING_PROCESS_CURRENT_VERSION: u32 = 1u32;
+pub const POWER_THROTTLING_PROCESS_DELAYTIMERS: u32 = 2u32;
+pub const POWER_THROTTLING_PROCESS_EXECUTION_SPEED: u32 = 1u32;
+pub const POWER_THROTTLING_PROCESS_IGNORE_TIMER_RESOLUTION: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct POWER_THROTTLING_PROCESS_STATE {
@@ -8045,6 +9491,8 @@ pub struct POWER_THROTTLING_PROCESS_STATE {
     pub ControlMask: u32,
     pub StateMask: u32,
 }
+pub const POWER_THROTTLING_THREAD_CURRENT_VERSION: u32 = 1u32;
+pub const POWER_THROTTLING_THREAD_EXECUTION_SPEED: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct POWER_THROTTLING_THREAD_STATE {
@@ -8052,6 +9500,13 @@ pub struct POWER_THROTTLING_THREAD_STATE {
     pub ControlMask: u32,
     pub StateMask: u32,
 }
+pub const POWER_THROTTLING_THREAD_VALID_FLAGS: u32 = 1u32;
+pub type POWER_USER_PRESENCE_TYPE = i32;
+pub type PO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, component: u32)>;
+pub type PO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, component: u32, active: super::super::super::Win32::Foundation::BOOLEAN)>;
+pub const PO_FX_COMPONENT_FLAG_F0_ON_DX: u64 = 1u64;
+pub const PO_FX_COMPONENT_FLAG_NO_DEBOUNCE: u64 = 2u64;
+pub type PO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, component: u32)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PO_FX_COMPONENT_IDLE_STATE {
@@ -8059,6 +9514,7 @@ pub struct PO_FX_COMPONENT_IDLE_STATE {
     pub ResidencyRequirement: u64,
     pub NominalPower: u32,
 }
+pub type PO_FX_COMPONENT_IDLE_STATE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, component: u32, state: u32)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PO_FX_COMPONENT_PERF_INFO {
@@ -8092,6 +9548,7 @@ pub struct PO_FX_COMPONENT_PERF_SET_0_1 {
     pub Minimum: u64,
     pub Maximum: u64,
 }
+pub type PO_FX_COMPONENT_PERF_STATE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, component: u32, succeeded: super::super::super::Win32::Foundation::BOOLEAN, requestcontext: *const core::ffi::c_void)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PO_FX_COMPONENT_V1 {
@@ -8111,6 +9568,8 @@ pub struct PO_FX_COMPONENT_V2 {
     pub ProviderCount: u32,
     pub Providers: *mut u32,
 }
+pub type PO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
+pub type PO_FX_DEVICE_POWER_REQUIRED_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PO_FX_DEVICE_V1 {
@@ -8158,6 +9617,16 @@ pub struct PO_FX_DEVICE_V3 {
     pub ComponentCount: u32,
     pub Components: [PO_FX_COMPONENT_V2; 1],
 }
+pub const PO_FX_DIRECTED_FX_DEFAULT_IDLE_TIMEOUT: u32 = 0u32;
+pub type PO_FX_DIRECTED_POWER_DOWN_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, flags: u32)>;
+pub type PO_FX_DIRECTED_POWER_UP_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, flags: u32)>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PO_FX_DRIPS_WATCHDOG_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, uniqueid: u32)>;
+pub const PO_FX_FLAG_ASYNC_ONLY: u32 = 2u32;
+pub const PO_FX_FLAG_BLOCKING: u32 = 1u32;
+pub const PO_FX_FLAG_PERF_PEP_OPTIONAL: u32 = 1u32;
+pub const PO_FX_FLAG_PERF_QUERY_ON_ALL_IDLE_STATES: u32 = 4u32;
+pub const PO_FX_FLAG_PERF_QUERY_ON_F0: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PO_FX_PERF_STATE {
@@ -8176,6 +9645,93 @@ pub union PO_FX_PERF_STATE_CHANGE_0 {
     pub StateIndex: u32,
     pub StateValue: u64,
 }
+pub type PO_FX_PERF_STATE_TYPE = i32;
+pub type PO_FX_PERF_STATE_UNIT = i32;
+pub type PO_FX_POWER_CONTROL_CALLBACK = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void, powercontrolcode: *const windows_sys::core::GUID, inbuffer: *const core::ffi::c_void, inbuffersize: usize, outbuffer: *mut core::ffi::c_void, outbuffersize: usize, bytesreturned: *mut usize) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub const PO_FX_UNKNOWN_POWER: u32 = 4294967295u32;
+pub const PO_FX_UNKNOWN_TIME: u64 = 18446744073709551615u64;
+pub const PO_FX_VERSION: u32 = 1u32;
+pub const PO_FX_VERSION_V1: u32 = 1u32;
+pub const PO_FX_VERSION_V2: u32 = 2u32;
+pub const PO_FX_VERSION_V3: u32 = 3u32;
+pub const PO_MEM_BOOT_PHASE: u32 = 65536u32;
+pub const PO_MEM_CLONE: u32 = 2u32;
+pub const PO_MEM_CL_OR_NCHK: u32 = 4u32;
+pub const PO_MEM_DISCARD: u32 = 32768u32;
+pub const PO_MEM_PAGE_ADDRESS: u32 = 16384u32;
+pub const PO_MEM_PRESERVE: u32 = 1u32;
+pub type PO_THERMAL_REQUEST_TYPE = i32;
+pub type PPCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PPCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PPCI_EXPRESS_ROOT_PORT_READ_CONFIG_SPACE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, buffer: *mut core::ffi::c_void, offset: u32, length: u32) -> u32>;
+pub type PPCI_EXPRESS_ROOT_PORT_WRITE_CONFIG_SPACE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, buffer: *const core::ffi::c_void, offset: u32, length: u32) -> u32>;
+pub type PPCI_EXPRESS_WAKE_CONTROL = Option<unsafe extern "system" fn()>;
+pub type PPCI_IS_DEVICE_PRESENT = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
+pub type PPCI_IS_DEVICE_PRESENT_EX = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
+pub type PPCI_LINE_TO_PIN = Option<unsafe extern "system" fn()>;
+pub type PPCI_MSIX_GET_ENTRY = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PPCI_MSIX_GET_TABLE_SIZE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PPCI_MSIX_MASKUNMASK_ENTRY = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PPCI_MSIX_SET_ENTRY = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PPCI_PIN_TO_LINE = Option<unsafe extern "system" fn()>;
+pub type PPCI_PREPARE_MULTISTAGE_RESUME = Option<unsafe extern "system" fn()>;
+pub type PPCI_READ_WRITE_CONFIG = Option<unsafe extern "system" fn() -> u32>;
+pub type PPCI_ROOT_BUS_CAPABILITY = Option<unsafe extern "system" fn()>;
+pub type PPCI_SET_ACS = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PPCI_SET_ACS2 = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PPCI_SET_ATS = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PPCW_CALLBACK = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PPHYSICAL_COUNTER_EVENT_BUFFER_OVERFLOW_HANDLER = Option<unsafe extern "system" fn(eventbuffer: *const core::ffi::c_void, entrysize: usize, numberofentries: usize, owninghandle: super::super::super::Win32::Foundation::HANDLE)>;
+pub type PPHYSICAL_COUNTER_OVERFLOW_HANDLER = Option<unsafe extern "system" fn(overflowbits: u64, owninghandle: super::super::super::Win32::Foundation::HANDLE)>;
+pub const PPI_SHIFT: u32 = 30u32;
+pub type PPOWER_SETTING_CALLBACK = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PPO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK = Option<unsafe extern "system" fn()>;
+pub type PPO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = Option<unsafe extern "system" fn()>;
+pub type PPO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = Option<unsafe extern "system" fn()>;
+pub type PPO_FX_COMPONENT_IDLE_STATE_CALLBACK = Option<unsafe extern "system" fn()>;
+pub type PPO_FX_COMPONENT_PERF_STATE_CALLBACK = Option<unsafe extern "system" fn()>;
+pub type PPO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK = Option<unsafe extern "system" fn()>;
+pub type PPO_FX_DEVICE_POWER_REQUIRED_CALLBACK = Option<unsafe extern "system" fn()>;
+pub type PPO_FX_DIRECTED_POWER_DOWN_CALLBACK = Option<unsafe extern "system" fn()>;
+pub type PPO_FX_DIRECTED_POWER_UP_CALLBACK = Option<unsafe extern "system" fn()>;
+pub type PPO_FX_DRIPS_WATCHDOG_CALLBACK = Option<unsafe extern "system" fn()>;
+pub type PPO_FX_POWER_CONTROL_CALLBACK = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PPROCESSOR_CALLBACK_FUNCTION = Option<unsafe extern "system" fn()>;
+pub type PPROCESSOR_HALT_ROUTINE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PPTM_DEVICE_DISABLE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PPTM_DEVICE_ENABLE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PPTM_DEVICE_QUERY_GRANULARITY = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PPTM_DEVICE_QUERY_TIME_SOURCE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PPUT_DMA_ADAPTER = Option<unsafe extern "system" fn(dmaadapter: *mut DMA_ADAPTER)>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PPUT_SCATTER_GATHER_LIST = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, scattergather: *const SCATTER_GATHER_LIST, writetodevice: super::super::super::Win32::Foundation::BOOLEAN)>;
+pub type PQUERYEXTENDEDADDRESS = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, extendedaddress: *mut u64)>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PREAD_DMA_COUNTER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER) -> u32>;
+pub type PREENUMERATE_SELF = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PREGISTER_FOR_DEVICE_NOTIFICATIONS = Option<unsafe extern "system" fn(param0: *mut super::super::Foundation::DEVICE_OBJECT, param1: PDEVICE_NOTIFY_CALLBACK, param2: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PREGISTER_FOR_DEVICE_NOTIFICATIONS2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, notificationhandler: PDEVICE_NOTIFY_CALLBACK2, notificationcontext: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PREPLACE_BEGIN = Option<unsafe extern "system" fn(parameters: *const PNP_REPLACE_PARAMETERS, context: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PREPLACE_DRIVER_INIT = Option<unsafe extern "system" fn(interface: *mut PNP_REPLACE_DRIVER_INTERFACE, unused: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PREPLACE_ENABLE_DISABLE_HARDWARE_QUIESCE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, enable: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PREPLACE_END = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PREPLACE_GET_MEMORY_DESTINATION = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, sourceaddress: i64, destinationaddress: *mut i64) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PREPLACE_INITIATE_HARDWARE_MIRROR = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PREPLACE_MAP_MEMORY = Option<unsafe extern "system" fn(targetphysicaladdress: i64, sparephysicaladdress: i64, numberofbytes: *mut i64, targetaddress: *mut *mut core::ffi::c_void, spareaddress: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PREPLACE_MIRROR_PHYSICAL_MEMORY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, physicaladdress: i64, bytecount: i64) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PREPLACE_MIRROR_PLATFORM_MEMORY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PREPLACE_SET_PROCESSOR_ID = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, apicid: u32, target: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PREPLACE_SWAP = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PREPLACE_UNLOAD = Option<unsafe extern "system" fn()>;
+pub type PREQUEST_POWER_COMPLETE = Option<unsafe extern "system" fn()>;
+pub const PRIVILEGE_SET_ALL_NECESSARY: u32 = 1u32;
+#[cfg(feature = "Win32_System_Kernel")]
+pub type PROCESSOR_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(callbackcontext: *const core::ffi::c_void, changecontext: *const KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT, operationstatus: *mut i32)>;
+pub const PROCESSOR_FEATURE_MAX: u32 = 64u32;
+pub const PROCESSOR_GENERIC_ERROR_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9876ccad_47b4_4bdb_b65e_16f193c4f3db);
+pub type PROCESSOR_HALT_ROUTINE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROCESS_ACCESS_TOKEN {
@@ -8233,6 +9789,7 @@ pub struct PROCESS_EXCEPTION_PORT {
     pub ExceptionPortHandle: super::super::super::Win32::Foundation::HANDLE,
     pub StateFlags: u32,
 }
+pub const PROCESS_EXCEPTION_PORT_ALL_STATE_BITS: u32 = 3u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 #[derive(Clone, Copy)]
@@ -8254,6 +9811,9 @@ pub union PROCESS_EXTENDED_BASIC_INFORMATION_0 {
 pub struct PROCESS_EXTENDED_BASIC_INFORMATION_0_0 {
     pub _bitfield: u32,
 }
+pub const PROCESS_HANDLE_EXCEPTIONS_ENABLED: u32 = 1u32;
+pub const PROCESS_HANDLE_RAISE_UM_EXCEPTION_ON_INVALID_HANDLE_CLOSE_DISABLED: u32 = 0u32;
+pub const PROCESS_HANDLE_RAISE_UM_EXCEPTION_ON_INVALID_HANDLE_CLOSE_ENABLED: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROCESS_HANDLE_TRACING_ENABLE {
@@ -8274,6 +9834,7 @@ pub struct PROCESS_HANDLE_TRACING_ENTRY {
     pub Type: u32,
     pub Stacks: [*mut core::ffi::c_void; 16],
 }
+pub const PROCESS_HANDLE_TRACING_MAX_STACKS: u32 = 16u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[derive(Clone, Copy)]
@@ -8288,6 +9849,7 @@ pub struct PROCESS_KEEPALIVE_COUNT_INFORMATION {
     pub WakeCount: u32,
     pub NoWakeCount: u32,
 }
+pub const PROCESS_LUID_DOSDEVICES_ONLY: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MEMBERSHIP_INFORMATION {
@@ -8315,6 +9877,48 @@ pub struct PROCESS_WS_WATCH_INFORMATION {
     pub FaultingPc: *mut core::ffi::c_void,
     pub FaultingVa: *mut core::ffi::c_void,
 }
+pub const PROFILE_LEVEL: u32 = 27u32;
+pub const PROTECTED_POOL: u32 = 0u32;
+pub type PRTL_AVL_ALLOCATE_ROUTINE = Option<unsafe extern "system" fn() -> *mut core::ffi::c_void>;
+pub type PRTL_AVL_COMPARE_ROUTINE = Option<unsafe extern "system" fn() -> RTL_GENERIC_COMPARE_RESULTS>;
+pub type PRTL_AVL_FREE_ROUTINE = Option<unsafe extern "system" fn()>;
+pub type PRTL_AVL_MATCH_FUNCTION = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PRTL_GENERIC_ALLOCATE_ROUTINE = Option<unsafe extern "system" fn() -> *mut core::ffi::c_void>;
+pub type PRTL_GENERIC_COMPARE_ROUTINE = Option<unsafe extern "system" fn() -> RTL_GENERIC_COMPARE_RESULTS>;
+pub type PRTL_GENERIC_FREE_ROUTINE = Option<unsafe extern "system" fn()>;
+pub type PRTL_QUERY_REGISTRY_ROUTINE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PRTL_RUN_ONCE_INIT_FN = Option<unsafe extern "system" fn() -> u32>;
+pub type PSCREATEPROCESSNOTIFYTYPE = i32;
+pub type PSCREATETHREADNOTIFYTYPE = i32;
+pub type PSECURE_DRIVER_PROCESS_DEREFERENCE = Option<unsafe extern "system" fn()>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type PSECURE_DRIVER_PROCESS_REFERENCE = Option<unsafe extern "system" fn() -> super::super::Foundation::PEPROCESS>;
+pub type PSET_D3COLD_SUPPORT = Option<unsafe extern "system" fn()>;
+pub type PSET_VIRTUAL_DEVICE_DATA = Option<unsafe extern "system" fn() -> u32>;
+pub type PSE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = Option<unsafe extern "system" fn()>;
+pub type PSHED_PI_ATTEMPT_ERROR_RECOVERY = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, bufferlength: u32, errorrecord: *const WHEA_ERROR_RECORD) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PSHED_PI_CLEAR_ERROR_RECORD = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, flags: u32, errorrecordid: u64) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+pub type PSHED_PI_CLEAR_ERROR_STATUS = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, errorsource: *const super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR, bufferlength: u32, errorrecord: *const WHEA_ERROR_RECORD) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+pub type PSHED_PI_DISABLE_ERROR_SOURCE = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, errorsource: *const super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+pub type PSHED_PI_ENABLE_ERROR_SOURCE = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, errorsource: *const super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PSHED_PI_ERR_READING_PCIE_OVERRIDES = i32;
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+pub type PSHED_PI_FINALIZE_ERROR_RECORD = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, errorsource: *const super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR, bufferlength: u32, errorrecord: *mut WHEA_ERROR_RECORD) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+pub type PSHED_PI_GET_ALL_ERROR_SOURCES = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, count: *mut u32, errorsrcs: *mut *mut super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR, length: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+pub type PSHED_PI_GET_ERROR_SOURCE_INFO = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, errorsource: *mut super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PSHED_PI_GET_INJECTION_CAPABILITIES = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, capabilities: *mut WHEA_ERROR_INJECTION_CAPABILITIES) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PSHED_PI_INJECT_ERROR = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, errortype: u64, parameter1: u64, parameter2: u64, parameter3: u64, parameter4: u64) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PSHED_PI_READ_ERROR_RECORD = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, flags: u32, errorrecordid: u64, nexterrorrecordid: *mut u64, recordlength: *mut u32, errorrecord: *mut WHEA_ERROR_RECORD) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+pub type PSHED_PI_RETRIEVE_ERROR_INFO = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, errorsource: *const super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR, bufferlength: u64, packet: *mut WHEA_ERROR_PACKET_V2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+pub type PSHED_PI_SET_ERROR_SOURCE_INFO = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, errorsource: *const super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PSHED_PI_WRITE_ERROR_RECORD = Option<unsafe extern "system" fn(plugincontext: *mut core::ffi::c_void, flags: u32, recordlength: u32, errorrecord: *const WHEA_ERROR_RECORD) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[derive(Clone, Copy)]
@@ -8341,6 +9945,13 @@ pub union PS_CREATE_NOTIFY_INFO_0 {
 pub struct PS_CREATE_NOTIFY_INFO_0_0 {
     pub _bitfield: u32,
 }
+pub const PS_IMAGE_NOTIFY_CONFLICTING_ARCHITECTURE: u32 = 1u32;
+pub const PS_INVALID_SILO_CONTEXT_SLOT: u32 = 4294967295u32;
+pub const PTE_BASE: u32 = 3221225472u32;
+pub const PTE_PER_PAGE: u32 = 512u32;
+pub const PTE_TOP: u32 = 3225419775u32;
+pub type PTIMER_APC_ROUTINE = Option<unsafe extern "system" fn(timercontext: *const core::ffi::c_void, timerlowvalue: u32, timerhighvalue: i32)>;
+pub const PTI_SHIFT: u32 = 12u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PTM_CONTROL_INTERFACE {
@@ -8354,6 +9965,157 @@ pub struct PTM_CONTROL_INTERFACE {
     pub Enable: PPTM_DEVICE_ENABLE,
     pub Disable: PPTM_DEVICE_DISABLE,
 }
+pub type PTM_DEVICE_DISABLE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PTM_DEVICE_ENABLE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PTM_DEVICE_QUERY_GRANULARITY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, granularity: *mut u8) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PTM_DEVICE_QUERY_TIME_SOURCE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, timesource: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PTM_PROPAGATE_ROUTINE = Option<unsafe extern "system" fn(propagationcookie: *const core::ffi::c_void, callbackdata: *const core::ffi::c_void, propagationstatus: super::super::super::Win32::Foundation::NTSTATUS, transactionguid: windows_sys::core::GUID) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type PTM_RM_NOTIFICATION = Option<unsafe extern "system" fn(enlistmentobject: *const super::super::Foundation::KENLISTMENT, rmcontext: *const core::ffi::c_void, transactioncontext: *const core::ffi::c_void, transactionnotification: u32, tmvirtualclock: *mut i64, argumentlength: u32, argument: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PTRANSLATE_BUS_ADDRESS = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PTRANSLATE_RESOURCE_HANDLER = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, source: *const CM_PARTIAL_RESOURCE_DESCRIPTOR, direction: RESOURCE_TRANSLATION_DIRECTION, alternativescount: u32, alternatives: *const IO_RESOURCE_DESCRIPTOR, physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, target: *mut CM_PARTIAL_RESOURCE_DESCRIPTOR) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PTRANSLATE_RESOURCE_REQUIREMENTS_HANDLER = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, source: *const IO_RESOURCE_DESCRIPTOR, physicaldeviceobject: *const super::super::Foundation::DEVICE_OBJECT, targetcount: *mut u32, target: *mut *mut IO_RESOURCE_DESCRIPTOR) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type PUNREGISTER_FOR_DEVICE_NOTIFICATIONS = Option<unsafe extern "system" fn(param0: *mut super::super::Foundation::DEVICE_OBJECT, param1: PDEVICE_NOTIFY_CALLBACK)>;
+pub type PUNREGISTER_FOR_DEVICE_NOTIFICATIONS2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
+pub const PageIn: KWAIT_REASON = 2i32;
+pub const ParallelController: CONFIGURATION_TYPE = 20i32;
+pub const PciAcsBitDisable: PCI_ACS_BIT = 2i32;
+pub const PciAcsBitDontCare: PCI_ACS_BIT = 3i32;
+pub const PciAcsBitEnable: PCI_ACS_BIT = 1i32;
+pub const PciAcsReserved: PCI_ACS_BIT = 0i32;
+pub const PciAddressParityError: u16 = 6u16;
+pub const PciBusDataParityError: u16 = 1u16;
+pub const PciBusMasterAbort: u16 = 3u16;
+pub const PciBusSystemError: u16 = 2u16;
+pub const PciBusTimeOut: u16 = 4u16;
+pub const PciBusUnknownError: u16 = 0u16;
+pub const PciCommandParityError: u16 = 7u16;
+pub const PciConventional: PCI_HARDWARE_INTERFACE = 0i32;
+pub const PciDeviceD3Cold_Reason_Default_State_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = 8i32;
+pub const PciDeviceD3Cold_Reason_INF_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = 9i32;
+pub const PciDeviceD3Cold_Reason_Interface_Api_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = 10i32;
+pub const PciDeviceD3Cold_State_Disabled_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = 1i32;
+pub const PciDeviceD3Cold_State_Disabled_Bridge_HackFlags_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = 4i32;
+pub const PciDeviceD3Cold_State_Enabled_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = 2i32;
+pub const PciDeviceD3Cold_State_ParentRootPortS0WakeSupported_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = 3i32;
+pub const PciExpress: PCI_HARDWARE_INTERFACE = 3i32;
+pub const PciExpressASPMLinkSubState_L11_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = 2i32;
+pub const PciExpressASPMLinkSubState_L12_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = 3i32;
+pub const PciExpressDownstreamSwitchPort: PCI_EXPRESS_DEVICE_TYPE = 6i32;
+pub const PciExpressEndpoint: PCI_EXPRESS_DEVICE_TYPE = 0i32;
+pub const PciExpressLegacyEndpoint: PCI_EXPRESS_DEVICE_TYPE = 1i32;
+pub const PciExpressPciPmLinkSubState_L11_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = 0i32;
+pub const PciExpressPciPmLinkSubState_L12_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = 1i32;
+pub const PciExpressRootComplexEventCollector: PCI_EXPRESS_DEVICE_TYPE = 10i32;
+pub const PciExpressRootComplexIntegratedEndpoint: PCI_EXPRESS_DEVICE_TYPE = 9i32;
+pub const PciExpressRootPort: PCI_EXPRESS_DEVICE_TYPE = 4i32;
+pub const PciExpressToPciXBridge: PCI_EXPRESS_DEVICE_TYPE = 7i32;
+pub const PciExpressUpstreamSwitchPort: PCI_EXPRESS_DEVICE_TYPE = 5i32;
+pub type PciLine2Pin = Option<unsafe extern "system" fn(bushandler: *const isize, roothandler: *const isize, slotnumber: PCI_SLOT_NUMBER, pcinewdata: *const PCI_COMMON_CONFIG, pciolddata: *const PCI_COMMON_CONFIG)>;
+pub const PciMasterDataParityError: u16 = 5u16;
+pub type PciPin2Line = Option<unsafe extern "system" fn(bushandler: *const isize, roothandler: *const isize, slotnumber: PCI_SLOT_NUMBER, pcidata: *const PCI_COMMON_CONFIG)>;
+pub type PciReadWriteConfig = Option<unsafe extern "system" fn(bushandler: *const isize, slot: PCI_SLOT_NUMBER, buffer: *const core::ffi::c_void, offset: u32, length: u32)>;
+pub const PciXMode1: PCI_HARDWARE_INTERFACE = 1i32;
+pub const PciXMode2: PCI_HARDWARE_INTERFACE = 2i32;
+pub const PciXToExpressBridge: PCI_EXPRESS_DEVICE_TYPE = 8i32;
+pub const PcwCallbackAddCounter: PCW_CALLBACK_TYPE = 0i32;
+pub const PcwCallbackCollectData: PCW_CALLBACK_TYPE = 3i32;
+pub const PcwCallbackEnumerateInstances: PCW_CALLBACK_TYPE = 2i32;
+pub const PcwCallbackRemoveCounter: PCW_CALLBACK_TYPE = 1i32;
+pub const PcwRegistrationNone: PCW_REGISTRATION_FLAGS = 0i32;
+pub const PcwRegistrationSiloNeutral: PCW_REGISTRATION_FLAGS = 1i32;
+pub const PermissionFault: FAULT_INFORMATION_ARM64_TYPE = 4i32;
+pub const PlatformLevelDeviceReset: DEVICE_RESET_TYPE = 1i32;
+pub const PlatformRoleAppliancePC: POWER_PLATFORM_ROLE = 6i32;
+pub const PlatformRoleDesktop: POWER_PLATFORM_ROLE = 1i32;
+pub const PlatformRoleEnterpriseServer: POWER_PLATFORM_ROLE = 4i32;
+pub const PlatformRoleMaximum: POWER_PLATFORM_ROLE = 9i32;
+pub const PlatformRoleMobile: POWER_PLATFORM_ROLE = 2i32;
+pub const PlatformRolePerformanceServer: POWER_PLATFORM_ROLE = 7i32;
+pub const PlatformRoleSOHOServer: POWER_PLATFORM_ROLE = 5i32;
+pub const PlatformRoleSlate: POWER_PLATFORM_ROLE = 8i32;
+pub const PlatformRoleUnspecified: POWER_PLATFORM_ROLE = 0i32;
+pub const PlatformRoleWorkstation: POWER_PLATFORM_ROLE = 3i32;
+pub const PoAc: SYSTEM_POWER_CONDITION = 0i32;
+pub const PoConditionMaximum: SYSTEM_POWER_CONDITION = 3i32;
+pub const PoDc: SYSTEM_POWER_CONDITION = 1i32;
+pub const PoFxPerfStateTypeDiscrete: PO_FX_PERF_STATE_TYPE = 0i32;
+pub const PoFxPerfStateTypeMaximum: PO_FX_PERF_STATE_TYPE = 2i32;
+pub const PoFxPerfStateTypeRange: PO_FX_PERF_STATE_TYPE = 1i32;
+pub const PoFxPerfStateUnitBandwidth: PO_FX_PERF_STATE_UNIT = 2i32;
+pub const PoFxPerfStateUnitFrequency: PO_FX_PERF_STATE_UNIT = 1i32;
+pub const PoFxPerfStateUnitMaximum: PO_FX_PERF_STATE_UNIT = 3i32;
+pub const PoFxPerfStateUnitOther: PO_FX_PERF_STATE_UNIT = 0i32;
+pub const PoHot: SYSTEM_POWER_CONDITION = 2i32;
+pub const PoThermalRequestActive: PO_THERMAL_REQUEST_TYPE = 1i32;
+pub const PoThermalRequestPassive: PO_THERMAL_REQUEST_TYPE = 0i32;
+pub const PointerController: CONFIGURATION_TYPE = 21i32;
+pub const PointerPeripheral: CONFIGURATION_TYPE = 31i32;
+pub const PoolAllocation: KWAIT_REASON = 3i32;
+pub const PoolExtendedParameterInvalidType: POOL_EXTENDED_PARAMETER_TYPE = 0i32;
+pub const PoolExtendedParameterMax: POOL_EXTENDED_PARAMETER_TYPE = 4i32;
+pub const PoolExtendedParameterNumaNode: POOL_EXTENDED_PARAMETER_TYPE = 3i32;
+pub const PoolExtendedParameterPriority: POOL_EXTENDED_PARAMETER_TYPE = 1i32;
+pub const PoolExtendedParameterSecurePool: POOL_EXTENDED_PARAMETER_TYPE = 2i32;
+pub const Pos: BUS_DATA_TYPE = 2i32;
+pub const PowerOff: PCI_EXPRESS_POWER_STATE = 1i32;
+pub const PowerOn: PCI_EXPRESS_POWER_STATE = 0i32;
+pub const PowerRelations: DEVICE_RELATION_TYPE = 2i32;
+pub const PrimaryDcache: CONFIGURATION_TYPE = 4i32;
+pub const PrimaryIcache: CONFIGURATION_TYPE = 3i32;
+pub const PrinterPeripheral: CONFIGURATION_TYPE = 30i32;
+pub const ProcessorInternal: INTERFACE_TYPE = 12i32;
+pub const Profile2Issue: KPROFILE_SOURCE = 15i32;
+pub const Profile3Issue: KPROFILE_SOURCE = 16i32;
+pub const Profile4Issue: KPROFILE_SOURCE = 17i32;
+pub const ProfileAlignmentFixup: KPROFILE_SOURCE = 1i32;
+pub const ProfileBranchInstructions: KPROFILE_SOURCE = 6i32;
+pub const ProfileBranchMispredictions: KPROFILE_SOURCE = 11i32;
+pub const ProfileCacheMisses: KPROFILE_SOURCE = 10i32;
+pub const ProfileDcacheAccesses: KPROFILE_SOURCE = 21i32;
+pub const ProfileDcacheMisses: KPROFILE_SOURCE = 8i32;
+pub const ProfileFpInstructions: KPROFILE_SOURCE = 13i32;
+pub const ProfileIcacheIssues: KPROFILE_SOURCE = 20i32;
+pub const ProfileIcacheMisses: KPROFILE_SOURCE = 9i32;
+pub const ProfileIntegerInstructions: KPROFILE_SOURCE = 14i32;
+pub const ProfileLoadInstructions: KPROFILE_SOURCE = 4i32;
+pub const ProfileLoadLinkedIssues: KPROFILE_SOURCE = 23i32;
+pub const ProfileMaximum: KPROFILE_SOURCE = 24i32;
+pub const ProfileMemoryBarrierCycles: KPROFILE_SOURCE = 22i32;
+pub const ProfilePipelineDry: KPROFILE_SOURCE = 3i32;
+pub const ProfilePipelineFrozen: KPROFILE_SOURCE = 5i32;
+pub const ProfileSpecialInstructions: KPROFILE_SOURCE = 18i32;
+pub const ProfileStoreInstructions: KPROFILE_SOURCE = 12i32;
+pub const ProfileTime: KPROFILE_SOURCE = 0i32;
+pub const ProfileTotalCycles: KPROFILE_SOURCE = 19i32;
+pub const ProfileTotalIssues: KPROFILE_SOURCE = 2i32;
+pub const ProfileTotalNonissues: KPROFILE_SOURCE = 7i32;
+pub const PsCreateProcessNotifySubsystems: PSCREATEPROCESSNOTIFYTYPE = 0i32;
+pub const PsCreateThreadNotifyNonSystem: PSCREATETHREADNOTIFYTYPE = 0i32;
+pub const PsCreateThreadNotifySubsystems: PSCREATETHREADNOTIFYTYPE = 1i32;
+pub const PshedFADiscovery: u32 = 1u32;
+pub const PshedFAErrorInfoRetrieval: u32 = 8u32;
+pub const PshedFAErrorInjection: u32 = 32u32;
+pub const PshedFAErrorRecordPersistence: u32 = 4u32;
+pub const PshedFAErrorRecovery: u32 = 16u32;
+pub const PshedFAErrorSourceControl: u32 = 2u32;
+pub const PshedPiEnableNotifyErrorCreateNotifyEvent: WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = 1i32;
+pub const PshedPiEnableNotifyErrorCreateSystemThread: WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = 2i32;
+pub const PshedPiEnableNotifyErrorMax: WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = 3i32;
+pub const PshedPiErrReadingPcieOverridesBadSignature: PSHED_PI_ERR_READING_PCIE_OVERRIDES = 4i32;
+pub const PshedPiErrReadingPcieOverridesBadSize: PSHED_PI_ERR_READING_PCIE_OVERRIDES = 3i32;
+pub const PshedPiErrReadingPcieOverridesNoCapOffset: PSHED_PI_ERR_READING_PCIE_OVERRIDES = 5i32;
+pub const PshedPiErrReadingPcieOverridesNoErr: PSHED_PI_ERR_READING_PCIE_OVERRIDES = 0i32;
+pub const PshedPiErrReadingPcieOverridesNoMemory: PSHED_PI_ERR_READING_PCIE_OVERRIDES = 1i32;
+pub const PshedPiErrReadingPcieOverridesNotBinary: PSHED_PI_ERR_READING_PCIE_OVERRIDES = 6i32;
+pub const PshedPiErrReadingPcieOverridesQueryErr: PSHED_PI_ERR_READING_PCIE_OVERRIDES = 2i32;
+pub const QuerySecurityDescriptor: SECURITY_OPERATION_CODE = 1i32;
+pub const RCB128Bytes: PCI_EXPRESS_RCB = 1i32;
+pub const RCB64Bytes: PCI_EXPRESS_RCB = 0i32;
+pub const RECOVERY_INFO_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc34832a1_02c3_4c52_a9f1_9f1d5d7723fc);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct REENUMERATE_SELF_INTERFACE_STANDARD {
@@ -8469,6 +10231,7 @@ pub struct REG_LOAD_KEY_INFORMATION_V2 {
     pub Version: usize,
     pub FileAccessToken: *mut core::ffi::c_void,
 }
+pub type REG_NOTIFY_CLASS = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct REG_POST_CREATE_KEY_INFORMATION {
@@ -8599,6 +10362,8 @@ pub struct REG_UNLOAD_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type REQUEST_POWER_COMPLETE = Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, minorfunction: u8, powerstate: POWER_STATE, context: *const core::ffi::c_void, iostatus: *const super::super::super::Win32::System::IO::IO_STATUS_BLOCK)>;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
@@ -8608,6 +10373,7 @@ pub struct RESOURCE_HASH_ENTRY {
     pub ContentionCount: u32,
     pub Number: u32,
 }
+pub const RESOURCE_HASH_TABLE_SIZE: u32 = 64u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
@@ -8624,6 +10390,17 @@ pub struct RESOURCE_PERFORMANCE_DATA {
     pub MaximumTableExpand: u32,
     pub HashTable: [super::super::super::Win32::System::Kernel::LIST_ENTRY; 64],
 }
+pub type RESOURCE_TRANSLATION_DIRECTION = i32;
+pub const RESULT_NEGATIVE: u32 = 1u32;
+pub const RESULT_POSITIVE: u32 = 2u32;
+pub const RESULT_ZERO: u32 = 0u32;
+pub const ROOT_CMD_ENABLE_CORRECTABLE_ERROR_REPORTING: u32 = 1u32;
+pub const ROOT_CMD_ENABLE_FATAL_ERROR_REPORTING: u32 = 4u32;
+pub const ROOT_CMD_ENABLE_NONFATAL_ERROR_REPORTING: u32 = 2u32;
+pub type RTL_AVL_ALLOCATE_ROUTINE = Option<unsafe extern "system" fn(table: *const RTL_AVL_TABLE, bytesize: u32) -> *mut core::ffi::c_void>;
+pub type RTL_AVL_COMPARE_ROUTINE = Option<unsafe extern "system" fn(table: *const RTL_AVL_TABLE, firststruct: *const core::ffi::c_void, secondstruct: *const core::ffi::c_void) -> RTL_GENERIC_COMPARE_RESULTS>;
+pub type RTL_AVL_FREE_ROUTINE = Option<unsafe extern "system" fn(table: *const RTL_AVL_TABLE, buffer: *const core::ffi::c_void)>;
+pub type RTL_AVL_MATCH_FUNCTION = Option<unsafe extern "system" fn(table: *const RTL_AVL_TABLE, userdata: *const core::ffi::c_void, matchdata: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RTL_AVL_TABLE {
@@ -8703,6 +10480,13 @@ pub union RTL_DYNAMIC_HASH_TABLE_ENUMERATOR_0 {
     pub HashEntry: RTL_DYNAMIC_HASH_TABLE_ENTRY,
     pub CurEntry: *mut super::super::super::Win32::System::Kernel::LIST_ENTRY,
 }
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+pub type RTL_GENERIC_ALLOCATE_ROUTINE = Option<unsafe extern "system" fn(table: *const RTL_GENERIC_TABLE, bytesize: u32) -> *mut core::ffi::c_void>;
+pub type RTL_GENERIC_COMPARE_RESULTS = i32;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+pub type RTL_GENERIC_COMPARE_ROUTINE = Option<unsafe extern "system" fn(table: *const RTL_GENERIC_TABLE, firststruct: *const core::ffi::c_void, secondstruct: *const core::ffi::c_void) -> RTL_GENERIC_COMPARE_RESULTS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+pub type RTL_GENERIC_FREE_ROUTINE = Option<unsafe extern "system" fn(table: *const RTL_GENERIC_TABLE, buffer: *const core::ffi::c_void)>;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
@@ -8717,6 +10501,17 @@ pub struct RTL_GENERIC_TABLE {
     pub FreeRoutine: PRTL_GENERIC_FREE_ROUTINE,
     pub TableContext: *mut core::ffi::c_void,
 }
+pub const RTL_GUID_STRING_SIZE: u32 = 38u32;
+pub const RTL_HASH_ALLOCATED_HEADER: u32 = 1u32;
+pub const RTL_HASH_RESERVED_SIGNATURE: u32 = 0u32;
+pub const RTL_QUERY_REGISTRY_DELETE: u32 = 64u32;
+pub const RTL_QUERY_REGISTRY_DIRECT: u32 = 32u32;
+pub const RTL_QUERY_REGISTRY_NOEXPAND: u32 = 16u32;
+pub const RTL_QUERY_REGISTRY_NOSTRING: u32 = 128u32;
+pub const RTL_QUERY_REGISTRY_NOVALUE: u32 = 8u32;
+pub const RTL_QUERY_REGISTRY_REQUIRED: u32 = 4u32;
+pub type RTL_QUERY_REGISTRY_ROUTINE = Option<unsafe extern "system" fn(valuename: windows_sys::core::PCWSTR, valuetype: u32, valuedata: *const core::ffi::c_void, valuelength: u32, context: *const core::ffi::c_void, entrycontext: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub const RTL_QUERY_REGISTRY_SUBKEY: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RTL_QUERY_REGISTRY_TABLE {
@@ -8728,6 +10523,106 @@ pub struct RTL_QUERY_REGISTRY_TABLE {
     pub DefaultData: *mut core::ffi::c_void,
     pub DefaultLength: u32,
 }
+pub const RTL_QUERY_REGISTRY_TOPKEY: u32 = 2u32;
+pub const RTL_QUERY_REGISTRY_TYPECHECK: u32 = 256u32;
+pub const RTL_QUERY_REGISTRY_TYPECHECK_SHIFT: u32 = 24u32;
+pub const RTL_REGISTRY_ABSOLUTE: u32 = 0u32;
+pub const RTL_REGISTRY_CONTROL: u32 = 2u32;
+pub const RTL_REGISTRY_DEVICEMAP: u32 = 4u32;
+pub const RTL_REGISTRY_HANDLE: u32 = 1073741824u32;
+pub const RTL_REGISTRY_MAXIMUM: u32 = 6u32;
+pub const RTL_REGISTRY_OPTIONAL: u32 = 2147483648u32;
+pub const RTL_REGISTRY_SERVICES: u32 = 1u32;
+pub const RTL_REGISTRY_USER: u32 = 5u32;
+pub const RTL_REGISTRY_WINDOWS_NT: u32 = 3u32;
+#[cfg(feature = "Win32_System_Threading")]
+pub type RTL_RUN_ONCE_INIT_FN = Option<unsafe extern "system" fn(runonce: *mut super::super::super::Win32::System::Threading::INIT_ONCE, parameter: *mut core::ffi::c_void, context: *mut *mut core::ffi::c_void) -> u32>;
+pub const RTL_STACK_WALKING_MODE_FRAMES_TO_SKIP_SHIFT: u32 = 8u32;
+pub const RandomAccess: IO_ACCESS_MODE = 1i32;
+pub const ReadAccess: IO_ACCESS_TYPE = 0i32;
+pub const RealModeIrqRoutingTable: CONFIGURATION_TYPE = 39i32;
+pub const RealModePCIEnumeration: CONFIGURATION_TYPE = 40i32;
+pub const RealTimeWorkQueue: WORK_QUEUE_TYPE = 5i32;
+pub const RebuildControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 5i32;
+pub const RegNtCallbackObjectContextCleanup: REG_NOTIFY_CLASS = 40i32;
+pub const RegNtDeleteKey: REG_NOTIFY_CLASS = 0i32;
+pub const RegNtDeleteValueKey: REG_NOTIFY_CLASS = 2i32;
+pub const RegNtEnumerateKey: REG_NOTIFY_CLASS = 5i32;
+pub const RegNtEnumerateValueKey: REG_NOTIFY_CLASS = 6i32;
+pub const RegNtKeyHandleClose: REG_NOTIFY_CLASS = 14i32;
+pub const RegNtPostCreateKey: REG_NOTIFY_CLASS = 11i32;
+pub const RegNtPostCreateKeyEx: REG_NOTIFY_CLASS = 27i32;
+pub const RegNtPostDeleteKey: REG_NOTIFY_CLASS = 15i32;
+pub const RegNtPostDeleteValueKey: REG_NOTIFY_CLASS = 17i32;
+pub const RegNtPostEnumerateKey: REG_NOTIFY_CLASS = 20i32;
+pub const RegNtPostEnumerateValueKey: REG_NOTIFY_CLASS = 21i32;
+pub const RegNtPostFlushKey: REG_NOTIFY_CLASS = 31i32;
+pub const RegNtPostKeyHandleClose: REG_NOTIFY_CLASS = 25i32;
+pub const RegNtPostLoadKey: REG_NOTIFY_CLASS = 33i32;
+pub const RegNtPostOpenKey: REG_NOTIFY_CLASS = 13i32;
+pub const RegNtPostOpenKeyEx: REG_NOTIFY_CLASS = 29i32;
+pub const RegNtPostQueryKey: REG_NOTIFY_CLASS = 22i32;
+pub const RegNtPostQueryKeyName: REG_NOTIFY_CLASS = 48i32;
+pub const RegNtPostQueryKeySecurity: REG_NOTIFY_CLASS = 37i32;
+pub const RegNtPostQueryMultipleValueKey: REG_NOTIFY_CLASS = 24i32;
+pub const RegNtPostQueryValueKey: REG_NOTIFY_CLASS = 23i32;
+pub const RegNtPostRenameKey: REG_NOTIFY_CLASS = 19i32;
+pub const RegNtPostReplaceKey: REG_NOTIFY_CLASS = 46i32;
+pub const RegNtPostRestoreKey: REG_NOTIFY_CLASS = 42i32;
+pub const RegNtPostSaveKey: REG_NOTIFY_CLASS = 44i32;
+pub const RegNtPostSaveMergedKey: REG_NOTIFY_CLASS = 50i32;
+pub const RegNtPostSetInformationKey: REG_NOTIFY_CLASS = 18i32;
+pub const RegNtPostSetKeySecurity: REG_NOTIFY_CLASS = 39i32;
+pub const RegNtPostSetValueKey: REG_NOTIFY_CLASS = 16i32;
+pub const RegNtPostUnLoadKey: REG_NOTIFY_CLASS = 35i32;
+pub const RegNtPreCreateKey: REG_NOTIFY_CLASS = 10i32;
+pub const RegNtPreCreateKeyEx: REG_NOTIFY_CLASS = 26i32;
+pub const RegNtPreDeleteKey: REG_NOTIFY_CLASS = 0i32;
+pub const RegNtPreDeleteValueKey: REG_NOTIFY_CLASS = 2i32;
+pub const RegNtPreEnumerateKey: REG_NOTIFY_CLASS = 5i32;
+pub const RegNtPreEnumerateValueKey: REG_NOTIFY_CLASS = 6i32;
+pub const RegNtPreFlushKey: REG_NOTIFY_CLASS = 30i32;
+pub const RegNtPreKeyHandleClose: REG_NOTIFY_CLASS = 14i32;
+pub const RegNtPreLoadKey: REG_NOTIFY_CLASS = 32i32;
+pub const RegNtPreOpenKey: REG_NOTIFY_CLASS = 12i32;
+pub const RegNtPreOpenKeyEx: REG_NOTIFY_CLASS = 28i32;
+pub const RegNtPreQueryKey: REG_NOTIFY_CLASS = 7i32;
+pub const RegNtPreQueryKeyName: REG_NOTIFY_CLASS = 47i32;
+pub const RegNtPreQueryKeySecurity: REG_NOTIFY_CLASS = 36i32;
+pub const RegNtPreQueryMultipleValueKey: REG_NOTIFY_CLASS = 9i32;
+pub const RegNtPreQueryValueKey: REG_NOTIFY_CLASS = 8i32;
+pub const RegNtPreRenameKey: REG_NOTIFY_CLASS = 4i32;
+pub const RegNtPreReplaceKey: REG_NOTIFY_CLASS = 45i32;
+pub const RegNtPreRestoreKey: REG_NOTIFY_CLASS = 41i32;
+pub const RegNtPreSaveKey: REG_NOTIFY_CLASS = 43i32;
+pub const RegNtPreSaveMergedKey: REG_NOTIFY_CLASS = 49i32;
+pub const RegNtPreSetInformationKey: REG_NOTIFY_CLASS = 3i32;
+pub const RegNtPreSetKeySecurity: REG_NOTIFY_CLASS = 38i32;
+pub const RegNtPreSetValueKey: REG_NOTIFY_CLASS = 1i32;
+pub const RegNtPreUnLoadKey: REG_NOTIFY_CLASS = 34i32;
+pub const RegNtQueryKey: REG_NOTIFY_CLASS = 7i32;
+pub const RegNtQueryMultipleValueKey: REG_NOTIFY_CLASS = 9i32;
+pub const RegNtQueryValueKey: REG_NOTIFY_CLASS = 8i32;
+pub const RegNtRenameKey: REG_NOTIFY_CLASS = 4i32;
+pub const RegNtSetInformationKey: REG_NOTIFY_CLASS = 3i32;
+pub const RegNtSetValueKey: REG_NOTIFY_CLASS = 1i32;
+pub const RemovalPolicyExpectNoRemoval: DEVICE_REMOVAL_POLICY = 1i32;
+pub const RemovalPolicyExpectOrderlyRemoval: DEVICE_REMOVAL_POLICY = 2i32;
+pub const RemovalPolicyExpectSurpriseRemoval: DEVICE_REMOVAL_POLICY = 3i32;
+pub const RemovalRelations: DEVICE_RELATION_TYPE = 3i32;
+pub const ResourceNeverExclusive: u32 = 16u32;
+pub const ResourceOwnedExclusive: u32 = 128u32;
+pub const ResourceReleaseByOtherThread: u32 = 32u32;
+pub const ResourceTypeEventBuffer: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = 4i32;
+pub const ResourceTypeExtendedCounterConfiguration: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = 2i32;
+pub const ResourceTypeIdenitificationTag: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = 5i32;
+pub const ResourceTypeMax: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = 6i32;
+pub const ResourceTypeOverflow: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = 3i32;
+pub const ResourceTypeRange: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = 1i32;
+pub const ResourceTypeSingle: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = 0i32;
+pub const ResultNegative: INTERLOCKED_RESULT = 32768i32;
+pub const ResultPositive: INTERLOCKED_RESULT = 0i32;
+pub const ResultZero: INTERLOCKED_RESULT = 16384i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SCATTER_GATHER_ELEMENT {
@@ -8742,12 +10637,21 @@ pub struct SCATTER_GATHER_LIST {
     pub Reserved: usize,
     pub Elements: [SCATTER_GATHER_ELEMENT; 1],
 }
+pub const SCI_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe9d59197_94ee_4a4f_8ad8_9b7d8bd93d2e);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SDEV_IDENTIFIER_INTERFACE {
     pub InterfaceHeader: INTERFACE,
     pub GetIdentifier: PGET_SDEV_IDENTIFIER,
 }
+pub const SDEV_IDENTIFIER_INTERFACE_VERSION: u32 = 1u32;
+pub const SEA_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9a78788a_bbe8_11e4_809e_67611e5d46b0);
+pub const SEA_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf5fe48a6_84ce_4c1e_aa64_20c9a53099f1);
+pub const SECTION_MAP_EXECUTE: u32 = 8u32;
+pub const SECTION_MAP_EXECUTE_EXPLICIT: u32 = 32u32;
+pub const SECTION_MAP_READ: u32 = 4u32;
+pub const SECTION_MAP_WRITE: u32 = 2u32;
+pub const SECTION_QUERY: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy)]
@@ -8757,7 +10661,88 @@ pub struct SECURE_DRIVER_INTERFACE {
     pub ProcessDereference: PSECURE_DRIVER_PROCESS_DEREFERENCE,
     pub Reserved: u32,
 }
+pub const SECURE_DRIVER_INTERFACE_VERSION: u32 = 1u32;
+#[cfg(feature = "Wdk_Foundation")]
+pub type SECURE_DRIVER_PROCESS_DEREFERENCE = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void, process: super::super::Foundation::PEPROCESS)>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type SECURE_DRIVER_PROCESS_REFERENCE = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void) -> super::super::Foundation::PEPROCESS>;
+pub const SECURE_POOL_FLAGS_FREEABLE: u32 = 1u32;
+pub const SECURE_POOL_FLAGS_MODIFIABLE: u32 = 2u32;
+pub const SECURE_POOL_FLAGS_NONE: u32 = 0u32;
+pub const SECURE_SECTION_ALLOW_PARTIAL_MDL: u32 = 1u32;
 pub type SECURITY_CONTEXT_TRACKING_MODE = u8;
+pub type SECURITY_OPERATION_CODE = i32;
+pub const SEC_LARGE_PAGES: u32 = 2147483648u32;
+pub const SEH_VALIDATION_POLICY_DEFER: u32 = 3u32;
+pub const SEH_VALIDATION_POLICY_OFF: u32 = 1u32;
+pub const SEH_VALIDATION_POLICY_ON: u32 = 0u32;
+pub const SEH_VALIDATION_POLICY_TELEMETRY: u32 = 2u32;
+pub const SEI_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5c284c81_b0ae_4e87_a322_b04c85624323);
+pub const SEI_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2a4a152_9c6d_4020_aecf_7695b389251b);
+pub const SEMAPHORE_QUERY_STATE: u32 = 1u32;
+pub type SET_D3COLD_SUPPORT = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, d3coldsupport: super::super::super::Win32::Foundation::BOOLEAN)>;
+pub type SET_VIRTUAL_DEVICE_DATA = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, virtualfunction: u16, buffer: *const core::ffi::c_void, offset: u32, length: u32) -> u32>;
+pub const SE_ASSIGNPRIMARYTOKEN_PRIVILEGE: i32 = 3i32;
+pub const SE_AUDIT_PRIVILEGE: i32 = 21i32;
+pub const SE_BACKUP_PRIVILEGE: i32 = 17i32;
+pub const SE_CHANGE_NOTIFY_PRIVILEGE: i32 = 23i32;
+pub const SE_CREATE_GLOBAL_PRIVILEGE: i32 = 30i32;
+pub const SE_CREATE_PAGEFILE_PRIVILEGE: i32 = 15i32;
+pub const SE_CREATE_PERMANENT_PRIVILEGE: i32 = 16i32;
+pub const SE_CREATE_SYMBOLIC_LINK_PRIVILEGE: i32 = 35i32;
+pub const SE_CREATE_TOKEN_PRIVILEGE: i32 = 2i32;
+pub const SE_DEBUG_PRIVILEGE: i32 = 20i32;
+pub const SE_DELEGATE_SESSION_USER_IMPERSONATE_PRIVILEGE: i32 = 36i32;
+pub const SE_ENABLE_DELEGATION_PRIVILEGE: i32 = 27i32;
+pub type SE_IMAGE_TYPE = i32;
+pub type SE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(callbackcontext: *const core::ffi::c_void, imagetype: SE_IMAGE_TYPE, imageinformation: *mut BDCB_IMAGE_INFORMATION)>;
+pub type SE_IMAGE_VERIFICATION_CALLBACK_TYPE = i32;
+pub const SE_IMPERSONATE_PRIVILEGE: i32 = 29i32;
+pub const SE_INCREASE_QUOTA_PRIVILEGE: i32 = 5i32;
+pub const SE_INC_BASE_PRIORITY_PRIVILEGE: i32 = 14i32;
+pub const SE_INC_WORKING_SET_PRIVILEGE: i32 = 33i32;
+pub const SE_LOAD_DRIVER_PRIVILEGE: i32 = 10i32;
+pub const SE_LOCK_MEMORY_PRIVILEGE: i32 = 4i32;
+pub const SE_MACHINE_ACCOUNT_PRIVILEGE: i32 = 6i32;
+pub const SE_MANAGE_VOLUME_PRIVILEGE: i32 = 28i32;
+pub const SE_MAX_WELL_KNOWN_PRIVILEGE: i32 = 36i32;
+pub const SE_MIN_WELL_KNOWN_PRIVILEGE: i32 = 2i32;
+pub const SE_PROF_SINGLE_PROCESS_PRIVILEGE: i32 = 13i32;
+pub const SE_RELABEL_PRIVILEGE: i32 = 32i32;
+pub const SE_REMOTE_SHUTDOWN_PRIVILEGE: i32 = 24i32;
+pub const SE_RESTORE_PRIVILEGE: i32 = 18i32;
+pub const SE_SECURITY_PRIVILEGE: i32 = 8i32;
+pub const SE_SHUTDOWN_PRIVILEGE: i32 = 19i32;
+pub const SE_SYNC_AGENT_PRIVILEGE: i32 = 26i32;
+pub const SE_SYSTEMTIME_PRIVILEGE: i32 = 12i32;
+pub const SE_SYSTEM_ENVIRONMENT_PRIVILEGE: i32 = 22i32;
+pub const SE_SYSTEM_PROFILE_PRIVILEGE: i32 = 11i32;
+pub const SE_TAKE_OWNERSHIP_PRIVILEGE: i32 = 9i32;
+pub const SE_TCB_PRIVILEGE: i32 = 7i32;
+pub const SE_TIME_ZONE_PRIVILEGE: i32 = 34i32;
+pub const SE_TRUSTED_CREDMAN_ACCESS_PRIVILEGE: i32 = 31i32;
+pub const SE_UNDOCK_PRIVILEGE: i32 = 25i32;
+pub const SE_UNSOLICITED_INPUT_PRIVILEGE: i32 = 6i32;
+pub const SHARED_GLOBAL_FLAGS_CLEAR_GLOBAL_DATA_FLAG: u32 = 2147483648u32;
+pub const SHARED_GLOBAL_FLAGS_CONSOLE_BROKER_ENABLED_V: u32 = 6u32;
+pub const SHARED_GLOBAL_FLAGS_DYNAMIC_PROC_ENABLED_V: u32 = 5u32;
+pub const SHARED_GLOBAL_FLAGS_ELEVATION_ENABLED_V: u32 = 1u32;
+pub const SHARED_GLOBAL_FLAGS_ERROR_PORT_V: u32 = 0u32;
+pub const SHARED_GLOBAL_FLAGS_INSTALLER_DETECT_ENABLED_V: u32 = 3u32;
+pub const SHARED_GLOBAL_FLAGS_LKG_ENABLED_V: u32 = 4u32;
+pub const SHARED_GLOBAL_FLAGS_MULTIUSERS_IN_SESSION_SKU_V: u32 = 9u32;
+pub const SHARED_GLOBAL_FLAGS_MULTI_SESSION_SKU_V: u32 = 8u32;
+pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_A73_ERRATA: u32 = 64u32;
+pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_DISABLE_32BIT: u32 = 4u32;
+pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_ENABLED: u32 = 1u32;
+pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_USE_HV_PAGE: u32 = 2u32;
+pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_USE_LFENCE: u32 = 32u32;
+pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_USE_MFENCE: u32 = 16u32;
+pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_USE_RDTSCP: u32 = 128u32;
+pub const SHARED_GLOBAL_FLAGS_SECURE_BOOT_ENABLED_V: u32 = 7u32;
+pub const SHARED_GLOBAL_FLAGS_SET_GLOBAL_DATA_FLAG: u32 = 1073741824u32;
+pub const SHARED_GLOBAL_FLAGS_STATE_SEPARATION_ENABLED_V: u32 = 10u32;
+pub const SHARED_GLOBAL_FLAGS_VIRT_ENABLED_V: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SHARE_ACCESS {
@@ -8769,6 +10754,8 @@ pub struct SHARE_ACCESS {
     pub SharedWrite: u32,
     pub SharedDelete: u32,
 }
+pub const SHORT_LEAST_SIGNIFICANT_BIT: u32 = 0u32;
+pub const SHORT_MOST_SIGNIFICANT_BIT: u32 = 1u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct SIGNAL_REG_VALUE {
@@ -8776,6 +10763,9 @@ pub struct SIGNAL_REG_VALUE {
     pub MsrAddr: u32,
     pub Value: u64,
 }
+pub type SILO_CONTEXT_CLEANUP_CALLBACK = Option<unsafe extern "system" fn(silocontext: *const core::ffi::c_void)>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type SILO_MONITOR_CREATE_CALLBACK = Option<unsafe extern "system" fn(silo: super::super::Foundation::PESILO) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy)]
@@ -8795,6 +10785,45 @@ pub union SILO_MONITOR_REGISTRATION_0 {
     pub DriverObjectName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
     pub ComponentName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
 }
+pub const SILO_MONITOR_REGISTRATION_VERSION: u32 = 1u32;
+#[cfg(feature = "Wdk_Foundation")]
+pub type SILO_MONITOR_TERMINATE_CALLBACK = Option<unsafe extern "system" fn(silo: super::super::Foundation::PESILO)>;
+pub const SINGLE_GROUP_LEGACY_API: u32 = 1u32;
+pub const SL_ALLOW_RAW_MOUNT: u32 = 1u32;
+pub const SL_BYPASS_ACCESS_CHECK: u32 = 1u32;
+pub const SL_BYPASS_IO: u32 = 64u32;
+pub const SL_CASE_SENSITIVE: u32 = 128u32;
+pub const SL_ERROR_RETURNED: u32 = 2u32;
+pub const SL_EXCLUSIVE_LOCK: u32 = 2u32;
+pub const SL_FAIL_IMMEDIATELY: u32 = 1u32;
+pub const SL_FORCE_ACCESS_CHECK: u32 = 1u32;
+pub const SL_FORCE_ASYNCHRONOUS: u32 = 1u32;
+pub const SL_FORCE_DIRECT_WRITE: u32 = 16u32;
+pub const SL_FT_SEQUENTIAL_WRITE: u32 = 8u32;
+pub const SL_IGNORE_READONLY_ATTRIBUTE: u32 = 64u32;
+pub const SL_INDEX_SPECIFIED: u32 = 4u32;
+pub const SL_INFO_FORCE_ACCESS_CHECK: u32 = 1u32;
+pub const SL_INFO_IGNORE_READONLY_ATTRIBUTE: u32 = 64u32;
+pub const SL_INVOKE_ON_CANCEL: u32 = 32u32;
+pub const SL_INVOKE_ON_ERROR: u32 = 128u32;
+pub const SL_INVOKE_ON_SUCCESS: u32 = 64u32;
+pub const SL_KEY_SPECIFIED: u32 = 1u32;
+pub const SL_NO_CURSOR_UPDATE: u32 = 16u32;
+pub const SL_OPEN_PAGING_FILE: u32 = 2u32;
+pub const SL_OPEN_TARGET_DIRECTORY: u32 = 4u32;
+pub const SL_OVERRIDE_VERIFY_VOLUME: u32 = 2u32;
+pub const SL_PENDING_RETURNED: u32 = 1u32;
+pub const SL_PERSISTENT_MEMORY_FIXED_MAPPING: u32 = 32u32;
+pub const SL_QUERY_DIRECTORY_MASK: u32 = 27u32;
+pub const SL_READ_ACCESS_GRANTED: u32 = 1u32;
+pub const SL_REALTIME_STREAM: u32 = 32u32;
+pub const SL_RESTART_SCAN: u32 = 1u32;
+pub const SL_RETURN_ON_DISK_ENTRIES_ONLY: u32 = 8u32;
+pub const SL_RETURN_SINGLE_ENTRY: u32 = 2u32;
+pub const SL_STOP_ON_SYMLINK: u32 = 8u32;
+pub const SL_WATCH_TREE: u32 = 1u32;
+pub const SL_WRITE_ACCESS_GRANTED: u32 = 4u32;
+pub const SL_WRITE_THROUGH: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SOC_SUBSYSTEM_FAILURE_DETAILS {
@@ -8804,6 +10833,27 @@ pub struct SOC_SUBSYSTEM_FAILURE_DETAILS {
     pub UnifiedFailureRegionSize: u32,
     pub UnifiedFailureRegion: [i8; 1],
 }
+pub type SOC_SUBSYSTEM_TYPE = i32;
+pub const SOC_SUBSYS_AUDIO_DSP: SOC_SUBSYSTEM_TYPE = 1i32;
+pub const SOC_SUBSYS_COMPUTE_DSP: SOC_SUBSYSTEM_TYPE = 4i32;
+pub const SOC_SUBSYS_SECURE_PROC: SOC_SUBSYSTEM_TYPE = 5i32;
+pub const SOC_SUBSYS_SENSORS: SOC_SUBSYSTEM_TYPE = 3i32;
+pub const SOC_SUBSYS_VENDOR_DEFINED: SOC_SUBSYSTEM_TYPE = 65536i32;
+pub const SOC_SUBSYS_WIRELESS_MODEM: SOC_SUBSYSTEM_TYPE = 0i32;
+pub const SOC_SUBSYS_WIRELSS_CONNECTIVITY: SOC_SUBSYSTEM_TYPE = 2i32;
+pub const SSINFO_FLAGS_ALIGNED_DEVICE: u32 = 1u32;
+pub const SSINFO_FLAGS_BYTE_ADDRESSABLE: u32 = 16u32;
+pub const SSINFO_FLAGS_NO_SEEK_PENALTY: u32 = 4u32;
+pub const SSINFO_FLAGS_PARTITION_ALIGNED_ON_DEVICE: u32 = 2u32;
+pub const SSINFO_FLAGS_TRIM_ENABLED: u32 = 8u32;
+pub const SSINFO_OFFSET_UNKNOWN: u32 = 4294967295u32;
+pub type STATE_LOCATION_TYPE = i32;
+pub type SUBSYSTEM_INFORMATION_TYPE = i32;
+pub const SYMBOLIC_LINK_QUERY: u32 = 1u32;
+pub const SYMBOLIC_LINK_SET: u32 = 2u32;
+pub const SYSTEM_CALL_INT_2E: u32 = 1u32;
+pub const SYSTEM_CALL_SYSCALL: u32 = 0u32;
+pub type SYSTEM_FIRMWARE_TABLE_ACTION = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SYSTEM_FIRMWARE_TABLE_HANDLER {
@@ -8821,6 +10871,7 @@ pub struct SYSTEM_FIRMWARE_TABLE_INFORMATION {
     pub TableBufferLength: u32,
     pub TableBuffer: [u8; 1],
 }
+pub type SYSTEM_POWER_CONDITION = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SYSTEM_POWER_STATE_CONTEXT {
@@ -8837,6 +10888,39 @@ pub union SYSTEM_POWER_STATE_CONTEXT_0 {
 pub struct SYSTEM_POWER_STATE_CONTEXT_0_0 {
     pub _bitfield: u32,
 }
+pub const ScsiAdapter: CONFIGURATION_TYPE = 10i32;
+pub const SeImageTypeDriver: SE_IMAGE_TYPE = 1i32;
+pub const SeImageTypeDynamicCodeFile: SE_IMAGE_TYPE = 3i32;
+pub const SeImageTypeElamDriver: SE_IMAGE_TYPE = 0i32;
+pub const SeImageTypeMax: SE_IMAGE_TYPE = 4i32;
+pub const SeImageTypePlatformSecureFile: SE_IMAGE_TYPE = 2i32;
+pub const SeImageVerificationCallbackInformational: SE_IMAGE_VERIFICATION_CALLBACK_TYPE = 0i32;
+pub const SecondaryCache: CONFIGURATION_TYPE = 7i32;
+pub const SecondaryDcache: CONFIGURATION_TYPE = 6i32;
+pub const SecondaryIcache: CONFIGURATION_TYPE = 5i32;
+pub const SequentialAccess: IO_ACCESS_MODE = 0i32;
+pub const SerialController: CONFIGURATION_TYPE = 17i32;
+pub const SetSecurityDescriptor: SECURITY_OPERATION_CODE = 0i32;
+pub const SgiInternalConfiguration: BUS_DATA_TYPE = 11i32;
+pub const SharedInterruptTime: u32 = 4292804616u32;
+pub const SharedSystemTime: u32 = 4292804628u32;
+pub const SharedTickCount: u32 = 4292805408u32;
+pub const SingleBusRelations: DEVICE_RELATION_TYPE = 5i32;
+pub const SlotEmpty: PCI_EXPRESS_CARD_PRESENCE = 0i32;
+pub const StandardDesign: ALTERNATIVE_ARCHITECTURE_TYPE = 0i32;
+pub const StopCompletion: IO_COMPLETION_ROUTINE_RESULT = -1073741802i32;
+pub const SubsystemInformationTypeWSL: SUBSYSTEM_INFORMATION_TYPE = 1i32;
+pub const SubsystemInformationTypeWin32: SUBSYSTEM_INFORMATION_TYPE = 0i32;
+pub const SuperCriticalWorkQueue: WORK_QUEUE_TYPE = 6i32;
+pub const Suspended: KWAIT_REASON = 5i32;
+pub const SystemFirmwareTable_Enumerate: SYSTEM_FIRMWARE_TABLE_ACTION = 0i32;
+pub const SystemFirmwareTable_Get: SYSTEM_FIRMWARE_TABLE_ACTION = 1i32;
+pub const SystemMemory: CONFIGURATION_TYPE = 37i32;
+pub const SystemMemoryPartitionDedicatedMemoryInformation: PARTITION_INFORMATION_CLASS = 9i32;
+pub const SystemMemoryPartitionInformation: PARTITION_INFORMATION_CLASS = 0i32;
+pub const SystemMemoryPartitionOpenDedicatedMemory: PARTITION_INFORMATION_CLASS = 10i32;
+pub const SystemPowerState: POWER_STATE_TYPE = 0i32;
+pub type TABLE_SEARCH_RESULT = i32;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
@@ -8846,6 +10930,13 @@ pub struct TARGET_DEVICE_REMOVAL_NOTIFICATION {
     pub Event: windows_sys::core::GUID,
     pub FileObject: *mut super::super::Foundation::FILE_OBJECT,
 }
+pub const THREAD_ALERT: u32 = 4u32;
+pub const THREAD_CSWITCH_PMU_DISABLE: u32 = 0u32;
+pub const THREAD_CSWITCH_PMU_ENABLE: u32 = 1u32;
+pub const THREAD_GET_CONTEXT: u32 = 8u32;
+pub const THREAD_WAIT_OBJECTS: u32 = 3u32;
+pub const TIMER_EXPIRED_INDEX_BITS: u32 = 6u32;
+pub const TIMER_PROCESSOR_INDEX_BITS: u32 = 5u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TIMER_SET_COALESCABLE_TIMER_INFO {
@@ -8857,6 +10948,7 @@ pub struct TIMER_SET_COALESCABLE_TIMER_INFO {
     pub TolerableDelay: u32,
     pub PreviousState: *mut super::super::super::Win32::Foundation::BOOLEAN,
 }
+pub const TIMER_TOLERABLE_DELAY_BITS: u32 = 6u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TIME_FIELDS {
@@ -8869,6 +10961,8 @@ pub struct TIME_FIELDS {
     pub Milliseconds: i16,
     pub Weekday: i16,
 }
+pub type TRACE_INFORMATION_CLASS = i32;
+pub type TRANSLATE_BUS_ADDRESS = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, busaddress: i64, length: u32, addressspace: *mut u32, translatedaddress: *mut i64) -> super::super::super::Win32::Foundation::BOOLEAN>;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
@@ -8881,6 +10975,9 @@ pub struct TRANSLATOR_INTERFACE {
     pub TranslateResources: PTRANSLATE_RESOURCE_HANDLER,
     pub TranslateResourceRequirements: PTRANSLATE_RESOURCE_REQUIREMENTS_HANDLER,
 }
+pub const TREE_CONNECT_NO_CLIENT_BUFFERING: u32 = 8u32;
+pub const TREE_CONNECT_WRITE_THROUGH: u32 = 2u32;
+pub const TXF_MINIVERSION_DEFAULT_VIEW: u32 = 65534u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TXN_PARAMETER_BLOCK {
@@ -8888,6 +10985,40 @@ pub struct TXN_PARAMETER_BLOCK {
     pub TxFsContext: u16,
     pub TransactionObject: *mut core::ffi::c_void,
 }
+pub const TableEmptyTree: TABLE_SEARCH_RESULT = 0i32;
+pub const TableFoundNode: TABLE_SEARCH_RESULT = 1i32;
+pub const TableInsertAsLeft: TABLE_SEARCH_RESULT = 2i32;
+pub const TableInsertAsRight: TABLE_SEARCH_RESULT = 3i32;
+pub const TapeController: CONFIGURATION_TYPE = 14i32;
+pub const TapePeripheral: CONFIGURATION_TYPE = 27i32;
+pub const TargetDeviceRelation: DEVICE_RELATION_TYPE = 4i32;
+pub const TcAdapter: CONFIGURATION_TYPE = 9i32;
+pub const TerminalPeripheral: CONFIGURATION_TYPE = 33i32;
+pub const TlbMatchConflict: FAULT_INFORMATION_ARM64_TYPE = 2i32;
+pub const TraceEnableFlagsClass: TRACE_INFORMATION_CLASS = 2i32;
+pub const TraceEnableLevelClass: TRACE_INFORMATION_CLASS = 3i32;
+pub const TraceHandleByNameClass: TRACE_INFORMATION_CLASS = 7i32;
+pub const TraceHandleClass: TRACE_INFORMATION_CLASS = 1i32;
+pub const TraceIdClass: TRACE_INFORMATION_CLASS = 0i32;
+pub const TraceInformationClassReserved1: TRACE_INFORMATION_CLASS = 12i32;
+pub const TraceInformationClassReserved2: TRACE_INFORMATION_CLASS = 14i32;
+pub const TraceSessionSettingsClass: TRACE_INFORMATION_CLASS = 9i32;
+pub const TranslateChildToParent: RESOURCE_TRANSLATION_DIRECTION = 0i32;
+pub const TranslateParentToChild: RESOURCE_TRANSLATION_DIRECTION = 1i32;
+pub const TranslationFault: FAULT_INFORMATION_ARM64_TYPE = 6i32;
+pub const TransportRelations: DEVICE_RELATION_TYPE = 6i32;
+pub const TurboChannel: INTERFACE_TYPE = 4i32;
+pub const TypeA: DMA_SPEED = 1i32;
+pub const TypeB: DMA_SPEED = 2i32;
+pub const TypeC: DMA_SPEED = 3i32;
+pub const TypeF: DMA_SPEED = 4i32;
+pub const UADDRESS_BASE: u32 = 0u32;
+pub const UnsupportedUpstreamTransaction: FAULT_INFORMATION_ARM64_TYPE = 0i32;
+pub const UserMode: MODE = 1i32;
+pub const UserNotPresent: POWER_USER_PRESENCE_TYPE = 0i32;
+pub const UserPresent: POWER_USER_PRESENCE_TYPE = 1i32;
+pub const UserRequest: KWAIT_REASON = 6i32;
+pub const UserUnknown: POWER_USER_PRESENCE_TYPE = 255i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union VIRTUAL_CHANNEL_CAPABILITIES1 {
@@ -8973,6 +11104,8 @@ pub union VIRTUAL_RESOURCE_STATUS {
 pub struct VIRTUAL_RESOURCE_STATUS_0 {
     pub _bitfield: u16,
 }
+pub const VMEBus: INTERFACE_TYPE = 6i32;
+pub const VMEConfiguration: BUS_DATA_TYPE = 5i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VM_COUNTERS {
@@ -9011,6 +11144,15 @@ pub struct VM_COUNTERS_EX2 {
     pub PrivateWorkingSetSize: usize,
     pub SharedCommitUsage: u64,
 }
+pub const VPB_DIRECT_WRITES_ALLOWED: u32 = 32u32;
+pub const VPB_DISMOUNTING: u32 = 128u32;
+pub const VPB_FLAGS_BYPASSIO_BLOCKED: u32 = 64u32;
+pub const VPB_LOCKED: u32 = 2u32;
+pub const VPB_MOUNTED: u32 = 1u32;
+pub const VPB_PERSISTENT: u32 = 4u32;
+pub const VPB_RAW_MOUNT: u32 = 16u32;
+pub const VPB_REMOVE_PENDING: u32 = 8u32;
+pub const Vmcs: INTERFACE_TYPE = 16i32;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
@@ -9038,6 +11180,9 @@ pub struct WAIT_CONTEXT_BLOCK_0_0 {
     pub NumberOfChannels: u32,
     pub _bitfield: u32,
 }
+pub const WCS_RAS_REGISTER_NAME_MAX_LENGTH: u32 = 32u32;
+pub const WDM_MAJORVERSION: u32 = 6u32;
+pub const WDM_MINORVERSION: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WHEA128A {
@@ -9140,6 +11285,7 @@ pub struct WHEAP_DPC_ERROR_EVENT {
     pub DeviceId: u16,
     pub VendorId: u16,
 }
+pub type WHEAP_DPC_ERROR_EVENT_TYPE = i32;
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[derive(Clone, Copy)]
@@ -9273,6 +11419,7 @@ pub struct WHEAP_PFA_MEMORY_REMOVE_MONITOR {
     pub ErrorCount: u32,
     pub Page: u32,
 }
+pub type WHEAP_PFA_OFFLINE_DECISION_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WHEAP_PLUGIN_DEFECT_LIST_CORRUPT {
@@ -9411,6 +11558,7 @@ pub struct WHEA_AMD_EXTENDED_REGISTERS {
     pub RasCap: u64,
     pub Reserved: [u64; 14],
 }
+pub const WHEA_AMD_EXT_REG_NUM: u32 = 10u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ARMV8_AARCH32_GPRS {
@@ -9741,6 +11889,12 @@ pub struct WHEA_AZCC_SET_POISON_EVENT {
     pub WriteSuccess: super::super::super::Win32::Foundation::BOOLEAN,
     pub IsEnable: super::super::super::Win32::Foundation::BOOLEAN,
 }
+pub type WHEA_BUGCHECK_RECOVERY_LOG_TYPE = i32;
+pub const WHEA_BUSCHECK_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1cf3f8b3_c5b1_49a2_aa59_5eef92ffa63c);
+pub const WHEA_CACHECHECK_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa55701f5_e3ef_43de_ac72_249b573fad2c);
+pub type WHEA_CPU_VENDOR = i32;
+pub const WHEA_DEVICE_ERROR_SUMMARY_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x990b31e9_541a_4db0_a42f_837d344f6923);
+pub const WHEA_DPC_CAPABILITY_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xec49534b_30e7_4358_972f_eca6958fae3b);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHEA_ERROR_INJECTION_CAPABILITIES {
@@ -9752,6 +11906,8 @@ pub union WHEA_ERROR_INJECTION_CAPABILITIES {
 pub struct WHEA_ERROR_INJECTION_CAPABILITIES_0 {
     pub _bitfield: u32,
 }
+pub const WHEA_ERROR_LOG_ENTRY_VERSION: u32 = 1u32;
+pub type WHEA_ERROR_PACKET_DATA_FORMAT = i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_ERROR_PACKET_FLAGS {
@@ -9763,6 +11919,7 @@ pub union WHEA_ERROR_PACKET_FLAGS {
 pub struct WHEA_ERROR_PACKET_FLAGS_0 {
     pub _bitfield: u32,
 }
+pub const WHEA_ERROR_PACKET_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe71254e9_c1b9_4940_ab76_909703a4320f);
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[derive(Clone, Copy)]
@@ -9797,6 +11954,7 @@ pub union WHEA_ERROR_PACKET_V1_0 {
     pub PciXDeviceError: WHEA_PCIXDEVICE_ERROR_SECTION,
     pub PmemError: WHEA_PMEM_ERROR_SECTION,
 }
+pub const WHEA_ERROR_PACKET_V1_VERSION: u32 = 2u32;
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[derive(Clone, Copy)]
@@ -9818,12 +11976,19 @@ pub struct WHEA_ERROR_PACKET_V2 {
     pub PshedDataOffset: u32,
     pub PshedDataLength: u32,
 }
+pub const WHEA_ERROR_PACKET_V2_VERSION: u32 = 3u32;
+pub const WHEA_ERROR_PACKET_VERSION: u32 = 3u32;
+pub const WHEA_ERROR_PKT_VERSION: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECORD {
     pub Header: WHEA_ERROR_RECORD_HEADER,
     pub SectionDescriptor: [WHEA_ERROR_RECORD_SECTION_DESCRIPTOR; 1],
 }
+pub const WHEA_ERROR_RECORD_FLAGS_DEVICE_DRIVER: u32 = 8u32;
+pub const WHEA_ERROR_RECORD_FLAGS_PREVIOUSERROR: u32 = 2u32;
+pub const WHEA_ERROR_RECORD_FLAGS_RECOVERED: u32 = 1u32;
+pub const WHEA_ERROR_RECORD_FLAGS_SIMULATED: u32 = 4u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECORD_HEADER {
@@ -9878,6 +12043,7 @@ pub union WHEA_ERROR_RECORD_HEADER_VALIDBITS {
 pub struct WHEA_ERROR_RECORD_HEADER_VALIDBITS_0 {
     pub _bitfield: u32,
 }
+pub const WHEA_ERROR_RECORD_REVISION: u32 = 528u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECORD_SECTION_DESCRIPTOR {
@@ -9903,6 +12069,7 @@ pub union WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS {
 pub struct WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS_0 {
     pub _bitfield: u32,
 }
+pub const WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_REVISION: u32 = 768u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS {
@@ -9914,6 +12081,10 @@ pub union WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS {
 pub struct WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS_0 {
     pub _bitfield: u8,
 }
+pub const WHEA_ERROR_RECORD_SIGNATURE_END: u32 = 4294967295u32;
+pub const WHEA_ERROR_RECORD_VALID_PARTITIONID: u32 = 4u32;
+pub const WHEA_ERROR_RECORD_VALID_PLATFORMID: u32 = 1u32;
+pub const WHEA_ERROR_RECORD_VALID_TIMESTAMP: u32 = 2u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECOVERY_INFO_SECTION {
@@ -9925,6 +12096,7 @@ pub struct WHEA_ERROR_RECOVERY_INFO_SECTION {
     pub FailureReason: WHEA_RECOVERY_FAILURE_REASON,
     pub ProcessName: [i8; 20],
 }
+pub type WHEA_ERROR_SEVERITY = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION {
@@ -9936,6 +12108,9 @@ pub struct WHEA_ERROR_SOURCE_CONFIGURATION {
     pub Uninitialize: WHEA_ERROR_SOURCE_UNINITIALIZE,
     pub Reserved: *mut core::ffi::c_void,
 }
+pub type WHEA_ERROR_SOURCE_CORRECT = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type WHEA_ERROR_SOURCE_CREATE_RECORD = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type WHEA_ERROR_SOURCE_INITIALIZE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[derive(Clone, Copy)]
@@ -9945,6 +12120,8 @@ pub struct WHEA_ERROR_SOURCE_OVERRIDE_SETTINGS {
     pub NumRecordsToPreallocate: u32,
     pub MaxSectionsPerRecord: u32,
 }
+pub type WHEA_ERROR_SOURCE_RECOVER = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type WHEA_ERROR_SOURCE_UNINITIALIZE = Option<unsafe extern "system" fn()>;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_ERROR_STATUS {
@@ -9956,6 +12133,9 @@ pub union WHEA_ERROR_STATUS {
 pub struct WHEA_ERROR_STATUS_0 {
     pub _bitfield: u64,
 }
+pub const WHEA_ERROR_TEXT_LEN: u32 = 32u32;
+pub type WHEA_ERROR_TYPE = i32;
+pub const WHEA_ERR_SRC_OVERRIDE_FLAG: u32 = 1u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ETW_OVERFLOW_EVENT {
@@ -9990,6 +12170,8 @@ pub struct WHEA_EVENT_LOG_ENTRY_HEADER {
     pub Flags: WHEA_EVENT_LOG_ENTRY_FLAGS,
     pub PayloadLength: u32,
 }
+pub type WHEA_EVENT_LOG_ENTRY_ID = i32;
+pub type WHEA_EVENT_LOG_ENTRY_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WHEA_FAILED_ADD_DEFECT_LIST_EVENT {
@@ -10002,6 +12184,10 @@ pub struct WHEA_FIRMWARE_ERROR_RECORD_REFERENCE {
     pub Reserved: [u8; 7],
     pub FirmwareRecordId: u64,
 }
+pub const WHEA_FIRMWARE_RECORD_TYPE_IPFSAL: u32 = 0u32;
+pub const WHEA_GENERIC_ENTRY_TEXT_LEN: u32 = 20u32;
+pub const WHEA_GENERIC_ENTRY_V2_VERSION: u32 = 768u32;
+pub const WHEA_GENERIC_ENTRY_VERSION: u32 = 768u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_GENERIC_ERROR {
@@ -10050,6 +12236,7 @@ pub struct WHEA_GENERIC_ERROR_DATA_ENTRY_V2 {
     pub Timestamp: WHEA_TIMESTAMP,
     pub Data: [u8; 1],
 }
+pub const WHEA_INVALID_ERR_SRC_ID: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHEA_IN_USE_PAGE_NOTIFY_FLAGS {
@@ -10061,6 +12248,23 @@ pub union WHEA_IN_USE_PAGE_NOTIFY_FLAGS {
 pub struct WHEA_IN_USE_PAGE_NOTIFY_FLAGS_0 {
     pub _bitfield: u8,
 }
+pub const WHEA_IN_USE_PAGE_NOTIFY_FLAG_NOTIFYALL: u32 = 64u32;
+pub const WHEA_IN_USE_PAGE_NOTIFY_FLAG_PAGEOFFLINED: u32 = 128u32;
+pub const WHEA_IN_USE_PAGE_NOTIFY_FLAG_PLATFORMDIRECTED: u32 = 1u32;
+pub const WHEA_MAX_LOG_DATA_LEN: u32 = 36u32;
+pub const WHEA_MEMERRTYPE_INVALIDADDRESS: u32 = 10u32;
+pub const WHEA_MEMERRTYPE_MASTERABORT: u32 = 6u32;
+pub const WHEA_MEMERRTYPE_MEMORYSPARING: u32 = 12u32;
+pub const WHEA_MEMERRTYPE_MIRRORBROKEN: u32 = 11u32;
+pub const WHEA_MEMERRTYPE_MULTIBITECC: u32 = 3u32;
+pub const WHEA_MEMERRTYPE_MULTISYMCHIPKILL: u32 = 5u32;
+pub const WHEA_MEMERRTYPE_NOERROR: u32 = 1u32;
+pub const WHEA_MEMERRTYPE_PARITYERROR: u32 = 8u32;
+pub const WHEA_MEMERRTYPE_SINGLEBITECC: u32 = 2u32;
+pub const WHEA_MEMERRTYPE_SINGLESYMCHIPKILL: u32 = 4u32;
+pub const WHEA_MEMERRTYPE_TARGETABORT: u32 = 7u32;
+pub const WHEA_MEMERRTYPE_UNKNOWN: u32 = 0u32;
+pub const WHEA_MEMERRTYPE_WATCHDOGTIMEOUT: u32 = 9u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_MEMORY_CORRECTABLE_ERROR_DATA {
@@ -10134,6 +12338,7 @@ pub struct WHEA_MEMORY_THROTTLE_SUMMARY_FAILED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
 }
+pub const WHEA_MSCHECK_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x48ab7f57_dc34_4f6c_a7d3_b0b5b0a74314);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_MSR_DUMP_SECTION {
@@ -10209,6 +12414,7 @@ pub struct WHEA_PCIEXPRESS_DEVICE_ID {
     pub _bitfield2: u32,
     pub _bitfield3: u32,
 }
+pub type WHEA_PCIEXPRESS_DEVICE_TYPE = i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_PCIEXPRESS_ERROR_SECTION {
@@ -10280,6 +12486,7 @@ pub struct WHEA_PCIE_CORRECTABLE_ERROR_SECTION {
     pub Header: WHEA_PCIE_CORRECTABLE_ERROR_SECTION_HEADER,
     pub Devices: [WHEA_PCIE_CORRECTABLE_ERROR_DEVICES; 1],
 }
+pub const WHEA_PCIE_CORRECTABLE_ERROR_SECTION_COUNT_SIZE: u32 = 32u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_PCIE_CORRECTABLE_ERROR_SECTION_HEADER {
@@ -10378,6 +12585,8 @@ pub struct WHEA_PCI_RECOVERY_SECTION {
     pub RecoveryAttempted: super::super::super::Win32::Foundation::BOOLEAN,
     pub RecoveryStatus: u8,
 }
+pub type WHEA_PCI_RECOVERY_SIGNAL = i32;
+pub type WHEA_PCI_RECOVERY_STATUS = i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_PERSISTENCE_INFO {
@@ -10389,6 +12598,10 @@ pub union WHEA_PERSISTENCE_INFO {
 pub struct WHEA_PERSISTENCE_INFO_0 {
     pub _bitfield: u64,
 }
+pub type WHEA_PFA_REMOVE_TRIGGER = i32;
+pub const WHEA_PLUGIN_REGISTRATION_PACKET_V1: u32 = 65536u32;
+pub const WHEA_PLUGIN_REGISTRATION_PACKET_V2: u32 = 131072u32;
+pub const WHEA_PLUGIN_REGISTRATION_PACKET_VERSION: u32 = 131072u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_PMEM_ERROR_SECTION {
@@ -10399,6 +12612,8 @@ pub struct WHEA_PMEM_ERROR_SECTION {
     pub PageRangeCount: u32,
     pub PageRange: [WHEA_PMEM_PAGE_RANGE; 1],
 }
+pub const WHEA_PMEM_ERROR_SECTION_LOCATION_INFO_SIZE: u32 = 64u32;
+pub const WHEA_PMEM_ERROR_SECTION_MAX_PAGES: u32 = 50u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_PMEM_ERROR_SECTION_VALIDBITS {
@@ -10505,6 +12720,7 @@ pub struct WHEA_PSHED_PLUGIN_DIMM_MISMATCH {
     pub TaCol: u16,
     pub TaRow: u16,
 }
+pub type WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_FAILED_EVENT {
@@ -10566,6 +12782,8 @@ pub struct WHEA_PSHED_PLUGIN_UNLOAD_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub PluginName: [u16; 32],
 }
+pub type WHEA_RAW_DATA_FORMAT = i32;
+pub const WHEA_RECORD_CREATOR_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcf07c4bd_b789_4e18_b3c4_1f732cb57131);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_RECOVERY_ACTION {
@@ -10607,6 +12825,9 @@ pub struct WHEA_RECOVERY_CONTEXT_0_0 {
 pub struct WHEA_RECOVERY_CONTEXT_0_1 {
     pub PmemErrInfo: usize,
 }
+pub type WHEA_RECOVERY_CONTEXT_ERROR_TYPE = i32;
+pub type WHEA_RECOVERY_FAILURE_REASON = i32;
+pub type WHEA_RECOVERY_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WHEA_REGISTER_KEY_NOTIFICATION_FAILED_EVENT {
@@ -10643,6 +12864,15 @@ pub struct WHEA_SEA_SECTION {
     pub Par: u64,
     pub WasKernel: super::super::super::Win32::Foundation::BOOLEAN,
 }
+pub const WHEA_SECTION_DESCRIPTOR_FLAGS_CONTAINMENTWRN: u32 = 2u32;
+pub const WHEA_SECTION_DESCRIPTOR_FLAGS_FRU_TEXT_BY_PLUGIN: u32 = 128u32;
+pub const WHEA_SECTION_DESCRIPTOR_FLAGS_LATENTERROR: u32 = 32u32;
+pub const WHEA_SECTION_DESCRIPTOR_FLAGS_PRIMARY: u32 = 1u32;
+pub const WHEA_SECTION_DESCRIPTOR_FLAGS_PROPAGATED: u32 = 64u32;
+pub const WHEA_SECTION_DESCRIPTOR_FLAGS_RESET: u32 = 4u32;
+pub const WHEA_SECTION_DESCRIPTOR_FLAGS_RESOURCENA: u32 = 16u32;
+pub const WHEA_SECTION_DESCRIPTOR_FLAGS_THRESHOLDEXCEEDED: u32 = 8u32;
+pub const WHEA_SECTION_DESCRIPTOR_REVISION: u32 = 768u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_SEI_SECTION {
@@ -10679,6 +12909,7 @@ pub struct WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT_0 {
     pub DumpPolicy: u8,
     pub Reserved: [u8; 3],
 }
+pub const WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_VERSION: u32 = 1u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE2_EVENT {
@@ -10692,6 +12923,7 @@ pub struct WHEA_SEL_BUGCHECK_RECOVERY_STATUS_START_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub StartingIrql: u8,
 }
+pub type WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACK = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_SRAR_DETAIL_EVENT {
@@ -10760,6 +12992,7 @@ pub struct WHEA_THROTTLE_REG_DATA_IGNORED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub ThrottleType: WHEA_THROTTLE_TYPE,
 }
+pub type WHEA_THROTTLE_TYPE = i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_TIMESTAMP {
@@ -10771,6 +13004,8 @@ pub union WHEA_TIMESTAMP {
 pub struct WHEA_TIMESTAMP_0 {
     pub _bitfield: u64,
 }
+pub const WHEA_TLBCHECK_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc06b535_5e1f_4562_9f25_0a3b9adb63c3);
+pub const WHEA_WRITE_FLAG_DUMMY: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WHEA_X64_REGISTER_STATE {
@@ -10869,6 +13104,7 @@ pub struct WHEA_XPF_CONTEXT_INFO {
     pub MSRAddress: u32,
     pub MmRegisterAddress: u64,
 }
+pub const WHEA_XPF_MCA_EXTREG_MAX_COUNT: u32 = 24u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_XPF_MCA_SECTION {
@@ -10894,6 +13130,9 @@ pub union WHEA_XPF_MCA_SECTION_0 {
     pub ExtendedRegisters: [u64; 24],
     pub AMDExtendedRegisters: WHEA_AMD_EXTENDED_REGISTERS,
 }
+pub const WHEA_XPF_MCA_SECTION_VERSION: u32 = 3u32;
+pub const WHEA_XPF_MCA_SECTION_VERSION_2: u32 = 2u32;
+pub const WHEA_XPF_MCA_SECTION_VERSION_3: u32 = 3u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_XPF_MS_CHECK {
@@ -10966,2410 +13205,6 @@ pub union WHEA_XPF_TLB_CHECK {
 pub struct WHEA_XPF_TLB_CHECK_0 {
     pub _bitfield: u64,
 }
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct XPF_RECOVERY_INFO {
-    pub FailureReason: XPF_RECOVERY_INFO_0,
-    pub Action: XPF_RECOVERY_INFO_1,
-    pub ActionRequired: super::super::super::Win32::Foundation::BOOLEAN,
-    pub RecoverySucceeded: super::super::super::Win32::Foundation::BOOLEAN,
-    pub RecoveryKernel: super::super::super::Win32::Foundation::BOOLEAN,
-    pub Reserved: u8,
-    pub Reserved2: u16,
-    pub Reserved3: u16,
-    pub Reserved4: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct XPF_RECOVERY_INFO_1 {
-    pub _bitfield: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct XPF_RECOVERY_INFO_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Clone, Copy)]
-pub struct XSAVE_FORMAT {
-    pub ControlWord: u16,
-    pub StatusWord: u16,
-    pub TagWord: u8,
-    pub Reserved1: u8,
-    pub ErrorOpcode: u16,
-    pub ErrorOffset: u32,
-    pub ErrorSelector: u16,
-    pub Reserved2: u16,
-    pub DataOffset: u32,
-    pub DataSelector: u16,
-    pub Reserved3: u16,
-    pub MxCsr: u32,
-    pub MxCsr_Mask: u32,
-    pub FloatRegisters: [super::super::super::Win32::System::Diagnostics::Debug::M128A; 8],
-    pub XmmRegisters: [super::super::super::Win32::System::Diagnostics::Debug::M128A; 8],
-    pub Reserved4: [u8; 224],
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Clone, Copy)]
-pub struct XSTATE_CONTEXT {
-    pub Mask: u64,
-    pub Length: u32,
-    pub Reserved1: u32,
-    pub Area: *mut super::super::super::Win32::System::Diagnostics::Debug::XSAVE_AREA,
-    pub Reserved2: u32,
-    pub Buffer: *mut core::ffi::c_void,
-    pub Reserved3: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Clone, Copy)]
-pub struct XSTATE_SAVE {
-    pub Anonymous: XSTATE_SAVE_0,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Clone, Copy)]
-pub union XSTATE_SAVE_0 {
-    pub Anonymous: XSTATE_SAVE_0_0,
-    pub XStateContext: XSTATE_CONTEXT,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Clone, Copy)]
-pub struct XSTATE_SAVE_0_0 {
-    pub Reserved1: i64,
-    pub Reserved2: u32,
-    pub Prev: *mut XSTATE_SAVE,
-    pub Reserved3: *mut super::super::super::Win32::System::Diagnostics::Debug::XSAVE_AREA,
-    pub Thread: *mut isize,
-    pub Reserved4: *mut core::ffi::c_void,
-    pub Level: u8,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
-pub struct ZONE_HEADER {
-    pub FreeList: super::super::super::Win32::System::Kernel::SINGLE_LIST_ENTRY,
-    pub SegmentList: super::super::super::Win32::System::Kernel::SINGLE_LIST_ENTRY,
-    pub BlockSize: u32,
-    pub TotalSegmentSize: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
-pub struct ZONE_SEGMENT_HEADER {
-    pub SegmentList: super::super::super::Win32::System::Kernel::SINGLE_LIST_ENTRY,
-    pub Reserved: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct _EXT_SET_PARAMETERS_V0 {
-    pub Version: u32,
-    pub Reserved: u32,
-    pub NoWakeTolerance: i64,
-}
-pub const ACPIBus: INTERFACE_TYPE = 17i32;
-pub const ADAPTER_INFO_API_BYPASS: u32 = 2u32;
-pub const ADAPTER_INFO_SYNCHRONOUS_CALLBACK: u32 = 1u32;
-pub const ALLOC_DATA_PRAGMA: u32 = 1u32;
-pub const ALLOC_PRAGMA: u32 = 1u32;
-pub const ANY_SIZE: u32 = 1u32;
-pub const APC_LEVEL: u32 = 1u32;
-pub const ARBITER_FLAG_BOOT_CONFIG: u32 = 1u32;
-pub const ARBITER_FLAG_OTHER_ENUM: u32 = 4u32;
-pub const ARBITER_FLAG_ROOT_ENUM: u32 = 2u32;
-pub const ARBITER_PARTIAL: u32 = 1u32;
-pub const ARM64_PCR_RESERVED_MASK: u32 = 4095u32;
-pub const ARM_PROCESSOR_ERROR_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe19e3d16_bc11_11e4_9caa_c2051d5d46b0);
-pub const ATS_DEVICE_SVM_OPTOUT: u32 = 1u32;
-pub const AccessFlagFault: FAULT_INFORMATION_ARM64_TYPE = 5i32;
-pub const AddressSizeFault: FAULT_INFORMATION_ARM64_TYPE = 1i32;
-pub const AgpControl: EXTENDED_AGP_REGISTER = 1i32;
-pub const AllLoggerHandlesClass: TRACE_INFORMATION_CLASS = 6i32;
-pub const AperturePageSize: EXTENDED_AGP_REGISTER = 3i32;
-pub const ApertureSize: EXTENDED_AGP_REGISTER = 2i32;
-pub const ApicDestinationModeLogicalClustered: HAL_APIC_DESTINATION_MODE = 3i32;
-pub const ApicDestinationModeLogicalFlat: HAL_APIC_DESTINATION_MODE = 2i32;
-pub const ApicDestinationModePhysical: HAL_APIC_DESTINATION_MODE = 1i32;
-pub const ApicDestinationModeUnknown: HAL_APIC_DESTINATION_MODE = 4i32;
-pub const ArbiterActionAddReserved: ARBITER_ACTION = 8i32;
-pub const ArbiterActionBootAllocation: ARBITER_ACTION = 9i32;
-pub const ArbiterActionCommitAllocation: ARBITER_ACTION = 2i32;
-pub const ArbiterActionQueryAllocatedResources: ARBITER_ACTION = 4i32;
-pub const ArbiterActionQueryArbitrate: ARBITER_ACTION = 7i32;
-pub const ArbiterActionQueryConflict: ARBITER_ACTION = 6i32;
-pub const ArbiterActionRetestAllocation: ARBITER_ACTION = 1i32;
-pub const ArbiterActionRollbackAllocation: ARBITER_ACTION = 3i32;
-pub const ArbiterActionTestAllocation: ARBITER_ACTION = 0i32;
-pub const ArbiterActionWriteReservedResources: ARBITER_ACTION = 5i32;
-pub const ArbiterRequestHalReported: ARBITER_REQUEST_SOURCE = 1i32;
-pub const ArbiterRequestLegacyAssigned: ARBITER_REQUEST_SOURCE = 2i32;
-pub const ArbiterRequestLegacyReported: ARBITER_REQUEST_SOURCE = 0i32;
-pub const ArbiterRequestPnpDetected: ARBITER_REQUEST_SOURCE = 3i32;
-pub const ArbiterRequestPnpEnumerated: ARBITER_REQUEST_SOURCE = 4i32;
-pub const ArbiterRequestUndefined: ARBITER_REQUEST_SOURCE = -1i32;
-pub const ArbiterResultExternalConflict: ARBITER_RESULT = 1i32;
-pub const ArbiterResultNullRequest: ARBITER_RESULT = 2i32;
-pub const ArbiterResultSuccess: ARBITER_RESULT = 0i32;
-pub const ArbiterResultUndefined: ARBITER_RESULT = -1i32;
-pub const ArcSystem: CONFIGURATION_TYPE = 0i32;
-pub const AssignSecurityDescriptor: SECURITY_OPERATION_CODE = 3i32;
-pub const AudioController: CONFIGURATION_TYPE = 23i32;
-pub const BMC_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x487565ba_6494_4367_95ca_4eff893522f6);
-pub const BOOT_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3d61a466_ab40_409a_a698_f362d464b38f);
-pub const BackgroundWorkQueue: WORK_QUEUE_TYPE = 4i32;
-pub const BdCbClassificationEnd: BDCB_CLASSIFICATION = 4i32;
-pub const BdCbClassificationKnownBadImage: BDCB_CLASSIFICATION = 2i32;
-pub const BdCbClassificationKnownBadImageBootCritical: BDCB_CLASSIFICATION = 3i32;
-pub const BdCbClassificationKnownGoodImage: BDCB_CLASSIFICATION = 1i32;
-pub const BdCbClassificationUnknownImage: BDCB_CLASSIFICATION = 0i32;
-pub const BdCbInitializeImage: BDCB_CALLBACK_TYPE = 1i32;
-pub const BdCbStatusPrepareForDependencyLoad: BDCB_STATUS_UPDATE_TYPE = 0i32;
-pub const BdCbStatusPrepareForDriverLoad: BDCB_STATUS_UPDATE_TYPE = 1i32;
-pub const BdCbStatusPrepareForUnload: BDCB_STATUS_UPDATE_TYPE = 2i32;
-pub const BdCbStatusUpdate: BDCB_CALLBACK_TYPE = 0i32;
-pub const BoundExceptionContinueSearch: BOUND_CALLBACK_STATUS = 0i32;
-pub const BoundExceptionError: BOUND_CALLBACK_STATUS = 2i32;
-pub const BoundExceptionHandled: BOUND_CALLBACK_STATUS = 1i32;
-pub const BoundExceptionMaximum: BOUND_CALLBACK_STATUS = 3i32;
-pub const BufferEmpty: KBUGCHECK_BUFFER_DUMP_STATE = 0i32;
-pub const BufferFinished: KBUGCHECK_BUFFER_DUMP_STATE = 3i32;
-pub const BufferIncomplete: KBUGCHECK_BUFFER_DUMP_STATE = 4i32;
-pub const BufferInserted: KBUGCHECK_BUFFER_DUMP_STATE = 1i32;
-pub const BufferStarted: KBUGCHECK_BUFFER_DUMP_STATE = 2i32;
-pub const BusQueryCompatibleIDs: BUS_QUERY_ID_TYPE = 2i32;
-pub const BusQueryContainerID: BUS_QUERY_ID_TYPE = 5i32;
-pub const BusQueryDeviceID: BUS_QUERY_ID_TYPE = 0i32;
-pub const BusQueryDeviceSerialNumber: BUS_QUERY_ID_TYPE = 4i32;
-pub const BusQueryHardwareIDs: BUS_QUERY_ID_TYPE = 1i32;
-pub const BusQueryInstanceID: BUS_QUERY_ID_TYPE = 3i32;
-pub const BusRelations: DEVICE_RELATION_TYPE = 0i32;
-pub const BusWidth32Bits: PCI_BUS_WIDTH = 0i32;
-pub const BusWidth64Bits: PCI_BUS_WIDTH = 1i32;
-pub const CBus: INTERFACE_TYPE = 9i32;
-pub const CLFS_MAX_CONTAINER_INFO: u32 = 256u32;
-pub const CLFS_SCAN_BACKWARD: u8 = 4u8;
-pub const CLFS_SCAN_BUFFERED: u8 = 32u8;
-pub const CLFS_SCAN_CLOSE: u8 = 8u8;
-pub const CLFS_SCAN_FORWARD: u8 = 2u8;
-pub const CLFS_SCAN_INIT: u8 = 1u8;
-pub const CLFS_SCAN_INITIALIZED: u8 = 16u8;
-pub const CLOCK1_LEVEL: u32 = 28u32;
-pub const CLOCK2_LEVEL: u32 = 28u32;
-pub const CLOCK_LEVEL: u32 = 28u32;
-pub const CMCI_LEVEL: u32 = 5u32;
-pub const CMCI_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x919448b2_3739_4b7f_a8f1_e0062805c2a3);
-pub const CMC_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2dce8bb1_bdd7_450e_b9ad_9cf4ebd4f890);
-pub const CM_RESOURCE_CONNECTION_CLASS_FUNCTION_CONFIG: u32 = 3u32;
-pub const CM_RESOURCE_CONNECTION_CLASS_GPIO: u32 = 1u32;
-pub const CM_RESOURCE_CONNECTION_CLASS_SERIAL: u32 = 2u32;
-pub const CM_RESOURCE_CONNECTION_TYPE_FUNCTION_CONFIG: u32 = 1u32;
-pub const CM_RESOURCE_CONNECTION_TYPE_GPIO_IO: u32 = 2u32;
-pub const CM_RESOURCE_CONNECTION_TYPE_SERIAL_I2C: u32 = 1u32;
-pub const CM_RESOURCE_CONNECTION_TYPE_SERIAL_SPI: u32 = 2u32;
-pub const CM_RESOURCE_CONNECTION_TYPE_SERIAL_UART: u32 = 3u32;
-pub const CM_RESOURCE_DMA_16: u32 = 1u32;
-pub const CM_RESOURCE_DMA_32: u32 = 2u32;
-pub const CM_RESOURCE_DMA_8: u32 = 0u32;
-pub const CM_RESOURCE_DMA_8_AND_16: u32 = 4u32;
-pub const CM_RESOURCE_DMA_BUS_MASTER: u32 = 8u32;
-pub const CM_RESOURCE_DMA_TYPE_A: u32 = 16u32;
-pub const CM_RESOURCE_DMA_TYPE_B: u32 = 32u32;
-pub const CM_RESOURCE_DMA_TYPE_F: u32 = 64u32;
-pub const CM_RESOURCE_DMA_V3: u32 = 128u32;
-pub const CM_RESOURCE_INTERRUPT_LATCHED: u32 = 1u32;
-pub const CM_RESOURCE_INTERRUPT_LEVEL_LATCHED_BITS: u32 = 1u32;
-pub const CM_RESOURCE_INTERRUPT_LEVEL_SENSITIVE: u32 = 0u32;
-pub const CM_RESOURCE_INTERRUPT_MESSAGE: u32 = 2u32;
-pub const CM_RESOURCE_INTERRUPT_POLICY_INCLUDED: u32 = 4u32;
-pub const CM_RESOURCE_INTERRUPT_SECONDARY_INTERRUPT: u32 = 16u32;
-pub const CM_RESOURCE_INTERRUPT_WAKE_HINT: u32 = 32u32;
-pub const CM_RESOURCE_MEMORY_24: u32 = 16u32;
-pub const CM_RESOURCE_MEMORY_BAR: u32 = 128u32;
-pub const CM_RESOURCE_MEMORY_CACHEABLE: u32 = 32u32;
-pub const CM_RESOURCE_MEMORY_COMBINEDWRITE: u32 = 8u32;
-pub const CM_RESOURCE_MEMORY_COMPAT_FOR_INACCESSIBLE_RANGE: u32 = 256u32;
-pub const CM_RESOURCE_MEMORY_LARGE: u32 = 3584u32;
-pub const CM_RESOURCE_MEMORY_LARGE_40: u32 = 512u32;
-pub const CM_RESOURCE_MEMORY_LARGE_40_MAXLEN: u64 = 1099511627520u64;
-pub const CM_RESOURCE_MEMORY_LARGE_48: u32 = 1024u32;
-pub const CM_RESOURCE_MEMORY_LARGE_48_MAXLEN: u64 = 281474976645120u64;
-pub const CM_RESOURCE_MEMORY_LARGE_64: u32 = 2048u32;
-pub const CM_RESOURCE_MEMORY_LARGE_64_MAXLEN: u64 = 18446744069414584320u64;
-pub const CM_RESOURCE_MEMORY_PREFETCHABLE: u32 = 4u32;
-pub const CM_RESOURCE_MEMORY_READ_ONLY: u32 = 1u32;
-pub const CM_RESOURCE_MEMORY_READ_WRITE: u32 = 0u32;
-pub const CM_RESOURCE_MEMORY_WINDOW_DECODE: u32 = 64u32;
-pub const CM_RESOURCE_MEMORY_WRITEABILITY_MASK: u32 = 3u32;
-pub const CM_RESOURCE_MEMORY_WRITE_ONLY: u32 = 2u32;
-pub const CM_RESOURCE_PORT_10_BIT_DECODE: u32 = 4u32;
-pub const CM_RESOURCE_PORT_12_BIT_DECODE: u32 = 8u32;
-pub const CM_RESOURCE_PORT_16_BIT_DECODE: u32 = 16u32;
-pub const CM_RESOURCE_PORT_BAR: u32 = 256u32;
-pub const CM_RESOURCE_PORT_IO: u32 = 1u32;
-pub const CM_RESOURCE_PORT_MEMORY: u32 = 0u32;
-pub const CM_RESOURCE_PORT_PASSIVE_DECODE: u32 = 64u32;
-pub const CM_RESOURCE_PORT_POSITIVE_DECODE: u32 = 32u32;
-pub const CM_RESOURCE_PORT_WINDOW_DECODE: u32 = 128u32;
-pub const CM_SERVICE_MEASURED_BOOT_LOAD: u32 = 32u32;
-pub const CONNECT_CURRENT_VERSION: u32 = 5u32;
-pub const CONNECT_FULLY_SPECIFIED: u32 = 1u32;
-pub const CONNECT_FULLY_SPECIFIED_GROUP: u32 = 4u32;
-pub const CONNECT_LINE_BASED: u32 = 2u32;
-pub const CONNECT_MESSAGE_BASED: u32 = 3u32;
-pub const CONNECT_MESSAGE_BASED_PASSIVE: u32 = 5u32;
-pub const CP15_PCR_RESERVED_MASK: u32 = 4095u32;
-pub const CPER_EMPTY_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
-pub const CPE_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4e292f96_d843_4a55_a8c2_d481f27ebeee);
-pub const CP_GET_ERROR: u32 = 2u32;
-pub const CP_GET_NODATA: u32 = 1u32;
-pub const CP_GET_SUCCESS: u32 = 0u32;
-pub const CardPresent: PCI_EXPRESS_CARD_PRESENCE = 1i32;
-pub const CbusConfiguration: BUS_DATA_TYPE = 3i32;
-pub const CdromController: CONFIGURATION_TYPE = 15i32;
-pub const CentralProcessor: CONFIGURATION_TYPE = 1i32;
-pub const ClfsClientRecord: u8 = 3u8;
-pub const ClfsContainerActive: u32 = 4u32;
-pub const ClfsContainerActivePendingDelete: u32 = 8u32;
-pub const ClfsContainerInactive: u32 = 2u32;
-pub const ClfsContainerInitializing: u32 = 1u32;
-pub const ClfsContainerPendingArchive: u32 = 16u32;
-pub const ClfsContainerPendingArchiveAndDelete: u32 = 32u32;
-pub const ClfsDataRecord: u8 = 1u8;
-pub const ClfsNullRecord: u8 = 0u8;
-pub const ClfsRestartRecord: u8 = 2u8;
-pub const ClsContainerActive: u32 = 4u32;
-pub const ClsContainerActivePendingDelete: u32 = 8u32;
-pub const ClsContainerInactive: u32 = 2u32;
-pub const ClsContainerInitializing: u32 = 1u32;
-pub const ClsContainerPendingArchive: u32 = 16u32;
-pub const ClsContainerPendingArchiveAndDelete: u32 = 32u32;
-pub const CmResourceShareDeviceExclusive: CM_SHARE_DISPOSITION = 1i32;
-pub const CmResourceShareDriverExclusive: CM_SHARE_DISPOSITION = 2i32;
-pub const CmResourceShareShared: CM_SHARE_DISPOSITION = 3i32;
-pub const CmResourceShareUndetermined: CM_SHARE_DISPOSITION = 0i32;
-pub const CmResourceTypeBusNumber: u32 = 6u32;
-pub const CmResourceTypeConfigData: u32 = 128u32;
-pub const CmResourceTypeConnection: u32 = 132u32;
-pub const CmResourceTypeDevicePrivate: u32 = 129u32;
-pub const CmResourceTypeDeviceSpecific: u32 = 5u32;
-pub const CmResourceTypeDma: u32 = 4u32;
-pub const CmResourceTypeInterrupt: u32 = 2u32;
-pub const CmResourceTypeMaximum: u32 = 8u32;
-pub const CmResourceTypeMemory: u32 = 3u32;
-pub const CmResourceTypeMemoryLarge: u32 = 7u32;
-pub const CmResourceTypeMfCardConfig: u32 = 131u32;
-pub const CmResourceTypeNonArbitrated: u32 = 128u32;
-pub const CmResourceTypeNull: u32 = 0u32;
-pub const CmResourceTypePcCardConfig: u32 = 130u32;
-pub const CmResourceTypePort: u32 = 1u32;
-pub const Cmos: BUS_DATA_TYPE = 0i32;
-pub const CommonBufferConfigTypeHardwareAccessPermissions: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = 2i32;
-pub const CommonBufferConfigTypeLogicalAddressLimits: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = 0i32;
-pub const CommonBufferConfigTypeMax: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = 3i32;
-pub const CommonBufferConfigTypeSubSection: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = 1i32;
-pub const CommonBufferHardwareAccessMax: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = 3i32;
-pub const CommonBufferHardwareAccessReadOnly: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = 0i32;
-pub const CommonBufferHardwareAccessReadWrite: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = 2i32;
-pub const CommonBufferHardwareAccessWriteOnly: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = 1i32;
-pub const Compatible: DMA_SPEED = 0i32;
-pub const ConfigurationSpaceUndefined: BUS_DATA_TYPE = -1i32;
-pub const ContinueCompletion: IO_COMPLETION_ROUTINE_RESULT = 0i32;
-pub const CreateFileTypeMailslot: CREATE_FILE_TYPE = 2i32;
-pub const CreateFileTypeNamedPipe: CREATE_FILE_TYPE = 1i32;
-pub const CreateFileTypeNone: CREATE_FILE_TYPE = 0i32;
-pub const CriticalWorkQueue: WORK_QUEUE_TYPE = 0i32;
-pub const CustomPriorityWorkQueue: WORK_QUEUE_TYPE = 32i32;
-pub const D3COLD_SUPPORT_INTERFACE_VERSION: u32 = 1u32;
-pub const DBG_DEVICE_FLAG_BARS_MAPPED: u32 = 2u32;
-pub const DBG_DEVICE_FLAG_HAL_SCRATCH_ALLOCATED: u32 = 1u32;
-pub const DBG_DEVICE_FLAG_HOST_VISIBLE_ALLOCATED: u32 = 32u32;
-pub const DBG_DEVICE_FLAG_SCRATCH_ALLOCATED: u32 = 4u32;
-pub const DBG_DEVICE_FLAG_SYNTHETIC: u32 = 16u32;
-pub const DBG_DEVICE_FLAG_UNCACHED_MEMORY: u32 = 8u32;
-pub const DBG_STATUS_BUGCHECK_FIRST: u32 = 3u32;
-pub const DBG_STATUS_BUGCHECK_SECOND: u32 = 4u32;
-pub const DBG_STATUS_CONTROL_C: u32 = 1u32;
-pub const DBG_STATUS_DEBUG_CONTROL: u32 = 6u32;
-pub const DBG_STATUS_FATAL: u32 = 5u32;
-pub const DBG_STATUS_SYSRQ: u32 = 2u32;
-pub const DBG_STATUS_WORKER: u32 = 7u32;
-pub const DEFAULT_DEVICE_DRIVER_CREATOR_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x57217c8d_5e66_44fb_8033_9b74cacedf5b);
-pub const DEVICE_DESCRIPTION_VERSION: u32 = 0u32;
-pub const DEVICE_DESCRIPTION_VERSION1: u32 = 1u32;
-pub const DEVICE_DESCRIPTION_VERSION2: u32 = 2u32;
-pub const DEVICE_DESCRIPTION_VERSION3: u32 = 3u32;
-pub const DEVICE_DRIVER_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0033f803_2e70_4e88_992c_6f26daf3db7a);
-pub const DEVICE_INTERFACE_INCLUDE_NONACTIVE: u32 = 1u32;
-pub const DEVICE_RESET_INTERFACE_VERSION: u32 = 1u32;
-pub const DEVICE_RESET_INTERFACE_VERSION_1: u32 = 1u32;
-pub const DEVICE_RESET_INTERFACE_VERSION_2: u32 = 2u32;
-pub const DEVICE_RESET_INTERFACE_VERSION_3: u32 = 3u32;
-pub const DIRECTORY_CREATE_OBJECT: u32 = 4u32;
-pub const DIRECTORY_CREATE_SUBDIRECTORY: u32 = 8u32;
-pub const DIRECTORY_QUERY: u32 = 1u32;
-pub const DIRECTORY_TRAVERSE: u32 = 2u32;
-pub const DISPATCH_LEVEL: u32 = 2u32;
-pub const DMAV3_TRANFER_WIDTH_128: u32 = 4u32;
-pub const DMAV3_TRANFER_WIDTH_16: u32 = 1u32;
-pub const DMAV3_TRANFER_WIDTH_256: u32 = 5u32;
-pub const DMAV3_TRANFER_WIDTH_32: u32 = 2u32;
-pub const DMAV3_TRANFER_WIDTH_64: u32 = 3u32;
-pub const DMAV3_TRANFER_WIDTH_8: u32 = 0u32;
-pub const DMA_ADAPTER_INFO_VERSION1: u32 = 1u32;
-pub const DMA_FAIL_ON_BOUNCE: u32 = 4u32;
-pub const DMA_IOMMU_INTERFACE_EX_VERSION: u32 = 1u32;
-pub const DMA_IOMMU_INTERFACE_EX_VERSION_1: u32 = 1u32;
-pub const DMA_IOMMU_INTERFACE_EX_VERSION_2: u32 = 2u32;
-pub const DMA_IOMMU_INTERFACE_EX_VERSION_MAX: u32 = 2u32;
-pub const DMA_IOMMU_INTERFACE_EX_VERSION_MIN: u32 = 1u32;
-pub const DMA_IOMMU_INTERFACE_VERSION: u32 = 1u32;
-pub const DMA_IOMMU_INTERFACE_VERSION_1: u32 = 1u32;
-pub const DMA_SYNCHRONOUS_CALLBACK: u32 = 1u32;
-pub const DMA_TRANSFER_CONTEXT_SIZE_V1: u32 = 128u32;
-pub const DMA_TRANSFER_CONTEXT_VERSION1: u32 = 1u32;
-pub const DMA_TRANSFER_INFO_VERSION1: u32 = 1u32;
-pub const DMA_TRANSFER_INFO_VERSION2: u32 = 2u32;
-pub const DMA_ZERO_BUFFERS: u32 = 2u32;
-pub const DOMAIN_COMMON_BUFFER_LARGE_PAGE: u32 = 1u32;
-pub const DPC_NORMAL: u32 = 0u32;
-pub const DPC_THREADED: u32 = 1u32;
-pub const DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK_REVISION_1: u32 = 1u32;
-pub const DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK_SIGNATURE: u32 = 2931740382u32;
-pub const DRIVER_VERIFIER_FORCE_IRQL_CHECKING: u32 = 2u32;
-pub const DRIVER_VERIFIER_INJECT_ALLOCATION_FAILURES: u32 = 4u32;
-pub const DRIVER_VERIFIER_IO_CHECKING: u32 = 16u32;
-pub const DRIVER_VERIFIER_SPECIAL_POOLING: u32 = 1u32;
-pub const DRIVER_VERIFIER_TRACK_POOL_ALLOCATIONS: u32 = 8u32;
-pub const DRS_LEVEL: u32 = 14u32;
-pub const DRVO_BOOTREINIT_REGISTERED: u32 = 32u32;
-pub const DRVO_BUILTIN_DRIVER: u32 = 4u32;
-pub const DRVO_INITIALIZED: u32 = 16u32;
-pub const DRVO_LEGACY_DRIVER: u32 = 2u32;
-pub const DRVO_LEGACY_RESOURCES: u32 = 64u32;
-pub const DRVO_REINIT_REGISTERED: u32 = 8u32;
-pub const DRVO_UNLOAD_INVOKED: u32 = 1u32;
-pub const DUPLICATE_SAME_ATTRIBUTES: u32 = 4u32;
-pub const DeallocateObject: IO_ALLOCATION_ACTION = 2i32;
-pub const DeallocateObjectKeepRegisters: IO_ALLOCATION_ACTION = 3i32;
-pub const DelayExecution: KWAIT_REASON = 4i32;
-pub const DelayedWorkQueue: WORK_QUEUE_TYPE = 1i32;
-pub const DeleteSecurityDescriptor: SECURITY_OPERATION_CODE = 2i32;
-pub const DeviceDirectoryData: DEVICE_DIRECTORY_TYPE = 0i32;
-pub const DevicePowerState: POWER_STATE_TYPE = 1i32;
-pub const DevicePropertyAddress: DEVICE_REGISTRY_PROPERTY = 16i32;
-pub const DevicePropertyAllocatedResources: DEVICE_REGISTRY_PROPERTY = 21i32;
-pub const DevicePropertyBootConfiguration: DEVICE_REGISTRY_PROPERTY = 3i32;
-pub const DevicePropertyBootConfigurationTranslated: DEVICE_REGISTRY_PROPERTY = 4i32;
-pub const DevicePropertyBusNumber: DEVICE_REGISTRY_PROPERTY = 14i32;
-pub const DevicePropertyBusTypeGuid: DEVICE_REGISTRY_PROPERTY = 8204i32;
-pub const DevicePropertyClassGuid: DEVICE_REGISTRY_PROPERTY = 4102i32;
-pub const DevicePropertyClassName: DEVICE_REGISTRY_PROPERTY = 4101i32;
-pub const DevicePropertyCompatibleIDs: DEVICE_REGISTRY_PROPERTY = 16386i32;
-pub const DevicePropertyContainerID: DEVICE_REGISTRY_PROPERTY = 4118i32;
-pub const DevicePropertyDeviceDescription: DEVICE_REGISTRY_PROPERTY = 4096i32;
-pub const DevicePropertyDriverKeyName: DEVICE_REGISTRY_PROPERTY = 4103i32;
-pub const DevicePropertyEnumeratorName: DEVICE_REGISTRY_PROPERTY = 4111i32;
-pub const DevicePropertyFriendlyName: DEVICE_REGISTRY_PROPERTY = 4105i32;
-pub const DevicePropertyHardwareID: DEVICE_REGISTRY_PROPERTY = 16385i32;
-pub const DevicePropertyInstallState: DEVICE_REGISTRY_PROPERTY = 18i32;
-pub const DevicePropertyLegacyBusType: DEVICE_REGISTRY_PROPERTY = 13i32;
-pub const DevicePropertyLocationInformation: DEVICE_REGISTRY_PROPERTY = 4106i32;
-pub const DevicePropertyManufacturer: DEVICE_REGISTRY_PROPERTY = 4104i32;
-pub const DevicePropertyPhysicalDeviceObjectName: DEVICE_REGISTRY_PROPERTY = 4107i32;
-pub const DevicePropertyRemovalPolicy: DEVICE_REGISTRY_PROPERTY = 19i32;
-pub const DevicePropertyResourceRequirements: DEVICE_REGISTRY_PROPERTY = 20i32;
-pub const DevicePropertyUINumber: DEVICE_REGISTRY_PROPERTY = 17i32;
-pub const DeviceTextDescription: DEVICE_TEXT_TYPE = 0i32;
-pub const DeviceTextLocationInformation: DEVICE_TEXT_TYPE = 1i32;
-pub const DeviceUsageTypeBoot: DEVICE_USAGE_NOTIFICATION_TYPE = 4i32;
-pub const DeviceUsageTypeDumpFile: DEVICE_USAGE_NOTIFICATION_TYPE = 3i32;
-pub const DeviceUsageTypeGuestAssigned: DEVICE_USAGE_NOTIFICATION_TYPE = 6i32;
-pub const DeviceUsageTypeHibernation: DEVICE_USAGE_NOTIFICATION_TYPE = 2i32;
-pub const DeviceUsageTypePaging: DEVICE_USAGE_NOTIFICATION_TYPE = 1i32;
-pub const DeviceUsageTypePostDisplay: DEVICE_USAGE_NOTIFICATION_TYPE = 5i32;
-pub const DeviceUsageTypeUndefined: DEVICE_USAGE_NOTIFICATION_TYPE = 0i32;
-pub const DeviceWakeDepthD0: DEVICE_WAKE_DEPTH = 1i32;
-pub const DeviceWakeDepthD1: DEVICE_WAKE_DEPTH = 2i32;
-pub const DeviceWakeDepthD2: DEVICE_WAKE_DEPTH = 3i32;
-pub const DeviceWakeDepthD3cold: DEVICE_WAKE_DEPTH = 5i32;
-pub const DeviceWakeDepthD3hot: DEVICE_WAKE_DEPTH = 4i32;
-pub const DeviceWakeDepthMaximum: DEVICE_WAKE_DEPTH = 6i32;
-pub const DeviceWakeDepthNotWakeable: DEVICE_WAKE_DEPTH = 0i32;
-pub const DirectoryNotifyExtendedInformation: DIRECTORY_NOTIFY_INFORMATION_CLASS = 2i32;
-pub const DirectoryNotifyFullInformation: DIRECTORY_NOTIFY_INFORMATION_CLASS = 3i32;
-pub const DirectoryNotifyInformation: DIRECTORY_NOTIFY_INFORMATION_CLASS = 1i32;
-pub const DirectoryNotifyMaximumInformation: DIRECTORY_NOTIFY_INFORMATION_CLASS = 4i32;
-pub const DisabledControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 11i32;
-pub const DiskController: CONFIGURATION_TYPE = 13i32;
-pub const DiskIoNotifyRoutinesClass: TRACE_INFORMATION_CLASS = 11i32;
-pub const DiskPeripheral: CONFIGURATION_TYPE = 25i32;
-pub const DisplayController: CONFIGURATION_TYPE = 19i32;
-pub const DmaAborted: DMA_COMPLETION_STATUS = 1i32;
-pub const DmaCancelled: DMA_COMPLETION_STATUS = 3i32;
-pub const DmaComplete: DMA_COMPLETION_STATUS = 0i32;
-pub const DmaError: DMA_COMPLETION_STATUS = 2i32;
-pub const DockingInformation: CONFIGURATION_TYPE = 38i32;
-pub const DomainConfigurationArm64: DOMAIN_CONFIGURATION_ARCH = 0i32;
-pub const DomainConfigurationInvalid: DOMAIN_CONFIGURATION_ARCH = 2i32;
-pub const DomainConfigurationX64: DOMAIN_CONFIGURATION_ARCH = 1i32;
-pub const DomainTypeMax: IOMMU_DMA_DOMAIN_TYPE = 3i32;
-pub const DomainTypePassThrough: IOMMU_DMA_DOMAIN_TYPE = 1i32;
-pub const DomainTypeTranslate: IOMMU_DMA_DOMAIN_TYPE = 0i32;
-pub const DomainTypeUnmanaged: IOMMU_DMA_DOMAIN_TYPE = 2i32;
-pub const DriverDirectoryData: DRIVER_DIRECTORY_TYPE = 1i32;
-pub const DriverDirectoryImage: DRIVER_DIRECTORY_TYPE = 0i32;
-pub const DriverDirectorySharedData: DRIVER_DIRECTORY_TYPE = 2i32;
-pub const DriverRegKeyParameters: DRIVER_REGKEY_TYPE = 0i32;
-pub const DriverRegKeyPersistentState: DRIVER_REGKEY_TYPE = 1i32;
-pub const DriverRegKeySharedPersistentState: DRIVER_REGKEY_TYPE = 2i32;
-pub const DrvRtPoolNxOptIn: DRIVER_RUNTIME_INIT_FLAGS = 1i32;
-pub const DtiAdapter: CONFIGURATION_TYPE = 11i32;
-pub const EFLAG_SIGN: u32 = 32768u32;
-pub const EFLAG_ZERO: u32 = 16384u32;
-pub const EISA_EMPTY_SLOT: u32 = 131u32;
-pub const EISA_FREE_FORM_DATA: u32 = 64u32;
-pub const EISA_FUNCTION_ENABLED: u32 = 128u32;
-pub const EISA_HAS_DMA_ENTRY: u32 = 8u32;
-pub const EISA_HAS_IRQ_ENTRY: u32 = 4u32;
-pub const EISA_HAS_MEMORY_ENTRY: u32 = 2u32;
-pub const EISA_HAS_PORT_INIT_ENTRY: u32 = 32u32;
-pub const EISA_HAS_PORT_RANGE: u32 = 16u32;
-pub const EISA_HAS_TYPE_ENTRY: u32 = 1u32;
-pub const EISA_INVALID_BIOS_CALL: u32 = 134u32;
-pub const EISA_INVALID_CONFIGURATION: u32 = 130u32;
-pub const EISA_INVALID_FUNCTION: u32 = 129u32;
-pub const EISA_INVALID_SLOT: u32 = 128u32;
-pub const EISA_MEMORY_TYPE_RAM: u32 = 1u32;
-pub const EISA_MORE_ENTRIES: u32 = 128u32;
-pub const EISA_SYSTEM_MEMORY: u32 = 0u32;
-pub const ERROR_LOG_LIMIT_SIZE: u32 = 240u32;
-pub const ERROR_MAJOR_REVISION_SAL_03_00: u32 = 0u32;
-pub const ERROR_MEMORY_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe429faf2_3cb7_11d4_bca7_0080c73c8881);
-pub const ERROR_MINOR_REVISION_SAL_03_00: u32 = 2u32;
-pub const ERROR_PCI_BUS_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe429faf4_3cb7_11d4_bca7_0080c73c8881);
-pub const ERROR_PCI_COMPONENT_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe429faf6_3cb7_11d4_bca7_0080c73c8881);
-pub const ERROR_PLATFORM_BUS_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe429faf9_3cb7_11d4_bca7_0080c73c8881);
-pub const ERROR_PLATFORM_HOST_CONTROLLER_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe429faf8_3cb7_11d4_bca7_0080c73c8881);
-pub const ERROR_PLATFORM_SPECIFIC_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe429faf7_3cb7_11d4_bca7_0080c73c8881);
-pub const ERROR_PROCESSOR_STATE_PARAMETER_BUS_CHECK_MASK: u32 = 1u32;
-pub const ERROR_PROCESSOR_STATE_PARAMETER_BUS_CHECK_SHIFT: u32 = 61u32;
-pub const ERROR_PROCESSOR_STATE_PARAMETER_CACHE_CHECK_MASK: u32 = 1u32;
-pub const ERROR_PROCESSOR_STATE_PARAMETER_CACHE_CHECK_SHIFT: u32 = 59u32;
-pub const ERROR_PROCESSOR_STATE_PARAMETER_MICROARCH_CHECK_MASK: u32 = 1u32;
-pub const ERROR_PROCESSOR_STATE_PARAMETER_MICROARCH_CHECK_SHIFT: u32 = 63u32;
-pub const ERROR_PROCESSOR_STATE_PARAMETER_REG_CHECK_MASK: u32 = 1u32;
-pub const ERROR_PROCESSOR_STATE_PARAMETER_REG_CHECK_SHIFT: u32 = 62u32;
-pub const ERROR_PROCESSOR_STATE_PARAMETER_TLB_CHECK_MASK: u32 = 1u32;
-pub const ERROR_PROCESSOR_STATE_PARAMETER_TLB_CHECK_SHIFT: u32 = 60u32;
-pub const ERROR_PROCESSOR_STATE_PARAMETER_UNKNOWN_CHECK_MASK: u32 = 1u32;
-pub const ERROR_PROCESSOR_STATE_PARAMETER_UNKNOWN_CHECK_SHIFT: u32 = 63u32;
-pub const ERROR_SMBIOS_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe429faf5_3cb7_11d4_bca7_0080c73c8881);
-pub const ERROR_SYSTEM_EVENT_LOG_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe429faf3_3cb7_11d4_bca7_0080c73c8881);
-pub const ERRTYP_BUS: u32 = 16u32;
-pub const ERRTYP_CACHE: u32 = 6u32;
-pub const ERRTYP_FLOW: u32 = 9u32;
-pub const ERRTYP_FUNCTION: u32 = 7u32;
-pub const ERRTYP_IMPROPER: u32 = 18u32;
-pub const ERRTYP_INTERNAL: u32 = 1u32;
-pub const ERRTYP_LOSSOFLOCKSTEP: u32 = 20u32;
-pub const ERRTYP_MAP: u32 = 17u32;
-pub const ERRTYP_MEM: u32 = 4u32;
-pub const ERRTYP_PARITY: u32 = 22u32;
-pub const ERRTYP_PATHERROR: u32 = 24u32;
-pub const ERRTYP_POISONED: u32 = 26u32;
-pub const ERRTYP_PROTOCOL: u32 = 23u32;
-pub const ERRTYP_RESPONSE: u32 = 21u32;
-pub const ERRTYP_SELFTEST: u32 = 8u32;
-pub const ERRTYP_TIMEOUT: u32 = 25u32;
-pub const ERRTYP_TLB: u32 = 5u32;
-pub const ERRTYP_UNIMPL: u32 = 19u32;
-pub const EVENT_QUERY_STATE: u32 = 1u32;
-pub const EXCEPTION_ALIGNMENT_CHECK: u32 = 17u32;
-pub const EXCEPTION_BOUND_CHECK: u32 = 5u32;
-pub const EXCEPTION_CP_FAULT: u32 = 21u32;
-pub const EXCEPTION_DEBUG: u32 = 1u32;
-pub const EXCEPTION_DIVIDED_BY_ZERO: u32 = 0u32;
-pub const EXCEPTION_DOUBLE_FAULT: u32 = 8u32;
-pub const EXCEPTION_GP_FAULT: u32 = 13u32;
-pub const EXCEPTION_INT3: u32 = 3u32;
-pub const EXCEPTION_INVALID_OPCODE: u32 = 6u32;
-pub const EXCEPTION_INVALID_TSS: u32 = 10u32;
-pub const EXCEPTION_NMI: u32 = 2u32;
-pub const EXCEPTION_NPX_ERROR: u32 = 16u32;
-pub const EXCEPTION_NPX_NOT_AVAILABLE: u32 = 7u32;
-pub const EXCEPTION_NPX_OVERRUN: u32 = 9u32;
-pub const EXCEPTION_RESERVED_TRAP: u32 = 15u32;
-pub const EXCEPTION_SEGMENT_NOT_PRESENT: u32 = 11u32;
-pub const EXCEPTION_SE_FAULT: u32 = 23u32;
-pub const EXCEPTION_SOFTWARE_ORIGINATE: u32 = 128u32;
-pub const EXCEPTION_STACK_FAULT: u32 = 12u32;
-pub const EXCEPTION_VIRTUALIZATION_FAULT: u32 = 32u32;
-pub const EXTINT_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfe84086e_b557_43cf_ac1b_17982e078470);
-pub const EX_CARR_ALLOCATE_NONPAGED_POOL: u32 = 1u32;
-pub const EX_CARR_ALLOCATE_PAGED_POOL: u32 = 0u32;
-pub const EX_CARR_DISABLE_EXPANSION: u32 = 2u32;
-pub const EX_CREATE_FLAG_FILE_DEST_OPEN_FOR_COPY: u32 = 2u32;
-pub const EX_CREATE_FLAG_FILE_SOURCE_OPEN_FOR_COPY: u32 = 1u32;
-pub const EX_DEFAULT_PUSH_LOCK_FLAGS: u32 = 0u32;
-pub const EX_LOOKASIDE_LIST_EX_FLAGS_FAIL_NO_RAISE: u32 = 2u32;
-pub const EX_LOOKASIDE_LIST_EX_FLAGS_RAISE_ON_FAIL: u32 = 1u32;
-pub const EX_MAXIMUM_LOOKASIDE_DEPTH_BASE: u32 = 256u32;
-pub const EX_MAXIMUM_LOOKASIDE_DEPTH_LIMIT: u32 = 1024u32;
-pub const EX_RUNDOWN_ACTIVE: u32 = 1u32;
-pub const EX_RUNDOWN_COUNT_SHIFT: u32 = 1u32;
-pub const EX_TIMER_HIGH_RESOLUTION: u32 = 4u32;
-pub const EX_TIMER_NO_WAKE: u32 = 8u32;
-pub const Eisa: INTERFACE_TYPE = 2i32;
-pub const EisaAdapter: CONFIGURATION_TYPE = 8i32;
-pub const EisaConfiguration: BUS_DATA_TYPE = 1i32;
-pub const EjectionRelations: DEVICE_RELATION_TYPE = 1i32;
-pub const EndAlternatives: ALTERNATIVE_ARCHITECTURE_TYPE = 2i32;
-pub const EventCategoryDeviceInterfaceChange: IO_NOTIFICATION_EVENT_CATEGORY = 2i32;
-pub const EventCategoryHardwareProfileChange: IO_NOTIFICATION_EVENT_CATEGORY = 1i32;
-pub const EventCategoryKernelSoftRestart: IO_NOTIFICATION_EVENT_CATEGORY = 4i32;
-pub const EventCategoryReserved: IO_NOTIFICATION_EVENT_CATEGORY = 0i32;
-pub const EventCategoryTargetDeviceChange: IO_NOTIFICATION_EVENT_CATEGORY = 3i32;
-pub const EventLoggerHandleClass: TRACE_INFORMATION_CLASS = 5i32;
-pub const Executive: KWAIT_REASON = 0i32;
-pub const ExternalFault: FAULT_INFORMATION_ARM64_TYPE = 3i32;
-pub const FILE_128_BYTE_ALIGNMENT: u32 = 127u32;
-pub const FILE_256_BYTE_ALIGNMENT: u32 = 255u32;
-pub const FILE_32_BYTE_ALIGNMENT: u32 = 31u32;
-pub const FILE_512_BYTE_ALIGNMENT: u32 = 511u32;
-pub const FILE_64_BYTE_ALIGNMENT: u32 = 63u32;
-pub const FILE_ATTRIBUTE_VALID_FLAGS: u32 = 32695u32;
-pub const FILE_ATTRIBUTE_VALID_KERNEL_SET_FLAGS: u32 = 5910951u32;
-pub const FILE_ATTRIBUTE_VALID_SET_FLAGS: u32 = 12711u32;
-pub const FILE_AUTOGENERATED_DEVICE_NAME: u32 = 128u32;
-pub const FILE_BYTE_ALIGNMENT: u32 = 0u32;
-pub const FILE_CHARACTERISTICS_EXPECT_ORDERLY_REMOVAL: u32 = 512u32;
-pub const FILE_CHARACTERISTICS_EXPECT_ORDERLY_REMOVAL_DEPRECATED: u32 = 512u32;
-pub const FILE_CHARACTERISTICS_EXPECT_ORDERLY_REMOVAL_EX: u32 = 16384u32;
-pub const FILE_CHARACTERISTICS_EXPECT_SURPRISE_REMOVAL: u32 = 768u32;
-pub const FILE_CHARACTERISTICS_EXPECT_SURPRISE_REMOVAL_DEPRECATED: u32 = 768u32;
-pub const FILE_CHARACTERISTICS_EXPECT_SURPRISE_REMOVAL_EX: u32 = 32768u32;
-pub const FILE_CHARACTERISTICS_REMOVAL_POLICY_MASK: u32 = 768u32;
-pub const FILE_CHARACTERISTICS_REMOVAL_POLICY_MASK_DEPRECATED: u32 = 768u32;
-pub const FILE_CHARACTERISTICS_REMOVAL_POLICY_MASK_EX: u32 = 768u32;
-pub const FILE_CHARACTERISTIC_CSV: u32 = 65536u32;
-pub const FILE_CHARACTERISTIC_PNP_DEVICE: u32 = 2048u32;
-pub const FILE_CHARACTERISTIC_TS_DEVICE: u32 = 4096u32;
-pub const FILE_CHARACTERISTIC_WEBDAV_DEVICE: u32 = 8192u32;
-pub const FILE_DEVICE_ALLOW_APPCONTAINER_TRAVERSAL: u32 = 131072u32;
-pub const FILE_DEVICE_IS_MOUNTED: u32 = 32u32;
-pub const FILE_DEVICE_REQUIRE_SECURITY_CHECK: u32 = 1048576u32;
-pub const FILE_DEVICE_SECURE_OPEN: u32 = 256u32;
-pub const FILE_FLOPPY_DISKETTE: u32 = 4u32;
-pub const FILE_LONG_ALIGNMENT: u32 = 3u32;
-pub const FILE_OCTA_ALIGNMENT: u32 = 15u32;
-pub const FILE_PORTABLE_DEVICE: u32 = 262144u32;
-pub const FILE_QUAD_ALIGNMENT: u32 = 7u32;
-pub const FILE_QUERY_INDEX_SPECIFIED: u32 = 4u32;
-pub const FILE_QUERY_NO_CURSOR_UPDATE: u32 = 16u32;
-pub const FILE_QUERY_RESTART_SCAN: u32 = 1u32;
-pub const FILE_QUERY_RETURN_ON_DISK_ENTRIES_ONLY: u32 = 8u32;
-pub const FILE_QUERY_RETURN_SINGLE_ENTRY: u32 = 2u32;
-pub const FILE_READ_ONLY_DEVICE: u32 = 2u32;
-pub const FILE_REMOTE_DEVICE: u32 = 16u32;
-pub const FILE_REMOTE_DEVICE_VSMB: u32 = 524288u32;
-pub const FILE_REMOVABLE_MEDIA: u32 = 1u32;
-pub const FILE_SHARE_VALID_FLAGS: u32 = 7u32;
-pub const FILE_SKIP_SET_USER_EVENT_ON_FAST_IO: u32 = 4u32;
-pub const FILE_USE_FILE_POINTER_POSITION: u32 = 4294967294u32;
-pub const FILE_VALID_EXTENDED_OPTION_FLAGS: u32 = 268435456u32;
-pub const FILE_VIRTUAL_VOLUME: u32 = 64u32;
-pub const FILE_WORD_ALIGNMENT: u32 = 1u32;
-pub const FILE_WRITE_ONCE_MEDIA: u32 = 8u32;
-pub const FILE_WRITE_TO_END_OF_FILE: u32 = 4294967295u32;
-pub const FIRMWARE_ERROR_RECORD_REFERENCE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x81212a96_09ed_4996_9471_8d729c8e69ed);
-pub const FLAG_OWNER_POINTER_IS_THREAD: u32 = 1u32;
-pub const FLUSH_MULTIPLE_MAXIMUM: u32 = 32u32;
-pub const FM_LOCK_BIT: u32 = 1u32;
-pub const FM_LOCK_BIT_V: u32 = 0u32;
-pub const FO_ALERTABLE_IO: u32 = 4u32;
-pub const FO_BYPASS_IO_ENABLED: u32 = 8388608u32;
-pub const FO_CACHE_SUPPORTED: u32 = 64u32;
-pub const FO_CLEANUP_COMPLETE: u32 = 16384u32;
-pub const FO_DELETE_ON_CLOSE: u32 = 65536u32;
-pub const FO_DIRECT_DEVICE_OPEN: u32 = 2048u32;
-pub const FO_DISALLOW_EXCLUSIVE: u32 = 33554432u32;
-pub const FO_FILE_FAST_IO_READ: u32 = 524288u32;
-pub const FO_FILE_MODIFIED: u32 = 4096u32;
-pub const FO_FILE_OPEN: u32 = 1u32;
-pub const FO_FILE_OPEN_CANCELLED: u32 = 2097152u32;
-pub const FO_FILE_SIZE_CHANGED: u32 = 8192u32;
-pub const FO_FLAGS_VALID_ONLY_DURING_CREATE: u32 = 33554432u32;
-pub const FO_GENERATE_AUDIT_ON_CLOSE: u32 = 1024u32;
-pub const FO_HANDLE_CREATED: u32 = 262144u32;
-pub const FO_INDIRECT_WAIT_OBJECT: u32 = 268435456u32;
-pub const FO_MAILSLOT: u32 = 512u32;
-pub const FO_NAMED_PIPE: u32 = 128u32;
-pub const FO_NO_INTERMEDIATE_BUFFERING: u32 = 8u32;
-pub const FO_OPENED_CASE_SENSITIVE: u32 = 131072u32;
-pub const FO_QUEUE_IRP_TO_THREAD: u32 = 1024u32;
-pub const FO_RANDOM_ACCESS: u32 = 1048576u32;
-pub const FO_REMOTE_ORIGIN: u32 = 16777216u32;
-pub const FO_SECTION_MINSTORE_TREATMENT: u32 = 536870912u32;
-pub const FO_SEQUENTIAL_ONLY: u32 = 32u32;
-pub const FO_SKIP_COMPLETION_PORT: u32 = 33554432u32;
-pub const FO_SKIP_SET_EVENT: u32 = 67108864u32;
-pub const FO_SKIP_SET_FAST_IO: u32 = 134217728u32;
-pub const FO_STREAM_FILE: u32 = 256u32;
-pub const FO_SYNCHRONOUS_IO: u32 = 2u32;
-pub const FO_TEMPORARY_FILE: u32 = 32768u32;
-pub const FO_VOLUME_OPEN: u32 = 4194304u32;
-pub const FO_WRITE_THROUGH: u32 = 16u32;
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_16GB: u32 = 6u32;
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_1GB: u32 = 2u32;
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_1MB: u32 = 9u32;
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_256MB: u32 = 0u32;
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_2GB: u32 = 3u32;
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_32GB: u32 = 7u32;
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_4GB: u32 = 4u32;
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_512MB: u32 = 1u32;
-pub const FPB_MEM_HIGH_VECTOR_GRANULARITY_8GB: u32 = 5u32;
-pub const FPB_MEM_LOW_VECTOR_GRANULARITY_16MB: u32 = 4u32;
-pub const FPB_MEM_LOW_VECTOR_GRANULARITY_1MB: u32 = 0u32;
-pub const FPB_MEM_LOW_VECTOR_GRANULARITY_2MB: u32 = 1u32;
-pub const FPB_MEM_LOW_VECTOR_GRANULARITY_4MB: u32 = 2u32;
-pub const FPB_MEM_LOW_VECTOR_GRANULARITY_8MB: u32 = 3u32;
-pub const FPB_MEM_VECTOR_GRANULARITY_1B: u32 = 8u32;
-pub const FPB_RID_VECTOR_GRANULARITY_256RIDS: u32 = 5u32;
-pub const FPB_RID_VECTOR_GRANULARITY_64RIDS: u32 = 3u32;
-pub const FPB_RID_VECTOR_GRANULARITY_8RIDS: u32 = 0u32;
-pub const FPB_VECTOR_SELECT_MEM_HIGH: u32 = 2u32;
-pub const FPB_VECTOR_SELECT_MEM_LOW: u32 = 1u32;
-pub const FPB_VECTOR_SELECT_RID: u32 = 0u32;
-pub const FPB_VECTOR_SIZE_SUPPORTED_1KBITS: u32 = 2u32;
-pub const FPB_VECTOR_SIZE_SUPPORTED_256BITS: u32 = 0u32;
-pub const FPB_VECTOR_SIZE_SUPPORTED_2KBITS: u32 = 3u32;
-pub const FPB_VECTOR_SIZE_SUPPORTED_4KBITS: u32 = 4u32;
-pub const FPB_VECTOR_SIZE_SUPPORTED_512BITS: u32 = 1u32;
-pub const FPB_VECTOR_SIZE_SUPPORTED_8KBITS: u32 = 5u32;
-pub const FailControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 4i32;
-pub const FaultInformationArm64: FAULT_INFORMATION_ARCH = 1i32;
-pub const FaultInformationInvalid: FAULT_INFORMATION_ARCH = 0i32;
-pub const FaultInformationX64: FAULT_INFORMATION_ARCH = 2i32;
-pub const FloatingPointProcessor: CONFIGURATION_TYPE = 2i32;
-pub const FloppyDiskPeripheral: CONFIGURATION_TYPE = 26i32;
-pub const FltIoNotifyRoutinesClass: TRACE_INFORMATION_CLASS = 13i32;
-pub const FreePage: KWAIT_REASON = 1i32;
-pub const FunctionLevelDeviceReset: DEVICE_RESET_TYPE = 0i32;
-pub const GENERIC_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3e62a467_ab40_409a_a698_f362d464b38f);
-pub const GENERIC_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe71254e8_c1b9_4940_ab76_909703a4320f);
-pub const GENPROC_FLAGS_CORRECTED: u32 = 8u32;
-pub const GENPROC_FLAGS_OVERFLOW: u32 = 4u32;
-pub const GENPROC_FLAGS_PRECISEIP: u32 = 2u32;
-pub const GENPROC_FLAGS_RESTARTABLE: u32 = 1u32;
-pub const GENPROC_OP_DATAREAD: u32 = 1u32;
-pub const GENPROC_OP_DATAWRITE: u32 = 2u32;
-pub const GENPROC_OP_GENERIC: u32 = 0u32;
-pub const GENPROC_OP_INSTRUCTIONEXE: u32 = 3u32;
-pub const GENPROC_PROCERRTYPE_BUS: u32 = 4u32;
-pub const GENPROC_PROCERRTYPE_CACHE: u32 = 1u32;
-pub const GENPROC_PROCERRTYPE_MAE: u32 = 8u32;
-pub const GENPROC_PROCERRTYPE_TLB: u32 = 2u32;
-pub const GENPROC_PROCERRTYPE_UNKNOWN: u32 = 0u32;
-pub const GENPROC_PROCISA_ARM32: u32 = 4u32;
-pub const GENPROC_PROCISA_ARM64: u32 = 8u32;
-pub const GENPROC_PROCISA_IPF: u32 = 1u32;
-pub const GENPROC_PROCISA_X64: u32 = 2u32;
-pub const GENPROC_PROCISA_X86: u32 = 0u32;
-pub const GENPROC_PROCTYPE_ARM: u32 = 2u32;
-pub const GENPROC_PROCTYPE_IPF: u32 = 1u32;
-pub const GENPROC_PROCTYPE_XPF: u32 = 0u32;
-pub const GUID_ECP_CREATE_USER_PROCESS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe0e429ff_6ddc_4e65_aab6_45d05a038a08);
-pub const GartHigh: EXTENDED_AGP_REGISTER = 5i32;
-pub const GartLow: EXTENDED_AGP_REGISTER = 4i32;
-pub const GenericEqual: RTL_GENERIC_COMPARE_RESULTS = 2i32;
-pub const GenericGreaterThan: RTL_GENERIC_COMPARE_RESULTS = 1i32;
-pub const GenericLessThan: RTL_GENERIC_COMPARE_RESULTS = 0i32;
-pub const GlobalLoggerHandleClass: TRACE_INFORMATION_CLASS = 4i32;
-pub const GroupAffinityAllGroupZero: IRQ_GROUP_POLICY = 0i32;
-pub const GroupAffinityDontCare: IRQ_GROUP_POLICY = 1i32;
-pub const HAL_DISPATCH_VERSION: u32 = 5u32;
-pub const HAL_DMA_ADAPTER_VERSION_1: u32 = 1u32;
-pub const HAL_MASK_UNMASK_FLAGS_NONE: u32 = 0u32;
-pub const HAL_MASK_UNMASK_FLAGS_SERVICING_COMPLETE: u32 = 2u32;
-pub const HAL_MASK_UNMASK_FLAGS_SERVICING_DEFERRED: u32 = 1u32;
-pub const HAL_MCA_RECORD: MCA_EXCEPTION_TYPE = 1i32;
-pub const HAL_MCE_RECORD: MCA_EXCEPTION_TYPE = 0i32;
-pub const HAL_PLATFORM_ACPI_TABLES_CACHED: i32 = 32i32;
-pub const HAL_PLATFORM_DISABLE_PTCG: i32 = 4i32;
-pub const HAL_PLATFORM_DISABLE_UC_MAIN_MEMORY: i32 = 8i32;
-pub const HAL_PLATFORM_DISABLE_WRITE_COMBINING: i32 = 1i32;
-pub const HAL_PLATFORM_ENABLE_WRITE_COMBINING_MMIO: i32 = 16i32;
-pub const HASH_STRING_ALGORITHM_DEFAULT: u32 = 0u32;
-pub const HASH_STRING_ALGORITHM_INVALID: u32 = 4294967295u32;
-pub const HASH_STRING_ALGORITHM_X65599: u32 = 1u32;
-pub const HIGH_LEVEL: u32 = 31u32;
-pub const HIGH_PRIORITY: u32 = 31u32;
-pub const HalAcpiAuditInformation: HAL_QUERY_INFORMATION_CLASS = 26i32;
-pub const HalCallbackInformation: HAL_QUERY_INFORMATION_CLASS = 5i32;
-pub const HalChannelTopologyInformation: HAL_QUERY_INFORMATION_CLASS = 31i32;
-pub const HalCmcLog: HAL_SET_INFORMATION_CLASS = 7i32;
-pub const HalCmcLogInformation: HAL_QUERY_INFORMATION_CLASS = 13i32;
-pub const HalCmcRegisterDriver: HAL_SET_INFORMATION_CLASS = 4i32;
-pub const HalCpeLog: HAL_SET_INFORMATION_CLASS = 8i32;
-pub const HalCpeLogInformation: HAL_QUERY_INFORMATION_CLASS = 14i32;
-pub const HalCpeRegisterDriver: HAL_SET_INFORMATION_CLASS = 5i32;
-pub const HalDisplayBiosInformation: HAL_QUERY_INFORMATION_CLASS = 9i32;
-pub const HalDisplayEmulatedBios: HAL_DISPLAY_BIOS_INFORMATION = 1i32;
-pub const HalDisplayInt10Bios: HAL_DISPLAY_BIOS_INFORMATION = 0i32;
-pub const HalDisplayNoBios: HAL_DISPLAY_BIOS_INFORMATION = 2i32;
-pub const HalDmaCrashDumpRegisterSet1: HAL_DMA_CRASH_DUMP_REGISTER_TYPE = 0i32;
-pub const HalDmaCrashDumpRegisterSet2: HAL_DMA_CRASH_DUMP_REGISTER_TYPE = 1i32;
-pub const HalDmaCrashDumpRegisterSetMax: HAL_DMA_CRASH_DUMP_REGISTER_TYPE = 2i32;
-pub const HalDmaRemappingInformation: HAL_QUERY_INFORMATION_CLASS = 47i32;
-pub const HalEnlightenment: HAL_SET_INFORMATION_CLASS = 11i32;
-pub const HalErrorInformation: HAL_QUERY_INFORMATION_CLASS = 12i32;
-pub const HalExternalCacheInformation: HAL_QUERY_INFORMATION_CLASS = 32i32;
-pub const HalFrameBufferCachingInformation: HAL_QUERY_INFORMATION_CLASS = 8i32;
-pub const HalFrequencyInformation: HAL_QUERY_INFORMATION_CLASS = 22i32;
-pub const HalFwBootPerformanceInformation: HAL_QUERY_INFORMATION_CLASS = 34i32;
-pub const HalFwS3PerformanceInformation: HAL_QUERY_INFORMATION_CLASS = 35i32;
-pub const HalGenerateCmcInterrupt: HAL_SET_INFORMATION_CLASS = 9i32;
-pub const HalGetChannelPowerInformation: HAL_QUERY_INFORMATION_CLASS = 36i32;
-pub const HalHardwareWatchdogInformation: HAL_QUERY_INFORMATION_CLASS = 46i32;
-pub const HalHeterogeneousMemoryAttributesInterface: HAL_QUERY_INFORMATION_CLASS = 49i32;
-pub const HalHypervisorInformation: HAL_QUERY_INFORMATION_CLASS = 24i32;
-pub const HalI386ExceptionChainTerminatorInformation: HAL_SET_INFORMATION_CLASS = 15i32;
-pub const HalInformationClassUnused1: HAL_QUERY_INFORMATION_CLASS = 2i32;
-pub const HalInitLogInformation: HAL_QUERY_INFORMATION_CLASS = 21i32;
-pub const HalInstalledBusInformation: HAL_QUERY_INFORMATION_CLASS = 0i32;
-pub const HalInterruptControllerInformation: HAL_QUERY_INFORMATION_CLASS = 39i32;
-pub const HalIrtInformation: HAL_QUERY_INFORMATION_CLASS = 27i32;
-pub const HalKernelErrorHandler: HAL_SET_INFORMATION_CLASS = 3i32;
-pub const HalMapRegisterInformation: HAL_QUERY_INFORMATION_CLASS = 6i32;
-pub const HalMcaLog: HAL_SET_INFORMATION_CLASS = 6i32;
-pub const HalMcaLogInformation: HAL_QUERY_INFORMATION_CLASS = 7i32;
-pub const HalMcaRegisterDriver: HAL_SET_INFORMATION_CLASS = 2i32;
-pub const HalNumaRangeTableInformation: HAL_QUERY_INFORMATION_CLASS = 30i32;
-pub const HalNumaTopologyInterface: HAL_QUERY_INFORMATION_CLASS = 11i32;
-pub const HalParkingPageInformation: HAL_QUERY_INFORMATION_CLASS = 29i32;
-pub const HalPartitionIpiInterface: HAL_QUERY_INFORMATION_CLASS = 18i32;
-pub const HalPlatformInformation: HAL_QUERY_INFORMATION_CLASS = 19i32;
-pub const HalPlatformTimerInformation: HAL_QUERY_INFORMATION_CLASS = 25i32;
-pub const HalPowerInformation: HAL_QUERY_INFORMATION_CLASS = 3i32;
-pub const HalProcessorBrandString: HAL_QUERY_INFORMATION_CLASS = 23i32;
-pub const HalProcessorFeatureInformation: HAL_QUERY_INFORMATION_CLASS = 10i32;
-pub const HalProcessorSpeedInformation: HAL_QUERY_INFORMATION_CLASS = 4i32;
-pub const HalProfileDpgoSourceInterruptHandler: HAL_SET_INFORMATION_CLASS = 12i32;
-pub const HalProfileSourceAdd: HAL_SET_INFORMATION_CLASS = 20i32;
-pub const HalProfileSourceInformation: HAL_QUERY_INFORMATION_CLASS = 1i32;
-pub const HalProfileSourceInterruptHandler: HAL_SET_INFORMATION_CLASS = 1i32;
-pub const HalProfileSourceInterval: HAL_SET_INFORMATION_CLASS = 0i32;
-pub const HalProfileSourceRemove: HAL_SET_INFORMATION_CLASS = 21i32;
-pub const HalProfileSourceTimerHandler: HAL_SET_INFORMATION_CLASS = 10i32;
-pub const HalPsciInformation: HAL_QUERY_INFORMATION_CLASS = 38i32;
-pub const HalQueryAMLIIllegalIOPortAddresses: HAL_QUERY_INFORMATION_CLASS = 16i32;
-pub const HalQueryAcpiWakeAlarmSystemPowerStateInformation: HAL_QUERY_INFORMATION_CLASS = 43i32;
-pub const HalQueryArmErrataInformation: HAL_QUERY_INFORMATION_CLASS = 41i32;
-pub const HalQueryDebuggerInformation: HAL_QUERY_INFORMATION_CLASS = 33i32;
-pub const HalQueryHyperlaunchEntrypoint: HAL_QUERY_INFORMATION_CLASS = 45i32;
-pub const HalQueryIommuReservedRegionInformation: HAL_QUERY_INFORMATION_CLASS = 40i32;
-pub const HalQueryMaxHotPlugMemoryAddress: HAL_QUERY_INFORMATION_CLASS = 17i32;
-pub const HalQueryMcaInterface: HAL_QUERY_INFORMATION_CLASS = 15i32;
-pub const HalQueryPerDeviceMsiLimitInformation: HAL_QUERY_INFORMATION_CLASS = 50i32;
-pub const HalQueryProcessorEfficiencyInformation: HAL_QUERY_INFORMATION_CLASS = 42i32;
-pub const HalQueryProfileCorruptionStatus: HAL_QUERY_INFORMATION_CLASS = 51i32;
-pub const HalQueryProfileCounterOwnership: HAL_QUERY_INFORMATION_CLASS = 52i32;
-pub const HalQueryProfileNumberOfCounters: HAL_QUERY_INFORMATION_CLASS = 44i32;
-pub const HalQueryProfileSourceList: HAL_QUERY_INFORMATION_CLASS = 20i32;
-pub const HalQueryStateElementInformation: HAL_QUERY_INFORMATION_CLASS = 37i32;
-pub const HalQueryUnused0001: HAL_QUERY_INFORMATION_CLASS = 48i32;
-pub const HalRegisterSecondaryInterruptInterface: HAL_SET_INFORMATION_CLASS = 13i32;
-pub const HalSecondaryInterruptInformation: HAL_QUERY_INFORMATION_CLASS = 28i32;
-pub const HalSetChannelPowerInformation: HAL_SET_INFORMATION_CLASS = 14i32;
-pub const HalSetClockTimerMinimumInterval: HAL_SET_INFORMATION_CLASS = 23i32;
-pub const HalSetHvciEnabled: HAL_SET_INFORMATION_CLASS = 18i32;
-pub const HalSetProcessorTraceInterruptHandler: HAL_SET_INFORMATION_CLASS = 19i32;
-pub const HalSetPsciSuspendMode: HAL_SET_INFORMATION_CLASS = 17i32;
-pub const HalSetResetParkDisposition: HAL_SET_INFORMATION_CLASS = 16i32;
-pub const HalSetSwInterruptHandler: HAL_SET_INFORMATION_CLASS = 22i32;
-pub const HighImportance: KDPC_IMPORTANCE = 2i32;
-pub const HighPagePriority: MM_PAGE_PRIORITY = 32i32;
-pub const HighPoolPriority: EX_POOL_PRIORITY = 32i32;
-pub const HighPoolPrioritySpecialPoolOverrun: EX_POOL_PRIORITY = 40i32;
-pub const HighPoolPrioritySpecialPoolUnderrun: EX_POOL_PRIORITY = 41i32;
-pub const HotSpareControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 7i32;
-pub const HyperCriticalWorkQueue: WORK_QUEUE_TYPE = 2i32;
-pub const IMAGE_ADDRESSING_MODE_32BIT: u32 = 3u32;
-pub const INITIAL_PRIVILEGE_COUNT: u32 = 3u32;
-pub const INIT_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcc5263e8_9308_454a_89d0_340bd39bc98e);
-pub const INJECT_ERRTYPE_MEMORY_CORRECTABLE: u32 = 8u32;
-pub const INJECT_ERRTYPE_MEMORY_UNCORRECTABLEFATAL: u32 = 32u32;
-pub const INJECT_ERRTYPE_MEMORY_UNCORRECTABLENONFATAL: u32 = 16u32;
-pub const INJECT_ERRTYPE_PCIEXPRESS_CORRECTABLE: u32 = 64u32;
-pub const INJECT_ERRTYPE_PCIEXPRESS_UNCORRECTABLEFATAL: u32 = 256u32;
-pub const INJECT_ERRTYPE_PCIEXPRESS_UNCORRECTABLENONFATAL: u32 = 128u32;
-pub const INJECT_ERRTYPE_PLATFORM_CORRECTABLE: u32 = 512u32;
-pub const INJECT_ERRTYPE_PLATFORM_UNCORRECTABLEFATAL: u32 = 2048u32;
-pub const INJECT_ERRTYPE_PLATFORM_UNCORRECTABLENONFATAL: u32 = 1024u32;
-pub const INJECT_ERRTYPE_PROCESSOR_CORRECTABLE: u32 = 1u32;
-pub const INJECT_ERRTYPE_PROCESSOR_UNCORRECTABLEFATAL: u32 = 4u32;
-pub const INJECT_ERRTYPE_PROCESSOR_UNCORRECTABLENONFATAL: u32 = 2u32;
-pub const IOCTL_CANCEL_DEVICE_WAKE: u32 = 2719752u32;
-pub const IOCTL_QUERY_DEVICE_POWER_STATE: u32 = 2703360u32;
-pub const IOCTL_SET_DEVICE_WAKE: u32 = 2719748u32;
-pub const IOMMU_ACCESS_NONE: u32 = 0u32;
-pub const IOMMU_ACCESS_READ: u32 = 1u32;
-pub const IOMMU_ACCESS_WRITE: u32 = 2u32;
-pub const IO_ATTACH_DEVICE: u32 = 1024u32;
-pub const IO_ATTRIBUTION_INFO_V1: u32 = 1u32;
-pub const IO_CHECK_CREATE_PARAMETERS: u32 = 512u32;
-pub const IO_CHECK_SHARE_ACCESS_DONT_CHECK_DELETE: u32 = 16u32;
-pub const IO_CHECK_SHARE_ACCESS_DONT_CHECK_READ: u32 = 4u32;
-pub const IO_CHECK_SHARE_ACCESS_DONT_CHECK_WRITE: u32 = 8u32;
-pub const IO_CHECK_SHARE_ACCESS_DONT_UPDATE_FILE_OBJECT: u32 = 2u32;
-pub const IO_CHECK_SHARE_ACCESS_FORCE_CHECK: u32 = 32u32;
-pub const IO_CHECK_SHARE_ACCESS_FORCE_USING_SCB: u32 = 64u32;
-pub const IO_CHECK_SHARE_ACCESS_UPDATE_SHARE_ACCESS: u32 = 1u32;
-pub const IO_FORCE_ACCESS_CHECK: u32 = 1u32;
-pub const IO_IGNORE_SHARE_ACCESS_CHECK: u32 = 2048u32;
-pub const IO_KEYBOARD_INCREMENT: u32 = 6u32;
-pub const IO_MOUSE_INCREMENT: u32 = 6u32;
-pub const IO_NO_PARAMETER_CHECKING: u32 = 256u32;
-pub const IO_PARALLEL_INCREMENT: u32 = 1u32;
-pub const IO_REMOUNT: u32 = 1u32;
-pub const IO_REPARSE: u32 = 0u32;
-pub const IO_REPARSE_GLOBAL: u32 = 2u32;
-pub const IO_RESOURCE_ALTERNATIVE: u32 = 8u32;
-pub const IO_RESOURCE_DEFAULT: u32 = 2u32;
-pub const IO_RESOURCE_PREFERRED: u32 = 1u32;
-pub const IO_SERIAL_INCREMENT: u32 = 2u32;
-pub const IO_SESSION_MAX_PAYLOAD_SIZE: i32 = 256i32;
-pub const IO_SESSION_STATE_ALL_EVENTS: u32 = 4294967295u32;
-pub const IO_SESSION_STATE_CONNECT_EVENT: u32 = 4u32;
-pub const IO_SESSION_STATE_CREATION_EVENT: u32 = 1u32;
-pub const IO_SESSION_STATE_DISCONNECT_EVENT: u32 = 8u32;
-pub const IO_SESSION_STATE_LOGOFF_EVENT: u32 = 32u32;
-pub const IO_SESSION_STATE_LOGON_EVENT: u32 = 16u32;
-pub const IO_SESSION_STATE_TERMINATION_EVENT: u32 = 2u32;
-pub const IO_SESSION_STATE_VALID_EVENT_MASK: u32 = 63u32;
-pub const IO_SET_IRP_IO_ATTRIBUTION_FLAGS_MASK: u32 = 3u32;
-pub const IO_SET_IRP_IO_ATTRIBUTION_FROM_PROCESS: u32 = 2u32;
-pub const IO_SET_IRP_IO_ATTRIBUTION_FROM_THREAD: u32 = 1u32;
-pub const IO_SHARE_ACCESS_NON_PRIMARY_STREAM: u32 = 128u32;
-pub const IO_SHARE_ACCESS_NO_WRITE_PERMISSION: u32 = 2147483648u32;
-pub const IO_SOUND_INCREMENT: u32 = 8u32;
-pub const IO_TYPE_ADAPTER: u32 = 1u32;
-pub const IO_TYPE_CONTROLLER: u32 = 2u32;
-pub const IO_TYPE_CSQ: u32 = 2u32;
-pub const IO_TYPE_CSQ_EX: u32 = 3u32;
-pub const IO_TYPE_CSQ_IRP_CONTEXT: u32 = 1u32;
-pub const IO_TYPE_DEVICE: u32 = 3u32;
-pub const IO_TYPE_DEVICE_OBJECT_EXTENSION: u32 = 13u32;
-pub const IO_TYPE_DRIVER: u32 = 4u32;
-pub const IO_TYPE_ERROR_LOG: u32 = 11u32;
-pub const IO_TYPE_ERROR_MESSAGE: u32 = 12u32;
-pub const IO_TYPE_FILE: u32 = 5u32;
-pub const IO_TYPE_IORING: u32 = 14u32;
-pub const IO_TYPE_IRP: u32 = 6u32;
-pub const IO_TYPE_MASTER_ADAPTER: u32 = 7u32;
-pub const IO_TYPE_OPEN_PACKET: u32 = 8u32;
-pub const IO_TYPE_TIMER: u32 = 9u32;
-pub const IO_TYPE_VPB: u32 = 10u32;
-pub const IO_VIDEO_INCREMENT: u32 = 1u32;
-pub const IPF_SAL_RECORD_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f3380d1_6eb0_497f_a578_4d4c65a71617);
-pub const IPI_LEVEL: u32 = 29u32;
-pub const IPMI_MSR_DUMP_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1c15b445_9b06_4667_ac25_33c056b88803);
-pub const IRP_ALLOCATED_FIXED_SIZE: u32 = 4u32;
-pub const IRP_ALLOCATED_MUST_SUCCEED: u32 = 2u32;
-pub const IRP_ASSOCIATED_IRP: u32 = 8u32;
-pub const IRP_BUFFERED_IO: u32 = 16u32;
-pub const IRP_CLOSE_OPERATION: u32 = 1024u32;
-pub const IRP_CREATE_OPERATION: u32 = 128u32;
-pub const IRP_DEALLOCATE_BUFFER: u32 = 32u32;
-pub const IRP_DEFER_IO_COMPLETION: u32 = 2048u32;
-pub const IRP_HOLD_DEVICE_QUEUE: u32 = 8192u32;
-pub const IRP_INPUT_OPERATION: u32 = 64u32;
-pub const IRP_LOOKASIDE_ALLOCATION: u32 = 8u32;
-pub const IRP_MJ_CLEANUP: u32 = 18u32;
-pub const IRP_MJ_CLOSE: u32 = 2u32;
-pub const IRP_MJ_CREATE: u32 = 0u32;
-pub const IRP_MJ_CREATE_MAILSLOT: u32 = 19u32;
-pub const IRP_MJ_CREATE_NAMED_PIPE: u32 = 1u32;
-pub const IRP_MJ_DEVICE_CHANGE: u32 = 24u32;
-pub const IRP_MJ_DEVICE_CONTROL: u32 = 14u32;
-pub const IRP_MJ_DIRECTORY_CONTROL: u32 = 12u32;
-pub const IRP_MJ_FILE_SYSTEM_CONTROL: u32 = 13u32;
-pub const IRP_MJ_FLUSH_BUFFERS: u32 = 9u32;
-pub const IRP_MJ_INTERNAL_DEVICE_CONTROL: u32 = 15u32;
-pub const IRP_MJ_LOCK_CONTROL: u32 = 17u32;
-pub const IRP_MJ_MAXIMUM_FUNCTION: u32 = 27u32;
-pub const IRP_MJ_PNP: u32 = 27u32;
-pub const IRP_MJ_PNP_POWER: u32 = 27u32;
-pub const IRP_MJ_POWER: u32 = 22u32;
-pub const IRP_MJ_QUERY_EA: u32 = 7u32;
-pub const IRP_MJ_QUERY_INFORMATION: u32 = 5u32;
-pub const IRP_MJ_QUERY_QUOTA: u32 = 25u32;
-pub const IRP_MJ_QUERY_SECURITY: u32 = 20u32;
-pub const IRP_MJ_QUERY_VOLUME_INFORMATION: u32 = 10u32;
-pub const IRP_MJ_READ: u32 = 3u32;
-pub const IRP_MJ_SCSI: u32 = 15u32;
-pub const IRP_MJ_SET_EA: u32 = 8u32;
-pub const IRP_MJ_SET_INFORMATION: u32 = 6u32;
-pub const IRP_MJ_SET_QUOTA: u32 = 26u32;
-pub const IRP_MJ_SET_SECURITY: u32 = 21u32;
-pub const IRP_MJ_SET_VOLUME_INFORMATION: u32 = 11u32;
-pub const IRP_MJ_SHUTDOWN: u32 = 16u32;
-pub const IRP_MJ_SYSTEM_CONTROL: u32 = 23u32;
-pub const IRP_MJ_WRITE: u32 = 4u32;
-pub const IRP_MN_CANCEL_REMOVE_DEVICE: u32 = 3u32;
-pub const IRP_MN_CANCEL_STOP_DEVICE: u32 = 6u32;
-pub const IRP_MN_CHANGE_SINGLE_INSTANCE: u32 = 2u32;
-pub const IRP_MN_CHANGE_SINGLE_ITEM: u32 = 3u32;
-pub const IRP_MN_COMPLETE: u32 = 4u32;
-pub const IRP_MN_COMPRESSED: u32 = 8u32;
-pub const IRP_MN_DEVICE_ENUMERATED: u32 = 25u32;
-pub const IRP_MN_DEVICE_USAGE_NOTIFICATION: u32 = 22u32;
-pub const IRP_MN_DISABLE_COLLECTION: u32 = 7u32;
-pub const IRP_MN_DISABLE_EVENTS: u32 = 5u32;
-pub const IRP_MN_DPC: u32 = 1u32;
-pub const IRP_MN_EJECT: u32 = 17u32;
-pub const IRP_MN_ENABLE_COLLECTION: u32 = 6u32;
-pub const IRP_MN_ENABLE_EVENTS: u32 = 4u32;
-pub const IRP_MN_EXECUTE_METHOD: u32 = 9u32;
-pub const IRP_MN_FILTER_RESOURCE_REQUIREMENTS: u32 = 13u32;
-pub const IRP_MN_FLUSH_AND_PURGE: u32 = 1u32;
-pub const IRP_MN_FLUSH_DATA_ONLY: u32 = 2u32;
-pub const IRP_MN_FLUSH_DATA_SYNC_ONLY: u32 = 4u32;
-pub const IRP_MN_FLUSH_NO_SYNC: u32 = 3u32;
-pub const IRP_MN_KERNEL_CALL: u32 = 4u32;
-pub const IRP_MN_LOAD_FILE_SYSTEM: u32 = 3u32;
-pub const IRP_MN_LOCK: u32 = 1u32;
-pub const IRP_MN_MDL: u32 = 2u32;
-pub const IRP_MN_MOUNT_VOLUME: u32 = 1u32;
-pub const IRP_MN_NORMAL: u32 = 0u32;
-pub const IRP_MN_NOTIFY_CHANGE_DIRECTORY: u32 = 2u32;
-pub const IRP_MN_NOTIFY_CHANGE_DIRECTORY_EX: u32 = 3u32;
-pub const IRP_MN_POWER_SEQUENCE: u32 = 1u32;
-pub const IRP_MN_QUERY_ALL_DATA: u32 = 0u32;
-pub const IRP_MN_QUERY_BUS_INFORMATION: u32 = 21u32;
-pub const IRP_MN_QUERY_CAPABILITIES: u32 = 9u32;
-pub const IRP_MN_QUERY_DEVICE_RELATIONS: u32 = 7u32;
-pub const IRP_MN_QUERY_DEVICE_TEXT: u32 = 12u32;
-pub const IRP_MN_QUERY_DIRECTORY: u32 = 1u32;
-pub const IRP_MN_QUERY_ID: u32 = 19u32;
-pub const IRP_MN_QUERY_INTERFACE: u32 = 8u32;
-pub const IRP_MN_QUERY_LEGACY_BUS_INFORMATION: u32 = 24u32;
-pub const IRP_MN_QUERY_PNP_DEVICE_STATE: u32 = 20u32;
-pub const IRP_MN_QUERY_POWER: u32 = 3u32;
-pub const IRP_MN_QUERY_REMOVE_DEVICE: u32 = 1u32;
-pub const IRP_MN_QUERY_RESOURCES: u32 = 10u32;
-pub const IRP_MN_QUERY_RESOURCE_REQUIREMENTS: u32 = 11u32;
-pub const IRP_MN_QUERY_SINGLE_INSTANCE: u32 = 1u32;
-pub const IRP_MN_QUERY_STOP_DEVICE: u32 = 5u32;
-pub const IRP_MN_READ_CONFIG: u32 = 15u32;
-pub const IRP_MN_REGINFO: u32 = 8u32;
-pub const IRP_MN_REGINFO_EX: u32 = 11u32;
-pub const IRP_MN_REMOVE_DEVICE: u32 = 2u32;
-pub const IRP_MN_SCSI_CLASS: u32 = 1u32;
-pub const IRP_MN_SET_LOCK: u32 = 18u32;
-pub const IRP_MN_SET_POWER: u32 = 2u32;
-pub const IRP_MN_START_DEVICE: u32 = 0u32;
-pub const IRP_MN_STOP_DEVICE: u32 = 4u32;
-pub const IRP_MN_SURPRISE_REMOVAL: u32 = 23u32;
-pub const IRP_MN_TRACK_LINK: u32 = 4u32;
-pub const IRP_MN_UNLOCK_ALL: u32 = 3u32;
-pub const IRP_MN_UNLOCK_ALL_BY_KEY: u32 = 4u32;
-pub const IRP_MN_UNLOCK_SINGLE: u32 = 2u32;
-pub const IRP_MN_USER_FS_REQUEST: u32 = 0u32;
-pub const IRP_MN_VERIFY_VOLUME: u32 = 2u32;
-pub const IRP_MN_WAIT_WAKE: u32 = 0u32;
-pub const IRP_MN_WRITE_CONFIG: u32 = 16u32;
-pub const IRP_MOUNT_COMPLETION: u32 = 2u32;
-pub const IRP_NOCACHE: u32 = 1u32;
-pub const IRP_OB_QUERY_NAME: u32 = 4096u32;
-pub const IRP_PAGING_IO: u32 = 2u32;
-pub const IRP_QUOTA_CHARGED: u32 = 1u32;
-pub const IRP_READ_OPERATION: u32 = 256u32;
-pub const IRP_SYNCHRONOUS_API: u32 = 4u32;
-pub const IRP_SYNCHRONOUS_PAGING_IO: u32 = 64u32;
-pub const IRP_UM_DRIVER_INITIATED_IO: u32 = 4194304u32;
-pub const IRP_WRITE_OPERATION: u32 = 512u32;
-pub const InACriticalArrayControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 8i32;
-pub const InAFailedArrayControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 9i32;
-pub const IndicatorBlink: PCI_EXPRESS_INDICATOR_STATE = 2i32;
-pub const IndicatorOff: PCI_EXPRESS_INDICATOR_STATE = 3i32;
-pub const IndicatorOn: PCI_EXPRESS_INDICATOR_STATE = 1i32;
-pub const InitiateReset: NPEM_CONTROL_STANDARD_CONTROL_BIT = 1i32;
-pub const InstallStateFailedInstall: DEVICE_INSTALL_STATE = 2i32;
-pub const InstallStateFinishInstall: DEVICE_INSTALL_STATE = 3i32;
-pub const InstallStateInstalled: DEVICE_INSTALL_STATE = 0i32;
-pub const InstallStateNeedsReinstall: DEVICE_INSTALL_STATE = 1i32;
-pub const IntelCacheData: INTEL_CACHE_TYPE = 1i32;
-pub const IntelCacheInstruction: INTEL_CACHE_TYPE = 2i32;
-pub const IntelCacheNull: INTEL_CACHE_TYPE = 0i32;
-pub const IntelCacheRam: INTEL_CACHE_TYPE = 4i32;
-pub const IntelCacheTrace: INTEL_CACHE_TYPE = 5i32;
-pub const IntelCacheUnified: INTEL_CACHE_TYPE = 3i32;
-pub const InterfaceTypeUndefined: INTERFACE_TYPE = -1i32;
-pub const Internal: INTERFACE_TYPE = 0i32;
-pub const InternalPowerBus: INTERFACE_TYPE = 13i32;
-pub const InterruptActiveBoth: KINTERRUPT_POLARITY = 3i32;
-pub const InterruptActiveBothTriggerHigh: KINTERRUPT_POLARITY = 4i32;
-pub const InterruptActiveBothTriggerLow: KINTERRUPT_POLARITY = 3i32;
-pub const InterruptActiveHigh: KINTERRUPT_POLARITY = 1i32;
-pub const InterruptActiveLow: KINTERRUPT_POLARITY = 2i32;
-pub const InterruptFallingEdge: KINTERRUPT_POLARITY = 2i32;
-pub const InterruptPolarityUnknown: KINTERRUPT_POLARITY = 0i32;
-pub const InterruptRisingEdge: KINTERRUPT_POLARITY = 1i32;
-pub const InvalidDeviceTypeControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 10i32;
-pub const IoMaxContainerInformationClass: IO_CONTAINER_INFORMATION_CLASS = 1i32;
-pub const IoMaxContainerNotificationClass: IO_CONTAINER_NOTIFICATION_CLASS = 1i32;
-pub const IoModifyAccess: LOCK_OPERATION = 2i32;
-pub const IoPagingPriorityHigh: IO_PAGING_PRIORITY = 2i32;
-pub const IoPagingPriorityInvalid: IO_PAGING_PRIORITY = 0i32;
-pub const IoPagingPriorityNormal: IO_PAGING_PRIORITY = 1i32;
-pub const IoPagingPriorityReserved1: IO_PAGING_PRIORITY = 3i32;
-pub const IoPagingPriorityReserved2: IO_PAGING_PRIORITY = 4i32;
-pub const IoQueryDeviceComponentInformation: IO_QUERY_DEVICE_DATA_FORMAT = 2i32;
-pub const IoQueryDeviceConfigurationData: IO_QUERY_DEVICE_DATA_FORMAT = 1i32;
-pub const IoQueryDeviceIdentifier: IO_QUERY_DEVICE_DATA_FORMAT = 0i32;
-pub const IoQueryDeviceMaxData: IO_QUERY_DEVICE_DATA_FORMAT = 3i32;
-pub const IoReadAccess: LOCK_OPERATION = 0i32;
-pub const IoSessionEventConnected: IO_SESSION_EVENT = 3i32;
-pub const IoSessionEventCreated: IO_SESSION_EVENT = 1i32;
-pub const IoSessionEventDisconnected: IO_SESSION_EVENT = 4i32;
-pub const IoSessionEventIgnore: IO_SESSION_EVENT = 0i32;
-pub const IoSessionEventLogoff: IO_SESSION_EVENT = 6i32;
-pub const IoSessionEventLogon: IO_SESSION_EVENT = 5i32;
-pub const IoSessionEventMax: IO_SESSION_EVENT = 7i32;
-pub const IoSessionEventTerminated: IO_SESSION_EVENT = 2i32;
-pub const IoSessionStateConnected: IO_SESSION_STATE = 3i32;
-pub const IoSessionStateCreated: IO_SESSION_STATE = 1i32;
-pub const IoSessionStateDisconnected: IO_SESSION_STATE = 4i32;
-pub const IoSessionStateDisconnectedLoggedOn: IO_SESSION_STATE = 5i32;
-pub const IoSessionStateInformation: IO_CONTAINER_INFORMATION_CLASS = 0i32;
-pub const IoSessionStateInitialized: IO_SESSION_STATE = 2i32;
-pub const IoSessionStateLoggedOff: IO_SESSION_STATE = 7i32;
-pub const IoSessionStateLoggedOn: IO_SESSION_STATE = 6i32;
-pub const IoSessionStateMax: IO_SESSION_STATE = 9i32;
-pub const IoSessionStateNotification: IO_CONTAINER_NOTIFICATION_CLASS = 0i32;
-pub const IoSessionStateTerminated: IO_SESSION_STATE = 8i32;
-pub const IoWriteAccess: LOCK_OPERATION = 1i32;
-pub const IommuDeviceCreationConfigTypeAcpi: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = 1i32;
-pub const IommuDeviceCreationConfigTypeDeviceId: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = 2i32;
-pub const IommuDeviceCreationConfigTypeMax: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = 3i32;
-pub const IommuDeviceCreationConfigTypeNone: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = 0i32;
-pub const IommuDmaLogicalAllocatorBuddy: IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = 1i32;
-pub const IommuDmaLogicalAllocatorMax: IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = 2i32;
-pub const IommuDmaLogicalAllocatorNone: IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = 0i32;
-pub const IrqPolicyAllCloseProcessors: IRQ_DEVICE_POLICY = 1i32;
-pub const IrqPolicyAllProcessorsInMachine: IRQ_DEVICE_POLICY = 3i32;
-pub const IrqPolicyAllProcessorsInMachineWhenSteered: IRQ_DEVICE_POLICY = 6i32;
-pub const IrqPolicyMachineDefault: IRQ_DEVICE_POLICY = 0i32;
-pub const IrqPolicyOneCloseProcessor: IRQ_DEVICE_POLICY = 2i32;
-pub const IrqPolicySpecifiedProcessors: IRQ_DEVICE_POLICY = 4i32;
-pub const IrqPolicySpreadMessagesAcrossAllProcessors: IRQ_DEVICE_POLICY = 5i32;
-pub const IrqPriorityHigh: IRQ_PRIORITY = 3i32;
-pub const IrqPriorityLow: IRQ_PRIORITY = 1i32;
-pub const IrqPriorityNormal: IRQ_PRIORITY = 2i32;
-pub const IrqPriorityUndefined: IRQ_PRIORITY = 0i32;
-pub const Isa: INTERFACE_TYPE = 1i32;
-pub const IsochCommand: EXTENDED_AGP_REGISTER = 6i32;
-pub const IsochStatus: EXTENDED_AGP_REGISTER = 0i32;
-pub const KADDRESS_BASE: u32 = 0u32;
-pub const KB_ADD_PAGES_FLAG_ADDITIONAL_RANGES_EXIST: u32 = 2147483648u32;
-pub const KB_ADD_PAGES_FLAG_PHYSICAL_ADDRESS: u32 = 2u32;
-pub const KB_ADD_PAGES_FLAG_VIRTUAL_ADDRESS: u32 = 1u32;
-pub const KB_REMOVE_PAGES_FLAG_ADDITIONAL_RANGES_EXIST: u32 = 2147483648u32;
-pub const KB_REMOVE_PAGES_FLAG_PHYSICAL_ADDRESS: u32 = 2u32;
-pub const KB_REMOVE_PAGES_FLAG_VIRTUAL_ADDRESS: u32 = 1u32;
-pub const KB_SECONDARY_DATA_FLAG_ADDITIONAL_DATA: u32 = 1u32;
-pub const KB_SECONDARY_DATA_FLAG_NO_DEVICE_ACCESS: u32 = 2u32;
-pub const KB_TRIAGE_DUMP_DATA_FLAG_BUGCHECK_ACTIVE: u32 = 1u32;
-pub const KD_OPTION_SET_BLOCK_ENABLE: KD_OPTION = 0i32;
-pub const KENCODED_TIMER_PROCESSOR: u32 = 1u32;
-pub const KERNEL_LARGE_STACK_COMMIT: u32 = 12288u32;
-pub const KERNEL_LARGE_STACK_SIZE: u32 = 61440u32;
-pub const KERNEL_MCA_EXCEPTION_STACK_SIZE: u32 = 8192u32;
-pub const KERNEL_SOFT_RESTART_NOTIFICATION_VERSION: u32 = 1u32;
-pub const KERNEL_STACK_SIZE: u32 = 12288u32;
-pub const KE_MAX_TRIAGE_DUMP_DATA_MEMORY_SIZE: u32 = 33554432u32;
-pub const KE_PROCESSOR_CHANGE_ADD_EXISTING: u32 = 1u32;
-pub const KI_USER_SHARED_DATA: u32 = 4292804608u32;
-pub const KUMS_UCH_VOLATILE_BIT: u32 = 0u32;
-pub const KbCallbackAddPages: KBUGCHECK_CALLBACK_REASON = 4i32;
-pub const KbCallbackDumpIo: KBUGCHECK_CALLBACK_REASON = 3i32;
-pub const KbCallbackInvalid: KBUGCHECK_CALLBACK_REASON = 0i32;
-pub const KbCallbackRemovePages: KBUGCHECK_CALLBACK_REASON = 6i32;
-pub const KbCallbackReserved1: KBUGCHECK_CALLBACK_REASON = 1i32;
-pub const KbCallbackReserved2: KBUGCHECK_CALLBACK_REASON = 8i32;
-pub const KbCallbackSecondaryDumpData: KBUGCHECK_CALLBACK_REASON = 2i32;
-pub const KbCallbackSecondaryMultiPartDumpData: KBUGCHECK_CALLBACK_REASON = 5i32;
-pub const KbCallbackTriageDumpData: KBUGCHECK_CALLBACK_REASON = 7i32;
-pub const KbDumpIoBody: KBUGCHECK_DUMP_IO_TYPE = 2i32;
-pub const KbDumpIoComplete: KBUGCHECK_DUMP_IO_TYPE = 4i32;
-pub const KbDumpIoHeader: KBUGCHECK_DUMP_IO_TYPE = 1i32;
-pub const KbDumpIoInvalid: KBUGCHECK_DUMP_IO_TYPE = 0i32;
-pub const KbDumpIoSecondaryData: KBUGCHECK_DUMP_IO_TYPE = 3i32;
-pub const KdConfigureDeviceAndContinue: KD_CALLBACK_ACTION = 0i32;
-pub const KdConfigureDeviceAndStop: KD_CALLBACK_ACTION = 2i32;
-pub const KdNameSpaceACPI: KD_NAMESPACE_ENUM = 1i32;
-pub const KdNameSpaceAny: KD_NAMESPACE_ENUM = 2i32;
-pub const KdNameSpaceMax: KD_NAMESPACE_ENUM = 4i32;
-pub const KdNameSpaceNone: KD_NAMESPACE_ENUM = 3i32;
-pub const KdNameSpacePCI: KD_NAMESPACE_ENUM = 0i32;
-pub const KdSkipDeviceAndContinue: KD_CALLBACK_ACTION = 1i32;
-pub const KdSkipDeviceAndStop: KD_CALLBACK_ACTION = 3i32;
-pub const KeProcessorAddCompleteNotify: KE_PROCESSOR_CHANGE_NOTIFY_STATE = 1i32;
-pub const KeProcessorAddFailureNotify: KE_PROCESSOR_CHANGE_NOTIFY_STATE = 2i32;
-pub const KeProcessorAddStartNotify: KE_PROCESSOR_CHANGE_NOTIFY_STATE = 0i32;
-pub const KeepObject: IO_ALLOCATION_ACTION = 1i32;
-pub const KernelMode: MODE = 0i32;
-pub const KeyboardController: CONFIGURATION_TYPE = 22i32;
-pub const KeyboardPeripheral: CONFIGURATION_TYPE = 32i32;
-pub const L0sAndL1EntryDisabled: PCI_EXPRESS_ASPM_CONTROL = 0i32;
-pub const L0sAndL1EntryEnabled: PCI_EXPRESS_ASPM_CONTROL = 3i32;
-pub const L0sAndL1EntrySupport: PCI_EXPRESS_ASPM_SUPPORT = 3i32;
-pub const L0sEntryEnabled: PCI_EXPRESS_ASPM_CONTROL = 1i32;
-pub const L0sEntrySupport: PCI_EXPRESS_ASPM_SUPPORT = 1i32;
-pub const L0s_128ns_256ns: PCI_EXPRESS_L0s_EXIT_LATENCY = 2i32;
-pub const L0s_1us_2us: PCI_EXPRESS_L0s_EXIT_LATENCY = 5i32;
-pub const L0s_256ns_512ns: PCI_EXPRESS_L0s_EXIT_LATENCY = 3i32;
-pub const L0s_2us_4us: PCI_EXPRESS_L0s_EXIT_LATENCY = 6i32;
-pub const L0s_512ns_1us: PCI_EXPRESS_L0s_EXIT_LATENCY = 4i32;
-pub const L0s_64ns_128ns: PCI_EXPRESS_L0s_EXIT_LATENCY = 1i32;
-pub const L0s_Above4us: PCI_EXPRESS_L0s_EXIT_LATENCY = 7i32;
-pub const L0s_Below64ns: PCI_EXPRESS_L0s_EXIT_LATENCY = 0i32;
-pub const L1EntryEnabled: PCI_EXPRESS_ASPM_CONTROL = 2i32;
-pub const L1EntrySupport: PCI_EXPRESS_ASPM_SUPPORT = 2i32;
-pub const L1_16us_32us: PCI_EXPRESS_L1_EXIT_LATENCY = 5i32;
-pub const L1_1us_2us: PCI_EXPRESS_L1_EXIT_LATENCY = 1i32;
-pub const L1_2us_4us: PCI_EXPRESS_L1_EXIT_LATENCY = 2i32;
-pub const L1_32us_64us: PCI_EXPRESS_L1_EXIT_LATENCY = 6i32;
-pub const L1_4us_8us: PCI_EXPRESS_L1_EXIT_LATENCY = 3i32;
-pub const L1_8us_16us: PCI_EXPRESS_L1_EXIT_LATENCY = 4i32;
-pub const L1_Above64us: PCI_EXPRESS_L1_EXIT_LATENCY = 7i32;
-pub const L1_Below1us: PCI_EXPRESS_L1_EXIT_LATENCY = 0i32;
-pub const LOCK_QUEUE_HALTED: u32 = 4u32;
-pub const LOCK_QUEUE_HALTED_BIT: u32 = 2u32;
-pub const LOCK_QUEUE_OWNER: u32 = 2u32;
-pub const LOCK_QUEUE_OWNER_BIT: u32 = 1u32;
-pub const LOCK_QUEUE_WAIT: u32 = 1u32;
-pub const LOCK_QUEUE_WAIT_BIT: u32 = 0u32;
-pub const LONG_2ND_MOST_SIGNIFICANT_BIT: u32 = 2u32;
-pub const LONG_3RD_MOST_SIGNIFICANT_BIT: u32 = 1u32;
-pub const LONG_LEAST_SIGNIFICANT_BIT: u32 = 0u32;
-pub const LONG_MOST_SIGNIFICANT_BIT: u32 = 3u32;
-pub const LOWBYTE_MASK: u32 = 255u32;
-pub const LOW_LEVEL: u32 = 0u32;
-pub const LOW_PRIORITY: u32 = 0u32;
-pub const LOW_REALTIME_PRIORITY: u32 = 16u32;
-pub const LastDStateTransitionD3cold: D3COLD_LAST_TRANSITION_STATUS = 2i32;
-pub const LastDStateTransitionD3hot: D3COLD_LAST_TRANSITION_STATUS = 1i32;
-pub const LastDStateTransitionStatusUnknown: D3COLD_LAST_TRANSITION_STATUS = 0i32;
-pub const LastDrvRtFlag: DRIVER_RUNTIME_INIT_FLAGS = 2i32;
-pub const Latched: KINTERRUPT_MODE = 1i32;
-pub const LevelSensitive: KINTERRUPT_MODE = 0i32;
-pub const LinePeripheral: CONFIGURATION_TYPE = 35i32;
-pub const LocateControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 3i32;
-pub const LocationTypeFileSystem: STATE_LOCATION_TYPE = 1i32;
-pub const LocationTypeMaximum: STATE_LOCATION_TYPE = 2i32;
-pub const LocationTypeRegistry: STATE_LOCATION_TYPE = 0i32;
-pub const LoggerEventsLoggedClass: TRACE_INFORMATION_CLASS = 10i32;
-pub const LoggerEventsLostClass: TRACE_INFORMATION_CLASS = 8i32;
-pub const LowImportance: KDPC_IMPORTANCE = 0i32;
-pub const LowPagePriority: MM_PAGE_PRIORITY = 0i32;
-pub const LowPoolPriority: EX_POOL_PRIORITY = 0i32;
-pub const LowPoolPrioritySpecialPoolOverrun: EX_POOL_PRIORITY = 8i32;
-pub const LowPoolPrioritySpecialPoolUnderrun: EX_POOL_PRIORITY = 9i32;
-pub const MAXIMUM_DEBUG_BARS: u32 = 6u32;
-pub const MAXIMUM_FILENAME_LENGTH: u32 = 256u32;
-pub const MAXIMUM_PRIORITY: u32 = 32u32;
-pub const MAX_EVENT_COUNTERS: u32 = 31u32;
-pub const MCA_EXTREG_V2MAX: u32 = 24u32;
-pub const MCE_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe8f56ffe_919c_4cc5_ba88_65abe14913bb);
-pub const MDL_ALLOCATED_FIXED_SIZE: u32 = 8u32;
-pub const MDL_DESCRIBES_AWE: u32 = 1024u32;
-pub const MDL_FREE_EXTRA_PTES: u32 = 512u32;
-pub const MDL_INTERNAL: u32 = 32768u32;
-pub const MDL_LOCKED_PAGE_TABLES: u32 = 256u32;
-pub const MDL_PAGE_CONTENTS_INVARIANT: u32 = 16384u32;
-pub const MEMORY_CORRECTABLE_ERROR_SUMMARY_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0e36c93e_ca15_4a83_ba8a_cbe80f7f0017);
-pub const MEMORY_ERROR_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa5bc1114_6f64_4ede_b863_3e83ed7c83b1);
-pub const MEM_COMMIT: u32 = 4096u32;
-pub const MEM_DECOMMIT: u32 = 16384u32;
-pub const MEM_EXTENDED_PARAMETER_EC_CODE: u32 = 64u32;
-pub const MEM_EXTENDED_PARAMETER_TYPE_BITS: u32 = 8u32;
-pub const MEM_LARGE_PAGES: u32 = 536870912u32;
-pub const MEM_MAPPED: u32 = 262144u32;
-pub const MEM_PRIVATE: u32 = 131072u32;
-pub const MEM_RELEASE: u32 = 32768u32;
-pub const MEM_RESERVE: u32 = 8192u32;
-pub const MEM_RESET: u32 = 524288u32;
-pub const MEM_RESET_UNDO: u32 = 16777216u32;
-pub const MEM_TOP_DOWN: u32 = 1048576u32;
-pub const MM_ADD_PHYSICAL_MEMORY_ALREADY_ZEROED: u32 = 1u32;
-pub const MM_ADD_PHYSICAL_MEMORY_HUGE_PAGES_ONLY: u32 = 4u32;
-pub const MM_ADD_PHYSICAL_MEMORY_LARGE_PAGES_ONLY: u32 = 2u32;
-pub const MM_ALLOCATE_AND_HOT_REMOVE: u32 = 256u32;
-pub const MM_ALLOCATE_CONTIGUOUS_MEMORY_FAST_ONLY: u32 = 1u32;
-pub const MM_ALLOCATE_FAST_LARGE_PAGES: u32 = 64u32;
-pub const MM_ALLOCATE_FROM_LOCAL_NODE_ONLY: u32 = 2u32;
-pub const MM_ALLOCATE_FULLY_REQUIRED: u32 = 4u32;
-pub const MM_ALLOCATE_NO_WAIT: u32 = 8u32;
-pub const MM_ALLOCATE_PREFER_CONTIGUOUS: u32 = 16u32;
-pub const MM_ALLOCATE_REQUIRE_CONTIGUOUS_CHUNKS: u32 = 32u32;
-pub const MM_ALLOCATE_TRIM_IF_NECESSARY: u32 = 128u32;
-pub const MM_ANY_NODE_OK: u32 = 2147483648u32;
-pub const MM_COPY_MEMORY_PHYSICAL: u32 = 1u32;
-pub const MM_COPY_MEMORY_VIRTUAL: u32 = 2u32;
-pub const MM_DONT_ZERO_ALLOCATION: u32 = 1u32;
-pub const MM_DUMP_MAP_CACHED: u32 = 1u32;
-pub const MM_DUMP_MAP_INVALIDATE: u32 = 2u32;
-pub const MM_FREE_MDL_PAGES_ZERO: u32 = 1u32;
-pub const MM_GET_CACHE_ATTRIBUTE_IO_SPACE: u32 = 1u32;
-pub const MM_GET_PHYSICAL_MEMORY_RANGES_INCLUDE_ALL_PARTITIONS: u32 = 2u32;
-pub const MM_GET_PHYSICAL_MEMORY_RANGES_INCLUDE_FILE_ONLY: u32 = 1u32;
-pub const MM_MAPPING_ADDRESS_DIVISIBLE: u32 = 1u32;
-pub const MM_MAXIMUM_DISK_IO_SIZE: u32 = 65536u32;
-pub const MM_PERMANENT_ADDRESS_IS_IO_SPACE: u32 = 1u32;
-pub const MM_PROTECT_DRIVER_SECTION_ALLOW_UNLOAD: u32 = 1u32;
-pub const MM_PROTECT_DRIVER_SECTION_VALID_FLAGS: u32 = 1u32;
-pub const MM_REMOVE_PHYSICAL_MEMORY_BAD_ONLY: u32 = 1u32;
-pub const MM_SECURE_EXCLUSIVE: u32 = 1u32;
-pub const MM_SECURE_NO_CHANGE: u32 = 2u32;
-pub const MM_SECURE_NO_INHERIT: u32 = 8u32;
-pub const MM_SECURE_USER_MODE_ONLY: u32 = 4u32;
-pub const MM_SYSTEM_SPACE_END: u32 = 4294967295u32;
-pub const MM_SYSTEM_VIEW_EXCEPTIONS_FOR_INPAGE_ERRORS: u32 = 1u32;
-pub const MPIBus: INTERFACE_TYPE = 10i32;
-pub const MPIConfiguration: BUS_DATA_TYPE = 8i32;
-pub const MPSABus: INTERFACE_TYPE = 11i32;
-pub const MPSAConfiguration: BUS_DATA_TYPE = 9i32;
-pub const MRLClosed: PCI_EXPRESS_MRL_STATE = 0i32;
-pub const MRLOpen: PCI_EXPRESS_MRL_STATE = 1i32;
-pub const MU_TELEMETRY_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x85183a8b_9c41_429c_939c_5c3c087ca280);
-pub const MapPhysicalAddressTypeContiguousRange: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = 1i32;
-pub const MapPhysicalAddressTypeMax: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = 3i32;
-pub const MapPhysicalAddressTypeMdl: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = 0i32;
-pub const MapPhysicalAddressTypePfn: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = 2i32;
-pub const MaxFaultType: FAULT_INFORMATION_ARM64_TYPE = 7i32;
-pub const MaxHardwareCounterType: HARDWARE_COUNTER_TYPE = 1i32;
-pub const MaxPayload1024Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = 3i32;
-pub const MaxPayload128Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = 0i32;
-pub const MaxPayload2048Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = 4i32;
-pub const MaxPayload256Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = 1i32;
-pub const MaxPayload4096Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = 5i32;
-pub const MaxPayload512Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = 2i32;
-pub const MaxRegNtNotifyClass: REG_NOTIFY_CLASS = 51i32;
-pub const MaxSubsystemInformationType: SUBSYSTEM_INFORMATION_TYPE = 2i32;
-pub const MaxTraceInformationClass: TRACE_INFORMATION_CLASS = 16i32;
-pub const MaximumBusDataType: BUS_DATA_TYPE = 12i32;
-pub const MaximumDmaSpeed: DMA_SPEED = 5i32;
-pub const MaximumDmaWidth: DMA_WIDTH = 5i32;
-pub const MaximumInterfaceType: INTERFACE_TYPE = 18i32;
-pub const MaximumMode: MODE = 2i32;
-pub const MaximumType: CONFIGURATION_TYPE = 41i32;
-pub const MaximumWaitReason: KWAIT_REASON = 42i32;
-pub const MaximumWorkQueue: WORK_QUEUE_TYPE = 7i32;
-pub const MdlMappingNoExecute: u32 = 1073741824u32;
-pub const MdlMappingNoWrite: u32 = 2147483648u32;
-pub const MdlMappingWithGuardPtes: u32 = 536870912u32;
-pub const MediumHighImportance: KDPC_IMPORTANCE = 3i32;
-pub const MediumImportance: KDPC_IMPORTANCE = 1i32;
-pub const MemDedicatedAttributeMax: MEM_DEDICATED_ATTRIBUTE_TYPE = 4i32;
-pub const MemDedicatedAttributeReadBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = 0i32;
-pub const MemDedicatedAttributeReadLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = 1i32;
-pub const MemDedicatedAttributeWriteBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = 2i32;
-pub const MemDedicatedAttributeWriteLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = 3i32;
-pub const MemSectionExtendedParameterInvalidType: MEM_SECTION_EXTENDED_PARAMETER_TYPE = 0i32;
-pub const MemSectionExtendedParameterMax: MEM_SECTION_EXTENDED_PARAMETER_TYPE = 4i32;
-pub const MemSectionExtendedParameterNumaNode: MEM_SECTION_EXTENDED_PARAMETER_TYPE = 2i32;
-pub const MemSectionExtendedParameterSigningLevel: MEM_SECTION_EXTENDED_PARAMETER_TYPE = 3i32;
-pub const MemSectionExtendedParameterUserPhysicalFlags: MEM_SECTION_EXTENDED_PARAMETER_TYPE = 1i32;
-pub const MicroChannel: INTERFACE_TYPE = 3i32;
-pub const MmCached: MEMORY_CACHING_TYPE = 1i32;
-pub const MmFrameBufferCached: MEMORY_CACHING_TYPE_ORIG = 2i32;
-pub const MmHardwareCoherentCached: MEMORY_CACHING_TYPE = 3i32;
-pub const MmLargeSystem: MM_SYSTEMSIZE = 2i32;
-pub const MmMaximumCacheType: MEMORY_CACHING_TYPE = 6i32;
-pub const MmMaximumRotateDirection: MM_ROTATE_DIRECTION = 4i32;
-pub const MmMdlPageContentsDynamic: MM_MDL_PAGE_CONTENTS_STATE = 0i32;
-pub const MmMdlPageContentsInvariant: MM_MDL_PAGE_CONTENTS_STATE = 1i32;
-pub const MmMdlPageContentsQuery: MM_MDL_PAGE_CONTENTS_STATE = 2i32;
-pub const MmMediumSystem: MM_SYSTEMSIZE = 1i32;
-pub const MmNonCached: MEMORY_CACHING_TYPE = 0i32;
-pub const MmNonCachedUnordered: MEMORY_CACHING_TYPE = 4i32;
-pub const MmNotMapped: MEMORY_CACHING_TYPE = -1i32;
-pub const MmSmallSystem: MM_SYSTEMSIZE = 0i32;
-pub const MmToFrameBuffer: MM_ROTATE_DIRECTION = 0i32;
-pub const MmToFrameBufferNoCopy: MM_ROTATE_DIRECTION = 1i32;
-pub const MmToRegularMemory: MM_ROTATE_DIRECTION = 2i32;
-pub const MmToRegularMemoryNoCopy: MM_ROTATE_DIRECTION = 3i32;
-pub const MmUSWCCached: MEMORY_CACHING_TYPE = 5i32;
-pub const MmWriteCombined: MEMORY_CACHING_TYPE = 2i32;
-pub const ModemPeripheral: CONFIGURATION_TYPE = 28i32;
-pub const ModifyAccess: IO_ACCESS_TYPE = 2i32;
-pub const MonitorPeripheral: CONFIGURATION_TYPE = 29i32;
-pub const MonitorRequestReasonAcDcDisplayBurst: POWER_MONITOR_REQUEST_REASON = 5i32;
-pub const MonitorRequestReasonAcDcDisplayBurstSuppressed: POWER_MONITOR_REQUEST_REASON = 28i32;
-pub const MonitorRequestReasonBatteryCountChange: POWER_MONITOR_REQUEST_REASON = 16i32;
-pub const MonitorRequestReasonBatteryCountChangeSuppressed: POWER_MONITOR_REQUEST_REASON = 49i32;
-pub const MonitorRequestReasonBatteryPreCritical: POWER_MONITOR_REQUEST_REASON = 53i32;
-pub const MonitorRequestReasonBuiltinPanel: POWER_MONITOR_REQUEST_REASON = 47i32;
-pub const MonitorRequestReasonDP: POWER_MONITOR_REQUEST_REASON = 19i32;
-pub const MonitorRequestReasonDim: POWER_MONITOR_REQUEST_REASON = 46i32;
-pub const MonitorRequestReasonDirectedDrips: POWER_MONITOR_REQUEST_REASON = 45i32;
-pub const MonitorRequestReasonDisplayRequiredUnDim: POWER_MONITOR_REQUEST_REASON = 48i32;
-pub const MonitorRequestReasonFullWake: POWER_MONITOR_REQUEST_REASON = 9i32;
-pub const MonitorRequestReasonGracePeriod: POWER_MONITOR_REQUEST_REASON = 17i32;
-pub const MonitorRequestReasonIdleTimeout: POWER_MONITOR_REQUEST_REASON = 12i32;
-pub const MonitorRequestReasonLid: POWER_MONITOR_REQUEST_REASON = 15i32;
-pub const MonitorRequestReasonMax: POWER_MONITOR_REQUEST_REASON = 55i32;
-pub const MonitorRequestReasonNearProximity: POWER_MONITOR_REQUEST_REASON = 22i32;
-pub const MonitorRequestReasonPdcSignal: POWER_MONITOR_REQUEST_REASON = 27i32;
-pub const MonitorRequestReasonPdcSignalFingerprint: POWER_MONITOR_REQUEST_REASON = 44i32;
-pub const MonitorRequestReasonPdcSignalHeyCortana: POWER_MONITOR_REQUEST_REASON = 42i32;
-pub const MonitorRequestReasonPdcSignalHolographicShell: POWER_MONITOR_REQUEST_REASON = 43i32;
-pub const MonitorRequestReasonPdcSignalSensorsHumanPresence: POWER_MONITOR_REQUEST_REASON = 52i32;
-pub const MonitorRequestReasonPdcSignalWindowsMobilePwrNotif: POWER_MONITOR_REQUEST_REASON = 40i32;
-pub const MonitorRequestReasonPdcSignalWindowsMobileShell: POWER_MONITOR_REQUEST_REASON = 41i32;
-pub const MonitorRequestReasonPnP: POWER_MONITOR_REQUEST_REASON = 18i32;
-pub const MonitorRequestReasonPoSetSystemState: POWER_MONITOR_REQUEST_REASON = 7i32;
-pub const MonitorRequestReasonPolicyChange: POWER_MONITOR_REQUEST_REASON = 13i32;
-pub const MonitorRequestReasonPowerButton: POWER_MONITOR_REQUEST_REASON = 1i32;
-pub const MonitorRequestReasonRemoteConnection: POWER_MONITOR_REQUEST_REASON = 2i32;
-pub const MonitorRequestReasonResumeModernStandby: POWER_MONITOR_REQUEST_REASON = 50i32;
-pub const MonitorRequestReasonResumePdc: POWER_MONITOR_REQUEST_REASON = 24i32;
-pub const MonitorRequestReasonResumeS4: POWER_MONITOR_REQUEST_REASON = 25i32;
-pub const MonitorRequestReasonScMonitorpower: POWER_MONITOR_REQUEST_REASON = 3i32;
-pub const MonitorRequestReasonScreenOffRequest: POWER_MONITOR_REQUEST_REASON = 11i32;
-pub const MonitorRequestReasonSessionUnlock: POWER_MONITOR_REQUEST_REASON = 10i32;
-pub const MonitorRequestReasonSetThreadExecutionState: POWER_MONITOR_REQUEST_REASON = 8i32;
-pub const MonitorRequestReasonSleepButton: POWER_MONITOR_REQUEST_REASON = 14i32;
-pub const MonitorRequestReasonSxTransition: POWER_MONITOR_REQUEST_REASON = 20i32;
-pub const MonitorRequestReasonSystemIdle: POWER_MONITOR_REQUEST_REASON = 21i32;
-pub const MonitorRequestReasonSystemStateEntered: POWER_MONITOR_REQUEST_REASON = 29i32;
-pub const MonitorRequestReasonTerminal: POWER_MONITOR_REQUEST_REASON = 26i32;
-pub const MonitorRequestReasonTerminalInit: POWER_MONITOR_REQUEST_REASON = 51i32;
-pub const MonitorRequestReasonThermalStandby: POWER_MONITOR_REQUEST_REASON = 23i32;
-pub const MonitorRequestReasonUnknown: POWER_MONITOR_REQUEST_REASON = 0i32;
-pub const MonitorRequestReasonUserDisplayBurst: POWER_MONITOR_REQUEST_REASON = 6i32;
-pub const MonitorRequestReasonUserInput: POWER_MONITOR_REQUEST_REASON = 4i32;
-pub const MonitorRequestReasonUserInputAccelerometer: POWER_MONITOR_REQUEST_REASON = 35i32;
-pub const MonitorRequestReasonUserInputHid: POWER_MONITOR_REQUEST_REASON = 36i32;
-pub const MonitorRequestReasonUserInputInitialization: POWER_MONITOR_REQUEST_REASON = 39i32;
-pub const MonitorRequestReasonUserInputKeyboard: POWER_MONITOR_REQUEST_REASON = 31i32;
-pub const MonitorRequestReasonUserInputMouse: POWER_MONITOR_REQUEST_REASON = 32i32;
-pub const MonitorRequestReasonUserInputPen: POWER_MONITOR_REQUEST_REASON = 34i32;
-pub const MonitorRequestReasonUserInputPoUserPresent: POWER_MONITOR_REQUEST_REASON = 37i32;
-pub const MonitorRequestReasonUserInputSessionSwitch: POWER_MONITOR_REQUEST_REASON = 38i32;
-pub const MonitorRequestReasonUserInputTouch: POWER_MONITOR_REQUEST_REASON = 54i32;
-pub const MonitorRequestReasonUserInputTouchpad: POWER_MONITOR_REQUEST_REASON = 33i32;
-pub const MonitorRequestReasonWinrt: POWER_MONITOR_REQUEST_REASON = 30i32;
-pub const MonitorRequestTypeOff: POWER_MONITOR_REQUEST_TYPE = 0i32;
-pub const MonitorRequestTypeOnAndPresent: POWER_MONITOR_REQUEST_TYPE = 1i32;
-pub const MonitorRequestTypeToggleOn: POWER_MONITOR_REQUEST_TYPE = 2i32;
-pub const MultiFunctionAdapter: CONFIGURATION_TYPE = 12i32;
-pub const NEC98x86: ALTERNATIVE_ARCHITECTURE_TYPE = 1i32;
-pub const NMI_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5bad89ff_b7e6_42c9_814a_cf2485d6e98a);
-pub const NMI_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe71254e7_c1b9_4940_ab76_909703a4320f);
-pub const NPEM_CONTROL_INTERFACE_CURRENT_VERSION: u32 = 2u32;
-pub const NPEM_CONTROL_INTERFACE_VERSION1: u32 = 1u32;
-pub const NPEM_CONTROL_INTERFACE_VERSION2: u32 = 2u32;
-pub const NT_PAGING_LEVELS: u32 = 2u32;
-pub const NX_SUPPORT_POLICY_ALWAYSOFF: u32 = 0u32;
-pub const NX_SUPPORT_POLICY_ALWAYSON: u32 = 1u32;
-pub const NX_SUPPORT_POLICY_OPTIN: u32 = 2u32;
-pub const NX_SUPPORT_POLICY_OPTOUT: u32 = 3u32;
-pub const NetworkController: CONFIGURATION_TYPE = 18i32;
-pub const NetworkPeripheral: CONFIGURATION_TYPE = 36i32;
-pub const NoAspmSupport: PCI_EXPRESS_ASPM_SUPPORT = 0i32;
-pub const NormalPagePriority: MM_PAGE_PRIORITY = 16i32;
-pub const NormalPoolPriority: EX_POOL_PRIORITY = 16i32;
-pub const NormalPoolPrioritySpecialPoolOverrun: EX_POOL_PRIORITY = 24i32;
-pub const NormalPoolPrioritySpecialPoolUnderrun: EX_POOL_PRIORITY = 25i32;
-pub const NormalWorkQueue: WORK_QUEUE_TYPE = 3i32;
-pub const NuBus: INTERFACE_TYPE = 7i32;
-pub const NuBusConfiguration: BUS_DATA_TYPE = 6i32;
-pub const OBJECT_TYPE_CREATE: u32 = 1u32;
-pub const OB_FLT_REGISTRATION_VERSION: u32 = 256u32;
-pub const OB_FLT_REGISTRATION_VERSION_0100: u32 = 256u32;
-pub const OB_OPERATION_HANDLE_CREATE: u32 = 1u32;
-pub const OB_OPERATION_HANDLE_DUPLICATE: u32 = 2u32;
-pub const OB_PREOP_SUCCESS: OB_PREOP_CALLBACK_STATUS = 0i32;
-pub const OPLOCK_KEY_FLAG_PARENT_KEY: u32 = 1u32;
-pub const OPLOCK_KEY_FLAG_TARGET_KEY: u32 = 2u32;
-pub const OPLOCK_KEY_VERSION_WIN7: u32 = 1u32;
-pub const OPLOCK_KEY_VERSION_WIN8: u32 = 2u32;
-pub const OSC_CAPABILITIES_MASKED: u32 = 16u32;
-pub const OSC_FIRMWARE_FAILURE: u32 = 2u32;
-pub const OSC_UNRECOGNIZED_REVISION: u32 = 8u32;
-pub const OSC_UNRECOGNIZED_UUID: u32 = 4u32;
-pub const OkControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 2i32;
-pub const OtherController: CONFIGURATION_TYPE = 24i32;
-pub const OtherPeripheral: CONFIGURATION_TYPE = 34i32;
-pub const PAGE_ENCLAVE_NO_CHANGE: u32 = 536870912u32;
-pub const PAGE_ENCLAVE_THREAD_CONTROL: u32 = 2147483648u32;
-pub const PAGE_ENCLAVE_UNVALIDATED: u32 = 536870912u32;
-pub const PAGE_EXECUTE: u32 = 16u32;
-pub const PAGE_EXECUTE_READ: u32 = 32u32;
-pub const PAGE_EXECUTE_READWRITE: u32 = 64u32;
-pub const PAGE_EXECUTE_WRITECOPY: u32 = 128u32;
-pub const PAGE_GRAPHICS_COHERENT: u32 = 131072u32;
-pub const PAGE_GRAPHICS_EXECUTE: u32 = 16384u32;
-pub const PAGE_GRAPHICS_EXECUTE_READ: u32 = 32768u32;
-pub const PAGE_GRAPHICS_EXECUTE_READWRITE: u32 = 65536u32;
-pub const PAGE_GRAPHICS_NOACCESS: u32 = 2048u32;
-pub const PAGE_GRAPHICS_NOCACHE: u32 = 262144u32;
-pub const PAGE_GRAPHICS_READONLY: u32 = 4096u32;
-pub const PAGE_GRAPHICS_READWRITE: u32 = 8192u32;
-pub const PAGE_GUARD: u32 = 256u32;
-pub const PAGE_NOACCESS: u32 = 1u32;
-pub const PAGE_NOCACHE: u32 = 512u32;
-pub const PAGE_READONLY: u32 = 2u32;
-pub const PAGE_READWRITE: u32 = 4u32;
-pub const PAGE_REVERT_TO_FILE_MAP: u32 = 2147483648u32;
-pub const PAGE_SHIFT: i32 = 12i32;
-pub const PAGE_SIZE: u32 = 4096u32;
-pub const PAGE_TARGETS_INVALID: u32 = 1073741824u32;
-pub const PAGE_TARGETS_NO_UPDATE: u32 = 1073741824u32;
-pub const PAGE_WRITECOMBINE: u32 = 1024u32;
-pub const PAGE_WRITECOPY: u32 = 8u32;
-pub const PARKING_TOPOLOGY_POLICY_DISABLED: u32 = 0u32;
-pub const PASSIVE_LEVEL: u32 = 0u32;
-pub const PCCARD_DEVICE_PCI: u32 = 16u32;
-pub const PCCARD_DUP_LEGACY_BASE: u32 = 6u32;
-pub const PCCARD_MAP_ERROR: u32 = 1u32;
-pub const PCCARD_MAP_ZERO: u32 = 2u32;
-pub const PCCARD_NO_CONTROLLERS: u32 = 7u32;
-pub const PCCARD_NO_LEGACY_BASE: u32 = 5u32;
-pub const PCCARD_NO_PIC: u32 = 4u32;
-pub const PCCARD_NO_TIMER: u32 = 3u32;
-pub const PCCARD_SCAN_DISABLED: u32 = 1u32;
-pub const PCIBus: INTERFACE_TYPE = 5i32;
-pub const PCIConfiguration: BUS_DATA_TYPE = 4i32;
-pub const PCIEXPRESS_ERROR_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd995e954_bbc1_430f_ad91_b44dcb3c6f35);
-pub const PCIE_CORRECTABLE_ERROR_SUMMARY_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe96eca99_53e2_4f52_9be7_d2dbe9508ed0);
-pub const PCIXBUS_ERROR_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc5753963_3b84_4095_bf78_eddad3f9c9dd);
-pub const PCIXBUS_ERRTYPE_ADDRESSPARITY: u32 = 6u32;
-pub const PCIXBUS_ERRTYPE_BUSTIMEOUT: u32 = 4u32;
-pub const PCIXBUS_ERRTYPE_COMMANDPARITY: u32 = 7u32;
-pub const PCIXBUS_ERRTYPE_DATAPARITY: u32 = 1u32;
-pub const PCIXBUS_ERRTYPE_MASTERABORT: u32 = 3u32;
-pub const PCIXBUS_ERRTYPE_MASTERDATAPARITY: u32 = 5u32;
-pub const PCIXBUS_ERRTYPE_SYSTEM: u32 = 2u32;
-pub const PCIXBUS_ERRTYPE_UNKNOWN: u32 = 0u32;
-pub const PCIXDEVICE_ERROR_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeb5e4685_ca66_4769_b6a2_26068b001326);
-pub const PCIX_MODE1_100MHZ: u32 = 2u32;
-pub const PCIX_MODE1_133MHZ: u32 = 3u32;
-pub const PCIX_MODE1_66MHZ: u32 = 1u32;
-pub const PCIX_MODE2_266_100MHZ: u32 = 10u32;
-pub const PCIX_MODE2_266_133MHZ: u32 = 11u32;
-pub const PCIX_MODE2_266_66MHZ: u32 = 9u32;
-pub const PCIX_MODE2_533_100MHZ: u32 = 14u32;
-pub const PCIX_MODE2_533_133MHZ: u32 = 15u32;
-pub const PCIX_MODE2_533_66MHZ: u32 = 13u32;
-pub const PCIX_MODE_CONVENTIONAL_PCI: u32 = 0u32;
-pub const PCIX_VERSION_DUAL_MODE_ECC: u32 = 2u32;
-pub const PCIX_VERSION_MODE1_ONLY: u32 = 0u32;
-pub const PCIX_VERSION_MODE2_ECC: u32 = 1u32;
-pub const PCI_ACS_ALLOWED: u32 = 0u32;
-pub const PCI_ACS_BLOCKED: u32 = 1u32;
-pub const PCI_ACS_REDIRECTED: u32 = 2u32;
-pub const PCI_ADDRESS_IO_ADDRESS_MASK: u32 = 4294967292u32;
-pub const PCI_ADDRESS_IO_SPACE: u32 = 1u32;
-pub const PCI_ADDRESS_MEMORY_ADDRESS_MASK: u32 = 4294967280u32;
-pub const PCI_ADDRESS_MEMORY_PREFETCHABLE: u32 = 8u32;
-pub const PCI_ADDRESS_MEMORY_TYPE_MASK: u32 = 6u32;
-pub const PCI_ADDRESS_ROM_ADDRESS_MASK: u32 = 4294965248u32;
-pub const PCI_AGP_RATE_1X: u32 = 1u32;
-pub const PCI_AGP_RATE_2X: u32 = 2u32;
-pub const PCI_AGP_RATE_4X: u32 = 4u32;
-pub const PCI_ATS_INTERFACE_VERSION: u32 = 1u32;
-pub const PCI_BRIDGE_TYPE: u32 = 1u32;
-pub const PCI_BUS_INTERFACE_STANDARD_VERSION: u32 = 2u32;
-pub const PCI_CAPABILITY_ID_ADVANCED_FEATURES: u32 = 19u32;
-pub const PCI_CAPABILITY_ID_AGP: u32 = 2u32;
-pub const PCI_CAPABILITY_ID_AGP_TARGET: u32 = 14u32;
-pub const PCI_CAPABILITY_ID_CPCI_HOTSWAP: u32 = 6u32;
-pub const PCI_CAPABILITY_ID_CPCI_RES_CTRL: u32 = 11u32;
-pub const PCI_CAPABILITY_ID_DEBUG_PORT: u32 = 10u32;
-pub const PCI_CAPABILITY_ID_FPB: u32 = 21u32;
-pub const PCI_CAPABILITY_ID_HYPERTRANSPORT: u32 = 8u32;
-pub const PCI_CAPABILITY_ID_MSI: u32 = 5u32;
-pub const PCI_CAPABILITY_ID_MSIX: u32 = 17u32;
-pub const PCI_CAPABILITY_ID_P2P_SSID: u32 = 13u32;
-pub const PCI_CAPABILITY_ID_PCIX: u32 = 7u32;
-pub const PCI_CAPABILITY_ID_PCI_EXPRESS: u32 = 16u32;
-pub const PCI_CAPABILITY_ID_POWER_MANAGEMENT: u32 = 1u32;
-pub const PCI_CAPABILITY_ID_SATA_CONFIG: u32 = 18u32;
-pub const PCI_CAPABILITY_ID_SECURE: u32 = 15u32;
-pub const PCI_CAPABILITY_ID_SHPC: u32 = 12u32;
-pub const PCI_CAPABILITY_ID_SLOT_ID: u32 = 4u32;
-pub const PCI_CAPABILITY_ID_VENDOR_SPECIFIC: u32 = 9u32;
-pub const PCI_CAPABILITY_ID_VPD: u32 = 3u32;
-pub const PCI_CARDBUS_BRIDGE_TYPE: u32 = 2u32;
-pub const PCI_CLASS_BASE_SYSTEM_DEV: u32 = 8u32;
-pub const PCI_CLASS_BRIDGE_DEV: u32 = 6u32;
-pub const PCI_CLASS_DATA_ACQ_SIGNAL_PROC: u32 = 17u32;
-pub const PCI_CLASS_DISPLAY_CTLR: u32 = 3u32;
-pub const PCI_CLASS_DOCKING_STATION: u32 = 10u32;
-pub const PCI_CLASS_ENCRYPTION_DECRYPTION: u32 = 16u32;
-pub const PCI_CLASS_INPUT_DEV: u32 = 9u32;
-pub const PCI_CLASS_INTELLIGENT_IO_CTLR: u32 = 14u32;
-pub const PCI_CLASS_MASS_STORAGE_CTLR: u32 = 1u32;
-pub const PCI_CLASS_MEMORY_CTLR: u32 = 5u32;
-pub const PCI_CLASS_MULTIMEDIA_DEV: u32 = 4u32;
-pub const PCI_CLASS_NETWORK_CTLR: u32 = 2u32;
-pub const PCI_CLASS_NOT_DEFINED: u32 = 255u32;
-pub const PCI_CLASS_PRE_20: u32 = 0u32;
-pub const PCI_CLASS_PROCESSOR: u32 = 11u32;
-pub const PCI_CLASS_SATELLITE_COMMS_CTLR: u32 = 15u32;
-pub const PCI_CLASS_SERIAL_BUS_CTLR: u32 = 12u32;
-pub const PCI_CLASS_SIMPLE_COMMS_CTLR: u32 = 7u32;
-pub const PCI_CLASS_WIRELESS_CTLR: u32 = 13u32;
-pub const PCI_DATA_VERSION: u32 = 1u32;
-pub const PCI_DEVICE_PRESENT_INTERFACE_VERSION: u32 = 1u32;
-pub const PCI_DEVICE_TYPE: u32 = 0u32;
-pub const PCI_DISABLE_LEVEL_INTERRUPT: u32 = 1024u32;
-pub const PCI_ENABLE_BUS_MASTER: u32 = 4u32;
-pub const PCI_ENABLE_FAST_BACK_TO_BACK: u32 = 512u32;
-pub const PCI_ENABLE_IO_SPACE: u32 = 1u32;
-pub const PCI_ENABLE_MEMORY_SPACE: u32 = 2u32;
-pub const PCI_ENABLE_PARITY: u32 = 64u32;
-pub const PCI_ENABLE_SERR: u32 = 256u32;
-pub const PCI_ENABLE_SPECIAL_CYCLES: u32 = 8u32;
-pub const PCI_ENABLE_VGA_COMPATIBLE_PALETTE: u32 = 32u32;
-pub const PCI_ENABLE_WAIT_CYCLE: u32 = 128u32;
-pub const PCI_ENABLE_WRITE_AND_INVALIDATE: u32 = 16u32;
-pub const PCI_EXPRESS_ACCESS_CONTROL_SERVICES_CAP_ID: u32 = 13u32;
-pub const PCI_EXPRESS_ADVANCED_ERROR_REPORTING_CAP_ID: u32 = 1u32;
-pub const PCI_EXPRESS_ARI_CAP_ID: u32 = 14u32;
-pub const PCI_EXPRESS_ATS_CAP_ID: u32 = 15u32;
-pub const PCI_EXPRESS_CONFIGURATION_ACCESS_CORRELATION_CAP_ID: u32 = 12u32;
-pub const PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_CAP_ID: u32 = 35u32;
-pub const PCI_EXPRESS_DEVICE_SERIAL_NUMBER_CAP_ID: u32 = 3u32;
-pub const PCI_EXPRESS_DPA_CAP_ID: u32 = 22u32;
-pub const PCI_EXPRESS_DPC_CAP_ID: u32 = 29u32;
-pub const PCI_EXPRESS_FRS_QUEUEING_CAP_ID: u32 = 33u32;
-pub const PCI_EXPRESS_L1_PM_SS_CAP_ID: u32 = 30u32;
-pub const PCI_EXPRESS_LINK_QUIESCENT_INTERFACE_VERSION: u32 = 1u32;
-pub const PCI_EXPRESS_LN_REQUESTER_CAP_ID: u32 = 28u32;
-pub const PCI_EXPRESS_LTR_CAP_ID: u32 = 24u32;
-pub const PCI_EXPRESS_MFVC_CAP_ID: u32 = 8u32;
-pub const PCI_EXPRESS_MPCIE_CAP_ID: u32 = 32u32;
-pub const PCI_EXPRESS_MULTICAST_CAP_ID: u32 = 18u32;
-pub const PCI_EXPRESS_MULTI_ROOT_IO_VIRTUALIZATION_CAP_ID: u32 = 17u32;
-pub const PCI_EXPRESS_NPEM_CAP_ID: u32 = 41u32;
-pub const PCI_EXPRESS_PAGE_REQUEST_CAP_ID: u32 = 19u32;
-pub const PCI_EXPRESS_PASID_CAP_ID: u32 = 27u32;
-pub const PCI_EXPRESS_PMUX_CAP_ID: u32 = 26u32;
-pub const PCI_EXPRESS_POWER_BUDGETING_CAP_ID: u32 = 4u32;
-pub const PCI_EXPRESS_PTM_CAP_ID: u32 = 31u32;
-pub const PCI_EXPRESS_RCRB_HEADER_CAP_ID: u32 = 10u32;
-pub const PCI_EXPRESS_RC_EVENT_COLLECTOR_ENDPOINT_ASSOCIATION_CAP_ID: u32 = 7u32;
-pub const PCI_EXPRESS_RC_INTERNAL_LINK_CONTROL_CAP_ID: u32 = 6u32;
-pub const PCI_EXPRESS_RC_LINK_DECLARATION_CAP_ID: u32 = 5u32;
-pub const PCI_EXPRESS_READINESS_TIME_REPORTING_CAP_ID: u32 = 34u32;
-pub const PCI_EXPRESS_RESERVED_FOR_AMD_CAP_ID: u32 = 20u32;
-pub const PCI_EXPRESS_RESIZABLE_BAR_CAP_ID: u32 = 21u32;
-pub const PCI_EXPRESS_ROOT_PORT_INTERFACE_VERSION: u32 = 1u32;
-pub const PCI_EXPRESS_SECONDARY_PCI_EXPRESS_CAP_ID: u32 = 25u32;
-pub const PCI_EXPRESS_SINGLE_ROOT_IO_VIRTUALIZATION_CAP_ID: u32 = 16u32;
-pub const PCI_EXPRESS_TPH_REQUESTER_CAP_ID: u32 = 23u32;
-pub const PCI_EXPRESS_TPH_ST_LOCATION_MSIX_TABLE: u32 = 2u32;
-pub const PCI_EXPRESS_TPH_ST_LOCATION_NONE: u32 = 0u32;
-pub const PCI_EXPRESS_TPH_ST_LOCATION_RESERVED: u32 = 3u32;
-pub const PCI_EXPRESS_TPH_ST_LOCATION_TPH_CAPABILITY: u32 = 1u32;
-pub const PCI_EXPRESS_VC_AND_MFVC_CAP_ID: u32 = 9u32;
-pub const PCI_EXPRESS_VENDOR_SPECIFIC_CAP_ID: u32 = 11u32;
-pub const PCI_EXPRESS_VIRTUAL_CHANNEL_CAP_ID: u32 = 2u32;
-pub const PCI_EXTENDED_CONFIG_LENGTH: u32 = 4096u32;
-pub const PCI_INVALID_ALTERNATE_FUNCTION_NUMBER: u32 = 255u32;
-pub const PCI_INVALID_VENDORID: u32 = 65535u32;
-pub const PCI_MAX_BRIDGE_NUMBER: u32 = 255u32;
-pub const PCI_MAX_DEVICES: u32 = 32u32;
-pub const PCI_MAX_FUNCTION: u32 = 8u32;
-pub const PCI_MAX_SEGMENT_NUMBER: u32 = 65535u32;
-pub const PCI_MSIX_TABLE_CONFIG_INTERFACE_VERSION: u32 = 1u32;
-pub const PCI_MULTIFUNCTION: u32 = 128u32;
-pub const PCI_PROGRAMMING_INTERFACE_MSC_NVM_EXPRESS: u32 = 2u32;
-pub const PCI_PTM_TIME_SOURCE_AUX: u32 = 4294967295u32;
-pub const PCI_RECOVERY_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdd060800_f6e1_4204_ac27_c4bca9568402);
-pub const PCI_ROMADDRESS_ENABLED: u32 = 1u32;
-pub const PCI_ROOT_BUS_OSC_METHOD_CAPABILITY_REVISION: u32 = 1u32;
-pub const PCI_SECURITY_DIRECT_TRANSLATED_P2P: u32 = 4u32;
-pub const PCI_SECURITY_ENHANCED: u32 = 2u32;
-pub const PCI_SECURITY_FULLY_SUPPORTED: u32 = 1u32;
-pub const PCI_SECURITY_GUEST_ASSIGNED: u32 = 1u32;
-pub const PCI_SECURITY_INTERFACE_VERSION: u32 = 1u32;
-pub const PCI_SECURITY_INTERFACE_VERSION2: u32 = 2u32;
-pub const PCI_SECURITY_SRIOV_DIRECT_TRANSLATED_P2P: u32 = 262144u32;
-pub const PCI_STATUS_66MHZ_CAPABLE: u32 = 32u32;
-pub const PCI_STATUS_CAPABILITIES_LIST: u32 = 16u32;
-pub const PCI_STATUS_DATA_PARITY_DETECTED: u32 = 256u32;
-pub const PCI_STATUS_DETECTED_PARITY_ERROR: u32 = 32768u32;
-pub const PCI_STATUS_DEVSEL: u32 = 1536u32;
-pub const PCI_STATUS_FAST_BACK_TO_BACK: u32 = 128u32;
-pub const PCI_STATUS_IMMEDIATE_READINESS: u32 = 1u32;
-pub const PCI_STATUS_INTERRUPT_PENDING: u32 = 8u32;
-pub const PCI_STATUS_RECEIVED_MASTER_ABORT: u32 = 8192u32;
-pub const PCI_STATUS_RECEIVED_TARGET_ABORT: u32 = 4096u32;
-pub const PCI_STATUS_SIGNALED_SYSTEM_ERROR: u32 = 16384u32;
-pub const PCI_STATUS_SIGNALED_TARGET_ABORT: u32 = 2048u32;
-pub const PCI_STATUS_UDF_SUPPORTED: u32 = 64u32;
-pub const PCI_SUBCLASS_BR_CARDBUS: u32 = 7u32;
-pub const PCI_SUBCLASS_BR_EISA: u32 = 2u32;
-pub const PCI_SUBCLASS_BR_HOST: u32 = 0u32;
-pub const PCI_SUBCLASS_BR_ISA: u32 = 1u32;
-pub const PCI_SUBCLASS_BR_MCA: u32 = 3u32;
-pub const PCI_SUBCLASS_BR_NUBUS: u32 = 6u32;
-pub const PCI_SUBCLASS_BR_OTHER: u32 = 128u32;
-pub const PCI_SUBCLASS_BR_PCI_TO_PCI: u32 = 4u32;
-pub const PCI_SUBCLASS_BR_PCMCIA: u32 = 5u32;
-pub const PCI_SUBCLASS_BR_RACEWAY: u32 = 8u32;
-pub const PCI_SUBCLASS_COM_MODEM: u32 = 3u32;
-pub const PCI_SUBCLASS_COM_MULTIPORT: u32 = 2u32;
-pub const PCI_SUBCLASS_COM_OTHER: u32 = 128u32;
-pub const PCI_SUBCLASS_COM_PARALLEL: u32 = 1u32;
-pub const PCI_SUBCLASS_COM_SERIAL: u32 = 0u32;
-pub const PCI_SUBCLASS_CRYPTO_ENTERTAINMENT: u32 = 16u32;
-pub const PCI_SUBCLASS_CRYPTO_NET_COMP: u32 = 0u32;
-pub const PCI_SUBCLASS_CRYPTO_OTHER: u32 = 128u32;
-pub const PCI_SUBCLASS_DASP_DPIO: u32 = 0u32;
-pub const PCI_SUBCLASS_DASP_OTHER: u32 = 128u32;
-pub const PCI_SUBCLASS_DOC_GENERIC: u32 = 0u32;
-pub const PCI_SUBCLASS_DOC_OTHER: u32 = 128u32;
-pub const PCI_SUBCLASS_INP_DIGITIZER: u32 = 1u32;
-pub const PCI_SUBCLASS_INP_GAMEPORT: u32 = 4u32;
-pub const PCI_SUBCLASS_INP_KEYBOARD: u32 = 0u32;
-pub const PCI_SUBCLASS_INP_MOUSE: u32 = 2u32;
-pub const PCI_SUBCLASS_INP_OTHER: u32 = 128u32;
-pub const PCI_SUBCLASS_INP_SCANNER: u32 = 3u32;
-pub const PCI_SUBCLASS_INTIO_I2O: u32 = 0u32;
-pub const PCI_SUBCLASS_MEM_FLASH: u32 = 1u32;
-pub const PCI_SUBCLASS_MEM_OTHER: u32 = 128u32;
-pub const PCI_SUBCLASS_MEM_RAM: u32 = 0u32;
-pub const PCI_SUBCLASS_MM_AUDIO_DEV: u32 = 1u32;
-pub const PCI_SUBCLASS_MM_OTHER: u32 = 128u32;
-pub const PCI_SUBCLASS_MM_TELEPHONY_DEV: u32 = 2u32;
-pub const PCI_SUBCLASS_MM_VIDEO_DEV: u32 = 0u32;
-pub const PCI_SUBCLASS_MSC_AHCI_CTLR: u32 = 6u32;
-pub const PCI_SUBCLASS_MSC_FLOPPY_CTLR: u32 = 2u32;
-pub const PCI_SUBCLASS_MSC_IDE_CTLR: u32 = 1u32;
-pub const PCI_SUBCLASS_MSC_IPI_CTLR: u32 = 3u32;
-pub const PCI_SUBCLASS_MSC_NVM_CTLR: u32 = 8u32;
-pub const PCI_SUBCLASS_MSC_OTHER: u32 = 128u32;
-pub const PCI_SUBCLASS_MSC_RAID_CTLR: u32 = 4u32;
-pub const PCI_SUBCLASS_MSC_SCSI_BUS_CTLR: u32 = 0u32;
-pub const PCI_SUBCLASS_NET_ATM_CTLR: u32 = 3u32;
-pub const PCI_SUBCLASS_NET_ETHERNET_CTLR: u32 = 0u32;
-pub const PCI_SUBCLASS_NET_FDDI_CTLR: u32 = 2u32;
-pub const PCI_SUBCLASS_NET_ISDN_CTLR: u32 = 4u32;
-pub const PCI_SUBCLASS_NET_OTHER: u32 = 128u32;
-pub const PCI_SUBCLASS_NET_TOKEN_RING_CTLR: u32 = 1u32;
-pub const PCI_SUBCLASS_PRE_20_NON_VGA: u32 = 0u32;
-pub const PCI_SUBCLASS_PRE_20_VGA: u32 = 1u32;
-pub const PCI_SUBCLASS_PROC_386: u32 = 0u32;
-pub const PCI_SUBCLASS_PROC_486: u32 = 1u32;
-pub const PCI_SUBCLASS_PROC_ALPHA: u32 = 16u32;
-pub const PCI_SUBCLASS_PROC_COPROCESSOR: u32 = 64u32;
-pub const PCI_SUBCLASS_PROC_PENTIUM: u32 = 2u32;
-pub const PCI_SUBCLASS_PROC_POWERPC: u32 = 32u32;
-pub const PCI_SUBCLASS_SAT_AUDIO: u32 = 2u32;
-pub const PCI_SUBCLASS_SAT_DATA: u32 = 4u32;
-pub const PCI_SUBCLASS_SAT_TV: u32 = 1u32;
-pub const PCI_SUBCLASS_SAT_VOICE: u32 = 3u32;
-pub const PCI_SUBCLASS_SB_ACCESS: u32 = 1u32;
-pub const PCI_SUBCLASS_SB_FIBRE_CHANNEL: u32 = 4u32;
-pub const PCI_SUBCLASS_SB_IEEE1394: u32 = 0u32;
-pub const PCI_SUBCLASS_SB_SMBUS: u32 = 5u32;
-pub const PCI_SUBCLASS_SB_SSA: u32 = 2u32;
-pub const PCI_SUBCLASS_SB_THUNDERBOLT: u32 = 10u32;
-pub const PCI_SUBCLASS_SB_USB: u32 = 3u32;
-pub const PCI_SUBCLASS_SYS_DMA_CTLR: u32 = 1u32;
-pub const PCI_SUBCLASS_SYS_GEN_HOTPLUG_CTLR: u32 = 4u32;
-pub const PCI_SUBCLASS_SYS_INTERRUPT_CTLR: u32 = 0u32;
-pub const PCI_SUBCLASS_SYS_OTHER: u32 = 128u32;
-pub const PCI_SUBCLASS_SYS_RCEC: u32 = 7u32;
-pub const PCI_SUBCLASS_SYS_REAL_TIME_CLOCK: u32 = 3u32;
-pub const PCI_SUBCLASS_SYS_SDIO_CTRL: u32 = 5u32;
-pub const PCI_SUBCLASS_SYS_SYSTEM_TIMER: u32 = 2u32;
-pub const PCI_SUBCLASS_VID_OTHER: u32 = 128u32;
-pub const PCI_SUBCLASS_VID_VGA_CTLR: u32 = 0u32;
-pub const PCI_SUBCLASS_VID_XGA_CTLR: u32 = 1u32;
-pub const PCI_SUBCLASS_WIRELESS_CON_IR: u32 = 1u32;
-pub const PCI_SUBCLASS_WIRELESS_IRDA: u32 = 0u32;
-pub const PCI_SUBCLASS_WIRELESS_OTHER: u32 = 128u32;
-pub const PCI_SUBCLASS_WIRELESS_RF: u32 = 16u32;
-pub const PCI_SUBLCASS_VID_3D_CTLR: u32 = 2u32;
-pub const PCI_TYPE0_ADDRESSES: u32 = 6u32;
-pub const PCI_TYPE1_ADDRESSES: u32 = 2u32;
-pub const PCI_TYPE2_ADDRESSES: u32 = 5u32;
-pub const PCI_TYPE_20BIT: u32 = 2u32;
-pub const PCI_TYPE_32BIT: u32 = 0u32;
-pub const PCI_TYPE_64BIT: u32 = 4u32;
-pub const PCI_USE_CLASS_SUBCLASS: u32 = 8u32;
-pub const PCI_USE_LOCAL_BUS: u32 = 32u32;
-pub const PCI_USE_LOCAL_DEVICE: u32 = 64u32;
-pub const PCI_USE_PROGIF: u32 = 16u32;
-pub const PCI_USE_REVISION: u32 = 2u32;
-pub const PCI_USE_SUBSYSTEM_IDS: u32 = 1u32;
-pub const PCI_USE_VENDEV_IDS: u32 = 4u32;
-pub const PCI_WHICHSPACE_CONFIG: u32 = 0u32;
-pub const PCI_WHICHSPACE_ROM: u32 = 1382638416u32;
-pub const PCIe_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcf93c01f_1a16_4dfc_b8bc_9c4daf67c104);
-pub const PCMCIABus: INTERFACE_TYPE = 8i32;
-pub const PCMCIAConfiguration: BUS_DATA_TYPE = 7i32;
-pub const PCR_BTI_MITIGATION_CSWAP_HVC: u32 = 16u32;
-pub const PCR_BTI_MITIGATION_CSWAP_SMC: u32 = 32u32;
-pub const PCR_BTI_MITIGATION_NONE: u32 = 0u32;
-pub const PCR_BTI_MITIGATION_VBAR_MASK: u32 = 15u32;
-pub const PCR_MAJOR_VERSION: u32 = 1u32;
-pub const PCR_MINOR_VERSION: u32 = 1u32;
-pub const PCW_CURRENT_VERSION: u32 = 512u32;
-pub const PCW_VERSION_1: u32 = 256u32;
-pub const PCW_VERSION_2: u32 = 512u32;
-pub const PDE_BASE: u32 = 3224371200u32;
-pub const PDE_PER_PAGE: u32 = 512u32;
-pub const PDE_TOP: u32 = 3224375295u32;
-pub const PDI_SHIFT: u32 = 21u32;
-pub const PEI_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x09a9d5ac_5204_4214_96e5_94992e752bcd);
-pub const PFAControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 6i32;
-pub const PLUGPLAY_PROPERTY_PERSISTENT: u32 = 1u32;
-pub const PLUGPLAY_REGKEY_CURRENT_HWPROFILE: u32 = 4u32;
-pub const PLUGPLAY_REGKEY_DEVICE: u32 = 1u32;
-pub const PLUGPLAY_REGKEY_DRIVER: u32 = 2u32;
-pub const PMCCounter: HARDWARE_COUNTER_TYPE = 0i32;
-pub const PMEM_ERROR_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x81687003_dbfd_4728_9ffd_f0904f97597d);
-pub const PNPBus: INTERFACE_TYPE = 15i32;
-pub const PNPISABus: INTERFACE_TYPE = 14i32;
-pub const PNPISAConfiguration: BUS_DATA_TYPE = 10i32;
-pub const PNPNOTIFY_DEVICE_INTERFACE_INCLUDE_EXISTING_INTERFACES: u32 = 1u32;
-pub const PNP_DEVICE_ASSIGNED_TO_GUEST: u32 = 256u32;
-pub const PNP_DEVICE_DISABLED: u32 = 1u32;
-pub const PNP_DEVICE_DISCONNECTED: u32 = 64u32;
-pub const PNP_DEVICE_DONT_DISPLAY_IN_UI: u32 = 2u32;
-pub const PNP_DEVICE_FAILED: u32 = 4u32;
-pub const PNP_DEVICE_NOT_DISABLEABLE: u32 = 32u32;
-pub const PNP_DEVICE_REMOVED: u32 = 8u32;
-pub const PNP_DEVICE_RESOURCE_REQUIREMENTS_CHANGED: u32 = 16u32;
-pub const PNP_DEVICE_RESOURCE_UPDATED: u32 = 128u32;
-pub const PNP_EXTENDED_ADDRESS_INTERFACE_VERSION: u32 = 1u32;
-pub const PNP_REPLACE_DRIVER_INTERFACE_VERSION: u32 = 1u32;
-pub const PNP_REPLACE_HARDWARE_MEMORY_MIRRORING: u32 = 4u32;
-pub const PNP_REPLACE_HARDWARE_PAGE_COPY: u32 = 8u32;
-pub const PNP_REPLACE_HARDWARE_QUIESCE: u32 = 16u32;
-pub const PNP_REPLACE_MEMORY_SUPPORTED: u32 = 1u32;
-pub const PNP_REPLACE_PARAMETERS_VERSION: u32 = 2u32;
-pub const PNP_REPLACE_PROCESSOR_SUPPORTED: u32 = 2u32;
-pub const POOL_COLD_ALLOCATION: u32 = 256u32;
-pub const POOL_CREATE_FLG_SECURE_POOL: u32 = 1u32;
-pub const POOL_CREATE_FLG_USE_GLOBAL_POOL: u32 = 2u32;
-pub const POOL_CREATE_PARAMS_VERSION: u32 = 1u32;
-pub const POOL_EXTENDED_PARAMETER_REQUIRED_FIELD_BITS: u32 = 1u32;
-pub const POOL_EXTENDED_PARAMETER_TYPE_BITS: u32 = 8u32;
-pub const POOL_NX_ALLOCATION: u32 = 512u32;
-pub const POOL_NX_OPTIN_AUTO: u32 = 1u32;
-pub const POOL_QUOTA_FAIL_INSTEAD_OF_RAISE: u32 = 8u32;
-pub const POOL_RAISE_IF_ALLOCATION_FAILURE: u32 = 16u32;
-pub const POOL_TAGGING: u32 = 1u32;
-pub const POOL_ZEROING_INFORMATION: u32 = 227u32;
-pub const POOL_ZERO_ALLOCATION: u32 = 1024u32;
-pub const PORT_MAXIMUM_MESSAGE_LENGTH: u32 = 512u32;
-pub const POWER_LEVEL: u32 = 30u32;
-pub const POWER_PLATFORM_ROLE_V1: u32 = 1u32;
-pub const POWER_PLATFORM_ROLE_V2: u32 = 2u32;
-pub const POWER_PLATFORM_ROLE_VERSION: u32 = 2u32;
-pub const POWER_SETTING_VALUE_VERSION: u32 = 1u32;
-pub const POWER_THROTTLING_PROCESS_CURRENT_VERSION: u32 = 1u32;
-pub const POWER_THROTTLING_PROCESS_DELAYTIMERS: u32 = 2u32;
-pub const POWER_THROTTLING_PROCESS_EXECUTION_SPEED: u32 = 1u32;
-pub const POWER_THROTTLING_PROCESS_IGNORE_TIMER_RESOLUTION: u32 = 4u32;
-pub const POWER_THROTTLING_THREAD_CURRENT_VERSION: u32 = 1u32;
-pub const POWER_THROTTLING_THREAD_EXECUTION_SPEED: u32 = 1u32;
-pub const POWER_THROTTLING_THREAD_VALID_FLAGS: u32 = 1u32;
-pub const PO_FX_COMPONENT_FLAG_F0_ON_DX: u64 = 1u64;
-pub const PO_FX_COMPONENT_FLAG_NO_DEBOUNCE: u64 = 2u64;
-pub const PO_FX_DIRECTED_FX_DEFAULT_IDLE_TIMEOUT: u32 = 0u32;
-pub const PO_FX_FLAG_ASYNC_ONLY: u32 = 2u32;
-pub const PO_FX_FLAG_BLOCKING: u32 = 1u32;
-pub const PO_FX_FLAG_PERF_PEP_OPTIONAL: u32 = 1u32;
-pub const PO_FX_FLAG_PERF_QUERY_ON_ALL_IDLE_STATES: u32 = 4u32;
-pub const PO_FX_FLAG_PERF_QUERY_ON_F0: u32 = 2u32;
-pub const PO_FX_UNKNOWN_POWER: u32 = 4294967295u32;
-pub const PO_FX_UNKNOWN_TIME: u64 = 18446744073709551615u64;
-pub const PO_FX_VERSION: u32 = 1u32;
-pub const PO_FX_VERSION_V1: u32 = 1u32;
-pub const PO_FX_VERSION_V2: u32 = 2u32;
-pub const PO_FX_VERSION_V3: u32 = 3u32;
-pub const PO_MEM_BOOT_PHASE: u32 = 65536u32;
-pub const PO_MEM_CLONE: u32 = 2u32;
-pub const PO_MEM_CL_OR_NCHK: u32 = 4u32;
-pub const PO_MEM_DISCARD: u32 = 32768u32;
-pub const PO_MEM_PAGE_ADDRESS: u32 = 16384u32;
-pub const PO_MEM_PRESERVE: u32 = 1u32;
-pub const PPI_SHIFT: u32 = 30u32;
-pub const PRIVILEGE_SET_ALL_NECESSARY: u32 = 1u32;
-pub const PROCESSOR_FEATURE_MAX: u32 = 64u32;
-pub const PROCESSOR_GENERIC_ERROR_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9876ccad_47b4_4bdb_b65e_16f193c4f3db);
-pub const PROCESS_EXCEPTION_PORT_ALL_STATE_BITS: u32 = 3u32;
-pub const PROCESS_HANDLE_EXCEPTIONS_ENABLED: u32 = 1u32;
-pub const PROCESS_HANDLE_RAISE_UM_EXCEPTION_ON_INVALID_HANDLE_CLOSE_DISABLED: u32 = 0u32;
-pub const PROCESS_HANDLE_RAISE_UM_EXCEPTION_ON_INVALID_HANDLE_CLOSE_ENABLED: u32 = 1u32;
-pub const PROCESS_HANDLE_TRACING_MAX_STACKS: u32 = 16u32;
-pub const PROCESS_LUID_DOSDEVICES_ONLY: u32 = 1u32;
-pub const PROFILE_LEVEL: u32 = 27u32;
-pub const PROTECTED_POOL: u32 = 0u32;
-pub const PS_IMAGE_NOTIFY_CONFLICTING_ARCHITECTURE: u32 = 1u32;
-pub const PS_INVALID_SILO_CONTEXT_SLOT: u32 = 4294967295u32;
-pub const PTE_BASE: u32 = 3221225472u32;
-pub const PTE_PER_PAGE: u32 = 512u32;
-pub const PTE_TOP: u32 = 3225419775u32;
-pub const PTI_SHIFT: u32 = 12u32;
-pub const PageIn: KWAIT_REASON = 2i32;
-pub const ParallelController: CONFIGURATION_TYPE = 20i32;
-pub const PciAcsBitDisable: PCI_ACS_BIT = 2i32;
-pub const PciAcsBitDontCare: PCI_ACS_BIT = 3i32;
-pub const PciAcsBitEnable: PCI_ACS_BIT = 1i32;
-pub const PciAcsReserved: PCI_ACS_BIT = 0i32;
-pub const PciAddressParityError: u16 = 6u16;
-pub const PciBusDataParityError: u16 = 1u16;
-pub const PciBusMasterAbort: u16 = 3u16;
-pub const PciBusSystemError: u16 = 2u16;
-pub const PciBusTimeOut: u16 = 4u16;
-pub const PciBusUnknownError: u16 = 0u16;
-pub const PciCommandParityError: u16 = 7u16;
-pub const PciConventional: PCI_HARDWARE_INTERFACE = 0i32;
-pub const PciDeviceD3Cold_Reason_Default_State_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = 8i32;
-pub const PciDeviceD3Cold_Reason_INF_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = 9i32;
-pub const PciDeviceD3Cold_Reason_Interface_Api_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = 10i32;
-pub const PciDeviceD3Cold_State_Disabled_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = 1i32;
-pub const PciDeviceD3Cold_State_Disabled_Bridge_HackFlags_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = 4i32;
-pub const PciDeviceD3Cold_State_Enabled_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = 2i32;
-pub const PciDeviceD3Cold_State_ParentRootPortS0WakeSupported_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = 3i32;
-pub const PciExpress: PCI_HARDWARE_INTERFACE = 3i32;
-pub const PciExpressASPMLinkSubState_L11_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = 2i32;
-pub const PciExpressASPMLinkSubState_L12_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = 3i32;
-pub const PciExpressDownstreamSwitchPort: PCI_EXPRESS_DEVICE_TYPE = 6i32;
-pub const PciExpressEndpoint: PCI_EXPRESS_DEVICE_TYPE = 0i32;
-pub const PciExpressLegacyEndpoint: PCI_EXPRESS_DEVICE_TYPE = 1i32;
-pub const PciExpressPciPmLinkSubState_L11_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = 0i32;
-pub const PciExpressPciPmLinkSubState_L12_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = 1i32;
-pub const PciExpressRootComplexEventCollector: PCI_EXPRESS_DEVICE_TYPE = 10i32;
-pub const PciExpressRootComplexIntegratedEndpoint: PCI_EXPRESS_DEVICE_TYPE = 9i32;
-pub const PciExpressRootPort: PCI_EXPRESS_DEVICE_TYPE = 4i32;
-pub const PciExpressToPciXBridge: PCI_EXPRESS_DEVICE_TYPE = 7i32;
-pub const PciExpressUpstreamSwitchPort: PCI_EXPRESS_DEVICE_TYPE = 5i32;
-pub const PciMasterDataParityError: u16 = 5u16;
-pub const PciXMode1: PCI_HARDWARE_INTERFACE = 1i32;
-pub const PciXMode2: PCI_HARDWARE_INTERFACE = 2i32;
-pub const PciXToExpressBridge: PCI_EXPRESS_DEVICE_TYPE = 8i32;
-pub const PcwCallbackAddCounter: PCW_CALLBACK_TYPE = 0i32;
-pub const PcwCallbackCollectData: PCW_CALLBACK_TYPE = 3i32;
-pub const PcwCallbackEnumerateInstances: PCW_CALLBACK_TYPE = 2i32;
-pub const PcwCallbackRemoveCounter: PCW_CALLBACK_TYPE = 1i32;
-pub const PcwRegistrationNone: PCW_REGISTRATION_FLAGS = 0i32;
-pub const PcwRegistrationSiloNeutral: PCW_REGISTRATION_FLAGS = 1i32;
-pub const PermissionFault: FAULT_INFORMATION_ARM64_TYPE = 4i32;
-pub const PlatformLevelDeviceReset: DEVICE_RESET_TYPE = 1i32;
-pub const PlatformRoleAppliancePC: POWER_PLATFORM_ROLE = 6i32;
-pub const PlatformRoleDesktop: POWER_PLATFORM_ROLE = 1i32;
-pub const PlatformRoleEnterpriseServer: POWER_PLATFORM_ROLE = 4i32;
-pub const PlatformRoleMaximum: POWER_PLATFORM_ROLE = 9i32;
-pub const PlatformRoleMobile: POWER_PLATFORM_ROLE = 2i32;
-pub const PlatformRolePerformanceServer: POWER_PLATFORM_ROLE = 7i32;
-pub const PlatformRoleSOHOServer: POWER_PLATFORM_ROLE = 5i32;
-pub const PlatformRoleSlate: POWER_PLATFORM_ROLE = 8i32;
-pub const PlatformRoleUnspecified: POWER_PLATFORM_ROLE = 0i32;
-pub const PlatformRoleWorkstation: POWER_PLATFORM_ROLE = 3i32;
-pub const PoAc: SYSTEM_POWER_CONDITION = 0i32;
-pub const PoConditionMaximum: SYSTEM_POWER_CONDITION = 3i32;
-pub const PoDc: SYSTEM_POWER_CONDITION = 1i32;
-pub const PoFxPerfStateTypeDiscrete: PO_FX_PERF_STATE_TYPE = 0i32;
-pub const PoFxPerfStateTypeMaximum: PO_FX_PERF_STATE_TYPE = 2i32;
-pub const PoFxPerfStateTypeRange: PO_FX_PERF_STATE_TYPE = 1i32;
-pub const PoFxPerfStateUnitBandwidth: PO_FX_PERF_STATE_UNIT = 2i32;
-pub const PoFxPerfStateUnitFrequency: PO_FX_PERF_STATE_UNIT = 1i32;
-pub const PoFxPerfStateUnitMaximum: PO_FX_PERF_STATE_UNIT = 3i32;
-pub const PoFxPerfStateUnitOther: PO_FX_PERF_STATE_UNIT = 0i32;
-pub const PoHot: SYSTEM_POWER_CONDITION = 2i32;
-pub const PoThermalRequestActive: PO_THERMAL_REQUEST_TYPE = 1i32;
-pub const PoThermalRequestPassive: PO_THERMAL_REQUEST_TYPE = 0i32;
-pub const PointerController: CONFIGURATION_TYPE = 21i32;
-pub const PointerPeripheral: CONFIGURATION_TYPE = 31i32;
-pub const PoolAllocation: KWAIT_REASON = 3i32;
-pub const PoolExtendedParameterInvalidType: POOL_EXTENDED_PARAMETER_TYPE = 0i32;
-pub const PoolExtendedParameterMax: POOL_EXTENDED_PARAMETER_TYPE = 4i32;
-pub const PoolExtendedParameterNumaNode: POOL_EXTENDED_PARAMETER_TYPE = 3i32;
-pub const PoolExtendedParameterPriority: POOL_EXTENDED_PARAMETER_TYPE = 1i32;
-pub const PoolExtendedParameterSecurePool: POOL_EXTENDED_PARAMETER_TYPE = 2i32;
-pub const Pos: BUS_DATA_TYPE = 2i32;
-pub const PowerOff: PCI_EXPRESS_POWER_STATE = 1i32;
-pub const PowerOn: PCI_EXPRESS_POWER_STATE = 0i32;
-pub const PowerRelations: DEVICE_RELATION_TYPE = 2i32;
-pub const PrimaryDcache: CONFIGURATION_TYPE = 4i32;
-pub const PrimaryIcache: CONFIGURATION_TYPE = 3i32;
-pub const PrinterPeripheral: CONFIGURATION_TYPE = 30i32;
-pub const ProcessorInternal: INTERFACE_TYPE = 12i32;
-pub const Profile2Issue: KPROFILE_SOURCE = 15i32;
-pub const Profile3Issue: KPROFILE_SOURCE = 16i32;
-pub const Profile4Issue: KPROFILE_SOURCE = 17i32;
-pub const ProfileAlignmentFixup: KPROFILE_SOURCE = 1i32;
-pub const ProfileBranchInstructions: KPROFILE_SOURCE = 6i32;
-pub const ProfileBranchMispredictions: KPROFILE_SOURCE = 11i32;
-pub const ProfileCacheMisses: KPROFILE_SOURCE = 10i32;
-pub const ProfileDcacheAccesses: KPROFILE_SOURCE = 21i32;
-pub const ProfileDcacheMisses: KPROFILE_SOURCE = 8i32;
-pub const ProfileFpInstructions: KPROFILE_SOURCE = 13i32;
-pub const ProfileIcacheIssues: KPROFILE_SOURCE = 20i32;
-pub const ProfileIcacheMisses: KPROFILE_SOURCE = 9i32;
-pub const ProfileIntegerInstructions: KPROFILE_SOURCE = 14i32;
-pub const ProfileLoadInstructions: KPROFILE_SOURCE = 4i32;
-pub const ProfileLoadLinkedIssues: KPROFILE_SOURCE = 23i32;
-pub const ProfileMaximum: KPROFILE_SOURCE = 24i32;
-pub const ProfileMemoryBarrierCycles: KPROFILE_SOURCE = 22i32;
-pub const ProfilePipelineDry: KPROFILE_SOURCE = 3i32;
-pub const ProfilePipelineFrozen: KPROFILE_SOURCE = 5i32;
-pub const ProfileSpecialInstructions: KPROFILE_SOURCE = 18i32;
-pub const ProfileStoreInstructions: KPROFILE_SOURCE = 12i32;
-pub const ProfileTime: KPROFILE_SOURCE = 0i32;
-pub const ProfileTotalCycles: KPROFILE_SOURCE = 19i32;
-pub const ProfileTotalIssues: KPROFILE_SOURCE = 2i32;
-pub const ProfileTotalNonissues: KPROFILE_SOURCE = 7i32;
-pub const PsCreateProcessNotifySubsystems: PSCREATEPROCESSNOTIFYTYPE = 0i32;
-pub const PsCreateThreadNotifyNonSystem: PSCREATETHREADNOTIFYTYPE = 0i32;
-pub const PsCreateThreadNotifySubsystems: PSCREATETHREADNOTIFYTYPE = 1i32;
-pub const PshedFADiscovery: u32 = 1u32;
-pub const PshedFAErrorInfoRetrieval: u32 = 8u32;
-pub const PshedFAErrorInjection: u32 = 32u32;
-pub const PshedFAErrorRecordPersistence: u32 = 4u32;
-pub const PshedFAErrorRecovery: u32 = 16u32;
-pub const PshedFAErrorSourceControl: u32 = 2u32;
-pub const PshedPiEnableNotifyErrorCreateNotifyEvent: WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = 1i32;
-pub const PshedPiEnableNotifyErrorCreateSystemThread: WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = 2i32;
-pub const PshedPiEnableNotifyErrorMax: WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = 3i32;
-pub const PshedPiErrReadingPcieOverridesBadSignature: PSHED_PI_ERR_READING_PCIE_OVERRIDES = 4i32;
-pub const PshedPiErrReadingPcieOverridesBadSize: PSHED_PI_ERR_READING_PCIE_OVERRIDES = 3i32;
-pub const PshedPiErrReadingPcieOverridesNoCapOffset: PSHED_PI_ERR_READING_PCIE_OVERRIDES = 5i32;
-pub const PshedPiErrReadingPcieOverridesNoErr: PSHED_PI_ERR_READING_PCIE_OVERRIDES = 0i32;
-pub const PshedPiErrReadingPcieOverridesNoMemory: PSHED_PI_ERR_READING_PCIE_OVERRIDES = 1i32;
-pub const PshedPiErrReadingPcieOverridesNotBinary: PSHED_PI_ERR_READING_PCIE_OVERRIDES = 6i32;
-pub const PshedPiErrReadingPcieOverridesQueryErr: PSHED_PI_ERR_READING_PCIE_OVERRIDES = 2i32;
-pub const QuerySecurityDescriptor: SECURITY_OPERATION_CODE = 1i32;
-pub const RCB128Bytes: PCI_EXPRESS_RCB = 1i32;
-pub const RCB64Bytes: PCI_EXPRESS_RCB = 0i32;
-pub const RECOVERY_INFO_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc34832a1_02c3_4c52_a9f1_9f1d5d7723fc);
-pub const RESOURCE_HASH_TABLE_SIZE: u32 = 64u32;
-pub const RESULT_NEGATIVE: u32 = 1u32;
-pub const RESULT_POSITIVE: u32 = 2u32;
-pub const RESULT_ZERO: u32 = 0u32;
-pub const ROOT_CMD_ENABLE_CORRECTABLE_ERROR_REPORTING: u32 = 1u32;
-pub const ROOT_CMD_ENABLE_FATAL_ERROR_REPORTING: u32 = 4u32;
-pub const ROOT_CMD_ENABLE_NONFATAL_ERROR_REPORTING: u32 = 2u32;
-pub const RTL_GUID_STRING_SIZE: u32 = 38u32;
-pub const RTL_HASH_ALLOCATED_HEADER: u32 = 1u32;
-pub const RTL_HASH_RESERVED_SIGNATURE: u32 = 0u32;
-pub const RTL_QUERY_REGISTRY_DELETE: u32 = 64u32;
-pub const RTL_QUERY_REGISTRY_DIRECT: u32 = 32u32;
-pub const RTL_QUERY_REGISTRY_NOEXPAND: u32 = 16u32;
-pub const RTL_QUERY_REGISTRY_NOSTRING: u32 = 128u32;
-pub const RTL_QUERY_REGISTRY_NOVALUE: u32 = 8u32;
-pub const RTL_QUERY_REGISTRY_REQUIRED: u32 = 4u32;
-pub const RTL_QUERY_REGISTRY_SUBKEY: u32 = 1u32;
-pub const RTL_QUERY_REGISTRY_TOPKEY: u32 = 2u32;
-pub const RTL_QUERY_REGISTRY_TYPECHECK: u32 = 256u32;
-pub const RTL_QUERY_REGISTRY_TYPECHECK_SHIFT: u32 = 24u32;
-pub const RTL_REGISTRY_ABSOLUTE: u32 = 0u32;
-pub const RTL_REGISTRY_CONTROL: u32 = 2u32;
-pub const RTL_REGISTRY_DEVICEMAP: u32 = 4u32;
-pub const RTL_REGISTRY_HANDLE: u32 = 1073741824u32;
-pub const RTL_REGISTRY_MAXIMUM: u32 = 6u32;
-pub const RTL_REGISTRY_OPTIONAL: u32 = 2147483648u32;
-pub const RTL_REGISTRY_SERVICES: u32 = 1u32;
-pub const RTL_REGISTRY_USER: u32 = 5u32;
-pub const RTL_REGISTRY_WINDOWS_NT: u32 = 3u32;
-pub const RTL_STACK_WALKING_MODE_FRAMES_TO_SKIP_SHIFT: u32 = 8u32;
-pub const RandomAccess: IO_ACCESS_MODE = 1i32;
-pub const ReadAccess: IO_ACCESS_TYPE = 0i32;
-pub const RealModeIrqRoutingTable: CONFIGURATION_TYPE = 39i32;
-pub const RealModePCIEnumeration: CONFIGURATION_TYPE = 40i32;
-pub const RealTimeWorkQueue: WORK_QUEUE_TYPE = 5i32;
-pub const RebuildControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 5i32;
-pub const RegNtCallbackObjectContextCleanup: REG_NOTIFY_CLASS = 40i32;
-pub const RegNtDeleteKey: REG_NOTIFY_CLASS = 0i32;
-pub const RegNtDeleteValueKey: REG_NOTIFY_CLASS = 2i32;
-pub const RegNtEnumerateKey: REG_NOTIFY_CLASS = 5i32;
-pub const RegNtEnumerateValueKey: REG_NOTIFY_CLASS = 6i32;
-pub const RegNtKeyHandleClose: REG_NOTIFY_CLASS = 14i32;
-pub const RegNtPostCreateKey: REG_NOTIFY_CLASS = 11i32;
-pub const RegNtPostCreateKeyEx: REG_NOTIFY_CLASS = 27i32;
-pub const RegNtPostDeleteKey: REG_NOTIFY_CLASS = 15i32;
-pub const RegNtPostDeleteValueKey: REG_NOTIFY_CLASS = 17i32;
-pub const RegNtPostEnumerateKey: REG_NOTIFY_CLASS = 20i32;
-pub const RegNtPostEnumerateValueKey: REG_NOTIFY_CLASS = 21i32;
-pub const RegNtPostFlushKey: REG_NOTIFY_CLASS = 31i32;
-pub const RegNtPostKeyHandleClose: REG_NOTIFY_CLASS = 25i32;
-pub const RegNtPostLoadKey: REG_NOTIFY_CLASS = 33i32;
-pub const RegNtPostOpenKey: REG_NOTIFY_CLASS = 13i32;
-pub const RegNtPostOpenKeyEx: REG_NOTIFY_CLASS = 29i32;
-pub const RegNtPostQueryKey: REG_NOTIFY_CLASS = 22i32;
-pub const RegNtPostQueryKeyName: REG_NOTIFY_CLASS = 48i32;
-pub const RegNtPostQueryKeySecurity: REG_NOTIFY_CLASS = 37i32;
-pub const RegNtPostQueryMultipleValueKey: REG_NOTIFY_CLASS = 24i32;
-pub const RegNtPostQueryValueKey: REG_NOTIFY_CLASS = 23i32;
-pub const RegNtPostRenameKey: REG_NOTIFY_CLASS = 19i32;
-pub const RegNtPostReplaceKey: REG_NOTIFY_CLASS = 46i32;
-pub const RegNtPostRestoreKey: REG_NOTIFY_CLASS = 42i32;
-pub const RegNtPostSaveKey: REG_NOTIFY_CLASS = 44i32;
-pub const RegNtPostSaveMergedKey: REG_NOTIFY_CLASS = 50i32;
-pub const RegNtPostSetInformationKey: REG_NOTIFY_CLASS = 18i32;
-pub const RegNtPostSetKeySecurity: REG_NOTIFY_CLASS = 39i32;
-pub const RegNtPostSetValueKey: REG_NOTIFY_CLASS = 16i32;
-pub const RegNtPostUnLoadKey: REG_NOTIFY_CLASS = 35i32;
-pub const RegNtPreCreateKey: REG_NOTIFY_CLASS = 10i32;
-pub const RegNtPreCreateKeyEx: REG_NOTIFY_CLASS = 26i32;
-pub const RegNtPreDeleteKey: REG_NOTIFY_CLASS = 0i32;
-pub const RegNtPreDeleteValueKey: REG_NOTIFY_CLASS = 2i32;
-pub const RegNtPreEnumerateKey: REG_NOTIFY_CLASS = 5i32;
-pub const RegNtPreEnumerateValueKey: REG_NOTIFY_CLASS = 6i32;
-pub const RegNtPreFlushKey: REG_NOTIFY_CLASS = 30i32;
-pub const RegNtPreKeyHandleClose: REG_NOTIFY_CLASS = 14i32;
-pub const RegNtPreLoadKey: REG_NOTIFY_CLASS = 32i32;
-pub const RegNtPreOpenKey: REG_NOTIFY_CLASS = 12i32;
-pub const RegNtPreOpenKeyEx: REG_NOTIFY_CLASS = 28i32;
-pub const RegNtPreQueryKey: REG_NOTIFY_CLASS = 7i32;
-pub const RegNtPreQueryKeyName: REG_NOTIFY_CLASS = 47i32;
-pub const RegNtPreQueryKeySecurity: REG_NOTIFY_CLASS = 36i32;
-pub const RegNtPreQueryMultipleValueKey: REG_NOTIFY_CLASS = 9i32;
-pub const RegNtPreQueryValueKey: REG_NOTIFY_CLASS = 8i32;
-pub const RegNtPreRenameKey: REG_NOTIFY_CLASS = 4i32;
-pub const RegNtPreReplaceKey: REG_NOTIFY_CLASS = 45i32;
-pub const RegNtPreRestoreKey: REG_NOTIFY_CLASS = 41i32;
-pub const RegNtPreSaveKey: REG_NOTIFY_CLASS = 43i32;
-pub const RegNtPreSaveMergedKey: REG_NOTIFY_CLASS = 49i32;
-pub const RegNtPreSetInformationKey: REG_NOTIFY_CLASS = 3i32;
-pub const RegNtPreSetKeySecurity: REG_NOTIFY_CLASS = 38i32;
-pub const RegNtPreSetValueKey: REG_NOTIFY_CLASS = 1i32;
-pub const RegNtPreUnLoadKey: REG_NOTIFY_CLASS = 34i32;
-pub const RegNtQueryKey: REG_NOTIFY_CLASS = 7i32;
-pub const RegNtQueryMultipleValueKey: REG_NOTIFY_CLASS = 9i32;
-pub const RegNtQueryValueKey: REG_NOTIFY_CLASS = 8i32;
-pub const RegNtRenameKey: REG_NOTIFY_CLASS = 4i32;
-pub const RegNtSetInformationKey: REG_NOTIFY_CLASS = 3i32;
-pub const RegNtSetValueKey: REG_NOTIFY_CLASS = 1i32;
-pub const RemovalPolicyExpectNoRemoval: DEVICE_REMOVAL_POLICY = 1i32;
-pub const RemovalPolicyExpectOrderlyRemoval: DEVICE_REMOVAL_POLICY = 2i32;
-pub const RemovalPolicyExpectSurpriseRemoval: DEVICE_REMOVAL_POLICY = 3i32;
-pub const RemovalRelations: DEVICE_RELATION_TYPE = 3i32;
-pub const ResourceNeverExclusive: u32 = 16u32;
-pub const ResourceOwnedExclusive: u32 = 128u32;
-pub const ResourceReleaseByOtherThread: u32 = 32u32;
-pub const ResourceTypeEventBuffer: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = 4i32;
-pub const ResourceTypeExtendedCounterConfiguration: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = 2i32;
-pub const ResourceTypeIdenitificationTag: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = 5i32;
-pub const ResourceTypeMax: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = 6i32;
-pub const ResourceTypeOverflow: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = 3i32;
-pub const ResourceTypeRange: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = 1i32;
-pub const ResourceTypeSingle: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = 0i32;
-pub const ResultNegative: INTERLOCKED_RESULT = 32768i32;
-pub const ResultPositive: INTERLOCKED_RESULT = 0i32;
-pub const ResultZero: INTERLOCKED_RESULT = 16384i32;
-pub const SCI_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe9d59197_94ee_4a4f_8ad8_9b7d8bd93d2e);
-pub const SDEV_IDENTIFIER_INTERFACE_VERSION: u32 = 1u32;
-pub const SEA_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9a78788a_bbe8_11e4_809e_67611e5d46b0);
-pub const SEA_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf5fe48a6_84ce_4c1e_aa64_20c9a53099f1);
-pub const SECTION_MAP_EXECUTE: u32 = 8u32;
-pub const SECTION_MAP_EXECUTE_EXPLICIT: u32 = 32u32;
-pub const SECTION_MAP_READ: u32 = 4u32;
-pub const SECTION_MAP_WRITE: u32 = 2u32;
-pub const SECTION_QUERY: u32 = 1u32;
-pub const SECURE_DRIVER_INTERFACE_VERSION: u32 = 1u32;
-pub const SECURE_POOL_FLAGS_FREEABLE: u32 = 1u32;
-pub const SECURE_POOL_FLAGS_MODIFIABLE: u32 = 2u32;
-pub const SECURE_POOL_FLAGS_NONE: u32 = 0u32;
-pub const SECURE_SECTION_ALLOW_PARTIAL_MDL: u32 = 1u32;
-pub const SEC_LARGE_PAGES: u32 = 2147483648u32;
-pub const SEH_VALIDATION_POLICY_DEFER: u32 = 3u32;
-pub const SEH_VALIDATION_POLICY_OFF: u32 = 1u32;
-pub const SEH_VALIDATION_POLICY_ON: u32 = 0u32;
-pub const SEH_VALIDATION_POLICY_TELEMETRY: u32 = 2u32;
-pub const SEI_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5c284c81_b0ae_4e87_a322_b04c85624323);
-pub const SEI_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2a4a152_9c6d_4020_aecf_7695b389251b);
-pub const SEMAPHORE_QUERY_STATE: u32 = 1u32;
-pub const SE_ASSIGNPRIMARYTOKEN_PRIVILEGE: i32 = 3i32;
-pub const SE_AUDIT_PRIVILEGE: i32 = 21i32;
-pub const SE_BACKUP_PRIVILEGE: i32 = 17i32;
-pub const SE_CHANGE_NOTIFY_PRIVILEGE: i32 = 23i32;
-pub const SE_CREATE_GLOBAL_PRIVILEGE: i32 = 30i32;
-pub const SE_CREATE_PAGEFILE_PRIVILEGE: i32 = 15i32;
-pub const SE_CREATE_PERMANENT_PRIVILEGE: i32 = 16i32;
-pub const SE_CREATE_SYMBOLIC_LINK_PRIVILEGE: i32 = 35i32;
-pub const SE_CREATE_TOKEN_PRIVILEGE: i32 = 2i32;
-pub const SE_DEBUG_PRIVILEGE: i32 = 20i32;
-pub const SE_DELEGATE_SESSION_USER_IMPERSONATE_PRIVILEGE: i32 = 36i32;
-pub const SE_ENABLE_DELEGATION_PRIVILEGE: i32 = 27i32;
-pub const SE_IMPERSONATE_PRIVILEGE: i32 = 29i32;
-pub const SE_INCREASE_QUOTA_PRIVILEGE: i32 = 5i32;
-pub const SE_INC_BASE_PRIORITY_PRIVILEGE: i32 = 14i32;
-pub const SE_INC_WORKING_SET_PRIVILEGE: i32 = 33i32;
-pub const SE_LOAD_DRIVER_PRIVILEGE: i32 = 10i32;
-pub const SE_LOCK_MEMORY_PRIVILEGE: i32 = 4i32;
-pub const SE_MACHINE_ACCOUNT_PRIVILEGE: i32 = 6i32;
-pub const SE_MANAGE_VOLUME_PRIVILEGE: i32 = 28i32;
-pub const SE_MAX_WELL_KNOWN_PRIVILEGE: i32 = 36i32;
-pub const SE_MIN_WELL_KNOWN_PRIVILEGE: i32 = 2i32;
-pub const SE_PROF_SINGLE_PROCESS_PRIVILEGE: i32 = 13i32;
-pub const SE_RELABEL_PRIVILEGE: i32 = 32i32;
-pub const SE_REMOTE_SHUTDOWN_PRIVILEGE: i32 = 24i32;
-pub const SE_RESTORE_PRIVILEGE: i32 = 18i32;
-pub const SE_SECURITY_PRIVILEGE: i32 = 8i32;
-pub const SE_SHUTDOWN_PRIVILEGE: i32 = 19i32;
-pub const SE_SYNC_AGENT_PRIVILEGE: i32 = 26i32;
-pub const SE_SYSTEMTIME_PRIVILEGE: i32 = 12i32;
-pub const SE_SYSTEM_ENVIRONMENT_PRIVILEGE: i32 = 22i32;
-pub const SE_SYSTEM_PROFILE_PRIVILEGE: i32 = 11i32;
-pub const SE_TAKE_OWNERSHIP_PRIVILEGE: i32 = 9i32;
-pub const SE_TCB_PRIVILEGE: i32 = 7i32;
-pub const SE_TIME_ZONE_PRIVILEGE: i32 = 34i32;
-pub const SE_TRUSTED_CREDMAN_ACCESS_PRIVILEGE: i32 = 31i32;
-pub const SE_UNDOCK_PRIVILEGE: i32 = 25i32;
-pub const SE_UNSOLICITED_INPUT_PRIVILEGE: i32 = 6i32;
-pub const SHARED_GLOBAL_FLAGS_CLEAR_GLOBAL_DATA_FLAG: u32 = 2147483648u32;
-pub const SHARED_GLOBAL_FLAGS_CONSOLE_BROKER_ENABLED_V: u32 = 6u32;
-pub const SHARED_GLOBAL_FLAGS_DYNAMIC_PROC_ENABLED_V: u32 = 5u32;
-pub const SHARED_GLOBAL_FLAGS_ELEVATION_ENABLED_V: u32 = 1u32;
-pub const SHARED_GLOBAL_FLAGS_ERROR_PORT_V: u32 = 0u32;
-pub const SHARED_GLOBAL_FLAGS_INSTALLER_DETECT_ENABLED_V: u32 = 3u32;
-pub const SHARED_GLOBAL_FLAGS_LKG_ENABLED_V: u32 = 4u32;
-pub const SHARED_GLOBAL_FLAGS_MULTIUSERS_IN_SESSION_SKU_V: u32 = 9u32;
-pub const SHARED_GLOBAL_FLAGS_MULTI_SESSION_SKU_V: u32 = 8u32;
-pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_A73_ERRATA: u32 = 64u32;
-pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_DISABLE_32BIT: u32 = 4u32;
-pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_ENABLED: u32 = 1u32;
-pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_USE_HV_PAGE: u32 = 2u32;
-pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_USE_LFENCE: u32 = 32u32;
-pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_USE_MFENCE: u32 = 16u32;
-pub const SHARED_GLOBAL_FLAGS_QPC_BYPASS_USE_RDTSCP: u32 = 128u32;
-pub const SHARED_GLOBAL_FLAGS_SECURE_BOOT_ENABLED_V: u32 = 7u32;
-pub const SHARED_GLOBAL_FLAGS_SET_GLOBAL_DATA_FLAG: u32 = 1073741824u32;
-pub const SHARED_GLOBAL_FLAGS_STATE_SEPARATION_ENABLED_V: u32 = 10u32;
-pub const SHARED_GLOBAL_FLAGS_VIRT_ENABLED_V: u32 = 2u32;
-pub const SHORT_LEAST_SIGNIFICANT_BIT: u32 = 0u32;
-pub const SHORT_MOST_SIGNIFICANT_BIT: u32 = 1u32;
-pub const SILO_MONITOR_REGISTRATION_VERSION: u32 = 1u32;
-pub const SINGLE_GROUP_LEGACY_API: u32 = 1u32;
-pub const SL_ALLOW_RAW_MOUNT: u32 = 1u32;
-pub const SL_BYPASS_ACCESS_CHECK: u32 = 1u32;
-pub const SL_BYPASS_IO: u32 = 64u32;
-pub const SL_CASE_SENSITIVE: u32 = 128u32;
-pub const SL_ERROR_RETURNED: u32 = 2u32;
-pub const SL_EXCLUSIVE_LOCK: u32 = 2u32;
-pub const SL_FAIL_IMMEDIATELY: u32 = 1u32;
-pub const SL_FORCE_ACCESS_CHECK: u32 = 1u32;
-pub const SL_FORCE_ASYNCHRONOUS: u32 = 1u32;
-pub const SL_FORCE_DIRECT_WRITE: u32 = 16u32;
-pub const SL_FT_SEQUENTIAL_WRITE: u32 = 8u32;
-pub const SL_IGNORE_READONLY_ATTRIBUTE: u32 = 64u32;
-pub const SL_INDEX_SPECIFIED: u32 = 4u32;
-pub const SL_INFO_FORCE_ACCESS_CHECK: u32 = 1u32;
-pub const SL_INFO_IGNORE_READONLY_ATTRIBUTE: u32 = 64u32;
-pub const SL_INVOKE_ON_CANCEL: u32 = 32u32;
-pub const SL_INVOKE_ON_ERROR: u32 = 128u32;
-pub const SL_INVOKE_ON_SUCCESS: u32 = 64u32;
-pub const SL_KEY_SPECIFIED: u32 = 1u32;
-pub const SL_NO_CURSOR_UPDATE: u32 = 16u32;
-pub const SL_OPEN_PAGING_FILE: u32 = 2u32;
-pub const SL_OPEN_TARGET_DIRECTORY: u32 = 4u32;
-pub const SL_OVERRIDE_VERIFY_VOLUME: u32 = 2u32;
-pub const SL_PENDING_RETURNED: u32 = 1u32;
-pub const SL_PERSISTENT_MEMORY_FIXED_MAPPING: u32 = 32u32;
-pub const SL_QUERY_DIRECTORY_MASK: u32 = 27u32;
-pub const SL_READ_ACCESS_GRANTED: u32 = 1u32;
-pub const SL_REALTIME_STREAM: u32 = 32u32;
-pub const SL_RESTART_SCAN: u32 = 1u32;
-pub const SL_RETURN_ON_DISK_ENTRIES_ONLY: u32 = 8u32;
-pub const SL_RETURN_SINGLE_ENTRY: u32 = 2u32;
-pub const SL_STOP_ON_SYMLINK: u32 = 8u32;
-pub const SL_WATCH_TREE: u32 = 1u32;
-pub const SL_WRITE_ACCESS_GRANTED: u32 = 4u32;
-pub const SL_WRITE_THROUGH: u32 = 4u32;
-pub const SOC_SUBSYS_AUDIO_DSP: SOC_SUBSYSTEM_TYPE = 1i32;
-pub const SOC_SUBSYS_COMPUTE_DSP: SOC_SUBSYSTEM_TYPE = 4i32;
-pub const SOC_SUBSYS_SECURE_PROC: SOC_SUBSYSTEM_TYPE = 5i32;
-pub const SOC_SUBSYS_SENSORS: SOC_SUBSYSTEM_TYPE = 3i32;
-pub const SOC_SUBSYS_VENDOR_DEFINED: SOC_SUBSYSTEM_TYPE = 65536i32;
-pub const SOC_SUBSYS_WIRELESS_MODEM: SOC_SUBSYSTEM_TYPE = 0i32;
-pub const SOC_SUBSYS_WIRELSS_CONNECTIVITY: SOC_SUBSYSTEM_TYPE = 2i32;
-pub const SSINFO_FLAGS_ALIGNED_DEVICE: u32 = 1u32;
-pub const SSINFO_FLAGS_BYTE_ADDRESSABLE: u32 = 16u32;
-pub const SSINFO_FLAGS_NO_SEEK_PENALTY: u32 = 4u32;
-pub const SSINFO_FLAGS_PARTITION_ALIGNED_ON_DEVICE: u32 = 2u32;
-pub const SSINFO_FLAGS_TRIM_ENABLED: u32 = 8u32;
-pub const SSINFO_OFFSET_UNKNOWN: u32 = 4294967295u32;
-pub const SYMBOLIC_LINK_QUERY: u32 = 1u32;
-pub const SYMBOLIC_LINK_SET: u32 = 2u32;
-pub const SYSTEM_CALL_INT_2E: u32 = 1u32;
-pub const SYSTEM_CALL_SYSCALL: u32 = 0u32;
-pub const ScsiAdapter: CONFIGURATION_TYPE = 10i32;
-pub const SeImageTypeDriver: SE_IMAGE_TYPE = 1i32;
-pub const SeImageTypeDynamicCodeFile: SE_IMAGE_TYPE = 3i32;
-pub const SeImageTypeElamDriver: SE_IMAGE_TYPE = 0i32;
-pub const SeImageTypeMax: SE_IMAGE_TYPE = 4i32;
-pub const SeImageTypePlatformSecureFile: SE_IMAGE_TYPE = 2i32;
-pub const SeImageVerificationCallbackInformational: SE_IMAGE_VERIFICATION_CALLBACK_TYPE = 0i32;
-pub const SecondaryCache: CONFIGURATION_TYPE = 7i32;
-pub const SecondaryDcache: CONFIGURATION_TYPE = 6i32;
-pub const SecondaryIcache: CONFIGURATION_TYPE = 5i32;
-pub const SequentialAccess: IO_ACCESS_MODE = 0i32;
-pub const SerialController: CONFIGURATION_TYPE = 17i32;
-pub const SetSecurityDescriptor: SECURITY_OPERATION_CODE = 0i32;
-pub const SgiInternalConfiguration: BUS_DATA_TYPE = 11i32;
-pub const SharedInterruptTime: u32 = 4292804616u32;
-pub const SharedSystemTime: u32 = 4292804628u32;
-pub const SharedTickCount: u32 = 4292805408u32;
-pub const SingleBusRelations: DEVICE_RELATION_TYPE = 5i32;
-pub const SlotEmpty: PCI_EXPRESS_CARD_PRESENCE = 0i32;
-pub const StandardDesign: ALTERNATIVE_ARCHITECTURE_TYPE = 0i32;
-pub const StopCompletion: IO_COMPLETION_ROUTINE_RESULT = -1073741802i32;
-pub const SubsystemInformationTypeWSL: SUBSYSTEM_INFORMATION_TYPE = 1i32;
-pub const SubsystemInformationTypeWin32: SUBSYSTEM_INFORMATION_TYPE = 0i32;
-pub const SuperCriticalWorkQueue: WORK_QUEUE_TYPE = 6i32;
-pub const Suspended: KWAIT_REASON = 5i32;
-pub const SystemFirmwareTable_Enumerate: SYSTEM_FIRMWARE_TABLE_ACTION = 0i32;
-pub const SystemFirmwareTable_Get: SYSTEM_FIRMWARE_TABLE_ACTION = 1i32;
-pub const SystemMemory: CONFIGURATION_TYPE = 37i32;
-pub const SystemMemoryPartitionDedicatedMemoryInformation: PARTITION_INFORMATION_CLASS = 9i32;
-pub const SystemMemoryPartitionInformation: PARTITION_INFORMATION_CLASS = 0i32;
-pub const SystemMemoryPartitionOpenDedicatedMemory: PARTITION_INFORMATION_CLASS = 10i32;
-pub const SystemPowerState: POWER_STATE_TYPE = 0i32;
-pub const THREAD_ALERT: u32 = 4u32;
-pub const THREAD_CSWITCH_PMU_DISABLE: u32 = 0u32;
-pub const THREAD_CSWITCH_PMU_ENABLE: u32 = 1u32;
-pub const THREAD_GET_CONTEXT: u32 = 8u32;
-pub const THREAD_WAIT_OBJECTS: u32 = 3u32;
-pub const TIMER_EXPIRED_INDEX_BITS: u32 = 6u32;
-pub const TIMER_PROCESSOR_INDEX_BITS: u32 = 5u32;
-pub const TIMER_TOLERABLE_DELAY_BITS: u32 = 6u32;
-pub const TREE_CONNECT_NO_CLIENT_BUFFERING: u32 = 8u32;
-pub const TREE_CONNECT_WRITE_THROUGH: u32 = 2u32;
-pub const TXF_MINIVERSION_DEFAULT_VIEW: u32 = 65534u32;
-pub const TableEmptyTree: TABLE_SEARCH_RESULT = 0i32;
-pub const TableFoundNode: TABLE_SEARCH_RESULT = 1i32;
-pub const TableInsertAsLeft: TABLE_SEARCH_RESULT = 2i32;
-pub const TableInsertAsRight: TABLE_SEARCH_RESULT = 3i32;
-pub const TapeController: CONFIGURATION_TYPE = 14i32;
-pub const TapePeripheral: CONFIGURATION_TYPE = 27i32;
-pub const TargetDeviceRelation: DEVICE_RELATION_TYPE = 4i32;
-pub const TcAdapter: CONFIGURATION_TYPE = 9i32;
-pub const TerminalPeripheral: CONFIGURATION_TYPE = 33i32;
-pub const TlbMatchConflict: FAULT_INFORMATION_ARM64_TYPE = 2i32;
-pub const TraceEnableFlagsClass: TRACE_INFORMATION_CLASS = 2i32;
-pub const TraceEnableLevelClass: TRACE_INFORMATION_CLASS = 3i32;
-pub const TraceHandleByNameClass: TRACE_INFORMATION_CLASS = 7i32;
-pub const TraceHandleClass: TRACE_INFORMATION_CLASS = 1i32;
-pub const TraceIdClass: TRACE_INFORMATION_CLASS = 0i32;
-pub const TraceInformationClassReserved1: TRACE_INFORMATION_CLASS = 12i32;
-pub const TraceInformationClassReserved2: TRACE_INFORMATION_CLASS = 14i32;
-pub const TraceSessionSettingsClass: TRACE_INFORMATION_CLASS = 9i32;
-pub const TranslateChildToParent: RESOURCE_TRANSLATION_DIRECTION = 0i32;
-pub const TranslateParentToChild: RESOURCE_TRANSLATION_DIRECTION = 1i32;
-pub const TranslationFault: FAULT_INFORMATION_ARM64_TYPE = 6i32;
-pub const TransportRelations: DEVICE_RELATION_TYPE = 6i32;
-pub const TurboChannel: INTERFACE_TYPE = 4i32;
-pub const TypeA: DMA_SPEED = 1i32;
-pub const TypeB: DMA_SPEED = 2i32;
-pub const TypeC: DMA_SPEED = 3i32;
-pub const TypeF: DMA_SPEED = 4i32;
-pub const UADDRESS_BASE: u32 = 0u32;
-pub const UnsupportedUpstreamTransaction: FAULT_INFORMATION_ARM64_TYPE = 0i32;
-pub const UserMode: MODE = 1i32;
-pub const UserNotPresent: POWER_USER_PRESENCE_TYPE = 0i32;
-pub const UserPresent: POWER_USER_PRESENCE_TYPE = 1i32;
-pub const UserRequest: KWAIT_REASON = 6i32;
-pub const UserUnknown: POWER_USER_PRESENCE_TYPE = 255i32;
-pub const VMEBus: INTERFACE_TYPE = 6i32;
-pub const VMEConfiguration: BUS_DATA_TYPE = 5i32;
-pub const VPB_DIRECT_WRITES_ALLOWED: u32 = 32u32;
-pub const VPB_DISMOUNTING: u32 = 128u32;
-pub const VPB_FLAGS_BYPASSIO_BLOCKED: u32 = 64u32;
-pub const VPB_LOCKED: u32 = 2u32;
-pub const VPB_MOUNTED: u32 = 1u32;
-pub const VPB_PERSISTENT: u32 = 4u32;
-pub const VPB_RAW_MOUNT: u32 = 16u32;
-pub const VPB_REMOVE_PENDING: u32 = 8u32;
-pub const Vmcs: INTERFACE_TYPE = 16i32;
-pub const WCS_RAS_REGISTER_NAME_MAX_LENGTH: u32 = 32u32;
-pub const WDM_MAJORVERSION: u32 = 6u32;
-pub const WDM_MINORVERSION: u32 = 0u32;
-pub const WHEA_AMD_EXT_REG_NUM: u32 = 10u32;
-pub const WHEA_BUSCHECK_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1cf3f8b3_c5b1_49a2_aa59_5eef92ffa63c);
-pub const WHEA_CACHECHECK_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa55701f5_e3ef_43de_ac72_249b573fad2c);
-pub const WHEA_DEVICE_ERROR_SUMMARY_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x990b31e9_541a_4db0_a42f_837d344f6923);
-pub const WHEA_DPC_CAPABILITY_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xec49534b_30e7_4358_972f_eca6958fae3b);
-pub const WHEA_ERROR_LOG_ENTRY_VERSION: u32 = 1u32;
-pub const WHEA_ERROR_PACKET_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe71254e9_c1b9_4940_ab76_909703a4320f);
-pub const WHEA_ERROR_PACKET_V1_VERSION: u32 = 2u32;
-pub const WHEA_ERROR_PACKET_V2_VERSION: u32 = 3u32;
-pub const WHEA_ERROR_PACKET_VERSION: u32 = 3u32;
-pub const WHEA_ERROR_PKT_VERSION: u32 = 3u32;
-pub const WHEA_ERROR_RECORD_FLAGS_DEVICE_DRIVER: u32 = 8u32;
-pub const WHEA_ERROR_RECORD_FLAGS_PREVIOUSERROR: u32 = 2u32;
-pub const WHEA_ERROR_RECORD_FLAGS_RECOVERED: u32 = 1u32;
-pub const WHEA_ERROR_RECORD_FLAGS_SIMULATED: u32 = 4u32;
-pub const WHEA_ERROR_RECORD_REVISION: u32 = 528u32;
-pub const WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_REVISION: u32 = 768u32;
-pub const WHEA_ERROR_RECORD_SIGNATURE_END: u32 = 4294967295u32;
-pub const WHEA_ERROR_RECORD_VALID_PARTITIONID: u32 = 4u32;
-pub const WHEA_ERROR_RECORD_VALID_PLATFORMID: u32 = 1u32;
-pub const WHEA_ERROR_RECORD_VALID_TIMESTAMP: u32 = 2u32;
-pub const WHEA_ERROR_TEXT_LEN: u32 = 32u32;
-pub const WHEA_ERR_SRC_OVERRIDE_FLAG: u32 = 1u32;
-pub const WHEA_FIRMWARE_RECORD_TYPE_IPFSAL: u32 = 0u32;
-pub const WHEA_GENERIC_ENTRY_TEXT_LEN: u32 = 20u32;
-pub const WHEA_GENERIC_ENTRY_V2_VERSION: u32 = 768u32;
-pub const WHEA_GENERIC_ENTRY_VERSION: u32 = 768u32;
-pub const WHEA_INVALID_ERR_SRC_ID: u32 = 0u32;
-pub const WHEA_IN_USE_PAGE_NOTIFY_FLAG_NOTIFYALL: u32 = 64u32;
-pub const WHEA_IN_USE_PAGE_NOTIFY_FLAG_PAGEOFFLINED: u32 = 128u32;
-pub const WHEA_IN_USE_PAGE_NOTIFY_FLAG_PLATFORMDIRECTED: u32 = 1u32;
-pub const WHEA_MAX_LOG_DATA_LEN: u32 = 36u32;
-pub const WHEA_MEMERRTYPE_INVALIDADDRESS: u32 = 10u32;
-pub const WHEA_MEMERRTYPE_MASTERABORT: u32 = 6u32;
-pub const WHEA_MEMERRTYPE_MEMORYSPARING: u32 = 12u32;
-pub const WHEA_MEMERRTYPE_MIRRORBROKEN: u32 = 11u32;
-pub const WHEA_MEMERRTYPE_MULTIBITECC: u32 = 3u32;
-pub const WHEA_MEMERRTYPE_MULTISYMCHIPKILL: u32 = 5u32;
-pub const WHEA_MEMERRTYPE_NOERROR: u32 = 1u32;
-pub const WHEA_MEMERRTYPE_PARITYERROR: u32 = 8u32;
-pub const WHEA_MEMERRTYPE_SINGLEBITECC: u32 = 2u32;
-pub const WHEA_MEMERRTYPE_SINGLESYMCHIPKILL: u32 = 4u32;
-pub const WHEA_MEMERRTYPE_TARGETABORT: u32 = 7u32;
-pub const WHEA_MEMERRTYPE_UNKNOWN: u32 = 0u32;
-pub const WHEA_MEMERRTYPE_WATCHDOGTIMEOUT: u32 = 9u32;
-pub const WHEA_MSCHECK_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x48ab7f57_dc34_4f6c_a7d3_b0b5b0a74314);
-pub const WHEA_PCIE_CORRECTABLE_ERROR_SECTION_COUNT_SIZE: u32 = 32u32;
-pub const WHEA_PLUGIN_REGISTRATION_PACKET_V1: u32 = 65536u32;
-pub const WHEA_PLUGIN_REGISTRATION_PACKET_V2: u32 = 131072u32;
-pub const WHEA_PLUGIN_REGISTRATION_PACKET_VERSION: u32 = 131072u32;
-pub const WHEA_PMEM_ERROR_SECTION_LOCATION_INFO_SIZE: u32 = 64u32;
-pub const WHEA_PMEM_ERROR_SECTION_MAX_PAGES: u32 = 50u32;
-pub const WHEA_RECORD_CREATOR_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcf07c4bd_b789_4e18_b3c4_1f732cb57131);
-pub const WHEA_SECTION_DESCRIPTOR_FLAGS_CONTAINMENTWRN: u32 = 2u32;
-pub const WHEA_SECTION_DESCRIPTOR_FLAGS_FRU_TEXT_BY_PLUGIN: u32 = 128u32;
-pub const WHEA_SECTION_DESCRIPTOR_FLAGS_LATENTERROR: u32 = 32u32;
-pub const WHEA_SECTION_DESCRIPTOR_FLAGS_PRIMARY: u32 = 1u32;
-pub const WHEA_SECTION_DESCRIPTOR_FLAGS_PROPAGATED: u32 = 64u32;
-pub const WHEA_SECTION_DESCRIPTOR_FLAGS_RESET: u32 = 4u32;
-pub const WHEA_SECTION_DESCRIPTOR_FLAGS_RESOURCENA: u32 = 16u32;
-pub const WHEA_SECTION_DESCRIPTOR_FLAGS_THRESHOLDEXCEEDED: u32 = 8u32;
-pub const WHEA_SECTION_DESCRIPTOR_REVISION: u32 = 768u32;
-pub const WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_VERSION: u32 = 1u32;
-pub const WHEA_TLBCHECK_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc06b535_5e1f_4562_9f25_0a3b9adb63c3);
-pub const WHEA_WRITE_FLAG_DUMMY: u32 = 1u32;
-pub const WHEA_XPF_MCA_EXTREG_MAX_COUNT: u32 = 24u32;
-pub const WHEA_XPF_MCA_SECTION_VERSION: u32 = 3u32;
-pub const WHEA_XPF_MCA_SECTION_VERSION_2: u32 = 2u32;
-pub const WHEA_XPF_MCA_SECTION_VERSION_3: u32 = 3u32;
 pub const WMIREGISTER: u32 = 0u32;
 pub const WMIREG_ACTION_BLOCK_IRPS: u32 = 5u32;
 pub const WMIREG_ACTION_DEREGISTER: u32 = 2u32;
@@ -13377,6 +13212,9 @@ pub const WMIREG_ACTION_REGISTER: u32 = 1u32;
 pub const WMIREG_ACTION_REREGISTER: u32 = 3u32;
 pub const WMIREG_ACTION_UPDATE_GUIDS: u32 = 4u32;
 pub const WMIUPDATE: u32 = 1u32;
+pub type WMI_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn()>;
+pub type WORKER_THREAD_ROUTINE = Option<unsafe extern "system" fn(parameter: *const core::ffi::c_void)>;
+pub type WORK_QUEUE_TYPE = i32;
 pub const WdfNotifyRoutinesClass: TRACE_INFORMATION_CLASS = 15i32;
 pub const WheaCpuVendorAmd: WHEA_CPU_VENDOR = 2i32;
 pub const WheaCpuVendorIntel: WHEA_CPU_VENDOR = 1i32;
@@ -13647,6 +13485,29 @@ pub const XPF_MS_CHECK_ERRORTYPE_MCROMPARITY: u32 = 2u32;
 pub const XPF_MS_CHECK_ERRORTYPE_NOERROR: u32 = 0u32;
 pub const XPF_MS_CHECK_ERRORTYPE_UNCLASSIFIED: u32 = 1u32;
 pub const XPF_PROCESSOR_ERROR_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdc3ea0b0_a144_4797_b95b_53fa242b6e1d);
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct XPF_RECOVERY_INFO {
+    pub FailureReason: XPF_RECOVERY_INFO_0,
+    pub Action: XPF_RECOVERY_INFO_1,
+    pub ActionRequired: super::super::super::Win32::Foundation::BOOLEAN,
+    pub RecoverySucceeded: super::super::super::Win32::Foundation::BOOLEAN,
+    pub RecoveryKernel: super::super::super::Win32::Foundation::BOOLEAN,
+    pub Reserved: u8,
+    pub Reserved2: u16,
+    pub Reserved3: u16,
+    pub Reserved4: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct XPF_RECOVERY_INFO_1 {
+    pub _bitfield: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct XPF_RECOVERY_INFO_0 {
+    pub _bitfield: u32,
+}
 pub const XPF_TLB_CHECK_OPERATION_DATAREAD: u32 = 3u32;
 pub const XPF_TLB_CHECK_OPERATION_DATAWRITE: u32 = 4u32;
 pub const XPF_TLB_CHECK_OPERATION_GENERIC: u32 = 0u32;
@@ -13657,7 +13518,146 @@ pub const XPF_TLB_CHECK_OPERATION_PREFETCH: u32 = 6u32;
 pub const XPF_TLB_CHECK_TRANSACTIONTYPE_DATAACCESS: u32 = 1u32;
 pub const XPF_TLB_CHECK_TRANSACTIONTYPE_GENERIC: u32 = 2u32;
 pub const XPF_TLB_CHECK_TRANSACTIONTYPE_INSTRUCTION: u32 = 0u32;
+#[repr(C)]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
+pub struct XSAVE_FORMAT {
+    pub ControlWord: u16,
+    pub StatusWord: u16,
+    pub TagWord: u8,
+    pub Reserved1: u8,
+    pub ErrorOpcode: u16,
+    pub ErrorOffset: u32,
+    pub ErrorSelector: u16,
+    pub Reserved2: u16,
+    pub DataOffset: u32,
+    pub DataSelector: u16,
+    pub Reserved3: u16,
+    pub MxCsr: u32,
+    pub MxCsr_Mask: u32,
+    pub FloatRegisters: [super::super::super::Win32::System::Diagnostics::Debug::M128A; 8],
+    pub XmmRegisters: [super::super::super::Win32::System::Diagnostics::Debug::M128A; 8],
+    pub Reserved4: [u8; 224],
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
+pub struct XSTATE_CONTEXT {
+    pub Mask: u64,
+    pub Length: u32,
+    pub Reserved1: u32,
+    pub Area: *mut super::super::super::Win32::System::Diagnostics::Debug::XSAVE_AREA,
+    pub Reserved2: u32,
+    pub Buffer: *mut core::ffi::c_void,
+    pub Reserved3: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
+pub struct XSTATE_SAVE {
+    pub Anonymous: XSTATE_SAVE_0,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
+pub union XSTATE_SAVE_0 {
+    pub Anonymous: XSTATE_SAVE_0_0,
+    pub XStateContext: XSTATE_CONTEXT,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
+pub struct XSTATE_SAVE_0_0 {
+    pub Reserved1: i64,
+    pub Reserved2: u32,
+    pub Prev: *mut XSTATE_SAVE,
+    pub Reserved3: *mut super::super::super::Win32::System::Diagnostics::Debug::XSAVE_AREA,
+    pub Thread: *mut isize,
+    pub Reserved4: *mut core::ffi::c_void,
+    pub Level: u8,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
+pub struct ZONE_HEADER {
+    pub FreeList: super::super::super::Win32::System::Kernel::SINGLE_LIST_ENTRY,
+    pub SegmentList: super::super::super::Win32::System::Kernel::SINGLE_LIST_ENTRY,
+    pub BlockSize: u32,
+    pub TotalSegmentSize: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
+pub struct ZONE_SEGMENT_HEADER {
+    pub SegmentList: super::super::super::Win32::System::Kernel::SINGLE_LIST_ENTRY,
+    pub Reserved: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct _EXT_SET_PARAMETERS_V0 {
+    pub Version: u32,
+    pub Reserved: u32,
+    pub NoWakeTolerance: i64,
+}
 pub const _STRSAFE_USE_SECURE_CRT: u32 = 0u32;
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+pub type _WHEA_ERROR_SOURCE_CORRECT = Option<unsafe extern "system" fn(errorsource: *mut super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR, maximumsectionlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+pub type _WHEA_ERROR_SOURCE_CREATE_RECORD = Option<unsafe extern "system" fn(errorsource: *mut super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR, errorpacket: *mut WHEA_ERROR_PACKET_V2, errorrecord: *mut WHEA_ERROR_RECORD, buffersize: u32, context: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+pub type _WHEA_ERROR_SOURCE_INITIALIZE = Option<unsafe extern "system" fn(phase: u32, errorsource: *mut super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR, context: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type _WHEA_ERROR_SOURCE_RECOVER = Option<unsafe extern "system" fn(recoverycontext: *mut core::ffi::c_void, severity: *mut WHEA_ERROR_SEVERITY) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type _WHEA_ERROR_SOURCE_UNINITIALIZE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
+pub type _WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACK = Option<unsafe extern "system" fn(context: usize) -> super::super::super::Win32::Foundation::BOOLEAN>;
 pub const __guid_type: u32 = 8192u32;
 pub const __multiString_type: u32 = 16384u32;
 pub const __string_type: u32 = 4096u32;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type pHalAssignSlotResources = Option<unsafe extern "system" fn(registrypath: *const super::super::super::Win32::Foundation::UNICODE_STRING, driverclassname: *const super::super::super::Win32::Foundation::UNICODE_STRING, driverobject: *const super::super::Foundation::DRIVER_OBJECT, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, bustype: INTERFACE_TYPE, busnumber: u32, slotnumber: u32, allocatedresources: *mut *mut CM_RESOURCE_LIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type pHalEndMirroring = Option<unsafe extern "system" fn(passnumber: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type pHalEndOfBoot = Option<unsafe extern "system" fn()>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type pHalExamineMBR = Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, sectorsize: u32, mbrtypeidentifier: u32, buffer: *mut *mut core::ffi::c_void)>;
+pub type pHalFindBusAddressTranslation = Option<unsafe extern "system" fn(busaddress: i64, addressspace: *mut u32, translatedaddress: *mut i64, context: *mut usize, nextbus: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::BOOLEAN>;
+pub type pHalGetAcpiTable = Option<unsafe extern "system" fn(signature: u32, oemid: windows_sys::core::PCSTR, oemtableid: windows_sys::core::PCSTR) -> *mut core::ffi::c_void>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type pHalGetDmaAdapter = Option<unsafe extern "system" fn(physicaldeviceobject: *const core::ffi::c_void, devicedescriptor: *const DEVICE_DESCRIPTION, numberofmapregisters: *mut u32) -> *mut DMA_ADAPTER>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type pHalGetInterruptTranslator = Option<unsafe extern "system" fn(parentinterfacetype: INTERFACE_TYPE, parentbusnumber: u32, bridgeinterfacetype: INTERFACE_TYPE, size: u16, version: u16, translator: *mut TRANSLATOR_INTERFACE, bridgebusnumber: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Win32_System_Kernel")]
+pub type pHalGetPrmCache = Option<unsafe extern "system" fn(firmwarelist: *mut *mut super::super::super::Win32::System::Kernel::LIST_ENTRY, updatelist: *mut *mut super::super::super::Win32::System::Kernel::LIST_ENTRY)>;
+pub type pHalHaltSystem = Option<unsafe extern "system" fn()>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type pHalHandlerForBus = Option<unsafe extern "system" fn(interfacetype: INTERFACE_TYPE, busnumber: u32) -> super::super::Foundation::PBUS_HANDLER>;
+pub type pHalInitPnpDriver = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type pHalInitPowerManagement = Option<unsafe extern "system" fn(pmdriverdispatchtable: *const PM_DISPATCH_TABLE, pmhaldispatchtable: *mut *mut PM_DISPATCH_TABLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Ioctl", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type pHalIoReadPartitionTable = Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, sectorsize: u32, returnrecognizedpartitions: super::super::super::Win32::Foundation::BOOLEAN, partitionbuffer: *mut *mut super::super::super::Win32::System::Ioctl::DRIVE_LAYOUT_INFORMATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type pHalIoSetPartitionInformation = Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, sectorsize: u32, partitionnumber: u32, partitiontype: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Ioctl", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+pub type pHalIoWritePartitionTable = Option<unsafe extern "system" fn(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, sectorsize: u32, sectorspertrack: u32, numberofheads: u32, partitionbuffer: *const super::super::super::Win32::System::Ioctl::DRIVE_LAYOUT_INFORMATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type pHalMirrorPhysicalMemory = Option<unsafe extern "system" fn(physicaladdress: i64, numberofbytes: i64) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type pHalMirrorVerify = Option<unsafe extern "system" fn(physicaladdress: i64, numberofbytes: i64) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type pHalQueryBusSlots = Option<unsafe extern "system" fn(bushandler: super::super::Foundation::PBUS_HANDLER, buffersize: u32, slotnumbers: *mut u32, returnedlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type pHalQuerySystemInformation = Option<unsafe extern "system" fn(informationclass: HAL_QUERY_INFORMATION_CLASS, buffersize: u32, buffer: *mut core::ffi::c_void, returnedlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[cfg(feature = "Wdk_Foundation")]
+pub type pHalReferenceBusHandler = Option<unsafe extern "system" fn(bushandler: super::super::Foundation::PBUS_HANDLER)>;
+pub type pHalResetDisplay = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::BOOLEAN>;
+pub type pHalSetPciErrorHandlerCallback = Option<unsafe extern "system" fn(callback: PCI_ERROR_HANDLER_CALLBACK)>;
+pub type pHalSetSystemInformation = Option<unsafe extern "system" fn(informationclass: HAL_SET_INFORMATION_CLASS, buffersize: u32, buffer: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type pHalStartMirroring = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type pHalTranslateBusAddress = Option<unsafe extern "system" fn(interfacetype: INTERFACE_TYPE, busnumber: u32, busaddress: i64, addressspace: *mut u32, translatedaddress: *mut i64) -> super::super::super::Win32::Foundation::BOOLEAN>;
+pub type pHalVectorToIDTEntry = Option<unsafe extern "system" fn(vector: u32) -> u8>;
+pub type pKdCheckPowerButton = Option<unsafe extern "system" fn()>;
+pub type pKdEnumerateDebuggingDevices = Option<unsafe extern "system" fn(loaderblock: *const core::ffi::c_void, device: *mut DEBUG_DEVICE_DESCRIPTOR, callback: PDEBUG_DEVICE_FOUND_FUNCTION) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type pKdGetAcpiTablePhase0 = Option<unsafe extern "system" fn(loaderblock: *const isize, signature: u32) -> *mut core::ffi::c_void>;
+pub type pKdGetPciDataByOffset = Option<unsafe extern "system" fn(busnumber: u32, slotnumber: u32, buffer: *mut core::ffi::c_void, offset: u32, length: u32) -> u32>;
+pub type pKdMapPhysicalMemory64 = Option<unsafe extern "system" fn(physicaladdress: i64, numberpages: u32, flushcurrenttlb: super::super::super::Win32::Foundation::BOOLEAN) -> *mut core::ffi::c_void>;
+pub type pKdReleaseIntegratedDeviceForDebugging = Option<unsafe extern "system" fn(integrateddevice: *mut DEBUG_DEVICE_DESCRIPTOR) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type pKdReleasePciDeviceForDebugging = Option<unsafe extern "system" fn(pcidevice: *mut DEBUG_DEVICE_DESCRIPTOR) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type pKdSetPciDataByOffset = Option<unsafe extern "system" fn(busnumber: u32, slotnumber: u32, buffer: *const core::ffi::c_void, offset: u32, length: u32) -> u32>;
+pub type pKdSetupIntegratedDeviceForDebugging = Option<unsafe extern "system" fn(loaderblock: *const core::ffi::c_void, integrateddevice: *mut DEBUG_DEVICE_DESCRIPTOR) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type pKdSetupPciDeviceForDebugging = Option<unsafe extern "system" fn(loaderblock: *const core::ffi::c_void, pcidevice: *mut DEBUG_DEVICE_DESCRIPTOR) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type pKdUnmapVirtualAddress = Option<unsafe extern "system" fn(virtualaddress: *const core::ffi::c_void, numberpages: u32, flushcurrenttlb: super::super::super::Win32::Foundation::BOOLEAN)>;

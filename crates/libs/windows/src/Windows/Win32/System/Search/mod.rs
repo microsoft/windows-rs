@@ -35,12 +35,6 @@ pub unsafe fn SQLAllocStmt(connectionhandle: *mut core::ffi::c_void, statementha
     windows_targets::link!("odbc32.dll" "system" fn SQLAllocStmt(connectionhandle : *mut core::ffi::c_void, statementhandle : *mut *mut core::ffi::c_void) -> i16);
     SQLAllocStmt(core::mem::transmute(connectionhandle), core::mem::transmute(statementhandle))
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn SQLBindCol(statementhandle: *mut core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: Option<*mut core::ffi::c_void>, bufferlength: i64, strlen_or_ind: Option<*mut i64>) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLBindCol(statementhandle : *mut core::ffi::c_void, columnnumber : u16, targettype : i16, targetvalue : *mut core::ffi::c_void, bufferlength : i64, strlen_or_ind : *mut i64) -> i16);
-    SQLBindCol(core::mem::transmute(statementhandle), core::mem::transmute(columnnumber), core::mem::transmute(targettype), core::mem::transmute(targetvalue.unwrap_or(core::ptr::null_mut())), core::mem::transmute(bufferlength), core::mem::transmute(strlen_or_ind.unwrap_or(core::ptr::null_mut())))
-}
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLBindCol(statementhandle: *mut core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: Option<*mut core::ffi::c_void>, bufferlength: i32, strlen_or_ind: Option<*mut i32>) -> i16 {
@@ -49,9 +43,9 @@ pub unsafe fn SQLBindCol(statementhandle: *mut core::ffi::c_void, columnnumber: 
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLBindParam(statementhandle: *mut core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *mut core::ffi::c_void, strlen_or_ind: *mut i64) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLBindParam(statementhandle : *mut core::ffi::c_void, parameternumber : u16, valuetype : i16, parametertype : i16, lengthprecision : u64, parameterscale : i16, parametervalue : *mut core::ffi::c_void, strlen_or_ind : *mut i64) -> i16);
-    SQLBindParam(core::mem::transmute(statementhandle), core::mem::transmute(parameternumber), core::mem::transmute(valuetype), core::mem::transmute(parametertype), core::mem::transmute(lengthprecision), core::mem::transmute(parameterscale), core::mem::transmute(parametervalue), core::mem::transmute(strlen_or_ind))
+pub unsafe fn SQLBindCol(statementhandle: *mut core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: Option<*mut core::ffi::c_void>, bufferlength: i64, strlen_or_ind: Option<*mut i64>) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLBindCol(statementhandle : *mut core::ffi::c_void, columnnumber : u16, targettype : i16, targetvalue : *mut core::ffi::c_void, bufferlength : i64, strlen_or_ind : *mut i64) -> i16);
+    SQLBindCol(core::mem::transmute(statementhandle), core::mem::transmute(columnnumber), core::mem::transmute(targettype), core::mem::transmute(targetvalue.unwrap_or(core::ptr::null_mut())), core::mem::transmute(bufferlength), core::mem::transmute(strlen_or_ind.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -61,14 +55,20 @@ pub unsafe fn SQLBindParam(statementhandle: *mut core::ffi::c_void, parameternum
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLBindParameter(hstmt: *mut core::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u64, ibscale: i16, rgbvalue: *mut core::ffi::c_void, cbvaluemax: i64, pcbvalue: *mut i64) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLBindParameter(hstmt : *mut core::ffi::c_void, ipar : u16, fparamtype : i16, fctype : i16, fsqltype : i16, cbcoldef : u64, ibscale : i16, rgbvalue : *mut core::ffi::c_void, cbvaluemax : i64, pcbvalue : *mut i64) -> i16);
-    SQLBindParameter(core::mem::transmute(hstmt), core::mem::transmute(ipar), core::mem::transmute(fparamtype), core::mem::transmute(fctype), core::mem::transmute(fsqltype), core::mem::transmute(cbcoldef), core::mem::transmute(ibscale), core::mem::transmute(rgbvalue), core::mem::transmute(cbvaluemax), core::mem::transmute(pcbvalue))
+pub unsafe fn SQLBindParam(statementhandle: *mut core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *mut core::ffi::c_void, strlen_or_ind: *mut i64) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLBindParam(statementhandle : *mut core::ffi::c_void, parameternumber : u16, valuetype : i16, parametertype : i16, lengthprecision : u64, parameterscale : i16, parametervalue : *mut core::ffi::c_void, strlen_or_ind : *mut i64) -> i16);
+    SQLBindParam(core::mem::transmute(statementhandle), core::mem::transmute(parameternumber), core::mem::transmute(valuetype), core::mem::transmute(parametertype), core::mem::transmute(lengthprecision), core::mem::transmute(parameterscale), core::mem::transmute(parametervalue), core::mem::transmute(strlen_or_ind))
 }
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLBindParameter(hstmt: *mut core::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u32, ibscale: i16, rgbvalue: *mut core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
     windows_targets::link!("odbc32.dll" "system" fn SQLBindParameter(hstmt : *mut core::ffi::c_void, ipar : u16, fparamtype : i16, fctype : i16, fsqltype : i16, cbcoldef : u32, ibscale : i16, rgbvalue : *mut core::ffi::c_void, cbvaluemax : i32, pcbvalue : *mut i32) -> i16);
+    SQLBindParameter(core::mem::transmute(hstmt), core::mem::transmute(ipar), core::mem::transmute(fparamtype), core::mem::transmute(fctype), core::mem::transmute(fsqltype), core::mem::transmute(cbcoldef), core::mem::transmute(ibscale), core::mem::transmute(rgbvalue), core::mem::transmute(cbvaluemax), core::mem::transmute(pcbvalue))
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn SQLBindParameter(hstmt: *mut core::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u64, ibscale: i16, rgbvalue: *mut core::ffi::c_void, cbvaluemax: i64, pcbvalue: *mut i64) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLBindParameter(hstmt : *mut core::ffi::c_void, ipar : u16, fparamtype : i16, fctype : i16, fsqltype : i16, cbcoldef : u64, ibscale : i16, rgbvalue : *mut core::ffi::c_void, cbvaluemax : i64, pcbvalue : *mut i64) -> i16);
     SQLBindParameter(core::mem::transmute(hstmt), core::mem::transmute(ipar), core::mem::transmute(fparamtype), core::mem::transmute(fctype), core::mem::transmute(fsqltype), core::mem::transmute(cbcoldef), core::mem::transmute(ibscale), core::mem::transmute(rgbvalue), core::mem::transmute(cbvaluemax), core::mem::transmute(pcbvalue))
 }
 #[inline]
@@ -114,12 +114,6 @@ where
     windows_targets::link!("odbcbcp.dll" "system" fn SQLCloseEnumServers(henumhandle : super::super::Foundation:: HANDLE) -> i16);
     SQLCloseEnumServers(henumhandle.param().abi())
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn SQLColAttribute(statementhandle: *mut core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: Option<*mut core::ffi::c_void>, bufferlength: i16, stringlength: Option<*mut i16>, numericattribute: Option<*mut i64>) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLColAttribute(statementhandle : *mut core::ffi::c_void, columnnumber : u16, fieldidentifier : u16, characterattribute : *mut core::ffi::c_void, bufferlength : i16, stringlength : *mut i16, numericattribute : *mut i64) -> i16);
-    SQLColAttribute(core::mem::transmute(statementhandle), core::mem::transmute(columnnumber), core::mem::transmute(fieldidentifier), core::mem::transmute(characterattribute.unwrap_or(core::ptr::null_mut())), core::mem::transmute(bufferlength), core::mem::transmute(stringlength.unwrap_or(core::ptr::null_mut())), core::mem::transmute(numericattribute.unwrap_or(core::ptr::null_mut())))
-}
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLColAttribute(statementhandle: *mut core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: Option<*mut core::ffi::c_void>, bufferlength: i16, stringlength: Option<*mut i16>, numericattribute: Option<*mut core::ffi::c_void>) -> i16 {
@@ -128,9 +122,9 @@ pub unsafe fn SQLColAttribute(statementhandle: *mut core::ffi::c_void, columnnum
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLColAttributeA(hstmt: *mut core::ffi::c_void, icol: i16, ifield: i16, pcharattr: Option<*mut core::ffi::c_void>, cbcharattrmax: i16, pcbcharattr: Option<*mut i16>, pnumattr: Option<*mut i64>) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLColAttributeA(hstmt : *mut core::ffi::c_void, icol : i16, ifield : i16, pcharattr : *mut core::ffi::c_void, cbcharattrmax : i16, pcbcharattr : *mut i16, pnumattr : *mut i64) -> i16);
-    SQLColAttributeA(core::mem::transmute(hstmt), core::mem::transmute(icol), core::mem::transmute(ifield), core::mem::transmute(pcharattr.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cbcharattrmax), core::mem::transmute(pcbcharattr.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pnumattr.unwrap_or(core::ptr::null_mut())))
+pub unsafe fn SQLColAttribute(statementhandle: *mut core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: Option<*mut core::ffi::c_void>, bufferlength: i16, stringlength: Option<*mut i16>, numericattribute: Option<*mut i64>) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLColAttribute(statementhandle : *mut core::ffi::c_void, columnnumber : u16, fieldidentifier : u16, characterattribute : *mut core::ffi::c_void, bufferlength : i16, stringlength : *mut i16, numericattribute : *mut i64) -> i16);
+    SQLColAttribute(core::mem::transmute(statementhandle), core::mem::transmute(columnnumber), core::mem::transmute(fieldidentifier), core::mem::transmute(characterattribute.unwrap_or(core::ptr::null_mut())), core::mem::transmute(bufferlength), core::mem::transmute(stringlength.unwrap_or(core::ptr::null_mut())), core::mem::transmute(numericattribute.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -140,9 +134,9 @@ pub unsafe fn SQLColAttributeA(hstmt: *mut core::ffi::c_void, icol: i16, ifield:
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLColAttributeW(hstmt: *mut core::ffi::c_void, icol: u16, ifield: u16, pcharattr: Option<*mut core::ffi::c_void>, cbdescmax: i16, pcbcharattr: Option<*mut i16>, pnumattr: Option<*mut i64>) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLColAttributeW(hstmt : *mut core::ffi::c_void, icol : u16, ifield : u16, pcharattr : *mut core::ffi::c_void, cbdescmax : i16, pcbcharattr : *mut i16, pnumattr : *mut i64) -> i16);
-    SQLColAttributeW(core::mem::transmute(hstmt), core::mem::transmute(icol), core::mem::transmute(ifield), core::mem::transmute(pcharattr.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cbdescmax), core::mem::transmute(pcbcharattr.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pnumattr.unwrap_or(core::ptr::null_mut())))
+pub unsafe fn SQLColAttributeA(hstmt: *mut core::ffi::c_void, icol: i16, ifield: i16, pcharattr: Option<*mut core::ffi::c_void>, cbcharattrmax: i16, pcbcharattr: Option<*mut i16>, pnumattr: Option<*mut i64>) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLColAttributeA(hstmt : *mut core::ffi::c_void, icol : i16, ifield : i16, pcharattr : *mut core::ffi::c_void, cbcharattrmax : i16, pcbcharattr : *mut i16, pnumattr : *mut i64) -> i16);
+    SQLColAttributeA(core::mem::transmute(hstmt), core::mem::transmute(icol), core::mem::transmute(ifield), core::mem::transmute(pcharattr.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cbcharattrmax), core::mem::transmute(pcbcharattr.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pnumattr.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -152,9 +146,9 @@ pub unsafe fn SQLColAttributeW(hstmt: *mut core::ffi::c_void, icol: u16, ifield:
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLColAttributes(hstmt: *mut core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLColAttributes(hstmt : *mut core::ffi::c_void, icol : u16, fdesctype : u16, rgbdesc : *mut core::ffi::c_void, cbdescmax : i16, pcbdesc : *mut i16, pfdesc : *mut i64) -> i16);
-    SQLColAttributes(core::mem::transmute(hstmt), core::mem::transmute(icol), core::mem::transmute(fdesctype), core::mem::transmute(rgbdesc), core::mem::transmute(cbdescmax), core::mem::transmute(pcbdesc), core::mem::transmute(pfdesc))
+pub unsafe fn SQLColAttributeW(hstmt: *mut core::ffi::c_void, icol: u16, ifield: u16, pcharattr: Option<*mut core::ffi::c_void>, cbdescmax: i16, pcbcharattr: Option<*mut i16>, pnumattr: Option<*mut i64>) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLColAttributeW(hstmt : *mut core::ffi::c_void, icol : u16, ifield : u16, pcharattr : *mut core::ffi::c_void, cbdescmax : i16, pcbcharattr : *mut i16, pnumattr : *mut i64) -> i16);
+    SQLColAttributeW(core::mem::transmute(hstmt), core::mem::transmute(icol), core::mem::transmute(ifield), core::mem::transmute(pcharattr.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cbdescmax), core::mem::transmute(pcbcharattr.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pnumattr.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -164,9 +158,9 @@ pub unsafe fn SQLColAttributes(hstmt: *mut core::ffi::c_void, icol: u16, fdescty
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLColAttributesA(hstmt: *mut core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: Option<*mut core::ffi::c_void>, cbdescmax: i16, pcbdesc: Option<*mut i16>, pfdesc: Option<*mut i64>) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLColAttributesA(hstmt : *mut core::ffi::c_void, icol : u16, fdesctype : u16, rgbdesc : *mut core::ffi::c_void, cbdescmax : i16, pcbdesc : *mut i16, pfdesc : *mut i64) -> i16);
-    SQLColAttributesA(core::mem::transmute(hstmt), core::mem::transmute(icol), core::mem::transmute(fdesctype), core::mem::transmute(rgbdesc.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cbdescmax), core::mem::transmute(pcbdesc.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pfdesc.unwrap_or(core::ptr::null_mut())))
+pub unsafe fn SQLColAttributes(hstmt: *mut core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLColAttributes(hstmt : *mut core::ffi::c_void, icol : u16, fdesctype : u16, rgbdesc : *mut core::ffi::c_void, cbdescmax : i16, pcbdesc : *mut i16, pfdesc : *mut i64) -> i16);
+    SQLColAttributes(core::mem::transmute(hstmt), core::mem::transmute(icol), core::mem::transmute(fdesctype), core::mem::transmute(rgbdesc), core::mem::transmute(cbdescmax), core::mem::transmute(pcbdesc), core::mem::transmute(pfdesc))
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -176,14 +170,20 @@ pub unsafe fn SQLColAttributesA(hstmt: *mut core::ffi::c_void, icol: u16, fdesct
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLColAttributesW(hstmt: *mut core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: Option<*mut core::ffi::c_void>, cbdescmax: i16, pcbdesc: Option<*mut i16>, pfdesc: Option<*mut i64>) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLColAttributesW(hstmt : *mut core::ffi::c_void, icol : u16, fdesctype : u16, rgbdesc : *mut core::ffi::c_void, cbdescmax : i16, pcbdesc : *mut i16, pfdesc : *mut i64) -> i16);
-    SQLColAttributesW(core::mem::transmute(hstmt), core::mem::transmute(icol), core::mem::transmute(fdesctype), core::mem::transmute(rgbdesc.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cbdescmax), core::mem::transmute(pcbdesc.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pfdesc.unwrap_or(core::ptr::null_mut())))
+pub unsafe fn SQLColAttributesA(hstmt: *mut core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: Option<*mut core::ffi::c_void>, cbdescmax: i16, pcbdesc: Option<*mut i16>, pfdesc: Option<*mut i64>) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLColAttributesA(hstmt : *mut core::ffi::c_void, icol : u16, fdesctype : u16, rgbdesc : *mut core::ffi::c_void, cbdescmax : i16, pcbdesc : *mut i16, pfdesc : *mut i64) -> i16);
+    SQLColAttributesA(core::mem::transmute(hstmt), core::mem::transmute(icol), core::mem::transmute(fdesctype), core::mem::transmute(rgbdesc.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cbdescmax), core::mem::transmute(pcbdesc.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pfdesc.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLColAttributesW(hstmt: *mut core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: Option<*mut core::ffi::c_void>, cbdescmax: i16, pcbdesc: Option<*mut i16>, pfdesc: Option<*mut i32>) -> i16 {
     windows_targets::link!("odbc32.dll" "system" fn SQLColAttributesW(hstmt : *mut core::ffi::c_void, icol : u16, fdesctype : u16, rgbdesc : *mut core::ffi::c_void, cbdescmax : i16, pcbdesc : *mut i16, pfdesc : *mut i32) -> i16);
+    SQLColAttributesW(core::mem::transmute(hstmt), core::mem::transmute(icol), core::mem::transmute(fdesctype), core::mem::transmute(rgbdesc.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cbdescmax), core::mem::transmute(pcbdesc.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pfdesc.unwrap_or(core::ptr::null_mut())))
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn SQLColAttributesW(hstmt: *mut core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: Option<*mut core::ffi::c_void>, cbdescmax: i16, pcbdesc: Option<*mut i16>, pfdesc: Option<*mut i64>) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLColAttributesW(hstmt : *mut core::ffi::c_void, icol : u16, fdesctype : u16, rgbdesc : *mut core::ffi::c_void, cbdescmax : i16, pcbdesc : *mut i16, pfdesc : *mut i64) -> i16);
     SQLColAttributesW(core::mem::transmute(hstmt), core::mem::transmute(icol), core::mem::transmute(fdesctype), core::mem::transmute(rgbdesc.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cbdescmax), core::mem::transmute(pcbdesc.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pfdesc.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
@@ -334,22 +334,6 @@ pub unsafe fn SQLDataSourcesW(henv: *mut core::ffi::c_void, fdirection: u16, szd
         core::mem::transmute(pcchdescription.unwrap_or(core::ptr::null_mut())),
     )
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn SQLDescribeCol(statementhandle: *mut core::ffi::c_void, columnnumber: u16, columnname: Option<&mut [u8]>, namelength: Option<*mut i16>, datatype: Option<*mut i16>, columnsize: Option<*mut u64>, decimaldigits: Option<*mut i16>, nullable: Option<*mut i16>) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLDescribeCol(statementhandle : *mut core::ffi::c_void, columnnumber : u16, columnname : *mut u8, bufferlength : i16, namelength : *mut i16, datatype : *mut i16, columnsize : *mut u64, decimaldigits : *mut i16, nullable : *mut i16) -> i16);
-    SQLDescribeCol(
-        core::mem::transmute(statementhandle),
-        core::mem::transmute(columnnumber),
-        core::mem::transmute(columnname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-        columnname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-        core::mem::transmute(namelength.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(datatype.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(columnsize.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(decimaldigits.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(nullable.unwrap_or(core::ptr::null_mut())),
-    )
-}
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLDescribeCol(statementhandle: *mut core::ffi::c_void, columnnumber: u16, columnname: Option<&mut [u8]>, namelength: Option<*mut i16>, datatype: Option<*mut i16>, columnsize: Option<*mut u32>, decimaldigits: Option<*mut i16>, nullable: Option<*mut i16>) -> i16 {
@@ -368,18 +352,18 @@ pub unsafe fn SQLDescribeCol(statementhandle: *mut core::ffi::c_void, columnnumb
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLDescribeColA(hstmt: *mut core::ffi::c_void, icol: u16, szcolname: Option<&mut [u8]>, pcbcolname: Option<*mut i16>, pfsqltype: Option<*mut i16>, pcbcoldef: Option<*mut u64>, pibscale: Option<*mut i16>, pfnullable: Option<*mut i16>) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLDescribeColA(hstmt : *mut core::ffi::c_void, icol : u16, szcolname : *mut u8, cbcolnamemax : i16, pcbcolname : *mut i16, pfsqltype : *mut i16, pcbcoldef : *mut u64, pibscale : *mut i16, pfnullable : *mut i16) -> i16);
-    SQLDescribeColA(
-        core::mem::transmute(hstmt),
-        core::mem::transmute(icol),
-        core::mem::transmute(szcolname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-        szcolname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-        core::mem::transmute(pcbcolname.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(pfsqltype.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(pcbcoldef.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(pibscale.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(pfnullable.unwrap_or(core::ptr::null_mut())),
+pub unsafe fn SQLDescribeCol(statementhandle: *mut core::ffi::c_void, columnnumber: u16, columnname: Option<&mut [u8]>, namelength: Option<*mut i16>, datatype: Option<*mut i16>, columnsize: Option<*mut u64>, decimaldigits: Option<*mut i16>, nullable: Option<*mut i16>) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLDescribeCol(statementhandle : *mut core::ffi::c_void, columnnumber : u16, columnname : *mut u8, bufferlength : i16, namelength : *mut i16, datatype : *mut i16, columnsize : *mut u64, decimaldigits : *mut i16, nullable : *mut i16) -> i16);
+    SQLDescribeCol(
+        core::mem::transmute(statementhandle),
+        core::mem::transmute(columnnumber),
+        core::mem::transmute(columnname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+        columnname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        core::mem::transmute(namelength.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(datatype.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(columnsize.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(decimaldigits.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(nullable.unwrap_or(core::ptr::null_mut())),
     )
 }
 #[cfg(target_arch = "x86")]
@@ -400,14 +384,14 @@ pub unsafe fn SQLDescribeColA(hstmt: *mut core::ffi::c_void, icol: u16, szcolnam
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLDescribeColW(hstmt: *mut core::ffi::c_void, icol: u16, szcolname: Option<&mut [u16]>, pcchcolname: Option<*mut i16>, pfsqltype: Option<*mut i16>, pcbcoldef: Option<*mut u64>, pibscale: Option<*mut i16>, pfnullable: Option<*mut i16>) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLDescribeColW(hstmt : *mut core::ffi::c_void, icol : u16, szcolname : *mut u16, cchcolnamemax : i16, pcchcolname : *mut i16, pfsqltype : *mut i16, pcbcoldef : *mut u64, pibscale : *mut i16, pfnullable : *mut i16) -> i16);
-    SQLDescribeColW(
+pub unsafe fn SQLDescribeColA(hstmt: *mut core::ffi::c_void, icol: u16, szcolname: Option<&mut [u8]>, pcbcolname: Option<*mut i16>, pfsqltype: Option<*mut i16>, pcbcoldef: Option<*mut u64>, pibscale: Option<*mut i16>, pfnullable: Option<*mut i16>) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLDescribeColA(hstmt : *mut core::ffi::c_void, icol : u16, szcolname : *mut u8, cbcolnamemax : i16, pcbcolname : *mut i16, pfsqltype : *mut i16, pcbcoldef : *mut u64, pibscale : *mut i16, pfnullable : *mut i16) -> i16);
+    SQLDescribeColA(
         core::mem::transmute(hstmt),
         core::mem::transmute(icol),
         core::mem::transmute(szcolname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         szcolname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-        core::mem::transmute(pcchcolname.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(pcbcolname.unwrap_or(core::ptr::null_mut())),
         core::mem::transmute(pfsqltype.unwrap_or(core::ptr::null_mut())),
         core::mem::transmute(pcbcoldef.unwrap_or(core::ptr::null_mut())),
         core::mem::transmute(pibscale.unwrap_or(core::ptr::null_mut())),
@@ -432,14 +416,30 @@ pub unsafe fn SQLDescribeColW(hstmt: *mut core::ffi::c_void, icol: u16, szcolnam
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLDescribeParam(hstmt: *mut core::ffi::c_void, ipar: u16, pfsqltype: Option<*mut i16>, pcbparamdef: Option<*mut u64>, pibscale: Option<*mut i16>, pfnullable: Option<*mut i16>) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLDescribeParam(hstmt : *mut core::ffi::c_void, ipar : u16, pfsqltype : *mut i16, pcbparamdef : *mut u64, pibscale : *mut i16, pfnullable : *mut i16) -> i16);
-    SQLDescribeParam(core::mem::transmute(hstmt), core::mem::transmute(ipar), core::mem::transmute(pfsqltype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbparamdef.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pibscale.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pfnullable.unwrap_or(core::ptr::null_mut())))
+pub unsafe fn SQLDescribeColW(hstmt: *mut core::ffi::c_void, icol: u16, szcolname: Option<&mut [u16]>, pcchcolname: Option<*mut i16>, pfsqltype: Option<*mut i16>, pcbcoldef: Option<*mut u64>, pibscale: Option<*mut i16>, pfnullable: Option<*mut i16>) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLDescribeColW(hstmt : *mut core::ffi::c_void, icol : u16, szcolname : *mut u16, cchcolnamemax : i16, pcchcolname : *mut i16, pfsqltype : *mut i16, pcbcoldef : *mut u64, pibscale : *mut i16, pfnullable : *mut i16) -> i16);
+    SQLDescribeColW(
+        core::mem::transmute(hstmt),
+        core::mem::transmute(icol),
+        core::mem::transmute(szcolname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+        szcolname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        core::mem::transmute(pcchcolname.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(pfsqltype.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(pcbcoldef.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(pibscale.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(pfnullable.unwrap_or(core::ptr::null_mut())),
+    )
 }
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLDescribeParam(hstmt: *mut core::ffi::c_void, ipar: u16, pfsqltype: Option<*mut i16>, pcbparamdef: Option<*mut u32>, pibscale: Option<*mut i16>, pfnullable: Option<*mut i16>) -> i16 {
     windows_targets::link!("odbc32.dll" "system" fn SQLDescribeParam(hstmt : *mut core::ffi::c_void, ipar : u16, pfsqltype : *mut i16, pcbparamdef : *mut u32, pibscale : *mut i16, pfnullable : *mut i16) -> i16);
+    SQLDescribeParam(core::mem::transmute(hstmt), core::mem::transmute(ipar), core::mem::transmute(pfsqltype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbparamdef.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pibscale.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pfnullable.unwrap_or(core::ptr::null_mut())))
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn SQLDescribeParam(hstmt: *mut core::ffi::c_void, ipar: u16, pfsqltype: Option<*mut i16>, pcbparamdef: Option<*mut u64>, pibscale: Option<*mut i16>, pfnullable: Option<*mut i16>) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLDescribeParam(hstmt : *mut core::ffi::c_void, ipar : u16, pfsqltype : *mut i16, pcbparamdef : *mut u64, pibscale : *mut i16, pfnullable : *mut i16) -> i16);
     SQLDescribeParam(core::mem::transmute(hstmt), core::mem::transmute(ipar), core::mem::transmute(pfsqltype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbparamdef.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pibscale.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pfnullable.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
@@ -544,16 +544,16 @@ pub unsafe fn SQLExecute(statementhandle: *mut core::ffi::c_void) -> i16 {
     windows_targets::link!("odbc32.dll" "system" fn SQLExecute(statementhandle : *mut core::ffi::c_void) -> i16);
     SQLExecute(core::mem::transmute(statementhandle))
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn SQLExtendedFetch(hstmt: *mut core::ffi::c_void, ffetchtype: u16, irow: i64, pcrow: Option<*mut u64>, rgfrowstatus: Option<*mut u16>) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLExtendedFetch(hstmt : *mut core::ffi::c_void, ffetchtype : u16, irow : i64, pcrow : *mut u64, rgfrowstatus : *mut u16) -> i16);
-    SQLExtendedFetch(core::mem::transmute(hstmt), core::mem::transmute(ffetchtype), core::mem::transmute(irow), core::mem::transmute(pcrow.unwrap_or(core::ptr::null_mut())), core::mem::transmute(rgfrowstatus.unwrap_or(core::ptr::null_mut())))
-}
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLExtendedFetch(hstmt: *mut core::ffi::c_void, ffetchtype: u16, irow: i32, pcrow: Option<*mut u32>, rgfrowstatus: Option<*mut u16>) -> i16 {
     windows_targets::link!("odbc32.dll" "system" fn SQLExtendedFetch(hstmt : *mut core::ffi::c_void, ffetchtype : u16, irow : i32, pcrow : *mut u32, rgfrowstatus : *mut u16) -> i16);
+    SQLExtendedFetch(core::mem::transmute(hstmt), core::mem::transmute(ffetchtype), core::mem::transmute(irow), core::mem::transmute(pcrow.unwrap_or(core::ptr::null_mut())), core::mem::transmute(rgfrowstatus.unwrap_or(core::ptr::null_mut())))
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn SQLExtendedFetch(hstmt: *mut core::ffi::c_void, ffetchtype: u16, irow: i64, pcrow: Option<*mut u64>, rgfrowstatus: Option<*mut u16>) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLExtendedFetch(hstmt : *mut core::ffi::c_void, ffetchtype : u16, irow : i64, pcrow : *mut u64, rgfrowstatus : *mut u16) -> i16);
     SQLExtendedFetch(core::mem::transmute(hstmt), core::mem::transmute(ffetchtype), core::mem::transmute(irow), core::mem::transmute(pcrow.unwrap_or(core::ptr::null_mut())), core::mem::transmute(rgfrowstatus.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
@@ -561,16 +561,16 @@ pub unsafe fn SQLFetch(statementhandle: *mut core::ffi::c_void) -> i16 {
     windows_targets::link!("odbc32.dll" "system" fn SQLFetch(statementhandle : *mut core::ffi::c_void) -> i16);
     SQLFetch(core::mem::transmute(statementhandle))
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn SQLFetchScroll(statementhandle: *mut core::ffi::c_void, fetchorientation: i16, fetchoffset: i64) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLFetchScroll(statementhandle : *mut core::ffi::c_void, fetchorientation : i16, fetchoffset : i64) -> i16);
-    SQLFetchScroll(core::mem::transmute(statementhandle), core::mem::transmute(fetchorientation), core::mem::transmute(fetchoffset))
-}
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLFetchScroll(statementhandle: *mut core::ffi::c_void, fetchorientation: i16, fetchoffset: i32) -> i16 {
     windows_targets::link!("odbc32.dll" "system" fn SQLFetchScroll(statementhandle : *mut core::ffi::c_void, fetchorientation : i16, fetchoffset : i32) -> i16);
+    SQLFetchScroll(core::mem::transmute(statementhandle), core::mem::transmute(fetchorientation), core::mem::transmute(fetchoffset))
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn SQLFetchScroll(statementhandle: *mut core::ffi::c_void, fetchorientation: i16, fetchoffset: i64) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLFetchScroll(statementhandle : *mut core::ffi::c_void, fetchorientation : i16, fetchoffset : i64) -> i16);
     SQLFetchScroll(core::mem::transmute(statementhandle), core::mem::transmute(fetchorientation), core::mem::transmute(fetchoffset))
 }
 #[inline]
@@ -695,16 +695,16 @@ pub unsafe fn SQLGetCursorNameW(hstmt: *mut core::ffi::c_void, szcursor: Option<
     windows_targets::link!("odbc32.dll" "system" fn SQLGetCursorNameW(hstmt : *mut core::ffi::c_void, szcursor : *mut u16, cchcursormax : i16, pcchcursor : *mut i16) -> i16);
     SQLGetCursorNameW(core::mem::transmute(hstmt), core::mem::transmute(szcursor.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szcursor.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcchcursor.unwrap_or(core::ptr::null_mut())))
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn SQLGetData(statementhandle: *mut core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: Option<*mut core::ffi::c_void>, bufferlength: i64, strlen_or_indptr: Option<*mut i64>) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLGetData(statementhandle : *mut core::ffi::c_void, columnnumber : u16, targettype : i16, targetvalue : *mut core::ffi::c_void, bufferlength : i64, strlen_or_indptr : *mut i64) -> i16);
-    SQLGetData(core::mem::transmute(statementhandle), core::mem::transmute(columnnumber), core::mem::transmute(targettype), core::mem::transmute(targetvalue.unwrap_or(core::ptr::null_mut())), core::mem::transmute(bufferlength), core::mem::transmute(strlen_or_indptr.unwrap_or(core::ptr::null_mut())))
-}
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLGetData(statementhandle: *mut core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: Option<*mut core::ffi::c_void>, bufferlength: i32, strlen_or_indptr: Option<*mut i32>) -> i16 {
     windows_targets::link!("odbc32.dll" "system" fn SQLGetData(statementhandle : *mut core::ffi::c_void, columnnumber : u16, targettype : i16, targetvalue : *mut core::ffi::c_void, bufferlength : i32, strlen_or_indptr : *mut i32) -> i16);
+    SQLGetData(core::mem::transmute(statementhandle), core::mem::transmute(columnnumber), core::mem::transmute(targettype), core::mem::transmute(targetvalue.unwrap_or(core::ptr::null_mut())), core::mem::transmute(bufferlength), core::mem::transmute(strlen_or_indptr.unwrap_or(core::ptr::null_mut())))
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn SQLGetData(statementhandle: *mut core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: Option<*mut core::ffi::c_void>, bufferlength: i64, strlen_or_indptr: Option<*mut i64>) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLGetData(statementhandle : *mut core::ffi::c_void, columnnumber : u16, targettype : i16, targetvalue : *mut core::ffi::c_void, bufferlength : i64, strlen_or_indptr : *mut i64) -> i16);
     SQLGetData(core::mem::transmute(statementhandle), core::mem::transmute(columnnumber), core::mem::transmute(targettype), core::mem::transmute(targetvalue.unwrap_or(core::ptr::null_mut())), core::mem::transmute(bufferlength), core::mem::transmute(strlen_or_indptr.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
@@ -721,24 +721,6 @@ pub unsafe fn SQLGetDescFieldA(hdesc: *mut core::ffi::c_void, irecord: i16, ifie
 pub unsafe fn SQLGetDescFieldW(hdesc: *mut core::ffi::c_void, irecord: i16, ifield: i16, rgbvalue: Option<*mut core::ffi::c_void>, cbbufferlength: i32, stringlength: Option<*mut i32>) -> i16 {
     windows_targets::link!("odbc32.dll" "system" fn SQLGetDescFieldW(hdesc : *mut core::ffi::c_void, irecord : i16, ifield : i16, rgbvalue : *mut core::ffi::c_void, cbbufferlength : i32, stringlength : *mut i32) -> i16);
     SQLGetDescFieldW(core::mem::transmute(hdesc), core::mem::transmute(irecord), core::mem::transmute(ifield), core::mem::transmute(rgbvalue.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cbbufferlength), core::mem::transmute(stringlength.unwrap_or(core::ptr::null_mut())))
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn SQLGetDescRec(descriptorhandle: *mut core::ffi::c_void, recnumber: i16, name: Option<&mut [u8]>, stringlengthptr: Option<*mut i16>, typeptr: Option<*mut i16>, subtypeptr: Option<*mut i16>, lengthptr: Option<*mut i64>, precisionptr: Option<*mut i16>, scaleptr: Option<*mut i16>, nullableptr: Option<*mut i16>) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLGetDescRec(descriptorhandle : *mut core::ffi::c_void, recnumber : i16, name : *mut u8, bufferlength : i16, stringlengthptr : *mut i16, typeptr : *mut i16, subtypeptr : *mut i16, lengthptr : *mut i64, precisionptr : *mut i16, scaleptr : *mut i16, nullableptr : *mut i16) -> i16);
-    SQLGetDescRec(
-        core::mem::transmute(descriptorhandle),
-        core::mem::transmute(recnumber),
-        core::mem::transmute(name.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-        name.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-        core::mem::transmute(stringlengthptr.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(typeptr.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(subtypeptr.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(lengthptr.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(precisionptr.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(scaleptr.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(nullableptr.unwrap_or(core::ptr::null_mut())),
-    )
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -760,20 +742,20 @@ pub unsafe fn SQLGetDescRec(descriptorhandle: *mut core::ffi::c_void, recnumber:
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLGetDescRecA(hdesc: *mut core::ffi::c_void, irecord: i16, szname: Option<&mut [u8]>, pcbname: Option<*mut i16>, pftype: Option<*mut i16>, pfsubtype: Option<*mut i16>, plength: Option<*mut i64>, pprecision: Option<*mut i16>, pscale: Option<*mut i16>, pnullable: Option<*mut i16>) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLGetDescRecA(hdesc : *mut core::ffi::c_void, irecord : i16, szname : *mut u8, cbnamemax : i16, pcbname : *mut i16, pftype : *mut i16, pfsubtype : *mut i16, plength : *mut i64, pprecision : *mut i16, pscale : *mut i16, pnullable : *mut i16) -> i16);
-    SQLGetDescRecA(
-        core::mem::transmute(hdesc),
-        core::mem::transmute(irecord),
-        core::mem::transmute(szname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-        szname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-        core::mem::transmute(pcbname.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(pftype.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(pfsubtype.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(plength.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(pprecision.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(pscale.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(pnullable.unwrap_or(core::ptr::null_mut())),
+pub unsafe fn SQLGetDescRec(descriptorhandle: *mut core::ffi::c_void, recnumber: i16, name: Option<&mut [u8]>, stringlengthptr: Option<*mut i16>, typeptr: Option<*mut i16>, subtypeptr: Option<*mut i16>, lengthptr: Option<*mut i64>, precisionptr: Option<*mut i16>, scaleptr: Option<*mut i16>, nullableptr: Option<*mut i16>) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLGetDescRec(descriptorhandle : *mut core::ffi::c_void, recnumber : i16, name : *mut u8, bufferlength : i16, stringlengthptr : *mut i16, typeptr : *mut i16, subtypeptr : *mut i16, lengthptr : *mut i64, precisionptr : *mut i16, scaleptr : *mut i16, nullableptr : *mut i16) -> i16);
+    SQLGetDescRec(
+        core::mem::transmute(descriptorhandle),
+        core::mem::transmute(recnumber),
+        core::mem::transmute(name.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+        name.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        core::mem::transmute(stringlengthptr.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(typeptr.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(subtypeptr.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(lengthptr.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(precisionptr.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(scaleptr.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(nullableptr.unwrap_or(core::ptr::null_mut())),
     )
 }
 #[cfg(target_arch = "x86")]
@@ -796,8 +778,26 @@ pub unsafe fn SQLGetDescRecA(hdesc: *mut core::ffi::c_void, irecord: i16, szname
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLGetDescRecW(hdesc: *mut core::ffi::c_void, irecord: i16, szname: Option<&mut [u16]>, pcchname: Option<*mut i16>, pftype: Option<*mut i16>, pfsubtype: Option<*mut i16>, plength: Option<*mut i64>, pprecision: Option<*mut i16>, pscale: Option<*mut i16>, pnullable: Option<*mut i16>) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLGetDescRecW(hdesc : *mut core::ffi::c_void, irecord : i16, szname : *mut u16, cchnamemax : i16, pcchname : *mut i16, pftype : *mut i16, pfsubtype : *mut i16, plength : *mut i64, pprecision : *mut i16, pscale : *mut i16, pnullable : *mut i16) -> i16);
+pub unsafe fn SQLGetDescRecA(hdesc: *mut core::ffi::c_void, irecord: i16, szname: Option<&mut [u8]>, pcbname: Option<*mut i16>, pftype: Option<*mut i16>, pfsubtype: Option<*mut i16>, plength: Option<*mut i64>, pprecision: Option<*mut i16>, pscale: Option<*mut i16>, pnullable: Option<*mut i16>) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLGetDescRecA(hdesc : *mut core::ffi::c_void, irecord : i16, szname : *mut u8, cbnamemax : i16, pcbname : *mut i16, pftype : *mut i16, pfsubtype : *mut i16, plength : *mut i64, pprecision : *mut i16, pscale : *mut i16, pnullable : *mut i16) -> i16);
+    SQLGetDescRecA(
+        core::mem::transmute(hdesc),
+        core::mem::transmute(irecord),
+        core::mem::transmute(szname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+        szname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        core::mem::transmute(pcbname.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(pftype.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(pfsubtype.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(plength.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(pprecision.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(pscale.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(pnullable.unwrap_or(core::ptr::null_mut())),
+    )
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLGetDescRecW(hdesc: *mut core::ffi::c_void, irecord: i16, szname: Option<&mut [u16]>, pcchname: Option<*mut i16>, pftype: Option<*mut i16>, pfsubtype: Option<*mut i16>, plength: Option<*mut i32>, pprecision: Option<*mut i16>, pscale: Option<*mut i16>, pnullable: Option<*mut i16>) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLGetDescRecW(hdesc : *mut core::ffi::c_void, irecord : i16, szname : *mut u16, cchnamemax : i16, pcchname : *mut i16, pftype : *mut i16, pfsubtype : *mut i16, plength : *mut i32, pprecision : *mut i16, pscale : *mut i16, pnullable : *mut i16) -> i16);
     SQLGetDescRecW(
         core::mem::transmute(hdesc),
         core::mem::transmute(irecord),
@@ -812,10 +812,10 @@ pub unsafe fn SQLGetDescRecW(hdesc: *mut core::ffi::c_void, irecord: i16, szname
         core::mem::transmute(pnullable.unwrap_or(core::ptr::null_mut())),
     )
 }
-#[cfg(target_arch = "x86")]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLGetDescRecW(hdesc: *mut core::ffi::c_void, irecord: i16, szname: Option<&mut [u16]>, pcchname: Option<*mut i16>, pftype: Option<*mut i16>, pfsubtype: Option<*mut i16>, plength: Option<*mut i32>, pprecision: Option<*mut i16>, pscale: Option<*mut i16>, pnullable: Option<*mut i16>) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLGetDescRecW(hdesc : *mut core::ffi::c_void, irecord : i16, szname : *mut u16, cchnamemax : i16, pcchname : *mut i16, pftype : *mut i16, pfsubtype : *mut i16, plength : *mut i32, pprecision : *mut i16, pscale : *mut i16, pnullable : *mut i16) -> i16);
+pub unsafe fn SQLGetDescRecW(hdesc: *mut core::ffi::c_void, irecord: i16, szname: Option<&mut [u16]>, pcchname: Option<*mut i16>, pftype: Option<*mut i16>, pfsubtype: Option<*mut i16>, plength: Option<*mut i64>, pprecision: Option<*mut i16>, pscale: Option<*mut i16>, pnullable: Option<*mut i16>) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLGetDescRecW(hdesc : *mut core::ffi::c_void, irecord : i16, szname : *mut u16, cchnamemax : i16, pcchname : *mut i16, pftype : *mut i16, pfsubtype : *mut i16, plength : *mut i64, pprecision : *mut i16, pscale : *mut i16, pnullable : *mut i16) -> i16);
     SQLGetDescRecW(
         core::mem::transmute(hdesc),
         core::mem::transmute(irecord),
@@ -993,16 +993,16 @@ pub unsafe fn SQLParamData(statementhandle: *mut core::ffi::c_void, value: Optio
     windows_targets::link!("odbc32.dll" "system" fn SQLParamData(statementhandle : *mut core::ffi::c_void, value : *mut *mut core::ffi::c_void) -> i16);
     SQLParamData(core::mem::transmute(statementhandle), core::mem::transmute(value.unwrap_or(core::ptr::null_mut())))
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn SQLParamOptions(hstmt: *mut core::ffi::c_void, crow: u64, pirow: *mut u64) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLParamOptions(hstmt : *mut core::ffi::c_void, crow : u64, pirow : *mut u64) -> i16);
-    SQLParamOptions(core::mem::transmute(hstmt), core::mem::transmute(crow), core::mem::transmute(pirow))
-}
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLParamOptions(hstmt: *mut core::ffi::c_void, crow: u32, pirow: *mut u32) -> i16 {
     windows_targets::link!("odbc32.dll" "system" fn SQLParamOptions(hstmt : *mut core::ffi::c_void, crow : u32, pirow : *mut u32) -> i16);
+    SQLParamOptions(core::mem::transmute(hstmt), core::mem::transmute(crow), core::mem::transmute(pirow))
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn SQLParamOptions(hstmt: *mut core::ffi::c_void, crow: u64, pirow: *mut u64) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLParamOptions(hstmt : *mut core::ffi::c_void, crow : u64, pirow : *mut u64) -> i16);
     SQLParamOptions(core::mem::transmute(hstmt), core::mem::transmute(crow), core::mem::transmute(pirow))
 }
 #[inline]
@@ -1143,12 +1143,6 @@ pub unsafe fn SQLProceduresW(hstmt: *mut core::ffi::c_void, szcatalogname: Optio
         szprocname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
     )
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn SQLPutData(statementhandle: *mut core::ffi::c_void, data: *const core::ffi::c_void, strlen_or_ind: i64) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLPutData(statementhandle : *mut core::ffi::c_void, data : *const core::ffi::c_void, strlen_or_ind : i64) -> i16);
-    SQLPutData(core::mem::transmute(statementhandle), core::mem::transmute(data), core::mem::transmute(strlen_or_ind))
-}
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLPutData(statementhandle: *mut core::ffi::c_void, data: *const core::ffi::c_void, strlen_or_ind: i32) -> i16 {
@@ -1157,14 +1151,20 @@ pub unsafe fn SQLPutData(statementhandle: *mut core::ffi::c_void, data: *const c
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLRowCount(statementhandle: *const core::ffi::c_void, rowcount: *mut i64) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLRowCount(statementhandle : *const core::ffi::c_void, rowcount : *mut i64) -> i16);
-    SQLRowCount(core::mem::transmute(statementhandle), core::mem::transmute(rowcount))
+pub unsafe fn SQLPutData(statementhandle: *mut core::ffi::c_void, data: *const core::ffi::c_void, strlen_or_ind: i64) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLPutData(statementhandle : *mut core::ffi::c_void, data : *const core::ffi::c_void, strlen_or_ind : i64) -> i16);
+    SQLPutData(core::mem::transmute(statementhandle), core::mem::transmute(data), core::mem::transmute(strlen_or_ind))
 }
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLRowCount(statementhandle: *const core::ffi::c_void, rowcount: *mut i32) -> i16 {
     windows_targets::link!("odbc32.dll" "system" fn SQLRowCount(statementhandle : *const core::ffi::c_void, rowcount : *mut i32) -> i16);
+    SQLRowCount(core::mem::transmute(statementhandle), core::mem::transmute(rowcount))
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn SQLRowCount(statementhandle: *const core::ffi::c_void, rowcount: *mut i64) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLRowCount(statementhandle : *const core::ffi::c_void, rowcount : *mut i64) -> i16);
     SQLRowCount(core::mem::transmute(statementhandle), core::mem::transmute(rowcount))
 }
 #[inline]
@@ -1182,12 +1182,6 @@ pub unsafe fn SQLSetConnectAttrW(hdbc: *mut core::ffi::c_void, fattribute: i32, 
     windows_targets::link!("odbc32.dll" "system" fn SQLSetConnectAttrW(hdbc : *mut core::ffi::c_void, fattribute : i32, rgbvalue : *const core::ffi::c_void, cbvalue : i32) -> i16);
     SQLSetConnectAttrW(core::mem::transmute(hdbc), core::mem::transmute(fattribute), core::mem::transmute(rgbvalue.unwrap_or(core::ptr::null())), core::mem::transmute(cbvalue))
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn SQLSetConnectOption(connectionhandle: *mut core::ffi::c_void, option: u16, value: u64) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLSetConnectOption(connectionhandle : *mut core::ffi::c_void, option : u16, value : u64) -> i16);
-    SQLSetConnectOption(core::mem::transmute(connectionhandle), core::mem::transmute(option), core::mem::transmute(value))
-}
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetConnectOption(connectionhandle: *mut core::ffi::c_void, option: u16, value: u32) -> i16 {
@@ -1196,9 +1190,9 @@ pub unsafe fn SQLSetConnectOption(connectionhandle: *mut core::ffi::c_void, opti
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLSetConnectOptionA(hdbc: *mut core::ffi::c_void, foption: u16, vparam: u64) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLSetConnectOptionA(hdbc : *mut core::ffi::c_void, foption : u16, vparam : u64) -> i16);
-    SQLSetConnectOptionA(core::mem::transmute(hdbc), core::mem::transmute(foption), core::mem::transmute(vparam))
+pub unsafe fn SQLSetConnectOption(connectionhandle: *mut core::ffi::c_void, option: u16, value: u64) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLSetConnectOption(connectionhandle : *mut core::ffi::c_void, option : u16, value : u64) -> i16);
+    SQLSetConnectOption(core::mem::transmute(connectionhandle), core::mem::transmute(option), core::mem::transmute(value))
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -1208,14 +1202,20 @@ pub unsafe fn SQLSetConnectOptionA(hdbc: *mut core::ffi::c_void, foption: u16, v
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLSetConnectOptionW(hdbc: *mut core::ffi::c_void, foption: u16, vparam: u64) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLSetConnectOptionW(hdbc : *mut core::ffi::c_void, foption : u16, vparam : u64) -> i16);
-    SQLSetConnectOptionW(core::mem::transmute(hdbc), core::mem::transmute(foption), core::mem::transmute(vparam))
+pub unsafe fn SQLSetConnectOptionA(hdbc: *mut core::ffi::c_void, foption: u16, vparam: u64) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLSetConnectOptionA(hdbc : *mut core::ffi::c_void, foption : u16, vparam : u64) -> i16);
+    SQLSetConnectOptionA(core::mem::transmute(hdbc), core::mem::transmute(foption), core::mem::transmute(vparam))
 }
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetConnectOptionW(hdbc: *mut core::ffi::c_void, foption: u16, vparam: u32) -> i16 {
     windows_targets::link!("odbc32.dll" "system" fn SQLSetConnectOptionW(hdbc : *mut core::ffi::c_void, foption : u16, vparam : u32) -> i16);
+    SQLSetConnectOptionW(core::mem::transmute(hdbc), core::mem::transmute(foption), core::mem::transmute(vparam))
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn SQLSetConnectOptionW(hdbc: *mut core::ffi::c_void, foption: u16, vparam: u64) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLSetConnectOptionW(hdbc : *mut core::ffi::c_void, foption : u16, vparam : u64) -> i16);
     SQLSetConnectOptionW(core::mem::transmute(hdbc), core::mem::transmute(foption), core::mem::transmute(vparam))
 }
 #[inline]
@@ -1243,28 +1243,22 @@ pub unsafe fn SQLSetDescFieldW(descriptorhandle: *mut core::ffi::c_void, recnumb
     windows_targets::link!("odbc32.dll" "system" fn SQLSetDescFieldW(descriptorhandle : *mut core::ffi::c_void, recnumber : i16, fieldidentifier : i16, value : *mut core::ffi::c_void, bufferlength : i32) -> i16);
     SQLSetDescFieldW(core::mem::transmute(descriptorhandle), core::mem::transmute(recnumber), core::mem::transmute(fieldidentifier), core::mem::transmute(value), core::mem::transmute(bufferlength))
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn SQLSetDescRec(descriptorhandle: *mut core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i64, precision: i16, scale: i16, data: Option<*mut core::ffi::c_void>, stringlength: Option<*mut i64>, indicator: Option<*mut i64>) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLSetDescRec(descriptorhandle : *mut core::ffi::c_void, recnumber : i16, r#type : i16, subtype : i16, length : i64, precision : i16, scale : i16, data : *mut core::ffi::c_void, stringlength : *mut i64, indicator : *mut i64) -> i16);
-    SQLSetDescRec(core::mem::transmute(descriptorhandle), core::mem::transmute(recnumber), core::mem::transmute(r#type), core::mem::transmute(subtype), core::mem::transmute(length), core::mem::transmute(precision), core::mem::transmute(scale), core::mem::transmute(data.unwrap_or(core::ptr::null_mut())), core::mem::transmute(stringlength.unwrap_or(core::ptr::null_mut())), core::mem::transmute(indicator.unwrap_or(core::ptr::null_mut())))
-}
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetDescRec(descriptorhandle: *mut core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i32, precision: i16, scale: i16, data: Option<*mut core::ffi::c_void>, stringlength: Option<*mut i32>, indicator: Option<*mut i32>) -> i16 {
     windows_targets::link!("odbc32.dll" "system" fn SQLSetDescRec(descriptorhandle : *mut core::ffi::c_void, recnumber : i16, r#type : i16, subtype : i16, length : i32, precision : i16, scale : i16, data : *mut core::ffi::c_void, stringlength : *mut i32, indicator : *mut i32) -> i16);
     SQLSetDescRec(core::mem::transmute(descriptorhandle), core::mem::transmute(recnumber), core::mem::transmute(r#type), core::mem::transmute(subtype), core::mem::transmute(length), core::mem::transmute(precision), core::mem::transmute(scale), core::mem::transmute(data.unwrap_or(core::ptr::null_mut())), core::mem::transmute(stringlength.unwrap_or(core::ptr::null_mut())), core::mem::transmute(indicator.unwrap_or(core::ptr::null_mut())))
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn SQLSetDescRec(descriptorhandle: *mut core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i64, precision: i16, scale: i16, data: Option<*mut core::ffi::c_void>, stringlength: Option<*mut i64>, indicator: Option<*mut i64>) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLSetDescRec(descriptorhandle : *mut core::ffi::c_void, recnumber : i16, r#type : i16, subtype : i16, length : i64, precision : i16, scale : i16, data : *mut core::ffi::c_void, stringlength : *mut i64, indicator : *mut i64) -> i16);
+    SQLSetDescRec(core::mem::transmute(descriptorhandle), core::mem::transmute(recnumber), core::mem::transmute(r#type), core::mem::transmute(subtype), core::mem::transmute(length), core::mem::transmute(precision), core::mem::transmute(scale), core::mem::transmute(data.unwrap_or(core::ptr::null_mut())), core::mem::transmute(stringlength.unwrap_or(core::ptr::null_mut())), core::mem::transmute(indicator.unwrap_or(core::ptr::null_mut())))
+}
 #[inline]
 pub unsafe fn SQLSetEnvAttr(environmenthandle: *mut core::ffi::c_void, attribute: i32, value: Option<*const core::ffi::c_void>, stringlength: i32) -> i16 {
     windows_targets::link!("odbc32.dll" "system" fn SQLSetEnvAttr(environmenthandle : *mut core::ffi::c_void, attribute : i32, value : *const core::ffi::c_void, stringlength : i32) -> i16);
     SQLSetEnvAttr(core::mem::transmute(environmenthandle), core::mem::transmute(attribute), core::mem::transmute(value.unwrap_or(core::ptr::null())), core::mem::transmute(stringlength))
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn SQLSetParam(statementhandle: *mut core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *const core::ffi::c_void, strlen_or_ind: *mut i64) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLSetParam(statementhandle : *mut core::ffi::c_void, parameternumber : u16, valuetype : i16, parametertype : i16, lengthprecision : u64, parameterscale : i16, parametervalue : *const core::ffi::c_void, strlen_or_ind : *mut i64) -> i16);
-    SQLSetParam(core::mem::transmute(statementhandle), core::mem::transmute(parameternumber), core::mem::transmute(valuetype), core::mem::transmute(parametertype), core::mem::transmute(lengthprecision), core::mem::transmute(parameterscale), core::mem::transmute(parametervalue), core::mem::transmute(strlen_or_ind))
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -1274,9 +1268,9 @@ pub unsafe fn SQLSetParam(statementhandle: *mut core::ffi::c_void, parameternumb
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLSetPos(hstmt: *mut core::ffi::c_void, irow: u64, foption: u16, flock: u16) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLSetPos(hstmt : *mut core::ffi::c_void, irow : u64, foption : u16, flock : u16) -> i16);
-    SQLSetPos(core::mem::transmute(hstmt), core::mem::transmute(irow), core::mem::transmute(foption), core::mem::transmute(flock))
+pub unsafe fn SQLSetParam(statementhandle: *mut core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *const core::ffi::c_void, strlen_or_ind: *mut i64) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLSetParam(statementhandle : *mut core::ffi::c_void, parameternumber : u16, valuetype : i16, parametertype : i16, lengthprecision : u64, parameterscale : i16, parametervalue : *const core::ffi::c_void, strlen_or_ind : *mut i64) -> i16);
+    SQLSetParam(core::mem::transmute(statementhandle), core::mem::transmute(parameternumber), core::mem::transmute(valuetype), core::mem::transmute(parametertype), core::mem::transmute(lengthprecision), core::mem::transmute(parameterscale), core::mem::transmute(parametervalue), core::mem::transmute(strlen_or_ind))
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -1286,14 +1280,20 @@ pub unsafe fn SQLSetPos(hstmt: *mut core::ffi::c_void, irow: u16, foption: u16, 
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLSetScrollOptions(hstmt: *mut core::ffi::c_void, fconcurrency: u16, crowkeyset: i64, crowrowset: u16) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLSetScrollOptions(hstmt : *mut core::ffi::c_void, fconcurrency : u16, crowkeyset : i64, crowrowset : u16) -> i16);
-    SQLSetScrollOptions(core::mem::transmute(hstmt), core::mem::transmute(fconcurrency), core::mem::transmute(crowkeyset), core::mem::transmute(crowrowset))
+pub unsafe fn SQLSetPos(hstmt: *mut core::ffi::c_void, irow: u64, foption: u16, flock: u16) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLSetPos(hstmt : *mut core::ffi::c_void, irow : u64, foption : u16, flock : u16) -> i16);
+    SQLSetPos(core::mem::transmute(hstmt), core::mem::transmute(irow), core::mem::transmute(foption), core::mem::transmute(flock))
 }
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetScrollOptions(hstmt: *mut core::ffi::c_void, fconcurrency: u16, crowkeyset: i32, crowrowset: u16) -> i16 {
     windows_targets::link!("odbc32.dll" "system" fn SQLSetScrollOptions(hstmt : *mut core::ffi::c_void, fconcurrency : u16, crowkeyset : i32, crowrowset : u16) -> i16);
+    SQLSetScrollOptions(core::mem::transmute(hstmt), core::mem::transmute(fconcurrency), core::mem::transmute(crowkeyset), core::mem::transmute(crowrowset))
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn SQLSetScrollOptions(hstmt: *mut core::ffi::c_void, fconcurrency: u16, crowkeyset: i64, crowrowset: u16) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLSetScrollOptions(hstmt : *mut core::ffi::c_void, fconcurrency : u16, crowkeyset : i64, crowrowset : u16) -> i16);
     SQLSetScrollOptions(core::mem::transmute(hstmt), core::mem::transmute(fconcurrency), core::mem::transmute(crowkeyset), core::mem::transmute(crowrowset))
 }
 #[inline]
@@ -1306,16 +1306,16 @@ pub unsafe fn SQLSetStmtAttrW(hstmt: *mut core::ffi::c_void, fattribute: i32, rg
     windows_targets::link!("odbc32.dll" "system" fn SQLSetStmtAttrW(hstmt : *mut core::ffi::c_void, fattribute : i32, rgbvalue : *mut core::ffi::c_void, cbvaluemax : i32) -> i16);
     SQLSetStmtAttrW(core::mem::transmute(hstmt), core::mem::transmute(fattribute), core::mem::transmute(rgbvalue), core::mem::transmute(cbvaluemax))
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn SQLSetStmtOption(statementhandle: *mut core::ffi::c_void, option: u16, value: u64) -> i16 {
-    windows_targets::link!("odbc32.dll" "system" fn SQLSetStmtOption(statementhandle : *mut core::ffi::c_void, option : u16, value : u64) -> i16);
-    SQLSetStmtOption(core::mem::transmute(statementhandle), core::mem::transmute(option), core::mem::transmute(value))
-}
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetStmtOption(statementhandle: *mut core::ffi::c_void, option: u16, value: u32) -> i16 {
     windows_targets::link!("odbc32.dll" "system" fn SQLSetStmtOption(statementhandle : *mut core::ffi::c_void, option : u16, value : u32) -> i16);
+    SQLSetStmtOption(core::mem::transmute(statementhandle), core::mem::transmute(option), core::mem::transmute(value))
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn SQLSetStmtOption(statementhandle: *mut core::ffi::c_void, option: u16, value: u64) -> i16 {
+    windows_targets::link!("odbc32.dll" "system" fn SQLSetStmtOption(statementhandle : *mut core::ffi::c_void, option : u16, value : u64) -> i16);
     SQLSetStmtOption(core::mem::transmute(statementhandle), core::mem::transmute(option), core::mem::transmute(value))
 }
 #[inline]
@@ -1627,6 +1627,3033 @@ pub unsafe fn dbprtypeW(param0: i32) -> windows_core::PWSTR {
     windows_targets::link!("odbcbcp.dll" "system" fn dbprtypeW(param0 : i32) -> windows_core::PWSTR);
     dbprtypeW(core::mem::transmute(param0))
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ACCESS_MASKENUM(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct AUTHENTICATION_INFO {
+    pub dwSize: u32,
+    pub atAuthenticationType: AUTH_TYPE,
+    pub pcwszUser: windows_core::PCWSTR,
+    pub pcwszPassword: windows_core::PCWSTR,
+}
+impl Default for AUTHENTICATION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for AUTHENTICATION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AUTH_TYPE(pub i32);
+pub const BCP6xFILEFMT: u32 = 9u32;
+pub const BCPABORT: u32 = 6u32;
+pub const BCPBATCH: u32 = 4u32;
+pub const BCPFILECP: u32 = 12u32;
+pub const BCPFILECP_ACP: u32 = 0u32;
+pub const BCPFILECP_OEMCP: u32 = 1u32;
+pub const BCPFILECP_RAW: i32 = -1i32;
+pub const BCPFILEFMT: u32 = 15u32;
+pub const BCPFIRST: u32 = 2u32;
+pub const BCPHINTS: u32 = 11u32;
+pub const BCPHINTSA: u32 = 10u32;
+pub const BCPHINTSW: u32 = 11u32;
+pub const BCPKEEPIDENTITY: u32 = 8u32;
+pub const BCPKEEPNULLS: u32 = 5u32;
+pub const BCPLAST: u32 = 3u32;
+pub const BCPMAXERRS: u32 = 1u32;
+pub const BCPODBC: u32 = 7u32;
+pub const BCPTEXTFILE: u32 = 14u32;
+pub const BCPUNICODEFILE: u32 = 13u32;
+pub const BCP_FMT_COLLATION: u32 = 6u32;
+pub const BCP_FMT_COLLATION_ID: u32 = 7u32;
+pub const BCP_FMT_DATA_LEN: u32 = 3u32;
+pub const BCP_FMT_INDICATOR_LEN: u32 = 2u32;
+pub const BCP_FMT_SERVER_COL: u32 = 5u32;
+pub const BCP_FMT_TERMINATOR: u32 = 4u32;
+pub const BCP_FMT_TYPE: u32 = 1u32;
+pub const BIO_BINDER: EBindInfoOptions = EBindInfoOptions(1i32);
+pub const BMK_DURABILITY_INTRANSACTION: i32 = 1i32;
+pub const BMK_DURABILITY_REORGANIZATION: i32 = 3i32;
+pub const BMK_DURABILITY_ROWSET: i32 = 0i32;
+pub const BMK_DURABILITY_XTRANSACTION: i32 = 2i32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct BUCKETCATEGORIZE {
+    pub cBuckets: u32,
+    pub Distribution: u32,
+}
+impl Default for BUCKETCATEGORIZE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for BUCKETCATEGORIZE {
+    type TypeKind = windows_core::CopyType;
+}
+pub const BUCKET_EXPONENTIAL: u32 = 1u32;
+pub const BUCKET_LINEAR: u32 = 0u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CASE_REQUIREMENT(pub i32);
+pub const CASE_REQUIREMENT_ANY: CASE_REQUIREMENT = CASE_REQUIREMENT(0i32);
+pub const CASE_REQUIREMENT_UPPER_IF_AQS: CASE_REQUIREMENT = CASE_REQUIREMENT(1i32);
+pub const CATALOG_PAUSED_REASON_DELAYED_RECOVERY: CatalogPausedReason = CatalogPausedReason(7i32);
+pub const CATALOG_PAUSED_REASON_EXTERNAL: CatalogPausedReason = CatalogPausedReason(9i32);
+pub const CATALOG_PAUSED_REASON_HIGH_CPU: CatalogPausedReason = CatalogPausedReason(2i32);
+pub const CATALOG_PAUSED_REASON_HIGH_IO: CatalogPausedReason = CatalogPausedReason(1i32);
+pub const CATALOG_PAUSED_REASON_HIGH_NTF_RATE: CatalogPausedReason = CatalogPausedReason(3i32);
+pub const CATALOG_PAUSED_REASON_LOW_BATTERY: CatalogPausedReason = CatalogPausedReason(4i32);
+pub const CATALOG_PAUSED_REASON_LOW_DISK: CatalogPausedReason = CatalogPausedReason(6i32);
+pub const CATALOG_PAUSED_REASON_LOW_MEMORY: CatalogPausedReason = CatalogPausedReason(5i32);
+pub const CATALOG_PAUSED_REASON_NONE: CatalogPausedReason = CatalogPausedReason(0i32);
+pub const CATALOG_PAUSED_REASON_UPGRADING: CatalogPausedReason = CatalogPausedReason(10i32);
+pub const CATALOG_PAUSED_REASON_USER_ACTIVE: CatalogPausedReason = CatalogPausedReason(8i32);
+pub const CATALOG_STATUS_FULL_CRAWL: CatalogStatus = CatalogStatus(3i32);
+pub const CATALOG_STATUS_IDLE: CatalogStatus = CatalogStatus(0i32);
+pub const CATALOG_STATUS_INCREMENTAL_CRAWL: CatalogStatus = CatalogStatus(4i32);
+pub const CATALOG_STATUS_PAUSED: CatalogStatus = CatalogStatus(1i32);
+pub const CATALOG_STATUS_PROCESSING_NOTIFICATIONS: CatalogStatus = CatalogStatus(5i32);
+pub const CATALOG_STATUS_RECOVERING: CatalogStatus = CatalogStatus(2i32);
+pub const CATALOG_STATUS_SHUTTING_DOWN: CatalogStatus = CatalogStatus(6i32);
+#[repr(C)]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct CATEGORIZATION {
+    pub ulCatType: u32,
+    pub Anonymous: CATEGORIZATION_0,
+    pub csColumns: COLUMNSET,
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for CATEGORIZATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for CATEGORIZATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub union CATEGORIZATION_0 {
+    pub cClusters: u32,
+    pub bucket: BUCKETCATEGORIZE,
+    pub range: RANGECATEGORIZE,
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for CATEGORIZATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for CATEGORIZATION_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CATEGORIZATIONSET {
+    pub cCat: u32,
+    pub aCat: *mut CATEGORIZATION,
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for CATEGORIZATIONSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for CATEGORIZATIONSET {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CATEGORIZE_BUCKETS: u32 = 2u32;
+pub const CATEGORIZE_CLUSTER: u32 = 1u32;
+pub const CATEGORIZE_RANGE: u32 = 3u32;
+pub const CATEGORIZE_UNIQUE: u32 = 0u32;
+pub const CATEGORY_COLLATOR: i32 = 2i32;
+pub const CATEGORY_GATHERER: i32 = 3i32;
+pub const CATEGORY_INDEXER: i32 = 4i32;
+pub const CATEGORY_SEARCH: i32 = 1i32;
+pub const CDBBMKDISPIDS: u32 = 8u32;
+pub const CDBCOLDISPIDS: u32 = 28u32;
+pub const CDBSELFDISPIDS: u32 = 8u32;
+pub const CERT_E_NOT_FOUND_OR_NO_PERMISSSION: i32 = -2147211263i32;
+pub const CHANNEL_AGENT_DYNAMIC_SCHEDULE: CHANNEL_AGENT_FLAGS = CHANNEL_AGENT_FLAGS(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CHANNEL_AGENT_FLAGS(pub i32);
+pub const CHANNEL_AGENT_PRECACHE_ALL: CHANNEL_AGENT_FLAGS = CHANNEL_AGENT_FLAGS(4i32);
+pub const CHANNEL_AGENT_PRECACHE_SCRNSAVER: CHANNEL_AGENT_FLAGS = CHANNEL_AGENT_FLAGS(8i32);
+pub const CHANNEL_AGENT_PRECACHE_SOME: CHANNEL_AGENT_FLAGS = CHANNEL_AGENT_FLAGS(2i32);
+pub const CI_E_CORRUPT_FWIDX: windows_core::HRESULT = windows_core::HRESULT(0xC004182D_u32 as _);
+pub const CI_E_DIACRITIC_SETTINGS_DIFFER: windows_core::HRESULT = windows_core::HRESULT(0xC004182E_u32 as _);
+pub const CI_E_INCONSISTENT_TRANSACTION: windows_core::HRESULT = windows_core::HRESULT(0xC0041832_u32 as _);
+pub const CI_E_INVALID_CATALOG_LIST_VERSION: windows_core::HRESULT = windows_core::HRESULT(0x8004182F_u32 as _);
+pub const CI_E_MULTIPLE_PROTECTED_USERS_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC0041835_u32 as _);
+pub const CI_E_NO_AUXMETADATA: windows_core::HRESULT = windows_core::HRESULT(0x8004182A_u32 as _);
+pub const CI_E_NO_CATALOG_MANAGER: windows_core::HRESULT = windows_core::HRESULT(0xC0041831_u32 as _);
+pub const CI_E_NO_PROTECTED_USER: windows_core::HRESULT = windows_core::HRESULT(0xC0041834_u32 as _);
+pub const CI_E_PROTECTED_CATALOG_NON_INTERACTIVE_USER: windows_core::HRESULT = windows_core::HRESULT(0xC0041837_u32 as _);
+pub const CI_E_PROTECTED_CATALOG_NOT_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC0041833_u32 as _);
+pub const CI_E_PROTECTED_CATALOG_SID_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0xC0041836_u32 as _);
+pub const CI_S_CATALOG_RESET: windows_core::HRESULT = windows_core::HRESULT(0x41830_u32 as _);
+pub const CI_S_CLIENT_REQUESTED_ABORT: windows_core::HRESULT = windows_core::HRESULT(0x4182B_u32 as _);
+pub const CI_S_NEW_AUXMETADATA: windows_core::HRESULT = windows_core::HRESULT(0x41829_u32 as _);
+pub const CI_S_RETRY_DOCUMENT: windows_core::HRESULT = windows_core::HRESULT(0x4182C_u32 as _);
+pub const CLSID_CISimpleCommandCreator: windows_core::GUID = windows_core::GUID::from_u128(0xc7b6c04a_cbb5_11d0_bb4c_00c04fc2f410);
+pub const CLSID_DataShapeProvider: windows_core::GUID = windows_core::GUID::from_u128(0x3449a1c8_c56c_11d0_ad72_00c04fc29863);
+pub const CLSID_MSDASQL: windows_core::GUID = windows_core::GUID::from_u128(0xc8b522cb_5cf3_11ce_ade5_00aa0044773d);
+pub const CLSID_MSDASQL_ENUMERATOR: windows_core::GUID = windows_core::GUID::from_u128(0xc8b522cd_5cf3_11ce_ade5_00aa0044773d);
+pub const CLSID_MSPersist: windows_core::GUID = windows_core::GUID::from_u128(0x7c07e0d0_4418_11d2_9212_00c04fbbbfb3);
+pub const CLSID_SQLOLEDB: windows_core::GUID = windows_core::GUID::from_u128(0x0c7ff16c_38e3_11d0_97ab_00c04fc2ad98);
+pub const CLSID_SQLOLEDB_ENUMERATOR: windows_core::GUID = windows_core::GUID::from_u128(0xdfa22b8e_e68d_11d0_97e4_00c04fc2ad98);
+pub const CLSID_SQLOLEDB_ERROR: windows_core::GUID = windows_core::GUID::from_u128(0xc0932c62_38e5_11d0_97ab_00c04fc2ad98);
+pub const CLUSIONREASON_DEFAULT: CLUSION_REASON = CLUSION_REASON(1i32);
+pub const CLUSIONREASON_GROUPPOLICY: CLUSION_REASON = CLUSION_REASON(3i32);
+pub const CLUSIONREASON_UNKNOWNSCOPE: CLUSION_REASON = CLUSION_REASON(0i32);
+pub const CLUSIONREASON_USER: CLUSION_REASON = CLUSION_REASON(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CLUSION_REASON(pub i32);
+pub const CMDLINE_E_ALREADY_INIT: i32 = -2147216123i32;
+pub const CMDLINE_E_NOT_INIT: i32 = -2147216124i32;
+pub const CMDLINE_E_NUM_PARAMS: i32 = -2147216122i32;
+pub const CMDLINE_E_PARAM_SIZE: i32 = -2147216125i32;
+pub const CMDLINE_E_PAREN: i32 = -2147216126i32;
+pub const CMDLINE_E_UNEXPECTED: i32 = -2147216127i32;
+pub const CM_E_CONNECTIONTIMEOUT: i32 = -2147219963i32;
+pub const CM_E_DATASOURCENOTAVAILABLE: i32 = -2147219964i32;
+pub const CM_E_INSUFFICIENTBUFFER: i32 = -2147219957i32;
+pub const CM_E_INVALIDDATASOURCE: i32 = -2147219959i32;
+pub const CM_E_NOQUERYCONNECTIONS: i32 = -2147219965i32;
+pub const CM_E_REGISTRY: i32 = -2147219960i32;
+pub const CM_E_SERVERNOTFOUND: i32 = -2147219962i32;
+pub const CM_E_TIMEOUT: i32 = -2147219958i32;
+pub const CM_E_TOOMANYDATASERVERS: i32 = -2147219967i32;
+pub const CM_E_TOOMANYDATASOURCES: i32 = -2147219966i32;
+pub const CM_S_NODATASERVERS: i32 = 263687i32;
+pub const COLL_E_BADRESULT: i32 = -2147220218i32;
+pub const COLL_E_BADSEQUENCE: i32 = -2147220223i32;
+pub const COLL_E_BUFFERTOOSMALL: i32 = -2147220220i32;
+pub const COLL_E_DUPLICATEDBID: i32 = -2147220216i32;
+pub const COLL_E_INCOMPATIBLECOLUMNS: i32 = -2147220221i32;
+pub const COLL_E_MAXCONNEXCEEDED: i32 = -2147220213i32;
+pub const COLL_E_NODEFAULTCATALOG: i32 = -2147220214i32;
+pub const COLL_E_NOMOREDATA: i32 = -2147220222i32;
+pub const COLL_E_NOSORTCOLUMN: i32 = -2147220217i32;
+pub const COLL_E_TOOMANYMERGECOLUMNS: i32 = -2147220215i32;
+#[repr(C)]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct COLUMNSET {
+    pub cCol: u32,
+    pub aCol: *mut super::super::Storage::IndexServer::FULLPROPSPEC,
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+impl Default for COLUMNSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+impl windows_core::TypeKind for COLUMNSET {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CONDITION_CREATION_DEFAULT: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(0i32);
+pub const CONDITION_CREATION_NONE: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CONDITION_CREATION_OPTIONS(pub i32);
+impl CONDITION_CREATION_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for CONDITION_CREATION_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for CONDITION_CREATION_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for CONDITION_CREATION_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for CONDITION_CREATION_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for CONDITION_CREATION_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const CONDITION_CREATION_SIMPLIFY: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(1i32);
+pub const CONDITION_CREATION_USE_CONTENT_LOCALE: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(16i32);
+pub const CONDITION_CREATION_VECTOR_AND: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(2i32);
+pub const CONDITION_CREATION_VECTOR_LEAF: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(8i32);
+pub const CONDITION_CREATION_VECTOR_OR: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(4i32);
+#[repr(C)]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[derive(Clone, Copy)]
+pub struct CONTENTRESTRICTION {
+    pub prop: super::super::Storage::IndexServer::FULLPROPSPEC,
+    pub pwcsPhrase: windows_core::PWSTR,
+    pub lcid: u32,
+    pub ulGenerateMethod: u32,
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+impl Default for CONTENTRESTRICTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+impl windows_core::TypeKind for CONTENTRESTRICTION {
+    type TypeKind = windows_core::CopyType;
+}
+pub const CONTENT_SOURCE_E_CONTENT_CLASS_READ: i32 = -2147208188i32;
+pub const CONTENT_SOURCE_E_CONTENT_SOURCE_COLUMN_TYPE: i32 = -2147208185i32;
+pub const CONTENT_SOURCE_E_NULL_CONTENT_CLASS_BSTR: i32 = -2147208186i32;
+pub const CONTENT_SOURCE_E_NULL_URI: i32 = -2147208183i32;
+pub const CONTENT_SOURCE_E_OUT_OF_RANGE: i32 = -2147208184i32;
+pub const CONTENT_SOURCE_E_PROPERTY_MAPPING_BAD_VECTOR_SIZE: i32 = -2147208189i32;
+pub const CONTENT_SOURCE_E_PROPERTY_MAPPING_READ: i32 = -2147208191i32;
+pub const CONTENT_SOURCE_E_UNEXPECTED_EXCEPTION: i32 = -2147208187i32;
+pub const CONTENT_SOURCE_E_UNEXPECTED_NULL_POINTER: i32 = -2147208190i32;
+pub const CQUERYDISPIDS: u32 = 11u32;
+pub const CQUERYMETADISPIDS: u32 = 10u32;
+pub const CQUERYPROPERTY: u32 = 64u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CREATESUBSCRIPTIONFLAGS(pub i32);
+pub const CREATESUBS_ADDTOFAVORITES: CREATESUBSCRIPTIONFLAGS = CREATESUBSCRIPTIONFLAGS(1i32);
+pub const CREATESUBS_FROMFAVORITES: CREATESUBSCRIPTIONFLAGS = CREATESUBSCRIPTIONFLAGS(2i32);
+pub const CREATESUBS_NOSAVE: CREATESUBSCRIPTIONFLAGS = CREATESUBSCRIPTIONFLAGS(8i32);
+pub const CREATESUBS_NOUI: CREATESUBSCRIPTIONFLAGS = CREATESUBSCRIPTIONFLAGS(4i32);
+pub const CREATESUBS_SOFTWAREUPDATE: CREATESUBSCRIPTIONFLAGS = CREATESUBSCRIPTIONFLAGS(16i32);
+pub const CRESTRICTIONS_DBSCHEMA_ASSERTIONS: u32 = 3u32;
+pub const CRESTRICTIONS_DBSCHEMA_CATALOGS: u32 = 1u32;
+pub const CRESTRICTIONS_DBSCHEMA_CHARACTER_SETS: u32 = 3u32;
+pub const CRESTRICTIONS_DBSCHEMA_CHECK_CONSTRAINTS: u32 = 3u32;
+pub const CRESTRICTIONS_DBSCHEMA_CHECK_CONSTRAINTS_BY_TABLE: u32 = 6u32;
+pub const CRESTRICTIONS_DBSCHEMA_COLLATIONS: u32 = 3u32;
+pub const CRESTRICTIONS_DBSCHEMA_COLUMNS: u32 = 4u32;
+pub const CRESTRICTIONS_DBSCHEMA_COLUMN_DOMAIN_USAGE: u32 = 4u32;
+pub const CRESTRICTIONS_DBSCHEMA_COLUMN_PRIVILEGES: u32 = 6u32;
+pub const CRESTRICTIONS_DBSCHEMA_CONSTRAINT_COLUMN_USAGE: u32 = 4u32;
+pub const CRESTRICTIONS_DBSCHEMA_CONSTRAINT_TABLE_USAGE: u32 = 3u32;
+pub const CRESTRICTIONS_DBSCHEMA_FOREIGN_KEYS: u32 = 6u32;
+pub const CRESTRICTIONS_DBSCHEMA_INDEXES: u32 = 5u32;
+pub const CRESTRICTIONS_DBSCHEMA_KEY_COLUMN_USAGE: u32 = 7u32;
+pub const CRESTRICTIONS_DBSCHEMA_LINKEDSERVERS: u32 = 1u32;
+pub const CRESTRICTIONS_DBSCHEMA_OBJECTS: u32 = 1u32;
+pub const CRESTRICTIONS_DBSCHEMA_OBJECT_ACTIONS: u32 = 1u32;
+pub const CRESTRICTIONS_DBSCHEMA_PRIMARY_KEYS: u32 = 3u32;
+pub const CRESTRICTIONS_DBSCHEMA_PROCEDURES: u32 = 4u32;
+pub const CRESTRICTIONS_DBSCHEMA_PROCEDURE_COLUMNS: u32 = 4u32;
+pub const CRESTRICTIONS_DBSCHEMA_PROCEDURE_PARAMETERS: u32 = 4u32;
+pub const CRESTRICTIONS_DBSCHEMA_PROVIDER_TYPES: u32 = 2u32;
+pub const CRESTRICTIONS_DBSCHEMA_REFERENTIAL_CONSTRAINTS: u32 = 3u32;
+pub const CRESTRICTIONS_DBSCHEMA_SCHEMATA: u32 = 3u32;
+pub const CRESTRICTIONS_DBSCHEMA_SQL_LANGUAGES: u32 = 0u32;
+pub const CRESTRICTIONS_DBSCHEMA_STATISTICS: u32 = 3u32;
+pub const CRESTRICTIONS_DBSCHEMA_TABLES: u32 = 4u32;
+pub const CRESTRICTIONS_DBSCHEMA_TABLES_INFO: u32 = 4u32;
+pub const CRESTRICTIONS_DBSCHEMA_TABLE_CONSTRAINTS: u32 = 7u32;
+pub const CRESTRICTIONS_DBSCHEMA_TABLE_PRIVILEGES: u32 = 5u32;
+pub const CRESTRICTIONS_DBSCHEMA_TABLE_STATISTICS: u32 = 7u32;
+pub const CRESTRICTIONS_DBSCHEMA_TRANSLATIONS: u32 = 3u32;
+pub const CRESTRICTIONS_DBSCHEMA_TRUSTEE: u32 = 4u32;
+pub const CRESTRICTIONS_DBSCHEMA_USAGE_PRIVILEGES: u32 = 6u32;
+pub const CRESTRICTIONS_DBSCHEMA_VIEWS: u32 = 3u32;
+pub const CRESTRICTIONS_DBSCHEMA_VIEW_COLUMN_USAGE: u32 = 3u32;
+pub const CRESTRICTIONS_DBSCHEMA_VIEW_TABLE_USAGE: u32 = 3u32;
+pub const CRESTRICTIONS_MDSCHEMA_ACTIONS: u32 = 8u32;
+pub const CRESTRICTIONS_MDSCHEMA_COMMANDS: u32 = 5u32;
+pub const CRESTRICTIONS_MDSCHEMA_CUBES: u32 = 3u32;
+pub const CRESTRICTIONS_MDSCHEMA_DIMENSIONS: u32 = 5u32;
+pub const CRESTRICTIONS_MDSCHEMA_FUNCTIONS: u32 = 4u32;
+pub const CRESTRICTIONS_MDSCHEMA_HIERARCHIES: u32 = 6u32;
+pub const CRESTRICTIONS_MDSCHEMA_LEVELS: u32 = 7u32;
+pub const CRESTRICTIONS_MDSCHEMA_MEASURES: u32 = 5u32;
+pub const CRESTRICTIONS_MDSCHEMA_MEMBERS: u32 = 12u32;
+pub const CRESTRICTIONS_MDSCHEMA_PROPERTIES: u32 = 9u32;
+pub const CRESTRICTIONS_MDSCHEMA_SETS: u32 = 5u32;
+pub const CSTORAGEPROPERTY: u32 = 23u32;
+pub const CSearchLanguageSupport: windows_core::GUID = windows_core::GUID::from_u128(0x6a68cc80_4337_4dbc_bd27_fbfb1053820b);
+pub const CSearchManager: windows_core::GUID = windows_core::GUID::from_u128(0x7d096c5f_ac08_4f1f_beb7_5c22c517ce39);
+pub const CSearchRoot: windows_core::GUID = windows_core::GUID::from_u128(0x30766bd2_ea1c_4f28_bf27_0b44e2f68db7);
+pub const CSearchScopeRule: windows_core::GUID = windows_core::GUID::from_u128(0xe63de750_3bd7_4be5_9c84_6b4281988c44);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CatalogPausedReason(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CatalogStatus(pub i32);
+pub const CompoundCondition: windows_core::GUID = windows_core::GUID::from_u128(0x116f8d13_101e_4fa5_84d4_ff8279381935);
+pub const ConditionFactory: windows_core::GUID = windows_core::GUID::from_u128(0xe03e85b0_7be3_4000_ba98_6c13de9fa486);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DATE_STRUCT {
+    pub year: i16,
+    pub month: u16,
+    pub day: u16,
+}
+impl Default for DATE_STRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DATE_STRUCT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBACCESSORFLAGSENUM(pub i32);
+pub const DBACCESSOR_INHERITED: DBACCESSORFLAGSENUM = DBACCESSORFLAGSENUM(16i32);
+pub const DBACCESSOR_INVALID: DBACCESSORFLAGSENUM = DBACCESSORFLAGSENUM(0i32);
+pub const DBACCESSOR_OPTIMIZED: DBACCESSORFLAGSENUM = DBACCESSORFLAGSENUM(8i32);
+pub const DBACCESSOR_PARAMETERDATA: DBACCESSORFLAGSENUM = DBACCESSORFLAGSENUM(4i32);
+pub const DBACCESSOR_PASSBYREF: DBACCESSORFLAGSENUM = DBACCESSORFLAGSENUM(1i32);
+pub const DBACCESSOR_ROWDATA: DBACCESSORFLAGSENUM = DBACCESSORFLAGSENUM(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBASYNCHOPENUM(pub i32);
+pub const DBASYNCHOP_OPEN: DBASYNCHOPENUM = DBASYNCHOPENUM(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBASYNCHPHASEENUM(pub i32);
+pub const DBASYNCHPHASE_CANCELED: DBASYNCHPHASEENUM = DBASYNCHPHASEENUM(3i32);
+pub const DBASYNCHPHASE_COMPLETE: DBASYNCHPHASEENUM = DBASYNCHPHASEENUM(2i32);
+pub const DBASYNCHPHASE_INITIALIZATION: DBASYNCHPHASEENUM = DBASYNCHPHASEENUM(0i32);
+pub const DBASYNCHPHASE_POPULATION: DBASYNCHPHASEENUM = DBASYNCHPHASEENUM(1i32);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct DBBINDEXT {
+    pub pExtension: *mut u8,
+    pub ulExtension: usize,
+}
+#[cfg(target_arch = "x86")]
+impl Default for DBBINDEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for DBBINDEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DBBINDEXT {
+    pub pExtension: *mut u8,
+    pub ulExtension: usize,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for DBBINDEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for DBBINDEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBBINDFLAGENUM(pub i32);
+pub const DBBINDFLAG_HTML: DBBINDFLAGENUM = DBBINDFLAGENUM(1i32);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Com")]
+pub struct DBBINDING {
+    pub iOrdinal: usize,
+    pub obValue: usize,
+    pub obLength: usize,
+    pub obStatus: usize,
+    pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
+    pub pObject: *mut DBOBJECT,
+    pub pBindExt: *mut DBBINDEXT,
+    pub dwPart: u32,
+    pub dwMemOwner: u32,
+    pub eParamIO: u32,
+    pub cbMaxLen: usize,
+    pub dwFlags: u32,
+    pub wType: u16,
+    pub bPrecision: u8,
+    pub bScale: u8,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Com")]
+impl Default for DBBINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for DBBINDING {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Debug, PartialEq)]
+pub struct DBBINDING {
+    pub iOrdinal: usize,
+    pub obValue: usize,
+    pub obLength: usize,
+    pub obStatus: usize,
+    pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
+    pub pObject: *mut DBOBJECT,
+    pub pBindExt: *mut DBBINDEXT,
+    pub dwPart: u32,
+    pub dwMemOwner: u32,
+    pub eParamIO: u32,
+    pub cbMaxLen: usize,
+    pub dwFlags: u32,
+    pub wType: u16,
+    pub bPrecision: u8,
+    pub bScale: u8,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Com")]
+impl Default for DBBINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for DBBINDING {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBBINDSTATUSENUM(pub i32);
+pub const DBBINDSTATUS_BADBINDINFO: DBBINDSTATUSENUM = DBBINDSTATUSENUM(3i32);
+pub const DBBINDSTATUS_BADORDINAL: DBBINDSTATUSENUM = DBBINDSTATUSENUM(1i32);
+pub const DBBINDSTATUS_BADSTORAGEFLAGS: DBBINDSTATUSENUM = DBBINDSTATUSENUM(4i32);
+pub const DBBINDSTATUS_MULTIPLESTORAGE: DBBINDSTATUSENUM = DBBINDSTATUSENUM(6i32);
+pub const DBBINDSTATUS_NOINTERFACE: DBBINDSTATUSENUM = DBBINDSTATUSENUM(5i32);
+pub const DBBINDSTATUS_OK: DBBINDSTATUSENUM = DBBINDSTATUSENUM(0i32);
+pub const DBBINDSTATUS_UNSUPPORTEDCONVERSION: DBBINDSTATUSENUM = DBBINDSTATUSENUM(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBBINDURLFLAGENUM(pub i32);
+pub const DBBINDURLFLAG_ASYNCHRONOUS: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(4096i32);
+pub const DBBINDURLFLAG_COLLECTION: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(8192i32);
+pub const DBBINDURLFLAG_DELAYFETCHCOLUMNS: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(32768i32);
+pub const DBBINDURLFLAG_DELAYFETCHSTREAM: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(16384i32);
+pub const DBBINDURLFLAG_ISSTRUCTUREDDOCUMENT: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(134217728i32);
+pub const DBBINDURLFLAG_OPENIFEXISTS: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(33554432i32);
+pub const DBBINDURLFLAG_OUTPUT: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(8388608i32);
+pub const DBBINDURLFLAG_OVERWRITE: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(67108864i32);
+pub const DBBINDURLFLAG_READ: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(1i32);
+pub const DBBINDURLFLAG_READWRITE: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(3i32);
+pub const DBBINDURLFLAG_RECURSIVE: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(4194304i32);
+pub const DBBINDURLFLAG_SHARE_DENY_NONE: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(16i32);
+pub const DBBINDURLFLAG_SHARE_DENY_READ: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(4i32);
+pub const DBBINDURLFLAG_SHARE_DENY_WRITE: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(8i32);
+pub const DBBINDURLFLAG_SHARE_EXCLUSIVE: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(12i32);
+pub const DBBINDURLFLAG_WAITFORINIT: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(16777216i32);
+pub const DBBINDURLFLAG_WRITE: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBBINDURLSTATUSENUM(pub i32);
+pub const DBBINDURLSTATUS_S_DENYNOTSUPPORTED: DBBINDURLSTATUSENUM = DBBINDURLSTATUSENUM(1i32);
+pub const DBBINDURLSTATUS_S_DENYTYPENOTSUPPORTED: DBBINDURLSTATUSENUM = DBBINDURLSTATUSENUM(4i32);
+pub const DBBINDURLSTATUS_S_OK: DBBINDURLSTATUSENUM = DBBINDURLSTATUSENUM(0i32);
+pub const DBBINDURLSTATUS_S_REDIRECTED: DBBINDURLSTATUSENUM = DBBINDURLSTATUSENUM(8i32);
+pub const DBBMKGUID: windows_core::GUID = windows_core::GUID::from_u128(0xc8b52232_5cf3_11ce_ade5_00aa0044773d);
+pub const DBBMK_FIRST: DBBOOKMARK = DBBOOKMARK(1i32);
+pub const DBBMK_INVALID: DBBOOKMARK = DBBOOKMARK(0i32);
+pub const DBBMK_LAST: DBBOOKMARK = DBBOOKMARK(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBBOOKMARK(pub i32);
+pub const DBCIDGUID: windows_core::GUID = windows_core::GUID::from_u128(0x0c733a81_2a1c_11ce_ade5_00aa0044773d);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+#[derive(Clone, Copy)]
+pub struct DBCOLUMNACCESS {
+    pub pData: *mut core::ffi::c_void,
+    pub columnid: super::super::Storage::IndexServer::DBID,
+    pub cbDataLen: usize,
+    pub dwStatus: u32,
+    pub cbMaxLen: usize,
+    pub dwReserved: usize,
+    pub wType: u16,
+    pub bPrecision: u8,
+    pub bScale: u8,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl Default for DBCOLUMNACCESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl windows_core::TypeKind for DBCOLUMNACCESS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+#[derive(Clone, Copy)]
+pub struct DBCOLUMNACCESS {
+    pub pData: *mut core::ffi::c_void,
+    pub columnid: super::super::Storage::IndexServer::DBID,
+    pub cbDataLen: usize,
+    pub dwStatus: u32,
+    pub cbMaxLen: usize,
+    pub dwReserved: usize,
+    pub wType: u16,
+    pub bPrecision: u8,
+    pub bScale: u8,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl Default for DBCOLUMNACCESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl windows_core::TypeKind for DBCOLUMNACCESS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub struct DBCOLUMNDESC {
+    pub pwszTypeName: windows_core::PWSTR,
+    pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
+    pub rgPropertySets: *mut DBPROPSET,
+    pub pclsid: *mut windows_core::GUID,
+    pub cPropertySets: u32,
+    pub ulColumnSize: usize,
+    pub dbcid: super::super::Storage::IndexServer::DBID,
+    pub wType: u16,
+    pub bPrecision: u8,
+    pub bScale: u8,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for DBCOLUMNDESC {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBCOLUMNDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for DBCOLUMNDESC {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub struct DBCOLUMNDESC {
+    pub pwszTypeName: windows_core::PWSTR,
+    pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
+    pub rgPropertySets: *mut DBPROPSET,
+    pub pclsid: *mut windows_core::GUID,
+    pub cPropertySets: u32,
+    pub ulColumnSize: usize,
+    pub dbcid: super::super::Storage::IndexServer::DBID,
+    pub wType: u16,
+    pub bPrecision: u8,
+    pub bScale: u8,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for DBCOLUMNDESC {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBCOLUMNDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for DBCOLUMNDESC {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBCOLUMNDESCFLAGSENUM(pub i32);
+pub const DBCOLUMNDESCFLAGS_CLSID: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(8i32);
+pub const DBCOLUMNDESCFLAGS_COLSIZE: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(16i32);
+pub const DBCOLUMNDESCFLAGS_DBCID: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(32i32);
+pub const DBCOLUMNDESCFLAGS_ITYPEINFO: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(2i32);
+pub const DBCOLUMNDESCFLAGS_PRECISION: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(128i32);
+pub const DBCOLUMNDESCFLAGS_PROPERTIES: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(4i32);
+pub const DBCOLUMNDESCFLAGS_SCALE: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(256i32);
+pub const DBCOLUMNDESCFLAGS_TYPENAME: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(1i32);
+pub const DBCOLUMNDESCFLAGS_WTYPE: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(64i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBCOLUMNFLAGS15ENUM(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBCOLUMNFLAGSDEPRECATED(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBCOLUMNFLAGSENUM(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBCOLUMNFLAGSENUM20(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBCOLUMNFLAGSENUM21(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBCOLUMNFLAGSENUM26(pub i32);
+pub const DBCOLUMNFLAGS_CACHEDEFERRED: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(4096i32);
+pub const DBCOLUMNFLAGS_ISBOOKMARK: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(1i32);
+pub const DBCOLUMNFLAGS_ISCHAPTER: DBCOLUMNFLAGS15ENUM = DBCOLUMNFLAGS15ENUM(8192i32);
+pub const DBCOLUMNFLAGS_ISCOLLECTION: DBCOLUMNFLAGSENUM21 = DBCOLUMNFLAGSENUM21(262144i32);
+pub const DBCOLUMNFLAGS_ISDEFAULTSTREAM: DBCOLUMNFLAGSENUM21 = DBCOLUMNFLAGSENUM21(131072i32);
+pub const DBCOLUMNFLAGS_ISFIXEDLENGTH: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(16i32);
+pub const DBCOLUMNFLAGS_ISLONG: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(128i32);
+pub const DBCOLUMNFLAGS_ISNULLABLE: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(32i32);
+pub const DBCOLUMNFLAGS_ISROW: DBCOLUMNFLAGSENUM26 = DBCOLUMNFLAGSENUM26(2097152i32);
+pub const DBCOLUMNFLAGS_ISROWID: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(256i32);
+pub const DBCOLUMNFLAGS_ISROWSET: DBCOLUMNFLAGSENUM26 = DBCOLUMNFLAGSENUM26(1048576i32);
+pub const DBCOLUMNFLAGS_ISROWURL: DBCOLUMNFLAGSENUM21 = DBCOLUMNFLAGSENUM21(65536i32);
+pub const DBCOLUMNFLAGS_ISROWVER: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(512i32);
+pub const DBCOLUMNFLAGS_ISSTREAM: DBCOLUMNFLAGSENUM26 = DBCOLUMNFLAGSENUM26(524288i32);
+pub const DBCOLUMNFLAGS_KEYCOLUMN: DBCOLUMNFLAGSDEPRECATED = DBCOLUMNFLAGSDEPRECATED(32768i32);
+pub const DBCOLUMNFLAGS_MAYBENULL: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(64i32);
+pub const DBCOLUMNFLAGS_MAYDEFER: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(2i32);
+pub const DBCOLUMNFLAGS_RESERVED: DBCOLUMNFLAGSENUM20 = DBCOLUMNFLAGSENUM20(32768i32);
+pub const DBCOLUMNFLAGS_ROWSPECIFICCOLUMN: DBCOLUMNFLAGSENUM26 = DBCOLUMNFLAGSENUM26(4194304i32);
+pub const DBCOLUMNFLAGS_SCALEISNEGATIVE: DBCOLUMNFLAGSENUM20 = DBCOLUMNFLAGSENUM20(16384i32);
+pub const DBCOLUMNFLAGS_WRITE: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(4i32);
+pub const DBCOLUMNFLAGS_WRITEUNKNOWN: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(8i32);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+pub struct DBCOLUMNINFO {
+    pub pwszName: windows_core::PWSTR,
+    pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
+    pub iOrdinal: usize,
+    pub dwFlags: u32,
+    pub ulColumnSize: usize,
+    pub wType: u16,
+    pub bPrecision: u8,
+    pub bScale: u8,
+    pub columnid: super::super::Storage::IndexServer::DBID,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+impl Clone for DBCOLUMNINFO {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+impl Default for DBCOLUMNINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+impl windows_core::TypeKind for DBCOLUMNINFO {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+pub struct DBCOLUMNINFO {
+    pub pwszName: windows_core::PWSTR,
+    pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
+    pub iOrdinal: usize,
+    pub dwFlags: u32,
+    pub ulColumnSize: usize,
+    pub wType: u16,
+    pub bPrecision: u8,
+    pub bScale: u8,
+    pub columnid: super::super::Storage::IndexServer::DBID,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+impl Clone for DBCOLUMNINFO {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+impl Default for DBCOLUMNINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+impl windows_core::TypeKind for DBCOLUMNINFO {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBCOMMANDPERSISTFLAGENUM(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBCOMMANDPERSISTFLAGENUM21(pub i32);
+pub const DBCOMMANDPERSISTFLAG_DEFAULT: DBCOMMANDPERSISTFLAGENUM21 = DBCOMMANDPERSISTFLAGENUM21(0i32);
+pub const DBCOMMANDPERSISTFLAG_NOSAVE: DBCOMMANDPERSISTFLAGENUM = DBCOMMANDPERSISTFLAGENUM(1i32);
+pub const DBCOMMANDPERSISTFLAG_PERSISTPROCEDURE: DBCOMMANDPERSISTFLAGENUM21 = DBCOMMANDPERSISTFLAGENUM21(4i32);
+pub const DBCOMMANDPERSISTFLAG_PERSISTVIEW: DBCOMMANDPERSISTFLAGENUM21 = DBCOMMANDPERSISTFLAGENUM21(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBCOMPAREENUM(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBCOMPAREOPSENUM(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBCOMPAREOPSENUM20(pub i32);
+pub const DBCOMPAREOPS_BEGINSWITH: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(5i32);
+pub const DBCOMPAREOPS_CASEINSENSITIVE: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(8192i32);
+pub const DBCOMPAREOPS_CASESENSITIVE: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(4096i32);
+pub const DBCOMPAREOPS_CONTAINS: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(6i32);
+pub const DBCOMPAREOPS_EQ: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(2i32);
+pub const DBCOMPAREOPS_GE: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(3i32);
+pub const DBCOMPAREOPS_GT: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(4i32);
+pub const DBCOMPAREOPS_IGNORE: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(8i32);
+pub const DBCOMPAREOPS_LE: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(1i32);
+pub const DBCOMPAREOPS_LT: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(0i32);
+pub const DBCOMPAREOPS_NE: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(7i32);
+pub const DBCOMPAREOPS_NOTBEGINSWITH: DBCOMPAREOPSENUM20 = DBCOMPAREOPSENUM20(9i32);
+pub const DBCOMPAREOPS_NOTCONTAINS: DBCOMPAREOPSENUM20 = DBCOMPAREOPSENUM20(10i32);
+pub const DBCOMPARE_EQ: DBCOMPAREENUM = DBCOMPAREENUM(1i32);
+pub const DBCOMPARE_GT: DBCOMPAREENUM = DBCOMPAREENUM(2i32);
+pub const DBCOMPARE_LT: DBCOMPAREENUM = DBCOMPAREENUM(0i32);
+pub const DBCOMPARE_NE: DBCOMPAREENUM = DBCOMPAREENUM(3i32);
+pub const DBCOMPARE_NOTCOMPARABLE: DBCOMPAREENUM = DBCOMPAREENUM(4i32);
+pub const DBCOMPUTEMODE_COMPUTED: u32 = 1u32;
+pub const DBCOMPUTEMODE_DYNAMIC: u32 = 2u32;
+pub const DBCOMPUTEMODE_NOTCOMPUTED: u32 = 3u32;
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct DBCONSTRAINTDESC {
+    pub pConstraintID: *mut super::super::Storage::IndexServer::DBID,
+    pub ConstraintType: u32,
+    pub cColumns: usize,
+    pub rgColumnList: *mut super::super::Storage::IndexServer::DBID,
+    pub pReferencedTableID: *mut super::super::Storage::IndexServer::DBID,
+    pub cForeignKeyColumns: usize,
+    pub rgForeignKeyColumnList: *mut super::super::Storage::IndexServer::DBID,
+    pub pwszConstraintText: windows_core::PWSTR,
+    pub UpdateRule: u32,
+    pub DeleteRule: u32,
+    pub MatchType: u32,
+    pub Deferrability: u32,
+    pub cReserved: usize,
+    pub rgReserved: *mut DBPROPSET,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBCONSTRAINTDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for DBCONSTRAINTDESC {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DBCONSTRAINTDESC {
+    pub pConstraintID: *mut super::super::Storage::IndexServer::DBID,
+    pub ConstraintType: u32,
+    pub cColumns: usize,
+    pub rgColumnList: *mut super::super::Storage::IndexServer::DBID,
+    pub pReferencedTableID: *mut super::super::Storage::IndexServer::DBID,
+    pub cForeignKeyColumns: usize,
+    pub rgForeignKeyColumnList: *mut super::super::Storage::IndexServer::DBID,
+    pub pwszConstraintText: windows_core::PWSTR,
+    pub UpdateRule: u32,
+    pub DeleteRule: u32,
+    pub MatchType: u32,
+    pub Deferrability: u32,
+    pub cReserved: usize,
+    pub rgReserved: *mut DBPROPSET,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBCONSTRAINTDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for DBCONSTRAINTDESC {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBCONSTRAINTTYPEENUM(pub i32);
+pub const DBCONSTRAINTTYPE_CHECK: DBCONSTRAINTTYPEENUM = DBCONSTRAINTTYPEENUM(3i32);
+pub const DBCONSTRAINTTYPE_FOREIGNKEY: DBCONSTRAINTTYPEENUM = DBCONSTRAINTTYPEENUM(1i32);
+pub const DBCONSTRAINTTYPE_PRIMARYKEY: DBCONSTRAINTTYPEENUM = DBCONSTRAINTTYPEENUM(2i32);
+pub const DBCONSTRAINTTYPE_UNIQUE: DBCONSTRAINTTYPEENUM = DBCONSTRAINTTYPEENUM(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBCONVERTFLAGSENUM(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBCONVERTFLAGSENUM20(pub i32);
+pub const DBCONVERTFLAGS_COLUMN: DBCONVERTFLAGSENUM = DBCONVERTFLAGSENUM(0i32);
+pub const DBCONVERTFLAGS_FROMVARIANT: DBCONVERTFLAGSENUM20 = DBCONVERTFLAGSENUM20(8i32);
+pub const DBCONVERTFLAGS_ISFIXEDLENGTH: DBCONVERTFLAGSENUM20 = DBCONVERTFLAGSENUM20(4i32);
+pub const DBCONVERTFLAGS_ISLONG: DBCONVERTFLAGSENUM20 = DBCONVERTFLAGSENUM20(2i32);
+pub const DBCONVERTFLAGS_PARAMETER: DBCONVERTFLAGSENUM = DBCONVERTFLAGSENUM(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBCOPYFLAGSENUM(pub i32);
+pub const DBCOPY_ALLOW_EMULATION: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(1024i32);
+pub const DBCOPY_ASYNC: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(256i32);
+pub const DBCOPY_ATOMIC: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(4096i32);
+pub const DBCOPY_NON_RECURSIVE: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(2048i32);
+pub const DBCOPY_REPLACE_EXISTING: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(512i32);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct DBCOST {
+    pub eKind: u32,
+    pub dwUnits: u32,
+    pub lValue: i32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for DBCOST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for DBCOST {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DBCOST {
+    pub eKind: u32,
+    pub dwUnits: u32,
+    pub lValue: i32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for DBCOST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for DBCOST {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBCOSTUNITENUM(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBDATACONVERTENUM(pub i32);
+pub const DBDATACONVERT_DECIMALSCALE: DBDATACONVERTENUM = DBDATACONVERTENUM(8i32);
+pub const DBDATACONVERT_DEFAULT: DBDATACONVERTENUM = DBDATACONVERTENUM(0i32);
+pub const DBDATACONVERT_DSTISFIXEDLENGTH: DBDATACONVERTENUM = DBDATACONVERTENUM(4i32);
+pub const DBDATACONVERT_LENGTHFROMNTS: DBDATACONVERTENUM = DBDATACONVERTENUM(2i32);
+pub const DBDATACONVERT_SETDATABEHAVIOR: DBDATACONVERTENUM = DBDATACONVERTENUM(1i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DBDATE {
+    pub year: i16,
+    pub month: u16,
+    pub day: u16,
+}
+impl Default for DBDATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DBDATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DBDATETIM4 {
+    pub numdays: u16,
+    pub nummins: u16,
+}
+impl Default for DBDATETIM4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DBDATETIM4 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DBDATETIME {
+    pub dtdays: i32,
+    pub dttime: u32,
+}
+impl Default for DBDATETIME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DBDATETIME {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBDEFERRABILITYENUM(pub i32);
+pub const DBDEFERRABILITY_DEFERRABLE: DBDEFERRABILITYENUM = DBDEFERRABILITYENUM(2i32);
+pub const DBDEFERRABILITY_DEFERRED: DBDEFERRABILITYENUM = DBDEFERRABILITYENUM(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBDELETEFLAGSENUM(pub i32);
+pub const DBDELETE_ASYNC: DBDELETEFLAGSENUM = DBDELETEFLAGSENUM(256i32);
+pub const DBDELETE_ATOMIC: DBDELETEFLAGSENUM = DBDELETEFLAGSENUM(4096i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBEVENTPHASEENUM(pub i32);
+pub const DBEVENTPHASE_ABOUTTODO: DBEVENTPHASEENUM = DBEVENTPHASEENUM(1i32);
+pub const DBEVENTPHASE_DIDEVENT: DBEVENTPHASEENUM = DBEVENTPHASEENUM(4i32);
+pub const DBEVENTPHASE_FAILEDTODO: DBEVENTPHASEENUM = DBEVENTPHASEENUM(3i32);
+pub const DBEVENTPHASE_OKTODO: DBEVENTPHASEENUM = DBEVENTPHASEENUM(0i32);
+pub const DBEVENTPHASE_SYNCHAFTER: DBEVENTPHASEENUM = DBEVENTPHASEENUM(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBEXECLIMITSENUM(pub i32);
+pub const DBEXECLIMITS_ABORT: DBEXECLIMITSENUM = DBEXECLIMITSENUM(1i32);
+pub const DBEXECLIMITS_STOP: DBEXECLIMITSENUM = DBEXECLIMITSENUM(2i32);
+pub const DBEXECLIMITS_SUSPEND: DBEXECLIMITSENUM = DBEXECLIMITSENUM(3i32);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct DBFAILUREINFO {
+    pub hRow: usize,
+    pub iColumn: usize,
+    pub failure: windows_core::HRESULT,
+}
+#[cfg(target_arch = "x86")]
+impl Default for DBFAILUREINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for DBFAILUREINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DBFAILUREINFO {
+    pub hRow: usize,
+    pub iColumn: usize,
+    pub failure: windows_core::HRESULT,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for DBFAILUREINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for DBFAILUREINFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DBGUID_MSSQLXML: windows_core::GUID = windows_core::GUID::from_u128(0x5d531cb2_e6ed_11d2_b252_00c04f681b71);
+pub const DBGUID_ROWDEFAULTSTREAM: windows_core::GUID = windows_core::GUID::from_u128(0x0c733ab7_2a1c_11ce_ade5_00aa0044773d);
+pub const DBGUID_ROWURL: windows_core::GUID = windows_core::GUID::from_u128(0x0c733ab6_2a1c_11ce_ade5_00aa0044773d);
+pub const DBGUID_XPATH: windows_core::GUID = windows_core::GUID::from_u128(0xec2a4293_e898_11d2_b1b7_00c04f680c56);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+pub struct DBIMPLICITSESSION {
+    pub pUnkOuter: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub piid: *mut windows_core::GUID,
+    pub pSession: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+}
+#[cfg(target_arch = "x86")]
+impl Default for DBIMPLICITSESSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for DBIMPLICITSESSION {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Debug, PartialEq)]
+pub struct DBIMPLICITSESSION {
+    pub pUnkOuter: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub piid: *mut windows_core::GUID,
+    pub pSession: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for DBIMPLICITSESSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for DBIMPLICITSESSION {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+#[derive(Clone, Copy)]
+pub struct DBINDEXCOLUMNDESC {
+    pub pColumnID: *mut super::super::Storage::IndexServer::DBID,
+    pub eIndexColOrder: u32,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl Default for DBINDEXCOLUMNDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl windows_core::TypeKind for DBINDEXCOLUMNDESC {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DBINDEXCOLUMNDESC {
+    pub pColumnID: *mut super::super::Storage::IndexServer::DBID,
+    pub eIndexColOrder: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl Default for DBINDEXCOLUMNDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl windows_core::TypeKind for DBINDEXCOLUMNDESC {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBINDEX_COL_ORDERENUM(pub i32);
+pub const DBINDEX_COL_ORDER_ASC: DBINDEX_COL_ORDERENUM = DBINDEX_COL_ORDERENUM(0i32);
+pub const DBINDEX_COL_ORDER_DESC: DBINDEX_COL_ORDERENUM = DBINDEX_COL_ORDERENUM(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBLITERALENUM(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBLITERALENUM20(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBLITERALENUM21(pub i32);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct DBLITERALINFO {
+    pub pwszLiteralValue: windows_core::PWSTR,
+    pub pwszInvalidChars: windows_core::PWSTR,
+    pub pwszInvalidStartingChars: windows_core::PWSTR,
+    pub lt: u32,
+    pub fSupported: super::super::Foundation::BOOL,
+    pub cchMaxLen: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for DBLITERALINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for DBLITERALINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DBLITERALINFO {
+    pub pwszLiteralValue: windows_core::PWSTR,
+    pub pwszInvalidChars: windows_core::PWSTR,
+    pub pwszInvalidStartingChars: windows_core::PWSTR,
+    pub lt: u32,
+    pub fSupported: super::super::Foundation::BOOL,
+    pub cchMaxLen: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for DBLITERALINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for DBLITERALINFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DBLITERAL_BINARY_LITERAL: DBLITERALENUM = DBLITERALENUM(1i32);
+pub const DBLITERAL_CATALOG_NAME: DBLITERALENUM = DBLITERALENUM(2i32);
+pub const DBLITERAL_CATALOG_SEPARATOR: DBLITERALENUM = DBLITERALENUM(3i32);
+pub const DBLITERAL_CHAR_LITERAL: DBLITERALENUM = DBLITERALENUM(4i32);
+pub const DBLITERAL_COLUMN_ALIAS: DBLITERALENUM = DBLITERALENUM(5i32);
+pub const DBLITERAL_COLUMN_NAME: DBLITERALENUM = DBLITERALENUM(6i32);
+pub const DBLITERAL_CORRELATION_NAME: DBLITERALENUM = DBLITERALENUM(7i32);
+pub const DBLITERAL_CUBE_NAME: DBLITERALENUM20 = DBLITERALENUM20(21i32);
+pub const DBLITERAL_CURSOR_NAME: DBLITERALENUM = DBLITERALENUM(8i32);
+pub const DBLITERAL_DIMENSION_NAME: DBLITERALENUM20 = DBLITERALENUM20(22i32);
+pub const DBLITERAL_ESCAPE_PERCENT: DBLITERALENUM = DBLITERALENUM(9i32);
+pub const DBLITERAL_ESCAPE_PERCENT_SUFFIX: DBLITERALENUM21 = DBLITERALENUM21(29i32);
+pub const DBLITERAL_ESCAPE_UNDERSCORE: DBLITERALENUM = DBLITERALENUM(10i32);
+pub const DBLITERAL_ESCAPE_UNDERSCORE_SUFFIX: DBLITERALENUM21 = DBLITERALENUM21(30i32);
+pub const DBLITERAL_HIERARCHY_NAME: DBLITERALENUM20 = DBLITERALENUM20(23i32);
+pub const DBLITERAL_INDEX_NAME: DBLITERALENUM = DBLITERALENUM(11i32);
+pub const DBLITERAL_INVALID: DBLITERALENUM = DBLITERALENUM(0i32);
+pub const DBLITERAL_LEVEL_NAME: DBLITERALENUM20 = DBLITERALENUM20(24i32);
+pub const DBLITERAL_LIKE_PERCENT: DBLITERALENUM = DBLITERALENUM(12i32);
+pub const DBLITERAL_LIKE_UNDERSCORE: DBLITERALENUM = DBLITERALENUM(13i32);
+pub const DBLITERAL_MEMBER_NAME: DBLITERALENUM20 = DBLITERALENUM20(25i32);
+pub const DBLITERAL_PROCEDURE_NAME: DBLITERALENUM = DBLITERALENUM(14i32);
+pub const DBLITERAL_PROPERTY_NAME: DBLITERALENUM20 = DBLITERALENUM20(26i32);
+pub const DBLITERAL_QUOTE: DBLITERALENUM = DBLITERALENUM(15i32);
+pub const DBLITERAL_QUOTE_SUFFIX: DBLITERALENUM20 = DBLITERALENUM20(28i32);
+pub const DBLITERAL_SCHEMA_NAME: DBLITERALENUM = DBLITERALENUM(16i32);
+pub const DBLITERAL_SCHEMA_SEPARATOR: DBLITERALENUM20 = DBLITERALENUM20(27i32);
+pub const DBLITERAL_TABLE_NAME: DBLITERALENUM = DBLITERALENUM(17i32);
+pub const DBLITERAL_TEXT_COMMAND: DBLITERALENUM = DBLITERALENUM(18i32);
+pub const DBLITERAL_USER_NAME: DBLITERALENUM = DBLITERALENUM(19i32);
+pub const DBLITERAL_VIEW_NAME: DBLITERALENUM = DBLITERALENUM(20i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBMATCHTYPEENUM(pub i32);
+pub const DBMATCHTYPE_FULL: DBMATCHTYPEENUM = DBMATCHTYPEENUM(0i32);
+pub const DBMATCHTYPE_NONE: DBMATCHTYPEENUM = DBMATCHTYPEENUM(1i32);
+pub const DBMATCHTYPE_PARTIAL: DBMATCHTYPEENUM = DBMATCHTYPEENUM(2i32);
+pub const DBMAXCHAR: u32 = 8001u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBMEMOWNERENUM(pub i32);
+pub const DBMEMOWNER_CLIENTOWNED: DBMEMOWNERENUM = DBMEMOWNERENUM(0i32);
+pub const DBMEMOWNER_PROVIDEROWNED: DBMEMOWNERENUM = DBMEMOWNERENUM(1i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DBMONEY {
+    pub mnyhigh: i32,
+    pub mnylow: u32,
+}
+impl Default for DBMONEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DBMONEY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBMOVEFLAGSENUM(pub i32);
+pub const DBMOVE_ALLOW_EMULATION: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(1024i32);
+pub const DBMOVE_ASYNC: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(256i32);
+pub const DBMOVE_ATOMIC: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(4096i32);
+pub const DBMOVE_DONT_UPDATE_LINKS: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(512i32);
+pub const DBMOVE_REPLACE_EXISTING: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(1i32);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct DBOBJECT {
+    pub dwFlags: u32,
+    pub iid: windows_core::GUID,
+}
+#[cfg(target_arch = "x86")]
+impl Default for DBOBJECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for DBOBJECT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DBOBJECT {
+    pub dwFlags: u32,
+    pub iid: windows_core::GUID,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for DBOBJECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for DBOBJECT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct DBPARAMBINDINFO {
+    pub pwszDataSourceType: windows_core::PWSTR,
+    pub pwszName: windows_core::PWSTR,
+    pub ulParamSize: usize,
+    pub dwFlags: u32,
+    pub bPrecision: u8,
+    pub bScale: u8,
+}
+#[cfg(target_arch = "x86")]
+impl Default for DBPARAMBINDINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for DBPARAMBINDINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DBPARAMBINDINFO {
+    pub pwszDataSourceType: windows_core::PWSTR,
+    pub pwszName: windows_core::PWSTR,
+    pub ulParamSize: usize,
+    pub dwFlags: u32,
+    pub bPrecision: u8,
+    pub bScale: u8,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for DBPARAMBINDINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for DBPARAMBINDINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBPARAMFLAGSENUM(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBPARAMFLAGSENUM20(pub i32);
+pub const DBPARAMFLAGS_ISINPUT: DBPARAMFLAGSENUM = DBPARAMFLAGSENUM(1i32);
+pub const DBPARAMFLAGS_ISLONG: DBPARAMFLAGSENUM = DBPARAMFLAGSENUM(128i32);
+pub const DBPARAMFLAGS_ISNULLABLE: DBPARAMFLAGSENUM = DBPARAMFLAGSENUM(64i32);
+pub const DBPARAMFLAGS_ISOUTPUT: DBPARAMFLAGSENUM = DBPARAMFLAGSENUM(2i32);
+pub const DBPARAMFLAGS_ISSIGNED: DBPARAMFLAGSENUM = DBPARAMFLAGSENUM(16i32);
+pub const DBPARAMFLAGS_SCALEISNEGATIVE: DBPARAMFLAGSENUM20 = DBPARAMFLAGSENUM20(256i32);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Com")]
+pub struct DBPARAMINFO {
+    pub dwFlags: u32,
+    pub iOrdinal: usize,
+    pub pwszName: windows_core::PWSTR,
+    pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
+    pub ulParamSize: usize,
+    pub wType: u16,
+    pub bPrecision: u8,
+    pub bScale: u8,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Com")]
+impl Default for DBPARAMINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for DBPARAMINFO {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Debug, PartialEq)]
+pub struct DBPARAMINFO {
+    pub dwFlags: u32,
+    pub iOrdinal: usize,
+    pub pwszName: windows_core::PWSTR,
+    pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
+    pub ulParamSize: usize,
+    pub wType: u16,
+    pub bPrecision: u8,
+    pub bScale: u8,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Com")]
+impl Default for DBPARAMINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for DBPARAMINFO {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBPARAMIOENUM(pub i32);
+pub const DBPARAMIO_INPUT: DBPARAMIOENUM = DBPARAMIOENUM(1i32);
+pub const DBPARAMIO_NOTPARAM: DBPARAMIOENUM = DBPARAMIOENUM(0i32);
+pub const DBPARAMIO_OUTPUT: DBPARAMIOENUM = DBPARAMIOENUM(2i32);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct DBPARAMS {
+    pub pData: *mut core::ffi::c_void,
+    pub cParamSets: usize,
+    pub hAccessor: HACCESSOR,
+}
+#[cfg(target_arch = "x86")]
+impl Default for DBPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for DBPARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DBPARAMS {
+    pub pData: *mut core::ffi::c_void,
+    pub cParamSets: usize,
+    pub hAccessor: HACCESSOR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for DBPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for DBPARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DBPARAMTYPE_INPUT: u32 = 1u32;
+pub const DBPARAMTYPE_INPUTOUTPUT: u32 = 2u32;
+pub const DBPARAMTYPE_OUTPUT: u32 = 3u32;
+pub const DBPARAMTYPE_RETURNVALUE: u32 = 4u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBPARTENUM(pub i32);
+pub const DBPART_INVALID: DBPARTENUM = DBPARTENUM(0i32);
+pub const DBPART_LENGTH: DBPARTENUM = DBPARTENUM(2i32);
+pub const DBPART_STATUS: DBPARTENUM = DBPARTENUM(4i32);
+pub const DBPART_VALUE: DBPARTENUM = DBPARTENUM(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBPENDINGSTATUSENUM(pub i32);
+pub const DBPENDINGSTATUS_CHANGED: DBPENDINGSTATUSENUM = DBPENDINGSTATUSENUM(2i32);
+pub const DBPENDINGSTATUS_DELETED: DBPENDINGSTATUSENUM = DBPENDINGSTATUSENUM(4i32);
+pub const DBPENDINGSTATUS_INVALIDROW: DBPENDINGSTATUSENUM = DBPENDINGSTATUSENUM(16i32);
+pub const DBPENDINGSTATUS_NEW: DBPENDINGSTATUSENUM = DBPENDINGSTATUSENUM(1i32);
+pub const DBPENDINGSTATUS_UNCHANGED: DBPENDINGSTATUSENUM = DBPENDINGSTATUSENUM(8i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBPOSITIONFLAGSENUM(pub i32);
+pub const DBPOSITION_BOF: DBPOSITIONFLAGSENUM = DBPOSITIONFLAGSENUM(2i32);
+pub const DBPOSITION_EOF: DBPOSITIONFLAGSENUM = DBPOSITIONFLAGSENUM(3i32);
+pub const DBPOSITION_NOROW: DBPOSITIONFLAGSENUM = DBPOSITIONFLAGSENUM(1i32);
+pub const DBPOSITION_OK: DBPOSITIONFLAGSENUM = DBPOSITIONFLAGSENUM(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBPROMPTOPTIONSENUM(pub i32);
+pub const DBPROMPTOPTIONS_BROWSEONLY: DBPROMPTOPTIONSENUM = DBPROMPTOPTIONSENUM(8i32);
+pub const DBPROMPTOPTIONS_DISABLESAVEPASSWORD: DBPROMPTOPTIONSENUM = DBPROMPTOPTIONSENUM(32i32);
+pub const DBPROMPTOPTIONS_DISABLE_PROVIDER_SELECTION: DBPROMPTOPTIONSENUM = DBPROMPTOPTIONSENUM(16i32);
+pub const DBPROMPTOPTIONS_NONE: DBPROMPTOPTIONSENUM = DBPROMPTOPTIONSENUM(0i32);
+pub const DBPROMPTOPTIONS_PROPERTYSHEET: DBPROMPTOPTIONSENUM = DBPROMPTOPTIONSENUM(2i32);
+pub const DBPROMPTOPTIONS_WIZARDSHEET: DBPROMPTOPTIONSENUM = DBPROMPTOPTIONSENUM(1i32);
+pub const DBPROMPT_COMPLETE: u32 = 2u32;
+pub const DBPROMPT_COMPLETEREQUIRED: u32 = 3u32;
+pub const DBPROMPT_NOPROMPT: u32 = 4u32;
+pub const DBPROMPT_PROMPT: u32 = 1u32;
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub struct DBPROP {
+    pub dwPropertyID: u32,
+    pub dwOptions: u32,
+    pub dwStatus: u32,
+    pub colid: super::super::Storage::IndexServer::DBID,
+    pub vValue: super::Variant::VARIANT,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for DBPROP {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBPROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for DBPROP {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub struct DBPROP {
+    pub dwPropertyID: u32,
+    pub dwOptions: u32,
+    pub dwStatus: u32,
+    pub colid: super::super::Storage::IndexServer::DBID,
+    pub vValue: super::Variant::VARIANT,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for DBPROP {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBPROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for DBPROP {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBPROPENUM(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBPROPENUM15(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBPROPENUM20(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBPROPENUM21(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBPROPENUM25(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBPROPENUM25_DEPRECATED(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBPROPENUM26(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBPROPENUMDEPRECATED(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBPROPFLAGSENUM(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBPROPFLAGSENUM21(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBPROPFLAGSENUM25(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBPROPFLAGSENUM26(pub i32);
+pub const DBPROPFLAGS_COLUMN: DBPROPFLAGSENUM = DBPROPFLAGSENUM(1i32);
+pub const DBPROPFLAGS_COLUMNOK: DBPROPFLAGSENUM = DBPROPFLAGSENUM(256i32);
+pub const DBPROPFLAGS_DATASOURCE: DBPROPFLAGSENUM = DBPROPFLAGSENUM(2i32);
+pub const DBPROPFLAGS_DATASOURCECREATE: DBPROPFLAGSENUM = DBPROPFLAGSENUM(4i32);
+pub const DBPROPFLAGS_DATASOURCEINFO: DBPROPFLAGSENUM = DBPROPFLAGSENUM(8i32);
+pub const DBPROPFLAGS_DBINIT: DBPROPFLAGSENUM = DBPROPFLAGSENUM(16i32);
+pub const DBPROPFLAGS_INDEX: DBPROPFLAGSENUM = DBPROPFLAGSENUM(32i32);
+pub const DBPROPFLAGS_NOTSUPPORTED: DBPROPFLAGSENUM = DBPROPFLAGSENUM(0i32);
+pub const DBPROPFLAGS_PERSIST: u32 = 8192u32;
+pub const DBPROPFLAGS_READ: DBPROPFLAGSENUM = DBPROPFLAGSENUM(512i32);
+pub const DBPROPFLAGS_REQUIRED: DBPROPFLAGSENUM = DBPROPFLAGSENUM(2048i32);
+pub const DBPROPFLAGS_ROWSET: DBPROPFLAGSENUM = DBPROPFLAGSENUM(64i32);
+pub const DBPROPFLAGS_SESSION: DBPROPFLAGSENUM = DBPROPFLAGSENUM(4096i32);
+pub const DBPROPFLAGS_STREAM: DBPROPFLAGSENUM26 = DBPROPFLAGSENUM26(32768i32);
+pub const DBPROPFLAGS_TABLE: DBPROPFLAGSENUM = DBPROPFLAGSENUM(128i32);
+pub const DBPROPFLAGS_TRUSTEE: DBPROPFLAGSENUM21 = DBPROPFLAGSENUM21(8192i32);
+pub const DBPROPFLAGS_VIEW: DBPROPFLAGSENUM25 = DBPROPFLAGSENUM25(16384i32);
+pub const DBPROPFLAGS_WRITE: DBPROPFLAGSENUM = DBPROPFLAGSENUM(1024i32);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct DBPROPIDSET {
+    pub rgPropertyIDs: *mut u32,
+    pub cPropertyIDs: u32,
+    pub guidPropertySet: windows_core::GUID,
+}
+#[cfg(target_arch = "x86")]
+impl Default for DBPROPIDSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for DBPROPIDSET {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DBPROPIDSET {
+    pub rgPropertyIDs: *mut u32,
+    pub cPropertyIDs: u32,
+    pub guidPropertySet: windows_core::GUID,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for DBPROPIDSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for DBPROPIDSET {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub struct DBPROPINFO {
+    pub pwszDescription: windows_core::PWSTR,
+    pub dwPropertyID: u32,
+    pub dwFlags: u32,
+    pub vtType: super::Variant::VARENUM,
+    pub vValues: super::Variant::VARIANT,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for DBPROPINFO {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBPROPINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for DBPROPINFO {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub struct DBPROPINFO {
+    pub pwszDescription: windows_core::PWSTR,
+    pub dwPropertyID: u32,
+    pub dwFlags: u32,
+    pub vtType: super::Variant::VARENUM,
+    pub vValues: super::Variant::VARIANT,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for DBPROPINFO {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBPROPINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for DBPROPINFO {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct DBPROPINFOSET {
+    pub rgPropertyInfos: *mut DBPROPINFO,
+    pub cPropertyInfos: u32,
+    pub guidPropertySet: windows_core::GUID,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBPROPINFOSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for DBPROPINFOSET {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DBPROPINFOSET {
+    pub rgPropertyInfos: *mut DBPROPINFO,
+    pub cPropertyInfos: u32,
+    pub guidPropertySet: windows_core::GUID,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBPROPINFOSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for DBPROPINFOSET {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBPROPOPTIONSENUM(pub i32);
+pub const DBPROPOPTIONS_OPTIONAL: DBPROPOPTIONSENUM = DBPROPOPTIONSENUM(1i32);
+pub const DBPROPOPTIONS_REQUIRED: DBPROPOPTIONSENUM = DBPROPOPTIONSENUM(0i32);
+pub const DBPROPOPTIONS_SETIFCHEAP: DBPROPOPTIONSENUM = DBPROPOPTIONSENUM(1i32);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct DBPROPSET {
+    pub rgProperties: *mut DBPROP,
+    pub cProperties: u32,
+    pub guidPropertySet: windows_core::GUID,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBPROPSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for DBPROPSET {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DBPROPSET {
+    pub rgProperties: *mut DBPROP,
+    pub cProperties: u32,
+    pub guidPropertySet: windows_core::GUID,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBPROPSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for DBPROPSET {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DBPROPSET_MSDAORA8_ROWSET: windows_core::GUID = windows_core::GUID::from_u128(0x7f06a375_dd6a_43db_b4e0_1fc121e5e62b);
+pub const DBPROPSET_MSDAORA_ROWSET: windows_core::GUID = windows_core::GUID::from_u128(0xe8cc4cbd_fdff_11d0_b865_00a0c9081c1d);
+pub const DBPROPSET_MSDSDBINIT: windows_core::GUID = windows_core::GUID::from_u128(0x55cb91a8_5c7a_11d1_adad_00c04fc29863);
+pub const DBPROPSET_MSDSSESSION: windows_core::GUID = windows_core::GUID::from_u128(0xedf17536_afbf_11d1_8847_0000f879f98c);
+pub const DBPROPSET_PERSIST: windows_core::GUID = windows_core::GUID::from_u128(0x4d7839a0_5b8e_11d1_a6b3_00a0c9138c66);
+pub const DBPROPSET_PROVIDERCONNATTR: windows_core::GUID = windows_core::GUID::from_u128(0x497c60e4_7123_11cf_b171_00aa0057599e);
+pub const DBPROPSET_PROVIDERDATASOURCEINFO: windows_core::GUID = windows_core::GUID::from_u128(0x497c60e0_7123_11cf_b171_00aa0057599e);
+pub const DBPROPSET_PROVIDERDBINIT: windows_core::GUID = windows_core::GUID::from_u128(0x497c60e2_7123_11cf_b171_00aa0057599e);
+pub const DBPROPSET_PROVIDERROWSET: windows_core::GUID = windows_core::GUID::from_u128(0x497c60e1_7123_11cf_b171_00aa0057599e);
+pub const DBPROPSET_PROVIDERSTMTATTR: windows_core::GUID = windows_core::GUID::from_u128(0x497c60e3_7123_11cf_b171_00aa0057599e);
+pub const DBPROPSET_SQLSERVERCOLUMN: windows_core::GUID = windows_core::GUID::from_u128(0x3b63fb5e_3fbb_11d3_9f29_00c04f8ee9dc);
+pub const DBPROPSET_SQLSERVERDATASOURCE: windows_core::GUID = windows_core::GUID::from_u128(0x28efaee4_2d2c_11d1_9807_00c04fc2ad98);
+pub const DBPROPSET_SQLSERVERDATASOURCEINFO: windows_core::GUID = windows_core::GUID::from_u128(0xdf10cb94_35f6_11d2_9c54_00c04f7971d3);
+pub const DBPROPSET_SQLSERVERDBINIT: windows_core::GUID = windows_core::GUID::from_u128(0x5cf4ca10_ef21_11d0_97e7_00c04fc2ad98);
+pub const DBPROPSET_SQLSERVERROWSET: windows_core::GUID = windows_core::GUID::from_u128(0x5cf4ca11_ef21_11d0_97e7_00c04fc2ad98);
+pub const DBPROPSET_SQLSERVERSESSION: windows_core::GUID = windows_core::GUID::from_u128(0x28efaee5_2d2c_11d1_9807_00c04fc2ad98);
+pub const DBPROPSET_SQLSERVERSTREAM: windows_core::GUID = windows_core::GUID::from_u128(0x9f79c073_8a6d_4bca_a8a8_c9b79a9b962d);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBPROPSTATUSENUM(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBPROPSTATUSENUM21(pub i32);
+pub const DBPROPSTATUS_BADCOLUMN: DBPROPSTATUSENUM = DBPROPSTATUSENUM(4i32);
+pub const DBPROPSTATUS_BADOPTION: DBPROPSTATUSENUM = DBPROPSTATUSENUM(3i32);
+pub const DBPROPSTATUS_BADVALUE: DBPROPSTATUSENUM = DBPROPSTATUSENUM(2i32);
+pub const DBPROPSTATUS_CONFLICTING: DBPROPSTATUSENUM = DBPROPSTATUSENUM(8i32);
+pub const DBPROPSTATUS_NOTALLSETTABLE: DBPROPSTATUSENUM = DBPROPSTATUSENUM(5i32);
+pub const DBPROPSTATUS_NOTAVAILABLE: DBPROPSTATUSENUM21 = DBPROPSTATUSENUM21(9i32);
+pub const DBPROPSTATUS_NOTSET: DBPROPSTATUSENUM = DBPROPSTATUSENUM(7i32);
+pub const DBPROPSTATUS_NOTSETTABLE: DBPROPSTATUSENUM = DBPROPSTATUSENUM(6i32);
+pub const DBPROPSTATUS_NOTSUPPORTED: DBPROPSTATUSENUM = DBPROPSTATUSENUM(1i32);
+pub const DBPROPSTATUS_OK: DBPROPSTATUSENUM = DBPROPSTATUSENUM(0i32);
+pub const DBPROPVAL_AO_RANDOM: i32 = 2i32;
+pub const DBPROPVAL_AO_SEQUENTIAL: i32 = 0i32;
+pub const DBPROPVAL_AO_SEQUENTIALSTORAGEOBJECTS: i32 = 1i32;
+pub const DBPROPVAL_ASYNCH_BACKGROUNDPOPULATION: i32 = 8i32;
+pub const DBPROPVAL_ASYNCH_INITIALIZE: i32 = 1i32;
+pub const DBPROPVAL_ASYNCH_POPULATEONDEMAND: i32 = 32i32;
+pub const DBPROPVAL_ASYNCH_PREPOPULATE: i32 = 16i32;
+pub const DBPROPVAL_ASYNCH_RANDOMPOPULATION: i32 = 4i32;
+pub const DBPROPVAL_ASYNCH_SEQUENTIALPOPULATION: i32 = 2i32;
+pub const DBPROPVAL_BD_INTRANSACTION: i32 = 1i32;
+pub const DBPROPVAL_BD_REORGANIZATION: i32 = 3i32;
+pub const DBPROPVAL_BD_ROWSET: i32 = 0i32;
+pub const DBPROPVAL_BD_XTRANSACTION: i32 = 2i32;
+pub const DBPROPVAL_BI_CROSSROWSET: i32 = 1i32;
+pub const DBPROPVAL_BMK_KEY: i32 = 2i32;
+pub const DBPROPVAL_BMK_NUMERIC: i32 = 1i32;
+pub const DBPROPVAL_BO_NOINDEXUPDATE: i32 = 1i32;
+pub const DBPROPVAL_BO_NOLOG: i32 = 0i32;
+pub const DBPROPVAL_BO_REFINTEGRITY: i32 = 2i32;
+pub const DBPROPVAL_CB_DELETE: i32 = 1i32;
+pub const DBPROPVAL_CB_NON_NULL: i32 = 2i32;
+pub const DBPROPVAL_CB_NULL: i32 = 1i32;
+pub const DBPROPVAL_CB_PRESERVE: i32 = 2i32;
+pub const DBPROPVAL_CD_NOTNULL: i32 = 1i32;
+pub const DBPROPVAL_CL_END: i32 = 2i32;
+pub const DBPROPVAL_CL_START: i32 = 1i32;
+pub const DBPROPVAL_CM_TRANSACTIONS: i32 = 1i32;
+pub const DBPROPVAL_CO_BEGINSWITH: i32 = 32i32;
+pub const DBPROPVAL_CO_CASEINSENSITIVE: i32 = 8i32;
+pub const DBPROPVAL_CO_CASESENSITIVE: i32 = 4i32;
+pub const DBPROPVAL_CO_CONTAINS: i32 = 16i32;
+pub const DBPROPVAL_CO_EQUALITY: i32 = 1i32;
+pub const DBPROPVAL_CO_STRING: i32 = 2i32;
+pub const DBPROPVAL_CS_COMMUNICATIONFAILURE: i32 = 2i32;
+pub const DBPROPVAL_CS_INITIALIZED: i32 = 1i32;
+pub const DBPROPVAL_CS_UNINITIALIZED: i32 = 0i32;
+pub const DBPROPVAL_CU_DML_STATEMENTS: i32 = 1i32;
+pub const DBPROPVAL_CU_INDEX_DEFINITION: i32 = 4i32;
+pub const DBPROPVAL_CU_PRIVILEGE_DEFINITION: i32 = 8i32;
+pub const DBPROPVAL_CU_TABLE_DEFINITION: i32 = 2i32;
+pub const DBPROPVAL_DF_INITIALLY_DEFERRED: u32 = 1u32;
+pub const DBPROPVAL_DF_INITIALLY_IMMEDIATE: u32 = 2u32;
+pub const DBPROPVAL_DF_NOT_DEFERRABLE: u32 = 3u32;
+pub const DBPROPVAL_DST_DOCSOURCE: i32 = 4i32;
+pub const DBPROPVAL_DST_MDP: i32 = 2i32;
+pub const DBPROPVAL_DST_TDP: i32 = 1i32;
+pub const DBPROPVAL_DST_TDPANDMDP: i32 = 3i32;
+pub const DBPROPVAL_FU_CATALOG: i32 = 8i32;
+pub const DBPROPVAL_FU_COLUMN: i32 = 2i32;
+pub const DBPROPVAL_FU_NOT_SUPPORTED: i32 = 1i32;
+pub const DBPROPVAL_FU_TABLE: i32 = 4i32;
+pub const DBPROPVAL_GB_COLLATE: i32 = 16i32;
+pub const DBPROPVAL_GB_CONTAINS_SELECT: i32 = 4i32;
+pub const DBPROPVAL_GB_EQUALS_SELECT: i32 = 2i32;
+pub const DBPROPVAL_GB_NOT_SUPPORTED: i32 = 1i32;
+pub const DBPROPVAL_GB_NO_RELATION: i32 = 8i32;
+pub const DBPROPVAL_GU_NOTSUPPORTED: i32 = 1i32;
+pub const DBPROPVAL_GU_SUFFIX: i32 = 2i32;
+pub const DBPROPVAL_HT_DIFFERENT_CATALOGS: i32 = 1i32;
+pub const DBPROPVAL_HT_DIFFERENT_PROVIDERS: i32 = 2i32;
+pub const DBPROPVAL_IC_LOWER: i32 = 2i32;
+pub const DBPROPVAL_IC_MIXED: i32 = 8i32;
+pub const DBPROPVAL_IC_SENSITIVE: i32 = 4i32;
+pub const DBPROPVAL_IC_UPPER: i32 = 1i32;
+pub const DBPROPVAL_IN_ALLOWNULL: i32 = 0i32;
+pub const DBPROPVAL_IN_DISALLOWNULL: i32 = 1i32;
+pub const DBPROPVAL_IN_IGNOREANYNULL: i32 = 4i32;
+pub const DBPROPVAL_IN_IGNORENULL: i32 = 2i32;
+pub const DBPROPVAL_IT_BTREE: i32 = 1i32;
+pub const DBPROPVAL_IT_CONTENT: i32 = 3i32;
+pub const DBPROPVAL_IT_HASH: i32 = 2i32;
+pub const DBPROPVAL_IT_OTHER: i32 = 4i32;
+pub const DBPROPVAL_LM_INTENT: i32 = 4i32;
+pub const DBPROPVAL_LM_NONE: i32 = 1i32;
+pub const DBPROPVAL_LM_READ: i32 = 2i32;
+pub const DBPROPVAL_LM_RITE: i32 = 8i32;
+pub const DBPROPVAL_LM_SINGLEROW: i32 = 2i32;
+pub const DBPROPVAL_MR_CONCURRENT: i32 = 2i32;
+pub const DBPROPVAL_MR_NOTSUPPORTED: i32 = 0i32;
+pub const DBPROPVAL_MR_SUPPORTED: i32 = 1i32;
+pub const DBPROPVAL_NC_END: i32 = 1i32;
+pub const DBPROPVAL_NC_HIGH: i32 = 2i32;
+pub const DBPROPVAL_NC_LOW: i32 = 4i32;
+pub const DBPROPVAL_NC_START: i32 = 8i32;
+pub const DBPROPVAL_NP_ABOUTTODO: i32 = 2i32;
+pub const DBPROPVAL_NP_DIDEVENT: i32 = 16i32;
+pub const DBPROPVAL_NP_FAILEDTODO: i32 = 8i32;
+pub const DBPROPVAL_NP_OKTODO: i32 = 1i32;
+pub const DBPROPVAL_NP_SYNCHAFTER: i32 = 4i32;
+pub const DBPROPVAL_NT_MULTIPLEROWS: i32 = 2i32;
+pub const DBPROPVAL_NT_SINGLEROW: i32 = 1i32;
+pub const DBPROPVAL_OA_ATEXECUTE: i32 = 2i32;
+pub const DBPROPVAL_OA_ATROWRELEASE: i32 = 4i32;
+pub const DBPROPVAL_OA_NOTSUPPORTED: i32 = 1i32;
+pub const DBPROPVAL_OO_BLOB: i32 = 1i32;
+pub const DBPROPVAL_OO_DIRECTBIND: i32 = 16i32;
+pub const DBPROPVAL_OO_IPERSIST: i32 = 2i32;
+pub const DBPROPVAL_OO_ROWOBJECT: i32 = 4i32;
+pub const DBPROPVAL_OO_SCOPED: i32 = 8i32;
+pub const DBPROPVAL_OO_SINGLETON: i32 = 32i32;
+pub const DBPROPVAL_OP_EQUAL: i32 = 1i32;
+pub const DBPROPVAL_OP_RELATIVE: i32 = 2i32;
+pub const DBPROPVAL_OP_STRING: i32 = 4i32;
+pub const DBPROPVAL_ORS_HISTOGRAM: i32 = 8i32;
+pub const DBPROPVAL_ORS_INDEX: i32 = 1i32;
+pub const DBPROPVAL_ORS_INTEGRATEDINDEX: i32 = 2i32;
+pub const DBPROPVAL_ORS_STOREDPROC: i32 = 4i32;
+pub const DBPROPVAL_ORS_TABLE: i32 = 0i32;
+pub const DBPROPVAL_OS_AGR_AFTERSESSION: i32 = 8i32;
+pub const DBPROPVAL_OS_CLIENTCURSOR: i32 = 4i32;
+pub const DBPROPVAL_OS_DISABLEALL: i32 = 0i32;
+pub const DBPROPVAL_OS_ENABLEALL: i32 = -1i32;
+pub const DBPROPVAL_OS_RESOURCEPOOLING: i32 = 1i32;
+pub const DBPROPVAL_OS_TXNENLISTMENT: i32 = 2i32;
+pub const DBPROPVAL_PERSIST_ADTG: u32 = 0u32;
+pub const DBPROPVAL_PERSIST_XML: u32 = 1u32;
+pub const DBPROPVAL_PT_GUID: i32 = 8i32;
+pub const DBPROPVAL_PT_GUID_NAME: i32 = 1i32;
+pub const DBPROPVAL_PT_GUID_PROPID: i32 = 2i32;
+pub const DBPROPVAL_PT_NAME: i32 = 4i32;
+pub const DBPROPVAL_PT_PGUID_NAME: i32 = 32i32;
+pub const DBPROPVAL_PT_PGUID_PROPID: i32 = 64i32;
+pub const DBPROPVAL_PT_PROPID: i32 = 16i32;
+pub const DBPROPVAL_RD_RESETALL: i32 = -1i32;
+pub const DBPROPVAL_RT_APTMTTHREAD: i32 = 2i32;
+pub const DBPROPVAL_RT_FREETHREAD: i32 = 1i32;
+pub const DBPROPVAL_RT_SINGLETHREAD: i32 = 4i32;
+pub const DBPROPVAL_SQL_ANSI89_IEF: i32 = 8i32;
+pub const DBPROPVAL_SQL_ANSI92_ENTRY: i32 = 16i32;
+pub const DBPROPVAL_SQL_ANSI92_FULL: i32 = 128i32;
+pub const DBPROPVAL_SQL_ANSI92_INTERMEDIATE: i32 = 64i32;
+pub const DBPROPVAL_SQL_ESCAPECLAUSES: i32 = 256i32;
+pub const DBPROPVAL_SQL_FIPS_TRANSITIONAL: i32 = 32i32;
+pub const DBPROPVAL_SQL_NONE: i32 = 0i32;
+pub const DBPROPVAL_SQL_ODBC_CORE: i32 = 2i32;
+pub const DBPROPVAL_SQL_ODBC_EXTENDED: i32 = 4i32;
+pub const DBPROPVAL_SQL_ODBC_MINIMUM: i32 = 1i32;
+pub const DBPROPVAL_SQL_SUBMINIMUM: i32 = 512i32;
+pub const DBPROPVAL_SQ_COMPARISON: i32 = 2i32;
+pub const DBPROPVAL_SQ_CORRELATEDSUBQUERIES: i32 = 1i32;
+pub const DBPROPVAL_SQ_EXISTS: i32 = 4i32;
+pub const DBPROPVAL_SQ_IN: i32 = 8i32;
+pub const DBPROPVAL_SQ_QUANTIFIED: i32 = 16i32;
+pub const DBPROPVAL_SQ_TABLE: i32 = 32i32;
+pub const DBPROPVAL_SS_ILOCKBYTES: i32 = 8i32;
+pub const DBPROPVAL_SS_ISEQUENTIALSTREAM: i32 = 1i32;
+pub const DBPROPVAL_SS_ISTORAGE: i32 = 4i32;
+pub const DBPROPVAL_SS_ISTREAM: i32 = 2i32;
+pub const DBPROPVAL_STGM_CONVERT: u32 = 262144u32;
+pub const DBPROPVAL_STGM_DELETEONRELEASE: u32 = 2097152u32;
+pub const DBPROPVAL_STGM_DIRECT: u32 = 65536u32;
+pub const DBPROPVAL_STGM_FAILIFTHERE: u32 = 524288u32;
+pub const DBPROPVAL_STGM_PRIORITY: u32 = 1048576u32;
+pub const DBPROPVAL_STGM_TRANSACTED: u32 = 131072u32;
+pub const DBPROPVAL_SU_DML_STATEMENTS: i32 = 1i32;
+pub const DBPROPVAL_SU_INDEX_DEFINITION: i32 = 4i32;
+pub const DBPROPVAL_SU_PRIVILEGE_DEFINITION: i32 = 8i32;
+pub const DBPROPVAL_SU_TABLE_DEFINITION: i32 = 2i32;
+pub const DBPROPVAL_TC_ALL: i32 = 8i32;
+pub const DBPROPVAL_TC_DDL_COMMIT: i32 = 2i32;
+pub const DBPROPVAL_TC_DDL_IGNORE: i32 = 4i32;
+pub const DBPROPVAL_TC_DDL_LOCK: i32 = 16i32;
+pub const DBPROPVAL_TC_DML: i32 = 1i32;
+pub const DBPROPVAL_TC_NONE: i32 = 0i32;
+pub const DBPROPVAL_TI_BROWSE: i32 = 256i32;
+pub const DBPROPVAL_TI_CHAOS: i32 = 16i32;
+pub const DBPROPVAL_TI_CURSORSTABILITY: i32 = 4096i32;
+pub const DBPROPVAL_TI_ISOLATED: i32 = 1048576i32;
+pub const DBPROPVAL_TI_READCOMMITTED: i32 = 4096i32;
+pub const DBPROPVAL_TI_READUNCOMMITTED: i32 = 256i32;
+pub const DBPROPVAL_TI_REPEATABLEREAD: i32 = 65536i32;
+pub const DBPROPVAL_TI_SERIALIZABLE: i32 = 1048576i32;
+pub const DBPROPVAL_TR_ABORT: i32 = 16i32;
+pub const DBPROPVAL_TR_ABORT_DC: i32 = 8i32;
+pub const DBPROPVAL_TR_ABORT_NO: i32 = 32i32;
+pub const DBPROPVAL_TR_BOTH: i32 = 128i32;
+pub const DBPROPVAL_TR_COMMIT: i32 = 2i32;
+pub const DBPROPVAL_TR_COMMIT_DC: i32 = 1i32;
+pub const DBPROPVAL_TR_COMMIT_NO: i32 = 4i32;
+pub const DBPROPVAL_TR_DONTCARE: i32 = 64i32;
+pub const DBPROPVAL_TR_NONE: i32 = 256i32;
+pub const DBPROPVAL_TR_OPTIMISTIC: i32 = 512i32;
+pub const DBPROPVAL_TS_CARDINALITY: i32 = 1i32;
+pub const DBPROPVAL_TS_HISTOGRAM: i32 = 2i32;
+pub const DBPROPVAL_UP_CHANGE: i32 = 1i32;
+pub const DBPROPVAL_UP_DELETE: i32 = 2i32;
+pub const DBPROPVAL_UP_INSERT: i32 = 4i32;
+pub const DBPROP_ABORTPRESERVE: DBPROPENUM = DBPROPENUM(2i32);
+pub const DBPROP_ACCESSORDER: DBPROPENUM20 = DBPROPENUM20(231i32);
+pub const DBPROP_ACTIVESESSIONS: DBPROPENUM = DBPROPENUM(3i32);
+pub const DBPROP_ALTERCOLUMN: DBPROPENUM20 = DBPROPENUM20(245i32);
+pub const DBPROP_APPENDONLY: DBPROPENUM = DBPROPENUM(187i32);
+pub const DBPROP_ASYNCTXNABORT: DBPROPENUM = DBPROPENUM(168i32);
+pub const DBPROP_ASYNCTXNCOMMIT: DBPROPENUM = DBPROPENUM(4i32);
+pub const DBPROP_AUTH_CACHE_AUTHINFO: DBPROPENUM = DBPROPENUM(5i32);
+pub const DBPROP_AUTH_ENCRYPT_PASSWORD: DBPROPENUM = DBPROPENUM(6i32);
+pub const DBPROP_AUTH_INTEGRATED: DBPROPENUM = DBPROPENUM(7i32);
+pub const DBPROP_AUTH_MASK_PASSWORD: DBPROPENUM = DBPROPENUM(8i32);
+pub const DBPROP_AUTH_PASSWORD: DBPROPENUM = DBPROPENUM(9i32);
+pub const DBPROP_AUTH_PERSIST_ENCRYPTED: DBPROPENUM = DBPROPENUM(10i32);
+pub const DBPROP_AUTH_PERSIST_SENSITIVE_AUTHINFO: DBPROPENUM = DBPROPENUM(11i32);
+pub const DBPROP_AUTH_USERID: DBPROPENUM = DBPROPENUM(12i32);
+pub const DBPROP_BLOCKINGSTORAGEOBJECTS: DBPROPENUM = DBPROPENUM(13i32);
+pub const DBPROP_BOOKMARKINFO: DBPROPENUM20 = DBPROPENUM20(232i32);
+pub const DBPROP_BOOKMARKS: DBPROPENUM = DBPROPENUM(14i32);
+pub const DBPROP_BOOKMARKSKIPPED: DBPROPENUM = DBPROPENUM(15i32);
+pub const DBPROP_BOOKMARKTYPE: DBPROPENUM = DBPROPENUM(16i32);
+pub const DBPROP_BYREFACCESSORS: DBPROPENUM = DBPROPENUM(120i32);
+pub const DBPROP_CACHEDEFERRED: DBPROPENUM = DBPROPENUM(17i32);
+pub const DBPROP_CANFETCHBACKWARDS: DBPROPENUM = DBPROPENUM(18i32);
+pub const DBPROP_CANHOLDROWS: DBPROPENUM = DBPROPENUM(19i32);
+pub const DBPROP_CANSCROLLBACKWARDS: DBPROPENUM = DBPROPENUM(21i32);
+pub const DBPROP_CATALOGLOCATION: DBPROPENUM = DBPROPENUM(22i32);
+pub const DBPROP_CATALOGTERM: DBPROPENUM = DBPROPENUM(23i32);
+pub const DBPROP_CATALOGUSAGE: DBPROPENUM = DBPROPENUM(24i32);
+pub const DBPROP_CHANGEINSERTEDROWS: DBPROPENUM = DBPROPENUM(188i32);
+pub const DBPROP_CLIENTCURSOR: DBPROPENUM20 = DBPROPENUM20(260i32);
+pub const DBPROP_COLUMNDEFINITION: DBPROPENUM = DBPROPENUM(32i32);
+pub const DBPROP_COLUMNLCID: DBPROPENUM20 = DBPROPENUM20(246i32);
+pub const DBPROP_COLUMNRESTRICT: DBPROPENUM = DBPROPENUM(33i32);
+pub const DBPROP_COL_AUTOINCREMENT: DBPROPENUM = DBPROPENUM(26i32);
+pub const DBPROP_COL_DEFAULT: DBPROPENUM = DBPROPENUM(27i32);
+pub const DBPROP_COL_DESCRIPTION: DBPROPENUM = DBPROPENUM(28i32);
+pub const DBPROP_COL_FIXEDLENGTH: DBPROPENUM = DBPROPENUM(167i32);
+pub const DBPROP_COL_INCREMENT: DBPROPENUM25 = DBPROPENUM25(283i32);
+pub const DBPROP_COL_ISLONG: DBPROPENUM21 = DBPROPENUM21(281i32);
+pub const DBPROP_COL_NULLABLE: DBPROPENUM = DBPROPENUM(29i32);
+pub const DBPROP_COL_PRIMARYKEY: DBPROPENUM = DBPROPENUM(30i32);
+pub const DBPROP_COL_SEED: DBPROPENUM25 = DBPROPENUM25(282i32);
+pub const DBPROP_COL_UNIQUE: DBPROPENUM = DBPROPENUM(31i32);
+pub const DBPROP_COMMANDTIMEOUT: DBPROPENUM = DBPROPENUM(34i32);
+pub const DBPROP_COMMITPRESERVE: DBPROPENUM = DBPROPENUM(35i32);
+pub const DBPROP_COMSERVICES: DBPROPENUM25 = DBPROPENUM25(285i32);
+pub const DBPROP_CONCATNULLBEHAVIOR: DBPROPENUM = DBPROPENUM(36i32);
+pub const DBPROP_CONNECTIONSTATUS: DBPROPENUM20 = DBPROPENUM20(244i32);
+pub const DBPROP_CURRENTCATALOG: DBPROPENUM = DBPROPENUM(37i32);
+pub const DBPROP_DATASOURCENAME: DBPROPENUM = DBPROPENUM(38i32);
+pub const DBPROP_DATASOURCEREADONLY: DBPROPENUM = DBPROPENUM(39i32);
+pub const DBPROP_DATASOURCE_TYPE: DBPROPENUM20 = DBPROPENUM20(251i32);
+pub const DBPROP_DBMSNAME: DBPROPENUM = DBPROPENUM(40i32);
+pub const DBPROP_DBMSVER: DBPROPENUM = DBPROPENUM(41i32);
+pub const DBPROP_DEFERRED: DBPROPENUM = DBPROPENUM(42i32);
+pub const DBPROP_DELAYSTORAGEOBJECTS: DBPROPENUM = DBPROPENUM(43i32);
+pub const DBPROP_DSOTHREADMODEL: DBPROPENUM = DBPROPENUM(169i32);
+pub const DBPROP_FILTERCOMPAREOPS: DBPROPENUM15 = DBPROPENUM15(209i32);
+pub const DBPROP_FILTEROPS: DBPROPENUMDEPRECATED = DBPROPENUMDEPRECATED(208i32);
+pub const DBPROP_FINDCOMPAREOPS: DBPROPENUM15 = DBPROPENUM15(210i32);
+pub const DBPROP_GENERATEURL: DBPROPENUM21 = DBPROPENUM21(273i32);
+pub const DBPROP_GROUPBY: DBPROPENUM = DBPROPENUM(44i32);
+pub const DBPROP_HCHAPTER: u32 = 4u32;
+pub const DBPROP_HETEROGENEOUSTABLES: DBPROPENUM = DBPROPENUM(45i32);
+pub const DBPROP_HIDDENCOLUMNS: DBPROPENUM20 = DBPROPENUM20(258i32);
+pub const DBPROP_IAccessor: DBPROPENUM = DBPROPENUM(121i32);
+pub const DBPROP_IBindResource: DBPROPENUM21 = DBPROPENUM21(268i32);
+pub const DBPROP_IChapteredRowset: DBPROPENUM15 = DBPROPENUM15(202i32);
+pub const DBPROP_IColumnsInfo: DBPROPENUM = DBPROPENUM(122i32);
+pub const DBPROP_IColumnsInfo2: DBPROPENUM21 = DBPROPENUM21(275i32);
+pub const DBPROP_IColumnsRowset: DBPROPENUM = DBPROPENUM(123i32);
+pub const DBPROP_ICommandCost: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(141i32);
+pub const DBPROP_ICommandTree: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(142i32);
+pub const DBPROP_ICommandValidate: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(143i32);
+pub const DBPROP_IConnectionPointContainer: DBPROPENUM = DBPROPENUM(124i32);
+pub const DBPROP_IConvertType: DBPROPENUM = DBPROPENUM(194i32);
+pub const DBPROP_ICreateRow: DBPROPENUM21 = DBPROPENUM21(269i32);
+pub const DBPROP_IDBAsynchStatus: DBPROPENUM15 = DBPROPENUM15(203i32);
+pub const DBPROP_IDBBinderProperties: DBPROPENUM21 = DBPROPENUM21(274i32);
+pub const DBPROP_IDBSchemaCommand: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(144i32);
+pub const DBPROP_IDENTIFIERCASE: DBPROPENUM = DBPROPENUM(46i32);
+pub const DBPROP_IGetRow: DBPROPENUM21 = DBPROPENUM21(266i32);
+pub const DBPROP_IGetSession: DBPROPENUM21 = DBPROPENUM21(277i32);
+pub const DBPROP_IGetSourceRow: DBPROPENUM21 = DBPROPENUM21(278i32);
+pub const DBPROP_ILockBytes: DBPROPENUM = DBPROPENUM(136i32);
+pub const DBPROP_IMMOBILEROWS: DBPROPENUM = DBPROPENUM(47i32);
+pub const DBPROP_IMultipleResults: DBPROPENUM20 = DBPROPENUM20(217i32);
+pub const DBPROP_INDEX_AUTOUPDATE: DBPROPENUM = DBPROPENUM(48i32);
+pub const DBPROP_INDEX_CLUSTERED: DBPROPENUM = DBPROPENUM(49i32);
+pub const DBPROP_INDEX_FILLFACTOR: DBPROPENUM = DBPROPENUM(50i32);
+pub const DBPROP_INDEX_INITIALSIZE: DBPROPENUM = DBPROPENUM(51i32);
+pub const DBPROP_INDEX_NULLCOLLATION: DBPROPENUM = DBPROPENUM(52i32);
+pub const DBPROP_INDEX_NULLS: DBPROPENUM = DBPROPENUM(53i32);
+pub const DBPROP_INDEX_PRIMARYKEY: DBPROPENUM = DBPROPENUM(54i32);
+pub const DBPROP_INDEX_SORTBOOKMARKS: DBPROPENUM = DBPROPENUM(55i32);
+pub const DBPROP_INDEX_TEMPINDEX: DBPROPENUM = DBPROPENUM(163i32);
+pub const DBPROP_INDEX_TYPE: DBPROPENUM = DBPROPENUM(56i32);
+pub const DBPROP_INDEX_UNIQUE: DBPROPENUM = DBPROPENUM(57i32);
+pub const DBPROP_INIT_ASYNCH: DBPROPENUM15 = DBPROPENUM15(200i32);
+pub const DBPROP_INIT_BINDFLAGS: DBPROPENUM21 = DBPROPENUM21(270i32);
+pub const DBPROP_INIT_CATALOG: DBPROPENUM20 = DBPROPENUM20(233i32);
+pub const DBPROP_INIT_DATASOURCE: DBPROPENUM = DBPROPENUM(59i32);
+pub const DBPROP_INIT_GENERALTIMEOUT: DBPROPENUM25 = DBPROPENUM25(284i32);
+pub const DBPROP_INIT_HWND: DBPROPENUM = DBPROPENUM(60i32);
+pub const DBPROP_INIT_IMPERSONATION_LEVEL: DBPROPENUM = DBPROPENUM(61i32);
+pub const DBPROP_INIT_LCID: DBPROPENUM = DBPROPENUM(186i32);
+pub const DBPROP_INIT_LOCATION: DBPROPENUM = DBPROPENUM(62i32);
+pub const DBPROP_INIT_LOCKOWNER: DBPROPENUM21 = DBPROPENUM21(271i32);
+pub const DBPROP_INIT_MODE: DBPROPENUM = DBPROPENUM(63i32);
+pub const DBPROP_INIT_OLEDBSERVICES: DBPROPENUM20 = DBPROPENUM20(248i32);
+pub const DBPROP_INIT_PROMPT: DBPROPENUM = DBPROPENUM(64i32);
+pub const DBPROP_INIT_PROTECTION_LEVEL: DBPROPENUM = DBPROPENUM(65i32);
+pub const DBPROP_INIT_PROVIDERSTRING: DBPROPENUM = DBPROPENUM(160i32);
+pub const DBPROP_INIT_TIMEOUT: DBPROPENUM = DBPROPENUM(66i32);
+pub const DBPROP_INTERLEAVEDROWS: u32 = 8u32;
+pub const DBPROP_IParentRowset: DBPROPENUM20 = DBPROPENUM20(257i32);
+pub const DBPROP_IProvideMoniker: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(125i32);
+pub const DBPROP_IQuery: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(146i32);
+pub const DBPROP_IReadData: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(147i32);
+pub const DBPROP_IRegisterProvider: DBPROPENUM21 = DBPROPENUM21(276i32);
+pub const DBPROP_IRow: DBPROPENUM21 = DBPROPENUM21(263i32);
+pub const DBPROP_IRowChange: DBPROPENUM21 = DBPROPENUM21(264i32);
+pub const DBPROP_IRowSchemaChange: DBPROPENUM21 = DBPROPENUM21(265i32);
+pub const DBPROP_IRowset: DBPROPENUM = DBPROPENUM(126i32);
+pub const DBPROP_IRowsetAsynch: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(148i32);
+pub const DBPROP_IRowsetBookmark: DBPROPENUM26 = DBPROPENUM26(292i32);
+pub const DBPROP_IRowsetChange: DBPROPENUM = DBPROPENUM(127i32);
+pub const DBPROP_IRowsetCopyRows: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(149i32);
+pub const DBPROP_IRowsetCurrentIndex: DBPROPENUM21 = DBPROPENUM21(279i32);
+pub const DBPROP_IRowsetExactScroll: DBPROPENUMDEPRECATED = DBPROPENUMDEPRECATED(154i32);
+pub const DBPROP_IRowsetFind: DBPROPENUM15 = DBPROPENUM15(204i32);
+pub const DBPROP_IRowsetIdentity: DBPROPENUM = DBPROPENUM(128i32);
+pub const DBPROP_IRowsetIndex: DBPROPENUM = DBPROPENUM(159i32);
+pub const DBPROP_IRowsetInfo: DBPROPENUM = DBPROPENUM(129i32);
+pub const DBPROP_IRowsetKeys: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(151i32);
+pub const DBPROP_IRowsetLocate: DBPROPENUM = DBPROPENUM(130i32);
+pub const DBPROP_IRowsetNewRowAfter: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(152i32);
+pub const DBPROP_IRowsetNextRowset: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(153i32);
+pub const DBPROP_IRowsetRefresh: DBPROPENUM20 = DBPROPENUM20(249i32);
+pub const DBPROP_IRowsetResynch: DBPROPENUM = DBPROPENUM(132i32);
+pub const DBPROP_IRowsetScroll: DBPROPENUM = DBPROPENUM(133i32);
+pub const DBPROP_IRowsetUpdate: DBPROPENUM = DBPROPENUM(134i32);
+pub const DBPROP_IRowsetView: DBPROPENUM15 = DBPROPENUM15(212i32);
+pub const DBPROP_IRowsetWatchAll: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(155i32);
+pub const DBPROP_IRowsetWatchNotify: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(156i32);
+pub const DBPROP_IRowsetWatchRegion: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(157i32);
+pub const DBPROP_IRowsetWithParameters: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(158i32);
+pub const DBPROP_IScopedOperations: DBPROPENUM21 = DBPROPENUM21(267i32);
+pub const DBPROP_ISequentialStream: DBPROPENUM = DBPROPENUM(137i32);
+pub const DBPROP_IStorage: DBPROPENUM = DBPROPENUM(138i32);
+pub const DBPROP_IStream: DBPROPENUM = DBPROPENUM(139i32);
+pub const DBPROP_ISupportErrorInfo: DBPROPENUM = DBPROPENUM(135i32);
+pub const DBPROP_IViewChapter: DBPROPENUM15 = DBPROPENUM15(213i32);
+pub const DBPROP_IViewFilter: DBPROPENUM15 = DBPROPENUM15(214i32);
+pub const DBPROP_IViewRowset: DBPROPENUM15 = DBPROPENUM15(215i32);
+pub const DBPROP_IViewSort: DBPROPENUM15 = DBPROPENUM15(216i32);
+pub const DBPROP_LITERALBOOKMARKS: DBPROPENUM = DBPROPENUM(67i32);
+pub const DBPROP_LITERALIDENTITY: DBPROPENUM = DBPROPENUM(68i32);
+pub const DBPROP_LOCKMODE: DBPROPENUM20 = DBPROPENUM20(236i32);
+pub const DBPROP_MAINTAINPROPS: u32 = 5u32;
+pub const DBPROP_MARSHALLABLE: DBPROPENUMDEPRECATED = DBPROPENUMDEPRECATED(197i32);
+pub const DBPROP_MAXINDEXSIZE: DBPROPENUM = DBPROPENUM(70i32);
+pub const DBPROP_MAXOPENCHAPTERS: DBPROPENUM15 = DBPROPENUM15(199i32);
+pub const DBPROP_MAXOPENROWS: DBPROPENUM = DBPROPENUM(71i32);
+pub const DBPROP_MAXORSINFILTER: DBPROPENUM15 = DBPROPENUM15(205i32);
+pub const DBPROP_MAXPENDINGROWS: DBPROPENUM = DBPROPENUM(72i32);
+pub const DBPROP_MAXROWS: DBPROPENUM = DBPROPENUM(73i32);
+pub const DBPROP_MAXROWSIZE: DBPROPENUM = DBPROPENUM(74i32);
+pub const DBPROP_MAXROWSIZEINCLUDESBLOB: DBPROPENUM = DBPROPENUM(75i32);
+pub const DBPROP_MAXSORTCOLUMNS: DBPROPENUM15 = DBPROPENUM15(206i32);
+pub const DBPROP_MAXTABLESINSELECT: DBPROPENUM = DBPROPENUM(76i32);
+pub const DBPROP_MAYWRITECOLUMN: DBPROPENUM = DBPROPENUM(77i32);
+pub const DBPROP_MEMORYUSAGE: DBPROPENUM = DBPROPENUM(78i32);
+pub const DBPROP_MSDAORA8_DETERMINEKEYCOLUMNS: u32 = 2u32;
+pub const DBPROP_MSDAORA_DETERMINEKEYCOLUMNS: u32 = 1u32;
+pub const DBPROP_MSDS_DBINIT_DATAPROVIDER: MSDSDBINITPROPENUM = MSDSDBINITPROPENUM(2i32);
+pub const DBPROP_MSDS_SESS_UNIQUENAMES: MSDSSESSIONPROPENUM = MSDSSESSIONPROPENUM(2i32);
+pub const DBPROP_MULTIPLECONNECTIONS: DBPROPENUM20 = DBPROPENUM20(237i32);
+pub const DBPROP_MULTIPLEPARAMSETS: DBPROPENUM = DBPROPENUM(191i32);
+pub const DBPROP_MULTIPLERESULTS: DBPROPENUM = DBPROPENUM(196i32);
+pub const DBPROP_MULTIPLESTORAGEOBJECTS: DBPROPENUM = DBPROPENUM(80i32);
+pub const DBPROP_MULTITABLEUPDATE: DBPROPENUM = DBPROPENUM(81i32);
+pub const DBPROP_NOTIFICATIONGRANULARITY: DBPROPENUM = DBPROPENUM(198i32);
+pub const DBPROP_NOTIFICATIONPHASES: DBPROPENUM = DBPROPENUM(82i32);
+pub const DBPROP_NOTIFYCOLUMNSET: DBPROPENUM = DBPROPENUM(171i32);
+pub const DBPROP_NOTIFYROWDELETE: DBPROPENUM = DBPROPENUM(173i32);
+pub const DBPROP_NOTIFYROWFIRSTCHANGE: DBPROPENUM = DBPROPENUM(174i32);
+pub const DBPROP_NOTIFYROWINSERT: DBPROPENUM = DBPROPENUM(175i32);
+pub const DBPROP_NOTIFYROWRESYNCH: DBPROPENUM = DBPROPENUM(177i32);
+pub const DBPROP_NOTIFYROWSETCHANGED: DBPROPENUM = DBPROPENUM(211i32);
+pub const DBPROP_NOTIFYROWSETFETCHPOSITIONCHANGE: DBPROPENUM = DBPROPENUM(179i32);
+pub const DBPROP_NOTIFYROWSETRELEASE: DBPROPENUM = DBPROPENUM(178i32);
+pub const DBPROP_NOTIFYROWUNDOCHANGE: DBPROPENUM = DBPROPENUM(180i32);
+pub const DBPROP_NOTIFYROWUNDODELETE: DBPROPENUM = DBPROPENUM(181i32);
+pub const DBPROP_NOTIFYROWUNDOINSERT: DBPROPENUM = DBPROPENUM(182i32);
+pub const DBPROP_NOTIFYROWUPDATE: DBPROPENUM = DBPROPENUM(183i32);
+pub const DBPROP_NULLCOLLATION: DBPROPENUM = DBPROPENUM(83i32);
+pub const DBPROP_OLEOBJECTS: DBPROPENUM = DBPROPENUM(84i32);
+pub const DBPROP_OPENROWSETSUPPORT: DBPROPENUM21 = DBPROPENUM21(280i32);
+pub const DBPROP_ORDERBYCOLUMNSINSELECT: DBPROPENUM = DBPROPENUM(85i32);
+pub const DBPROP_ORDEREDBOOKMARKS: DBPROPENUM = DBPROPENUM(86i32);
+pub const DBPROP_OTHERINSERT: DBPROPENUM = DBPROPENUM(87i32);
+pub const DBPROP_OTHERUPDATEDELETE: DBPROPENUM = DBPROPENUM(88i32);
+pub const DBPROP_OUTPUTENCODING: DBPROPENUM26 = DBPROPENUM26(287i32);
+pub const DBPROP_OUTPUTPARAMETERAVAILABILITY: DBPROPENUM = DBPROPENUM(184i32);
+pub const DBPROP_OUTPUTSTREAM: DBPROPENUM26 = DBPROPENUM26(286i32);
+pub const DBPROP_OWNINSERT: DBPROPENUM = DBPROPENUM(89i32);
+pub const DBPROP_OWNUPDATEDELETE: DBPROPENUM = DBPROPENUM(90i32);
+pub const DBPROP_PERSISTENTIDTYPE: DBPROPENUM = DBPROPENUM(185i32);
+pub const DBPROP_PREPAREABORTBEHAVIOR: DBPROPENUM = DBPROPENUM(91i32);
+pub const DBPROP_PREPARECOMMITBEHAVIOR: DBPROPENUM = DBPROPENUM(92i32);
+pub const DBPROP_PROCEDURETERM: DBPROPENUM = DBPROPENUM(93i32);
+pub const DBPROP_PROVIDERFRIENDLYNAME: DBPROPENUM20 = DBPROPENUM20(235i32);
+pub const DBPROP_PROVIDERMEMORY: DBPROPENUM20 = DBPROPENUM20(259i32);
+pub const DBPROP_PROVIDERNAME: DBPROPENUM = DBPROPENUM(96i32);
+pub const DBPROP_PROVIDEROLEDBVER: DBPROPENUM = DBPROPENUM(97i32);
+pub const DBPROP_PROVIDERVER: DBPROPENUM = DBPROPENUM(98i32);
+pub const DBPROP_PersistFormat: u32 = 2u32;
+pub const DBPROP_PersistSchema: u32 = 3u32;
+pub const DBPROP_QUICKRESTART: DBPROPENUM = DBPROPENUM(99i32);
+pub const DBPROP_QUOTEDIDENTIFIERCASE: DBPROPENUM = DBPROPENUM(100i32);
+pub const DBPROP_REENTRANTEVENTS: DBPROPENUM = DBPROPENUM(101i32);
+pub const DBPROP_REMOVEDELETED: DBPROPENUM = DBPROPENUM(102i32);
+pub const DBPROP_REPORTMULTIPLECHANGES: DBPROPENUM = DBPROPENUM(103i32);
+pub const DBPROP_RESETDATASOURCE: DBPROPENUM20 = DBPROPENUM20(247i32);
+pub const DBPROP_RETURNPENDINGINSERTS: DBPROPENUM = DBPROPENUM(189i32);
+pub const DBPROP_ROWRESTRICT: DBPROPENUM = DBPROPENUM(104i32);
+pub const DBPROP_ROWSETCONVERSIONSONCOMMAND: DBPROPENUM = DBPROPENUM(192i32);
+pub const DBPROP_ROWSET_ASYNCH: DBPROPENUM15 = DBPROPENUM15(201i32);
+pub const DBPROP_ROWTHREADMODEL: DBPROPENUM = DBPROPENUM(105i32);
+pub const DBPROP_ROW_BULKOPS: DBPROPENUM20 = DBPROPENUM20(234i32);
+pub const DBPROP_SCHEMATERM: DBPROPENUM = DBPROPENUM(106i32);
+pub const DBPROP_SCHEMAUSAGE: DBPROPENUM = DBPROPENUM(107i32);
+pub const DBPROP_SERVERCURSOR: DBPROPENUM = DBPROPENUM(108i32);
+pub const DBPROP_SERVERDATAONINSERT: DBPROPENUM20 = DBPROPENUM20(239i32);
+pub const DBPROP_SERVERNAME: DBPROPENUM20 = DBPROPENUM20(250i32);
+pub const DBPROP_SESS_AUTOCOMMITISOLEVELS: DBPROPENUM = DBPROPENUM(190i32);
+pub const DBPROP_SKIPROWCOUNTRESULTS: DBPROPENUM26 = DBPROPENUM26(291i32);
+pub const DBPROP_SORTONINDEX: DBPROPENUM15 = DBPROPENUM15(207i32);
+pub const DBPROP_SQLSUPPORT: DBPROPENUM = DBPROPENUM(109i32);
+pub const DBPROP_STORAGEFLAGS: DBPROPENUM20 = DBPROPENUM20(240i32);
+pub const DBPROP_STRONGIDENTITY: DBPROPENUM = DBPROPENUM(119i32);
+pub const DBPROP_STRUCTUREDSTORAGE: DBPROPENUM = DBPROPENUM(111i32);
+pub const DBPROP_SUBQUERIES: DBPROPENUM = DBPROPENUM(112i32);
+pub const DBPROP_SUPPORTEDTXNDDL: DBPROPENUM = DBPROPENUM(161i32);
+pub const DBPROP_SUPPORTEDTXNISOLEVELS: DBPROPENUM = DBPROPENUM(113i32);
+pub const DBPROP_SUPPORTEDTXNISORETAIN: DBPROPENUM = DBPROPENUM(114i32);
+pub const DBPROP_TABLESTATISTICS: DBPROPENUM26 = DBPROPENUM26(288i32);
+pub const DBPROP_TABLETERM: DBPROPENUM = DBPROPENUM(115i32);
+pub const DBPROP_TBL_TEMPTABLE: DBPROPENUM = DBPROPENUM(140i32);
+pub const DBPROP_TRANSACTEDOBJECT: DBPROPENUM = DBPROPENUM(116i32);
+pub const DBPROP_TRUSTEE_AUTHENTICATION: DBPROPENUM21 = DBPROPENUM21(242i32);
+pub const DBPROP_TRUSTEE_NEWAUTHENTICATION: DBPROPENUM21 = DBPROPENUM21(243i32);
+pub const DBPROP_TRUSTEE_USERNAME: DBPROPENUM21 = DBPROPENUM21(241i32);
+pub const DBPROP_UNIQUEROWS: DBPROPENUM20 = DBPROPENUM20(238i32);
+pub const DBPROP_UPDATABILITY: DBPROPENUM = DBPROPENUM(117i32);
+pub const DBPROP_USERNAME: DBPROPENUM = DBPROPENUM(118i32);
+pub const DBPROP_Unicode: u32 = 6u32;
+pub const DBQUERYGUID: windows_core::GUID = windows_core::GUID::from_u128(0x49691c90_7e17_101a_a91c_08002b2ecda9);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBRANGEENUM(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBRANGEENUM20(pub i32);
+pub const DBRANGE_EXCLUDENULLS: DBRANGEENUM = DBRANGEENUM(4i32);
+pub const DBRANGE_EXCLUSIVEEND: DBRANGEENUM = DBRANGEENUM(2i32);
+pub const DBRANGE_EXCLUSIVESTART: DBRANGEENUM = DBRANGEENUM(1i32);
+pub const DBRANGE_INCLUSIVEEND: DBRANGEENUM = DBRANGEENUM(0i32);
+pub const DBRANGE_INCLUSIVESTART: DBRANGEENUM = DBRANGEENUM(0i32);
+pub const DBRANGE_MATCH: DBRANGEENUM = DBRANGEENUM(16i32);
+pub const DBRANGE_MATCH_N_MASK: DBRANGEENUM20 = DBRANGEENUM20(255i32);
+pub const DBRANGE_MATCH_N_SHIFT: DBRANGEENUM20 = DBRANGEENUM20(24i32);
+pub const DBRANGE_PREFIX: DBRANGEENUM = DBRANGEENUM(8i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBREASONENUM(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBREASONENUM15(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBREASONENUM25(pub i32);
+pub const DBREASON_COLUMN_RECALCULATED: DBREASONENUM = DBREASONENUM(3i32);
+pub const DBREASON_COLUMN_SET: DBREASONENUM = DBREASONENUM(2i32);
+pub const DBREASON_ROWPOSITION_CHANGED: DBREASONENUM15 = DBREASONENUM15(15i32);
+pub const DBREASON_ROWPOSITION_CHAPTERCHANGED: DBREASONENUM15 = DBREASONENUM15(16i32);
+pub const DBREASON_ROWPOSITION_CLEARED: DBREASONENUM15 = DBREASONENUM15(17i32);
+pub const DBREASON_ROWSET_CHANGED: DBREASONENUM = DBREASONENUM(14i32);
+pub const DBREASON_ROWSET_FETCHPOSITIONCHANGE: DBREASONENUM = DBREASONENUM(0i32);
+pub const DBREASON_ROWSET_POPULATIONCOMPLETE: DBREASONENUM25 = DBREASONENUM25(20i32);
+pub const DBREASON_ROWSET_POPULATIONSTOPPED: DBREASONENUM25 = DBREASONENUM25(21i32);
+pub const DBREASON_ROWSET_RELEASE: DBREASONENUM = DBREASONENUM(1i32);
+pub const DBREASON_ROWSET_ROWSADDED: DBREASONENUM25 = DBREASONENUM25(19i32);
+pub const DBREASON_ROW_ACTIVATE: DBREASONENUM = DBREASONENUM(4i32);
+pub const DBREASON_ROW_ASYNCHINSERT: DBREASONENUM15 = DBREASONENUM15(18i32);
+pub const DBREASON_ROW_DELETE: DBREASONENUM = DBREASONENUM(6i32);
+pub const DBREASON_ROW_FIRSTCHANGE: DBREASONENUM = DBREASONENUM(7i32);
+pub const DBREASON_ROW_INSERT: DBREASONENUM = DBREASONENUM(8i32);
+pub const DBREASON_ROW_RELEASE: DBREASONENUM = DBREASONENUM(5i32);
+pub const DBREASON_ROW_RESYNCH: DBREASONENUM = DBREASONENUM(9i32);
+pub const DBREASON_ROW_UNDOCHANGE: DBREASONENUM = DBREASONENUM(10i32);
+pub const DBREASON_ROW_UNDODELETE: DBREASONENUM = DBREASONENUM(12i32);
+pub const DBREASON_ROW_UNDOINSERT: DBREASONENUM = DBREASONENUM(11i32);
+pub const DBREASON_ROW_UPDATE: DBREASONENUM = DBREASONENUM(13i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBRESOURCEKINDENUM(pub i32);
+pub const DBRESOURCE_CPU: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(2i32);
+pub const DBRESOURCE_DISK: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(4i32);
+pub const DBRESOURCE_INVALID: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(0i32);
+pub const DBRESOURCE_MEMORY: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(3i32);
+pub const DBRESOURCE_NETWORK: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(5i32);
+pub const DBRESOURCE_OTHER: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(8i32);
+pub const DBRESOURCE_RESPONSE: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(6i32);
+pub const DBRESOURCE_ROWS: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(7i32);
+pub const DBRESOURCE_TOTAL: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBRESULTFLAGENUM(pub i32);
+pub const DBRESULTFLAG_DEFAULT: DBRESULTFLAGENUM = DBRESULTFLAGENUM(0i32);
+pub const DBRESULTFLAG_ROW: DBRESULTFLAGENUM = DBRESULTFLAGENUM(2i32);
+pub const DBRESULTFLAG_ROWSET: DBRESULTFLAGENUM = DBRESULTFLAGENUM(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBROWCHANGEKINDENUM(pub i32);
+pub const DBROWCHANGEKIND_COUNT: DBROWCHANGEKINDENUM = DBROWCHANGEKINDENUM(3i32);
+pub const DBROWCHANGEKIND_DELETE: DBROWCHANGEKINDENUM = DBROWCHANGEKINDENUM(1i32);
+pub const DBROWCHANGEKIND_INSERT: DBROWCHANGEKINDENUM = DBROWCHANGEKINDENUM(0i32);
+pub const DBROWCHANGEKIND_UPDATE: DBROWCHANGEKINDENUM = DBROWCHANGEKINDENUM(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBROWSTATUSENUM(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBROWSTATUSENUM20(pub i32);
+pub const DBROWSTATUS_E_CANCELED: DBROWSTATUSENUM = DBROWSTATUSENUM(4i32);
+pub const DBROWSTATUS_E_CANTRELEASE: DBROWSTATUSENUM = DBROWSTATUSENUM(6i32);
+pub const DBROWSTATUS_E_CONCURRENCYVIOLATION: DBROWSTATUSENUM = DBROWSTATUSENUM(7i32);
+pub const DBROWSTATUS_E_DELETED: DBROWSTATUSENUM = DBROWSTATUSENUM(8i32);
+pub const DBROWSTATUS_E_FAIL: DBROWSTATUSENUM = DBROWSTATUSENUM(19i32);
+pub const DBROWSTATUS_E_INTEGRITYVIOLATION: DBROWSTATUSENUM = DBROWSTATUSENUM(11i32);
+pub const DBROWSTATUS_E_INVALID: DBROWSTATUSENUM = DBROWSTATUSENUM(12i32);
+pub const DBROWSTATUS_E_LIMITREACHED: DBROWSTATUSENUM = DBROWSTATUSENUM(17i32);
+pub const DBROWSTATUS_E_MAXPENDCHANGESEXCEEDED: DBROWSTATUSENUM = DBROWSTATUSENUM(13i32);
+pub const DBROWSTATUS_E_NEWLYINSERTED: DBROWSTATUSENUM = DBROWSTATUSENUM(10i32);
+pub const DBROWSTATUS_E_OBJECTOPEN: DBROWSTATUSENUM = DBROWSTATUSENUM(14i32);
+pub const DBROWSTATUS_E_OUTOFMEMORY: DBROWSTATUSENUM = DBROWSTATUSENUM(15i32);
+pub const DBROWSTATUS_E_PENDINGINSERT: DBROWSTATUSENUM = DBROWSTATUSENUM(9i32);
+pub const DBROWSTATUS_E_PERMISSIONDENIED: DBROWSTATUSENUM = DBROWSTATUSENUM(16i32);
+pub const DBROWSTATUS_E_SCHEMAVIOLATION: DBROWSTATUSENUM = DBROWSTATUSENUM(18i32);
+pub const DBROWSTATUS_S_MULTIPLECHANGES: DBROWSTATUSENUM = DBROWSTATUSENUM(2i32);
+pub const DBROWSTATUS_S_NOCHANGE: DBROWSTATUSENUM20 = DBROWSTATUSENUM20(20i32);
+pub const DBROWSTATUS_S_OK: DBROWSTATUSENUM = DBROWSTATUSENUM(0i32);
+pub const DBROWSTATUS_S_PENDINGCHANGES: DBROWSTATUSENUM = DBROWSTATUSENUM(3i32);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct DBROWWATCHCHANGE {
+    pub hRegion: usize,
+    pub eChangeKind: u32,
+    pub hRow: usize,
+    pub iRow: usize,
+}
+#[cfg(target_arch = "x86")]
+impl Default for DBROWWATCHCHANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for DBROWWATCHCHANGE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DBROWWATCHCHANGE {
+    pub hRegion: usize,
+    pub eChangeKind: u32,
+    pub hRow: usize,
+    pub iRow: usize,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for DBROWWATCHCHANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for DBROWWATCHCHANGE {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DBSCHEMA_LINKEDSERVERS: windows_core::GUID = windows_core::GUID::from_u128(0x9093caf4_2eac_11d1_9809_00c04fc2ad98);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBSEEKENUM(pub i32);
+pub const DBSEEK_AFTER: DBSEEKENUM = DBSEEKENUM(8i32);
+pub const DBSEEK_AFTEREQ: DBSEEKENUM = DBSEEKENUM(4i32);
+pub const DBSEEK_BEFORE: DBSEEKENUM = DBSEEKENUM(32i32);
+pub const DBSEEK_BEFOREEQ: DBSEEKENUM = DBSEEKENUM(16i32);
+pub const DBSEEK_FIRSTEQ: DBSEEKENUM = DBSEEKENUM(1i32);
+pub const DBSEEK_INVALID: DBSEEKENUM = DBSEEKENUM(0i32);
+pub const DBSEEK_LASTEQ: DBSEEKENUM = DBSEEKENUM(2i32);
+pub const DBSELFGUID: windows_core::GUID = windows_core::GUID::from_u128(0xc8b52231_5cf3_11ce_ade5_00aa0044773d);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBSORTENUM(pub i32);
+pub const DBSORT_ASCENDING: DBSORTENUM = DBSORTENUM(0i32);
+pub const DBSORT_DESCENDING: DBSORTENUM = DBSORTENUM(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBSOURCETYPEENUM(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBSOURCETYPEENUM20(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBSOURCETYPEENUM25(pub i32);
+pub const DBSOURCETYPE_BINDER: DBSOURCETYPEENUM25 = DBSOURCETYPEENUM25(4i32);
+pub const DBSOURCETYPE_DATASOURCE: DBSOURCETYPEENUM = DBSOURCETYPEENUM(1i32);
+pub const DBSOURCETYPE_DATASOURCE_MDP: DBSOURCETYPEENUM20 = DBSOURCETYPEENUM20(3i32);
+pub const DBSOURCETYPE_DATASOURCE_TDP: DBSOURCETYPEENUM20 = DBSOURCETYPEENUM20(1i32);
+pub const DBSOURCETYPE_ENUMERATOR: DBSOURCETYPEENUM = DBSOURCETYPEENUM(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBSTATUSENUM(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBSTATUSENUM20(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBSTATUSENUM21(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBSTATUSENUM25(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBSTATUSENUM26(pub i32);
+pub const DBSTATUS_E_BADACCESSOR: DBSTATUSENUM = DBSTATUSENUM(1i32);
+pub const DBSTATUS_E_BADSTATUS: DBSTATUSENUM = DBSTATUSENUM(12i32);
+pub const DBSTATUS_E_CANCELED: DBSTATUSENUM25 = DBSTATUSENUM25(27i32);
+pub const DBSTATUS_E_CANNOTCOMPLETE: DBSTATUSENUM21 = DBSTATUSENUM21(20i32);
+pub const DBSTATUS_E_CANTCONVERTVALUE: DBSTATUSENUM = DBSTATUSENUM(2i32);
+pub const DBSTATUS_E_CANTCREATE: DBSTATUSENUM = DBSTATUSENUM(7i32);
+pub const DBSTATUS_E_DATAOVERFLOW: DBSTATUSENUM = DBSTATUSENUM(6i32);
+pub const DBSTATUS_E_DOESNOTEXIST: DBSTATUSENUM21 = DBSTATUSENUM21(16i32);
+pub const DBSTATUS_E_INTEGRITYVIOLATION: DBSTATUSENUM = DBSTATUSENUM(10i32);
+pub const DBSTATUS_E_INVALIDURL: DBSTATUSENUM21 = DBSTATUSENUM21(17i32);
+pub const DBSTATUS_E_NOTCOLLECTION: DBSTATUSENUM25 = DBSTATUSENUM25(28i32);
+pub const DBSTATUS_E_OUTOFSPACE: DBSTATUSENUM21 = DBSTATUSENUM21(22i32);
+pub const DBSTATUS_E_PERMISSIONDENIED: DBSTATUSENUM = DBSTATUSENUM(9i32);
+pub const DBSTATUS_E_READONLY: DBSTATUSENUM21 = DBSTATUSENUM21(24i32);
+pub const DBSTATUS_E_RESOURCEEXISTS: DBSTATUSENUM21 = DBSTATUSENUM21(19i32);
+pub const DBSTATUS_E_RESOURCELOCKED: DBSTATUSENUM21 = DBSTATUSENUM21(18i32);
+pub const DBSTATUS_E_RESOURCEOUTOFSCOPE: DBSTATUSENUM21 = DBSTATUSENUM21(25i32);
+pub const DBSTATUS_E_SCHEMAVIOLATION: DBSTATUSENUM = DBSTATUSENUM(11i32);
+pub const DBSTATUS_E_SIGNMISMATCH: DBSTATUSENUM = DBSTATUSENUM(5i32);
+pub const DBSTATUS_E_UNAVAILABLE: DBSTATUSENUM = DBSTATUSENUM(8i32);
+pub const DBSTATUS_E_VOLUMENOTFOUND: DBSTATUSENUM21 = DBSTATUSENUM21(21i32);
+pub const DBSTATUS_S_ALREADYEXISTS: DBSTATUSENUM21 = DBSTATUSENUM21(26i32);
+pub const DBSTATUS_S_CANNOTDELETESOURCE: DBSTATUSENUM21 = DBSTATUSENUM21(23i32);
+pub const DBSTATUS_S_DEFAULT: DBSTATUSENUM = DBSTATUSENUM(13i32);
+pub const DBSTATUS_S_IGNORE: DBSTATUSENUM20 = DBSTATUSENUM20(15i32);
+pub const DBSTATUS_S_ISNULL: DBSTATUSENUM = DBSTATUSENUM(3i32);
+pub const DBSTATUS_S_OK: DBSTATUSENUM = DBSTATUSENUM(0i32);
+pub const DBSTATUS_S_ROWSETCOLUMN: DBSTATUSENUM26 = DBSTATUSENUM26(29i32);
+pub const DBSTATUS_S_TRUNCATED: DBSTATUSENUM = DBSTATUSENUM(4i32);
+pub const DBSTAT_COLUMN_CARDINALITY: DBTABLESTATISTICSTYPE26 = DBTABLESTATISTICSTYPE26(2i32);
+pub const DBSTAT_HISTOGRAM: DBTABLESTATISTICSTYPE26 = DBTABLESTATISTICSTYPE26(1i32);
+pub const DBSTAT_TUPLE_CARDINALITY: DBTABLESTATISTICSTYPE26 = DBTABLESTATISTICSTYPE26(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBTABLESTATISTICSTYPE26(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DBTIME {
+    pub hour: u16,
+    pub minute: u16,
+    pub second: u16,
+}
+impl Default for DBTIME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DBTIME {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct DBTIMESTAMP {
+    pub year: i16,
+    pub month: u16,
+    pub day: u16,
+    pub hour: u16,
+    pub minute: u16,
+    pub second: u16,
+    pub fraction: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for DBTIMESTAMP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for DBTIMESTAMP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DBTIMESTAMP {
+    pub year: i16,
+    pub month: u16,
+    pub day: u16,
+    pub hour: u16,
+    pub minute: u16,
+    pub second: u16,
+    pub fraction: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for DBTIMESTAMP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for DBTIMESTAMP {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBTYPEENUM(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBTYPEENUM15(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBTYPEENUM20(pub i32);
+pub const DBTYPE_ARRAY: DBTYPEENUM = DBTYPEENUM(8192i32);
+pub const DBTYPE_BOOL: DBTYPEENUM = DBTYPEENUM(11i32);
+pub const DBTYPE_BSTR: DBTYPEENUM = DBTYPEENUM(8i32);
+pub const DBTYPE_BYREF: DBTYPEENUM = DBTYPEENUM(16384i32);
+pub const DBTYPE_BYTES: DBTYPEENUM = DBTYPEENUM(128i32);
+pub const DBTYPE_CY: DBTYPEENUM = DBTYPEENUM(6i32);
+pub const DBTYPE_DATE: DBTYPEENUM = DBTYPEENUM(7i32);
+pub const DBTYPE_DBDATE: DBTYPEENUM = DBTYPEENUM(133i32);
+pub const DBTYPE_DBTIME: DBTYPEENUM = DBTYPEENUM(134i32);
+pub const DBTYPE_DBTIMESTAMP: DBTYPEENUM = DBTYPEENUM(135i32);
+pub const DBTYPE_DECIMAL: DBTYPEENUM = DBTYPEENUM(14i32);
+pub const DBTYPE_EMPTY: DBTYPEENUM = DBTYPEENUM(0i32);
+pub const DBTYPE_ERROR: DBTYPEENUM = DBTYPEENUM(10i32);
+pub const DBTYPE_FILETIME: DBTYPEENUM20 = DBTYPEENUM20(64i32);
+pub const DBTYPE_GUID: DBTYPEENUM = DBTYPEENUM(72i32);
+pub const DBTYPE_HCHAPTER: DBTYPEENUM15 = DBTYPEENUM15(136i32);
+pub const DBTYPE_I1: DBTYPEENUM = DBTYPEENUM(16i32);
+pub const DBTYPE_I2: DBTYPEENUM = DBTYPEENUM(2i32);
+pub const DBTYPE_I4: DBTYPEENUM = DBTYPEENUM(3i32);
+pub const DBTYPE_I8: DBTYPEENUM = DBTYPEENUM(20i32);
+pub const DBTYPE_IDISPATCH: DBTYPEENUM = DBTYPEENUM(9i32);
+pub const DBTYPE_IUNKNOWN: DBTYPEENUM = DBTYPEENUM(13i32);
+pub const DBTYPE_NULL: DBTYPEENUM = DBTYPEENUM(1i32);
+pub const DBTYPE_NUMERIC: DBTYPEENUM = DBTYPEENUM(131i32);
+pub const DBTYPE_PROPVARIANT: DBTYPEENUM20 = DBTYPEENUM20(138i32);
+pub const DBTYPE_R4: DBTYPEENUM = DBTYPEENUM(4i32);
+pub const DBTYPE_R8: DBTYPEENUM = DBTYPEENUM(5i32);
+pub const DBTYPE_RESERVED: DBTYPEENUM = DBTYPEENUM(32768i32);
+pub const DBTYPE_SQLVARIANT: u32 = 144u32;
+pub const DBTYPE_STR: DBTYPEENUM = DBTYPEENUM(129i32);
+pub const DBTYPE_UDT: DBTYPEENUM = DBTYPEENUM(132i32);
+pub const DBTYPE_UI1: DBTYPEENUM = DBTYPEENUM(17i32);
+pub const DBTYPE_UI2: DBTYPEENUM = DBTYPEENUM(18i32);
+pub const DBTYPE_UI4: DBTYPEENUM = DBTYPEENUM(19i32);
+pub const DBTYPE_UI8: DBTYPEENUM = DBTYPEENUM(21i32);
+pub const DBTYPE_VARIANT: DBTYPEENUM = DBTYPEENUM(12i32);
+pub const DBTYPE_VARNUMERIC: DBTYPEENUM20 = DBTYPEENUM20(139i32);
+pub const DBTYPE_VECTOR: DBTYPEENUM = DBTYPEENUM(4096i32);
+pub const DBTYPE_WSTR: DBTYPEENUM = DBTYPEENUM(130i32);
+pub const DBUNIT_BYTE: DBCOSTUNITENUM = DBCOSTUNITENUM(512i32);
+pub const DBUNIT_GIGA_BYTE: DBCOSTUNITENUM = DBCOSTUNITENUM(4096i32);
+pub const DBUNIT_HOUR: DBCOSTUNITENUM = DBCOSTUNITENUM(256i32);
+pub const DBUNIT_INVALID: DBCOSTUNITENUM = DBCOSTUNITENUM(0i32);
+pub const DBUNIT_KILO_BYTE: DBCOSTUNITENUM = DBCOSTUNITENUM(1024i32);
+pub const DBUNIT_MAXIMUM: DBCOSTUNITENUM = DBCOSTUNITENUM(4i32);
+pub const DBUNIT_MEGA_BYTE: DBCOSTUNITENUM = DBCOSTUNITENUM(2048i32);
+pub const DBUNIT_MICRO_SECOND: DBCOSTUNITENUM = DBCOSTUNITENUM(16i32);
+pub const DBUNIT_MILLI_SECOND: DBCOSTUNITENUM = DBCOSTUNITENUM(32i32);
+pub const DBUNIT_MINIMUM: DBCOSTUNITENUM = DBCOSTUNITENUM(8i32);
+pub const DBUNIT_MINUTE: DBCOSTUNITENUM = DBCOSTUNITENUM(128i32);
+pub const DBUNIT_NUM_LOCKS: DBCOSTUNITENUM = DBCOSTUNITENUM(16384i32);
+pub const DBUNIT_NUM_MSGS: DBCOSTUNITENUM = DBCOSTUNITENUM(8192i32);
+pub const DBUNIT_NUM_ROWS: DBCOSTUNITENUM = DBCOSTUNITENUM(32768i32);
+pub const DBUNIT_OTHER: DBCOSTUNITENUM = DBCOSTUNITENUM(65536i32);
+pub const DBUNIT_PERCENT: DBCOSTUNITENUM = DBCOSTUNITENUM(2i32);
+pub const DBUNIT_SECOND: DBCOSTUNITENUM = DBCOSTUNITENUM(64i32);
+pub const DBUNIT_WEIGHT: DBCOSTUNITENUM = DBCOSTUNITENUM(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBUPDELRULEENUM(pub i32);
+pub const DBUPDELRULE_CASCADE: DBUPDELRULEENUM = DBUPDELRULEENUM(1i32);
+pub const DBUPDELRULE_NOACTION: DBUPDELRULEENUM = DBUPDELRULEENUM(0i32);
+pub const DBUPDELRULE_SETDEFAULT: DBUPDELRULEENUM = DBUPDELRULEENUM(3i32);
+pub const DBUPDELRULE_SETNULL: DBUPDELRULEENUM = DBUPDELRULEENUM(2i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DBVARYBIN {
+    pub len: i16,
+    pub array: [u8; 8001],
+}
+impl Default for DBVARYBIN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DBVARYBIN {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DBVARYCHAR {
+    pub len: i16,
+    pub str: [i8; 8001],
+}
+impl Default for DBVARYCHAR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DBVARYCHAR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct DBVECTOR {
+    pub size: usize,
+    pub ptr: *mut core::ffi::c_void,
+}
+#[cfg(target_arch = "x86")]
+impl Default for DBVECTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for DBVECTOR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DBVECTOR {
+    pub size: usize,
+    pub ptr: *mut core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for DBVECTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for DBVECTOR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBWATCHMODEENUM(pub i32);
+pub const DBWATCHMODE_ALL: DBWATCHMODEENUM = DBWATCHMODEENUM(1i32);
+pub const DBWATCHMODE_COUNT: DBWATCHMODEENUM = DBWATCHMODEENUM(8i32);
+pub const DBWATCHMODE_EXTEND: DBWATCHMODEENUM = DBWATCHMODEENUM(2i32);
+pub const DBWATCHMODE_MOVE: DBWATCHMODEENUM = DBWATCHMODEENUM(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DBWATCHNOTIFYENUM(pub i32);
+pub const DBWATCHNOTIFY_QUERYDONE: DBWATCHNOTIFYENUM = DBWATCHNOTIFYENUM(2i32);
+pub const DBWATCHNOTIFY_QUERYREEXECUTED: DBWATCHNOTIFYENUM = DBWATCHNOTIFYENUM(3i32);
+pub const DBWATCHNOTIFY_ROWSCHANGED: DBWATCHNOTIFYENUM = DBWATCHNOTIFYENUM(1i32);
+pub const DB_ALL_EXCEPT_LIKE: u32 = 3u32;
+pub const DB_BINDFLAGS_COLLECTION: i32 = 16i32;
+pub const DB_BINDFLAGS_DELAYFETCHCOLUMNS: i32 = 1i32;
+pub const DB_BINDFLAGS_DELAYFETCHSTREAM: i32 = 2i32;
+pub const DB_BINDFLAGS_ISSTRUCTUREDDOCUMENT: i32 = 128i32;
+pub const DB_BINDFLAGS_OPENIFEXISTS: i32 = 32i32;
+pub const DB_BINDFLAGS_OUTPUT: i32 = 8i32;
+pub const DB_BINDFLAGS_OVERWRITE: i32 = 64i32;
+pub const DB_BINDFLAGS_RECURSIVE: i32 = 4i32;
+pub const DB_COLLATION_ASC: u32 = 1u32;
+pub const DB_COLLATION_DESC: u32 = 2u32;
+pub const DB_COUNTUNAVAILABLE: i32 = -1i32;
+pub const DB_E_ABORTLIMITREACHED: windows_core::HRESULT = windows_core::HRESULT(0x80040E31_u32 as _);
+pub const DB_E_ALREADYINITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x80040E52_u32 as _);
+pub const DB_E_ALTERRESTRICTED: windows_core::HRESULT = windows_core::HRESULT(0x80040E9D_u32 as _);
+pub const DB_E_ASYNCNOTSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80040E95_u32 as _);
+pub const DB_E_BADACCESSORFLAGS: windows_core::HRESULT = windows_core::HRESULT(0x80040E46_u32 as _);
+pub const DB_E_BADACCESSORHANDLE: windows_core::HRESULT = windows_core::HRESULT(0x80040E00_u32 as _);
+pub const DB_E_BADACCESSORTYPE: windows_core::HRESULT = windows_core::HRESULT(0x80040E4B_u32 as _);
+pub const DB_E_BADBINDINFO: windows_core::HRESULT = windows_core::HRESULT(0x80040E08_u32 as _);
+pub const DB_E_BADBOOKMARK: windows_core::HRESULT = windows_core::HRESULT(0x80040E0E_u32 as _);
+pub const DB_E_BADCHAPTER: windows_core::HRESULT = windows_core::HRESULT(0x80040E06_u32 as _);
+pub const DB_E_BADCOLUMNID: windows_core::HRESULT = windows_core::HRESULT(0x80040E11_u32 as _);
+pub const DB_E_BADCOMMANDFLAGS: windows_core::HRESULT = windows_core::HRESULT(0x80040E8C_u32 as _);
+pub const DB_E_BADCOMMANDID: windows_core::HRESULT = windows_core::HRESULT(0x80040E76_u32 as _);
+pub const DB_E_BADCOMPAREOP: windows_core::HRESULT = windows_core::HRESULT(0x80040E27_u32 as _);
+pub const DB_E_BADCONSTRAINTFORM: windows_core::HRESULT = windows_core::HRESULT(0x80040E78_u32 as _);
+pub const DB_E_BADCONSTRAINTID: windows_core::HRESULT = windows_core::HRESULT(0x80040E8B_u32 as _);
+pub const DB_E_BADCONSTRAINTTYPE: windows_core::HRESULT = windows_core::HRESULT(0x80040E77_u32 as _);
+pub const DB_E_BADCONVERTFLAG: windows_core::HRESULT = windows_core::HRESULT(0x80040E5C_u32 as _);
+pub const DB_E_BADCOPY: windows_core::HRESULT = windows_core::HRESULT(0x80040E39_u32 as _);
+pub const DB_E_BADDEFERRABILITY: windows_core::HRESULT = windows_core::HRESULT(0x80040E79_u32 as _);
+pub const DB_E_BADDYNAMICERRORID: windows_core::HRESULT = windows_core::HRESULT(0x80040E5A_u32 as _);
+pub const DB_E_BADHRESULT: windows_core::HRESULT = windows_core::HRESULT(0x80040E58_u32 as _);
+pub const DB_E_BADID: i32 = -2147217860i32;
+pub const DB_E_BADINDEXID: windows_core::HRESULT = windows_core::HRESULT(0x80040E72_u32 as _);
+pub const DB_E_BADINITSTRING: windows_core::HRESULT = windows_core::HRESULT(0x80040E73_u32 as _);
+pub const DB_E_BADLOCKMODE: windows_core::HRESULT = windows_core::HRESULT(0x80040E0F_u32 as _);
+pub const DB_E_BADLOOKUPID: windows_core::HRESULT = windows_core::HRESULT(0x80040E59_u32 as _);
+pub const DB_E_BADMATCHTYPE: windows_core::HRESULT = windows_core::HRESULT(0x80040E80_u32 as _);
+pub const DB_E_BADORDINAL: windows_core::HRESULT = windows_core::HRESULT(0x80040E55_u32 as _);
+pub const DB_E_BADPARAMETERNAME: windows_core::HRESULT = windows_core::HRESULT(0x80040E5D_u32 as _);
+pub const DB_E_BADPRECISION: windows_core::HRESULT = windows_core::HRESULT(0x80040E3A_u32 as _);
+pub const DB_E_BADPROPERTYVALUE: windows_core::HRESULT = windows_core::HRESULT(0x80040E44_u32 as _);
+pub const DB_E_BADRATIO: windows_core::HRESULT = windows_core::HRESULT(0x80040E12_u32 as _);
+pub const DB_E_BADRECORDNUM: windows_core::HRESULT = windows_core::HRESULT(0x80040E42_u32 as _);
+pub const DB_E_BADREGIONHANDLE: windows_core::HRESULT = windows_core::HRESULT(0x80040E2A_u32 as _);
+pub const DB_E_BADROWHANDLE: windows_core::HRESULT = windows_core::HRESULT(0x80040E04_u32 as _);
+pub const DB_E_BADSCALE: windows_core::HRESULT = windows_core::HRESULT(0x80040E3B_u32 as _);
+pub const DB_E_BADSOURCEHANDLE: windows_core::HRESULT = windows_core::HRESULT(0x80040E50_u32 as _);
+pub const DB_E_BADSTARTPOSITION: windows_core::HRESULT = windows_core::HRESULT(0x80040E1E_u32 as _);
+pub const DB_E_BADSTATUSVALUE: windows_core::HRESULT = windows_core::HRESULT(0x80040E28_u32 as _);
+pub const DB_E_BADSTORAGEFLAG: windows_core::HRESULT = windows_core::HRESULT(0x80040E26_u32 as _);
+pub const DB_E_BADSTORAGEFLAGS: windows_core::HRESULT = windows_core::HRESULT(0x80040E47_u32 as _);
+pub const DB_E_BADTABLEID: windows_core::HRESULT = windows_core::HRESULT(0x80040E3C_u32 as _);
+pub const DB_E_BADTYPE: windows_core::HRESULT = windows_core::HRESULT(0x80040E3D_u32 as _);
+pub const DB_E_BADTYPENAME: windows_core::HRESULT = windows_core::HRESULT(0x80040E30_u32 as _);
+pub const DB_E_BADUPDATEDELETERULE: windows_core::HRESULT = windows_core::HRESULT(0x80040E8A_u32 as _);
+pub const DB_E_BADVALUES: windows_core::HRESULT = windows_core::HRESULT(0x80040E13_u32 as _);
+pub const DB_E_BOGUS: windows_core::HRESULT = windows_core::HRESULT(0x80040EFF_u32 as _);
+pub const DB_E_BOOKMARKSKIPPED: windows_core::HRESULT = windows_core::HRESULT(0x80040E43_u32 as _);
+pub const DB_E_BYREFACCESSORNOTSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80040E48_u32 as _);
+pub const DB_E_CANCELED: windows_core::HRESULT = windows_core::HRESULT(0x80040E4E_u32 as _);
+pub const DB_E_CANNOTCONNECT: windows_core::HRESULT = windows_core::HRESULT(0x80040E96_u32 as _);
+pub const DB_E_CANNOTFREE: windows_core::HRESULT = windows_core::HRESULT(0x80040E1A_u32 as _);
+pub const DB_E_CANNOTRESTART: windows_core::HRESULT = windows_core::HRESULT(0x80040E18_u32 as _);
+pub const DB_E_CANTCANCEL: windows_core::HRESULT = windows_core::HRESULT(0x80040E15_u32 as _);
+pub const DB_E_CANTCONVERTVALUE: windows_core::HRESULT = windows_core::HRESULT(0x80040E07_u32 as _);
+pub const DB_E_CANTFETCHBACKWARDS: windows_core::HRESULT = windows_core::HRESULT(0x80040E24_u32 as _);
+pub const DB_E_CANTFILTER: windows_core::HRESULT = windows_core::HRESULT(0x80040E5F_u32 as _);
+pub const DB_E_CANTORDER: windows_core::HRESULT = windows_core::HRESULT(0x80040E60_u32 as _);
+pub const DB_E_CANTSCROLLBACKWARDS: windows_core::HRESULT = windows_core::HRESULT(0x80040E29_u32 as _);
+pub const DB_E_CANTTRANSLATE: windows_core::HRESULT = windows_core::HRESULT(0x80040E33_u32 as _);
+pub const DB_E_CHAPTERNOTRELEASED: windows_core::HRESULT = windows_core::HRESULT(0x80040E4F_u32 as _);
+pub const DB_E_COLUMNUNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x80040EA0_u32 as _);
+pub const DB_E_COMMANDNOTPERSISTED: windows_core::HRESULT = windows_core::HRESULT(0x80040E67_u32 as _);
+pub const DB_E_CONCURRENCYVIOLATION: windows_core::HRESULT = windows_core::HRESULT(0x80040E38_u32 as _);
+pub const DB_E_COSTLIMIT: windows_core::HRESULT = windows_core::HRESULT(0x80040E0D_u32 as _);
+pub const DB_E_DATAOVERFLOW: windows_core::HRESULT = windows_core::HRESULT(0x80040E57_u32 as _);
+pub const DB_E_DELETEDROW: windows_core::HRESULT = windows_core::HRESULT(0x80040E23_u32 as _);
+pub const DB_E_DIALECTNOTSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80040E16_u32 as _);
+pub const DB_E_DROPRESTRICTED: windows_core::HRESULT = windows_core::HRESULT(0x80040E90_u32 as _);
+pub const DB_E_DUPLICATECOLUMNID: windows_core::HRESULT = windows_core::HRESULT(0x80040E3E_u32 as _);
+pub const DB_E_DUPLICATECONSTRAINTID: windows_core::HRESULT = windows_core::HRESULT(0x80040E99_u32 as _);
+pub const DB_E_DUPLICATEDATASOURCE: windows_core::HRESULT = windows_core::HRESULT(0x80040E17_u32 as _);
+pub const DB_E_DUPLICATEID: windows_core::HRESULT = windows_core::HRESULT(0x80040E68_u32 as _);
+pub const DB_E_DUPLICATEINDEXID: windows_core::HRESULT = windows_core::HRESULT(0x80040E34_u32 as _);
+pub const DB_E_DUPLICATETABLEID: windows_core::HRESULT = windows_core::HRESULT(0x80040E3F_u32 as _);
+pub const DB_E_ERRORSINCOMMAND: windows_core::HRESULT = windows_core::HRESULT(0x80040E14_u32 as _);
+pub const DB_E_ERRORSOCCURRED: windows_core::HRESULT = windows_core::HRESULT(0x80040E21_u32 as _);
+pub const DB_E_GOALREJECTED: windows_core::HRESULT = windows_core::HRESULT(0x80040E1C_u32 as _);
+pub const DB_E_INDEXINUSE: windows_core::HRESULT = windows_core::HRESULT(0x80040E36_u32 as _);
+pub const DB_E_INTEGRITYVIOLATION: windows_core::HRESULT = windows_core::HRESULT(0x80040E2F_u32 as _);
+pub const DB_E_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80040E45_u32 as _);
+pub const DB_E_INVALIDTRANSITION: windows_core::HRESULT = windows_core::HRESULT(0x80040E2C_u32 as _);
+pub const DB_E_LIMITREJECTED: windows_core::HRESULT = windows_core::HRESULT(0x80040E0B_u32 as _);
+pub const DB_E_MAXPENDCHANGESEXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x80040E54_u32 as _);
+pub const DB_E_MISMATCHEDPROVIDER: windows_core::HRESULT = windows_core::HRESULT(0x80040E75_u32 as _);
+pub const DB_E_MULTIPLESTATEMENTS: windows_core::HRESULT = windows_core::HRESULT(0x80040E2E_u32 as _);
+pub const DB_E_MULTIPLESTORAGE: windows_core::HRESULT = windows_core::HRESULT(0x80040E5E_u32 as _);
+pub const DB_E_NEWLYINSERTED: windows_core::HRESULT = windows_core::HRESULT(0x80040E1B_u32 as _);
+pub const DB_E_NOAGGREGATION: windows_core::HRESULT = windows_core::HRESULT(0x80040E22_u32 as _);
+pub const DB_E_NOCOLUMN: windows_core::HRESULT = windows_core::HRESULT(0x80040E65_u32 as _);
+pub const DB_E_NOCOMMAND: windows_core::HRESULT = windows_core::HRESULT(0x80040E0C_u32 as _);
+pub const DB_E_NOCONSTRAINT: windows_core::HRESULT = windows_core::HRESULT(0x80040E9F_u32 as _);
+pub const DB_E_NOINDEX: windows_core::HRESULT = windows_core::HRESULT(0x80040E35_u32 as _);
+pub const DB_E_NOLOCALE: windows_core::HRESULT = windows_core::HRESULT(0x80040E41_u32 as _);
+pub const DB_E_NONCONTIGUOUSRANGE: windows_core::HRESULT = windows_core::HRESULT(0x80040E2B_u32 as _);
+pub const DB_E_NOPROVIDERSREGISTERED: windows_core::HRESULT = windows_core::HRESULT(0x80040E74_u32 as _);
+pub const DB_E_NOQUERY: windows_core::HRESULT = windows_core::HRESULT(0x80040E1F_u32 as _);
+pub const DB_E_NOSOURCEOBJECT: windows_core::HRESULT = windows_core::HRESULT(0x80040E91_u32 as _);
+pub const DB_E_NOSTATISTIC: windows_core::HRESULT = windows_core::HRESULT(0x80040E9C_u32 as _);
+pub const DB_E_NOTABLE: windows_core::HRESULT = windows_core::HRESULT(0x80040E37_u32 as _);
+pub const DB_E_NOTAREFERENCECOLUMN: windows_core::HRESULT = windows_core::HRESULT(0x80040E0A_u32 as _);
+pub const DB_E_NOTASUBREGION: windows_core::HRESULT = windows_core::HRESULT(0x80040E2D_u32 as _);
+pub const DB_E_NOTCOLLECTION: windows_core::HRESULT = windows_core::HRESULT(0x80040E93_u32 as _);
+pub const DB_E_NOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x80040E19_u32 as _);
+pub const DB_E_NOTPREPARED: windows_core::HRESULT = windows_core::HRESULT(0x80040E4A_u32 as _);
+pub const DB_E_NOTREENTRANT: windows_core::HRESULT = windows_core::HRESULT(0x80040E20_u32 as _);
+pub const DB_E_NOTSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80040E53_u32 as _);
+pub const DB_E_NULLACCESSORNOTSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80040E49_u32 as _);
+pub const DB_E_OBJECTCREATIONLIMITREACHED: windows_core::HRESULT = windows_core::HRESULT(0x80040E69_u32 as _);
+pub const DB_E_OBJECTMISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x80040E8D_u32 as _);
+pub const DB_E_OBJECTOPEN: windows_core::HRESULT = windows_core::HRESULT(0x80040E05_u32 as _);
+pub const DB_E_OUTOFSPACE: windows_core::HRESULT = windows_core::HRESULT(0x80040E9A_u32 as _);
+pub const DB_E_PARAMNOTOPTIONAL: windows_core::HRESULT = windows_core::HRESULT(0x80040E10_u32 as _);
+pub const DB_E_PARAMUNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x80040E51_u32 as _);
+pub const DB_E_PENDINGCHANGES: windows_core::HRESULT = windows_core::HRESULT(0x80040E56_u32 as _);
+pub const DB_E_PENDINGINSERT: windows_core::HRESULT = windows_core::HRESULT(0x80040E5B_u32 as _);
+pub const DB_E_READONLY: windows_core::HRESULT = windows_core::HRESULT(0x80040E94_u32 as _);
+pub const DB_E_READONLYACCESSOR: windows_core::HRESULT = windows_core::HRESULT(0x80040E02_u32 as _);
+pub const DB_E_RESOURCEEXISTS: windows_core::HRESULT = windows_core::HRESULT(0x80040E98_u32 as _);
+pub const DB_E_RESOURCELOCKED: windows_core::HRESULT = windows_core::HRESULT(0x80040E92_u32 as _);
+pub const DB_E_RESOURCENOTSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80040E9E_u32 as _);
+pub const DB_E_RESOURCEOUTOFSCOPE: windows_core::HRESULT = windows_core::HRESULT(0x80040E8E_u32 as _);
+pub const DB_E_ROWLIMITEXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x80040E01_u32 as _);
+pub const DB_E_ROWSETINCOMMAND: windows_core::HRESULT = windows_core::HRESULT(0x80040E32_u32 as _);
+pub const DB_E_ROWSNOTRELEASED: windows_core::HRESULT = windows_core::HRESULT(0x80040E25_u32 as _);
+pub const DB_E_SCHEMAVIOLATION: windows_core::HRESULT = windows_core::HRESULT(0x80040E03_u32 as _);
+pub const DB_E_TABLEINUSE: windows_core::HRESULT = windows_core::HRESULT(0x80040E40_u32 as _);
+pub const DB_E_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x80040E97_u32 as _);
+pub const DB_E_UNSUPPORTEDCONVERSION: windows_core::HRESULT = windows_core::HRESULT(0x80040E1D_u32 as _);
+pub const DB_E_WRITEONLYACCESSOR: windows_core::HRESULT = windows_core::HRESULT(0x80040E4C_u32 as _);
+pub const DB_IMP_LEVEL_ANONYMOUS: u32 = 0u32;
+pub const DB_IMP_LEVEL_DELEGATE: u32 = 3u32;
+pub const DB_IMP_LEVEL_IDENTIFY: u32 = 1u32;
+pub const DB_IMP_LEVEL_IMPERSONATE: u32 = 2u32;
+pub const DB_IN: u32 = 1u32;
+pub const DB_INVALID_HACCESSOR: u32 = 0u32;
+pub const DB_INVALID_HCHAPTER: u32 = 0u32;
+pub const DB_LIKE_ONLY: u32 = 2u32;
+pub const DB_LOCAL_EXCLUSIVE: u32 = 3u32;
+pub const DB_LOCAL_SHARED: u32 = 2u32;
+pub const DB_MODE_READ: u32 = 1u32;
+pub const DB_MODE_READWRITE: u32 = 3u32;
+pub const DB_MODE_SHARE_DENY_NONE: u32 = 16u32;
+pub const DB_MODE_SHARE_DENY_READ: u32 = 4u32;
+pub const DB_MODE_SHARE_DENY_WRITE: u32 = 8u32;
+pub const DB_MODE_SHARE_EXCLUSIVE: u32 = 12u32;
+pub const DB_MODE_WRITE: u32 = 2u32;
+pub const DB_NULLGUID: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+pub const DB_NULL_HACCESSOR: u32 = 0u32;
+pub const DB_NULL_HCHAPTER: u32 = 0u32;
+pub const DB_NULL_HROW: u32 = 0u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DB_NUMERIC {
+    pub precision: u8,
+    pub scale: u8,
+    pub sign: u8,
+    pub val: [u8; 16],
+}
+impl Default for DB_NUMERIC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DB_NUMERIC {
+    type TypeKind = windows_core::CopyType;
+}
+pub const DB_OUT: u32 = 2u32;
+pub const DB_PROT_LEVEL_CALL: u32 = 2u32;
+pub const DB_PROT_LEVEL_CONNECT: u32 = 1u32;
+pub const DB_PROT_LEVEL_NONE: u32 = 0u32;
+pub const DB_PROT_LEVEL_PKT: u32 = 3u32;
+pub const DB_PROT_LEVEL_PKT_INTEGRITY: u32 = 4u32;
+pub const DB_PROT_LEVEL_PKT_PRIVACY: u32 = 5u32;
+pub const DB_PT_FUNCTION: u32 = 3u32;
+pub const DB_PT_PROCEDURE: u32 = 2u32;
+pub const DB_PT_UNKNOWN: u32 = 1u32;
+pub const DB_REMOTE: u32 = 1u32;
+pub const DB_SEARCHABLE: u32 = 4u32;
+pub const DB_SEC_E_AUTH_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80040E4D_u32 as _);
+pub const DB_SEC_E_PERMISSIONDENIED: windows_core::HRESULT = windows_core::HRESULT(0x80040E09_u32 as _);
+pub const DB_SEC_E_SAFEMODE_DENIED: windows_core::HRESULT = windows_core::HRESULT(0x80040E9B_u32 as _);
+pub const DB_S_ASYNCHRONOUS: windows_core::HRESULT = windows_core::HRESULT(0x40ED0_u32 as _);
+pub const DB_S_BADROWHANDLE: windows_core::HRESULT = windows_core::HRESULT(0x40ED3_u32 as _);
+pub const DB_S_BOOKMARKSKIPPED: windows_core::HRESULT = windows_core::HRESULT(0x40EC3_u32 as _);
+pub const DB_S_BUFFERFULL: windows_core::HRESULT = windows_core::HRESULT(0x40EC8_u32 as _);
+pub const DB_S_CANTRELEASE: windows_core::HRESULT = windows_core::HRESULT(0x40ECA_u32 as _);
+pub const DB_S_COLUMNSCHANGED: windows_core::HRESULT = windows_core::HRESULT(0x40ED1_u32 as _);
+pub const DB_S_COLUMNTYPEMISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x40EC1_u32 as _);
+pub const DB_S_COMMANDREEXECUTED: windows_core::HRESULT = windows_core::HRESULT(0x40EC7_u32 as _);
+pub const DB_S_DELETEDROW: windows_core::HRESULT = windows_core::HRESULT(0x40ED4_u32 as _);
+pub const DB_S_DIALECTIGNORED: windows_core::HRESULT = windows_core::HRESULT(0x40ECD_u32 as _);
+pub const DB_S_ENDOFROWSET: windows_core::HRESULT = windows_core::HRESULT(0x40EC6_u32 as _);
+pub const DB_S_ERRORSOCCURRED: windows_core::HRESULT = windows_core::HRESULT(0x40EDA_u32 as _);
+pub const DB_S_ERRORSRETURNED: windows_core::HRESULT = windows_core::HRESULT(0x40ED2_u32 as _);
+pub const DB_S_GOALCHANGED: windows_core::HRESULT = windows_core::HRESULT(0x40ECB_u32 as _);
+pub const DB_S_LOCKUPGRADED: windows_core::HRESULT = windows_core::HRESULT(0x40ED8_u32 as _);
+pub const DB_S_MULTIPLECHANGES: windows_core::HRESULT = windows_core::HRESULT(0x40EDC_u32 as _);
+pub const DB_S_NONEXTROWSET: windows_core::HRESULT = windows_core::HRESULT(0x40EC5_u32 as _);
+pub const DB_S_NORESULT: windows_core::HRESULT = windows_core::HRESULT(0x40EC9_u32 as _);
+pub const DB_S_NOROWSPECIFICCOLUMNS: windows_core::HRESULT = windows_core::HRESULT(0x40EDD_u32 as _);
+pub const DB_S_NOTSINGLETON: windows_core::HRESULT = windows_core::HRESULT(0x40ED7_u32 as _);
+pub const DB_S_PARAMUNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x40EDB_u32 as _);
+pub const DB_S_PROPERTIESCHANGED: windows_core::HRESULT = windows_core::HRESULT(0x40ED9_u32 as _);
+pub const DB_S_ROWLIMITEXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x40EC0_u32 as _);
+pub const DB_S_STOPLIMITREACHED: windows_core::HRESULT = windows_core::HRESULT(0x40ED6_u32 as _);
+pub const DB_S_TOOMANYCHANGES: windows_core::HRESULT = windows_core::HRESULT(0x40ED5_u32 as _);
+pub const DB_S_TYPEINFOOVERRIDDEN: windows_core::HRESULT = windows_core::HRESULT(0x40EC2_u32 as _);
+pub const DB_S_UNWANTEDOPERATION: windows_core::HRESULT = windows_core::HRESULT(0x40ECC_u32 as _);
+pub const DB_S_UNWANTEDPHASE: windows_core::HRESULT = windows_core::HRESULT(0x40ECE_u32 as _);
+pub const DB_S_UNWANTEDREASON: windows_core::HRESULT = windows_core::HRESULT(0x40ECF_u32 as _);
+pub const DB_UNSEARCHABLE: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DB_VARNUMERIC {
+    pub precision: u8,
+    pub scale: i8,
+    pub sign: u8,
+    pub val: [u8; 1],
+}
+impl Default for DB_VARNUMERIC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DB_VARNUMERIC {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub struct DCINFO {
+    pub eInfoType: u32,
+    pub vData: super::Variant::VARIANT,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for DCINFO {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DCINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for DCINFO {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DCINFOTYPEENUM(pub i32);
+pub const DCINFOTYPE_VERSION: DCINFOTYPEENUM = DCINFOTYPEENUM(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DELIVERY_AGENT_FLAGS(pub i32);
+pub const DELIVERY_AGENT_FLAG_NO_BROADCAST: DELIVERY_AGENT_FLAGS = DELIVERY_AGENT_FLAGS(4i32);
+pub const DELIVERY_AGENT_FLAG_NO_RESTRICTIONS: DELIVERY_AGENT_FLAGS = DELIVERY_AGENT_FLAGS(8i32);
+pub const DELIVERY_AGENT_FLAG_SILENT_DIAL: DELIVERY_AGENT_FLAGS = DELIVERY_AGENT_FLAGS(16i32);
+pub const DISPID_QUERY_ALL: u32 = 6u32;
+pub const DISPID_QUERY_HITCOUNT: u32 = 4u32;
+pub const DISPID_QUERY_LASTSEENTIME: u32 = 10u32;
+pub const DISPID_QUERY_METADATA_PROPDISPID: u32 = 6u32;
+pub const DISPID_QUERY_METADATA_PROPGUID: u32 = 5u32;
+pub const DISPID_QUERY_METADATA_PROPMODIFIABLE: u32 = 9u32;
+pub const DISPID_QUERY_METADATA_PROPNAME: u32 = 7u32;
+pub const DISPID_QUERY_METADATA_STORELEVEL: u32 = 8u32;
+pub const DISPID_QUERY_METADATA_VROOTAUTOMATIC: u32 = 3u32;
+pub const DISPID_QUERY_METADATA_VROOTMANUAL: u32 = 4u32;
+pub const DISPID_QUERY_METADATA_VROOTUSED: u32 = 2u32;
+pub const DISPID_QUERY_RANK: u32 = 3u32;
+pub const DISPID_QUERY_RANKVECTOR: u32 = 2u32;
+pub const DISPID_QUERY_REVNAME: u32 = 8u32;
+pub const DISPID_QUERY_UNFILTERED: u32 = 7u32;
+pub const DISPID_QUERY_VIRTUALPATH: u32 = 9u32;
+pub const DISPID_QUERY_WORKID: u32 = 5u32;
+pub const DS_E_ALREADYDISABLED: i32 = -2147220447i32;
+pub const DS_E_ALREADYENABLED: i32 = -2147220454i32;
+pub const DS_E_BADREQUEST: i32 = -2147220475i32;
+pub const DS_E_BADRESULT: i32 = -2147220445i32;
+pub const DS_E_BADSEQUENCE: i32 = -2147220473i32;
+pub const DS_E_BUFFERTOOSMALL: i32 = -2147220449i32;
+pub const DS_E_CANNOTREMOVECONCURRENT: i32 = -2147220443i32;
+pub const DS_E_CANNOTWRITEREGISTRY: i32 = -2147220444i32;
+pub const DS_E_CONFIGBAD: i32 = -2147220470i32;
+pub const DS_E_CONFIGNOTRIGHTTYPE: i32 = -2147220456i32;
+pub const DS_E_DATANOTPRESENT: i32 = -2147220464i32;
+pub const DS_E_DATASOURCENOTAVAILABLE: i32 = -2147220478i32;
+pub const DS_E_DATASOURCENOTDISABLED: i32 = -2147220459i32;
+pub const DS_E_DUPLICATEID: i32 = -2147220462i32;
+pub const DS_E_INDEXDIRECTORY: i32 = -2147220452i32;
+pub const DS_E_INVALIDCATALOGNAME: i32 = -2147220457i32;
+pub const DS_E_INVALIDDATASOURCE: i32 = -2147220479i32;
+pub const DS_E_INVALIDTAGDB: i32 = -2147220458i32;
+pub const DS_E_MESSAGETOOLONG: i32 = -2147220472i32;
+pub const DS_E_MISSINGCATALOG: i32 = -2147220440i32;
+pub const DS_E_NOMOREDATA: i32 = -2147220480i32;
+pub const DS_E_PARAMOUTOFRANGE: i32 = -2147220448i32;
+pub const DS_E_PROPVERSIONMISMATCH: i32 = -2147220441i32;
+pub const DS_E_PROTOCOLVERSION: i32 = -2147220455i32;
+pub const DS_E_QUERYCANCELED: i32 = -2147220477i32;
+pub const DS_E_QUERYHUNG: i32 = -2147220446i32;
+pub const DS_E_REGISTRY: i32 = -2147220460i32;
+pub const DS_E_SEARCHCATNAMECOLLISION: i32 = -2147220442i32;
+pub const DS_E_SERVERCAPACITY: i32 = -2147220474i32;
+pub const DS_E_SERVERERROR: i32 = -2147220471i32;
+pub const DS_E_SETSTATUSINPROGRESS: i32 = -2147220463i32;
+pub const DS_E_TOOMANYDATASOURCES: i32 = -2147220461i32;
+pub const DS_E_UNKNOWNPARAM: i32 = -2147220450i32;
+pub const DS_E_UNKNOWNREQUEST: i32 = -2147220476i32;
+pub const DS_E_VALUETOOLARGE: i32 = -2147220451i32;
+pub const DataLinks: windows_core::GUID = windows_core::GUID::from_u128(0x2206cdb2_19c1_11d1_89e0_00c04fd7a829);
 windows_core::imp::define_interface!(DataSource, DataSource_Vtbl, 0x7c0ffab3_cd84_11d0_949a_00a0c91110ed);
 windows_core::imp::interface_hierarchy!(DataSource, windows_core::IUnknown);
 impl DataSource {
@@ -1805,6 +4832,561 @@ impl DataSourceObject_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for DataSourceObject {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EBindInfoOptions(pub i32);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct ERRORINFO {
+    pub hrError: windows_core::HRESULT,
+    pub dwMinor: u32,
+    pub clsid: windows_core::GUID,
+    pub iid: windows_core::GUID,
+    pub dispid: i32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for ERRORINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for ERRORINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ERRORINFO {
+    pub hrError: windows_core::HRESULT,
+    pub dwMinor: u32,
+    pub clsid: windows_core::GUID,
+    pub iid: windows_core::GUID,
+    pub dispid: i32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for ERRORINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for ERRORINFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ERROR_FTE: u32 = 13824u32;
+pub const ERROR_FTE_CB: u32 = 51968u32;
+pub const ERROR_FTE_FD: u32 = 64768u32;
+pub const ERROR_SOURCE_CMDLINE: u32 = 5376u32;
+pub const ERROR_SOURCE_COLLATOR: u32 = 1280u32;
+pub const ERROR_SOURCE_CONNMGR: u32 = 1536u32;
+pub const ERROR_SOURCE_CONTENT_SOURCE: u32 = 13312u32;
+pub const ERROR_SOURCE_DATASOURCE: u32 = 1024u32;
+pub const ERROR_SOURCE_DAV: u32 = 8960u32;
+pub const ERROR_SOURCE_EXSTOREPH: u32 = 9984u32;
+pub const ERROR_SOURCE_FLTRDMN: u32 = 9216u32;
+pub const ERROR_SOURCE_GATHERER: u32 = 3328u32;
+pub const ERROR_SOURCE_INDEXER: u32 = 4352u32;
+pub const ERROR_SOURCE_MSS: u32 = 8448u32;
+pub const ERROR_SOURCE_NETWORKING: u32 = 768u32;
+pub const ERROR_SOURCE_NLADMIN: u32 = 6400u32;
+pub const ERROR_SOURCE_NOTESPH: u32 = 9728u32;
+pub const ERROR_SOURCE_OLEDB_BINDER: u32 = 9472u32;
+pub const ERROR_SOURCE_PEOPLE_IMPORT: u32 = 16384u32;
+pub const ERROR_SOURCE_PROTHNDLR: u32 = 4608u32;
+pub const ERROR_SOURCE_QUERY: u32 = 1792u32;
+pub const ERROR_SOURCE_REMOTE_EXSTOREPH: u32 = 13568u32;
+pub const ERROR_SOURCE_SCHEMA: u32 = 3072u32;
+pub const ERROR_SOURCE_SCRIPTPI: u32 = 8192u32;
+pub const ERROR_SOURCE_SECURITY: u32 = 5120u32;
+pub const ERROR_SOURCE_SETUP: u32 = 4864u32;
+pub const ERROR_SOURCE_SRCH_SCHEMA_CACHE: u32 = 13056u32;
+pub const ERROR_SOURCE_XML: u32 = 8704u32;
+pub const EVENT_AUDIENCECOMPUTATION_CANNOTSTART: i32 = -1073738223i32;
+pub const EVENT_AUTOCAT_CANT_CREATE_FILE_SHARE: i32 = -1073738726i32;
+pub const EVENT_AUTOCAT_PERFMON: i32 = -1073738753i32;
+pub const EVENT_CONFIG_ERROR: i32 = -1073738821i32;
+pub const EVENT_CONFIG_SYNTAX: i32 = -2147482604i32;
+pub const EVENT_CRAWL_SCHEDULED: i32 = 1073744884i32;
+pub const EVENT_DETAILED_FILTERPOOL_ADD_FAILED: i32 = -1073738719i32;
+pub const EVENT_DSS_NOT_ENABLED: i32 = -2147476572i32;
+pub const EVENT_ENUMERATE_SESSIONS_FAILED: i32 = -1073738720i32;
+pub const EVENT_EXCEPTION: i32 = -1073740815i32;
+pub const EVENT_FAILED_CREATE_GATHERER_LOG: i32 = -2147480587i32;
+pub const EVENT_FAILED_INITIALIZE_CRAWL: i32 = -1073738765i32;
+pub const EVENT_FILTERPOOL_ADD_FAILED: i32 = -1073738722i32;
+pub const EVENT_FILTERPOOL_DELETE_FAILED: i32 = -1073738721i32;
+pub const EVENT_FILTER_HOST_FORCE_TERMINATE: i32 = -2147473624i32;
+pub const EVENT_FILTER_HOST_NOT_INITIALIZED: i32 = -1073738724i32;
+pub const EVENT_FILTER_HOST_NOT_TERMINATED: i32 = -1073738723i32;
+pub const EVENT_GATHERER_DATASOURCE: i32 = -1073738727i32;
+pub const EVENT_GATHERER_PERFMON: i32 = -1073738817i32;
+pub const EVENT_GATHERSVC_PERFMON: i32 = -1073738818i32;
+pub const EVENT_GATHER_ADVISE_FAILED: i32 = -1073738798i32;
+pub const EVENT_GATHER_APP_INIT_FAILED: i32 = -1073738766i32;
+pub const EVENT_GATHER_AUTODESCENCODE_INVALID: i32 = -2147480592i32;
+pub const EVENT_GATHER_AUTODESCLEN_ADJUSTED: i32 = -2147480603i32;
+pub const EVENT_GATHER_BACKUPAPP_COMPLETE: i32 = 3077i32;
+pub const EVENT_GATHER_BACKUPAPP_ERROR: i32 = -1073738748i32;
+pub const EVENT_GATHER_CANT_CREATE_DOCID: i32 = -1073738793i32;
+pub const EVENT_GATHER_CANT_DELETE_DOCID: i32 = -1073738792i32;
+pub const EVENT_GATHER_CHECKPOINT_CORRUPT: i32 = -1073738732i32;
+pub const EVENT_GATHER_CHECKPOINT_FAILED: i32 = -1073738736i32;
+pub const EVENT_GATHER_CHECKPOINT_FILE_MISSING: i32 = -1073738731i32;
+pub const EVENT_GATHER_CRAWL_IN_PROGRESS: i32 = -2147480609i32;
+pub const EVENT_GATHER_CRAWL_NOT_STARTED: i32 = -2147480625i32;
+pub const EVENT_GATHER_CRAWL_SEED_ERROR: i32 = -2147480624i32;
+pub const EVENT_GATHER_CRAWL_SEED_FAILED: i32 = -2147480612i32;
+pub const EVENT_GATHER_CRAWL_SEED_FAILED_INIT: i32 = -2147480611i32;
+pub const EVENT_GATHER_CRITICAL_ERROR: i32 = -1073738799i32;
+pub const EVENT_GATHER_DAEMON_TERMINATED: i32 = -2147480570i32;
+pub const EVENT_GATHER_DELETING_HISTORY_ITEMS: i32 = -1073738774i32;
+pub const EVENT_GATHER_DIRTY_STARTUP: i32 = -2147480576i32;
+pub const EVENT_GATHER_DISK_FULL: i32 = -2147480594i32;
+pub const EVENT_GATHER_END_ADAPTIVE: i32 = 1073744891i32;
+pub const EVENT_GATHER_END_CRAWL: i32 = 1073744842i32;
+pub const EVENT_GATHER_END_INCREMENTAL: i32 = 1073744871i32;
+pub const EVENT_GATHER_EXCEPTION: i32 = -1073738810i32;
+pub const EVENT_GATHER_FLUSH_FAILED: i32 = -1073738737i32;
+pub const EVENT_GATHER_FROM_NOT_SET: i32 = -1073738776i32;
+pub const EVENT_GATHER_HISTORY_CORRUPTION_DETECTED: i32 = -2147480575i32;
+pub const EVENT_GATHER_INPLACE_INDEX_REBUILD: i32 = 1073745427i32;
+pub const EVENT_GATHER_INTERNAL: i32 = -1073738804i32;
+pub const EVENT_GATHER_INVALID_NETWORK_ACCESS_ACCOUNT: i32 = -1073738739i32;
+pub const EVENT_GATHER_LOCK_FAILED: i32 = -1073738784i32;
+pub const EVENT_GATHER_NO_CRAWL_SEEDS: i32 = -2147480602i32;
+pub const EVENT_GATHER_NO_SCHEMA: i32 = -2147480593i32;
+pub const EVENT_GATHER_OBJ_INIT_FAILED: i32 = -1073738796i32;
+pub const EVENT_GATHER_PLUGINMGR_INIT_FAILED: i32 = -1073738767i32;
+pub const EVENT_GATHER_PLUGIN_INIT_FAILED: i32 = -1073738795i32;
+pub const EVENT_GATHER_PROTOCOLHANDLER_INIT_FAILED: i32 = -1073738740i32;
+pub const EVENT_GATHER_PROTOCOLHANDLER_LOAD_FAILED: i32 = -1073738741i32;
+pub const EVENT_GATHER_READ_CHECKPOINT_FAILED: i32 = -1073738733i32;
+pub const EVENT_GATHER_RECOVERY_FAILURE: i32 = -1073738222i32;
+pub const EVENT_GATHER_REG_MISSING: i32 = -2147480610i32;
+pub const EVENT_GATHER_RESET_START: i32 = 1073744865i32;
+pub const EVENT_GATHER_RESTOREAPP_COMPLETE: i32 = 3075i32;
+pub const EVENT_GATHER_RESTOREAPP_ERROR: i32 = -1073738750i32;
+pub const EVENT_GATHER_RESTORE_CHECKPOINT_FAILED: i32 = -1073738734i32;
+pub const EVENT_GATHER_RESTORE_COMPLETE: i32 = 3069i32;
+pub const EVENT_GATHER_RESTORE_ERROR: i32 = -1073738754i32;
+pub const EVENT_GATHER_RESUME: i32 = 1073744868i32;
+pub const EVENT_GATHER_SAVE_FAILED: i32 = -1073738735i32;
+pub const EVENT_GATHER_SERVICE_INIT: i32 = -1073738794i32;
+pub const EVENT_GATHER_START_CRAWL: i32 = 1073744843i32;
+pub const EVENT_GATHER_START_CRAWL_IF_RESET: i32 = -2147480595i32;
+pub const EVENT_GATHER_START_PAUSE: i32 = -2147480606i32;
+pub const EVENT_GATHER_STOP_START: i32 = 1073744876i32;
+pub const EVENT_GATHER_SYSTEM_LCID_CHANGED: i32 = -2147480562i32;
+pub const EVENT_GATHER_THROTTLE: i32 = 1073744867i32;
+pub const EVENT_GATHER_TRANSACTION_FAIL: i32 = -1073738797i32;
+pub const EVENT_HASHMAP_INSERT: i32 = -1073738816i32;
+pub const EVENT_HASHMAP_UPDATE: i32 = -1073738811i32;
+pub const EVENT_INDEXER_ADD_DSS_DISCONNECT: i32 = -2147476585i32;
+pub const EVENT_INDEXER_ADD_DSS_FAILED: i32 = -2147476627i32;
+pub const EVENT_INDEXER_ADD_DSS_SUCCEEDED: i32 = 7019i32;
+pub const EVENT_INDEXER_BUILD_ENDED: i32 = 1073748873i32;
+pub const EVENT_INDEXER_BUILD_FAILED: i32 = -1073734797i32;
+pub const EVENT_INDEXER_BUILD_START: i32 = 1073748872i32;
+pub const EVENT_INDEXER_CI_LOAD_ERROR: i32 = -1073734785i32;
+pub const EVENT_INDEXER_DSS_ALREADY_ADDED: i32 = 1073748870i32;
+pub const EVENT_INDEXER_DSS_CONTACT_FAILED: i32 = -1073734800i32;
+pub const EVENT_INDEXER_DSS_UNABLE_TO_REMOVE: i32 = -1073734755i32;
+pub const EVENT_INDEXER_FAIL_TO_CREATE_PER_USER_CATALOG: i32 = -1073731797i32;
+pub const EVENT_INDEXER_FAIL_TO_SET_MAX_JETINSTANCE: i32 = -1073731798i32;
+pub const EVENT_INDEXER_FAIL_TO_UNLOAD_PER_USER_CATALOG: i32 = -1073731796i32;
+pub const EVENT_INDEXER_INIT_ERROR: i32 = -1073734814i32;
+pub const EVENT_INDEXER_INVALID_DIRECTORY: i32 = -1073734813i32;
+pub const EVENT_INDEXER_LOAD_FAIL: i32 = -1073734781i32;
+pub const EVENT_INDEXER_MISSING_APP_DIRECTORY: i32 = -1073734758i32;
+pub const EVENT_INDEXER_NEW_PROJECT: i32 = -1073734754i32;
+pub const EVENT_INDEXER_NO_SEARCH_SERVERS: i32 = -2147476630i32;
+pub const EVENT_INDEXER_OUT_OF_DATABASE_INSTANCE: i32 = -1073731799i32;
+pub const EVENT_INDEXER_PAUSED_FOR_DISKFULL: i32 = -1073734811i32;
+pub const EVENT_INDEXER_PERFMON: i32 = -1073734760i32;
+pub const EVENT_INDEXER_PROPSTORE_INIT_FAILED: i32 = -1073734787i32;
+pub const EVENT_INDEXER_PROP_ABORTED: i32 = 1073748899i32;
+pub const EVENT_INDEXER_PROP_COMMITTED: i32 = 1073748898i32;
+pub const EVENT_INDEXER_PROP_COMMIT_FAILED: i32 = -1073734747i32;
+pub const EVENT_INDEXER_PROP_ERROR: i32 = -1073734812i32;
+pub const EVENT_INDEXER_PROP_STARTED: i32 = 1073748841i32;
+pub const EVENT_INDEXER_PROP_STATE_CORRUPT: i32 = -1073734780i32;
+pub const EVENT_INDEXER_PROP_STOPPED: i32 = -2147476633i32;
+pub const EVENT_INDEXER_PROP_SUCCEEDED: i32 = 7016i32;
+pub const EVENT_INDEXER_REG_ERROR: i32 = -1073734756i32;
+pub const EVENT_INDEXER_REG_MISSING: i32 = -1073734796i32;
+pub const EVENT_INDEXER_REMOVED_PROJECT: i32 = -1073734753i32;
+pub const EVENT_INDEXER_REMOVE_DSS_FAILED: i32 = -1073734801i32;
+pub const EVENT_INDEXER_REMOVE_DSS_SUCCEEDED: i32 = 7020i32;
+pub const EVENT_INDEXER_RESET_FOR_CORRUPTION: i32 = -1073734784i32;
+pub const EVENT_INDEXER_SCHEMA_COPY_ERROR: i32 = -1073734823i32;
+pub const EVENT_INDEXER_SHUTDOWN: i32 = 1073748866i32;
+pub const EVENT_INDEXER_STARTED: i32 = 1073748824i32;
+pub const EVENT_INDEXER_VERIFY_PROP_ACCOUNT: i32 = -1073734768i32;
+pub const EVENT_LEARN_COMPILE_FAILED: i32 = -2147480583i32;
+pub const EVENT_LEARN_CREATE_DB_FAILED: i32 = -2147480584i32;
+pub const EVENT_LEARN_PROPAGATION_COPY_FAILED: i32 = -2147480585i32;
+pub const EVENT_LEARN_PROPAGATION_FAILED: i32 = -2147480582i32;
+pub const EVENT_LOCAL_GROUPS_CACHE_FLUSHED: i32 = 1073744920i32;
+pub const EVENT_LOCAL_GROUP_NOT_EXPANDED: i32 = 1073744919i32;
+pub const EVENT_NOTIFICATION_FAILURE: i32 = -1073738745i32;
+pub const EVENT_NOTIFICATION_FAILURE_SCOPE_EXCEEDED_LOGGING: i32 = -2147480568i32;
+pub const EVENT_NOTIFICATION_RESTORED: i32 = 1073744905i32;
+pub const EVENT_NOTIFICATION_RESTORED_SCOPE_EXCEEDED_LOGGING: i32 = -2147480566i32;
+pub const EVENT_NOTIFICATION_THREAD_EXIT_FAILED: i32 = -1073738725i32;
+pub const EVENT_OUTOFMEMORY: i32 = -1073740817i32;
+pub const EVENT_PERF_COUNTERS_ALREADY_EXISTS: i32 = -2147473626i32;
+pub const EVENT_PERF_COUNTERS_NOT_LOADED: i32 = -2147473628i32;
+pub const EVENT_PERF_COUNTERS_REGISTRY_TROUBLE: i32 = -2147473627i32;
+pub const EVENT_PROTOCOL_HOST_FORCE_TERMINATE: i32 = -2147473625i32;
+pub const EVENT_REG_VERSION: i32 = -1073738790i32;
+pub const EVENT_SSSEARCH_CREATE_PATH_RULES_FAILED: i32 = -2147482634i32;
+pub const EVENT_SSSEARCH_CSM_SAVE_FAILED: i32 = -1073740805i32;
+pub const EVENT_SSSEARCH_DATAFILES_MOVE_FAILED: i32 = -1073740808i32;
+pub const EVENT_SSSEARCH_DATAFILES_MOVE_ROLLBACK_ERRORS: i32 = -2147482630i32;
+pub const EVENT_SSSEARCH_DATAFILES_MOVE_SUCCEEDED: i32 = 1073742841i32;
+pub const EVENT_SSSEARCH_DROPPED_EVENTS: i32 = -2147482633i32;
+pub const EVENT_SSSEARCH_SETUP_CLEANUP_FAILED: i32 = -1073740813i32;
+pub const EVENT_SSSEARCH_SETUP_CLEANUP_STARTED: i32 = -2147482640i32;
+pub const EVENT_SSSEARCH_SETUP_CLEANUP_SUCCEEDED: i32 = 1073742834i32;
+pub const EVENT_SSSEARCH_SETUP_FAILED: i32 = -1073740818i32;
+pub const EVENT_SSSEARCH_SETUP_SUCCEEDED: i32 = 1073742829i32;
+pub const EVENT_SSSEARCH_STARTED: i32 = 1073742827i32;
+pub const EVENT_SSSEARCH_STARTING_SETUP: i32 = 1073742828i32;
+pub const EVENT_SSSEARCH_STOPPED: i32 = 1073742837i32;
+pub const EVENT_STS_INIT_SECURITY_FAILED: i32 = -2147480554i32;
+pub const EVENT_SYSTEM_EXCEPTION: i32 = -2147482595i32;
+pub const EVENT_TRANSACTION_READ: i32 = -1073738809i32;
+pub const EVENT_TRANSLOG_APPEND: i32 = -1073738814i32;
+pub const EVENT_TRANSLOG_CREATE: i32 = -1073738791i32;
+pub const EVENT_TRANSLOG_CREATE_TRX: i32 = -1073738815i32;
+pub const EVENT_TRANSLOG_UPDATE: i32 = -1073738813i32;
+pub const EVENT_UNPRIVILEGED_SERVICE_ACCOUNT: i32 = -2147482596i32;
+pub const EVENT_USING_DIFFERENT_WORD_BREAKER: i32 = -2147480580i32;
+pub const EVENT_WARNING_CANNOT_UPGRADE_NOISE_FILE: i32 = -2147473634i32;
+pub const EVENT_WARNING_CANNOT_UPGRADE_NOISE_FILES: i32 = -2147473635i32;
+pub const EVENT_WBREAKER_NOT_LOADED: i32 = -2147480586i32;
+pub const EVENT_WIN32_ERROR: i32 = -2147473633i32;
+pub const EXCI_E_ACCESS_DENIED: i32 = -2147216990i32;
+pub const EXCI_E_BADCONFIG_OR_ACCESSDENIED: i32 = -2147216988i32;
+pub const EXCI_E_INVALID_ACCOUNT_INFO: i32 = -2147216984i32;
+pub const EXCI_E_INVALID_EXCHANGE_SERVER: i32 = -2147216989i32;
+pub const EXCI_E_INVALID_SERVER_CONFIG: i32 = -2147216991i32;
+pub const EXCI_E_NOT_ADMIN_OR_WRONG_SITE: i32 = -2147216986i32;
+pub const EXCI_E_NO_CONFIG: i32 = -2147216992i32;
+pub const EXCI_E_NO_MAPI: i32 = -2147216985i32;
+pub const EXCI_E_WRONG_SERVER_OR_ACCT: i32 = -2147216987i32;
+pub const EXSTOREPH_E_UNEXPECTED: i32 = -2147211519i32;
+pub const EX_ANY: u32 = 0u32;
+pub const EX_CMDFATAL: u32 = 20u32;
+pub const EX_CONTROL: u32 = 25u32;
+pub const EX_DBCORRUPT: u32 = 23u32;
+pub const EX_DBFATAL: u32 = 21u32;
+pub const EX_DEADLOCK: u32 = 13u32;
+pub const EX_HARDWARE: u32 = 24u32;
+pub const EX_INFO: u32 = 10u32;
+pub const EX_INTOK: u32 = 18u32;
+pub const EX_LIMIT: u32 = 19u32;
+pub const EX_MAXISEVERITY: u32 = 10u32;
+pub const EX_MISSING: u32 = 11u32;
+pub const EX_PERMIT: u32 = 14u32;
+pub const EX_RESOURCE: u32 = 17u32;
+pub const EX_SYNTAX: u32 = 15u32;
+pub const EX_TABCORRUPT: u32 = 22u32;
+pub const EX_TYPE: u32 = 12u32;
+pub const EX_USER: u32 = 16u32;
+pub const FAIL: u32 = 0u32;
+pub const FF_INDEXCOMPLEXURLS: FOLLOW_FLAGS = FOLLOW_FLAGS(1i32);
+pub const FF_SUPPRESSINDEXING: FOLLOW_FLAGS = FOLLOW_FLAGS(2i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FILTERED_DATA_SOURCES {
+    pub pwcsExtension: windows_core::PCWSTR,
+    pub pwcsMime: windows_core::PCWSTR,
+    pub pClsid: *const windows_core::GUID,
+    pub pwcsOverride: windows_core::PCWSTR,
+}
+impl Default for FILTERED_DATA_SOURCES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for FILTERED_DATA_SOURCES {
+    type TypeKind = windows_core::CopyType;
+}
+pub const FLTRDMN_E_CANNOT_DECRYPT_PASSWORD: i32 = -2147212282i32;
+pub const FLTRDMN_E_ENCRYPTED_DOCUMENT: i32 = -2147212283i32;
+pub const FLTRDMN_E_FILTER_INIT_FAILED: i32 = -2147212284i32;
+pub const FLTRDMN_E_QI_FILTER_FAILED: i32 = -2147212286i32;
+pub const FLTRDMN_E_UNEXPECTED: i32 = -2147212287i32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FOLLOW_FLAGS(pub i32);
+pub const FTE_E_ADMIN_BLOB_CORRUPT: i32 = -2147207676i32;
+pub const FTE_E_AFFINITY_MASK: i32 = -2147207651i32;
+pub const FTE_E_ALREADY_INITIALIZED: i32 = -2147207604i32;
+pub const FTE_E_ANOTHER_STATUS_CHANGE_IS_ALREADY_ACTIVE: i32 = -2147207635i32;
+pub const FTE_E_BATCH_ABORTED: i32 = -2147207636i32;
+pub const FTE_E_CATALOG_ALREADY_EXISTS: i32 = -2147207656i32;
+pub const FTE_E_CATALOG_DOES_NOT_EXIST: i32 = -2147207639i32;
+pub const FTE_E_CB_CBID_OUT_OF_BOUND: i32 = -2147169535i32;
+pub const FTE_E_CB_NOT_ENOUGH_AVAIL_PHY_MEM: i32 = -2147169534i32;
+pub const FTE_E_CB_NOT_ENOUGH_OCC_BUFFER: i32 = -2147169533i32;
+pub const FTE_E_CB_OUT_OF_MEMORY: i32 = -2147169536i32;
+pub const FTE_E_COM_SIGNATURE_VALIDATION: i32 = -2147207652i32;
+pub const FTE_E_CORRUPT_GATHERER_HASH_MAP: i32 = -2147207619i32;
+pub const FTE_E_CORRUPT_PROPERTY_STORE: i32 = -2147207622i32;
+pub const FTE_E_CORRUPT_WORDLIST: i32 = -2147169532i32;
+pub const FTE_E_DATATYPE_MISALIGNMENT: i32 = -2147207605i32;
+pub const FTE_E_DEPENDENT_TRAN_FAILED_TO_PERSIST: i32 = -2147207641i32;
+pub const FTE_E_DOC_TOO_HUGE: i32 = -2147207606i32;
+pub const FTE_E_DUPLICATE_OBJECT: i32 = -2147207644i32;
+pub const FTE_E_ERROR_WRITING_REGISTRY: i32 = -2147207674i32;
+pub const FTE_E_EXCEEDED_MAX_PLUGINS: i32 = -2147207647i32;
+pub const FTE_E_FAILED_TO_CREATE_ACCESSOR: i32 = -2147207625i32;
+pub const FTE_E_FAILURE_TO_POST_SETCOMPLETION_STATUS: i32 = -2147207597i32;
+pub const FTE_E_FD_DID_NOT_CONNECT: i32 = -2147207660i32;
+pub const FTE_E_FD_DOC_TIMEOUT: i32 = -2147156733i32;
+pub const FTE_E_FD_DOC_UNEXPECTED_EXIT: i32 = -2147156731i32;
+pub const FTE_E_FD_FAILED_TO_LOAD_IFILTER: i32 = -2147156734i32;
+pub const FTE_E_FD_FILTER_CAUSED_SHARING_VIOLATION: i32 = -2147156725i32;
+pub const FTE_E_FD_IDLE: i32 = -2147207595i32;
+pub const FTE_E_FD_IFILTER_INIT_FAILED: i32 = -2147156735i32;
+pub const FTE_E_FD_NOISE_NO_IPERSISTSTREAM_ON_TEXT_FILTER: i32 = -2147156729i32;
+pub const FTE_E_FD_NOISE_NO_TEXT_FILTER: i32 = -2147156730i32;
+pub const FTE_E_FD_NOISE_TEXT_FILTER_INIT_FAILED: i32 = -2147156727i32;
+pub const FTE_E_FD_NOISE_TEXT_FILTER_LOAD_FAILED: i32 = -2147156728i32;
+pub const FTE_E_FD_NO_IPERSIST_INTERFACE: i32 = -2147156736i32;
+pub const FTE_E_FD_OCCURRENCE_OVERFLOW: i32 = -2147156726i32;
+pub const FTE_E_FD_OWNERSHIP_OBSOLETE: i32 = -2147207650i32;
+pub const FTE_E_FD_SHUTDOWN: i32 = -2147207640i32;
+pub const FTE_E_FD_TIMEOUT: i32 = -2147207632i32;
+pub const FTE_E_FD_UNEXPECTED_EXIT: i32 = -2147156732i32;
+pub const FTE_E_FD_UNRESPONSIVE: i32 = -2147207594i32;
+pub const FTE_E_FD_USED_TOO_MUCH_MEMORY: i32 = -2147207603i32;
+pub const FTE_E_FILTER_SINGLE_THREADED: i32 = -2147207675i32;
+pub const FTE_E_HIGH_MEMORY_PRESSURE: i32 = -2147207601i32;
+pub const FTE_E_INVALID_CODEPAGE: i32 = -2147207596i32;
+pub const FTE_E_INVALID_DOCID: i32 = -2147207663i32;
+pub const FTE_E_INVALID_ISOLATE_ERROR_BATCH: i32 = -2147207600i32;
+pub const FTE_E_INVALID_PROG_ID: i32 = -2147207614i32;
+pub const FTE_E_INVALID_PROJECT_ID: i32 = -2147207598i32;
+pub const FTE_E_INVALID_PROPERTY: i32 = -2147207630i32;
+pub const FTE_E_INVALID_TYPE: i32 = -2147207624i32;
+pub const FTE_E_KEY_NOT_CACHED: i32 = -2147207618i32;
+pub const FTE_E_LIBRARY_NOT_LOADED: i32 = -2147207627i32;
+pub const FTE_E_NOT_PROCESSED_DUE_TO_PREVIOUS_ERRORS: i32 = -2147207633i32;
+pub const FTE_E_NO_MORE_PROPERTIES: i32 = -2147207629i32;
+pub const FTE_E_NO_PLUGINS: i32 = -2147207638i32;
+pub const FTE_E_NO_PROPERTY_STORE: i32 = -1073465766i32;
+pub const FTE_E_OUT_OF_RANGE: i32 = -2147207623i32;
+pub const FTE_E_PATH_TOO_LONG: i32 = -2147207654i32;
+pub const FTE_E_PAUSE_EXTERNAL: i32 = -2147207662i32;
+pub const FTE_E_PERFMON_FULL: i32 = -2147207626i32;
+pub const FTE_E_PERF_NOT_LOADED: i32 = -2147207611i32;
+pub const FTE_E_PIPE_DATA_CORRUPTED: i32 = -2147207671i32;
+pub const FTE_E_PIPE_NOT_CONNECTED: i32 = -2147207677i32;
+pub const FTE_E_PROGID_REQUIRED: i32 = -2147207658i32;
+pub const FTE_E_PROJECT_NOT_INITALIZED: i32 = -2147207672i32;
+pub const FTE_E_PROJECT_SHUTDOWN: i32 = -2147207673i32;
+pub const FTE_E_PROPERTY_STORE_WORKID_NOTVALID: i32 = -2147207621i32;
+pub const FTE_E_READONLY_CATALOG: i32 = -2147207612i32;
+pub const FTE_E_REDUNDANT_TRAN_FAILURE: i32 = -2147207642i32;
+pub const FTE_E_REJECTED_DUE_TO_PROJECT_STATUS: i32 = -2147207661i32;
+pub const FTE_E_RESOURCE_SHUTDOWN: i32 = -2147207631i32;
+pub const FTE_E_RETRY_HUGE_DOC: i32 = -2147207608i32;
+pub const FTE_E_RETRY_SINGLE_DOC_PER_BATCH: i32 = -2147207599i32;
+pub const FTE_E_SECRET_NOT_FOUND: i32 = -2147207678i32;
+pub const FTE_E_SERIAL_STREAM_CORRUPT: i32 = -2147207613i32;
+pub const FTE_E_STACK_CORRUPTED: i32 = -2147207615i32;
+pub const FTE_E_STATIC_THREAD_INVALID_ARGUMENTS: i32 = -2147207657i32;
+pub const FTE_E_UNEXPECTED_EXIT: i32 = -2147207602i32;
+pub const FTE_E_UNKNOWN_FD_TYPE: i32 = -2147207607i32;
+pub const FTE_E_UNKNOWN_PLUGIN: i32 = -2147207628i32;
+pub const FTE_E_UPGRADE_INTERFACE_ALREADY_INSTANTIATED: i32 = -2147207616i32;
+pub const FTE_E_UPGRADE_INTERFACE_ALREADY_SHUTDOWN: i32 = -2147207617i32;
+pub const FTE_E_URB_TOO_BIG: i32 = -2147207664i32;
+pub const FTE_INVALID_ADMIN_CLIENT: i32 = -2147207653i32;
+pub const FTE_S_BEYOND_QUOTA: i32 = 276002i32;
+pub const FTE_S_CATALOG_BLOB_MISMATCHED: i32 = 276056i32;
+pub const FTE_S_PROPERTY_RESET: i32 = 276057i32;
+pub const FTE_S_PROPERTY_STORE_END_OF_ENUMERATION: i32 = 276028i32;
+pub const FTE_S_READONLY_CATALOG: i32 = 276038i32;
+pub const FTE_S_REDUNDANT: i32 = 276005i32;
+pub const FTE_S_RESOURCES_STARTING_TO_GET_LOW: i32 = 275993i32;
+pub const FTE_S_RESUME: i32 = 276014i32;
+pub const FTE_S_STATUS_CHANGE_REQUEST: i32 = 276011i32;
+pub const FTE_S_TRY_TO_FLUSH: i32 = 276055i32;
+pub const FilterRegistration: windows_core::GUID = windows_core::GUID::from_u128(0x9e175b8d_f52a_11d8_b9a5_505054503030);
+pub const GENERATE_METHOD_PREFIXMATCH: u32 = 1u32;
+pub const GENERATE_METHOD_STEMMED: u32 = 2u32;
+pub const GHTR_E_INSUFFICIENT_DISK_SPACE: i32 = -2147218037i32;
+pub const GHTR_E_LOCAL_SERVER_UNAVAILABLE: i32 = -2147218055i32;
+pub const GTHR_E_ADDLINKS_FAILED_WILL_RETRY_PARENT: i32 = -2147217989i32;
+pub const GTHR_E_APPLICATION_NOT_FOUND: i32 = -2147218079i32;
+pub const GTHR_E_AUTOCAT_UNEXPECTED: i32 = -2147218012i32;
+pub const GTHR_E_BACKUP_VALIDATION_FAIL: i32 = -2147217994i32;
+pub const GTHR_E_BAD_FILTER_DAEMON: i32 = -2147218119i32;
+pub const GTHR_E_BAD_FILTER_HOST: i32 = -2147217993i32;
+pub const GTHR_E_CANNOT_ENABLE_CHECKPOINT: i32 = -2147218002i32;
+pub const GTHR_E_CANNOT_REMOVE_PLUGINMGR: i32 = -2147218078i32;
+pub const GTHR_E_CONFIG_DUP_EXTENSION: i32 = -2147218165i32;
+pub const GTHR_E_CONFIG_DUP_PROJECT: i32 = -2147218166i32;
+pub const GTHR_E_CONTENT_ID_CONFLICT: i32 = -2147218062i32;
+pub const GTHR_E_DIRMON_NOT_INITIALZED: i32 = -2147218019i32;
+pub const GTHR_E_DUPLICATE_OBJECT: i32 = -2147218174i32;
+pub const GTHR_E_DUPLICATE_PROJECT: i32 = -2147218094i32;
+pub const GTHR_E_DUPLICATE_URL: i32 = -2147218163i32;
+pub const GTHR_E_DUP_PROPERTY_MAPPING: i32 = -2147218134i32;
+pub const GTHR_E_EMPTY_DACL: i32 = -2147218006i32;
+pub const GTHR_E_ERROR_INITIALIZING_PERFMON: i32 = -2147218171i32;
+pub const GTHR_E_ERROR_OBJECT_NOT_FOUND: i32 = -2147218170i32;
+pub const GTHR_E_ERROR_WRITING_REGISTRY: i32 = -2147218172i32;
+pub const GTHR_E_FILTERPOOL_NOTFOUND: i32 = -2147217990i32;
+pub const GTHR_E_FILTER_FAULT: i32 = -2147218075i32;
+pub const GTHR_E_FILTER_INIT: i32 = -2147218130i32;
+pub const GTHR_E_FILTER_INTERRUPTED: i32 = -2147218092i32;
+pub const GTHR_E_FILTER_INVALID_MESSAGE: i32 = -2147218158i32;
+pub const GTHR_E_FILTER_NOT_FOUND: i32 = -2147218154i32;
+pub const GTHR_E_FILTER_NO_CODEPAGE: i32 = -2147218123i32;
+pub const GTHR_E_FILTER_NO_MORE_THREADS: i32 = -2147218153i32;
+pub const GTHR_E_FILTER_PROCESS_TERMINATED: i32 = -2147218159i32;
+pub const GTHR_E_FILTER_PROCESS_TERMINATED_QUOTA: i32 = -2147218151i32;
+pub const GTHR_E_FILTER_SINGLE_THREADED: i32 = -2147218069i32;
+pub const GTHR_E_FOLDER_CRAWLED_BY_ANOTHER_WORKSPACE: i32 = -2147218007i32;
+pub const GTHR_E_FORCE_NOTIFICATION_RESET: i32 = -2147218065i32;
+pub const GTHR_E_FROM_NOT_SPECIFIED: i32 = -2147218109i32;
+pub const GTHR_E_IE_OFFLINE: i32 = -2147218120i32;
+pub const GTHR_E_INSUFFICIENT_EXAMPLE_CATEGORIES: i32 = -2147218014i32;
+pub const GTHR_E_INSUFFICIENT_EXAMPLE_DOCUMENTS: i32 = -2147218013i32;
+pub const GTHR_E_INSUFFICIENT_FEATURE_TERMS: i32 = -2147218015i32;
+pub const GTHR_E_INVALIDFUNCTION: i32 = -2147218161i32;
+pub const GTHR_E_INVALID_ACCOUNT: i32 = -2147218132i32;
+pub const GTHR_E_INVALID_ACCOUNT_SYNTAX: i32 = -2147218129i32;
+pub const GTHR_E_INVALID_APPLICATION_NAME: i32 = -2147218077i32;
+pub const GTHR_E_INVALID_CALL_FROM_WBREAKER: i32 = -2147218058i32;
+pub const GTHR_E_INVALID_DIRECTORY: i32 = -2147218093i32;
+pub const GTHR_E_INVALID_EXTENSION: i32 = -2147218107i32;
+pub const GTHR_E_INVALID_GROW_FACTOR: i32 = -2147218106i32;
+pub const GTHR_E_INVALID_HOST_NAME: i32 = -2147218096i32;
+pub const GTHR_E_INVALID_LOG_FILE_NAME: i32 = -2147218103i32;
+pub const GTHR_E_INVALID_MAPPING: i32 = -2147218112i32;
+pub const GTHR_E_INVALID_PATH: i32 = -2147218124i32;
+pub const GTHR_E_INVALID_PATH_EXPRESSION: i32 = -2147218088i32;
+pub const GTHR_E_INVALID_PATH_SPEC: i32 = -2147218016i32;
+pub const GTHR_E_INVALID_PROJECT_NAME: i32 = -2147218142i32;
+pub const GTHR_E_INVALID_PROXY_PORT: i32 = -2147218091i32;
+pub const GTHR_E_INVALID_RESOURCE_ID: i32 = -2147218035i32;
+pub const GTHR_E_INVALID_RETRIES: i32 = -2147218104i32;
+pub const GTHR_E_INVALID_START_ADDRESS: i32 = -2147217998i32;
+pub const GTHR_E_INVALID_START_PAGE: i32 = -2147218095i32;
+pub const GTHR_E_INVALID_START_PAGE_HOST: i32 = -2147218087i32;
+pub const GTHR_E_INVALID_START_PAGE_PATH: i32 = -2147218080i32;
+pub const GTHR_E_INVALID_STREAM_LOGS_COUNT: i32 = -2147218108i32;
+pub const GTHR_E_INVALID_TIME_OUT: i32 = -2147218105i32;
+pub const GTHR_E_JET_BACKUP_ERROR: i32 = -2147218026i32;
+pub const GTHR_E_JET_RESTORE_ERROR: i32 = -2147218025i32;
+pub const GTHR_E_LOCAL_GROUPS_EXPANSION_INTERNAL_ERROR: i32 = -2147216867i32;
+pub const GTHR_E_NAME_TOO_LONG: i32 = -2147218156i32;
+pub const GTHR_E_NESTED_HIERARCHICAL_START_ADDRESSES: i32 = -2147218034i32;
+pub const GTHR_E_NOFILTERSINK: i32 = -2147218160i32;
+pub const GTHR_E_NON_FIXED_DRIVE: i32 = -2147218074i32;
+pub const GTHR_E_NOTIFICATION_FILE_SHARE_INFO_NOT_AVAILABLE: i32 = -2147218040i32;
+pub const GTHR_E_NOTIFICATION_LOCAL_PATH_MUST_USE_FIXED_DRIVE: i32 = -2147218039i32;
+pub const GTHR_E_NOTIFICATION_START_ADDRESS_INVALID: i32 = -2147218042i32;
+pub const GTHR_E_NOTIFICATION_START_PAGE: i32 = -2147218137i32;
+pub const GTHR_E_NOTIFICATION_TYPE_NOT_SUPPORTED: i32 = -2147218041i32;
+pub const GTHR_E_NOTIF_ACCESS_TOKEN_UPDATED: i32 = -2147218020i32;
+pub const GTHR_E_NOTIF_BEING_REMOVED: i32 = -2147218018i32;
+pub const GTHR_E_NOTIF_EXCESSIVE_THROUGHPUT: i32 = -2147218017i32;
+pub const GTHR_E_NO_IDENTITY: i32 = -2147218155i32;
+pub const GTHR_E_NO_PRTCLHNLR: i32 = -2147218121i32;
+pub const GTHR_E_NTF_CLIENT_NOT_SUBSCRIBED: i32 = -1073476167i32;
+pub const GTHR_E_OBJECT_NOT_VALID: i32 = -2147218005i32;
+pub const GTHR_E_OUT_OF_DOC_ID: i32 = -2147218138i32;
+pub const GTHR_E_PIPE_NOT_CONNECTTED: i32 = -2147217996i32;
+pub const GTHR_E_PLUGIN_NOT_REGISTERED: i32 = -2147218021i32;
+pub const GTHR_E_PROJECT_NOT_INITIALIZED: i32 = -2147218149i32;
+pub const GTHR_E_PROPERTIES_EXCEEDED: i32 = -2147218000i32;
+pub const GTHR_E_PROPERTY_LIST_NOT_INITIALIZED: i32 = -2147218057i32;
+pub const GTHR_E_PROXY_NAME: i32 = -2147218127i32;
+pub const GTHR_E_PRT_HNDLR_PROGID_MISSING: i32 = -2147218152i32;
+pub const GTHR_E_RECOVERABLE_EXOLEDB_ERROR: i32 = -2147218060i32;
+pub const GTHR_E_RETRY: i32 = -2147218027i32;
+pub const GTHR_E_SCHEMA_ERRORS_OCCURRED: i32 = -2147218054i32;
+pub const GTHR_E_SCOPES_EXCEEDED: i32 = -2147218001i32;
+pub const GTHR_E_SECRET_NOT_FOUND: i32 = -2147218089i32;
+pub const GTHR_E_SERVER_UNAVAILABLE: i32 = -2147218126i32;
+pub const GTHR_E_SHUTTING_DOWN: i32 = -2147218141i32;
+pub const GTHR_E_SINGLE_THREADED_EMBEDDING: i32 = -2147218011i32;
+pub const GTHR_E_TIMEOUT: i32 = -2147218053i32;
+pub const GTHR_E_TOO_MANY_PLUGINS: i32 = -2147218162i32;
+pub const GTHR_E_UNABLE_TO_READ_EXCHANGE_STORE: i32 = -2147218061i32;
+pub const GTHR_E_UNABLE_TO_READ_REGISTRY: i32 = -2147218173i32;
+pub const GTHR_E_UNKNOWN_PROTOCOL: i32 = -2147218150i32;
+pub const GTHR_E_UNSUPPORTED_PROPERTY_TYPE: i32 = -2147218157i32;
+pub const GTHR_E_URL_EXCLUDED: i32 = -2147218169i32;
+pub const GTHR_E_URL_UNIDENTIFIED: i32 = -2147218067i32;
+pub const GTHR_E_USER_AGENT_NOT_SPECIFIED: i32 = -2147218111i32;
+pub const GTHR_E_VALUE_NOT_AVAILABLE: i32 = -2147218139i32;
+pub const GTHR_S_BAD_FILE_LINK: i32 = 265580i32;
+pub const GTHR_S_CANNOT_FILTER: i32 = 265520i32;
+pub const GTHR_S_CANNOT_WORDBREAK: i32 = 265638i32;
+pub const GTHR_S_CONFIG_HAS_ACCOUNTS: i32 = 265558i32;
+pub const GTHR_S_CRAWL_ADAPTIVE: i32 = 265605i32;
+pub const GTHR_S_CRAWL_FULL: i32 = 265603i32;
+pub const GTHR_S_CRAWL_INCREMENTAL: i32 = 265604i32;
+pub const GTHR_S_CRAWL_SCHEDULED: i32 = 265576i32;
+pub const GTHR_S_END_PROCESS_LOOP_NOTIFY_QUEUE: i32 = 265584i32;
+pub const GTHR_S_END_STD_CHUNKS: i32 = 265508i32;
+pub const GTHR_S_MODIFIED_PARTS: i32 = 265592i32;
+pub const GTHR_S_NOT_ALL_PARTS: i32 = 265582i32;
+pub const GTHR_S_NO_CRAWL_SEEDS: i32 = 265515i32;
+pub const GTHR_S_NO_INDEX: i32 = 265616i32;
+pub const GTHR_S_OFFICE_CHILD: i32 = 265626i32;
+pub const GTHR_S_PAUSE_REASON_BACKOFF: i32 = 265620i32;
+pub const GTHR_S_PAUSE_REASON_EXTERNAL: i32 = 265618i32;
+pub const GTHR_S_PAUSE_REASON_PROFILE_IMPORT: i32 = 265651i32;
+pub const GTHR_S_PAUSE_REASON_UPGRADING: i32 = 265619i32;
+pub const GTHR_S_PROB_NOT_MODIFIED: i32 = 265575i32;
+pub const GTHR_S_START_FILTER_FROM_BODY: i32 = 265585i32;
+pub const GTHR_S_START_FILTER_FROM_PROTOCOL: i32 = 265578i32;
+pub const GTHR_S_STATUS_CHANGE_IGNORED: i32 = 265500i32;
+pub const GTHR_S_STATUS_END_CRAWL: i32 = 265501i32;
+pub const GTHR_S_STATUS_PAUSE: i32 = 265505i32;
+pub const GTHR_S_STATUS_RESET: i32 = 265502i32;
+pub const GTHR_S_STATUS_RESUME: i32 = 265504i32;
+pub const GTHR_S_STATUS_START: i32 = 265526i32;
+pub const GTHR_S_STATUS_STOP: i32 = 265523i32;
+pub const GTHR_S_STATUS_THROTTLE: i32 = 265503i32;
+pub const GTHR_S_TRANSACTION_IGNORED: i32 = 265577i32;
+pub const GTHR_S_USE_MIME_FILTER: i32 = 265639i32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct HACCESSOR(pub usize);
+impl windows_core::TypeKind for HACCESSOR {
+    type TypeKind = windows_core::CopyType;
+}
+impl HACCESSOR {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == 0
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HITRANGE {
+    pub iPosition: u32,
+    pub cLength: u32,
+}
+impl Default for HITRANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HITRANGE {
+    type TypeKind = windows_core::CopyType;
+}
 windows_core::imp::define_interface!(IAccessor, IAccessor_Vtbl, 0x0c733a8c_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IAccessor, windows_core::IUnknown);
 impl IAccessor {
@@ -4231,6 +7813,64 @@ impl IDCInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDCInfo {}
+pub const IDENTIFIER_SDK_ERROR: u32 = 268435456u32;
+pub const IDENTIFIER_SDK_MASK: u32 = 4026531840u32;
+pub const IDS_MON_BUILTIN_PROPERTY: windows_core::HRESULT = windows_core::HRESULT(0x4093F_u32 as _);
+pub const IDS_MON_BUILTIN_VIEW: windows_core::HRESULT = windows_core::HRESULT(0x40937_u32 as _);
+pub const IDS_MON_CANNOT_CAST: windows_core::HRESULT = windows_core::HRESULT(0x40946_u32 as _);
+pub const IDS_MON_CANNOT_CONVERT: windows_core::HRESULT = windows_core::HRESULT(0x4093B_u32 as _);
+pub const IDS_MON_COLUMN_NOT_DEFINED: windows_core::HRESULT = windows_core::HRESULT(0x40936_u32 as _);
+pub const IDS_MON_DATE_OUT_OF_RANGE: windows_core::HRESULT = windows_core::HRESULT(0x40947_u32 as _);
+pub const IDS_MON_DEFAULT_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x4092F_u32 as _);
+pub const IDS_MON_ILLEGAL_PASSTHROUGH: windows_core::HRESULT = windows_core::HRESULT(0x40930_u32 as _);
+pub const IDS_MON_INVALIDSELECT_COALESCE: windows_core::HRESULT = windows_core::HRESULT(0x40945_u32 as _);
+pub const IDS_MON_INVALID_CATALOG: windows_core::HRESULT = windows_core::HRESULT(0x40944_u32 as _);
+pub const IDS_MON_INVALID_IN_GROUP_CLAUSE: windows_core::HRESULT = windows_core::HRESULT(0x40948_u32 as _);
+pub const IDS_MON_MATCH_STRING: windows_core::HRESULT = windows_core::HRESULT(0x40941_u32 as _);
+pub const IDS_MON_NOT_COLUMN_OF_VIEW: windows_core::HRESULT = windows_core::HRESULT(0x4093E_u32 as _);
+pub const IDS_MON_ORDINAL_OUT_OF_RANGE: windows_core::HRESULT = windows_core::HRESULT(0x40934_u32 as _);
+pub const IDS_MON_OR_NOT: windows_core::HRESULT = windows_core::HRESULT(0x4093A_u32 as _);
+pub const IDS_MON_OUT_OF_MEMORY: windows_core::HRESULT = windows_core::HRESULT(0x40938_u32 as _);
+pub const IDS_MON_OUT_OF_RANGE: windows_core::HRESULT = windows_core::HRESULT(0x4093C_u32 as _);
+pub const IDS_MON_PARSE_ERR_1_PARAM: windows_core::HRESULT = windows_core::HRESULT(0x40931_u32 as _);
+pub const IDS_MON_PARSE_ERR_2_PARAM: windows_core::HRESULT = windows_core::HRESULT(0x40932_u32 as _);
+pub const IDS_MON_PROPERTY_NAME_IN_VIEW: windows_core::HRESULT = windows_core::HRESULT(0x40942_u32 as _);
+pub const IDS_MON_RELATIVE_INTERVAL: windows_core::HRESULT = windows_core::HRESULT(0x4093D_u32 as _);
+pub const IDS_MON_SELECT_STAR: windows_core::HRESULT = windows_core::HRESULT(0x40939_u32 as _);
+pub const IDS_MON_SEMI_COLON: windows_core::HRESULT = windows_core::HRESULT(0x40933_u32 as _);
+pub const IDS_MON_VIEW_ALREADY_DEFINED: windows_core::HRESULT = windows_core::HRESULT(0x40943_u32 as _);
+pub const IDS_MON_VIEW_NOT_DEFINED: windows_core::HRESULT = windows_core::HRESULT(0x40935_u32 as _);
+pub const IDS_MON_WEIGHT_OUT_OF_RANGE: windows_core::HRESULT = windows_core::HRESULT(0x40940_u32 as _);
+pub const IDX_E_BUILD_IN_PROGRESS: i32 = -2147217147i32;
+pub const IDX_E_CATALOG_DISMOUNTED: i32 = -2147217124i32;
+pub const IDX_E_CORRUPT_INDEX: i32 = -2147217136i32;
+pub const IDX_E_DISKFULL: i32 = -2147217138i32;
+pub const IDX_E_DOCUMENT_ABORTED: i32 = -2147217125i32;
+pub const IDX_E_DSS_NOT_CONNECTED: i32 = -2147217126i32;
+pub const IDX_E_IDXLSTFILE_CORRUPT: i32 = -2147217146i32;
+pub const IDX_E_INVALIDTAG: i32 = -2147217151i32;
+pub const IDX_E_INVALID_INDEX: i32 = -2147217137i32;
+pub const IDX_E_METAFILE_CORRUPT: i32 = -2147217150i32;
+pub const IDX_E_NOISELIST_NOTFOUND: i32 = -2147217141i32;
+pub const IDX_E_NOT_LOADED: i32 = -2147217129i32;
+pub const IDX_E_OBJECT_NOT_FOUND: i32 = -2147217144i32;
+pub const IDX_E_PROPSTORE_INIT_FAILED: i32 = -2147217134i32;
+pub const IDX_E_PROP_MAJOR_VERSION_MISMATCH: i32 = -2147217128i32;
+pub const IDX_E_PROP_MINOR_VERSION_MISMATCH: i32 = -2147217127i32;
+pub const IDX_E_PROP_STATE_CORRUPT: i32 = -2147217133i32;
+pub const IDX_E_PROP_STOPPED: i32 = -2147217139i32;
+pub const IDX_E_REGISTRY_ENTRY: i32 = -2147217145i32;
+pub const IDX_E_SEARCH_SERVER_ALREADY_EXISTS: i32 = -2147217148i32;
+pub const IDX_E_SEARCH_SERVER_NOT_FOUND: i32 = -2147217143i32;
+pub const IDX_E_STEMMER_NOTFOUND: i32 = -2147217140i32;
+pub const IDX_E_TOO_MANY_SEARCH_SERVERS: i32 = -2147217149i32;
+pub const IDX_E_USE_APPGLOBAL_PROPTABLE: i32 = -2147217120i32;
+pub const IDX_E_USE_DEFAULT_CONTENTCLASS: i32 = -2147217121i32;
+pub const IDX_E_WB_NOTFOUND: i32 = -2147217142i32;
+pub const IDX_S_DSS_NOT_AVAILABLE: i32 = 266525i32;
+pub const IDX_S_NO_BUILD_IN_PROGRESS: i32 = 266516i32;
+pub const IDX_S_SEARCH_SERVER_ALREADY_EXISTS: i32 = 266517i32;
+pub const IDX_S_SEARCH_SERVER_DOES_NOT_EXIST: i32 = 266518i32;
 windows_core::imp::define_interface!(IDataConvert, IDataConvert_Vtbl, 0x0c733a8d_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IDataConvert, windows_core::IUnknown);
 impl IDataConvert {
@@ -5408,6 +9048,10 @@ impl IInterval_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IInterval {}
+pub const ILK_EXPLICIT_EXCLUDED: INTERVAL_LIMIT_KIND = INTERVAL_LIMIT_KIND(1i32);
+pub const ILK_EXPLICIT_INCLUDED: INTERVAL_LIMIT_KIND = INTERVAL_LIMIT_KIND(0i32);
+pub const ILK_NEGATIVE_INFINITY: INTERVAL_LIMIT_KIND = INTERVAL_LIMIT_KIND(2i32);
+pub const ILK_POSITIVE_INFINITY: INTERVAL_LIMIT_KIND = INTERVAL_LIMIT_KIND(3i32);
 windows_core::imp::define_interface!(ILoadFilter, ILoadFilter_Vtbl, 0xc7310722_ac80_11d1_8df3_00c04fb6ef4f);
 windows_core::imp::interface_hierarchy!(ILoadFilter, windows_core::IUnknown);
 impl ILoadFilter {
@@ -5776,6 +9420,33 @@ impl IMultipleResults_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IMultipleResults {}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct INCREMENTAL_ACCESS_INFO {
+    pub dwSize: u32,
+    pub ftLastModifiedTime: super::super::Foundation::FILETIME,
+}
+impl Default for INCREMENTAL_ACCESS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for INCREMENTAL_ACCESS_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const INET_E_AGENT_CACHE_SIZE_EXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x800C0F82_u32 as _);
+pub const INET_E_AGENT_CONNECTION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x800C0F83_u32 as _);
+pub const INET_E_AGENT_EXCEEDING_CACHE_SIZE: windows_core::HRESULT = windows_core::HRESULT(0x800C0F90_u32 as _);
+pub const INET_E_AGENT_MAX_SIZE_EXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x800C0F80_u32 as _);
+pub const INET_E_SCHEDULED_EXCLUDE_RANGE: windows_core::HRESULT = windows_core::HRESULT(0x800C0F87_u32 as _);
+pub const INET_E_SCHEDULED_UPDATES_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x800C0F84_u32 as _);
+pub const INET_E_SCHEDULED_UPDATES_RESTRICTED: windows_core::HRESULT = windows_core::HRESULT(0x800C0F85_u32 as _);
+pub const INET_E_SCHEDULED_UPDATE_INTERVAL: windows_core::HRESULT = windows_core::HRESULT(0x800C0F86_u32 as _);
+pub const INET_S_AGENT_INCREASED_CACHE_SIZE: windows_core::HRESULT = windows_core::HRESULT(0xC0F90_u32 as _);
+pub const INET_S_AGENT_PART_FAIL: windows_core::HRESULT = windows_core::HRESULT(0xC0F81_u32 as _);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct INTERVAL_LIMIT_KIND(pub i32);
 windows_core::imp::define_interface!(INamedEntity, INamedEntity_Vtbl, 0xabdbd0b1_7d54_49fb_ab5c_bff4130004cd);
 windows_core::imp::interface_hierarchy!(INamedEntity, windows_core::IUnknown);
 impl INamedEntity {
@@ -12119,6 +15790,45 @@ impl ISubscriptionMgr2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISubscriptionMgr2 {}
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub struct ITEMPROP {
+    pub variantValue: super::Variant::VARIANT,
+    pub pwszName: windows_core::PWSTR,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for ITEMPROP {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for ITEMPROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for ITEMPROP {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ITEM_INFO {
+    pub dwSize: u32,
+    pub pcwszFromEMail: windows_core::PCWSTR,
+    pub pcwszApplicationName: windows_core::PCWSTR,
+    pub pcwszCatalogName: windows_core::PCWSTR,
+    pub pcwszContentClass: windows_core::PCWSTR,
+}
+impl Default for ITEM_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ITEM_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 windows_core::imp::define_interface!(ITableCreation, ITableCreation_Vtbl, 0x0c733abc_2a1c_11ce_ade5_00aa0044773d);
 impl core::ops::Deref for ITableCreation {
     type Target = ITableDefinition;
@@ -13712,6 +17422,541 @@ impl IWordSink_Vtbl {
 }
 #[cfg(feature = "Win32_Storage_IndexServer")]
 impl windows_core::RuntimeName for IWordSink {}
+pub const Interval: windows_core::GUID = windows_core::GUID::from_u128(0xd957171f_4bf9_4de2_bcd5_c70a7ca55836);
+pub const JET_GET_PROP_STORE_ERROR: i32 = -1073732822i32;
+pub const JET_INIT_ERROR: i32 = -1073732824i32;
+pub const JET_MULTIINSTANCE_DISABLED: i32 = -2147474645i32;
+pub const JET_NEW_PROP_STORE_ERROR: i32 = -1073732823i32;
+pub const JPS_E_CATALOG_DECSRIPTION_MISSING: i32 = -2147217023i32;
+pub const JPS_E_INSUFFICIENT_DATABASE_RESOURCES: i32 = -2147217019i32;
+pub const JPS_E_INSUFFICIENT_DATABASE_SESSIONS: i32 = -2147217020i32;
+pub const JPS_E_INSUFFICIENT_VERSION_STORAGE: i32 = -2147217021i32;
+pub const JPS_E_JET_ERR: i32 = -2147217025i32;
+pub const JPS_E_MISSING_INFORMATION: i32 = -2147217022i32;
+pub const JPS_E_PROPAGATION_CORRUPTION: i32 = -2147217016i32;
+pub const JPS_E_PROPAGATION_FILE: i32 = -2147217017i32;
+pub const JPS_E_PROPAGATION_VERSION_MISMATCH: i32 = -2147217015i32;
+pub const JPS_E_SCHEMA_ERROR: i32 = -2147217018i32;
+pub const JPS_E_SHARING_VIOLATION: i32 = -2147217014i32;
+pub const JPS_S_DUPLICATE_DOC_DETECTED: i32 = 266624i32;
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub struct KAGGETDIAG {
+    pub ulSize: u32,
+    pub vDiagInfo: super::Variant::VARIANT,
+    pub sDiagField: i16,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for KAGGETDIAG {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for KAGGETDIAG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for KAGGETDIAG {
+    type TypeKind = windows_core::CloneType;
+}
+pub const KAGPROPVAL_CONCUR_LOCK: u32 = 4u32;
+pub const KAGPROPVAL_CONCUR_READ_ONLY: u32 = 8u32;
+pub const KAGPROPVAL_CONCUR_ROWVER: u32 = 1u32;
+pub const KAGPROPVAL_CONCUR_VALUES: u32 = 2u32;
+pub const KAGPROP_ACCESSIBLEPROCEDURES: u32 = 2u32;
+pub const KAGPROP_ACCESSIBLETABLES: u32 = 3u32;
+pub const KAGPROP_ACTIVESTATEMENTS: u32 = 24u32;
+pub const KAGPROP_AUTH_SERVERINTEGRATED: u32 = 3u32;
+pub const KAGPROP_AUTH_TRUSTEDCONNECTION: u32 = 2u32;
+pub const KAGPROP_BLOBSONFOCURSOR: u32 = 8u32;
+pub const KAGPROP_CONCURRENCY: u32 = 7u32;
+pub const KAGPROP_CURSOR: u32 = 6u32;
+pub const KAGPROP_DRIVERNAME: u32 = 7u32;
+pub const KAGPROP_DRIVERODBCVER: u32 = 9u32;
+pub const KAGPROP_DRIVERVER: u32 = 8u32;
+pub const KAGPROP_FILEUSAGE: u32 = 23u32;
+pub const KAGPROP_FORCENOPARAMETERREBIND: u32 = 11u32;
+pub const KAGPROP_FORCENOPREPARE: u32 = 12u32;
+pub const KAGPROP_FORCENOREEXECUTE: u32 = 13u32;
+pub const KAGPROP_FORCESSFIREHOSEMODE: u32 = 10u32;
+pub const KAGPROP_INCLUDENONEXACT: u32 = 9u32;
+pub const KAGPROP_IRowsetChangeExtInfo: u32 = 5u32;
+pub const KAGPROP_LIKEESCAPECLAUSE: u32 = 10u32;
+pub const KAGPROP_MARSHALLABLE: u32 = 3u32;
+pub const KAGPROP_MAXCOLUMNSINGROUPBY: u32 = 12u32;
+pub const KAGPROP_MAXCOLUMNSININDEX: u32 = 13u32;
+pub const KAGPROP_MAXCOLUMNSINORDERBY: u32 = 14u32;
+pub const KAGPROP_MAXCOLUMNSINSELECT: u32 = 15u32;
+pub const KAGPROP_MAXCOLUMNSINTABLE: u32 = 16u32;
+pub const KAGPROP_NUMERICFUNCTIONS: u32 = 17u32;
+pub const KAGPROP_ODBCSQLCONFORMANCE: u32 = 18u32;
+pub const KAGPROP_ODBCSQLOPTIEF: u32 = 4u32;
+pub const KAGPROP_OJCAPABILITY: u32 = 5u32;
+pub const KAGPROP_OUTERJOINS: u32 = 19u32;
+pub const KAGPROP_POSITIONONNEWROW: u32 = 4u32;
+pub const KAGPROP_PROCEDURES: u32 = 6u32;
+pub const KAGPROP_QUERYBASEDUPDATES: u32 = 2u32;
+pub const KAGPROP_SPECIALCHARACTERS: u32 = 11u32;
+pub const KAGPROP_STRINGFUNCTIONS: u32 = 20u32;
+pub const KAGPROP_SYSTEMFUNCTIONS: u32 = 21u32;
+pub const KAGPROP_TIMEDATEFUNCTIONS: u32 = 22u32;
+#[repr(C)]
+#[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct KAGREQDIAG {
+    pub ulDiagFlags: u32,
+    pub vt: super::Variant::VARENUM,
+    pub sDiagField: i16,
+}
+#[cfg(feature = "Win32_System_Variant")]
+impl Default for KAGREQDIAG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_System_Variant")]
+impl windows_core::TypeKind for KAGREQDIAG {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KAGREQDIAGFLAGSENUM(pub i32);
+pub const KAGREQDIAGFLAGS_HEADER: KAGREQDIAGFLAGSENUM = KAGREQDIAGFLAGSENUM(1i32);
+pub const KAGREQDIAGFLAGS_RECORD: KAGREQDIAGFLAGSENUM = KAGREQDIAGFLAGSENUM(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct LOCKMODEENUM(pub i32);
+pub const LOCKMODE_EXCLUSIVE: LOCKMODEENUM = LOCKMODEENUM(1i32);
+pub const LOCKMODE_INVALID: LOCKMODEENUM = LOCKMODEENUM(0i32);
+pub const LOCKMODE_SHARED: LOCKMODEENUM = LOCKMODEENUM(2i32);
+pub const LeafCondition: windows_core::GUID = windows_core::GUID::from_u128(0x52f15c89_5a17_48e1_bbcd_46a3f89c7cc2);
+pub const MAXNAME: u32 = 129u32;
+pub const MAXNUMERICLEN: u32 = 16u32;
+pub const MAXUSEVERITY: u32 = 18u32;
+pub const MAX_QUERY_RANK: u32 = 1000u32;
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct MDAXISINFO {
+    pub cbSize: usize,
+    pub iAxis: usize,
+    pub cDimensions: usize,
+    pub cCoordinates: usize,
+    pub rgcColumns: *mut usize,
+    pub rgpwszDimensionNames: *mut windows_core::PWSTR,
+}
+#[cfg(target_arch = "x86")]
+impl Default for MDAXISINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for MDAXISINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MDAXISINFO {
+    pub cbSize: usize,
+    pub iAxis: usize,
+    pub cDimensions: usize,
+    pub cCoordinates: usize,
+    pub rgcColumns: *mut usize,
+    pub rgpwszDimensionNames: *mut windows_core::PWSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for MDAXISINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for MDAXISINFO {
+    type TypeKind = windows_core::CopyType;
+}
+pub const MDAXIS_CHAPTERS: u32 = 4u32;
+pub const MDAXIS_COLUMNS: u32 = 0u32;
+pub const MDAXIS_PAGES: u32 = 2u32;
+pub const MDAXIS_ROWS: u32 = 1u32;
+pub const MDAXIS_SECTIONS: u32 = 3u32;
+pub const MDAXIS_SLICERS: u32 = 4294967295u32;
+pub const MDDISPINFO_DRILLED_DOWN: u32 = 65536u32;
+pub const MDDISPINFO_PARENT_SAME_AS_PREV: u32 = 131072u32;
+pub const MDFF_BOLD: u32 = 1u32;
+pub const MDFF_ITALIC: u32 = 2u32;
+pub const MDFF_STRIKEOUT: u32 = 8u32;
+pub const MDFF_UNDERLINE: u32 = 4u32;
+pub const MDLEVEL_TYPE_ALL: u32 = 1u32;
+pub const MDLEVEL_TYPE_CALCULATED: u32 = 2u32;
+pub const MDLEVEL_TYPE_REGULAR: u32 = 0u32;
+pub const MDLEVEL_TYPE_RESERVED1: u32 = 8u32;
+pub const MDLEVEL_TYPE_TIME: u32 = 4u32;
+pub const MDLEVEL_TYPE_TIME_DAYS: u32 = 516u32;
+pub const MDLEVEL_TYPE_TIME_HALF_YEAR: u32 = 36u32;
+pub const MDLEVEL_TYPE_TIME_HOURS: u32 = 772u32;
+pub const MDLEVEL_TYPE_TIME_MINUTES: u32 = 1028u32;
+pub const MDLEVEL_TYPE_TIME_MONTHS: u32 = 132u32;
+pub const MDLEVEL_TYPE_TIME_QUARTERS: u32 = 68u32;
+pub const MDLEVEL_TYPE_TIME_SECONDS: u32 = 2052u32;
+pub const MDLEVEL_TYPE_TIME_UNDEFINED: u32 = 4100u32;
+pub const MDLEVEL_TYPE_TIME_WEEKS: u32 = 260u32;
+pub const MDLEVEL_TYPE_TIME_YEARS: u32 = 20u32;
+pub const MDLEVEL_TYPE_UNKNOWN: u32 = 0u32;
+pub const MDMEASURE_AGGR_AVG: u32 = 5u32;
+pub const MDMEASURE_AGGR_CALCULATED: u32 = 127u32;
+pub const MDMEASURE_AGGR_COUNT: u32 = 2u32;
+pub const MDMEASURE_AGGR_MAX: u32 = 4u32;
+pub const MDMEASURE_AGGR_MIN: u32 = 3u32;
+pub const MDMEASURE_AGGR_STD: u32 = 7u32;
+pub const MDMEASURE_AGGR_SUM: u32 = 1u32;
+pub const MDMEASURE_AGGR_UNKNOWN: u32 = 0u32;
+pub const MDMEASURE_AGGR_VAR: u32 = 6u32;
+pub const MDMEMBER_TYPE_ALL: u32 = 2u32;
+pub const MDMEMBER_TYPE_FORMULA: u32 = 4u32;
+pub const MDMEMBER_TYPE_MEASURE: u32 = 3u32;
+pub const MDMEMBER_TYPE_REGULAR: u32 = 1u32;
+pub const MDMEMBER_TYPE_RESERVE1: u32 = 5u32;
+pub const MDMEMBER_TYPE_RESERVE2: u32 = 6u32;
+pub const MDMEMBER_TYPE_RESERVE3: u32 = 7u32;
+pub const MDMEMBER_TYPE_RESERVE4: u32 = 8u32;
+pub const MDMEMBER_TYPE_UNKNOWN: u32 = 0u32;
+pub const MDPROPVAL_AU_UNCHANGED: i32 = 1i32;
+pub const MDPROPVAL_AU_UNKNOWN: i32 = 2i32;
+pub const MDPROPVAL_AU_UNSUPPORTED: i32 = 0i32;
+pub const MDPROPVAL_FS_FULL_SUPPORT: i32 = 1i32;
+pub const MDPROPVAL_FS_GENERATED_COLUMN: i32 = 2i32;
+pub const MDPROPVAL_FS_GENERATED_DIMENSION: i32 = 3i32;
+pub const MDPROPVAL_FS_NO_SUPPORT: i32 = 4i32;
+pub const MDPROPVAL_MC_SEARCHEDCASE: i32 = 2i32;
+pub const MDPROPVAL_MC_SINGLECASE: i32 = 1i32;
+pub const MDPROPVAL_MD_AFTER: i32 = 4i32;
+pub const MDPROPVAL_MD_BEFORE: i32 = 2i32;
+pub const MDPROPVAL_MD_SELF: i32 = 1i32;
+pub const MDPROPVAL_MF_CREATE_CALCMEMBERS: i32 = 4i32;
+pub const MDPROPVAL_MF_CREATE_NAMEDSETS: i32 = 8i32;
+pub const MDPROPVAL_MF_SCOPE_GLOBAL: i32 = 32i32;
+pub const MDPROPVAL_MF_SCOPE_SESSION: i32 = 16i32;
+pub const MDPROPVAL_MF_WITH_CALCMEMBERS: i32 = 1i32;
+pub const MDPROPVAL_MF_WITH_NAMEDSETS: i32 = 2i32;
+pub const MDPROPVAL_MJC_IMPLICITCUBE: i32 = 4i32;
+pub const MDPROPVAL_MJC_MULTICUBES: i32 = 2i32;
+pub const MDPROPVAL_MJC_SINGLECUBE: i32 = 1i32;
+pub const MDPROPVAL_MMF_CLOSINGPERIOD: i32 = 8i32;
+pub const MDPROPVAL_MMF_COUSIN: i32 = 1i32;
+pub const MDPROPVAL_MMF_OPENINGPERIOD: i32 = 4i32;
+pub const MDPROPVAL_MMF_PARALLELPERIOD: i32 = 2i32;
+pub const MDPROPVAL_MNF_AGGREGATE: i32 = 16i32;
+pub const MDPROPVAL_MNF_CORRELATION: i32 = 64i32;
+pub const MDPROPVAL_MNF_COVARIANCE: i32 = 32i32;
+pub const MDPROPVAL_MNF_DRILLDOWNLEVEL: i32 = 2048i32;
+pub const MDPROPVAL_MNF_DRILLDOWNLEVELBOTTOM: i32 = 32768i32;
+pub const MDPROPVAL_MNF_DRILLDOWNLEVELTOP: i32 = 16384i32;
+pub const MDPROPVAL_MNF_DRILLDOWNMEMBERBOTTOM: i32 = 8192i32;
+pub const MDPROPVAL_MNF_DRILLDOWNMEMBERTOP: i32 = 4096i32;
+pub const MDPROPVAL_MNF_DRILLUPLEVEL: i32 = 131072i32;
+pub const MDPROPVAL_MNF_DRILLUPMEMBER: i32 = 65536i32;
+pub const MDPROPVAL_MNF_LINREG2: i32 = 512i32;
+pub const MDPROPVAL_MNF_LINREGPOINT: i32 = 1024i32;
+pub const MDPROPVAL_MNF_LINREGSLOPE: i32 = 128i32;
+pub const MDPROPVAL_MNF_LINREGVARIANCE: i32 = 256i32;
+pub const MDPROPVAL_MNF_MEDIAN: i32 = 1i32;
+pub const MDPROPVAL_MNF_RANK: i32 = 8i32;
+pub const MDPROPVAL_MNF_STDDEV: i32 = 4i32;
+pub const MDPROPVAL_MNF_VAR: i32 = 2i32;
+pub const MDPROPVAL_MOQ_CATALOG_CUBE: i32 = 2i32;
+pub const MDPROPVAL_MOQ_CUBE_DIM: i32 = 8i32;
+pub const MDPROPVAL_MOQ_DATASOURCE_CUBE: i32 = 1i32;
+pub const MDPROPVAL_MOQ_DIMHIER_LEVEL: i32 = 32i32;
+pub const MDPROPVAL_MOQ_DIMHIER_MEMBER: i32 = 256i32;
+pub const MDPROPVAL_MOQ_DIM_HIER: i32 = 16i32;
+pub const MDPROPVAL_MOQ_LEVEL_MEMBER: i32 = 64i32;
+pub const MDPROPVAL_MOQ_MEMBER_MEMBER: i32 = 128i32;
+pub const MDPROPVAL_MOQ_OUTERREFERENCE: i32 = 1i32;
+pub const MDPROPVAL_MOQ_SCHEMA_CUBE: i32 = 4i32;
+pub const MDPROPVAL_MSC_GREATERTHAN: i32 = 2i32;
+pub const MDPROPVAL_MSC_GREATERTHANEQUAL: i32 = 8i32;
+pub const MDPROPVAL_MSC_LESSTHAN: i32 = 1i32;
+pub const MDPROPVAL_MSC_LESSTHANEQUAL: i32 = 4i32;
+pub const MDPROPVAL_MSF_BOTTOMPERCENT: i32 = 2i32;
+pub const MDPROPVAL_MSF_BOTTOMSUM: i32 = 8i32;
+pub const MDPROPVAL_MSF_DRILLDOWNLEVEL: i32 = 2048i32;
+pub const MDPROPVAL_MSF_DRILLDOWNLEVELBOTTOM: i32 = 32768i32;
+pub const MDPROPVAL_MSF_DRILLDOWNLEVELTOP: i32 = 16384i32;
+pub const MDPROPVAL_MSF_DRILLDOWNMEMBBER: i32 = 1024i32;
+pub const MDPROPVAL_MSF_DRILLDOWNMEMBERBOTTOM: i32 = 8192i32;
+pub const MDPROPVAL_MSF_DRILLDOWNMEMBERTOP: i32 = 4096i32;
+pub const MDPROPVAL_MSF_DRILLUPLEVEL: i32 = 131072i32;
+pub const MDPROPVAL_MSF_DRILLUPMEMBER: i32 = 65536i32;
+pub const MDPROPVAL_MSF_LASTPERIODS: i32 = 32i32;
+pub const MDPROPVAL_MSF_MTD: i32 = 256i32;
+pub const MDPROPVAL_MSF_PERIODSTODATE: i32 = 16i32;
+pub const MDPROPVAL_MSF_QTD: i32 = 128i32;
+pub const MDPROPVAL_MSF_TOGGLEDRILLSTATE: i32 = 262144i32;
+pub const MDPROPVAL_MSF_TOPPERCENT: i32 = 1i32;
+pub const MDPROPVAL_MSF_TOPSUM: i32 = 4i32;
+pub const MDPROPVAL_MSF_WTD: i32 = 512i32;
+pub const MDPROPVAL_MSF_YTD: i32 = 64i32;
+pub const MDPROPVAL_MS_MULTIPLETUPLES: i32 = 1i32;
+pub const MDPROPVAL_MS_SINGLETUPLE: i32 = 2i32;
+pub const MDPROPVAL_NL_NAMEDLEVELS: i32 = 1i32;
+pub const MDPROPVAL_NL_NUMBEREDLEVELS: i32 = 2i32;
+pub const MDPROPVAL_NL_SCHEMAONLY: i32 = 4i32;
+pub const MDPROPVAL_NME_ALLDIMENSIONS: i32 = 0i32;
+pub const MDPROPVAL_NME_MEASURESONLY: i32 = 1i32;
+pub const MDPROPVAL_RR_NORANGEROWSET: i32 = 1i32;
+pub const MDPROPVAL_RR_READONLY: i32 = 2i32;
+pub const MDPROPVAL_RR_UPDATE: i32 = 4i32;
+pub const MDPROPVAL_VISUAL_MODE_DEFAULT: i32 = 0i32;
+pub const MDPROPVAL_VISUAL_MODE_VISUAL: i32 = 1i32;
+pub const MDPROPVAL_VISUAL_MODE_VISUAL_OFF: i32 = 2i32;
+pub const MDPROP_AGGREGATECELL_UPDATE: DBPROPENUM20 = DBPROPENUM20(230i32);
+pub const MDPROP_AXES: DBPROPENUM20 = DBPROPENUM20(252i32);
+pub const MDPROP_CELL: u32 = 2u32;
+pub const MDPROP_FLATTENING_SUPPORT: DBPROPENUM20 = DBPROPENUM20(253i32);
+pub const MDPROP_MDX_AGGREGATECELL_UPDATE: DBPROPENUM20 = DBPROPENUM20(230i32);
+pub const MDPROP_MDX_CASESUPPORT: DBPROPENUM20 = DBPROPENUM20(222i32);
+pub const MDPROP_MDX_CUBEQUALIFICATION: DBPROPENUM20 = DBPROPENUM20(219i32);
+pub const MDPROP_MDX_DESCFLAGS: DBPROPENUM20 = DBPROPENUM20(225i32);
+pub const MDPROP_MDX_FORMULAS: DBPROPENUM20 = DBPROPENUM20(229i32);
+pub const MDPROP_MDX_JOINCUBES: DBPROPENUM20 = DBPROPENUM20(254i32);
+pub const MDPROP_MDX_MEMBER_FUNCTIONS: DBPROPENUM20 = DBPROPENUM20(227i32);
+pub const MDPROP_MDX_NONMEASURE_EXPRESSIONS: DBPROPENUM20 = DBPROPENUM20(262i32);
+pub const MDPROP_MDX_NUMERIC_FUNCTIONS: DBPROPENUM20 = DBPROPENUM20(228i32);
+pub const MDPROP_MDX_OBJQUALIFICATION: DBPROPENUM20 = DBPROPENUM20(261i32);
+pub const MDPROP_MDX_OUTERREFERENCE: DBPROPENUM20 = DBPROPENUM20(220i32);
+pub const MDPROP_MDX_QUERYBYPROPERTY: DBPROPENUM20 = DBPROPENUM20(221i32);
+pub const MDPROP_MDX_SET_FUNCTIONS: DBPROPENUM20 = DBPROPENUM20(226i32);
+pub const MDPROP_MDX_SLICER: DBPROPENUM20 = DBPROPENUM20(218i32);
+pub const MDPROP_MDX_STRING_COMPOP: DBPROPENUM20 = DBPROPENUM20(224i32);
+pub const MDPROP_MEMBER: u32 = 1u32;
+pub const MDPROP_NAMED_LEVELS: DBPROPENUM20 = DBPROPENUM20(255i32);
+pub const MDPROP_RANGEROWSET: DBPROPENUM20 = DBPROPENUM20(256i32);
+pub const MDPROP_VISUALMODE: DBPROPENUM26 = DBPROPENUM26(293i32);
+pub const MDSTATUS_S_CELLEMPTY: DBSTATUSENUM20 = DBSTATUSENUM20(14i32);
+pub const MDTREEOP_ANCESTORS: u32 = 32u32;
+pub const MDTREEOP_CHILDREN: u32 = 1u32;
+pub const MDTREEOP_DESCENDANTS: u32 = 16u32;
+pub const MDTREEOP_PARENT: u32 = 4u32;
+pub const MDTREEOP_SELF: u32 = 8u32;
+pub const MDTREEOP_SIBLINGS: u32 = 2u32;
+pub const MD_DIMTYPE_MEASURE: u32 = 2u32;
+pub const MD_DIMTYPE_OTHER: u32 = 3u32;
+pub const MD_DIMTYPE_TIME: u32 = 1u32;
+pub const MD_DIMTYPE_UNKNOWN: u32 = 0u32;
+pub const MD_E_BADCOORDINATE: windows_core::HRESULT = windows_core::HRESULT(0x80040E62_u32 as _);
+pub const MD_E_BADTUPLE: windows_core::HRESULT = windows_core::HRESULT(0x80040E61_u32 as _);
+pub const MD_E_INVALIDAXIS: windows_core::HRESULT = windows_core::HRESULT(0x80040E63_u32 as _);
+pub const MD_E_INVALIDCELLRANGE: windows_core::HRESULT = windows_core::HRESULT(0x80040E64_u32 as _);
+pub const MINFATALERR: u32 = 20u32;
+pub const MIN_USER_DATATYPE: u32 = 256u32;
+pub const MSDAINITIALIZE: windows_core::GUID = windows_core::GUID::from_u128(0x2206cdb0_19c1_11d1_89e0_00c04fd7a829);
+pub const MSDAORA: windows_core::GUID = windows_core::GUID::from_u128(0xe8cc4cbe_fdff_11d0_b865_00a0c9081c1d);
+pub const MSDAORA8: windows_core::GUID = windows_core::GUID::from_u128(0x7f06a373_dd6a_43db_b4e0_1fc121e5e62b);
+pub const MSDAORA8_ERROR: windows_core::GUID = windows_core::GUID::from_u128(0x7f06a374_dd6a_43db_b4e0_1fc121e5e62b);
+pub const MSDAORA_ERROR: windows_core::GUID = windows_core::GUID::from_u128(0xe8cc4cbf_fdff_11d0_b865_00a0c9081c1d);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MSDSDBINITPROPENUM(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MSDSSESSIONPROPENUM(pub i32);
+pub const MSG_CI_CORRUPT_INDEX_COMPONENT: windows_core::HRESULT = windows_core::HRESULT(0x4000102A_u32 as _);
+pub const MSG_CI_CREATE_SEVER_ITEM_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80001048_u32 as _);
+pub const MSG_CI_MASTER_MERGE_ABORTED: windows_core::HRESULT = windows_core::HRESULT(0x40001008_u32 as _);
+pub const MSG_CI_MASTER_MERGE_ABORTED_LOW_DISK: windows_core::HRESULT = windows_core::HRESULT(0x40001043_u32 as _);
+pub const MSG_CI_MASTER_MERGE_CANT_RESTART: windows_core::HRESULT = windows_core::HRESULT(0xC000100A_u32 as _);
+pub const MSG_CI_MASTER_MERGE_CANT_START: windows_core::HRESULT = windows_core::HRESULT(0xC0001009_u32 as _);
+pub const MSG_CI_MASTER_MERGE_COMPLETED: windows_core::HRESULT = windows_core::HRESULT(0x40001007_u32 as _);
+pub const MSG_CI_MASTER_MERGE_REASON_EXPECTED_DOCS: windows_core::HRESULT = windows_core::HRESULT(0x40001046_u32 as _);
+pub const MSG_CI_MASTER_MERGE_REASON_EXTERNAL: windows_core::HRESULT = windows_core::HRESULT(0x40001044_u32 as _);
+pub const MSG_CI_MASTER_MERGE_REASON_INDEX_LIMIT: windows_core::HRESULT = windows_core::HRESULT(0x40001045_u32 as _);
+pub const MSG_CI_MASTER_MERGE_REASON_NUMBER: windows_core::HRESULT = windows_core::HRESULT(0x40001047_u32 as _);
+pub const MSG_CI_MASTER_MERGE_RESTARTED: windows_core::HRESULT = windows_core::HRESULT(0x40001019_u32 as _);
+pub const MSG_CI_MASTER_MERGE_STARTED: windows_core::HRESULT = windows_core::HRESULT(0x40001006_u32 as _);
+pub const MSG_TEST_MESSAGE: i32 = 1074008064i32;
+pub const MSS_E_APPALREADYEXISTS: i32 = -2147213054i32;
+pub const MSS_E_APPNOTFOUND: i32 = -2147213055i32;
+pub const MSS_E_CATALOGALREADYEXISTS: i32 = -2147213050i32;
+pub const MSS_E_CATALOGNOTFOUND: i32 = -2147213053i32;
+pub const MSS_E_CATALOGSTOPPING: i32 = -2147213052i32;
+pub const MSS_E_INVALIDAPPNAME: i32 = -2147213056i32;
+pub const MSS_E_UNICODEFILEHEADERMISSING: i32 = -2147213051i32;
+pub const MS_PERSIST_PROGID: windows_core::PCSTR = windows_core::s!("MSPersist");
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NAMED_ENTITY_CERTAINTY(pub i32);
+#[repr(C)]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[derive(Clone, Copy)]
+pub struct NATLANGUAGERESTRICTION {
+    pub prop: super::super::Storage::IndexServer::FULLPROPSPEC,
+    pub pwcsPhrase: windows_core::PWSTR,
+    pub lcid: u32,
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+impl Default for NATLANGUAGERESTRICTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+impl windows_core::TypeKind for NATLANGUAGERESTRICTION {
+    type TypeKind = windows_core::CopyType;
+}
+pub const NEC_HIGH: NAMED_ENTITY_CERTAINTY = NAMED_ENTITY_CERTAINTY(2i32);
+pub const NEC_LOW: NAMED_ENTITY_CERTAINTY = NAMED_ENTITY_CERTAINTY(0i32);
+pub const NEC_MEDIUM: NAMED_ENTITY_CERTAINTY = NAMED_ENTITY_CERTAINTY(1i32);
+pub const NET_E_DISCONNECTED: i32 = -2147220733i32;
+pub const NET_E_GENERAL: i32 = -2147220736i32;
+pub const NET_E_INVALIDPARAMS: i32 = -2147220728i32;
+pub const NET_E_OPERATIONINPROGRESS: i32 = -2147220727i32;
+pub const NLADMIN_E_BUILD_CATALOG_NOT_INITIALIZED: i32 = -2147215100i32;
+pub const NLADMIN_E_DUPLICATE_CATALOG: i32 = -2147215103i32;
+pub const NLADMIN_E_FAILED_TO_GIVE_ACCOUNT_PRIVILEGE: i32 = -2147215101i32;
+pub const NLADMIN_S_NOT_ALL_BUILD_CATALOGS_INITIALIZED: i32 = 268546i32;
+#[repr(C)]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NODERESTRICTION {
+    pub cRes: u32,
+    pub paRes: *mut *mut RESTRICTION,
+    pub reserved: u32,
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for NODERESTRICTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for NODERESTRICTION {
+    type TypeKind = windows_core::CopyType;
+}
+pub const NOTESPH_E_ATTACHMENTS: i32 = -2147211770i32;
+pub const NOTESPH_E_DB_ACCESS_DENIED: i32 = -2147211768i32;
+pub const NOTESPH_E_FAIL: i32 = -2147211759i32;
+pub const NOTESPH_E_ITEM_NOT_FOUND: i32 = -2147211772i32;
+pub const NOTESPH_E_NOTESSETUP_ID_MAPPING_ERROR: i32 = -2147211767i32;
+pub const NOTESPH_E_NO_NTID: i32 = -2147211769i32;
+pub const NOTESPH_E_SERVER_CONFIG: i32 = -2147211771i32;
+pub const NOTESPH_E_UNEXPECTED_STATE: i32 = -2147211775i32;
+pub const NOTESPH_E_UNSUPPORTED_CONTENT_FIELD_TYPE: i32 = -2147211773i32;
+pub const NOTESPH_S_IGNORE_ID: i32 = 271874i32;
+pub const NOTESPH_S_LISTKNOWNFIELDS: i32 = 271888i32;
+#[repr(C)]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NOTRESTRICTION {
+    pub pRes: *mut RESTRICTION,
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for NOTRESTRICTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for NOTRESTRICTION {
+    type TypeKind = windows_core::CopyType;
+}
+pub const NOT_N_PARSE_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x8092E_u32 as _);
+pub const NegationCondition: windows_core::GUID = windows_core::GUID::from_u128(0x8de9c74c_605a_4acd_bee3_2b222aa2d23d);
+pub const OCC_INVALID: u32 = 4294967295u32;
+pub const ODBCVER: u32 = 896u32;
+pub const ODBC_ADD_DSN: u32 = 1u32;
+pub const ODBC_ADD_SYS_DSN: u32 = 4u32;
+pub const ODBC_BOTH_DSN: u32 = 0u32;
+pub const ODBC_CONFIG_DRIVER: u32 = 3u32;
+pub const ODBC_CONFIG_DRIVER_MAX: u32 = 100u32;
+pub const ODBC_CONFIG_DSN: u32 = 2u32;
+pub const ODBC_CONFIG_SYS_DSN: u32 = 5u32;
+pub const ODBC_ERROR_COMPONENT_NOT_FOUND: u32 = 6u32;
+pub const ODBC_ERROR_CREATE_DSN_FAILED: u32 = 18u32;
+pub const ODBC_ERROR_GENERAL_ERR: u32 = 1u32;
+pub const ODBC_ERROR_INVALID_BUFF_LEN: u32 = 2u32;
+pub const ODBC_ERROR_INVALID_DSN: u32 = 9u32;
+pub const ODBC_ERROR_INVALID_HWND: u32 = 3u32;
+pub const ODBC_ERROR_INVALID_INF: u32 = 10u32;
+pub const ODBC_ERROR_INVALID_KEYWORD_VALUE: u32 = 8u32;
+pub const ODBC_ERROR_INVALID_LOG_FILE: u32 = 15u32;
+pub const ODBC_ERROR_INVALID_NAME: u32 = 7u32;
+pub const ODBC_ERROR_INVALID_PARAM_SEQUENCE: u32 = 14u32;
+pub const ODBC_ERROR_INVALID_PATH: u32 = 12u32;
+pub const ODBC_ERROR_INVALID_REQUEST_TYPE: u32 = 5u32;
+pub const ODBC_ERROR_INVALID_STR: u32 = 4u32;
+pub const ODBC_ERROR_LOAD_LIB_FAILED: u32 = 13u32;
+pub const ODBC_ERROR_MAX: u32 = 23u32;
+pub const ODBC_ERROR_NOTRANINFO: u32 = 23u32;
+pub const ODBC_ERROR_OUTPUT_STRING_TRUNCATED: u32 = 22u32;
+pub const ODBC_ERROR_OUT_OF_MEM: u32 = 21u32;
+pub const ODBC_ERROR_REMOVE_DSN_FAILED: u32 = 20u32;
+pub const ODBC_ERROR_REQUEST_FAILED: u32 = 11u32;
+pub const ODBC_ERROR_USAGE_UPDATE_FAILED: u32 = 17u32;
+pub const ODBC_ERROR_USER_CANCELED: u32 = 16u32;
+pub const ODBC_ERROR_WRITING_SYSINFO_FAILED: u32 = 19u32;
+pub const ODBC_INSTALL_COMPLETE: u32 = 2u32;
+pub const ODBC_INSTALL_DRIVER: u32 = 1u32;
+pub const ODBC_INSTALL_INQUIRY: u32 = 1u32;
+pub const ODBC_REMOVE_DEFAULT_DSN: u32 = 7u32;
+pub const ODBC_REMOVE_DRIVER: u32 = 2u32;
+pub const ODBC_REMOVE_DSN: u32 = 3u32;
+pub const ODBC_REMOVE_SYS_DSN: u32 = 6u32;
+pub const ODBC_SYSTEM_DSN: u32 = 2u32;
+pub const ODBC_USER_DSN: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ODBC_VS_ARGS {
+    pub pguidEvent: *const windows_core::GUID,
+    pub dwFlags: u32,
+    pub Anonymous1: ODBC_VS_ARGS_0,
+    pub Anonymous2: ODBC_VS_ARGS_1,
+    pub RetCode: i16,
+}
+impl Default for ODBC_VS_ARGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ODBC_VS_ARGS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union ODBC_VS_ARGS_0 {
+    pub wszArg: windows_core::PWSTR,
+    pub szArg: windows_core::PSTR,
+}
+impl Default for ODBC_VS_ARGS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ODBC_VS_ARGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union ODBC_VS_ARGS_1 {
+    pub wszCorrelation: windows_core::PWSTR,
+    pub szCorrelation: windows_core::PSTR,
+}
+impl Default for ODBC_VS_ARGS_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ODBC_VS_ARGS_1 {
+    type TypeKind = windows_core::CopyType;
+}
+pub const ODBC_VS_FLAG_RETCODE: i32 = 4i32;
+pub const ODBC_VS_FLAG_STOP: i32 = 8i32;
+pub const ODBC_VS_FLAG_UNICODE_ARG: i32 = 1i32;
+pub const ODBC_VS_FLAG_UNICODE_COR: i32 = 2i32;
 windows_core::imp::define_interface!(OLEDBSimpleProvider, OLEDBSimpleProvider_Vtbl, 0xe0e270c0_c0be_11d0_8fe4_00a0c90a6341);
 windows_core::imp::interface_hierarchy!(OLEDBSimpleProvider, windows_core::IUnknown);
 impl OLEDBSimpleProvider {
@@ -14065,5160 +18310,11 @@ impl OLEDBSimpleProviderListener_Vtbl {
     }
 }
 impl windows_core::RuntimeName for OLEDBSimpleProviderListener {}
-pub type PFNFILLTEXTBUFFER = Option<unsafe extern "system" fn(ptextsource: *mut TEXT_SOURCE) -> windows_core::HRESULT>;
-pub type SQL_ASYNC_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, flast: super::super::Foundation::BOOL) -> i16>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ACCESS_MASKENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct AUTH_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CASE_REQUIREMENT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CHANNEL_AGENT_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CLUSION_REASON(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CONDITION_CREATION_OPTIONS(pub i32);
-impl CONDITION_CREATION_OPTIONS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for CONDITION_CREATION_OPTIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for CONDITION_CREATION_OPTIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for CONDITION_CREATION_OPTIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for CONDITION_CREATION_OPTIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for CONDITION_CREATION_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CREATESUBSCRIPTIONFLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CatalogPausedReason(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct CatalogStatus(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBACCESSORFLAGSENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBASYNCHOPENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBASYNCHPHASEENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBBINDFLAGENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBBINDSTATUSENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBBINDURLFLAGENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBBINDURLSTATUSENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBBOOKMARK(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBCOLUMNDESCFLAGSENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBCOLUMNFLAGS15ENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBCOLUMNFLAGSDEPRECATED(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBCOLUMNFLAGSENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBCOLUMNFLAGSENUM20(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBCOLUMNFLAGSENUM21(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBCOLUMNFLAGSENUM26(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBCOMMANDPERSISTFLAGENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBCOMMANDPERSISTFLAGENUM21(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBCOMPAREENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBCOMPAREOPSENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBCOMPAREOPSENUM20(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBCONSTRAINTTYPEENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBCONVERTFLAGSENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBCONVERTFLAGSENUM20(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBCOPYFLAGSENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBCOSTUNITENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBDATACONVERTENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBDEFERRABILITYENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBDELETEFLAGSENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBEVENTPHASEENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBEXECLIMITSENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBINDEX_COL_ORDERENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBLITERALENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBLITERALENUM20(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBLITERALENUM21(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBMATCHTYPEENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBMEMOWNERENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBMOVEFLAGSENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBPARAMFLAGSENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBPARAMFLAGSENUM20(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBPARAMIOENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBPARTENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBPENDINGSTATUSENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBPOSITIONFLAGSENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBPROMPTOPTIONSENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBPROPENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBPROPENUM15(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBPROPENUM20(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBPROPENUM21(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBPROPENUM25(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBPROPENUM25_DEPRECATED(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBPROPENUM26(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBPROPENUMDEPRECATED(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBPROPFLAGSENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBPROPFLAGSENUM21(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBPROPFLAGSENUM25(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBPROPFLAGSENUM26(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBPROPOPTIONSENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBPROPSTATUSENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBPROPSTATUSENUM21(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBRANGEENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBRANGEENUM20(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBREASONENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBREASONENUM15(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBREASONENUM25(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBRESOURCEKINDENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBRESULTFLAGENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBROWCHANGEKINDENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBROWSTATUSENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBROWSTATUSENUM20(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBSEEKENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBSORTENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBSOURCETYPEENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBSOURCETYPEENUM20(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBSOURCETYPEENUM25(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBSTATUSENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBSTATUSENUM20(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBSTATUSENUM21(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBSTATUSENUM25(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBSTATUSENUM26(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBTABLESTATISTICSTYPE26(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBTYPEENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBTYPEENUM15(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBTYPEENUM20(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBUPDELRULEENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBWATCHMODEENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DBWATCHNOTIFYENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DCINFOTYPEENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DELIVERY_AGENT_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EBindInfoOptions(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct FOLLOW_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct INTERVAL_LIMIT_KIND(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KAGREQDIAGFLAGSENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct LOCKMODEENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MSDSDBINITPROPENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MSDSSESSIONPROPENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NAMED_ENTITY_CERTAINTY(pub i32);
+pub const OLEDBVER: u32 = 624u32;
+pub const OLEDB_BINDER_CUSTOM_ERROR: i32 = -2147212032i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OSPCOMP(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OSPFIND(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OSPFORMAT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OSPRW(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct OSPXFER(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PRIORITIZE_FLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PRIORITY_LEVEL(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PROXY_ACCESS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct QUERY_PARSER_MANAGER_OPTION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ROWSETEVENT_ITEMSTATE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ROWSETEVENT_TYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SEARCH_INDEXING_PHASE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SEARCH_KIND_OF_CHANGE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SEARCH_NOTIFICATION_PRIORITY(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SEARCH_QUERY_SYNTAX(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SEARCH_TERM_EXPANSION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SQLINTERVAL(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SQLVARENUM(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STRUCTURED_QUERY_MULTIOPTION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STRUCTURED_QUERY_PARSE_ERROR(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STRUCTURED_QUERY_RESOLVE_OPTION(pub i32);
-impl STRUCTURED_QUERY_RESOLVE_OPTION {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for STRUCTURED_QUERY_RESOLVE_OPTION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for STRUCTURED_QUERY_RESOLVE_OPTION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for STRUCTURED_QUERY_RESOLVE_OPTION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for STRUCTURED_QUERY_RESOLVE_OPTION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for STRUCTURED_QUERY_RESOLVE_OPTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STRUCTURED_QUERY_SINGLE_OPTION(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct STRUCTURED_QUERY_SYNTAX(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SUBSCRIPTIONINFOFLAGS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SUBSCRIPTIONSCHEDULE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SUBSCRIPTIONTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WEBCRAWL_RECURSEFLAGS(pub i32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct AUTHENTICATION_INFO {
-    pub dwSize: u32,
-    pub atAuthenticationType: AUTH_TYPE,
-    pub pcwszUser: windows_core::PCWSTR,
-    pub pcwszPassword: windows_core::PCWSTR,
-}
-impl Default for AUTHENTICATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for AUTHENTICATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct BUCKETCATEGORIZE {
-    pub cBuckets: u32,
-    pub Distribution: u32,
-}
-impl Default for BUCKETCATEGORIZE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for BUCKETCATEGORIZE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct CATEGORIZATION {
-    pub ulCatType: u32,
-    pub Anonymous: CATEGORIZATION_0,
-    pub csColumns: COLUMNSET,
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Default for CATEGORIZATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for CATEGORIZATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub union CATEGORIZATION_0 {
-    pub cClusters: u32,
-    pub bucket: BUCKETCATEGORIZE,
-    pub range: RANGECATEGORIZE,
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Default for CATEGORIZATION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for CATEGORIZATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CATEGORIZATIONSET {
-    pub cCat: u32,
-    pub aCat: *mut CATEGORIZATION,
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Default for CATEGORIZATIONSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for CATEGORIZATIONSET {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct COLUMNSET {
-    pub cCol: u32,
-    pub aCol: *mut super::super::Storage::IndexServer::FULLPROPSPEC,
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Default for COLUMNSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl windows_core::TypeKind for COLUMNSET {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-#[derive(Clone, Copy)]
-pub struct CONTENTRESTRICTION {
-    pub prop: super::super::Storage::IndexServer::FULLPROPSPEC,
-    pub pwcsPhrase: windows_core::PWSTR,
-    pub lcid: u32,
-    pub ulGenerateMethod: u32,
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Default for CONTENTRESTRICTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl windows_core::TypeKind for CONTENTRESTRICTION {
-    type TypeKind = windows_core::CopyType;
-}
-pub const CSearchLanguageSupport: windows_core::GUID = windows_core::GUID::from_u128(0x6a68cc80_4337_4dbc_bd27_fbfb1053820b);
-pub const CSearchManager: windows_core::GUID = windows_core::GUID::from_u128(0x7d096c5f_ac08_4f1f_beb7_5c22c517ce39);
-pub const CSearchRoot: windows_core::GUID = windows_core::GUID::from_u128(0x30766bd2_ea1c_4f28_bf27_0b44e2f68db7);
-pub const CSearchScopeRule: windows_core::GUID = windows_core::GUID::from_u128(0xe63de750_3bd7_4be5_9c84_6b4281988c44);
-pub const CompoundCondition: windows_core::GUID = windows_core::GUID::from_u128(0x116f8d13_101e_4fa5_84d4_ff8279381935);
-pub const ConditionFactory: windows_core::GUID = windows_core::GUID::from_u128(0xe03e85b0_7be3_4000_ba98_6c13de9fa486);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DATE_STRUCT {
-    pub year: i16,
-    pub month: u16,
-    pub day: u16,
-}
-impl Default for DATE_STRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DATE_STRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DBBINDEXT {
-    pub pExtension: *mut u8,
-    pub ulExtension: usize,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DBBINDEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBBINDEXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct DBBINDEXT {
-    pub pExtension: *mut u8,
-    pub ulExtension: usize,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBBINDEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBBINDEXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Debug, PartialEq)]
-pub struct DBBINDING {
-    pub iOrdinal: usize,
-    pub obValue: usize,
-    pub obLength: usize,
-    pub obStatus: usize,
-    pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
-    pub pObject: *mut DBOBJECT,
-    pub pBindExt: *mut DBBINDEXT,
-    pub dwPart: u32,
-    pub dwMemOwner: u32,
-    pub eParamIO: u32,
-    pub cbMaxLen: usize,
-    pub dwFlags: u32,
-    pub wType: u16,
-    pub bPrecision: u8,
-    pub bScale: u8,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Com")]
-impl Default for DBBINDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for DBBINDING {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Com")]
-pub struct DBBINDING {
-    pub iOrdinal: usize,
-    pub obValue: usize,
-    pub obLength: usize,
-    pub obStatus: usize,
-    pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
-    pub pObject: *mut DBOBJECT,
-    pub pBindExt: *mut DBBINDEXT,
-    pub dwPart: u32,
-    pub dwMemOwner: u32,
-    pub eParamIO: u32,
-    pub cbMaxLen: usize,
-    pub dwFlags: u32,
-    pub wType: u16,
-    pub bPrecision: u8,
-    pub bScale: u8,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Com")]
-impl Default for DBBINDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for DBBINDING {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-#[derive(Clone, Copy)]
-pub struct DBCOLUMNACCESS {
-    pub pData: *mut core::ffi::c_void,
-    pub columnid: super::super::Storage::IndexServer::DBID,
-    pub cbDataLen: usize,
-    pub dwStatus: u32,
-    pub cbMaxLen: usize,
-    pub dwReserved: usize,
-    pub wType: u16,
-    pub bPrecision: u8,
-    pub bScale: u8,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Default for DBCOLUMNACCESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl windows_core::TypeKind for DBCOLUMNACCESS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-#[derive(Clone, Copy)]
-pub struct DBCOLUMNACCESS {
-    pub pData: *mut core::ffi::c_void,
-    pub columnid: super::super::Storage::IndexServer::DBID,
-    pub cbDataLen: usize,
-    pub dwStatus: u32,
-    pub cbMaxLen: usize,
-    pub dwReserved: usize,
-    pub wType: u16,
-    pub bPrecision: u8,
-    pub bScale: u8,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Default for DBCOLUMNACCESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl windows_core::TypeKind for DBCOLUMNACCESS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub struct DBCOLUMNDESC {
-    pub pwszTypeName: windows_core::PWSTR,
-    pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
-    pub rgPropertySets: *mut DBPROPSET,
-    pub pclsid: *mut windows_core::GUID,
-    pub cPropertySets: u32,
-    pub ulColumnSize: usize,
-    pub dbcid: super::super::Storage::IndexServer::DBID,
-    pub wType: u16,
-    pub bPrecision: u8,
-    pub bScale: u8,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Clone for DBCOLUMNDESC {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for DBCOLUMNDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DBCOLUMNDESC {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub struct DBCOLUMNDESC {
-    pub pwszTypeName: windows_core::PWSTR,
-    pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
-    pub rgPropertySets: *mut DBPROPSET,
-    pub pclsid: *mut windows_core::GUID,
-    pub cPropertySets: u32,
-    pub ulColumnSize: usize,
-    pub dbcid: super::super::Storage::IndexServer::DBID,
-    pub wType: u16,
-    pub bPrecision: u8,
-    pub bScale: u8,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Clone for DBCOLUMNDESC {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for DBCOLUMNDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DBCOLUMNDESC {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-pub struct DBCOLUMNINFO {
-    pub pwszName: windows_core::PWSTR,
-    pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
-    pub iOrdinal: usize,
-    pub dwFlags: u32,
-    pub ulColumnSize: usize,
-    pub wType: u16,
-    pub bPrecision: u8,
-    pub bScale: u8,
-    pub columnid: super::super::Storage::IndexServer::DBID,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-impl Clone for DBCOLUMNINFO {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-impl Default for DBCOLUMNINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-impl windows_core::TypeKind for DBCOLUMNINFO {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-pub struct DBCOLUMNINFO {
-    pub pwszName: windows_core::PWSTR,
-    pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
-    pub iOrdinal: usize,
-    pub dwFlags: u32,
-    pub ulColumnSize: usize,
-    pub wType: u16,
-    pub bPrecision: u8,
-    pub bScale: u8,
-    pub columnid: super::super::Storage::IndexServer::DBID,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-impl Clone for DBCOLUMNINFO {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-impl Default for DBCOLUMNINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-impl windows_core::TypeKind for DBCOLUMNINFO {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DBCONSTRAINTDESC {
-    pub pConstraintID: *mut super::super::Storage::IndexServer::DBID,
-    pub ConstraintType: u32,
-    pub cColumns: usize,
-    pub rgColumnList: *mut super::super::Storage::IndexServer::DBID,
-    pub pReferencedTableID: *mut super::super::Storage::IndexServer::DBID,
-    pub cForeignKeyColumns: usize,
-    pub rgForeignKeyColumnList: *mut super::super::Storage::IndexServer::DBID,
-    pub pwszConstraintText: windows_core::PWSTR,
-    pub UpdateRule: u32,
-    pub DeleteRule: u32,
-    pub MatchType: u32,
-    pub Deferrability: u32,
-    pub cReserved: usize,
-    pub rgReserved: *mut DBPROPSET,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for DBCONSTRAINTDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DBCONSTRAINTDESC {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct DBCONSTRAINTDESC {
-    pub pConstraintID: *mut super::super::Storage::IndexServer::DBID,
-    pub ConstraintType: u32,
-    pub cColumns: usize,
-    pub rgColumnList: *mut super::super::Storage::IndexServer::DBID,
-    pub pReferencedTableID: *mut super::super::Storage::IndexServer::DBID,
-    pub cForeignKeyColumns: usize,
-    pub rgForeignKeyColumnList: *mut super::super::Storage::IndexServer::DBID,
-    pub pwszConstraintText: windows_core::PWSTR,
-    pub UpdateRule: u32,
-    pub DeleteRule: u32,
-    pub MatchType: u32,
-    pub Deferrability: u32,
-    pub cReserved: usize,
-    pub rgReserved: *mut DBPROPSET,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for DBCONSTRAINTDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DBCONSTRAINTDESC {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DBCOST {
-    pub eKind: u32,
-    pub dwUnits: u32,
-    pub lValue: i32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DBCOST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBCOST {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct DBCOST {
-    pub eKind: u32,
-    pub dwUnits: u32,
-    pub lValue: i32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBCOST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBCOST {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DBDATE {
-    pub year: i16,
-    pub month: u16,
-    pub day: u16,
-}
-impl Default for DBDATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DBDATE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DBDATETIM4 {
-    pub numdays: u16,
-    pub nummins: u16,
-}
-impl Default for DBDATETIM4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DBDATETIM4 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DBDATETIME {
-    pub dtdays: i32,
-    pub dttime: u32,
-}
-impl Default for DBDATETIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DBDATETIME {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DBFAILUREINFO {
-    pub hRow: usize,
-    pub iColumn: usize,
-    pub failure: windows_core::HRESULT,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DBFAILUREINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBFAILUREINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct DBFAILUREINFO {
-    pub hRow: usize,
-    pub iColumn: usize,
-    pub failure: windows_core::HRESULT,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBFAILUREINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBFAILUREINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Debug, PartialEq)]
-pub struct DBIMPLICITSESSION {
-    pub pUnkOuter: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-    pub piid: *mut windows_core::GUID,
-    pub pSession: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DBIMPLICITSESSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBIMPLICITSESSION {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-pub struct DBIMPLICITSESSION {
-    pub pUnkOuter: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-    pub piid: *mut windows_core::GUID,
-    pub pSession: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBIMPLICITSESSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBIMPLICITSESSION {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DBINDEXCOLUMNDESC {
-    pub pColumnID: *mut super::super::Storage::IndexServer::DBID,
-    pub eIndexColOrder: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Default for DBINDEXCOLUMNDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl windows_core::TypeKind for DBINDEXCOLUMNDESC {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-#[derive(Clone, Copy)]
-pub struct DBINDEXCOLUMNDESC {
-    pub pColumnID: *mut super::super::Storage::IndexServer::DBID,
-    pub eIndexColOrder: u32,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Default for DBINDEXCOLUMNDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl windows_core::TypeKind for DBINDEXCOLUMNDESC {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DBLITERALINFO {
-    pub pwszLiteralValue: windows_core::PWSTR,
-    pub pwszInvalidChars: windows_core::PWSTR,
-    pub pwszInvalidStartingChars: windows_core::PWSTR,
-    pub lt: u32,
-    pub fSupported: super::super::Foundation::BOOL,
-    pub cchMaxLen: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DBLITERALINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBLITERALINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct DBLITERALINFO {
-    pub pwszLiteralValue: windows_core::PWSTR,
-    pub pwszInvalidChars: windows_core::PWSTR,
-    pub pwszInvalidStartingChars: windows_core::PWSTR,
-    pub lt: u32,
-    pub fSupported: super::super::Foundation::BOOL,
-    pub cchMaxLen: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBLITERALINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBLITERALINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DBMONEY {
-    pub mnyhigh: i32,
-    pub mnylow: u32,
-}
-impl Default for DBMONEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DBMONEY {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DBOBJECT {
-    pub dwFlags: u32,
-    pub iid: windows_core::GUID,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DBOBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBOBJECT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct DBOBJECT {
-    pub dwFlags: u32,
-    pub iid: windows_core::GUID,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBOBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBOBJECT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DBPARAMBINDINFO {
-    pub pwszDataSourceType: windows_core::PWSTR,
-    pub pwszName: windows_core::PWSTR,
-    pub ulParamSize: usize,
-    pub dwFlags: u32,
-    pub bPrecision: u8,
-    pub bScale: u8,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DBPARAMBINDINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBPARAMBINDINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct DBPARAMBINDINFO {
-    pub pwszDataSourceType: windows_core::PWSTR,
-    pub pwszName: windows_core::PWSTR,
-    pub ulParamSize: usize,
-    pub dwFlags: u32,
-    pub bPrecision: u8,
-    pub bScale: u8,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBPARAMBINDINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBPARAMBINDINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Debug, PartialEq)]
-pub struct DBPARAMINFO {
-    pub dwFlags: u32,
-    pub iOrdinal: usize,
-    pub pwszName: windows_core::PWSTR,
-    pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
-    pub ulParamSize: usize,
-    pub wType: u16,
-    pub bPrecision: u8,
-    pub bScale: u8,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Com")]
-impl Default for DBPARAMINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for DBPARAMINFO {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Com")]
-pub struct DBPARAMINFO {
-    pub dwFlags: u32,
-    pub iOrdinal: usize,
-    pub pwszName: windows_core::PWSTR,
-    pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
-    pub ulParamSize: usize,
-    pub wType: u16,
-    pub bPrecision: u8,
-    pub bScale: u8,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Com")]
-impl Default for DBPARAMINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for DBPARAMINFO {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DBPARAMS {
-    pub pData: *mut core::ffi::c_void,
-    pub cParamSets: usize,
-    pub hAccessor: HACCESSOR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DBPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct DBPARAMS {
-    pub pData: *mut core::ffi::c_void,
-    pub cParamSets: usize,
-    pub hAccessor: HACCESSOR,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub struct DBPROP {
-    pub dwPropertyID: u32,
-    pub dwOptions: u32,
-    pub dwStatus: u32,
-    pub colid: super::super::Storage::IndexServer::DBID,
-    pub vValue: super::Variant::VARIANT,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Clone for DBPROP {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for DBPROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DBPROP {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub struct DBPROP {
-    pub dwPropertyID: u32,
-    pub dwOptions: u32,
-    pub dwStatus: u32,
-    pub colid: super::super::Storage::IndexServer::DBID,
-    pub vValue: super::Variant::VARIANT,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Clone for DBPROP {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for DBPROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DBPROP {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DBPROPIDSET {
-    pub rgPropertyIDs: *mut u32,
-    pub cPropertyIDs: u32,
-    pub guidPropertySet: windows_core::GUID,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DBPROPIDSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBPROPIDSET {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct DBPROPIDSET {
-    pub rgPropertyIDs: *mut u32,
-    pub cPropertyIDs: u32,
-    pub guidPropertySet: windows_core::GUID,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBPROPIDSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBPROPIDSET {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub struct DBPROPINFO {
-    pub pwszDescription: windows_core::PWSTR,
-    pub dwPropertyID: u32,
-    pub dwFlags: u32,
-    pub vtType: super::Variant::VARENUM,
-    pub vValues: super::Variant::VARIANT,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Clone for DBPROPINFO {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for DBPROPINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DBPROPINFO {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub struct DBPROPINFO {
-    pub pwszDescription: windows_core::PWSTR,
-    pub dwPropertyID: u32,
-    pub dwFlags: u32,
-    pub vtType: super::Variant::VARENUM,
-    pub vValues: super::Variant::VARIANT,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Clone for DBPROPINFO {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for DBPROPINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DBPROPINFO {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DBPROPINFOSET {
-    pub rgPropertyInfos: *mut DBPROPINFO,
-    pub cPropertyInfos: u32,
-    pub guidPropertySet: windows_core::GUID,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for DBPROPINFOSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DBPROPINFOSET {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct DBPROPINFOSET {
-    pub rgPropertyInfos: *mut DBPROPINFO,
-    pub cPropertyInfos: u32,
-    pub guidPropertySet: windows_core::GUID,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for DBPROPINFOSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DBPROPINFOSET {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DBPROPSET {
-    pub rgProperties: *mut DBPROP,
-    pub cProperties: u32,
-    pub guidPropertySet: windows_core::GUID,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for DBPROPSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DBPROPSET {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub struct DBPROPSET {
-    pub rgProperties: *mut DBPROP,
-    pub cProperties: u32,
-    pub guidPropertySet: windows_core::GUID,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for DBPROPSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DBPROPSET {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DBROWWATCHCHANGE {
-    pub hRegion: usize,
-    pub eChangeKind: u32,
-    pub hRow: usize,
-    pub iRow: usize,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DBROWWATCHCHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBROWWATCHCHANGE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct DBROWWATCHCHANGE {
-    pub hRegion: usize,
-    pub eChangeKind: u32,
-    pub hRow: usize,
-    pub iRow: usize,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBROWWATCHCHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBROWWATCHCHANGE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DBTIME {
-    pub hour: u16,
-    pub minute: u16,
-    pub second: u16,
-}
-impl Default for DBTIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DBTIME {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DBTIMESTAMP {
-    pub year: i16,
-    pub month: u16,
-    pub day: u16,
-    pub hour: u16,
-    pub minute: u16,
-    pub second: u16,
-    pub fraction: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DBTIMESTAMP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBTIMESTAMP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct DBTIMESTAMP {
-    pub year: i16,
-    pub month: u16,
-    pub day: u16,
-    pub hour: u16,
-    pub minute: u16,
-    pub second: u16,
-    pub fraction: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBTIMESTAMP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBTIMESTAMP {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DBVARYBIN {
-    pub len: i16,
-    pub array: [u8; 8001],
-}
-impl Default for DBVARYBIN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DBVARYBIN {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DBVARYCHAR {
-    pub len: i16,
-    pub str: [i8; 8001],
-}
-impl Default for DBVARYCHAR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DBVARYCHAR {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DBVECTOR {
-    pub size: usize,
-    pub ptr: *mut core::ffi::c_void,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for DBVECTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBVECTOR {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct DBVECTOR {
-    pub size: usize,
-    pub ptr: *mut core::ffi::c_void,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBVECTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBVECTOR {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DB_NUMERIC {
-    pub precision: u8,
-    pub scale: u8,
-    pub sign: u8,
-    pub val: [u8; 16],
-}
-impl Default for DB_NUMERIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DB_NUMERIC {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DB_VARNUMERIC {
-    pub precision: u8,
-    pub scale: i8,
-    pub sign: u8,
-    pub val: [u8; 1],
-}
-impl Default for DB_VARNUMERIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for DB_VARNUMERIC {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub struct DCINFO {
-    pub eInfoType: u32,
-    pub vData: super::Variant::VARIANT,
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Clone for DCINFO {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for DCINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for DCINFO {
-    type TypeKind = windows_core::CloneType;
-}
-pub const DataLinks: windows_core::GUID = windows_core::GUID::from_u128(0x2206cdb2_19c1_11d1_89e0_00c04fd7a829);
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ERRORINFO {
-    pub hrError: windows_core::HRESULT,
-    pub dwMinor: u32,
-    pub clsid: windows_core::GUID,
-    pub iid: windows_core::GUID,
-    pub dispid: i32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for ERRORINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for ERRORINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct ERRORINFO {
-    pub hrError: windows_core::HRESULT,
-    pub dwMinor: u32,
-    pub clsid: windows_core::GUID,
-    pub iid: windows_core::GUID,
-    pub dispid: i32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for ERRORINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for ERRORINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FILTERED_DATA_SOURCES {
-    pub pwcsExtension: windows_core::PCWSTR,
-    pub pwcsMime: windows_core::PCWSTR,
-    pub pClsid: *const windows_core::GUID,
-    pub pwcsOverride: windows_core::PCWSTR,
-}
-impl Default for FILTERED_DATA_SOURCES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FILTERED_DATA_SOURCES {
-    type TypeKind = windows_core::CopyType;
-}
-pub const FilterRegistration: windows_core::GUID = windows_core::GUID::from_u128(0x9e175b8d_f52a_11d8_b9a5_505054503030);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HACCESSOR(pub usize);
-impl windows_core::TypeKind for HACCESSOR {
-    type TypeKind = windows_core::CopyType;
-}
-impl HACCESSOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == 0
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HITRANGE {
-    pub iPosition: u32,
-    pub cLength: u32,
-}
-impl Default for HITRANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HITRANGE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct INCREMENTAL_ACCESS_INFO {
-    pub dwSize: u32,
-    pub ftLastModifiedTime: super::super::Foundation::FILETIME,
-}
-impl Default for INCREMENTAL_ACCESS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for INCREMENTAL_ACCESS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub struct ITEMPROP {
-    pub variantValue: super::Variant::VARIANT,
-    pub pwszName: windows_core::PWSTR,
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Clone for ITEMPROP {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for ITEMPROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for ITEMPROP {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ITEM_INFO {
-    pub dwSize: u32,
-    pub pcwszFromEMail: windows_core::PCWSTR,
-    pub pcwszApplicationName: windows_core::PCWSTR,
-    pub pcwszCatalogName: windows_core::PCWSTR,
-    pub pcwszContentClass: windows_core::PCWSTR,
-}
-impl Default for ITEM_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ITEM_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-pub const Interval: windows_core::GUID = windows_core::GUID::from_u128(0xd957171f_4bf9_4de2_bcd5_c70a7ca55836);
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub struct KAGGETDIAG {
-    pub ulSize: u32,
-    pub vDiagInfo: super::Variant::VARIANT,
-    pub sDiagField: i16,
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Clone for KAGGETDIAG {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for KAGGETDIAG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for KAGGETDIAG {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct KAGREQDIAG {
-    pub ulDiagFlags: u32,
-    pub vt: super::Variant::VARENUM,
-    pub sDiagField: i16,
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl Default for KAGREQDIAG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl windows_core::TypeKind for KAGREQDIAG {
-    type TypeKind = windows_core::CopyType;
-}
-pub const LeafCondition: windows_core::GUID = windows_core::GUID::from_u128(0x52f15c89_5a17_48e1_bbcd_46a3f89c7cc2);
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MDAXISINFO {
-    pub cbSize: usize,
-    pub iAxis: usize,
-    pub cDimensions: usize,
-    pub cCoordinates: usize,
-    pub rgcColumns: *mut usize,
-    pub rgpwszDimensionNames: *mut windows_core::PWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for MDAXISINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for MDAXISINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct MDAXISINFO {
-    pub cbSize: usize,
-    pub iAxis: usize,
-    pub cDimensions: usize,
-    pub cCoordinates: usize,
-    pub rgcColumns: *mut usize,
-    pub rgpwszDimensionNames: *mut windows_core::PWSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Default for MDAXISINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for MDAXISINFO {
-    type TypeKind = windows_core::CopyType;
-}
-pub const MSDAINITIALIZE: windows_core::GUID = windows_core::GUID::from_u128(0x2206cdb0_19c1_11d1_89e0_00c04fd7a829);
-pub const MSDAORA: windows_core::GUID = windows_core::GUID::from_u128(0xe8cc4cbe_fdff_11d0_b865_00a0c9081c1d);
-pub const MSDAORA8: windows_core::GUID = windows_core::GUID::from_u128(0x7f06a373_dd6a_43db_b4e0_1fc121e5e62b);
-pub const MSDAORA8_ERROR: windows_core::GUID = windows_core::GUID::from_u128(0x7f06a374_dd6a_43db_b4e0_1fc121e5e62b);
-pub const MSDAORA_ERROR: windows_core::GUID = windows_core::GUID::from_u128(0xe8cc4cbf_fdff_11d0_b865_00a0c9081c1d);
-#[repr(C)]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-#[derive(Clone, Copy)]
-pub struct NATLANGUAGERESTRICTION {
-    pub prop: super::super::Storage::IndexServer::FULLPROPSPEC,
-    pub pwcsPhrase: windows_core::PWSTR,
-    pub lcid: u32,
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Default for NATLANGUAGERESTRICTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl windows_core::TypeKind for NATLANGUAGERESTRICTION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct NODERESTRICTION {
-    pub cRes: u32,
-    pub paRes: *mut *mut RESTRICTION,
-    pub reserved: u32,
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Default for NODERESTRICTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for NODERESTRICTION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct NOTRESTRICTION {
-    pub pRes: *mut RESTRICTION,
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Default for NOTRESTRICTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for NOTRESTRICTION {
-    type TypeKind = windows_core::CopyType;
-}
-pub const NegationCondition: windows_core::GUID = windows_core::GUID::from_u128(0x8de9c74c_605a_4acd_bee3_2b222aa2d23d);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ODBC_VS_ARGS {
-    pub pguidEvent: *const windows_core::GUID,
-    pub dwFlags: u32,
-    pub Anonymous1: ODBC_VS_ARGS_0,
-    pub Anonymous2: ODBC_VS_ARGS_1,
-    pub RetCode: i16,
-}
-impl Default for ODBC_VS_ARGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ODBC_VS_ARGS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union ODBC_VS_ARGS_0 {
-    pub wszArg: windows_core::PWSTR,
-    pub szArg: windows_core::PSTR,
-}
-impl Default for ODBC_VS_ARGS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ODBC_VS_ARGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union ODBC_VS_ARGS_1 {
-    pub wszCorrelation: windows_core::PWSTR,
-    pub szCorrelation: windows_core::PSTR,
-}
-impl Default for ODBC_VS_ARGS_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ODBC_VS_ARGS_1 {
-    type TypeKind = windows_core::CopyType;
-}
-pub const PDPO: windows_core::GUID = windows_core::GUID::from_u128(0xccb4ec60_b9dc_11d1_ac80_00a0c9034873);
-#[repr(C)]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-pub struct PROPERTYRESTRICTION {
-    pub rel: u32,
-    pub prop: super::super::Storage::IndexServer::FULLPROPSPEC,
-    pub prval: super::Com::StructuredStorage::PROPVARIANT,
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Clone for PROPERTYRESTRICTION {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Default for PROPERTYRESTRICTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for PROPERTYRESTRICTION {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PROXY_INFO {
-    pub dwSize: u32,
-    pub pcwszUserAgent: windows_core::PCWSTR,
-    pub paUseProxy: PROXY_ACCESS,
-    pub fLocalBypass: super::super::Foundation::BOOL,
-    pub dwPortNumber: u32,
-    pub pcwszProxyName: windows_core::PCWSTR,
-    pub pcwszBypassList: windows_core::PCWSTR,
-}
-impl Default for PROXY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PROXY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-pub const QueryParser: windows_core::GUID = windows_core::GUID::from_u128(0xb72f8fd8_0fab_4dd9_bdbf_245a6ce1485b);
-pub const QueryParserManager: windows_core::GUID = windows_core::GUID::from_u128(0x5088b39a_29b4_4d9d_8245_4ee289222f66);
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct RANGECATEGORIZE {
-    pub cRange: u32,
-    pub aRangeBegin: *mut super::Com::StructuredStorage::PROPVARIANT,
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Default for RANGECATEGORIZE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for RANGECATEGORIZE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-pub struct RESTRICTION {
-    pub rt: u32,
-    pub weight: u32,
-    pub res: RESTRICTION_0,
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Clone for RESTRICTION {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Default for RESTRICTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for RESTRICTION {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-pub union RESTRICTION_0 {
-    pub ar: NODERESTRICTION,
-    pub orRestriction: NODERESTRICTION,
-    pub pxr: NODERESTRICTION,
-    pub vr: VECTORRESTRICTION,
-    pub nr: NOTRESTRICTION,
-    pub cr: CONTENTRESTRICTION,
-    pub nlr: NATLANGUAGERESTRICTION,
-    pub pr: core::mem::ManuallyDrop<PROPERTYRESTRICTION>,
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Clone for RESTRICTION_0 {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Default for RESTRICTION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for RESTRICTION_0 {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Debug, PartialEq)]
-pub struct RMTPACK {
-    pub pISeqStream: core::mem::ManuallyDrop<Option<super::Com::ISequentialStream>>,
-    pub cbData: u32,
-    pub cBSTR: u32,
-    pub rgBSTR: *mut windows_core::BSTR,
-    pub cVARIANT: u32,
-    pub rgVARIANT: *mut super::Variant::VARIANT,
-    pub cIDISPATCH: u32,
-    pub rgIDISPATCH: *mut Option<super::Com::IDispatch>,
-    pub cIUNKNOWN: u32,
-    pub rgIUNKNOWN: *mut Option<windows_core::IUnknown>,
-    pub cPROPVARIANT: u32,
-    pub rgPROPVARIANT: *mut super::Com::StructuredStorage::PROPVARIANT,
-    pub cArray: u32,
-    pub rgArray: *mut super::Variant::VARIANT,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for RMTPACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for RMTPACK {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub struct RMTPACK {
-    pub pISeqStream: core::mem::ManuallyDrop<Option<super::Com::ISequentialStream>>,
-    pub cbData: u32,
-    pub cBSTR: u32,
-    pub rgBSTR: *mut windows_core::BSTR,
-    pub cVARIANT: u32,
-    pub rgVARIANT: *mut super::Variant::VARIANT,
-    pub cIDISPATCH: u32,
-    pub rgIDISPATCH: *mut Option<super::Com::IDispatch>,
-    pub cIUNKNOWN: u32,
-    pub rgIUNKNOWN: *mut Option<windows_core::IUnknown>,
-    pub cPROPVARIANT: u32,
-    pub rgPROPVARIANT: *mut super::Com::StructuredStorage::PROPVARIANT,
-    pub cArray: u32,
-    pub rgArray: *mut super::Variant::VARIANT,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Default for RMTPACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for RMTPACK {
-    type TypeKind = windows_core::CloneType;
-}
-pub const RootBinder: windows_core::GUID = windows_core::GUID::from_u128(0xff151822_b0bf_11d1_a80d_000000000000);
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-pub struct SEARCH_COLUMN_PROPERTIES {
-    pub Value: super::Com::StructuredStorage::PROPVARIANT,
-    pub lcid: u32,
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Clone for SEARCH_COLUMN_PROPERTIES {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Default for SEARCH_COLUMN_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for SEARCH_COLUMN_PROPERTIES {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SEARCH_ITEM_CHANGE {
-    pub Change: SEARCH_KIND_OF_CHANGE,
-    pub Priority: SEARCH_NOTIFICATION_PRIORITY,
-    pub pUserData: *mut super::Com::BLOB,
-    pub lpwszURL: windows_core::PWSTR,
-    pub lpwszOldURL: windows_core::PWSTR,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for SEARCH_ITEM_CHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SEARCH_ITEM_CHANGE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SEARCH_ITEM_INDEXING_STATUS {
-    pub dwDocID: u32,
-    pub hrIndexingStatus: windows_core::HRESULT,
-}
-impl Default for SEARCH_ITEM_INDEXING_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SEARCH_ITEM_INDEXING_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SEARCH_ITEM_PERSISTENT_CHANGE {
-    pub Change: SEARCH_KIND_OF_CHANGE,
-    pub URL: windows_core::PWSTR,
-    pub OldURL: windows_core::PWSTR,
-    pub Priority: SEARCH_NOTIFICATION_PRIORITY,
-}
-impl Default for SEARCH_ITEM_PERSISTENT_CHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SEARCH_ITEM_PERSISTENT_CHANGE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SEC_OBJECT {
-    pub cObjects: u32,
-    pub prgObjects: *mut SEC_OBJECT_ELEMENT,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Default for SEC_OBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl windows_core::TypeKind for SEC_OBJECT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-#[derive(Clone, Copy)]
-pub struct SEC_OBJECT {
-    pub cObjects: u32,
-    pub prgObjects: *mut SEC_OBJECT_ELEMENT,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Default for SEC_OBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl windows_core::TypeKind for SEC_OBJECT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-#[derive(Clone, Copy)]
-pub struct SEC_OBJECT_ELEMENT {
-    pub guidObjectType: windows_core::GUID,
-    pub ObjectID: super::super::Storage::IndexServer::DBID,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Default for SEC_OBJECT_ELEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl windows_core::TypeKind for SEC_OBJECT_ELEMENT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-#[derive(Clone, Copy)]
-pub struct SEC_OBJECT_ELEMENT {
-    pub guidObjectType: windows_core::GUID,
-    pub ObjectID: super::super::Storage::IndexServer::DBID,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Default for SEC_OBJECT_ELEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl windows_core::TypeKind for SEC_OBJECT_ELEMENT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-#[derive(Clone, Copy)]
-pub struct SORTKEY {
-    pub propColumn: super::super::Storage::IndexServer::FULLPROPSPEC,
-    pub dwOrder: u32,
-    pub locale: u32,
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Default for SORTKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl windows_core::TypeKind for SORTKEY {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SORTSET {
-    pub cCol: u32,
-    pub aCol: *mut SORTKEY,
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Default for SORTSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl windows_core::TypeKind for SORTSET {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SQLPERF {
-    pub TimerResolution: u32,
-    pub SQLidu: u32,
-    pub SQLiduRows: u32,
-    pub SQLSelects: u32,
-    pub SQLSelectRows: u32,
-    pub Transactions: u32,
-    pub SQLPrepares: u32,
-    pub ExecDirects: u32,
-    pub SQLExecutes: u32,
-    pub CursorOpens: u32,
-    pub CursorSize: u32,
-    pub CursorUsed: u32,
-    pub PercentCursorUsed: f64,
-    pub AvgFetchTime: f64,
-    pub AvgCursorSize: f64,
-    pub AvgCursorUsed: f64,
-    pub SQLFetchTime: u32,
-    pub SQLFetchCount: u32,
-    pub CurrentStmtCount: u32,
-    pub MaxOpenStmt: u32,
-    pub SumOpenStmt: u32,
-    pub CurrentConnectionCount: u32,
-    pub MaxConnectionsOpened: u32,
-    pub SumConnectionsOpened: u32,
-    pub SumConnectiontime: u32,
-    pub AvgTimeOpened: f64,
-    pub ServerRndTrips: u32,
-    pub BuffersSent: u32,
-    pub BuffersRec: u32,
-    pub BytesSent: u32,
-    pub BytesRec: u32,
-    pub msExecutionTime: u32,
-    pub msNetWorkServerTime: u32,
-}
-impl Default for SQLPERF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SQLPERF {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SQL_DAY_SECOND_STRUCT {
-    pub day: u32,
-    pub hour: u32,
-    pub minute: u32,
-    pub second: u32,
-    pub fraction: u32,
-}
-impl Default for SQL_DAY_SECOND_STRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SQL_DAY_SECOND_STRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SQL_INTERVAL_STRUCT {
-    pub interval_type: SQLINTERVAL,
-    pub interval_sign: i16,
-    pub intval: SQL_INTERVAL_STRUCT_0,
-}
-impl Default for SQL_INTERVAL_STRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SQL_INTERVAL_STRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union SQL_INTERVAL_STRUCT_0 {
-    pub year_month: SQL_YEAR_MONTH_STRUCT,
-    pub day_second: SQL_DAY_SECOND_STRUCT,
-}
-impl Default for SQL_INTERVAL_STRUCT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SQL_INTERVAL_STRUCT_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SQL_NUMERIC_STRUCT {
-    pub precision: u8,
-    pub scale: i8,
-    pub sign: u8,
-    pub val: [u8; 16],
-}
-impl Default for SQL_NUMERIC_STRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SQL_NUMERIC_STRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SQL_YEAR_MONTH_STRUCT {
-    pub year: u32,
-    pub month: u32,
-}
-impl Default for SQL_YEAR_MONTH_STRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SQL_YEAR_MONTH_STRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SSERRORINFO {
-    pub pwszMessage: windows_core::PWSTR,
-    pub pwszServer: windows_core::PWSTR,
-    pub pwszProcedure: windows_core::PWSTR,
-    pub lNative: i32,
-    pub bState: u8,
-    pub bClass: u8,
-    pub wLineNumber: u16,
-}
-impl Default for SSERRORINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SSERRORINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-pub struct SSVARIANT {
-    pub vt: u16,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-    pub Anonymous: SSVARIANT_0,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for SSVARIANT {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for SSVARIANT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SSVARIANT {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-pub union SSVARIANT_0 {
-    pub bTinyIntVal: u8,
-    pub sShortIntVal: i16,
-    pub lIntVal: i32,
-    pub llBigIntVal: i64,
-    pub fltRealVal: f32,
-    pub dblFloatVal: f64,
-    pub cyMoneyVal: super::Com::CY,
-    pub NCharVal: SSVARIANT_0_0,
-    pub CharVal: SSVARIANT_0_1,
-    pub fBitVal: super::super::Foundation::VARIANT_BOOL,
-    pub rgbGuidVal: [u8; 16],
-    pub numNumericVal: DB_NUMERIC,
-    pub BinaryVal: SSVARIANT_0_2,
-    pub tsDateTimeVal: DBTIMESTAMP,
-    pub UnknownType: SSVARIANT_0_3,
-    pub BLOBType: core::mem::ManuallyDrop<SSVARIANT_0_4>,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for SSVARIANT_0 {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for SSVARIANT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SSVARIANT_0 {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Debug, PartialEq)]
-pub struct SSVARIANT_0_4 {
-    pub dbobj: DBOBJECT,
-    pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for SSVARIANT_0_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SSVARIANT_0_4 {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SSVARIANT_0_2 {
-    pub sActualLength: i16,
-    pub sMaxLength: i16,
-    pub prgbBinaryVal: *mut u8,
-    pub dwReserved: u32,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for SSVARIANT_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SSVARIANT_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SSVARIANT_0_1 {
-    pub sActualLength: i16,
-    pub sMaxLength: i16,
-    pub pchCharVal: windows_core::PSTR,
-    pub rgbReserved: [u8; 5],
-    pub dwReserved: u32,
-    pub pwchReserved: windows_core::PWSTR,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for SSVARIANT_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SSVARIANT_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SSVARIANT_0_0 {
-    pub sActualLength: i16,
-    pub sMaxLength: i16,
-    pub pwchNCharVal: windows_core::PWSTR,
-    pub rgbReserved: [u8; 5],
-    pub dwReserved: u32,
-    pub pwchReserved: windows_core::PWSTR,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for SSVARIANT_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SSVARIANT_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SSVARIANT_0_3 {
-    pub dwActualLength: u32,
-    pub rgMetadata: [u8; 16],
-    pub pUnknownData: *mut u8,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for SSVARIANT_0_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SSVARIANT_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
-pub struct SUBSCRIPTIONINFO {
-    pub cbSize: u32,
-    pub fUpdateFlags: u32,
-    pub schedule: SUBSCRIPTIONSCHEDULE,
-    pub customGroupCookie: windows_core::GUID,
-    pub pTrigger: *mut core::ffi::c_void,
-    pub dwRecurseLevels: u32,
-    pub fWebcrawlerFlags: u32,
-    pub bMailNotification: super::super::Foundation::BOOL,
-    pub bGleam: super::super::Foundation::BOOL,
-    pub bChangesOnly: super::super::Foundation::BOOL,
-    pub bNeedPassword: super::super::Foundation::BOOL,
-    pub fChannelFlags: u32,
-    pub bstrUserName: core::mem::ManuallyDrop<windows_core::BSTR>,
-    pub bstrPassword: core::mem::ManuallyDrop<windows_core::BSTR>,
-    pub bstrFriendlyName: core::mem::ManuallyDrop<windows_core::BSTR>,
-    pub dwMaxSizeKB: u32,
-    pub subType: SUBSCRIPTIONTYPE,
-    pub fTaskFlags: u32,
-    pub dwReserved: u32,
-}
-impl Default for SUBSCRIPTIONINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SUBSCRIPTIONINFO {
-    type TypeKind = windows_core::CloneType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SUBSCRIPTIONITEMINFO {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub dwPriority: u32,
-    pub ScheduleGroup: windows_core::GUID,
-    pub clsidAgent: windows_core::GUID,
-}
-impl Default for SUBSCRIPTIONITEMINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for SUBSCRIPTIONITEMINFO {
-    type TypeKind = windows_core::CopyType;
-}
-pub const SubscriptionMgr: windows_core::GUID = windows_core::GUID::from_u128(0xabbe31d0_6dae_11d0_beca_00c04fd940be);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TEXT_SOURCE {
-    pub pfnFillTextBuffer: PFNFILLTEXTBUFFER,
-    pub awcBuffer: windows_core::PCWSTR,
-    pub iEnd: u32,
-    pub iCur: u32,
-}
-impl Default for TEXT_SOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TEXT_SOURCE {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TIMEOUT_INFO {
-    pub dwSize: u32,
-    pub dwConnectTimeout: u32,
-    pub dwDataTimeout: u32,
-}
-impl Default for TIMEOUT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TIMEOUT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TIMESTAMP_STRUCT {
-    pub year: i16,
-    pub month: u16,
-    pub day: u16,
-    pub hour: u16,
-    pub minute: u16,
-    pub second: u16,
-    pub fraction: u32,
-}
-impl Default for TIMESTAMP_STRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TIMESTAMP_STRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TIME_STRUCT {
-    pub hour: u16,
-    pub minute: u16,
-    pub second: u16,
-}
-impl Default for TIME_STRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TIME_STRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VECTORRESTRICTION {
-    pub Node: NODERESTRICTION,
-    pub RankMethod: u32,
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Default for VECTORRESTRICTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for VECTORRESTRICTION {
-    type TypeKind = windows_core::CopyType;
-}
-pub const BCP6xFILEFMT: u32 = 9u32;
-pub const BCPABORT: u32 = 6u32;
-pub const BCPBATCH: u32 = 4u32;
-pub const BCPFILECP: u32 = 12u32;
-pub const BCPFILECP_ACP: u32 = 0u32;
-pub const BCPFILECP_OEMCP: u32 = 1u32;
-pub const BCPFILECP_RAW: i32 = -1i32;
-pub const BCPFILEFMT: u32 = 15u32;
-pub const BCPFIRST: u32 = 2u32;
-pub const BCPHINTS: u32 = 11u32;
-pub const BCPHINTSA: u32 = 10u32;
-pub const BCPHINTSW: u32 = 11u32;
-pub const BCPKEEPIDENTITY: u32 = 8u32;
-pub const BCPKEEPNULLS: u32 = 5u32;
-pub const BCPLAST: u32 = 3u32;
-pub const BCPMAXERRS: u32 = 1u32;
-pub const BCPODBC: u32 = 7u32;
-pub const BCPTEXTFILE: u32 = 14u32;
-pub const BCPUNICODEFILE: u32 = 13u32;
-pub const BCP_FMT_COLLATION: u32 = 6u32;
-pub const BCP_FMT_COLLATION_ID: u32 = 7u32;
-pub const BCP_FMT_DATA_LEN: u32 = 3u32;
-pub const BCP_FMT_INDICATOR_LEN: u32 = 2u32;
-pub const BCP_FMT_SERVER_COL: u32 = 5u32;
-pub const BCP_FMT_TERMINATOR: u32 = 4u32;
-pub const BCP_FMT_TYPE: u32 = 1u32;
-pub const BIO_BINDER: EBindInfoOptions = EBindInfoOptions(1i32);
-pub const BMK_DURABILITY_INTRANSACTION: i32 = 1i32;
-pub const BMK_DURABILITY_REORGANIZATION: i32 = 3i32;
-pub const BMK_DURABILITY_ROWSET: i32 = 0i32;
-pub const BMK_DURABILITY_XTRANSACTION: i32 = 2i32;
-pub const BUCKET_EXPONENTIAL: u32 = 1u32;
-pub const BUCKET_LINEAR: u32 = 0u32;
-pub const CASE_REQUIREMENT_ANY: CASE_REQUIREMENT = CASE_REQUIREMENT(0i32);
-pub const CASE_REQUIREMENT_UPPER_IF_AQS: CASE_REQUIREMENT = CASE_REQUIREMENT(1i32);
-pub const CATALOG_PAUSED_REASON_DELAYED_RECOVERY: CatalogPausedReason = CatalogPausedReason(7i32);
-pub const CATALOG_PAUSED_REASON_EXTERNAL: CatalogPausedReason = CatalogPausedReason(9i32);
-pub const CATALOG_PAUSED_REASON_HIGH_CPU: CatalogPausedReason = CatalogPausedReason(2i32);
-pub const CATALOG_PAUSED_REASON_HIGH_IO: CatalogPausedReason = CatalogPausedReason(1i32);
-pub const CATALOG_PAUSED_REASON_HIGH_NTF_RATE: CatalogPausedReason = CatalogPausedReason(3i32);
-pub const CATALOG_PAUSED_REASON_LOW_BATTERY: CatalogPausedReason = CatalogPausedReason(4i32);
-pub const CATALOG_PAUSED_REASON_LOW_DISK: CatalogPausedReason = CatalogPausedReason(6i32);
-pub const CATALOG_PAUSED_REASON_LOW_MEMORY: CatalogPausedReason = CatalogPausedReason(5i32);
-pub const CATALOG_PAUSED_REASON_NONE: CatalogPausedReason = CatalogPausedReason(0i32);
-pub const CATALOG_PAUSED_REASON_UPGRADING: CatalogPausedReason = CatalogPausedReason(10i32);
-pub const CATALOG_PAUSED_REASON_USER_ACTIVE: CatalogPausedReason = CatalogPausedReason(8i32);
-pub const CATALOG_STATUS_FULL_CRAWL: CatalogStatus = CatalogStatus(3i32);
-pub const CATALOG_STATUS_IDLE: CatalogStatus = CatalogStatus(0i32);
-pub const CATALOG_STATUS_INCREMENTAL_CRAWL: CatalogStatus = CatalogStatus(4i32);
-pub const CATALOG_STATUS_PAUSED: CatalogStatus = CatalogStatus(1i32);
-pub const CATALOG_STATUS_PROCESSING_NOTIFICATIONS: CatalogStatus = CatalogStatus(5i32);
-pub const CATALOG_STATUS_RECOVERING: CatalogStatus = CatalogStatus(2i32);
-pub const CATALOG_STATUS_SHUTTING_DOWN: CatalogStatus = CatalogStatus(6i32);
-pub const CATEGORIZE_BUCKETS: u32 = 2u32;
-pub const CATEGORIZE_CLUSTER: u32 = 1u32;
-pub const CATEGORIZE_RANGE: u32 = 3u32;
-pub const CATEGORIZE_UNIQUE: u32 = 0u32;
-pub const CATEGORY_COLLATOR: i32 = 2i32;
-pub const CATEGORY_GATHERER: i32 = 3i32;
-pub const CATEGORY_INDEXER: i32 = 4i32;
-pub const CATEGORY_SEARCH: i32 = 1i32;
-pub const CDBBMKDISPIDS: u32 = 8u32;
-pub const CDBCOLDISPIDS: u32 = 28u32;
-pub const CDBSELFDISPIDS: u32 = 8u32;
-pub const CERT_E_NOT_FOUND_OR_NO_PERMISSSION: i32 = -2147211263i32;
-pub const CHANNEL_AGENT_DYNAMIC_SCHEDULE: CHANNEL_AGENT_FLAGS = CHANNEL_AGENT_FLAGS(1i32);
-pub const CHANNEL_AGENT_PRECACHE_ALL: CHANNEL_AGENT_FLAGS = CHANNEL_AGENT_FLAGS(4i32);
-pub const CHANNEL_AGENT_PRECACHE_SCRNSAVER: CHANNEL_AGENT_FLAGS = CHANNEL_AGENT_FLAGS(8i32);
-pub const CHANNEL_AGENT_PRECACHE_SOME: CHANNEL_AGENT_FLAGS = CHANNEL_AGENT_FLAGS(2i32);
-pub const CI_E_CORRUPT_FWIDX: windows_core::HRESULT = windows_core::HRESULT(0xC004182D_u32 as _);
-pub const CI_E_DIACRITIC_SETTINGS_DIFFER: windows_core::HRESULT = windows_core::HRESULT(0xC004182E_u32 as _);
-pub const CI_E_INCONSISTENT_TRANSACTION: windows_core::HRESULT = windows_core::HRESULT(0xC0041832_u32 as _);
-pub const CI_E_INVALID_CATALOG_LIST_VERSION: windows_core::HRESULT = windows_core::HRESULT(0x8004182F_u32 as _);
-pub const CI_E_MULTIPLE_PROTECTED_USERS_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC0041835_u32 as _);
-pub const CI_E_NO_AUXMETADATA: windows_core::HRESULT = windows_core::HRESULT(0x8004182A_u32 as _);
-pub const CI_E_NO_CATALOG_MANAGER: windows_core::HRESULT = windows_core::HRESULT(0xC0041831_u32 as _);
-pub const CI_E_NO_PROTECTED_USER: windows_core::HRESULT = windows_core::HRESULT(0xC0041834_u32 as _);
-pub const CI_E_PROTECTED_CATALOG_NON_INTERACTIVE_USER: windows_core::HRESULT = windows_core::HRESULT(0xC0041837_u32 as _);
-pub const CI_E_PROTECTED_CATALOG_NOT_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC0041833_u32 as _);
-pub const CI_E_PROTECTED_CATALOG_SID_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0xC0041836_u32 as _);
-pub const CI_S_CATALOG_RESET: windows_core::HRESULT = windows_core::HRESULT(0x41830_u32 as _);
-pub const CI_S_CLIENT_REQUESTED_ABORT: windows_core::HRESULT = windows_core::HRESULT(0x4182B_u32 as _);
-pub const CI_S_NEW_AUXMETADATA: windows_core::HRESULT = windows_core::HRESULT(0x41829_u32 as _);
-pub const CI_S_RETRY_DOCUMENT: windows_core::HRESULT = windows_core::HRESULT(0x4182C_u32 as _);
-pub const CLSID_CISimpleCommandCreator: windows_core::GUID = windows_core::GUID::from_u128(0xc7b6c04a_cbb5_11d0_bb4c_00c04fc2f410);
-pub const CLSID_DataShapeProvider: windows_core::GUID = windows_core::GUID::from_u128(0x3449a1c8_c56c_11d0_ad72_00c04fc29863);
-pub const CLSID_MSDASQL: windows_core::GUID = windows_core::GUID::from_u128(0xc8b522cb_5cf3_11ce_ade5_00aa0044773d);
-pub const CLSID_MSDASQL_ENUMERATOR: windows_core::GUID = windows_core::GUID::from_u128(0xc8b522cd_5cf3_11ce_ade5_00aa0044773d);
-pub const CLSID_MSPersist: windows_core::GUID = windows_core::GUID::from_u128(0x7c07e0d0_4418_11d2_9212_00c04fbbbfb3);
-pub const CLSID_SQLOLEDB: windows_core::GUID = windows_core::GUID::from_u128(0x0c7ff16c_38e3_11d0_97ab_00c04fc2ad98);
-pub const CLSID_SQLOLEDB_ENUMERATOR: windows_core::GUID = windows_core::GUID::from_u128(0xdfa22b8e_e68d_11d0_97e4_00c04fc2ad98);
-pub const CLSID_SQLOLEDB_ERROR: windows_core::GUID = windows_core::GUID::from_u128(0xc0932c62_38e5_11d0_97ab_00c04fc2ad98);
-pub const CLUSIONREASON_DEFAULT: CLUSION_REASON = CLUSION_REASON(1i32);
-pub const CLUSIONREASON_GROUPPOLICY: CLUSION_REASON = CLUSION_REASON(3i32);
-pub const CLUSIONREASON_UNKNOWNSCOPE: CLUSION_REASON = CLUSION_REASON(0i32);
-pub const CLUSIONREASON_USER: CLUSION_REASON = CLUSION_REASON(2i32);
-pub const CMDLINE_E_ALREADY_INIT: i32 = -2147216123i32;
-pub const CMDLINE_E_NOT_INIT: i32 = -2147216124i32;
-pub const CMDLINE_E_NUM_PARAMS: i32 = -2147216122i32;
-pub const CMDLINE_E_PARAM_SIZE: i32 = -2147216125i32;
-pub const CMDLINE_E_PAREN: i32 = -2147216126i32;
-pub const CMDLINE_E_UNEXPECTED: i32 = -2147216127i32;
-pub const CM_E_CONNECTIONTIMEOUT: i32 = -2147219963i32;
-pub const CM_E_DATASOURCENOTAVAILABLE: i32 = -2147219964i32;
-pub const CM_E_INSUFFICIENTBUFFER: i32 = -2147219957i32;
-pub const CM_E_INVALIDDATASOURCE: i32 = -2147219959i32;
-pub const CM_E_NOQUERYCONNECTIONS: i32 = -2147219965i32;
-pub const CM_E_REGISTRY: i32 = -2147219960i32;
-pub const CM_E_SERVERNOTFOUND: i32 = -2147219962i32;
-pub const CM_E_TIMEOUT: i32 = -2147219958i32;
-pub const CM_E_TOOMANYDATASERVERS: i32 = -2147219967i32;
-pub const CM_E_TOOMANYDATASOURCES: i32 = -2147219966i32;
-pub const CM_S_NODATASERVERS: i32 = 263687i32;
-pub const COLL_E_BADRESULT: i32 = -2147220218i32;
-pub const COLL_E_BADSEQUENCE: i32 = -2147220223i32;
-pub const COLL_E_BUFFERTOOSMALL: i32 = -2147220220i32;
-pub const COLL_E_DUPLICATEDBID: i32 = -2147220216i32;
-pub const COLL_E_INCOMPATIBLECOLUMNS: i32 = -2147220221i32;
-pub const COLL_E_MAXCONNEXCEEDED: i32 = -2147220213i32;
-pub const COLL_E_NODEFAULTCATALOG: i32 = -2147220214i32;
-pub const COLL_E_NOMOREDATA: i32 = -2147220222i32;
-pub const COLL_E_NOSORTCOLUMN: i32 = -2147220217i32;
-pub const COLL_E_TOOMANYMERGECOLUMNS: i32 = -2147220215i32;
-pub const CONDITION_CREATION_DEFAULT: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(0i32);
-pub const CONDITION_CREATION_NONE: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(0i32);
-pub const CONDITION_CREATION_SIMPLIFY: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(1i32);
-pub const CONDITION_CREATION_USE_CONTENT_LOCALE: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(16i32);
-pub const CONDITION_CREATION_VECTOR_AND: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(2i32);
-pub const CONDITION_CREATION_VECTOR_LEAF: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(8i32);
-pub const CONDITION_CREATION_VECTOR_OR: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(4i32);
-pub const CONTENT_SOURCE_E_CONTENT_CLASS_READ: i32 = -2147208188i32;
-pub const CONTENT_SOURCE_E_CONTENT_SOURCE_COLUMN_TYPE: i32 = -2147208185i32;
-pub const CONTENT_SOURCE_E_NULL_CONTENT_CLASS_BSTR: i32 = -2147208186i32;
-pub const CONTENT_SOURCE_E_NULL_URI: i32 = -2147208183i32;
-pub const CONTENT_SOURCE_E_OUT_OF_RANGE: i32 = -2147208184i32;
-pub const CONTENT_SOURCE_E_PROPERTY_MAPPING_BAD_VECTOR_SIZE: i32 = -2147208189i32;
-pub const CONTENT_SOURCE_E_PROPERTY_MAPPING_READ: i32 = -2147208191i32;
-pub const CONTENT_SOURCE_E_UNEXPECTED_EXCEPTION: i32 = -2147208187i32;
-pub const CONTENT_SOURCE_E_UNEXPECTED_NULL_POINTER: i32 = -2147208190i32;
-pub const CQUERYDISPIDS: u32 = 11u32;
-pub const CQUERYMETADISPIDS: u32 = 10u32;
-pub const CQUERYPROPERTY: u32 = 64u32;
-pub const CREATESUBS_ADDTOFAVORITES: CREATESUBSCRIPTIONFLAGS = CREATESUBSCRIPTIONFLAGS(1i32);
-pub const CREATESUBS_FROMFAVORITES: CREATESUBSCRIPTIONFLAGS = CREATESUBSCRIPTIONFLAGS(2i32);
-pub const CREATESUBS_NOSAVE: CREATESUBSCRIPTIONFLAGS = CREATESUBSCRIPTIONFLAGS(8i32);
-pub const CREATESUBS_NOUI: CREATESUBSCRIPTIONFLAGS = CREATESUBSCRIPTIONFLAGS(4i32);
-pub const CREATESUBS_SOFTWAREUPDATE: CREATESUBSCRIPTIONFLAGS = CREATESUBSCRIPTIONFLAGS(16i32);
-pub const CRESTRICTIONS_DBSCHEMA_ASSERTIONS: u32 = 3u32;
-pub const CRESTRICTIONS_DBSCHEMA_CATALOGS: u32 = 1u32;
-pub const CRESTRICTIONS_DBSCHEMA_CHARACTER_SETS: u32 = 3u32;
-pub const CRESTRICTIONS_DBSCHEMA_CHECK_CONSTRAINTS: u32 = 3u32;
-pub const CRESTRICTIONS_DBSCHEMA_CHECK_CONSTRAINTS_BY_TABLE: u32 = 6u32;
-pub const CRESTRICTIONS_DBSCHEMA_COLLATIONS: u32 = 3u32;
-pub const CRESTRICTIONS_DBSCHEMA_COLUMNS: u32 = 4u32;
-pub const CRESTRICTIONS_DBSCHEMA_COLUMN_DOMAIN_USAGE: u32 = 4u32;
-pub const CRESTRICTIONS_DBSCHEMA_COLUMN_PRIVILEGES: u32 = 6u32;
-pub const CRESTRICTIONS_DBSCHEMA_CONSTRAINT_COLUMN_USAGE: u32 = 4u32;
-pub const CRESTRICTIONS_DBSCHEMA_CONSTRAINT_TABLE_USAGE: u32 = 3u32;
-pub const CRESTRICTIONS_DBSCHEMA_FOREIGN_KEYS: u32 = 6u32;
-pub const CRESTRICTIONS_DBSCHEMA_INDEXES: u32 = 5u32;
-pub const CRESTRICTIONS_DBSCHEMA_KEY_COLUMN_USAGE: u32 = 7u32;
-pub const CRESTRICTIONS_DBSCHEMA_LINKEDSERVERS: u32 = 1u32;
-pub const CRESTRICTIONS_DBSCHEMA_OBJECTS: u32 = 1u32;
-pub const CRESTRICTIONS_DBSCHEMA_OBJECT_ACTIONS: u32 = 1u32;
-pub const CRESTRICTIONS_DBSCHEMA_PRIMARY_KEYS: u32 = 3u32;
-pub const CRESTRICTIONS_DBSCHEMA_PROCEDURES: u32 = 4u32;
-pub const CRESTRICTIONS_DBSCHEMA_PROCEDURE_COLUMNS: u32 = 4u32;
-pub const CRESTRICTIONS_DBSCHEMA_PROCEDURE_PARAMETERS: u32 = 4u32;
-pub const CRESTRICTIONS_DBSCHEMA_PROVIDER_TYPES: u32 = 2u32;
-pub const CRESTRICTIONS_DBSCHEMA_REFERENTIAL_CONSTRAINTS: u32 = 3u32;
-pub const CRESTRICTIONS_DBSCHEMA_SCHEMATA: u32 = 3u32;
-pub const CRESTRICTIONS_DBSCHEMA_SQL_LANGUAGES: u32 = 0u32;
-pub const CRESTRICTIONS_DBSCHEMA_STATISTICS: u32 = 3u32;
-pub const CRESTRICTIONS_DBSCHEMA_TABLES: u32 = 4u32;
-pub const CRESTRICTIONS_DBSCHEMA_TABLES_INFO: u32 = 4u32;
-pub const CRESTRICTIONS_DBSCHEMA_TABLE_CONSTRAINTS: u32 = 7u32;
-pub const CRESTRICTIONS_DBSCHEMA_TABLE_PRIVILEGES: u32 = 5u32;
-pub const CRESTRICTIONS_DBSCHEMA_TABLE_STATISTICS: u32 = 7u32;
-pub const CRESTRICTIONS_DBSCHEMA_TRANSLATIONS: u32 = 3u32;
-pub const CRESTRICTIONS_DBSCHEMA_TRUSTEE: u32 = 4u32;
-pub const CRESTRICTIONS_DBSCHEMA_USAGE_PRIVILEGES: u32 = 6u32;
-pub const CRESTRICTIONS_DBSCHEMA_VIEWS: u32 = 3u32;
-pub const CRESTRICTIONS_DBSCHEMA_VIEW_COLUMN_USAGE: u32 = 3u32;
-pub const CRESTRICTIONS_DBSCHEMA_VIEW_TABLE_USAGE: u32 = 3u32;
-pub const CRESTRICTIONS_MDSCHEMA_ACTIONS: u32 = 8u32;
-pub const CRESTRICTIONS_MDSCHEMA_COMMANDS: u32 = 5u32;
-pub const CRESTRICTIONS_MDSCHEMA_CUBES: u32 = 3u32;
-pub const CRESTRICTIONS_MDSCHEMA_DIMENSIONS: u32 = 5u32;
-pub const CRESTRICTIONS_MDSCHEMA_FUNCTIONS: u32 = 4u32;
-pub const CRESTRICTIONS_MDSCHEMA_HIERARCHIES: u32 = 6u32;
-pub const CRESTRICTIONS_MDSCHEMA_LEVELS: u32 = 7u32;
-pub const CRESTRICTIONS_MDSCHEMA_MEASURES: u32 = 5u32;
-pub const CRESTRICTIONS_MDSCHEMA_MEMBERS: u32 = 12u32;
-pub const CRESTRICTIONS_MDSCHEMA_PROPERTIES: u32 = 9u32;
-pub const CRESTRICTIONS_MDSCHEMA_SETS: u32 = 5u32;
-pub const CSTORAGEPROPERTY: u32 = 23u32;
-pub const DBACCESSOR_INHERITED: DBACCESSORFLAGSENUM = DBACCESSORFLAGSENUM(16i32);
-pub const DBACCESSOR_INVALID: DBACCESSORFLAGSENUM = DBACCESSORFLAGSENUM(0i32);
-pub const DBACCESSOR_OPTIMIZED: DBACCESSORFLAGSENUM = DBACCESSORFLAGSENUM(8i32);
-pub const DBACCESSOR_PARAMETERDATA: DBACCESSORFLAGSENUM = DBACCESSORFLAGSENUM(4i32);
-pub const DBACCESSOR_PASSBYREF: DBACCESSORFLAGSENUM = DBACCESSORFLAGSENUM(1i32);
-pub const DBACCESSOR_ROWDATA: DBACCESSORFLAGSENUM = DBACCESSORFLAGSENUM(2i32);
-pub const DBASYNCHOP_OPEN: DBASYNCHOPENUM = DBASYNCHOPENUM(0i32);
-pub const DBASYNCHPHASE_CANCELED: DBASYNCHPHASEENUM = DBASYNCHPHASEENUM(3i32);
-pub const DBASYNCHPHASE_COMPLETE: DBASYNCHPHASEENUM = DBASYNCHPHASEENUM(2i32);
-pub const DBASYNCHPHASE_INITIALIZATION: DBASYNCHPHASEENUM = DBASYNCHPHASEENUM(0i32);
-pub const DBASYNCHPHASE_POPULATION: DBASYNCHPHASEENUM = DBASYNCHPHASEENUM(1i32);
-pub const DBBINDFLAG_HTML: DBBINDFLAGENUM = DBBINDFLAGENUM(1i32);
-pub const DBBINDSTATUS_BADBINDINFO: DBBINDSTATUSENUM = DBBINDSTATUSENUM(3i32);
-pub const DBBINDSTATUS_BADORDINAL: DBBINDSTATUSENUM = DBBINDSTATUSENUM(1i32);
-pub const DBBINDSTATUS_BADSTORAGEFLAGS: DBBINDSTATUSENUM = DBBINDSTATUSENUM(4i32);
-pub const DBBINDSTATUS_MULTIPLESTORAGE: DBBINDSTATUSENUM = DBBINDSTATUSENUM(6i32);
-pub const DBBINDSTATUS_NOINTERFACE: DBBINDSTATUSENUM = DBBINDSTATUSENUM(5i32);
-pub const DBBINDSTATUS_OK: DBBINDSTATUSENUM = DBBINDSTATUSENUM(0i32);
-pub const DBBINDSTATUS_UNSUPPORTEDCONVERSION: DBBINDSTATUSENUM = DBBINDSTATUSENUM(2i32);
-pub const DBBINDURLFLAG_ASYNCHRONOUS: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(4096i32);
-pub const DBBINDURLFLAG_COLLECTION: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(8192i32);
-pub const DBBINDURLFLAG_DELAYFETCHCOLUMNS: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(32768i32);
-pub const DBBINDURLFLAG_DELAYFETCHSTREAM: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(16384i32);
-pub const DBBINDURLFLAG_ISSTRUCTUREDDOCUMENT: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(134217728i32);
-pub const DBBINDURLFLAG_OPENIFEXISTS: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(33554432i32);
-pub const DBBINDURLFLAG_OUTPUT: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(8388608i32);
-pub const DBBINDURLFLAG_OVERWRITE: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(67108864i32);
-pub const DBBINDURLFLAG_READ: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(1i32);
-pub const DBBINDURLFLAG_READWRITE: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(3i32);
-pub const DBBINDURLFLAG_RECURSIVE: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(4194304i32);
-pub const DBBINDURLFLAG_SHARE_DENY_NONE: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(16i32);
-pub const DBBINDURLFLAG_SHARE_DENY_READ: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(4i32);
-pub const DBBINDURLFLAG_SHARE_DENY_WRITE: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(8i32);
-pub const DBBINDURLFLAG_SHARE_EXCLUSIVE: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(12i32);
-pub const DBBINDURLFLAG_WAITFORINIT: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(16777216i32);
-pub const DBBINDURLFLAG_WRITE: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(2i32);
-pub const DBBINDURLSTATUS_S_DENYNOTSUPPORTED: DBBINDURLSTATUSENUM = DBBINDURLSTATUSENUM(1i32);
-pub const DBBINDURLSTATUS_S_DENYTYPENOTSUPPORTED: DBBINDURLSTATUSENUM = DBBINDURLSTATUSENUM(4i32);
-pub const DBBINDURLSTATUS_S_OK: DBBINDURLSTATUSENUM = DBBINDURLSTATUSENUM(0i32);
-pub const DBBINDURLSTATUS_S_REDIRECTED: DBBINDURLSTATUSENUM = DBBINDURLSTATUSENUM(8i32);
-pub const DBBMKGUID: windows_core::GUID = windows_core::GUID::from_u128(0xc8b52232_5cf3_11ce_ade5_00aa0044773d);
-pub const DBBMK_FIRST: DBBOOKMARK = DBBOOKMARK(1i32);
-pub const DBBMK_INVALID: DBBOOKMARK = DBBOOKMARK(0i32);
-pub const DBBMK_LAST: DBBOOKMARK = DBBOOKMARK(2i32);
-pub const DBCIDGUID: windows_core::GUID = windows_core::GUID::from_u128(0x0c733a81_2a1c_11ce_ade5_00aa0044773d);
-pub const DBCOLUMNDESCFLAGS_CLSID: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(8i32);
-pub const DBCOLUMNDESCFLAGS_COLSIZE: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(16i32);
-pub const DBCOLUMNDESCFLAGS_DBCID: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(32i32);
-pub const DBCOLUMNDESCFLAGS_ITYPEINFO: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(2i32);
-pub const DBCOLUMNDESCFLAGS_PRECISION: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(128i32);
-pub const DBCOLUMNDESCFLAGS_PROPERTIES: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(4i32);
-pub const DBCOLUMNDESCFLAGS_SCALE: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(256i32);
-pub const DBCOLUMNDESCFLAGS_TYPENAME: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(1i32);
-pub const DBCOLUMNDESCFLAGS_WTYPE: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(64i32);
-pub const DBCOLUMNFLAGS_CACHEDEFERRED: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(4096i32);
-pub const DBCOLUMNFLAGS_ISBOOKMARK: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(1i32);
-pub const DBCOLUMNFLAGS_ISCHAPTER: DBCOLUMNFLAGS15ENUM = DBCOLUMNFLAGS15ENUM(8192i32);
-pub const DBCOLUMNFLAGS_ISCOLLECTION: DBCOLUMNFLAGSENUM21 = DBCOLUMNFLAGSENUM21(262144i32);
-pub const DBCOLUMNFLAGS_ISDEFAULTSTREAM: DBCOLUMNFLAGSENUM21 = DBCOLUMNFLAGSENUM21(131072i32);
-pub const DBCOLUMNFLAGS_ISFIXEDLENGTH: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(16i32);
-pub const DBCOLUMNFLAGS_ISLONG: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(128i32);
-pub const DBCOLUMNFLAGS_ISNULLABLE: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(32i32);
-pub const DBCOLUMNFLAGS_ISROW: DBCOLUMNFLAGSENUM26 = DBCOLUMNFLAGSENUM26(2097152i32);
-pub const DBCOLUMNFLAGS_ISROWID: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(256i32);
-pub const DBCOLUMNFLAGS_ISROWSET: DBCOLUMNFLAGSENUM26 = DBCOLUMNFLAGSENUM26(1048576i32);
-pub const DBCOLUMNFLAGS_ISROWURL: DBCOLUMNFLAGSENUM21 = DBCOLUMNFLAGSENUM21(65536i32);
-pub const DBCOLUMNFLAGS_ISROWVER: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(512i32);
-pub const DBCOLUMNFLAGS_ISSTREAM: DBCOLUMNFLAGSENUM26 = DBCOLUMNFLAGSENUM26(524288i32);
-pub const DBCOLUMNFLAGS_KEYCOLUMN: DBCOLUMNFLAGSDEPRECATED = DBCOLUMNFLAGSDEPRECATED(32768i32);
-pub const DBCOLUMNFLAGS_MAYBENULL: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(64i32);
-pub const DBCOLUMNFLAGS_MAYDEFER: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(2i32);
-pub const DBCOLUMNFLAGS_RESERVED: DBCOLUMNFLAGSENUM20 = DBCOLUMNFLAGSENUM20(32768i32);
-pub const DBCOLUMNFLAGS_ROWSPECIFICCOLUMN: DBCOLUMNFLAGSENUM26 = DBCOLUMNFLAGSENUM26(4194304i32);
-pub const DBCOLUMNFLAGS_SCALEISNEGATIVE: DBCOLUMNFLAGSENUM20 = DBCOLUMNFLAGSENUM20(16384i32);
-pub const DBCOLUMNFLAGS_WRITE: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(4i32);
-pub const DBCOLUMNFLAGS_WRITEUNKNOWN: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(8i32);
-pub const DBCOMMANDPERSISTFLAG_DEFAULT: DBCOMMANDPERSISTFLAGENUM21 = DBCOMMANDPERSISTFLAGENUM21(0i32);
-pub const DBCOMMANDPERSISTFLAG_NOSAVE: DBCOMMANDPERSISTFLAGENUM = DBCOMMANDPERSISTFLAGENUM(1i32);
-pub const DBCOMMANDPERSISTFLAG_PERSISTPROCEDURE: DBCOMMANDPERSISTFLAGENUM21 = DBCOMMANDPERSISTFLAGENUM21(4i32);
-pub const DBCOMMANDPERSISTFLAG_PERSISTVIEW: DBCOMMANDPERSISTFLAGENUM21 = DBCOMMANDPERSISTFLAGENUM21(2i32);
-pub const DBCOMPAREOPS_BEGINSWITH: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(5i32);
-pub const DBCOMPAREOPS_CASEINSENSITIVE: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(8192i32);
-pub const DBCOMPAREOPS_CASESENSITIVE: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(4096i32);
-pub const DBCOMPAREOPS_CONTAINS: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(6i32);
-pub const DBCOMPAREOPS_EQ: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(2i32);
-pub const DBCOMPAREOPS_GE: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(3i32);
-pub const DBCOMPAREOPS_GT: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(4i32);
-pub const DBCOMPAREOPS_IGNORE: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(8i32);
-pub const DBCOMPAREOPS_LE: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(1i32);
-pub const DBCOMPAREOPS_LT: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(0i32);
-pub const DBCOMPAREOPS_NE: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(7i32);
-pub const DBCOMPAREOPS_NOTBEGINSWITH: DBCOMPAREOPSENUM20 = DBCOMPAREOPSENUM20(9i32);
-pub const DBCOMPAREOPS_NOTCONTAINS: DBCOMPAREOPSENUM20 = DBCOMPAREOPSENUM20(10i32);
-pub const DBCOMPARE_EQ: DBCOMPAREENUM = DBCOMPAREENUM(1i32);
-pub const DBCOMPARE_GT: DBCOMPAREENUM = DBCOMPAREENUM(2i32);
-pub const DBCOMPARE_LT: DBCOMPAREENUM = DBCOMPAREENUM(0i32);
-pub const DBCOMPARE_NE: DBCOMPAREENUM = DBCOMPAREENUM(3i32);
-pub const DBCOMPARE_NOTCOMPARABLE: DBCOMPAREENUM = DBCOMPAREENUM(4i32);
-pub const DBCOMPUTEMODE_COMPUTED: u32 = 1u32;
-pub const DBCOMPUTEMODE_DYNAMIC: u32 = 2u32;
-pub const DBCOMPUTEMODE_NOTCOMPUTED: u32 = 3u32;
-pub const DBCONSTRAINTTYPE_CHECK: DBCONSTRAINTTYPEENUM = DBCONSTRAINTTYPEENUM(3i32);
-pub const DBCONSTRAINTTYPE_FOREIGNKEY: DBCONSTRAINTTYPEENUM = DBCONSTRAINTTYPEENUM(1i32);
-pub const DBCONSTRAINTTYPE_PRIMARYKEY: DBCONSTRAINTTYPEENUM = DBCONSTRAINTTYPEENUM(2i32);
-pub const DBCONSTRAINTTYPE_UNIQUE: DBCONSTRAINTTYPEENUM = DBCONSTRAINTTYPEENUM(0i32);
-pub const DBCONVERTFLAGS_COLUMN: DBCONVERTFLAGSENUM = DBCONVERTFLAGSENUM(0i32);
-pub const DBCONVERTFLAGS_FROMVARIANT: DBCONVERTFLAGSENUM20 = DBCONVERTFLAGSENUM20(8i32);
-pub const DBCONVERTFLAGS_ISFIXEDLENGTH: DBCONVERTFLAGSENUM20 = DBCONVERTFLAGSENUM20(4i32);
-pub const DBCONVERTFLAGS_ISLONG: DBCONVERTFLAGSENUM20 = DBCONVERTFLAGSENUM20(2i32);
-pub const DBCONVERTFLAGS_PARAMETER: DBCONVERTFLAGSENUM = DBCONVERTFLAGSENUM(1i32);
-pub const DBCOPY_ALLOW_EMULATION: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(1024i32);
-pub const DBCOPY_ASYNC: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(256i32);
-pub const DBCOPY_ATOMIC: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(4096i32);
-pub const DBCOPY_NON_RECURSIVE: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(2048i32);
-pub const DBCOPY_REPLACE_EXISTING: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(512i32);
-pub const DBDATACONVERT_DECIMALSCALE: DBDATACONVERTENUM = DBDATACONVERTENUM(8i32);
-pub const DBDATACONVERT_DEFAULT: DBDATACONVERTENUM = DBDATACONVERTENUM(0i32);
-pub const DBDATACONVERT_DSTISFIXEDLENGTH: DBDATACONVERTENUM = DBDATACONVERTENUM(4i32);
-pub const DBDATACONVERT_LENGTHFROMNTS: DBDATACONVERTENUM = DBDATACONVERTENUM(2i32);
-pub const DBDATACONVERT_SETDATABEHAVIOR: DBDATACONVERTENUM = DBDATACONVERTENUM(1i32);
-pub const DBDEFERRABILITY_DEFERRABLE: DBDEFERRABILITYENUM = DBDEFERRABILITYENUM(2i32);
-pub const DBDEFERRABILITY_DEFERRED: DBDEFERRABILITYENUM = DBDEFERRABILITYENUM(1i32);
-pub const DBDELETE_ASYNC: DBDELETEFLAGSENUM = DBDELETEFLAGSENUM(256i32);
-pub const DBDELETE_ATOMIC: DBDELETEFLAGSENUM = DBDELETEFLAGSENUM(4096i32);
-pub const DBEVENTPHASE_ABOUTTODO: DBEVENTPHASEENUM = DBEVENTPHASEENUM(1i32);
-pub const DBEVENTPHASE_DIDEVENT: DBEVENTPHASEENUM = DBEVENTPHASEENUM(4i32);
-pub const DBEVENTPHASE_FAILEDTODO: DBEVENTPHASEENUM = DBEVENTPHASEENUM(3i32);
-pub const DBEVENTPHASE_OKTODO: DBEVENTPHASEENUM = DBEVENTPHASEENUM(0i32);
-pub const DBEVENTPHASE_SYNCHAFTER: DBEVENTPHASEENUM = DBEVENTPHASEENUM(2i32);
-pub const DBEXECLIMITS_ABORT: DBEXECLIMITSENUM = DBEXECLIMITSENUM(1i32);
-pub const DBEXECLIMITS_STOP: DBEXECLIMITSENUM = DBEXECLIMITSENUM(2i32);
-pub const DBEXECLIMITS_SUSPEND: DBEXECLIMITSENUM = DBEXECLIMITSENUM(3i32);
-pub const DBGUID_MSSQLXML: windows_core::GUID = windows_core::GUID::from_u128(0x5d531cb2_e6ed_11d2_b252_00c04f681b71);
-pub const DBGUID_ROWDEFAULTSTREAM: windows_core::GUID = windows_core::GUID::from_u128(0x0c733ab7_2a1c_11ce_ade5_00aa0044773d);
-pub const DBGUID_ROWURL: windows_core::GUID = windows_core::GUID::from_u128(0x0c733ab6_2a1c_11ce_ade5_00aa0044773d);
-pub const DBGUID_XPATH: windows_core::GUID = windows_core::GUID::from_u128(0xec2a4293_e898_11d2_b1b7_00c04f680c56);
-pub const DBINDEX_COL_ORDER_ASC: DBINDEX_COL_ORDERENUM = DBINDEX_COL_ORDERENUM(0i32);
-pub const DBINDEX_COL_ORDER_DESC: DBINDEX_COL_ORDERENUM = DBINDEX_COL_ORDERENUM(1i32);
-pub const DBLITERAL_BINARY_LITERAL: DBLITERALENUM = DBLITERALENUM(1i32);
-pub const DBLITERAL_CATALOG_NAME: DBLITERALENUM = DBLITERALENUM(2i32);
-pub const DBLITERAL_CATALOG_SEPARATOR: DBLITERALENUM = DBLITERALENUM(3i32);
-pub const DBLITERAL_CHAR_LITERAL: DBLITERALENUM = DBLITERALENUM(4i32);
-pub const DBLITERAL_COLUMN_ALIAS: DBLITERALENUM = DBLITERALENUM(5i32);
-pub const DBLITERAL_COLUMN_NAME: DBLITERALENUM = DBLITERALENUM(6i32);
-pub const DBLITERAL_CORRELATION_NAME: DBLITERALENUM = DBLITERALENUM(7i32);
-pub const DBLITERAL_CUBE_NAME: DBLITERALENUM20 = DBLITERALENUM20(21i32);
-pub const DBLITERAL_CURSOR_NAME: DBLITERALENUM = DBLITERALENUM(8i32);
-pub const DBLITERAL_DIMENSION_NAME: DBLITERALENUM20 = DBLITERALENUM20(22i32);
-pub const DBLITERAL_ESCAPE_PERCENT: DBLITERALENUM = DBLITERALENUM(9i32);
-pub const DBLITERAL_ESCAPE_PERCENT_SUFFIX: DBLITERALENUM21 = DBLITERALENUM21(29i32);
-pub const DBLITERAL_ESCAPE_UNDERSCORE: DBLITERALENUM = DBLITERALENUM(10i32);
-pub const DBLITERAL_ESCAPE_UNDERSCORE_SUFFIX: DBLITERALENUM21 = DBLITERALENUM21(30i32);
-pub const DBLITERAL_HIERARCHY_NAME: DBLITERALENUM20 = DBLITERALENUM20(23i32);
-pub const DBLITERAL_INDEX_NAME: DBLITERALENUM = DBLITERALENUM(11i32);
-pub const DBLITERAL_INVALID: DBLITERALENUM = DBLITERALENUM(0i32);
-pub const DBLITERAL_LEVEL_NAME: DBLITERALENUM20 = DBLITERALENUM20(24i32);
-pub const DBLITERAL_LIKE_PERCENT: DBLITERALENUM = DBLITERALENUM(12i32);
-pub const DBLITERAL_LIKE_UNDERSCORE: DBLITERALENUM = DBLITERALENUM(13i32);
-pub const DBLITERAL_MEMBER_NAME: DBLITERALENUM20 = DBLITERALENUM20(25i32);
-pub const DBLITERAL_PROCEDURE_NAME: DBLITERALENUM = DBLITERALENUM(14i32);
-pub const DBLITERAL_PROPERTY_NAME: DBLITERALENUM20 = DBLITERALENUM20(26i32);
-pub const DBLITERAL_QUOTE: DBLITERALENUM = DBLITERALENUM(15i32);
-pub const DBLITERAL_QUOTE_SUFFIX: DBLITERALENUM20 = DBLITERALENUM20(28i32);
-pub const DBLITERAL_SCHEMA_NAME: DBLITERALENUM = DBLITERALENUM(16i32);
-pub const DBLITERAL_SCHEMA_SEPARATOR: DBLITERALENUM20 = DBLITERALENUM20(27i32);
-pub const DBLITERAL_TABLE_NAME: DBLITERALENUM = DBLITERALENUM(17i32);
-pub const DBLITERAL_TEXT_COMMAND: DBLITERALENUM = DBLITERALENUM(18i32);
-pub const DBLITERAL_USER_NAME: DBLITERALENUM = DBLITERALENUM(19i32);
-pub const DBLITERAL_VIEW_NAME: DBLITERALENUM = DBLITERALENUM(20i32);
-pub const DBMATCHTYPE_FULL: DBMATCHTYPEENUM = DBMATCHTYPEENUM(0i32);
-pub const DBMATCHTYPE_NONE: DBMATCHTYPEENUM = DBMATCHTYPEENUM(1i32);
-pub const DBMATCHTYPE_PARTIAL: DBMATCHTYPEENUM = DBMATCHTYPEENUM(2i32);
-pub const DBMAXCHAR: u32 = 8001u32;
-pub const DBMEMOWNER_CLIENTOWNED: DBMEMOWNERENUM = DBMEMOWNERENUM(0i32);
-pub const DBMEMOWNER_PROVIDEROWNED: DBMEMOWNERENUM = DBMEMOWNERENUM(1i32);
-pub const DBMOVE_ALLOW_EMULATION: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(1024i32);
-pub const DBMOVE_ASYNC: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(256i32);
-pub const DBMOVE_ATOMIC: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(4096i32);
-pub const DBMOVE_DONT_UPDATE_LINKS: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(512i32);
-pub const DBMOVE_REPLACE_EXISTING: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(1i32);
-pub const DBPARAMFLAGS_ISINPUT: DBPARAMFLAGSENUM = DBPARAMFLAGSENUM(1i32);
-pub const DBPARAMFLAGS_ISLONG: DBPARAMFLAGSENUM = DBPARAMFLAGSENUM(128i32);
-pub const DBPARAMFLAGS_ISNULLABLE: DBPARAMFLAGSENUM = DBPARAMFLAGSENUM(64i32);
-pub const DBPARAMFLAGS_ISOUTPUT: DBPARAMFLAGSENUM = DBPARAMFLAGSENUM(2i32);
-pub const DBPARAMFLAGS_ISSIGNED: DBPARAMFLAGSENUM = DBPARAMFLAGSENUM(16i32);
-pub const DBPARAMFLAGS_SCALEISNEGATIVE: DBPARAMFLAGSENUM20 = DBPARAMFLAGSENUM20(256i32);
-pub const DBPARAMIO_INPUT: DBPARAMIOENUM = DBPARAMIOENUM(1i32);
-pub const DBPARAMIO_NOTPARAM: DBPARAMIOENUM = DBPARAMIOENUM(0i32);
-pub const DBPARAMIO_OUTPUT: DBPARAMIOENUM = DBPARAMIOENUM(2i32);
-pub const DBPARAMTYPE_INPUT: u32 = 1u32;
-pub const DBPARAMTYPE_INPUTOUTPUT: u32 = 2u32;
-pub const DBPARAMTYPE_OUTPUT: u32 = 3u32;
-pub const DBPARAMTYPE_RETURNVALUE: u32 = 4u32;
-pub const DBPART_INVALID: DBPARTENUM = DBPARTENUM(0i32);
-pub const DBPART_LENGTH: DBPARTENUM = DBPARTENUM(2i32);
-pub const DBPART_STATUS: DBPARTENUM = DBPARTENUM(4i32);
-pub const DBPART_VALUE: DBPARTENUM = DBPARTENUM(1i32);
-pub const DBPENDINGSTATUS_CHANGED: DBPENDINGSTATUSENUM = DBPENDINGSTATUSENUM(2i32);
-pub const DBPENDINGSTATUS_DELETED: DBPENDINGSTATUSENUM = DBPENDINGSTATUSENUM(4i32);
-pub const DBPENDINGSTATUS_INVALIDROW: DBPENDINGSTATUSENUM = DBPENDINGSTATUSENUM(16i32);
-pub const DBPENDINGSTATUS_NEW: DBPENDINGSTATUSENUM = DBPENDINGSTATUSENUM(1i32);
-pub const DBPENDINGSTATUS_UNCHANGED: DBPENDINGSTATUSENUM = DBPENDINGSTATUSENUM(8i32);
-pub const DBPOSITION_BOF: DBPOSITIONFLAGSENUM = DBPOSITIONFLAGSENUM(2i32);
-pub const DBPOSITION_EOF: DBPOSITIONFLAGSENUM = DBPOSITIONFLAGSENUM(3i32);
-pub const DBPOSITION_NOROW: DBPOSITIONFLAGSENUM = DBPOSITIONFLAGSENUM(1i32);
-pub const DBPOSITION_OK: DBPOSITIONFLAGSENUM = DBPOSITIONFLAGSENUM(0i32);
-pub const DBPROMPTOPTIONS_BROWSEONLY: DBPROMPTOPTIONSENUM = DBPROMPTOPTIONSENUM(8i32);
-pub const DBPROMPTOPTIONS_DISABLESAVEPASSWORD: DBPROMPTOPTIONSENUM = DBPROMPTOPTIONSENUM(32i32);
-pub const DBPROMPTOPTIONS_DISABLE_PROVIDER_SELECTION: DBPROMPTOPTIONSENUM = DBPROMPTOPTIONSENUM(16i32);
-pub const DBPROMPTOPTIONS_NONE: DBPROMPTOPTIONSENUM = DBPROMPTOPTIONSENUM(0i32);
-pub const DBPROMPTOPTIONS_PROPERTYSHEET: DBPROMPTOPTIONSENUM = DBPROMPTOPTIONSENUM(2i32);
-pub const DBPROMPTOPTIONS_WIZARDSHEET: DBPROMPTOPTIONSENUM = DBPROMPTOPTIONSENUM(1i32);
-pub const DBPROMPT_COMPLETE: u32 = 2u32;
-pub const DBPROMPT_COMPLETEREQUIRED: u32 = 3u32;
-pub const DBPROMPT_NOPROMPT: u32 = 4u32;
-pub const DBPROMPT_PROMPT: u32 = 1u32;
-pub const DBPROPFLAGS_COLUMN: DBPROPFLAGSENUM = DBPROPFLAGSENUM(1i32);
-pub const DBPROPFLAGS_COLUMNOK: DBPROPFLAGSENUM = DBPROPFLAGSENUM(256i32);
-pub const DBPROPFLAGS_DATASOURCE: DBPROPFLAGSENUM = DBPROPFLAGSENUM(2i32);
-pub const DBPROPFLAGS_DATASOURCECREATE: DBPROPFLAGSENUM = DBPROPFLAGSENUM(4i32);
-pub const DBPROPFLAGS_DATASOURCEINFO: DBPROPFLAGSENUM = DBPROPFLAGSENUM(8i32);
-pub const DBPROPFLAGS_DBINIT: DBPROPFLAGSENUM = DBPROPFLAGSENUM(16i32);
-pub const DBPROPFLAGS_INDEX: DBPROPFLAGSENUM = DBPROPFLAGSENUM(32i32);
-pub const DBPROPFLAGS_NOTSUPPORTED: DBPROPFLAGSENUM = DBPROPFLAGSENUM(0i32);
-pub const DBPROPFLAGS_PERSIST: u32 = 8192u32;
-pub const DBPROPFLAGS_READ: DBPROPFLAGSENUM = DBPROPFLAGSENUM(512i32);
-pub const DBPROPFLAGS_REQUIRED: DBPROPFLAGSENUM = DBPROPFLAGSENUM(2048i32);
-pub const DBPROPFLAGS_ROWSET: DBPROPFLAGSENUM = DBPROPFLAGSENUM(64i32);
-pub const DBPROPFLAGS_SESSION: DBPROPFLAGSENUM = DBPROPFLAGSENUM(4096i32);
-pub const DBPROPFLAGS_STREAM: DBPROPFLAGSENUM26 = DBPROPFLAGSENUM26(32768i32);
-pub const DBPROPFLAGS_TABLE: DBPROPFLAGSENUM = DBPROPFLAGSENUM(128i32);
-pub const DBPROPFLAGS_TRUSTEE: DBPROPFLAGSENUM21 = DBPROPFLAGSENUM21(8192i32);
-pub const DBPROPFLAGS_VIEW: DBPROPFLAGSENUM25 = DBPROPFLAGSENUM25(16384i32);
-pub const DBPROPFLAGS_WRITE: DBPROPFLAGSENUM = DBPROPFLAGSENUM(1024i32);
-pub const DBPROPOPTIONS_OPTIONAL: DBPROPOPTIONSENUM = DBPROPOPTIONSENUM(1i32);
-pub const DBPROPOPTIONS_REQUIRED: DBPROPOPTIONSENUM = DBPROPOPTIONSENUM(0i32);
-pub const DBPROPOPTIONS_SETIFCHEAP: DBPROPOPTIONSENUM = DBPROPOPTIONSENUM(1i32);
-pub const DBPROPSET_MSDAORA8_ROWSET: windows_core::GUID = windows_core::GUID::from_u128(0x7f06a375_dd6a_43db_b4e0_1fc121e5e62b);
-pub const DBPROPSET_MSDAORA_ROWSET: windows_core::GUID = windows_core::GUID::from_u128(0xe8cc4cbd_fdff_11d0_b865_00a0c9081c1d);
-pub const DBPROPSET_MSDSDBINIT: windows_core::GUID = windows_core::GUID::from_u128(0x55cb91a8_5c7a_11d1_adad_00c04fc29863);
-pub const DBPROPSET_MSDSSESSION: windows_core::GUID = windows_core::GUID::from_u128(0xedf17536_afbf_11d1_8847_0000f879f98c);
-pub const DBPROPSET_PERSIST: windows_core::GUID = windows_core::GUID::from_u128(0x4d7839a0_5b8e_11d1_a6b3_00a0c9138c66);
-pub const DBPROPSET_PROVIDERCONNATTR: windows_core::GUID = windows_core::GUID::from_u128(0x497c60e4_7123_11cf_b171_00aa0057599e);
-pub const DBPROPSET_PROVIDERDATASOURCEINFO: windows_core::GUID = windows_core::GUID::from_u128(0x497c60e0_7123_11cf_b171_00aa0057599e);
-pub const DBPROPSET_PROVIDERDBINIT: windows_core::GUID = windows_core::GUID::from_u128(0x497c60e2_7123_11cf_b171_00aa0057599e);
-pub const DBPROPSET_PROVIDERROWSET: windows_core::GUID = windows_core::GUID::from_u128(0x497c60e1_7123_11cf_b171_00aa0057599e);
-pub const DBPROPSET_PROVIDERSTMTATTR: windows_core::GUID = windows_core::GUID::from_u128(0x497c60e3_7123_11cf_b171_00aa0057599e);
-pub const DBPROPSET_SQLSERVERCOLUMN: windows_core::GUID = windows_core::GUID::from_u128(0x3b63fb5e_3fbb_11d3_9f29_00c04f8ee9dc);
-pub const DBPROPSET_SQLSERVERDATASOURCE: windows_core::GUID = windows_core::GUID::from_u128(0x28efaee4_2d2c_11d1_9807_00c04fc2ad98);
-pub const DBPROPSET_SQLSERVERDATASOURCEINFO: windows_core::GUID = windows_core::GUID::from_u128(0xdf10cb94_35f6_11d2_9c54_00c04f7971d3);
-pub const DBPROPSET_SQLSERVERDBINIT: windows_core::GUID = windows_core::GUID::from_u128(0x5cf4ca10_ef21_11d0_97e7_00c04fc2ad98);
-pub const DBPROPSET_SQLSERVERROWSET: windows_core::GUID = windows_core::GUID::from_u128(0x5cf4ca11_ef21_11d0_97e7_00c04fc2ad98);
-pub const DBPROPSET_SQLSERVERSESSION: windows_core::GUID = windows_core::GUID::from_u128(0x28efaee5_2d2c_11d1_9807_00c04fc2ad98);
-pub const DBPROPSET_SQLSERVERSTREAM: windows_core::GUID = windows_core::GUID::from_u128(0x9f79c073_8a6d_4bca_a8a8_c9b79a9b962d);
-pub const DBPROPSTATUS_BADCOLUMN: DBPROPSTATUSENUM = DBPROPSTATUSENUM(4i32);
-pub const DBPROPSTATUS_BADOPTION: DBPROPSTATUSENUM = DBPROPSTATUSENUM(3i32);
-pub const DBPROPSTATUS_BADVALUE: DBPROPSTATUSENUM = DBPROPSTATUSENUM(2i32);
-pub const DBPROPSTATUS_CONFLICTING: DBPROPSTATUSENUM = DBPROPSTATUSENUM(8i32);
-pub const DBPROPSTATUS_NOTALLSETTABLE: DBPROPSTATUSENUM = DBPROPSTATUSENUM(5i32);
-pub const DBPROPSTATUS_NOTAVAILABLE: DBPROPSTATUSENUM21 = DBPROPSTATUSENUM21(9i32);
-pub const DBPROPSTATUS_NOTSET: DBPROPSTATUSENUM = DBPROPSTATUSENUM(7i32);
-pub const DBPROPSTATUS_NOTSETTABLE: DBPROPSTATUSENUM = DBPROPSTATUSENUM(6i32);
-pub const DBPROPSTATUS_NOTSUPPORTED: DBPROPSTATUSENUM = DBPROPSTATUSENUM(1i32);
-pub const DBPROPSTATUS_OK: DBPROPSTATUSENUM = DBPROPSTATUSENUM(0i32);
-pub const DBPROPVAL_AO_RANDOM: i32 = 2i32;
-pub const DBPROPVAL_AO_SEQUENTIAL: i32 = 0i32;
-pub const DBPROPVAL_AO_SEQUENTIALSTORAGEOBJECTS: i32 = 1i32;
-pub const DBPROPVAL_ASYNCH_BACKGROUNDPOPULATION: i32 = 8i32;
-pub const DBPROPVAL_ASYNCH_INITIALIZE: i32 = 1i32;
-pub const DBPROPVAL_ASYNCH_POPULATEONDEMAND: i32 = 32i32;
-pub const DBPROPVAL_ASYNCH_PREPOPULATE: i32 = 16i32;
-pub const DBPROPVAL_ASYNCH_RANDOMPOPULATION: i32 = 4i32;
-pub const DBPROPVAL_ASYNCH_SEQUENTIALPOPULATION: i32 = 2i32;
-pub const DBPROPVAL_BD_INTRANSACTION: i32 = 1i32;
-pub const DBPROPVAL_BD_REORGANIZATION: i32 = 3i32;
-pub const DBPROPVAL_BD_ROWSET: i32 = 0i32;
-pub const DBPROPVAL_BD_XTRANSACTION: i32 = 2i32;
-pub const DBPROPVAL_BI_CROSSROWSET: i32 = 1i32;
-pub const DBPROPVAL_BMK_KEY: i32 = 2i32;
-pub const DBPROPVAL_BMK_NUMERIC: i32 = 1i32;
-pub const DBPROPVAL_BO_NOINDEXUPDATE: i32 = 1i32;
-pub const DBPROPVAL_BO_NOLOG: i32 = 0i32;
-pub const DBPROPVAL_BO_REFINTEGRITY: i32 = 2i32;
-pub const DBPROPVAL_CB_DELETE: i32 = 1i32;
-pub const DBPROPVAL_CB_NON_NULL: i32 = 2i32;
-pub const DBPROPVAL_CB_NULL: i32 = 1i32;
-pub const DBPROPVAL_CB_PRESERVE: i32 = 2i32;
-pub const DBPROPVAL_CD_NOTNULL: i32 = 1i32;
-pub const DBPROPVAL_CL_END: i32 = 2i32;
-pub const DBPROPVAL_CL_START: i32 = 1i32;
-pub const DBPROPVAL_CM_TRANSACTIONS: i32 = 1i32;
-pub const DBPROPVAL_CO_BEGINSWITH: i32 = 32i32;
-pub const DBPROPVAL_CO_CASEINSENSITIVE: i32 = 8i32;
-pub const DBPROPVAL_CO_CASESENSITIVE: i32 = 4i32;
-pub const DBPROPVAL_CO_CONTAINS: i32 = 16i32;
-pub const DBPROPVAL_CO_EQUALITY: i32 = 1i32;
-pub const DBPROPVAL_CO_STRING: i32 = 2i32;
-pub const DBPROPVAL_CS_COMMUNICATIONFAILURE: i32 = 2i32;
-pub const DBPROPVAL_CS_INITIALIZED: i32 = 1i32;
-pub const DBPROPVAL_CS_UNINITIALIZED: i32 = 0i32;
-pub const DBPROPVAL_CU_DML_STATEMENTS: i32 = 1i32;
-pub const DBPROPVAL_CU_INDEX_DEFINITION: i32 = 4i32;
-pub const DBPROPVAL_CU_PRIVILEGE_DEFINITION: i32 = 8i32;
-pub const DBPROPVAL_CU_TABLE_DEFINITION: i32 = 2i32;
-pub const DBPROPVAL_DF_INITIALLY_DEFERRED: u32 = 1u32;
-pub const DBPROPVAL_DF_INITIALLY_IMMEDIATE: u32 = 2u32;
-pub const DBPROPVAL_DF_NOT_DEFERRABLE: u32 = 3u32;
-pub const DBPROPVAL_DST_DOCSOURCE: i32 = 4i32;
-pub const DBPROPVAL_DST_MDP: i32 = 2i32;
-pub const DBPROPVAL_DST_TDP: i32 = 1i32;
-pub const DBPROPVAL_DST_TDPANDMDP: i32 = 3i32;
-pub const DBPROPVAL_FU_CATALOG: i32 = 8i32;
-pub const DBPROPVAL_FU_COLUMN: i32 = 2i32;
-pub const DBPROPVAL_FU_NOT_SUPPORTED: i32 = 1i32;
-pub const DBPROPVAL_FU_TABLE: i32 = 4i32;
-pub const DBPROPVAL_GB_COLLATE: i32 = 16i32;
-pub const DBPROPVAL_GB_CONTAINS_SELECT: i32 = 4i32;
-pub const DBPROPVAL_GB_EQUALS_SELECT: i32 = 2i32;
-pub const DBPROPVAL_GB_NOT_SUPPORTED: i32 = 1i32;
-pub const DBPROPVAL_GB_NO_RELATION: i32 = 8i32;
-pub const DBPROPVAL_GU_NOTSUPPORTED: i32 = 1i32;
-pub const DBPROPVAL_GU_SUFFIX: i32 = 2i32;
-pub const DBPROPVAL_HT_DIFFERENT_CATALOGS: i32 = 1i32;
-pub const DBPROPVAL_HT_DIFFERENT_PROVIDERS: i32 = 2i32;
-pub const DBPROPVAL_IC_LOWER: i32 = 2i32;
-pub const DBPROPVAL_IC_MIXED: i32 = 8i32;
-pub const DBPROPVAL_IC_SENSITIVE: i32 = 4i32;
-pub const DBPROPVAL_IC_UPPER: i32 = 1i32;
-pub const DBPROPVAL_IN_ALLOWNULL: i32 = 0i32;
-pub const DBPROPVAL_IN_DISALLOWNULL: i32 = 1i32;
-pub const DBPROPVAL_IN_IGNOREANYNULL: i32 = 4i32;
-pub const DBPROPVAL_IN_IGNORENULL: i32 = 2i32;
-pub const DBPROPVAL_IT_BTREE: i32 = 1i32;
-pub const DBPROPVAL_IT_CONTENT: i32 = 3i32;
-pub const DBPROPVAL_IT_HASH: i32 = 2i32;
-pub const DBPROPVAL_IT_OTHER: i32 = 4i32;
-pub const DBPROPVAL_LM_INTENT: i32 = 4i32;
-pub const DBPROPVAL_LM_NONE: i32 = 1i32;
-pub const DBPROPVAL_LM_READ: i32 = 2i32;
-pub const DBPROPVAL_LM_RITE: i32 = 8i32;
-pub const DBPROPVAL_LM_SINGLEROW: i32 = 2i32;
-pub const DBPROPVAL_MR_CONCURRENT: i32 = 2i32;
-pub const DBPROPVAL_MR_NOTSUPPORTED: i32 = 0i32;
-pub const DBPROPVAL_MR_SUPPORTED: i32 = 1i32;
-pub const DBPROPVAL_NC_END: i32 = 1i32;
-pub const DBPROPVAL_NC_HIGH: i32 = 2i32;
-pub const DBPROPVAL_NC_LOW: i32 = 4i32;
-pub const DBPROPVAL_NC_START: i32 = 8i32;
-pub const DBPROPVAL_NP_ABOUTTODO: i32 = 2i32;
-pub const DBPROPVAL_NP_DIDEVENT: i32 = 16i32;
-pub const DBPROPVAL_NP_FAILEDTODO: i32 = 8i32;
-pub const DBPROPVAL_NP_OKTODO: i32 = 1i32;
-pub const DBPROPVAL_NP_SYNCHAFTER: i32 = 4i32;
-pub const DBPROPVAL_NT_MULTIPLEROWS: i32 = 2i32;
-pub const DBPROPVAL_NT_SINGLEROW: i32 = 1i32;
-pub const DBPROPVAL_OA_ATEXECUTE: i32 = 2i32;
-pub const DBPROPVAL_OA_ATROWRELEASE: i32 = 4i32;
-pub const DBPROPVAL_OA_NOTSUPPORTED: i32 = 1i32;
-pub const DBPROPVAL_OO_BLOB: i32 = 1i32;
-pub const DBPROPVAL_OO_DIRECTBIND: i32 = 16i32;
-pub const DBPROPVAL_OO_IPERSIST: i32 = 2i32;
-pub const DBPROPVAL_OO_ROWOBJECT: i32 = 4i32;
-pub const DBPROPVAL_OO_SCOPED: i32 = 8i32;
-pub const DBPROPVAL_OO_SINGLETON: i32 = 32i32;
-pub const DBPROPVAL_OP_EQUAL: i32 = 1i32;
-pub const DBPROPVAL_OP_RELATIVE: i32 = 2i32;
-pub const DBPROPVAL_OP_STRING: i32 = 4i32;
-pub const DBPROPVAL_ORS_HISTOGRAM: i32 = 8i32;
-pub const DBPROPVAL_ORS_INDEX: i32 = 1i32;
-pub const DBPROPVAL_ORS_INTEGRATEDINDEX: i32 = 2i32;
-pub const DBPROPVAL_ORS_STOREDPROC: i32 = 4i32;
-pub const DBPROPVAL_ORS_TABLE: i32 = 0i32;
-pub const DBPROPVAL_OS_AGR_AFTERSESSION: i32 = 8i32;
-pub const DBPROPVAL_OS_CLIENTCURSOR: i32 = 4i32;
-pub const DBPROPVAL_OS_DISABLEALL: i32 = 0i32;
-pub const DBPROPVAL_OS_ENABLEALL: i32 = -1i32;
-pub const DBPROPVAL_OS_RESOURCEPOOLING: i32 = 1i32;
-pub const DBPROPVAL_OS_TXNENLISTMENT: i32 = 2i32;
-pub const DBPROPVAL_PERSIST_ADTG: u32 = 0u32;
-pub const DBPROPVAL_PERSIST_XML: u32 = 1u32;
-pub const DBPROPVAL_PT_GUID: i32 = 8i32;
-pub const DBPROPVAL_PT_GUID_NAME: i32 = 1i32;
-pub const DBPROPVAL_PT_GUID_PROPID: i32 = 2i32;
-pub const DBPROPVAL_PT_NAME: i32 = 4i32;
-pub const DBPROPVAL_PT_PGUID_NAME: i32 = 32i32;
-pub const DBPROPVAL_PT_PGUID_PROPID: i32 = 64i32;
-pub const DBPROPVAL_PT_PROPID: i32 = 16i32;
-pub const DBPROPVAL_RD_RESETALL: i32 = -1i32;
-pub const DBPROPVAL_RT_APTMTTHREAD: i32 = 2i32;
-pub const DBPROPVAL_RT_FREETHREAD: i32 = 1i32;
-pub const DBPROPVAL_RT_SINGLETHREAD: i32 = 4i32;
-pub const DBPROPVAL_SQL_ANSI89_IEF: i32 = 8i32;
-pub const DBPROPVAL_SQL_ANSI92_ENTRY: i32 = 16i32;
-pub const DBPROPVAL_SQL_ANSI92_FULL: i32 = 128i32;
-pub const DBPROPVAL_SQL_ANSI92_INTERMEDIATE: i32 = 64i32;
-pub const DBPROPVAL_SQL_ESCAPECLAUSES: i32 = 256i32;
-pub const DBPROPVAL_SQL_FIPS_TRANSITIONAL: i32 = 32i32;
-pub const DBPROPVAL_SQL_NONE: i32 = 0i32;
-pub const DBPROPVAL_SQL_ODBC_CORE: i32 = 2i32;
-pub const DBPROPVAL_SQL_ODBC_EXTENDED: i32 = 4i32;
-pub const DBPROPVAL_SQL_ODBC_MINIMUM: i32 = 1i32;
-pub const DBPROPVAL_SQL_SUBMINIMUM: i32 = 512i32;
-pub const DBPROPVAL_SQ_COMPARISON: i32 = 2i32;
-pub const DBPROPVAL_SQ_CORRELATEDSUBQUERIES: i32 = 1i32;
-pub const DBPROPVAL_SQ_EXISTS: i32 = 4i32;
-pub const DBPROPVAL_SQ_IN: i32 = 8i32;
-pub const DBPROPVAL_SQ_QUANTIFIED: i32 = 16i32;
-pub const DBPROPVAL_SQ_TABLE: i32 = 32i32;
-pub const DBPROPVAL_SS_ILOCKBYTES: i32 = 8i32;
-pub const DBPROPVAL_SS_ISEQUENTIALSTREAM: i32 = 1i32;
-pub const DBPROPVAL_SS_ISTORAGE: i32 = 4i32;
-pub const DBPROPVAL_SS_ISTREAM: i32 = 2i32;
-pub const DBPROPVAL_STGM_CONVERT: u32 = 262144u32;
-pub const DBPROPVAL_STGM_DELETEONRELEASE: u32 = 2097152u32;
-pub const DBPROPVAL_STGM_DIRECT: u32 = 65536u32;
-pub const DBPROPVAL_STGM_FAILIFTHERE: u32 = 524288u32;
-pub const DBPROPVAL_STGM_PRIORITY: u32 = 1048576u32;
-pub const DBPROPVAL_STGM_TRANSACTED: u32 = 131072u32;
-pub const DBPROPVAL_SU_DML_STATEMENTS: i32 = 1i32;
-pub const DBPROPVAL_SU_INDEX_DEFINITION: i32 = 4i32;
-pub const DBPROPVAL_SU_PRIVILEGE_DEFINITION: i32 = 8i32;
-pub const DBPROPVAL_SU_TABLE_DEFINITION: i32 = 2i32;
-pub const DBPROPVAL_TC_ALL: i32 = 8i32;
-pub const DBPROPVAL_TC_DDL_COMMIT: i32 = 2i32;
-pub const DBPROPVAL_TC_DDL_IGNORE: i32 = 4i32;
-pub const DBPROPVAL_TC_DDL_LOCK: i32 = 16i32;
-pub const DBPROPVAL_TC_DML: i32 = 1i32;
-pub const DBPROPVAL_TC_NONE: i32 = 0i32;
-pub const DBPROPVAL_TI_BROWSE: i32 = 256i32;
-pub const DBPROPVAL_TI_CHAOS: i32 = 16i32;
-pub const DBPROPVAL_TI_CURSORSTABILITY: i32 = 4096i32;
-pub const DBPROPVAL_TI_ISOLATED: i32 = 1048576i32;
-pub const DBPROPVAL_TI_READCOMMITTED: i32 = 4096i32;
-pub const DBPROPVAL_TI_READUNCOMMITTED: i32 = 256i32;
-pub const DBPROPVAL_TI_REPEATABLEREAD: i32 = 65536i32;
-pub const DBPROPVAL_TI_SERIALIZABLE: i32 = 1048576i32;
-pub const DBPROPVAL_TR_ABORT: i32 = 16i32;
-pub const DBPROPVAL_TR_ABORT_DC: i32 = 8i32;
-pub const DBPROPVAL_TR_ABORT_NO: i32 = 32i32;
-pub const DBPROPVAL_TR_BOTH: i32 = 128i32;
-pub const DBPROPVAL_TR_COMMIT: i32 = 2i32;
-pub const DBPROPVAL_TR_COMMIT_DC: i32 = 1i32;
-pub const DBPROPVAL_TR_COMMIT_NO: i32 = 4i32;
-pub const DBPROPVAL_TR_DONTCARE: i32 = 64i32;
-pub const DBPROPVAL_TR_NONE: i32 = 256i32;
-pub const DBPROPVAL_TR_OPTIMISTIC: i32 = 512i32;
-pub const DBPROPVAL_TS_CARDINALITY: i32 = 1i32;
-pub const DBPROPVAL_TS_HISTOGRAM: i32 = 2i32;
-pub const DBPROPVAL_UP_CHANGE: i32 = 1i32;
-pub const DBPROPVAL_UP_DELETE: i32 = 2i32;
-pub const DBPROPVAL_UP_INSERT: i32 = 4i32;
-pub const DBPROP_ABORTPRESERVE: DBPROPENUM = DBPROPENUM(2i32);
-pub const DBPROP_ACCESSORDER: DBPROPENUM20 = DBPROPENUM20(231i32);
-pub const DBPROP_ACTIVESESSIONS: DBPROPENUM = DBPROPENUM(3i32);
-pub const DBPROP_ALTERCOLUMN: DBPROPENUM20 = DBPROPENUM20(245i32);
-pub const DBPROP_APPENDONLY: DBPROPENUM = DBPROPENUM(187i32);
-pub const DBPROP_ASYNCTXNABORT: DBPROPENUM = DBPROPENUM(168i32);
-pub const DBPROP_ASYNCTXNCOMMIT: DBPROPENUM = DBPROPENUM(4i32);
-pub const DBPROP_AUTH_CACHE_AUTHINFO: DBPROPENUM = DBPROPENUM(5i32);
-pub const DBPROP_AUTH_ENCRYPT_PASSWORD: DBPROPENUM = DBPROPENUM(6i32);
-pub const DBPROP_AUTH_INTEGRATED: DBPROPENUM = DBPROPENUM(7i32);
-pub const DBPROP_AUTH_MASK_PASSWORD: DBPROPENUM = DBPROPENUM(8i32);
-pub const DBPROP_AUTH_PASSWORD: DBPROPENUM = DBPROPENUM(9i32);
-pub const DBPROP_AUTH_PERSIST_ENCRYPTED: DBPROPENUM = DBPROPENUM(10i32);
-pub const DBPROP_AUTH_PERSIST_SENSITIVE_AUTHINFO: DBPROPENUM = DBPROPENUM(11i32);
-pub const DBPROP_AUTH_USERID: DBPROPENUM = DBPROPENUM(12i32);
-pub const DBPROP_BLOCKINGSTORAGEOBJECTS: DBPROPENUM = DBPROPENUM(13i32);
-pub const DBPROP_BOOKMARKINFO: DBPROPENUM20 = DBPROPENUM20(232i32);
-pub const DBPROP_BOOKMARKS: DBPROPENUM = DBPROPENUM(14i32);
-pub const DBPROP_BOOKMARKSKIPPED: DBPROPENUM = DBPROPENUM(15i32);
-pub const DBPROP_BOOKMARKTYPE: DBPROPENUM = DBPROPENUM(16i32);
-pub const DBPROP_BYREFACCESSORS: DBPROPENUM = DBPROPENUM(120i32);
-pub const DBPROP_CACHEDEFERRED: DBPROPENUM = DBPROPENUM(17i32);
-pub const DBPROP_CANFETCHBACKWARDS: DBPROPENUM = DBPROPENUM(18i32);
-pub const DBPROP_CANHOLDROWS: DBPROPENUM = DBPROPENUM(19i32);
-pub const DBPROP_CANSCROLLBACKWARDS: DBPROPENUM = DBPROPENUM(21i32);
-pub const DBPROP_CATALOGLOCATION: DBPROPENUM = DBPROPENUM(22i32);
-pub const DBPROP_CATALOGTERM: DBPROPENUM = DBPROPENUM(23i32);
-pub const DBPROP_CATALOGUSAGE: DBPROPENUM = DBPROPENUM(24i32);
-pub const DBPROP_CHANGEINSERTEDROWS: DBPROPENUM = DBPROPENUM(188i32);
-pub const DBPROP_CLIENTCURSOR: DBPROPENUM20 = DBPROPENUM20(260i32);
-pub const DBPROP_COLUMNDEFINITION: DBPROPENUM = DBPROPENUM(32i32);
-pub const DBPROP_COLUMNLCID: DBPROPENUM20 = DBPROPENUM20(246i32);
-pub const DBPROP_COLUMNRESTRICT: DBPROPENUM = DBPROPENUM(33i32);
-pub const DBPROP_COL_AUTOINCREMENT: DBPROPENUM = DBPROPENUM(26i32);
-pub const DBPROP_COL_DEFAULT: DBPROPENUM = DBPROPENUM(27i32);
-pub const DBPROP_COL_DESCRIPTION: DBPROPENUM = DBPROPENUM(28i32);
-pub const DBPROP_COL_FIXEDLENGTH: DBPROPENUM = DBPROPENUM(167i32);
-pub const DBPROP_COL_INCREMENT: DBPROPENUM25 = DBPROPENUM25(283i32);
-pub const DBPROP_COL_ISLONG: DBPROPENUM21 = DBPROPENUM21(281i32);
-pub const DBPROP_COL_NULLABLE: DBPROPENUM = DBPROPENUM(29i32);
-pub const DBPROP_COL_PRIMARYKEY: DBPROPENUM = DBPROPENUM(30i32);
-pub const DBPROP_COL_SEED: DBPROPENUM25 = DBPROPENUM25(282i32);
-pub const DBPROP_COL_UNIQUE: DBPROPENUM = DBPROPENUM(31i32);
-pub const DBPROP_COMMANDTIMEOUT: DBPROPENUM = DBPROPENUM(34i32);
-pub const DBPROP_COMMITPRESERVE: DBPROPENUM = DBPROPENUM(35i32);
-pub const DBPROP_COMSERVICES: DBPROPENUM25 = DBPROPENUM25(285i32);
-pub const DBPROP_CONCATNULLBEHAVIOR: DBPROPENUM = DBPROPENUM(36i32);
-pub const DBPROP_CONNECTIONSTATUS: DBPROPENUM20 = DBPROPENUM20(244i32);
-pub const DBPROP_CURRENTCATALOG: DBPROPENUM = DBPROPENUM(37i32);
-pub const DBPROP_DATASOURCENAME: DBPROPENUM = DBPROPENUM(38i32);
-pub const DBPROP_DATASOURCEREADONLY: DBPROPENUM = DBPROPENUM(39i32);
-pub const DBPROP_DATASOURCE_TYPE: DBPROPENUM20 = DBPROPENUM20(251i32);
-pub const DBPROP_DBMSNAME: DBPROPENUM = DBPROPENUM(40i32);
-pub const DBPROP_DBMSVER: DBPROPENUM = DBPROPENUM(41i32);
-pub const DBPROP_DEFERRED: DBPROPENUM = DBPROPENUM(42i32);
-pub const DBPROP_DELAYSTORAGEOBJECTS: DBPROPENUM = DBPROPENUM(43i32);
-pub const DBPROP_DSOTHREADMODEL: DBPROPENUM = DBPROPENUM(169i32);
-pub const DBPROP_FILTERCOMPAREOPS: DBPROPENUM15 = DBPROPENUM15(209i32);
-pub const DBPROP_FILTEROPS: DBPROPENUMDEPRECATED = DBPROPENUMDEPRECATED(208i32);
-pub const DBPROP_FINDCOMPAREOPS: DBPROPENUM15 = DBPROPENUM15(210i32);
-pub const DBPROP_GENERATEURL: DBPROPENUM21 = DBPROPENUM21(273i32);
-pub const DBPROP_GROUPBY: DBPROPENUM = DBPROPENUM(44i32);
-pub const DBPROP_HCHAPTER: u32 = 4u32;
-pub const DBPROP_HETEROGENEOUSTABLES: DBPROPENUM = DBPROPENUM(45i32);
-pub const DBPROP_HIDDENCOLUMNS: DBPROPENUM20 = DBPROPENUM20(258i32);
-pub const DBPROP_IAccessor: DBPROPENUM = DBPROPENUM(121i32);
-pub const DBPROP_IBindResource: DBPROPENUM21 = DBPROPENUM21(268i32);
-pub const DBPROP_IChapteredRowset: DBPROPENUM15 = DBPROPENUM15(202i32);
-pub const DBPROP_IColumnsInfo: DBPROPENUM = DBPROPENUM(122i32);
-pub const DBPROP_IColumnsInfo2: DBPROPENUM21 = DBPROPENUM21(275i32);
-pub const DBPROP_IColumnsRowset: DBPROPENUM = DBPROPENUM(123i32);
-pub const DBPROP_ICommandCost: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(141i32);
-pub const DBPROP_ICommandTree: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(142i32);
-pub const DBPROP_ICommandValidate: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(143i32);
-pub const DBPROP_IConnectionPointContainer: DBPROPENUM = DBPROPENUM(124i32);
-pub const DBPROP_IConvertType: DBPROPENUM = DBPROPENUM(194i32);
-pub const DBPROP_ICreateRow: DBPROPENUM21 = DBPROPENUM21(269i32);
-pub const DBPROP_IDBAsynchStatus: DBPROPENUM15 = DBPROPENUM15(203i32);
-pub const DBPROP_IDBBinderProperties: DBPROPENUM21 = DBPROPENUM21(274i32);
-pub const DBPROP_IDBSchemaCommand: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(144i32);
-pub const DBPROP_IDENTIFIERCASE: DBPROPENUM = DBPROPENUM(46i32);
-pub const DBPROP_IGetRow: DBPROPENUM21 = DBPROPENUM21(266i32);
-pub const DBPROP_IGetSession: DBPROPENUM21 = DBPROPENUM21(277i32);
-pub const DBPROP_IGetSourceRow: DBPROPENUM21 = DBPROPENUM21(278i32);
-pub const DBPROP_ILockBytes: DBPROPENUM = DBPROPENUM(136i32);
-pub const DBPROP_IMMOBILEROWS: DBPROPENUM = DBPROPENUM(47i32);
-pub const DBPROP_IMultipleResults: DBPROPENUM20 = DBPROPENUM20(217i32);
-pub const DBPROP_INDEX_AUTOUPDATE: DBPROPENUM = DBPROPENUM(48i32);
-pub const DBPROP_INDEX_CLUSTERED: DBPROPENUM = DBPROPENUM(49i32);
-pub const DBPROP_INDEX_FILLFACTOR: DBPROPENUM = DBPROPENUM(50i32);
-pub const DBPROP_INDEX_INITIALSIZE: DBPROPENUM = DBPROPENUM(51i32);
-pub const DBPROP_INDEX_NULLCOLLATION: DBPROPENUM = DBPROPENUM(52i32);
-pub const DBPROP_INDEX_NULLS: DBPROPENUM = DBPROPENUM(53i32);
-pub const DBPROP_INDEX_PRIMARYKEY: DBPROPENUM = DBPROPENUM(54i32);
-pub const DBPROP_INDEX_SORTBOOKMARKS: DBPROPENUM = DBPROPENUM(55i32);
-pub const DBPROP_INDEX_TEMPINDEX: DBPROPENUM = DBPROPENUM(163i32);
-pub const DBPROP_INDEX_TYPE: DBPROPENUM = DBPROPENUM(56i32);
-pub const DBPROP_INDEX_UNIQUE: DBPROPENUM = DBPROPENUM(57i32);
-pub const DBPROP_INIT_ASYNCH: DBPROPENUM15 = DBPROPENUM15(200i32);
-pub const DBPROP_INIT_BINDFLAGS: DBPROPENUM21 = DBPROPENUM21(270i32);
-pub const DBPROP_INIT_CATALOG: DBPROPENUM20 = DBPROPENUM20(233i32);
-pub const DBPROP_INIT_DATASOURCE: DBPROPENUM = DBPROPENUM(59i32);
-pub const DBPROP_INIT_GENERALTIMEOUT: DBPROPENUM25 = DBPROPENUM25(284i32);
-pub const DBPROP_INIT_HWND: DBPROPENUM = DBPROPENUM(60i32);
-pub const DBPROP_INIT_IMPERSONATION_LEVEL: DBPROPENUM = DBPROPENUM(61i32);
-pub const DBPROP_INIT_LCID: DBPROPENUM = DBPROPENUM(186i32);
-pub const DBPROP_INIT_LOCATION: DBPROPENUM = DBPROPENUM(62i32);
-pub const DBPROP_INIT_LOCKOWNER: DBPROPENUM21 = DBPROPENUM21(271i32);
-pub const DBPROP_INIT_MODE: DBPROPENUM = DBPROPENUM(63i32);
-pub const DBPROP_INIT_OLEDBSERVICES: DBPROPENUM20 = DBPROPENUM20(248i32);
-pub const DBPROP_INIT_PROMPT: DBPROPENUM = DBPROPENUM(64i32);
-pub const DBPROP_INIT_PROTECTION_LEVEL: DBPROPENUM = DBPROPENUM(65i32);
-pub const DBPROP_INIT_PROVIDERSTRING: DBPROPENUM = DBPROPENUM(160i32);
-pub const DBPROP_INIT_TIMEOUT: DBPROPENUM = DBPROPENUM(66i32);
-pub const DBPROP_INTERLEAVEDROWS: u32 = 8u32;
-pub const DBPROP_IParentRowset: DBPROPENUM20 = DBPROPENUM20(257i32);
-pub const DBPROP_IProvideMoniker: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(125i32);
-pub const DBPROP_IQuery: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(146i32);
-pub const DBPROP_IReadData: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(147i32);
-pub const DBPROP_IRegisterProvider: DBPROPENUM21 = DBPROPENUM21(276i32);
-pub const DBPROP_IRow: DBPROPENUM21 = DBPROPENUM21(263i32);
-pub const DBPROP_IRowChange: DBPROPENUM21 = DBPROPENUM21(264i32);
-pub const DBPROP_IRowSchemaChange: DBPROPENUM21 = DBPROPENUM21(265i32);
-pub const DBPROP_IRowset: DBPROPENUM = DBPROPENUM(126i32);
-pub const DBPROP_IRowsetAsynch: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(148i32);
-pub const DBPROP_IRowsetBookmark: DBPROPENUM26 = DBPROPENUM26(292i32);
-pub const DBPROP_IRowsetChange: DBPROPENUM = DBPROPENUM(127i32);
-pub const DBPROP_IRowsetCopyRows: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(149i32);
-pub const DBPROP_IRowsetCurrentIndex: DBPROPENUM21 = DBPROPENUM21(279i32);
-pub const DBPROP_IRowsetExactScroll: DBPROPENUMDEPRECATED = DBPROPENUMDEPRECATED(154i32);
-pub const DBPROP_IRowsetFind: DBPROPENUM15 = DBPROPENUM15(204i32);
-pub const DBPROP_IRowsetIdentity: DBPROPENUM = DBPROPENUM(128i32);
-pub const DBPROP_IRowsetIndex: DBPROPENUM = DBPROPENUM(159i32);
-pub const DBPROP_IRowsetInfo: DBPROPENUM = DBPROPENUM(129i32);
-pub const DBPROP_IRowsetKeys: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(151i32);
-pub const DBPROP_IRowsetLocate: DBPROPENUM = DBPROPENUM(130i32);
-pub const DBPROP_IRowsetNewRowAfter: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(152i32);
-pub const DBPROP_IRowsetNextRowset: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(153i32);
-pub const DBPROP_IRowsetRefresh: DBPROPENUM20 = DBPROPENUM20(249i32);
-pub const DBPROP_IRowsetResynch: DBPROPENUM = DBPROPENUM(132i32);
-pub const DBPROP_IRowsetScroll: DBPROPENUM = DBPROPENUM(133i32);
-pub const DBPROP_IRowsetUpdate: DBPROPENUM = DBPROPENUM(134i32);
-pub const DBPROP_IRowsetView: DBPROPENUM15 = DBPROPENUM15(212i32);
-pub const DBPROP_IRowsetWatchAll: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(155i32);
-pub const DBPROP_IRowsetWatchNotify: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(156i32);
-pub const DBPROP_IRowsetWatchRegion: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(157i32);
-pub const DBPROP_IRowsetWithParameters: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(158i32);
-pub const DBPROP_IScopedOperations: DBPROPENUM21 = DBPROPENUM21(267i32);
-pub const DBPROP_ISequentialStream: DBPROPENUM = DBPROPENUM(137i32);
-pub const DBPROP_IStorage: DBPROPENUM = DBPROPENUM(138i32);
-pub const DBPROP_IStream: DBPROPENUM = DBPROPENUM(139i32);
-pub const DBPROP_ISupportErrorInfo: DBPROPENUM = DBPROPENUM(135i32);
-pub const DBPROP_IViewChapter: DBPROPENUM15 = DBPROPENUM15(213i32);
-pub const DBPROP_IViewFilter: DBPROPENUM15 = DBPROPENUM15(214i32);
-pub const DBPROP_IViewRowset: DBPROPENUM15 = DBPROPENUM15(215i32);
-pub const DBPROP_IViewSort: DBPROPENUM15 = DBPROPENUM15(216i32);
-pub const DBPROP_LITERALBOOKMARKS: DBPROPENUM = DBPROPENUM(67i32);
-pub const DBPROP_LITERALIDENTITY: DBPROPENUM = DBPROPENUM(68i32);
-pub const DBPROP_LOCKMODE: DBPROPENUM20 = DBPROPENUM20(236i32);
-pub const DBPROP_MAINTAINPROPS: u32 = 5u32;
-pub const DBPROP_MARSHALLABLE: DBPROPENUMDEPRECATED = DBPROPENUMDEPRECATED(197i32);
-pub const DBPROP_MAXINDEXSIZE: DBPROPENUM = DBPROPENUM(70i32);
-pub const DBPROP_MAXOPENCHAPTERS: DBPROPENUM15 = DBPROPENUM15(199i32);
-pub const DBPROP_MAXOPENROWS: DBPROPENUM = DBPROPENUM(71i32);
-pub const DBPROP_MAXORSINFILTER: DBPROPENUM15 = DBPROPENUM15(205i32);
-pub const DBPROP_MAXPENDINGROWS: DBPROPENUM = DBPROPENUM(72i32);
-pub const DBPROP_MAXROWS: DBPROPENUM = DBPROPENUM(73i32);
-pub const DBPROP_MAXROWSIZE: DBPROPENUM = DBPROPENUM(74i32);
-pub const DBPROP_MAXROWSIZEINCLUDESBLOB: DBPROPENUM = DBPROPENUM(75i32);
-pub const DBPROP_MAXSORTCOLUMNS: DBPROPENUM15 = DBPROPENUM15(206i32);
-pub const DBPROP_MAXTABLESINSELECT: DBPROPENUM = DBPROPENUM(76i32);
-pub const DBPROP_MAYWRITECOLUMN: DBPROPENUM = DBPROPENUM(77i32);
-pub const DBPROP_MEMORYUSAGE: DBPROPENUM = DBPROPENUM(78i32);
-pub const DBPROP_MSDAORA8_DETERMINEKEYCOLUMNS: u32 = 2u32;
-pub const DBPROP_MSDAORA_DETERMINEKEYCOLUMNS: u32 = 1u32;
-pub const DBPROP_MSDS_DBINIT_DATAPROVIDER: MSDSDBINITPROPENUM = MSDSDBINITPROPENUM(2i32);
-pub const DBPROP_MSDS_SESS_UNIQUENAMES: MSDSSESSIONPROPENUM = MSDSSESSIONPROPENUM(2i32);
-pub const DBPROP_MULTIPLECONNECTIONS: DBPROPENUM20 = DBPROPENUM20(237i32);
-pub const DBPROP_MULTIPLEPARAMSETS: DBPROPENUM = DBPROPENUM(191i32);
-pub const DBPROP_MULTIPLERESULTS: DBPROPENUM = DBPROPENUM(196i32);
-pub const DBPROP_MULTIPLESTORAGEOBJECTS: DBPROPENUM = DBPROPENUM(80i32);
-pub const DBPROP_MULTITABLEUPDATE: DBPROPENUM = DBPROPENUM(81i32);
-pub const DBPROP_NOTIFICATIONGRANULARITY: DBPROPENUM = DBPROPENUM(198i32);
-pub const DBPROP_NOTIFICATIONPHASES: DBPROPENUM = DBPROPENUM(82i32);
-pub const DBPROP_NOTIFYCOLUMNSET: DBPROPENUM = DBPROPENUM(171i32);
-pub const DBPROP_NOTIFYROWDELETE: DBPROPENUM = DBPROPENUM(173i32);
-pub const DBPROP_NOTIFYROWFIRSTCHANGE: DBPROPENUM = DBPROPENUM(174i32);
-pub const DBPROP_NOTIFYROWINSERT: DBPROPENUM = DBPROPENUM(175i32);
-pub const DBPROP_NOTIFYROWRESYNCH: DBPROPENUM = DBPROPENUM(177i32);
-pub const DBPROP_NOTIFYROWSETCHANGED: DBPROPENUM = DBPROPENUM(211i32);
-pub const DBPROP_NOTIFYROWSETFETCHPOSITIONCHANGE: DBPROPENUM = DBPROPENUM(179i32);
-pub const DBPROP_NOTIFYROWSETRELEASE: DBPROPENUM = DBPROPENUM(178i32);
-pub const DBPROP_NOTIFYROWUNDOCHANGE: DBPROPENUM = DBPROPENUM(180i32);
-pub const DBPROP_NOTIFYROWUNDODELETE: DBPROPENUM = DBPROPENUM(181i32);
-pub const DBPROP_NOTIFYROWUNDOINSERT: DBPROPENUM = DBPROPENUM(182i32);
-pub const DBPROP_NOTIFYROWUPDATE: DBPROPENUM = DBPROPENUM(183i32);
-pub const DBPROP_NULLCOLLATION: DBPROPENUM = DBPROPENUM(83i32);
-pub const DBPROP_OLEOBJECTS: DBPROPENUM = DBPROPENUM(84i32);
-pub const DBPROP_OPENROWSETSUPPORT: DBPROPENUM21 = DBPROPENUM21(280i32);
-pub const DBPROP_ORDERBYCOLUMNSINSELECT: DBPROPENUM = DBPROPENUM(85i32);
-pub const DBPROP_ORDEREDBOOKMARKS: DBPROPENUM = DBPROPENUM(86i32);
-pub const DBPROP_OTHERINSERT: DBPROPENUM = DBPROPENUM(87i32);
-pub const DBPROP_OTHERUPDATEDELETE: DBPROPENUM = DBPROPENUM(88i32);
-pub const DBPROP_OUTPUTENCODING: DBPROPENUM26 = DBPROPENUM26(287i32);
-pub const DBPROP_OUTPUTPARAMETERAVAILABILITY: DBPROPENUM = DBPROPENUM(184i32);
-pub const DBPROP_OUTPUTSTREAM: DBPROPENUM26 = DBPROPENUM26(286i32);
-pub const DBPROP_OWNINSERT: DBPROPENUM = DBPROPENUM(89i32);
-pub const DBPROP_OWNUPDATEDELETE: DBPROPENUM = DBPROPENUM(90i32);
-pub const DBPROP_PERSISTENTIDTYPE: DBPROPENUM = DBPROPENUM(185i32);
-pub const DBPROP_PREPAREABORTBEHAVIOR: DBPROPENUM = DBPROPENUM(91i32);
-pub const DBPROP_PREPARECOMMITBEHAVIOR: DBPROPENUM = DBPROPENUM(92i32);
-pub const DBPROP_PROCEDURETERM: DBPROPENUM = DBPROPENUM(93i32);
-pub const DBPROP_PROVIDERFRIENDLYNAME: DBPROPENUM20 = DBPROPENUM20(235i32);
-pub const DBPROP_PROVIDERMEMORY: DBPROPENUM20 = DBPROPENUM20(259i32);
-pub const DBPROP_PROVIDERNAME: DBPROPENUM = DBPROPENUM(96i32);
-pub const DBPROP_PROVIDEROLEDBVER: DBPROPENUM = DBPROPENUM(97i32);
-pub const DBPROP_PROVIDERVER: DBPROPENUM = DBPROPENUM(98i32);
-pub const DBPROP_PersistFormat: u32 = 2u32;
-pub const DBPROP_PersistSchema: u32 = 3u32;
-pub const DBPROP_QUICKRESTART: DBPROPENUM = DBPROPENUM(99i32);
-pub const DBPROP_QUOTEDIDENTIFIERCASE: DBPROPENUM = DBPROPENUM(100i32);
-pub const DBPROP_REENTRANTEVENTS: DBPROPENUM = DBPROPENUM(101i32);
-pub const DBPROP_REMOVEDELETED: DBPROPENUM = DBPROPENUM(102i32);
-pub const DBPROP_REPORTMULTIPLECHANGES: DBPROPENUM = DBPROPENUM(103i32);
-pub const DBPROP_RESETDATASOURCE: DBPROPENUM20 = DBPROPENUM20(247i32);
-pub const DBPROP_RETURNPENDINGINSERTS: DBPROPENUM = DBPROPENUM(189i32);
-pub const DBPROP_ROWRESTRICT: DBPROPENUM = DBPROPENUM(104i32);
-pub const DBPROP_ROWSETCONVERSIONSONCOMMAND: DBPROPENUM = DBPROPENUM(192i32);
-pub const DBPROP_ROWSET_ASYNCH: DBPROPENUM15 = DBPROPENUM15(201i32);
-pub const DBPROP_ROWTHREADMODEL: DBPROPENUM = DBPROPENUM(105i32);
-pub const DBPROP_ROW_BULKOPS: DBPROPENUM20 = DBPROPENUM20(234i32);
-pub const DBPROP_SCHEMATERM: DBPROPENUM = DBPROPENUM(106i32);
-pub const DBPROP_SCHEMAUSAGE: DBPROPENUM = DBPROPENUM(107i32);
-pub const DBPROP_SERVERCURSOR: DBPROPENUM = DBPROPENUM(108i32);
-pub const DBPROP_SERVERDATAONINSERT: DBPROPENUM20 = DBPROPENUM20(239i32);
-pub const DBPROP_SERVERNAME: DBPROPENUM20 = DBPROPENUM20(250i32);
-pub const DBPROP_SESS_AUTOCOMMITISOLEVELS: DBPROPENUM = DBPROPENUM(190i32);
-pub const DBPROP_SKIPROWCOUNTRESULTS: DBPROPENUM26 = DBPROPENUM26(291i32);
-pub const DBPROP_SORTONINDEX: DBPROPENUM15 = DBPROPENUM15(207i32);
-pub const DBPROP_SQLSUPPORT: DBPROPENUM = DBPROPENUM(109i32);
-pub const DBPROP_STORAGEFLAGS: DBPROPENUM20 = DBPROPENUM20(240i32);
-pub const DBPROP_STRONGIDENTITY: DBPROPENUM = DBPROPENUM(119i32);
-pub const DBPROP_STRUCTUREDSTORAGE: DBPROPENUM = DBPROPENUM(111i32);
-pub const DBPROP_SUBQUERIES: DBPROPENUM = DBPROPENUM(112i32);
-pub const DBPROP_SUPPORTEDTXNDDL: DBPROPENUM = DBPROPENUM(161i32);
-pub const DBPROP_SUPPORTEDTXNISOLEVELS: DBPROPENUM = DBPROPENUM(113i32);
-pub const DBPROP_SUPPORTEDTXNISORETAIN: DBPROPENUM = DBPROPENUM(114i32);
-pub const DBPROP_TABLESTATISTICS: DBPROPENUM26 = DBPROPENUM26(288i32);
-pub const DBPROP_TABLETERM: DBPROPENUM = DBPROPENUM(115i32);
-pub const DBPROP_TBL_TEMPTABLE: DBPROPENUM = DBPROPENUM(140i32);
-pub const DBPROP_TRANSACTEDOBJECT: DBPROPENUM = DBPROPENUM(116i32);
-pub const DBPROP_TRUSTEE_AUTHENTICATION: DBPROPENUM21 = DBPROPENUM21(242i32);
-pub const DBPROP_TRUSTEE_NEWAUTHENTICATION: DBPROPENUM21 = DBPROPENUM21(243i32);
-pub const DBPROP_TRUSTEE_USERNAME: DBPROPENUM21 = DBPROPENUM21(241i32);
-pub const DBPROP_UNIQUEROWS: DBPROPENUM20 = DBPROPENUM20(238i32);
-pub const DBPROP_UPDATABILITY: DBPROPENUM = DBPROPENUM(117i32);
-pub const DBPROP_USERNAME: DBPROPENUM = DBPROPENUM(118i32);
-pub const DBPROP_Unicode: u32 = 6u32;
-pub const DBQUERYGUID: windows_core::GUID = windows_core::GUID::from_u128(0x49691c90_7e17_101a_a91c_08002b2ecda9);
-pub const DBRANGE_EXCLUDENULLS: DBRANGEENUM = DBRANGEENUM(4i32);
-pub const DBRANGE_EXCLUSIVEEND: DBRANGEENUM = DBRANGEENUM(2i32);
-pub const DBRANGE_EXCLUSIVESTART: DBRANGEENUM = DBRANGEENUM(1i32);
-pub const DBRANGE_INCLUSIVEEND: DBRANGEENUM = DBRANGEENUM(0i32);
-pub const DBRANGE_INCLUSIVESTART: DBRANGEENUM = DBRANGEENUM(0i32);
-pub const DBRANGE_MATCH: DBRANGEENUM = DBRANGEENUM(16i32);
-pub const DBRANGE_MATCH_N_MASK: DBRANGEENUM20 = DBRANGEENUM20(255i32);
-pub const DBRANGE_MATCH_N_SHIFT: DBRANGEENUM20 = DBRANGEENUM20(24i32);
-pub const DBRANGE_PREFIX: DBRANGEENUM = DBRANGEENUM(8i32);
-pub const DBREASON_COLUMN_RECALCULATED: DBREASONENUM = DBREASONENUM(3i32);
-pub const DBREASON_COLUMN_SET: DBREASONENUM = DBREASONENUM(2i32);
-pub const DBREASON_ROWPOSITION_CHANGED: DBREASONENUM15 = DBREASONENUM15(15i32);
-pub const DBREASON_ROWPOSITION_CHAPTERCHANGED: DBREASONENUM15 = DBREASONENUM15(16i32);
-pub const DBREASON_ROWPOSITION_CLEARED: DBREASONENUM15 = DBREASONENUM15(17i32);
-pub const DBREASON_ROWSET_CHANGED: DBREASONENUM = DBREASONENUM(14i32);
-pub const DBREASON_ROWSET_FETCHPOSITIONCHANGE: DBREASONENUM = DBREASONENUM(0i32);
-pub const DBREASON_ROWSET_POPULATIONCOMPLETE: DBREASONENUM25 = DBREASONENUM25(20i32);
-pub const DBREASON_ROWSET_POPULATIONSTOPPED: DBREASONENUM25 = DBREASONENUM25(21i32);
-pub const DBREASON_ROWSET_RELEASE: DBREASONENUM = DBREASONENUM(1i32);
-pub const DBREASON_ROWSET_ROWSADDED: DBREASONENUM25 = DBREASONENUM25(19i32);
-pub const DBREASON_ROW_ACTIVATE: DBREASONENUM = DBREASONENUM(4i32);
-pub const DBREASON_ROW_ASYNCHINSERT: DBREASONENUM15 = DBREASONENUM15(18i32);
-pub const DBREASON_ROW_DELETE: DBREASONENUM = DBREASONENUM(6i32);
-pub const DBREASON_ROW_FIRSTCHANGE: DBREASONENUM = DBREASONENUM(7i32);
-pub const DBREASON_ROW_INSERT: DBREASONENUM = DBREASONENUM(8i32);
-pub const DBREASON_ROW_RELEASE: DBREASONENUM = DBREASONENUM(5i32);
-pub const DBREASON_ROW_RESYNCH: DBREASONENUM = DBREASONENUM(9i32);
-pub const DBREASON_ROW_UNDOCHANGE: DBREASONENUM = DBREASONENUM(10i32);
-pub const DBREASON_ROW_UNDODELETE: DBREASONENUM = DBREASONENUM(12i32);
-pub const DBREASON_ROW_UNDOINSERT: DBREASONENUM = DBREASONENUM(11i32);
-pub const DBREASON_ROW_UPDATE: DBREASONENUM = DBREASONENUM(13i32);
-pub const DBRESOURCE_CPU: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(2i32);
-pub const DBRESOURCE_DISK: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(4i32);
-pub const DBRESOURCE_INVALID: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(0i32);
-pub const DBRESOURCE_MEMORY: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(3i32);
-pub const DBRESOURCE_NETWORK: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(5i32);
-pub const DBRESOURCE_OTHER: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(8i32);
-pub const DBRESOURCE_RESPONSE: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(6i32);
-pub const DBRESOURCE_ROWS: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(7i32);
-pub const DBRESOURCE_TOTAL: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(1i32);
-pub const DBRESULTFLAG_DEFAULT: DBRESULTFLAGENUM = DBRESULTFLAGENUM(0i32);
-pub const DBRESULTFLAG_ROW: DBRESULTFLAGENUM = DBRESULTFLAGENUM(2i32);
-pub const DBRESULTFLAG_ROWSET: DBRESULTFLAGENUM = DBRESULTFLAGENUM(1i32);
-pub const DBROWCHANGEKIND_COUNT: DBROWCHANGEKINDENUM = DBROWCHANGEKINDENUM(3i32);
-pub const DBROWCHANGEKIND_DELETE: DBROWCHANGEKINDENUM = DBROWCHANGEKINDENUM(1i32);
-pub const DBROWCHANGEKIND_INSERT: DBROWCHANGEKINDENUM = DBROWCHANGEKINDENUM(0i32);
-pub const DBROWCHANGEKIND_UPDATE: DBROWCHANGEKINDENUM = DBROWCHANGEKINDENUM(2i32);
-pub const DBROWSTATUS_E_CANCELED: DBROWSTATUSENUM = DBROWSTATUSENUM(4i32);
-pub const DBROWSTATUS_E_CANTRELEASE: DBROWSTATUSENUM = DBROWSTATUSENUM(6i32);
-pub const DBROWSTATUS_E_CONCURRENCYVIOLATION: DBROWSTATUSENUM = DBROWSTATUSENUM(7i32);
-pub const DBROWSTATUS_E_DELETED: DBROWSTATUSENUM = DBROWSTATUSENUM(8i32);
-pub const DBROWSTATUS_E_FAIL: DBROWSTATUSENUM = DBROWSTATUSENUM(19i32);
-pub const DBROWSTATUS_E_INTEGRITYVIOLATION: DBROWSTATUSENUM = DBROWSTATUSENUM(11i32);
-pub const DBROWSTATUS_E_INVALID: DBROWSTATUSENUM = DBROWSTATUSENUM(12i32);
-pub const DBROWSTATUS_E_LIMITREACHED: DBROWSTATUSENUM = DBROWSTATUSENUM(17i32);
-pub const DBROWSTATUS_E_MAXPENDCHANGESEXCEEDED: DBROWSTATUSENUM = DBROWSTATUSENUM(13i32);
-pub const DBROWSTATUS_E_NEWLYINSERTED: DBROWSTATUSENUM = DBROWSTATUSENUM(10i32);
-pub const DBROWSTATUS_E_OBJECTOPEN: DBROWSTATUSENUM = DBROWSTATUSENUM(14i32);
-pub const DBROWSTATUS_E_OUTOFMEMORY: DBROWSTATUSENUM = DBROWSTATUSENUM(15i32);
-pub const DBROWSTATUS_E_PENDINGINSERT: DBROWSTATUSENUM = DBROWSTATUSENUM(9i32);
-pub const DBROWSTATUS_E_PERMISSIONDENIED: DBROWSTATUSENUM = DBROWSTATUSENUM(16i32);
-pub const DBROWSTATUS_E_SCHEMAVIOLATION: DBROWSTATUSENUM = DBROWSTATUSENUM(18i32);
-pub const DBROWSTATUS_S_MULTIPLECHANGES: DBROWSTATUSENUM = DBROWSTATUSENUM(2i32);
-pub const DBROWSTATUS_S_NOCHANGE: DBROWSTATUSENUM20 = DBROWSTATUSENUM20(20i32);
-pub const DBROWSTATUS_S_OK: DBROWSTATUSENUM = DBROWSTATUSENUM(0i32);
-pub const DBROWSTATUS_S_PENDINGCHANGES: DBROWSTATUSENUM = DBROWSTATUSENUM(3i32);
-pub const DBSCHEMA_LINKEDSERVERS: windows_core::GUID = windows_core::GUID::from_u128(0x9093caf4_2eac_11d1_9809_00c04fc2ad98);
-pub const DBSEEK_AFTER: DBSEEKENUM = DBSEEKENUM(8i32);
-pub const DBSEEK_AFTEREQ: DBSEEKENUM = DBSEEKENUM(4i32);
-pub const DBSEEK_BEFORE: DBSEEKENUM = DBSEEKENUM(32i32);
-pub const DBSEEK_BEFOREEQ: DBSEEKENUM = DBSEEKENUM(16i32);
-pub const DBSEEK_FIRSTEQ: DBSEEKENUM = DBSEEKENUM(1i32);
-pub const DBSEEK_INVALID: DBSEEKENUM = DBSEEKENUM(0i32);
-pub const DBSEEK_LASTEQ: DBSEEKENUM = DBSEEKENUM(2i32);
-pub const DBSELFGUID: windows_core::GUID = windows_core::GUID::from_u128(0xc8b52231_5cf3_11ce_ade5_00aa0044773d);
-pub const DBSORT_ASCENDING: DBSORTENUM = DBSORTENUM(0i32);
-pub const DBSORT_DESCENDING: DBSORTENUM = DBSORTENUM(1i32);
-pub const DBSOURCETYPE_BINDER: DBSOURCETYPEENUM25 = DBSOURCETYPEENUM25(4i32);
-pub const DBSOURCETYPE_DATASOURCE: DBSOURCETYPEENUM = DBSOURCETYPEENUM(1i32);
-pub const DBSOURCETYPE_DATASOURCE_MDP: DBSOURCETYPEENUM20 = DBSOURCETYPEENUM20(3i32);
-pub const DBSOURCETYPE_DATASOURCE_TDP: DBSOURCETYPEENUM20 = DBSOURCETYPEENUM20(1i32);
-pub const DBSOURCETYPE_ENUMERATOR: DBSOURCETYPEENUM = DBSOURCETYPEENUM(2i32);
-pub const DBSTATUS_E_BADACCESSOR: DBSTATUSENUM = DBSTATUSENUM(1i32);
-pub const DBSTATUS_E_BADSTATUS: DBSTATUSENUM = DBSTATUSENUM(12i32);
-pub const DBSTATUS_E_CANCELED: DBSTATUSENUM25 = DBSTATUSENUM25(27i32);
-pub const DBSTATUS_E_CANNOTCOMPLETE: DBSTATUSENUM21 = DBSTATUSENUM21(20i32);
-pub const DBSTATUS_E_CANTCONVERTVALUE: DBSTATUSENUM = DBSTATUSENUM(2i32);
-pub const DBSTATUS_E_CANTCREATE: DBSTATUSENUM = DBSTATUSENUM(7i32);
-pub const DBSTATUS_E_DATAOVERFLOW: DBSTATUSENUM = DBSTATUSENUM(6i32);
-pub const DBSTATUS_E_DOESNOTEXIST: DBSTATUSENUM21 = DBSTATUSENUM21(16i32);
-pub const DBSTATUS_E_INTEGRITYVIOLATION: DBSTATUSENUM = DBSTATUSENUM(10i32);
-pub const DBSTATUS_E_INVALIDURL: DBSTATUSENUM21 = DBSTATUSENUM21(17i32);
-pub const DBSTATUS_E_NOTCOLLECTION: DBSTATUSENUM25 = DBSTATUSENUM25(28i32);
-pub const DBSTATUS_E_OUTOFSPACE: DBSTATUSENUM21 = DBSTATUSENUM21(22i32);
-pub const DBSTATUS_E_PERMISSIONDENIED: DBSTATUSENUM = DBSTATUSENUM(9i32);
-pub const DBSTATUS_E_READONLY: DBSTATUSENUM21 = DBSTATUSENUM21(24i32);
-pub const DBSTATUS_E_RESOURCEEXISTS: DBSTATUSENUM21 = DBSTATUSENUM21(19i32);
-pub const DBSTATUS_E_RESOURCELOCKED: DBSTATUSENUM21 = DBSTATUSENUM21(18i32);
-pub const DBSTATUS_E_RESOURCEOUTOFSCOPE: DBSTATUSENUM21 = DBSTATUSENUM21(25i32);
-pub const DBSTATUS_E_SCHEMAVIOLATION: DBSTATUSENUM = DBSTATUSENUM(11i32);
-pub const DBSTATUS_E_SIGNMISMATCH: DBSTATUSENUM = DBSTATUSENUM(5i32);
-pub const DBSTATUS_E_UNAVAILABLE: DBSTATUSENUM = DBSTATUSENUM(8i32);
-pub const DBSTATUS_E_VOLUMENOTFOUND: DBSTATUSENUM21 = DBSTATUSENUM21(21i32);
-pub const DBSTATUS_S_ALREADYEXISTS: DBSTATUSENUM21 = DBSTATUSENUM21(26i32);
-pub const DBSTATUS_S_CANNOTDELETESOURCE: DBSTATUSENUM21 = DBSTATUSENUM21(23i32);
-pub const DBSTATUS_S_DEFAULT: DBSTATUSENUM = DBSTATUSENUM(13i32);
-pub const DBSTATUS_S_IGNORE: DBSTATUSENUM20 = DBSTATUSENUM20(15i32);
-pub const DBSTATUS_S_ISNULL: DBSTATUSENUM = DBSTATUSENUM(3i32);
-pub const DBSTATUS_S_OK: DBSTATUSENUM = DBSTATUSENUM(0i32);
-pub const DBSTATUS_S_ROWSETCOLUMN: DBSTATUSENUM26 = DBSTATUSENUM26(29i32);
-pub const DBSTATUS_S_TRUNCATED: DBSTATUSENUM = DBSTATUSENUM(4i32);
-pub const DBSTAT_COLUMN_CARDINALITY: DBTABLESTATISTICSTYPE26 = DBTABLESTATISTICSTYPE26(2i32);
-pub const DBSTAT_HISTOGRAM: DBTABLESTATISTICSTYPE26 = DBTABLESTATISTICSTYPE26(1i32);
-pub const DBSTAT_TUPLE_CARDINALITY: DBTABLESTATISTICSTYPE26 = DBTABLESTATISTICSTYPE26(4i32);
-pub const DBTYPE_ARRAY: DBTYPEENUM = DBTYPEENUM(8192i32);
-pub const DBTYPE_BOOL: DBTYPEENUM = DBTYPEENUM(11i32);
-pub const DBTYPE_BSTR: DBTYPEENUM = DBTYPEENUM(8i32);
-pub const DBTYPE_BYREF: DBTYPEENUM = DBTYPEENUM(16384i32);
-pub const DBTYPE_BYTES: DBTYPEENUM = DBTYPEENUM(128i32);
-pub const DBTYPE_CY: DBTYPEENUM = DBTYPEENUM(6i32);
-pub const DBTYPE_DATE: DBTYPEENUM = DBTYPEENUM(7i32);
-pub const DBTYPE_DBDATE: DBTYPEENUM = DBTYPEENUM(133i32);
-pub const DBTYPE_DBTIME: DBTYPEENUM = DBTYPEENUM(134i32);
-pub const DBTYPE_DBTIMESTAMP: DBTYPEENUM = DBTYPEENUM(135i32);
-pub const DBTYPE_DECIMAL: DBTYPEENUM = DBTYPEENUM(14i32);
-pub const DBTYPE_EMPTY: DBTYPEENUM = DBTYPEENUM(0i32);
-pub const DBTYPE_ERROR: DBTYPEENUM = DBTYPEENUM(10i32);
-pub const DBTYPE_FILETIME: DBTYPEENUM20 = DBTYPEENUM20(64i32);
-pub const DBTYPE_GUID: DBTYPEENUM = DBTYPEENUM(72i32);
-pub const DBTYPE_HCHAPTER: DBTYPEENUM15 = DBTYPEENUM15(136i32);
-pub const DBTYPE_I1: DBTYPEENUM = DBTYPEENUM(16i32);
-pub const DBTYPE_I2: DBTYPEENUM = DBTYPEENUM(2i32);
-pub const DBTYPE_I4: DBTYPEENUM = DBTYPEENUM(3i32);
-pub const DBTYPE_I8: DBTYPEENUM = DBTYPEENUM(20i32);
-pub const DBTYPE_IDISPATCH: DBTYPEENUM = DBTYPEENUM(9i32);
-pub const DBTYPE_IUNKNOWN: DBTYPEENUM = DBTYPEENUM(13i32);
-pub const DBTYPE_NULL: DBTYPEENUM = DBTYPEENUM(1i32);
-pub const DBTYPE_NUMERIC: DBTYPEENUM = DBTYPEENUM(131i32);
-pub const DBTYPE_PROPVARIANT: DBTYPEENUM20 = DBTYPEENUM20(138i32);
-pub const DBTYPE_R4: DBTYPEENUM = DBTYPEENUM(4i32);
-pub const DBTYPE_R8: DBTYPEENUM = DBTYPEENUM(5i32);
-pub const DBTYPE_RESERVED: DBTYPEENUM = DBTYPEENUM(32768i32);
-pub const DBTYPE_SQLVARIANT: u32 = 144u32;
-pub const DBTYPE_STR: DBTYPEENUM = DBTYPEENUM(129i32);
-pub const DBTYPE_UDT: DBTYPEENUM = DBTYPEENUM(132i32);
-pub const DBTYPE_UI1: DBTYPEENUM = DBTYPEENUM(17i32);
-pub const DBTYPE_UI2: DBTYPEENUM = DBTYPEENUM(18i32);
-pub const DBTYPE_UI4: DBTYPEENUM = DBTYPEENUM(19i32);
-pub const DBTYPE_UI8: DBTYPEENUM = DBTYPEENUM(21i32);
-pub const DBTYPE_VARIANT: DBTYPEENUM = DBTYPEENUM(12i32);
-pub const DBTYPE_VARNUMERIC: DBTYPEENUM20 = DBTYPEENUM20(139i32);
-pub const DBTYPE_VECTOR: DBTYPEENUM = DBTYPEENUM(4096i32);
-pub const DBTYPE_WSTR: DBTYPEENUM = DBTYPEENUM(130i32);
-pub const DBUNIT_BYTE: DBCOSTUNITENUM = DBCOSTUNITENUM(512i32);
-pub const DBUNIT_GIGA_BYTE: DBCOSTUNITENUM = DBCOSTUNITENUM(4096i32);
-pub const DBUNIT_HOUR: DBCOSTUNITENUM = DBCOSTUNITENUM(256i32);
-pub const DBUNIT_INVALID: DBCOSTUNITENUM = DBCOSTUNITENUM(0i32);
-pub const DBUNIT_KILO_BYTE: DBCOSTUNITENUM = DBCOSTUNITENUM(1024i32);
-pub const DBUNIT_MAXIMUM: DBCOSTUNITENUM = DBCOSTUNITENUM(4i32);
-pub const DBUNIT_MEGA_BYTE: DBCOSTUNITENUM = DBCOSTUNITENUM(2048i32);
-pub const DBUNIT_MICRO_SECOND: DBCOSTUNITENUM = DBCOSTUNITENUM(16i32);
-pub const DBUNIT_MILLI_SECOND: DBCOSTUNITENUM = DBCOSTUNITENUM(32i32);
-pub const DBUNIT_MINIMUM: DBCOSTUNITENUM = DBCOSTUNITENUM(8i32);
-pub const DBUNIT_MINUTE: DBCOSTUNITENUM = DBCOSTUNITENUM(128i32);
-pub const DBUNIT_NUM_LOCKS: DBCOSTUNITENUM = DBCOSTUNITENUM(16384i32);
-pub const DBUNIT_NUM_MSGS: DBCOSTUNITENUM = DBCOSTUNITENUM(8192i32);
-pub const DBUNIT_NUM_ROWS: DBCOSTUNITENUM = DBCOSTUNITENUM(32768i32);
-pub const DBUNIT_OTHER: DBCOSTUNITENUM = DBCOSTUNITENUM(65536i32);
-pub const DBUNIT_PERCENT: DBCOSTUNITENUM = DBCOSTUNITENUM(2i32);
-pub const DBUNIT_SECOND: DBCOSTUNITENUM = DBCOSTUNITENUM(64i32);
-pub const DBUNIT_WEIGHT: DBCOSTUNITENUM = DBCOSTUNITENUM(1i32);
-pub const DBUPDELRULE_CASCADE: DBUPDELRULEENUM = DBUPDELRULEENUM(1i32);
-pub const DBUPDELRULE_NOACTION: DBUPDELRULEENUM = DBUPDELRULEENUM(0i32);
-pub const DBUPDELRULE_SETDEFAULT: DBUPDELRULEENUM = DBUPDELRULEENUM(3i32);
-pub const DBUPDELRULE_SETNULL: DBUPDELRULEENUM = DBUPDELRULEENUM(2i32);
-pub const DBWATCHMODE_ALL: DBWATCHMODEENUM = DBWATCHMODEENUM(1i32);
-pub const DBWATCHMODE_COUNT: DBWATCHMODEENUM = DBWATCHMODEENUM(8i32);
-pub const DBWATCHMODE_EXTEND: DBWATCHMODEENUM = DBWATCHMODEENUM(2i32);
-pub const DBWATCHMODE_MOVE: DBWATCHMODEENUM = DBWATCHMODEENUM(4i32);
-pub const DBWATCHNOTIFY_QUERYDONE: DBWATCHNOTIFYENUM = DBWATCHNOTIFYENUM(2i32);
-pub const DBWATCHNOTIFY_QUERYREEXECUTED: DBWATCHNOTIFYENUM = DBWATCHNOTIFYENUM(3i32);
-pub const DBWATCHNOTIFY_ROWSCHANGED: DBWATCHNOTIFYENUM = DBWATCHNOTIFYENUM(1i32);
-pub const DB_ALL_EXCEPT_LIKE: u32 = 3u32;
-pub const DB_BINDFLAGS_COLLECTION: i32 = 16i32;
-pub const DB_BINDFLAGS_DELAYFETCHCOLUMNS: i32 = 1i32;
-pub const DB_BINDFLAGS_DELAYFETCHSTREAM: i32 = 2i32;
-pub const DB_BINDFLAGS_ISSTRUCTUREDDOCUMENT: i32 = 128i32;
-pub const DB_BINDFLAGS_OPENIFEXISTS: i32 = 32i32;
-pub const DB_BINDFLAGS_OUTPUT: i32 = 8i32;
-pub const DB_BINDFLAGS_OVERWRITE: i32 = 64i32;
-pub const DB_BINDFLAGS_RECURSIVE: i32 = 4i32;
-pub const DB_COLLATION_ASC: u32 = 1u32;
-pub const DB_COLLATION_DESC: u32 = 2u32;
-pub const DB_COUNTUNAVAILABLE: i32 = -1i32;
-pub const DB_E_ABORTLIMITREACHED: windows_core::HRESULT = windows_core::HRESULT(0x80040E31_u32 as _);
-pub const DB_E_ALREADYINITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x80040E52_u32 as _);
-pub const DB_E_ALTERRESTRICTED: windows_core::HRESULT = windows_core::HRESULT(0x80040E9D_u32 as _);
-pub const DB_E_ASYNCNOTSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80040E95_u32 as _);
-pub const DB_E_BADACCESSORFLAGS: windows_core::HRESULT = windows_core::HRESULT(0x80040E46_u32 as _);
-pub const DB_E_BADACCESSORHANDLE: windows_core::HRESULT = windows_core::HRESULT(0x80040E00_u32 as _);
-pub const DB_E_BADACCESSORTYPE: windows_core::HRESULT = windows_core::HRESULT(0x80040E4B_u32 as _);
-pub const DB_E_BADBINDINFO: windows_core::HRESULT = windows_core::HRESULT(0x80040E08_u32 as _);
-pub const DB_E_BADBOOKMARK: windows_core::HRESULT = windows_core::HRESULT(0x80040E0E_u32 as _);
-pub const DB_E_BADCHAPTER: windows_core::HRESULT = windows_core::HRESULT(0x80040E06_u32 as _);
-pub const DB_E_BADCOLUMNID: windows_core::HRESULT = windows_core::HRESULT(0x80040E11_u32 as _);
-pub const DB_E_BADCOMMANDFLAGS: windows_core::HRESULT = windows_core::HRESULT(0x80040E8C_u32 as _);
-pub const DB_E_BADCOMMANDID: windows_core::HRESULT = windows_core::HRESULT(0x80040E76_u32 as _);
-pub const DB_E_BADCOMPAREOP: windows_core::HRESULT = windows_core::HRESULT(0x80040E27_u32 as _);
-pub const DB_E_BADCONSTRAINTFORM: windows_core::HRESULT = windows_core::HRESULT(0x80040E78_u32 as _);
-pub const DB_E_BADCONSTRAINTID: windows_core::HRESULT = windows_core::HRESULT(0x80040E8B_u32 as _);
-pub const DB_E_BADCONSTRAINTTYPE: windows_core::HRESULT = windows_core::HRESULT(0x80040E77_u32 as _);
-pub const DB_E_BADCONVERTFLAG: windows_core::HRESULT = windows_core::HRESULT(0x80040E5C_u32 as _);
-pub const DB_E_BADCOPY: windows_core::HRESULT = windows_core::HRESULT(0x80040E39_u32 as _);
-pub const DB_E_BADDEFERRABILITY: windows_core::HRESULT = windows_core::HRESULT(0x80040E79_u32 as _);
-pub const DB_E_BADDYNAMICERRORID: windows_core::HRESULT = windows_core::HRESULT(0x80040E5A_u32 as _);
-pub const DB_E_BADHRESULT: windows_core::HRESULT = windows_core::HRESULT(0x80040E58_u32 as _);
-pub const DB_E_BADID: i32 = -2147217860i32;
-pub const DB_E_BADINDEXID: windows_core::HRESULT = windows_core::HRESULT(0x80040E72_u32 as _);
-pub const DB_E_BADINITSTRING: windows_core::HRESULT = windows_core::HRESULT(0x80040E73_u32 as _);
-pub const DB_E_BADLOCKMODE: windows_core::HRESULT = windows_core::HRESULT(0x80040E0F_u32 as _);
-pub const DB_E_BADLOOKUPID: windows_core::HRESULT = windows_core::HRESULT(0x80040E59_u32 as _);
-pub const DB_E_BADMATCHTYPE: windows_core::HRESULT = windows_core::HRESULT(0x80040E80_u32 as _);
-pub const DB_E_BADORDINAL: windows_core::HRESULT = windows_core::HRESULT(0x80040E55_u32 as _);
-pub const DB_E_BADPARAMETERNAME: windows_core::HRESULT = windows_core::HRESULT(0x80040E5D_u32 as _);
-pub const DB_E_BADPRECISION: windows_core::HRESULT = windows_core::HRESULT(0x80040E3A_u32 as _);
-pub const DB_E_BADPROPERTYVALUE: windows_core::HRESULT = windows_core::HRESULT(0x80040E44_u32 as _);
-pub const DB_E_BADRATIO: windows_core::HRESULT = windows_core::HRESULT(0x80040E12_u32 as _);
-pub const DB_E_BADRECORDNUM: windows_core::HRESULT = windows_core::HRESULT(0x80040E42_u32 as _);
-pub const DB_E_BADREGIONHANDLE: windows_core::HRESULT = windows_core::HRESULT(0x80040E2A_u32 as _);
-pub const DB_E_BADROWHANDLE: windows_core::HRESULT = windows_core::HRESULT(0x80040E04_u32 as _);
-pub const DB_E_BADSCALE: windows_core::HRESULT = windows_core::HRESULT(0x80040E3B_u32 as _);
-pub const DB_E_BADSOURCEHANDLE: windows_core::HRESULT = windows_core::HRESULT(0x80040E50_u32 as _);
-pub const DB_E_BADSTARTPOSITION: windows_core::HRESULT = windows_core::HRESULT(0x80040E1E_u32 as _);
-pub const DB_E_BADSTATUSVALUE: windows_core::HRESULT = windows_core::HRESULT(0x80040E28_u32 as _);
-pub const DB_E_BADSTORAGEFLAG: windows_core::HRESULT = windows_core::HRESULT(0x80040E26_u32 as _);
-pub const DB_E_BADSTORAGEFLAGS: windows_core::HRESULT = windows_core::HRESULT(0x80040E47_u32 as _);
-pub const DB_E_BADTABLEID: windows_core::HRESULT = windows_core::HRESULT(0x80040E3C_u32 as _);
-pub const DB_E_BADTYPE: windows_core::HRESULT = windows_core::HRESULT(0x80040E3D_u32 as _);
-pub const DB_E_BADTYPENAME: windows_core::HRESULT = windows_core::HRESULT(0x80040E30_u32 as _);
-pub const DB_E_BADUPDATEDELETERULE: windows_core::HRESULT = windows_core::HRESULT(0x80040E8A_u32 as _);
-pub const DB_E_BADVALUES: windows_core::HRESULT = windows_core::HRESULT(0x80040E13_u32 as _);
-pub const DB_E_BOGUS: windows_core::HRESULT = windows_core::HRESULT(0x80040EFF_u32 as _);
-pub const DB_E_BOOKMARKSKIPPED: windows_core::HRESULT = windows_core::HRESULT(0x80040E43_u32 as _);
-pub const DB_E_BYREFACCESSORNOTSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80040E48_u32 as _);
-pub const DB_E_CANCELED: windows_core::HRESULT = windows_core::HRESULT(0x80040E4E_u32 as _);
-pub const DB_E_CANNOTCONNECT: windows_core::HRESULT = windows_core::HRESULT(0x80040E96_u32 as _);
-pub const DB_E_CANNOTFREE: windows_core::HRESULT = windows_core::HRESULT(0x80040E1A_u32 as _);
-pub const DB_E_CANNOTRESTART: windows_core::HRESULT = windows_core::HRESULT(0x80040E18_u32 as _);
-pub const DB_E_CANTCANCEL: windows_core::HRESULT = windows_core::HRESULT(0x80040E15_u32 as _);
-pub const DB_E_CANTCONVERTVALUE: windows_core::HRESULT = windows_core::HRESULT(0x80040E07_u32 as _);
-pub const DB_E_CANTFETCHBACKWARDS: windows_core::HRESULT = windows_core::HRESULT(0x80040E24_u32 as _);
-pub const DB_E_CANTFILTER: windows_core::HRESULT = windows_core::HRESULT(0x80040E5F_u32 as _);
-pub const DB_E_CANTORDER: windows_core::HRESULT = windows_core::HRESULT(0x80040E60_u32 as _);
-pub const DB_E_CANTSCROLLBACKWARDS: windows_core::HRESULT = windows_core::HRESULT(0x80040E29_u32 as _);
-pub const DB_E_CANTTRANSLATE: windows_core::HRESULT = windows_core::HRESULT(0x80040E33_u32 as _);
-pub const DB_E_CHAPTERNOTRELEASED: windows_core::HRESULT = windows_core::HRESULT(0x80040E4F_u32 as _);
-pub const DB_E_COLUMNUNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x80040EA0_u32 as _);
-pub const DB_E_COMMANDNOTPERSISTED: windows_core::HRESULT = windows_core::HRESULT(0x80040E67_u32 as _);
-pub const DB_E_CONCURRENCYVIOLATION: windows_core::HRESULT = windows_core::HRESULT(0x80040E38_u32 as _);
-pub const DB_E_COSTLIMIT: windows_core::HRESULT = windows_core::HRESULT(0x80040E0D_u32 as _);
-pub const DB_E_DATAOVERFLOW: windows_core::HRESULT = windows_core::HRESULT(0x80040E57_u32 as _);
-pub const DB_E_DELETEDROW: windows_core::HRESULT = windows_core::HRESULT(0x80040E23_u32 as _);
-pub const DB_E_DIALECTNOTSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80040E16_u32 as _);
-pub const DB_E_DROPRESTRICTED: windows_core::HRESULT = windows_core::HRESULT(0x80040E90_u32 as _);
-pub const DB_E_DUPLICATECOLUMNID: windows_core::HRESULT = windows_core::HRESULT(0x80040E3E_u32 as _);
-pub const DB_E_DUPLICATECONSTRAINTID: windows_core::HRESULT = windows_core::HRESULT(0x80040E99_u32 as _);
-pub const DB_E_DUPLICATEDATASOURCE: windows_core::HRESULT = windows_core::HRESULT(0x80040E17_u32 as _);
-pub const DB_E_DUPLICATEID: windows_core::HRESULT = windows_core::HRESULT(0x80040E68_u32 as _);
-pub const DB_E_DUPLICATEINDEXID: windows_core::HRESULT = windows_core::HRESULT(0x80040E34_u32 as _);
-pub const DB_E_DUPLICATETABLEID: windows_core::HRESULT = windows_core::HRESULT(0x80040E3F_u32 as _);
-pub const DB_E_ERRORSINCOMMAND: windows_core::HRESULT = windows_core::HRESULT(0x80040E14_u32 as _);
-pub const DB_E_ERRORSOCCURRED: windows_core::HRESULT = windows_core::HRESULT(0x80040E21_u32 as _);
-pub const DB_E_GOALREJECTED: windows_core::HRESULT = windows_core::HRESULT(0x80040E1C_u32 as _);
-pub const DB_E_INDEXINUSE: windows_core::HRESULT = windows_core::HRESULT(0x80040E36_u32 as _);
-pub const DB_E_INTEGRITYVIOLATION: windows_core::HRESULT = windows_core::HRESULT(0x80040E2F_u32 as _);
-pub const DB_E_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x80040E45_u32 as _);
-pub const DB_E_INVALIDTRANSITION: windows_core::HRESULT = windows_core::HRESULT(0x80040E2C_u32 as _);
-pub const DB_E_LIMITREJECTED: windows_core::HRESULT = windows_core::HRESULT(0x80040E0B_u32 as _);
-pub const DB_E_MAXPENDCHANGESEXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x80040E54_u32 as _);
-pub const DB_E_MISMATCHEDPROVIDER: windows_core::HRESULT = windows_core::HRESULT(0x80040E75_u32 as _);
-pub const DB_E_MULTIPLESTATEMENTS: windows_core::HRESULT = windows_core::HRESULT(0x80040E2E_u32 as _);
-pub const DB_E_MULTIPLESTORAGE: windows_core::HRESULT = windows_core::HRESULT(0x80040E5E_u32 as _);
-pub const DB_E_NEWLYINSERTED: windows_core::HRESULT = windows_core::HRESULT(0x80040E1B_u32 as _);
-pub const DB_E_NOAGGREGATION: windows_core::HRESULT = windows_core::HRESULT(0x80040E22_u32 as _);
-pub const DB_E_NOCOLUMN: windows_core::HRESULT = windows_core::HRESULT(0x80040E65_u32 as _);
-pub const DB_E_NOCOMMAND: windows_core::HRESULT = windows_core::HRESULT(0x80040E0C_u32 as _);
-pub const DB_E_NOCONSTRAINT: windows_core::HRESULT = windows_core::HRESULT(0x80040E9F_u32 as _);
-pub const DB_E_NOINDEX: windows_core::HRESULT = windows_core::HRESULT(0x80040E35_u32 as _);
-pub const DB_E_NOLOCALE: windows_core::HRESULT = windows_core::HRESULT(0x80040E41_u32 as _);
-pub const DB_E_NONCONTIGUOUSRANGE: windows_core::HRESULT = windows_core::HRESULT(0x80040E2B_u32 as _);
-pub const DB_E_NOPROVIDERSREGISTERED: windows_core::HRESULT = windows_core::HRESULT(0x80040E74_u32 as _);
-pub const DB_E_NOQUERY: windows_core::HRESULT = windows_core::HRESULT(0x80040E1F_u32 as _);
-pub const DB_E_NOSOURCEOBJECT: windows_core::HRESULT = windows_core::HRESULT(0x80040E91_u32 as _);
-pub const DB_E_NOSTATISTIC: windows_core::HRESULT = windows_core::HRESULT(0x80040E9C_u32 as _);
-pub const DB_E_NOTABLE: windows_core::HRESULT = windows_core::HRESULT(0x80040E37_u32 as _);
-pub const DB_E_NOTAREFERENCECOLUMN: windows_core::HRESULT = windows_core::HRESULT(0x80040E0A_u32 as _);
-pub const DB_E_NOTASUBREGION: windows_core::HRESULT = windows_core::HRESULT(0x80040E2D_u32 as _);
-pub const DB_E_NOTCOLLECTION: windows_core::HRESULT = windows_core::HRESULT(0x80040E93_u32 as _);
-pub const DB_E_NOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x80040E19_u32 as _);
-pub const DB_E_NOTPREPARED: windows_core::HRESULT = windows_core::HRESULT(0x80040E4A_u32 as _);
-pub const DB_E_NOTREENTRANT: windows_core::HRESULT = windows_core::HRESULT(0x80040E20_u32 as _);
-pub const DB_E_NOTSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80040E53_u32 as _);
-pub const DB_E_NULLACCESSORNOTSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80040E49_u32 as _);
-pub const DB_E_OBJECTCREATIONLIMITREACHED: windows_core::HRESULT = windows_core::HRESULT(0x80040E69_u32 as _);
-pub const DB_E_OBJECTMISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x80040E8D_u32 as _);
-pub const DB_E_OBJECTOPEN: windows_core::HRESULT = windows_core::HRESULT(0x80040E05_u32 as _);
-pub const DB_E_OUTOFSPACE: windows_core::HRESULT = windows_core::HRESULT(0x80040E9A_u32 as _);
-pub const DB_E_PARAMNOTOPTIONAL: windows_core::HRESULT = windows_core::HRESULT(0x80040E10_u32 as _);
-pub const DB_E_PARAMUNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x80040E51_u32 as _);
-pub const DB_E_PENDINGCHANGES: windows_core::HRESULT = windows_core::HRESULT(0x80040E56_u32 as _);
-pub const DB_E_PENDINGINSERT: windows_core::HRESULT = windows_core::HRESULT(0x80040E5B_u32 as _);
-pub const DB_E_READONLY: windows_core::HRESULT = windows_core::HRESULT(0x80040E94_u32 as _);
-pub const DB_E_READONLYACCESSOR: windows_core::HRESULT = windows_core::HRESULT(0x80040E02_u32 as _);
-pub const DB_E_RESOURCEEXISTS: windows_core::HRESULT = windows_core::HRESULT(0x80040E98_u32 as _);
-pub const DB_E_RESOURCELOCKED: windows_core::HRESULT = windows_core::HRESULT(0x80040E92_u32 as _);
-pub const DB_E_RESOURCENOTSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80040E9E_u32 as _);
-pub const DB_E_RESOURCEOUTOFSCOPE: windows_core::HRESULT = windows_core::HRESULT(0x80040E8E_u32 as _);
-pub const DB_E_ROWLIMITEXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x80040E01_u32 as _);
-pub const DB_E_ROWSETINCOMMAND: windows_core::HRESULT = windows_core::HRESULT(0x80040E32_u32 as _);
-pub const DB_E_ROWSNOTRELEASED: windows_core::HRESULT = windows_core::HRESULT(0x80040E25_u32 as _);
-pub const DB_E_SCHEMAVIOLATION: windows_core::HRESULT = windows_core::HRESULT(0x80040E03_u32 as _);
-pub const DB_E_TABLEINUSE: windows_core::HRESULT = windows_core::HRESULT(0x80040E40_u32 as _);
-pub const DB_E_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x80040E97_u32 as _);
-pub const DB_E_UNSUPPORTEDCONVERSION: windows_core::HRESULT = windows_core::HRESULT(0x80040E1D_u32 as _);
-pub const DB_E_WRITEONLYACCESSOR: windows_core::HRESULT = windows_core::HRESULT(0x80040E4C_u32 as _);
-pub const DB_IMP_LEVEL_ANONYMOUS: u32 = 0u32;
-pub const DB_IMP_LEVEL_DELEGATE: u32 = 3u32;
-pub const DB_IMP_LEVEL_IDENTIFY: u32 = 1u32;
-pub const DB_IMP_LEVEL_IMPERSONATE: u32 = 2u32;
-pub const DB_IN: u32 = 1u32;
-pub const DB_INVALID_HACCESSOR: u32 = 0u32;
-pub const DB_INVALID_HCHAPTER: u32 = 0u32;
-pub const DB_LIKE_ONLY: u32 = 2u32;
-pub const DB_LOCAL_EXCLUSIVE: u32 = 3u32;
-pub const DB_LOCAL_SHARED: u32 = 2u32;
-pub const DB_MODE_READ: u32 = 1u32;
-pub const DB_MODE_READWRITE: u32 = 3u32;
-pub const DB_MODE_SHARE_DENY_NONE: u32 = 16u32;
-pub const DB_MODE_SHARE_DENY_READ: u32 = 4u32;
-pub const DB_MODE_SHARE_DENY_WRITE: u32 = 8u32;
-pub const DB_MODE_SHARE_EXCLUSIVE: u32 = 12u32;
-pub const DB_MODE_WRITE: u32 = 2u32;
-pub const DB_NULLGUID: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
-pub const DB_NULL_HACCESSOR: u32 = 0u32;
-pub const DB_NULL_HCHAPTER: u32 = 0u32;
-pub const DB_NULL_HROW: u32 = 0u32;
-pub const DB_OUT: u32 = 2u32;
-pub const DB_PROT_LEVEL_CALL: u32 = 2u32;
-pub const DB_PROT_LEVEL_CONNECT: u32 = 1u32;
-pub const DB_PROT_LEVEL_NONE: u32 = 0u32;
-pub const DB_PROT_LEVEL_PKT: u32 = 3u32;
-pub const DB_PROT_LEVEL_PKT_INTEGRITY: u32 = 4u32;
-pub const DB_PROT_LEVEL_PKT_PRIVACY: u32 = 5u32;
-pub const DB_PT_FUNCTION: u32 = 3u32;
-pub const DB_PT_PROCEDURE: u32 = 2u32;
-pub const DB_PT_UNKNOWN: u32 = 1u32;
-pub const DB_REMOTE: u32 = 1u32;
-pub const DB_SEARCHABLE: u32 = 4u32;
-pub const DB_SEC_E_AUTH_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80040E4D_u32 as _);
-pub const DB_SEC_E_PERMISSIONDENIED: windows_core::HRESULT = windows_core::HRESULT(0x80040E09_u32 as _);
-pub const DB_SEC_E_SAFEMODE_DENIED: windows_core::HRESULT = windows_core::HRESULT(0x80040E9B_u32 as _);
-pub const DB_S_ASYNCHRONOUS: windows_core::HRESULT = windows_core::HRESULT(0x40ED0_u32 as _);
-pub const DB_S_BADROWHANDLE: windows_core::HRESULT = windows_core::HRESULT(0x40ED3_u32 as _);
-pub const DB_S_BOOKMARKSKIPPED: windows_core::HRESULT = windows_core::HRESULT(0x40EC3_u32 as _);
-pub const DB_S_BUFFERFULL: windows_core::HRESULT = windows_core::HRESULT(0x40EC8_u32 as _);
-pub const DB_S_CANTRELEASE: windows_core::HRESULT = windows_core::HRESULT(0x40ECA_u32 as _);
-pub const DB_S_COLUMNSCHANGED: windows_core::HRESULT = windows_core::HRESULT(0x40ED1_u32 as _);
-pub const DB_S_COLUMNTYPEMISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x40EC1_u32 as _);
-pub const DB_S_COMMANDREEXECUTED: windows_core::HRESULT = windows_core::HRESULT(0x40EC7_u32 as _);
-pub const DB_S_DELETEDROW: windows_core::HRESULT = windows_core::HRESULT(0x40ED4_u32 as _);
-pub const DB_S_DIALECTIGNORED: windows_core::HRESULT = windows_core::HRESULT(0x40ECD_u32 as _);
-pub const DB_S_ENDOFROWSET: windows_core::HRESULT = windows_core::HRESULT(0x40EC6_u32 as _);
-pub const DB_S_ERRORSOCCURRED: windows_core::HRESULT = windows_core::HRESULT(0x40EDA_u32 as _);
-pub const DB_S_ERRORSRETURNED: windows_core::HRESULT = windows_core::HRESULT(0x40ED2_u32 as _);
-pub const DB_S_GOALCHANGED: windows_core::HRESULT = windows_core::HRESULT(0x40ECB_u32 as _);
-pub const DB_S_LOCKUPGRADED: windows_core::HRESULT = windows_core::HRESULT(0x40ED8_u32 as _);
-pub const DB_S_MULTIPLECHANGES: windows_core::HRESULT = windows_core::HRESULT(0x40EDC_u32 as _);
-pub const DB_S_NONEXTROWSET: windows_core::HRESULT = windows_core::HRESULT(0x40EC5_u32 as _);
-pub const DB_S_NORESULT: windows_core::HRESULT = windows_core::HRESULT(0x40EC9_u32 as _);
-pub const DB_S_NOROWSPECIFICCOLUMNS: windows_core::HRESULT = windows_core::HRESULT(0x40EDD_u32 as _);
-pub const DB_S_NOTSINGLETON: windows_core::HRESULT = windows_core::HRESULT(0x40ED7_u32 as _);
-pub const DB_S_PARAMUNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x40EDB_u32 as _);
-pub const DB_S_PROPERTIESCHANGED: windows_core::HRESULT = windows_core::HRESULT(0x40ED9_u32 as _);
-pub const DB_S_ROWLIMITEXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x40EC0_u32 as _);
-pub const DB_S_STOPLIMITREACHED: windows_core::HRESULT = windows_core::HRESULT(0x40ED6_u32 as _);
-pub const DB_S_TOOMANYCHANGES: windows_core::HRESULT = windows_core::HRESULT(0x40ED5_u32 as _);
-pub const DB_S_TYPEINFOOVERRIDDEN: windows_core::HRESULT = windows_core::HRESULT(0x40EC2_u32 as _);
-pub const DB_S_UNWANTEDOPERATION: windows_core::HRESULT = windows_core::HRESULT(0x40ECC_u32 as _);
-pub const DB_S_UNWANTEDPHASE: windows_core::HRESULT = windows_core::HRESULT(0x40ECE_u32 as _);
-pub const DB_S_UNWANTEDREASON: windows_core::HRESULT = windows_core::HRESULT(0x40ECF_u32 as _);
-pub const DB_UNSEARCHABLE: u32 = 1u32;
-pub const DCINFOTYPE_VERSION: DCINFOTYPEENUM = DCINFOTYPEENUM(1i32);
-pub const DELIVERY_AGENT_FLAG_NO_BROADCAST: DELIVERY_AGENT_FLAGS = DELIVERY_AGENT_FLAGS(4i32);
-pub const DELIVERY_AGENT_FLAG_NO_RESTRICTIONS: DELIVERY_AGENT_FLAGS = DELIVERY_AGENT_FLAGS(8i32);
-pub const DELIVERY_AGENT_FLAG_SILENT_DIAL: DELIVERY_AGENT_FLAGS = DELIVERY_AGENT_FLAGS(16i32);
-pub const DISPID_QUERY_ALL: u32 = 6u32;
-pub const DISPID_QUERY_HITCOUNT: u32 = 4u32;
-pub const DISPID_QUERY_LASTSEENTIME: u32 = 10u32;
-pub const DISPID_QUERY_METADATA_PROPDISPID: u32 = 6u32;
-pub const DISPID_QUERY_METADATA_PROPGUID: u32 = 5u32;
-pub const DISPID_QUERY_METADATA_PROPMODIFIABLE: u32 = 9u32;
-pub const DISPID_QUERY_METADATA_PROPNAME: u32 = 7u32;
-pub const DISPID_QUERY_METADATA_STORELEVEL: u32 = 8u32;
-pub const DISPID_QUERY_METADATA_VROOTAUTOMATIC: u32 = 3u32;
-pub const DISPID_QUERY_METADATA_VROOTMANUAL: u32 = 4u32;
-pub const DISPID_QUERY_METADATA_VROOTUSED: u32 = 2u32;
-pub const DISPID_QUERY_RANK: u32 = 3u32;
-pub const DISPID_QUERY_RANKVECTOR: u32 = 2u32;
-pub const DISPID_QUERY_REVNAME: u32 = 8u32;
-pub const DISPID_QUERY_UNFILTERED: u32 = 7u32;
-pub const DISPID_QUERY_VIRTUALPATH: u32 = 9u32;
-pub const DISPID_QUERY_WORKID: u32 = 5u32;
-pub const DS_E_ALREADYDISABLED: i32 = -2147220447i32;
-pub const DS_E_ALREADYENABLED: i32 = -2147220454i32;
-pub const DS_E_BADREQUEST: i32 = -2147220475i32;
-pub const DS_E_BADRESULT: i32 = -2147220445i32;
-pub const DS_E_BADSEQUENCE: i32 = -2147220473i32;
-pub const DS_E_BUFFERTOOSMALL: i32 = -2147220449i32;
-pub const DS_E_CANNOTREMOVECONCURRENT: i32 = -2147220443i32;
-pub const DS_E_CANNOTWRITEREGISTRY: i32 = -2147220444i32;
-pub const DS_E_CONFIGBAD: i32 = -2147220470i32;
-pub const DS_E_CONFIGNOTRIGHTTYPE: i32 = -2147220456i32;
-pub const DS_E_DATANOTPRESENT: i32 = -2147220464i32;
-pub const DS_E_DATASOURCENOTAVAILABLE: i32 = -2147220478i32;
-pub const DS_E_DATASOURCENOTDISABLED: i32 = -2147220459i32;
-pub const DS_E_DUPLICATEID: i32 = -2147220462i32;
-pub const DS_E_INDEXDIRECTORY: i32 = -2147220452i32;
-pub const DS_E_INVALIDCATALOGNAME: i32 = -2147220457i32;
-pub const DS_E_INVALIDDATASOURCE: i32 = -2147220479i32;
-pub const DS_E_INVALIDTAGDB: i32 = -2147220458i32;
-pub const DS_E_MESSAGETOOLONG: i32 = -2147220472i32;
-pub const DS_E_MISSINGCATALOG: i32 = -2147220440i32;
-pub const DS_E_NOMOREDATA: i32 = -2147220480i32;
-pub const DS_E_PARAMOUTOFRANGE: i32 = -2147220448i32;
-pub const DS_E_PROPVERSIONMISMATCH: i32 = -2147220441i32;
-pub const DS_E_PROTOCOLVERSION: i32 = -2147220455i32;
-pub const DS_E_QUERYCANCELED: i32 = -2147220477i32;
-pub const DS_E_QUERYHUNG: i32 = -2147220446i32;
-pub const DS_E_REGISTRY: i32 = -2147220460i32;
-pub const DS_E_SEARCHCATNAMECOLLISION: i32 = -2147220442i32;
-pub const DS_E_SERVERCAPACITY: i32 = -2147220474i32;
-pub const DS_E_SERVERERROR: i32 = -2147220471i32;
-pub const DS_E_SETSTATUSINPROGRESS: i32 = -2147220463i32;
-pub const DS_E_TOOMANYDATASOURCES: i32 = -2147220461i32;
-pub const DS_E_UNKNOWNPARAM: i32 = -2147220450i32;
-pub const DS_E_UNKNOWNREQUEST: i32 = -2147220476i32;
-pub const DS_E_VALUETOOLARGE: i32 = -2147220451i32;
-pub const ERROR_FTE: u32 = 13824u32;
-pub const ERROR_FTE_CB: u32 = 51968u32;
-pub const ERROR_FTE_FD: u32 = 64768u32;
-pub const ERROR_SOURCE_CMDLINE: u32 = 5376u32;
-pub const ERROR_SOURCE_COLLATOR: u32 = 1280u32;
-pub const ERROR_SOURCE_CONNMGR: u32 = 1536u32;
-pub const ERROR_SOURCE_CONTENT_SOURCE: u32 = 13312u32;
-pub const ERROR_SOURCE_DATASOURCE: u32 = 1024u32;
-pub const ERROR_SOURCE_DAV: u32 = 8960u32;
-pub const ERROR_SOURCE_EXSTOREPH: u32 = 9984u32;
-pub const ERROR_SOURCE_FLTRDMN: u32 = 9216u32;
-pub const ERROR_SOURCE_GATHERER: u32 = 3328u32;
-pub const ERROR_SOURCE_INDEXER: u32 = 4352u32;
-pub const ERROR_SOURCE_MSS: u32 = 8448u32;
-pub const ERROR_SOURCE_NETWORKING: u32 = 768u32;
-pub const ERROR_SOURCE_NLADMIN: u32 = 6400u32;
-pub const ERROR_SOURCE_NOTESPH: u32 = 9728u32;
-pub const ERROR_SOURCE_OLEDB_BINDER: u32 = 9472u32;
-pub const ERROR_SOURCE_PEOPLE_IMPORT: u32 = 16384u32;
-pub const ERROR_SOURCE_PROTHNDLR: u32 = 4608u32;
-pub const ERROR_SOURCE_QUERY: u32 = 1792u32;
-pub const ERROR_SOURCE_REMOTE_EXSTOREPH: u32 = 13568u32;
-pub const ERROR_SOURCE_SCHEMA: u32 = 3072u32;
-pub const ERROR_SOURCE_SCRIPTPI: u32 = 8192u32;
-pub const ERROR_SOURCE_SECURITY: u32 = 5120u32;
-pub const ERROR_SOURCE_SETUP: u32 = 4864u32;
-pub const ERROR_SOURCE_SRCH_SCHEMA_CACHE: u32 = 13056u32;
-pub const ERROR_SOURCE_XML: u32 = 8704u32;
-pub const EVENT_AUDIENCECOMPUTATION_CANNOTSTART: i32 = -1073738223i32;
-pub const EVENT_AUTOCAT_CANT_CREATE_FILE_SHARE: i32 = -1073738726i32;
-pub const EVENT_AUTOCAT_PERFMON: i32 = -1073738753i32;
-pub const EVENT_CONFIG_ERROR: i32 = -1073738821i32;
-pub const EVENT_CONFIG_SYNTAX: i32 = -2147482604i32;
-pub const EVENT_CRAWL_SCHEDULED: i32 = 1073744884i32;
-pub const EVENT_DETAILED_FILTERPOOL_ADD_FAILED: i32 = -1073738719i32;
-pub const EVENT_DSS_NOT_ENABLED: i32 = -2147476572i32;
-pub const EVENT_ENUMERATE_SESSIONS_FAILED: i32 = -1073738720i32;
-pub const EVENT_EXCEPTION: i32 = -1073740815i32;
-pub const EVENT_FAILED_CREATE_GATHERER_LOG: i32 = -2147480587i32;
-pub const EVENT_FAILED_INITIALIZE_CRAWL: i32 = -1073738765i32;
-pub const EVENT_FILTERPOOL_ADD_FAILED: i32 = -1073738722i32;
-pub const EVENT_FILTERPOOL_DELETE_FAILED: i32 = -1073738721i32;
-pub const EVENT_FILTER_HOST_FORCE_TERMINATE: i32 = -2147473624i32;
-pub const EVENT_FILTER_HOST_NOT_INITIALIZED: i32 = -1073738724i32;
-pub const EVENT_FILTER_HOST_NOT_TERMINATED: i32 = -1073738723i32;
-pub const EVENT_GATHERER_DATASOURCE: i32 = -1073738727i32;
-pub const EVENT_GATHERER_PERFMON: i32 = -1073738817i32;
-pub const EVENT_GATHERSVC_PERFMON: i32 = -1073738818i32;
-pub const EVENT_GATHER_ADVISE_FAILED: i32 = -1073738798i32;
-pub const EVENT_GATHER_APP_INIT_FAILED: i32 = -1073738766i32;
-pub const EVENT_GATHER_AUTODESCENCODE_INVALID: i32 = -2147480592i32;
-pub const EVENT_GATHER_AUTODESCLEN_ADJUSTED: i32 = -2147480603i32;
-pub const EVENT_GATHER_BACKUPAPP_COMPLETE: i32 = 3077i32;
-pub const EVENT_GATHER_BACKUPAPP_ERROR: i32 = -1073738748i32;
-pub const EVENT_GATHER_CANT_CREATE_DOCID: i32 = -1073738793i32;
-pub const EVENT_GATHER_CANT_DELETE_DOCID: i32 = -1073738792i32;
-pub const EVENT_GATHER_CHECKPOINT_CORRUPT: i32 = -1073738732i32;
-pub const EVENT_GATHER_CHECKPOINT_FAILED: i32 = -1073738736i32;
-pub const EVENT_GATHER_CHECKPOINT_FILE_MISSING: i32 = -1073738731i32;
-pub const EVENT_GATHER_CRAWL_IN_PROGRESS: i32 = -2147480609i32;
-pub const EVENT_GATHER_CRAWL_NOT_STARTED: i32 = -2147480625i32;
-pub const EVENT_GATHER_CRAWL_SEED_ERROR: i32 = -2147480624i32;
-pub const EVENT_GATHER_CRAWL_SEED_FAILED: i32 = -2147480612i32;
-pub const EVENT_GATHER_CRAWL_SEED_FAILED_INIT: i32 = -2147480611i32;
-pub const EVENT_GATHER_CRITICAL_ERROR: i32 = -1073738799i32;
-pub const EVENT_GATHER_DAEMON_TERMINATED: i32 = -2147480570i32;
-pub const EVENT_GATHER_DELETING_HISTORY_ITEMS: i32 = -1073738774i32;
-pub const EVENT_GATHER_DIRTY_STARTUP: i32 = -2147480576i32;
-pub const EVENT_GATHER_DISK_FULL: i32 = -2147480594i32;
-pub const EVENT_GATHER_END_ADAPTIVE: i32 = 1073744891i32;
-pub const EVENT_GATHER_END_CRAWL: i32 = 1073744842i32;
-pub const EVENT_GATHER_END_INCREMENTAL: i32 = 1073744871i32;
-pub const EVENT_GATHER_EXCEPTION: i32 = -1073738810i32;
-pub const EVENT_GATHER_FLUSH_FAILED: i32 = -1073738737i32;
-pub const EVENT_GATHER_FROM_NOT_SET: i32 = -1073738776i32;
-pub const EVENT_GATHER_HISTORY_CORRUPTION_DETECTED: i32 = -2147480575i32;
-pub const EVENT_GATHER_INPLACE_INDEX_REBUILD: i32 = 1073745427i32;
-pub const EVENT_GATHER_INTERNAL: i32 = -1073738804i32;
-pub const EVENT_GATHER_INVALID_NETWORK_ACCESS_ACCOUNT: i32 = -1073738739i32;
-pub const EVENT_GATHER_LOCK_FAILED: i32 = -1073738784i32;
-pub const EVENT_GATHER_NO_CRAWL_SEEDS: i32 = -2147480602i32;
-pub const EVENT_GATHER_NO_SCHEMA: i32 = -2147480593i32;
-pub const EVENT_GATHER_OBJ_INIT_FAILED: i32 = -1073738796i32;
-pub const EVENT_GATHER_PLUGINMGR_INIT_FAILED: i32 = -1073738767i32;
-pub const EVENT_GATHER_PLUGIN_INIT_FAILED: i32 = -1073738795i32;
-pub const EVENT_GATHER_PROTOCOLHANDLER_INIT_FAILED: i32 = -1073738740i32;
-pub const EVENT_GATHER_PROTOCOLHANDLER_LOAD_FAILED: i32 = -1073738741i32;
-pub const EVENT_GATHER_READ_CHECKPOINT_FAILED: i32 = -1073738733i32;
-pub const EVENT_GATHER_RECOVERY_FAILURE: i32 = -1073738222i32;
-pub const EVENT_GATHER_REG_MISSING: i32 = -2147480610i32;
-pub const EVENT_GATHER_RESET_START: i32 = 1073744865i32;
-pub const EVENT_GATHER_RESTOREAPP_COMPLETE: i32 = 3075i32;
-pub const EVENT_GATHER_RESTOREAPP_ERROR: i32 = -1073738750i32;
-pub const EVENT_GATHER_RESTORE_CHECKPOINT_FAILED: i32 = -1073738734i32;
-pub const EVENT_GATHER_RESTORE_COMPLETE: i32 = 3069i32;
-pub const EVENT_GATHER_RESTORE_ERROR: i32 = -1073738754i32;
-pub const EVENT_GATHER_RESUME: i32 = 1073744868i32;
-pub const EVENT_GATHER_SAVE_FAILED: i32 = -1073738735i32;
-pub const EVENT_GATHER_SERVICE_INIT: i32 = -1073738794i32;
-pub const EVENT_GATHER_START_CRAWL: i32 = 1073744843i32;
-pub const EVENT_GATHER_START_CRAWL_IF_RESET: i32 = -2147480595i32;
-pub const EVENT_GATHER_START_PAUSE: i32 = -2147480606i32;
-pub const EVENT_GATHER_STOP_START: i32 = 1073744876i32;
-pub const EVENT_GATHER_SYSTEM_LCID_CHANGED: i32 = -2147480562i32;
-pub const EVENT_GATHER_THROTTLE: i32 = 1073744867i32;
-pub const EVENT_GATHER_TRANSACTION_FAIL: i32 = -1073738797i32;
-pub const EVENT_HASHMAP_INSERT: i32 = -1073738816i32;
-pub const EVENT_HASHMAP_UPDATE: i32 = -1073738811i32;
-pub const EVENT_INDEXER_ADD_DSS_DISCONNECT: i32 = -2147476585i32;
-pub const EVENT_INDEXER_ADD_DSS_FAILED: i32 = -2147476627i32;
-pub const EVENT_INDEXER_ADD_DSS_SUCCEEDED: i32 = 7019i32;
-pub const EVENT_INDEXER_BUILD_ENDED: i32 = 1073748873i32;
-pub const EVENT_INDEXER_BUILD_FAILED: i32 = -1073734797i32;
-pub const EVENT_INDEXER_BUILD_START: i32 = 1073748872i32;
-pub const EVENT_INDEXER_CI_LOAD_ERROR: i32 = -1073734785i32;
-pub const EVENT_INDEXER_DSS_ALREADY_ADDED: i32 = 1073748870i32;
-pub const EVENT_INDEXER_DSS_CONTACT_FAILED: i32 = -1073734800i32;
-pub const EVENT_INDEXER_DSS_UNABLE_TO_REMOVE: i32 = -1073734755i32;
-pub const EVENT_INDEXER_FAIL_TO_CREATE_PER_USER_CATALOG: i32 = -1073731797i32;
-pub const EVENT_INDEXER_FAIL_TO_SET_MAX_JETINSTANCE: i32 = -1073731798i32;
-pub const EVENT_INDEXER_FAIL_TO_UNLOAD_PER_USER_CATALOG: i32 = -1073731796i32;
-pub const EVENT_INDEXER_INIT_ERROR: i32 = -1073734814i32;
-pub const EVENT_INDEXER_INVALID_DIRECTORY: i32 = -1073734813i32;
-pub const EVENT_INDEXER_LOAD_FAIL: i32 = -1073734781i32;
-pub const EVENT_INDEXER_MISSING_APP_DIRECTORY: i32 = -1073734758i32;
-pub const EVENT_INDEXER_NEW_PROJECT: i32 = -1073734754i32;
-pub const EVENT_INDEXER_NO_SEARCH_SERVERS: i32 = -2147476630i32;
-pub const EVENT_INDEXER_OUT_OF_DATABASE_INSTANCE: i32 = -1073731799i32;
-pub const EVENT_INDEXER_PAUSED_FOR_DISKFULL: i32 = -1073734811i32;
-pub const EVENT_INDEXER_PERFMON: i32 = -1073734760i32;
-pub const EVENT_INDEXER_PROPSTORE_INIT_FAILED: i32 = -1073734787i32;
-pub const EVENT_INDEXER_PROP_ABORTED: i32 = 1073748899i32;
-pub const EVENT_INDEXER_PROP_COMMITTED: i32 = 1073748898i32;
-pub const EVENT_INDEXER_PROP_COMMIT_FAILED: i32 = -1073734747i32;
-pub const EVENT_INDEXER_PROP_ERROR: i32 = -1073734812i32;
-pub const EVENT_INDEXER_PROP_STARTED: i32 = 1073748841i32;
-pub const EVENT_INDEXER_PROP_STATE_CORRUPT: i32 = -1073734780i32;
-pub const EVENT_INDEXER_PROP_STOPPED: i32 = -2147476633i32;
-pub const EVENT_INDEXER_PROP_SUCCEEDED: i32 = 7016i32;
-pub const EVENT_INDEXER_REG_ERROR: i32 = -1073734756i32;
-pub const EVENT_INDEXER_REG_MISSING: i32 = -1073734796i32;
-pub const EVENT_INDEXER_REMOVED_PROJECT: i32 = -1073734753i32;
-pub const EVENT_INDEXER_REMOVE_DSS_FAILED: i32 = -1073734801i32;
-pub const EVENT_INDEXER_REMOVE_DSS_SUCCEEDED: i32 = 7020i32;
-pub const EVENT_INDEXER_RESET_FOR_CORRUPTION: i32 = -1073734784i32;
-pub const EVENT_INDEXER_SCHEMA_COPY_ERROR: i32 = -1073734823i32;
-pub const EVENT_INDEXER_SHUTDOWN: i32 = 1073748866i32;
-pub const EVENT_INDEXER_STARTED: i32 = 1073748824i32;
-pub const EVENT_INDEXER_VERIFY_PROP_ACCOUNT: i32 = -1073734768i32;
-pub const EVENT_LEARN_COMPILE_FAILED: i32 = -2147480583i32;
-pub const EVENT_LEARN_CREATE_DB_FAILED: i32 = -2147480584i32;
-pub const EVENT_LEARN_PROPAGATION_COPY_FAILED: i32 = -2147480585i32;
-pub const EVENT_LEARN_PROPAGATION_FAILED: i32 = -2147480582i32;
-pub const EVENT_LOCAL_GROUPS_CACHE_FLUSHED: i32 = 1073744920i32;
-pub const EVENT_LOCAL_GROUP_NOT_EXPANDED: i32 = 1073744919i32;
-pub const EVENT_NOTIFICATION_FAILURE: i32 = -1073738745i32;
-pub const EVENT_NOTIFICATION_FAILURE_SCOPE_EXCEEDED_LOGGING: i32 = -2147480568i32;
-pub const EVENT_NOTIFICATION_RESTORED: i32 = 1073744905i32;
-pub const EVENT_NOTIFICATION_RESTORED_SCOPE_EXCEEDED_LOGGING: i32 = -2147480566i32;
-pub const EVENT_NOTIFICATION_THREAD_EXIT_FAILED: i32 = -1073738725i32;
-pub const EVENT_OUTOFMEMORY: i32 = -1073740817i32;
-pub const EVENT_PERF_COUNTERS_ALREADY_EXISTS: i32 = -2147473626i32;
-pub const EVENT_PERF_COUNTERS_NOT_LOADED: i32 = -2147473628i32;
-pub const EVENT_PERF_COUNTERS_REGISTRY_TROUBLE: i32 = -2147473627i32;
-pub const EVENT_PROTOCOL_HOST_FORCE_TERMINATE: i32 = -2147473625i32;
-pub const EVENT_REG_VERSION: i32 = -1073738790i32;
-pub const EVENT_SSSEARCH_CREATE_PATH_RULES_FAILED: i32 = -2147482634i32;
-pub const EVENT_SSSEARCH_CSM_SAVE_FAILED: i32 = -1073740805i32;
-pub const EVENT_SSSEARCH_DATAFILES_MOVE_FAILED: i32 = -1073740808i32;
-pub const EVENT_SSSEARCH_DATAFILES_MOVE_ROLLBACK_ERRORS: i32 = -2147482630i32;
-pub const EVENT_SSSEARCH_DATAFILES_MOVE_SUCCEEDED: i32 = 1073742841i32;
-pub const EVENT_SSSEARCH_DROPPED_EVENTS: i32 = -2147482633i32;
-pub const EVENT_SSSEARCH_SETUP_CLEANUP_FAILED: i32 = -1073740813i32;
-pub const EVENT_SSSEARCH_SETUP_CLEANUP_STARTED: i32 = -2147482640i32;
-pub const EVENT_SSSEARCH_SETUP_CLEANUP_SUCCEEDED: i32 = 1073742834i32;
-pub const EVENT_SSSEARCH_SETUP_FAILED: i32 = -1073740818i32;
-pub const EVENT_SSSEARCH_SETUP_SUCCEEDED: i32 = 1073742829i32;
-pub const EVENT_SSSEARCH_STARTED: i32 = 1073742827i32;
-pub const EVENT_SSSEARCH_STARTING_SETUP: i32 = 1073742828i32;
-pub const EVENT_SSSEARCH_STOPPED: i32 = 1073742837i32;
-pub const EVENT_STS_INIT_SECURITY_FAILED: i32 = -2147480554i32;
-pub const EVENT_SYSTEM_EXCEPTION: i32 = -2147482595i32;
-pub const EVENT_TRANSACTION_READ: i32 = -1073738809i32;
-pub const EVENT_TRANSLOG_APPEND: i32 = -1073738814i32;
-pub const EVENT_TRANSLOG_CREATE: i32 = -1073738791i32;
-pub const EVENT_TRANSLOG_CREATE_TRX: i32 = -1073738815i32;
-pub const EVENT_TRANSLOG_UPDATE: i32 = -1073738813i32;
-pub const EVENT_UNPRIVILEGED_SERVICE_ACCOUNT: i32 = -2147482596i32;
-pub const EVENT_USING_DIFFERENT_WORD_BREAKER: i32 = -2147480580i32;
-pub const EVENT_WARNING_CANNOT_UPGRADE_NOISE_FILE: i32 = -2147473634i32;
-pub const EVENT_WARNING_CANNOT_UPGRADE_NOISE_FILES: i32 = -2147473635i32;
-pub const EVENT_WBREAKER_NOT_LOADED: i32 = -2147480586i32;
-pub const EVENT_WIN32_ERROR: i32 = -2147473633i32;
-pub const EXCI_E_ACCESS_DENIED: i32 = -2147216990i32;
-pub const EXCI_E_BADCONFIG_OR_ACCESSDENIED: i32 = -2147216988i32;
-pub const EXCI_E_INVALID_ACCOUNT_INFO: i32 = -2147216984i32;
-pub const EXCI_E_INVALID_EXCHANGE_SERVER: i32 = -2147216989i32;
-pub const EXCI_E_INVALID_SERVER_CONFIG: i32 = -2147216991i32;
-pub const EXCI_E_NOT_ADMIN_OR_WRONG_SITE: i32 = -2147216986i32;
-pub const EXCI_E_NO_CONFIG: i32 = -2147216992i32;
-pub const EXCI_E_NO_MAPI: i32 = -2147216985i32;
-pub const EXCI_E_WRONG_SERVER_OR_ACCT: i32 = -2147216987i32;
-pub const EXSTOREPH_E_UNEXPECTED: i32 = -2147211519i32;
-pub const EX_ANY: u32 = 0u32;
-pub const EX_CMDFATAL: u32 = 20u32;
-pub const EX_CONTROL: u32 = 25u32;
-pub const EX_DBCORRUPT: u32 = 23u32;
-pub const EX_DBFATAL: u32 = 21u32;
-pub const EX_DEADLOCK: u32 = 13u32;
-pub const EX_HARDWARE: u32 = 24u32;
-pub const EX_INFO: u32 = 10u32;
-pub const EX_INTOK: u32 = 18u32;
-pub const EX_LIMIT: u32 = 19u32;
-pub const EX_MAXISEVERITY: u32 = 10u32;
-pub const EX_MISSING: u32 = 11u32;
-pub const EX_PERMIT: u32 = 14u32;
-pub const EX_RESOURCE: u32 = 17u32;
-pub const EX_SYNTAX: u32 = 15u32;
-pub const EX_TABCORRUPT: u32 = 22u32;
-pub const EX_TYPE: u32 = 12u32;
-pub const EX_USER: u32 = 16u32;
-pub const FAIL: u32 = 0u32;
-pub const FF_INDEXCOMPLEXURLS: FOLLOW_FLAGS = FOLLOW_FLAGS(1i32);
-pub const FF_SUPPRESSINDEXING: FOLLOW_FLAGS = FOLLOW_FLAGS(2i32);
-pub const FLTRDMN_E_CANNOT_DECRYPT_PASSWORD: i32 = -2147212282i32;
-pub const FLTRDMN_E_ENCRYPTED_DOCUMENT: i32 = -2147212283i32;
-pub const FLTRDMN_E_FILTER_INIT_FAILED: i32 = -2147212284i32;
-pub const FLTRDMN_E_QI_FILTER_FAILED: i32 = -2147212286i32;
-pub const FLTRDMN_E_UNEXPECTED: i32 = -2147212287i32;
-pub const FTE_E_ADMIN_BLOB_CORRUPT: i32 = -2147207676i32;
-pub const FTE_E_AFFINITY_MASK: i32 = -2147207651i32;
-pub const FTE_E_ALREADY_INITIALIZED: i32 = -2147207604i32;
-pub const FTE_E_ANOTHER_STATUS_CHANGE_IS_ALREADY_ACTIVE: i32 = -2147207635i32;
-pub const FTE_E_BATCH_ABORTED: i32 = -2147207636i32;
-pub const FTE_E_CATALOG_ALREADY_EXISTS: i32 = -2147207656i32;
-pub const FTE_E_CATALOG_DOES_NOT_EXIST: i32 = -2147207639i32;
-pub const FTE_E_CB_CBID_OUT_OF_BOUND: i32 = -2147169535i32;
-pub const FTE_E_CB_NOT_ENOUGH_AVAIL_PHY_MEM: i32 = -2147169534i32;
-pub const FTE_E_CB_NOT_ENOUGH_OCC_BUFFER: i32 = -2147169533i32;
-pub const FTE_E_CB_OUT_OF_MEMORY: i32 = -2147169536i32;
-pub const FTE_E_COM_SIGNATURE_VALIDATION: i32 = -2147207652i32;
-pub const FTE_E_CORRUPT_GATHERER_HASH_MAP: i32 = -2147207619i32;
-pub const FTE_E_CORRUPT_PROPERTY_STORE: i32 = -2147207622i32;
-pub const FTE_E_CORRUPT_WORDLIST: i32 = -2147169532i32;
-pub const FTE_E_DATATYPE_MISALIGNMENT: i32 = -2147207605i32;
-pub const FTE_E_DEPENDENT_TRAN_FAILED_TO_PERSIST: i32 = -2147207641i32;
-pub const FTE_E_DOC_TOO_HUGE: i32 = -2147207606i32;
-pub const FTE_E_DUPLICATE_OBJECT: i32 = -2147207644i32;
-pub const FTE_E_ERROR_WRITING_REGISTRY: i32 = -2147207674i32;
-pub const FTE_E_EXCEEDED_MAX_PLUGINS: i32 = -2147207647i32;
-pub const FTE_E_FAILED_TO_CREATE_ACCESSOR: i32 = -2147207625i32;
-pub const FTE_E_FAILURE_TO_POST_SETCOMPLETION_STATUS: i32 = -2147207597i32;
-pub const FTE_E_FD_DID_NOT_CONNECT: i32 = -2147207660i32;
-pub const FTE_E_FD_DOC_TIMEOUT: i32 = -2147156733i32;
-pub const FTE_E_FD_DOC_UNEXPECTED_EXIT: i32 = -2147156731i32;
-pub const FTE_E_FD_FAILED_TO_LOAD_IFILTER: i32 = -2147156734i32;
-pub const FTE_E_FD_FILTER_CAUSED_SHARING_VIOLATION: i32 = -2147156725i32;
-pub const FTE_E_FD_IDLE: i32 = -2147207595i32;
-pub const FTE_E_FD_IFILTER_INIT_FAILED: i32 = -2147156735i32;
-pub const FTE_E_FD_NOISE_NO_IPERSISTSTREAM_ON_TEXT_FILTER: i32 = -2147156729i32;
-pub const FTE_E_FD_NOISE_NO_TEXT_FILTER: i32 = -2147156730i32;
-pub const FTE_E_FD_NOISE_TEXT_FILTER_INIT_FAILED: i32 = -2147156727i32;
-pub const FTE_E_FD_NOISE_TEXT_FILTER_LOAD_FAILED: i32 = -2147156728i32;
-pub const FTE_E_FD_NO_IPERSIST_INTERFACE: i32 = -2147156736i32;
-pub const FTE_E_FD_OCCURRENCE_OVERFLOW: i32 = -2147156726i32;
-pub const FTE_E_FD_OWNERSHIP_OBSOLETE: i32 = -2147207650i32;
-pub const FTE_E_FD_SHUTDOWN: i32 = -2147207640i32;
-pub const FTE_E_FD_TIMEOUT: i32 = -2147207632i32;
-pub const FTE_E_FD_UNEXPECTED_EXIT: i32 = -2147156732i32;
-pub const FTE_E_FD_UNRESPONSIVE: i32 = -2147207594i32;
-pub const FTE_E_FD_USED_TOO_MUCH_MEMORY: i32 = -2147207603i32;
-pub const FTE_E_FILTER_SINGLE_THREADED: i32 = -2147207675i32;
-pub const FTE_E_HIGH_MEMORY_PRESSURE: i32 = -2147207601i32;
-pub const FTE_E_INVALID_CODEPAGE: i32 = -2147207596i32;
-pub const FTE_E_INVALID_DOCID: i32 = -2147207663i32;
-pub const FTE_E_INVALID_ISOLATE_ERROR_BATCH: i32 = -2147207600i32;
-pub const FTE_E_INVALID_PROG_ID: i32 = -2147207614i32;
-pub const FTE_E_INVALID_PROJECT_ID: i32 = -2147207598i32;
-pub const FTE_E_INVALID_PROPERTY: i32 = -2147207630i32;
-pub const FTE_E_INVALID_TYPE: i32 = -2147207624i32;
-pub const FTE_E_KEY_NOT_CACHED: i32 = -2147207618i32;
-pub const FTE_E_LIBRARY_NOT_LOADED: i32 = -2147207627i32;
-pub const FTE_E_NOT_PROCESSED_DUE_TO_PREVIOUS_ERRORS: i32 = -2147207633i32;
-pub const FTE_E_NO_MORE_PROPERTIES: i32 = -2147207629i32;
-pub const FTE_E_NO_PLUGINS: i32 = -2147207638i32;
-pub const FTE_E_NO_PROPERTY_STORE: i32 = -1073465766i32;
-pub const FTE_E_OUT_OF_RANGE: i32 = -2147207623i32;
-pub const FTE_E_PATH_TOO_LONG: i32 = -2147207654i32;
-pub const FTE_E_PAUSE_EXTERNAL: i32 = -2147207662i32;
-pub const FTE_E_PERFMON_FULL: i32 = -2147207626i32;
-pub const FTE_E_PERF_NOT_LOADED: i32 = -2147207611i32;
-pub const FTE_E_PIPE_DATA_CORRUPTED: i32 = -2147207671i32;
-pub const FTE_E_PIPE_NOT_CONNECTED: i32 = -2147207677i32;
-pub const FTE_E_PROGID_REQUIRED: i32 = -2147207658i32;
-pub const FTE_E_PROJECT_NOT_INITALIZED: i32 = -2147207672i32;
-pub const FTE_E_PROJECT_SHUTDOWN: i32 = -2147207673i32;
-pub const FTE_E_PROPERTY_STORE_WORKID_NOTVALID: i32 = -2147207621i32;
-pub const FTE_E_READONLY_CATALOG: i32 = -2147207612i32;
-pub const FTE_E_REDUNDANT_TRAN_FAILURE: i32 = -2147207642i32;
-pub const FTE_E_REJECTED_DUE_TO_PROJECT_STATUS: i32 = -2147207661i32;
-pub const FTE_E_RESOURCE_SHUTDOWN: i32 = -2147207631i32;
-pub const FTE_E_RETRY_HUGE_DOC: i32 = -2147207608i32;
-pub const FTE_E_RETRY_SINGLE_DOC_PER_BATCH: i32 = -2147207599i32;
-pub const FTE_E_SECRET_NOT_FOUND: i32 = -2147207678i32;
-pub const FTE_E_SERIAL_STREAM_CORRUPT: i32 = -2147207613i32;
-pub const FTE_E_STACK_CORRUPTED: i32 = -2147207615i32;
-pub const FTE_E_STATIC_THREAD_INVALID_ARGUMENTS: i32 = -2147207657i32;
-pub const FTE_E_UNEXPECTED_EXIT: i32 = -2147207602i32;
-pub const FTE_E_UNKNOWN_FD_TYPE: i32 = -2147207607i32;
-pub const FTE_E_UNKNOWN_PLUGIN: i32 = -2147207628i32;
-pub const FTE_E_UPGRADE_INTERFACE_ALREADY_INSTANTIATED: i32 = -2147207616i32;
-pub const FTE_E_UPGRADE_INTERFACE_ALREADY_SHUTDOWN: i32 = -2147207617i32;
-pub const FTE_E_URB_TOO_BIG: i32 = -2147207664i32;
-pub const FTE_INVALID_ADMIN_CLIENT: i32 = -2147207653i32;
-pub const FTE_S_BEYOND_QUOTA: i32 = 276002i32;
-pub const FTE_S_CATALOG_BLOB_MISMATCHED: i32 = 276056i32;
-pub const FTE_S_PROPERTY_RESET: i32 = 276057i32;
-pub const FTE_S_PROPERTY_STORE_END_OF_ENUMERATION: i32 = 276028i32;
-pub const FTE_S_READONLY_CATALOG: i32 = 276038i32;
-pub const FTE_S_REDUNDANT: i32 = 276005i32;
-pub const FTE_S_RESOURCES_STARTING_TO_GET_LOW: i32 = 275993i32;
-pub const FTE_S_RESUME: i32 = 276014i32;
-pub const FTE_S_STATUS_CHANGE_REQUEST: i32 = 276011i32;
-pub const FTE_S_TRY_TO_FLUSH: i32 = 276055i32;
-pub const GENERATE_METHOD_PREFIXMATCH: u32 = 1u32;
-pub const GENERATE_METHOD_STEMMED: u32 = 2u32;
-pub const GHTR_E_INSUFFICIENT_DISK_SPACE: i32 = -2147218037i32;
-pub const GHTR_E_LOCAL_SERVER_UNAVAILABLE: i32 = -2147218055i32;
-pub const GTHR_E_ADDLINKS_FAILED_WILL_RETRY_PARENT: i32 = -2147217989i32;
-pub const GTHR_E_APPLICATION_NOT_FOUND: i32 = -2147218079i32;
-pub const GTHR_E_AUTOCAT_UNEXPECTED: i32 = -2147218012i32;
-pub const GTHR_E_BACKUP_VALIDATION_FAIL: i32 = -2147217994i32;
-pub const GTHR_E_BAD_FILTER_DAEMON: i32 = -2147218119i32;
-pub const GTHR_E_BAD_FILTER_HOST: i32 = -2147217993i32;
-pub const GTHR_E_CANNOT_ENABLE_CHECKPOINT: i32 = -2147218002i32;
-pub const GTHR_E_CANNOT_REMOVE_PLUGINMGR: i32 = -2147218078i32;
-pub const GTHR_E_CONFIG_DUP_EXTENSION: i32 = -2147218165i32;
-pub const GTHR_E_CONFIG_DUP_PROJECT: i32 = -2147218166i32;
-pub const GTHR_E_CONTENT_ID_CONFLICT: i32 = -2147218062i32;
-pub const GTHR_E_DIRMON_NOT_INITIALZED: i32 = -2147218019i32;
-pub const GTHR_E_DUPLICATE_OBJECT: i32 = -2147218174i32;
-pub const GTHR_E_DUPLICATE_PROJECT: i32 = -2147218094i32;
-pub const GTHR_E_DUPLICATE_URL: i32 = -2147218163i32;
-pub const GTHR_E_DUP_PROPERTY_MAPPING: i32 = -2147218134i32;
-pub const GTHR_E_EMPTY_DACL: i32 = -2147218006i32;
-pub const GTHR_E_ERROR_INITIALIZING_PERFMON: i32 = -2147218171i32;
-pub const GTHR_E_ERROR_OBJECT_NOT_FOUND: i32 = -2147218170i32;
-pub const GTHR_E_ERROR_WRITING_REGISTRY: i32 = -2147218172i32;
-pub const GTHR_E_FILTERPOOL_NOTFOUND: i32 = -2147217990i32;
-pub const GTHR_E_FILTER_FAULT: i32 = -2147218075i32;
-pub const GTHR_E_FILTER_INIT: i32 = -2147218130i32;
-pub const GTHR_E_FILTER_INTERRUPTED: i32 = -2147218092i32;
-pub const GTHR_E_FILTER_INVALID_MESSAGE: i32 = -2147218158i32;
-pub const GTHR_E_FILTER_NOT_FOUND: i32 = -2147218154i32;
-pub const GTHR_E_FILTER_NO_CODEPAGE: i32 = -2147218123i32;
-pub const GTHR_E_FILTER_NO_MORE_THREADS: i32 = -2147218153i32;
-pub const GTHR_E_FILTER_PROCESS_TERMINATED: i32 = -2147218159i32;
-pub const GTHR_E_FILTER_PROCESS_TERMINATED_QUOTA: i32 = -2147218151i32;
-pub const GTHR_E_FILTER_SINGLE_THREADED: i32 = -2147218069i32;
-pub const GTHR_E_FOLDER_CRAWLED_BY_ANOTHER_WORKSPACE: i32 = -2147218007i32;
-pub const GTHR_E_FORCE_NOTIFICATION_RESET: i32 = -2147218065i32;
-pub const GTHR_E_FROM_NOT_SPECIFIED: i32 = -2147218109i32;
-pub const GTHR_E_IE_OFFLINE: i32 = -2147218120i32;
-pub const GTHR_E_INSUFFICIENT_EXAMPLE_CATEGORIES: i32 = -2147218014i32;
-pub const GTHR_E_INSUFFICIENT_EXAMPLE_DOCUMENTS: i32 = -2147218013i32;
-pub const GTHR_E_INSUFFICIENT_FEATURE_TERMS: i32 = -2147218015i32;
-pub const GTHR_E_INVALIDFUNCTION: i32 = -2147218161i32;
-pub const GTHR_E_INVALID_ACCOUNT: i32 = -2147218132i32;
-pub const GTHR_E_INVALID_ACCOUNT_SYNTAX: i32 = -2147218129i32;
-pub const GTHR_E_INVALID_APPLICATION_NAME: i32 = -2147218077i32;
-pub const GTHR_E_INVALID_CALL_FROM_WBREAKER: i32 = -2147218058i32;
-pub const GTHR_E_INVALID_DIRECTORY: i32 = -2147218093i32;
-pub const GTHR_E_INVALID_EXTENSION: i32 = -2147218107i32;
-pub const GTHR_E_INVALID_GROW_FACTOR: i32 = -2147218106i32;
-pub const GTHR_E_INVALID_HOST_NAME: i32 = -2147218096i32;
-pub const GTHR_E_INVALID_LOG_FILE_NAME: i32 = -2147218103i32;
-pub const GTHR_E_INVALID_MAPPING: i32 = -2147218112i32;
-pub const GTHR_E_INVALID_PATH: i32 = -2147218124i32;
-pub const GTHR_E_INVALID_PATH_EXPRESSION: i32 = -2147218088i32;
-pub const GTHR_E_INVALID_PATH_SPEC: i32 = -2147218016i32;
-pub const GTHR_E_INVALID_PROJECT_NAME: i32 = -2147218142i32;
-pub const GTHR_E_INVALID_PROXY_PORT: i32 = -2147218091i32;
-pub const GTHR_E_INVALID_RESOURCE_ID: i32 = -2147218035i32;
-pub const GTHR_E_INVALID_RETRIES: i32 = -2147218104i32;
-pub const GTHR_E_INVALID_START_ADDRESS: i32 = -2147217998i32;
-pub const GTHR_E_INVALID_START_PAGE: i32 = -2147218095i32;
-pub const GTHR_E_INVALID_START_PAGE_HOST: i32 = -2147218087i32;
-pub const GTHR_E_INVALID_START_PAGE_PATH: i32 = -2147218080i32;
-pub const GTHR_E_INVALID_STREAM_LOGS_COUNT: i32 = -2147218108i32;
-pub const GTHR_E_INVALID_TIME_OUT: i32 = -2147218105i32;
-pub const GTHR_E_JET_BACKUP_ERROR: i32 = -2147218026i32;
-pub const GTHR_E_JET_RESTORE_ERROR: i32 = -2147218025i32;
-pub const GTHR_E_LOCAL_GROUPS_EXPANSION_INTERNAL_ERROR: i32 = -2147216867i32;
-pub const GTHR_E_NAME_TOO_LONG: i32 = -2147218156i32;
-pub const GTHR_E_NESTED_HIERARCHICAL_START_ADDRESSES: i32 = -2147218034i32;
-pub const GTHR_E_NOFILTERSINK: i32 = -2147218160i32;
-pub const GTHR_E_NON_FIXED_DRIVE: i32 = -2147218074i32;
-pub const GTHR_E_NOTIFICATION_FILE_SHARE_INFO_NOT_AVAILABLE: i32 = -2147218040i32;
-pub const GTHR_E_NOTIFICATION_LOCAL_PATH_MUST_USE_FIXED_DRIVE: i32 = -2147218039i32;
-pub const GTHR_E_NOTIFICATION_START_ADDRESS_INVALID: i32 = -2147218042i32;
-pub const GTHR_E_NOTIFICATION_START_PAGE: i32 = -2147218137i32;
-pub const GTHR_E_NOTIFICATION_TYPE_NOT_SUPPORTED: i32 = -2147218041i32;
-pub const GTHR_E_NOTIF_ACCESS_TOKEN_UPDATED: i32 = -2147218020i32;
-pub const GTHR_E_NOTIF_BEING_REMOVED: i32 = -2147218018i32;
-pub const GTHR_E_NOTIF_EXCESSIVE_THROUGHPUT: i32 = -2147218017i32;
-pub const GTHR_E_NO_IDENTITY: i32 = -2147218155i32;
-pub const GTHR_E_NO_PRTCLHNLR: i32 = -2147218121i32;
-pub const GTHR_E_NTF_CLIENT_NOT_SUBSCRIBED: i32 = -1073476167i32;
-pub const GTHR_E_OBJECT_NOT_VALID: i32 = -2147218005i32;
-pub const GTHR_E_OUT_OF_DOC_ID: i32 = -2147218138i32;
-pub const GTHR_E_PIPE_NOT_CONNECTTED: i32 = -2147217996i32;
-pub const GTHR_E_PLUGIN_NOT_REGISTERED: i32 = -2147218021i32;
-pub const GTHR_E_PROJECT_NOT_INITIALIZED: i32 = -2147218149i32;
-pub const GTHR_E_PROPERTIES_EXCEEDED: i32 = -2147218000i32;
-pub const GTHR_E_PROPERTY_LIST_NOT_INITIALIZED: i32 = -2147218057i32;
-pub const GTHR_E_PROXY_NAME: i32 = -2147218127i32;
-pub const GTHR_E_PRT_HNDLR_PROGID_MISSING: i32 = -2147218152i32;
-pub const GTHR_E_RECOVERABLE_EXOLEDB_ERROR: i32 = -2147218060i32;
-pub const GTHR_E_RETRY: i32 = -2147218027i32;
-pub const GTHR_E_SCHEMA_ERRORS_OCCURRED: i32 = -2147218054i32;
-pub const GTHR_E_SCOPES_EXCEEDED: i32 = -2147218001i32;
-pub const GTHR_E_SECRET_NOT_FOUND: i32 = -2147218089i32;
-pub const GTHR_E_SERVER_UNAVAILABLE: i32 = -2147218126i32;
-pub const GTHR_E_SHUTTING_DOWN: i32 = -2147218141i32;
-pub const GTHR_E_SINGLE_THREADED_EMBEDDING: i32 = -2147218011i32;
-pub const GTHR_E_TIMEOUT: i32 = -2147218053i32;
-pub const GTHR_E_TOO_MANY_PLUGINS: i32 = -2147218162i32;
-pub const GTHR_E_UNABLE_TO_READ_EXCHANGE_STORE: i32 = -2147218061i32;
-pub const GTHR_E_UNABLE_TO_READ_REGISTRY: i32 = -2147218173i32;
-pub const GTHR_E_UNKNOWN_PROTOCOL: i32 = -2147218150i32;
-pub const GTHR_E_UNSUPPORTED_PROPERTY_TYPE: i32 = -2147218157i32;
-pub const GTHR_E_URL_EXCLUDED: i32 = -2147218169i32;
-pub const GTHR_E_URL_UNIDENTIFIED: i32 = -2147218067i32;
-pub const GTHR_E_USER_AGENT_NOT_SPECIFIED: i32 = -2147218111i32;
-pub const GTHR_E_VALUE_NOT_AVAILABLE: i32 = -2147218139i32;
-pub const GTHR_S_BAD_FILE_LINK: i32 = 265580i32;
-pub const GTHR_S_CANNOT_FILTER: i32 = 265520i32;
-pub const GTHR_S_CANNOT_WORDBREAK: i32 = 265638i32;
-pub const GTHR_S_CONFIG_HAS_ACCOUNTS: i32 = 265558i32;
-pub const GTHR_S_CRAWL_ADAPTIVE: i32 = 265605i32;
-pub const GTHR_S_CRAWL_FULL: i32 = 265603i32;
-pub const GTHR_S_CRAWL_INCREMENTAL: i32 = 265604i32;
-pub const GTHR_S_CRAWL_SCHEDULED: i32 = 265576i32;
-pub const GTHR_S_END_PROCESS_LOOP_NOTIFY_QUEUE: i32 = 265584i32;
-pub const GTHR_S_END_STD_CHUNKS: i32 = 265508i32;
-pub const GTHR_S_MODIFIED_PARTS: i32 = 265592i32;
-pub const GTHR_S_NOT_ALL_PARTS: i32 = 265582i32;
-pub const GTHR_S_NO_CRAWL_SEEDS: i32 = 265515i32;
-pub const GTHR_S_NO_INDEX: i32 = 265616i32;
-pub const GTHR_S_OFFICE_CHILD: i32 = 265626i32;
-pub const GTHR_S_PAUSE_REASON_BACKOFF: i32 = 265620i32;
-pub const GTHR_S_PAUSE_REASON_EXTERNAL: i32 = 265618i32;
-pub const GTHR_S_PAUSE_REASON_PROFILE_IMPORT: i32 = 265651i32;
-pub const GTHR_S_PAUSE_REASON_UPGRADING: i32 = 265619i32;
-pub const GTHR_S_PROB_NOT_MODIFIED: i32 = 265575i32;
-pub const GTHR_S_START_FILTER_FROM_BODY: i32 = 265585i32;
-pub const GTHR_S_START_FILTER_FROM_PROTOCOL: i32 = 265578i32;
-pub const GTHR_S_STATUS_CHANGE_IGNORED: i32 = 265500i32;
-pub const GTHR_S_STATUS_END_CRAWL: i32 = 265501i32;
-pub const GTHR_S_STATUS_PAUSE: i32 = 265505i32;
-pub const GTHR_S_STATUS_RESET: i32 = 265502i32;
-pub const GTHR_S_STATUS_RESUME: i32 = 265504i32;
-pub const GTHR_S_STATUS_START: i32 = 265526i32;
-pub const GTHR_S_STATUS_STOP: i32 = 265523i32;
-pub const GTHR_S_STATUS_THROTTLE: i32 = 265503i32;
-pub const GTHR_S_TRANSACTION_IGNORED: i32 = 265577i32;
-pub const GTHR_S_USE_MIME_FILTER: i32 = 265639i32;
-pub const IDENTIFIER_SDK_ERROR: u32 = 268435456u32;
-pub const IDENTIFIER_SDK_MASK: u32 = 4026531840u32;
-pub const IDS_MON_BUILTIN_PROPERTY: windows_core::HRESULT = windows_core::HRESULT(0x4093F_u32 as _);
-pub const IDS_MON_BUILTIN_VIEW: windows_core::HRESULT = windows_core::HRESULT(0x40937_u32 as _);
-pub const IDS_MON_CANNOT_CAST: windows_core::HRESULT = windows_core::HRESULT(0x40946_u32 as _);
-pub const IDS_MON_CANNOT_CONVERT: windows_core::HRESULT = windows_core::HRESULT(0x4093B_u32 as _);
-pub const IDS_MON_COLUMN_NOT_DEFINED: windows_core::HRESULT = windows_core::HRESULT(0x40936_u32 as _);
-pub const IDS_MON_DATE_OUT_OF_RANGE: windows_core::HRESULT = windows_core::HRESULT(0x40947_u32 as _);
-pub const IDS_MON_DEFAULT_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x4092F_u32 as _);
-pub const IDS_MON_ILLEGAL_PASSTHROUGH: windows_core::HRESULT = windows_core::HRESULT(0x40930_u32 as _);
-pub const IDS_MON_INVALIDSELECT_COALESCE: windows_core::HRESULT = windows_core::HRESULT(0x40945_u32 as _);
-pub const IDS_MON_INVALID_CATALOG: windows_core::HRESULT = windows_core::HRESULT(0x40944_u32 as _);
-pub const IDS_MON_INVALID_IN_GROUP_CLAUSE: windows_core::HRESULT = windows_core::HRESULT(0x40948_u32 as _);
-pub const IDS_MON_MATCH_STRING: windows_core::HRESULT = windows_core::HRESULT(0x40941_u32 as _);
-pub const IDS_MON_NOT_COLUMN_OF_VIEW: windows_core::HRESULT = windows_core::HRESULT(0x4093E_u32 as _);
-pub const IDS_MON_ORDINAL_OUT_OF_RANGE: windows_core::HRESULT = windows_core::HRESULT(0x40934_u32 as _);
-pub const IDS_MON_OR_NOT: windows_core::HRESULT = windows_core::HRESULT(0x4093A_u32 as _);
-pub const IDS_MON_OUT_OF_MEMORY: windows_core::HRESULT = windows_core::HRESULT(0x40938_u32 as _);
-pub const IDS_MON_OUT_OF_RANGE: windows_core::HRESULT = windows_core::HRESULT(0x4093C_u32 as _);
-pub const IDS_MON_PARSE_ERR_1_PARAM: windows_core::HRESULT = windows_core::HRESULT(0x40931_u32 as _);
-pub const IDS_MON_PARSE_ERR_2_PARAM: windows_core::HRESULT = windows_core::HRESULT(0x40932_u32 as _);
-pub const IDS_MON_PROPERTY_NAME_IN_VIEW: windows_core::HRESULT = windows_core::HRESULT(0x40942_u32 as _);
-pub const IDS_MON_RELATIVE_INTERVAL: windows_core::HRESULT = windows_core::HRESULT(0x4093D_u32 as _);
-pub const IDS_MON_SELECT_STAR: windows_core::HRESULT = windows_core::HRESULT(0x40939_u32 as _);
-pub const IDS_MON_SEMI_COLON: windows_core::HRESULT = windows_core::HRESULT(0x40933_u32 as _);
-pub const IDS_MON_VIEW_ALREADY_DEFINED: windows_core::HRESULT = windows_core::HRESULT(0x40943_u32 as _);
-pub const IDS_MON_VIEW_NOT_DEFINED: windows_core::HRESULT = windows_core::HRESULT(0x40935_u32 as _);
-pub const IDS_MON_WEIGHT_OUT_OF_RANGE: windows_core::HRESULT = windows_core::HRESULT(0x40940_u32 as _);
-pub const IDX_E_BUILD_IN_PROGRESS: i32 = -2147217147i32;
-pub const IDX_E_CATALOG_DISMOUNTED: i32 = -2147217124i32;
-pub const IDX_E_CORRUPT_INDEX: i32 = -2147217136i32;
-pub const IDX_E_DISKFULL: i32 = -2147217138i32;
-pub const IDX_E_DOCUMENT_ABORTED: i32 = -2147217125i32;
-pub const IDX_E_DSS_NOT_CONNECTED: i32 = -2147217126i32;
-pub const IDX_E_IDXLSTFILE_CORRUPT: i32 = -2147217146i32;
-pub const IDX_E_INVALIDTAG: i32 = -2147217151i32;
-pub const IDX_E_INVALID_INDEX: i32 = -2147217137i32;
-pub const IDX_E_METAFILE_CORRUPT: i32 = -2147217150i32;
-pub const IDX_E_NOISELIST_NOTFOUND: i32 = -2147217141i32;
-pub const IDX_E_NOT_LOADED: i32 = -2147217129i32;
-pub const IDX_E_OBJECT_NOT_FOUND: i32 = -2147217144i32;
-pub const IDX_E_PROPSTORE_INIT_FAILED: i32 = -2147217134i32;
-pub const IDX_E_PROP_MAJOR_VERSION_MISMATCH: i32 = -2147217128i32;
-pub const IDX_E_PROP_MINOR_VERSION_MISMATCH: i32 = -2147217127i32;
-pub const IDX_E_PROP_STATE_CORRUPT: i32 = -2147217133i32;
-pub const IDX_E_PROP_STOPPED: i32 = -2147217139i32;
-pub const IDX_E_REGISTRY_ENTRY: i32 = -2147217145i32;
-pub const IDX_E_SEARCH_SERVER_ALREADY_EXISTS: i32 = -2147217148i32;
-pub const IDX_E_SEARCH_SERVER_NOT_FOUND: i32 = -2147217143i32;
-pub const IDX_E_STEMMER_NOTFOUND: i32 = -2147217140i32;
-pub const IDX_E_TOO_MANY_SEARCH_SERVERS: i32 = -2147217149i32;
-pub const IDX_E_USE_APPGLOBAL_PROPTABLE: i32 = -2147217120i32;
-pub const IDX_E_USE_DEFAULT_CONTENTCLASS: i32 = -2147217121i32;
-pub const IDX_E_WB_NOTFOUND: i32 = -2147217142i32;
-pub const IDX_S_DSS_NOT_AVAILABLE: i32 = 266525i32;
-pub const IDX_S_NO_BUILD_IN_PROGRESS: i32 = 266516i32;
-pub const IDX_S_SEARCH_SERVER_ALREADY_EXISTS: i32 = 266517i32;
-pub const IDX_S_SEARCH_SERVER_DOES_NOT_EXIST: i32 = 266518i32;
-pub const ILK_EXPLICIT_EXCLUDED: INTERVAL_LIMIT_KIND = INTERVAL_LIMIT_KIND(1i32);
-pub const ILK_EXPLICIT_INCLUDED: INTERVAL_LIMIT_KIND = INTERVAL_LIMIT_KIND(0i32);
-pub const ILK_NEGATIVE_INFINITY: INTERVAL_LIMIT_KIND = INTERVAL_LIMIT_KIND(2i32);
-pub const ILK_POSITIVE_INFINITY: INTERVAL_LIMIT_KIND = INTERVAL_LIMIT_KIND(3i32);
-pub const INET_E_AGENT_CACHE_SIZE_EXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x800C0F82_u32 as _);
-pub const INET_E_AGENT_CONNECTION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x800C0F83_u32 as _);
-pub const INET_E_AGENT_EXCEEDING_CACHE_SIZE: windows_core::HRESULT = windows_core::HRESULT(0x800C0F90_u32 as _);
-pub const INET_E_AGENT_MAX_SIZE_EXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0x800C0F80_u32 as _);
-pub const INET_E_SCHEDULED_EXCLUDE_RANGE: windows_core::HRESULT = windows_core::HRESULT(0x800C0F87_u32 as _);
-pub const INET_E_SCHEDULED_UPDATES_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0x800C0F84_u32 as _);
-pub const INET_E_SCHEDULED_UPDATES_RESTRICTED: windows_core::HRESULT = windows_core::HRESULT(0x800C0F85_u32 as _);
-pub const INET_E_SCHEDULED_UPDATE_INTERVAL: windows_core::HRESULT = windows_core::HRESULT(0x800C0F86_u32 as _);
-pub const INET_S_AGENT_INCREASED_CACHE_SIZE: windows_core::HRESULT = windows_core::HRESULT(0xC0F90_u32 as _);
-pub const INET_S_AGENT_PART_FAIL: windows_core::HRESULT = windows_core::HRESULT(0xC0F81_u32 as _);
-pub const JET_GET_PROP_STORE_ERROR: i32 = -1073732822i32;
-pub const JET_INIT_ERROR: i32 = -1073732824i32;
-pub const JET_MULTIINSTANCE_DISABLED: i32 = -2147474645i32;
-pub const JET_NEW_PROP_STORE_ERROR: i32 = -1073732823i32;
-pub const JPS_E_CATALOG_DECSRIPTION_MISSING: i32 = -2147217023i32;
-pub const JPS_E_INSUFFICIENT_DATABASE_RESOURCES: i32 = -2147217019i32;
-pub const JPS_E_INSUFFICIENT_DATABASE_SESSIONS: i32 = -2147217020i32;
-pub const JPS_E_INSUFFICIENT_VERSION_STORAGE: i32 = -2147217021i32;
-pub const JPS_E_JET_ERR: i32 = -2147217025i32;
-pub const JPS_E_MISSING_INFORMATION: i32 = -2147217022i32;
-pub const JPS_E_PROPAGATION_CORRUPTION: i32 = -2147217016i32;
-pub const JPS_E_PROPAGATION_FILE: i32 = -2147217017i32;
-pub const JPS_E_PROPAGATION_VERSION_MISMATCH: i32 = -2147217015i32;
-pub const JPS_E_SCHEMA_ERROR: i32 = -2147217018i32;
-pub const JPS_E_SHARING_VIOLATION: i32 = -2147217014i32;
-pub const JPS_S_DUPLICATE_DOC_DETECTED: i32 = 266624i32;
-pub const KAGPROPVAL_CONCUR_LOCK: u32 = 4u32;
-pub const KAGPROPVAL_CONCUR_READ_ONLY: u32 = 8u32;
-pub const KAGPROPVAL_CONCUR_ROWVER: u32 = 1u32;
-pub const KAGPROPVAL_CONCUR_VALUES: u32 = 2u32;
-pub const KAGPROP_ACCESSIBLEPROCEDURES: u32 = 2u32;
-pub const KAGPROP_ACCESSIBLETABLES: u32 = 3u32;
-pub const KAGPROP_ACTIVESTATEMENTS: u32 = 24u32;
-pub const KAGPROP_AUTH_SERVERINTEGRATED: u32 = 3u32;
-pub const KAGPROP_AUTH_TRUSTEDCONNECTION: u32 = 2u32;
-pub const KAGPROP_BLOBSONFOCURSOR: u32 = 8u32;
-pub const KAGPROP_CONCURRENCY: u32 = 7u32;
-pub const KAGPROP_CURSOR: u32 = 6u32;
-pub const KAGPROP_DRIVERNAME: u32 = 7u32;
-pub const KAGPROP_DRIVERODBCVER: u32 = 9u32;
-pub const KAGPROP_DRIVERVER: u32 = 8u32;
-pub const KAGPROP_FILEUSAGE: u32 = 23u32;
-pub const KAGPROP_FORCENOPARAMETERREBIND: u32 = 11u32;
-pub const KAGPROP_FORCENOPREPARE: u32 = 12u32;
-pub const KAGPROP_FORCENOREEXECUTE: u32 = 13u32;
-pub const KAGPROP_FORCESSFIREHOSEMODE: u32 = 10u32;
-pub const KAGPROP_INCLUDENONEXACT: u32 = 9u32;
-pub const KAGPROP_IRowsetChangeExtInfo: u32 = 5u32;
-pub const KAGPROP_LIKEESCAPECLAUSE: u32 = 10u32;
-pub const KAGPROP_MARSHALLABLE: u32 = 3u32;
-pub const KAGPROP_MAXCOLUMNSINGROUPBY: u32 = 12u32;
-pub const KAGPROP_MAXCOLUMNSININDEX: u32 = 13u32;
-pub const KAGPROP_MAXCOLUMNSINORDERBY: u32 = 14u32;
-pub const KAGPROP_MAXCOLUMNSINSELECT: u32 = 15u32;
-pub const KAGPROP_MAXCOLUMNSINTABLE: u32 = 16u32;
-pub const KAGPROP_NUMERICFUNCTIONS: u32 = 17u32;
-pub const KAGPROP_ODBCSQLCONFORMANCE: u32 = 18u32;
-pub const KAGPROP_ODBCSQLOPTIEF: u32 = 4u32;
-pub const KAGPROP_OJCAPABILITY: u32 = 5u32;
-pub const KAGPROP_OUTERJOINS: u32 = 19u32;
-pub const KAGPROP_POSITIONONNEWROW: u32 = 4u32;
-pub const KAGPROP_PROCEDURES: u32 = 6u32;
-pub const KAGPROP_QUERYBASEDUPDATES: u32 = 2u32;
-pub const KAGPROP_SPECIALCHARACTERS: u32 = 11u32;
-pub const KAGPROP_STRINGFUNCTIONS: u32 = 20u32;
-pub const KAGPROP_SYSTEMFUNCTIONS: u32 = 21u32;
-pub const KAGPROP_TIMEDATEFUNCTIONS: u32 = 22u32;
-pub const KAGREQDIAGFLAGS_HEADER: KAGREQDIAGFLAGSENUM = KAGREQDIAGFLAGSENUM(1i32);
-pub const KAGREQDIAGFLAGS_RECORD: KAGREQDIAGFLAGSENUM = KAGREQDIAGFLAGSENUM(2i32);
-pub const LOCKMODE_EXCLUSIVE: LOCKMODEENUM = LOCKMODEENUM(1i32);
-pub const LOCKMODE_INVALID: LOCKMODEENUM = LOCKMODEENUM(0i32);
-pub const LOCKMODE_SHARED: LOCKMODEENUM = LOCKMODEENUM(2i32);
-pub const MAXNAME: u32 = 129u32;
-pub const MAXNUMERICLEN: u32 = 16u32;
-pub const MAXUSEVERITY: u32 = 18u32;
-pub const MAX_QUERY_RANK: u32 = 1000u32;
-pub const MDAXIS_CHAPTERS: u32 = 4u32;
-pub const MDAXIS_COLUMNS: u32 = 0u32;
-pub const MDAXIS_PAGES: u32 = 2u32;
-pub const MDAXIS_ROWS: u32 = 1u32;
-pub const MDAXIS_SECTIONS: u32 = 3u32;
-pub const MDAXIS_SLICERS: u32 = 4294967295u32;
-pub const MDDISPINFO_DRILLED_DOWN: u32 = 65536u32;
-pub const MDDISPINFO_PARENT_SAME_AS_PREV: u32 = 131072u32;
-pub const MDFF_BOLD: u32 = 1u32;
-pub const MDFF_ITALIC: u32 = 2u32;
-pub const MDFF_STRIKEOUT: u32 = 8u32;
-pub const MDFF_UNDERLINE: u32 = 4u32;
-pub const MDLEVEL_TYPE_ALL: u32 = 1u32;
-pub const MDLEVEL_TYPE_CALCULATED: u32 = 2u32;
-pub const MDLEVEL_TYPE_REGULAR: u32 = 0u32;
-pub const MDLEVEL_TYPE_RESERVED1: u32 = 8u32;
-pub const MDLEVEL_TYPE_TIME: u32 = 4u32;
-pub const MDLEVEL_TYPE_TIME_DAYS: u32 = 516u32;
-pub const MDLEVEL_TYPE_TIME_HALF_YEAR: u32 = 36u32;
-pub const MDLEVEL_TYPE_TIME_HOURS: u32 = 772u32;
-pub const MDLEVEL_TYPE_TIME_MINUTES: u32 = 1028u32;
-pub const MDLEVEL_TYPE_TIME_MONTHS: u32 = 132u32;
-pub const MDLEVEL_TYPE_TIME_QUARTERS: u32 = 68u32;
-pub const MDLEVEL_TYPE_TIME_SECONDS: u32 = 2052u32;
-pub const MDLEVEL_TYPE_TIME_UNDEFINED: u32 = 4100u32;
-pub const MDLEVEL_TYPE_TIME_WEEKS: u32 = 260u32;
-pub const MDLEVEL_TYPE_TIME_YEARS: u32 = 20u32;
-pub const MDLEVEL_TYPE_UNKNOWN: u32 = 0u32;
-pub const MDMEASURE_AGGR_AVG: u32 = 5u32;
-pub const MDMEASURE_AGGR_CALCULATED: u32 = 127u32;
-pub const MDMEASURE_AGGR_COUNT: u32 = 2u32;
-pub const MDMEASURE_AGGR_MAX: u32 = 4u32;
-pub const MDMEASURE_AGGR_MIN: u32 = 3u32;
-pub const MDMEASURE_AGGR_STD: u32 = 7u32;
-pub const MDMEASURE_AGGR_SUM: u32 = 1u32;
-pub const MDMEASURE_AGGR_UNKNOWN: u32 = 0u32;
-pub const MDMEASURE_AGGR_VAR: u32 = 6u32;
-pub const MDMEMBER_TYPE_ALL: u32 = 2u32;
-pub const MDMEMBER_TYPE_FORMULA: u32 = 4u32;
-pub const MDMEMBER_TYPE_MEASURE: u32 = 3u32;
-pub const MDMEMBER_TYPE_REGULAR: u32 = 1u32;
-pub const MDMEMBER_TYPE_RESERVE1: u32 = 5u32;
-pub const MDMEMBER_TYPE_RESERVE2: u32 = 6u32;
-pub const MDMEMBER_TYPE_RESERVE3: u32 = 7u32;
-pub const MDMEMBER_TYPE_RESERVE4: u32 = 8u32;
-pub const MDMEMBER_TYPE_UNKNOWN: u32 = 0u32;
-pub const MDPROPVAL_AU_UNCHANGED: i32 = 1i32;
-pub const MDPROPVAL_AU_UNKNOWN: i32 = 2i32;
-pub const MDPROPVAL_AU_UNSUPPORTED: i32 = 0i32;
-pub const MDPROPVAL_FS_FULL_SUPPORT: i32 = 1i32;
-pub const MDPROPVAL_FS_GENERATED_COLUMN: i32 = 2i32;
-pub const MDPROPVAL_FS_GENERATED_DIMENSION: i32 = 3i32;
-pub const MDPROPVAL_FS_NO_SUPPORT: i32 = 4i32;
-pub const MDPROPVAL_MC_SEARCHEDCASE: i32 = 2i32;
-pub const MDPROPVAL_MC_SINGLECASE: i32 = 1i32;
-pub const MDPROPVAL_MD_AFTER: i32 = 4i32;
-pub const MDPROPVAL_MD_BEFORE: i32 = 2i32;
-pub const MDPROPVAL_MD_SELF: i32 = 1i32;
-pub const MDPROPVAL_MF_CREATE_CALCMEMBERS: i32 = 4i32;
-pub const MDPROPVAL_MF_CREATE_NAMEDSETS: i32 = 8i32;
-pub const MDPROPVAL_MF_SCOPE_GLOBAL: i32 = 32i32;
-pub const MDPROPVAL_MF_SCOPE_SESSION: i32 = 16i32;
-pub const MDPROPVAL_MF_WITH_CALCMEMBERS: i32 = 1i32;
-pub const MDPROPVAL_MF_WITH_NAMEDSETS: i32 = 2i32;
-pub const MDPROPVAL_MJC_IMPLICITCUBE: i32 = 4i32;
-pub const MDPROPVAL_MJC_MULTICUBES: i32 = 2i32;
-pub const MDPROPVAL_MJC_SINGLECUBE: i32 = 1i32;
-pub const MDPROPVAL_MMF_CLOSINGPERIOD: i32 = 8i32;
-pub const MDPROPVAL_MMF_COUSIN: i32 = 1i32;
-pub const MDPROPVAL_MMF_OPENINGPERIOD: i32 = 4i32;
-pub const MDPROPVAL_MMF_PARALLELPERIOD: i32 = 2i32;
-pub const MDPROPVAL_MNF_AGGREGATE: i32 = 16i32;
-pub const MDPROPVAL_MNF_CORRELATION: i32 = 64i32;
-pub const MDPROPVAL_MNF_COVARIANCE: i32 = 32i32;
-pub const MDPROPVAL_MNF_DRILLDOWNLEVEL: i32 = 2048i32;
-pub const MDPROPVAL_MNF_DRILLDOWNLEVELBOTTOM: i32 = 32768i32;
-pub const MDPROPVAL_MNF_DRILLDOWNLEVELTOP: i32 = 16384i32;
-pub const MDPROPVAL_MNF_DRILLDOWNMEMBERBOTTOM: i32 = 8192i32;
-pub const MDPROPVAL_MNF_DRILLDOWNMEMBERTOP: i32 = 4096i32;
-pub const MDPROPVAL_MNF_DRILLUPLEVEL: i32 = 131072i32;
-pub const MDPROPVAL_MNF_DRILLUPMEMBER: i32 = 65536i32;
-pub const MDPROPVAL_MNF_LINREG2: i32 = 512i32;
-pub const MDPROPVAL_MNF_LINREGPOINT: i32 = 1024i32;
-pub const MDPROPVAL_MNF_LINREGSLOPE: i32 = 128i32;
-pub const MDPROPVAL_MNF_LINREGVARIANCE: i32 = 256i32;
-pub const MDPROPVAL_MNF_MEDIAN: i32 = 1i32;
-pub const MDPROPVAL_MNF_RANK: i32 = 8i32;
-pub const MDPROPVAL_MNF_STDDEV: i32 = 4i32;
-pub const MDPROPVAL_MNF_VAR: i32 = 2i32;
-pub const MDPROPVAL_MOQ_CATALOG_CUBE: i32 = 2i32;
-pub const MDPROPVAL_MOQ_CUBE_DIM: i32 = 8i32;
-pub const MDPROPVAL_MOQ_DATASOURCE_CUBE: i32 = 1i32;
-pub const MDPROPVAL_MOQ_DIMHIER_LEVEL: i32 = 32i32;
-pub const MDPROPVAL_MOQ_DIMHIER_MEMBER: i32 = 256i32;
-pub const MDPROPVAL_MOQ_DIM_HIER: i32 = 16i32;
-pub const MDPROPVAL_MOQ_LEVEL_MEMBER: i32 = 64i32;
-pub const MDPROPVAL_MOQ_MEMBER_MEMBER: i32 = 128i32;
-pub const MDPROPVAL_MOQ_OUTERREFERENCE: i32 = 1i32;
-pub const MDPROPVAL_MOQ_SCHEMA_CUBE: i32 = 4i32;
-pub const MDPROPVAL_MSC_GREATERTHAN: i32 = 2i32;
-pub const MDPROPVAL_MSC_GREATERTHANEQUAL: i32 = 8i32;
-pub const MDPROPVAL_MSC_LESSTHAN: i32 = 1i32;
-pub const MDPROPVAL_MSC_LESSTHANEQUAL: i32 = 4i32;
-pub const MDPROPVAL_MSF_BOTTOMPERCENT: i32 = 2i32;
-pub const MDPROPVAL_MSF_BOTTOMSUM: i32 = 8i32;
-pub const MDPROPVAL_MSF_DRILLDOWNLEVEL: i32 = 2048i32;
-pub const MDPROPVAL_MSF_DRILLDOWNLEVELBOTTOM: i32 = 32768i32;
-pub const MDPROPVAL_MSF_DRILLDOWNLEVELTOP: i32 = 16384i32;
-pub const MDPROPVAL_MSF_DRILLDOWNMEMBBER: i32 = 1024i32;
-pub const MDPROPVAL_MSF_DRILLDOWNMEMBERBOTTOM: i32 = 8192i32;
-pub const MDPROPVAL_MSF_DRILLDOWNMEMBERTOP: i32 = 4096i32;
-pub const MDPROPVAL_MSF_DRILLUPLEVEL: i32 = 131072i32;
-pub const MDPROPVAL_MSF_DRILLUPMEMBER: i32 = 65536i32;
-pub const MDPROPVAL_MSF_LASTPERIODS: i32 = 32i32;
-pub const MDPROPVAL_MSF_MTD: i32 = 256i32;
-pub const MDPROPVAL_MSF_PERIODSTODATE: i32 = 16i32;
-pub const MDPROPVAL_MSF_QTD: i32 = 128i32;
-pub const MDPROPVAL_MSF_TOGGLEDRILLSTATE: i32 = 262144i32;
-pub const MDPROPVAL_MSF_TOPPERCENT: i32 = 1i32;
-pub const MDPROPVAL_MSF_TOPSUM: i32 = 4i32;
-pub const MDPROPVAL_MSF_WTD: i32 = 512i32;
-pub const MDPROPVAL_MSF_YTD: i32 = 64i32;
-pub const MDPROPVAL_MS_MULTIPLETUPLES: i32 = 1i32;
-pub const MDPROPVAL_MS_SINGLETUPLE: i32 = 2i32;
-pub const MDPROPVAL_NL_NAMEDLEVELS: i32 = 1i32;
-pub const MDPROPVAL_NL_NUMBEREDLEVELS: i32 = 2i32;
-pub const MDPROPVAL_NL_SCHEMAONLY: i32 = 4i32;
-pub const MDPROPVAL_NME_ALLDIMENSIONS: i32 = 0i32;
-pub const MDPROPVAL_NME_MEASURESONLY: i32 = 1i32;
-pub const MDPROPVAL_RR_NORANGEROWSET: i32 = 1i32;
-pub const MDPROPVAL_RR_READONLY: i32 = 2i32;
-pub const MDPROPVAL_RR_UPDATE: i32 = 4i32;
-pub const MDPROPVAL_VISUAL_MODE_DEFAULT: i32 = 0i32;
-pub const MDPROPVAL_VISUAL_MODE_VISUAL: i32 = 1i32;
-pub const MDPROPVAL_VISUAL_MODE_VISUAL_OFF: i32 = 2i32;
-pub const MDPROP_AGGREGATECELL_UPDATE: DBPROPENUM20 = DBPROPENUM20(230i32);
-pub const MDPROP_AXES: DBPROPENUM20 = DBPROPENUM20(252i32);
-pub const MDPROP_CELL: u32 = 2u32;
-pub const MDPROP_FLATTENING_SUPPORT: DBPROPENUM20 = DBPROPENUM20(253i32);
-pub const MDPROP_MDX_AGGREGATECELL_UPDATE: DBPROPENUM20 = DBPROPENUM20(230i32);
-pub const MDPROP_MDX_CASESUPPORT: DBPROPENUM20 = DBPROPENUM20(222i32);
-pub const MDPROP_MDX_CUBEQUALIFICATION: DBPROPENUM20 = DBPROPENUM20(219i32);
-pub const MDPROP_MDX_DESCFLAGS: DBPROPENUM20 = DBPROPENUM20(225i32);
-pub const MDPROP_MDX_FORMULAS: DBPROPENUM20 = DBPROPENUM20(229i32);
-pub const MDPROP_MDX_JOINCUBES: DBPROPENUM20 = DBPROPENUM20(254i32);
-pub const MDPROP_MDX_MEMBER_FUNCTIONS: DBPROPENUM20 = DBPROPENUM20(227i32);
-pub const MDPROP_MDX_NONMEASURE_EXPRESSIONS: DBPROPENUM20 = DBPROPENUM20(262i32);
-pub const MDPROP_MDX_NUMERIC_FUNCTIONS: DBPROPENUM20 = DBPROPENUM20(228i32);
-pub const MDPROP_MDX_OBJQUALIFICATION: DBPROPENUM20 = DBPROPENUM20(261i32);
-pub const MDPROP_MDX_OUTERREFERENCE: DBPROPENUM20 = DBPROPENUM20(220i32);
-pub const MDPROP_MDX_QUERYBYPROPERTY: DBPROPENUM20 = DBPROPENUM20(221i32);
-pub const MDPROP_MDX_SET_FUNCTIONS: DBPROPENUM20 = DBPROPENUM20(226i32);
-pub const MDPROP_MDX_SLICER: DBPROPENUM20 = DBPROPENUM20(218i32);
-pub const MDPROP_MDX_STRING_COMPOP: DBPROPENUM20 = DBPROPENUM20(224i32);
-pub const MDPROP_MEMBER: u32 = 1u32;
-pub const MDPROP_NAMED_LEVELS: DBPROPENUM20 = DBPROPENUM20(255i32);
-pub const MDPROP_RANGEROWSET: DBPROPENUM20 = DBPROPENUM20(256i32);
-pub const MDPROP_VISUALMODE: DBPROPENUM26 = DBPROPENUM26(293i32);
-pub const MDSTATUS_S_CELLEMPTY: DBSTATUSENUM20 = DBSTATUSENUM20(14i32);
-pub const MDTREEOP_ANCESTORS: u32 = 32u32;
-pub const MDTREEOP_CHILDREN: u32 = 1u32;
-pub const MDTREEOP_DESCENDANTS: u32 = 16u32;
-pub const MDTREEOP_PARENT: u32 = 4u32;
-pub const MDTREEOP_SELF: u32 = 8u32;
-pub const MDTREEOP_SIBLINGS: u32 = 2u32;
-pub const MD_DIMTYPE_MEASURE: u32 = 2u32;
-pub const MD_DIMTYPE_OTHER: u32 = 3u32;
-pub const MD_DIMTYPE_TIME: u32 = 1u32;
-pub const MD_DIMTYPE_UNKNOWN: u32 = 0u32;
-pub const MD_E_BADCOORDINATE: windows_core::HRESULT = windows_core::HRESULT(0x80040E62_u32 as _);
-pub const MD_E_BADTUPLE: windows_core::HRESULT = windows_core::HRESULT(0x80040E61_u32 as _);
-pub const MD_E_INVALIDAXIS: windows_core::HRESULT = windows_core::HRESULT(0x80040E63_u32 as _);
-pub const MD_E_INVALIDCELLRANGE: windows_core::HRESULT = windows_core::HRESULT(0x80040E64_u32 as _);
-pub const MINFATALERR: u32 = 20u32;
-pub const MIN_USER_DATATYPE: u32 = 256u32;
-pub const MSG_CI_CORRUPT_INDEX_COMPONENT: windows_core::HRESULT = windows_core::HRESULT(0x4000102A_u32 as _);
-pub const MSG_CI_CREATE_SEVER_ITEM_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80001048_u32 as _);
-pub const MSG_CI_MASTER_MERGE_ABORTED: windows_core::HRESULT = windows_core::HRESULT(0x40001008_u32 as _);
-pub const MSG_CI_MASTER_MERGE_ABORTED_LOW_DISK: windows_core::HRESULT = windows_core::HRESULT(0x40001043_u32 as _);
-pub const MSG_CI_MASTER_MERGE_CANT_RESTART: windows_core::HRESULT = windows_core::HRESULT(0xC000100A_u32 as _);
-pub const MSG_CI_MASTER_MERGE_CANT_START: windows_core::HRESULT = windows_core::HRESULT(0xC0001009_u32 as _);
-pub const MSG_CI_MASTER_MERGE_COMPLETED: windows_core::HRESULT = windows_core::HRESULT(0x40001007_u32 as _);
-pub const MSG_CI_MASTER_MERGE_REASON_EXPECTED_DOCS: windows_core::HRESULT = windows_core::HRESULT(0x40001046_u32 as _);
-pub const MSG_CI_MASTER_MERGE_REASON_EXTERNAL: windows_core::HRESULT = windows_core::HRESULT(0x40001044_u32 as _);
-pub const MSG_CI_MASTER_MERGE_REASON_INDEX_LIMIT: windows_core::HRESULT = windows_core::HRESULT(0x40001045_u32 as _);
-pub const MSG_CI_MASTER_MERGE_REASON_NUMBER: windows_core::HRESULT = windows_core::HRESULT(0x40001047_u32 as _);
-pub const MSG_CI_MASTER_MERGE_RESTARTED: windows_core::HRESULT = windows_core::HRESULT(0x40001019_u32 as _);
-pub const MSG_CI_MASTER_MERGE_STARTED: windows_core::HRESULT = windows_core::HRESULT(0x40001006_u32 as _);
-pub const MSG_TEST_MESSAGE: i32 = 1074008064i32;
-pub const MSS_E_APPALREADYEXISTS: i32 = -2147213054i32;
-pub const MSS_E_APPNOTFOUND: i32 = -2147213055i32;
-pub const MSS_E_CATALOGALREADYEXISTS: i32 = -2147213050i32;
-pub const MSS_E_CATALOGNOTFOUND: i32 = -2147213053i32;
-pub const MSS_E_CATALOGSTOPPING: i32 = -2147213052i32;
-pub const MSS_E_INVALIDAPPNAME: i32 = -2147213056i32;
-pub const MSS_E_UNICODEFILEHEADERMISSING: i32 = -2147213051i32;
-pub const MS_PERSIST_PROGID: windows_core::PCSTR = windows_core::s!("MSPersist");
-pub const NEC_HIGH: NAMED_ENTITY_CERTAINTY = NAMED_ENTITY_CERTAINTY(2i32);
-pub const NEC_LOW: NAMED_ENTITY_CERTAINTY = NAMED_ENTITY_CERTAINTY(0i32);
-pub const NEC_MEDIUM: NAMED_ENTITY_CERTAINTY = NAMED_ENTITY_CERTAINTY(1i32);
-pub const NET_E_DISCONNECTED: i32 = -2147220733i32;
-pub const NET_E_GENERAL: i32 = -2147220736i32;
-pub const NET_E_INVALIDPARAMS: i32 = -2147220728i32;
-pub const NET_E_OPERATIONINPROGRESS: i32 = -2147220727i32;
-pub const NLADMIN_E_BUILD_CATALOG_NOT_INITIALIZED: i32 = -2147215100i32;
-pub const NLADMIN_E_DUPLICATE_CATALOG: i32 = -2147215103i32;
-pub const NLADMIN_E_FAILED_TO_GIVE_ACCOUNT_PRIVILEGE: i32 = -2147215101i32;
-pub const NLADMIN_S_NOT_ALL_BUILD_CATALOGS_INITIALIZED: i32 = 268546i32;
-pub const NOTESPH_E_ATTACHMENTS: i32 = -2147211770i32;
-pub const NOTESPH_E_DB_ACCESS_DENIED: i32 = -2147211768i32;
-pub const NOTESPH_E_FAIL: i32 = -2147211759i32;
-pub const NOTESPH_E_ITEM_NOT_FOUND: i32 = -2147211772i32;
-pub const NOTESPH_E_NOTESSETUP_ID_MAPPING_ERROR: i32 = -2147211767i32;
-pub const NOTESPH_E_NO_NTID: i32 = -2147211769i32;
-pub const NOTESPH_E_SERVER_CONFIG: i32 = -2147211771i32;
-pub const NOTESPH_E_UNEXPECTED_STATE: i32 = -2147211775i32;
-pub const NOTESPH_E_UNSUPPORTED_CONTENT_FIELD_TYPE: i32 = -2147211773i32;
-pub const NOTESPH_S_IGNORE_ID: i32 = 271874i32;
-pub const NOTESPH_S_LISTKNOWNFIELDS: i32 = 271888i32;
-pub const NOT_N_PARSE_ERROR: windows_core::HRESULT = windows_core::HRESULT(0x8092E_u32 as _);
-pub const OCC_INVALID: u32 = 4294967295u32;
-pub const ODBCVER: u32 = 896u32;
-pub const ODBC_ADD_DSN: u32 = 1u32;
-pub const ODBC_ADD_SYS_DSN: u32 = 4u32;
-pub const ODBC_BOTH_DSN: u32 = 0u32;
-pub const ODBC_CONFIG_DRIVER: u32 = 3u32;
-pub const ODBC_CONFIG_DRIVER_MAX: u32 = 100u32;
-pub const ODBC_CONFIG_DSN: u32 = 2u32;
-pub const ODBC_CONFIG_SYS_DSN: u32 = 5u32;
-pub const ODBC_ERROR_COMPONENT_NOT_FOUND: u32 = 6u32;
-pub const ODBC_ERROR_CREATE_DSN_FAILED: u32 = 18u32;
-pub const ODBC_ERROR_GENERAL_ERR: u32 = 1u32;
-pub const ODBC_ERROR_INVALID_BUFF_LEN: u32 = 2u32;
-pub const ODBC_ERROR_INVALID_DSN: u32 = 9u32;
-pub const ODBC_ERROR_INVALID_HWND: u32 = 3u32;
-pub const ODBC_ERROR_INVALID_INF: u32 = 10u32;
-pub const ODBC_ERROR_INVALID_KEYWORD_VALUE: u32 = 8u32;
-pub const ODBC_ERROR_INVALID_LOG_FILE: u32 = 15u32;
-pub const ODBC_ERROR_INVALID_NAME: u32 = 7u32;
-pub const ODBC_ERROR_INVALID_PARAM_SEQUENCE: u32 = 14u32;
-pub const ODBC_ERROR_INVALID_PATH: u32 = 12u32;
-pub const ODBC_ERROR_INVALID_REQUEST_TYPE: u32 = 5u32;
-pub const ODBC_ERROR_INVALID_STR: u32 = 4u32;
-pub const ODBC_ERROR_LOAD_LIB_FAILED: u32 = 13u32;
-pub const ODBC_ERROR_MAX: u32 = 23u32;
-pub const ODBC_ERROR_NOTRANINFO: u32 = 23u32;
-pub const ODBC_ERROR_OUTPUT_STRING_TRUNCATED: u32 = 22u32;
-pub const ODBC_ERROR_OUT_OF_MEM: u32 = 21u32;
-pub const ODBC_ERROR_REMOVE_DSN_FAILED: u32 = 20u32;
-pub const ODBC_ERROR_REQUEST_FAILED: u32 = 11u32;
-pub const ODBC_ERROR_USAGE_UPDATE_FAILED: u32 = 17u32;
-pub const ODBC_ERROR_USER_CANCELED: u32 = 16u32;
-pub const ODBC_ERROR_WRITING_SYSINFO_FAILED: u32 = 19u32;
-pub const ODBC_INSTALL_COMPLETE: u32 = 2u32;
-pub const ODBC_INSTALL_DRIVER: u32 = 1u32;
-pub const ODBC_INSTALL_INQUIRY: u32 = 1u32;
-pub const ODBC_REMOVE_DEFAULT_DSN: u32 = 7u32;
-pub const ODBC_REMOVE_DRIVER: u32 = 2u32;
-pub const ODBC_REMOVE_DSN: u32 = 3u32;
-pub const ODBC_REMOVE_SYS_DSN: u32 = 6u32;
-pub const ODBC_SYSTEM_DSN: u32 = 2u32;
-pub const ODBC_USER_DSN: u32 = 1u32;
-pub const ODBC_VS_FLAG_RETCODE: i32 = 4i32;
-pub const ODBC_VS_FLAG_STOP: i32 = 8i32;
-pub const ODBC_VS_FLAG_UNICODE_ARG: i32 = 1i32;
-pub const ODBC_VS_FLAG_UNICODE_COR: i32 = 2i32;
-pub const OLEDBVER: u32 = 624u32;
-pub const OLEDB_BINDER_CUSTOM_ERROR: i32 = -2147212032i32;
 pub const OSPCOMP_DEFAULT: OSPCOMP = OSPCOMP(1i32);
 pub const OSPCOMP_EQ: OSPCOMP = OSPCOMP(1i32);
 pub const OSPCOMP_GE: OSPCOMP = OSPCOMP(4i32);
@@ -19226,22 +18322,35 @@ pub const OSPCOMP_GT: OSPCOMP = OSPCOMP(5i32);
 pub const OSPCOMP_LE: OSPCOMP = OSPCOMP(3i32);
 pub const OSPCOMP_LT: OSPCOMP = OSPCOMP(2i32);
 pub const OSPCOMP_NE: OSPCOMP = OSPCOMP(6i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OSPFIND(pub i32);
 pub const OSPFIND_CASESENSITIVE: OSPFIND = OSPFIND(2i32);
 pub const OSPFIND_DEFAULT: OSPFIND = OSPFIND(0i32);
 pub const OSPFIND_UP: OSPFIND = OSPFIND(1i32);
 pub const OSPFIND_UPCASESENSITIVE: OSPFIND = OSPFIND(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OSPFORMAT(pub i32);
 pub const OSPFORMAT_DEFAULT: OSPFORMAT = OSPFORMAT(0i32);
 pub const OSPFORMAT_FORMATTED: OSPFORMAT = OSPFORMAT(1i32);
 pub const OSPFORMAT_HTML: OSPFORMAT = OSPFORMAT(2i32);
 pub const OSPFORMAT_RAW: OSPFORMAT = OSPFORMAT(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OSPRW(pub i32);
 pub const OSPRW_DEFAULT: OSPRW = OSPRW(1i32);
 pub const OSPRW_MIXED: OSPRW = OSPRW(2i32);
 pub const OSPRW_READONLY: OSPRW = OSPRW(0i32);
 pub const OSPRW_READWRITE: OSPRW = OSPRW(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OSPXFER(pub i32);
 pub const OSPXFER_ABORT: OSPXFER = OSPXFER(1i32);
 pub const OSPXFER_COMPLETE: OSPXFER = OSPXFER(0i32);
 pub const OSPXFER_ERROR: OSPXFER = OSPXFER(2i32);
 pub const OSP_IndexLabel: u32 = 0u32;
+pub const PDPO: windows_core::GUID = windows_core::GUID::from_u128(0xccb4ec60_b9dc_11d1_ac80_00a0c9034873);
 pub const PEOPLE_IMPORT_E_CANONICALURL_TOOLONG: i32 = -2147205110i32;
 pub const PEOPLE_IMPORT_E_DATATYPENOTSUPPORTED: i32 = -2147205115i32;
 pub const PEOPLE_IMPORT_E_DBCONNFAIL: i32 = -2147205120i32;
@@ -19277,23 +18386,75 @@ pub const PERM_WITHGRANT: ACCESS_MASKENUM = ACCESS_MASKENUM(4096i32);
 pub const PERM_WRITEDESIGN: ACCESS_MASKENUM = ACCESS_MASKENUM(2048i32);
 pub const PERM_WRITEOWNER: ACCESS_MASKENUM = ACCESS_MASKENUM(524288i32);
 pub const PERM_WRITEPERMISSIONS: ACCESS_MASKENUM = ACCESS_MASKENUM(262144i32);
+pub type PFNFILLTEXTBUFFER = Option<unsafe extern "system" fn(ptextsource: *mut TEXT_SOURCE) -> windows_core::HRESULT>;
 pub const PRAll: u32 = 256u32;
 pub const PRAllBits: u32 = 7u32;
 pub const PRAny: u32 = 512u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PRIORITIZE_FLAGS(pub i32);
 pub const PRIORITIZE_FLAG_IGNOREFAILURECOUNT: PRIORITIZE_FLAGS = PRIORITIZE_FLAGS(2i32);
 pub const PRIORITIZE_FLAG_RETRYFAILEDITEMS: PRIORITIZE_FLAGS = PRIORITIZE_FLAGS(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PRIORITY_LEVEL(pub i32);
 pub const PRIORITY_LEVEL_DEFAULT: PRIORITY_LEVEL = PRIORITY_LEVEL(3i32);
 pub const PRIORITY_LEVEL_FOREGROUND: PRIORITY_LEVEL = PRIORITY_LEVEL(0i32);
 pub const PRIORITY_LEVEL_HIGH: PRIORITY_LEVEL = PRIORITY_LEVEL(1i32);
 pub const PRIORITY_LEVEL_LOW: PRIORITY_LEVEL = PRIORITY_LEVEL(2i32);
 pub const PROGID_MSPersist_Version_W: windows_core::PCWSTR = windows_core::w!("MSPersist.1");
 pub const PROGID_MSPersist_W: windows_core::PCWSTR = windows_core::w!("MSPersist");
+#[repr(C)]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+pub struct PROPERTYRESTRICTION {
+    pub rel: u32,
+    pub prop: super::super::Storage::IndexServer::FULLPROPSPEC,
+    pub prval: super::Com::StructuredStorage::PROPVARIANT,
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Clone for PROPERTYRESTRICTION {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for PROPERTYRESTRICTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for PROPERTYRESTRICTION {
+    type TypeKind = windows_core::CloneType;
+}
 pub const PROPID_DBBMK_BOOKMARK: u32 = 2u32;
 pub const PROPID_DBBMK_CHAPTER: u32 = 3u32;
 pub const PROPID_DBSELF_SELF: u32 = 2u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PROXY_ACCESS(pub i32);
 pub const PROXY_ACCESS_DIRECT: PROXY_ACCESS = PROXY_ACCESS(1i32);
 pub const PROXY_ACCESS_PRECONFIG: PROXY_ACCESS = PROXY_ACCESS(0i32);
 pub const PROXY_ACCESS_PROXY: PROXY_ACCESS = PROXY_ACCESS(2i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PROXY_INFO {
+    pub dwSize: u32,
+    pub pcwszUserAgent: windows_core::PCWSTR,
+    pub paUseProxy: PROXY_ACCESS,
+    pub fLocalBypass: super::super::Foundation::BOOL,
+    pub dwPortNumber: u32,
+    pub pcwszProxyName: windows_core::PCWSTR,
+    pub pcwszBypassList: windows_core::PCWSTR,
+}
+impl Default for PROXY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for PROXY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 pub const PRRE: u32 = 6u32;
 pub const PRSomeBits: u32 = 8u32;
 pub const PRTH_E_ACCESS_DENIED: u32 = 2147750405u32;
@@ -19384,10 +18545,83 @@ pub const QUERY_E_RELDOC_SYNTAX_NOT_SUPPORTED: windows_core::HRESULT = windows_c
 pub const QUERY_E_REPEATED_RELDOC: windows_core::HRESULT = windows_core::HRESULT(0x80041611_u32 as _);
 pub const QUERY_E_TOP_LEVEL_IN_GROUP: windows_core::HRESULT = windows_core::HRESULT(0x8004161A_u32 as _);
 pub const QUERY_E_UPGRADEINPROGRESS: windows_core::HRESULT = windows_core::HRESULT(0x80041618_u32 as _);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QUERY_PARSER_MANAGER_OPTION(pub i32);
 pub const QUERY_SORTDEFAULT: u32 = 4u32;
 pub const QUERY_SORTXASCEND: u32 = 2u32;
 pub const QUERY_SORTXDESCEND: u32 = 3u32;
 pub const QUERY_VALIDBITS: u32 = 3u32;
+pub const QueryParser: windows_core::GUID = windows_core::GUID::from_u128(0xb72f8fd8_0fab_4dd9_bdbf_245a6ce1485b);
+pub const QueryParserManager: windows_core::GUID = windows_core::GUID::from_u128(0x5088b39a_29b4_4d9d_8245_4ee289222f66);
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RANGECATEGORIZE {
+    pub cRange: u32,
+    pub aRangeBegin: *mut super::Com::StructuredStorage::PROPVARIANT,
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for RANGECATEGORIZE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for RANGECATEGORIZE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+pub struct RESTRICTION {
+    pub rt: u32,
+    pub weight: u32,
+    pub res: RESTRICTION_0,
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Clone for RESTRICTION {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for RESTRICTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for RESTRICTION {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+pub union RESTRICTION_0 {
+    pub ar: NODERESTRICTION,
+    pub orRestriction: NODERESTRICTION,
+    pub pxr: NODERESTRICTION,
+    pub vr: VECTORRESTRICTION,
+    pub nr: NOTRESTRICTION,
+    pub cr: CONTENTRESTRICTION,
+    pub nlr: NATLANGUAGERESTRICTION,
+    pub pr: core::mem::ManuallyDrop<PROPERTYRESTRICTION>,
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Clone for RESTRICTION_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for RESTRICTION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for RESTRICTION_0 {
+    type TypeKind = windows_core::CloneType;
+}
 pub const REXSPH_E_DUPLICATE_PROPERTY: i32 = -2147207927i32;
 pub const REXSPH_E_INVALID_CALL: i32 = -2147207936i32;
 pub const REXSPH_E_MULTIPLE_REDIRECT: i32 = -2147207933i32;
@@ -19398,9 +18632,78 @@ pub const REXSPH_E_UNEXPECTED_DATA_STATUS: i32 = -2147207930i32;
 pub const REXSPH_E_UNEXPECTED_FILTER_STATE: i32 = -2147207928i32;
 pub const REXSPH_E_UNKNOWN_DATA_TYPE: i32 = -2147207929i32;
 pub const REXSPH_S_REDIRECTED: i32 = 275713i32;
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub struct RMTPACK {
+    pub pISeqStream: core::mem::ManuallyDrop<Option<super::Com::ISequentialStream>>,
+    pub cbData: u32,
+    pub cBSTR: u32,
+    pub rgBSTR: *mut windows_core::BSTR,
+    pub cVARIANT: u32,
+    pub rgVARIANT: *mut super::Variant::VARIANT,
+    pub cIDISPATCH: u32,
+    pub rgIDISPATCH: *mut Option<super::Com::IDispatch>,
+    pub cIUNKNOWN: u32,
+    pub rgIUNKNOWN: *mut Option<windows_core::IUnknown>,
+    pub cPROPVARIANT: u32,
+    pub rgPROPVARIANT: *mut super::Com::StructuredStorage::PROPVARIANT,
+    pub cArray: u32,
+    pub rgArray: *mut super::Variant::VARIANT,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for RMTPACK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for RMTPACK {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Debug, PartialEq)]
+pub struct RMTPACK {
+    pub pISeqStream: core::mem::ManuallyDrop<Option<super::Com::ISequentialStream>>,
+    pub cbData: u32,
+    pub cBSTR: u32,
+    pub rgBSTR: *mut windows_core::BSTR,
+    pub cVARIANT: u32,
+    pub rgVARIANT: *mut super::Variant::VARIANT,
+    pub cIDISPATCH: u32,
+    pub rgIDISPATCH: *mut Option<super::Com::IDispatch>,
+    pub cIUNKNOWN: u32,
+    pub rgIUNKNOWN: *mut Option<windows_core::IUnknown>,
+    pub cPROPVARIANT: u32,
+    pub rgPROPVARIANT: *mut super::Com::StructuredStorage::PROPVARIANT,
+    pub cArray: u32,
+    pub rgArray: *mut super::Variant::VARIANT,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for RMTPACK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for RMTPACK {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ROWSETEVENT_ITEMSTATE(pub i32);
 pub const ROWSETEVENT_ITEMSTATE_INROWSET: ROWSETEVENT_ITEMSTATE = ROWSETEVENT_ITEMSTATE(1i32);
 pub const ROWSETEVENT_ITEMSTATE_NOTINROWSET: ROWSETEVENT_ITEMSTATE = ROWSETEVENT_ITEMSTATE(0i32);
 pub const ROWSETEVENT_ITEMSTATE_UNKNOWN: ROWSETEVENT_ITEMSTATE = ROWSETEVENT_ITEMSTATE(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ROWSETEVENT_TYPE(pub i32);
 pub const ROWSETEVENT_TYPE_DATAEXPIRED: ROWSETEVENT_TYPE = ROWSETEVENT_TYPE(0i32);
 pub const ROWSETEVENT_TYPE_FOREGROUNDLOST: ROWSETEVENT_TYPE = ROWSETEVENT_TYPE(1i32);
 pub const ROWSETEVENT_TYPE_SCOPESTATISTICS: ROWSETEVENT_TYPE = ROWSETEVENT_TYPE(2i32);
@@ -19419,6 +18722,7 @@ pub const RTOr: u32 = 2u32;
 pub const RTProperty: u32 = 5u32;
 pub const RTProximity: u32 = 6u32;
 pub const RTVector: u32 = 7u32;
+pub const RootBinder: windows_core::GUID = windows_core::GUID::from_u128(0xff151822_b0bf_11d1_a80d_000000000000);
 pub const SCHEMA_E_ADDSTOPWORDS: i32 = -2147218420i32;
 pub const SCHEMA_E_BADATTRIBUTE: i32 = -2147218412i32;
 pub const SCHEMA_E_BADCOLUMNNAME: i32 = -2147218414i32;
@@ -19456,13 +18760,100 @@ pub const SEARCH_CHANGE_MOVE_RENAME: SEARCH_KIND_OF_CHANGE = SEARCH_KIND_OF_CHAN
 pub const SEARCH_CHANGE_SEMANTICS_DIRECTORY: SEARCH_KIND_OF_CHANGE = SEARCH_KIND_OF_CHANGE(262144i32);
 pub const SEARCH_CHANGE_SEMANTICS_SHALLOW: SEARCH_KIND_OF_CHANGE = SEARCH_KIND_OF_CHANGE(524288i32);
 pub const SEARCH_CHANGE_SEMANTICS_UPDATE_SECURITY: SEARCH_KIND_OF_CHANGE = SEARCH_KIND_OF_CHANGE(4194304i32);
+#[repr(C)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+pub struct SEARCH_COLUMN_PROPERTIES {
+    pub Value: super::Com::StructuredStorage::PROPVARIANT,
+    pub lcid: u32,
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Clone for SEARCH_COLUMN_PROPERTIES {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for SEARCH_COLUMN_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for SEARCH_COLUMN_PROPERTIES {
+    type TypeKind = windows_core::CloneType;
+}
 pub const SEARCH_HIGH_PRIORITY: SEARCH_NOTIFICATION_PRIORITY = SEARCH_NOTIFICATION_PRIORITY(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SEARCH_INDEXING_PHASE(pub i32);
 pub const SEARCH_INDEXING_PHASE_GATHERER: SEARCH_INDEXING_PHASE = SEARCH_INDEXING_PHASE(0i32);
 pub const SEARCH_INDEXING_PHASE_PERSISTED: SEARCH_INDEXING_PHASE = SEARCH_INDEXING_PHASE(2i32);
 pub const SEARCH_INDEXING_PHASE_QUERYABLE: SEARCH_INDEXING_PHASE = SEARCH_INDEXING_PHASE(1i32);
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SEARCH_ITEM_CHANGE {
+    pub Change: SEARCH_KIND_OF_CHANGE,
+    pub Priority: SEARCH_NOTIFICATION_PRIORITY,
+    pub pUserData: *mut super::Com::BLOB,
+    pub lpwszURL: windows_core::PWSTR,
+    pub lpwszOldURL: windows_core::PWSTR,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SEARCH_ITEM_CHANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for SEARCH_ITEM_CHANGE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SEARCH_ITEM_INDEXING_STATUS {
+    pub dwDocID: u32,
+    pub hrIndexingStatus: windows_core::HRESULT,
+}
+impl Default for SEARCH_ITEM_INDEXING_STATUS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SEARCH_ITEM_INDEXING_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SEARCH_ITEM_PERSISTENT_CHANGE {
+    pub Change: SEARCH_KIND_OF_CHANGE,
+    pub URL: windows_core::PWSTR,
+    pub OldURL: windows_core::PWSTR,
+    pub Priority: SEARCH_NOTIFICATION_PRIORITY,
+}
+impl Default for SEARCH_ITEM_PERSISTENT_CHANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SEARCH_ITEM_PERSISTENT_CHANGE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SEARCH_KIND_OF_CHANGE(pub i32);
 pub const SEARCH_NATURAL_QUERY_SYNTAX: SEARCH_QUERY_SYNTAX = SEARCH_QUERY_SYNTAX(2i32);
 pub const SEARCH_NORMAL_PRIORITY: SEARCH_NOTIFICATION_PRIORITY = SEARCH_NOTIFICATION_PRIORITY(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SEARCH_NOTIFICATION_PRIORITY(pub i32);
 pub const SEARCH_NO_QUERY_SYNTAX: SEARCH_QUERY_SYNTAX = SEARCH_QUERY_SYNTAX(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SEARCH_QUERY_SYNTAX(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SEARCH_TERM_EXPANSION(pub i32);
 pub const SEARCH_TERM_NO_EXPANSION: SEARCH_TERM_EXPANSION = SEARCH_TERM_EXPANSION(0i32);
 pub const SEARCH_TERM_PREFIX_ALL: SEARCH_TERM_EXPANSION = SEARCH_TERM_EXPANSION(1i32);
 pub const SEARCH_TERM_STEM_ALL: SEARCH_TERM_EXPANSION = SEARCH_TERM_EXPANSION(2i32);
@@ -19479,7 +18870,122 @@ pub const SEC_E_NOOWNER: windows_core::HRESULT = windows_core::HRESULT(0x80040E6
 pub const SEC_E_NOTINITIALIZED: i32 = -2147216382i32;
 pub const SEC_E_NOTRUSTEEID: windows_core::HRESULT = windows_core::HRESULT(0x80040E6B_u32 as _);
 pub const SEC_E_PERMISSIONDENIED: i32 = -2147217911i32;
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+#[derive(Clone, Copy)]
+pub struct SEC_OBJECT {
+    pub cObjects: u32,
+    pub prgObjects: *mut SEC_OBJECT_ELEMENT,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl Default for SEC_OBJECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl windows_core::TypeKind for SEC_OBJECT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SEC_OBJECT {
+    pub cObjects: u32,
+    pub prgObjects: *mut SEC_OBJECT_ELEMENT,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl Default for SEC_OBJECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl windows_core::TypeKind for SEC_OBJECT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+#[derive(Clone, Copy)]
+pub struct SEC_OBJECT_ELEMENT {
+    pub guidObjectType: windows_core::GUID,
+    pub ObjectID: super::super::Storage::IndexServer::DBID,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl Default for SEC_OBJECT_ELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl windows_core::TypeKind for SEC_OBJECT_ELEMENT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+#[derive(Clone, Copy)]
+pub struct SEC_OBJECT_ELEMENT {
+    pub guidObjectType: windows_core::GUID,
+    pub ObjectID: super::super::Storage::IndexServer::DBID,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl Default for SEC_OBJECT_ELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl windows_core::TypeKind for SEC_OBJECT_ELEMENT {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SI_TEMPORARY: u32 = 2147483648u32;
+#[repr(C)]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[derive(Clone, Copy)]
+pub struct SORTKEY {
+    pub propColumn: super::super::Storage::IndexServer::FULLPROPSPEC,
+    pub dwOrder: u32,
+    pub locale: u32,
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+impl Default for SORTKEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+impl windows_core::TypeKind for SORTKEY {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SORTSET {
+    pub cCol: u32,
+    pub aCol: *mut SORTKEY,
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+impl Default for SORTSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+impl windows_core::TypeKind for SORTSET {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SPS_WS_ERROR: i32 = -2147211753i32;
 pub const SQLAOPANY: u32 = 83u32;
 pub const SQLAOPAVG: u32 = 79u32;
@@ -19513,6 +19019,9 @@ pub const SQLINT1: u32 = 48u32;
 pub const SQLINT2: u32 = 52u32;
 pub const SQLINT4: u32 = 56u32;
 pub const SQLINT8: u32 = 127u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SQLINTERVAL(pub i32);
 pub const SQLINTN: u32 = 38u32;
 pub const SQLMONEY: u32 = 60u32;
 pub const SQLMONEY4: u32 = 122u32;
@@ -19522,10 +19031,58 @@ pub const SQLNTEXT: u32 = 99u32;
 pub const SQLNUMERIC: u32 = 108u32;
 pub const SQLNUMERICN: u32 = 108u32;
 pub const SQLNVARCHAR: u32 = 231u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SQLPERF {
+    pub TimerResolution: u32,
+    pub SQLidu: u32,
+    pub SQLiduRows: u32,
+    pub SQLSelects: u32,
+    pub SQLSelectRows: u32,
+    pub Transactions: u32,
+    pub SQLPrepares: u32,
+    pub ExecDirects: u32,
+    pub SQLExecutes: u32,
+    pub CursorOpens: u32,
+    pub CursorSize: u32,
+    pub CursorUsed: u32,
+    pub PercentCursorUsed: f64,
+    pub AvgFetchTime: f64,
+    pub AvgCursorSize: f64,
+    pub AvgCursorUsed: f64,
+    pub SQLFetchTime: u32,
+    pub SQLFetchCount: u32,
+    pub CurrentStmtCount: u32,
+    pub MaxOpenStmt: u32,
+    pub SumOpenStmt: u32,
+    pub CurrentConnectionCount: u32,
+    pub MaxConnectionsOpened: u32,
+    pub SumConnectionsOpened: u32,
+    pub SumConnectiontime: u32,
+    pub AvgTimeOpened: f64,
+    pub ServerRndTrips: u32,
+    pub BuffersSent: u32,
+    pub BuffersRec: u32,
+    pub BytesSent: u32,
+    pub BytesRec: u32,
+    pub msExecutionTime: u32,
+    pub msNetWorkServerTime: u32,
+}
+impl Default for SQLPERF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SQLPERF {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SQLTEXT: u32 = 35u32;
 pub const SQLUNIQUEID: u32 = 36u32;
 pub const SQLVARBINARY: u32 = 37u32;
 pub const SQLVARCHAR: u32 = 39u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SQLVARENUM(pub i32);
 pub const SQLVARIANT: u32 = 98u32;
 pub const SQL_AA_FALSE: i32 = 0i32;
 pub const SQL_AA_TRUE: i32 = 1i32;
@@ -19668,6 +19225,7 @@ pub const SQL_ASYNC_ENABLE_OFF: u32 = 0u32;
 pub const SQL_ASYNC_ENABLE_ON: u32 = 1u32;
 pub const SQL_ASYNC_MODE: u32 = 10021u32;
 pub const SQL_ASYNC_NOTIFICATION: u32 = 10025u32;
+pub type SQL_ASYNC_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, flast: super::super::Foundation::BOOL) -> i16>;
 pub const SQL_ASYNC_NOTIFICATION_CAPABLE: i32 = 1i32;
 pub const SQL_ASYNC_NOTIFICATION_NOT_CAPABLE: i32 = 0i32;
 pub const SQL_ATTR_ACCESS_MODE: u32 = 101u32;
@@ -20135,6 +19693,23 @@ pub const SQL_DATETIME: u32 = 9u32;
 pub const SQL_DATETIME_LITERALS: u32 = 119u32;
 pub const SQL_DATE_LEN: u32 = 10u32;
 pub const SQL_DAY: u32 = 3u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SQL_DAY_SECOND_STRUCT {
+    pub day: u32,
+    pub hour: u32,
+    pub minute: u32,
+    pub second: u32,
+    pub fraction: u32,
+}
+impl Default for SQL_DAY_SECOND_STRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SQL_DAY_SECOND_STRUCT {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SQL_DAY_TO_HOUR: u32 = 8u32;
 pub const SQL_DAY_TO_MINUTE: u32 = 9u32;
 pub const SQL_DAY_TO_SECOND: u32 = 10u32;
@@ -20565,6 +20140,35 @@ pub const SQL_INTERVAL_MINUTE: i32 = -85i32;
 pub const SQL_INTERVAL_MINUTE_TO_SECOND: i32 = -92i32;
 pub const SQL_INTERVAL_MONTH: i32 = -81i32;
 pub const SQL_INTERVAL_SECOND: i32 = -86i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SQL_INTERVAL_STRUCT {
+    pub interval_type: SQLINTERVAL,
+    pub interval_sign: i16,
+    pub intval: SQL_INTERVAL_STRUCT_0,
+}
+impl Default for SQL_INTERVAL_STRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SQL_INTERVAL_STRUCT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union SQL_INTERVAL_STRUCT_0 {
+    pub year_month: SQL_YEAR_MONTH_STRUCT,
+    pub day_second: SQL_DAY_SECOND_STRUCT,
+}
+impl Default for SQL_INTERVAL_STRUCT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SQL_INTERVAL_STRUCT_0 {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SQL_INTERVAL_YEAR: i32 = -80i32;
 pub const SQL_INTERVAL_YEAR_TO_MONTH: i32 = -82i32;
 pub const SQL_INVALID_HANDLE: i32 = -2i32;
@@ -20736,6 +20340,22 @@ pub const SQL_NULL_HENV: u32 = 0u32;
 pub const SQL_NULL_HSTMT: u32 = 0u32;
 pub const SQL_NUMERIC: u32 = 2u32;
 pub const SQL_NUMERIC_FUNCTIONS: u32 = 49u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SQL_NUMERIC_STRUCT {
+    pub precision: u8,
+    pub scale: i8,
+    pub sign: u8,
+    pub val: [u8; 16],
+}
+impl Default for SQL_NUMERIC_STRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SQL_NUMERIC_STRUCT {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SQL_NUM_FUNCTIONS: u32 = 23u32;
 pub const SQL_OAC_LEVEL1: u32 = 1u32;
 pub const SQL_OAC_LEVEL2: u32 = 2u32;
@@ -21162,6 +20782,20 @@ pub const SQL_XL_OFF: i32 = 0i32;
 pub const SQL_XL_ON: i32 = 1i32;
 pub const SQL_XOPEN_CLI_YEAR: u32 = 10000u32;
 pub const SQL_YEAR: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SQL_YEAR_MONTH_STRUCT {
+    pub year: u32,
+    pub month: u32,
+}
+impl Default for SQL_YEAR_MONTH_STRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SQL_YEAR_MONTH_STRUCT {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SQL_YEAR_TO_MONTH: u32 = 7u32;
 pub const SQLudtBINARY: u32 = 3u32;
 pub const SQLudtBIT: u32 = 16u32;
@@ -21228,6 +20862,25 @@ pub const SQS_ADVANCED_QUERY_SYNTAX: STRUCTURED_QUERY_SYNTAX = STRUCTURED_QUERY_
 pub const SQS_NATURAL_QUERY_SYNTAX: STRUCTURED_QUERY_SYNTAX = STRUCTURED_QUERY_SYNTAX(2i32);
 pub const SQS_NO_SYNTAX: STRUCTURED_QUERY_SYNTAX = STRUCTURED_QUERY_SYNTAX(0i32);
 pub const SRCH_SCHEMA_CACHE_E_UNEXPECTED: i32 = -2147208447i32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SSERRORINFO {
+    pub pwszMessage: windows_core::PWSTR,
+    pub pwszServer: windows_core::PWSTR,
+    pub pwszProcedure: windows_core::PWSTR,
+    pub lNative: i32,
+    pub bState: u8,
+    pub bClass: u8,
+    pub wLineNumber: u16,
+}
+impl Default for SSERRORINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SSERRORINFO {
+    type TypeKind = windows_core::CopyType;
+}
 pub const SSPROPVAL_COMMANDTYPE_BULKLOAD: u32 = 22u32;
 pub const SSPROPVAL_COMMANDTYPE_REGULAR: u32 = 21u32;
 pub const SSPROPVAL_USEPROCFORPREP_OFF: u32 = 0u32;
@@ -21270,6 +20923,162 @@ pub const SSPROP_STREAM_XMLROOT: u32 = 19u32;
 pub const SSPROP_STREAM_XSL: u32 = 16u32;
 pub const SSPROP_UNICODECOMPARISONSTYLE: u32 = 3u32;
 pub const SSPROP_UNICODELCID: u32 = 2u32;
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+pub struct SSVARIANT {
+    pub vt: u16,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+    pub Anonymous: SSVARIANT_0,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Clone for SSVARIANT {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SSVARIANT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for SSVARIANT {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+pub union SSVARIANT_0 {
+    pub bTinyIntVal: u8,
+    pub sShortIntVal: i16,
+    pub lIntVal: i32,
+    pub llBigIntVal: i64,
+    pub fltRealVal: f32,
+    pub dblFloatVal: f64,
+    pub cyMoneyVal: super::Com::CY,
+    pub NCharVal: SSVARIANT_0_0,
+    pub CharVal: SSVARIANT_0_1,
+    pub fBitVal: super::super::Foundation::VARIANT_BOOL,
+    pub rgbGuidVal: [u8; 16],
+    pub numNumericVal: DB_NUMERIC,
+    pub BinaryVal: SSVARIANT_0_2,
+    pub tsDateTimeVal: DBTIMESTAMP,
+    pub UnknownType: SSVARIANT_0_3,
+    pub BLOBType: core::mem::ManuallyDrop<SSVARIANT_0_4>,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Clone for SSVARIANT_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SSVARIANT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for SSVARIANT_0 {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Debug, PartialEq)]
+pub struct SSVARIANT_0_4 {
+    pub dbobj: DBOBJECT,
+    pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SSVARIANT_0_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for SSVARIANT_0_4 {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SSVARIANT_0_2 {
+    pub sActualLength: i16,
+    pub sMaxLength: i16,
+    pub prgbBinaryVal: *mut u8,
+    pub dwReserved: u32,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SSVARIANT_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for SSVARIANT_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SSVARIANT_0_1 {
+    pub sActualLength: i16,
+    pub sMaxLength: i16,
+    pub pchCharVal: windows_core::PSTR,
+    pub rgbReserved: [u8; 5],
+    pub dwReserved: u32,
+    pub pwchReserved: windows_core::PWSTR,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SSVARIANT_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for SSVARIANT_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SSVARIANT_0_0 {
+    pub sActualLength: i16,
+    pub sMaxLength: i16,
+    pub pwchNCharVal: windows_core::PWSTR,
+    pub rgbReserved: [u8; 5],
+    pub dwReserved: u32,
+    pub pwchReserved: windows_core::PWSTR,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SSVARIANT_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for SSVARIANT_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SSVARIANT_0_3 {
+    pub dwActualLength: u32,
+    pub rgMetadata: [u8; 16],
+    pub pUnknownData: *mut u8,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SSVARIANT_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for SSVARIANT_0_3 {
+    type TypeKind = windows_core::CopyType;
+}
 pub const STD_BOOKMARKLENGTH: u32 = 1u32;
 pub const STGM_COLLECTION: i32 = 8192i32;
 pub const STGM_OPEN: i32 = -2147483648i32;
@@ -21284,8 +21093,113 @@ pub const STREAM_FLAGS_DONTCACHEMAPPINGSCHEMA: u32 = 8u32;
 pub const STREAM_FLAGS_DONTCACHETEMPLATE: u32 = 16u32;
 pub const STREAM_FLAGS_DONTCACHEXSL: u32 = 32u32;
 pub const STREAM_FLAGS_RESERVED: u32 = 4294901760u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STRUCTURED_QUERY_MULTIOPTION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STRUCTURED_QUERY_PARSE_ERROR(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STRUCTURED_QUERY_RESOLVE_OPTION(pub i32);
+impl STRUCTURED_QUERY_RESOLVE_OPTION {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for STRUCTURED_QUERY_RESOLVE_OPTION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for STRUCTURED_QUERY_RESOLVE_OPTION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for STRUCTURED_QUERY_RESOLVE_OPTION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for STRUCTURED_QUERY_RESOLVE_OPTION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for STRUCTURED_QUERY_RESOLVE_OPTION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STRUCTURED_QUERY_SINGLE_OPTION(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STRUCTURED_QUERY_SYNTAX(pub i32);
 pub const STS_ABORTXMLPARSE: i32 = -2147211756i32;
 pub const STS_WS_ERROR: i32 = -2147211754i32;
+#[repr(C)]
+#[derive(Clone, Debug, PartialEq)]
+pub struct SUBSCRIPTIONINFO {
+    pub cbSize: u32,
+    pub fUpdateFlags: u32,
+    pub schedule: SUBSCRIPTIONSCHEDULE,
+    pub customGroupCookie: windows_core::GUID,
+    pub pTrigger: *mut core::ffi::c_void,
+    pub dwRecurseLevels: u32,
+    pub fWebcrawlerFlags: u32,
+    pub bMailNotification: super::super::Foundation::BOOL,
+    pub bGleam: super::super::Foundation::BOOL,
+    pub bChangesOnly: super::super::Foundation::BOOL,
+    pub bNeedPassword: super::super::Foundation::BOOL,
+    pub fChannelFlags: u32,
+    pub bstrUserName: core::mem::ManuallyDrop<windows_core::BSTR>,
+    pub bstrPassword: core::mem::ManuallyDrop<windows_core::BSTR>,
+    pub bstrFriendlyName: core::mem::ManuallyDrop<windows_core::BSTR>,
+    pub dwMaxSizeKB: u32,
+    pub subType: SUBSCRIPTIONTYPE,
+    pub fTaskFlags: u32,
+    pub dwReserved: u32,
+}
+impl Default for SUBSCRIPTIONINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SUBSCRIPTIONINFO {
+    type TypeKind = windows_core::CloneType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SUBSCRIPTIONINFOFLAGS(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SUBSCRIPTIONITEMINFO {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub dwPriority: u32,
+    pub ScheduleGroup: windows_core::GUID,
+    pub clsidAgent: windows_core::GUID,
+}
+impl Default for SUBSCRIPTIONITEMINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for SUBSCRIPTIONITEMINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SUBSCRIPTIONSCHEDULE(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SUBSCRIPTIONTYPE(pub i32);
 pub const SUBSINFO_ALLFLAGS: u32 = 61311u32;
 pub const SUBSINFO_CHANGESONLY: SUBSCRIPTIONINFOFLAGS = SUBSCRIPTIONINFOFLAGS(1024i32);
 pub const SUBSINFO_CHANNELFLAGS: SUBSCRIPTIONINFOFLAGS = SUBSCRIPTIONINFOFLAGS(2048i32);
@@ -21318,9 +21232,92 @@ pub const SUBSTYPE_URL: SUBSCRIPTIONTYPE = SUBSCRIPTIONTYPE(0i32);
 pub const SUCCEED: u32 = 1u32;
 pub const SUCCEED_ABORT: u32 = 2u32;
 pub const SUCCEED_ASYNC: u32 = 3u32;
+pub const SubscriptionMgr: windows_core::GUID = windows_core::GUID::from_u128(0xabbe31d0_6dae_11d0_beca_00c04fd940be);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TEXT_SOURCE {
+    pub pfnFillTextBuffer: PFNFILLTEXTBUFFER,
+    pub awcBuffer: windows_core::PCWSTR,
+    pub iEnd: u32,
+    pub iCur: u32,
+}
+impl Default for TEXT_SOURCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TEXT_SOURCE {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TIMEOUT_INFO {
+    pub dwSize: u32,
+    pub dwConnectTimeout: u32,
+    pub dwDataTimeout: u32,
+}
+impl Default for TIMEOUT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TIMEOUT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TIMESTAMP_STRUCT {
+    pub year: i16,
+    pub month: u16,
+    pub day: u16,
+    pub hour: u16,
+    pub minute: u16,
+    pub second: u16,
+    pub fraction: u32,
+}
+impl Default for TIMESTAMP_STRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TIMESTAMP_STRUCT {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TIME_STRUCT {
+    pub hour: u16,
+    pub minute: u16,
+    pub second: u16,
+}
+impl Default for TIME_STRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for TIME_STRUCT {
+    type TypeKind = windows_core::CopyType;
+}
 pub const TRACE_ON: i32 = 1i32;
 pub const TRACE_VERSION: u32 = 1000u32;
 pub const TRACE_VS_EVENT_ON: i32 = 2i32;
+#[repr(C)]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VECTORRESTRICTION {
+    pub Node: NODERESTRICTION,
+    pub RankMethod: u32,
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for VECTORRESTRICTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for VECTORRESTRICTION {
+    type TypeKind = windows_core::CopyType;
+}
 pub const VT_SS_BINARY: SQLVARENUM = SQLVARENUM(207i32);
 pub const VT_SS_BIT: SQLVARENUM = SQLVARENUM(11i32);
 pub const VT_SS_DATETIME: SQLVARENUM = SQLVARENUM(135i32);
@@ -21352,6 +21349,9 @@ pub const WEBCRAWL_GET_VIDEOS: WEBCRAWL_RECURSEFLAGS = WEBCRAWL_RECURSEFLAGS(4i3
 pub const WEBCRAWL_IGNORE_ROBOTSTXT: WEBCRAWL_RECURSEFLAGS = WEBCRAWL_RECURSEFLAGS(128i32);
 pub const WEBCRAWL_LINKS_ELSEWHERE: WEBCRAWL_RECURSEFLAGS = WEBCRAWL_RECURSEFLAGS(32i32);
 pub const WEBCRAWL_ONLY_LINKS_TO_HTML: WEBCRAWL_RECURSEFLAGS = WEBCRAWL_RECURSEFLAGS(256i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WEBCRAWL_RECURSEFLAGS(pub i32);
 pub const XML_E_BADSXQL: i32 = -2147212799i32;
 pub const XML_E_NODEFAULTNS: i32 = -2147212800i32;
 pub const _MAPI_E_ACCOUNT_DISABLED: i32 = -2147221212i32;
